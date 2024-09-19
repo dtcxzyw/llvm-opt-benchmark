@@ -793,7 +793,7 @@ define internal i32 @tt_cmap4_char_index(ptr nocapture noundef %0, i32 noundef %
   %.val = load ptr, ptr %0, align 8
   %10 = getelementptr i8, ptr %0, i64 24
   %.val4 = load ptr, ptr %10, align 8
-  %11 = call fastcc i32 @tt_cmap4_char_map_linear(ptr %.val, ptr %.val4, ptr noundef nonnull %3, i8 noundef zeroext 0)
+  %11 = call fastcc i32 @tt_cmap4_char_map_linear.argprom(ptr %.val, ptr %.val4, ptr noundef nonnull %3, i8 noundef zeroext 0)
   br label %14
 
 12:                                               ; preds = %5
@@ -822,7 +822,7 @@ define internal i32 @tt_cmap4_char_next(ptr nocapture noundef %0, ptr nocapture 
   %.val = load ptr, ptr %0, align 8
   %10 = getelementptr i8, ptr %0, i64 24
   %.val20 = load ptr, ptr %10, align 8
-  %11 = tail call fastcc i32 @tt_cmap4_char_map_linear(ptr %.val, ptr %.val20, ptr noundef nonnull %1, i8 noundef zeroext 1)
+  %11 = tail call fastcc i32 @tt_cmap4_char_map_linear.argprom(ptr %.val, ptr %.val20, ptr noundef nonnull %1, i8 noundef zeroext 1)
   br label %23
 
 12:                                               ; preds = %5
@@ -5306,7 +5306,7 @@ define internal i32 @tt_face_goto_table(ptr nocapture noundef readonly %0, i64 n
   %7 = zext i16 %.val to i64
   %8 = getelementptr inbounds %struct.TT_TableRec_, ptr %.val11, i64 %7
   %.not4.i = icmp eq i16 %.val, 0
-  br i1 %.not4.i, label %tt_face_lookup_table.exit.thread, label %.lr.ph.i
+  br i1 %.not4.i, label %tt_face_lookup_table.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %14
   %.0101.i = phi ptr [ %15, %14 ], [ %.val11, %4 ]
@@ -5318,28 +5318,28 @@ define internal i32 @tt_face_goto_table(ptr nocapture noundef readonly %0, i64 n
   %12 = getelementptr inbounds i8, ptr %.0101.i, i64 24
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %14, label %tt_face_lookup_table.exit
+  br i1 %.not.i, label %14, label %tt_face_lookup_table.argprom.exit
 
 14:                                               ; preds = %11, %.lr.ph.i
   %15 = getelementptr inbounds i8, ptr %.0101.i, i64 32
   %16 = icmp ult ptr %15, %8
-  br i1 %16, label %.lr.ph.i, label %tt_face_lookup_table.exit.thread, !llvm.loop !41
+  br i1 %16, label %.lr.ph.i, label %tt_face_lookup_table.argprom.exit.thread, !llvm.loop !41
 
-tt_face_lookup_table.exit:                        ; preds = %11
+tt_face_lookup_table.argprom.exit:                ; preds = %11
   %.not10 = icmp eq ptr %3, null
   br i1 %.not10, label %18, label %17
 
-17:                                               ; preds = %tt_face_lookup_table.exit
+17:                                               ; preds = %tt_face_lookup_table.argprom.exit
   store i64 %13, ptr %3, align 8
   br label %18
 
-18:                                               ; preds = %17, %tt_face_lookup_table.exit
+18:                                               ; preds = %17, %tt_face_lookup_table.argprom.exit
   %19 = getelementptr inbounds i8, ptr %.0101.i, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = tail call i32 @FT_Stream_Seek(ptr noundef %2, i64 noundef %20) #27
-  br label %tt_face_lookup_table.exit.thread
+  br label %tt_face_lookup_table.argprom.exit.thread
 
-tt_face_lookup_table.exit.thread:                 ; preds = %14, %4, %18
+tt_face_lookup_table.argprom.exit.thread:         ; preds = %14, %4, %18
   %.0 = phi i32 [ %21, %18 ], [ 142, %4 ], [ 142, %14 ]
   ret i32 %.0
 }
@@ -7489,7 +7489,7 @@ define internal i32 @sfnt_load_face(ptr noundef %0, ptr noundef %1, i32 %2, i32 
   %20 = getelementptr inbounds i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %22, label %tt_face_lookup_table.exit
+  br i1 %.not, label %22, label %tt_face_lookup_table.argprom.exit
 
 22:                                               ; preds = %._crit_edge
   %23 = getelementptr i8, ptr %1, i64 288
@@ -7499,7 +7499,7 @@ define internal i32 @sfnt_load_face(ptr noundef %0, ptr noundef %1, i32 %2, i32 
   %25 = zext i16 %.val to i64
   %26 = getelementptr inbounds %struct.TT_TableRec_, ptr %.val457, i64 %25
   %.not4.i = icmp eq i16 %.val, 0
-  br i1 %.not4.i, label %tt_face_lookup_table.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %tt_face_lookup_table.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %32
   %.0101.i = phi ptr [ %33, %32 ], [ %.val457, %22 ]
@@ -7511,7 +7511,7 @@ define internal i32 @sfnt_load_face(ptr noundef %0, ptr noundef %1, i32 %2, i32 
   %30 = getelementptr inbounds i8, ptr %.0101.i, i64 24
   %31 = load i64, ptr %30, align 8
   %.not.i = icmp eq i64 %31, 0
-  br i1 %.not.i, label %32, label %tt_face_lookup_table.exit
+  br i1 %.not.i, label %32, label %tt_face_lookup_table.argprom.exit
 
 32:                                               ; preds = %29, %.lr.ph.i
   %33 = getelementptr inbounds i8, ptr %.0101.i, i64 32
@@ -7528,7 +7528,7 @@ define internal i32 @sfnt_load_face(ptr noundef %0, ptr noundef %1, i32 %2, i32 
   %38 = getelementptr inbounds i8, ptr %.0101.i464, i64 24
   %39 = load i64, ptr %38, align 8
   %.not.i466 = icmp eq i64 %39, 0
-  br i1 %.not.i466, label %40, label %tt_face_lookup_table.exit
+  br i1 %.not.i466, label %40, label %tt_face_lookup_table.argprom.exit
 
 40:                                               ; preds = %37, %.lr.ph.i463
   %41 = getelementptr inbounds i8, ptr %.0101.i464, i64 32
@@ -7545,14 +7545,14 @@ define internal i32 @sfnt_load_face(ptr noundef %0, ptr noundef %1, i32 %2, i32 
   %46 = getelementptr inbounds i8, ptr %.0101.i470, i64 24
   %47 = load i64, ptr %46, align 8
   %.not.i472 = icmp eq i64 %47, 0
-  br i1 %.not.i472, label %48, label %tt_face_lookup_table.exit
+  br i1 %.not.i472, label %48, label %tt_face_lookup_table.argprom.exit
 
 48:                                               ; preds = %45, %.lr.ph.i469
   %49 = getelementptr inbounds i8, ptr %.0101.i470, i64 32
   %50 = icmp ult ptr %49, %26
-  br i1 %50, label %.lr.ph.i469, label %tt_face_lookup_table.exit, !llvm.loop !41
+  br i1 %50, label %.lr.ph.i469, label %tt_face_lookup_table.argprom.exit, !llvm.loop !41
 
-tt_face_lookup_table.exit:                        ; preds = %29, %37, %48, %45, %22, %._crit_edge
+tt_face_lookup_table.argprom.exit:                ; preds = %29, %37, %48, %45, %22, %._crit_edge
   %.not370 = phi i1 [ false, %._crit_edge ], [ true, %22 ], [ false, %45 ], [ true, %48 ], [ false, %37 ], [ false, %29 ]
   %51 = phi i8 [ 1, %._crit_edge ], [ 0, %22 ], [ 1, %45 ], [ 0, %48 ], [ 1, %37 ], [ 1, %29 ]
   %52 = getelementptr inbounds i8, ptr %1, i64 832
@@ -7574,7 +7574,7 @@ tt_face_lookup_table.exit:                        ; preds = %29, %37, %48, %45, 
   %spec.select = select i1 %.0344.lcssa, i1 %.not368, i1 false
   br i1 %.not370, label %63, label %.thread481
 
-63:                                               ; preds = %tt_face_lookup_table.exit
+63:                                               ; preds = %tt_face_lookup_table.argprom.exit
   %64 = getelementptr inbounds i8, ptr %10, i64 144
   %65 = load ptr, ptr %64, align 8
   %.not371 = icmp eq ptr %65, null
@@ -7586,8 +7586,8 @@ tt_face_lookup_table.exit:                        ; preds = %29, %37, %48, %45, 
   %or.cond = select i1 %.not372, i1 true, i1 %spec.select
   br i1 %or.cond, label %.thread481, label %71
 
-.thread481:                                       ; preds = %63, %tt_face_lookup_table.exit, %66
-  %.0332485 = phi i1 [ %.not372, %66 ], [ true, %tt_face_lookup_table.exit ], [ true, %63 ]
+.thread481:                                       ; preds = %63, %tt_face_lookup_table.argprom.exit, %66
+  %.0332485 = phi i1 [ %.not372, %66 ], [ true, %tt_face_lookup_table.argprom.exit ], [ true, %63 ]
   %68 = getelementptr inbounds i8, ptr %10, i64 48
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 %69(ptr noundef nonnull %1, ptr noundef %0) #27
@@ -8034,7 +8034,7 @@ thread-pre-split497:                              ; preds = %211
   %282 = load i64, ptr %281, align 8
   %283 = or i64 %282, %.8
   store i64 %283, ptr %281, align 8
-  call fastcc void @tt_face_build_cmaps(ptr noundef nonnull %1)
+  call fastcc void @tt_face_build_cmaps.retelim(ptr noundef nonnull %1)
   %284 = getelementptr inbounds i8, ptr %1, i64 72
   %285 = load i32, ptr %284, align 8
   %286 = icmp sgt i32 %285, 0
@@ -8625,7 +8625,7 @@ define internal i32 @tt_face_load_any(ptr nocapture noundef readonly %0, i64 nou
   %9 = zext i16 %.val to i64
   %10 = getelementptr inbounds %struct.TT_TableRec_, ptr %.val29, i64 %9
   %.not4.i = icmp eq i16 %.val, 0
-  br i1 %.not4.i, label %tt_face_lookup_table.exit.thread, label %.lr.ph.i
+  br i1 %.not4.i, label %tt_face_lookup_table.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %16
   %.0101.i = phi ptr [ %17, %16 ], [ %.val29, %6 ]
@@ -8637,14 +8637,14 @@ define internal i32 @tt_face_load_any(ptr nocapture noundef readonly %0, i64 nou
   %14 = getelementptr inbounds i8, ptr %.0101.i, i64 24
   %15 = load i64, ptr %14, align 8
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %16, label %tt_face_lookup_table.exit
+  br i1 %.not.i, label %16, label %tt_face_lookup_table.argprom.exit
 
 16:                                               ; preds = %13, %.lr.ph.i
   %17 = getelementptr inbounds i8, ptr %.0101.i, i64 32
   %18 = icmp ult ptr %17, %10
-  br i1 %18, label %.lr.ph.i, label %tt_face_lookup_table.exit.thread, !llvm.loop !41
+  br i1 %18, label %.lr.ph.i, label %tt_face_lookup_table.argprom.exit.thread, !llvm.loop !41
 
-tt_face_lookup_table.exit:                        ; preds = %13
+tt_face_lookup_table.argprom.exit:                ; preds = %13
   %19 = getelementptr inbounds i8, ptr %.0101.i, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %2
@@ -8657,9 +8657,9 @@ tt_face_lookup_table.exit:                        ; preds = %13
   %.0.pre = load i64, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %22, %tt_face_lookup_table.exit
-  %.0 = phi i64 [ %15, %tt_face_lookup_table.exit ], [ %.0.pre, %22 ]
-  %.021 = phi i64 [ %21, %tt_face_lookup_table.exit ], [ %2, %22 ]
+26:                                               ; preds = %22, %tt_face_lookup_table.argprom.exit
+  %.0 = phi i64 [ %15, %tt_face_lookup_table.argprom.exit ], [ %.0.pre, %22 ]
+  %.021 = phi i64 [ %21, %tt_face_lookup_table.argprom.exit ], [ %2, %22 ]
   %.not28 = icmp eq ptr %4, null
   br i1 %.not28, label %.critedge, label %27
 
@@ -8670,16 +8670,16 @@ tt_face_lookup_table.exit:                        ; preds = %13
 
 30:                                               ; preds = %27
   store i64 %.0, ptr %4, align 8
-  br label %tt_face_lookup_table.exit.thread
+  br label %tt_face_lookup_table.argprom.exit.thread
 
 .critedge:                                        ; preds = %27, %26
   %.1 = phi i64 [ %.0, %26 ], [ %28, %27 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 192
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @FT_Stream_ReadAt(ptr noundef %32, i64 noundef %.021, ptr noundef %3, i64 noundef %.1) #27
-  br label %tt_face_lookup_table.exit.thread
+  br label %tt_face_lookup_table.argprom.exit.thread
 
-tt_face_lookup_table.exit.thread:                 ; preds = %16, %6, %.critedge, %30
+tt_face_lookup_table.argprom.exit.thread:         ; preds = %16, %6, %.critedge, %30
   %.020 = phi i32 [ 0, %30 ], [ %33, %.critedge ], [ 142, %6 ], [ 142, %16 ]
   ret i32 %.020
 }
@@ -9717,7 +9717,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %136 = load i64, ptr %135, align 8
   %137 = trunc i64 %136 to i32
   %138 = icmp ugt i32 %2, %137
-  br i1 %138, label %tt_face_load_sbix_image.exit, label %.lr.ph.i
+  br i1 %138, label %tt_face_load_sbix_image.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %103
   %139 = getelementptr inbounds i8, ptr %0, i64 1456
@@ -9730,7 +9730,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %.09814.i = phi i32 [ %2, %.lr.ph.i ], [ %188, %186 ]
   %143 = load i64, ptr %139, align 8
   %.not.i35 = icmp ult i64 %134, %143
-  br i1 %.not.i35, label %144, label %tt_face_load_sbix_image.exit
+  br i1 %.not.i35, label %144, label %tt_face_load_sbix_image.argprom.exit
 
 144:                                              ; preds = %142
   %145 = sub nuw i64 %143, %134
@@ -9738,7 +9738,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %147 = add i32 %146, 12
   %148 = zext i32 %147 to i64
   %149 = icmp ult i64 %145, %148
-  br i1 %149, label %tt_face_load_sbix_image.exit, label %150
+  br i1 %149, label %tt_face_load_sbix_image.argprom.exit, label %150
 
 150:                                              ; preds = %144
   %151 = load i64, ptr %140, align 8
@@ -9747,35 +9747,35 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %154 = add i64 %153, %151
   %155 = tail call i32 @FT_Stream_Seek(ptr noundef %4, i64 noundef %154) #27
   %.not112.i = icmp eq i32 %155, 0
-  br i1 %.not112.i, label %156, label %tt_face_load_sbix_image.exit
+  br i1 %.not112.i, label %156, label %tt_face_load_sbix_image.argprom.exit
 
 156:                                              ; preds = %150
   %157 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %4, i64 noundef 8) #27
   %.not113.i = icmp eq i32 %157, 0
-  br i1 %.not113.i, label %158, label %tt_face_load_sbix_image.exit
+  br i1 %.not113.i, label %158, label %tt_face_load_sbix_image.argprom.exit
 
 158:                                              ; preds = %156
   %159 = tail call i32 @FT_Stream_GetULong(ptr noundef %4) #27
   %160 = tail call i32 @FT_Stream_GetULong(ptr noundef %4) #27
   tail call void @FT_Stream_ExitFrame(ptr noundef %4) #27
   %161 = icmp eq i32 %159, %160
-  br i1 %161, label %tt_face_load_sbix_image.exit, label %162
+  br i1 %161, label %tt_face_load_sbix_image.argprom.exit, label %162
 
 162:                                              ; preds = %158
   %163 = icmp ugt i32 %159, %160
-  br i1 %163, label %tt_face_load_sbix_image.exit, label %164
+  br i1 %163, label %tt_face_load_sbix_image.argprom.exit, label %164
 
 164:                                              ; preds = %162
   %165 = sub nuw i32 %160, %159
   %166 = icmp ult i32 %165, 8
-  br i1 %166, label %tt_face_load_sbix_image.exit, label %167
+  br i1 %166, label %tt_face_load_sbix_image.argprom.exit, label %167
 
 167:                                              ; preds = %164
   %168 = load i64, ptr %139, align 8
   %169 = sub i64 %168, %134
   %170 = zext i32 %160 to i64
   %171 = icmp ult i64 %169, %170
-  br i1 %171, label %tt_face_load_sbix_image.exit, label %172
+  br i1 %171, label %tt_face_load_sbix_image.argprom.exit, label %172
 
 172:                                              ; preds = %167
   %173 = load i64, ptr %140, align 8
@@ -9784,13 +9784,13 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %176 = add i64 %175, %173
   %177 = tail call i32 @FT_Stream_Seek(ptr noundef %4, i64 noundef %176) #27
   %.not114.i = icmp eq i32 %177, 0
-  br i1 %.not114.i, label %178, label %tt_face_load_sbix_image.exit
+  br i1 %.not114.i, label %178, label %tt_face_load_sbix_image.argprom.exit
 
 178:                                              ; preds = %172
   %179 = zext i32 %165 to i64
   %180 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %4, i64 noundef %179) #27
   %.not115.i = icmp eq i32 %180, 0
-  br i1 %.not115.i, label %181, label %tt_face_load_sbix_image.exit
+  br i1 %.not115.i, label %181, label %tt_face_load_sbix_image.argprom.exit
 
 181:                                              ; preds = %178
   %182 = tail call zeroext i16 @FT_Stream_GetUShort(ptr noundef %4) #27
@@ -9816,7 +9816,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %190 = load i64, ptr %135, align 8
   %191 = trunc i64 %190 to i32
   %192 = icmp ugt i32 %188, %191
-  br i1 %192, label %tt_face_load_sbix_image.exit, label %142
+  br i1 %192, label %tt_face_load_sbix_image.argprom.exit, label %142
 
 .thread.i.loopexit:                               ; preds = %181
   br label %.thread.i
@@ -9824,7 +9824,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
 .thread.i:                                        ; preds = %185, %181, %181, %181, %.thread.i.loopexit
   %.2.ph.i = phi i32 [ 2, %181 ], [ 2, %181 ], [ 2, %181 ], [ 3, %185 ], [ 7, %.thread.i.loopexit ]
   tail call void @FT_Stream_ExitFrame(ptr noundef %4) #27
-  br label %tt_face_load_sbix_image.exit
+  br label %tt_face_load_sbix_image.argprom.exit
 
 193:                                              ; preds = %181
   %194 = getelementptr inbounds i8, ptr %0, i64 152
@@ -9837,7 +9837,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %201 = tail call fastcc i32 @Load_SBit_Png(ptr noundef %195, i32 noundef 0, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %6, ptr noundef %197, ptr noundef %199, i32 noundef %200, i8 noundef zeroext 1, i8 noundef zeroext %106)
   tail call void @FT_Stream_ExitFrame(ptr noundef %4) #27
   %.not116.i = icmp eq i32 %201, 0
-  br i1 %.not116.i, label %202, label %tt_face_load_sbix_image.exit
+  br i1 %.not116.i, label %202, label %tt_face_load_sbix_image.argprom.exit
 
 202:                                              ; preds = %193
   call void @tt_face_get_metrics(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef %.09814.i, ptr noundef nonnull %8, ptr noundef nonnull %9)
@@ -9920,16 +9920,16 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %260 = trunc i32 %259 to i16
   %261 = getelementptr inbounds i8, ptr %6, i64 14
   store i16 %260, ptr %261, align 2
-  br label %tt_face_load_sbix_image.exit
+  br label %tt_face_load_sbix_image.argprom.exit
 
-tt_face_load_sbix_image.exit:                     ; preds = %142, %144, %150, %156, %158, %162, %164, %167, %172, %178, %186, %103, %.thread.i, %193, %249
+tt_face_load_sbix_image.argprom.exit:             ; preds = %142, %144, %150, %156, %158, %162, %164, %167, %172, %178, %186, %103, %.thread.i, %193, %249
   %.0.i36 = phi i32 [ 0, %249 ], [ %201, %193 ], [ %.2.ph.i, %.thread.i ], [ 6, %103 ], [ %177, %172 ], [ %180, %178 ], [ 3, %162 ], [ 3, %164 ], [ 3, %167 ], [ 157, %158 ], [ %155, %150 ], [ %157, %156 ], [ 3, %142 ], [ 3, %144 ], [ 6, %186 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   br label %262
 
-262:                                              ; preds = %tt_sbit_decoder_init.exit, %tt_face_load_sbix_image.exit
-  %.0 = phi i32 [ %.0.i36, %tt_face_load_sbix_image.exit ], [ %102, %tt_sbit_decoder_init.exit ]
+262:                                              ; preds = %tt_sbit_decoder_init.exit, %tt_face_load_sbix_image.argprom.exit
+  %.0 = phi i32 [ %.0.i36, %tt_face_load_sbix_image.argprom.exit ], [ %102, %tt_sbit_decoder_init.exit ]
   %.not31 = icmp eq i32 %.0, 0
   br i1 %.not31, label %263, label %.thread
 
@@ -12756,7 +12756,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_color_glyph_clipbox(ptr n
   %171 = load i8, ptr %170, align 1
   %172 = zext i8 %171 to i64
   %173 = or disjoint i64 %169, %172
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %7, i64 noundef %173, i32 noundef 4, ptr noundef %5)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %7, i64 noundef %173, i32 noundef 4, ptr noundef %5)
   %174 = load i32, ptr %5, align 16
   %175 = load ptr, ptr %95, align 8
   %176 = getelementptr inbounds i8, ptr %175, i64 32
@@ -13453,7 +13453,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %183 = load i8, ptr %182, align 1
   %184 = zext i8 %183 to i64
   %185 = or disjoint i64 %181, %184
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %185, i32 noundef 1, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %185, i32 noundef 1, ptr noundef %7)
   %186 = load i32, ptr %7, align 16
   %187 = load i16, ptr %157, align 2
   %188 = trunc i32 %186 to i16
@@ -13632,7 +13632,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %321 = load i8, ptr %320, align 1
   %322 = zext i8 %321 to i64
   %323 = or disjoint i64 %319, %322
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %323, i32 noundef 6, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %323, i32 noundef 6, ptr noundef %7)
   %324 = load i32, ptr %7, align 16
   %325 = sext i32 %324 to i64
   %326 = shl nsw i64 %325, 16
@@ -13820,7 +13820,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %473 = load i8, ptr %472, align 1
   %474 = zext i8 %473 to i64
   %475 = or disjoint i64 %471, %474
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %475, i32 noundef 6, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %475, i32 noundef 6, ptr noundef %7)
   %476 = load i32, ptr %7, align 16
   %477 = sext i32 %476 to i64
   %478 = shl nsw i64 %477, 16
@@ -13986,7 +13986,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %598 = load i8, ptr %597, align 1
   %599 = zext i8 %598 to i64
   %600 = or disjoint i64 %596, %599
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %600, i32 noundef 4, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %600, i32 noundef 4, ptr noundef %7)
   %601 = load i32, ptr %7, align 16
   %602 = sext i32 %601 to i64
   %603 = shl nsw i64 %602, 16
@@ -14237,7 +14237,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %809 = load i8, ptr %808, align 1
   %810 = zext i8 %809 to i64
   %811 = or disjoint i64 %807, %810
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %811, i32 noundef 6, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %811, i32 noundef 6, ptr noundef %7)
   %812 = load i32, ptr %7, align 16
   %813 = sext i32 %812 to i64
   %814 = load i64, ptr %682, align 8
@@ -14357,7 +14357,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %903 = load i8, ptr %902, align 1
   %904 = zext i8 %903 to i64
   %905 = or disjoint i64 %901, %904
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %905, i32 noundef 2, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %905, i32 noundef 2, ptr noundef %7)
   %906 = load i32, ptr %7, align 16
   %907 = sext i32 %906 to i64
   %908 = shl nsw i64 %907, 16
@@ -14547,7 +14547,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   br i1 %1033, label %1034, label %1046
 
 1034:                                             ; preds = %1014
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 2, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 2, ptr noundef %7)
   %1035 = load i32, ptr %7, align 16
   %1036 = sext i32 %1035 to i64
   %1037 = shl nsw i64 %1036, 2
@@ -14570,7 +14570,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   br i1 %1048, label %1049, label %1075
 
 1049:                                             ; preds = %1046
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 4, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 4, ptr noundef %7)
   %1050 = load i32, ptr %7, align 16
   %1051 = sext i32 %1050 to i64
   %1052 = shl nsw i64 %1051, 2
@@ -14609,7 +14609,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   br i1 %1077, label %1078, label %1086
 
 1078:                                             ; preds = %1075
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 1, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 1, ptr noundef %7)
   %1079 = load i32, ptr %7, align 16
   %1080 = sext i32 %1079 to i64
   %1081 = shl nsw i64 %1080, 2
@@ -14628,7 +14628,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   br i1 %1088, label %1089, label %1111
 
 1089:                                             ; preds = %1086
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 3, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 3, ptr noundef %7)
   %1090 = load i32, ptr %7, align 16
   %1091 = sext i32 %1090 to i64
   %1092 = shl nsw i64 %1091, 2
@@ -14800,7 +14800,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   %1202 = load i8, ptr %1201, align 1
   %1203 = zext i8 %1202 to i64
   %1204 = or disjoint i64 %1200, %1203
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1204, i32 noundef %.1.i, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1204, i32 noundef %.1.i, ptr noundef %7)
   %1205 = load i32, ptr %7, align 16
   %1206 = sext i32 %1205 to i64
   %1207 = shl nsw i64 %1206, 2
@@ -14967,7 +14967,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   br i1 %1326, label %1327, label %1339
 
 1327:                                             ; preds = %1308
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1325, i32 noundef 2, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1325, i32 noundef 2, ptr noundef %7)
   %1328 = load i32, ptr %7, align 16
   %1329 = sext i32 %1328 to i64
   %1330 = shl nsw i64 %1329, 2
@@ -14990,7 +14990,7 @@ define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8
   br i1 %1341, label %1342, label %1368
 
 1342:                                             ; preds = %1339
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1325, i32 noundef 4, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1325, i32 noundef 4, ptr noundef %7)
   %1343 = load i32, ptr %7, align 16
   %1344 = sext i32 %1343 to i64
   %1345 = shl nsw i64 %1344, 2
@@ -19230,7 +19230,7 @@ write_buf.exit:                                   ; preds = %71, %77
 declare hidden ptr @ft_mem_strdup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tt_face_build_cmaps(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @tt_face_build_cmaps.retelim(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca %struct.FT_CharMapRec_, align 8
@@ -21837,7 +21837,7 @@ declare hidden i32 @FT_Match_Size(ptr noundef, ptr noundef, i8 noundef zeroext, 
 declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_deltas_for_var_index_base(ptr noundef %0, ptr noundef nonnull %1, i64 noundef range(i64 0, 4294967296) %2, i32 noundef range(i32 1, 7) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @get_deltas_for_var_index_base.retelim(ptr noundef %0, ptr noundef nonnull %1, i64 noundef range(i64 0, 4294967296) %2, i32 noundef range(i32 1, 7) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = icmp eq i64 %2, 4294967295
   br i1 %6, label %.preheader.preheader, label %.preheader37
 
@@ -22163,14 +22163,14 @@ define internal i32 @sfnt_load_table(ptr nocapture noundef readonly %0, i64 noun
   %14 = getelementptr inbounds i8, ptr %.0101.i.i, i64 24
   %15 = load i64, ptr %14, align 8
   %.not.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i, label %16, label %tt_face_lookup_table.exit.i
+  br i1 %.not.i.i, label %16, label %tt_face_lookup_table.argprom.exit.i
 
 16:                                               ; preds = %13, %.lr.ph.i.i
   %17 = getelementptr inbounds i8, ptr %.0101.i.i, i64 32
   %18 = icmp ult ptr %17, %10
   br i1 %18, label %.lr.ph.i.i, label %tt_face_load_any.exit, !llvm.loop !41
 
-tt_face_lookup_table.exit.i:                      ; preds = %13
+tt_face_lookup_table.argprom.exit.i:              ; preds = %13
   %19 = getelementptr inbounds i8, ptr %.0101.i.i, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %2
@@ -22183,9 +22183,9 @@ tt_face_lookup_table.exit.i:                      ; preds = %13
   %.0.pre.i = load i64, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %22, %tt_face_lookup_table.exit.i
-  %.0.i = phi i64 [ %15, %tt_face_lookup_table.exit.i ], [ %.0.pre.i, %22 ]
-  %.021.i = phi i64 [ %21, %tt_face_lookup_table.exit.i ], [ %2, %22 ]
+26:                                               ; preds = %22, %tt_face_lookup_table.argprom.exit.i
+  %.0.i = phi i64 [ %15, %tt_face_lookup_table.argprom.exit.i ], [ %.0.pre.i, %22 ]
+  %.021.i = phi i64 [ %21, %tt_face_lookup_table.argprom.exit.i ], [ %2, %22 ]
   %.not28.i = icmp eq ptr %4, null
   br i1 %.not28.i, label %.critedge.i, label %27
 
@@ -22600,7 +22600,7 @@ sfnt_get_name_id.exit216.i:                       ; preds = %._crit_edge.i211.i
   %128 = load ptr, ptr %127, align 8
   %129 = sext i32 %.0247298.i to i64
   %130 = getelementptr inbounds %struct.TT_NameRec_, ptr %34, i64 %129
-  %131 = tail call fastcc ptr @get_win_string(ptr noundef %25, ptr noundef %128, ptr noundef %130, ptr noundef nonnull @sfnt_is_alphanumeric)
+  %131 = tail call fastcc ptr @get_win_string.argelim(ptr noundef %25, ptr noundef %128, ptr noundef %130, ptr noundef nonnull @sfnt_is_alphanumeric)
   br label %132
 
 132:                                              ; preds = %.critedge173.thread.i, %.critedge173.i
@@ -22618,7 +22618,7 @@ sfnt_get_name_id.exit216.i:                       ; preds = %._crit_edge.i211.i
   %139 = load ptr, ptr %33, align 8
   %140 = sext i32 %.0238300.i to i64
   %141 = getelementptr inbounds %struct.TT_NameRec_, ptr %139, i64 %140
-  %142 = tail call fastcc ptr @get_apple_string(ptr noundef %136, ptr noundef %138, ptr noundef %141, ptr noundef nonnull @sfnt_is_alphanumeric)
+  %142 = tail call fastcc ptr @get_apple_string.argelim(ptr noundef %136, ptr noundef %138, ptr noundef %141, ptr noundef nonnull @sfnt_is_alphanumeric)
   br label %143
 
 143:                                              ; preds = %135, %132
@@ -23589,7 +23589,7 @@ sfnt_get_name_id.exit:                            ; preds = %._crit_edge.i32
   %662 = load ptr, ptr %661, align 8
   %663 = sext i32 %.142 to i64
   %664 = getelementptr inbounds %struct.TT_NameRec_, ptr %625, i64 %663
-  %665 = tail call fastcc ptr @get_win_string(ptr noundef %660, ptr noundef %662, ptr noundef %664, ptr noundef nonnull @sfnt_is_postscript)
+  %665 = tail call fastcc ptr @get_win_string.argelim(ptr noundef %660, ptr noundef %662, ptr noundef %664, ptr noundef nonnull @sfnt_is_postscript)
   br label %666
 
 666:                                              ; preds = %.thread, %658
@@ -23607,7 +23607,7 @@ sfnt_get_name_id.exit:                            ; preds = %._crit_edge.i32
   %674 = load ptr, ptr %624, align 8
   %675 = sext i32 %.140 to i64
   %676 = getelementptr inbounds %struct.TT_NameRec_, ptr %674, i64 %675
-  %677 = tail call fastcc ptr @get_apple_string(ptr noundef %671, ptr noundef %673, ptr noundef %676, ptr noundef nonnull @sfnt_is_postscript)
+  %677 = tail call fastcc ptr @get_apple_string.argelim(ptr noundef %671, ptr noundef %673, ptr noundef %676, ptr noundef nonnull @sfnt_is_postscript)
   br label %sfnt_get_name_id.exit.thread56.sink.split
 
 sfnt_get_name_id.exit.thread56.sink.split:        ; preds = %666, %669, %sfnt_get_var_ps_name.exit
@@ -23621,7 +23621,7 @@ sfnt_get_name_id.exit.thread56:                   ; preds = %sfnt_get_name_id.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_win_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @get_win_string.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i16, ptr %6, align 8
@@ -23738,7 +23738,7 @@ define internal range(i32 0, 129) i32 @sfnt_is_postscript(i32 noundef %0) #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_apple_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @get_apple_string.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i16, ptr %6, align 8
@@ -24298,7 +24298,7 @@ define internal i32 @tt_get_cmap_info(ptr noundef %0, ptr noundef %1) #0 {
 declare hidden void @ft_validator_error(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr nocapture readonly %.0.val, ptr readonly %.24.val, ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #15 {
+define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear.argprom(ptr nocapture readonly %.0.val, ptr readonly %.24.val, ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 816
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 824

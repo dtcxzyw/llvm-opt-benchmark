@@ -121,7 +121,7 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
   store i32 %49, ptr %32, align 8
   %50 = load ptr, ptr %31, align 8
   %.not3518.i = icmp eq ptr %50, null
-  br i1 %.not3518.i, label %heap_insert.exit, label %.lr.ph20.i
+  br i1 %.not3518.i, label %heap_insert.argprom.exit, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %._crit_edge.i, %heap_node_swap.exit.i
   %51 = phi ptr [ %84, %heap_node_swap.exit.i ], [ %50, %._crit_edge.i ]
@@ -133,14 +133,14 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
 
 56:                                               ; preds = %.lr.ph20.i
   %57 = icmp ult i64 %54, %52
-  br i1 %57, label %heap_insert.exit, label %timer_less_than.exit.i
+  br i1 %57, label %heap_insert.argprom.exit, label %timer_less_than.exit.i
 
 timer_less_than.exit.i:                           ; preds = %56
   %58 = load i64, ptr %26, align 8
   %59 = getelementptr inbounds i8, ptr %51, i64 40
   %60 = load i64, ptr %59, align 8
   %.not6.i = icmp ult i64 %58, %60
-  br i1 %.not6.i, label %timer_less_than.exit.thread3.i, label %heap_insert.exit
+  br i1 %.not6.i, label %timer_less_than.exit.thread3.i, label %heap_insert.argprom.exit
 
 timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exit.i, %.lr.ph20.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -211,15 +211,15 @@ heap_node_swap.exit.i:                            ; preds = %81, %78
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %84 = load ptr, ptr %31, align 8
   %.not35.i = icmp eq ptr %84, null
-  br i1 %.not35.i, label %heap_insert.exit, label %.lr.ph20.i, !llvm.loop !8
+  br i1 %.not35.i, label %heap_insert.argprom.exit, label %.lr.ph20.i, !llvm.loop !8
 
-heap_insert.exit:                                 ; preds = %56, %timer_less_than.exit.i, %heap_node_swap.exit.i, %._crit_edge.i
+heap_insert.argprom.exit:                         ; preds = %56, %timer_less_than.exit.i, %heap_node_swap.exit.i, %._crit_edge.i
   %85 = load i32, ptr %6, align 8
   %86 = and i32 %85, 4
   %.not24 = icmp eq i32 %86, 0
   br i1 %.not24, label %87, label %95
 
-87:                                               ; preds = %heap_insert.exit
+87:                                               ; preds = %heap_insert.argprom.exit
   %88 = or disjoint i32 %85, 4
   store i32 %88, ptr %6, align 8
   %89 = and i32 %85, 8
@@ -234,8 +234,8 @@ heap_insert.exit:                                 ; preds = %56, %timer_less_tha
   store i32 %94, ptr %92, align 8
   br label %95
 
-95:                                               ; preds = %heap_insert.exit, %90, %87, %4
-  %.0 = phi i32 [ -22, %4 ], [ 0, %87 ], [ 0, %90 ], [ 0, %heap_insert.exit ]
+95:                                               ; preds = %heap_insert.argprom.exit, %90, %87, %4
+  %.0 = phi i32 [ -22, %4 ], [ 0, %87 ], [ 0, %90 ], [ 0, %heap_insert.argprom.exit ]
   ret i32 %.0
 }
 
@@ -257,7 +257,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
   %12 = getelementptr inbounds i8, ptr %9, i64 528
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %.lr.ph.i [
-    i32 0, label %heap_remove.exit
+    i32 0, label %heap_remove.argprom.exit
     i32 1, label %._crit_edge.i
   ]
 
@@ -299,11 +299,11 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
 28:                                               ; preds = %._crit_edge.i
   %29 = load ptr, ptr %10, align 8
   %30 = icmp eq ptr %11, %29
-  br i1 %30, label %31, label %heap_remove.exit
+  br i1 %30, label %31, label %heap_remove.argprom.exit
 
 31:                                               ; preds = %28
   store ptr null, ptr %10, align 8
-  br label %heap_remove.exit
+  br label %heap_remove.argprom.exit
 
 32:                                               ; preds = %._crit_edge.i
   %33 = load ptr, ptr %11, align 8
@@ -417,7 +417,7 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
 .preheader.i:                                     ; preds = %timer_less_than.exit92.thread.i
   %81 = load ptr, ptr %39, align 8
   %.not8831.i = icmp eq ptr %81, null
-  br i1 %.not8831.i, label %heap_remove.exit, label %.lr.ph32.i
+  br i1 %.not8831.i, label %heap_remove.argprom.exit, label %.lr.ph32.i
 
 82:                                               ; preds = %timer_less_than.exit92.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -499,14 +499,14 @@ heap_node_swap.exit.i:                            ; preds = %104, %100
 
 112:                                              ; preds = %.lr.ph32.i
   %113 = icmp ult i64 %110, %108
-  br i1 %113, label %heap_remove.exit, label %timer_less_than.exit95.i
+  br i1 %113, label %heap_remove.argprom.exit, label %timer_less_than.exit95.i
 
 timer_less_than.exit95.i:                         ; preds = %112
   %114 = load i64, ptr %54, align 8
   %115 = getelementptr inbounds i8, ptr %107, i64 40
   %116 = load i64, ptr %115, align 8
   %.not18.i = icmp ult i64 %114, %116
-  br i1 %.not18.i, label %timer_less_than.exit95.thread13.i, label %heap_remove.exit
+  br i1 %.not18.i, label %timer_less_than.exit95.thread13.i, label %heap_remove.argprom.exit
 
 timer_less_than.exit95.thread13.i:                ; preds = %timer_less_than.exit95.i, %.lr.ph32.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -577,15 +577,15 @@ heap_node_swap.exit104.i:                         ; preds = %137, %134
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %140 = load ptr, ptr %39, align 8
   %.not88.i = icmp eq ptr %140, null
-  br i1 %.not88.i, label %heap_remove.exit, label %.lr.ph32.i, !llvm.loop !11
+  br i1 %.not88.i, label %heap_remove.argprom.exit, label %.lr.ph32.i, !llvm.loop !11
 
-heap_remove.exit:                                 ; preds = %112, %timer_less_than.exit95.i, %heap_node_swap.exit104.i, %7, %28, %31, %.preheader.i
+heap_remove.argprom.exit:                         ; preds = %112, %timer_less_than.exit95.i, %heap_node_swap.exit104.i, %7, %28, %31, %.preheader.i
   %141 = load i32, ptr %4, align 8
   %142 = and i32 %141, 4
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %152, label %144
 
-144:                                              ; preds = %heap_remove.exit
+144:                                              ; preds = %heap_remove.argprom.exit
   %145 = and i32 %141, -5
   store i32 %145, ptr %4, align 8
   %146 = and i32 %141, 8
@@ -600,7 +600,7 @@ heap_remove.exit:                                 ; preds = %112, %timer_less_th
   store i32 %151, ptr %149, align 8
   br label %152
 
-152:                                              ; preds = %heap_remove.exit, %147, %144, %1
+152:                                              ; preds = %heap_remove.argprom.exit, %147, %144, %1
   ret i32 0
 }
 

@@ -1465,7 +1465,7 @@ define hidden void @_ZN14cranelift_isle4sema7TypeEnv12report_error17h2ebc065871c
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h325be824c4e7c7c1E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %6, ptr align 1 %2, i64 %3, ptr nonnull align 8 @anon.409bc9c8f067bae9ad632a536c2f26cc.36), !noalias !36
   invoke void @_ZN14cranelift_isle5error4Span10new_single17h2a3162c379302a8aE(ptr nonnull sret({ { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }) align 8 %5, ptr align 8 %1)
-          to label %_ZN14cranelift_isle4sema7TypeEnv5error17h924358671f0ed652E.exit unwind label %8, !noalias !36
+          to label %_ZN14cranelift_isle4sema7TypeEnv5error17h924358671f0ed652E.argprom.exit unwind label %8, !noalias !36
 
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
@@ -1482,7 +1482,7 @@ define hidden void @_ZN14cranelift_isle4sema7TypeEnv12report_error17h2ebc065871c
 12:                                               ; preds = %8
   resume { ptr, i32 } %9
 
-_ZN14cranelift_isle4sema7TypeEnv5error17h924358671f0ed652E.exit: ; preds = %4
+_ZN14cranelift_isle4sema7TypeEnv5error17h924358671f0ed652E.argprom.exit: ; preds = %4
   %13 = getelementptr inbounds i8, ptr %7, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1505,7 +1505,7 @@ define hidden void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d800678
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h43564453e0bb530fE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %5, ptr align 8 %2, ptr nonnull align 8 @anon.409bc9c8f067bae9ad632a536c2f26cc.36), !noalias !39
   invoke void @_ZN14cranelift_isle5error4Span10new_single17h2a3162c379302a8aE(ptr nonnull sret({ { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }) align 8 %4, ptr align 8 %1)
-          to label %_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.exit unwind label %7, !noalias !39
+          to label %_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom.exit unwind label %7, !noalias !39
 
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
@@ -1522,7 +1522,7 @@ define hidden void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d800678
 11:                                               ; preds = %7
   resume { ptr, i32 } %8
 
-_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.exit: ; preds = %3
+_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom.exit: ; preds = %3
   %12 = getelementptr inbounds i8, ptr %6, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2155,15 +2155,15 @@ attributes #14 = { noreturn }
 !4 = !{i64 8}
 !5 = !{i8 -1, i8 3}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN14cranelift_isle4sema7TermEnv14translate_args28_$u7b$$u7b$closure$u7d$$u7d$17h69a883afb9356a62E: argument 0"}
-!8 = distinct !{!8, !"_ZN14cranelift_isle4sema7TermEnv14translate_args28_$u7b$$u7b$closure$u7d$$u7d$17h69a883afb9356a62E"}
+!7 = distinct !{!7, !8, !"_ZN14cranelift_isle4sema7TermEnv14translate_args28_$u7b$$u7b$closure$u7d$$u7d$17h69a883afb9356a62E.argprom: argument 0"}
+!8 = distinct !{!8, !"_ZN14cranelift_isle4sema7TermEnv14translate_args28_$u7b$$u7b$closure$u7d$$u7d$17h69a883afb9356a62E.argprom"}
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN14cranelift_isle4sema7TermEnv13collect_rules28_$u7b$$u7b$closure$u7d$$u7d$17ha45e6560cae12491E: argument 0"}
 !11 = distinct !{!11, !"_ZN14cranelift_isle4sema7TermEnv13collect_rules28_$u7b$$u7b$closure$u7d$$u7d$17ha45e6560cae12491E"}
 !12 = !{i64 1}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN14cranelift_isle4sema7TermEnv14translate_expr28_$u7b$$u7b$closure$u7d$$u7d$17h4a8f2abcb3190483E: argument 0"}
-!15 = distinct !{!15, !"_ZN14cranelift_isle4sema7TermEnv14translate_expr28_$u7b$$u7b$closure$u7d$$u7d$17h4a8f2abcb3190483E"}
+!14 = distinct !{!14, !15, !"_ZN14cranelift_isle4sema7TermEnv14translate_expr28_$u7b$$u7b$closure$u7d$$u7d$17h4a8f2abcb3190483E.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZN14cranelift_isle4sema7TermEnv14translate_expr28_$u7b$$u7b$closure$u7d$$u7d$17h4a8f2abcb3190483E.argprom"}
 !16 = !{i8 0, i8 2}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN14cranelift_isle4sema7TermEnv17translate_pattern28_$u7b$$u7b$closure$u7d$$u7d$17ha34c83a0abcbea80E: argument 0"}
@@ -2173,11 +2173,11 @@ attributes #14 = { noreturn }
 !22 = distinct !{!22, !"_ZN14cranelift_isle4sema7TermEnv27collect_extractor_templates28_$u7b$$u7b$closure$u7d$$u7d$17hf444c7c65f87eeecE"}
 !23 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E: argument 0"}
-!26 = distinct !{!26, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E"}
+!25 = distinct !{!25, !26, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom: argument 0"}
+!26 = distinct !{!26, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E: argument 0"}
-!29 = distinct !{!29, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E"}
+!28 = distinct !{!28, !29, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom: argument 0"}
+!29 = distinct !{!29, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom"}
 !30 = !{i64 0, i64 7}
 !31 = !{i64 16}
 !32 = !{i64 0, i64 4}
@@ -2185,17 +2185,17 @@ attributes #14 = { noreturn }
 !34 = !{i64 0, i64 5}
 !35 = !{i64 2}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN14cranelift_isle4sema7TypeEnv5error17h924358671f0ed652E: argument 0"}
-!38 = distinct !{!38, !"_ZN14cranelift_isle4sema7TypeEnv5error17h924358671f0ed652E"}
+!37 = distinct !{!37, !38, !"_ZN14cranelift_isle4sema7TypeEnv5error17h924358671f0ed652E.argprom: argument 0"}
+!38 = distinct !{!38, !"_ZN14cranelift_isle4sema7TypeEnv5error17h924358671f0ed652E.argprom"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E: argument 0"}
-!41 = distinct !{!41, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E"}
+!40 = distinct !{!40, !41, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom: argument 0"}
+!41 = distinct !{!41, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E: argument 0"}
-!44 = distinct !{!44, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E"}
+!43 = distinct !{!43, !44, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom: argument 0"}
+!44 = distinct !{!44, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E: argument 0"}
-!47 = distinct !{!47, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E"}
+!46 = distinct !{!46, !47, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom: argument 0"}
+!47 = distinct !{!47, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E: argument 0"}
-!50 = distinct !{!50, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E"}
+!49 = distinct !{!49, !50, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom: argument 0"}
+!50 = distinct !{!50, !"_ZN14cranelift_isle4sema7TypeEnv5error17h295b314cb92faa73E.argprom"}

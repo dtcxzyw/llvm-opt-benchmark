@@ -318,13 +318,13 @@ if.then.i:                                        ; preds = %_ZN4node4quic12_GLO
   %12 = getelementptr inbounds i8, ptr %req, i64 144
   %this.val.val.i = load ptr, ptr %12, align 8
   %cmp.not.i.i = icmp eq ptr %this.val.val.i, null
-  br i1 %cmp.not.i.i, label %"_ZN4node16OnScopeLeaveImplIZNS_4quic16PreferredAddress3UseERKNS2_11AddressInfoEE3$_0ED2Ev.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZN4node16OnScopeLeaveImplIZNS_4quic16PreferredAddress3UseERKNS2_11AddressInfoEE3$_0ED2Ev.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   call void @uv_freeaddrinfo(ptr noundef nonnull %this.val.val.i) #17
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic16PreferredAddress3UseERKNS2_11AddressInfoEE3$_0ED2Ev.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic16PreferredAddress3UseERKNS2_11AddressInfoEE3$_0ED2Ev.argprom.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_4quic16PreferredAddress3UseERKNS2_11AddressInfoEE3$_0ED2Ev.exit": ; preds = %if.then.i, %if.then.i.i
+"_ZN4node16OnScopeLeaveImplIZNS_4quic16PreferredAddress3UseERKNS2_11AddressInfoEE3$_0ED2Ev.argprom.exit": ; preds = %if.then.i, %if.then.i.i
   ret void
 }
 

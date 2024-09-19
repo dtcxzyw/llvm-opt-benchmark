@@ -4711,7 +4711,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN48span_test_from_convertible_span_constructor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZN3gsl4spanIKN12_GLOBAL__N_112DerivedClassELm2EEC2IS2_Lm18446744073709551615ELm2ETnNSt9enable_ifIXaaaaneT1_L_ZNS_L14dynamic_extentEEeqT0_L_ZNS_L14dynamic_extentEEsr7details34is_allowed_element_type_conversionIT_S3_EE5valueEiE4typeELi0EEERKNS0_IS7_XT0_EEE.exit:
+_ZN3gsl4spanIKN12_GLOBAL__N_112DerivedClassELm2EEC2IS2_Lm18446744073709551615ELm2ETnNSt9enable_ifIXaaaaneT1_L_ZNS_L14dynamic_extentEEeqT0_L_ZNS_L14dynamic_extentEEsr7details34is_allowed_element_type_conversionIT_S3_EE5valueEiE4typeELi0EEERKNS0_IS7_XT0_EEE.argprom.exit:
   %gtest_dt = alloca ptr, align 8
   %agg.tmp = alloca %"class.testing::Matcher", align 8
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4728,7 +4728,7 @@ _ZN3gsl4spanIKN12_GLOBAL__N_112DerivedClassELm2EEC2IS2_Lm18446744073709551615ELm
   %call14 = tail call noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
   br i1 %call14, label %if.then, label %gtest_label_688
 
-if.then:                                          ; preds = %_ZN3gsl4spanIKN12_GLOBAL__N_112DerivedClassELm2EEC2IS2_Lm18446744073709551615ELm2ETnNSt9enable_ifIXaaaaneT1_L_ZNS_L14dynamic_extentEEeqT0_L_ZNS_L14dynamic_extentEEsr7details34is_allowed_element_type_conversionIT_S3_EE5valueEiE4typeELi0EEERKNS0_IS7_XT0_EEE.exit
+if.then:                                          ; preds = %_ZN3gsl4spanIKN12_GLOBAL__N_112DerivedClassELm2EEC2IS2_Lm18446744073709551615ELm2ETnNSt9enable_ifIXaaaaneT1_L_ZNS_L14dynamic_extentEEeqT0_L_ZNS_L14dynamic_extentEEsr7details34is_allowed_element_type_conversionIT_S3_EE5valueEiE4typeELi0EEERKNS0_IS7_XT0_EEE.argprom.exit
   call void @_ZN7testing8internal20MakeDeathTestMatcherB5cxx11EPKc(ptr nonnull sret(%"class.testing::Matcher") align 8 %agg.tmp, ptr noundef nonnull %cond.i)
   %call15 = invoke noundef zeroext i1 @_ZN7testing8internal9DeathTest6CreateEPKcNS_7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES3_iPPS1_(ptr noundef nonnull @.str.76, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @.str.3, i32 noundef 688, ptr noundef nonnull %gtest_dt)
           to label %invoke.cont unwind label %lpad
@@ -4955,7 +4955,7 @@ _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %10) #29
   br label %eh.resume
 
-gtest_label_688:                                  ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit, %_ZN3gsl4spanIKN12_GLOBAL__N_112DerivedClassELm2EEC2IS2_Lm18446744073709551615ELm2ETnNSt9enable_ifIXaaaaneT1_L_ZNS_L14dynamic_extentEEeqT0_L_ZNS_L14dynamic_extentEEsr7details34is_allowed_element_type_conversionIT_S3_EE5valueEiE4typeELi0EEERKNS0_IS7_XT0_EEE.exit, %_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+gtest_label_688:                                  ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit, %_ZN3gsl4spanIKN12_GLOBAL__N_112DerivedClassELm2EEC2IS2_Lm18446744073709551615ELm2ETnNSt9enable_ifIXaaaaneT1_L_ZNS_L14dynamic_extentEEeqT0_L_ZNS_L14dynamic_extentEEsr7details34is_allowed_element_type_conversionIT_S3_EE5valueEiE4typeELi0EEERKNS0_IS7_XT0_EEE.argprom.exit, %_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73)
   %call77 = invoke noundef ptr @_ZN7testing8internal9DeathTest11LastMessageEv()
           to label %invoke.cont76 unwind label %lpad75

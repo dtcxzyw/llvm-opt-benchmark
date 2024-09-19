@@ -455,7 +455,7 @@ define internal fastcc i32 @Render_Glyph(ptr noundef nonnull %0) unnamed_addr #0
   store ptr @Vertical_Sweep_Step, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 176
   %26 = load i32, ptr %25, align 8
-  %27 = call fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signext 0, i32 noundef %26)
+  %27 = call fastcc i32 @Render_Single_Pass.argelim(ptr noundef %0, i8 noundef signext 0, i32 noundef %26)
   %.not32 = icmp eq i32 %27, 0
   br i1 %.not32, label %28, label %36
 
@@ -472,7 +472,7 @@ define internal fastcc i32 @Render_Glyph(ptr noundef nonnull %0) unnamed_addr #0
   store ptr @Horizontal_Sweep_Step, ptr %24, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 180
   %33 = load i32, ptr %32, align 4
-  %34 = call fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signext 1, i32 noundef %33)
+  %34 = call fastcc i32 @Render_Single_Pass.argelim(ptr noundef %0, i8 noundef signext 1, i32 noundef %33)
   %.not34 = icmp eq i32 %34, 0
   br i1 %.not34, label %35, label %36
 
@@ -669,7 +669,7 @@ define internal void @Vertical_Sweep_Step(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 noundef signext range(i8 0, 2) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Render_Single_Pass.argelim(ptr noundef nonnull %0, i8 noundef signext range(i8 0, 2) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

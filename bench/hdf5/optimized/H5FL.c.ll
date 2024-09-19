@@ -201,7 +201,7 @@ H5FL__blk_term.exit:                              ; preds = %42, %H5FL__arr_term
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @H5FL_garbage_coll() local_unnamed_addr #0 {
-  tail call fastcc void @H5FL__arr_gc()
+  tail call fastcc void @H5FL__arr_gc.retelim()
   %.045.i = load ptr, ptr @H5FL_blk_gc_head.1, align 8
   %.not6.i = icmp eq ptr %.045.i, null
   br i1 %.not6.i, label %H5FL__blk_gc.exit, label %.lr.ph.i
@@ -209,7 +209,7 @@ define noundef i32 @H5FL_garbage_coll() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %.047.i = phi ptr [ %.04.i, %.lr.ph.i ], [ %.045.i, %0 ]
   %1 = load ptr, ptr %.047.i, align 8
-  tail call fastcc void @H5FL__blk_gc_list(ptr noundef %1)
+  tail call fastcc void @H5FL__blk_gc_list.retelim(ptr noundef %1)
   %2 = getelementptr inbounds i8, ptr %.047.i, i64 8
   %.04.i = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.04.i, null
@@ -909,7 +909,7 @@ define noalias noundef ptr @H5FL_blk_free(ptr nocapture noundef %0, ptr noundef 
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %45
-  tail call fastcc void @H5FL__blk_gc_list(ptr noundef nonnull %0)
+  tail call fastcc void @H5FL__blk_gc_list.retelim(ptr noundef nonnull %0)
   %.pre = load i64, ptr @H5FL_blk_gc_head.0, align 8
   br label %62
 
@@ -925,7 +925,7 @@ define noalias noundef ptr @H5FL_blk_free(ptr nocapture noundef %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %62, %.lr.ph.i
   %.047.i = phi ptr [ %.04.i, %.lr.ph.i ], [ %.045.i, %62 ]
   %66 = load ptr, ptr %.047.i, align 8
-  tail call fastcc void @H5FL__blk_gc_list(ptr noundef %66)
+  tail call fastcc void @H5FL__blk_gc_list.retelim(ptr noundef %66)
   %67 = getelementptr inbounds i8, ptr %.047.i, i64 8
   %.04.i = load ptr, ptr %67, align 8
   %.not.i22 = icmp eq ptr %.04.i, null
@@ -936,7 +936,7 @@ H5FL__blk_gc.exit:                                ; preds = %.lr.ph.i, %62, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5FL__blk_gc_list(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @H5FL__blk_gc_list.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not41 = icmp eq ptr %3, null
@@ -1207,7 +1207,7 @@ H5FL__arr_gc_list.exit:                           ; preds = %67, %25, %3
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %H5FL__arr_gc_list.exit
-  tail call fastcc void @H5FL__arr_gc()
+  tail call fastcc void @H5FL__arr_gc.retelim()
   br label %76
 
 76:                                               ; preds = %2, %75, %H5FL__arr_gc_list.exit
@@ -1215,7 +1215,7 @@ H5FL__arr_gc_list.exit:                           ; preds = %67, %25, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5FL__arr_gc() unnamed_addr #0 {
+define internal fastcc void @H5FL__arr_gc.retelim() unnamed_addr #0 {
   %.045 = load ptr, ptr @H5FL_arr_gc_head.1, align 8
   %.not6 = icmp eq ptr %.045, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph

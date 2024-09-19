@@ -491,7 +491,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 16
-  br i1 %6, label %dissect_dlm3_2.exit, label %7
+  br i1 %6, label %dissect_dlm3_2.argprom.exit, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #2
@@ -500,7 +500,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   %10 = and i32 %8, 65535
   %11 = icmp ugt i32 %10, 2
   %or.cond = or i1 %.not, %11
-  br i1 %or.cond, label %dissect_dlm3_2.exit, label %12
+  br i1 %or.cond, label %dissect_dlm3_2.argprom.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %1, i64 8
@@ -517,19 +517,19 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %22 = load i32, ptr @ett_dlm3, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #2
-  switch i32 %8, label %dissect_dlm3_2.exit [
+  switch i32 %8, label %dissect_dlm3_2.argprom.exit [
     i32 196609, label %24
     i32 196610, label %26
   ]
 
 24:                                               ; preds = %12
-  %25 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %23, i8 noundef zeroext %16, i32 noundef 196609, i32 noundef %5, i32 noundef 0)
-  br label %dissect_dlm3_2.exit
+  %25 = tail call fastcc i32 @dissect_dlm3_1.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %23, i8 noundef zeroext %16, i32 noundef 196609, i32 noundef %5, i32 noundef 0)
+  br label %dissect_dlm3_2.argprom.exit
 
 26:                                               ; preds = %12
   %.off.i = add i8 %16, -1
   %switch.i = icmp ult i8 %.off.i, 5
-  br i1 %switch.i, label %27, label %dissect_dlm3_2.exit
+  br i1 %switch.i, label %27, label %dissect_dlm3_2.argprom.exit
 
 27:                                               ; preds = %26
   %28 = load i32, ptr @hf_dlm3_h_version, align 4
@@ -558,7 +558,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
 
 46:                                               ; preds = %27
   %47 = icmp ult i32 %5, 24
-  br i1 %47, label %dissect_dlm3_2.exit, label %48
+  br i1 %47, label %dissect_dlm3_2.argprom.exit, label %48
 
 48:                                               ; preds = %46
   %49 = load i32, ptr @ett_dlm3_opts, align 4
@@ -577,7 +577,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   %61 = add nuw nsw i32 %60, 24
   %62 = and i32 %61, 65535
   %63 = icmp ult i32 %5, %62
-  br i1 %63, label %dissect_dlm3_2.exit, label %64
+  br i1 %63, label %dissect_dlm3_2.argprom.exit, label %64
 
 64:                                               ; preds = %48
   %65 = load i32, ptr @hf_dlm3_o_optlen, align 4
@@ -604,7 +604,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   %78 = zext i16 %77 to i32
   %79 = sub i32 %.neg.i, %.01472.i
   %80 = icmp slt i32 %79, %78
-  br i1 %80, label %dissect_dlm3_2.exit, label %81
+  br i1 %80, label %dissect_dlm3_2.argprom.exit, label %81
 
 81:                                               ; preds = %74
   %82 = load i32, ptr @hf_dlm3_t_length, align 4
@@ -625,7 +625,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
 
 93:                                               ; preds = %91, %64
   %.0148.i = phi i32 [ %92, %91 ], [ 24, %64 ]
-  switch i8 %51, label %dissect_dlm3_2.exit [
+  switch i8 %51, label %dissect_dlm3_2.argprom.exit [
     i8 1, label %94
     i8 2, label %102
   ]
@@ -634,47 +634,47 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   %95 = add i16 %59, 72
   %96 = zext i16 %95 to i32
   %97 = icmp ult i32 %5, %96
-  br i1 %97, label %dissect_dlm3_2.exit, label %98
+  br i1 %97, label %dissect_dlm3_2.argprom.exit, label %98
 
 98:                                               ; preds = %94
   %99 = load i32, ptr @ett_dlm3_next_cmd, align 4
   %100 = tail call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %99) #2
-  %101 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef readonly %1, ptr noundef %100, i8 noundef zeroext 1, i32 noundef 196610, i32 noundef %5, i32 noundef %.0148.i)
+  %101 = tail call fastcc i32 @dissect_dlm3_1.argprom(ptr noundef %0, ptr noundef readonly %1, ptr noundef %100, i8 noundef zeroext 1, i32 noundef 196610, i32 noundef %5, i32 noundef %.0148.i)
   br label %118
 
 102:                                              ; preds = %93
   %103 = add i16 %59, 72
   %104 = zext i16 %103 to i32
   %105 = icmp ult i32 %5, %104
-  br i1 %105, label %dissect_dlm3_2.exit, label %106
+  br i1 %105, label %dissect_dlm3_2.argprom.exit, label %106
 
 106:                                              ; preds = %102
   %107 = load i32, ptr @ett_dlm3_next_cmd, align 4
   %108 = tail call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %107) #2
-  %109 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef readonly %1, ptr noundef %108, i8 noundef zeroext 2, i32 noundef 196610, i32 noundef %5, i32 noundef %.0148.i)
+  %109 = tail call fastcc i32 @dissect_dlm3_1.argprom(ptr noundef %0, ptr noundef readonly %1, ptr noundef %108, i8 noundef zeroext 2, i32 noundef 196610, i32 noundef %5, i32 noundef %.0148.i)
   br label %118
 
 110:                                              ; preds = %27
   %111 = icmp ult i32 %5, 88
-  br i1 %111, label %dissect_dlm3_2.exit, label %112
+  br i1 %111, label %dissect_dlm3_2.argprom.exit, label %112
 
 112:                                              ; preds = %110
-  %113 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %31, i8 noundef zeroext 1, i32 noundef 196610, i32 noundef %5, i32 noundef 16)
+  %113 = tail call fastcc i32 @dissect_dlm3_1.argprom(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %31, i8 noundef zeroext 1, i32 noundef 196610, i32 noundef %5, i32 noundef 16)
   br label %118
 
 114:                                              ; preds = %27
   %115 = icmp ult i32 %5, 48
-  br i1 %115, label %dissect_dlm3_2.exit, label %116
+  br i1 %115, label %dissect_dlm3_2.argprom.exit, label %116
 
 116:                                              ; preds = %114
-  %117 = tail call fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %31, i8 noundef zeroext 2, i32 noundef 196610, i32 noundef %5, i32 noundef 16)
+  %117 = tail call fastcc i32 @dissect_dlm3_1.argprom(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %31, i8 noundef zeroext 2, i32 noundef 196610, i32 noundef %5, i32 noundef 16)
   br label %118
 
 118:                                              ; preds = %116, %112, %106, %98, %27
   %119 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  br label %dissect_dlm3_2.exit
+  br label %dissect_dlm3_2.argprom.exit
 
-dissect_dlm3_2.exit:                              ; preds = %74, %118, %114, %110, %102, %94, %93, %48, %46, %26, %24, %12, %7, %4
+dissect_dlm3_2.argprom.exit:                      ; preds = %74, %118, %114, %110, %102, %94, %93, %48, %46, %26, %24, %12, %7, %4
   %.029 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %12 ], [ %25, %24 ], [ %119, %118 ], [ 0, %26 ], [ 0, %46 ], [ 0, %48 ], [ 0, %94 ], [ 0, %102 ], [ 0, %93 ], [ 0, %110 ], [ 0, %114 ], [ 0, %74 ]
   ret i32 %.029
 }
@@ -712,7 +712,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 196609, 196611) %4, i32 noundef range(i32 16, 0) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dlm3_1.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 196609, 196611) %4, i32 noundef range(i32 16, 0) %5, i32 noundef %6) unnamed_addr #0 {
   %.off = add i8 %3, -1
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %8, label %242

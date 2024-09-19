@@ -697,13 +697,13 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN12clap_buil
   %12 = icmp ne i128 %11, 24503081927999166500772401431235275638
   %13 = icmp eq ptr %8, null
   %14 = or i1 %12, %13
-  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h702039468c286c62E.exit
+  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h702039468c286c62E.argprom.exit
 
 15:                                               ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.13b33c499c59c7b76e9b3d73e56ecf4c.1.llvm.13697033098655696731, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.13b33c499c59c7b76e9b3d73e56ecf4c.4) #8
   unreachable
 
-_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h702039468c286c62E.exit: ; preds = %1
+_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h702039468c286c62E.argprom.exit: ; preds = %1
   ret ptr %8
 }
 
@@ -725,13 +725,13 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN12clap_buil
   %12 = icmp ne i128 %11, -75035133943807973589178565794283963657
   %13 = icmp eq ptr %8, null
   %14 = or i1 %12, %13
-  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h194b693c0252ea94E.exit
+  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h194b693c0252ea94E.argprom.exit
 
 15:                                               ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.13b33c499c59c7b76e9b3d73e56ecf4c.1.llvm.13697033098655696731, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.13b33c499c59c7b76e9b3d73e56ecf4c.4) #8
   unreachable
 
-_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h194b693c0252ea94E.exit: ; preds = %1
+_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h194b693c0252ea94E.argprom.exit: ; preds = %1
   ret ptr %8
 }
 
@@ -991,8 +991,8 @@ attributes #8 = { noreturn }
 !206 = distinct !{!206, !207, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13try_get_arg_t17h2a2806edf9140fcfE: argument 0"}
 !207 = distinct !{!207, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13try_get_arg_t17h2a2806edf9140fcfE"}
 !208 = !{!209, !206}
-!209 = distinct !{!209, !210, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hf81cd57c4b1a2351E: argument 0"}
-!210 = distinct !{!210, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hf81cd57c4b1a2351E"}
+!209 = distinct !{!209, !210, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hf81cd57c4b1a2351E.argprom: argument 0"}
+!210 = distinct !{!210, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hf81cd57c4b1a2351E.argprom"}
 !211 = !{!212}
 !212 = distinct !{!212, !213, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hfcda9109408db32cE.llvm.13697033098655696731: argument 0"}
 !213 = distinct !{!213, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hfcda9109408db32cE.llvm.13697033098655696731"}

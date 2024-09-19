@@ -249,18 +249,18 @@ Abc_NtkStartCutManForScl.exit:                    ; preds = %81, %70
   %108 = load i32, ptr %91, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv247, %109
-  br i1 %110, label %Extra_ProgressBarUpdate.exit, label %111
+  br i1 %110, label %Extra_ProgressBarUpdate.argprom.exit, label %111
 
 111:                                              ; preds = %107, %106
   %112 = trunc nuw nsw i64 %indvars.iv247 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %91, i32 noundef %112, ptr noundef null) #16
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %107, %111
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %107, %111
   %.not = icmp slt i64 %indvars.iv247, %98
   br i1 %.not, label %113, label %.critedge5
 
-113:                                              ; preds = %Extra_ProgressBarUpdate.exit
+113:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %114 = getelementptr i8, ptr %104, i64 28
   %.val123 = load i32, ptr %114, align 4
   %.not110 = icmp eq i32 %.val123, 2
@@ -1627,11 +1627,11 @@ Abc_NodeSuperChoiceLut.exit.thread:               ; preds = %620, %Abc_NodeDecom
   %675 = icmp slt i64 %indvars.iv.next248, %674
   br i1 %675, label %99, label %.critedge5, !llvm.loop !41
 
-.critedge5:                                       ; preds = %Extra_ProgressBarUpdate.exit, %Abc_NodeSuperChoiceLut.exit.thread, %Abc_NtkStartCutManForScl.exit
-  %.097.lcssa = phi i32 [ 0, %Abc_NtkStartCutManForScl.exit ], [ %.198, %Abc_NodeSuperChoiceLut.exit.thread ], [ %.097210, %Extra_ProgressBarUpdate.exit ]
-  %.095.lcssa = phi i32 [ 0, %Abc_NtkStartCutManForScl.exit ], [ %.196, %Abc_NodeSuperChoiceLut.exit.thread ], [ %.095211, %Extra_ProgressBarUpdate.exit ]
-  %.093.lcssa = phi i32 [ 0, %Abc_NtkStartCutManForScl.exit ], [ %.194, %Abc_NodeSuperChoiceLut.exit.thread ], [ %.093212, %Extra_ProgressBarUpdate.exit ]
-  %.0.lcssa = phi i32 [ 0, %Abc_NtkStartCutManForScl.exit ], [ %.1, %Abc_NodeSuperChoiceLut.exit.thread ], [ %.0213, %Extra_ProgressBarUpdate.exit ]
+.critedge5:                                       ; preds = %Extra_ProgressBarUpdate.argprom.exit, %Abc_NodeSuperChoiceLut.exit.thread, %Abc_NtkStartCutManForScl.exit
+  %.097.lcssa = phi i32 [ 0, %Abc_NtkStartCutManForScl.exit ], [ %.198, %Abc_NodeSuperChoiceLut.exit.thread ], [ %.097210, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.095.lcssa = phi i32 [ 0, %Abc_NtkStartCutManForScl.exit ], [ %.196, %Abc_NodeSuperChoiceLut.exit.thread ], [ %.095211, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.093.lcssa = phi i32 [ 0, %Abc_NtkStartCutManForScl.exit ], [ %.194, %Abc_NodeSuperChoiceLut.exit.thread ], [ %.093212, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.0.lcssa = phi i32 [ 0, %Abc_NtkStartCutManForScl.exit ], [ %.1, %Abc_NodeSuperChoiceLut.exit.thread ], [ %.0213, %Extra_ProgressBarUpdate.argprom.exit ]
   tail call void @Extra_ProgressBarStop(ptr noundef %91) #16
   %676 = load ptr, ptr %35, align 8
   %.not.i151 = icmp eq ptr %676, null

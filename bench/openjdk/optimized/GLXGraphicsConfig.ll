@@ -232,7 +232,7 @@ define hidden i64 @GLXGC_FindBestVisual(ptr nocapture noundef readnone %0, i32 n
   br label %19
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc ptr @GLXGC_InitFBConfig(i32 noundef %1, i64 noundef 0)
+  %6 = tail call fastcc ptr @GLXGC_InitFBConfig.argprom(i32 noundef %1, i64 noundef 0)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
@@ -264,7 +264,7 @@ define hidden i64 @GLXGC_FindBestVisual(ptr nocapture noundef readnone %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
+define internal fastcc ptr @GLXGC_InitFBConfig.argprom(i32 noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [9 x i32], align 16
   %5 = alloca i32, align 4
@@ -422,7 +422,7 @@ define noundef i64 @Java_sun_java2d_opengl_GLXGraphicsConfig_getGLXConfigInfo(pt
   %.not = icmp eq i32 %8, 0
   %spec.select = select i1 %.not, i32 %2, i32 0
   %9 = sext i32 %3 to i64
-  %10 = tail call fastcc ptr @GLXGC_InitFBConfig(i32 noundef %spec.select, i64 noundef %9)
+  %10 = tail call fastcc ptr @GLXGC_InitFBConfig.argprom(i32 noundef %spec.select, i64 noundef %9)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 

@@ -1072,18 +1072,18 @@ _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit:  ; preds = %11, %2, %9
 
 17:                                               ; preds = %15, %.lr.ph.split.us
   %18 = invoke noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %4)
-          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us unwind label %.loopexit.split.us
+          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us unwind label %.loopexit.split.us
 
-_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us: ; preds = %17
+_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us: ; preds = %17
   %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %18)
           to label %20 unwind label %.loopexit.split.us
 
-20:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us
+20:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us
   %21 = add nuw nsw i32 %.018.us, 1
   %exitcond23.not = icmp eq i32 %21, %invariant.umin
   br i1 %exitcond23.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !9
 
-.loopexit.split.us:                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us, %17, %15
+.loopexit.split.us:                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us, %17, %15
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -1097,7 +1097,7 @@ _ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us: ; preds = %17
   %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1)
           to label %25 unwind label %.loopexit.split
 
-.loopexit.split:                                  ; preds = %23, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit, %25
+.loopexit.split:                                  ; preds = %23, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit, %25
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -1116,13 +1116,13 @@ _ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us: ; preds = %17
   %26 = getelementptr inbounds i32, ptr %.sroa.9.0, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = invoke noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %27)
-          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit unwind label %.loopexit.split
+          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit unwind label %.loopexit.split
 
-_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit: ; preds = %25
+_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit: ; preds = %25
   %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %28)
           to label %30 unwind label %.loopexit.split
 
-30:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit
+30:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !9
@@ -1212,14 +1212,14 @@ _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit:  ; preds = %6
 
 16:                                               ; preds = %.lr.ph.split.us
   %17 = invoke noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %4)
-          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us unwind label %.loopexit15.split.us
+          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us unwind label %.loopexit15.split.us
 
-_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us: ; preds = %16
+_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us: ; preds = %16
   %18 = getelementptr inbounds i8, ptr %17, i64 1
   %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %18)
           to label %20 unwind label %.loopexit15.split.us
 
-20:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us
+20:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us
   %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.7)
           to label %22 unwind label %.loopexit15.split.us
 
@@ -1228,7 +1228,7 @@ _ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us: ; preds = %16
   %exitcond19.not = icmp eq i32 %23, %7
   br i1 %exitcond19.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !10
 
-.loopexit15.split.us:                             ; preds = %20, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us, %16, %.lr.ph.split.us
+.loopexit15.split.us:                             ; preds = %20, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us, %16, %.lr.ph.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit15
@@ -1242,14 +1242,14 @@ _ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us: ; preds = %16
   %26 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = invoke noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %27)
-          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit unwind label %.loopexit15.split
+          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit unwind label %.loopexit15.split
 
-_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit: ; preds = %25
+_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit: ; preds = %25
   %29 = getelementptr inbounds i8, ptr %28, i64 1
   %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %29)
           to label %31 unwind label %.loopexit15.split
 
-31:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit
+31:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit
   %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.7)
           to label %33 unwind label %.loopexit15.split
 
@@ -1258,7 +1258,7 @@ _ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit: ; preds = %25
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
-.loopexit15.split:                                ; preds = %.lr.ph.split, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit, %31, %25
+.loopexit15.split:                                ; preds = %.lr.ph.split, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit, %31, %25
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit15
@@ -1832,19 +1832,19 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i: ; preds = %.thread59, %14
   %27 = phi ptr [ %55, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us ], [ %24, %.lr.ph ]
   %28 = phi ptr [ %54, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us ], [ %22, %.lr.ph ]
   %29 = invoke noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %4)
-          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us unwind label %.loopexit.split.us
+          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us unwind label %.loopexit.split.us
 
-_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us: ; preds = %.lr.ph.split.us
+_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us: ; preds = %.lr.ph.split.us
   %.not.i.i.us = icmp eq ptr %26, %27
   br i1 %.not.i.i.us, label %32, label %30
 
-30:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us
+30:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us
   store ptr %29, ptr %26, align 8
   %31 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %31, ptr %25, align 8
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us
 
-32:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us
+32:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit.us
   %33 = ptrtoint ptr %26 to i64
   %34 = ptrtoint ptr %28 to i64
   %35 = sub i64 %33, %34
@@ -1913,19 +1913,19 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us:  ; preds = %_ZNSt6vectorIPKcSaI
   %60 = getelementptr inbounds i32, ptr %.sroa.9.064, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = invoke noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %61)
-          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit unwind label %.loopexit.split
+          to label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit unwind label %.loopexit.split
 
-_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit: ; preds = %.lr.ph.split
+_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit: ; preds = %.lr.ph.split
   %.not.i.i = icmp eq ptr %57, %58
   br i1 %.not.i.i, label %65, label %63
 
-63:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit
+63:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit
   store ptr %62, ptr %57, align 8
   %64 = getelementptr inbounds i8, ptr %57, i64 8
   store ptr %64, ptr %25, align 8
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit
 
-65:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit
+65:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.argprom.exit
   %66 = ptrtoint ptr %57 to i64
   %67 = ptrtoint ptr %59 to i64
   %68 = sub i64 %66, %67

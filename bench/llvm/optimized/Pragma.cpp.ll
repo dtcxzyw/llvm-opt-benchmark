@@ -9275,7 +9275,7 @@ _ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit: ; preds = %_ZNK5clang5Toke
   br i1 %236, label %237, label %_ZNK5clang14IdentifierInfo5isStrILm11EEEbRAT__Kc.exit165.thread
 
 237:                                              ; preds = %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit
-  call fastcc void @_ZN12_GLOBAL__N_118PragmaDebugHandler14HandleCapturedERN5clang12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(3288) %1)
+  call fastcc void @_ZN12_GLOBAL__N_118PragmaDebugHandler14HandleCapturedERN5clang12PreprocessorE.argprom(ptr noundef nonnull align 8 dereferenceable(3288) %1)
   br label %_ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb.exit
 
 _ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
@@ -9607,7 +9607,7 @@ define internal void @_ZN12_GLOBAL__N_118PragmaDebugHandler18DebugOverflowStackE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118PragmaDebugHandler14HandleCapturedERN5clang12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(3288) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118PragmaDebugHandler14HandleCapturedERN5clang12PreprocessorE.argprom(ptr noundef nonnull align 8 dereferenceable(3288) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::Token", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %4 = load i16, ptr %3, align 8

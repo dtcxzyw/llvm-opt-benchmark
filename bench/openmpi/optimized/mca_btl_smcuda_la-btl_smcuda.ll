@@ -155,9 +155,9 @@ define i32 @mca_btl_smcuda_add_procs(ptr noundef %0, i64 noundef %1, ptr nocaptu
 37:                                               ; preds = %33
   %38 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #22
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %create_sm_endpoint.exit.thread, label %41
+  br i1 %39, label %create_sm_endpoint.argprom.exit.thread, label %41
 
-create_sm_endpoint.exit.thread:                   ; preds = %37
+create_sm_endpoint.argprom.exit.thread:           ; preds = %37
   %40 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   store ptr null, ptr %40, align 8
   br label %sm_fifo_init.exit
@@ -521,20 +521,20 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %48
   %190 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2352), align 16
   %191 = call i32 (ptr, i32, ...) @open(ptr noundef %190, i32 noundef 0) #21
   %192 = icmp eq i32 %191, -1
-  br i1 %192, label %setup_mpool_base_resources.exit.thread.i, label %193
+  br i1 %192, label %setup_mpool_base_resources.argprom.exit.thread.i, label %193
 
 193:                                              ; preds = %184
   %194 = getelementptr inbounds i8, ptr %182, i64 24
   %195 = call i64 @read(i32 noundef %191, ptr noundef nonnull %194, i64 noundef 4136) #21
   %.not.i.i108 = icmp eq i64 %195, 4136
-  br i1 %.not.i.i108, label %196, label %setup_mpool_base_resources.exit.i
+  br i1 %.not.i.i108, label %196, label %setup_mpool_base_resources.argprom.exit.i
 
 196:                                              ; preds = %193
   %197 = call i64 @read(i32 noundef %191, ptr noundef nonnull %182, i64 noundef 8) #21
   %.not14.i.i = icmp eq i64 %197, 8
-  br i1 %.not14.i.i, label %204, label %setup_mpool_base_resources.exit.i
+  br i1 %.not14.i.i, label %204, label %setup_mpool_base_resources.argprom.exit.i
 
-setup_mpool_base_resources.exit.thread.i:         ; preds = %184
+setup_mpool_base_resources.argprom.exit.thread.i: ; preds = %184
   %198 = tail call ptr @__errno_location() #25
   %199 = load i32, ptr %198, align 4
   %200 = load ptr, ptr @opal_show_help, align 8
@@ -542,7 +542,7 @@ setup_mpool_base_resources.exit.thread.i:         ; preds = %184
   %202 = call i32 (ptr, ptr, i32, ...) %200(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef %201, i32 noundef %199) #21
   br label %smcuda_btl_first_time_init.exit.thread.sink.split
 
-setup_mpool_base_resources.exit.i:                ; preds = %196, %193
+setup_mpool_base_resources.argprom.exit.i:        ; preds = %196, %193
   %.sink.i.i = phi i64 [ %195, %193 ], [ %197, %196 ]
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.19, i64 noundef %.sink.i.i, i64 noundef 4136) #21
   %203 = call i32 @close(i32 noundef %191) #21
@@ -584,7 +584,7 @@ setup_mpool_base_resources.exit.i:                ; preds = %196, %193
   %224 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2368), align 16
   %225 = call i32 (ptr, i32, ...) @open(ptr noundef %224, i32 noundef 0) #21
   %226 = icmp eq i32 %225, -1
-  br i1 %226, label %sm_segment_attach.exit.thread149.i, label %227
+  br i1 %226, label %sm_segment_attach.argprom.exit.thread149.i, label %227
 
 227:                                              ; preds = %223
   %228 = call i64 @read(i32 noundef %225, ptr noundef nonnull %221, i64 noundef 4136) #21
@@ -593,7 +593,7 @@ setup_mpool_base_resources.exit.i:                ; preds = %196, %193
 
 229:                                              ; preds = %227
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.20, i64 noundef %228, i64 noundef 4136) #21
-  br label %sm_segment_attach.exit.i
+  br label %sm_segment_attach.argprom.exit.i
 
 230:                                              ; preds = %227
   %231 = load i32, ptr @opal_cache_line_size, align 4
@@ -605,22 +605,22 @@ setup_mpool_base_resources.exit.i:                ; preds = %196, %193
 
 235:                                              ; preds = %230
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.21) #21
-  br label %sm_segment_attach.exit.i
+  br label %sm_segment_attach.argprom.exit.i
 
-sm_segment_attach.exit.thread149.i:               ; preds = %223
+sm_segment_attach.argprom.exit.thread149.i:       ; preds = %223
   %236 = tail call ptr @__errno_location() #25
   %237 = load i32, ptr %236, align 4
   %238 = load ptr, ptr @opal_show_help, align 8
   %239 = call ptr @strerror(i32 noundef %237) #21
   %240 = call i32 (ptr, ptr, i32, ...) %238(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef %239, i32 noundef %237) #21
-  br label %sm_segment_attach.exit.thread.sink.split.i
+  br label %sm_segment_attach.argprom.exit.thread.sink.split.i
 
-sm_segment_attach.exit.i:                         ; preds = %235, %229
+sm_segment_attach.argprom.exit.i:                 ; preds = %235, %229
   %241 = call i32 @close(i32 noundef %225) #21
-  br label %sm_segment_attach.exit.thread.sink.split.i
+  br label %sm_segment_attach.argprom.exit.thread.sink.split.i
 
-sm_segment_attach.exit.thread.sink.split.i:       ; preds = %sm_segment_attach.exit.i, %sm_segment_attach.exit.thread149.i
-  %.0.i148.ph.i = phi i32 [ -11, %sm_segment_attach.exit.thread149.i ], [ -1, %sm_segment_attach.exit.i ]
+sm_segment_attach.argprom.exit.thread.sink.split.i: ; preds = %sm_segment_attach.argprom.exit.i, %sm_segment_attach.argprom.exit.thread149.i
+  %.0.i148.ph.i = phi i32 [ -11, %sm_segment_attach.argprom.exit.thread149.i ], [ -1, %sm_segment_attach.argprom.exit.i ]
   call void @free(ptr noundef nonnull %221) #21
   br label %smcuda_btl_first_time_init.exit.thread.sink.split
 
@@ -785,8 +785,8 @@ sm_segment_attach.exit.thread.sink.split.i:       ; preds = %sm_segment_attach.e
   %.not117.i = icmp eq i32 %343, 0
   br i1 %.not117.i, label %smcuda_btl_first_time_init.exit, label %smcuda_btl_first_time_init.exit.thread
 
-smcuda_btl_first_time_init.exit.thread.sink.split: ; preds = %220, %sm_segment_attach.exit.thread.sink.split.i, %211, %204, %setup_mpool_base_resources.exit.thread.i, %setup_mpool_base_resources.exit.i
-  %.0.i.ph.ph = phi i32 [ -11, %setup_mpool_base_resources.exit.thread.i ], [ -1, %setup_mpool_base_resources.exit.i ], [ -2, %204 ], [ -2, %211 ], [ -2, %220 ], [ %.0.i148.ph.i, %sm_segment_attach.exit.thread.sink.split.i ]
+smcuda_btl_first_time_init.exit.thread.sink.split: ; preds = %220, %sm_segment_attach.argprom.exit.thread.sink.split.i, %211, %204, %setup_mpool_base_resources.argprom.exit.thread.i, %setup_mpool_base_resources.argprom.exit.i
+  %.0.i.ph.ph = phi i32 [ -11, %setup_mpool_base_resources.argprom.exit.thread.i ], [ -1, %setup_mpool_base_resources.argprom.exit.i ], [ -2, %204 ], [ -2, %211 ], [ -2, %220 ], [ %.0.i148.ph.i, %sm_segment_attach.argprom.exit.thread.sink.split.i ]
   call void @free(ptr noundef nonnull %182) #21
   br label %smcuda_btl_first_time_init.exit.thread
 
@@ -1098,8 +1098,8 @@ opal_next_poweroftwo_inclusive.exit.i:            ; preds = %372, %363
   %493 = call i32 @opal_free_list_resize_mt(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 496), i64 noundef %492) #21
   br label %sm_fifo_init.exit
 
-sm_fifo_init.exit:                                ; preds = %.loopexit, %opal_next_poweroftwo_inclusive.exit.i, %.preheader, %smcuda_btl_first_time_init.exit.thread, %create_sm_endpoint.exit.thread, %._crit_edge, %._crit_edge163, %78, %5
-  %.0 = phi i32 [ -2, %5 ], [ %493, %._crit_edge163 ], [ 0, %._crit_edge ], [ -1, %78 ], [ -1, %create_sm_endpoint.exit.thread ], [ %.0.i.ph, %smcuda_btl_first_time_init.exit.thread ], [ 0, %.preheader ], [ -2, %opal_next_poweroftwo_inclusive.exit.i ], [ %76, %.loopexit ]
+sm_fifo_init.exit:                                ; preds = %.loopexit, %opal_next_poweroftwo_inclusive.exit.i, %.preheader, %smcuda_btl_first_time_init.exit.thread, %create_sm_endpoint.argprom.exit.thread, %._crit_edge, %._crit_edge163, %78, %5
+  %.0 = phi i32 [ -2, %5 ], [ %493, %._crit_edge163 ], [ 0, %._crit_edge ], [ -1, %78 ], [ -1, %create_sm_endpoint.argprom.exit.thread ], [ %.0.i.ph, %smcuda_btl_first_time_init.exit.thread ], [ 0, %.preheader ], [ -2, %opal_next_poweroftwo_inclusive.exit.i ], [ %76, %.loopexit ]
   ret i32 %.0
 }
 
@@ -1417,7 +1417,7 @@ define range(i32 0, 2) i32 @mca_btl_smcuda_send(ptr nocapture readnone %0, ptr n
   br i1 %or.cond, label %18, label %17
 
 17:                                               ; preds = %12
-  tail call fastcc void @mca_btl_smcuda_send_cuda_ipc_request(ptr noundef nonnull %1)
+  tail call fastcc void @mca_btl_smcuda_send_cuda_ipc_request.argprom(ptr noundef nonnull %1)
   br label %18
 
 18:                                               ; preds = %17, %12, %11
@@ -1630,7 +1630,7 @@ define range(i32 -4, 1) i32 @mca_btl_smcuda_sendi(ptr nocapture readnone %0, ptr
   br i1 %or.cond, label %28, label %27
 
 27:                                               ; preds = %22
-  tail call fastcc void @mca_btl_smcuda_send_cuda_ipc_request(ptr noundef nonnull %1)
+  tail call fastcc void @mca_btl_smcuda_send_cuda_ipc_request.argprom(ptr noundef nonnull %1)
   br label %28
 
 28:                                               ; preds = %27, %22, %21
@@ -2120,7 +2120,7 @@ declare i32 @opal_convertor_pack(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @mca_btl_smcuda_component_progress() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_btl_smcuda_send_cuda_ipc_request(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @mca_btl_smcuda_send_cuda_ipc_request.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load i8, ptr @opal_uses_threads, align 1
   %4 = trunc i8 %3 to i1

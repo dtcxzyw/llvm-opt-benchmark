@@ -766,14 +766,14 @@ define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.3, i32 noundef %.0249351378, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
   %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
   %78 = getelementptr i8, ptr %.0246354375, i64 %77
-  tail call fastcc void @AppendSeconds(ptr noundef %78, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
+  tail call fastcc void @AppendSeconds.argelim(ptr noundef %78, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
 79:                                               ; preds = %74
   %80 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.4, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
   %82 = getelementptr i8, ptr %.0246354375, i64 %81
-  tail call fastcc void @AppendSeconds(ptr noundef %82, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
+  tail call fastcc void @AppendSeconds.argelim(ptr noundef %82, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
 83:                                               ; preds = %4
@@ -1244,7 +1244,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AppendSeconds(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @AppendSeconds.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = icmp eq i32 %2, 0
   %6 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   br i1 %5, label %7, label %12

@@ -66,13 +66,13 @@ if.end.i:                                         ; preds = %if.then9
   store i64 0, ptr getelementptr inbounds (i8, ptr @do_askpass.buffer, i64 8), align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @do_askpass.buffer, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
+  br i1 %cmp3.not.i.i, label %strbuf_setlen.argprom.exit.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i
   store i8 0, ptr %2, align 1
-  br label %strbuf_setlen.exit.i
+  br label %strbuf_setlen.argprom.exit.i
 
-strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.end.i
+strbuf_setlen.argprom.exit.i:                     ; preds = %if.then4.i.i, %if.end.i
   %3 = load i32, ptr %out.i, align 4
   %call5.i = call i64 @strbuf_read(ptr noundef nonnull @do_askpass.buffer, i32 noundef %3, i64 noundef 20) #11
   %4 = load i32, ptr %out.i, align 4
@@ -83,12 +83,12 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.e
   %tobool14.not.i = select i1 %tobool11.not.i, i1 %tobool14.not6.i, i1 false
   br i1 %tobool14.not.i, label %if.end18.i, label %if.then15.i
 
-if.then15.i:                                      ; preds = %strbuf_setlen.exit.i
+if.then15.i:                                      ; preds = %strbuf_setlen.argprom.exit.i
   %call16.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull %askpass.112) #11
   call void @strbuf_release(ptr noundef nonnull @do_askpass.buffer) #11
   br label %if.end12.thread16
 
-if.end18.i:                                       ; preds = %strbuf_setlen.exit.i
+if.end18.i:                                       ; preds = %strbuf_setlen.argprom.exit.i
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @do_askpass.buffer, i64 16), align 8
   %call19.i = call i64 @strcspn(ptr noundef %5, ptr noundef nonnull @.str.6) #12
   %6 = load i64, ptr @do_askpass.buffer, align 8

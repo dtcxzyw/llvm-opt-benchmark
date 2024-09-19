@@ -524,7 +524,7 @@ define noundef ptr @_ZNK5faiss10IndexIVFPQ23get_InvertedListScannerEbPKNS_10IDSe
 10:                                               ; preds = %9
   %11 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %12 = getelementptr inbounds i8, ptr %11, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %12, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %12, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %20
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %10
@@ -552,7 +552,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
 22:                                               ; preds = %9
   %23 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %24 = getelementptr inbounds i8, ptr %23, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %24, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %24, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %32
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %22
@@ -592,7 +592,7 @@ common.resume:                                    ; preds = %96, %108, %121, %13
 35:                                               ; preds = %34
   %36 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %37 = getelementptr inbounds i8, ptr %36, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %37, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %37, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %45
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %35
@@ -620,7 +620,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
 47:                                               ; preds = %34
   %48 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %49 = getelementptr inbounds i8, ptr %48, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %49, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %49, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %57
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %47
@@ -654,7 +654,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
 60:                                               ; preds = %59
   %61 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %62 = getelementptr inbounds i8, ptr %61, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %62, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %62, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %70
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %60
@@ -682,7 +682,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDec
 72:                                               ; preds = %59
   %73 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %74 = getelementptr inbounds i8, ptr %73, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %74, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %74, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %82
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %72
@@ -722,10 +722,10 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDec
 86:                                               ; preds = %85
   %87 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %88 = getelementptr inbounds i8, ptr %87, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %88, ptr noundef nonnull align 8 dereferenceable(528) %0)
-          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %96
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %88, ptr noundef nonnull align 8 dereferenceable(528) %0)
+          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i unwind label %96
 
-_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %86
+_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i: ; preds = %86
   %89 = zext i1 %1 to i8
   %90 = getelementptr inbounds i8, ptr %87, i64 8
   store i64 -1, ptr %90, align 8
@@ -750,10 +750,10 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
 98:                                               ; preds = %85
   %99 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %100 = getelementptr inbounds i8, ptr %99, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %100, ptr noundef nonnull align 8 dereferenceable(528) %0)
-          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %108
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %100, ptr noundef nonnull align 8 dereferenceable(528) %0)
+          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i unwind label %108
 
-_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %98
+_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i: ; preds = %98
   %101 = zext i1 %1 to i8
   %102 = getelementptr inbounds i8, ptr %99, i64 8
   store i64 -1, ptr %102, align 8
@@ -784,10 +784,10 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDec
 111:                                              ; preds = %110
   %112 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %113 = getelementptr inbounds i8, ptr %112, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %113, ptr noundef nonnull align 8 dereferenceable(528) %0)
-          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %121
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %113, ptr noundef nonnull align 8 dereferenceable(528) %0)
+          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i unwind label %121
 
-_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %111
+_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i: ; preds = %111
   %114 = zext i1 %1 to i8
   %115 = getelementptr inbounds i8, ptr %112, i64 8
   store i64 -1, ptr %115, align 8
@@ -812,10 +812,10 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
 123:                                              ; preds = %110
   %124 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %125 = getelementptr inbounds i8, ptr %124, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %125, ptr noundef nonnull align 8 dereferenceable(528) %0)
-          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %133
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %125, ptr noundef nonnull align 8 dereferenceable(528) %0)
+          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i unwind label %133
 
-_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %123
+_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i: ; preds = %123
   %126 = zext i1 %1 to i8
   %127 = getelementptr inbounds i8, ptr %124, i64 8
   store i64 -1, ptr %127, align 8
@@ -846,10 +846,10 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
 136:                                              ; preds = %135
   %137 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %138 = getelementptr inbounds i8, ptr %137, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %138, ptr noundef nonnull align 8 dereferenceable(528) %0)
-          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %146
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %138, ptr noundef nonnull align 8 dereferenceable(528) %0)
+          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i unwind label %146
 
-_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %136
+_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i: ; preds = %136
   %139 = zext i1 %1 to i8
   %140 = getelementptr inbounds i8, ptr %137, i64 8
   store i64 -1, ptr %140, align 8
@@ -874,10 +874,10 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDec
 148:                                              ; preds = %135
   %149 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %150 = getelementptr inbounds i8, ptr %149, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %150, ptr noundef nonnull align 8 dereferenceable(528) %0)
-          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %158
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %150, ptr noundef nonnull align 8 dereferenceable(528) %0)
+          to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i unwind label %158
 
-_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %148
+_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i: ; preds = %148
   %151 = zext i1 %1 to i8
   %152 = getelementptr inbounds i8, ptr %149, i64 8
   store i64 -1, ptr %152, align 8
@@ -899,8 +899,8 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDec
           cleanup
   br label %common.resume
 
-_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner2ILb1EEEPNS_19InvertedListScannerERKNS_10IndexIVFPQEbPKNS_10IDSelectorE.exit: ; preds = %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %135, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %110, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %85, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %59, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %34, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %9
-  %.0 = phi ptr [ %11, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %23, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %9 ], [ %36, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %48, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %34 ], [ %61, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %73, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %59 ], [ %87, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %99, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %85 ], [ %112, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %124, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %110 ], [ %137, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %149, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %135 ]
+_ZN5faiss12_GLOBAL__N_124get_InvertedListScanner2ILb1EEEPNS_19InvertedListScannerERKNS_10IndexIVFPQEbPKNS_10IDSelectorE.exit: ; preds = %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i, %135, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i, %110, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i, %85, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %59, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %34, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i, %9
+  %.0 = phi ptr [ %11, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %23, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %9 ], [ %36, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %48, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %34 ], [ %61, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ %73, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i ], [ null, %59 ], [ %87, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i ], [ %99, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i ], [ null, %85 ], [ %112, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i ], [ %124, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i ], [ null, %110 ], [ %137, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i ], [ %149, %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.argprom.exit.i.i ], [ null, %135 ]
   ret ptr %.0
 }
 
@@ -2898,7 +2898,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -4763,7 +4763,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader147.i.i.i.i, %36
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader147.i.i.i.i ], [ %269, %.preheader.loopexit.i.i.i.i ], [ 0, %36 ]
   %.not169.i.i.i.i = icmp eq i64 %46, %1
-  br i1 %.not169.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph166.i.i.i.i
+  br i1 %.not169.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph166.i.i.i.i
 
 .lr.ph166.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %42, 32
@@ -4910,9 +4910,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i.i.i = phi i64 [ %.3165.i.i.i.i, %304 ], [ %.3165.i.i.i.i, %310 ], [ %318, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i.i.i ], [ %318, %344 ]
   %346 = add nuw i64 %.090163.i.i.i.i, 1
   %347 = icmp ult i64 %346, %1
-  br i1 %347, label %304, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !95
+  br i1 %347, label %304, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !95
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %348 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -5329,7 +5329,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i58.i.i:                             ; preds = %.preheader.loopexit.i.i57.i.i, %.preheader147.i.i40.i.i, %350
   %.2.lcssa.i.i59.i.i = phi i64 [ %.1.i.i39.i.i, %.preheader147.i.i40.i.i ], [ %587, %.preheader.loopexit.i.i57.i.i ], [ 0, %350 ]
   %.not169.i.i60.i.i = icmp eq i64 %360, %1
-  br i1 %.not169.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph166.i.i61.i.i
+  br i1 %.not169.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph166.i.i61.i.i
 
 .lr.ph166.i.i61.i.i:                              ; preds = %.preheader.i.i58.i.i
   %sext.i.i62.i.i = shl i64 %356, 32
@@ -5477,9 +5477,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i69.i.i = phi i64 [ %.3165.i.i66.i.i, %622 ], [ %.3165.i.i66.i.i, %628 ], [ %637, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i79.i.i ], [ %637, %663 ]
   %665 = add nuw i64 %.090163.i.i67.i.i, 1
   %666 = icmp ult i64 %665, %1
-  br i1 %666, label %622, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !125
+  br i1 %666, label %622, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !125
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i68.i.i, %.preheader.i.i58.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i68.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i70.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i69.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i68.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %667 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -5922,7 +5922,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i144.i.i:                            ; preds = %.preheader.loopexit.i.i143.i.i, %.preheader151.i.i.i.i, %669
   %.2.lcssa.i.i145.i.i = phi i64 [ %.1.i.i130.i.i, %.preheader151.i.i.i.i ], [ %932, %.preheader.loopexit.i.i143.i.i ], [ 0, %669 ]
   %.not173.i.i.i.i = icmp eq i64 %681, %1
-  br i1 %.not173.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph170.i.i.i.i
+  br i1 %.not173.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph170.i.i.i.i
 
 .lr.ph170.i.i.i.i:                                ; preds = %.preheader.i.i144.i.i
   %sext.i.i146.i.i = shl i64 %675, 32
@@ -6076,9 +6076,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i151.i.i = phi i64 [ %.3169.i.i.i.i, %967 ], [ %.3169.i.i.i.i, %973 ], [ %988, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i161.i.i ], [ %988, %1014 ]
   %1016 = add nuw i64 %.090167.i.i.i.i, 1
   %1017 = icmp ult i64 %1016, %1
-  br i1 %1017, label %967, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !155
+  br i1 %1017, label %967, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !155
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i150.i.i, %.preheader.i.i144.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i150.i.i, %.preheader.i.i144.i.i
   %.3.lcssa.i.i152.i.i = phi i64 [ %.2.lcssa.i.i145.i.i, %.preheader.i.i144.i.i ], [ %.4.i.i151.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i150.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1018 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -6544,7 +6544,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i218.i.i:                            ; preds = %.preheader.loopexit.i.i217.i.i, %.preheader155.i.i.i.i, %1020
   %.2.lcssa.i.i219.i.i = phi i64 [ %.1.i.i204.i.i, %.preheader155.i.i.i.i ], [ %1306, %.preheader.loopexit.i.i217.i.i ], [ 0, %1020 ]
   %.not177.i.i.i.i = icmp eq i64 %1035, %1
-  br i1 %.not177.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph174.i.i.i.i
+  br i1 %.not177.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph174.i.i.i.i
 
 .lr.ph174.i.i.i.i:                                ; preds = %.preheader.i.i218.i.i
   %sext.i.i220.i.i = shl i64 %1026, 32
@@ -6703,9 +6703,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i225.i.i = phi i64 [ %.3173.i.i.i.i, %1341 ], [ %.3173.i.i.i.i, %1347 ], [ %1367, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i235.i.i ], [ %1367, %1393 ]
   %1395 = add nuw i64 %.090171.i.i.i.i, 1
   %1396 = icmp ult i64 %1395, %1
-  br i1 %1396, label %1341, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !185
+  br i1 %1396, label %1341, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !185
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i224.i.i, %.preheader.i.i218.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i224.i.i, %.preheader.i.i218.i.i
   %.3.lcssa.i.i226.i.i = phi i64 [ %.2.lcssa.i.i219.i.i, %.preheader.i.i218.i.i ], [ %.4.i.i225.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i224.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1397 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -7200,7 +7200,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i292.i.i:                            ; preds = %.preheader.loopexit.i.i291.i.i, %.preheader159.i.i.i.i, %1399
   %.2.lcssa.i.i293.i.i = phi i64 [ %.1.i.i278.i.i, %.preheader159.i.i.i.i ], [ %1714, %.preheader.loopexit.i.i291.i.i ], [ 0, %1399 ]
   %.not181.i.i.i.i = icmp eq i64 %1415, %1
-  br i1 %.not181.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph178.i.i.i.i
+  br i1 %.not181.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph178.i.i.i.i
 
 .lr.ph178.i.i.i.i:                                ; preds = %.preheader.i.i292.i.i
   %sext.i.i294.i.i = shl i64 %1405, 32
@@ -7366,9 +7366,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i299.i.i = phi i64 [ %.3177.i.i.i.i, %1749 ], [ %.3177.i.i.i.i, %1755 ], [ %1782, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i309.i.i ], [ %1782, %1808 ]
   %1810 = add nuw i64 %.090175.i.i.i.i, 1
   %1811 = icmp ult i64 %1810, %1
-  br i1 %1811, label %1749, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !215
+  br i1 %1811, label %1749, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !215
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i298.i.i, %.preheader.i.i292.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i298.i.i, %.preheader.i.i292.i.i
   %.3.lcssa.i.i300.i.i = phi i64 [ %.2.lcssa.i.i293.i.i, %.preheader.i.i292.i.i ], [ %.4.i.i299.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i298.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1812 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -7967,7 +7967,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i366.i.i:                            ; preds = %.preheader.loopexit.i.i365.i.i, %.preheader175.i.i.i.i, %1814
   %.2.lcssa.i.i367.i.i = phi i64 [ %.1.i.i352.i.i, %.preheader175.i.i.i.i ], [ %2233, %.preheader.loopexit.i.i365.i.i ], [ 0, %1814 ]
   %.not197.i.i.i.i = icmp eq i64 %1838, %1
-  br i1 %.not197.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph194.i.i.i.i
+  br i1 %.not197.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph194.i.i.i.i
 
 .lr.ph194.i.i.i.i:                                ; preds = %.preheader.i.i366.i.i
   %sext.i.i368.i.i = shl i64 %1820, 32
@@ -8157,9 +8157,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i373.i.i = phi i64 [ %.3193.i.i.i.i, %2268 ], [ %.3193.i.i.i.i, %2274 ], [ %2325, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i383.i.i ], [ %2325, %2351 ]
   %2353 = add nuw i64 %.090191.i.i.i.i, 1
   %2354 = icmp ult i64 %2353, %1
-  br i1 %2354, label %2268, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !245
+  br i1 %2354, label %2268, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !245
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i372.i.i, %.preheader.i.i366.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i372.i.i, %.preheader.i.i366.i.i
   %.3.lcssa.i.i374.i.i = phi i64 [ %.2.lcssa.i.i367.i.i, %.preheader.i.i366.i.i ], [ %.4.i.i373.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i372.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %2355 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -8571,7 +8571,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i436.i.i:                            ; preds = %.preheader.loopexit.i.i435.i.i, %.preheader143.i.i.i.i, %2357
   %.2.lcssa.i.i437.i.i = phi i64 [ %.1.i.i422.i.i, %.preheader143.i.i.i.i ], [ %2585, %.preheader.loopexit.i.i435.i.i ], [ 0, %2357 ]
   %.not165.i.i.i.i = icmp eq i64 %2371, %1
-  br i1 %.not165.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph162.i.i.i.i
+  br i1 %.not165.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph162.i.i.i.i
 
 .lr.ph162.i.i.i.i:                                ; preds = %.preheader.i.i436.i.i
   %sext.i.i438.i.i = shl i64 %2363, 32
@@ -8716,9 +8716,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i443.i.i = phi i64 [ %.3161.i.i.i.i, %2620 ], [ %.3161.i.i.i.i, %2626 ], [ %2632, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i453.i.i ], [ %2632, %2658 ]
   %2660 = add nuw i64 %.090159.i.i.i.i, 1
   %2661 = icmp ult i64 %2660, %1
-  br i1 %2661, label %2620, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !275
+  br i1 %2661, label %2620, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !275
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i442.i.i, %.preheader.i.i436.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i442.i.i, %.preheader.i.i436.i.i
   %.3.lcssa.i.i444.i.i = phi i64 [ %.2.lcssa.i.i437.i.i, %.preheader.i.i436.i.i ], [ %.4.i.i443.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i442.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %2662 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -9349,7 +9349,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29: 
   call void @__cxa_free_exception(ptr %2977) #15
   br label %2984
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i20, %2948, %2881, %2879, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit94.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit85.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit74.i, %._crit_edge.i, %2667, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i20, %2948, %2881, %2879, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit94.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit85.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit74.i, %._crit_edge.i, %2667, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i
   ret void
 
 2984:                                             ; preds = %2981, %2983
@@ -9434,7 +9434,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE.argprom(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10782,7 +10782,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %4) unnamed_addr #2 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -11534,7 +11534,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader223.i.i, %15
   %.2.lcssa.i.i = phi i64 [ 0, %15 ], [ %.1.i.i, %.preheader223.i.i ], [ %410, %.preheader.loopexit.i.i ]
   %.not245.i.i = icmp eq i64 %26, %2
-  br i1 %.not245.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph242.i.i
+  br i1 %.not245.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph242.i.i
 
 .lr.ph242.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %22, 32
@@ -11844,9 +11844,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i:
   %.4.i.i = phi i64 [ %.3241.i.i, %490 ], [ %.3241.i.i, %496 ], [ %504, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i ], [ %504, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i ]
   %570 = add nuw i64 %.090239.i.i, 1
   %571 = icmp ult i64 %570, %2
-  br i1 %571, label %490, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !342
+  br i1 %571, label %490, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !342
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %572 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -12581,7 +12581,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i1
 .preheader.i.i64:                                 ; preds = %.preheader.loopexit.i.i62, %.preheader223.i.i44, %574
   %.2.lcssa.i.i65 = phi i64 [ 0, %574 ], [ %.1.i.i43, %.preheader223.i.i44 ], [ %973, %.preheader.loopexit.i.i62 ]
   %.not245.i.i66 = icmp eq i64 %585, %2
-  br i1 %.not245.i.i66, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph242.i.i67
+  br i1 %.not245.i.i66, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph242.i.i67
 
 .lr.ph242.i.i67:                                  ; preds = %.preheader.i.i64
   %sext.i.i68 = shl i64 %581, 32
@@ -12892,9 +12892,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i7
   %.4.i.i77 = phi i64 [ %.3241.i.i74, %1053 ], [ %.3241.i.i74, %1059 ], [ %1068, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i87 ], [ %1068, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i96 ]
   %1134 = add nuw i64 %.090239.i.i75, 1
   %1135 = icmp ult i64 %1134, %2
-  br i1 %1135, label %1053, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !372
+  br i1 %1135, label %1053, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !372
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
   %.3.lcssa.i.i78 = phi i64 [ %.2.lcssa.i.i65, %.preheader.i.i64 ], [ %.4.i.i77, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1136 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -13655,7 +13655,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i3
 .preheader.i.i240:                                ; preds = %.preheader.loopexit.i.i238, %.preheader227.i.i, %1138
   %.2.lcssa.i.i241 = phi i64 [ 0, %1138 ], [ %.1.i.i224, %.preheader227.i.i ], [ %1563, %.preheader.loopexit.i.i238 ]
   %.not249.i.i = icmp eq i64 %1151, %2
-  br i1 %.not249.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph246.i.i
+  br i1 %.not249.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph246.i.i
 
 .lr.ph246.i.i:                                    ; preds = %.preheader.i.i240
   %sext.i.i242 = shl i64 %1145, 32
@@ -13972,9 +13972,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i2
   %.4.i.i249 = phi i64 [ %.3245.i.i, %1643 ], [ %.3245.i.i, %1649 ], [ %1664, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i259 ], [ %1664, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i268 ]
   %1730 = add nuw i64 %.090243.i.i, 1
   %1731 = icmp ult i64 %1730, %2
-  br i1 %1731, label %1643, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !402
+  br i1 %1731, label %1643, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !402
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
   %.3.lcssa.i.i250 = phi i64 [ %.2.lcssa.i.i241, %.preheader.i.i240 ], [ %.4.i.i249, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1732 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -14758,7 +14758,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i4
 .preheader.i.i402:                                ; preds = %.preheader.loopexit.i.i400, %.preheader231.i.i, %1734
   %.2.lcssa.i.i403 = phi i64 [ 0, %1734 ], [ %.1.i.i386, %.preheader231.i.i ], [ %2182, %.preheader.loopexit.i.i400 ]
   %.not253.i.i = icmp eq i64 %1750, %2
-  br i1 %.not253.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph250.i.i
+  br i1 %.not253.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph250.i.i
 
 .lr.ph250.i.i:                                    ; preds = %.preheader.i.i402
   %sext.i.i404 = shl i64 %1741, 32
@@ -15080,9 +15080,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i4
   %.4.i.i411 = phi i64 [ %.3249.i.i, %2262 ], [ %.3249.i.i, %2268 ], [ %2288, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i421 ], [ %2288, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i430 ]
   %2354 = add nuw i64 %.090247.i.i, 1
   %2355 = icmp ult i64 %2354, %2
-  br i1 %2355, label %2262, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !432
+  br i1 %2355, label %2262, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !432
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
   %.3.lcssa.i.i412 = phi i64 [ %.2.lcssa.i.i403, %.preheader.i.i402 ], [ %.4.i.i411, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -15895,7 +15895,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i6
 .preheader.i.i564:                                ; preds = %.preheader.loopexit.i.i562, %.preheader235.i.i, %2358
   %.2.lcssa.i.i565 = phi i64 [ 0, %2358 ], [ %.1.i.i548, %.preheader235.i.i ], [ %2835, %.preheader.loopexit.i.i562 ]
   %.not257.i.i = icmp eq i64 %2375, %2
-  br i1 %.not257.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph254.i.i
+  br i1 %.not257.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph254.i.i
 
 .lr.ph254.i.i:                                    ; preds = %.preheader.i.i564
   %sext.i.i566 = shl i64 %2365, 32
@@ -16224,9 +16224,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i5
   %.4.i.i573 = phi i64 [ %.3253.i.i, %2915 ], [ %.3253.i.i, %2921 ], [ %2948, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i583 ], [ %2948, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i592 ]
   %3014 = add nuw i64 %.090251.i.i, 1
   %3015 = icmp ult i64 %3014, %2
-  br i1 %3015, label %2915, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !462
+  br i1 %3015, label %2915, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !462
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
   %.3.lcssa.i.i574 = phi i64 [ %.2.lcssa.i.i565, %.preheader.i.i564 ], [ %.4.i.i573, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3016 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -17143,7 +17143,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i8
 .preheader.i.i726:                                ; preds = %.preheader.loopexit.i.i724, %.preheader251.i.i, %3018
   %.2.lcssa.i.i727 = phi i64 [ 0, %3018 ], [ %.1.i.i710, %.preheader251.i.i ], [ %3599, %.preheader.loopexit.i.i724 ]
   %.not273.i.i = icmp eq i64 %3043, %2
-  br i1 %.not273.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph270.i.i
+  br i1 %.not273.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph270.i.i
 
 .lr.ph270.i.i:                                    ; preds = %.preheader.i.i726
   %sext.i.i728 = shl i64 %3025, 32
@@ -17496,9 +17496,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i7
   %.4.i.i735 = phi i64 [ %.3269.i.i, %3679 ], [ %.3269.i.i, %3685 ], [ %3736, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i745 ], [ %3736, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i754 ]
   %3802 = add nuw i64 %.090267.i.i, 1
   %3803 = icmp ult i64 %3802, %2
-  br i1 %3803, label %3679, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !492
+  br i1 %3803, label %3679, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !492
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
   %.3.lcssa.i.i736 = phi i64 [ %.2.lcssa.i.i727, %.preheader.i.i726 ], [ %.4.i.i735, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3804 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -18228,7 +18228,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i9
 .preheader.i.i883:                                ; preds = %.preheader.loopexit.i.i881, %.preheader219.i.i, %3806
   %.2.lcssa.i.i884 = phi i64 [ 0, %3806 ], [ %.1.i.i867, %.preheader219.i.i ], [ %4196, %.preheader.loopexit.i.i881 ]
   %.not241.i.i = icmp eq i64 %3821, %2
-  br i1 %.not241.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph238.i.i
+  br i1 %.not241.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph238.i.i
 
 .lr.ph238.i.i:                                    ; preds = %.preheader.i.i883
   %sext.i.i885 = shl i64 %3813, 32
@@ -18536,9 +18536,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i8
   %.4.i.i892 = phi i64 [ %.3237.i.i, %4276 ], [ %.3237.i.i, %4282 ], [ %4288, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i902 ], [ %4288, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i911 ]
   %4354 = add nuw i64 %.090235.i.i, 1
   %4355 = icmp ult i64 %4354, %2
-  br i1 %4355, label %4276, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !522
+  br i1 %4355, label %4276, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !522
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
   %.3.lcssa.i.i893 = phi i64 [ %.2.lcssa.i.i884, %.preheader.i.i883 ], [ %.4.i.i892, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %4356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -18549,7 +18549,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %4358
 
-4358:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4358:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -18966,7 +18966,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -20826,7 +20826,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader147.i.i.i.i, %36
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader147.i.i.i.i ], [ %269, %.preheader.loopexit.i.i.i.i ], [ 0, %36 ]
   %.not169.i.i.i.i = icmp eq i64 %46, %1
-  br i1 %.not169.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph166.i.i.i.i
+  br i1 %.not169.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph166.i.i.i.i
 
 .lr.ph166.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %42, 32
@@ -20973,9 +20973,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i.i.i = phi i64 [ %.3165.i.i.i.i, %304 ], [ %.3165.i.i.i.i, %310 ], [ %318, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i.i.i ], [ %318, %344 ]
   %346 = add nuw i64 %.090163.i.i.i.i, 1
   %347 = icmp ult i64 %346, %1
-  br i1 %347, label %304, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !585
+  br i1 %347, label %304, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !585
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %348 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -21392,7 +21392,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i58.i.i:                             ; preds = %.preheader.loopexit.i.i57.i.i, %.preheader147.i.i40.i.i, %350
   %.2.lcssa.i.i59.i.i = phi i64 [ %.1.i.i39.i.i, %.preheader147.i.i40.i.i ], [ %587, %.preheader.loopexit.i.i57.i.i ], [ 0, %350 ]
   %.not169.i.i60.i.i = icmp eq i64 %360, %1
-  br i1 %.not169.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph166.i.i61.i.i
+  br i1 %.not169.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph166.i.i61.i.i
 
 .lr.ph166.i.i61.i.i:                              ; preds = %.preheader.i.i58.i.i
   %sext.i.i62.i.i = shl i64 %356, 32
@@ -21540,9 +21540,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i69.i.i = phi i64 [ %.3165.i.i66.i.i, %622 ], [ %.3165.i.i66.i.i, %628 ], [ %637, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i79.i.i ], [ %637, %663 ]
   %665 = add nuw i64 %.090163.i.i67.i.i, 1
   %666 = icmp ult i64 %665, %1
-  br i1 %666, label %622, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !615
+  br i1 %666, label %622, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !615
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i68.i.i, %.preheader.i.i58.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i68.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i70.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i69.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i68.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %667 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -21985,7 +21985,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i144.i.i:                            ; preds = %.preheader.loopexit.i.i143.i.i, %.preheader151.i.i.i.i, %669
   %.2.lcssa.i.i145.i.i = phi i64 [ %.1.i.i130.i.i, %.preheader151.i.i.i.i ], [ %932, %.preheader.loopexit.i.i143.i.i ], [ 0, %669 ]
   %.not173.i.i.i.i = icmp eq i64 %681, %1
-  br i1 %.not173.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph170.i.i.i.i
+  br i1 %.not173.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph170.i.i.i.i
 
 .lr.ph170.i.i.i.i:                                ; preds = %.preheader.i.i144.i.i
   %sext.i.i146.i.i = shl i64 %675, 32
@@ -22139,9 +22139,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i151.i.i = phi i64 [ %.3169.i.i.i.i, %967 ], [ %.3169.i.i.i.i, %973 ], [ %988, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i161.i.i ], [ %988, %1014 ]
   %1016 = add nuw i64 %.090167.i.i.i.i, 1
   %1017 = icmp ult i64 %1016, %1
-  br i1 %1017, label %967, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !645
+  br i1 %1017, label %967, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !645
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i150.i.i, %.preheader.i.i144.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i150.i.i, %.preheader.i.i144.i.i
   %.3.lcssa.i.i152.i.i = phi i64 [ %.2.lcssa.i.i145.i.i, %.preheader.i.i144.i.i ], [ %.4.i.i151.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i150.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1018 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -22607,7 +22607,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i218.i.i:                            ; preds = %.preheader.loopexit.i.i217.i.i, %.preheader155.i.i.i.i, %1020
   %.2.lcssa.i.i219.i.i = phi i64 [ %.1.i.i204.i.i, %.preheader155.i.i.i.i ], [ %1306, %.preheader.loopexit.i.i217.i.i ], [ 0, %1020 ]
   %.not177.i.i.i.i = icmp eq i64 %1035, %1
-  br i1 %.not177.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph174.i.i.i.i
+  br i1 %.not177.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph174.i.i.i.i
 
 .lr.ph174.i.i.i.i:                                ; preds = %.preheader.i.i218.i.i
   %sext.i.i220.i.i = shl i64 %1026, 32
@@ -22766,9 +22766,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i225.i.i = phi i64 [ %.3173.i.i.i.i, %1341 ], [ %.3173.i.i.i.i, %1347 ], [ %1367, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i235.i.i ], [ %1367, %1393 ]
   %1395 = add nuw i64 %.090171.i.i.i.i, 1
   %1396 = icmp ult i64 %1395, %1
-  br i1 %1396, label %1341, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !675
+  br i1 %1396, label %1341, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !675
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i224.i.i, %.preheader.i.i218.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i224.i.i, %.preheader.i.i218.i.i
   %.3.lcssa.i.i226.i.i = phi i64 [ %.2.lcssa.i.i219.i.i, %.preheader.i.i218.i.i ], [ %.4.i.i225.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i224.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1397 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -23263,7 +23263,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i292.i.i:                            ; preds = %.preheader.loopexit.i.i291.i.i, %.preheader159.i.i.i.i, %1399
   %.2.lcssa.i.i293.i.i = phi i64 [ %.1.i.i278.i.i, %.preheader159.i.i.i.i ], [ %1714, %.preheader.loopexit.i.i291.i.i ], [ 0, %1399 ]
   %.not181.i.i.i.i = icmp eq i64 %1415, %1
-  br i1 %.not181.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph178.i.i.i.i
+  br i1 %.not181.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph178.i.i.i.i
 
 .lr.ph178.i.i.i.i:                                ; preds = %.preheader.i.i292.i.i
   %sext.i.i294.i.i = shl i64 %1405, 32
@@ -23429,9 +23429,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i299.i.i = phi i64 [ %.3177.i.i.i.i, %1749 ], [ %.3177.i.i.i.i, %1755 ], [ %1782, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i309.i.i ], [ %1782, %1808 ]
   %1810 = add nuw i64 %.090175.i.i.i.i, 1
   %1811 = icmp ult i64 %1810, %1
-  br i1 %1811, label %1749, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !705
+  br i1 %1811, label %1749, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !705
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i298.i.i, %.preheader.i.i292.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i298.i.i, %.preheader.i.i292.i.i
   %.3.lcssa.i.i300.i.i = phi i64 [ %.2.lcssa.i.i293.i.i, %.preheader.i.i292.i.i ], [ %.4.i.i299.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i298.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1812 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -24030,7 +24030,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i366.i.i:                            ; preds = %.preheader.loopexit.i.i365.i.i, %.preheader175.i.i.i.i, %1814
   %.2.lcssa.i.i367.i.i = phi i64 [ %.1.i.i352.i.i, %.preheader175.i.i.i.i ], [ %2233, %.preheader.loopexit.i.i365.i.i ], [ 0, %1814 ]
   %.not197.i.i.i.i = icmp eq i64 %1838, %1
-  br i1 %.not197.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph194.i.i.i.i
+  br i1 %.not197.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph194.i.i.i.i
 
 .lr.ph194.i.i.i.i:                                ; preds = %.preheader.i.i366.i.i
   %sext.i.i368.i.i = shl i64 %1820, 32
@@ -24220,9 +24220,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i373.i.i = phi i64 [ %.3193.i.i.i.i, %2268 ], [ %.3193.i.i.i.i, %2274 ], [ %2325, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i383.i.i ], [ %2325, %2351 ]
   %2353 = add nuw i64 %.090191.i.i.i.i, 1
   %2354 = icmp ult i64 %2353, %1
-  br i1 %2354, label %2268, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !735
+  br i1 %2354, label %2268, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !735
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i372.i.i, %.preheader.i.i366.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i372.i.i, %.preheader.i.i366.i.i
   %.3.lcssa.i.i374.i.i = phi i64 [ %.2.lcssa.i.i367.i.i, %.preheader.i.i366.i.i ], [ %.4.i.i373.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i372.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %2355 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -24634,7 +24634,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i436.i.i:                            ; preds = %.preheader.loopexit.i.i435.i.i, %.preheader143.i.i.i.i, %2357
   %.2.lcssa.i.i437.i.i = phi i64 [ %.1.i.i422.i.i, %.preheader143.i.i.i.i ], [ %2585, %.preheader.loopexit.i.i435.i.i ], [ 0, %2357 ]
   %.not165.i.i.i.i = icmp eq i64 %2371, %1
-  br i1 %.not165.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph162.i.i.i.i
+  br i1 %.not165.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph162.i.i.i.i
 
 .lr.ph162.i.i.i.i:                                ; preds = %.preheader.i.i436.i.i
   %sext.i.i438.i.i = shl i64 %2363, 32
@@ -24779,9 +24779,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i443.i.i = phi i64 [ %.3161.i.i.i.i, %2620 ], [ %.3161.i.i.i.i, %2626 ], [ %2632, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit125.i.i453.i.i ], [ %2632, %2658 ]
   %2660 = add nuw i64 %.090159.i.i.i.i, 1
   %2661 = icmp ult i64 %2660, %1
-  br i1 %2661, label %2620, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !765
+  br i1 %2661, label %2620, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !765
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i442.i.i, %.preheader.i.i436.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i442.i.i, %.preheader.i.i436.i.i
   %.3.lcssa.i.i444.i.i = phi i64 [ %.2.lcssa.i.i437.i.i, %.preheader.i.i436.i.i ], [ %.4.i.i443.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i442.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %2662 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -25409,7 +25409,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29: 
   call void @__cxa_free_exception(ptr %2971) #15
   br label %2978
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i20, %2945, %2881, %2879, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit94.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit85.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit74.i, %._crit_edge.i, %2667, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i20, %2945, %2881, %2879, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit94.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit85.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit74.i, %._crit_edge.i, %2667, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i
   ret void
 
 2978:                                             ; preds = %2975, %2977
@@ -25492,7 +25492,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %4) unnamed_addr #2 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -26244,7 +26244,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader223.i.i, %15
   %.2.lcssa.i.i = phi i64 [ 0, %15 ], [ %.1.i.i, %.preheader223.i.i ], [ %410, %.preheader.loopexit.i.i ]
   %.not245.i.i = icmp eq i64 %26, %2
-  br i1 %.not245.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph242.i.i
+  br i1 %.not245.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph242.i.i
 
 .lr.ph242.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %22, 32
@@ -26554,9 +26554,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i:
   %.4.i.i = phi i64 [ %.3241.i.i, %490 ], [ %.3241.i.i, %496 ], [ %504, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i ], [ %504, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i ]
   %570 = add nuw i64 %.090239.i.i, 1
   %571 = icmp ult i64 %570, %2
-  br i1 %571, label %490, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !826
+  br i1 %571, label %490, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !826
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %572 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -27291,7 +27291,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i1
 .preheader.i.i64:                                 ; preds = %.preheader.loopexit.i.i62, %.preheader223.i.i44, %574
   %.2.lcssa.i.i65 = phi i64 [ 0, %574 ], [ %.1.i.i43, %.preheader223.i.i44 ], [ %973, %.preheader.loopexit.i.i62 ]
   %.not245.i.i66 = icmp eq i64 %585, %2
-  br i1 %.not245.i.i66, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph242.i.i67
+  br i1 %.not245.i.i66, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph242.i.i67
 
 .lr.ph242.i.i67:                                  ; preds = %.preheader.i.i64
   %sext.i.i68 = shl i64 %581, 32
@@ -27602,9 +27602,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i7
   %.4.i.i77 = phi i64 [ %.3241.i.i74, %1053 ], [ %.3241.i.i74, %1059 ], [ %1068, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i87 ], [ %1068, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i96 ]
   %1134 = add nuw i64 %.090239.i.i75, 1
   %1135 = icmp ult i64 %1134, %2
-  br i1 %1135, label %1053, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !856
+  br i1 %1135, label %1053, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !856
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
   %.3.lcssa.i.i78 = phi i64 [ %.2.lcssa.i.i65, %.preheader.i.i64 ], [ %.4.i.i77, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1136 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -28365,7 +28365,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i3
 .preheader.i.i240:                                ; preds = %.preheader.loopexit.i.i238, %.preheader227.i.i, %1138
   %.2.lcssa.i.i241 = phi i64 [ 0, %1138 ], [ %.1.i.i224, %.preheader227.i.i ], [ %1563, %.preheader.loopexit.i.i238 ]
   %.not249.i.i = icmp eq i64 %1151, %2
-  br i1 %.not249.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph246.i.i
+  br i1 %.not249.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph246.i.i
 
 .lr.ph246.i.i:                                    ; preds = %.preheader.i.i240
   %sext.i.i242 = shl i64 %1145, 32
@@ -28682,9 +28682,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i2
   %.4.i.i249 = phi i64 [ %.3245.i.i, %1643 ], [ %.3245.i.i, %1649 ], [ %1664, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i259 ], [ %1664, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i268 ]
   %1730 = add nuw i64 %.090243.i.i, 1
   %1731 = icmp ult i64 %1730, %2
-  br i1 %1731, label %1643, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !886
+  br i1 %1731, label %1643, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !886
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
   %.3.lcssa.i.i250 = phi i64 [ %.2.lcssa.i.i241, %.preheader.i.i240 ], [ %.4.i.i249, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1732 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -29468,7 +29468,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i4
 .preheader.i.i402:                                ; preds = %.preheader.loopexit.i.i400, %.preheader231.i.i, %1734
   %.2.lcssa.i.i403 = phi i64 [ 0, %1734 ], [ %.1.i.i386, %.preheader231.i.i ], [ %2182, %.preheader.loopexit.i.i400 ]
   %.not253.i.i = icmp eq i64 %1750, %2
-  br i1 %.not253.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph250.i.i
+  br i1 %.not253.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph250.i.i
 
 .lr.ph250.i.i:                                    ; preds = %.preheader.i.i402
   %sext.i.i404 = shl i64 %1741, 32
@@ -29790,9 +29790,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i4
   %.4.i.i411 = phi i64 [ %.3249.i.i, %2262 ], [ %.3249.i.i, %2268 ], [ %2288, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i421 ], [ %2288, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i430 ]
   %2354 = add nuw i64 %.090247.i.i, 1
   %2355 = icmp ult i64 %2354, %2
-  br i1 %2355, label %2262, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !916
+  br i1 %2355, label %2262, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !916
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
   %.3.lcssa.i.i412 = phi i64 [ %.2.lcssa.i.i403, %.preheader.i.i402 ], [ %.4.i.i411, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -30605,7 +30605,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i6
 .preheader.i.i564:                                ; preds = %.preheader.loopexit.i.i562, %.preheader235.i.i, %2358
   %.2.lcssa.i.i565 = phi i64 [ 0, %2358 ], [ %.1.i.i548, %.preheader235.i.i ], [ %2835, %.preheader.loopexit.i.i562 ]
   %.not257.i.i = icmp eq i64 %2375, %2
-  br i1 %.not257.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph254.i.i
+  br i1 %.not257.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph254.i.i
 
 .lr.ph254.i.i:                                    ; preds = %.preheader.i.i564
   %sext.i.i566 = shl i64 %2365, 32
@@ -30934,9 +30934,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i5
   %.4.i.i573 = phi i64 [ %.3253.i.i, %2915 ], [ %.3253.i.i, %2921 ], [ %2948, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i583 ], [ %2948, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i592 ]
   %3014 = add nuw i64 %.090251.i.i, 1
   %3015 = icmp ult i64 %3014, %2
-  br i1 %3015, label %2915, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !946
+  br i1 %3015, label %2915, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !946
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
   %.3.lcssa.i.i574 = phi i64 [ %.2.lcssa.i.i565, %.preheader.i.i564 ], [ %.4.i.i573, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3016 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -31853,7 +31853,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i8
 .preheader.i.i726:                                ; preds = %.preheader.loopexit.i.i724, %.preheader251.i.i, %3018
   %.2.lcssa.i.i727 = phi i64 [ 0, %3018 ], [ %.1.i.i710, %.preheader251.i.i ], [ %3599, %.preheader.loopexit.i.i724 ]
   %.not273.i.i = icmp eq i64 %3043, %2
-  br i1 %.not273.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph270.i.i
+  br i1 %.not273.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph270.i.i
 
 .lr.ph270.i.i:                                    ; preds = %.preheader.i.i726
   %sext.i.i728 = shl i64 %3025, 32
@@ -32206,9 +32206,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i7
   %.4.i.i735 = phi i64 [ %.3269.i.i, %3679 ], [ %.3269.i.i, %3685 ], [ %3736, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i745 ], [ %3736, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i754 ]
   %3802 = add nuw i64 %.090267.i.i, 1
   %3803 = icmp ult i64 %3802, %2
-  br i1 %3803, label %3679, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !976
+  br i1 %3803, label %3679, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !976
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
   %.3.lcssa.i.i736 = phi i64 [ %.2.lcssa.i.i727, %.preheader.i.i726 ], [ %.4.i.i735, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3804 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -32938,7 +32938,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i9
 .preheader.i.i883:                                ; preds = %.preheader.loopexit.i.i881, %.preheader219.i.i, %3806
   %.2.lcssa.i.i884 = phi i64 [ 0, %3806 ], [ %.1.i.i867, %.preheader219.i.i ], [ %4196, %.preheader.loopexit.i.i881 ]
   %.not241.i.i = icmp eq i64 %3821, %2
-  br i1 %.not241.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph238.i.i
+  br i1 %.not241.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph238.i.i
 
 .lr.ph238.i.i:                                    ; preds = %.preheader.i.i883
   %sext.i.i885 = shl i64 %3813, 32
@@ -33246,9 +33246,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i8
   %.4.i.i892 = phi i64 [ %.3237.i.i, %4276 ], [ %.3237.i.i, %4282 ], [ %4288, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit186.i.i902 ], [ %4288, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i911 ]
   %4354 = add nuw i64 %.090235.i.i, 1
   %4355 = icmp ult i64 %4354, %2
-  br i1 %4355, label %4276, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1006
+  br i1 %4355, label %4276, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1006
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
   %.3.lcssa.i.i893 = phi i64 [ %.2.lcssa.i.i884, %.preheader.i.i883 ], [ %.4.i.i892, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %4356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -33259,7 +33259,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %4358
 
-4358:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4358:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -33387,7 +33387,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -35250,7 +35250,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader147.i.i.i.i, %36
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader147.i.i.i.i ], [ %269, %.preheader.loopexit.i.i.i.i ], [ 0, %36 ]
   %.not169.i.i.i.i = icmp eq i64 %46, %1
-  br i1 %.not169.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph166.i.i.i.i
+  br i1 %.not169.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph166.i.i.i.i
 
 .lr.ph166.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %42, 32
@@ -35397,9 +35397,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i.i.i = phi i64 [ %.3165.i.i.i.i, %304 ], [ %.3165.i.i.i.i, %310 ], [ %318, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i.i.i ], [ %318, %344 ]
   %346 = add nuw i64 %.090163.i.i.i.i, 1
   %347 = icmp ult i64 %346, %1
-  br i1 %347, label %304, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1069
+  br i1 %347, label %304, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1069
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %348 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -35816,7 +35816,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i59.i.i:                             ; preds = %.preheader.loopexit.i.i58.i.i, %.preheader147.i.i41.i.i, %350
   %.2.lcssa.i.i60.i.i = phi i64 [ %.1.i.i40.i.i, %.preheader147.i.i41.i.i ], [ %587, %.preheader.loopexit.i.i58.i.i ], [ 0, %350 ]
   %.not169.i.i61.i.i = icmp eq i64 %360, %1
-  br i1 %.not169.i.i61.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph166.i.i62.i.i
+  br i1 %.not169.i.i61.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph166.i.i62.i.i
 
 .lr.ph166.i.i62.i.i:                              ; preds = %.preheader.i.i59.i.i
   %sext.i.i63.i.i = shl i64 %356, 32
@@ -35964,9 +35964,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i70.i.i = phi i64 [ %.3165.i.i67.i.i, %622 ], [ %.3165.i.i67.i.i, %628 ], [ %637, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i80.i.i ], [ %637, %663 ]
   %665 = add nuw i64 %.090163.i.i68.i.i, 1
   %666 = icmp ult i64 %665, %1
-  br i1 %666, label %622, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1099
+  br i1 %666, label %622, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1099
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i69.i.i, %.preheader.i.i59.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i69.i.i, %.preheader.i.i59.i.i
   %.3.lcssa.i.i71.i.i = phi i64 [ %.2.lcssa.i.i60.i.i, %.preheader.i.i59.i.i ], [ %.4.i.i70.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i69.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %667 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -36409,7 +36409,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i145.i.i:                            ; preds = %.preheader.loopexit.i.i144.i.i, %.preheader151.i.i.i.i, %669
   %.2.lcssa.i.i146.i.i = phi i64 [ %.1.i.i131.i.i, %.preheader151.i.i.i.i ], [ %932, %.preheader.loopexit.i.i144.i.i ], [ 0, %669 ]
   %.not173.i.i.i.i = icmp eq i64 %681, %1
-  br i1 %.not173.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph170.i.i.i.i
+  br i1 %.not173.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph170.i.i.i.i
 
 .lr.ph170.i.i.i.i:                                ; preds = %.preheader.i.i145.i.i
   %sext.i.i147.i.i = shl i64 %675, 32
@@ -36563,9 +36563,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i152.i.i = phi i64 [ %.3169.i.i.i.i, %967 ], [ %.3169.i.i.i.i, %973 ], [ %988, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i162.i.i ], [ %988, %1014 ]
   %1016 = add nuw i64 %.090167.i.i.i.i, 1
   %1017 = icmp ult i64 %1016, %1
-  br i1 %1017, label %967, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1129
+  br i1 %1017, label %967, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1129
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i151.i.i, %.preheader.i.i145.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i151.i.i, %.preheader.i.i145.i.i
   %.3.lcssa.i.i153.i.i = phi i64 [ %.2.lcssa.i.i146.i.i, %.preheader.i.i145.i.i ], [ %.4.i.i152.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i151.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1018 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -37031,7 +37031,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i219.i.i:                            ; preds = %.preheader.loopexit.i.i218.i.i, %.preheader155.i.i.i.i, %1020
   %.2.lcssa.i.i220.i.i = phi i64 [ %.1.i.i205.i.i, %.preheader155.i.i.i.i ], [ %1306, %.preheader.loopexit.i.i218.i.i ], [ 0, %1020 ]
   %.not177.i.i.i.i = icmp eq i64 %1035, %1
-  br i1 %.not177.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph174.i.i.i.i
+  br i1 %.not177.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph174.i.i.i.i
 
 .lr.ph174.i.i.i.i:                                ; preds = %.preheader.i.i219.i.i
   %sext.i.i221.i.i = shl i64 %1026, 32
@@ -37190,9 +37190,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i226.i.i = phi i64 [ %.3173.i.i.i.i, %1341 ], [ %.3173.i.i.i.i, %1347 ], [ %1367, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i236.i.i ], [ %1367, %1393 ]
   %1395 = add nuw i64 %.090171.i.i.i.i, 1
   %1396 = icmp ult i64 %1395, %1
-  br i1 %1396, label %1341, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1159
+  br i1 %1396, label %1341, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1159
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i225.i.i, %.preheader.i.i219.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i225.i.i, %.preheader.i.i219.i.i
   %.3.lcssa.i.i227.i.i = phi i64 [ %.2.lcssa.i.i220.i.i, %.preheader.i.i219.i.i ], [ %.4.i.i226.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i225.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1397 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -37687,7 +37687,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i293.i.i:                            ; preds = %.preheader.loopexit.i.i292.i.i, %.preheader159.i.i.i.i, %1399
   %.2.lcssa.i.i294.i.i = phi i64 [ %.1.i.i279.i.i, %.preheader159.i.i.i.i ], [ %1714, %.preheader.loopexit.i.i292.i.i ], [ 0, %1399 ]
   %.not181.i.i.i.i = icmp eq i64 %1415, %1
-  br i1 %.not181.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph178.i.i.i.i
+  br i1 %.not181.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph178.i.i.i.i
 
 .lr.ph178.i.i.i.i:                                ; preds = %.preheader.i.i293.i.i
   %sext.i.i295.i.i = shl i64 %1405, 32
@@ -37853,9 +37853,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i300.i.i = phi i64 [ %.3177.i.i.i.i, %1749 ], [ %.3177.i.i.i.i, %1755 ], [ %1782, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i310.i.i ], [ %1782, %1808 ]
   %1810 = add nuw i64 %.090175.i.i.i.i, 1
   %1811 = icmp ult i64 %1810, %1
-  br i1 %1811, label %1749, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1189
+  br i1 %1811, label %1749, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1189
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i299.i.i, %.preheader.i.i293.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i299.i.i, %.preheader.i.i293.i.i
   %.3.lcssa.i.i301.i.i = phi i64 [ %.2.lcssa.i.i294.i.i, %.preheader.i.i293.i.i ], [ %.4.i.i300.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i299.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1812 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -38454,7 +38454,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i367.i.i:                            ; preds = %.preheader.loopexit.i.i366.i.i, %.preheader175.i.i.i.i, %1814
   %.2.lcssa.i.i368.i.i = phi i64 [ %.1.i.i353.i.i, %.preheader175.i.i.i.i ], [ %2233, %.preheader.loopexit.i.i366.i.i ], [ 0, %1814 ]
   %.not197.i.i.i.i = icmp eq i64 %1838, %1
-  br i1 %.not197.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph194.i.i.i.i
+  br i1 %.not197.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph194.i.i.i.i
 
 .lr.ph194.i.i.i.i:                                ; preds = %.preheader.i.i367.i.i
   %sext.i.i369.i.i = shl i64 %1820, 32
@@ -38644,9 +38644,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i374.i.i = phi i64 [ %.3193.i.i.i.i, %2268 ], [ %.3193.i.i.i.i, %2274 ], [ %2325, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i384.i.i ], [ %2325, %2351 ]
   %2353 = add nuw i64 %.090191.i.i.i.i, 1
   %2354 = icmp ult i64 %2353, %1
-  br i1 %2354, label %2268, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1219
+  br i1 %2354, label %2268, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1219
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i373.i.i, %.preheader.i.i367.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i373.i.i, %.preheader.i.i367.i.i
   %.3.lcssa.i.i375.i.i = phi i64 [ %.2.lcssa.i.i368.i.i, %.preheader.i.i367.i.i ], [ %.4.i.i374.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i373.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %2355 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -39058,7 +39058,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i437.i.i:                            ; preds = %.preheader.loopexit.i.i436.i.i, %.preheader143.i.i.i.i, %2357
   %.2.lcssa.i.i438.i.i = phi i64 [ %.1.i.i423.i.i, %.preheader143.i.i.i.i ], [ %2585, %.preheader.loopexit.i.i436.i.i ], [ 0, %2357 ]
   %.not165.i.i.i.i = icmp eq i64 %2371, %1
-  br i1 %.not165.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph162.i.i.i.i
+  br i1 %.not165.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph162.i.i.i.i
 
 .lr.ph162.i.i.i.i:                                ; preds = %.preheader.i.i437.i.i
   %sext.i.i439.i.i = shl i64 %2363, 32
@@ -39203,9 +39203,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.
   %.4.i.i444.i.i = phi i64 [ %.3161.i.i.i.i, %2620 ], [ %.3161.i.i.i.i, %2626 ], [ %2632, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i454.i.i ], [ %2632, %2658 ]
   %2660 = add nuw i64 %.090159.i.i.i.i, 1
   %2661 = icmp ult i64 %2660, %1
-  br i1 %2661, label %2620, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1249
+  br i1 %2661, label %2620, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1249
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i443.i.i, %.preheader.i.i437.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i443.i.i, %.preheader.i.i437.i.i
   %.3.lcssa.i.i445.i.i = phi i64 [ %.2.lcssa.i.i438.i.i, %.preheader.i.i437.i.i ], [ %.4.i.i444.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit127.i.i443.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %2662 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -39836,7 +39836,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29: 
   call void @__cxa_free_exception(ptr %2977) #15
   br label %2984
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i20, %2948, %2881, %2879, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit94.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit85.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit74.i, %._crit_edge.i, %2667, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i20, %2948, %2881, %2879, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit94.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit85.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit74.i, %._crit_edge.i, %2667, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i
   ret void
 
 2984:                                             ; preds = %2981, %2983
@@ -39919,7 +39919,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %4) unnamed_addr #2 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -40671,7 +40671,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader223.i.i, %15
   %.2.lcssa.i.i = phi i64 [ 0, %15 ], [ %.1.i.i, %.preheader223.i.i ], [ %410, %.preheader.loopexit.i.i ]
   %.not245.i.i = icmp eq i64 %26, %2
-  br i1 %.not245.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph242.i.i
+  br i1 %.not245.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph242.i.i
 
 .lr.ph242.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %22, 32
@@ -40981,9 +40981,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i:
   %.4.i.i = phi i64 [ %.3241.i.i, %490 ], [ %.3241.i.i, %496 ], [ %504, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i ], [ %504, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i ]
   %570 = add nuw i64 %.090239.i.i, 1
   %571 = icmp ult i64 %570, %2
-  br i1 %571, label %490, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1310
+  br i1 %571, label %490, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1310
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %572 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -41718,7 +41718,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i1
 .preheader.i.i64:                                 ; preds = %.preheader.loopexit.i.i62, %.preheader223.i.i44, %574
   %.2.lcssa.i.i65 = phi i64 [ 0, %574 ], [ %.1.i.i43, %.preheader223.i.i44 ], [ %973, %.preheader.loopexit.i.i62 ]
   %.not245.i.i66 = icmp eq i64 %585, %2
-  br i1 %.not245.i.i66, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph242.i.i67
+  br i1 %.not245.i.i66, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph242.i.i67
 
 .lr.ph242.i.i67:                                  ; preds = %.preheader.i.i64
   %sext.i.i68 = shl i64 %581, 32
@@ -42029,9 +42029,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i7
   %.4.i.i77 = phi i64 [ %.3241.i.i74, %1053 ], [ %.3241.i.i74, %1059 ], [ %1068, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i87 ], [ %1068, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i96 ]
   %1134 = add nuw i64 %.090239.i.i75, 1
   %1135 = icmp ult i64 %1134, %2
-  br i1 %1135, label %1053, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1340
+  br i1 %1135, label %1053, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1340
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
   %.3.lcssa.i.i78 = phi i64 [ %.2.lcssa.i.i65, %.preheader.i.i64 ], [ %.4.i.i77, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i76 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1136 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -42792,7 +42792,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i3
 .preheader.i.i240:                                ; preds = %.preheader.loopexit.i.i238, %.preheader227.i.i, %1138
   %.2.lcssa.i.i241 = phi i64 [ 0, %1138 ], [ %.1.i.i224, %.preheader227.i.i ], [ %1563, %.preheader.loopexit.i.i238 ]
   %.not249.i.i = icmp eq i64 %1151, %2
-  br i1 %.not249.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph246.i.i
+  br i1 %.not249.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph246.i.i
 
 .lr.ph246.i.i:                                    ; preds = %.preheader.i.i240
   %sext.i.i242 = shl i64 %1145, 32
@@ -43109,9 +43109,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i2
   %.4.i.i249 = phi i64 [ %.3245.i.i, %1643 ], [ %.3245.i.i, %1649 ], [ %1664, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i259 ], [ %1664, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i268 ]
   %1730 = add nuw i64 %.090243.i.i, 1
   %1731 = icmp ult i64 %1730, %2
-  br i1 %1731, label %1643, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1370
+  br i1 %1731, label %1643, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1370
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
   %.3.lcssa.i.i250 = phi i64 [ %.2.lcssa.i.i241, %.preheader.i.i240 ], [ %.4.i.i249, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i248 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1732 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -43895,7 +43895,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i4
 .preheader.i.i402:                                ; preds = %.preheader.loopexit.i.i400, %.preheader231.i.i, %1734
   %.2.lcssa.i.i403 = phi i64 [ 0, %1734 ], [ %.1.i.i386, %.preheader231.i.i ], [ %2182, %.preheader.loopexit.i.i400 ]
   %.not253.i.i = icmp eq i64 %1750, %2
-  br i1 %.not253.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph250.i.i
+  br i1 %.not253.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph250.i.i
 
 .lr.ph250.i.i:                                    ; preds = %.preheader.i.i402
   %sext.i.i404 = shl i64 %1741, 32
@@ -44217,9 +44217,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i4
   %.4.i.i411 = phi i64 [ %.3249.i.i, %2262 ], [ %.3249.i.i, %2268 ], [ %2288, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i421 ], [ %2288, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i430 ]
   %2354 = add nuw i64 %.090247.i.i, 1
   %2355 = icmp ult i64 %2354, %2
-  br i1 %2355, label %2262, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1400
+  br i1 %2355, label %2262, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1400
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
   %.3.lcssa.i.i412 = phi i64 [ %.2.lcssa.i.i403, %.preheader.i.i402 ], [ %.4.i.i411, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i410 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -45032,7 +45032,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i6
 .preheader.i.i564:                                ; preds = %.preheader.loopexit.i.i562, %.preheader235.i.i, %2358
   %.2.lcssa.i.i565 = phi i64 [ 0, %2358 ], [ %.1.i.i548, %.preheader235.i.i ], [ %2835, %.preheader.loopexit.i.i562 ]
   %.not257.i.i = icmp eq i64 %2375, %2
-  br i1 %.not257.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph254.i.i
+  br i1 %.not257.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph254.i.i
 
 .lr.ph254.i.i:                                    ; preds = %.preheader.i.i564
   %sext.i.i566 = shl i64 %2365, 32
@@ -45361,9 +45361,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i5
   %.4.i.i573 = phi i64 [ %.3253.i.i, %2915 ], [ %.3253.i.i, %2921 ], [ %2948, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i583 ], [ %2948, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i592 ]
   %3014 = add nuw i64 %.090251.i.i, 1
   %3015 = icmp ult i64 %3014, %2
-  br i1 %3015, label %2915, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1430
+  br i1 %3015, label %2915, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1430
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
   %.3.lcssa.i.i574 = phi i64 [ %.2.lcssa.i.i565, %.preheader.i.i564 ], [ %.4.i.i573, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i572 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3016 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -46280,7 +46280,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i8
 .preheader.i.i726:                                ; preds = %.preheader.loopexit.i.i724, %.preheader251.i.i, %3018
   %.2.lcssa.i.i727 = phi i64 [ 0, %3018 ], [ %.1.i.i710, %.preheader251.i.i ], [ %3599, %.preheader.loopexit.i.i724 ]
   %.not273.i.i = icmp eq i64 %3043, %2
-  br i1 %.not273.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph270.i.i
+  br i1 %.not273.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph270.i.i
 
 .lr.ph270.i.i:                                    ; preds = %.preheader.i.i726
   %sext.i.i728 = shl i64 %3025, 32
@@ -46633,9 +46633,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i7
   %.4.i.i735 = phi i64 [ %.3269.i.i, %3679 ], [ %.3269.i.i, %3685 ], [ %3736, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i745 ], [ %3736, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i754 ]
   %3802 = add nuw i64 %.090267.i.i, 1
   %3803 = icmp ult i64 %3802, %2
-  br i1 %3803, label %3679, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1460
+  br i1 %3803, label %3679, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1460
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
   %.3.lcssa.i.i736 = phi i64 [ %.2.lcssa.i.i727, %.preheader.i.i726 ], [ %.4.i.i735, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i734 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3804 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -47365,7 +47365,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i9
 .preheader.i.i883:                                ; preds = %.preheader.loopexit.i.i881, %.preheader219.i.i, %3806
   %.2.lcssa.i.i884 = phi i64 [ 0, %3806 ], [ %.1.i.i867, %.preheader219.i.i ], [ %4196, %.preheader.loopexit.i.i881 ]
   %.not241.i.i = icmp eq i64 %3821, %2
-  br i1 %.not241.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph238.i.i
+  br i1 %.not241.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph238.i.i
 
 .lr.ph238.i.i:                                    ; preds = %.preheader.i.i883
   %sext.i.i885 = shl i64 %3813, 32
@@ -47673,9 +47673,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i8
   %.4.i.i892 = phi i64 [ %.3237.i.i, %4276 ], [ %.3237.i.i, %4282 ], [ %4288, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i902 ], [ %4288, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i911 ]
   %4354 = add nuw i64 %.090235.i.i, 1
   %4355 = icmp ult i64 %4354, %2
-  br i1 %4355, label %4276, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1490
+  br i1 %4355, label %4276, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1490
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
   %.3.lcssa.i.i893 = phi i64 [ %.2.lcssa.i.i884, %.preheader.i.i883 ], [ %.4.i.i892, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit203.i.i891 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %4356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -47686,7 +47686,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %4358
 
-4358:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4358:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -47812,7 +47812,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -49672,7 +49672,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader147.i.i.i.i, %36
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader147.i.i.i.i ], [ %269, %.preheader.loopexit.i.i.i.i ], [ 0, %36 ]
   %.not169.i.i.i.i = icmp eq i64 %46, %1
-  br i1 %.not169.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph166.i.i.i.i
+  br i1 %.not169.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph166.i.i.i.i
 
 .lr.ph166.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %42, 32
@@ -49819,9 +49819,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i.i.i = phi i64 [ %.3165.i.i.i.i, %304 ], [ %.3165.i.i.i.i, %310 ], [ %318, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i.i.i ], [ %318, %344 ]
   %346 = add nuw i64 %.090163.i.i.i.i, 1
   %347 = icmp ult i64 %346, %1
-  br i1 %347, label %304, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1551
+  br i1 %347, label %304, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1551
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %348 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -50238,7 +50238,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i59.i.i:                             ; preds = %.preheader.loopexit.i.i58.i.i, %.preheader147.i.i41.i.i, %350
   %.2.lcssa.i.i60.i.i = phi i64 [ %.1.i.i40.i.i, %.preheader147.i.i41.i.i ], [ %587, %.preheader.loopexit.i.i58.i.i ], [ 0, %350 ]
   %.not169.i.i61.i.i = icmp eq i64 %360, %1
-  br i1 %.not169.i.i61.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph166.i.i62.i.i
+  br i1 %.not169.i.i61.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph166.i.i62.i.i
 
 .lr.ph166.i.i62.i.i:                              ; preds = %.preheader.i.i59.i.i
   %sext.i.i63.i.i = shl i64 %356, 32
@@ -50386,9 +50386,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i70.i.i = phi i64 [ %.3165.i.i67.i.i, %622 ], [ %.3165.i.i67.i.i, %628 ], [ %637, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i80.i.i ], [ %637, %663 ]
   %665 = add nuw i64 %.090163.i.i68.i.i, 1
   %666 = icmp ult i64 %665, %1
-  br i1 %666, label %622, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1581
+  br i1 %666, label %622, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1581
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i69.i.i, %.preheader.i.i59.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i69.i.i, %.preheader.i.i59.i.i
   %.3.lcssa.i.i71.i.i = phi i64 [ %.2.lcssa.i.i60.i.i, %.preheader.i.i59.i.i ], [ %.4.i.i70.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i69.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %667 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -50831,7 +50831,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i145.i.i:                            ; preds = %.preheader.loopexit.i.i144.i.i, %.preheader151.i.i.i.i, %669
   %.2.lcssa.i.i146.i.i = phi i64 [ %.1.i.i131.i.i, %.preheader151.i.i.i.i ], [ %932, %.preheader.loopexit.i.i144.i.i ], [ 0, %669 ]
   %.not173.i.i.i.i = icmp eq i64 %681, %1
-  br i1 %.not173.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph170.i.i.i.i
+  br i1 %.not173.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph170.i.i.i.i
 
 .lr.ph170.i.i.i.i:                                ; preds = %.preheader.i.i145.i.i
   %sext.i.i147.i.i = shl i64 %675, 32
@@ -50985,9 +50985,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i152.i.i = phi i64 [ %.3169.i.i.i.i, %967 ], [ %.3169.i.i.i.i, %973 ], [ %988, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i162.i.i ], [ %988, %1014 ]
   %1016 = add nuw i64 %.090167.i.i.i.i, 1
   %1017 = icmp ult i64 %1016, %1
-  br i1 %1017, label %967, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1611
+  br i1 %1017, label %967, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1611
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i151.i.i, %.preheader.i.i145.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i151.i.i, %.preheader.i.i145.i.i
   %.3.lcssa.i.i153.i.i = phi i64 [ %.2.lcssa.i.i146.i.i, %.preheader.i.i145.i.i ], [ %.4.i.i152.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i151.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1018 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -51453,7 +51453,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i219.i.i:                            ; preds = %.preheader.loopexit.i.i218.i.i, %.preheader155.i.i.i.i, %1020
   %.2.lcssa.i.i220.i.i = phi i64 [ %.1.i.i205.i.i, %.preheader155.i.i.i.i ], [ %1306, %.preheader.loopexit.i.i218.i.i ], [ 0, %1020 ]
   %.not177.i.i.i.i = icmp eq i64 %1035, %1
-  br i1 %.not177.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph174.i.i.i.i
+  br i1 %.not177.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph174.i.i.i.i
 
 .lr.ph174.i.i.i.i:                                ; preds = %.preheader.i.i219.i.i
   %sext.i.i221.i.i = shl i64 %1026, 32
@@ -51612,9 +51612,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i226.i.i = phi i64 [ %.3173.i.i.i.i, %1341 ], [ %.3173.i.i.i.i, %1347 ], [ %1367, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i236.i.i ], [ %1367, %1393 ]
   %1395 = add nuw i64 %.090171.i.i.i.i, 1
   %1396 = icmp ult i64 %1395, %1
-  br i1 %1396, label %1341, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1641
+  br i1 %1396, label %1341, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1641
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i225.i.i, %.preheader.i.i219.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i225.i.i, %.preheader.i.i219.i.i
   %.3.lcssa.i.i227.i.i = phi i64 [ %.2.lcssa.i.i220.i.i, %.preheader.i.i219.i.i ], [ %.4.i.i226.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i225.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1397 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -52109,7 +52109,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i293.i.i:                            ; preds = %.preheader.loopexit.i.i292.i.i, %.preheader159.i.i.i.i, %1399
   %.2.lcssa.i.i294.i.i = phi i64 [ %.1.i.i279.i.i, %.preheader159.i.i.i.i ], [ %1714, %.preheader.loopexit.i.i292.i.i ], [ 0, %1399 ]
   %.not181.i.i.i.i = icmp eq i64 %1415, %1
-  br i1 %.not181.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph178.i.i.i.i
+  br i1 %.not181.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph178.i.i.i.i
 
 .lr.ph178.i.i.i.i:                                ; preds = %.preheader.i.i293.i.i
   %sext.i.i295.i.i = shl i64 %1405, 32
@@ -52275,9 +52275,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i300.i.i = phi i64 [ %.3177.i.i.i.i, %1749 ], [ %.3177.i.i.i.i, %1755 ], [ %1782, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i310.i.i ], [ %1782, %1808 ]
   %1810 = add nuw i64 %.090175.i.i.i.i, 1
   %1811 = icmp ult i64 %1810, %1
-  br i1 %1811, label %1749, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1671
+  br i1 %1811, label %1749, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1671
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i299.i.i, %.preheader.i.i293.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i299.i.i, %.preheader.i.i293.i.i
   %.3.lcssa.i.i301.i.i = phi i64 [ %.2.lcssa.i.i294.i.i, %.preheader.i.i293.i.i ], [ %.4.i.i300.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i299.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %1812 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -52876,7 +52876,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i367.i.i:                            ; preds = %.preheader.loopexit.i.i366.i.i, %.preheader175.i.i.i.i, %1814
   %.2.lcssa.i.i368.i.i = phi i64 [ %.1.i.i353.i.i, %.preheader175.i.i.i.i ], [ %2233, %.preheader.loopexit.i.i366.i.i ], [ 0, %1814 ]
   %.not197.i.i.i.i = icmp eq i64 %1838, %1
-  br i1 %.not197.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph194.i.i.i.i
+  br i1 %.not197.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph194.i.i.i.i
 
 .lr.ph194.i.i.i.i:                                ; preds = %.preheader.i.i367.i.i
   %sext.i.i369.i.i = shl i64 %1820, 32
@@ -53066,9 +53066,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i374.i.i = phi i64 [ %.3193.i.i.i.i, %2268 ], [ %.3193.i.i.i.i, %2274 ], [ %2325, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i384.i.i ], [ %2325, %2351 ]
   %2353 = add nuw i64 %.090191.i.i.i.i, 1
   %2354 = icmp ult i64 %2353, %1
-  br i1 %2354, label %2268, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1701
+  br i1 %2354, label %2268, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1701
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i373.i.i, %.preheader.i.i367.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i373.i.i, %.preheader.i.i367.i.i
   %.3.lcssa.i.i375.i.i = phi i64 [ %.2.lcssa.i.i368.i.i, %.preheader.i.i367.i.i ], [ %.4.i.i374.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i373.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %2355 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -53480,7 +53480,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i437.i.i:                            ; preds = %.preheader.loopexit.i.i436.i.i, %.preheader143.i.i.i.i, %2357
   %.2.lcssa.i.i438.i.i = phi i64 [ %.1.i.i423.i.i, %.preheader143.i.i.i.i ], [ %2585, %.preheader.loopexit.i.i436.i.i ], [ 0, %2357 ]
   %.not165.i.i.i.i = icmp eq i64 %2371, %1
-  br i1 %.not165.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph162.i.i.i.i
+  br i1 %.not165.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph162.i.i.i.i
 
 .lr.ph162.i.i.i.i:                                ; preds = %.preheader.i.i437.i.i
   %sext.i.i439.i.i = shl i64 %2363, 32
@@ -53625,9 +53625,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.
   %.4.i.i444.i.i = phi i64 [ %.3161.i.i.i.i, %2620 ], [ %.3161.i.i.i.i, %2626 ], [ %2632, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit125.i.i454.i.i ], [ %2632, %2658 ]
   %2660 = add nuw i64 %.090159.i.i.i.i, 1
   %2661 = icmp ult i64 %2660, %1
-  br i1 %2661, label %2620, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1731
+  br i1 %2661, label %2620, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1731
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i443.i.i, %.preheader.i.i437.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i443.i.i, %.preheader.i.i437.i.i
   %.3.lcssa.i.i445.i.i = phi i64 [ %.2.lcssa.i.i438.i.i, %.preheader.i.i437.i.i ], [ %.4.i.i444.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit127.i.i443.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
   %2662 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -54255,7 +54255,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29: 
   call void @__cxa_free_exception(ptr %2971) #15
   br label %2978
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i20, %2945, %2881, %2879, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit94.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit85.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit74.i, %._crit_edge.i, %2667, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i20, %2945, %2881, %2879, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit94.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit85.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit74.i, %._crit_edge.i, %2667, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i
   ret void
 
 2978:                                             ; preds = %2975, %2977
@@ -54338,7 +54338,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %4) unnamed_addr #2 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -55090,7 +55090,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader223.i.i, %15
   %.2.lcssa.i.i = phi i64 [ 0, %15 ], [ %.1.i.i, %.preheader223.i.i ], [ %410, %.preheader.loopexit.i.i ]
   %.not245.i.i = icmp eq i64 %26, %2
-  br i1 %.not245.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph242.i.i
+  br i1 %.not245.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph242.i.i
 
 .lr.ph242.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %22, 32
@@ -55400,9 +55400,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i:
   %.4.i.i = phi i64 [ %.3241.i.i, %490 ], [ %.3241.i.i, %496 ], [ %504, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i ], [ %504, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i ]
   %570 = add nuw i64 %.090239.i.i, 1
   %571 = icmp ult i64 %570, %2
-  br i1 %571, label %490, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1792
+  br i1 %571, label %490, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1792
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %572 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -56137,7 +56137,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i1
 .preheader.i.i64:                                 ; preds = %.preheader.loopexit.i.i62, %.preheader223.i.i44, %574
   %.2.lcssa.i.i65 = phi i64 [ 0, %574 ], [ %.1.i.i43, %.preheader223.i.i44 ], [ %973, %.preheader.loopexit.i.i62 ]
   %.not245.i.i66 = icmp eq i64 %585, %2
-  br i1 %.not245.i.i66, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph242.i.i67
+  br i1 %.not245.i.i66, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph242.i.i67
 
 .lr.ph242.i.i67:                                  ; preds = %.preheader.i.i64
   %sext.i.i68 = shl i64 %581, 32
@@ -56448,9 +56448,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i7
   %.4.i.i77 = phi i64 [ %.3241.i.i74, %1053 ], [ %.3241.i.i74, %1059 ], [ %1068, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i87 ], [ %1068, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i96 ]
   %1134 = add nuw i64 %.090239.i.i75, 1
   %1135 = icmp ult i64 %1134, %2
-  br i1 %1135, label %1053, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1822
+  br i1 %1135, label %1053, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1822
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76, %.preheader.i.i64
   %.3.lcssa.i.i78 = phi i64 [ %.2.lcssa.i.i65, %.preheader.i.i64 ], [ %.4.i.i77, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i76 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1136 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -57211,7 +57211,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i3
 .preheader.i.i240:                                ; preds = %.preheader.loopexit.i.i238, %.preheader227.i.i, %1138
   %.2.lcssa.i.i241 = phi i64 [ 0, %1138 ], [ %.1.i.i224, %.preheader227.i.i ], [ %1563, %.preheader.loopexit.i.i238 ]
   %.not249.i.i = icmp eq i64 %1151, %2
-  br i1 %.not249.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph246.i.i
+  br i1 %.not249.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph246.i.i
 
 .lr.ph246.i.i:                                    ; preds = %.preheader.i.i240
   %sext.i.i242 = shl i64 %1145, 32
@@ -57528,9 +57528,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i2
   %.4.i.i249 = phi i64 [ %.3245.i.i, %1643 ], [ %.3245.i.i, %1649 ], [ %1664, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i259 ], [ %1664, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i268 ]
   %1730 = add nuw i64 %.090243.i.i, 1
   %1731 = icmp ult i64 %1730, %2
-  br i1 %1731, label %1643, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1852
+  br i1 %1731, label %1643, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1852
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248, %.preheader.i.i240
   %.3.lcssa.i.i250 = phi i64 [ %.2.lcssa.i.i241, %.preheader.i.i240 ], [ %.4.i.i249, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i248 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1732 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -58314,7 +58314,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i4
 .preheader.i.i402:                                ; preds = %.preheader.loopexit.i.i400, %.preheader231.i.i, %1734
   %.2.lcssa.i.i403 = phi i64 [ 0, %1734 ], [ %.1.i.i386, %.preheader231.i.i ], [ %2182, %.preheader.loopexit.i.i400 ]
   %.not253.i.i = icmp eq i64 %1750, %2
-  br i1 %.not253.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph250.i.i
+  br i1 %.not253.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph250.i.i
 
 .lr.ph250.i.i:                                    ; preds = %.preheader.i.i402
   %sext.i.i404 = shl i64 %1741, 32
@@ -58636,9 +58636,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i4
   %.4.i.i411 = phi i64 [ %.3249.i.i, %2262 ], [ %.3249.i.i, %2268 ], [ %2288, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i421 ], [ %2288, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i430 ]
   %2354 = add nuw i64 %.090247.i.i, 1
   %2355 = icmp ult i64 %2354, %2
-  br i1 %2355, label %2262, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1882
+  br i1 %2355, label %2262, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1882
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410, %.preheader.i.i402
   %.3.lcssa.i.i412 = phi i64 [ %.2.lcssa.i.i403, %.preheader.i.i402 ], [ %.4.i.i411, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i410 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -59451,7 +59451,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i6
 .preheader.i.i564:                                ; preds = %.preheader.loopexit.i.i562, %.preheader235.i.i, %2358
   %.2.lcssa.i.i565 = phi i64 [ 0, %2358 ], [ %.1.i.i548, %.preheader235.i.i ], [ %2835, %.preheader.loopexit.i.i562 ]
   %.not257.i.i = icmp eq i64 %2375, %2
-  br i1 %.not257.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph254.i.i
+  br i1 %.not257.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph254.i.i
 
 .lr.ph254.i.i:                                    ; preds = %.preheader.i.i564
   %sext.i.i566 = shl i64 %2365, 32
@@ -59780,9 +59780,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i5
   %.4.i.i573 = phi i64 [ %.3253.i.i, %2915 ], [ %.3253.i.i, %2921 ], [ %2948, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i583 ], [ %2948, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i592 ]
   %3014 = add nuw i64 %.090251.i.i, 1
   %3015 = icmp ult i64 %3014, %2
-  br i1 %3015, label %2915, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1912
+  br i1 %3015, label %2915, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1912
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572, %.preheader.i.i564
   %.3.lcssa.i.i574 = phi i64 [ %.2.lcssa.i.i565, %.preheader.i.i564 ], [ %.4.i.i573, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i572 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3016 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -60699,7 +60699,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i8
 .preheader.i.i726:                                ; preds = %.preheader.loopexit.i.i724, %.preheader251.i.i, %3018
   %.2.lcssa.i.i727 = phi i64 [ 0, %3018 ], [ %.1.i.i710, %.preheader251.i.i ], [ %3599, %.preheader.loopexit.i.i724 ]
   %.not273.i.i = icmp eq i64 %3043, %2
-  br i1 %.not273.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph270.i.i
+  br i1 %.not273.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph270.i.i
 
 .lr.ph270.i.i:                                    ; preds = %.preheader.i.i726
   %sext.i.i728 = shl i64 %3025, 32
@@ -61052,9 +61052,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i7
   %.4.i.i735 = phi i64 [ %.3269.i.i, %3679 ], [ %.3269.i.i, %3685 ], [ %3736, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i745 ], [ %3736, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i754 ]
   %3802 = add nuw i64 %.090267.i.i, 1
   %3803 = icmp ult i64 %3802, %2
-  br i1 %3803, label %3679, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1942
+  br i1 %3803, label %3679, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1942
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734, %.preheader.i.i726
   %.3.lcssa.i.i736 = phi i64 [ %.2.lcssa.i.i727, %.preheader.i.i726 ], [ %.4.i.i735, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i734 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3804 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -61784,7 +61784,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i9
 .preheader.i.i883:                                ; preds = %.preheader.loopexit.i.i881, %.preheader219.i.i, %3806
   %.2.lcssa.i.i884 = phi i64 [ 0, %3806 ], [ %.1.i.i867, %.preheader219.i.i ], [ %4196, %.preheader.loopexit.i.i881 ]
   %.not241.i.i = icmp eq i64 %3821, %2
-  br i1 %.not241.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph238.i.i
+  br i1 %.not241.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph238.i.i
 
 .lr.ph238.i.i:                                    ; preds = %.preheader.i.i883
   %sext.i.i885 = shl i64 %3813, 32
@@ -62092,9 +62092,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i8
   %.4.i.i892 = phi i64 [ %.3237.i.i, %4276 ], [ %.3237.i.i, %4282 ], [ %4288, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit186.i.i902 ], [ %4288, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i911 ]
   %4354 = add nuw i64 %.090235.i.i, 1
   %4355 = icmp ult i64 %4354, %2
-  br i1 %4355, label %4276, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !1972
+  br i1 %4355, label %4276, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !1972
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891, %.preheader.i.i883
   %.3.lcssa.i.i893 = phi i64 [ %.2.lcssa.i.i884, %.preheader.i.i883 ], [ %.4.i.i892, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit203.i.i891 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %4356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -62105,7 +62105,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %4358
 
-4358:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4358:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -62312,7 +62312,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -64317,7 +64317,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader153.i.i.i.i, %68
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader153.i.i.i.i ], [ %227, %.preheader.loopexit.i.i.i.i ], [ 0, %68 ]
   %.not175.i.i.i.i = icmp eq i64 %78, %1
-  br i1 %.not175.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph172.i.i.i.i
+  br i1 %.not175.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph172.i.i.i.i
 
 .lr.ph172.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %74, 32
@@ -64618,9 +64618,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
   %.4.i.i.i.i = phi i64 [ %.3171.i.i.i.i, %299 ], [ %.3171.i.i.i.i, %305 ], [ %313, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i.i.i ], [ %313, %376 ]
   %378 = add nuw i64 %.090169.i.i.i.i, 1
   %379 = icmp ult i64 %378, %1
-  br i1 %379, label %299, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1981
+  br i1 %379, label %299, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1981
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %380 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -64888,7 +64888,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i66.i.i:                             ; preds = %.preheader.loopexit.i.i65.i.i, %.preheader153.i.i39.i.i, %382
   %.2.lcssa.i.i67.i.i = phi i64 [ %.1.i.i38.i.i, %.preheader153.i.i39.i.i ], [ %545, %.preheader.loopexit.i.i65.i.i ], [ 0, %382 ]
   %.not175.i.i68.i.i = icmp eq i64 %392, %1
-  br i1 %.not175.i.i68.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph172.i.i69.i.i
+  br i1 %.not175.i.i68.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph172.i.i69.i.i
 
 .lr.ph172.i.i69.i.i:                              ; preds = %.preheader.i.i66.i.i
   %sext.i.i70.i.i = shl i64 %388, 32
@@ -65190,9 +65190,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
   %.4.i.i77.i.i = phi i64 [ %.3171.i.i74.i.i, %617 ], [ %.3171.i.i74.i.i, %623 ], [ %632, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i96.i.i ], [ %632, %695 ]
   %697 = add nuw i64 %.090169.i.i75.i.i, 1
   %698 = icmp ult i64 %697, %1
-  br i1 %698, label %617, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1984
+  br i1 %698, label %617, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1984
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i76.i.i, %.preheader.i.i66.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i76.i.i, %.preheader.i.i66.i.i
   %.3.lcssa.i.i78.i.i = phi i64 [ %.2.lcssa.i.i67.i.i, %.preheader.i.i66.i.i ], [ %.4.i.i77.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i76.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %699 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -65486,7 +65486,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i161.i.i:                            ; preds = %.preheader.loopexit.i.i160.i.i, %.preheader157.i.i.i.i, %701
   %.2.lcssa.i.i162.i.i = phi i64 [ %.1.i.i138.i.i, %.preheader157.i.i.i.i ], [ %890, %.preheader.loopexit.i.i160.i.i ], [ 0, %701 ]
   %.not179.i.i.i.i = icmp eq i64 %713, %1
-  br i1 %.not179.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph176.i.i.i.i
+  br i1 %.not179.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph176.i.i.i.i
 
 .lr.ph176.i.i.i.i:                                ; preds = %.preheader.i.i161.i.i
   %sext.i.i163.i.i = shl i64 %707, 32
@@ -65794,9 +65794,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
   %.4.i.i168.i.i = phi i64 [ %.3175.i.i.i.i, %962 ], [ %.3175.i.i.i.i, %968 ], [ %983, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i187.i.i ], [ %983, %1046 ]
   %1048 = add nuw i64 %.090173.i.i.i.i, 1
   %1049 = icmp ult i64 %1048, %1
-  br i1 %1049, label %962, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1987
+  br i1 %1049, label %962, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1987
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i167.i.i, %.preheader.i.i161.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i167.i.i, %.preheader.i.i161.i.i
   %.3.lcssa.i.i169.i.i = phi i64 [ %.2.lcssa.i.i162.i.i, %.preheader.i.i161.i.i ], [ %.4.i.i168.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i167.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %1050 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -66113,7 +66113,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i250.i.i:                            ; preds = %.preheader.loopexit.i.i249.i.i, %.preheader161.i.i.i.i, %1052
   %.2.lcssa.i.i251.i.i = phi i64 [ %.1.i.i227.i.i, %.preheader161.i.i.i.i ], [ %1264, %.preheader.loopexit.i.i249.i.i ], [ 0, %1052 ]
   %.not183.i.i.i.i = icmp eq i64 %1067, %1
-  br i1 %.not183.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph180.i.i.i.i
+  br i1 %.not183.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph180.i.i.i.i
 
 .lr.ph180.i.i.i.i:                                ; preds = %.preheader.i.i250.i.i
   %sext.i.i252.i.i = shl i64 %1058, 32
@@ -66426,9 +66426,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
   %.4.i.i257.i.i = phi i64 [ %.3179.i.i.i.i, %1336 ], [ %.3179.i.i.i.i, %1342 ], [ %1362, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i276.i.i ], [ %1362, %1425 ]
   %1427 = add nuw i64 %.090177.i.i.i.i, 1
   %1428 = icmp ult i64 %1427, %1
-  br i1 %1428, label %1336, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1990
+  br i1 %1428, label %1336, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1990
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i256.i.i, %.preheader.i.i250.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i256.i.i, %.preheader.i.i250.i.i
   %.3.lcssa.i.i258.i.i = phi i64 [ %.2.lcssa.i.i251.i.i, %.preheader.i.i250.i.i ], [ %.4.i.i257.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i256.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %1429 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -66774,7 +66774,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i339.i.i:                            ; preds = %.preheader.loopexit.i.i338.i.i, %.preheader165.i.i.i.i, %1431
   %.2.lcssa.i.i340.i.i = phi i64 [ %.1.i.i316.i.i, %.preheader165.i.i.i.i ], [ %1672, %.preheader.loopexit.i.i338.i.i ], [ 0, %1431 ]
   %.not187.i.i.i.i = icmp eq i64 %1447, %1
-  br i1 %.not187.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph184.i.i.i.i
+  br i1 %.not187.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph184.i.i.i.i
 
 .lr.ph184.i.i.i.i:                                ; preds = %.preheader.i.i339.i.i
   %sext.i.i341.i.i = shl i64 %1437, 32
@@ -67094,9 +67094,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
   %.4.i.i346.i.i = phi i64 [ %.3183.i.i.i.i, %1744 ], [ %.3183.i.i.i.i, %1750 ], [ %1777, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i365.i.i ], [ %1777, %1840 ]
   %1842 = add nuw i64 %.090181.i.i.i.i, 1
   %1843 = icmp ult i64 %1842, %1
-  br i1 %1843, label %1744, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1993
+  br i1 %1843, label %1744, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1993
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i345.i.i, %.preheader.i.i339.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i345.i.i, %.preheader.i.i339.i.i
   %.3.lcssa.i.i347.i.i = phi i64 [ %.2.lcssa.i.i340.i.i, %.preheader.i.i339.i.i ], [ %.4.i.i346.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i345.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %1844 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -67546,7 +67546,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i428.i.i:                            ; preds = %.preheader.loopexit.i.i427.i.i, %.preheader181.i.i.i.i, %1846
   %.2.lcssa.i.i429.i.i = phi i64 [ %.1.i.i405.i.i, %.preheader181.i.i.i.i ], [ %2191, %.preheader.loopexit.i.i427.i.i ], [ 0, %1846 ]
   %.not203.i.i.i.i = icmp eq i64 %1870, %1
-  br i1 %.not203.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph200.i.i.i.i
+  br i1 %.not203.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph200.i.i.i.i
 
 .lr.ph200.i.i.i.i:                                ; preds = %.preheader.i.i428.i.i
   %sext.i.i430.i.i = shl i64 %1852, 32
@@ -67890,9 +67890,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
   %.4.i.i435.i.i = phi i64 [ %.3199.i.i.i.i, %2263 ], [ %.3199.i.i.i.i, %2269 ], [ %2320, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i454.i.i ], [ %2320, %2383 ]
   %2385 = add nuw i64 %.090197.i.i.i.i, 1
   %2386 = icmp ult i64 %2385, %1
-  br i1 %2386, label %2263, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1996
+  br i1 %2386, label %2263, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1996
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i434.i.i, %.preheader.i.i428.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i434.i.i, %.preheader.i.i428.i.i
   %.3.lcssa.i.i436.i.i = phi i64 [ %.2.lcssa.i.i429.i.i, %.preheader.i.i428.i.i ], [ %.4.i.i435.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i434.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %2387 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -68155,7 +68155,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
 .preheader.i.i517.i.i:                            ; preds = %.preheader.loopexit.i.i516.i.i, %.preheader149.i.i.i.i, %2389
   %.2.lcssa.i.i518.i.i = phi i64 [ %.1.i.i494.i.i, %.preheader149.i.i.i.i ], [ %2543, %.preheader.loopexit.i.i516.i.i ], [ 0, %2389 ]
   %.not171.i.i.i.i = icmp eq i64 %2403, %1
-  br i1 %.not171.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph168.i.i.i.i
+  br i1 %.not171.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph168.i.i.i.i
 
 .lr.ph168.i.i.i.i:                                ; preds = %.preheader.i.i517.i.i
   %sext.i.i519.i.i = shl i64 %2395, 32
@@ -68454,9 +68454,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.
   %.4.i.i524.i.i = phi i64 [ %.3167.i.i.i.i, %2615 ], [ %.3167.i.i.i.i, %2621 ], [ %2627, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i543.i.i ], [ %2627, %2690 ]
   %2692 = add nuw i64 %.090165.i.i.i.i, 1
   %2693 = icmp ult i64 %2692, %1
-  br i1 %2693, label %2615, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !1999
+  br i1 %2693, label %2615, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !1999
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i523.i.i, %.preheader.i.i517.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i523.i.i, %.preheader.i.i517.i.i
   %.3.lcssa.i.i525.i.i = phi i64 [ %.2.lcssa.i.i518.i.i, %.preheader.i.i517.i.i ], [ %.4.i.i524.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit148.i.i523.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %2694 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -69338,7 +69338,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i35: 
   call void @__cxa_free_exception(ptr %3122) #15
   br label %3129
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i35, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i24, %3093, %2986, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i35, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i24, %3093, %2986, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
   ret void
 
 3129:                                             ; preds = %3126, %3128
@@ -69421,7 +69421,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %4) unnamed_addr #2 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca float, align 4
@@ -70068,7 +70068,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader229.i.i, %43
   %.2.lcssa.i.i = phi i64 [ 0, %43 ], [ %.1.i.i, %.preheader229.i.i ], [ %374, %.preheader.loopexit.i.i ]
   %.not251.i.i = icmp eq i64 %54, %2
-  br i1 %.not251.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph248.i.i
+  br i1 %.not251.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph248.i.i
 
 .lr.ph248.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %50, 32
@@ -70532,9 +70532,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i:
   %.4.i.i = phi i64 [ %.3247.i.i, %492 ], [ %.3247.i.i, %498 ], [ %506, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i ], [ %506, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i ]
   %609 = add nuw i64 %.090245.i.i, 1
   %610 = icmp ult i64 %609, %2
-  br i1 %610, label %492, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2006
+  br i1 %610, label %492, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2006
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %611 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -71141,7 +71141,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i1
 .preheader.i.i69:                                 ; preds = %.preheader.loopexit.i.i68, %.preheader229.i.i43, %613
   %.2.lcssa.i.i70 = phi i64 [ 0, %613 ], [ %.1.i.i42, %.preheader229.i.i43 ], [ %948, %.preheader.loopexit.i.i68 ]
   %.not251.i.i71 = icmp eq i64 %624, %2
-  br i1 %.not251.i.i71, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph248.i.i72
+  br i1 %.not251.i.i71, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph248.i.i72
 
 .lr.ph248.i.i72:                                  ; preds = %.preheader.i.i69
   %sext.i.i73 = shl i64 %620, 32
@@ -71606,9 +71606,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i8
   %.4.i.i82 = phi i64 [ %.3247.i.i79, %1066 ], [ %.3247.i.i79, %1072 ], [ %1081, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i101 ], [ %1081, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i110 ]
   %1184 = add nuw i64 %.090245.i.i80, 1
   %1185 = icmp ult i64 %1184, %2
-  br i1 %1185, label %1066, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2009
+  br i1 %1185, label %1066, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2009
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i81, %.preheader.i.i69
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i81, %.preheader.i.i69
   %.3.lcssa.i.i83 = phi i64 [ %.2.lcssa.i.i70, %.preheader.i.i69 ], [ %.4.i.i82, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i81 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %1186 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -72241,7 +72241,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i3
 .preheader.i.i251:                                ; preds = %.preheader.loopexit.i.i250, %.preheader233.i.i, %1188
   %.2.lcssa.i.i252 = phi i64 [ 0, %1188 ], [ %.1.i.i228, %.preheader233.i.i ], [ %1549, %.preheader.loopexit.i.i250 ]
   %.not255.i.i = icmp eq i64 %1201, %2
-  br i1 %.not255.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph252.i.i
+  br i1 %.not255.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph252.i.i
 
 .lr.ph252.i.i:                                    ; preds = %.preheader.i.i251
   %sext.i.i253 = shl i64 %1195, 32
@@ -72712,9 +72712,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i2
   %.4.i.i260 = phi i64 [ %.3251.i.i, %1667 ], [ %.3251.i.i, %1673 ], [ %1688, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i279 ], [ %1688, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i288 ]
   %1791 = add nuw i64 %.090249.i.i, 1
   %1792 = icmp ult i64 %1791, %2
-  br i1 %1792, label %1667, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2012
+  br i1 %1792, label %1667, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2012
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i259, %.preheader.i.i251
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i259, %.preheader.i.i251
   %.3.lcssa.i.i261 = phi i64 [ %.2.lcssa.i.i252, %.preheader.i.i251 ], [ %.4.i.i260, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i259 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %1793 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -73370,7 +73370,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i5
 .preheader.i.i425:                                ; preds = %.preheader.loopexit.i.i424, %.preheader237.i.i, %1795
   %.2.lcssa.i.i426 = phi i64 [ 0, %1795 ], [ %.1.i.i402, %.preheader237.i.i ], [ %2179, %.preheader.loopexit.i.i424 ]
   %.not259.i.i = icmp eq i64 %1811, %2
-  br i1 %.not259.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph256.i.i
+  br i1 %.not259.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph256.i.i
 
 .lr.ph256.i.i:                                    ; preds = %.preheader.i.i425
   %sext.i.i427 = shl i64 %1802, 32
@@ -73846,9 +73846,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i4
   %.4.i.i434 = phi i64 [ %.3255.i.i, %2297 ], [ %.3255.i.i, %2303 ], [ %2323, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i453 ], [ %2323, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i462 ]
   %2426 = add nuw i64 %.090253.i.i, 1
   %2427 = icmp ult i64 %2426, %2
-  br i1 %2427, label %2297, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2015
+  br i1 %2427, label %2297, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2015
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i433, %.preheader.i.i425
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i433, %.preheader.i.i425
   %.3.lcssa.i.i435 = phi i64 [ %.2.lcssa.i.i426, %.preheader.i.i425 ], [ %.4.i.i434, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i433 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %2428 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -74533,7 +74533,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i6
 .preheader.i.i599:                                ; preds = %.preheader.loopexit.i.i598, %.preheader241.i.i, %2430
   %.2.lcssa.i.i600 = phi i64 [ 0, %2430 ], [ %.1.i.i576, %.preheader241.i.i ], [ %2843, %.preheader.loopexit.i.i598 ]
   %.not263.i.i = icmp eq i64 %2447, %2
-  br i1 %.not263.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph260.i.i
+  br i1 %.not263.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph260.i.i
 
 .lr.ph260.i.i:                                    ; preds = %.preheader.i.i599
   %sext.i.i601 = shl i64 %2437, 32
@@ -75016,9 +75016,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i6
   %.4.i.i608 = phi i64 [ %.3259.i.i, %2961 ], [ %.3259.i.i, %2967 ], [ %2994, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i627 ], [ %2994, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i636 ]
   %3097 = add nuw i64 %.090257.i.i, 1
   %3098 = icmp ult i64 %3097, %2
-  br i1 %3098, label %2961, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2018
+  br i1 %3098, label %2961, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2018
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i607, %.preheader.i.i599
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i607, %.preheader.i.i599
   %.3.lcssa.i.i609 = phi i64 [ %.2.lcssa.i.i600, %.preheader.i.i599 ], [ %.4.i.i608, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i607 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %3099 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -75807,7 +75807,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i8
 .preheader.i.i773:                                ; preds = %.preheader.loopexit.i.i772, %.preheader257.i.i, %3101
   %.2.lcssa.i.i774 = phi i64 [ 0, %3101 ], [ %.1.i.i750, %.preheader257.i.i ], [ %3618, %.preheader.loopexit.i.i772 ]
   %.not279.i.i = icmp eq i64 %3126, %2
-  br i1 %.not279.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph276.i.i
+  br i1 %.not279.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph276.i.i
 
 .lr.ph276.i.i:                                    ; preds = %.preheader.i.i773
   %sext.i.i775 = shl i64 %3108, 32
@@ -76314,9 +76314,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i7
   %.4.i.i782 = phi i64 [ %.3275.i.i, %3736 ], [ %.3275.i.i, %3742 ], [ %3793, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i801 ], [ %3793, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i810 ]
   %3896 = add nuw i64 %.090273.i.i, 1
   %3897 = icmp ult i64 %3896, %2
-  br i1 %3897, label %3736, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2021
+  br i1 %3897, label %3736, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2021
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i781, %.preheader.i.i773
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i781, %.preheader.i.i773
   %.3.lcssa.i.i783 = phi i64 [ %.2.lcssa.i.i774, %.preheader.i.i773 ], [ %.4.i.i782, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i781 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %3898 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -76918,7 +76918,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i1
 .preheader.i.i946:                                ; preds = %.preheader.loopexit.i.i945, %.preheader225.i.i, %3900
   %.2.lcssa.i.i947 = phi i64 [ 0, %3900 ], [ %.1.i.i923, %.preheader225.i.i ], [ %4226, %.preheader.loopexit.i.i945 ]
   %.not247.i.i = icmp eq i64 %3915, %2
-  br i1 %.not247.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph244.i.i
+  br i1 %.not247.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph244.i.i
 
 .lr.ph244.i.i:                                    ; preds = %.preheader.i.i946
   %sext.i.i948 = shl i64 %3907, 32
@@ -77380,9 +77380,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i9
   %.4.i.i955 = phi i64 [ %.3243.i.i, %4344 ], [ %.3243.i.i, %4350 ], [ %4356, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i974 ], [ %4356, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i983 ]
   %4459 = add nuw i64 %.090241.i.i, 1
   %4460 = icmp ult i64 %4459, %2
-  br i1 %4460, label %4344, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2024
+  br i1 %4460, label %4344, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2024
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i954, %.preheader.i.i946
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i954, %.preheader.i.i946
   %.3.lcssa.i.i956 = phi i64 [ %.2.lcssa.i.i947, %.preheader.i.i946 ], [ %.4.i.i955, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit224.i.i954 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %4461 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -77397,7 +77397,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %4463
 
-4463:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4463:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -77975,7 +77975,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -79977,7 +79977,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader153.i.i.i.i, %68
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader153.i.i.i.i ], [ %227, %.preheader.loopexit.i.i.i.i ], [ 0, %68 ]
   %.not175.i.i.i.i = icmp eq i64 %78, %1
-  br i1 %.not175.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph172.i.i.i.i
+  br i1 %.not175.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph172.i.i.i.i
 
 .lr.ph172.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %74, 32
@@ -80278,9 +80278,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
   %.4.i.i.i.i = phi i64 [ %.3171.i.i.i.i, %299 ], [ %.3171.i.i.i.i, %305 ], [ %313, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i.i.i ], [ %313, %376 ]
   %378 = add nuw i64 %.090169.i.i.i.i, 1
   %379 = icmp ult i64 %378, %1
-  br i1 %379, label %299, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2032
+  br i1 %379, label %299, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2032
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %380 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -80548,7 +80548,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i66.i.i:                             ; preds = %.preheader.loopexit.i.i65.i.i, %.preheader153.i.i39.i.i, %382
   %.2.lcssa.i.i67.i.i = phi i64 [ %.1.i.i38.i.i, %.preheader153.i.i39.i.i ], [ %545, %.preheader.loopexit.i.i65.i.i ], [ 0, %382 ]
   %.not175.i.i68.i.i = icmp eq i64 %392, %1
-  br i1 %.not175.i.i68.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph172.i.i69.i.i
+  br i1 %.not175.i.i68.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph172.i.i69.i.i
 
 .lr.ph172.i.i69.i.i:                              ; preds = %.preheader.i.i66.i.i
   %sext.i.i70.i.i = shl i64 %388, 32
@@ -80850,9 +80850,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
   %.4.i.i77.i.i = phi i64 [ %.3171.i.i74.i.i, %617 ], [ %.3171.i.i74.i.i, %623 ], [ %632, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i96.i.i ], [ %632, %695 ]
   %697 = add nuw i64 %.090169.i.i75.i.i, 1
   %698 = icmp ult i64 %697, %1
-  br i1 %698, label %617, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2035
+  br i1 %698, label %617, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2035
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i76.i.i, %.preheader.i.i66.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i76.i.i, %.preheader.i.i66.i.i
   %.3.lcssa.i.i78.i.i = phi i64 [ %.2.lcssa.i.i67.i.i, %.preheader.i.i66.i.i ], [ %.4.i.i77.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i76.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %699 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -81146,7 +81146,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i161.i.i:                            ; preds = %.preheader.loopexit.i.i160.i.i, %.preheader157.i.i.i.i, %701
   %.2.lcssa.i.i162.i.i = phi i64 [ %.1.i.i138.i.i, %.preheader157.i.i.i.i ], [ %890, %.preheader.loopexit.i.i160.i.i ], [ 0, %701 ]
   %.not179.i.i.i.i = icmp eq i64 %713, %1
-  br i1 %.not179.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph176.i.i.i.i
+  br i1 %.not179.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph176.i.i.i.i
 
 .lr.ph176.i.i.i.i:                                ; preds = %.preheader.i.i161.i.i
   %sext.i.i163.i.i = shl i64 %707, 32
@@ -81454,9 +81454,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
   %.4.i.i168.i.i = phi i64 [ %.3175.i.i.i.i, %962 ], [ %.3175.i.i.i.i, %968 ], [ %983, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i187.i.i ], [ %983, %1046 ]
   %1048 = add nuw i64 %.090173.i.i.i.i, 1
   %1049 = icmp ult i64 %1048, %1
-  br i1 %1049, label %962, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2038
+  br i1 %1049, label %962, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2038
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i167.i.i, %.preheader.i.i161.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i167.i.i, %.preheader.i.i161.i.i
   %.3.lcssa.i.i169.i.i = phi i64 [ %.2.lcssa.i.i162.i.i, %.preheader.i.i161.i.i ], [ %.4.i.i168.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i167.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %1050 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -81773,7 +81773,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i250.i.i:                            ; preds = %.preheader.loopexit.i.i249.i.i, %.preheader161.i.i.i.i, %1052
   %.2.lcssa.i.i251.i.i = phi i64 [ %.1.i.i227.i.i, %.preheader161.i.i.i.i ], [ %1264, %.preheader.loopexit.i.i249.i.i ], [ 0, %1052 ]
   %.not183.i.i.i.i = icmp eq i64 %1067, %1
-  br i1 %.not183.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph180.i.i.i.i
+  br i1 %.not183.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph180.i.i.i.i
 
 .lr.ph180.i.i.i.i:                                ; preds = %.preheader.i.i250.i.i
   %sext.i.i252.i.i = shl i64 %1058, 32
@@ -82086,9 +82086,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
   %.4.i.i257.i.i = phi i64 [ %.3179.i.i.i.i, %1336 ], [ %.3179.i.i.i.i, %1342 ], [ %1362, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i276.i.i ], [ %1362, %1425 ]
   %1427 = add nuw i64 %.090177.i.i.i.i, 1
   %1428 = icmp ult i64 %1427, %1
-  br i1 %1428, label %1336, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2041
+  br i1 %1428, label %1336, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2041
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i256.i.i, %.preheader.i.i250.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i256.i.i, %.preheader.i.i250.i.i
   %.3.lcssa.i.i258.i.i = phi i64 [ %.2.lcssa.i.i251.i.i, %.preheader.i.i250.i.i ], [ %.4.i.i257.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i256.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %1429 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -82434,7 +82434,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i339.i.i:                            ; preds = %.preheader.loopexit.i.i338.i.i, %.preheader165.i.i.i.i, %1431
   %.2.lcssa.i.i340.i.i = phi i64 [ %.1.i.i316.i.i, %.preheader165.i.i.i.i ], [ %1672, %.preheader.loopexit.i.i338.i.i ], [ 0, %1431 ]
   %.not187.i.i.i.i = icmp eq i64 %1447, %1
-  br i1 %.not187.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph184.i.i.i.i
+  br i1 %.not187.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph184.i.i.i.i
 
 .lr.ph184.i.i.i.i:                                ; preds = %.preheader.i.i339.i.i
   %sext.i.i341.i.i = shl i64 %1437, 32
@@ -82754,9 +82754,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
   %.4.i.i346.i.i = phi i64 [ %.3183.i.i.i.i, %1744 ], [ %.3183.i.i.i.i, %1750 ], [ %1777, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i365.i.i ], [ %1777, %1840 ]
   %1842 = add nuw i64 %.090181.i.i.i.i, 1
   %1843 = icmp ult i64 %1842, %1
-  br i1 %1843, label %1744, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2044
+  br i1 %1843, label %1744, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2044
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i345.i.i, %.preheader.i.i339.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i345.i.i, %.preheader.i.i339.i.i
   %.3.lcssa.i.i347.i.i = phi i64 [ %.2.lcssa.i.i340.i.i, %.preheader.i.i339.i.i ], [ %.4.i.i346.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i345.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %1844 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -83206,7 +83206,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i428.i.i:                            ; preds = %.preheader.loopexit.i.i427.i.i, %.preheader181.i.i.i.i, %1846
   %.2.lcssa.i.i429.i.i = phi i64 [ %.1.i.i405.i.i, %.preheader181.i.i.i.i ], [ %2191, %.preheader.loopexit.i.i427.i.i ], [ 0, %1846 ]
   %.not203.i.i.i.i = icmp eq i64 %1870, %1
-  br i1 %.not203.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph200.i.i.i.i
+  br i1 %.not203.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph200.i.i.i.i
 
 .lr.ph200.i.i.i.i:                                ; preds = %.preheader.i.i428.i.i
   %sext.i.i430.i.i = shl i64 %1852, 32
@@ -83550,9 +83550,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
   %.4.i.i435.i.i = phi i64 [ %.3199.i.i.i.i, %2263 ], [ %.3199.i.i.i.i, %2269 ], [ %2320, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i454.i.i ], [ %2320, %2383 ]
   %2385 = add nuw i64 %.090197.i.i.i.i, 1
   %2386 = icmp ult i64 %2385, %1
-  br i1 %2386, label %2263, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2047
+  br i1 %2386, label %2263, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2047
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i434.i.i, %.preheader.i.i428.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i434.i.i, %.preheader.i.i428.i.i
   %.3.lcssa.i.i436.i.i = phi i64 [ %.2.lcssa.i.i429.i.i, %.preheader.i.i428.i.i ], [ %.4.i.i435.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i434.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %2387 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -83815,7 +83815,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
 .preheader.i.i517.i.i:                            ; preds = %.preheader.loopexit.i.i516.i.i, %.preheader149.i.i.i.i, %2389
   %.2.lcssa.i.i518.i.i = phi i64 [ %.1.i.i494.i.i, %.preheader149.i.i.i.i ], [ %2543, %.preheader.loopexit.i.i516.i.i ], [ 0, %2389 ]
   %.not171.i.i.i.i = icmp eq i64 %2403, %1
-  br i1 %.not171.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph168.i.i.i.i
+  br i1 %.not171.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph168.i.i.i.i
 
 .lr.ph168.i.i.i.i:                                ; preds = %.preheader.i.i517.i.i
   %sext.i.i519.i.i = shl i64 %2395, 32
@@ -84114,9 +84114,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.
   %.4.i.i524.i.i = phi i64 [ %.3167.i.i.i.i, %2615 ], [ %.3167.i.i.i.i, %2621 ], [ %2627, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit146.i.i543.i.i ], [ %2627, %2690 ]
   %2692 = add nuw i64 %.090165.i.i.i.i, 1
   %2693 = icmp ult i64 %2692, %1
-  br i1 %2693, label %2615, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2050
+  br i1 %2693, label %2615, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2050
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i523.i.i, %.preheader.i.i517.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i523.i.i, %.preheader.i.i517.i.i
   %.3.lcssa.i.i525.i.i = phi i64 [ %.2.lcssa.i.i518.i.i, %.preheader.i.i517.i.i ], [ %.4.i.i524.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit148.i.i523.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
   %2694 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -84995,7 +84995,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i35: 
   call void @__cxa_free_exception(ptr %3116) #15
   br label %3123
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i35, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i24, %3090, %2986, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i35, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i24, %3090, %2986, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
   ret void
 
 3123:                                             ; preds = %3120, %3122
@@ -85078,7 +85078,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %4) unnamed_addr #2 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca float, align 4
@@ -85725,7 +85725,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader229.i.i, %43
   %.2.lcssa.i.i = phi i64 [ 0, %43 ], [ %.1.i.i, %.preheader229.i.i ], [ %374, %.preheader.loopexit.i.i ]
   %.not251.i.i = icmp eq i64 %54, %2
-  br i1 %.not251.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph248.i.i
+  br i1 %.not251.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph248.i.i
 
 .lr.ph248.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %50, 32
@@ -86189,9 +86189,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i:
   %.4.i.i = phi i64 [ %.3247.i.i, %492 ], [ %.3247.i.i, %498 ], [ %506, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i ], [ %506, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i ]
   %609 = add nuw i64 %.090245.i.i, 1
   %610 = icmp ult i64 %609, %2
-  br i1 %610, label %492, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2057
+  br i1 %610, label %492, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2057
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %611 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -86798,7 +86798,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i1
 .preheader.i.i69:                                 ; preds = %.preheader.loopexit.i.i68, %.preheader229.i.i43, %613
   %.2.lcssa.i.i70 = phi i64 [ 0, %613 ], [ %.1.i.i42, %.preheader229.i.i43 ], [ %948, %.preheader.loopexit.i.i68 ]
   %.not251.i.i71 = icmp eq i64 %624, %2
-  br i1 %.not251.i.i71, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph248.i.i72
+  br i1 %.not251.i.i71, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph248.i.i72
 
 .lr.ph248.i.i72:                                  ; preds = %.preheader.i.i69
   %sext.i.i73 = shl i64 %620, 32
@@ -87263,9 +87263,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i8
   %.4.i.i82 = phi i64 [ %.3247.i.i79, %1066 ], [ %.3247.i.i79, %1072 ], [ %1081, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i101 ], [ %1081, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i110 ]
   %1184 = add nuw i64 %.090245.i.i80, 1
   %1185 = icmp ult i64 %1184, %2
-  br i1 %1185, label %1066, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2060
+  br i1 %1185, label %1066, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2060
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i81, %.preheader.i.i69
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i81, %.preheader.i.i69
   %.3.lcssa.i.i83 = phi i64 [ %.2.lcssa.i.i70, %.preheader.i.i69 ], [ %.4.i.i82, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i81 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %1186 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -87898,7 +87898,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i3
 .preheader.i.i251:                                ; preds = %.preheader.loopexit.i.i250, %.preheader233.i.i, %1188
   %.2.lcssa.i.i252 = phi i64 [ 0, %1188 ], [ %.1.i.i228, %.preheader233.i.i ], [ %1549, %.preheader.loopexit.i.i250 ]
   %.not255.i.i = icmp eq i64 %1201, %2
-  br i1 %.not255.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph252.i.i
+  br i1 %.not255.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph252.i.i
 
 .lr.ph252.i.i:                                    ; preds = %.preheader.i.i251
   %sext.i.i253 = shl i64 %1195, 32
@@ -88369,9 +88369,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i2
   %.4.i.i260 = phi i64 [ %.3251.i.i, %1667 ], [ %.3251.i.i, %1673 ], [ %1688, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i279 ], [ %1688, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i288 ]
   %1791 = add nuw i64 %.090249.i.i, 1
   %1792 = icmp ult i64 %1791, %2
-  br i1 %1792, label %1667, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2063
+  br i1 %1792, label %1667, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2063
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i259, %.preheader.i.i251
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i259, %.preheader.i.i251
   %.3.lcssa.i.i261 = phi i64 [ %.2.lcssa.i.i252, %.preheader.i.i251 ], [ %.4.i.i260, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i259 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %1793 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -89027,7 +89027,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i5
 .preheader.i.i425:                                ; preds = %.preheader.loopexit.i.i424, %.preheader237.i.i, %1795
   %.2.lcssa.i.i426 = phi i64 [ 0, %1795 ], [ %.1.i.i402, %.preheader237.i.i ], [ %2179, %.preheader.loopexit.i.i424 ]
   %.not259.i.i = icmp eq i64 %1811, %2
-  br i1 %.not259.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph256.i.i
+  br i1 %.not259.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph256.i.i
 
 .lr.ph256.i.i:                                    ; preds = %.preheader.i.i425
   %sext.i.i427 = shl i64 %1802, 32
@@ -89503,9 +89503,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i4
   %.4.i.i434 = phi i64 [ %.3255.i.i, %2297 ], [ %.3255.i.i, %2303 ], [ %2323, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i453 ], [ %2323, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i462 ]
   %2426 = add nuw i64 %.090253.i.i, 1
   %2427 = icmp ult i64 %2426, %2
-  br i1 %2427, label %2297, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2066
+  br i1 %2427, label %2297, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2066
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i433, %.preheader.i.i425
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i433, %.preheader.i.i425
   %.3.lcssa.i.i435 = phi i64 [ %.2.lcssa.i.i426, %.preheader.i.i425 ], [ %.4.i.i434, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i433 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %2428 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -90190,7 +90190,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i6
 .preheader.i.i599:                                ; preds = %.preheader.loopexit.i.i598, %.preheader241.i.i, %2430
   %.2.lcssa.i.i600 = phi i64 [ 0, %2430 ], [ %.1.i.i576, %.preheader241.i.i ], [ %2843, %.preheader.loopexit.i.i598 ]
   %.not263.i.i = icmp eq i64 %2447, %2
-  br i1 %.not263.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph260.i.i
+  br i1 %.not263.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph260.i.i
 
 .lr.ph260.i.i:                                    ; preds = %.preheader.i.i599
   %sext.i.i601 = shl i64 %2437, 32
@@ -90673,9 +90673,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i6
   %.4.i.i608 = phi i64 [ %.3259.i.i, %2961 ], [ %.3259.i.i, %2967 ], [ %2994, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i627 ], [ %2994, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i636 ]
   %3097 = add nuw i64 %.090257.i.i, 1
   %3098 = icmp ult i64 %3097, %2
-  br i1 %3098, label %2961, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2069
+  br i1 %3098, label %2961, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2069
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i607, %.preheader.i.i599
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i607, %.preheader.i.i599
   %.3.lcssa.i.i609 = phi i64 [ %.2.lcssa.i.i600, %.preheader.i.i599 ], [ %.4.i.i608, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i607 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %3099 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -91464,7 +91464,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i8
 .preheader.i.i773:                                ; preds = %.preheader.loopexit.i.i772, %.preheader257.i.i, %3101
   %.2.lcssa.i.i774 = phi i64 [ 0, %3101 ], [ %.1.i.i750, %.preheader257.i.i ], [ %3618, %.preheader.loopexit.i.i772 ]
   %.not279.i.i = icmp eq i64 %3126, %2
-  br i1 %.not279.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph276.i.i
+  br i1 %.not279.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph276.i.i
 
 .lr.ph276.i.i:                                    ; preds = %.preheader.i.i773
   %sext.i.i775 = shl i64 %3108, 32
@@ -91971,9 +91971,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i7
   %.4.i.i782 = phi i64 [ %.3275.i.i, %3736 ], [ %.3275.i.i, %3742 ], [ %3793, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i801 ], [ %3793, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i810 ]
   %3896 = add nuw i64 %.090273.i.i, 1
   %3897 = icmp ult i64 %3896, %2
-  br i1 %3897, label %3736, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2072
+  br i1 %3897, label %3736, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2072
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i781, %.preheader.i.i773
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i781, %.preheader.i.i773
   %.3.lcssa.i.i783 = phi i64 [ %.2.lcssa.i.i774, %.preheader.i.i773 ], [ %.4.i.i782, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i781 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %3898 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -92575,7 +92575,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i1
 .preheader.i.i946:                                ; preds = %.preheader.loopexit.i.i945, %.preheader225.i.i, %3900
   %.2.lcssa.i.i947 = phi i64 [ 0, %3900 ], [ %.1.i.i923, %.preheader225.i.i ], [ %4226, %.preheader.loopexit.i.i945 ]
   %.not247.i.i = icmp eq i64 %3915, %2
-  br i1 %.not247.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph244.i.i
+  br i1 %.not247.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph244.i.i
 
 .lr.ph244.i.i:                                    ; preds = %.preheader.i.i946
   %sext.i.i948 = shl i64 %3907, 32
@@ -93037,9 +93037,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i9
   %.4.i.i955 = phi i64 [ %.3243.i.i, %4344 ], [ %.3243.i.i, %4350 ], [ %4356, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit207.i.i974 ], [ %4356, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i218.i.i983 ]
   %4459 = add nuw i64 %.090241.i.i, 1
   %4460 = icmp ult i64 %4459, %2
-  br i1 %4460, label %4344, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2075
+  br i1 %4460, label %4344, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2075
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i954, %.preheader.i.i946
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i954, %.preheader.i.i946
   %.3.lcssa.i.i956 = phi i64 [ %.2.lcssa.i.i947, %.preheader.i.i946 ], [ %.4.i.i955, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit224.i.i954 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %4461 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -93054,7 +93054,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %4463
 
-4463:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4463:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -93180,7 +93180,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -94984,7 +94984,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader138.i.i.i.i, %34
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader138.i.i.i.i ], [ %235, %.preheader.loopexit.i.i.i.i ], [ 0, %34 ]
   %.not160.i.i.i.i = icmp eq i64 %44, %1
-  br i1 %.not160.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph157.i.i.i.i
+  br i1 %.not160.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph157.i.i.i.i
 
 .lr.ph157.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %40, 32
@@ -95124,9 +95124,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i.i.i = phi i64 [ %.3156.i.i.i.i, %270 ], [ %278, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i.i.i ], [ %278, %305 ]
   %307 = add nuw i64 %.090154.i.i.i.i, 1
   %308 = icmp ult i64 %307, %1
-  br i1 %308, label %270, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2136
+  br i1 %308, label %270, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2136
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %309 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -95495,7 +95495,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i58.i.i:                             ; preds = %.preheader.loopexit.i.i57.i.i, %.preheader138.i.i39.i.i, %311
   %.2.lcssa.i.i59.i.i = phi i64 [ %.1.i.i38.i.i, %.preheader138.i.i39.i.i ], [ %516, %.preheader.loopexit.i.i57.i.i ], [ 0, %311 ]
   %.not160.i.i60.i.i = icmp eq i64 %321, %1
-  br i1 %.not160.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph157.i.i61.i.i
+  br i1 %.not160.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph157.i.i61.i.i
 
 .lr.ph157.i.i61.i.i:                              ; preds = %.preheader.i.i58.i.i
   %sext.i.i62.i.i = shl i64 %317, 32
@@ -95636,9 +95636,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i67.i.i = phi i64 [ %.3156.i.i64.i.i, %551 ], [ %560, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i77.i.i ], [ %560, %587 ]
   %589 = add nuw i64 %.090154.i.i65.i.i, 1
   %590 = icmp ult i64 %589, %1
-  br i1 %590, label %551, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2166
+  br i1 %590, label %551, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2166
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i68.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i67.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %591 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -96033,7 +96033,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i141.i.i:                            ; preds = %.preheader.loopexit.i.i140.i.i, %.preheader142.i.i.i.i, %593
   %.2.lcssa.i.i142.i.i = phi i64 [ %.1.i.i126.i.i, %.preheader142.i.i.i.i ], [ %824, %.preheader.loopexit.i.i140.i.i ], [ 0, %593 ]
   %.not164.i.i.i.i = icmp eq i64 %605, %1
-  br i1 %.not164.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph161.i.i.i.i
+  br i1 %.not164.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph161.i.i.i.i
 
 .lr.ph161.i.i.i.i:                                ; preds = %.preheader.i.i141.i.i
   %sext.i.i143.i.i = shl i64 %599, 32
@@ -96180,9 +96180,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i146.i.i = phi i64 [ %.3160.i.i.i.i, %859 ], [ %874, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i156.i.i ], [ %874, %901 ]
   %903 = add nuw i64 %.090158.i.i.i.i, 1
   %904 = icmp ult i64 %903, %1
-  br i1 %904, label %859, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2196
+  br i1 %904, label %859, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2196
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
   %.3.lcssa.i.i147.i.i = phi i64 [ %.2.lcssa.i.i142.i.i, %.preheader.i.i141.i.i ], [ %.4.i.i146.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %905 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -96600,7 +96600,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i212.i.i:                            ; preds = %.preheader.loopexit.i.i211.i.i, %.preheader146.i.i.i.i, %907
   %.2.lcssa.i.i213.i.i = phi i64 [ %.1.i.i197.i.i, %.preheader146.i.i.i.i ], [ %1161, %.preheader.loopexit.i.i211.i.i ], [ 0, %907 ]
   %.not168.i.i.i.i = icmp eq i64 %922, %1
-  br i1 %.not168.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph165.i.i.i.i
+  br i1 %.not168.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph165.i.i.i.i
 
 .lr.ph165.i.i.i.i:                                ; preds = %.preheader.i.i212.i.i
   %sext.i.i214.i.i = shl i64 %913, 32
@@ -96752,9 +96752,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i217.i.i = phi i64 [ %.3164.i.i.i.i, %1196 ], [ %1216, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i227.i.i ], [ %1216, %1243 ]
   %1245 = add nuw i64 %.090162.i.i.i.i, 1
   %1246 = icmp ult i64 %1245, %1
-  br i1 %1246, label %1196, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2226
+  br i1 %1246, label %1196, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2226
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
   %.3.lcssa.i.i218.i.i = phi i64 [ %.2.lcssa.i.i213.i.i, %.preheader.i.i212.i.i ], [ %.4.i.i217.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %1247 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -97201,7 +97201,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i283.i.i:                            ; preds = %.preheader.loopexit.i.i282.i.i, %.preheader150.i.i.i.i, %1249
   %.2.lcssa.i.i284.i.i = phi i64 [ %.1.i.i267.i.i, %.preheader150.i.i.i.i ], [ %1532, %.preheader.loopexit.i.i282.i.i ], [ 0, %1249 ]
   %.not172.i.i.i.i = icmp eq i64 %1265, %1
-  br i1 %.not172.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph169.i.i.i.i
+  br i1 %.not172.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph169.i.i.i.i
 
 .lr.ph169.i.i.i.i:                                ; preds = %.preheader.i.i283.i.i
   %sext.i.i285.i.i = shl i64 %1255, 32
@@ -97360,9 +97360,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i288.i.i = phi i64 [ %.3168.i.i.i.i, %1567 ], [ %1594, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i298.i.i ], [ %1594, %1621 ]
   %1623 = add nuw i64 %.090166.i.i.i.i, 1
   %1624 = icmp ult i64 %1623, %1
-  br i1 %1624, label %1567, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2256
+  br i1 %1624, label %1567, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2256
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
   %.3.lcssa.i.i289.i.i = phi i64 [ %.2.lcssa.i.i284.i.i, %.preheader.i.i283.i.i ], [ %.4.i.i288.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %1625 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -97913,7 +97913,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i354.i.i:                            ; preds = %.preheader.loopexit.i.i353.i.i, %.preheader166.i.i.i.i, %1627
   %.2.lcssa.i.i355.i.i = phi i64 [ %.1.i.i338.i.i, %.preheader166.i.i.i.i ], [ %2014, %.preheader.loopexit.i.i353.i.i ], [ 0, %1627 ]
   %.not188.i.i.i.i = icmp eq i64 %1651, %1
-  br i1 %.not188.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph185.i.i.i.i
+  br i1 %.not188.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph185.i.i.i.i
 
 .lr.ph185.i.i.i.i:                                ; preds = %.preheader.i.i354.i.i
   %sext.i.i356.i.i = shl i64 %1633, 32
@@ -98096,9 +98096,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i359.i.i = phi i64 [ %.3184.i.i.i.i, %2049 ], [ %2100, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i369.i.i ], [ %2100, %2127 ]
   %2129 = add nuw i64 %.090182.i.i.i.i, 1
   %2130 = icmp ult i64 %2129, %1
-  br i1 %2130, label %2049, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2286
+  br i1 %2130, label %2049, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2286
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
   %.3.lcssa.i.i360.i.i = phi i64 [ %.2.lcssa.i.i355.i.i, %.preheader.i.i354.i.i ], [ %.4.i.i359.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %2131 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -98462,7 +98462,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i421.i.i:                            ; preds = %.preheader.loopexit.i.i420.i.i, %.preheader134.i.i.i.i, %2133
   %.2.lcssa.i.i422.i.i = phi i64 [ %.1.i.i406.i.i, %.preheader134.i.i.i.i ], [ %2329, %.preheader.loopexit.i.i420.i.i ], [ 0, %2133 ]
   %.not156.i.i.i.i = icmp eq i64 %2147, %1
-  br i1 %.not156.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph153.i.i.i.i
+  br i1 %.not156.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph153.i.i.i.i
 
 .lr.ph153.i.i.i.i:                                ; preds = %.preheader.i.i421.i.i
   %sext.i.i423.i.i = shl i64 %2139, 32
@@ -98600,9 +98600,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i426.i.i = phi i64 [ %.3152.i.i.i.i, %2364 ], [ %2370, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i436.i.i ], [ %2370, %2397 ]
   %2399 = add nuw i64 %.090150.i.i.i.i, 1
   %2400 = icmp ult i64 %2399, %1
-  br i1 %2400, label %2364, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2316
+  br i1 %2400, label %2364, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2316
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
   %.3.lcssa.i.i427.i.i = phi i64 [ %.2.lcssa.i.i422.i.i, %.preheader.i.i421.i.i ], [ %.4.i.i426.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %2401 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -99222,7 +99222,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28: 
   call void @__cxa_free_exception(ptr %2707) #15
   br label %2714
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i23, %2677, %2614, %2612, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit93.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit84.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit73.i, %._crit_edge.i, %2406, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i23, %2677, %2614, %2612, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit93.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit84.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit73.i, %._crit_edge.i, %2406, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i
   ret void
 
 2714:                                             ; preds = %2711, %2713
@@ -99305,7 +99305,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %4) unnamed_addr #0 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %4) unnamed_addr #0 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -100007,7 +100007,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader214.i.i, %15
   %.2.lcssa.i.i = phi i64 [ 0, %15 ], [ %.1.i.i, %.preheader214.i.i ], [ %378, %.preheader.loopexit.i.i ]
   %.not236.i.i = icmp eq i64 %26, %2
-  br i1 %.not236.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph233.i.i
+  br i1 %.not236.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph233.i.i
 
 .lr.ph233.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %22, 32
@@ -100310,9 +100310,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i:
   %.4.i.i = phi i64 [ %.3232.i.i, %458 ], [ %466, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i ], [ %466, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i ]
   %533 = add nuw i64 %.090230.i.i, 1
   %534 = icmp ult i64 %533, %2
-  br i1 %534, label %458, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2377
+  br i1 %534, label %458, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2377
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %535 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -100999,7 +100999,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i1
 .preheader.i.i62:                                 ; preds = %.preheader.loopexit.i.i60, %.preheader214.i.i42, %537
   %.2.lcssa.i.i63 = phi i64 [ 0, %537 ], [ %.1.i.i41, %.preheader214.i.i42 ], [ %904, %.preheader.loopexit.i.i60 ]
   %.not236.i.i64 = icmp eq i64 %548, %2
-  br i1 %.not236.i.i64, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph233.i.i65
+  br i1 %.not236.i.i64, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph233.i.i65
 
 .lr.ph233.i.i65:                                  ; preds = %.preheader.i.i62
   %sext.i.i66 = shl i64 %544, 32
@@ -101303,9 +101303,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i7
   %.4.i.i73 = phi i64 [ %.3232.i.i70, %984 ], [ %993, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i83 ], [ %993, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i92 ]
   %1060 = add nuw i64 %.090230.i.i71, 1
   %1061 = icmp ult i64 %1060, %2
-  br i1 %1061, label %984, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2407
+  br i1 %1061, label %984, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2407
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
   %.3.lcssa.i.i74 = phi i64 [ %.2.lcssa.i.i63, %.preheader.i.i62 ], [ %.4.i.i73, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1062 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -102018,7 +102018,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i3
 .preheader.i.i234:                                ; preds = %.preheader.loopexit.i.i232, %.preheader218.i.i, %1064
   %.2.lcssa.i.i235 = phi i64 [ 0, %1064 ], [ %.1.i.i218, %.preheader218.i.i ], [ %1457, %.preheader.loopexit.i.i232 ]
   %.not240.i.i = icmp eq i64 %1077, %2
-  br i1 %.not240.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph237.i.i
+  br i1 %.not240.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph237.i.i
 
 .lr.ph237.i.i:                                    ; preds = %.preheader.i.i234
   %sext.i.i236 = shl i64 %1071, 32
@@ -102328,9 +102328,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i2
   %.4.i.i241 = phi i64 [ %.3236.i.i, %1537 ], [ %1552, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i251 ], [ %1552, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i260 ]
   %1619 = add nuw i64 %.090234.i.i, 1
   %1620 = icmp ult i64 %1619, %2
-  br i1 %1620, label %1537, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2437
+  br i1 %1620, label %1537, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2437
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
   %.3.lcssa.i.i242 = phi i64 [ %.2.lcssa.i.i235, %.preheader.i.i234 ], [ %.4.i.i241, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1621 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -103066,7 +103066,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i4
 .preheader.i.i392:                                ; preds = %.preheader.loopexit.i.i390, %.preheader222.i.i, %1623
   %.2.lcssa.i.i393 = phi i64 [ 0, %1623 ], [ %.1.i.i376, %.preheader222.i.i ], [ %2039, %.preheader.loopexit.i.i390 ]
   %.not244.i.i = icmp eq i64 %1639, %2
-  br i1 %.not244.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph241.i.i
+  br i1 %.not244.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph241.i.i
 
 .lr.ph241.i.i:                                    ; preds = %.preheader.i.i392
   %sext.i.i394 = shl i64 %1630, 32
@@ -103381,9 +103381,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i3
   %.4.i.i399 = phi i64 [ %.3240.i.i, %2119 ], [ %2139, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i409 ], [ %2139, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i418 ]
   %2206 = add nuw i64 %.090238.i.i, 1
   %2207 = icmp ult i64 %2206, %2
-  br i1 %2207, label %2119, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2467
+  br i1 %2207, label %2119, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2467
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
   %.3.lcssa.i.i400 = phi i64 [ %.2.lcssa.i.i393, %.preheader.i.i392 ], [ %.4.i.i399, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2208 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -104148,7 +104148,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i6
 .preheader.i.i550:                                ; preds = %.preheader.loopexit.i.i548, %.preheader226.i.i, %2210
   %.2.lcssa.i.i551 = phi i64 [ 0, %2210 ], [ %.1.i.i533, %.preheader226.i.i ], [ %2655, %.preheader.loopexit.i.i548 ]
   %.not248.i.i = icmp eq i64 %2227, %2
-  br i1 %.not248.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph245.i.i
+  br i1 %.not248.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph245.i.i
 
 .lr.ph245.i.i:                                    ; preds = %.preheader.i.i550
   %sext.i.i552 = shl i64 %2217, 32
@@ -104470,9 +104470,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i5
   %.4.i.i557 = phi i64 [ %.3244.i.i, %2735 ], [ %2762, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i567 ], [ %2762, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i576 ]
   %2829 = add nuw i64 %.090242.i.i, 1
   %2830 = icmp ult i64 %2829, %2
-  br i1 %2830, label %2735, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2497
+  br i1 %2830, label %2735, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2497
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
   %.3.lcssa.i.i558 = phi i64 [ %.2.lcssa.i.i551, %.preheader.i.i550 ], [ %.4.i.i557, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2831 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -105341,7 +105341,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i7
 .preheader.i.i709:                                ; preds = %.preheader.loopexit.i.i707, %.preheader242.i.i, %2833
   %.2.lcssa.i.i710 = phi i64 [ 0, %2833 ], [ %.1.i.i691, %.preheader242.i.i ], [ %3382, %.preheader.loopexit.i.i707 ]
   %.not264.i.i = icmp eq i64 %2858, %2
-  br i1 %.not264.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph261.i.i
+  br i1 %.not264.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph261.i.i
 
 .lr.ph261.i.i:                                    ; preds = %.preheader.i.i709
   %sext.i.i711 = shl i64 %2840, 32
@@ -105687,9 +105687,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i7
   %.4.i.i716 = phi i64 [ %.3260.i.i, %3462 ], [ %3513, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i726 ], [ %3513, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i735 ]
   %3580 = add nuw i64 %.090258.i.i, 1
   %3581 = icmp ult i64 %3580, %2
-  br i1 %3581, label %3462, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2527
+  br i1 %3581, label %3462, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2527
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
   %.3.lcssa.i.i717 = phi i64 [ %.2.lcssa.i.i710, %.preheader.i.i709 ], [ %.4.i.i716, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3582 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -106371,7 +106371,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i9
 .preheader.i.i862:                                ; preds = %.preheader.loopexit.i.i860, %.preheader210.i.i, %3584
   %.2.lcssa.i.i863 = phi i64 [ 0, %3584 ], [ %.1.i.i846, %.preheader210.i.i ], [ %3942, %.preheader.loopexit.i.i860 ]
   %.not232.i.i = icmp eq i64 %3599, %2
-  br i1 %.not232.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph229.i.i
+  br i1 %.not232.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph229.i.i
 
 .lr.ph229.i.i:                                    ; preds = %.preheader.i.i862
   %sext.i.i864 = shl i64 %3591, 32
@@ -106672,9 +106672,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i8
   %.4.i.i869 = phi i64 [ %.3228.i.i, %4022 ], [ %4028, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i879 ], [ %4028, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i888 ]
   %4095 = add nuw i64 %.090226.i.i, 1
   %4096 = icmp ult i64 %4095, %2
-  br i1 %4096, label %4022, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2557
+  br i1 %4096, label %4022, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2557
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
   %.3.lcssa.i.i870 = phi i64 [ %.2.lcssa.i.i863, %.preheader.i.i862 ], [ %.4.i.i869, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %4097 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -106685,7 +106685,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %4099
 
-4099:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4099:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -106811,7 +106811,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -108612,7 +108612,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader138.i.i.i.i, %34
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader138.i.i.i.i ], [ %235, %.preheader.loopexit.i.i.i.i ], [ 0, %34 ]
   %.not160.i.i.i.i = icmp eq i64 %44, %1
-  br i1 %.not160.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph157.i.i.i.i
+  br i1 %.not160.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph157.i.i.i.i
 
 .lr.ph157.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %40, 32
@@ -108752,9 +108752,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i.i.i = phi i64 [ %.3156.i.i.i.i, %270 ], [ %278, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i.i.i ], [ %278, %305 ]
   %307 = add nuw i64 %.090154.i.i.i.i, 1
   %308 = icmp ult i64 %307, %1
-  br i1 %308, label %270, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2618
+  br i1 %308, label %270, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2618
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %309 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -109123,7 +109123,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i58.i.i:                             ; preds = %.preheader.loopexit.i.i57.i.i, %.preheader138.i.i39.i.i, %311
   %.2.lcssa.i.i59.i.i = phi i64 [ %.1.i.i38.i.i, %.preheader138.i.i39.i.i ], [ %516, %.preheader.loopexit.i.i57.i.i ], [ 0, %311 ]
   %.not160.i.i60.i.i = icmp eq i64 %321, %1
-  br i1 %.not160.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph157.i.i61.i.i
+  br i1 %.not160.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph157.i.i61.i.i
 
 .lr.ph157.i.i61.i.i:                              ; preds = %.preheader.i.i58.i.i
   %sext.i.i62.i.i = shl i64 %317, 32
@@ -109264,9 +109264,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i67.i.i = phi i64 [ %.3156.i.i64.i.i, %551 ], [ %560, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i77.i.i ], [ %560, %587 ]
   %589 = add nuw i64 %.090154.i.i65.i.i, 1
   %590 = icmp ult i64 %589, %1
-  br i1 %590, label %551, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2648
+  br i1 %590, label %551, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2648
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i68.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i67.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %591 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -109661,7 +109661,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i141.i.i:                            ; preds = %.preheader.loopexit.i.i140.i.i, %.preheader142.i.i.i.i, %593
   %.2.lcssa.i.i142.i.i = phi i64 [ %.1.i.i126.i.i, %.preheader142.i.i.i.i ], [ %824, %.preheader.loopexit.i.i140.i.i ], [ 0, %593 ]
   %.not164.i.i.i.i = icmp eq i64 %605, %1
-  br i1 %.not164.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph161.i.i.i.i
+  br i1 %.not164.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph161.i.i.i.i
 
 .lr.ph161.i.i.i.i:                                ; preds = %.preheader.i.i141.i.i
   %sext.i.i143.i.i = shl i64 %599, 32
@@ -109808,9 +109808,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i146.i.i = phi i64 [ %.3160.i.i.i.i, %859 ], [ %874, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i156.i.i ], [ %874, %901 ]
   %903 = add nuw i64 %.090158.i.i.i.i, 1
   %904 = icmp ult i64 %903, %1
-  br i1 %904, label %859, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2678
+  br i1 %904, label %859, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2678
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
   %.3.lcssa.i.i147.i.i = phi i64 [ %.2.lcssa.i.i142.i.i, %.preheader.i.i141.i.i ], [ %.4.i.i146.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %905 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -110228,7 +110228,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i212.i.i:                            ; preds = %.preheader.loopexit.i.i211.i.i, %.preheader146.i.i.i.i, %907
   %.2.lcssa.i.i213.i.i = phi i64 [ %.1.i.i197.i.i, %.preheader146.i.i.i.i ], [ %1161, %.preheader.loopexit.i.i211.i.i ], [ 0, %907 ]
   %.not168.i.i.i.i = icmp eq i64 %922, %1
-  br i1 %.not168.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph165.i.i.i.i
+  br i1 %.not168.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph165.i.i.i.i
 
 .lr.ph165.i.i.i.i:                                ; preds = %.preheader.i.i212.i.i
   %sext.i.i214.i.i = shl i64 %913, 32
@@ -110380,9 +110380,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i217.i.i = phi i64 [ %.3164.i.i.i.i, %1196 ], [ %1216, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i227.i.i ], [ %1216, %1243 ]
   %1245 = add nuw i64 %.090162.i.i.i.i, 1
   %1246 = icmp ult i64 %1245, %1
-  br i1 %1246, label %1196, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2708
+  br i1 %1246, label %1196, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2708
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
   %.3.lcssa.i.i218.i.i = phi i64 [ %.2.lcssa.i.i213.i.i, %.preheader.i.i212.i.i ], [ %.4.i.i217.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %1247 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -110829,7 +110829,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i283.i.i:                            ; preds = %.preheader.loopexit.i.i282.i.i, %.preheader150.i.i.i.i, %1249
   %.2.lcssa.i.i284.i.i = phi i64 [ %.1.i.i267.i.i, %.preheader150.i.i.i.i ], [ %1532, %.preheader.loopexit.i.i282.i.i ], [ 0, %1249 ]
   %.not172.i.i.i.i = icmp eq i64 %1265, %1
-  br i1 %.not172.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph169.i.i.i.i
+  br i1 %.not172.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph169.i.i.i.i
 
 .lr.ph169.i.i.i.i:                                ; preds = %.preheader.i.i283.i.i
   %sext.i.i285.i.i = shl i64 %1255, 32
@@ -110988,9 +110988,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i288.i.i = phi i64 [ %.3168.i.i.i.i, %1567 ], [ %1594, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i298.i.i ], [ %1594, %1621 ]
   %1623 = add nuw i64 %.090166.i.i.i.i, 1
   %1624 = icmp ult i64 %1623, %1
-  br i1 %1624, label %1567, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2738
+  br i1 %1624, label %1567, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2738
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
   %.3.lcssa.i.i289.i.i = phi i64 [ %.2.lcssa.i.i284.i.i, %.preheader.i.i283.i.i ], [ %.4.i.i288.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %1625 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -111541,7 +111541,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i354.i.i:                            ; preds = %.preheader.loopexit.i.i353.i.i, %.preheader166.i.i.i.i, %1627
   %.2.lcssa.i.i355.i.i = phi i64 [ %.1.i.i338.i.i, %.preheader166.i.i.i.i ], [ %2014, %.preheader.loopexit.i.i353.i.i ], [ 0, %1627 ]
   %.not188.i.i.i.i = icmp eq i64 %1651, %1
-  br i1 %.not188.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph185.i.i.i.i
+  br i1 %.not188.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph185.i.i.i.i
 
 .lr.ph185.i.i.i.i:                                ; preds = %.preheader.i.i354.i.i
   %sext.i.i356.i.i = shl i64 %1633, 32
@@ -111724,9 +111724,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i359.i.i = phi i64 [ %.3184.i.i.i.i, %2049 ], [ %2100, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i369.i.i ], [ %2100, %2127 ]
   %2129 = add nuw i64 %.090182.i.i.i.i, 1
   %2130 = icmp ult i64 %2129, %1
-  br i1 %2130, label %2049, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2768
+  br i1 %2130, label %2049, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2768
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
   %.3.lcssa.i.i360.i.i = phi i64 [ %.2.lcssa.i.i355.i.i, %.preheader.i.i354.i.i ], [ %.4.i.i359.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %2131 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -112090,7 +112090,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i421.i.i:                            ; preds = %.preheader.loopexit.i.i420.i.i, %.preheader134.i.i.i.i, %2133
   %.2.lcssa.i.i422.i.i = phi i64 [ %.1.i.i406.i.i, %.preheader134.i.i.i.i ], [ %2329, %.preheader.loopexit.i.i420.i.i ], [ 0, %2133 ]
   %.not156.i.i.i.i = icmp eq i64 %2147, %1
-  br i1 %.not156.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph153.i.i.i.i
+  br i1 %.not156.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph153.i.i.i.i
 
 .lr.ph153.i.i.i.i:                                ; preds = %.preheader.i.i421.i.i
   %sext.i.i423.i.i = shl i64 %2139, 32
@@ -112228,9 +112228,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i426.i.i = phi i64 [ %.3152.i.i.i.i, %2364 ], [ %2370, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit116.i.i436.i.i ], [ %2370, %2397 ]
   %2399 = add nuw i64 %.090150.i.i.i.i, 1
   %2400 = icmp ult i64 %2399, %1
-  br i1 %2400, label %2364, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !2798
+  br i1 %2400, label %2364, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !2798
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
   %.3.lcssa.i.i427.i.i = phi i64 [ %.2.lcssa.i.i422.i.i, %.preheader.i.i421.i.i ], [ %.4.i.i426.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %2401 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -112847,7 +112847,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28: 
   call void @__cxa_free_exception(ptr %2701) #15
   br label %2708
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i23, %2674, %2614, %2612, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit93.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit84.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit73.i, %._crit_edge.i, %2406, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i23, %2674, %2614, %2612, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit93.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit84.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit73.i, %._crit_edge.i, %2406, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i
   ret void
 
 2708:                                             ; preds = %2705, %2707
@@ -112930,7 +112930,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %4) unnamed_addr #0 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %4) unnamed_addr #0 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -113632,7 +113632,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader214.i.i, %15
   %.2.lcssa.i.i = phi i64 [ 0, %15 ], [ %.1.i.i, %.preheader214.i.i ], [ %378, %.preheader.loopexit.i.i ]
   %.not236.i.i = icmp eq i64 %26, %2
-  br i1 %.not236.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph233.i.i
+  br i1 %.not236.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph233.i.i
 
 .lr.ph233.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %22, 32
@@ -113935,9 +113935,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i:
   %.4.i.i = phi i64 [ %.3232.i.i, %458 ], [ %466, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i ], [ %466, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i ]
   %533 = add nuw i64 %.090230.i.i, 1
   %534 = icmp ult i64 %533, %2
-  br i1 %534, label %458, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2859
+  br i1 %534, label %458, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2859
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %535 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -114624,7 +114624,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i1
 .preheader.i.i62:                                 ; preds = %.preheader.loopexit.i.i60, %.preheader214.i.i42, %537
   %.2.lcssa.i.i63 = phi i64 [ 0, %537 ], [ %.1.i.i41, %.preheader214.i.i42 ], [ %904, %.preheader.loopexit.i.i60 ]
   %.not236.i.i64 = icmp eq i64 %548, %2
-  br i1 %.not236.i.i64, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph233.i.i65
+  br i1 %.not236.i.i64, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph233.i.i65
 
 .lr.ph233.i.i65:                                  ; preds = %.preheader.i.i62
   %sext.i.i66 = shl i64 %544, 32
@@ -114928,9 +114928,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i7
   %.4.i.i73 = phi i64 [ %.3232.i.i70, %984 ], [ %993, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i83 ], [ %993, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i92 ]
   %1060 = add nuw i64 %.090230.i.i71, 1
   %1061 = icmp ult i64 %1060, %2
-  br i1 %1061, label %984, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2889
+  br i1 %1061, label %984, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2889
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
   %.3.lcssa.i.i74 = phi i64 [ %.2.lcssa.i.i63, %.preheader.i.i62 ], [ %.4.i.i73, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1062 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -115643,7 +115643,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i3
 .preheader.i.i234:                                ; preds = %.preheader.loopexit.i.i232, %.preheader218.i.i, %1064
   %.2.lcssa.i.i235 = phi i64 [ 0, %1064 ], [ %.1.i.i218, %.preheader218.i.i ], [ %1457, %.preheader.loopexit.i.i232 ]
   %.not240.i.i = icmp eq i64 %1077, %2
-  br i1 %.not240.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph237.i.i
+  br i1 %.not240.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph237.i.i
 
 .lr.ph237.i.i:                                    ; preds = %.preheader.i.i234
   %sext.i.i236 = shl i64 %1071, 32
@@ -115953,9 +115953,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i2
   %.4.i.i241 = phi i64 [ %.3236.i.i, %1537 ], [ %1552, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i251 ], [ %1552, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i260 ]
   %1619 = add nuw i64 %.090234.i.i, 1
   %1620 = icmp ult i64 %1619, %2
-  br i1 %1620, label %1537, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2919
+  br i1 %1620, label %1537, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2919
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
   %.3.lcssa.i.i242 = phi i64 [ %.2.lcssa.i.i235, %.preheader.i.i234 ], [ %.4.i.i241, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1621 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -116691,7 +116691,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i4
 .preheader.i.i392:                                ; preds = %.preheader.loopexit.i.i390, %.preheader222.i.i, %1623
   %.2.lcssa.i.i393 = phi i64 [ 0, %1623 ], [ %.1.i.i376, %.preheader222.i.i ], [ %2039, %.preheader.loopexit.i.i390 ]
   %.not244.i.i = icmp eq i64 %1639, %2
-  br i1 %.not244.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph241.i.i
+  br i1 %.not244.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph241.i.i
 
 .lr.ph241.i.i:                                    ; preds = %.preheader.i.i392
   %sext.i.i394 = shl i64 %1630, 32
@@ -117006,9 +117006,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i3
   %.4.i.i399 = phi i64 [ %.3240.i.i, %2119 ], [ %2139, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i409 ], [ %2139, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i418 ]
   %2206 = add nuw i64 %.090238.i.i, 1
   %2207 = icmp ult i64 %2206, %2
-  br i1 %2207, label %2119, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2949
+  br i1 %2207, label %2119, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2949
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
   %.3.lcssa.i.i400 = phi i64 [ %.2.lcssa.i.i393, %.preheader.i.i392 ], [ %.4.i.i399, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2208 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -117773,7 +117773,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i6
 .preheader.i.i550:                                ; preds = %.preheader.loopexit.i.i548, %.preheader226.i.i, %2210
   %.2.lcssa.i.i551 = phi i64 [ 0, %2210 ], [ %.1.i.i533, %.preheader226.i.i ], [ %2655, %.preheader.loopexit.i.i548 ]
   %.not248.i.i = icmp eq i64 %2227, %2
-  br i1 %.not248.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph245.i.i
+  br i1 %.not248.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph245.i.i
 
 .lr.ph245.i.i:                                    ; preds = %.preheader.i.i550
   %sext.i.i552 = shl i64 %2217, 32
@@ -118095,9 +118095,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i5
   %.4.i.i557 = phi i64 [ %.3244.i.i, %2735 ], [ %2762, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i567 ], [ %2762, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i576 ]
   %2829 = add nuw i64 %.090242.i.i, 1
   %2830 = icmp ult i64 %2829, %2
-  br i1 %2830, label %2735, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !2979
+  br i1 %2830, label %2735, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !2979
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
   %.3.lcssa.i.i558 = phi i64 [ %.2.lcssa.i.i551, %.preheader.i.i550 ], [ %.4.i.i557, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2831 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -118966,7 +118966,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i7
 .preheader.i.i709:                                ; preds = %.preheader.loopexit.i.i707, %.preheader242.i.i, %2833
   %.2.lcssa.i.i710 = phi i64 [ 0, %2833 ], [ %.1.i.i691, %.preheader242.i.i ], [ %3382, %.preheader.loopexit.i.i707 ]
   %.not264.i.i = icmp eq i64 %2858, %2
-  br i1 %.not264.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph261.i.i
+  br i1 %.not264.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph261.i.i
 
 .lr.ph261.i.i:                                    ; preds = %.preheader.i.i709
   %sext.i.i711 = shl i64 %2840, 32
@@ -119312,9 +119312,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i7
   %.4.i.i716 = phi i64 [ %.3260.i.i, %3462 ], [ %3513, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i726 ], [ %3513, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i735 ]
   %3580 = add nuw i64 %.090258.i.i, 1
   %3581 = icmp ult i64 %3580, %2
-  br i1 %3581, label %3462, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3009
+  br i1 %3581, label %3462, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3009
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
   %.3.lcssa.i.i717 = phi i64 [ %.2.lcssa.i.i710, %.preheader.i.i709 ], [ %.4.i.i716, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3582 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -119996,7 +119996,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i9
 .preheader.i.i862:                                ; preds = %.preheader.loopexit.i.i860, %.preheader210.i.i, %3584
   %.2.lcssa.i.i863 = phi i64 [ 0, %3584 ], [ %.1.i.i846, %.preheader210.i.i ], [ %3942, %.preheader.loopexit.i.i860 ]
   %.not232.i.i = icmp eq i64 %3599, %2
-  br i1 %.not232.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph229.i.i
+  br i1 %.not232.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph229.i.i
 
 .lr.ph229.i.i:                                    ; preds = %.preheader.i.i862
   %sext.i.i864 = shl i64 %3591, 32
@@ -120297,9 +120297,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i8
   %.4.i.i869 = phi i64 [ %.3228.i.i, %4022 ], [ %4028, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit177.i.i879 ], [ %4028, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i888 ]
   %4095 = add nuw i64 %.090226.i.i, 1
   %4096 = icmp ult i64 %4095, %2
-  br i1 %4096, label %4022, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3039
+  br i1 %4096, label %4022, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3039
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
   %.3.lcssa.i.i870 = phi i64 [ %.2.lcssa.i.i863, %.preheader.i.i862 ], [ %.4.i.i869, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %4097 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -120310,7 +120310,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %4099
 
-4099:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4099:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -120436,7 +120436,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -122240,7 +122240,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader138.i.i.i.i, %34
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader138.i.i.i.i ], [ %235, %.preheader.loopexit.i.i.i.i ], [ 0, %34 ]
   %.not160.i.i.i.i = icmp eq i64 %44, %1
-  br i1 %.not160.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph157.i.i.i.i
+  br i1 %.not160.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph157.i.i.i.i
 
 .lr.ph157.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %40, 32
@@ -122380,9 +122380,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i.i.i = phi i64 [ %.3156.i.i.i.i, %270 ], [ %278, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i.i.i ], [ %278, %305 ]
   %307 = add nuw i64 %.090154.i.i.i.i, 1
   %308 = icmp ult i64 %307, %1
-  br i1 %308, label %270, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3100
+  br i1 %308, label %270, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3100
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %309 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -122751,7 +122751,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i58.i.i:                             ; preds = %.preheader.loopexit.i.i57.i.i, %.preheader138.i.i39.i.i, %311
   %.2.lcssa.i.i59.i.i = phi i64 [ %.1.i.i38.i.i, %.preheader138.i.i39.i.i ], [ %516, %.preheader.loopexit.i.i57.i.i ], [ 0, %311 ]
   %.not160.i.i60.i.i = icmp eq i64 %321, %1
-  br i1 %.not160.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph157.i.i61.i.i
+  br i1 %.not160.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph157.i.i61.i.i
 
 .lr.ph157.i.i61.i.i:                              ; preds = %.preheader.i.i58.i.i
   %sext.i.i62.i.i = shl i64 %317, 32
@@ -122892,9 +122892,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i67.i.i = phi i64 [ %.3156.i.i64.i.i, %551 ], [ %560, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i77.i.i ], [ %560, %587 ]
   %589 = add nuw i64 %.090154.i.i65.i.i, 1
   %590 = icmp ult i64 %589, %1
-  br i1 %590, label %551, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3130
+  br i1 %590, label %551, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3130
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i68.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i67.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i66.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %591 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -123289,7 +123289,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i141.i.i:                            ; preds = %.preheader.loopexit.i.i140.i.i, %.preheader142.i.i.i.i, %593
   %.2.lcssa.i.i142.i.i = phi i64 [ %.1.i.i126.i.i, %.preheader142.i.i.i.i ], [ %824, %.preheader.loopexit.i.i140.i.i ], [ 0, %593 ]
   %.not164.i.i.i.i = icmp eq i64 %605, %1
-  br i1 %.not164.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph161.i.i.i.i
+  br i1 %.not164.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph161.i.i.i.i
 
 .lr.ph161.i.i.i.i:                                ; preds = %.preheader.i.i141.i.i
   %sext.i.i143.i.i = shl i64 %599, 32
@@ -123436,9 +123436,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i146.i.i = phi i64 [ %.3160.i.i.i.i, %859 ], [ %874, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i156.i.i ], [ %874, %901 ]
   %903 = add nuw i64 %.090158.i.i.i.i, 1
   %904 = icmp ult i64 %903, %1
-  br i1 %904, label %859, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3160
+  br i1 %904, label %859, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3160
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
   %.3.lcssa.i.i147.i.i = phi i64 [ %.2.lcssa.i.i142.i.i, %.preheader.i.i141.i.i ], [ %.4.i.i146.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i145.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %905 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -123856,7 +123856,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i212.i.i:                            ; preds = %.preheader.loopexit.i.i211.i.i, %.preheader146.i.i.i.i, %907
   %.2.lcssa.i.i213.i.i = phi i64 [ %.1.i.i197.i.i, %.preheader146.i.i.i.i ], [ %1161, %.preheader.loopexit.i.i211.i.i ], [ 0, %907 ]
   %.not168.i.i.i.i = icmp eq i64 %922, %1
-  br i1 %.not168.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph165.i.i.i.i
+  br i1 %.not168.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph165.i.i.i.i
 
 .lr.ph165.i.i.i.i:                                ; preds = %.preheader.i.i212.i.i
   %sext.i.i214.i.i = shl i64 %913, 32
@@ -124008,9 +124008,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i217.i.i = phi i64 [ %.3164.i.i.i.i, %1196 ], [ %1216, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i227.i.i ], [ %1216, %1243 ]
   %1245 = add nuw i64 %.090162.i.i.i.i, 1
   %1246 = icmp ult i64 %1245, %1
-  br i1 %1246, label %1196, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3190
+  br i1 %1246, label %1196, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3190
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
   %.3.lcssa.i.i218.i.i = phi i64 [ %.2.lcssa.i.i213.i.i, %.preheader.i.i212.i.i ], [ %.4.i.i217.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i216.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %1247 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -124457,7 +124457,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i283.i.i:                            ; preds = %.preheader.loopexit.i.i282.i.i, %.preheader150.i.i.i.i, %1249
   %.2.lcssa.i.i284.i.i = phi i64 [ %.1.i.i267.i.i, %.preheader150.i.i.i.i ], [ %1532, %.preheader.loopexit.i.i282.i.i ], [ 0, %1249 ]
   %.not172.i.i.i.i = icmp eq i64 %1265, %1
-  br i1 %.not172.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph169.i.i.i.i
+  br i1 %.not172.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph169.i.i.i.i
 
 .lr.ph169.i.i.i.i:                                ; preds = %.preheader.i.i283.i.i
   %sext.i.i285.i.i = shl i64 %1255, 32
@@ -124616,9 +124616,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i288.i.i = phi i64 [ %.3168.i.i.i.i, %1567 ], [ %1594, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i298.i.i ], [ %1594, %1621 ]
   %1623 = add nuw i64 %.090166.i.i.i.i, 1
   %1624 = icmp ult i64 %1623, %1
-  br i1 %1624, label %1567, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3220
+  br i1 %1624, label %1567, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3220
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
   %.3.lcssa.i.i289.i.i = phi i64 [ %.2.lcssa.i.i284.i.i, %.preheader.i.i283.i.i ], [ %.4.i.i288.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i287.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %1625 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -125169,7 +125169,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i354.i.i:                            ; preds = %.preheader.loopexit.i.i353.i.i, %.preheader166.i.i.i.i, %1627
   %.2.lcssa.i.i355.i.i = phi i64 [ %.1.i.i338.i.i, %.preheader166.i.i.i.i ], [ %2014, %.preheader.loopexit.i.i353.i.i ], [ 0, %1627 ]
   %.not188.i.i.i.i = icmp eq i64 %1651, %1
-  br i1 %.not188.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph185.i.i.i.i
+  br i1 %.not188.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph185.i.i.i.i
 
 .lr.ph185.i.i.i.i:                                ; preds = %.preheader.i.i354.i.i
   %sext.i.i356.i.i = shl i64 %1633, 32
@@ -125352,9 +125352,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i359.i.i = phi i64 [ %.3184.i.i.i.i, %2049 ], [ %2100, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i369.i.i ], [ %2100, %2127 ]
   %2129 = add nuw i64 %.090182.i.i.i.i, 1
   %2130 = icmp ult i64 %2129, %1
-  br i1 %2130, label %2049, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3250
+  br i1 %2130, label %2049, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3250
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
   %.3.lcssa.i.i360.i.i = phi i64 [ %.2.lcssa.i.i355.i.i, %.preheader.i.i354.i.i ], [ %.4.i.i359.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i358.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %2131 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -125718,7 +125718,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i421.i.i:                            ; preds = %.preheader.loopexit.i.i420.i.i, %.preheader134.i.i.i.i, %2133
   %.2.lcssa.i.i422.i.i = phi i64 [ %.1.i.i406.i.i, %.preheader134.i.i.i.i ], [ %2329, %.preheader.loopexit.i.i420.i.i ], [ 0, %2133 ]
   %.not156.i.i.i.i = icmp eq i64 %2147, %1
-  br i1 %.not156.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph153.i.i.i.i
+  br i1 %.not156.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph153.i.i.i.i
 
 .lr.ph153.i.i.i.i:                                ; preds = %.preheader.i.i421.i.i
   %sext.i.i423.i.i = shl i64 %2139, 32
@@ -125856,9 +125856,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.
   %.4.i.i426.i.i = phi i64 [ %.3152.i.i.i.i, %2364 ], [ %2370, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i436.i.i ], [ %2370, %2397 ]
   %2399 = add nuw i64 %.090150.i.i.i.i, 1
   %2400 = icmp ult i64 %2399, %1
-  br i1 %2400, label %2364, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3280
+  br i1 %2400, label %2364, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3280
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
   %.3.lcssa.i.i427.i.i = phi i64 [ %.2.lcssa.i.i422.i.i, %.preheader.i.i421.i.i ], [ %.4.i.i426.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit118.i.i425.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %2401 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -126478,7 +126478,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28: 
   call void @__cxa_free_exception(ptr %2707) #15
   br label %2714
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i23, %2677, %2614, %2612, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit93.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit84.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit73.i, %._crit_edge.i, %2406, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i23, %2677, %2614, %2612, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit93.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit84.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit73.i, %._crit_edge.i, %2406, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i
   ret void
 
 2714:                                             ; preds = %2711, %2713
@@ -126561,7 +126561,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %4) unnamed_addr #0 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %4) unnamed_addr #0 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -127263,7 +127263,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader214.i.i, %15
   %.2.lcssa.i.i = phi i64 [ 0, %15 ], [ %.1.i.i, %.preheader214.i.i ], [ %378, %.preheader.loopexit.i.i ]
   %.not236.i.i = icmp eq i64 %26, %2
-  br i1 %.not236.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph233.i.i
+  br i1 %.not236.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph233.i.i
 
 .lr.ph233.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %22, 32
@@ -127566,9 +127566,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i:
   %.4.i.i = phi i64 [ %.3232.i.i, %458 ], [ %466, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i ], [ %466, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i ]
   %533 = add nuw i64 %.090230.i.i, 1
   %534 = icmp ult i64 %533, %2
-  br i1 %534, label %458, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3341
+  br i1 %534, label %458, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3341
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %535 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -128255,7 +128255,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i1
 .preheader.i.i62:                                 ; preds = %.preheader.loopexit.i.i60, %.preheader214.i.i42, %537
   %.2.lcssa.i.i63 = phi i64 [ 0, %537 ], [ %.1.i.i41, %.preheader214.i.i42 ], [ %904, %.preheader.loopexit.i.i60 ]
   %.not236.i.i64 = icmp eq i64 %548, %2
-  br i1 %.not236.i.i64, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph233.i.i65
+  br i1 %.not236.i.i64, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph233.i.i65
 
 .lr.ph233.i.i65:                                  ; preds = %.preheader.i.i62
   %sext.i.i66 = shl i64 %544, 32
@@ -128559,9 +128559,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i7
   %.4.i.i73 = phi i64 [ %.3232.i.i70, %984 ], [ %993, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i83 ], [ %993, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i92 ]
   %1060 = add nuw i64 %.090230.i.i71, 1
   %1061 = icmp ult i64 %1060, %2
-  br i1 %1061, label %984, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3371
+  br i1 %1061, label %984, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3371
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
   %.3.lcssa.i.i74 = phi i64 [ %.2.lcssa.i.i63, %.preheader.i.i62 ], [ %.4.i.i73, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i72 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1062 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -129274,7 +129274,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i3
 .preheader.i.i234:                                ; preds = %.preheader.loopexit.i.i232, %.preheader218.i.i, %1064
   %.2.lcssa.i.i235 = phi i64 [ 0, %1064 ], [ %.1.i.i218, %.preheader218.i.i ], [ %1457, %.preheader.loopexit.i.i232 ]
   %.not240.i.i = icmp eq i64 %1077, %2
-  br i1 %.not240.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph237.i.i
+  br i1 %.not240.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph237.i.i
 
 .lr.ph237.i.i:                                    ; preds = %.preheader.i.i234
   %sext.i.i236 = shl i64 %1071, 32
@@ -129584,9 +129584,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i2
   %.4.i.i241 = phi i64 [ %.3236.i.i, %1537 ], [ %1552, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i251 ], [ %1552, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i260 ]
   %1619 = add nuw i64 %.090234.i.i, 1
   %1620 = icmp ult i64 %1619, %2
-  br i1 %1620, label %1537, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3401
+  br i1 %1620, label %1537, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3401
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
   %.3.lcssa.i.i242 = phi i64 [ %.2.lcssa.i.i235, %.preheader.i.i234 ], [ %.4.i.i241, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i240 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1621 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -130322,7 +130322,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i4
 .preheader.i.i392:                                ; preds = %.preheader.loopexit.i.i390, %.preheader222.i.i, %1623
   %.2.lcssa.i.i393 = phi i64 [ 0, %1623 ], [ %.1.i.i376, %.preheader222.i.i ], [ %2039, %.preheader.loopexit.i.i390 ]
   %.not244.i.i = icmp eq i64 %1639, %2
-  br i1 %.not244.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph241.i.i
+  br i1 %.not244.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph241.i.i
 
 .lr.ph241.i.i:                                    ; preds = %.preheader.i.i392
   %sext.i.i394 = shl i64 %1630, 32
@@ -130637,9 +130637,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i3
   %.4.i.i399 = phi i64 [ %.3240.i.i, %2119 ], [ %2139, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i409 ], [ %2139, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i418 ]
   %2206 = add nuw i64 %.090238.i.i, 1
   %2207 = icmp ult i64 %2206, %2
-  br i1 %2207, label %2119, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3431
+  br i1 %2207, label %2119, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3431
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
   %.3.lcssa.i.i400 = phi i64 [ %.2.lcssa.i.i393, %.preheader.i.i392 ], [ %.4.i.i399, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i398 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2208 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -131404,7 +131404,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i6
 .preheader.i.i550:                                ; preds = %.preheader.loopexit.i.i548, %.preheader226.i.i, %2210
   %.2.lcssa.i.i551 = phi i64 [ 0, %2210 ], [ %.1.i.i533, %.preheader226.i.i ], [ %2655, %.preheader.loopexit.i.i548 ]
   %.not248.i.i = icmp eq i64 %2227, %2
-  br i1 %.not248.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph245.i.i
+  br i1 %.not248.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph245.i.i
 
 .lr.ph245.i.i:                                    ; preds = %.preheader.i.i550
   %sext.i.i552 = shl i64 %2217, 32
@@ -131726,9 +131726,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i5
   %.4.i.i557 = phi i64 [ %.3244.i.i, %2735 ], [ %2762, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i567 ], [ %2762, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i576 ]
   %2829 = add nuw i64 %.090242.i.i, 1
   %2830 = icmp ult i64 %2829, %2
-  br i1 %2830, label %2735, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3461
+  br i1 %2830, label %2735, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3461
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
   %.3.lcssa.i.i558 = phi i64 [ %.2.lcssa.i.i551, %.preheader.i.i550 ], [ %.4.i.i557, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i556 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2831 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -132597,7 +132597,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i7
 .preheader.i.i709:                                ; preds = %.preheader.loopexit.i.i707, %.preheader242.i.i, %2833
   %.2.lcssa.i.i710 = phi i64 [ 0, %2833 ], [ %.1.i.i691, %.preheader242.i.i ], [ %3382, %.preheader.loopexit.i.i707 ]
   %.not264.i.i = icmp eq i64 %2858, %2
-  br i1 %.not264.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph261.i.i
+  br i1 %.not264.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph261.i.i
 
 .lr.ph261.i.i:                                    ; preds = %.preheader.i.i709
   %sext.i.i711 = shl i64 %2840, 32
@@ -132943,9 +132943,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i7
   %.4.i.i716 = phi i64 [ %.3260.i.i, %3462 ], [ %3513, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i726 ], [ %3513, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i735 ]
   %3580 = add nuw i64 %.090258.i.i, 1
   %3581 = icmp ult i64 %3580, %2
-  br i1 %3581, label %3462, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3491
+  br i1 %3581, label %3462, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3491
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
   %.3.lcssa.i.i717 = phi i64 [ %.2.lcssa.i.i710, %.preheader.i.i709 ], [ %.4.i.i716, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i715 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3582 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -133627,7 +133627,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i9
 .preheader.i.i862:                                ; preds = %.preheader.loopexit.i.i860, %.preheader210.i.i, %3584
   %.2.lcssa.i.i863 = phi i64 [ 0, %3584 ], [ %.1.i.i846, %.preheader210.i.i ], [ %3942, %.preheader.loopexit.i.i860 ]
   %.not232.i.i = icmp eq i64 %3599, %2
-  br i1 %.not232.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph229.i.i
+  br i1 %.not232.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph229.i.i
 
 .lr.ph229.i.i:                                    ; preds = %.preheader.i.i862
   %sext.i.i864 = shl i64 %3591, 32
@@ -133928,9 +133928,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i8
   %.4.i.i869 = phi i64 [ %.3228.i.i, %4022 ], [ %4028, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i879 ], [ %4028, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i888 ]
   %4095 = add nuw i64 %.090226.i.i, 1
   %4096 = icmp ult i64 %4095, %2
-  br i1 %4096, label %4022, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3521
+  br i1 %4096, label %4022, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3521
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
   %.3.lcssa.i.i870 = phi i64 [ %.2.lcssa.i.i863, %.preheader.i.i862 ], [ %.4.i.i869, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit194.i.i868 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %4097 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -133941,7 +133941,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %4099
 
-4099:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4099:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -134067,7 +134067,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -135868,7 +135868,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader138.i.i.i.i, %34
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader138.i.i.i.i ], [ %235, %.preheader.loopexit.i.i.i.i ], [ 0, %34 ]
   %.not160.i.i.i.i = icmp eq i64 %44, %1
-  br i1 %.not160.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph157.i.i.i.i
+  br i1 %.not160.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph157.i.i.i.i
 
 .lr.ph157.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %40, 32
@@ -136008,9 +136008,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i.i.i = phi i64 [ %.3156.i.i.i.i, %270 ], [ %278, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i.i.i ], [ %278, %305 ]
   %307 = add nuw i64 %.090154.i.i.i.i, 1
   %308 = icmp ult i64 %307, %1
-  br i1 %308, label %270, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3582
+  br i1 %308, label %270, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3582
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %309 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -136379,7 +136379,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i58.i.i:                             ; preds = %.preheader.loopexit.i.i57.i.i, %.preheader138.i.i39.i.i, %311
   %.2.lcssa.i.i59.i.i = phi i64 [ %.1.i.i38.i.i, %.preheader138.i.i39.i.i ], [ %516, %.preheader.loopexit.i.i57.i.i ], [ 0, %311 ]
   %.not160.i.i60.i.i = icmp eq i64 %321, %1
-  br i1 %.not160.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph157.i.i61.i.i
+  br i1 %.not160.i.i60.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph157.i.i61.i.i
 
 .lr.ph157.i.i61.i.i:                              ; preds = %.preheader.i.i58.i.i
   %sext.i.i62.i.i = shl i64 %317, 32
@@ -136520,9 +136520,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i67.i.i = phi i64 [ %.3156.i.i64.i.i, %551 ], [ %560, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i77.i.i ], [ %560, %587 ]
   %589 = add nuw i64 %.090154.i.i65.i.i, 1
   %590 = icmp ult i64 %589, %1
-  br i1 %590, label %551, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3612
+  br i1 %590, label %551, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3612
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i, %.preheader.i.i58.i.i
   %.3.lcssa.i.i68.i.i = phi i64 [ %.2.lcssa.i.i59.i.i, %.preheader.i.i58.i.i ], [ %.4.i.i67.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i66.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %591 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -136917,7 +136917,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i141.i.i:                            ; preds = %.preheader.loopexit.i.i140.i.i, %.preheader142.i.i.i.i, %593
   %.2.lcssa.i.i142.i.i = phi i64 [ %.1.i.i126.i.i, %.preheader142.i.i.i.i ], [ %824, %.preheader.loopexit.i.i140.i.i ], [ 0, %593 ]
   %.not164.i.i.i.i = icmp eq i64 %605, %1
-  br i1 %.not164.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph161.i.i.i.i
+  br i1 %.not164.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph161.i.i.i.i
 
 .lr.ph161.i.i.i.i:                                ; preds = %.preheader.i.i141.i.i
   %sext.i.i143.i.i = shl i64 %599, 32
@@ -137064,9 +137064,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i146.i.i = phi i64 [ %.3160.i.i.i.i, %859 ], [ %874, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i156.i.i ], [ %874, %901 ]
   %903 = add nuw i64 %.090158.i.i.i.i, 1
   %904 = icmp ult i64 %903, %1
-  br i1 %904, label %859, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3642
+  br i1 %904, label %859, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3642
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i, %.preheader.i.i141.i.i
   %.3.lcssa.i.i147.i.i = phi i64 [ %.2.lcssa.i.i142.i.i, %.preheader.i.i141.i.i ], [ %.4.i.i146.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i145.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %905 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -137484,7 +137484,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i212.i.i:                            ; preds = %.preheader.loopexit.i.i211.i.i, %.preheader146.i.i.i.i, %907
   %.2.lcssa.i.i213.i.i = phi i64 [ %.1.i.i197.i.i, %.preheader146.i.i.i.i ], [ %1161, %.preheader.loopexit.i.i211.i.i ], [ 0, %907 ]
   %.not168.i.i.i.i = icmp eq i64 %922, %1
-  br i1 %.not168.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph165.i.i.i.i
+  br i1 %.not168.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph165.i.i.i.i
 
 .lr.ph165.i.i.i.i:                                ; preds = %.preheader.i.i212.i.i
   %sext.i.i214.i.i = shl i64 %913, 32
@@ -137636,9 +137636,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i217.i.i = phi i64 [ %.3164.i.i.i.i, %1196 ], [ %1216, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i227.i.i ], [ %1216, %1243 ]
   %1245 = add nuw i64 %.090162.i.i.i.i, 1
   %1246 = icmp ult i64 %1245, %1
-  br i1 %1246, label %1196, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3672
+  br i1 %1246, label %1196, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3672
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i, %.preheader.i.i212.i.i
   %.3.lcssa.i.i218.i.i = phi i64 [ %.2.lcssa.i.i213.i.i, %.preheader.i.i212.i.i ], [ %.4.i.i217.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i216.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %1247 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -138085,7 +138085,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i283.i.i:                            ; preds = %.preheader.loopexit.i.i282.i.i, %.preheader150.i.i.i.i, %1249
   %.2.lcssa.i.i284.i.i = phi i64 [ %.1.i.i267.i.i, %.preheader150.i.i.i.i ], [ %1532, %.preheader.loopexit.i.i282.i.i ], [ 0, %1249 ]
   %.not172.i.i.i.i = icmp eq i64 %1265, %1
-  br i1 %.not172.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph169.i.i.i.i
+  br i1 %.not172.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph169.i.i.i.i
 
 .lr.ph169.i.i.i.i:                                ; preds = %.preheader.i.i283.i.i
   %sext.i.i285.i.i = shl i64 %1255, 32
@@ -138244,9 +138244,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i288.i.i = phi i64 [ %.3168.i.i.i.i, %1567 ], [ %1594, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i298.i.i ], [ %1594, %1621 ]
   %1623 = add nuw i64 %.090166.i.i.i.i, 1
   %1624 = icmp ult i64 %1623, %1
-  br i1 %1624, label %1567, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3702
+  br i1 %1624, label %1567, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3702
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i, %.preheader.i.i283.i.i
   %.3.lcssa.i.i289.i.i = phi i64 [ %.2.lcssa.i.i284.i.i, %.preheader.i.i283.i.i ], [ %.4.i.i288.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i287.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %1625 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -138797,7 +138797,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i354.i.i:                            ; preds = %.preheader.loopexit.i.i353.i.i, %.preheader166.i.i.i.i, %1627
   %.2.lcssa.i.i355.i.i = phi i64 [ %.1.i.i338.i.i, %.preheader166.i.i.i.i ], [ %2014, %.preheader.loopexit.i.i353.i.i ], [ 0, %1627 ]
   %.not188.i.i.i.i = icmp eq i64 %1651, %1
-  br i1 %.not188.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph185.i.i.i.i
+  br i1 %.not188.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph185.i.i.i.i
 
 .lr.ph185.i.i.i.i:                                ; preds = %.preheader.i.i354.i.i
   %sext.i.i356.i.i = shl i64 %1633, 32
@@ -138980,9 +138980,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i359.i.i = phi i64 [ %.3184.i.i.i.i, %2049 ], [ %2100, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i369.i.i ], [ %2100, %2127 ]
   %2129 = add nuw i64 %.090182.i.i.i.i, 1
   %2130 = icmp ult i64 %2129, %1
-  br i1 %2130, label %2049, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3732
+  br i1 %2130, label %2049, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3732
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i, %.preheader.i.i354.i.i
   %.3.lcssa.i.i360.i.i = phi i64 [ %.2.lcssa.i.i355.i.i, %.preheader.i.i354.i.i ], [ %.4.i.i359.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i358.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %2131 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -139346,7 +139346,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i421.i.i:                            ; preds = %.preheader.loopexit.i.i420.i.i, %.preheader134.i.i.i.i, %2133
   %.2.lcssa.i.i422.i.i = phi i64 [ %.1.i.i406.i.i, %.preheader134.i.i.i.i ], [ %2329, %.preheader.loopexit.i.i420.i.i ], [ 0, %2133 ]
   %.not156.i.i.i.i = icmp eq i64 %2147, %1
-  br i1 %.not156.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph153.i.i.i.i
+  br i1 %.not156.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph153.i.i.i.i
 
 .lr.ph153.i.i.i.i:                                ; preds = %.preheader.i.i421.i.i
   %sext.i.i423.i.i = shl i64 %2139, 32
@@ -139484,9 +139484,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.
   %.4.i.i426.i.i = phi i64 [ %.3152.i.i.i.i, %2364 ], [ %2370, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit116.i.i436.i.i ], [ %2370, %2397 ]
   %2399 = add nuw i64 %.090150.i.i.i.i, 1
   %2400 = icmp ult i64 %2399, %1
-  br i1 %2400, label %2364, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !3762
+  br i1 %2400, label %2364, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !3762
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i, %.preheader.i.i421.i.i
   %.3.lcssa.i.i427.i.i = phi i64 [ %.2.lcssa.i.i422.i.i, %.preheader.i.i421.i.i ], [ %.4.i.i426.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit118.i.i425.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
   %2401 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -140103,7 +140103,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28: 
   call void @__cxa_free_exception(ptr %2701) #15
   br label %2708
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i23, %2674, %2614, %2612, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit93.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit84.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit73.i, %._crit_edge.i, %2406, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i23, %2674, %2614, %2612, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit93.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit84.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit73.i, %._crit_edge.i, %2406, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i
   ret void
 
 2708:                                             ; preds = %2705, %2707
@@ -140186,7 +140186,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %4) unnamed_addr #0 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %4) unnamed_addr #0 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -140888,7 +140888,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader214.i.i, %15
   %.2.lcssa.i.i = phi i64 [ 0, %15 ], [ %.1.i.i, %.preheader214.i.i ], [ %378, %.preheader.loopexit.i.i ]
   %.not236.i.i = icmp eq i64 %26, %2
-  br i1 %.not236.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph233.i.i
+  br i1 %.not236.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph233.i.i
 
 .lr.ph233.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %22, 32
@@ -141191,9 +141191,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i:
   %.4.i.i = phi i64 [ %.3232.i.i, %458 ], [ %466, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i ], [ %466, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i ]
   %533 = add nuw i64 %.090230.i.i, 1
   %534 = icmp ult i64 %533, %2
-  br i1 %534, label %458, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3823
+  br i1 %534, label %458, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3823
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %535 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -141880,7 +141880,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i1
 .preheader.i.i62:                                 ; preds = %.preheader.loopexit.i.i60, %.preheader214.i.i42, %537
   %.2.lcssa.i.i63 = phi i64 [ 0, %537 ], [ %.1.i.i41, %.preheader214.i.i42 ], [ %904, %.preheader.loopexit.i.i60 ]
   %.not236.i.i64 = icmp eq i64 %548, %2
-  br i1 %.not236.i.i64, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph233.i.i65
+  br i1 %.not236.i.i64, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph233.i.i65
 
 .lr.ph233.i.i65:                                  ; preds = %.preheader.i.i62
   %sext.i.i66 = shl i64 %544, 32
@@ -142184,9 +142184,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i7
   %.4.i.i73 = phi i64 [ %.3232.i.i70, %984 ], [ %993, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i83 ], [ %993, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i92 ]
   %1060 = add nuw i64 %.090230.i.i71, 1
   %1061 = icmp ult i64 %1060, %2
-  br i1 %1061, label %984, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3853
+  br i1 %1061, label %984, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3853
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72, %.preheader.i.i62
   %.3.lcssa.i.i74 = phi i64 [ %.2.lcssa.i.i63, %.preheader.i.i62 ], [ %.4.i.i73, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i72 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1062 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -142899,7 +142899,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i3
 .preheader.i.i234:                                ; preds = %.preheader.loopexit.i.i232, %.preheader218.i.i, %1064
   %.2.lcssa.i.i235 = phi i64 [ 0, %1064 ], [ %.1.i.i218, %.preheader218.i.i ], [ %1457, %.preheader.loopexit.i.i232 ]
   %.not240.i.i = icmp eq i64 %1077, %2
-  br i1 %.not240.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph237.i.i
+  br i1 %.not240.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph237.i.i
 
 .lr.ph237.i.i:                                    ; preds = %.preheader.i.i234
   %sext.i.i236 = shl i64 %1071, 32
@@ -143209,9 +143209,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i2
   %.4.i.i241 = phi i64 [ %.3236.i.i, %1537 ], [ %1552, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i251 ], [ %1552, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i260 ]
   %1619 = add nuw i64 %.090234.i.i, 1
   %1620 = icmp ult i64 %1619, %2
-  br i1 %1620, label %1537, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3883
+  br i1 %1620, label %1537, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3883
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240, %.preheader.i.i234
   %.3.lcssa.i.i242 = phi i64 [ %.2.lcssa.i.i235, %.preheader.i.i234 ], [ %.4.i.i241, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i240 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %1621 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -143947,7 +143947,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i4
 .preheader.i.i392:                                ; preds = %.preheader.loopexit.i.i390, %.preheader222.i.i, %1623
   %.2.lcssa.i.i393 = phi i64 [ 0, %1623 ], [ %.1.i.i376, %.preheader222.i.i ], [ %2039, %.preheader.loopexit.i.i390 ]
   %.not244.i.i = icmp eq i64 %1639, %2
-  br i1 %.not244.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph241.i.i
+  br i1 %.not244.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph241.i.i
 
 .lr.ph241.i.i:                                    ; preds = %.preheader.i.i392
   %sext.i.i394 = shl i64 %1630, 32
@@ -144262,9 +144262,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i3
   %.4.i.i399 = phi i64 [ %.3240.i.i, %2119 ], [ %2139, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i409 ], [ %2139, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i418 ]
   %2206 = add nuw i64 %.090238.i.i, 1
   %2207 = icmp ult i64 %2206, %2
-  br i1 %2207, label %2119, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3913
+  br i1 %2207, label %2119, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3913
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398, %.preheader.i.i392
   %.3.lcssa.i.i400 = phi i64 [ %.2.lcssa.i.i393, %.preheader.i.i392 ], [ %.4.i.i399, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i398 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2208 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -145029,7 +145029,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i6
 .preheader.i.i550:                                ; preds = %.preheader.loopexit.i.i548, %.preheader226.i.i, %2210
   %.2.lcssa.i.i551 = phi i64 [ 0, %2210 ], [ %.1.i.i533, %.preheader226.i.i ], [ %2655, %.preheader.loopexit.i.i548 ]
   %.not248.i.i = icmp eq i64 %2227, %2
-  br i1 %.not248.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph245.i.i
+  br i1 %.not248.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph245.i.i
 
 .lr.ph245.i.i:                                    ; preds = %.preheader.i.i550
   %sext.i.i552 = shl i64 %2217, 32
@@ -145351,9 +145351,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i5
   %.4.i.i557 = phi i64 [ %.3244.i.i, %2735 ], [ %2762, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i567 ], [ %2762, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i576 ]
   %2829 = add nuw i64 %.090242.i.i, 1
   %2830 = icmp ult i64 %2829, %2
-  br i1 %2830, label %2735, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3943
+  br i1 %2830, label %2735, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3943
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556, %.preheader.i.i550
   %.3.lcssa.i.i558 = phi i64 [ %.2.lcssa.i.i551, %.preheader.i.i550 ], [ %.4.i.i557, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i556 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %2831 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -146222,7 +146222,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i7
 .preheader.i.i709:                                ; preds = %.preheader.loopexit.i.i707, %.preheader242.i.i, %2833
   %.2.lcssa.i.i710 = phi i64 [ 0, %2833 ], [ %.1.i.i691, %.preheader242.i.i ], [ %3382, %.preheader.loopexit.i.i707 ]
   %.not264.i.i = icmp eq i64 %2858, %2
-  br i1 %.not264.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph261.i.i
+  br i1 %.not264.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph261.i.i
 
 .lr.ph261.i.i:                                    ; preds = %.preheader.i.i709
   %sext.i.i711 = shl i64 %2840, 32
@@ -146568,9 +146568,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i7
   %.4.i.i716 = phi i64 [ %.3260.i.i, %3462 ], [ %3513, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i726 ], [ %3513, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i735 ]
   %3580 = add nuw i64 %.090258.i.i, 1
   %3581 = icmp ult i64 %3580, %2
-  br i1 %3581, label %3462, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !3973
+  br i1 %3581, label %3462, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !3973
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715, %.preheader.i.i709
   %.3.lcssa.i.i717 = phi i64 [ %.2.lcssa.i.i710, %.preheader.i.i709 ], [ %.4.i.i716, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i715 ]
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %3582 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -147252,7 +147252,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i9
 .preheader.i.i862:                                ; preds = %.preheader.loopexit.i.i860, %.preheader210.i.i, %3584
   %.2.lcssa.i.i863 = phi i64 [ 0, %3584 ], [ %.1.i.i846, %.preheader210.i.i ], [ %3942, %.preheader.loopexit.i.i860 ]
   %.not232.i.i = icmp eq i64 %3599, %2
-  br i1 %.not232.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph229.i.i
+  br i1 %.not232.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph229.i.i
 
 .lr.ph229.i.i:                                    ; preds = %.preheader.i.i862
   %sext.i.i864 = shl i64 %3591, 32
@@ -147553,9 +147553,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i8
   %.4.i.i869 = phi i64 [ %.3228.i.i, %4022 ], [ %4028, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit177.i.i879 ], [ %4028, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i888 ]
   %4095 = add nuw i64 %.090226.i.i, 1
   %4096 = icmp ult i64 %4095, %2
-  br i1 %4096, label %4022, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4003
+  br i1 %4096, label %4022, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4003
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868, %.preheader.i.i862
   %.3.lcssa.i.i870 = phi i64 [ %.2.lcssa.i.i863, %.preheader.i.i862 ], [ %.4.i.i869, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit194.i.i868 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
   %4097 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -147566,7 +147566,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %4099
 
-4099:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4099:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -147773,7 +147773,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -149778,7 +149778,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader144.i.i.i.i, %66
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader144.i.i.i.i ], [ %214, %.preheader.loopexit.i.i.i.i ], [ 0, %66 ]
   %.not166.i.i.i.i = icmp eq i64 %76, %1
-  br i1 %.not166.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph163.i.i.i.i
+  br i1 %.not166.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph163.i.i.i.i
 
 .lr.ph163.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %72, 32
@@ -150083,9 +150083,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
   %.4.i.i.i.i = phi i64 [ %.3162.i.i.i.i, %291 ], [ %299, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i.i.i ], [ %299, %363 ]
   %365 = add nuw i64 %.090160.i.i.i.i, 1
   %366 = icmp ult i64 %365, %1
-  br i1 %366, label %291, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4010
+  br i1 %366, label %291, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4010
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %367 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -150351,7 +150351,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i64.i.i:                             ; preds = %.preheader.loopexit.i.i63.i.i, %.preheader144.i.i38.i.i, %369
   %.2.lcssa.i.i65.i.i = phi i64 [ %.1.i.i37.i.i, %.preheader144.i.i38.i.i ], [ %521, %.preheader.loopexit.i.i63.i.i ], [ 0, %369 ]
   %.not166.i.i66.i.i = icmp eq i64 %379, %1
-  br i1 %.not166.i.i66.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph163.i.i67.i.i
+  br i1 %.not166.i.i66.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph163.i.i67.i.i
 
 .lr.ph163.i.i67.i.i:                              ; preds = %.preheader.i.i64.i.i
   %sext.i.i68.i.i = shl i64 %375, 32
@@ -150657,9 +150657,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
   %.4.i.i73.i.i = phi i64 [ %.3162.i.i70.i.i, %598 ], [ %607, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i92.i.i ], [ %607, %671 ]
   %673 = add nuw i64 %.090160.i.i71.i.i, 1
   %674 = icmp ult i64 %673, %1
-  br i1 %674, label %598, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4013
+  br i1 %674, label %598, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4013
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i72.i.i, %.preheader.i.i64.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i72.i.i, %.preheader.i.i64.i.i
   %.3.lcssa.i.i74.i.i = phi i64 [ %.2.lcssa.i.i65.i.i, %.preheader.i.i64.i.i ], [ %.4.i.i73.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i72.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %675 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -150951,7 +150951,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i156.i.i:                            ; preds = %.preheader.loopexit.i.i155.i.i, %.preheader148.i.i.i.i, %677
   %.2.lcssa.i.i157.i.i = phi i64 [ %.1.i.i133.i.i, %.preheader148.i.i.i.i ], [ %855, %.preheader.loopexit.i.i155.i.i ], [ 0, %677 ]
   %.not170.i.i.i.i = icmp eq i64 %689, %1
-  br i1 %.not170.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph167.i.i.i.i
+  br i1 %.not170.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph167.i.i.i.i
 
 .lr.ph167.i.i.i.i:                                ; preds = %.preheader.i.i156.i.i
   %sext.i.i158.i.i = shl i64 %683, 32
@@ -151263,9 +151263,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
   %.4.i.i161.i.i = phi i64 [ %.3166.i.i.i.i, %932 ], [ %947, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i180.i.i ], [ %947, %1011 ]
   %1013 = add nuw i64 %.090164.i.i.i.i, 1
   %1014 = icmp ult i64 %1013, %1
-  br i1 %1014, label %932, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4016
+  br i1 %1014, label %932, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4016
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i160.i.i, %.preheader.i.i156.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i160.i.i, %.preheader.i.i156.i.i
   %.3.lcssa.i.i162.i.i = phi i64 [ %.2.lcssa.i.i157.i.i, %.preheader.i.i156.i.i ], [ %.4.i.i161.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i160.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %1015 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -151580,7 +151580,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i242.i.i:                            ; preds = %.preheader.loopexit.i.i241.i.i, %.preheader152.i.i.i.i, %1017
   %.2.lcssa.i.i243.i.i = phi i64 [ %.1.i.i219.i.i, %.preheader152.i.i.i.i ], [ %1218, %.preheader.loopexit.i.i241.i.i ], [ 0, %1017 ]
   %.not174.i.i.i.i = icmp eq i64 %1032, %1
-  br i1 %.not174.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph171.i.i.i.i
+  br i1 %.not174.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph171.i.i.i.i
 
 .lr.ph171.i.i.i.i:                                ; preds = %.preheader.i.i242.i.i
   %sext.i.i244.i.i = shl i64 %1023, 32
@@ -151897,9 +151897,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
   %.4.i.i247.i.i = phi i64 [ %.3170.i.i.i.i, %1295 ], [ %1315, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i266.i.i ], [ %1315, %1379 ]
   %1381 = add nuw i64 %.090168.i.i.i.i, 1
   %1382 = icmp ult i64 %1381, %1
-  br i1 %1382, label %1295, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4019
+  br i1 %1382, label %1295, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4019
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i246.i.i, %.preheader.i.i242.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i246.i.i, %.preheader.i.i242.i.i
   %.3.lcssa.i.i248.i.i = phi i64 [ %.2.lcssa.i.i243.i.i, %.preheader.i.i242.i.i ], [ %.4.i.i247.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i246.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %1383 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -152243,7 +152243,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i328.i.i:                            ; preds = %.preheader.loopexit.i.i327.i.i, %.preheader156.i.i.i.i, %1385
   %.2.lcssa.i.i329.i.i = phi i64 [ %.1.i.i305.i.i, %.preheader156.i.i.i.i ], [ %1615, %.preheader.loopexit.i.i327.i.i ], [ 0, %1385 ]
   %.not178.i.i.i.i = icmp eq i64 %1401, %1
-  br i1 %.not178.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph175.i.i.i.i
+  br i1 %.not178.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph175.i.i.i.i
 
 .lr.ph175.i.i.i.i:                                ; preds = %.preheader.i.i328.i.i
   %sext.i.i330.i.i = shl i64 %1391, 32
@@ -152567,9 +152567,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
   %.4.i.i333.i.i = phi i64 [ %.3174.i.i.i.i, %1692 ], [ %1719, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i352.i.i ], [ %1719, %1783 ]
   %1785 = add nuw i64 %.090172.i.i.i.i, 1
   %1786 = icmp ult i64 %1785, %1
-  br i1 %1786, label %1692, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4022
+  br i1 %1786, label %1692, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4022
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i332.i.i, %.preheader.i.i328.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i332.i.i, %.preheader.i.i328.i.i
   %.3.lcssa.i.i334.i.i = phi i64 [ %.2.lcssa.i.i329.i.i, %.preheader.i.i328.i.i ], [ %.4.i.i333.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i332.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %1787 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -153017,7 +153017,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i415.i.i:                            ; preds = %.preheader.loopexit.i.i414.i.i, %.preheader172.i.i.i.i, %1789
   %.2.lcssa.i.i416.i.i = phi i64 [ %.1.i.i391.i.i, %.preheader172.i.i.i.i ], [ %2123, %.preheader.loopexit.i.i414.i.i ], [ 0, %1789 ]
   %.not194.i.i.i.i = icmp eq i64 %1813, %1
-  br i1 %.not194.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph191.i.i.i.i
+  br i1 %.not194.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph191.i.i.i.i
 
 .lr.ph191.i.i.i.i:                                ; preds = %.preheader.i.i415.i.i
   %sext.i.i417.i.i = shl i64 %1795, 32
@@ -153365,9 +153365,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
   %.4.i.i420.i.i = phi i64 [ %.3190.i.i.i.i, %2200 ], [ %2251, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i439.i.i ], [ %2251, %2315 ]
   %2317 = add nuw i64 %.090188.i.i.i.i, 1
   %2318 = icmp ult i64 %2317, %1
-  br i1 %2318, label %2200, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4025
+  br i1 %2318, label %2200, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4025
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i419.i.i, %.preheader.i.i415.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i419.i.i, %.preheader.i.i415.i.i
   %.3.lcssa.i.i421.i.i = phi i64 [ %.2.lcssa.i.i416.i.i, %.preheader.i.i415.i.i ], [ %.4.i.i420.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i419.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %2319 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -153628,7 +153628,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
 .preheader.i.i501.i.i:                            ; preds = %.preheader.loopexit.i.i500.i.i, %.preheader140.i.i.i.i, %2321
   %.2.lcssa.i.i502.i.i = phi i64 [ %.1.i.i478.i.i, %.preheader140.i.i.i.i ], [ %2464, %.preheader.loopexit.i.i500.i.i ], [ 0, %2321 ]
   %.not162.i.i.i.i = icmp eq i64 %2335, %1
-  br i1 %.not162.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph159.i.i.i.i
+  br i1 %.not162.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph159.i.i.i.i
 
 .lr.ph159.i.i.i.i:                                ; preds = %.preheader.i.i501.i.i
   %sext.i.i503.i.i = shl i64 %2327, 32
@@ -153931,9 +153931,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.
   %.4.i.i506.i.i = phi i64 [ %.3158.i.i.i.i, %2541 ], [ %2547, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i525.i.i ], [ %2547, %2611 ]
   %2613 = add nuw i64 %.090156.i.i.i.i, 1
   %2614 = icmp ult i64 %2613, %1
-  br i1 %2614, label %2541, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4028
+  br i1 %2614, label %2541, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4028
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i505.i.i, %.preheader.i.i501.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i505.i.i, %.preheader.i.i501.i.i
   %.3.lcssa.i.i507.i.i = phi i64 [ %.2.lcssa.i.i502.i.i, %.preheader.i.i501.i.i ], [ %.4.i.i506.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit139.i.i505.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %2615 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -154828,7 +154828,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i32: 
   call void @__cxa_free_exception(ptr %3045) #15
   br label %3052
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i32, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i27, %3015, %2912, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i32, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i27, %3015, %2912, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
   ret void
 
 3052:                                             ; preds = %3049, %3051
@@ -154911,7 +154911,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %4) unnamed_addr #2 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca float, align 4
@@ -155519,7 +155519,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader220.i.i, %43
   %.2.lcssa.i.i = phi i64 [ 0, %43 ], [ %.1.i.i, %.preheader220.i.i ], [ %347, %.preheader.loopexit.i.i ]
   %.not242.i.i = icmp eq i64 %54, %2
-  br i1 %.not242.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph239.i.i
+  br i1 %.not242.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph239.i.i
 
 .lr.ph239.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %50, 32
@@ -155976,9 +155976,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i:
   %.4.i.i = phi i64 [ %.3238.i.i, %465 ], [ %473, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i ], [ %473, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i ]
   %577 = add nuw i64 %.090236.i.i, 1
   %578 = icmp ult i64 %577, %2
-  br i1 %578, label %465, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4035
+  br i1 %578, label %465, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4035
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %579 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -156548,7 +156548,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i1
 .preheader.i.i67:                                 ; preds = %.preheader.loopexit.i.i66, %.preheader220.i.i41, %581
   %.2.lcssa.i.i68 = phi i64 [ 0, %581 ], [ %.1.i.i40, %.preheader220.i.i41 ], [ %889, %.preheader.loopexit.i.i66 ]
   %.not242.i.i69 = icmp eq i64 %592, %2
-  br i1 %.not242.i.i69, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph239.i.i70
+  br i1 %.not242.i.i69, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph239.i.i70
 
 .lr.ph239.i.i70:                                  ; preds = %.preheader.i.i67
   %sext.i.i71 = shl i64 %588, 32
@@ -157006,9 +157006,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i7
   %.4.i.i78 = phi i64 [ %.3238.i.i75, %1007 ], [ %1016, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i97 ], [ %1016, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i106 ]
   %1120 = add nuw i64 %.090236.i.i76, 1
   %1121 = icmp ult i64 %1120, %2
-  br i1 %1121, label %1007, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4038
+  br i1 %1121, label %1007, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4038
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i77, %.preheader.i.i67
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i77, %.preheader.i.i67
   %.3.lcssa.i.i79 = phi i64 [ %.2.lcssa.i.i68, %.preheader.i.i67 ], [ %.4.i.i78, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i77 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %1122 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -157604,7 +157604,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i3
 .preheader.i.i245:                                ; preds = %.preheader.loopexit.i.i244, %.preheader224.i.i, %1124
   %.2.lcssa.i.i246 = phi i64 [ 0, %1124 ], [ %.1.i.i222, %.preheader224.i.i ], [ %1458, %.preheader.loopexit.i.i244 ]
   %.not246.i.i = icmp eq i64 %1137, %2
-  br i1 %.not246.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph243.i.i
+  br i1 %.not246.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph243.i.i
 
 .lr.ph243.i.i:                                    ; preds = %.preheader.i.i245
   %sext.i.i247 = shl i64 %1131, 32
@@ -158068,9 +158068,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i2
   %.4.i.i252 = phi i64 [ %.3242.i.i, %1576 ], [ %1591, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i271 ], [ %1591, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i280 ]
   %1695 = add nuw i64 %.090240.i.i, 1
   %1696 = icmp ult i64 %1695, %2
-  br i1 %1696, label %1576, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4041
+  br i1 %1696, label %1576, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4041
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i251, %.preheader.i.i245
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i251, %.preheader.i.i245
   %.3.lcssa.i.i253 = phi i64 [ %.2.lcssa.i.i246, %.preheader.i.i245 ], [ %.4.i.i252, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i251 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %1697 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -158689,7 +158689,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i4
 .preheader.i.i415:                                ; preds = %.preheader.loopexit.i.i414, %.preheader228.i.i, %1699
   %.2.lcssa.i.i416 = phi i64 [ 0, %1699 ], [ %.1.i.i392, %.preheader228.i.i ], [ %2056, %.preheader.loopexit.i.i414 ]
   %.not250.i.i = icmp eq i64 %1715, %2
-  br i1 %.not250.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph247.i.i
+  br i1 %.not250.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph247.i.i
 
 .lr.ph247.i.i:                                    ; preds = %.preheader.i.i415
   %sext.i.i417 = shl i64 %1706, 32
@@ -159158,9 +159158,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i4
   %.4.i.i422 = phi i64 [ %.3246.i.i, %2174 ], [ %2194, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i441 ], [ %2194, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i450 ]
   %2298 = add nuw i64 %.090244.i.i, 1
   %2299 = icmp ult i64 %2298, %2
-  br i1 %2299, label %2174, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4044
+  br i1 %2299, label %2174, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4044
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i421, %.preheader.i.i415
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i421, %.preheader.i.i415
   %.3.lcssa.i.i423 = phi i64 [ %.2.lcssa.i.i416, %.preheader.i.i415 ], [ %.4.i.i422, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i421 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %2300 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -159808,7 +159808,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i6
 .preheader.i.i585:                                ; preds = %.preheader.loopexit.i.i584, %.preheader232.i.i, %2302
   %.2.lcssa.i.i586 = phi i64 [ 0, %2302 ], [ %.1.i.i562, %.preheader232.i.i ], [ %2688, %.preheader.loopexit.i.i584 ]
   %.not254.i.i = icmp eq i64 %2319, %2
-  br i1 %.not254.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph251.i.i
+  br i1 %.not254.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph251.i.i
 
 .lr.ph251.i.i:                                    ; preds = %.preheader.i.i585
   %sext.i.i587 = shl i64 %2309, 32
@@ -160284,9 +160284,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i5
   %.4.i.i592 = phi i64 [ %.3250.i.i, %2806 ], [ %2833, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i611 ], [ %2833, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i620 ]
   %2937 = add nuw i64 %.090248.i.i, 1
   %2938 = icmp ult i64 %2937, %2
-  br i1 %2938, label %2806, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4047
+  br i1 %2938, label %2806, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4047
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i591, %.preheader.i.i585
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i591, %.preheader.i.i585
   %.3.lcssa.i.i593 = phi i64 [ %.2.lcssa.i.i586, %.preheader.i.i585 ], [ %.4.i.i592, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i591 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %2939 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -161038,7 +161038,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i8
 .preheader.i.i757:                                ; preds = %.preheader.loopexit.i.i756, %.preheader248.i.i, %2941
   %.2.lcssa.i.i758 = phi i64 [ 0, %2941 ], [ %.1.i.i732, %.preheader248.i.i ], [ %3431, %.preheader.loopexit.i.i756 ]
   %.not270.i.i = icmp eq i64 %2966, %2
-  br i1 %.not270.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph267.i.i
+  br i1 %.not270.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph267.i.i
 
 .lr.ph267.i.i:                                    ; preds = %.preheader.i.i757
   %sext.i.i759 = shl i64 %2948, 32
@@ -161538,9 +161538,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i7
   %.4.i.i764 = phi i64 [ %.3266.i.i, %3549 ], [ %3600, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i783 ], [ %3600, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i792 ]
   %3704 = add nuw i64 %.090264.i.i, 1
   %3705 = icmp ult i64 %3704, %2
-  br i1 %3705, label %3549, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4050
+  br i1 %3705, label %3549, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4050
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i763, %.preheader.i.i757
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i763, %.preheader.i.i757
   %.3.lcssa.i.i765 = phi i64 [ %.2.lcssa.i.i758, %.preheader.i.i757 ], [ %.4.i.i764, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i763 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %3706 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -162105,7 +162105,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i1
 .preheader.i.i926:                                ; preds = %.preheader.loopexit.i.i925, %.preheader216.i.i, %3708
   %.2.lcssa.i.i927 = phi i64 [ 0, %3708 ], [ %.1.i.i903, %.preheader216.i.i ], [ %4007, %.preheader.loopexit.i.i925 ]
   %.not238.i.i = icmp eq i64 %3723, %2
-  br i1 %.not238.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph235.i.i
+  br i1 %.not238.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph235.i.i
 
 .lr.ph235.i.i:                                    ; preds = %.preheader.i.i926
   %sext.i.i928 = shl i64 %3715, 32
@@ -162560,9 +162560,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i9
   %.4.i.i933 = phi i64 [ %.3234.i.i, %4125 ], [ %4131, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i952 ], [ %4131, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i961 ]
   %4235 = add nuw i64 %.090232.i.i, 1
   %4236 = icmp ult i64 %4235, %2
-  br i1 %4236, label %4125, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4053
+  br i1 %4236, label %4125, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4053
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i932, %.preheader.i.i926
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i932, %.preheader.i.i926
   %.3.lcssa.i.i934 = phi i64 [ %.2.lcssa.i.i927, %.preheader.i.i926 ], [ %.4.i.i933, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit215.i.i932 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %4237 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -162577,7 +162577,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %4239
 
-4239:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4239:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 
@@ -162784,7 +162784,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -164786,7 +164786,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i.i.i:                               ; preds = %.preheader.loopexit.i.i.i.i, %.preheader144.i.i.i.i, %66
   %.2.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.preheader144.i.i.i.i ], [ %214, %.preheader.loopexit.i.i.i.i ], [ 0, %66 ]
   %.not166.i.i.i.i = icmp eq i64 %76, %1
-  br i1 %.not166.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph163.i.i.i.i
+  br i1 %.not166.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph163.i.i.i.i
 
 .lr.ph163.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
   %sext.i.i.i.i = shl i64 %72, 32
@@ -165091,9 +165091,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
   %.4.i.i.i.i = phi i64 [ %.3162.i.i.i.i, %291 ], [ %299, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i.i.i ], [ %299, %363 ]
   %365 = add nuw i64 %.090160.i.i.i.i, 1
   %366 = icmp ult i64 %365, %1
-  br i1 %366, label %291, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4060
+  br i1 %366, label %291, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4060
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i.i.i, %.preheader.i.i.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i.i.i, %.preheader.i.i.i.i
   %.3.lcssa.i.i.i.i = phi i64 [ %.2.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %.4.i.i.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %367 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -165359,7 +165359,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i64.i.i:                             ; preds = %.preheader.loopexit.i.i63.i.i, %.preheader144.i.i38.i.i, %369
   %.2.lcssa.i.i65.i.i = phi i64 [ %.1.i.i37.i.i, %.preheader144.i.i38.i.i ], [ %521, %.preheader.loopexit.i.i63.i.i ], [ 0, %369 ]
   %.not166.i.i66.i.i = icmp eq i64 %379, %1
-  br i1 %.not166.i.i66.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph163.i.i67.i.i
+  br i1 %.not166.i.i66.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph163.i.i67.i.i
 
 .lr.ph163.i.i67.i.i:                              ; preds = %.preheader.i.i64.i.i
   %sext.i.i68.i.i = shl i64 %375, 32
@@ -165665,9 +165665,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
   %.4.i.i73.i.i = phi i64 [ %.3162.i.i70.i.i, %598 ], [ %607, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i92.i.i ], [ %607, %671 ]
   %673 = add nuw i64 %.090160.i.i71.i.i, 1
   %674 = icmp ult i64 %673, %1
-  br i1 %674, label %598, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4063
+  br i1 %674, label %598, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4063
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i72.i.i, %.preheader.i.i64.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i72.i.i, %.preheader.i.i64.i.i
   %.3.lcssa.i.i74.i.i = phi i64 [ %.2.lcssa.i.i65.i.i, %.preheader.i.i64.i.i ], [ %.4.i.i73.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i72.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %675 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -165959,7 +165959,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i156.i.i:                            ; preds = %.preheader.loopexit.i.i155.i.i, %.preheader148.i.i.i.i, %677
   %.2.lcssa.i.i157.i.i = phi i64 [ %.1.i.i133.i.i, %.preheader148.i.i.i.i ], [ %855, %.preheader.loopexit.i.i155.i.i ], [ 0, %677 ]
   %.not170.i.i.i.i = icmp eq i64 %689, %1
-  br i1 %.not170.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph167.i.i.i.i
+  br i1 %.not170.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph167.i.i.i.i
 
 .lr.ph167.i.i.i.i:                                ; preds = %.preheader.i.i156.i.i
   %sext.i.i158.i.i = shl i64 %683, 32
@@ -166271,9 +166271,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
   %.4.i.i161.i.i = phi i64 [ %.3166.i.i.i.i, %932 ], [ %947, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i180.i.i ], [ %947, %1011 ]
   %1013 = add nuw i64 %.090164.i.i.i.i, 1
   %1014 = icmp ult i64 %1013, %1
-  br i1 %1014, label %932, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4066
+  br i1 %1014, label %932, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4066
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i160.i.i, %.preheader.i.i156.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i160.i.i, %.preheader.i.i156.i.i
   %.3.lcssa.i.i162.i.i = phi i64 [ %.2.lcssa.i.i157.i.i, %.preheader.i.i156.i.i ], [ %.4.i.i161.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i160.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %1015 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -166588,7 +166588,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i242.i.i:                            ; preds = %.preheader.loopexit.i.i241.i.i, %.preheader152.i.i.i.i, %1017
   %.2.lcssa.i.i243.i.i = phi i64 [ %.1.i.i219.i.i, %.preheader152.i.i.i.i ], [ %1218, %.preheader.loopexit.i.i241.i.i ], [ 0, %1017 ]
   %.not174.i.i.i.i = icmp eq i64 %1032, %1
-  br i1 %.not174.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph171.i.i.i.i
+  br i1 %.not174.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph171.i.i.i.i
 
 .lr.ph171.i.i.i.i:                                ; preds = %.preheader.i.i242.i.i
   %sext.i.i244.i.i = shl i64 %1023, 32
@@ -166905,9 +166905,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
   %.4.i.i247.i.i = phi i64 [ %.3170.i.i.i.i, %1295 ], [ %1315, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i266.i.i ], [ %1315, %1379 ]
   %1381 = add nuw i64 %.090168.i.i.i.i, 1
   %1382 = icmp ult i64 %1381, %1
-  br i1 %1382, label %1295, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4069
+  br i1 %1382, label %1295, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4069
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i246.i.i, %.preheader.i.i242.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i246.i.i, %.preheader.i.i242.i.i
   %.3.lcssa.i.i248.i.i = phi i64 [ %.2.lcssa.i.i243.i.i, %.preheader.i.i242.i.i ], [ %.4.i.i247.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i246.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %1383 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -167251,7 +167251,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i328.i.i:                            ; preds = %.preheader.loopexit.i.i327.i.i, %.preheader156.i.i.i.i, %1385
   %.2.lcssa.i.i329.i.i = phi i64 [ %.1.i.i305.i.i, %.preheader156.i.i.i.i ], [ %1615, %.preheader.loopexit.i.i327.i.i ], [ 0, %1385 ]
   %.not178.i.i.i.i = icmp eq i64 %1401, %1
-  br i1 %.not178.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph175.i.i.i.i
+  br i1 %.not178.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph175.i.i.i.i
 
 .lr.ph175.i.i.i.i:                                ; preds = %.preheader.i.i328.i.i
   %sext.i.i330.i.i = shl i64 %1391, 32
@@ -167575,9 +167575,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
   %.4.i.i333.i.i = phi i64 [ %.3174.i.i.i.i, %1692 ], [ %1719, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i352.i.i ], [ %1719, %1783 ]
   %1785 = add nuw i64 %.090172.i.i.i.i, 1
   %1786 = icmp ult i64 %1785, %1
-  br i1 %1786, label %1692, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4072
+  br i1 %1786, label %1692, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4072
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i332.i.i, %.preheader.i.i328.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i332.i.i, %.preheader.i.i328.i.i
   %.3.lcssa.i.i334.i.i = phi i64 [ %.2.lcssa.i.i329.i.i, %.preheader.i.i328.i.i ], [ %.4.i.i333.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i332.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %1787 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -168025,7 +168025,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i415.i.i:                            ; preds = %.preheader.loopexit.i.i414.i.i, %.preheader172.i.i.i.i, %1789
   %.2.lcssa.i.i416.i.i = phi i64 [ %.1.i.i391.i.i, %.preheader172.i.i.i.i ], [ %2123, %.preheader.loopexit.i.i414.i.i ], [ 0, %1789 ]
   %.not194.i.i.i.i = icmp eq i64 %1813, %1
-  br i1 %.not194.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph191.i.i.i.i
+  br i1 %.not194.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph191.i.i.i.i
 
 .lr.ph191.i.i.i.i:                                ; preds = %.preheader.i.i415.i.i
   %sext.i.i417.i.i = shl i64 %1795, 32
@@ -168373,9 +168373,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
   %.4.i.i420.i.i = phi i64 [ %.3190.i.i.i.i, %2200 ], [ %2251, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i439.i.i ], [ %2251, %2315 ]
   %2317 = add nuw i64 %.090188.i.i.i.i, 1
   %2318 = icmp ult i64 %2317, %1
-  br i1 %2318, label %2200, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4075
+  br i1 %2318, label %2200, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4075
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i419.i.i, %.preheader.i.i415.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i419.i.i, %.preheader.i.i415.i.i
   %.3.lcssa.i.i421.i.i = phi i64 [ %.2.lcssa.i.i416.i.i, %.preheader.i.i415.i.i ], [ %.4.i.i420.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i419.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %2319 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -168636,7 +168636,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
 .preheader.i.i501.i.i:                            ; preds = %.preheader.loopexit.i.i500.i.i, %.preheader140.i.i.i.i, %2321
   %.2.lcssa.i.i502.i.i = phi i64 [ %.1.i.i478.i.i, %.preheader140.i.i.i.i ], [ %2464, %.preheader.loopexit.i.i500.i.i ], [ 0, %2321 ]
   %.not162.i.i.i.i = icmp eq i64 %2335, %1
-  br i1 %.not162.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, label %.lr.ph159.i.i.i.i
+  br i1 %.not162.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, label %.lr.ph159.i.i.i.i
 
 .lr.ph159.i.i.i.i:                                ; preds = %.preheader.i.i501.i.i
   %sext.i.i503.i.i = shl i64 %2327, 32
@@ -168939,9 +168939,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.
   %.4.i.i506.i.i = phi i64 [ %.3158.i.i.i.i, %2541 ], [ %2547, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit137.i.i525.i.i ], [ %2547, %2611 ]
   %2613 = add nuw i64 %.090156.i.i.i.i, 1
   %2614 = icmp ult i64 %2613, %1
-  br i1 %2614, label %2541, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, !llvm.loop !4078
+  br i1 %2614, label %2541, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, !llvm.loop !4078
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i505.i.i, %.preheader.i.i501.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i505.i.i, %.preheader.i.i501.i.i
   %.3.lcssa.i.i507.i.i = phi i64 [ %.2.lcssa.i.i502.i.i, %.preheader.i.i501.i.i ], [ %.4.i.i506.i.i, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit139.i.i505.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
   %2615 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -169833,7 +169833,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i32: 
   call void @__cxa_free_exception(ptr %3039) #15
   br label %3046
 
-_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i32, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i27, %3012, %2912, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit.i.i, %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
+_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i32, %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i27, %3012, %2912, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit.i.i, %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
   ret void
 
 3046:                                             ; preds = %3043, %3045
@@ -169916,7 +169916,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_.argprom(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %4) unnamed_addr #2 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca float, align 4
@@ -170524,7 +170524,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i:
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader220.i.i, %43
   %.2.lcssa.i.i = phi i64 [ 0, %43 ], [ %.1.i.i, %.preheader220.i.i ], [ %347, %.preheader.loopexit.i.i ]
   %.not242.i.i = icmp eq i64 %54, %2
-  br i1 %.not242.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph239.i.i
+  br i1 %.not242.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph239.i.i
 
 .lr.ph239.i.i:                                    ; preds = %.preheader.i.i
   %sext.i.i = shl i64 %50, 32
@@ -170981,9 +170981,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i:
   %.4.i.i = phi i64 [ %.3238.i.i, %465 ], [ %473, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i ], [ %473, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i ]
   %577 = add nuw i64 %.090236.i.i, 1
   %578 = icmp ult i64 %577, %2
-  br i1 %578, label %465, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4085
+  br i1 %578, label %465, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4085
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i, %.preheader.i.i
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i, %.preheader.i.i
   %.3.lcssa.i.i = phi i64 [ %.2.lcssa.i.i, %.preheader.i.i ], [ %.4.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %579 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -171553,7 +171553,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i1
 .preheader.i.i67:                                 ; preds = %.preheader.loopexit.i.i66, %.preheader220.i.i41, %581
   %.2.lcssa.i.i68 = phi i64 [ 0, %581 ], [ %.1.i.i40, %.preheader220.i.i41 ], [ %889, %.preheader.loopexit.i.i66 ]
   %.not242.i.i69 = icmp eq i64 %592, %2
-  br i1 %.not242.i.i69, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph239.i.i70
+  br i1 %.not242.i.i69, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph239.i.i70
 
 .lr.ph239.i.i70:                                  ; preds = %.preheader.i.i67
   %sext.i.i71 = shl i64 %588, 32
@@ -172011,9 +172011,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i7
   %.4.i.i78 = phi i64 [ %.3238.i.i75, %1007 ], [ %1016, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i97 ], [ %1016, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i106 ]
   %1120 = add nuw i64 %.090236.i.i76, 1
   %1121 = icmp ult i64 %1120, %2
-  br i1 %1121, label %1007, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4088
+  br i1 %1121, label %1007, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4088
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i77, %.preheader.i.i67
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i77, %.preheader.i.i67
   %.3.lcssa.i.i79 = phi i64 [ %.2.lcssa.i.i68, %.preheader.i.i67 ], [ %.4.i.i78, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i77 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %1122 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -172609,7 +172609,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i3
 .preheader.i.i245:                                ; preds = %.preheader.loopexit.i.i244, %.preheader224.i.i, %1124
   %.2.lcssa.i.i246 = phi i64 [ 0, %1124 ], [ %.1.i.i222, %.preheader224.i.i ], [ %1458, %.preheader.loopexit.i.i244 ]
   %.not246.i.i = icmp eq i64 %1137, %2
-  br i1 %.not246.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph243.i.i
+  br i1 %.not246.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph243.i.i
 
 .lr.ph243.i.i:                                    ; preds = %.preheader.i.i245
   %sext.i.i247 = shl i64 %1131, 32
@@ -173073,9 +173073,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i2
   %.4.i.i252 = phi i64 [ %.3242.i.i, %1576 ], [ %1591, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i271 ], [ %1591, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i280 ]
   %1695 = add nuw i64 %.090240.i.i, 1
   %1696 = icmp ult i64 %1695, %2
-  br i1 %1696, label %1576, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4091
+  br i1 %1696, label %1576, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4091
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i251, %.preheader.i.i245
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i251, %.preheader.i.i245
   %.3.lcssa.i.i253 = phi i64 [ %.2.lcssa.i.i246, %.preheader.i.i245 ], [ %.4.i.i252, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i251 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %1697 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -173694,7 +173694,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i4
 .preheader.i.i415:                                ; preds = %.preheader.loopexit.i.i414, %.preheader228.i.i, %1699
   %.2.lcssa.i.i416 = phi i64 [ 0, %1699 ], [ %.1.i.i392, %.preheader228.i.i ], [ %2056, %.preheader.loopexit.i.i414 ]
   %.not250.i.i = icmp eq i64 %1715, %2
-  br i1 %.not250.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph247.i.i
+  br i1 %.not250.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph247.i.i
 
 .lr.ph247.i.i:                                    ; preds = %.preheader.i.i415
   %sext.i.i417 = shl i64 %1706, 32
@@ -174163,9 +174163,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i4
   %.4.i.i422 = phi i64 [ %.3246.i.i, %2174 ], [ %2194, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i441 ], [ %2194, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i450 ]
   %2298 = add nuw i64 %.090244.i.i, 1
   %2299 = icmp ult i64 %2298, %2
-  br i1 %2299, label %2174, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4094
+  br i1 %2299, label %2174, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4094
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i421, %.preheader.i.i415
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i421, %.preheader.i.i415
   %.3.lcssa.i.i423 = phi i64 [ %.2.lcssa.i.i416, %.preheader.i.i415 ], [ %.4.i.i422, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i421 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %2300 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -174813,7 +174813,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i6
 .preheader.i.i585:                                ; preds = %.preheader.loopexit.i.i584, %.preheader232.i.i, %2302
   %.2.lcssa.i.i586 = phi i64 [ 0, %2302 ], [ %.1.i.i562, %.preheader232.i.i ], [ %2688, %.preheader.loopexit.i.i584 ]
   %.not254.i.i = icmp eq i64 %2319, %2
-  br i1 %.not254.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph251.i.i
+  br i1 %.not254.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph251.i.i
 
 .lr.ph251.i.i:                                    ; preds = %.preheader.i.i585
   %sext.i.i587 = shl i64 %2309, 32
@@ -175289,9 +175289,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i5
   %.4.i.i592 = phi i64 [ %.3250.i.i, %2806 ], [ %2833, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i611 ], [ %2833, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i620 ]
   %2937 = add nuw i64 %.090248.i.i, 1
   %2938 = icmp ult i64 %2937, %2
-  br i1 %2938, label %2806, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4097
+  br i1 %2938, label %2806, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4097
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i591, %.preheader.i.i585
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i591, %.preheader.i.i585
   %.3.lcssa.i.i593 = phi i64 [ %.2.lcssa.i.i586, %.preheader.i.i585 ], [ %.4.i.i592, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i591 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %2939 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -176043,7 +176043,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i8
 .preheader.i.i757:                                ; preds = %.preheader.loopexit.i.i756, %.preheader248.i.i, %2941
   %.2.lcssa.i.i758 = phi i64 [ 0, %2941 ], [ %.1.i.i732, %.preheader248.i.i ], [ %3431, %.preheader.loopexit.i.i756 ]
   %.not270.i.i = icmp eq i64 %2966, %2
-  br i1 %.not270.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph267.i.i
+  br i1 %.not270.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph267.i.i
 
 .lr.ph267.i.i:                                    ; preds = %.preheader.i.i757
   %sext.i.i759 = shl i64 %2948, 32
@@ -176543,9 +176543,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i7
   %.4.i.i764 = phi i64 [ %.3266.i.i, %3549 ], [ %3600, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i783 ], [ %3600, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i792 ]
   %3704 = add nuw i64 %.090264.i.i, 1
   %3705 = icmp ult i64 %3704, %2
-  br i1 %3705, label %3549, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4100
+  br i1 %3705, label %3549, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4100
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i763, %.preheader.i.i757
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i763, %.preheader.i.i757
   %.3.lcssa.i.i765 = phi i64 [ %.2.lcssa.i.i758, %.preheader.i.i757 ], [ %.4.i.i764, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i763 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %3706 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -177110,7 +177110,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i1
 .preheader.i.i926:                                ; preds = %.preheader.loopexit.i.i925, %.preheader216.i.i, %3708
   %.2.lcssa.i.i927 = phi i64 [ 0, %3708 ], [ %.1.i.i903, %.preheader216.i.i ], [ %4007, %.preheader.loopexit.i.i925 ]
   %.not238.i.i = icmp eq i64 %3723, %2
-  br i1 %.not238.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, label %.lr.ph235.i.i
+  br i1 %.not238.i.i, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, label %.lr.ph235.i.i
 
 .lr.ph235.i.i:                                    ; preds = %.preheader.i.i926
   %sext.i.i928 = shl i64 %3715, 32
@@ -177565,9 +177565,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i9
   %.4.i.i933 = phi i64 [ %.3234.i.i, %4125 ], [ %4131, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit198.i.i952 ], [ %4131, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i209.i.i961 ]
   %4235 = add nuw i64 %.090232.i.i, 1
   %4236 = icmp ult i64 %4235, %2
-  br i1 %4236, label %4125, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, !llvm.loop !4103
+  br i1 %4236, label %4125, label %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, !llvm.loop !4103
 
-_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i932, %.preheader.i.i926
+_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i932, %.preheader.i.i926
   %.3.lcssa.i.i934 = phi i64 [ %.2.lcssa.i.i927, %.preheader.i.i926 ], [ %.4.i.i933, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit215.i.i932 ]
   call void @__kmpc_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
   %4237 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8
@@ -177582,7 +177582,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %4239
 
-4239:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
+4239:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.argprom.exit
   ret void
 }
 

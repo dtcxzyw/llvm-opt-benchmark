@@ -51662,7 +51662,7 @@ entry:
   %m_normal = getelementptr inbounds i8, ptr %3, i64 40
   %mrg = getelementptr inbounds i8, ptr %this, i64 24
   %mrg.val = load float, ptr %mrg, align 8
-  %call = call fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_(ptr noundef nonnull align 4 dereferenceable(16) %m_x, ptr noundef nonnull align 4 dereferenceable(16) %m_x4, ptr noundef nonnull align 4 dereferenceable(16) %m_x7, ptr noundef nonnull align 4 dereferenceable(16) %m_x8, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, float %mrg.val, ptr noundef nonnull align 4 dereferenceable(16) %bary)
+  %call = call fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_.argprom(ptr noundef nonnull align 4 dereferenceable(16) %m_x, ptr noundef nonnull align 4 dereferenceable(16) %m_x4, ptr noundef nonnull align 4 dereferenceable(16) %m_x7, ptr noundef nonnull align 4 dereferenceable(16) %m_x8, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, float %mrg.val, ptr noundef nonnull align 4 dereferenceable(16) %bary)
   br i1 %call, label %if.then, label %if.end67
 
 if.then:                                          ; preds = %entry
@@ -51865,7 +51865,7 @@ if.end67:                                         ; preds = %if.then, %_ZN20btAl
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, float %mrg.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(16) %bary) unnamed_addr #32 {
+define internal fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_.argprom(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, float %mrg.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(16) %bary) unnamed_addr #32 {
 entry:
   %0 = load float, ptr %x4, align 4
   %1 = load float, ptr %x3, align 4
@@ -52072,7 +52072,7 @@ for.body15:                                       ; preds = %for.cond13.preheade
   %m_x27 = getelementptr inbounds i8, ptr %5, i64 16
   %m_x28 = getelementptr inbounds i8, ptr %2, i64 16
   %mrg.val = load float, ptr %mrg, align 8
-  %call = call fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_(ptr noundef nonnull align 4 dereferenceable(16) %m_x, ptr noundef nonnull align 4 dereferenceable(16) %m_x24, ptr noundef nonnull align 4 dereferenceable(16) %m_x27, ptr noundef nonnull align 4 dereferenceable(16) %m_x28, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, float %mrg.val, ptr noundef nonnull align 4 dereferenceable(16) %bary)
+  %call = call fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_.argprom(ptr noundef nonnull align 4 dereferenceable(16) %m_x, ptr noundef nonnull align 4 dereferenceable(16) %m_x24, ptr noundef nonnull align 4 dereferenceable(16) %m_x27, ptr noundef nonnull align 4 dereferenceable(16) %m_x28, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, float %mrg.val, ptr noundef nonnull align 4 dereferenceable(16) %bary)
   br i1 %call, label %if.end30, label %for.inc62
 
 if.end30:                                         ; preds = %for.body15
@@ -52290,7 +52290,7 @@ entry:
   %2 = getelementptr inbounds i8, ptr %lface, i64 40
   %3 = load ptr, ptr %2, align 8
   %dt = getelementptr inbounds i8, ptr %this, i64 24
-  %call = call fastcc noundef zeroext i1 @_ZL12bernsteinCCDPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3(ptr noundef %3, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %dt, float 0x3EE9000000000000, ptr noundef nonnull align 4 dereferenceable(16) %bary)
+  %call = call fastcc noundef zeroext i1 @_ZL12bernsteinCCDPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.argprom(ptr noundef %3, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %dt, float 0x3EE9000000000000, ptr noundef nonnull align 4 dereferenceable(16) %bary)
   br i1 %call, label %if.then, label %if.end27
 
 if.then:                                          ; preds = %entry
@@ -52479,7 +52479,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL12bernsteinCCDPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3(ptr nocapture noundef readonly %face, ptr nocapture noundef readonly %node, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %dt, float %mrg.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(16) %bary) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL12bernsteinCCDPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.argprom(ptr nocapture noundef readonly %face, ptr nocapture noundef readonly %node, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %dt, float %mrg.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(16) %bary) unnamed_addr #3 {
 entry:
   %hex.i.i = alloca [6 x %class.btVector3], align 16
   %roots.i = alloca [3 x float], align 4
@@ -52573,9 +52573,9 @@ entry:
   %or.cond12.i.i = and i1 %cmp3.i.i, %or.cond.i.i
   %cmp5.i.i = fcmp ogt float %conv21.i.i, %mrg.0.val
   %or.cond13.i.i = and i1 %cmp5.i.i, %or.cond12.i.i
-  br i1 %or.cond13.i.i, label %return, label %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit
+  br i1 %or.cond13.i.i, label %return, label %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.argprom.exit
 
-_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit: ; preds = %entry
+_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.argprom.exit: ; preds = %entry
   %fneg.i.i = fneg float %mrg.0.val
   %cmp6.i.i = fcmp uge float %conv12.i.i, %fneg.i.i
   %cmp9.i.i = fcmp uge float %add.i.i, %fneg.i.i
@@ -52586,7 +52586,7 @@ _ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit: ; preds = %entr
   %or.cond16.i.not.i = or i1 %cmp15.i.i, %or.cond15.i.not1.i
   br i1 %or.cond16.i.not.i, label %if.end, label %return
 
-if.end:                                           ; preds = %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit
+if.end:                                           ; preds = %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %roots.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %x1.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %x2.i)
@@ -52754,9 +52754,9 @@ for.body68.i.i:                                   ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body68.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i, label %for.body68.i.i, !llvm.loop !559
+  br i1 %exitcond.not.i.i, label %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.argprom.exit.thread.i, label %for.body68.i.i, !llvm.loop !559
 
-_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i: ; preds = %for.inc.i.i
+_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.argprom.exit.thread.i: ; preds = %for.inc.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %hex.i.i)
   br label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit
 
@@ -53091,7 +53091,7 @@ _ZN9btVector313safeNormalizeEv.exit.i:            ; preds = %if.else.i.i, %if.th
   store float %mul.i.i.sink.i.i, ptr %normal.i, align 4
   store float %mul4.i.i.sink.i.i, ptr %arrayidx5.i.i.i306.i, align 4
   store float %mul7.i.i.sink.i.i, ptr %115, align 4
-  %call180.i = call fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_(ptr noundef nonnull align 4 dereferenceable(16) %x1.i, ptr noundef nonnull align 4 dereferenceable(16) %x2.i, ptr noundef nonnull align 4 dereferenceable(16) %x3.i, ptr noundef nonnull align 4 dereferenceable(16) %x4.i, ptr noundef nonnull align 4 dereferenceable(16) %normal.i, float 0x3EB0C6F7A0000000, ptr noundef nonnull align 4 dereferenceable(16) %bary)
+  %call180.i = call fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_.argprom(ptr noundef nonnull align 4 dereferenceable(16) %x1.i, ptr noundef nonnull align 4 dereferenceable(16) %x2.i, ptr noundef nonnull align 4 dereferenceable(16) %x3.i, ptr noundef nonnull align 4 dereferenceable(16) %x4.i, ptr noundef nonnull align 4 dereferenceable(16) %normal.i, float 0x3EB0C6F7A0000000, ptr noundef nonnull align 4 dereferenceable(16) %bary)
   br i1 %call180.i, label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN9btVector313safeNormalizeEv.exit.i, %for.body.i
@@ -53099,8 +53099,8 @@ for.inc.i:                                        ; preds = %_ZN9btVector313safe
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit, label %for.body.i, !llvm.loop !561
 
-_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit: ; preds = %if.end117.i, %_ZN9btVector313safeNormalizeEv.exit.i, %for.inc.i, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i, %if.then65.i, %if.end112.i
-  %retval.0.i = phi i1 [ false, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i ], [ false, %if.end112.i ], [ false, %if.then65.i ], [ false, %for.inc.i ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ], [ false, %if.end117.i ]
+_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit: ; preds = %if.end117.i, %_ZN9btVector313safeNormalizeEv.exit.i, %for.inc.i, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.argprom.exit.thread.i, %if.then65.i, %if.end112.i
+  %retval.0.i = phi i1 [ false, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.argprom.exit.thread.i ], [ false, %if.end112.i ], [ false, %if.then65.i ], [ false, %for.inc.i ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ], [ false, %if.end117.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %roots.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %x1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %x2.i)
@@ -53109,8 +53109,8 @@ _ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVecto
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %normal.i)
   br label %return
 
-return:                                           ; preds = %entry, %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit
-  %retval.0 = phi i1 [ false, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit ], [ %retval.0.i, %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit ], [ false, %entry ]
+return:                                           ; preds = %entry, %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.argprom.exit
+  %retval.0 = phi i1 [ false, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.argprom.exit ], [ %retval.0.i, %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -53164,7 +53164,7 @@ for.body15:                                       ; preds = %for.cond13.preheade
   %indvars.iv36 = phi i64 [ 0, %for.cond13.preheader ], [ %indvars.iv.next37, %for.inc51 ]
   %arrayidx19 = getelementptr inbounds [3 x ptr], ptr %m_n, i64 0, i64 %indvars.iv36
   %2 = load ptr, ptr %arrayidx19, align 8
-  %call = call fastcc noundef zeroext i1 @_ZL12bernsteinCCDPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3(ptr noundef %f2, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %dt, float 0x3EE9000000000000, ptr noundef nonnull align 4 dereferenceable(16) %bary)
+  %call = call fastcc noundef zeroext i1 @_ZL12bernsteinCCDPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.argprom(ptr noundef %f2, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %dt, float 0x3EE9000000000000, ptr noundef nonnull align 4 dereferenceable(16) %bary)
   br i1 %call, label %if.then20, label %for.inc51
 
 if.then20:                                        ; preds = %for.body15

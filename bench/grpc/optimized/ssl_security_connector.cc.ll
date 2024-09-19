@@ -241,7 +241,7 @@ invoke.cont8.i.i:                                 ; preds = %invoke.cont5.i.i
   %12 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   %13 = load ptr, ptr %12, align 8, !noalias !4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i, i64 %11, ptr %13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i.i)
-          to label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connectorEED2Ev.exit unwind label %lpad11.i.i, !noalias !4
+          to label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connectorEED2Ev.argprom.exit unwind label %lpad11.i.i, !noalias !4
 
 lpad.i.i:                                         ; preds = %if.end
   %14 = landingpad { ptr, i32 }
@@ -318,7 +318,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i: ; preds =
   call void @_ZdlPv(ptr noundef nonnull %call.i) #19, !noalias !4
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connectorEED2Ev.exit: ; preds = %invoke.cont8.i.i
+_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connectorEED2Ev.argprom.exit: ; preds = %invoke.cont8.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !4
   %call14.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %target_name_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i) #18, !noalias !4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i) #18, !noalias !4
@@ -332,8 +332,8 @@ _ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connecto
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i.i), !noalias !4
   br label %return
 
-return:                                           ; preds = %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connectorEED2Ev.exit, %if.then
-  %storemerge = phi ptr [ %call.i, %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connectorEED2Ev.exit ], [ null, %if.then ]
+return:                                           ; preds = %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connectorEED2Ev.argprom.exit, %if.then
+  %storemerge = phi ptr [ %call.i, %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_ssl_channel_security_connectorEED2Ev.argprom.exit ], [ null, %if.then ]
   store ptr %storemerge, ptr %agg.result, align 8
   ret void
 }
@@ -623,7 +623,7 @@ cleanup.thread:                                   ; preds = %call2.i.noexc, %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_alpn_protocols.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %options.i)
   store ptr %call.i, ptr %agg.result, align 8
-  br label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.exit13
+  br label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.argprom.exit13
 
 if.then.i7:                                       ; preds = %_ZN33tsi_ssl_server_handshaker_optionsD2Ev.exit.i, %if.then3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_alpn_protocols.i)
@@ -632,16 +632,16 @@ if.then.i7:                                       ; preds = %_ZN33tsi_ssl_server
   %refs_.i.i8 = getelementptr inbounds i8, ptr %call.i, i64 8
   %33 = atomicrmw sub ptr %refs_.i.i8, i64 1 acq_rel, align 8
   %cmp.i.i.i9 = icmp eq i64 %33, 1
-  br i1 %cmp.i.i.i9, label %if.then.i.i10, label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.exit13
+  br i1 %cmp.i.i.i9, label %if.then.i.i10, label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.argprom.exit13
 
 if.then.i.i10:                                    ; preds = %if.then.i7
   %vtable.i.i.i11 = load ptr, ptr %call.i, align 8
   %vfn.i.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i11, i64 8
   %34 = load ptr, ptr %vfn.i.i.i12, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #18
-  br label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.exit13
+  br label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.argprom.exit13
 
-_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.exit13: ; preds = %cleanup.thread, %if.then.i7, %if.then.i.i10
+_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.argprom.exit13: ; preds = %cleanup.thread, %if.then.i7, %if.then.i.i10
   ret void
 }
 

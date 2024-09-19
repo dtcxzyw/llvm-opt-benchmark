@@ -1004,7 +1004,7 @@ if.then252:                                       ; preds = %if.else246
 
 sw.bb258:                                         ; preds = %if.end
   %zap_domain = getelementptr inbounds i8, ptr %this, i64 664
-  %call259 = tail call fastcc noundef i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %zap_domain)
+  %call259 = tail call fastcc noundef i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.argelim(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %zap_domain)
   br label %return
 
 sw.bb260:                                         ; preds = %if.end
@@ -1867,7 +1867,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIiiSt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %out_value_) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.argelim(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %out_value_) unnamed_addr #5 {
 entry:
   %0 = add i64 %optvallen_, -1
   %or.cond = icmp ult i64 %0, 255

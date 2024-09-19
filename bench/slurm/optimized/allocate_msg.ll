@@ -428,7 +428,7 @@ define internal void @_handle_msg(ptr nocapture noundef readonly %0, ptr noundef
 
 14:                                               ; preds = %2
   %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, i32 noundef %10) #10
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 204
@@ -446,15 +446,15 @@ define internal void @_handle_msg(ptr nocapture noundef readonly %0, ptr noundef
 19:                                               ; preds = %16
   %20 = tail call i32 @get_log_level() #10
   %21 = icmp sgt i32 %20, 6
-  br i1 %21, label %22, label %_handle_ping.exit
+  br i1 %21, label %22, label %_handle_ping.argprom.exit
 
 22:                                               ; preds = %19
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.18) #10
-  br label %_handle_ping.exit
+  br label %_handle_ping.argprom.exit
 
-_handle_ping.exit:                                ; preds = %19, %22
+_handle_ping.argprom.exit:                        ; preds = %19, %22
   %23 = tail call i32 @slurm_send_rc_msg(ptr noundef nonnull %1, i32 noundef 0) #10
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
 24:                                               ; preds = %16
   %25 = getelementptr i8, ptr %1, i64 192
@@ -470,11 +470,11 @@ _handle_ping.exit:                                ; preds = %19, %22
 29:                                               ; preds = %28, %24
   %30 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %_handle_job_complete.exit, label %31
+  br i1 %.not.i, label %_handle_job_complete.argprom.exit, label %31
 
 31:                                               ; preds = %29
   tail call void %30(ptr noundef %.val) #10
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
 32:                                               ; preds = %16
   %33 = getelementptr i8, ptr %1, i64 192
@@ -491,11 +491,11 @@ _handle_ping.exit:                                ; preds = %19, %22
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i28 = icmp eq ptr %39, null
-  br i1 %.not.i28, label %_handle_job_complete.exit, label %40
+  br i1 %.not.i28, label %_handle_job_complete.argprom.exit, label %40
 
 40:                                               ; preds = %37
   tail call void %39(ptr noundef %.val24) #10
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
 41:                                               ; preds = %16
   %42 = getelementptr i8, ptr %1, i64 192
@@ -512,23 +512,23 @@ _handle_ping.exit:                                ; preds = %19, %22
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not.i29 = icmp eq ptr %48, null
-  br i1 %.not.i29, label %_handle_job_complete.exit, label %49
+  br i1 %.not.i29, label %_handle_job_complete.argprom.exit, label %49
 
 49:                                               ; preds = %46
   tail call void %48(ptr noundef %.val25) #10
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
 50:                                               ; preds = %16
   %51 = getelementptr i8, ptr %0, i64 24
   %.val26 = load ptr, ptr %51, align 8
   %.not.i30 = icmp eq ptr %.val26, null
-  br i1 %.not.i30, label %_handle_job_complete.exit, label %52
+  br i1 %.not.i30, label %_handle_job_complete.argprom.exit, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds i8, ptr %1, i64 192
   %54 = load ptr, ptr %53, align 8
   tail call void %.val26(ptr noundef %54) #10
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
 55:                                               ; preds = %16
   %56 = getelementptr i8, ptr %1, i64 192
@@ -545,11 +545,11 @@ _handle_ping.exit:                                ; preds = %19, %22
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   %.not.i31 = icmp eq ptr %62, null
-  br i1 %.not.i31, label %_handle_job_complete.exit, label %63
+  br i1 %.not.i31, label %_handle_job_complete.argprom.exit, label %63
 
 63:                                               ; preds = %60
   tail call void %62(ptr noundef %.val27) #10
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
 64:                                               ; preds = %16
   %65 = tail call i32 @get_log_level() #10
@@ -650,14 +650,14 @@ _net_forward.exit:                                ; preds = %104, %113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %6)
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
 115:                                              ; preds = %16
   %116 = tail call ptr @rpc_num2string(i16 noundef zeroext %18) #10
   %117 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._handle_msg, ptr noundef %116) #10
-  br label %_handle_job_complete.exit
+  br label %_handle_job_complete.argprom.exit
 
-_handle_job_complete.exit:                        ; preds = %63, %60, %52, %50, %49, %46, %40, %37, %31, %29, %_handle_ping.exit, %_net_forward.exit, %115, %14
+_handle_job_complete.argprom.exit:                ; preds = %63, %60, %52, %50, %49, %46, %40, %37, %31, %29, %_handle_ping.argprom.exit, %_net_forward.exit, %115, %14
   ret void
 }
 

@@ -1942,7 +1942,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfFileFormat
   %15 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L14_WarnedFormatsE seq_cst, align 8
   %16 = inttoptr i64 %15 to ptr
   %.not.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
+  br i1 %.not.i.i, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
 
 17:                                               ; preds = %14
   %18 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23
@@ -1959,7 +1959,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfFileFormat
   %24 = ptrtoint ptr %18 to i64
   %25 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L14_WarnedFormatsE, i64 0, i64 %24 seq_cst seq_cst, align 8
   %26 = extractvalue { i64, i1 } %25, 1
-  br i1 %26, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit, label %27
+  br i1 %26, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit, label %27
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %20, align 8
@@ -1977,20 +1977,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTrackerD2Ev.ex
   call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 88) #22
   %32 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L14_WarnedFormatsE seq_cst, align 8
   %33 = inttoptr i64 %32 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit: ; preds = %14, %17, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTrackerD2Ev.exit.i.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit: ; preds = %14, %17, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTrackerD2Ev.exit.i.i.i
   %34 = phi ptr [ %16, %14 ], [ %33, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTrackerD2Ev.exit.i.i.i ], [ %18, %17 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %35) #24
   %.not.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %37
 
-37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
   call void @_ZSt20__throw_system_errori(i32 noundef %36) #25
   unreachable
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %39 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(8) %38)
@@ -4523,11 +4523,11 @@ attributes #27 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE: argument 0"}
-!10 = distinct !{!10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE"}
+!9 = distinct !{!9, !10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE.argprom"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE: argument 0"}
-!13 = distinct !{!13, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE"}
+!12 = distinct !{!12, !13, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE.argprom"}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfCreateRefPtrINS_8SdfLayerEEENS_8TfRefPtrIT_EEPS3_: argument 0"}
 !16 = distinct !{!16, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfCreateRefPtrINS_8SdfLayerEEENS_8TfRefPtrIT_EEPS3_"}
@@ -4537,8 +4537,8 @@ attributes #27 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !"_ZN32pxrInternal_v0_24__pxrReserved__13SdfFileFormat16GetFileExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !21 = distinct !{!21, !5}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE: argument 0"}
-!24 = distinct !{!24, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE"}
+!23 = distinct !{!23, !24, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE.argprom: argument 0"}
+!24 = distinct !{!24, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CreateDataERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE.argprom"}
 !25 = distinct !{!25, !5}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN32pxrInternal_v0_24__pxrReserved__13SdfFileFormat15FindByExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_: argument 0"}

@@ -3512,7 +3512,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %3, align 8
   %.not11.i.i.i.i = icmp eq ptr %.val, %.val2
-  br i1 %.not11.i.i.i.i, label %"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not11.i.i.i.i, label %"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %17
   %.sroa.06.012.i.i.i.i = phi ptr [ %18, %17 ], [ %.val, %2 ]
@@ -3538,16 +3538,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.sroa.06.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %18, %.val2
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %.lr.ph.i.i.i.i
 
 19:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %20 = load ptr, ptr %.sroa.06.012.i.i.i.i, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.17, i64 noundef 0) #19
   %23 = icmp ne i64 %22, -1
-  br label %"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
+  br label %"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %17, %2, %19
+"_ZSt10__invoke_rIbRZL25TestResolverChangedNoticevE3$_0JRKN32pxrInternal_v0_24__pxrReserved__17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %17, %2, %19
   %24 = phi i1 [ %23, %19 ], [ false, %2 ], [ false, %17 ]
   ret i1 %24
 }

@@ -3435,7 +3435,7 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocap
   %36 = call noalias ptr @wmem_alloc(ptr noundef %.val, i64 noundef 6) #16
   %37 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 18) #16
   %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %btmesh_deobfuscate.exit.thread, label %38
+  br i1 %.not.i, label %btmesh_deobfuscate.argprom.exit.thread, label %38
 
 38:                                               ; preds = %35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %6, i8 0, i64 5, i1 false)
@@ -3446,7 +3446,7 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocap
   %42 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %17, i32 noundef 7, i64 noundef 7) #16
   %43 = call i32 @gcry_cipher_open(ptr noundef nonnull %7, i32 noundef 7, i32 noundef 1, i32 noundef 0) #16
   %.not16.i = icmp eq i32 %43, 0
-  br i1 %.not16.i, label %44, label %btmesh_deobfuscate.exit.thread
+  br i1 %.not16.i, label %44, label %btmesh_deobfuscate.argprom.exit.thread
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %7, align 8
@@ -3459,14 +3459,14 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocap
 
 50:                                               ; preds = %44
   call void @gcry_cipher_close(ptr noundef %49) #16
-  br label %btmesh_deobfuscate.exit.thread
+  br label %btmesh_deobfuscate.argprom.exit.thread
 
 51:                                               ; preds = %44
   %52 = call i32 @gcry_cipher_encrypt(ptr noundef %49, ptr noundef nonnull %8, i64 noundef 16, ptr noundef nonnull %6, i64 noundef 16) #16
   %.not18.i = icmp eq i32 %52, 0
   %53 = load ptr, ptr %7, align 8
   call void @gcry_cipher_close(ptr noundef %53) #16
-  br i1 %.not18.i, label %.preheader, label %btmesh_deobfuscate.exit.thread
+  br i1 %.not18.i, label %.preheader, label %btmesh_deobfuscate.argprom.exit.thread
 
 .preheader:                                       ; preds = %51, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %51 ]
@@ -3479,15 +3479,15 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocap
   %59 = getelementptr i8, ptr %36, i64 %indvars.iv.i
   store i8 %58, ptr %59, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %btmesh_deobfuscate.exit, label %.preheader, !llvm.loop !4
+  br i1 %exitcond.not.i, label %btmesh_deobfuscate.argprom.exit, label %.preheader, !llvm.loop !4
 
-btmesh_deobfuscate.exit.thread:                   ; preds = %50, %35, %38, %51
+btmesh_deobfuscate.argprom.exit.thread:           ; preds = %50, %35, %38, %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %132
 
-btmesh_deobfuscate.exit:                          ; preds = %.preheader
+btmesh_deobfuscate.argprom.exit:                  ; preds = %.preheader
   %60 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %36, i32 noundef 6, i32 noundef 6) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -3495,7 +3495,7 @@ btmesh_deobfuscate.exit:                          ; preds = %.preheader
   %61 = icmp eq ptr %60, null
   br i1 %61, label %132, label %62
 
-62:                                               ; preds = %btmesh_deobfuscate.exit
+62:                                               ; preds = %btmesh_deobfuscate.argprom.exit
   %63 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %60, i32 noundef 0) #16
   %64 = lshr i8 %63, 5
   %narrow = and i8 %64, 4
@@ -3621,7 +3621,7 @@ btmesh_deobfuscate.exit:                          ; preds = %.preheader
   call void @gcry_cipher_close(ptr noundef %131) #16
   br label %132
 
-132:                                              ; preds = %btmesh_deobfuscate.exit.thread, %25, %31, %btmesh_deobfuscate.exit, %130, %110, %96, %88, %85
+132:                                              ; preds = %btmesh_deobfuscate.argprom.exit.thread, %25, %31, %btmesh_deobfuscate.argprom.exit, %130, %110, %96, %88, %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %133 = load i32, ptr @num_btmesh_uat, align 4
   %134 = zext i32 %133 to i64
@@ -5284,7 +5284,7 @@ define internal zeroext i1 @uat_btmesh_record_update_cb(ptr nocapture noundef %0
   br i1 %.not.i.i, label %37, label %create_master_security_keys.exit.thread
 
 37:                                               ; preds = %35
-  %38 = call fastcc i32 @s1(ptr noundef %11, ptr noundef %12)
+  %38 = call fastcc i32 @s1.argelim(ptr noundef %11, ptr noundef %12)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %create_master_security_keys.exit.thread, label %40
 
@@ -5491,7 +5491,7 @@ create_master_security_keys.exit:                 ; preds = %96
   br i1 %.not.i, label %122, label %k4.exit.thread
 
 122:                                              ; preds = %121
-  %123 = call fastcc i32 @s1(ptr noundef %4, ptr noundef %6)
+  %123 = call fastcc i32 @s1.argelim(ptr noundef %4, ptr noundef %6)
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %k4.exit.thread, label %125
 
@@ -5867,7 +5867,7 @@ define internal zeroext i1 @uat_btmesh_label_uuid_record_update_cb(ptr nocapture
   br i1 %.not.i, label %19, label %label_uuid_hash.exit.thread
 
 19:                                               ; preds = %18
-  %20 = call fastcc i32 @s1(ptr noundef %4, ptr noundef %5)
+  %20 = call fastcc i32 @s1.argelim(ptr noundef %4, ptr noundef %5)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %label_uuid_hash.exit.thread, label %22
 
@@ -6629,7 +6629,7 @@ declare i32 @g_ascii_xdigit_value(i8 noundef signext) local_unnamed_addr #11
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @s1(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @s1.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [16 x i8], align 16
@@ -7214,7 +7214,7 @@ btmesh_access_find_key_and_decrypt.exit:          ; preds = %167, %.loopexit.us.
   %183 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef -1, i32 noundef %182, ptr noundef null, ptr noundef nonnull @.str.2192) #16
   %184 = load i32, ptr @hf_btmesh_decrypted_access, align 4
   %185 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_model_layer(ptr noundef %.0.i, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @dissect_btmesh_model_layer.argelim(ptr noundef %.0.i, ptr noundef %1, ptr noundef %2)
   br label %186
 
 186:                                              ; preds = %181, %btmesh_access_find_key_and_decrypt.exit
@@ -7388,7 +7388,7 @@ declare i32 @gcry_cipher_authenticate(ptr noundef, ptr noundef, i64 noundef) loc
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_btmesh_model_layer.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -11966,7 +11966,7 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %find_characteristic
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %31, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %28)
+  tail call fastcc void @dissect_btmesh_property_idx.argelim(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %28)
   br label %38
 
 33:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
@@ -12303,7 +12303,7 @@ find_characteristic_idx.exit:                     ; preds = %56
   %76 = load ptr, ptr %4, align 8
   %77 = load i32, ptr %76, align 4
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %77, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %67, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %62)
+  tail call fastcc void @dissect_btmesh_property_idx.argelim(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %62)
   %79 = add nuw nsw i32 %2, %67
   %80 = load ptr, ptr %22, align 8
   %.not84 = icmp eq ptr %80, null
@@ -12312,7 +12312,7 @@ find_characteristic_idx.exit:                     ; preds = %56
 81:                                               ; preds = %75
   %82 = load i32, ptr %80, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %82, ptr noundef nonnull %1, i32 noundef %79, i32 noundef %67, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %79, i32 noundef %62)
+  tail call fastcc void @dissect_btmesh_property_idx.argelim(ptr noundef %1, ptr noundef %0, i32 noundef %79, i32 noundef %62)
   %84 = add nuw nsw i32 %79, %67
   br label %94
 
@@ -12462,13 +12462,13 @@ find_characteristic_idx.exit:                     ; preds = %45
   %65 = load ptr, ptr %4, align 8
   %66 = load i32, ptr %65, align 4
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %56, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %51)
+  tail call fastcc void @dissect_btmesh_property_idx.argelim(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %51)
   %68 = add i32 %2, %56
   %69 = getelementptr inbounds i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %70, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef nonnull %1, i32 noundef %68, i32 noundef %56, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %68, i32 noundef %51)
+  tail call fastcc void @dissect_btmesh_property_idx.argelim(ptr noundef %1, ptr noundef %0, i32 noundef %68, i32 noundef %51)
   %73 = add i32 %68, %56
   %74 = getelementptr inbounds i8, ptr %42, i64 4
   %75 = load i16, ptr %74, align 2
@@ -12515,7 +12515,7 @@ find_characteristic_idx.exit102:                  ; preds = %76
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr %97, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %98, ptr noundef nonnull %1, i32 noundef %73, i32 noundef %87, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %82)
+  tail call fastcc void @dissect_btmesh_property_idx.argelim(ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %82)
   %100 = add i32 %73, %87
   br label %112
 
@@ -12544,7 +12544,7 @@ find_column_properties_idx.exit.thread:           ; preds = %38, %48, %find_char
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_btmesh_property_idx(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_btmesh_property_idx.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #0 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %proto_item_set_generated.exit, label %6
 

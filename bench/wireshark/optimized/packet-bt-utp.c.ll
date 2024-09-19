@@ -1004,7 +1004,7 @@ proto_item_set_generated.exit.i:                  ; preds = %225, %222, %217
   store i32 1, ptr %211, align 8
   %240 = getelementptr inbounds i8, ptr %206, i64 16
   %241 = load i16, ptr %240, align 8
-  call fastcc void @process_utp_payload(ptr noundef %199, ptr noundef nonnull %1, ptr noundef %.029, i16 noundef zeroext %241, ptr noundef %208)
+  call fastcc void @process_utp_payload.argelim(ptr noundef %199, ptr noundef nonnull %1, ptr noundef %.029, i16 noundef zeroext %241, ptr noundef %208)
   store i32 %239, ptr %211, align 8
   br label %dissect_utp_payload.exit
 
@@ -1342,7 +1342,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_utp_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @process_utp_payload.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1412,13 +1412,13 @@ define internal fastcc void @process_utp_payload(ptr noundef %0, ptr noundef %1,
 43:                                               ; preds = %27
   %44 = load i16, ptr %42, align 4
   %45 = icmp ugt i16 %39, %44
-  br i1 %45, label %46, label %print_pdu_tracking_data.exit.i
+  br i1 %45, label %46, label %print_pdu_tracking_data.argprom.exit.i
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %42, i64 2
   %48 = load i16, ptr %47, align 2
   %.not38.i = icmp ugt i16 %39, %48
-  br i1 %.not38.i, label %print_pdu_tracking_data.exit.i, label %49
+  br i1 %.not38.i, label %print_pdu_tracking_data.argprom.exit.i, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr i8, ptr %1, i64 8
@@ -1430,27 +1430,27 @@ define internal fastcc void @process_utp_payload(ptr noundef %0, ptr noundef %1,
   %54 = load i32, ptr %51, align 4
   %55 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %54) #8
   %.not.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i, label %print_pdu_tracking_data.exit.i, label %56
+  br i1 %.not.i.i.i, label %print_pdu_tracking_data.argprom.exit.i, label %56
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds i8, ptr %55, i64 32
   %58 = load ptr, ptr %57, align 8
   %.not5.i.i.i = icmp eq ptr %58, null
-  br i1 %.not5.i.i.i, label %print_pdu_tracking_data.exit.i, label %59
+  br i1 %.not5.i.i.i, label %print_pdu_tracking_data.argprom.exit.i, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %58, i64 28
   %61 = load i32, ptr %60, align 4
   %62 = or i32 %61, 2
   store i32 %62, ptr %60, align 4
-  br label %print_pdu_tracking_data.exit.i
+  br label %print_pdu_tracking_data.argprom.exit.i
 
-print_pdu_tracking_data.exit.i:                   ; preds = %59, %56, %49, %46, %43
+print_pdu_tracking_data.argprom.exit.i:           ; preds = %59, %56, %49, %46, %43
   %63 = load i16, ptr %42, align 4
   %64 = icmp ugt i16 %39, %63
   br i1 %64, label %65, label %scan_for_next_pdu.exit
 
-65:                                               ; preds = %print_pdu_tracking_data.exit.i
+65:                                               ; preds = %print_pdu_tracking_data.argprom.exit.i
   %66 = getelementptr inbounds i8, ptr %42, i64 2
   %67 = load i16, ptr %66, align 2
   %68 = icmp ult i16 %39, %67
@@ -1502,8 +1502,8 @@ print_pdu_tracking_data.exit.i:                   ; preds = %59, %56, %49, %46, 
   %95 = load i32, ptr %90, align 4
   br label %scan_for_next_pdu.exit
 
-scan_for_next_pdu.exit:                           ; preds = %27, %print_pdu_tracking_data.exit.i, %65, %69, %80, %85, %89, %94
-  %.0.i = phi i32 [ %95, %94 ], [ -1, %85 ], [ -1, %65 ], [ %84, %80 ], [ -1, %89 ], [ 0, %69 ], [ 0, %27 ], [ 0, %print_pdu_tracking_data.exit.i ]
+scan_for_next_pdu.exit:                           ; preds = %27, %print_pdu_tracking_data.argprom.exit.i, %65, %69, %80, %85, %89, %94
+  %.0.i = phi i32 [ %95, %94 ], [ -1, %85 ], [ -1, %65 ], [ %84, %80 ], [ -1, %89 ], [ 0, %69 ], [ 0, %27 ], [ 0, %print_pdu_tracking_data.argprom.exit.i ]
   store volatile i32 %.0.i, ptr %6, align 4
   br label %96
 
@@ -1574,7 +1574,7 @@ decode_utp.exit:                                  ; preds = %97, %113
   %131 = getelementptr inbounds i8, ptr %4, i64 24
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %132, align 8
-  call fastcc void @pdu_store_sequencenumber_of_next_pdu(ptr noundef nonnull %1, i16 noundef zeroext %3, i32 noundef %.0..0..0..0.26, i32 noundef %130, ptr noundef %133)
+  call fastcc void @pdu_store_sequencenumber_of_next_pdu.argelim(ptr noundef nonnull %1, i16 noundef zeroext %3, i32 noundef %.0..0..0..0.26, i32 noundef %130, ptr noundef %133)
   br label %134
 
 134:                                              ; preds = %96, %decode_utp.exit, %119, %128, %21, %18
@@ -1618,7 +1618,7 @@ decode_utp.exit:                                  ; preds = %97, %113
   %153 = getelementptr inbounds i8, ptr %4, i64 24
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %154, align 8
-  call fastcc void @pdu_store_sequencenumber_of_next_pdu(ptr noundef nonnull %1, i16 noundef zeroext %3, i32 noundef %.0..0..0..0.27, i32 noundef %152, ptr noundef %155)
+  call fastcc void @pdu_store_sequencenumber_of_next_pdu.argelim(ptr noundef nonnull %1, i16 noundef zeroext %3, i32 noundef %.0..0..0..0.27, i32 noundef %152, ptr noundef %155)
   br label %156
 
 156:                                              ; preds = %139, %148, %150, %137
@@ -1650,7 +1650,7 @@ decode_utp.exit:                                  ; preds = %97, %113
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pdu_store_sequencenumber_of_next_pdu(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @pdu_store_sequencenumber_of_next_pdu.argelim(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @wmem_file_scope() #8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 16) #8
   store i16 %1, ptr %7, align 4

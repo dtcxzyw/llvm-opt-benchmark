@@ -73,7 +73,7 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %13
 
 .lr.ph277:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.0199276 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %11)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %11)
   %22 = add nuw nsw i32 %.0199276, 1
   %.val141 = load i32, ptr %6, align 8
   %23 = icmp slt i32 %22, %.val141
@@ -96,7 +96,7 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %13
 
 .lr.ph282:                                        ; preds = %.lr.ph203.preheader, %.lr.ph203
   %.1202281 = phi i32 [ %25, %.lr.ph203 ], [ 0, %.lr.ph203.preheader ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %11)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %11)
   %25 = add nuw nsw i32 %.1202281, 1
   %.val142 = load i32, ptr %6, align 8
   %26 = icmp slt i32 %25, %.val142
@@ -698,7 +698,7 @@ declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #1
 declare void @Gia_ManHashAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCi.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559

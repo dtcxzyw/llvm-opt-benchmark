@@ -5912,13 +5912,13 @@ while.cond13.i.backedge:                          ; preds = %land.rhs.i55, %whil
 while.end.i:                                      ; preds = %while.cond13.i
   %call1.i.i = call i32 @strncasecmp(ptr noundef nonnull readonly %p.3.i, ptr noundef nonnull @.str.179, i64 noundef 7) #22
   %tobool.not.i34.i = icmp eq i32 %call1.i.i, 0
-  br i1 %tobool.not.i34.i, label %if.end.i.i, label %extract_param.exit.i
+  br i1 %tobool.not.i34.i, label %if.end.i.i, label %extract_param.argprom.exit.i
 
 if.end.i.i:                                       ; preds = %while.end.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.3.i, i64 7
   %56 = load i8, ptr %add.ptr.i.i, align 1
   %cmp.not.i.i = icmp eq i8 %56, 61
-  br i1 %cmp.not.i.i, label %if.end4.i.i, label %extract_param.exit.i
+  br i1 %cmp.not.i.i, label %if.end4.i.i, label %extract_param.argprom.exit.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.3.i, i64 8
@@ -5971,13 +5971,13 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %str
   %tobool6.not.i.i = icmp eq i8 %67, 0
   br i1 %tobool6.not.i.i, label %extract_content_type.exit, label %land.lhs.true.i.i, !llvm.loop !48
 
-extract_param.exit.i:                             ; preds = %if.end.i.i, %while.end.i
+extract_param.argprom.exit.i:                     ; preds = %if.end.i.i, %while.end.i
   %tobool31.not43.i = icmp eq i8 %53, 0
   br i1 %tobool31.not43.i, label %while.end41.i, label %land.rhs.i55
 
-land.rhs.i55:                                     ; preds = %extract_param.exit.i, %while.body38.i
-  %68 = phi i8 [ %71, %while.body38.i ], [ %53, %extract_param.exit.i ]
-  %p.444.i = phi ptr [ %incdec.ptr39.i, %while.body38.i ], [ %p.3.i, %extract_param.exit.i ]
+land.rhs.i55:                                     ; preds = %extract_param.argprom.exit.i, %while.body38.i
+  %68 = phi i8 [ %71, %while.body38.i ], [ %53, %extract_param.argprom.exit.i ]
+  %p.444.i = phi ptr [ %incdec.ptr39.i, %while.body38.i ], [ %p.3.i, %extract_param.argprom.exit.i ]
   %idxprom32.i = zext i8 %68 to i64
   %arrayidx33.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom32.i
   %69 = load i8, ptr %arrayidx33.i, align 1
@@ -5991,7 +5991,7 @@ while.body38.i:                                   ; preds = %land.rhs.i55
   %tobool31.not.i = icmp eq i8 %71, 0
   br i1 %tobool31.not.i, label %while.end41.i, label %land.rhs.i55, !llvm.loop !49
 
-while.end41.i:                                    ; preds = %extract_param.exit.i, %while.body38.i, %strbuf_setlen.exit33.i
+while.end41.i:                                    ; preds = %extract_param.argprom.exit.i, %while.body38.i, %strbuf_setlen.exit33.i
   %72 = load i64, ptr %len2.i27.i, align 8
   %tobool43.not.i = icmp eq i64 %72, 0
   br i1 %tobool43.not.i, label %land.lhs.true.i, label %extract_content_type.exit

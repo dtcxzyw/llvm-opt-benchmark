@@ -577,13 +577,13 @@ define internal i32 @dissect_rpcap(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 dissect_rpcap_error.exit:                         ; preds = %.thread, %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 49:                                               ; preds = %35
   %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #6
   %51 = load i32, ptr @hf_open_request, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %51, ptr noundef %0, i32 noundef 8, i32 noundef %50, i32 noundef 0) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 53:                                               ; preds = %35
   %54 = load i32, ptr @hf_startcap_request, align 4
@@ -645,16 +645,16 @@ dissect_rpcap_startcap_request.exit:              ; preds = %79, %94
   %95 = load i32, ptr @hf_client_port, align 4
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %95, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0) #6
   tail call fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i32 noundef 20)
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 97:                                               ; preds = %35
   tail call fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17, i32 noundef 8)
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 98:                                               ; preds = %35
   tail call void @proto_item_set_len(ptr noundef %15, i32 noundef 28) #6
-  tail call fastcc void @dissect_rpcap_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %17, ptr noundef %15)
-  br label %dissect_rpcap_sampling_request.exit
+  tail call fastcc void @dissect_rpcap_packet.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %17, ptr noundef %15)
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 99:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -702,7 +702,7 @@ dissect_rpcap_startcap_request.exit:              ; preds = %79, %94
 dissect_rpcap_auth_request.exit:                  ; preds = %99, %115, %116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 129:                                              ; preds = %35
   %130 = load i32, ptr @hf_sampling_request, align 4
@@ -719,7 +719,7 @@ dissect_rpcap_auth_request.exit:                  ; preds = %99, %115, %116
   %141 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #6
   %142 = load i32, ptr @hf_sampling_value, align 4
   %143 = tail call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %142, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #6
-  switch i8 %134, label %dissect_rpcap_sampling_request.exit [
+  switch i8 %134, label %dissect_rpcap_sampling_request.argprom.exit [
     i8 0, label %144
     i8 1, label %145
     i8 2, label %146
@@ -727,22 +727,22 @@ dissect_rpcap_auth_request.exit:                  ; preds = %99, %115, %116
 
 144:                                              ; preds = %129
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %131, ptr noundef nonnull @.str.311) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 145:                                              ; preds = %129
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %131, ptr noundef nonnull @.str.312, i32 noundef %141) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 146:                                              ; preds = %129
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %131, ptr noundef nonnull @.str.313, i32 noundef %141) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 147:                                              ; preds = %35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #6
   %.not.i96 = icmp eq i32 %148, 0
-  br i1 %.not.i96, label %dissect_rpcap_auth_reply.exit, label %149
+  br i1 %.not.i96, label %dissect_rpcap_auth_reply.argprom.exit, label %149
 
 149:                                              ; preds = %147
   %150 = load i32, ptr @hf_auth_reply, align 4
@@ -756,12 +756,12 @@ dissect_rpcap_auth_request.exit:                  ; preds = %99, %115, %116
   %158 = load i32, ptr %6, align 4
   %159 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.314, i32 noundef %158, i32 noundef %159) #6
-  br label %dissect_rpcap_auth_reply.exit
+  br label %dissect_rpcap_auth_reply.argprom.exit
 
-dissect_rpcap_auth_reply.exit:                    ; preds = %147, %149
+dissect_rpcap_auth_reply.argprom.exit:            ; preds = %147, %149
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 160:                                              ; preds = %35
   %161 = load i32, ptr @hf_findalldevs_reply, align 4
@@ -884,7 +884,7 @@ dissect_rpcap_findalldevs_reply.exit:             ; preds = %166, %160, %227
   %230 = icmp eq i16 %27, 1
   %231 = select i1 %230, ptr @.str.298, ptr @.str.316
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %162, ptr noundef nonnull @.str.315, i32 noundef %229, ptr noundef nonnull %231) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 232:                                              ; preds = %35
   %233 = load i32, ptr @hf_open_reply, align 4
@@ -897,7 +897,7 @@ dissect_rpcap_findalldevs_reply.exit:             ; preds = %166, %160, %227
   %239 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %238, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #6
   %240 = load i32, ptr @hf_tzoff, align 4
   %241 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %240, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 242:                                              ; preds = %35
   %243 = load i32, ptr @hf_startcap_reply, align 4
@@ -910,7 +910,7 @@ dissect_rpcap_findalldevs_reply.exit:             ; preds = %166, %160, %227
   %250 = tail call ptr @proto_tree_add_item(ptr noundef %246, i32 noundef %249, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #6
   %251 = load i32, ptr @hf_dummy, align 4
   %252 = tail call ptr @proto_tree_add_item(ptr noundef %246, i32 noundef %251, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 253:                                              ; preds = %35
   %254 = load i32, ptr @hf_stats_reply, align 4
@@ -925,20 +925,20 @@ dissect_rpcap_findalldevs_reply.exit:             ; preds = %166, %160, %227
   %263 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %262, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #6
   %264 = load i32, ptr @hf_srvcapt, align 4
   %265 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %264, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
 266:                                              ; preds = %35
   %267 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #6
   %.not = icmp eq i32 %267, 0
-  br i1 %.not, label %dissect_rpcap_sampling_request.exit, label %268
+  br i1 %.not, label %dissect_rpcap_sampling_request.argprom.exit, label %268
 
 268:                                              ; preds = %266
   tail call void @proto_item_set_len(ptr noundef %15, i32 noundef 8) #6
   %269 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #6
   %270 = tail call i32 @call_data_dissector(ptr noundef %269, ptr noundef nonnull %1, ptr noundef %2) #6
-  br label %dissect_rpcap_sampling_request.exit
+  br label %dissect_rpcap_sampling_request.argprom.exit
 
-dissect_rpcap_sampling_request.exit:              ; preds = %146, %145, %144, %129, %266, %268, %253, %242, %232, %dissect_rpcap_findalldevs_reply.exit, %dissect_rpcap_auth_reply.exit, %dissect_rpcap_auth_request.exit, %98, %97, %dissect_rpcap_startcap_request.exit, %49, %dissect_rpcap_error.exit
+dissect_rpcap_sampling_request.argprom.exit:      ; preds = %146, %145, %144, %129, %266, %268, %253, %242, %232, %dissect_rpcap_findalldevs_reply.exit, %dissect_rpcap_auth_reply.argprom.exit, %dissect_rpcap_auth_request.exit, %98, %97, %dissect_rpcap_startcap_request.exit, %49, %dissect_rpcap_error.exit
   %271 = call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %271
 }
@@ -1075,7 +1075,7 @@ define internal fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef %1
   %18 = add nuw nsw i32 %3, 8
   br label %.lr.ph
 
-19:                                               ; preds = %dissect_rpcap_filterbpf_insn.exit
+19:                                               ; preds = %dissect_rpcap_filterbpf_insn.argprom.exit
   %20 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %20, %15
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
@@ -1104,32 +1104,32 @@ define internal fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef %1
     i8 1, label %36
     i8 4, label %39
     i8 5, label %42
-    i8 6, label %dissect_rpcap_filterbpf_insn.exit
+    i8 6, label %dissect_rpcap_filterbpf_insn.argprom.exit
     i8 7, label %45
   ]
 
 36:                                               ; preds = %.lr.ph, %.lr.ph
   %37 = load i32, ptr @hf_code_ld_size, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %37, ptr noundef %0, i32 noundef %.02829, i32 noundef 2, i32 noundef 0) #6
-  br label %dissect_rpcap_filterbpf_insn.exit
+  br label %dissect_rpcap_filterbpf_insn.argprom.exit
 
 39:                                               ; preds = %.lr.ph
   %40 = load i32, ptr @hf_code_src, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %40, ptr noundef %0, i32 noundef %.02829, i32 noundef 2, i32 noundef 0) #6
-  br label %dissect_rpcap_filterbpf_insn.exit
+  br label %dissect_rpcap_filterbpf_insn.argprom.exit
 
 42:                                               ; preds = %.lr.ph
   %43 = load i32, ptr @hf_code_src, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %43, ptr noundef %0, i32 noundef %.02829, i32 noundef 2, i32 noundef 0) #6
-  br label %dissect_rpcap_filterbpf_insn.exit
+  br label %dissect_rpcap_filterbpf_insn.argprom.exit
 
 45:                                               ; preds = %.lr.ph
-  br label %dissect_rpcap_filterbpf_insn.exit
+  br label %dissect_rpcap_filterbpf_insn.argprom.exit
 
 46:                                               ; preds = %.lr.ph
-  br label %dissect_rpcap_filterbpf_insn.exit
+  br label %dissect_rpcap_filterbpf_insn.argprom.exit
 
-dissect_rpcap_filterbpf_insn.exit:                ; preds = %.lr.ph, %36, %39, %42, %45, %46
+dissect_rpcap_filterbpf_insn.argprom.exit:        ; preds = %.lr.ph, %36, %39, %42, %45, %46
   %hf_code_fields.sink.i = phi ptr [ @hf_code_fields, %46 ], [ @hf_code_misc_op, %45 ], [ @hf_code_jmp_op, %42 ], [ @hf_code_alu_op, %39 ], [ @hf_code_ld_mode, %36 ], [ @hf_code_rval, %.lr.ph ]
   %47 = load i32, ptr %hf_code_fields.sink.i, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %47, ptr noundef %0, i32 noundef %.02829, i32 noundef 2, i32 noundef 0) #6
@@ -1147,7 +1147,7 @@ dissect_rpcap_filterbpf_insn.exit:                ; preds = %.lr.ph, %36, %39, %
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %19
 
-61:                                               ; preds = %dissect_rpcap_filterbpf_insn.exit
+61:                                               ; preds = %dissect_rpcap_filterbpf_insn.argprom.exit
   %62 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %6, ptr noundef nonnull @ei_no_more_data) #6
   br label %.loopexit
 
@@ -1158,7 +1158,7 @@ dissect_rpcap_filterbpf_insn.exit:                ; preds = %.lr.ph, %36, %39, %
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rpcap_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_rpcap_packet.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.except_stacknode, align 8

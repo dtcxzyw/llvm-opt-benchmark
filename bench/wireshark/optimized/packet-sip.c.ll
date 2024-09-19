@@ -3151,7 +3151,7 @@ sip_is_known_request.exit:                        ; preds = %157
   %188 = getelementptr inbounds i8, ptr %15, i64 16
   store i32 %187, ptr %188, align 4
   %189 = add i32 %184, %37
-  %190 = call fastcc i32 @dissect_sip_uri(ptr noundef %0, i32 noundef %184, i32 noundef %189, ptr noundef %15)
+  %190 = call fastcc i32 @dissect_sip_uri.argprom(ptr noundef %0, i32 noundef %184, i32 noundef %189, ptr noundef %15)
   %191 = call fastcc ptr @display_sip_uri(ptr noundef %0, ptr noundef nonnull %.11281, ptr noundef nonnull %3, ptr noundef %15, ptr noundef nonnull @sip_req_uri)
   br label %dfilter_sip_request_line.exit
 
@@ -3571,7 +3571,7 @@ sip_is_known_sip_header.exit:                     ; preds = %336, %.loopexit.loo
   store i32 0, ptr %22, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %395 = add i32 %.01318, 2
-  %396 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %395, ptr noundef %22)
+  %396 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %360, i32 noundef %395, ptr noundef %22)
   %.not1459 = icmp eq i32 %396, -1
   br i1 %.not1459, label %411, label %397
 
@@ -3664,7 +3664,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   store i32 0, ptr %22, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %441 = add i32 %.01318, 2
-  %442 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %441, ptr noundef %22)
+  %442 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %360, i32 noundef %441, ptr noundef %22)
   %.not1457 = icmp eq i32 %442, -1
   br i1 %.not1457, label %457, label %443
 
@@ -3748,7 +3748,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   store i32 0, ptr %22, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %486 = add i32 %.01318, 2
-  %487 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %486, ptr noundef %22)
+  %487 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %360, i32 noundef %486, ptr noundef %22)
   %.not1456 = icmp eq i32 %487, -1
   br i1 %.not1456, label %.critedge1491, label %488
 
@@ -3779,7 +3779,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %501 = load i32, ptr @ett_sip_element, align 4
   %502 = call ptr @proto_item_add_subtree(ptr noundef %495, i32 noundef %501) #15
   %503 = add nuw i32 %499, 1
-  call fastcc void @dissect_sip_generic_parameters(ptr noundef %0, ptr noundef %502, i32 noundef %503, i32 noundef %.01318)
+  call fastcc void @dissect_sip_generic_parameters.argprom(ptr noundef %0, ptr noundef %502, i32 noundef %503, i32 noundef %.01318)
   br label %.critedge1491
 
 504:                                              ; preds = %sip_is_known_sip_header.exit
@@ -3793,7 +3793,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %509, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.11272)
   %510 = load i32, ptr @ett_sip_hist, align 4
   %511 = call ptr @proto_item_add_subtree(ptr noundef %509, i32 noundef %510) #15
-  %512 = call fastcc i32 @dissect_sip_history_info(ptr noundef %0, ptr noundef %511, i32 noundef %360, i32 noundef %.01318)
+  %512 = call fastcc i32 @dissect_sip_history_info.argprom(ptr noundef %0, ptr noundef %511, i32 noundef %360, i32 noundef %.01318)
   br label %.critedge1491
 
 513:                                              ; preds = %sip_is_known_sip_header.exit
@@ -3807,7 +3807,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %518, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.11272)
   %519 = load i32, ptr @ett_sip_element, align 4
   %520 = call ptr @proto_item_add_subtree(ptr noundef %518, i32 noundef %519) #15
-  call fastcc void @dissect_sip_p_charging_func_addresses(ptr noundef %0, ptr noundef %520, i32 noundef %360, i32 noundef %.01318)
+  call fastcc void @dissect_sip_p_charging_func_addresses.argprom.retelim(ptr noundef %0, ptr noundef %520, i32 noundef %360, i32 noundef %.01318)
   br label %.critedge1491
 
 521:                                              ; preds = %sip_is_known_sip_header.exit
@@ -3824,7 +3824,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   store i32 0, ptr %22, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %529 = add i32 %.01318, 2
-  %530 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %529, ptr noundef %22)
+  %530 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %360, i32 noundef %529, ptr noundef %22)
   %.not1449 = icmp eq i32 %530, -1
   br i1 %.not1449, label %.critedge1491, label %531
 
@@ -3846,7 +3846,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   store i32 0, ptr %22, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %541 = add i32 %.01318, 2
-  %542 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %541, ptr noundef %22)
+  %542 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %360, i32 noundef %541, ptr noundef %22)
   %.not1447 = icmp eq i32 %542, -1
   br i1 %.not1447, label %.critedge1491, label %543
 
@@ -3868,7 +3868,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   store i32 0, ptr %22, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %553 = add i32 %.01318, 2
-  %554 = call fastcc i32 @dissect_sip_uri(ptr noundef %0, i32 noundef %360, i32 noundef %553, ptr noundef %22)
+  %554 = call fastcc i32 @dissect_sip_uri.argprom(ptr noundef %0, i32 noundef %360, i32 noundef %553, ptr noundef %22)
   %.not1443 = icmp eq i32 %554, -1
   br i1 %.not1443, label %.critedge1491, label %555
 
@@ -4267,7 +4267,7 @@ proto_item_set_hidden.exit1523:                   ; preds = %proto_item_set_gene
   %755 = load i32, ptr getelementptr inbounds (i8, ptr @hf_header_array, i64 108), align 4
   %756 = load i32, ptr %16, align 4
   %757 = sub i32 %756, %.012661892
-  call fastcc void @sip_proto_tree_add_uint(ptr noundef %279, i32 noundef %755, ptr noundef %0, i32 noundef %.012661892, i32 noundef %757, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_tree_add_uint.retelim(ptr noundef %279, i32 noundef %755, ptr noundef %0, i32 noundef %.012661892, i32 noundef %757, i32 noundef %360, i32 noundef %361)
   br label %.critedge1491
 
 758:                                              ; preds = %sip_is_known_sip_header.exit
@@ -4375,7 +4375,7 @@ proto_item_set_hidden.exit1523:                   ; preds = %proto_item_set_gene
   %.215881829 = phi i8 [ %.8, %814 ], [ %.015861879, %.preheader1651 ]
   store i32 0, ptr %11, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %295, i8 -1, i64 56, i1 false)
-  %821 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %819, i32 noundef %820, ptr noundef %11)
+  %821 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %819, i32 noundef %820, ptr noundef %11)
   %822 = icmp eq i32 %821, -1
   br i1 %822, label %dissect_sip_contact_item.exit.thread, label %823
 
@@ -4882,7 +4882,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %or.cond19, label %1071, label %.critedge1491
 
 1071:                                             ; preds = %dissect_sip_authorization_item.exit.thread
-  %1072 = call fastcc ptr @sip_get_authorization(ptr nonnull %1066, ptr nonnull %1064)
+  %1072 = call fastcc ptr @sip_get_authorization.argprom(ptr nonnull %1066, ptr nonnull %1064)
   %.not1426 = icmp eq ptr %1072, null
   br i1 %.not1426, label %.critedge1491, label %1073
 
@@ -5324,7 +5324,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %1305, label %1306, label %.split
 
 1306:                                             ; preds = %1303
-  %1307 = call fastcc i32 @sip_find_invite(ptr noundef nonnull %3, ptr noundef %.21330, i8 noundef zeroext %.013261718, ptr noundef %20)
+  %1307 = call fastcc i32 @sip_find_invite.argprom.argelim(ptr noundef nonnull %3, ptr noundef %.21330, i8 noundef zeroext %.013261718, ptr noundef %20)
   %1308 = load i32, ptr %20, align 4
   %1309 = load ptr, ptr @stat_info, align 8
   %1310 = getelementptr inbounds i8, ptr %1309, i64 16
@@ -6096,7 +6096,7 @@ define internal fastcc void @sip_proto_set_format_text(ptr noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = sub i32 %2, %1
   %6 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %1, i32 noundef %5) #15
   %.not = icmp slt i32 %6, %2
@@ -6199,7 +6199,7 @@ define internal fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i
   %.13 = phi i32 [ %.1.ph, %48 ], [ %6, %39 ], [ %6, %36 ]
   %52 = getelementptr inbounds i8, ptr %3, i64 %.sink12
   store i32 %.sink, ptr %52, align 4
-  %53 = tail call fastcc i32 @dissect_sip_uri(ptr noundef %0, i32 noundef %.13, i32 noundef %2, ptr noundef %3)
+  %53 = tail call fastcc i32 @dissect_sip_uri.argprom(ptr noundef %0, i32 noundef %.13, i32 noundef %2, ptr noundef %3)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %43, %39, %25, %24, %4, %51
@@ -6411,7 +6411,7 @@ declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sip_generic_parameters(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sip_generic_parameters.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp slt i32 %2, %3
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -6467,7 +6467,7 @@ define internal fastcc void @dissect_sip_generic_parameters(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_sip_history_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef returned %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_sip_history_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef returned %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %3, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -6493,7 +6493,7 @@ define internal fastcc noundef i32 @dissect_sip_history_info(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sip_p_charging_func_addresses(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sip_p_charging_func_addresses.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %3, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -6545,7 +6545,7 @@ define internal fastcc void @dissect_sip_p_charging_func_addresses(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sip_uri(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sip_uri.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   store i8 0, ptr %5, align 1
   %6 = sub i32 %2, %1
@@ -6758,7 +6758,7 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sip_proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @sip_proto_tree_add_uint.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @proto_field_is_referenced(ptr noundef %0, i32 noundef %1) #15
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
@@ -6783,7 +6783,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @sip_get_authorization(ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val) unnamed_addr #7 {
+define internal fastcc noundef ptr @sip_get_authorization.argprom(ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val) unnamed_addr #7 {
   %1 = load i32, ptr @sip_authorization_num_users, align 4
   %.not4 = icmp eq i32 %1, 0
   br i1 %.not4, label %._crit_edge, label %.lr.ph
@@ -7155,7 +7155,7 @@ define internal fastcc void @dissect_sip_route_header(ptr noundef %0, ptr nounde
   br i1 %.not39, label %22, label %15
 
 15:                                               ; preds = %11
-  %16 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %.03441, i32 noundef %14, ptr noundef %7)
+  %16 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %.03441, i32 noundef %14, ptr noundef %7)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %.loopexit, label %18
 
@@ -7166,7 +7166,7 @@ define internal fastcc void @dissect_sip_route_header(ptr noundef %0, ptr nounde
   br i1 %21, label %11, label %.loopexit, !llvm.loop !50
 
 22:                                               ; preds = %11
-  %23 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %.03441, i32 noundef %5, ptr noundef %7)
+  %23 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec.argprom(ptr noundef %0, i32 noundef %.03441, i32 noundef %5, ptr noundef %7)
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %.loopexit, label %25
 
@@ -8137,7 +8137,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sip_find_invite(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @sip_find_invite.argprom.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.sip_hash_key, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 280
   %7 = load i32, ptr %6, align 8

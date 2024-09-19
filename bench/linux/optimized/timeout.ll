@@ -908,7 +908,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__io_timeout_prep(ptr noun
   store i32 %76, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %59, i64 8
   %.val = load i32, ptr %60, align 4
-  %79 = tail call fastcc i32 @io_timeout_get_clock(i32 %.val)
+  %79 = tail call fastcc i32 @io_timeout_get_clock.argprom(i32 %.val)
   %80 = load i32, ptr %77, align 8
   tail call void @hrtimer_init(ptr noundef %78, i32 noundef %79, i32 noundef %80) #8
   br i1 %2, label %81, label %99
@@ -1416,7 +1416,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 sect
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 8) i32 @io_timeout_get_clock(i32 %.92.val) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 8) i32 @io_timeout_get_clock.argprom(i32 %.92.val) unnamed_addr #2 align 16 {
   %1 = lshr i32 %.92.val, 2
   %2 = and i32 %1, 3
   switch i32 %2, label %default.unreachable [

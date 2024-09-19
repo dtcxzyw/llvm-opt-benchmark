@@ -4807,7 +4807,7 @@ invoke.cont50:                                    ; preds = %if.else.i.i160, %if
   %call45.val = load ptr, ptr %44, align 8
   %45 = getelementptr i8, ptr %call45.val, i64 484
   %call45.val.val = load i32, ptr %45, align 4
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMinGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSt13unordered_mapIS8_St4pairIbbESC_IS8_ESE_IS8_ESaISK_IKS8_SL_EEEb(i32 %call45.val.val, ptr noundef %agg.tmp46, ptr noundef %agg.tmp48, ptr noundef nonnull align 8 dereferenceable(56) %terms, ptr noundef nonnull align 8 dereferenceable(56) %cache_min, i1 noundef zeroext false)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMinGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSt13unordered_mapIS8_St4pairIbbESC_IS8_ESE_IS8_ESaISK_IKS8_SL_EEEb.argprom.argprom(i32 %call45.val.val, ptr noundef %agg.tmp46, ptr noundef %agg.tmp48, ptr noundef nonnull align 8 dereferenceable(56) %terms, ptr noundef nonnull align 8 dereferenceable(56) %cache_min, i1 noundef zeroext false)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %invoke.cont50
@@ -4875,7 +4875,7 @@ invoke.cont59:                                    ; preds = %if.else.i.i184, %if
   %call54.val = load ptr, ptr %52, align 8
   %53 = getelementptr i8, ptr %call54.val, i64 484
   %call54.val.val = load i32, ptr %53, align 4
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMaxGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSA_IS8_SC_IS8_ESE_IS8_ESaIS8_EEb(i32 %call54.val.val, ptr noundef %agg.tmp55, ptr noundef %agg.tmp57, ptr noundef nonnull align 8 dereferenceable(56) %terms, ptr noundef nonnull align 8 dereferenceable(56) %cache_max, i1 noundef zeroext false)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMaxGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSA_IS8_SC_IS8_ESE_IS8_ESaIS8_EEb.argprom.argprom(i32 %call54.val.val, ptr noundef %agg.tmp55, ptr noundef %agg.tmp57, ptr noundef nonnull align 8 dereferenceable(56) %terms, ptr noundef nonnull align 8 dereferenceable(56) %cache_max, i1 noundef zeroext false)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont59
@@ -5597,7 +5597,7 @@ invoke.cont177:                                   ; preds = %if.else.i.i477, %if
   %call172.val = load ptr, ptr %134, align 8
   %135 = getelementptr i8, ptr %call172.val, i64 484
   %call172.val.val = load i32, ptr %135, align 4
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMinGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSt13unordered_mapIS8_St4pairIbbESC_IS8_ESE_IS8_ESaISK_IKS8_SL_EEEb(i32 %call172.val.val, ptr noundef %agg.tmp173, ptr noundef %agg.tmp175, ptr noundef nonnull align 8 dereferenceable(56) %terms158, ptr noundef nonnull align 8 dereferenceable(56) %cache_min160, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMinGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSt13unordered_mapIS8_St4pairIbbESC_IS8_ESE_IS8_ESaISK_IKS8_SL_EEEb.argprom.argprom(i32 %call172.val.val, ptr noundef %agg.tmp173, ptr noundef %agg.tmp175, ptr noundef nonnull align 8 dereferenceable(56) %terms158, ptr noundef nonnull align 8 dereferenceable(56) %cache_min160, i1 noundef zeroext true)
           to label %invoke.cont179 unwind label %lpad178
 
 invoke.cont179:                                   ; preds = %invoke.cont177
@@ -5664,7 +5664,7 @@ invoke.cont188:                                   ; preds = %if.else.i.i503, %if
   %call183.val = load ptr, ptr %141, align 8
   %142 = getelementptr i8, ptr %call183.val, i64 484
   %call183.val.val = load i32, ptr %142, align 4
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMaxGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSA_IS8_SC_IS8_ESE_IS8_ESaIS8_EEb(i32 %call183.val.val, ptr noundef %agg.tmp184, ptr noundef %agg.tmp186, ptr noundef nonnull align 8 dereferenceable(56) %terms158, ptr noundef nonnull align 8 dereferenceable(56) %cache_max159, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMaxGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSA_IS8_SC_IS8_ESE_IS8_ESaIS8_EEb.argprom.argprom(i32 %call183.val.val, ptr noundef %agg.tmp184, ptr noundef %agg.tmp186, ptr noundef nonnull align 8 dereferenceable(56) %terms158, ptr noundef nonnull align 8 dereferenceable(56) %cache_max159, i1 noundef zeroext true)
           to label %invoke.cont190 unwind label %lpad189
 
 invoke.cont190:                                   ; preds = %invoke.cont188
@@ -7198,7 +7198,7 @@ unreachable:                                      ; preds = %invoke.cont24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMinGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSt13unordered_mapIS8_St4pairIbbESC_IS8_ESE_IS8_ESaISK_IKS8_SL_EEEb(i32 %options.328.val.484.val, ptr nocapture noundef nonnull readonly %n, ptr nocapture noundef nonnull readonly %tn, ptr noundef nonnull align 8 dereferenceable(56) %terms, ptr noundef nonnull align 8 dereferenceable(56) %cache, i1 noundef zeroext %skip_quant) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMinGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSt13unordered_mapIS8_St4pairIbbESC_IS8_ESE_IS8_ESaISK_IKS8_SL_EEEb.argprom.argprom(i32 %options.328.val.484.val, ptr nocapture noundef nonnull readonly %n, ptr nocapture noundef nonnull readonly %tn, ptr noundef nonnull align 8 dereferenceable(56) %terms, ptr noundef nonnull align 8 dereferenceable(56) %cache, i1 noundef zeroext %skip_quant) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.990", align 8
   %cur = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -7902,7 +7902,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMaxGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSA_IS8_SC_IS8_ESE_IS8_ESaIS8_EEb(i32 %options.328.val.484.val, ptr nocapture noundef nonnull readonly %n, ptr nocapture noundef nonnull readonly %tn, ptr noundef nonnull align 8 dereferenceable(56) %terms, ptr noundef nonnull align 8 dereferenceable(56) %cache, i1 noundef zeroext %skip_quant) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory11quantifiers12_GLOBAL__N_117getMaxGroundTermsERKNS0_7OptionsENS0_12NodeTemplateILb0EEENS0_8TypeNodeERSt13unordered_setINS7_ILb1EEESt4hashISB_ESt8equal_toISB_ESaISB_EERSA_IS8_SC_IS8_ESE_IS8_ESaIS8_EEb.argprom.argprom(i32 %options.328.val.484.val, ptr nocapture noundef nonnull readonly %n, ptr nocapture noundef nonnull readonly %tn, ptr noundef nonnull align 8 dereferenceable(56) %terms, ptr noundef nonnull align 8 dereferenceable(56) %cache, i1 noundef zeroext %skip_quant) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i107 = alloca %"struct.std::__detail::_AllocNode.990", align 8
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8

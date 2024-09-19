@@ -143,7 +143,7 @@ $_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_ = comdat any
 define dso_local noundef i32 @_ZN4llvm3sys14ExecuteAndWaitENS_9StringRefENS_8ArrayRefIS1_EESt8optionalIS3_ENS2_IS4_IS1_EEEjjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbPS4_INS0_17ProcessStatisticsEEPNS_9BitVectorE(ptr %0, i64 %1, ptr %2, i64 %3, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %4, ptr nocapture readonly %5, i64 %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef writeonly %10, ptr noundef %11, ptr nocapture noundef readnone %12) local_unnamed_addr #0 {
   %14 = alloca %"struct.llvm::sys::ProcessInfo", align 4
   call void @_ZN4llvm3sys11ProcessInfoC1Ev(ptr noundef nonnull align 4 dereferenceable(12) %14) #21
-  %15 = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.std::optional") align 8 %4, ptr %5, i64 %6, i32 noundef %8, ptr noundef %9, i1 noundef zeroext false)
+  %15 = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb.argprom(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.std::optional") align 8 %4, ptr %5, i64 %6, i32 noundef %8, ptr noundef %9, i1 noundef zeroext false)
   %.not21 = icmp eq ptr %10, null
   br i1 %15, label %16, label %20
 
@@ -176,7 +176,7 @@ define dso_local noundef i32 @_ZN4llvm3sys14ExecuteAndWaitENS_9StringRefENS_8Arr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %5, ptr nocapture readonly %.0.val, i64 %.8.val, i32 noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb.argprom(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %5, ptr nocapture readonly %.0.val, i64 %.8.val, i32 noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %12 = alloca %"class.std::allocator", align 1
@@ -465,7 +465,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread11:       ; preds = %139, %_ZN4llvmneENS
 145:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %32)
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %144)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %144)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #21
   br label %165
@@ -524,7 +524,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit95:          ; preds = %149, %150
   %161 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %161, ptr noundef nonnull align 1 dereferenceable(1) %36) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 18))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef %153)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef %153)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #21
   br label %165
@@ -559,7 +559,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit95:          ; preds = %149, %150
   %173 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %173, ptr noundef nonnull align 1 dereferenceable(1) %38) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 13))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #21
   br label %.loopexit
@@ -617,7 +617,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %191, %_ZN4llvmeqENS
 196:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %40)
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #21
   br label %.loopexit
@@ -640,7 +640,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread14:       ; preds = %189, %_ZN4llvmeqENS
   %204 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %204, ptr noundef nonnull align 1 dereferenceable(1) %42) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 41))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #21
   br label %.loopexit
@@ -822,7 +822,7 @@ _ZNSt8optionalIN4llvm3sys17ProcessStatisticsEE5resetEv.exit.split: ; preds = %_Z
   %51 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %51, ptr noundef nonnull align 1 dereferenceable(1) %12) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 32))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef -1)
   br label %54
 
 52:                                               ; preds = %45
@@ -830,7 +830,7 @@ _ZNSt8optionalIN4llvm3sys17ProcessStatisticsEE5resetEv.exit.split: ; preds = %_Z
   %53 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %14) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 15))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 0)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 0)
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -851,7 +851,7 @@ _ZNSt8optionalIN4llvm3sys17ProcessStatisticsEE5resetEv.exit.split: ; preds = %_Z
   %57 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %16) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 31))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #21
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -989,7 +989,7 @@ define dso_local { i64, i32 } @_ZN4llvm3sys13ExecuteNoWaitENS_9StringRefENS_8Arr
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.std::optional") align 8 %4, ptr %5, i64 %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %11)
+  %17 = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb.argprom(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.std::optional") align 8 %4, ptr %5, i64 %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %11)
   %or.cond.not = or i1 %14, %17
   br i1 %or.cond.not, label %19, label %18
 
@@ -1622,7 +1622,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @wait(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2029,7 +2029,7 @@ define internal fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basi
   %16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 39))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %14)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
   br label %17
@@ -2128,7 +2128,7 @@ define internal fastcc noundef zeroext i1 @_ZL10RedirectIOSt8optionalIN4llvm9Str
   %45 = select i1 %35, ptr @.str.20, ptr @.str.21
   %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %45) #21, !noalias !33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %46) #21
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
@@ -2144,7 +2144,7 @@ define internal fastcc noundef zeroext i1 @_ZL10RedirectIOSt8optionalIN4llvm9Str
   %51 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %51, ptr noundef nonnull align 1 dereferenceable(1) %14) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 11))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #21
   %52 = call i32 @close(i32 noundef %37) #21

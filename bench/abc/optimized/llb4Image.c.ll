@@ -592,7 +592,7 @@ Llb_Nonlin4RemoveVar.exit:                        ; preds = %80, %88
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %.val67, i64 %92
   %94 = load ptr, ptr %93, align 8
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %calloc, ptr noundef %94)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %calloc, ptr noundef %94)
   br label %95
 
 95:                                               ; preds = %Vec_IntRemove.exit, %39, %89, %Llb_Nonlin4RemoveVar.exit
@@ -755,7 +755,7 @@ declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #3
 declare ptr @Extra_SupportArray(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1376,7 +1376,7 @@ Llb_Nonlin4RemoveVar.exit:                        ; preds = %257, %264
   %268 = sext i32 %267 to i64
   %269 = getelementptr inbounds ptr, ptr %.val163, i64 %268
   %270 = load ptr, ptr %269, align 8
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %calloc, ptr noundef %270)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %calloc, ptr noundef %270)
   br label %271
 
 271:                                              ; preds = %246, %Llb_Nonlin4RemoveVar.exit, %265
@@ -1440,7 +1440,7 @@ Llb_Nonlin4RemoveVar.exit192:                     ; preds = %289, %296
   %300 = sext i32 %299 to i64
   %301 = getelementptr inbounds ptr, ptr %.val162, i64 %300
   %302 = load ptr, ptr %301, align 8
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %calloc, ptr noundef %302)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %calloc, ptr noundef %302)
   br label %.critedge4
 
 .critedge4:                                       ; preds = %285, %Llb_Nonlin4RemoveVar.exit192, %297, %276

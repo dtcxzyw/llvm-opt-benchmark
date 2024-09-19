@@ -9984,7 +9984,7 @@ for.body708.lr.ph:                                ; preds = %_ZN8QuantLib5ArrayC
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i1709, i64 1)
   br label %for.body708
 
-for.cond.cleanup707:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.exit, %_ZN8QuantLib5ArrayC2IN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEET_SA_.exit1766
+for.cond.cleanup707:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.argprom.exit, %_ZN8QuantLib5ArrayC2IN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEET_SA_.exit1766
   %977 = load i64, ptr %n_46.i, align 8, !tbaa !291
   %cmp.not.i.i1768 = icmp eq i64 %977, 0
   br i1 %cmp.not.i.i1768, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.i, label %if.then.i.i.i.i.i.i.i1769
@@ -10028,8 +10028,8 @@ lpad677:                                          ; preds = %cond.false.i1747, %
           cleanup
   br label %ehcleanup1184
 
-for.body708:                                      ; preds = %for.body708.lr.ph, %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.exit
-  %r.03548 = phi i64 [ 0, %for.body708.lr.ph ], [ %inc1157, %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.exit ]
+for.body708:                                      ; preds = %for.body708.lr.ph, %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.argprom.exit
+  %r.03548 = phi i64 [ 0, %for.body708.lr.ph ], [ %inc1157, %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.argprom.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fdmSchemeDesc) #29
   %986 = load i64, ptr %nRannacherTimeSteps, align 8, !tbaa !318
   %add710 = add i64 %986, 2
@@ -10213,13 +10213,13 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOp
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i1780) #29, !noalias !320
   %1006 = load ptr, ptr %pn.i.i1789, align 8, !tbaa !42, !noalias !320
   %cmp.not.i.i25.i = icmp eq ptr %1006, null
-  br i1 %cmp.not.i.i25.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit, label %if.then.i.i26.i
+  br i1 %cmp.not.i.i25.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit, label %if.then.i.i26.i
 
 if.then.i.i26.i:                                  ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit.i
   %use_count_.i.i.i27.i = getelementptr inbounds nuw i8, ptr %1006, i64 8
   %1007 = atomicrmw sub ptr %use_count_.i.i.i27.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i.i1812 = icmp eq i32 %1007, 1
-  br i1 %cmp.i.i.i.i1812, label %if.then.i.i.i28.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i.i1812, label %if.then.i.i.i28.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i28.i:                                ; preds = %if.then.i.i26.i
   %vtable.i.i.i.i1813 = load ptr, ptr %1006, align 8, !tbaa !33, !noalias !320
@@ -10232,14 +10232,14 @@ if.then.i.i.i28.i:                                ; preds = %if.then.i.i26.i
   %weak_count_.i.i.i.i.i1817 = getelementptr inbounds nuw i8, ptr %1006, i64 12
   %1009 = atomicrmw sub ptr %weak_count_.i.i.i.i.i1817, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i.i.i1818 = icmp eq i32 %1009, 1
-  br i1 %cmp.i.i.i.i.i1818, label %if.then.i.i.i.i.i1819, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i.i.i1818, label %if.then.i.i.i.i.i1819, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i.i.i1819:                            ; preds = %.noexc.i.i.i1816
   %vtable.i.i.i.i29.i = load ptr, ptr %1006, align 8, !tbaa !33, !noalias !320
   %vfn.i.i.i.i30.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i29.i, i64 24
   %1010 = load ptr, ptr %vfn.i.i.i.i30.i, align 8, !noalias !320
   invoke void %1010(ptr noundef nonnull align 8 dereferenceable(16) %1006)
-          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit unwind label %terminate.lpad.i.i.i1815, !noalias !320
+          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit unwind label %terminate.lpad.i.i.i1815, !noalias !320
 
 terminate.lpad.i.i.i1815:                         ; preds = %if.then.i.i.i.i.i1819, %if.then.i.i.i28.i
   %1011 = landingpad { ptr, i32 }
@@ -10421,13 +10421,13 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOp
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp17.i) #29, !noalias !320
   %1034 = load ptr, ptr %pn.i31.i, align 8, !tbaa !42, !noalias !320
   %cmp.not.i.i85.i = icmp eq ptr %1034, null
-  br i1 %cmp.not.i.i85.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit, label %if.then.i.i86.i
+  br i1 %cmp.not.i.i85.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit, label %if.then.i.i86.i
 
 if.then.i.i86.i:                                  ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit83.i
   %use_count_.i.i.i87.i = getelementptr inbounds nuw i8, ptr %1034, i64 8
   %1035 = atomicrmw sub ptr %use_count_.i.i.i87.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i88.i = icmp eq i32 %1035, 1
-  br i1 %cmp.i.i.i88.i, label %if.then.i.i.i89.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i88.i, label %if.then.i.i.i89.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i89.i:                                ; preds = %if.then.i.i86.i
   %vtable.i.i.i90.i = load ptr, ptr %1034, align 8, !tbaa !33, !noalias !320
@@ -10440,14 +10440,14 @@ if.then.i.i.i89.i:                                ; preds = %if.then.i.i86.i
   %weak_count_.i.i.i.i94.i = getelementptr inbounds nuw i8, ptr %1034, i64 12
   %1037 = atomicrmw sub ptr %weak_count_.i.i.i.i94.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i.i95.i = icmp eq i32 %1037, 1
-  br i1 %cmp.i.i.i.i95.i, label %if.then.i.i.i.i96.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i.i95.i, label %if.then.i.i.i.i96.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i.i96.i:                              ; preds = %.noexc.i.i93.i
   %vtable.i.i.i.i97.i = load ptr, ptr %1034, align 8, !tbaa !33, !noalias !320
   %vfn.i.i.i.i98.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i97.i, i64 24
   %1038 = load ptr, ptr %vfn.i.i.i.i98.i, align 8, !noalias !320
   invoke void %1038(ptr noundef nonnull align 8 dereferenceable(16) %1034)
-          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit unwind label %terminate.lpad.i.i92.i, !noalias !320
+          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit unwind label %terminate.lpad.i.i92.i, !noalias !320
 
 terminate.lpad.i.i92.i:                           ; preds = %if.then.i.i.i.i96.i, %if.then.i.i.i89.i
   %1039 = landingpad { ptr, i32 }
@@ -10629,13 +10629,13 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOp
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp43.i) #29, !noalias !320
   %1062 = load ptr, ptr %pn.i100.i, align 8, !tbaa !42, !noalias !320
   %cmp.not.i.i154.i = icmp eq ptr %1062, null
-  br i1 %cmp.not.i.i154.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit, label %if.then.i.i155.i
+  br i1 %cmp.not.i.i154.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit, label %if.then.i.i155.i
 
 if.then.i.i155.i:                                 ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit152.i
   %use_count_.i.i.i156.i = getelementptr inbounds nuw i8, ptr %1062, i64 8
   %1063 = atomicrmw sub ptr %use_count_.i.i.i156.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i157.i = icmp eq i32 %1063, 1
-  br i1 %cmp.i.i.i157.i, label %if.then.i.i.i158.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i157.i, label %if.then.i.i.i158.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i158.i:                               ; preds = %if.then.i.i155.i
   %vtable.i.i.i159.i = load ptr, ptr %1062, align 8, !tbaa !33, !noalias !320
@@ -10648,14 +10648,14 @@ if.then.i.i.i158.i:                               ; preds = %if.then.i.i155.i
   %weak_count_.i.i.i.i163.i = getelementptr inbounds nuw i8, ptr %1062, i64 12
   %1065 = atomicrmw sub ptr %weak_count_.i.i.i.i163.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i.i164.i = icmp eq i32 %1065, 1
-  br i1 %cmp.i.i.i.i164.i, label %if.then.i.i.i.i165.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i.i164.i, label %if.then.i.i.i.i165.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i.i165.i:                             ; preds = %.noexc.i.i162.i
   %vtable.i.i.i.i166.i = load ptr, ptr %1062, align 8, !tbaa !33, !noalias !320
   %vfn.i.i.i.i167.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i166.i, i64 24
   %1066 = load ptr, ptr %vfn.i.i.i.i167.i, align 8, !noalias !320
   invoke void %1066(ptr noundef nonnull align 8 dereferenceable(16) %1062)
-          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit unwind label %terminate.lpad.i.i161.i, !noalias !320
+          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit unwind label %terminate.lpad.i.i161.i, !noalias !320
 
 terminate.lpad.i.i161.i:                          ; preds = %if.then.i.i.i.i165.i, %if.then.i.i.i158.i
   %1067 = landingpad { ptr, i32 }
@@ -10837,13 +10837,13 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOp
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp69.i) #29, !noalias !320
   %1090 = load ptr, ptr %pn.i169.i, align 8, !tbaa !42, !noalias !320
   %cmp.not.i.i223.i = icmp eq ptr %1090, null
-  br i1 %cmp.not.i.i223.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit, label %if.then.i.i224.i
+  br i1 %cmp.not.i.i223.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit, label %if.then.i.i224.i
 
 if.then.i.i224.i:                                 ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit221.i
   %use_count_.i.i.i225.i = getelementptr inbounds nuw i8, ptr %1090, i64 8
   %1091 = atomicrmw sub ptr %use_count_.i.i.i225.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i226.i = icmp eq i32 %1091, 1
-  br i1 %cmp.i.i.i226.i, label %if.then.i.i.i227.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i226.i, label %if.then.i.i.i227.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i227.i:                               ; preds = %if.then.i.i224.i
   %vtable.i.i.i228.i = load ptr, ptr %1090, align 8, !tbaa !33, !noalias !320
@@ -10856,14 +10856,14 @@ if.then.i.i.i227.i:                               ; preds = %if.then.i.i224.i
   %weak_count_.i.i.i.i232.i = getelementptr inbounds nuw i8, ptr %1090, i64 12
   %1093 = atomicrmw sub ptr %weak_count_.i.i.i.i232.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i.i233.i = icmp eq i32 %1093, 1
-  br i1 %cmp.i.i.i.i233.i, label %if.then.i.i.i.i234.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i.i233.i, label %if.then.i.i.i.i234.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i.i234.i:                             ; preds = %.noexc.i.i231.i
   %vtable.i.i.i.i235.i = load ptr, ptr %1090, align 8, !tbaa !33, !noalias !320
   %vfn.i.i.i.i236.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i235.i, i64 24
   %1094 = load ptr, ptr %vfn.i.i.i.i236.i, align 8, !noalias !320
   invoke void %1094(ptr noundef nonnull align 8 dereferenceable(16) %1090)
-          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit unwind label %terminate.lpad.i.i230.i, !noalias !320
+          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit unwind label %terminate.lpad.i.i230.i, !noalias !320
 
 terminate.lpad.i.i230.i:                          ; preds = %if.then.i.i.i.i234.i, %if.then.i.i.i227.i
   %1095 = landingpad { ptr, i32 }
@@ -11045,13 +11045,13 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOp
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp93.i) #29, !noalias !320
   %1118 = load ptr, ptr %pn.i238.i, align 8, !tbaa !42, !noalias !320
   %cmp.not.i.i292.i = icmp eq ptr %1118, null
-  br i1 %cmp.not.i.i292.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit, label %if.then.i.i293.i
+  br i1 %cmp.not.i.i292.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit, label %if.then.i.i293.i
 
 if.then.i.i293.i:                                 ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit290.i
   %use_count_.i.i.i294.i = getelementptr inbounds nuw i8, ptr %1118, i64 8
   %1119 = atomicrmw sub ptr %use_count_.i.i.i294.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i295.i = icmp eq i32 %1119, 1
-  br i1 %cmp.i.i.i295.i, label %if.then.i.i.i296.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i295.i, label %if.then.i.i.i296.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i296.i:                               ; preds = %if.then.i.i293.i
   %vtable.i.i.i297.i = load ptr, ptr %1118, align 8, !tbaa !33, !noalias !320
@@ -11064,14 +11064,14 @@ if.then.i.i.i296.i:                               ; preds = %if.then.i.i293.i
   %weak_count_.i.i.i.i301.i = getelementptr inbounds nuw i8, ptr %1118, i64 12
   %1121 = atomicrmw sub ptr %weak_count_.i.i.i.i301.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i.i302.i = icmp eq i32 %1121, 1
-  br i1 %cmp.i.i.i.i302.i, label %if.then.i.i.i.i303.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i.i302.i, label %if.then.i.i.i.i303.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i.i303.i:                             ; preds = %.noexc.i.i300.i
   %vtable.i.i.i.i304.i = load ptr, ptr %1118, align 8, !tbaa !33, !noalias !320
   %vfn.i.i.i.i305.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i304.i, i64 24
   %1122 = load ptr, ptr %vfn.i.i.i.i305.i, align 8, !noalias !320
   invoke void %1122(ptr noundef nonnull align 8 dereferenceable(16) %1118)
-          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit unwind label %terminate.lpad.i.i299.i, !noalias !320
+          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit unwind label %terminate.lpad.i.i299.i, !noalias !320
 
 terminate.lpad.i.i299.i:                          ; preds = %if.then.i.i.i.i303.i, %if.then.i.i.i296.i
   %1123 = landingpad { ptr, i32 }
@@ -11253,13 +11253,13 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOp
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp117.i) #29, !noalias !320
   %1146 = load ptr, ptr %pn.i307.i, align 8, !tbaa !42, !noalias !320
   %cmp.not.i.i361.i = icmp eq ptr %1146, null
-  br i1 %cmp.not.i.i361.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit, label %if.then.i.i362.i
+  br i1 %cmp.not.i.i361.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit, label %if.then.i.i362.i
 
 if.then.i.i362.i:                                 ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit359.i
   %use_count_.i.i.i363.i = getelementptr inbounds nuw i8, ptr %1146, i64 8
   %1147 = atomicrmw sub ptr %use_count_.i.i.i363.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i364.i = icmp eq i32 %1147, 1
-  br i1 %cmp.i.i.i364.i, label %if.then.i.i.i365.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i364.i, label %if.then.i.i.i365.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i365.i:                               ; preds = %if.then.i.i362.i
   %vtable.i.i.i366.i = load ptr, ptr %1146, align 8, !tbaa !33, !noalias !320
@@ -11272,14 +11272,14 @@ if.then.i.i.i365.i:                               ; preds = %if.then.i.i362.i
   %weak_count_.i.i.i.i370.i = getelementptr inbounds nuw i8, ptr %1146, i64 12
   %1149 = atomicrmw sub ptr %weak_count_.i.i.i.i370.i, i32 1 acq_rel, align 4, !noalias !320
   %cmp.i.i.i.i371.i = icmp eq i32 %1149, 1
-  br i1 %cmp.i.i.i.i371.i, label %if.then.i.i.i.i372.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+  br i1 %cmp.i.i.i.i371.i, label %if.then.i.i.i.i372.i, label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
 
 if.then.i.i.i.i372.i:                             ; preds = %.noexc.i.i369.i
   %vtable.i.i.i.i373.i = load ptr, ptr %1146, align 8, !tbaa !33, !noalias !320
   %vfn.i.i.i.i374.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i373.i, i64 24
   %1150 = load ptr, ptr %vfn.i.i.i.i374.i, align 8, !noalias !320
   invoke void %1150(ptr noundef nonnull align 8 dereferenceable(16) %1146)
-          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit unwind label %terminate.lpad.i.i368.i, !noalias !320
+          to label %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit unwind label %terminate.lpad.i.i368.i, !noalias !320
 
 terminate.lpad.i.i368.i:                          ; preds = %if.then.i.i.i.i372.i, %if.then.i.i.i365.i
   %1151 = landingpad { ptr, i32 }
@@ -11477,7 +11477,7 @@ ehcleanup166.i:                                   ; preds = %cleanup.action164.i
 unreachable.i1829:                                ; preds = %invoke.cont150.i
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit.i, %if.then.i.i26.i, %.noexc.i.i.i1816, %if.then.i.i.i.i.i1819, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit83.i, %if.then.i.i86.i, %.noexc.i.i93.i, %if.then.i.i.i.i96.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit152.i, %if.then.i.i155.i, %.noexc.i.i162.i, %if.then.i.i.i.i165.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit221.i, %if.then.i.i224.i, %.noexc.i.i231.i, %if.then.i.i.i.i234.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit290.i, %if.then.i.i293.i, %.noexc.i.i300.i, %if.then.i.i.i.i303.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit359.i, %if.then.i.i362.i, %.noexc.i.i369.i, %if.then.i.i.i.i372.i
+_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit.i, %if.then.i.i26.i, %.noexc.i.i.i1816, %if.then.i.i.i.i.i1819, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit83.i, %if.then.i.i86.i, %.noexc.i.i93.i, %if.then.i.i.i.i96.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit152.i, %if.then.i.i155.i, %.noexc.i.i162.i, %if.then.i.i.i.i165.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit221.i, %if.then.i.i224.i, %.noexc.i.i231.i, %if.then.i.i.i.i234.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit290.i, %if.then.i.i293.i, %.noexc.i.i300.i, %if.then.i.i.i.i303.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EED2Ev.exit359.i, %if.then.i.i362.i, %.noexc.i.i369.i, %if.then.i.i.i.i372.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp16.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp42.i)
@@ -11486,7 +11486,7 @@ _ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10share
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp116.i)
   br i1 %tobool.not.i.i1710, label %for.cond.cleanup726, label %for.body727
 
-for.cond.cleanup726:                              ; preds = %_ZN8QuantLib5ArrayD2Ev.exit1946, %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit
+for.cond.cleanup726:                              ; preds = %_ZN8QuantLib5ArrayD2Ev.exit1946, %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit
   %1176 = load double, ptr %ref.tmp643.sroa.0.04303, align 8, !tbaa !51
   %1177 = load double, ptr %leverageFctPropEps, align 8, !tbaa !342
   %call975 = invoke noundef double @_ZNK8QuantLib21LocalVolRNDCalculator6invcdfEdd(ptr noundef nonnull align 8 dereferenceable(240) %localVolRND, double noundef %1177, double noundef %703)
@@ -11507,8 +11507,8 @@ lpad719.loopexit.split-lp:                        ; preds = %do.body.i1823
           cleanup
   br label %ehcleanup1154
 
-for.body727:                                      ; preds = %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit, %_ZN8QuantLib5ArrayD2Ev.exit1946
-  %j.03544 = phi i64 [ %inc964, %_ZN8QuantLib5ArrayD2Ev.exit1946 ], [ 0, %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.exit ]
+for.body727:                                      ; preds = %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit, %_ZN8QuantLib5ArrayD2Ev.exit1946
+  %j.03544 = phi i64 [ %inc964, %_ZN8QuantLib5ArrayD2Ev.exit1946 ], [ 0, %_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pSlice) #29
   br i1 %cmp.not.i.i.i.i500, label %_ZN8QuantLib5ArrayC2Em.exit.thread, label %cond.true.i1841
 
@@ -12554,13 +12554,13 @@ invoke.cont1144:                                  ; preds = %.noexc2135, %invoke
 invoke.cont1148:                                  ; preds = %invoke.cont1144
   %fdmScheme.val = load ptr, ptr %pn.i314.i, align 8, !tbaa !42
   %cmp.not.i.i2137 = icmp eq ptr %fdmScheme.val, null
-  br i1 %cmp.not.i.i2137, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.exit, label %if.then.i.i2138
+  br i1 %cmp.not.i.i2137, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.argprom.exit, label %if.then.i.i2138
 
 if.then.i.i2138:                                  ; preds = %invoke.cont1148
   %use_count_.i.i.i2139 = getelementptr inbounds nuw i8, ptr %fdmScheme.val, i64 8
   %1303 = atomicrmw sub ptr %use_count_.i.i.i2139, i32 1 acq_rel, align 4
   %cmp.i.i.i2140 = icmp eq i32 %1303, 1
-  br i1 %cmp.i.i.i2140, label %if.then.i.i.i2141, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.exit
+  br i1 %cmp.i.i.i2140, label %if.then.i.i.i2141, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.argprom.exit
 
 if.then.i.i.i2141:                                ; preds = %if.then.i.i2138
   %vtable.i.i.i2142 = load ptr, ptr %fdmScheme.val, align 8, !tbaa !33
@@ -12573,14 +12573,14 @@ if.then.i.i.i2141:                                ; preds = %if.then.i.i2138
   %weak_count_.i.i.i.i2146 = getelementptr inbounds nuw i8, ptr %fdmScheme.val, i64 12
   %1305 = atomicrmw sub ptr %weak_count_.i.i.i.i2146, i32 1 acq_rel, align 4
   %cmp.i.i.i.i2147 = icmp eq i32 %1305, 1
-  br i1 %cmp.i.i.i.i2147, label %if.then.i.i.i.i2148, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.exit
+  br i1 %cmp.i.i.i.i2147, label %if.then.i.i.i.i2148, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.argprom.exit
 
 if.then.i.i.i.i2148:                              ; preds = %.noexc.i.i2145
   %vtable.i.i.i.i2149 = load ptr, ptr %fdmScheme.val, align 8, !tbaa !33
   %vfn.i.i.i.i2150 = getelementptr inbounds i8, ptr %vtable.i.i.i.i2149, i64 24
   %1306 = load ptr, ptr %vfn.i.i.i.i2150, align 8
   invoke void %1306(ptr noundef nonnull align 8 dereferenceable(16) %fdmScheme.val)
-          to label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.exit unwind label %terminate.lpad.i.i2144
+          to label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.argprom.exit unwind label %terminate.lpad.i.i2144
 
 terminate.lpad.i.i2144:                           ; preds = %if.then.i.i.i.i2148, %if.then.i.i.i2141
   %1307 = landingpad { ptr, i32 }
@@ -12589,7 +12589,7 @@ terminate.lpad.i.i2144:                           ; preds = %if.then.i.i.i.i2148
   call void @__clang_call_terminate(ptr %1308) #30
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.exit: ; preds = %invoke.cont1148, %if.then.i.i2138, %.noexc.i.i2145, %if.then.i.i.i.i2148
+_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEED2Ev.argprom.exit: ; preds = %invoke.cont1148, %if.then.i.i2138, %.noexc.i.i2145, %if.then.i.i.i.i2148
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fdmScheme) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %fdmSchemeDesc) #29
   %inc1157 = add nuw i64 %r.03548, 1
@@ -26489,8 +26489,8 @@ attributes #34 = { builtin nounwind }
 !279 = !{!280, !4, i64 16}
 !280 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib18FdmMesherCompositeEEE", !150, i64 0, !4, i64 16}
 !281 = !{!282}
-!282 = distinct !{!282, !283, !"_ZN8QuantLib12_GLOBAL__N_110reshapePDFINS_8BilinearEEENS_5ArrayERKS3_RKN5boost10shared_ptrINS_18FdmMesherCompositeEEESB_RKT_: %agg.result"}
-!283 = distinct !{!283, !"_ZN8QuantLib12_GLOBAL__N_110reshapePDFINS_8BilinearEEENS_5ArrayERKS3_RKN5boost10shared_ptrINS_18FdmMesherCompositeEEESB_RKT_"}
+!282 = distinct !{!282, !283, !"_ZN8QuantLib12_GLOBAL__N_110reshapePDFINS_8BilinearEEENS_5ArrayERKS3_RKN5boost10shared_ptrINS_18FdmMesherCompositeEEESB_RKT_.argprom: %agg.result"}
+!283 = distinct !{!283, !"_ZN8QuantLib12_GLOBAL__N_110reshapePDFINS_8BilinearEEENS_5ArrayERKS3_RKN5boost10shared_ptrINS_18FdmMesherCompositeEEESB_RKT_.argprom"}
 !284 = !{!285, !4, i64 0}
 !285 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEE", !4, i64 0, !43, i64 8}
 !286 = !{!287, !12, i64 0}
@@ -26528,8 +26528,8 @@ attributes #34 = { builtin nounwind }
 !318 = !{!64, !12, i64 96}
 !319 = !{i64 0, i64 4, !57, i64 8, i64 8, !51, i64 16, i64 8, !51}
 !320 = !{!321}
-!321 = distinct !{!321, !322, !"_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE: %agg.result"}
-!322 = distinct !{!322, !"_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE"}
+!321 = distinct !{!321, !322, !"_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom: %agg.result"}
+!322 = distinct !{!322, !"_ZN8QuantLib12_GLOBAL__N_116fdmSchemeFactoryENS_13FdmSchemeDescERKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE.argprom"}
 !323 = !{!324, !4, i64 0}
 !324 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_19FdmSchemeEEE", !4, i64 0, !43, i64 8}
 !325 = !{!326, !4, i64 16}

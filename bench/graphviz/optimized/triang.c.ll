@@ -39,7 +39,7 @@ define range(i32 0, 2) i32 @Ptriangulate(ptr nocapture noundef readonly %0, ptr 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 8) #9
-  tail call fastcc void @graphviz_exit() #10
+  tail call fastcc void @graphviz_exit.argelim() #10
   unreachable
 
 10:                                               ; preds = %3
@@ -62,7 +62,7 @@ gv_calloc.exit.preheader:                         ; preds = %10
   %16 = load ptr, ptr @stderr, align 8
   %17 = shl nuw nsw i64 %6, 3
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef %17) #9
-  tail call fastcc void @graphviz_exit() #10
+  tail call fastcc void @graphviz_exit.argelim() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %.lr.ph, %gv_calloc.exit
@@ -584,7 +584,7 @@ define zeroext i1 @between(double %0, double %1, double %2, double %3, double %4
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #13
   unreachable
 }

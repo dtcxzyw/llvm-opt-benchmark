@@ -739,7 +739,7 @@ common.resume:                                    ; preds = %42, %32
   %41 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef %switch.load)
   br label %28
 
-42:                                               ; preds = %.invoke, %111, %53, %113, %102, %84, %75, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
+42:                                               ; preds = %.invoke, %111, %53, %113, %102, %84, %75, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17h46ef38ad7866ea91E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
@@ -752,38 +752,38 @@ common.resume:                                    ; preds = %42, %32
   store ptr %25, ptr %17, align 8
   %46 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h4a7044640266a74cE monotonic, align 8
   %47 = icmp eq i64 %46, 5
-  br i1 %47, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89, label %48
+  br i1 %47, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread89, label %48
 
 48:                                               ; preds = %44
   %49 = icmp ult i64 %46, 5
   tail call void @llvm.assume(i1 %49)
   %50 = icmp ult i64 %46, 2
-  br i1 %50, label %51, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89
+  br i1 %50, label %51, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread89
 
 51:                                               ; preds = %48
   %52 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from8CALLSITE17h6fa781409f71bd03E", i64 16) monotonic, align 8
   switch i8 %52, label %53 [
-    i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89
-    i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
-    i8 2, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
+    i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread89
+    i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread
+    i8 2, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread
   ]
 
 53:                                               ; preds = %51
   %54 = invoke noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h31215e74a28ca0c7E(ptr noundef nonnull align 8 @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from8CALLSITE17h6fa781409f71bd03E")
-          to label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit unwind label %42
+          to label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit unwind label %42
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ; preds = %53
+_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit: ; preds = %53
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
+  br i1 %55, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread89, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread: ; preds = %51, %51, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit
-  %.0.i88 = phi i8 [ %54, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit ], [ %52, %51 ], [ %52, %51 ]
+_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread: ; preds = %51, %51, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit
+  %.0.i88 = phi i8 [ %54, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit ], [ %52, %51 ], [ %52, %51 ]
   %56 = load ptr, ptr @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from8CALLSITE17h6fa781409f71bd03E", align 8, !nonnull !5, !align !33, !noundef !5
   %57 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17he92b54c8f32e5747E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %56, i8 noundef %.0.i88)
           to label %58 unwind label %42
 
-58:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread
-  br i1 %57, label %59, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89
+58:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread
+  br i1 %57, label %59, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread89
 
 59:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
@@ -801,12 +801,12 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   %.not = icmp eq i64 %64, 0
   br i1 %.not, label %.invoke, label %113
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89: ; preds = %51, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit, %48, %58, %44
+_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread89: ; preds = %51, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit, %48, %58, %44
   %69 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17hc34d931fbd1a7b40E monotonic, align 1
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %111
 
-71:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89
+71:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread89
   %72 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %73 = icmp ult i64 %72, 6
   tail call void @llvm.assume(i1 %73)
@@ -907,7 +907,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %101
 
-111:                                              ; preds = %101, %71, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89, %119
+111:                                              ; preds = %101, %71, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.argprom.exit.thread89, %119
   %112 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef 29)
           to label %"_ZN122_$LT$wasmtime_wasi..preview1..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Errno$GT$$GT$4from17h4b7f0793f20f1b4eE.exit" unwind label %42
 
@@ -952,7 +952,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   store i64 1, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %61, ptr %.sroa.5.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h2972c6c92c1cdf9cE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %16)
+  invoke fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h2972c6c92c1cdf9cE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %16)
           to label %119 unwind label %42
 
 119:                                              ; preds = %113
@@ -21365,7 +21365,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h2972c6c92c1cdf9cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h2972c6c92c1cdf9cE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
   %2 = alloca { i64, { ptr, i64 } }, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = load ptr, ptr @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from8CALLSITE17h6fa781409f71bd03E", align 8, !nonnull !5, !align !33, !noundef !5

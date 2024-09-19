@@ -252,7 +252,7 @@ entry:
   %hookmask.i = getelementptr inbounds i8, ptr %0, i64 145
   %2 = load i8, ptr %hookmask.i, align 1
   %tobool.not.i = icmp ult i8 %2, 32
-  br i1 %tobool.not.i, label %if.then.i, label %profile_trigger.exit
+  br i1 %tobool.not.i, label %if.then.i, label %profile_trigger.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %vmstate.i = getelementptr inbounds i8, ptr %0, i64 184
@@ -277,9 +277,9 @@ cond.end16.i:                                     ; preds = %cond.false6.i, %con
   %4 = or disjoint i8 %2, -128
   store i8 %4, ptr %hookmask.i, align 1
   tail call void @lj_dispatch_update(ptr noundef nonnull %0) #7
-  br label %profile_trigger.exit
+  br label %profile_trigger.argprom.exit
 
-profile_trigger.exit:                             ; preds = %entry, %cond.end16.i
+profile_trigger.argprom.exit:                     ; preds = %entry, %cond.end16.i
   ret void
 }
 

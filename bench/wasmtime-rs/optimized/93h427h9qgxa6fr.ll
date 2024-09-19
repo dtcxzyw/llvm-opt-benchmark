@@ -48,19 +48,19 @@ define void @_ZN18cranelift_frontend6switch6Switch3new17h114ac8fa7bc54fbbE(ptr n
   %2 = alloca {}, align 1
   %3 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !range !4, !noalias !5, !noundef !12
   %trunc.i.i.i = trunc nuw i64 %3 to i1
-  br i1 %trunc.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E.exit", label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i
+  br i1 %trunc.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E.argprom.exit", label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; preds = %1
   %4 = tail call noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hef3df63777bca59cE.llvm.12584902720330826042"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, ptr noalias noundef align 8 dereferenceable_or_null(24) null), !noalias !13
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E.exit"
+  br i1 %5, label %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E.argprom.exit"
 
 6:                                                ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.94044f8962b7cfb42fbe05864726fbd9.21, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.94044f8962b7cfb42fbe05864726fbd9.19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.94044f8962b7cfb42fbe05864726fbd9.23) #13, !noalias !14
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E.exit": ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i, %1
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E.argprom.exit": ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i, %1
   %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %7 = load i64, ptr %.0.i.i2.i, align 8, !noalias !13, !noundef !12
   %8 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 8
@@ -2148,13 +2148,13 @@ attributes #16 = { cold noreturn nounwind }
 !7 = distinct !{!7, !"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h1396e385278b9b06E"}
 !8 = distinct !{!8, !9, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E: argument 0"}
 !9 = distinct !{!9, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E"}
-!10 = distinct !{!10, !11, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha789c69778b12fbbE: argument 0"}
-!11 = distinct !{!11, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha789c69778b12fbbE"}
+!10 = distinct !{!10, !11, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha789c69778b12fbbE.argprom: argument 0"}
+!11 = distinct !{!11, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha789c69778b12fbbE.argprom"}
 !12 = !{}
 !13 = !{!10}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E: argument 0"}
-!16 = distinct !{!16, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E"}
+!15 = distinct !{!15, !16, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E.argprom: argument 0"}
+!16 = distinct !{!16, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h638804cc0dd58334E.argprom"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
 !19 = distinct !{!19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}

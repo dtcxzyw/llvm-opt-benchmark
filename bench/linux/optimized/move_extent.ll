@@ -252,7 +252,7 @@ define dso_local i32 @ext4_move_extents(ptr nocapture noundef readonly %0, ptr n
   call void @up_write(ptr noundef %70) #7
   call void @up_write(ptr noundef %71) #7
   %.val = load ptr, ptr %10, align 8
-  %139 = call fastcc i32 @move_extent_per_page(ptr %.val, ptr noundef %13, i64 noundef %130, i64 noundef %135, i32 noundef %136, i32 noundef %138, i32 noundef %123, ptr noundef nonnull %9)
+  %139 = call fastcc i32 @move_extent_per_page.argprom(ptr %.val, ptr noundef %13, i64 noundef %130, i64 noundef %135, i32 noundef %136, i32 noundef %138, i32 noundef %123, ptr noundef nonnull %9)
   %140 = sext i32 %139 to i64
   %141 = load i64, ptr %5, align 8
   %142 = add i64 %141, %140
@@ -476,7 +476,7 @@ define internal fastcc range(i32 -95, 1) i32 @mext_check_arguments(ptr noundef %
 declare dso_local i32 @ext4_ext_next_allocated_block(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @move_extent_per_page(ptr %.168.val, ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @move_extent_per_page.argprom(ptr %.168.val, ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca [8 x ptr], align 16
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8

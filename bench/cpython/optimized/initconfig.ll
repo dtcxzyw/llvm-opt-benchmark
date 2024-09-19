@@ -2643,7 +2643,7 @@ if.then2.i.i46:                                   ; preds = %if.end.i24.i
 
 config_dict_get.exit.thread.i48:                  ; preds = %sw.bb40, %if.then2.i.i46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %item.i.i34)
-  br label %config_dict_get_wstrlist.exit.thread
+  br label %config_dict_get_wstrlist.argprom.exit.thread
 
 if.end.i37:                                       ; preds = %if.end.i24.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %item.i.i34)
@@ -2671,7 +2671,7 @@ if.then1.i42.i:                                   ; preds = %if.end.i39.i
 Py_DECREF.exit44.i:                               ; preds = %if.then1.i42.i, %if.end.i39.i, %if.then2.i
   %24 = load ptr, ptr @PyExc_TypeError, align 8
   %call.i26.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %24, ptr noundef nonnull @.str.100, ptr noundef nonnull %4) #21
-  br label %config_dict_get_wstrlist.exit.thread
+  br label %config_dict_get_wstrlist.argprom.exit.thread
 
 if.end3.i:                                        ; preds = %if.end.i37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wstrlist.i, i8 0, i64 16, i1 false)
@@ -2792,17 +2792,17 @@ _PyWideStringList_Clear.exit.i:                   ; preds = %for.body.i.i, %if.e
   %36 = load i64, ptr %19, align 8
   %37 = and i64 %36, 2147483648
   %cmp.i49.not.i = icmp eq i64 %37, 0
-  br i1 %cmp.i49.not.i, label %if.end.i30.i, label %config_dict_get_wstrlist.exit
+  br i1 %cmp.i49.not.i, label %if.end.i30.i, label %config_dict_get_wstrlist.argprom.exit
 
 if.end.i30.i:                                     ; preds = %_PyWideStringList_Clear.exit.i
   %dec.i31.i = add i64 %36, -1
   store i64 %dec.i31.i, ptr %19, align 8
   %cmp.i32.i = icmp eq i64 %dec.i31.i, 0
-  br i1 %cmp.i32.i, label %if.then1.i33.i, label %config_dict_get_wstrlist.exit
+  br i1 %cmp.i32.i, label %if.then1.i33.i, label %config_dict_get_wstrlist.argprom.exit
 
 if.then1.i33.i:                                   ; preds = %if.end.i30.i
   call void @_Py_Dealloc(ptr noundef nonnull %19) #21
-  br label %config_dict_get_wstrlist.exit
+  br label %config_dict_get_wstrlist.argprom.exit
 
 error.loopexit.i:                                 ; preds = %if.end13.i44
   store ptr %call18.i21.i, ptr %items.i46.i, align 8, !noalias !24
@@ -2829,30 +2829,30 @@ _PyWideStringList_Clear.exit41.i:                 ; preds = %for.body.i36.i, %er
   %41 = load i64, ptr %19, align 8
   %42 = and i64 %41, 2147483648
   %cmp.i53.not.i = icmp eq i64 %42, 0
-  br i1 %cmp.i53.not.i, label %if.end.i.i39, label %config_dict_get_wstrlist.exit.thread
+  br i1 %cmp.i53.not.i, label %if.end.i.i39, label %config_dict_get_wstrlist.argprom.exit.thread
 
 if.end.i.i39:                                     ; preds = %_PyWideStringList_Clear.exit41.i
   %dec.i.i40 = add i64 %41, -1
   store i64 %dec.i.i40, ptr %19, align 8
   %cmp.i.i41 = icmp eq i64 %dec.i.i40, 0
-  br i1 %cmp.i.i41, label %if.then1.i.i42, label %config_dict_get_wstrlist.exit.thread
+  br i1 %cmp.i.i41, label %if.then1.i.i42, label %config_dict_get_wstrlist.argprom.exit.thread
 
 if.then1.i.i42:                                   ; preds = %if.end.i.i39
   call void @_Py_Dealloc(ptr noundef nonnull %19) #21
-  br label %config_dict_get_wstrlist.exit.thread
+  br label %config_dict_get_wstrlist.argprom.exit.thread
 
-config_dict_get_wstrlist.exit.thread:             ; preds = %Py_DECREF.exit44.i, %_PyWideStringList_Clear.exit41.i, %if.then1.i.i42, %if.end.i.i39, %config_dict_get.exit.thread.i48
+config_dict_get_wstrlist.argprom.exit.thread:     ; preds = %Py_DECREF.exit44.i, %_PyWideStringList_Clear.exit41.i, %if.then1.i.i42, %if.end.i.i39, %config_dict_get.exit.thread.i48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %wstrlist.i)
   br label %return
 
-config_dict_get_wstrlist.exit:                    ; preds = %_PyWideStringList_Clear.exit.i, %if.end.i30.i, %if.then1.i33.i
+config_dict_get_wstrlist.argprom.exit:            ; preds = %_PyWideStringList_Clear.exit.i, %if.end.i30.i, %if.then1.i33.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %wstrlist.i)
   br label %for.inc
 
 sw.default:                                       ; preds = %for.body
   unreachable
 
-for.inc:                                          ; preds = %config_dict_get_wstrlist.exit, %config_dict_get_ulong.exit, %if.end16, %sw.bb, %if.end28, %sw.bb33
+for.inc:                                          ; preds = %config_dict_get_wstrlist.argprom.exit, %config_dict_get_ulong.exit, %if.end16, %sw.bb, %if.end28, %sw.bb33
   %incdec.ptr = getelementptr i8, ptr %spec.0104, i64 24
   %43 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %43, null
@@ -2880,8 +2880,8 @@ if.then55:                                        ; preds = %if.end53
   %call.i50 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %47, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.9) #21
   br label %return
 
-return:                                           ; preds = %sw.bb33, %sw.bb23, %sw.bb7, %sw.bb, %config_dict_get.exit.thread.i, %if.then7.i, %if.then10.i, %if.else.i, %config_dict_get_wstrlist.exit.thread, %if.end53, %if.then55, %if.then52, %if.then30, %if.then14, %if.then
-  %retval.0 = phi i32 [ -1, %if.then30 ], [ -1, %if.then14 ], [ -1, %if.then55 ], [ -1, %if.then52 ], [ -1, %if.then ], [ 0, %if.end53 ], [ -1, %config_dict_get_wstrlist.exit.thread ], [ -1, %if.else.i ], [ -1, %if.then10.i ], [ -1, %if.then7.i ], [ -1, %config_dict_get.exit.thread.i ], [ -1, %sw.bb ], [ -1, %sw.bb7 ], [ -1, %sw.bb23 ], [ -1, %sw.bb33 ]
+return:                                           ; preds = %sw.bb33, %sw.bb23, %sw.bb7, %sw.bb, %config_dict_get.exit.thread.i, %if.then7.i, %if.then10.i, %if.else.i, %config_dict_get_wstrlist.argprom.exit.thread, %if.end53, %if.then55, %if.then52, %if.then30, %if.then14, %if.then
+  %retval.0 = phi i32 [ -1, %if.then30 ], [ -1, %if.then14 ], [ -1, %if.then55 ], [ -1, %if.then52 ], [ -1, %if.then ], [ 0, %if.end53 ], [ -1, %config_dict_get_wstrlist.argprom.exit.thread ], [ -1, %if.else.i ], [ -1, %if.then10.i ], [ -1, %if.then7.i ], [ -1, %config_dict_get.exit.thread.i ], [ -1, %sw.bb ], [ -1, %sw.bb7 ], [ -1, %sw.bb23 ], [ -1, %sw.bb33 ]
   ret i32 %retval.0
 }
 
@@ -3181,15 +3181,15 @@ if.end14:                                         ; preds = %if.end14.sink.split
 if.end.i:                                         ; preds = %if.end14
   %call1.i = call ptr @wcschr(ptr noundef nonnull %call.i.i, i32 noundef 61) #22
   %tobool.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool.not.i, label %if.else18, label %config_get_xoption_value.exit
+  br i1 %tobool.not.i, label %if.else18, label %config_get_xoption_value.argprom.exit
 
-config_get_xoption_value.exit:                    ; preds = %if.end.i
+config_get_xoption_value.argprom.exit:            ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %call1.i, i64 4
   %cmp16 = icmp eq ptr %add.ptr.i, null
   br i1 %cmp16, label %if.end37, label %if.else18
 
-if.else18:                                        ; preds = %if.end.i, %config_get_xoption_value.exit
-  %retval.0.i22 = phi ptr [ %add.ptr.i, %config_get_xoption_value.exit ], [ @.str.10, %if.end.i ]
+if.else18:                                        ; preds = %if.end.i, %config_get_xoption_value.argprom.exit
+  %retval.0.i22 = phi ptr [ %add.ptr.i, %config_get_xoption_value.argprom.exit ], [ @.str.10, %if.end.i ]
   %call19 = call i32 @wcscmp(ptr noundef nonnull %retval.0.i22, ptr noundef nonnull @.str.107) #22
   %cmp20 = icmp eq i32 %call19, 0
   br i1 %cmp20, label %if.end37.sink.split, label %if.else23
@@ -3220,7 +3220,7 @@ if.end37.sink.split:                              ; preds = %if.else28, %if.else
   store i32 %.sink25, ptr %use_frozen_modules22, align 8
   br label %if.end37
 
-if.end37:                                         ; preds = %if.end37.sink.split, %if.end14, %config_get_xoption_value.exit
+if.end37:                                         ; preds = %if.end37.sink.split, %if.end14, %config_get_xoption_value.argprom.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
 
@@ -5593,7 +5593,7 @@ if.then.i.i.i:                                    ; preds = %if.end5.i.i
 if.then2.i.i.i:                                   ; preds = %if.end5.i.i
   %call.i.i.i = call ptr @Py_DecodeLocale(ptr noundef nonnull %call.i47.i, ptr noundef nonnull %len.i.i.i) #21, !noalias !138
   %cmp3.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %config_get_env_dup.exit.i
+  br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %config_get_env_dup.argprom.exit.i
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i.i.i
   %7 = load i64, ptr %len.i.i.i, align 8, !noalias !138
@@ -5601,7 +5601,7 @@ if.then4.i.i.i:                                   ; preds = %if.then2.i.i.i
   %spec.select.i = select i1 %cmp5.i.i.i, ptr @.str.139, ptr @.str
   br label %if.then17.i
 
-config_get_env_dup.exit.i:                        ; preds = %if.then2.i.i.i
+config_get_env_dup.argprom.exit.i:                ; preds = %if.then2.i.i.i
   %8 = load ptr, ptr %dump_refs_file.i, align 8, !noalias !138
   call void @PyMem_RawFree(ptr noundef %8) #21, !noalias !138
   store ptr %call.i.i.i, ptr %dump_refs_file.i, align 8, !noalias !138
@@ -5621,8 +5621,8 @@ if.then17.i:                                      ; preds = %if.then4.i.i.i, %if
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i.i.i), !noalias !135
   br label %if.then1
 
-if.end19.i:                                       ; preds = %config_get_env_dup.exit.i, %if.then3.i.i, %if.end13.i
-  %config.val.pre229.pre231.pre233.i = phi i32 [ %config.val.pre229.pre231.pre233.pre235.i, %if.then3.i.i ], [ %config.val.pre229.pre231.pre233.pre.i, %config_get_env_dup.exit.i ], [ %config.val.pre229.pre231.pre233.pre235.i, %if.end13.i ]
+if.end19.i:                                       ; preds = %config_get_env_dup.argprom.exit.i, %if.then3.i.i, %if.end13.i
+  %config.val.pre229.pre231.pre233.i = phi i32 [ %config.val.pre229.pre231.pre233.pre235.i, %if.then3.i.i ], [ %config.val.pre229.pre231.pre233.pre.i, %config_get_env_dup.argprom.exit.i ], [ %config.val.pre229.pre231.pre233.pre235.i, %if.end13.i ]
   %pythonpath_env.i = getelementptr inbounds i8, ptr %config, i64 288
   %9 = load ptr, ptr %pythonpath_env.i, align 8, !noalias !132
   %cmp20.i = icmp eq ptr %9, null
@@ -5682,7 +5682,7 @@ if.then.i.i59.i:                                  ; preds = %if.end5.i57.i
 if.then2.i.i61.i:                                 ; preds = %if.end5.i57.i
   %call.i.i62.i = call ptr @Py_DecodeLocale(ptr noundef nonnull %call.i53.i, ptr noundef nonnull %len.i.i49.i) #21, !noalias !144
   %cmp3.i.i63.i = icmp eq ptr %call.i.i62.i, null
-  br i1 %cmp3.i.i63.i, label %if.then4.i.i65.i, label %config_get_env_dup.exit74.i
+  br i1 %cmp3.i.i63.i, label %if.then4.i.i65.i, label %config_get_env_dup.argprom.exit74.i
 
 if.then4.i.i65.i:                                 ; preds = %if.then2.i.i61.i
   %13 = load i64, ptr %len.i.i49.i, align 8, !noalias !144
@@ -5690,7 +5690,7 @@ if.then4.i.i65.i:                                 ; preds = %if.then2.i.i61.i
   %spec.select227.i = select i1 %cmp5.i.i66.i, ptr @.str.142, ptr @.str
   br label %if.then26.i
 
-config_get_env_dup.exit74.i:                      ; preds = %if.then2.i.i61.i
+config_get_env_dup.argprom.exit74.i:              ; preds = %if.then2.i.i61.i
   %14 = load ptr, ptr %pythonpath_env.i, align 8, !noalias !144
   call void @PyMem_RawFree(ptr noundef %14) #21, !noalias !144
   store ptr %call.i.i62.i, ptr %pythonpath_env.i, align 8, !noalias !144
@@ -5710,8 +5710,8 @@ if.then26.i:                                      ; preds = %if.then4.i.i65.i, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i.i49.i), !noalias !141
   br label %if.then1
 
-if.end28.i:                                       ; preds = %config_get_env_dup.exit74.i, %if.then3.i72.i, %if.then.i73.i, %if.end19.thread.i, %if.end19.i
-  %config.val.pre229.pre231.i = phi i32 [ %config.val.pre229.pre231.pre233.i, %if.then3.i72.i ], [ 0, %if.then.i73.i ], [ %config.val.pre229.pre231.pre.i, %config_get_env_dup.exit74.i ], [ %config.val.pre229.pre231.pre233.i, %if.end19.i ], [ 0, %if.end19.thread.i ]
+if.end28.i:                                       ; preds = %config_get_env_dup.argprom.exit74.i, %if.then3.i72.i, %if.then.i73.i, %if.end19.thread.i, %if.end19.i
+  %config.val.pre229.pre231.i = phi i32 [ %config.val.pre229.pre231.pre233.i, %if.then3.i72.i ], [ 0, %if.then.i73.i ], [ %config.val.pre229.pre231.pre.i, %config_get_env_dup.argprom.exit74.i ], [ %config.val.pre229.pre231.pre233.i, %if.end19.i ], [ 0, %if.end19.thread.i ]
   %platlibdir.i = getelementptr inbounds i8, ptr %config, i64 304
   %15 = load ptr, ptr %platlibdir.i, align 8, !noalias !132
   %cmp29.i = icmp eq ptr %15, null
@@ -5763,7 +5763,7 @@ if.then.i.i86.i:                                  ; preds = %if.end5.i84.i
 if.then2.i.i88.i:                                 ; preds = %if.end5.i84.i
   %call.i.i89.i = call ptr @Py_DecodeLocale(ptr noundef nonnull %call.i80.i, ptr noundef nonnull %len.i.i76.i) #21, !noalias !150
   %cmp3.i.i90.i = icmp eq ptr %call.i.i89.i, null
-  br i1 %cmp3.i.i90.i, label %if.then4.i.i92.i, label %config_get_env_dup.exit101.i
+  br i1 %cmp3.i.i90.i, label %if.then4.i.i92.i, label %config_get_env_dup.argprom.exit101.i
 
 if.then4.i.i92.i:                                 ; preds = %if.then2.i.i88.i
   %18 = load i64, ptr %len.i.i76.i, align 8, !noalias !150
@@ -5771,7 +5771,7 @@ if.then4.i.i92.i:                                 ; preds = %if.then2.i.i88.i
   %spec.select228.i = select i1 %cmp5.i.i93.i, ptr @.str.145, ptr @.str
   br label %if.then35.i
 
-config_get_env_dup.exit101.i:                     ; preds = %if.then2.i.i88.i
+config_get_env_dup.argprom.exit101.i:             ; preds = %if.then2.i.i88.i
   %19 = load ptr, ptr %platlibdir.i, align 8, !noalias !150
   call void @PyMem_RawFree(ptr noundef %19) #21, !noalias !150
   store ptr %call.i.i89.i, ptr %platlibdir.i, align 8, !noalias !150
@@ -5791,8 +5791,8 @@ if.then35.i:                                      ; preds = %if.then4.i.i92.i, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i.i76.i), !noalias !147
   br label %if.then1
 
-if.end37.i:                                       ; preds = %config_get_env_dup.exit101.i, %if.then3.i99.i, %if.then.i100.i, %if.end28.i
-  %config.val.pre229.i = phi i32 [ %config.val.pre229.pre231.i, %if.then3.i99.i ], [ 0, %if.then.i100.i ], [ %config.val.pre229.pre.i, %config_get_env_dup.exit101.i ], [ %config.val.pre229.pre231.i, %if.end28.i ]
+if.end37.i:                                       ; preds = %config_get_env_dup.argprom.exit101.i, %if.then3.i99.i, %if.then.i100.i, %if.end28.i
+  %config.val.pre229.i = phi i32 [ %config.val.pre229.pre231.i, %if.then3.i99.i ], [ 0, %if.then.i100.i ], [ %config.val.pre229.pre.i, %config_get_env_dup.argprom.exit101.i ], [ %config.val.pre229.pre231.i, %if.end28.i ]
   %use_hash_seed.i = getelementptr inbounds i8, ptr %config, i64 20
   %20 = load i32, ptr %use_hash_seed.i, align 4, !noalias !132
   %cmp38.i = icmp slt i32 %20, 0
@@ -6507,7 +6507,7 @@ PyConfig_SetString.exit.i.i:                      ; preds = %if.end7.i.i.i, %if.
   %tmp.sroa.20.0.i = phi i32 [ 0, %if.end7.i.i.i ], [ %tmp.sroa.20.0.copyload.i, %if.then.i.i.i97 ], [ 0, %if.end.i.i.i101 ]
   %tmp.sroa.24.0.i = phi i32 [ 0, %if.end7.i.i.i ], [ %tmp.sroa.24.0.copyload.i, %if.then.i.i.i97 ], [ undef, %if.end.i.i.i101 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i.i88), !noalias !180
-  br label %config_get_fs_encoding.exit.i
+  br label %config_get_fs_encoding.argprom.exit.i
 
 if.end.i.i104:                                    ; preds = %if.then.i93
   %call.i.i105 = call i32 @_Py_GetForceASCII() #21, !noalias !180
@@ -6553,7 +6553,7 @@ PyConfig_SetString.exit17.i.i:                    ; preds = %if.end7.i12.i.i, %i
   %tmp.sroa.20.1.i = phi i32 [ 0, %if.end7.i12.i.i ], [ %tmp.sroa.20.0.copyload9.i, %if.then.i8.i.i ], [ 0, %if.end.i9.i.i ]
   %tmp.sroa.24.1.i = phi i32 [ 0, %if.end7.i12.i.i ], [ %tmp.sroa.24.0.copyload11.i, %if.then.i8.i.i ], [ undef, %if.end.i9.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i6.i.i), !noalias !180
-  br label %config_get_fs_encoding.exit.i
+  br label %config_get_fs_encoding.argprom.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i104
   %66 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4, !noalias !192
@@ -6613,9 +6613,9 @@ PyConfig_SetString.exit.i23.i:                    ; preds = %if.end7.i.i26.i, %i
   %tmp.sroa.24.2.i = phi i32 [ 0, %if.end7.i.i26.i ], [ %tmp.sroa.24.0.copyload13.i, %if.then.i.i22.i ], [ undef, %if.then2.i.i.i109 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i15.i), !noalias !192
   call void @PyMem_RawFree(ptr noundef nonnull %encoding.0.i.i) #21, !noalias !192
-  br label %config_get_fs_encoding.exit.i
+  br label %config_get_fs_encoding.argprom.exit.i
 
-config_get_fs_encoding.exit.i:                    ; preds = %PyConfig_SetString.exit.i23.i, %PyConfig_SetString.exit17.i.i, %PyConfig_SetString.exit.i.i
+config_get_fs_encoding.argprom.exit.i:            ; preds = %PyConfig_SetString.exit.i23.i, %PyConfig_SetString.exit17.i.i, %PyConfig_SetString.exit.i.i
   %tmp.sroa.0.4.i = phi i32 [ %tmp.sroa.0.1.i, %PyConfig_SetString.exit17.i.i ], [ %tmp.sroa.0.0.i, %PyConfig_SetString.exit.i.i ], [ %tmp.sroa.0.2.i, %PyConfig_SetString.exit.i23.i ]
   %tmp.sroa.11.4.i = phi i32 [ %tmp.sroa.11.1.i, %PyConfig_SetString.exit17.i.i ], [ %tmp.sroa.11.0.i, %PyConfig_SetString.exit.i.i ], [ %tmp.sroa.11.2.i, %PyConfig_SetString.exit.i23.i ]
   %tmp.sroa.12.4.i = phi ptr [ %tmp.sroa.12.1.i, %PyConfig_SetString.exit17.i.i ], [ %tmp.sroa.12.0.i, %PyConfig_SetString.exit.i.i ], [ %tmp.sroa.12.2.i, %PyConfig_SetString.exit.i23.i ]
@@ -6625,7 +6625,7 @@ config_get_fs_encoding.exit.i:                    ; preds = %PyConfig_SetString.
   %cmp2.not.i = icmp eq i32 %tmp.sroa.0.4.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then49
 
-if.end4.i:                                        ; preds = %config_get_fs_encoding.exit.i
+if.end4.i:                                        ; preds = %config_get_fs_encoding.argprom.exit.i
   %filesystem_errors.i.phi.trans.insert = getelementptr inbounds i8, ptr %config, i64 88
   %.pre = load ptr, ptr %filesystem_errors.i.phi.trans.insert, align 8, !noalias !188
   %69 = icmp eq ptr %.pre, null
@@ -6674,13 +6674,13 @@ if.then11.i92:                                    ; preds = %if.end.i12.i, %if.t
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !188
   br label %if.then49
 
-if.then49:                                        ; preds = %if.then11.i92, %config_get_fs_encoding.exit.i, %if.end.i19.i
-  %tmp46.sroa.0.0.ph = phi i32 [ 1, %if.end.i19.i ], [ %tmp.sroa.0.4.i, %config_get_fs_encoding.exit.i ], [ %tmp7.sroa.0.0.ph.i, %if.then11.i92 ]
-  %tmp46.sroa.4.0.ph = phi i32 [ undef, %if.end.i19.i ], [ %tmp.sroa.11.4.i, %config_get_fs_encoding.exit.i ], [ %tmp7.sroa.4.0.ph.i, %if.then11.i92 ]
-  %tmp46.sroa.7.0.ph = phi ptr [ @__func__.config_get_locale_encoding, %if.end.i19.i ], [ %tmp.sroa.12.4.i, %config_get_fs_encoding.exit.i ], [ %tmp7.sroa.5.0.ph.i, %if.then11.i92 ]
-  %tmp46.sroa.9.0.ph = phi ptr [ @.str, %if.end.i19.i ], [ %tmp.sroa.16.4.i, %config_get_fs_encoding.exit.i ], [ %tmp7.sroa.6.0.ph.i, %if.then11.i92 ]
-  %tmp46.sroa.11.0.ph = phi i32 [ 0, %if.end.i19.i ], [ %tmp.sroa.20.4.i, %config_get_fs_encoding.exit.i ], [ %tmp7.sroa.7.0.ph.i, %if.then11.i92 ]
-  %tmp46.sroa.13.0.ph = phi i32 [ undef, %if.end.i19.i ], [ %tmp.sroa.24.4.i, %config_get_fs_encoding.exit.i ], [ %tmp7.sroa.8.0.ph.i, %if.then11.i92 ]
+if.then49:                                        ; preds = %if.then11.i92, %config_get_fs_encoding.argprom.exit.i, %if.end.i19.i
+  %tmp46.sroa.0.0.ph = phi i32 [ 1, %if.end.i19.i ], [ %tmp.sroa.0.4.i, %config_get_fs_encoding.argprom.exit.i ], [ %tmp7.sroa.0.0.ph.i, %if.then11.i92 ]
+  %tmp46.sroa.4.0.ph = phi i32 [ undef, %if.end.i19.i ], [ %tmp.sroa.11.4.i, %config_get_fs_encoding.argprom.exit.i ], [ %tmp7.sroa.4.0.ph.i, %if.then11.i92 ]
+  %tmp46.sroa.7.0.ph = phi ptr [ @__func__.config_get_locale_encoding, %if.end.i19.i ], [ %tmp.sroa.12.4.i, %config_get_fs_encoding.argprom.exit.i ], [ %tmp7.sroa.5.0.ph.i, %if.then11.i92 ]
+  %tmp46.sroa.9.0.ph = phi ptr [ @.str, %if.end.i19.i ], [ %tmp.sroa.16.4.i, %config_get_fs_encoding.argprom.exit.i ], [ %tmp7.sroa.6.0.ph.i, %if.then11.i92 ]
+  %tmp46.sroa.11.0.ph = phi i32 [ 0, %if.end.i19.i ], [ %tmp.sroa.20.4.i, %config_get_fs_encoding.argprom.exit.i ], [ %tmp7.sroa.7.0.ph.i, %if.then11.i92 ]
+  %tmp46.sroa.13.0.ph = phi i32 [ undef, %if.end.i19.i ], [ %tmp.sroa.24.4.i, %config_get_fs_encoding.argprom.exit.i ], [ %tmp7.sroa.8.0.ph.i, %if.then11.i92 ]
   store i32 %tmp46.sroa.0.0.ph, ptr %agg.result, align 8
   %status.sroa.21.0.agg.result.sroa_idx23 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %tmp46.sroa.4.0.ph, ptr %status.sroa.21.0.agg.result.sroa_idx23, align 4
@@ -6904,14 +6904,14 @@ if.then.i.i.i133:                                 ; preds = %if.end3.i.i131
   %tmp47.sroa.10.0.copyload.i = load i32, ptr %tmp47.sroa.10.0.status.i.i.sroa_idx.i, align 8, !noalias !201
   %tmp47.sroa.12.0.status.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %status.i.i.i112, i64 28
   %tmp47.sroa.12.0.copyload.i = load i32, ptr %tmp47.sroa.12.0.status.i.i.sroa_idx.i, align 4, !noalias !201
-  br label %config_get_locale_encoding.exit.thread55.i
+  br label %config_get_locale_encoding.argprom.exit.thread55.i
 
 if.then2.i.i.i135:                                ; preds = %if.end3.i.i131
   %call.i.i.i136 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %encoding.0.i.i129) #21, !noalias !213
   %cmp3.i.i.i137 = icmp eq ptr %call.i.i.i136, null
-  br i1 %cmp3.i.i.i137, label %config_get_locale_encoding.exit.thread55.i, label %config_get_locale_encoding.exit.i
+  br i1 %cmp3.i.i.i137, label %config_get_locale_encoding.argprom.exit.thread55.i, label %config_get_locale_encoding.argprom.exit.i
 
-config_get_locale_encoding.exit.thread55.i:       ; preds = %if.then2.i.i.i135, %if.then.i.i.i133
+config_get_locale_encoding.argprom.exit.thread55.i: ; preds = %if.then2.i.i.i135, %if.then.i.i.i133
   %tmp47.sroa.0.0.ph.i = phi i32 [ 1, %if.then2.i.i.i135 ], [ %86, %if.then.i.i.i133 ]
   %tmp47.sroa.5.0.ph.i = phi i32 [ undef, %if.then2.i.i.i135 ], [ %tmp47.sroa.5.0.copyload.i, %if.then.i.i.i133 ]
   %tmp47.sroa.6.0.ph.i = phi ptr [ @__func__.PyConfig_SetString, %if.then2.i.i.i135 ], [ %tmp47.sroa.6.0.copyload.i, %if.then.i.i.i133 ]
@@ -6922,7 +6922,7 @@ config_get_locale_encoding.exit.thread55.i:       ; preds = %if.then2.i.i.i135, 
   call void @PyMem_RawFree(ptr noundef nonnull %encoding.0.i.i129) #21, !noalias !210
   br label %if.then55
 
-config_get_locale_encoding.exit.i:                ; preds = %if.then2.i.i.i135
+config_get_locale_encoding.argprom.exit.i:        ; preds = %if.then2.i.i.i135
   %87 = load ptr, ptr %stdio_encoding.i, align 8, !noalias !213
   call void @PyMem_RawFree(ptr noundef %87) #21, !noalias !213
   store ptr %call.i.i.i136, ptr %stdio_encoding.i, align 8, !noalias !213
@@ -6930,7 +6930,7 @@ config_get_locale_encoding.exit.i:                ; preds = %if.then2.i.i.i135
   call void @PyMem_RawFree(ptr noundef nonnull %encoding.0.i.i129) #21, !noalias !210
   br label %if.end53.i
 
-if.end53.i:                                       ; preds = %config_get_locale_encoding.exit.i, %if.end43.i
+if.end53.i:                                       ; preds = %config_get_locale_encoding.argprom.exit.i, %if.end43.i
   %stdio_errors54.i = getelementptr inbounds i8, ptr %config, i64 240
   %88 = load ptr, ptr %stdio_errors54.i, align 8, !noalias !201
   %cmp55.i = icmp eq ptr %88, null
@@ -6939,7 +6939,7 @@ if.end53.i:                                       ; preds = %config_get_locale_e
 if.then56.i:                                      ; preds = %if.end53.i
   %89 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4, !noalias !201
   %tobool.not.i71.i = icmp eq i32 %89, 0
-  br i1 %tobool.not.i71.i, label %if.end.i72.i, label %config_get_stdio_errors.exit.i
+  br i1 %tobool.not.i71.i, label %if.end.i72.i, label %config_get_stdio_errors.argprom.exit.i
 
 if.end.i72.i:                                     ; preds = %if.then56.i
   %call.i73.i = call ptr @setlocale(i32 noundef 0, ptr noundef null) #21, !noalias !201
@@ -6955,22 +6955,22 @@ if.then1.tail.i.i:                                ; preds = %sub_0.i.i
   %91 = getelementptr inbounds i8, ptr %call.i73.i, i64 1
   %92 = load i8, ptr %91, align 1, !noalias !201
   %93 = icmp eq i8 %92, 0
-  br i1 %93, label %config_get_stdio_errors.exit.i, label %lor.lhs.false.i.i125
+  br i1 %93, label %config_get_stdio_errors.argprom.exit.i, label %lor.lhs.false.i.i125
 
 lor.lhs.false.i.i125:                             ; preds = %if.then1.tail.i.i, %sub_0.i.i
   %call4.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i73.i, ptr noundef nonnull dereferenceable(6) @.str.181) #22, !noalias !201
   %cmp5.i75.i = icmp eq i32 %call4.i.i, 0
-  br i1 %cmp5.i75.i, label %config_get_stdio_errors.exit.i, label %if.end7.i.i126
+  br i1 %cmp5.i75.i, label %config_get_stdio_errors.argprom.exit.i, label %if.end7.i.i126
 
 if.end7.i.i126:                                   ; preds = %lor.lhs.false.i.i125
   %call8.i.i = call i32 @_Py_IsLocaleCoercionTarget(ptr noundef nonnull %call.i73.i) #21, !noalias !201
   %tobool9.not.i.i127 = icmp eq i32 %call8.i.i, 0
-  br i1 %tobool9.not.i.i127, label %if.end12.i.i, label %config_get_stdio_errors.exit.i
+  br i1 %tobool9.not.i.i127, label %if.end12.i.i, label %config_get_stdio_errors.argprom.exit.i
 
 if.end12.i.i:                                     ; preds = %if.end7.i.i126, %if.end.i72.i
-  br label %config_get_stdio_errors.exit.i
+  br label %config_get_stdio_errors.argprom.exit.i
 
-config_get_stdio_errors.exit.i:                   ; preds = %if.end12.i.i, %if.end7.i.i126, %lor.lhs.false.i.i125, %if.then1.tail.i.i, %if.then56.i
+config_get_stdio_errors.argprom.exit.i:           ; preds = %if.end12.i.i, %if.end7.i.i126, %lor.lhs.false.i.i125, %if.then1.tail.i.i, %if.then56.i
   %retval.0.i.i = phi ptr [ @.str.182, %if.end12.i.i ], [ @.str.174, %if.then56.i ], [ @.str.174, %lor.lhs.false.i.i125 ], [ @.str.174, %if.then1.tail.i.i ], [ @.str.174, %if.end7.i.i126 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i76.i), !noalias !201
   call void @_Py_PreInitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i76.i, ptr noundef nonnull %config, ptr noundef null) #21, !noalias !216
@@ -6978,7 +6978,7 @@ config_get_stdio_errors.exit.i:                   ; preds = %if.end12.i.i, %if.e
   %cmp.not.i77.i = icmp eq i32 %94, 0
   br i1 %cmp.not.i77.i, label %if.end.i79.i123, label %if.then.i78.i
 
-if.then.i78.i:                                    ; preds = %config_get_stdio_errors.exit.i
+if.then.i78.i:                                    ; preds = %config_get_stdio_errors.argprom.exit.i
   %tmp59.sroa.4.0.status.i76.sroa_idx.i = getelementptr inbounds i8, ptr %status.i76.i, i64 4
   %tmp59.sroa.4.0.copyload.i = load i32, ptr %tmp59.sroa.4.0.status.i76.sroa_idx.i, align 4, !noalias !201
   %tmp59.sroa.5.0.status.i76.sroa_idx.i = getelementptr inbounds i8, ptr %status.i76.i, i64 8
@@ -6991,7 +6991,7 @@ if.then.i78.i:                                    ; preds = %config_get_stdio_er
   %tmp59.sroa.8.0.copyload.i = load i32, ptr %tmp59.sroa.8.0.status.i76.sroa_idx.i, align 4, !noalias !201
   br label %if.then63.i
 
-if.end.i79.i123:                                  ; preds = %config_get_stdio_errors.exit.i
+if.end.i79.i123:                                  ; preds = %config_get_stdio_errors.argprom.exit.i
   %call.i82.i = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %retval.0.i.i) #21, !noalias !216
   %cmp3.i83.i = icmp eq ptr %call.i82.i, null
   br i1 %cmp3.i83.i, label %if.then63.i, label %PyConfig_SetString.exit.i124
@@ -7013,13 +7013,13 @@ if.then63.i:                                      ; preds = %if.end.i79.i123, %i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i76.i), !noalias !201
   br label %if.then55
 
-if.then55:                                        ; preds = %if.then63.i, %if.then40.i, %if.then24.i, %if.then2.i119, %config_get_locale_encoding.exit.thread55.i, %if.end.i65.i
-  %tmp52.sroa.0.0.ph = phi i32 [ 1, %if.end.i65.i ], [ %tmp47.sroa.0.0.ph.i, %config_get_locale_encoding.exit.thread55.i ], [ 1, %if.then2.i119 ], [ %tmp.sroa.0.0.ph.i145, %if.then24.i ], [ %tmp36.sroa.0.0.ph.i, %if.then40.i ], [ %tmp59.sroa.0.0.ph.i, %if.then63.i ]
-  %tmp52.sroa.8.0.ph = phi i32 [ undef, %if.end.i65.i ], [ %tmp47.sroa.5.0.ph.i, %config_get_locale_encoding.exit.thread55.i ], [ undef, %if.then2.i119 ], [ %tmp.sroa.4.0.ph.i, %if.then24.i ], [ %tmp36.sroa.4.0.ph.i, %if.then40.i ], [ %tmp59.sroa.4.0.ph.i, %if.then63.i ]
-  %tmp52.sroa.13.0.ph = phi ptr [ @__func__.config_get_locale_encoding, %if.end.i65.i ], [ %tmp47.sroa.6.0.ph.i, %config_get_locale_encoding.exit.thread55.i ], [ @__func__.config_init_stdio_encoding, %if.then2.i119 ], [ %tmp.sroa.5.0.ph.i, %if.then24.i ], [ %tmp36.sroa.5.0.ph.i, %if.then40.i ], [ %tmp59.sroa.5.0.ph.i, %if.then63.i ]
-  %tmp52.sroa.18.0.ph = phi ptr [ @.str, %if.end.i65.i ], [ %tmp47.sroa.8.0.ph.i, %config_get_locale_encoding.exit.thread55.i ], [ @.str, %if.then2.i119 ], [ %tmp.sroa.6.0.ph.i146, %if.then24.i ], [ %tmp36.sroa.6.0.ph.i, %if.then40.i ], [ %tmp59.sroa.6.0.ph.i, %if.then63.i ]
-  %tmp52.sroa.23.0.ph = phi i32 [ 0, %if.end.i65.i ], [ %tmp47.sroa.10.0.ph.i, %config_get_locale_encoding.exit.thread55.i ], [ 0, %if.then2.i119 ], [ %tmp.sroa.8.0.ph.i147, %if.then24.i ], [ %tmp36.sroa.8.0.ph.i, %if.then40.i ], [ %tmp59.sroa.7.0.ph.i, %if.then63.i ]
-  %tmp52.sroa.28.0.ph = phi i32 [ undef, %if.end.i65.i ], [ %tmp47.sroa.12.0.ph.i, %config_get_locale_encoding.exit.thread55.i ], [ undef, %if.then2.i119 ], [ %tmp.sroa.10.0.ph.i148, %if.then24.i ], [ %tmp36.sroa.10.0.ph.i, %if.then40.i ], [ %tmp59.sroa.8.0.ph.i, %if.then63.i ]
+if.then55:                                        ; preds = %if.then63.i, %if.then40.i, %if.then24.i, %if.then2.i119, %config_get_locale_encoding.argprom.exit.thread55.i, %if.end.i65.i
+  %tmp52.sroa.0.0.ph = phi i32 [ 1, %if.end.i65.i ], [ %tmp47.sroa.0.0.ph.i, %config_get_locale_encoding.argprom.exit.thread55.i ], [ 1, %if.then2.i119 ], [ %tmp.sroa.0.0.ph.i145, %if.then24.i ], [ %tmp36.sroa.0.0.ph.i, %if.then40.i ], [ %tmp59.sroa.0.0.ph.i, %if.then63.i ]
+  %tmp52.sroa.8.0.ph = phi i32 [ undef, %if.end.i65.i ], [ %tmp47.sroa.5.0.ph.i, %config_get_locale_encoding.argprom.exit.thread55.i ], [ undef, %if.then2.i119 ], [ %tmp.sroa.4.0.ph.i, %if.then24.i ], [ %tmp36.sroa.4.0.ph.i, %if.then40.i ], [ %tmp59.sroa.4.0.ph.i, %if.then63.i ]
+  %tmp52.sroa.13.0.ph = phi ptr [ @__func__.config_get_locale_encoding, %if.end.i65.i ], [ %tmp47.sroa.6.0.ph.i, %config_get_locale_encoding.argprom.exit.thread55.i ], [ @__func__.config_init_stdio_encoding, %if.then2.i119 ], [ %tmp.sroa.5.0.ph.i, %if.then24.i ], [ %tmp36.sroa.5.0.ph.i, %if.then40.i ], [ %tmp59.sroa.5.0.ph.i, %if.then63.i ]
+  %tmp52.sroa.18.0.ph = phi ptr [ @.str, %if.end.i65.i ], [ %tmp47.sroa.8.0.ph.i, %config_get_locale_encoding.argprom.exit.thread55.i ], [ @.str, %if.then2.i119 ], [ %tmp.sroa.6.0.ph.i146, %if.then24.i ], [ %tmp36.sroa.6.0.ph.i, %if.then40.i ], [ %tmp59.sroa.6.0.ph.i, %if.then63.i ]
+  %tmp52.sroa.23.0.ph = phi i32 [ 0, %if.end.i65.i ], [ %tmp47.sroa.10.0.ph.i, %config_get_locale_encoding.argprom.exit.thread55.i ], [ 0, %if.then2.i119 ], [ %tmp.sroa.8.0.ph.i147, %if.then24.i ], [ %tmp36.sroa.8.0.ph.i, %if.then40.i ], [ %tmp59.sroa.7.0.ph.i, %if.then63.i ]
+  %tmp52.sroa.28.0.ph = phi i32 [ undef, %if.end.i65.i ], [ %tmp47.sroa.12.0.ph.i, %config_get_locale_encoding.argprom.exit.thread55.i ], [ undef, %if.then2.i119 ], [ %tmp.sroa.10.0.ph.i148, %if.then24.i ], [ %tmp36.sroa.10.0.ph.i, %if.then40.i ], [ %tmp59.sroa.8.0.ph.i, %if.then63.i ]
   store i32 %tmp52.sroa.0.0.ph, ptr %agg.result, align 8
   %status.sroa.21.0.agg.result.sroa_idx24 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %tmp52.sroa.8.0.ph, ptr %status.sroa.21.0.agg.result.sroa_idx24, align 4
@@ -8391,8 +8391,8 @@ attributes #24 = { nounwind willreturn memory(none) }
 !73 = distinct !{!73, !74, !"config_run_filename_abspath: %agg.result"}
 !74 = distinct !{!74, !"config_run_filename_abspath"}
 !75 = !{!76, !78, !52}
-!76 = distinct !{!76, !77, !"config_get_env_dup: %agg.result"}
-!77 = distinct !{!77, !"config_get_env_dup"}
+!76 = distinct !{!76, !77, !"config_get_env_dup.argprom: %agg.result"}
+!77 = distinct !{!77, !"config_get_env_dup.argprom"}
 !78 = distinct !{!78, !79, !"config_init_env_warnoptions: %agg.result"}
 !79 = distinct !{!79, !"config_init_env_warnoptions"}
 !80 = !{!81, !76, !78, !52}
@@ -8414,8 +8414,8 @@ attributes #24 = { nounwind willreturn memory(none) }
 !96 = distinct !{!96, !97, !"PyWideStringList_Insert: %agg.result"}
 !97 = distinct !{!97, !"PyWideStringList_Insert"}
 !98 = !{!99, !89, !52}
-!99 = distinct !{!99, !100, !"warnoptions_extend: %agg.result"}
-!100 = distinct !{!100, !"warnoptions_extend"}
+!99 = distinct !{!99, !100, !"warnoptions_extend.argprom: %agg.result"}
+!100 = distinct !{!100, !"warnoptions_extend.argprom"}
 !101 = !{!102, !99, !89, !52}
 !102 = distinct !{!102, !103, !"warnoptions_append: %agg.result"}
 !103 = distinct !{!103, !"warnoptions_append"}
@@ -8424,8 +8424,8 @@ attributes #24 = { nounwind willreturn memory(none) }
 !106 = distinct !{!106, !"PyWideStringList_Insert"}
 !107 = distinct !{!107, !9}
 !108 = !{!109, !89, !52}
-!109 = distinct !{!109, !110, !"warnoptions_extend: %agg.result"}
-!110 = distinct !{!110, !"warnoptions_extend"}
+!109 = distinct !{!109, !110, !"warnoptions_extend.argprom: %agg.result"}
+!110 = distinct !{!110, !"warnoptions_extend.argprom"}
 !111 = !{!112, !109, !89, !52}
 !112 = distinct !{!112, !113, !"warnoptions_append: %agg.result"}
 !113 = distinct !{!113, !"warnoptions_append"}
@@ -8439,8 +8439,8 @@ attributes #24 = { nounwind willreturn memory(none) }
 !121 = distinct !{!121, !122, !"warnoptions_append: %agg.result"}
 !122 = distinct !{!122, !"warnoptions_append"}
 !123 = !{!124, !89, !52}
-!124 = distinct !{!124, !125, !"warnoptions_extend: %agg.result"}
-!125 = distinct !{!125, !"warnoptions_extend"}
+!124 = distinct !{!124, !125, !"warnoptions_extend.argprom: %agg.result"}
+!125 = distinct !{!125, !"warnoptions_extend.argprom"}
 !126 = !{!127, !124, !89, !52}
 !127 = distinct !{!127, !128, !"warnoptions_append: %agg.result"}
 !128 = distinct !{!128, !"warnoptions_append"}
@@ -8451,20 +8451,20 @@ attributes #24 = { nounwind willreturn memory(none) }
 !133 = distinct !{!133, !134, !"config_read_env_vars: %agg.result"}
 !134 = distinct !{!134, !"config_read_env_vars"}
 !135 = !{!136, !133}
-!136 = distinct !{!136, !137, !"config_get_env_dup: %agg.result"}
-!137 = distinct !{!137, !"config_get_env_dup"}
+!136 = distinct !{!136, !137, !"config_get_env_dup.argprom: %agg.result"}
+!137 = distinct !{!137, !"config_get_env_dup.argprom"}
 !138 = !{!139, !136, !133}
 !139 = distinct !{!139, !140, !"config_set_bytes_string: %agg.result"}
 !140 = distinct !{!140, !"config_set_bytes_string"}
 !141 = !{!142, !133}
-!142 = distinct !{!142, !143, !"config_get_env_dup: %agg.result"}
-!143 = distinct !{!143, !"config_get_env_dup"}
+!142 = distinct !{!142, !143, !"config_get_env_dup.argprom: %agg.result"}
+!143 = distinct !{!143, !"config_get_env_dup.argprom"}
 !144 = !{!145, !142, !133}
 !145 = distinct !{!145, !146, !"config_set_bytes_string: %agg.result"}
 !146 = distinct !{!146, !"config_set_bytes_string"}
 !147 = !{!148, !133}
-!148 = distinct !{!148, !149, !"config_get_env_dup: %agg.result"}
-!149 = distinct !{!149, !"config_get_env_dup"}
+!148 = distinct !{!148, !149, !"config_get_env_dup.argprom: %agg.result"}
+!149 = distinct !{!149, !"config_get_env_dup.argprom"}
 !150 = !{!151, !148, !133}
 !151 = distinct !{!151, !152, !"config_set_bytes_string: %agg.result"}
 !152 = distinct !{!152, !"config_set_bytes_string"}
@@ -8490,16 +8490,16 @@ attributes #24 = { nounwind willreturn memory(none) }
 !172 = distinct !{!172, !173, !"config_init_pycache_prefix: %agg.result"}
 !173 = distinct !{!173, !"config_init_pycache_prefix"}
 !174 = !{!175, !172, !157}
-!175 = distinct !{!175, !176, !"config_get_env_dup: %agg.result"}
-!176 = distinct !{!176, !"config_get_env_dup"}
+!175 = distinct !{!175, !176, !"config_get_env_dup.argprom: %agg.result"}
+!176 = distinct !{!176, !"config_get_env_dup.argprom"}
 !177 = !{!178, !175, !172, !157}
 !178 = distinct !{!178, !179, !"config_set_bytes_string: %agg.result"}
 !179 = distinct !{!179, !"config_set_bytes_string"}
 !180 = !{!181, !183}
-!181 = distinct !{!181, !182, !"config_get_fs_encoding: %agg.result"}
-!182 = distinct !{!182, !"config_get_fs_encoding"}
-!183 = distinct !{!183, !184, !"config_init_fs_encoding: %agg.result"}
-!184 = distinct !{!184, !"config_init_fs_encoding"}
+!181 = distinct !{!181, !182, !"config_get_fs_encoding.argprom: %agg.result"}
+!182 = distinct !{!182, !"config_get_fs_encoding.argprom"}
+!183 = distinct !{!183, !184, !"config_init_fs_encoding.argprom: %agg.result"}
+!184 = distinct !{!184, !"config_init_fs_encoding.argprom"}
 !185 = !{!186, !181, !183}
 !186 = distinct !{!186, !187, !"PyConfig_SetString: %agg.result"}
 !187 = distinct !{!187, !"PyConfig_SetString"}
@@ -8508,8 +8508,8 @@ attributes #24 = { nounwind willreturn memory(none) }
 !190 = distinct !{!190, !191, !"PyConfig_SetString: %agg.result"}
 !191 = distinct !{!191, !"PyConfig_SetString"}
 !192 = !{!193, !183}
-!193 = distinct !{!193, !194, !"config_get_locale_encoding: %agg.result"}
-!194 = distinct !{!194, !"config_get_locale_encoding"}
+!193 = distinct !{!193, !194, !"config_get_locale_encoding.argprom: %agg.result"}
+!194 = distinct !{!194, !"config_get_locale_encoding.argprom"}
 !195 = !{!196, !193, !183}
 !196 = distinct !{!196, !197, !"PyConfig_SetString: %agg.result"}
 !197 = distinct !{!197, !"PyConfig_SetString"}
@@ -8517,8 +8517,8 @@ attributes #24 = { nounwind willreturn memory(none) }
 !199 = distinct !{!199, !200, !"PyConfig_SetString: %agg.result"}
 !200 = distinct !{!200, !"PyConfig_SetString"}
 !201 = !{!202}
-!202 = distinct !{!202, !203, !"config_init_stdio_encoding: %agg.result"}
-!203 = distinct !{!203, !"config_init_stdio_encoding"}
+!202 = distinct !{!202, !203, !"config_init_stdio_encoding.argprom: %agg.result"}
+!203 = distinct !{!203, !"config_init_stdio_encoding.argprom"}
 !204 = !{!205, !202}
 !205 = distinct !{!205, !206, !"config_set_bytes_string: %agg.result"}
 !206 = distinct !{!206, !"config_set_bytes_string"}
@@ -8526,8 +8526,8 @@ attributes #24 = { nounwind willreturn memory(none) }
 !208 = distinct !{!208, !209, !"config_set_bytes_string: %agg.result"}
 !209 = distinct !{!209, !"config_set_bytes_string"}
 !210 = !{!211, !202}
-!211 = distinct !{!211, !212, !"config_get_locale_encoding: %agg.result"}
-!212 = distinct !{!212, !"config_get_locale_encoding"}
+!211 = distinct !{!211, !212, !"config_get_locale_encoding.argprom: %agg.result"}
+!212 = distinct !{!212, !"config_get_locale_encoding.argprom"}
 !213 = !{!214, !211, !202}
 !214 = distinct !{!214, !215, !"PyConfig_SetString: %agg.result"}
 !215 = distinct !{!215, !"PyConfig_SetString"}

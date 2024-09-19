@@ -3397,7 +3397,7 @@ invoke.cont277:                                   ; preds = %for.end260
   %119 = load ptr, ptr %m_data.i.i.i307, align 8
   %idxprom.i484 = sext i32 %118 to i64
   %arrayidx.i485 = getelementptr float, ptr %119, i64 %idxprom.i484
-  br i1 %cmp250932, label %for.body.preheader.i, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit"
+  br i1 %cmp250932, label %for.body.preheader.i, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit"
 
 for.body.preheader.i:                             ; preds = %invoke.cont277
   %wide.trip.count.i486 = zext nneg i32 %add159 to i64
@@ -3411,15 +3411,15 @@ for.body.i487:                                    ; preds = %for.body.i487, %for
   store float %120, ptr %arrayidx3.i, align 4
   %indvars.iv.next.i490 = add nuw nsw i64 %indvars.iv.i488, 1
   %exitcond.not.i491 = icmp eq i64 %indvars.iv.next.i490, %wide.trip.count.i486
-  br i1 %exitcond.not.i491, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit", label %for.body.i487, !llvm.loop !40
+  br i1 %exitcond.not.i491, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit", label %for.body.i487, !llvm.loop !40
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit": ; preds = %for.body.i487, %invoke.cont277
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit": ; preds = %for.body.i487, %invoke.cont277
   %121 = load i32, ptr %m_posVarCnt.i, align 8
   %cmp6.i = icmp sgt i32 %121, -7
   br i1 %cmp6.i, label %for.body.i493, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit"
 
-for.body.i493:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit", %for.body.i493
-  %indvars.iv.i494 = phi i64 [ %indvars.iv.next.i497, %for.body.i493 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit" ]
+for.body.i493:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit", %for.body.i493
+  %indvars.iv.i494 = phi i64 [ %indvars.iv.next.i497, %for.body.i493 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit" ]
   %arrayidx.i495 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.3, i64 %indvars.iv.i494
   %122 = load float, ptr %arrayidx.i495, align 4
   %arrayidx3.i496 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i494
@@ -3431,13 +3431,13 @@ for.body.i493:                                    ; preds = %"_ZZN24btMultiBodyD
   %cmp.i498 = icmp slt i64 %indvars.iv.i494, %125
   br i1 %cmp.i498, label %for.body.i493, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit", !llvm.loop !41
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit": ; preds = %for.body.i493, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit"
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit": ; preds = %for.body.i493, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit"
   %mul285 = fmul float %115, 5.000000e-01
   invoke void @_ZN11btMultiBody21stepPositionsMultiDofEfPfS0_(ptr noundef nonnull align 8 dereferenceable(640) %54, float noundef %mul285, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr172)
           to label %invoke.cont286 unwind label %lpad167
 
 invoke.cont286:                                   ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit"
-  br i1 %cmp250932, label %for.body.preheader.i500, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit"
+  br i1 %cmp250932, label %for.body.preheader.i500, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit"
 
 for.body.preheader.i500:                          ; preds = %invoke.cont286
   %wide.trip.count.i501 = zext nneg i32 %add159 to i64
@@ -3454,17 +3454,17 @@ for.body.i502:                                    ; preds = %for.body.i502, %for
   store float %128, ptr %arrayidx5.i, align 4
   %indvars.iv.next.i506 = add nuw nsw i64 %indvars.iv.i503, 1
   %exitcond.not.i507 = icmp eq i64 %indvars.iv.next.i506, %wide.trip.count.i501
-  br i1 %exitcond.not.i507, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit", label %for.body.i502, !llvm.loop !42
+  br i1 %exitcond.not.i507, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit", label %for.body.i502, !llvm.loop !42
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit": ; preds = %for.body.i502, %invoke.cont286
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit": ; preds = %for.body.i502, %invoke.cont286
   %m_data.i.i.i508 = getelementptr inbounds i8, ptr %54, i64 288
   %129 = load ptr, ptr %m_data.i.i.i508, align 8
   %130 = load i32, ptr %m_dofCount.i, align 4
   %cmp2.i = icmp sgt i32 %130, -6
   br i1 %cmp2.i, label %for.body.i509, label %invoke.cont289
 
-for.body.i509:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit", %for.body.i509
-  %indvars.iv.i510 = phi i64 [ %indvars.iv.next.i512, %for.body.i509 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit" ]
+for.body.i509:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit", %for.body.i509
+  %indvars.iv.i510 = phi i64 [ %indvars.iv.next.i512, %for.body.i509 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit" ]
   %arrayidx.i511 = getelementptr inbounds float, ptr %add.ptr174, i64 %indvars.iv.i510
   %131 = load float, ptr %arrayidx.i511, align 4
   %arrayidx4.i = getelementptr inbounds float, ptr %129, i64 %indvars.iv.i510
@@ -3476,7 +3476,7 @@ for.body.i509:                                    ; preds = %"_ZZN24btMultiBodyD
   %cmp.i513 = icmp slt i64 %indvars.iv.i510, %134
   br i1 %cmp.i513, label %for.body.i509, label %invoke.cont289, !llvm.loop !43
 
-invoke.cont289:                                   ; preds = %for.body.i509, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit"
+invoke.cont289:                                   ; preds = %for.body.i509, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit"
   %135 = load i8, ptr %m_jointFeedbackInWorldSpace, align 4
   %tobool297 = trunc i8 %135 to i1
   %136 = load i8, ptr %m_jointFeedbackInJointFrame, align 1
@@ -3489,7 +3489,7 @@ invoke.cont302:                                   ; preds = %invoke.cont289
   %138 = load ptr, ptr %m_data.i.i.i307, align 8
   %idxprom.i518 = sext i32 %137 to i64
   %arrayidx.i519 = getelementptr float, ptr %138, i64 %idxprom.i518
-  br i1 %cmp250932, label %for.body.preheader.i521, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529"
+  br i1 %cmp250932, label %for.body.preheader.i521, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit529"
 
 for.body.preheader.i521:                          ; preds = %invoke.cont302
   %wide.trip.count.i522 = zext nneg i32 %add159 to i64
@@ -3503,15 +3503,15 @@ for.body.i523:                                    ; preds = %for.body.i523, %for
   store float %139, ptr %arrayidx3.i526, align 4
   %indvars.iv.next.i527 = add nuw nsw i64 %indvars.iv.i524, 1
   %exitcond.not.i528 = icmp eq i64 %indvars.iv.next.i527, %wide.trip.count.i522
-  br i1 %exitcond.not.i528, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529", label %for.body.i523, !llvm.loop !40
+  br i1 %exitcond.not.i528, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit529", label %for.body.i523, !llvm.loop !40
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529": ; preds = %for.body.i523, %invoke.cont302
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit529": ; preds = %for.body.i523, %invoke.cont302
   %140 = load i32, ptr %m_posVarCnt.i, align 8
   %cmp6.i531 = icmp sgt i32 %140, -7
   br i1 %cmp6.i531, label %for.body.i535, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit542"
 
-for.body.i535:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529", %for.body.i535
-  %indvars.iv.i536 = phi i64 [ %indvars.iv.next.i539, %for.body.i535 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529" ]
+for.body.i535:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit529", %for.body.i535
+  %indvars.iv.i536 = phi i64 [ %indvars.iv.next.i539, %for.body.i535 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit529" ]
   %arrayidx.i537 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.3, i64 %indvars.iv.i536
   %141 = load float, ptr %arrayidx.i537, align 4
   %arrayidx3.i538 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i536
@@ -3523,12 +3523,12 @@ for.body.i535:                                    ; preds = %"_ZZN24btMultiBodyD
   %cmp.i541 = icmp slt i64 %indvars.iv.i536, %144
   br i1 %cmp.i541, label %for.body.i535, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit542", !llvm.loop !41
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit542": ; preds = %for.body.i535, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529"
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit542": ; preds = %for.body.i535, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit529"
   invoke void @_ZN11btMultiBody21stepPositionsMultiDofEfPfS0_(ptr noundef nonnull align 8 dereferenceable(640) %54, float noundef %mul285, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr174)
           to label %invoke.cont311 unwind label %lpad167
 
 invoke.cont311:                                   ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit542"
-  br i1 %cmp250932, label %for.body.preheader.i544, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit553"
+  br i1 %cmp250932, label %for.body.preheader.i544, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit553"
 
 for.body.preheader.i544:                          ; preds = %invoke.cont311
   %wide.trip.count.i545 = zext nneg i32 %add159 to i64
@@ -3545,16 +3545,16 @@ for.body.i546:                                    ; preds = %for.body.i546, %for
   store float %147, ptr %arrayidx5.i550, align 4
   %indvars.iv.next.i551 = add nuw nsw i64 %indvars.iv.i547, 1
   %exitcond.not.i552 = icmp eq i64 %indvars.iv.next.i551, %wide.trip.count.i545
-  br i1 %exitcond.not.i552, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit553", label %for.body.i546, !llvm.loop !42
+  br i1 %exitcond.not.i552, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit553", label %for.body.i546, !llvm.loop !42
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit553": ; preds = %for.body.i546, %invoke.cont311
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit553": ; preds = %for.body.i546, %invoke.cont311
   %148 = load ptr, ptr %m_data.i.i.i508, align 8
   %149 = load i32, ptr %m_dofCount.i, align 4
   %cmp2.i556 = icmp sgt i32 %149, -6
   br i1 %cmp2.i556, label %for.body.i557, label %invoke.cont314
 
-for.body.i557:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit553", %for.body.i557
-  %indvars.iv.i558 = phi i64 [ %indvars.iv.next.i561, %for.body.i557 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit553" ]
+for.body.i557:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit553", %for.body.i557
+  %indvars.iv.i558 = phi i64 [ %indvars.iv.next.i561, %for.body.i557 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit553" ]
   %arrayidx.i559 = getelementptr inbounds float, ptr %add.ptr176, i64 %indvars.iv.i558
   %150 = load float, ptr %arrayidx.i559, align 4
   %arrayidx4.i560 = getelementptr inbounds float, ptr %148, i64 %indvars.iv.i558
@@ -3566,7 +3566,7 @@ for.body.i557:                                    ; preds = %"_ZZN24btMultiBodyD
   %cmp.i562 = icmp slt i64 %indvars.iv.i558, %153
   br i1 %cmp.i562, label %for.body.i557, label %invoke.cont314, !llvm.loop !43
 
-invoke.cont314:                                   ; preds = %for.body.i557, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit553"
+invoke.cont314:                                   ; preds = %for.body.i557, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit553"
   %154 = load i8, ptr %m_jointFeedbackInWorldSpace, align 4
   %tobool322 = trunc i8 %154 to i1
   %155 = load i8, ptr %m_jointFeedbackInJointFrame, align 1
@@ -3579,7 +3579,7 @@ invoke.cont327:                                   ; preds = %invoke.cont314
   %157 = load ptr, ptr %m_data.i.i.i307, align 8
   %idxprom.i568 = sext i32 %156 to i64
   %arrayidx.i569 = getelementptr float, ptr %157, i64 %idxprom.i568
-  br i1 %cmp250932, label %for.body.preheader.i571, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579"
+  br i1 %cmp250932, label %for.body.preheader.i571, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit579"
 
 for.body.preheader.i571:                          ; preds = %invoke.cont327
   %wide.trip.count.i572 = zext nneg i32 %add159 to i64
@@ -3593,15 +3593,15 @@ for.body.i573:                                    ; preds = %for.body.i573, %for
   store float %158, ptr %arrayidx3.i576, align 4
   %indvars.iv.next.i577 = add nuw nsw i64 %indvars.iv.i574, 1
   %exitcond.not.i578 = icmp eq i64 %indvars.iv.next.i577, %wide.trip.count.i572
-  br i1 %exitcond.not.i578, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579", label %for.body.i573, !llvm.loop !40
+  br i1 %exitcond.not.i578, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit579", label %for.body.i573, !llvm.loop !40
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579": ; preds = %for.body.i573, %invoke.cont327
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit579": ; preds = %for.body.i573, %invoke.cont327
   %159 = load i32, ptr %m_posVarCnt.i, align 8
   %cmp6.i581 = icmp sgt i32 %159, -7
   br i1 %cmp6.i581, label %for.body.i585, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit592"
 
-for.body.i585:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579", %for.body.i585
-  %indvars.iv.i586 = phi i64 [ %indvars.iv.next.i589, %for.body.i585 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579" ]
+for.body.i585:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit579", %for.body.i585
+  %indvars.iv.i586 = phi i64 [ %indvars.iv.next.i589, %for.body.i585 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit579" ]
   %arrayidx.i587 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.3, i64 %indvars.iv.i586
   %160 = load float, ptr %arrayidx.i587, align 4
   %arrayidx3.i588 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i586
@@ -3613,12 +3613,12 @@ for.body.i585:                                    ; preds = %"_ZZN24btMultiBodyD
   %cmp.i591 = icmp slt i64 %indvars.iv.i586, %163
   br i1 %cmp.i591, label %for.body.i585, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit592", !llvm.loop !41
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit592": ; preds = %for.body.i585, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579"
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit592": ; preds = %for.body.i585, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.argprom.exit579"
   invoke void @_ZN11btMultiBody21stepPositionsMultiDofEfPfS0_(ptr noundef nonnull align 8 dereferenceable(640) %54, float noundef %115, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr176)
           to label %invoke.cont335 unwind label %lpad167
 
 invoke.cont335:                                   ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit592"
-  br i1 %cmp250932, label %for.body.preheader.i594, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit603"
+  br i1 %cmp250932, label %for.body.preheader.i594, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit603"
 
 for.body.preheader.i594:                          ; preds = %invoke.cont335
   %wide.trip.count.i595 = zext nneg i32 %add159 to i64
@@ -3635,16 +3635,16 @@ for.body.i596:                                    ; preds = %for.body.i596, %for
   store float %166, ptr %arrayidx5.i600, align 4
   %indvars.iv.next.i601 = add nuw nsw i64 %indvars.iv.i597, 1
   %exitcond.not.i602 = icmp eq i64 %indvars.iv.next.i601, %wide.trip.count.i595
-  br i1 %exitcond.not.i602, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit603", label %for.body.i596, !llvm.loop !42
+  br i1 %exitcond.not.i602, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit603", label %for.body.i596, !llvm.loop !42
 
-"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit603": ; preds = %for.body.i596, %invoke.cont335
+"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit603": ; preds = %for.body.i596, %invoke.cont335
   %167 = load ptr, ptr %m_data.i.i.i508, align 8
   %168 = load i32, ptr %m_dofCount.i, align 4
   %cmp2.i606 = icmp sgt i32 %168, -6
   br i1 %cmp2.i606, label %for.body.i607, label %invoke.cont337
 
-for.body.i607:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit603", %for.body.i607
-  %indvars.iv.i608 = phi i64 [ %indvars.iv.next.i611, %for.body.i607 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit603" ]
+for.body.i607:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit603", %for.body.i607
+  %indvars.iv.i608 = phi i64 [ %indvars.iv.next.i611, %for.body.i607 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit603" ]
   %arrayidx.i609 = getelementptr inbounds float, ptr %add.ptr178, i64 %indvars.iv.i608
   %169 = load float, ptr %arrayidx.i609, align 4
   %arrayidx4.i610 = getelementptr inbounds float, ptr %167, i64 %indvars.iv.i608
@@ -3656,7 +3656,7 @@ for.body.i607:                                    ; preds = %"_ZZN24btMultiBodyD
   %cmp.i612 = icmp slt i64 %indvars.iv.i608, %172
   br i1 %cmp.i612, label %for.body.i607, label %invoke.cont337, !llvm.loop !43
 
-invoke.cont337:                                   ; preds = %for.body.i607, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit603"
+invoke.cont337:                                   ; preds = %for.body.i607, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.argprom.exit603"
   %173 = load i8, ptr %m_jointFeedbackInWorldSpace, align 4
   %tobool345 = trunc i8 %173 to i1
   %174 = load i8, ptr %m_jointFeedbackInJointFrame, align 1

@@ -174,7 +174,7 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   %86 = or disjoint i32 %85, %84
   %87 = or disjoint i32 %86, %79
   switch i32 %87, label %95 [
-    i32 1, label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+    i32 1, label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
     i32 3, label %88
     i32 2, label %89
     i32 6, label %90
@@ -185,30 +185,30 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   ]
 
 88:                                               ; preds = %70
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
 
 89:                                               ; preds = %70
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
 
 90:                                               ; preds = %70
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
 
 91:                                               ; preds = %70
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
 
 92:                                               ; preds = %70
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
 
 93:                                               ; preds = %70
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
 
 94:                                               ; preds = %70
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
 
 95:                                               ; preds = %70
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
 
-_ZL20classifyOffMeshPointPKfS0_S0_.exit:          ; preds = %70, %88, %89, %90, %91, %92, %93, %94, %95
+_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit:  ; preds = %70, %88, %89, %90, %91, %92, %93, %94, %95
   %96 = phi i1 [ true, %95 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ false, %90 ], [ false, %89 ], [ false, %88 ], [ false, %70 ]
   %.0.i = phi i8 [ -1, %95 ], [ 7, %94 ], [ 6, %93 ], [ 5, %92 ], [ 4, %91 ], [ 3, %90 ], [ 2, %89 ], [ 1, %88 ], [ 0, %70 ]
   %97 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -229,25 +229,25 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit:          ; preds = %70, %88, %89, %90, 
   %109 = or disjoint i32 %108, %101
   %switch.tableidx = add nsw i32 %109, -1
   %110 = icmp ult i32 %switch.tableidx, 12
-  br i1 %110, label %switch.lookup, label %_ZL20classifyOffMeshPointPKfS0_S0_.exit512
+  br i1 %110, label %switch.lookup, label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit512
 
-switch.lookup:                                    ; preds = %_ZL20classifyOffMeshPointPKfS0_S0_.exit
+switch.lookup:                                    ; preds = %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit
   %111 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi, i64 0, i64 %111
   %switch.load = load i32, ptr %switch.gep, align 4
   %112 = zext nneg i32 %switch.tableidx to i64
   %switch.gep753 = getelementptr inbounds [12 x i8], ptr @switch.table._Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi.2, i64 0, i64 %112
   %switch.load754 = load i8, ptr %switch.gep753, align 1
-  br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit512
+  br label %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit512
 
-_ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMeshPointPKfS0_S0_.exit, %switch.lookup
-  %113 = phi i32 [ %switch.load, %switch.lookup ], [ 1, %_ZL20classifyOffMeshPointPKfS0_S0_.exit ]
-  %114 = phi i8 [ %switch.load754, %switch.lookup ], [ -1, %_ZL20classifyOffMeshPointPKfS0_S0_.exit ]
+_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit512: ; preds = %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit, %switch.lookup
+  %113 = phi i32 [ %switch.load, %switch.lookup ], [ 1, %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit ]
+  %114 = phi i8 [ %switch.load754, %switch.lookup ], [ -1, %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit ]
   %115 = getelementptr inbounds i8, ptr %26, i64 %74
   store i8 %114, ptr %115, align 1
   br i1 %96, label %116, label %122
 
-116:                                              ; preds = %_ZL20classifyOffMeshPointPKfS0_S0_.exit512
+116:                                              ; preds = %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit512
   %117 = getelementptr inbounds i8, ptr %73, i64 4
   %118 = load float, ptr %117, align 4
   %119 = fcmp olt float %118, %57
@@ -259,8 +259,8 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   store i8 0, ptr %97, align 1
   br label %122
 
-122:                                              ; preds = %116, %121, %_ZL20classifyOffMeshPointPKfS0_S0_.exit512
-  %123 = phi i8 [ %.0.i, %116 ], [ 0, %121 ], [ %.0.i, %_ZL20classifyOffMeshPointPKfS0_S0_.exit512 ]
+122:                                              ; preds = %116, %121, %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit512
+  %123 = phi i8 [ %.0.i, %116 ], [ 0, %121 ], [ %.0.i, %_ZL20classifyOffMeshPointPKfS0_S0_.argprom.exit512 ]
   %124 = icmp eq i8 %123, -1
   %125 = zext i1 %124 to i32
   %spec.select = add nsw i32 %.1427548, %125
@@ -1023,7 +1023,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %543, label %544, label %545
 
 544:                                              ; preds = %.loopexit
-  tail call fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNodei(ptr noundef nonnull %0, ptr noundef %242)
+  tail call fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNodei.argelim(ptr noundef nonnull %0, ptr noundef %242)
   br label %545
 
 545:                                              ; preds = %544, %.loopexit
@@ -1146,7 +1146,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNodei(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNodei.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load float, ptr %4, align 8
@@ -1454,7 +1454,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
 ._crit_edge144:                                   ; preds = %201, %2
   %.lcssa = phi i32 [ %12, %2 ], [ %202, %201 ]
   store i32 0, ptr %3, align 4
-  call fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode(ptr noundef %11, i32 noundef 0, i32 noundef %.lcssa, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %1)
+  call fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode.argelim(ptr noundef %11, i32 noundef 0, i32 noundef %.lcssa, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %1)
   call void @_Z6dtFreePv(ptr noundef %11)
   ret void
 }
@@ -2082,7 +2082,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %4) unnamed_addr #7 {
+define internal fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %4) unnamed_addr #7 {
   %6 = sub nsw i32 %2, %1
   %7 = load i32, ptr %3, align 4
   %8 = add nsw i32 %7, 1
@@ -2254,8 +2254,8 @@ _ZL11calcExtendsP6BVItemiiiPtS1_.exit:            ; preds = %93, %33
   tail call void @qsort(ptr noundef nonnull %36, i64 noundef %106, i64 noundef 16, ptr noundef nonnull %switch.select80)
   %107 = sdiv i32 %6, 2
   %108 = add nsw i32 %107, %1
-  tail call fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %108, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %4)
-  tail call fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode(ptr noundef nonnull %0, i32 noundef %108, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %4)
+  tail call fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode.argelim(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %108, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %4)
+  tail call fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode.argelim(ptr noundef nonnull %0, i32 noundef %108, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %4)
   %109 = load i32, ptr %3, align 4
   %.neg = sub nsw i32 %7, %109
   br label %common.ret

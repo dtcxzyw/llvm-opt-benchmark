@@ -956,7 +956,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %34 = ptrtoint ptr %.val51 to i64
   %35 = and i64 %34, -2
   %.not.i = icmp eq i64 %35, 0
-  br i1 %.not.i, label %Ivy_ObjChild0Equiv.exit, label %36
+  br i1 %.not.i, label %Ivy_ObjChild0Equiv.argprom.exit, label %36
 
 36:                                               ; preds = %32
   %37 = inttoptr i64 %35 to ptr
@@ -966,18 +966,18 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %41 = ptrtoint ptr %39 to i64
   %42 = xor i64 %40, %41
   %43 = inttoptr i64 %42 to ptr
-  br label %Ivy_ObjChild0Equiv.exit
+  br label %Ivy_ObjChild0Equiv.argprom.exit
 
-Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %36
+Ivy_ObjChild0Equiv.argprom.exit:                  ; preds = %32, %36
   %44 = phi ptr [ %43, %36 ], [ null, %32 ]
   %45 = getelementptr i8, ptr %26, i64 24
   %.val53 = load ptr, ptr %45, align 8
   %46 = ptrtoint ptr %.val53 to i64
   %47 = and i64 %46, -2
   %.not.i56 = icmp eq i64 %47, 0
-  br i1 %.not.i56, label %Ivy_ObjChild1Equiv.exit, label %48
+  br i1 %.not.i56, label %Ivy_ObjChild1Equiv.argprom.exit, label %48
 
-48:                                               ; preds = %Ivy_ObjChild0Equiv.exit
+48:                                               ; preds = %Ivy_ObjChild0Equiv.argprom.exit
   %49 = inttoptr i64 %47 to ptr
   %50 = getelementptr inbounds i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
@@ -985,18 +985,18 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %36
   %53 = ptrtoint ptr %51 to i64
   %54 = xor i64 %52, %53
   %55 = inttoptr i64 %54 to ptr
-  br label %Ivy_ObjChild1Equiv.exit
+  br label %Ivy_ObjChild1Equiv.argprom.exit
 
-Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.exit, %48
-  %56 = phi ptr [ %55, %48 ], [ null, %Ivy_ObjChild0Equiv.exit ]
+Ivy_ObjChild1Equiv.argprom.exit:                  ; preds = %Ivy_ObjChild0Equiv.argprom.exit, %48
+  %56 = phi ptr [ %55, %48 ], [ null, %Ivy_ObjChild0Equiv.argprom.exit ]
   %57 = call ptr @Ivy_And(ptr noundef %12, ptr noundef %44, ptr noundef %56) #25
   %58 = getelementptr inbounds i8, ptr %26, i64 72
   store ptr %57, ptr %58, align 8
   %.pre = load ptr, ptr %19, align 8
   br label %59
 
-59:                                               ; preds = %.lr.ph, %28, %Ivy_ObjChild1Equiv.exit
-  %60 = phi ptr [ %23, %.lr.ph ], [ %23, %28 ], [ %.pre, %Ivy_ObjChild1Equiv.exit ]
+59:                                               ; preds = %.lr.ph, %28, %Ivy_ObjChild1Equiv.argprom.exit
+  %60 = phi ptr [ %23, %.lr.ph ], [ %23, %28 ], [ %.pre, %Ivy_ObjChild1Equiv.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = getelementptr i8, ptr %60, i64 4
   %.val = load i32, ptr %61, align 4
@@ -1015,7 +1015,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %.pre79 = load ptr, ptr %13, align 8
   br i1 %68, label %.lr.ph68, label %.critedge2.preheader
 
-.critedge2.preheader:                             ; preds = %Ivy_ObjChild0Equiv.exit58, %.critedge
+.critedge2.preheader:                             ; preds = %Ivy_ObjChild0Equiv.argprom.exit58, %.critedge
   %69 = getelementptr inbounds i8, ptr %.pre79, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr i8, ptr %70, i64 4
@@ -1023,9 +1023,9 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %72 = icmp sgt i32 %.val4669, 0
   br i1 %72, label %.lr.ph71, label %.critedge4
 
-.lr.ph68:                                         ; preds = %.critedge, %Ivy_ObjChild0Equiv.exit58
-  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %Ivy_ObjChild0Equiv.exit58 ], [ 0, %.critedge ]
-  %73 = phi ptr [ %90, %Ivy_ObjChild0Equiv.exit58 ], [ %66, %.critedge ]
+.lr.ph68:                                         ; preds = %.critedge, %Ivy_ObjChild0Equiv.argprom.exit58
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %Ivy_ObjChild0Equiv.argprom.exit58 ], [ 0, %.critedge ]
+  %73 = phi ptr [ %90, %Ivy_ObjChild0Equiv.argprom.exit58 ], [ %66, %.critedge ]
   %74 = getelementptr i8, ptr %73, i64 8
   %.val48 = load ptr, ptr %74, align 8
   %75 = getelementptr inbounds ptr, ptr %.val48, i64 %indvars.iv73
@@ -1035,7 +1035,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %78 = ptrtoint ptr %.val52 to i64
   %79 = and i64 %78, -2
   %.not.i57 = icmp eq i64 %79, 0
-  br i1 %.not.i57, label %Ivy_ObjChild0Equiv.exit58, label %80
+  br i1 %.not.i57, label %Ivy_ObjChild0Equiv.argprom.exit58, label %80
 
 80:                                               ; preds = %.lr.ph68
   %81 = inttoptr i64 %79 to ptr
@@ -1045,9 +1045,9 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %85 = ptrtoint ptr %83 to i64
   %86 = xor i64 %84, %85
   %87 = inttoptr i64 %86 to ptr
-  br label %Ivy_ObjChild0Equiv.exit58
+  br label %Ivy_ObjChild0Equiv.argprom.exit58
 
-Ivy_ObjChild0Equiv.exit58:                        ; preds = %.lr.ph68, %80
+Ivy_ObjChild0Equiv.argprom.exit58:                ; preds = %.lr.ph68, %80
   %88 = phi ptr [ %87, %80 ], [ null, %.lr.ph68 ]
   %89 = call ptr @Ivy_ObjCreatePo(ptr noundef %.pre79, ptr noundef %88) #25
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
@@ -1937,13 +1937,13 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i, %1, %15
 78:                                               ; preds = %75
   %79 = load i32, ptr %76, align 4
   %80 = icmp slt i32 %.0115, %79
-  br i1 %80, label %Extra_ProgressBarUpdate.exit, label %81
+  br i1 %80, label %Extra_ProgressBarUpdate.argprom.exit, label %81
 
 81:                                               ; preds = %78, %75
   call void @Extra_ProgressBarUpdate_int(ptr noundef %76, i32 noundef %.0115, ptr noundef null) #25
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %78, %81
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %78, %81
   %82 = load ptr, ptr %36, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 200
   %84 = load ptr, ptr %83, align 8
@@ -1955,8 +1955,8 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %78, %81
   %.not.i.i = icmp eq i64 %87, 0
   br i1 %.not84, label %111, label %88
 
-88:                                               ; preds = %Extra_ProgressBarUpdate.exit
-  br i1 %.not.i.i, label %Ivy_ObjChild0Equiv.exit, label %89
+88:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
+  br i1 %.not.i.i, label %Ivy_ObjChild0Equiv.argprom.exit, label %89
 
 89:                                               ; preds = %88
   %90 = inttoptr i64 %87 to ptr
@@ -1966,18 +1966,18 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %78, %81
   %94 = ptrtoint ptr %92 to i64
   %95 = xor i64 %93, %94
   %96 = inttoptr i64 %95 to ptr
-  br label %Ivy_ObjChild0Equiv.exit
+  br label %Ivy_ObjChild0Equiv.argprom.exit
 
-Ivy_ObjChild0Equiv.exit:                          ; preds = %88, %89
+Ivy_ObjChild0Equiv.argprom.exit:                  ; preds = %88, %89
   %97 = phi ptr [ %96, %89 ], [ null, %88 ]
   %98 = getelementptr i8, ptr %69, i64 24
   %.val95 = load ptr, ptr %98, align 8
   %99 = ptrtoint ptr %.val95 to i64
   %100 = and i64 %99, -2
   %.not.i105 = icmp eq i64 %100, 0
-  br i1 %.not.i105, label %Ivy_ObjChild1Equiv.exit, label %101
+  br i1 %.not.i105, label %Ivy_ObjChild1Equiv.argprom.exit, label %101
 
-101:                                              ; preds = %Ivy_ObjChild0Equiv.exit
+101:                                              ; preds = %Ivy_ObjChild0Equiv.argprom.exit
   %102 = inttoptr i64 %100 to ptr
   %103 = getelementptr inbounds i8, ptr %102, i64 72
   %104 = load ptr, ptr %103, align 8
@@ -1985,15 +1985,15 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %88, %89
   %106 = ptrtoint ptr %104 to i64
   %107 = xor i64 %105, %106
   %108 = inttoptr i64 %107 to ptr
-  br label %Ivy_ObjChild1Equiv.exit
+  br label %Ivy_ObjChild1Equiv.argprom.exit
 
-Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.exit, %101
-  %109 = phi ptr [ %108, %101 ], [ null, %Ivy_ObjChild0Equiv.exit ]
+Ivy_ObjChild1Equiv.argprom.exit:                  ; preds = %Ivy_ObjChild0Equiv.argprom.exit, %101
+  %109 = phi ptr [ %108, %101 ], [ null, %Ivy_ObjChild0Equiv.argprom.exit ]
   %110 = call ptr @Ivy_And(ptr noundef nonnull %82, ptr noundef %97, ptr noundef %109) #25
   br label %.sink.split
 
-111:                                              ; preds = %Extra_ProgressBarUpdate.exit
-  br i1 %.not.i.i, label %Ivy_ObjChild0Equiv.exit.i, label %112
+111:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+  br i1 %.not.i.i, label %Ivy_ObjChild0Equiv.argprom.exit.i, label %112
 
 112:                                              ; preds = %111
   %113 = inttoptr i64 %87 to ptr
@@ -2003,18 +2003,18 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %117 = ptrtoint ptr %115 to i64
   %118 = xor i64 %116, %117
   %119 = inttoptr i64 %118 to ptr
-  br label %Ivy_ObjChild0Equiv.exit.i
+  br label %Ivy_ObjChild0Equiv.argprom.exit.i
 
-Ivy_ObjChild0Equiv.exit.i:                        ; preds = %112, %111
+Ivy_ObjChild0Equiv.argprom.exit.i:                ; preds = %112, %111
   %120 = phi ptr [ %119, %112 ], [ null, %111 ]
   %121 = getelementptr i8, ptr %69, i64 24
   %.val28.i = load ptr, ptr %121, align 8
   %122 = ptrtoint ptr %.val28.i to i64
   %123 = and i64 %122, -2
   %.not.i36.i = icmp eq i64 %123, 0
-  br i1 %.not.i36.i, label %Ivy_ObjChild1Equiv.exit.i, label %124
+  br i1 %.not.i36.i, label %Ivy_ObjChild1Equiv.argprom.exit.i, label %124
 
-124:                                              ; preds = %Ivy_ObjChild0Equiv.exit.i
+124:                                              ; preds = %Ivy_ObjChild0Equiv.argprom.exit.i
   %125 = inttoptr i64 %123 to ptr
   %126 = getelementptr inbounds i8, ptr %125, i64 72
   %127 = load ptr, ptr %126, align 8
@@ -2022,17 +2022,17 @@ Ivy_ObjChild0Equiv.exit.i:                        ; preds = %112, %111
   %129 = ptrtoint ptr %127 to i64
   %130 = xor i64 %128, %129
   %131 = inttoptr i64 %130 to ptr
-  br label %Ivy_ObjChild1Equiv.exit.i
+  br label %Ivy_ObjChild1Equiv.argprom.exit.i
 
-Ivy_ObjChild1Equiv.exit.i:                        ; preds = %124, %Ivy_ObjChild0Equiv.exit.i
-  %132 = phi ptr [ %131, %124 ], [ null, %Ivy_ObjChild0Equiv.exit.i ]
+Ivy_ObjChild1Equiv.argprom.exit.i:                ; preds = %124, %Ivy_ObjChild0Equiv.argprom.exit.i
+  %132 = phi ptr [ %131, %124 ], [ null, %Ivy_ObjChild0Equiv.argprom.exit.i ]
   %133 = call ptr @Ivy_And(ptr noundef nonnull %82, ptr noundef %120, ptr noundef %132) #25
   %134 = getelementptr i8, ptr %69, i64 40
   %.val34.i = load ptr, ptr %134, align 8
   %135 = icmp eq ptr %.val34.i, null
   br i1 %135, label %.sink.split, label %136
 
-136:                                              ; preds = %Ivy_ObjChild1Equiv.exit.i
+136:                                              ; preds = %Ivy_ObjChild1Equiv.argprom.exit.i
   %137 = load ptr, ptr %0, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 48
   %139 = load i32, ptr %138, align 8
@@ -2121,7 +2121,7 @@ Ivy_FraigNodesAreEquiv.exit.thread.i:             ; preds = %166
 
 187:                                              ; preds = %179, %174
   call fastcc void @Ivy_FraigNodeAddToSolver(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %149)
-  call fastcc void @Ivy_FraigSetActivityFactors(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %149)
+  call fastcc void @Ivy_FraigSetActivityFactors.retelim(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %149)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %188 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #25
   %189 = icmp slt i32 %188, 0
@@ -2583,8 +2583,8 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   call void @Ivy_FraigResimulate(ptr noundef nonnull %0)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.loopexit.i, %439, %Ivy_FraigNodesAreEquiv.exit.i, %Ivy_FraigNodesAreEquiv.exit.thread.i, %145, %140, %Ivy_ObjChild1Equiv.exit.i, %Ivy_ObjChild1Equiv.exit
-  %.sink = phi ptr [ %110, %Ivy_ObjChild1Equiv.exit ], [ %448, %439 ], [ %133, %.loopexit.i ], [ %133, %140 ], [ %133, %Ivy_ObjChild1Equiv.exit.i ], [ %133, %145 ], [ %133, %Ivy_FraigNodesAreEquiv.exit.i ], [ %133, %Ivy_FraigNodesAreEquiv.exit.thread.i ]
+.sink.split:                                      ; preds = %.loopexit.i, %439, %Ivy_FraigNodesAreEquiv.exit.i, %Ivy_FraigNodesAreEquiv.exit.thread.i, %145, %140, %Ivy_ObjChild1Equiv.argprom.exit.i, %Ivy_ObjChild1Equiv.argprom.exit
+  %.sink = phi ptr [ %110, %Ivy_ObjChild1Equiv.argprom.exit ], [ %448, %439 ], [ %133, %.loopexit.i ], [ %133, %140 ], [ %133, %Ivy_ObjChild1Equiv.argprom.exit.i ], [ %133, %145 ], [ %133, %Ivy_FraigNodesAreEquiv.exit.i ], [ %133, %Ivy_FraigNodesAreEquiv.exit.thread.i ]
   %451 = getelementptr inbounds i8, ptr %69, i64 72
   store ptr %.sink, ptr %451, align 8
   br label %452
@@ -2645,8 +2645,8 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   %481 = icmp sgt i32 %.val85116, 0
   br i1 %481, label %.lr.ph118, label %.critedge2.preheader
 
-.critedge2.preheader:                             ; preds = %Ivy_ObjChild0Equiv.exit108, %476
-  %482 = phi ptr [ %477, %476 ], [ %505, %Ivy_ObjChild0Equiv.exit108 ]
+.critedge2.preheader:                             ; preds = %Ivy_ObjChild0Equiv.argprom.exit108, %476
+  %482 = phi ptr [ %477, %476 ], [ %505, %Ivy_ObjChild0Equiv.argprom.exit108 ]
   %483 = getelementptr inbounds i8, ptr %482, i64 24
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr i8, ptr %484, i64 4
@@ -2654,9 +2654,9 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   %486 = icmp sgt i32 %.val86119, 0
   br i1 %486, label %.lr.ph121, label %.critedge4.preheader
 
-.lr.ph118:                                        ; preds = %476, %Ivy_ObjChild0Equiv.exit108
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %Ivy_ObjChild0Equiv.exit108 ], [ 0, %476 ]
-  %487 = phi ptr [ %507, %Ivy_ObjChild0Equiv.exit108 ], [ %479, %476 ]
+.lr.ph118:                                        ; preds = %476, %Ivy_ObjChild0Equiv.argprom.exit108
+  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %Ivy_ObjChild0Equiv.argprom.exit108 ], [ 0, %476 ]
+  %487 = phi ptr [ %507, %Ivy_ObjChild0Equiv.argprom.exit108 ], [ %479, %476 ]
   %488 = getelementptr i8, ptr %487, i64 8
   %.val89 = load ptr, ptr %488, align 8
   %489 = getelementptr inbounds ptr, ptr %.val89, i64 %indvars.iv133
@@ -2667,7 +2667,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   %493 = ptrtoint ptr %.val94 to i64
   %494 = and i64 %493, -2
   %.not.i107 = icmp eq i64 %494, 0
-  br i1 %.not.i107, label %Ivy_ObjChild0Equiv.exit108, label %495
+  br i1 %.not.i107, label %Ivy_ObjChild0Equiv.argprom.exit108, label %495
 
 495:                                              ; preds = %.lr.ph118
   %496 = inttoptr i64 %494 to ptr
@@ -2677,9 +2677,9 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   %500 = ptrtoint ptr %498 to i64
   %501 = xor i64 %499, %500
   %502 = inttoptr i64 %501 to ptr
-  br label %Ivy_ObjChild0Equiv.exit108
+  br label %Ivy_ObjChild0Equiv.argprom.exit108
 
-Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph118, %495
+Ivy_ObjChild0Equiv.argprom.exit108:               ; preds = %.lr.ph118, %495
   %503 = phi ptr [ %502, %495 ], [ null, %.lr.ph118 ]
   %504 = call ptr @Ivy_ObjCreatePo(ptr noundef %491, ptr noundef %503) #25
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
@@ -3056,7 +3056,7 @@ Abc_Clock.exit:
   %38 = ptrtoint ptr %.val60 to i64
   %39 = and i64 %38, -2
   %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %Ivy_ObjChild0Equiv.exit, label %40
+  br i1 %.not.i, label %Ivy_ObjChild0Equiv.argprom.exit, label %40
 
 40:                                               ; preds = %32
   %41 = inttoptr i64 %39 to ptr
@@ -3066,9 +3066,9 @@ Abc_Clock.exit:
   %45 = ptrtoint ptr %43 to i64
   %46 = xor i64 %44, %45
   %47 = inttoptr i64 %46 to ptr
-  br label %Ivy_ObjChild0Equiv.exit
+  br label %Ivy_ObjChild0Equiv.argprom.exit
 
-Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
+Ivy_ObjChild0Equiv.argprom.exit:                  ; preds = %32, %40
   %48 = phi ptr [ %47, %40 ], [ null, %32 ]
   %49 = load ptr, ptr %15, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 32
@@ -3076,7 +3076,7 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
   %52 = icmp eq ptr %48, %51
   br i1 %52, label %53, label %65
 
-53:                                               ; preds = %Ivy_ObjChild0Equiv.exit
+53:                                               ; preds = %Ivy_ObjChild0Equiv.argprom.exit
   %54 = getelementptr i8, ptr %49, i64 124
   %.val64 = load i32, ptr %54, align 4
   %55 = sext i32 %.val64 to i64
@@ -3094,7 +3094,7 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
   call void @llvm.memset.p0.i64(ptr align 1 %61, i8 0, i64 %64, i1 false)
   br label %.critedge
 
-65:                                               ; preds = %Ivy_ObjChild0Equiv.exit
+65:                                               ; preds = %Ivy_ObjChild0Equiv.argprom.exit
   %66 = ptrtoint ptr %51 to i64
   %67 = xor i64 %66, 1
   %68 = inttoptr i64 %67 to ptr
@@ -3157,7 +3157,7 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
 
 105:                                              ; preds = %97, %92
   call fastcc void @Ivy_FraigNodeAddToSolver(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %73)
-  call fastcc void @Ivy_FraigSetActivityFactors(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %73)
+  call fastcc void @Ivy_FraigSetActivityFactors.retelim(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %73)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %106 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #25
   %107 = icmp slt i32 %106, 0
@@ -5002,7 +5002,7 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %17
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %.not50 = icmp eq i32 %26, 0
-  br i1 %.not50, label %Ivy_FraigAddToPatScores.exit.thread, label %.lr.ph.i58
+  br i1 %.not50, label %Ivy_FraigAddToPatScores.argprom.exit.thread, label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %Ivy_NodeCompareSims.exit.split.us, %.loopexit.i
   %27 = phi i32 [ %47, %.loopexit.i ], [ %11, %Ivy_NodeCompareSims.exit.split.us ]
@@ -5051,9 +5051,9 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %17
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next7.i, %48
-  br i1 %49, label %.lr.ph.i58, label %Ivy_FraigAddToPatScores.exit.thread, !llvm.loop !54
+  br i1 %49, label %.lr.ph.i58, label %Ivy_FraigAddToPatScores.argprom.exit.thread, !llvm.loop !54
 
-Ivy_FraigAddToPatScores.exit.thread:              ; preds = %.loopexit.i, %Ivy_NodeCompareSims.exit.split.us
+Ivy_FraigAddToPatScores.argprom.exit.thread:      ; preds = %.loopexit.i, %Ivy_NodeCompareSims.exit.split.us
   %50 = getelementptr inbounds i8, ptr %.047108.us, i64 40
   store ptr null, ptr %50, align 8
   %51 = getelementptr i8, ptr %.047108.us, i64 48
@@ -5061,10 +5061,10 @@ Ivy_FraigAddToPatScores.exit.thread:              ; preds = %.loopexit.i, %Ivy_N
   %.not51125 = icmp eq ptr %.043124, null
   br i1 %.not51125, label %._crit_edge, label %.lr.ph129
 
-.lr.ph129:                                        ; preds = %Ivy_FraigAddToPatScores.exit.thread, %66
-  %.043128 = phi ptr [ %.043, %66 ], [ %.043124, %Ivy_FraigAddToPatScores.exit.thread ]
-  %.044127 = phi ptr [ %.1, %66 ], [ %.047108.us, %Ivy_FraigAddToPatScores.exit.thread ]
-  %.146126 = phi ptr [ %.2, %66 ], [ %.045107.us, %Ivy_FraigAddToPatScores.exit.thread ]
+.lr.ph129:                                        ; preds = %Ivy_FraigAddToPatScores.argprom.exit.thread, %66
+  %.043128 = phi ptr [ %.043, %66 ], [ %.043124, %Ivy_FraigAddToPatScores.argprom.exit.thread ]
+  %.044127 = phi ptr [ %.1, %66 ], [ %.047108.us, %Ivy_FraigAddToPatScores.argprom.exit.thread ]
+  %.146126 = phi ptr [ %.2, %66 ], [ %.045107.us, %Ivy_FraigAddToPatScores.argprom.exit.thread ]
   %.val10.i63 = load ptr, ptr %13, align 8
   %52 = getelementptr inbounds i8, ptr %.val10.i63, i64 32
   %53 = load i32, ptr %4, align 8
@@ -5112,9 +5112,9 @@ Ivy_NodeCompareSims.exit72:                       ; preds = %58
   %.not51 = icmp eq ptr %.043, null
   br i1 %.not51, label %._crit_edge, label %.lr.ph129, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %66, %Ivy_FraigAddToPatScores.exit.thread
-  %.146.lcssa = phi ptr [ %.045107.us, %Ivy_FraigAddToPatScores.exit.thread ], [ %.2, %66 ]
-  %.044.lcssa = phi ptr [ %.047108.us, %Ivy_FraigAddToPatScores.exit.thread ], [ %.1, %66 ]
+._crit_edge:                                      ; preds = %66, %Ivy_FraigAddToPatScores.argprom.exit.thread
+  %.146.lcssa = phi ptr [ %.045107.us, %Ivy_FraigAddToPatScores.argprom.exit.thread ], [ %.2, %66 ]
+  %.044.lcssa = phi ptr [ %.047108.us, %Ivy_FraigAddToPatScores.argprom.exit.thread ], [ %.1, %66 ]
   %68 = getelementptr inbounds i8, ptr %.044.lcssa, i64 48
   store ptr null, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %.146.lcssa, i64 48
@@ -6784,14 +6784,14 @@ define void @Ivy_FraigCollectSuper_rec(ptr noundef %0, ptr noundef %1, i32 nound
 
 tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %11, %.split.split.us, %.split13, %.lr.ph.split, %21, %24, %4
   %.tr.lcssa = phi ptr [ %0, %4 ], [ %.tr29, %24 ], [ %.tr29, %21 ], [ %.tr29, %.lr.ph.split ], [ %.val21, %.split13 ], [ %.val22, %.split.split.us ], [ %.tr.ph49, %11 ], [ %.tr.ph49, %.lr.ph.split.us ]
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.tr.lcssa)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %1, ptr noundef %.tr.lcssa)
   ret void
 }
 
 declare i32 @Ivy_ObjIsMuxType(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -7827,8 +7827,8 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr n
   %39 = getelementptr i8, ptr %0, i64 24
   br label %40
 
-40:                                               ; preds = %.lr.ph66, %Ivy_ObjChild1Equiv.exit
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %Ivy_ObjChild1Equiv.exit ]
+40:                                               ; preds = %.lr.ph66, %Ivy_ObjChild1Equiv.argprom.exit
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %Ivy_ObjChild1Equiv.argprom.exit ]
   %.val56 = load ptr, ptr %8, align 8
   %41 = getelementptr inbounds i32, ptr %.val56, i64 %indvars.iv69
   %42 = load i32, ptr %41, align 4
@@ -7847,7 +7847,7 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr n
   %49 = ptrtoint ptr %.val to i64
   %50 = and i64 %49, -2
   %.not.i = icmp eq i64 %50, 0
-  br i1 %.not.i, label %Ivy_ObjChild0Equiv.exit, label %51
+  br i1 %.not.i, label %Ivy_ObjChild0Equiv.argprom.exit, label %51
 
 51:                                               ; preds = %47
   %52 = inttoptr i64 %50 to ptr
@@ -7857,18 +7857,18 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr n
   %56 = ptrtoint ptr %54 to i64
   %57 = xor i64 %55, %56
   %58 = inttoptr i64 %57 to ptr
-  br label %Ivy_ObjChild0Equiv.exit
+  br label %Ivy_ObjChild0Equiv.argprom.exit
 
-Ivy_ObjChild0Equiv.exit:                          ; preds = %47, %51
+Ivy_ObjChild0Equiv.argprom.exit:                  ; preds = %47, %51
   %59 = phi ptr [ %58, %51 ], [ null, %47 ]
   %60 = getelementptr i8, ptr %46, i64 24
   %.val48 = load ptr, ptr %60, align 8
   %61 = ptrtoint ptr %.val48 to i64
   %62 = and i64 %61, -2
   %.not.i59 = icmp eq i64 %62, 0
-  br i1 %.not.i59, label %Ivy_ObjChild1Equiv.exit, label %63
+  br i1 %.not.i59, label %Ivy_ObjChild1Equiv.argprom.exit, label %63
 
-63:                                               ; preds = %Ivy_ObjChild0Equiv.exit
+63:                                               ; preds = %Ivy_ObjChild0Equiv.argprom.exit
   %64 = inttoptr i64 %62 to ptr
   %65 = getelementptr inbounds i8, ptr %64, i64 72
   %66 = load ptr, ptr %65, align 8
@@ -7876,10 +7876,10 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %47, %51
   %68 = ptrtoint ptr %66 to i64
   %69 = xor i64 %67, %68
   %70 = inttoptr i64 %69 to ptr
-  br label %Ivy_ObjChild1Equiv.exit
+  br label %Ivy_ObjChild1Equiv.argprom.exit
 
-Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.exit, %63
-  %71 = phi ptr [ %70, %63 ], [ null, %Ivy_ObjChild0Equiv.exit ]
+Ivy_ObjChild1Equiv.argprom.exit:                  ; preds = %Ivy_ObjChild0Equiv.argprom.exit, %63
+  %71 = phi ptr [ %70, %63 ], [ null, %Ivy_ObjChild0Equiv.argprom.exit ]
   %72 = tail call ptr @Aig_And(ptr noundef %16, ptr noundef %59, ptr noundef %71) #25
   %73 = getelementptr inbounds i8, ptr %46, i64 72
   store ptr %72, ptr %73, align 8
@@ -7893,7 +7893,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %78 = icmp slt i64 %indvars.iv.next70, %77
   br i1 %78, label %40, label %.critedge2, !llvm.loop !81
 
-.critedge2:                                       ; preds = %40, %Ivy_ObjChild1Equiv.exit, %.critedge
+.critedge2:                                       ; preds = %40, %Ivy_ObjChild1Equiv.argprom.exit, %.critedge
   %79 = getelementptr inbounds i8, ptr %1, i64 72
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %2, i64 72
@@ -8089,7 +8089,7 @@ define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr nocapture noundef %0, 
   %34 = ptrtoint ptr %.val75 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %24, ptr noundef %36)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %24, ptr noundef %36)
   %37 = getelementptr i8, ptr %22, i64 24
   %.val80 = load ptr, ptr %37, align 8
   %38 = ptrtoint ptr %.val80 to i64
@@ -8100,7 +8100,7 @@ define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr nocapture noundef %0, 
   %42 = ptrtoint ptr %.val74 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %24, ptr noundef %44)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %24, ptr noundef %44)
   %.val73 = load ptr, ptr %29, align 8
   %45 = ptrtoint ptr %.val73 to i64
   %46 = and i64 %45, -2
@@ -8110,7 +8110,7 @@ define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr nocapture noundef %0, 
   %49 = ptrtoint ptr %.val79 to i64
   %50 = and i64 %49, -2
   %51 = inttoptr i64 %50 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %24, ptr noundef %51)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %24, ptr noundef %51)
   %.val78 = load ptr, ptr %37, align 8
   %52 = ptrtoint ptr %.val78 to i64
   %53 = and i64 %52, -2
@@ -8120,7 +8120,7 @@ define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr nocapture noundef %0, 
   %56 = ptrtoint ptr %.val77 to i64
   %57 = and i64 %56, -2
   %58 = inttoptr i64 %57 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %24, ptr noundef %58)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %24, ptr noundef %58)
   %.val6898 = load i32, ptr %25, align 4
   %59 = icmp sgt i32 %.val6898, 0
   br i1 %59, label %.lr.ph, label %.critedge2
@@ -8379,7 +8379,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %161
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_FraigSetActivityFactors(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @Ivy_FraigSetActivityFactors.retelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

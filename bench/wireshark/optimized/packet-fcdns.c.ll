@@ -1850,7 +1850,7 @@ define internal fastcc void @dissect_fcdns_geid(ptr noundef %0, ptr noundef %1, 
   br label %8
 
 7:                                                ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -1868,7 +1868,7 @@ define internal fastcc void @dissect_fcdns_gepn(ptr noundef %0, ptr noundef %1, 
   br label %8
 
 7:                                                ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -1886,7 +1886,7 @@ define internal fastcc void @dissect_fcdns_genn(ptr noundef %0, ptr noundef %1, 
   br label %8
 
 7:                                                ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -1908,7 +1908,7 @@ define internal fastcc void @dissect_fcdns_geip(ptr noundef %0, ptr noundef %1, 
   br label %9
 
 8:                                                ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %4, %5, %8
@@ -1930,7 +1930,7 @@ define internal fastcc void @dissect_fcdns_geft(ptr noundef %0, ptr noundef %1, 
   br label %8
 
 7:                                                ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %4, %5, %7
@@ -1952,7 +1952,7 @@ define internal fastcc void @dissect_fcdns_gept(ptr noundef %0, ptr noundef %1, 
   br label %9
 
 8:                                                ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %4, %5, %8
@@ -2012,7 +2012,7 @@ define internal fastcc void @dissect_fcdns_gezm(ptr noundef %0, ptr noundef %1, 
   br label %dissect_fcdns_zone_mbr.exit
 
 35:                                               ; preds = %4
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %2)
   br label %dissect_fcdns_zone_mbr.exit
 
 dissect_fcdns_zone_mbr.exit:                      ; preds = %33, %24, %21, %18, %15, %35
@@ -2038,7 +2038,7 @@ define internal fastcc void @dissect_fcdns_gezn(ptr noundef %0, ptr noundef %1, 
   br label %13
 
 12:                                               ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %13
 
 13:                                               ; preds = %4, %5, %12
@@ -2060,7 +2060,7 @@ define internal fastcc void @dissect_fcdns_geipp(ptr noundef %0, ptr noundef %1,
   br label %9
 
 8:                                                ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %4, %5, %8
@@ -2083,7 +2083,7 @@ define internal fastcc void @dissect_fcdns_geff(ptr noundef %0, ptr noundef %1, 
   br label %10
 
 9:                                                ; preds = %3
-  tail call fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1)
   br label %10
 
 10:                                               ; preds = %4, %5, %9
@@ -2208,7 +2208,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_fcdns_swils_entries.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 

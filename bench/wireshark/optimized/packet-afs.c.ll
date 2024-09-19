@@ -1920,7 +1920,7 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
   br label %71
 
 9:                                                ; preds = %5
-  tail call fastcc void @dissect_acl(ptr noundef %0)
+  tail call fastcc void @dissect_acl.argprom(ptr noundef %0)
   tail call fastcc void @OUT_FS_AFSFetchStatus(ptr noundef %0, ptr noundef nonnull @.str.245)
   tail call fastcc void @OUT_FS_AFSVolSync(ptr noundef %0)
   br label %71
@@ -2206,7 +2206,7 @@ define internal void @dissect_fs_request(ptr noundef %0, ptr nocapture readnone 
   %59 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
   %60 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef 0) #6
   tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
-  tail call fastcc void @dissect_acl(ptr noundef %0)
+  tail call fastcc void @dissect_acl.argprom(ptr noundef %0)
   br label %OUT_RXString.exit
 
 61:                                               ; preds = %3
@@ -5027,7 +5027,7 @@ define internal fastcc void @OUT_FS_AFSVolSync(ptr noundef %0) unnamed_addr #0 {
 declare ptr @ptvcursor_add(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @dissect_acl.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

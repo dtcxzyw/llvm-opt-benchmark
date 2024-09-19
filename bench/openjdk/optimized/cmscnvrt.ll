@@ -46,7 +46,7 @@ define hidden void @_cmsAllocIntentsPluginChunk(ptr nocapture noundef %0, ptr no
   %9 = load ptr, ptr %6, align 8
   %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 280) #7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %DupPluginIntentsList.exit, label %12
+  br i1 %11, label %DupPluginIntentsList.argprom.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %10, i64 272
@@ -75,9 +75,9 @@ define hidden void @_cmsAllocIntentsPluginChunk(ptr nocapture noundef %0, ptr no
   %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #7
   %22 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %21, ptr %22, align 8
-  br label %DupPluginIntentsList.exit
+  br label %DupPluginIntentsList.argprom.exit
 
-DupPluginIntentsList.exit:                        ; preds = %7, %._crit_edge.i
+DupPluginIntentsList.argprom.exit:                ; preds = %7, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %28
 
@@ -89,7 +89,7 @@ DupPluginIntentsList.exit:                        ; preds = %7, %._crit_edge.i
   store ptr %26, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %23, %DupPluginIntentsList.exit
+28:                                               ; preds = %23, %DupPluginIntentsList.argprom.exit
   ret void
 }
 

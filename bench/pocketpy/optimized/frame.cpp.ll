@@ -221,12 +221,12 @@ define void @_ZN4pkpy10FastLocals11to_namedictEv(ptr dead_on_unwind noalias writ
   %17 = load ptr, ptr @_ZN4pkpy7PY_NULLE, align 8
   br label %18
 
-18:                                               ; preds = %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i.i", %13
-  %indvars.iv.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i, %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i.i" ]
+18:                                               ; preds = %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i.i", %13
+  %indvars.iv.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i, %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i.i" ]
   %19 = getelementptr inbounds [8 x %"struct.pkpy::StrName"], ptr %14, i64 0, i64 %indvars.iv.i.i
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, 0
-  br i1 %21, label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i.i", label %22
+  br i1 %21, label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i.i", label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i.i
@@ -236,13 +236,13 @@ define void @_ZN4pkpy10FastLocals11to_namedictEv(ptr dead_on_unwind noalias writ
   %26 = getelementptr inbounds ptr, ptr %.val.val.i.i, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i = icmp eq ptr %27, %17
-  br i1 %.not.i.i.i, label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i.i", label %28
+  br i1 %.not.i.i.i, label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i.i", label %28
 
 28:                                               ; preds = %22
   invoke void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_(ptr noundef nonnull align 8 dereferenceable(88) %7, i16 %20, ptr noundef %27)
-          to label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i.i" unwind label %.loopexit
+          to label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i.i" unwind label %.loopexit
 
-"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i.i": ; preds = %28, %22, %18
+"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i.i": ; preds = %28, %22, %18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %"_ZNK4pkpy12NameDictImplIiE5applyIZNS_10FastLocals11to_namedictEvE3$_0EEvT_.exit", label %18, !llvm.loop !10
@@ -259,14 +259,14 @@ define void @_ZN4pkpy10FastLocals11to_namedictEv(ptr dead_on_unwind noalias writ
   %34 = load ptr, ptr @_ZN4pkpy7PY_NULLE, align 8
   br label %35
 
-35:                                               ; preds = %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i7.i", %.lr.ph.i.i
-  %36 = phi i16 [ %31, %.lr.ph.i.i ], [ %48, %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i7.i" ]
-  %indvars.iv.i4.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i8.i, %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i7.i" ]
+35:                                               ; preds = %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i7.i", %.lr.ph.i.i
+  %36 = phi i16 [ %31, %.lr.ph.i.i ], [ %48, %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i7.i" ]
+  %indvars.iv.i4.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i8.i, %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i7.i" ]
   %37 = load ptr, ptr %32, align 8
   %38 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %37, i64 %indvars.iv.i4.i
   %39 = load i16, ptr %38, align 2
   %40 = icmp eq i16 %39, 0
-  br i1 %40, label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i7.i", label %41
+  br i1 %40, label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i7.i", label %41
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds i8, ptr %38, i64 4
@@ -276,7 +276,7 @@ define void @_ZN4pkpy10FastLocals11to_namedictEv(ptr dead_on_unwind noalias writ
   %45 = getelementptr inbounds ptr, ptr %.val.val.i5.i, i64 %44
   %46 = load ptr, ptr %45, align 8
   %.not.i.i6.i = icmp eq ptr %46, %34
-  br i1 %.not.i.i6.i, label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i7.i", label %47
+  br i1 %.not.i.i6.i, label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i7.i", label %47
 
 47:                                               ; preds = %41
   invoke void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_(ptr noundef nonnull align 8 dereferenceable(88) %7, i16 %39, ptr noundef %46)
@@ -284,9 +284,9 @@ define void @_ZN4pkpy10FastLocals11to_namedictEv(ptr dead_on_unwind noalias writ
 
 .noexc3:                                          ; preds = %47
   %.pre.i.i = load i16, ptr %30, align 2
-  br label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i7.i"
+  br label %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i7.i"
 
-"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i7.i": ; preds = %.noexc3, %41, %35
+"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i7.i": ; preds = %.noexc3, %41, %35
   %48 = phi i16 [ %.pre.i.i, %.noexc3 ], [ %36, %41 ], [ %36, %35 ]
   %indvars.iv.next.i8.i = add nuw nsw i64 %indvars.iv.i4.i, 1
   %49 = zext i16 %48 to i64
@@ -308,7 +308,7 @@ define void @_ZN4pkpy10FastLocals11to_namedictEv(ptr dead_on_unwind noalias writ
   tail call void @_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   resume { ptr, i32 } %lpad.phi
 
-"_ZNK4pkpy12NameDictImplIiE5applyIZNS_10FastLocals11to_namedictEvE3$_0EEvT_.exit": ; preds = %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i7.i", %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.exit.i.i", %29
+"_ZNK4pkpy12NameDictImplIiE5applyIZNS_10FastLocals11to_namedictEvE3$_0EEvT_.exit": ; preds = %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i7.i", %"_ZZN4pkpy10FastLocals11to_namedictEvENK3$_0clENS_7StrNameEi.argprom.argprom.exit.i.i", %29
   ret void
 }
 

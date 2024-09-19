@@ -3321,7 +3321,7 @@ _ZNSt6vectorISt10shared_ptrIN3gmx19IRestraintPotentialEESaIS3_EED2Ev.exit: ; pre
           cleanup
   br label %.body419
 
-.loopexit.split-lp1108.loopexit.split-lp:         ; preds = %.invoke1161, %943, %895, %964, %963, %959, %_ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.exit, %936, %926, %_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit427, %883, %._crit_edge1120, %825, %_ZNK3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE6notifyES3_.exit, %745, %743, %_ZNSt6vectorISt10shared_ptrIN3gmx19IRestraintPotentialEESaIS3_EED2Ev.exit, %581
+.loopexit.split-lp1108.loopexit.split-lp:         ; preds = %.invoke1161, %943, %895, %964, %963, %959, %_ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.argprom.exit, %936, %926, %_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit427, %883, %._crit_edge1120, %825, %_ZNK3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE6notifyES3_.exit, %745, %743, %_ZNSt6vectorISt10shared_ptrIN3gmx19IRestraintPotentialEESaIS3_EED2Ev.exit, %581
   %lpad.loopexit.split-lp1113 = landingpad { ptr, i32 }
           cleanup
   br label %.body419
@@ -4133,9 +4133,9 @@ _ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit427: ; preds = %_ZSt1
 
 943:                                              ; preds = %934, %933
   %944 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.9, i32 noundef 1273, i64 noundef 1, i64 noundef 104)
-          to label %_ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp1108.loopexit.split-lp
+          to label %_ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp1108.loopexit.split-lp
 
-_ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.exit: ; preds = %943
+_ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.argprom.exit: ; preds = %943
   %945 = load ptr, ptr %31, align 8
   %946 = load ptr, ptr %40, align 8
   %947 = getelementptr inbounds i8, ptr %946, i64 52
@@ -4157,7 +4157,7 @@ _ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.exit: ; preds = %943
   invoke void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode6DDRole8NumRanksP10tmpi_comm_PK14gmx_multisim_tP12t_disresdataP7t_stateb(ptr noundef %945, ptr noundef nonnull align 8 dereferenceable(768) %27, ptr noundef nonnull %632, i32 noundef 0, i32 noundef %not., i32 noundef %952, ptr noundef %954, ptr noundef %955, ptr noundef %944, ptr noundef %956, i1 noundef zeroext %958)
           to label %959 unwind label %.loopexit.split-lp1108.loopexit.split-lp
 
-959:                                              ; preds = %_ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.exit
+959:                                              ; preds = %_ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.argprom.exit
   %960 = invoke noundef i32 @_Z20gmx_mtop_ftype_countRK10gmx_mtop_ti(ptr noundef nonnull align 8 dereferenceable(768) %27, i32 noundef 56)
           to label %961 unwind label %.loopexit.split-lp1108.loopexit.split-lp
 
@@ -4556,21 +4556,21 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i437: ; preds = %_ZN3gmx14
   %1144 = getelementptr inbounds i8, ptr %632, i64 340
   %.val.i = load i32, ptr %1144, align 4
   switch i32 %.val.i, label %1154 [
-    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i
-    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i
-    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i
-    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i
-    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i
-    i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i
+    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i
   ]
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i: ; preds = %1140, %1140, %1140, %1140, %1140, %1140
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %1140, %1140, %1140, %1140, %1140, %1140
   %1145 = getelementptr inbounds i8, ptr %632, i64 368
   %1146 = load i32, ptr %1145, align 8
   %1147 = icmp eq i32 %1146, 0
   br i1 %1147, label %1148, label %1154
 
-1148:                                             ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i
+1148:                                             ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i
   %1149 = getelementptr inbounds i8, ptr %632, i64 352
   %1150 = load float, ptr %1149, align 8
   %1151 = getelementptr inbounds i8, ptr %632, i64 380
@@ -4578,7 +4578,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i: ; preds = %1140, %
   %1153 = fcmp ult float %1150, %1152
   br i1 %1153, label %.invoke1165, label %1163
 
-1154:                                             ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.i, %1140
+1154:                                             ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.i, %1140
   %1155 = getelementptr inbounds i8, ptr %632, i64 352
   %1156 = load float, ptr %1155, align 8
   %1157 = getelementptr inbounds i8, ptr %632, i64 380
@@ -5235,7 +5235,7 @@ _ZSt11make_uniqueIN3gmx26DomainDecompositionBuilderEJRNS0_8MDLoggerERP9t_commrec
   %.pre1135 = load i32, ptr %.phi.trans.insert1134, align 8
   br label %1452
 
-1420:                                             ; preds = %1411, %_ZL8usingPmeRK22CoulombInteractionType.exit, %1445, %1394, %1391
+1420:                                             ; preds = %1411, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit, %1445, %1394, %1391
   %1421 = landingpad { ptr, i32 }
           cleanup
   br label %.body484
@@ -5316,7 +5316,7 @@ _ZSt11make_uniqueIN3gmx26DomainDecompositionBuilderEJRNS0_8MDLoggerERP9t_commrec
   %1470 = icmp ne i32 %1469, 0
   %1471 = getelementptr inbounds i8, ptr %1346, i64 340
   %.val288 = load i32, ptr %1471, align 4
-  switch i32 %.val288, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
+  switch i32 %.val288, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit [
     i32 3, label %1472
     i32 14, label %1472
     i32 13, label %1472
@@ -5327,14 +5327,14 @@ _ZSt11make_uniqueIN3gmx26DomainDecompositionBuilderEJRNS0_8MDLoggerERP9t_commrec
 1472:                                             ; preds = %1452, %1452, %1452, %1452, %1452
   %1473 = and i32 %1454, 2
   %1474 = icmp ne i32 %1473, 0
-  br label %_ZL8usingPmeRK22CoulombInteractionType.exit
+  br label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %1452, %1472
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %1452, %1472
   %1475 = phi i1 [ %1474, %1472 ], [ false, %1452 ]
   invoke void @_ZN3gmx25GpuTaskAssignmentsBuilder5buildENS_8ArrayRefIKiEES3_RK13gmx_hw_info_tP10tmpi_comm_RKNS_24PhysicalNodeCommunicatorENS_10TaskTargetESC_SC_SC_bbbb(ptr dead_on_unwind nonnull writable sret(%"class.gmx::GpuTaskAssignments") align 8 %72, ptr %1455, ptr %1460, ptr %1461, ptr %1466, ptr noundef nonnull align 8 dereferenceable(136) %1467, ptr noundef %1468, ptr noundef nonnull align 8 dereferenceable(24) %41, i32 noundef %.0.i, i32 noundef %.0.i302, i32 noundef %.0.i320, i32 noundef %.0.i329, i1 noundef zeroext %436, i1 noundef zeroext %443, i1 noundef zeroext %1470, i1 noundef zeroext %1475)
           to label %1476 unwind label %1420
 
-1476:                                             ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit
+1476:                                             ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
   store i32 -1, ptr %73, align 4
   %1477 = invoke noundef ptr @_ZNK3gmx18GpuTaskAssignments10initDeviceEPi(ptr noundef nonnull align 8 dereferenceable(80) %72, ptr noundef nonnull %73)
           to label %1478 unwind label %1489
@@ -6799,20 +6799,20 @@ _ZNSt10unique_ptrIN3gmx19VirtualSitesHandlerESt14default_deleteIS1_EED2Ev.exit: 
   %2138 = load ptr, ptr %2062, align 8
   %2139 = getelementptr inbounds i8, ptr %2138, i64 68
   %.val = load i32, ptr %2139, align 4
-  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.exit609 [
-    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread
-    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread
-    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread
-    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread
-    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread
+  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609 [
+    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread
+    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread
+    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread
+    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread
+    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.exit609:   ; preds = %2137
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609: ; preds = %2137
   %.val296 = load i32, ptr %2138, align 4
   %2140 = icmp eq i32 %.val296, 5
-  br i1 %2140, label %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread, label %2157
+  br i1 %2140, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread, label %2157
 
-_ZL8usingPmeRK22CoulombInteractionType.exit609.thread: ; preds = %2137, %2137, %2137, %2137, %2137, %_ZL8usingPmeRK22CoulombInteractionType.exit609
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread: ; preds = %2137, %2137, %2137, %2137, %2137, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609
   %2141 = getelementptr inbounds i8, ptr %2138, i64 84
   %2142 = load float, ptr %2141, align 4
   %2143 = getelementptr inbounds i8, ptr %2138, i64 88
@@ -6839,12 +6839,12 @@ _ZL8usingPmeRK22CoulombInteractionType.exit609.thread: ; preds = %2137, %2137, %
   %.pre1145 = load ptr, ptr %23, align 8
   br label %2157
 
-2157:                                             ; preds = %._crit_edge1144, %_ZL8usingPmeRK22CoulombInteractionType.exit609, %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread
-  %2158 = phi ptr [ %2072, %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread ], [ %2072, %_ZL8usingPmeRK22CoulombInteractionType.exit609 ], [ %1794, %._crit_edge1144 ]
-  %2159 = phi ptr [ %2062, %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread ], [ %2062, %_ZL8usingPmeRK22CoulombInteractionType.exit609 ], [ %.pre1145, %._crit_edge1144 ]
-  %.sroa.0907.2 = phi ptr [ %1936, %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread ], [ %1936, %_ZL8usingPmeRK22CoulombInteractionType.exit609 ], [ null, %._crit_edge1144 ]
-  %.0167 = phi float [ %2144, %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread ], [ 0.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.exit609 ], [ %2156, %._crit_edge1144 ]
-  %.0 = phi float [ %2142, %_ZL8usingPmeRK22CoulombInteractionType.exit609.thread ], [ 0.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.exit609 ], [ %2150, %._crit_edge1144 ]
+2157:                                             ; preds = %._crit_edge1144, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread
+  %2158 = phi ptr [ %2072, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread ], [ %2072, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609 ], [ %1794, %._crit_edge1144 ]
+  %2159 = phi ptr [ %2062, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread ], [ %2062, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609 ], [ %.pre1145, %._crit_edge1144 ]
+  %.sroa.0907.2 = phi ptr [ %1936, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread ], [ %1936, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609 ], [ null, %._crit_edge1144 ]
+  %.0167 = phi float [ %2144, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread ], [ 0.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609 ], [ %2156, %._crit_edge1144 ]
+  %.0 = phi float [ %2142, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609.thread ], [ 0.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit609 ], [ %2150, %._crit_edge1144 ]
   store ptr null, ptr %100, align 8
   %.not1073 = icmp eq ptr %2159, null
   %2160 = getelementptr inbounds i8, ptr %2159, i64 304
@@ -6892,26 +6892,26 @@ _ZNSt10unique_ptrI13PmeGpuProgramSt14default_deleteIS0_EED2Ev.exit: ; preds = %2
 2171:                                             ; preds = %_ZNSt10unique_ptrI13PmeGpuProgramSt14default_deleteIS0_EED2Ev.exit, %2157
   %2172 = getelementptr inbounds i8, ptr %2158, i64 340
   %.val287 = load i32, ptr %2172, align 4
-  switch i32 %.val287, label %_ZL8usingPmeRK22CoulombInteractionType.exit614 [
-    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.exit614.thread
-    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.exit614.thread
-    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.exit614.thread
-    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.exit614.thread
-    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.exit614.thread
+  switch i32 %.val287, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614 [
+    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread
+    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread
+    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread
+    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread
+    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.exit614:   ; preds = %2171
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614: ; preds = %2171
   %2173 = getelementptr inbounds i8, ptr %2158, i64 368
   %.val298 = load i32, ptr %2173, align 4
   %2174 = icmp eq i32 %.val298, 5
-  br i1 %2174, label %_ZL8usingPmeRK22CoulombInteractionType.exit614.thread, label %_ZNSt10shared_ptrI15PmeGridsStorageED2Ev.exit
+  br i1 %2174, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread, label %_ZNSt10shared_ptrI15PmeGridsStorageED2Ev.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.exit614.thread: ; preds = %2171, %2171, %2171, %2171, %2171, %_ZL8usingPmeRK22CoulombInteractionType.exit614
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread: ; preds = %2171, %2171, %2171, %2171, %2171, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614
   %2175 = load ptr, ptr %87, align 8
   %.not1075 = icmp eq ptr %2175, null
   br i1 %.not1075, label %2186, label %2176
 
-2176:                                             ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit614.thread
+2176:                                             ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread
   %2177 = load ptr, ptr %2175, align 8
   %.not241 = icmp eq ptr %2177, null
   br i1 %.not241, label %2186, label %2178
@@ -6931,7 +6931,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit614.thread: ; preds = %2171, %2171, %
   store i32 %2185, ptr %25, align 4
   br label %2186
 
-2186:                                             ; preds = %2178, %2183, %2176, %_ZL8usingPmeRK22CoulombInteractionType.exit614.thread
+2186:                                             ; preds = %2178, %2183, %2176, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614.thread
   %2187 = load ptr, ptr %40, align 8
   %2188 = getelementptr inbounds i8, ptr %2187, i64 8
   %2189 = load i32, ptr %2188, align 8
@@ -7172,7 +7172,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   invoke void @__cxa_end_catch()
           to label %3128 unwind label %3152
 
-_ZNSt10shared_ptrI15PmeGridsStorageED2Ev.exit:    ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i622, %2287, %2274, %2255, %2198, %_ZL8usingPmeRK22CoulombInteractionType.exit614
+_ZNSt10shared_ptrI15PmeGridsStorageED2Ev.exit:    ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i622, %2287, %2274, %2255, %2198, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit614
   store ptr null, ptr %105, align 8
   %2306 = getelementptr inbounds i8, ptr %79, i64 23
   %2307 = load i8, ptr %2306, align 1
@@ -9059,20 +9059,20 @@ _ZNKSt14default_deleteI10t_forcerecEclEPS0_.exit.i.i: ; preds = %_ZNSt10unique_p
 
 _ZNSt10unique_ptrI10t_forcerecSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %_ZNSt10unique_ptrIN3gmx9MDModulesESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNKSt14default_deleteI10t_forcerecEclEPS0_.exit.i.i
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.9, i32 noundef 2385, ptr noundef %944)
-          to label %_ZL14gmx_sfree_implI12t_disresdataEvPKcS2_iPT_.exit unwind label %2988
+          to label %_ZL14gmx_sfree_implI12t_disresdataEvPKcS2_iPT_.argprom.exit unwind label %2988
 
-_ZL14gmx_sfree_implI12t_disresdataEvPKcS2_iPT_.exit: ; preds = %_ZNSt10unique_ptrI10t_forcerecSt14default_deleteIS0_EE5resetEPS0_.exit
+_ZL14gmx_sfree_implI12t_disresdataEvPKcS2_iPT_.argprom.exit: ; preds = %_ZNSt10unique_ptrI10t_forcerecSt14default_deleteIS0_EE5resetEPS0_.exit
   %3015 = load ptr, ptr %81, align 8
   store ptr null, ptr %81, align 8
   %.not.i.i751 = icmp eq ptr %3015, null
   br i1 %.not.i.i751, label %_ZNSt10unique_ptrIN3gmx19DeviceStreamManagerESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN3gmx19DeviceStreamManagerEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN3gmx19DeviceStreamManagerEEclEPS1_.exit.i.i: ; preds = %_ZL14gmx_sfree_implI12t_disresdataEvPKcS2_iPT_.exit
+_ZNKSt14default_deleteIN3gmx19DeviceStreamManagerEEclEPS1_.exit.i.i: ; preds = %_ZL14gmx_sfree_implI12t_disresdataEvPKcS2_iPT_.argprom.exit
   call void @_ZN3gmx19DeviceStreamManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3015) #30
   call void @_ZdlPv(ptr noundef nonnull %3015) #33
   br label %_ZNSt10unique_ptrIN3gmx19DeviceStreamManagerESt14default_deleteIS1_EE5resetEPS1_.exit
 
-_ZNSt10unique_ptrIN3gmx19DeviceStreamManagerESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZL14gmx_sfree_implI12t_disresdataEvPKcS2_iPT_.exit, %_ZNKSt14default_deleteIN3gmx19DeviceStreamManagerEEclEPS1_.exit.i.i
+_ZNSt10unique_ptrIN3gmx19DeviceStreamManagerESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZL14gmx_sfree_implI12t_disresdataEvPKcS2_iPT_.argprom.exit, %_ZNKSt14default_deleteIN3gmx19DeviceStreamManagerEEclEPS1_.exit.i.i
   invoke void @_ZNK3gmx24PhysicalNodeCommunicator7barrierEv(ptr noundef nonnull align 8 dereferenceable(24) %41)
           to label %3016 unwind label %2988
 

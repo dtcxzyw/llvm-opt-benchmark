@@ -489,7 +489,7 @@ define dso_local void @_ZN4llvm20TLSVariableHoistPass20collectTLSCandidatesERNS_
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not5.i.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not5.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not5.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %2, %14
   %.sroa.02.06.i.i.i.i.i.i = phi ptr [ %16, %14 ], [ %7, %2 ]
@@ -500,27 +500,27 @@ define dso_local void @_ZN4llvm20TLSVariableHoistPass20collectTLSCandidatesERNS_
   %.val.i.i.i.i.i.i.i = load i32, ptr %12, align 8
   %13 = and i32 %.val.i.i.i.i.i.i.i, 7168
   %.not4.i.i.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not4.i.i.i.i.i.i, label %14, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit"
+  br i1 %.not4.i.i.i.i.i.i, label %14, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit"
 
 14:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %16, %8
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %2
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %2
   %.sroa.02.0.lcssa.i.i.i.i.i.i = phi ptr [ %7, %2 ], [ %.sroa.02.06.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not = icmp eq ptr %8, %.sroa.02.0.lcssa.i.i.i.i.i.i
-  br i1 %.not, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit.thread", label %17
+  br i1 %.not, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %17
 
-17:                                               ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit"
+17:                                               ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit"
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm9MapVectorIPNS_14GlobalVariableENS_8tlshoist12TLSCandidateENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S4_ELj0EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.023.036 = load ptr, ptr %19, align 8
   %.not2937 = icmp eq ptr %.sroa.023.036, %20
-  br i1 %.not2937, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit.thread", label %.lr.ph39
+  br i1 %.not2937, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %17, %.loopexit
   %.sroa.023.038 = phi ptr [ %.sroa.023.0, %.loopexit ], [ %.sroa.023.036, %17 ]
@@ -640,9 +640,9 @@ _ZN4llvm20TLSVariableHoistPass19collectTLSCandidateEPNS_11InstructionE.exit: ; p
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.023.038, i64 8
   %.sroa.023.0 = load ptr, ptr %76, align 8
   %.not29 = icmp eq ptr %.sroa.023.0, %20
-  br i1 %.not29, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit.thread", label %.lr.ph39
+  br i1 %.not29, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph39
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit.thread": ; preds = %14, %.loopexit, %17, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.exit"
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %14, %.loopexit, %17, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_20TLSVariableHoistPass20collectTLSCandidatesERNS_8FunctionEE3$_0EEbOT_T0_.argprom.exit"
   ret void
 }
 

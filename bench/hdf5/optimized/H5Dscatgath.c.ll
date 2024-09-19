@@ -1149,7 +1149,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write(ptr nocapture noundef readonly 
 152:                                              ; preds = %147
   %.val = load i64, ptr %82, align 8
   %.not.i = icmp eq i64 %.1114, 0
-  br i1 %.not.i, label %H5D__compound_opt_write.exit, label %.lr.ph.i
+  br i1 %.not.i, label %H5D__compound_opt_write.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %152, %.lr.ph.i
   %.03.i = phi i64 [ %155, %.lr.ph.i ], [ 0, %152 ]
@@ -1160,7 +1160,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write(ptr nocapture noundef readonly 
   %154 = getelementptr inbounds i8, ptr %.0141.i, i64 %148
   %155 = add nuw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %155, %.1114
-  br i1 %exitcond.not.i, label %H5D__compound_opt_write.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %H5D__compound_opt_write.argprom.exit, label %.lr.ph.i
 
 156:                                              ; preds = %147, %144, %142
   %157 = load i32, ptr %98, align 8
@@ -1215,7 +1215,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write(ptr nocapture noundef readonly 
   %189 = load ptr, ptr %101, align 8
   %190 = call i32 @H5T_convert(ptr noundef %186, ptr noundef %187, ptr noundef %188, i64 noundef %.1114, i64 noundef 0, i64 noundef 0, ptr noundef %.0122, ptr noundef %189) #8
   %191 = icmp slt i32 %190, 0
-  br i1 %191, label %192, label %H5D__compound_opt_write.exit
+  br i1 %191, label %192, label %H5D__compound_opt_write.argprom.exit
 
 192:                                              ; preds = %185
   %193 = load i64, ptr @H5E_DATASET_g, align 8
@@ -1223,7 +1223,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write(ptr nocapture noundef readonly 
   %195 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__scatgath_write, i32 noundef 777, i64 noundef %193, i64 noundef %194, ptr noundef nonnull @.str.13) #8
   br label %.loopexit
 
-H5D__compound_opt_write.exit:                     ; preds = %.lr.ph.i, %152, %185
+H5D__compound_opt_write.argprom.exit:             ; preds = %.lr.ph.i, %152, %185
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -1242,13 +1242,13 @@ H5D__compound_opt_write.exit:                     ; preds = %.lr.ph.i, %152, %18
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %198, label %202
 
-198:                                              ; preds = %H5D__compound_opt_write.exit
+198:                                              ; preds = %H5D__compound_opt_write.argprom.exit
   %199 = load i64, ptr @H5E_DATASET_g, align 8
   %200 = load i64, ptr @H5E_CANTGET_g, align 8
   %201 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__scatter_file, i32 noundef 127, i64 noundef %199, i64 noundef %200, ptr noundef nonnull @.str.1) #8
   br label %H5D__scatter_file.exit.thread
 
-202:                                              ; preds = %H5D__compound_opt_write.exit
+202:                                              ; preds = %H5D__compound_opt_write.argprom.exit
   %203 = load i64, ptr %11, align 8
   %..i = call i64 @llvm.umax.i64(i64 %203, i64 1024)
   %204 = call noalias ptr @H5FL_seq_malloc(ptr noundef nonnull @H5_size_t_seq_free_list, i64 noundef %..i) #8
@@ -2214,7 +2214,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   %139 = load i64, ptr %138, align 8
   %.val = load i64, ptr %64, align 8
   %.not.i = icmp eq i64 %139, 0
-  br i1 %.not.i, label %H5D__compound_opt_write.exit, label %.lr.ph.i
+  br i1 %.not.i, label %H5D__compound_opt_write.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %137, %.lr.ph.i
   %.03.i = phi i64 [ %142, %.lr.ph.i ], [ 0, %137 ]
@@ -2225,7 +2225,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   %141 = getelementptr inbounds i8, ptr %.0141.i, i64 %126
   %142 = add nuw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %142, %139
-  br i1 %exitcond.not.i, label %H5D__compound_opt_write.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %H5D__compound_opt_write.argprom.exit, label %.lr.ph.i
 
 143:                                              ; preds = %130, %124, %121, %117
   %144 = getelementptr inbounds i8, ptr %42, i64 280
@@ -2336,7 +2336,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   %212 = getelementptr inbounds ptr, ptr %.3220, i64 %.0214480
   store ptr %148, ptr %212, align 8
   %213 = add i64 %.0214480, 1
-  br label %H5D__compound_opt_write.exit
+  br label %H5D__compound_opt_write.argprom.exit
 
 .thread:                                          ; preds = %143, %146
   %.0203280 = phi ptr [ %148, %146 ], [ null, %143 ]
@@ -2388,7 +2388,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   %248 = load i64, ptr %247, align 8
   %249 = call i32 @H5T_convert(ptr noundef %239, ptr noundef %241, ptr noundef %243, i64 noundef %248, i64 noundef 0, i64 noundef 0, ptr noundef %.0204, ptr noundef %.0203280) #8
   %250 = icmp slt i32 %249, 0
-  br i1 %250, label %251, label %H5D__compound_opt_write.exit
+  br i1 %250, label %251, label %H5D__compound_opt_write.argprom.exit
 
 251:                                              ; preds = %237
   %252 = load i64, ptr @H5E_DATASET_g, align 8
@@ -2396,7 +2396,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   %254 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__scatgath_write_select, i32 noundef 1237, i64 noundef %252, i64 noundef %253, ptr noundef nonnull @.str.13) #8
   br label %379
 
-H5D__compound_opt_write.exit:                     ; preds = %.lr.ph.i, %137, %197, %237
+H5D__compound_opt_write.argprom.exit:             ; preds = %.lr.ph.i, %137, %197, %237
   %.1243 = phi i64 [ %157, %197 ], [ %.2244279, %237 ], [ %.0242474, %137 ], [ %.0242474, %.lr.ph.i ]
   %.2239 = phi ptr [ %.3240, %197 ], [ %.1238475, %237 ], [ %.1238475, %137 ], [ %.1238475, %.lr.ph.i ]
   %.2234 = phi ptr [ %.3235, %197 ], [ %.1233476, %237 ], [ %.1233476, %137 ], [ %.1233476, %.lr.ph.i ]
@@ -2406,29 +2406,29 @@ H5D__compound_opt_write.exit:                     ; preds = %.lr.ph.i, %137, %19
   %.1215 = phi i64 [ %213, %197 ], [ %.0214480, %237 ], [ %.0214480, %137 ], [ %.0214480, %.lr.ph.i ]
   %255 = call i32 @H5S_select_iter_release(ptr noundef nonnull %14) #8
   %256 = icmp slt i32 %255, 0
-  br i1 %256, label %257, label %H5D__compound_opt_write.exit._crit_edge
+  br i1 %256, label %257, label %H5D__compound_opt_write.argprom.exit._crit_edge
 
-H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_write.exit
+H5D__compound_opt_write.argprom.exit._crit_edge:  ; preds = %H5D__compound_opt_write.argprom.exit
   %.pre598 = load i64, ptr %4, align 8
   br label %261
 
-257:                                              ; preds = %H5D__compound_opt_write.exit
+257:                                              ; preds = %H5D__compound_opt_write.argprom.exit
   %258 = load i64, ptr @H5E_DATASET_g, align 8
   %259 = load i64, ptr @H5E_CANTFREE_g, align 8
   %260 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__scatgath_write_select, i32 noundef 1244, i64 noundef %258, i64 noundef %259, ptr noundef nonnull @.str.17) #8
   br label %379
 
-261:                                              ; preds = %H5D__compound_opt_write.exit._crit_edge, %51
-  %262 = phi i64 [ %37, %51 ], [ %.pre598, %H5D__compound_opt_write.exit._crit_edge ]
-  %.2248 = phi i64 [ %.0246473, %51 ], [ %.1247, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3245 = phi i64 [ %.0242474, %51 ], [ %.1243, %H5D__compound_opt_write.exit._crit_edge ]
-  %.4241 = phi ptr [ %.1238475, %51 ], [ %.2239, %H5D__compound_opt_write.exit._crit_edge ]
-  %.4236 = phi ptr [ %.1233476, %51 ], [ %.2234, %H5D__compound_opt_write.exit._crit_edge ]
-  %.4231 = phi ptr [ %.1228477, %51 ], [ %.2229, %H5D__compound_opt_write.exit._crit_edge ]
-  %.4226 = phi ptr [ %.1223478, %51 ], [ %.2224, %H5D__compound_opt_write.exit._crit_edge ]
-  %.4221 = phi ptr [ %.1218479, %51 ], [ %.2219, %H5D__compound_opt_write.exit._crit_edge ]
-  %.2216 = phi i64 [ %.0214480, %51 ], [ %.1215, %H5D__compound_opt_write.exit._crit_edge ]
-  %.2 = phi i64 [ %55, %51 ], [ %85, %H5D__compound_opt_write.exit._crit_edge ]
+261:                                              ; preds = %H5D__compound_opt_write.argprom.exit._crit_edge, %51
+  %262 = phi i64 [ %37, %51 ], [ %.pre598, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.2248 = phi i64 [ %.0246473, %51 ], [ %.1247, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.3245 = phi i64 [ %.0242474, %51 ], [ %.1243, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.4241 = phi ptr [ %.1238475, %51 ], [ %.2239, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.4236 = phi ptr [ %.1233476, %51 ], [ %.2234, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.4231 = phi ptr [ %.1228477, %51 ], [ %.2229, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.4226 = phi ptr [ %.1223478, %51 ], [ %.2224, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.4221 = phi ptr [ %.1218479, %51 ], [ %.2219, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.2216 = phi i64 [ %.0214480, %51 ], [ %.1215, %H5D__compound_opt_write.argprom.exit._crit_edge ]
+  %.2 = phi i64 [ %55, %51 ], [ %85, %H5D__compound_opt_write.argprom.exit._crit_edge ]
   %263 = add nuw i64 %.0211481, 1
   %264 = icmp ult i64 %263, %262
   br i1 %264, label %36, label %._crit_edge.loopexit

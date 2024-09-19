@@ -1971,7 +1971,7 @@ define internal i32 @acpi_idle_enter(ptr nocapture noundef readonly %0, ptr noca
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call fastcc i32 @acpi_idle_enter_bm(ptr noundef %1, i16 %23, ptr noundef %14, i32 noundef %2)
+  %27 = tail call fastcc i32 @acpi_idle_enter_bm.argprom(ptr noundef %1, i16 %23, ptr noundef %14, i32 noundef %2)
   br label %acpi_idle_do_entry.exit
 
 28:                                               ; preds = %._crit_edge, %21
@@ -2164,7 +2164,7 @@ define internal noundef i32 @acpi_idle_enter_s2idle(ptr nocapture noundef readon
   %29 = load i8, ptr %28, align 4
   store i8 1, ptr %28, align 4
   %.val = load i16, ptr %23, align 8
-  %30 = tail call fastcc i32 @acpi_idle_enter_bm(ptr noundef %1, i16 %.val, ptr noundef %14, i32 noundef %2)
+  %30 = tail call fastcc i32 @acpi_idle_enter_bm.argprom(ptr noundef %1, i16 %.val, ptr noundef %14, i32 noundef %2)
   store i8 %29, ptr %28, align 4
   br label %acpi_idle_do_entry.exit
 
@@ -2233,7 +2233,7 @@ acpi_idle_do_entry.exit:                          ; preds = %57, %46, %45, %37, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_idle_enter_bm(ptr nocapture noundef readonly %0, i16 %.32.val, ptr noundef %1, i32 noundef %2) unnamed_addr #13 section ".cpuidle.text" align 16 {
+define internal fastcc i32 @acpi_idle_enter_bm.argprom(ptr nocapture noundef readonly %0, i16 %.32.val, ptr noundef %1, i32 noundef %2) unnamed_addr #13 section ".cpuidle.text" align 16 {
   tail call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #17, !srcloc !40
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 4

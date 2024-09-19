@@ -659,7 +659,7 @@ define internal range(i32 0, 65558) i32 @dissect_solaredge(ptr noundef %0, ptr n
 
 13:                                               ; preds = %9, %4
   %14 = load i32, ptr @ett_solaredge_packet, align 4
-  %15 = tail call fastcc i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14, ptr noundef %5)
+  %15 = tail call fastcc i32 @dissect_solaredge_recursive.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14, ptr noundef %5)
   ret i32 %15
 }
 
@@ -688,7 +688,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -858,7 +858,7 @@ solaredge_decrypt.exit:                           ; preds = %.lr.ph43.i, %58
 101:                                              ; preds = %solaredge_decrypt.exit
   call void @add_new_data_source(ptr noundef %1, ptr noundef %98, ptr noundef nonnull @.str.524) #5
   %102 = load i32, ptr @ett_solaredge_packet_decrypted, align 4
-  %103 = call fastcc i32 @dissect_solaredge_recursive(ptr noundef %98, ptr noundef %1, ptr noundef %2, i32 noundef %102, ptr noundef %4)
+  %103 = call fastcc i32 @dissect_solaredge_recursive.argprom(ptr noundef %98, ptr noundef %1, ptr noundef %2, i32 noundef %102, ptr noundef %4)
   br label %104
 
 104:                                              ; preds = %solaredge_decrypt.exit, %101, %55, %50

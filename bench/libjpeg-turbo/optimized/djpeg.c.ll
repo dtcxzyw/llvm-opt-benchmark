@@ -224,7 +224,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   store i32 1048, ptr %18, align 4
   call void @jpeg_set_marker_processor(ptr noundef nonnull %3, i32 noundef 254, ptr noundef nonnull @print_text_marker) #11
   call void @jpeg_set_marker_processor(ptr noundef nonnull %3, i32 noundef 236, ptr noundef nonnull @print_text_marker) #11
-  %19 = call fastcc i32 @parse_switches(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 0)
+  %19 = call fastcc i32 @parse_switches.argelim(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   %.b = load i1, ptr @strict, align 4
   br i1 %.b, label %20, label %22
 
@@ -380,7 +380,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 96:                                               ; preds = %95, %.loopexit188
   %.1 = phi ptr [ %66, %.loopexit188 ], [ null, %95 ]
   %97 = call i32 @jpeg_read_header(ptr noundef nonnull %3, i32 noundef 1) #11
-  %98 = call fastcc i32 @parse_switches(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 1)
+  %98 = call fastcc i32 @parse_switches.argelim(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 1)
   %99 = load i32, ptr @requested_fmt, align 4
   switch i32 %99, label %default.unreachable [
     i32 0, label %100
@@ -1294,7 +1294,7 @@ jpeg_getc.exit31:                                 ; preds = %.lr.ph.split, %111,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
+define internal fastcc i32 @parse_switches.argelim(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1

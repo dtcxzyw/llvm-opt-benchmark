@@ -5902,7 +5902,7 @@ growalloc.exit.i62:                               ; preds = %size_product.exit.i
   br label %inrule.exit
 
 261:                                              ; preds = %259
-  %262 = call fastcc i64 @getleapdatetime(ptr noundef readonly %29, i1 noundef zeroext false)
+  %262 = call fastcc i64 @getleapdatetime.argelim(ptr noundef readonly %29, i1 noundef zeroext false)
   %263 = icmp sgt i64 %262, -1
   br i1 %263, label %264, label %inrule.exit
 
@@ -6016,7 +6016,7 @@ leapadd.exit.i:                                   ; preds = %285, %._crit_edge.l
   br label %inrule.exit
 
 307:                                              ; preds = %303
-  %308 = call fastcc i64 @getleapdatetime(ptr noundef readonly %29, i1 noundef zeroext true)
+  %308 = call fastcc i64 @getleapdatetime.argelim(ptr noundef readonly %29, i1 noundef zeroext true)
   store i64 %308, ptr @leapexpires, align 8
   br label %inrule.exit
 
@@ -8260,7 +8260,7 @@ lowerit.exit:                                     ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @getleapdatetime(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @getleapdatetime.argelim(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1

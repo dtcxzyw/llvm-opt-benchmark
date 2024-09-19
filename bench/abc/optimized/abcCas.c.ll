@@ -99,9 +99,9 @@ Abc_Clock.exit52:                                 ; preds = %16, %27
   %47 = icmp sgt i32 %.val44.val, 0
   br i1 %47, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %37, %Abc_ObjGlobalBdd.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_ObjGlobalBdd.exit ], [ 0, %37 ]
-  %.val4558 = phi ptr [ %.val45, %Abc_ObjGlobalBdd.exit ], [ %.val44, %37 ]
+.lr.ph:                                           ; preds = %37, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit ], [ 0, %37 ]
+  %.val4558 = phi ptr [ %.val45, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit ], [ %.val44, %37 ]
   %48 = getelementptr i8, ptr %.val4558, i64 8
   %.val47.val = load ptr, ptr %48, align 8
   %49 = getelementptr inbounds ptr, ptr %.val47.val, i64 %indvars.iv
@@ -164,13 +164,13 @@ Vec_AttGrow.exit.i.i:                             ; preds = %70, %56, %.lr.ph
   %81 = getelementptr inbounds ptr, ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %Abc_ObjGlobalBdd.exit
+  br i1 %83, label %84, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
 
 84:                                               ; preds = %Vec_AttGrow.exit.i.i
   %85 = getelementptr inbounds i8, ptr %.val48.val.val.val, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not18.i.i = icmp eq ptr %86, null
-  br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.exit, label %87
+  br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit, label %87
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %.val48.val.val.val, i64 16
@@ -182,9 +182,9 @@ Vec_AttGrow.exit.i.i:                             ; preds = %70, %56, %.lr.ph
   %.pre.i.i = load ptr, ptr %78, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %80
   %.pre19.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %Abc_ObjGlobalBdd.exit
+  br label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
 
-Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.i, %84, %87
+Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit: ; preds = %Vec_AttGrow.exit.i.i, %84, %87
   %93 = phi ptr [ %.pre19.i.i, %87 ], [ null, %84 ], [ %82, %Vec_AttGrow.exit.i.i ]
   %94 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
   store ptr %93, ptr %94, align 8
@@ -196,7 +196,7 @@ Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.
   %97 = icmp slt i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %Abc_ObjGlobalBdd.exit, %37
+.critedge:                                        ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit, %37
   %98 = getelementptr inbounds i8, ptr %0, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr @Extra_FileNameGeneric(ptr noundef %99) #12

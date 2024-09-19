@@ -1621,7 +1621,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_18__invokeERKN5vcpkg10VcpkgPathsE"(pt
 
 .noexc.i:                                         ; preds = %1
   invoke void @_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE(i8 noundef signext 0, ptr nonnull @.str.16, i64 1)
-          to label %"_ZNK12_GLOBAL__N_13$_1clERKN5vcpkg10VcpkgPathsE.exit" unwind label %6
+          to label %"_ZNK12_GLOBAL__N_13$_1clERKN5vcpkg10VcpkgPathsE.argprom.exit" unwind label %6
 
 6:                                                ; preds = %.noexc.i, %1
   %7 = landingpad { ptr, i32 }
@@ -1629,7 +1629,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_18__invokeERKN5vcpkg10VcpkgPathsE"(pt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   resume { ptr, i32 } %7
 
-"_ZNK12_GLOBAL__N_13$_1clERKN5vcpkg10VcpkgPathsE.exit": ; preds = %.noexc.i
+"_ZNK12_GLOBAL__N_13$_1clERKN5vcpkg10VcpkgPathsE.argprom.exit": ; preds = %.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret void
@@ -1648,7 +1648,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_28__invokeERKN5vcpkg10VcpkgPathsE"(pt
 
 .noexc.i:                                         ; preds = %1
   invoke void @_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE(i8 noundef signext 0, ptr nonnull @.str.16, i64 1)
-          to label %"_ZNK12_GLOBAL__N_13$_2clERKN5vcpkg10VcpkgPathsE.exit" unwind label %6
+          to label %"_ZNK12_GLOBAL__N_13$_2clERKN5vcpkg10VcpkgPathsE.argprom.exit" unwind label %6
 
 6:                                                ; preds = %.noexc.i, %1
   %7 = landingpad { ptr, i32 }
@@ -1656,7 +1656,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_28__invokeERKN5vcpkg10VcpkgPathsE"(pt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   resume { ptr, i32 } %7
 
-"_ZNK12_GLOBAL__N_13$_2clERKN5vcpkg10VcpkgPathsE.exit": ; preds = %.noexc.i
+"_ZNK12_GLOBAL__N_13$_2clERKN5vcpkg10VcpkgPathsE.argprom.exit": ; preds = %.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret void
@@ -1677,7 +1677,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_48__invokeERKN5vcpkg10VcpkgPathsE"(pt
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
   invoke void @_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE(i8 noundef signext 0, ptr %4, i64 %5)
-          to label %"_ZNK12_GLOBAL__N_13$_4clERKN5vcpkg10VcpkgPathsE.exit" unwind label %6
+          to label %"_ZNK12_GLOBAL__N_13$_4clERKN5vcpkg10VcpkgPathsE.argprom.exit" unwind label %6
 
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
@@ -1685,7 +1685,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_48__invokeERKN5vcpkg10VcpkgPathsE"(pt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   resume { ptr, i32 } %7
 
-"_ZNK12_GLOBAL__N_13$_4clERKN5vcpkg10VcpkgPathsE.exit": ; preds = %1
+"_ZNK12_GLOBAL__N_13$_4clERKN5vcpkg10VcpkgPathsE.argprom.exit": ; preds = %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret void

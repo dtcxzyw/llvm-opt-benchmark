@@ -275,7 +275,7 @@ define dso_local noundef ptr @dsa_attach(i32 noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %1
   %9 = tail call ptr @dsm_segment_address(ptr noundef nonnull %2) #10
-  %10 = tail call fastcc ptr @attach_internal(ptr noundef %9, ptr noundef nonnull %2)
+  %10 = tail call fastcc ptr @attach_internal.argelim(ptr noundef %9, ptr noundef nonnull %2)
   %11 = tail call ptr @dsm_segment_address(ptr noundef nonnull %2) #10
   %12 = ptrtoint ptr %11 to i64
   tail call void @on_dsm_detach(ptr noundef nonnull %2, ptr noundef nonnull @dsa_on_dsm_detach_release_in_place, i64 noundef %12) #10
@@ -294,7 +294,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @attach_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @attach_internal.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @palloc(i64 noundef 40992) #10
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -344,7 +344,7 @@ define internal fastcc noundef ptr @attach_internal(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @dsa_attach_in_place(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call fastcc ptr @attach_internal(ptr noundef %0, ptr noundef null)
+  %3 = tail call fastcc ptr @attach_internal.argelim(ptr noundef %0, ptr noundef null)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 

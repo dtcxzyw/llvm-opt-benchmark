@@ -486,8 +486,8 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   %.not4.i = icmp eq ptr %32, %34
   br i1 %.not4.i, label %.loopexit, label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %31, %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.exit.i"
-  %.sroa.01.05.i = phi ptr [ %69, %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.exit.i" ], [ %32, %31 ]
+.lr.ph.i15:                                       ; preds = %31, %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.argprom.exit.i"
+  %.sroa.01.05.i = phi ptr [ %69, %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.argprom.exit.i" ], [ %32, %31 ]
   %35 = load i32, ptr %.sroa.01.05.i, align 4, !noalias !7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !7
@@ -563,7 +563,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 55:                                               ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.exit.i" unwind label %64, !noalias !7
+          to label %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.argprom.exit.i" unwind label %64, !noalias !7
 
 56:                                               ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %12)
@@ -586,7 +586,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 61:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %60) #19, !noalias !7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19, !noalias !7
-  br label %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.exit.i"
+  br label %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.argprom.exit.i"
 
 62:                                               ; preds = %.noexc.i.i, %.noexc
   %63 = landingpad { ptr, i32 }
@@ -614,7 +614,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19, !noalias !7
   br label %.body
 
-"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.exit.i": ; preds = %61, %55
+"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.argprom.exit.i": ; preds = %61, %55
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19, !noalias !7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !7
@@ -625,7 +625,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not.i16 = icmp eq ptr %69, %34
   br i1 %.not.i16, label %.loopexit, label %.lr.ph.i15, !llvm.loop !14
 
-.loopexit:                                        ; preds = %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.exit.i", %31
+.loopexit:                                        ; preds = %"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.argprom.exit.i", %31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
@@ -1449,8 +1449,8 @@ attributes #23 = { noreturn nounwind }
 !8 = distinct !{!8, !9, !"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4LIEF3DEX12ACCESS_FLAGSESt6vectorIS4_SaIS4_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS3_lsERSoRKNS3_5FieldEE3$_0ET0_T_SM_SL_T1_: argument 0"}
 !9 = distinct !{!9, !"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4LIEF3DEX12ACCESS_FLAGSESt6vectorIS4_SaIS4_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS3_lsERSoRKNS3_5FieldEE3$_0ET0_T_SM_SL_T1_"}
 !10 = !{!11, !8}
-!11 = distinct !{!11, !12, !"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE: argument 0"}
-!12 = distinct !{!12, !"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE"}
+!11 = distinct !{!11, !12, !"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZZN4LIEF3DEXlsERSoRKNS0_5FieldEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ACCESS_FLAGSE.argprom"}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = !{!"branch_weights", i32 1, i32 1023}

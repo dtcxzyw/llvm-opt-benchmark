@@ -343,19 +343,19 @@ land.lhs.true.i.i:                                ; preds = %while.body
   %3 = load i8, ptr %arrayidx2.i.i, align 1
   %4 = and i8 %3, 16
   %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %getjumpcontrol.exit.i
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %getjumpcontrol.argprom.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %while.body
-  br label %getjumpcontrol.exit.i
+  br label %getjumpcontrol.argprom.argprom.exit.i
 
-getjumpcontrol.exit.i:                            ; preds = %if.else.i.i, %land.lhs.true.i.i
+getjumpcontrol.argprom.argprom.exit.i:            ; preds = %if.else.i.i, %land.lhs.true.i.i
   %5 = phi i32 [ %1, %if.else.i.i ], [ %2, %land.lhs.true.i.i ]
   %retval.0.i.i = phi ptr [ %arrayidx.i, %if.else.i.i ], [ %add.ptr.i.i, %land.lhs.true.i.i ]
   %and.i = and i32 %5, 127
   %cmp.not.i = icmp eq i32 %and.i, 67
   br i1 %cmp.not.i, label %if.end.i, label %if.else
 
-if.end.i:                                         ; preds = %getjumpcontrol.exit.i
+if.end.i:                                         ; preds = %getjumpcontrol.argprom.argprom.exit.i
   br i1 %cmp1.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -399,7 +399,7 @@ fixjump.exit:                                     ; preds = %if.then
   %11 = load i32, ptr %arrayidx.i13, align 4
   br label %if.end
 
-if.else:                                          ; preds = %getjumpcontrol.exit.i
+if.else:                                          ; preds = %getjumpcontrol.argprom.argprom.exit.i
   %12 = sub i32 %list.addr.036, %invariant.op
   %or.cond.i19 = icmp ugt i32 %12, -33554433
   br i1 %or.cond.i19, label %fixjump.exit30, label %if.then.i20
@@ -1184,19 +1184,19 @@ land.lhs.true.i.i:                                ; preds = %for.body.i
   %11 = load i8, ptr %arrayidx2.i.i, align 1
   %12 = and i8 %11, 16
   %tobool.not.i.i = icmp eq i8 %12, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %getjumpcontrol.exit.i
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %getjumpcontrol.argprom.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i
   %.pre.i = load i32, ptr %arrayidx.i.i32, align 4
-  br label %getjumpcontrol.exit.i
+  br label %getjumpcontrol.argprom.argprom.exit.i
 
-getjumpcontrol.exit.i:                            ; preds = %if.else.i.i, %land.lhs.true.i.i
+getjumpcontrol.argprom.argprom.exit.i:            ; preds = %if.else.i.i, %land.lhs.true.i.i
   %13 = phi i32 [ %.pre.i, %if.else.i.i ], [ %10, %land.lhs.true.i.i ]
   %and.i = and i32 %13, 127
   %cmp1.not.i = icmp eq i32 %and.i, 67
   br i1 %cmp1.not.i, label %for.inc.i, label %if.then8
 
-for.inc.i:                                        ; preds = %getjumpcontrol.exit.i
+for.inc.i:                                        ; preds = %getjumpcontrol.argprom.argprom.exit.i
   %14 = load i32, ptr %arrayidx.i.i32, align 4
   %shr.i.i34 = lshr i32 %14, 7
   %sub.i.i35 = add nsw i32 %shr.i.i34, -16777215
@@ -1233,19 +1233,19 @@ land.lhs.true.i.i62:                              ; preds = %for.body.i43
   %17 = load i8, ptr %arrayidx2.i.i66, align 1
   %18 = and i8 %17, 16
   %tobool.not.i.i67 = icmp eq i8 %18, 0
-  br i1 %tobool.not.i.i67, label %if.else.i.i48, label %getjumpcontrol.exit.i50
+  br i1 %tobool.not.i.i67, label %if.else.i.i48, label %getjumpcontrol.argprom.argprom.exit.i50
 
 if.else.i.i48:                                    ; preds = %land.lhs.true.i.i62, %for.body.i43
   %.pre.i49 = load i32, ptr %arrayidx.i.i46, align 4
-  br label %getjumpcontrol.exit.i50
+  br label %getjumpcontrol.argprom.argprom.exit.i50
 
-getjumpcontrol.exit.i50:                          ; preds = %if.else.i.i48, %land.lhs.true.i.i62
+getjumpcontrol.argprom.argprom.exit.i50:          ; preds = %if.else.i.i48, %land.lhs.true.i.i62
   %19 = phi i32 [ %.pre.i49, %if.else.i.i48 ], [ %16, %land.lhs.true.i.i62 ]
   %and.i51 = and i32 %19, 127
   %cmp1.not.i52 = icmp eq i32 %and.i51, 67
   br i1 %cmp1.not.i52, label %for.inc.i54, label %if.then8
 
-for.inc.i54:                                      ; preds = %getjumpcontrol.exit.i50
+for.inc.i54:                                      ; preds = %getjumpcontrol.argprom.argprom.exit.i50
   %20 = load i32, ptr %arrayidx.i.i46, align 4
   %shr.i.i55 = lshr i32 %20, 7
   %sub.i.i56 = add nsw i32 %shr.i.i55, -16777215
@@ -1256,7 +1256,7 @@ for.inc.i54:                                      ; preds = %getjumpcontrol.exit
   %cmp.not.i61 = select i1 %cmp.i7.i57, i1 true, i1 %cmp.not12.i60
   br i1 %cmp.not.i61, label %if.end14, label %for.body.i43
 
-if.then8:                                         ; preds = %getjumpcontrol.exit.i, %getjumpcontrol.exit.i50
+if.then8:                                         ; preds = %getjumpcontrol.argprom.argprom.exit.i, %getjumpcontrol.argprom.argprom.exit.i50
   %21 = load i32, ptr %e, align 8
   %cmp10 = icmp eq i32 %21, 16
   br i1 %cmp10, label %cond.end, label %cond.false
@@ -1763,13 +1763,13 @@ land.lhs.true.i.i:                                ; preds = %sw.bb
   %4 = load i8, ptr %arrayidx2.i.i, align 1
   %5 = and i8 %4, 16
   %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %negatecondition.exit
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %negatecondition.argprom.argprom.exit
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %sw.bb
   %.pre.i = load i32, ptr %arrayidx.i.i, align 4
-  br label %negatecondition.exit
+  br label %negatecondition.argprom.argprom.exit
 
-negatecondition.exit:                             ; preds = %land.lhs.true.i.i, %if.else.i.i
+negatecondition.argprom.argprom.exit:             ; preds = %land.lhs.true.i.i, %if.else.i.i
   %6 = phi i32 [ %.pre.i, %if.else.i.i ], [ %3, %land.lhs.true.i.i ]
   %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.else.i.i ], [ %add.ptr.i.i, %land.lhs.true.i.i ]
   %or.i = xor i32 %6, 32768
@@ -1781,8 +1781,8 @@ sw.default:                                       ; preds = %entry
   %call = tail call fastcc i32 @jumponcond(ptr noundef %fs, ptr noundef nonnull %e, i32 noundef 0)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.default, %negatecondition.exit
-  %pc.0 = phi i32 [ %call, %sw.default ], [ %7, %negatecondition.exit ]
+sw.epilog:                                        ; preds = %sw.default, %negatecondition.argprom.argprom.exit
+  %pc.0 = phi i32 [ %call, %sw.default ], [ %7, %negatecondition.argprom.argprom.exit ]
   %f = getelementptr inbounds i8, ptr %e, i64 20
   %cmp.i = icmp eq i32 %pc.0, -1
   br i1 %cmp.i, label %luaK_concat.exit, label %if.else.i
@@ -2332,13 +2332,13 @@ land.lhs.true.i.i.i:                              ; preds = %sw.bb4.i
   %7 = load i8, ptr %arrayidx2.i.i.i, align 1
   %8 = and i8 %7, 16
   %tobool.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %negatecondition.exit.i
+  br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %negatecondition.argprom.argprom.exit.i
 
 if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %sw.bb4.i
   %.pre.i.i = load i32, ptr %arrayidx.i.i.i, align 4
-  br label %negatecondition.exit.i
+  br label %negatecondition.argprom.argprom.exit.i
 
-negatecondition.exit.i:                           ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
+negatecondition.argprom.argprom.exit.i:           ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
   %9 = phi i32 [ %.pre.i.i, %if.else.i.i.i ], [ %6, %land.lhs.true.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.else.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i.i.i ]
   %or.i.i = xor i32 %9, 32768
@@ -2405,7 +2405,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i17, %i
   store i32 17, ptr %e, align 8
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %freeexp.exit.i, %negatecondition.exit.i, %sw.bb2.i, %sw.bb.i, %sw.bb3
+sw.epilog.i:                                      ; preds = %freeexp.exit.i, %negatecondition.argprom.argprom.exit.i, %sw.bb2.i, %sw.bb.i, %sw.bb3
   %f.i = getelementptr inbounds i8, ptr %e, i64 20
   %18 = load i32, ptr %f.i, align 4
   %t.i = getelementptr inbounds i8, ptr %e, i64 16
@@ -2421,9 +2421,9 @@ for.body.preheader.i.i:                           ; preds = %sw.epilog.i
   %fs.val4.val.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %patchtestreg.exit.i.i, %for.body.preheader.i.i
-  %fs.val.val13.i.i = phi ptr [ %fs.val.val.i.i, %patchtestreg.exit.i.i ], [ %fs.val4.val.pre.i.i, %for.body.preheader.i.i ]
-  %list.addr.07.i.i = phi i32 [ %add1.i.i.i, %patchtestreg.exit.i.i ], [ %19, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %patchtestreg.argprom.argprom.exit.i.i, %for.body.preheader.i.i
+  %fs.val.val13.i.i = phi ptr [ %fs.val.val.i.i, %patchtestreg.argprom.argprom.exit.i.i ], [ %fs.val4.val.pre.i.i, %for.body.preheader.i.i ]
+  %list.addr.07.i.i = phi i32 [ %add1.i.i.i, %patchtestreg.argprom.argprom.exit.i.i ], [ %19, %for.body.preheader.i.i ]
   %idxprom.i.i.i.i = sext i32 %list.addr.07.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %fs.val.val13.i.i, i64 %idxprom.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i32 %list.addr.07.i.i, 0
@@ -2438,20 +2438,20 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.body.i.i
   %21 = load i8, ptr %arrayidx2.i.i.i.i, align 1
   %22 = and i8 %21, 16
   %tobool.not.i.i.i.i = icmp eq i8 %22, 0
-  br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i, label %getjumpcontrol.exit.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i, label %getjumpcontrol.argprom.argprom.exit.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i, %for.body.i.i
   %.pre.i.i22.i = load i32, ptr %arrayidx.i.i.i.i, align 4
-  br label %getjumpcontrol.exit.i.i.i
+  br label %getjumpcontrol.argprom.argprom.exit.i.i.i
 
-getjumpcontrol.exit.i.i.i:                        ; preds = %if.else.i.i.i.i, %land.lhs.true.i.i.i.i
+getjumpcontrol.argprom.argprom.exit.i.i.i:        ; preds = %if.else.i.i.i.i, %land.lhs.true.i.i.i.i
   %23 = phi i32 [ %.pre.i.i22.i, %if.else.i.i.i.i ], [ %20, %land.lhs.true.i.i.i.i ]
   %retval.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.else.i.i.i.i ], [ %add.ptr.i.i.i.i, %land.lhs.true.i.i.i.i ]
   %and.i.i23.i = and i32 %23, 127
   %cmp.not.i.i24.i = icmp eq i32 %and.i.i23.i, 67
-  br i1 %cmp.not.i.i24.i, label %if.end.i.i.i, label %patchtestreg.exit.i.i
+  br i1 %cmp.not.i.i24.i, label %if.end.i.i.i, label %patchtestreg.argprom.argprom.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %getjumpcontrol.exit.i.i.i
+if.end.i.i.i:                                     ; preds = %getjumpcontrol.argprom.argprom.exit.i.i.i
   %24 = lshr i32 %23, 9
   %shl10.i.i.i = and i32 %24, 32640
   %or11.i.i.i = and i32 %23, 32834
@@ -2460,10 +2460,10 @@ if.end.i.i.i:                                     ; preds = %getjumpcontrol.exit
   %fs.val.pre.i.i = load ptr, ptr %fs, align 8
   %.phi.trans.insert12.i.i = getelementptr i8, ptr %fs.val.pre.i.i, i64 64
   %fs.val.val.pre.i.i = load ptr, ptr %.phi.trans.insert12.i.i, align 8
-  br label %patchtestreg.exit.i.i
+  br label %patchtestreg.argprom.argprom.exit.i.i
 
-patchtestreg.exit.i.i:                            ; preds = %if.end.i.i.i, %getjumpcontrol.exit.i.i.i
-  %fs.val.val.i.i = phi ptr [ %fs.val.val13.i.i, %getjumpcontrol.exit.i.i.i ], [ %fs.val.val.pre.i.i, %if.end.i.i.i ]
+patchtestreg.argprom.argprom.exit.i.i:            ; preds = %if.end.i.i.i, %getjumpcontrol.argprom.argprom.exit.i.i.i
+  %fs.val.val.i.i = phi ptr [ %fs.val.val13.i.i, %getjumpcontrol.argprom.argprom.exit.i.i.i ], [ %fs.val.val.pre.i.i, %if.end.i.i.i ]
   %arrayidx.i.i25.i = getelementptr inbounds i32, ptr %fs.val.val.i.i, i64 %idxprom.i.i.i.i
   %25 = load i32, ptr %arrayidx.i.i25.i, align 4
   %shr.i.i.i = lshr i32 %25, 7
@@ -2475,7 +2475,7 @@ patchtestreg.exit.i.i:                            ; preds = %if.end.i.i.i, %getj
   %cmp.not.i27.i = select i1 %cmp.i.i26.i, i1 true, i1 %cmp.not15.i.i
   br i1 %cmp.not.i27.i, label %removevalues.exitthread-pre-split.i, label %for.body.i.i
 
-removevalues.exitthread-pre-split.i:              ; preds = %patchtestreg.exit.i.i
+removevalues.exitthread-pre-split.i:              ; preds = %patchtestreg.argprom.argprom.exit.i.i
   %.pr.i = load i32, ptr %t.i, align 8
   br label %removevalues.exit.i
 
@@ -2490,9 +2490,9 @@ for.body.preheader.i29.i:                         ; preds = %removevalues.exit.i
   %fs.val4.val.pre.i32.i = load ptr, ptr %.phi.trans.insert.i31.i, align 8
   br label %for.body.i33.i
 
-for.body.i33.i:                                   ; preds = %patchtestreg.exit.i45.i, %for.body.preheader.i29.i
-  %fs.val.val13.i34.i = phi ptr [ %fs.val.val.i46.i, %patchtestreg.exit.i45.i ], [ %fs.val4.val.pre.i32.i, %for.body.preheader.i29.i ]
-  %list.addr.07.i35.i = phi i32 [ %add1.i.i52.i, %patchtestreg.exit.i45.i ], [ %26, %for.body.preheader.i29.i ]
+for.body.i33.i:                                   ; preds = %patchtestreg.argprom.argprom.exit.i45.i, %for.body.preheader.i29.i
+  %fs.val.val13.i34.i = phi ptr [ %fs.val.val.i46.i, %patchtestreg.argprom.argprom.exit.i45.i ], [ %fs.val4.val.pre.i32.i, %for.body.preheader.i29.i ]
+  %list.addr.07.i35.i = phi i32 [ %add1.i.i52.i, %patchtestreg.argprom.argprom.exit.i45.i ], [ %26, %for.body.preheader.i29.i ]
   %idxprom.i.i.i36.i = sext i32 %list.addr.07.i35.i to i64
   %arrayidx.i.i.i37.i = getelementptr inbounds i32, ptr %fs.val.val13.i34.i, i64 %idxprom.i.i.i36.i
   %cmp.i.i.i38.i = icmp sgt i32 %list.addr.07.i35.i, 0
@@ -2507,20 +2507,20 @@ land.lhs.true.i.i.i62.i:                          ; preds = %for.body.i33.i
   %28 = load i8, ptr %arrayidx2.i.i.i66.i, align 1
   %29 = and i8 %28, 16
   %tobool.not.i.i.i67.i = icmp eq i8 %29, 0
-  br i1 %tobool.not.i.i.i67.i, label %if.else.i.i.i39.i, label %getjumpcontrol.exit.i.i41.i
+  br i1 %tobool.not.i.i.i67.i, label %if.else.i.i.i39.i, label %getjumpcontrol.argprom.argprom.exit.i.i41.i
 
 if.else.i.i.i39.i:                                ; preds = %land.lhs.true.i.i.i62.i, %for.body.i33.i
   %.pre.i.i40.i = load i32, ptr %arrayidx.i.i.i37.i, align 4
-  br label %getjumpcontrol.exit.i.i41.i
+  br label %getjumpcontrol.argprom.argprom.exit.i.i41.i
 
-getjumpcontrol.exit.i.i41.i:                      ; preds = %if.else.i.i.i39.i, %land.lhs.true.i.i.i62.i
+getjumpcontrol.argprom.argprom.exit.i.i41.i:      ; preds = %if.else.i.i.i39.i, %land.lhs.true.i.i.i62.i
   %30 = phi i32 [ %.pre.i.i40.i, %if.else.i.i.i39.i ], [ %27, %land.lhs.true.i.i.i62.i ]
   %retval.0.i.i.i42.i = phi ptr [ %arrayidx.i.i.i37.i, %if.else.i.i.i39.i ], [ %add.ptr.i.i.i63.i, %land.lhs.true.i.i.i62.i ]
   %and.i.i43.i = and i32 %30, 127
   %cmp.not.i.i44.i = icmp eq i32 %and.i.i43.i, 67
-  br i1 %cmp.not.i.i44.i, label %if.end.i.i55.i, label %patchtestreg.exit.i45.i
+  br i1 %cmp.not.i.i44.i, label %if.end.i.i55.i, label %patchtestreg.argprom.argprom.exit.i45.i
 
-if.end.i.i55.i:                                   ; preds = %getjumpcontrol.exit.i.i41.i
+if.end.i.i55.i:                                   ; preds = %getjumpcontrol.argprom.argprom.exit.i.i41.i
   %31 = lshr i32 %30, 9
   %shl10.i.i56.i = and i32 %31, 32640
   %or11.i.i57.i = and i32 %30, 32834
@@ -2529,10 +2529,10 @@ if.end.i.i55.i:                                   ; preds = %getjumpcontrol.exit
   %fs.val.pre.i59.i = load ptr, ptr %fs, align 8
   %.phi.trans.insert12.i60.i = getelementptr i8, ptr %fs.val.pre.i59.i, i64 64
   %fs.val.val.pre.i61.i = load ptr, ptr %.phi.trans.insert12.i60.i, align 8
-  br label %patchtestreg.exit.i45.i
+  br label %patchtestreg.argprom.argprom.exit.i45.i
 
-patchtestreg.exit.i45.i:                          ; preds = %if.end.i.i55.i, %getjumpcontrol.exit.i.i41.i
-  %fs.val.val.i46.i = phi ptr [ %fs.val.val13.i34.i, %getjumpcontrol.exit.i.i41.i ], [ %fs.val.val.pre.i61.i, %if.end.i.i55.i ]
+patchtestreg.argprom.argprom.exit.i45.i:          ; preds = %if.end.i.i55.i, %getjumpcontrol.argprom.argprom.exit.i.i41.i
+  %fs.val.val.i46.i = phi ptr [ %fs.val.val13.i34.i, %getjumpcontrol.argprom.argprom.exit.i.i41.i ], [ %fs.val.val.pre.i61.i, %if.end.i.i55.i ]
   %arrayidx.i.i47.i = getelementptr inbounds i32, ptr %fs.val.val.i46.i, i64 %idxprom.i.i.i36.i
   %32 = load i32, ptr %arrayidx.i.i47.i, align 4
   %shr.i.i48.i = lshr i32 %32, 7
@@ -2544,7 +2544,7 @@ patchtestreg.exit.i45.i:                          ; preds = %if.end.i.i55.i, %ge
   %cmp.not.i54.i = select i1 %cmp.i.i50.i, i1 true, i1 %cmp.not15.i53.i
   br i1 %cmp.not.i54.i, label %sw.epilog, label %for.body.i33.i
 
-sw.epilog:                                        ; preds = %patchtestreg.exit.i45.i, %removevalues.exit.i, %entry, %sw.bb, %codeunexpval.exit
+sw.epilog:                                        ; preds = %patchtestreg.argprom.argprom.exit.i45.i, %removevalues.exit.i, %entry, %sw.bb, %codeunexpval.exit
   ret void
 }
 

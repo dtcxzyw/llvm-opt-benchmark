@@ -1343,7 +1343,7 @@ pmix_tma_malloc.exit.i:                           ; preds = %7, %5
 
 12:                                               ; preds = %11, %pmix_tma_malloc.exit.i
   %.not22.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %13
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %13
 
 13:                                               ; preds = %12
   %14 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %.0.i.i, ptr noundef null) #13
@@ -1368,7 +1368,7 @@ pmix_tma_malloc.exit.i:                           ; preds = %7, %5
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i.i = icmp eq ptr %23, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
   %24 = phi ptr [ %26, %.lr.ph.i.i ], [ %23, %21 ]
@@ -1377,9 +1377,9 @@ pmix_tma_malloc.exit.i:                           ; preds = %7, %5
   %25 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.i23.i = icmp eq ptr %26, null
-  br i1 %.not.i23.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i23.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %12, %21
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %12, %21
   %27 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %.0.i.i, ptr %27, align 8
   %28 = tail call i32 @pmix_pointer_array_init(ptr noundef %.0.i.i, i32 noundef 1024, i32 noundef 2147483647, i32 noundef 128) #13

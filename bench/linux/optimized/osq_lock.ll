@@ -125,7 +125,7 @@ define dso_local noundef zeroext i1 @osq_lock(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @osq_wait_next(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @osq_wait_next.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #2, !srcloc !16
   %4 = add i32 %3, 1
   br label %5
@@ -175,7 +175,7 @@ define dso_local void @osq_unlock(ptr noundef %0) local_unnamed_addr #0 align 16
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = tail call fastcc ptr @osq_wait_next(ptr noundef %0, ptr noundef %8)
+  %12 = tail call fastcc ptr @osq_wait_next.argelim(ptr noundef %0, ptr noundef %8)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %17, label %14
 

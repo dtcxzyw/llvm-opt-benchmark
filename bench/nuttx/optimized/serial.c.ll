@@ -277,7 +277,7 @@ define internal noundef i32 @uart_close(ptr nocapture noundef readonly %0) #0 {
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %15
-  %24 = tail call fastcc i32 @uart_tcdrain(ptr noundef nonnull %7, i64 noundef 4000000)
+  %24 = tail call fastcc i32 @uart_tcdrain.argelim(ptr noundef nonnull %7, i64 noundef 4000000)
   br label %25
 
 25:                                               ; preds = %23, %15
@@ -1463,7 +1463,7 @@ uart_datasent.exit:                               ; preds = %.lr.ph.i.i, %108, %
   br label %up_irq_restore.exit99.thread
 
 125:                                              ; preds = %.thread
-  %126 = tail call fastcc i32 @uart_tcdrain(ptr noundef nonnull %12, i64 noundef 10000000)
+  %126 = tail call fastcc i32 @uart_tcdrain.argelim(ptr noundef nonnull %12, i64 noundef 10000000)
   br label %up_irq_restore.exit99
 
 127:                                              ; preds = %.thread
@@ -1698,7 +1698,7 @@ declare i32 @nxmutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @nxmutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4000000, 10000001) %1) unnamed_addr #0 {
+define internal fastcc i32 @uart_tcdrain.argelim(ptr noundef %0, i64 noundef range(i64 4000000, 10000001) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = tail call i32 @nxmutex_lock(ptr noundef nonnull %4) #5

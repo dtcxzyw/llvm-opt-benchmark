@@ -13352,7 +13352,7 @@ define void @_ZN3nix22getDefaultSubstitutersB5cxx11Ev(ptr dead_on_unwind noalias
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @"_ZZN3nix22getDefaultSubstitutersB5cxx11EvENK3$_0clB5cxx11Ev"()
+  invoke fastcc void @"_ZZN3nix22getDefaultSubstitutersB5cxx11EvENK3$_0clB5cxx11Ev.argprom"()
           to label %7 unwind label %35
 
 7:                                                ; preds = %6
@@ -16580,7 +16580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   %.val33 = load ptr, ptr %200, align 8
   %201 = getelementptr i8, ptr %199, i64 360
   %.val34 = load i64, ptr %201, align 8
-  %202 = invoke fastcc noundef zeroext i1 @_ZN3nixL13goodStorePathERKNS_9StorePathES2_(ptr %.val, i64 %.val32, ptr %.val33, i64 %.val34)
+  %202 = invoke fastcc noundef zeroext i1 @_ZN3nixL13goodStorePathERKNS_9StorePathES2_.argprom(ptr %.val, i64 %.val32, ptr %.val33, i64 %.val34)
           to label %203 unwind label %210
 
 203:                                              ; preds = %197
@@ -16935,7 +16935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3nixL13goodStorePathERKNS_9StorePathES2_(ptr nocapture readonly %.0.val, i64 %.8.val, ptr nocapture readonly %.0.val1, i64 %.8.val3) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN3nixL13goodStorePathERKNS_9StorePathES2_.argprom(ptr nocapture readonly %.0.val, i64 %.8.val, ptr nocapture readonly %.0.val1, i64 %.8.val3) unnamed_addr #5 {
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.8.val, i64 32)
   %.sroa.speculated.i.i13 = tail call i64 @llvm.umin.i64(i64 %.8.val3, i64 32)
   %1 = icmp eq i64 %.sroa.speculated.i.i, %.sroa.speculated.i.i13
@@ -32061,7 +32061,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.i: ; preds
   %399 = ptrtoint ptr %50 to i64
   %400 = sub i64 %398, %399
   %401 = icmp eq i64 %400, -1
-  br i1 %401, label %.lr.ph.i.i5.i, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+  br i1 %401, label %.lr.ph.i.i5.i, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread
 
 .lr.ph.i.i5.i:                                    ; preds = %394, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit170.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.i
   %402 = getelementptr inbounds i8, ptr %50, i64 %49
@@ -32073,28 +32073,28 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8.i:  ; preds = %406, %.lr.ph.i.i5.i
   %.02840.i.i7.i = phi ptr [ %50, %.lr.ph.i.i5.i ], [ %407, %406 ]
   %404 = tail call ptr @memchr(ptr noundef %.02840.i.i7.i, i32 noundef 47, i64 noundef %.041.i.i6.i) #33
   %.not34.i.i9.i = icmp eq ptr %404, null
-  br i1 %.not34.i.i9.i, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10.i
+  br i1 %.not34.i.i9.i, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8.i
   %lhsc.i = load i8, ptr %404, align 1
   %405 = icmp eq i8 %lhsc.i, 47
-  br i1 %405, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %406
+  br i1 %405, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %406
 
 406:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10.i
   %407 = getelementptr inbounds i8, ptr %404, i64 1
   %408 = ptrtoint ptr %407 to i64
   %409 = sub i64 %403, %408
   %.not33.i.i12.i = icmp eq i64 %409, 0
-  br i1 %.not33.i.i12.i, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8.i, !llvm.loop !241
+  br i1 %.not33.i.i12.i, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8.i, !llvm.loop !241
 
-_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10.i
+_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10.i
   %410 = ptrtoint ptr %404 to i64
   %411 = ptrtoint ptr %50 to i64
   %412 = sub i64 %410, %411
   %.not223 = icmp eq i64 %412, -1
-  br i1 %.not223, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %413
+  br i1 %.not223, label %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread, label %413
 
-413:                                              ; preds = %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+413:                                              ; preds = %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
   %414 = getelementptr inbounds i8, ptr %42, i64 8
   store i32 0, ptr %414, align 8
   %415 = getelementptr inbounds i8, ptr %42, i64 16
@@ -32356,11 +32356,11 @@ _ZNSt10shared_ptrIN3nix10LocalStoreEED2Ev.exit200: ; preds = %490, %487
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #33
   br label %511
 
-_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %406, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.i, %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread: ; preds = %406, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.i, %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit201
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit201: ; preds = %_ZNSt10shared_ptrIN3nix10LocalStoreEED2Ev.exit200, %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZNSt10shared_ptrIN3nix10LocalStoreEED2Ev.exit178, %_ZNSt10shared_ptrIN3nix14UDSRemoteStoreEED2Ev.exit163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit201: ; preds = %_ZNSt10shared_ptrIN3nix10LocalStoreEED2Ev.exit200, %_ZN3nixL12isNonUriPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread, %_ZNSt10shared_ptrIN3nix10LocalStoreEED2Ev.exit178, %_ZNSt10shared_ptrIN3nix14UDSRemoteStoreEED2Ev.exit163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148
   ret void
 
 511:                                              ; preds = %510, %362, %107
@@ -34352,7 +34352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix22getDefaultSubstitutersB5cxx11EvENK3$_0clB5cxx11Ev"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix22getDefaultSubstitutersB5cxx11EvENK3$_0clB5cxx11Ev.argprom"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.std::__detail::_Scratch_list", align 8
   %2 = alloca [64 x %"struct.std::__detail::_Scratch_list"], align 16
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -78983,7 +78983,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_5Store10addT
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS0_14SourceAccessorERKNS0_9CanonPathENS0_20ContentAddressMethodENS0_13HashAlgorithmERKSt3setINS0_9StorePathESt4lessISH_ESaISH_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS7_SaIcEEEEENS0_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -78992,30 +78992,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS_14SourceAccessorERKNS_9CanonPathENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISD_ESaISD_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS3_SaIcEEEEENS_10RepairFlagEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix5Store10addToStoreESt17basic_string_viewIcSt11char_traitsIcEERNS1_14SourceAccessorERKNS1_9CanonPathENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISF_ESaISF_EERSt8functionIFbRKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -82388,7 +82388,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_S_mini
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZNS1_5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteISF_EEESaISJ_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -82397,30 +82397,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9Stor
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS_13ValidPathInfoESt10unique_ptrINS_6SourceESt14default_deleteIS5_EEESaIS9_EERNS_8ActivityENS_10RepairFlagENS_13CheckSigsFlagEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -83764,7 +83764,7 @@ _ZNSt10unique_ptrIN3nix6SourceESt14default_deleteIS1_EED2Ev.exit31.i.i.i: ; pred
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3nix9StorePathEEZNS0_5Store18addMultipleToStoreERSt6vectorISt4pairINS0_13ValidPathInfoESt10unique_ptrINS0_6SourceESt14default_deleteISA_EEESaISE_EERNS0_8ActivityENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -83773,30 +83773,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3nix9StorePat
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS_13ValidPathInfoESt10unique_ptrINS_6SourceESt14default_deleteIS5_EEESaIS9_EERNS_8ActivityENS_10RepairFlagENS_13CheckSigsFlagEE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -88098,13 +88098,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #34
           to label %18 unwind label %19
 
@@ -88118,7 +88118,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -88808,7 +88808,7 @@ _ZN3nix4SyncINS_5Store5StateESt5mutexE4LockD2Ev.exit.i.i.i: ; preds = %_ZNKSt7__
   %.val9.i.i.i = load ptr, ptr %160, align 8
   %161 = getelementptr i8, ptr %158, i64 360
   %.val10.i.i.i = load i64, ptr %161, align 8
-  %162 = invoke fastcc noundef zeroext i1 @_ZN3nixL13goodStorePathERKNS_9StorePathES2_(ptr %.val.i.i.i, i64 %.val8.i.i.i, ptr %.val9.i.i.i, i64 %.val10.i.i.i)
+  %162 = invoke fastcc noundef zeroext i1 @_ZN3nixL13goodStorePathERKNS_9StorePathES2_.argprom(ptr %.val.i.i.i, i64 %.val8.i.i.i, ptr %.val9.i.i.i, i64 %.val10.i.i.i)
           to label %163 unwind label %88
 
 163:                                              ; preds = %159
@@ -89227,16 +89227,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix5Store13queryPathInfoERKNS_9StorePathENS_8CallbackINS_3refIKNS_13ValidPathInfoEEEEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 3, label %33
     i32 2, label %7
   ]
@@ -89302,19 +89302,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i": ; preds = %27, %24, %14
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 33:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %34 = icmp eq ptr %.val7.i, null
-  br i1 %34, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %35
+  br i1 %34, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %35
 
 35:                                               ; preds = %33
   tail call fastcc void @"_ZZN3nix5Store13queryPathInfoERKNS_9StorePathENS_8CallbackINS_3refIKNS_13ValidPathInfoEEEEEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(88) %.val7.i) #33
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %35, %33, %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %35, %33, %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store13queryPathInfoERKNS1_9StorePathENS1_8CallbackINS1_3refIKNS1_13ValidPathInfoEEEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -90479,16 +90479,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix5Store16queryRealisationERKNS_9DrvOutputENS_8CallbackISt10shared_ptrIKNS_11RealisationEEEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 3, label %30
     i32 2, label %7
   ]
@@ -90541,12 +90541,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i": ; preds = %26, %23, %.noexc.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 30:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %31 = icmp eq ptr %.val7.i, null
-  br i1 %31, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %32
+  br i1 %31, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.val7.i, i64 128
@@ -90643,9 +90643,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 "_ZZN3nix5Store16queryRealisationERKNS_9DrvOutputENS_8CallbackISt10shared_ptrIKNS_11RealisationEEEEEN3$_0D2Ev.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #33
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %"_ZZN3nix5Store16queryRealisationERKNS_9DrvOutputENS_8CallbackISt10shared_ptrIKNS_11RealisationEEEEEN3$_0D2Ev.exit.i.i", %30, %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %"_ZZN3nix5Store16queryRealisationERKNS_9DrvOutputENS_8CallbackISt10shared_ptrIKNS_11RealisationEEEEEN3$_0D2Ev.exit.i.i", %30, %"_ZNSt14_Function_base13_Base_managerIZN3nix5Store16queryRealisationERKNS1_9DrvOutputENS1_8CallbackISt10shared_ptrIKNS1_11RealisationEEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -91392,7 +91392,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %12
@@ -91401,12 +91401,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN3n
 
 4:                                                ; preds = %3
   store ptr @"_ZTISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS0_9StorePathESt4lessIS3_ESaIS3_EENS0_14SubstituteFlagEE3$_0S3_EE", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -91425,12 +91425,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvESt5_BindIFZN3n
 
 "_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i": ; preds = %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 12:                                               ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %13 = icmp eq ptr %.val7.i, null
-  br i1 %13, label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %14
+  br i1 %13, label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.val7.i, i64 24
@@ -91453,9 +91453,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 "_ZNSt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS0_9StorePathESt4lessIS3_ESaIS3_EENS0_14SubstituteFlagEE3$_0S3_EED2Ev.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #33
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %"_ZNSt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS0_9StorePathESt4lessIS3_ESaIS3_EENS0_14SubstituteFlagEE3$_0S3_EED2Ev.exit.i.i", %12, %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZNSt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS0_9StorePathESt4lessIS3_ESaIS3_EENS0_14SubstituteFlagEE3$_0S3_EED2Ev.exit.i.i", %12, %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN3nix5Store15queryValidPathsERKSt3setINS2_9StorePathESt4lessIS5_ESaIS5_EENS2_14SubstituteFlagEE3$_0S5_EEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -91797,16 +91797,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix3
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN3nix5Store15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagEENK3$_0clERKS2_EUlSt6futureINS_3refIKNS_13ValidPathInfoEEEEE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit" [
     i32 3, label %13
     i32 2, label %7
   ]
@@ -91827,12 +91827,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix3
   %12 = getelementptr inbounds i8, ptr %.val6, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
 
 13:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %14 = icmp eq ptr %.val7.i, null
-  br i1 %14, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit", label %15
+  br i1 %14, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit", label %15
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %.val7.i, align 8
@@ -91854,9 +91854,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 "_ZZZN3nix5Store15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagEENK3$_0clERKS2_ENUlSt6futureINS_3refIKNS_13ValidPathInfoEEEEE_D2Ev.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.val7.i) #33
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit": ; preds = %"_ZZZN3nix5Store15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagEENK3$_0clERKS2_ENUlSt6futureINS_3refIKNS_13ValidPathInfoEEEEE_D2Ev.exit.i.i", %13, %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E15_M_init_functorIRKSL_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN3nix5Store15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagEENK3$_0clERKS2_ENUlSt6futureINS_3refIKNS_13ValidPathInfoEEEEE_D2Ev.exit.i.i", %13, %"_ZNSt14_Function_base13_Base_managerIZZN3nix5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EENS1_14SubstituteFlagEENK3$_0clERKS4_EUlSt6futureINS1_3refIKNS1_13ValidPathInfoEEEEE_E15_M_init_functorIRKSL_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -92024,7 +92024,7 @@ _ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit7.i.i.i: ;
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_13copyStorePathERNS0_5StoreES5_RKNS0_9StorePathENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -92033,30 +92033,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix13copyStorePathERNS_5StoreES1_RKNS_9StorePathENS_10RepairFlagENS_13CheckSigsFlagEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -92123,7 +92123,7 @@ define internal void @"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11cha
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char_traitsIcEEEZZN3nix13copyStorePathERNS5_5StoreES7_RKNS5_9StorePathENS5_10RepairFlagENS5_13CheckSigsFlagEENK3$_0clERNS5_4SinkEEUlS3_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -92132,30 +92132,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN3nix13copyStorePathERNS_5StoreES1_RKNS_9StorePathENS_10RepairFlagENS_13CheckSigsFlagEENK3$_0clERNS_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN3nix13copyStorePathERNS1_5StoreES3_RKNS1_9StorePathENS1_10RepairFlagENS1_13CheckSigsFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -97632,7 +97632,7 @@ _ZN3nix12PushActivityD2Ev.exit49.i.i.i:           ; preds = %_ZNSt8functionIFvSt
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_9copyPathsERNS0_5StoreES5_RKSt3setINS0_9StorePathESt4lessIS7_ESaIS7_EENS0_10RepairFlagENS0_13CheckSigsFlagENS0_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -97641,30 +97641,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix9copyPathsERNS_5StoreES1_RKSt3setINS_9StorePathESt4lessIS3_ESaIS3_EENS_10RepairFlagENS_13CheckSigsFlagENS_14SubstituteFlagEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -97705,7 +97705,7 @@ define internal void @"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11cha
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char_traitsIcEEEZZN3nix9copyPathsERNS5_5StoreES7_RKSt3setINS5_9StorePathESt4lessIS9_ESaIS9_EENS5_10RepairFlagENS5_13CheckSigsFlagENS5_14SubstituteFlagEENK3$_0clERNS5_4SinkEEUlS3_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -97714,30 +97714,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN3nix9copyPathsERNS_5StoreES1_RKSt3setINS_9StorePathESt4lessIS3_ESaIS3_EENS_10RepairFlagENS_13CheckSigsFlagENS_14SubstituteFlagEENK3$_0clERNS_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN3nix9copyPathsERNS1_5StoreES3_RKSt3setINS1_9StorePathESt4lessIS5_ESaIS5_EENS1_10RepairFlagENS1_13CheckSigsFlagENS1_14SubstituteFlagEENK3$_0clERNS1_4SinkEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -100583,8 +100583,8 @@ attributes #39 = { nounwind willreturn memory(none) }
 !248 = distinct !{!248, !249, !"_ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8value_orIRA1_KcEES5_OT_: argument 0"}
 !249 = distinct !{!249, !"_ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8value_orIRA1_KcEES5_OT_"}
 !250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZN3nixL14extractConnStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_: argument 0"}
-!252 = distinct !{!252, !"_ZN3nixL14extractConnStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"}
+!251 = distinct !{!251, !252, !"_ZN3nixL14extractConnStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom: argument 0"}
+!252 = distinct !{!252, !"_ZN3nixL14extractConnStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"}
 !253 = distinct !{!253, !5}
 !254 = !{!255, !251}
 !255 = distinct !{!255, !256, !"_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE3strEm: argument 0"}

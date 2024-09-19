@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E = external local_unnamed_addr global { i64 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3d369ad7820473b1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3d369ad7820473b1E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -106,7 +106,7 @@ define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outg
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c97fb16ac0cded1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c97fb16ac0cded1E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -160,7 +160,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h661b14cd95bc607bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h661b14cd95bc607bE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -3152,7 +3152,7 @@ common.ret:                                       ; preds = %1347, %295
   store i64 1, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !noalias !384
   %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %71, i64 16
   store ptr %481, ptr %.sroa.11.0..sroa_idx.i.i, align 8, !noalias !384
-  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c97fb16ac0cded1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %71)
+  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c97fb16ac0cded1E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %71)
           to label %503 unwind label %501
 
 501:                                              ; preds = %495
@@ -4418,7 +4418,7 @@ common.ret:                                       ; preds = %1347, %295
   store i64 1, ptr %.sroa.10.0..sroa_idx.i.i.i, align 8, !noalias !542
   %.sroa.11.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %24, i64 16
   store ptr %898, ptr %.sroa.11.0..sroa_idx.i.i.i, align 8, !noalias !542
-  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3d369ad7820473b1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %24)
+  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3d369ad7820473b1E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %24)
           to label %928 unwind label %926, !noalias !554
 
 925:                                              ; preds = %926, %915
@@ -4886,7 +4886,7 @@ common.ret:                                       ; preds = %1347, %295
   store i64 1, ptr %.sroa.10520.0..sroa_idx.i.i, align 8, !noalias !384
   %.sroa.11521.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %1048, ptr %.sroa.11521.0..sroa_idx.i.i, align 8, !noalias !384
-  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h661b14cd95bc607bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %48)
+  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h661b14cd95bc607bE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %48)
           to label %1079 unwind label %1077
 
 1076:                                             ; preds = %1077, %1066
@@ -6492,11 +6492,11 @@ attributes #16 = { noreturn }
 !410 = distinct !{!410, !408, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !411 = !{i64 1}
 !412 = !{!413, !415}
-!413 = distinct !{!413, !414, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 0"}
-!414 = distinct !{!414, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E"}
-!415 = distinct !{!415, !414, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 1"}
+!413 = distinct !{!413, !414, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 0"}
+!414 = distinct !{!414, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom"}
+!415 = distinct !{!415, !414, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 1"}
 !416 = !{!417, !385, !378}
-!417 = distinct !{!417, !414, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 2"}
+!417 = distinct !{!417, !414, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 2"}
 !418 = !{!419}
 !419 = distinct !{!419, !420, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !420 = distinct !{!420, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -6515,11 +6515,11 @@ attributes #16 = { noreturn }
 !433 = !{!434}
 !434 = distinct !{!434, !432, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !435 = !{!436, !438}
-!436 = distinct !{!436, !437, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 0"}
-!437 = distinct !{!437, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E"}
-!438 = distinct !{!438, !437, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 1"}
+!436 = distinct !{!436, !437, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 0"}
+!437 = distinct !{!437, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom"}
+!438 = distinct !{!438, !437, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 1"}
 !439 = !{!440, !385, !378}
-!440 = distinct !{!440, !437, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 2"}
+!440 = distinct !{!440, !437, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 2"}
 !441 = !{!442}
 !442 = distinct !{!442, !443, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !443 = distinct !{!443, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -6646,11 +6646,11 @@ attributes #16 = { noreturn }
 !564 = !{!565, !543, !545}
 !565 = distinct !{!565, !563, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !566 = !{!567, !569}
-!567 = distinct !{!567, !568, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 0"}
-!568 = distinct !{!568, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E"}
-!569 = distinct !{!569, !568, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 1"}
+!567 = distinct !{!567, !568, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 0"}
+!568 = distinct !{!568, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom"}
+!569 = distinct !{!569, !568, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 1"}
 !570 = !{!571, !543, !545, !385, !378}
-!571 = distinct !{!571, !568, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 2"}
+!571 = distinct !{!571, !568, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 2"}
 !572 = !{!573}
 !573 = distinct !{!573, !574, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !574 = distinct !{!574, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -6669,11 +6669,11 @@ attributes #16 = { noreturn }
 !587 = !{!588, !543, !545}
 !588 = distinct !{!588, !586, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !589 = !{!590, !592}
-!590 = distinct !{!590, !591, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 0"}
-!591 = distinct !{!591, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E"}
-!592 = distinct !{!592, !591, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 1"}
+!590 = distinct !{!590, !591, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 0"}
+!591 = distinct !{!591, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom"}
+!592 = distinct !{!592, !591, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 1"}
 !593 = !{!594, !543, !545, !385, !378}
-!594 = distinct !{!594, !591, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 2"}
+!594 = distinct !{!594, !591, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 2"}
 !595 = !{!596}
 !596 = distinct !{!596, !597, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !597 = distinct !{!597, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -6702,11 +6702,11 @@ attributes #16 = { noreturn }
 !620 = !{!621}
 !621 = distinct !{!621, !619, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !622 = !{!623, !625}
-!623 = distinct !{!623, !624, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 0"}
-!624 = distinct !{!624, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E"}
-!625 = distinct !{!625, !624, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 1"}
+!623 = distinct !{!623, !624, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 0"}
+!624 = distinct !{!624, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom"}
+!625 = distinct !{!625, !624, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 1"}
 !626 = !{!627, !385, !378}
-!627 = distinct !{!627, !624, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 2"}
+!627 = distinct !{!627, !624, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 2"}
 !628 = !{!629}
 !629 = distinct !{!629, !630, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !630 = distinct !{!630, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -6725,11 +6725,11 @@ attributes #16 = { noreturn }
 !643 = !{!644}
 !644 = distinct !{!644, !642, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !645 = !{!646, !648}
-!646 = distinct !{!646, !647, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 0"}
-!647 = distinct !{!647, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E"}
-!648 = distinct !{!648, !647, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 1"}
+!646 = distinct !{!646, !647, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 0"}
+!647 = distinct !{!647, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom"}
+!648 = distinct !{!648, !647, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 1"}
 !649 = !{!650, !385, !378}
-!650 = distinct !{!650, !647, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E: argument 2"}
+!650 = distinct !{!650, !647, !"_ZN4core6option15Option$LT$T$GT$6expect17h8a8ec44942fc8355E.argprom: argument 2"}
 !651 = !{!652}
 !652 = distinct !{!652, !653, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !653 = distinct !{!653, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}

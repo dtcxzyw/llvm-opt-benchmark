@@ -909,7 +909,7 @@ _ZN4llvm14gep_type_beginERKNS_4UserE.exit.i.i:    ; preds = %202, %199
   %.pre-phi28.i.i = phi i64 [ %.pre27.i.i, %199 ], [ %205, %202 ]
   %207 = phi ptr [ %201, %199 ], [ %206, %202 ]
   %.not19.i.i = icmp eq i64 %.pre-phi28.i.i, -1
-  br i1 %.not19.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.exit.i, label %.lr.ph.i.i
+  br i1 %.not19.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm14gep_type_beginERKNS_4UserE.exit.i.i
   %.idx = shl nsw i64 %.pre-phi28.i.i, 5
@@ -1061,9 +1061,9 @@ _ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit.i.i: ; preds = %265, %2
   %.sink.i.i.i = phi i64 [ %264, %261 ], [ %269, %265 ], [ %258, %253 ]
   %.016.i.i = getelementptr inbounds i8, ptr %.01624.i.i, i64 32
   %.not.i.i = icmp eq ptr %.016.i.i, %spec.select.i.i
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.exit.i, label %211, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.argprom.exit.i, label %211, !llvm.loop !13
 
-_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.exit.i: ; preds = %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit.i.i, %_ZN4llvm14gep_type_beginERKNS_4UserE.exit.i.i
+_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.argprom.exit.i: ; preds = %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit.i.i, %_ZN4llvm14gep_type_beginERKNS_4UserE.exit.i.i
   %.0.lcssa.i.i = phi i1 [ false, %_ZN4llvm14gep_type_beginERKNS_4UserE.exit.i.i ], [ %.17.i.i, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %53)
   %270 = call fastcc noundef i64 @_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20accumulateByteOffsetEPN4llvm17GetElementPtrInstERb(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %spec.select.i.i, ptr noundef nonnull align 1 dereferenceable(1) %54)
@@ -1075,7 +1075,7 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSi
   %276 = trunc i8 %275 to i1
   br i1 %276, label %380, label %277
 
-277:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.exit.i
+277:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %48)
@@ -1145,7 +1145,7 @@ _ZNK4llvm17GetElementPtrInst22getPointerAddressSpaceEv.exit.i.i: ; preds = %303,
   %320 = sub nsw i64 0, %319
   %321 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i, i64 %320
   %322 = getelementptr inbounds i8, ptr %321, i64 32
-  %323 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_126SeparateConstOffsetFromGEP10reorderGEPEPNS_17GetElementPtrInstERNS_19TargetTransformInfoEE3$_0EEbOT_T0_"(ptr nonnull %322, ptr nonnull %spec.select.i.i, ptr readonly %0)
+  %323 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_126SeparateConstOffsetFromGEP10reorderGEPEPNS_17GetElementPtrInstERNS_19TargetTransformInfoEE3$_0EEbOT_T0_.argprom"(ptr nonnull %322, ptr nonnull %spec.select.i.i, ptr readonly %0)
   br i1 %323, label %324, label %333
 
 324:                                              ; preds = %316
@@ -1155,7 +1155,7 @@ _ZNK4llvm17GetElementPtrInst22getPointerAddressSpaceEv.exit.i.i: ; preds = %303,
   %328 = sub nsw i64 0, %327
   %329 = getelementptr inbounds %"class.llvm::Use", ptr %283, i64 %328
   %330 = getelementptr inbounds i8, ptr %329, i64 32
-  %331 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_126SeparateConstOffsetFromGEP10reorderGEPEPNS_17GetElementPtrInstERNS_19TargetTransformInfoEE3$_0EEbOT_T0_"(ptr nonnull %330, ptr nonnull %283, ptr readonly %0)
+  %331 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_126SeparateConstOffsetFromGEP10reorderGEPEPNS_17GetElementPtrInstERNS_19TargetTransformInfoEE3$_0EEbOT_T0_.argprom"(ptr nonnull %330, ptr nonnull %283, ptr readonly %0)
   %332 = select i1 %331, i32 3, i32 0
   br label %333
 
@@ -1265,7 +1265,7 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP10reorderGEPEPN4llvm17GetElementPtr
   %379 = or i1 %.0.lcssa.i.i, %.0.i.i
   br label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP8splitGEPEPN4llvm17GetElementPtrInstE.exit
 
-380:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.exit.i
+380:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP35canonicalizeArrayIndicesToIndexSizeEPN4llvm17GetElementPtrInstE.argprom.exit.i
   %381 = load i8, ptr %88, align 8
   %382 = trunc i8 %381 to i1
   br i1 %382, label %405, label %383
@@ -1822,17 +1822,17 @@ _ZNK4llvm10DataLayout25isNonIntegralAddressSpaceEj.exit.i: ; preds = %599, %_ZNK
   %648 = load ptr, ptr %647, align 8
   %649 = call noundef ptr @_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_(ptr noundef nonnull align 8 dereferenceable(144) %646, ptr noundef %648) #19
   %.not.i89.i = icmp eq ptr %649, null
-  br i1 %.not.i89.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.exit.i.i, label %650
+  br i1 %.not.i89.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.argprom.exit.i.i, label %650
 
 650:                                              ; preds = %635
   %651 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(152) %649, ptr noundef %645) #19
-  br i1 %651, label %652, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.exit.i.i
+  br i1 %651, label %652, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.argprom.exit.i.i
 
 652:                                              ; preds = %650
   %653 = getelementptr i8, ptr %645, i64 16
   %.val.i.i = load ptr, ptr %653, align 8
   %.not.i.i112.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i112.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.exit.i.i, label %.lr.ph.i.i113.i
+  br i1 %.not.i.i112.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.argprom.exit.i.i, label %.lr.ph.i.i113.i
 
 .lr.ph.i.i113.i:                                  ; preds = %652, %664
   %.087.i.i.i = phi i32 [ %.1.i.i114.i, %664 ], [ 0, %652 ]
@@ -1851,16 +1851,16 @@ _ZNK4llvm10DataLayout25isNonIntegralAddressSpaceEj.exit.i: ; preds = %599, %_ZNK
 
 662:                                              ; preds = %658
   %663 = icmp sgt i32 %.087.i.i.i, 0
-  br i1 %663, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.exit.i.i, label %664
+  br i1 %663, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.argprom.exit.i.i, label %664
 
 664:                                              ; preds = %662, %658, %.lr.ph.i.i113.i
   %.1.i.i114.i = phi i32 [ 1, %662 ], [ %.087.i.i.i, %658 ], [ %.087.i.i.i, %.lr.ph.i.i113.i ]
   %665 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i.i.i, i64 8
   %666 = load ptr, ptr %665, align 8
   %.not10.i.i.i = icmp eq ptr %666, null
-  br i1 %.not10.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.exit.i.i, label %.lr.ph.i.i113.i
+  br i1 %.not10.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.argprom.exit.i.i, label %.lr.ph.i.i113.i
 
-_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.exit.i.i: ; preds = %664, %662, %652, %650, %635
+_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.argprom.exit.i.i: ; preds = %664, %662, %652, %650, %635
   %.not151.i.i = phi i1 [ true, %650 ], [ true, %635 ], [ false, %652 ], [ true, %662 ], [ false, %664 ]
   %667 = call noundef ptr @_ZNK4llvm11GEPOperator20getSourceElementTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i) #19
   %668 = load i32, ptr %196, align 4
@@ -1868,13 +1868,13 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5V
   %.not.i.i.i.i90.i = icmp eq i32 %669, 0
   br i1 %.not.i.i.i.i90.i, label %673, label %670
 
-670:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.exit.i.i
+670:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.argprom.exit.i.i
   %671 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -8
   %672 = load ptr, ptr %671, align 8
   %.pre166.i.i = and i32 %668, 134217727
   br label %_ZN4llvm14gep_type_beginERKNS_4UserE.exit.i91.i
 
-673:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.exit.i.i
+673:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP23hasMoreThanOneUseInLoopEPN4llvm5ValueEPNS1_4LoopE.argprom.exit.i.i
   %674 = and i32 %668, 134217727
   %675 = zext nneg i32 %674 to i64
   %676 = sub nsw i64 0, %675
@@ -2248,7 +2248,7 @@ _ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit.i103.i: ; preds = %841,
   %.048.lcssa.i.i = phi ptr [ null, %_ZN4llvm14gep_type_beginERKNS_4UserE.exit.i91.i ], [ %.149108.i.i, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit.i103.i ]
   %.0.lcssa.i105.i = phi ptr [ %645, %_ZN4llvm14gep_type_beginERKNS_4UserE.exit.i91.i ], [ %.1110.i.i, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit.i103.i ]
   %.not57.i.i = icmp eq i64 %270, 0
-  br i1 %.not57.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %846
+  br i1 %.not57.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %846
 
 846:                                              ; preds = %._crit_edge.i.i
   %847 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %639, i64 noundef %270, i1 noundef zeroext false) #19
@@ -2262,7 +2262,7 @@ _ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit.i103.i: ; preds = %841,
   %850 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(128) %37, ptr noundef %849, ptr noundef %.0.lcssa.i105.i, ptr nonnull %35, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %43, i32 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   %.not.i.i74.i.i = icmp eq ptr %.048.lcssa.i.i, null
-  br i1 %.not.i.i74.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i
+  br i1 %.not.i.i74.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i
 
 _ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %846
   %851 = load i8, ptr %.048.lcssa.i.i, align 8
@@ -2273,13 +2273,13 @@ _ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i: ;
   %spec.select.i.i76.i.i = select i1 %854, ptr %850, ptr null
   %.not.i77.i.i = icmp eq ptr %spec.select.i.i.i.i106.i, null
   %or.cond152.i.i = select i1 %.not151.i.i, i1 true, i1 %.not.i77.i.i
-  br i1 %or.cond152.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %855
+  br i1 %or.cond152.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %855
 
 855:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i
   %856 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i106.i, i64 16
   %857 = load ptr, ptr %856, align 8
   %.not.i.i.i78.i.i = icmp eq ptr %857, null
-  br i1 %.not.i.i.i78.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i
+  br i1 %.not.i.i.i78.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i
 
 _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %855
   %858 = getelementptr inbounds nuw i8, ptr %857, i64 8
@@ -2287,7 +2287,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %855
   %860 = icmp ne ptr %859, null
   %.not44.i.i.i = icmp eq ptr %spec.select.i.i76.i.i, null
   %or.cond51.i.i.i = or i1 %.not44.i.i.i, %860
-  br i1 %or.cond51.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %861
+  br i1 %or.cond51.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %861
 
 861:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i
   %862 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i106.i, i64 40
@@ -2297,7 +2297,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %855
   %.not45.i.i.i = icmp ne ptr %863, %865
   %866 = icmp eq ptr %spec.select.i.i.i.i106.i, %spec.select.i.i76.i.i
   %or.cond52.i.i.i = or i1 %866, %.not45.i.i.i
-  br i1 %or.cond52.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %867
+  br i1 %or.cond52.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %867
 
 867:                                              ; preds = %861
   %868 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i106.i, i64 4
@@ -2309,7 +2309,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %855
   %874 = icmp ne i32 %870, 2
   %875 = icmp ne i32 %873, 2
   %or.cond.i.i.i = or i1 %874, %875
-  br i1 %or.cond.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %876
+  br i1 %or.cond.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %876
 
 876:                                              ; preds = %867
   %877 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i106.i, i64 -64
@@ -2319,7 +2319,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %855
   %881 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i106.i, i64 -32
   %882 = load ptr, ptr %881, align 8
   %883 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(152) %649, ptr noundef %882) #19
-  br i1 %883, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %884
+  br i1 %883, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %884
 
 884:                                              ; preds = %876
   %885 = getelementptr inbounds nuw i8, ptr %878, i64 8
@@ -2327,12 +2327,12 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %855
   %887 = getelementptr inbounds nuw i8, ptr %880, i64 8
   %888 = load ptr, ptr %887, align 8
   %.not46.i.i.i = icmp eq ptr %886, %888
-  br i1 %.not46.i.i.i, label %889, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i
+  br i1 %.not46.i.i.i, label %889, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i
 
 889:                                              ; preds = %884
   %890 = load i8, ptr %882, align 8
   %891 = icmp ult i8 %890, 29
-  br i1 %891, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.i.i, label %892
+  br i1 %891, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.i.i, label %892
 
 892:                                              ; preds = %889
   %893 = zext i8 %890 to i32
@@ -2372,7 +2372,7 @@ _ZNK4llvm4User10getOperandEj.exit55.i.i.i:        ; preds = %_ZNK4llvm4User10get
   %915 = load ptr, ptr %914, align 8
   %916 = load i8, ptr %915, align 8
   %917 = icmp ugt i8 %916, 28
-  br i1 %917, label %_ZNK4llvm4User10getOperandEj.exit55.select.unfold_crit_edge.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.i.i
+  br i1 %917, label %_ZNK4llvm4User10getOperandEj.exit55.select.unfold_crit_edge.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.i.i
 
 _ZNK4llvm4User10getOperandEj.exit55.select.unfold_crit_edge.i.i.i: ; preds = %_ZNK4llvm4User10getOperandEj.exit55.i.i.i
   %.pre.i.i108.i = zext i8 %916 to i32
@@ -2384,30 +2384,30 @@ select.unfold.i.i.i:                              ; preds = %_ZNK4llvm4User10get
   %.039.ph.i.i.i = phi ptr [ %915, %_ZNK4llvm4User10getOperandEj.exit55.select.unfold_crit_edge.i.i.i ], [ %882, %_ZNK4llvm4User10getOperandEj.exit.i.i.i ], [ %882, %892 ], [ %882, %_ZNK4llvm4User10getOperandEj.exit.thread.i.i.i ]
   %919 = add nsw i32 %.pre-phi.i.i.i, -60
   %920 = icmp ult i32 %919, -18
-  br i1 %920, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.i.i, label %921
+  br i1 %920, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.i.i, label %921
 
 921:                                              ; preds = %select.unfold.i.i.i
   %922 = zext i8 %918 to i32
   %923 = add nsw i32 %922, -29
   %924 = and i32 %923, -3
   %or.cond3.i.i.i = icmp eq i32 %924, 13
-  br i1 %or.cond3.i.i.i, label %925, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.i.i
+  br i1 %or.cond3.i.i.i, label %925, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.i.i
 
 925:                                              ; preds = %921
   %926 = getelementptr inbounds i8, ptr %.039.ph.i.i.i, i64 -64
   %927 = load ptr, ptr %926, align 8
   %928 = load i8, ptr %927, align 8
   %929 = icmp eq i8 %928, 17
-  br i1 %929, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %930
+  br i1 %929, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %930
 
 930:                                              ; preds = %925
   %931 = getelementptr inbounds i8, ptr %.039.ph.i.i.i, i64 -32
   %932 = load ptr, ptr %931, align 8
   %933 = load i8, ptr %932, align 8
   %934 = icmp eq i8 %933, 17
-  br i1 %934, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.i.i
+  br i1 %934, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.i.i: ; preds = %930, %921, %select.unfold.i.i.i, %_ZNK4llvm4User10getOperandEj.exit55.i.i.i, %889
+_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.i.i: ; preds = %930, %921, %select.unfold.i.i.i, %_ZNK4llvm4User10getOperandEj.exit55.i.i.i, %889
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   %935 = load i32, ptr %868, align 4
@@ -2427,7 +2427,7 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17Get
   %.not.i.i.i.i.i107.i = icmp eq ptr %941, null
   br i1 %.not.i.i.i.i.i107.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i, label %949
 
-949:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.i.i
+949:                                              ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.i.i
   %950 = getelementptr inbounds i8, ptr %939, i64 40
   %951 = load ptr, ptr %950, align 8
   %952 = getelementptr inbounds i8, ptr %939, i64 48
@@ -2442,7 +2442,7 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17Get
   store ptr %955, ptr %956, align 8
   br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i:  ; preds = %954, %949, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.i.i
+_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i:  ; preds = %954, %949, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.i.i
   store ptr %948, ptr %940, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %948, null
   br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm17GetElementPtrInst10setOperandEjPNS_5ValueE.exit.i.i.i, label %957
@@ -2591,9 +2591,9 @@ _ZNK4llvm5APInt3ugtEm.exit.thread.i.i.i:          ; preds = %_ZNK4llvm5APInt3ugt
 _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP14swapGEPOperandEPN4llvm17GetElementPtrInstES3_.exit.i.i: ; preds = %1017, %1014, %1011
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  br label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i
+  br label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i
 
-_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP14swapGEPOperandEPN4llvm17GetElementPtrInstES3_.exit.i.i, %930, %925, %884, %876, %867, %861, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i, %855, %_ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i, %846, %._crit_edge.i.i
+_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP14swapGEPOperandEPN4llvm17GetElementPtrInstES3_.exit.i.i, %930, %925, %884, %876, %867, %861, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i, %855, %_ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i, %846, %._crit_edge.i.i
   %.2139.i.i = phi ptr [ %850, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP14swapGEPOperandEPN4llvm17GetElementPtrInstES3_.exit.i.i ], [ %850, %_ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i ], [ %850, %855 ], [ %850, %930 ], [ %850, %925 ], [ %850, %884 ], [ %850, %876 ], [ %850, %867 ], [ %850, %861 ], [ %850, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i ], [ %.0.lcssa.i105.i, %._crit_edge.i.i ], [ %850, %846 ]
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i, ptr noundef %.2139.i.i) #19
   %1018 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #19
@@ -2604,11 +2604,11 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17Get
   %1021 = icmp eq ptr %1020, %144
   br i1 %1021, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP22lowerToSingleIndexGEPsEPN4llvm17GetElementPtrInstEl.exit.i, label %1022
 
-1022:                                             ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i
+1022:                                             ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i
   call void @free(ptr noundef %1020) #19
   br label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP22lowerToSingleIndexGEPsEPN4llvm17GetElementPtrInstEl.exit.i
 
-_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP22lowerToSingleIndexGEPsEPN4llvm17GetElementPtrInstEl.exit.i: ; preds = %1022, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i
+_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP22lowerToSingleIndexGEPsEPN4llvm17GetElementPtrInstEl.exit.i: ; preds = %1022, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.argprom.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
@@ -3650,11 +3650,11 @@ _ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS
   %1489 = load ptr, ptr %1488, align 8
   %1490 = load ptr, ptr %26, align 8
   %1491 = icmp eq ptr %1489, %1490
-  br i1 %1491, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.exit, label %1492
+  br i1 %1491, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.argprom.exit, label %1492
 
 1492:                                             ; preds = %_ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EED2Ev.exit.i2.i.i
   call void @free(ptr noundef %1489) #19
-  br label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.exit
+  br label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.argprom.exit
 
 .loopexit.i:                                      ; preds = %_ZSteqIPN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEESt8optionalIPKS4_EEbRKSt4pairIT_T0_ESE_.exit.i.i.i.i.i.i.i.i, %1438, %.lr.ph.i.i.i.i.i.i.i25.i, %1414
   %1493 = getelementptr inbounds i8, ptr %1417, i64 -24
@@ -3750,7 +3750,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i:    ; preds = %1508, %.lr.ph.i33
   %spec.select4.i.i.i = select i1 %1536, ptr %1528, ptr %1521
   %.val.i.i40 = load ptr, ptr %1281, align 8
   %.val55.i.i = load i32, ptr %1409, align 8
-  %1537 = call fastcc noundef ptr @_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP28findClosestMatchingDominatorESt4pairIPN4llvm5ValueES4_EPNS2_11InstructionERNS2_8DenseMapIS5_NS2_11SmallVectorIS7_Lj2EEENS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_SA_EEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nonnull %spec.select.i.i.i, ptr nonnull %spec.select4.i.i.i, ptr noundef %1501, ptr %.val.i.i40, i32 %.val55.i.i)
+  %1537 = call fastcc noundef ptr @_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP28findClosestMatchingDominatorESt4pairIPN4llvm5ValueES4_EPNS2_11InstructionERNS2_8DenseMapIS5_NS2_11SmallVectorIS7_Lj2EEENS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_SA_EEEE.argprom(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nonnull %spec.select.i.i.i, ptr nonnull %spec.select4.i.i.i, ptr noundef %1501, ptr %.val.i.i40, i32 %.val55.i.i)
   %.not54.i.i = icmp eq ptr %1537, null
   br i1 %.not54.i.i, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_14BinaryOp_matchINS0_14CastInst_matchINS0_7bind_tyINS_5ValueEEENS_8SExtInstEEES9_Lj15ELb0EEEEEbPT_RKT0_.exit.thread.i.i, label %1538
 
@@ -3853,7 +3853,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %1553, %_ZN4llvm11In
 1578:                                             ; preds = %1572
   %.val56.i.i = load ptr, ptr %1318, align 8
   %.val57.i.i = load i32, ptr %1406, align 8
-  %1579 = call fastcc noundef ptr @_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP28findClosestMatchingDominatorESt4pairIPN4llvm5ValueES4_EPNS2_11InstructionERNS2_8DenseMapIS5_NS2_11SmallVectorIS7_Lj2EEENS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_SA_EEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nonnull %1564, ptr nonnull %1571, ptr noundef %1501, ptr %.val56.i.i, i32 %.val57.i.i)
+  %1579 = call fastcc noundef ptr @_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP28findClosestMatchingDominatorESt4pairIPN4llvm5ValueES4_EPNS2_11InstructionERNS2_8DenseMapIS5_NS2_11SmallVectorIS7_Lj2EEENS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_SA_EEEE.argprom(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nonnull %1564, ptr nonnull %1571, ptr noundef %1501, ptr %.val56.i.i, i32 %.val57.i.i)
   %.not.i36.i = icmp eq ptr %1579, null
   br i1 %.not.i36.i, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_14BinaryOp_matchINS0_14CastInst_matchINS0_7bind_tyINS_5ValueEEENS_8SExtInstEEES9_Lj15ELb0EEEEEbPT_RKT0_.exit.thread.i.i, label %1580
 
@@ -4077,7 +4077,7 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsEPN4llvm11InstructionE
   %.pre31.i = load ptr, ptr %1381, align 8
   br label %1414
 
-_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.exit: ; preds = %_ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EED2Ev.exit.i2.i.i, %1492
+_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.argprom.exit: ; preds = %_ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EED2Ev.exit.i2.i.i, %1492
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %28)
@@ -4088,12 +4088,12 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.exi
   %1668 = trunc i8 %1667 to i1
   br i1 %1668, label %1669, label %1686
 
-1669:                                             ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.exit
+1669:                                             ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17)
   %.sroa.05.012.i = load ptr, ptr %63, align 8
   %.not13.i = icmp eq ptr %.sroa.05.012.i, %64
-  br i1 %.not13.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.exit, label %.lr.ph16.i
+  br i1 %.not13.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.argprom.exit, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %1669, %._crit_edge.i47
   %.sroa.05.014.i = phi ptr [ %.sroa.05.0.i, %._crit_edge.i47 ], [ %.sroa.05.012.i, %1669 ]
@@ -4132,15 +4132,15 @@ _ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.exi
   %1685 = getelementptr inbounds nuw i8, ptr %.sroa.05.014.i, i64 8
   %.sroa.05.0.i = load ptr, ptr %1685, align 8
   %.not.i48 = icmp eq ptr %.sroa.05.0.i, %64
-  br i1 %.not.i48, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.exit, label %.lr.ph16.i
+  br i1 %.not.i48, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.argprom.exit, label %.lr.ph16.i
 
-_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.exit: ; preds = %._crit_edge.i47, %1669
+_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.argprom.exit: ; preds = %._crit_edge.i47, %1669
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17)
   br label %1686
 
-1686:                                             ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.exit, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ %1666, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.exit ], [ %1666, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.exit ]
+1686:                                             ; preds = %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.argprom.exit, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.argprom.exit, %2
+  %.0 = phi i1 [ false, %2 ], [ %1666, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP16verifyNoDeadCodeERN4llvm8FunctionE.argprom.exit ], [ %1666, %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP11reuniteExtsERN4llvm8FunctionE.argprom.exit ]
   ret i1 %.0
 }
 
@@ -4685,7 +4685,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4llvm12funct
   tail call void @llvm.assume(i1 %.not11.i.i.i.i)
   %6 = load ptr, ptr %.val.val.val, align 8
   %7 = icmp eq ptr %6, @_ZN4llvm30TargetTransformInfoWrapperPass2IDE
-  br i1 %7, label %"_ZZN12_GLOBAL__N_136SeparateConstOffsetFromGEPLegacyPass13runOnFunctionERN4llvm8FunctionEENK3$_0clES3_.exit", label %.lr.ph.i.i.i.i
+  br i1 %7, label %"_ZZN12_GLOBAL__N_136SeparateConstOffsetFromGEPLegacyPass13runOnFunctionERN4llvm8FunctionEENK3$_0clES3_.argprom.argprom.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.sroa.07.012.i4.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %.val.val.val, %2 ]
@@ -4694,9 +4694,9 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4llvm12funct
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @_ZN4llvm30TargetTransformInfoWrapperPass2IDE
-  br i1 %10, label %"_ZZN12_GLOBAL__N_136SeparateConstOffsetFromGEPLegacyPass13runOnFunctionERN4llvm8FunctionEENK3$_0clES3_.exit", label %.lr.ph.i.i.i.i
+  br i1 %10, label %"_ZZN12_GLOBAL__N_136SeparateConstOffsetFromGEPLegacyPass13runOnFunctionERN4llvm8FunctionEENK3$_0clES3_.argprom.argprom.argprom.exit", label %.lr.ph.i.i.i.i
 
-"_ZZN12_GLOBAL__N_136SeparateConstOffsetFromGEPLegacyPass13runOnFunctionERN4llvm8FunctionEENK3$_0clES3_.exit": ; preds = %.lr.ph.i.i.i.i, %2
+"_ZZN12_GLOBAL__N_136SeparateConstOffsetFromGEPLegacyPass13runOnFunctionERN4llvm8FunctionEENK3$_0clES3_.argprom.argprom.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %2
   %.sroa.07.012.i.lcssa.i.i.i = phi ptr [ %.val.val.val, %2 ], [ %8, %.lr.ph.i.i.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i.i, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -5179,7 +5179,7 @@ _ZN4llvm5APIntaSERKS0_.exit.thread:               ; preds = %37
   %51 = load i8, ptr %50, align 1
   %52 = and i8 %51, 2
   %.not19.i = icmp eq i8 %52, 0
-  br i1 %.not19.i, label %_ZN4llvm5APIntaSERKS0_.exitthread-pre-split, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.exit
+  br i1 %.not19.i, label %_ZN4llvm5APIntaSERKS0_.exitthread-pre-split, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.argprom.exit
 
 53:                                               ; preds = %48
   %.not31.i = xor i1 %4, true
@@ -5217,7 +5217,7 @@ _ZN4llvm5APIntaSERKS0_.exit.thread:               ; preds = %37
   %72 = load i64, ptr %.in.i.i.i.i.i, align 8
   %73 = and i64 %66, %72
   %.not23.i = icmp eq i64 %73, 0
-  br i1 %.not23.i, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.exit, label %74
+  br i1 %.not23.i, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.argprom.exit, label %74
 
 74:                                               ; preds = %59, %56
   %75 = load i8, ptr %54, align 8
@@ -5241,7 +5241,7 @@ _ZN4llvm5APIntaSERKS0_.exit.thread:               ; preds = %37
   %89 = load i64, ptr %.in.i.i.i.i37.i, align 8
   %90 = and i64 %83, %89
   %.not26.i = icmp eq i64 %90, 0
-  br i1 %.not26.i, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.exit, label %.thread12.i
+  br i1 %.not26.i, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.argprom.exit, label %.thread12.i
 
 .thread12.i:                                      ; preds = %76, %74, %.thread18.i, %53
   br i1 %3, label %91, label %93
@@ -5251,13 +5251,13 @@ _ZN4llvm5APIntaSERKS0_.exit.thread:               ; preds = %37
   br i1 %92, label %93, label %_ZN4llvm5APIntaSERKS0_.exitthread-pre-split
 
 93:                                               ; preds = %91, %.thread12.i
-  br i1 %4, label %94, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.exit
+  br i1 %4, label %94, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.argprom.exit
 
 94:                                               ; preds = %93
   %95 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %2) #22
-  br i1 %95, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.exit, label %_ZN4llvm5APIntaSERKS0_.exitthread-pre-split
+  br i1 %95, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.argprom.exit, label %_ZN4llvm5APIntaSERKS0_.exitthread-pre-split
 
-_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.exit: ; preds = %49, %93, %94, %76, %59
+_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.argprom.exit: ; preds = %49, %93, %94, %76, %59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -5270,13 +5270,13 @@ _ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperat
   %101 = icmp ult i32 %100, 65
   br i1 %101, label %_ZNK4llvm5APIntneEm.exit54, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i51
 
-_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i51:      ; preds = %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.exit
+_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i51:      ; preds = %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.argprom.exit
   %102 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %10) #22
   %103 = sub i32 %100, %102
   %104 = icmp ult i32 %103, 65
   br i1 %104, label %_ZNK4llvm5APIntneEm.exit54, label %_ZN12_GLOBAL__N_123ConstantOffsetExtractor19findInEitherOperandEPN4llvm14BinaryOperatorEbb.exit
 
-_ZNK4llvm5APIntneEm.exit54:                       ; preds = %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.exit, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i51
+_ZNK4llvm5APIntneEm.exit54:                       ; preds = %_ZN12_GLOBAL__N_123ConstantOffsetExtractor12CanTraceIntoEbbPN4llvm14BinaryOperatorEb.argprom.exit, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i51
   %105 = load ptr, ptr %10, align 8
   %.0.in.i.i.i52 = select i1 %101, ptr %10, ptr %105
   %.0.i.i.i53 = load i64, ptr %.0.in.i.i.i52, align 8
@@ -5907,7 +5907,7 @@ declare i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnul
 declare noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_126SeparateConstOffsetFromGEP10reorderGEPEPNS_17GetElementPtrInstERNS_19TargetTransformInfoEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nocapture nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_126SeparateConstOffsetFromGEP10reorderGEPEPNS_17GetElementPtrInstERNS_19TargetTransformInfoEE3$_0EEbOT_T0_.argprom"(ptr %.0.val, ptr %.8.val, ptr nocapture nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca %"struct.llvm::SimplifyQuery", align 8
   %3 = alloca %"struct.llvm::SimplifyQuery", align 8
   %4 = alloca %"struct.llvm::SimplifyQuery", align 8
@@ -7382,7 +7382,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 declare void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef, ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP28findClosestMatchingDominatorESt4pairIPN4llvm5ValueES4_EPNS2_11InstructionERNS2_8DenseMapIS5_NS2_11SmallVectorIS7_Lj2EEENS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_SA_EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr %1, ptr %2, ptr noundef nonnull %3, ptr %.0.val, i32 %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP28findClosestMatchingDominatorESt4pairIPN4llvm5ValueES4_EPNS2_11InstructionERNS2_8DenseMapIS5_NS2_11SmallVectorIS7_Lj2EEENS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_SA_EEEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr %1, ptr %2, ptr noundef nonnull %3, ptr %.0.val, i32 %.16.val) unnamed_addr #0 align 2 {
   %5 = icmp eq i32 %.16.val, 0
   br i1 %5, label %.loopexit.i, label %6
 

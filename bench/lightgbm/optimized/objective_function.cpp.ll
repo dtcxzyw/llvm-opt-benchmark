@@ -18451,7 +18451,7 @@ define linkonce_odr void @_ZN8LightGBM21RegressionPoissonLoss4InitERKNS_8Metadat
   %.038.i = phi float [ %23, %19 ], [ %18, %12 ]
   %.0.i = phi i32 [ 3, %19 ], [ 2, %12 ]
   %25 = icmp slt i32 %.0.i, %16
-  br i1 %25, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+  br i1 %25, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %24
   %26 = zext nneg i32 %.0.i to i64
@@ -18474,15 +18474,15 @@ define linkonce_odr void @_ZN8LightGBM21RegressionPoissonLoss4InitERKNS_8Metadat
   %35 = fadd float %.13914.i, %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %36 = icmp ult i64 %indvars.iv.next.i, %27
-  br i1 %36, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !133
+  br i1 %36, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit, !llvm.loop !133
 
-_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %24
+_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit: ; preds = %.lr.ph.i, %24
   %.19.lcssa.i = phi float [ %.08.i, %24 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %.139.lcssa.i = phi float [ %.038.i, %24 ], [ %35, %.lr.ph.i ]
   %37 = fcmp olt float %.19.lcssa.i, 0.000000e+00
   br i1 %37, label %38, label %43
 
-38:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+38:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -18490,7 +18490,7 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   tail call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.35, ptr noundef %42)
   br label %43
 
-43:                                               ; preds = %38, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+43:                                               ; preds = %38, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
   %44 = fcmp oeq float %.139.lcssa.i, 0.000000e+00
   br i1 %44, label %45, label %50
 
@@ -25226,7 +25226,7 @@ define linkonce_odr void @_ZN8LightGBM12CrossEntropy4InitERKNS_8MetadataEi(ptr n
   %20 = getelementptr inbounds i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(33) %0)
-  tail call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc(ptr noundef %18, i32 noundef %17, ptr noundef %22)
+  tail call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc.argelim(ptr noundef %18, i32 noundef %17, ptr noundef %22)
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
@@ -25256,7 +25256,7 @@ define linkonce_odr void @_ZN8LightGBM12CrossEntropy4InitERKNS_8MetadataEi(ptr n
   %.038.i = phi float [ %36, %32 ], [ %31, %28 ]
   %.0.i = phi i32 [ 3, %32 ], [ 2, %28 ]
   %38 = icmp slt i32 %.0.i, %29
-  br i1 %38, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+  br i1 %38, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %37
   %39 = zext nneg i32 %.0.i to i64
@@ -25279,15 +25279,15 @@ define linkonce_odr void @_ZN8LightGBM12CrossEntropy4InitERKNS_8MetadataEi(ptr n
   %48 = fadd float %.13914.i, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %49 = icmp ult i64 %indvars.iv.next.i, %40
-  br i1 %49, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !133
+  br i1 %49, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit, !llvm.loop !133
 
-_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %37
+_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit: ; preds = %.lr.ph.i, %37
   %.19.lcssa.i = phi float [ %.08.i, %37 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %.139.lcssa.i = phi float [ %.038.i, %37 ], [ %48, %.lr.ph.i ]
   %50 = fcmp olt float %.19.lcssa.i, 0.000000e+00
   br i1 %50, label %51, label %56
 
-51:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+51:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -25295,7 +25295,7 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   tail call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.63, ptr noundef %55)
   br label %56
 
-56:                                               ; preds = %51, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+56:                                               ; preds = %51, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
   %57 = fcmp oeq float %.139.lcssa.i, 0.000000e+00
   br i1 %57, label %58, label %63
 
@@ -25452,7 +25452,7 @@ define linkonce_odr void @_ZNK8LightGBM12CrossEntropy8ToStringB5cxx11Ev(ptr dead
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca float, align 4
   %6 = alloca float, align 4
@@ -26071,7 +26071,7 @@ define linkonce_odr void @_ZN8LightGBM18CrossEntropyLambda4InitERKNS_8MetadataEi
   %20 = getelementptr inbounds i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(41) %0)
-  tail call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc(ptr noundef %18, i32 noundef %17, ptr noundef %22)
+  tail call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc.argelim(ptr noundef %18, i32 noundef %17, ptr noundef %22)
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
@@ -26103,7 +26103,7 @@ define linkonce_odr void @_ZN8LightGBM18CrossEntropyLambda4InitERKNS_8MetadataEi
   %.09.i = phi float [ %..i, %34 ], [ %33, %28 ]
   %.0.i = phi i32 [ 3, %34 ], [ 2, %28 ]
   %39 = icmp slt i32 %.0.i, %29
-  br i1 %39, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit
+  br i1 %39, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %38
   %40 = zext nneg i32 %.0.i to i64
@@ -26127,9 +26127,9 @@ define linkonce_odr void @_ZN8LightGBM18CrossEntropyLambda4InitERKNS_8MetadataEi
   %storemerge46.i = select i1 %48, float %.24.i, float %.0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %49 = icmp ult i64 %indvars.iv.next.i, %41
-  br i1 %49, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !198
+  br i1 %49, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit, !llvm.loop !198
 
-_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %38
+_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit: ; preds = %.lr.ph.i, %38
   %.0..0..i = phi float [ %storemerge11.i, %38 ], [ %storemerge46.i, %.lr.ph.i ]
   %.110.lcssa.i = phi float [ %.09.i, %38 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   store float %.110.lcssa.i, ptr %30, align 8
@@ -26137,7 +26137,7 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   %50 = fcmp ugt float %.110.lcssa.i, 0.000000e+00
   br i1 %50, label %56, label %51
 
-51:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit
+51:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -26147,9 +26147,9 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   %.pre6 = load float, ptr %30, align 8
   br label %56
 
-56:                                               ; preds = %51, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit
-  %57 = phi float [ %.pre6, %51 ], [ %.110.lcssa.i, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit ]
-  %58 = phi float [ %.pre5, %51 ], [ %.0..0..i, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit ]
+56:                                               ; preds = %51, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit
+  %57 = phi float [ %.pre6, %51 ], [ %.110.lcssa.i, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit ]
+  %58 = phi float [ %.pre5, %51 ], [ %.0..0..i, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit ]
   %59 = fdiv float %58, %57
   %60 = fpext float %59 to double
   %61 = load ptr, ptr %0, align 8
@@ -34251,7 +34251,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %36 = load ptr, ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 32
   %38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #11
-  invoke fastcc void @_ZN8LightGBM6CommonL4AtofEPKcPd(ptr noundef %38, ptr noundef %9)
+  invoke fastcc void @_ZN8LightGBM6CommonL4AtofEPKcPd.argelim(ptr noundef %38, ptr noundef %9)
           to label %45 unwind label %43
 
 .loopexit:                                        ; preds = %14
@@ -34790,7 +34790,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %76 = load ptr, ptr %4, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 32
   %78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %77) #11
-  invoke fastcc void @_ZN8LightGBM6CommonL4AtofEPKcPd(ptr noundef %78, ptr noundef %11)
+  invoke fastcc void @_ZN8LightGBM6CommonL4AtofEPKcPd.argelim(ptr noundef %78, ptr noundef %11)
           to label %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit unwind label %81
 
 79:                                               ; preds = %63
@@ -35005,7 +35005,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL4AtofEPKcPd(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL4AtofEPKcPd.argelim(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

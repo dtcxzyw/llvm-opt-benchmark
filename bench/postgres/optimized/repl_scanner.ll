@@ -1148,7 +1148,7 @@ declare ptr @downcase_truncate_identifier(ptr noundef, i32 noundef, i1 noundef z
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #3 {
-  tail call fastcc void @fprintf_to_ereport(ptr noundef %0)
+  tail call fastcc void @fprintf_to_ereport.argprom(ptr noundef %0)
   unreachable
 }
 
@@ -2263,7 +2263,7 @@ declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @fprintf_to_ereport(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @fprintf_to_ereport.argprom(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef %0) #27

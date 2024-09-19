@@ -137,7 +137,7 @@ define hidden noundef ptr @_ZNK11ArenaBitMap10reallocateEPmmm(ptr nocapture noun
 _ZNK11ArenaBitMap8allocateEm.exit.i:              ; preds = %16, %14
   %.0.i.i.i.i = phi ptr [ %10, %14 ], [ %17, %16 ]
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.exit, label %.split11.i
+  br i1 %.not.i, label %_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.argprom.exit, label %.split11.i
 
 .split11.i:                                       ; preds = %_ZNK11ArenaBitMap8allocateEm.exit.i
   %18 = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %3)
@@ -150,7 +150,7 @@ _ZNK11ArenaBitMap8allocateEm.exit.i:              ; preds = %16, %14
     i64 3, label %39
     i64 2, label %43
     i64 1, label %47
-    i64 0, label %_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.exit
+    i64 0, label %_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.argprom.exit
   ]
 
 19:                                               ; preds = %.split11.i
@@ -205,14 +205,14 @@ _ZNK11ArenaBitMap8allocateEm.exit.i:              ; preds = %16, %14
 47:                                               ; preds = %43, %.split11.i
   %48 = load ptr, ptr %1, align 8
   store ptr %48, ptr %.0.i.i.i.i, align 8
-  br label %_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.exit
+  br label %_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.argprom.exit
 
 49:                                               ; preds = %.split11.i
   %50 = shl i64 %18, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i, ptr nonnull readonly align 8 %1, i64 %50, i1 false)
-  br label %_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.exit
+  br label %_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.argprom.exit
 
-_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.exit: ; preds = %_ZNK11ArenaBitMap8allocateEm.exit.i, %.split11.i, %47, %49
+_ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.argprom.exit: ; preds = %_ZNK11ArenaBitMap8allocateEm.exit.i, %.split11.i, %47, %49
   ret ptr %.0.i.i.i.i
 }
 
@@ -249,7 +249,7 @@ define hidden noundef ptr @_ZNK14ResourceBitMap10reallocateEPmmm(ptr nocapture n
   %5 = shl i64 %3, 3
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %5, i32 noundef 0) #10
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.exit, label %.split11.i
+  br i1 %.not.i, label %_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.argprom.exit, label %.split11.i
 
 .split11.i:                                       ; preds = %4
   %7 = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %3)
@@ -262,7 +262,7 @@ define hidden noundef ptr @_ZNK14ResourceBitMap10reallocateEPmmm(ptr nocapture n
     i64 3, label %28
     i64 2, label %32
     i64 1, label %36
-    i64 0, label %_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.exit
+    i64 0, label %_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.argprom.exit
   ]
 
 8:                                                ; preds = %.split11.i
@@ -317,14 +317,14 @@ define hidden noundef ptr @_ZNK14ResourceBitMap10reallocateEPmmm(ptr nocapture n
 36:                                               ; preds = %32, %.split11.i
   %37 = load ptr, ptr %1, align 8
   store ptr %37, ptr %6, align 8
-  br label %_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.exit
+  br label %_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.argprom.exit
 
 38:                                               ; preds = %.split11.i
   %39 = shl i64 %7, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr nonnull readonly align 8 %1, i64 %39, i1 false)
-  br label %_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.exit
+  br label %_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.argprom.exit
 
-_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.exit: ; preds = %4, %.split11.i, %36, %38
+_ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.argprom.exit: ; preds = %4, %.split11.i, %36, %38
   ret ptr %6
 }
 

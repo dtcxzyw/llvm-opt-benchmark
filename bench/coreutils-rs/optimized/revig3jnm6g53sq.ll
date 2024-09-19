@@ -196,7 +196,7 @@ define hidden void @"_ZN6chrono6offset20LocalResult$LT$T$GT$8and_then17ha2f1672f
   %10 = load i32, ptr %1, align 4, !range !11, !noundef !4
   switch i32 %10, label %default.unreachable42 [
     i32 0, label %11
-    i32 1, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit20"
+    i32 1, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit20"
     i32 2, label %26
   ]
 
@@ -213,13 +213,13 @@ default.unreachable42:                            ; preds = %3
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8), !noalias !18
   %14 = load i32, ptr %9, align 4, !alias.scope !21, !noundef !4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread", label %24
+  br i1 %15, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit.thread", label %24
 
-"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread": ; preds = %11
+"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit.thread": ; preds = %11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !18
   br label %26
 
-"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit20": ; preds = %3
+"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit20": ; preds = %3
   %16 = getelementptr inbounds i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4, !noundef !4
   %18 = getelementptr inbounds i8, ptr %1, i64 8
@@ -240,13 +240,13 @@ default.unreachable42:                            ; preds = %3
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !32
   %21 = load i32, ptr %5, align 4, !alias.scope !35, !noundef !4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread", label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22"
+  br i1 %22, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22.thread", label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22"
 
-"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread": ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit20"
+"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22.thread": ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit20"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !32
   br label %26
 
-"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22": ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit20"
+"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22": ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit20"
   %23 = icmp eq i32 %20, 0
   %.sroa.534.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 4, !alias.scope !39
@@ -265,12 +265,12 @@ default.unreachable42:                            ; preds = %3
   store i32 %13, ptr %.sroa.3.0..sroa_idx, align 4
   br label %26
 
-26:                                               ; preds = %24, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread", %3, %27, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22", %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread"
-  %storemerge.sink = phi i32 [ 1, %27 ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22" ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread" ], [ %10, %3 ], [ 0, %24 ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread" ]
+26:                                               ; preds = %24, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit.thread", %3, %27, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22", %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22.thread"
+  %storemerge.sink = phi i32 [ 1, %27 ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22" ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22.thread" ], [ %10, %3 ], [ 0, %24 ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit.thread" ]
   store i32 %storemerge.sink, ptr %0, align 4
   ret void
 
-27:                                               ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22"
+27:                                               ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom.exit22"
   %28 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %20, ptr %28, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -518,22 +518,22 @@ attributes #12 = { noreturn }
 !16 = distinct !{!16, !14, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.5173537181067160341: argument 1"}
 !17 = distinct !{!17, !14, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.5173537181067160341: argument 2"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE: argument 0"}
-!20 = distinct !{!20, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE"}
+!19 = distinct !{!19, !20, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom"}
 !21 = !{!22, !24}
 !22 = distinct !{!22, !23, !"_ZN4core6option15Option$LT$T$GT$3map17hf22bf95c6bcdd82eE: argument 1"}
 !23 = distinct !{!23, !"_ZN4core6option15Option$LT$T$GT$3map17hf22bf95c6bcdd82eE"}
 !24 = distinct !{!24, !23, !"_ZN4core6option15Option$LT$T$GT$3map17hf22bf95c6bcdd82eE: argument 0"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE: argument 0"}
-!27 = distinct !{!27, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE"}
+!26 = distinct !{!26, !27, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom"}
 !28 = !{!29, !31}
 !29 = distinct !{!29, !30, !"_ZN4core6option15Option$LT$T$GT$3map17hf22bf95c6bcdd82eE: argument 1"}
 !30 = distinct !{!30, !"_ZN4core6option15Option$LT$T$GT$3map17hf22bf95c6bcdd82eE"}
 !31 = distinct !{!31, !30, !"_ZN4core6option15Option$LT$T$GT$3map17hf22bf95c6bcdd82eE: argument 0"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE: argument 0"}
-!34 = distinct !{!34, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE"}
+!33 = distinct !{!33, !34, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom: argument 0"}
+!34 = distinct !{!34, !"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.argprom"}
 !35 = !{!36, !38}
 !36 = distinct !{!36, !37, !"_ZN4core6option15Option$LT$T$GT$3map17hf22bf95c6bcdd82eE: argument 1"}
 !37 = distinct !{!37, !"_ZN4core6option15Option$LT$T$GT$3map17hf22bf95c6bcdd82eE"}

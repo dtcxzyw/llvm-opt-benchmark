@@ -35,20 +35,20 @@ define hidden noundef ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterat
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8, !alias.scope !5, !nonnull !4, !noundef !4
   %.promoted = load ptr, ptr %2, align 8, !alias.scope !5
-  br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit"
+  br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit"
 
-"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit": ; preds = %6, %1
+"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit": ; preds = %6, %1
   %4 = phi ptr [ %7, %6 ], [ %.promoted, %1 ]
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %.loopexit, label %6
 
-6:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit"
+6:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit"
   %7 = getelementptr inbounds i8, ptr %4, i64 -80
   store ptr %7, ptr %2, align 8, !alias.scope !8
   %8 = getelementptr i8, ptr %4, i64 -16
   %.val = load ptr, ptr %8, align 8, !noundef !4
   %9 = icmp eq ptr %.val, null
-  br i1 %9, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit", label %10
+  br i1 %9, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit", label %10
 
 10:                                               ; preds = %6
   %11 = atomicrmw add ptr %.val, i64 1 monotonic, align 8, !noalias !11
@@ -59,8 +59,8 @@ define hidden noundef ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterat
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #16, !noalias !11
   unreachable
 
-.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit", %10
-  %.0 = phi ptr [ %.val, %10 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit" ]
+.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit", %10
+  %.0 = phi ptr [ %.val, %10 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit" ]
   ret ptr %.0
 }
 
@@ -292,20 +292,20 @@ define hidden noundef ptr @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u2
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8, !alias.scope !17, !nonnull !4, !noundef !4
   %.promoted.i = load ptr, ptr %2, align 8, !alias.scope !17
-  br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit.i"
+  br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit.i"
 
-"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit.i": ; preds = %6, %1
+"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit.i": ; preds = %6, %1
   %4 = phi ptr [ %7, %6 ], [ %.promoted.i, %1 ]
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc65b4d9e87bb807fE.llvm.14225396269139012787.exit, label %6
 
-6:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit.i"
+6:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit.i"
   %7 = getelementptr inbounds i8, ptr %4, i64 -80
   store ptr %7, ptr %2, align 8, !alias.scope !20
   %8 = getelementptr i8, ptr %4, i64 -16
   %.val.i = load ptr, ptr %8, align 8, !noalias !14, !noundef !4
   %9 = icmp eq ptr %.val.i, null
-  br i1 %9, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit.i", label %10
+  br i1 %9, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit.i", label %10
 
 10:                                               ; preds = %6
   %11 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !23
@@ -316,8 +316,8 @@ define hidden noundef ptr @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u2
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #16, !noalias !23
   unreachable
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc65b4d9e87bb807fE.llvm.14225396269139012787.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit.i", %10
-  %.0.i = phi ptr [ %.val.i, %10 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.exit.i" ]
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc65b4d9e87bb807fE.llvm.14225396269139012787.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit.i", %10
+  %.0.i = phi ptr [ %.val.i, %10 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he7b447f029f05f52E.argprom.exit.i" ]
   ret ptr %.0.i
 }
 

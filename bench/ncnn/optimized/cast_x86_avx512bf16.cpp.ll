@@ -19,7 +19,7 @@ define hidden void @_ZN4ncnn32cast_fp32_to_bf16_sse_avx512bf16ERKNS_3MatERS0_RKN
   %15 = mul i32 %14, %9
   %16 = mul i32 %15, %13
   %17 = icmp sgt i32 %11, 0
-  br i1 %17, label %.lr.ph28.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %17, label %.lr.ph28.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .lr.ph28.i:                                       ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -133,9 +133,9 @@ define hidden void @_ZN4ncnn32cast_fp32_to_bf16_sse_avx512bf16ERKNS_3MatERS0_RKN
 ._crit_edge.i:                                    ; preds = %.lr.ph25.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond39.not.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %24, !llvm.loop !9
+  br i1 %exitcond39.not.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %24, !llvm.loop !9
 
-_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._crit_edge.i, %3
+_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.i, %3
   ret void
 }
 
@@ -155,7 +155,7 @@ define hidden void @_ZN4ncnn32cast_bf16_to_fp32_sse_avx512bf16ERKNS_3MatERS0_RKN
   %15 = mul i32 %14, %9
   %16 = mul i32 %15, %13
   %17 = icmp sgt i32 %11, 0
-  br i1 %17, label %.lr.ph28.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %17, label %.lr.ph28.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .lr.ph28.i:                                       ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -269,9 +269,9 @@ define hidden void @_ZN4ncnn32cast_bf16_to_fp32_sse_avx512bf16ERKNS_3MatERS0_RKN
 ._crit_edge.i:                                    ; preds = %.lr.ph25.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond39.not.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %24, !llvm.loop !14
+  br i1 %exitcond39.not.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %24, !llvm.loop !14
 
-_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._crit_edge.i, %3
+_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.i, %3
   ret void
 }
 

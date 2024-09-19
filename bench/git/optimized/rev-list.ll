@@ -1097,13 +1097,13 @@ while.end402:                                     ; preds = %oidset_iter_next.ex
 if.end403:                                        ; preds = %while.end402, %if.end390
   %104 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %104, 0
-  br i1 %tobool1.not.i.i, label %stop_progress.exit, label %if.end3.i.i
+  br i1 %tobool1.not.i.i, label %stop_progress.argprom.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end403
   %call.i.i124 = call ptr @gettext(ptr noundef nonnull @.str.57) #11
-  br label %stop_progress.exit
+  br label %stop_progress.argprom.exit
 
-stop_progress.exit:                               ; preds = %if.end403, %if.end3.i.i
+stop_progress.argprom.exit:                       ; preds = %if.end403, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i124, %if.end3.i.i ], [ @.str.57, %if.end403 ]
   call void @stop_progress_msg(ptr noundef nonnull @progress, ptr noundef %retval.0.i.i) #11
   %bf.load405 = load i64, ptr %bisect, align 8
@@ -1111,7 +1111,7 @@ stop_progress.exit:                               ; preds = %if.end403, %if.end3
   %tobool409.not = icmp eq i64 %105, 0
   br i1 %tobool409.not, label %if.end457, label %if.then410
 
-if.then410:                                       ; preds = %stop_progress.exit
+if.then410:                                       ; preds = %stop_progress.argprom.exit
   %106 = and i64 %bf.load405, 17179869184
   %tobool423.not = icmp eq i64 %106, 0
   %107 = and i64 %bf.load405, 17213423616
@@ -1155,7 +1155,7 @@ if.else449:                                       ; preds = %if.else437
   %call453 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %add452)
   br label %if.end457
 
-if.end457:                                        ; preds = %if.then424, %if.then444, %if.else449, %if.then433, %stop_progress.exit
+if.end457:                                        ; preds = %if.then424, %if.then444, %if.else449, %if.then433, %stop_progress.argprom.exit
   %.b34 = load i1, ptr @show_disk_usage, align 4
   br i1 %.b34, label %if.then459, label %cleanup
 
@@ -1659,7 +1659,7 @@ entry:
   %oid.i = getelementptr inbounds i8, ptr %obj, i64 4
   %call.i = tail call i32 @oid_object_info_extended(ptr noundef %1, ptr noundef nonnull %oid.i, ptr noundef null, i32 noundef 0) #11
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %finish_object.exit, label %if.end.i
+  br i1 %cmp.i, label %finish_object.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %2 = load ptr, ptr %cb_data, align 8
@@ -1683,7 +1683,7 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
   %call11.i = tail call ptr @parse_object(ptr noundef %5, ptr noundef nonnull %oid.i) #11
   br label %if.end
 
-finish_object.exit:                               ; preds = %entry
+finish_object.argprom.exit:                       ; preds = %entry
   tail call fastcc void @finish_object__ma(ptr noundef %obj)
   br label %if.end17
 
@@ -1758,7 +1758,7 @@ if.else:                                          ; preds = %if.end12
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %call15)
   br label %if.end17
 
-if.end17:                                         ; preds = %finish_object.exit, %if.end5, %if.else, %if.then14, %if.then10
+if.end17:                                         ; preds = %finish_object.argprom.exit, %if.end5, %if.else, %if.then14, %if.then10
   ret void
 }
 

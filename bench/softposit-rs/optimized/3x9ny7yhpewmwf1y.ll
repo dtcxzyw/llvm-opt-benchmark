@@ -306,7 +306,7 @@ define noundef zeroext i1 @"_ZN62_$LT$softposit..quire8..Q8E0$u20$as$u20$core..f
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %6 = load i32, ptr %0, align 4, !alias.scope !8, !noundef !4
   switch i32 %6, label %.lr.ph.preheader.i [
-    i32 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+    i32 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
     i32 -2147483648, label %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit.thread5"
   ]
 
@@ -378,12 +378,12 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = 
   %.not28.i = icmp slt i32 %6, 0
   %spec.select = select i1 %.not28.i, i8 %38, i8 %.022.i
   switch i8 %spec.select, label %39 [
-    i8 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+    i8 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
     i8 -128, label %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit.thread5"
   ]
 
 "_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit.thread5": ; preds = %2, %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit"
-  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
 
 39:                                               ; preds = %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit"
   %40 = and i8 %spec.select, -128
@@ -438,9 +438,9 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
   %62 = add i64 %61, %58
   %63 = or disjoint i64 %62, %56
   %64 = bitcast i64 %63 to double
-  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit", %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit.thread5", %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i
+_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit: ; preds = %2, %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit", %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit.thread5", %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i
   %.0.i2 = phi double [ %64, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i ], [ 0x7FF8000000000000, %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit.thread5" ], [ 0.000000e+00, %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit" ], [ 0.000000e+00, %2 ]
   store double %.0.i2, ptr %4, align 8
   store ptr %4, ptr %5, align 8
@@ -745,5 +745,5 @@ attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = distinct !{!9, !10, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE: argument 0"}
 !10 = distinct !{!10, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!13 = distinct !{!13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!12 = distinct !{!12, !13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom"}

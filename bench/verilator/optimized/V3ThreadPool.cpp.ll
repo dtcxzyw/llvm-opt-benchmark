@@ -3367,7 +3367,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_0i
   %4 = alloca %"class.std::packaged_task", align 8
   %5 = alloca %"class.std::future", align 8
   %6 = alloca %class.VAnyPackagedTask, align 8
-  call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(12) %2)
+  call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(12) %2)
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %7 unwind label %19
 
@@ -3678,7 +3678,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_1i
   %4 = alloca %"class.std::packaged_task", align 8
   %5 = alloca %"class.std::future", align 8
   %6 = alloca %class.VAnyPackagedTask, align 8
-  call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(20) %2)
+  call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(20) %2)
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %7 unwind label %19
 
@@ -4006,7 +4006,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_2i
   %4 = alloca %"class.std::packaged_task", align 8
   %5 = alloca %"class.std::future", align 8
   %6 = alloca %class.VAnyPackagedTask, align 8
-  call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(28) %2)
+  call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(28) %2)
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %7 unwind label %19
 
@@ -4281,7 +4281,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIRZNS_8selfTestEvE3$_3EEDaOT_"(p
 
 .noexc.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %3
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %"_ZNSt13packaged_taskIFivEEC2IRZN12V3ThreadPool8selfTestEvE3$_3vEEOT_.exit" unwind label %16, !noalias !72
+          to label %"_ZNSt13packaged_taskIFivEEC2IRZN12V3ThreadPool8selfTestEvE3$_3vEEOT_.argprom.exit" unwind label %16, !noalias !72
 
 16:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -4301,7 +4301,7 @@ common.resume:                                    ; preds = %101, %.body.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %7) #33, !noalias !66
   br label %common.resume
 
-"_ZNSt13packaged_taskIFivEEC2IRZN12V3ThreadPool8selfTestEvE3$_3vEEOT_.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i
+"_ZNSt13packaged_taskIFivEEC2IRZN12V3ThreadPool8selfTestEvE3$_3vEEOT_.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %7, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIiEE, i64 16), ptr %15, align 8, !noalias !72
   %21 = getelementptr inbounds i8, ptr %15, i64 20
@@ -4314,7 +4314,7 @@ common.resume:                                    ; preds = %101, %.body.i.i.i.i
   invoke void @_ZNSt13packaged_taskIFivEE10get_futureEv(ptr dead_on_unwind nonnull writable sret(%"class.std::future.44") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %23 unwind label %35
 
-23:                                               ; preds = %"_ZNSt13packaged_taskIFivEEC2IRZN12V3ThreadPool8selfTestEvE3$_3vEEOT_.exit"
+23:                                               ; preds = %"_ZNSt13packaged_taskIFivEEC2IRZN12V3ThreadPool8selfTestEvE3$_3vEEOT_.argprom.exit"
   %24 = getelementptr inbounds i8, ptr %1, i64 224
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
@@ -4345,7 +4345,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFivEEEEEvRKSt
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %_ZNSt6futureIiED2Ev.exit unwind label %37
 
-35:                                               ; preds = %"_ZNSt13packaged_taskIFivEEC2IRZN12V3ThreadPool8selfTestEvE3$_3vEEOT_.exit"
+35:                                               ; preds = %"_ZNSt13packaged_taskIFivEEC2IRZN12V3ThreadPool8selfTestEvE3$_3vEEOT_.argprom.exit"
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %101
@@ -6546,7 +6546,7 @@ _ZNSt10shared_ptrINSt13__future_base16_Task_state_baseIFvvEEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #34, !noalias !104
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !104
@@ -6569,7 +6569,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3Thr
 
 .noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %2
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEEED2Ev.exit" unwind label %12, !noalias !110
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEEED2Ev.argprom.exit" unwind label %12, !noalias !110
 
 12:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -6588,7 +6588,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3Thr
   tail call void @_ZdlPv(ptr noundef nonnull %3) #33, !noalias !104
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEEED2Ev.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !110
   store ptr %11, ptr %16, align 8, !alias.scope !107, !noalias !104
@@ -6645,13 +6645,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEES0_FvvEEEEEvRS0_PT_.exit", label %13
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEES0_FvvEEEEEvRS0_PT_.argprom.exit", label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEES0_FvvEEEEEvRS0_PT_.exit" unwind label %16
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEES0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %16
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -6660,14 +6660,14 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   tail call void @__clang_call_terminate(ptr %18) #32
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEES0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEES0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
   store ptr null, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEES7_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEES8_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEES8_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %0) #33
   ret void
 }
@@ -6998,7 +6998,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEE8_M_resetEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.60") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %3)
   ret void
 }
 
@@ -7163,13 +7163,13 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV213_M_set_
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #30
           to label %18 unwind label %19
 
@@ -7183,7 +7183,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -8148,13 +8148,13 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV221_M_set_
   %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %18, align 8
   %19 = invoke noundef i32 @pthread_once(ptr noundef nonnull %13, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %22
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %22
 
-_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %24, label %20
 
-20:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+20:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %19) #30
           to label %21 unwind label %22
 
@@ -8168,7 +8168,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   store ptr null, ptr %18, align 8
   br label %.body
 
-24:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+24:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   store ptr null, ptr %17, align 8
   store ptr null, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -8867,7 +8867,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #34, !noalias !141
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !141
@@ -8890,7 +8890,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3Thr
 
 .noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %2
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEEED2Ev.exit" unwind label %12, !noalias !147
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEEED2Ev.argprom.exit" unwind label %12, !noalias !147
 
 12:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -8909,7 +8909,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3Thr
   tail call void @_ZdlPv(ptr noundef nonnull %3) #33, !noalias !141
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEEED2Ev.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !147
   store ptr %11, ptr %16, align 8, !alias.scope !144, !noalias !141
@@ -8965,13 +8965,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEES0_FvvEEEEEvRS0_PT_.exit", label %13
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEES0_FvvEEEEEvRS0_PT_.argprom.exit", label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEES0_FvvEEEEEvRS0_PT_.exit" unwind label %16
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEES0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %16
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -8980,14 +8980,14 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   tail call void @__clang_call_terminate(ptr %18) #32
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEES0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEES0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
   store ptr null, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEES7_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEES8_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEES8_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %0) #33
   ret void
 }
@@ -9308,7 +9308,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEE8_M_resetEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.60") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %3)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %3)
   ret void
 }
 
@@ -9718,7 +9718,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #34, !noalias !166
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !166
@@ -9741,7 +9741,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3Thr
 
 .noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %2
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEEED2Ev.exit" unwind label %12, !noalias !172
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEEED2Ev.argprom.exit" unwind label %12, !noalias !172
 
 12:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -9760,7 +9760,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3Thr
   tail call void @_ZdlPv(ptr noundef nonnull %3) #33, !noalias !166
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEEED2Ev.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !172
   store ptr %11, ptr %16, align 8, !alias.scope !169, !noalias !166
@@ -9816,13 +9816,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEES0_FvvEEEEEvRS0_PT_.exit", label %13
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEES0_FvvEEEEEvRS0_PT_.argprom.exit", label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEES0_FvvEEEEEvRS0_PT_.exit" unwind label %16
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEES0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %16
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -9831,14 +9831,14 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   tail call void @__clang_call_terminate(ptr %18) #32
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEES0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEES0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
   store ptr null, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEES7_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEES8_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEES8_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %0) #33
   ret void
 }
@@ -10159,7 +10159,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEE8_M_resetEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.60") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %3)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvESt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %3)
   ret void
 }
 
@@ -10478,9 +10478,9 @@ define internal void @"_ZN12V3ThreadPool22requestExclusiveAccessIZZNS_8selfTestE
   %.val2 = load ptr, ptr %4, align 8
   %.val2.val = load i32, ptr %.val2, align 4
   invoke fastcc void @"_ZZN12V3ThreadPool8selfTestEvENK3$_0clEi"(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val, i32 noundef %.val2.val)
-          to label %"_ZZZN12V3ThreadPool8selfTestEvENK3$_2clEiENKUlvE_clEv.exit" unwind label %5
+          to label %"_ZZZN12V3ThreadPool8selfTestEvENK3$_2clEiENKUlvE_clEv.argprom.argprom.exit" unwind label %5
 
-"_ZZZN12V3ThreadPool8selfTestEvENK3$_2clEiENKUlvE_clEv.exit": ; preds = %2
+"_ZZZN12V3ThreadPool8selfTestEvENK3$_2clEiENKUlvE_clEv.argprom.argprom.exit": ; preds = %2
   call void @_ZN12V3ThreadPool21ScopedExclusiveAccessD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #31
   ret void
 
@@ -11044,13 +11044,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIiEENS0_12_Result_base8_DeleterEED2E
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3S0_FivEEEEEvRS0_PT_.exit", label %13
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3S0_FivEEEEEvRS0_PT_.argprom.exit", label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIiEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3S0_FivEEEEEvRS0_PT_.exit" unwind label %16
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3S0_FivEEEEEvRS0_PT_.argprom.exit" unwind label %16
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -11059,14 +11059,14 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIiEENS0_12_Result_base8_DeleterEED2E
   tail call void @__clang_call_terminate(ptr %18) #32
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3S0_FivEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIiEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3S0_FivEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIiEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
   store ptr null, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %0) #33
   ret void
 }
@@ -11409,7 +11409,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTe
 
 .noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %2
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %"_ZStL19__create_task_stateIFivEZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit" unwind label %12, !noalias !201
+          to label %"_ZStL19__create_task_stateIFivEZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit" unwind label %12, !noalias !201
 
 12:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -11425,7 +11425,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTe
   tail call void @_ZdlPv(ptr noundef nonnull %3) #33, !noalias !195
   resume { ptr, i32 } %15
 
-"_ZStL19__create_task_stateIFivEZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
+"_ZStL19__create_task_stateIFivEZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIiEE, i64 16), ptr %11, align 8, !noalias !201
   %17 = getelementptr inbounds i8, ptr %11, i64 20
@@ -12937,36 +12937,36 @@ attributes #36 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !7}
 !17 = !{!"branch_weights", i32 1, i32 1048575}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!20 = distinct !{!20, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!19 = distinct !{!19, !20, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!23 = distinct !{!23, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!22 = distinct !{!22, !23, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!23 = distinct !{!23, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!26 = distinct !{!26, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!25 = distinct !{!25, !26, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!26 = distinct !{!26, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!29 = distinct !{!29, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!28 = distinct !{!28, !29, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!29 = distinct !{!29, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!32 = distinct !{!32, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!31 = distinct !{!31, !32, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!32 = distinct !{!32, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_1JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!35 = distinct !{!35, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!34 = distinct !{!34, !35, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!35 = distinct !{!35, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!38 = distinct !{!38, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!37 = distinct !{!37, !38, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!38 = distinct !{!38, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !39 = distinct !{!39, !7}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_2JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!42 = distinct !{!42, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_2JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!41 = distinct !{!41, !42, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_2JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!42 = distinct !{!42, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_2JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_2JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!45 = distinct !{!45, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_2JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!44 = distinct !{!44, !45, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_2JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!45 = distinct !{!45, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_2JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_: argument 0"}
-!48 = distinct !{!48, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_"}
+!47 = distinct !{!47, !48, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom: argument 0"}
+!48 = distinct !{!48, !"_ZSt4bindIRZN12V3ThreadPool8selfTestEvE3$_0JiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueES4_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
 !49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
 !51 = distinct !{!51, !7}
@@ -12982,11 +12982,11 @@ attributes #36 = { nounwind willreturn memory(read) }
 !61 = distinct !{!61, !62, !"_ZSt11make_uniqueIN16VAnyPackagedTask9PTWrapperIFvvEEEJSt13packaged_taskIS2_EEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !62 = distinct !{!62, !"_ZSt11make_uniqueIN16VAnyPackagedTask9PTWrapperIFvvEEEJSt13packaged_taskIS2_EEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZStL19__create_task_stateIFivERZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_: argument 0"}
-!65 = distinct !{!65, !"_ZStL19__create_task_stateIFivERZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"}
+!64 = distinct !{!64, !65, !"_ZStL19__create_task_stateIFivERZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom: argument 0"}
+!65 = distinct !{!65, !"_ZStL19__create_task_stateIFivERZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"}
 !66 = !{!67, !64}
-!67 = distinct !{!67, !68, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_JRS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEERKT0_DpOT1_: argument 0"}
-!68 = distinct !{!68, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_JRS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEERKT0_DpOT1_"}
+!67 = distinct !{!67, !68, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_JRS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEERKT0_DpOT1_.argprom: argument 0"}
+!68 = distinct !{!68, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_JRS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEERKT0_DpOT1_.argprom"}
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZNSt13__future_base18_S_allocate_resultIiiEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !71 = distinct !{!71, !"_ZNSt13__future_base18_S_allocate_resultIiiEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -13023,8 +13023,8 @@ attributes #36 = { nounwind willreturn memory(read) }
 !102 = distinct !{!102, !103, !"_ZNSt5dequeI16VAnyPackagedTaskSaIS0_EE3endEv: argument 0"}
 !103 = distinct !{!103, !"_ZNSt5dequeI16VAnyPackagedTaskSaIS0_EE3endEv"}
 !104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_: argument 0"}
-!106 = distinct !{!106, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_"}
+!105 = distinct !{!105, !106, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_.argprom: argument 0"}
+!106 = distinct !{!106, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_0iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_.argprom"}
 !107 = !{!108}
 !108 = distinct !{!108, !109, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !109 = distinct !{!109, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -13060,8 +13060,8 @@ attributes #36 = { nounwind willreturn memory(read) }
 !139 = distinct !{!139, !140, !"_ZNKSt10error_code7messageB5cxx11Ev: argument 0"}
 !140 = distinct !{!140, !"_ZNKSt10error_code7messageB5cxx11Ev"}
 !141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_: argument 0"}
-!143 = distinct !{!143, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_"}
+!142 = distinct !{!142, !143, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_.argprom: argument 0"}
+!143 = distinct !{!143, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_.argprom"}
 !144 = !{!145}
 !145 = distinct !{!145, !146, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !146 = distinct !{!146, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -13085,8 +13085,8 @@ attributes #36 = { nounwind willreturn memory(read) }
 !164 = distinct !{!164, !165, !"_ZNKSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEclEv: argument 0"}
 !165 = distinct !{!165, !"_ZNKSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEESaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEclEv"}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_: argument 0"}
-!168 = distinct !{!168, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_"}
+!167 = distinct !{!167, !168, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_.argprom: argument 0"}
+!168 = distinct !{!168, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEEES7_JS6_RKS7_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEERKT0_DpOT1_.argprom"}
 !169 = !{!170}
 !170 = distinct !{!170, !171, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !171 = distinct !{!171, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -13111,11 +13111,11 @@ attributes #36 = { nounwind willreturn memory(read) }
 !190 = distinct !{!190, !"_ZNKSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateISt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEESaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEclEv"}
 !191 = distinct !{!191, !7}
 !192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZStL19__create_task_stateIFivEZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_: argument 0"}
-!194 = distinct !{!194, !"_ZStL19__create_task_stateIFivEZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"}
+!193 = distinct !{!193, !194, !"_ZStL19__create_task_stateIFivEZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom: argument 0"}
+!194 = distinct !{!194, !"_ZStL19__create_task_stateIFivEZN12V3ThreadPool8selfTestEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"}
 !195 = !{!196, !193}
-!196 = distinct !{!196, !197, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_: argument 0"}
-!197 = distinct !{!197, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_"}
+!196 = distinct !{!196, !197, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom: argument 0"}
+!197 = distinct !{!197, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTestEvE3$_3SaIiEFivEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom"}
 !198 = !{!199}
 !199 = distinct !{!199, !200, !"_ZNSt13__future_base18_S_allocate_resultIiiEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !200 = distinct !{!200, !"_ZNSt13__future_base18_S_allocate_resultIiiEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}

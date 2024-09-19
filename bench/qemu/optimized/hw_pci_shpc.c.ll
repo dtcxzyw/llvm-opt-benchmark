@@ -270,9 +270,9 @@ entry:
   %.pre.i = load i32, ptr %nslots2.phi.trans.insert.i, align 4
   %cmp1.not.not.i = icmp sle i32 %and.i, %.pre.i
   %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.not.not.i, i1 false
-  br i1 %or.cond.not.i, label %if.end, label %shpc_device_get_slot.exit
+  br i1 %or.cond.not.i, label %if.end, label %shpc_device_get_slot.argprom.exit
 
-shpc_device_get_slot.exit:                        ; preds = %entry
+shpc_device_get_slot.argprom.exit:                ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 510, ptr noundef nonnull @__func__.shpc_device_get_slot, ptr noundef nonnull @.str.6, i32 noundef %and.i, i32 noundef 1, i32 noundef %.pre.i) #10
   br label %return
 
@@ -333,7 +333,7 @@ if.end20:                                         ; preds = %if.end5, %if.then8
   tail call fastcc void @shpc_interrupt_update(ptr noundef nonnull %call.i)
   br label %return
 
-return:                                           ; preds = %shpc_device_get_slot.exit, %if.end20, %if.then4
+return:                                           ; preds = %shpc_device_get_slot.argprom.exit, %if.end20, %if.then4
   ret void
 }
 
@@ -363,9 +363,9 @@ entry:
   %.pre.i = load i32, ptr %nslots2.phi.trans.insert.i, align 4
   %cmp1.not.not.i = icmp sle i32 %and.i, %.pre.i
   %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.not.not.i, i1 false
-  br i1 %or.cond.not.i, label %if.end, label %shpc_device_get_slot.exit
+  br i1 %or.cond.not.i, label %if.end, label %shpc_device_get_slot.argprom.exit
 
-shpc_device_get_slot.exit:                        ; preds = %entry
+shpc_device_get_slot.argprom.exit:                ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 510, ptr noundef nonnull @__func__.shpc_device_get_slot, ptr noundef nonnull @.str.6, i32 noundef %and.i, i32 noundef 1, i32 noundef %.pre.i) #10
   br label %return
 
@@ -457,7 +457,7 @@ if.end28:                                         ; preds = %if.end8, %shpc_free
   tail call fastcc void @shpc_interrupt_update(ptr noundef %call.i)
   br label %return
 
-return:                                           ; preds = %shpc_device_get_slot.exit, %if.end28, %if.then7
+return:                                           ; preds = %shpc_device_get_slot.argprom.exit, %if.end28, %if.then7
   ret void
 }
 
@@ -601,7 +601,7 @@ for.end:                                          ; preds = %for.body
   %mul.i.i = shl i32 %26, 2
   %add.i.i = add i32 %mul.i.i, 36
   %cmp.not.i.i = icmp ult i32 %mul.i, %add.i.i
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %shpc_cap_update_dword.exit
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %shpc_cap_update_dword.argprom.exit
 
 if.end.i.i:                                       ; preds = %for.end
   %sub.i.i = sub nuw i32 %add.i.i, %mul.i
@@ -614,9 +614,9 @@ if.end.i.i:                                       ; preds = %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %val.i.i, ptr align 1 %add.ptr.i7.i, i64 %conv.i.i, i1 false)
   %val.i.i.0.val.i.i.0.val.i.i.0.val.i.0.val.i.0.val.0.val.0.val.0.3.i.i = load i64, ptr %val.i.i, align 8
   %28 = trunc i64 %val.i.i.0.val.i.i.0.val.i.i.0.val.i.0.val.i.0.val.0.val.0.val.0.3.i.i to i32
-  br label %shpc_cap_update_dword.exit
+  br label %shpc_cap_update_dword.argprom.exit
 
-shpc_cap_update_dword.exit:                       ; preds = %for.end, %if.end.i.i
+shpc_cap_update_dword.argprom.exit:               ; preds = %for.end, %if.end.i.i
   %retval.0.i.i = phi i32 [ %28, %if.end.i.i ], [ 0, %for.end ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
   %add.ptr3.i40 = getelementptr i8, ptr %add.ptr.i.i, i64 4
@@ -631,8 +631,8 @@ shpc_cap_update_dword.exit:                       ; preds = %for.end, %if.end.i.
   store i32 %or, ptr %cap_present, align 4
   br label %return
 
-return:                                           ; preds = %shpc_cap_update_dword.exit, %if.then
-  %retval.0 = phi i32 [ %call.i, %if.then ], [ 0, %shpc_cap_update_dword.exit ]
+return:                                           ; preds = %shpc_cap_update_dword.argprom.exit, %if.then
+  %retval.0 = phi i32 [ %call.i, %if.then ], [ 0, %shpc_cap_update_dword.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -766,7 +766,7 @@ if.end19:                                         ; preds = %if.then10, %if.end
   %mul.i.i = shl i32 %5, 2
   %add.i.i20 = add i32 %mul.i.i, 36
   %cmp.not.i.i = icmp ult i32 %mul.i, %add.i.i20
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %shpc_cap_update_dword.exit
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %shpc_cap_update_dword.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.end19
   %sub.i.i21 = sub nuw i32 %add.i.i20, %mul.i
@@ -779,16 +779,16 @@ if.end.i.i:                                       ; preds = %if.end19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %val.i.i, ptr align 1 %add.ptr.i7.i, i64 %conv.i.i, i1 false)
   %val.i.i.0.val.i.i.0.val.i.i.0.val.i.0.val.i.0.val.0.val.0.val.0.3.i.i = load i64, ptr %val.i.i, align 8
   %7 = trunc i64 %val.i.i.0.val.i.i.0.val.i.i.0.val.i.0.val.i.0.val.0.val.0.val.0.3.i.i to i32
-  br label %shpc_cap_update_dword.exit
+  br label %shpc_cap_update_dword.argprom.exit
 
-shpc_cap_update_dword.exit:                       ; preds = %if.end19, %if.end.i.i
+shpc_cap_update_dword.argprom.exit:               ; preds = %if.end19, %if.end.i.i
   %retval.0.i.i = phi i32 [ %7, %if.end.i.i ], [ 0, %if.end19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i.i, i64 4
   store i32 %retval.0.i.i, ptr %add.ptr3.i, align 1
   br label %return
 
-return:                                           ; preds = %entry, %shpc_cap_update_dword.exit
+return:                                           ; preds = %entry, %shpc_cap_update_dword.argprom.exit
   ret void
 }
 
@@ -991,7 +991,7 @@ sw.bb.i:                                          ; preds = %if.then41, %if.then
   %shr15.i = and i8 %and13.i, 3
   %21 = lshr i8 %add.ptr.val.i, 4
   %d.val.i = load ptr, ptr %shpc1, align 8
-  tail call fastcc void @shpc_slot_command(ptr %d.val.i, i8 noundef zeroext %20, i8 noundef zeroext %and9.i, i8 noundef zeroext %shr15.i, i8 noundef zeroext %21)
+  tail call fastcc void @shpc_slot_command.argprom(ptr %d.val.i, i8 noundef zeroext %20, i8 noundef zeroext %and9.i, i8 noundef zeroext %shr15.i, i8 noundef zeroext %21)
   br label %shpc_command.exit
 
 sw.bb22.i:                                        ; preds = %if.then41, %if.then41, %if.then41, %if.then41, %if.then41, %if.then41, %if.then41, %if.then41
@@ -1104,7 +1104,7 @@ if.end15.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc43.i
 
 if.else.i:                                        ; preds = %for.body36.i
-  tail call fastcc void @shpc_slot_command(ptr %d.val48.i, i8 noundef zeroext %conv39.i, i8 noundef zeroext 0, i8 noundef zeroext 3, i8 noundef zeroext 0)
+  tail call fastcc void @shpc_slot_command.argprom(ptr %d.val48.i, i8 noundef zeroext %conv39.i, i8 noundef zeroext 0, i8 noundef zeroext 3, i8 noundef zeroext 0)
   br label %for.inc43.i
 
 for.inc43.i:                                      ; preds = %if.else.i, %if.end15.i.i, %if.then14.i.i, %if.then.i.i
@@ -1192,7 +1192,7 @@ if.end.i110.i:                                    ; preds = %lor.lhs.false.i107.
   br label %for.inc75.i
 
 if.else71.i:                                      ; preds = %for.body65.i
-  tail call fastcc void @shpc_slot_command(ptr %d.val50.i, i8 noundef zeroext %conv70.i, i8 noundef zeroext 0, i8 noundef zeroext 3, i8 noundef zeroext 0)
+  tail call fastcc void @shpc_slot_command.argprom(ptr %d.val50.i, i8 noundef zeroext %conv70.i, i8 noundef zeroext 0, i8 noundef zeroext 3, i8 noundef zeroext 0)
   br label %for.inc75.i
 
 for.inc75.i:                                      ; preds = %if.else71.i, %if.end.i110.i, %if.then.i127.i
@@ -1308,7 +1308,7 @@ entry:
   %mul.i = shl i32 %1, 2
   %add.i = add i32 %mul.i, 36
   %cmp.not.i = icmp ugt i32 %add.i, %conv
-  br i1 %cmp.not.i, label %if.end.i, label %shpc_read.exit
+  br i1 %cmp.not.i, label %if.end.i, label %shpc_read.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %sub.i = sub nuw i32 %add.i, %conv
@@ -1320,9 +1320,9 @@ if.end.i:                                         ; preds = %entry
   %conv.i = sext i32 %cond.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %val.i, ptr align 1 %add.ptr.i, i64 %conv.i, i1 false)
   %val.i.0.val.i.0.val.i.0.val.0.val.0.val.0.3.i = load i64, ptr %val.i, align 8
-  br label %shpc_read.exit
+  br label %shpc_read.argprom.exit
 
-shpc_read.exit:                                   ; preds = %entry, %if.end.i
+shpc_read.argprom.exit:                           ; preds = %entry, %if.end.i
   %retval.0.i = phi i64 [ %val.i.0.val.i.0.val.i.0.val.0.val.0.val.0.3.i, %if.end.i ], [ 0, %entry ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i)
   ret i64 %retval.0.i
@@ -1337,7 +1337,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @shpc_slot_command(ptr nocapture readonly %d.2248.val, i8 noundef zeroext %target, i8 noundef zeroext range(i8 0, 4) %state, i8 noundef zeroext range(i8 0, 13) %power, i8 noundef zeroext range(i8 0, 49) %attn) unnamed_addr #0 {
+define internal fastcc void @shpc_slot_command.argprom(ptr nocapture readonly %d.2248.val, i8 noundef zeroext %target, i8 noundef zeroext range(i8 0, 4) %state, i8 noundef zeroext range(i8 0, 13) %power, i8 noundef zeroext range(i8 0, 49) %attn) unnamed_addr #0 {
 entry:
   %conv = zext i8 %target to i32
   %sub = add nsw i32 %conv, -1

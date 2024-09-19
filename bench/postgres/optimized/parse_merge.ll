@@ -302,13 +302,13 @@ list_length.exit:                                 ; preds = %89, %95
   br i1 %167, label %169, label %194
 
 169:                                              ; preds = %157
-  br i1 %.not.i.i, label %setNamespaceForMergeWhen.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %setNamespaceForMergeWhen.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %169
   %170 = getelementptr inbounds i8, ptr %168, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = icmp sgt i32 %171, 0
-  br i1 %172, label %.lr.ph18.i.i, label %setNamespaceForMergeWhen.exit
+  br i1 %172, label %.lr.ph18.i.i, label %setNamespaceForMergeWhen.argprom.exit
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph.i.i
   %173 = getelementptr inbounds i8, ptr %168, i64 16
@@ -341,13 +341,13 @@ list_length.exit:                                 ; preds = %89, %95
 setNamespaceVisibilityForRTE.exit.i:              ; preds = %175, %.split.i.i
   %.pr.i = phi ptr [ %.pr.pre.i, %.split.i.i ], [ %168, %175 ]
   %.not.i13.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i13.i, label %setNamespaceForMergeWhen.exit, label %.lr.ph.i14.i
+  br i1 %.not.i13.i, label %setNamespaceForMergeWhen.argprom.exit, label %.lr.ph.i14.i
 
 .lr.ph.i14.i:                                     ; preds = %setNamespaceVisibilityForRTE.exit.i
   %.phi.trans.insert224 = getelementptr inbounds i8, ptr %.pr.i, i64 4
   %.pre225 = load i32, ptr %.phi.trans.insert224, align 4
   %184 = icmp sgt i32 %.pre225, 0
-  br i1 %184, label %.lr.ph18.i15.i, label %setNamespaceForMergeWhen.exit
+  br i1 %184, label %.lr.ph18.i15.i, label %setNamespaceForMergeWhen.argprom.exit
 
 .lr.ph18.i15.i:                                   ; preds = %.lr.ph.i14.i
   %185 = getelementptr inbounds i8, ptr %.pr.i, i64 16
@@ -358,7 +358,7 @@ setNamespaceVisibilityForRTE.exit.i:              ; preds = %175, %.split.i.i
 187:                                              ; preds = %188
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %exitcond.not.i19.i = icmp eq i64 %indvars.iv.next.i18.i, %wide.trip.count.i16.i
-  br i1 %exitcond.not.i19.i, label %setNamespaceForMergeWhen.exit, label %188
+  br i1 %exitcond.not.i19.i, label %setNamespaceForMergeWhen.argprom.exit, label %188
 
 188:                                              ; preds = %187, %.lr.ph18.i15.i
   %indvars.iv.i17.i = phi i64 [ 0, %.lr.ph18.i15.i ], [ %indvars.iv.next.i18.i, %187 ]
@@ -370,13 +370,13 @@ setNamespaceVisibilityForRTE.exit.i:              ; preds = %175, %.split.i.i
   br i1 %193, label %setNamespaceVisibilityForRTE.exit21.sink.split.i, label %187
 
 194:                                              ; preds = %157
-  br i1 %.not.i.i, label %setNamespaceForMergeWhen.exit, label %.lr.ph.i23.i
+  br i1 %.not.i.i, label %setNamespaceForMergeWhen.argprom.exit, label %.lr.ph.i23.i
 
 .lr.ph.i23.i:                                     ; preds = %194
   %195 = getelementptr inbounds i8, ptr %168, i64 4
   %196 = load i32, ptr %195, align 4
   %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %.lr.ph18.i24.i, label %setNamespaceForMergeWhen.exit
+  br i1 %197, label %.lr.ph18.i24.i, label %setNamespaceForMergeWhen.argprom.exit
 
 .lr.ph18.i24.i:                                   ; preds = %.lr.ph.i23.i
   %198 = getelementptr inbounds i8, ptr %168, i64 16
@@ -409,13 +409,13 @@ setNamespaceVisibilityForRTE.exit.i:              ; preds = %175, %.split.i.i
 setNamespaceVisibilityForRTE.exit30.i:            ; preds = %200, %.split.i29.i
   %.pr2.i = phi ptr [ %.pr2.pre.i, %.split.i29.i ], [ %168, %200 ]
   %.not.i31.i = icmp eq ptr %.pr2.i, null
-  br i1 %.not.i31.i, label %setNamespaceForMergeWhen.exit, label %.lr.ph.i32.i
+  br i1 %.not.i31.i, label %setNamespaceForMergeWhen.argprom.exit, label %.lr.ph.i32.i
 
 .lr.ph.i32.i:                                     ; preds = %setNamespaceVisibilityForRTE.exit30.i
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pr2.i, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %209 = icmp sgt i32 %.pre, 0
-  br i1 %209, label %.lr.ph18.i33.i, label %setNamespaceForMergeWhen.exit
+  br i1 %209, label %.lr.ph18.i33.i, label %setNamespaceForMergeWhen.argprom.exit
 
 .lr.ph18.i33.i:                                   ; preds = %.lr.ph.i32.i
   %210 = getelementptr inbounds i8, ptr %.pr2.i, i64 16
@@ -426,7 +426,7 @@ setNamespaceVisibilityForRTE.exit30.i:            ; preds = %200, %.split.i29.i
 212:                                              ; preds = %213
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %exitcond.not.i37.i = icmp eq i64 %indvars.iv.next.i36.i, %wide.trip.count.i34.i
-  br i1 %exitcond.not.i37.i, label %setNamespaceForMergeWhen.exit, label %213
+  br i1 %exitcond.not.i37.i, label %setNamespaceForMergeWhen.argprom.exit, label %213
 
 213:                                              ; preds = %212, %.lr.ph18.i33.i
   %indvars.iv.i35.i = phi i64 [ 0, %.lr.ph18.i33.i ], [ %indvars.iv.next.i36.i, %212 ]
@@ -443,9 +443,9 @@ setNamespaceVisibilityForRTE.exit21.sink.split.i: ; preds = %213, %188
   store i8 1, ptr %219, align 8
   %220 = getelementptr inbounds i8, ptr %.lcssa32.sink36.i, i64 41
   store i8 1, ptr %220, align 1
-  br label %setNamespaceForMergeWhen.exit
+  br label %setNamespaceForMergeWhen.argprom.exit
 
-setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.i23.i, %.lr.ph.i.i, %169, %setNamespaceVisibilityForRTE.exit.i, %.lr.ph.i14.i, %194, %setNamespaceVisibilityForRTE.exit30.i, %.lr.ph.i32.i, %setNamespaceVisibilityForRTE.exit21.sink.split.i
+setNamespaceForMergeWhen.argprom.exit:            ; preds = %212, %187, %.lr.ph.i23.i, %.lr.ph.i.i, %169, %setNamespaceVisibilityForRTE.exit.i, %.lr.ph.i14.i, %194, %setNamespaceVisibilityForRTE.exit30.i, %.lr.ph.i32.i, %setNamespaceVisibilityForRTE.exit21.sink.split.i
   %221 = getelementptr inbounds i8, ptr %146, i64 16
   %222 = load ptr, ptr %221, align 8
   %223 = call ptr @transformWhereClause(ptr noundef %0, ptr noundef %222, i32 noundef 18, ptr noundef nonnull @.str.7) #5
@@ -459,7 +459,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.
     i32 7, label %.critedge.sink.split
   ]
 
-226:                                              ; preds = %setNamespaceForMergeWhen.exit
+226:                                              ; preds = %setNamespaceForMergeWhen.argprom.exit
   store i8 1, ptr %141, align 8
   %227 = getelementptr inbounds i8, ptr %146, i64 24
   %228 = load ptr, ptr %227, align 8
@@ -566,27 +566,27 @@ setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   br label %.split198, !llvm.loop !5
 
-295:                                              ; preds = %setNamespaceForMergeWhen.exit
+295:                                              ; preds = %setNamespaceForMergeWhen.argprom.exit
   store i8 0, ptr %141, align 8
   %296 = getelementptr inbounds i8, ptr %146, i64 24
   %297 = load ptr, ptr %296, align 8
   %298 = call ptr @transformUpdateTargetList(ptr noundef %0, ptr noundef %297) #5
   br label %.critedge.sink.split
 
-299:                                              ; preds = %setNamespaceForMergeWhen.exit
+299:                                              ; preds = %setNamespaceForMergeWhen.argprom.exit
   %300 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   call void @llvm.assume(i1 %300)
   %301 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 389, ptr noundef nonnull @__func__.transformMergeStmt) #5
   unreachable
 
-.critedge.sink.split:                             ; preds = %setNamespaceForMergeWhen.exit, %295
-  %.sink239 = phi ptr [ %298, %295 ], [ null, %setNamespaceForMergeWhen.exit ]
+.critedge.sink.split:                             ; preds = %setNamespaceForMergeWhen.argprom.exit, %295
+  %.sink239 = phi ptr [ %298, %295 ], [ null, %setNamespaceForMergeWhen.argprom.exit ]
   %302 = getelementptr inbounds i8, ptr %147, i64 24
   store ptr %.sink239, ptr %302, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %275, %270, %.critedge.sink.split, %241, %setNamespaceForMergeWhen.exit
+.critedge:                                        ; preds = %275, %270, %.critedge.sink.split, %241, %setNamespaceForMergeWhen.argprom.exit
   %303 = call ptr @lappend(ptr noundef %.0143200254, ptr noundef nonnull %147) #5
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221253, 1
   %304 = load i32, ptr %135, align 4

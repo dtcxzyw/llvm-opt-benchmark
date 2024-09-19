@@ -2743,7 +2743,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %5
   call void @epan_dissect_init(ptr noundef nonnull %3, ptr noundef %31, i32 noundef %30, i32 noundef 0) #21
   call void @packet_range_init(ptr noundef nonnull %2, ptr noundef nonnull %0) #21
   call void @packet_range_process_init(ptr noundef nonnull %2) #21
-  %32 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, ptr noundef nonnull @retap_packet, ptr noundef %3, i32 noundef 1)
+  %32 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, ptr noundef nonnull @retap_packet, ptr noundef %3, i32 noundef 1)
   call void @packet_range_cleanup(ptr noundef nonnull %2) #21
   call void @epan_dissect_cleanup(ptr noundef nonnull %3) #21
   %.07.i19 = load ptr, ptr @cf_callbacks, align 8
@@ -2780,7 +2780,7 @@ declare void @packet_range_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @packet_range_process_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef nonnull %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @process_specified_records.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef nonnull %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %struct.wtap_rec, align 8
@@ -3223,7 +3223,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %150 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %149, ptr noundef %150, i32 noundef %148, i32 noundef %148) #21
   %151 = getelementptr inbounds i8, ptr %1, i64 32
-  %152 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %151, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @print_packet, ptr noundef %4, i32 noundef %2)
+  %152 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef nonnull %151, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @print_packet, ptr noundef %4, i32 noundef %2)
   call void @epan_dissect_cleanup(ptr noundef nonnull %149) #21
   %153 = load ptr, ptr %8, align 8
   call void @g_free(ptr noundef %153) #21
@@ -3658,7 +3658,7 @@ define hidden range(i32 0, 3) i32 @cf_write_pdml_packets(ptr noundef %0, ptr nou
   %17 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %16, ptr noundef %17, i32 noundef 1, i32 noundef 1) #21
   %18 = getelementptr inbounds i8, ptr %1, i64 32
-  %19 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_pdml_packet, ptr noundef %3, i32 noundef 1)
+  %19 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_pdml_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %16) #21
   %cond = icmp eq i32 %19, 2
   br i1 %cond, label %20, label %22
@@ -3753,7 +3753,7 @@ define hidden range(i32 0, 3) i32 @cf_write_psml_packets(ptr noundef %0, ptr nou
   %23 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %22, ptr noundef %23, i32 noundef %21, i32 noundef %21) #21
   %24 = getelementptr inbounds i8, ptr %1, i64 32
-  %25 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_psml_packet, ptr noundef %3, i32 noundef 1)
+  %25 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_psml_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %22) #21
   %cond = icmp eq i32 %25, 2
   br i1 %cond, label %26, label %28
@@ -3841,7 +3841,7 @@ define hidden range(i32 0, 3) i32 @cf_write_csv_packets(ptr noundef %0, ptr noun
   %23 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %22, ptr noundef %23, i32 noundef %21, i32 noundef %21) #21
   %24 = getelementptr inbounds i8, ptr %1, i64 32
-  %25 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_csv_packet, ptr noundef %3, i32 noundef 1)
+  %25 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_csv_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %22) #21
   %cond = icmp eq i32 %25, 2
   %26 = call i32 @fclose(ptr noundef nonnull %6)
@@ -3903,7 +3903,7 @@ define hidden range(i32 0, 3) i32 @cf_write_carrays_packets(ptr noundef %0, ptr 
   %15 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %14, ptr noundef %15, i32 noundef 1, i32 noundef 1) #21
   %16 = getelementptr inbounds i8, ptr %1, i64 32
-  %17 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.27, ptr noundef nonnull @carrays_write_packet, ptr noundef %3, i32 noundef 1)
+  %17 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.27, ptr noundef nonnull @carrays_write_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %14) #21
   %cond = icmp eq i32 %17, 2
   %18 = call i32 @fclose(ptr noundef nonnull %6)
@@ -3965,7 +3965,7 @@ define hidden range(i32 0, 3) i32 @cf_write_json_packets(ptr noundef %0, ptr nou
   %17 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %16, ptr noundef %17, i32 noundef 1, i32 noundef 1) #21
   %18 = getelementptr inbounds i8, ptr %1, i64 32
-  %19 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_json_packet, ptr noundef %3, i32 noundef 1)
+  %19 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_json_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %16) #21
   %cond = icmp eq i32 %19, 2
   br i1 %cond, label %20, label %22
@@ -7760,7 +7760,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %16
   store ptr %1, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 %2, ptr %87, align 8
-  %88 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @save_record, ptr noundef %9, i32 noundef 1)
+  %88 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @save_record, ptr noundef %9, i32 noundef 1)
   switch i32 %88, label %104 [
     i32 2, label %99
     i32 1, label %89
@@ -7994,7 +7994,7 @@ cf_callback_invoke.exit140:                       ; preds = %.lr.ph.i136, %.crit
   br i1 %.not121, label %cf_callback_invoke.exit147, label %cf_callback_invoke.exit147.sink.split
 
 171:                                              ; preds = %163
-  %172 = call fastcc i32 @rescan_file(ptr noundef nonnull %0, ptr noundef %1)
+  %172 = call fastcc i32 @rescan_file.argelim(ptr noundef nonnull %0, ptr noundef %1)
   %.not120 = icmp eq i32 %172, 0
   br i1 %.not120, label %cf_callback_invoke.exit147, label %cf_callback_invoke.exit147.sink.split
 
@@ -8237,7 +8237,7 @@ declare void @wtap_fdclose(ptr noundef) local_unnamed_addr #3
 declare i32 @wtap_fdreopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @rescan_file(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @rescan_file.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.wtap_rec, align 8
   %5 = alloca %struct.Buffer, align 8
@@ -8629,7 +8629,7 @@ define hidden range(i32 0, 3) i32 @cf_export_specified_packets(ptr noundef %0, p
   store ptr %1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %3, ptr %34, align 8
-  %35 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef nonnull @save_record, ptr noundef %8, i32 noundef 1)
+  %35 = call fastcc i32 @process_specified_records.argelim(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef nonnull @save_record, ptr noundef %8, i32 noundef 1)
   %36 = call i32 @wtap_dump_close(ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
   switch i32 %35, label %38 [
     i32 2, label %54

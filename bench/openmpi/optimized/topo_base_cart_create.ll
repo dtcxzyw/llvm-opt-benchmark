@@ -53,7 +53,7 @@ define i32 @mca_topo_base_cart_create(ptr noundef %0, ptr noundef %1, i32 nounde
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i.i = icmp eq ptr %22, null
-  br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread110.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %opal_obj_new.argprom.exit.thread110.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %19, %.lr.ph.i.i.i
   %23 = phi ptr [ %25, %.lr.ph.i.i.i ], [ %22, %19 ]
@@ -62,9 +62,9 @@ define i32 @mca_topo_base_cart_create(ptr noundef %0, ptr noundef %1, i32 nounde
   %24 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i, label %opal_obj_new.exit.thread110.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %opal_obj_new.argprom.exit.thread110.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread110.i:                    ; preds = %.lr.ph.i.i.i, %19
+opal_obj_new.argprom.exit.thread110.i:            ; preds = %.lr.ph.i.i.i, %19
   %26 = getelementptr inbounds i8, ptr %12, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %12, i64 20
@@ -72,7 +72,7 @@ opal_obj_new.exit.thread110.i:                    ; preds = %.lr.ph.i.i.i, %19
   %30 = icmp sgt i32 %2, 0
   br i1 %30, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %opal_obj_new.exit.thread110.i
+.lr.ph.preheader.i:                               ; preds = %opal_obj_new.argprom.exit.thread110.i
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
@@ -133,8 +133,8 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %45
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %53, %opal_obj_new.exit.thread110.i
-  %.082.lcssa.i = phi i32 [ 1, %opal_obj_new.exit.thread110.i ], [ %54, %53 ]
+._crit_edge.i:                                    ; preds = %53, %opal_obj_new.argprom.exit.thread110.i
+  %.082.lcssa.i = phi i32 [ 1, %opal_obj_new.argprom.exit.thread110.i ], [ %54, %53 ]
   %55 = icmp slt i32 %27, %.082.lcssa.i
   br i1 %55, label %56, label %75
 

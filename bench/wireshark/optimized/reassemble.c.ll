@@ -5271,7 +5271,7 @@ proto_item_set_generated.exit74:                  ; preds = %72, %69, %65, %prot
   %.val = load i32, ptr %76, align 8
   %77 = and i32 %.val, 28
   %.not.i75 = icmp eq i32 %77, 0
-  br i1 %.not.i75, label %show_fragment_errs_in_col.exit, label %78
+  br i1 %.not.i75, label %show_fragment_errs_in_col.argprom.exit, label %78
 
 78:                                               ; preds = %proto_item_set_generated.exit74
   %79 = getelementptr inbounds i8, ptr %3, i64 8
@@ -5279,9 +5279,9 @@ proto_item_set_generated.exit74:                  ; preds = %72, %69, %65, %prot
   %81 = getelementptr inbounds i8, ptr %1, i64 104
   %82 = load ptr, ptr %81, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %82) #14
-  br label %show_fragment_errs_in_col.exit
+  br label %show_fragment_errs_in_col.argprom.exit
 
-show_fragment_errs_in_col.exit:                   ; preds = %proto_item_set_generated.exit74, %78
+show_fragment_errs_in_col.argprom.exit:           ; preds = %proto_item_set_generated.exit74, %78
   %.0.i = phi i32 [ 1, %78 ], [ 0, %proto_item_set_generated.exit74 ]
   ret i32 %.0.i
 }
@@ -5426,7 +5426,7 @@ proto_item_set_generated.exit61:                  ; preds = %63, %60, %56, %prot
   %.val = load i32, ptr %67, align 8
   %68 = and i32 %.val, 28
   %.not.i62 = icmp eq i32 %68, 0
-  br i1 %.not.i62, label %show_fragment_errs_in_col.exit, label %69
+  br i1 %.not.i62, label %show_fragment_errs_in_col.argprom.exit, label %69
 
 69:                                               ; preds = %proto_item_set_generated.exit61
   %70 = getelementptr inbounds i8, ptr %3, i64 8
@@ -5434,9 +5434,9 @@ proto_item_set_generated.exit61:                  ; preds = %63, %60, %56, %prot
   %72 = getelementptr inbounds i8, ptr %1, i64 104
   %73 = load ptr, ptr %72, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %73) #14
-  br label %show_fragment_errs_in_col.exit
+  br label %show_fragment_errs_in_col.argprom.exit
 
-show_fragment_errs_in_col.exit:                   ; preds = %proto_item_set_generated.exit61, %69
+show_fragment_errs_in_col.argprom.exit:           ; preds = %proto_item_set_generated.exit61, %69
   %.0.i = phi i32 [ 1, %69 ], [ 0, %proto_item_set_generated.exit61 ]
   ret i32 %.0.i
 }

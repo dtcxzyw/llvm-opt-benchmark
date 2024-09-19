@@ -216,7 +216,7 @@ if.end10:                                         ; preds = %compile_and_marshal
 if.then.i36:                                      ; preds = %if.end10
   %12 = load ptr, ptr @stderr, align 8
   %call1.i37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.9, ptr noundef %4) #13
-  br label %write_frozen.exit
+  br label %write_frozen.argprom.exit
 
 if.end.i29:                                       ; preds = %if.end10
   %call2.i30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call.i27, ptr noundef nonnull @.str.10, ptr noundef nonnull @header)
@@ -232,7 +232,7 @@ for.cond.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr i8, ptr %2, i64 %i.0.i.i
   %13 = load i8, ptr %arrayidx.i.i, align 1
   switch i8 %13, label %if.else.i.i [
-    i8 0, label %get_varname.exit.i
+    i8 0, label %get_varname.argprom.exit.i
     i8 46, label %for.inc.i.i
   ]
 
@@ -247,7 +247,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i, %for.c
   %inc14.i.i = add i64 %i.0.i.i, 1
   br label %for.cond.i.i, !llvm.loop !5
 
-get_varname.exit.i:                               ; preds = %for.cond.i.i
+get_varname.argprom.exit.i:                       ; preds = %for.cond.i.i
   %arrayidx15.i.i = getelementptr i8, ptr %call3.i.i, i64 %n.0.i.i
   store i8 0, ptr %arrayidx15.i.i, align 1
   %ob_sval.i.i.i = getelementptr inbounds i8, ptr %call4.i, i64 32
@@ -257,9 +257,9 @@ get_varname.exit.i:                               ; preds = %for.cond.i.i
   %cmp16.not.i.i = icmp eq i64 %marshalled.val.i.i, 0
   br i1 %cmp16.not.i.i, label %write_code.exit.i, label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %get_varname.exit.i, %for.end.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.end.i.i ], [ 16, %get_varname.exit.i ]
-  %n.017.i.i = phi i64 [ %add.i.i, %for.end.i.i ], [ 0, %get_varname.exit.i ]
+for.body.i.i:                                     ; preds = %get_varname.argprom.exit.i, %for.end.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.end.i.i ], [ 16, %get_varname.argprom.exit.i ]
+  %n.017.i.i = phi i64 [ %add.i.i, %for.end.i.i ], [ 0, %get_varname.argprom.exit.i ]
   %umin.i.i = call i64 @llvm.umin.i64(i64 %marshalled.val.i.i, i64 %indvars.iv.i.i)
   %add.i.i = add i64 %n.017.i.i, 16
   %cond.i.i = call i64 @llvm.umin.i64(i64 %add.i.i, i64 %marshalled.val.i.i)
@@ -283,7 +283,7 @@ for.end.i.i:                                      ; preds = %for.body8.i.i, %for
   %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, 16
   br i1 %cmp.i.i31, label %for.body.i.i, label %write_code.exit.i, !llvm.loop !8
 
-write_code.exit.i:                                ; preds = %for.end.i.i, %get_varname.exit.i
+write_code.exit.i:                                ; preds = %for.end.i.i, %get_varname.argprom.exit.i
   %17 = call i64 @fwrite(ptr nonnull @.str.17, i64 3, i64 1, ptr nonnull %call.i27)
   call void @free(ptr noundef %call3.i.i) #14
   %call4.i32 = call i32 @ferror(ptr noundef nonnull %call.i27) #14
@@ -294,20 +294,20 @@ if.then5.i:                                       ; preds = %write_code.exit.i
   %18 = load ptr, ptr @stderr, align 8
   %call6.i34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.12, ptr noundef %4) #13
   %call7.i = call i32 @fclose(ptr noundef nonnull %call.i27)
-  br label %write_frozen.exit
+  br label %write_frozen.argprom.exit
 
 if.end8.i:                                        ; preds = %write_code.exit.i
   %call9.i = call i32 @fclose(ptr noundef nonnull %call.i27)
-  br label %write_frozen.exit
+  br label %write_frozen.argprom.exit
 
-write_frozen.exit:                                ; preds = %if.then.i36, %if.then5.i, %if.end8.i
+write_frozen.argprom.exit:                        ; preds = %if.then.i36, %if.then5.i, %if.end8.i
   %cmp12.not = phi i1 [ false, %if.then.i36 ], [ false, %if.then5.i ], [ true, %if.end8.i ]
   %19 = load i64, ptr %call4.i, align 8
   %20 = and i64 %19, 2147483648
   %cmp.i16.not = icmp eq i64 %20, 0
   br i1 %cmp.i16.not, label %if.end.i, label %Py_DECREF.exit
 
-if.end.i:                                         ; preds = %write_frozen.exit
+if.end.i:                                         ; preds = %write_frozen.argprom.exit
   %dec.i = add i64 %19, -1
   store i64 %dec.i, ptr %call4.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
@@ -317,7 +317,7 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call4.i) #14
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %write_frozen.exit, %if.then1.i, %if.end.i
+Py_DECREF.exit:                                   ; preds = %write_frozen.argprom.exit, %if.then1.i, %if.end.i
   br i1 %cmp12.not, label %if.end14, label %error
 
 if.end14:                                         ; preds = %Py_DECREF.exit

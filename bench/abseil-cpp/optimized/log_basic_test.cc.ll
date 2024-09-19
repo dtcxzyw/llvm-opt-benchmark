@@ -3550,7 +3550,7 @@ if.end:                                           ; preds = %if.then.i.i.i298, %
           to label %invoke.cont138 unwind label %lpad2
 
 invoke.cont138:                                   ; preds = %if.end
-  invoke fastcc void @"_ZZN17absl_log_internal22BasicLogTest_Info_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN17absl_log_internal22BasicLogTest_Info_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %invoke.cont139 unwind label %lpad2
 
 invoke.cont139:                                   ; preds = %invoke.cont138
@@ -4369,7 +4369,7 @@ _ZN7testing8internal11MatcherBaseIbED2Ev.exit:    ; preds = %entry, %_ZNK7testin
 declare void @_ZN4absl13ScopedMockLog18StartCapturingLogsEv(ptr noundef nonnull align 8 dereferenceable(240)) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN17absl_log_internal22BasicLogTest_Info_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal22BasicLogTest_Info_Test8TestBodyEvENK3$_0clEv.argprom"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessage", align 8
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.2, i32 noundef 91) #37
@@ -5959,7 +5959,7 @@ if.end:                                           ; preds = %if.then.i.i.i298, %
           to label %invoke.cont138 unwind label %lpad2
 
 invoke.cont138:                                   ; preds = %if.end
-  invoke fastcc void @"_ZZN17absl_log_internal25BasicLogTest_Warning_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN17absl_log_internal25BasicLogTest_Warning_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %invoke.cont139 unwind label %lpad2
 
 invoke.cont139:                                   ; preds = %invoke.cont138
@@ -5979,7 +5979,7 @@ ehcleanup141:                                     ; preds = %ehcleanup140, %lpad
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN17absl_log_internal25BasicLogTest_Warning_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal25BasicLogTest_Warning_Test8TestBodyEvENK3$_0clEv.argprom"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessage", align 8
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_10WarningTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.2, i32 noundef 120) #37
@@ -7563,7 +7563,7 @@ if.end:                                           ; preds = %if.then.i.i.i298, %
           to label %invoke.cont138 unwind label %lpad2
 
 invoke.cont138:                                   ; preds = %if.end
-  invoke fastcc void @"_ZZN17absl_log_internal23BasicLogTest_Error_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN17absl_log_internal23BasicLogTest_Error_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %invoke.cont139 unwind label %lpad2
 
 invoke.cont139:                                   ; preds = %invoke.cont138
@@ -7583,7 +7583,7 @@ ehcleanup141:                                     ; preds = %ehcleanup140, %lpad
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN17absl_log_internal23BasicLogTest_Error_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal23BasicLogTest_Error_Test8TestBodyEvENK3$_0clEv.argprom"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessage", align 8
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.2, i32 noundef 149) #37
@@ -9103,7 +9103,7 @@ if.end361:                                        ; preds = %_ZN7testing10OnceAc
           to label %invoke.cont362 unwind label %lpad59
 
 invoke.cont362:                                   ; preds = %if.end361
-  invoke fastcc void @"_ZZN17absl_log_internal28BasicLogDeathTest_Fatal_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN17absl_log_internal28BasicLogDeathTest_Fatal_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %invoke.cont363.unreachable unwind label %lpad59
 
 invoke.cont363.unreachable:                       ; preds = %invoke.cont362
@@ -10116,7 +10116,7 @@ eh.resume:                                        ; preds = %ehcleanup, %cleanup
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal28BasicLogDeathTest_Fatal_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal28BasicLogDeathTest_Fatal_Test8TestBodyEvENK3$_0clEv.argprom"() unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.2, i32 noundef 185) #37
@@ -11222,7 +11222,7 @@ if.end208:                                        ; preds = %_ZN7testing10OnceAc
           to label %invoke.cont209 unwind label %lpad35
 
 invoke.cont209:                                   ; preds = %if.end208
-  invoke fastcc void @"_ZZN17absl_log_internal29BasicLogDeathTest_QFatal_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN17absl_log_internal29BasicLogDeathTest_QFatal_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %invoke.cont210.unreachable unwind label %lpad35
 
 invoke.cont210.unreachable:                       ; preds = %invoke.cont209
@@ -11433,7 +11433,7 @@ terminate.lpad:                                   ; preds = %lpad224, %lpad215
 declare noundef zeroext i1 @_ZN4absl12log_internal12DiedOfQFatalEi(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal29BasicLogDeathTest_QFatal_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal29BasicLogDeathTest_QFatal_Test8TestBodyEvENK3$_0clEv.argprom"() unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageQuietlyFatal", align 8
   call void @_ZN4absl12log_internal22LogMessageQuietlyFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.2, i32 noundef 245) #37
@@ -13030,7 +13030,7 @@ if.end:                                           ; preds = %if.then.i.i.i303, %
           to label %invoke.cont143 unwind label %lpad6
 
 invoke.cont143:                                   ; preds = %if.end
-  invoke fastcc void @"_ZZN17absl_log_internal23BasicLogTest_Level_Test8TestBodyEvENK3$_0clEv"(i32 %10)
+  invoke fastcc void @"_ZZN17absl_log_internal23BasicLogTest_Level_Test8TestBodyEvENK3$_0clEv.argprom"(i32 %10)
           to label %invoke.cont144 unwind label %lpad6
 
 invoke.cont144:                                   ; preds = %invoke.cont143
@@ -13055,7 +13055,7 @@ ehcleanup146:                                     ; preds = %ehcleanup145, %lpad
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN17absl_log_internal23BasicLogTest_Level_Test8TestBodyEvENK3$_0clEv"(i32 %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal23BasicLogTest_Level_Test8TestBodyEvENK3$_0clEv.argprom"(i32 %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.absl::log_internal::LogMessage", align 8
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %this.0.val, i32 0)

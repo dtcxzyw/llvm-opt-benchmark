@@ -445,7 +445,7 @@ $_ZTVN6gmxapi14BasicExceptionINS_13ProtocolErrorEEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6gmxapi17MpiContextManagerC2EP10tmpi_comm_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readnone %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.exit, label %3
+  br i1 %.not.i.i, label %_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.argprom.exit, label %3
 
 3:                                                ; preds = %2
   %4 = tail call ptr @__cxa_allocate_exception(i64 40) #17
@@ -466,7 +466,7 @@ common.resume:                                    ; preds = %_ZNSt10unique_ptrIP
   tail call void @__cxa_free_exception(ptr %4) #17
   br label %common.resume
 
-_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.exit: ; preds = %2
+_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.argprom.exit: ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19, !noalias !5
   store ptr null, ptr %8, align 8, !noalias !5
@@ -474,7 +474,7 @@ _ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.exit: ; preds = %2
   invoke void @_ZN3gmx4initEPiPPPc(ptr noundef null, ptr noundef null)
           to label %9 unwind label %.body4
 
-9:                                                ; preds = %_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.exit
+9:                                                ; preds = %_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.argprom.exit
   %10 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %16
@@ -506,7 +506,7 @@ _ZNK6gmxapi17MpiContextManager12communicatorEv.exit6: ; preds = %16
   invoke void @_Z11gmx_barrierP10tmpi_comm_(ptr noundef nonnull %17)
           to label %20 unwind label %.body4
 
-.body4:                                           ; preds = %_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.exit, %_ZNK6gmxapi17MpiContextManager12communicatorEv.exit6, %13
+.body4:                                           ; preds = %_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.argprom.exit, %_ZNK6gmxapi17MpiContextManager12communicatorEv.exit6, %13
   %18 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -993,7 +993,7 @@ define void @_ZN6gmxapi13createContextERKNS_18ResourceAssignmentE(ptr dead_on_un
   %5 = load ptr, ptr %4, align 8, !noalias !10
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !10
   %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %_ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE.exit
+  br i1 %7, label %8, label %_ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE.argprom.exit
 
 8:                                                ; preds = %2
   %9 = tail call ptr @__cxa_allocate_exception(i64 40) #17, !noalias !10
@@ -1010,7 +1010,7 @@ define void @_ZN6gmxapi13createContextERKNS_18ResourceAssignmentE(ptr dead_on_un
   tail call void @__cxa_free_exception(ptr %9) #17, !noalias !10
   resume { ptr, i32 } %12
 
-_ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE.exit: ; preds = %2
+_ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE.argprom.exit: ; preds = %2
   tail call void @_ZN6gmxapi13createContextEv(ptr dead_on_unwind writable sret(%"class.gmxapi::Context") align 8 %0)
   ret void
 }
@@ -6210,8 +6210,8 @@ attributes #21 = { noreturn nounwind }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE: argument 0"}
-!12 = distinct !{!12, !"_ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE"}
+!11 = distinct !{!11, !12, !"_ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE.argprom"}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN6gmxapi11ContextImpl6createEONS_17MpiContextManagerE: argument 0"}
 !15 = distinct !{!15, !"_ZN6gmxapi11ContextImpl6createEONS_17MpiContextManagerE"}

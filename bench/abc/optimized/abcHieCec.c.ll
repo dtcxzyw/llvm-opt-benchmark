@@ -35,7 +35,7 @@ define void @Abc_NtkDfsBoxes_rec(ptr noundef %0, ptr nocapture noundef %1) local
   %.val3.i = load i32, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %8 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %7, i32 noundef %8)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %7, i32 noundef %8)
   %9 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %9, align 8
   %10 = sext i32 %.val3.i to i64
@@ -51,7 +51,7 @@ define void @Abc_NtkDfsBoxes_rec(ptr noundef %0, ptr nocapture noundef %1) local
   %.val13 = load i32, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %17 = add nsw i32 %.val13, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i15 = load ptr, ptr %18, align 8
   %19 = sext i32 %.val13 to i64
@@ -793,7 +793,7 @@ Abc_UtilStrsav.exit38:                            ; preds = %Abc_UtilStrsav.exit
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 64
   %48 = load i32, ptr %47, align 8
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %2, i32 noundef %48)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %2, i32 noundef %48)
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %.val29 = load ptr, ptr %35, align 8
   %49 = getelementptr i8, ptr %.val29, i64 4
@@ -914,7 +914,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1456,7 +1456,7 @@ Abc_UtilStrsav.exit126:                           ; preds = %Abc_UtilStrsav.exit
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 64
   %183 = load i32, ptr %182, align 8
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %4, i32 noundef %183)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %4, i32 noundef %183)
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %.val101 = load ptr, ptr %40, align 8
   %184 = getelementptr i8, ptr %.val101, i64 4
@@ -2212,7 +2212,7 @@ declare ptr @Au_ManDeriveTest(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

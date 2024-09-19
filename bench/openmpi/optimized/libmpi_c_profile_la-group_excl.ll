@@ -50,7 +50,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 16:                                               ; preds = %13
   %17 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 9, ptr noundef nonnull @FUNC_NAME) #4
-  br label %opal_thread_add_fetch_32.exit
+  br label %opal_thread_add_fetch_32.argprom.exit
 
 18:                                               ; preds = %13
   %19 = icmp eq ptr %2, null
@@ -60,7 +60,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 21:                                               ; preds = %18
   %22 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #4
-  br label %opal_thread_add_fetch_32.exit
+  br label %opal_thread_add_fetch_32.argprom.exit
 
 23:                                               ; preds = %18
   %24 = icmp sgt i32 %1, %.val
@@ -75,7 +75,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 25:                                               ; preds = %23
   %26 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 9, ptr noundef nonnull @FUNC_NAME) #4
-  br label %opal_thread_add_fetch_32.exit
+  br label %opal_thread_add_fetch_32.argprom.exit
 
 27:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -93,7 +93,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 31:                                               ; preds = %.lr.ph
   %32 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 6, ptr noundef nonnull @FUNC_NAME) #4
-  br label %opal_thread_add_fetch_32.exit
+  br label %opal_thread_add_fetch_32.argprom.exit
 
 .loopexit:                                        ; preds = %27, %.preheader, %4
   %33 = icmp eq i32 %1, %.val
@@ -107,19 +107,19 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 37:                                               ; preds = %34
   %38 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
-  br label %opal_thread_add_fetch_32.exit
+  br label %opal_thread_add_fetch_32.argprom.exit
 
 39:                                               ; preds = %34
   %40 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   %41 = add nsw i32 %40, 1
   store volatile i32 %41, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   %42 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
-  br label %opal_thread_add_fetch_32.exit
+  br label %opal_thread_add_fetch_32.argprom.exit
 
 43:                                               ; preds = %.loopexit
   %44 = tail call i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #4
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %opal_thread_add_fetch_32.exit, label %45
+  br i1 %.not, label %opal_thread_add_fetch_32.argprom.exit, label %45
 
 45:                                               ; preds = %43
   %46 = icmp sgt i32 %44, -1
@@ -134,7 +134,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i
 
-49:                                               ; preds = %opal_pointer_array_get_item.exit.i
+49:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %51 = sext i32 %50 to i64
@@ -162,21 +162,21 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i8 %60 to i1
-  br i1 %64, label %65, label %opal_pointer_array_get_item.exit.i
+  br i1 %64, label %65, label %opal_pointer_array_get_item.argprom.exit.i
 
 65:                                               ; preds = %59
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.exit.i
+  br label %opal_pointer_array_get_item.argprom.exit.i
 
-opal_pointer_array_get_item.exit.i:               ; preds = %65, %59
+opal_pointer_array_get_item.argprom.exit.i:       ; preds = %65, %59
   %67 = phi i8 [ %60, %59 ], [ %.pre.i, %65 ]
   %68 = getelementptr inbounds i8, ptr %63, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, %44
   br i1 %70, label %71, label %49
 
-71:                                               ; preds = %opal_pointer_array_get_item.exit.i
+71:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
   %72 = getelementptr inbounds i8, ptr %63, i64 20
   %73 = load i32, ptr %72, align 4
   br label %ompi_errcode_get_mpi_code.exit
@@ -184,9 +184,9 @@ opal_pointer_array_get_item.exit.i:               ; preds = %65, %59
 ompi_errcode_get_mpi_code.exit:                   ; preds = %49, %45, %.preheader.i, %71
   %.0.i42 = phi i32 [ %44, %45 ], [ %73, %71 ], [ 14, %.preheader.i ], [ 14, %49 ]
   %74 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i42, ptr noundef nonnull @FUNC_NAME) #4
-  br label %opal_thread_add_fetch_32.exit
+  br label %opal_thread_add_fetch_32.argprom.exit
 
-opal_thread_add_fetch_32.exit:                    ; preds = %39, %37, %43, %ompi_errcode_get_mpi_code.exit, %31, %25, %21, %16
+opal_thread_add_fetch_32.argprom.exit:            ; preds = %39, %37, %43, %ompi_errcode_get_mpi_code.exit, %31, %25, %21, %16
   %.0 = phi i32 [ %17, %16 ], [ %22, %21 ], [ %26, %25 ], [ %32, %31 ], [ %.0.i42, %ompi_errcode_get_mpi_code.exit ], [ 0, %43 ], [ 0, %37 ], [ 0, %39 ]
   ret i32 %.0
 }

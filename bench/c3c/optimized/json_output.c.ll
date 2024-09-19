@@ -460,7 +460,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i8.i
   %.val119.i.i = load ptr, ptr %40, align 8
   %69 = getelementptr i8, ptr %.val119.i.i, i64 8
   %.val119.val.i.i = load ptr, ptr %69, align 8
-  tail call fastcc void @emit_type_data(ptr noundef %1, ptr %.val119.val.i.i, ptr noundef nonnull %56)
+  tail call fastcc void @emit_type_data.argprom.argprom(ptr noundef %1, ptr %.val119.val.i.i, ptr noundef nonnull %56)
   br label %70
 
 70:                                               ; preds = %68, %63, %switch.early.test.i.i
@@ -579,7 +579,7 @@ switch.early.test117.i.i:                         ; preds = %.lr.ph143.i.i
   %.val120.i.i = load ptr, ptr %79, align 8
   %108 = getelementptr i8, ptr %.val120.i.i, i64 8
   %.val120.val.i.i = load ptr, ptr %108, align 8
-  tail call fastcc void @emit_type_data(ptr noundef %1, ptr %.val120.val.i.i, ptr noundef nonnull %95)
+  tail call fastcc void @emit_type_data.argprom.argprom(ptr noundef %1, ptr %.val120.val.i.i, ptr noundef nonnull %95)
   br label %109
 
 109:                                              ; preds = %107, %102, %switch.early.test117.i.i
@@ -682,7 +682,7 @@ emit_types.exit.i:                                ; preds = %._crit_edge150.i.i,
   %.val104.i.i = load ptr, ptr %118, align 8
   %142 = getelementptr i8, ptr %.val104.i.i, i64 8
   %.val104.val.i.i = load ptr, ptr %142, align 8
-  tail call fastcc void @emit_func_data(ptr noundef %1, ptr %.val104.val.i.i, ptr noundef nonnull %134)
+  tail call fastcc void @emit_func_data.argprom.argprom(ptr noundef %1, ptr %.val104.val.i.i, ptr noundef nonnull %134)
   br label %143
 
 143:                                              ; preds = %141, %.lr.ph.i16.i
@@ -785,7 +785,7 @@ emit_types.exit.i:                                ; preds = %._crit_edge150.i.i,
   %.val105.i.i = load ptr, ptr %152, align 8
   %176 = getelementptr i8, ptr %.val105.i.i, i64 8
   %.val105.val.i.i = load ptr, ptr %176, align 8
-  tail call fastcc void @emit_func_data(ptr noundef %1, ptr %.val105.val.i.i, ptr noundef nonnull %168)
+  tail call fastcc void @emit_func_data.argprom.argprom(ptr noundef %1, ptr %.val105.val.i.i, ptr noundef nonnull %168)
   br label %177
 
 177:                                              ; preds = %175, %.lr.ph125.i.i
@@ -813,7 +813,7 @@ emit_json_to_file.exit:                           ; preds = %._crit_edge132.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_type_data(ptr nocapture noundef %0, ptr %.0.val.8.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @emit_type_data.argprom.argprom(ptr nocapture noundef %0, ptr %.0.val.8.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %.0.val.8.val, ptr noundef %3) #6
   %5 = getelementptr i8, ptr %1, i64 24
@@ -821,7 +821,7 @@ define internal fastcc void @emit_type_data(ptr nocapture noundef %0, ptr %.0.va
   %6 = trunc i64 %.val to i32
   %7 = and i32 %6, 127
   switch i32 %7, label %29 [
-    i32 1, label %decl_type_to_string.exit
+    i32 1, label %decl_type_to_string.argprom.exit
     i32 2, label %8
     i32 4, label %9
     i32 5, label %10
@@ -851,64 +851,64 @@ define internal fastcc void @emit_type_data(ptr nocapture noundef %0, ptr %.0.va
   ]
 
 8:                                                ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 9:                                                ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 10:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 11:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 12:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 13:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 14:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 15:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 16:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 17:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 18:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 19:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 20:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 21:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 22:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 23:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 24:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 25:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 26:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 27:                                               ; preds = %2
-  br label %decl_type_to_string.exit
+  br label %decl_type_to_string.argprom.exit
 
 28:                                               ; preds = %2, %2, %2, %2, %2, %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.decl_type_to_string, ptr noundef nonnull @.str.2, i32 noundef 65) #5
@@ -918,7 +918,7 @@ define internal fastcc void @emit_type_data(ptr nocapture noundef %0, ptr %.0.va
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.decl_type_to_string, ptr noundef nonnull @.str.2, i32 noundef 67) #5
   unreachable
 
-decl_type_to_string.exit:                         ; preds = %2, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27
+decl_type_to_string.argprom.exit:                 ; preds = %2, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27
   %.0.i = phi ptr [ @.str.55, %27 ], [ @.str.54, %26 ], [ @.str.53, %25 ], [ @.str.52, %24 ], [ @.str.51, %23 ], [ @.str.50, %22 ], [ @.str.49, %21 ], [ @.str.48, %20 ], [ @.str.47, %19 ], [ @.str.46, %18 ], [ @.str.45, %17 ], [ @.str.44, %16 ], [ @.str.43, %15 ], [ @.str.42, %14 ], [ @.str.41, %13 ], [ @.str.40, %12 ], [ @.str.39, %11 ], [ @.str.38, %10 ], [ @.str.37, %9 ], [ @.str.36, %8 ], [ @.str.35, %2 ]
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef nonnull %.0.i) #6
   %31 = load i64, ptr %5, align 8
@@ -929,7 +929,7 @@ decl_type_to_string.exit:                         ; preds = %2, %8, %9, %10, %11
     i32 25, label %34
   ]
 
-34:                                               ; preds = %decl_type_to_string.exit, %decl_type_to_string.exit
+34:                                               ; preds = %decl_type_to_string.argprom.exit, %decl_type_to_string.argprom.exit
   %35 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 18, i64 1, ptr %0)
   %36 = getelementptr inbounds i8, ptr %1, i64 104
   %37 = load ptr, ptr %36, align 8
@@ -968,13 +968,13 @@ decl_type_to_string.exit:                         ; preds = %2, %8, %9, %10, %11
   %48 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 5, i64 1, ptr %0)
   br label %49
 
-49:                                               ; preds = %decl_type_to_string.exit, %._crit_edge
+49:                                               ; preds = %decl_type_to_string.argprom.exit, %._crit_edge
   %50 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 4, i64 1, ptr %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_func_data(ptr noundef %0, ptr %.0.val.8.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @emit_func_data.argprom.argprom(ptr noundef %0, ptr %.0.val.8.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %.0.val.8.val, ptr noundef %3) #6
   %5 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 13, i64 1, ptr %0)

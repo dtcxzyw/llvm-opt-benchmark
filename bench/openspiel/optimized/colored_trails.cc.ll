@@ -9332,12 +9332,12 @@ define noundef zeroext i1 @_ZNK10open_spiel14colored_trails18ColoredTrailsState1
   %.val = load i32, ptr %9, align 4
   %.val2 = load ptr, ptr %7, align 8
   %.val3 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_(i32 %.val, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.val2, ptr %.val3)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_.argprom(i32 %.val, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.val2, ptr %.val3)
   ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_(i32 %.4.val, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %.0.val, ptr nocapture readonly %.0.val1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_.argprom(i32 %.4.val, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %.0.val, ptr nocapture readonly %.0.val1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.open_spiel::colored_trails::Trade", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9975,7 +9975,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %_ZNSt6vectorIiSaIiE
   %.val = load i32, ptr %19, align 4
   %.val26 = load ptr, ptr %6, align 8
   %.val27 = load ptr, ptr %4, align 8
-  %82 = invoke fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_(i32 %.val, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.val26, ptr %.val27)
+  %82 = invoke fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_.argprom(i32 %.val, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.val26, ptr %.val27)
           to label %83 unwind label %.loopexit97
 
 83:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit37
@@ -12119,7 +12119,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit95:                  ; preds = %_ZSt10accumulateIN9
   %.val.i = load i32, ptr %242, align 4
   %.val2.i = load ptr, ptr %240, align 8
   %.val3.i = load ptr, ptr %241, align 8
-  %243 = tail call fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_(i32 %.val.i, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.val2.i, ptr %.val3.i)
+  %243 = tail call fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_.argprom(i32 %.val.i, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.val2.i, ptr %.val3.i)
   br i1 %243, label %_ZNSt6vectorIN10open_spiel14colored_trails5TradeESaIS2_EED2Ev.exit, label %244
 
 244:                                              ; preds = %._crit_edge.i

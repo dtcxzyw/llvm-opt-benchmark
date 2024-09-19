@@ -894,9 +894,9 @@ if.then55:                                        ; preds = %_ZNK4mold10MappedFi
 if.end62:                                         ; preds = %_ZNK4mold10MappedFileINS_3elf7ContextINS1_5ARM64EEEE10get_offsetEv.exit
   %ctx.val38 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.not.i.i.i.i49 = icmp ult i64 %ctx.val38, 11
-  br i1 %cmp.not.i.i.i.i49, label %if.then64, label %_ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit
+  br i1 %cmp.not.i.i.i.i49, label %if.then64, label %_ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.argprom.exit
 
-_ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit: ; preds = %if.end62
+_ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.argprom.exit: ; preds = %if.end62
   %ctx.val = load ptr, ptr %plugin, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.val, i64 %ctx.val38
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 -11
@@ -904,13 +904,13 @@ _ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit: ; preds = %if.end62
   %31 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %31, label %if.end68, label %if.then64
 
-if.then64:                                        ; preds = %if.end62, %_ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit
+if.then64:                                        ; preds = %if.end62, %_ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.argprom.exit
   %32 = load i32, ptr %fd, align 8
   %call66 = call i32 @close(i32 noundef %32) #18
   store i32 -1, ptr %fd, align 8
   br label %if.end68
 
-if.end68:                                         ; preds = %if.then64, %_ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit
+if.end68:                                         ; preds = %if.then64, %_ZN4mold3elfL7is_llvmINS0_5ARM64EEEbRNS0_7ContextIT_EE.argprom.exit
   %33 = load ptr, ptr @_ZN4mold3elfL14plugin_symbolsE, align 8
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL14plugin_symbolsE, i64 8), align 8
   %cmp.i50114 = icmp eq ptr %33, %34
@@ -1243,7 +1243,7 @@ entry:
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = getelementptr inbounds i8, ptr %ctx, i64 88
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_5ARM64EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_5ARM64EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_.argprom(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %4 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_5ARM64EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -1632,16 +1632,16 @@ land.lhs.true:                                    ; preds = %_ZNSt7__cxx1112basi
 
 lor.rhs.i:                                        ; preds = %land.lhs.true
   %cmp.not.i.i.i.i.i = icmp ult i64 %ctx.val15, 11
-  br i1 %cmp.not.i.i.i.i.i, label %if.then, label %_ZN4mold3elfL15supports_v3_apiINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit
+  br i1 %cmp.not.i.i.i.i.i, label %if.then, label %_ZN4mold3elfL15supports_v3_apiINS0_5ARM64EEEbRNS0_7ContextIT_EE.argprom.exit
 
-_ZN4mold3elfL15supports_v3_apiINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit: ; preds = %lor.rhs.i
+_ZN4mold3elfL15supports_v3_apiINS0_5ARM64EEEbRNS0_7ContextIT_EE.argprom.exit: ; preds = %lor.rhs.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.val, i64 %ctx.val15
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 -11
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.79, i64 11)
   %13 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %13, label %if.end, label %if.then
 
-if.then:                                          ; preds = %lor.rhs.i, %_ZN4mold3elfL15supports_v3_apiINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit
+if.then:                                          ; preds = %lor.rhs.i, %_ZN4mold3elfL15supports_v3_apiINS0_5ARM64EEEbRNS0_7ContextIT_EE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %args.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
@@ -2192,7 +2192,7 @@ for.end28.i:                                      ; preds = %for.inc26.i, %_ZN3t
   call void @_exit(i32 noundef 1) #28
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true, %_ZN4mold3elfL15supports_v3_apiINS0_5ARM64EEEbRNS0_7ContextIT_EE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+if.end:                                           ; preds = %land.lhs.true, %_ZN4mold3elfL15supports_v3_apiINS0_5ARM64EEEbRNS0_7ContextIT_EE.argprom.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %objs = getelementptr inbounds i8, ptr %ctx, i64 3280
   %65 = load ptr, ptr %objs, align 8
   %_M_finish.i.i.i35 = getelementptr inbounds i8, ptr %ctx, i64 3288
@@ -3748,7 +3748,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_5ARM64EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_5ARM64EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_.argprom(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4271,7 +4271,7 @@ for.body.i:                                       ; preds = %if.end38.i, %_ZNSt6
   %9 = load ptr, ptr %__begin0.sroa.0.01445.i, align 8
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.01445.i, i64 8
   %10 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %call48.i = tail call fastcc noundef ptr @_ZZN4mold3elfL11load_pluginINS0_5ARM64EEEvRNS0_7ContextIT_EEENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESA_(ptr nonnull %0, i64 %10, ptr %9)
+  %call48.i = tail call fastcc noundef ptr @_ZZN4mold3elfL11load_pluginINS0_5ARM64EEEvRNS0_7ContextIT_EEENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESA_.argprom(ptr nonnull %0, i64 %10, ptr %9)
   %cmp.not.i132.i = icmp eq ptr %tv.sroa.71.11447.i, %tv.sroa.207.11446.i
   br i1 %cmp.not.i132.i, label %if.else.i135.i, label %if.then.i133.i
 
@@ -4997,7 +4997,7 @@ _ZNSt6vectorIN4mold14PluginTagValueESaIS1_EE12emplace_backIJNS0_9PluginTagERFNS0
   %41 = load ptr, ptr %output.i, align 8
   %_M_string_length.i.i505.i = getelementptr inbounds i8, ptr %0, i64 440
   %42 = load i64, ptr %_M_string_length.i.i505.i, align 8
-  %call74.i = tail call fastcc noundef ptr @_ZZN4mold3elfL11load_pluginINS0_5ARM64EEEvRNS0_7ContextIT_EEENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESA_(ptr nonnull %0, i64 %42, ptr %41)
+  %call74.i = tail call fastcc noundef ptr @_ZZN4mold3elfL11load_pluginINS0_5ARM64EEEvRNS0_7ContextIT_EEENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESA_.argprom(ptr nonnull %0, i64 %42, ptr %41)
   %cmp.not.i510.i = icmp eq ptr %tv.sroa.71.15.i, %tv.sroa.207.15.i
   br i1 %cmp.not.i510.i, label %if.else.i513.i, label %if.then.i511.i
 
@@ -6555,7 +6555,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc noundef nonnull ptr @_ZZN4mold3elfL11load_pluginINS0_5ARM64EEEvRNS0_7ContextIT_EEENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESA_(ptr %this.0.val, i64 %str.coerce0, ptr %str.coerce1) unnamed_addr #4 align 2 {
+define internal fastcc noundef nonnull ptr @_ZZN4mold3elfL11load_pluginINS0_5ARM64EEEvRNS0_7ContextIT_EEENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESA_.argprom(ptr %this.0.val, i64 %str.coerce0, ptr %str.coerce1) unnamed_addr #4 align 2 {
 entry:
   %str = alloca %"class.std::basic_string_view", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7046,8 +7046,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %for.body.i, !llvm.loop !204
 
-for.body4.i:                                      ; preds = %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i, %for.body4.lr.ph.i
-  %i1.019.i = phi i64 [ 0, %for.body4.lr.ph.i ], [ %add.i, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i ]
+for.body4.i:                                      ; preds = %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i, %for.body4.lr.ph.i
+  %i1.019.i = phi i64 [ 0, %for.body4.lr.ph.i ], [ %add.i, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i ]
   %add.i = add nuw nsw i64 %i1.019.i, 1
   %1 = load ptr, ptr %elf_syms.i, align 8
   %2 = load ptr, ptr %symbols.i, align 8
@@ -7059,7 +7059,7 @@ for.body4.i:                                      ; preds = %_ZZN4mold3elfL11get
   %5 = getelementptr i8, ptr %3, i64 49
   %.val13.i = load i16, ptr %5, align 1
   %tobool.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %tobool.not.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body4.i
   %cmp.i.i = icmp eq ptr %.val.i, %handle
@@ -7068,19 +7068,19 @@ if.end.i.i:                                       ; preds = %for.body4.i
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %6 = and i16 %.val13.i, 512
   %bf.cast.not.i.i = icmp eq i16 %6, 0
-  br i1 %bf.cast.not.i.i, label %if.end5.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i
+  br i1 %bf.cast.not.i.i, label %if.end5.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i
 
 if.end5.i.i:                                      ; preds = %if.then3.i.i
   %7 = and i16 %.val13.i, 32
   %bf.cast9.not.i.i = icmp eq i16 %7, 0
   %spec.select.i = select i1 %bf.cast9.not.i.i, i32 3, i32 2
-  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i
+  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i
 
 if.end13.i.i:                                     ; preds = %if.end.i.i
   %is_dso.i.i = getelementptr inbounds i8, ptr %.val.i, i64 112
   %8 = load i8, ptr %is_dso.i.i, align 8
   %tobool15.i.i = trunc i8 %8 to i1
-  br i1 %tobool15.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i, label %if.end17.i.i
+  br i1 %tobool15.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i, label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.end13.i.i
   %is_lto_obj.i.i = getelementptr inbounds i8, ptr %.val.i, i64 568
@@ -7094,21 +7094,21 @@ if.end17.i.i:                                     ; preds = %if.end13.i.i
 
 if.then24.i.i:                                    ; preds = %if.end17.i.i
   %cond25.i.i = select i1 %cmp.i.i.i, i32 6, i32 5
-  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i
+  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i
 
 if.end26.i.i:                                     ; preds = %if.end17.i.i
   %cond28.i.i = select i1 %cmp.i.i.i, i32 7, i32 4
-  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i
+  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i
 
-_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i: ; preds = %if.end26.i.i, %if.then24.i.i, %if.end13.i.i, %if.end5.i.i, %if.then3.i.i, %for.body4.i
+_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i: ; preds = %if.end26.i.i, %if.then24.i.i, %if.end13.i.i, %if.end5.i.i, %if.then3.i.i, %for.body4.i
   %retval.0.i.i = phi i32 [ %cond28.i.i, %if.end26.i.i ], [ %cond25.i.i, %if.then24.i.i ], [ 1, %for.body4.i ], [ 2, %if.then3.i.i ], [ 8, %if.end13.i.i ], [ %spec.select.i, %if.end5.i.i ]
   %resolution10.i = getelementptr inbounds %"struct.mold::PluginSymbol", ptr %psyms, i64 %i1.019.i, i32 9
   store i32 %retval.0.i.i, ptr %resolution10.i, align 8
   %exitcond22.not.i = icmp eq i64 %add.i, %conv.i
   br i1 %exitcond22.not.i, label %_ZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %for.body4.i, !llvm.loop !205
 
-_ZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit: ; preds = %for.body.i, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i, %for.cond.preheader.i, %for.cond2.preheader.i
-  %retval.0.i = phi i32 [ 0, %for.cond2.preheader.i ], [ 1, %for.cond.preheader.i ], [ 0, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i ], [ 1, %for.body.i ]
+_ZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit: ; preds = %for.body.i, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i, %for.cond.preheader.i, %for.cond2.preheader.i
+  %retval.0.i = phi i32 [ 0, %for.cond2.preheader.i ], [ 1, %for.cond.preheader.i ], [ 0, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i ], [ 1, %for.body.i ]
   ret i32 %retval.0.i
 }
 
@@ -7170,8 +7170,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %for.body.i, !llvm.loop !204
 
-for.body4.i:                                      ; preds = %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i, %for.body4.lr.ph.i
-  %i1.019.i = phi i64 [ 0, %for.body4.lr.ph.i ], [ %add.i, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i ]
+for.body4.i:                                      ; preds = %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i, %for.body4.lr.ph.i
+  %i1.019.i = phi i64 [ 0, %for.body4.lr.ph.i ], [ %add.i, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i ]
   %add.i = add nuw nsw i64 %i1.019.i, 1
   %1 = load ptr, ptr %elf_syms.i, align 8
   %2 = load ptr, ptr %symbols.i, align 8
@@ -7183,7 +7183,7 @@ for.body4.i:                                      ; preds = %_ZZN4mold3elfL11get
   %5 = getelementptr i8, ptr %3, i64 49
   %.val13.i = load i16, ptr %5, align 1
   %tobool.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %tobool.not.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body4.i
   %cmp.i.i = icmp eq ptr %.val.i, %handle
@@ -7192,19 +7192,19 @@ if.end.i.i:                                       ; preds = %for.body4.i
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %6 = and i16 %.val13.i, 512
   %bf.cast.not.i.i = icmp eq i16 %6, 0
-  br i1 %bf.cast.not.i.i, label %if.end5.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i
+  br i1 %bf.cast.not.i.i, label %if.end5.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i
 
 if.end5.i.i:                                      ; preds = %if.then3.i.i
   %7 = and i16 %.val13.i, 32
   %bf.cast9.not.i.i = icmp eq i16 %7, 0
   %spec.select.i = select i1 %bf.cast9.not.i.i, i32 3, i32 9
-  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i
+  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i
 
 if.end13.i.i:                                     ; preds = %if.end.i.i
   %is_dso.i.i = getelementptr inbounds i8, ptr %.val.i, i64 112
   %8 = load i8, ptr %is_dso.i.i, align 8
   %tobool15.i.i = trunc i8 %8 to i1
-  br i1 %tobool15.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i, label %if.end17.i.i
+  br i1 %tobool15.i.i, label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i, label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.end13.i.i
   %is_lto_obj.i.i = getelementptr inbounds i8, ptr %.val.i, i64 568
@@ -7218,21 +7218,21 @@ if.end17.i.i:                                     ; preds = %if.end13.i.i
 
 if.then24.i.i:                                    ; preds = %if.end17.i.i
   %cond25.i.i = select i1 %cmp.i.i.i, i32 6, i32 5
-  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i
+  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i
 
 if.end26.i.i:                                     ; preds = %if.end17.i.i
   %cond28.i.i = select i1 %cmp.i.i.i, i32 7, i32 4
-  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i
+  br label %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i
 
-_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i: ; preds = %if.end26.i.i, %if.then24.i.i, %if.end13.i.i, %if.end5.i.i, %if.then3.i.i, %for.body4.i
+_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i: ; preds = %if.end26.i.i, %if.then24.i.i, %if.end13.i.i, %if.end5.i.i, %if.then3.i.i, %for.body4.i
   %retval.0.i.i = phi i32 [ %cond28.i.i, %if.end26.i.i ], [ %cond25.i.i, %if.then24.i.i ], [ 1, %for.body4.i ], [ 2, %if.then3.i.i ], [ 8, %if.end13.i.i ], [ %spec.select.i, %if.end5.i.i ]
   %resolution10.i = getelementptr inbounds %"struct.mold::PluginSymbol", ptr %psyms, i64 %i1.019.i, i32 9
   store i32 %retval.0.i.i, ptr %resolution10.i, align 8
   %exitcond22.not.i = icmp eq i64 %add.i, %conv.i
   br i1 %exitcond22.not.i, label %_ZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %for.body4.i, !llvm.loop !205
 
-_ZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit: ; preds = %for.body.i, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i, %for.cond.preheader.i, %for.cond2.preheader.i
-  %retval.0.i = phi i32 [ 0, %for.cond2.preheader.i ], [ 1, %for.cond.preheader.i ], [ 0, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.exit.i ], [ 1, %for.body.i ]
+_ZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit: ; preds = %for.body.i, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i, %for.cond.preheader.i, %for.cond2.preheader.i
+  %retval.0.i = phi i32 [ 0, %for.cond2.preheader.i ], [ 1, %for.cond.preheader.i ], [ 0, %_ZZN4mold3elfL11get_symbolsINS0_5ARM64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS0_6ElfSymIS2_EERNS0_6SymbolIS2_EEE_clESA_SD_.argprom.exit.i ], [ 1, %for.body.i ]
   ret i32 %retval.0.i
 }
 
@@ -7431,7 +7431,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 21
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %ctx.val6 = load i8, ptr %4, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_5ARM64EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val6, ptr noundef %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_5ARM64EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_.argprom(ptr noalias align 8 %ref.tmp, i8 %ctx.val6, ptr noundef %agg.tmp)
   %6 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_5ARM64EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -7492,7 +7492,7 @@ if.else:                                          ; preds = %entry
   %arrayidx.i.i.i19 = getelementptr inbounds i8, ptr %agg.tmp8, i64 23
   store i8 0, ptr %arrayidx.i.i.i19, align 1
   %ctx.val = load i8, ptr %4, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_5ARM64EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp7, i8 %ctx.val, ptr noundef %agg.tmp8)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_5ARM64EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_.argprom(ptr noalias align 8 %ref.tmp7, i8 %ctx.val, ptr noundef %agg.tmp8)
   %13 = load ptr, ptr %this, align 8
   %tobool.not.i32 = icmp eq ptr %13, null
   br i1 %tobool.not.i32, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_5ARM64EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit36, label %if.then.i33

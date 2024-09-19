@@ -375,9 +375,9 @@ define noundef double @"_ZN117_$LT$statrs..distribution..categorical..Categorica
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !4
   %.not = icmp ult i64 %1, %4
-  br i1 %.not, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit, label %13
+  br i1 %.not, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit, label %13
 
-_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit: ; preds = %2
+_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit: ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds double, ptr %6, i64 %1
@@ -388,8 +388,8 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
   %12 = fdiv double %11, %10
   br label %13
 
-13:                                               ; preds = %2, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit
-  %.sroa.0.0 = phi double [ %12, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ], [ 1.000000e+00, %2 ]
+13:                                               ; preds = %2, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit
+  %.sroa.0.0 = phi double [ %12, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit ], [ 1.000000e+00, %2 ]
   ret double %.sroa.0.0
 }
 
@@ -404,13 +404,13 @@ define noundef double @"_ZN117_$LT$statrs..distribution..categorical..Categorica
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %.val4 = load i64, ptr %6, align 8, !noundef !4
   %.not.i = icmp eq i64 %.val4, 0
-  br i1 %.not.i, label %7, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit
+  br i1 %.not.i, label %7, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit
 
 7:                                                ; preds = %5
   tail call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4768d052527bd36a73bfd89d5da159b4.7) #18
   unreachable
 
-_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit: ; preds = %5
+_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit: ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -423,8 +423,8 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
   %16 = fdiv double %15, %14
   br label %17
 
-17:                                               ; preds = %2, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit
-  %.sroa.0.0 = phi double [ %16, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ], [ 0.000000e+00, %2 ]
+17:                                               ; preds = %2, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit
+  %.sroa.0.0 = phi double [ %16, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit ], [ 0.000000e+00, %2 ]
   ret double %.sroa.0.0
 }
 
@@ -445,13 +445,13 @@ define noundef i64 @"_ZN117_$LT$statrs..distribution..categorical..Categorical$u
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %.val1 = load i64, ptr %8, align 8, !noundef !4
   %.not.i = icmp eq i64 %.val1, 0
-  br i1 %.not.i, label %9, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit
+  br i1 %.not.i, label %9, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit
 
 9:                                                ; preds = %6
   tail call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4768d052527bd36a73bfd89d5da159b4.7) #18
   unreachable
 
-_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit: ; preds = %6
+_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit: ; preds = %6
   %10 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %10)
   %11 = add i64 %.val1, -1
@@ -462,15 +462,15 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
   %.not16.i = icmp slt i64 %11, 0
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %29, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit
-  %.sroa.06.0.lcssa.i = phi i64 [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ], [ %.sroa.06.1.i, %29 ]
+._crit_edge.i:                                    ; preds = %29, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit
+  %.sroa.06.0.lcssa.i = phi i64 [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit ], [ %.sroa.06.1.i, %29 ]
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.sroa.06.0.lcssa.i, i64 0)
   %.sroa.0.0.sroa.speculated.i11.i = tail call noundef i64 @llvm.umin.i64(i64 %.val1, i64 %.sroa.0.0.sroa.speculated.i.i)
   br label %_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E.exit
 
-.lr.ph.i:                                         ; preds = %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit, %29
-  %.sroa.02.018.i = phi i64 [ %.sroa.02.1.i, %29 ], [ %11, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ]
-  %.sroa.06.017.i = phi i64 [ %.sroa.06.1.i, %29 ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ]
+.lr.ph.i:                                         ; preds = %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit, %29
+  %.sroa.02.018.i = phi i64 [ %.sroa.02.1.i, %29 ], [ %11, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit ]
+  %.sroa.06.017.i = phi i64 [ %.sroa.06.1.i, %29 ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit ]
   %15 = sub i64 %.sroa.02.018.i, %.sroa.06.017.i
   %16 = sdiv i64 %15, 2
   %17 = add i64 %16, %.sroa.06.017.i
@@ -600,28 +600,28 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit", label %.preheader
 
-.preheader:                                       ; preds = %1, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
-  %.sroa.07.0.i = phi double [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ], [ 0.000000e+00, %1 ]
-  %.sroa.09.0.i = phi i64 [ %14, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ], [ 0, %1 ]
+.preheader:                                       ; preds = %1, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom.exit.i"
+  %.sroa.07.0.i = phi double [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom.exit.i" ], [ 0.000000e+00, %1 ]
+  %.sroa.09.0.i = phi i64 [ %14, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom.exit.i" ], [ 0, %1 ]
   %7 = getelementptr inbounds double, ptr %3, i64 %.sroa.09.0.i
   %8 = load double, ptr %7, align 8, !alias.scope !60, !noundef !4
   %9 = fcmp ogt double %8, 0.000000e+00
-  br i1 %9, label %10, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
+  br i1 %9, label %10, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom.exit.i"
 
 10:                                               ; preds = %.preheader
   %11 = tail call noundef double @llvm.log.f64(double %8)
   %12 = fmul double %8, %11
   %13 = fadd double %.sroa.07.0.i, %12
-  br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
+  br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom.exit.i"
 
-"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i": ; preds = %10, %.preheader
+"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom.exit.i": ; preds = %10, %.preheader
   %.sroa.0.0.i.i = phi double [ %13, %10 ], [ %.sroa.07.0.i, %.preheader ]
   %14 = add nuw i64 %.sroa.09.0.i, 1
   %15 = icmp eq i64 %14, %5
   br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit", label %.preheader
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit": ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i", %1
-  %.sroa.04.0.i = phi double [ 0.000000e+00, %1 ], [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit": ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom.exit.i", %1
+  %.sroa.04.0.i = phi double [ 0.000000e+00, %1 ], [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom.exit.i" ]
   %16 = fneg double %.sroa.04.0.i
   %17 = insertvalue { i64, double } { i64 1, double poison }, double %16, 1
   ret { i64, double } %17
@@ -635,13 +635,13 @@ define noundef double @"_ZN112_$LT$statrs..distribution..categorical..Categorica
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %.val1.i = load i64, ptr %3, align 8, !alias.scope !63, !noundef !4
   %.not.i.i = icmp eq i64 %.val1.i, 0
-  br i1 %.not.i.i, label %4, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i
+  br i1 %.not.i.i, label %4, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit.i
 
 4:                                                ; preds = %1
   tail call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4768d052527bd36a73bfd89d5da159b4.7) #18, !noalias !63
   unreachable
 
-_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i: ; preds = %1
+_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit.i: ; preds = %1
   %5 = icmp ne ptr %.val.i, null
   tail call void @llvm.assume(i1 %5)
   %6 = add i64 %.val1.i, -1
@@ -652,15 +652,15 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
   %.not16.i.i = icmp slt i64 %6, 0
   br i1 %.not16.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %24, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i
-  %.sroa.06.0.lcssa.i.i = phi i64 [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ], [ %.sroa.06.1.i.i, %24 ]
+._crit_edge.i.i:                                  ; preds = %24, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit.i
+  %.sroa.06.0.lcssa.i.i = phi i64 [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit.i ], [ %.sroa.06.1.i.i, %24 ]
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.sroa.06.0.lcssa.i.i, i64 0)
   %.sroa.0.0.sroa.speculated.i11.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.val1.i, i64 %.sroa.0.0.sroa.speculated.i.i.i)
   br label %"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E.exit"
 
-.lr.ph.i.i:                                       ; preds = %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i, %24
-  %.sroa.02.018.i.i = phi i64 [ %.sroa.02.1.i.i, %24 ], [ %6, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ]
-  %.sroa.06.017.i.i = phi i64 [ %.sroa.06.1.i.i, %24 ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ]
+.lr.ph.i.i:                                       ; preds = %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit.i, %24
+  %.sroa.02.018.i.i = phi i64 [ %.sroa.02.1.i.i, %24 ], [ %6, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit.i ]
+  %.sroa.06.017.i.i = phi i64 [ %.sroa.06.1.i.i, %24 ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.argprom.exit.i ]
   %10 = sub i64 %.sroa.02.018.i.i, %.sroa.06.017.i.i
   %11 = sdiv i64 %10, 2
   %12 = add i64 %11, %.sroa.06.017.i.i
@@ -755,20 +755,20 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
   %14 = icmp eq i64 %2, 0
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e64970187947f24E.exit", label %.preheader
 
-.preheader:                                       ; preds = %10, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i"
-  %15 = phi i64 [ %23, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" ], [ 0, %10 ]
-  %.sroa.07.0.i = phi double [ %20, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" ], [ 0.000000e+00, %10 ]
+.preheader:                                       ; preds = %10, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.argprom.exit.i"
+  %15 = phi i64 [ %23, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.argprom.exit.i" ], [ 0, %10 ]
+  %.sroa.07.0.i = phi double [ %20, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.argprom.exit.i" ], [ 0.000000e+00, %10 ]
   %16 = getelementptr inbounds double, ptr %1, i64 %15
   %.val22.i = load double, ptr %16, align 8, !noalias !73, !noundef !4
   %17 = load i64, ptr %5, align 8, !alias.scope !76, !noundef !4
   %18 = icmp eq i64 %15, %17
-  br i1 %18, label %19, label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i"
+  br i1 %18, label %19, label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.argprom.exit.i"
 
 19:                                               ; preds = %.preheader
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8ae74b42406a7b03E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" unwind label %27
+          to label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.argprom.exit.i" unwind label %27
 
-"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i": ; preds = %19, %.preheader
+"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.argprom.exit.i": ; preds = %19, %.preheader
   %20 = fadd double %.sroa.07.0.i, %.val22.i
   %21 = load ptr, ptr %12, align 8, !alias.scope !76, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds double, ptr %21, i64 %15
@@ -789,7 +789,7 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h6cda13727dc6c8d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #19
           to label %31 unwind label %29
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e64970187947f24E.exit": ; preds = %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i", %10
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e64970187947f24E.exit": ; preds = %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.argprom.exit.i", %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
@@ -1546,40 +1546,40 @@ define { i64, double } @"_ZN130_$LT$statrs..distribution..weibull..Weibull$u20$a
   %2 = fadd double %.val, -1.000000e+00
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp ugt double %3, 0x3CB0000000000000
-  br i1 %4, label %5, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread"
+  br i1 %4, label %5, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread"
 
 5:                                                ; preds = %1
   %6 = fcmp uno double %.val, 0.000000e+00
   %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.val)
   %8 = fcmp une double %7, 1.000000e+00
   %9 = or i1 %6, %8
-  br i1 %9, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread4", label %10
+  br i1 %9, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread4", label %10
 
 10:                                               ; preds = %5
   %11 = bitcast double %.val to i64
   %.not.i = icmp ugt i64 %11, 4607182418800017408
-  br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %12
+  br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ugt i64 %11, 4607182418800017403
-  br i1 %13, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread4"
+  br i1 %13, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread4"
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %10
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit": ; preds = %10
   %14 = add i64 %11, -4607182418800017408
   %15 = icmp ult i64 %14, 5
-  br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread4"
+  br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread4"
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread4": ; preds = %5, %12, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread4": ; preds = %5, %12, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit"
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load double, ptr %16, align 8, !noundef !4
   %18 = fdiv double %2, %.val
   %19 = fdiv double 1.000000e+00, %.val
   %20 = tail call double @llvm.pow.f64(double %18, double %19)
   %21 = fmul double %20, %17
-  br label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread"
+  br label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread"
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread": ; preds = %1, %12, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread4"
-  %.sroa.01.0 = phi double [ %21, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread4" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0.000000e+00, %12 ], [ 0.000000e+00, %1 ]
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread": ; preds = %1, %12, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread4"
+  %.sroa.01.0 = phi double [ %21, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit.thread4" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit" ], [ 0.000000e+00, %12 ], [ 0.000000e+00, %1 ]
   %22 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.01.0, 1
   ret { i64, double } %22
 }
@@ -1592,47 +1592,47 @@ define noundef double @"_ZN108_$LT$statrs..distribution..weibull..Weibull$u20$as
 4:                                                ; preds = %2
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ugt double %5, 0x3CB0000000000000
-  br i1 %6, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %7
+  br i1 %6, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit", label %7
 
 7:                                                ; preds = %4
   %.val = load double, ptr %0, align 8, !noundef !4
   %8 = fadd double %.val, -1.000000e+00
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp ugt double %9, 0x3CB0000000000000
-  br i1 %10, label %11, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9.thread"
+  br i1 %10, label %11, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9.thread"
 
 11:                                               ; preds = %7
   %12 = fcmp uno double %.val, 0.000000e+00
   %13 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.val)
   %14 = fcmp une double %13, 1.000000e+00
   %15 = or i1 %12, %14
-  br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %16
+  br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit", label %16
 
 16:                                               ; preds = %11
   %17 = bitcast double %.val to i64
   %.not.i8 = icmp ugt i64 %17, 4607182418800017408
-  br i1 %.not.i8, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9", label %18
+  br i1 %.not.i8, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9", label %18
 
 18:                                               ; preds = %16
   %19 = icmp ugt i64 %17, 4607182418800017403
-  br i1 %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
+  br i1 %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit"
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9": ; preds = %16
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9": ; preds = %16
   %20 = add i64 %17, -4607182418800017408
   %21 = icmp ult i64 %20, 5
-  br i1 %21, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
+  br i1 %21, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit"
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %4, %11, %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9"
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit": ; preds = %4, %11, %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9"
   %22 = fcmp oeq double %1, 0x7FF0000000000000
   br i1 %22, label %42, label %26
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9.thread": ; preds = %7, %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9"
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9.thread": ; preds = %7, %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9"
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load double, ptr %23, align 8, !noundef !4
   %25 = fdiv double 1.000000e+00, %24
   br label %42
 
-26:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
+26:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit"
   %27 = load double, ptr %0, align 8, !noundef !4
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load double, ptr %28, align 8, !noundef !4
@@ -1650,8 +1650,8 @@ define noundef double @"_ZN108_$LT$statrs..distribution..weibull..Weibull$u20$as
   %41 = fdiv double %40, %29
   br label %42
 
-42:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9.thread", %26
-  %.sroa.0.0 = phi double [ %25, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit9.thread" ], [ %41, %26 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ]
+42:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit", %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9.thread", %26
+  %.sroa.0.0 = phi double [ %25, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit9.thread" ], [ %41, %26 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit" ]
   ret double %.sroa.0.0
 }
 
@@ -1663,48 +1663,48 @@ define noundef double @"_ZN108_$LT$statrs..distribution..weibull..Weibull$u20$as
 4:                                                ; preds = %2
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp ugt double %5, 0x3CB0000000000000
-  br i1 %6, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %7
+  br i1 %6, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit", label %7
 
 7:                                                ; preds = %4
   %.val = load double, ptr %0, align 8, !noundef !4
   %8 = fadd double %.val, -1.000000e+00
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp ugt double %9, 0x3CB0000000000000
-  br i1 %10, label %11, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread"
+  br i1 %10, label %11, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7.thread"
 
 11:                                               ; preds = %7
   %12 = fcmp uno double %.val, 0.000000e+00
   %13 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.val)
   %14 = fcmp une double %13, 1.000000e+00
   %15 = or i1 %12, %14
-  br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %16
+  br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit", label %16
 
 16:                                               ; preds = %11
   %17 = bitcast double %.val to i64
   %.not.i6 = icmp ugt i64 %17, 4607182418800017408
-  br i1 %.not.i6, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7", label %18
+  br i1 %.not.i6, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7", label %18
 
 18:                                               ; preds = %16
   %19 = icmp ugt i64 %17, 4607182418800017403
-  br i1 %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
+  br i1 %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit"
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7": ; preds = %16
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7": ; preds = %16
   %20 = add i64 %17, -4607182418800017408
   %21 = icmp ult i64 %20, 5
-  br i1 %21, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
+  br i1 %21, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit"
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %4, %11, %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7"
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit": ; preds = %4, %11, %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7"
   %22 = fcmp oeq double %1, 0x7FF0000000000000
   br i1 %22, label %44, label %27
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread": ; preds = %7, %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7"
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7.thread": ; preds = %7, %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7"
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load double, ptr %23, align 8, !noundef !4
   %25 = tail call noundef double @llvm.log.f64(double %24)
   %26 = fsub double 0.000000e+00, %25
   br label %44
 
-27:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
+27:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit"
   %28 = load double, ptr %0, align 8, !noundef !4
   %29 = tail call noundef double @llvm.log.f64(double %28)
   %30 = fadd double %28, -1.000000e+00
@@ -1723,8 +1723,8 @@ define noundef double @"_ZN108_$LT$statrs..distribution..weibull..Weibull$u20$as
   %43 = fsub double %41, %42
   br label %44
 
-44:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread", %27
-  %.sroa.0.0 = phi double [ %26, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread" ], [ %43, %27 ], [ 0xFFF0000000000000, %2 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ]
+44:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit", %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7.thread", %27
+  %.sroa.0.0 = phi double [ %26, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit7.thread" ], [ %43, %27 ], [ 0xFFF0000000000000, %2 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.argprom.exit" ]
   ret double %.sroa.0.0
 }
 
@@ -1941,13 +1941,13 @@ attributes #20 = { cold noreturn nounwind }
 !41 = distinct !{!41, !"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfb06541eeab8be9bE"}
 !42 = distinct !{!42, !41, !"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfb06541eeab8be9bE: argument 1"}
 !43 = !{!44, !46}
-!44 = distinct !{!44, !45, !"_ZN6statrs12distribution11categorical11Categorical3new28_$u7b$$u7b$closure$u7d$$u7d$17ha95ee057678a1526E: argument 0"}
-!45 = distinct !{!45, !"_ZN6statrs12distribution11categorical11Categorical3new28_$u7b$$u7b$closure$u7d$$u7d$17ha95ee057678a1526E"}
-!46 = distinct !{!46, !47, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h792d23989f2be8b5E: argument 0"}
-!47 = distinct !{!47, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h792d23989f2be8b5E"}
+!44 = distinct !{!44, !45, !"_ZN6statrs12distribution11categorical11Categorical3new28_$u7b$$u7b$closure$u7d$$u7d$17ha95ee057678a1526E.argprom: argument 0"}
+!45 = distinct !{!45, !"_ZN6statrs12distribution11categorical11Categorical3new28_$u7b$$u7b$closure$u7d$$u7d$17ha95ee057678a1526E.argprom"}
+!46 = distinct !{!46, !47, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h792d23989f2be8b5E.argprom: argument 0"}
+!47 = distinct !{!47, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h792d23989f2be8b5E.argprom"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!50 = distinct !{!50, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!49 = distinct !{!49, !50, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!50 = distinct !{!50, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E: argument 0"}
 !53 = distinct !{!53, !"_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E"}
@@ -1958,8 +1958,8 @@ attributes #20 = { cold noreturn nounwind }
 !58 = distinct !{!58, !59, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h99a4fa11703a388cE: argument 0"}
 !59 = distinct !{!59, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h99a4fa11703a388cE"}
 !60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE: argument 0"}
-!62 = distinct !{!62, !"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE"}
+!61 = distinct !{!61, !62, !"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom: argument 0"}
+!62 = distinct !{!62, !"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.argprom"}
 !63 = !{!64}
 !64 = distinct !{!64, !65, !"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E: argument 0"}
 !65 = distinct !{!65, !"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E"}
@@ -1993,8 +1993,8 @@ attributes #20 = { cold noreturn nounwind }
 !93 = distinct !{!93, !94, !"_ZN6statrs12distribution6erlang6Erlang5shape17h184e4d7d84bdbb32E: argument 0"}
 !94 = distinct !{!94, !"_ZN6statrs12distribution6erlang6Erlang5shape17h184e4d7d84bdbb32E"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!97 = distinct !{!97, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!96 = distinct !{!96, !97, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!97 = distinct !{!97, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !98 = !{!99}
 !99 = distinct !{!99, !100, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h625c5a94eb3ad10cE: argument 0"}
 !100 = distinct !{!100, !"_ZN106_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h625c5a94eb3ad10cE"}
@@ -2014,11 +2014,11 @@ attributes #20 = { cold noreturn nounwind }
 !114 = distinct !{!114, !115, !"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E: argument 0"}
 !115 = distinct !{!115, !"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!118 = distinct !{!118, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!117 = distinct !{!117, !118, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!118 = distinct !{!118, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!121 = distinct !{!121, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!120 = distinct !{!120, !121, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!121 = distinct !{!121, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !122 = !{!123}
 !123 = distinct !{!123, !124, !"_ZN110_$LT$statrs..distribution..weibull..Weibull$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h9d72c057dc27a85fE: argument 0"}
 !124 = distinct !{!124, !"_ZN110_$LT$statrs..distribution..weibull..Weibull$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h9d72c057dc27a85fE"}

@@ -33,7 +33,7 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %newV.i, i8 0, i64 55, i1 false)
   %V.i = getelementptr inbounds i8, ptr %0, i64 4
-  %call.i = call fastcc i32 @Hash_df(ptr noundef nonnull %0, ptr noundef nonnull %newV.i, i8 noundef zeroext 1, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef nonnull %seed, i32 noundef %seedSz)
+  %call.i = call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %0, ptr noundef nonnull %newV.i, i8 noundef zeroext 1, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef nonnull %seed, i32 noundef %seedSz)
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %if.then4.i, label %Hash_DRBG_Reseed.exit
 
@@ -61,7 +61,7 @@ while.body12.i.i:                                 ; preds = %for.body.i.i, %whil
 
 if.end13.i:                                       ; preds = %while.body12.i.i
   %C.i = getelementptr inbounds i8, ptr %0, i64 59
-  %call12.i = tail call fastcc i32 @Hash_df(ptr noundef nonnull %0, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
+  %call12.i = tail call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %0, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp14.i = icmp eq i32 %call12.i, 0
   br i1 %cmp14.i, label %if.then15.i, label %Hash_DRBG_Reseed.exit
 
@@ -89,7 +89,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %newV, i8 0, i64 55, i1 false)
   %V = getelementptr inbounds i8, ptr %drbg, i64 4
-  %call = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg, ptr noundef nonnull %newV, i8 noundef zeroext 1, ptr noundef nonnull %V, i32 noundef 55, ptr noundef %seed, i32 noundef %seedSz)
+  %call = call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %drbg, ptr noundef nonnull %newV, i8 noundef zeroext 1, ptr noundef nonnull %V, i32 noundef 55, ptr noundef %seed, i32 noundef %seedSz)
   %cmp3 = icmp eq i32 %call, 0
   br i1 %cmp3, label %if.then4, label %return
 
@@ -117,7 +117,7 @@ while.body12.i:                                   ; preds = %for.body.i, %while.
 
 if.end13:                                         ; preds = %while.body12.i
   %C = getelementptr inbounds i8, ptr %drbg, i64 59
-  %call12 = tail call fastcc i32 @Hash_df(ptr noundef nonnull %drbg, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i32 noundef 55, ptr noundef null, i32 noundef 0)
+  %call12 = tail call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %drbg, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp14 = icmp eq i32 %call12, 0
   br i1 %cmp14, label %if.then15, label %return
 
@@ -356,13 +356,13 @@ if.then31:                                        ; preds = %if.end29
   %heap1.i = getelementptr inbounds i8, ptr %7, i64 120
   store ptr %8, ptr %heap1.i, align 8
   %V.i = getelementptr inbounds i8, ptr %7, i64 4
-  %call.i39 = call fastcc i32 @Hash_df(ptr noundef %7, ptr noundef nonnull %V.i, i8 noundef zeroext 4, ptr noundef nonnull %add.ptr, i32 noundef %sub.i, ptr noundef %nonce, i32 noundef %nonceSz)
+  %call.i39 = call fastcc i32 @Hash_df.argelim(ptr noundef %7, ptr noundef nonnull %V.i, i8 noundef zeroext 4, ptr noundef nonnull %add.ptr, i32 noundef %sub.i, ptr noundef %nonce, i32 noundef %nonceSz)
   %cmp.i40 = icmp eq i32 %call.i39, 0
   br i1 %cmp.i40, label %land.lhs.true.i, label %if.then38
 
 land.lhs.true.i:                                  ; preds = %if.then31
   %C.i = getelementptr inbounds i8, ptr %7, i64 59
-  %call5.i = call fastcc i32 @Hash_df(ptr noundef nonnull %7, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
+  %call5.i = call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %7, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %if.end36, label %if.then38
 
@@ -965,15 +965,15 @@ while.body12.i.i:                                 ; preds = %for.body.i16.i, %wh
   %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %z.122.i.i, i64 1
   store volatile i8 0, ptr %z.122.i.i, align 1
   %tobool11.not.i.i = icmp eq i32 %dec10.i.i, 0
-  br i1 %tobool11.not.i.i, label %Hash_gen.exit, label %while.body12.i.i, !llvm.loop !6
+  br i1 %tobool11.not.i.i, label %Hash_gen.argprom.exit, label %while.body12.i.i, !llvm.loop !6
 
-Hash_gen.exit:                                    ; preds = %while.body12.i.i
+Hash_gen.argprom.exit:                            ; preds = %while.body12.i.i
   call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %sha.i)
   br i1 %cmp5, label %if.then6, label %for.body.preheader.i
 
-if.then6:                                         ; preds = %Hash_gen.exit
+if.then6:                                         ; preds = %Hash_gen.argprom.exit
   %call8 = call i32 @wc_InitSha256(ptr noundef nonnull %sha) #9
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %if.end26.thread
@@ -1103,8 +1103,8 @@ if.end39:                                         ; preds = %for.body23.i67, %if
   store i32 %inc, ptr %drbg, align 8
   br label %for.body.preheader.i
 
-for.body.preheader.i:                             ; preds = %Hash_gen.exit, %if.end39
-  %ret.0 = phi i32 [ %19, %if.end39 ], [ 1, %Hash_gen.exit ]
+for.body.preheader.i:                             ; preds = %Hash_gen.argprom.exit, %if.end39
+  %ret.0 = phi i32 [ %19, %if.end39 ], [ 1, %Hash_gen.argprom.exit ]
   br label %for.body.i79
 
 for.body.i79:                                     ; preds = %for.body.i79, %for.body.preheader.i
@@ -1296,13 +1296,13 @@ if.end8:                                          ; preds = %if.end5
   %heap1.i = getelementptr inbounds i8, ptr %drbg_var, i64 120
   store ptr %heap, ptr %heap1.i, align 8
   %V.i = getelementptr inbounds i8, ptr %drbg_var, i64 4
-  %call.i = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg_var, ptr noundef nonnull %V.i, i8 noundef zeroext 4, ptr noundef nonnull %seedA, i32 noundef %seedASz, ptr noundef %nonce, i32 noundef %nonceSz)
+  %call.i = call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %drbg_var, ptr noundef nonnull %V.i, i8 noundef zeroext 4, ptr noundef nonnull %seedA, i32 noundef %seedASz, ptr noundef %nonce, i32 noundef %nonceSz)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %for.body.preheader.i.i
 
 land.lhs.true.i:                                  ; preds = %if.end8
   %C.i = getelementptr inbounds i8, ptr %drbg_var, i64 59
-  %call5.i = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg_var, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
+  %call5.i = call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %drbg_var, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %if.end11, label %for.body.preheader.i.i
 
@@ -1313,7 +1313,7 @@ if.end11:                                         ; preds = %land.lhs.true.i
 if.then12:                                        ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %newV.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %newV.i, i8 0, i64 55, i1 false)
-  %call.i17 = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg_var, ptr noundef nonnull %newV.i, i8 noundef zeroext 1, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef %seedB, i32 noundef %seedBSz)
+  %call.i17 = call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %drbg_var, ptr noundef nonnull %newV.i, i8 noundef zeroext 1, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef %seedB, i32 noundef %seedBSz)
   %cmp3.i = icmp eq i32 %call.i17, 0
   br i1 %cmp3.i, label %if.then4.i, label %Hash_DRBG_Reseed.exit.thread
 
@@ -1340,7 +1340,7 @@ while.body12.i.i:                                 ; preds = %for.body.i.i, %whil
   br i1 %tobool11.not.i.i, label %if.end13.i, label %while.body12.i.i, !llvm.loop !6
 
 if.end13.i:                                       ; preds = %while.body12.i.i
-  %call12.i = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg_var, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
+  %call12.i = call fastcc i32 @Hash_df.argelim(ptr noundef nonnull %drbg_var, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp14.i = icmp eq i32 %call12.i, 0
   br i1 %cmp14.i, label %Hash_DRBG_Reseed.exit, label %Hash_DRBG_Reseed.exit.thread
 
@@ -1410,7 +1410,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone %drbg, ptr nocapture noundef writeonly %out, i8 noundef zeroext range(i8 0, 5) %type, ptr noundef %inA, i32 noundef %inASz, ptr noundef %inB, i32 noundef %inBSz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Hash_df.argelim(ptr noundef readnone %drbg, ptr nocapture noundef writeonly %out, i8 noundef zeroext range(i8 0, 5) %type, ptr noundef %inA, i32 noundef %inASz, ptr noundef %inB, i32 noundef %inBSz) unnamed_addr #0 {
 entry:
   %type.addr = alloca i8, align 1
   %ctr = alloca i8, align 1

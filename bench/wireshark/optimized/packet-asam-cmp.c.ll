@@ -1570,7 +1570,7 @@ add_device_id_text.exit:                          ; preds = %4, %ht_lookup_name.
   %136 = add i32 %135, %126
   call void @proto_item_set_end(ptr noundef %129, ptr noundef %0, i32 noundef %136) #5
   %137 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0103) #5
-  br label %dissect_asam_cmp_ctrl_msg.exit
+  br label %dissect_asam_cmp_ctrl_msg.argprom.exit
 
 138:                                              ; preds = %97
   %139 = load ptr, ptr %41, align 8
@@ -1621,7 +1621,7 @@ add_device_id_text.exit:                          ; preds = %4, %ht_lookup_name.
   %.1.i = phi i32 [ %164, %160 ], [ %157, %148 ]
   %167 = add i32 %166, %.0.neg105
   %168 = add i32 %167, %.1.i
-  br label %dissect_asam_cmp_ctrl_msg.exit
+  br label %dissect_asam_cmp_ctrl_msg.argprom.exit
 
 169:                                              ; preds = %97
   %170 = load i32, ptr %37, align 4
@@ -1635,16 +1635,16 @@ add_device_id_text.exit:                          ; preds = %4, %ht_lookup_name.
   %174 = add i32 %173, 16
   %175 = sub i32 %.092.i, %.0103
   %176 = icmp ult i32 %174, %175
-  br i1 %176, label %177, label %dissect_asam_cmp_ctrl_msg.exit
+  br i1 %176, label %177, label %dissect_asam_cmp_ctrl_msg.argprom.exit
 
 177:                                              ; preds = %172
   %178 = call ptr @proto_tree_add_expert(ptr noundef %48, ptr noundef nonnull %1, ptr noundef nonnull @ei_asam_cmp_length_mismatch, ptr noundef %0, i32 noundef %126, i32 noundef %173) #5
   call void @proto_item_set_end(ptr noundef %129, ptr noundef %0, i32 noundef %.092.i) #5
   %.pre.i = load i32, ptr %37, align 4
   %.pre1.i = add i32 %.pre.i, 16
-  br label %dissect_asam_cmp_ctrl_msg.exit
+  br label %dissect_asam_cmp_ctrl_msg.argprom.exit
 
-dissect_asam_cmp_ctrl_msg.exit:                   ; preds = %133, %165, %172, %177
+dissect_asam_cmp_ctrl_msg.argprom.exit:           ; preds = %133, %165, %172, %177
   %.0.i = phi i32 [ %168, %165 ], [ %137, %133 ], [ %.pre1.i, %177 ], [ %174, %172 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
@@ -1735,7 +1735,7 @@ dissect_asam_cmp_ctrl_msg.exit:                   ; preds = %133, %165, %172, %1
   %221 = add i32 %220, %211
   call void @proto_item_set_end(ptr noundef %214, ptr noundef %0, i32 noundef %221) #5
   %222 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0103) #5
-  br label %dissect_asam_cmp_status_msg.exit
+  br label %dissect_asam_cmp_status_msg.argprom.exit
 
 223:                                              ; preds = %179
   %224 = load ptr, ptr %41, align 8
@@ -1977,28 +1977,28 @@ ht_interface_config_to_string.exit.thread.i:      ; preds = %338, %ht_interface_
 378:                                              ; preds = %368
   %379 = load i32, ptr @ett_asam_cmp_status_feature_support, align 4
   %380 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %324, ptr noundef %0, i32 noundef %374, i32 noundef %377, i32 noundef %379, ptr noundef nonnull @dissect_asam_cmp_status_interface_support_mask.can_feature_support, i32 noundef 0, ptr noundef nonnull %23) #5
-  br label %dissect_asam_cmp_status_interface_support_mask.exit.i
+  br label %dissect_asam_cmp_status_interface_support_mask.argprom.exit.i
 
 381:                                              ; preds = %368
   %382 = load i32, ptr @ett_asam_cmp_status_feature_support, align 4
   %383 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %324, ptr noundef %0, i32 noundef %374, i32 noundef %377, i32 noundef %382, ptr noundef nonnull @dissect_asam_cmp_status_interface_support_mask.canfd_feature_support, i32 noundef 0, ptr noundef nonnull %23) #5
-  br label %dissect_asam_cmp_status_interface_support_mask.exit.i
+  br label %dissect_asam_cmp_status_interface_support_mask.argprom.exit.i
 
 384:                                              ; preds = %368
   %385 = load i32, ptr @ett_asam_cmp_status_feature_support, align 4
   %386 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %324, ptr noundef %0, i32 noundef %374, i32 noundef %377, i32 noundef %385, ptr noundef nonnull @dissect_asam_cmp_status_interface_support_mask.lin_feature_support, i32 noundef 0, ptr noundef nonnull %23) #5
-  br label %dissect_asam_cmp_status_interface_support_mask.exit.i
+  br label %dissect_asam_cmp_status_interface_support_mask.argprom.exit.i
 
 387:                                              ; preds = %368
   %388 = load i32, ptr @ett_asam_cmp_status_feature_support, align 4
   %389 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %324, ptr noundef %0, i32 noundef %374, i32 noundef %377, i32 noundef %388, ptr noundef nonnull @dissect_asam_cmp_status_interface_support_mask.eth_feature_support, i32 noundef 0, ptr noundef nonnull %23) #5
-  br label %dissect_asam_cmp_status_interface_support_mask.exit.i
+  br label %dissect_asam_cmp_status_interface_support_mask.argprom.exit.i
 
 390:                                              ; preds = %368
   %391 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %377, ptr noundef %0, i32 noundef %374, i32 noundef 4, i32 noundef 0) #5
-  br label %dissect_asam_cmp_status_interface_support_mask.exit.i
+  br label %dissect_asam_cmp_status_interface_support_mask.argprom.exit.i
 
-dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %390, %387, %384, %381, %378
+dissect_asam_cmp_status_interface_support_mask.argprom.exit.i: ; preds = %390, %387, %384, %381, %378
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   %392 = add i32 %.58.i, 36
   %393 = load i32, ptr @hf_cmp_iface_stream_id_cnt, align 4
@@ -2008,7 +2008,7 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %390, %387, %38
   %.not302.i = icmp eq i32 %396, 0
   br i1 %.not302.i, label %411, label %397
 
-397:                                              ; preds = %dissect_asam_cmp_status_interface_support_mask.exit.i
+397:                                              ; preds = %dissect_asam_cmp_status_interface_support_mask.argprom.exit.i
   %398 = load i32, ptr @hf_cmp_iface_stream_ids, align 4
   %399 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %398, ptr noundef %0, i32 noundef %395, i32 noundef %396, i32 noundef 0) #5
   %400 = load i32, ptr @ett_asam_cmp_status_stream_ids, align 4
@@ -2038,8 +2038,8 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %390, %387, %38
   %410 = add i32 %.lcssa.i, %.7.lcssa.i
   br label %411
 
-411:                                              ; preds = %._crit_edge.i, %dissect_asam_cmp_status_interface_support_mask.exit.i
-  %.6.i = phi i32 [ %410, %._crit_edge.i ], [ %395, %dissect_asam_cmp_status_interface_support_mask.exit.i ]
+411:                                              ; preds = %._crit_edge.i, %dissect_asam_cmp_status_interface_support_mask.argprom.exit.i
+  %.6.i = phi i32 [ %410, %._crit_edge.i ], [ %395, %dissect_asam_cmp_status_interface_support_mask.argprom.exit.i ]
   %412 = load i32, ptr @hf_cmp_iface_vendor_data_len, align 4
   %413 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %324, i32 noundef %412, ptr noundef %0, i32 noundef %.6.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %30) #5
   %414 = add i32 %.6.i, 2
@@ -2143,16 +2143,16 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %390, %387, %38
   %476 = add i32 %475, 16
   %477 = sub i32 %.4.i, %.0103
   %478 = icmp ult i32 %476, %477
-  br i1 %478, label %479, label %dissect_asam_cmp_status_msg.exit
+  br i1 %478, label %479, label %dissect_asam_cmp_status_msg.argprom.exit
 
 479:                                              ; preds = %.critedge.i
   %480 = call ptr @proto_tree_add_expert(ptr noundef %48, ptr noundef %1, ptr noundef nonnull @ei_asam_cmp_length_mismatch, ptr noundef %0, i32 noundef %211, i32 noundef %475) #5
   call void @proto_item_set_end(ptr noundef %214, ptr noundef %0, i32 noundef %.4.i) #5
   %.pre.i83 = load i32, ptr %25, align 4
   %.pre17.i = add i32 %.pre.i83, 16
-  br label %dissect_asam_cmp_status_msg.exit
+  br label %dissect_asam_cmp_status_msg.argprom.exit
 
-dissect_asam_cmp_status_msg.exit:                 ; preds = %218, %.critedge.i, %479
+dissect_asam_cmp_status_msg.argprom.exit:         ; preds = %218, %.critedge.i, %479
   %.0284.i = phi i32 [ %222, %218 ], [ %.pre17.i, %479 ], [ %476, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
@@ -2217,16 +2217,16 @@ dissect_asam_cmp_status_msg.exit:                 ; preds = %218, %.critedge.i, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %516, ptr noundef nonnull @.str.599, ptr noundef nonnull @.str.622) #5
   %517 = load i32, ptr %21, align 4
   %.not.i85 = icmp eq i32 %517, 0
-  br i1 %.not.i85, label %dissect_asam_cmp_vendor_msg.exit, label %518
+  br i1 %.not.i85, label %dissect_asam_cmp_vendor_msg.argprom.exit, label %518
 
 518:                                              ; preds = %481
   %519 = add i32 %517, %513
   call void @proto_item_set_end(ptr noundef %516, ptr noundef %0, i32 noundef %519) #5
   %.pre.i86 = load i32, ptr %21, align 4
   %520 = add i32 %.pre.i86, 16
-  br label %dissect_asam_cmp_vendor_msg.exit
+  br label %dissect_asam_cmp_vendor_msg.argprom.exit
 
-dissect_asam_cmp_vendor_msg.exit:                 ; preds = %481, %518
+dissect_asam_cmp_vendor_msg.argprom.exit:         ; preds = %481, %518
   %521 = phi i32 [ %520, %518 ], [ 16, %481 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
@@ -3016,8 +3016,8 @@ dissect_asam_cmp_data_msg.exit:                   ; preds = %.loopexit.i, %976
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   br label %978
 
-978:                                              ; preds = %dissect_asam_cmp_data_msg.exit, %dissect_asam_cmp_vendor_msg.exit, %dissect_asam_cmp_status_msg.exit, %dissect_asam_cmp_ctrl_msg.exit
-  %.pn = phi i32 [ %.pre-phi.i, %dissect_asam_cmp_data_msg.exit ], [ %521, %dissect_asam_cmp_vendor_msg.exit ], [ %.0284.i, %dissect_asam_cmp_status_msg.exit ], [ %.0.i, %dissect_asam_cmp_ctrl_msg.exit ]
+978:                                              ; preds = %dissect_asam_cmp_data_msg.exit, %dissect_asam_cmp_vendor_msg.argprom.exit, %dissect_asam_cmp_status_msg.argprom.exit, %dissect_asam_cmp_ctrl_msg.argprom.exit
+  %.pn = phi i32 [ %.pre-phi.i, %dissect_asam_cmp_data_msg.exit ], [ %521, %dissect_asam_cmp_vendor_msg.argprom.exit ], [ %.0284.i, %dissect_asam_cmp_status_msg.argprom.exit ], [ %.0.i, %dissect_asam_cmp_ctrl_msg.argprom.exit ]
   %.1 = add i32 %.pn, %.0103
   %.0.neg = sub i32 0, %.1
   %979 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #5

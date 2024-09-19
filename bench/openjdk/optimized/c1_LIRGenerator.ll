@@ -5744,18 +5744,18 @@ select.unfold:                                    ; preds = %164, %158
   %232 = load ptr, ptr %231, align 8
   %233 = tail call noundef ptr %232(ptr noundef nonnull align 8 dereferenceable(96) %9) #17
   %.not170 = icmp eq ptr %233, null
-  br i1 %.not170, label %_ZL16is_constant_zeroP11Instruction.exit.thread, label %234
+  br i1 %.not170, label %_ZL16is_constant_zeroP11Instruction.argprom.exit.thread, label %234
 
 234:                                              ; preds = %229
   %235 = and i32 %.3140, -2
   %.not171 = icmp eq ptr %.0141, null
-  br i1 %.not171, label %_ZL16is_constant_zeroP11Instruction.exit.thread, label %236
+  br i1 %.not171, label %_ZL16is_constant_zeroP11Instruction.argprom.exit.thread, label %236
 
 236:                                              ; preds = %234
   %237 = getelementptr inbounds i8, ptr %233, i64 104
   %238 = load ptr, ptr %237, align 8
   %239 = icmp eq ptr %238, %.0141
-  br i1 %239, label %240, label %_ZL16is_constant_zeroP11Instruction.exit.thread
+  br i1 %239, label %240, label %_ZL16is_constant_zeroP11Instruction.argprom.exit.thread
 
 240:                                              ; preds = %236
   %241 = getelementptr i8, ptr %11, i64 24
@@ -5765,36 +5765,36 @@ select.unfold:                                    ; preds = %164, %158
   %244 = load ptr, ptr %243, align 8
   %245 = tail call noundef ptr %244(ptr noundef nonnull align 8 dereferenceable(16) %.val) #17
   %.not.i230 = icmp eq ptr %245, null
-  br i1 %.not.i230, label %_ZL16is_constant_zeroP11Instruction.exit.thread, label %_ZL16is_constant_zeroP11Instruction.exit
+  br i1 %.not.i230, label %_ZL16is_constant_zeroP11Instruction.argprom.exit.thread, label %_ZL16is_constant_zeroP11Instruction.argprom.exit
 
-_ZL16is_constant_zeroP11Instruction.exit:         ; preds = %240
+_ZL16is_constant_zeroP11Instruction.argprom.exit: ; preds = %240
   %246 = getelementptr inbounds i8, ptr %245, i64 16
   %247 = load i32, ptr %246, align 8
   %.fr = freeze i32 %247
   %248 = icmp eq i32 %.fr, 0
   %249 = and i32 %.3140, -34
   %spec.select317 = select i1 %248, i32 %249, i32 %235
-  br label %_ZL16is_constant_zeroP11Instruction.exit.thread
+  br label %_ZL16is_constant_zeroP11Instruction.argprom.exit.thread
 
-_ZL16is_constant_zeroP11Instruction.exit.thread:  ; preds = %_ZL16is_constant_zeroP11Instruction.exit, %240, %234, %236, %229
-  %.5 = phi i32 [ %235, %236 ], [ %235, %234 ], [ %.3140, %229 ], [ %235, %240 ], [ %spec.select317, %_ZL16is_constant_zeroP11Instruction.exit ]
+_ZL16is_constant_zeroP11Instruction.argprom.exit.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit, %240, %234, %236, %229
+  %.5 = phi i32 [ %235, %236 ], [ %235, %234 ], [ %.3140, %229 ], [ %235, %240 ], [ %spec.select317, %_ZL16is_constant_zeroP11Instruction.argprom.exit ]
   %250 = load ptr, ptr %13, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 208
   %252 = load ptr, ptr %251, align 8
   %253 = tail call noundef ptr %252(ptr noundef nonnull align 8 dereferenceable(96) %13) #17
   %.not172 = icmp eq ptr %253, null
-  br i1 %.not172, label %_ZL16is_constant_zeroP11Instruction.exit234.thread, label %254
+  br i1 %.not172, label %_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread, label %254
 
-254:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit.thread
+254:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit.thread
   %255 = and i32 %.5, -3
   %.not173 = icmp eq ptr %.0141, null
-  br i1 %.not173, label %_ZL16is_constant_zeroP11Instruction.exit234.thread, label %256
+  br i1 %.not173, label %_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread, label %256
 
 256:                                              ; preds = %254
   %257 = getelementptr inbounds i8, ptr %253, i64 104
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, %.0141
-  br i1 %259, label %260, label %_ZL16is_constant_zeroP11Instruction.exit234.thread
+  br i1 %259, label %260, label %_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread
 
 260:                                              ; preds = %256
   %261 = getelementptr i8, ptr %15, i64 24
@@ -5804,19 +5804,19 @@ _ZL16is_constant_zeroP11Instruction.exit.thread:  ; preds = %_ZL16is_constant_ze
   %264 = load ptr, ptr %263, align 8
   %265 = tail call noundef ptr %264(ptr noundef nonnull align 8 dereferenceable(16) %.val191) #17
   %.not.i232 = icmp eq ptr %265, null
-  br i1 %.not.i232, label %_ZL16is_constant_zeroP11Instruction.exit234.thread, label %_ZL16is_constant_zeroP11Instruction.exit234
+  br i1 %.not.i232, label %_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread, label %_ZL16is_constant_zeroP11Instruction.argprom.exit234
 
-_ZL16is_constant_zeroP11Instruction.exit234:      ; preds = %260
+_ZL16is_constant_zeroP11Instruction.argprom.exit234: ; preds = %260
   %266 = getelementptr inbounds i8, ptr %265, i64 16
   %267 = load i32, ptr %266, align 8
   %.fr326 = freeze i32 %267
   %268 = icmp eq i32 %.fr326, 0
   %269 = and i32 %.5, -67
   %spec.select318 = select i1 %268, i32 %269, i32 %255
-  br label %_ZL16is_constant_zeroP11Instruction.exit234.thread
+  br label %_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread
 
-_ZL16is_constant_zeroP11Instruction.exit234.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.exit234, %260, %254, %256, %_ZL16is_constant_zeroP11Instruction.exit.thread
-  %.6 = phi i32 [ %255, %256 ], [ %255, %254 ], [ %.5, %_ZL16is_constant_zeroP11Instruction.exit.thread ], [ %255, %260 ], [ %spec.select318, %_ZL16is_constant_zeroP11Instruction.exit234 ]
+_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit234, %260, %254, %256, %_ZL16is_constant_zeroP11Instruction.argprom.exit.thread
+  %.6 = phi i32 [ %255, %256 ], [ %255, %254 ], [ %.5, %_ZL16is_constant_zeroP11Instruction.argprom.exit.thread ], [ %255, %260 ], [ %spec.select318, %_ZL16is_constant_zeroP11Instruction.argprom.exit234 ]
   %270 = getelementptr i8, ptr %11, i64 24
   %.val195 = load ptr, ptr %270, align 8
   %271 = load ptr, ptr %.val195, align 8
@@ -5824,19 +5824,19 @@ _ZL16is_constant_zeroP11Instruction.exit234.thread: ; preds = %_ZL16is_constant_
   %273 = load ptr, ptr %272, align 8
   %274 = tail call noundef ptr %273(ptr noundef nonnull align 8 dereferenceable(16) %.val195) #17
   %.not.i235 = icmp eq ptr %274, null
-  br i1 %.not.i235, label %_ZL17positive_constantP11Instruction.exit.thread, label %_ZL17positive_constantP11Instruction.exit
+  br i1 %.not.i235, label %_ZL17positive_constantP11Instruction.argprom.exit.thread, label %_ZL17positive_constantP11Instruction.argprom.exit
 
-_ZL17positive_constantP11Instruction.exit:        ; preds = %_ZL16is_constant_zeroP11Instruction.exit234.thread
+_ZL17positive_constantP11Instruction.argprom.exit: ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread
   %275 = getelementptr inbounds i8, ptr %274, i64 16
   %276 = load i32, ptr %275, align 8
   %.fr327 = freeze i32 %276
   %277 = and i32 %.6, -5
   %278 = icmp slt i32 %.fr327, 0
   %spec.select319 = select i1 %278, i32 %.6, i32 %277
-  br label %_ZL17positive_constantP11Instruction.exit.thread
+  br label %_ZL17positive_constantP11Instruction.argprom.exit.thread
 
-_ZL17positive_constantP11Instruction.exit.thread: ; preds = %_ZL17positive_constantP11Instruction.exit, %_ZL16is_constant_zeroP11Instruction.exit234.thread
-  %279 = phi i32 [ %.6, %_ZL16is_constant_zeroP11Instruction.exit234.thread ], [ %spec.select319, %_ZL17positive_constantP11Instruction.exit ]
+_ZL17positive_constantP11Instruction.argprom.exit.thread: ; preds = %_ZL17positive_constantP11Instruction.argprom.exit, %_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread
+  %279 = phi i32 [ %.6, %_ZL16is_constant_zeroP11Instruction.argprom.exit234.thread ], [ %spec.select319, %_ZL17positive_constantP11Instruction.argprom.exit ]
   %280 = getelementptr i8, ptr %15, i64 24
   %.val196 = load ptr, ptr %280, align 8
   %281 = load ptr, ptr %.val196, align 8
@@ -5844,19 +5844,19 @@ _ZL17positive_constantP11Instruction.exit.thread: ; preds = %_ZL17positive_const
   %283 = load ptr, ptr %282, align 8
   %284 = tail call noundef ptr %283(ptr noundef nonnull align 8 dereferenceable(16) %.val196) #17
   %.not.i237 = icmp eq ptr %284, null
-  br i1 %.not.i237, label %_ZL17positive_constantP11Instruction.exit239.thread, label %_ZL17positive_constantP11Instruction.exit239
+  br i1 %.not.i237, label %_ZL17positive_constantP11Instruction.argprom.exit239.thread, label %_ZL17positive_constantP11Instruction.argprom.exit239
 
-_ZL17positive_constantP11Instruction.exit239:     ; preds = %_ZL17positive_constantP11Instruction.exit.thread
+_ZL17positive_constantP11Instruction.argprom.exit239: ; preds = %_ZL17positive_constantP11Instruction.argprom.exit.thread
   %285 = getelementptr inbounds i8, ptr %284, i64 16
   %286 = load i32, ptr %285, align 8
   %.fr328 = freeze i32 %286
   %287 = and i32 %279, -9
   %288 = icmp slt i32 %.fr328, 0
   %spec.select320 = select i1 %288, i32 %279, i32 %287
-  br label %_ZL17positive_constantP11Instruction.exit239.thread
+  br label %_ZL17positive_constantP11Instruction.argprom.exit239.thread
 
-_ZL17positive_constantP11Instruction.exit239.thread: ; preds = %_ZL17positive_constantP11Instruction.exit239, %_ZL17positive_constantP11Instruction.exit.thread
-  %289 = phi i32 [ %279, %_ZL17positive_constantP11Instruction.exit.thread ], [ %spec.select320, %_ZL17positive_constantP11Instruction.exit239 ]
+_ZL17positive_constantP11Instruction.argprom.exit239.thread: ; preds = %_ZL17positive_constantP11Instruction.argprom.exit239, %_ZL17positive_constantP11Instruction.argprom.exit.thread
+  %289 = phi i32 [ %279, %_ZL17positive_constantP11Instruction.argprom.exit.thread ], [ %spec.select320, %_ZL17positive_constantP11Instruction.argprom.exit239 ]
   %290 = getelementptr i8, ptr %17, i64 24
   %.val197 = load ptr, ptr %290, align 8
   %291 = load ptr, ptr %.val197, align 8
@@ -5864,31 +5864,31 @@ _ZL17positive_constantP11Instruction.exit239.thread: ; preds = %_ZL17positive_co
   %293 = load ptr, ptr %292, align 8
   %294 = tail call noundef ptr %293(ptr noundef nonnull align 8 dereferenceable(16) %.val197) #17
   %.not.i240 = icmp eq ptr %294, null
-  br i1 %.not.i240, label %_ZL17positive_constantP11Instruction.exit242.thread, label %_ZL17positive_constantP11Instruction.exit242
+  br i1 %.not.i240, label %_ZL17positive_constantP11Instruction.argprom.exit242.thread, label %_ZL17positive_constantP11Instruction.argprom.exit242
 
-_ZL17positive_constantP11Instruction.exit242:     ; preds = %_ZL17positive_constantP11Instruction.exit239.thread
+_ZL17positive_constantP11Instruction.argprom.exit242: ; preds = %_ZL17positive_constantP11Instruction.argprom.exit239.thread
   %295 = getelementptr inbounds i8, ptr %294, i64 16
   %296 = load i32, ptr %295, align 8
   %.fr329 = freeze i32 %296
   %297 = and i32 %289, -17
   %298 = icmp slt i32 %.fr329, 0
   %spec.select321 = select i1 %298, i32 %289, i32 %297
-  br label %_ZL17positive_constantP11Instruction.exit242.thread
+  br label %_ZL17positive_constantP11Instruction.argprom.exit242.thread
 
-_ZL17positive_constantP11Instruction.exit242.thread: ; preds = %_ZL17positive_constantP11Instruction.exit242, %_ZL17positive_constantP11Instruction.exit239.thread
-  %299 = phi i32 [ %289, %_ZL17positive_constantP11Instruction.exit239.thread ], [ %spec.select321, %_ZL17positive_constantP11Instruction.exit242 ]
+_ZL17positive_constantP11Instruction.argprom.exit242.thread: ; preds = %_ZL17positive_constantP11Instruction.argprom.exit242, %_ZL17positive_constantP11Instruction.argprom.exit239.thread
+  %299 = phi i32 [ %289, %_ZL17positive_constantP11Instruction.argprom.exit239.thread ], [ %spec.select321, %_ZL17positive_constantP11Instruction.argprom.exit242 ]
   %300 = load ptr, ptr %17, align 8
   %301 = getelementptr inbounds i8, ptr %300, i64 72
   %302 = load ptr, ptr %301, align 8
   %303 = tail call noundef ptr %302(ptr noundef nonnull align 8 dereferenceable(96) %17) #17
   %.not174 = icmp eq ptr %303, null
-  br i1 %.not174, label %_ZL16is_constant_zeroP11Instruction.exit248.thread, label %304
+  br i1 %.not174, label %_ZL16is_constant_zeroP11Instruction.argprom.exit248.thread, label %304
 
-304:                                              ; preds = %_ZL17positive_constantP11Instruction.exit242.thread
+304:                                              ; preds = %_ZL17positive_constantP11Instruction.argprom.exit242.thread
   %305 = getelementptr inbounds i8, ptr %303, i64 96
   %306 = load ptr, ptr %305, align 8
   %307 = icmp eq ptr %306, %9
-  br i1 %307, label %308, label %_ZL16is_constant_zeroP11Instruction.exit245.thread
+  br i1 %307, label %308, label %_ZL16is_constant_zeroP11Instruction.argprom.exit245.thread
 
 308:                                              ; preds = %304
   %309 = and i32 %299, -18
@@ -5898,24 +5898,24 @@ _ZL17positive_constantP11Instruction.exit242.thread: ; preds = %_ZL17positive_co
   %312 = load ptr, ptr %311, align 8
   %313 = tail call noundef ptr %312(ptr noundef nonnull align 8 dereferenceable(16) %.val192) #17
   %.not.i243 = icmp eq ptr %313, null
-  br i1 %.not.i243, label %_ZL16is_constant_zeroP11Instruction.exit245.thread, label %_ZL16is_constant_zeroP11Instruction.exit245
+  br i1 %.not.i243, label %_ZL16is_constant_zeroP11Instruction.argprom.exit245.thread, label %_ZL16is_constant_zeroP11Instruction.argprom.exit245
 
-_ZL16is_constant_zeroP11Instruction.exit245:      ; preds = %308
+_ZL16is_constant_zeroP11Instruction.argprom.exit245: ; preds = %308
   %314 = getelementptr inbounds i8, ptr %313, i64 16
   %315 = load i32, ptr %314, align 8
   %.fr330 = freeze i32 %315
   %316 = icmp eq i32 %.fr330, 0
   %317 = and i32 %299, -50
   %spec.select322 = select i1 %316, i32 %317, i32 %309
-  br label %_ZL16is_constant_zeroP11Instruction.exit245.thread
+  br label %_ZL16is_constant_zeroP11Instruction.argprom.exit245.thread
 
-_ZL16is_constant_zeroP11Instruction.exit245.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.exit245, %308, %304
-  %.11 = phi i32 [ %299, %304 ], [ %309, %308 ], [ %spec.select322, %_ZL16is_constant_zeroP11Instruction.exit245 ]
+_ZL16is_constant_zeroP11Instruction.argprom.exit245.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit245, %308, %304
+  %.11 = phi i32 [ %299, %304 ], [ %309, %308 ], [ %spec.select322, %_ZL16is_constant_zeroP11Instruction.argprom.exit245 ]
   %318 = load ptr, ptr %305, align 8
   %319 = icmp eq ptr %318, %13
-  br i1 %319, label %320, label %_ZL16is_constant_zeroP11Instruction.exit248.thread
+  br i1 %319, label %320, label %_ZL16is_constant_zeroP11Instruction.argprom.exit248.thread
 
-320:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit245.thread
+320:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit245.thread
   %321 = and i32 %.11, -19
   %.val193 = load ptr, ptr %280, align 8
   %322 = load ptr, ptr %.val193, align 8
@@ -5923,25 +5923,25 @@ _ZL16is_constant_zeroP11Instruction.exit245.thread: ; preds = %_ZL16is_constant_
   %324 = load ptr, ptr %323, align 8
   %325 = tail call noundef ptr %324(ptr noundef nonnull align 8 dereferenceable(16) %.val193) #17
   %.not.i246 = icmp eq ptr %325, null
-  br i1 %.not.i246, label %_ZL16is_constant_zeroP11Instruction.exit248.thread, label %_ZL16is_constant_zeroP11Instruction.exit248
+  br i1 %.not.i246, label %_ZL16is_constant_zeroP11Instruction.argprom.exit248.thread, label %_ZL16is_constant_zeroP11Instruction.argprom.exit248
 
-_ZL16is_constant_zeroP11Instruction.exit248:      ; preds = %320
+_ZL16is_constant_zeroP11Instruction.argprom.exit248: ; preds = %320
   %326 = getelementptr inbounds i8, ptr %325, i64 16
   %327 = load i32, ptr %326, align 8
   %.fr331 = freeze i32 %327
   %328 = icmp eq i32 %.fr331, 0
   %329 = and i32 %.11, -83
   %spec.select323 = select i1 %328, i32 %329, i32 %321
-  br label %_ZL16is_constant_zeroP11Instruction.exit248.thread
+  br label %_ZL16is_constant_zeroP11Instruction.argprom.exit248.thread
 
-_ZL16is_constant_zeroP11Instruction.exit248.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.exit248, %320, %_ZL16is_constant_zeroP11Instruction.exit245.thread, %_ZL17positive_constantP11Instruction.exit242.thread
-  %.10 = phi i32 [ %.11, %_ZL16is_constant_zeroP11Instruction.exit245.thread ], [ %299, %_ZL17positive_constantP11Instruction.exit242.thread ], [ %321, %320 ], [ %spec.select323, %_ZL16is_constant_zeroP11Instruction.exit248 ]
+_ZL16is_constant_zeroP11Instruction.argprom.exit248.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit248, %320, %_ZL16is_constant_zeroP11Instruction.argprom.exit245.thread, %_ZL17positive_constantP11Instruction.argprom.exit242.thread
+  %.10 = phi i32 [ %.11, %_ZL16is_constant_zeroP11Instruction.argprom.exit245.thread ], [ %299, %_ZL17positive_constantP11Instruction.argprom.exit242.thread ], [ %321, %320 ], [ %spec.select323, %_ZL16is_constant_zeroP11Instruction.argprom.exit248 ]
   %330 = and i32 %.10, -129
   %spec.select187 = select i1 %.0133278, i32 %330, i32 %.10
   br label %331
 
-331:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit248.thread, %.thread284
-  %.4 = phi i32 [ %.3140, %.thread284 ], [ %spec.select187, %_ZL16is_constant_zeroP11Instruction.exit248.thread ]
+331:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit248.thread, %.thread284
+  %.4 = phi i32 [ %.3140, %.thread284 ], [ %spec.select187, %_ZL16is_constant_zeroP11Instruction.argprom.exit248.thread ]
   %332 = getelementptr inbounds i8, ptr %11, i64 24
   %333 = load ptr, ptr %332, align 8
   %334 = load ptr, ptr %333, align 8
@@ -5967,7 +5967,7 @@ _ZL16is_constant_zeroP11Instruction.exit248.thread: ; preds = %_ZL16is_constant_
   %.not175 = icmp slt i32 %348, %350
   %351 = and i32 %.4, -257
   %spec.select188 = select i1 %.not175, i32 %.4, i32 %351
-  br i1 %.not168, label %_ZL16is_constant_zeroP11Instruction.exit255.thread, label %352
+  br i1 %.not168, label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread, label %352
 
 352:                                              ; preds = %346
   %353 = tail call noundef ptr @_ZN12ciArrayKlass12element_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %.3281) #17
@@ -5999,25 +5999,25 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %_ZN12arrayOo
   %367 = mul i32 %358, %348
   %368 = and i32 %367, 7
   %369 = icmp eq i32 %368, 0
-  br i1 %369, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+  br i1 %369, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250, label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313: ; preds = %363
   %370 = and i32 %366, 7
   %371 = icmp eq i32 %370, 0
-  br i1 %371, label %.thread311, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+  br i1 %371, label %.thread311, label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310: ; preds = %363
   %372 = add i32 %361, %366
   %373 = and i32 %372, 7
   %374 = icmp eq i32 %373, 0
-  br i1 %374, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+  br i1 %374, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread: ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i
   %375 = mul i32 %358, %348
   %376 = add i32 %361, %375
   %377 = and i32 %376, 7
   %378 = icmp eq i32 %377, 0
-  br i1 %378, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+  br i1 %378, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250, label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread
 
 _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250: ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread
   switch i8 %355, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 [
@@ -6036,7 +6036,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252: ; preds = %_ZN12arra
   %383 = icmp eq i32 %382, 0
   %384 = and i32 %spec.select188, -513
   %spec.select189 = select i1 %383, i32 %384, i32 %spec.select188
-  br label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+  br label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread
 
 385:                                              ; preds = %331
   %386 = icmp eq ptr %11, %15
@@ -6049,20 +6049,20 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252: ; preds = %_ZN12arra
   %390 = load ptr, ptr %389, align 8
   %391 = tail call noundef ptr %390(ptr noundef nonnull align 8 dereferenceable(16) %.val194) #17
   %.not.i253 = icmp eq ptr %391, null
-  br i1 %.not.i253, label %_ZL16is_constant_zeroP11Instruction.exit255.thread, label %_ZL16is_constant_zeroP11Instruction.exit255
+  br i1 %.not.i253, label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread, label %_ZL16is_constant_zeroP11Instruction.argprom.exit255
 
-_ZL16is_constant_zeroP11Instruction.exit255:      ; preds = %387
+_ZL16is_constant_zeroP11Instruction.argprom.exit255: ; preds = %387
   %392 = getelementptr inbounds i8, ptr %391, i64 16
   %393 = load i32, ptr %392, align 8
   %394 = icmp eq i32 %393, 0
-  br i1 %394, label %395, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+  br i1 %394, label %395, label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread
 
-395:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit255, %385
+395:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.argprom.exit255, %385
   %396 = and i32 %.4, -257
-  br label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+  br label %_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread
 
-_ZL16is_constant_zeroP11Instruction.exit255.thread: ; preds = %387, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, %_ZL16is_constant_zeroP11Instruction.exit255, %395, %346, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %.13 = phi i32 [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %spec.select188, %346 ], [ %396, %395 ], [ %.4, %_ZL16is_constant_zeroP11Instruction.exit255 ], [ %spec.select189, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313 ], [ %.4, %387 ]
+_ZL16is_constant_zeroP11Instruction.argprom.exit255.thread: ; preds = %387, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, %_ZL16is_constant_zeroP11Instruction.argprom.exit255, %395, %346, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
+  %.13 = phi i32 [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %spec.select188, %346 ], [ %396, %395 ], [ %.4, %_ZL16is_constant_zeroP11Instruction.argprom.exit255 ], [ %spec.select189, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313 ], [ %.4, %387 ]
   %.not332 = icmp eq ptr %9, %13
   %397 = and i32 %.13, -129
   %.14 = select i1 %.not332, i32 %397, i32 %.13

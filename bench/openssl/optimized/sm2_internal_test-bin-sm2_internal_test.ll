@@ -112,32 +112,32 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sm2_crypt_test() #0 {
 entry:
-  %call = tail call fastcc ptr @create_EC_group(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+  %call = tail call fastcc ptr @create_EC_group.argprom(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 223, ptr noundef nonnull @.str.10, ptr noundef %call) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @EVP_sm3() #3
-  %call3 = tail call fastcc i32 @test_sm2_crypt(ptr noundef %call, ptr noundef %call2, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
+  %call3 = tail call fastcc i32 @test_sm2_crypt.argprom(ptr noundef %call, ptr noundef %call2, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %done, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call ptr @EVP_sha256() #3
-  %call8 = tail call fastcc i32 @test_sm2_crypt(ptr noundef %call, ptr noundef %call7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
+  %call8 = tail call fastcc i32 @test_sm2_crypt.argprom(ptr noundef %call, ptr noundef %call7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %done, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %call12 = tail call fastcc ptr @create_EC_group(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
+  %call12 = tail call fastcc ptr @create_EC_group.argprom(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
   %call13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 265, ptr noundef nonnull @.str.23, ptr noundef %call12) #3
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %done, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
   %call17 = tail call ptr @EVP_sm3() #3
-  %call18 = tail call fastcc i32 @test_sm2_crypt(ptr noundef %call12, ptr noundef %call17, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
+  %call18 = tail call fastcc i32 @test_sm2_crypt.argprom(ptr noundef %call12, ptr noundef %call17, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
   br label %done
 
 done:                                             ; preds = %if.end16, %if.end11, %if.end6, %if.end, %entry
@@ -151,13 +151,13 @@ done:                                             ; preds = %if.end16, %if.end11
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sm2_sig_test() #0 {
 entry:
-  %call = tail call fastcc ptr @create_EC_group(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+  %call = tail call fastcc ptr @create_EC_group.argprom(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 385, ptr noundef nonnull @.str.10, ptr noundef %call) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call fastcc i32 @test_sm2_sign(ptr noundef %call, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66)
+  %call2 = tail call fastcc i32 @test_sm2_sign.argprom(ptr noundef %call, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66)
   %cmp = icmp ne i32 %call2, 0
   %conv = zext i1 %cmp to i32
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.9, i32 noundef 396, ptr noundef nonnull @.str.60, i32 noundef %conv) #3
@@ -165,13 +165,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %done, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %call7 = tail call fastcc ptr @create_EC_group(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
+  %call7 = tail call fastcc ptr @create_EC_group.argprom(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 409, ptr noundef nonnull @.str.23, ptr noundef %call7) #3
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %done, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %call12 = tail call fastcc i32 @test_sm2_sign(ptr noundef %call7, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70)
+  %call12 = tail call fastcc i32 @test_sm2_sign.argprom(ptr noundef %call7, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70)
   %cmp13 = icmp ne i32 %call12, 0
   %conv14 = zext i1 %cmp13 to i32
   %call15 = tail call i32 @test_true(ptr noundef nonnull @.str.9, i32 noundef 427, ptr noundef nonnull @.str.67, i32 noundef %conv14) #3
@@ -198,7 +198,7 @@ entry:
 declare void @fake_rand_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_EC_group(ptr noundef %p_hex, ptr noundef %a_hex, ptr noundef %b_hex, ptr noundef %x_hex, ptr noundef %y_hex, ptr noundef %order_hex) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_EC_group.argprom(ptr noundef %p_hex, ptr noundef %a_hex, ptr noundef %b_hex, ptr noundef %x_hex, ptr noundef %y_hex, ptr noundef %order_hex) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %a = alloca ptr, align 8
@@ -337,7 +337,7 @@ if.end63:                                         ; preds = %if.then62, %done
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_sm2_crypt(ptr noundef %group, ptr noundef %digest, ptr noundef %privkey_hex, ptr noundef %k_hex, ptr noundef %ctext_hex) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_sm2_crypt.argprom(ptr noundef %group, ptr noundef %digest, ptr noundef %privkey_hex, ptr noundef %k_hex, ptr noundef %ctext_hex) unnamed_addr #0 {
 entry:
   %priv = alloca ptr, align 8
   %ctext_len = alloca i64, align 8
@@ -422,7 +422,7 @@ if.end45:                                         ; preds = %lor.lhs.false38
   br i1 %tobool48.not, label %done, label %if.end50
 
 if.end50:                                         ; preds = %if.end45
-  call fastcc void @start_fake_rand(ptr noundef %k_hex)
+  call fastcc void @start_fake_rand.retelim(ptr noundef %k_hex)
   %call52 = call i32 @ossl_sm2_encrypt(ptr noundef %call6, ptr noundef %digest, ptr noundef nonnull @.str.12, i64 noundef 19, ptr noundef %call46, ptr noundef nonnull %ctext_len) #3
   %cmp53 = icmp ne i32 %call52, 0
   %conv54 = zext i1 %cmp53 to i32
@@ -541,7 +541,7 @@ declare i32 @ossl_sm2_ciphertext_size(ptr noundef, ptr noundef, i64 noundef, ptr
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @start_fake_rand(ptr noundef %hex_bytes) unnamed_addr #0 {
+define internal fastcc void @start_fake_rand.retelim(ptr noundef %hex_bytes) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @fake_rand_bytes, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef 56) #3
@@ -641,7 +641,7 @@ return:                                           ; preds = %while.cond.preheade
 declare i32 @test_size_t_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_sm2_sign(ptr noundef %group, ptr noundef %userid, ptr noundef %privkey_hex, ptr noundef %k_hex, ptr noundef %r_hex, ptr noundef %s_hex) unnamed_addr #0 {
+define internal fastcc i32 @test_sm2_sign.argprom(ptr noundef %group, ptr noundef %userid, ptr noundef %privkey_hex, ptr noundef %k_hex, ptr noundef %r_hex, ptr noundef %s_hex) unnamed_addr #0 {
 entry:
   %priv = alloca ptr, align 8
   %sig_r = alloca ptr, align 8

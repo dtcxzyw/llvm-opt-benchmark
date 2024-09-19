@@ -5718,13 +5718,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit._ZNK32pxrInt
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.i.i, %12, %2
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryIdE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTId)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3_crit_edge.i.i, %6
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3_crit_edge.i.i ], [ %5, %6 ]
   %16 = and i64 %.pre-phi.i.i, 4
   %.not.i2.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit", label %17
+  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit", label %17
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i.i
   %18 = and i64 %.pre-phi.i.i, -8
@@ -5732,9 +5732,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i.i:
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i.i, %17
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i.i, %17
   %.0.i.i = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i.i ], [ %22, %17 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %23, align 8
@@ -5816,13 +5816,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit._ZNK32pxrInt
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.i.i, %12, %2
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryIfE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIf)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3_crit_edge.i.i, %6
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3_crit_edge.i.i ], [ %5, %6 ]
   %16 = and i64 %.pre-phi.i.i, 4
   %.not.i2.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit", label %17
+  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit", label %17
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i.i
   %18 = and i64 %.pre-phi.i.i, -8
@@ -5830,9 +5830,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i.i:
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i.i, %17
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i.i, %17
   %.0.i.i = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i.i ], [ %22, %17 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %23, align 8
@@ -9129,7 +9129,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exi
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.i.i, %12, %2
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7VtArrayIdEEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction83EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction83EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread3_crit_edge.i.i, %6
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread3_crit_edge.i.i ], [ %5, %6 ]
@@ -9143,13 +9143,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exi
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction83EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction83EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 23:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread3.i.i
   %24 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction83EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction83EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction83EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread.i.i, %17, %23
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction83EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread.i.i, %17, %23
   %.0.i.i = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread.i.i ], [ %22, %17 ], [ %24, %23 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataINS_7VtArrayIdEEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i)
   ret void
@@ -13834,7 +13834,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exi
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.i.i, %12, %2
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7VtArrayIfEEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction84EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction84EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread3_crit_edge.i.i, %6
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread3_crit_edge.i.i ], [ %5, %6 ]
@@ -13848,13 +13848,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exi
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction84EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction84EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 23:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread3.i.i
   %24 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction84EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction84EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction84EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread.i.i, %17, %23
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction84EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread.i.i, %17, %23
   %.0.i.i = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread.i.i ], [ %22, %17 ], [ %24, %23 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataINS_7VtArrayIfEEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i)
   ret void
@@ -18550,7 +18550,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit._
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec2dEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec2dE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -18564,13 +18564,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21283,13 +21283,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit._
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.i.i, %12, %2
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec2fEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec2fE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread3_crit_edge.i.i, %6
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread3_crit_edge.i.i ], [ %5, %6 ]
   %16 = and i64 %.pre-phi.i.i, 4
   %.not.i2.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit", label %17
+  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit", label %17
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread3.i.i
   %18 = and i64 %.pre-phi.i.i, -8
@@ -21297,9 +21297,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.t
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread3.i.i, %17
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread3.i.i, %17
   %.0.i.i = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread.i.i ], [ %22, %17 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread3.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %23, align 8
@@ -24020,7 +24020,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit._
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec3dEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec3dE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -24034,13 +24034,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.t
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26818,7 +26818,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit._
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec3fEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec3fE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -26832,13 +26832,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.t
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29696,7 +29696,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit._
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec4dEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec4dE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -29710,13 +29710,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.t
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -33004,7 +33004,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit._
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec4fEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec4fE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -33018,13 +33018,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.t
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36110,7 +36110,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.ex
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_10GfMatrix2dEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -36124,13 +36124,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.ex
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38861,7 +38861,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.ex
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_10GfMatrix3dEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -38875,13 +38875,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.ex
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41793,7 +41793,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.ex
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_10GfMatrix4dEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -41807,13 +41807,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.ex
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -44709,7 +44709,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit._
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfQuatdEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfQuatdE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -44723,13 +44723,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.t
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -46739,7 +46739,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit._
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.i.i, %13, %2
   %16 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfQuatfEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfQuatfE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.thread3_crit_edge.i.i, %7
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.thread3_crit_edge.i.i ], [ %6, %7 ]
@@ -46753,13 +46753,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.t
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.thread3.i.i
   %25 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.thread.i.i, %18, %24
+"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.thread.i.i, %18, %24
   %.0.i.i = phi ptr [ %16, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.thread.i.i ], [ %23, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -48791,13 +48791,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit._ZNK32pxrInt
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.i.i, %12, %2
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryIbE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIb)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3_crit_edge.i.i, %6
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3_crit_edge.i.i ], [ %5, %6 ]
   %16 = and i64 %.pre-phi.i.i, 4
   %.not.i2.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit", label %17
+  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit", label %17
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3.i.i
   %18 = and i64 %.pre-phi.i.i, -8
@@ -48805,9 +48805,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3.i.i:
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3.i.i, %17
+"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3.i.i, %17
   %.0.i.i = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread.i.i ], [ %22, %17 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread3.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %23, align 8
@@ -50458,13 +50458,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit._ZNK32pxrInt
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.i.i, %12, %2
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryIiE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIi)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3_crit_edge.i.i, %6
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3_crit_edge.i.i ], [ %5, %6 ]
   %16 = and i64 %.pre-phi.i.i, 4
   %.not.i2.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit", label %17
+  br i1 %.not.i2.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit", label %17
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i
   %18 = and i64 %.pre-phi.i.i, -8
@@ -50472,9 +50472,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i:
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i, %17
+"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i, %17
   %.0.i.i = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread.i.i ], [ %22, %17 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %23, align 8
@@ -52103,7 +52103,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stri
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.i.i, %12, %2
   %15 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction102EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction102EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread3.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread3_crit_edge.i.i, %6
   %.pre-phi.i.i = phi i64 [ %.pre4.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread3_crit_edge.i.i ], [ %5, %6 ]
@@ -52117,13 +52117,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stri
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction102EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction102EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
 23:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread3.i.i
   %24 = load ptr, ptr %1, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction102EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction102EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction102EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread.i.i, %17, %23
+"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction102EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread.i.i, %17, %23
   %.0.i.i = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread.i.i ], [ %22, %17 ], [ %24, %23 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i)
   ret void
@@ -54334,7 +54334,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i.i.i.i: ; preds = %
   %36 = load i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8TsTraitsINS_7TfTokenEE4zeroE, align 8
   %37 = and i64 %36, 7
   %.not.i.i8.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i8.i.i.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit", label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i
+  br i1 %.not.i.i8.i.i.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit", label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i.i.i.i
   %38 = and i64 %36, -8
@@ -54346,7 +54346,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i: ; preds = 
   %.pre2.i.i = load i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8TsTraitsINS_7TfTokenEE4zeroE, align 8
   %.pre4.i3.i = and i64 %.pre2.i.i, 7
   %42 = icmp eq i64 %.pre4.i3.i, 0
-  br i1 %42, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit", label %43
+  br i1 %42, label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit", label %43
 
 43:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i
   %44 = and i64 %.pre2.i.i, -8
@@ -54355,9 +54355,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i: ; preds = 
   %47 = and i32 %46, 1
   %.not1.i.i12.i.i.i.i = icmp eq i32 %47, 0
   %spec.select10.i.i.i = select i1 %.not1.i.i12.i.i.i.i, i64 %44, i64 %.pre2.i.i
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i, %43
+"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvENK3$_0clEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE.argprom.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i, %43
   %.sroa.12.0.i11.i.i = phi i64 [ %spec.select9.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i ], [ %spec.select9.i.i.i, %43 ], [ %36, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i.i.i.i ]
   %.sroa.17.0.i.i.i = phi i64 [ %.pre2.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10.i.i.i.i ], [ %spec.select10.i.i.i, %43 ], [ %36, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -1229,7 +1229,7 @@ define internal fastcc void @exec_move_row_from_datum(ptr nocapture noundef read
 39:                                               ; preds = %35, %27
   %40 = getelementptr i8, ptr %0, i64 120
   %.val111 = load ptr, ptr %40, align 8
-  tail call fastcc void @assign_record_var(ptr %.val111, ptr noundef nonnull %1, ptr noundef nonnull %14)
+  tail call fastcc void @assign_record_var.argprom(ptr %.val111, ptr noundef nonnull %1, ptr noundef nonnull %14)
   br label %185
 
 41:                                               ; preds = %35, %33, %24, %21
@@ -1281,7 +1281,7 @@ define internal fastcc void @exec_move_row_from_datum(ptr nocapture noundef read
   %.val = load ptr, ptr %69, align 8
   %70 = getelementptr i8, ptr %.val, i64 40
   %.val.val = load ptr, ptr %70, align 8
-  %71 = tail call fastcc ptr @make_expanded_record_for_rec(ptr %.val.val, ptr noundef nonnull %1, ptr noundef null, ptr noundef %14)
+  %71 = tail call fastcc ptr @make_expanded_record_for_rec.argprom.argprom(ptr %.val.val, ptr noundef nonnull %1, ptr noundef null, ptr noundef %14)
   %72 = getelementptr inbounds i8, ptr %14, i64 52
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 1
@@ -1315,15 +1315,15 @@ define internal fastcc void @exec_move_row_from_datum(ptr nocapture noundef read
   tail call void @MemoryContextSetParent(ptr noundef %92, ptr noundef %.val112) #11
   %93 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %93, null
-  br i1 %.not.i, label %assign_record_var.exit, label %94
+  br i1 %.not.i, label %assign_record_var.argprom.exit, label %94
 
 94:                                               ; preds = %83
   %95 = getelementptr inbounds i8, ptr %93, i64 24
   %96 = ptrtoint ptr %95 to i64
   tail call void @DeleteExpandedObject(i64 noundef %96) #11
-  br label %assign_record_var.exit
+  br label %assign_record_var.argprom.exit
 
-assign_record_var.exit:                           ; preds = %83, %94
+assign_record_var.argprom.exit:                   ; preds = %83, %94
   store ptr %71, ptr %18, align 8
   br label %185
 
@@ -1336,7 +1336,7 @@ assign_record_var.exit:                           ; preds = %83, %94
   tail call void @deconstruct_expanded_record(ptr noundef %71) #11
   %101 = getelementptr i8, ptr %0, i64 120
   %.val113 = load ptr, ptr %101, align 8
-  tail call fastcc void @assign_record_var(ptr %.val113, ptr noundef nonnull %1, ptr noundef %71)
+  tail call fastcc void @assign_record_var.argprom(ptr %.val113, ptr noundef nonnull %1, ptr noundef %71)
   br label %185
 
 102:                                              ; preds = %._crit_edge, %97
@@ -1468,15 +1468,15 @@ expanded_record_get_tupdesc.exit118:              ; preds = %111, %118
   call void @MemoryContextSetParent(ptr noundef %174, ptr noundef %.val114) #11
   %175 = load ptr, ptr %141, align 8
   %.not.i119 = icmp eq ptr %175, null
-  br i1 %.not.i119, label %assign_record_var.exit120, label %176
+  br i1 %.not.i119, label %assign_record_var.argprom.exit120, label %176
 
 176:                                              ; preds = %163
   %177 = getelementptr inbounds i8, ptr %175, i64 24
   %178 = ptrtoint ptr %177 to i64
   call void @DeleteExpandedObject(i64 noundef %178) #11
-  br label %assign_record_var.exit120
+  br label %assign_record_var.argprom.exit120
 
-assign_record_var.exit120:                        ; preds = %163, %176
+assign_record_var.argprom.exit120:                ; preds = %163, %176
   store ptr %167, ptr %141, align 8
   br label %185
 
@@ -1492,7 +1492,7 @@ assign_record_var.exit120:                        ; preds = %163, %176
   call void @DecrTupleDescRefCount(ptr noundef nonnull %180) #11
   br label %185
 
-185:                                              ; preds = %184, %179, %17, %assign_record_var.exit120, %153, %expanded_record_get_tupdesc.exit118, %expanded_record_get_tupdesc.exit, %100, %assign_record_var.exit, %61, %39
+185:                                              ; preds = %184, %179, %17, %assign_record_var.argprom.exit120, %153, %expanded_record_get_tupdesc.exit118, %expanded_record_get_tupdesc.exit, %100, %assign_record_var.argprom.exit, %61, %39
   ret void
 }
 
@@ -1527,7 +1527,7 @@ define internal fastcc void @exec_move_row(ptr nocapture noundef readonly %0, pt
   %.val = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %.val, i64 40
   %.val.val = load ptr, ptr %22, align 8
-  %23 = tail call fastcc ptr @make_expanded_record_for_rec(ptr %.val.val, ptr noundef nonnull %1, ptr noundef null, ptr noundef %20)
+  %23 = tail call fastcc ptr @make_expanded_record_for_rec.argprom.argprom(ptr %.val.val, ptr noundef nonnull %1, ptr noundef null, ptr noundef %20)
   tail call void @expanded_record_set_tuple(ptr noundef %23, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #11
   %24 = getelementptr i8, ptr %0, i64 120
   %.val68 = load ptr, ptr %24, align 8
@@ -1536,15 +1536,15 @@ define internal fastcc void @exec_move_row(ptr nocapture noundef readonly %0, pt
   tail call void @MemoryContextSetParent(ptr noundef %26, ptr noundef %.val68) #11
   %27 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %assign_record_var.exit, label %28
+  br i1 %.not.i, label %assign_record_var.argprom.exit, label %28
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %27, i64 24
   %30 = ptrtoint ptr %29 to i64
   tail call void @DeleteExpandedObject(i64 noundef %30) #11
-  br label %assign_record_var.exit
+  br label %assign_record_var.argprom.exit
 
-assign_record_var.exit:                           ; preds = %18, %28
+assign_record_var.argprom.exit:                   ; preds = %18, %28
   store ptr %23, ptr %19, align 8
   br label %127
 
@@ -1578,19 +1578,19 @@ assign_record_var.exit:                           ; preds = %18, %28
   tail call fastcc void @revalidate_rectypeid(ptr noundef nonnull %1)
   %.pre.i = load i32, ptr %41, align 8
   %44 = tail call ptr @make_expanded_record_from_typeid(i32 noundef %.pre.i, i32 noundef -1, ptr noundef %.val67.val) #11
-  br label %make_expanded_record_for_rec.exit
+  br label %make_expanded_record_for_rec.argprom.argprom.exit
 
 expanded_record_get_tupdesc.exit.i:               ; preds = %38
   %45 = tail call ptr @make_expanded_record_from_tupdesc(ptr noundef nonnull %3, ptr noundef %.val67.val) #11
-  br label %make_expanded_record_for_rec.exit
+  br label %make_expanded_record_for_rec.argprom.argprom.exit
 
-make_expanded_record_for_rec.exit:                ; preds = %43, %expanded_record_get_tupdesc.exit.i
+make_expanded_record_for_rec.argprom.argprom.exit: ; preds = %43, %expanded_record_get_tupdesc.exit.i
   %.019.i = phi ptr [ %44, %43 ], [ %45, %expanded_record_get_tupdesc.exit.i ]
   %46 = load i32, ptr %41, align 8
   %47 = icmp eq i32 %46, 2249
   br i1 %47, label %compatible_tupdescs.exit, label %48
 
-48:                                               ; preds = %make_expanded_record_for_rec.exit
+48:                                               ; preds = %make_expanded_record_for_rec.argprom.argprom.exit
   %49 = getelementptr inbounds i8, ptr %3, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = icmp ne i32 %46, %50
@@ -1683,7 +1683,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %53, %56
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %compatible_tupdescs.exit, label %.lr.ph.i, !llvm.loop !7
 
-compatible_tupdescs.exit:                         ; preds = %95, %48, %make_expanded_record_for_rec.exit
+compatible_tupdescs.exit:                         ; preds = %95, %48, %make_expanded_record_for_rec.argprom.argprom.exit
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %96, label %compatible_tupdescs.exit.thread79
 
@@ -1708,15 +1708,15 @@ compatible_tupdescs.exit.thread79:                ; preds = %.preheader.i, %comp
   %105 = getelementptr inbounds i8, ptr %1, i64 48
   %106 = load ptr, ptr %105, align 8
   %.not.i76 = icmp eq ptr %106, null
-  br i1 %.not.i76, label %assign_record_var.exit77, label %107
+  br i1 %.not.i76, label %assign_record_var.argprom.exit77, label %107
 
 107:                                              ; preds = %101
   %108 = getelementptr inbounds i8, ptr %106, i64 24
   %109 = ptrtoint ptr %108 to i64
   tail call void @DeleteExpandedObject(i64 noundef %109) #11
-  br label %assign_record_var.exit77
+  br label %assign_record_var.argprom.exit77
 
-assign_record_var.exit77:                         ; preds = %101, %107
+assign_record_var.argprom.exit77:                 ; preds = %101, %107
   store ptr %.019.i, ptr %105, align 8
   br label %127
 
@@ -1755,7 +1755,7 @@ compatible_tupdescs.exit.thread:                  ; preds = %85, %90, %73, %82, 
   tail call fastcc void @exec_move_row_from_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %127
 
-127:                                              ; preds = %assign_record_var.exit, %37, %126, %125, %assign_record_var.exit77
+127:                                              ; preds = %assign_record_var.argprom.exit, %37, %126, %125, %assign_record_var.argprom.exit77
   ret void
 }
 
@@ -4152,7 +4152,7 @@ define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef reado
 
 150:                                              ; preds = %146
   %151 = call fastcc i32 @exec_stmt_block(ptr noundef %0, ptr noundef nonnull %137)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 152:                                              ; preds = %146
   %153 = getelementptr i8, ptr %137, i64 12
@@ -4164,7 +4164,7 @@ define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef reado
   %157 = getelementptr ptr, ptr %155, i64 %156
   %158 = load ptr, ptr %157, align 8
   call void @exec_assign_expr(ptr noundef nonnull %0, ptr noundef %158, ptr noundef %.val92)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 159:                                              ; preds = %146
   %160 = getelementptr i8, ptr %137, i64 16
@@ -4191,13 +4191,13 @@ define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef reado
   store ptr null, ptr %83, align 8
   %173 = load ptr, ptr %82, align 8
   %.not6.i.i = icmp eq ptr %173, null
-  br i1 %.not6.i.i, label %exec_stmt_perform.exit, label %174
+  br i1 %.not6.i.i, label %exec_stmt_perform.argprom.exit, label %174
 
 174:                                              ; preds = %172
   %175 = getelementptr inbounds i8, ptr %173, i64 40
   %176 = load ptr, ptr %175, align 8
   call void @MemoryContextReset(ptr noundef %176) #11
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 177:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73)
@@ -4336,13 +4336,13 @@ list_length.exit59.thread.i.i:                    ; preds = %list_length.exit59.
   %249 = load ptr, ptr %248, align 8
   store ptr %249, ptr @CurrentMemoryContext, align 8
   %250 = icmp sgt i32 %236, 0
-  br i1 %250, label %.lr.ph.i.i, label %make_callstmt_target.exit.i
+  br i1 %250, label %.lr.ph.i.i, label %make_callstmt_target.argprom.exit.i
 
 .lr.ph.i.i:                                       ; preds = %235
   %251 = getelementptr inbounds i8, ptr %215, i64 24
   %252 = load ptr, ptr %72, align 8
   %253 = icmp eq ptr %252, null
-  br i1 %253, label %make_callstmt_target.exit.i, label %.lr.ph.split.preheader.i.i
+  br i1 %253, label %make_callstmt_target.argprom.exit.i, label %.lr.ph.split.preheader.i.i
 
 .lr.ph.split.preheader.i.i:                       ; preds = %.lr.ph.i.i
   %wide.trip.count.i.i = zext nneg i32 %236 to i64
@@ -4430,9 +4430,9 @@ list_length.exit59.thread.i.i:                    ; preds = %list_length.exit59.
   %.1.i.i = phi i32 [ %271, %266 ], [ %.06.i.i, %.lr.ph.split.i.i ], [ %.06.i.i, %255 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %make_callstmt_target.exit.i, label %.lr.ph.splitthread-pre-split.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %make_callstmt_target.argprom.exit.i, label %.lr.ph.splitthread-pre-split.i.i, !llvm.loop !12
 
-make_callstmt_target.exit.i:                      ; preds = %293, %.lr.ph.i.i, %235
+make_callstmt_target.argprom.exit.i:              ; preds = %293, %.lr.ph.i.i, %235
   %.0.lcssa.i.i = phi i32 [ 0, %235 ], [ 0, %.lr.ph.i.i ], [ %.1.i.i, %293 ]
   %294 = getelementptr inbounds i8, ptr %240, i64 40
   store i32 %.0.lcssa.i.i, ptr %294, align 8
@@ -4443,7 +4443,7 @@ make_callstmt_target.exit.i:                      ; preds = %293, %.lr.ph.i.i, %
   store ptr %240, ptr %189, align 8
   br label %295
 
-295:                                              ; preds = %make_callstmt_target.exit.i, %188, %184
+295:                                              ; preds = %make_callstmt_target.argprom.exit.i, %188, %184
   %296 = getelementptr inbounds i8, ptr %179, i64 24
   %297 = load ptr, ptr %296, align 8
   %298 = icmp eq ptr %297, null
@@ -4559,7 +4559,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %350 = load ptr, ptr @SPI_tuptable, align 8
   call void @SPI_freetuptable(ptr noundef %350) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %73)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 351:                                              ; preds = %146
   %352 = getelementptr inbounds i8, ptr %137, i64 12
@@ -4852,13 +4852,13 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   store ptr null, ptr %83, align 8
   %509 = load ptr, ptr %82, align 8
   %.not6.i.i100 = icmp eq ptr %509, null
-  br i1 %.not6.i.i100, label %exec_stmt_perform.exit, label %510
+  br i1 %.not6.i.i100, label %exec_stmt_perform.argprom.exit, label %510
 
 510:                                              ; preds = %508
   %511 = getelementptr inbounds i8, ptr %509, i64 40
   %512 = load ptr, ptr %511, align 8
   call void @MemoryContextReset(ptr noundef %512) #11
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 513:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %69)
@@ -4978,7 +4978,7 @@ exec_stmt_if.exit:                                ; preds = %529, %.split549, %.
   %562 = load ptr, ptr %.sink886, align 8
   %563 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %562)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %69)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 564:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %66)
@@ -5255,13 +5255,13 @@ exec_stmt_case.exit:                              ; preds = %657, %699
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 703:                                              ; preds = %.backedge, %.preheader
   %704 = load ptr, ptr %148, align 8
   %705 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %704)
   switch i32 %705, label %.backedge [
-    i32 2, label %exec_stmt_perform.exit
+    i32 2, label %exec_stmt_perform.argprom.exit
     i32 1, label %706
     i32 3, label %715
   ]
@@ -5269,21 +5269,21 @@ exec_stmt_case.exit:                              ; preds = %657, %699
 706:                                              ; preds = %703
   %707 = load ptr, ptr %116, align 8
   %708 = icmp eq ptr %707, null
-  br i1 %708, label %exec_stmt_perform.exit, label %709
+  br i1 %708, label %exec_stmt_perform.argprom.exit, label %709
 
 709:                                              ; preds = %706
   %710 = load ptr, ptr %149, align 8
   %.not20.i = icmp eq ptr %710, null
-  br i1 %.not20.i, label %exec_stmt_perform.exit, label %711
+  br i1 %.not20.i, label %exec_stmt_perform.argprom.exit, label %711
 
 711:                                              ; preds = %709
   %712 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %710, ptr noundef nonnull dereferenceable(1) %707) #15
   %713 = icmp eq i32 %712, 0
-  br i1 %713, label %714, label %exec_stmt_perform.exit
+  br i1 %713, label %714, label %exec_stmt_perform.argprom.exit
 
 714:                                              ; preds = %711
   store ptr null, ptr %116, align 8
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 715:                                              ; preds = %703
   %716 = load ptr, ptr %116, align 8
@@ -5293,12 +5293,12 @@ exec_stmt_case.exit:                              ; preds = %657, %699
 718:                                              ; preds = %715
   %719 = load ptr, ptr %149, align 8
   %.not.i107 = icmp eq ptr %719, null
-  br i1 %.not.i107, label %exec_stmt_perform.exit, label %720
+  br i1 %.not.i107, label %exec_stmt_perform.argprom.exit, label %720
 
 720:                                              ; preds = %718
   %721 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %719, ptr noundef nonnull dereferenceable(1) %716) #15
   %722 = icmp eq i32 %721, 0
-  br i1 %722, label %723, label %exec_stmt_perform.exit
+  br i1 %722, label %723, label %exec_stmt_perform.argprom.exit
 
 723:                                              ; preds = %720
   store ptr null, ptr %116, align 8
@@ -5406,7 +5406,7 @@ exec_eval_cleanup.exit208:                        ; preds = %736, %738
 exec_stmt_while.exit:                             ; preds = %exec_eval_cleanup.exit208, %743, %758, %760, %746, %749, %751, %754
   %.1.i = phi i32 [ 0, %754 ], [ 1, %751 ], [ 1, %749 ], [ 0, %746 ], [ 3, %758 ], [ 3, %760 ], [ %745, %743 ], [ %.0.i109, %exec_eval_cleanup.exit208 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %65)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 764:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %62)
@@ -5694,7 +5694,7 @@ exec_stmt_fori.exit:                              ; preds = %exec_stmt_fori.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 908:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
@@ -5706,7 +5706,7 @@ exec_stmt_fori.exit:                              ; preds = %exec_stmt_fori.exit
   %914 = load ptr, ptr %61, align 8
   call void @SPI_cursor_close(ptr noundef %914) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 915:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %60)
@@ -5788,7 +5788,7 @@ get_stmt_mcontext.exit:                           ; preds = %925, %928
   %958 = getelementptr ptr, ptr %956, i64 %957
   %959 = load ptr, ptr %958, align 8
   store ptr %959, ptr %120, align 8
-  call fastcc void @exec_stmt_execsql(ptr noundef %0, ptr noundef nonnull %60)
+  call fastcc void @exec_stmt_execsql.retelim(ptr noundef %0, ptr noundef nonnull %60)
   br label %966
 
 960:                                              ; preds = %942
@@ -5952,7 +5952,7 @@ assign_simple_var.exit221:                        ; preds = %1012, %1034, %1035
 
 exec_stmt_forc.exit:                              ; preds = %1010, %assign_simple_var.exit221
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1041:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56)
@@ -6204,7 +6204,7 @@ exec_stmt_foreach_a.exit:                         ; preds = %1151, %1149, %1134,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %59)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1164:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %55)
@@ -6262,7 +6262,7 @@ exec_eval_cleanup.exit.i:                         ; preds = %1176, %1174
 exec_stmt_exit.exit:                              ; preds = %exec_eval_cleanup.exit.i, %1181
   %.0.i126 = phi i32 [ 0, %exec_eval_cleanup.exit.i ], [ %..i, %1181 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1187:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51)
@@ -6412,7 +6412,7 @@ exec_stmt_exit.exit:                              ; preds = %exec_eval_cleanup.e
 exec_stmt_return.exit:                            ; preds = %1187, %1201, %1213, %1219, %1222, %1227, %1232, %1240, %1244, %1247, %1254, %1257, %1261
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1262:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
@@ -6766,7 +6766,7 @@ exec_stmt_return_next.exit:                       ; preds = %1439, %1441
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1444:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
@@ -6990,7 +6990,7 @@ exec_stmt_return_query.exit:                      ; preds = %1535, %1537
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1550:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
@@ -7581,7 +7581,7 @@ exec_stmt_raise.exit:                             ; preds = %1755, %1784
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1785:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23)
@@ -7646,7 +7646,7 @@ exec_eval_cleanup.exit.i160:                      ; preds = %1799, %1797
   %.val.i163 = load ptr, ptr %82, align 8
   %1813 = getelementptr i8, ptr %.val.i163, i64 40
   %.val.val.i164 = load ptr, ptr %1813, align 8
-  %1814 = call fastcc ptr @convert_value_to_string(ptr %.val.val.i164, i64 noundef %1808, i32 noundef %1812)
+  %1814 = call fastcc ptr @convert_value_to_string.argprom.argprom(ptr %.val.val.i164, i64 noundef %1808, i32 noundef %1812)
   br label %1815
 
 1815:                                             ; preds = %1811, %1807, %1804
@@ -7673,11 +7673,11 @@ exec_stmt_assert.exit:                            ; preds = %1785, %exec_eval_cl
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1823:                                             ; preds = %146
-  call fastcc void @exec_stmt_execsql(ptr noundef %0, ptr noundef nonnull %137)
-  br label %exec_stmt_perform.exit
+  call fastcc void @exec_stmt_execsql.retelim(ptr noundef %0, ptr noundef nonnull %137)
+  br label %exec_stmt_perform.argprom.exit
 
 1824:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
@@ -7948,7 +7948,7 @@ exec_stmt_dynexecute.exit:                        ; preds = %1877, %1942, %1944
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1948:                                             ; preds = %146
   %1949 = getelementptr inbounds i8, ptr %137, i64 40
@@ -7958,7 +7958,7 @@ exec_stmt_dynexecute.exit:                        ; preds = %1877, %1942, %1944
   %1953 = call fastcc ptr @exec_dynquery_with_params(ptr noundef %0, ptr noundef %1950, ptr noundef %1952, ptr noundef null, i32 noundef 4)
   %1954 = call fastcc i32 @exec_for_query(ptr noundef %0, ptr noundef nonnull %137, ptr noundef nonnull %1953, i1 noundef zeroext true)
   call void @SPI_cursor_close(ptr noundef nonnull %1953) #11
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 1955:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
@@ -8082,7 +8082,7 @@ get_stmt_mcontext.exit.i173:                      ; preds = %1968, %1965
   %2023 = getelementptr ptr, ptr %2021, i64 %2022
   %2024 = load ptr, ptr %2023, align 8
   store ptr %2024, ptr %92, align 8
-  call fastcc void @exec_stmt_execsql(ptr noundef %0, ptr noundef nonnull %14)
+  call fastcc void @exec_stmt_execsql.retelim(ptr noundef %0, ptr noundef nonnull %14)
   br label %2031
 
 2025:                                             ; preds = %2007
@@ -8190,7 +8190,7 @@ exec_eval_cleanup.exit.i182:                      ; preds = %2072, %2070
 
 exec_stmt_open.exit:                              ; preds = %1995, %2002, %exec_eval_cleanup.exit.i182, %2075
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 2076:                                             ; preds = %146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
@@ -8365,7 +8365,7 @@ exec_stmt_fetch.exit:                             ; preds = %exec_eval_cleanup.e
   %2170 = zext i1 %2164 to i64
   call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %2169, i64 noundef %2170, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 2171:                                             ; preds = %146
   %2172 = getelementptr i8, ptr %137, i64 12
@@ -8402,7 +8402,7 @@ exec_stmt_fetch.exit:                             ; preds = %exec_eval_cleanup.e
   store ptr %2190, ptr @CurrentMemoryContext, align 8
   %2195 = call ptr @SPI_cursor_find(ptr noundef %2194) #11
   %2196 = icmp eq ptr %2195, null
-  br i1 %2196, label %2197, label %exec_stmt_close.exit
+  br i1 %2196, label %2197, label %exec_stmt_close.argprom.exit
 
 2197:                                             ; preds = %2186
   %2198 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
@@ -8412,9 +8412,9 @@ exec_stmt_fetch.exit:                             ; preds = %exec_eval_cleanup.e
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 4942, ptr noundef nonnull @__func__.exec_stmt_close) #11
   unreachable
 
-exec_stmt_close.exit:                             ; preds = %2186
+exec_stmt_close.argprom.exit:                     ; preds = %2186
   call void @SPI_cursor_close(ptr noundef nonnull %2195) #11
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 2201:                                             ; preds = %146
   %2202 = getelementptr i8, ptr %137, i64 12
@@ -8424,16 +8424,16 @@ exec_stmt_close.exit:                             ; preds = %2186
 
 2204:                                             ; preds = %2201
   call void @SPI_commit_and_chain() #11
-  br label %exec_stmt_commit.exit
+  br label %exec_stmt_commit.argprom.exit
 
 2205:                                             ; preds = %2201
   call void @SPI_commit() #11
-  br label %exec_stmt_commit.exit
+  br label %exec_stmt_commit.argprom.exit
 
-exec_stmt_commit.exit:                            ; preds = %2204, %2205
+exec_stmt_commit.argprom.exit:                    ; preds = %2204, %2205
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
   call fastcc void @plpgsql_create_econtext(ptr noundef %0)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 2206:                                             ; preds = %146
   %2207 = getelementptr i8, ptr %137, i64 12
@@ -8443,16 +8443,16 @@ exec_stmt_commit.exit:                            ; preds = %2204, %2205
 
 2209:                                             ; preds = %2206
   call void @SPI_rollback_and_chain() #11
-  br label %exec_stmt_rollback.exit
+  br label %exec_stmt_rollback.argprom.exit
 
 2210:                                             ; preds = %2206
   call void @SPI_rollback() #11
-  br label %exec_stmt_rollback.exit
+  br label %exec_stmt_rollback.argprom.exit
 
-exec_stmt_rollback.exit:                          ; preds = %2209, %2210
+exec_stmt_rollback.argprom.exit:                  ; preds = %2209, %2210
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
   call fastcc void @plpgsql_create_econtext(ptr noundef %0)
-  br label %exec_stmt_perform.exit
+  br label %exec_stmt_perform.argprom.exit
 
 2211:                                             ; preds = %146
   store ptr %75, ptr %74, align 8
@@ -8463,14 +8463,14 @@ exec_stmt_rollback.exit:                          ; preds = %2209, %2210
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2125, ptr noundef nonnull @__func__.exec_stmts) #11
   unreachable
 
-exec_stmt_perform.exit:                           ; preds = %720, %718, %703, %714, %711, %709, %706, %510, %508, %174, %172, %exec_stmt_rollback.exit, %exec_stmt_commit.exit, %exec_stmt_close.exit, %exec_stmt_fetch.exit, %exec_stmt_open.exit, %1948, %exec_stmt_dynexecute.exit, %1823, %exec_stmt_assert.exit, %exec_stmt_raise.exit, %exec_stmt_return_query.exit, %exec_stmt_return_next.exit, %exec_stmt_return.exit, %exec_stmt_exit.exit, %exec_stmt_foreach_a.exit, %exec_stmt_forc.exit, %908, %exec_stmt_fori.exit, %exec_stmt_while.exit, %exec_stmt_case.exit, %exec_stmt_if.exit, %exec_stmt_call.exit, %152, %150
-  %.0 = phi i32 [ 0, %exec_stmt_rollback.exit ], [ 0, %exec_stmt_commit.exit ], [ 0, %exec_stmt_close.exit ], [ 0, %exec_stmt_fetch.exit ], [ 0, %exec_stmt_open.exit ], [ %1954, %1948 ], [ 0, %exec_stmt_dynexecute.exit ], [ 0, %1823 ], [ 0, %exec_stmt_assert.exit ], [ 0, %exec_stmt_raise.exit ], [ 0, %exec_stmt_return_query.exit ], [ 0, %exec_stmt_return_next.exit ], [ 2, %exec_stmt_return.exit ], [ %.0.i126, %exec_stmt_exit.exit ], [ %.160.i, %exec_stmt_foreach_a.exit ], [ %1011, %exec_stmt_forc.exit ], [ %913, %908 ], [ %.1.i114, %exec_stmt_fori.exit ], [ %.1.i, %exec_stmt_while.exit ], [ %702, %exec_stmt_case.exit ], [ %563, %exec_stmt_if.exit ], [ 0, %exec_stmt_call.exit ], [ 0, %152 ], [ %151, %150 ], [ 0, %172 ], [ 0, %174 ], [ 0, %508 ], [ 0, %510 ], [ 0, %714 ], [ 1, %711 ], [ 1, %709 ], [ 0, %706 ], [ %705, %703 ], [ %705, %718 ], [ %705, %720 ]
+exec_stmt_perform.argprom.exit:                   ; preds = %720, %718, %703, %714, %711, %709, %706, %510, %508, %174, %172, %exec_stmt_rollback.argprom.exit, %exec_stmt_commit.argprom.exit, %exec_stmt_close.argprom.exit, %exec_stmt_fetch.exit, %exec_stmt_open.exit, %1948, %exec_stmt_dynexecute.exit, %1823, %exec_stmt_assert.exit, %exec_stmt_raise.exit, %exec_stmt_return_query.exit, %exec_stmt_return_next.exit, %exec_stmt_return.exit, %exec_stmt_exit.exit, %exec_stmt_foreach_a.exit, %exec_stmt_forc.exit, %908, %exec_stmt_fori.exit, %exec_stmt_while.exit, %exec_stmt_case.exit, %exec_stmt_if.exit, %exec_stmt_call.exit, %152, %150
+  %.0 = phi i32 [ 0, %exec_stmt_rollback.argprom.exit ], [ 0, %exec_stmt_commit.argprom.exit ], [ 0, %exec_stmt_close.argprom.exit ], [ 0, %exec_stmt_fetch.exit ], [ 0, %exec_stmt_open.exit ], [ %1954, %1948 ], [ 0, %exec_stmt_dynexecute.exit ], [ 0, %1823 ], [ 0, %exec_stmt_assert.exit ], [ 0, %exec_stmt_raise.exit ], [ 0, %exec_stmt_return_query.exit ], [ 0, %exec_stmt_return_next.exit ], [ 2, %exec_stmt_return.exit ], [ %.0.i126, %exec_stmt_exit.exit ], [ %.160.i, %exec_stmt_foreach_a.exit ], [ %1011, %exec_stmt_forc.exit ], [ %913, %908 ], [ %.1.i114, %exec_stmt_fori.exit ], [ %.1.i, %exec_stmt_while.exit ], [ %702, %exec_stmt_case.exit ], [ %563, %exec_stmt_if.exit ], [ 0, %exec_stmt_call.exit ], [ 0, %152 ], [ %151, %150 ], [ 0, %172 ], [ 0, %174 ], [ 0, %508 ], [ 0, %510 ], [ 0, %714 ], [ 1, %711 ], [ 1, %709 ], [ 0, %706 ], [ %705, %703 ], [ %705, %718 ], [ %705, %720 ]
   %2215 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %2216 = load ptr, ptr %2215, align 8
   %.not88 = icmp eq ptr %2216, null
   br i1 %.not88, label %2221, label %2217
 
-2217:                                             ; preds = %exec_stmt_perform.exit
+2217:                                             ; preds = %exec_stmt_perform.argprom.exit
   %2218 = getelementptr inbounds i8, ptr %2216, i64 32
   %2219 = load ptr, ptr %2218, align 8
   %.not89 = icmp eq ptr %2219, null
@@ -8481,8 +8481,8 @@ exec_stmt_perform.exit:                           ; preds = %720, %718, %703, %7
   %.pre = load ptr, ptr @plpgsql_plugin_ptr, align 8
   br label %2221
 
-2221:                                             ; preds = %2220, %2217, %exec_stmt_perform.exit
-  %2222 = phi ptr [ %.pre, %2220 ], [ %2215, %2217 ], [ %2215, %exec_stmt_perform.exit ]
+2221:                                             ; preds = %2220, %2217, %exec_stmt_perform.argprom.exit
+  %2222 = phi ptr [ %.pre, %2220 ], [ %2215, %2217 ], [ %2215, %exec_stmt_perform.argprom.exit ]
   %.not90 = icmp eq i32 %.0, 0
   br i1 %.not90, label %130, label %2223
 
@@ -8756,7 +8756,7 @@ list_length.exit62.i:                             ; preds = %101
   %125 = getelementptr i8, ptr %.val58.i, i64 16
   %.val58.val.i = load ptr, ptr %125, align 8
   %.val58.val.val.i = load ptr, ptr %.val58.val.i, align 8
-  call fastcc void @exec_save_simple_expr(ptr noundef nonnull %1, ptr %.val58.val.val.i)
+  call fastcc void @exec_save_simple_expr.argprom.argprom.argprom(ptr noundef nonnull %1, ptr %.val58.val.val.i)
   br label %126
 
 126:                                              ; preds = %117, %106
@@ -8866,7 +8866,7 @@ define internal fastcc i64 @exec_eval_expr(ptr nocapture noundef %0, ptr noundef
   %62 = getelementptr i8, ptr %.val.i, i64 16
   %.val.val.i = load ptr, ptr %62, align 8
   %.val.val.val.i = load ptr, ptr %.val.val.i, align 8
-  tail call fastcc void @exec_save_simple_expr(ptr noundef nonnull %1, ptr %.val.val.val.i)
+  tail call fastcc void @exec_save_simple_expr.argprom.argprom.argprom(ptr noundef nonnull %1, ptr %.val.val.val.i)
   br label %66
 
 63:                                               ; preds = %48
@@ -9060,7 +9060,7 @@ declare ptr @SPI_plan_get_cached_plan(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_save_simple_expr(ptr nocapture noundef %0, ptr nocapture readonly %.8.val.16.val.0.val) unnamed_addr #0 {
+define internal fastcc void @exec_save_simple_expr.argprom.argprom.argprom(ptr nocapture noundef %0, ptr nocapture readonly %.8.val.16.val.0.val) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.8.val.16.val.0.val, i64 32
   br label %3
 
@@ -9402,7 +9402,7 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_stmt_execsql(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @exec_stmt_execsql.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @plpgsql_extra_errors, align 4
@@ -11051,7 +11051,7 @@ declare ptr @CreateDestReceiver(i32 noundef) local_unnamed_addr #1
 declare void @SetTuplestoreDestReceiverParams(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @convert_value_to_string(ptr %.200.val.40.val, i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @convert_value_to_string.argprom.argprom(ptr %.200.val.40.val, i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -12028,7 +12028,7 @@ define internal void @plpgsql_param_eval_generic(ptr nocapture readnone %0, ptr 
 declare void @ExprEvalPushStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_expanded_record_for_rec(ptr %.200.val.40.val, ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @make_expanded_record_for_rec.argprom.argprom(ptr %.200.val.40.val, ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 2249
@@ -12094,7 +12094,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %26, %23, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_record_var(ptr %.120.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @assign_record_var.argprom(ptr %.120.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @MemoryContextSetParent(ptr noundef %4, ptr noundef %.120.val) #11
@@ -12346,15 +12346,15 @@ expanded_record_get_tupdesc.exit:                 ; preds = %26, %29
   %110 = getelementptr inbounds i8, ptr %1, i64 48
   %111 = load ptr, ptr %110, align 8
   %.not.i191 = icmp eq ptr %111, null
-  br i1 %.not.i191, label %assign_record_var.exit, label %112
+  br i1 %.not.i191, label %assign_record_var.argprom.exit, label %112
 
 112:                                              ; preds = %.critedge186
   %113 = getelementptr inbounds i8, ptr %111, i64 24
   %114 = ptrtoint ptr %113 to i64
   call void @DeleteExpandedObject(i64 noundef %114) #11
-  br label %assign_record_var.exit
+  br label %assign_record_var.argprom.exit
 
-assign_record_var.exit:                           ; preds = %.critedge186, %112
+assign_record_var.argprom.exit:                   ; preds = %.critedge186, %112
   store ptr %2, ptr %110, align 8
   br label %.critedge190
 
@@ -12476,7 +12476,7 @@ assign_record_var.exit:                           ; preds = %.critedge186, %112
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 7275, ptr noundef nonnull @__func__.exec_move_row_from_fields) #11
   unreachable
 
-.critedge190:                                     ; preds = %155, %.critedge17, %161, %._crit_edge, %assign_record_var.exit
+.critedge190:                                     ; preds = %155, %.critedge17, %161, %._crit_edge, %assign_record_var.argprom.exit
   ret void
 }
 

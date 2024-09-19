@@ -316,26 +316,26 @@ define void @_ZN9text_edit8TextEdit5apply17hfac62dd931182d45E(ptr noalias nocapt
 29:                                               ; preds = %2, %16, %67
   ret void
 
-._crit_edge:                                      ; preds = %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24"
+._crit_edge:                                      ; preds = %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit24"
   store i32 %41, ptr %6, align 4
   %.not.i.not = icmp ult i32 %.0.sroa.speculated.i, %13
   br i1 %.not.i.not, label %.lr.ph38.preheader, label %43
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24"
-  %.035 = phi i32 [ %.0.sroa.speculated.i, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24" ], [ %13, %.lr.ph.preheader ]
-  %.sroa.0.034 = phi ptr [ %34, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24" ], [ %.val22, %.lr.ph.preheader ]
-  %30 = phi i32 [ %41, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24" ], [ %13, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit24"
+  %.035 = phi i32 [ %.0.sroa.speculated.i, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit24" ], [ %13, %.lr.ph.preheader ]
+  %.sroa.0.034 = phi ptr [ %34, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit24" ], [ %.val22, %.lr.ph.preheader ]
+  %30 = phi i32 [ %41, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit24" ], [ %13, %.lr.ph.preheader ]
   %31 = getelementptr i8, ptr %.sroa.0.034, i64 16
   %.val20 = load i64, ptr %31, align 8, !noundef !16
   %32 = icmp ult i64 %.val20, 4294967296
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %32, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24", label %33
+  br i1 %32, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit24", label %33
 
 33:                                               ; preds = %.lr.ph
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.029e50a0f95560398ef8371eaa9f16fa.0, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.5) #19
   unreachable
 
-"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24": ; preds = %.lr.ph
+"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit24": ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %.sroa.0.034, i64 32
   %35 = trunc nuw i64 %.val20 to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
@@ -370,13 +370,13 @@ define void @_ZN9text_edit8TextEdit5apply17hfac62dd931182d45E(ptr noalias nocapt
   %.val = load i64, ptr %10, align 8, !noundef !16
   %50 = icmp ult i64 %.val, 4294967296
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %50, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit26", label %51
+  br i1 %50, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit26", label %51
 
 51:                                               ; preds = %._crit_edge39
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.029e50a0f95560398ef8371eaa9f16fa.0, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.5) #19
   unreachable
 
-"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit26": ; preds = %._crit_edge39
+"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit26": ; preds = %._crit_edge39
   %52 = trunc nuw i64 %.val to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   store i32 %52, ptr %5, align 4
@@ -401,13 +401,13 @@ define void @_ZN9text_edit8TextEdit5apply17hfac62dd931182d45E(ptr noalias nocapt
   %65 = icmp eq ptr %.val22, %54
   br i1 %65, label %._crit_edge39, label %.lr.ph38
 
-66:                                               ; preds = %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit26"
+66:                                               ; preds = %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit26"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr null, ptr %4, align 8
   call void @_ZN4core9panicking13assert_failed17h73ce9739ecfc1a96E(i8 noundef 0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.10) #19
   unreachable
 
-67:                                               ; preds = %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit26"
+67:                                               ; preds = %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit26"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %29
@@ -541,9 +541,9 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   %7 = icmp eq i64 %.val23, 0
   br i1 %7, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit"
-  %.01630 = phi i32 [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %1, %2 ]
-  %.sroa.0.02429 = phi ptr [ %8, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %.val22, %2 ]
+.lr.ph:                                           ; preds = %2, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit"
+  %.01630 = phi i32 [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit" ], [ %1, %2 ]
+  %.sroa.0.02429 = phi ptr [ %8, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit" ], [ %.val22, %2 ]
   %8 = getelementptr inbounds i8, ptr %.sroa.0.02429, i64 32
   %9 = getelementptr inbounds i8, ptr %.sroa.0.02429, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !16
@@ -561,13 +561,13 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   %.val = load i64, ptr %16, align 8, !noundef !16
   %17 = icmp ult i64 %.val, 4294967296
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %17, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit", label %18
+  br i1 %17, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit", label %18
 
 18:                                               ; preds = %15
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.029e50a0f95560398ef8371eaa9f16fa.0, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.5) #19
   unreachable
 
-"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit": ; preds = %15
+"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit": ; preds = %15
   %19 = trunc nuw i64 %.val to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %20 = add i32 %10, %.01630
@@ -576,9 +576,9 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   %22 = icmp eq ptr %8, %6
   br i1 %22, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %.lr.ph, %13, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit", %2
-  %.016.lcssa = phi i32 [ %1, %2 ], [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %.01630, %13 ], [ %.01630, %.lr.ph ]
-  %.sroa.0.0 = phi i32 [ 1, %2 ], [ 1, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ 0, %13 ], [ 1, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %13, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit", %2
+  %.016.lcssa = phi i32 [ %1, %2 ], [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit" ], [ %.01630, %13 ], [ %.01630, %.lr.ph ]
+  %.sroa.0.0 = phi i32 [ 1, %2 ], [ 1, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.argprom.exit" ], [ 0, %13 ], [ 1, %.lr.ph ]
   %23 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %24 = insertvalue { i32, i32 } %23, i32 %.016.lcssa, 1
   ret { i32, i32 } %24

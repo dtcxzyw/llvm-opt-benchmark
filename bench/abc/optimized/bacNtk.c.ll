@@ -1284,7 +1284,7 @@ Bac_ObjNameId.exit226:                            ; preds = %176, %181
   %187 = getelementptr inbounds i8, ptr %186, i64 4
   %188 = load i32, ptr %187, align 4
   %189 = icmp sgt i32 %188, -1
-  br i1 %189, label %190, label %Bac_NtkInfoRange.exit
+  br i1 %189, label %190, label %Bac_NtkInfoRange.argprom.exit
 
 190:                                              ; preds = %Bac_ObjNameId.exit226
   %191 = getelementptr inbounds i8, ptr %186, i64 8
@@ -1292,9 +1292,9 @@ Bac_ObjNameId.exit226:                            ; preds = %176, %181
   %193 = sub nsw i32 %192, %188
   %.in.i.i227 = call i32 @llvm.abs.i32(i32 %193, i1 true)
   %194 = add nuw nsw i32 %.in.i.i227, 1
-  br label %Bac_NtkInfoRange.exit
+  br label %Bac_NtkInfoRange.argprom.exit
 
-Bac_NtkInfoRange.exit:                            ; preds = %Bac_ObjNameId.exit226, %190
+Bac_NtkInfoRange.argprom.exit:                    ; preds = %Bac_ObjNameId.exit226, %190
   %195 = phi i32 [ %194, %190 ], [ 1, %Bac_ObjNameId.exit226 ]
   %196 = add nuw nsw i32 %195, %.0132316
   br label %229
@@ -1340,7 +1340,7 @@ Bac_ObjNameId.exit234:                            ; preds = %208, %213
   %219 = getelementptr inbounds i8, ptr %218, i64 4
   %220 = load i32, ptr %219, align 4
   %221 = icmp sgt i32 %220, -1
-  br i1 %221, label %222, label %Bac_NtkInfoRange.exit236
+  br i1 %221, label %222, label %Bac_NtkInfoRange.argprom.exit236
 
 222:                                              ; preds = %Bac_ObjNameId.exit234
   %223 = getelementptr inbounds i8, ptr %218, i64 8
@@ -1348,17 +1348,17 @@ Bac_ObjNameId.exit234:                            ; preds = %208, %213
   %225 = sub nsw i32 %224, %220
   %.in.i.i235 = call i32 @llvm.abs.i32(i32 %225, i1 true)
   %226 = add nuw nsw i32 %.in.i.i235, 1
-  br label %Bac_NtkInfoRange.exit236
+  br label %Bac_NtkInfoRange.argprom.exit236
 
-Bac_NtkInfoRange.exit236:                         ; preds = %Bac_ObjNameId.exit234, %222
+Bac_NtkInfoRange.argprom.exit236:                 ; preds = %Bac_ObjNameId.exit234, %222
   %227 = phi i32 [ %226, %222 ], [ 1, %Bac_ObjNameId.exit234 ]
   %228 = add nuw nsw i32 %227, %.0130317
   br label %229
 
-229:                                              ; preds = %163, %Bac_NtkInfoRange.exit, %Bac_NtkInfoRange.exit236
-  %.val185372 = phi ptr [ %.val189, %Bac_NtkInfoRange.exit ], [ %.val190, %Bac_NtkInfoRange.exit236 ], [ %.val185, %163 ]
-  %.1133 = phi i32 [ %196, %Bac_NtkInfoRange.exit ], [ %.0132316, %Bac_NtkInfoRange.exit236 ], [ %.0132316, %163 ]
-  %.1131 = phi i32 [ %.0130317, %Bac_NtkInfoRange.exit ], [ %228, %Bac_NtkInfoRange.exit236 ], [ %.0130317, %163 ]
+229:                                              ; preds = %163, %Bac_NtkInfoRange.argprom.exit, %Bac_NtkInfoRange.argprom.exit236
+  %.val185372 = phi ptr [ %.val189, %Bac_NtkInfoRange.argprom.exit ], [ %.val190, %Bac_NtkInfoRange.argprom.exit236 ], [ %.val185, %163 ]
+  %.1133 = phi i32 [ %196, %Bac_NtkInfoRange.argprom.exit ], [ %.0132316, %Bac_NtkInfoRange.argprom.exit236 ], [ %.0132316, %163 ]
+  %.1131 = phi i32 [ %.0130317, %Bac_NtkInfoRange.argprom.exit ], [ %228, %Bac_NtkInfoRange.argprom.exit236 ], [ %.0130317, %163 ]
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %.val184 = load i32, ptr %157, align 4
   %230 = sdiv i32 %.val184, 3
@@ -1784,22 +1784,22 @@ define i32 @Bac_ManClpObjNum_rec(ptr nocapture noundef %0) local_unnamed_addr #8
   %18 = getelementptr inbounds i32, ptr %.val25, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.exit
+  br i1 %20, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.argprom.exit
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %17
   %21 = getelementptr i8, ptr %.val24, i64 36
   %.val.i.i.i = load i32, ptr %21, align 4
   %.not4.i.i = icmp sgt i32 %19, %.val.i.i.i
-  br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %22
+  br i1 %.not4.i.i, label %Bac_BoxNtk.argprom.exit, label %22
 
 22:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
   %23 = getelementptr inbounds i8, ptr %.val24, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %19 to i64
   %26 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %24, i64 %25
-  br label %Bac_BoxNtk.exit
+  br label %Bac_BoxNtk.argprom.exit
 
-Bac_BoxNtk.exit:                                  ; preds = %17, %Bac_ManNtkIsOk.exit.i.i, %22
+Bac_BoxNtk.argprom.exit:                          ; preds = %17, %Bac_ManNtkIsOk.exit.i.i, %22
   %27 = phi ptr [ %26, %22 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %17 ]
   %28 = tail call i32 @Bac_ManClpObjNum_rec(ptr noundef %27)
   %.val.i = load i32, ptr %5, align 4
@@ -1810,8 +1810,8 @@ Bac_BoxNtk.exit:                                  ; preds = %17, %Bac_ManNtkIsOk
   %32 = add nsw i32 %smax.i, -1
   br label %33
 
-33:                                               ; preds = %35, %Bac_BoxNtk.exit
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ %indvars.iv, %Bac_BoxNtk.exit ]
+33:                                               ; preds = %35, %Bac_BoxNtk.argprom.exit
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ %indvars.iv, %Bac_BoxNtk.argprom.exit ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = icmp slt i64 %indvars.iv.next.i, %29
   br i1 %34, label %35, label %Bac_BoxBoNum.exit
@@ -3002,13 +3002,13 @@ Bac_ObjName.exit74.i:                             ; preds = %Bac_ObjName.exit.th
   %200 = getelementptr inbounds i32, ptr %.val52.i, i64 %indvars.iv348
   %201 = load i32, ptr %200, align 4
   %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %Bac_ManNtkIsOk.exit.i.i.i, label %Bac_BoxNtk.exit.thread.i
+  br i1 %202, label %Bac_ManNtkIsOk.exit.i.i.i, label %Bac_BoxNtk.argprom.exit.thread.i
 
 Bac_ManNtkIsOk.exit.i.i.i:                        ; preds = %199
   %203 = getelementptr i8, ptr %.val51.i, i64 36
   %.val.i.i.i.i = load i32, ptr %203, align 4
   %.not4.i.i.i = icmp sgt i32 %201, %.val.i.i.i.i
-  br i1 %.not4.i.i.i, label %Bac_BoxNtk.exit.thread.i, label %Bac_ManNtkIsOk.exit.i.i75.i
+  br i1 %.not4.i.i.i, label %Bac_BoxNtk.argprom.exit.thread.i, label %Bac_ManNtkIsOk.exit.i.i75.i
 
 Bac_ManNtkIsOk.exit.i.i75.i:                      ; preds = %Bac_ManNtkIsOk.exit.i.i.i
   %204 = getelementptr inbounds i8, ptr %.val51.i, i64 40
@@ -3017,16 +3017,16 @@ Bac_ManNtkIsOk.exit.i.i75.i:                      ; preds = %Bac_ManNtkIsOk.exit
   %207 = getelementptr %struct.Bac_Ntk_t_, ptr %205, i64 %206, i32 2
   %.val53.i = load i32, ptr %207, align 4
   tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %36, i32 noundef %177, i32 noundef %.val53.i)
-  br label %Bac_BoxNtk.exit.thread.i
+  br label %Bac_BoxNtk.argprom.exit.thread.i
 
-Bac_BoxNtk.exit.thread.i:                         ; preds = %Bac_ManNtkIsOk.exit.i.i75.i, %Bac_ManNtkIsOk.exit.i.i.i, %199
+Bac_BoxNtk.argprom.exit.thread.i:                 ; preds = %Bac_ManNtkIsOk.exit.i.i75.i, %Bac_ManNtkIsOk.exit.i.i.i, %199
   %208 = add nuw nsw i64 %indvars.iv348, 1
   %.val101.i = load i32, ptr %28, align 4
   %209 = sext i32 %.val101.i to i64
   %210 = icmp slt i64 %208, %209
   br i1 %210, label %.lr.ph103.i.preheader, label %.critedge2
 
-.lr.ph103.i.preheader:                            ; preds = %Bac_BoxNtk.exit.thread.i
+.lr.ph103.i.preheader:                            ; preds = %Bac_BoxNtk.argprom.exit.thread.i
   %.val46.i407 = load ptr, ptr %30, align 8
   %211 = getelementptr inbounds i8, ptr %.val46.i407, i64 %208
   %212 = load i8, ptr %211, align 1
@@ -3760,9 +3760,9 @@ Vec_IntSetEntry.exit259:                          ; preds = %Bac_ObjAlloc.exit17
   %507 = icmp sgt i32 %.val114, %506
   br i1 %507, label %.lr.ph312, label %.critedge2, !llvm.loop !47
 
-.critedge2:                                       ; preds = %.lr.ph103.i, %Vec_IntSetEntry.exit, %.lr.ph312, %Vec_IntSetEntry.exit259, %.lr.ph103.i.preheader, %.lr.ph312.preheader, %..critedge2_crit_edge, %.preheader304, %Bac_BoxNtk.exit.thread.i
-  %indvars.iv.next349.pre-phi = phi i64 [ %.pre397, %..critedge2_crit_edge ], [ %63, %.preheader304 ], [ %208, %Bac_BoxNtk.exit.thread.i ], [ %63, %.lr.ph312.preheader ], [ %208, %.lr.ph103.i.preheader ], [ %63, %Vec_IntSetEntry.exit259 ], [ %63, %.lr.ph312 ], [ %208, %Vec_IntSetEntry.exit ], [ %208, %.lr.ph103.i ]
-  %.val115 = phi i32 [ %.val115383, %..critedge2_crit_edge ], [ %.val115383, %.preheader304 ], [ %.val101.i, %Bac_BoxNtk.exit.thread.i ], [ %.val115383, %.lr.ph312.preheader ], [ %.val101.i, %.lr.ph103.i.preheader ], [ %.val114, %Vec_IntSetEntry.exit259 ], [ %.val114, %.lr.ph312 ], [ %.val.i139, %Vec_IntSetEntry.exit ], [ %.val.i139, %.lr.ph103.i ]
+.critedge2:                                       ; preds = %.lr.ph103.i, %Vec_IntSetEntry.exit, %.lr.ph312, %Vec_IntSetEntry.exit259, %.lr.ph103.i.preheader, %.lr.ph312.preheader, %..critedge2_crit_edge, %.preheader304, %Bac_BoxNtk.argprom.exit.thread.i
+  %indvars.iv.next349.pre-phi = phi i64 [ %.pre397, %..critedge2_crit_edge ], [ %63, %.preheader304 ], [ %208, %Bac_BoxNtk.argprom.exit.thread.i ], [ %63, %.lr.ph312.preheader ], [ %208, %.lr.ph103.i.preheader ], [ %63, %Vec_IntSetEntry.exit259 ], [ %63, %.lr.ph312 ], [ %208, %Vec_IntSetEntry.exit ], [ %208, %.lr.ph103.i ]
+  %.val115 = phi i32 [ %.val115383, %..critedge2_crit_edge ], [ %.val115383, %.preheader304 ], [ %.val101.i, %Bac_BoxNtk.argprom.exit.thread.i ], [ %.val115383, %.lr.ph312.preheader ], [ %.val101.i, %.lr.ph103.i.preheader ], [ %.val114, %Vec_IntSetEntry.exit259 ], [ %.val114, %.lr.ph312 ], [ %.val.i139, %Vec_IntSetEntry.exit ], [ %.val.i139, %.lr.ph103.i ]
   %508 = sext i32 %.val115 to i64
   %509 = icmp slt i64 %indvars.iv.next349.pre-phi, %508
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
@@ -3991,22 +3991,22 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %597 = getelementptr inbounds i32, ptr %.val129, i64 %indvars.iv358
   %598 = load i32, ptr %597, align 4
   %599 = icmp sgt i32 %598, 0
-  br i1 %599, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.exit
+  br i1 %599, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.argprom.exit
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %.critedge6
   %600 = getelementptr i8, ptr %.val128, i64 36
   %.val.i.i.i = load i32, ptr %600, align 4
   %.not4.i.i = icmp sgt i32 %598, %.val.i.i.i
-  br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %601
+  br i1 %.not4.i.i, label %Bac_BoxNtk.argprom.exit, label %601
 
 601:                                              ; preds = %Bac_ManNtkIsOk.exit.i.i
   %602 = getelementptr inbounds i8, ptr %.val128, i64 40
   %603 = load ptr, ptr %602, align 8
   %604 = zext nneg i32 %598 to i64
   %605 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %603, i64 %604
-  br label %Bac_BoxNtk.exit
+  br label %Bac_BoxNtk.argprom.exit
 
-Bac_BoxNtk.exit:                                  ; preds = %.critedge6, %Bac_ManNtkIsOk.exit.i.i, %601
+Bac_BoxNtk.argprom.exit:                          ; preds = %.critedge6, %Bac_ManNtkIsOk.exit.i.i, %601
   %606 = phi ptr [ %605, %601 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %.critedge6 ]
   tail call void @Bac_NtkCollapse_rec(ptr noundef %0, ptr noundef %606, ptr noundef nonnull %2)
   %607 = add nuw nsw i64 %indvars.iv358, 1
@@ -4015,7 +4015,7 @@ Bac_BoxNtk.exit:                                  ; preds = %.critedge6, %Bac_Ma
   %609 = icmp slt i64 %607, %608
   br i1 %609, label %.lr.ph330.preheader, label %.critedge4
 
-.lr.ph330.preheader:                              ; preds = %Bac_BoxNtk.exit
+.lr.ph330.preheader:                              ; preds = %Bac_BoxNtk.argprom.exit
   %.val125421 = load ptr, ptr %48, align 8
   %610 = getelementptr inbounds i8, ptr %.val125421, i64 %indvars.iv366
   %611 = load i8, ptr %610, align 1
@@ -4136,8 +4136,8 @@ Vec_IntSetEntry.exit295:                          ; preds = %.lr.ph426, %._crit_
   %.val113.pre = load i32, ptr %28, align 4
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.lr.ph330, %Vec_IntSetEntry.exit295, %.lr.ph330.preheader, %.critedge4.loopexit341, %.preheader, %Bac_BoxNtk.exit, %510
-  %.val113 = phi i32 [ %.val113.pre, %.critedge4.loopexit341 ], [ %.val113388, %.preheader ], [ %.val112327, %Bac_BoxNtk.exit ], [ %.val113388, %510 ], [ %.val112327, %.lr.ph330.preheader ], [ %.val112, %Vec_IntSetEntry.exit295 ], [ %.val112, %.lr.ph330 ]
+.critedge4:                                       ; preds = %.lr.ph330, %Vec_IntSetEntry.exit295, %.lr.ph330.preheader, %.critedge4.loopexit341, %.preheader, %Bac_BoxNtk.argprom.exit, %510
+  %.val113 = phi i32 [ %.val113.pre, %.critedge4.loopexit341 ], [ %.val113388, %.preheader ], [ %.val112327, %Bac_BoxNtk.argprom.exit ], [ %.val113388, %510 ], [ %.val112327, %.lr.ph330.preheader ], [ %.val112, %Vec_IntSetEntry.exit295 ], [ %.val112, %.lr.ph330 ]
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %651 = sext i32 %.val113 to i64
   %652 = icmp slt i64 %indvars.iv.next359, %651

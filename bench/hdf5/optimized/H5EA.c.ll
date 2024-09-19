@@ -344,7 +344,7 @@ define range(i32 -1, 1) i32 @H5EA_set(ptr nocapture noundef readonly %0, i64 nou
   %13 = load i64, ptr %12, align 8
   %14 = icmp uge i64 %1, %13
   %.val = load ptr, ptr %0, align 8
-  %15 = call fastcc i32 @H5EA__lookup_elmt(ptr %.val, ptr %10, i64 noundef %1, i1 noundef zeroext %14, i32 noundef 0, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %15 = call fastcc i32 @H5EA__lookup_elmt.argprom(ptr %.val, ptr %10, i64 noundef %1, i1 noundef zeroext %14, i32 noundef 0, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
 
@@ -404,7 +404,7 @@ define range(i32 -1, 1) i32 @H5EA_set(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr %.8.val, i64 noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 0, 129) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt.argprom(ptr %.0.val, ptr %.8.val, i64 noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 0, 129) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   store i8 0, ptr %8, align 1
   %9 = getelementptr inbounds i8, ptr %.0.val, i64 384
@@ -1018,7 +1018,7 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr nocapture noundef readonly %0, i64 nou
   %25 = getelementptr inbounds i8, ptr %8, i64 384
   store ptr %24, ptr %25, align 8
   %.val = load ptr, ptr %0, align 8
-  %26 = call fastcc i32 @H5EA__lookup_elmt(ptr %.val, ptr %24, i64 noundef %1, i1 noundef zeroext false, i32 noundef 128, ptr noundef %4, ptr noundef %6, ptr noundef %7, ptr noundef %5)
+  %26 = call fastcc i32 @H5EA__lookup_elmt.argprom(ptr %.val, ptr %24, i64 noundef %1, i1 noundef zeroext false, i32 noundef 128, ptr noundef %4, ptr noundef %6, ptr noundef %7, ptr noundef %5)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %50, label %28
 

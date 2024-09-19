@@ -472,7 +472,7 @@ entry:
 
 invoke.cont.i:                                    ; preds = %entry
   %tobool.not.i = icmp eq i32 %call1.i2.i, 0
-  br i1 %tobool.not.i, label %"_ZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %if.then.i
+  br i1 %tobool.not.i, label %"_ZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %call1.i2.i) #24
@@ -492,7 +492,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
   store ptr null, ptr %1, align 8
   br label %common.resume
 
-"_ZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %invoke.cont.i
+"_ZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %invoke.cont.i
   store ptr null, ptr %0, align 8
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__callable.i)
@@ -511,7 +511,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
   invoke void @_ZN7rocksdb12Customizable13GetOptionsMapERKNS_13ConfigOptionsEPKS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_PSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %status, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull %id, ptr noundef nonnull %opt_map)
           to label %invoke.cont2 unwind label %lpad
 
-invoke.cont2:                                     ; preds = %"_ZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
+invoke.cont2:                                     ; preds = %"_ZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit"
   %4 = load i8, ptr %status, align 8
   %cmp.i = icmp eq i8 %4, 0
   br i1 %cmp.i, label %if.else, label %if.then
@@ -559,7 +559,7 @@ if.then.i.i:                                      ; preds = %if.then
   store ptr %10, ptr %state_.i.i, align 8
   br label %cleanup
 
-lpad:                                             ; preds = %"_ZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
+lpad:                                             ; preds = %"_ZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit"
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -4207,7 +4207,7 @@ _ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit288.i.i.i.i.i.i: ; preds = %if.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86.i.i.i.i.i.i) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88.i.i.i.i.i.i) #22
   %call111.i5.i.i.i.i.i = invoke noundef i64 @_ZNK7rocksdb13ObjectLibrary15GetFactoryCountEPm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %num_types.i.i.i.i.i.i)
-          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSM_ENKUlvE_clEv.exit" unwind label %lpad4.i.i.i.i.i
+          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSM_ENKUlvE_clEv.argprom.exit" unwind label %lpad4.i.i.i.i.i
 
 lpad.i3.i.i.i.i.i:                                ; preds = %call.i.noexc.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
   %82 = landingpad { ptr, i32 }
@@ -4478,7 +4478,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad4.body.i.i.i.i.
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i.i.i.i) #22
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSM_ENKUlvE_clEv.exit": ; preds = %_ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit288.i.i.i.i.i.i
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb14SliceTransform16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSM_ENKUlvE_clEv.argprom.exit": ; preds = %_ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit288.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
@@ -5608,7 +5608,7 @@ entry:
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call.i.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -5616,9 +5616,9 @@ _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; pre
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
 
-"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %entry, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %entry, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
   %2 = phi ptr [ %call.i.i.i.i, %entry ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i ]
   ret ptr %2
 }
@@ -6048,7 +6048,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call3.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -6056,7 +6056,7 @@ _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; pre
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -6064,7 +6064,7 @@ lpad.i.i.i:                                       ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #22
   resume { ptr, i32 } %2
 
-"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
   %3 = phi ptr [ %call3.i.i.i, %invoke.cont.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   ret ptr %3
@@ -6113,7 +6113,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call4.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -6121,7 +6121,7 @@ _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; pre
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -6129,7 +6129,7 @@ lpad.i.i.i:                                       ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #22
   resume { ptr, i32 } %2
 
-"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
   %3 = phi ptr [ %call4.i.i.i, %invoke.cont.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   ret ptr %3
@@ -6173,7 +6173,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call3.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -6181,7 +6181,7 @@ _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; pre
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -6189,7 +6189,7 @@ lpad.i.i.i:                                       ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #22
   resume { ptr, i32 } %2
 
-"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
   %3 = phi ptr [ %call3.i.i.i, %invoke.cont.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   ret ptr %3
@@ -6231,7 +6231,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call4.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -6239,7 +6239,7 @@ _ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i: ; pre
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -6247,7 +6247,7 @@ lpad.i.i.i:                                       ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #22
   resume { ptr, i32 } %2
 
-"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb14SliceTransformERZNS0_L29RegisterBuiltinSliceTransformERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSD_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i
   %3 = phi ptr [ %call4.i.i.i, %invoke.cont.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb14SliceTransformEEclEPS2_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   ret ptr %3

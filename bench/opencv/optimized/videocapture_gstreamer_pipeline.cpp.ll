@@ -2117,7 +2117,7 @@ define linkonce_odr hidden void @_Z13createCaptureRKNSt7__cxx1112basic_stringIcS
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28, align 8, !noalias !12
   %31 = getelementptr inbounds i8, ptr %28, i64 16
   invoke void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %31, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1800)
-          to label %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !12
+          to label %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !12
 
 common.resume:                                    ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i42, %152, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %32, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i ], [ %.pn33, %152 ], [ %165, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i42 ]
@@ -2129,7 +2129,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN
   tail call void @_ZdlPv(ptr noundef nonnull %28) #21, !noalias !12
   br label %common.resume
 
-_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %23
+_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %23
   store ptr %31, ptr %0, align 8, !alias.scope !9
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %33, align 8, !alias.scope !9
@@ -2507,7 +2507,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %161, align 8, !noalias !24
   %164 = getelementptr inbounds i8, ptr %161, i64 16
   invoke void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %164, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1900)
-          to label %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.exit43 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i42, !noalias !24
+          to label %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom.exit43 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i42, !noalias !24
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i42: ; preds = %156
   %165 = landingpad { ptr, i32 }
@@ -2515,7 +2515,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN
   tail call void @_ZdlPv(ptr noundef nonnull %161) #21, !noalias !24
   br label %common.resume
 
-_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.exit43: ; preds = %156
+_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom.exit43: ; preds = %156
   store ptr %164, ptr %0, align 8, !alias.scope !21
   %166 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %161, ptr %166, align 8, !alias.scope !21
@@ -2525,7 +2525,7 @@ _ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %168
 
-168:                                              ; preds = %167, %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.exit43, %151, %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.exit
+168:                                              ; preds = %167, %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom.exit43, %151, %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom.exit
   ret void
 }
 
@@ -7052,45 +7052,45 @@ attributes #22 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!11 = distinct !{!11, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_"}
+!10 = distinct !{!10, !11, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!11 = distinct !{!11, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !12 = !{!13, !10}
 !13 = distinct !{!13, !14, !"_ZSt11make_sharedIN2cv12VideoCaptureEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_: argument 0"}
 !14 = distinct !{!14, !"_ZSt11make_sharedIN2cv12VideoCaptureEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!17 = distinct !{!17, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_"}
+!16 = distinct !{!16, !17, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!17 = distinct !{!17, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !18 = !{!19, !16}
 !19 = distinct !{!19, !20, !"_ZSt11make_sharedIN2cv12VideoCaptureEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_: argument 0"}
 !20 = distinct !{!20, !"_ZSt11make_sharedIN2cv12VideoCaptureEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!23 = distinct !{!23, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_"}
+!22 = distinct !{!22, !23, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!23 = distinct !{!23, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !24 = !{!25, !22}
 !25 = distinct !{!25, !26, !"_ZSt11make_sharedIN2cv12VideoCaptureEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_: argument 0"}
 !26 = distinct !{!26, !"_ZSt11make_sharedIN2cv12VideoCaptureEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!29 = distinct !{!29, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_"}
+!28 = distinct !{!28, !29, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!29 = distinct !{!29, !"_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !30 = !{!31, !28}
 !31 = distinct !{!31, !32, !"_ZSt11make_sharedIN2cv12VideoCaptureEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_: argument 0"}
 !32 = distinct !{!32, !"_ZSt11make_sharedIN2cv12VideoCaptureEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_"}
 !33 = distinct !{!33, !6}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!36 = distinct !{!36, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_"}
+!35 = distinct !{!35, !36, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !37 = !{!38, !35}
 !38 = distinct !{!38, !39, !"_ZSt11make_sharedIN2cv11VideoWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsERKiRKjRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESP_E4typeEEDpOT0_: argument 0"}
 !39 = distinct !{!39, !"_ZSt11make_sharedIN2cv11VideoWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsERKiRKjRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESP_E4typeEEDpOT0_"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!42 = distinct !{!42, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_"}
+!41 = distinct !{!41, !42, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!42 = distinct !{!42, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !43 = !{!44, !41}
 !44 = distinct !{!44, !45, !"_ZSt11make_sharedIN2cv11VideoWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsERKiRKjRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESP_E4typeEEDpOT0_: argument 0"}
 !45 = distinct !{!45, !"_ZSt11make_sharedIN2cv11VideoWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsERKiRKjRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESP_E4typeEEDpOT0_"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!48 = distinct !{!48, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_"}
+!47 = distinct !{!47, !48, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!48 = distinct !{!48, !"_ZN2cvL7makePtrINS_11VideoWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEijNS_5Size_IiEEbEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !49 = !{!50, !47}
 !50 = distinct !{!50, !51, !"_ZSt11make_sharedIN2cv11VideoWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsERKiRKjRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESP_E4typeEEDpOT0_: argument 0"}
 !51 = distinct !{!51, !"_ZSt11make_sharedIN2cv11VideoWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16VideoCaptureAPIsERKiRKjRKNS0_5Size_IiEERKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESP_E4typeEEDpOT0_"}

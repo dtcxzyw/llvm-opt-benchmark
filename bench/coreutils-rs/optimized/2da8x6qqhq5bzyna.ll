@@ -563,7 +563,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %49 = and i32 %.val10, 268435456
   %50 = icmp ne i32 %49, 0
   %.03.i = select i1 %48, i1 true, i1 %50
-  br i1 %.03.i, label %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit, label %51
+  br i1 %.03.i, label %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.argprom.exit, label %51
 
 51:                                               ; preds = %29
   %52 = and i32 %.val, 134217728
@@ -572,9 +572,9 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %55 = icmp ne i32 %54, 0
   %.04.i = select i1 %53, i1 true, i1 %55
   %.1.i = zext i1 %.04.i to i8
-  br label %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit
+  br label %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.argprom.exit
 
-_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit: ; preds = %51, %29
+_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.argprom.exit: ; preds = %51, %29
   %.0.i14 = phi i8 [ %.1.i, %51 ], [ 2, %29 ]
   %56 = getelementptr inbounds i8, ptr %30, i64 211
   store i8 %.0.i14, ptr %56, align 1
@@ -582,13 +582,13 @@ _ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit: ; 
   %57 = invoke noundef i8 @_ZN12clap_builder7builder7command7Command10color_help17h172a463d3b4aae3bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1)
           to label %60 unwind label %58, !range !65
 
-58:                                               ; preds = %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit
+58:                                               ; preds = %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.argprom.exit
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$clap_builder..error..Error$GT$17hdb10ca23dfada24dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #13
           to label %79 unwind label %77
 
-60:                                               ; preds = %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit
+60:                                               ; preds = %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.argprom.exit
   %61 = getelementptr inbounds i8, ptr %30, i64 212
   store i8 %57, ptr %61, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

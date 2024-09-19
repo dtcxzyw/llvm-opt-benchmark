@@ -300,7 +300,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %9, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -309,14 +309,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %10 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret ptr %retval1.3.i
 }
 
@@ -414,7 +414,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %9, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -423,14 +423,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %10 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret ptr %retval1.3.i9
 }
 
@@ -645,7 +645,7 @@ sw.bb67.i:                                        ; preds = %sw.bb
   br label %if.end13
 
 sw.default76.i:                                   ; preds = %sw.bb
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer.retelim(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.bb5:                                           ; preds = %if.end
@@ -683,7 +683,7 @@ sw.bb1.i23:                                       ; preds = %sw.bb5
   br label %if.end13
 
 sw.default.i:                                     ; preds = %sw.bb5
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer.retelim(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.bb7:                                           ; preds = %if.end
@@ -729,11 +729,11 @@ sw.bb5.i:                                         ; preds = %sw.bb7, %sw.bb7, %s
   br label %if.end13
 
 sw.default.i47:                                   ; preds = %sw.bb7
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer.retelim(ptr noundef nonnull %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.default:                                       ; preds = %if.end
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull %dev, ptr noundef %buf)
+  tail call fastcc void @scsi_req_xfer.retelim(ptr noundef nonnull %cmd, ptr noundef nonnull %dev, ptr noundef %buf)
   br label %if.end13
 
 if.end13:                                         ; preds = %sw.default, %sw.default76.i, %sw.bb54.i, %sw.bb56.i, %sw.bb58.i, %sw.bb16.i, %if.then33.i, %sw.bb1.i, %if.then.i, %sw.bb67.i, %sw.bb41.i, %sw.bb39.i, %sw.bb.i, %sw.bb.i35, %sw.bb1.i23, %sw.default.i, %sw.bb.i45, %sw.bb1.i42, %sw.bb5.i, %sw.default.i47
@@ -1926,7 +1926,7 @@ if.end17:                                         ; preds = %if.end15, %if.end
 declare i32 @scsi_cdb_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @scsi_req_xfer(ptr nocapture noundef writeonly %cmd, ptr nocapture noundef readonly %dev, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc void @scsi_req_xfer.retelim(ptr nocapture noundef writeonly %cmd, ptr nocapture noundef readonly %dev, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %call = tail call i32 @scsi_cdb_xfer(ptr noundef %buf) #16
   %conv = zext i32 %call to i64
@@ -2214,37 +2214,37 @@ if.else170:                                       ; preds = %sw.bb164
   %conv.i.i = zext i8 %36 to i32
   %38 = and i32 %conv.i.i, 4
   %tobool.not.i.i = icmp eq i32 %38, 0
-  br i1 %tobool.not.i.i, label %ata_passthrough_xfer_unit.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %ata_passthrough_xfer_unit.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else170
   %39 = and i32 %conv.i.i, 16
   %tobool5.not.i.i = icmp eq i32 %39, 0
-  br i1 %tobool5.not.i.i, label %ata_passthrough_xfer_unit.exit.i, label %if.then6.i.i
+  br i1 %tobool5.not.i.i, label %ata_passthrough_xfer_unit.argprom.exit.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
   %blocksize.i.i = getelementptr inbounds i8, ptr %dev, i64 560
   %40 = load i32, ptr %blocksize.i.i, align 8
-  br label %ata_passthrough_xfer_unit.exit.i
+  br label %ata_passthrough_xfer_unit.argprom.exit.i
 
-ata_passthrough_xfer_unit.exit.i:                 ; preds = %if.then6.i.i, %if.then.i.i, %if.else170
+ata_passthrough_xfer_unit.argprom.exit.i:         ; preds = %if.then6.i.i, %if.then.i.i, %if.else170
   %xfer_unit.0.i.i = phi i32 [ %40, %if.then6.i.i ], [ 512, %if.then.i.i ], [ 1, %if.else170 ]
   switch i8 %37, label %ata_passthrough_12_xfer.exit [
     i8 2, label %sw.bb4.i
     i8 1, label %sw.epilog.sink.split.i
   ]
 
-sw.bb4.i:                                         ; preds = %ata_passthrough_xfer_unit.exit.i
+sw.bb4.i:                                         ; preds = %ata_passthrough_xfer_unit.argprom.exit.i
   br label %sw.epilog.sink.split.i
 
-sw.epilog.sink.split.i:                           ; preds = %sw.bb4.i, %ata_passthrough_xfer_unit.exit.i
-  %.sink.i = phi i64 [ 4, %sw.bb4.i ], [ 3, %ata_passthrough_xfer_unit.exit.i ]
+sw.epilog.sink.split.i:                           ; preds = %sw.bb4.i, %ata_passthrough_xfer_unit.argprom.exit.i
+  %.sink.i = phi i64 [ 4, %sw.bb4.i ], [ 3, %ata_passthrough_xfer_unit.argprom.exit.i ]
   %arrayidx5.i = getelementptr i8, ptr %buf, i64 %.sink.i
   %41 = load i8, ptr %arrayidx5.i, align 1
   %42 = zext i8 %41 to i32
   br label %ata_passthrough_12_xfer.exit
 
-ata_passthrough_12_xfer.exit:                     ; preds = %ata_passthrough_xfer_unit.exit.i, %sw.epilog.sink.split.i
-  %xfer.0.shrunk.i = phi i32 [ 0, %ata_passthrough_xfer_unit.exit.i ], [ %42, %sw.epilog.sink.split.i ]
+ata_passthrough_12_xfer.exit:                     ; preds = %ata_passthrough_xfer_unit.argprom.exit.i, %sw.epilog.sink.split.i
+  %xfer.0.shrunk.i = phi i32 [ 0, %ata_passthrough_xfer_unit.argprom.exit.i ], [ %42, %sw.epilog.sink.split.i ]
   %mul.i = mul i32 %xfer.0.shrunk.i, %xfer_unit.0.i.i
   %conv172 = sext i32 %mul.i to i64
   br label %sw.epilog.sink.split
@@ -3801,15 +3801,15 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %i
   %tobool21.not34.i = icmp eq i64 %12, 0
   br i1 %tobool21.not34.i, label %for.inc52.i, label %for.body22.i
 
-if.else.i.i:                                      ; preds = %rcu_read_auto_unlock.exit.i
+if.else.i.i:                                      ; preds = %rcu_read_auto_unlock.argprom.exit.i
   %13 = load ptr, ptr %req, align 8
   %unit_attention4.i.i = getelementptr inbounds i8, ptr %13, i64 124
   %14 = load i8, ptr %unit_attention4.i.i, align 4
   %cmp7.i.i = icmp eq i8 %14, 6
   br i1 %cmp7.i.i, label %if.end13.i.i, label %scsi_target_emulate_report_luns.exit.thread
 
-if.end13.i.i:                                     ; preds = %rcu_read_auto_unlock.exit.i, %if.else.i.i
-  %ua.0.i.i = phi ptr [ %unit_attention.i.i, %rcu_read_auto_unlock.exit.i ], [ %unit_attention4.i.i, %if.else.i.i ]
+if.end13.i.i:                                     ; preds = %rcu_read_auto_unlock.argprom.exit.i, %if.else.i.i
+  %ua.0.i.i = phi ptr [ %unit_attention.i.i, %rcu_read_auto_unlock.argprom.exit.i ], [ %unit_attention4.i.i, %if.else.i.i ]
   %asc.i.i = getelementptr inbounds i8, ptr %ua.0.i.i, i64 1
   %15 = load i8, ptr %asc.i.i, align 1
   %16 = load i8, ptr getelementptr inbounds (i8, ptr @sense_code_REPORTED_LUNS_CHANGED, i64 1), align 1
@@ -3895,7 +3895,7 @@ if.end.i.i.i:                                     ; preds = %for.inc52.i
   %dec.i.i.i = add i32 %27, -1
   store i32 %dec.i.i.i, ptr %depth.i.i29.i, align 4
   %cmp2.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
-  br i1 %cmp2.not.i.i.i, label %while.end.i.i31.i, label %rcu_read_auto_unlock.exit.i
+  br i1 %cmp2.not.i.i.i, label %while.end.i.i31.i, label %rcu_read_auto_unlock.argprom.exit.i
 
 while.end.i.i31.i:                                ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i28.i release, align 8
@@ -3904,14 +3904,14 @@ while.end.i.i31.i:                                ; preds = %if.end.i.i.i
   %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 8
   %28 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
   %tobool.i.i.i = trunc i8 %28 to i1
-  br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %rcu_read_auto_unlock.exit.i
+  br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %rcu_read_auto_unlock.argprom.exit.i
 
 while.end21.i.i.i:                                ; preds = %while.end.i.i31.i
   store atomic i8 0, ptr %waiting.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
-  br label %rcu_read_auto_unlock.exit.i
+  br label %rcu_read_auto_unlock.argprom.exit.i
 
-rcu_read_auto_unlock.exit.i:                      ; preds = %while.end21.i.i.i, %while.end.i.i31.i, %if.end.i.i.i
+rcu_read_auto_unlock.argprom.exit.i:              ; preds = %while.end21.i.i.i, %while.end.i.i31.i, %if.end.i.i.i
   %buf_len.i = getelementptr inbounds i8, ptr %req, i64 424
   store i32 %len.1.lcssa.i, ptr %buf_len.i, align 8
   %call54.i = call ptr @g_byte_array_free(ptr noundef %call.i, i32 noundef 0) #16
@@ -4277,26 +4277,26 @@ entry:
   %conv.i = zext i8 %2 to i32
   %4 = and i32 %conv.i, 4
   %tobool.not.i = icmp eq i32 %4, 0
-  br i1 %tobool.not.i, label %ata_passthrough_xfer_unit.exit, label %if.then.i
+  br i1 %tobool.not.i, label %ata_passthrough_xfer_unit.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %5 = and i32 %conv.i, 16
   %tobool5.not.i = icmp eq i32 %5, 0
-  br i1 %tobool5.not.i, label %ata_passthrough_xfer_unit.exit, label %if.then6.i
+  br i1 %tobool5.not.i, label %ata_passthrough_xfer_unit.argprom.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
   %blocksize.i = getelementptr inbounds i8, ptr %dev, i64 560
   %6 = load i32, ptr %blocksize.i, align 8
-  br label %ata_passthrough_xfer_unit.exit
+  br label %ata_passthrough_xfer_unit.argprom.exit
 
-ata_passthrough_xfer_unit.exit:                   ; preds = %entry, %if.then.i, %if.then6.i
+ata_passthrough_xfer_unit.argprom.exit:           ; preds = %entry, %if.then.i, %if.then6.i
   %xfer_unit.0.i = phi i32 [ %6, %if.then6.i ], [ 512, %if.then.i ], [ 1, %entry ]
   switch i8 %3, label %sw.epilog [
     i8 2, label %sw.bb9
     i8 1, label %sw.bb4
   ]
 
-sw.bb4:                                           ; preds = %ata_passthrough_xfer_unit.exit
+sw.bb4:                                           ; preds = %ata_passthrough_xfer_unit.argprom.exit
   %arrayidx5 = getelementptr i8, ptr %buf, i64 4
   %7 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %7 to i32
@@ -4315,7 +4315,7 @@ cond.end:                                         ; preds = %sw.bb4, %cond.true
   %or = or disjoint i32 %cond, %conv6
   br label %sw.epilog
 
-sw.bb9:                                           ; preds = %ata_passthrough_xfer_unit.exit
+sw.bb9:                                           ; preds = %ata_passthrough_xfer_unit.argprom.exit
   %arrayidx10 = getelementptr i8, ptr %buf, i64 6
   %9 = load i8, ptr %arrayidx10, align 1
   %conv11 = zext i8 %9 to i32
@@ -4334,8 +4334,8 @@ cond.end18:                                       ; preds = %sw.bb9, %cond.true1
   %or20 = or disjoint i32 %cond19, %conv11
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %ata_passthrough_xfer_unit.exit, %cond.end18, %cond.end
-  %xfer.0 = phi i32 [ %or, %cond.end ], [ %or20, %cond.end18 ], [ 0, %ata_passthrough_xfer_unit.exit ]
+sw.epilog:                                        ; preds = %ata_passthrough_xfer_unit.argprom.exit, %cond.end18, %cond.end
+  %xfer.0 = phi i32 [ %or, %cond.end ], [ %or20, %cond.end18 ], [ 0, %ata_passthrough_xfer_unit.argprom.exit ]
   %mul = mul i32 %xfer.0, %xfer_unit.0.i
   ret i32 %mul
 }
@@ -4827,7 +4827,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -4836,14 +4836,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %9 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i1 %retval.0
 }
 

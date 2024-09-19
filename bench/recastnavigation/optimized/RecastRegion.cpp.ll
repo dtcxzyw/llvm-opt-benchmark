@@ -5275,7 +5275,7 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE7reserveEl.e
 60:                                               ; preds = %.loopexit.i, %.noexc170, %49
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit305
+  br label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit305
 
 62:                                               ; preds = %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE7reserveEl.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -6630,7 +6630,7 @@ _ZN13rcScopedTimerD2Ev.exit295:                   ; preds = %607, %_ZN13rcScoped
   %638 = getelementptr inbounds i8, ptr %7, i64 16
   %.val162 = load ptr, ptr %638, align 8
   invoke void @_Z6rcFreePv(ptr noundef %.val162)
-          to label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit304 unwind label %639
+          to label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit304 unwind label %639
 
 639:                                              ; preds = %_ZN13rcScopedTimerD2Ev.exit295
   %640 = landingpad { ptr, i32 }
@@ -6644,7 +6644,7 @@ _ZN13rcScopedTimerD2Ev.exit293:                   ; preds = %.loopexit385, %.loo
   %642 = getelementptr inbounds i8, ptr %7, i64 16
   %.val164 = load ptr, ptr %642, align 8
   invoke void @_Z6rcFreePv(ptr noundef %.val164)
-          to label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit305 unwind label %643
+          to label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit305 unwind label %643
 
 643:                                              ; preds = %_ZN13rcScopedTimerD2Ev.exit293
   %644 = landingpad { ptr, i32 }
@@ -6653,35 +6653,35 @@ _ZN13rcScopedTimerD2Ev.exit293:                   ; preds = %.loopexit385, %.loo
   call void @__clang_call_terminate(ptr %645) #9
   unreachable
 
-_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit304: ; preds = %_ZN13rcScopedTimerD2Ev.exit295, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit306
-  %646 = phi ptr [ %651, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit306 ], [ %44, %_ZN13rcScopedTimerD2Ev.exit295 ]
+_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit304: ; preds = %_ZN13rcScopedTimerD2Ev.exit295, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit306
+  %646 = phi ptr [ %651, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit306 ], [ %44, %_ZN13rcScopedTimerD2Ev.exit295 ]
   %647 = getelementptr i8, ptr %646, i64 -8
   %.val166 = load ptr, ptr %647, align 8
   invoke void @_Z6rcFreePv(ptr noundef %.val166)
-          to label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit306 unwind label %648
+          to label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit306 unwind label %648
 
-648:                                              ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit304
+648:                                              ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit304
   %649 = landingpad { ptr, i32 }
           catch ptr null
   %650 = extractvalue { ptr, i32 } %649, 0
   call void @__clang_call_terminate(ptr %650) #9
   unreachable
 
-_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit306: ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit304
+_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit306: ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit304
   %651 = getelementptr inbounds i8, ptr %646, i64 -24
   %652 = icmp eq ptr %651, %6
-  br i1 %652, label %.loopexit380, label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit304
+  br i1 %652, label %.loopexit380, label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit304
 
-_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit305: ; preds = %_ZN13rcScopedTimerD2Ev.exit293, %60
+_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit305: ; preds = %_ZN13rcScopedTimerD2Ev.exit293, %60
   %.pn154 = phi { ptr, i32 } [ %61, %60 ], [ %.pn151, %_ZN13rcScopedTimerD2Ev.exit293 ]
   br label %653
 
-653:                                              ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit307, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit305
-  %654 = phi ptr [ %44, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit305 ], [ %659, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit307 ]
+653:                                              ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit307, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit305
+  %654 = phi ptr [ %44, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit305 ], [ %659, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit307 ]
   %655 = getelementptr i8, ptr %654, i64 -8
   %.val168 = load ptr, ptr %655, align 8
   invoke void @_Z6rcFreePv(ptr noundef %.val168)
-          to label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit307 unwind label %656
+          to label %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit307 unwind label %656
 
 656:                                              ; preds = %653
   %657 = landingpad { ptr, i32 }
@@ -6690,13 +6690,13 @@ _ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit305: ; preds = %_ZN
   call void @__clang_call_terminate(ptr %658) #9
   unreachable
 
-_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit307: ; preds = %653
+_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit307: ; preds = %653
   %659 = getelementptr inbounds i8, ptr %654, i64 -24
   %660 = icmp eq ptr %659, %6
   br i1 %660, label %.loopexit, label %653
 
-.loopexit380:                                     ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit306, %30
-  %.0118 = phi i1 [ false, %30 ], [ %.3, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit306 ]
+.loopexit380:                                     ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit306, %30
+  %.0118 = phi i1 [ false, %30 ], [ %.3, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit306 ]
   invoke void @_Z6rcFreePv(ptr noundef %28)
           to label %_ZN14rcScopedDeleteItED2Ev.exit unwind label %661
 
@@ -6729,8 +6729,8 @@ _ZN14rcScopedDeleteItED2Ev.exit:                  ; preds = %.loopexit380
 _ZN13rcScopedTimerD2Ev.exit308:                   ; preds = %_ZN14rcScopedDeleteItED2Ev.exit, %666
   ret i1 %.0118
 
-.loopexit:                                        ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit307, %35
-  %.pn154.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn154, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.exit307 ]
+.loopexit:                                        ; preds = %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit307, %35
+  %.pn154.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn154, %_ZN12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEED2Ev.argprom.exit307 ]
   invoke void @_Z6rcFreePv(ptr noundef %28)
           to label %_ZN14rcScopedDeleteItED2Ev.exit309 unwind label %673
 

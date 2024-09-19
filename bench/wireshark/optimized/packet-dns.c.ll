@@ -4647,7 +4647,7 @@ thread-pre-split.thread:                          ; preds = %46, %thread-pre-spl
   %237 = call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236) #10
   %238 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %225) #10
   %239 = icmp sgt i32 %238, 3
-  br i1 %239, label %.lr.ph.i, label %dissect_dso_data.exit
+  br i1 %239, label %.lr.ph.i, label %dissect_dso_data.argprom.exit
 
 .lr.ph.i:                                         ; preds = %233, %277
   %.01.i = phi i32 [ %.1.i, %277 ], [ %225, %233 ]
@@ -4713,17 +4713,17 @@ thread-pre-split.thread:                          ; preds = %46, %thread-pre-spl
   %.1.i = phi i32 [ %276, %273 ], [ %254, %272 ], [ %271, %268 ], [ %254, %267 ], [ %266, %263 ], [ %262, %256 ]
   %278 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #10
   %279 = icmp sgt i32 %278, 3
-  br i1 %279, label %.lr.ph.i, label %dissect_dso_data.exit, !llvm.loop !10
+  br i1 %279, label %.lr.ph.i, label %dissect_dso_data.argprom.exit, !llvm.loop !10
 
-dissect_dso_data.exit:                            ; preds = %277, %233
+dissect_dso_data.argprom.exit:                    ; preds = %277, %233
   %.0.lcssa.i = phi i32 [ %225, %233 ], [ %.1.i, %277 ]
   %280 = sub i32 %.0.lcssa.i, %225
   call void @proto_item_set_len(ptr noundef %235, i32 noundef %280) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %281
 
-281:                                              ; preds = %dissect_dso_data.exit, %204
-  %.0391 = phi i32 [ %.0.lcssa.i, %dissect_dso_data.exit ], [ %225, %204 ]
+281:                                              ; preds = %dissect_dso_data.argprom.exit, %204
+  %.0391 = phi i32 [ %.0.lcssa.i, %dissect_dso_data.argprom.exit ], [ %225, %204 ]
   br i1 %227, label %365, label %282
 
 282:                                              ; preds = %281
@@ -6877,12 +6877,12 @@ proto_item_set_generated.exit:                    ; preds = %804, %801, %796, %7
   %894 = add i32 %113, 10
   %895 = load i32, ptr @hf_dns_loc_latitude, align 4
   %896 = call ptr @proto_tree_add_item(ptr noundef %.02075, i32 noundef %895, ptr noundef %0, i32 noundef %894, i32 noundef 4, i32 noundef 0) #10
-  call fastcc void @rfc1867_angle(ptr noundef %0, i32 noundef %894, i32 noundef 0)
+  call fastcc void @rfc1867_angle.retelim(ptr noundef %0, i32 noundef %894, i32 noundef 0)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %896, ptr noundef nonnull @.str.1255, ptr noundef nonnull @rfc1867_angle.buf) #10
   %897 = add i32 %113, 14
   %898 = load i32, ptr @hf_dns_loc_longitude, align 4
   %899 = call ptr @proto_tree_add_item(ptr noundef %.02075, i32 noundef %898, ptr noundef %0, i32 noundef %897, i32 noundef 4, i32 noundef 0) #10
-  call fastcc void @rfc1867_angle(ptr noundef %0, i32 noundef %897, i32 noundef 1)
+  call fastcc void @rfc1867_angle.retelim(ptr noundef %0, i32 noundef %897, i32 noundef 1)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %899, ptr noundef nonnull @.str.1255, ptr noundef nonnull @rfc1867_angle.buf) #10
   %900 = add i32 %113, 18
   %901 = load i32, ptr @hf_dns_loc_altitude, align 4
@@ -6914,7 +6914,7 @@ proto_item_set_generated.exit:                    ; preds = %804, %801, %796, %7
   %920 = call ptr @proto_tree_add_string(ptr noundef %.02075, i32 noundef %919, ptr noundef %0, i32 noundef %122, i32 noundef %911, ptr noundef %916) #10
   %921 = add i32 %911, %122
   %922 = sub i32 %261, %911
-  call fastcc void @dissect_type_bitmap_nxt(ptr noundef %.02075, ptr noundef %0, i32 noundef %921, i32 noundef %922)
+  call fastcc void @dissect_type_bitmap_nxt.retelim(ptr noundef %.02075, ptr noundef %0, i32 noundef %921, i32 noundef %922)
   br label %.loopexit
 
 923:                                              ; preds = %263
@@ -7606,7 +7606,7 @@ proto_item_set_generated.exit2172:                ; preds = %949, %991, %994
   %1372 = call ptr @proto_tree_add_string(ptr noundef %.02075, i32 noundef %1371, ptr noundef %0, i32 noundef %122, i32 noundef %1363, ptr noundef %1368) #10
   %1373 = add i32 %1363, %122
   %1374 = sub i32 %261, %1363
-  call fastcc void @dissect_type_bitmap(ptr noundef %.02075, ptr noundef %0, i32 noundef %1373, i32 noundef %1374)
+  call fastcc void @dissect_type_bitmap.retelim(ptr noundef %.02075, ptr noundef %0, i32 noundef %1373, i32 noundef %1374)
   br label %.loopexit
 
 1375:                                             ; preds = %263, %263
@@ -7745,7 +7745,7 @@ proto_item_set_generated.exit2178:                ; preds = %1456, %1460, %1463
   %.9 = phi i32 [ %1467, %proto_item_set_generated.exit2178 ], [ %1441, %1416 ]
   %.neg = add i32 %122, %261
   %1469 = sub i32 %.neg, %.9
-  call fastcc void @dissect_type_bitmap(ptr noundef %.02075, ptr noundef %0, i32 noundef %.9, i32 noundef %1469)
+  call fastcc void @dissect_type_bitmap.retelim(ptr noundef %.02075, ptr noundef %0, i32 noundef %.9, i32 noundef %1469)
   br label %.loopexit
 
 1470:                                             ; preds = %263
@@ -7849,7 +7849,7 @@ proto_item_set_generated.exit2178:                ; preds = %1456, %1460, %1463
   %1548 = add nsw i32 %261, -6
   %1549 = load i32, ptr @hf_dns_csync_type_bitmap, align 4
   %1550 = call ptr @proto_tree_add_item(ptr noundef %.02075, i32 noundef %1549, ptr noundef %0, i32 noundef %1547, i32 noundef %1548, i32 noundef 0) #10
-  call fastcc void @dissect_type_bitmap(ptr noundef %.02075, ptr noundef %0, i32 noundef %1547, i32 noundef %1548)
+  call fastcc void @dissect_type_bitmap.retelim(ptr noundef %.02075, ptr noundef %0, i32 noundef %1547, i32 noundef %1548)
   br label %.loopexit
 
 1551:                                             ; preds = %263
@@ -8643,7 +8643,7 @@ define internal fastcc double @rfc1867_size(ptr noundef %0, i32 noundef %1) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rfc1867_angle(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @rfc1867_angle.retelim(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #10
   %5 = icmp sgt i32 %4, -1
   %.not23 = icmp eq i32 %2, 0
@@ -8687,7 +8687,7 @@ define internal fastcc void @rfc1867_angle(ptr noundef %0, i32 noundef %1, i32 n
 declare i32 @tvb_get_ntohil(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_type_bitmap_nxt(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_type_bitmap_nxt.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not27 = icmp eq i32 %3, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -8739,7 +8739,7 @@ declare ptr @proto_tree_add_ipv6(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_type_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_type_bitmap.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not46 = icmp eq i32 %3, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph49
 

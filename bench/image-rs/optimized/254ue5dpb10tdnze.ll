@@ -13265,8 +13265,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr
   store <4 x i8> %.sroa.0.0.copyload.i.i26, ptr %8, align 4
   br label %31
 
-31:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.exit.i.i", %29
-  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %29 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.exit.i.i" ]
+31:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.argprom.exit.i.i", %29
+  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %29 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.argprom.exit.i.i" ]
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %32 = load i8, ptr %.sroa.07.0.ptr11.i.i, align 1, !alias.scope !1161, !noalias !1164, !noundef !4
   %33 = uitofp i8 %32 to float
@@ -13282,7 +13282,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr
   %41 = fcmp ule float %.0.in.sroa.speculated.i.i.i.i, -1.000000e+00
   %42 = fcmp uge float %.0.in.sroa.speculated.i.i.i.i, 2.560000e+02
   %or.cond.i.i.not.i.i.i = or i1 %41, %42
-  br i1 %or.cond.i.i.not.i.i.i, label %43, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.exit.i.i"
+  br i1 %or.cond.i.i.not.i.i.i, label %43, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.argprom.exit.i.i"
 
 43:                                               ; preds = %31
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.25) #18
@@ -13291,14 +13291,14 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr
 .noexc9:                                          ; preds = %43
   unreachable
 
-"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.exit.i.i": ; preds = %31
+"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.argprom.exit.i.i": ; preds = %31
   %.sroa.07.0.add.i.i = add nuw nsw i64 %.sroa.07.0.idx10.i.i, 1
   %44 = fptoui float %.0.in.sroa.speculated.i.i.i.i to i8
   store i8 %44, ptr %.sroa.07.0.ptr11.i.i, align 1, !alias.scope !1161, !noalias !1164
   %45 = icmp eq i64 %.sroa.07.0.add.i.i, 4
   br i1 %45, label %46, label %31
 
-46:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.exit.i.i"
+46:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3f2b3901c1a51acfE.argprom.exit.i.i"
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1167)
@@ -13466,8 +13466,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
   store i48 %.sroa.0.0.copyload.i.i, ptr %8, align 8
   br label %32
 
-32:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.exit.i.i", %30
-  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %30 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.exit.i.i" ]
+32:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.argprom.exit.i.i", %30
+  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %30 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.argprom.exit.i.i" ]
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %33 = load i16, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1188, !noalias !1191, !noundef !4
   %34 = uitofp i16 %33 to float
@@ -13483,7 +13483,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
   %42 = fcmp ogt float %.0.in.sroa.speculated.i.i.i.i, -1.000000e+00
   %43 = fcmp olt float %.0.in.sroa.speculated.i.i.i.i, 6.553600e+04
   %or.cond.i.i.i.i.i = and i1 %42, %43
-  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.exit.i.i", label %44
+  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.argprom.exit.i.i", label %44
 
 44:                                               ; preds = %32
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.25) #18
@@ -13492,14 +13492,14 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
 .noexc7:                                          ; preds = %44
   unreachable
 
-"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.exit.i.i": ; preds = %32
+"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.argprom.exit.i.i": ; preds = %32
   %.sroa.07.0.add.i.i = add nuw nsw i64 %.sroa.07.0.idx10.i.i, 2
   %45 = fptoui float %.0.in.sroa.speculated.i.i.i.i to i16
   store i16 %45, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1188, !noalias !1191
   %46 = icmp eq i64 %.sroa.07.0.add.i.i, 6
   br i1 %46, label %47, label %32
 
-47:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.exit.i.i"
+47:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h7385dbe9793c55eeE.argprom.exit.i.i"
   %.sroa.0.0.copyload.i = load i48, ptr %8, align 8, !noalias !1185
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8), !noalias !1185
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1194)
@@ -13673,8 +13673,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr
   store i24 %.sroa.0.0.copyload.i.i, ptr %8, align 4
   br label %31
 
-31:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.exit.i.i", %29
-  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %29 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.exit.i.i" ]
+31:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.argprom.exit.i.i", %29
+  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %29 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.argprom.exit.i.i" ]
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %32 = load i8, ptr %.sroa.07.0.ptr11.i.i, align 1, !alias.scope !1218, !noalias !1221, !noundef !4
   %33 = uitofp i8 %32 to float
@@ -13690,7 +13690,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr
   %41 = fcmp ule float %.0.in.sroa.speculated.i.i.i.i, -1.000000e+00
   %42 = fcmp uge float %.0.in.sroa.speculated.i.i.i.i, 2.560000e+02
   %or.cond.i.i.not.i.i.i = or i1 %41, %42
-  br i1 %or.cond.i.i.not.i.i.i, label %43, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.exit.i.i"
+  br i1 %or.cond.i.i.not.i.i.i, label %43, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.argprom.exit.i.i"
 
 43:                                               ; preds = %31
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.25) #18
@@ -13699,14 +13699,14 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr
 .noexc7:                                          ; preds = %43
   unreachable
 
-"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.exit.i.i": ; preds = %31
+"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.argprom.exit.i.i": ; preds = %31
   %.sroa.07.0.add.i.i = add nuw nsw i64 %.sroa.07.0.idx10.i.i, 1
   %44 = fptoui float %.0.in.sroa.speculated.i.i.i.i to i8
   store i8 %44, ptr %.sroa.07.0.ptr11.i.i, align 1, !alias.scope !1218, !noalias !1221
   %45 = icmp eq i64 %.sroa.07.0.add.i.i, 3
   br i1 %45, label %46, label %31
 
-46:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.exit.i.i"
+46:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h3424b20ecc8654aeE.argprom.exit.i.i"
   %.sroa.0.0.copyload.i = load i24, ptr %8, align 4, !noalias !1215
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8), !noalias !1215
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
@@ -14047,8 +14047,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
   store <2 x i16> %.sroa.0.0.copyload.i.i26, ptr %8, align 4
   br label %32
 
-32:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.exit.i.i", %30
-  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %30 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.exit.i.i" ]
+32:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.argprom.exit.i.i", %30
+  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %30 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.argprom.exit.i.i" ]
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %33 = load i16, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1260, !noalias !1263, !noundef !4
   %34 = uitofp i16 %33 to float
@@ -14064,7 +14064,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
   %42 = fcmp ogt float %.0.in.sroa.speculated.i.i.i.i, -1.000000e+00
   %43 = fcmp olt float %.0.in.sroa.speculated.i.i.i.i, 6.553600e+04
   %or.cond.i.i.i.i.i = and i1 %42, %43
-  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.exit.i.i", label %44
+  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.argprom.exit.i.i", label %44
 
 44:                                               ; preds = %32
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.25) #18
@@ -14073,14 +14073,14 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
 .noexc9:                                          ; preds = %44
   unreachable
 
-"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.exit.i.i": ; preds = %32
+"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.argprom.exit.i.i": ; preds = %32
   %.sroa.07.0.add.i.i = add nuw nsw i64 %.sroa.07.0.idx10.i.i, 2
   %45 = fptoui float %.0.in.sroa.speculated.i.i.i.i to i16
   store i16 %45, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1260, !noalias !1263
   %46 = icmp eq i64 %.sroa.07.0.add.i.i, 4
   br i1 %46, label %47, label %32
 
-47:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.exit.i.i"
+47:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17hd13b7ee4e1571829E.argprom.exit.i.i"
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1266)
@@ -14624,8 +14624,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr
   store <2 x i8> %.sroa.0.0.copyload.i.i26, ptr %8, align 2
   br label %31
 
-31:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.exit.i.i", %29
-  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %29 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.exit.i.i" ]
+31:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.argprom.exit.i.i", %29
+  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %29 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.argprom.exit.i.i" ]
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %32 = load i8, ptr %.sroa.07.0.ptr11.i.i, align 1, !alias.scope !1341, !noalias !1344, !noundef !4
   %33 = uitofp i8 %32 to float
@@ -14641,7 +14641,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr
   %41 = fcmp ule float %.0.in.sroa.speculated.i.i.i.i, -1.000000e+00
   %42 = fcmp uge float %.0.in.sroa.speculated.i.i.i.i, 2.560000e+02
   %or.cond.i.i.not.i.i.i = or i1 %41, %42
-  br i1 %or.cond.i.i.not.i.i.i, label %43, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.exit.i.i"
+  br i1 %or.cond.i.i.not.i.i.i, label %43, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.argprom.exit.i.i"
 
 43:                                               ; preds = %31
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.25) #18
@@ -14650,14 +14650,14 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr
 .noexc9:                                          ; preds = %43
   unreachable
 
-"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.exit.i.i": ; preds = %31
+"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.argprom.exit.i.i": ; preds = %31
   %.sroa.07.0.add.i.i = add nuw nsw i64 %.sroa.07.0.idx10.i.i, 1
   %44 = fptoui float %.0.in.sroa.speculated.i.i.i.i to i8
   store i8 %44, ptr %.sroa.07.0.ptr11.i.i, align 1, !alias.scope !1341, !noalias !1344
   %45 = icmp eq i64 %.sroa.07.0.add.i.i, 2
   br i1 %45, label %46, label %31
 
-46:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.exit.i.i"
+46:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.argprom.exit.i.i"
   %.sroa.0.0.copyload.i = load i16, ptr %8, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1347)
@@ -15000,8 +15000,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
   store <4 x i16> %.sroa.0.0.copyload.i.i26, ptr %8, align 8
   br label %32
 
-32:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.exit.i.i", %30
-  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %30 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.exit.i.i" ]
+32:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.argprom.exit.i.i", %30
+  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %30 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.argprom.exit.i.i" ]
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %33 = load i16, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1384, !noalias !1387, !noundef !4
   %34 = uitofp i16 %33 to float
@@ -15017,7 +15017,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
   %42 = fcmp ogt float %.0.in.sroa.speculated.i.i.i.i, -1.000000e+00
   %43 = fcmp olt float %.0.in.sroa.speculated.i.i.i.i, 6.553600e+04
   %or.cond.i.i.i.i.i = and i1 %42, %43
-  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.exit.i.i", label %44
+  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.argprom.exit.i.i", label %44
 
 44:                                               ; preds = %32
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.25) #18
@@ -15026,14 +15026,14 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
 .noexc9:                                          ; preds = %44
   unreachable
 
-"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.exit.i.i": ; preds = %32
+"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.argprom.exit.i.i": ; preds = %32
   %.sroa.07.0.add.i.i = add nuw nsw i64 %.sroa.07.0.idx10.i.i, 2
   %45 = fptoui float %.0.in.sroa.speculated.i.i.i.i to i16
   store i16 %45, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1384, !noalias !1387
   %46 = icmp eq i64 %.sroa.07.0.add.i.i, 8
   br i1 %46, label %47, label %32
 
-47:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.exit.i.i"
+47:                                               ; preds = %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17he8023a9d331efa44E.argprom.exit.i.i"
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1390)
@@ -15199,14 +15199,14 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false)
   br label %29
 
-29:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i.i", %27
-  %.sroa.09.0.idx12.i.i = phi i64 [ 0, %27 ], [ %.sroa.09.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i.i" ]
+29:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i.i", %27
+  %.sroa.09.0.idx12.i.i = phi i64 [ 0, %27 ], [ %.sroa.09.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i.i" ]
   %.sroa.09.0.ptr13.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.09.0.idx12.i.i
   %30 = load float, ptr %.sroa.09.0.ptr13.i.i, align 4, !alias.scope !1410, !noalias !1413, !noundef !4
   %31 = fcmp oge float %30, 0xC1E0000000000000
   %32 = fcmp olt float %30, 0x41E0000000000000
   %or.cond.i.i.i.i.i = and i1 %31, %32
-  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i.i", label %33
+  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i.i", label %33
 
 33:                                               ; preds = %29
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.28) #18
@@ -15215,7 +15215,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
 .noexc7:                                          ; preds = %33
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i.i": ; preds = %29
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i.i": ; preds = %29
   %.sroa.09.0.add.i.i = add nuw nsw i64 %.sroa.09.0.idx12.i.i, 4
   %34 = fptosi float %30 to i32
   %35 = add i32 %2, %34
@@ -15225,7 +15225,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
   %38 = icmp eq i64 %.sroa.09.0.add.i.i, 12
   br i1 %38, label %39, label %29
 
-39:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i.i"
+39:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.018, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !noalias !1416
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1404
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1417)
@@ -15391,14 +15391,14 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
   br label %29
 
-29:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i.i", %27
-  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %27 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i.i" ]
+29:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i.i", %27
+  %.sroa.07.0.idx10.i.i = phi i64 [ 0, %27 ], [ %.sroa.07.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i.i" ]
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %30 = load float, ptr %.sroa.07.0.ptr11.i.i, align 4, !alias.scope !1437, !noalias !1440, !noundef !4
   %31 = fcmp oge float %30, 0xC1E0000000000000
   %32 = fcmp olt float %30, 0x41E0000000000000
   %or.cond.i.i.i.i.i = and i1 %31, %32
-  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i.i", label %33
+  br i1 %or.cond.i.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i.i", label %33
 
 33:                                               ; preds = %29
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.28) #18
@@ -15407,7 +15407,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
 .noexc7:                                          ; preds = %33
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i.i": ; preds = %29
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i.i": ; preds = %29
   %.sroa.07.0.add.i.i = add nuw nsw i64 %.sroa.07.0.idx10.i.i, 4
   %34 = fptosi float %30 to i32
   %35 = add i32 %2, %34
@@ -15417,7 +15417,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
   %38 = icmp eq i64 %.sroa.07.0.add.i.i, 12
   br i1 %38, label %39, label %29
 
-39:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i.i"
+39:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.018, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false), !noalias !1443
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8), !noalias !1431
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1444)
@@ -15884,10 +15884,10 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
   %.sroa.0.0.copyload.i.i = load i48, ptr %26, align 2, !noalias !1495
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8), !noalias !1499
   store i48 %.sroa.0.0.copyload.i.i, ptr %8, align 8, !noalias !1504
-  br label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i.i"
+  br label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i.i"
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i.i": ; preds = %27, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i.i"
-  %.sroa.06.0.idx9.i.i = phi i64 [ 0, %27 ], [ %.sroa.06.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i.i" ]
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i.i": ; preds = %27, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i.i"
+  %.sroa.06.0.idx9.i.i = phi i64 [ 0, %27 ], [ %.sroa.06.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i.i" ]
   %.sroa.06.0.ptr10.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.06.0.idx9.i.i
   %28 = load i16, ptr %.sroa.06.0.ptr10.i.i, align 2, !alias.scope !1505, !noalias !1508, !noundef !4
   %29 = zext i16 %28 to i32
@@ -15899,9 +15899,9 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
   %34 = select i1 %31, i16 0, i16 %33
   store i16 %34, ptr %.sroa.06.0.ptr10.i.i, align 2, !alias.scope !1505, !noalias !1508
   %35 = icmp eq i64 %.sroa.06.0.add.i.i, 6
-  br i1 %35, label %36, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i.i"
+  br i1 %35, label %36, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i.i"
 
-36:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i.i"
+36:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i.i"
   %37 = add nuw i32 %25, 1
   %.sroa.0.0.copyload.i = load i48, ptr %8, align 8, !noalias !1499
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8), !noalias !1499
@@ -16065,10 +16065,10 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
   %.sroa.0.0.copyload.i.i25 = load <4 x i16>, ptr %26, align 2, !noalias !1525
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !1529
   store <4 x i16> %.sroa.0.0.copyload.i.i25, ptr %8, align 8, !noalias !1529
-  br label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i.i"
+  br label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i.i"
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i.i": ; preds = %27, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i.i"
-  %.sroa.08.0.idx11.i.i = phi i64 [ 0, %27 ], [ %.sroa.08.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i.i" ]
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i.i": ; preds = %27, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i.i"
+  %.sroa.08.0.idx11.i.i = phi i64 [ 0, %27 ], [ %.sroa.08.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i.i" ]
   %.sroa.08.0.ptr12.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.08.0.idx11.i.i
   %28 = load i16, ptr %.sroa.08.0.ptr12.i.i, align 2, !alias.scope !1534, !noalias !1537, !noundef !4
   %29 = zext i16 %28 to i32
@@ -16080,9 +16080,9 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
   %34 = select i1 %31, i16 0, i16 %33
   store i16 %34, ptr %.sroa.08.0.ptr12.i.i, align 2, !alias.scope !1534, !noalias !1537
   %35 = icmp eq i64 %.sroa.08.0.add.i.i, 6
-  br i1 %35, label %36, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i.i"
+  br i1 %35, label %36, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i.i"
 
-36:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i.i"
+36:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i.i"
   %37 = add nuw i32 %25, 1
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 8, !noalias !1529
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !1529
@@ -16251,10 +16251,10 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr
   %.sroa.0.0.copyload.i.i = load i24, ptr %25, align 1, !noalias !1557
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8), !noalias !1561
   store i24 %.sroa.0.0.copyload.i.i, ptr %8, align 4, !noalias !1566
-  br label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i.i"
+  br label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i.i"
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i.i": ; preds = %26, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i.i"
-  %.sroa.06.0.idx9.i.i = phi i64 [ 0, %26 ], [ %.sroa.06.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i.i" ]
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i.i": ; preds = %26, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i.i"
+  %.sroa.06.0.idx9.i.i = phi i64 [ 0, %26 ], [ %.sroa.06.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i.i" ]
   %.sroa.06.0.ptr10.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.06.0.idx9.i.i
   %27 = load i8, ptr %.sroa.06.0.ptr10.i.i, align 1, !alias.scope !1567, !noalias !1570, !noundef !4
   %28 = zext i8 %27 to i32
@@ -16266,9 +16266,9 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr
   %33 = select i1 %30, i8 0, i8 %32
   store i8 %33, ptr %.sroa.06.0.ptr10.i.i, align 1, !alias.scope !1567, !noalias !1570
   %34 = icmp eq i64 %.sroa.06.0.add.i.i, 3
-  br i1 %34, label %35, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i.i"
+  br i1 %34, label %35, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i.i"
 
-35:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i.i"
+35:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i.i"
   %36 = add nuw i32 %24, 1
   %.sroa.0.0.copyload.i = load i24, ptr %8, align 4, !noalias !1561
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8), !noalias !1561
@@ -16770,10 +16770,10 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr
   %.sroa.0.0.copyload.i.i25 = load <4 x i8>, ptr %25, align 1, !noalias !1629
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !1633
   store <4 x i8> %.sroa.0.0.copyload.i.i25, ptr %8, align 4, !noalias !1633
-  br label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i.i"
+  br label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i.i"
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i.i": ; preds = %26, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i.i"
-  %.sroa.08.0.idx11.i.i = phi i64 [ 0, %26 ], [ %.sroa.08.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i.i" ]
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i.i": ; preds = %26, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i.i"
+  %.sroa.08.0.idx11.i.i = phi i64 [ 0, %26 ], [ %.sroa.08.0.add.i.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i.i" ]
   %.sroa.08.0.ptr12.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.08.0.idx11.i.i
   %27 = load i8, ptr %.sroa.08.0.ptr12.i.i, align 1, !alias.scope !1638, !noalias !1641, !noundef !4
   %28 = zext i8 %27 to i32
@@ -16785,9 +16785,9 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr
   %33 = select i1 %30, i8 0, i8 %32
   store i8 %33, ptr %.sroa.08.0.ptr12.i.i, align 1, !alias.scope !1638, !noalias !1641
   %34 = icmp eq i64 %.sroa.08.0.add.i.i, 3
-  br i1 %34, label %35, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i.i"
+  br i1 %34, label %35, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i.i"
 
-35:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i.i"
+35:                                               ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i.i"
   %36 = add nuw i32 %24, 1
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4, !noalias !1633
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !1633
@@ -20431,13 +20431,13 @@ define hidden noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %1, 2
-  br i1 %5, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit", label %21, !prof !2002
+  br i1 %5, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.argprom.exit", label %21, !prof !2002
 
 6:                                                ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 1, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.51) #18
   unreachable
 
-"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit": ; preds = %4
+"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.argprom.exit": ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 2
   %8 = load i16, ptr %7, align 2, !noundef !4
   %9 = zext i16 %8 to i32
@@ -20473,13 +20473,13 @@ define hidden noundef i8 @_ZN5image5color11rgb_to_luma17h9535a7c89093745aE.llvm.
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %1, 2
-  br i1 %5, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit", label %21, !prof !2002
+  br i1 %5, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.argprom.exit", label %21, !prof !2002
 
 6:                                                ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 1, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.51) #18
   unreachable
 
-"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit": ; preds = %4
+"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.argprom.exit": ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1, !noundef !4
   %9 = zext i8 %8 to i32
@@ -41944,8 +41944,8 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %6 = load i32, ptr %2, align 4, !alias.scope !4886, !noalias !4889, !noundef !4
   br label %7
 
-7:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i", %3
-  %.sroa.06.0.idx9.i = phi i64 [ 0, %3 ], [ %.sroa.06.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i" ]
+7:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i", %3
+  %.sroa.06.0.idx9.i = phi i64 [ 0, %3 ], [ %.sroa.06.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i" ]
   %.sroa.06.0.ptr10.i = getelementptr inbounds i8, ptr %4, i64 %.sroa.06.0.idx9.i
   %8 = load i16, ptr %.sroa.06.0.ptr10.i, align 2, !alias.scope !4881, !noalias !4890, !noundef !4
   %9 = zext i16 %8 to i32
@@ -41954,20 +41954,20 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %6)
   %.0.in.sroa.speculated.i.i.i = select i1 %11, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i.i, 65536
-  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i", label %12
+  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i", label %12
 
 12:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18, !noalias !4891
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i": ; preds = %7
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i": ; preds = %7
   %.sroa.06.0.add.i = add nuw nsw i64 %.sroa.06.0.idx9.i, 2
   %13 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i16
   store i16 %13, ptr %.sroa.06.0.ptr10.i, align 2, !alias.scope !4881, !noalias !4890
   %14 = icmp eq i64 %.sroa.06.0.add.i, 6
   br i1 %14, label %"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hadc092b23ea06721E.llvm.1609853135345852838.exit", label %7
 
-"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hadc092b23ea06721E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit.i"
+"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hadc092b23ea06721E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit.i"
   %.sroa.0.0.copyload = load i48, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
   ret i48 %.sroa.0.0.copyload
@@ -41985,20 +41985,20 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %7 = load i32, ptr %3, align 4, !alias.scope !4897, !noalias !4900
   br label %8
 
-8:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i", %4
-  %.sroa.07.0.idx10.i = phi i64 [ 0, %4 ], [ %.sroa.07.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i", %4
+  %.sroa.07.0.idx10.i = phi i64 [ 0, %4 ], [ %.sroa.07.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i" ]
   %.sroa.07.0.ptr11.i = getelementptr inbounds i8, ptr %5, i64 %.sroa.07.0.idx10.i
   %9 = load float, ptr %.sroa.07.0.ptr11.i, align 4, !alias.scope !4892, !noalias !4901, !noundef !4
   %10 = fcmp oge float %9, 0xC1E0000000000000
   %11 = fcmp olt float %9, 0x41E0000000000000
   %or.cond.i.i.i.i = and i1 %10, %11
-  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i", label %12
+  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i", label %12
 
 12:                                               ; preds = %8
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.28) #18, !noalias !4902
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i": ; preds = %8
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i": ; preds = %8
   %.sroa.07.0.add.i = add nuw nsw i64 %.sroa.07.0.idx10.i, 4
   %13 = fptosi float %9 to i32
   %14 = add i32 %6, %13
@@ -42010,7 +42010,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %17 = icmp eq i64 %.sroa.07.0.add.i, 12
   br i1 %17, label %"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17he2b71ba719304a19E.llvm.1609853135345852838.exit", label %8
 
-"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17he2b71ba719304a19E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i"
+"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17he2b71ba719304a19E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   ret void
@@ -42028,8 +42028,8 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %6 = load i32, ptr %2, align 4, !alias.scope !4908, !noalias !4911, !noundef !4
   br label %7
 
-7:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i", %3
-  %.sroa.06.0.idx9.i = phi i64 [ 0, %3 ], [ %.sroa.06.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i" ]
+7:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i", %3
+  %.sroa.06.0.idx9.i = phi i64 [ 0, %3 ], [ %.sroa.06.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i" ]
   %.sroa.06.0.ptr10.i = getelementptr inbounds i8, ptr %4, i64 %.sroa.06.0.idx9.i
   %8 = load i8, ptr %.sroa.06.0.ptr10.i, align 1, !alias.scope !4903, !noalias !4912, !noundef !4
   %9 = zext i8 %8 to i32
@@ -42038,20 +42038,20 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %6)
   %.0.in.sroa.speculated.i.i.i = select i1 %11, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i.i, 255
-  br i1 %or.cond.i.i.i.i, label %12, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i"
+  br i1 %or.cond.i.i.i.i, label %12, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i"
 
 12:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18, !noalias !4913
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i": ; preds = %7
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i": ; preds = %7
   %.sroa.06.0.add.i = add nuw nsw i64 %.sroa.06.0.idx9.i, 1
   %13 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i8
   store i8 %13, ptr %.sroa.06.0.ptr10.i, align 1, !alias.scope !4903, !noalias !4912
   %14 = icmp eq i64 %.sroa.06.0.add.i, 3
   br i1 %14, label %"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hb5b83dd68f8eff68E.llvm.1609853135345852838.exit", label %7
 
-"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hb5b83dd68f8eff68E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit.i"
+"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hb5b83dd68f8eff68E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit.i"
   %.sroa.0.0.copyload = load i24, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4)
   ret i24 %.sroa.0.0.copyload
@@ -42063,11 +42063,11 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %5 = load i32, ptr %2, align 4, !noundef !4
   br label %7
 
-6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit"
+6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit"
   ret void
 
-7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit"
-  %.sroa.06.0.idx9 = phi i64 [ 0, %3 ], [ %.sroa.06.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit" ]
+7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit"
+  %.sroa.06.0.idx9 = phi i64 [ 0, %3 ], [ %.sroa.06.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit" ]
   %.sroa.06.0.ptr10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.06.0.idx9
   %8 = load i16, ptr %.sroa.06.0.ptr10, align 2, !noundef !4
   %9 = zext i16 %8 to i32
@@ -42076,13 +42076,13 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %5)
   %.0.in.sroa.speculated.i.i = select i1 %11, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit", label %12
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit", label %12
 
 12:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.exit": ; preds = %7
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h27d3aa7c5c524307E.argprom.exit": ; preds = %7
   %.sroa.06.0.add = add nuw nsw i64 %.sroa.06.0.idx9, 2
   %13 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
   store i16 %13, ptr %.sroa.06.0.ptr10, align 2
@@ -42096,11 +42096,11 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %5 = load i32, ptr %2, align 4, !noundef !4
   br label %7
 
-6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit"
+6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit"
   ret void
 
-7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit"
-  %.sroa.06.0.idx9 = phi i64 [ 0, %3 ], [ %.sroa.06.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit" ]
+7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit"
+  %.sroa.06.0.idx9 = phi i64 [ 0, %3 ], [ %.sroa.06.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit" ]
   %.sroa.06.0.ptr10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.06.0.idx9
   %8 = load i8, ptr %.sroa.06.0.ptr10, align 1, !noundef !4
   %9 = zext i8 %8 to i32
@@ -42109,13 +42109,13 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %5)
   %.0.in.sroa.speculated.i.i = select i1 %11, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
-  br i1 %or.cond.i.i.i, label %12, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit"
+  br i1 %or.cond.i.i.i, label %12, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit"
 
 12:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.exit": ; preds = %7
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2c4423c3003ecab4E.argprom.exit": ; preds = %7
   %.sroa.06.0.add = add nuw nsw i64 %.sroa.06.0.idx9, 1
   %13 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
   store i8 %13, ptr %.sroa.06.0.ptr10, align 1
@@ -42129,23 +42129,23 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %5 = load i32, ptr %2, align 4
   br label %7
 
-6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit"
+6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit"
   ret void
 
-7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit"
-  %.sroa.07.0.idx10 = phi i64 [ 0, %3 ], [ %.sroa.07.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit" ]
+7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit"
+  %.sroa.07.0.idx10 = phi i64 [ 0, %3 ], [ %.sroa.07.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit" ]
   %.sroa.07.0.ptr11 = getelementptr inbounds i8, ptr %0, i64 %.sroa.07.0.idx10
   %8 = load float, ptr %.sroa.07.0.ptr11, align 4, !noundef !4
   %9 = fcmp oge float %8, 0xC1E0000000000000
   %10 = fcmp olt float %8, 0x41E0000000000000
   %or.cond.i.i.i = and i1 %9, %10
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit", label %11
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit", label %11
 
 11:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.28) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit": ; preds = %7
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.argprom.exit": ; preds = %7
   %.sroa.07.0.add = add nuw nsw i64 %.sroa.07.0.idx10, 4
   %12 = fptosi float %8 to i32
   %13 = add i32 %4, %12
@@ -42171,8 +42171,8 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %8 = load i32, ptr %4, align 4, !alias.scope !4921, !noalias !4924
   br label %9
 
-9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit.i", %5
-  %.sroa.8.023.i = phi i64 [ 0, %5 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit.i" ]
+9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit.i", %5
+  %.sroa.8.023.i = phi i64 [ 0, %5 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit.i" ]
   %10 = add nuw nsw i64 %.sroa.8.023.i, 1
   %11 = getelementptr inbounds float, ptr %6, i64 %.sroa.8.023.i
   %12 = getelementptr inbounds float, ptr %2, i64 %.sroa.8.023.i
@@ -42203,7 +42203,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %25 = sub i32 %17, %24
   %.09.i.i = tail call i32 @llvm.abs.i32(i32 %25, i1 false)
   %26 = icmp sgt i32 %.09.i.i, %7
-  br i1 %26, label %27, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit.i"
+  br i1 %26, label %27, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit.i"
 
 27:                                               ; preds = %23
   %28 = add i32 %25, %17
@@ -42211,15 +42211,15 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %28, i32 %8)
   %.0.in.sroa.speculated.i.i.i = select i1 %29, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %30 = sitofp i32 %.0.in.sroa.speculated.i.i.i to float
-  br label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit.i"
+  br label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit.i"
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit.i": ; preds = %27, %23
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit.i": ; preds = %27, %23
   %.0.i.i = phi float [ %30, %27 ], [ %14, %23 ]
   store float %.0.i.i, ptr %11, align 4, !alias.scope !4914, !noalias !4926
   %exitcond.not.i = icmp eq i64 %10, 3
   br i1 %exitcond.not.i, label %"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h4f23036b1dd8e148E.llvm.1609853135345852838.exit", label %9
 
-"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h4f23036b1dd8e148E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit.i"
+"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h4f23036b1dd8e148E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   ret void
@@ -42238,8 +42238,8 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %7 = load i32, ptr %3, align 4, !alias.scope !4935, !noalias !4938
   br label %8
 
-8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit.i", %4
-  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit.i", %4
+  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit.i" ]
   %9 = add nuw nsw i64 %.sroa.8.023.i, 1
   %10 = getelementptr inbounds i8, ptr %5, i64 %.sroa.8.023.i
   %11 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.023.i
@@ -42250,7 +42250,7 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %16 = sub nsw i32 %14, %15
   %.010.i.i = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %17 = icmp sgt i32 %.010.i.i, %6
-  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit.i"
+  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit.i"
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, %14
@@ -42259,19 +42259,19 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %.0.in.sroa.speculated.i.i.i = select i1 %20, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i.i, 255
   %21 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i8
-  br i1 %or.cond.i.i.i.i, label %22, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit.i"
+  br i1 %or.cond.i.i.i.i, label %22, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit.i"
 
 22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18, !noalias !4941
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit.i": ; preds = %18, %8
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit.i": ; preds = %18, %8
   %.0.i.i = phi i8 [ %13, %8 ], [ %21, %18 ]
   store i8 %.0.i.i, ptr %10, align 1, !alias.scope !4928, !noalias !4940
   %exitcond.not.i = icmp eq i64 %9, 3
   br i1 %exitcond.not.i, label %"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd73199be0d607359E.llvm.1609853135345852838.exit", label %8
 
-"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd73199be0d607359E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit.i"
+"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd73199be0d607359E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit.i"
   %.sroa.0.0.copyload = load i24, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5)
   ret i24 %.sroa.0.0.copyload
@@ -42290,8 +42290,8 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %7 = load i32, ptr %3, align 4, !alias.scope !4949, !noalias !4952
   br label %8
 
-8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit.i", %4
-  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit.i", %4
+  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit.i" ]
   %9 = add nuw nsw i64 %.sroa.8.023.i, 1
   %10 = getelementptr inbounds i16, ptr %5, i64 %.sroa.8.023.i
   %11 = getelementptr inbounds i16, ptr %1, i64 %.sroa.8.023.i
@@ -42302,7 +42302,7 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %16 = sub nsw i32 %14, %15
   %.010.i.i = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %17 = icmp sgt i32 %.010.i.i, %6
-  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit.i"
+  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit.i"
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, %14
@@ -42311,19 +42311,19 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   %.0.in.sroa.speculated.i.i.i = select i1 %20, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i.i, 65536
   %21 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i16
-  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit.i", label %22
+  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit.i", label %22
 
 22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18, !noalias !4955
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit.i": ; preds = %18, %8
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit.i": ; preds = %18, %8
   %.0.i.i = phi i16 [ %13, %8 ], [ %21, %18 ]
   store i16 %.0.i.i, ptr %10, align 2, !alias.scope !4942, !noalias !4954
   %exitcond.not.i = icmp eq i64 %9, 3
   br i1 %exitcond.not.i, label %"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd111bf015380f39dE.llvm.1609853135345852838.exit", label %8
 
-"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd111bf015380f39dE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit.i"
+"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd111bf015380f39dE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit.i"
   %.sroa.0.0.copyload = load i48, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
   ret i48 %.sroa.0.0.copyload
@@ -42335,11 +42335,11 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %6 = load i32, ptr %3, align 4
   br label %8
 
-7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit"
+7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit"
   ret void
 
-8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit"
-  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit" ]
+8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit"
+  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
   %10 = getelementptr inbounds float, ptr %0, i64 %.sroa.8.023
   %11 = getelementptr inbounds float, ptr %1, i64 %.sroa.8.023
@@ -42370,7 +42370,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %24 = sub i32 %16, %23
   %.09.i = tail call i32 @llvm.abs.i32(i32 %24, i1 false)
   %25 = icmp sgt i32 %.09.i, %5
-  br i1 %25, label %26, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit"
+  br i1 %25, label %26, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit"
 
 26:                                               ; preds = %22
   %27 = add i32 %24, %16
@@ -42378,9 +42378,9 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %27, i32 %6)
   %.0.in.sroa.speculated.i.i = select i1 %28, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %29 = sitofp i32 %.0.in.sroa.speculated.i.i to float
-  br label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit"
+  br label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit"
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.exit": ; preds = %22, %26
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17he0611cda72d1dcf2E.argprom.exit": ; preds = %22, %26
   %.0.i = phi float [ %29, %26 ], [ %13, %22 ]
   store float %.0.i, ptr %10, align 4
   %exitcond.not = icmp eq i64 %9, 3
@@ -42393,11 +42393,11 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %6 = load i32, ptr %3, align 4
   br label %8
 
-7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit"
+7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit"
   ret void
 
-8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit"
-  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit" ]
+8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit"
+  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
   %10 = getelementptr inbounds i16, ptr %0, i64 %.sroa.8.023
   %11 = getelementptr inbounds i16, ptr %1, i64 %.sroa.8.023
@@ -42408,7 +42408,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %16 = sub nsw i32 %14, %15
   %.010.i = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %17 = icmp sgt i32 %.010.i, %5
-  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit"
+  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit"
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, %14
@@ -42417,13 +42417,13 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculated.i.i = select i1 %20, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
   %21 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit", label %22
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit", label %22
 
 22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.exit": ; preds = %8, %18
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h79837802a7e3808dE.argprom.exit": ; preds = %8, %18
   %.0.i = phi i16 [ %13, %8 ], [ %21, %18 ]
   store i16 %.0.i, ptr %10, align 2
   %exitcond.not = icmp eq i64 %9, 3
@@ -42436,11 +42436,11 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %6 = load i32, ptr %3, align 4
   br label %8
 
-7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit"
+7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit"
   ret void
 
-8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit"
-  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit" ]
+8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit"
+  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
   %10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.8.023
   %11 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.023
@@ -42451,7 +42451,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %16 = sub nsw i32 %14, %15
   %.010.i = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %17 = icmp sgt i32 %.010.i, %5
-  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit"
+  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit"
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, %14
@@ -42460,13 +42460,13 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculated.i.i = select i1 %20, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
   %21 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
-  br i1 %or.cond.i.i.i, label %22, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit"
+  br i1 %or.cond.i.i.i, label %22, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit"
 
 22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.exit": ; preds = %8, %18
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h9b73c488cfc2cd3bE.argprom.exit": ; preds = %8, %18
   %.0.i = phi i8 [ %13, %8 ], [ %21, %18 ]
   store i8 %.0.i, ptr %10, align 1
   %exitcond.not = icmp eq i64 %9, 3
@@ -42733,13 +42733,13 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %8, i32 %5)
   %.0.in.sroa.speculated.i.i = select i1 %9, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hb670e48973b059f0E.exit", label %10
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hb670e48973b059f0E.argprom.exit", label %10
 
 10:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hb670e48973b059f0E.exit": ; preds = %3
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hb670e48973b059f0E.argprom.exit": ; preds = %3
   %11 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
   store i16 %11, ptr %0, align 2
   ret void
@@ -42756,13 +42756,13 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %8, i32 %5)
   %.0.in.sroa.speculated.i.i = select i1 %9, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
-  br i1 %or.cond.i.i.i, label %10, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17ha39c101d60f79a3aE.exit"
+  br i1 %or.cond.i.i.i, label %10, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17ha39c101d60f79a3aE.argprom.exit"
 
 10:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17ha39c101d60f79a3aE.exit": ; preds = %3
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17ha39c101d60f79a3aE.argprom.exit": ; preds = %3
   %11 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
   store i8 %11, ptr %0, align 1
   ret void
@@ -42846,7 +42846,7 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
   %10 = sub nsw i32 %8, %9
   %.010.i = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %11 = icmp sgt i32 %.010.i, %5
-  br i1 %11, label %12, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc10ecb8cbd3e6612E.exit"
+  br i1 %11, label %12, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc10ecb8cbd3e6612E.argprom.exit"
 
 12:                                               ; preds = %4
   %13 = load i32, ptr %3, align 4
@@ -42856,13 +42856,13 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculated.i.i = select i1 %15, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
   %16 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
-  br i1 %or.cond.i.i.i, label %17, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc10ecb8cbd3e6612E.exit"
+  br i1 %or.cond.i.i.i, label %17, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc10ecb8cbd3e6612E.argprom.exit"
 
 17:                                               ; preds = %12
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc10ecb8cbd3e6612E.exit": ; preds = %4, %12
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc10ecb8cbd3e6612E.argprom.exit": ; preds = %4, %12
   %.0.i = phi i8 [ %7, %4 ], [ %16, %12 ]
   store i8 %.0.i, ptr %0, align 1
   ret void
@@ -42878,7 +42878,7 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
   %10 = sub nsw i32 %8, %9
   %.010.i = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %11 = icmp sgt i32 %.010.i, %5
-  br i1 %11, label %12, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h7ebf14477ab63231E.exit"
+  br i1 %11, label %12, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h7ebf14477ab63231E.argprom.exit"
 
 12:                                               ; preds = %4
   %13 = load i32, ptr %3, align 4
@@ -42888,13 +42888,13 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculated.i.i = select i1 %15, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
   %16 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h7ebf14477ab63231E.exit", label %17
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h7ebf14477ab63231E.argprom.exit", label %17
 
 17:                                               ; preds = %12
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h7ebf14477ab63231E.exit": ; preds = %4, %12
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h7ebf14477ab63231E.argprom.exit": ; preds = %4, %12
   %.0.i = phi i16 [ %7, %4 ], [ %16, %12 ]
   store i16 %.0.i, ptr %0, align 2
   ret void
@@ -43341,8 +43341,8 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %7 = load i32, ptr %2, align 4, !alias.scope !5112, !noalias !5115, !noundef !4
   br label %8
 
-8:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i", %3
-  %.sroa.08.0.idx11.i = phi i64 [ 0, %3 ], [ %.sroa.08.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i", %3
+  %.sroa.08.0.idx11.i = phi i64 [ 0, %3 ], [ %.sroa.08.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i" ]
   %.sroa.08.0.ptr12.i = getelementptr inbounds i8, ptr %4, i64 %.sroa.08.0.idx11.i
   %9 = load i16, ptr %.sroa.08.0.ptr12.i, align 2, !alias.scope !5107, !noalias !5116, !noundef !4
   %10 = zext i16 %9 to i32
@@ -43351,20 +43351,20 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %11, i32 %7)
   %.0.in.sroa.speculated.i.i.i = select i1 %12, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i.i, 65536
-  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i", label %13
+  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i", label %13
 
 13:                                               ; preds = %8
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18, !noalias !5117
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i": ; preds = %8
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i": ; preds = %8
   %.sroa.08.0.add.i = add nuw nsw i64 %.sroa.08.0.idx11.i, 2
   %14 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i16
   store i16 %14, ptr %.sroa.08.0.ptr12.i, align 2, !alias.scope !5107, !noalias !5116
   %15 = icmp eq i64 %.sroa.08.0.add.i, 6
   br i1 %15, label %"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h5876d65095d03f1bE.llvm.1609853135345852838.exit", label %8
 
-"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h5876d65095d03f1bE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit.i"
+"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h5876d65095d03f1bE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit.i"
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %.sroa.0.0.copyload
@@ -43382,20 +43382,20 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %7 = load i32, ptr %3, align 4, !alias.scope !5123, !noalias !5126
   br label %8
 
-8:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i", %4
-  %.sroa.09.0.idx12.i = phi i64 [ 0, %4 ], [ %.sroa.09.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i", %4
+  %.sroa.09.0.idx12.i = phi i64 [ 0, %4 ], [ %.sroa.09.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i" ]
   %.sroa.09.0.ptr13.i = getelementptr inbounds i8, ptr %5, i64 %.sroa.09.0.idx12.i
   %9 = load float, ptr %.sroa.09.0.ptr13.i, align 4, !alias.scope !5118, !noalias !5127, !noundef !4
   %10 = fcmp oge float %9, 0xC1E0000000000000
   %11 = fcmp olt float %9, 0x41E0000000000000
   %or.cond.i.i.i.i = and i1 %10, %11
-  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i", label %12
+  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i", label %12
 
 12:                                               ; preds = %8
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.28) #18, !noalias !5128
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i": ; preds = %8
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i": ; preds = %8
   %.sroa.09.0.add.i = add nuw nsw i64 %.sroa.09.0.idx12.i, 4
   %13 = fptosi float %9 to i32
   %14 = add i32 %6, %13
@@ -43407,7 +43407,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %17 = icmp eq i64 %.sroa.09.0.add.i, 12
   br i1 %17, label %"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hc7d5c7d693b8426aE.llvm.1609853135345852838.exit", label %8
 
-"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hc7d5c7d693b8426aE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i"
+"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hc7d5c7d693b8426aE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
@@ -43426,8 +43426,8 @@ define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %7 = load i32, ptr %2, align 4, !alias.scope !5134, !noalias !5137, !noundef !4
   br label %8
 
-8:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i", %3
-  %.sroa.08.0.idx11.i = phi i64 [ 0, %3 ], [ %.sroa.08.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i", %3
+  %.sroa.08.0.idx11.i = phi i64 [ 0, %3 ], [ %.sroa.08.0.add.i, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i" ]
   %.sroa.08.0.ptr12.i = getelementptr inbounds i8, ptr %4, i64 %.sroa.08.0.idx11.i
   %9 = load i8, ptr %.sroa.08.0.ptr12.i, align 1, !alias.scope !5129, !noalias !5138, !noundef !4
   %10 = zext i8 %9 to i32
@@ -43436,20 +43436,20 @@ define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %11, i32 %7)
   %.0.in.sroa.speculated.i.i.i = select i1 %12, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i.i, 255
-  br i1 %or.cond.i.i.i.i, label %13, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i"
+  br i1 %or.cond.i.i.i.i, label %13, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i"
 
 13:                                               ; preds = %8
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18, !noalias !5139
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i": ; preds = %8
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i": ; preds = %8
   %.sroa.08.0.add.i = add nuw nsw i64 %.sroa.08.0.idx11.i, 1
   %14 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i8
   store i8 %14, ptr %.sroa.08.0.ptr12.i, align 1, !alias.scope !5129, !noalias !5138
   %15 = icmp eq i64 %.sroa.08.0.add.i, 3
   br i1 %15, label %"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h6be66ee18e118bfbE.llvm.1609853135345852838.exit", label %8
 
-"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h6be66ee18e118bfbE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit.i"
+"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h6be66ee18e118bfbE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit.i"
   %.sroa.0.0.copyload = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i32 %.sroa.0.0.copyload
@@ -43461,11 +43461,11 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %5 = load i32, ptr %2, align 4, !noundef !4
   br label %7
 
-6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit"
+6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit"
   ret void
 
-7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit"
-  %.sroa.08.0.idx11 = phi i64 [ 0, %3 ], [ %.sroa.08.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit" ]
+7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit"
+  %.sroa.08.0.idx11 = phi i64 [ 0, %3 ], [ %.sroa.08.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit" ]
   %.sroa.08.0.ptr12 = getelementptr inbounds i8, ptr %0, i64 %.sroa.08.0.idx11
   %8 = load i16, ptr %.sroa.08.0.ptr12, align 2, !noundef !4
   %9 = zext i16 %8 to i32
@@ -43474,13 +43474,13 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %5)
   %.0.in.sroa.speculated.i.i = select i1 %11, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit", label %12
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit", label %12
 
 12:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.exit": ; preds = %7
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h9d2dd3e933643d3dE.argprom.exit": ; preds = %7
   %.sroa.08.0.add = add nuw nsw i64 %.sroa.08.0.idx11, 2
   %13 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
   store i16 %13, ptr %.sroa.08.0.ptr12, align 2
@@ -43494,11 +43494,11 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %5 = load i32, ptr %2, align 4, !noundef !4
   br label %7
 
-6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit"
+6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit"
   ret void
 
-7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit"
-  %.sroa.08.0.idx11 = phi i64 [ 0, %3 ], [ %.sroa.08.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit" ]
+7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit"
+  %.sroa.08.0.idx11 = phi i64 [ 0, %3 ], [ %.sroa.08.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit" ]
   %.sroa.08.0.ptr12 = getelementptr inbounds i8, ptr %0, i64 %.sroa.08.0.idx11
   %8 = load i8, ptr %.sroa.08.0.ptr12, align 1, !noundef !4
   %9 = zext i8 %8 to i32
@@ -43507,13 +43507,13 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %5)
   %.0.in.sroa.speculated.i.i = select i1 %11, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
-  br i1 %or.cond.i.i.i, label %12, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit"
+  br i1 %or.cond.i.i.i, label %12, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit"
 
 12:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.exit": ; preds = %7
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h10479b85d83fd2c4E.argprom.exit": ; preds = %7
   %.sroa.08.0.add = add nuw nsw i64 %.sroa.08.0.idx11, 1
   %13 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
   store i8 %13, ptr %.sroa.08.0.ptr12, align 1
@@ -43527,23 +43527,23 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %5 = load i32, ptr %2, align 4
   br label %7
 
-6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit"
+6:                                                ; preds = %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit"
   ret void
 
-7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit"
-  %.sroa.09.0.idx12 = phi i64 [ 0, %3 ], [ %.sroa.09.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit" ]
+7:                                                ; preds = %3, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit"
+  %.sroa.09.0.idx12 = phi i64 [ 0, %3 ], [ %.sroa.09.0.add, %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit" ]
   %.sroa.09.0.ptr13 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.0.idx12
   %8 = load float, ptr %.sroa.09.0.ptr13, align 4, !noundef !4
   %9 = fcmp oge float %8, 0xC1E0000000000000
   %10 = fcmp olt float %8, 0x41E0000000000000
   %or.cond.i.i.i = and i1 %9, %10
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit", label %11
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit", label %11
 
 11:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.28) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit": ; preds = %7
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.argprom.exit": ; preds = %7
   %.sroa.09.0.add = add nuw nsw i64 %.sroa.09.0.idx12, 4
   %12 = fptosi float %8 to i32
   %13 = add i32 %4, %12
@@ -43569,8 +43569,8 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %8 = load i32, ptr %4, align 4, !alias.scope !5147, !noalias !5150
   br label %9
 
-9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit.i", %5
-  %.sroa.8.023.i = phi i64 [ 0, %5 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit.i" ]
+9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit.i", %5
+  %.sroa.8.023.i = phi i64 [ 0, %5 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit.i" ]
   %10 = add nuw nsw i64 %.sroa.8.023.i, 1
   %11 = getelementptr inbounds float, ptr %6, i64 %.sroa.8.023.i
   %12 = getelementptr inbounds float, ptr %2, i64 %.sroa.8.023.i
@@ -43601,7 +43601,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %25 = sub i32 %17, %24
   %.09.i.i = tail call i32 @llvm.abs.i32(i32 %25, i1 false)
   %26 = icmp sgt i32 %.09.i.i, %7
-  br i1 %26, label %27, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit.i"
+  br i1 %26, label %27, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit.i"
 
 27:                                               ; preds = %23
   %28 = add i32 %25, %17
@@ -43609,15 +43609,15 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %28, i32 %8)
   %.0.in.sroa.speculated.i.i.i = select i1 %29, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %30 = sitofp i32 %.0.in.sroa.speculated.i.i.i to float
-  br label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit.i"
+  br label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit.i"
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit.i": ; preds = %27, %23
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit.i": ; preds = %27, %23
   %.0.i.i = phi float [ %30, %27 ], [ %14, %23 ]
   store float %.0.i.i, ptr %11, align 4, !alias.scope !5140, !noalias !5152
   %exitcond.not.i = icmp eq i64 %10, 4
   br i1 %exitcond.not.i, label %"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3515cd6925b720daE.llvm.1609853135345852838.exit", label %9
 
-"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3515cd6925b720daE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit.i"
+"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3515cd6925b720daE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
@@ -43637,8 +43637,8 @@ define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %8 = load i32, ptr %3, align 4, !alias.scope !5161, !noalias !5164
   br label %9
 
-9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit.i", %4
-  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit.i" ]
+9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit.i", %4
+  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit.i" ]
   %10 = add nuw nsw i64 %.sroa.8.023.i, 1
   %11 = getelementptr inbounds i8, ptr %5, i64 %.sroa.8.023.i
   %12 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.023.i
@@ -43649,7 +43649,7 @@ define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %17 = sub nsw i32 %15, %16
   %.010.i.i = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
   %18 = icmp sgt i32 %.010.i.i, %7
-  br i1 %18, label %19, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit.i"
+  br i1 %18, label %19, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit.i"
 
 19:                                               ; preds = %9
   %20 = add nsw i32 %17, %15
@@ -43658,19 +43658,19 @@ define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculated.i.i.i = select i1 %21, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i.i, 255
   %22 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i8
-  br i1 %or.cond.i.i.i.i, label %23, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit.i"
+  br i1 %or.cond.i.i.i.i, label %23, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit.i"
 
 23:                                               ; preds = %19
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18, !noalias !5167
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit.i": ; preds = %19, %9
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit.i": ; preds = %19, %9
   %.0.i.i = phi i8 [ %14, %9 ], [ %22, %19 ]
   store i8 %.0.i.i, ptr %11, align 1, !alias.scope !5154, !noalias !5166
   %exitcond.not.i = icmp eq i64 %10, 4
   br i1 %exitcond.not.i, label %"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h582e42f930923cbbE.llvm.1609853135345852838.exit", label %9
 
-"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h582e42f930923cbbE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit.i"
+"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h582e42f930923cbbE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit.i"
   %.sroa.0.0.copyload = load i32, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret i32 %.sroa.0.0.copyload
@@ -43690,8 +43690,8 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %8 = load i32, ptr %3, align 4, !alias.scope !5175, !noalias !5178
   br label %9
 
-9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit.i", %4
-  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit.i" ]
+9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit.i", %4
+  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ %10, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit.i" ]
   %10 = add nuw nsw i64 %.sroa.8.023.i, 1
   %11 = getelementptr inbounds i16, ptr %5, i64 %.sroa.8.023.i
   %12 = getelementptr inbounds i16, ptr %1, i64 %.sroa.8.023.i
@@ -43702,7 +43702,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %17 = sub nsw i32 %15, %16
   %.010.i.i = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
   %18 = icmp sgt i32 %.010.i.i, %7
-  br i1 %18, label %19, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit.i"
+  br i1 %18, label %19, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit.i"
 
 19:                                               ; preds = %9
   %20 = add nsw i32 %17, %15
@@ -43711,19 +43711,19 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   %.0.in.sroa.speculated.i.i.i = select i1 %21, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i.i, 65536
   %22 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i16
-  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit.i", label %23
+  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit.i", label %23
 
 23:                                               ; preds = %19
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18, !noalias !5181
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit.i": ; preds = %19, %9
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit.i": ; preds = %19, %9
   %.0.i.i = phi i16 [ %14, %9 ], [ %22, %19 ]
   store i16 %.0.i.i, ptr %11, align 2, !alias.scope !5168, !noalias !5180
   %exitcond.not.i = icmp eq i64 %10, 4
   br i1 %exitcond.not.i, label %"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd93120bbd52cea80E.llvm.1609853135345852838.exit", label %9
 
-"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd93120bbd52cea80E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit.i"
+"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd93120bbd52cea80E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit.i"
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i64 %.sroa.0.0.copyload
@@ -43735,11 +43735,11 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %6 = load i32, ptr %3, align 4
   br label %8
 
-7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit"
+7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit"
   ret void
 
-8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit"
-  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit" ]
+8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit"
+  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
   %10 = getelementptr inbounds float, ptr %0, i64 %.sroa.8.023
   %11 = getelementptr inbounds float, ptr %1, i64 %.sroa.8.023
@@ -43770,7 +43770,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %24 = sub i32 %16, %23
   %.09.i = tail call i32 @llvm.abs.i32(i32 %24, i1 false)
   %25 = icmp sgt i32 %.09.i, %5
-  br i1 %25, label %26, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit"
+  br i1 %25, label %26, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit"
 
 26:                                               ; preds = %22
   %27 = add i32 %24, %16
@@ -43778,9 +43778,9 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %27, i32 %6)
   %.0.in.sroa.speculated.i.i = select i1 %28, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %29 = sitofp i32 %.0.in.sroa.speculated.i.i to float
-  br label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit"
+  br label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit"
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.exit": ; preds = %22, %26
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hf41db6e0ac8fdf43E.argprom.exit": ; preds = %22, %26
   %.0.i = phi float [ %29, %26 ], [ %13, %22 ]
   store float %.0.i, ptr %10, align 4
   %exitcond.not = icmp eq i64 %9, 4
@@ -43793,11 +43793,11 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %6 = load i32, ptr %3, align 4
   br label %8
 
-7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit"
+7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit"
   ret void
 
-8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit"
-  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit" ]
+8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit"
+  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
   %10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.8.023
   %11 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.023
@@ -43808,7 +43808,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %16 = sub nsw i32 %14, %15
   %.010.i = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %17 = icmp sgt i32 %.010.i, %5
-  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit"
+  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit"
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, %14
@@ -43817,13 +43817,13 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculated.i.i = select i1 %20, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
   %21 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
-  br i1 %or.cond.i.i.i, label %22, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit"
+  br i1 %or.cond.i.i.i, label %22, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit"
 
 22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.exit": ; preds = %8, %18
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hd3450d61b9f65773E.argprom.exit": ; preds = %8, %18
   %.0.i = phi i8 [ %13, %8 ], [ %21, %18 ]
   store i8 %.0.i, ptr %10, align 1
   %exitcond.not = icmp eq i64 %9, 4
@@ -43836,11 +43836,11 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %6 = load i32, ptr %3, align 4
   br label %8
 
-7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit"
+7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit"
   ret void
 
-8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit"
-  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit" ]
+8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit"
+  %.sroa.8.023 = phi i64 [ 0, %4 ], [ %9, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit" ]
   %9 = add nuw nsw i64 %.sroa.8.023, 1
   %10 = getelementptr inbounds i16, ptr %0, i64 %.sroa.8.023
   %11 = getelementptr inbounds i16, ptr %1, i64 %.sroa.8.023
@@ -43851,7 +43851,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %16 = sub nsw i32 %14, %15
   %.010.i = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %17 = icmp sgt i32 %.010.i, %5
-  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit"
+  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit"
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, %14
@@ -43860,13 +43860,13 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculated.i.i = select i1 %20, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
   %21 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit", label %22
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit", label %22
 
 22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.exit": ; preds = %8, %18
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h1af156214e17c289E.argprom.exit": ; preds = %8, %18
   %.0.i = phi i16 [ %13, %8 ], [ %21, %18 ]
   store i16 %.0.i, ptr %10, align 2
   %exitcond.not = icmp eq i64 %9, 4
@@ -44171,13 +44171,13 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %8, i32 %5)
   %.0.in.sroa.speculated.i.i = select i1 %9, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h102b9c19742db664E.exit", label %10
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h102b9c19742db664E.argprom.exit", label %10
 
 10:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h102b9c19742db664E.exit": ; preds = %3
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h102b9c19742db664E.argprom.exit": ; preds = %3
   %11 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
   store i16 %11, ptr %0, align 2
   ret void
@@ -44194,13 +44194,13 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %8, i32 %5)
   %.0.in.sroa.speculated.i.i = select i1 %9, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
-  br i1 %or.cond.i.i.i, label %10, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2b6af1158b8c9b9fE.exit"
+  br i1 %or.cond.i.i.i, label %10, label %"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2b6af1158b8c9b9fE.argprom.exit"
 
 10:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.29) #18
   unreachable
 
-"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2b6af1158b8c9b9fE.exit": ; preds = %3
+"_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h2b6af1158b8c9b9fE.argprom.exit": ; preds = %3
   %11 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
   store i8 %11, ptr %0, align 1
   ret void
@@ -44226,10 +44226,10 @@ define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
   %7 = load i32, ptr %3, align 4, !alias.scope !5247, !noalias !5250
   br label %8
 
-8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i", %4
-  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i" ]
-  %.sroa.8.023.i.sroa.phi = phi ptr [ %.sroa.0.sroa.0, %4 ], [ %.sroa.0.sroa.5, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i" ]
-  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit.i", %4
+  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit.i" ]
+  %.sroa.8.023.i.sroa.phi = phi ptr [ %.sroa.0.sroa.0, %4 ], [ %.sroa.0.sroa.5, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit.i" ]
+  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit.i" ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.023.i
   %11 = load i8, ptr %10, align 1, !alias.scope !5243, !noalias !5251, !noundef !4
   %12 = load i8, ptr %.sroa.8.023.i.sroa.phi, align 1, !alias.scope !5240, !noalias !5252, !noundef !4
@@ -44238,7 +44238,7 @@ define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
   %15 = sub nsw i32 %13, %14
   %.010.i.i = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
   %16 = icmp sgt i32 %.010.i.i, %6
-  br i1 %16, label %17, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i"
+  br i1 %16, label %17, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit.i"
 
 17:                                               ; preds = %8
   %18 = add nsw i32 %15, %13
@@ -44247,18 +44247,18 @@ define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculated.i.i.i = select i1 %19, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i.i, 255
   %20 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i8
-  br i1 %or.cond.i.i.i.i, label %21, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i"
+  br i1 %or.cond.i.i.i.i, label %21, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit.i"
 
 21:                                               ; preds = %17
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18, !noalias !5253
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i": ; preds = %17, %8
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit.i": ; preds = %17, %8
   %.0.i.i = phi i8 [ %12, %8 ], [ %20, %17 ]
   store i8 %.0.i.i, ptr %.sroa.8.023.i.sroa.phi, align 1, !alias.scope !5240, !noalias !5252
   br i1 %9, label %8, label %"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3920945b39b38965E.llvm.1609853135345852838.exit"
 
-"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3920945b39b38965E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i"
+"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3920945b39b38965E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit.i"
   %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0..sroa.0.0.copyload = load i8, ptr %.sroa.0.sroa.0, align 2
   %.sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.0..sroa.0.0.copyload = load i8, ptr %.sroa.0.sroa.5, align 1
   %.sroa.0.sroa.5.0.insert.ext = zext i8 %.sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.0..sroa.0.0.copyload to i16
@@ -44290,10 +44290,10 @@ define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
   %7 = load i32, ptr %3, align 4, !alias.scope !5261, !noalias !5264
   br label %8
 
-8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i", %4
-  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
-  %.sroa.8.023.i.sroa.phi = phi ptr [ %.sroa.0.sroa.0, %4 ], [ %.sroa.0.sroa.5, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
-  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit.i", %4
+  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit.i" ]
+  %.sroa.8.023.i.sroa.phi = phi ptr [ %.sroa.0.sroa.0, %4 ], [ %.sroa.0.sroa.5, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit.i" ]
+  %.sroa.8.023.i = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit.i" ]
   %10 = getelementptr inbounds i16, ptr %1, i64 %.sroa.8.023.i
   %11 = load i16, ptr %10, align 2, !alias.scope !5257, !noalias !5265, !noundef !4
   %12 = load i16, ptr %.sroa.8.023.i.sroa.phi, align 2, !alias.scope !5254, !noalias !5266, !noundef !4
@@ -44302,7 +44302,7 @@ define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
   %15 = sub nsw i32 %13, %14
   %.010.i.i = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
   %16 = icmp sgt i32 %.010.i.i, %6
-  br i1 %16, label %17, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i"
+  br i1 %16, label %17, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit.i"
 
 17:                                               ; preds = %8
   %18 = add nsw i32 %15, %13
@@ -44311,18 +44311,18 @@ define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
   %.0.in.sroa.speculated.i.i.i = select i1 %19, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i.i, 65536
   %20 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i16
-  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i", label %21
+  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit.i", label %21
 
 21:                                               ; preds = %17
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18, !noalias !5267
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i": ; preds = %17, %8
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit.i": ; preds = %17, %8
   %.0.i.i = phi i16 [ %12, %8 ], [ %20, %17 ]
   store i16 %.0.i.i, ptr %.sroa.8.023.i.sroa.phi, align 2, !alias.scope !5254, !noalias !5266
   br i1 %9, label %8, label %"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hcd43187c74cd68fcE.llvm.1609853135345852838.exit"
 
-"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hcd43187c74cd68fcE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i"
+"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hcd43187c74cd68fcE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit.i"
   %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0..sroa.0.0.copyload = load i16, ptr %.sroa.0.sroa.0, align 4
   %.sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.0..sroa.0.0.copyload = load i16, ptr %.sroa.0.sroa.5, align 2
   %.sroa.0.sroa.5.0.insert.ext = zext i16 %.sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.0..sroa.0.0.copyload to i32
@@ -44340,12 +44340,12 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
   %6 = load i32, ptr %3, align 4
   br label %8
 
-7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit"
+7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit"
   ret void
 
-8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit"
-  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit" ]
-  %.sroa.8.023 = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit" ]
+8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit"
+  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit" ]
+  %.sroa.8.023 = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit" ]
   %10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.8.023
   %11 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.023
   %12 = load i8, ptr %11, align 1, !noundef !4
@@ -44355,7 +44355,7 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
   %16 = sub nsw i32 %14, %15
   %.010.i = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %17 = icmp sgt i32 %.010.i, %5
-  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit"
+  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit"
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, %14
@@ -44364,13 +44364,13 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
   %.0.in.sroa.speculated.i.i = select i1 %20, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
   %21 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
-  br i1 %or.cond.i.i.i, label %22, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit"
+  br i1 %or.cond.i.i.i, label %22, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit"
 
 22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit": ; preds = %8, %18
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.argprom.exit": ; preds = %8, %18
   %.0.i = phi i8 [ %13, %8 ], [ %21, %18 ]
   store i8 %.0.i, ptr %10, align 1
   br i1 %9, label %8, label %7
@@ -44382,12 +44382,12 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
   %6 = load i32, ptr %3, align 4
   br label %8
 
-7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit"
+7:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit"
   ret void
 
-8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit"
-  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit" ]
-  %.sroa.8.023 = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit" ]
+8:                                                ; preds = %4, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit"
+  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit" ]
+  %.sroa.8.023 = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit" ]
   %10 = getelementptr inbounds i16, ptr %0, i64 %.sroa.8.023
   %11 = getelementptr inbounds i16, ptr %1, i64 %.sroa.8.023
   %12 = load i16, ptr %11, align 2, !noundef !4
@@ -44397,7 +44397,7 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
   %16 = sub nsw i32 %14, %15
   %.010.i = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %17 = icmp sgt i32 %.010.i, %5
-  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit"
+  br i1 %17, label %18, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit"
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, %14
@@ -44406,13 +44406,13 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
   %.0.in.sroa.speculated.i.i = select i1 %20, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
   %21 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
-  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit", label %22
+  br i1 %or.cond.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit", label %22
 
 22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit": ; preds = %8, %18
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.argprom.exit": ; preds = %8, %18
   %.0.i = phi i16 [ %13, %8 ], [ %21, %18 ]
   store i16 %.0.i, ptr %10, align 2
   br i1 %9, label %8, label %7
@@ -45880,10 +45880,10 @@ attributes #20 = { cold noreturn nounwind }
 !972 = distinct !{!972, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838"}
 !973 = distinct !{!973, !972, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838: argument 1"}
 !974 = !{!975}
-!975 = distinct !{!975, !976, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!976 = distinct !{!976, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!975 = distinct !{!975, !976, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!976 = distinct !{!976, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !977 = !{!978, !971, !973}
-!978 = distinct !{!978, !976, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!978 = distinct !{!978, !976, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !979 = !{!980}
 !980 = distinct !{!980, !981, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E: argument 0"}
 !981 = distinct !{!981, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E"}
@@ -45897,10 +45897,10 @@ attributes #20 = { cold noreturn nounwind }
 !989 = !{!987, !990}
 !990 = distinct !{!990, !988, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838: argument 1"}
 !991 = !{!992}
-!992 = distinct !{!992, !993, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!993 = distinct !{!993, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!992 = distinct !{!992, !993, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!993 = distinct !{!993, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !994 = !{!995, !987, !990}
-!995 = distinct !{!995, !993, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!995 = distinct !{!995, !993, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !996 = !{!990}
 !997 = !{!998}
 !998 = distinct !{!998, !999, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h6a6bbfe4f30c6005E: argument 0"}
@@ -45914,10 +45914,10 @@ attributes #20 = { cold noreturn nounwind }
 !1006 = !{!1004, !1007}
 !1007 = distinct !{!1007, !1005, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838: argument 1"}
 !1008 = !{!1009}
-!1009 = distinct !{!1009, !1010, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1010 = distinct !{!1010, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1009 = distinct !{!1009, !1010, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1010 = distinct !{!1010, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1011 = !{!1012, !1004, !1007}
-!1012 = distinct !{!1012, !1010, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1012 = distinct !{!1012, !1010, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1013 = !{!1007}
 !1014 = !{!1015}
 !1015 = distinct !{!1015, !1016, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE: argument 0"}
@@ -45932,10 +45932,10 @@ attributes #20 = { cold noreturn nounwind }
 !1024 = !{!1022, !1025}
 !1025 = distinct !{!1025, !1023, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838: argument 1"}
 !1026 = !{!1027}
-!1027 = distinct !{!1027, !1028, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1028 = distinct !{!1028, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1027 = distinct !{!1027, !1028, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1028 = distinct !{!1028, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1029 = !{!1030, !1022, !1025}
-!1030 = distinct !{!1030, !1028, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1030 = distinct !{!1030, !1028, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1031 = !{!1025}
 !1032 = !{!1033}
 !1033 = distinct !{!1033, !1034, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE: argument 0"}
@@ -45950,10 +45950,10 @@ attributes #20 = { cold noreturn nounwind }
 !1042 = !{!1040, !1043}
 !1043 = distinct !{!1043, !1041, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838: argument 1"}
 !1044 = !{!1045}
-!1045 = distinct !{!1045, !1046, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1046 = distinct !{!1046, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1045 = distinct !{!1045, !1046, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1046 = distinct !{!1046, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1047 = !{!1048, !1040, !1043}
-!1048 = distinct !{!1048, !1046, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1048 = distinct !{!1048, !1046, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1049 = !{!1043}
 !1050 = !{!1051}
 !1051 = distinct !{!1051, !1052, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E: argument 0"}
@@ -45967,10 +45967,10 @@ attributes #20 = { cold noreturn nounwind }
 !1059 = !{!1057, !1060}
 !1060 = distinct !{!1060, !1058, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838: argument 1"}
 !1061 = !{!1062}
-!1062 = distinct !{!1062, !1063, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1063 = distinct !{!1063, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1062 = distinct !{!1062, !1063, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1063 = distinct !{!1063, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1064 = !{!1065, !1057, !1060}
-!1065 = distinct !{!1065, !1063, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1065 = distinct !{!1065, !1063, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1066 = !{!1060}
 !1067 = !{!1068}
 !1068 = distinct !{!1068, !1069, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E: argument 0"}
@@ -45988,10 +45988,10 @@ attributes #20 = { cold noreturn nounwind }
 !1080 = !{!1078, !1081}
 !1081 = distinct !{!1081, !1079, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838: argument 1"}
 !1082 = !{!1083}
-!1083 = distinct !{!1083, !1084, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1084 = distinct !{!1084, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1083 = distinct !{!1083, !1084, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1084 = distinct !{!1084, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1085 = !{!1086, !1078, !1081}
-!1086 = distinct !{!1086, !1084, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1086 = distinct !{!1086, !1084, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1087 = !{!1081}
 !1088 = !{!1089}
 !1089 = distinct !{!1089, !1090, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E: argument 0"}
@@ -46009,10 +46009,10 @@ attributes #20 = { cold noreturn nounwind }
 !1101 = !{!1099, !1102}
 !1102 = distinct !{!1102, !1100, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838: argument 1"}
 !1103 = !{!1104}
-!1104 = distinct !{!1104, !1105, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1105 = distinct !{!1105, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1104 = distinct !{!1104, !1105, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1105 = distinct !{!1105, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1106 = !{!1107, !1099, !1102}
-!1107 = distinct !{!1107, !1105, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1107 = distinct !{!1107, !1105, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1108 = !{!1102}
 !1109 = !{!1110}
 !1110 = distinct !{!1110, !1111, !"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$10dimensions17h192243726e780265E: argument 0"}
@@ -46078,10 +46078,10 @@ attributes #20 = { cold noreturn nounwind }
 !1170 = !{!1168, !1171}
 !1171 = distinct !{!1171, !1169, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838: argument 1"}
 !1172 = !{!1173}
-!1173 = distinct !{!1173, !1174, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1174 = distinct !{!1174, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1173 = distinct !{!1173, !1174, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1174 = distinct !{!1174, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1175 = !{!1176, !1168, !1171}
-!1176 = distinct !{!1176, !1174, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1176 = distinct !{!1176, !1174, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1177 = !{!1171}
 !1178 = !{!1179}
 !1179 = distinct !{!1179, !1180, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h9aea4f9aafdf320cE: argument 0"}
@@ -46091,8 +46091,8 @@ attributes #20 = { cold noreturn nounwind }
 !1183 = distinct !{!1183, !"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00427f962b20bfeaE.llvm.1609853135345852838"}
 !1184 = distinct !{!1184, !1183, !"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00427f962b20bfeaE.llvm.1609853135345852838: argument 1"}
 !1185 = !{!1186}
-!1186 = distinct !{!1186, !1187, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17h5440e2e29efd1c19E: argument 0"}
-!1187 = distinct !{!1187, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17h5440e2e29efd1c19E"}
+!1186 = distinct !{!1186, !1187, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17h5440e2e29efd1c19E.argprom: argument 0"}
+!1187 = distinct !{!1187, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17h5440e2e29efd1c19E.argprom"}
 !1188 = !{!1189}
 !1189 = distinct !{!1189, !1190, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$5apply17hc2b6afdd84db3f09E: argument 0"}
 !1190 = distinct !{!1190, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$5apply17hc2b6afdd84db3f09E"}
@@ -46105,10 +46105,10 @@ attributes #20 = { cold noreturn nounwind }
 !1197 = !{!1195, !1198}
 !1198 = distinct !{!1198, !1196, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838: argument 1"}
 !1199 = !{!1200}
-!1200 = distinct !{!1200, !1201, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1201 = distinct !{!1201, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1200 = distinct !{!1200, !1201, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1201 = distinct !{!1201, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1202 = !{!1203, !1195, !1198}
-!1203 = distinct !{!1203, !1201, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1203 = distinct !{!1203, !1201, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1204 = !{!1198}
 !1205 = !{!1206}
 !1206 = distinct !{!1206, !1207, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17haf224edb78b4a694E: argument 0"}
@@ -46121,8 +46121,8 @@ attributes #20 = { cold noreturn nounwind }
 !1213 = distinct !{!1213, !"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h80519703799b0dc6E.llvm.1609853135345852838"}
 !1214 = distinct !{!1214, !1213, !"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h80519703799b0dc6E.llvm.1609853135345852838: argument 1"}
 !1215 = !{!1216}
-!1216 = distinct !{!1216, !1217, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17habcf91e9bf2a3baaE: argument 0"}
-!1217 = distinct !{!1217, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17habcf91e9bf2a3baaE"}
+!1216 = distinct !{!1216, !1217, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17habcf91e9bf2a3baaE.argprom: argument 0"}
+!1217 = distinct !{!1217, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17habcf91e9bf2a3baaE.argprom"}
 !1218 = !{!1219}
 !1219 = distinct !{!1219, !1220, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$5apply17h9a2309235eaffd23E: argument 0"}
 !1220 = distinct !{!1220, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$5apply17h9a2309235eaffd23E"}
@@ -46135,10 +46135,10 @@ attributes #20 = { cold noreturn nounwind }
 !1227 = !{!1225, !1228}
 !1228 = distinct !{!1228, !1226, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838: argument 1"}
 !1229 = !{!1230}
-!1230 = distinct !{!1230, !1231, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1231 = distinct !{!1231, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1230 = distinct !{!1230, !1231, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1231 = distinct !{!1231, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1232 = !{!1233, !1225, !1228}
-!1233 = distinct !{!1233, !1231, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1233 = distinct !{!1233, !1231, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1234 = !{!1228}
 !1235 = !{!1236}
 !1236 = distinct !{!1236, !1237, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E: argument 0"}
@@ -46153,10 +46153,10 @@ attributes #20 = { cold noreturn nounwind }
 !1245 = !{!1243, !1246}
 !1246 = distinct !{!1246, !1244, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838: argument 1"}
 !1247 = !{!1248}
-!1248 = distinct !{!1248, !1249, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1249 = distinct !{!1249, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1248 = distinct !{!1248, !1249, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1249 = distinct !{!1249, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1250 = !{!1251, !1243, !1246}
-!1251 = distinct !{!1251, !1249, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1251 = distinct !{!1251, !1249, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1252 = !{!1246}
 !1253 = !{!1254}
 !1254 = distinct !{!1254, !1255, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE: argument 0"}
@@ -46177,10 +46177,10 @@ attributes #20 = { cold noreturn nounwind }
 !1269 = !{!1267, !1270}
 !1270 = distinct !{!1270, !1268, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838: argument 1"}
 !1271 = !{!1272}
-!1272 = distinct !{!1272, !1273, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1273 = distinct !{!1273, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1272 = distinct !{!1272, !1273, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1273 = distinct !{!1273, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1274 = !{!1275, !1267, !1270}
-!1275 = distinct !{!1275, !1273, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1275 = distinct !{!1275, !1273, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1276 = !{!1270}
 !1277 = !{!1278}
 !1278 = distinct !{!1278, !1279, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h6a6bbfe4f30c6005E: argument 0"}
@@ -46204,10 +46204,10 @@ attributes #20 = { cold noreturn nounwind }
 !1296 = !{!1294, !1297}
 !1297 = distinct !{!1297, !1295, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838: argument 1"}
 !1298 = !{!1299}
-!1299 = distinct !{!1299, !1300, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1300 = distinct !{!1300, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1299 = distinct !{!1299, !1300, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1300 = distinct !{!1300, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1301 = !{!1302, !1294, !1297}
-!1302 = distinct !{!1302, !1300, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1302 = distinct !{!1302, !1300, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1303 = !{!1297}
 !1304 = !{!1305}
 !1305 = distinct !{!1305, !1306, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E: argument 0"}
@@ -46231,10 +46231,10 @@ attributes #20 = { cold noreturn nounwind }
 !1323 = !{!1321, !1324}
 !1324 = distinct !{!1324, !1322, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838: argument 1"}
 !1325 = !{!1326}
-!1326 = distinct !{!1326, !1327, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1327 = distinct !{!1327, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1326 = distinct !{!1326, !1327, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1327 = distinct !{!1327, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1328 = !{!1329, !1321, !1324}
-!1329 = distinct !{!1329, !1327, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1329 = distinct !{!1329, !1327, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1330 = !{!1324}
 !1331 = !{!1332}
 !1332 = distinct !{!1332, !1333, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E: argument 0"}
@@ -46258,10 +46258,10 @@ attributes #20 = { cold noreturn nounwind }
 !1350 = !{!1348, !1351}
 !1351 = distinct !{!1351, !1349, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838: argument 1"}
 !1352 = !{!1353}
-!1353 = distinct !{!1353, !1354, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1354 = distinct !{!1354, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1353 = distinct !{!1353, !1354, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1354 = distinct !{!1354, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1355 = !{!1356, !1348, !1351}
-!1356 = distinct !{!1356, !1354, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1356 = distinct !{!1356, !1354, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1357 = !{!1351}
 !1358 = !{!1359}
 !1359 = distinct !{!1359, !1360, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h2b954201ea954ed0E: argument 0"}
@@ -46278,10 +46278,10 @@ attributes #20 = { cold noreturn nounwind }
 !1370 = distinct !{!1370, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838"}
 !1371 = distinct !{!1371, !1370, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838: argument 1"}
 !1372 = !{!1373}
-!1373 = distinct !{!1373, !1374, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1374 = distinct !{!1374, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1373 = distinct !{!1373, !1374, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1374 = distinct !{!1374, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1375 = !{!1376, !1369, !1371}
-!1376 = distinct !{!1376, !1374, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1376 = distinct !{!1376, !1374, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1377 = !{!1378}
 !1378 = distinct !{!1378, !1379, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E: argument 0"}
 !1379 = distinct !{!1379, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E"}
@@ -46301,10 +46301,10 @@ attributes #20 = { cold noreturn nounwind }
 !1393 = !{!1391, !1394}
 !1394 = distinct !{!1394, !1392, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838: argument 1"}
 !1395 = !{!1396}
-!1396 = distinct !{!1396, !1397, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1397 = distinct !{!1397, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1396 = distinct !{!1396, !1397, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1397 = distinct !{!1397, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1398 = !{!1399, !1391, !1394}
-!1399 = distinct !{!1399, !1397, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1399 = distinct !{!1399, !1397, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1400 = !{!1394}
 !1401 = !{!1402}
 !1402 = distinct !{!1402, !1403, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E: argument 0"}
@@ -46328,10 +46328,10 @@ attributes #20 = { cold noreturn nounwind }
 !1420 = !{!1418, !1421}
 !1421 = distinct !{!1421, !1419, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838: argument 1"}
 !1422 = !{!1423}
-!1423 = distinct !{!1423, !1424, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1424 = distinct !{!1424, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1423 = distinct !{!1423, !1424, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1424 = distinct !{!1424, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1425 = !{!1426, !1418, !1421}
-!1426 = distinct !{!1426, !1424, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1426 = distinct !{!1426, !1424, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1427 = !{!1421}
 !1428 = !{!1429}
 !1429 = distinct !{!1429, !1430, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h6a6bbfe4f30c6005E: argument 0"}
@@ -46355,10 +46355,10 @@ attributes #20 = { cold noreturn nounwind }
 !1447 = !{!1445, !1448}
 !1448 = distinct !{!1448, !1446, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838: argument 1"}
 !1449 = !{!1450}
-!1450 = distinct !{!1450, !1451, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1451 = distinct !{!1451, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1450 = distinct !{!1450, !1451, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1451 = distinct !{!1451, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1452 = !{!1453, !1445, !1448}
-!1453 = distinct !{!1453, !1451, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1453 = distinct !{!1453, !1451, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1454 = !{!1448}
 !1455 = !{!1456}
 !1456 = distinct !{!1456, !1457, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h2b954201ea954ed0E: argument 0"}
@@ -46375,10 +46375,10 @@ attributes #20 = { cold noreturn nounwind }
 !1467 = distinct !{!1467, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838"}
 !1468 = distinct !{!1468, !1467, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838: argument 1"}
 !1469 = !{!1470}
-!1470 = distinct !{!1470, !1471, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1471 = distinct !{!1471, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1470 = distinct !{!1470, !1471, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1471 = distinct !{!1471, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1472 = !{!1473, !1466, !1468}
-!1473 = distinct !{!1473, !1471, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1473 = distinct !{!1473, !1471, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1474 = !{!1475}
 !1475 = distinct !{!1475, !1476, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E: argument 0"}
 !1476 = distinct !{!1476, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E"}
@@ -46392,10 +46392,10 @@ attributes #20 = { cold noreturn nounwind }
 !1484 = !{!1482, !1485}
 !1485 = distinct !{!1485, !1483, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838: argument 1"}
 !1486 = !{!1487}
-!1487 = distinct !{!1487, !1488, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1488 = distinct !{!1488, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1487 = distinct !{!1487, !1488, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1488 = distinct !{!1488, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1489 = !{!1490, !1482, !1485}
-!1490 = distinct !{!1490, !1488, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1490 = distinct !{!1490, !1488, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1491 = !{!1485}
 !1492 = !{!1493}
 !1493 = distinct !{!1493, !1494, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h9aea4f9aafdf320cE: argument 0"}
@@ -46422,10 +46422,10 @@ attributes #20 = { cold noreturn nounwind }
 !1514 = !{!1512, !1515}
 !1515 = distinct !{!1515, !1513, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838: argument 1"}
 !1516 = !{!1517}
-!1517 = distinct !{!1517, !1518, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1518 = distinct !{!1518, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1517 = distinct !{!1517, !1518, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1518 = distinct !{!1518, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1519 = !{!1520, !1512, !1515}
-!1520 = distinct !{!1520, !1518, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1520 = distinct !{!1520, !1518, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1521 = !{!1515}
 !1522 = !{!1523}
 !1523 = distinct !{!1523, !1524, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E: argument 0"}
@@ -46451,10 +46451,10 @@ attributes #20 = { cold noreturn nounwind }
 !1543 = !{!1541, !1544}
 !1544 = distinct !{!1544, !1542, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838: argument 1"}
 !1545 = !{!1546}
-!1546 = distinct !{!1546, !1547, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1547 = distinct !{!1547, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1546 = distinct !{!1546, !1547, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1547 = distinct !{!1547, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1548 = !{!1549, !1541, !1544}
-!1549 = distinct !{!1549, !1547, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1549 = distinct !{!1549, !1547, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1550 = !{!1544}
 !1551 = !{!1552}
 !1552 = distinct !{!1552, !1553, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17haf224edb78b4a694E: argument 0"}
@@ -46484,10 +46484,10 @@ attributes #20 = { cold noreturn nounwind }
 !1576 = !{!1574, !1577}
 !1577 = distinct !{!1577, !1575, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838: argument 1"}
 !1578 = !{!1579}
-!1579 = distinct !{!1579, !1580, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1580 = distinct !{!1580, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1579 = distinct !{!1579, !1580, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1580 = distinct !{!1580, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1581 = !{!1582, !1574, !1577}
-!1582 = distinct !{!1582, !1580, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1582 = distinct !{!1582, !1580, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1583 = !{!1577}
 !1584 = !{!1585}
 !1585 = distinct !{!1585, !1586, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E: argument 0"}
@@ -46505,10 +46505,10 @@ attributes #20 = { cold noreturn nounwind }
 !1597 = !{!1595, !1598}
 !1598 = distinct !{!1598, !1596, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838: argument 1"}
 !1599 = !{!1600}
-!1600 = distinct !{!1600, !1601, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1601 = distinct !{!1601, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1600 = distinct !{!1600, !1601, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1601 = distinct !{!1601, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1602 = !{!1603, !1595, !1598}
-!1603 = distinct !{!1603, !1601, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1603 = distinct !{!1603, !1601, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1604 = !{!1598}
 !1605 = !{!1606}
 !1606 = distinct !{!1606, !1607, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE: argument 0"}
@@ -46523,10 +46523,10 @@ attributes #20 = { cold noreturn nounwind }
 !1615 = !{!1613, !1616}
 !1616 = distinct !{!1616, !1614, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838: argument 1"}
 !1617 = !{!1618}
-!1618 = distinct !{!1618, !1619, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1619 = distinct !{!1619, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1618 = distinct !{!1618, !1619, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1619 = distinct !{!1619, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1620 = !{!1621, !1613, !1616}
-!1621 = distinct !{!1621, !1619, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1621 = distinct !{!1621, !1619, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1622 = !{!1616}
 !1623 = !{!1624}
 !1624 = distinct !{!1624, !1625, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7d54379abd5b2635E: argument 0"}
@@ -46555,10 +46555,10 @@ attributes #20 = { cold noreturn nounwind }
 !1647 = !{!1645, !1648}
 !1648 = distinct !{!1648, !1646, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838: argument 1"}
 !1649 = !{!1650}
-!1650 = distinct !{!1650, !1651, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1651 = distinct !{!1651, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1650 = distinct !{!1650, !1651, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1651 = distinct !{!1651, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1652 = !{!1653, !1645, !1648}
-!1653 = distinct !{!1653, !1651, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1653 = distinct !{!1653, !1651, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1654 = !{!1648}
 !1655 = !{!1656}
 !1656 = distinct !{!1656, !1657, !"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$10dimensions17h1fbe8c640a89a278E: argument 0"}
@@ -46757,82 +46757,82 @@ attributes #20 = { cold noreturn nounwind }
 !1849 = distinct !{!1849, !1850, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE: argument 0"}
 !1850 = distinct !{!1850, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE"}
 !1851 = !{!1852}
-!1852 = distinct !{!1852, !1853, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1853 = distinct !{!1853, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1852 = distinct !{!1852, !1853, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1853 = distinct !{!1853, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1854 = !{!1855}
-!1855 = distinct !{!1855, !1853, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1855 = distinct !{!1855, !1853, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1856 = !{!1857}
 !1857 = distinct !{!1857, !1858, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b312878c5e2fccbE.llvm.1609853135345852838: argument 0"}
 !1858 = distinct !{!1858, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b312878c5e2fccbE.llvm.1609853135345852838"}
 !1859 = !{!1860}
-!1860 = distinct !{!1860, !1861, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1861 = distinct !{!1861, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1860 = distinct !{!1860, !1861, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1861 = distinct !{!1861, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1862 = !{!1863}
-!1863 = distinct !{!1863, !1861, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1863 = distinct !{!1863, !1861, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1864 = !{!1865}
 !1865 = distinct !{!1865, !1866, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.1609853135345852838: argument 0"}
 !1866 = distinct !{!1866, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.1609853135345852838"}
 !1867 = !{!1868}
-!1868 = distinct !{!1868, !1869, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1869 = distinct !{!1869, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1868 = distinct !{!1868, !1869, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1869 = distinct !{!1869, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1870 = !{!1871}
-!1871 = distinct !{!1871, !1869, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1871 = distinct !{!1871, !1869, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1872 = !{!1873}
 !1873 = distinct !{!1873, !1874, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.1609853135345852838: argument 0"}
 !1874 = distinct !{!1874, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.1609853135345852838"}
 !1875 = !{!1876}
-!1876 = distinct !{!1876, !1877, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1877 = distinct !{!1877, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1876 = distinct !{!1876, !1877, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1877 = distinct !{!1877, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1878 = !{!1879}
-!1879 = distinct !{!1879, !1877, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1879 = distinct !{!1879, !1877, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1880 = !{!1881}
 !1881 = distinct !{!1881, !1882, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b312878c5e2fccbE.llvm.1609853135345852838: argument 0"}
 !1882 = distinct !{!1882, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b312878c5e2fccbE.llvm.1609853135345852838"}
 !1883 = !{!1884}
-!1884 = distinct !{!1884, !1885, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1885 = distinct !{!1885, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1884 = distinct !{!1884, !1885, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1885 = distinct !{!1885, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1886 = !{!1887}
-!1887 = distinct !{!1887, !1885, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1887 = distinct !{!1887, !1885, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1888 = !{!1889}
 !1889 = distinct !{!1889, !1890, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.1609853135345852838: argument 0"}
 !1890 = distinct !{!1890, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.1609853135345852838"}
 !1891 = !{!1892}
-!1892 = distinct !{!1892, !1893, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1893 = distinct !{!1893, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1892 = distinct !{!1892, !1893, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1893 = distinct !{!1893, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1894 = !{!1895}
-!1895 = distinct !{!1895, !1893, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1895 = distinct !{!1895, !1893, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1896 = !{!1897}
 !1897 = distinct !{!1897, !1898, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hae8e599c7c6ca158E.llvm.1609853135345852838: argument 0"}
 !1898 = distinct !{!1898, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hae8e599c7c6ca158E.llvm.1609853135345852838"}
 !1899 = !{!1900}
-!1900 = distinct !{!1900, !1901, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1901 = distinct !{!1901, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1900 = distinct !{!1900, !1901, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1901 = distinct !{!1901, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1902 = !{!1903}
-!1903 = distinct !{!1903, !1901, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1903 = distinct !{!1903, !1901, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1904 = !{!1905}
 !1905 = distinct !{!1905, !1906, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.1609853135345852838: argument 0"}
 !1906 = distinct !{!1906, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.1609853135345852838"}
 !1907 = !{!1908}
-!1908 = distinct !{!1908, !1909, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1909 = distinct !{!1909, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1908 = distinct !{!1908, !1909, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1909 = distinct !{!1909, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1910 = !{!1911}
-!1911 = distinct !{!1911, !1909, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1911 = distinct !{!1911, !1909, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1912 = !{!1913}
 !1913 = distinct !{!1913, !1914, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hae8e599c7c6ca158E.llvm.1609853135345852838: argument 0"}
 !1914 = distinct !{!1914, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hae8e599c7c6ca158E.llvm.1609853135345852838"}
 !1915 = !{!1916}
-!1916 = distinct !{!1916, !1917, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1917 = distinct !{!1917, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1916 = distinct !{!1916, !1917, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1917 = distinct !{!1917, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1918 = !{!1919}
-!1919 = distinct !{!1919, !1917, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1919 = distinct !{!1919, !1917, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1920 = !{!1921}
 !1921 = distinct !{!1921, !1922, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b312878c5e2fccbE.llvm.1609853135345852838: argument 0"}
 !1922 = distinct !{!1922, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b312878c5e2fccbE.llvm.1609853135345852838"}
 !1923 = !{!1924}
-!1924 = distinct !{!1924, !1925, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!1925 = distinct !{!1925, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!1924 = distinct !{!1924, !1925, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!1925 = distinct !{!1925, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !1926 = !{!1927}
-!1927 = distinct !{!1927, !1925, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!1927 = distinct !{!1927, !1925, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !1928 = !{!1929}
 !1929 = distinct !{!1929, !1930, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b312878c5e2fccbE.llvm.1609853135345852838: argument 0"}
 !1930 = distinct !{!1930, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b312878c5e2fccbE.llvm.1609853135345852838"}
@@ -49427,10 +49427,10 @@ attributes #20 = { cold noreturn nounwind }
 !4519 = distinct !{!4519, !4517, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838: argument 1"}
 !4520 = !{!4516, !4519}
 !4521 = !{!4522}
-!4522 = distinct !{!4522, !4523, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4523 = distinct !{!4523, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4522 = distinct !{!4522, !4523, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4523 = distinct !{!4523, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4524 = !{!4525, !4516, !4519}
-!4525 = distinct !{!4525, !4523, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4525 = distinct !{!4525, !4523, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4526 = !{!4527}
 !4527 = distinct !{!4527, !4528, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h6a6bbfe4f30c6005E: argument 0"}
 !4528 = distinct !{!4528, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h6a6bbfe4f30c6005E"}
@@ -49441,10 +49441,10 @@ attributes #20 = { cold noreturn nounwind }
 !4533 = distinct !{!4533, !4531, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838: argument 1"}
 !4534 = !{!4530, !4533}
 !4535 = !{!4536}
-!4536 = distinct !{!4536, !4537, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4537 = distinct !{!4537, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4536 = distinct !{!4536, !4537, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4537 = distinct !{!4537, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4538 = !{!4539, !4530, !4533}
-!4539 = distinct !{!4539, !4537, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4539 = distinct !{!4539, !4537, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4540 = !{!4541}
 !4541 = distinct !{!4541, !4542, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E: argument 0"}
 !4542 = distinct !{!4542, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E"}
@@ -49458,10 +49458,10 @@ attributes #20 = { cold noreturn nounwind }
 !4550 = distinct !{!4550, !4548, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838: argument 1"}
 !4551 = !{!4547, !4550}
 !4552 = !{!4553}
-!4553 = distinct !{!4553, !4554, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4554 = distinct !{!4554, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4553 = distinct !{!4553, !4554, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4554 = distinct !{!4554, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4555 = !{!4556, !4547, !4550}
-!4556 = distinct !{!4556, !4554, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4556 = distinct !{!4556, !4554, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4557 = !{!4558}
 !4558 = distinct !{!4558, !4559, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE: argument 0"}
 !4559 = distinct !{!4559, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE"}
@@ -49472,10 +49472,10 @@ attributes #20 = { cold noreturn nounwind }
 !4564 = distinct !{!4564, !4562, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838: argument 1"}
 !4565 = !{!4561, !4564}
 !4566 = !{!4567}
-!4567 = distinct !{!4567, !4568, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4568 = distinct !{!4568, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4567 = distinct !{!4567, !4568, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4568 = distinct !{!4568, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4569 = !{!4570, !4561, !4564}
-!4570 = distinct !{!4570, !4568, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4570 = distinct !{!4570, !4568, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4571 = !{!4572}
 !4572 = distinct !{!4572, !4573, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E: argument 0"}
 !4573 = distinct !{!4573, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E"}
@@ -49486,10 +49486,10 @@ attributes #20 = { cold noreturn nounwind }
 !4578 = distinct !{!4578, !4576, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838: argument 1"}
 !4579 = !{!4575, !4578}
 !4580 = !{!4581}
-!4581 = distinct !{!4581, !4582, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4582 = distinct !{!4582, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4581 = distinct !{!4581, !4582, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4582 = distinct !{!4582, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4583 = !{!4584, !4575, !4578}
-!4584 = distinct !{!4584, !4582, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4584 = distinct !{!4584, !4582, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4585 = !{!4586}
 !4586 = distinct !{!4586, !4587, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E: argument 0"}
 !4587 = distinct !{!4587, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E"}
@@ -49500,10 +49500,10 @@ attributes #20 = { cold noreturn nounwind }
 !4592 = distinct !{!4592, !4590, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838: argument 1"}
 !4593 = !{!4589, !4592}
 !4594 = !{!4595}
-!4595 = distinct !{!4595, !4596, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4596 = distinct !{!4596, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4595 = distinct !{!4595, !4596, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4596 = distinct !{!4596, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4597 = !{!4598, !4589, !4592}
-!4598 = distinct !{!4598, !4596, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4598 = distinct !{!4598, !4596, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4599 = !{!4600}
 !4600 = distinct !{!4600, !4601, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E: argument 0"}
 !4601 = distinct !{!4601, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E"}
@@ -49517,10 +49517,10 @@ attributes #20 = { cold noreturn nounwind }
 !4609 = distinct !{!4609, !4607, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838: argument 1"}
 !4610 = !{!4606, !4609}
 !4611 = !{!4612}
-!4612 = distinct !{!4612, !4613, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4613 = distinct !{!4613, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4612 = distinct !{!4612, !4613, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4613 = distinct !{!4613, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4614 = !{!4615, !4606, !4609}
-!4615 = distinct !{!4615, !4613, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4615 = distinct !{!4615, !4613, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4616 = !{!4617}
 !4617 = distinct !{!4617, !4618, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17haf224edb78b4a694E: argument 0"}
 !4618 = distinct !{!4618, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17haf224edb78b4a694E"}
@@ -49534,10 +49534,10 @@ attributes #20 = { cold noreturn nounwind }
 !4626 = distinct !{!4626, !4624, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838: argument 1"}
 !4627 = !{!4623, !4626}
 !4628 = !{!4629}
-!4629 = distinct !{!4629, !4630, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4630 = distinct !{!4630, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4629 = distinct !{!4629, !4630, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4630 = distinct !{!4630, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4631 = !{!4632, !4623, !4626}
-!4632 = distinct !{!4632, !4630, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4632 = distinct !{!4632, !4630, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4633 = !{!4634}
 !4634 = distinct !{!4634, !4635, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17haf224edb78b4a694E: argument 0"}
 !4635 = distinct !{!4635, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17haf224edb78b4a694E"}
@@ -49551,10 +49551,10 @@ attributes #20 = { cold noreturn nounwind }
 !4643 = distinct !{!4643, !4641, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838: argument 1"}
 !4644 = !{!4640, !4643}
 !4645 = !{!4646}
-!4646 = distinct !{!4646, !4647, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4647 = distinct !{!4647, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4646 = distinct !{!4646, !4647, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4647 = distinct !{!4647, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4648 = !{!4649, !4640, !4643}
-!4649 = distinct !{!4649, !4647, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4649 = distinct !{!4649, !4647, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4650 = !{!4651}
 !4651 = distinct !{!4651, !4652, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E: argument 0"}
 !4652 = distinct !{!4652, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E"}
@@ -49565,10 +49565,10 @@ attributes #20 = { cold noreturn nounwind }
 !4657 = distinct !{!4657, !4655, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838: argument 1"}
 !4658 = !{!4654, !4657}
 !4659 = !{!4660}
-!4660 = distinct !{!4660, !4661, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4661 = distinct !{!4661, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4660 = distinct !{!4660, !4661, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4661 = distinct !{!4661, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4662 = !{!4663, !4654, !4657}
-!4663 = distinct !{!4663, !4661, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4663 = distinct !{!4663, !4661, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4664 = !{!4665}
 !4665 = distinct !{!4665, !4666, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h9aea4f9aafdf320cE: argument 0"}
 !4666 = distinct !{!4666, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h9aea4f9aafdf320cE"}
@@ -49579,10 +49579,10 @@ attributes #20 = { cold noreturn nounwind }
 !4671 = distinct !{!4671, !4669, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838: argument 1"}
 !4672 = !{!4668, !4671}
 !4673 = !{!4674}
-!4674 = distinct !{!4674, !4675, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4675 = distinct !{!4675, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4674 = distinct !{!4674, !4675, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4675 = distinct !{!4675, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4676 = !{!4677, !4668, !4671}
-!4677 = distinct !{!4677, !4675, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4677 = distinct !{!4677, !4675, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4678 = !{!4679}
 !4679 = distinct !{!4679, !4680, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h6a6bbfe4f30c6005E: argument 0"}
 !4680 = distinct !{!4680, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h6a6bbfe4f30c6005E"}
@@ -49593,10 +49593,10 @@ attributes #20 = { cold noreturn nounwind }
 !4685 = distinct !{!4685, !4683, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838: argument 1"}
 !4686 = !{!4682, !4685}
 !4687 = !{!4688}
-!4688 = distinct !{!4688, !4689, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4689 = distinct !{!4689, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4688 = distinct !{!4688, !4689, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4689 = distinct !{!4689, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4690 = !{!4691, !4682, !4685}
-!4691 = distinct !{!4691, !4689, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4691 = distinct !{!4691, !4689, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4692 = !{!4693}
 !4693 = distinct !{!4693, !4694, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E: argument 0"}
 !4694 = distinct !{!4694, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E"}
@@ -49607,10 +49607,10 @@ attributes #20 = { cold noreturn nounwind }
 !4699 = distinct !{!4699, !4697, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838: argument 1"}
 !4700 = !{!4696, !4699}
 !4701 = !{!4702}
-!4702 = distinct !{!4702, !4703, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4703 = distinct !{!4703, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4702 = distinct !{!4702, !4703, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4703 = distinct !{!4703, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4704 = !{!4705, !4696, !4699}
-!4705 = distinct !{!4705, !4703, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4705 = distinct !{!4705, !4703, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4706 = !{!4707}
 !4707 = distinct !{!4707, !4708, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E: argument 0"}
 !4708 = distinct !{!4708, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E"}
@@ -49621,10 +49621,10 @@ attributes #20 = { cold noreturn nounwind }
 !4713 = distinct !{!4713, !4711, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838: argument 1"}
 !4714 = !{!4710, !4713}
 !4715 = !{!4716}
-!4716 = distinct !{!4716, !4717, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4717 = distinct !{!4717, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4716 = distinct !{!4716, !4717, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4717 = distinct !{!4717, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4718 = !{!4719, !4710, !4713}
-!4719 = distinct !{!4719, !4717, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4719 = distinct !{!4719, !4717, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4720 = !{!4721}
 !4721 = distinct !{!4721, !4722, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E: argument 0"}
 !4722 = distinct !{!4722, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E"}
@@ -49635,10 +49635,10 @@ attributes #20 = { cold noreturn nounwind }
 !4727 = distinct !{!4727, !4725, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838: argument 1"}
 !4728 = !{!4724, !4727}
 !4729 = !{!4730}
-!4730 = distinct !{!4730, !4731, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4731 = distinct !{!4731, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4730 = distinct !{!4730, !4731, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4731 = distinct !{!4731, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4732 = !{!4733, !4724, !4727}
-!4733 = distinct !{!4733, !4731, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4733 = distinct !{!4733, !4731, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4734 = !{!4735}
 !4735 = distinct !{!4735, !4736, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE: argument 0"}
 !4736 = distinct !{!4736, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE"}
@@ -49649,10 +49649,10 @@ attributes #20 = { cold noreturn nounwind }
 !4741 = distinct !{!4741, !4739, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838: argument 1"}
 !4742 = !{!4738, !4741}
 !4743 = !{!4744}
-!4744 = distinct !{!4744, !4745, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4745 = distinct !{!4745, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4744 = distinct !{!4744, !4745, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4745 = distinct !{!4745, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4746 = !{!4747, !4738, !4741}
-!4747 = distinct !{!4747, !4745, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4747 = distinct !{!4747, !4745, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4748 = !{!4749}
 !4749 = distinct !{!4749, !4750, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7d54379abd5b2635E: argument 0"}
 !4750 = distinct !{!4750, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7d54379abd5b2635E"}
@@ -49666,10 +49666,10 @@ attributes #20 = { cold noreturn nounwind }
 !4758 = distinct !{!4758, !4756, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838: argument 1"}
 !4759 = !{!4755, !4758}
 !4760 = !{!4761}
-!4761 = distinct !{!4761, !4762, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4762 = distinct !{!4762, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4761 = distinct !{!4761, !4762, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4762 = distinct !{!4762, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4763 = !{!4764, !4755, !4758}
-!4764 = distinct !{!4764, !4762, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4764 = distinct !{!4764, !4762, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4765 = !{!4766}
 !4766 = distinct !{!4766, !4767, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h2b954201ea954ed0E: argument 0"}
 !4767 = distinct !{!4767, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h2b954201ea954ed0E"}
@@ -49681,10 +49681,10 @@ attributes #20 = { cold noreturn nounwind }
 !4773 = distinct !{!4773, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838"}
 !4774 = distinct !{!4774, !4773, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838: argument 1"}
 !4775 = !{!4776}
-!4776 = distinct !{!4776, !4777, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4777 = distinct !{!4777, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4776 = distinct !{!4776, !4777, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4777 = distinct !{!4777, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4778 = !{!4779, !4772, !4774}
-!4779 = distinct !{!4779, !4777, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4779 = distinct !{!4779, !4777, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4780 = !{!4781}
 !4781 = distinct !{!4781, !4782, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7d54379abd5b2635E: argument 0"}
 !4782 = distinct !{!4782, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7d54379abd5b2635E"}
@@ -49698,10 +49698,10 @@ attributes #20 = { cold noreturn nounwind }
 !4790 = distinct !{!4790, !4788, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838: argument 1"}
 !4791 = !{!4787, !4790}
 !4792 = !{!4793}
-!4793 = distinct !{!4793, !4794, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4794 = distinct !{!4794, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4793 = distinct !{!4793, !4794, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4794 = distinct !{!4794, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4795 = !{!4796, !4787, !4790}
-!4796 = distinct !{!4796, !4794, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4796 = distinct !{!4796, !4794, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4797 = !{!4798}
 !4798 = distinct !{!4798, !4799, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h2b954201ea954ed0E: argument 0"}
 !4799 = distinct !{!4799, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h2b954201ea954ed0E"}
@@ -49713,10 +49713,10 @@ attributes #20 = { cold noreturn nounwind }
 !4805 = distinct !{!4805, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838"}
 !4806 = distinct !{!4806, !4805, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838: argument 1"}
 !4807 = !{!4808}
-!4808 = distinct !{!4808, !4809, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!4809 = distinct !{!4809, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!4808 = distinct !{!4808, !4809, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!4809 = distinct !{!4809, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !4810 = !{!4811, !4804, !4806}
-!4811 = distinct !{!4811, !4809, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!4811 = distinct !{!4811, !4809, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !4812 = !{!4813, !4815}
 !4813 = distinct !{!4813, !4814, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E: argument 0"}
 !4814 = distinct !{!4814, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E"}

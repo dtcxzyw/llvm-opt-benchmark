@@ -532,7 +532,7 @@ if.end29:                                         ; preds = %for.body.i.i, %do.e
   %master30 = getelementptr inbounds i8, ptr %call.i, i64 3300
   %31 = load i32, ptr %master30, align 4
   %cmp31 = icmp eq i32 %31, 0
-  br i1 %cmp31, label %if.then32, label %ivshmem_is_master.exit
+  br i1 %cmp31, label %if.then32, label %ivshmem_is_master.argprom.exit
 
 if.then32:                                        ; preds = %if.end29
   %vm_id33 = getelementptr inbounds i8, ptr %call.i, i64 2688
@@ -540,21 +540,21 @@ if.then32:                                        ; preds = %if.end29
   %cmp34 = icmp eq i32 %32, 0
   %cond = select i1 %cmp34, i32 1, i32 2
   store i32 %cond, ptr %master30, align 4
-  br label %ivshmem_is_master.exit
+  br label %ivshmem_is_master.argprom.exit
 
-ivshmem_is_master.exit:                           ; preds = %if.end29, %if.then32
+ivshmem_is_master.argprom.exit:                   ; preds = %if.end29, %if.then32
   %call.val37 = phi i32 [ %cond, %if.then32 ], [ %31, %if.end29 ]
   %cmp2.i = icmp eq i32 %call.val37, 1
   br i1 %cmp2.i, label %if.end44, label %if.then38
 
-if.then38:                                        ; preds = %ivshmem_is_master.exit
+if.then38:                                        ; preds = %ivshmem_is_master.argprom.exit
   %migration_blocker = getelementptr inbounds i8, ptr %call.i, i64 3304
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.7, i32 noundef 905, ptr noundef nonnull @__func__.ivshmem_common_realize, ptr noundef nonnull @.str.13) #11
   %call40 = call i32 @migrate_add_blocker(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #11
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %return, label %if.end44
 
-if.end44:                                         ; preds = %if.then38, %ivshmem_is_master.exit
+if.end44:                                         ; preds = %if.then38, %ivshmem_is_master.argprom.exit
   %ivshmem_bar245 = getelementptr inbounds i8, ptr %call.i, i64 2976
   %33 = load ptr, ptr %ivshmem_bar245, align 16
   %call.i53 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11

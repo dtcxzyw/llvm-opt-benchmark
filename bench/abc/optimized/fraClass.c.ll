@@ -2104,7 +2104,7 @@ define void @Fra_ClassesTest(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   %7 = getelementptr i8, ptr %6, i64 32
   %.val14 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val14, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %8
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %.val14, i64 8
@@ -2112,9 +2112,9 @@ define void @Fra_ClassesTest(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds ptr, ptr %.val.i, i64 %10
   %12 = load ptr, ptr %11, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %3, %8
+Aig_ManObj.argprom.exit:                          ; preds = %3, %8
   %13 = phi ptr [ %12, %8 ], [ null, %3 ]
   store ptr %13, ptr %4, align 8
   %.val15 = load ptr, ptr %7, align 8, !nonnull !29, !noundef !29
@@ -2146,12 +2146,12 @@ Aig_ManObj.exit:                                  ; preds = %3, %8
   %31 = icmp eq i32 %29, %30
   br i1 %31, label %32, label %.Vec_PtrGrow.exit11_crit_edge.i
 
-.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Aig_ManObj.exit
+.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Aig_ManObj.argprom.exit
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %27, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
-32:                                               ; preds = %Aig_ManObj.exit
+32:                                               ; preds = %Aig_ManObj.argprom.exit
   %33 = icmp slt i32 %29, 16
   br i1 %33, label %34, label %42
 
@@ -2926,9 +2926,9 @@ Abc_UtilStrsav.exit159:                           ; preds = %Abc_UtilStrsav.exit
   %90 = icmp slt i64 %indvars.iv.next190, %89
   br i1 %90, label %.lr.ph170, label %.critedge2.preheader, !llvm.loop !40
 
-.critedge4.preheader:                             ; preds = %Fra_ClassesDeriveNode.exit, %.critedge2.preheader
-  %91 = phi ptr [ %69, %.critedge2.preheader ], [ %142, %Fra_ClassesDeriveNode.exit ]
-  %92 = phi ptr [ %69, %.critedge2.preheader ], [ %143, %Fra_ClassesDeriveNode.exit ]
+.critedge4.preheader:                             ; preds = %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit, %.critedge2.preheader
+  %91 = phi ptr [ %69, %.critedge2.preheader ], [ %142, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit ]
+  %92 = phi ptr [ %69, %.critedge2.preheader ], [ %143, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit ]
   %93 = getelementptr inbounds i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr i8, ptr %94, i64 4
@@ -2936,11 +2936,11 @@ Abc_UtilStrsav.exit159:                           ; preds = %Abc_UtilStrsav.exit
   %96 = icmp sgt i32 %.val119175, 0
   br i1 %96, label %.lr.ph177, label %.critedge6
 
-.lr.ph174:                                        ; preds = %.lr.ph174.preheader, %Fra_ClassesDeriveNode.exit
-  %97 = phi ptr [ %69, %.lr.ph174.preheader ], [ %142, %Fra_ClassesDeriveNode.exit ]
-  %98 = phi ptr [ %69, %.lr.ph174.preheader ], [ %143, %Fra_ClassesDeriveNode.exit ]
-  %indvars.iv192 = phi i64 [ %74, %.lr.ph174.preheader ], [ %indvars.iv.next193, %Fra_ClassesDeriveNode.exit ]
-  %99 = phi ptr [ %71, %.lr.ph174.preheader ], [ %145, %Fra_ClassesDeriveNode.exit ]
+.lr.ph174:                                        ; preds = %.lr.ph174.preheader, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit
+  %97 = phi ptr [ %69, %.lr.ph174.preheader ], [ %142, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit ]
+  %98 = phi ptr [ %69, %.lr.ph174.preheader ], [ %143, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit ]
+  %indvars.iv192 = phi i64 [ %74, %.lr.ph174.preheader ], [ %indvars.iv.next193, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit ]
+  %99 = phi ptr [ %71, %.lr.ph174.preheader ], [ %145, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit ]
   %100 = getelementptr i8, ptr %99, i64 8
   %.val127 = load ptr, ptr %100, align 8
   %101 = getelementptr inbounds ptr, ptr %.val127, i64 %indvars.iv192
@@ -2957,7 +2957,7 @@ Abc_UtilStrsav.exit159:                           ; preds = %Abc_UtilStrsav.exit
   %108 = getelementptr inbounds ptr, ptr %.val149.val.val, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %Fra_ClassesDeriveNode.exit, label %111
+  br i1 %110, label %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit, label %111
 
 111:                                              ; preds = %.lr.ph174
   %112 = getelementptr inbounds ptr, ptr %32, i64 %107
@@ -2974,7 +2974,7 @@ Abc_UtilStrsav.exit159:                           ; preds = %Abc_UtilStrsav.exit
   %122 = and i64 %121, -2
   %123 = inttoptr i64 %122 to ptr
   %124 = icmp eq ptr %120, %123
-  br i1 %124, label %Fra_ClassesDeriveNode.exit, label %125
+  br i1 %124, label %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit, label %125
 
 125:                                              ; preds = %111
   %126 = tail call ptr @Aig_Exor(ptr noundef nonnull %8, ptr noundef %120, ptr noundef %123) #18
@@ -2994,9 +2994,9 @@ Abc_UtilStrsav.exit159:                           ; preds = %Abc_UtilStrsav.exit
   %140 = inttoptr i64 %139 to ptr
   %141 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %8, ptr noundef %140) #18
   %.pre = load ptr, ptr %0, align 8
-  br label %Fra_ClassesDeriveNode.exit
+  br label %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit
 
-Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %125
+Fra_ClassesDeriveNode.argprom.argprom.argprom.exit: ; preds = %.lr.ph174, %111, %125
   %142 = phi ptr [ %97, %.lr.ph174 ], [ %97, %111 ], [ %.pre, %125 ]
   %143 = phi ptr [ %98, %.lr.ph174 ], [ %98, %111 ], [ %.pre, %125 ]
   %indvars.iv.next193 = add nsw i64 %indvars.iv192, 1
@@ -3008,15 +3008,15 @@ Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %1
   %148 = icmp slt i64 %indvars.iv.next193, %147
   br i1 %148, label %.lr.ph174, label %.critedge4.preheader, !llvm.loop !41
 
-.lr.ph177:                                        ; preds = %.critedge4.preheader, %Fra_ClassesDeriveNode.exit162
-  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %Fra_ClassesDeriveNode.exit162 ], [ 0, %.critedge4.preheader ]
-  %149 = phi ptr [ %225, %Fra_ClassesDeriveNode.exit162 ], [ %94, %.critedge4.preheader ]
+.lr.ph177:                                        ; preds = %.critedge4.preheader, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162
+  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162 ], [ 0, %.critedge4.preheader ]
+  %149 = phi ptr [ %225, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162 ], [ %94, %.critedge4.preheader ]
   %150 = getelementptr i8, ptr %149, i64 8
   %.val126 = load ptr, ptr %150, align 8
   %151 = getelementptr inbounds ptr, ptr %.val126, i64 %indvars.iv195
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
-  br i1 %153, label %Fra_ClassesDeriveNode.exit162, label %154
+  br i1 %153, label %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162, label %154
 
 154:                                              ; preds = %.lr.ph177
   %155 = getelementptr i8, ptr %152, i64 24
@@ -3025,7 +3025,7 @@ Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %1
   %157 = and i32 %156, 7
   %158 = add nsw i32 %157, -7
   %narrow.i = icmp ult i32 %158, -2
-  br i1 %narrow.i, label %Fra_ClassesDeriveNode.exit162, label %159
+  br i1 %narrow.i, label %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162, label %159
 
 159:                                              ; preds = %154
   %160 = getelementptr i8, ptr %152, i64 8
@@ -3071,7 +3071,7 @@ Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %1
   %191 = getelementptr inbounds ptr, ptr %.val151.val.val, i64 %186
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
-  br i1 %193, label %Fra_ClassesDeriveNode.exit162, label %194
+  br i1 %193, label %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162, label %194
 
 194:                                              ; preds = %159
   %195 = getelementptr i8, ptr %192, i64 36
@@ -3086,7 +3086,7 @@ Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %1
   %203 = and i64 %202, -2
   %204 = inttoptr i64 %203 to ptr
   %205 = icmp eq ptr %201, %204
-  br i1 %205, label %Fra_ClassesDeriveNode.exit162, label %206
+  br i1 %205, label %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162, label %206
 
 206:                                              ; preds = %194
   %207 = tail call ptr @Aig_Exor(ptr noundef nonnull %8, ptr noundef %201, ptr noundef %204) #18
@@ -3105,9 +3105,9 @@ Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %1
   %220 = xor i64 %219, 1
   %221 = inttoptr i64 %220 to ptr
   %222 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %8, ptr noundef %221) #18
-  br label %Fra_ClassesDeriveNode.exit162
+  br label %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162
 
-Fra_ClassesDeriveNode.exit162:                    ; preds = %206, %194, %159, %154, %.lr.ph177
+Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162: ; preds = %206, %194, %159, %154, %.lr.ph177
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 32
@@ -3118,8 +3118,8 @@ Fra_ClassesDeriveNode.exit162:                    ; preds = %206, %194, %159, %1
   %228 = icmp slt i64 %indvars.iv.next196, %227
   br i1 %228, label %.lr.ph177, label %.critedge6, !llvm.loop !42
 
-.critedge6:                                       ; preds = %Fra_ClassesDeriveNode.exit162, %.critedge4.preheader
-  %229 = phi ptr [ %91, %.critedge4.preheader ], [ %223, %Fra_ClassesDeriveNode.exit162 ]
+.critedge6:                                       ; preds = %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162, %.critedge4.preheader
+  %229 = phi ptr [ %91, %.critedge4.preheader ], [ %223, %Fra_ClassesDeriveNode.argprom.argprom.argprom.exit162 ]
   %230 = icmp eq i32 %.0185, %1
   br i1 %230, label %.critedge6._crit_edge, label %231
 

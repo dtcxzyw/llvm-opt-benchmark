@@ -3100,13 +3100,13 @@ _ZL8classendP10MatchStatePKc.exit127:             ; preds = %32, %92, %233, %250
   %.018.i126 = phi ptr [ %251, %250 ], [ %234, %233 ], [ %36, %92 ], [ %36, %32 ]
   %.val = load ptr, ptr %25, align 8
   %.not.i128 = icmp ult ptr %.0.ph283, %.val
-  br i1 %.not.i128, label %252, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread
+  br i1 %.not.i128, label %252, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread
 
 252:                                              ; preds = %_ZL8classendP10MatchStatePKc.exit127
   %253 = load i8, ptr %.0.ph283, align 1
   %254 = zext i8 %253 to i32
   switch i8 %35, label %286 [
-    i8 46, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176
+    i8 46, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176
     i8 37, label %255
     i8 91, label %259
   ]
@@ -3115,7 +3115,7 @@ _ZL8classendP10MatchStatePKc.exit127:             ; preds = %32, %92, %233, %250
   %256 = load i8, ptr %36, align 1
   %257 = zext i8 %256 to i32
   %258 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef %254, i32 noundef %257)
-  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit
+  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit
 
 259:                                              ; preds = %252
   %260 = getelementptr inbounds i8, ptr %.018.i126, i64 -1
@@ -3173,19 +3173,19 @@ _ZL8classendP10MatchStatePKc.exit127:             ; preds = %32, %92, %233, %250
 _ZL17matchbracketclassiPKcS0_.exit.i:             ; preds = %283, %281, %279, %270, %259
   %.022.in.i.i = phi i1 [ %262, %259 ], [ %262, %283 ], [ %not..i.i, %281 ], [ %not..i.i, %279 ], [ %not..i.i, %270 ]
   %.022.i.i = zext i1 %.022.in.i.i to i32
-  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit
+  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit
 
 286:                                              ; preds = %252
   %287 = icmp eq i8 %35, %253
   %288 = zext i1 %287 to i32
-  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit
+  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit
 
-_ZL11singlematchP10MatchStatePKcS2_S2_.exit:      ; preds = %255, %_ZL17matchbracketclassiPKcS0_.exit.i, %286
+_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit: ; preds = %255, %_ZL17matchbracketclassiPKcS0_.exit.i, %286
   %.0.i129 = phi i32 [ %288, %286 ], [ %.022.i.i, %_ZL17matchbracketclassiPKcS0_.exit.i ], [ %258, %255 ]
   %.not97 = icmp eq i32 %.0.i129, 0
-  br i1 %.not97, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176
+  br i1 %.not97, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176
 
-_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread: ; preds = %_ZL8classendP10MatchStatePKc.exit127, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit
+_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread: ; preds = %_ZL8classendP10MatchStatePKc.exit127, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit
   %289 = load i8, ptr %.018.i126, align 1
   switch i8 %289, label %_ZL13start_captureP10MatchStatePKcS2_i.exit [
     i8 42, label %290
@@ -3193,7 +3193,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread: ; preds = %_ZL8classendP10Ma
     i8 45, label %290
   ]
 
-290:                                              ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread
+290:                                              ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread
   %291 = getelementptr inbounds i8, ptr %.018.i126, i64 1
   br label %.backedge
 
@@ -3203,7 +3203,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread: ; preds = %_ZL8classendP10Ma
   %.not90 = icmp eq ptr %.081.be, %292
   br i1 %.not90, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, label %32
 
-_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176: ; preds = %252, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit
+_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176: ; preds = %252, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit
   %293 = load i8, ptr %.018.i126, align 1
   switch i8 %293, label %.outer.backedge [
     i8 63, label %297
@@ -3212,7 +3212,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176: ; preds = %252, %_ZL11sin
     i8 45, label %.preheader186
   ]
 
-.preheader186:                                    ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176
+.preheader186:                                    ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176
   %294 = getelementptr inbounds i8, ptr %.018.i126, i64 1
   %295 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef nonnull %.0.ph283, ptr noundef nonnull %294)
   %.not.i134285 = icmp eq ptr %295, null
@@ -3222,7 +3222,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176: ; preds = %252, %_ZL11sin
   %296 = getelementptr inbounds i8, ptr %.018.i126, i64 -1
   br label %349
 
-297:                                              ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176
+297:                                              ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176
   %298 = getelementptr inbounds i8, ptr %.018.i126, i64 1
   %299 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %298)
   %.not98 = icmp eq ptr %299, null
@@ -3232,11 +3232,11 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176: ; preds = %252, %_ZL11sin
   %.pre = load ptr, ptr %22, align 8
   br label %.backedge
 
-.loopexit.loopexit646:                            ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176
+.loopexit.loopexit646:                            ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176, %.loopexit.loopexit646
-  %.2 = phi ptr [ %31, %.loopexit.loopexit646 ], [ %.0.ph283, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176 ]
+.loopexit:                                        ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176, %.loopexit.loopexit646
+  %.2 = phi ptr [ %31, %.loopexit.loopexit646 ], [ %.0.ph283, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176 ]
   %300 = getelementptr inbounds i8, ptr %.018.i126, i64 -1
   switch i8 %35, label %.split [
     i8 46, label %.split.us.preheader
@@ -3263,13 +3263,13 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176: ; preds = %252, %_ZL11sin
   %305 = tail call i64 @llvm.usub.sat.i64(i64 %.val333401, i64 %.2400)
   br label %.lr.ph311
 
-.split.us292:                                     ; preds = %.loopexit, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295
-  %.014.i.us293 = phi i64 [ %313, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295 ], [ 0, %.loopexit ]
+.split.us292:                                     ; preds = %.loopexit, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us295
+  %.014.i.us293 = phi i64 [ %313, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us295 ], [ 0, %.loopexit ]
   %306 = getelementptr inbounds i8, ptr %.2, i64 %.014.i.us293
   %.not.i137.us294 = icmp ult ptr %306, %.val
-  br i1 %.not.i137.us294, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295, label %.lr.ph311
+  br i1 %.not.i137.us294, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us295, label %.lr.ph311
 
-_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295: ; preds = %.split.us292
+_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us295: ; preds = %.split.us292
   %307 = load i8, ptr %306, align 1
   %308 = zext i8 %307 to i32
   %309 = load i8, ptr %36, align 1
@@ -3284,7 +3284,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295: ; preds = %.split.us292
   %314 = getelementptr inbounds i8, ptr %.2, i64 %.014.i.us302635
   %315 = load i8, ptr %314, align 1
   %316 = zext i8 %315 to i32
-  br i1 %304, label %.lr.ph.i.i144.us, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us304
+  br i1 %304, label %.lr.ph.i.i144.us, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us304
 
 .lr.ph.i.i144.us:                                 ; preds = %.lr.ph636, %335
   %317 = phi ptr [ %336, %335 ], [ %303, %.lr.ph636 ]
@@ -3333,29 +3333,29 @@ _ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit: ; preds = %335, %332, %330,
   %.022.in.i.i142.us.ph = phi i1 [ %not..i.i140.us, %332 ], [ %not..i.i140.us, %330 ], [ %not..i.i140.us, %327 ], [ %302, %335 ]
   br i1 %.022.in.i.i142.us.ph, label %.split.us301.backedge, label %.lr.ph311
 
-_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us304: ; preds = %.lr.ph636
+_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us304: ; preds = %.lr.ph636
   br i1 %302, label %.split.us301.backedge, label %.lr.ph311
 
-.split.us301.backedge:                            ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us304, %_ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit
+.split.us301.backedge:                            ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us304, %_ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit
   %.014.i.us302.be = add nuw nsw i64 %.014.i.us302635, 1
   %338 = getelementptr inbounds i8, ptr %.2, i64 %.014.i.us302.be
   %.not.i137.us303 = icmp ult ptr %338, %.val
   br i1 %.not.i137.us303, label %.lr.ph636, label %.lr.ph311, !llvm.loop !36
 
-.split:                                           ; preds = %.loopexit, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150
-  %.014.i = phi i64 [ %341, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150 ], [ 0, %.loopexit ]
+.split:                                           ; preds = %.loopexit, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150
+  %.014.i = phi i64 [ %341, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150 ], [ 0, %.loopexit ]
   %339 = getelementptr inbounds i8, ptr %.2, i64 %.014.i
   %.not.i137 = icmp ult ptr %339, %.val
-  br i1 %.not.i137, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150, label %.lr.ph311
+  br i1 %.not.i137, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150, label %.lr.ph311
 
-_ZL11singlematchP10MatchStatePKcS2_S2_.exit150:   ; preds = %.split
+_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150: ; preds = %.split
   %340 = load i8, ptr %339, align 1
   %.not520 = icmp eq i8 %35, %340
   %341 = add nuw nsw i64 %.014.i, 1
   br i1 %.not520, label %.split, label %.lr.ph311, !llvm.loop !36
 
-.lr.ph311:                                        ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us304, %_ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit, %.split.us301.backedge, %.split.us292, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295, %.split, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150, %.split.us301.preheader, %.split.us.preheader
-  %.us-phi = phi i64 [ %305, %.split.us.preheader ], [ 0, %.split.us301.preheader ], [ %.014.i, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150 ], [ %.014.i, %.split ], [ %.014.i.us293, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295 ], [ %.014.i.us293, %.split.us292 ], [ %.014.i.us302.be, %.split.us301.backedge ], [ %.014.i.us302635, %_ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit ], [ %.014.i.us302635, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us304 ]
+.lr.ph311:                                        ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us304, %_ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit, %.split.us301.backedge, %.split.us292, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us295, %.split, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150, %.split.us301.preheader, %.split.us.preheader
+  %.us-phi = phi i64 [ %305, %.split.us.preheader ], [ 0, %.split.us301.preheader ], [ %.014.i, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150 ], [ %.014.i, %.split ], [ %.014.i.us293, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us295 ], [ %.014.i.us293, %.split.us292 ], [ %.014.i.us302.be, %.split.us301.backedge ], [ %.014.i.us302635, %_ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit ], [ %.014.i.us302635, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit150.us304 ]
   %342 = getelementptr inbounds i8, ptr %.018.i126, i64 1
   br label %346
 
@@ -3371,8 +3371,8 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150:   ; preds = %.split
   %.not16.i = icmp eq ptr %348, null
   br i1 %.not16.i, label %343, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
 
-349:                                              ; preds = %.lr.ph287, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164.thread183
-  %.011.i286 = phi ptr [ %.0.ph283, %.lr.ph287 ], [ %387, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164.thread183 ]
+349:                                              ; preds = %.lr.ph287, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164.thread183
+  %.011.i286 = phi ptr [ %.0.ph283, %.lr.ph287 ], [ %387, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164.thread183 ]
   %.val.i136 = load ptr, ptr %25, align 8
   %.not.i151 = icmp ult ptr %.011.i286, %.val.i136
   br i1 %.not.i151, label %350, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
@@ -3382,7 +3382,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150:   ; preds = %.split
   %352 = zext i8 %351 to i32
   %353 = load i8, ptr %.081272, align 1
   switch i8 %353, label %384 [
-    i8 46, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164.thread183
+    i8 46, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164.thread183
     i8 37, label %354
     i8 91, label %358
   ]
@@ -3391,7 +3391,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150:   ; preds = %.split
   %355 = load i8, ptr %36, align 1
   %356 = zext i8 %355 to i32
   %357 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef %352, i32 noundef %356)
-  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164
+  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164
 
 358:                                              ; preds = %350
   %359 = load i8, ptr %36, align 1
@@ -3448,32 +3448,32 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150:   ; preds = %.split
 _ZL17matchbracketclassiPKcS0_.exit.i155:          ; preds = %381, %379, %377, %368, %358
   %.022.in.i.i156 = phi i1 [ %360, %358 ], [ %360, %381 ], [ %not..i.i154, %379 ], [ %not..i.i154, %377 ], [ %not..i.i154, %368 ]
   %.022.i.i157 = zext i1 %.022.in.i.i156 to i32
-  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164
+  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164
 
 384:                                              ; preds = %350
   %385 = icmp eq i8 %353, %351
   %386 = zext i1 %385 to i32
-  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164
+  br label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164
 
-_ZL11singlematchP10MatchStatePKcS2_S2_.exit164:   ; preds = %354, %_ZL17matchbracketclassiPKcS0_.exit.i155, %384
+_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164: ; preds = %354, %_ZL17matchbracketclassiPKcS0_.exit.i155, %384
   %.0.i152 = phi i32 [ %386, %384 ], [ %.022.i.i157, %_ZL17matchbracketclassiPKcS0_.exit.i155 ], [ %357, %354 ]
   %.not13.i = icmp eq i32 %.0.i152, 0
-  br i1 %.not13.i, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164.thread183
+  br i1 %.not13.i, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, label %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164.thread183
 
-_ZL11singlematchP10MatchStatePKcS2_S2_.exit164.thread183: ; preds = %350, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164
+_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164.thread183: ; preds = %350, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164
   %387 = getelementptr inbounds i8, ptr %.011.i286, i64 1
   %388 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef nonnull %387, ptr noundef nonnull %294)
   %.not.i134 = icmp eq ptr %388, null
   br i1 %.not.i134, label %349, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, !llvm.loop !38
 
-.outer.backedge:                                  ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176, %228, %124
-  %.081.ph.be = phi ptr [ %126, %124 ], [ %230, %228 ], [ %.018.i126, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176 ]
-  %.0.ph.be = phi ptr [ %125, %124 ], [ %229, %228 ], [ %31, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176 ]
+.outer.backedge:                                  ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176, %228, %124
+  %.081.ph.be = phi ptr [ %126, %124 ], [ %230, %228 ], [ %.018.i126, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176 ]
+  %.0.ph.be = phi ptr [ %125, %124 ], [ %229, %228 ], [ %31, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread176 ]
   %.not90271 = icmp eq ptr %.081.ph.be, %34
   br i1 %.not90271, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, label %.lr.ph
 
-_ZL13start_captureP10MatchStatePKcS2_i.exit:      ; preds = %.outer.backedge, %224, %_ZL13check_captureP10MatchStatei.exit.i, %108, %105, %.backedge, %_ZL17matchbracketclassiPKcS0_.exit118, %_ZL17matchbracketclassiPKcS0_.exit, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread, %297, %154, %122, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164.thread183, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164, %349, %343, %346, %21, %.preheader186, %91, %_ZL16capture_to_closeP10MatchState.exit, %66, %59, %53, %45, %93
-  %.1 = phi ptr [ %96, %93 ], [ %51, %45 ], [ null, %53 ], [ %64, %59 ], [ null, %66 ], [ %89, %_ZL16capture_to_closeP10MatchState.exit ], [ null, %91 ], [ %295, %.preheader186 ], [ %1, %21 ], [ null, %343 ], [ %348, %346 ], [ %388, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164.thread183 ], [ null, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164 ], [ null, %349 ], [ null, %122 ], [ null, %154 ], [ %299, %297 ], [ null, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread ], [ null, %_ZL17matchbracketclassiPKcS0_.exit ], [ null, %_ZL17matchbracketclassiPKcS0_.exit118 ], [ %.0.ph283, %.backedge ], [ %.0.ph.be, %.outer.backedge ], [ null, %224 ], [ null, %_ZL13check_captureP10MatchStatei.exit.i ], [ null, %108 ], [ null, %105 ]
+_ZL13start_captureP10MatchStatePKcS2_i.exit:      ; preds = %.outer.backedge, %224, %_ZL13check_captureP10MatchStatei.exit.i, %108, %105, %.backedge, %_ZL17matchbracketclassiPKcS0_.exit118, %_ZL17matchbracketclassiPKcS0_.exit, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread, %297, %154, %122, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164.thread183, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164, %349, %343, %346, %21, %.preheader186, %91, %_ZL16capture_to_closeP10MatchState.exit, %66, %59, %53, %45, %93
+  %.1 = phi ptr [ %96, %93 ], [ %51, %45 ], [ null, %53 ], [ %64, %59 ], [ null, %66 ], [ %89, %_ZL16capture_to_closeP10MatchState.exit ], [ null, %91 ], [ %295, %.preheader186 ], [ %1, %21 ], [ null, %343 ], [ %348, %346 ], [ %388, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164.thread183 ], [ null, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit164 ], [ null, %349 ], [ null, %122 ], [ null, %154 ], [ %299, %297 ], [ null, %_ZL11singlematchP10MatchStatePKcS2_S2_.argprom.exit.thread ], [ null, %_ZL17matchbracketclassiPKcS0_.exit ], [ null, %_ZL17matchbracketclassiPKcS0_.exit118 ], [ %.0.ph283, %.backedge ], [ %.0.ph.be, %.outer.backedge ], [ null, %224 ], [ null, %_ZL13check_captureP10MatchStatei.exit.i ], [ null, %108 ], [ null, %105 ]
   %389 = load i32, ptr %0, align 8
   %390 = add nsw i32 %389, 1
   store i32 %390, ptr %0, align 8

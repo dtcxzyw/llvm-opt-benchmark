@@ -1524,7 +1524,7 @@ parse_outhdr_string.exit605:                      ; preds = %429, %._crit_edge.t
 454:                                              ; preds = %451, %448, %445
   %455 = load i32, ptr %13, align 4
   %456 = call fastcc i32 @parse_outhdr_string(ptr noundef %145, i32 noundef %455, ptr noundef %14)
-  call fastcc void @attach_rlc_lte_info(ptr noundef %1, ptr noundef %14)
+  call fastcc void @attach_rlc_lte_info.argelim(ptr noundef %1, ptr noundef %14)
   br label %attach_fp_info.exit
 
 457:                                              ; preds = %451
@@ -1545,7 +1545,7 @@ parse_outhdr_string.exit605:                      ; preds = %429, %._crit_edge.t
 466:                                              ; preds = %463, %460, %457
   %467 = load i32, ptr %13, align 4
   %468 = call fastcc i32 @parse_outhdr_string(ptr noundef %145, i32 noundef %467, ptr noundef %14)
-  call fastcc void @attach_pdcp_lte_info(ptr noundef %1, ptr noundef %14)
+  call fastcc void @attach_pdcp_lte_info.argelim(ptr noundef %1, ptr noundef %14)
   br label %attach_fp_info.exit
 
 469:                                              ; preds = %463
@@ -3691,7 +3691,7 @@ define internal fastcc void @attach_mac_lte_info(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @attach_rlc_lte_info(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @attach_rlc_lte_info.argelim(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_file_scope() #9
   %4 = load i32, ptr @proto_rlc_lte, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #9
@@ -3749,7 +3749,7 @@ define internal fastcc void @attach_rlc_lte_info(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @attach_pdcp_lte_info(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @attach_pdcp_lte_info.argelim(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_file_scope() #9
   %4 = load i32, ptr @proto_pdcp_lte, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #9
@@ -4572,7 +4572,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %130 = add i32 %.3, 13
   %131 = load i32, ptr @hf_catapult_dct2000_ciphering_key, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 16, i32 noundef 0) #9
-  call fastcc void @get_key(ptr noundef %0, i32 noundef %130)
+  call fastcc void @get_key.argelim(ptr noundef %0, i32 noundef %130)
   %133 = getelementptr inbounds i8, ptr %2, i64 80
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 50
@@ -5451,7 +5451,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_key(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @get_key.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %3

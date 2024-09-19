@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @Abc_NtkRetimeMinDelay(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef 0, i32 noundef %3, ptr noundef %7, i32 noundef %5)
+  call fastcc void @Abc_NtkRetimeMinDelayTry.retelim(ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef 0, i32 noundef %3, ptr noundef %7, i32 noundef %5)
   %9 = load i32, ptr %7, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %6
-  call fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef 1, i32 noundef %9, ptr noundef %8, i32 noundef %5)
+  call fastcc void @Abc_NtkRetimeMinDelayTry.retelim(ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef 1, i32 noundef %9, ptr noundef %8, i32 noundef %5)
   br label %12
 
 12:                                               ; preds = %6, %11
@@ -29,7 +29,7 @@ define noundef i32 @Abc_NtkRetimeMinDelay(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @Abc_NtkRetimeMinDelayTry.retelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6) unnamed_addr #0 {
   %.not122 = icmp eq i32 %3, 0
   br i1 %.not122, label %13, label %8
 
@@ -1429,7 +1429,7 @@ define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr no
   %.val3.i = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %5 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %6, align 8
   %7 = sext i32 %.val3.i to i64
@@ -1450,7 +1450,7 @@ define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr no
   %.val38 = load i32, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %17 = add nsw i32 %.val38, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i45 = load ptr, ptr %18, align 8
   %19 = sext i32 %.val38 to i64
@@ -1544,7 +1544,7 @@ define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr no
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

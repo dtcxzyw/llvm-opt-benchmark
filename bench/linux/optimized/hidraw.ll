@@ -555,7 +555,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_write(ptr nocaptu
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 76
   %.val.val = load i32, ptr %6, align 4
-  %7 = tail call fastcc i64 @hidraw_send_report(i32 %.val.val, ptr noundef %1, i64 noundef %2, i8 noundef zeroext 1)
+  %7 = tail call fastcc i64 @hidraw_send_report.argprom.argprom(i32 %.val.val, ptr noundef %1, i64 noundef %2, i8 noundef zeroext 1)
   tail call void @up_read(ptr noundef nonnull @minors_rwsem) #13
   ret i64 %7
 }
@@ -723,7 +723,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %.val = load ptr, ptr %5, align 8
   %85 = getelementptr i8, ptr %.val, i64 76
   %.val.val = load i32, ptr %85, align 4
-  %86 = tail call fastcc i64 @hidraw_send_report(i32 %.val.val, ptr noundef %10, i64 noundef %84, i8 noundef zeroext 2)
+  %86 = tail call fastcc i64 @hidraw_send_report.argprom.argprom(i32 %.val.val, ptr noundef %10, i64 noundef %84, i8 noundef zeroext 2)
   br label %157
 
 87:                                               ; preds = %79
@@ -733,7 +733,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %.val4 = load ptr, ptr %5, align 8
   %91 = getelementptr i8, ptr %.val4, i64 76
   %.val4.val = load i32, ptr %91, align 4
-  %92 = tail call fastcc i64 @hidraw_get_report(i32 %.val4.val, ptr noundef %10, i64 noundef %90, i8 noundef zeroext 2)
+  %92 = tail call fastcc i64 @hidraw_get_report.argprom.argprom(i32 %.val4.val, ptr noundef %10, i64 noundef %90, i8 noundef zeroext 2)
   br label %157
 
 93:                                               ; preds = %79
@@ -743,7 +743,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %.val2 = load ptr, ptr %5, align 8
   %97 = getelementptr i8, ptr %.val2, i64 76
   %.val2.val = load i32, ptr %97, align 4
-  %98 = tail call fastcc i64 @hidraw_send_report(i32 %.val2.val, ptr noundef %10, i64 noundef %96, i8 noundef zeroext 0)
+  %98 = tail call fastcc i64 @hidraw_send_report.argprom.argprom(i32 %.val2.val, ptr noundef %10, i64 noundef %96, i8 noundef zeroext 0)
   br label %157
 
 99:                                               ; preds = %79
@@ -753,7 +753,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %.val5 = load ptr, ptr %5, align 8
   %103 = getelementptr i8, ptr %.val5, i64 76
   %.val5.val = load i32, ptr %103, align 4
-  %104 = tail call fastcc i64 @hidraw_get_report(i32 %.val5.val, ptr noundef %10, i64 noundef %102, i8 noundef zeroext 0)
+  %104 = tail call fastcc i64 @hidraw_get_report.argprom.argprom(i32 %.val5.val, ptr noundef %10, i64 noundef %102, i8 noundef zeroext 0)
   br label %157
 
 105:                                              ; preds = %79
@@ -763,7 +763,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %.val3 = load ptr, ptr %5, align 8
   %109 = getelementptr i8, ptr %.val3, i64 76
   %.val3.val = load i32, ptr %109, align 4
-  %110 = tail call fastcc i64 @hidraw_send_report(i32 %.val3.val, ptr noundef %10, i64 noundef %108, i8 noundef zeroext 1)
+  %110 = tail call fastcc i64 @hidraw_send_report.argprom.argprom(i32 %.val3.val, ptr noundef %10, i64 noundef %108, i8 noundef zeroext 1)
   br label %157
 
 111:                                              ; preds = %79
@@ -773,7 +773,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %.val6 = load ptr, ptr %5, align 8
   %115 = getelementptr i8, ptr %.val6, i64 76
   %.val6.val = load i32, ptr %115, align 4
-  %116 = tail call fastcc i64 @hidraw_get_report(i32 %.val6.val, ptr noundef %10, i64 noundef %114, i8 noundef zeroext 1)
+  %116 = tail call fastcc i64 @hidraw_get_report.argprom.argprom(i32 %.val6.val, ptr noundef %10, i64 noundef %114, i8 noundef zeroext 1)
   br label %157
 
 117:                                              ; preds = %79
@@ -1094,7 +1094,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_report.argprom.argprom(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = and i32 %.168.val.76.val, 1048575
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr [64 x ptr], ptr @hidraw_table, i64 0, i64 %5
@@ -1201,7 +1201,7 @@ declare i64 @llvm.read_register.i64(metadata) #9
 declare void @llvm.write_register.i64(metadata, i64) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef range(i64 0, 16384) %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report.argprom.argprom(i32 %.168.val.76.val, ptr noundef %0, i64 noundef range(i64 0, 16384) %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = and i32 %.168.val.76.val, 1048575
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13

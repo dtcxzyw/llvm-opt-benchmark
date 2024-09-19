@@ -431,7 +431,7 @@ declare noundef zeroext i1 @_ZN4Luau7CodeGen17isUnwindSupportedEv() local_unname
 define internal noundef zeroext i1 @"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoEN3$_08__invokeEPvP8lua_PageP8GCObject"(ptr noundef readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 align 2 {
   %4 = load i8, ptr %2, align 8
   %.not.i = icmp eq i8 %4, 9
-  br i1 %.not.i, label %5, label %"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.exit"
+  br i1 %.not.i, label %5, label %"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.argprom.exit"
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %2, i64 32
@@ -439,7 +439,7 @@ define internal noundef zeroext i1 @"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5Pr
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ugt ptr %7, %9
-  br i1 %10, label %.lr.ph.i, label %"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.exit"
+  br i1 %10, label %.lr.ph.i, label %"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.argprom.exit"
 
 .lr.ph.i:                                         ; preds = %5, %29
   %11 = phi ptr [ %30, %29 ], [ %9, %5 ]
@@ -476,9 +476,9 @@ define internal noundef zeroext i1 @"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5Pr
   %30 = phi ptr [ %11, %.lr.ph.i ], [ %11, %17 ], [ %.pre.i, %25 ], [ %11, %21 ]
   %31 = getelementptr inbounds i8, ptr %.0141.i, i64 -40
   %32 = icmp ugt ptr %31, %30
-  br i1 %32, label %.lr.ph.i, label %"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.exit", !llvm.loop !6
+  br i1 %32, label %.lr.ph.i, label %"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.argprom.exit", !llvm.loop !6
 
-"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.exit": ; preds = %29, %3, %5
+"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.argprom.exit": ; preds = %29, %3, %5
   ret i1 false
 }
 

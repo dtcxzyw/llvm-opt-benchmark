@@ -612,7 +612,7 @@ ppp_heuristic_guess.exit71:                       ; preds = %juniper_svc_cookie_
 
 proto_item_set_generated.exit:                    ; preds = %ppp_heuristic_guess.exit71, %49, %52
   %56 = add nuw nsw i32 %.06091100, %.0101
-  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef %.2, i32 noundef %56)
+  tail call fastcc void @dissect_juniper_payload_proto.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef %.2, i32 noundef %56)
   %57 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %58
 
@@ -795,7 +795,7 @@ juniper_svc_cookie_proto.exit.thread:             ; preds = %13, %juniper_svc_co
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %.thread127, %75, %78
-  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef %.3, i32 noundef %.5)
+  tail call fastcc void @dissect_juniper_payload_proto.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef %.3, i32 noundef %.5)
   %82 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %83
 
@@ -1044,7 +1044,7 @@ define internal i32 @dissect_juniper_ggsn(ptr noundef %0, ptr noundef %1, ptr no
   %19 = add nuw nsw i32 %11, 2
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef 2, i32 noundef -2147483648) #2
   %21 = add nuw nsw i32 %11, 4
-  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef %16, i32 noundef %21)
+  tail call fastcc void @dissect_juniper_payload_proto.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef %16, i32 noundef %21)
   %22 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %23
 
@@ -1361,7 +1361,7 @@ switch.lookup:                                    ; preds = %46
 
 ip_heuristic_guess.exit:                          ; preds = %46, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %46 ]
-  call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %14, i32 noundef %.0.i, i32 noundef %59)
+  call fastcc void @dissect_juniper_payload_proto.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %14, i32 noundef %.0.i, i32 noundef %59)
   %63 = call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %66
 
@@ -1659,7 +1659,7 @@ ppp_heuristic_guess.exit.thread:                  ; preds = %99, %ppp_heuristic_
   %120 = load i32, ptr @hf_juniper_encap_type, align 4
   %121 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %120, ptr noundef %0, i32 noundef %.0114146, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.218) #2
   %122 = add nuw nsw i32 %.0114146, 1
-  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef 201, i32 noundef %122)
+  tail call fastcc void @dissect_juniper_payload_proto.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef 201, i32 noundef %122)
   br label %dissect_juniper_payload_proto.exit
 
 123:                                              ; preds = %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread
@@ -1669,7 +1669,7 @@ ppp_heuristic_guess.exit.thread:                  ; preds = %99, %ppp_heuristic_
   %.0.i145.ph = phi i32 [ 6, %123 ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ]
   %125 = load i32, ptr @hf_juniper_encap_type, align 4
   %126 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %125, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.217) #2
-  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef %.0.i145.ph, i32 noundef %.0114146)
+  tail call fastcc void @dissect_juniper_payload_proto.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, i32 noundef %.0.i145.ph, i32 noundef %.0114146)
   br label %dissect_juniper_payload_proto.exit
 
 ip_heuristic_guess.exit:                          ; preds = %ppp_heuristic_guess.exit.thread
@@ -1876,7 +1876,7 @@ juniper_ext_get_tlv_value.exit:                   ; preds = %45, %46, %49, %52, 
   %99 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %97) #2
   %100 = and i32 %99, 255
   %101 = add nuw nsw i32 %97, 4
-  call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %100, i32 noundef %101)
+  call fastcc void @dissect_juniper_payload_proto.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %100, i32 noundef %101)
   br label %102
 
 102:                                              ; preds = %.loopexit, %98, %11
@@ -1895,7 +1895,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_juniper_payload_proto.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_juniper_payload_type, align 4
   %8 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %5, i32 noundef 0, i32 noundef %4) #2
   %.not.i = icmp eq ptr %8, null

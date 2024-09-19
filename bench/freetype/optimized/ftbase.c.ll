@@ -6248,7 +6248,7 @@ ft_mem_free.exit.i:                               ; preds = %FT_Stream_Close.exi
 100:                                              ; preds = %94, %98
   %101 = getelementptr inbounds i8, ptr %95, i64 16
   store i64 0, ptr %101, align 8
-  %102 = tail call fastcc i32 @open_face_PS_from_sfnt_stream(ptr noundef nonnull %0, ptr noundef nonnull %95, i64 noundef %.089, ptr noundef %3)
+  %102 = tail call fastcc i32 @open_face_PS_from_sfnt_stream.argprom.argelim(ptr noundef nonnull %0, ptr noundef nonnull %95, i64 noundef %.089, ptr noundef %3)
   %.not121 = icmp eq i32 %102, 0
   br i1 %.not121, label %103, label %112
 
@@ -18110,7 +18110,7 @@ ft_mem_alloc.exit.thread101:                      ; preds = %.preheader.i, %130,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @open_face_PS_from_sfnt_stream(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483647, 2147483648) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @open_face_PS_from_sfnt_stream.argprom.argelim(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483647, 2147483648) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   %7 = alloca [4 x i8], align 1
@@ -19146,7 +19146,7 @@ ft_mem_free.exit:                                 ; preds = %Mac_Read_POST_Resou
   br i1 %197, label %Mac_Read_sfnt_Resource.exit.thread, label %198
 
 198:                                              ; preds = %196
-  %199 = tail call fastcc i32 @open_face_PS_from_sfnt_stream(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select.i, ptr noundef %4)
+  %199 = tail call fastcc i32 @open_face_PS_from_sfnt_stream.argprom.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select.i, ptr noundef %4)
   %.not40.i = icmp eq i32 %199, 0
   br i1 %.not40.i, label %Mac_Read_sfnt_Resource.exit.thread, label %200
 
@@ -19239,7 +19239,7 @@ define internal range(i32 0, 86) i32 @raccess_guess_apple_double(ptr nocapture r
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %1, i32 noundef 333319, ptr noundef %4)
+  %8 = tail call fastcc i32 @raccess_guess_apple_generic.argprom(ptr noundef %1, i32 noundef 333319, ptr noundef %4)
   br label %9
 
 9:                                                ; preds = %5, %7
@@ -19254,7 +19254,7 @@ define internal range(i32 0, 86) i32 @raccess_guess_apple_single(ptr nocapture r
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %1, i32 noundef 333312, ptr noundef %4)
+  %8 = tail call fastcc i32 @raccess_guess_apple_generic.argprom(ptr noundef %1, i32 noundef 333312, ptr noundef %4)
   br label %9
 
 9:                                                ; preds = %5, %7
@@ -19292,7 +19292,7 @@ ft_mem_free.exit.i.i:                             ; preds = %13
   br label %ft_mem_free.exit
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
+  %19 = tail call fastcc i32 @raccess_guess_apple_generic.argprom(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -19464,7 +19464,7 @@ ft_mem_free.exit.i.i:                             ; preds = %13
   br label %ft_mem_free.exit
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
+  %19 = tail call fastcc i32 @raccess_guess_apple_generic.argprom(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -19528,7 +19528,7 @@ ft_mem_free.exit.i.i:                             ; preds = %13
   br label %ft_mem_free.exit
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
+  %19 = tail call fastcc i32 @raccess_guess_apple_generic.argprom(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -19563,7 +19563,7 @@ ft_mem_free.exit:                                 ; preds = %8, %ft_mem_free.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 86) i32 @raccess_guess_apple_generic(ptr noundef nonnull %0, i32 noundef range(i32 333312, 333320) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 86) i32 @raccess_guess_apple_generic.argprom(ptr noundef nonnull %0, i32 noundef range(i32 333312, 333320) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [2 x i8], align 1

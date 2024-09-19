@@ -1684,20 +1684,20 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.then6.i:                                       ; preds = %if.end.i
   %rem.i = urem i64 %value.0.i, %9
-  br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
+  br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit
 
 if.else7.i:                                       ; preds = %if.end.i
   %sub.i10 = add i64 %9, -1
   %and.i = and i64 %value.0.i, %sub.i10
-  br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
+  br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit
 
-_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit: ; preds = %if.then6.i, %if.else7.i
+_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit: ; preds = %if.then6.i, %if.else7.i
   %retval.0.i = phi i64 [ %rem.i, %if.then6.i ], [ %and.i, %if.else7.i ]
   %12 = load i32, ptr %cuckoo_block_size_, align 8
   %cmp829.not = icmp eq i32 %12, 0
   br i1 %cmp829.not, label %for.inc37, label %for.body9.preheader
 
-for.body9.preheader:                              ; preds = %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
+for.body9.preheader:                              ; preds = %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit
   %13 = load ptr, ptr %file_data_, align 8
   %mul = mul i64 %retval.0.i, %conv
   %arrayidx = getelementptr inbounds i8, ptr %13, i64 %mul
@@ -1809,7 +1809,7 @@ for.inc:                                          ; preds = %if.end
   %cmp8 = icmp ult i32 %inc, %28
   br i1 %cmp8, label %for.body9, label %for.inc37, !llvm.loop !7
 
-for.inc37:                                        ; preds = %for.inc, %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
+for.inc37:                                        ; preds = %for.inc, %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit
   %inc38 = add nuw i32 %hash_cnt.033, 1
   %29 = load i32, ptr %num_hash_func_, align 8
   %cmp = icmp ult i32 %inc38, %29
@@ -2002,14 +2002,14 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.then6.i:                                       ; preds = %if.end.i
   %rem.i = urem i64 %value.0.i, %5
-  br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
+  br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit
 
 if.else7.i:                                       ; preds = %if.end.i
   %sub.i6 = add i64 %5, -1
   %and.i = and i64 %value.0.i, %sub.i6
-  br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
+  br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit
 
-_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit: ; preds = %if.then6.i, %if.else7.i
+_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit: ; preds = %if.then6.i, %if.else7.i
   %retval.0.i = phi i64 [ %rem.i, %if.then6.i ], [ %and.i, %if.else7.i ]
   %mul = mul i64 %retval.0.i, %conv
   %add = add i64 %mul, %2
@@ -2021,15 +2021,15 @@ _ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit: ; preds = %if.then6.i, 
   %cmp7 = icmp ult i64 %and, %add6
   br i1 %cmp7, label %for.body, label %for.end
 
-for.body:                                         ; preds = %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit, %for.body
-  %addr.08 = phi i64 [ %add7, %for.body ], [ %and, %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit ]
+for.body:                                         ; preds = %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit, %for.body
+  %addr.08 = phi i64 [ %add7, %for.body ], [ %and, %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit ]
   %11 = inttoptr i64 %addr.08 to ptr
   tail call void @llvm.prefetch.p0(ptr %11, i32 0, i32 3, i32 1)
   %add7 = add i64 %addr.08, 64
   %cmp = icmp ult i64 %add7, %add6
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
-for.end:                                          ; preds = %for.body, %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
+for.end:                                          ; preds = %for.body, %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.argprom.exit
   ret void
 }
 

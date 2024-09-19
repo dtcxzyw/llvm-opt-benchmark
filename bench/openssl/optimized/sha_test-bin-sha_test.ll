@@ -40,36 +40,36 @@ entry:
   %call1.i = call ptr @SHA1(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %buf.i) #3
   %call2.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %call1.i) #3
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %test_static_sha_common.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call4.i = call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 26, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call1.i, ptr noundef nonnull %buf.i) #3
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %test_static_sha_common.exit, label %lor.lhs.false6.i
+  br i1 %tobool5.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 27, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call1.i, i64 noundef 20, ptr noundef nonnull @test_static_sha1.output, i64 noundef 20) #3
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %test_static_sha_common.exit, label %if.end.i
+  br i1 %tobool8.not.i, label %test_static_sha_common.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false6.i
   %call9.i = call ptr @SHA1(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef null) #3
   %call10.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 30, ptr noundef nonnull @.str.7, ptr noundef %call9.i) #3
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %test_static_sha_common.exit, label %lor.lhs.false12.i
+  br i1 %tobool11.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %if.end.i
   %call14.i = call i32 @test_ptr_ne(ptr noundef nonnull @.str.6, i32 noundef 31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call9.i, ptr noundef nonnull %buf.i) #3
   %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %test_static_sha_common.exit, label %lor.lhs.false16.i
+  br i1 %tobool15.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
   %call17.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 32, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call9.i, i64 noundef 20, ptr noundef nonnull @test_static_sha1.output, i64 noundef 20) #3
   %tobool18.not.i = icmp ne i32 %call17.i, 0
   %spec.select.i = zext i1 %tobool18.not.i to i32
-  br label %test_static_sha_common.exit
+  br label %test_static_sha_common.argprom.exit
 
-test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
+test_static_sha_common.argprom.exit:              ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
   %retval.0.i = phi i32 [ 0, %lor.lhs.false6.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %lor.lhs.false12.i ], [ 0, %if.end.i ], [ %spec.select.i, %lor.lhs.false16.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
   ret i32 %retval.0.i
@@ -83,36 +83,36 @@ entry:
   %call1.i = call ptr @SHA224(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %buf.i) #3
   %call2.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %call1.i) #3
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %test_static_sha_common.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call4.i = call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 26, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call1.i, ptr noundef nonnull %buf.i) #3
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %test_static_sha_common.exit, label %lor.lhs.false6.i
+  br i1 %tobool5.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 27, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call1.i, i64 noundef 28, ptr noundef nonnull @test_static_sha224.output, i64 noundef 28) #3
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %test_static_sha_common.exit, label %if.end.i
+  br i1 %tobool8.not.i, label %test_static_sha_common.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false6.i
   %call9.i = call ptr @SHA224(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef null) #3
   %call10.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 30, ptr noundef nonnull @.str.7, ptr noundef %call9.i) #3
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %test_static_sha_common.exit, label %lor.lhs.false12.i
+  br i1 %tobool11.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %if.end.i
   %call14.i = call i32 @test_ptr_ne(ptr noundef nonnull @.str.6, i32 noundef 31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call9.i, ptr noundef nonnull %buf.i) #3
   %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %test_static_sha_common.exit, label %lor.lhs.false16.i
+  br i1 %tobool15.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
   %call17.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 32, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call9.i, i64 noundef 28, ptr noundef nonnull @test_static_sha224.output, i64 noundef 28) #3
   %tobool18.not.i = icmp ne i32 %call17.i, 0
   %spec.select.i = zext i1 %tobool18.not.i to i32
-  br label %test_static_sha_common.exit
+  br label %test_static_sha_common.argprom.exit
 
-test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
+test_static_sha_common.argprom.exit:              ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
   %retval.0.i = phi i32 [ 0, %lor.lhs.false6.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %lor.lhs.false12.i ], [ 0, %if.end.i ], [ %spec.select.i, %lor.lhs.false16.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
   ret i32 %retval.0.i
@@ -126,36 +126,36 @@ entry:
   %call1.i = call ptr @SHA256(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %buf.i) #3
   %call2.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %call1.i) #3
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %test_static_sha_common.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call4.i = call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 26, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call1.i, ptr noundef nonnull %buf.i) #3
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %test_static_sha_common.exit, label %lor.lhs.false6.i
+  br i1 %tobool5.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 27, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call1.i, i64 noundef 32, ptr noundef nonnull @test_static_sha256.output, i64 noundef 32) #3
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %test_static_sha_common.exit, label %if.end.i
+  br i1 %tobool8.not.i, label %test_static_sha_common.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false6.i
   %call9.i = call ptr @SHA256(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef null) #3
   %call10.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 30, ptr noundef nonnull @.str.7, ptr noundef %call9.i) #3
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %test_static_sha_common.exit, label %lor.lhs.false12.i
+  br i1 %tobool11.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %if.end.i
   %call14.i = call i32 @test_ptr_ne(ptr noundef nonnull @.str.6, i32 noundef 31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call9.i, ptr noundef nonnull %buf.i) #3
   %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %test_static_sha_common.exit, label %lor.lhs.false16.i
+  br i1 %tobool15.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
   %call17.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 32, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call9.i, i64 noundef 32, ptr noundef nonnull @test_static_sha256.output, i64 noundef 32) #3
   %tobool18.not.i = icmp ne i32 %call17.i, 0
   %spec.select.i = zext i1 %tobool18.not.i to i32
-  br label %test_static_sha_common.exit
+  br label %test_static_sha_common.argprom.exit
 
-test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
+test_static_sha_common.argprom.exit:              ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
   %retval.0.i = phi i32 [ 0, %lor.lhs.false6.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %lor.lhs.false12.i ], [ 0, %if.end.i ], [ %spec.select.i, %lor.lhs.false16.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
   ret i32 %retval.0.i
@@ -169,36 +169,36 @@ entry:
   %call1.i = call ptr @SHA384(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %buf.i) #3
   %call2.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %call1.i) #3
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %test_static_sha_common.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call4.i = call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 26, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call1.i, ptr noundef nonnull %buf.i) #3
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %test_static_sha_common.exit, label %lor.lhs.false6.i
+  br i1 %tobool5.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 27, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call1.i, i64 noundef 48, ptr noundef nonnull @test_static_sha384.output, i64 noundef 48) #3
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %test_static_sha_common.exit, label %if.end.i
+  br i1 %tobool8.not.i, label %test_static_sha_common.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false6.i
   %call9.i = call ptr @SHA384(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef null) #3
   %call10.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 30, ptr noundef nonnull @.str.7, ptr noundef %call9.i) #3
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %test_static_sha_common.exit, label %lor.lhs.false12.i
+  br i1 %tobool11.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %if.end.i
   %call14.i = call i32 @test_ptr_ne(ptr noundef nonnull @.str.6, i32 noundef 31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call9.i, ptr noundef nonnull %buf.i) #3
   %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %test_static_sha_common.exit, label %lor.lhs.false16.i
+  br i1 %tobool15.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
   %call17.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 32, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call9.i, i64 noundef 48, ptr noundef nonnull @test_static_sha384.output, i64 noundef 48) #3
   %tobool18.not.i = icmp ne i32 %call17.i, 0
   %spec.select.i = zext i1 %tobool18.not.i to i32
-  br label %test_static_sha_common.exit
+  br label %test_static_sha_common.argprom.exit
 
-test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
+test_static_sha_common.argprom.exit:              ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
   %retval.0.i = phi i32 [ 0, %lor.lhs.false6.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %lor.lhs.false12.i ], [ 0, %if.end.i ], [ %spec.select.i, %lor.lhs.false16.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
   ret i32 %retval.0.i
@@ -212,36 +212,36 @@ entry:
   %call1.i = call ptr @SHA512(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %buf.i) #3
   %call2.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %call1.i) #3
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %test_static_sha_common.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call4.i = call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 26, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call1.i, ptr noundef nonnull %buf.i) #3
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %test_static_sha_common.exit, label %lor.lhs.false6.i
+  br i1 %tobool5.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 27, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call1.i, i64 noundef 64, ptr noundef nonnull @test_static_sha512.output, i64 noundef 64) #3
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %test_static_sha_common.exit, label %if.end.i
+  br i1 %tobool8.not.i, label %test_static_sha_common.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false6.i
   %call9.i = call ptr @SHA512(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef null) #3
   %call10.i = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 30, ptr noundef nonnull @.str.7, ptr noundef %call9.i) #3
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %test_static_sha_common.exit, label %lor.lhs.false12.i
+  br i1 %tobool11.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %if.end.i
   %call14.i = call i32 @test_ptr_ne(ptr noundef nonnull @.str.6, i32 noundef 31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %call9.i, ptr noundef nonnull %buf.i) #3
   %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %test_static_sha_common.exit, label %lor.lhs.false16.i
+  br i1 %tobool15.not.i, label %test_static_sha_common.argprom.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
   %call17.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 32, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %call9.i, i64 noundef 64, ptr noundef nonnull @test_static_sha512.output, i64 noundef 64) #3
   %tobool18.not.i = icmp ne i32 %call17.i, 0
   %spec.select.i = zext i1 %tobool18.not.i to i32
-  br label %test_static_sha_common.exit
+  br label %test_static_sha_common.argprom.exit
 
-test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
+test_static_sha_common.argprom.exit:              ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false6.i, %if.end.i, %lor.lhs.false12.i, %lor.lhs.false16.i
   %retval.0.i = phi i32 [ 0, %lor.lhs.false6.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %lor.lhs.false12.i ], [ 0, %if.end.i ], [ %spec.select.i, %lor.lhs.false16.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
   ret i32 %retval.0.i

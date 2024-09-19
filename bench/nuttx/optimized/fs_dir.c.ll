@@ -318,7 +318,7 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %19 = getelementptr inbounds i8, ptr %18, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %seek_mountptdir.exit, label %21
+  br i1 %.not.i, label %seek_mountptdir.argprom.exit, label %21
 
 21:                                               ; preds = %16
   %22 = tail call i32 %20(ptr noundef nonnull %8, ptr noundef nonnull %7) #7
@@ -328,7 +328,7 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %.018.i = phi i32 [ 0, %21 ], [ %.val, %14 ]
   %24 = getelementptr inbounds i8, ptr %8, i64 32
   %25 = icmp slt i32 %.018.i, %1
-  br i1 %25, label %.lr.ph.i, label %seek_mountptdir.exit
+  br i1 %25, label %.lr.ph.i, label %seek_mountptdir.argprom.exit
 
 .lr.ph.i:                                         ; preds = %23, %31
   %.11.i = phi i32 [ %32, %31 ], [ %.018.i, %23 ]
@@ -337,17 +337,17 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 %28(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %4) #7
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %seek_mountptdir.exit, label %31
+  br i1 %30, label %seek_mountptdir.argprom.exit, label %31
 
 31:                                               ; preds = %.lr.ph.i
   %32 = add i32 %.11.i, 1
   %exitcond.not.i = icmp eq i32 %32, %1
-  br i1 %exitcond.not.i, label %seek_mountptdir.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %seek_mountptdir.argprom.exit, label %.lr.ph.i, !llvm.loop !6
 
-seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16, %23
+seek_mountptdir.argprom.exit:                     ; preds = %.lr.ph.i, %31, %16, %23
   %.0.i = phi i32 [ -138, %16 ], [ %.018.i, %23 ], [ %1, %31 ], [ %29, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %4)
-  br label %seek_pseudodir.exit
+  br label %seek_pseudodir.argprom.exit
 
 33:                                               ; preds = %5
   %34 = icmp slt i32 %1, %.val
@@ -391,29 +391,29 @@ seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16,
 51:                                               ; preds = %47, %._crit_edge.i
   tail call void @inode_unlock() #7
   %.not.i20 = icmp eq ptr %46, null
-  br i1 %.not.i20, label %seek_pseudodir.exit, label %52
+  br i1 %.not.i20, label %seek_pseudodir.argprom.exit, label %52
 
 52:                                               ; preds = %51
   tail call void @inode_release(ptr noundef nonnull %46) #7
-  br label %seek_pseudodir.exit
+  br label %seek_pseudodir.argprom.exit
 
 53:                                               ; preds = %3
   %54 = getelementptr inbounds i8, ptr %0, i64 4
   %55 = load i32, ptr %54, align 4
   br label %59
 
-seek_pseudodir.exit:                              ; preds = %52, %51, %seek_mountptdir.exit
-  %.013 = phi i32 [ %.0.i, %seek_mountptdir.exit ], [ %.1.lcssa.i, %51 ], [ %.1.lcssa.i, %52 ]
+seek_pseudodir.argprom.exit:                      ; preds = %52, %51, %seek_mountptdir.argprom.exit
+  %.013 = phi i32 [ %.0.i, %seek_mountptdir.argprom.exit ], [ %.1.lcssa.i, %51 ], [ %.1.lcssa.i, %52 ]
   %56 = icmp sgt i32 %.013, -1
   br i1 %56, label %57, label %59
 
-57:                                               ; preds = %seek_pseudodir.exit
+57:                                               ; preds = %seek_pseudodir.argprom.exit
   %58 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.013, ptr %58, align 4
   br label %59
 
-59:                                               ; preds = %seek_pseudodir.exit, %57, %3, %53
-  %.0 = phi i32 [ %55, %53 ], [ -22, %3 ], [ %.013, %57 ], [ %.013, %seek_pseudodir.exit ]
+59:                                               ; preds = %seek_pseudodir.argprom.exit, %57, %3, %53
+  %.0 = phi i32 [ %55, %53 ], [ -22, %3 ], [ %.013, %57 ], [ %.013, %seek_pseudodir.argprom.exit ]
   ret i32 %.0
 }
 

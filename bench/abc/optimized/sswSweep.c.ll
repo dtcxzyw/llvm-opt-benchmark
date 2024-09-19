@@ -38,7 +38,7 @@ define range(i32 0, 2) i32 @Ssw_ManGetSatVarValue(ptr nocapture noundef readonly
   %.val22 = load ptr, ptr %17, align 8
   %18 = getelementptr i8, ptr %16, i64 36
   %.val23 = load i32, ptr %18, align 4
-  %19 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val22, i32 %.val23)
+  %19 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val22, i32 %.val23)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %33, label %20
 
@@ -81,7 +81,7 @@ define range(i32 0, 2) i32 @Ssw_ManGetSatVarValue(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Ssw_ObjSatNum(ptr nocapture %.32.val, i32 %.36.val) unnamed_addr #0 {
+define internal fastcc i32 @Ssw_ObjSatNum.argprom(ptr nocapture %.32.val, i32 %.36.val) unnamed_addr #0 {
   %1 = add nsw i32 %.36.val, 1
   %2 = getelementptr inbounds i8, ptr %.32.val, i64 4
   %3 = load i32, ptr %2, align 4
@@ -420,7 +420,7 @@ define void @Ssw_SmlSavePatternAig(ptr nocapture noundef readonly %0, i32 nounde
   %.val22.i = load ptr, ptr %33, align 8
   %34 = getelementptr i8, ptr %32, i64 36
   %.val23.i = load i32, ptr %34, align 4
-  %35 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val22.i, i32 %.val23.i)
+  %35 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val22.i, i32 %.val23.i)
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %49, label %36
 
@@ -518,7 +518,7 @@ define void @Ssw_SmlAddPatternDyn(ptr nocapture noundef readonly %0) local_unnam
   %.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %15, i64 36
   %.val12 = load i32, ptr %17, align 4
-  %18 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val, i32 %.val12)
+  %18 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val, i32 %.val12)
   %19 = load ptr, ptr %2, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -574,18 +574,18 @@ define range(i32 0, 2) i32 @Ssw_ManSweepNode(ptr noundef %0, ptr noundef %1, i32
   %10 = getelementptr i8, ptr %9, i64 256
   %.val82 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.val82, null
-  br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %5
+Aig_ObjRepr.argprom.exit:                         ; preds = %5
   %11 = getelementptr i8, ptr %1, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %.val82, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %Aig_ObjRepr.exit.thread, label %17
+  br i1 %16, label %Aig_ObjRepr.argprom.exit.thread, label %17
 
-17:                                               ; preds = %Aig_ObjRepr.exit
+17:                                               ; preds = %Aig_ObjRepr.argprom.exit
   %18 = getelementptr i8, ptr %0, i64 8
   %.val79 = load i32, ptr %18, align 8
   %19 = getelementptr i8, ptr %0, i64 32
@@ -609,7 +609,7 @@ Aig_ObjRepr.exit:                                 ; preds = %5
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
   %37 = icmp eq ptr %33, %36
-  br i1 %37, label %Aig_ObjRepr.exit.thread, label %38
+  br i1 %37, label %Aig_ObjRepr.argprom.exit.thread, label %38
 
 38:                                               ; preds = %17
   %.not = icmp eq i32 %3, 0
@@ -714,7 +714,7 @@ Abc_Clock.exit89:                                 ; preds = %Abc_Clock.exit, %55
   %93 = icmp ne i32 %92, 0
   %94 = icmp ne ptr %4, null
   %or.cond = and i1 %94, %93
-  br i1 %or.cond, label %95, label %Aig_ObjRepr.exit.thread
+  br i1 %or.cond, label %95, label %Aig_ObjRepr.argprom.exit.thread
 
 95:                                               ; preds = %76
   %96 = load i32, ptr %25, align 4
@@ -850,7 +850,7 @@ Vec_IntPush.exit96:                               ; preds = %.Vec_IntGrow.exit10
   %157 = sext i32 %155 to i64
   %158 = getelementptr inbounds i32, ptr %154, i64 %157
   store i32 %128, ptr %158, align 4
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
 159:                                              ; preds = %74
   %160 = load ptr, ptr %0, align 8
@@ -1005,7 +1005,7 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
   %232 = getelementptr inbounds i8, ptr %0, i64 40
   %233 = load ptr, ptr %232, align 8
   call void @Ssw_ClassesRemoveNode(ptr noundef %233, ptr noundef nonnull %1) #14
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
 234:                                              ; preds = %229
   br i1 %.not, label %235, label %288
@@ -1044,7 +1044,7 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
   %.val.i = load ptr, ptr %254, align 8
   %255 = getelementptr i8, ptr %253, i64 36
   %.val12.i = load i32, ptr %255, align 4
-  %256 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val.i, i32 %.val12.i)
+  %256 = call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val.i, i32 %.val12.i)
   %257 = load ptr, ptr %240, align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 16
   %259 = load ptr, ptr %258, align 8
@@ -1092,7 +1092,7 @@ Ssw_SmlAddPatternDyn.exit:                        ; preds = %278, %239
   %286 = load i32, ptr %285, align 8
   %287 = add nsw i32 %286, 1
   store i32 %287, ptr %285, align 8
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
 288:                                              ; preds = %235, %234
   call void @Ssw_SmlSavePatternAig(ptr noundef nonnull %0, i32 noundef %2)
@@ -1115,26 +1115,26 @@ Ssw_SmlAddPatternDyn.exit:                        ; preds = %278, %239
   %296 = getelementptr i8, ptr %295, i64 256
   %.val83 = load ptr, ptr %296, align 8
   %.not.i113 = icmp eq ptr %.val83, null
-  br i1 %.not.i113, label %Aig_ObjRepr.exit114, label %297
+  br i1 %.not.i113, label %Aig_ObjRepr.argprom.exit114, label %297
 
 297:                                              ; preds = %294
   %298 = load i32, ptr %11, align 4
   %299 = sext i32 %298 to i64
   %300 = getelementptr inbounds ptr, ptr %.val83, i64 %299
   %301 = load ptr, ptr %300, align 8
-  br label %Aig_ObjRepr.exit114
+  br label %Aig_ObjRepr.argprom.exit114
 
-Aig_ObjRepr.exit114:                              ; preds = %294, %297
+Aig_ObjRepr.argprom.exit114:                      ; preds = %294, %297
   %302 = phi ptr [ %301, %297 ], [ null, %294 ]
   %303 = icmp eq ptr %302, %15
-  br i1 %303, label %304, label %Aig_ObjRepr.exit.thread
+  br i1 %303, label %304, label %Aig_ObjRepr.argprom.exit.thread
 
-304:                                              ; preds = %Aig_ObjRepr.exit114
+304:                                              ; preds = %Aig_ObjRepr.argprom.exit114
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1)
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %5, %Aig_ObjRepr.exit114, %304, %76, %Vec_IntPush.exit96, %17, %Aig_ObjRepr.exit, %Ssw_SmlAddPatternDyn.exit, %231
-  %.0 = phi i32 [ 1, %231 ], [ 1, %Ssw_SmlAddPatternDyn.exit ], [ 0, %Aig_ObjRepr.exit ], [ 0, %17 ], [ 0, %Vec_IntPush.exit96 ], [ 0, %76 ], [ 1, %304 ], [ 1, %Aig_ObjRepr.exit114 ], [ 0, %5 ]
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %5, %Aig_ObjRepr.argprom.exit114, %304, %76, %Vec_IntPush.exit96, %17, %Aig_ObjRepr.argprom.exit, %Ssw_SmlAddPatternDyn.exit, %231
+  %.0 = phi i32 [ 1, %231 ], [ 1, %Ssw_SmlAddPatternDyn.exit ], [ 0, %Aig_ObjRepr.argprom.exit ], [ 0, %17 ], [ 0, %Vec_IntPush.exit96 ], [ 0, %76 ], [ 1, %304 ], [ 1, %Aig_ObjRepr.argprom.exit114 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1381,7 +1381,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %135 = getelementptr inbounds i8, ptr %134, i64 112
   %136 = load i32, ptr %135, align 8
   %.not117 = icmp eq i32 %136, 0
-  br i1 %.not117, label %Bar_ProgressUpdate.exit, label %137
+  br i1 %.not117, label %Bar_ProgressUpdate.argprom.exit, label %137
 
 137:                                              ; preds = %133
   %138 = mul nsw i32 %.val126189, %.0112197
@@ -1392,22 +1392,22 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 141:                                              ; preds = %137
   %142 = load i32, ptr %.0, align 4
   %143 = icmp slt i32 %140, %142
-  br i1 %143, label %Bar_ProgressUpdate.exit, label %144
+  br i1 %143, label %Bar_ProgressUpdate.argprom.exit, label %144
 
 144:                                              ; preds = %141, %137
   call void @Bar_ProgressUpdate_int(ptr noundef %.0, i32 noundef %140, ptr noundef null) #14
-  br label %Bar_ProgressUpdate.exit
+  br label %Bar_ProgressUpdate.argprom.exit
 
-Bar_ProgressUpdate.exit:                          ; preds = %144, %141, %133
+Bar_ProgressUpdate.argprom.exit:                  ; preds = %144, %141, %133
   %145 = load ptr, ptr %19, align 8
   %146 = getelementptr i8, ptr %126, i64 8
   %.val158 = load ptr, ptr %146, align 8
   %147 = ptrtoint ptr %.val158 to i64
   %148 = and i64 %147, -2
   %.not.i165 = icmp eq i64 %148, 0
-  br i1 %.not.i165, label %Ssw_ObjChild0Fra.exit, label %149
+  br i1 %.not.i165, label %Ssw_ObjChild0Fra.argprom.exit, label %149
 
-149:                                              ; preds = %Bar_ProgressUpdate.exit
+149:                                              ; preds = %Bar_ProgressUpdate.argprom.exit
   %150 = inttoptr i64 %148 to ptr
   %.val.i = load i32, ptr %65, align 8
   %.val4.i = load ptr, ptr %66, align 8
@@ -1422,18 +1422,18 @@ Bar_ProgressUpdate.exit:                          ; preds = %144, %141, %133
   %158 = ptrtoint ptr %156 to i64
   %159 = xor i64 %157, %158
   %160 = inttoptr i64 %159 to ptr
-  br label %Ssw_ObjChild0Fra.exit
+  br label %Ssw_ObjChild0Fra.argprom.exit
 
-Ssw_ObjChild0Fra.exit:                            ; preds = %Bar_ProgressUpdate.exit, %149
-  %161 = phi ptr [ %160, %149 ], [ null, %Bar_ProgressUpdate.exit ]
+Ssw_ObjChild0Fra.argprom.exit:                    ; preds = %Bar_ProgressUpdate.argprom.exit, %149
+  %161 = phi ptr [ %160, %149 ], [ null, %Bar_ProgressUpdate.argprom.exit ]
   %162 = getelementptr i8, ptr %126, i64 16
   %.val160 = load ptr, ptr %162, align 8
   %163 = ptrtoint ptr %.val160 to i64
   %164 = and i64 %163, -2
   %.not.i166 = icmp eq i64 %164, 0
-  br i1 %.not.i166, label %Ssw_ObjChild1Fra.exit, label %165
+  br i1 %.not.i166, label %Ssw_ObjChild1Fra.argprom.exit, label %165
 
-165:                                              ; preds = %Ssw_ObjChild0Fra.exit
+165:                                              ; preds = %Ssw_ObjChild0Fra.argprom.exit
   %166 = inttoptr i64 %164 to ptr
   %.val.i167 = load i32, ptr %65, align 8
   %.val4.i168 = load ptr, ptr %66, align 8
@@ -1448,10 +1448,10 @@ Ssw_ObjChild0Fra.exit:                            ; preds = %Bar_ProgressUpdate.
   %174 = ptrtoint ptr %172 to i64
   %175 = xor i64 %173, %174
   %176 = inttoptr i64 %175 to ptr
-  br label %Ssw_ObjChild1Fra.exit
+  br label %Ssw_ObjChild1Fra.argprom.exit
 
-Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.exit, %165
-  %177 = phi ptr [ %176, %165 ], [ null, %Ssw_ObjChild0Fra.exit ]
+Ssw_ObjChild1Fra.argprom.exit:                    ; preds = %Ssw_ObjChild0Fra.argprom.exit, %165
+  %177 = phi ptr [ %176, %165 ], [ null, %Ssw_ObjChild0Fra.argprom.exit ]
   %178 = call ptr @Aig_And(ptr noundef %145, ptr noundef %161, ptr noundef %177) #14
   %.val135 = load i32, ptr %65, align 8
   %.val136 = load ptr, ptr %66, align 8
@@ -1469,8 +1469,8 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   %.pre209 = load ptr, ptr %10, align 8
   br label %.critedge4
 
-.critedge4:                                       ; preds = %Ssw_ObjChild1Fra.exit, %128, %.lr.ph190
-  %187 = phi ptr [ %.pre209, %Ssw_ObjChild1Fra.exit ], [ %122, %128 ], [ %122, %.lr.ph190 ]
+.critedge4:                                       ; preds = %Ssw_ObjChild1Fra.argprom.exit, %128, %.lr.ph190
+  %187 = phi ptr [ %.pre209, %Ssw_ObjChild1Fra.argprom.exit ], [ %122, %128 ], [ %122, %.lr.ph190 ]
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %188 = getelementptr inbounds i8, ptr %187, i64 32
   %189 = load ptr, ptr %188, align 8
@@ -1497,17 +1497,17 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   %202 = icmp sgt i32 %.val125191, 0
   br i1 %202, label %.lr.ph193, label %.critedge8.preheader
 
-.critedge8.preheader:                             ; preds = %Ssw_ObjChild0Fra.exit174, %.preheader
-  %203 = phi ptr [ %193, %.preheader ], [ %232, %Ssw_ObjChild0Fra.exit174 ]
+.critedge8.preheader:                             ; preds = %Ssw_ObjChild0Fra.argprom.exit174, %.preheader
+  %203 = phi ptr [ %193, %.preheader ], [ %232, %Ssw_ObjChild0Fra.argprom.exit174 ]
   %204 = getelementptr i8, ptr %203, i64 104
   %.val152194 = load i32, ptr %204, align 8
   %205 = icmp sgt i32 %.val152194, 0
   %206 = add nuw nsw i32 %.0112197, 1
   br i1 %205, label %.critedge8, label %.critedge10
 
-.lr.ph193:                                        ; preds = %.preheader, %Ssw_ObjChild0Fra.exit174
-  %indvars.iv205 = phi i64 [ %indvars.iv.next206, %Ssw_ObjChild0Fra.exit174 ], [ 0, %.preheader ]
-  %207 = phi ptr [ %234, %Ssw_ObjChild0Fra.exit174 ], [ %200, %.preheader ]
+.lr.ph193:                                        ; preds = %.preheader, %Ssw_ObjChild0Fra.argprom.exit174
+  %indvars.iv205 = phi i64 [ %indvars.iv.next206, %Ssw_ObjChild0Fra.argprom.exit174 ], [ 0, %.preheader ]
+  %207 = phi ptr [ %234, %Ssw_ObjChild0Fra.argprom.exit174 ], [ %200, %.preheader ]
   %208 = getelementptr i8, ptr %207, i64 8
   %.val120 = load ptr, ptr %208, align 8
   %209 = getelementptr inbounds ptr, ptr %.val120, i64 %indvars.iv205
@@ -1519,7 +1519,7 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   %.not.i170 = icmp eq i64 %213, 0
   %.val132.pre = load i32, ptr %65, align 8
   %.val133.pre = load ptr, ptr %66, align 8
-  br i1 %.not.i170, label %Ssw_ObjChild0Fra.exit174, label %214
+  br i1 %.not.i170, label %Ssw_ObjChild0Fra.argprom.exit174, label %214
 
 214:                                              ; preds = %.lr.ph193
   %215 = inttoptr i64 %213 to ptr
@@ -1534,9 +1534,9 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   %223 = ptrtoint ptr %221 to i64
   %224 = xor i64 %222, %223
   %225 = inttoptr i64 %224 to ptr
-  br label %Ssw_ObjChild0Fra.exit174
+  br label %Ssw_ObjChild0Fra.argprom.exit174
 
-Ssw_ObjChild0Fra.exit174:                         ; preds = %.lr.ph193, %214
+Ssw_ObjChild0Fra.argprom.exit174:                 ; preds = %.lr.ph193, %214
   %226 = phi ptr [ %225, %214 ], [ null, %.lr.ph193 ]
   %227 = getelementptr i8, ptr %210, i64 36
   %.val134 = load i32, ptr %227, align 4
@@ -1961,7 +1961,7 @@ Abc_Clock.exit125:                                ; preds = %.critedge, %91
   %141 = getelementptr inbounds i8, ptr %140, i64 112
   %142 = load i32, ptr %141, align 8
   %.not94 = icmp eq i32 %142, 0
-  br i1 %.not94, label %Bar_ProgressUpdate.exit, label %143
+  br i1 %.not94, label %Bar_ProgressUpdate.argprom.exit, label %143
 
 143:                                              ; preds = %139
   br i1 %.not.i, label %148, label %144
@@ -1970,21 +1970,21 @@ Abc_Clock.exit125:                                ; preds = %.critedge, %91
   %145 = load i32, ptr %.0, align 4
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv164, %146
-  br i1 %147, label %Bar_ProgressUpdate.exit, label %148
+  br i1 %147, label %Bar_ProgressUpdate.argprom.exit, label %148
 
 148:                                              ; preds = %144, %143
   %149 = trunc nuw nsw i64 %indvars.iv164 to i32
   call void @Bar_ProgressUpdate_int(ptr noundef %.0, i32 noundef %149, ptr noundef null) #14
-  br label %Bar_ProgressUpdate.exit
+  br label %Bar_ProgressUpdate.argprom.exit
 
-Bar_ProgressUpdate.exit:                          ; preds = %148, %144, %139
+Bar_ProgressUpdate.argprom.exit:                  ; preds = %148, %144, %139
   %150 = getelementptr i8, ptr %137, i64 24
   %.val4.i = load i64, ptr %150, align 8
   %151 = and i64 %.val4.i, 7
   %.not.i126 = icmp eq i64 %151, 2
   br i1 %.not.i126, label %Saig_ObjIsLo.exit, label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit:                                ; preds = %Bar_ProgressUpdate.exit
+Saig_ObjIsLo.exit:                                ; preds = %Bar_ProgressUpdate.argprom.exit
   %152 = load ptr, ptr %13, align 8
   %.val.i = load i32, ptr %137, align 8
   %153 = getelementptr i8, ptr %152, i64 108
@@ -1992,7 +1992,7 @@ Saig_ObjIsLo.exit:                                ; preds = %Bar_ProgressUpdate.
   %.not143 = icmp slt i32 %.val.i, %.val3.i
   br i1 %.not143, label %Saig_ObjIsLo.exit.thread, label %.sink.split
 
-Saig_ObjIsLo.exit.thread:                         ; preds = %Bar_ProgressUpdate.exit, %Saig_ObjIsLo.exit
+Saig_ObjIsLo.exit.thread:                         ; preds = %Bar_ProgressUpdate.argprom.exit, %Saig_ObjIsLo.exit
   %154 = trunc i64 %.val4.i to i32
   %155 = and i32 %154, 7
   %156 = add nsw i32 %155, -7
@@ -2006,7 +2006,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Bar_ProgressUpdate.
   %160 = ptrtoint ptr %.val122 to i64
   %161 = and i64 %160, -2
   %.not.i127 = icmp eq i64 %161, 0
-  br i1 %.not.i127, label %Ssw_ObjChild0Fra.exit, label %162
+  br i1 %.not.i127, label %Ssw_ObjChild0Fra.argprom.exit, label %162
 
 162:                                              ; preds = %157
   %163 = inttoptr i64 %161 to ptr
@@ -2023,18 +2023,18 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Bar_ProgressUpdate.
   %171 = ptrtoint ptr %169 to i64
   %172 = xor i64 %170, %171
   %173 = inttoptr i64 %172 to ptr
-  br label %Ssw_ObjChild0Fra.exit
+  br label %Ssw_ObjChild0Fra.argprom.exit
 
-Ssw_ObjChild0Fra.exit:                            ; preds = %157, %162
+Ssw_ObjChild0Fra.argprom.exit:                    ; preds = %157, %162
   %174 = phi ptr [ %173, %162 ], [ null, %157 ]
   %175 = getelementptr i8, ptr %137, i64 16
   %.val123 = load ptr, ptr %175, align 8
   %176 = ptrtoint ptr %.val123 to i64
   %177 = and i64 %176, -2
   %.not.i130 = icmp eq i64 %177, 0
-  br i1 %.not.i130, label %Ssw_ObjChild1Fra.exit, label %178
+  br i1 %.not.i130, label %Ssw_ObjChild1Fra.argprom.exit, label %178
 
-178:                                              ; preds = %Ssw_ObjChild0Fra.exit
+178:                                              ; preds = %Ssw_ObjChild0Fra.argprom.exit
   %179 = inttoptr i64 %177 to ptr
   %.val.i131 = load i32, ptr %62, align 8
   %.val4.i132 = load ptr, ptr %63, align 8
@@ -2049,10 +2049,10 @@ Ssw_ObjChild0Fra.exit:                            ; preds = %157, %162
   %187 = ptrtoint ptr %185 to i64
   %188 = xor i64 %186, %187
   %189 = inttoptr i64 %188 to ptr
-  br label %Ssw_ObjChild1Fra.exit
+  br label %Ssw_ObjChild1Fra.argprom.exit
 
-Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.exit, %178
-  %190 = phi ptr [ %189, %178 ], [ null, %Ssw_ObjChild0Fra.exit ]
+Ssw_ObjChild1Fra.argprom.exit:                    ; preds = %Ssw_ObjChild0Fra.argprom.exit, %178
+  %190 = phi ptr [ %189, %178 ], [ null, %Ssw_ObjChild0Fra.argprom.exit ]
   %191 = call ptr @Aig_And(ptr noundef %158, ptr noundef %174, ptr noundef %190) #14
   %.val110 = load i32, ptr %62, align 8
   %.val111 = load ptr, ptr %63, align 8
@@ -2065,7 +2065,7 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   store ptr %191, ptr %196, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %Saig_ObjIsLo.exit, %Ssw_ObjChild1Fra.exit
+.sink.split:                                      ; preds = %Saig_ObjIsLo.exit, %Ssw_ObjChild1Fra.argprom.exit
   %197 = call i32 @Ssw_ManSweepNode(ptr noundef nonnull %0, ptr noundef nonnull %137, i32 noundef %57, i32 noundef 0, ptr noundef %127)
   %198 = load i32, ptr %102, align 8
   %199 = or i32 %198, %197

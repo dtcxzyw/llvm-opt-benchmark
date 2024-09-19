@@ -540,12 +540,12 @@ define internal fastcc void @setcolor(ptr noundef nonnull %0, ptr noundef %1) un
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   %.not = icmp eq i32 %6, 3
-  br i1 %.not, label %agxbfree.exit, label %7
+  br i1 %.not, label %agxbfree.argprom.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %0, align 1
   %.not9 = icmp eq i8 %8, 0
-  br i1 %.not9, label %agxbfree.exit, label %9
+  br i1 %.not9, label %agxbfree.argprom.exit, label %9
 
 9:                                                ; preds = %7
   call void @colorxlate(ptr noundef nonnull %0, ptr noundef nonnull %3) #18
@@ -676,14 +676,14 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
   %56 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %55, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   %.val10.pre = load i8, ptr %10, align 1
   %57 = icmp eq i8 %.val10.pre, -1
-  br i1 %57, label %58, label %agxbfree.exit
+  br i1 %57, label %58, label %agxbfree.argprom.exit
 
 58:                                               ; preds = %54
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #18
-  br label %agxbfree.exit
+  br label %agxbfree.argprom.exit
 
-agxbfree.exit:                                    ; preds = %2, %7, %54, %58
+agxbfree.argprom.exit:                            ; preds = %2, %7, %54, %58
   ret void
 }
 

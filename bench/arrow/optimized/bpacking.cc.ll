@@ -223,7 +223,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEEC2Ev()
+  invoke fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEEC2Ev.argprom()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -246,7 +246,7 @@ lpad:                                             ; preds = %init
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEEC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEEC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13.i = alloca %"class.arrow::Status", align 8
   store ptr null, ptr @_ZZN5arrow8internal8unpack32EPKjPjiiE8dispatch.0, align 8
@@ -296,7 +296,7 @@ invoke.cont.i.i:                                  ; preds = %init.i.i
 init.end.i.i:                                     ; preds = %invoke.cont.i.i, %init.check.i.i, %land.lhs.true.i
   switch i32 %0, label %for.inc.i [
     i32 0, label %if.then.i
-    i32 1, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
+    i32 1, label %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.argprom.exit.i
     i32 2, label %sw.bb4.i.i
     i32 3, label %sw.bb6.i.i
   ]
@@ -323,12 +323,12 @@ sw.bb6.i.i:                                       ; preds = %init.end.i.i
 call7.i.i.noexc:                                  ; preds = %sw.bb6.i.i
   br i1 %call7.i.i3, label %if.then.i, label %for.inc.i
 
-_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i: ; preds = %init.end.i.i
+_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.argprom.exit.i: ; preds = %init.end.i.i
   %6 = load ptr, ptr @_ZZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelEE8cpu_info, align 8
   %call3.i.i4 = invoke noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 4)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
-call3.i.i.noexc:                                  ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
+call3.i.i.noexc:                                  ; preds = %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.argprom.exit.i
   br i1 %call3.i.i4, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %call3.i.i.noexc, %call7.i.i.noexc, %call5.i.i.noexc, %init.end.i.i
@@ -371,7 +371,7 @@ _ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.ex
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i) #14
   ret void
 
-lpad.loopexit:                                    ; preds = %sw.bb4.i.i, %sw.bb6.i.i, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.exit.i
+lpad.loopexit:                                    ; preds = %sw.bb4.i.i, %sw.bb6.i.i, %_ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunctionEE11IsSupportedENS0_13DispatchLevelE.argprom.exit.i
   %lpad.loopexit2 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit9

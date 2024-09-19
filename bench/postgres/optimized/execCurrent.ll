@@ -76,7 +76,7 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr nocapture noundef readonl
 
 34:                                               ; preds = %30
   %.not25.i = icmp eq i32 %29, 1790
-  br i1 %.not25.i, label %fetch_cursor_param_value.exit, label %35
+  br i1 %.not25.i, label %fetch_cursor_param_value.argprom.exit, label %35
 
 35:                                               ; preds = %34
   %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -97,15 +97,15 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr nocapture noundef readonl
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.fetch_cursor_param_value) #7
   unreachable
 
-fetch_cursor_param_value.exit:                    ; preds = %34
+fetch_cursor_param_value.argprom.exit:            ; preds = %34
   %46 = load i64, ptr %.0.i, align 8
   %47 = inttoptr i64 %46 to ptr
   %48 = call ptr @text_to_cstring(ptr noundef %47) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %49
 
-49:                                               ; preds = %4, %fetch_cursor_param_value.exit
-  %.059 = phi ptr [ %48, %fetch_cursor_param_value.exit ], [ %8, %4 ]
+49:                                               ; preds = %4, %fetch_cursor_param_value.argprom.exit
+  %.059 = phi ptr [ %48, %fetch_cursor_param_value.argprom.exit ], [ %8, %4 ]
   %50 = call ptr @get_rel_name(i32 noundef %2) #7
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %55

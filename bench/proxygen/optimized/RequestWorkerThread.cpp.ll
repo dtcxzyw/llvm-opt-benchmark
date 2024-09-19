@@ -465,7 +465,7 @@ entry:
   %call11.i = call i32 @sigaddset(ptr noundef nonnull %ss.i, i32 noundef 29) #18
   %call12.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %ss.i, ptr noundef null) #18
   %cmp.not.not.i = icmp eq i32 %call12.i, 0
-  br i1 %cmp.not.not.i, label %"_ZZN8proxygen19RequestWorkerThread5setupEvENK3$_0clEv.exit", label %cond.false.i
+  br i1 %cmp.not.not.i, label %"_ZZN8proxygen19RequestWorkerThread5setupEvENK3$_0clEv.argprom.exit", label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp.i, align 8
@@ -481,7 +481,7 @@ invoke.cont.i:                                    ; preds = %cond.false.i
 
 cleanup.action.i:                                 ; preds = %invoke.cont.i
   call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13.i) #18
-  br label %"_ZZN8proxygen19RequestWorkerThread5setupEvENK3$_0clEv.exit"
+  br label %"_ZZN8proxygen19RequestWorkerThread5setupEvENK3$_0clEv.argprom.exit"
 
 lpad.i:                                           ; preds = %invoke.cont.i, %cond.false.i
   %0 = landingpad { ptr, i32 }
@@ -489,7 +489,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %con
   call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13.i) #18
   resume { ptr, i32 } %0
 
-"_ZZN8proxygen19RequestWorkerThread5setupEvENK3$_0clEv.exit": ; preds = %entry, %cleanup.action.i
+"_ZZN8proxygen19RequestWorkerThread5setupEvENK3$_0clEv.argprom.exit": ; preds = %entry, %cleanup.action.i
   %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8proxygen19RequestWorkerThread21currentRequestWorker_E)
   store ptr %p.val, ptr %1, align 8
   %callback_.i = getelementptr inbounds i8, ptr %p.val, i64 72

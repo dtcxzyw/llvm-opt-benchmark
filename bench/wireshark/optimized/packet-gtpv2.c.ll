@@ -3164,7 +3164,7 @@ define hidden void @dissect_gtpv2_uli(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = load i32, ptr @hf_gtpv2_uli_flags, align 4
   %13 = load i32, ptr @ett_gtpv2_uli_flags, align 4
   %14 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @dissect_gtpv2_uli.gtpv2_uli_flags, i32 noundef 0, i32 noundef 6) #10
-  %15 = tail call fastcc ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %11)
+  %15 = tail call fastcc ptr @decode_gtpv2_uli.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %11)
   ret void
 }
 
@@ -3173,7 +3173,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 137) %5) unnamed_addr #1 {
+define internal fastcc noalias ptr @decode_gtpv2_uli.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 137) %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -3553,7 +3553,7 @@ define internal fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr
 64:                                               ; preds = %4, %22, %21, %20, %19, %18, %17, %16, %15, %14
   %.050 = phi i32 [ 136, %22 ], [ 128, %21 ], [ 72, %20 ], [ 64, %19 ], [ 24, %18 ], [ 16, %17 ], [ 8, %16 ], [ 4, %15 ], [ 2, %14 ], [ 1, %4 ]
   %65 = trunc i32 %10 to i16
-  %66 = call fastcc ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i16 noundef zeroext %65, i32 noundef %.050)
+  %66 = call fastcc ptr @decode_gtpv2_uli.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i16 noundef zeroext %65, i32 noundef %.050)
   br i1 %.not, label %.cont53, label %.else
 
 .else:                                            ; preds = %64
@@ -4760,7 +4760,7 @@ proto_item_set_generated.exit.i:                  ; preds = %242, %239, %236, %2
   %249 = load i16, ptr %248, align 2
   %250 = and i16 %249, 8
   %.not35.i = icmp eq i16 %250, 0
-  br i1 %.not35.i, label %251, label %track_gtpv2_session.exit
+  br i1 %.not35.i, label %251, label %track_gtpv2_session.argprom.exit
 
 251:                                              ; preds = %proto_item_set_generated.exit.i
   %252 = load ptr, ptr @session_table, align 8
@@ -4772,13 +4772,13 @@ proto_item_set_generated.exit.i:                  ; preds = %242, %239, %236, %2
   %258 = ptrtoint ptr %257 to i64
   %259 = and i64 %258, 4294967295
   %.not36.i = icmp eq i64 %259, 0
-  br i1 %.not36.i, label %260, label %track_gtpv2_session.exit
+  br i1 %.not36.i, label %260, label %track_gtpv2_session.argprom.exit
 
 260:                                              ; preds = %251
   %261 = load i8, ptr %59, align 1
   switch i8 %261, label %262 [
     i8 32, label %268
-    i8 33, label %track_gtpv2_session.exit
+    i8 33, label %track_gtpv2_session.argprom.exit
     i8 34, label %thread-pre-split.i133
     i8 35, label %thread-pre-split.i133
     i8 95, label %thread-pre-split.i133
@@ -4808,7 +4808,7 @@ proto_item_set_generated.exit.i:                  ; preds = %242, %239, %236, %2
   %271 = add i32 %270, 1
   store i32 %271, ptr @gtp_session_count, align 4
   call void @add_gtp_session(i32 noundef %269, i32 noundef %270) #10
-  br label %track_gtpv2_session.exit
+  br label %track_gtpv2_session.argprom.exit
 
 thread-pre-split.i133:                            ; preds = %266, %264, %262, %260, %260, %260, %260, %260, %260
   %272 = getelementptr inbounds i8, ptr %1, i64 232
@@ -4827,16 +4827,16 @@ thread-pre-split.i133:                            ; preds = %266, %264, %262, %2
   %283 = ptrtoint ptr %282 to i64
   %284 = trunc i64 %283 to i32
   %.not48.i = icmp eq i32 %284, 0
-  br i1 %.not48.i, label %track_gtpv2_session.exit, label %285
+  br i1 %.not48.i, label %track_gtpv2_session.argprom.exit, label %285
 
 285:                                              ; preds = %277
   %286 = load i32, ptr %253, align 4
   call void @add_gtp_session(i32 noundef %286, i32 noundef %284) #10
-  br label %track_gtpv2_session.exit
+  br label %track_gtpv2_session.argprom.exit
 
 287:                                              ; preds = %thread-pre-split.i133
   %288 = icmp eq i8 %261, 34
-  br i1 %288, label %289, label %track_gtpv2_session.exit
+  br i1 %288, label %289, label %track_gtpv2_session.argprom.exit
 
 289:                                              ; preds = %287
   %290 = load i32, ptr %253, align 4
@@ -4844,13 +4844,13 @@ thread-pre-split.i133:                            ; preds = %266, %264, %262, %2
   %292 = add i32 %291, 1
   store i32 %292, ptr @gtp_session_count, align 4
   call void @add_gtp_session(i32 noundef %290, i32 noundef %291) #10
-  br label %track_gtpv2_session.exit
+  br label %track_gtpv2_session.argprom.exit
 
-track_gtpv2_session.exit:                         ; preds = %260, %proto_item_set_generated.exit.i, %251, %268, %277, %285, %287, %289
+track_gtpv2_session.argprom.exit:                 ; preds = %260, %proto_item_set_generated.exit.i, %251, %268, %277, %285, %287, %289
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %293
 
-293:                                              ; preds = %track_gtpv2_session.exit, %222
+293:                                              ; preds = %track_gtpv2_session.argprom.exit, %222
   br i1 %.not126, label %299, label %294
 
 294:                                              ; preds = %293
@@ -7804,7 +7804,7 @@ define internal void @dissect_gtpv2_F_cause(ptr noundef %0, ptr noundef %1, ptr 
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %14 = icmp ult i8 %13, 5
-  br i1 %14, label %switch.lookup, label %dissect_gtpv2_s1ap_cause.exit
+  br i1 %14, label %switch.lookup, label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 switch.lookup:                                    ; preds = %10
   %15 = zext nneg i8 %13 to i64
@@ -7812,7 +7812,7 @@ switch.lookup:                                    ; preds = %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = load i32, ptr %switch.load, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 18:                                               ; preds = %9
   br label %.sink.split
@@ -7830,7 +7830,7 @@ switch.lookup:                                    ; preds = %10
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %24 = icmp ult i8 %23, 5
-  br i1 %24, label %switch.lookup40, label %dissect_gtpv2_s1ap_cause.exit
+  br i1 %24, label %switch.lookup40, label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 switch.lookup40:                                  ; preds = %20
   %25 = zext nneg i8 %23 to i64
@@ -7838,7 +7838,7 @@ switch.lookup40:                                  ; preds = %20
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   %26 = load i32, ptr %switch.load42, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 28:                                               ; preds = %19
   br label %.sink.split
@@ -7851,9 +7851,9 @@ switch.lookup40:                                  ; preds = %20
 29:                                               ; preds = %.sink.split, %8, %19, %9
   %30 = zext i16 %4 to i32
   %31 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %30) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
-dissect_gtpv2_s1ap_cause.exit:                    ; preds = %20, %10, %switch.lookup40, %switch.lookup, %29
+dissect_gtpv2_s1ap_cause.argprom.exit:            ; preds = %20, %10, %switch.lookup40, %switch.lookup, %29
   ret void
 }
 
@@ -8839,7 +8839,7 @@ define internal void @dissect_gtpv2_ran_nas_cause(ptr noundef %0, ptr nocapture 
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %16 = and i8 %9, 15
   %17 = icmp ult i8 %16, 5
-  br i1 %17, label %switch.lookup, label %dissect_gtpv2_s1ap_cause.exit
+  br i1 %17, label %switch.lookup, label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 switch.lookup:                                    ; preds = %13
   %18 = zext nneg i8 %16 to i64
@@ -8847,36 +8847,36 @@ switch.lookup:                                    ; preds = %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = load i32, ptr %switch.load, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 21:                                               ; preds = %8
   %22 = load i32, ptr @hf_gtpv2_emm_cause, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 24:                                               ; preds = %8
   %25 = load i32, ptr @hf_gtpv2_esm_cause, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 27:                                               ; preds = %8
   %28 = load i32, ptr @hf_gtpv2_diameter_cause, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 30:                                               ; preds = %8
   %31 = load i32, ptr @hf_gtpv2_ikev2_cause, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
 33:                                               ; preds = %8
   %34 = load i32, ptr @hf_gtpv2_ran_nas_cause_value, align 4
   %35 = zext i16 %4 to i32
   %36 = add nsw i32 %35, -1
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef 1, i32 noundef %36, i32 noundef 0) #10
-  br label %dissect_gtpv2_s1ap_cause.exit
+  br label %dissect_gtpv2_s1ap_cause.argprom.exit
 
-dissect_gtpv2_s1ap_cause.exit:                    ; preds = %13, %switch.lookup, %33, %30, %27, %24, %21
+dissect_gtpv2_s1ap_cause.argprom.exit:            ; preds = %13, %switch.lookup, %33, %30, %27, %24, %21
   ret void
 }
 

@@ -7869,7 +7869,7 @@ if.end.i:                                         ; preds = %trace_lsi_queue_req
   store i32 %len, ptr %pending.i, align 8
   %18 = load i32, ptr %waiting, align 16
   %cmp.i = icmp eq i32 %18, 1
-  br i1 %cmp.i, label %lsi_queue_req.exit.thread, label %lor.lhs.false.i
+  br i1 %cmp.i, label %lsi_queue_req.argprom.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %sien0.i.i = getelementptr inbounds i8, ptr %call.i, i64 3767
@@ -7897,9 +7897,9 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %25 = load i8, ptr %istat0.i, align 16
   %26 = and i8 %25, 3
   %tobool7.not.i = icmp eq i8 %26, 0
-  br i1 %tobool7.not.i, label %lsi_queue_req.exit.thread, label %if.else.i
+  br i1 %tobool7.not.i, label %lsi_queue_req.argprom.exit.thread, label %if.else.i
 
-lsi_queue_req.exit.thread:                        ; preds = %if.end.i, %land.lhs.true4.i
+lsi_queue_req.argprom.exit.thread:                ; preds = %if.end.i, %land.lhs.true4.i
   tail call fastcc void @lsi_reselect(ptr noundef nonnull %call.i, ptr noundef nonnull %2)
   br label %if.end12
 
@@ -7912,13 +7912,13 @@ if.else.i:                                        ; preds = %land.lhs.true4.i, %
   %29 = load i16, ptr @_TRACE_LSI_QUEUE_REQ_DSTATE, align 2
   %tobool4.i.i13.i = icmp ne i16 %29, 0
   %or.cond.i.i14.i = select i1 %tobool.i.i12.i, i1 %tobool4.i.i13.i, i1 false
-  br i1 %or.cond.i.i14.i, label %land.lhs.true5.i.i15.i, label %lsi_queue_req.exit
+  br i1 %or.cond.i.i14.i, label %land.lhs.true5.i.i15.i, label %lsi_queue_req.argprom.exit
 
 land.lhs.true5.i.i15.i:                           ; preds = %if.else.i
   %30 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i16.i = and i32 %30, 32768
   %cmp.i.not.i.i17.i = icmp eq i32 %and.i.i.i16.i, 0
-  br i1 %cmp.i.not.i.i17.i, label %lsi_queue_req.exit, label %if.then.i.i18.i
+  br i1 %cmp.i.not.i.i17.i, label %lsi_queue_req.argprom.exit, label %if.then.i.i18.i
 
 if.then.i.i18.i:                                  ; preds = %land.lhs.true5.i.i15.i
   %31 = load i8, ptr @message_with_timestamp, align 1
@@ -7932,18 +7932,18 @@ if.then8.i.i21.i:                                 ; preds = %if.then.i.i18.i
   %tv_usec.i.i24.i = getelementptr inbounds i8, ptr %_now.i.i11.i, i64 8
   %33 = load i64, ptr %tv_usec.i.i24.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.275, i32 noundef %call10.i.i23.i, i64 noundef %32, i64 noundef %33, i32 noundef %27) #12
-  br label %lsi_queue_req.exit
+  br label %lsi_queue_req.argprom.exit
 
 if.else.i.i20.i:                                  ; preds = %if.then.i.i18.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.276, i32 noundef %27) #12
-  br label %lsi_queue_req.exit
+  br label %lsi_queue_req.argprom.exit
 
-lsi_queue_req.exit:                               ; preds = %if.else.i, %land.lhs.true5.i.i15.i, %if.then8.i.i21.i, %if.else.i.i20.i
+lsi_queue_req.argprom.exit:                       ; preds = %if.else.i, %land.lhs.true5.i.i15.i, %if.then8.i.i21.i, %if.else.i.i20.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i11.i)
   store i32 %len, ptr %pending.i, align 8
   br label %if.end30
 
-if.end12:                                         ; preds = %lor.lhs.false3, %lsi_queue_req.exit.thread, %land.lhs.true, %lsi_irq_on_rsl.exit
+if.end12:                                         ; preds = %lor.lhs.false3, %lsi_queue_req.argprom.exit.thread, %land.lhs.true, %lsi_irq_on_rsl.exit
   %sstat1 = getelementptr inbounds i8, ptr %call.i, i64 3795
   %34 = load i8, ptr %sstat1, align 1
   %35 = and i8 %34, 7
@@ -8020,7 +8020,7 @@ if.else28:                                        ; preds = %lor.lhs.false24
   tail call fastcc void @lsi_do_dma(ptr noundef nonnull %call.i, i32 noundef %conv16)
   br label %if.end30
 
-if.end30:                                         ; preds = %if.then.i22, %if.then27, %lsi_queue_req.exit, %trace_lsi_transfer_data.exit, %if.else28
+if.end30:                                         ; preds = %if.then.i22, %if.then27, %lsi_queue_req.argprom.exit, %trace_lsi_transfer_data.exit, %if.else28
   ret void
 }
 

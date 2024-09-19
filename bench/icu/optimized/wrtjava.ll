@@ -683,7 +683,7 @@ if.end.i:                                         ; preds = %if.endthread-pre-sp
   store i32 %dec.i, ptr @_ZL8tabCount, align 4
   %69 = load ptr, ptr @_ZL3out, align 8
   %cmp.not2.i28.i = icmp slt i32 %68, 1
-  br i1 %cmp.not2.i28.i, label %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit, label %for.body.i29.i
+  br i1 %cmp.not2.i28.i, label %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.argprom.exit, label %for.body.i29.i
 
 for.body.i29.i:                                   ; preds = %if.end.i, %for.body.i29.i
   %i.03.i30.i = phi i32 [ %inc.i32.i, %for.body.i29.i ], [ 0, %if.end.i ]
@@ -695,9 +695,9 @@ for.body.i29.i:                                   ; preds = %if.end.i, %for.body
 
 _ZL10write_tabsP11_FileStream.exit34.loopexit.i:  ; preds = %for.body.i29.i
   %.pre10.i = load ptr, ptr @_ZL3out, align 8
-  br label %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit
+  br label %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.argprom.exit
 
-_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit: ; preds = %if.end.i, %_ZL10write_tabsP11_FileStream.exit34.loopexit.i
+_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.argprom.exit: ; preds = %if.end.i, %_ZL10write_tabsP11_FileStream.exit34.loopexit.i
   %71 = phi ptr [ %.pre10.i, %_ZL10write_tabsP11_FileStream.exit34.loopexit.i ], [ %69, %if.end.i ]
   %call35.i = call i32 @T_FileStream_write(ptr noundef %71, ptr noundef nonnull @.str.26, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %buf.i)
@@ -822,7 +822,7 @@ _ZL10write_tabsP11_FileStream.exit29.loopexit.i:  ; preds = %for.body.i24.i
 _ZL10write_tabsP11_FileStream.exit29.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit29.loopexit.i, %if.end35.i
   %91 = phi ptr [ %.pre5.i, %_ZL10write_tabsP11_FileStream.exit29.loopexit.i ], [ %89, %if.end35.i ]
   %call36.i = call i32 @T_FileStream_write(ptr noundef %91, ptr noundef nonnull @.str.26, i32 noundef 3)
-  br label %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit
+  br label %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.argprom.exit
 
 if.else37.i:                                      ; preds = %sw.bb7
   %92 = load ptr, ptr @_ZL3out, align 8
@@ -847,9 +847,9 @@ _ZL10write_tabsP11_FileStream.exit36.i:           ; preds = %_ZL10write_tabsP11_
   %call40.i = tail call i32 @T_FileStream_write(ptr noundef %95, ptr noundef nonnull @.str.27, i32 noundef 12)
   %96 = load ptr, ptr @_ZL3out, align 8
   %call41.i = tail call i32 @T_FileStream_write(ptr noundef %96, ptr noundef nonnull @.str.26, i32 noundef 3)
-  br label %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit
+  br label %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.argprom.exit
 
-_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit29.i, %_ZL10write_tabsP11_FileStream.exit36.i
+_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.argprom.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit29.i, %_ZL10write_tabsP11_FileStream.exit36.i
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %byteBuffer.i)
   br label %return
 
@@ -859,7 +859,7 @@ sw.bb8:                                           ; preds = %if.then1
   %97 = load ptr, ptr @_ZL3out, align 8
   %98 = load i32, ptr @_ZL8tabCount, align 4
   %cmp.not2.i.i34 = icmp slt i32 %98, 0
-  br i1 %cmp.not2.i.i34, label %_ZL14int_write_javaPK11IntResourceP10UErrorCode.exit, label %for.body.i.i35
+  br i1 %cmp.not2.i.i34, label %_ZL14int_write_javaPK11IntResourceP10UErrorCode.argprom.exit, label %for.body.i.i35
 
 for.body.i.i35:                                   ; preds = %sw.bb8, %for.body.i.i35
   %i.03.i.i36 = phi i32 [ %inc.i.i38, %for.body.i.i35 ], [ 0, %sw.bb8 ]
@@ -871,9 +871,9 @@ for.body.i.i35:                                   ; preds = %sw.bb8, %for.body.i
 
 _ZL10write_tabsP11_FileStream.exit.loopexit.i40:  ; preds = %for.body.i.i35
   %.pre.i41 = load ptr, ptr @_ZL3out, align 8
-  br label %_ZL14int_write_javaPK11IntResourceP10UErrorCode.exit
+  br label %_ZL14int_write_javaPK11IntResourceP10UErrorCode.argprom.exit
 
-_ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %sw.bb8, %_ZL10write_tabsP11_FileStream.exit.loopexit.i40
+_ZL14int_write_javaPK11IntResourceP10UErrorCode.argprom.exit: ; preds = %sw.bb8, %_ZL10write_tabsP11_FileStream.exit.loopexit.i40
   %100 = phi ptr [ %.pre.i41, %_ZL10write_tabsP11_FileStream.exit.loopexit.i40 ], [ %97, %sw.bb8 ]
   %call1.i43 = tail call i32 @T_FileStream_write(ptr noundef %100, ptr noundef nonnull @.str.29, i32 noundef 12)
   %fValue.i = getelementptr inbounds i8, ptr %res, i64 56
@@ -1113,7 +1113,7 @@ if.end11:                                         ; preds = %if.then1, %if.end
   store i32 5, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %if.end20.i, %while.body20.i, %if.else.i77, %if.then28.i, %while.end.i74, %if.else29.i, %while.end26.i, %if.then105.i.i, %if.then9.i.i, %if.then.i.i, %entry, %if.end11, %_ZL14int_write_javaPK11IntResourceP10UErrorCode.exit, %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit, %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit, %sw.bb2
+return:                                           ; preds = %if.end20.i, %while.body20.i, %if.else.i77, %if.then28.i, %while.end.i74, %if.else29.i, %while.end26.i, %if.then105.i.i, %if.then9.i.i, %if.then.i.i, %entry, %if.end11, %_ZL14int_write_javaPK11IntResourceP10UErrorCode.argprom.exit, %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.argprom.exit, %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.argprom.exit, %sw.bb2
   ret void
 }
 

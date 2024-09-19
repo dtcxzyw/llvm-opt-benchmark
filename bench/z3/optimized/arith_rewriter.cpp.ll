@@ -9708,7 +9708,7 @@ invoke.cont148:                                   ; preds = %invoke.cont145
   br i1 %or.cond620, label %if.then153, label %cleanup
 
 if.then153:                                       ; preds = %invoke.cont148
-  %call156 = invoke fastcc noundef ptr @"_ZZN14arith_rewriter13mk_power_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clES1_"(ptr nonnull %this, ptr noundef %78)
+  %call156 = invoke fastcc noundef ptr @"_ZZN14arith_rewriter13mk_power_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clES1_.argprom"(ptr nonnull %this, ptr noundef %78)
           to label %invoke.cont155 unwind label %lpad144
 
 invoke.cont155:                                   ; preds = %if.then153
@@ -10658,7 +10658,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK8rati
           to label %invoke.cont351 unwind label %lpad341.loopexit.split-lp
 
 invoke.cont351:                                   ; preds = %for.end
-  %call354 = invoke fastcc noundef ptr @"_ZZN14arith_rewriter13mk_power_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clES1_"(ptr nonnull %this, ptr noundef %call352)
+  %call354 = invoke fastcc noundef ptr @"_ZZN14arith_rewriter13mk_power_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clES1_.argprom"(ptr nonnull %this, ptr noundef %call352)
           to label %invoke.cont353 unwind label %lpad341.loopexit.split-lp
 
 invoke.cont353:                                   ; preds = %invoke.cont351
@@ -34249,7 +34249,7 @@ if.end:                                           ; preds = %_ZNK10arith_util10m
 declare void @_ZN8rational12power_of_twoEj(ptr sret(%class.rational) align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN14arith_rewriter13mk_power_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clES1_"(ptr nocapture readonly %this.0.val, ptr noundef nonnull %e) unnamed_addr #3 align 2 {
+define internal fastcc noundef ptr @"_ZZN14arith_rewriter13mk_power_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clES1_.argprom"(ptr nocapture readonly %this.0.val, ptr noundef nonnull %e) unnamed_addr #3 align 2 {
 entry:
   %m_util = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %call.i = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %e)

@@ -240,11 +240,11 @@ define hidden void @_ZN2cv12cpu_baseline10medianBlurERKNS_3MatERS1_i(ptr noundef
   %102 = icmp slt i32 %.03151624.i, %97
   %103 = select i1 %102, i32 %92, i32 0
   %104 = sext i32 %103 to i64
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i, %.preheader.i
-  %indvars.iv1682.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next1683.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i ]
-  %.11623.i = phi ptr [ %.01626.i, %.preheader.i ], [ %137, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit375.i, %.preheader.i
+  %indvars.iv1682.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next1683.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit375.i ]
+  %.11623.i = phi ptr [ %.01626.i, %.preheader.i ], [ %137, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit375.i ]
   %105 = getelementptr inbounds i8, ptr %.11623.i, i64 %101
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
@@ -270,17 +270,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit.i: ; preds = %_ZNK2cv1
   %126 = add nsw i32 %125, %118
   %127 = sub nsw i32 %113, %126
   %or.cond.i374.i = icmp ult i32 %127, 769
-  br i1 %or.cond.i374.i, label %128, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i
+  br i1 %or.cond.i374.i, label %128, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit375.i
 
-128:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit.i
+128:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit.i
   %129 = zext nneg i32 %127 to i64
   %130 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit375.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i: ; preds = %128, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit.i
-  %133 = phi i32 [ %132, %128 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit375.i: ; preds = %128, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit.i
+  %133 = phi i32 [ %132, %128 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit.i ]
   %134 = add nsw i32 %133, %125
   %135 = trunc i32 %134 to i8
   %136 = getelementptr inbounds i8, ptr %.03111625.i, i64 %indvars.iv1682.i
@@ -288,9 +288,9 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i: ; preds = %128, 
   %indvars.iv.next1683.i = add nuw nsw i64 %indvars.iv1682.i, 1
   %137 = getelementptr inbounds i8, ptr %.11623.i, i64 1
   %exitcond1686.not.i = icmp eq i64 %indvars.iv.next1683.i, %wide.trip.count1685.i
-  br i1 %exitcond1686.not.i, label %138, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit.i, !llvm.loop !4
+  br i1 %exitcond1686.not.i, label %138, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit.i, !llvm.loop !4
 
-138:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i
+138:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit375.i
   %139 = add nuw nsw i32 %.03151624.i, 1
   %140 = getelementptr inbounds i8, ptr %137, i64 %98
   %141 = getelementptr inbounds i8, ptr %.03111625.i, i64 %99
@@ -338,7 +338,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i: ; preds = %128, 
   %165 = getelementptr inbounds i8, ptr %70, i64 %164
   br label %.loopexit1591.i
 
-.loopexit1591.loopexit.i:                         ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit452.i
+.loopexit1591.loopexit.i:                         ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit452.i
   %166 = trunc nsw i64 %indvars.iv.next1675.i to i32
   br label %.loopexit1591.i.backedge
 
@@ -346,15 +346,15 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i: ; preds = %128, 
   %.0325.i = phi i32 [ %86, %154 ], [ %143, %.loopexit1591.i.backedge ]
   %.1320.i = phi i32 [ 0, %154 ], [ %.1320.i.be, %.loopexit1591.i.backedge ]
   %167 = icmp slt i32 %.1320.i, %.0325.i
-  br i1 %167, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.preheader.i, label %._crit_edge1613.i
+  br i1 %167, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.preheader.i, label %._crit_edge1613.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.preheader.i: ; preds = %.loopexit1591.i
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.preheader.i: ; preds = %.loopexit1591.i
   %168 = sext i32 %.1320.i to i64
   %wide.trip.count1672.i = sext i32 %.0325.i to i64
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit414.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.preheader.i
-  %indvars.iv1669.i = phi i64 [ %168, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.preheader.i ], [ %indvars.iv.next1670.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit414.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit414.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.preheader.i
+  %indvars.iv1669.i = phi i64 [ %168, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.preheader.i ], [ %indvars.iv.next1670.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit414.i ]
   %.not337.not.i = icmp sgt i64 %indvars.iv1669.i, %150
   %169 = select i1 %.not337.not.i, i64 %147, i64 0
   %170 = sub nsw i64 %indvars.iv1669.i, %169
@@ -438,229 +438,229 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.i: ; preds = %_ZNK2
   %248 = sub nsw i32 %231, %207
   %249 = add nsw i32 %248, 256
   %or.cond.i389.i = icmp ult i32 %249, 769
-  br i1 %or.cond.i389.i, label %250, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit390.i
+  br i1 %or.cond.i389.i, label %250, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit390.i
 
-250:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.i
+250:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.i
   %251 = zext nneg i32 %249 to i64
   %252 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %251
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit390.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit390.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit390.i: ; preds = %250, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.i
-  %255 = phi i32 [ %254, %250 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit390.i: ; preds = %250, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.i
+  %255 = phi i32 [ %254, %250 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.i ]
   %256 = add nuw nsw i32 %255, %207
   %257 = sub nsw i32 %238, %215
   %258 = add nsw i32 %257, 256
   %or.cond.i391.i = icmp ult i32 %258, 769
-  br i1 %or.cond.i391.i, label %259, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit392.i
+  br i1 %or.cond.i391.i, label %259, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit392.i
 
-259:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit390.i
+259:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit390.i
   %260 = zext nneg i32 %258 to i64
   %261 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %260
   %262 = load i8, ptr %261, align 1
   %263 = zext i8 %262 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit392.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit392.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit392.i: ; preds = %259, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit390.i
-  %264 = phi i32 [ %263, %259 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit390.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit392.i: ; preds = %259, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit390.i
+  %264 = phi i32 [ %263, %259 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit390.i ]
   %265 = add nuw nsw i32 %264, %215
   %266 = sub nsw i32 %238, %264
   %267 = sub nsw i32 %246, %223
   %268 = add nsw i32 %267, 256
   %or.cond.i393.i = icmp ult i32 %268, 769
-  br i1 %or.cond.i393.i, label %269, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit394.i
+  br i1 %or.cond.i393.i, label %269, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit394.i
 
-269:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit392.i
+269:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit392.i
   %270 = zext nneg i32 %268 to i64
   %271 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %270
   %272 = load i8, ptr %271, align 1
   %273 = zext i8 %272 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit394.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit394.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit394.i: ; preds = %269, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit392.i
-  %274 = phi i32 [ %273, %269 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit392.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit394.i: ; preds = %269, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit392.i
+  %274 = phi i32 [ %273, %269 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit392.i ]
   %275 = sub nsw i32 %246, %274
   %276 = add nsw i32 %239, %230
   %277 = sub nsw i32 %225, %276
   %or.cond.i395.i = icmp ult i32 %277, 769
-  br i1 %or.cond.i395.i, label %278, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit396.i
+  br i1 %or.cond.i395.i, label %278, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit396.i
 
-278:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit394.i
+278:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit394.i
   %279 = zext nneg i32 %277 to i64
   %280 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %279
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit396.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit396.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit396.i: ; preds = %278, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit394.i
-  %283 = phi i32 [ %282, %278 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit394.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit396.i: ; preds = %278, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit394.i
+  %283 = phi i32 [ %282, %278 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit394.i ]
   %284 = add nuw nsw i32 %265, 256
   %285 = add nuw nsw i32 %223, %274
   %286 = sub nsw i32 %284, %285
   %or.cond.i397.i = icmp ult i32 %286, 769
-  br i1 %or.cond.i397.i, label %287, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit398.i
+  br i1 %or.cond.i397.i, label %287, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit398.i
 
-287:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit396.i
+287:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit396.i
   %288 = zext nneg i32 %286 to i64
   %289 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %288
   %290 = load i8, ptr %289, align 1
   %291 = zext i8 %290 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit398.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit398.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit398.i: ; preds = %287, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit396.i
-  %292 = phi i32 [ %291, %287 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit396.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit398.i: ; preds = %287, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit396.i
+  %292 = phi i32 [ %291, %287 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit396.i ]
   %293 = sub nsw i32 %266, %275
   %294 = add nsw i32 %293, 256
   %or.cond.i399.i = icmp ult i32 %294, 769
-  br i1 %or.cond.i399.i, label %295, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit400.i
+  br i1 %or.cond.i399.i, label %295, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit400.i
 
-295:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit398.i
+295:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit398.i
   %296 = zext nneg i32 %294 to i64
   %297 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %296
   %298 = load i8, ptr %297, align 1
   %299 = zext i8 %298 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit400.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit400.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit400.i: ; preds = %295, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit398.i
-  %300 = phi i32 [ %299, %295 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit398.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit400.i: ; preds = %295, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit398.i
+  %300 = phi i32 [ %299, %295 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit398.i ]
   %301 = sub nsw i32 %266, %300
   %302 = add nsw i32 %239, 256
   %303 = sub nsw i32 %302, %247
   %304 = add nsw i32 %303, %283
   %or.cond.i401.i = icmp ult i32 %304, 769
-  br i1 %or.cond.i401.i, label %305, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit402.i
+  br i1 %or.cond.i401.i, label %305, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit402.i
 
-305:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit400.i
+305:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit400.i
   %306 = zext nneg i32 %304 to i64
   %307 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %306
   %308 = load i8, ptr %307, align 1
   %309 = zext i8 %308 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit402.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit402.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit402.i: ; preds = %305, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit400.i
-  %310 = phi i32 [ %309, %305 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit400.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit402.i: ; preds = %305, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit400.i
+  %310 = phi i32 [ %309, %305 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit400.i ]
   %.neg810 = add nsw i32 %231, 256
   %311 = add nsw i32 %255, %301
   %312 = sub nsw i32 %.neg810, %311
   %or.cond.i403.i = icmp ult i32 %312, 769
-  br i1 %or.cond.i403.i, label %313, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit404.i
+  br i1 %or.cond.i403.i, label %313, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit404.i
 
-313:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit402.i
+313:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit402.i
   %314 = zext nneg i32 %312 to i64
   %315 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %314
   %316 = load i8, ptr %315, align 1
   %317 = zext i8 %316 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit404.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit404.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit404.i: ; preds = %313, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit402.i
-  %318 = phi i32 [ %317, %313 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit402.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit404.i: ; preds = %313, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit402.i
+  %318 = phi i32 [ %317, %313 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit402.i ]
   %319 = add nsw i32 %318, %301
   %.neg1451.i = add nuw nsw i32 %256, 256
   %320 = sub nsw i32 %.neg1451.i, %265
   %321 = add nsw i32 %320, %292
   %or.cond.i405.i = icmp ult i32 %321, 769
-  br i1 %or.cond.i405.i, label %322, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit406.i
+  br i1 %or.cond.i405.i, label %322, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit406.i
 
-322:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit404.i
+322:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit404.i
   %323 = zext nneg i32 %321 to i64
   %324 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %323
   %325 = load i8, ptr %324, align 1
   %326 = zext i8 %325 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit406.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit406.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit406.i: ; preds = %322, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit404.i
-  %327 = phi i32 [ %326, %322 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit404.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit406.i: ; preds = %322, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit404.i
+  %327 = phi i32 [ %326, %322 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit404.i ]
   %328 = sub nsw i32 %256, %327
   %329 = add nsw i32 %275, %300
   %reass.sub889 = sub nsw i32 %319, %329
   %330 = add nsw i32 %reass.sub889, 256
   %or.cond.i407.i = icmp ult i32 %330, 769
-  br i1 %or.cond.i407.i, label %331, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit408.i
+  br i1 %or.cond.i407.i, label %331, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit408.i
 
-331:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit406.i
+331:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit406.i
   %332 = zext nneg i32 %330 to i64
   %333 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %332
   %334 = load i8, ptr %333, align 1
   %335 = zext i8 %334 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit408.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit408.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit408.i: ; preds = %331, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit406.i
-  %336 = phi i32 [ %335, %331 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit406.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit408.i: ; preds = %331, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit406.i
+  %336 = phi i32 [ %335, %331 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit406.i ]
   %337 = sub nsw i32 %319, %336
   %338 = sub nsw i32 %337, %328
   %339 = add nsw i32 %338, 256
   %or.cond.i409.i = icmp ult i32 %339, 769
-  br i1 %or.cond.i409.i, label %340, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit410.i
+  br i1 %or.cond.i409.i, label %340, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit410.i
 
-340:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit408.i
+340:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit408.i
   %341 = zext nneg i32 %339 to i64
   %342 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %341
   %343 = load i8, ptr %342, align 1
   %344 = zext i8 %343 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit410.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit410.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit410.i: ; preds = %340, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit408.i
-  %345 = phi i32 [ %344, %340 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit408.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit410.i: ; preds = %340, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit408.i
+  %345 = phi i32 [ %344, %340 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit408.i ]
   %346 = sub nsw i32 %337, %345
   %347 = add nsw i32 %247, 256
   %348 = add nuw nsw i32 %347, %310
   %349 = sub nsw i32 %348, %346
   %or.cond.i411.i = icmp ult i32 %349, 769
-  br i1 %or.cond.i411.i, label %350, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit412.i
+  br i1 %or.cond.i411.i, label %350, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit412.i
 
-350:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit410.i
+350:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit410.i
   %351 = zext nneg i32 %349 to i64
   %352 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %351
   %353 = load i8, ptr %352, align 1
   %354 = zext i8 %353 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit412.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit412.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit412.i: ; preds = %350, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit410.i
-  %355 = phi i32 [ %354, %350 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit410.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit412.i: ; preds = %350, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit410.i
+  %355 = phi i32 [ %354, %350 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit410.i ]
   %356 = add nsw i32 %355, %346
   %357 = add nsw i32 %328, %345
   %reass.sub890 = sub nsw i32 %356, %357
   %358 = add nsw i32 %reass.sub890, 256
   %or.cond.i413.i = icmp ult i32 %358, 769
-  br i1 %or.cond.i413.i, label %359, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit414.i
+  br i1 %or.cond.i413.i, label %359, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit414.i
 
-359:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit412.i
+359:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit412.i
   %360 = zext nneg i32 %358 to i64
   %361 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %360
   %362 = load i8, ptr %361, align 1
   %363 = zext i8 %362 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit414.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit414.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit414.i: ; preds = %359, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit412.i
-  %364 = phi i32 [ %363, %359 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit412.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit414.i: ; preds = %359, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit412.i
+  %364 = phi i32 [ %363, %359 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit412.i ]
   %365 = sub nsw i32 %356, %364
   %366 = trunc i32 %365 to i8
   %367 = getelementptr inbounds i8, ptr %.13121619.i, i64 %indvars.iv1669.i
   store i8 %366, ptr %367, align 1
   %indvars.iv.next1670.i = add nsw i64 %indvars.iv1669.i, 1
   %exitcond1673.not.i = icmp eq i64 %indvars.iv.next1670.i, %wide.trip.count1672.i
-  br i1 %exitcond1673.not.i, label %._crit_edge1613.i, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit378.i, !llvm.loop !7
+  br i1 %exitcond1673.not.i, label %._crit_edge1613.i, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit378.i, !llvm.loop !7
 
-._crit_edge1613.i:                                ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit414.i, %.loopexit1591.i
-  %.2321.lcssa.i = phi i32 [ %.1320.i, %.loopexit1591.i ], [ %.0325.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit414.i ]
+._crit_edge1613.i:                                ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit414.i, %.loopexit1591.i
+  %.2321.lcssa.i = phi i32 [ %.1320.i, %.loopexit1591.i ], [ %.0325.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit414.i ]
   %368 = icmp eq i32 %.0325.i, %143
   br i1 %368, label %555, label %.preheader1590.i
 
 .preheader1590.i:                                 ; preds = %._crit_edge1613.i
   %.not3351615.i = icmp sgt i32 %.2321.lcssa.i, %.reass.i
-  br i1 %.not3351615.i, label %.loopexit1591.i.backedge, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.preheader.i
+  br i1 %.not3351615.i, label %.loopexit1591.i.backedge, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.preheader.i
 
 .loopexit1591.i.backedge:                         ; preds = %.preheader1590.i, %.loopexit1591.loopexit.i
   %.1320.i.be = phi i32 [ %.2321.lcssa.i, %.preheader1590.i ], [ %166, %.loopexit1591.loopexit.i ]
   br label %.loopexit1591.i, !llvm.loop !8
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.preheader.i: ; preds = %.preheader1590.i
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.preheader.i: ; preds = %.preheader1590.i
   %369 = sext i32 %.2321.lcssa.i to i64
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit452.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.preheader.i
-  %indvars.iv1674.i = phi i64 [ %369, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.preheader.i ], [ %indvars.iv.next1675.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit452.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit452.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.preheader.i
+  %indvars.iv1674.i = phi i64 [ %369, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.preheader.i ], [ %indvars.iv.next1675.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit452.i ]
   %370 = getelementptr inbounds i8, ptr %159, i64 %indvars.iv1674.i
   %371 = getelementptr inbounds i8, ptr %370, i64 %148
   %.val346.i = load i8, ptr %371, align 1
@@ -738,209 +738,209 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.i: ; preds = %_ZNK2
   %435 = sub nsw i32 %418, %394
   %436 = add nsw i32 %435, 256
   %or.cond.i427.i = icmp ult i32 %436, 769
-  br i1 %or.cond.i427.i, label %437, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit428.i
+  br i1 %or.cond.i427.i, label %437, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit428.i
 
-437:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.i
+437:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.i
   %438 = zext nneg i32 %436 to i64
   %439 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %438
   %440 = load i8, ptr %439, align 1
   %441 = zext i8 %440 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit428.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit428.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit428.i: ; preds = %437, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.i
-  %442 = phi i32 [ %441, %437 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit428.i: ; preds = %437, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.i
+  %442 = phi i32 [ %441, %437 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.i ]
   %443 = add nuw nsw i32 %442, %394
   %444 = sub nsw i32 %425, %402
   %445 = add nsw i32 %444, 256
   %or.cond.i429.i = icmp ult i32 %445, 769
-  br i1 %or.cond.i429.i, label %446, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit430.i
+  br i1 %or.cond.i429.i, label %446, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit430.i
 
-446:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit428.i
+446:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit428.i
   %447 = zext nneg i32 %445 to i64
   %448 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %447
   %449 = load i8, ptr %448, align 1
   %450 = zext i8 %449 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit430.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit430.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit430.i: ; preds = %446, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit428.i
-  %451 = phi i32 [ %450, %446 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit428.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit430.i: ; preds = %446, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit428.i
+  %451 = phi i32 [ %450, %446 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit428.i ]
   %452 = add nuw nsw i32 %451, %402
   %453 = sub nsw i32 %425, %451
   %454 = sub nsw i32 %433, %410
   %455 = add nsw i32 %454, 256
   %or.cond.i431.i = icmp ult i32 %455, 769
-  br i1 %or.cond.i431.i, label %456, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit432.i
+  br i1 %or.cond.i431.i, label %456, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit432.i
 
-456:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit430.i
+456:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit430.i
   %457 = zext nneg i32 %455 to i64
   %458 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %457
   %459 = load i8, ptr %458, align 1
   %460 = zext i8 %459 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit432.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit432.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit432.i: ; preds = %456, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit430.i
-  %461 = phi i32 [ %460, %456 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit430.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit432.i: ; preds = %456, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit430.i
+  %461 = phi i32 [ %460, %456 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit430.i ]
   %462 = sub nsw i32 %433, %461
   %463 = add nsw i32 %426, %417
   %464 = sub nsw i32 %412, %463
   %or.cond.i433.i = icmp ult i32 %464, 769
-  br i1 %or.cond.i433.i, label %465, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit434.i
+  br i1 %or.cond.i433.i, label %465, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit434.i
 
-465:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit432.i
+465:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit432.i
   %466 = zext nneg i32 %464 to i64
   %467 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %466
   %468 = load i8, ptr %467, align 1
   %469 = zext i8 %468 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit434.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit434.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit434.i: ; preds = %465, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit432.i
-  %470 = phi i32 [ %469, %465 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit432.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit434.i: ; preds = %465, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit432.i
+  %470 = phi i32 [ %469, %465 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit432.i ]
   %471 = add nuw nsw i32 %452, 256
   %472 = add nuw nsw i32 %410, %461
   %473 = sub nsw i32 %471, %472
   %or.cond.i435.i = icmp ult i32 %473, 769
-  br i1 %or.cond.i435.i, label %474, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit436.i
+  br i1 %or.cond.i435.i, label %474, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit436.i
 
-474:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit434.i
+474:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit434.i
   %475 = zext nneg i32 %473 to i64
   %476 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %475
   %477 = load i8, ptr %476, align 1
   %478 = zext i8 %477 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit436.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit436.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit436.i: ; preds = %474, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit434.i
-  %479 = phi i32 [ %478, %474 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit434.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit436.i: ; preds = %474, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit434.i
+  %479 = phi i32 [ %478, %474 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit434.i ]
   %480 = sub nsw i32 %453, %462
   %481 = add nsw i32 %480, 256
   %or.cond.i437.i = icmp ult i32 %481, 769
-  br i1 %or.cond.i437.i, label %482, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit438.i
+  br i1 %or.cond.i437.i, label %482, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit438.i
 
-482:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit436.i
+482:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit436.i
   %483 = zext nneg i32 %481 to i64
   %484 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %483
   %485 = load i8, ptr %484, align 1
   %486 = zext i8 %485 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit438.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit438.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit438.i: ; preds = %482, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit436.i
-  %487 = phi i32 [ %486, %482 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit436.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit438.i: ; preds = %482, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit436.i
+  %487 = phi i32 [ %486, %482 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit436.i ]
   %488 = sub nsw i32 %453, %487
   %489 = add nsw i32 %426, 256
   %490 = sub nsw i32 %489, %434
   %491 = add nsw i32 %490, %470
   %or.cond.i439.i = icmp ult i32 %491, 769
-  br i1 %or.cond.i439.i, label %492, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit440.i
+  br i1 %or.cond.i439.i, label %492, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit440.i
 
-492:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit438.i
+492:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit438.i
   %493 = zext nneg i32 %491 to i64
   %494 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %493
   %495 = load i8, ptr %494, align 1
   %496 = zext i8 %495 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit440.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit440.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit440.i: ; preds = %492, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit438.i
-  %497 = phi i32 [ %496, %492 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit438.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit440.i: ; preds = %492, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit438.i
+  %497 = phi i32 [ %496, %492 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit438.i ]
   %.neg833 = add nsw i32 %418, 256
   %498 = add nsw i32 %442, %488
   %499 = sub nsw i32 %.neg833, %498
   %or.cond.i441.i = icmp ult i32 %499, 769
-  br i1 %or.cond.i441.i, label %500, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit442.i
+  br i1 %or.cond.i441.i, label %500, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit442.i
 
-500:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit440.i
+500:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit440.i
   %501 = zext nneg i32 %499 to i64
   %502 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %501
   %503 = load i8, ptr %502, align 1
   %504 = zext i8 %503 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit442.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit442.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit442.i: ; preds = %500, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit440.i
-  %505 = phi i32 [ %504, %500 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit440.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit442.i: ; preds = %500, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit440.i
+  %505 = phi i32 [ %504, %500 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit440.i ]
   %506 = add nsw i32 %505, %488
   %.neg1450.i = add nuw nsw i32 %443, 256
   %507 = sub nsw i32 %.neg1450.i, %452
   %508 = add nsw i32 %507, %479
   %or.cond.i443.i = icmp ult i32 %508, 769
-  br i1 %or.cond.i443.i, label %509, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit444.i
+  br i1 %or.cond.i443.i, label %509, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit444.i
 
-509:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit442.i
+509:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit442.i
   %510 = zext nneg i32 %508 to i64
   %511 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %510
   %512 = load i8, ptr %511, align 1
   %513 = zext i8 %512 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit444.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit444.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit444.i: ; preds = %509, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit442.i
-  %514 = phi i32 [ %513, %509 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit442.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit444.i: ; preds = %509, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit442.i
+  %514 = phi i32 [ %513, %509 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit442.i ]
   %515 = sub nsw i32 %443, %514
   %516 = add nsw i32 %462, %487
   %reass.sub892 = sub nsw i32 %506, %516
   %517 = add nsw i32 %reass.sub892, 256
   %or.cond.i445.i = icmp ult i32 %517, 769
-  br i1 %or.cond.i445.i, label %518, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit446.i
+  br i1 %or.cond.i445.i, label %518, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit446.i
 
-518:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit444.i
+518:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit444.i
   %519 = zext nneg i32 %517 to i64
   %520 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %519
   %521 = load i8, ptr %520, align 1
   %522 = zext i8 %521 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit446.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit446.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit446.i: ; preds = %518, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit444.i
-  %523 = phi i32 [ %522, %518 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit444.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit446.i: ; preds = %518, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit444.i
+  %523 = phi i32 [ %522, %518 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit444.i ]
   %524 = sub nsw i32 %506, %523
   %525 = sub nsw i32 %524, %515
   %526 = add nsw i32 %525, 256
   %or.cond.i447.i = icmp ult i32 %526, 769
-  br i1 %or.cond.i447.i, label %527, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit448.i
+  br i1 %or.cond.i447.i, label %527, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit448.i
 
-527:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit446.i
+527:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit446.i
   %528 = zext nneg i32 %526 to i64
   %529 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %528
   %530 = load i8, ptr %529, align 1
   %531 = zext i8 %530 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit448.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit448.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit448.i: ; preds = %527, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit446.i
-  %532 = phi i32 [ %531, %527 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit446.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit448.i: ; preds = %527, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit446.i
+  %532 = phi i32 [ %531, %527 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit446.i ]
   %533 = sub nsw i32 %524, %532
   %534 = add nsw i32 %434, 256
   %535 = add nuw nsw i32 %534, %497
   %536 = sub nsw i32 %535, %533
   %or.cond.i449.i = icmp ult i32 %536, 769
-  br i1 %or.cond.i449.i, label %537, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit450.i
+  br i1 %or.cond.i449.i, label %537, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit450.i
 
-537:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit448.i
+537:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit448.i
   %538 = zext nneg i32 %536 to i64
   %539 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %538
   %540 = load i8, ptr %539, align 1
   %541 = zext i8 %540 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit450.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit450.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit450.i: ; preds = %537, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit448.i
-  %542 = phi i32 [ %541, %537 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit448.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit450.i: ; preds = %537, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit448.i
+  %542 = phi i32 [ %541, %537 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit448.i ]
   %543 = add nsw i32 %542, %533
   %544 = add nsw i32 %515, %532
   %reass.sub893 = sub nsw i32 %543, %544
   %545 = add nsw i32 %reass.sub893, 256
   %or.cond.i451.i = icmp ult i32 %545, 769
-  br i1 %or.cond.i451.i, label %546, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit452.i
+  br i1 %or.cond.i451.i, label %546, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit452.i
 
-546:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit450.i
+546:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit450.i
   %547 = zext nneg i32 %545 to i64
   %548 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %547
   %549 = load i8, ptr %548, align 1
   %550 = zext i8 %549 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit452.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit452.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit452.i: ; preds = %546, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit450.i
-  %551 = phi i32 [ %550, %546 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit450.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit452.i: ; preds = %546, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit450.i
+  %551 = phi i32 [ %550, %546 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit450.i ]
   %552 = sub nsw i32 %543, %551
   %553 = getelementptr inbounds i8, ptr %.13121619.i, i64 %indvars.iv1674.i
   %554 = trunc i32 %552 to i8
   store i8 %554, ptr %553, align 1
   %indvars.iv.next1675.i = add nsw i64 %indvars.iv1674.i, 1
   %.not335.not.i = icmp slt i64 %indvars.iv1674.i, %152
-  br i1 %.not335.not.i, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit416.i, label %.loopexit1591.loopexit.i, !llvm.loop !9
+  br i1 %.not335.not.i, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit416.i, label %.loopexit1591.loopexit.i, !llvm.loop !9
 
 555:                                              ; preds = %._crit_edge1613.i
   %556 = getelementptr inbounds i8, ptr %.13121619.i, i64 %149
@@ -989,11 +989,11 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit452.i: ; preds = %546, 
   %581 = sext i32 %573 to i64
   %582 = sext i32 %577 to i64
   %583 = sext i32 %579 to i64
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit454.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit454.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit454.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i, %.preheader1593.i
-  %indvars.iv1663.i = phi i64 [ 0, %.preheader1593.i ], [ %indvars.iv.next1664.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i ]
-  %.31608.i = phi ptr [ %.21611.i, %.preheader1593.i ], [ %666, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit454.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit468.i, %.preheader1593.i
+  %indvars.iv1663.i = phi i64 [ 0, %.preheader1593.i ], [ %indvars.iv.next1664.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit468.i ]
+  %.31608.i = phi ptr [ %.21611.i, %.preheader1593.i ], [ %666, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit468.i ]
   %584 = getelementptr inbounds i8, ptr %.31608.i, i64 %580
   %585 = load i8, ptr %584, align 1
   %586 = zext i8 %585 to i32
@@ -1033,78 +1033,78 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit454.i: ; preds = %_ZNK2
   %620 = sub nsw i32 %618, %610
   %621 = add nsw i32 %620, 256
   %or.cond.i459.i = icmp ult i32 %621, 769
-  br i1 %or.cond.i459.i, label %622, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit460.i
+  br i1 %or.cond.i459.i, label %622, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit460.i
 
-622:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit454.i
+622:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit454.i
   %623 = zext nneg i32 %621 to i64
   %624 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %623
   %625 = load i8, ptr %624, align 1
   %626 = zext i8 %625 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit460.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit460.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit460.i: ; preds = %622, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit454.i
-  %627 = phi i32 [ %626, %622 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit454.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit460.i: ; preds = %622, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit454.i
+  %627 = phi i32 [ %626, %622 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit454.i ]
   %628 = add nsw i32 %619, %603
   %629 = sub nsw i32 %598, %628
   %or.cond.i461.i = icmp ult i32 %629, 769
-  br i1 %or.cond.i461.i, label %630, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit462.i
+  br i1 %or.cond.i461.i, label %630, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit462.i
 
-630:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit460.i
+630:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit460.i
   %631 = zext nneg i32 %629 to i64
   %632 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %631
   %633 = load i8, ptr %632, align 1
   %634 = zext i8 %633 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit462.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit462.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit462.i: ; preds = %630, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit460.i
-  %635 = phi i32 [ %634, %630 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit460.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit462.i: ; preds = %630, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit460.i
+  %635 = phi i32 [ %634, %630 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit460.i ]
   %636 = add nsw i32 %635, %619
   %637 = add nuw nsw i32 %610, %627
   %reass.sub886 = sub nsw i32 %636, %637
   %638 = add nsw i32 %reass.sub886, 256
   %or.cond.i463.i = icmp ult i32 %638, 769
-  br i1 %or.cond.i463.i, label %639, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit464.i
+  br i1 %or.cond.i463.i, label %639, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit464.i
 
-639:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit462.i
+639:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit462.i
   %640 = zext nneg i32 %638 to i64
   %641 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %640
   %642 = load i8, ptr %641, align 1
   %643 = zext i8 %642 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit464.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit464.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit464.i: ; preds = %639, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit462.i
-  %644 = phi i32 [ %643, %639 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit462.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit464.i: ; preds = %639, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit462.i
+  %644 = phi i32 [ %643, %639 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit462.i ]
   %645 = sub nsw i32 %636, %644
   %646 = or disjoint i32 %589, 256
   %.neg1449.i = add nuw nsw i32 %646, %603
   %647 = sub nsw i32 %.neg1449.i, %618
   %648 = add nsw i32 %627, %647
   %or.cond.i465.i = icmp ult i32 %648, 769
-  br i1 %or.cond.i465.i, label %649, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit466.i
+  br i1 %or.cond.i465.i, label %649, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit466.i
 
-649:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit464.i
+649:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit464.i
   %650 = zext nneg i32 %648 to i64
   %651 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %650
   %652 = load i8, ptr %651, align 1
   %653 = zext i8 %652 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit466.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit466.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit466.i: ; preds = %649, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit464.i
-  %654 = phi i32 [ %653, %649 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit464.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit466.i: ; preds = %649, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit464.i
+  %654 = phi i32 [ %653, %649 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit464.i ]
   %655 = add nsw i32 %645, %654
   %656 = sub nsw i32 %.neg1449.i, %655
   %or.cond.i467.i = icmp ult i32 %656, 769
-  br i1 %or.cond.i467.i, label %657, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i
+  br i1 %or.cond.i467.i, label %657, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit468.i
 
-657:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit466.i
+657:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit466.i
   %658 = zext nneg i32 %656 to i64
   %659 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %658
   %660 = load i8, ptr %659, align 1
   %661 = zext i8 %660 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit468.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i: ; preds = %657, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit466.i
-  %662 = phi i32 [ %661, %657 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit466.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit468.i: ; preds = %657, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit466.i
+  %662 = phi i32 [ %661, %657 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit466.i ]
   %663 = add nsw i32 %662, %645
   %664 = trunc i32 %663 to i8
   %665 = getelementptr inbounds i8, ptr %.23131610.i, i64 %indvars.iv1663.i
@@ -1112,9 +1112,9 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i: ; preds = %657, 
   %indvars.iv.next1664.i = add nuw nsw i64 %indvars.iv1663.i, 1
   %666 = getelementptr inbounds i8, ptr %.31608.i, i64 1
   %exitcond1667.not.i = icmp eq i64 %indvars.iv.next1664.i, %wide.trip.count1666.i
-  br i1 %exitcond1667.not.i, label %667, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit454.i, !llvm.loop !11
+  br i1 %exitcond1667.not.i, label %667, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit454.i, !llvm.loop !11
 
-667:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i
+667:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit468.i
   %668 = add nuw nsw i32 %.23171609.i, 1
   %669 = getelementptr inbounds i8, ptr %666, i64 %571
   %670 = getelementptr inbounds i8, ptr %.23131610.i, i64 %572
@@ -1210,7 +1210,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i: ; preds = %657, 
   store ptr %737, ptr %678, align 16
   br label %.loopexit1596.i
 
-.loopexit1596.loopexit.i:                         ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit924.i
+.loopexit1596.loopexit.i:                         ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit924.i
   %738 = trunc nsw i64 %indvars.iv.next1657.i to i32
   br label %.loopexit1596.i.backedge
 
@@ -1225,8 +1225,8 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i: ; preds = %657, 
   %741 = sext i32 %.0324.i to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit698.i, %.lr.ph.preheader.i
-  %indvars.iv1652.i = phi i64 [ %740, %.lr.ph.preheader.i ], [ %indvars.iv.next1653.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit698.i ]
+.lr.ph.i:                                         ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit698.i, %.lr.ph.preheader.i
+  %indvars.iv1652.i = phi i64 [ %740, %.lr.ph.preheader.i ], [ %indvars.iv.next1653.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit698.i ]
   %.not332.not.i = icmp sgt i64 %indvars.iv1652.i, %713
   %742 = select i1 %.not332.not.i, i32 %86, i32 0
   %743 = trunc nsw i64 %indvars.iv1652.i to i32
@@ -1290,16 +1290,16 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i: ; preds = %657, 
   %788 = sub nsw i32 %786, %787
   %789 = add i32 %788, 256
   %or.cond.i473.i = icmp ult i32 %789, 769
-  br i1 %or.cond.i473.i, label %790, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit474.i
+  br i1 %or.cond.i473.i, label %790, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit474.i
 
 790:                                              ; preds = %785
   %791 = zext nneg i32 %789 to i64
   %792 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %791
   %793 = load i8, ptr %792, align 1
   %794 = zext i8 %793 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit474.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit474.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit474.i: ; preds = %790, %785
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit474.i: ; preds = %790, %785
   %795 = phi i32 [ %794, %790 ], [ 0, %785 ]
   %796 = add nsw i32 %795, %787
   %797 = sub nsw i32 %786, %795
@@ -1307,33 +1307,33 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit474.i: ; preds = %790, 
   %799 = sub nsw i32 %798, %797
   %800 = add i32 %799, 256
   %or.cond.i475.i = icmp ult i32 %800, 769
-  br i1 %or.cond.i475.i, label %801, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit476.i
+  br i1 %or.cond.i475.i, label %801, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit476.i
 
-801:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit474.i
+801:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit474.i
   %802 = zext nneg i32 %800 to i64
   %803 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %802
   %804 = load i8, ptr %803, align 1
   %805 = zext i8 %804 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit476.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit476.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit476.i: ; preds = %801, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit474.i
-  %806 = phi i32 [ %805, %801 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit474.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit476.i: ; preds = %801, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit474.i
+  %806 = phi i32 [ %805, %801 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit474.i ]
   %807 = add nsw i32 %806, %797
   %808 = sub nsw i32 %798, %806
   %809 = sub nsw i32 %807, %796
   %810 = add i32 %809, 256
   %or.cond.i477.i = icmp ult i32 %810, 769
-  br i1 %or.cond.i477.i, label %811, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit478.i
+  br i1 %or.cond.i477.i, label %811, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit478.i
 
-811:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit476.i
+811:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit476.i
   %812 = zext nneg i32 %810 to i64
   %813 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %812
   %814 = load i8, ptr %813, align 1
   %815 = zext i8 %814 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit478.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit478.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit478.i: ; preds = %811, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit476.i
-  %816 = phi i32 [ %815, %811 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit476.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit478.i: ; preds = %811, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit476.i
+  %816 = phi i32 [ %815, %811 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit476.i ]
   %817 = add nsw i32 %816, %796
   %818 = sub nsw i32 %807, %816
   %819 = load i32, ptr %684, align 16
@@ -1341,146 +1341,146 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit478.i: ; preds = %811, 
   %821 = sub nsw i32 %819, %820
   %822 = add i32 %821, 256
   %or.cond.i479.i = icmp ult i32 %822, 769
-  br i1 %or.cond.i479.i, label %823, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit480.i
+  br i1 %or.cond.i479.i, label %823, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit480.i
 
-823:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit478.i
+823:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit478.i
   %824 = zext nneg i32 %822 to i64
   %825 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %824
   %826 = load i8, ptr %825, align 1
   %827 = zext i8 %826 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit480.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit480.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit480.i: ; preds = %823, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit478.i
-  %828 = phi i32 [ %827, %823 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit478.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit480.i: ; preds = %823, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit478.i
+  %828 = phi i32 [ %827, %823 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit478.i ]
   %829 = add nsw i32 %828, %820
   %830 = sub nsw i32 %819, %828
   %831 = load i32, ptr %686, align 4
   %832 = sub nsw i32 %831, %830
   %833 = add i32 %832, 256
   %or.cond.i481.i = icmp ult i32 %833, 769
-  br i1 %or.cond.i481.i, label %834, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit482.i
+  br i1 %or.cond.i481.i, label %834, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit482.i
 
-834:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit480.i
+834:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit480.i
   %835 = zext nneg i32 %833 to i64
   %836 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %835
   %837 = load i8, ptr %836, align 1
   %838 = zext i8 %837 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit482.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit482.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit482.i: ; preds = %834, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit480.i
-  %839 = phi i32 [ %838, %834 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit480.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit482.i: ; preds = %834, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit480.i
+  %839 = phi i32 [ %838, %834 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit480.i ]
   %840 = add nsw i32 %839, %830
   %841 = sub nsw i32 %831, %839
   %842 = sub nsw i32 %840, %829
   %843 = add i32 %842, 256
   %or.cond.i483.i = icmp ult i32 %843, 769
-  br i1 %or.cond.i483.i, label %844, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit484.i
+  br i1 %or.cond.i483.i, label %844, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit484.i
 
-844:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit482.i
+844:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit482.i
   %845 = zext nneg i32 %843 to i64
   %846 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %845
   %847 = load i8, ptr %846, align 1
   %848 = zext i8 %847 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit484.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit484.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit484.i: ; preds = %844, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit482.i
-  %849 = phi i32 [ %848, %844 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit482.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit484.i: ; preds = %844, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit482.i
+  %849 = phi i32 [ %848, %844 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit482.i ]
   %850 = add nsw i32 %849, %829
   %851 = sub nsw i32 %840, %849
   %852 = sub nsw i32 %808, %841
   %853 = add i32 %852, 256
   %or.cond.i485.i = icmp ult i32 %853, 769
-  br i1 %or.cond.i485.i, label %854, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit486.i
+  br i1 %or.cond.i485.i, label %854, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit486.i
 
-854:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit484.i
+854:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit484.i
   %855 = zext nneg i32 %853 to i64
   %856 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %855
   %857 = load i8, ptr %856, align 1
   %858 = zext i8 %857 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit486.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit486.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit486.i: ; preds = %854, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit484.i
-  %859 = phi i32 [ %858, %854 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit484.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit486.i: ; preds = %854, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit484.i
+  %859 = phi i32 [ %858, %854 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit484.i ]
   %860 = add nsw i32 %859, %841
   %861 = sub nsw i32 %808, %859
   %862 = sub nsw i32 %817, %850
   %863 = add i32 %862, 256
   %or.cond.i487.i = icmp ult i32 %863, 769
-  br i1 %or.cond.i487.i, label %864, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit488.i
+  br i1 %or.cond.i487.i, label %864, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit488.i
 
-864:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit486.i
+864:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit486.i
   %865 = zext nneg i32 %863 to i64
   %866 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %865
   %867 = load i8, ptr %866, align 1
   %868 = zext i8 %867 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit488.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit488.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit488.i: ; preds = %864, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit486.i
-  %869 = phi i32 [ %868, %864 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit486.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit488.i: ; preds = %864, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit486.i
+  %869 = phi i32 [ %868, %864 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit486.i ]
   %870 = add nsw i32 %869, %850
   %871 = sub nsw i32 %817, %869
   %872 = sub nsw i32 %871, %860
   %873 = add i32 %872, 256
   %or.cond.i489.i = icmp ult i32 %873, 769
-  br i1 %or.cond.i489.i, label %874, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit490.i
+  br i1 %or.cond.i489.i, label %874, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit490.i
 
-874:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit488.i
+874:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit488.i
   %875 = zext nneg i32 %873 to i64
   %876 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %875
   %877 = load i8, ptr %876, align 1
   %878 = zext i8 %877 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit490.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit490.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit490.i: ; preds = %874, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit488.i
-  %879 = phi i32 [ %878, %874 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit488.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit490.i: ; preds = %874, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit488.i
+  %879 = phi i32 [ %878, %874 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit488.i ]
   %880 = add nsw i32 %879, %860
   %881 = sub nsw i32 %871, %879
   %882 = sub nsw i32 %818, %851
   %883 = add i32 %882, 256
   %or.cond.i491.i = icmp ult i32 %883, 769
-  br i1 %or.cond.i491.i, label %884, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit492.i
+  br i1 %or.cond.i491.i, label %884, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit492.i
 
-884:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit490.i
+884:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit490.i
   %885 = zext nneg i32 %883 to i64
   %886 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %885
   %887 = load i8, ptr %886, align 1
   %888 = zext i8 %887 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit492.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit492.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit492.i: ; preds = %884, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit490.i
-  %889 = phi i32 [ %888, %884 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit490.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit492.i: ; preds = %884, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit490.i
+  %889 = phi i32 [ %888, %884 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit490.i ]
   %890 = add nsw i32 %889, %851
   %891 = sub nsw i32 %818, %889
   %892 = sub nsw i32 %891, %881
   %893 = add i32 %892, 256
   %or.cond.i493.i = icmp ult i32 %893, 769
-  br i1 %or.cond.i493.i, label %894, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit494.i
+  br i1 %or.cond.i493.i, label %894, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit494.i
 
-894:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit492.i
+894:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit492.i
   %895 = zext nneg i32 %893 to i64
   %896 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %895
   %897 = load i8, ptr %896, align 1
   %898 = zext i8 %897 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit494.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit494.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit494.i: ; preds = %894, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit492.i
-  %899 = phi i32 [ %898, %894 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit492.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit494.i: ; preds = %894, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit492.i
+  %899 = phi i32 [ %898, %894 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit492.i ]
   %900 = add nsw i32 %899, %881
   %901 = sub nsw i32 %891, %899
   %902 = sub nsw i32 %880, %890
   %903 = add i32 %902, 256
   %or.cond.i495.i = icmp ult i32 %903, 769
-  br i1 %or.cond.i495.i, label %904, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit496.i
+  br i1 %or.cond.i495.i, label %904, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit496.i
 
-904:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit494.i
+904:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit494.i
   %905 = zext nneg i32 %903 to i64
   %906 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %905
   %907 = load i8, ptr %906, align 1
   %908 = zext i8 %907 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit496.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit496.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit496.i: ; preds = %904, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit494.i
-  %909 = phi i32 [ %908, %904 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit494.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit496.i: ; preds = %904, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit494.i
+  %909 = phi i32 [ %908, %904 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit494.i ]
   %910 = add nsw i32 %909, %890
   %911 = sub nsw i32 %880, %909
   %912 = load i32, ptr %687, align 4
@@ -1488,50 +1488,50 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit496.i: ; preds = %904, 
   %914 = sub nsw i32 %912, %913
   %915 = add i32 %914, 256
   %or.cond.i497.i = icmp ult i32 %915, 769
-  br i1 %or.cond.i497.i, label %916, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit498.i
+  br i1 %or.cond.i497.i, label %916, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit498.i
 
-916:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit496.i
+916:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit496.i
   %917 = zext nneg i32 %915 to i64
   %918 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %917
   %919 = load i8, ptr %918, align 1
   %920 = zext i8 %919 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit498.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit498.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit498.i: ; preds = %916, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit496.i
-  %921 = phi i32 [ %920, %916 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit496.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit498.i: ; preds = %916, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit496.i
+  %921 = phi i32 [ %920, %916 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit496.i ]
   %922 = add nsw i32 %921, %913
   %923 = sub nsw i32 %912, %921
   %924 = load i32, ptr %689, align 8
   %925 = sub nsw i32 %924, %923
   %926 = add i32 %925, 256
   %or.cond.i499.i = icmp ult i32 %926, 769
-  br i1 %or.cond.i499.i, label %927, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit500.i
+  br i1 %or.cond.i499.i, label %927, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit500.i
 
-927:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit498.i
+927:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit498.i
   %928 = zext nneg i32 %926 to i64
   %929 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %928
   %930 = load i8, ptr %929, align 1
   %931 = zext i8 %930 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit500.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit500.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit500.i: ; preds = %927, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit498.i
-  %932 = phi i32 [ %931, %927 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit498.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit500.i: ; preds = %927, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit498.i
+  %932 = phi i32 [ %931, %927 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit498.i ]
   %933 = add nsw i32 %932, %923
   %934 = sub nsw i32 %924, %932
   %935 = sub nsw i32 %933, %922
   %936 = add i32 %935, 256
   %or.cond.i501.i = icmp ult i32 %936, 769
-  br i1 %or.cond.i501.i, label %937, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit502.i
+  br i1 %or.cond.i501.i, label %937, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit502.i
 
-937:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit500.i
+937:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit500.i
   %938 = zext nneg i32 %936 to i64
   %939 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %938
   %940 = load i8, ptr %939, align 1
   %941 = zext i8 %940 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit502.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit502.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit502.i: ; preds = %937, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit500.i
-  %942 = phi i32 [ %941, %937 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit500.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit502.i: ; preds = %937, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit500.i
+  %942 = phi i32 [ %941, %937 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit500.i ]
   %943 = add nsw i32 %942, %922
   %944 = sub nsw i32 %933, %942
   %945 = load i32, ptr %690, align 8
@@ -1539,356 +1539,356 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit502.i: ; preds = %937, 
   %947 = sub nsw i32 %945, %946
   %948 = add i32 %947, 256
   %or.cond.i503.i = icmp ult i32 %948, 769
-  br i1 %or.cond.i503.i, label %949, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit504.i
+  br i1 %or.cond.i503.i, label %949, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit504.i
 
-949:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit502.i
+949:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit502.i
   %950 = zext nneg i32 %948 to i64
   %951 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %950
   %952 = load i8, ptr %951, align 1
   %953 = zext i8 %952 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit504.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit504.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit504.i: ; preds = %949, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit502.i
-  %954 = phi i32 [ %953, %949 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit502.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit504.i: ; preds = %949, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit502.i
+  %954 = phi i32 [ %953, %949 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit502.i ]
   %955 = add nsw i32 %954, %946
   %956 = sub nsw i32 %945, %954
   %957 = load i32, ptr %692, align 4
   %958 = sub nsw i32 %957, %956
   %959 = add i32 %958, 256
   %or.cond.i505.i = icmp ult i32 %959, 769
-  br i1 %or.cond.i505.i, label %960, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit506.i
+  br i1 %or.cond.i505.i, label %960, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit506.i
 
-960:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit504.i
+960:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit504.i
   %961 = zext nneg i32 %959 to i64
   %962 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %961
   %963 = load i8, ptr %962, align 1
   %964 = zext i8 %963 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit506.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit506.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit506.i: ; preds = %960, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit504.i
-  %965 = phi i32 [ %964, %960 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit504.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit506.i: ; preds = %960, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit504.i
+  %965 = phi i32 [ %964, %960 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit504.i ]
   %966 = add nsw i32 %965, %956
   %967 = sub nsw i32 %957, %965
   %968 = sub nsw i32 %966, %955
   %969 = add i32 %968, 256
   %or.cond.i507.i = icmp ult i32 %969, 769
-  br i1 %or.cond.i507.i, label %970, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit508.i
+  br i1 %or.cond.i507.i, label %970, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit508.i
 
-970:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit506.i
+970:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit506.i
   %971 = zext nneg i32 %969 to i64
   %972 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %971
   %973 = load i8, ptr %972, align 1
   %974 = zext i8 %973 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit508.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit508.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit508.i: ; preds = %970, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit506.i
-  %975 = phi i32 [ %974, %970 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit506.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit508.i: ; preds = %970, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit506.i
+  %975 = phi i32 [ %974, %970 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit506.i ]
   %976 = add nsw i32 %975, %955
   %977 = sub nsw i32 %966, %975
   %978 = sub nsw i32 %934, %967
   %979 = add i32 %978, 256
   %or.cond.i509.i = icmp ult i32 %979, 769
-  br i1 %or.cond.i509.i, label %980, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit510.i
+  br i1 %or.cond.i509.i, label %980, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit510.i
 
-980:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit508.i
+980:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit508.i
   %981 = zext nneg i32 %979 to i64
   %982 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %981
   %983 = load i8, ptr %982, align 1
   %984 = zext i8 %983 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit510.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit510.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit510.i: ; preds = %980, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit508.i
-  %985 = phi i32 [ %984, %980 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit508.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit510.i: ; preds = %980, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit508.i
+  %985 = phi i32 [ %984, %980 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit508.i ]
   %986 = add nsw i32 %985, %967
   %987 = sub nsw i32 %934, %985
   %988 = sub nsw i32 %943, %976
   %989 = add i32 %988, 256
   %or.cond.i511.i = icmp ult i32 %989, 769
-  br i1 %or.cond.i511.i, label %990, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit512.i
+  br i1 %or.cond.i511.i, label %990, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit512.i
 
-990:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit510.i
+990:                                              ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit510.i
   %991 = zext nneg i32 %989 to i64
   %992 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %991
   %993 = load i8, ptr %992, align 1
   %994 = zext i8 %993 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit512.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit512.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit512.i: ; preds = %990, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit510.i
-  %995 = phi i32 [ %994, %990 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit510.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit512.i: ; preds = %990, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit510.i
+  %995 = phi i32 [ %994, %990 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit510.i ]
   %996 = add nsw i32 %995, %976
   %997 = sub nsw i32 %943, %995
   %998 = sub nsw i32 %997, %986
   %999 = add i32 %998, 256
   %or.cond.i513.i = icmp ult i32 %999, 769
-  br i1 %or.cond.i513.i, label %1000, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit514.i
+  br i1 %or.cond.i513.i, label %1000, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit514.i
 
-1000:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit512.i
+1000:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit512.i
   %1001 = zext nneg i32 %999 to i64
   %1002 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1001
   %1003 = load i8, ptr %1002, align 1
   %1004 = zext i8 %1003 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit514.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit514.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit514.i: ; preds = %1000, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit512.i
-  %1005 = phi i32 [ %1004, %1000 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit512.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit514.i: ; preds = %1000, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit512.i
+  %1005 = phi i32 [ %1004, %1000 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit512.i ]
   %1006 = add nsw i32 %1005, %986
   %1007 = sub nsw i32 %997, %1005
   %1008 = sub nsw i32 %944, %977
   %1009 = add i32 %1008, 256
   %or.cond.i515.i = icmp ult i32 %1009, 769
-  br i1 %or.cond.i515.i, label %1010, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit516.i
+  br i1 %or.cond.i515.i, label %1010, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit516.i
 
-1010:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit514.i
+1010:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit514.i
   %1011 = zext nneg i32 %1009 to i64
   %1012 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1011
   %1013 = load i8, ptr %1012, align 1
   %1014 = zext i8 %1013 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit516.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit516.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit516.i: ; preds = %1010, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit514.i
-  %1015 = phi i32 [ %1014, %1010 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit514.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit516.i: ; preds = %1010, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit514.i
+  %1015 = phi i32 [ %1014, %1010 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit514.i ]
   %1016 = add nsw i32 %1015, %977
   %1017 = sub nsw i32 %944, %1015
   %1018 = sub nsw i32 %1017, %1007
   %1019 = add i32 %1018, 256
   %or.cond.i517.i = icmp ult i32 %1019, 769
-  br i1 %or.cond.i517.i, label %1020, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit518.i
+  br i1 %or.cond.i517.i, label %1020, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit518.i
 
-1020:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit516.i
+1020:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit516.i
   %1021 = zext nneg i32 %1019 to i64
   %1022 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1021
   %1023 = load i8, ptr %1022, align 1
   %1024 = zext i8 %1023 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit518.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit518.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit518.i: ; preds = %1020, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit516.i
-  %1025 = phi i32 [ %1024, %1020 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit516.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit518.i: ; preds = %1020, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit516.i
+  %1025 = phi i32 [ %1024, %1020 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit516.i ]
   %1026 = add nsw i32 %1025, %1007
   %1027 = sub nsw i32 %1017, %1025
   %1028 = sub nsw i32 %1006, %1016
   %1029 = add i32 %1028, 256
   %or.cond.i519.i = icmp ult i32 %1029, 769
-  br i1 %or.cond.i519.i, label %1030, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit520.i
+  br i1 %or.cond.i519.i, label %1030, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit520.i
 
-1030:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit518.i
+1030:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit518.i
   %1031 = zext nneg i32 %1029 to i64
   %1032 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1031
   %1033 = load i8, ptr %1032, align 1
   %1034 = zext i8 %1033 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit520.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit520.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit520.i: ; preds = %1030, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit518.i
-  %1035 = phi i32 [ %1034, %1030 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit518.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit520.i: ; preds = %1030, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit518.i
+  %1035 = phi i32 [ %1034, %1030 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit518.i ]
   %1036 = add nsw i32 %1035, %1016
   %1037 = sub nsw i32 %1006, %1035
   %1038 = sub nsw i32 %861, %987
   %1039 = add i32 %1038, 256
   %or.cond.i521.i = icmp ult i32 %1039, 769
-  br i1 %or.cond.i521.i, label %1040, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit522.i
+  br i1 %or.cond.i521.i, label %1040, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit522.i
 
-1040:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit520.i
+1040:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit520.i
   %1041 = zext nneg i32 %1039 to i64
   %1042 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1041
   %1043 = load i8, ptr %1042, align 1
   %1044 = zext i8 %1043 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit522.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit522.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit522.i: ; preds = %1040, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit520.i
-  %1045 = phi i32 [ %1044, %1040 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit520.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit522.i: ; preds = %1040, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit520.i
+  %1045 = phi i32 [ %1044, %1040 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit520.i ]
   %1046 = add nsw i32 %1045, %987
   %1047 = sub nsw i32 %861, %1045
   store i32 %1047, ptr %31, align 16
   %1048 = sub nsw i32 %910, %1036
   %1049 = add i32 %1048, 256
   %or.cond.i523.i = icmp ult i32 %1049, 769
-  br i1 %or.cond.i523.i, label %1050, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit524.i
+  br i1 %or.cond.i523.i, label %1050, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit524.i
 
-1050:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit522.i
+1050:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit522.i
   %1051 = zext nneg i32 %1049 to i64
   %1052 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1051
   %1053 = load i8, ptr %1052, align 1
   %1054 = zext i8 %1053 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit524.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit524.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit524.i: ; preds = %1050, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit522.i
-  %1055 = phi i32 [ %1054, %1050 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit522.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit524.i: ; preds = %1050, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit522.i
+  %1055 = phi i32 [ %1054, %1050 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit522.i ]
   %1056 = add nsw i32 %1055, %1036
   %1057 = sub nsw i32 %910, %1055
   %1058 = sub nsw i32 %1057, %1046
   %1059 = add i32 %1058, 256
   %or.cond.i525.i = icmp ult i32 %1059, 769
-  br i1 %or.cond.i525.i, label %1060, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit526.i
+  br i1 %or.cond.i525.i, label %1060, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit526.i
 
-1060:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit524.i
+1060:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit524.i
   %1061 = zext nneg i32 %1059 to i64
   %1062 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1061
   %1063 = load i8, ptr %1062, align 1
   %1064 = zext i8 %1063 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit526.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit526.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit526.i: ; preds = %1060, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit524.i
-  %1065 = phi i32 [ %1064, %1060 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit524.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit526.i: ; preds = %1060, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit524.i
+  %1065 = phi i32 [ %1064, %1060 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit524.i ]
   %1066 = add nsw i32 %1065, %1046
   %1067 = sub nsw i32 %1057, %1065
   %1068 = sub nsw i32 %900, %1026
   %1069 = add i32 %1068, 256
   %or.cond.i527.i = icmp ult i32 %1069, 769
-  br i1 %or.cond.i527.i, label %1070, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit528.i
+  br i1 %or.cond.i527.i, label %1070, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit528.i
 
-1070:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit526.i
+1070:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit526.i
   %1071 = zext nneg i32 %1069 to i64
   %1072 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1071
   %1073 = load i8, ptr %1072, align 1
   %1074 = zext i8 %1073 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit528.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit528.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit528.i: ; preds = %1070, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit526.i
-  %1075 = phi i32 [ %1074, %1070 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit526.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit528.i: ; preds = %1070, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit526.i
+  %1075 = phi i32 [ %1074, %1070 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit526.i ]
   %1076 = add nsw i32 %1075, %1026
   %1077 = sub nsw i32 %900, %1075
   %1078 = sub nsw i32 %1077, %1067
   %1079 = add i32 %1078, 256
   %or.cond.i529.i = icmp ult i32 %1079, 769
-  br i1 %or.cond.i529.i, label %1080, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit530.i
+  br i1 %or.cond.i529.i, label %1080, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit530.i
 
-1080:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit528.i
+1080:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit528.i
   %1081 = zext nneg i32 %1079 to i64
   %1082 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1081
   %1083 = load i8, ptr %1082, align 1
   %1084 = zext i8 %1083 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit530.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit530.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit530.i: ; preds = %1080, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit528.i
-  %1085 = phi i32 [ %1084, %1080 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit528.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit530.i: ; preds = %1080, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit528.i
+  %1085 = phi i32 [ %1084, %1080 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit528.i ]
   %1086 = add nsw i32 %1085, %1067
   %1087 = sub nsw i32 %1077, %1085
   %1088 = sub nsw i32 %1066, %1076
   %1089 = add i32 %1088, 256
   %or.cond.i531.i = icmp ult i32 %1089, 769
-  br i1 %or.cond.i531.i, label %1090, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit532.i
+  br i1 %or.cond.i531.i, label %1090, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit532.i
 
-1090:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit530.i
+1090:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit530.i
   %1091 = zext nneg i32 %1089 to i64
   %1092 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1091
   %1093 = load i8, ptr %1092, align 1
   %1094 = zext i8 %1093 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit532.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit532.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit532.i: ; preds = %1090, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit530.i
-  %1095 = phi i32 [ %1094, %1090 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit530.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit532.i: ; preds = %1090, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit530.i
+  %1095 = phi i32 [ %1094, %1090 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit530.i ]
   %1096 = add nsw i32 %1095, %1076
   %1097 = sub nsw i32 %1066, %1095
   %1098 = sub nsw i32 %901, %1027
   %1099 = add i32 %1098, 256
   %or.cond.i533.i = icmp ult i32 %1099, 769
-  br i1 %or.cond.i533.i, label %1100, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit534.i
+  br i1 %or.cond.i533.i, label %1100, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit534.i
 
-1100:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit532.i
+1100:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit532.i
   %1101 = zext nneg i32 %1099 to i64
   %1102 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1101
   %1103 = load i8, ptr %1102, align 1
   %1104 = zext i8 %1103 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit534.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit534.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit534.i: ; preds = %1100, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit532.i
-  %1105 = phi i32 [ %1104, %1100 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit532.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit534.i: ; preds = %1100, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit532.i
+  %1105 = phi i32 [ %1104, %1100 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit532.i ]
   %1106 = add nsw i32 %1105, %1027
   %1107 = sub nsw i32 %901, %1105
   %1108 = sub nsw i32 %870, %996
   %1109 = add i32 %1108, 256
   %or.cond.i535.i = icmp ult i32 %1109, 769
-  br i1 %or.cond.i535.i, label %1110, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit536.i
+  br i1 %or.cond.i535.i, label %1110, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit536.i
 
-1110:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit534.i
+1110:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit534.i
   %1111 = zext nneg i32 %1109 to i64
   %1112 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1111
   %1113 = load i8, ptr %1112, align 1
   %1114 = zext i8 %1113 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit536.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit536.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit536.i: ; preds = %1110, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit534.i
-  %1115 = phi i32 [ %1114, %1110 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit534.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit536.i: ; preds = %1110, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit534.i
+  %1115 = phi i32 [ %1114, %1110 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit534.i ]
   %1116 = add nsw i32 %1115, %996
   store i32 %1116, ptr %691, align 4
   %1117 = sub nsw i32 %870, %1115
   %1118 = sub nsw i32 %1117, %1106
   %1119 = add i32 %1118, 256
   %or.cond.i537.i = icmp ult i32 %1119, 769
-  br i1 %or.cond.i537.i, label %1120, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit538.i
+  br i1 %or.cond.i537.i, label %1120, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit538.i
 
-1120:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit536.i
+1120:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit536.i
   %1121 = zext nneg i32 %1119 to i64
   %1122 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1121
   %1123 = load i8, ptr %1122, align 1
   %1124 = zext i8 %1123 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit538.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit538.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit538.i: ; preds = %1120, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit536.i
-  %1125 = phi i32 [ %1124, %1120 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit536.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit538.i: ; preds = %1120, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit536.i
+  %1125 = phi i32 [ %1124, %1120 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit536.i ]
   %1126 = add nsw i32 %1125, %1106
   %1127 = sub nsw i32 %1117, %1125
   %1128 = sub nsw i32 %911, %1037
   %1129 = add i32 %1128, 256
   %or.cond.i539.i = icmp ult i32 %1129, 769
-  br i1 %or.cond.i539.i, label %1130, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit540.i
+  br i1 %or.cond.i539.i, label %1130, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit540.i
 
-1130:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit538.i
+1130:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit538.i
   %1131 = zext nneg i32 %1129 to i64
   %1132 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1131
   %1133 = load i8, ptr %1132, align 1
   %1134 = zext i8 %1133 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit540.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit540.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit540.i: ; preds = %1130, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit538.i
-  %1135 = phi i32 [ %1134, %1130 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit538.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit540.i: ; preds = %1130, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit538.i
+  %1135 = phi i32 [ %1134, %1130 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit538.i ]
   %1136 = add nsw i32 %1135, %1037
   %1137 = sub nsw i32 %911, %1135
   %1138 = sub nsw i32 %1137, %1127
   %1139 = add i32 %1138, 256
   %or.cond.i541.i = icmp ult i32 %1139, 769
-  br i1 %or.cond.i541.i, label %1140, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit542.i
+  br i1 %or.cond.i541.i, label %1140, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit542.i
 
-1140:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit540.i
+1140:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit540.i
   %1141 = zext nneg i32 %1139 to i64
   %1142 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1141
   %1143 = load i8, ptr %1142, align 1
   %1144 = zext i8 %1143 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit542.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit542.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit542.i: ; preds = %1140, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit540.i
-  %1145 = phi i32 [ %1144, %1140 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit540.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit542.i: ; preds = %1140, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit540.i
+  %1145 = phi i32 [ %1144, %1140 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit540.i ]
   %1146 = add nsw i32 %1145, %1127
   %1147 = sub nsw i32 %1137, %1145
   %1148 = sub nsw i32 %1126, %1136
   %1149 = add i32 %1148, 256
   %or.cond.i543.i = icmp ult i32 %1149, 769
-  br i1 %or.cond.i543.i, label %1150, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit544.i
+  br i1 %or.cond.i543.i, label %1150, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit544.i
 
-1150:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit542.i
+1150:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit542.i
   %1151 = zext nneg i32 %1149 to i64
   %1152 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1151
   %1153 = load i8, ptr %1152, align 1
   %1154 = zext i8 %1153 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit544.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit544.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit544.i: ; preds = %1150, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit542.i
-  %1155 = phi i32 [ %1154, %1150 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit542.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit544.i: ; preds = %1150, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit542.i
+  %1155 = phi i32 [ %1154, %1150 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit542.i ]
   %1156 = add nsw i32 %1155, %1136
   %1157 = sub nsw i32 %1126, %1155
   %1158 = sub nsw i32 %1107, %1087
   %1159 = add i32 %1158, 256
   %or.cond.i545.i = icmp ult i32 %1159, 769
-  br i1 %or.cond.i545.i, label %1160, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit546.i
+  br i1 %or.cond.i545.i, label %1160, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit546.i
 
-1160:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit544.i
+1160:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit544.i
   %1161 = zext nneg i32 %1159 to i64
   %1162 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1161
   %1163 = load i8, ptr %1162, align 1
   %1164 = zext i8 %1163 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit546.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit546.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit546.i: ; preds = %1160, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit544.i
-  %1165 = phi i32 [ %1164, %1160 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit544.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit546.i: ; preds = %1160, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit544.i
+  %1165 = phi i32 [ %1164, %1160 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit544.i ]
   %1166 = add nsw i32 %1165, %1087
   store i32 %1166, ptr %683, align 8
   %1167 = sub nsw i32 %1107, %1165
@@ -1896,17 +1896,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit546.i: ; preds = %1160,
   %1168 = sub nsw i32 %1147, %1086
   %1169 = add i32 %1168, 256
   %or.cond.i547.i = icmp ult i32 %1169, 769
-  br i1 %or.cond.i547.i, label %1170, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit548.i
+  br i1 %or.cond.i547.i, label %1170, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit548.i
 
-1170:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit546.i
+1170:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit546.i
   %1171 = zext nneg i32 %1169 to i64
   %1172 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1171
   %1173 = load i8, ptr %1172, align 1
   %1174 = zext i8 %1173 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit548.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit548.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit548.i: ; preds = %1170, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit546.i
-  %1175 = phi i32 [ %1174, %1170 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit546.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit548.i: ; preds = %1170, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit546.i
+  %1175 = phi i32 [ %1174, %1170 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit546.i ]
   %1176 = add nsw i32 %1175, %1086
   store i32 %1176, ptr %684, align 16
   %1177 = sub nsw i32 %1147, %1175
@@ -1914,17 +1914,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit548.i: ; preds = %1170,
   %1178 = sub nsw i32 %1146, %1097
   %1179 = add i32 %1178, 256
   %or.cond.i549.i = icmp ult i32 %1179, 769
-  br i1 %or.cond.i549.i, label %1180, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit550.i
+  br i1 %or.cond.i549.i, label %1180, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit550.i
 
-1180:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit548.i
+1180:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit548.i
   %1181 = zext nneg i32 %1179 to i64
   %1182 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1181
   %1183 = load i8, ptr %1182, align 1
   %1184 = zext i8 %1183 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit550.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit550.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit550.i: ; preds = %1180, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit548.i
-  %1185 = phi i32 [ %1184, %1180 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit548.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit550.i: ; preds = %1180, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit548.i
+  %1185 = phi i32 [ %1184, %1180 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit548.i ]
   %1186 = add nsw i32 %1185, %1097
   store i32 %1186, ptr %689, align 8
   %1187 = sub nsw i32 %1146, %1185
@@ -1932,17 +1932,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit550.i: ; preds = %1180,
   %1188 = sub nsw i32 %1157, %1096
   %1189 = add i32 %1188, 256
   %or.cond.i551.i = icmp ult i32 %1189, 769
-  br i1 %or.cond.i551.i, label %1190, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit552.i
+  br i1 %or.cond.i551.i, label %1190, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit552.i
 
-1190:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit550.i
+1190:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit550.i
   %1191 = zext nneg i32 %1189 to i64
   %1192 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1191
   %1193 = load i8, ptr %1192, align 1
   %1194 = zext i8 %1193 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit552.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit552.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit552.i: ; preds = %1190, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit550.i
-  %1195 = phi i32 [ %1194, %1190 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit550.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit552.i: ; preds = %1190, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit550.i
+  %1195 = phi i32 [ %1194, %1190 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit550.i ]
   %1196 = add nsw i32 %1195, %1096
   store i32 %1196, ptr %688, align 16
   %1197 = sub nsw i32 %1157, %1195
@@ -1950,17 +1950,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit552.i: ; preds = %1190,
   %1198 = sub nsw i32 %1156, %1056
   %1199 = add i32 %1198, 256
   %or.cond.i553.i = icmp ult i32 %1199, 769
-  br i1 %or.cond.i553.i, label %1200, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit554.i
+  br i1 %or.cond.i553.i, label %1200, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit554.i
 
-1200:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit552.i
+1200:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit552.i
   %1201 = zext nneg i32 %1199 to i64
   %1202 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1201
   %1203 = load i8, ptr %1202, align 1
   %1204 = zext i8 %1203 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit554.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit554.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit554.i: ; preds = %1200, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit552.i
-  %1205 = phi i32 [ %1204, %1200 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit552.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit554.i: ; preds = %1200, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit552.i
+  %1205 = phi i32 [ %1204, %1200 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit552.i ]
   %1206 = add nsw i32 %1205, %1056
   store i32 %1206, ptr %690, align 8
   %1207 = sub nsw i32 %1156, %1205
@@ -1970,50 +1970,50 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit554.i: ; preds = %1200,
   %1210 = sub nsw i32 %1208, %1209
   %1211 = add i32 %1210, 256
   %or.cond.i555.i = icmp ult i32 %1211, 769
-  br i1 %or.cond.i555.i, label %1212, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit556.i
+  br i1 %or.cond.i555.i, label %1212, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit556.i
 
-1212:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit554.i
+1212:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit554.i
   %1213 = zext nneg i32 %1211 to i64
   %1214 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1213
   %1215 = load i8, ptr %1214, align 1
   %1216 = zext i8 %1215 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit556.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit556.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit556.i: ; preds = %1212, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit554.i
-  %1217 = phi i32 [ %1216, %1212 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit554.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit556.i: ; preds = %1212, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit554.i
+  %1217 = phi i32 [ %1216, %1212 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit554.i ]
   %1218 = add nsw i32 %1217, %1209
   %1219 = sub nsw i32 %1208, %1217
   %1220 = load i32, ptr %695, align 16
   %1221 = sub nsw i32 %1220, %1219
   %1222 = add i32 %1221, 256
   %or.cond.i557.i = icmp ult i32 %1222, 769
-  br i1 %or.cond.i557.i, label %1223, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit558.i
+  br i1 %or.cond.i557.i, label %1223, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit558.i
 
-1223:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit556.i
+1223:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit556.i
   %1224 = zext nneg i32 %1222 to i64
   %1225 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1224
   %1226 = load i8, ptr %1225, align 1
   %1227 = zext i8 %1226 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit558.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit558.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit558.i: ; preds = %1223, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit556.i
-  %1228 = phi i32 [ %1227, %1223 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit556.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit558.i: ; preds = %1223, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit556.i
+  %1228 = phi i32 [ %1227, %1223 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit556.i ]
   %1229 = add nsw i32 %1228, %1219
   %1230 = sub nsw i32 %1220, %1228
   %1231 = sub nsw i32 %1229, %1218
   %1232 = add i32 %1231, 256
   %or.cond.i559.i = icmp ult i32 %1232, 769
-  br i1 %or.cond.i559.i, label %1233, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit560.i
+  br i1 %or.cond.i559.i, label %1233, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit560.i
 
-1233:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit558.i
+1233:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit558.i
   %1234 = zext nneg i32 %1232 to i64
   %1235 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1234
   %1236 = load i8, ptr %1235, align 1
   %1237 = zext i8 %1236 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit560.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit560.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit560.i: ; preds = %1233, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit558.i
-  %1238 = phi i32 [ %1237, %1233 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit558.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit560.i: ; preds = %1233, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit558.i
+  %1238 = phi i32 [ %1237, %1233 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit558.i ]
   %1239 = add nsw i32 %1238, %1218
   %1240 = sub nsw i32 %1229, %1238
   %1241 = load i32, ptr %696, align 16
@@ -2021,148 +2021,148 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit560.i: ; preds = %1233,
   %1243 = sub nsw i32 %1241, %1242
   %1244 = add i32 %1243, 256
   %or.cond.i561.i = icmp ult i32 %1244, 769
-  br i1 %or.cond.i561.i, label %1245, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit562.i
+  br i1 %or.cond.i561.i, label %1245, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit562.i
 
-1245:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit560.i
+1245:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit560.i
   %1246 = zext nneg i32 %1244 to i64
   %1247 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1246
   %1248 = load i8, ptr %1247, align 1
   %1249 = zext i8 %1248 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit562.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit562.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit562.i: ; preds = %1245, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit560.i
-  %1250 = phi i32 [ %1249, %1245 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit560.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit562.i: ; preds = %1245, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit560.i
+  %1250 = phi i32 [ %1249, %1245 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit560.i ]
   %1251 = add nsw i32 %1250, %1242
   %1252 = sub nsw i32 %1241, %1250
   %1253 = load i32, ptr %698, align 4
   %1254 = sub nsw i32 %1253, %1252
   %1255 = add i32 %1254, 256
   %or.cond.i563.i = icmp ult i32 %1255, 769
-  br i1 %or.cond.i563.i, label %1256, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit564.i
+  br i1 %or.cond.i563.i, label %1256, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit564.i
 
-1256:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit562.i
+1256:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit562.i
   %1257 = zext nneg i32 %1255 to i64
   %1258 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1257
   %1259 = load i8, ptr %1258, align 1
   %1260 = zext i8 %1259 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit564.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit564.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit564.i: ; preds = %1256, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit562.i
-  %1261 = phi i32 [ %1260, %1256 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit562.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit564.i: ; preds = %1256, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit562.i
+  %1261 = phi i32 [ %1260, %1256 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit562.i ]
   %1262 = add nsw i32 %1261, %1252
   %1263 = sub nsw i32 %1253, %1261
   %1264 = sub nsw i32 %1262, %1251
   %1265 = add i32 %1264, 256
   %or.cond.i565.i = icmp ult i32 %1265, 769
-  br i1 %or.cond.i565.i, label %1266, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit566.i
+  br i1 %or.cond.i565.i, label %1266, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit566.i
 
-1266:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit564.i
+1266:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit564.i
   %1267 = zext nneg i32 %1265 to i64
   %1268 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1267
   %1269 = load i8, ptr %1268, align 1
   %1270 = zext i8 %1269 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit566.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit566.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit566.i: ; preds = %1266, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit564.i
-  %1271 = phi i32 [ %1270, %1266 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit564.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit566.i: ; preds = %1266, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit564.i
+  %1271 = phi i32 [ %1270, %1266 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit564.i ]
   %1272 = add nsw i32 %1271, %1251
   %1273 = sub nsw i32 %1262, %1271
   %1274 = sub nsw i32 %1230, %1263
   %1275 = add i32 %1274, 256
   %or.cond.i567.i = icmp ult i32 %1275, 769
-  br i1 %or.cond.i567.i, label %1276, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit568.i
+  br i1 %or.cond.i567.i, label %1276, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit568.i
 
-1276:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit566.i
+1276:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit566.i
   %1277 = zext nneg i32 %1275 to i64
   %1278 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1277
   %1279 = load i8, ptr %1278, align 1
   %1280 = zext i8 %1279 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit568.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit568.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit568.i: ; preds = %1276, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit566.i
-  %1281 = phi i32 [ %1280, %1276 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit566.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit568.i: ; preds = %1276, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit566.i
+  %1281 = phi i32 [ %1280, %1276 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit566.i ]
   %1282 = add nsw i32 %1281, %1263
   %1283 = sub nsw i32 %1230, %1281
   store i32 %1283, ptr %695, align 16
   %1284 = sub nsw i32 %1239, %1272
   %1285 = add i32 %1284, 256
   %or.cond.i569.i = icmp ult i32 %1285, 769
-  br i1 %or.cond.i569.i, label %1286, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit570.i
+  br i1 %or.cond.i569.i, label %1286, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit570.i
 
-1286:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit568.i
+1286:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit568.i
   %1287 = zext nneg i32 %1285 to i64
   %1288 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1287
   %1289 = load i8, ptr %1288, align 1
   %1290 = zext i8 %1289 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit570.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit570.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit570.i: ; preds = %1286, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit568.i
-  %1291 = phi i32 [ %1290, %1286 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit568.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit570.i: ; preds = %1286, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit568.i
+  %1291 = phi i32 [ %1290, %1286 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit568.i ]
   %1292 = add nsw i32 %1291, %1272
   %1293 = sub nsw i32 %1239, %1291
   %1294 = sub nsw i32 %1293, %1282
   %1295 = add i32 %1294, 256
   %or.cond.i571.i = icmp ult i32 %1295, 769
-  br i1 %or.cond.i571.i, label %1296, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit572.i
+  br i1 %or.cond.i571.i, label %1296, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit572.i
 
-1296:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit570.i
+1296:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit570.i
   %1297 = zext nneg i32 %1295 to i64
   %1298 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1297
   %1299 = load i8, ptr %1298, align 1
   %1300 = zext i8 %1299 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit572.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit572.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit572.i: ; preds = %1296, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit570.i
-  %1301 = phi i32 [ %1300, %1296 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit570.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit572.i: ; preds = %1296, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit570.i
+  %1301 = phi i32 [ %1300, %1296 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit570.i ]
   %1302 = add nsw i32 %1301, %1282
   %1303 = sub nsw i32 %1293, %1301
   %1304 = sub nsw i32 %1240, %1273
   %1305 = add i32 %1304, 256
   %or.cond.i573.i = icmp ult i32 %1305, 769
-  br i1 %or.cond.i573.i, label %1306, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit574.i
+  br i1 %or.cond.i573.i, label %1306, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit574.i
 
-1306:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit572.i
+1306:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit572.i
   %1307 = zext nneg i32 %1305 to i64
   %1308 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1307
   %1309 = load i8, ptr %1308, align 1
   %1310 = zext i8 %1309 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit574.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit574.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit574.i: ; preds = %1306, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit572.i
-  %1311 = phi i32 [ %1310, %1306 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit572.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit574.i: ; preds = %1306, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit572.i
+  %1311 = phi i32 [ %1310, %1306 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit572.i ]
   %1312 = add nsw i32 %1311, %1273
   %1313 = sub nsw i32 %1240, %1311
   %1314 = sub nsw i32 %1313, %1303
   %1315 = add i32 %1314, 256
   %or.cond.i575.i = icmp ult i32 %1315, 769
-  br i1 %or.cond.i575.i, label %1316, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit576.i
+  br i1 %or.cond.i575.i, label %1316, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit576.i
 
-1316:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit574.i
+1316:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit574.i
   %1317 = zext nneg i32 %1315 to i64
   %1318 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1317
   %1319 = load i8, ptr %1318, align 1
   %1320 = zext i8 %1319 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit576.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit576.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit576.i: ; preds = %1316, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit574.i
-  %1321 = phi i32 [ %1320, %1316 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit574.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit576.i: ; preds = %1316, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit574.i
+  %1321 = phi i32 [ %1320, %1316 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit574.i ]
   %1322 = add nsw i32 %1321, %1303
   store i32 %1322, ptr %694, align 8
   %1323 = sub nsw i32 %1313, %1321
   %1324 = sub nsw i32 %1302, %1312
   %1325 = add i32 %1324, 256
   %or.cond.i577.i = icmp ult i32 %1325, 769
-  br i1 %or.cond.i577.i, label %1326, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit578.i
+  br i1 %or.cond.i577.i, label %1326, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit578.i
 
-1326:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit576.i
+1326:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit576.i
   %1327 = zext nneg i32 %1325 to i64
   %1328 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1327
   %1329 = load i8, ptr %1328, align 1
   %1330 = zext i8 %1329 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit578.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit578.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit578.i: ; preds = %1326, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit576.i
-  %1331 = phi i32 [ %1330, %1326 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit576.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit578.i: ; preds = %1326, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit576.i
+  %1331 = phi i32 [ %1330, %1326 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit576.i ]
   %1332 = add nsw i32 %1331, %1312
   store i32 %1332, ptr %696, align 16
   %1333 = sub nsw i32 %1302, %1331
@@ -2171,50 +2171,50 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit578.i: ; preds = %1326,
   %1336 = sub nsw i32 %1334, %1335
   %1337 = add i32 %1336, 256
   %or.cond.i579.i = icmp ult i32 %1337, 769
-  br i1 %or.cond.i579.i, label %1338, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit580.i
+  br i1 %or.cond.i579.i, label %1338, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit580.i
 
-1338:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit578.i
+1338:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit578.i
   %1339 = zext nneg i32 %1337 to i64
   %1340 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1339
   %1341 = load i8, ptr %1340, align 1
   %1342 = zext i8 %1341 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit580.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit580.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit580.i: ; preds = %1338, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit578.i
-  %1343 = phi i32 [ %1342, %1338 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit578.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit580.i: ; preds = %1338, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit578.i
+  %1343 = phi i32 [ %1342, %1338 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit578.i ]
   %1344 = add nsw i32 %1343, %1335
   %1345 = sub nsw i32 %1334, %1343
   %1346 = load i32, ptr %701, align 8
   %1347 = sub nsw i32 %1346, %1345
   %1348 = add i32 %1347, 256
   %or.cond.i581.i = icmp ult i32 %1348, 769
-  br i1 %or.cond.i581.i, label %1349, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit582.i
+  br i1 %or.cond.i581.i, label %1349, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit582.i
 
-1349:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit580.i
+1349:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit580.i
   %1350 = zext nneg i32 %1348 to i64
   %1351 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1350
   %1352 = load i8, ptr %1351, align 1
   %1353 = zext i8 %1352 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit582.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit582.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit582.i: ; preds = %1349, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit580.i
-  %1354 = phi i32 [ %1353, %1349 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit580.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit582.i: ; preds = %1349, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit580.i
+  %1354 = phi i32 [ %1353, %1349 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit580.i ]
   %1355 = add nsw i32 %1354, %1345
   %1356 = sub nsw i32 %1346, %1354
   %1357 = sub nsw i32 %1355, %1344
   %1358 = add i32 %1357, 256
   %or.cond.i583.i = icmp ult i32 %1358, 769
-  br i1 %or.cond.i583.i, label %1359, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit584.i
+  br i1 %or.cond.i583.i, label %1359, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit584.i
 
-1359:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit582.i
+1359:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit582.i
   %1360 = zext nneg i32 %1358 to i64
   %1361 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1360
   %1362 = load i8, ptr %1361, align 1
   %1363 = zext i8 %1362 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit584.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit584.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit584.i: ; preds = %1359, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit582.i
-  %1364 = phi i32 [ %1363, %1359 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit582.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit584.i: ; preds = %1359, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit582.i
+  %1364 = phi i32 [ %1363, %1359 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit582.i ]
   %1365 = add nsw i32 %1364, %1344
   %1366 = sub nsw i32 %1355, %1364
   %1367 = load i32, ptr %702, align 4
@@ -2222,17 +2222,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit584.i: ; preds = %1359,
   %1369 = sub nsw i32 %1367, %1368
   %1370 = add i32 %1369, 256
   %or.cond.i585.i = icmp ult i32 %1370, 769
-  br i1 %or.cond.i585.i, label %1371, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit586.i
+  br i1 %or.cond.i585.i, label %1371, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit586.i
 
-1371:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit584.i
+1371:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit584.i
   %1372 = zext nneg i32 %1370 to i64
   %1373 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1372
   %1374 = load i8, ptr %1373, align 1
   %1375 = zext i8 %1374 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit586.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit586.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit586.i: ; preds = %1371, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit584.i
-  %1376 = phi i32 [ %1375, %1371 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit584.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit586.i: ; preds = %1371, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit584.i
+  %1376 = phi i32 [ %1375, %1371 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit584.i ]
   %1377 = add nsw i32 %1376, %1368
   %1378 = sub nsw i32 %1367, %1376
   %1379 = load i32, ptr %704, align 4
@@ -2240,572 +2240,572 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit586.i: ; preds = %1371,
   %1381 = sub nsw i32 %1379, %1380
   %1382 = add i32 %1381, 256
   %or.cond.i587.i = icmp ult i32 %1382, 769
-  br i1 %or.cond.i587.i, label %1383, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit588.i
+  br i1 %or.cond.i587.i, label %1383, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit588.i
 
-1383:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit586.i
+1383:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit586.i
   %1384 = zext nneg i32 %1382 to i64
   %1385 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1384
   %1386 = load i8, ptr %1385, align 1
   %1387 = zext i8 %1386 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit588.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit588.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit588.i: ; preds = %1383, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit586.i
-  %1388 = phi i32 [ %1387, %1383 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit586.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit588.i: ; preds = %1383, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit586.i
+  %1388 = phi i32 [ %1387, %1383 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit586.i ]
   %1389 = add nsw i32 %1388, %1380
   %1390 = sub nsw i32 %1379, %1388
   %1391 = sub nsw i32 %1378, %1390
   %1392 = add i32 %1391, 256
   %or.cond.i589.i = icmp ult i32 %1392, 769
-  br i1 %or.cond.i589.i, label %1393, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit590.i
+  br i1 %or.cond.i589.i, label %1393, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit590.i
 
-1393:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit588.i
+1393:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit588.i
   %1394 = zext nneg i32 %1392 to i64
   %1395 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1394
   %1396 = load i8, ptr %1395, align 1
   %1397 = zext i8 %1396 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit590.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit590.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit590.i: ; preds = %1393, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit588.i
-  %1398 = phi i32 [ %1397, %1393 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit588.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit590.i: ; preds = %1393, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit588.i
+  %1398 = phi i32 [ %1397, %1393 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit588.i ]
   %1399 = add nsw i32 %1398, %1390
   %1400 = sub nsw i32 %1378, %1398
   %1401 = sub nsw i32 %1377, %1389
   %1402 = add i32 %1401, 256
   %or.cond.i591.i = icmp ult i32 %1402, 769
-  br i1 %or.cond.i591.i, label %1403, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit592.i
+  br i1 %or.cond.i591.i, label %1403, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit592.i
 
-1403:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit590.i
+1403:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit590.i
   %1404 = zext nneg i32 %1402 to i64
   %1405 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1404
   %1406 = load i8, ptr %1405, align 1
   %1407 = zext i8 %1406 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit592.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit592.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit592.i: ; preds = %1403, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit590.i
-  %1408 = phi i32 [ %1407, %1403 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit590.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit592.i: ; preds = %1403, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit590.i
+  %1408 = phi i32 [ %1407, %1403 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit590.i ]
   %1409 = add nsw i32 %1408, %1389
   store i32 %1409, ptr %705, align 16
   %1410 = sub nsw i32 %1377, %1408
   %1411 = sub nsw i32 %1410, %1399
   %1412 = add i32 %1411, 256
   %or.cond.i593.i = icmp ult i32 %1412, 769
-  br i1 %or.cond.i593.i, label %1413, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit594.i
+  br i1 %or.cond.i593.i, label %1413, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit594.i
 
-1413:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit592.i
+1413:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit592.i
   %1414 = zext nneg i32 %1412 to i64
   %1415 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1414
   %1416 = load i8, ptr %1415, align 1
   %1417 = zext i8 %1416 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit594.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit594.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit594.i: ; preds = %1413, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit592.i
-  %1418 = phi i32 [ %1417, %1413 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit592.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit594.i: ; preds = %1413, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit592.i
+  %1418 = phi i32 [ %1417, %1413 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit592.i ]
   %1419 = add nsw i32 %1418, %1399
   %1420 = sub nsw i32 %1410, %1418
   store i32 %1420, ptr %703, align 8
   %1421 = sub nsw i32 %1356, %1400
   %1422 = add i32 %1421, 256
   %or.cond.i595.i = icmp ult i32 %1422, 769
-  br i1 %or.cond.i595.i, label %1423, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit596.i
+  br i1 %or.cond.i595.i, label %1423, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit596.i
 
-1423:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit594.i
+1423:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit594.i
   %1424 = zext nneg i32 %1422 to i64
   %1425 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1424
   %1426 = load i8, ptr %1425, align 1
   %1427 = zext i8 %1426 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit596.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit596.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit596.i: ; preds = %1423, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit594.i
-  %1428 = phi i32 [ %1427, %1423 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit594.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit596.i: ; preds = %1423, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit594.i
+  %1428 = phi i32 [ %1427, %1423 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit594.i ]
   %1429 = add nsw i32 %1428, %1400
   %1430 = sub nsw i32 %1356, %1428
   %1431 = sub nsw i32 %1365, %1419
   %1432 = add i32 %1431, 256
   %or.cond.i597.i = icmp ult i32 %1432, 769
-  br i1 %or.cond.i597.i, label %1433, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit598.i
+  br i1 %or.cond.i597.i, label %1433, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit598.i
 
-1433:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit596.i
+1433:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit596.i
   %1434 = zext nneg i32 %1432 to i64
   %1435 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1434
   %1436 = load i8, ptr %1435, align 1
   %1437 = zext i8 %1436 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit598.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit598.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit598.i: ; preds = %1433, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit596.i
-  %1438 = phi i32 [ %1437, %1433 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit596.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit598.i: ; preds = %1433, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit596.i
+  %1438 = phi i32 [ %1437, %1433 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit596.i ]
   %1439 = add nsw i32 %1438, %1419
   %1440 = sub nsw i32 %1365, %1438
   %1441 = sub nsw i32 %1440, %1429
   %1442 = add i32 %1441, 256
   %or.cond.i599.i = icmp ult i32 %1442, 769
-  br i1 %or.cond.i599.i, label %1443, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit600.i
+  br i1 %or.cond.i599.i, label %1443, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit600.i
 
-1443:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit598.i
+1443:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit598.i
   %1444 = zext nneg i32 %1442 to i64
   %1445 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1444
   %1446 = load i8, ptr %1445, align 1
   %1447 = zext i8 %1446 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit600.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit600.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit600.i: ; preds = %1443, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit598.i
-  %1448 = phi i32 [ %1447, %1443 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit598.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit600.i: ; preds = %1443, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit598.i
+  %1448 = phi i32 [ %1447, %1443 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit598.i ]
   %1449 = add nsw i32 %1448, %1429
   %1450 = sub nsw i32 %1440, %1448
   %1451 = sub nsw i32 %1366, %1420
   %1452 = add i32 %1451, 256
   %or.cond.i601.i = icmp ult i32 %1452, 769
-  br i1 %or.cond.i601.i, label %1453, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit602.i
+  br i1 %or.cond.i601.i, label %1453, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit602.i
 
-1453:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit600.i
+1453:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit600.i
   %1454 = zext nneg i32 %1452 to i64
   %1455 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1454
   %1456 = load i8, ptr %1455, align 1
   %1457 = zext i8 %1456 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit602.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit602.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit602.i: ; preds = %1453, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit600.i
-  %1458 = phi i32 [ %1457, %1453 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit600.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit602.i: ; preds = %1453, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit600.i
+  %1458 = phi i32 [ %1457, %1453 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit600.i ]
   %1459 = add nsw i32 %1458, %1420
   %1460 = sub nsw i32 %1366, %1458
   %1461 = sub nsw i32 %1459, %1409
   %1462 = add i32 %1461, 256
   %or.cond.i603.i = icmp ult i32 %1462, 769
-  br i1 %or.cond.i603.i, label %1463, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit604.i
+  br i1 %or.cond.i603.i, label %1463, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit604.i
 
-1463:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit602.i
+1463:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit602.i
   %1464 = zext nneg i32 %1462 to i64
   %1465 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1464
   %1466 = load i8, ptr %1465, align 1
   %1467 = zext i8 %1466 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit604.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit604.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit604.i: ; preds = %1463, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit602.i
-  %1468 = phi i32 [ %1467, %1463 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit602.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit604.i: ; preds = %1463, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit602.i
+  %1468 = phi i32 [ %1467, %1463 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit602.i ]
   %1469 = add nsw i32 %1468, %1409
   %1470 = sub nsw i32 %1459, %1468
   %1471 = sub nsw i32 %1460, %1450
   %1472 = add i32 %1471, 256
   %or.cond.i605.i = icmp ult i32 %1472, 769
-  br i1 %or.cond.i605.i, label %1473, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit606.i
+  br i1 %or.cond.i605.i, label %1473, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit606.i
 
-1473:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit604.i
+1473:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit604.i
   %1474 = zext nneg i32 %1472 to i64
   %1475 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1474
   %1476 = load i8, ptr %1475, align 1
   %1477 = zext i8 %1476 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit606.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit606.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit606.i: ; preds = %1473, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit604.i
-  %1478 = phi i32 [ %1477, %1473 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit604.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit606.i: ; preds = %1473, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit604.i
+  %1478 = phi i32 [ %1477, %1473 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit604.i ]
   %1479 = add nsw i32 %1478, %1450
   %1480 = sub nsw i32 %1460, %1478
   %1481 = sub nsw i32 %1449, %1470
   %1482 = add i32 %1481, 256
   %or.cond.i607.i = icmp ult i32 %1482, 769
-  br i1 %or.cond.i607.i, label %1483, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit608.i
+  br i1 %or.cond.i607.i, label %1483, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit608.i
 
-1483:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit606.i
+1483:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit606.i
   %1484 = zext nneg i32 %1482 to i64
   %1485 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1484
   %1486 = load i8, ptr %1485, align 1
   %1487 = zext i8 %1486 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit608.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit608.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit608.i: ; preds = %1483, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit606.i
-  %1488 = phi i32 [ %1487, %1483 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit606.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit608.i: ; preds = %1483, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit606.i
+  %1488 = phi i32 [ %1487, %1483 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit606.i ]
   %1489 = add nsw i32 %1488, %1470
   %1490 = sub nsw i32 %1449, %1488
   store i32 %1490, ptr %702, align 4
   %1491 = sub nsw i32 %1439, %1469
   %1492 = add i32 %1491, 256
   %or.cond.i609.i = icmp ult i32 %1492, 769
-  br i1 %or.cond.i609.i, label %1493, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit610.i
+  br i1 %or.cond.i609.i, label %1493, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit610.i
 
-1493:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit608.i
+1493:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit608.i
   %1494 = zext nneg i32 %1492 to i64
   %1495 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1494
   %1496 = load i8, ptr %1495, align 1
   %1497 = zext i8 %1496 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit610.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit610.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit610.i: ; preds = %1493, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit608.i
-  %1498 = phi i32 [ %1497, %1493 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit608.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit610.i: ; preds = %1493, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit608.i
+  %1498 = phi i32 [ %1497, %1493 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit608.i ]
   %1499 = add nsw i32 %1498, %1469
   %1500 = sub nsw i32 %1439, %1498
   %1501 = sub nsw i32 %1283, %1430
   %1502 = add i32 %1501, 256
   %or.cond.i611.i = icmp ult i32 %1502, 769
-  br i1 %or.cond.i611.i, label %1503, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit612.i
+  br i1 %or.cond.i611.i, label %1503, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit612.i
 
-1503:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit610.i
+1503:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit610.i
   %1504 = zext nneg i32 %1502 to i64
   %1505 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1504
   %1506 = load i8, ptr %1505, align 1
   %1507 = zext i8 %1506 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit612.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit612.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit612.i: ; preds = %1503, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit610.i
-  %1508 = phi i32 [ %1507, %1503 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit610.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit612.i: ; preds = %1503, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit610.i
+  %1508 = phi i32 [ %1507, %1503 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit610.i ]
   %1509 = add nsw i32 %1508, %1430
   %1510 = sub nsw i32 %1283, %1508
   %1511 = sub nsw i32 %1332, %1489
   %1512 = add i32 %1511, 256
   %or.cond.i613.i = icmp ult i32 %1512, 769
-  br i1 %or.cond.i613.i, label %1513, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit614.i
+  br i1 %or.cond.i613.i, label %1513, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit614.i
 
-1513:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit612.i
+1513:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit612.i
   %1514 = zext nneg i32 %1512 to i64
   %1515 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1514
   %1516 = load i8, ptr %1515, align 1
   %1517 = zext i8 %1516 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit614.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit614.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit614.i: ; preds = %1513, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit612.i
-  %1518 = phi i32 [ %1517, %1513 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit612.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit614.i: ; preds = %1513, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit612.i
+  %1518 = phi i32 [ %1517, %1513 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit612.i ]
   %1519 = add nsw i32 %1518, %1489
   %1520 = sub nsw i32 %1332, %1518
   %1521 = sub nsw i32 %1520, %1509
   %1522 = add i32 %1521, 256
   %or.cond.i615.i = icmp ult i32 %1522, 769
-  br i1 %or.cond.i615.i, label %1523, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit616.i
+  br i1 %or.cond.i615.i, label %1523, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit616.i
 
-1523:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit614.i
+1523:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit614.i
   %1524 = zext nneg i32 %1522 to i64
   %1525 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1524
   %1526 = load i8, ptr %1525, align 1
   %1527 = zext i8 %1526 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit616.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit616.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit616.i: ; preds = %1523, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit614.i
-  %1528 = phi i32 [ %1527, %1523 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit614.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit616.i: ; preds = %1523, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit614.i
+  %1528 = phi i32 [ %1527, %1523 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit614.i ]
   %1529 = add nsw i32 %1528, %1509
   store i32 %1529, ptr %701, align 8
   %1530 = sub nsw i32 %1520, %1528
   %1531 = sub nsw i32 %1322, %1479
   %1532 = add i32 %1531, 256
   %or.cond.i617.i = icmp ult i32 %1532, 769
-  br i1 %or.cond.i617.i, label %1533, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit618.i
+  br i1 %or.cond.i617.i, label %1533, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit618.i
 
-1533:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit616.i
+1533:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit616.i
   %1534 = zext nneg i32 %1532 to i64
   %1535 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1534
   %1536 = load i8, ptr %1535, align 1
   %1537 = zext i8 %1536 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit618.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit618.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit618.i: ; preds = %1533, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit616.i
-  %1538 = phi i32 [ %1537, %1533 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit616.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit618.i: ; preds = %1533, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit616.i
+  %1538 = phi i32 [ %1537, %1533 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit616.i ]
   %1539 = add nsw i32 %1538, %1479
   %1540 = sub nsw i32 %1322, %1538
   %1541 = sub nsw i32 %1539, %1499
   %1542 = add i32 %1541, 256
   %or.cond.i619.i = icmp ult i32 %1542, 769
-  br i1 %or.cond.i619.i, label %1543, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit620.i
+  br i1 %or.cond.i619.i, label %1543, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit620.i
 
-1543:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit618.i
+1543:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit618.i
   %1544 = zext nneg i32 %1542 to i64
   %1545 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1544
   %1546 = load i8, ptr %1545, align 1
   %1547 = zext i8 %1546 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit620.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit620.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit620.i: ; preds = %1543, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit618.i
-  %1548 = phi i32 [ %1547, %1543 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit618.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit620.i: ; preds = %1543, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit618.i
+  %1548 = phi i32 [ %1547, %1543 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit618.i ]
   %1549 = add nsw i32 %1548, %1499
   %1550 = sub nsw i32 %1539, %1548
   %1551 = sub nsw i32 %1540, %1530
   %1552 = add i32 %1551, 256
   %or.cond.i621.i = icmp ult i32 %1552, 769
-  br i1 %or.cond.i621.i, label %1553, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit622.i
+  br i1 %or.cond.i621.i, label %1553, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit622.i
 
-1553:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit620.i
+1553:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit620.i
   %1554 = zext nneg i32 %1552 to i64
   %1555 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1554
   %1556 = load i8, ptr %1555, align 1
   %1557 = zext i8 %1556 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit622.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit622.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit622.i: ; preds = %1553, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit620.i
-  %1558 = phi i32 [ %1557, %1553 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit620.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit622.i: ; preds = %1553, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit620.i
+  %1558 = phi i32 [ %1557, %1553 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit620.i ]
   %1559 = add nsw i32 %1558, %1530
   %1560 = sub nsw i32 %1540, %1558
   %1561 = sub nsw i32 %1529, %1550
   %1562 = add i32 %1561, 256
   %or.cond.i623.i = icmp ult i32 %1562, 769
-  br i1 %or.cond.i623.i, label %1563, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit624.i
+  br i1 %or.cond.i623.i, label %1563, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit624.i
 
-1563:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit622.i
+1563:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit622.i
   %1564 = zext nneg i32 %1562 to i64
   %1565 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1564
   %1566 = load i8, ptr %1565, align 1
   %1567 = zext i8 %1566 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit624.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit624.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit624.i: ; preds = %1563, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit622.i
-  %1568 = phi i32 [ %1567, %1563 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit622.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit624.i: ; preds = %1563, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit622.i
+  %1568 = phi i32 [ %1567, %1563 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit622.i ]
   %1569 = add nsw i32 %1568, %1550
   %1570 = sub nsw i32 %1529, %1568
   %1571 = sub nsw i32 %1519, %1549
   %1572 = add i32 %1571, 256
   %or.cond.i625.i = icmp ult i32 %1572, 769
-  br i1 %or.cond.i625.i, label %1573, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit626.i
+  br i1 %or.cond.i625.i, label %1573, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit626.i
 
-1573:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit624.i
+1573:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit624.i
   %1574 = zext nneg i32 %1572 to i64
   %1575 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1574
   %1576 = load i8, ptr %1575, align 1
   %1577 = zext i8 %1576 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit626.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit626.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit626.i: ; preds = %1573, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit624.i
-  %1578 = phi i32 [ %1577, %1573 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit624.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit626.i: ; preds = %1573, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit624.i
+  %1578 = phi i32 [ %1577, %1573 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit624.i ]
   %1579 = add nsw i32 %1578, %1549
   %1580 = sub nsw i32 %1519, %1578
   %1581 = sub nsw i32 %1323, %1480
   %1582 = add i32 %1581, 256
   %or.cond.i627.i = icmp ult i32 %1582, 769
-  br i1 %or.cond.i627.i, label %1583, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit628.i
+  br i1 %or.cond.i627.i, label %1583, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit628.i
 
-1583:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit626.i
+1583:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit626.i
   %1584 = zext nneg i32 %1582 to i64
   %1585 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1584
   %1586 = load i8, ptr %1585, align 1
   %1587 = zext i8 %1586 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit628.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit628.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit628.i: ; preds = %1583, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit626.i
-  %1588 = phi i32 [ %1587, %1583 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit626.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit628.i: ; preds = %1583, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit626.i
+  %1588 = phi i32 [ %1587, %1583 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit626.i ]
   %1589 = add nsw i32 %1588, %1480
   %1590 = sub nsw i32 %1323, %1588
   %1591 = sub nsw i32 %1292, %1500
   %1592 = add i32 %1591, 256
   %or.cond.i629.i = icmp ult i32 %1592, 769
-  br i1 %or.cond.i629.i, label %1593, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit630.i
+  br i1 %or.cond.i629.i, label %1593, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit630.i
 
-1593:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit628.i
+1593:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit628.i
   %1594 = zext nneg i32 %1592 to i64
   %1595 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1594
   %1596 = load i8, ptr %1595, align 1
   %1597 = zext i8 %1596 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit630.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit630.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit630.i: ; preds = %1593, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit628.i
-  %1598 = phi i32 [ %1597, %1593 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit628.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit630.i: ; preds = %1593, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit628.i
+  %1598 = phi i32 [ %1597, %1593 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit628.i ]
   %1599 = add nsw i32 %1598, %1500
   %1600 = sub nsw i32 %1292, %1598
   %1601 = sub nsw i32 %1600, %1589
   %1602 = add i32 %1601, 256
   %or.cond.i631.i = icmp ult i32 %1602, 769
-  br i1 %or.cond.i631.i, label %1603, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit632.i
+  br i1 %or.cond.i631.i, label %1603, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit632.i
 
-1603:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit630.i
+1603:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit630.i
   %1604 = zext nneg i32 %1602 to i64
   %1605 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1604
   %1606 = load i8, ptr %1605, align 1
   %1607 = zext i8 %1606 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit632.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit632.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit632.i: ; preds = %1603, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit630.i
-  %1608 = phi i32 [ %1607, %1603 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit630.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit632.i: ; preds = %1603, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit630.i
+  %1608 = phi i32 [ %1607, %1603 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit630.i ]
   %1609 = add nsw i32 %1608, %1589
   %1610 = sub nsw i32 %1600, %1608
   %1611 = sub nsw i32 %1333, %1490
   %1612 = add i32 %1611, 256
   %or.cond.i633.i = icmp ult i32 %1612, 769
-  br i1 %or.cond.i633.i, label %1613, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit634.i
+  br i1 %or.cond.i633.i, label %1613, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit634.i
 
-1613:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit632.i
+1613:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit632.i
   %1614 = zext nneg i32 %1612 to i64
   %1615 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1614
   %1616 = load i8, ptr %1615, align 1
   %1617 = zext i8 %1616 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit634.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit634.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit634.i: ; preds = %1613, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit632.i
-  %1618 = phi i32 [ %1617, %1613 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit632.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit634.i: ; preds = %1613, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit632.i
+  %1618 = phi i32 [ %1617, %1613 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit632.i ]
   %1619 = add nsw i32 %1618, %1490
   %1620 = sub nsw i32 %1333, %1618
   %1621 = sub nsw i32 %1620, %1610
   %1622 = add i32 %1621, 256
   %or.cond.i635.i = icmp ult i32 %1622, 769
-  br i1 %or.cond.i635.i, label %1623, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit636.i
+  br i1 %or.cond.i635.i, label %1623, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit636.i
 
-1623:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit634.i
+1623:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit634.i
   %1624 = zext nneg i32 %1622 to i64
   %1625 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1624
   %1626 = load i8, ptr %1625, align 1
   %1627 = zext i8 %1626 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit636.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit636.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit636.i: ; preds = %1623, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit634.i
-  %1628 = phi i32 [ %1627, %1623 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit634.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit636.i: ; preds = %1623, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit634.i
+  %1628 = phi i32 [ %1627, %1623 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit634.i ]
   %1629 = add nsw i32 %1628, %1610
   %1630 = sub nsw i32 %1620, %1628
   %1631 = sub nsw i32 %1609, %1619
   %1632 = add i32 %1631, 256
   %or.cond.i637.i = icmp ult i32 %1632, 769
-  br i1 %or.cond.i637.i, label %1633, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit638.i
+  br i1 %or.cond.i637.i, label %1633, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit638.i
 
-1633:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit636.i
+1633:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit636.i
   %1634 = zext nneg i32 %1632 to i64
   %1635 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1634
   %1636 = load i8, ptr %1635, align 1
   %1637 = zext i8 %1636 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit638.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit638.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit638.i: ; preds = %1633, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit636.i
-  %1638 = phi i32 [ %1637, %1633 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit636.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit638.i: ; preds = %1633, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit636.i
+  %1638 = phi i32 [ %1637, %1633 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit636.i ]
   %1639 = add nsw i32 %1638, %1619
   %1640 = sub nsw i32 %1609, %1638
   %1641 = sub nsw i32 %1590, %1560
   %1642 = add i32 %1641, 256
   %or.cond.i639.i = icmp ult i32 %1642, 769
-  br i1 %or.cond.i639.i, label %1643, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit640.i
+  br i1 %or.cond.i639.i, label %1643, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit640.i
 
-1643:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit638.i
+1643:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit638.i
   %1644 = zext nneg i32 %1642 to i64
   %1645 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1644
   %1646 = load i8, ptr %1645, align 1
   %1647 = zext i8 %1646 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit640.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit640.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit640.i: ; preds = %1643, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit638.i
-  %1648 = phi i32 [ %1647, %1643 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit638.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit640.i: ; preds = %1643, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit638.i
+  %1648 = phi i32 [ %1647, %1643 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit638.i ]
   %1649 = add nsw i32 %1648, %1560
   %1650 = sub nsw i32 %1590, %1648
   store i32 %1650, ptr %693, align 4
   %1651 = sub nsw i32 %1630, %1559
   %1652 = add i32 %1651, 256
   %or.cond.i641.i = icmp ult i32 %1652, 769
-  br i1 %or.cond.i641.i, label %1653, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit642.i
+  br i1 %or.cond.i641.i, label %1653, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit642.i
 
-1653:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit640.i
+1653:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit640.i
   %1654 = zext nneg i32 %1652 to i64
   %1655 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1654
   %1656 = load i8, ptr %1655, align 1
   %1657 = zext i8 %1656 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit642.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit642.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit642.i: ; preds = %1653, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit640.i
-  %1658 = phi i32 [ %1657, %1653 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit640.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit642.i: ; preds = %1653, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit640.i
+  %1658 = phi i32 [ %1657, %1653 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit640.i ]
   %1659 = add nsw i32 %1658, %1559
   %1660 = sub nsw i32 %1630, %1658
   store i32 %1660, ptr %698, align 4
   %1661 = sub nsw i32 %1629, %1570
   %1662 = add i32 %1661, 256
   %or.cond.i643.i = icmp ult i32 %1662, 769
-  br i1 %or.cond.i643.i, label %1663, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit644.i
+  br i1 %or.cond.i643.i, label %1663, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit644.i
 
-1663:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit642.i
+1663:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit642.i
   %1664 = zext nneg i32 %1662 to i64
   %1665 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1664
   %1666 = load i8, ptr %1665, align 1
   %1667 = zext i8 %1666 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit644.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit644.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit644.i: ; preds = %1663, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit642.i
-  %1668 = phi i32 [ %1667, %1663 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit642.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit644.i: ; preds = %1663, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit642.i
+  %1668 = phi i32 [ %1667, %1663 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit642.i ]
   %1669 = add nsw i32 %1668, %1570
   %1670 = sub nsw i32 %1629, %1668
   store i32 %1670, ptr %697, align 4
   %1671 = sub nsw i32 %1640, %1569
   %1672 = add i32 %1671, 256
   %or.cond.i645.i = icmp ult i32 %1672, 769
-  br i1 %or.cond.i645.i, label %1673, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i
+  br i1 %or.cond.i645.i, label %1673, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit646.i
 
-1673:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit644.i
+1673:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit644.i
   %1674 = zext nneg i32 %1672 to i64
   %1675 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1674
   %1676 = load i8, ptr %1675, align 1
   %1677 = zext i8 %1676 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit646.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i: ; preds = %1673, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit644.i
-  %1678 = phi i32 [ %1677, %1673 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit644.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit646.i: ; preds = %1673, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit644.i
+  %1678 = phi i32 [ %1677, %1673 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit644.i ]
   %1679 = add nsw i32 %1678, %1569
   %1680 = sub nsw i32 %1640, %1678
   store i32 %1680, ptr %699, align 4
   %1681 = sub nsw i32 %1639, %1580
   %1682 = add i32 %1681, 256
   %or.cond.i647.i = icmp ult i32 %1682, 769
-  br i1 %or.cond.i647.i, label %1683, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i
+  br i1 %or.cond.i647.i, label %1683, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit648.i
 
-1683:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i
+1683:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit646.i
   %1684 = zext nneg i32 %1682 to i64
   %1685 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1684
   %1686 = load i8, ptr %1685, align 1
   %1687 = zext i8 %1686 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit648.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i: ; preds = %1683, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i
-  %1688 = phi i32 [ %1687, %1683 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit648.i: ; preds = %1683, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit646.i
+  %1688 = phi i32 [ %1687, %1683 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit646.i ]
   %1689 = add nsw i32 %1688, %1580
   %1690 = sub nsw i32 %1639, %1688
   %1691 = sub nsw i32 %1599, %1579
   %1692 = add i32 %1691, 256
   %or.cond.i649.i = icmp ult i32 %1692, 769
-  br i1 %or.cond.i649.i, label %1693, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit650.i
+  br i1 %or.cond.i649.i, label %1693, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit650.i
 
-1693:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i
+1693:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit648.i
   %1694 = zext nneg i32 %1692 to i64
   %1695 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1694
   %1696 = load i8, ptr %1695, align 1
   %1697 = zext i8 %1696 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit650.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit650.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit650.i: ; preds = %1693, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i
-  %1698 = phi i32 [ %1697, %1693 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit650.i: ; preds = %1693, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit648.i
+  %1698 = phi i32 [ %1697, %1693 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit648.i ]
   %1699 = add nsw i32 %1698, %1579
   %1700 = sub nsw i32 %1599, %1698
   store i32 %1700, ptr %704, align 4
   %1701 = sub nsw i32 %1047, %1510
   %1702 = add i32 %1701, 256
   %or.cond.i651.i = icmp ult i32 %1702, 769
-  br i1 %or.cond.i651.i, label %1703, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit652.i
+  br i1 %or.cond.i651.i, label %1703, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit652.i
 
-1703:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit650.i
+1703:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit650.i
   %1704 = zext nneg i32 %1702 to i64
   %1705 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1704
   %1706 = load i8, ptr %1705, align 1
   %1707 = zext i8 %1706 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit652.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit652.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit652.i: ; preds = %1703, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit650.i
-  %1708 = phi i32 [ %1707, %1703 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit650.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit652.i: ; preds = %1703, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit650.i
+  %1708 = phi i32 [ %1707, %1703 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit650.i ]
   %1709 = add nsw i32 %1708, %1510
   %1710 = sub nsw i32 %1047, %1708
   store i32 %1710, ptr %31, align 16
   %1711 = sub nsw i32 %1196, %1679
   %1712 = add i32 %1711, 256
   %or.cond.i653.i = icmp ult i32 %1712, 769
-  br i1 %or.cond.i653.i, label %1713, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit654.i
+  br i1 %or.cond.i653.i, label %1713, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit654.i
 
-1713:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit652.i
+1713:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit652.i
   %1714 = zext nneg i32 %1712 to i64
   %1715 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1714
   %1716 = load i8, ptr %1715, align 1
   %1717 = zext i8 %1716 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit654.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit654.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit654.i: ; preds = %1713, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit652.i
-  %1718 = phi i32 [ %1717, %1713 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit652.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit654.i: ; preds = %1713, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit652.i
+  %1718 = phi i32 [ %1717, %1713 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit652.i ]
   %1719 = add nsw i32 %1718, %1679
   store i32 %1719, ptr %700, align 16
   %1720 = sub nsw i32 %1196, %1718
   %1721 = sub nsw i32 %1720, %1709
   %1722 = add i32 %1721, 256
   %or.cond.i655.i = icmp ult i32 %1722, 769
-  br i1 %or.cond.i655.i, label %1723, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit656.i
+  br i1 %or.cond.i655.i, label %1723, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit656.i
 
-1723:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit654.i
+1723:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit654.i
   %1724 = zext nneg i32 %1722 to i64
   %1725 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1724
   %1726 = load i8, ptr %1725, align 1
   %1727 = zext i8 %1726 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit656.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit656.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit656.i: ; preds = %1723, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit654.i
-  %1728 = phi i32 [ %1727, %1723 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit654.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit656.i: ; preds = %1723, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit654.i
+  %1728 = phi i32 [ %1727, %1723 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit654.i ]
   %1729 = add nsw i32 %1728, %1709
   store i32 %1729, ptr %695, align 16
   %1730 = sub nsw i32 %1720, %1728
@@ -2813,357 +2813,357 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit656.i: ; preds = %1723,
   %1731 = sub nsw i32 %1176, %1659
   %1732 = add i32 %1731, 256
   %or.cond.i657.i = icmp ult i32 %1732, 769
-  br i1 %or.cond.i657.i, label %1733, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit658.i
+  br i1 %or.cond.i657.i, label %1733, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit658.i
 
-1733:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit656.i
+1733:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit656.i
   %1734 = zext nneg i32 %1732 to i64
   %1735 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1734
   %1736 = load i8, ptr %1735, align 1
   %1737 = zext i8 %1736 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit658.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit658.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit658.i: ; preds = %1733, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit656.i
-  %1738 = phi i32 [ %1737, %1733 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit656.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit658.i: ; preds = %1733, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit656.i
+  %1738 = phi i32 [ %1737, %1733 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit656.i ]
   %1739 = add nsw i32 %1738, %1659
   %1740 = sub nsw i32 %1176, %1738
   store i32 %1740, ptr %684, align 16
   %1741 = sub nsw i32 %1739, %1699
   %1742 = add i32 %1741, 256
   %or.cond.i659.i = icmp ult i32 %1742, 769
-  br i1 %or.cond.i659.i, label %1743, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit660.i
+  br i1 %or.cond.i659.i, label %1743, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit660.i
 
-1743:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit658.i
+1743:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit658.i
   %1744 = zext nneg i32 %1742 to i64
   %1745 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1744
   %1746 = load i8, ptr %1745, align 1
   %1747 = zext i8 %1746 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit660.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit660.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit660.i: ; preds = %1743, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit658.i
-  %1748 = phi i32 [ %1747, %1743 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit658.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit660.i: ; preds = %1743, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit658.i
+  %1748 = phi i32 [ %1747, %1743 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit658.i ]
   %1749 = add nsw i32 %1748, %1699
   store i32 %1749, ptr %705, align 16
   %1750 = sub nsw i32 %1739, %1748
   %1751 = sub nsw i32 %1729, %1750
   %1752 = add i32 %1751, 256
   %or.cond.i661.i = icmp ult i32 %1752, 769
-  br i1 %or.cond.i661.i, label %1753, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit662.i
+  br i1 %or.cond.i661.i, label %1753, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit662.i
 
-1753:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit660.i
+1753:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit660.i
   %1754 = zext nneg i32 %1752 to i64
   %1755 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1754
   %1756 = load i8, ptr %1755, align 1
   %1757 = zext i8 %1756 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit662.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit662.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit662.i: ; preds = %1753, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit660.i
-  %1758 = phi i32 [ %1757, %1753 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit660.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit662.i: ; preds = %1753, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit660.i
+  %1758 = phi i32 [ %1757, %1753 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit660.i ]
   %1759 = add nsw i32 %1758, %1750
   store i32 %1759, ptr %696, align 16
   %1760 = sub nsw i32 %1729, %1758
   %1761 = sub nsw i32 %1166, %1649
   %1762 = add i32 %1761, 256
   %or.cond.i663.i = icmp ult i32 %1762, 769
-  br i1 %or.cond.i663.i, label %1763, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit664.i
+  br i1 %or.cond.i663.i, label %1763, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit664.i
 
-1763:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit662.i
+1763:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit662.i
   %1764 = zext nneg i32 %1762 to i64
   %1765 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1764
   %1766 = load i8, ptr %1765, align 1
   %1767 = zext i8 %1766 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit664.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit664.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit664.i: ; preds = %1763, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit662.i
-  %1768 = phi i32 [ %1767, %1763 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit662.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit664.i: ; preds = %1763, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit662.i
+  %1768 = phi i32 [ %1767, %1763 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit662.i ]
   %1769 = add nsw i32 %1768, %1649
   %1770 = sub nsw i32 %1166, %1768
   store i32 %1770, ptr %683, align 8
   %1771 = sub nsw i32 %1206, %1689
   %1772 = add i32 %1771, 256
   %or.cond.i665.i = icmp ult i32 %1772, 769
-  br i1 %or.cond.i665.i, label %1773, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit666.i
+  br i1 %or.cond.i665.i, label %1773, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit666.i
 
-1773:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit664.i
+1773:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit664.i
   %1774 = zext nneg i32 %1772 to i64
   %1775 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1774
   %1776 = load i8, ptr %1775, align 1
   %1777 = zext i8 %1776 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit666.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit666.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit666.i: ; preds = %1773, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit664.i
-  %1778 = phi i32 [ %1777, %1773 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit664.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit666.i: ; preds = %1773, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit664.i
+  %1778 = phi i32 [ %1777, %1773 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit664.i ]
   %1779 = add nsw i32 %1778, %1689
   store i32 %1779, ptr %703, align 8
   %1780 = sub nsw i32 %1206, %1778
   %1781 = sub nsw i32 %1780, %1769
   %1782 = add i32 %1781, 256
   %or.cond.i667.i = icmp ult i32 %1782, 769
-  br i1 %or.cond.i667.i, label %1783, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit668.i
+  br i1 %or.cond.i667.i, label %1783, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit668.i
 
-1783:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit666.i
+1783:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit666.i
   %1784 = zext nneg i32 %1782 to i64
   %1785 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1784
   %1786 = load i8, ptr %1785, align 1
   %1787 = zext i8 %1786 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit668.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit668.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit668.i: ; preds = %1783, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit666.i
-  %1788 = phi i32 [ %1787, %1783 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit666.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit668.i: ; preds = %1783, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit666.i
+  %1788 = phi i32 [ %1787, %1783 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit666.i ]
   %1789 = add nsw i32 %1788, %1769
   store i32 %1789, ptr %694, align 8
   %1790 = sub nsw i32 %1780, %1788
   %1791 = sub nsw i32 %1186, %1669
   %1792 = add i32 %1791, 256
   %or.cond.i669.i = icmp ult i32 %1792, 769
-  br i1 %or.cond.i669.i, label %1793, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit670.i
+  br i1 %or.cond.i669.i, label %1793, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit670.i
 
-1793:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit668.i
+1793:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit668.i
   %1794 = zext nneg i32 %1792 to i64
   %1795 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1794
   %1796 = load i8, ptr %1795, align 1
   %1797 = zext i8 %1796 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit670.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit670.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit670.i: ; preds = %1793, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit668.i
-  %1798 = phi i32 [ %1797, %1793 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit668.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit670.i: ; preds = %1793, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit668.i
+  %1798 = phi i32 [ %1797, %1793 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit668.i ]
   %1799 = add nsw i32 %1798, %1669
   store i32 %1799, ptr %701, align 8
   %1800 = sub nsw i32 %1186, %1798
   %1801 = sub nsw i32 %1800, %1790
   %1802 = add i32 %1801, 256
   %or.cond.i671.i = icmp ult i32 %1802, 769
-  br i1 %or.cond.i671.i, label %1803, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit672.i
+  br i1 %or.cond.i671.i, label %1803, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit672.i
 
-1803:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit670.i
+1803:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit670.i
   %1804 = zext nneg i32 %1802 to i64
   %1805 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1804
   %1806 = load i8, ptr %1805, align 1
   %1807 = zext i8 %1806 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit672.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit672.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit672.i: ; preds = %1803, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit670.i
-  %1808 = phi i32 [ %1807, %1803 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit670.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit672.i: ; preds = %1803, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit670.i
+  %1808 = phi i32 [ %1807, %1803 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit670.i ]
   %1809 = add nsw i32 %1808, %1790
   %1810 = sub nsw i32 %1800, %1808
   store i32 %1810, ptr %689, align 8
   %1811 = sub nsw i32 %1809, %1760
   %1812 = add i32 %1811, 256
   %or.cond.i673.i = icmp ult i32 %1812, 769
-  br i1 %or.cond.i673.i, label %1813, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i
+  br i1 %or.cond.i673.i, label %1813, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit674.i
 
-1813:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit672.i
+1813:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit672.i
   %1814 = zext nneg i32 %1812 to i64
   %1815 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1814
   %1816 = load i8, ptr %1815, align 1
   %1817 = zext i8 %1816 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit674.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i: ; preds = %1813, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit672.i
-  %1818 = phi i32 [ %1817, %1813 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit672.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit674.i: ; preds = %1813, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit672.i
+  %1818 = phi i32 [ %1817, %1813 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit672.i ]
   %1819 = add nsw i32 %1818, %1760
   %1820 = sub nsw i32 %1809, %1818
   store i32 %1820, ptr %690, align 8
   %1821 = sub nsw i32 %1167, %1650
   %1822 = add i32 %1821, 256
   %or.cond.i675.i = icmp ult i32 %1822, 769
-  br i1 %or.cond.i675.i, label %1823, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit676.i
+  br i1 %or.cond.i675.i, label %1823, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit676.i
 
-1823:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i
+1823:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit674.i
   %1824 = zext nneg i32 %1822 to i64
   %1825 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1824
   %1826 = load i8, ptr %1825, align 1
   %1827 = zext i8 %1826 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit676.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit676.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit676.i: ; preds = %1823, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i
-  %1828 = phi i32 [ %1827, %1823 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit676.i: ; preds = %1823, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit674.i
+  %1828 = phi i32 [ %1827, %1823 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit674.i ]
   %1829 = add nsw i32 %1828, %1650
   %1830 = sub nsw i32 %1167, %1828
   store i32 %1830, ptr %682, align 4
   %1831 = sub nsw i32 %1207, %1690
   %1832 = add i32 %1831, 256
   %or.cond.i677.i = icmp ult i32 %1832, 769
-  br i1 %or.cond.i677.i, label %1833, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit678.i
+  br i1 %or.cond.i677.i, label %1833, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit678.i
 
-1833:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit676.i
+1833:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit676.i
   %1834 = zext nneg i32 %1832 to i64
   %1835 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1834
   %1836 = load i8, ptr %1835, align 1
   %1837 = zext i8 %1836 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit678.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit678.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit678.i: ; preds = %1833, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit676.i
-  %1838 = phi i32 [ %1837, %1833 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit676.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit678.i: ; preds = %1833, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit676.i
+  %1838 = phi i32 [ %1837, %1833 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit676.i ]
   %1839 = add nsw i32 %1838, %1690
   store i32 %1839, ptr %702, align 4
   %1840 = sub nsw i32 %1207, %1838
   %1841 = sub nsw i32 %1840, %1829
   %1842 = add i32 %1841, 256
   %or.cond.i679.i = icmp ult i32 %1842, 769
-  br i1 %or.cond.i679.i, label %1843, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit680.i
+  br i1 %or.cond.i679.i, label %1843, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit680.i
 
-1843:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit678.i
+1843:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit678.i
   %1844 = zext nneg i32 %1842 to i64
   %1845 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1844
   %1846 = load i8, ptr %1845, align 1
   %1847 = zext i8 %1846 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit680.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit680.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit680.i: ; preds = %1843, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit678.i
-  %1848 = phi i32 [ %1847, %1843 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit678.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit680.i: ; preds = %1843, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit678.i
+  %1848 = phi i32 [ %1847, %1843 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit678.i ]
   %1849 = add nsw i32 %1848, %1829
   %1850 = sub nsw i32 %1840, %1848
   store i32 %1850, ptr %692, align 4
   %1851 = sub nsw i32 %1187, %1670
   %1852 = add i32 %1851, 256
   %or.cond.i681.i = icmp ult i32 %1852, 769
-  br i1 %or.cond.i681.i, label %1853, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit682.i
+  br i1 %or.cond.i681.i, label %1853, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit682.i
 
-1853:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit680.i
+1853:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit680.i
   %1854 = zext nneg i32 %1852 to i64
   %1855 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1854
   %1856 = load i8, ptr %1855, align 1
   %1857 = zext i8 %1856 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit682.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit682.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit682.i: ; preds = %1853, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit680.i
-  %1858 = phi i32 [ %1857, %1853 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit680.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit682.i: ; preds = %1853, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit680.i
+  %1858 = phi i32 [ %1857, %1853 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit680.i ]
   %1859 = add nsw i32 %1858, %1670
   %1860 = sub nsw i32 %1187, %1858
   store i32 %1860, ptr %685, align 4
   %1861 = sub nsw i32 %1849, %1859
   %1862 = add i32 %1861, 256
   %or.cond.i683.i = icmp ult i32 %1862, 769
-  br i1 %or.cond.i683.i, label %1863, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i
+  br i1 %or.cond.i683.i, label %1863, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit684.i
 
-1863:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit682.i
+1863:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit682.i
   %1864 = zext nneg i32 %1862 to i64
   %1865 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1864
   %1866 = load i8, ptr %1865, align 1
   %1867 = zext i8 %1866 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit684.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i: ; preds = %1863, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit682.i
-  %1868 = phi i32 [ %1867, %1863 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit682.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit684.i: ; preds = %1863, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit682.i
+  %1868 = phi i32 [ %1867, %1863 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit682.i ]
   %1869 = add nsw i32 %1868, %1859
   store i32 %1869, ptr %697, align 4
   %1870 = sub nsw i32 %1849, %1868
   %1871 = sub nsw i32 %1177, %1660
   %1872 = add i32 %1871, 256
   %or.cond.i685.i = icmp ult i32 %1872, 769
-  br i1 %or.cond.i685.i, label %1873, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit686.i
+  br i1 %or.cond.i685.i, label %1873, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit686.i
 
-1873:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i
+1873:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit684.i
   %1874 = zext nneg i32 %1872 to i64
   %1875 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1874
   %1876 = load i8, ptr %1875, align 1
   %1877 = zext i8 %1876 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit686.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit686.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit686.i: ; preds = %1873, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i
-  %1878 = phi i32 [ %1877, %1873 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit686.i: ; preds = %1873, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit684.i
+  %1878 = phi i32 [ %1877, %1873 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit684.i ]
   %1879 = add nsw i32 %1878, %1660
   %1880 = sub nsw i32 %1177, %1878
   store i32 %1880, ptr %686, align 4
   %1881 = sub nsw i32 %1116, %1700
   %1882 = add i32 %1881, 256
   %or.cond.i687.i = icmp ult i32 %1882, 769
-  br i1 %or.cond.i687.i, label %1883, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit688.i
+  br i1 %or.cond.i687.i, label %1883, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit688.i
 
-1883:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit686.i
+1883:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit686.i
   %1884 = zext nneg i32 %1882 to i64
   %1885 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1884
   %1886 = load i8, ptr %1885, align 1
   %1887 = zext i8 %1886 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit688.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit688.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit688.i: ; preds = %1883, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit686.i
-  %1888 = phi i32 [ %1887, %1883 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit686.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit688.i: ; preds = %1883, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit686.i
+  %1888 = phi i32 [ %1887, %1883 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit686.i ]
   %1889 = add nsw i32 %1888, %1700
   store i32 %1889, ptr %704, align 4
   %1890 = sub nsw i32 %1116, %1888
   %1891 = sub nsw i32 %1890, %1879
   %1892 = add i32 %1891, 256
   %or.cond.i689.i = icmp ult i32 %1892, 769
-  br i1 %or.cond.i689.i, label %1893, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit690.i
+  br i1 %or.cond.i689.i, label %1893, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit690.i
 
-1893:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit688.i
+1893:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit688.i
   %1894 = zext nneg i32 %1892 to i64
   %1895 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1894
   %1896 = load i8, ptr %1895, align 1
   %1897 = zext i8 %1896 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit690.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit690.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit690.i: ; preds = %1893, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit688.i
-  %1898 = phi i32 [ %1897, %1893 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit688.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit690.i: ; preds = %1893, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit688.i
+  %1898 = phi i32 [ %1897, %1893 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit688.i ]
   %1899 = add nsw i32 %1898, %1879
   store i32 %1899, ptr %698, align 4
   %1900 = sub nsw i32 %1890, %1898
   %1901 = sub nsw i32 %1197, %1680
   %1902 = add i32 %1901, 256
   %or.cond.i691.i = icmp ult i32 %1902, 769
-  br i1 %or.cond.i691.i, label %1903, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit692.i
+  br i1 %or.cond.i691.i, label %1903, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit692.i
 
-1903:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit690.i
+1903:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit690.i
   %1904 = zext nneg i32 %1902 to i64
   %1905 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1904
   %1906 = load i8, ptr %1905, align 1
   %1907 = zext i8 %1906 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit692.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit692.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit692.i: ; preds = %1903, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit690.i
-  %1908 = phi i32 [ %1907, %1903 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit690.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit692.i: ; preds = %1903, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit690.i
+  %1908 = phi i32 [ %1907, %1903 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit690.i ]
   %1909 = add nsw i32 %1908, %1680
   store i32 %1909, ptr %699, align 4
   %1910 = sub nsw i32 %1197, %1908
   %1911 = sub nsw i32 %1910, %1900
   %1912 = add i32 %1911, 256
   %or.cond.i693.i = icmp ult i32 %1912, 769
-  br i1 %or.cond.i693.i, label %1913, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit694.i
+  br i1 %or.cond.i693.i, label %1913, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit694.i
 
-1913:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit692.i
+1913:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit692.i
   %1914 = zext nneg i32 %1912 to i64
   %1915 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1914
   %1916 = load i8, ptr %1915, align 1
   %1917 = zext i8 %1916 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit694.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit694.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit694.i: ; preds = %1913, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit692.i
-  %1918 = phi i32 [ %1917, %1913 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit692.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit694.i: ; preds = %1913, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit692.i
+  %1918 = phi i32 [ %1917, %1913 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit692.i ]
   %1919 = add nsw i32 %1918, %1900
   %1920 = sub nsw i32 %1910, %1918
   store i32 %1920, ptr %687, align 4
   %1921 = sub nsw i32 %1919, %1870
   %1922 = add i32 %1921, 256
   %or.cond.i695.i = icmp ult i32 %1922, 769
-  br i1 %or.cond.i695.i, label %1923, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit696.i
+  br i1 %or.cond.i695.i, label %1923, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit696.i
 
-1923:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit694.i
+1923:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit694.i
   %1924 = zext nneg i32 %1922 to i64
   %1925 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1924
   %1926 = load i8, ptr %1925, align 1
   %1927 = zext i8 %1926 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit696.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit696.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit696.i: ; preds = %1923, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit694.i
-  %1928 = phi i32 [ %1927, %1923 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit694.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit696.i: ; preds = %1923, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit694.i
+  %1928 = phi i32 [ %1927, %1923 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit694.i ]
   %1929 = add nsw i32 %1928, %1870
   store i32 %1929, ptr %693, align 4
   %1930 = sub nsw i32 %1919, %1928
   %1931 = sub nsw i32 %1930, %1819
   %1932 = add i32 %1931, 256
   %or.cond.i697.i = icmp ult i32 %1932, 769
-  br i1 %or.cond.i697.i, label %1933, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit698.i
+  br i1 %or.cond.i697.i, label %1933, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit698.i
 
-1933:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit696.i
+1933:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit696.i
   %1934 = zext nneg i32 %1932 to i64
   %1935 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %1934
   %1936 = load i8, ptr %1935, align 1
   %1937 = zext i8 %1936 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit698.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit698.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit698.i: ; preds = %1933, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit696.i
-  %1938 = phi i32 [ %1937, %1933 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit696.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit698.i: ; preds = %1933, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit696.i
+  %1938 = phi i32 [ %1937, %1933 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit696.i ]
   %1939 = add nsw i32 %1938, %1819
   store i32 %1939, ptr %695, align 16
   %1940 = sub nsw i32 %1930, %1938
@@ -3175,25 +3175,25 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit698.i: ; preds = %1933,
   %exitcond1655.not.i = icmp eq i64 %indvars.iv.next1653.i, %741
   br i1 %exitcond1655.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
-._crit_edge.i:                                    ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit698.i, %.loopexit1596.i
-  %.6.lcssa.i = phi i32 [ %.5.i, %.loopexit1596.i ], [ %.0324.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit698.i ]
+._crit_edge.i:                                    ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit698.i, %.loopexit1596.i
+  %.6.lcssa.i = phi i32 [ %.5.i, %.loopexit1596.i ], [ %.0324.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit698.i ]
   %1943 = icmp eq i32 %.0324.i, %672
   br i1 %1943, label %3046, label %.preheader1595.i
 
 .preheader1595.i:                                 ; preds = %._crit_edge.i
   %.not1600.i = icmp sgt i32 %.6.lcssa.i, %707
-  br i1 %.not1600.i, label %.loopexit1596.i.backedge, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.lr.ph.i
+  br i1 %.not1600.i, label %.loopexit1596.i.backedge, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.lr.ph.i
 
 .loopexit1596.i.backedge:                         ; preds = %.preheader1595.i, %.loopexit1596.loopexit.i
   %.5.i.be = phi i32 [ %.6.lcssa.i, %.preheader1595.i ], [ %738, %.loopexit1596.loopexit.i ]
   br label %.loopexit1596.i, !llvm.loop !15
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.lr.ph.i: ; preds = %.preheader1595.i
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.lr.ph.i: ; preds = %.preheader1595.i
   %1944 = sext i32 %.6.lcssa.i to i64
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit924.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.lr.ph.i
-  %indvars.iv1656.i = phi i64 [ %1944, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.lr.ph.i ], [ %indvars.iv.next1657.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit924.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.i: ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit924.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.lr.ph.i
+  %indvars.iv1656.i = phi i64 [ %1944, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.lr.ph.i ], [ %indvars.iv.next1657.i, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit924.i ]
   %1945 = getelementptr inbounds i8, ptr %723, i64 %indvars.iv1656.i
   %1946 = getelementptr inbounds i8, ptr %1945, i64 %709
   %.val371.i = load i8, ptr %1946, align 1
@@ -3288,17 +3288,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.i: ; preds = %_ZNK2
   %2011 = sub nsw i32 %2009, %2001
   %2012 = add nsw i32 %2011, 256
   %or.cond.i703.i = icmp ult i32 %2012, 769
-  br i1 %or.cond.i703.i, label %2013, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit704.i
+  br i1 %or.cond.i703.i, label %2013, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit704.i
 
-2013:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.i
+2013:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.i
   %2014 = zext nneg i32 %2012 to i64
   %2015 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2014
   %2016 = load i8, ptr %2015, align 1
   %2017 = zext i8 %2016 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit704.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit704.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit704.i: ; preds = %2013, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.i
-  %2018 = phi i32 [ %2017, %2013 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit704.i: ; preds = %2013, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.i
+  %2018 = phi i32 [ %2017, %2013 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.i ]
   %2019 = add nuw nsw i32 %2018, %2001
   %2020 = sub nsw i32 %2009, %2018
   %reass.sub879 = sub nsw i32 %1986, %1950
@@ -3320,113 +3320,113 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit704.i: ; preds = %2013,
   %2036 = sub nsw i32 %2034, %2026
   %2037 = add nsw i32 %2036, 256
   %or.cond.i709.i = icmp ult i32 %2037, 769
-  br i1 %or.cond.i709.i, label %2038, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit710.i
+  br i1 %or.cond.i709.i, label %2038, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit710.i
 
-2038:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit704.i
+2038:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit704.i
   %2039 = zext nneg i32 %2037 to i64
   %2040 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2039
   %2041 = load i8, ptr %2040, align 1
   %2042 = zext i8 %2041 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit710.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit710.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit710.i: ; preds = %2038, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit704.i
-  %2043 = phi i32 [ %2042, %2038 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit704.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit710.i: ; preds = %2038, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit704.i
+  %2043 = phi i32 [ %2042, %2038 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit704.i ]
   %2044 = add nuw nsw i32 %2043, %2026
   %2045 = sub nsw i32 %2034, %2043
   %2046 = sub nsw i32 %2010, %2035
   %2047 = add nsw i32 %2046, 256
   %or.cond.i711.i = icmp ult i32 %2047, 769
-  br i1 %or.cond.i711.i, label %2048, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit712.i
+  br i1 %or.cond.i711.i, label %2048, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit712.i
 
-2048:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit710.i
+2048:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit710.i
   %2049 = zext nneg i32 %2047 to i64
   %2050 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2049
   %2051 = load i8, ptr %2050, align 1
   %2052 = zext i8 %2051 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit712.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit712.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit712.i: ; preds = %2048, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit710.i
-  %2053 = phi i32 [ %2052, %2048 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit710.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit712.i: ; preds = %2048, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit710.i
+  %2053 = phi i32 [ %2052, %2048 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit710.i ]
   %2054 = add nsw i32 %2053, %2035
   %2055 = sub nsw i32 %2010, %2053
   %2056 = sub nsw i32 %2019, %2044
   %2057 = add nsw i32 %2056, 256
   %or.cond.i713.i = icmp ult i32 %2057, 769
-  br i1 %or.cond.i713.i, label %2058, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit714.i
+  br i1 %or.cond.i713.i, label %2058, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit714.i
 
-2058:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit712.i
+2058:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit712.i
   %2059 = zext nneg i32 %2057 to i64
   %2060 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2059
   %2061 = load i8, ptr %2060, align 1
   %2062 = zext i8 %2061 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit714.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit714.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit714.i: ; preds = %2058, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit712.i
-  %2063 = phi i32 [ %2062, %2058 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit712.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit714.i: ; preds = %2058, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit712.i
+  %2063 = phi i32 [ %2062, %2058 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit712.i ]
   %2064 = add nuw nsw i32 %2063, %2044
   %2065 = sub nsw i32 %2019, %2063
   %2066 = sub nsw i32 %2065, %2054
   %2067 = add nsw i32 %2066, 256
   %or.cond.i715.i = icmp ult i32 %2067, 769
-  br i1 %or.cond.i715.i, label %2068, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit716.i
+  br i1 %or.cond.i715.i, label %2068, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit716.i
 
-2068:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit714.i
+2068:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit714.i
   %2069 = zext nneg i32 %2067 to i64
   %2070 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2069
   %2071 = load i8, ptr %2070, align 1
   %2072 = zext i8 %2071 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit716.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit716.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit716.i: ; preds = %2068, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit714.i
-  %2073 = phi i32 [ %2072, %2068 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit714.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit716.i: ; preds = %2068, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit714.i
+  %2073 = phi i32 [ %2072, %2068 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit714.i ]
   %2074 = add nsw i32 %2073, %2054
   %2075 = sub nsw i32 %2065, %2073
   %2076 = sub nsw i32 %2020, %2045
   %2077 = add nsw i32 %2076, 256
   %or.cond.i717.i = icmp ult i32 %2077, 769
-  br i1 %or.cond.i717.i, label %2078, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit718.i
+  br i1 %or.cond.i717.i, label %2078, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit718.i
 
-2078:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit716.i
+2078:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit716.i
   %2079 = zext nneg i32 %2077 to i64
   %2080 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2079
   %2081 = load i8, ptr %2080, align 1
   %2082 = zext i8 %2081 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit718.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit718.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit718.i: ; preds = %2078, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit716.i
-  %2083 = phi i32 [ %2082, %2078 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit716.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit718.i: ; preds = %2078, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit716.i
+  %2083 = phi i32 [ %2082, %2078 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit716.i ]
   %2084 = add nsw i32 %2083, %2045
   %2085 = sub nsw i32 %2020, %2083
   %2086 = sub nsw i32 %2085, %2075
   %2087 = add nsw i32 %2086, 256
   %or.cond.i719.i = icmp ult i32 %2087, 769
-  br i1 %or.cond.i719.i, label %2088, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit720.i
+  br i1 %or.cond.i719.i, label %2088, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit720.i
 
-2088:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit718.i
+2088:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit718.i
   %2089 = zext nneg i32 %2087 to i64
   %2090 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2089
   %2091 = load i8, ptr %2090, align 1
   %2092 = zext i8 %2091 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit720.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit720.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit720.i: ; preds = %2088, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit718.i
-  %2093 = phi i32 [ %2092, %2088 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit718.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit720.i: ; preds = %2088, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit718.i
+  %2093 = phi i32 [ %2092, %2088 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit718.i ]
   %2094 = add nsw i32 %2093, %2075
   %2095 = sub nsw i32 %2085, %2093
   %2096 = sub nsw i32 %2074, %2084
   %2097 = add nsw i32 %2096, 256
   %or.cond.i721.i = icmp ult i32 %2097, 769
-  br i1 %or.cond.i721.i, label %2098, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit722.i
+  br i1 %or.cond.i721.i, label %2098, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit722.i
 
-2098:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit720.i
+2098:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit720.i
   %2099 = zext nneg i32 %2097 to i64
   %2100 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2099
   %2101 = load i8, ptr %2100, align 1
   %2102 = zext i8 %2101 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit722.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit722.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit722.i: ; preds = %2098, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit720.i
-  %2103 = phi i32 [ %2102, %2098 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit720.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit722.i: ; preds = %2098, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit720.i
+  %2103 = phi i32 [ %2102, %2098 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit720.i ]
   %2104 = add nsw i32 %2103, %2084
   %2105 = sub nsw i32 %2074, %2103
   %2106 = or disjoint i32 %1971, 256
@@ -3448,17 +3448,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit722.i: ; preds = %2098,
   %2122 = sub nsw i32 %2120, %2112
   %2123 = add nsw i32 %2122, 256
   %or.cond.i727.i = icmp ult i32 %2123, 769
-  br i1 %or.cond.i727.i, label %2124, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit728.i
+  br i1 %or.cond.i727.i, label %2124, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit728.i
 
-2124:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit722.i
+2124:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit722.i
   %2125 = zext nneg i32 %2123 to i64
   %2126 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2125
   %2127 = load i8, ptr %2126, align 1
   %2128 = zext i8 %2127 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit728.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit728.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit728.i: ; preds = %2124, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit722.i
-  %2129 = phi i32 [ %2128, %2124 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit722.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit728.i: ; preds = %2124, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit722.i
+  %2129 = phi i32 [ %2128, %2124 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit722.i ]
   %2130 = add nuw nsw i32 %2129, %2112
   %2131 = sub nsw i32 %2120, %2129
   %2132 = or disjoint i32 %1953, 256
@@ -3480,377 +3480,377 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit728.i: ; preds = %2124,
   %2148 = sub nsw i32 %2146, %2138
   %2149 = add nsw i32 %2148, 256
   %or.cond.i733.i = icmp ult i32 %2149, 769
-  br i1 %or.cond.i733.i, label %2150, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit734.i
+  br i1 %or.cond.i733.i, label %2150, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit734.i
 
-2150:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit728.i
+2150:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit728.i
   %2151 = zext nneg i32 %2149 to i64
   %2152 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2151
   %2153 = load i8, ptr %2152, align 1
   %2154 = zext i8 %2153 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit734.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit734.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit734.i: ; preds = %2150, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit728.i
-  %2155 = phi i32 [ %2154, %2150 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit728.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit734.i: ; preds = %2150, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit728.i
+  %2155 = phi i32 [ %2154, %2150 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit728.i ]
   %2156 = add nuw nsw i32 %2155, %2138
   %2157 = sub nsw i32 %2146, %2155
   %2158 = sub nsw i32 %2121, %2147
   %2159 = add nsw i32 %2158, 256
   %or.cond.i735.i = icmp ult i32 %2159, 769
-  br i1 %or.cond.i735.i, label %2160, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit736.i
+  br i1 %or.cond.i735.i, label %2160, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit736.i
 
-2160:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit734.i
+2160:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit734.i
   %2161 = zext nneg i32 %2159 to i64
   %2162 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2161
   %2163 = load i8, ptr %2162, align 1
   %2164 = zext i8 %2163 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit736.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit736.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit736.i: ; preds = %2160, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit734.i
-  %2165 = phi i32 [ %2164, %2160 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit734.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit736.i: ; preds = %2160, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit734.i
+  %2165 = phi i32 [ %2164, %2160 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit734.i ]
   %2166 = add nsw i32 %2165, %2147
   %2167 = sub nsw i32 %2121, %2165
   %2168 = sub nsw i32 %2130, %2156
   %2169 = add nsw i32 %2168, 256
   %or.cond.i737.i = icmp ult i32 %2169, 769
-  br i1 %or.cond.i737.i, label %2170, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit738.i
+  br i1 %or.cond.i737.i, label %2170, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit738.i
 
-2170:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit736.i
+2170:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit736.i
   %2171 = zext nneg i32 %2169 to i64
   %2172 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2171
   %2173 = load i8, ptr %2172, align 1
   %2174 = zext i8 %2173 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit738.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit738.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit738.i: ; preds = %2170, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit736.i
-  %2175 = phi i32 [ %2174, %2170 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit736.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit738.i: ; preds = %2170, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit736.i
+  %2175 = phi i32 [ %2174, %2170 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit736.i ]
   %2176 = add nuw nsw i32 %2175, %2156
   %2177 = sub nsw i32 %2130, %2175
   %2178 = sub nsw i32 %2177, %2166
   %2179 = add nsw i32 %2178, 256
   %or.cond.i739.i = icmp ult i32 %2179, 769
-  br i1 %or.cond.i739.i, label %2180, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit740.i
+  br i1 %or.cond.i739.i, label %2180, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit740.i
 
-2180:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit738.i
+2180:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit738.i
   %2181 = zext nneg i32 %2179 to i64
   %2182 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2181
   %2183 = load i8, ptr %2182, align 1
   %2184 = zext i8 %2183 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit740.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit740.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit740.i: ; preds = %2180, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit738.i
-  %2185 = phi i32 [ %2184, %2180 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit738.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit740.i: ; preds = %2180, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit738.i
+  %2185 = phi i32 [ %2184, %2180 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit738.i ]
   %2186 = add nsw i32 %2185, %2166
   %2187 = sub nsw i32 %2177, %2185
   %2188 = sub nsw i32 %2131, %2157
   %2189 = add nsw i32 %2188, 256
   %or.cond.i741.i = icmp ult i32 %2189, 769
-  br i1 %or.cond.i741.i, label %2190, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit742.i
+  br i1 %or.cond.i741.i, label %2190, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit742.i
 
-2190:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit740.i
+2190:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit740.i
   %2191 = zext nneg i32 %2189 to i64
   %2192 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2191
   %2193 = load i8, ptr %2192, align 1
   %2194 = zext i8 %2193 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit742.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit742.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit742.i: ; preds = %2190, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit740.i
-  %2195 = phi i32 [ %2194, %2190 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit740.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit742.i: ; preds = %2190, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit740.i
+  %2195 = phi i32 [ %2194, %2190 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit740.i ]
   %2196 = add nsw i32 %2195, %2157
   %2197 = sub nsw i32 %2131, %2195
   %2198 = sub nsw i32 %2197, %2187
   %2199 = add nsw i32 %2198, 256
   %or.cond.i743.i = icmp ult i32 %2199, 769
-  br i1 %or.cond.i743.i, label %2200, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit744.i
+  br i1 %or.cond.i743.i, label %2200, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit744.i
 
-2200:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit742.i
+2200:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit742.i
   %2201 = zext nneg i32 %2199 to i64
   %2202 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2201
   %2203 = load i8, ptr %2202, align 1
   %2204 = zext i8 %2203 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit744.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit744.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit744.i: ; preds = %2200, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit742.i
-  %2205 = phi i32 [ %2204, %2200 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit742.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit744.i: ; preds = %2200, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit742.i
+  %2205 = phi i32 [ %2204, %2200 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit742.i ]
   %2206 = add nsw i32 %2205, %2187
   %2207 = sub nsw i32 %2197, %2205
   %2208 = sub nsw i32 %2186, %2196
   %2209 = add nsw i32 %2208, 256
   %or.cond.i745.i = icmp ult i32 %2209, 769
-  br i1 %or.cond.i745.i, label %2210, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit746.i
+  br i1 %or.cond.i745.i, label %2210, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit746.i
 
-2210:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit744.i
+2210:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit744.i
   %2211 = zext nneg i32 %2209 to i64
   %2212 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2211
   %2213 = load i8, ptr %2212, align 1
   %2214 = zext i8 %2213 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit746.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit746.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit746.i: ; preds = %2210, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit744.i
-  %2215 = phi i32 [ %2214, %2210 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit744.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit746.i: ; preds = %2210, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit744.i
+  %2215 = phi i32 [ %2214, %2210 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit744.i ]
   %2216 = add nsw i32 %2215, %2196
   %2217 = sub nsw i32 %2186, %2215
   %2218 = sub nsw i32 %2055, %2167
   %2219 = add nsw i32 %2218, 256
   %or.cond.i747.i = icmp ult i32 %2219, 769
-  br i1 %or.cond.i747.i, label %2220, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit748.i
+  br i1 %or.cond.i747.i, label %2220, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit748.i
 
-2220:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit746.i
+2220:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit746.i
   %2221 = zext nneg i32 %2219 to i64
   %2222 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2221
   %2223 = load i8, ptr %2222, align 1
   %2224 = zext i8 %2223 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit748.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit748.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit748.i: ; preds = %2220, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit746.i
-  %2225 = phi i32 [ %2224, %2220 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit746.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit748.i: ; preds = %2220, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit746.i
+  %2225 = phi i32 [ %2224, %2220 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit746.i ]
   %2226 = add nsw i32 %2225, %2167
   %2227 = sub nsw i32 %2104, %2216
   %2228 = add nsw i32 %2227, 256
   %or.cond.i749.i = icmp ult i32 %2228, 769
-  br i1 %or.cond.i749.i, label %2229, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit750.i
+  br i1 %or.cond.i749.i, label %2229, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit750.i
 
-2229:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit748.i
+2229:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit748.i
   %2230 = zext nneg i32 %2228 to i64
   %2231 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2230
   %2232 = load i8, ptr %2231, align 1
   %2233 = zext i8 %2232 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit750.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit750.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit750.i: ; preds = %2229, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit748.i
-  %2234 = phi i32 [ %2233, %2229 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit748.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit750.i: ; preds = %2229, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit748.i
+  %2234 = phi i32 [ %2233, %2229 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit748.i ]
   %2235 = add nsw i32 %2234, %2216
   %2236 = sub nsw i32 %2104, %2234
   %2237 = sub nsw i32 %2236, %2226
   %2238 = add nsw i32 %2237, 256
   %or.cond.i751.i = icmp ult i32 %2238, 769
-  br i1 %or.cond.i751.i, label %2239, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit752.i
+  br i1 %or.cond.i751.i, label %2239, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit752.i
 
-2239:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit750.i
+2239:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit750.i
   %2240 = zext nneg i32 %2238 to i64
   %2241 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2240
   %2242 = load i8, ptr %2241, align 1
   %2243 = zext i8 %2242 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit752.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit752.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit752.i: ; preds = %2239, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit750.i
-  %2244 = phi i32 [ %2243, %2239 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit750.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit752.i: ; preds = %2239, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit750.i
+  %2244 = phi i32 [ %2243, %2239 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit750.i ]
   %2245 = add nsw i32 %2244, %2226
   %2246 = sub nsw i32 %2236, %2244
   %2247 = sub nsw i32 %2094, %2206
   %2248 = add nsw i32 %2247, 256
   %or.cond.i753.i = icmp ult i32 %2248, 769
-  br i1 %or.cond.i753.i, label %2249, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit754.i
+  br i1 %or.cond.i753.i, label %2249, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit754.i
 
-2249:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit752.i
+2249:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit752.i
   %2250 = zext nneg i32 %2248 to i64
   %2251 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2250
   %2252 = load i8, ptr %2251, align 1
   %2253 = zext i8 %2252 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit754.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit754.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit754.i: ; preds = %2249, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit752.i
-  %2254 = phi i32 [ %2253, %2249 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit752.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit754.i: ; preds = %2249, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit752.i
+  %2254 = phi i32 [ %2253, %2249 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit752.i ]
   %2255 = add nsw i32 %2254, %2206
   %2256 = sub nsw i32 %2094, %2254
   %2257 = sub nsw i32 %2256, %2246
   %2258 = add nsw i32 %2257, 256
   %or.cond.i755.i = icmp ult i32 %2258, 769
-  br i1 %or.cond.i755.i, label %2259, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit756.i
+  br i1 %or.cond.i755.i, label %2259, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit756.i
 
-2259:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit754.i
+2259:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit754.i
   %2260 = zext nneg i32 %2258 to i64
   %2261 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2260
   %2262 = load i8, ptr %2261, align 1
   %2263 = zext i8 %2262 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit756.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit756.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit756.i: ; preds = %2259, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit754.i
-  %2264 = phi i32 [ %2263, %2259 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit754.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit756.i: ; preds = %2259, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit754.i
+  %2264 = phi i32 [ %2263, %2259 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit754.i ]
   %2265 = add nsw i32 %2264, %2246
   %2266 = sub nsw i32 %2256, %2264
   %2267 = sub nsw i32 %2245, %2255
   %2268 = add nsw i32 %2267, 256
   %or.cond.i757.i = icmp ult i32 %2268, 769
-  br i1 %or.cond.i757.i, label %2269, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit758.i
+  br i1 %or.cond.i757.i, label %2269, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit758.i
 
-2269:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit756.i
+2269:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit756.i
   %2270 = zext nneg i32 %2268 to i64
   %2271 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2270
   %2272 = load i8, ptr %2271, align 1
   %2273 = zext i8 %2272 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit758.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit758.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit758.i: ; preds = %2269, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit756.i
-  %2274 = phi i32 [ %2273, %2269 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit756.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit758.i: ; preds = %2269, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit756.i
+  %2274 = phi i32 [ %2273, %2269 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit756.i ]
   %2275 = add nsw i32 %2274, %2255
   %2276 = sub nsw i32 %2245, %2274
   %2277 = sub nsw i32 %2095, %2207
   %2278 = add nsw i32 %2277, 256
   %or.cond.i759.i = icmp ult i32 %2278, 769
-  br i1 %or.cond.i759.i, label %2279, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit760.i
+  br i1 %or.cond.i759.i, label %2279, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit760.i
 
-2279:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit758.i
+2279:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit758.i
   %2280 = zext nneg i32 %2278 to i64
   %2281 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2280
   %2282 = load i8, ptr %2281, align 1
   %2283 = zext i8 %2282 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit760.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit760.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit760.i: ; preds = %2279, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit758.i
-  %2284 = phi i32 [ %2283, %2279 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit758.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit760.i: ; preds = %2279, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit758.i
+  %2284 = phi i32 [ %2283, %2279 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit758.i ]
   %2285 = add nsw i32 %2284, %2207
   %2286 = sub nsw i32 %2095, %2284
   %2287 = sub nsw i32 %2064, %2176
   %2288 = add nsw i32 %2287, 256
   %or.cond.i761.i = icmp ult i32 %2288, 769
-  br i1 %or.cond.i761.i, label %2289, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit762.i
+  br i1 %or.cond.i761.i, label %2289, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit762.i
 
-2289:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit760.i
+2289:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit760.i
   %2290 = zext nneg i32 %2288 to i64
   %2291 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2290
   %2292 = load i8, ptr %2291, align 1
   %2293 = zext i8 %2292 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit762.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit762.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit762.i: ; preds = %2289, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit760.i
-  %2294 = phi i32 [ %2293, %2289 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit760.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit762.i: ; preds = %2289, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit760.i
+  %2294 = phi i32 [ %2293, %2289 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit760.i ]
   %2295 = add nuw nsw i32 %2294, %2176
   %2296 = sub nsw i32 %2064, %2294
   %2297 = sub nsw i32 %2296, %2285
   %2298 = add nsw i32 %2297, 256
   %or.cond.i763.i = icmp ult i32 %2298, 769
-  br i1 %or.cond.i763.i, label %2299, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit764.i
+  br i1 %or.cond.i763.i, label %2299, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit764.i
 
-2299:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit762.i
+2299:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit762.i
   %2300 = zext nneg i32 %2298 to i64
   %2301 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2300
   %2302 = load i8, ptr %2301, align 1
   %2303 = zext i8 %2302 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit764.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit764.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit764.i: ; preds = %2299, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit762.i
-  %2304 = phi i32 [ %2303, %2299 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit762.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit764.i: ; preds = %2299, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit762.i
+  %2304 = phi i32 [ %2303, %2299 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit762.i ]
   %2305 = add nsw i32 %2304, %2285
   %2306 = sub nsw i32 %2296, %2304
   %2307 = sub nsw i32 %2105, %2217
   %2308 = add nsw i32 %2307, 256
   %or.cond.i765.i = icmp ult i32 %2308, 769
-  br i1 %or.cond.i765.i, label %2309, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit766.i
+  br i1 %or.cond.i765.i, label %2309, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit766.i
 
-2309:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit764.i
+2309:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit764.i
   %2310 = zext nneg i32 %2308 to i64
   %2311 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2310
   %2312 = load i8, ptr %2311, align 1
   %2313 = zext i8 %2312 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit766.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit766.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit766.i: ; preds = %2309, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit764.i
-  %2314 = phi i32 [ %2313, %2309 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit764.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit766.i: ; preds = %2309, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit764.i
+  %2314 = phi i32 [ %2313, %2309 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit764.i ]
   %2315 = add nsw i32 %2314, %2217
   %2316 = sub nsw i32 %2105, %2314
   %2317 = sub nsw i32 %2316, %2306
   %2318 = add nsw i32 %2317, 256
   %or.cond.i767.i = icmp ult i32 %2318, 769
-  br i1 %or.cond.i767.i, label %2319, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit768.i
+  br i1 %or.cond.i767.i, label %2319, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit768.i
 
-2319:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit766.i
+2319:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit766.i
   %2320 = zext nneg i32 %2318 to i64
   %2321 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2320
   %2322 = load i8, ptr %2321, align 1
   %2323 = zext i8 %2322 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit768.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit768.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit768.i: ; preds = %2319, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit766.i
-  %2324 = phi i32 [ %2323, %2319 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit766.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit768.i: ; preds = %2319, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit766.i
+  %2324 = phi i32 [ %2323, %2319 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit766.i ]
   %2325 = add nsw i32 %2324, %2306
   %2326 = sub nsw i32 %2316, %2324
   %2327 = sub nsw i32 %2305, %2315
   %2328 = add nsw i32 %2327, 256
   %or.cond.i769.i = icmp ult i32 %2328, 769
-  br i1 %or.cond.i769.i, label %2329, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit770.i
+  br i1 %or.cond.i769.i, label %2329, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit770.i
 
-2329:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit768.i
+2329:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit768.i
   %2330 = zext nneg i32 %2328 to i64
   %2331 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2330
   %2332 = load i8, ptr %2331, align 1
   %2333 = zext i8 %2332 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit770.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit770.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit770.i: ; preds = %2329, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit768.i
-  %2334 = phi i32 [ %2333, %2329 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit768.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit770.i: ; preds = %2329, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit768.i
+  %2334 = phi i32 [ %2333, %2329 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit768.i ]
   %2335 = add nsw i32 %2334, %2315
   %2336 = sub nsw i32 %2305, %2334
   %2337 = sub nsw i32 %2286, %2266
   %2338 = add nsw i32 %2337, 256
   %or.cond.i771.i = icmp ult i32 %2338, 769
-  br i1 %or.cond.i771.i, label %2339, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit772.i
+  br i1 %or.cond.i771.i, label %2339, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit772.i
 
-2339:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit770.i
+2339:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit770.i
   %2340 = zext nneg i32 %2338 to i64
   %2341 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2340
   %2342 = load i8, ptr %2341, align 1
   %2343 = zext i8 %2342 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit772.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit772.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit772.i: ; preds = %2339, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit770.i
-  %2344 = phi i32 [ %2343, %2339 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit770.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit772.i: ; preds = %2339, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit770.i
+  %2344 = phi i32 [ %2343, %2339 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit770.i ]
   %2345 = sub nsw i32 %2326, %2265
   %2346 = add nsw i32 %2345, 256
   %or.cond.i773.i = icmp ult i32 %2346, 769
-  br i1 %or.cond.i773.i, label %2347, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit774.i
+  br i1 %or.cond.i773.i, label %2347, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit774.i
 
-2347:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit772.i
+2347:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit772.i
   %2348 = zext nneg i32 %2346 to i64
   %2349 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2348
   %2350 = load i8, ptr %2349, align 1
   %2351 = zext i8 %2350 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit774.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit774.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit774.i: ; preds = %2347, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit772.i
-  %2352 = phi i32 [ %2351, %2347 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit772.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit774.i: ; preds = %2347, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit772.i
+  %2352 = phi i32 [ %2351, %2347 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit772.i ]
   %2353 = sub nsw i32 %2325, %2276
   %2354 = add nsw i32 %2353, 256
   %or.cond.i775.i = icmp ult i32 %2354, 769
-  br i1 %or.cond.i775.i, label %2355, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit776.i
+  br i1 %or.cond.i775.i, label %2355, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit776.i
 
-2355:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit774.i
+2355:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit774.i
   %2356 = zext nneg i32 %2354 to i64
   %2357 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2356
   %2358 = load i8, ptr %2357, align 1
   %2359 = zext i8 %2358 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit776.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit776.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit776.i: ; preds = %2355, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit774.i
-  %2360 = phi i32 [ %2359, %2355 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit774.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit776.i: ; preds = %2355, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit774.i
+  %2360 = phi i32 [ %2359, %2355 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit774.i ]
   %2361 = sub nsw i32 %2336, %2275
   %2362 = add nsw i32 %2361, 256
   %or.cond.i777.i = icmp ult i32 %2362, 769
-  br i1 %or.cond.i777.i, label %2363, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit778.i
+  br i1 %or.cond.i777.i, label %2363, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit778.i
 
-2363:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit776.i
+2363:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit776.i
   %2364 = zext nneg i32 %2362 to i64
   %2365 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2364
   %2366 = load i8, ptr %2365, align 1
   %2367 = zext i8 %2366 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit778.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit778.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit778.i: ; preds = %2363, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit776.i
-  %2368 = phi i32 [ %2367, %2363 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit776.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit778.i: ; preds = %2363, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit776.i
+  %2368 = phi i32 [ %2367, %2363 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit776.i ]
   %2369 = sub nsw i32 %2336, %2368
   %2370 = sub nsw i32 %2335, %2235
   %2371 = add nsw i32 %2370, 256
   %or.cond.i779.i = icmp ult i32 %2371, 769
-  br i1 %or.cond.i779.i, label %2372, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit780.i
+  br i1 %or.cond.i779.i, label %2372, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit780.i
 
-2372:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit778.i
+2372:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit778.i
   %2373 = zext nneg i32 %2371 to i64
   %2374 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2373
   %2375 = load i8, ptr %2374, align 1
   %2376 = zext i8 %2375 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit780.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit780.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit780.i: ; preds = %2372, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit778.i
-  %2377 = phi i32 [ %2376, %2372 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit778.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit780.i: ; preds = %2372, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit778.i
+  %2377 = phi i32 [ %2376, %2372 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit778.i ]
   %2378 = add nsw i32 %2377, %2235
   %2379 = sub nsw i32 %2335, %2377
   %2380 = or disjoint i32 %1980, 256
@@ -3872,17 +3872,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit780.i: ; preds = %2372,
   %2396 = sub nsw i32 %2394, %2386
   %2397 = add nsw i32 %2396, 256
   %or.cond.i785.i = icmp ult i32 %2397, 769
-  br i1 %or.cond.i785.i, label %2398, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit786.i
+  br i1 %or.cond.i785.i, label %2398, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit786.i
 
-2398:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit780.i
+2398:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit780.i
   %2399 = zext nneg i32 %2397 to i64
   %2400 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2399
   %2401 = load i8, ptr %2400, align 1
   %2402 = zext i8 %2401 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit786.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit786.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit786.i: ; preds = %2398, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit780.i
-  %2403 = phi i32 [ %2402, %2398 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit780.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit786.i: ; preds = %2398, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit780.i
+  %2403 = phi i32 [ %2402, %2398 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit780.i ]
   %2404 = add nuw nsw i32 %2403, %2386
   %2405 = sub nsw i32 %2394, %2403
   %2406 = or disjoint i32 %1967, 256
@@ -3904,113 +3904,113 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit786.i: ; preds = %2398,
   %2422 = sub nsw i32 %2420, %2412
   %2423 = add nsw i32 %2422, 256
   %or.cond.i791.i = icmp ult i32 %2423, 769
-  br i1 %or.cond.i791.i, label %2424, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit792.i
+  br i1 %or.cond.i791.i, label %2424, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit792.i
 
-2424:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit786.i
+2424:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit786.i
   %2425 = zext nneg i32 %2423 to i64
   %2426 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2425
   %2427 = load i8, ptr %2426, align 1
   %2428 = zext i8 %2427 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit792.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit792.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit792.i: ; preds = %2424, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit786.i
-  %2429 = phi i32 [ %2428, %2424 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit786.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit792.i: ; preds = %2424, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit786.i
+  %2429 = phi i32 [ %2428, %2424 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit786.i ]
   %2430 = add nuw nsw i32 %2429, %2412
   %2431 = sub nsw i32 %2420, %2429
   %2432 = sub nsw i32 %2395, %2421
   %2433 = add nsw i32 %2432, 256
   %or.cond.i793.i = icmp ult i32 %2433, 769
-  br i1 %or.cond.i793.i, label %2434, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit794.i
+  br i1 %or.cond.i793.i, label %2434, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit794.i
 
-2434:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit792.i
+2434:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit792.i
   %2435 = zext nneg i32 %2433 to i64
   %2436 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2435
   %2437 = load i8, ptr %2436, align 1
   %2438 = zext i8 %2437 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit794.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit794.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit794.i: ; preds = %2434, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit792.i
-  %2439 = phi i32 [ %2438, %2434 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit792.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit794.i: ; preds = %2434, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit792.i
+  %2439 = phi i32 [ %2438, %2434 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit792.i ]
   %2440 = add nsw i32 %2439, %2421
   %2441 = sub nsw i32 %2395, %2439
   %2442 = sub nsw i32 %2404, %2430
   %2443 = add nsw i32 %2442, 256
   %or.cond.i795.i = icmp ult i32 %2443, 769
-  br i1 %or.cond.i795.i, label %2444, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit796.i
+  br i1 %or.cond.i795.i, label %2444, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit796.i
 
-2444:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit794.i
+2444:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit794.i
   %2445 = zext nneg i32 %2443 to i64
   %2446 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2445
   %2447 = load i8, ptr %2446, align 1
   %2448 = zext i8 %2447 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit796.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit796.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit796.i: ; preds = %2444, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit794.i
-  %2449 = phi i32 [ %2448, %2444 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit794.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit796.i: ; preds = %2444, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit794.i
+  %2449 = phi i32 [ %2448, %2444 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit794.i ]
   %2450 = add nuw nsw i32 %2449, %2430
   %2451 = sub nsw i32 %2404, %2449
   %2452 = sub nsw i32 %2451, %2440
   %2453 = add nsw i32 %2452, 256
   %or.cond.i797.i = icmp ult i32 %2453, 769
-  br i1 %or.cond.i797.i, label %2454, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit798.i
+  br i1 %or.cond.i797.i, label %2454, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit798.i
 
-2454:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit796.i
+2454:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit796.i
   %2455 = zext nneg i32 %2453 to i64
   %2456 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2455
   %2457 = load i8, ptr %2456, align 1
   %2458 = zext i8 %2457 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit798.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit798.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit798.i: ; preds = %2454, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit796.i
-  %2459 = phi i32 [ %2458, %2454 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit796.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit798.i: ; preds = %2454, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit796.i
+  %2459 = phi i32 [ %2458, %2454 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit796.i ]
   %2460 = add nsw i32 %2459, %2440
   %2461 = sub nsw i32 %2451, %2459
   %2462 = sub nsw i32 %2405, %2431
   %2463 = add nsw i32 %2462, 256
   %or.cond.i799.i = icmp ult i32 %2463, 769
-  br i1 %or.cond.i799.i, label %2464, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit800.i
+  br i1 %or.cond.i799.i, label %2464, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit800.i
 
-2464:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit798.i
+2464:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit798.i
   %2465 = zext nneg i32 %2463 to i64
   %2466 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2465
   %2467 = load i8, ptr %2466, align 1
   %2468 = zext i8 %2467 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit800.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit800.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit800.i: ; preds = %2464, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit798.i
-  %2469 = phi i32 [ %2468, %2464 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit798.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit800.i: ; preds = %2464, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit798.i
+  %2469 = phi i32 [ %2468, %2464 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit798.i ]
   %2470 = add nsw i32 %2469, %2431
   %2471 = sub nsw i32 %2405, %2469
   %2472 = sub nsw i32 %2471, %2461
   %2473 = add nsw i32 %2472, 256
   %or.cond.i801.i = icmp ult i32 %2473, 769
-  br i1 %or.cond.i801.i, label %2474, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit802.i
+  br i1 %or.cond.i801.i, label %2474, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit802.i
 
-2474:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit800.i
+2474:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit800.i
   %2475 = zext nneg i32 %2473 to i64
   %2476 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2475
   %2477 = load i8, ptr %2476, align 1
   %2478 = zext i8 %2477 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit802.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit802.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit802.i: ; preds = %2474, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit800.i
-  %2479 = phi i32 [ %2478, %2474 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit800.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit802.i: ; preds = %2474, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit800.i
+  %2479 = phi i32 [ %2478, %2474 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit800.i ]
   %2480 = add nsw i32 %2479, %2461
   %2481 = sub nsw i32 %2471, %2479
   %2482 = sub nsw i32 %2460, %2470
   %2483 = add nsw i32 %2482, 256
   %or.cond.i803.i = icmp ult i32 %2483, 769
-  br i1 %or.cond.i803.i, label %2484, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit804.i
+  br i1 %or.cond.i803.i, label %2484, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit804.i
 
-2484:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit802.i
+2484:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit802.i
   %2485 = zext nneg i32 %2483 to i64
   %2486 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2485
   %2487 = load i8, ptr %2486, align 1
   %2488 = zext i8 %2487 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit804.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit804.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit804.i: ; preds = %2484, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit802.i
-  %2489 = phi i32 [ %2488, %2484 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit802.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit804.i: ; preds = %2484, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit802.i
+  %2489 = phi i32 [ %2488, %2484 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit802.i ]
   %2490 = add nsw i32 %2489, %2470
   %2491 = sub nsw i32 %2460, %2489
   %reass.sub880 = sub nsw i32 %1992, %1959
@@ -4032,17 +4032,17 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit804.i: ; preds = %2484,
   %2507 = sub nsw i32 %2505, %2497
   %2508 = add nsw i32 %2507, 256
   %or.cond.i809.i = icmp ult i32 %2508, 769
-  br i1 %or.cond.i809.i, label %2509, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit810.i
+  br i1 %or.cond.i809.i, label %2509, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit810.i
 
-2509:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit804.i
+2509:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit804.i
   %2510 = zext nneg i32 %2508 to i64
   %2511 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2510
   %2512 = load i8, ptr %2511, align 1
   %2513 = zext i8 %2512 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit810.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit810.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit810.i: ; preds = %2509, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit804.i
-  %2514 = phi i32 [ %2513, %2509 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit804.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit810.i: ; preds = %2509, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit804.i
+  %2514 = phi i32 [ %2513, %2509 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit804.i ]
   %2515 = add nuw nsw i32 %2514, %2497
   %2516 = sub nsw i32 %2505, %2514
   %2517 = or disjoint i32 %1969, 256
@@ -4064,869 +4064,869 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit810.i: ; preds = %2509,
   %2533 = sub nsw i32 %2524, %2532
   %2534 = add nsw i32 %2533, 256
   %or.cond.i815.i = icmp ult i32 %2534, 769
-  br i1 %or.cond.i815.i, label %2535, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit816.i
+  br i1 %or.cond.i815.i, label %2535, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit816.i
 
-2535:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit810.i
+2535:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit810.i
   %2536 = zext nneg i32 %2534 to i64
   %2537 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2536
   %2538 = load i8, ptr %2537, align 1
   %2539 = zext i8 %2538 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit816.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit816.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit816.i: ; preds = %2535, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit810.i
-  %2540 = phi i32 [ %2539, %2535 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit810.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit816.i: ; preds = %2535, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit810.i
+  %2540 = phi i32 [ %2539, %2535 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit810.i ]
   %2541 = add nsw i32 %2540, %2532
   %2542 = sub nsw i32 %2524, %2540
   %2543 = sub nsw i32 %2523, %2531
   %2544 = add nsw i32 %2543, 256
   %or.cond.i817.i = icmp ult i32 %2544, 769
-  br i1 %or.cond.i817.i, label %2545, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit818.i
+  br i1 %or.cond.i817.i, label %2545, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit818.i
 
-2545:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit816.i
+2545:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit816.i
   %2546 = zext nneg i32 %2544 to i64
   %2547 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2546
   %2548 = load i8, ptr %2547, align 1
   %2549 = zext i8 %2548 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit818.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit818.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit818.i: ; preds = %2545, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit816.i
-  %2550 = phi i32 [ %2549, %2545 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit816.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit818.i: ; preds = %2545, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit816.i
+  %2550 = phi i32 [ %2549, %2545 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit816.i ]
   %2551 = add nuw nsw i32 %2550, %2531
   %2552 = sub nsw i32 %2523, %2550
   %2553 = sub nsw i32 %2552, %2541
   %2554 = add nsw i32 %2553, 256
   %or.cond.i819.i = icmp ult i32 %2554, 769
-  br i1 %or.cond.i819.i, label %2555, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit820.i
+  br i1 %or.cond.i819.i, label %2555, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit820.i
 
-2555:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit818.i
+2555:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit818.i
   %2556 = zext nneg i32 %2554 to i64
   %2557 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2556
   %2558 = load i8, ptr %2557, align 1
   %2559 = zext i8 %2558 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit820.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit820.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit820.i: ; preds = %2555, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit818.i
-  %2560 = phi i32 [ %2559, %2555 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit818.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit820.i: ; preds = %2555, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit818.i
+  %2560 = phi i32 [ %2559, %2555 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit818.i ]
   %2561 = add nsw i32 %2560, %2541
   %2562 = sub nsw i32 %2552, %2560
   %2563 = sub nsw i32 %2506, %2542
   %2564 = add nsw i32 %2563, 256
   %or.cond.i821.i = icmp ult i32 %2564, 769
-  br i1 %or.cond.i821.i, label %2565, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit822.i
+  br i1 %or.cond.i821.i, label %2565, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit822.i
 
-2565:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit820.i
+2565:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit820.i
   %2566 = zext nneg i32 %2564 to i64
   %2567 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2566
   %2568 = load i8, ptr %2567, align 1
   %2569 = zext i8 %2568 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit822.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit822.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit822.i: ; preds = %2565, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit820.i
-  %2570 = phi i32 [ %2569, %2565 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit820.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit822.i: ; preds = %2565, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit820.i
+  %2570 = phi i32 [ %2569, %2565 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit820.i ]
   %2571 = add nsw i32 %2570, %2542
   %2572 = sub nsw i32 %2506, %2570
   %2573 = sub nsw i32 %2515, %2561
   %2574 = add nsw i32 %2573, 256
   %or.cond.i823.i = icmp ult i32 %2574, 769
-  br i1 %or.cond.i823.i, label %2575, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit824.i
+  br i1 %or.cond.i823.i, label %2575, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit824.i
 
-2575:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit822.i
+2575:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit822.i
   %2576 = zext nneg i32 %2574 to i64
   %2577 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2576
   %2578 = load i8, ptr %2577, align 1
   %2579 = zext i8 %2578 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit824.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit824.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit824.i: ; preds = %2575, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit822.i
-  %2580 = phi i32 [ %2579, %2575 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit822.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit824.i: ; preds = %2575, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit822.i
+  %2580 = phi i32 [ %2579, %2575 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit822.i ]
   %2581 = add nsw i32 %2580, %2561
   %2582 = sub nsw i32 %2515, %2580
   %2583 = sub nsw i32 %2582, %2571
   %2584 = add nsw i32 %2583, 256
   %or.cond.i825.i = icmp ult i32 %2584, 769
-  br i1 %or.cond.i825.i, label %2585, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit826.i
+  br i1 %or.cond.i825.i, label %2585, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit826.i
 
-2585:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit824.i
+2585:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit824.i
   %2586 = zext nneg i32 %2584 to i64
   %2587 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2586
   %2588 = load i8, ptr %2587, align 1
   %2589 = zext i8 %2588 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit826.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit826.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit826.i: ; preds = %2585, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit824.i
-  %2590 = phi i32 [ %2589, %2585 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit824.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit826.i: ; preds = %2585, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit824.i
+  %2590 = phi i32 [ %2589, %2585 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit824.i ]
   %2591 = add nsw i32 %2590, %2571
   %2592 = sub nsw i32 %2582, %2590
   %2593 = sub nsw i32 %2516, %2562
   %2594 = add nsw i32 %2593, 256
   %or.cond.i827.i = icmp ult i32 %2594, 769
-  br i1 %or.cond.i827.i, label %2595, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit828.i
+  br i1 %or.cond.i827.i, label %2595, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit828.i
 
-2595:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit826.i
+2595:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit826.i
   %2596 = zext nneg i32 %2594 to i64
   %2597 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2596
   %2598 = load i8, ptr %2597, align 1
   %2599 = zext i8 %2598 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit828.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit828.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit828.i: ; preds = %2595, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit826.i
-  %2600 = phi i32 [ %2599, %2595 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit826.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit828.i: ; preds = %2595, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit826.i
+  %2600 = phi i32 [ %2599, %2595 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit826.i ]
   %2601 = add nsw i32 %2600, %2562
   %2602 = sub nsw i32 %2516, %2600
   %2603 = sub nsw i32 %2601, %2551
   %2604 = add nsw i32 %2603, 256
   %or.cond.i829.i = icmp ult i32 %2604, 769
-  br i1 %or.cond.i829.i, label %2605, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit830.i
+  br i1 %or.cond.i829.i, label %2605, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit830.i
 
-2605:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit828.i
+2605:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit828.i
   %2606 = zext nneg i32 %2604 to i64
   %2607 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2606
   %2608 = load i8, ptr %2607, align 1
   %2609 = zext i8 %2608 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit830.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit830.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit830.i: ; preds = %2605, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit828.i
-  %2610 = phi i32 [ %2609, %2605 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit828.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit830.i: ; preds = %2605, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit828.i
+  %2610 = phi i32 [ %2609, %2605 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit828.i ]
   %2611 = add nuw nsw i32 %2610, %2551
   %2612 = sub nsw i32 %2601, %2610
   %2613 = sub nsw i32 %2602, %2592
   %2614 = add nsw i32 %2613, 256
   %or.cond.i831.i = icmp ult i32 %2614, 769
-  br i1 %or.cond.i831.i, label %2615, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit832.i
+  br i1 %or.cond.i831.i, label %2615, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit832.i
 
-2615:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit830.i
+2615:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit830.i
   %2616 = zext nneg i32 %2614 to i64
   %2617 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2616
   %2618 = load i8, ptr %2617, align 1
   %2619 = zext i8 %2618 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit832.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit832.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit832.i: ; preds = %2615, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit830.i
-  %2620 = phi i32 [ %2619, %2615 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit830.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit832.i: ; preds = %2615, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit830.i
+  %2620 = phi i32 [ %2619, %2615 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit830.i ]
   %2621 = add nsw i32 %2620, %2592
   %2622 = sub nsw i32 %2602, %2620
   %2623 = sub nsw i32 %2591, %2612
   %2624 = add nsw i32 %2623, 256
   %or.cond.i833.i = icmp ult i32 %2624, 769
-  br i1 %or.cond.i833.i, label %2625, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit834.i
+  br i1 %or.cond.i833.i, label %2625, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit834.i
 
-2625:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit832.i
+2625:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit832.i
   %2626 = zext nneg i32 %2624 to i64
   %2627 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2626
   %2628 = load i8, ptr %2627, align 1
   %2629 = zext i8 %2628 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit834.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit834.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit834.i: ; preds = %2625, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit832.i
-  %2630 = phi i32 [ %2629, %2625 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit832.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit834.i: ; preds = %2625, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit832.i
+  %2630 = phi i32 [ %2629, %2625 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit832.i ]
   %2631 = add nsw i32 %2630, %2612
   %2632 = sub nsw i32 %2591, %2630
   %2633 = sub nsw i32 %2581, %2611
   %2634 = add nsw i32 %2633, 256
   %or.cond.i835.i = icmp ult i32 %2634, 769
-  br i1 %or.cond.i835.i, label %2635, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit836.i
+  br i1 %or.cond.i835.i, label %2635, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit836.i
 
-2635:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit834.i
+2635:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit834.i
   %2636 = zext nneg i32 %2634 to i64
   %2637 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2636
   %2638 = load i8, ptr %2637, align 1
   %2639 = zext i8 %2638 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit836.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit836.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit836.i: ; preds = %2635, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit834.i
-  %2640 = phi i32 [ %2639, %2635 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit834.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit836.i: ; preds = %2635, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit834.i
+  %2640 = phi i32 [ %2639, %2635 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit834.i ]
   %2641 = add nuw nsw i32 %2640, %2611
   %2642 = sub nsw i32 %2581, %2640
   %2643 = sub nsw i32 %2441, %2572
   %2644 = add nsw i32 %2643, 256
   %or.cond.i837.i = icmp ult i32 %2644, 769
-  br i1 %or.cond.i837.i, label %2645, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit838.i
+  br i1 %or.cond.i837.i, label %2645, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit838.i
 
-2645:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit836.i
+2645:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit836.i
   %2646 = zext nneg i32 %2644 to i64
   %2647 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2646
   %2648 = load i8, ptr %2647, align 1
   %2649 = zext i8 %2648 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit838.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit838.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit838.i: ; preds = %2645, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit836.i
-  %2650 = phi i32 [ %2649, %2645 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit836.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit838.i: ; preds = %2645, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit836.i
+  %2650 = phi i32 [ %2649, %2645 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit836.i ]
   %2651 = add nsw i32 %2650, %2572
   %2652 = sub nsw i32 %2441, %2650
   %2653 = sub nsw i32 %2490, %2631
   %2654 = add nsw i32 %2653, 256
   %or.cond.i839.i = icmp ult i32 %2654, 769
-  br i1 %or.cond.i839.i, label %2655, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit840.i
+  br i1 %or.cond.i839.i, label %2655, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit840.i
 
-2655:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit838.i
+2655:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit838.i
   %2656 = zext nneg i32 %2654 to i64
   %2657 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2656
   %2658 = load i8, ptr %2657, align 1
   %2659 = zext i8 %2658 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit840.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit840.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit840.i: ; preds = %2655, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit838.i
-  %2660 = phi i32 [ %2659, %2655 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit838.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit840.i: ; preds = %2655, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit838.i
+  %2660 = phi i32 [ %2659, %2655 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit838.i ]
   %2661 = add nsw i32 %2660, %2631
   %2662 = sub nsw i32 %2490, %2660
   %2663 = sub nsw i32 %2662, %2651
   %2664 = add nsw i32 %2663, 256
   %or.cond.i841.i = icmp ult i32 %2664, 769
-  br i1 %or.cond.i841.i, label %2665, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit842.i
+  br i1 %or.cond.i841.i, label %2665, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit842.i
 
-2665:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit840.i
+2665:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit840.i
   %2666 = zext nneg i32 %2664 to i64
   %2667 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2666
   %2668 = load i8, ptr %2667, align 1
   %2669 = zext i8 %2668 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit842.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit842.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit842.i: ; preds = %2665, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit840.i
-  %2670 = phi i32 [ %2669, %2665 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit840.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit842.i: ; preds = %2665, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit840.i
+  %2670 = phi i32 [ %2669, %2665 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit840.i ]
   %2671 = add nsw i32 %2670, %2651
   %2672 = sub nsw i32 %2662, %2670
   %2673 = sub nsw i32 %2480, %2621
   %2674 = add nsw i32 %2673, 256
   %or.cond.i843.i = icmp ult i32 %2674, 769
-  br i1 %or.cond.i843.i, label %2675, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit844.i
+  br i1 %or.cond.i843.i, label %2675, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit844.i
 
-2675:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit842.i
+2675:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit842.i
   %2676 = zext nneg i32 %2674 to i64
   %2677 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2676
   %2678 = load i8, ptr %2677, align 1
   %2679 = zext i8 %2678 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit844.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit844.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit844.i: ; preds = %2675, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit842.i
-  %2680 = phi i32 [ %2679, %2675 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit842.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit844.i: ; preds = %2675, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit842.i
+  %2680 = phi i32 [ %2679, %2675 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit842.i ]
   %2681 = add nsw i32 %2680, %2621
   %2682 = sub nsw i32 %2480, %2680
   %2683 = sub nsw i32 %2681, %2641
   %2684 = add nsw i32 %2683, 256
   %or.cond.i845.i = icmp ult i32 %2684, 769
-  br i1 %or.cond.i845.i, label %2685, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit846.i
+  br i1 %or.cond.i845.i, label %2685, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit846.i
 
-2685:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit844.i
+2685:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit844.i
   %2686 = zext nneg i32 %2684 to i64
   %2687 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2686
   %2688 = load i8, ptr %2687, align 1
   %2689 = zext i8 %2688 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit846.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit846.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit846.i: ; preds = %2685, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit844.i
-  %2690 = phi i32 [ %2689, %2685 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit844.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit846.i: ; preds = %2685, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit844.i
+  %2690 = phi i32 [ %2689, %2685 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit844.i ]
   %2691 = add nuw nsw i32 %2690, %2641
   %2692 = sub nsw i32 %2681, %2690
   %2693 = sub nsw i32 %2682, %2672
   %2694 = add nsw i32 %2693, 256
   %or.cond.i847.i = icmp ult i32 %2694, 769
-  br i1 %or.cond.i847.i, label %2695, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit848.i
+  br i1 %or.cond.i847.i, label %2695, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit848.i
 
-2695:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit846.i
+2695:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit846.i
   %2696 = zext nneg i32 %2694 to i64
   %2697 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2696
   %2698 = load i8, ptr %2697, align 1
   %2699 = zext i8 %2698 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit848.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit848.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit848.i: ; preds = %2695, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit846.i
-  %2700 = phi i32 [ %2699, %2695 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit846.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit848.i: ; preds = %2695, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit846.i
+  %2700 = phi i32 [ %2699, %2695 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit846.i ]
   %2701 = add nsw i32 %2700, %2672
   %2702 = sub nsw i32 %2682, %2700
   %2703 = sub nsw i32 %2671, %2692
   %2704 = add nsw i32 %2703, 256
   %or.cond.i849.i = icmp ult i32 %2704, 769
-  br i1 %or.cond.i849.i, label %2705, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit850.i
+  br i1 %or.cond.i849.i, label %2705, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit850.i
 
-2705:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit848.i
+2705:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit848.i
   %2706 = zext nneg i32 %2704 to i64
   %2707 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2706
   %2708 = load i8, ptr %2707, align 1
   %2709 = zext i8 %2708 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit850.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit850.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit850.i: ; preds = %2705, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit848.i
-  %2710 = phi i32 [ %2709, %2705 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit848.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit850.i: ; preds = %2705, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit848.i
+  %2710 = phi i32 [ %2709, %2705 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit848.i ]
   %2711 = add nsw i32 %2710, %2692
   %2712 = sub nsw i32 %2671, %2710
   %2713 = sub nsw i32 %2661, %2691
   %2714 = add nsw i32 %2713, 256
   %or.cond.i851.i = icmp ult i32 %2714, 769
-  br i1 %or.cond.i851.i, label %2715, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit852.i
+  br i1 %or.cond.i851.i, label %2715, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit852.i
 
-2715:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit850.i
+2715:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit850.i
   %2716 = zext nneg i32 %2714 to i64
   %2717 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2716
   %2718 = load i8, ptr %2717, align 1
   %2719 = zext i8 %2718 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit852.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit852.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit852.i: ; preds = %2715, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit850.i
-  %2720 = phi i32 [ %2719, %2715 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit850.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit852.i: ; preds = %2715, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit850.i
+  %2720 = phi i32 [ %2719, %2715 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit850.i ]
   %2721 = add nuw nsw i32 %2720, %2691
   %2722 = sub nsw i32 %2661, %2720
   %2723 = sub nsw i32 %2481, %2622
   %2724 = add nsw i32 %2723, 256
   %or.cond.i853.i = icmp ult i32 %2724, 769
-  br i1 %or.cond.i853.i, label %2725, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit854.i
+  br i1 %or.cond.i853.i, label %2725, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit854.i
 
-2725:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit852.i
+2725:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit852.i
   %2726 = zext nneg i32 %2724 to i64
   %2727 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2726
   %2728 = load i8, ptr %2727, align 1
   %2729 = zext i8 %2728 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit854.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit854.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit854.i: ; preds = %2725, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit852.i
-  %2730 = phi i32 [ %2729, %2725 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit852.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit854.i: ; preds = %2725, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit852.i
+  %2730 = phi i32 [ %2729, %2725 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit852.i ]
   %2731 = add nsw i32 %2730, %2622
   %2732 = sub nsw i32 %2481, %2730
   %2733 = sub nsw i32 %2450, %2642
   %2734 = add nsw i32 %2733, 256
   %or.cond.i855.i = icmp ult i32 %2734, 769
-  br i1 %or.cond.i855.i, label %2735, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit856.i
+  br i1 %or.cond.i855.i, label %2735, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit856.i
 
-2735:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit854.i
+2735:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit854.i
   %2736 = zext nneg i32 %2734 to i64
   %2737 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2736
   %2738 = load i8, ptr %2737, align 1
   %2739 = zext i8 %2738 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit856.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit856.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit856.i: ; preds = %2735, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit854.i
-  %2740 = phi i32 [ %2739, %2735 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit854.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit856.i: ; preds = %2735, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit854.i
+  %2740 = phi i32 [ %2739, %2735 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit854.i ]
   %2741 = add nsw i32 %2740, %2642
   %2742 = sub nsw i32 %2450, %2740
   %2743 = sub nsw i32 %2742, %2731
   %2744 = add nsw i32 %2743, 256
   %or.cond.i857.i = icmp ult i32 %2744, 769
-  br i1 %or.cond.i857.i, label %2745, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit858.i
+  br i1 %or.cond.i857.i, label %2745, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit858.i
 
-2745:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit856.i
+2745:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit856.i
   %2746 = zext nneg i32 %2744 to i64
   %2747 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2746
   %2748 = load i8, ptr %2747, align 1
   %2749 = zext i8 %2748 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit858.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit858.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit858.i: ; preds = %2745, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit856.i
-  %2750 = phi i32 [ %2749, %2745 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit856.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit858.i: ; preds = %2745, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit856.i
+  %2750 = phi i32 [ %2749, %2745 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit856.i ]
   %2751 = add nsw i32 %2750, %2731
   %2752 = sub nsw i32 %2742, %2750
   %2753 = sub nsw i32 %2491, %2632
   %2754 = add nsw i32 %2753, 256
   %or.cond.i859.i = icmp ult i32 %2754, 769
-  br i1 %or.cond.i859.i, label %2755, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit860.i
+  br i1 %or.cond.i859.i, label %2755, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit860.i
 
-2755:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit858.i
+2755:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit858.i
   %2756 = zext nneg i32 %2754 to i64
   %2757 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2756
   %2758 = load i8, ptr %2757, align 1
   %2759 = zext i8 %2758 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit860.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit860.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit860.i: ; preds = %2755, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit858.i
-  %2760 = phi i32 [ %2759, %2755 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit858.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit860.i: ; preds = %2755, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit858.i
+  %2760 = phi i32 [ %2759, %2755 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit858.i ]
   %2761 = add nsw i32 %2760, %2632
   %2762 = sub nsw i32 %2491, %2760
   %2763 = sub nsw i32 %2762, %2752
   %2764 = add nsw i32 %2763, 256
   %or.cond.i861.i = icmp ult i32 %2764, 769
-  br i1 %or.cond.i861.i, label %2765, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit862.i
+  br i1 %or.cond.i861.i, label %2765, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit862.i
 
-2765:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit860.i
+2765:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit860.i
   %2766 = zext nneg i32 %2764 to i64
   %2767 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2766
   %2768 = load i8, ptr %2767, align 1
   %2769 = zext i8 %2768 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit862.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit862.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit862.i: ; preds = %2765, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit860.i
-  %2770 = phi i32 [ %2769, %2765 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit860.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit862.i: ; preds = %2765, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit860.i
+  %2770 = phi i32 [ %2769, %2765 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit860.i ]
   %2771 = add nsw i32 %2770, %2752
   %2772 = sub nsw i32 %2762, %2770
   %2773 = sub nsw i32 %2751, %2761
   %2774 = add nsw i32 %2773, 256
   %or.cond.i863.i = icmp ult i32 %2774, 769
-  br i1 %or.cond.i863.i, label %2775, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit864.i
+  br i1 %or.cond.i863.i, label %2775, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit864.i
 
-2775:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit862.i
+2775:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit862.i
   %2776 = zext nneg i32 %2774 to i64
   %2777 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2776
   %2778 = load i8, ptr %2777, align 1
   %2779 = zext i8 %2778 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit864.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit864.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit864.i: ; preds = %2775, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit862.i
-  %2780 = phi i32 [ %2779, %2775 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit862.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit864.i: ; preds = %2775, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit862.i
+  %2780 = phi i32 [ %2779, %2775 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit862.i ]
   %2781 = add nsw i32 %2780, %2761
   %2782 = sub nsw i32 %2751, %2780
   %2783 = sub nsw i32 %2732, %2702
   %2784 = add nsw i32 %2783, 256
   %or.cond.i865.i = icmp ult i32 %2784, 769
-  br i1 %or.cond.i865.i, label %2785, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit866.i
+  br i1 %or.cond.i865.i, label %2785, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit866.i
 
-2785:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit864.i
+2785:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit864.i
   %2786 = zext nneg i32 %2784 to i64
   %2787 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2786
   %2788 = load i8, ptr %2787, align 1
   %2789 = zext i8 %2788 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit866.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit866.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit866.i: ; preds = %2785, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit864.i
-  %2790 = phi i32 [ %2789, %2785 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit864.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit866.i: ; preds = %2785, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit864.i
+  %2790 = phi i32 [ %2789, %2785 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit864.i ]
   %2791 = add nsw i32 %2790, %2702
   %2792 = sub nsw i32 %2732, %2790
   %2793 = sub nsw i32 %2772, %2701
   %2794 = add nsw i32 %2793, 256
   %or.cond.i867.i = icmp ult i32 %2794, 769
-  br i1 %or.cond.i867.i, label %2795, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit868.i
+  br i1 %or.cond.i867.i, label %2795, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit868.i
 
-2795:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit866.i
+2795:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit866.i
   %2796 = zext nneg i32 %2794 to i64
   %2797 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2796
   %2798 = load i8, ptr %2797, align 1
   %2799 = zext i8 %2798 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit868.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit868.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit868.i: ; preds = %2795, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit866.i
-  %2800 = phi i32 [ %2799, %2795 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit866.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit868.i: ; preds = %2795, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit866.i
+  %2800 = phi i32 [ %2799, %2795 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit866.i ]
   %2801 = add nsw i32 %2800, %2701
   %.neg1628.i = sub nsw i32 %2800, %2772
   %2802 = sub nsw i32 %2771, %2712
   %2803 = add nsw i32 %2802, 256
   %or.cond.i869.i = icmp ult i32 %2803, 769
-  br i1 %or.cond.i869.i, label %2804, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit870.i
+  br i1 %or.cond.i869.i, label %2804, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit870.i
 
-2804:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit868.i
+2804:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit868.i
   %2805 = zext nneg i32 %2803 to i64
   %2806 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2805
   %2807 = load i8, ptr %2806, align 1
   %2808 = zext i8 %2807 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit870.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit870.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit870.i: ; preds = %2804, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit868.i
-  %2809 = phi i32 [ %2808, %2804 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit868.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit870.i: ; preds = %2804, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit868.i
+  %2809 = phi i32 [ %2808, %2804 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit868.i ]
   %.neg1629.i = sub nsw i32 %2809, %2771
   %2810 = sub nsw i32 %2782, %2711
   %2811 = add nsw i32 %2810, 256
   %or.cond.i871.i = icmp ult i32 %2811, 769
-  br i1 %or.cond.i871.i, label %2812, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit872.i
+  br i1 %or.cond.i871.i, label %2812, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit872.i
 
-2812:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit870.i
+2812:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit870.i
   %2813 = zext nneg i32 %2811 to i64
   %2814 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2813
   %2815 = load i8, ptr %2814, align 1
   %2816 = zext i8 %2815 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit872.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit872.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit872.i: ; preds = %2812, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit870.i
-  %2817 = phi i32 [ %2816, %2812 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit870.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit872.i: ; preds = %2812, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit870.i
+  %2817 = phi i32 [ %2816, %2812 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit870.i ]
   %2818 = sub nsw i32 %2781, %2722
   %2819 = add nsw i32 %2818, 256
   %or.cond.i873.i = icmp ult i32 %2819, 769
-  br i1 %or.cond.i873.i, label %2820, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit874.i
+  br i1 %or.cond.i873.i, label %2820, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit874.i
 
-2820:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit872.i
+2820:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit872.i
   %2821 = zext nneg i32 %2819 to i64
   %2822 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2821
   %2823 = load i8, ptr %2822, align 1
   %2824 = zext i8 %2823 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit874.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit874.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit874.i: ; preds = %2820, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit872.i
-  %2825 = phi i32 [ %2824, %2820 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit872.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit874.i: ; preds = %2820, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit872.i
+  %2825 = phi i32 [ %2824, %2820 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit872.i ]
   %2826 = sub nsw i32 %2741, %2721
   %2827 = add nsw i32 %2826, 256
   %or.cond.i875.i = icmp ult i32 %2827, 769
-  br i1 %or.cond.i875.i, label %2828, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit876.i
+  br i1 %or.cond.i875.i, label %2828, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit876.i
 
-2828:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit874.i
+2828:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit874.i
   %2829 = zext nneg i32 %2827 to i64
   %2830 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2829
   %2831 = load i8, ptr %2830, align 1
   %2832 = zext i8 %2831 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit876.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit876.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit876.i: ; preds = %2828, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit874.i
-  %2833 = phi i32 [ %2832, %2828 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit874.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit876.i: ; preds = %2828, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit874.i
+  %2833 = phi i32 [ %2832, %2828 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit874.i ]
   %.neg741 = add nsw i32 %2055, 256
   %2834 = add nsw i32 %2225, %2652
   %2835 = sub nsw i32 %.neg741, %2834
   %or.cond.i877.i = icmp ult i32 %2835, 769
-  br i1 %or.cond.i877.i, label %2836, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit878.i
+  br i1 %or.cond.i877.i, label %2836, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit878.i
 
-2836:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit876.i
+2836:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit876.i
   %2837 = zext nneg i32 %2835 to i64
   %2838 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2837
   %2839 = load i8, ptr %2838, align 1
   %2840 = zext i8 %2839 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit878.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit878.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit878.i: ; preds = %2836, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit876.i
-  %2841 = phi i32 [ %2840, %2836 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit876.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit878.i: ; preds = %2836, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit876.i
+  %2841 = phi i32 [ %2840, %2836 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit876.i ]
   %2842 = add nsw i32 %2841, %2652
   %2843 = add nsw i32 %2275, 256
   %.neg1478.i = add nsw i32 %2843, %2368
   %2844 = add nsw i32 %2711, %2817
   %2845 = sub nsw i32 %.neg1478.i, %2844
   %or.cond.i879.i = icmp ult i32 %2845, 769
-  br i1 %or.cond.i879.i, label %2846, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit880.i
+  br i1 %or.cond.i879.i, label %2846, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit880.i
 
-2846:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit878.i
+2846:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit878.i
   %2847 = zext nneg i32 %2845 to i64
   %2848 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2847
   %2849 = load i8, ptr %2848, align 1
   %2850 = zext i8 %2849 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit880.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit880.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit880.i: ; preds = %2846, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit878.i
-  %2851 = phi i32 [ %2850, %2846 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit878.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit880.i: ; preds = %2846, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit878.i
+  %2851 = phi i32 [ %2850, %2846 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit878.i ]
   %2852 = add nsw i32 %2842, %2851
   %2853 = sub nsw i32 %.neg1478.i, %2852
   %or.cond.i881.i = icmp ult i32 %2853, 769
-  br i1 %or.cond.i881.i, label %2854, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit882.i
+  br i1 %or.cond.i881.i, label %2854, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit882.i
 
-2854:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit880.i
+2854:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit880.i
   %2855 = zext nneg i32 %2853 to i64
   %2856 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2855
   %2857 = load i8, ptr %2856, align 1
   %2858 = zext i8 %2857 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit882.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit882.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit882.i: ; preds = %2854, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit880.i
-  %2859 = phi i32 [ %2858, %2854 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit880.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit882.i: ; preds = %2854, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit880.i
+  %2859 = phi i32 [ %2858, %2854 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit880.i ]
   %2860 = add nsw i32 %2859, %2842
   %2861 = add nsw i32 %2265, 256
   %2862 = add nsw i32 %2861, %2352
   %2863 = sub nsw i32 %2862, %2801
   %or.cond.i883.i = icmp ult i32 %2863, 769
-  br i1 %or.cond.i883.i, label %2864, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit884.i
+  br i1 %or.cond.i883.i, label %2864, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit884.i
 
-2864:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit882.i
+2864:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit882.i
   %2865 = zext nneg i32 %2863 to i64
   %2866 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2865
   %2867 = load i8, ptr %2866, align 1
   %2868 = zext i8 %2867 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit884.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit884.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit884.i: ; preds = %2864, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit882.i
-  %2869 = phi i32 [ %2868, %2864 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit882.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit884.i: ; preds = %2864, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit882.i
+  %2869 = phi i32 [ %2868, %2864 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit882.i ]
   %2870 = add nsw i32 %2869, %2801
   %2871 = add nuw nsw i32 %2721, %2833
   %reass.sub881 = sub nsw i32 %2870, %2871
   %2872 = add nsw i32 %reass.sub881, 256
   %or.cond.i885.i = icmp ult i32 %2872, 769
-  br i1 %or.cond.i885.i, label %2873, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit886.i
+  br i1 %or.cond.i885.i, label %2873, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit886.i
 
-2873:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit884.i
+2873:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit884.i
   %2874 = zext nneg i32 %2872 to i64
   %2875 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2874
   %2876 = load i8, ptr %2875, align 1
   %2877 = zext i8 %2876 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit886.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit886.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit886.i: ; preds = %2873, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit884.i
-  %2878 = phi i32 [ %2877, %2873 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit884.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit886.i: ; preds = %2873, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit884.i
+  %2878 = phi i32 [ %2877, %2873 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit884.i ]
   %.neg.i = add nsw i32 %2860, 256
   %2879 = sub nsw i32 %.neg.i, %2870
   %2880 = add nsw i32 %2879, %2878
   %or.cond.i887.i = icmp ult i32 %2880, 769
-  br i1 %or.cond.i887.i, label %2881, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit888.i
+  br i1 %or.cond.i887.i, label %2881, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit888.i
 
-2881:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit886.i
+2881:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit886.i
   %2882 = zext nneg i32 %2880 to i64
   %2883 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2882
   %2884 = load i8, ptr %2883, align 1
   %2885 = zext i8 %2884 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit888.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit888.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit888.i: ; preds = %2881, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit886.i
-  %2886 = phi i32 [ %2885, %2881 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit886.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit888.i: ; preds = %2881, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit886.i
+  %2886 = phi i32 [ %2885, %2881 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit886.i ]
   %2887 = sub nsw i32 %2860, %2886
   %2888 = add nsw i32 %2266, 256
   %2889 = add nsw i32 %2888, %2344
   %2890 = sub nsw i32 %2889, %2791
   %or.cond.i889.i = icmp ult i32 %2890, 769
-  br i1 %or.cond.i889.i, label %2891, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit890.i
+  br i1 %or.cond.i889.i, label %2891, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit890.i
 
-2891:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit888.i
+2891:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit888.i
   %2892 = zext nneg i32 %2890 to i64
   %2893 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2892
   %2894 = load i8, ptr %2893, align 1
   %2895 = zext i8 %2894 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit890.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit890.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit890.i: ; preds = %2891, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit888.i
-  %2896 = phi i32 [ %2895, %2891 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit888.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit890.i: ; preds = %2891, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit888.i
+  %2896 = phi i32 [ %2895, %2891 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit888.i ]
   %.neg756 = add nsw i32 %2378, 256
   %2897 = add nsw i32 %2722, %2825
   %2898 = sub nsw i32 %.neg756, %2897
   %or.cond.i891.i = icmp ult i32 %2898, 769
-  br i1 %or.cond.i891.i, label %2899, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit892.i
+  br i1 %or.cond.i891.i, label %2899, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit892.i
 
-2899:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit890.i
+2899:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit890.i
   %2900 = zext nneg i32 %2898 to i64
   %2901 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2900
   %2902 = load i8, ptr %2901, align 1
   %2903 = zext i8 %2902 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit892.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit892.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit892.i: ; preds = %2899, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit890.i
-  %2904 = phi i32 [ %2903, %2899 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit890.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit892.i: ; preds = %2899, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit890.i
+  %2904 = phi i32 [ %2903, %2899 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit890.i ]
   %2905 = sub nsw i32 %2378, %2904
   %2906 = add nsw i32 %2791, %2896
   %reass.sub882 = sub nsw i32 %2905, %2906
   %2907 = add nsw i32 %reass.sub882, 256
   %or.cond.i893.i = icmp ult i32 %2907, 769
-  br i1 %or.cond.i893.i, label %2908, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit894.i
+  br i1 %or.cond.i893.i, label %2908, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit894.i
 
-2908:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit892.i
+2908:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit892.i
   %2909 = zext nneg i32 %2907 to i64
   %2910 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2909
   %2911 = load i8, ptr %2910, align 1
   %2912 = zext i8 %2911 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit894.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit894.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit894.i: ; preds = %2908, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit892.i
-  %2913 = phi i32 [ %2912, %2908 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit892.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit894.i: ; preds = %2908, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit892.i
+  %2913 = phi i32 [ %2912, %2908 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit892.i ]
   %2914 = sub nsw i32 %2905, %2913
   %2915 = add nsw i32 %2276, 256
   %.neg1495.i = add nsw i32 %2915, %2360
   %2916 = add nsw i32 %2712, %2809
   %2917 = sub nsw i32 %.neg1495.i, %2916
   %or.cond.i895.i = icmp ult i32 %2917, 769
-  br i1 %or.cond.i895.i, label %2918, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit896.i
+  br i1 %or.cond.i895.i, label %2918, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit896.i
 
-2918:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit894.i
+2918:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit894.i
   %2919 = zext nneg i32 %2917 to i64
   %2920 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2919
   %2921 = load i8, ptr %2920, align 1
   %2922 = zext i8 %2921 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit896.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit896.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit896.i: ; preds = %2918, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit894.i
-  %2923 = phi i32 [ %2922, %2918 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit894.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit896.i: ; preds = %2918, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit894.i
+  %2923 = phi i32 [ %2922, %2918 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit894.i ]
   %2924 = add nsw i32 %2914, %2923
   %2925 = sub nsw i32 %.neg1495.i, %2924
   %or.cond.i897.i = icmp ult i32 %2925, 769
-  br i1 %or.cond.i897.i, label %2926, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit898.i
+  br i1 %or.cond.i897.i, label %2926, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit898.i
 
-2926:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit896.i
+2926:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit896.i
   %2927 = zext nneg i32 %2925 to i64
   %2928 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2927
   %2929 = load i8, ptr %2928, align 1
   %2930 = zext i8 %2929 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit898.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit898.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit898.i: ; preds = %2926, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit896.i
-  %2931 = phi i32 [ %2930, %2926 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit896.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit898.i: ; preds = %2926, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit896.i
+  %2931 = phi i32 [ %2930, %2926 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit896.i ]
   %reass.sub883 = sub nsw i32 %2914, %2887
   %2932 = add nsw i32 %reass.sub883, 256
   %2933 = add nsw i32 %2932, %2931
   %or.cond.i899.i = icmp ult i32 %2933, 769
-  br i1 %or.cond.i899.i, label %2934, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit900.i
+  br i1 %or.cond.i899.i, label %2934, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit900.i
 
-2934:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit898.i
+2934:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit898.i
   %2935 = zext nneg i32 %2933 to i64
   %2936 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2935
   %2937 = load i8, ptr %2936, align 1
   %2938 = zext i8 %2937 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit900.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit900.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit900.i: ; preds = %2934, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit898.i
-  %2939 = phi i32 [ %2938, %2934 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit898.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit900.i: ; preds = %2934, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit898.i
+  %2939 = phi i32 [ %2938, %2934 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit898.i ]
   %2940 = add nsw i32 %2939, %2887
   %.neg768 = add nsw i32 %2286, 256
   %2941 = add nsw i32 %2344, %2792
   %2942 = sub nsw i32 %.neg768, %2941
   %or.cond.i901.i = icmp ult i32 %2942, 769
-  br i1 %or.cond.i901.i, label %2943, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit902.i
+  br i1 %or.cond.i901.i, label %2943, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit902.i
 
-2943:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit900.i
+2943:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit900.i
   %2944 = zext nneg i32 %2942 to i64
   %2945 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2944
   %2946 = load i8, ptr %2945, align 1
   %2947 = zext i8 %2946 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit902.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit902.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit902.i: ; preds = %2943, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit900.i
-  %2948 = phi i32 [ %2947, %2943 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit900.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit902.i: ; preds = %2943, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit900.i
+  %2948 = phi i32 [ %2947, %2943 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit900.i ]
   %2949 = add nsw i32 %2948, %2792
   %.neg1444.i = add nsw i32 %2379, 256
   %2950 = sub nsw i32 %.neg1444.i, %2781
   %2951 = add nsw i32 %2825, %2950
   %or.cond.i903.i = icmp ult i32 %2951, 769
-  br i1 %or.cond.i903.i, label %2952, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit904.i
+  br i1 %or.cond.i903.i, label %2952, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit904.i
 
-2952:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit902.i
+2952:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit902.i
   %2953 = zext nneg i32 %2951 to i64
   %2954 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2953
   %2955 = load i8, ptr %2954, align 1
   %2956 = zext i8 %2955 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit904.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit904.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit904.i: ; preds = %2952, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit902.i
-  %2957 = phi i32 [ %2956, %2952 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit902.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit904.i: ; preds = %2952, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit902.i
+  %2957 = phi i32 [ %2956, %2952 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit902.i ]
   %2958 = add nsw i32 %2949, %2957
   %2959 = sub nsw i32 %.neg1444.i, %2958
   %or.cond.i905.i = icmp ult i32 %2959, 769
-  br i1 %or.cond.i905.i, label %2960, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit906.i
+  br i1 %or.cond.i905.i, label %2960, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit906.i
 
-2960:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit904.i
+2960:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit904.i
   %2961 = zext nneg i32 %2959 to i64
   %2962 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2961
   %2963 = load i8, ptr %2962, align 1
   %2964 = zext i8 %2963 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit906.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit906.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit906.i: ; preds = %2960, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit904.i
-  %2965 = phi i32 [ %2964, %2960 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit904.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit906.i: ; preds = %2960, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit904.i
+  %2965 = phi i32 [ %2964, %2960 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit904.i ]
   %2966 = add nsw i32 %2965, %2949
   %.neg1508.i = add nsw i32 %2325, 256
   %2967 = sub nsw i32 %.neg1508.i, %2360
   %2968 = add nsw i32 %2967, %.neg1629.i
   %or.cond.i907.i = icmp ult i32 %2968, 769
-  br i1 %or.cond.i907.i, label %2969, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit908.i
+  br i1 %or.cond.i907.i, label %2969, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit908.i
 
-2969:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit906.i
+2969:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit906.i
   %2970 = zext nneg i32 %2968 to i64
   %2971 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2970
   %2972 = load i8, ptr %2971, align 1
   %2973 = zext i8 %2972 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit908.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit908.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit908.i: ; preds = %2969, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit906.i
-  %2974 = phi i32 [ %2973, %2969 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit906.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit908.i: ; preds = %2969, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit906.i
+  %2974 = phi i32 [ %2973, %2969 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit906.i ]
   %.neg1510.i = add nsw i32 %.neg1629.i, 256
   %2975 = add nsw i32 %.neg1510.i, %2966
   %2976 = sub nsw i32 %2975, %2974
   %or.cond.i909.i = icmp ult i32 %2976, 769
-  br i1 %or.cond.i909.i, label %2977, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit910.i
+  br i1 %or.cond.i909.i, label %2977, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit910.i
 
-2977:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit908.i
+2977:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit908.i
   %2978 = zext nneg i32 %2976 to i64
   %2979 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2978
   %2980 = load i8, ptr %2979, align 1
   %2981 = zext i8 %2980 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit910.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit910.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit910.i: ; preds = %2977, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit908.i
-  %2982 = phi i32 [ %2981, %2977 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit908.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit910.i: ; preds = %2977, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit908.i
+  %2982 = phi i32 [ %2981, %2977 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit908.i ]
   %.neg1514.i = add nsw i32 %2326, 256
   %2983 = sub nsw i32 %.neg1514.i, %2352
   %2984 = add nsw i32 %2983, %.neg1628.i
   %or.cond.i911.i = icmp ult i32 %2984, 769
-  br i1 %or.cond.i911.i, label %2985, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit912.i
+  br i1 %or.cond.i911.i, label %2985, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit912.i
 
-2985:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit910.i
+2985:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit910.i
   %2986 = zext nneg i32 %2984 to i64
   %2987 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2986
   %2988 = load i8, ptr %2987, align 1
   %2989 = zext i8 %2988 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit912.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit912.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit912.i: ; preds = %2985, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit910.i
-  %2990 = phi i32 [ %2989, %2985 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit910.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit912.i: ; preds = %2985, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit910.i
+  %2990 = phi i32 [ %2989, %2985 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit910.i ]
   %.neg1445.i = add nuw nsw i32 %2295, 256
   %2991 = sub nsw i32 %.neg1445.i, %2741
   %2992 = add nsw i32 %2991, %2833
   %or.cond.i913.i = icmp ult i32 %2992, 769
-  br i1 %or.cond.i913.i, label %2993, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit914.i
+  br i1 %or.cond.i913.i, label %2993, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit914.i
 
-2993:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit912.i
+2993:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit912.i
   %2994 = zext nneg i32 %2992 to i64
   %2995 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %2994
   %2996 = load i8, ptr %2995, align 1
   %2997 = zext i8 %2996 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit914.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit914.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit914.i: ; preds = %2993, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit912.i
-  %2998 = phi i32 [ %2997, %2993 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit912.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit914.i: ; preds = %2993, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit912.i
+  %2998 = phi i32 [ %2997, %2993 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit912.i ]
   %2999 = sub nsw i32 %2295, %2998
   %.neg1516.i = add nsw i32 %.neg1628.i, 256
   %3000 = sub nsw i32 %.neg1516.i, %2990
   %3001 = add nsw i32 %3000, %2999
   %or.cond.i915.i = icmp ult i32 %3001, 769
-  br i1 %or.cond.i915.i, label %3002, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit916.i
+  br i1 %or.cond.i915.i, label %3002, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit916.i
 
-3002:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit914.i
+3002:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit914.i
   %3003 = zext nneg i32 %3001 to i64
   %3004 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %3003
   %3005 = load i8, ptr %3004, align 1
   %3006 = zext i8 %3005 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit916.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit916.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit916.i: ; preds = %3002, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit914.i
-  %3007 = phi i32 [ %3006, %3002 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit914.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit916.i: ; preds = %3002, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit914.i
+  %3007 = phi i32 [ %3006, %3002 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit914.i ]
   %3008 = sub nsw i32 %2999, %3007
   %.neg1446.i = add nsw i32 %2369, 256
   %3009 = sub nsw i32 %.neg1446.i, %2782
   %3010 = add nsw i32 %2817, %3009
   %or.cond.i917.i = icmp ult i32 %3010, 769
-  br i1 %or.cond.i917.i, label %3011, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit918.i
+  br i1 %or.cond.i917.i, label %3011, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit918.i
 
-3011:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit916.i
+3011:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit916.i
   %3012 = zext nneg i32 %3010 to i64
   %3013 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %3012
   %3014 = load i8, ptr %3013, align 1
   %3015 = zext i8 %3014 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit918.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit918.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit918.i: ; preds = %3011, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit916.i
-  %3016 = phi i32 [ %3015, %3011 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit916.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit918.i: ; preds = %3011, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit916.i
+  %3016 = phi i32 [ %3015, %3011 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit916.i ]
   %3017 = add nsw i32 %3008, %3016
   %3018 = sub nsw i32 %.neg1446.i, %3017
   %or.cond.i919.i = icmp ult i32 %3018, 769
-  br i1 %or.cond.i919.i, label %3019, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit920.i
+  br i1 %or.cond.i919.i, label %3019, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit920.i
 
-3019:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit918.i
+3019:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit918.i
   %3020 = zext nneg i32 %3018 to i64
   %3021 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %3020
   %3022 = load i8, ptr %3021, align 1
   %3023 = zext i8 %3022 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit920.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit920.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit920.i: ; preds = %3019, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit918.i
-  %3024 = phi i32 [ %3023, %3019 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit918.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit920.i: ; preds = %3019, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit918.i
+  %3024 = phi i32 [ %3023, %3019 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit918.i ]
   %3025 = add nsw i32 %3024, %3008
   %reass.sub884 = sub nsw i32 %2982, %2966
   %3026 = add nsw i32 %reass.sub884, 256
   %3027 = add nsw i32 %3026, %3025
   %or.cond.i921.i = icmp ult i32 %3027, 769
-  br i1 %or.cond.i921.i, label %3028, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit922.i
+  br i1 %or.cond.i921.i, label %3028, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit922.i
 
-3028:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit920.i
+3028:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit920.i
   %3029 = zext nneg i32 %3027 to i64
   %3030 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %3029
   %3031 = load i8, ptr %3030, align 1
   %3032 = zext i8 %3031 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit922.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit922.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit922.i: ; preds = %3028, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit920.i
-  %3033 = phi i32 [ %3032, %3028 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit920.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit922.i: ; preds = %3028, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit920.i
+  %3033 = phi i32 [ %3032, %3028 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit920.i ]
   %3034 = add nsw i32 %3025, 256
   %3035 = add nsw i32 %2940, %3033
   %3036 = sub nsw i32 %3034, %3035
   %or.cond.i923.i = icmp ult i32 %3036, 769
-  br i1 %or.cond.i923.i, label %3037, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit924.i
+  br i1 %or.cond.i923.i, label %3037, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit924.i
 
-3037:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit922.i
+3037:                                             ; preds = %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit922.i
   %3038 = zext nneg i32 %3036 to i64
   %3039 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %3038
   %3040 = load i8, ptr %3039, align 1
   %3041 = zext i8 %3040 to i32
-  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit924.i
+  br label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit924.i
 
-_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit924.i: ; preds = %3037, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit922.i
-  %3042 = phi i32 [ %3041, %3037 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit922.i ]
+_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit924.i: ; preds = %3037, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit922.i
+  %3042 = phi i32 [ %3041, %3037 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit922.i ]
   %3043 = add nsw i32 %3042, %2940
   %3044 = getelementptr inbounds i8, ptr %.33141604.i, i64 %indvars.iv1656.i
   %3045 = trunc i32 %3043 to i8
   store i8 %3045, ptr %3044, align 1
   %indvars.iv.next1657.i = add nsw i64 %indvars.iv1656.i, 1
   %.not.not.i = icmp slt i64 %indvars.iv1656.i, %716
-  br i1 %.not.not.i, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit700.i, label %.loopexit1596.loopexit.i, !llvm.loop !16
+  br i1 %.not.not.i, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.argprom.exit700.i, label %.loopexit1596.loopexit.i, !llvm.loop !16
 
 3046:                                             ; preds = %._crit_edge.i
   %3047 = getelementptr inbounds i8, ptr %.33141604.i, i64 %712

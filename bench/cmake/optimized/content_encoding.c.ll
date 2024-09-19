@@ -356,18 +356,18 @@ define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %7
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 10:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 1, ptr %12, align 8
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
-process_zlib_error.exit:                          ; preds = %10, %9, %11
+process_zlib_error.argprom.exit:                  ; preds = %10, %9, %11
   %.0 = phi i32 [ 0, %11 ], [ 61, %9 ], [ 61, %10 ]
   ret i32 %.0
 }
@@ -432,7 +432,7 @@ define internal void @deflate_do_close(ptr noundef %0, ptr noundef %1) #0 {
 12:                                               ; preds = %10
   %13 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %3) #7
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %process_zlib_error.exit.i, label %14
+  br i1 %.not, label %process_zlib_error.argprom.exit.i, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr i8, ptr %1, i64 80
@@ -442,17 +442,17 @@ define internal void @deflate_do_close(ptr noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %14
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val.i) #7
-  br label %process_zlib_error.exit.i
+  br label %process_zlib_error.argprom.exit.i
 
 17:                                               ; preds = %14
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit.i
+  br label %process_zlib_error.argprom.exit.i
 
-process_zlib_error.exit.i:                        ; preds = %17, %16, %12
+process_zlib_error.argprom.exit.i:                ; preds = %17, %16, %12
   store i32 0, ptr %4, align 4
   br label %exit_zlib.exit
 
-exit_zlib.exit:                                   ; preds = %10, %process_zlib_error.exit.i
+exit_zlib.exit:                                   ; preds = %10, %process_zlib_error.argprom.exit.i
   ret void
 }
 
@@ -511,9 +511,9 @@ define internal fastcc range(i32 0, 62) i32 @process_trailer(ptr noundef %0, ptr
 18:                                               ; preds = %16, %.split
   %19 = phi i32 [ %.pr.i, %16 ], [ %14, %.split ]
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %exit_zlib.exit, label %process_zlib_error.exit.i
+  br i1 %.not.i, label %exit_zlib.exit, label %process_zlib_error.argprom.exit.i
 
-process_zlib_error.exit.i:                        ; preds = %18
+process_zlib_error.argprom.exit.i:                ; preds = %18
   %20 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %3) #7
   store i32 0, ptr %13, align 4
   br label %exit_zlib.exit
@@ -543,7 +543,7 @@ process_zlib_error.exit.i:                        ; preds = %18
 29:                                               ; preds = %27
   %30 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %3) #7
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %process_zlib_error.exit.i26, label %31
+  br i1 %.not, label %process_zlib_error.argprom.exit.i26, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr i8, ptr %1, i64 80
@@ -553,13 +553,13 @@ process_zlib_error.exit.i:                        ; preds = %18
 
 33:                                               ; preds = %31
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val.i29) #7
-  br label %process_zlib_error.exit.i26
+  br label %process_zlib_error.argprom.exit.i26
 
 34:                                               ; preds = %31
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit.i26
+  br label %process_zlib_error.argprom.exit.i26
 
-process_zlib_error.exit.i26:                      ; preds = %34, %33, %29
+process_zlib_error.argprom.exit.i26:              ; preds = %34, %33, %29
   %.1.i27 = phi i32 [ 0, %29 ], [ 61, %33 ], [ 61, %34 ]
   store i32 0, ptr %22, align 4
   br label %exit_zlib.exit
@@ -568,8 +568,8 @@ process_zlib_error.exit.i26:                      ; preds = %34, %33, %29
   store i32 3, ptr %22, align 8
   br label %exit_zlib.exit
 
-exit_zlib.exit:                                   ; preds = %process_zlib_error.exit.i26, %27, %process_zlib_error.exit.i, %18, %35
-  %.1 = phi i32 [ 0, %35 ], [ 23, %process_zlib_error.exit.i ], [ 23, %18 ], [ %.1.i27, %process_zlib_error.exit.i26 ], [ 0, %27 ]
+exit_zlib.exit:                                   ; preds = %process_zlib_error.argprom.exit.i26, %27, %process_zlib_error.argprom.exit.i, %18, %35
+  %.1 = phi i32 [ 0, %35 ], [ 23, %process_zlib_error.argprom.exit.i ], [ 23, %18 ], [ %.1.i27, %process_zlib_error.argprom.exit.i26 ], [ 0, %27 ]
   ret i32 %.1
 }
 
@@ -678,9 +678,9 @@ exit_zlib.exit97:                                 ; preds = %exit_zlib.exit97.ba
 48:                                               ; preds = %45, %42
   %49 = phi i32 [ %.pr.i86, %45 ], [ %43, %42 ]
   %.not.i84 = icmp eq i32 %49, 0
-  br i1 %.not.i84, label %exit_zlib.exit87, label %process_zlib_error.exit.i
+  br i1 %.not.i84, label %exit_zlib.exit87, label %process_zlib_error.argprom.exit.i
 
-process_zlib_error.exit.i:                        ; preds = %48
+process_zlib_error.argprom.exit.i:                ; preds = %48
   %50 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %5) #7
   store i32 0, ptr %9, align 4
   br label %exit_zlib.exit87
@@ -729,18 +729,18 @@ exit_zlib.exit97.backedge:                        ; preds = %51, %61
 
 63:                                               ; preds = %.loopexit
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val79) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 64:                                               ; preds = %.loopexit
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
-process_zlib_error.exit:                          ; preds = %63, %64
+process_zlib_error.argprom.exit:                  ; preds = %63, %64
   %65 = load i32, ptr %9, align 4
   %66 = icmp eq i32 %65, 4
   br i1 %66, label %67, label %70
 
-67:                                               ; preds = %process_zlib_error.exit
+67:                                               ; preds = %process_zlib_error.argprom.exit
   %68 = load ptr, ptr @Curl_cfree, align 8
   %69 = load ptr, ptr %5, align 8
   tail call void %68(ptr noundef %69) #7
@@ -748,8 +748,8 @@ process_zlib_error.exit:                          ; preds = %63, %64
   %.pr.i96 = load i32, ptr %9, align 4
   br label %70
 
-70:                                               ; preds = %67, %process_zlib_error.exit
-  %71 = phi i32 [ %.pr.i96, %67 ], [ %65, %process_zlib_error.exit ]
+70:                                               ; preds = %67, %process_zlib_error.argprom.exit
+  %71 = phi i32 [ %.pr.i96, %67 ], [ %65, %process_zlib_error.argprom.exit ]
   %.not.i89 = icmp eq i32 %71, 0
   br i1 %.not.i89, label %exit_zlib.exit87, label %72
 
@@ -765,18 +765,18 @@ process_zlib_error.exit:                          ; preds = %63, %64
 
 75:                                               ; preds = %74
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val) #7
-  br label %process_zlib_error.exit99
+  br label %process_zlib_error.argprom.exit99
 
 76:                                               ; preds = %74
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit99
+  br label %process_zlib_error.argprom.exit99
 
-process_zlib_error.exit99:                        ; preds = %75, %76
+process_zlib_error.argprom.exit99:                ; preds = %75, %76
   %77 = load i32, ptr %9, align 4
   %78 = icmp eq i32 %77, 4
   br i1 %78, label %79, label %82
 
-79:                                               ; preds = %process_zlib_error.exit99
+79:                                               ; preds = %process_zlib_error.argprom.exit99
   %80 = load ptr, ptr @Curl_cfree, align 8
   %81 = load ptr, ptr %5, align 8
   tail call void %80(ptr noundef %81) #7
@@ -784,8 +784,8 @@ process_zlib_error.exit99:                        ; preds = %75, %76
   %.pr.i107 = load i32, ptr %9, align 4
   br label %82
 
-82:                                               ; preds = %79, %process_zlib_error.exit99
-  %83 = phi i32 [ %.pr.i107, %79 ], [ %77, %process_zlib_error.exit99 ]
+82:                                               ; preds = %79, %process_zlib_error.argprom.exit99
+  %83 = phi i32 [ %.pr.i107, %79 ], [ %77, %process_zlib_error.argprom.exit99 ]
   %.not.i100 = icmp eq i32 %83, 0
   br i1 %.not.i100, label %exit_zlib.exit87, label %84
 
@@ -794,8 +794,8 @@ process_zlib_error.exit99:                        ; preds = %75, %76
   store i32 0, ptr %9, align 4
   br label %exit_zlib.exit87
 
-exit_zlib.exit87:                                 ; preds = %51, %84, %82, %72, %70, %52, %process_zlib_error.exit.i, %48
-  %.167 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.exit.i ], [ 61, %84 ], [ 61, %82 ], [ 61, %72 ], [ 61, %70 ], [ %53, %52 ], [ 0, %51 ]
+exit_zlib.exit87:                                 ; preds = %51, %84, %82, %72, %70, %52, %process_zlib_error.argprom.exit.i, %48
+  %.167 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.argprom.exit.i ], [ 61, %84 ], [ 61, %82 ], [ 61, %72 ], [ 61, %70 ], [ %53, %52 ], [ 0, %51 ]
   %86 = load ptr, ptr @Curl_cfree, align 8
   tail call void %86(ptr noundef nonnull %19) #7
   %.not77 = icmp eq i32 %7, 0
@@ -839,7 +839,7 @@ define internal fastcc noundef i32 @exit_zlib(ptr noundef %0, ptr noundef %1, pt
   %14 = icmp ne i32 %13, 0
   %15 = icmp eq i32 %3, 0
   %or.cond = and i1 %15, %14
-  br i1 %or.cond, label %16, label %process_zlib_error.exit
+  br i1 %or.cond, label %16, label %process_zlib_error.argprom.exit
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %1, i64 48
@@ -849,19 +849,19 @@ define internal fastcc noundef i32 @exit_zlib(ptr noundef %0, ptr noundef %1, pt
 
 18:                                               ; preds = %16
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 19:                                               ; preds = %16
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
-process_zlib_error.exit:                          ; preds = %19, %18, %12
+process_zlib_error.argprom.exit:                  ; preds = %19, %18, %12
   %.1 = phi i32 [ %3, %12 ], [ 61, %18 ], [ 61, %19 ]
   store i32 0, ptr %2, align 4
   br label %20
 
-20:                                               ; preds = %process_zlib_error.exit, %10
-  %.0 = phi i32 [ %.1, %process_zlib_error.exit ], [ %3, %10 ]
+20:                                               ; preds = %process_zlib_error.argprom.exit, %10
+  %.0 = phi i32 [ %.1, %process_zlib_error.argprom.exit ], [ %3, %10 ]
   ret i32 %.0
 }
 
@@ -896,16 +896,16 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef %
 
 13:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val14) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 14:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 6, ptr %16, align 8
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 17:                                               ; preds = %2
   %18 = tail call i32 @cm_zlib_inflateInit2_(ptr noundef nonnull %3, i32 noundef -15, ptr noundef nonnull @.str.5, i32 noundef 112) #7
@@ -920,20 +920,20 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %19
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 22:                                               ; preds = %19
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %1, i64 28
   store i32 8, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 1, ptr %25, align 8
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
-process_zlib_error.exit:                          ; preds = %22, %21, %14, %13, %15, %23
+process_zlib_error.argprom.exit:                  ; preds = %22, %21, %14, %13, %15, %23
   %.0 = phi i32 [ 0, %23 ], [ 0, %15 ], [ 61, %13 ], [ 61, %14 ], [ 61, %21 ], [ 61, %22 ]
   ret i32 %.0
 }
@@ -1120,18 +1120,18 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 78:                                               ; preds = %76
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val89) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
 79:                                               ; preds = %76
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit
+  br label %process_zlib_error.argprom.exit
 
-process_zlib_error.exit:                          ; preds = %78, %79
+process_zlib_error.argprom.exit:                  ; preds = %78, %79
   %80 = load i32, ptr %13, align 4
   %81 = icmp eq i32 %80, 4
   br i1 %81, label %82, label %85
 
-82:                                               ; preds = %process_zlib_error.exit
+82:                                               ; preds = %process_zlib_error.argprom.exit
   %83 = load ptr, ptr @Curl_cfree, align 8
   %84 = load ptr, ptr %6, align 8
   tail call void %83(ptr noundef %84) #7
@@ -1139,8 +1139,8 @@ process_zlib_error.exit:                          ; preds = %78, %79
   %.pr.i = load i32, ptr %13, align 4
   br label %85
 
-85:                                               ; preds = %82, %process_zlib_error.exit
-  %86 = phi i32 [ %.pr.i, %82 ], [ %80, %process_zlib_error.exit ]
+85:                                               ; preds = %82, %process_zlib_error.argprom.exit
+  %86 = phi i32 [ %.pr.i, %82 ], [ %80, %process_zlib_error.argprom.exit ]
   %.not.i91 = icmp eq i32 %86, 0
   br i1 %.not.i91, label %exit_zlib.exit, label %87
 
@@ -1329,18 +1329,18 @@ process_zlib_error.exit:                          ; preds = %78, %79
 
 169:                                              ; preds = %167
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val) #7
-  br label %process_zlib_error.exit135
+  br label %process_zlib_error.argprom.exit135
 
 170:                                              ; preds = %167
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit135
+  br label %process_zlib_error.argprom.exit135
 
-process_zlib_error.exit135:                       ; preds = %169, %170
+process_zlib_error.argprom.exit135:               ; preds = %169, %170
   %171 = load i32, ptr %13, align 4
   %172 = icmp eq i32 %171, 4
   br i1 %172, label %173, label %176
 
-173:                                              ; preds = %process_zlib_error.exit135
+173:                                              ; preds = %process_zlib_error.argprom.exit135
   %174 = load ptr, ptr @Curl_cfree, align 8
   %175 = load ptr, ptr %6, align 8
   tail call void %174(ptr noundef %175) #7
@@ -1348,8 +1348,8 @@ process_zlib_error.exit135:                       ; preds = %169, %170
   %.pr.i140 = load i32, ptr %13, align 4
   br label %176
 
-176:                                              ; preds = %173, %process_zlib_error.exit135
-  %177 = phi i32 [ %.pr.i140, %173 ], [ %171, %process_zlib_error.exit135 ]
+176:                                              ; preds = %173, %process_zlib_error.argprom.exit135
+  %177 = phi i32 [ %.pr.i140, %173 ], [ %171, %process_zlib_error.argprom.exit135 ]
   %.not.i136 = icmp eq i32 %177, 0
   br i1 %.not.i136, label %exit_zlib.exit, label %178
 
@@ -1411,7 +1411,7 @@ define internal void @gzip_do_close(ptr noundef %0, ptr noundef %1) #0 {
 12:                                               ; preds = %10
   %13 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %3) #7
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %process_zlib_error.exit.i, label %14
+  br i1 %.not, label %process_zlib_error.argprom.exit.i, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr i8, ptr %1, i64 80
@@ -1421,17 +1421,17 @@ define internal void @gzip_do_close(ptr noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %14
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val.i) #7
-  br label %process_zlib_error.exit.i
+  br label %process_zlib_error.argprom.exit.i
 
 17:                                               ; preds = %14
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit.i
+  br label %process_zlib_error.argprom.exit.i
 
-process_zlib_error.exit.i:                        ; preds = %17, %16, %12
+process_zlib_error.argprom.exit.i:                ; preds = %17, %16, %12
   store i32 0, ptr %4, align 4
   br label %exit_zlib.exit
 
-exit_zlib.exit:                                   ; preds = %10, %process_zlib_error.exit.i
+exit_zlib.exit:                                   ; preds = %10, %process_zlib_error.argprom.exit.i
   ret void
 }
 

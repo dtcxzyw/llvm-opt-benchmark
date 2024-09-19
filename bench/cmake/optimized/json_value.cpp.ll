@@ -5228,7 +5228,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   store ptr null, ptr %3, align 8, !alias.scope !14
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.exit, label %4
+  br i1 %.not.i, label %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom.exit, label %4
 
 4:                                                ; preds = %2
   %5 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #43
@@ -5244,7 +5244,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8
 9:                                                ; preds = %.preheader.i
   %10 = add nuw nsw i64 %6, 1
   %11 = icmp eq i64 %10, 3
-  br i1 %11, label %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.exit, label %.preheader.i
+  br i1 %11, label %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom.exit, label %.preheader.i
 
 12:                                               ; preds = %.preheader.i
   %13 = landingpad { ptr, i32 }
@@ -5273,14 +5273,14 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8
   call void @_ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #37
   resume { ptr, i32 } %.pn.i
 
-_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.exit: ; preds = %9, %2
+_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom.exit: ; preds = %9, %2
   %21 = phi ptr [ null, %2 ], [ %5, %9 ]
   %22 = load ptr, ptr %0, align 8
   store ptr %21, ptr %0, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EED2Ev.exit, label %23
 
-23:                                               ; preds = %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.exit
+23:                                               ; preds = %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom.exit
   %24 = getelementptr inbounds i8, ptr %22, i64 96
   br label %25
 
@@ -5295,7 +5295,7 @@ _ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEL
   tail call void @_ZdlPv(ptr noundef %22) #40
   br label %_ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EED2Ev.exit
 
-_ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EEaSEOSA_.exit, %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.exit
+_ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EEaSEOSA_.exit, %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom.exit
   ret ptr %0
 }
 
@@ -7693,7 +7693,7 @@ define dso_local void @_ZN4Json5Value8CommentsC2ERKS1_(ptr noundef nonnull align
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   store ptr null, ptr %0, align 8, !alias.scope !28
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.exit, label %3
+  br i1 %.not.i, label %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom.exit, label %3
 
 3:                                                ; preds = %2
   %4 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #43
@@ -7726,7 +7726,7 @@ define dso_local void @_ZN4Json5Value8CommentsC2ERKS1_(ptr noundef nonnull align
 
 _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2ERKS6_.exit.i: ; preds = %8
   store ptr %4, ptr %0, align 8, !alias.scope !28
-  br label %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.exit
+  br label %_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom.exit
 
 17:                                               ; preds = %3
   %18 = landingpad { ptr, i32 }
@@ -7742,7 +7742,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2ERKS6_.ex
   tail call void @_ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #37
   resume { ptr, i32 } %.pn.i
 
-_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.exit: ; preds = %2, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2ERKS6_.exit.i
+_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom.exit: ; preds = %2, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2ERKS6_.exit.i
   ret void
 }
 
@@ -10966,8 +10966,8 @@ attributes #43 = { builtin allocsize(0) }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_: argument 0"}
-!16 = distinct !{!16, !"_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_"}
+!15 = distinct !{!15, !16, !"_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom: argument 0"}
+!16 = distinct !{!16, !"_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom"}
 !17 = distinct !{!17, !7}
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZNK4Json5Value3getEPKcS2_RKS0_: argument 0"}
@@ -10980,8 +10980,8 @@ attributes #43 = { builtin allocsize(0) }
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_: argument 0"}
-!30 = distinct !{!30, !"_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_"}
+!29 = distinct !{!29, !30, !"_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom: argument 0"}
+!30 = distinct !{!30, !"_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_.argprom"}
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZNK4Json5Value8Comments3getB5cxx11ENS_16CommentPlacementE: argument 0"}
 !33 = distinct !{!33, !"_ZNK4Json5Value8Comments3getB5cxx11ENS_16CommentPlacementE"}

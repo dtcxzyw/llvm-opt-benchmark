@@ -6088,7 +6088,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2240, %2251, %2262
 
 2555:                                             ; preds = %2546
   %2556 = lshr i8 %2547, 2
-  %2557 = call fastcc i32 @decomp_dispatch_get_bits(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %2556, i8 %2548, i8 %2547, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %17, i16 noundef zeroext %.pre3683, ptr noundef %18, i32 noundef %61, i32 noundef %.02365)
+  %2557 = call fastcc i32 @decomp_dispatch_get_bits.argprom(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %2556, i8 %2548, i8 %2547, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %17, i16 noundef zeroext %.pre3683, ptr noundef %18, i32 noundef %61, i32 noundef %.02365)
   %2558 = trunc nuw i32 %2557 to i16
   store i16 %2558, ptr %32, align 2
   %2559 = load i16, ptr %18, align 2
@@ -6383,7 +6383,7 @@ thread-pre-split3006:                             ; preds = %2673
 2722:                                             ; preds = %2718
   %.val2615 = load i8, ptr %131, align 1
   %.val2616 = load i8, ptr %130, align 1
-  %2723 = call fastcc i32 @decomp_dispatch_get_bits(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %2660, i8 %.val2615, i8 %.val2616, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %17, i16 noundef zeroext %2681, ptr noundef %18, i32 noundef %61, i32 noundef %.02365)
+  %2723 = call fastcc i32 @decomp_dispatch_get_bits.argprom(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %2660, i8 %.val2615, i8 %.val2616, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %17, i16 noundef zeroext %2681, ptr noundef %18, i32 noundef %61, i32 noundef %.02365)
   %2724 = load i16, ptr %18, align 2
   %2725 = icmp eq i16 %2724, 11
   br i1 %2725, label %2726, label %2728
@@ -7358,7 +7358,7 @@ thread-pre-split3006:                             ; preds = %2673
   br label %3316
 
 3316:                                             ; preds = %3313, %._crit_edge3404
-  call fastcc void @udvm_state_create(ptr noundef nonnull %3276, ptr noundef %26)
+  call fastcc void @udvm_state_create.argelim(ptr noundef nonnull %3276, ptr noundef %26)
   %3317 = load i32, ptr @hf_sigcomp_creating_state, align 4
   %3318 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %3317, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #8
   %3319 = call ptr @wmem_packet_scope() #8
@@ -7537,7 +7537,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %30 = load i16, ptr %6, align 2
   %31 = zext i16 %30 to i32
   %32 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef %28, i32 noundef %31) #8
-  %33 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %26, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %33 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %26, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %34 = load i32, ptr %5, align 4
   %35 = sub i32 %33, %34
   %36 = load i32, ptr %7, align 4
@@ -7564,7 +7564,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %50 = load i16, ptr %6, align 2
   %51 = zext i16 %50 to i32
   %52 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %47, i32 noundef %48, i32 noundef %51) #8
-  %53 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %46, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %53 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %46, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %54 = load i32, ptr %5, align 4
   %55 = sub i32 %53, %54
   %56 = load i32, ptr %7, align 4
@@ -7601,7 +7601,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %78 = load i16, ptr %6, align 2
   %79 = zext i16 %78 to i32
   %80 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %77, ptr noundef %0, i32 noundef %75, i32 noundef %76, i32 noundef %79) #8
-  %81 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %74, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %81 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %74, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %82 = load i32, ptr %5, align 4
   %83 = sub i32 %81, %82
   %84 = load i32, ptr %7, align 4
@@ -7628,7 +7628,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %98 = load i16, ptr %6, align 2
   %99 = zext i16 %98 to i32
   %100 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %97, ptr noundef %0, i32 noundef %95, i32 noundef %96, i32 noundef %99) #8
-  %101 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %94, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %101 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %94, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %102 = load i32, ptr %5, align 4
   %103 = sub i32 %101, %102
   %104 = load i32, ptr %7, align 4
@@ -7655,7 +7655,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %118 = load i16, ptr %6, align 2
   %119 = zext i16 %118 to i32
   %120 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %117, ptr noundef %0, i32 noundef %115, i32 noundef %116, i32 noundef %119) #8
-  %121 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %114, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %121 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %114, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %122 = load i32, ptr %5, align 4
   %123 = sub i32 %121, %122
   %124 = load i32, ptr %7, align 4
@@ -7682,7 +7682,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %138 = load i16, ptr %6, align 2
   %139 = zext i16 %138 to i32
   %140 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %137, ptr noundef %0, i32 noundef %135, i32 noundef %136, i32 noundef %139) #8
-  %141 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %134, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %141 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %134, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %142 = load i32, ptr %5, align 4
   %143 = sub i32 %141, %142
   %144 = load i32, ptr %7, align 4
@@ -7709,7 +7709,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %158 = load i16, ptr %6, align 2
   %159 = zext i16 %158 to i32
   %160 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %157, ptr noundef %0, i32 noundef %155, i32 noundef %156, i32 noundef %159) #8
-  %161 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %154, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %161 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %154, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %162 = load i32, ptr %5, align 4
   %163 = sub i32 %161, %162
   %164 = load i32, ptr %7, align 4
@@ -7736,7 +7736,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %178 = load i16, ptr %6, align 2
   %179 = zext i16 %178 to i32
   %180 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %177, ptr noundef %0, i32 noundef %175, i32 noundef %176, i32 noundef %179) #8
-  %181 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %174, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %181 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %174, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %182 = load i32, ptr %5, align 4
   %183 = sub i32 %181, %182
   %184 = load i32, ptr %7, align 4
@@ -7763,7 +7763,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %198 = load i16, ptr %6, align 2
   %199 = zext i16 %198 to i32
   %200 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %197, ptr noundef %0, i32 noundef %195, i32 noundef %196, i32 noundef %199) #8
-  %201 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %194, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %201 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %194, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %202 = load i32, ptr %5, align 4
   %203 = sub i32 %201, %202
   %204 = load i32, ptr %7, align 4
@@ -7793,14 +7793,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 219:                                              ; preds = %proto_item_set_generated.exit
-  %220 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %220 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %221 = load i32, ptr %5, align 4
   %222 = sub i32 %220, %221
   %223 = load i32, ptr @hf_udvm_position, align 4
   %224 = load i16, ptr %6, align 2
   %225 = zext i16 %224 to i32
   %226 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %223, ptr noundef %0, i32 noundef %221, i32 noundef %222, i32 noundef %225) #8
-  %227 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %220, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %227 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %220, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %228 = load i32, ptr %5, align 4
   %229 = sub i32 %227, %228
   %230 = load i32, ptr %7, align 4
@@ -7821,14 +7821,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 242:                                              ; preds = %proto_item_set_generated.exit
-  %243 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %243 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %244 = load i32, ptr %5, align 4
   %245 = sub i32 %243, %244
   %246 = load i32, ptr @hf_udvm_address, align 4
   %247 = load i16, ptr %6, align 2
   %248 = zext i16 %247 to i32
   %249 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %246, ptr noundef %0, i32 noundef %244, i32 noundef %245, i32 noundef %248) #8
-  %250 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %243, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %250 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %243, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %251 = load i32, ptr %5, align 4
   %252 = sub i32 %250, %251
   %253 = load i32, ptr %7, align 4
@@ -7848,7 +7848,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 262:                                              ; preds = %proto_item_set_generated.exit
-  %263 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %263 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %264 = load i32, ptr %5, align 4
   %265 = sub i32 %263, %264
   %266 = load i32, ptr @hf_udvm_address, align 4
@@ -7869,7 +7869,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %.2904 = phi i32 [ %278, %.lr.ph905 ], [ %270, %262 ]
   %.0825903 = phi i32 [ %277, %.lr.ph905 ], [ %275, %262 ]
   %277 = add nsw i32 %.0825903, -1
-  %278 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %.2904, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %278 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.2904, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %279 = load i32, ptr %5, align 4
   %280 = sub i32 %278, %279
   %281 = load i32, ptr %7, align 4
@@ -7884,7 +7884,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br i1 %286, label %.lr.ph905, label %.loopexit, !llvm.loop !28
 
 287:                                              ; preds = %proto_item_set_generated.exit
-  %288 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %288 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %289 = load i32, ptr %5, align 4
   %290 = sub i32 %288, %289
   %291 = load i32, ptr %7, align 4
@@ -7904,7 +7904,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 300:                                              ; preds = %proto_item_set_generated.exit
-  %301 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %301 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %302 = load i32, ptr %5, align 4
   %303 = sub i32 %301, %302
   %304 = load i32, ptr @hf_udvm_address, align 4
@@ -7914,14 +7914,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 308:                                              ; preds = %proto_item_set_generated.exit
-  %309 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %309 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %310 = load i32, ptr %5, align 4
   %311 = sub i32 %309, %310
   %312 = load i32, ptr @hf_udvm_position, align 4
   %313 = load i16, ptr %6, align 2
   %314 = zext i16 %313 to i32
   %315 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %312, ptr noundef %0, i32 noundef %310, i32 noundef %311, i32 noundef %314) #8
-  %316 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %309, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %316 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %309, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %317 = load i32, ptr %5, align 4
   %318 = sub i32 %316, %317
   %319 = load i32, ptr %7, align 4
@@ -7942,14 +7942,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 331:                                              ; preds = %proto_item_set_generated.exit
-  %332 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %332 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %333 = load i32, ptr %5, align 4
   %334 = sub i32 %332, %333
   %335 = load i32, ptr @hf_udvm_position, align 4
   %336 = load i16, ptr %6, align 2
   %337 = zext i16 %336 to i32
   %338 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %335, ptr noundef %0, i32 noundef %333, i32 noundef %334, i32 noundef %337) #8
-  %339 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %332, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %339 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %332, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %340 = load i32, ptr %5, align 4
   %341 = sub i32 %339, %340
   %342 = load i32, ptr %7, align 4
@@ -7970,7 +7970,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 354:                                              ; preds = %proto_item_set_generated.exit
-  %355 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %355 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %356 = load i32, ptr %5, align 4
   %357 = sub i32 %355, %356
   %358 = load i32, ptr %7, align 4
@@ -7981,7 +7981,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_offset.val = load i32, ptr @hf_udvm_addr_offset, align 4
   %361 = select i1 %.not874, i32 %hf_udvm_offset.val, i32 %hf_udvm_addr_offset.val
   %362 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %361, ptr noundef %0, i32 noundef %356, i32 noundef %357, i32 noundef %360) #8
-  %363 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %355, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %363 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %355, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %364 = load i32, ptr %5, align 4
   %365 = sub i32 %363, %364
   %366 = load i32, ptr %7, align 4
@@ -8002,14 +8002,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 378:                                              ; preds = %proto_item_set_generated.exit
-  %379 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %379 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %380 = load i32, ptr %5, align 4
   %381 = sub i32 %379, %380
   %382 = load i32, ptr @hf_udvm_address, align 4
   %383 = load i16, ptr %6, align 2
   %384 = zext i16 %383 to i32
   %385 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %382, ptr noundef %0, i32 noundef %380, i32 noundef %381, i32 noundef %384) #8
-  %386 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %379, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %386 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %379, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %387 = load i32, ptr %5, align 4
   %388 = sub i32 %386, %387
   %389 = load i32, ptr %7, align 4
@@ -8020,14 +8020,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_length.val986 = load i32, ptr @hf_udvm_addr_length, align 4
   %392 = select i1 %.not873, i32 %hf_udvm_length.val985, i32 %hf_udvm_addr_length.val986
   %393 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %392, ptr noundef %0, i32 noundef %387, i32 noundef %388, i32 noundef %391) #8
-  %394 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %386, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %394 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %386, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %395 = load i32, ptr %5, align 4
   %396 = sub i32 %394, %395
   %397 = load i32, ptr @hf_udvm_start_value, align 4
   %398 = load i16, ptr %6, align 2
   %399 = zext i16 %398 to i32
   %400 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %397, ptr noundef %0, i32 noundef %395, i32 noundef %396, i32 noundef %399) #8
-  %401 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %394, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %401 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %394, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %402 = load i32, ptr %5, align 4
   %403 = sub i32 %401, %402
   %404 = load i32, ptr @hf_udvm_offset, align 4
@@ -8037,7 +8037,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 408:                                              ; preds = %proto_item_set_generated.exit
-  %409 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %409 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %410 = load i32, ptr %5, align 4
   %411 = sub i32 %409, %410
   %412 = load i16, ptr %6, align 2
@@ -8050,7 +8050,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 416:                                              ; preds = %proto_item_set_generated.exit
-  %417 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %417 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %418 = load i32, ptr %5, align 4
   %419 = sub i32 %417, %418
   %420 = load i32, ptr %7, align 4
@@ -8061,7 +8061,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_value.val982 = load i32, ptr @hf_udvm_addr_value, align 4
   %423 = select i1 %.not863, i32 %hf_udvm_value.val981, i32 %hf_udvm_addr_value.val982
   %424 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %423, ptr noundef %0, i32 noundef %418, i32 noundef %419, i32 noundef %422) #8
-  %425 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %417, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %425 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %417, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %426 = load i32, ptr %5, align 4
   %427 = sub i32 %425, %426
   %428 = load i32, ptr %7, align 4
@@ -8072,7 +8072,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %430 = load i16, ptr %6, align 2
   %431 = zext i16 %430 to i32
   %432 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %429, ptr noundef %0, i32 noundef %426, i32 noundef %427, i32 noundef %431) #8
-  %433 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %425, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %433 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %425, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %434 = load i32, ptr %5, align 4
   %435 = sub i32 %433, %434
   %436 = load i16, ptr %6, align 2
@@ -8082,7 +8082,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %437 = load i32, ptr @hf_udvm_at_address, align 4
   %438 = zext i16 %.narrow866 to i32
   %439 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %437, ptr noundef %0, i32 noundef %434, i32 noundef %435, i32 noundef %438) #8
-  %440 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %433, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %440 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %433, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %441 = load i32, ptr %5, align 4
   %442 = sub i32 %440, %441
   %443 = load i16, ptr %6, align 2
@@ -8091,7 +8091,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %444 = load i32, ptr @hf_udvm_at_address, align 4
   %445 = zext i16 %.narrow868 to i32
   %446 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %444, ptr noundef %0, i32 noundef %441, i32 noundef %442, i32 noundef %445) #8
-  %447 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %440, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %447 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %440, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %448 = load i32, ptr %5, align 4
   %449 = sub i32 %447, %448
   %450 = load i16, ptr %6, align 2
@@ -8103,7 +8103,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 454:                                              ; preds = %proto_item_set_generated.exit
-  %455 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %455 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %456 = load i32, ptr %5, align 4
   %457 = sub i32 %455, %456
   %458 = load i16, ptr %6, align 2
@@ -8123,7 +8123,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %467 = load i16, ptr %6, align 2
   %468 = zext i16 %467 to i32
   %469 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %466, ptr noundef %0, i32 noundef %464, i32 noundef %465, i32 noundef %468) #8
-  %470 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %463, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %470 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %463, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %471 = load i32, ptr %5, align 4
   %472 = sub i32 %470, %471
   %473 = load i32, ptr %7, align 4
@@ -8145,7 +8145,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %.3900 = phi i32 [ %470, %.lr.ph901 ], [ %480, %478 ]
   %.1826899 = phi i32 [ %468, %.lr.ph901 ], [ %479, %478 ]
   %479 = add nsw i32 %.1826899, -1
-  %480 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %.3900, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %480 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.3900, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %481 = load i32, ptr %5, align 4
   %482 = sub i32 %480, %481
   %483 = load i16, ptr %6, align 2
@@ -8158,7 +8158,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br i1 %487, label %478, label %.loopexit, !llvm.loop !29
 
 488:                                              ; preds = %proto_item_set_generated.exit
-  %489 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %489 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %490 = load i32, ptr %5, align 4
   %491 = sub i32 %489, %490
   %492 = load i32, ptr %7, align 4
@@ -8169,14 +8169,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_value.val = load i32, ptr @hf_udvm_addr_value, align 4
   %495 = select i1 %.not854, i32 %hf_udvm_value.val, i32 %hf_udvm_addr_value.val
   %496 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %495, ptr noundef %0, i32 noundef %490, i32 noundef %491, i32 noundef %494) #8
-  %497 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %489, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %497 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %489, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %498 = load i32, ptr %5, align 4
   %499 = sub i32 %497, %498
   %500 = load i32, ptr @hf_udvm_position, align 4
   %501 = load i16, ptr %6, align 2
   %502 = zext i16 %501 to i32
   %503 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %500, ptr noundef %0, i32 noundef %498, i32 noundef %499, i32 noundef %502) #8
-  %504 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %497, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %504 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %497, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %505 = load i32, ptr %5, align 4
   %506 = sub i32 %504, %505
   %507 = load i32, ptr %7, align 4
@@ -8187,7 +8187,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %509 = load i16, ptr %6, align 2
   %510 = zext i16 %509 to i32
   %511 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %508, ptr noundef %0, i32 noundef %505, i32 noundef %506, i32 noundef %510) #8
-  %512 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %504, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %512 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %504, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %513 = load i32, ptr %5, align 4
   %514 = sub i32 %512, %513
   %515 = load i16, ptr %6, align 2
@@ -8200,7 +8200,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 519:                                              ; preds = %proto_item_set_generated.exit
-  %520 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %520 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %521 = load i32, ptr %5, align 4
   %522 = sub i32 %520, %521
   %523 = load i32, ptr %7, align 4
@@ -8211,7 +8211,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_length.val976 = load i32, ptr @hf_udvm_addr_length, align 4
   %526 = select i1 %.not850, i32 %hf_udvm_length.val975, i32 %hf_udvm_addr_length.val976
   %527 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %526, ptr noundef %0, i32 noundef %521, i32 noundef %522, i32 noundef %525) #8
-  %528 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %520, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %528 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %520, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %529 = load i32, ptr %5, align 4
   %530 = sub i32 %528, %529
   %531 = load i32, ptr %7, align 4
@@ -8222,7 +8222,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %533 = load i16, ptr %6, align 2
   %534 = zext i16 %533 to i32
   %535 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %532, ptr noundef %0, i32 noundef %529, i32 noundef %530, i32 noundef %534) #8
-  %536 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %528, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %536 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %528, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %537 = load i32, ptr %5, align 4
   %538 = sub i32 %536, %537
   %539 = load i16, ptr %6, align 2
@@ -8235,7 +8235,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 543:                                              ; preds = %proto_item_set_generated.exit
-  %544 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %544 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %545 = load i32, ptr %5, align 4
   %546 = sub i32 %544, %545
   %547 = load i32, ptr %7, align 4
@@ -8246,7 +8246,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_length.val = load i32, ptr @hf_udvm_addr_length, align 4
   %550 = select i1 %.not846, i32 %hf_udvm_length.val, i32 %hf_udvm_addr_length.val
   %551 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %550, ptr noundef %0, i32 noundef %545, i32 noundef %546, i32 noundef %549) #8
-  %552 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %544, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %552 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %544, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %553 = load i32, ptr %5, align 4
   %554 = sub i32 %552, %553
   %555 = load i32, ptr %7, align 4
@@ -8257,7 +8257,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %557 = load i16, ptr %6, align 2
   %558 = zext i16 %557 to i32
   %559 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %556, ptr noundef %0, i32 noundef %553, i32 noundef %554, i32 noundef %558) #8
-  %560 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %552, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %560 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %552, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %561 = load i32, ptr %5, align 4
   %562 = sub i32 %560, %561
   %563 = load i16, ptr %6, align 2
@@ -8270,7 +8270,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 567:                                              ; preds = %proto_item_set_generated.exit
-  %568 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %568 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %569 = load i32, ptr %5, align 4
   %570 = sub i32 %568, %569
   %571 = load i32, ptr %7, align 4
@@ -8281,7 +8281,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_destination.val = load i32, ptr @hf_udvm_addr_destination, align 4
   %574 = select i1 %.not845, i32 %hf_udvm_destination.val, i32 %hf_udvm_addr_destination.val
   %575 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %574, ptr noundef %0, i32 noundef %569, i32 noundef %570, i32 noundef %573) #8
-  %576 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %568, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %576 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %568, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %577 = load i32, ptr %5, align 4
   %578 = sub i32 %576, %577
   %579 = load i16, ptr %6, align 2
@@ -8305,28 +8305,28 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %.4898 = phi i32 [ %612, %.lr.ph ], [ %583, %567 ]
   %.2827897 = phi i32 [ %590, %.lr.ph ], [ %588, %567 ]
   %590 = add nsw i32 %.2827897, -1
-  %591 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %.4898, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %591 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.4898, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %592 = load i32, ptr %5, align 4
   %593 = sub i32 %591, %592
   %594 = load i32, ptr @hf_udvm_bits, align 4
   %595 = load i16, ptr %6, align 2
   %596 = zext i16 %595 to i32
   %597 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %594, ptr noundef %0, i32 noundef %592, i32 noundef %593, i32 noundef %596) #8
-  %598 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %591, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %598 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %591, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %599 = load i32, ptr %5, align 4
   %600 = sub i32 %598, %599
   %601 = load i32, ptr @hf_udvm_lower_bound, align 4
   %602 = load i16, ptr %6, align 2
   %603 = zext i16 %602 to i32
   %604 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %601, ptr noundef %0, i32 noundef %599, i32 noundef %600, i32 noundef %603) #8
-  %605 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %598, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %605 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %598, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %606 = load i32, ptr %5, align 4
   %607 = sub i32 %605, %606
   %608 = load i32, ptr @hf_udvm_upper_bound, align 4
   %609 = load i16, ptr %6, align 2
   %610 = zext i16 %609 to i32
   %611 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %608, ptr noundef %0, i32 noundef %606, i32 noundef %607, i32 noundef %610) #8
-  %612 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %605, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %612 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %605, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %613 = load i32, ptr %5, align 4
   %614 = sub i32 %612, %613
   %615 = load i32, ptr @hf_udvm_uncompressed, align 4
@@ -8337,28 +8337,28 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br i1 %619, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 620:                                              ; preds = %proto_item_set_generated.exit
-  %621 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %621 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %622 = load i32, ptr %5, align 4
   %623 = sub i32 %621, %622
   %624 = load i32, ptr @hf_partial_identifier_start, align 4
   %625 = load i16, ptr %6, align 2
   %626 = zext i16 %625 to i32
   %627 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %624, ptr noundef %0, i32 noundef %622, i32 noundef %623, i32 noundef %626) #8
-  %628 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %621, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %628 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %621, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %629 = load i32, ptr %5, align 4
   %630 = sub i32 %628, %629
   %631 = load i32, ptr @hf_partial_identifier_length, align 4
   %632 = load i16, ptr %6, align 2
   %633 = zext i16 %632 to i32
   %634 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %631, ptr noundef %0, i32 noundef %629, i32 noundef %630, i32 noundef %633) #8
-  %635 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %628, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %635 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %628, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %636 = load i32, ptr %5, align 4
   %637 = sub i32 %635, %636
   %638 = load i32, ptr @hf_state_begin, align 4
   %639 = load i16, ptr %6, align 2
   %640 = zext i16 %639 to i32
   %641 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %638, ptr noundef %0, i32 noundef %636, i32 noundef %637, i32 noundef %640) #8
-  %642 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %635, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %642 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %635, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %643 = load i32, ptr %5, align 4
   %644 = sub i32 %642, %643
   %645 = load i32, ptr %7, align 4
@@ -8369,7 +8369,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_state_length_addr.val970 = load i32, ptr @hf_udvm_state_length_addr, align 4
   %648 = select i1 %.not843, i32 %hf_udvm_state_length.val969, i32 %hf_udvm_state_length_addr.val970
   %649 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %648, ptr noundef %0, i32 noundef %643, i32 noundef %644, i32 noundef %647) #8
-  %650 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %642, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %650 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %642, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %651 = load i32, ptr %5, align 4
   %652 = sub i32 %650, %651
   %653 = load i32, ptr %7, align 4
@@ -8380,7 +8380,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %655 = load i16, ptr %6, align 2
   %656 = zext i16 %655 to i32
   %657 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %654, ptr noundef %0, i32 noundef %651, i32 noundef %652, i32 noundef %656) #8
-  %658 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %650, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %658 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %650, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %659 = load i32, ptr %5, align 4
   %660 = sub i32 %658, %659
   %661 = load i32, ptr @hf_udvm_state_instr, align 4
@@ -8390,7 +8390,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 665:                                              ; preds = %proto_item_set_generated.exit
-  %666 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %666 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %667 = load i32, ptr %5, align 4
   %668 = sub i32 %666, %667
   %669 = load i32, ptr %7, align 4
@@ -8401,7 +8401,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_state_length_addr.val966 = load i32, ptr @hf_udvm_state_length_addr, align 4
   %672 = select i1 %.not841, i32 %hf_udvm_state_length.val965, i32 %hf_udvm_state_length_addr.val966
   %673 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %672, ptr noundef %0, i32 noundef %667, i32 noundef %668, i32 noundef %671) #8
-  %674 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %666, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %674 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %666, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %675 = load i32, ptr %5, align 4
   %676 = sub i32 %674, %675
   %677 = load i32, ptr %7, align 4
@@ -8412,21 +8412,21 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %679 = load i16, ptr %6, align 2
   %680 = zext i16 %679 to i32
   %681 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %678, ptr noundef %0, i32 noundef %675, i32 noundef %676, i32 noundef %680) #8
-  %682 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %674, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %682 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %674, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %683 = load i32, ptr %5, align 4
   %684 = sub i32 %682, %683
   %685 = load i32, ptr @hf_udvm_state_instr, align 4
   %686 = load i16, ptr %6, align 2
   %687 = zext i16 %686 to i32
   %688 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %685, ptr noundef %0, i32 noundef %683, i32 noundef %684, i32 noundef %687) #8
-  %689 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %682, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %689 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %682, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %690 = load i32, ptr %5, align 4
   %691 = sub i32 %689, %690
   %692 = load i32, ptr @hf_udvm_min_acc_len, align 4
   %693 = load i16, ptr %6, align 2
   %694 = zext i16 %693 to i32
   %695 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %692, ptr noundef %0, i32 noundef %690, i32 noundef %691, i32 noundef %694) #8
-  %696 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %689, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %696 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %689, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %697 = load i32, ptr %5, align 4
   %698 = sub i32 %696, %697
   %699 = load i32, ptr @hf_udvm_state_ret_pri, align 4
@@ -8436,14 +8436,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 703:                                              ; preds = %proto_item_set_generated.exit
-  %704 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %704 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %705 = load i32, ptr %5, align 4
   %706 = sub i32 %704, %705
   %707 = load i32, ptr @hf_partial_identifier_start, align 4
   %708 = load i16, ptr %6, align 2
   %709 = zext i16 %708 to i32
   %710 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %707, ptr noundef %0, i32 noundef %705, i32 noundef %706, i32 noundef %709) #8
-  %711 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %704, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %711 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %704, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %712 = load i32, ptr %5, align 4
   %713 = sub i32 %711, %712
   %714 = load i32, ptr @hf_partial_identifier_length, align 4
@@ -8453,7 +8453,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit
 
 718:                                              ; preds = %proto_item_set_generated.exit
-  %719 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %719 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %720 = load i32, ptr %5, align 4
   %721 = sub i32 %719, %720
   %722 = load i32, ptr %7, align 4
@@ -8464,7 +8464,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_output_start.val = load i32, ptr @hf_udvm_addr_output_start, align 4
   %725 = select i1 %.not839, i32 %hf_udvm_output_start.val, i32 %hf_udvm_addr_output_start.val
   %726 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %725, ptr noundef %0, i32 noundef %720, i32 noundef %721, i32 noundef %724) #8
-  %727 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %719, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %727 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %719, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %728 = load i32, ptr %5, align 4
   %729 = sub i32 %727, %728
   %730 = load i32, ptr %7, align 4
@@ -8488,7 +8488,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br i1 %.not, label %740, label %.loopexit896.sink.split
 
 740:                                              ; preds = %739
-  %741 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %741 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %24, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %742 = load i32, ptr %5, align 4
   %743 = sub i32 %741, %742
   %744 = load i32, ptr @hf_udvm_req_feedback_loc, align 4
@@ -8503,14 +8503,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br label %.loopexit896.sink.split
 
 750:                                              ; preds = %740
-  %751 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %741, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %751 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %741, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %752 = load i32, ptr %5, align 4
   %753 = sub i32 %751, %752
   %754 = load i32, ptr @hf_udvm_ret_param_loc, align 4
   %755 = load i16, ptr %6, align 2
   %756 = zext i16 %755 to i32
   %757 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %754, ptr noundef %0, i32 noundef %752, i32 noundef %753, i32 noundef %756) #8
-  %758 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %751, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %758 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %751, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %759 = load i32, ptr %5, align 4
   %760 = sub i32 %758, %759
   %761 = load i32, ptr %7, align 4
@@ -8521,7 +8521,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_state_length_addr.val = load i32, ptr @hf_udvm_state_length_addr, align 4
   %764 = select i1 %.not835, i32 %hf_udvm_state_length.val, i32 %hf_udvm_state_length_addr.val
   %765 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %764, ptr noundef %0, i32 noundef %759, i32 noundef %760, i32 noundef %763) #8
-  %766 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %758, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %766 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %758, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %767 = load i32, ptr %5, align 4
   %768 = sub i32 %766, %767
   %769 = load i32, ptr %7, align 4
@@ -8532,14 +8532,14 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %771 = load i16, ptr %6, align 2
   %772 = zext i16 %771 to i32
   %773 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %770, ptr noundef %0, i32 noundef %767, i32 noundef %768, i32 noundef %772) #8
-  %774 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %766, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %774 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %766, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %775 = load i32, ptr %5, align 4
   %776 = sub i32 %774, %775
   %777 = load i32, ptr @hf_udvm_state_instr, align 4
   %778 = load i16, ptr %6, align 2
   %779 = zext i16 %778 to i32
   %780 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %777, ptr noundef %0, i32 noundef %775, i32 noundef %776, i32 noundef %779) #8
-  %781 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %774, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %781 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %774, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %782 = load i32, ptr %5, align 4
   %783 = sub i32 %781, %782
   %784 = load i32, ptr @hf_udvm_min_acc_len, align 4
@@ -8551,7 +8551,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br i1 %.not837, label %797, label %789
 
 789:                                              ; preds = %750
-  %790 = call fastcc i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %2, i32 noundef %781, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %790 = call fastcc i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %781, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %791 = load i32, ptr %5, align 4
   %792 = sub i32 %790, %791
   %793 = load i32, ptr @hf_udvm_state_ret_pri, align 4
@@ -8837,7 +8837,7 @@ declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noun
 declare zeroext i16 @crc16_ccitt_seed(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, i8 %.68.val, i8 %.69.val, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits.argprom(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, i8 %.68.val, i8 %.69.val, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
   %.69.val.fr = freeze i8 %.69.val
   %12 = load i32, ptr %6, align 4
   %13 = sub i32 %9, %12
@@ -9131,7 +9131,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 declare void @gcry_md_hash_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @udvm_state_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @udvm_state_create.argelim(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %3, ptr noundef nonnull align 1 dereferenceable(6) %1, i64 6, i1 false)
   %4 = call ptr @bytes_to_str_maxlen(ptr noundef null, ptr noundef nonnull %3, i64 noundef 6, i64 noundef 36) #8
@@ -9237,7 +9237,7 @@ define internal fastcc noundef i32 @dissect_udvm_reference_operand(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_udvm_multitype_operand.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   store i32 0, ptr %5, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #8
   %8 = zext i8 %7 to i32

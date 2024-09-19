@@ -646,7 +646,7 @@ fib_find_alias.exit:                              ; preds = %199, %183, %198, %.
   br i1 %203, label %204, label %.thread43
 
 204:                                              ; preds = %fib_find_alias.exit
-  %205 = tail call fastcc i32 @call_fib_entry_notifiers(ptr noundef %0, i32 noundef %11, i32 noundef %18, ptr noundef nonnull %152, ptr noundef %3)
+  %205 = tail call fastcc i32 @call_fib_entry_notifiers.argelim(ptr noundef %0, i32 noundef %11, i32 noundef %18, ptr noundef nonnull %152, ptr noundef %3)
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %..thread43_crit_edge, label %207
 
@@ -838,7 +838,7 @@ fib_find_alias.exit:                              ; preds = %199, %183, %198, %.
   br i1 %307, label %308, label %311
 
 308:                                              ; preds = %.loopexit
-  %309 = tail call fastcc i32 @call_fib_entry_notifiers(ptr noundef %0, i32 noundef %11, i32 noundef %18, ptr noundef nonnull %239, ptr noundef %3)
+  %309 = tail call fastcc i32 @call_fib_entry_notifiers.argelim(ptr noundef %0, i32 noundef %11, i32 noundef %18, ptr noundef nonnull %239, ptr noundef %3)
   %310 = icmp eq i32 %309, 0
   br i1 %310, label %311, label %322
 
@@ -893,7 +893,7 @@ declare dso_local ptr @fib_create_info(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @call_fib_entry_notifiers(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 33) %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @call_fib_entry_notifiers.argelim(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 33) %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.fib_entry_notifier_info, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2301,7 +2301,7 @@ define dso_local i32 @fib_table_lookup(ptr noundef %0, ptr noundef %1, ptr nocap
 .loopexit:                                        ; preds = %283, %193, %335
   %290 = phi i32 [ %148, %335 ], [ %198, %193 ], [ %288, %283 ]
   %291 = load i32, ptr %161, align 8
-  tail call fastcc void @trace_fib_table_lookup(i32 noundef %291, ptr noundef %1, i32 noundef %290)
+  tail call fastcc void @trace_fib_table_lookup.argprom(i32 noundef %291, ptr noundef %1, i32 noundef %290)
   br label %.thread23
 
 292:                                              ; preds = %283
@@ -2505,7 +2505,7 @@ define dso_local i32 @fib_table_lookup(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_fib_table_lookup(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc void @trace_fib_table_lookup.argprom(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_fib_table_lookup, i64 8), i32 2) #17
           to label %24 [label %4], !srcloc !38
 

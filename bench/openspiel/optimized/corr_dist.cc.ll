@@ -1422,7 +1422,7 @@ define void @_ZN10open_spiel10algorithms14ExpectedValuesERKNS_4GameERKSt6vectorI
   %.val = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %.val20 = load ptr, ptr %6, align 8
-  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr %.val, ptr %.val20)
+  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr %.val, ptr %.val20)
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
@@ -1607,7 +1607,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit28:                  ; preds = %79, %_ZNSt6vectorId
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca double, align 8
   %2 = alloca i32, align 4
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3022,7 +3022,7 @@ define noundef double @_ZN10open_spiel10algorithms8EFCEDistERKNS_4GameENS0_14Cor
   %.val = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %.val9 = load ptr, ptr %17, align 8
-  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr %.val, ptr %.val9)
+  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr %.val, ptr %.val9)
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3482,7 +3482,7 @@ define noundef double @_ZN10open_spiel10algorithms9EFCCEDistERKNS_4GameENS0_14Co
   %.val = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %.val6 = load ptr, ptr %17, align 8
-  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr %.val, ptr %.val6)
+  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr %.val, ptr %.val6)
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3928,7 +3928,7 @@ define noundef double @_ZN10open_spiel10algorithms8AFCEDistERKNS_4GameENS0_14Cor
   %.val = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %.val9 = load ptr, ptr %17, align 8
-  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr %.val, ptr %.val9)
+  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr %.val, ptr %.val9)
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4343,7 +4343,7 @@ define noundef double @_ZN10open_spiel10algorithms9AFCCEDistERKNS_4GameENS0_14Co
   %.val = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %.val6 = load ptr, ptr %17, align 8
-  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr %.val, ptr %.val6)
+  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr %.val, ptr %.val6)
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5286,7 +5286,7 @@ define void @_ZN10open_spiel10algorithms7CCEDistERKNS_4GameERKSt6vectorISt4pairI
   %.val = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %.val28 = load ptr, ptr %18, align 8
-  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr %.val, ptr %.val28)
+  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr %.val, ptr %.val28)
   call void @_ZN10open_spiel10algorithms14CorrDistConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11)
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
@@ -6545,7 +6545,7 @@ define void @_ZN10open_spiel10algorithms7CCEDistERKNS_4GameERKSt6vectorISt4pairI
   %.val = load ptr, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %.val50 = load ptr, ptr %22, align 8
-  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr %.val, ptr %.val50)
+  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr %.val, ptr %.val50)
   call void @_ZN10open_spiel10algorithms14CorrDistConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10)
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
@@ -7562,7 +7562,7 @@ define void @_ZN10open_spiel10algorithms6CEDistERKNS_4GameERKSt6vectorISt4pairId
   %.val = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds i8, ptr %2, i64 8
   %.val71 = load ptr, ptr %48, align 8
-  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr %.val, ptr %.val71)
+  tail call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE.argprom(ptr %.val, ptr %.val71)
   call void @_ZN10open_spiel10algorithms14CorrDistConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16)
   %49 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !62)

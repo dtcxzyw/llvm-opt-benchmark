@@ -1260,13 +1260,13 @@ _ZN4llvm9StringRefC2EPKc.exit23.i.us:             ; preds = %145, %140
   store ptr %144, ptr %8, align 8
   store i64 %147, ptr %78, align 8
   %148 = call noundef zeroext i1 @_ZN4llvm3sys4path11is_absoluteERKNS_5TwineENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef 0) #14
-  br i1 %148, label %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.exit26.thread.i.us", label %149
+  br i1 %148, label %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.argprom.exit26.thread.i.us", label %149
 
 149:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit23.i.us
   %150 = call { i32, ptr } @_ZN4llvm3sys2fs12current_pathERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
   %151 = extractvalue { i32, ptr } %150, 0
   %.not.i24.i.us = icmp eq i32 %151, 0
-  br i1 %.not.i24.i.us, label %152, label %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.exit26.thread.i.us"
+  br i1 %.not.i24.i.us, label %152, label %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.argprom.exit26.thread.i.us"
 
 152:                                              ; preds = %149
   store i8 5, ptr %79, align 8
@@ -1309,7 +1309,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit29.i.us:    ; preds = %161, %_ZN4llvm9Stri
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallStringILj128EEELb0EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(152) %18)
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i.us
 
-"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.exit26.thread.i.us": ; preds = %149, %_ZN4llvm9StringRefC2EPKc.exit23.i.us
+"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.argprom.exit26.thread.i.us": ; preds = %149, %_ZN4llvm9StringRefC2EPKc.exit23.i.us
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -1342,13 +1342,13 @@ _ZN4llvm9StringRefC2EPKc.exit.thread.i.us:        ; preds = %_ZN4llvm9StringRefC
   store ptr %168, ptr %13, align 8
   store i64 %169, ptr %88, align 8
   %170 = call noundef zeroext i1 @_ZN4llvm3sys4path11is_absoluteERKNS_5TwineENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(34) %13, i32 noundef 0) #14
-  br i1 %170, label %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.exit.thread.i.us", label %171
+  br i1 %170, label %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.argprom.exit.thread.i.us", label %171
 
 171:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit.thread.i.us
   %172 = call { i32, ptr } @_ZN4llvm3sys2fs12current_pathERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
   %173 = extractvalue { i32, ptr } %172, 0
   %.not.i19.i.us = icmp eq i32 %173, 0
-  br i1 %.not.i19.i.us, label %174, label %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.exit.thread.i.us"
+  br i1 %.not.i19.i.us, label %174, label %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.argprom.exit.thread.i.us"
 
 174:                                              ; preds = %171
   store i8 5, ptr %89, align 8
@@ -1382,7 +1382,7 @@ _ZN4llvm9StringRefC2EPKc.exit.thread.i.us:        ; preds = %_ZN4llvm9StringRefC
   call void @free(ptr noundef %181) #14
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i.us
 
-"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.exit.thread.i.us": ; preds = %171, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.us
+"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.argprom.exit.thread.i.us": ; preds = %171, %_ZN4llvm9StringRefC2EPKc.exit.thread.i.us
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
@@ -1390,7 +1390,7 @@ _ZN4llvm9StringRefC2EPKc.exit.thread.i.us:        ; preds = %_ZN4llvm9StringRefC
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i.us
 
-_ZN4llvm11SmallStringILj128EED2Ev.exit.i.us:      ; preds = %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.exit.thread.i.us", %183, %174, %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.exit26.thread.i.us", %_ZN4llvm11SmallStringILj128EED2Ev.exit29.i.us
+_ZN4llvm11SmallStringILj128EED2Ev.exit.i.us:      ; preds = %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.argprom.exit.thread.i.us", %183, %174, %"_ZZL15rewriteIncludesRKN4llvm8ArrayRefIPKcEEmmRNS_15SmallVectorImplINS_11SmallStringILj128EEEEEENK3$_0clENS_9StringRefERNS6_IcEE.argprom.exit26.thread.i.us", %_ZN4llvm11SmallStringILj128EED2Ev.exit29.i.us
   %184 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
   %185 = load ptr, ptr %18, align 8
   %186 = icmp eq ptr %185, %75
@@ -1515,25 +1515,25 @@ _ZL8skipArgsPKcbRiRb.exit.thread177.us.thread:    ; preds = %_ZNK4llvm9StringRef
   %.sroa.038.057.i.i.i.i.us = phi ptr [ %.val.us, %.lr.ph.i.i.i.i.us ], [ %239, %238 ]
   %.val1.i.i.i.i.i.us = load ptr, ptr %.sroa.038.057.i.i.i.i.us, align 8
   %228 = icmp eq ptr %.val1.i.i.i.i.i.us, %99
-  br i1 %228, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us", label %229
+  br i1 %228, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us", label %229
 
 229:                                              ; preds = %227
   %230 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i.us, i64 40
   %.val1.i22.i.i.i.i.us = load ptr, ptr %230, align 8
   %231 = icmp eq ptr %.val1.i22.i.i.i.i.us, %99
-  br i1 %231, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit221", label %232
+  br i1 %231, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit221", label %232
 
 232:                                              ; preds = %229
   %233 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i.us, i64 80
   %.val1.i23.i.i.i.i.us = load ptr, ptr %233, align 8
   %234 = icmp eq ptr %.val1.i23.i.i.i.i.us, %99
-  br i1 %234, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit223", label %235
+  br i1 %234, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit223", label %235
 
 235:                                              ; preds = %232
   %236 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i.us, i64 120
   %.val1.i24.i.i.i.i.us = load ptr, ptr %236, align 8
   %237 = icmp eq ptr %.val1.i24.i.i.i.i.us, %99
-  br i1 %237, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit225", label %238
+  br i1 %237, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit225", label %238
 
 238:                                              ; preds = %235
   %239 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i.us, i64 160
@@ -1559,7 +1559,7 @@ _ZL8skipArgsPKcbRiRb.exit.thread177.us.thread:    ; preds = %_ZNK4llvm9StringRef
 243:                                              ; preds = %._crit_edge.i.i.i.i.us
   %.val1.i25.i.i.i.i.us = load ptr, ptr %.sroa.038.0.lcssa.i.i.i.i.us, align 8
   %244 = icmp eq ptr %.val1.i25.i.i.i.i.us, %99
-  br i1 %244, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us", label %245
+  br i1 %244, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us", label %245
 
 245:                                              ; preds = %243
   %246 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i.i.us, i64 40
@@ -1569,7 +1569,7 @@ _ZL8skipArgsPKcbRiRb.exit.thread177.us.thread:    ; preds = %_ZNK4llvm9StringRef
   %.sroa.038.1.i.i.i.i.us = phi ptr [ %246, %245 ], [ %.sroa.038.0.lcssa.i.i.i.i.us, %._crit_edge.i.i.i.i.us ]
   %.val1.i26.i.i.i.i.us = load ptr, ptr %.sroa.038.1.i.i.i.i.us, align 8
   %247 = icmp eq ptr %.val1.i26.i.i.i.i.us, %99
-  br i1 %247, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us", label %248
+  br i1 %247, label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us", label %248
 
 248:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.us
   %249 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i.i.us, i64 40
@@ -1580,26 +1580,26 @@ _ZL8skipArgsPKcbRiRb.exit.thread177.us.thread:    ; preds = %_ZNK4llvm9StringRef
   %.val1.i27.i.i.i.i.us = load ptr, ptr %.sroa.038.2.i.i.i.i.us, align 8
   %250 = icmp eq ptr %.val1.i27.i.i.i.i.us, %99
   %spec.select.i.i.i.i.us = select i1 %250, ptr %.sroa.038.2.i.i.i.i.us, ptr %.val77.us
-  br label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us"
+  br label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us"
 
-"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit221": ; preds = %229
+"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit221": ; preds = %229
   %251 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i.us, i64 40
-  br label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us"
+  br label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us"
 
-"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit223": ; preds = %232
+"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit223": ; preds = %232
   %252 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i.us, i64 80
-  br label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us"
+  br label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us"
 
-"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit225": ; preds = %235
+"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit225": ; preds = %235
   %253 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i.us, i64 120
-  br label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us"
+  br label %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us"
 
-"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us": ; preds = %227, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit221", %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit223", %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit225", %._crit_edge._crit_edge64.i.i.i.i.us, %._crit_edge._crit_edge.i.i.i.i.us, %243
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.us = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.us, %243 ], [ %.sroa.038.1.i.i.i.i.us, %._crit_edge._crit_edge.i.i.i.i.us ], [ %spec.select.i.i.i.i.us, %._crit_edge._crit_edge64.i.i.i.i.us ], [ %251, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit221" ], [ %252, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit223" ], [ %253, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us.loopexit.split.loop.exit225" ], [ %.sroa.038.057.i.i.i.i.us, %227 ]
+"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us": ; preds = %227, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit221", %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit223", %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit225", %._crit_edge._crit_edge64.i.i.i.i.us, %._crit_edge._crit_edge.i.i.i.i.us, %243
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.us = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.us, %243 ], [ %.sroa.038.1.i.i.i.i.us, %._crit_edge._crit_edge.i.i.i.i.us ], [ %spec.select.i.i.i.i.us, %._crit_edge._crit_edge64.i.i.i.i.us ], [ %251, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit221" ], [ %252, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit223" ], [ %253, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us.loopexit.split.loop.exit225" ], [ %.sroa.038.057.i.i.i.i.us, %227 ]
   %.not189.us = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.us, %.val77.us
   br i1 %.not189.us, label %.critedge.us, label %254
 
-254:                                              ; preds = %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us"
+254:                                              ; preds = %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us"
   %255 = icmp eq i64 %.3.us, 0
   br i1 %255, label %.critedge2.us, label %256
 
@@ -1664,7 +1664,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.us:         ; preds = %271, %269
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
   br label %283
 
-.critedge.us:                                     ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.us, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.exit.us", %._crit_edge.i.i.i.i.us
+.critedge.us:                                     ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.us, %"_ZN4llvm7find_ifIRKSt6vectorIN5clang6driver9InputInfoESaIS4_EEZNKS3_7Command5PrintERNS_11raw_ostreamEPKcbPNS3_15CrashReportInfoEE3$_0EEDaOT_T0_.argprom.exit.us", %._crit_edge.i.i.i.i.us
   %274 = load ptr, ptr %32, align 8
   %275 = load ptr, ptr %34, align 8
   %.not.i102.us = icmp ult ptr %274, %275

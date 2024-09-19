@@ -2118,7 +2118,7 @@ common.resume:                                    ; preds = %.critedge, %30
   %38 = getelementptr inbounds i8, ptr %.val, i64 24
   %39 = load ptr, ptr %38, align 8, !nonnull !14, !noundef !14
   invoke void %39(ptr noundef %.val33)
-          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.exit" unwind label %40
+          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom.exit" unwind label %40
 
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
@@ -2129,7 +2129,7 @@ common.resume:                                    ; preds = %.critedge, %30
   store ptr %36, ptr %37, align 8
   br label %91
 
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.exit": ; preds = %34
+"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom.exit": ; preds = %34
   %43 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %43)
   store ptr %35, ptr %16, align 8
@@ -2139,7 +2139,7 @@ common.resume:                                    ; preds = %.critedge, %30
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread, label %46
 
-46:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.exit"
+46:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom.exit"
   %.val.i.i37 = load ptr, ptr %44, align 8, !noalias !445, !nonnull !14, !align !210, !noundef !14
   %47 = getelementptr i8, ptr %44, i64 8
   %.val1.i.i38 = load ptr, ptr %47, align 8, !noalias !445, !noundef !14
@@ -2159,7 +2159,7 @@ common.resume:                                    ; preds = %.critedge, %30
   tail call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef 16, i64 noundef 8) #26, !noalias !448
   br label %.thread
 
-.thread:                                          ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.exit", %"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$17hcd70e05c1d2a0a51E.exit.i39"
+.thread:                                          ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom.exit", %"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$17hcd70e05c1d2a0a51E.exit.i39"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %7, align 8
   br label %69
@@ -2179,7 +2179,7 @@ common.resume:                                    ; preds = %.critedge, %30
   %60 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %61 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17h7be1c7bb7da74968E.exit"
+  br i1 %62, label %63, label %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17h7be1c7bb7da74968E.argprom.exit"
 
 63:                                               ; preds = %.noexc
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 8, i64 noundef 16) #33
@@ -2191,7 +2191,7 @@ common.resume:                                    ; preds = %.critedge, %30
 64:                                               ; preds = %63
   %65 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE"(ptr nonnull %57, ptr %58) #34
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom"(ptr nonnull %57, ptr %58) #34
           to label %.critedge unwind label %66
 
 66:                                               ; preds = %64
@@ -2200,7 +2200,7 @@ common.resume:                                    ; preds = %.critedge, %30
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #35
   unreachable
 
-"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17h7be1c7bb7da74968E.exit": ; preds = %.noexc
+"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17h7be1c7bb7da74968E.argprom.exit": ; preds = %.noexc
   store ptr %57, ptr %61, align 8
   %68 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr %58, ptr %68, align 8
@@ -2221,8 +2221,8 @@ common.resume:                                    ; preds = %.critedge, %30
           cleanup
   br label %.critedge
 
-69:                                               ; preds = %21, %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17h7be1c7bb7da74968E.exit", %.thread
-  %.026 = phi ptr [ %.pr, %21 ], [ %61, %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17h7be1c7bb7da74968E.exit" ], [ %16, %.thread ]
+69:                                               ; preds = %21, %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17h7be1c7bb7da74968E.argprom.exit", %.thread
+  %.026 = phi ptr [ %.pr, %21 ], [ %61, %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17h7be1c7bb7da74968E.argprom.exit" ], [ %16, %.thread ]
   %70 = ptrtoint ptr %.026 to i64
   %71 = cmpxchg ptr %9, i64 1, i64 %70 seq_cst seq_cst, align 8
   %72 = extractvalue { i64, i1 } %71, 1
@@ -2289,7 +2289,7 @@ common.resume:                                    ; preds = %.critedge, %30
   %.val35 = phi ptr [ %.val35.pre, %32 ], [ %36, %40 ]
   %.val34 = phi ptr [ %.val34.pre, %32 ], [ %35, %40 ]
   %.pn.ph = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE"(ptr nonnull %.val34, ptr %.val35) #34
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom"(ptr nonnull %.val34, ptr %.val35) #34
           to label %94 unwind label %92
 
 92:                                               ; preds = %91, %.critedge
@@ -2395,7 +2395,7 @@ common.resume:                                    ; preds = %.critedge, %30
   %38 = getelementptr inbounds i8, ptr %.val, i64 24
   %39 = load ptr, ptr %38, align 8, !nonnull !14, !noundef !14
   invoke void %39(ptr noundef %.val33)
-          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.exit" unwind label %40
+          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom.exit" unwind label %40
 
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
@@ -2406,7 +2406,7 @@ common.resume:                                    ; preds = %.critedge, %30
   store ptr %36, ptr %37, align 8
   br label %91
 
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.exit": ; preds = %34
+"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom.exit": ; preds = %34
   %43 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %43)
   store ptr %35, ptr %16, align 8
@@ -2416,7 +2416,7 @@ common.resume:                                    ; preds = %.critedge, %30
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread, label %46
 
-46:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.exit"
+46:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom.exit"
   %.val.i.i37 = load ptr, ptr %44, align 8, !noalias !477, !nonnull !14, !align !210, !noundef !14
   %47 = getelementptr i8, ptr %44, i64 8
   %.val1.i.i38 = load ptr, ptr %47, align 8, !noalias !477, !noundef !14
@@ -2436,7 +2436,7 @@ common.resume:                                    ; preds = %.critedge, %30
   tail call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef 16, i64 noundef 8) #26, !noalias !480
   br label %.thread
 
-.thread:                                          ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.exit", %"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$17hcd70e05c1d2a0a51E.exit.i39"
+.thread:                                          ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom.exit", %"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$17hcd70e05c1d2a0a51E.exit.i39"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %7, align 8
   br label %69
@@ -2456,7 +2456,7 @@ common.resume:                                    ; preds = %.critedge, %30
   %60 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %61 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17hec25f5a2d78acfc3E.exit"
+  br i1 %62, label %63, label %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17hec25f5a2d78acfc3E.argprom.exit"
 
 63:                                               ; preds = %.noexc
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 8, i64 noundef 16) #33
@@ -2468,7 +2468,7 @@ common.resume:                                    ; preds = %.critedge, %30
 64:                                               ; preds = %63
   %65 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE"(ptr nonnull %57, ptr %58) #34
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom"(ptr nonnull %57, ptr %58) #34
           to label %.critedge unwind label %66
 
 66:                                               ; preds = %64
@@ -2477,7 +2477,7 @@ common.resume:                                    ; preds = %.critedge, %30
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #35
   unreachable
 
-"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17hec25f5a2d78acfc3E.exit": ; preds = %.noexc
+"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17hec25f5a2d78acfc3E.argprom.exit": ; preds = %.noexc
   store ptr %57, ptr %61, align 8
   %68 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr %58, ptr %68, align 8
@@ -2498,8 +2498,8 @@ common.resume:                                    ; preds = %.critedge, %30
           cleanup
   br label %.critedge
 
-69:                                               ; preds = %21, %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17hec25f5a2d78acfc3E.exit", %.thread
-  %.026 = phi ptr [ %.pr, %21 ], [ %61, %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17hec25f5a2d78acfc3E.exit" ], [ %16, %.thread ]
+69:                                               ; preds = %21, %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17hec25f5a2d78acfc3E.argprom.exit", %.thread
+  %.026 = phi ptr [ %.pr, %21 ], [ %61, %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock28_$u7b$$u7b$closure$u7d$$u7d$17hec25f5a2d78acfc3E.argprom.exit" ], [ %16, %.thread ]
   %70 = ptrtoint ptr %.026 to i64
   %71 = cmpxchg ptr %9, i64 1, i64 %70 seq_cst seq_cst, align 8
   %72 = extractvalue { i64, i1 } %71, 1
@@ -2566,7 +2566,7 @@ common.resume:                                    ; preds = %.critedge, %30
   %.val35 = phi ptr [ %.val35.pre, %32 ], [ %36, %40 ]
   %.val34 = phi ptr [ %.val34.pre, %32 ], [ %35, %40 ]
   %.pn.ph = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE"(ptr nonnull %.val34, ptr %.val35) #34
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom"(ptr nonnull %.val34, ptr %.val35) #34
           to label %94 unwind label %92
 
 92:                                               ; preds = %91, %.critedge
@@ -9572,7 +9572,7 @@ define internal void @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17hc6aa981a36
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE"(ptr readonly %.0.val, ptr %.8.val) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9dc92ec5f67e338dE.argprom"(ptr readonly %.0.val, ptr %.8.val) unnamed_addr #1 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 24
@@ -15918,10 +15918,10 @@ attributes #35 = { noinline noreturn nounwind }
 !458 = distinct !{!458, !459, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5c088072a38a12bE.llvm.17750508912526769443: argument 0"}
 !459 = distinct !{!459, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5c088072a38a12bE.llvm.17750508912526769443"}
 !460 = !{!461}
-!461 = distinct !{!461, !462, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
-!462 = distinct !{!462, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
+!461 = distinct !{!461, !462, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom: argument 0"}
+!462 = distinct !{!462, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom"}
 !463 = !{!464}
-!464 = distinct !{!464, !462, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
+!464 = distinct !{!464, !462, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom: argument 1"}
 !465 = !{!466}
 !466 = distinct !{!466, !467, !"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$$GT$17h200dfd042150d1c4E: argument 0"}
 !467 = distinct !{!467, !"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$$GT$17h200dfd042150d1c4E"}
@@ -15950,10 +15950,10 @@ attributes #35 = { noinline noreturn nounwind }
 !490 = distinct !{!490, !491, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5c088072a38a12bE.llvm.17750508912526769443: argument 0"}
 !491 = distinct !{!491, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5c088072a38a12bE.llvm.17750508912526769443"}
 !492 = !{!493}
-!493 = distinct !{!493, !494, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
-!494 = distinct !{!494, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
+!493 = distinct !{!493, !494, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom: argument 0"}
+!494 = distinct !{!494, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom"}
 !495 = !{!496}
-!496 = distinct !{!496, !494, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
+!496 = distinct !{!496, !494, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom: argument 1"}
 !497 = !{!498, !500, !501, !503}
 !498 = distinct !{!498, !499, !"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$..deserialize_enum..Enum$LT$R$GT$$u20$as$u20$serde..de..EnumAccess$GT$12variant_seed17he02189368d0f79f6E: argument 0"}
 !499 = distinct !{!499, !"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$..deserialize_enum..Enum$LT$R$GT$$u20$as$u20$serde..de..EnumAccess$GT$12variant_seed17he02189368d0f79f6E"}

@@ -129,7 +129,7 @@ define i32 @mca_coll_base_alltoallv_intra_basic_inplace(ptr noundef %0, ptr noca
   %55 = ptrtoint ptr %54 to i64
   %56 = and i64 %55, 1
   %.not.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %57
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %57
 
 57:                                               ; preds = %50
   %58 = lshr i64 %55, 1
@@ -142,7 +142,7 @@ define i32 @mca_coll_base_alltoallv_intra_basic_inplace(ptr noundef %0, ptr noca
   %64 = ptrtoint ptr %61 to i64
   %65 = cmpxchg volatile ptr %63, i64 %55, i64 %64 acquire monotonic, align 8
   %66 = extractvalue { i64, i1 } %65, 1
-  br i1 %66, label %67, label %ompi_comm_peer_lookup.exit
+  br i1 %66, label %67, label %ompi_comm_peer_lookup.argprom.exit
 
 67:                                               ; preds = %57
   %68 = getelementptr inbounds i8, ptr %61, i64 8
@@ -152,16 +152,16 @@ define i32 @mca_coll_base_alltoallv_intra_basic_inplace(ptr noundef %0, ptr noca
 
 71:                                               ; preds = %67
   %72 = atomicrmw volatile add ptr %68, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.exit
+  br label %ompi_comm_peer_lookup.argprom.exit
 
 73:                                               ; preds = %67
   %74 = load volatile i32, ptr %68, align 4
   %75 = add nsw i32 %74, 1
   store volatile i32 %75, ptr %68, align 4
   %76 = load volatile i32, ptr %68, align 4
-  br label %ompi_comm_peer_lookup.exit
+  br label %ompi_comm_peer_lookup.argprom.exit
 
-ompi_comm_peer_lookup.exit:                       ; preds = %50, %57, %71, %73
+ompi_comm_peer_lookup.argprom.exit:               ; preds = %50, %57, %71, %73
   %.0.i.i.i.i = phi ptr [ %54, %50 ], [ %61, %73 ], [ %61, %71 ], [ %61, %57 ]
   %77 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   %78 = load ptr, ptr %77, align 8
@@ -179,7 +179,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %50, %57, %71, %73
   %.not104 = icmp eq i32 %88, 1
   br i1 %.not104, label %89, label %._crit_edge131
 
-89:                                               ; preds = %ompi_comm_peer_lookup.exit
+89:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit
   %90 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %91 = load i32, ptr %82, align 4
   %92 = sext i32 %91 to i64
@@ -250,8 +250,8 @@ ompi_comm_peer_lookup.exit:                       ; preds = %50, %57, %71, %73
   %.not113 = icmp eq i32 %132, 0
   br i1 %.not113, label %40, label %._crit_edge131
 
-._crit_edge131:                                   ; preds = %130, %126, %115, %112, %103, %89, %ompi_comm_peer_lookup.exit, %40, %.preheader
-  %.088 = phi i32 [ 0, %.preheader ], [ 0, %40 ], [ %88, %ompi_comm_peer_lookup.exit ], [ %97, %89 ], [ %111, %103 ], [ %114, %112 ], [ %123, %115 ], [ %129, %126 ], [ %132, %130 ]
+._crit_edge131:                                   ; preds = %130, %126, %115, %112, %103, %89, %ompi_comm_peer_lookup.argprom.exit, %40, %.preheader
+  %.088 = phi i32 [ 0, %.preheader ], [ 0, %40 ], [ %88, %ompi_comm_peer_lookup.argprom.exit ], [ %97, %89 ], [ %111, %103 ], [ %114, %112 ], [ %123, %115 ], [ %129, %126 ], [ %132, %130 ]
   call void @free(ptr noundef nonnull %34) #6
   br label %.thread
 

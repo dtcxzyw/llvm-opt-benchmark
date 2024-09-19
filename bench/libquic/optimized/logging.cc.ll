@@ -547,7 +547,7 @@ if.end:                                           ; preds = %invoke.cont21, %lor
 if.end27:                                         ; preds = %if.end
   %log_file = getelementptr inbounds i8, ptr %settings, i64 8
   %.b1.i = load i1, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock11initializedE, align 1
-  br i1 %.b1.i, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit, label %if.end.i
+  br i1 %.b1.i, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end27
   %lock_log = getelementptr inbounds i8, ptr %settings, i64 16
@@ -573,33 +573,33 @@ lpad.i14:                                         ; preds = %if.then1.i
 
 if.end2.i:                                        ; preds = %invoke.cont.i15, %if.end.i
   store i1 true, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock11initializedE, align 1
-  br label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit
+  br label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.argprom.exit
 
-_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit: ; preds = %if.end27, %if.end2.i
+_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.argprom.exit: ; preds = %if.end27, %if.end2.i
   %9 = load i32, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock13lock_log_fileE, align 4
   %cmp.i.i = icmp eq i32 %9, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
-if.then.i.i:                                      ; preds = %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit
+if.then.i.i:                                      ; preds = %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.argprom.exit
   %call.i.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN7logging12_GLOBAL__N_111LoggingLock9log_mutexE) #21
-  br label %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit
+  br label %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit
 
-if.else.i.i:                                      ; preds = %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit
+if.else.i.i:                                      ; preds = %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.argprom.exit
   %10 = load ptr, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock8log_lockE, align 8
   call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-  br label %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit
+  br label %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit
 
-_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit:  ; preds = %if.then.i.i, %if.else.i.i
+_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit: ; preds = %if.then.i.i, %if.else.i.i
   %11 = load ptr, ptr @_ZN7logging12_GLOBAL__N_110g_log_fileE, align 8
   %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %invoke.cont29, label %if.end.i16
 
-if.end.i16:                                       ; preds = %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit
+if.end.i16:                                       ; preds = %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit
   %call.i.i17 = call i32 @fclose(ptr noundef nonnull %11)
   store ptr null, ptr @_ZN7logging12_GLOBAL__N_110g_log_fileE, align 8
   br label %invoke.cont29
 
-invoke.cont29:                                    ; preds = %if.end.i16, %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit
+invoke.cont29:                                    ; preds = %if.end.i16, %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit
   %12 = load ptr, ptr @_ZN7logging12_GLOBAL__N_115g_log_file_nameB5cxx11E, align 8
   %tobool30.not = icmp eq ptr %12, null
   br i1 %tobool30.not, label %if.then31, label %if.end34
@@ -616,7 +616,7 @@ invoke.cont32:                                    ; preds = %if.then31
 lpad28:                                           ; preds = %if.end41, %if.end34, %if.then31
   %13 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev() #21
+  call fastcc void @_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.argprom() #21
   br label %common.resume
 
 if.end34:                                         ; preds = %invoke.cont32, %invoke.cont29
@@ -781,7 +781,7 @@ return:                                           ; preds = %if.then4, %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev() unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.argprom() unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock13lock_log_fileE, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -1547,36 +1547,36 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN7logging12_GLOBAL__N_111LoggingLock9log_mutexE) #21
-  br label %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit
+  br label %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit
 
 if.else.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock8log_lockE, align 8
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-  br label %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit
+  br label %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit
 
-_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit:  ; preds = %if.then.i.i, %if.else.i.i
+_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit: ; preds = %if.then.i.i, %if.else.i.i
   %2 = load ptr, ptr @_ZN7logging12_GLOBAL__N_110g_log_fileE, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit
+if.end.i:                                         ; preds = %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit
   %call.i.i1 = tail call i32 @fclose(ptr noundef nonnull %2)
   store ptr null, ptr @_ZN7logging12_GLOBAL__N_110g_log_fileE, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.end.i, %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.exit
+invoke.cont:                                      ; preds = %if.end.i, %_ZN7logging12_GLOBAL__N_111LoggingLockC2Ev.argprom.exit
   %3 = load i32, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock13lock_log_fileE, align 4
   %cmp.i.i2 = icmp eq i32 %3, 0
   br i1 %cmp.i.i2, label %if.then.i.i4, label %if.else.i.i3
 
 if.then.i.i4:                                     ; preds = %invoke.cont
   %call.i.i5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging12_GLOBAL__N_111LoggingLock9log_mutexE) #21
-  br label %_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.exit
+  br label %_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.argprom.exit
 
 if.else.i.i3:                                     ; preds = %invoke.cont
   %4 = load ptr, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock8log_lockE, align 8
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
-          to label %_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.exit unwind label %terminate.lpad.i
+          to label %_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.argprom.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.else.i.i3
   %5 = landingpad { ptr, i32 }
@@ -1585,7 +1585,7 @@ terminate.lpad.i:                                 ; preds = %if.else.i.i3
   tail call void @__clang_call_terminate(ptr %6) #23
   unreachable
 
-_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.exit:  ; preds = %if.then.i.i4, %if.else.i.i3
+_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.argprom.exit: ; preds = %if.then.i.i4, %if.else.i.i3
   ret void
 }
 

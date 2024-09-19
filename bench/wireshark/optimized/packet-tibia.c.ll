@@ -1223,25 +1223,25 @@ addresses_equal.exit:                             ; preds = %27, %20, %18, %2
 define internal void @rsakey_free(ptr noundef %0) #0 {
   %2 = load i32, ptr %0, align 8
   %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %free_address_wmem.exit, label %3
+  br i1 %.not.i, label %free_address_wmem.argprom.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %free_address_wmem.exit
+  br i1 %6, label %7, label %free_address_wmem.argprom.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
-  br i1 %.not6.i, label %free_address_wmem.exit, label %10
+  br i1 %.not6.i, label %free_address_wmem.argprom.exit, label %10
 
 10:                                               ; preds = %7
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9) #13
-  br label %free_address_wmem.exit
+  br label %free_address_wmem.argprom.exit
 
-free_address_wmem.exit:                           ; preds = %1, %3, %7, %10
+free_address_wmem.argprom.exit:                   ; preds = %1, %3, %7, %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   tail call void @g_free(ptr noundef nonnull %0) #13
   ret void

@@ -19,7 +19,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
   %15 = mul i32 %14, %9
   %16 = mul i32 %15, %13
   %17 = icmp sgt i32 %11, 0
-  br i1 %17, label %.lr.ph20.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %17, label %.lr.ph20.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .lr.ph20.i:                                       ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -55,7 +55,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 ._crit_edge.us.i:                                 ; preds = %.lr.ph17.us.i, %.preheader.us.i
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count71.i
-  br i1 %exitcond72.not.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.lr.ph.us.i, !llvm.loop !4
+  br i1 %exitcond72.not.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.lr.ph.us.i, !llvm.loop !4
 
 .lr.ph17.us.i:                                    ; preds = %.preheader.us.i, %.lr.ph17.us.i
   %.216.us.i = phi i32 [ %43, %.lr.ph17.us.i ], [ %.1.lcssa.us.i, %.preheader.us.i ]
@@ -164,7 +164,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 ..preheader_crit_edge.us35.i.us:                  ; preds = %83
   %indvars.iv.next63.i.us = add nuw nsw i64 %indvars.iv62.i.us, 1
   %exitcond66.not.i.us = icmp eq i64 %indvars.iv.next63.i.us, %wide.trip.count65.i
-  br i1 %exitcond66.not.i.us, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us22.i.us, !llvm.loop !4
+  br i1 %exitcond66.not.i.us, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us22.i.us, !llvm.loop !4
 
 .preheader1.us22.i:                               ; preds = %.preheader1.us22.preheader.i, %._crit_edge.us40.i.loopexit
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %._crit_edge.us40.i.loopexit ], [ 0, %.preheader1.us22.preheader.i ]
@@ -185,7 +185,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 ._crit_edge.us40.i.loopexit:                      ; preds = %.lr.ph17.us39.i
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
-  br i1 %exitcond66.not.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us22.i, !llvm.loop !4
+  br i1 %exitcond66.not.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us22.i, !llvm.loop !4
 
 .lr.ph17.us39.i:                                  ; preds = %112, %.lr.ph17.us39.i
   %.216.us24.i = phi i32 [ %111, %.lr.ph17.us39.i ], [ %70, %112 ]
@@ -220,7 +220,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 
 .lr.ph20.split.split.i:                           ; preds = %.lr.ph20.split.i
   %123 = icmp sgt i32 %16, 0
-  br i1 %123, label %.preheader1.us41.preheader.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %123, label %.preheader1.us41.preheader.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .preheader1.us41.preheader.i:                     ; preds = %.lr.ph20.split.split.i
   %wide.trip.count.i = zext nneg i32 %11 to i64
@@ -259,9 +259,9 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 ._crit_edge.us47.i:                               ; preds = %136
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond60.not.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us41.i, !llvm.loop !4
+  br i1 %exitcond60.not.i, label %_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us41.i, !llvm.loop !4
 
-_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._crit_edge.us47.i, %._crit_edge.us40.i.loopexit, %..preheader_crit_edge.us35.i.us, %._crit_edge.us.i, %3, %.lr.ph20.split.split.i
+_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.us47.i, %._crit_edge.us40.i.loopexit, %..preheader_crit_edge.us35.i.us, %._crit_edge.us.i, %3, %.lr.ph20.split.split.i
   ret void
 }
 
@@ -281,7 +281,7 @@ define hidden void @_ZN4ncnn26cast_bf16_to_fp32_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
   %15 = mul i32 %14, %9
   %16 = mul i32 %15, %13
   %17 = icmp sgt i32 %11, 0
-  br i1 %17, label %.lr.ph20.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %17, label %.lr.ph20.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .lr.ph20.i:                                       ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -317,7 +317,7 @@ define hidden void @_ZN4ncnn26cast_bf16_to_fp32_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 ._crit_edge.us.i:                                 ; preds = %.lr.ph17.us.i, %.preheader.us.i
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count71.i
-  br i1 %exitcond72.not.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.lr.ph.us.i, !llvm.loop !9
+  br i1 %exitcond72.not.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.lr.ph.us.i, !llvm.loop !9
 
 .lr.ph17.us.i:                                    ; preds = %.preheader.us.i, %.lr.ph17.us.i
   %.216.us.i = phi i32 [ %43, %.lr.ph17.us.i ], [ %.1.lcssa.us.i, %.preheader.us.i ]
@@ -420,7 +420,7 @@ define hidden void @_ZN4ncnn26cast_bf16_to_fp32_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 ..preheader_crit_edge.us35.i.us:                  ; preds = %78
   %indvars.iv.next63.i.us = add nuw nsw i64 %indvars.iv62.i.us, 1
   %exitcond66.not.i.us = icmp eq i64 %indvars.iv.next63.i.us, %wide.trip.count65.i
-  br i1 %exitcond66.not.i.us, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us22.i.us, !llvm.loop !9
+  br i1 %exitcond66.not.i.us, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us22.i.us, !llvm.loop !9
 
 .preheader1.us22.i:                               ; preds = %.preheader1.us22.preheader.i, %._crit_edge.us40.i.loopexit
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %._crit_edge.us40.i.loopexit ], [ 0, %.preheader1.us22.preheader.i ]
@@ -441,7 +441,7 @@ define hidden void @_ZN4ncnn26cast_bf16_to_fp32_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 ._crit_edge.us40.i.loopexit:                      ; preds = %.lr.ph17.us39.i
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
-  br i1 %exitcond66.not.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us22.i, !llvm.loop !9
+  br i1 %exitcond66.not.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us22.i, !llvm.loop !9
 
 .lr.ph17.us39.i:                                  ; preds = %106, %.lr.ph17.us39.i
   %.216.us24.i = phi i32 [ %105, %.lr.ph17.us39.i ], [ %65, %106 ]
@@ -475,7 +475,7 @@ define hidden void @_ZN4ncnn26cast_bf16_to_fp32_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 
 .lr.ph20.split.split.i:                           ; preds = %.lr.ph20.split.i
   %116 = icmp sgt i32 %16, 0
-  br i1 %116, label %.preheader1.us41.preheader.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %116, label %.preheader1.us41.preheader.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .preheader1.us41.preheader.i:                     ; preds = %.lr.ph20.split.split.i
   %wide.trip.count.i = zext nneg i32 %11 to i64
@@ -514,9 +514,9 @@ define hidden void @_ZN4ncnn26cast_bf16_to_fp32_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
 ._crit_edge.us47.i:                               ; preds = %129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond60.not.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us41.i, !llvm.loop !9
+  br i1 %exitcond60.not.i, label %_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us41.i, !llvm.loop !9
 
-_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._crit_edge.us47.i, %._crit_edge.us40.i.loopexit, %..preheader_crit_edge.us35.i.us, %._crit_edge.us.i, %3, %.lr.ph20.split.split.i
+_ZN4ncnnL21cast_bf16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.us47.i, %._crit_edge.us40.i.loopexit, %..preheader_crit_edge.us35.i.us, %._crit_edge.us.i, %3, %.lr.ph20.split.split.i
   ret void
 }
 

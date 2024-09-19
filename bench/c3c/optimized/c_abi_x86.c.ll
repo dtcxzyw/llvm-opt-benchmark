@@ -559,7 +559,7 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   %24 = load ptr, ptr %23, align 8
   %25 = tail call fastcc ptr @type_lowering(ptr noundef %24)
   %26 = tail call ptr @type_get_ptr(ptr noundef %25) #4
-  %27 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %26)
+  %27 = call fastcc ptr @x86_classify_argument.argelim(ptr noundef %2, ptr noundef %26)
   %28 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %27, ptr %28, align 8
   br label %29
@@ -586,7 +586,7 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %39 ]
   %40 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
-  %42 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %41)
+  %42 = call fastcc ptr @x86_classify_argument.argelim(ptr noundef %2, ptr noundef %41)
   %43 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.i
   store ptr %42, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -618,7 +618,7 @@ x86_create_params.exit:                           ; preds = %39, %29, %32
   %indvars.iv.i17 = phi i64 [ 0, %50 ], [ %indvars.iv.next.i18, %54 ]
   %55 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.i17
   %56 = load ptr, ptr %55, align 8
-  %57 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %56)
+  %57 = call fastcc ptr @x86_classify_argument.argelim(ptr noundef %2, ptr noundef %56)
   %58 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i17
   store ptr %57, ptr %58, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
@@ -636,7 +636,7 @@ x86_create_params.exit21:                         ; preds = %54, %x86_create_par
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @x86_classify_argument.argelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @type_lowering(ptr noundef %1)
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %212 [
@@ -878,22 +878,22 @@ x86_is_mmxtype.exit.thread.i:                     ; preds = %x86_is_mmxtype.exit
   %.val.i.i.i = load ptr, ptr %105, align 8
   %106 = load i32, ptr %.val.i.i.i, align 8
   %107 = icmp eq i32 %106, 37
-  br i1 %107, label %type_is_simd_vector.exit.i.i.i, label %type_is_simd_vector.exit.thread.i.i.i
+  br i1 %107, label %type_is_simd_vector.argprom.exit.i.i.i, label %type_is_simd_vector.argprom.exit.thread.i.i.i
 
-type_is_simd_vector.exit.i.i.i:                   ; preds = %104
+type_is_simd_vector.argprom.exit.i.i.i:           ; preds = %104
   %108 = tail call i32 @type_size(ptr noundef nonnull %.val.i.i.i) #4
   %109 = icmp eq i32 %108, 16
-  br i1 %109, label %x86_stack_alignment.exit.i.i, label %type_is_simd_vector.exit.thread.i.i.i
+  br i1 %109, label %x86_stack_alignment.exit.i.i, label %type_is_simd_vector.argprom.exit.thread.i.i.i
 
-type_is_simd_vector.exit.thread.i.i.i:            ; preds = %type_is_simd_vector.exit.i.i.i, %104
+type_is_simd_vector.argprom.exit.thread.i.i.i:    ; preds = %type_is_simd_vector.argprom.exit.i.i.i, %104
   %110 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull readonly %3)
   br i1 %110, label %x86_stack_alignment.exit.i.i, label %111
 
-111:                                              ; preds = %type_is_simd_vector.exit.thread.i.i.i, %102
+111:                                              ; preds = %type_is_simd_vector.argprom.exit.thread.i.i.i, %102
   br label %x86_stack_alignment.exit.i.i
 
-x86_stack_alignment.exit.i.i:                     ; preds = %111, %type_is_simd_vector.exit.thread.i.i.i, %type_is_simd_vector.exit.i.i.i
-  %.0.i.ph.i.i = phi i32 [ 16, %type_is_simd_vector.exit.i.i.i ], [ 16, %type_is_simd_vector.exit.thread.i.i.i ], [ 4, %111 ]
+x86_stack_alignment.exit.i.i:                     ; preds = %111, %type_is_simd_vector.argprom.exit.thread.i.i.i, %type_is_simd_vector.argprom.exit.i.i.i
+  %.0.i.ph.i.i = phi i32 [ 16, %type_is_simd_vector.argprom.exit.i.i.i ], [ 16, %type_is_simd_vector.argprom.exit.thread.i.i.i ], [ 4, %111 ]
   %112 = icmp ugt i32 %100, %.0.i.ph.i.i
   br i1 %112, label %113, label %x86_stack_alignment.exit.thread19.i.i
 
@@ -1086,22 +1086,22 @@ x86_can_expand_indirect_aggregate_arg.exit.thread.i: ; preds = %.lr.ph.i.i, %x86
   %.val.i.i36.i = load ptr, ptr %201, align 8
   %202 = load i32, ptr %.val.i.i36.i, align 8
   %203 = icmp eq i32 %202, 37
-  br i1 %203, label %type_is_simd_vector.exit.i.i38.i, label %type_is_simd_vector.exit.thread.i.i37.i
+  br i1 %203, label %type_is_simd_vector.argprom.exit.i.i38.i, label %type_is_simd_vector.argprom.exit.thread.i.i37.i
 
-type_is_simd_vector.exit.i.i38.i:                 ; preds = %200
+type_is_simd_vector.argprom.exit.i.i38.i:         ; preds = %200
   %204 = tail call i32 @type_size(ptr noundef nonnull %.val.i.i36.i) #4
   %205 = icmp eq i32 %204, 16
-  br i1 %205, label %x86_stack_alignment.exit.i32.i, label %type_is_simd_vector.exit.thread.i.i37.i
+  br i1 %205, label %x86_stack_alignment.exit.i32.i, label %type_is_simd_vector.argprom.exit.thread.i.i37.i
 
-type_is_simd_vector.exit.thread.i.i37.i:          ; preds = %type_is_simd_vector.exit.i.i38.i, %200
+type_is_simd_vector.argprom.exit.thread.i.i37.i:  ; preds = %type_is_simd_vector.argprom.exit.i.i38.i, %200
   %206 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull readonly %3)
   br i1 %206, label %x86_stack_alignment.exit.i32.i, label %207
 
-207:                                              ; preds = %type_is_simd_vector.exit.thread.i.i37.i, %198
+207:                                              ; preds = %type_is_simd_vector.argprom.exit.thread.i.i37.i, %198
   br label %x86_stack_alignment.exit.i32.i
 
-x86_stack_alignment.exit.i32.i:                   ; preds = %207, %type_is_simd_vector.exit.thread.i.i37.i, %type_is_simd_vector.exit.i.i38.i
-  %.0.i.ph.i33.i = phi i32 [ 16, %type_is_simd_vector.exit.i.i38.i ], [ 16, %type_is_simd_vector.exit.thread.i.i37.i ], [ 4, %207 ]
+x86_stack_alignment.exit.i32.i:                   ; preds = %207, %type_is_simd_vector.argprom.exit.thread.i.i37.i, %type_is_simd_vector.argprom.exit.i.i38.i
+  %.0.i.ph.i33.i = phi i32 [ 16, %type_is_simd_vector.argprom.exit.i.i38.i ], [ 16, %type_is_simd_vector.argprom.exit.thread.i.i37.i ], [ 4, %207 ]
   %208 = icmp ugt i32 %196, %.0.i.ph.i33.i
   br i1 %208, label %209, label %x86_stack_alignment.exit.thread19.i34.i
 
@@ -1180,7 +1180,7 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
   %wide.trip.count = zext i32 %18 to i64
   br label %.lr.ph
 
-19:                                               ; preds = %type_is_simd_vector.exit.thread
+19:                                               ; preds = %type_is_simd_vector.argprom.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
@@ -1195,19 +1195,19 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
   %.val = load ptr, ptr %24, align 8
   %25 = load i32, ptr %.val, align 8
   %26 = icmp eq i32 %25, 37
-  br i1 %26, label %type_is_simd_vector.exit, label %type_is_simd_vector.exit.thread
+  br i1 %26, label %type_is_simd_vector.argprom.exit, label %type_is_simd_vector.argprom.exit.thread
 
-type_is_simd_vector.exit:                         ; preds = %.lr.ph
+type_is_simd_vector.argprom.exit:                 ; preds = %.lr.ph
   %27 = tail call i32 @type_size(ptr noundef nonnull %.val) #4
   %28 = icmp eq i32 %27, 16
-  br i1 %28, label %.loopexit, label %type_is_simd_vector.exit.thread
+  br i1 %28, label %.loopexit, label %type_is_simd_vector.argprom.exit.thread
 
-type_is_simd_vector.exit.thread:                  ; preds = %.lr.ph, %type_is_simd_vector.exit
+type_is_simd_vector.argprom.exit.thread:          ; preds = %.lr.ph, %type_is_simd_vector.argprom.exit
   %29 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull %23)
   br i1 %29, label %.loopexit, label %19
 
-.loopexit:                                        ; preds = %type_is_simd_vector.exit, %type_is_simd_vector.exit.thread, %19, %11, %16, %8
-  %.021 = phi i1 [ false, %8 ], [ false, %16 ], [ false, %11 ], [ true, %type_is_simd_vector.exit ], [ true, %type_is_simd_vector.exit.thread ], [ false, %19 ]
+.loopexit:                                        ; preds = %type_is_simd_vector.argprom.exit, %type_is_simd_vector.argprom.exit.thread, %19, %11, %16, %8
+  %.021 = phi i1 [ false, %8 ], [ false, %16 ], [ false, %11 ], [ true, %type_is_simd_vector.argprom.exit ], [ true, %type_is_simd_vector.argprom.exit.thread ], [ false, %19 ]
   ret i1 %.021
 }
 

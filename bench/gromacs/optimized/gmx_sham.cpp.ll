@@ -422,7 +422,7 @@ define noundef i32 @_Z8gmx_shamiPPc(i32 noundef %0, ptr noundef %1) local_unname
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit57, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit, %.thread, %._crit_edge115.i, %._crit_edge108.i, %._crit_edge.i, %.noexc, %194, %401, %399, %394, %391, %381, %379, %377, %375, %373, %371, %369, %367, %._crit_edge118, %356, %192, %179, %170, %160, %138, %130, %124, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %98, %96, %2
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit57, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit, %.thread, %._crit_edge115.i, %._crit_edge108.i, %._crit_edge.i, %.noexc, %194, %401, %399, %394, %391, %381, %379, %377, %375, %373, %371, %369, %367, %._crit_edge118, %356, %192, %179, %170, %160, %138, %130, %124, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %98, %96, %2
   %lpad.loopexit.split-lp107 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1003,41 +1003,41 @@ _ZL6ehistoPKciPPfPK16gmx_output_env_t.exit:       ; preds = %._crit_edge115.i
   %.sroa.speculated84 = call i32 @llvm.smax.i32(i32 %299, i32 3)
   %300 = zext nneg i32 %.sroa.speculated84 to i64
   %301 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.97, i32 noundef 1214, i64 noundef %300, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %.thread
+_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit:  ; preds = %.thread
   %302 = load i32, ptr %16, align 4
   %.sroa.speculated80 = call i32 @llvm.smax.i32(i32 %302, i32 3)
   %303 = zext nneg i32 %.sroa.speculated80 to i64
   %304 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.97, i32 noundef 1215, i64 noundef %303, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit57 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit57 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit57:        ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit
+_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit57: ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit
   %305 = load i32, ptr %16, align 4
   %.sroa.speculated76 = call i32 @llvm.smax.i32(i32 %305, i32 3)
   %306 = zext nneg i32 %.sroa.speculated76 to i64
   %307 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.97, i32 noundef 1216, i64 noundef %306, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit57
+_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit:  ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit57
   %308 = load i32, ptr %16, align 4
   %.sroa.speculated72 = call i32 @llvm.smax.i32(i32 %308, i32 3)
   %309 = zext nneg i32 %.sroa.speculated72 to i64
   %310 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.97, i32 noundef 1217, i64 noundef %309, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62.preheader: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit
+_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62.preheader: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit
   %311 = load i32, ptr %16, align 4
   %312 = icmp sgt i32 %311, 0
-  br i1 %312, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62, label %.preheader
+  br i1 %312, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62, label %.preheader
 
-.preheader.loopexit:                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62
+.preheader.loopexit:                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62
   %313 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62.preheader
-  %314 = phi i32 [ %311, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62.preheader ], [ %331, %.preheader.loopexit ]
-  %.041.lcssa = phi i32 [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62.preheader ], [ %313, %.preheader.loopexit ]
+.preheader:                                       ; preds = %.preheader.loopexit, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62.preheader
+  %314 = phi i32 [ %311, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62.preheader ], [ %331, %.preheader.loopexit ]
+  %.041.lcssa = phi i32 [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62.preheader ], [ %313, %.preheader.loopexit ]
   %315 = icmp slt i32 %.041.lcssa, %314
   br i1 %315, label %.lr.ph113.preheader, label %._crit_edge
 
@@ -1045,8 +1045,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62.preheader: ; preds = %_ZL13gmx_snew_im
   %316 = zext nneg i32 %.041.lcssa to i64
   br label %.lr.ph113
 
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62:        ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62.preheader, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62 ], [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62.preheader ]
+_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62.preheader, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62 ], [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62.preheader ]
   %317 = getelementptr inbounds [3 x float], ptr @_ZZ8gmx_shamiPPcE5nrdim, i64 0, i64 %indvars.iv
   %318 = load float, ptr %317, align 4
   %319 = fptosi float %318 to i32
@@ -1070,7 +1070,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62:        ; preds = %_ZL13gmx_snew_implI
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %331, i32 3)
   %332 = sext i32 %.sroa.speculated to i64
   %333 = icmp slt i64 %indvars.iv.next, %332
-  br i1 %333, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit62, label %.preheader.loopexit, !llvm.loop !12
+  br i1 %333, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit62, label %.preheader.loopexit, !llvm.loop !12
 
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %.lr.ph113
   %indvars.iv123 = phi i64 [ %316, %.lr.ph113.preheader ], [ %indvars.iv.next124, %.lr.ph113 ]
@@ -2459,76 +2459,76 @@ common.resume:                                    ; preds = %271, %401, %467, %9
   %539 = add nuw nsw i32 %.0306.i, 1
   br label %540
 
-540:                                              ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i, %.lr.ph302.i
-  %541 = phi i32 [ %534, %.lr.ph302.i ], [ %586, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i ]
-  %542 = phi i32 [ %535, %.lr.ph302.i ], [ %586, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i ]
-  %.0152300.i = phi i32 [ 0, %.lr.ph302.i ], [ %587, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i ]
-  %.2159299.i = phi i32 [ %.1158305.i, %.lr.ph302.i ], [ %.3160.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i ]
+540:                                              ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i, %.lr.ph302.i
+  %541 = phi i32 [ %534, %.lr.ph302.i ], [ %586, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i ]
+  %542 = phi i32 [ %535, %.lr.ph302.i ], [ %586, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i ]
+  %.0152300.i = phi i32 [ 0, %.lr.ph302.i ], [ %587, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i ]
+  %.2159299.i = phi i32 [ %.1158305.i, %.lr.ph302.i ], [ %.3160.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i ]
   %543 = mul nsw i32 %542, %.0306.i
   %544 = add nsw i32 %543, %.0152300.i
   %545 = sext i32 %544 to i64
   %546 = getelementptr inbounds float, ptr %223, i64 %545
   %547 = load float, ptr %546, align 4
-  br i1 %537, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.i
+  br i1 %537, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.i: ; preds = %540
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.i: ; preds = %540
   %548 = mul nsw i32 %542, %538
   %549 = add nsw i32 %548, %.0152300.i
   %550 = sext i32 %549 to i64
   %551 = getelementptr inbounds float, ptr %223, i64 %550
   %552 = load float, ptr %551, align 4
   %553 = fcmp olt float %547, %552
-  br i1 %553, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
+  br i1 %553, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.i, %540
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.i, %540
   %554 = load i32, ptr %22, align 4
   %555 = add nsw i32 %554, -1
   %556 = mul nsw i32 %542, %539
   %557 = add nsw i32 %556, %.0152300.i
   %558 = icmp eq i32 %.0306.i, %555
-  br i1 %558, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread.i, label %559
+  br i1 %558, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread.i, label %559
 
-559:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.thread.i
+559:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.thread.i
   %560 = icmp slt i32 %.0306.i, %555
-  br i1 %560, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
+  br i1 %560, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.i: ; preds = %559
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.i: ; preds = %559
   %561 = sext i32 %557 to i64
   %562 = getelementptr inbounds float, ptr %223, i64 %561
   %563 = load float, ptr %562, align 4
   %564 = fcmp olt float %547, %563
-  br i1 %564, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
+  br i1 %564, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.thread.i
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.thread.i
   %565 = icmp eq i32 %.0152300.i, 0
-  br i1 %565, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.i
+  br i1 %565, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread.i
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread.i
   %566 = add i32 %544, -1
   %567 = sext i32 %566 to i64
   %568 = getelementptr inbounds float, ptr %223, i64 %567
   %569 = load float, ptr %568, align 4
   %570 = fcmp olt float %547, %569
-  br i1 %570, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
+  br i1 %570, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread.i
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread.i
   %571 = add nsw i32 %542, -1
   %572 = add i32 %544, 1
   %573 = icmp eq i32 %.0152300.i, %571
-  br i1 %573, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i, label %574
+  br i1 %573, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.thread.i, label %574
 
-574:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.thread.i
+574:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.thread.i
   %575 = icmp slt i32 %.0152300.i, %571
-  br i1 %575, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
+  br i1 %575, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.i: ; preds = %574
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.i: ; preds = %574
   %576 = sext i32 %572 to i64
   %577 = getelementptr inbounds float, ptr %223, i64 %576
   %578 = load float, ptr %577, align 4
   %579 = fcmp olt float %547, %578
-  br i1 %579, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
+  br i1 %579, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.thread.i
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.thread.i
   %580 = fpext float %547 to double
   %581 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %518, ptr noundef nonnull @.str.175, i32 noundef %.2159299.i, i64 noundef %545, double noundef %580) #20
   %582 = sext i32 %.2159299.i to i64
@@ -2538,16 +2538,16 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i: ; preds = %
   store float %547, ptr %584, align 8
   %585 = add nsw i32 %.2159299.i, 1
   %.pre356.i = load i32, ptr %474, align 4
-  br label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
+  br label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.i, %574, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.i, %559, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.i
-  %586 = phi i32 [ %.pre356.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i ], [ %541, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.i ], [ %541, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.i ], [ %541, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.i ], [ %541, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.i ], [ %541, %559 ], [ %541, %574 ]
-  %.3160.i = phi i32 [ %585, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i ], [ %.2159299.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.i ], [ %.2159299.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.i ], [ %.2159299.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.i ], [ %.2159299.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.i ], [ %.2159299.i, %559 ], [ %.2159299.i, %574 ]
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.thread.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.i, %574, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.i, %559, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.i
+  %586 = phi i32 [ %.pre356.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.thread.i ], [ %541, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.i ], [ %541, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.i ], [ %541, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.i ], [ %541, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.i ], [ %541, %559 ], [ %541, %574 ]
+  %.3160.i = phi i32 [ %585, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.thread.i ], [ %.2159299.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit197.i ], [ %.2159299.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit196.i ], [ %.2159299.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.i ], [ %.2159299.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit.i ], [ %.2159299.i, %559 ], [ %.2159299.i, %574 ]
   %587 = add nuw nsw i32 %.0152300.i, 1
   %588 = icmp slt i32 %587, %586
   br i1 %588, label %540, label %._crit_edge303.loopexit.i, !llvm.loop !35
 
-._crit_edge303.loopexit.i:                        ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
+._crit_edge303.loopexit.i:                        ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit.thread268.i
   %.pre357.i = load i32, ptr %22, align 4
   br label %._crit_edge303.i
 
@@ -2600,11 +2600,11 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i: ; preds = %
   %608 = add nuw nsw i32 %.1153291.i, 1
   br label %609
 
-609:                                              ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i, %.lr.ph.i573
-  %610 = phi i32 [ %603, %.lr.ph.i573 ], [ %679, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i ]
-  %611 = phi i32 [ %604, %.lr.ph.i573 ], [ %679, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i ]
-  %.0154288.i = phi i32 [ 0, %.lr.ph.i573 ], [ %680, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i ]
-  %.6287.i = phi i32 [ %.5162290.i, %.lr.ph.i573 ], [ %.7.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i ]
+609:                                              ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i, %.lr.ph.i573
+  %610 = phi i32 [ %603, %.lr.ph.i573 ], [ %679, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i ]
+  %611 = phi i32 [ %604, %.lr.ph.i573 ], [ %679, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i ]
+  %.0154288.i = phi i32 [ 0, %.lr.ph.i573 ], [ %680, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i ]
+  %.6287.i = phi i32 [ %.5162290.i, %.lr.ph.i573 ], [ %.7.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i ]
   %.val182.i = load i32, ptr %474, align 4
   %612 = mul nsw i32 %.val182.i, %.1295.i
   %613 = add nsw i32 %612, %.1153291.i
@@ -2613,9 +2613,9 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i: ; preds = %
   %616 = sext i32 %615 to i64
   %617 = getelementptr inbounds float, ptr %223, i64 %616
   %618 = load float, ptr %617, align 4
-  br i1 %597, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i
+  br i1 %597, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i: ; preds = %609
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.i: ; preds = %609
   %619 = mul nsw i32 %.val182.i, %598
   %620 = add nsw i32 %619, %.1153291.i
   %621 = mul nsw i32 %620, %611
@@ -2624,9 +2624,9 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i: ; preds = %609
   %624 = getelementptr inbounds float, ptr %223, i64 %623
   %625 = load float, ptr %624, align 4
   %626 = fcmp olt float %618, %625
-  br i1 %626, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %626, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i, %609
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.i, %609
   %627 = load i32, ptr %22, align 4
   %628 = add nsw i32 %627, -1
   %629 = mul nsw i32 %.val182.i, %599
@@ -2634,23 +2634,23 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i: ; preds = %
   %631 = mul nsw i32 %630, %611
   %632 = add nsw i32 %631, %.0154288.i
   %633 = icmp eq i32 %.1295.i, %628
-  br i1 %633, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread.i, label %634
+  br i1 %633, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread.i, label %634
 
-634:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i
+634:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.thread.i
   %635 = icmp slt i32 %.1295.i, %628
-  br i1 %635, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %635, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.i: ; preds = %634
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.i: ; preds = %634
   %636 = sext i32 %632 to i64
   %637 = getelementptr inbounds float, ptr %223, i64 %636
   %638 = load float, ptr %637, align 4
   %639 = fcmp olt float %618, %638
-  br i1 %639, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %639, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i
-  br i1 %606, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.thread.i
+  br i1 %606, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread.i
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread.i
   %640 = add nsw i32 %607, %612
   %641 = mul nsw i32 %640, %611
   %642 = add nsw i32 %641, %.0154288.i
@@ -2658,57 +2658,57 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i: ; preds = %_ZL27is
   %644 = getelementptr inbounds float, ptr %223, i64 %643
   %645 = load float, ptr %644, align 4
   %646 = fcmp olt float %618, %645
-  br i1 %646, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %646, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread.i
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread.i
   %647 = add nsw i32 %.val182.i, -1
   %648 = add nsw i32 %612, %608
   %649 = mul nsw i32 %648, %611
   %650 = add nsw i32 %649, %.0154288.i
   %651 = icmp eq i32 %.1153291.i, %647
-  br i1 %651, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.thread.i, label %652
+  br i1 %651, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.thread.i, label %652
 
-652:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.thread.i
+652:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.thread.i
   %653 = icmp slt i32 %.1153291.i, %647
-  br i1 %653, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %653, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.i: ; preds = %652
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.i: ; preds = %652
   %654 = sext i32 %650 to i64
   %655 = getelementptr inbounds float, ptr %223, i64 %654
   %656 = load float, ptr %655, align 4
   %657 = fcmp olt float %618, %656
-  br i1 %657, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %657, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.thread.i
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.thread.i
   %658 = icmp eq i32 %.0154288.i, 0
-  br i1 %658, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.i
+  br i1 %658, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.thread.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.thread.i
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.thread.i
   %659 = add i32 %615, -1
   %660 = sext i32 %659 to i64
   %661 = getelementptr inbounds float, ptr %223, i64 %660
   %662 = load float, ptr %661, align 4
   %663 = fcmp olt float %618, %662
-  br i1 %663, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %663, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.thread.i
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.thread.i
   %664 = add nsw i32 %611, -1
   %665 = add i32 %615, 1
   %666 = icmp eq i32 %.0154288.i, %664
-  br i1 %666, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i, label %667
+  br i1 %666, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.thread.i, label %667
 
-667:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.thread.i
+667:                                              ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.thread.i
   %668 = icmp slt i32 %.0154288.i, %664
-  br i1 %668, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %668, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.i: ; preds = %667
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.i: ; preds = %667
   %669 = sext i32 %665 to i64
   %670 = getelementptr inbounds float, ptr %223, i64 %669
   %671 = load float, ptr %670, align 4
   %672 = fcmp olt float %618, %671
-  br i1 %672, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br i1 %672, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.thread.i
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.thread.i
   %673 = fpext float %618 to double
   %674 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %518, ptr noundef nonnull @.str.175, i32 noundef %.6287.i, i64 noundef %616, double noundef %673) #20
   %675 = sext i32 %.6287.i to i64
@@ -2718,16 +2718,16 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i: ; preds = %
   store float %618, ptr %677, align 8
   %678 = add nsw i32 %.6287.i, 1
   %.pre.i = load i32, ptr %479, align 4
-  br label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+  br label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.i, %667, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.i, %652, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.i, %634, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i
-  %679 = phi i32 [ %.pre.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i ], [ %610, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.i ], [ %610, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.i ], [ %610, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.i ], [ %610, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i ], [ %610, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.i ], [ %610, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i ], [ %610, %634 ], [ %610, %652 ], [ %610, %667 ]
-  %.7.i = phi i32 [ %678, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i ], [ %.6287.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.i ], [ %.6287.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.i ], [ %.6287.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.i ], [ %.6287.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i ], [ %.6287.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.i ], [ %.6287.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i ], [ %.6287.i, %634 ], [ %.6287.i, %652 ], [ %.6287.i, %667 ]
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.thread.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.i, %667, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.i, %652, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.i, %634, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.i
+  %679 = phi i32 [ %.pre.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.thread.i ], [ %610, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.i ], [ %610, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.i ], [ %610, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.i ], [ %610, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.i ], [ %610, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.i ], [ %610, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.i ], [ %610, %634 ], [ %610, %652 ], [ %610, %667 ]
+  %.7.i = phi i32 [ %678, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.thread.i ], [ %.6287.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit203.i ], [ %.6287.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit202.i ], [ %.6287.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit201.i ], [ %.6287.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit200.i ], [ %.6287.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.i ], [ %.6287.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit198.i ], [ %.6287.i, %634 ], [ %.6287.i, %652 ], [ %.6287.i, %667 ]
   %680 = add nuw nsw i32 %.0154288.i, 1
   %681 = icmp slt i32 %680, %679
   br i1 %681, label %609, label %._crit_edge.loopexit.i, !llvm.loop !38
 
-._crit_edge.loopexit.i:                           ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
+._crit_edge.loopexit.i:                           ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit199.thread270.i
   %.pre354.i = load i32, ptr %474, align 4
   br label %._crit_edge.i572
 
@@ -2868,22 +2868,22 @@ _ZL6indexniPKiS0_.exit.i:                         ; preds = %._crit_edge.i.i
 
 _ZL6indexniPKiS0_.exit223.i:                      ; preds = %._crit_edge.i214.i
   %728 = icmp eq i32 %717, 0
-  br i1 %728, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.thread.i, label %729
+  br i1 %728, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.thread.i, label %729
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.thread.i: ; preds = %_ZL6indexniPKiS0_.exit223.i
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.thread.i: ; preds = %_ZL6indexniPKiS0_.exit223.i
   store i32 1, ptr %716, align 4
   br label %.lr.ph23.i228.preheader.i
 
 729:                                              ; preds = %_ZL6indexniPKiS0_.exit223.i
   %730 = icmp sgt i32 %717, 0
-  br i1 %730, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.thread273.i
+  br i1 %730, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.i, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.thread273.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.thread273.i: ; preds = %729
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.thread273.i: ; preds = %729
   %731 = add nsw i32 %717, 1
   store i32 %731, ptr %716, align 4
   br label %._crit_edge316.thread.i
 
-_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.i: ; preds = %729
+_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.i: ; preds = %729
   %sext.i = shl i64 %727, 32
   %732 = ashr exact i64 %sext.i, 30
   %733 = getelementptr inbounds i8, ptr %223, i64 %732
@@ -2893,7 +2893,7 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.i: ; preds = %729
   store i32 %736, ptr %716, align 4
   br i1 %735, label %.lr.ph23.i228.preheader.i, label %._crit_edge316.thread.i
 
-.lr.ph23.i228.preheader.i:                        ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.thread.i
+.lr.ph23.i228.preheader.i:                        ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.thread.i
   %737 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv342.i
   %738 = load i32, ptr %737, align 4
   br label %.lr.ph23.i228.i
@@ -2930,17 +2930,17 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.i: ; preds = %729
 _ZL6indexniPKiS0_.exit242.i:                      ; preds = %._crit_edge.i233.i
   %748 = add nsw i32 %738, -1
   %749 = icmp eq i32 %717, %748
-  br i1 %749, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i.thread, label %750
+  br i1 %749, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i.thread, label %750
 
 750:                                              ; preds = %_ZL6indexniPKiS0_.exit242.i
   %751 = icmp slt i32 %717, %748
-  br i1 %751, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i, label %._crit_edge316.thread.i
+  br i1 %751, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i, label %._crit_edge316.thread.i
 
-._crit_edge316.thread.i:                          ; preds = %750, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.thread273.i
+._crit_edge316.thread.i:                          ; preds = %750, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.argprom.exit224.thread273.i
   store i32 %717, ptr %716, align 4
   br label %766
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i: ; preds = %750
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i: ; preds = %750
   %sext274.i = shl i64 %747, 32
   %752 = ashr exact i64 %sext274.i, 30
   %753 = getelementptr inbounds i8, ptr %223, i64 %752
@@ -2952,22 +2952,22 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i: ; preds = %750
   %757 = select i1 %755, i1 %756, i1 false
   br i1 %757, label %.lr.ph23.i209.preheader.i.backedge, label %._crit_edge316.i
 
-.lr.ph23.i209.preheader.i.backedge:               ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i.thread
-  %indvars.iv342.i.be = phi i64 [ %indvars.iv.next343.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i ], [ %indvars.iv.next343.i910, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i.thread ]
+.lr.ph23.i209.preheader.i.backedge:               ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i.thread
+  %indvars.iv342.i.be = phi i64 [ %indvars.iv.next343.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i ], [ %indvars.iv.next343.i910, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i.thread ]
   br label %.lr.ph23.i209.preheader.i, !llvm.loop !42
 
-_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i.thread: ; preds = %_ZL6indexniPKiS0_.exit242.i
+_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i.thread: ; preds = %_ZL6indexniPKiS0_.exit242.i
   store i32 %717, ptr %716, align 4
   %indvars.iv.next343.i910 = add nuw nsw i64 %indvars.iv342.i, 1
   %758 = icmp slt i64 %indvars.iv.next343.i910, %116
   br i1 %758, label %.lr.ph23.i209.preheader.i.backedge, label %.critedge.i
 
-._crit_edge316.i:                                 ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i
+._crit_edge316.i:                                 ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i
   br i1 %755, label %.critedge.i, label %766
 
-.critedge.i:                                      ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i.thread, %._crit_edge316.i, %_ZL6indexniPKiS0_.exit.thread.i
-  %759 = phi float [ %704, %_ZL6indexniPKiS0_.exit.thread.i ], [ %715, %._crit_edge316.i ], [ %715, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i.thread ]
-  %.016.lcssa.i364.i = phi i64 [ 0, %_ZL6indexniPKiS0_.exit.thread.i ], [ %713, %._crit_edge316.i ], [ %713, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i.thread ]
+.critedge.i:                                      ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i.thread, %._crit_edge316.i, %_ZL6indexniPKiS0_.exit.thread.i
+  %759 = phi float [ %704, %_ZL6indexniPKiS0_.exit.thread.i ], [ %715, %._crit_edge316.i ], [ %715, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i.thread ]
+  %.016.lcssa.i364.i = phi i64 [ 0, %_ZL6indexniPKiS0_.exit.thread.i ], [ %713, %._crit_edge316.i ], [ %713, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.argprom.exit243.i.thread ]
   %760 = fpext float %759 to double
   %761 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %518, ptr noundef nonnull @.str.175, i32 noundef %.8321.i, i64 noundef %.016.lcssa.i364.i, double noundef %760) #20
   %762 = sext i32 %.8321.i to i64
@@ -4145,7 +4145,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %1137, %1134
   %1164 = call i64 @fwrite(ptr nonnull @.str.183, i64 4, i64 1, ptr %1133)
   %1165 = load i32, ptr %1060, align 8
   %1166 = icmp sgt i32 %1165, 0
-  br i1 %1166, label %.lr.ph.i.i664, label %_ZL11write_xplorPKcPKfPiS2_S2_.exit
+  br i1 %1166, label %.lr.ph.i.i664, label %_ZL11write_xplorPKcPKfPiS2_S2_.argprom.exit
 
 .lr.ph.i.i664:                                    ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i
   %1167 = load i32, ptr %1123, align 4
@@ -4210,9 +4210,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %1137, %1134
   %1200 = add nsw i32 %.04.i.i, 1
   %1201 = load i32, ptr %1060, align 8
   %1202 = icmp slt i32 %1199, %1201
-  br i1 %1202, label %1168, label %_ZL11write_xplorPKcPKfPiS2_S2_.exit, !llvm.loop !56
+  br i1 %1202, label %1168, label %_ZL11write_xplorPKcPKfPiS2_S2_.argprom.exit, !llvm.loop !56
 
-_ZL11write_xplorPKcPKfPiS2_S2_.exit:              ; preds = %._crit_edge.i.i665, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i
+_ZL11write_xplorPKcPKfPiS2_S2_.argprom.exit:      ; preds = %._crit_edge.i.i665, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i
   %1203 = call i64 @fwrite(ptr nonnull @.str.186, i64 9, i64 1, ptr %1133)
   %1204 = call noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %1133)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
@@ -4241,7 +4241,7 @@ _ZL11write_xplorPKcPKfPiS2_S2_.exit:              ; preds = %._crit_edge.i.i665,
   %1221 = icmp sgt i32 %1220, 0
   br i1 %1221, label %.lr.ph1036, label %._crit_edge1037
 
-.lr.ph1036:                                       ; preds = %_ZL11write_xplorPKcPKfPiS2_S2_.exit
+.lr.ph1036:                                       ; preds = %_ZL11write_xplorPKcPKfPiS2_S2_.argprom.exit
   %1222 = sext i32 %488 to i64
   br label %1223
 
@@ -4287,7 +4287,7 @@ _ZL11write_xplorPKcPKfPiS2_S2_.exit:              ; preds = %._crit_edge.i.i665,
   %1246 = icmp slt i64 %indvars.iv.next1155, %1245
   br i1 %1246, label %1223, label %._crit_edge1037, !llvm.loop !58
 
-._crit_edge1037:                                  ; preds = %._crit_edge1034, %_ZL11write_xplorPKcPKfPiS2_S2_.exit
+._crit_edge1037:                                  ; preds = %._crit_edge1034, %_ZL11write_xplorPKcPKfPiS2_S2_.argprom.exit
   %1247 = load ptr, ptr %35, align 8
   %1248 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1247) #24
   %1249 = add i64 %1248, 4

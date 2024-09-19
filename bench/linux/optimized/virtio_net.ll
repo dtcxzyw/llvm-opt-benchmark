@@ -1765,7 +1765,7 @@ define internal noundef i32 @virtnet_freeze(ptr nocapture noundef readonly %0) #
   %7 = getelementptr inbounds i8, ptr %3, i64 232
   %8 = tail call i32 @__cpuhp_state_remove_instance(i32 noundef 9, ptr noundef %7, i1 noundef zeroext false) #26
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @virtnet_freeze_down(ptr %.val)
+  tail call fastcc void @virtnet_freeze_down.argprom(ptr %.val)
   tail call fastcc void @remove_vq_common(ptr noundef %3)
   ret i32 0
 }
@@ -1858,7 +1858,7 @@ define internal i32 @virtnet_restore(ptr noundef %0) #3 align 16 {
 50:                                               ; preds = %47, %31
   %.ph7 = phi i32 [ %41, %31 ], [ %45, %47 ]
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @virtnet_freeze_down(ptr %.val)
+  tail call fastcc void @virtnet_freeze_down.argprom(ptr %.val)
   tail call fastcc void @remove_vq_common(ptr noundef %3)
   br label %.thread
 
@@ -11762,7 +11762,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noun
   br i1 %110, label %111, label %112, !prof !40
 
 111:                                              ; preds = %109
-  tail call fastcc void @trace_xdp_exception(ptr noundef %2, ptr noundef %0)
+  tail call fastcc void @trace_xdp_exception.argelim(ptr noundef %2, ptr noundef %0)
   br label %.thread6
 
 112:                                              ; preds = %109, %108
@@ -12115,7 +12115,7 @@ declare dso_local void @__free_pages(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local void @xdp_return_frame_rx_napi(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_xdp_exception(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #11 align 16 {
+define internal fastcc void @trace_xdp_exception.argelim(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #11 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_xdp_exception, i64 8), i32 2) #26
           to label %23 [label %3], !srcloc !45
 
@@ -13146,7 +13146,7 @@ declare dso_local ptr @virtqueue_detach_unused_buf(ptr noundef) local_unnamed_ad
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtnet_freeze_down(ptr %.792.val) unnamed_addr #3 align 16 {
+define internal fastcc void @virtnet_freeze_down.argprom(ptr %.792.val) unnamed_addr #3 align 16 {
   %1 = getelementptr inbounds i8, ptr %.792.val, i64 176
   %2 = tail call zeroext i1 @flush_work(ptr noundef %1) #26
   %3 = getelementptr inbounds i8, ptr %.792.val, i64 16

@@ -417,13 +417,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv8tracking4impl9MosseImpl8in
   %44 = getelementptr inbounds i8, ptr %41, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %44, i8 0, i64 104, i1 false), !noalias !9
   invoke void @_ZN2cv6detail8tracking12TrackerModelC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %44)
-          to label %_ZN2cvL7makePtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEJEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !9
+          to label %_ZN2cvL7makePtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEJEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit11.i.i.i.i.i, !noalias !9
 
-common.resume:                                    ; preds = %355, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %45, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i ], [ %.pn58.pn.pn.pn.pn, %355 ]
+common.resume:                                    ; preds = %355, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit11.i.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %45, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit11.i.i.i.i.i ], [ %.pn58.pn.pn.pn.pn, %355 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %3
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit11.i.i.i.i.i: ; preds = %3
   %45 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %41) #19, !noalias !9
@@ -563,7 +563,7 @@ _ZN2cv3PtrINS_6detail8tracking12TrackerModelEEaSINS_8tracking4impl12_GLOBAL__N_1
 103:                                              ; preds = %101, %99
   %.0.i.i.i.i.i66 = phi i32 [ %92, %99 ], [ %102, %101 ]
   %104 = icmp eq i32 %.0.i.i.i.i.i66, 1
-  br i1 %104, label %105, label %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.exit
+  br i1 %104, label %105, label %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.argprom.exit
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %41, align 8
@@ -587,23 +587,23 @@ _ZN2cv3PtrINS_6detail8tracking12TrackerModelEEaSINS_8tracking4impl12_GLOBAL__N_1
 115:                                              ; preds = %113, %110
   %.0.i.i.i.i.i.i.i68 = phi i32 [ %111, %110 ], [ %114, %113 ]
   %116 = icmp eq i32 %.0.i.i.i.i.i.i.i68, 1
-  br i1 %116, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69, label %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.exit
+  br i1 %116, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69, label %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.argprom.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69: ; preds = %115, %93
   %117 = load ptr, ptr %41, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8
   tail call void %119(ptr noundef nonnull align 8 dereferenceable(16) %41) #20
-  br label %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.exit
+  br label %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.argprom.exit
 
-_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.exit: ; preds = %103, %115, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69
+_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.argprom.exit: ; preds = %103, %115, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #20
   %120 = load i32, ptr %1, align 8
   %121 = and i32 %120, 4088
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %127
 
-123:                                              ; preds = %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.exit
+123:                                              ; preds = %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.argprom.exit
   %124 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %1)
           to label %135 unwind label %125
 
@@ -612,7 +612,7 @@ _ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.exit: ; preds = %10
           cleanup
   br label %355
 
-127:                                              ; preds = %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.exit
+127:                                              ; preds = %_ZN2cv3PtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEED2Ev.argprom.exit
   %128 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 0, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %11, i64 20
@@ -2793,7 +2793,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl12_GLOBAL__N_110DummyModelESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

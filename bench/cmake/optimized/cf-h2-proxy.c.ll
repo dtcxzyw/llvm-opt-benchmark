@@ -452,12 +452,12 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %96, %97, %101, %106
   call void @Curl_dynhds_init(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 1048576) #7
   %152 = call i32 @Curl_http_req_to_h2(ptr noundef nonnull %5, ptr noundef %151, ptr noundef %1) #7
   %.not.i.i.i = icmp eq i32 %152, 0
-  br i1 %.not.i.i.i, label %153, label %proxy_h2_submit.exit.i.i
+  br i1 %.not.i.i.i, label %153, label %proxy_h2_submit.argprom.exit.i.i
 
 153:                                              ; preds = %149
   %154 = call ptr @Curl_dynhds_to_nva(ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %.not28.i.i.i = icmp eq ptr %154, null
-  br i1 %.not28.i.i.i, label %proxy_h2_submit.exit.i.i, label %155
+  br i1 %.not28.i.i.i, label %proxy_h2_submit.argprom.exit.i.i, label %155
 
 155:                                              ; preds = %153
   store ptr @tunnel_send_callback, ptr %118, align 8
@@ -465,14 +465,14 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %96, %97, %101, %106
   %156 = load i64, ptr %6, align 8
   %157 = call i32 @nghttp2_submit_request(ptr noundef %150, ptr noundef null, ptr noundef nonnull %154, i64 noundef %156, ptr noundef nonnull %7, ptr noundef nonnull %17) #7
   %158 = icmp slt i32 %157, 0
-  br i1 %158, label %159, label %proxy_h2_submit.exit.i.i
+  br i1 %158, label %159, label %proxy_h2_submit.argprom.exit.i.i
 
 159:                                              ; preds = %155
   %160 = call ptr @nghttp2_strerror(i32 noundef %157) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.38, ptr noundef %160, i32 noundef %157) #7
-  br label %proxy_h2_submit.exit.i.i
+  br label %proxy_h2_submit.argprom.exit.i.i
 
-proxy_h2_submit.exit.i.i:                         ; preds = %159, %155, %153, %149
+proxy_h2_submit.argprom.exit.i.i:                 ; preds = %159, %155, %153, %149
   %.023.i.i.i = phi ptr [ null, %149 ], [ %154, %159 ], [ null, %153 ], [ %154, %155 ]
   %.022.i.i.i = phi i32 [ -1, %149 ], [ %157, %159 ], [ -1, %153 ], [ %157, %155 ]
   %.0.i.i.i = phi i32 [ %152, %149 ], [ 55, %159 ], [ 27, %153 ], [ 0, %155 ]
@@ -487,7 +487,7 @@ proxy_h2_submit.exit.i.i:                         ; preds = %159, %155, %153, %1
   %or.cond3.i.i = and i1 %116, %162
   br i1 %or.cond3.i.i, label %163, label %173
 
-163:                                              ; preds = %proxy_h2_submit.exit.i.i
+163:                                              ; preds = %proxy_h2_submit.argprom.exit.i.i
   %164 = load i64, ptr %114, align 2
   %165 = and i64 %164, 268435456
   %.not35.i.i = icmp eq i64 %165, 0
@@ -505,8 +505,8 @@ proxy_h2_submit.exit.i.i:                         ; preds = %159, %155, %153, %1
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %.022.i.i.i, ptr noundef %172) #7
   br label %173
 
-173:                                              ; preds = %171, %166, %163, %proxy_h2_submit.exit.i.i, %138
-  %.0.i.i = phi i32 [ %140, %138 ], [ %.0.i.i.i, %171 ], [ %.0.i.i.i, %166 ], [ %.0.i.i.i, %163 ], [ %.0.i.i.i, %proxy_h2_submit.exit.i.i ]
+173:                                              ; preds = %171, %166, %163, %proxy_h2_submit.argprom.exit.i.i, %138
+  %.0.i.i = phi i32 [ %140, %138 ], [ %.0.i.i.i, %171 ], [ %.0.i.i.i, %166 ], [ %.0.i.i.i, %163 ], [ %.0.i.i.i, %proxy_h2_submit.argprom.exit.i.i ]
   %174 = load ptr, ptr %8, align 8
   %.not33.i.i = icmp eq ptr %174, null
   br i1 %.not33.i.i, label %176, label %175
@@ -2057,7 +2057,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %15
-  %21 = call fastcc i32 @proxy_h2_fr_print(ptr noundef nonnull %1, ptr noundef %4)
+  %21 = call fastcc i32 @proxy_h2_fr_print.argelim(ptr noundef nonnull %1, ptr noundef %4)
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %22
   store i8 0, ptr %23, align 1
@@ -2321,7 +2321,7 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr nocapture readnone %0, p
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %14
-  %20 = call fastcc i32 @proxy_h2_fr_print(ptr noundef %1, ptr noundef %4)
+  %20 = call fastcc i32 @proxy_h2_fr_print.argelim(ptr noundef %1, ptr noundef %4)
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %21
   store i8 0, ptr %22, align 1
@@ -2629,7 +2629,7 @@ define internal i64 @proxy_h2_nw_out_writer(ptr noundef %0, ptr noundef %1, i64 
 declare i64 @Curl_conn_cf_send(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc i32 @proxy_h2_fr_print.argelim(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4

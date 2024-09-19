@@ -25,13 +25,13 @@ define dso_local ptr @SparseMatrix_import_matrix_market(ptr noundef %0) local_un
 
 7:                                                ; preds = %1
   %8 = tail call i32 @ungetc(i32 noundef %6, ptr noundef %0)
-  br label %mm_get_type.exit.thread
+  br label %mm_get_type.argprom.exit.thread
 
 9:                                                ; preds = %1
   %10 = tail call i32 @ungetc(i32 noundef 37, ptr noundef %0)
   %11 = call i32 @mm_read_banner(ptr noundef %0, ptr noundef nonnull %2) #12
   %.not256 = icmp eq i32 %11, 0
-  br i1 %.not256, label %12, label %mm_get_type.exit.thread
+  br i1 %.not256, label %12, label %mm_get_type.argprom.exit.thread
 
 12:                                               ; preds = %9
   %13 = load i8, ptr %2, align 1
@@ -51,7 +51,7 @@ define dso_local ptr @SparseMatrix_import_matrix_market(ptr noundef %0) local_un
 21:                                               ; preds = %12
   %22 = call i32 @mm_read_mtx_crd_size(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not257 = icmp eq i32 %22, 0
-  br i1 %.not257, label %23, label %mm_get_type.exit.thread
+  br i1 %.not257, label %23, label %mm_get_type.argprom.exit.thread
 
 23:                                               ; preds = %21
   %24 = load i32, ptr %5, align 4
@@ -62,17 +62,17 @@ define dso_local ptr @SparseMatrix_import_matrix_market(ptr noundef %0) local_un
   %29 = call fastcc ptr @gv_calloc(i64 noundef %28, i64 noundef 4)
   %30 = getelementptr inbounds i8, ptr %2, i64 2
   %.val = load i8, ptr %30, align 1
-  switch i8 %.val, label %mm_get_type.exit.thread [
+  switch i8 %.val, label %mm_get_type.argprom.exit.thread [
     i8 67, label %230
     i8 82, label %33
     i8 73, label %113
-    i8 80, label %mm_get_type.exit.preheader
+    i8 80, label %mm_get_type.argprom.exit.preheader
   ]
 
-mm_get_type.exit.preheader:                       ; preds = %23
+mm_get_type.argprom.exit.preheader:               ; preds = %23
   %31 = load i32, ptr %5, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %mm_get_type.exit, label %mm_get_type.exit._crit_edge
+  br i1 %32, label %mm_get_type.argprom.exit, label %mm_get_type.argprom.exit._crit_edge
 
 33:                                               ; preds = %23
   %34 = load i32, ptr %5, align 4
@@ -342,8 +342,8 @@ mm_get_type.exit.preheader:                       ; preds = %23
   %exitcond359.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count358
   br i1 %exitcond359.not, label %.loopexit.sink.split, label %.lr.ph293
 
-mm_get_type.exit:                                 ; preds = %mm_get_type.exit.preheader, %mm_get_type.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %mm_get_type.exit ], [ 0, %mm_get_type.exit.preheader ]
+mm_get_type.argprom.exit:                         ; preds = %mm_get_type.argprom.exit.preheader, %mm_get_type.argprom.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %mm_get_type.argprom.exit ], [ 0, %mm_get_type.argprom.exit.preheader ]
   %193 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %194 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %195 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %193, ptr noundef %194) #12
@@ -357,10 +357,10 @@ mm_get_type.exit:                                 ; preds = %mm_get_type.exit.pr
   %200 = load i32, ptr %5, align 4
   %201 = sext i32 %200 to i64
   %202 = icmp slt i64 %indvars.iv.next, %201
-  br i1 %202, label %mm_get_type.exit, label %mm_get_type.exit._crit_edge
+  br i1 %202, label %mm_get_type.argprom.exit, label %mm_get_type.argprom.exit._crit_edge
 
-mm_get_type.exit._crit_edge:                      ; preds = %mm_get_type.exit, %mm_get_type.exit.preheader
-  %.lcssa283 = phi i32 [ %31, %mm_get_type.exit.preheader ], [ %200, %mm_get_type.exit ]
+mm_get_type.argprom.exit._crit_edge:              ; preds = %mm_get_type.argprom.exit, %mm_get_type.argprom.exit.preheader
+  %.lcssa283 = phi i32 [ %31, %mm_get_type.argprom.exit.preheader ], [ %200, %mm_get_type.argprom.exit ]
   %203 = getelementptr inbounds i8, ptr %2, i64 3
   %204 = load i8, ptr %203, align 1
   switch i8 %204, label %.loopexit [
@@ -368,7 +368,7 @@ mm_get_type.exit._crit_edge:                      ; preds = %mm_get_type.exit, %
     i8 75, label %205
   ]
 
-205:                                              ; preds = %mm_get_type.exit._crit_edge, %mm_get_type.exit._crit_edge
+205:                                              ; preds = %mm_get_type.argprom.exit._crit_edge, %mm_get_type.argprom.exit._crit_edge
   %206 = sext i32 %.lcssa283 to i64
   %207 = shl nsw i32 %.lcssa283, 1
   %208 = sext i32 %207 to i64
@@ -649,13 +649,13 @@ mm_get_type.exit._crit_edge:                      ; preds = %mm_get_type.exit, %
   store i32 %375, ptr %5, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %228, %163, %83, %373, %292, %.loopexit.sink.split, %205, %165, %132, %85, %52, %331, %294, %251, %._crit_edge317, %mm_get_type.exit._crit_edge, %._crit_edge, %._crit_edge302
-  %376 = phi i32 [ %.lcssa283, %mm_get_type.exit._crit_edge ], [ %.lcssa281, %._crit_edge302 ], [ %.lcssa282, %._crit_edge ], [ %.lcssa, %._crit_edge317 ], [ %267, %251 ], [ %310, %294 ], [ %347, %331 ], [ %67, %52 ], [ %100, %85 ], [ %147, %132 ], [ %180, %165 ], [ %215, %205 ], [ %375, %.loopexit.sink.split ], [ %293, %292 ], [ %374, %373 ], [ %84, %83 ], [ %164, %163 ], [ %229, %228 ]
-  %.0.i266 = phi i32 [ 8, %mm_get_type.exit._crit_edge ], [ 1, %._crit_edge302 ], [ 4, %._crit_edge ], [ 2, %._crit_edge317 ], [ 2, %251 ], [ 2, %294 ], [ 2, %331 ], [ 1, %52 ], [ 1, %85 ], [ 4, %132 ], [ 4, %165 ], [ 8, %205 ], [ %.0.i266.ph, %.loopexit.sink.split ], [ 2, %292 ], [ 2, %373 ], [ 1, %83 ], [ 4, %163 ], [ 8, %228 ]
-  %.1239 = phi ptr [ %26, %mm_get_type.exit._crit_edge ], [ %26, %._crit_edge302 ], [ %26, %._crit_edge ], [ %26, %._crit_edge317 ], [ %255, %251 ], [ %298, %294 ], [ %335, %331 ], [ %56, %52 ], [ %89, %85 ], [ %136, %132 ], [ %169, %165 ], [ %209, %205 ], [ %.1239.ph, %.loopexit.sink.split ], [ %255, %292 ], [ %335, %373 ], [ %56, %83 ], [ %136, %163 ], [ %209, %228 ]
-  %.1235 = phi ptr [ %29, %mm_get_type.exit._crit_edge ], [ %29, %._crit_edge302 ], [ %29, %._crit_edge ], [ %29, %._crit_edge317 ], [ %260, %251 ], [ %303, %294 ], [ %340, %331 ], [ %61, %52 ], [ %94, %85 ], [ %141, %132 ], [ %174, %165 ], [ %214, %205 ], [ %.1235.ph, %.loopexit.sink.split ], [ %260, %292 ], [ %340, %373 ], [ %61, %83 ], [ %141, %163 ], [ %214, %228 ]
-  %.0233 = phi ptr [ null, %mm_get_type.exit._crit_edge ], [ %36, %._crit_edge302 ], [ %116, %._crit_edge ], [ %234, %._crit_edge317 ], [ %266, %251 ], [ %309, %294 ], [ %346, %331 ], [ %66, %52 ], [ %99, %85 ], [ %146, %132 ], [ %179, %165 ], [ null, %205 ], [ %.0233.ph, %.loopexit.sink.split ], [ %266, %292 ], [ %346, %373 ], [ %66, %83 ], [ %146, %163 ], [ null, %228 ]
-  %.1 = phi ptr [ null, %mm_get_type.exit._crit_edge ], [ %36, %._crit_edge302 ], [ null, %._crit_edge ], [ %234, %._crit_edge317 ], [ %266, %251 ], [ %309, %294 ], [ %346, %331 ], [ %66, %52 ], [ %99, %85 ], [ null, %132 ], [ null, %165 ], [ null, %205 ], [ %.1.ph, %.loopexit.sink.split ], [ %266, %292 ], [ %346, %373 ], [ %66, %83 ], [ null, %163 ], [ null, %228 ]
+.loopexit:                                        ; preds = %228, %163, %83, %373, %292, %.loopexit.sink.split, %205, %165, %132, %85, %52, %331, %294, %251, %._crit_edge317, %mm_get_type.argprom.exit._crit_edge, %._crit_edge, %._crit_edge302
+  %376 = phi i32 [ %.lcssa283, %mm_get_type.argprom.exit._crit_edge ], [ %.lcssa281, %._crit_edge302 ], [ %.lcssa282, %._crit_edge ], [ %.lcssa, %._crit_edge317 ], [ %267, %251 ], [ %310, %294 ], [ %347, %331 ], [ %67, %52 ], [ %100, %85 ], [ %147, %132 ], [ %180, %165 ], [ %215, %205 ], [ %375, %.loopexit.sink.split ], [ %293, %292 ], [ %374, %373 ], [ %84, %83 ], [ %164, %163 ], [ %229, %228 ]
+  %.0.i266 = phi i32 [ 8, %mm_get_type.argprom.exit._crit_edge ], [ 1, %._crit_edge302 ], [ 4, %._crit_edge ], [ 2, %._crit_edge317 ], [ 2, %251 ], [ 2, %294 ], [ 2, %331 ], [ 1, %52 ], [ 1, %85 ], [ 4, %132 ], [ 4, %165 ], [ 8, %205 ], [ %.0.i266.ph, %.loopexit.sink.split ], [ 2, %292 ], [ 2, %373 ], [ 1, %83 ], [ 4, %163 ], [ 8, %228 ]
+  %.1239 = phi ptr [ %26, %mm_get_type.argprom.exit._crit_edge ], [ %26, %._crit_edge302 ], [ %26, %._crit_edge ], [ %26, %._crit_edge317 ], [ %255, %251 ], [ %298, %294 ], [ %335, %331 ], [ %56, %52 ], [ %89, %85 ], [ %136, %132 ], [ %169, %165 ], [ %209, %205 ], [ %.1239.ph, %.loopexit.sink.split ], [ %255, %292 ], [ %335, %373 ], [ %56, %83 ], [ %136, %163 ], [ %209, %228 ]
+  %.1235 = phi ptr [ %29, %mm_get_type.argprom.exit._crit_edge ], [ %29, %._crit_edge302 ], [ %29, %._crit_edge ], [ %29, %._crit_edge317 ], [ %260, %251 ], [ %303, %294 ], [ %340, %331 ], [ %61, %52 ], [ %94, %85 ], [ %141, %132 ], [ %174, %165 ], [ %214, %205 ], [ %.1235.ph, %.loopexit.sink.split ], [ %260, %292 ], [ %340, %373 ], [ %61, %83 ], [ %141, %163 ], [ %214, %228 ]
+  %.0233 = phi ptr [ null, %mm_get_type.argprom.exit._crit_edge ], [ %36, %._crit_edge302 ], [ %116, %._crit_edge ], [ %234, %._crit_edge317 ], [ %266, %251 ], [ %309, %294 ], [ %346, %331 ], [ %66, %52 ], [ %99, %85 ], [ %146, %132 ], [ %179, %165 ], [ null, %205 ], [ %.0233.ph, %.loopexit.sink.split ], [ %266, %292 ], [ %346, %373 ], [ %66, %83 ], [ %146, %163 ], [ null, %228 ]
+  %.1 = phi ptr [ null, %mm_get_type.argprom.exit._crit_edge ], [ %36, %._crit_edge302 ], [ null, %._crit_edge ], [ %234, %._crit_edge317 ], [ %266, %251 ], [ %309, %294 ], [ %346, %331 ], [ %66, %52 ], [ %99, %85 ], [ null, %132 ], [ null, %165 ], [ null, %205 ], [ %.1.ph, %.loopexit.sink.split ], [ %266, %292 ], [ %346, %373 ], [ %66, %83 ], [ null, %163 ], [ null, %228 ]
   %377 = load i32, ptr %3, align 4
   %378 = load i32, ptr %4, align 4
   %379 = call ptr @SparseMatrix_from_coordinate_arrays(i32 noundef %376, i32 noundef %377, i32 noundef %378, ptr noundef %.1239, ptr noundef %.1235, ptr noundef %.0233, i32 noundef %.0.i266, i64 noundef 8) #12
@@ -665,16 +665,16 @@ mm_get_type.exit._crit_edge:                      ; preds = %mm_get_type.exit, %
   %380 = getelementptr inbounds i8, ptr %2, i64 3
   %381 = load i8, ptr %380, align 1
   %382 = icmp eq i8 %381, 83
-  br i1 %382, label %383, label %mm_get_type.exit.thread
+  br i1 %382, label %383, label %mm_get_type.argprom.exit.thread
 
 383:                                              ; preds = %.loopexit
   %384 = getelementptr inbounds i8, ptr %379, i64 52
   %385 = load i32, ptr %384, align 4
   %386 = or i32 %385, 3
   store i32 %386, ptr %384, align 4
-  br label %mm_get_type.exit.thread
+  br label %mm_get_type.argprom.exit.thread
 
-mm_get_type.exit.thread:                          ; preds = %23, %.loopexit, %383, %21, %9, %7
+mm_get_type.argprom.exit.thread:                  ; preds = %23, %.loopexit, %383, %21, %9, %7
   %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ null, %21 ], [ %379, %383 ], [ %379, %.loopexit ], [ null, %23 ]
   ret ptr %.0
 }
@@ -712,7 +712,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.6, i64 noundef %0, i64 noundef %1) #13
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 8:                                                ; preds = %4
@@ -724,7 +724,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.7, i64 noundef %13) #13
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -743,7 +743,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.6, i64 noundef %2, i64 noundef %3) #13
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 8:                                                ; preds = %4
@@ -764,7 +764,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, i64 noundef %10) #13
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 19:                                               ; preds = %13
@@ -788,7 +788,7 @@ declare ptr @SparseMatrix_from_coordinate_arrays(i32 noundef, i32 noundef, i32 n
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }

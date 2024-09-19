@@ -753,7 +753,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %19 = getelementptr inbounds i32, ptr %.val.val.val.i, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %Abc_SclObjCell.exit, label %22
+  br i1 %21, label %Abc_SclObjCell.argprom.exit, label %22
 
 22:                                               ; preds = %Abc_Clock.exit
   %23 = getelementptr i8, ptr %.val77, i64 368
@@ -763,9 +763,9 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %25 = sext i32 %20 to i64
   %26 = getelementptr inbounds ptr, ptr %.val5.i, i64 %25
   %27 = load ptr, ptr %26, align 8
-  br label %Abc_SclObjCell.exit
+  br label %Abc_SclObjCell.argprom.exit
 
-Abc_SclObjCell.exit:                              ; preds = %Abc_Clock.exit, %22
+Abc_SclObjCell.argprom.exit:                      ; preds = %Abc_Clock.exit, %22
   %28 = phi ptr [ %27, %22 ], [ null, %Abc_Clock.exit ]
   %29 = getelementptr inbounds i8, ptr %0, i64 144
   %30 = load ptr, ptr %29, align 8
@@ -776,7 +776,7 @@ Abc_SclObjCell.exit:                              ; preds = %Abc_Clock.exit, %22
   %33 = icmp sgt i32 %.val51.i, 0
   br i1 %33, label %.lr.ph.i, label %Abc_SclConeStore.exit
 
-.lr.ph.i:                                         ; preds = %Abc_SclObjCell.exit
+.lr.ph.i:                                         ; preds = %Abc_SclObjCell.argprom.exit
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = getelementptr i8, ptr %2, i64 8
   %36 = getelementptr i8, ptr %0, i64 80
@@ -1100,7 +1100,7 @@ Vec_FltPush.exit50.i:                             ; preds = %183, %Vec_FltGrow.e
   %192 = icmp slt i64 %indvars.iv.next.i, %191
   br i1 %192, label %38, label %Abc_SclConeStore.exit, !llvm.loop !13
 
-Abc_SclConeStore.exit:                            ; preds = %190, %Abc_SclObjCell.exit
+Abc_SclConeStore.exit:                            ; preds = %190, %Abc_SclObjCell.argprom.exit
   %193 = getelementptr inbounds i8, ptr %0, i64 152
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 4
@@ -1855,7 +1855,7 @@ Abc_Clock.exit156:                                ; preds = %Abc_SclConeRestore.
   %585 = load i32, ptr %584, align 8
   %586 = getelementptr inbounds i8, ptr %.val90, i64 224
   %587 = add nsw i32 %.val91, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %586, i32 noundef %587)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %586, i32 noundef %587)
   %588 = getelementptr i8, ptr %.val90, i64 232
   %.val.i.i.i = load ptr, ptr %588, align 8
   %589 = sext i32 %.val91 to i64
@@ -1953,9 +1953,9 @@ Vec_QueClear.exit:                                ; preds = %10, %2
   %37 = getelementptr i8, ptr %31, i64 28
   %.val = load i32, ptr %37, align 4
   %38 = icmp sgt i32 %.val, 0
-  br i1 %38, label %Abc_SclObjCell.exit, label %57
+  br i1 %38, label %Abc_SclObjCell.argprom.exit, label %57
 
-Abc_SclObjCell.exit:                              ; preds = %36
+Abc_SclObjCell.argprom.exit:                      ; preds = %36
   %39 = load ptr, ptr %26, align 8
   %40 = getelementptr i8, ptr %31, i64 16
   %.val15 = load i32, ptr %40, align 8
@@ -1988,8 +1988,8 @@ Abc_SclObjCell.exit:                              ; preds = %36
   %.pre = load ptr, ptr %22, align 8
   br label %57
 
-57:                                               ; preds = %33, %27, %Abc_SclObjCell.exit, %36
-  %58 = phi ptr [ %28, %33 ], [ %28, %27 ], [ %.pre, %Abc_SclObjCell.exit ], [ %28, %36 ]
+57:                                               ; preds = %33, %27, %Abc_SclObjCell.argprom.exit, %36
+  %58 = phi ptr [ %28, %33 ], [ %28, %27 ], [ %.pre, %Abc_SclObjCell.argprom.exit ], [ %28, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = getelementptr i8, ptr %58, i64 4
   %.val20 = load i32, ptr %59, align 4
@@ -2052,13 +2052,13 @@ define internal fastcc void @Vec_QuePush(ptr nocapture noundef %0, i32 noundef %
 28:                                               ; preds = %16
   %29 = getelementptr inbounds float, ptr %.val.val.i, i64 %20
   %30 = load float, ptr %29, align 4
-  br label %Vec_QuePrio.exit.i
+  br label %Vec_QuePrio.argprom.argprom.exit.i
 
 31:                                               ; preds = %16
   %32 = sitofp i32 %1 to float
-  br label %Vec_QuePrio.exit.i
+  br label %Vec_QuePrio.argprom.argprom.exit.i
 
-Vec_QuePrio.exit.i:                               ; preds = %31, %28
+Vec_QuePrio.argprom.argprom.exit.i:               ; preds = %31, %28
   %33 = phi float [ %30, %28 ], [ %32, %31 ]
   %34 = load ptr, ptr %18, align 8
   %35 = getelementptr inbounds i32, ptr %34, i64 %20
@@ -2066,8 +2066,8 @@ Vec_QuePrio.exit.i:                               ; preds = %31, %28
   %37 = icmp sgt i32 %36, 1
   br i1 %37, label %.lr.ph.i, label %Vec_QueMoveUp.exit
 
-.lr.ph.i:                                         ; preds = %Vec_QuePrio.exit.i, %50
-  %.02732.i = phi i32 [ %.02634.i, %50 ], [ %36, %Vec_QuePrio.exit.i ]
+.lr.ph.i:                                         ; preds = %Vec_QuePrio.argprom.argprom.exit.i, %50
+  %.02732.i = phi i32 [ %.02634.i, %50 ], [ %36, %Vec_QuePrio.argprom.argprom.exit.i ]
   %.02634.i = lshr i32 %.02732.i, 1
   %38 = load ptr, ptr %22, align 8
   %39 = zext nneg i32 %.02634.i to i64
@@ -2082,18 +2082,18 @@ Vec_QuePrio.exit.i:                               ; preds = %31, %28
   %43 = sext i32 %41 to i64
   %44 = getelementptr inbounds float, ptr %.val28.val.i, i64 %43
   %45 = load float, ptr %44, align 4
-  br label %Vec_QuePrio.exit30.i
+  br label %Vec_QuePrio.argprom.argprom.exit30.i
 
 46:                                               ; preds = %.lr.ph.i
   %47 = sitofp i32 %41 to float
-  br label %Vec_QuePrio.exit30.i
+  br label %Vec_QuePrio.argprom.argprom.exit30.i
 
-Vec_QuePrio.exit30.i:                             ; preds = %46, %42
+Vec_QuePrio.argprom.argprom.exit30.i:             ; preds = %46, %42
   %48 = phi float [ %45, %42 ], [ %47, %46 ]
   %49 = fcmp ogt float %33, %48
   br i1 %49, label %50, label %Vec_QueMoveUp.exit
 
-50:                                               ; preds = %Vec_QuePrio.exit30.i
+50:                                               ; preds = %Vec_QuePrio.argprom.argprom.exit30.i
   %51 = zext nneg i32 %.02732.i to i64
   %52 = getelementptr inbounds i32, ptr %38, i64 %51
   store i32 %41, ptr %52, align 4
@@ -2107,8 +2107,8 @@ Vec_QuePrio.exit30.i:                             ; preds = %46, %42
   %59 = icmp ugt i32 %.02732.i, 3
   br i1 %59, label %.lr.ph.i, label %Vec_QueMoveUp.exit, !llvm.loop !23
 
-Vec_QueMoveUp.exit:                               ; preds = %Vec_QuePrio.exit30.i, %50, %Vec_QuePrio.exit.i
-  %.027.lcssa.i = phi i32 [ %36, %Vec_QuePrio.exit.i ], [ %.02732.i, %Vec_QuePrio.exit30.i ], [ %.02634.i, %50 ]
+Vec_QueMoveUp.exit:                               ; preds = %Vec_QuePrio.argprom.argprom.exit30.i, %50, %Vec_QuePrio.argprom.argprom.exit.i
+  %.027.lcssa.i = phi i32 [ %36, %Vec_QuePrio.argprom.argprom.exit.i ], [ %.02732.i, %Vec_QuePrio.argprom.argprom.exit30.i ], [ %.02634.i, %50 ]
   %60 = load ptr, ptr %22, align 8
   %61 = sext i32 %.027.lcssa.i to i64
   %62 = getelementptr inbounds i32, ptr %60, i64 %61
@@ -2152,7 +2152,7 @@ define range(i32 0, 2) i32 @Abc_SclCheckOverlap(ptr nocapture noundef readonly %
   %.val3.i = load i32, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %18 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %17, i32 noundef %18)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %17, i32 noundef %18)
   %19 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %19, align 8
   %20 = sext i32 %.val3.i to i64
@@ -2508,9 +2508,9 @@ Vec_QueClear.exit.i:                              ; preds = %139, %132
   %163 = getelementptr i8, ptr %157, i64 28
   %.val.i = load i32, ptr %163, align 4
   %164 = icmp sgt i32 %.val.i, 0
-  br i1 %164, label %Abc_SclObjCell.exit.i, label %245
+  br i1 %164, label %Abc_SclObjCell.argprom.exit.i, label %245
 
-Abc_SclObjCell.exit.i:                            ; preds = %162
+Abc_SclObjCell.argprom.exit.i:                    ; preds = %162
   %165 = load ptr, ptr %111, align 8
   %166 = getelementptr i8, ptr %157, i64 16
   %.val15.i = load i32, ptr %166, align 8
@@ -2545,7 +2545,7 @@ Abc_SclObjCell.exit.i:                            ; preds = %162
   %.not.i237 = icmp slt i32 %184, %185
   br i1 %.not.i237, label %190, label %186
 
-186:                                              ; preds = %Abc_SclObjCell.exit.i
+186:                                              ; preds = %Abc_SclObjCell.argprom.exit.i
   %187 = add nsw i32 %184, 1
   %188 = shl nsw i32 %185, 1
   %189 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %187, i32 %188)
@@ -2553,8 +2553,8 @@ Abc_SclObjCell.exit.i:                            ; preds = %162
   %.pre.i238 = load i32, ptr %182, align 8
   br label %190
 
-190:                                              ; preds = %186, %Abc_SclObjCell.exit.i
-  %191 = phi i32 [ %.pre.i238, %186 ], [ %185, %Abc_SclObjCell.exit.i ]
+190:                                              ; preds = %186, %Abc_SclObjCell.argprom.exit.i
+  %191 = phi i32 [ %.pre.i238, %186 ], [ %185, %Abc_SclObjCell.argprom.exit.i ]
   %.not20.i239 = icmp slt i32 %.val14.i, %191
   br i1 %.not20.i239, label %196, label %192
 
@@ -2588,13 +2588,13 @@ Abc_SclObjCell.exit.i:                            ; preds = %162
 208:                                              ; preds = %196
   %209 = getelementptr inbounds float, ptr %.val.val.i.i241, i64 %200
   %210 = load float, ptr %209, align 4
-  br label %Vec_QuePrio.exit.i.i243
+  br label %Vec_QuePrio.argprom.argprom.exit.i.i243
 
 211:                                              ; preds = %196
   %212 = sitofp i32 %.val14.i to float
-  br label %Vec_QuePrio.exit.i.i243
+  br label %Vec_QuePrio.argprom.argprom.exit.i.i243
 
-Vec_QuePrio.exit.i.i243:                          ; preds = %211, %208
+Vec_QuePrio.argprom.argprom.exit.i.i243:          ; preds = %211, %208
   %213 = phi float [ %210, %208 ], [ %212, %211 ]
   %214 = load ptr, ptr %198, align 8
   %215 = getelementptr inbounds i32, ptr %214, i64 %200
@@ -2602,8 +2602,8 @@ Vec_QuePrio.exit.i.i243:                          ; preds = %211, %208
   %217 = icmp sgt i32 %216, 1
   br i1 %217, label %.lr.ph.i.i245, label %Vec_QuePush.exit252
 
-.lr.ph.i.i245:                                    ; preds = %Vec_QuePrio.exit.i.i243, %230
-  %.02732.i.i246 = phi i32 [ %.02634.i.i247, %230 ], [ %216, %Vec_QuePrio.exit.i.i243 ]
+.lr.ph.i.i245:                                    ; preds = %Vec_QuePrio.argprom.argprom.exit.i.i243, %230
+  %.02732.i.i246 = phi i32 [ %.02634.i.i247, %230 ], [ %216, %Vec_QuePrio.argprom.argprom.exit.i.i243 ]
   %.02634.i.i247 = lshr i32 %.02732.i.i246, 1
   %218 = load ptr, ptr %202, align 8
   %219 = zext nneg i32 %.02634.i.i247 to i64
@@ -2618,18 +2618,18 @@ Vec_QuePrio.exit.i.i243:                          ; preds = %211, %208
   %223 = sext i32 %221 to i64
   %224 = getelementptr inbounds float, ptr %.val28.val.i.i249, i64 %223
   %225 = load float, ptr %224, align 4
-  br label %Vec_QuePrio.exit30.i.i251
+  br label %Vec_QuePrio.argprom.argprom.exit30.i.i251
 
 226:                                              ; preds = %.lr.ph.i.i245
   %227 = sitofp i32 %221 to float
-  br label %Vec_QuePrio.exit30.i.i251
+  br label %Vec_QuePrio.argprom.argprom.exit30.i.i251
 
-Vec_QuePrio.exit30.i.i251:                        ; preds = %226, %222
+Vec_QuePrio.argprom.argprom.exit30.i.i251:        ; preds = %226, %222
   %228 = phi float [ %225, %222 ], [ %227, %226 ]
   %229 = fcmp ogt float %213, %228
   br i1 %229, label %230, label %Vec_QuePush.exit252
 
-230:                                              ; preds = %Vec_QuePrio.exit30.i.i251
+230:                                              ; preds = %Vec_QuePrio.argprom.argprom.exit30.i.i251
   %231 = zext nneg i32 %.02732.i.i246 to i64
   %232 = getelementptr inbounds i32, ptr %218, i64 %231
   store i32 %221, ptr %232, align 4
@@ -2643,8 +2643,8 @@ Vec_QuePrio.exit30.i.i251:                        ; preds = %226, %222
   %239 = icmp ugt i32 %.02732.i.i246, 3
   br i1 %239, label %.lr.ph.i.i245, label %Vec_QuePush.exit252, !llvm.loop !23
 
-Vec_QuePush.exit252:                              ; preds = %Vec_QuePrio.exit30.i.i251, %230, %Vec_QuePrio.exit.i.i243
-  %.027.lcssa.i.i244 = phi i32 [ %216, %Vec_QuePrio.exit.i.i243 ], [ %.02634.i.i247, %230 ], [ %.02732.i.i246, %Vec_QuePrio.exit30.i.i251 ]
+Vec_QuePush.exit252:                              ; preds = %Vec_QuePrio.argprom.argprom.exit30.i.i251, %230, %Vec_QuePrio.argprom.argprom.exit.i.i243
+  %.027.lcssa.i.i244 = phi i32 [ %216, %Vec_QuePrio.argprom.argprom.exit.i.i243 ], [ %.02634.i.i247, %230 ], [ %.02732.i.i246, %Vec_QuePrio.argprom.argprom.exit30.i.i251 ]
   %240 = load ptr, ptr %202, align 8
   %241 = sext i32 %.027.lcssa.i.i244 to i64
   %242 = getelementptr inbounds i32, ptr %240, i64 %241
@@ -2799,13 +2799,13 @@ Abc_Clock.exit188:                                ; preds = %.lr.ph, %274
 304:                                              ; preds = %294
   %305 = getelementptr inbounds float, ptr %.val40.val.i.i, i64 %301
   %306 = load float, ptr %305, align 4
-  br label %Vec_QuePrio.exit.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit.i.i
 
 307:                                              ; preds = %294
   %308 = sitofp i32 %297 to float
-  br label %Vec_QuePrio.exit.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit.i.i
 
-Vec_QuePrio.exit.i.i:                             ; preds = %307, %304
+Vec_QuePrio.argprom.argprom.exit.i.i:             ; preds = %307, %304
   %309 = phi float [ %306, %304 ], [ %308, %307 ]
   %310 = load ptr, ptr %283, align 8
   %311 = getelementptr inbounds i32, ptr %310, i64 %301
@@ -2815,10 +2815,10 @@ Vec_QuePrio.exit.i.i:                             ; preds = %307, %304
   %314 = icmp slt i32 %.047.i.i, %313
   br i1 %314, label %.lr.ph.i.i190, label %Vec_QueMoveDown.exit.i
 
-.lr.ph.i.i190:                                    ; preds = %Vec_QuePrio.exit.i.i, %354
-  %315 = phi i32 [ %363, %354 ], [ %313, %Vec_QuePrio.exit.i.i ]
-  %.049.i.i = phi i32 [ %.0.i.i, %354 ], [ %.047.i.i, %Vec_QuePrio.exit.i.i ]
-  %.03548.i.i = phi i32 [ %.1.i.i, %354 ], [ %312, %Vec_QuePrio.exit.i.i ]
+.lr.ph.i.i190:                                    ; preds = %Vec_QuePrio.argprom.argprom.exit.i.i, %354
+  %315 = phi i32 [ %363, %354 ], [ %313, %Vec_QuePrio.argprom.argprom.exit.i.i ]
+  %.049.i.i = phi i32 [ %.0.i.i, %354 ], [ %.047.i.i, %Vec_QuePrio.argprom.argprom.exit.i.i ]
+  %.03548.i.i = phi i32 [ %.1.i.i, %354 ], [ %312, %Vec_QuePrio.argprom.argprom.exit.i.i ]
   %316 = or disjoint i32 %.049.i.i, 1
   %317 = icmp slt i32 %316, %315
   %.pre51.i.i = load ptr, ptr %279, align 8
@@ -2843,7 +2843,7 @@ Vec_QuePrio.exit.i.i:                             ; preds = %307, %304
   %329 = sext i32 %328 to i64
   %330 = getelementptr inbounds float, ptr %.val.val.pre.i.i, i64 %329
   %331 = load float, ptr %330, align 4
-  br label %Vec_QuePrio.exit44.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit44.i.i
 
 332:                                              ; preds = %318
   %333 = sitofp i32 %321 to float
@@ -2851,19 +2851,19 @@ Vec_QuePrio.exit.i.i:                             ; preds = %307, %304
   %335 = getelementptr inbounds i32, ptr %.pre51.i.i, i64 %334
   %336 = load i32, ptr %335, align 4
   %337 = sitofp i32 %336 to float
-  br label %Vec_QuePrio.exit44.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit44.i.i
 
-Vec_QuePrio.exit44.i.i:                           ; preds = %332, %322
+Vec_QuePrio.argprom.argprom.exit44.i.i:           ; preds = %332, %322
   %338 = phi float [ %325, %322 ], [ %333, %332 ]
   %339 = phi float [ %331, %322 ], [ %337, %332 ]
   %340 = fcmp olt float %338, %339
   br i1 %340, label %341, label %342
 
-341:                                              ; preds = %Vec_QuePrio.exit44.i.i
+341:                                              ; preds = %Vec_QuePrio.argprom.argprom.exit44.i.i
   br label %342
 
-342:                                              ; preds = %341, %Vec_QuePrio.exit44.i.i, %.lr.ph.i.i190
-  %.1.i.i = phi i32 [ %316, %341 ], [ %.049.i.i, %Vec_QuePrio.exit44.i.i ], [ %.049.i.i, %.lr.ph.i.i190 ]
+342:                                              ; preds = %341, %Vec_QuePrio.argprom.argprom.exit44.i.i, %.lr.ph.i.i190
+  %.1.i.i = phi i32 [ %316, %341 ], [ %.049.i.i, %Vec_QuePrio.argprom.argprom.exit44.i.i ], [ %.049.i.i, %.lr.ph.i.i190 ]
   %343 = sext i32 %.1.i.i to i64
   %344 = getelementptr inbounds i32, ptr %.pre51.i.i, i64 %343
   %345 = load i32, ptr %344, align 4
@@ -2874,18 +2874,18 @@ Vec_QuePrio.exit44.i.i:                           ; preds = %332, %322
   %347 = sext i32 %345 to i64
   %348 = getelementptr inbounds float, ptr %.val.val.pre.i.i, i64 %347
   %349 = load float, ptr %348, align 4
-  br label %Vec_QuePrio.exit46.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit46.i.i
 
 350:                                              ; preds = %342
   %351 = sitofp i32 %345 to float
-  br label %Vec_QuePrio.exit46.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit46.i.i
 
-Vec_QuePrio.exit46.i.i:                           ; preds = %350, %346
+Vec_QuePrio.argprom.argprom.exit46.i.i:           ; preds = %350, %346
   %352 = phi float [ %349, %346 ], [ %351, %350 ]
   %353 = fcmp ult float %309, %352
   br i1 %353, label %354, label %Vec_QueMoveDown.exit.i
 
-354:                                              ; preds = %Vec_QuePrio.exit46.i.i
+354:                                              ; preds = %Vec_QuePrio.argprom.argprom.exit46.i.i
   %355 = sext i32 %.03548.i.i to i64
   %356 = getelementptr inbounds i32, ptr %.pre51.i.i, i64 %355
   store i32 %345, ptr %356, align 4
@@ -2901,8 +2901,8 @@ Vec_QuePrio.exit46.i.i:                           ; preds = %350, %346
   %364 = icmp slt i32 %.0.i.i, %363
   br i1 %364, label %.lr.ph.i.i190, label %Vec_QueMoveDown.exit.i, !llvm.loop !26
 
-Vec_QueMoveDown.exit.i:                           ; preds = %354, %Vec_QuePrio.exit46.i.i, %Vec_QuePrio.exit.i.i
-  %.035.lcssa.i.i = phi i32 [ %312, %Vec_QuePrio.exit.i.i ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ], [ %.1.i.i, %354 ]
+Vec_QueMoveDown.exit.i:                           ; preds = %354, %Vec_QuePrio.argprom.argprom.exit46.i.i, %Vec_QuePrio.argprom.argprom.exit.i.i
+  %.035.lcssa.i.i = phi i32 [ %312, %Vec_QuePrio.argprom.argprom.exit.i.i ], [ %.03548.i.i, %Vec_QuePrio.argprom.argprom.exit46.i.i ], [ %.1.i.i, %354 ]
   %365 = load ptr, ptr %279, align 8
   %366 = sext i32 %.035.lcssa.i.i to i64
   %367 = getelementptr inbounds i32, ptr %365, i64 %366
@@ -3345,13 +3345,13 @@ Vec_QueGrow.exit:                                 ; preds = %557, %536, %534
 584:                                              ; preds = %Vec_QueGrow.exit
   %585 = getelementptr inbounds float, ptr %.val.val.i.i202, i64 %576
   %586 = load float, ptr %585, align 4
-  br label %Vec_QuePrio.exit.i.i204
+  br label %Vec_QuePrio.argprom.argprom.exit.i.i204
 
 587:                                              ; preds = %Vec_QueGrow.exit
   %588 = sitofp i32 %.val to float
-  br label %Vec_QuePrio.exit.i.i204
+  br label %Vec_QuePrio.argprom.argprom.exit.i.i204
 
-Vec_QuePrio.exit.i.i204:                          ; preds = %587, %584
+Vec_QuePrio.argprom.argprom.exit.i.i204:          ; preds = %587, %584
   %589 = phi float [ %586, %584 ], [ %588, %587 ]
   %590 = load ptr, ptr %574, align 8
   %591 = getelementptr inbounds i32, ptr %590, i64 %576
@@ -3359,8 +3359,8 @@ Vec_QuePrio.exit.i.i204:                          ; preds = %587, %584
   %593 = icmp sgt i32 %592, 1
   br i1 %593, label %.lr.ph.i.i205, label %Vec_QuePush.exit
 
-.lr.ph.i.i205:                                    ; preds = %Vec_QuePrio.exit.i.i204, %606
-  %.02732.i.i = phi i32 [ %.02634.i.i, %606 ], [ %592, %Vec_QuePrio.exit.i.i204 ]
+.lr.ph.i.i205:                                    ; preds = %Vec_QuePrio.argprom.argprom.exit.i.i204, %606
+  %.02732.i.i = phi i32 [ %.02634.i.i, %606 ], [ %592, %Vec_QuePrio.argprom.argprom.exit.i.i204 ]
   %.02634.i.i = lshr i32 %.02732.i.i, 1
   %594 = load ptr, ptr %578, align 8
   %595 = zext nneg i32 %.02634.i.i to i64
@@ -3375,18 +3375,18 @@ Vec_QuePrio.exit.i.i204:                          ; preds = %587, %584
   %599 = sext i32 %597 to i64
   %600 = getelementptr inbounds float, ptr %.val28.val.i.i, i64 %599
   %601 = load float, ptr %600, align 4
-  br label %Vec_QuePrio.exit30.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit30.i.i
 
 602:                                              ; preds = %.lr.ph.i.i205
   %603 = sitofp i32 %597 to float
-  br label %Vec_QuePrio.exit30.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit30.i.i
 
-Vec_QuePrio.exit30.i.i:                           ; preds = %602, %598
+Vec_QuePrio.argprom.argprom.exit30.i.i:           ; preds = %602, %598
   %604 = phi float [ %601, %598 ], [ %603, %602 ]
   %605 = fcmp ogt float %589, %604
   br i1 %605, label %606, label %Vec_QuePush.exit
 
-606:                                              ; preds = %Vec_QuePrio.exit30.i.i
+606:                                              ; preds = %Vec_QuePrio.argprom.argprom.exit30.i.i
   %607 = zext nneg i32 %.02732.i.i to i64
   %608 = getelementptr inbounds i32, ptr %594, i64 %607
   store i32 %597, ptr %608, align 4
@@ -3400,8 +3400,8 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %602, %598
   %615 = icmp ugt i32 %.02732.i.i, 3
   br i1 %615, label %.lr.ph.i.i205, label %Vec_QuePush.exit, !llvm.loop !23
 
-Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i, %606, %Vec_QuePrio.exit.i.i204
-  %.027.lcssa.i.i = phi i32 [ %592, %Vec_QuePrio.exit.i.i204 ], [ %.02634.i.i, %606 ], [ %.02732.i.i, %Vec_QuePrio.exit30.i.i ]
+Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.argprom.argprom.exit30.i.i, %606, %Vec_QuePrio.argprom.argprom.exit.i.i204
+  %.027.lcssa.i.i = phi i32 [ %592, %Vec_QuePrio.argprom.argprom.exit.i.i204 ], [ %.02634.i.i, %606 ], [ %.02732.i.i, %Vec_QuePrio.argprom.argprom.exit30.i.i ]
   %616 = load ptr, ptr %578, align 8
   %617 = sext i32 %.027.lcssa.i.i to i64
   %618 = getelementptr inbounds i32, ptr %616, i64 %617
@@ -3820,7 +3820,7 @@ Abc_Clock.exit.i:                                 ; preds = %829, %802
   %.0.i.i227 = phi i64 [ %835, %829 ], [ -1, %802 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store i64 %.0.i.i227, ptr @Abc_SclDumpStats.clk, align 8
-  br label %Abc_SclDumpStats.exit
+  br label %Abc_SclDumpStats.argprom.exit
 
 836:                                              ; preds = %796
   %fputc.i = call i32 @fputc(i32 32, ptr %797)
@@ -3873,13 +3873,13 @@ Abc_Clock.exit30.i:                               ; preds = %865, %836
   %874 = sitofp i64 %873 to double
   %875 = fdiv double %874, 1.000000e+06
   %876 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %797, ptr noundef nonnull @.str.39, double noundef %875) #22
-  br label %Abc_SclDumpStats.exit
+  br label %Abc_SclDumpStats.argprom.exit
 
-Abc_SclDumpStats.exit:                            ; preds = %Abc_Clock.exit.i, %Abc_Clock.exit30.i
+Abc_SclDumpStats.argprom.exit:                    ; preds = %Abc_Clock.exit.i, %Abc_Clock.exit30.i
   %877 = call i32 @fclose(ptr noundef %797)
   br label %878
 
-878:                                              ; preds = %Abc_SclDumpStats.exit, %793
+878:                                              ; preds = %Abc_SclDumpStats.argprom.exit, %793
   %.not169 = icmp eq i64 %35, 0
   br i1 %.not169, label %893, label %879
 
@@ -4672,7 +4672,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

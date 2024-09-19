@@ -367,20 +367,20 @@ define dso_local noundef ptr @_ZN4llvm12getPassTimerEPNS_4PassE(ptr noundef %0) 
 12:                                               ; preds = %1
   %13 = load atomic i64, ptr @_ZZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEvE3TTI acquire, align 8
   %.not.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i, label %14, label %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
+  br i1 %.not.i.i, label %14, label %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i
 
 14:                                               ; preds = %12
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEvE3TTI, ptr noundef nonnull @_ZN4llvm14object_creatorINS_12_GLOBAL__N_16legacy14PassTimingInfoEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_12_GLOBAL__N_16legacy14PassTimingInfoEE4callEPv) #19
-  br label %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
+  br label %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i
 
-_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i: ; preds = %14, %12
+_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i: ; preds = %14, %12
   %15 = load atomic i64, ptr @_ZZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEvE3TTI monotonic, align 8
   %.0.i2.i.i = inttoptr i64 %15 to ptr
   store ptr %.0.i2.i.i, ptr @_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo11TheTimeInfoE, align 8
   br label %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit
 
-_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit: ; preds = %1, %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
-  %16 = phi ptr [ %10, %1 ], [ %.0.i2.i.i, %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i ]
+_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit: ; preds = %1, %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i
+  %16 = phi ptr [ %10, %1 ], [ %.0.i2.i.i, %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %129, label %17
 
@@ -405,19 +405,19 @@ _ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit: ; preds = %1, %_ZN4ll
 27:                                               ; preds = %22
   %28 = load atomic i64, ptr @_ZZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEvE3TTI acquire, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i.i
+  br i1 %.not.i.i.i, label %29, label %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i.i
 
 29:                                               ; preds = %27
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEvE3TTI, ptr noundef nonnull @_ZN4llvm14object_creatorINS_12_GLOBAL__N_16legacy14PassTimingInfoEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_12_GLOBAL__N_16legacy14PassTimingInfoEE4callEPv) #19
-  br label %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i.i
+  br label %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i.i
 
-_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i.i: ; preds = %29, %27
+_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i.i: ; preds = %29, %27
   %30 = load atomic i64, ptr @_ZZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEvE3TTI monotonic, align 8
   %.0.i2.i.i.i = inttoptr i64 %30 to ptr
   store ptr %.0.i2.i.i.i, ptr @_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo11TheTimeInfoE, align 8
   br label %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit.i
 
-_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit.i: ; preds = %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i.i, %22
+_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit.i: ; preds = %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.argprom.exit.i.i, %22
   %31 = load atomic i64, ptr @_ZN4llvm12_GLOBAL__N_16legacy15TimingInfoMutexE acquire, align 8
   %.not.i.i4 = icmp eq i64 %31, 0
   br i1 %.not.i.i4, label %32, label %_ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
@@ -3538,20 +3538,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRKbEN4llvm3$_0EE9_M_invokeERKS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKbEN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #6 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIN4llvm3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -4364,7 +4364,7 @@ define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3A
 
 19:                                               ; preds = %18, %4
   %20 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  br i1 %20, label %"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.exit", label %21
+  br i1 %20, label %"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.argprom.exit", label %21
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %7, align 8
@@ -4373,20 +4373,20 @@ define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3A
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZN4llvm5Timer10startTimerEv(ptr noundef nonnull align 8 dereferenceable(176) %26) #19
-  br label %"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.exit"
+  br label %"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.argprom.exit"
 
-"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.exit": ; preds = %19, %21
+"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.argprom.exit": ; preds = %19, %21
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %_ZN4llvm3AnyD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i: ; preds = %"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.exit"
+_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i: ; preds = %"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.argprom.exit"
   %27 = load ptr, ptr %6, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %_ZN4llvm3AnyD2Ev.exit
 
-_ZN4llvm3AnyD2Ev.exit:                            ; preds = %"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.exit", %_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i
+_ZN4llvm3AnyD2Ev.exit:                            ; preds = %"_ZZN4llvm17TimePassesHandler17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_4clENS_9StringRefENS_3AnyE.argprom.exit", %_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i
   ret void
 }
 

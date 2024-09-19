@@ -1186,7 +1186,7 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
   %uat_allocated_fields.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @uat_allocated_fields, i64 24), align 8
   %uat_allocated_fields.val27.i = load i32, ptr getelementptr inbounds (i8, ptr @uat_allocated_fields, i64 32), align 8
   %.not.i35 = icmp eq i32 %36, 0
-  br i1 %.not.i35, label %lwm2m_search_fields.exit47.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i35, label %lwm2m_search_fields.argprom.exit47.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %34
   %wide.trip.count.i = zext i32 %36 to i64
@@ -1217,7 +1217,7 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
 
 50:                                               ; preds = %46
   %.not.i.i41 = icmp eq i32 %uat_allocated_fields.val27.i, 0
-  br i1 %.not.i.i41, label %lwm2m_search_fields.exit47.thread, label %.lr.ph.i.i42
+  br i1 %.not.i.i41, label %lwm2m_search_fields.argprom.exit47.thread, label %.lr.ph.i.i42
 
 .lr.ph.i.i42:                                     ; preds = %50
   %wide.trip.count.i.i43 = zext i32 %uat_allocated_fields.val27.i to i64
@@ -1239,20 +1239,20 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
 59:                                               ; preds = %55, %51
   %indvars.iv.next.i.i45 = add nuw nsw i64 %indvars.iv.i.i44, 1
   %exitcond.not.i.i46 = icmp eq i64 %indvars.iv.next.i.i45, %wide.trip.count.i.i43
-  br i1 %exitcond.not.i.i46, label %lwm2m_search_fields.exit47.thread, label %51, !llvm.loop !13
+  br i1 %exitcond.not.i.i46, label %lwm2m_search_fields.argprom.exit47.thread, label %51, !llvm.loop !13
 
 60:                                               ; preds = %40, %.lr.ph.i36
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
-  br i1 %exitcond.not.i39, label %lwm2m_search_fields.exit47.thread, label %.lr.ph.i36, !llvm.loop !14
+  br i1 %exitcond.not.i39, label %lwm2m_search_fields.argprom.exit47.thread, label %.lr.ph.i36, !llvm.loop !14
 
-lwm2m_search_fields.exit47.thread:                ; preds = %60, %59, %34, %50
+lwm2m_search_fields.argprom.exit47.thread:        ; preds = %60, %59, %34, %50
   %oma_allocated_fields.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @oma_allocated_fields, i64 24), align 8
   %oma_allocated_fields.val28.i = load i32, ptr getelementptr inbounds (i8, ptr @oma_allocated_fields, i64 32), align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %84, %lwm2m_search_fields.exit47.thread
-  %indvars.iv.i = phi i64 [ 0, %lwm2m_search_fields.exit47.thread ], [ %indvars.iv.next.i, %84 ]
+.lr.ph.i:                                         ; preds = %84, %lwm2m_search_fields.argprom.exit47.thread
+  %indvars.iv.i = phi i64 [ 0, %lwm2m_search_fields.argprom.exit47.thread ], [ %indvars.iv.next.i, %84 ]
   %61 = getelementptr %struct._lwm2m_resource_t, ptr @lwm2m_oma_resources, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 16
   %63 = icmp eq i32 %3, %62

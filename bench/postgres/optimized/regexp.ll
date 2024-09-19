@@ -291,7 +291,7 @@ define dso_local zeroext i1 @RE_compile_and_execute(ptr noundef %0, ptr noundef 
   %13 = shl nsw i64 %12, 2
   %14 = tail call ptr @palloc(i64 noundef %13) #8
   %15 = tail call i32 @pg_mb2wchar_with_len(ptr noundef %1, ptr noundef %14, i32 noundef %2) #8
-  %16 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef %5, ptr noundef %6)
+  %16 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef %5, ptr noundef %6)
   tail call void @pfree(ptr noundef %14) #8
   ret i1 %16
 }
@@ -315,7 +315,7 @@ define dso_local range(i64 0, 2) i64 @nameregexeq(ptr nocapture noundef readonly
   %15 = ashr exact i64 %sext, 30
   %16 = tail call ptr @palloc(i64 noundef %15) #8
   %17 = tail call i32 @pg_mb2wchar_with_len(ptr noundef %4, ptr noundef %16, i32 noundef %10) #8
-  %18 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %18 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %16) #8
   %19 = zext i1 %18 to i64
   ret i64 %19
@@ -345,7 +345,7 @@ define dso_local range(i64 0, 2) i64 @nameregexne(ptr nocapture noundef readonly
   %15 = ashr exact i64 %sext, 30
   %16 = tail call ptr @palloc(i64 noundef %15) #8
   %17 = tail call i32 @pg_mb2wchar_with_len(ptr noundef %4, ptr noundef %16, i32 noundef %10) #8
-  %18 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %18 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %16) #8
   %19 = xor i1 %18, true
   %20 = zext i1 %19 to i64
@@ -407,7 +407,7 @@ define dso_local range(i64 0, 2) i64 @textregexeq(ptr nocapture noundef readonly
   %40 = shl nsw i64 %39, 2
   %41 = tail call ptr @palloc(i64 noundef %40) #8
   %42 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %34, ptr noundef %41, i32 noundef %32) #8
-  %43 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %41, i32 noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %43 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %41, i32 noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %41) #8
   %44 = zext i1 %43 to i64
   ret i64 %44
@@ -468,7 +468,7 @@ define dso_local range(i64 0, 2) i64 @textregexne(ptr nocapture noundef readonly
   %40 = shl nsw i64 %39, 2
   %41 = tail call ptr @palloc(i64 noundef %40) #8
   %42 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %34, ptr noundef %41, i32 noundef %32) #8
-  %43 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %41, i32 noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %43 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %41, i32 noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %41) #8
   %44 = xor i1 %43, true
   %45 = zext i1 %44 to i64
@@ -494,7 +494,7 @@ define dso_local range(i64 0, 2) i64 @nameicregexeq(ptr nocapture noundef readon
   %15 = ashr exact i64 %sext, 30
   %16 = tail call ptr @palloc(i64 noundef %15) #8
   %17 = tail call i32 @pg_mb2wchar_with_len(ptr noundef %4, ptr noundef %16, i32 noundef %10) #8
-  %18 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %18 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %16) #8
   %19 = zext i1 %18 to i64
   ret i64 %19
@@ -519,7 +519,7 @@ define dso_local range(i64 0, 2) i64 @nameicregexne(ptr nocapture noundef readon
   %15 = ashr exact i64 %sext, 30
   %16 = tail call ptr @palloc(i64 noundef %15) #8
   %17 = tail call i32 @pg_mb2wchar_with_len(ptr noundef %4, ptr noundef %16, i32 noundef %10) #8
-  %18 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %18 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %16) #8
   %19 = xor i1 %18, true
   %20 = zext i1 %19 to i64
@@ -581,7 +581,7 @@ define dso_local range(i64 0, 2) i64 @texticregexeq(ptr nocapture noundef readon
   %40 = shl nsw i64 %39, 2
   %41 = tail call ptr @palloc(i64 noundef %40) #8
   %42 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %34, ptr noundef %41, i32 noundef %32) #8
-  %43 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %41, i32 noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %43 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %41, i32 noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %41) #8
   %44 = zext i1 %43 to i64
   ret i64 %44
@@ -642,7 +642,7 @@ define dso_local range(i64 0, 2) i64 @texticregexne(ptr nocapture noundef readon
   %40 = shl nsw i64 %39, 2
   %41 = tail call ptr @palloc(i64 noundef %40) #8
   %42 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %34, ptr noundef %41, i32 noundef %32) #8
-  %43 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %41, i32 noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %43 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %41, i32 noundef %42, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %41) #8
   %44 = xor i1 %43, true
   %45 = zext i1 %44 to i64
@@ -705,7 +705,7 @@ define dso_local i64 @textregexsubstr(ptr nocapture noundef %0) local_unnamed_ad
   %41 = shl nsw i64 %40, 2
   %42 = tail call ptr @palloc(i64 noundef %41) #8
   %43 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %19, ptr noundef %42, i32 noundef %38) #8
-  %44 = call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %42, i32 noundef %43, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %2)
+  %44 = call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %42, i32 noundef %43, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %2)
   call void @pfree(ptr noundef %42) #8
   br i1 %44, label %47, label %45
 
@@ -1780,7 +1780,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %.0141 = phi i32 [ 0, %55 ], [ %.2143, %156 ]
   %.0138 = phi i32 [ %62, %55 ], [ %.1139, %156 ]
   %.0134 = phi i32 [ %3, %55 ], [ %spec.select176, %156 ]
-  %72 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %37, i32 noundef %41, i32 noundef %.0134, i32 noundef %.0137, ptr noundef %58)
+  %72 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %37, i32 noundef %41, i32 noundef %.0134, i32 noundef %.0137, ptr noundef %58)
   br i1 %72, label %73, label %163
 
 73:                                               ; preds = %71
@@ -2283,7 +2283,7 @@ define dso_local range(i64 0, 2) i64 @regexp_like(ptr nocapture noundef readonly
   %61 = shl nsw i64 %60, 2
   %62 = tail call ptr @palloc(i64 noundef %61) #8
   %63 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %53, ptr noundef %62, i32 noundef %51) #8
-  %64 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %62, i32 noundef %63, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %64 = tail call fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %62, i32 noundef %63, i32 noundef 0, i32 noundef 0, ptr noundef null)
   tail call void @pfree(ptr noundef %62) #8
   %65 = zext i1 %64 to i64
   ret i64 %65
@@ -3112,7 +3112,7 @@ declare i32 @pg_database_encoding_max_length() local_unnamed_addr #2
 declare i32 @pg_wchar2mb_with_len(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @RE_wchar_execute(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @RE_wchar_execute.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [100 x i8], align 16
   %7 = sext i32 %1 to i64
   %8 = sext i32 %2 to i64

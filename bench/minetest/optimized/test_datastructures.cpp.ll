@@ -610,7 +610,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %t1) #28
   store i8 0, ptr %t1, align 1, !tbaa !59
   store i8 0, ptr %ref.tmp45.sroa.0.0.sroa.gep, align 1, !tbaa !61
-  %call16.i178 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
+  %call16.i178 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
           to label %call16.i.noexc unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit183
 
 call16.i.noexc:                                   ; preds = %if.else.i
@@ -799,7 +799,7 @@ _ZN12_GLOBAL__N_17TrackerD2Ev.exit.i221:          ; preds = %land.rhs.i.i.i219, 
 
 if.end12.i224:                                    ; preds = %_ZN12_GLOBAL__N_17TrackerD2Ev.exit.i221, %_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i212, %_ZNSt8_Rb_treeIiSt4pairIKiN12_GLOBAL__N_17TrackerEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i210, %if.then2.i195
   %m_new.i225 = getelementptr inbounds i8, ptr %map, i64 48
-  %call13.i238 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %m_new.i225, i32 1)
+  %call13.i238 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %m_new.i225, i32 1)
           to label %call13.i.noexc237 unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit251
 
 call13.i.noexc237:                                ; preds = %if.end12.i224
@@ -808,7 +808,7 @@ call13.i.noexc237:                                ; preds = %if.end12.i224
   br i1 %tobool.not.i.i30.i227, label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit246, label %if.end18.sink.split.sink.split.i228
 
 if.else.i234:                                     ; preds = %if.end.i192
-  %call16.i240 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
+  %call16.i240 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
           to label %call16.i.noexc239 unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit251
 
 call16.i.noexc239:                                ; preds = %if.else.i234
@@ -1621,7 +1621,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %t1) #28
   store i8 0, ptr %t1, align 1, !tbaa !59
   store i8 0, ptr %ref.tmp7.sroa.0.0.sroa.gep, align 1, !tbaa !61
-  %call16.i81 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
+  %call16.i81 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
           to label %call16.i.noexc unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit143
 
 call16.i.noexc:                                   ; preds = %if.else.i
@@ -1690,7 +1690,7 @@ _ZN12_GLOBAL__N_17TrackerD2Ev.exit.i113:          ; preds = %land.rhs.i.i.i111, 
 
 if.end12.i116:                                    ; preds = %_ZN12_GLOBAL__N_17TrackerD2Ev.exit.i113, %_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i104, %_ZNSt8_Rb_treeIiSt4pairIKiN12_GLOBAL__N_17TrackerEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i102, %if.then2.i87
   %m_new.i117 = getelementptr inbounds i8, ptr %map, i64 48
-  %call13.i130 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %m_new.i117, i32 1)
+  %call13.i130 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %m_new.i117, i32 1)
           to label %call13.i.noexc129 unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit148
 
 call13.i.noexc129:                                ; preds = %if.end12.i116
@@ -1699,7 +1699,7 @@ call13.i.noexc129:                                ; preds = %if.end12.i116
   br i1 %tobool.not.i.i30.i119, label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit138, label %if.end18.sink.split.sink.split.i120
 
 if.else.i126:                                     ; preds = %if.end.i84
-  %call16.i132 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
+  %call16.i132 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
           to label %call16.i.noexc131 unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit148
 
 call16.i.noexc131:                                ; preds = %if.else.i126
@@ -2027,7 +2027,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %t1) #28
   store i8 0, ptr %t1, align 1, !tbaa !59
   store i8 0, ptr %ref.tmp59.sroa.0.0.sroa.gep, align 1, !tbaa !61
-  %call16.i140 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
+  %call16.i140 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
           to label %call16.i.noexc unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit145
 
 call16.i.noexc:                                   ; preds = %if.else.i
@@ -2285,7 +2285,7 @@ _ZN12_GLOBAL__N_17TrackerD2Ev.exit.i199:          ; preds = %land.rhs.i.i.i197, 
 
 if.end12.i202:                                    ; preds = %_ZN12_GLOBAL__N_17TrackerD2Ev.exit.i199, %_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i190, %_ZNSt8_Rb_treeIiSt4pairIKiN12_GLOBAL__N_17TrackerEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i188, %if.then2.i173
   %m_new.i203 = getelementptr inbounds i8, ptr %map, i64 48
-  %call13.i216 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %m_new.i203, i32 1)
+  %call13.i216 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %m_new.i203, i32 1)
           to label %call13.i.noexc215 unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit229
 
 call13.i.noexc215:                                ; preds = %if.end12.i202
@@ -2294,7 +2294,7 @@ call13.i.noexc215:                                ; preds = %if.end12.i202
   br i1 %tobool.not.i.i30.i205, label %invoke.cont69, label %if.end18.sink.split.sink.split.i206
 
 if.else.i212:                                     ; preds = %if.end.i170
-  %call16.i218 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
+  %call16.i218 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %map, i32 1)
           to label %call16.i.noexc217 unwind label %_ZN12_GLOBAL__N_17TrackerD2Ev.exit229
 
 call16.i.noexc217:                                ; preds = %if.else.i212
@@ -4185,7 +4185,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIiSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 %__k.0.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEEixERS5_.argprom(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 %__k.0.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val.i.i = load ptr, ptr %0, align 8, !tbaa !37

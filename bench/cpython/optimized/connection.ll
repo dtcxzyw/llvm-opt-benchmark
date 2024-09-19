@@ -700,12 +700,12 @@ skip_optional_kwonly:                             ; preds = %land.lhs.true.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %db.i)
   %call.i61 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130, ptr noundef %7) #6
   %cmp.i62 = icmp slt i32 %call.i61, 0
-  br i1 %cmp.i62, label %pysqlite_connection_init_impl.exit, label %if.end.i63
+  br i1 %cmp.i62, label %pysqlite_connection_init_impl.argprom.exit, label %if.end.i63
 
 if.end.i63:                                       ; preds = %skip_optional_kwonly
   %call1.i = call i32 @PyUnicode_FSConverter(ptr noundef %7, ptr noundef nonnull %bytes.i) #6
   %tobool.not.i64 = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i64, label %pysqlite_connection_init_impl.exit, label %if.end3.i65
+  br i1 %tobool.not.i64, label %pysqlite_connection_init_impl.argprom.exit, label %if.end3.i65
 
 if.end3.i65:                                      ; preds = %if.end.i63
   %initialized.i = getelementptr inbounds i8, ptr %self, i64 56
@@ -721,7 +721,7 @@ if.then5.i:                                       ; preds = %if.end3.i65
   %call8.i = call i32 %30(ptr noundef nonnull %self) #6
   %call9.i = call fastcc i32 @connection_close(ptr noundef nonnull %self)
   %cmp10.i = icmp slt i32 %call9.i, 0
-  br i1 %cmp10.i, label %pysqlite_connection_init_impl.exit, label %if.end13.i
+  br i1 %cmp10.i, label %pysqlite_connection_init_impl.argprom.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then5.i, %if.end3.i65
   %call14.i = call ptr @PyEval_SaveThread() #6
@@ -767,7 +767,7 @@ Py_DECREF.exit115.i:                              ; preds = %if.then1.i113.i, %i
 
 if.then26.i:                                      ; preds = %Py_DECREF.exit115.i
   %call27.i = call ptr @PyErr_NoMemory() #6
-  br label %pysqlite_connection_init_impl.exit
+  br label %pysqlite_connection_init_impl.argprom.exit
 
 if.end28.i:                                       ; preds = %Py_DECREF.exit115.i
   %self.val.i = load ptr, ptr %2, align 8
@@ -991,7 +991,7 @@ _Py_NewRef.exit75.i:                              ; preds = %if.end.i.i74.i, %_P
   store ptr %62, ptr %NotSupportedError72.i, align 8
   %call73.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.130, ptr noundef nonnull %self) #6
   %cmp74.i = icmp slt i32 %call73.i, 0
-  br i1 %cmp74.i, label %pysqlite_connection_init_impl.exit, label %if.end77.i
+  br i1 %cmp74.i, label %pysqlite_connection_init_impl.argprom.exit, label %if.end77.i
 
 if.end77.i:                                       ; preds = %_Py_NewRef.exit75.i
   store i32 1, ptr %initialized.i, align 8
@@ -1000,24 +1000,24 @@ if.end77.i:                                       ; preds = %_Py_NewRef.exit75.i
 if.then81.i:                                      ; preds = %if.end77.i
   %call82.i = call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46)
   %cmp83.i = icmp slt i32 %call82.i, 0
-  br i1 %cmp83.i, label %pysqlite_connection_init_impl.exit, label %if.end87.i
+  br i1 %cmp83.i, label %pysqlite_connection_init_impl.argprom.exit, label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.then81.i, %if.end77.i
-  br label %pysqlite_connection_init_impl.exit
+  br label %pysqlite_connection_init_impl.argprom.exit
 
 error.i:                                          ; preds = %if.then1.i.i, %if.end.i.i, %Py_DECREF.exit97.i, %if.then1.i104.i, %if.end.i101.i, %if.then44.i, %new_statement_cache.exit.i, %new_statement_cache.exit.thread.i, %if.then33.i
   %63 = load ptr, ptr %db.i, align 8
   %call88.i = call i32 @sqlite3_close(ptr noundef %63) #6
-  br label %pysqlite_connection_init_impl.exit
+  br label %pysqlite_connection_init_impl.argprom.exit
 
-pysqlite_connection_init_impl.exit:               ; preds = %skip_optional_kwonly, %if.end.i63, %if.then5.i, %if.then26.i, %_Py_NewRef.exit75.i, %if.then81.i, %if.end87.i, %error.i
+pysqlite_connection_init_impl.argprom.exit:       ; preds = %skip_optional_kwonly, %if.end.i63, %if.then5.i, %if.then26.i, %_Py_NewRef.exit75.i, %if.then81.i, %if.end87.i, %error.i
   %retval.0.i67 = phi i32 [ -1, %if.then26.i ], [ -1, %error.i ], [ 0, %if.end87.i ], [ -1, %skip_optional_kwonly ], [ -1, %if.end.i63 ], [ -1, %if.then5.i ], [ -1, %_Py_NewRef.exit75.i ], [ -1, %if.then81.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %db.i)
   br label %exit
 
-exit:                                             ; preds = %get_isolation_level.exit.thread.i, %get_isolation_level.exit.i, %if.then2.i, %if.else10.i, %autocommit_converter.exit, %if.then123, %land.lhs.true111, %if.then85, %land.lhs.true60, %land.lhs.true44, %cond.end24, %if.then, %pysqlite_connection_init_impl.exit
-  %return_value.0 = phi i32 [ -1, %if.then ], [ -1, %land.lhs.true60 ], [ -1, %if.then85 ], [ -1, %land.lhs.true111 ], [ -1, %if.then123 ], [ %retval.0.i67, %pysqlite_connection_init_impl.exit ], [ -1, %autocommit_converter.exit ], [ -1, %land.lhs.true44 ], [ -1, %cond.end24 ], [ -1, %if.else10.i ], [ -1, %if.then2.i ], [ -1, %get_isolation_level.exit.i ], [ -1, %get_isolation_level.exit.thread.i ]
+exit:                                             ; preds = %get_isolation_level.exit.thread.i, %get_isolation_level.exit.i, %if.then2.i, %if.else10.i, %autocommit_converter.exit, %if.then123, %land.lhs.true111, %if.then85, %land.lhs.true60, %land.lhs.true44, %cond.end24, %if.then, %pysqlite_connection_init_impl.argprom.exit
+  %return_value.0 = phi i32 [ -1, %if.then ], [ -1, %land.lhs.true60 ], [ -1, %if.then85 ], [ -1, %land.lhs.true111 ], [ -1, %if.then123 ], [ %retval.0.i67, %pysqlite_connection_init_impl.argprom.exit ], [ -1, %autocommit_converter.exit ], [ -1, %land.lhs.true44 ], [ -1, %cond.end24 ], [ -1, %if.else10.i ], [ -1, %if.then2.i ], [ -1, %get_isolation_level.exit.i ], [ -1, %get_isolation_level.exit.thread.i ]
   ret i32 %return_value.0
 }
 
@@ -1871,14 +1871,14 @@ if.end:                                           ; preds = %cond.end, %cond.end
   %5 = getelementptr i8, ptr %2, i64 8
   %.val40 = load ptr, ptr %5, align 8
   %cmp.i.not.i = icmp eq ptr %.val40, %4
-  br i1 %cmp.i.not.i, label %if.end21, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end21, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = call i32 @PyType_IsSubtype(ptr noundef %.val40, ptr noundef %4) #6
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then16, label %if.end21
 
-if.then16:                                        ; preds = %PyObject_TypeCheck.exit
+if.then16:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %self.val = load ptr, ptr %3, align 8
   %call.i41 = call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_sqlite3module) #6
   %call.i.i42 = call ptr @PyModule_GetState(ptr noundef %call.i41) #6
@@ -1890,7 +1890,7 @@ if.then16:                                        ; preds = %PyObject_TypeCheck.
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.38, ptr noundef %7, ptr noundef %8) #6
   br label %exit
 
-if.end21:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
+if.end21:                                         ; preds = %if.end, %PyObject_TypeCheck.argprom.exit
   %9 = load ptr, ptr %cond1064, align 8
   %tobool23.not = icmp eq i64 %sub5762, 0
   br i1 %tobool23.not, label %skip_optional_kwonly, label %if.end25
@@ -5472,14 +5472,14 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 
 if.else8:                                         ; preds = %if.else
   %cmp.i.not.i = icmp eq ptr %py_val.val20, @PyFloat_Type
-  br i1 %cmp.i.not.i, label %if.then11, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then11, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.else8
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.else8
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %py_val.val20, ptr noundef nonnull @PyFloat_Type) #6
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else20, label %if.then11
 
-if.then11:                                        ; preds = %if.else8, %PyObject_TypeCheck.exit
+if.then11:                                        ; preds = %if.else8, %PyObject_TypeCheck.argprom.exit
   %call13 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %py_val) #6
   %cmp14 = fcmp oeq double %call13, -1.000000e+00
   br i1 %cmp14, label %land.lhs.true15, label %if.end19
@@ -5493,7 +5493,7 @@ if.end19:                                         ; preds = %land.lhs.true15, %i
   tail call void @sqlite3_result_double(ptr noundef %context, double noundef %call13) #6
   br label %return
 
-if.else20:                                        ; preds = %PyObject_TypeCheck.exit
+if.else20:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %py_val.val19 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %py_val.val19, i64 168
   %call21.val = load i64, ptr %3, align 8
@@ -5870,14 +5870,14 @@ if.end8:                                          ; preds = %if.end4
   %12 = getelementptr i8, ptr %call5, i64 8
   %call5.val21 = load ptr, ptr %12, align 8
   %cmp.i.not.i = icmp eq ptr %call5.val21, %11
-  br i1 %cmp.i.not.i, label %if.end16, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end16, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end8
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end8
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %call5.val21, ptr noundef %11) #6
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then13, label %if.end16
 
-if.then13:                                        ; preds = %PyObject_TypeCheck.exit
+if.then13:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %13 = load ptr, ptr @PyExc_TypeError, align 8
   %call5.val = load ptr, ptr %12, align 8
   %tp_name = getelementptr inbounds i8, ptr %call5.val, i64 24
@@ -5898,7 +5898,7 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call5) #6
   br label %return
 
-if.end16:                                         ; preds = %if.end8, %PyObject_TypeCheck.exit
+if.end16:                                         ; preds = %if.end8, %PyObject_TypeCheck.argprom.exit
   %created_cursors.i = getelementptr inbounds i8, ptr %self, i64 96
   %17 = load i32, ptr %created_cursors.i, align 8
   %inc.i = add i32 %17, 1
@@ -5926,14 +5926,14 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %20 = getelementptr i8, ptr %call7.i, i64 16
   %call7.val.i = load ptr, ptr %20, align 8
   %cmp.i16.i = icmp eq ptr %call7.val.i, @_Py_NoneStruct
-  br i1 %cmp.i16.i, label %for.inc.i, label %_PyWeakref_IS_DEAD.exit.i
+  br i1 %cmp.i16.i, label %for.inc.i, label %_PyWeakref_IS_DEAD.argprom.exit.i
 
-_PyWeakref_IS_DEAD.exit.i:                        ; preds = %for.body.i
+_PyWeakref_IS_DEAD.argprom.exit.i:                ; preds = %for.body.i
   %.val.i.i = load i64, ptr %call7.val.i, align 8
   %cmp1.i.not.i = icmp eq i64 %.val.i.i, 0
   br i1 %cmp1.i.not.i, label %for.inc.i, label %if.end11.i
 
-if.end11.i:                                       ; preds = %_PyWeakref_IS_DEAD.exit.i
+if.end11.i:                                       ; preds = %_PyWeakref_IS_DEAD.argprom.exit.i
   %call12.i = tail call i32 @PyList_Append(ptr noundef nonnull %call.i30, ptr noundef nonnull %call7.i) #6
   %cmp13.not.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.not.i, label %for.inc.i, label %if.then14.i
@@ -5950,7 +5950,7 @@ if.end.i21.i:                                     ; preds = %if.then14.i
   %cmp.i23.i = icmp eq i64 %dec.i22.i, 0
   br i1 %cmp.i23.i, label %do.end.sink.split.i, label %_pysqlite_drop_unused_cursor_references.exit
 
-for.inc.i:                                        ; preds = %if.end11.i, %_PyWeakref_IS_DEAD.exit.i, %for.body.i
+for.inc.i:                                        ; preds = %if.end11.i, %_PyWeakref_IS_DEAD.argprom.exit.i, %for.body.i
   %inc16.i = add nuw nsw i64 %i.023.i, 1
   %23 = load ptr, ptr %cursors.i, align 8
   %call4.i33 = tail call i64 @PyList_Size(ptr noundef %23) #6

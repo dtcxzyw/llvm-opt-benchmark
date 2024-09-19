@@ -714,9 +714,9 @@ Vec_PtrPush.exit149:                              ; preds = %.Vec_PtrGrow.exit11
 274:                                              ; preds = %246
   %275 = and i64 %.val130, 2684354559
   %narrow.i.not.i = icmp eq i64 %275, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.exit, label %Wlc_ObjSimAnd.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.argprom.exit, label %Wlc_ObjSimAnd.exit
 
-Gia_ObjIsPi.exit:                                 ; preds = %274
+Gia_ObjIsPi.argprom.exit:                         ; preds = %274
   %276 = lshr i64 %.val130, 32
   %277 = trunc nuw i64 %276 to i32
   %278 = and i32 %277, 536870911
@@ -734,9 +734,9 @@ Gia_ObjIsPi.exit:                                 ; preds = %274
   %283 = mul nsw i32 %.val.i160, %282
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds i64, ptr %.val6.val.i, i64 %284
-  br i1 %.not179, label %286, label %Gia_ObjIsRo.exit
+  br i1 %.not179, label %286, label %Gia_ObjIsRo.argprom.exit
 
-286:                                              ; preds = %Gia_ObjIsPi.exit
+286:                                              ; preds = %Gia_ObjIsPi.argprom.exit
   %287 = icmp sgt i32 %.val.i160, 0
   br i1 %287, label %.lr.ph.i161, label %Wlc_ObjSimAnd.exit
 
@@ -751,7 +751,7 @@ Gia_ObjIsPi.exit:                                 ; preds = %274
   %292 = icmp slt i64 %indvars.iv.next.i163, %291
   br i1 %292, label %.lr.ph.i161, label %Wlc_ObjSimAnd.exit, !llvm.loop !19
 
-Gia_ObjIsRo.exit:                                 ; preds = %Gia_ObjIsPi.exit
+Gia_ObjIsRo.argprom.exit:                         ; preds = %Gia_ObjIsPi.argprom.exit
   %.val4.i.i.i = load ptr, ptr %127, align 8
   %293 = getelementptr i8, ptr %.val4.i.i.i, i64 4
   %.val4.val.i.i.i = load i32, ptr %293, align 4
@@ -768,8 +768,8 @@ Gia_ObjIsRo.exit:                                 ; preds = %Gia_ObjIsPi.exit
   %303 = icmp sgt i32 %.val.i160, 0
   br i1 %303, label %.lr.ph.i169, label %Wlc_ObjSimAnd.exit
 
-.lr.ph.i169:                                      ; preds = %Gia_ObjIsRo.exit, %.lr.ph.i169
-  %indvars.iv.i170 = phi i64 [ %indvars.iv.next.i171, %.lr.ph.i169 ], [ 0, %Gia_ObjIsRo.exit ]
+.lr.ph.i169:                                      ; preds = %Gia_ObjIsRo.argprom.exit, %.lr.ph.i169
+  %indvars.iv.i170 = phi i64 [ %indvars.iv.next.i171, %.lr.ph.i169 ], [ 0, %Gia_ObjIsRo.argprom.exit ]
   %304 = getelementptr inbounds i64, ptr %302, i64 %indvars.iv.i170
   %305 = load i64, ptr %304, align 8
   %306 = getelementptr inbounds i64, ptr %285, i64 %indvars.iv.i170
@@ -780,7 +780,7 @@ Gia_ObjIsRo.exit:                                 ; preds = %Gia_ObjIsPi.exit
   %309 = icmp slt i64 %indvars.iv.next.i171, %308
   br i1 %309, label %.lr.ph.i169, label %Wlc_ObjSimAnd.exit, !llvm.loop !20
 
-Wlc_ObjSimAnd.exit:                               ; preds = %.lr.ph.i169, %.lr.ph.i161, %.lr.ph.i156, %.lr.ph31.i, %.lr.ph.i, %.lr.ph79.i, %.lr.ph81.i, %.lr.ph83.i, %274, %Gia_ObjIsRo.exit, %286, %.preheader.i159, %.preheader27.i, %.preheader.i, %.preheader71.i, %.preheader73.i, %.preheader75.i
+Wlc_ObjSimAnd.exit:                               ; preds = %.lr.ph.i169, %.lr.ph.i161, %.lr.ph.i156, %.lr.ph31.i, %.lr.ph.i, %.lr.ph79.i, %.lr.ph81.i, %.lr.ph83.i, %274, %Gia_ObjIsRo.argprom.exit, %286, %.preheader.i159, %.preheader27.i, %.preheader.i, %.preheader71.i, %.preheader73.i, %.preheader75.i
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %310 = load i32, ptr %16, align 8
   %311 = sext i32 %310 to i64

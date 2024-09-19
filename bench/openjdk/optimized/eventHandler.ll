@@ -3988,13 +3988,13 @@ adjust_jvmti_error.exit19.thread:                 ; preds = %adjust_jvmti_error.
   tail call void @eventHelper_reset(i8 noundef signext %0) #6
   br label %getHandlerChain.exit
 
-getHandlerChain.exit:                             ; preds = %adjust_jvmti_error.exit19.thread, %freeHandlerChain.exit
-  %indvars.iv = phi i64 [ 1, %adjust_jvmti_error.exit19.thread ], [ %indvars.iv.next, %freeHandlerChain.exit ]
+getHandlerChain.exit:                             ; preds = %adjust_jvmti_error.exit19.thread, %freeHandlerChain.argprom.exit
+  %indvars.iv = phi i64 [ 1, %adjust_jvmti_error.exit19.thread ], [ %indvars.iv.next, %freeHandlerChain.argprom.exit ]
   %24 = add nsw i64 %indvars.iv, -1
   %25 = getelementptr inbounds [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %24
   %.val = load ptr, ptr %25, align 8
   %.not4.i = icmp eq ptr %.val, null
-  br i1 %.not4.i, label %freeHandlerChain.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %freeHandlerChain.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %getHandlerChain.exit, %freeHandler.exit.thread.i
   %.06.i = phi ptr [ %27, %freeHandler.exit.thread.i ], [ %.val, %getHandlerChain.exit ]
@@ -4052,14 +4052,14 @@ freeHandler.exit.i:                               ; preds = %44, %30
 
 freeHandler.exit.thread.i:                        ; preds = %freeHandler.exit.i, %.lr.ph.i
   %.not.i20 = icmp eq ptr %27, null
-  br i1 %.not.i20, label %freeHandlerChain.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i20, label %freeHandlerChain.argprom.exit, label %.lr.ph.i, !llvm.loop !13
 
-freeHandlerChain.exit:                            ; preds = %freeHandler.exit.thread.i, %getHandlerChain.exit
+freeHandlerChain.argprom.exit:                    ; preds = %freeHandler.exit.thread.i, %getHandlerChain.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
   br i1 %exitcond.not, label %46, label %getHandlerChain.exit, !llvm.loop !14
 
-46:                                               ; preds = %freeHandlerChain.exit
+46:                                               ; preds = %freeHandlerChain.argprom.exit
   store i32 1, ptr @requestIdCounter, align 4
   store i8 %0, ptr @currentSessionID, align 1
   %47 = load ptr, ptr @handlerLock, align 8

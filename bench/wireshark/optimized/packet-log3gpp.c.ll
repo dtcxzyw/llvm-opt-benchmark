@@ -635,7 +635,7 @@ define internal i32 @dissect_log3gpp(ptr noundef %0, ptr noundef %1, ptr noundef
   %57 = tail call ptr @tvb_get_string_enc(ptr noundef %56, ptr noundef %0, i32 noundef %44, i32 noundef %45, i32 noundef 2) #5
   %58 = tail call ptr @bsearch(ptr noundef %48, ptr noundef nonnull @dissector_lookup_table, i64 noundef 67, i64 noundef 48, ptr noundef nonnull @dissector_element_compare) #5
   %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %look_for_dissector.exit.thread136, label %59
+  br i1 %.not.i, label %look_for_dissector.argprom.exit.thread136, label %59
 
 59:                                               ; preds = %55
   br i1 %53, label %60, label %64
@@ -644,15 +644,15 @@ define internal i32 @dissect_log3gpp(ptr noundef %0, ptr noundef %1, ptr noundef
   %61 = getelementptr inbounds i8, ptr %58, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %look_for_dissector.exit, label %look_for_dissector.exit.thread
+  br i1 %63, label %look_for_dissector.argprom.exit, label %look_for_dissector.argprom.exit.thread
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds i8, ptr %58, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %look_for_dissector.exit, label %look_for_dissector.exit.thread
+  br i1 %67, label %look_for_dissector.argprom.exit, label %look_for_dissector.argprom.exit.thread
 
-look_for_dissector.exit:                          ; preds = %60, %64
+look_for_dissector.argprom.exit:                  ; preds = %60, %64
   %.sink3.i = phi i64 [ 8, %60 ], [ 16, %64 ]
   %.sink1.i = phi ptr [ %61, %60 ], [ %65, %64 ]
   %68 = getelementptr inbounds i8, ptr %58, i64 %.sink3.i
@@ -660,16 +660,16 @@ look_for_dissector.exit:                          ; preds = %60, %64
   %70 = tail call ptr @find_dissector(ptr noundef %69) #5
   store ptr %70, ptr %.sink1.i, align 8
   %.not125 = icmp eq ptr %70, null
-  br i1 %.not125, label %look_for_dissector.exit.thread136, label %look_for_dissector.exit.thread
+  br i1 %.not125, label %look_for_dissector.argprom.exit.thread136, label %look_for_dissector.argprom.exit.thread
 
-look_for_dissector.exit.thread:                   ; preds = %64, %60, %look_for_dissector.exit
-  %.0.i135 = phi ptr [ %70, %look_for_dissector.exit ], [ %66, %64 ], [ %62, %60 ]
+look_for_dissector.argprom.exit.thread:           ; preds = %64, %60, %look_for_dissector.argprom.exit
+  %.0.i135 = phi ptr [ %70, %look_for_dissector.argprom.exit ], [ %66, %64 ], [ %62, %60 ]
   %71 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %72 = sub i32 %71, %41
   %73 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef %72) #5
   %74 = tail call i32 @call_dissector(ptr noundef nonnull %.0.i135, ptr noundef %73, ptr noundef nonnull %1, ptr noundef %2) #5
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %look_for_dissector.exit.thread136, label %91
+  br i1 %75, label %look_for_dissector.argprom.exit.thread136, label %91
 
 76:                                               ; preds = %40
   %77 = load i32, ptr @hf_log3gpp_unparsed_data, align 4
@@ -682,7 +682,7 @@ look_for_dissector.exit.thread:                   ; preds = %64, %60, %look_for_
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.195, ptr noundef %83) #5
   br label %103
 
-look_for_dissector.exit.thread136:                ; preds = %55, %look_for_dissector.exit.thread, %look_for_dissector.exit
+look_for_dissector.argprom.exit.thread136:        ; preds = %55, %look_for_dissector.argprom.exit.thread, %look_for_dissector.argprom.exit
   %84 = load i32, ptr @hf_log3gpp_unparsed_data, align 4
   %85 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %84, ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef 0) #5
   %86 = load ptr, ptr %5, align 8
@@ -693,7 +693,7 @@ look_for_dissector.exit.thread136:                ; preds = %55, %look_for_disse
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.198, ptr noundef %88, i32 noundef %54, ptr noundef %90) #5
   br label %103
 
-91:                                               ; preds = %look_for_dissector.exit.thread
+91:                                               ; preds = %look_for_dissector.argprom.exit.thread
   %92 = load i32, ptr @hf_log3gpp_dissected_length, align 4
   %93 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %94 = sub i32 %93, %41
@@ -714,7 +714,7 @@ look_for_dissector.exit.thread136:                ; preds = %55, %look_for_disse
   store i32 %102, ptr %100, align 4
   br label %103
 
-103:                                              ; preds = %look_for_dissector.exit.thread136, %76, %91, %96, %99
+103:                                              ; preds = %look_for_dissector.argprom.exit.thread136, %76, %91, %96, %99
   %104 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   ret i32 %104
 }

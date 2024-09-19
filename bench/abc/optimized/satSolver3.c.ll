@@ -236,7 +236,7 @@ define i32 @sat_solver3_clause_new(ptr nocapture noundef %0, ptr noundef %1, ptr
 
 35:                                               ; preds = %4
   %36 = getelementptr inbounds i8, ptr %0, i64 16
-  %37 = tail call fastcc i32 @Sat_MemAppend(ptr noundef nonnull %36, ptr noundef %1, i32 noundef %9, i32 noundef %3)
+  %37 = tail call fastcc i32 @Sat_MemAppend.argelim(ptr noundef nonnull %36, ptr noundef %1, i32 noundef %9, i32 noundef %3)
   %38 = getelementptr inbounds i8, ptr %0, i64 72
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, -1
@@ -458,7 +458,7 @@ define internal fastcc void @veci_push(ptr nocapture noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc i32 @Sat_MemAppend(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc i32 @Sat_MemAppend.argelim(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1069,7 +1069,7 @@ define noundef ptr @sat_solver3_new() local_unnamed_addr #3 {
   store i32 2, ptr %10, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 72
   store i32 -1, ptr %13, align 8
-  %14 = tail call fastcc i32 @Sat_MemAppend(ptr noundef nonnull %2, ptr noundef null, i32 noundef 2, i32 noundef 0)
+  %14 = tail call fastcc i32 @Sat_MemAppend.argelim(ptr noundef nonnull %2, ptr noundef null, i32 noundef 2, i32 noundef 0)
   %15 = getelementptr inbounds i8, ptr %1, i64 76
   store i32 %14, ptr %15, align 4
   %.not.i.i = icmp eq i32 %14, 0
@@ -1230,7 +1230,7 @@ define noundef ptr @zsat_solver3_new_seed(double noundef %0) local_unnamed_addr 
   store i32 2, ptr %11, align 4
   %14 = getelementptr inbounds i8, ptr %2, i64 72
   store i32 -1, ptr %14, align 8
-  %15 = tail call fastcc i32 @Sat_MemAppend(ptr noundef nonnull %3, ptr noundef null, i32 noundef 2, i32 noundef 0)
+  %15 = tail call fastcc i32 @Sat_MemAppend.argelim(ptr noundef nonnull %3, ptr noundef null, i32 noundef 2, i32 noundef 0)
   %16 = getelementptr inbounds i8, ptr %2, i64 76
   store i32 %15, ptr %16, align 4
   %.not.i.i = icmp eq i32 %15, 0
@@ -2207,7 +2207,7 @@ define void @sat_solver3_restart(ptr nocapture noundef %0) local_unnamed_addr #2
   store i32 2, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 -1, ptr %12, align 8
-  %13 = tail call fastcc i32 @Sat_MemAppend(ptr noundef nonnull %2, ptr noundef null, i32 noundef 2, i32 noundef 0)
+  %13 = tail call fastcc i32 @Sat_MemAppend.argelim(ptr noundef nonnull %2, ptr noundef null, i32 noundef 2, i32 noundef 0)
   %14 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %13, ptr %14, align 4
   %.not.i.i = icmp eq i32 %13, 0
@@ -2317,7 +2317,7 @@ define void @zsat_solver3_restart_seed(ptr nocapture noundef %0, double noundef 
   store i32 2, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 -1, ptr %13, align 8
-  %14 = tail call fastcc i32 @Sat_MemAppend(ptr noundef nonnull %3, ptr noundef null, i32 noundef 2, i32 noundef 0)
+  %14 = tail call fastcc i32 @Sat_MemAppend.argelim(ptr noundef nonnull %3, ptr noundef null, i32 noundef 2, i32 noundef 0)
   %15 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %14, ptr %15, align 4
   %.not.i.i = icmp eq i32 %14, 0
@@ -2827,7 +2827,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br label %154
 
 154:                                              ; preds = %._crit_edge208, %153
-  call fastcc void @Sat_MemCompactLearned(ptr noundef nonnull %10, i32 noundef 0)
+  call fastcc void @Sat_MemCompactLearned.argelim(ptr noundef nonnull %10, i32 noundef 0)
   %155 = load i32, ptr %0, align 8
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %.lr.ph212, label %._crit_edge223
@@ -2985,7 +2985,7 @@ clause_read.exit178:                              ; preds = %203, %204
   br i1 %232, label %193, label %._crit_edge223, !llvm.loop !28
 
 ._crit_edge223:                                   ; preds = %._crit_edge218, %154, %.preheader
-  call fastcc void @Sat_MemCompactLearned(ptr noundef nonnull %10, i32 noundef 1)
+  call fastcc void @Sat_MemCompactLearned.argelim(ptr noundef nonnull %10, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %233 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #28
   %234 = icmp slt i32 %233, 0
@@ -3034,7 +3034,7 @@ Abc_Clock.exit180:                                ; preds = %._crit_edge223, %23
 declare ptr @Abc_MergeSortCost(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Sat_MemCompactLearned(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
+define internal fastcc void @Sat_MemCompactLearned.argelim(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -6019,18 +6019,18 @@ sat_solver3_analyze.exit.thread.i:                ; preds = %sat_solver3_analyze
 
 sat_solver3_enqueue.exit.i.i:                     ; preds = %1064, %1061
   %1075 = icmp eq i32 %1052, 0
-  br i1 %1075, label %1076, label %sat_solver3_record.exit.i
+  br i1 %1075, label %1076, label %sat_solver3_record.argprom.exit.i
 
 1076:                                             ; preds = %sat_solver3_enqueue.exit.i.i
   %1077 = load i32, ptr %.sroa.28.3.i, align 4
   call fastcc void @veci_push(ptr noundef nonnull %5, i32 noundef %1077)
-  br label %sat_solver3_record.exit.i
+  br label %sat_solver3_record.argprom.exit.i
 
-sat_solver3_record.exit.i:                        ; preds = %1076, %sat_solver3_enqueue.exit.i.i
+sat_solver3_record.argprom.exit.i:                ; preds = %1076, %sat_solver3_enqueue.exit.i.i
   %1078 = icmp eq i32 %.1115.lcssa.i.i, 1
   br i1 %1078, label %1079, label %1084
 
-1079:                                             ; preds = %sat_solver3_record.exit.i
+1079:                                             ; preds = %sat_solver3_record.argprom.exit.i
   %1080 = load i32, ptr %.sroa.28.3.i, align 4
   %1081 = ashr i32 %1080, 1
   %.val120.i = load ptr, ptr %41, align 8
@@ -6039,7 +6039,7 @@ sat_solver3_record.exit.i:                        ; preds = %1076, %sat_solver3_
   store i32 0, ptr %1083, align 4
   br label %1084
 
-1084:                                             ; preds = %1079, %sat_solver3_record.exit.i
+1084:                                             ; preds = %1079, %sat_solver3_record.argprom.exit.i
   %1085 = load i32, ptr %29, align 4
   switch i32 %1085, label %act_var_decay.exit.i [
     i32 0, label %1086

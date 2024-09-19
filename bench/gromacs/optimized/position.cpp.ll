@@ -40,29 +40,29 @@ declare void @_Z22gmx_ana_indexmap_clearP18gmx_ana_indexmap_t(ptr noundef) local
 define void @_ZN13gmx_ana_pos_tD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef %2)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit unwind label %9
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit unwind label %9
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %1
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit: ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 64, ptr noundef %4)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit1 unwind label %9
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit1 unwind label %9
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit1:       ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit1: ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 65, ptr noundef %6)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit2 unwind label %9
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit2 unwind label %9
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit2:       ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit1
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit2: ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit1
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_Z23gmx_ana_indexmap_deinitP18gmx_ana_indexmap_t(ptr noundef nonnull %7)
           to label %8 unwind label %9
 
-8:                                                ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit2
+8:                                                ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit2
   ret void
 
-9:                                                ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit1, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, %1, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit2
+9:                                                ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit1, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit, %1, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit2
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0

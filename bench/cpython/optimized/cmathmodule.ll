@@ -166,21 +166,21 @@ if.then.i27.i:                                    ; preds = %special_type.exit.i
 
 if.then1.i33.i:                                   ; preds = %if.then.i27.i
   %..i34.i = select i1 %cmp2.i29.i, i64 4, i64 1
-  br label %cmath_acos_impl.exit
+  br label %cmath_acos_impl.argprom.exit
 
 if.else4.i30.i:                                   ; preds = %if.then.i27.i
   %.6.i31.i = select i1 %cmp2.i29.i, i64 3, i64 2
-  br label %cmath_acos_impl.exit
+  br label %cmath_acos_impl.argprom.exit
 
 if.end.i35.i:                                     ; preds = %special_type.exit.i
   %10 = fcmp uno double %0, 0.000000e+00
-  br i1 %10, label %cmath_acos_impl.exit, label %if.end9.i36.i
+  br i1 %10, label %cmath_acos_impl.argprom.exit, label %if.end9.i36.i
 
 if.end9.i36.i:                                    ; preds = %if.end.i35.i
   %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
   %cmp10.i37.i = fcmp oeq double %11, 1.000000e+00
   %.7.i38.i = select i1 %cmp10.i37.i, i64 5, i64 0
-  br label %cmath_acos_impl.exit
+  br label %cmath_acos_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %cmp.i = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
@@ -197,16 +197,16 @@ if.then11.i:                                      ; preds = %if.end.i
   %add.i = fadd double %call23.i, 0x3FF62E42FEFA39EF
   %12 = fneg double %0
   %fneg.i = tail call double @llvm.copysign.f64(double %add.i, double %12)
-  br label %cmath_acos_impl.exit.thread
+  br label %cmath_acos_impl.argprom.exit.thread
 
 if.else37.i:                                      ; preds = %if.end.i
   %sub.i = fsub double 1.000000e+00, %1
   %fneg41.i = fneg double %0
-  %call43.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub.i, double %fneg41.i)
+  %call43.i = tail call fastcc { double, double } @cmath_sqrt_impl.argprom(double %sub.i, double %fneg41.i)
   %13 = extractvalue { double, double } %call43.i, 0
   %14 = extractvalue { double, double } %call43.i, 1
   %add45.i = fadd double %1, 1.000000e+00
-  %call50.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %add45.i, double %0)
+  %call50.i = tail call fastcc { double, double } @cmath_sqrt_impl.argprom(double %add45.i, double %0)
   %15 = extractvalue { double, double } %call50.i, 0
   %16 = extractvalue { double, double } %call50.i, 1
   %call53.i = tail call double @atan2(double noundef %13, double noundef %15) #10
@@ -215,15 +215,15 @@ if.else37.i:                                      ; preds = %if.end.i
   %neg.i = fmul double %16, %17
   %18 = tail call double @llvm.fmuladd.f64(double %15, double %14, double %neg.i)
   %call61.i = tail call double @asinh(double noundef %18) #10
-  br label %cmath_acos_impl.exit.thread
+  br label %cmath_acos_impl.argprom.exit.thread
 
-cmath_acos_impl.exit.thread:                      ; preds = %if.then11.i, %if.else37.i
+cmath_acos_impl.argprom.exit.thread:              ; preds = %if.then11.i, %if.else37.i
   %r.sroa.0.0.i = phi double [ %mul.i, %if.else37.i ], [ %call14.i, %if.then11.i ]
   %r.sroa.3.0.i = phi double [ %call61.i, %if.else37.i ], [ %fneg.i, %if.then11.i ]
   store i32 0, ptr %call2, align 4
   br label %if.else10
 
-cmath_acos_impl.exit:                             ; preds = %if.then1.i33.i, %if.else4.i30.i, %if.end.i35.i, %if.end9.i36.i
+cmath_acos_impl.argprom.exit:                     ; preds = %if.then1.i33.i, %if.else4.i30.i, %if.end.i35.i, %if.end9.i36.i
   %retval.0.i32.i = phi i64 [ %..i34.i, %if.then1.i33.i ], [ %.6.i31.i, %if.else4.i30.i ], [ 6, %if.end.i35.i ], [ %.7.i38.i, %if.end9.i36.i ]
   %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acos_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i32.i
   %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx6.i, align 16
@@ -231,9 +231,9 @@ cmath_acos_impl.exit:                             ; preds = %if.then1.i33.i, %if
   %retval.sroa.3.0.copyload.i = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx.i, align 8
   br label %if.else10
 
-if.else10:                                        ; preds = %cmath_acos_impl.exit, %cmath_acos_impl.exit.thread
-  %retval.sroa.3.0.i6 = phi double [ %r.sroa.3.0.i, %cmath_acos_impl.exit.thread ], [ %retval.sroa.3.0.copyload.i, %cmath_acos_impl.exit ]
-  %retval.sroa.0.0.i5 = phi double [ %r.sroa.0.0.i, %cmath_acos_impl.exit.thread ], [ %retval.sroa.0.0.copyload.i, %cmath_acos_impl.exit ]
+if.else10:                                        ; preds = %cmath_acos_impl.argprom.exit, %cmath_acos_impl.argprom.exit.thread
+  %retval.sroa.3.0.i6 = phi double [ %r.sroa.3.0.i, %cmath_acos_impl.argprom.exit.thread ], [ %retval.sroa.3.0.copyload.i, %cmath_acos_impl.argprom.exit ]
+  %retval.sroa.0.0.i5 = phi double [ %r.sroa.0.0.i, %cmath_acos_impl.argprom.exit.thread ], [ %retval.sroa.0.0.copyload.i, %cmath_acos_impl.argprom.exit ]
   %call11 = tail call ptr @PyComplex_FromCComplex(double %retval.sroa.0.0.i5, double %retval.sroa.3.0.i6) #10
   br label %exit
 
@@ -301,21 +301,21 @@ if.then.i22.i:                                    ; preds = %special_type.exit.i
 
 if.then1.i28.i:                                   ; preds = %if.then.i22.i
   %..i29.i = select i1 %cmp2.i24.i, i64 4, i64 1
-  br label %cmath_acosh_impl.exit
+  br label %cmath_acosh_impl.argprom.exit
 
 if.else4.i25.i:                                   ; preds = %if.then.i22.i
   %.6.i26.i = select i1 %cmp2.i24.i, i64 3, i64 2
-  br label %cmath_acosh_impl.exit
+  br label %cmath_acosh_impl.argprom.exit
 
 if.end.i30.i:                                     ; preds = %special_type.exit.i
   %10 = fcmp uno double %0, 0.000000e+00
-  br i1 %10, label %cmath_acosh_impl.exit, label %if.end9.i31.i
+  br i1 %10, label %cmath_acosh_impl.argprom.exit, label %if.end9.i31.i
 
 if.end9.i31.i:                                    ; preds = %if.end.i30.i
   %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
   %cmp10.i32.i = fcmp oeq double %11, 1.000000e+00
   %.7.i33.i = select i1 %cmp10.i32.i, i64 5, i64 0
-  br label %cmath_acosh_impl.exit
+  br label %cmath_acosh_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %cmp.i = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
@@ -330,15 +330,15 @@ if.then11.i:                                      ; preds = %if.end.i
   %call16.i = tail call double @log(double noundef %call15.i) #10
   %add.i = fadd double %call16.i, 0x3FF62E42FEFA39EF
   %call20.i = tail call double @atan2(double noundef %0, double noundef %1) #10
-  br label %cmath_acosh_impl.exit.thread
+  br label %cmath_acosh_impl.argprom.exit.thread
 
 if.else.i:                                        ; preds = %if.end.i
   %sub.i = fadd double %1, -1.000000e+00
-  %call26.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub.i, double %0)
+  %call26.i = tail call fastcc { double, double } @cmath_sqrt_impl.argprom(double %sub.i, double %0)
   %12 = extractvalue { double, double } %call26.i, 0
   %13 = extractvalue { double, double } %call26.i, 1
   %add28.i = fadd double %1, 1.000000e+00
-  %call33.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %add28.i, double %0)
+  %call33.i = tail call fastcc { double, double } @cmath_sqrt_impl.argprom(double %add28.i, double %0)
   %14 = extractvalue { double, double } %call33.i, 0
   %15 = extractvalue { double, double } %call33.i, 1
   %mul38.i = fmul double %13, %15
@@ -346,15 +346,15 @@ if.else.i:                                        ; preds = %if.end.i
   %call39.i = tail call double @asinh(double noundef %16) #10
   %call43.i = tail call double @atan2(double noundef %13, double noundef %14) #10
   %mul.i = fmul double %call43.i, 2.000000e+00
-  br label %cmath_acosh_impl.exit.thread
+  br label %cmath_acosh_impl.argprom.exit.thread
 
-cmath_acosh_impl.exit.thread:                     ; preds = %if.then11.i, %if.else.i
+cmath_acosh_impl.argprom.exit.thread:             ; preds = %if.then11.i, %if.else.i
   %r.sroa.0.0.i = phi double [ %add.i, %if.then11.i ], [ %call39.i, %if.else.i ]
   %r.sroa.3.0.i = phi double [ %call20.i, %if.then11.i ], [ %mul.i, %if.else.i ]
   store i32 0, ptr %call2, align 4
   br label %if.else10
 
-cmath_acosh_impl.exit:                            ; preds = %if.then1.i28.i, %if.else4.i25.i, %if.end.i30.i, %if.end9.i31.i
+cmath_acosh_impl.argprom.exit:                    ; preds = %if.then1.i28.i, %if.else4.i25.i, %if.end.i30.i, %if.end9.i31.i
   %retval.0.i27.i = phi i64 [ %..i29.i, %if.then1.i28.i ], [ %.6.i26.i, %if.else4.i25.i ], [ 6, %if.end.i30.i ], [ %.7.i33.i, %if.end9.i31.i ]
   %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acosh_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i27.i
   %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx6.i, align 16
@@ -362,9 +362,9 @@ cmath_acosh_impl.exit:                            ; preds = %if.then1.i28.i, %if
   %retval.sroa.3.0.copyload.i = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx.i, align 8
   br label %if.else10
 
-if.else10:                                        ; preds = %cmath_acosh_impl.exit, %cmath_acosh_impl.exit.thread
-  %retval.sroa.3.0.i6 = phi double [ %r.sroa.3.0.i, %cmath_acosh_impl.exit.thread ], [ %retval.sroa.3.0.copyload.i, %cmath_acosh_impl.exit ]
-  %retval.sroa.0.0.i5 = phi double [ %r.sroa.0.0.i, %cmath_acosh_impl.exit.thread ], [ %retval.sroa.0.0.copyload.i, %cmath_acosh_impl.exit ]
+if.else10:                                        ; preds = %cmath_acosh_impl.argprom.exit, %cmath_acosh_impl.argprom.exit.thread
+  %retval.sroa.3.0.i6 = phi double [ %r.sroa.3.0.i, %cmath_acosh_impl.argprom.exit.thread ], [ %retval.sroa.3.0.copyload.i, %cmath_acosh_impl.argprom.exit ]
+  %retval.sroa.0.0.i5 = phi double [ %r.sroa.0.0.i, %cmath_acosh_impl.argprom.exit.thread ], [ %retval.sroa.0.0.copyload.i, %cmath_acosh_impl.argprom.exit ]
   %call11 = tail call ptr @PyComplex_FromCComplex(double %retval.sroa.0.0.i5, double %retval.sroa.3.0.i6) #10
   br label %exit
 
@@ -387,7 +387,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
   %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_asinh_impl(double %fneg.i, double %1)
+  %call.i = tail call fastcc { double, double } @cmath_asinh_impl.argprom(double %fneg.i, double %1)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -429,7 +429,7 @@ if.end:                                           ; preds = %entry
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_asinh_impl(double %1, double %0)
+  %call4 = tail call fastcc { double, double } @cmath_asinh_impl.argprom(double %1, double %0)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -471,7 +471,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
   %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_atanh_impl(double %fneg.i, double %1)
+  %call.i = tail call fastcc { double, double } @cmath_atanh_impl.argprom(double %fneg.i, double %1)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -513,7 +513,7 @@ if.end:                                           ; preds = %entry
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_atanh_impl(double %1, double %0)
+  %call4 = tail call fastcc { double, double } @cmath_atanh_impl.argprom(double %1, double %0)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -555,7 +555,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
   %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_cosh_impl(double %fneg.i, double %1)
+  %call.i = tail call fastcc { double, double } @cmath_cosh_impl.argprom(double %fneg.i, double %1)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -596,7 +596,7 @@ if.end:                                           ; preds = %entry
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_cosh_impl(double %1, double %0)
+  %call4 = tail call fastcc { double, double } @cmath_cosh_impl.argprom(double %1, double %0)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -1589,7 +1589,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
   %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_sinh_impl(double %fneg.i, double %1)
+  %call.i = tail call fastcc { double, double } @cmath_sinh_impl.argprom(double %fneg.i, double %1)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -1631,7 +1631,7 @@ if.end:                                           ; preds = %entry
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_sinh_impl(double %1, double %0)
+  %call4 = tail call fastcc { double, double } @cmath_sinh_impl.argprom(double %1, double %0)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -1672,7 +1672,7 @@ if.end:                                           ; preds = %entry
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_sqrt_impl(double %1, double %0)
+  %call4 = tail call fastcc { double, double } @cmath_sqrt_impl.argprom(double %1, double %0)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -1714,7 +1714,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
   %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_tanh_impl(double %fneg.i, double %1)
+  %call.i = tail call fastcc { double, double } @cmath_tanh_impl.argprom(double %fneg.i, double %1)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -1756,7 +1756,7 @@ if.end:                                           ; preds = %entry
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_tanh_impl(double %1, double %0)
+  %call4 = tail call fastcc { double, double } @cmath_tanh_impl.argprom(double %1, double %0)
   %2 = load i32, ptr %call2, align 4
   switch i32 %2, label %if.else10 [
     i32 33, label %if.then6
@@ -1814,7 +1814,7 @@ declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
 declare double @llvm.copysign.f64(double, double) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @cmath_sqrt_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
+define internal fastcc { double, double } @cmath_sqrt_impl.argprom(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -1952,7 +1952,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #6
 declare double @sqrt(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @cmath_asinh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
+define internal fastcc { double, double } @cmath_asinh_impl.argprom(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -2044,11 +2044,11 @@ if.then11:                                        ; preds = %if.end
 if.else37:                                        ; preds = %if.end
   %add39 = fadd double %z.coerce1, 1.000000e+00
   %fneg42 = fneg double %z.coerce0
-  %call44 = tail call fastcc { double, double } @cmath_sqrt_impl(double %add39, double %fneg42)
+  %call44 = tail call fastcc { double, double } @cmath_sqrt_impl.argprom(double %add39, double %fneg42)
   %10 = extractvalue { double, double } %call44, 0
   %11 = extractvalue { double, double } %call44, 1
   %sub = fsub double 1.000000e+00, %z.coerce1
-  %call50 = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub, double %z.coerce0)
+  %call50 = tail call fastcc { double, double } @cmath_sqrt_impl.argprom(double %sub, double %z.coerce0)
   %12 = extractvalue { double, double } %call50, 0
   %13 = extractvalue { double, double } %call50, 1
   %14 = fneg double %11
@@ -2077,7 +2077,7 @@ return:                                           ; preds = %if.end67, %special_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @cmath_atanh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
+define internal fastcc { double, double } @cmath_atanh_impl.argprom(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -2159,7 +2159,7 @@ if.then8:                                         ; preds = %if.end
   %call10 = tail call { double, double } @_Py_c_neg(double %z.coerce0, double %z.coerce1) #10
   %10 = extractvalue { double, double } %call10, 0
   %11 = extractvalue { double, double } %call10, 1
-  %call11 = tail call fastcc { double, double } @cmath_atanh_impl(double %10, double %11)
+  %call11 = tail call fastcc { double, double } @cmath_atanh_impl.argprom(double %10, double %11)
   %12 = extractvalue { double, double } %call11, 0
   %13 = extractvalue { double, double } %call11, 1
   %call12 = tail call { double, double } @_Py_c_neg(double %12, double %13) #10
@@ -2255,7 +2255,7 @@ declare { double, double } @_Py_c_neg(double, double) local_unnamed_addr #1
 declare double @log1p(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_cosh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
+define internal fastcc { double, double } @cmath_cosh_impl.argprom(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -2618,7 +2618,7 @@ declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_sinh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
+define internal fastcc { double, double } @cmath_sinh_impl.argprom(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -2787,7 +2787,7 @@ return:                                           ; preds = %if.then77, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_tanh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
+define internal fastcc { double, double } @cmath_tanh_impl.argprom(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000

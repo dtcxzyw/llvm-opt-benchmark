@@ -2997,7 +2997,7 @@ return:                                           ; preds = %if.end22, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_BlockingIOError(i64 noundef %written) unnamed_addr #0 {
+define internal fastcc void @_set_BlockingIOError.argprom(i64 noundef %written) unnamed_addr #0 {
 entry:
   tail call void @PyErr_Clear() #10
   %0 = load ptr, ptr @PyExc_BlockingIOError, align 8
@@ -7313,7 +7313,7 @@ if.end118.i:                                      ; preds = %if.end82.i
   %53 = load i64, ptr %pos29.i, align 8
   %add126.i = add i64 %53, %sub102.i
   store i64 %add126.i, ptr %pos29.i, align 8
-  call fastcc void @_set_BlockingIOError(i64 noundef %sub102.i)
+  call fastcc void @_set_BlockingIOError.argprom(i64 noundef %sub102.i)
   br label %do.body244.i
 
 if.then130.i:                                     ; preds = %if.end71.i
@@ -7435,7 +7435,7 @@ do.end199.i:                                      ; preds = %if.then195.i, %land
   %write_end201.i = getelementptr inbounds i8, ptr %self, i64 96
   store i64 %70, ptr %write_end201.i, align 8
   %add203.i = add i64 %70, %written.1.i
-  call fastcc void @_set_BlockingIOError(i64 noundef %add203.i)
+  call fastcc void @_set_BlockingIOError.argprom(i64 noundef %add203.i)
   br label %do.body244.i
 
 if.end204.i:                                      ; preds = %if.then174.i

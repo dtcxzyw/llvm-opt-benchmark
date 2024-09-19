@@ -410,7 +410,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   %102 = add i16 %101, 12
   %103 = add i32 %.0263, %89
   %104 = trunc i32 %103 to i16
-  call fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef zeroext 4, i16 noundef zeroext %102, i16 noundef zeroext %104, ptr noundef %65)
+  call fastcc void @dissect_babel_subtlvs.retelim(ptr noundef %0, i8 noundef zeroext 4, i16 noundef zeroext %102, i16 noundef zeroext %104, ptr noundef %65)
   br label %266
 
 105:                                              ; preds = %72
@@ -462,7 +462,7 @@ format_address.exit:                              ; preds = %105, %.sink.split.i
   %132 = trunc i32 %131 to i16
   %133 = add i32 %.0263, %106
   %134 = trunc i32 %133 to i16
-  call fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef zeroext 5, i16 noundef zeroext %132, i16 noundef zeroext %134, ptr noundef %65)
+  call fastcc void @dissect_babel_subtlvs.retelim(ptr noundef %0, i8 noundef zeroext 5, i16 noundef zeroext %132, i16 noundef zeroext %134, ptr noundef %65)
   br label %266
 
 135:                                              ; preds = %72
@@ -586,7 +586,7 @@ format_prefix.exit:                               ; preds = %174, %.sink.split.i
   %204 = trunc i32 %203 to i16
   %205 = add i32 %.0263, %157
   %206 = trunc i32 %205 to i16
-  call fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef zeroext 8, i16 noundef zeroext %204, i16 noundef zeroext %206, ptr noundef %65)
+  call fastcc void @dissect_babel_subtlvs.retelim(ptr noundef %0, i8 noundef zeroext 8, i16 noundef zeroext %204, i16 noundef zeroext %206, ptr noundef %65)
   br label %266
 
 207:                                              ; preds = %72
@@ -731,7 +731,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_babel_subtlvs.retelim(ptr noundef %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp ult i16 %2, %3
   br i1 %6, label %.lr.ph79, label %._crit_edge
 

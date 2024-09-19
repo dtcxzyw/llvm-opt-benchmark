@@ -178,7 +178,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %50 = load i32, ptr %8, align 4
   %51 = load ptr, ptr %5, align 8
   %52 = load ptr, ptr %6, align 8
-  %53 = call fastcc ptr @riscv_coerce_and_expand_fpcc_struct(ptr %51, ptr %52, i32 noundef %50)
+  %53 = call fastcc ptr @riscv_coerce_and_expand_fpcc_struct.argelim(ptr %51, ptr %52, i32 noundef %50)
   br label %116
 
 .critedge:                                        ; preds = %36, %33, %4, %.sink.split28.i.else, %44, %27
@@ -589,7 +589,7 @@ declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #1
 declare ptr @abi_arg_new_direct() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @riscv_coerce_and_expand_fpcc_struct(ptr %0, ptr %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @riscv_coerce_and_expand_fpcc_struct.argelim(ptr %0, ptr %1, i32 noundef %2) unnamed_addr #0 {
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %4, label %6
 

@@ -1572,13 +1572,13 @@ entry:
   %signal_flag_.i = getelementptr inbounds i8, ptr %data, i64 232
   %0 = load i32, ptr %signal_flag_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
-  br i1 %cmp.i, label %if.then.i, label %"_ZZN4node19TraceSigintWatchdog12HandleSigintEvENK3$_0clEPN2v87IsolateEPv.exit"
+  br i1 %cmp.i, label %if.then.i, label %"_ZZN4node19TraceSigintWatchdog12HandleSigintEvENK3$_0clEPN2v87IsolateEPv.argprom.exit"
 
 if.then.i:                                        ; preds = %entry
   store i32 2, ptr %signal_flag_.i, align 8
-  br label %"_ZZN4node19TraceSigintWatchdog12HandleSigintEvENK3$_0clEPN2v87IsolateEPv.exit"
+  br label %"_ZZN4node19TraceSigintWatchdog12HandleSigintEvENK3$_0clEPN2v87IsolateEPv.argprom.exit"
 
-"_ZZN4node19TraceSigintWatchdog12HandleSigintEvENK3$_0clEPN2v87IsolateEPv.exit": ; preds = %entry, %if.then.i
+"_ZZN4node19TraceSigintWatchdog12HandleSigintEvENK3$_0clEPN2v87IsolateEPv.argprom.exit": ; preds = %entry, %if.then.i
   tail call void @_ZN4node19TraceSigintWatchdog15HandleInterruptEv(ptr noundef nonnull align 8 dereferenceable(236) %data)
   ret void
 }

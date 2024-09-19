@@ -1730,9 +1730,9 @@ for.body.i78:                                     ; preds = %for.body.i78, %for.
   store i8 %128, ptr %gep.i80, align 1
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i77
-  br i1 %exitcond.not.i82, label %frame2buff_bas.exit, label %for.body.i78, !llvm.loop !12
+  br i1 %exitcond.not.i82, label %frame2buff_bas.argprom.exit, label %for.body.i78, !llvm.loop !12
 
-frame2buff_bas.exit:                              ; preds = %for.body.i78
+frame2buff_bas.argprom.exit:                      ; preds = %for.body.i78
   %narrow.i = add nuw nsw i8 %120, 2
   %add33.i = zext nneg i8 %narrow.i to i32
   br label %if.end82
@@ -1742,8 +1742,8 @@ if.then76:                                        ; preds = %if.else
   store i8 %129, ptr %status_bas, align 1
   br label %return
 
-if.end82:                                         ; preds = %if.end6.i, %frame2buff_bas.exit
-  %add33.i113 = phi i32 [ %add33.i, %frame2buff_bas.exit ], [ 2, %if.end6.i ]
+if.end82:                                         ; preds = %if.end6.i, %frame2buff_bas.argprom.exit
+  %add33.i113 = phi i32 [ %add33.i, %frame2buff_bas.argprom.exit ], [ 2, %if.end6.i ]
   %rx_cnt83 = getelementptr i8, ptr %client, i64 -56
   %130 = load i32, ptr %rx_cnt83, align 8
   %add84 = add i32 %130, %add33.i113

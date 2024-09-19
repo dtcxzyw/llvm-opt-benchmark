@@ -3514,7 +3514,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %27,
   %.020.val = phi ptr [ %23, %27 ], [ %.020.val.pre, %29 ]
   %30 = load i32, ptr %1, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph.i, label %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit
+  br i1 %31, label %.lr.ph.i, label %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.argprom.exit
 
 .lr.ph.i:                                         ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
   %32 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3525,7 +3525,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %27,
 34:                                               ; preds = %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit, label %35, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.argprom.exit, label %35, !llvm.loop !22
 
 35:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
@@ -3538,13 +3538,13 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %27,
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %37, i64 8
   %41 = load ptr, ptr %40, align 8
-  br label %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit
+  br label %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.argprom.exit
 
-_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit: ; preds = %34, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %39
+_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.argprom.exit: ; preds = %34, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %39
   %.0.i = phi ptr [ %41, %39 ], [ null, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit ], [ null, %34 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %42
 
-42:                                               ; preds = %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit
+42:                                               ; preds = %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.argprom.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %28) #21
   br label %_ZN11MutexLockerD2Ev.exit
 
@@ -3577,8 +3577,8 @@ _ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathList
   %55 = load ptr, ptr %54, align 8
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %53, %42, %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit
-  %.0 = phi ptr [ %.0.i, %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit ], [ %.0.i, %42 ], [ %55, %53 ]
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %53, %42, %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.argprom.exit
+  %.0 = phi ptr [ %.0.i, %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.argprom.exit ], [ %.0.i, %42 ], [ %55, %53 ]
   %.not2845 = icmp eq ptr %.0, null
   br i1 %.not2845, label %._crit_edge, label %.lr.ph
 
@@ -3909,9 +3909,9 @@ _ZN11ClassLoader17skip_uri_protocolEPc.exit:      ; preds = %52, %55
   %60 = getelementptr inbounds i8, ptr %2, i64 41
   br i1 %58, label %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us, label %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split
 
-_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us: ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit, %_ZL18string_starts_withPKcS0_.exit.thread.us
-  %61 = phi ptr [ %.pre75, %_ZL18string_starts_withPKcS0_.exit.thread.us ], [ %42, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZL18string_starts_withPKcS0_.exit.thread.us ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
+_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us: ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit, %_ZL18string_starts_withPKcS0_.argprom.exit.thread.us
+  %61 = phi ptr [ %.pre75, %_ZL18string_starts_withPKcS0_.argprom.exit.thread.us ], [ %42, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZL18string_starts_withPKcS0_.argprom.exit.thread.us ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
   %62 = icmp eq ptr %61, null
   br i1 %62, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us, label %63
 
@@ -3955,7 +3955,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us: ; preds = %63, %_ZN11C
 
 84:                                               ; preds = %82, %68
   %85 = icmp eq i64 %indvars.iv72, 0
-  br i1 %85, label %.thread57.us, label %_ZL18string_starts_withPKcS0_.exit.thread.us
+  br i1 %85, label %.thread57.us, label %_ZL18string_starts_withPKcS0_.argprom.exit.thread.us
 
 .thread57.us:                                     ; preds = %84, %81
   %86 = load i8, ptr %60, align 1
@@ -3965,21 +3965,21 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us: ; preds = %63, %_ZN11C
 88:                                               ; preds = %.thread57.us
   %89 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #22
   %90 = icmp ult i64 %89, 4
-  br i1 %90, label %_ZL18string_starts_withPKcS0_.exit.thread.us, label %_ZL18string_starts_withPKcS0_.exit.us
+  br i1 %90, label %_ZL18string_starts_withPKcS0_.argprom.exit.thread.us, label %_ZL18string_starts_withPKcS0_.argprom.exit.us
 
-_ZL18string_starts_withPKcS0_.exit.us:            ; preds = %88
+_ZL18string_starts_withPKcS0_.argprom.exit.us:    ; preds = %88
   %91 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.44, i64 noundef 4) #22
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %_ZL18string_starts_withPKcS0_.exit.thread.us
+  br i1 %92, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %_ZL18string_starts_withPKcS0_.argprom.exit.thread.us
 
-_ZL18string_starts_withPKcS0_.exit.thread.us:     ; preds = %_ZL18string_starts_withPKcS0_.exit.us, %88, %84
+_ZL18string_starts_withPKcS0_.argprom.exit.thread.us: ; preds = %_ZL18string_starts_withPKcS0_.argprom.exit.us, %88, %84
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %.pre75 = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
   br label %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us, !llvm.loop !26
 
-_ZN11ClassLoader17skip_uri_protocolEPc.exit.split: ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit, %_ZL18string_starts_withPKcS0_.exit.thread
-  %93 = phi ptr [ %.pre, %_ZL18string_starts_withPKcS0_.exit.thread ], [ %42, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL18string_starts_withPKcS0_.exit.thread ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
+_ZN11ClassLoader17skip_uri_protocolEPc.exit.split: ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit, %_ZL18string_starts_withPKcS0_.argprom.exit.thread
+  %93 = phi ptr [ %.pre, %_ZL18string_starts_withPKcS0_.argprom.exit.thread ], [ %42, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL18string_starts_withPKcS0_.argprom.exit.thread ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
   %94 = icmp eq ptr %93, null
   br i1 %94, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51, label %95
 
@@ -4055,7 +4055,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53: ; preds = %125, %128
 
 133:                                              ; preds = %118, %122, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53, %100
   %134 = icmp eq i64 %indvars.iv, 0
-  br i1 %134, label %.thread57, label %_ZL18string_starts_withPKcS0_.exit.thread
+  br i1 %134, label %.thread57, label %_ZL18string_starts_withPKcS0_.argprom.exit.thread
 
 .thread57:                                        ; preds = %120, %117, %133
   %135 = load i8, ptr %60, align 1
@@ -4065,14 +4065,14 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53: ; preds = %125, %128
 137:                                              ; preds = %.thread57
   %138 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #22
   %139 = icmp ult i64 %138, 4
-  br i1 %139, label %_ZL18string_starts_withPKcS0_.exit.thread, label %_ZL18string_starts_withPKcS0_.exit
+  br i1 %139, label %_ZL18string_starts_withPKcS0_.argprom.exit.thread, label %_ZL18string_starts_withPKcS0_.argprom.exit
 
-_ZL18string_starts_withPKcS0_.exit:               ; preds = %137
+_ZL18string_starts_withPKcS0_.argprom.exit:       ; preds = %137
   %140 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.44, i64 noundef 4) #22
   %141 = icmp eq i32 %140, 0
-  br i1 %141, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %_ZL18string_starts_withPKcS0_.exit.thread
+  br i1 %141, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %_ZL18string_starts_withPKcS0_.argprom.exit.thread
 
-_ZL18string_starts_withPKcS0_.exit.thread:        ; preds = %137, %133, %_ZL18string_starts_withPKcS0_.exit
+_ZL18string_starts_withPKcS0_.argprom.exit.thread: ; preds = %137, %133, %_ZL18string_starts_withPKcS0_.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.pre = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
   br label %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split, !llvm.loop !26
@@ -4108,8 +4108,8 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop
   %150 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread: ; preds = %.thread57, %_ZL18string_starts_withPKcS0_.exit, %.thread57.us, %_ZL18string_starts_withPKcS0_.exit.us, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit85, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit89, %25, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit, %.split.us
-  %.1 = phi i16 [ -1, %.split.us ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ 0, %25 ], [ %146, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %147, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit89 ], [ %148, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit ], [ %149, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83 ], [ %150, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit85 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %.thread57.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread: ; preds = %.thread57, %_ZL18string_starts_withPKcS0_.argprom.exit, %.thread57.us, %_ZL18string_starts_withPKcS0_.argprom.exit.us, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit85, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit89, %25, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit, %.split.us
+  %.1 = phi i16 [ -1, %.split.us ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ 0, %25 ], [ %146, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %147, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit89 ], [ %148, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit ], [ %149, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83 ], [ %150, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit85 ], [ 0, %_ZL18string_starts_withPKcS0_.argprom.exit.us ], [ 0, %.thread57.us ], [ 0, %_ZL18string_starts_withPKcS0_.argprom.exit ], [ 0, %.thread57 ]
   %151 = getelementptr inbounds i8, ptr %1, i64 24
   %152 = load ptr, ptr %151, align 8
   %153 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %152) #21
@@ -4466,7 +4466,7 @@ _ZL25get_jimage_version_stringv.exit:             ; preds = %11, %14
   %19 = load ptr, ptr @_ZL18JImageFindResource, align 8
   %20 = call noundef i64 %19(ptr noundef %18, ptr noundef nonnull @.str.19, ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, ptr noundef nonnull @.str.80, ptr noundef nonnull %1) #21
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.exit, label %22
+  br i1 %21, label %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.argprom.exit, label %22
 
 22:                                               ; preds = %_ZL25get_jimage_version_stringv.exit
   %23 = load i64, ptr %1, align 8
@@ -4478,15 +4478,15 @@ _ZL25get_jimage_version_stringv.exit:             ; preds = %11, %14
   %29 = load i64, ptr %1, align 8
   %30 = getelementptr inbounds i8, ptr %25, i64 %29
   store i8 0, ptr %30, align 1
-  br label %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.exit
+  br label %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.argprom.exit
 
-_ZL18lookup_vm_resourceP10JImageFilePKcS2_.exit:  ; preds = %_ZL25get_jimage_version_stringv.exit, %22
+_ZL18lookup_vm_resourceP10JImageFilePKcS2_.argprom.exit: ; preds = %_ZL25get_jimage_version_stringv.exit, %22
   %.0.i = phi ptr [ %25, %22 ], [ null, %_ZL25get_jimage_version_stringv.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %31
 
-31:                                               ; preds = %0, %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.exit
-  %.0 = phi ptr [ %.0.i, %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.exit ], [ null, %0 ]
+31:                                               ; preds = %0, %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.argprom.exit
+  %.0 = phi ptr [ %.0.i, %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.argprom.exit ], [ null, %0 ]
   ret ptr %.0
 }
 

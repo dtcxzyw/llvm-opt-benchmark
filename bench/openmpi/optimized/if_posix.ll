@@ -154,7 +154,7 @@ define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
 
 56:                                               ; preds = %55, %50
   %.not9.i = icmp eq ptr %52, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %57
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit.thread, label %57
 
 57:                                               ; preds = %56
   store ptr @opal_if_t_class, ptr %52, align 8
@@ -163,7 +163,7 @@ define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_if_t_class, i64 40), align 8
   %60 = load ptr, ptr %59, align 8
   %.not6.i.i = icmp eq ptr %60, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread117, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit.thread117, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %57, %.lr.ph.i.i
   %61 = phi ptr [ %63, %.lr.ph.i.i ], [ %60, %57 ]
@@ -172,16 +172,16 @@ define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
   %62 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not.i.i = icmp eq ptr %63, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread117, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit.thread117, label %.lr.ph.i.i, !llvm.loop !7
 
-opal_obj_new.exit.thread:                         ; preds = %56
+opal_obj_new.argprom.exit.thread:                 ; preds = %56
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, i64 noundef 240) #9
   %64 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %64) #9
   %65 = call i32 @close(i32 noundef %2) #9
   br label %214
 
-opal_obj_new.exit.thread117:                      ; preds = %.lr.ph.i.i, %57
+opal_obj_new.argprom.exit.thread117:              ; preds = %.lr.ph.i.i, %57
   %66 = getelementptr inbounds i8, ptr %52, i64 78
   store i16 2, ptr %66, align 2
   %67 = getelementptr inbounds i8, ptr %52, i64 40
@@ -200,12 +200,12 @@ opal_obj_new.exit.thread117:                      ; preds = %.lr.ph.i.i, %57
   %76 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %75) #9
   br i1 %76, label %77, label %79
 
-77:                                               ; preds = %opal_obj_new.exit.thread117
+77:                                               ; preds = %opal_obj_new.argprom.exit.thread117
   %78 = load i32, ptr getelementptr inbounds (i8, ptr @opal_if_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %78, ptr noundef nonnull @.str.5, ptr noundef nonnull %67) #9
   br label %79
 
-79:                                               ; preds = %opal_obj_new.exit.thread117, %77
+79:                                               ; preds = %opal_obj_new.argprom.exit.thread117, %77
   %80 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35123, ptr noundef nonnull %.083127) #9
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %103
@@ -489,8 +489,8 @@ prefix.exit:                                      ; preds = %176, %.preheader.i,
   %213 = call i32 @close(i32 noundef %2) #9
   br label %214
 
-214:                                              ; preds = %.loopexit, %opal_obj_new.exit.thread, %.critedge, %21, %11, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %21 ], [ -2, %opal_obj_new.exit.thread ], [ 0, %.loopexit ], [ -6, %.critedge ]
+214:                                              ; preds = %.loopexit, %opal_obj_new.argprom.exit.thread, %.critedge, %21, %11, %5
+  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %21 ], [ -2, %opal_obj_new.argprom.exit.thread ], [ 0, %.loopexit ], [ -6, %.critedge ]
   ret i32 %.0
 }
 

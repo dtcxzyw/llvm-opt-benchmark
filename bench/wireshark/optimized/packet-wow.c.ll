@@ -425,7 +425,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %55, label %56, label %parse_logon_reconnect_proof.exit
 
 56:                                               ; preds = %52
-  tail call fastcc void @parse_logon_challenge_client_to_server(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %19)
+  tail call fastcc void @parse_logon_challenge_client_to_server.argelim(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %19)
   br label %parse_logon_reconnect_proof.exit
 
 57:                                               ; preds = %15
@@ -435,7 +435,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %57
-  tail call fastcc void @parse_logon_challenge_client_to_server(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %19)
+  tail call fastcc void @parse_logon_challenge_client_to_server.argelim(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %19)
   br label %parse_logon_reconnect_proof.exit
 
 62:                                               ; preds = %57
@@ -835,7 +835,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_logon_challenge_client_to_server(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_logon_challenge_client_to_server.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_wow_protocol_version, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_wow_pkt_size, align 4

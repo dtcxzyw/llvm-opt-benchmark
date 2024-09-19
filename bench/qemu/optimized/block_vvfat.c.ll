@@ -2328,7 +2328,7 @@ if.then91:                                        ; preds = %if.end87
 
 if.end92:                                         ; preds = %if.then91, %if.end87
   call void @qemu_co_mutex_init(ptr noundef nonnull %0) #20
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 fail:                                             ; preds = %if.then97.i, %if.then55.i, %qobject_unref_impl.exit.i, %if.then55, %if.then7.i, %if.end8.i, %entry, %if.then79, %if.else63, %if.else61, %sw.default, %if.then13, %if.then4
   %ret.0 = phi i32 [ -22, %if.then13 ], [ -22, %sw.default ], [ -1, %if.else61 ], [ %call82, %if.then79 ], [ %call64, %if.else63 ], [ -22, %if.then4 ], [ -22, %entry ], [ -22, %qobject_unref_impl.exit.i ], [ -2, %if.then55 ], [ -2, %if.then7.i ], [ %call13.i, %if.end8.i ], [ -5, %if.then55.i ], [ -5, %if.then97.i ]
@@ -2344,9 +2344,9 @@ fail:                                             ; preds = %if.then97.i, %if.th
   %231 = load ptr, ptr %used_clusters, align 8
   call void @g_free(ptr noundef %231) #20
   store ptr null, ptr %used_clusters, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %fail, %if.end92
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %fail, %if.end92
   %retval.0 = phi i32 [ %ret.0, %fail ], [ 0, %if.end92 ]
   call void @qemu_opts_del(ptr noundef %call1) #20
   call void @bdrv_graph_rdunlock_main_loop() #20
@@ -3156,7 +3156,7 @@ lor.lhs.false11.i:                                ; preds = %lor.lhs.false8.i
 
 if.then14.i:                                      ; preds = %lor.lhs.false11.i, %lor.lhs.false8.i, %if.then.i
   %23 = load i32, ptr %next.i.i, align 4
-  %call.i.i = call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %0, i32 noundef %div, i32 noundef %23)
+  %call.i.i = call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %0, i32 noundef %div, i32 noundef %23)
   %24 = load i32, ptr %next.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %call.i.i, %24
   br i1 %cmp.not.i.i, label %if.end.i.i.i, label %if.then87
@@ -3420,7 +3420,7 @@ declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @find_mapping_for_cluster_aux(ptr nocapture noundef readonly %s, i32 noundef %cluster_num, i32 noundef %index2) unnamed_addr #0 {
+define internal fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr nocapture noundef readonly %s, i32 noundef %cluster_num, i32 noundef %index2) unnamed_addr #0 {
 entry:
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
   %0 = load i32, ptr %next.i, align 4
@@ -3631,7 +3631,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
 
 if.then37:                                        ; preds = %for.body34
   %14 = load i32, ptr %next.i, align 4
-  %call.i77 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef readonly %0, i32 noundef %i.1102, i32 noundef %14)
+  %call.i77 = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef readonly %0, i32 noundef %i.1102, i32 noundef %14)
   %15 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp ult i32 %call.i77, %15
   br i1 %cmp.not.i, label %if.end.i.i, label %if.else
@@ -4352,7 +4352,7 @@ if.then.i20:                                      ; preds = %array_get.exit.i
   %param.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %10 = load i32, ptr %param.i, align 8
   %11 = load i32, ptr %next121.i, align 4
-  %call.i.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11)
+  %call.i.i = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11)
   %12 = load i32, ptr %next121.i, align 4
   %cmp.not.i.i = icmp ult i32 %call.i.i, %12
   br i1 %cmp.not.i.i, label %if.end.i.i.i, label %if.then1
@@ -4510,7 +4510,7 @@ if.then33.i:                                      ; preds = %land.lhs.true.i, %l
   %shl.i.i = shl nuw i32 %conv2.i.i, 16
   %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
   %32 = load i32, ptr %next121.i, align 4
-  %call.i112.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %or.i.i, i32 noundef %32)
+  %call.i112.i = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %or.i.i, i32 noundef %32)
   %33 = load i32, ptr %next121.i, align 4
   %cmp.not.i113.i = icmp ult i32 %call.i112.i, %33
   br i1 %cmp.not.i113.i, label %if.end.i.i115.i, label %if.then1
@@ -4945,7 +4945,7 @@ for.inc.i44:                                      ; preds = %land.lhs.true.i43, 
 for.end.i:                                        ; preds = %for.inc.i44, %for.cond23.preheader.i
   %next_dir_index.0.lcssa.i = phi i32 [ %80, %for.cond23.preheader.i ], [ %next_dir_index.1.i, %for.inc.i44 ]
   %sub.i39 = sub i32 %next_dir_index.0.lcssa.i, %83
-  tail call fastcc void @remove_direntries(ptr noundef nonnull %s, i32 noundef %83, i32 noundef %sub.i39)
+  tail call fastcc void @remove_direntries.argelim(ptr noundef nonnull %s, i32 noundef %83, i32 noundef %sub.i39)
   %inc46.i = add i32 %deleted.171.i, 1
   br label %if.end55.i
 
@@ -4962,7 +4962,7 @@ if.end53.i47:                                     ; preds = %if.else48.i
 
 if.end55.i:                                       ; preds = %if.end53.i47, %for.end.i, %if.then9.i
   %deleted.3.i = phi i32 [ %inc46.i, %for.end.i ], [ %deleted.171.i, %if.then9.i ], [ %inc54.i, %if.end53.i47 ]
-  tail call fastcc void @remove_mapping(ptr noundef nonnull %s, i32 noundef %i.073.i)
+  tail call fastcc void @remove_mapping.argelim(ptr noundef nonnull %s, i32 noundef %i.073.i)
   br label %for.inc58.i
 
 for.inc58.i:                                      ; preds = %if.end55.i, %if.then22.i, %array_get.exit.i31
@@ -5017,7 +5017,7 @@ entry:
   %call = tail call noalias ptr @g_malloc(i64 noundef %conv) #24
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
   %1 = load i32, ptr %next.i, align 4
-  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef readonly %s, i32 noundef %cluster_num, i32 noundef %1)
+  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef readonly %s, i32 noundef %cluster_num, i32 noundef %1)
   %2 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp ult i32 %call.i, %2
   br i1 %cmp.not.i, label %if.end.i.i, label %find_mapping_for_cluster.exit
@@ -5845,7 +5845,7 @@ if.then1:                                         ; preds = %if.end
   %retval.0.i = select i1 %cmp.i, ptr %path, ptr %add.ptr.i
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
   %5 = load i32, ptr %next.i, align 4
-  %call.i77 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %5)
+  %call.i77 = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %5)
   %6 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp ult i32 %call.i77, %6
   br i1 %cmp.not.i, label %if.end.i.i, label %if.else24
@@ -6031,7 +6031,7 @@ lor.lhs.false41:                                  ; preds = %lor.lhs.false
 
 if.then43:                                        ; preds = %lor.lhs.false41, %lor.lhs.false, %if.then38
   %24 = load i32, ptr %next.i95, align 4
-  %call.i96 = call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %cluster_num.0, i32 noundef %24)
+  %call.i96 = call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %cluster_num.0, i32 noundef %24)
   %25 = load i32, ptr %next.i95, align 4
   %cmp.not.i97 = icmp ult i32 %call.i96, %25
   br i1 %cmp.not.i97, label %if.end.i.i99, label %if.end117
@@ -6441,7 +6441,7 @@ cond.end:                                         ; preds = %array_get.exit, %co
   %cond = phi i32 [ %or.i, %cond.false ], [ 0, %array_get.exit ]
   %next.i87 = getelementptr inbounds i8, ptr %s, i64 32892
   %5 = load i32, ptr %next.i87, align 4
-  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %cond, i32 noundef %5)
+  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %cond, i32 noundef %5)
   %6 = load i32, ptr %next.i87, align 4
   %cmp.not.i = icmp ult i32 %call.i, %6
   br i1 %cmp.not.i, label %if.end.i.i, label %find_mapping_for_cluster.exit
@@ -6663,7 +6663,7 @@ if.then61:                                        ; preds = %if.else58
   %add63 = add i32 %mul62, %13
   %sub64 = sub i32 %old_cluster_count.1.lcssa, %new_cluster_count.1.lcssa
   %mul65 = mul i32 %sub64, %mul
-  tail call fastcc void @remove_direntries(ptr noundef nonnull %s, i32 noundef %add63, i32 noundef %mul65)
+  tail call fastcc void @remove_direntries.argelim(ptr noundef nonnull %s, i32 noundef %add63, i32 noundef %mul65)
   br label %if.end68
 
 if.end68:                                         ; preds = %if.else58.thread, %if.else58, %if.then61, %if.then50
@@ -6785,7 +6785,7 @@ modified_fat_get.exit146:                         ; preds = %if.then.i141, %if.t
   br i1 %cmp.i103.not, label %for.end92, label %for.body73, !llvm.loop !46
 
 for.end92:                                        ; preds = %modified_fat_get.exit146, %if.end68
-  tail call fastcc void @commit_mappings(ptr noundef nonnull %s, i32 noundef %cond, i32 noundef %dir_index)
+  tail call fastcc void @commit_mappings.argelim(ptr noundef nonnull %s, i32 noundef %cond, i32 noundef %dir_index)
   %mul98 = mul i32 %new_cluster_count.0199, %mul
   %cmp99230 = icmp sgt i32 %mul98, 0
   br i1 %cmp99230, label %for.body101.lr.ph, label %return
@@ -6839,7 +6839,7 @@ land.lhs.true:                                    ; preds = %is_directory.exit16
 
 if.then110:                                       ; preds = %land.lhs.true
   %49 = load i32, ptr %next.i87, align 4
-  %call.i168 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %cond, i32 noundef %49)
+  %call.i168 = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %cond, i32 noundef %49)
   %50 = load i32, ptr %next.i87, align 4
   %cmp.not.i169 = icmp ult i32 %call.i168, %50
   br i1 %cmp.not.i169, label %if.end.i.i171, label %return
@@ -7014,7 +7014,7 @@ array_get.exit59:                                 ; preds = %if.end.i52
   %shl.i = shl nuw i32 %conv2.i, 16
   %or.i = or disjoint i32 %shl.i, %conv.i
   %12 = load i32, ptr %next.i63, align 4
-  %call.i61 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %12)
+  %call.i61 = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %12)
   %13 = load i32, ptr %next.i63, align 4
   %cmp.not.i = icmp ult i32 %call.i61, %13
   br i1 %cmp.not.i, label %if.end.i.i, label %if.else
@@ -7080,7 +7080,7 @@ sw.bb24:                                          ; preds = %array_get.exit
   %param26 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %21 = load i32, ptr %param26, align 8
   %22 = load i32, ptr %next.i63, align 4
-  %call.i64 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %21, i32 noundef %22)
+  %call.i64 = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %21, i32 noundef %22)
   %23 = load i32, ptr %next.i63, align 4
   %cmp.not.i65 = icmp ult i32 %call.i64, %23
   br i1 %cmp.not.i65, label %if.end.i.i67, label %find_mapping_for_cluster.exit81
@@ -7380,7 +7380,7 @@ entry:
   %mapping = getelementptr inbounds i8, ptr %s, i64 32880
   %next = getelementptr inbounds i8, ptr %s, i64 32892
   %0 = load i32, ptr %next, align 4
-  %call = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef %s, i32 noundef %begin, i32 noundef %0)
+  %call = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef %s, i32 noundef %begin, i32 noundef %0)
   %1 = load i32, ptr %next, align 4
   %cmp.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.not, label %if.else.i, label %if.end.i
@@ -7753,7 +7753,7 @@ return:                                           ; preds = %for.inc.i, %if.then
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @remove_direntries(ptr nocapture noundef %s, i32 noundef %dir_index, i32 noundef %count) unnamed_addr #0 {
+define internal fastcc void @remove_direntries.argelim(ptr nocapture noundef %s, i32 noundef %dir_index, i32 noundef %count) unnamed_addr #0 {
 entry:
   %directory = getelementptr inbounds i8, ptr %s, i64 32856
   %cmp.i = icmp sgt i32 %dir_index, -1
@@ -7872,11 +7872,11 @@ adjust_dirindices.exit:                           ; preds = %for.inc.i, %array_r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @commit_mappings(ptr nocapture noundef %s, i32 noundef %first_cluster, i32 noundef %dir_index) unnamed_addr #0 {
+define internal fastcc void @commit_mappings.argelim(ptr nocapture noundef %s, i32 noundef %first_cluster, i32 noundef %dir_index) unnamed_addr #0 {
 entry:
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
   %0 = load i32, ptr %next.i, align 4
-  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef readonly %s, i32 noundef %first_cluster, i32 noundef %0)
+  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef readonly %s, i32 noundef %first_cluster, i32 noundef %0)
   %1 = load i32, ptr %next.i, align 4
   %cmp.not.i = icmp ult i32 %call.i, %1
   br i1 %cmp.not.i, label %if.end.i.i, label %find_mapping_for_cluster.exit
@@ -8191,7 +8191,7 @@ while.body34.lr.ph:                               ; preds = %for.end30
 
 while.body34:                                     ; preds = %while.body34.lr.ph, %while.body34
   %dec220 = phi i32 [ %35, %while.body34.lr.ph ], [ %dec, %while.body34 ]
-  tail call fastcc void @remove_mapping(ptr noundef %s, i32 noundef %add35)
+  tail call fastcc void @remove_mapping.argelim(ptr noundef %s, i32 noundef %add35)
   %dec = add nsw i32 %dec220, -1
   %cmp32 = icmp ugt i32 %dec220, 1
   br i1 %cmp32, label %while.body34, label %if.end37, !llvm.loop !54
@@ -8242,7 +8242,7 @@ if.end51:                                         ; preds = %array_get.exit145, 
 
 if.then55:                                        ; preds = %if.end51
   %40 = load i32, ptr %next.i, align 4
-  %call59 = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull %s, i32 noundef %c1.0.lcssa, i32 noundef %40)
+  %call59 = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull %s, i32 noundef %c1.0.lcssa, i32 noundef %40)
   %41 = load i32, ptr %next.i, align 4
   %cmp62.not = icmp ult i32 %call59, %41
   %42 = load ptr, ptr %mapping18, align 8
@@ -8432,7 +8432,7 @@ while.end126:                                     ; preds = %if.end125, %lor.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @remove_mapping(ptr nocapture noundef %s, i32 noundef %mapping_index) unnamed_addr #0 {
+define internal fastcc void @remove_mapping.argelim(ptr nocapture noundef %s, i32 noundef %mapping_index) unnamed_addr #0 {
 entry:
   %mapping1 = getelementptr inbounds i8, ptr %s, i64 32880
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
@@ -8648,7 +8648,7 @@ array_get.exit:                                   ; preds = %if.end.i
   %or.i = or disjoint i32 %shl.i, %conv.i
   %next.i66 = getelementptr inbounds i8, ptr %s, i64 32892
   %5 = load i32, ptr %next.i66, align 4
-  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %5)
+  %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux.argelim(ptr noundef nonnull readonly %s, i32 noundef %or.i, i32 noundef %5)
   %6 = load i32, ptr %next.i66, align 4
   %cmp.not.i = icmp ult i32 %call.i, %6
   br i1 %cmp.not.i, label %if.end.i.i, label %find_mapping_for_cluster.exit
@@ -8938,7 +8938,7 @@ if.then80:                                        ; preds = %while.end
 if.end82:                                         ; preds = %while.end
   %call83 = tail call i32 @qemu_close(i32 noundef %call15) #20
   tail call void @g_free(ptr noundef %call36) #20
-  tail call fastcc void @commit_mappings(ptr noundef nonnull %s, i32 noundef %or.i, i32 noundef %dir_index)
+  tail call fastcc void @commit_mappings.argelim(ptr noundef nonnull %s, i32 noundef %or.i, i32 noundef %dir_index)
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end82, %if.then80, %if.then73, %if.then66, %if.then30, %if.then17

@@ -642,7 +642,7 @@ _build_tres_list.exit:                            ; preds = %163, %.loopexit.i
   %200 = sub nsw i32 %0, %197
   %201 = sext i32 %197 to i64
   %202 = getelementptr inbounds ptr, ptr %1, i64 %201
-  call fastcc void @_process_command(i32 noundef %200, ptr noundef nonnull %202)
+  call fastcc void @_process_command.retelim(i32 noundef %200, ptr noundef nonnull %202)
   br label %273
 
 203:                                              ; preds = %_build_tres_list.exit
@@ -813,7 +813,7 @@ _get_command.exit:                                ; preds = %.lr.ph63.i, %.loope
   br i1 %.not43, label %270, label %.loopexit
 
 270:                                              ; preds = %_get_command.exit
-  call fastcc void @_process_command(i32 noundef %.239.ph, ptr noundef %204)
+  call fastcc void @_process_command.retelim(i32 noundef %.239.ph, ptr noundef %204)
   %271 = load i32, ptr @exit_flag, align 4
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %205, label %.loopexit, !llvm.loop !13
@@ -869,7 +869,7 @@ define internal fastcc void @_usage() unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_sort(ptr noundef %0) unnamed_addr #7 {
+define internal fastcc void @_set_sort.retelim(ptr noundef %0) unnamed_addr #7 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %3 = trunc i64 %2 to i32
   %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
@@ -900,7 +900,7 @@ define internal fastcc void @_set_sort(ptr noundef %0) unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_time_format(ptr noundef %0) unnamed_addr #7 {
+define internal fastcc void @_set_time_format.retelim(ptr noundef %0) unnamed_addr #7 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %3 = trunc i64 %2 to i32
   %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 6)
@@ -1071,7 +1071,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @_process_command.retelim(i32 noundef %0, ptr noundef %1) unnamed_addr #7 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %4, label %10
 
@@ -1526,7 +1526,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 259:                                              ; preds = %253
   %260 = getelementptr inbounds i8, ptr %1, i64 8
   %261 = load ptr, ptr %260, align 8
-  tail call fastcc void @_set_sort(ptr noundef %261)
+  tail call fastcc void @_set_sort.retelim(ptr noundef %261)
   br label %_cluster_rep.exit
 
 262:                                              ; preds = %249
@@ -1549,7 +1549,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 272:                                              ; preds = %266
   %273 = getelementptr inbounds i8, ptr %1, i64 8
   %274 = load ptr, ptr %273, align 8
-  tail call fastcc void @_set_time_format(ptr noundef %274)
+  tail call fastcc void @_set_time_format.retelim(ptr noundef %274)
   br label %_cluster_rep.exit
 
 275:                                              ; preds = %262

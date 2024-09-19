@@ -2293,7 +2293,7 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBounda
   %19 = load ptr, ptr %10, align 8
   %20 = load ptr, ptr %11, align 8
   %21 = icmp eq ptr %19, %20
-  br i1 %21, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread", label %22
+  br i1 %21, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread", label %22
 
 22:                                               ; preds = %18
   %23 = ptrtoint ptr %20 to i64
@@ -2301,7 +2301,7 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBounda
   %25 = sub i64 %23, %24
   %26 = and i64 %25, 34359738360
   %27 = icmp eq i64 %26, 8
-  br i1 %27, label %28, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7"
+  br i1 %27, label %28, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7"
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %8, align 8
@@ -2311,7 +2311,7 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBounda
   %33 = sub i64 %31, %32
   %34 = and i64 %33, 34359738360
   %.not.i = icmp eq i64 %34, 0
-  br i1 %.not.i, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7", label %35
+  br i1 %.not.i, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7", label %35
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %12, align 8
@@ -2322,26 +2322,26 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBounda
   %41 = getelementptr inbounds i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(100) %36, ptr noundef %37, i1 noundef zeroext %39) #15
-  br i1 %43, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit", label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread"
+  br i1 %43, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit", label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread"
 
-"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit": ; preds = %35
+"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit": ; preds = %35
   %44 = load ptr, ptr %10, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %9, align 8
   %47 = icmp eq i32 %46, 1
   %48 = tail call noundef i32 @_ZN4llvm11getWeakLeftEPKNS_5SUnitEb(ptr noundef %45, i1 noundef zeroext %47) #15
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7_crit_edge", label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread"
+  br i1 %.not, label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7_crit_edge", label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread"
 
-"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7_crit_edge": ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit"
+"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7_crit_edge": ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit"
   %.pre = load ptr, ptr %11, align 8
   %.pre9 = load ptr, ptr %10, align 8
   %.pre10 = ptrtoint ptr %.pre to i64
   %.pre11 = ptrtoint ptr %.pre9 to i64
   %.pre13 = sub i64 %.pre10, %.pre11
-  br label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7"
+  br label %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7"
 
-"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread": ; preds = %35, %18, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit"
+"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread": ; preds = %35, %18, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit"
   %49 = load ptr, ptr %12, align 8
   %50 = load i32, ptr %9, align 8
   %51 = icmp eq i32 %50, 1
@@ -2364,11 +2364,11 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBounda
   %.not.i3 = icmp eq i32 %64, 0
   br i1 %.not.i3, label %65, label %.preheader.i
 
-.preheader.i:                                     ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread"
+.preheader.i:                                     ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread"
   %.not57.i = icmp eq i32 %59, %.sroa.speculated.i
   br i1 %.not57.i, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary9bumpCycleEv.exit, label %.lr.ph.i
 
-65:                                               ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread"
+65:                                               ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread"
   store i32 %.sroa.speculated.i, ptr %15, align 8
   br label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary9bumpCycleEv.exit
 
@@ -2392,19 +2392,19 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary9bumpCycleEv.exit: ; preds =
   tail call void @_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14releasePendingEv(ptr noundef nonnull align 8 dereferenceable(188) %0)
   br label %18, !llvm.loop !12
 
-"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7": ; preds = %22, %28, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7_crit_edge"
-  %.pre-phi14 = phi i64 [ %.pre13, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7_crit_edge" ], [ %25, %28 ], [ %25, %22 ]
-  %74 = phi ptr [ %.pre9, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7_crit_edge" ], [ %19, %28 ], [ %19, %22 ]
+"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7": ; preds = %22, %28, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7_crit_edge"
+  %.pre-phi14 = phi i64 [ %.pre13, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7_crit_edge" ], [ %25, %28 ], [ %25, %22 ]
+  %74 = phi ptr [ %.pre9, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit._ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7_crit_edge" ], [ %19, %28 ], [ %19, %22 ]
   %75 = and i64 %.pre-phi14, 34359738360
   %76 = icmp eq i64 %75, 8
   br i1 %76, label %77, label %79
 
-77:                                               ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7"
+77:                                               ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7"
   %78 = load ptr, ptr %74, align 8
   br label %79
 
-79:                                               ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7", %77
-  %.02 = phi ptr [ %78, %77 ], [ null, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.exit.thread7" ]
+79:                                               ; preds = %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7", %77
+  %.02 = phi ptr [ %78, %77 ], [ null, %"_ZZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14pickOnlyChoiceEvENK3$_0clEv.argprom.exit.thread7" ]
   ret ptr %.02
 }
 

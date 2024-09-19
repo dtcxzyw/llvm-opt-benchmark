@@ -87,7 +87,7 @@ entry:
   %identVar_.i = getelementptr inbounds i8, ptr %BST, i64 64
   %call.i.i25.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.4, i64 3)
   store ptr %call.i.i25.i, ptr %identVar_.i, align 8
-  %0 = call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %BST, ptr noundef %root)
+  %0 = call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %BST, ptr noundef %root)
   ret void
 }
 
@@ -657,7 +657,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %node) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %node, null
   br i1 %tobool.not, label %return, label %if.end
@@ -666,15 +666,15 @@ if.end:                                           ; preds = %entry
   %recursionDepth_.i = getelementptr inbounds i8, ptr %v, i64 24
   %0 = load i32, ptr %recursionDepth_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
-  br i1 %cmp.i, label %return, label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.exit
+  br i1 %cmp.i, label %return, label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.exit: ; preds = %if.end
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.argprom.exit: ; preds = %if.end
   %dec.i = add i32 %0, -1
   store i32 %dec.i, ptr %recursionDepth_.i, align 8
   %cmp4.i.not = icmp eq i32 %dec.i, 0
   br i1 %cmp4.i.not, label %return, label %if.end2
 
-if.end2:                                          ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.exit
+if.end2:                                          ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.argprom.exit
   %kind_.i = getelementptr inbounds i8, ptr %node, i64 16
   %1 = load i32, ptr %kind_.i, align 8
   switch i32 %1, label %sw.default [
@@ -1863,9 +1863,9 @@ if.then.i:                                        ; preds = %sw.epilog
   store i32 %inc.i, ptr %recursionDepth_.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end, %if.then.i, %sw.epilog, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.exit, %entry
-  %retval.sroa.5.229 = phi i8 [ 0, %entry ], [ 0, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.exit ], [ %retval.sroa.5.228, %sw.epilog ], [ %retval.sroa.5.228, %if.then.i ], [ 0, %if.end ]
-  %retval.sroa.0.1 = phi ptr [ undef, %entry ], [ undef, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.exit ], [ %retval.sroa.0.0, %sw.epilog ], [ %retval.sroa.0.0, %if.then.i ], [ undef, %if.end ]
+return:                                           ; preds = %if.end, %if.then.i, %sw.epilog, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.argprom.exit, %entry
+  %retval.sroa.5.229 = phi i8 [ 0, %entry ], [ 0, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.argprom.exit ], [ %retval.sroa.5.228, %sw.epilog ], [ %retval.sroa.5.228, %if.then.i ], [ 0, %if.end ]
+  %retval.sroa.0.1 = phi ptr [ undef, %entry ], [ undef, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17incRecursionDepthEPNS_6ESTree4NodeE.argprom.exit ], [ %retval.sroa.0.0, %sw.epilog ], [ %retval.sroa.0.0, %if.then.i ], [ undef, %if.end ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.5.229, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -2120,7 +2120,7 @@ sw.default:                                       ; preds = %if.end
 
 sw.bb4:                                           ; preds = %if.end
   %_body.i = getelementptr inbounds i8, ptr %node, i64 88
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i)
   br label %return
 
 sw.bb6:                                           ; preds = %if.end
@@ -2161,7 +2161,7 @@ sw.bb22:                                          ; preds = %if.end
 
 sw.bb28:                                          ; preds = %if.end
   %_body.i465 = getelementptr inbounds i8, ptr %node, i64 56
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i465)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i465)
   br label %return
 
 sw.bb30:                                          ; preds = %if.end
@@ -2206,17 +2206,17 @@ sw.bb48:                                          ; preds = %if.end
 
 sw.bb66:                                          ; preds = %if.end
   %_expressions.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_expressions.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_expressions.i)
   br label %return
 
 sw.bb68:                                          ; preds = %if.end
   %_properties.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i)
   br label %return
 
 sw.bb70:                                          ; preds = %if.end
   %_elements.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_elements.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_elements.i)
   br label %return
 
 sw.bb72:                                          ; preds = %if.end
@@ -2309,14 +2309,14 @@ sw.bb116:                                         ; preds = %if.end
 
 sw.bb118:                                         ; preds = %if.end
   %_declarations.i = getelementptr inbounds i8, ptr %node, i64 56
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_declarations.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_declarations.i)
   br label %return
 
 sw.bb120:                                         ; preds = %if.end
   %_quasis.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_quasis.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_quasis.i)
   %_expressions.i476 = getelementptr inbounds i8, ptr %node, i64 64
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_expressions.i476)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_expressions.i476)
   br label %return
 
 sw.bb122:                                         ; preds = %if.end
@@ -2337,7 +2337,7 @@ sw.bb130:                                         ; preds = %if.end
 
 sw.bb132:                                         ; preds = %if.end
   %_body.i466 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i466)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i466)
   br label %return
 
 sw.bb134:                                         ; preds = %if.end
@@ -2490,7 +2490,7 @@ sw.bb248:                                         ; preds = %if.end
 
 sw.bb250:                                         ; preds = %if.end
   %_types.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i)
   br label %return
 
 sw.bb252:                                         ; preds = %if.end
@@ -2511,12 +2511,12 @@ sw.bb258:                                         ; preds = %if.end
 
 sw.bb260:                                         ; preds = %if.end
   %_types.i467 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i467)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i467)
   br label %return
 
 sw.bb262:                                         ; preds = %if.end
   %_types.i468 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i468)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i468)
   br label %return
 
 sw.bb264:                                         ; preds = %if.end
@@ -2645,7 +2645,7 @@ sw.bb324:                                         ; preds = %if.end
 
 sw.bb328:                                         ; preds = %if.end
   %_params.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i)
   br label %return
 
 sw.bb330:                                         ; preds = %if.end
@@ -2654,7 +2654,7 @@ sw.bb330:                                         ; preds = %if.end
 
 sw.bb332:                                         ; preds = %if.end
   %_params.i469 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i469)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i469)
   br label %return
 
 sw.bb334:                                         ; preds = %if.end
@@ -2675,22 +2675,22 @@ sw.bb342:                                         ; preds = %if.end
 
 sw.bb344:                                         ; preds = %if.end
   %_members.i477 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i477)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i477)
   br label %return
 
 sw.bb346:                                         ; preds = %if.end
   %_members.i478 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i478)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i478)
   br label %return
 
 sw.bb348:                                         ; preds = %if.end
   %_members.i479 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i479)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i479)
   br label %return
 
 sw.bb350:                                         ; preds = %if.end
   %_members.i480 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i480)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i480)
   br label %return
 
 sw.bb352:                                         ; preds = %if.end
@@ -2751,7 +2751,7 @@ sw.bb400:                                         ; preds = %if.end
 
 sw.bb402:                                         ; preds = %if.end
   %_elementTypes.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_elementTypes.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_elementTypes.i)
   br label %return
 
 sw.bb404:                                         ; preds = %if.end
@@ -2780,7 +2780,7 @@ sw.bb414:                                         ; preds = %if.end
 
 sw.bb416:                                         ; preds = %if.end
   %_body.i470 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i470)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i470)
   br label %return
 
 sw.bb418:                                         ; preds = %if.end
@@ -2797,7 +2797,7 @@ sw.bb422:                                         ; preds = %if.end
 
 sw.bb424:                                         ; preds = %if.end
   %_body.i471 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i471)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i471)
   br label %return
 
 sw.bb426:                                         ; preds = %if.end
@@ -2806,7 +2806,7 @@ sw.bb426:                                         ; preds = %if.end
 
 sw.bb428:                                         ; preds = %if.end
   %_params.i472 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i472)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i472)
   br label %return
 
 sw.bb430:                                         ; preds = %if.end
@@ -2815,17 +2815,17 @@ sw.bb430:                                         ; preds = %if.end
 
 sw.bb432:                                         ; preds = %if.end
   %_params.i473 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i473)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i473)
   br label %return
 
 sw.bb434:                                         ; preds = %if.end
   %_types.i474 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i474)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i474)
   br label %return
 
 sw.bb436:                                         ; preds = %if.end
   %_types.i475 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i475)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i475)
   br label %return
 
 sw.bb438:                                         ; preds = %if.end
@@ -2838,7 +2838,7 @@ sw.bb440:                                         ; preds = %if.end
 
 sw.bb442:                                         ; preds = %if.end
   %_members.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i)
   br label %return
 
 sw.bb444:                                         ; preds = %if.end
@@ -2878,7 +2878,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -2948,7 +2948,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -2959,7 +2959,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i171
@@ -3042,19 +3042,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %14 = load ptr, ptr %_body, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i31
 
-for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
-  %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
+for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
+  %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
   %arrayidx.i.i.i34 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
   %17 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %17 to i1
@@ -3115,7 +3115,7 @@ if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, %if.end5.sink.split.i59
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %19 = load ptr, ptr %_typeParameters, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i66
@@ -3183,7 +3183,7 @@ if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, %if.end5.sink.split.i94
   %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %24 = load ptr, ptr %_returnType, align 8
-  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
+  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
   %25 = extractvalue { ptr, i8 } %call12, 0
   %26 = extractvalue { ptr, i8 } %call12, 1
   br label %for.body.i.i.i101
@@ -3251,7 +3251,7 @@ if.end5.sink.split.i129:                          ; preds = %if.then2.i126, %_ZS
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, %if.end5.sink.split.i129
   %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %29 = load ptr, ptr %_predicate, align 8
-  %call15 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %29)
+  %call15 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %29)
   %30 = extractvalue { ptr, i8 } %call15, 0
   %31 = extractvalue { ptr, i8 } %call15, 1
   br label %for.body.i.i.i136
@@ -3325,7 +3325,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -3395,7 +3395,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -3406,7 +3406,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i171
@@ -3489,19 +3489,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %14 = load ptr, ptr %_body, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i31
 
-for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
-  %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
+for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
+  %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
   %arrayidx.i.i.i34 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
   %17 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %17 to i1
@@ -3562,7 +3562,7 @@ if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, %if.end5.sink.split.i59
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %19 = load ptr, ptr %_typeParameters, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i66
@@ -3630,7 +3630,7 @@ if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, %if.end5.sink.split.i94
   %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %24 = load ptr, ptr %_returnType, align 8
-  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
+  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
   %25 = extractvalue { ptr, i8 } %call12, 0
   %26 = extractvalue { ptr, i8 } %call12, 1
   br label %for.body.i.i.i101
@@ -3698,7 +3698,7 @@ if.end5.sink.split.i129:                          ; preds = %if.then2.i126, %_ZS
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, %if.end5.sink.split.i129
   %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %29 = load ptr, ptr %_predicate, align 8
-  %call15 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %29)
+  %call15 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %29)
   %30 = extractvalue { ptr, i8 } %call15, 0
   %31 = extractvalue { ptr, i8 } %call15, 1
   br label %for.body.i.i.i136
@@ -3772,7 +3772,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -3842,7 +3842,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -3853,7 +3853,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i171
@@ -3936,19 +3936,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %14 = load ptr, ptr %_body, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i31
 
-for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
-  %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
+for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
+  %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
   %arrayidx.i.i.i34 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
   %17 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %17 to i1
@@ -4009,7 +4009,7 @@ if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, %if.end5.sink.split.i59
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %19 = load ptr, ptr %_typeParameters, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i66
@@ -4077,7 +4077,7 @@ if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, %if.end5.sink.split.i94
   %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %24 = load ptr, ptr %_returnType, align 8
-  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
+  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
   %25 = extractvalue { ptr, i8 } %call12, 0
   %26 = extractvalue { ptr, i8 } %call12, 1
   br label %for.body.i.i.i101
@@ -4145,7 +4145,7 @@ if.end5.sink.split.i129:                          ; preds = %if.then2.i126, %_ZS
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, %if.end5.sink.split.i129
   %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %29 = load ptr, ptr %_predicate, align 8
-  %call15 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %29)
+  %call15 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %29)
   %30 = extractvalue { ptr, i8 } %call15, 0
   %31 = extractvalue { ptr, i8 } %call15, 1
   br label %for.body.i.i.i136
@@ -4219,7 +4219,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -4289,7 +4289,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -4300,7 +4300,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i124
@@ -4383,19 +4383,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %14 = load ptr, ptr %_body, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i19
 
-for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
-  %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
+for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
+  %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
   %arrayidx.i.i.i22 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
   %17 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %17 to i1
@@ -4456,7 +4456,7 @@ if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, %if.end5.sink.split.i47
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %19 = load ptr, ptr %_typeParameters, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i54
@@ -4524,7 +4524,7 @@ if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, %if.end5.sink.split.i82
   %_rendersType = getelementptr inbounds i8, ptr %node, i64 112
   %24 = load ptr, ptr %_rendersType, align 8
-  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
+  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
   %25 = extractvalue { ptr, i8 } %call12, 0
   %26 = extractvalue { ptr, i8 } %call12, 1
   br label %for.body.i.i.i89
@@ -4598,7 +4598,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -4666,7 +4666,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_test = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %_test, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -4740,7 +4740,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -4808,7 +4808,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_test = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %_test, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -4882,7 +4882,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -4950,7 +4950,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %_right, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -5018,7 +5018,7 @@ if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, %if.end5.sink.split.i39
   %_body = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %_body, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i46
@@ -5092,7 +5092,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -5160,7 +5160,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %_right, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -5228,7 +5228,7 @@ if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, %if.end5.sink.split.i43
   %_body = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %_body, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i50
@@ -5302,7 +5302,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_init = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_init, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -5370,7 +5370,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_test = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %_test, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -5438,7 +5438,7 @@ if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, %if.end5.sink.split.i43
   %_update = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %_update, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i50
@@ -5506,7 +5506,7 @@ if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, %if.end5.sink.split.i78
   %_body = getelementptr inbounds i8, ptr %node, i64 80
   %15 = load ptr, ptr %_body, align 8
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call10, 0
   %17 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i.i85
@@ -5580,7 +5580,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -5654,7 +5654,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -5728,7 +5728,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -5802,7 +5802,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -5876,7 +5876,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -5944,7 +5944,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_body, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -6018,7 +6018,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_discriminant = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_discriminant, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -6088,7 +6088,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_cases
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -6099,7 +6099,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i7
@@ -6182,9 +6182,9 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_cases
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   ret void
 }
 
@@ -6193,7 +6193,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -6261,7 +6261,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_body = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %_body, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -6335,7 +6335,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -6409,7 +6409,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_block = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_block, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -6477,7 +6477,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_handler = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_handler, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -6545,7 +6545,7 @@ if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, %if.end5.sink.split.i39
   %_finalizer = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_finalizer, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i46
@@ -6619,7 +6619,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -6687,7 +6687,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_consequent = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_consequent, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -6755,7 +6755,7 @@ if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, %if.end5.sink.split.i39
   %_alternate = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_alternate, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i46
@@ -6829,7 +6829,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -6903,7 +6903,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -6971,7 +6971,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeArguments, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -7041,7 +7041,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %10, %_arguments
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %11, %if.end27.i ], [ %10, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ]
@@ -7052,7 +7052,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i46
@@ -7135,9 +7135,9 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_arguments
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   ret void
 }
 
@@ -7146,7 +7146,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -7220,7 +7220,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -7294,7 +7294,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -7362,7 +7362,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_attributes = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_attributes, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -7436,7 +7436,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -7504,7 +7504,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeArguments, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -7574,7 +7574,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %10, %_arguments
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %11, %if.end27.i ], [ %10, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ]
@@ -7585,7 +7585,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i46
@@ -7668,9 +7668,9 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_arguments
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   ret void
 }
 
@@ -7679,7 +7679,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -7747,7 +7747,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeArguments, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -7817,7 +7817,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %10, %_arguments
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %11, %if.end27.i ], [ %10, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ]
@@ -7828,7 +7828,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i50
@@ -7911,9 +7911,9 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_arguments
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   ret void
 }
 
@@ -7922,7 +7922,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -7990,7 +7990,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %_right, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call6, 0
   %7 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i11
@@ -8064,7 +8064,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -8138,7 +8138,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -8212,7 +8212,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -8280,7 +8280,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_property, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -8354,7 +8354,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -8422,7 +8422,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_property, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -8496,7 +8496,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -8564,7 +8564,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_right, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -8638,7 +8638,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -8706,7 +8706,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_alternate = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_alternate, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -8774,7 +8774,7 @@ if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, %if.end5.sink.split.i39
   %_consequent = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_consequent, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i46
@@ -8848,7 +8848,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -8916,7 +8916,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_right, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -8990,7 +8990,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_value = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -9064,7 +9064,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -9138,7 +9138,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -9212,7 +9212,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_meta = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_meta, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -9280,7 +9280,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_property, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -9354,7 +9354,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -9424,7 +9424,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_consequent
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -9435,7 +9435,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i7
@@ -9518,9 +9518,9 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_consequent
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   ret void
 }
 
@@ -9529,7 +9529,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_param = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_param, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -9597,7 +9597,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_body, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -9671,7 +9671,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_init = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_init, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -9739,7 +9739,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_id = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_id, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -9813,7 +9813,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_tag = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_tag, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -9881,7 +9881,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_quasi = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_quasi, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -9955,7 +9955,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -10023,7 +10023,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_value, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i23
@@ -10097,7 +10097,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -10165,7 +10165,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i27
@@ -10233,7 +10233,7 @@ if.end5.sink.split.i55:                           ; preds = %if.then2.i52, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit61: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i49, %if.end5.sink.split.i55
   %_superClass = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_superClass, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i62
@@ -10301,7 +10301,7 @@ if.end5.sink.split.i90:                           ; preds = %if.then2.i87, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit96: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i84, %if.end5.sink.split.i90
   %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load ptr, ptr %_superTypeParameters, align 8
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call10, 0
   %17 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i.i97
@@ -10371,7 +10371,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %20 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %20, %_implements
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %21, %if.end27.i ], [ %20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131 ]
@@ -10382,7 +10382,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %21, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %23 = extractvalue { ptr, i8 } %call10.i, 0
   %24 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i167
@@ -10465,17 +10465,17 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %21, %_implements
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131
   %_decorators = getelementptr inbounds i8, ptr %node, i64 96
   %Next.i.i.i.i.i182 = getelementptr inbounds i8, ptr %node, i64 104
   %29 = load ptr, ptr %Next.i.i.i.i.i182, align 8
   %cmp.i.not4.i183 = icmp eq ptr %29, %_decorators
-  br i1 %cmp.i.not4.i183, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230, label %for.body.i184
+  br i1 %cmp.i.not4.i183, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230, label %for.body.i184
 
-for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, %if.end27.i214
-  %it.sroa.0.05.i185 = phi ptr [ %30, %if.end27.i214 ], [ %29, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ]
+for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, %if.end27.i214
+  %it.sroa.0.05.i185 = phi ptr [ %30, %if.end27.i214 ], [ %29, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ]
   %Next.i.i.i.i5.i186 = getelementptr inbounds i8, ptr %it.sroa.0.05.i185, i64 8
   %30 = load ptr, ptr %Next.i.i.i.i5.i186, align 8
   %31 = load ptr, ptr %it.sroa.0.05.i185, align 8
@@ -10483,7 +10483,7 @@ for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i187 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %30, ptr %Next2.i.i.i.i.i.i187, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i185, i8 0, i64 16, i1 false)
-  %call10.i188 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i185)
+  %call10.i188 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i185)
   %32 = extractvalue { ptr, i8 } %call10.i188, 0
   %33 = extractvalue { ptr, i8 } %call10.i188, 1
   br label %for.body.i.i.i189
@@ -10566,19 +10566,19 @@ if.end27.sink.split.i217:                         ; preds = %if.then19.i216, %_Z
 
 if.end27.i214:                                    ; preds = %if.end27.sink.split.i217, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211
   %cmp.i.not.i215 = icmp eq ptr %30, %_decorators
-  br i1 %cmp.i.not.i215, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230, label %for.body.i184, !llvm.loop !16
+  br i1 %cmp.i.not.i215, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230, label %for.body.i184, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230: ; preds = %if.end27.i214, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230: ; preds = %if.end27.i214, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 112
   %38 = load ptr, ptr %_body, align 8
-  %call18 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %38)
+  %call18 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %38)
   %39 = extractvalue { ptr, i8 } %call18, 0
   %40 = extractvalue { ptr, i8 } %call18, 1
   br label %for.body.i.i.i132
 
-for.body.i.i.i132:                                ; preds = %for.inc.i.i.i137, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230
-  %__i.06.i.i.i133 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230 ], [ %inc.i.i.i139, %for.inc.i.i.i137 ]
-  %__n.05.i.i.i134 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230 ], [ %__n.1.i.i.i138, %for.inc.i.i.i137 ]
+for.body.i.i.i132:                                ; preds = %for.inc.i.i.i137, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230
+  %__i.06.i.i.i133 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230 ], [ %inc.i.i.i139, %for.inc.i.i.i137 ]
+  %__n.05.i.i.i134 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230 ], [ %__n.1.i.i.i138, %for.inc.i.i.i137 ]
   %arrayidx.i.i.i135 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i133
   %41 = load i8, ptr %arrayidx.i.i.i135, align 1
   %tobool.i.i.i136 = trunc i8 %41 to i1
@@ -10645,7 +10645,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -10713,7 +10713,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i27
@@ -10781,7 +10781,7 @@ if.end5.sink.split.i55:                           ; preds = %if.then2.i52, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit61: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i49, %if.end5.sink.split.i55
   %_superClass = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_superClass, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i62
@@ -10849,7 +10849,7 @@ if.end5.sink.split.i90:                           ; preds = %if.then2.i87, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit96: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i84, %if.end5.sink.split.i90
   %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load ptr, ptr %_superTypeParameters, align 8
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call10, 0
   %17 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i.i97
@@ -10919,7 +10919,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %20 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %20, %_implements
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %21, %if.end27.i ], [ %20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131 ]
@@ -10930,7 +10930,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %21, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %23 = extractvalue { ptr, i8 } %call10.i, 0
   %24 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i167
@@ -11013,17 +11013,17 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %21, %_implements
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131
   %_decorators = getelementptr inbounds i8, ptr %node, i64 96
   %Next.i.i.i.i.i182 = getelementptr inbounds i8, ptr %node, i64 104
   %29 = load ptr, ptr %Next.i.i.i.i.i182, align 8
   %cmp.i.not4.i183 = icmp eq ptr %29, %_decorators
-  br i1 %cmp.i.not4.i183, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230, label %for.body.i184
+  br i1 %cmp.i.not4.i183, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230, label %for.body.i184
 
-for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, %if.end27.i214
-  %it.sroa.0.05.i185 = phi ptr [ %30, %if.end27.i214 ], [ %29, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ]
+for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, %if.end27.i214
+  %it.sroa.0.05.i185 = phi ptr [ %30, %if.end27.i214 ], [ %29, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ]
   %Next.i.i.i.i5.i186 = getelementptr inbounds i8, ptr %it.sroa.0.05.i185, i64 8
   %30 = load ptr, ptr %Next.i.i.i.i5.i186, align 8
   %31 = load ptr, ptr %it.sroa.0.05.i185, align 8
@@ -11031,7 +11031,7 @@ for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i187 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %30, ptr %Next2.i.i.i.i.i.i187, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i185, i8 0, i64 16, i1 false)
-  %call10.i188 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i185)
+  %call10.i188 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i185)
   %32 = extractvalue { ptr, i8 } %call10.i188, 0
   %33 = extractvalue { ptr, i8 } %call10.i188, 1
   br label %for.body.i.i.i189
@@ -11114,19 +11114,19 @@ if.end27.sink.split.i217:                         ; preds = %if.then19.i216, %_Z
 
 if.end27.i214:                                    ; preds = %if.end27.sink.split.i217, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211
   %cmp.i.not.i215 = icmp eq ptr %30, %_decorators
-  br i1 %cmp.i.not.i215, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230, label %for.body.i184, !llvm.loop !16
+  br i1 %cmp.i.not.i215, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230, label %for.body.i184, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230: ; preds = %if.end27.i214, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230: ; preds = %if.end27.i214, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 112
   %38 = load ptr, ptr %_body, align 8
-  %call18 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %38)
+  %call18 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %38)
   %39 = extractvalue { ptr, i8 } %call18, 0
   %40 = extractvalue { ptr, i8 } %call18, 1
   br label %for.body.i.i.i132
 
-for.body.i.i.i132:                                ; preds = %for.inc.i.i.i137, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230
-  %__i.06.i.i.i133 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230 ], [ %inc.i.i.i139, %for.inc.i.i.i137 ]
-  %__n.05.i.i.i134 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230 ], [ %__n.1.i.i.i138, %for.inc.i.i.i137 ]
+for.body.i.i.i132:                                ; preds = %for.inc.i.i.i137, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230
+  %__i.06.i.i.i133 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230 ], [ %inc.i.i.i139, %for.inc.i.i.i137 ]
+  %__n.05.i.i.i134 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit230 ], [ %__n.1.i.i.i138, %for.inc.i.i.i137 ]
   %arrayidx.i.i.i135 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i133
   %41 = load i8, ptr %arrayidx.i.i.i135, align 1
   %tobool.i.i.i136 = trunc i8 %41 to i1
@@ -11193,19 +11193,19 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  %1 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %1 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_value, align 8
-  %3 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %2)
+  %3 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %2)
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %4 = load ptr, ptr %_variance, align 8
-  %5 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %4)
+  %5 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %4)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
   %6 = load ptr, ptr %_typeAnnotation, align 8
-  %7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %6)
+  %7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %6)
   %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
   %8 = load ptr, ptr %_tsModifiers, align 8
-  %9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %8)
+  %9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %8)
   ret void
 }
 
@@ -11214,7 +11214,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -11282,7 +11282,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_value, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i31
@@ -11350,7 +11350,7 @@ if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, %if.end5.sink.split.i59
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %_variance, align 8
-  %call17 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call17 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call17, 0
   %12 = extractvalue { ptr, i8 } %call17, 1
   br label %for.body.i.i.i66
@@ -11418,7 +11418,7 @@ if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, %if.end5.sink.split.i94
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
   %15 = load ptr, ptr %_typeAnnotation, align 8
-  %call20 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call20 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call20, 0
   %17 = extractvalue { ptr, i8 } %call20, 1
   br label %for.body.i.i.i101
@@ -11486,7 +11486,7 @@ if.end5.sink.split.i129:                          ; preds = %if.then2.i126, %_ZS
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, %if.end5.sink.split.i129
   %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
   %20 = load ptr, ptr %_tsModifiers, align 8
-  %call23 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %20)
+  %call23 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %20)
   %21 = extractvalue { ptr, i8 } %call23, 0
   %22 = extractvalue { ptr, i8 } %call23, 1
   br label %for.body.i.i.i136
@@ -11560,7 +11560,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -11628,7 +11628,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_value, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i19
@@ -11704,7 +11704,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_specifiers
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -11715,7 +11715,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i15
@@ -11798,19 +11798,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_specifiers
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_source = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_source, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -11873,7 +11873,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i30 = getelementptr inbounds i8, ptr %node, i64 80
   %14 = load ptr, ptr %Next.i.i.i.i.i30, align 8
   %cmp.i.not4.i31 = icmp eq ptr %14, %_assertions
-  br i1 %cmp.i.not4.i31, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit78, label %for.body.i32
+  br i1 %cmp.i.not4.i31, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit78, label %for.body.i32
 
 for.body.i32:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i62
   %it.sroa.0.05.i33 = phi ptr [ %15, %if.end27.i62 ], [ %14, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -11884,7 +11884,7 @@ for.body.i32:                                     ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %15, ptr %Next2.i.i.i.i.i.i35, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i33, i8 0, i64 16, i1 false)
-  %call10.i36 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i33)
+  %call10.i36 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i33)
   %17 = extractvalue { ptr, i8 } %call10.i36, 0
   %18 = extractvalue { ptr, i8 } %call10.i36, 1
   br label %for.body.i.i.i37
@@ -11967,9 +11967,9 @@ if.end27.sink.split.i65:                          ; preds = %if.then19.i64, %_ZS
 
 if.end27.i62:                                     ; preds = %if.end27.sink.split.i65, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
   %cmp.i.not.i63 = icmp eq ptr %15, %_assertions
-  br i1 %cmp.i.not.i63, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit78, label %for.body.i32, !llvm.loop !16
+  br i1 %cmp.i.not.i63, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit78, label %for.body.i32, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit78: ; preds = %if.end27.i62, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit78: ; preds = %if.end27.i62, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   ret void
 }
 
@@ -11978,7 +11978,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_imported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_imported, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -12046,7 +12046,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_local = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_local, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -12120,7 +12120,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_local = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_local, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -12194,7 +12194,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_local = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_local, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -12268,7 +12268,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -12336,7 +12336,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_value, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -12410,7 +12410,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -12480,7 +12480,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_specifiers
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -12491,7 +12491,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i50
@@ -12574,19 +12574,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_specifiers
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_source = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_source, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i15
 
-for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
-  %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
+for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
+  %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
   %arrayidx.i.i.i18 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
@@ -12653,7 +12653,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_exported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exported, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -12721,7 +12721,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_local = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_local, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -12795,7 +12795,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_exported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exported, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -12869,7 +12869,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -12943,7 +12943,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -13019,7 +13019,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_properties
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -13030,7 +13030,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i7
@@ -13113,19 +13113,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_properties
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -13194,7 +13194,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_elements
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -13205,7 +13205,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i7
@@ -13288,19 +13288,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_elements
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -13367,7 +13367,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -13441,7 +13441,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -13509,7 +13509,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_right, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -13583,7 +13583,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -13651,7 +13651,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_property, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -13725,7 +13725,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_namespace = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_namespace, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -13793,7 +13793,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_name = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_name, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -13867,7 +13867,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -13941,7 +13941,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -14015,7 +14015,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -14085,7 +14085,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_attributes
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -14096,7 +14096,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i50
@@ -14179,19 +14179,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_attributes
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 80
   %14 = load ptr, ptr %_typeArguments, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call9, 0
   %16 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i15
 
-for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
-  %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
+for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
+  %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
   %arrayidx.i.i.i18 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
@@ -14258,7 +14258,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -14332,7 +14332,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -14400,7 +14400,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_value, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -14474,7 +14474,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -14548,7 +14548,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_openingElement = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingElement, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -14618,7 +14618,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_children
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -14629,7 +14629,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i46
@@ -14712,19 +14712,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_children
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_closingElement = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_closingElement, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i11
 
-for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
-  %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
+for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
+  %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
   %arrayidx.i.i.i14 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
   %17 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %17 to i1
@@ -14791,7 +14791,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_openingFragment = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingFragment, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -14861,7 +14861,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_children
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -14872,7 +14872,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i46
@@ -14955,19 +14955,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_children
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_closingFragment = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_closingFragment, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i11
 
-for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
-  %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
+for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
+  %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
   %arrayidx.i.i.i14 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
   %17 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %17 to i1
@@ -15036,7 +15036,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -15047,7 +15047,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i124
@@ -15130,19 +15130,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_this = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_this, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -15203,7 +15203,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_returnType = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_returnType, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i19
@@ -15271,7 +15271,7 @@ if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, %if.end5.sink.split.i47
   %_rest = getelementptr inbounds i8, ptr %node, i64 80
   %19 = load ptr, ptr %_rest, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i54
@@ -15339,7 +15339,7 @@ if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, %if.end5.sink.split.i82
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 88
   %24 = load ptr, ptr %_typeParameters, align 8
-  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
+  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
   %25 = extractvalue { ptr, i8 } %call12, 0
   %26 = extractvalue { ptr, i8 } %call12, 1
   br label %for.body.i.i.i89
@@ -15413,7 +15413,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -15481,7 +15481,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -15557,7 +15557,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -15568,7 +15568,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i85
@@ -15651,19 +15651,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_rest = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_rest, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -15724,7 +15724,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_typeParameters, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i15
@@ -15792,7 +15792,7 @@ if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, %if.end5.sink.split.i43
   %_rendersType = getelementptr inbounds i8, ptr %node, i64 80
   %19 = load ptr, ptr %_rendersType, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i50
@@ -15866,7 +15866,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -15934,7 +15934,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -16008,7 +16008,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -16082,7 +16082,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_qualification = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -16150,7 +16150,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_id = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_id, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -16224,7 +16224,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -16298,7 +16298,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -16372,7 +16372,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -16446,7 +16446,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_qualification = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -16514,7 +16514,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_id = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_id, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -16588,7 +16588,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -16656,7 +16656,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -16730,7 +16730,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -16798,7 +16798,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_elementType = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_elementType, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -16866,7 +16866,7 @@ if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, %if.end5.sink.split.i43
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %_variance, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call9, 0
   %12 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i50
@@ -16940,7 +16940,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_elementType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elementType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -17014,7 +17014,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeParameter = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeParameter, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -17088,7 +17088,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -17156,7 +17156,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -17230,7 +17230,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -17298,7 +17298,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_indexType, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -17372,7 +17372,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -17440,7 +17440,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_indexType, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -17514,7 +17514,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_checkType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -17582,7 +17582,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_extendsType, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -17650,7 +17650,7 @@ if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, %if.end5.sink.split.i43
   %_trueType = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_trueType, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i50
@@ -17718,7 +17718,7 @@ if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, %if.end5.sink.split.i78
   %_falseType = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load ptr, ptr %_falseType, align 8
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call10, 0
   %17 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i.i85
@@ -17792,7 +17792,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -17860,7 +17860,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -17936,7 +17936,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_extends
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -17947,7 +17947,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i7
@@ -18030,19 +18030,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_body = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_body, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -18109,7 +18109,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -18177,7 +18177,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -18245,7 +18245,7 @@ if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, %if.end5.sink.split.i39
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_right, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i46
@@ -18319,7 +18319,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -18387,7 +18387,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -18455,7 +18455,7 @@ if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, %if.end5.sink.split.i43
   %_impltype = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_impltype, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i50
@@ -18523,7 +18523,7 @@ if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, %if.end5.sink.split.i78
   %_supertype = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load ptr, ptr %_supertype, align 8
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call10, 0
   %17 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i.i85
@@ -18597,7 +18597,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -18665,7 +18665,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -18735,7 +18735,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %10, %_extends
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %11, %if.end27.i ], [ %10, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ]
@@ -18746,7 +18746,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i85
@@ -18829,19 +18829,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %_body = getelementptr inbounds i8, ptr %node, i64 80
   %19 = load ptr, ptr %_body, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i50
 
-for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
-  %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
+for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
+  %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
   %arrayidx.i.i.i53 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
   %22 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %22 to i1
@@ -18908,7 +18908,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -18976,7 +18976,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -19044,7 +19044,7 @@ if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, %if.end5.sink.split.i39
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_right, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i46
@@ -19118,7 +19118,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -19186,7 +19186,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -19254,7 +19254,7 @@ if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, %if.end5.sink.split.i43
   %_impltype = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_impltype, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i50
@@ -19322,7 +19322,7 @@ if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, %if.end5.sink.split.i78
   %_supertype = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load ptr, ptr %_supertype, align 8
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call10, 0
   %17 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i.i85
@@ -19396,7 +19396,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -19464,7 +19464,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -19534,7 +19534,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %10, %_extends
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %11, %if.end27.i ], [ %10, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ]
@@ -19545,7 +19545,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i85
@@ -19628,19 +19628,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %_body = getelementptr inbounds i8, ptr %node, i64 80
   %19 = load ptr, ptr %_body, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i50
 
-for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
-  %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
+for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
+  %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
   %arrayidx.i.i.i53 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
   %22 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %22 to i1
@@ -19707,7 +19707,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -19775,7 +19775,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i23
@@ -19845,7 +19845,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %10, %_extends
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit57, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %11, %if.end27.i ], [ %10, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit57 ]
@@ -19856,7 +19856,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i93
@@ -19939,17 +19939,17 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit57
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit57
   %_implements = getelementptr inbounds i8, ptr %node, i64 80
   %Next.i.i.i.i.i108 = getelementptr inbounds i8, ptr %node, i64 88
   %19 = load ptr, ptr %Next.i.i.i.i.i108, align 8
   %cmp.i.not4.i109 = icmp eq ptr %19, %_implements
-  br i1 %cmp.i.not4.i109, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156, label %for.body.i110
+  br i1 %cmp.i.not4.i109, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit156, label %for.body.i110
 
-for.body.i110:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, %if.end27.i140
-  %it.sroa.0.05.i111 = phi ptr [ %20, %if.end27.i140 ], [ %19, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ]
+for.body.i110:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, %if.end27.i140
+  %it.sroa.0.05.i111 = phi ptr [ %20, %if.end27.i140 ], [ %19, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ]
   %Next.i.i.i.i5.i112 = getelementptr inbounds i8, ptr %it.sroa.0.05.i111, i64 8
   %20 = load ptr, ptr %Next.i.i.i.i5.i112, align 8
   %21 = load ptr, ptr %it.sroa.0.05.i111, align 8
@@ -19957,7 +19957,7 @@ for.body.i110:                                    ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i113 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %20, ptr %Next2.i.i.i.i.i.i113, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i111, i8 0, i64 16, i1 false)
-  %call10.i114 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i111)
+  %call10.i114 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i111)
   %22 = extractvalue { ptr, i8 } %call10.i114, 0
   %23 = extractvalue { ptr, i8 } %call10.i114, 1
   br label %for.body.i.i.i115
@@ -20040,17 +20040,17 @@ if.end27.sink.split.i143:                         ; preds = %if.then19.i142, %_Z
 
 if.end27.i140:                                    ; preds = %if.end27.sink.split.i143, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i137
   %cmp.i.not.i141 = icmp eq ptr %20, %_implements
-  br i1 %cmp.i.not.i141, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156, label %for.body.i110, !llvm.loop !16
+  br i1 %cmp.i.not.i141, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit156, label %for.body.i110, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156: ; preds = %if.end27.i140, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit156: ; preds = %if.end27.i140, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
   %_mixins = getelementptr inbounds i8, ptr %node, i64 96
   %Next.i.i.i.i.i157 = getelementptr inbounds i8, ptr %node, i64 104
   %28 = load ptr, ptr %Next.i.i.i.i.i157, align 8
   %cmp.i.not4.i158 = icmp eq ptr %28, %_mixins
-  br i1 %cmp.i.not4.i158, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205, label %for.body.i159
+  br i1 %cmp.i.not4.i158, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit205, label %for.body.i159
 
-for.body.i159:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156, %if.end27.i189
-  %it.sroa.0.05.i160 = phi ptr [ %29, %if.end27.i189 ], [ %28, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156 ]
+for.body.i159:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit156, %if.end27.i189
+  %it.sroa.0.05.i160 = phi ptr [ %29, %if.end27.i189 ], [ %28, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit156 ]
   %Next.i.i.i.i5.i161 = getelementptr inbounds i8, ptr %it.sroa.0.05.i160, i64 8
   %29 = load ptr, ptr %Next.i.i.i.i5.i161, align 8
   %30 = load ptr, ptr %it.sroa.0.05.i160, align 8
@@ -20058,7 +20058,7 @@ for.body.i159:                                    ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %29, ptr %Next2.i.i.i.i.i.i162, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i160, i8 0, i64 16, i1 false)
-  %call10.i163 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i160)
+  %call10.i163 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i160)
   %31 = extractvalue { ptr, i8 } %call10.i163, 0
   %32 = extractvalue { ptr, i8 } %call10.i163, 1
   br label %for.body.i.i.i164
@@ -20141,19 +20141,19 @@ if.end27.sink.split.i192:                         ; preds = %if.then19.i191, %_Z
 
 if.end27.i189:                                    ; preds = %if.end27.sink.split.i192, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i186
   %cmp.i.not.i190 = icmp eq ptr %29, %_mixins
-  br i1 %cmp.i.not.i190, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205, label %for.body.i159, !llvm.loop !16
+  br i1 %cmp.i.not.i190, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit205, label %for.body.i159, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205: ; preds = %if.end27.i189, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit205: ; preds = %if.end27.i189, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit156
   %_body = getelementptr inbounds i8, ptr %node, i64 112
   %37 = load ptr, ptr %_body, align 8
-  %call15 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %37)
+  %call15 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %37)
   %38 = extractvalue { ptr, i8 } %call15, 0
   %39 = extractvalue { ptr, i8 } %call15, 1
   br label %for.body.i.i.i58
 
-for.body.i.i.i58:                                 ; preds = %for.inc.i.i.i63, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205
-  %__i.06.i.i.i59 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205 ], [ %inc.i.i.i65, %for.inc.i.i.i63 ]
-  %__n.05.i.i.i60 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205 ], [ %__n.1.i.i.i64, %for.inc.i.i.i63 ]
+for.body.i.i.i58:                                 ; preds = %for.inc.i.i.i63, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit205
+  %__i.06.i.i.i59 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit205 ], [ %inc.i.i.i65, %for.inc.i.i.i63 ]
+  %__n.05.i.i.i60 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit205 ], [ %__n.1.i.i.i64, %for.inc.i.i.i63 ]
   %arrayidx.i.i.i61 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i59
   %40 = load i8, ptr %arrayidx.i.i.i61, align 1
   %tobool.i.i.i62 = trunc i8 %40 to i1
@@ -20220,7 +20220,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -20288,7 +20288,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_predicate = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_predicate, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -20362,7 +20362,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -20432,7 +20432,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -20443,7 +20443,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i124
@@ -20526,19 +20526,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_rest = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_rest, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i19
 
-for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
-  %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
+for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
+  %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
   %arrayidx.i.i.i22 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
   %17 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %17 to i1
@@ -20599,7 +20599,7 @@ if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, %if.end5.sink.split.i47
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
   %19 = load ptr, ptr %_typeParameters, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i54
@@ -20667,7 +20667,7 @@ if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, %if.end5.sink.split.i82
   %_rendersType = getelementptr inbounds i8, ptr %node, i64 88
   %24 = load ptr, ptr %_rendersType, align 8
-  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
+  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %24)
   %25 = extractvalue { ptr, i8 } %call12, 0
   %26 = extractvalue { ptr, i8 } %call12, 1
   br label %for.body.i.i.i89
@@ -20741,7 +20741,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -20815,7 +20815,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -20883,7 +20883,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_body, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -20957,7 +20957,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -21027,7 +21027,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_specifiers
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -21038,7 +21038,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i50
@@ -21121,19 +21121,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_specifiers
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_source = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_source, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i15
 
-for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
-  %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
+for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
+  %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
   %arrayidx.i.i.i18 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
@@ -21200,7 +21200,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -21274,7 +21274,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -21342,7 +21342,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_body, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -21416,7 +21416,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -21490,7 +21490,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -21558,7 +21558,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -21632,7 +21632,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -21700,7 +21700,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -21774,7 +21774,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -21850,7 +21850,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_properties
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -21861,7 +21861,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i
@@ -21944,17 +21944,17 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_properties
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_indexers = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i.i23 = getelementptr inbounds i8, ptr %node, i64 72
   %9 = load ptr, ptr %Next.i.i.i.i.i23, align 8
   %cmp.i.not4.i24 = icmp eq ptr %9, %_indexers
-  br i1 %cmp.i.not4.i24, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71, label %for.body.i25
+  br i1 %cmp.i.not4.i24, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit71, label %for.body.i25
 
-for.body.i25:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, %if.end27.i55
-  %it.sroa.0.05.i26 = phi ptr [ %10, %if.end27.i55 ], [ %9, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ]
+for.body.i25:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, %if.end27.i55
+  %it.sroa.0.05.i26 = phi ptr [ %10, %if.end27.i55 ], [ %9, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ]
   %Next.i.i.i.i5.i27 = getelementptr inbounds i8, ptr %it.sroa.0.05.i26, i64 8
   %10 = load ptr, ptr %Next.i.i.i.i5.i27, align 8
   %11 = load ptr, ptr %it.sroa.0.05.i26, align 8
@@ -21962,7 +21962,7 @@ for.body.i25:                                     ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %10, ptr %Next2.i.i.i.i.i.i28, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i26, i8 0, i64 16, i1 false)
-  %call10.i29 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i26)
+  %call10.i29 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i26)
   %12 = extractvalue { ptr, i8 } %call10.i29, 0
   %13 = extractvalue { ptr, i8 } %call10.i29, 1
   br label %for.body.i.i.i30
@@ -22045,17 +22045,17 @@ if.end27.sink.split.i58:                          ; preds = %if.then19.i57, %_ZS
 
 if.end27.i55:                                     ; preds = %if.end27.sink.split.i58, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i52
   %cmp.i.not.i56 = icmp eq ptr %10, %_indexers
-  br i1 %cmp.i.not.i56, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71, label %for.body.i25, !llvm.loop !16
+  br i1 %cmp.i.not.i56, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit71, label %for.body.i25, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71: ; preds = %if.end27.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit71: ; preds = %if.end27.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
   %_callProperties = getelementptr inbounds i8, ptr %node, i64 80
   %Next.i.i.i.i.i72 = getelementptr inbounds i8, ptr %node, i64 88
   %18 = load ptr, ptr %Next.i.i.i.i.i72, align 8
   %cmp.i.not4.i73 = icmp eq ptr %18, %_callProperties
-  br i1 %cmp.i.not4.i73, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120, label %for.body.i74
+  br i1 %cmp.i.not4.i73, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit120, label %for.body.i74
 
-for.body.i74:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71, %if.end27.i104
-  %it.sroa.0.05.i75 = phi ptr [ %19, %if.end27.i104 ], [ %18, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71 ]
+for.body.i74:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit71, %if.end27.i104
+  %it.sroa.0.05.i75 = phi ptr [ %19, %if.end27.i104 ], [ %18, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit71 ]
   %Next.i.i.i.i5.i76 = getelementptr inbounds i8, ptr %it.sroa.0.05.i75, i64 8
   %19 = load ptr, ptr %Next.i.i.i.i5.i76, align 8
   %20 = load ptr, ptr %it.sroa.0.05.i75, align 8
@@ -22063,7 +22063,7 @@ for.body.i74:                                     ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %19, ptr %Next2.i.i.i.i.i.i77, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i75, i8 0, i64 16, i1 false)
-  %call10.i78 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i75)
+  %call10.i78 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i75)
   %21 = extractvalue { ptr, i8 } %call10.i78, 0
   %22 = extractvalue { ptr, i8 } %call10.i78, 1
   br label %for.body.i.i.i79
@@ -22146,17 +22146,17 @@ if.end27.sink.split.i107:                         ; preds = %if.then19.i106, %_Z
 
 if.end27.i104:                                    ; preds = %if.end27.sink.split.i107, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i101
   %cmp.i.not.i105 = icmp eq ptr %19, %_callProperties
-  br i1 %cmp.i.not.i105, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120, label %for.body.i74, !llvm.loop !16
+  br i1 %cmp.i.not.i105, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit120, label %for.body.i74, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120: ; preds = %if.end27.i104, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit120: ; preds = %if.end27.i104, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit71
   %_internalSlots = getelementptr inbounds i8, ptr %node, i64 96
   %Next.i.i.i.i.i121 = getelementptr inbounds i8, ptr %node, i64 104
   %27 = load ptr, ptr %Next.i.i.i.i.i121, align 8
   %cmp.i.not4.i122 = icmp eq ptr %27, %_internalSlots
-  br i1 %cmp.i.not4.i122, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit169, label %for.body.i123
+  br i1 %cmp.i.not4.i122, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit169, label %for.body.i123
 
-for.body.i123:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120, %if.end27.i153
-  %it.sroa.0.05.i124 = phi ptr [ %28, %if.end27.i153 ], [ %27, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120 ]
+for.body.i123:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit120, %if.end27.i153
+  %it.sroa.0.05.i124 = phi ptr [ %28, %if.end27.i153 ], [ %27, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit120 ]
   %Next.i.i.i.i5.i125 = getelementptr inbounds i8, ptr %it.sroa.0.05.i124, i64 8
   %28 = load ptr, ptr %Next.i.i.i.i5.i125, align 8
   %29 = load ptr, ptr %it.sroa.0.05.i124, align 8
@@ -22164,7 +22164,7 @@ for.body.i123:                                    ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %28, ptr %Next2.i.i.i.i.i.i126, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i124, i8 0, i64 16, i1 false)
-  %call10.i127 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i124)
+  %call10.i127 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i124)
   %30 = extractvalue { ptr, i8 } %call10.i127, 0
   %31 = extractvalue { ptr, i8 } %call10.i127, 1
   br label %for.body.i.i.i128
@@ -22247,9 +22247,9 @@ if.end27.sink.split.i156:                         ; preds = %if.then19.i155, %_Z
 
 if.end27.i153:                                    ; preds = %if.end27.sink.split.i156, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i150
   %cmp.i.not.i154 = icmp eq ptr %28, %_internalSlots
-  br i1 %cmp.i.not.i154, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit169, label %for.body.i123, !llvm.loop !16
+  br i1 %cmp.i.not.i154, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit169, label %for.body.i123, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit169: ; preds = %if.end27.i153, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit169: ; preds = %if.end27.i153, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit120
   ret void
 }
 
@@ -22258,7 +22258,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -22326,7 +22326,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_value, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i31
@@ -22394,7 +22394,7 @@ if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, %if.end5.sink.split.i59
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %_variance, align 8
-  %call21 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call21 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call21, 0
   %12 = extractvalue { ptr, i8 } %call21, 1
   br label %for.body.i.i.i66
@@ -22468,7 +22468,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -22542,7 +22542,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -22610,7 +22610,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_value, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i19
@@ -22684,7 +22684,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_value = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -22758,7 +22758,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -22826,7 +22826,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_key = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_key, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i19
@@ -22894,7 +22894,7 @@ if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, %if.end5.sink.split.i47
   %_value = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_value, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i54
@@ -22962,7 +22962,7 @@ if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, %if.end5.sink.split.i82
   %_variance = getelementptr inbounds i8, ptr %node, i64 80
   %15 = load ptr, ptr %_variance, align 8
-  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call12 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call12, 0
   %17 = extractvalue { ptr, i8 } %call12, 1
   br label %for.body.i.i.i89
@@ -23036,7 +23036,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_keyTparam = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_keyTparam, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -23104,7 +23104,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_propType = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_propType, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i19
@@ -23172,7 +23172,7 @@ if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, %if.end5.sink.split.i47
   %_sourceType = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_sourceType, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i54
@@ -23240,7 +23240,7 @@ if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, %if.end5.sink.split.i82
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load ptr, ptr %_variance, align 8
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call10, 0
   %17 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i.i89
@@ -23314,7 +23314,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_bound = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_bound, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -23382,7 +23382,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_variance = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %_variance, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call6, 0
   %7 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i19
@@ -23450,7 +23450,7 @@ if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, %if.end5.sink.split.i47
   %_default = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %_default, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call9, 0
   %12 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i54
@@ -23524,7 +23524,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -23592,7 +23592,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -23666,7 +23666,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -23734,7 +23734,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -23808,7 +23808,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_value = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -23882,7 +23882,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -23950,7 +23950,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_body, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -24024,7 +24024,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -24098,7 +24098,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -24166,7 +24166,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_init = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_init, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -24240,7 +24240,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -24308,7 +24308,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_init = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_init, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -24382,7 +24382,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -24450,7 +24450,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_init = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_init, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -24524,7 +24524,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -24592,7 +24592,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_local = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_local, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -24666,7 +24666,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -24740,7 +24740,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_literal = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_literal, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -24814,7 +24814,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -24882,7 +24882,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_indexType, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -24956,7 +24956,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_elementType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elementType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -25030,7 +25030,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeName, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -25098,7 +25098,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -25172,7 +25172,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -25240,7 +25240,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_right, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -25316,7 +25316,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -25327,7 +25327,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i46
@@ -25410,19 +25410,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_returnType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -25483,7 +25483,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_typeParameters, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i11
@@ -25559,7 +25559,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -25570,7 +25570,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i46
@@ -25653,19 +25653,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_returnType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -25726,7 +25726,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_typeParameters, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i11
@@ -25800,7 +25800,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -25868,7 +25868,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -25942,7 +25942,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -26010,7 +26010,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_expression = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_expression, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -26084,7 +26084,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -26152,7 +26152,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -26226,7 +26226,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_parameter = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameter, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -26300,7 +26300,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -26368,7 +26368,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -26436,7 +26436,7 @@ if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, %if.end5.sink.split.i39
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_typeAnnotation, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i46
@@ -26510,7 +26510,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -26578,7 +26578,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_body, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -26648,7 +26648,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %10 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %10, %_extends
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %11, %if.end27.i ], [ %10, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ]
@@ -26659,7 +26659,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i85
@@ -26742,19 +26742,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
   %19 = load ptr, ptr %_typeParameters, align 8
-  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
+  %call9 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %19)
   %20 = extractvalue { ptr, i8 } %call9, 0
   %21 = extractvalue { ptr, i8 } %call9, 1
   br label %for.body.i.i.i50
 
-for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
-  %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
+for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
+  %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
   %arrayidx.i.i.i53 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
   %22 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %22 to i1
@@ -26821,7 +26821,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -26889,7 +26889,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeParameters, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -26963,7 +26963,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -27033,7 +27033,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_members
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -27044,7 +27044,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i7
@@ -27127,9 +27127,9 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_members
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   ret void
 }
 
@@ -27138,7 +27138,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -27206,7 +27206,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_initializer = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_initializer, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -27280,7 +27280,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -27348,7 +27348,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_body, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -27422,7 +27422,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -27490,7 +27490,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_initializer = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_initializer, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i7
@@ -27564,7 +27564,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -27632,7 +27632,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_constraint = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_constraint, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -27700,7 +27700,7 @@ if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, %if.end5.sink.split.i39
   %_default = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_default, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i46
@@ -27774,7 +27774,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_exprName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exprName, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -27848,7 +27848,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_checkType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -27916,7 +27916,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_extendsType, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i15
@@ -27984,7 +27984,7 @@ if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, %if.end5.sink.split.i43
   %_trueType = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_trueType, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i50
@@ -28052,7 +28052,7 @@ if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, %if.end5.sink.split.i78
   %_falseType = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load ptr, ptr %_falseType, align 8
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %15)
   %16 = extractvalue { ptr, i8 } %call10, 0
   %17 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i.i85
@@ -28126,7 +28126,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -28194,7 +28194,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_typeAnnotation, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i31
@@ -28262,7 +28262,7 @@ if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, %if.end5.sink.split.i59
   %_initializer = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load ptr, ptr %_initializer, align 8
-  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
+  %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %10)
   %11 = extractvalue { ptr, i8 } %call7, 0
   %12 = extractvalue { ptr, i8 } %call7, 1
   br label %for.body.i.i.i66
@@ -28336,7 +28336,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -28406,7 +28406,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %5 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %5, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %6, %if.end27.i ], [ %5, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ]
@@ -28417,7 +28417,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i50
@@ -28500,19 +28500,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_returnType = getelementptr inbounds i8, ptr %node, i64 72
   %14 = load ptr, ptr %_returnType, align 8
-  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
+  %call6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %14)
   %15 = extractvalue { ptr, i8 } %call6, 0
   %16 = extractvalue { ptr, i8 } %call6, 1
   br label %for.body.i.i.i15
 
-for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
-  %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
+for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
+  %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
   %arrayidx.i.i.i18 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
@@ -28581,7 +28581,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_parameters
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -28592,7 +28592,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i7
@@ -28675,19 +28675,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_parameters
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -28756,7 +28756,7 @@ entry:
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %_params
-  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.05.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
@@ -28767,7 +28767,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05.i, i8 0, i64 16, i1 false)
-  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
+  %call10.i = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05.i)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
   br label %for.body.i.i.i7
@@ -28850,19 +28850,19 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit, label %for.body.i, !llvm.loop !16
 
-_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
+_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit: ; preds = %if.end27.i, %entry
   %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_returnType, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %9)
   %10 = extractvalue { ptr, i8 } %call, 0
   %11 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
-  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit
+  %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
+  %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
@@ -28929,7 +28929,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_init = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_init, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -29003,7 +29003,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_rest = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_rest, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -29077,7 +29077,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
+  %call = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %0)
   %1 = extractvalue { ptr, i8 } %call, 0
   %2 = extractvalue { ptr, i8 } %call, 1
   br label %for.body.i.i.i
@@ -29145,7 +29145,7 @@ if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit: ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %if.end5.sink.split.i
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_right, align 8
-  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
+  %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %5)
   %6 = extractvalue { ptr, i8 } %call4, 0
   %7 = extractvalue { ptr, i8 } %call4, 1
   br label %for.body.i.i.i11
@@ -29215,7 +29215,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull readonly align 8 dereferenceable(16) %list) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull readonly align 8 dereferenceable(16) %list) unnamed_addr #0 align 2 {
 entry:
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -29231,7 +29231,7 @@ for.body:                                         ; preds = %entry, %if.end27
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.05, i8 0, i64 16, i1 false)
-  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05)
+  %call10 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull %it.sroa.0.05)
   %3 = extractvalue { ptr, i8 } %call10, 0
   %4 = extractvalue { ptr, i8 } %call10, 1
   br label %for.body.i.i
@@ -29400,15 +29400,15 @@ if.end16:                                         ; preds = %if.end12
 
 if.then.i.i.i.i:                                  ; preds = %if.end16
   %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end16
   %add14.i.i.i.i = add i64 %13, %9
   %14 = inttoptr i64 %add14.i.i.i.i to ptr
   store i64 %add.i.i.i.i, ptr %offset8.i.i.i.i, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %14, %if.end.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
@@ -29450,17 +29450,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit: ; pr
   %cmp9.i.i.i.i52 = icmp ugt i64 %add.i.i.i.i51, 262144
   br i1 %cmp9.i.i.i.i52, label %if.then.i.i.i.i57, label %if.end.i.i.i.i53
 
-if.then.i.i.i.i57:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit
+if.then.i.i.i.i57:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit
   %call11.i.i.i.i58 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val31, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit
 
-if.end.i.i.i.i53:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit
+if.end.i.i.i.i53:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit
   %add14.i.i.i.i54 = add i64 %24, %20
   %25 = inttoptr i64 %add14.i.i.i.i54 to ptr
   store i64 %add.i.i.i.i51, ptr %offset8.i.i.i.i50, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit: ; preds = %if.then.i.i.i.i57, %if.end.i.i.i.i53
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i.i.i.i57, %if.end.i.i.i.i53
   %retval.0.i.i.i.i55 = phi ptr [ %call11.i.i.i.i58, %if.then.i.i.i.i57 ], [ %25, %if.end.i.i.i.i53 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i55, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i55, i64 16
@@ -29498,7 +29498,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPN
   %cmp31.not = icmp eq ptr %28, %29
   br i1 %cmp31.not, label %if.end47, label %if.then32
 
-if.then32:                                        ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit
+if.then32:                                        ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit
   %30 = load ptr, ptr %identLet_, align 8
   %this.val32 = load ptr, ptr %this, align 8
   %state_.i.i.i.i63 = getelementptr inbounds i8, ptr %this.val32, i64 24
@@ -29525,15 +29525,15 @@ if.then32:                                        ; preds = %_ZN6hermes3sem12_GL
 
 if.then.i.i.i.i82:                                ; preds = %if.then32
   %call11.i.i.i.i83 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val32, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit84
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit84
 
 if.end.i.i.i.i74:                                 ; preds = %if.then32
   %add14.i.i.i.i75 = add i64 %39, %35
   %40 = inttoptr i64 %add14.i.i.i.i75 to ptr
   store i64 %add.i.i.i.i72, ptr %offset8.i.i.i.i71, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit84
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit84
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit84: ; preds = %if.then.i.i.i.i82, %if.end.i.i.i.i74
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit84: ; preds = %if.then.i.i.i.i82, %if.end.i.i.i.i74
   %retval.0.i.i.i.i76 = phi ptr [ %call11.i.i.i.i83, %if.then.i.i.i.i82 ], [ %40, %if.end.i.i.i.i74 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i76, i8 0, i64 16, i1 false)
   %kind_.i.i.i77 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i76, i64 16
@@ -29551,15 +29551,15 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vector_.i, i8 0, i64 24, i1 false)
   %_id = getelementptr inbounds i8, ptr %3, i64 56
   %41 = load ptr, ptr %_id, align 8
-  call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE(ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(48) %ids)
+  call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE.argprom(ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(48) %ids)
   %42 = load ptr, ptr %vector_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ids, i64 32
   %43 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not233 = icmp eq ptr %42, %43
   br i1 %cmp.i.not233, label %for.end, label %for.body
 
-for.body:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit84, %for.body
-  %__begin4.sroa.0.0234 = phi ptr [ %incdec.ptr.i, %for.body ], [ %42, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit84 ]
+for.body:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit84, %for.body
+  %__begin4.sroa.0.0234 = phi ptr [ %incdec.ptr.i, %for.body ], [ %42, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit84 ]
   %44 = load ptr, ptr %__begin4.sroa.0.0234, align 8
   %call42 = call fastcc noundef ptr @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17makeVarDeclaratorEPNS_12UniqueStringEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %44, ptr noundef null)
   %45 = load ptr, ptr %_declarations.i.i80, align 8
@@ -29573,7 +29573,7 @@ for.body:                                         ; preds = %_ZN6hermes3sem12_GL
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %43
   br i1 %cmp.i.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %for.body, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit84
+for.end:                                          ; preds = %for.body, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit84
   %tobool.not.i88 = icmp eq ptr %call22, null
   br i1 %tobool.not.i88, label %if.end.i, label %if.then.i
 
@@ -29603,15 +29603,15 @@ if.then.i:                                        ; preds = %for.end
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
   %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val.i, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit.i
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i
   %add14.i.i.i.i.i = add i64 %54, %50
   %55 = inttoptr i64 %add14.i.i.i.i.i to ptr
   store i64 %add.i.i.i.i.i, ptr %offset8.i.i.i.i.i, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit.i
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit.i
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit.i: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit.i: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %55, %if.end.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i89 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
@@ -29626,8 +29626,8 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   store i8 0, ptr %_optional.i.i.i, align 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit.i, %for.end
-  %labelNode.0.i = phi ptr [ %retval.0.i.i.i.i.i, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit.i ], [ null, %for.end ]
+if.end.i:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit.i, %for.end
+  %labelNode.0.i = phi ptr [ %retval.0.i.i.i.i.i, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit.i ], [ null, %for.end ]
   %56 = load ptr, ptr %this, align 8
   %state_.i.i.i.i91 = getelementptr inbounds i8, ptr %56, i64 24
   %57 = load ptr, ptr %state_.i.i.i.i91, align 8
@@ -29695,7 +29695,7 @@ _ZN4llvh9SetVectorIPN6hermes12UniqueStringESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_
   call void @_ZdlPv(ptr noundef %70) #12
   br label %if.end47
 
-if.end47:                                         ; preds = %_ZN4llvh9SetVectorIPN6hermes12UniqueStringESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit
+if.end47:                                         ; preds = %_ZN4llvh9SetVectorIPN6hermes12UniqueStringESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit
   %this.val33 = load ptr, ptr %this, align 8
   %state_.i.i.i.i112 = getelementptr inbounds i8, ptr %this.val33, i64 24
   %71 = load ptr, ptr %state_.i.i.i.i112, align 8
@@ -29721,15 +29721,15 @@ if.end47:                                         ; preds = %_ZN4llvh9SetVectorI
 
 if.then.i.i.i.i128:                               ; preds = %if.end47
   %call11.i.i.i.i129 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val33, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
 
 if.end.i.i.i.i123:                                ; preds = %if.end47
   %add14.i.i.i.i124 = add i64 %79, %75
   %80 = inttoptr i64 %add14.i.i.i.i124 to ptr
   store i64 %add.i.i.i.i121, ptr %offset8.i.i.i.i120, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit: ; preds = %if.then.i.i.i.i128, %if.end.i.i.i.i123
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i.i.i.i128, %if.end.i.i.i.i123
   %retval.0.i.i.i.i125 = phi ptr [ %call11.i.i.i.i129, %if.then.i.i.i.i128 ], [ %80, %if.end.i.i.i.i123 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i125, i8 0, i64 16, i1 false)
   %kind_.i.i.i126 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i125, i64 16
@@ -29766,17 +29766,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i140 = icmp ugt i64 %add.i.i.i.i139, 262144
   br i1 %cmp9.i.i.i.i140, label %if.then.i.i.i.i149, label %if.end.i.i.i.i141
 
-if.then.i.i.i.i149:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+if.then.i.i.i.i149:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
   %call11.i.i.i.i150 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val34, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit151
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit151
 
-if.end.i.i.i.i141:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+if.end.i.i.i.i141:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
   %add14.i.i.i.i142 = add i64 %89, %85
   %90 = inttoptr i64 %add14.i.i.i.i142 to ptr
   store i64 %add.i.i.i.i139, ptr %offset8.i.i.i.i138, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit151
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit151
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit151: ; preds = %if.then.i.i.i.i149, %if.end.i.i.i.i141
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit151: ; preds = %if.then.i.i.i.i149, %if.end.i.i.i.i141
   %retval.0.i.i.i.i143 = phi ptr [ %call11.i.i.i.i150, %if.then.i.i.i.i149 ], [ %90, %if.end.i.i.i.i141 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i143, i8 0, i64 16, i1 false)
   %kind_.i.i.i144 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i143, i64 16
@@ -29813,17 +29813,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i162 = icmp ugt i64 %add.i.i.i.i161, 262144
   br i1 %cmp9.i.i.i.i162, label %if.then.i.i.i.i173, label %if.end.i.i.i.i163
 
-if.then.i.i.i.i173:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit151
+if.then.i.i.i.i173:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit151
   %call11.i.i.i.i174 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val30, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit175
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit175
 
-if.end.i.i.i.i163:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit151
+if.end.i.i.i.i163:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit151
   %add14.i.i.i.i164 = add i64 %99, %95
   %100 = inttoptr i64 %add14.i.i.i.i164 to ptr
   store i64 %add.i.i.i.i161, ptr %offset8.i.i.i.i160, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit175
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit175
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit175: ; preds = %if.then.i.i.i.i173, %if.end.i.i.i.i163
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit175: ; preds = %if.then.i.i.i.i173, %if.end.i.i.i.i163
   %retval.0.i.i.i.i165 = phi ptr [ %call11.i.i.i.i174, %if.then.i.i.i.i173 ], [ %100, %if.end.i.i.i.i163 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i165, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i166 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i165, i64 16
@@ -29873,11 +29873,11 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit175: ;
   %cmp9.i.i.i.i189 = icmp ugt i64 %add.i.i.i.i188, 262144
   br i1 %cmp9.i.i.i.i189, label %if.then.i.i.i.i217, label %if.end.i.i.i.i190
 
-if.then.i.i.i.i217:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit175
+if.then.i.i.i.i217:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit175
   %call11.i.i.i.i218 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %102, i64 noundef 72, i64 noundef 8) #12
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
-if.end.i.i.i.i190:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit175
+if.end.i.i.i.i190:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit175
   %add14.i.i.i.i191 = add i64 %111, %107
   %112 = inttoptr i64 %add14.i.i.i.i191 to ptr
   store i64 %add.i.i.i.i188, ptr %offset8.i.i.i.i187, align 8
@@ -30018,15 +30018,15 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
   %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
   %add14.i.i.i.i = add i64 %19, %15
   %20 = inttoptr i64 %add14.i.i.i.i to ptr
   store i64 %add.i.i.i.i, ptr %offset8.i.i.i.i, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %20, %if.end.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
@@ -30052,7 +30052,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE(ptr noundef %node, ptr noundef nonnull align 8 dereferenceable(48) %ids) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE.argprom(ptr noundef %node, ptr noundef nonnull align 8 dereferenceable(48) %ids) unnamed_addr #0 align 2 {
 entry:
   br label %tailrecurse
 
@@ -30088,7 +30088,7 @@ sw.bb8:                                           ; preds = %tailrecurse
 
 for.body:                                         ; preds = %sw.bb8, %for.body
   %__begin4.sroa.0.016 = phi ptr [ %__begin4.sroa.0.0, %for.body ], [ %__begin4.sroa.0.014, %sw.bb8 ]
-  tail call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE(ptr noundef nonnull %__begin4.sroa.0.016, ptr noundef nonnull align 8 dereferenceable(48) %ids)
+  tail call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE.argprom(ptr noundef nonnull %__begin4.sroa.0.016, ptr noundef nonnull align 8 dereferenceable(48) %ids)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.016, i64 8
   %__begin4.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.sroa.0.0, %_properties
@@ -30103,7 +30103,7 @@ sw.bb17:                                          ; preds = %tailrecurse
 
 for.body28:                                       ; preds = %sw.bb17, %for.body28
   %__begin420.sroa.0.013 = phi ptr [ %__begin420.sroa.0.0, %for.body28 ], [ %__begin420.sroa.0.011, %sw.bb17 ]
-  tail call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE(ptr noundef nonnull %__begin420.sroa.0.013, ptr noundef nonnull align 8 dereferenceable(48) %ids)
+  tail call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE.argprom(ptr noundef nonnull %__begin420.sroa.0.013, ptr noundef nonnull align 8 dereferenceable(48) %ids)
   %Next.i.i.i16 = getelementptr inbounds i8, ptr %__begin420.sroa.0.013, i64 8
   %__begin420.sroa.0.0 = load ptr, ptr %Next.i.i.i16, align 8
   %cmp.i15.not = icmp eq ptr %__begin420.sroa.0.0, %_elements
@@ -30599,15 +30599,15 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.then.i.i.i.i:                                  ; preds = %if.end
   %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val39, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end
   %add14.i.i.i.i = add i64 %12, %8
   %13 = inttoptr i64 %add14.i.i.i.i to ptr
   store i64 %add.i.i.i.i, ptr %offset8.i.i.i.i, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %13, %if.end.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
@@ -30647,17 +30647,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit: ; pr
   %cmp9.i.i.i.i72 = icmp ugt i64 %add.i.i.i.i71, 262144
   br i1 %cmp9.i.i.i.i72, label %if.then.i.i.i.i83, label %if.end.i.i.i.i73
 
-if.then.i.i.i.i83:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit
+if.then.i.i.i.i83:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit
   %call11.i.i.i.i84 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit85
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit85
 
-if.end.i.i.i.i73:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit
+if.end.i.i.i.i73:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit
   %add14.i.i.i.i74 = add i64 %22, %18
   %23 = inttoptr i64 %add14.i.i.i.i74 to ptr
   store i64 %add.i.i.i.i71, ptr %offset8.i.i.i.i70, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit85
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit85
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit85: ; preds = %if.then.i.i.i.i83, %if.end.i.i.i.i73
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit85: ; preds = %if.then.i.i.i.i83, %if.end.i.i.i.i73
   %retval.0.i.i.i.i75 = phi ptr [ %call11.i.i.i.i84, %if.then.i.i.i.i83 ], [ %23, %if.end.i.i.i.i73 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i75, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i76 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i75, i64 16
@@ -30704,17 +30704,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit85: ; 
   %cmp9.i.i.i.i96 = icmp ugt i64 %add.i.i.i.i95, 262144
   br i1 %cmp9.i.i.i.i96, label %if.then.i.i.i.i101, label %if.end.i.i.i.i97
 
-if.then.i.i.i.i101:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit85
+if.then.i.i.i.i101:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit85
   %call11.i.i.i.i102 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val41, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit
 
-if.end.i.i.i.i97:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.exit85
+if.end.i.i.i.i97:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBlockEv.argprom.exit85
   %add14.i.i.i.i98 = add i64 %35, %31
   %36 = inttoptr i64 %add14.i.i.i.i98 to ptr
   store i64 %add.i.i.i.i95, ptr %offset8.i.i.i.i94, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit: ; preds = %if.then.i.i.i.i101, %if.end.i.i.i.i97
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i.i.i.i101, %if.end.i.i.i.i97
   %retval.0.i.i.i.i99 = phi ptr [ %call11.i.i.i.i102, %if.then.i.i.i.i101 ], [ %36, %if.end.i.i.i.i97 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i99, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i99, i64 16
@@ -30751,17 +30751,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPN
   %cmp9.i.i.i.i113 = icmp ugt i64 %add.i.i.i.i112, 262144
   br i1 %cmp9.i.i.i.i113, label %if.then.i.i.i.i122, label %if.end.i.i.i.i114
 
-if.then.i.i.i.i122:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit
+if.then.i.i.i.i122:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit
   %call11.i.i.i.i123 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val40, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit124
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit124
 
-if.end.i.i.i.i114:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit
+if.end.i.i.i.i114:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit
   %add14.i.i.i.i115 = add i64 %46, %42
   %47 = inttoptr i64 %add14.i.i.i.i115 to ptr
   store i64 %add.i.i.i.i112, ptr %offset8.i.i.i.i111, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit124
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit124
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit124: ; preds = %if.then.i.i.i.i122, %if.end.i.i.i.i114
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit124: ; preds = %if.then.i.i.i.i122, %if.end.i.i.i.i114
   %retval.0.i.i.i.i116 = phi ptr [ %call11.i.i.i.i123, %if.then.i.i.i.i122 ], [ %47, %if.end.i.i.i.i114 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i116, i8 0, i64 16, i1 false)
   %kind_.i.i.i117 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i116, i64 16
@@ -30797,17 +30797,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPN
   %cmp9.i.i.i.i135 = icmp ugt i64 %add.i.i.i.i134, 262144
   br i1 %cmp9.i.i.i.i135, label %if.then.i.i.i.i142, label %if.end.i.i.i.i136
 
-if.then.i.i.i.i142:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit124
+if.then.i.i.i.i142:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit124
   %call11.i.i.i.i143 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val49, i64 noundef 64, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.argprom.exit
 
-if.end.i.i.i.i136:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.exit124
+if.end.i.i.i.i136:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeVarDeclarationEPNS_12UniqueStringE.argprom.exit124
   %add14.i.i.i.i137 = add i64 %56, %52
   %57 = inttoptr i64 %add14.i.i.i.i137 to ptr
   store i64 %add.i.i.i.i134, ptr %offset8.i.i.i.i133, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.exit: ; preds = %if.then.i.i.i.i142, %if.end.i.i.i.i136
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.argprom.exit: ; preds = %if.then.i.i.i.i142, %if.end.i.i.i.i136
   %retval.0.i.i.i.i138 = phi ptr [ %call11.i.i.i.i143, %if.then.i.i.i.i142 ], [ %57, %if.end.i.i.i.i136 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i138, i8 0, i64 16, i1 false)
   %kind_.i.i.i139 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i138, i64 16
@@ -30825,8 +30825,8 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressio
   %cmp.i.not753 = icmp eq ptr %__begin3.sroa.0.0752, %_declarations
   br i1 %cmp.i.not753, label %for.end, label %for.body
 
-for.body:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.exit, %for.body
-  %__begin3.sroa.0.0754 = phi ptr [ %__begin3.sroa.0.0, %for.body ], [ %__begin3.sroa.0.0752, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.exit ]
+for.body:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.argprom.exit, %for.body
+  %__begin3.sroa.0.0754 = phi ptr [ %__begin3.sroa.0.0, %for.body ], [ %__begin3.sroa.0.0752, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.argprom.exit ]
   %_id = getelementptr inbounds i8, ptr %__begin3.sroa.0.0754, i64 56
   %58 = load ptr, ptr %_id, align 8
   call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22traverseForLexicalDeclEPNS_6ESTree4NodeERN4llvh8DenseMapIPNS_12UniqueStringES9_NS6_12DenseMapInfoIS9_EENS6_6detail12DenseMapPairIS9_S9_EEEEPNS3_23VariableDeclarationNodeESI_PNS3_22SequenceExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(20) %tempIds, ptr noundef %retval.0.i.i.i.i99, ptr noundef %retval.0.i.i.i.i116, ptr noundef %retval.0.i.i.i.i138)
@@ -30835,7 +30835,7 @@ for.body:                                         ; preds = %_ZN6hermes3sem12_GL
   %cmp.i.not = icmp eq ptr %__begin3.sroa.0.0, %_declarations
   br i1 %cmp.i.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %for.body, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.exit
+for.end:                                          ; preds = %for.body, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22makeSequenceExpressionEv.argprom.exit
   %59 = load ptr, ptr %_body.i.i, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %59, ptr %0, align 8
@@ -30919,15 +30919,15 @@ if.end.i:                                         ; preds = %if.end.i.i.i.i157, 
 
 if.then.i.i.i.i180:                               ; preds = %if.end.i
   %call11.i.i.i.i181 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val50, i64 noundef 64, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit
 
 if.end.i.i.i.i175:                                ; preds = %if.end.i
   %add14.i.i.i.i176 = add i64 %79, %75
   %80 = inttoptr i64 %add14.i.i.i.i176 to ptr
   store i64 %add.i.i.i.i173, ptr %offset8.i.i.i.i172, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit: ; preds = %if.then.i.i.i.i180, %if.end.i.i.i.i175
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit: ; preds = %if.then.i.i.i.i180, %if.end.i.i.i.i175
   %retval.0.i.i.i.i177 = phi ptr [ %call11.i.i.i.i181, %if.then.i.i.i.i180 ], [ %80, %if.end.i.i.i.i175 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i177, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i178 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i177, i64 16
@@ -30968,17 +30968,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTr
   %cmp9.i.i.i.i194 = icmp ugt i64 %add.i.i.i.i193, 262144
   br i1 %cmp9.i.i.i.i194, label %if.then.i.i.i.i200, label %if.end.i.i.i.i195
 
-if.then.i.i.i.i200:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit
+if.then.i.i.i.i200:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit
   %call11.i.i.i.i201 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val54, i64 noundef 88, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.argprom.exit
 
-if.end.i.i.i.i195:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit
+if.end.i.i.i.i195:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit
   %add14.i.i.i.i196 = add i64 %90, %86
   %91 = inttoptr i64 %add14.i.i.i.i196 to ptr
   store i64 %add.i.i.i.i193, ptr %offset8.i.i.i.i192, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.exit: ; preds = %if.then.i.i.i.i200, %if.end.i.i.i.i195
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.argprom.exit: ; preds = %if.then.i.i.i.i200, %if.end.i.i.i.i195
   %retval.0.i.i.i.i198 = phi ptr [ %call11.i.i.i.i201, %if.then.i.i.i.i200 ], [ %91, %if.end.i.i.i.i195 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i198, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i198, i64 16
@@ -31008,7 +31008,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4No
   %tobool25.not = icmp eq ptr %25, null
   br i1 %tobool25.not, label %if.end41, label %if.then26
 
-if.then26:                                        ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.exit
+if.then26:                                        ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.argprom.exit
   %internalIDs_ = getelementptr inbounds i8, ptr %this, i64 8
   %call27 = call ptr @_ZN6hermes23InternalIdentifierMaker4nextEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %internalIDs_, ptr nonnull @.str.11, i64 5) #12
   %this.val55 = load ptr, ptr %this, align 8
@@ -31036,15 +31036,15 @@ if.then26:                                        ; preds = %_ZN6hermes3sem12_GL
 
 if.then.i.i.i.i223:                               ; preds = %if.then26
   %call11.i.i.i.i224 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val55, i64 noundef 56, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit
 
 if.end.i.i.i.i217:                                ; preds = %if.then26
   %add14.i.i.i.i218 = add i64 %103, %99
   %104 = inttoptr i64 %add14.i.i.i.i218 to ptr
   store i64 %add.i.i.i.i215, ptr %offset8.i.i.i.i214, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit: ; preds = %if.then.i.i.i.i223, %if.end.i.i.i.i217
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit: ; preds = %if.then.i.i.i.i223, %if.end.i.i.i.i217
   %retval.0.i.i.i.i220 = phi ptr [ %call11.i.i.i.i224, %if.then.i.i.i.i223 ], [ %104, %if.end.i.i.i.i217 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i220, i8 0, i64 16, i1 false)
   %kind_.i.i.i221 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i220, i64 16
@@ -31084,17 +31084,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.
   %cmp9.i.i.i.i237 = icmp ugt i64 %add.i.i.i.i236, 262144
   br i1 %cmp9.i.i.i.i237, label %if.then.i.i.i.i247, label %if.end.i.i.i.i238
 
-if.then.i.i.i.i247:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit
+if.then.i.i.i.i247:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit
   %call11.i.i.i.i248 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val47, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit249
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit249
 
-if.end.i.i.i.i238:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit
+if.end.i.i.i.i238:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit
   %add14.i.i.i.i239 = add i64 %114, %110
   %115 = inttoptr i64 %add14.i.i.i.i239 to ptr
   store i64 %add.i.i.i.i236, ptr %offset8.i.i.i.i235, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit249
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit249
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit249: ; preds = %if.then.i.i.i.i247, %if.end.i.i.i.i238
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit249: ; preds = %if.then.i.i.i.i247, %if.end.i.i.i.i238
   %retval.0.i.i.i.i241 = phi ptr [ %call11.i.i.i.i248, %if.then.i.i.i.i247 ], [ %115, %if.end.i.i.i.i238 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i241, i8 0, i64 16, i1 false)
   %kind_.i.i.i242 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i241, i64 16
@@ -31130,17 +31130,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i260 = icmp ugt i64 %add.i.i.i.i259, 262144
   br i1 %cmp9.i.i.i.i260, label %if.then.i.i.i.i270, label %if.end.i.i.i.i261
 
-if.then.i.i.i.i270:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit249
+if.then.i.i.i.i270:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit249
   %call11.i.i.i.i271 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val46, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit272
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit272
 
-if.end.i.i.i.i261:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit249
+if.end.i.i.i.i261:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit249
   %add14.i.i.i.i262 = add i64 %124, %120
   %125 = inttoptr i64 %add14.i.i.i.i262 to ptr
   store i64 %add.i.i.i.i259, ptr %offset8.i.i.i.i258, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit272
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit272
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit272: ; preds = %if.then.i.i.i.i270, %if.end.i.i.i.i261
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit272: ; preds = %if.then.i.i.i.i270, %if.end.i.i.i.i261
   %retval.0.i.i.i.i264 = phi ptr [ %call11.i.i.i.i271, %if.then.i.i.i.i270 ], [ %125, %if.end.i.i.i.i261 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i264, i8 0, i64 16, i1 false)
   %kind_.i.i.i265 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i264, i64 16
@@ -31176,17 +31176,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i283 = icmp ugt i64 %add.i.i.i.i282, 262144
   br i1 %cmp9.i.i.i.i283, label %if.then.i.i.i.i291, label %if.end.i.i.i.i284
 
-if.then.i.i.i.i291:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit272
+if.then.i.i.i.i291:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit272
   %call11.i.i.i.i292 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val56, i64 noundef 56, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit293
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit293
 
-if.end.i.i.i.i284:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit272
+if.end.i.i.i.i284:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit272
   %add14.i.i.i.i285 = add i64 %134, %130
   %135 = inttoptr i64 %add14.i.i.i.i285 to ptr
   store i64 %add.i.i.i.i282, ptr %offset8.i.i.i.i281, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit293
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit293
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit293: ; preds = %if.then.i.i.i.i291, %if.end.i.i.i.i284
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit293: ; preds = %if.then.i.i.i.i291, %if.end.i.i.i.i284
   %retval.0.i.i.i.i287 = phi ptr [ %call11.i.i.i.i292, %if.then.i.i.i.i291 ], [ %135, %if.end.i.i.i.i284 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i287, i8 0, i64 16, i1 false)
   %kind_.i.i.i288 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i287, i64 16
@@ -31216,11 +31216,11 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.
   %cmp9.i.i.i.i304 = icmp ugt i64 %add.i.i.i.i303, 262144
   br i1 %cmp9.i.i.i.i304, label %if.then.i.i.i.i311, label %if.end.i.i.i.i305
 
-if.then.i.i.i.i311:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit293
+if.then.i.i.i.i311:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit293
   %call11.i.i.i.i312 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %136, i64 noundef 72, i64 noundef 8) #12
   br label %if.end.i317
 
-if.end.i.i.i.i305:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit293
+if.end.i.i.i.i305:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit293
   %add14.i.i.i.i306 = add i64 %145, %141
   %146 = inttoptr i64 %add14.i.i.i.i306 to ptr
   store i64 %add.i.i.i.i303, ptr %offset8.i.i.i.i302, align 8
@@ -31266,15 +31266,15 @@ if.end.i317:                                      ; preds = %if.end.i.i.i.i305, 
 
 if.then.i.i.i.i337:                               ; preds = %if.end.i317
   %call11.i.i.i.i338 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val51, i64 noundef 64, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit339
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit339
 
 if.end.i.i.i.i329:                                ; preds = %if.end.i317
   %add14.i.i.i.i330 = add i64 %156, %152
   %157 = inttoptr i64 %add14.i.i.i.i330 to ptr
   store i64 %add.i.i.i.i327, ptr %offset8.i.i.i.i326, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit339
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit339
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit339: ; preds = %if.then.i.i.i.i337, %if.end.i.i.i.i329
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit339: ; preds = %if.then.i.i.i.i337, %if.end.i.i.i.i329
   %retval.0.i.i.i.i332 = phi ptr [ %call11.i.i.i.i338, %if.then.i.i.i.i337 ], [ %157, %if.end.i.i.i.i329 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i332, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i333 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i332, i64 16
@@ -31290,9 +31290,9 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTr
   %158 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i340, align 8
   %159 = add i32 %158, -30
   %160 = icmp ult i32 %159, -20
-  br i1 %160, label %if.end.i344, label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit366
+  br i1 %160, label %if.end.i344, label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit366
 
-if.end.i344:                                      ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit339
+if.end.i344:                                      ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit339
   %state_.i.i.i.i345 = getelementptr inbounds i8, ptr %this.val52, i64 24
   %161 = load ptr, ptr %state_.i.i.i.i345, align 8
   %162 = load i32, ptr %161, align 8
@@ -31337,11 +31337,11 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i358: ; preds = %if.end.i.i.i.i356
   %_directive.i.i363 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i359, i64 56
   store ptr null, ptr %_directive.i.i363, align 8
   %this.val59.pre = load ptr, ptr %this, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit366
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit366
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit366: ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit339, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i358
-  %this.val59 = phi ptr [ %this.val59.pre, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i358 ], [ %this.val52, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit339 ]
-  %retval.0.i343 = phi ptr [ %retval.0.i.i.i.i359, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i358 ], [ %25, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit339 ]
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit366: ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit339, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i358
+  %this.val59 = phi ptr [ %this.val59.pre, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i358 ], [ %this.val52, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit339 ]
+  %retval.0.i343 = phi ptr [ %retval.0.i.i.i.i359, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i358 ], [ %25, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit339 ]
   %state_.i.i.i.i367 = getelementptr inbounds i8, ptr %this.val59, i64 24
   %171 = load ptr, ptr %state_.i.i.i.i367, align 8
   %172 = load i32, ptr %171, align 8
@@ -31364,17 +31364,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTr
   %cmp9.i.i.i.i377 = icmp ugt i64 %add.i.i.i.i376, 262144
   br i1 %cmp9.i.i.i.i377, label %if.then.i.i.i.i384, label %if.end.i.i.i.i378
 
-if.then.i.i.i.i384:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit366
+if.then.i.i.i.i384:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit366
   %call11.i.i.i.i385 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val59, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit
 
-if.end.i.i.i.i378:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit366
+if.end.i.i.i.i378:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit366
   %add14.i.i.i.i379 = add i64 %179, %175
   %180 = inttoptr i64 %add14.i.i.i.i379 to ptr
   store i64 %add.i.i.i.i376, ptr %offset8.i.i.i.i375, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit: ; preds = %if.then.i.i.i.i384, %if.end.i.i.i.i378
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit: ; preds = %if.then.i.i.i.i384, %if.end.i.i.i.i378
   %retval.0.i.i.i.i381 = phi ptr [ %call11.i.i.i.i385, %if.then.i.i.i.i384 ], [ %180, %if.end.i.i.i.i378 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i381, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i382 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i381, i64 16
@@ -31396,7 +31396,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4Nod
   store ptr %retval.0.i.i.i.i381, ptr %_body.i.i81, align 8
   br label %if.end41
 
-if.end41:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.exit
+if.end41:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations7makeForEPNS_6ESTree4NodeES5_S5_S5_.argprom.exit
   %tobool42.not = icmp eq ptr %24, null
   br i1 %tobool42.not, label %if.end48, label %if.then43
 
@@ -31518,15 +31518,15 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12Unique
 
 if.then.i.i.i.i445:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12UniqueStringE.exit
   %call11.i.i.i.i446 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val60, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit447
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit447
 
 if.end.i.i.i.i436:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12UniqueStringE.exit
   %add14.i.i.i.i437 = add i64 %214, %210
   %215 = inttoptr i64 %add14.i.i.i.i437 to ptr
   store i64 %add.i.i.i.i434, ptr %offset8.i.i.i.i433, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit447
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit447
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit447: ; preds = %if.then.i.i.i.i445, %if.end.i.i.i.i436
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit447: ; preds = %if.then.i.i.i.i445, %if.end.i.i.i.i436
   %retval.0.i.i.i.i439 = phi ptr [ %call11.i.i.i.i446, %if.then.i.i.i.i445 ], [ %215, %if.end.i.i.i.i436 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i439, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i440 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i439, i64 16
@@ -31548,7 +31548,7 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4Nod
   store ptr %retval.0.i.i.i.i439, ptr %_body.i.i81, align 8
   br label %if.end48
 
-if.end48:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit447, %if.end41
+if.end48:                                         ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit447, %if.end41
   %internalIDs_50 = getelementptr inbounds i8, ptr %this, i64 8
   %call52 = call ptr @_ZN6hermes23InternalIdentifierMaker4nextEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %internalIDs_50, ptr nonnull @.str.12, i64 10) #12
   %call56 = call fastcc noundef ptr @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations17makeVarDeclaratorEPNS_12UniqueStringEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %call52, ptr noundef null)
@@ -31584,15 +31584,15 @@ if.end48:                                         ; preds = %_ZN6hermes3sem12_GL
 
 if.then.i.i.i.i472:                               ; preds = %if.end48
   %call11.i.i.i.i473 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val45, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit474
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit474
 
 if.end.i.i.i.i463:                                ; preds = %if.end48
   %add14.i.i.i.i464 = add i64 %226, %222
   %227 = inttoptr i64 %add14.i.i.i.i464 to ptr
   store i64 %add.i.i.i.i461, ptr %offset8.i.i.i.i460, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit474
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit474
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit474: ; preds = %if.then.i.i.i.i472, %if.end.i.i.i.i463
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit474: ; preds = %if.then.i.i.i.i472, %if.end.i.i.i.i463
   %retval.0.i.i.i.i466 = phi ptr [ %call11.i.i.i.i473, %if.then.i.i.i.i472 ], [ %227, %if.end.i.i.i.i463 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i466, i8 0, i64 16, i1 false)
   %kind_.i.i.i467 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i466, i64 16
@@ -31628,17 +31628,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i485 = icmp ugt i64 %add.i.i.i.i484, 262144
   br i1 %cmp9.i.i.i.i485, label %if.then.i.i.i.i493, label %if.end.i.i.i.i486
 
-if.then.i.i.i.i493:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit474
+if.then.i.i.i.i493:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit474
   %call11.i.i.i.i494 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val57, i64 noundef 56, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit495
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit495
 
-if.end.i.i.i.i486:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit474
+if.end.i.i.i.i486:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit474
   %add14.i.i.i.i487 = add i64 %236, %232
   %237 = inttoptr i64 %add14.i.i.i.i487 to ptr
   store i64 %add.i.i.i.i484, ptr %offset8.i.i.i.i483, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit495
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit495
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit495: ; preds = %if.then.i.i.i.i493, %if.end.i.i.i.i486
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit495: ; preds = %if.then.i.i.i.i493, %if.end.i.i.i.i486
   %retval.0.i.i.i.i489 = phi ptr [ %call11.i.i.i.i494, %if.then.i.i.i.i493 ], [ %237, %if.end.i.i.i.i486 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i489, i8 0, i64 16, i1 false)
   %kind_.i.i.i490 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i489, i64 16
@@ -31670,11 +31670,11 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.
   %cmp9.i.i.i.i506 = icmp ugt i64 %add.i.i.i.i505, 262144
   br i1 %cmp9.i.i.i.i506, label %if.then.i.i.i.i517, label %if.end.i.i.i.i507
 
-if.then.i.i.i.i517:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit495
+if.then.i.i.i.i517:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit495
   %call11.i.i.i.i518 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %238, i64 noundef 72, i64 noundef 8) #12
   br label %if.end.i524
 
-if.end.i.i.i.i507:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit495
+if.end.i.i.i.i507:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit495
   %add14.i.i.i.i508 = add i64 %247, %243
   %248 = inttoptr i64 %add14.i.i.i.i508 to ptr
   store i64 %add.i.i.i.i505, ptr %offset8.i.i.i.i504, align 8
@@ -31720,15 +31720,15 @@ if.end.i524:                                      ; preds = %if.end.i.i.i.i507, 
 
 if.then.i.i.i.i544:                               ; preds = %if.end.i524
   %call11.i.i.i.i545 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val53, i64 noundef 64, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit546
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit546
 
 if.end.i.i.i.i536:                                ; preds = %if.end.i524
   %add14.i.i.i.i537 = add i64 %258, %254
   %259 = inttoptr i64 %add14.i.i.i.i537 to ptr
   store i64 %add.i.i.i.i534, ptr %offset8.i.i.i.i533, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit546
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit546
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit546: ; preds = %if.then.i.i.i.i544, %if.end.i.i.i.i536
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit546: ; preds = %if.then.i.i.i.i544, %if.end.i.i.i.i536
   %retval.0.i.i.i.i539 = phi ptr [ %call11.i.i.i.i545, %if.then.i.i.i.i544 ], [ %259, %if.end.i.i.i.i536 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i539, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i540 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i539, i64 16
@@ -31769,17 +31769,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTr
   %cmp9.i.i.i.i559 = icmp ugt i64 %add.i.i.i.i558, 262144
   br i1 %cmp9.i.i.i.i559, label %if.then.i.i.i.i569, label %if.end.i.i.i.i560
 
-if.then.i.i.i.i569:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit546
+if.then.i.i.i.i569:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit546
   %call11.i.i.i.i570 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val44, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit571
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit571
 
-if.end.i.i.i.i560:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.exit546
+if.end.i.i.i.i560:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations11toStatementEPNS_6ESTree4NodeE.argprom.exit546
   %add14.i.i.i.i561 = add i64 %269, %265
   %270 = inttoptr i64 %add14.i.i.i.i561 to ptr
   store i64 %add.i.i.i.i558, ptr %offset8.i.i.i.i557, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit571
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit571
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit571: ; preds = %if.then.i.i.i.i569, %if.end.i.i.i.i560
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit571: ; preds = %if.then.i.i.i.i569, %if.end.i.i.i.i560
   %retval.0.i.i.i.i563 = phi ptr [ %call11.i.i.i.i570, %if.then.i.i.i.i569 ], [ %270, %if.end.i.i.i.i560 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i563, i8 0, i64 16, i1 false)
   %kind_.i.i.i564 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i563, i64 16
@@ -31815,17 +31815,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i582 = icmp ugt i64 %add.i.i.i.i581, 262144
   br i1 %cmp9.i.i.i.i582, label %if.then.i.i.i.i590, label %if.end.i.i.i.i583
 
-if.then.i.i.i.i590:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit571
+if.then.i.i.i.i590:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit571
   %call11.i.i.i.i591 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val58, i64 noundef 56, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit592
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit592
 
-if.end.i.i.i.i583:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit571
+if.end.i.i.i.i583:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit571
   %add14.i.i.i.i584 = add i64 %279, %275
   %280 = inttoptr i64 %add14.i.i.i.i584 to ptr
   store i64 %add.i.i.i.i581, ptr %offset8.i.i.i.i580, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit592
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit592
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit592: ; preds = %if.then.i.i.i.i590, %if.end.i.i.i.i583
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit592: ; preds = %if.then.i.i.i.i590, %if.end.i.i.i.i583
   %retval.0.i.i.i.i586 = phi ptr [ %call11.i.i.i.i591, %if.then.i.i.i.i590 ], [ %280, %if.end.i.i.i.i583 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i586, i8 0, i64 16, i1 false)
   %kind_.i.i.i587 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i586, i64 16
@@ -31855,11 +31855,11 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.
   %cmp9.i.i.i.i603 = icmp ugt i64 %add.i.i.i.i602, 262144
   br i1 %cmp9.i.i.i.i603, label %if.then.i.i.i.i614, label %if.end.i.i.i.i604
 
-if.then.i.i.i.i614:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit592
+if.then.i.i.i.i614:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit592
   %call11.i.i.i.i615 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %281, i64 noundef 72, i64 noundef 8) #12
   br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeAssignmentEPNS_6ESTree4NodeES5_.exit616
 
-if.end.i.i.i.i604:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.exit592
+if.end.i.i.i.i604:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18makeBooleanLiteralEb.argprom.exit592
   %add14.i.i.i.i605 = add i64 %290, %286
   %291 = inttoptr i64 %add14.i.i.i.i605 to ptr
   store i64 %add.i.i.i.i602, ptr %offset8.i.i.i.i601, align 8
@@ -31912,15 +31912,15 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeAssignmentEPNS_6E
 
 if.then.i.i.i.i639:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeAssignmentEPNS_6ESTree4NodeES5_.exit616
   %call11.i.i.i.i640 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val43, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit641
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit641
 
 if.end.i.i.i.i630:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeAssignmentEPNS_6ESTree4NodeES5_.exit616
   %add14.i.i.i.i631 = add i64 %303, %299
   %304 = inttoptr i64 %add14.i.i.i.i631 to ptr
   store i64 %add.i.i.i.i628, ptr %offset8.i.i.i.i627, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit641
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit641
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit641: ; preds = %if.then.i.i.i.i639, %if.end.i.i.i.i630
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit641: ; preds = %if.then.i.i.i.i639, %if.end.i.i.i.i630
   %retval.0.i.i.i.i633 = phi ptr [ %call11.i.i.i.i640, %if.then.i.i.i.i639 ], [ %304, %if.end.i.i.i.i630 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i633, i8 0, i64 16, i1 false)
   %kind_.i.i.i634 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i633, i64 16
@@ -31965,17 +31965,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i654 = icmp ugt i64 %add.i.i.i.i653, 262144
   br i1 %cmp9.i.i.i.i654, label %if.then.i.i.i.i664, label %if.end.i.i.i.i655
 
-if.then.i.i.i.i664:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit641
+if.then.i.i.i.i664:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit641
   %call11.i.i.i.i665 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val42, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit666
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit666
 
-if.end.i.i.i.i655:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit641
+if.end.i.i.i.i655:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit641
   %add14.i.i.i.i656 = add i64 %314, %310
   %315 = inttoptr i64 %add14.i.i.i.i656 to ptr
   store i64 %add.i.i.i.i653, ptr %offset8.i.i.i.i652, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit666
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit666
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit666: ; preds = %if.then.i.i.i.i664, %if.end.i.i.i.i655
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit666: ; preds = %if.then.i.i.i.i664, %if.end.i.i.i.i655
   %retval.0.i.i.i.i658 = phi ptr [ %call11.i.i.i.i665, %if.then.i.i.i.i664 ], [ %315, %if.end.i.i.i.i655 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i658, i8 0, i64 16, i1 false)
   %kind_.i.i.i659 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i658, i64 16
@@ -32011,11 +32011,11 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i678 = icmp ugt i64 %add.i.i.i.i677, 262144
   br i1 %cmp9.i.i.i.i678, label %if.then.i.i.i.i686, label %if.end.i.i.i.i679
 
-if.then.i.i.i.i686:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit666
+if.then.i.i.i.i686:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit666
   %call11.i.i.i.i687 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %316, i64 noundef 64, i64 noundef 8) #12
   br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12UniqueStringE.exit688
 
-if.end.i.i.i.i679:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit666
+if.end.i.i.i.i679:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit666
   %add14.i.i.i.i680 = add i64 %325, %321
   %326 = inttoptr i64 %add14.i.i.i.i680 to ptr
   store i64 %add.i.i.i.i677, ptr %offset8.i.i.i.i676, align 8
@@ -32057,15 +32057,15 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12Unique
 
 if.then.i.i.i.i709:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12UniqueStringE.exit688
   %call11.i.i.i.i710 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val61, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit711
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit711
 
 if.end.i.i.i.i700:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations9makeBreakEPNS_12UniqueStringE.exit688
   %add14.i.i.i.i701 = add i64 %336, %332
   %337 = inttoptr i64 %add14.i.i.i.i701 to ptr
   store i64 %add.i.i.i.i698, ptr %offset8.i.i.i.i697, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit711
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit711
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit711: ; preds = %if.then.i.i.i.i709, %if.end.i.i.i.i700
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit711: ; preds = %if.then.i.i.i.i709, %if.end.i.i.i.i700
   %retval.0.i.i.i.i703 = phi ptr [ %call11.i.i.i.i710, %if.then.i.i.i.i709 ], [ %337, %if.end.i.i.i.i700 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i703, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i704 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i703, i64 16
@@ -32089,9 +32089,9 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4Nod
   call void @_ZdlPv(ptr noundef %339) #12
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %entry, %lor.lhs.false, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit711
-  %retval.sroa.0.0 = phi ptr [ %retval.0.i.i.i.i, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit711 ], [ undef, %lor.lhs.false ], [ undef, %entry ], [ undef, %land.lhs.true.i ]
-  %retval.sroa.2.0 = phi i8 [ 2, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.exit711 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true.i ]
+return:                                           ; preds = %land.lhs.true.i, %entry, %lor.lhs.false, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit711
+  %retval.sroa.0.0 = phi ptr [ %retval.0.i.i.i.i, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit711 ], [ undef, %lor.lhs.false ], [ undef, %entry ], [ undef, %land.lhs.true.i ]
+  %retval.sroa.2.0 = phi i8 [ 2, %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations6makeIfEPNS_6ESTree4NodeES5_S5_.argprom.exit711 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -32255,15 +32255,15 @@ if.end:                                           ; preds = %if.end13.i.i.i.i, %
 
 if.then.i.i.i.i:                                  ; preds = %if.end
   %call11.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val38, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
 
 if.end.i.i.i.i44:                                 ; preds = %if.end
   %add14.i.i.i.i = add i64 %20, %16
   %21 = inttoptr i64 %add14.i.i.i.i to ptr
   store i64 %add.i.i.i.i43, ptr %offset8.i.i.i.i, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i44
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i44
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %21, %if.end.i.i.i.i44 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
@@ -32309,17 +32309,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i55 = icmp ugt i64 %add.i.i.i.i54, 262144
   br i1 %cmp9.i.i.i.i55, label %if.then.i.i.i.i64, label %if.end.i.i.i.i56
 
-if.then.i.i.i.i64:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+if.then.i.i.i.i64:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
   %call11.i.i.i.i65 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val37, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit66
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit66
 
-if.end.i.i.i.i56:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit
+if.end.i.i.i.i56:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit
   %add14.i.i.i.i57 = add i64 %32, %28
   %33 = inttoptr i64 %add14.i.i.i.i57 to ptr
   store i64 %add.i.i.i.i54, ptr %offset8.i.i.i.i53, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit66
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit66
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit66: ; preds = %if.then.i.i.i.i64, %if.end.i.i.i.i56
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit66: ; preds = %if.then.i.i.i.i64, %if.end.i.i.i.i56
   %retval.0.i.i.i.i58 = phi ptr [ %call11.i.i.i.i65, %if.then.i.i.i.i64 ], [ %33, %if.end.i.i.i.i56 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i58, i8 0, i64 16, i1 false)
   %kind_.i.i.i59 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i58, i64 16
@@ -32364,17 +32364,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i79 = icmp ugt i64 %add.i.i.i.i78, 262144
   br i1 %cmp9.i.i.i.i79, label %if.then.i.i.i.i88, label %if.end.i.i.i.i80
 
-if.then.i.i.i.i88:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit66
+if.then.i.i.i.i88:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit66
   %call11.i.i.i.i89 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val36, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit90
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit90
 
-if.end.i.i.i.i80:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit66
+if.end.i.i.i.i80:                                 ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit66
   %add14.i.i.i.i81 = add i64 %43, %39
   %44 = inttoptr i64 %add14.i.i.i.i81 to ptr
   store i64 %add.i.i.i.i78, ptr %offset8.i.i.i.i77, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit90
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit90
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit90: ; preds = %if.then.i.i.i.i88, %if.end.i.i.i.i80
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit90: ; preds = %if.then.i.i.i.i88, %if.end.i.i.i.i80
   %retval.0.i.i.i.i82 = phi ptr [ %call11.i.i.i.i89, %if.then.i.i.i.i88 ], [ %44, %if.end.i.i.i.i80 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i82, i8 0, i64 16, i1 false)
   %kind_.i.i.i83 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i82, i64 16
@@ -32411,17 +32411,17 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i101 = icmp ugt i64 %add.i.i.i.i100, 262144
   br i1 %cmp9.i.i.i.i101, label %if.then.i.i.i.i110, label %if.end.i.i.i.i102
 
-if.then.i.i.i.i110:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit90
+if.then.i.i.i.i110:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit90
   %call11.i.i.i.i111 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 72, i64 noundef 8) #12
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit112
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit112
 
-if.end.i.i.i.i102:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit90
+if.end.i.i.i.i102:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit90
   %add14.i.i.i.i103 = add i64 %54, %50
   %55 = inttoptr i64 %add14.i.i.i.i103 to ptr
   store i64 %add.i.i.i.i100, ptr %offset8.i.i.i.i99, align 8
-  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit112
+  br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit112
 
-_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit112: ; preds = %if.then.i.i.i.i110, %if.end.i.i.i.i102
+_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit112: ; preds = %if.then.i.i.i.i110, %if.end.i.i.i.i102
   %retval.0.i.i.i.i104 = phi ptr [ %call11.i.i.i.i111, %if.then.i.i.i.i110 ], [ %55, %if.end.i.i.i.i102 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i104, i8 0, i64 16, i1 false)
   %kind_.i.i.i105 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i104, i64 16
@@ -32457,11 +32457,11 @@ _ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12
   %cmp9.i.i.i.i123 = icmp ugt i64 %add.i.i.i.i122, 262144
   br i1 %cmp9.i.i.i.i123, label %if.then.i.i.i.i129, label %if.end.i.i.i.i124
 
-if.then.i.i.i.i129:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit112
+if.then.i.i.i.i129:                               ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit112
   %call11.i.i.i.i130 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %56, i64 noundef 72, i64 noundef 8) #12
   br label %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeAssignmentEPNS_6ESTree4NodeES5_.exit
 
-if.end.i.i.i.i124:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.exit112
+if.end.i.i.i.i124:                                ; preds = %_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations14makeIdentifierEPNS_12UniqueStringE.argprom.exit112
   %add14.i.i.i.i125 = add i64 %65, %61
   %66 = inttoptr i64 %add14.i.i.i.i125 to ptr
   store i64 %add.i.i.i.i122, ptr %offset8.i.i.i.i121, align 8
@@ -32828,7 +32828,7 @@ sw.bb5:                                           ; preds = %while.end
   br label %return
 
 sw.default:                                       ; preds = %while.end
-  %6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %0)
+  %6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_.argprom(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %0)
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb5, %sw.bb

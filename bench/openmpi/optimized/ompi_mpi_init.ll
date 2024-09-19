@@ -182,7 +182,7 @@ define i32 @ompi_mpi_init(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   fence release
   %9 = cmpxchg volatile ptr @ompi_mpi_state, i32 0, i32 1 acquire monotonic, align 4
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %opal_atomic_compare_exchange_strong_32.exit.thread, label %11
+  br i1 %10, label %opal_atomic_compare_exchange_strong_32.argprom.exit.thread, label %11
 
 11:                                               ; preds = %5
   %12 = extractvalue { i32, i1 } %9, 0
@@ -196,7 +196,7 @@ define i32 @ompi_mpi_init(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 
 17:                                               ; preds = %11
   %18 = icmp sgt i32 %12, 0
-  br i1 %18, label %19, label %opal_atomic_compare_exchange_strong_32.exit.thread
+  br i1 %18, label %19, label %opal_atomic_compare_exchange_strong_32.argprom.exit.thread
 
 19:                                               ; preds = %17
   br i1 %4, label %.preheader121, label %25
@@ -217,16 +217,16 @@ define i32 @ompi_mpi_init(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   %27 = tail call i32 (ptr, ptr, i32, ...) %26(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 1) #6
   br label %.loopexit122
 
-opal_atomic_compare_exchange_strong_32.exit.thread: ; preds = %5, %17
+opal_atomic_compare_exchange_strong_32.argprom.exit.thread: ; preds = %5, %17
   %28 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #6
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %31, label %29
 
-29:                                               ; preds = %opal_atomic_compare_exchange_strong_32.exit.thread
+29:                                               ; preds = %opal_atomic_compare_exchange_strong_32.argprom.exit.thread
   %30 = tail call i32 @opal_setenv(ptr noundef nonnull @.str.4, ptr noundef nonnull %28, i1 noundef zeroext true, ptr noundef nonnull @environ) #6
   br label %31
 
-31:                                               ; preds = %29, %opal_atomic_compare_exchange_strong_32.exit.thread
+31:                                               ; preds = %29, %opal_atomic_compare_exchange_strong_32.argprom.exit.thread
   store i32 %2, ptr @ompi_mpi_thread_requested, align 4
   store i32 %2, ptr %3, align 4
   store i32 %2, ptr @ompi_mpi_thread_provided, align 4

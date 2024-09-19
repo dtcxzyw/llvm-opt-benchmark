@@ -774,7 +774,7 @@ define internal fastcc void @write_os2_header(ptr noundef %0, ptr nocapture noun
 
 81:                                               ; preds = %80
   %.val = load ptr, ptr %64, align 8
-  tail call fastcc void @write_colormap(ptr noundef nonnull %0, ptr %.val, i32 noundef %.0, i32 noundef 3)
+  tail call fastcc void @write_colormap.argprom(ptr noundef nonnull %0, ptr %.val, i32 noundef %.0, i32 noundef 3)
   br label %82
 
 82:                                               ; preds = %81, %80
@@ -979,7 +979,7 @@ define internal fastcc void @write_bmp_header(ptr noundef %0, ptr nocapture noun
 
 126:                                              ; preds = %125
   %.val = load ptr, ptr %109, align 8
-  tail call fastcc void @write_colormap(ptr noundef nonnull %0, ptr %.val, i32 noundef %.0, i32 noundef 4)
+  tail call fastcc void @write_colormap.argprom(ptr noundef nonnull %0, ptr %.val, i32 noundef %.0, i32 noundef 4)
   br label %127
 
 127:                                              ; preds = %126, %125
@@ -993,7 +993,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.val, i32 noundef range(i32 1, 257) %1, i32 noundef range(i32 3, 5) %2) unnamed_addr #0 {
+define internal fastcc void @write_colormap.argprom(ptr noundef %0, ptr nocapture %.32.val, i32 noundef range(i32 1, 257) %1, i32 noundef range(i32 3, 5) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 156

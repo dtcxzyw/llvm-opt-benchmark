@@ -1239,7 +1239,7 @@ extend_span_with_token.exit:                      ; preds = %43, %44
   %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.311.0.insert.shift.i, %52
   store i64 %.sroa.010.0.insert.insert.i, ptr %11, align 8
   %.not.i55 = icmp eq i32 %.053.lcssa, 0
-  br i1 %.not.i55, label %fnv1a.exit, label %.lr.ph.preheader.i
+  br i1 %.not.i55, label %fnv1a.argprom.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %extend_span_with_token.exit
   %wide.trip.count.i = zext i32 %.053.lcssa to i64
@@ -1255,9 +1255,9 @@ extend_span_with_token.exit:                      ; preds = %43, %44
   %57 = mul i32 %56, 16777619
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %fnv1a.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %fnv1a.argprom.exit, label %.lr.ph.i, !llvm.loop !13
 
-fnv1a.exit:                                       ; preds = %.lr.ph.i, %extend_span_with_token.exit
+fnv1a.argprom.exit:                               ; preds = %.lr.ph.i, %extend_span_with_token.exit
   %.06.lcssa.i = phi i32 [ -2128831035, %extend_span_with_token.exit ], [ %57, %.lr.ph.i ]
   %58 = call ptr @symtab_add(ptr noundef nonnull @scratch_buffer, i32 noundef %.053.lcssa, i32 noundef %.06.lcssa.i, ptr noundef nonnull %3) #8
   %59 = getelementptr inbounds i8, ptr %11, i64 8
@@ -1266,12 +1266,12 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %extend_s
   %.not54 = icmp eq i32 %60, 64
   br i1 %.not54, label %63, label %61
 
-61:                                               ; preds = %fnv1a.exit
+61:                                               ; preds = %fnv1a.argprom.exit
   %62 = load i64, ptr %11, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %62, ptr noundef nonnull @.str.19) #8
   br label %65
 
-63:                                               ; preds = %fnv1a.exit
+63:                                               ; preds = %fnv1a.argprom.exit
   %64 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 %.053.lcssa, ptr %64, align 8
   store ptr %11, ptr %1, align 8
@@ -5957,7 +5957,7 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %4, i64 88
-  %22 = tail call fastcc zeroext i1 @parse_fn_parameter_list(ptr noundef %0, ptr noundef nonnull %21)
+  %22 = tail call fastcc zeroext i1 @parse_fn_parameter_list.argelim(ptr noundef %0, ptr noundef nonnull %21)
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20
@@ -6561,7 +6561,7 @@ define internal fastcc ptr @parse_def(ptr noundef %0) unnamed_addr #0 {
   %64 = getelementptr inbounds i8, ptr %53, i64 80
   %65 = getelementptr inbounds i8, ptr %53, i64 88
   store i32 %phi.call.i, ptr %65, align 8
-  %66 = tail call fastcc zeroext i1 @parse_fn_parameter_list(ptr noundef nonnull %0, ptr noundef nonnull %64)
+  %66 = tail call fastcc zeroext i1 @parse_fn_parameter_list.argelim(ptr noundef nonnull %0, ptr noundef nonnull %64)
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %.critedge.i
@@ -9602,7 +9602,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_fn_parameter_list(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_fn_parameter_list.argelim(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

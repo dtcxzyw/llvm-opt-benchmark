@@ -723,7 +723,7 @@ if.end87.i:                                       ; preds = %while.end.i
   %call88.i = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #19
   %queues.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %call88.i, ptr %queues.i, align 8
-  %call89.i = tail call fastcc ptr @nvme_create_queue_pair(ptr noundef nonnull %1, ptr noundef %call.i, i32 noundef 0, ptr noundef %errp)
+  %call89.i = tail call fastcc ptr @nvme_create_queue_pair.argelim(ptr noundef nonnull %1, ptr noundef %call.i, i32 noundef 0, ptr noundef %errp)
   %tobool90.not.i = icmp eq ptr %call89.i, null
   br i1 %tobool90.not.i, label %nvme_init.exit, label %if.end92.i
 
@@ -1032,13 +1032,13 @@ entry:
   %bs.val.val = load i32, ptr %1, align 4
   %2 = add i32 %bs.val.val, -9
   %or.cond.i = icmp ult i32 %2, 4
-  br i1 %or.cond.i, label %nvme_get_blocksize.exit, label %if.else.i
+  br i1 %or.cond.i, label %nvme_get_blocksize.argprom.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.4, i32 noundef 1021, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_get_blocksize) #20
   unreachable
 
-nvme_get_blocksize.exit:                          ; preds = %entry
+nvme_get_blocksize.argprom.argprom.exit:          ; preds = %entry
   %shl.i = shl nuw nsw i32 1, %bs.val.val
   store i32 %shl.i, ptr %bsz, align 4
   %log = getelementptr inbounds i8, ptr %bsz, i64 4
@@ -1725,7 +1725,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @nvme_create_queue_pair(ptr noundef %s, ptr noundef %aio_context, i32 noundef range(i32 0, 65536) %idx, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @nvme_create_queue_pair.argelim(ptr noundef %s, ptr noundef %aio_context, i32 noundef range(i32 0, 65536) %idx, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %prp_list_iova = alloca i64, align 8
@@ -2222,7 +2222,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #17
-  %call1 = tail call fastcc ptr @nvme_create_queue_pair(ptr noundef nonnull %0, ptr noundef %call, i32 noundef %1, ptr noundef %errp)
+  %call1 = tail call fastcc ptr @nvme_create_queue_pair.argelim(ptr noundef nonnull %0, ptr noundef %call, i32 noundef %1, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -3205,7 +3205,7 @@ entry.cont:                                       ; preds = %entry, %entry.then
   %need_kick.i = getelementptr inbounds i8, ptr %opaque, i64 6256
   %0 = load i32, ptr %need_kick.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end.i
+  br i1 %tobool.not.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry.cont
   %s1.i = getelementptr inbounds i8, ptr %opaque, i64 48
@@ -3269,9 +3269,9 @@ if.end4.i:                                        ; preds = %trace_nvme_kick.exi
   %add.i = add i32 %13, %12
   store i32 %add.i, ptr %inflight.i, align 4
   store i32 0, ptr %need_kick.i, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry.cont, %if.end4.i
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %entry.cont, %if.end4.i
   %call4 = tail call fastcc zeroext i1 @nvme_process_completion(ptr noundef nonnull %opaque)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.36, i32 noundef 132) #17
   ret void
@@ -3758,7 +3758,7 @@ entry.cont:                                       ; preds = %entry, %entry.then
   %free_req_head = getelementptr inbounds i8, ptr %q, i64 156
   %0 = load i32, ptr %free_req_head, align 4
   %cmp10 = icmp eq i32 %0, -1
-  br i1 %cmp10, label %while.body.lr.ph, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp10, label %while.body.lr.ph, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 while.body.lr.ph:                                 ; preds = %entry.cont
   %s = getelementptr inbounds i8, ptr %q, i64 48
@@ -3811,9 +3811,9 @@ trace_nvme_free_req_queue_wait.exit:              ; preds = %while.body, %land.l
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %free_req_queue, ptr noundef nonnull %.compoundliteral5, i32 noundef 0) #17
   %9 = load i32, ptr %free_req_head, align 4
   %cmp = icmp eq i32 %9, -1
-  br i1 %cmp, label %while.body, label %glib_autoptr_cleanup_QemuLockable.exit, !llvm.loop !27
+  br i1 %cmp, label %while.body, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, !llvm.loop !27
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %trace_nvme_free_req_queue_wait.exit, %entry.cont
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %trace_nvme_free_req_queue_wait.exit, %entry.cont
   %.lcssa = phi i32 [ %0, %entry.cont ], [ %9, %trace_nvme_free_req_queue_wait.exit ]
   %reqs.i = getelementptr inbounds i8, ptr %q, i64 160
   %idxprom.i = sext i32 %.lcssa to i64

@@ -548,8 +548,8 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   br label %14
 
-14:                                               ; preds = %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i", %.lr.ph.i
-  %.06.i = phi i32 [ %.04.i, %.lr.ph.i ], [ %.0.i, %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i" ]
+14:                                               ; preds = %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.i", %.lr.ph.i
+  %.06.i = phi i32 [ %.04.i, %.lr.ph.i ], [ %.0.i, %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.i" ]
   %15 = load ptr, ptr %6, align 8
   %16 = sext i32 %.06.i to i64
   %17 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %15, i64 %16
@@ -572,7 +572,7 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %25 = load i8, ptr %3, align 1
   %26 = trunc i8 %25 to i1
   %.pre.i.i.i = load i32, ptr %4, align 4
-  br i1 %26, label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i", label %27
+  br i1 %26, label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.i", label %27
 
 27:                                               ; preds = %24
   %28 = load i32, ptr %7, align 8
@@ -588,7 +588,7 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
 
 35:                                               ; preds = %27
   store i32 %.pre.i.i.i, ptr %12, align 8
-  br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i"
+  br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.sink.split.i"
 
 36:                                               ; preds = %27
   %37 = load i32, ptr %10, align 4
@@ -600,15 +600,15 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %42 = sext i32 %37 to i64
   %43 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %41, i64 %42, i32 1
   store i32 %40, ptr %43, align 4
-  br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i"
+  br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.sink.split.i"
 
-"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i": ; preds = %36, %35
+"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.sink.split.i": ; preds = %36, %35
   %.pre.i.i.sink.i = phi i32 [ %.pre.i.i.i, %35 ], [ %40, %36 ]
   store i32 %.pre.i.i.sink.i, ptr %10, align 4
-  br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i"
+  br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.i"
 
-"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i": ; preds = %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i", %24
-  %44 = phi i32 [ %.pre.i.i.i, %24 ], [ %.pre.i.i.sink.i, %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i" ]
+"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.i": ; preds = %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.sink.split.i", %24
+  %44 = phi i32 [ %.pre.i.i.i, %24 ], [ %.pre.i.i.sink.i, %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.sink.split.i" ]
   %45 = load ptr, ptr %9, align 8
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %45, i64 %46, i32 1
@@ -621,7 +621,7 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %.not.i = icmp eq i32 %.0.i, -1
   br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNS0_6updateERKS0_E3$_0EEvT_.exit", label %14, !llvm.loop !6
 
-"_ZNK4pkpy4Dict5applyIZNS0_6updateERKS0_E3$_0EEvT_.exit": ; preds = %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i", %2
+"_ZNK4pkpy4Dict5applyIZNS0_6updateERKS0_E3$_0EEvT_.exit": ; preds = %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.argprom.exit.i", %2
   ret void
 }
 
@@ -1189,8 +1189,8 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr nocapture noundef nonnull readonly al
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   br label %5
 
-5:                                                ; preds = %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i", %.lr.ph.i
-  %.06.i = phi i32 [ %.04.i, %.lr.ph.i ], [ %.0.i, %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i" ]
+5:                                                ; preds = %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i", %.lr.ph.i
+  %.06.i = phi i32 [ %.04.i, %.lr.ph.i ], [ %.0.i, %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i" ]
   %6 = load ptr, ptr %3, align 8
   %7 = sext i32 %.06.i to i64
   %8 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %6, i64 %7
@@ -1226,13 +1226,13 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr nocapture noundef nonnull readonly al
   %25 = ptrtoint ptr %11 to i64
   %26 = and i64 %25, 3
   %.not2.i.i = icmp eq i64 %26, 0
-  br i1 %.not2.i.i, label %27, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i"
+  br i1 %.not2.i.i, label %27, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i"
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %11, i64 9
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i", label %31
+  br i1 %30, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i", label %31
 
 31:                                               ; preds = %27
   store i8 1, ptr %28, align 1
@@ -1242,20 +1242,20 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr nocapture noundef nonnull readonly al
   %34 = getelementptr inbounds i8, ptr %11, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not3.i.i = icmp eq ptr %35, null
-  br i1 %.not3.i.i, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i", label %36
+  br i1 %.not3.i.i, label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i", label %36
 
 36:                                               ; preds = %31
   tail call void @_ZN4pkpy17_gc_mark_namedictEPNS_12NameDictImplIPNS_8PyObjectEEE(ptr noundef nonnull %35)
-  br label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i"
+  br label %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i"
 
-"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i": ; preds = %36, %31, %27, %24
+"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i": ; preds = %36, %31, %27, %24
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %37, i64 %7, i32 1
   %.0.i = load i32, ptr %38, align 4
   %.not.i = icmp eq i32 %.0.i, -1
   br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNKS0_8_gc_markEvE3$_0EEvT_.exit", label %5, !llvm.loop !11
 
-"_ZNK4pkpy4Dict5applyIZNKS0_8_gc_markEvE3$_0EEvT_.exit": ; preds = %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i", %1
+"_ZNK4pkpy4Dict5applyIZNKS0_8_gc_markEvE3$_0EEvT_.exit": ; preds = %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i", %1
   ret void
 }
 

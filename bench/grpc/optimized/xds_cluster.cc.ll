@@ -12990,8 +12990,8 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !43 = distinct !{!43, !44, !"_ZN9grpc_core12_GLOBAL__N_115LogicalDnsParseEPK31envoy_config_cluster_v3_ClusterPNS_16ValidationErrorsE: %agg.result"}
 !44 = distinct !{!44, !"_ZN9grpc_core12_GLOBAL__N_115LogicalDnsParseEPK31envoy_config_cluster_v3_ClusterPNS_16ValidationErrorsE"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN9grpc_core12_GLOBAL__N_121AggregateClusterParseERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEEPNS_16ValidationErrorsE: %agg.result"}
-!47 = distinct !{!47, !"_ZN9grpc_core12_GLOBAL__N_121AggregateClusterParseERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEEPNS_16ValidationErrorsE"}
+!46 = distinct !{!46, !47, !"_ZN9grpc_core12_GLOBAL__N_121AggregateClusterParseERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEEPNS_16ValidationErrorsE.argprom: %agg.result"}
+!47 = distinct !{!47, !"_ZN9grpc_core12_GLOBAL__N_121AggregateClusterParseERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEEPNS_16ValidationErrorsE.argprom"}
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_ZN9grpc_core20UpbStringToStdStringB5cxx11ERK14upb_StringView: %agg.result"}
 !50 = distinct !{!50, !"_ZN9grpc_core20UpbStringToStdStringB5cxx11ERK14upb_StringView"}

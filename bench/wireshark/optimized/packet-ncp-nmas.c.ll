@@ -306,10 +306,10 @@ define hidden void @dissect_nmas_request(ptr noundef %0, ptr nocapture noundef r
   %57 = load i32, ptr @hf_tree, align 4
   %58 = getelementptr i8, ptr %1, i64 408
   %.val = load ptr, ptr %58, align 8
-  %59 = tail call fastcc i32 @nmas_string(ptr %.val, ptr noundef %0, i32 noundef %57, ptr noundef %13, i32 noundef 48, i32 noundef 1)
+  %59 = tail call fastcc i32 @nmas_string.argprom(ptr %.val, ptr noundef %0, i32 noundef %57, ptr noundef %13, i32 noundef 48, i32 noundef 1)
   %60 = load i32, ptr @hf_user, align 4
   %.val160 = load ptr, ptr %58, align 8
-  %61 = tail call fastcc i32 @nmas_string(ptr %.val160, ptr noundef %0, i32 noundef %60, ptr noundef %13, i32 noundef %59, i32 noundef 1)
+  %61 = tail call fastcc i32 @nmas_string.argprom(ptr %.val160, ptr noundef %0, i32 noundef %60, ptr noundef %13, i32 noundef %59, i32 noundef 1)
   br label %.loopexit
 
 62:                                               ; preds = %32
@@ -384,7 +384,7 @@ define hidden void @dissect_nmas_request(ptr noundef %0, ptr nocapture noundef r
   %hf_login_sequence.sink = phi ptr [ @hf_login_sequence, %94 ], [ @hf_clearance, %93 ], [ @hf_tree, %92 ], [ @hf_user, %88 ]
   %95 = load i32, ptr %hf_login_sequence.sink, align 4
   %.val164 = load ptr, ptr %87, align 8
-  %96 = tail call fastcc i32 @nmas_string(ptr %.val164, ptr noundef %0, i32 noundef %95, ptr noundef %13, i32 noundef %90, i32 noundef 0)
+  %96 = tail call fastcc i32 @nmas_string.argprom(ptr %.val164, ptr noundef %0, i32 noundef %95, ptr noundef %13, i32 noundef %90, i32 noundef 0)
   br label %97
 
 97:                                               ; preds = %.sink.split, %88
@@ -423,7 +423,7 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @nmas_string.argprom(ptr %.408.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %.408.val, i64 noundef 241) #2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %7

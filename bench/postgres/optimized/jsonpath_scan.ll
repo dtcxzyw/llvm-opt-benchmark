@@ -2414,7 +2414,7 @@ define dso_local void @jsonpath_yyerror(ptr nocapture readnone %0, ptr noundef %
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #2 {
-  tail call fastcc void @fprintf_to_ereport(ptr noundef %0)
+  tail call fastcc void @fprintf_to_ereport.argprom(ptr noundef %0)
   unreachable
 }
 
@@ -3420,7 +3420,7 @@ declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #8
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @fprintf_to_ereport(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @fprintf_to_ereport.argprom(ptr noundef %0) unnamed_addr #2 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, ptr noundef %0) #15

@@ -1485,7 +1485,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   %332 = sext i32 %331 to i64
   %333 = getelementptr [1024 x i8], ptr @process_rule_option.value, i64 0, i64 %332
   store i8 0, ptr %333, align 1
-  call fastcc void @rule_add_pcre(ptr noundef nonnull %188)
+  call fastcc void @rule_add_pcre.argprom.retelim(ptr noundef nonnull %188)
   br label %process_rule_option.exit.i
 
 334:                                              ; preds = %324
@@ -2213,7 +2213,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rule_add_pcre(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @rule_add_pcre.argprom.retelim(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, 30

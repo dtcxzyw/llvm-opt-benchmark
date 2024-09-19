@@ -708,7 +708,7 @@ define internal fastcc noundef zeroext i1 @__acpi_match_device(ptr noundef reado
 .split10.us:                                      ; preds = %.loopexit5, %18
   %75 = getelementptr i8, ptr %0, i64 552
   %.val = load ptr, ptr %75, align 8
-  %76 = tail call fastcc zeroext i1 @acpi_of_match_device(ptr %.val, ptr noundef %2)
+  %76 = tail call fastcc zeroext i1 @acpi_of_match_device.argprom(ptr %.val, ptr noundef %2)
   br label %.loopexit6
 
 .loopexit:                                        ; preds = %36, %68
@@ -1033,7 +1033,7 @@ define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal fastcc noundef zeroext i1 @acpi_of_match_device(ptr readonly %.552.val, ptr noundef readonly %0) unnamed_addr #7 align 16 {
+define internal fastcc noundef zeroext i1 @acpi_of_match_device.argprom(ptr readonly %.552.val, ptr noundef readonly %0) unnamed_addr #7 align 16 {
   %2 = icmp ne ptr %0, null
   %3 = icmp ne ptr %.552.val, null
   %4 = select i1 %2, i1 %3, i1 false

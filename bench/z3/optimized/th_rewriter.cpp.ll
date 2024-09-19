@@ -1896,7 +1896,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i: ; preds = %if.end.i.i.i,
   %inc.i = add i32 %86, 1
   store i32 %inc.i, ptr %m_num_steps.i, align 8
   %this.val20.i = load ptr, ptr %74, align 8
-  call fastcc void @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE15check_max_stepsEv(ptr %this.val20.i, i32 %inc.i)
+  call fastcc void @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE15check_max_stepsEv.argprom(ptr %this.val20.i, i32 %inc.i)
   %87 = getelementptr i8, ptr %arrayidx.i1.i.i, i64 8
   %call17.val.i = load i32, ptr %87, align 8
   %88 = and i32 %call17.val.i, -51
@@ -4881,7 +4881,7 @@ invoke.cont138.i.i:                               ; preds = %if.then.i.i.i763, %
   %563 = load ptr, ptr %74, align 8
   %564 = load ptr, ptr %m_nodes.i.i947, align 8
   %565 = load ptr, ptr %m_nodes.i.i932, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17reduce_quantifierEP10quantifierP4exprPKS4_S6_R7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(2585) %563, ptr noundef %call92.i.i, ptr noundef %477, ptr noundef %564, ptr noundef %565, ptr noundef nonnull align 8 dereferenceable(16) %m_r.i82.i, ptr noundef nonnull align 8 dereferenceable(16) %pr2.i50.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17reduce_quantifierEP10quantifierP4exprPKS4_S6_R7obj_refIS3_11ast_managerERS7_I3appS8_E.retelim(ptr noundef nonnull align 8 dereferenceable(2585) %563, ptr noundef %call92.i.i, ptr noundef %477, ptr noundef %564, ptr noundef %565, ptr noundef nonnull align 8 dereferenceable(16) %m_r.i82.i, ptr noundef nonnull align 8 dereferenceable(16) %pr2.i50.i)
           to label %if.then149.i.i unwind label %lpad146.i.i.loopexit.split-lp
 
 if.then149.i.i:                                   ; preds = %invoke.cont138.i.i
@@ -6005,7 +6005,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i230: ; preds = %if.end.i.i
   %inc.i234 = add i32 %735, 1
   store i32 %inc.i234, ptr %m_num_steps.i64, align 8
   %this.val16.i = load ptr, ptr %723, align 8
-  call fastcc void @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE15check_max_stepsEv(ptr %this.val16.i, i32 %inc.i234)
+  call fastcc void @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE15check_max_stepsEv.argprom(ptr %this.val16.i, i32 %inc.i234)
   %736 = getelementptr i8, ptr %arrayidx.i1.i.i232, i64 8
   %call17.val.i236 = load i32, ptr %736, align 8
   %737 = and i32 %call17.val.i236, -51
@@ -6440,14 +6440,14 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %bf.load38.i = load i32, ptr %736, align 8
   %bf.clear39.i = and i32 %bf.load38.i, 1
   %tobool40.i.not = icmp eq i32 %bf.clear39.i, 0
-  br i1 %tobool40.i.not, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit.i, label %if.then.i.i3054
+  br i1 %tobool40.i.not, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit.i, label %if.then.i.i3054
 
 if.then.i.i3054:                                  ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit88.i
   %810 = load ptr, ptr %m_r.i49.i, align 8
   call void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %734, i32 noundef 0, ptr noundef %810)
-  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit.i
+  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit.i
 
-_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit.i: ; preds = %if.then.i.i3054, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit88.i
+_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit.i: ; preds = %if.then.i.i3054, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit88.i
   %811 = load ptr, ptr %m_frame_stack.i, align 8
   %arrayidx.i90.i = getelementptr inbounds i8, ptr %811, i64 -4
   %812 = load i32, ptr %arrayidx.i90.i, align 4
@@ -6457,7 +6457,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4expr
   %cmp.i.i91.i = icmp eq ptr %this.val15.i3048, null
   br i1 %cmp.i.i91.i, label %if.end42.i, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3049
 
-_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3049: ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit.i
+_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3049: ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit.i
   %arrayidx.i.i92.i = getelementptr inbounds i8, ptr %this.val15.i3048, i64 -4
   %813 = load i32, ptr %arrayidx.i.i92.i, align 4
   %cmp3.i.i93.i = icmp eq i32 %813, 0
@@ -6472,7 +6472,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i3050: ; preds = %_ZNK6ve
   store i32 %bf.set.i.i3053, ptr %m_new_child.i.i3051, align 8
   br label %if.end42.i
 
-if.end42.i:                                       ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3049, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i3050, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i3020
+if.end42.i:                                       ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3049, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i3050, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i3020
   %816 = load ptr, ptr %m_r.i49.i, align 8
   %tobool.not.i3.i96.i = icmp eq ptr %816, null
   br i1 %tobool.not.i3.i96.i, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13constant_foldEP3appRN13rewriter_core5frameE.exit, label %if.then.i.i.i97.i
@@ -6570,7 +6570,7 @@ land.lhs.true45.i.i:                              ; preds = %land.lhs.true39.i.i
   %this.val67.val.i.i = load i32, ptr %830, align 4
   %831 = getelementptr i8, ptr %this.val67.i.i, i64 2577
   %this.val67.val68.i.i = load i8, ptr %831, align 1
-  %call46.i.i = call fastcc noundef zeroext i1 @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10flat_assocEP9func_decl(i32 %this.val67.val.i.i, i8 %this.val67.val68.i.i, ptr noundef nonnull %820)
+  %call46.i.i = call fastcc noundef zeroext i1 @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10flat_assocEP9func_decl.argprom.argprom(i32 %this.val67.val.i.i, i8 %this.val67.val68.i.i, ptr noundef nonnull %820)
   br i1 %call46.i.i, label %if.then47.i.i, label %if.end50.i.i
 
 if.then47.i.i:                                    ; preds = %land.lhs.true45.i.i
@@ -7266,14 +7266,14 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %bf.load220.i.i = load i32, ptr %736, align 8
   %bf.clear221.i.i = and i32 %bf.load220.i.i, 1
   %tobool222.i.i.not = icmp eq i32 %bf.clear221.i.i, 0
-  br i1 %tobool222.i.i.not, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit2575, label %if.then.i2574
+  br i1 %tobool222.i.i.not, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit2575, label %if.then.i2574
 
 if.then.i2574:                                    ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit2595
   %943 = load ptr, ptr %m_r.i49.i, align 8
   call void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %734, i32 noundef 0, ptr noundef %943)
-  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit2575
+  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit2575
 
-_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit2575: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit2595, %if.then.i2574
+_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit2575: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit2595, %if.then.i2574
   %944 = load ptr, ptr %m_frame_stack.i, align 8
   %arrayidx.i2570 = getelementptr inbounds i8, ptr %944, i64 -4
   %945 = load i32, ptr %arrayidx.i2570, align 4
@@ -7283,7 +7283,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4expr
   %cmp.i.i2560 = icmp eq ptr %this.val61.i.i333, null
   br i1 %cmp.i.i2560, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE11process_appILb0EEEvP3appRN13rewriter_core5frameE.exit.i, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2561
 
-_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2561: ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit2575
+_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2561: ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit2575
   %arrayidx.i.i2562 = getelementptr inbounds i8, ptr %this.val61.i.i333, i64 -4
   %946 = load i32, ptr %arrayidx.i.i2562, align 4
   %cmp3.i.i2563 = icmp eq i32 %946, 0
@@ -7616,7 +7616,7 @@ sw.bb276.i.i:                                     ; preds = %sw.bb.i312
   call void @exit(i32 noundef 107) #23
   unreachable
 
-_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE11process_appILb0EEEvP3appRN13rewriter_core5frameE.exit.i: ; preds = %if.end.i.i410, %if.else124.i.i.invoke, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit2874, %cleanup.i.i358.thread3257, %if.then2.i.i.i2426, %if.then.i.i.i2420, %invoke.cont275.i.i, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i2564, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2561, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit2575, %if.then2.i.i.i2665, %if.then.i.i.i2659, %cleanup.i.i358, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i2956, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2953, %if.then47.i.i, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13constant_foldEP3appRN13rewriter_core5frameE.exit
+_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE11process_appILb0EEEvP3appRN13rewriter_core5frameE.exit.i: ; preds = %if.end.i.i410, %if.else124.i.i.invoke, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit2874, %cleanup.i.i358.thread3257, %if.then2.i.i.i2426, %if.then.i.i.i2420, %invoke.cont275.i.i, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i2564, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2561, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.argprom.exit2575, %if.then2.i.i.i2665, %if.then.i.i.i2659, %cleanup.i.i358, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i2956, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2953, %if.then47.i.i, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13constant_foldEP3appRN13rewriter_core5frameE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %new_t.i.i208)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i)
   br label %while.cond.i214.backedgethread-pre-split
@@ -8234,7 +8234,7 @@ if.end87.i.i254:                                  ; preds = %if.then.i.i2188, %_
   %1088 = load ptr, ptr %723, align 8
   %1089 = load ptr, ptr %m_nodes.i.i2309, align 8
   %1090 = load ptr, ptr %m_nodes.i.i2271, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17reduce_quantifierEP10quantifierP4exprPKS4_S6_R7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(2585) %1088, ptr noundef nonnull %734, ptr noundef %1031, ptr noundef %1089, ptr noundef %1090, ptr noundef nonnull align 8 dereferenceable(16) %m_r.i49.i, ptr noundef nonnull align 8 dereferenceable(16) %m_pr.i50.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17reduce_quantifierEP10quantifierP4exprPKS4_S6_R7obj_refIS3_11ast_managerERS7_I3appS8_E.retelim(ptr noundef nonnull align 8 dereferenceable(2585) %1088, ptr noundef nonnull %734, ptr noundef %1031, ptr noundef %1089, ptr noundef %1090, ptr noundef nonnull align 8 dereferenceable(16) %m_r.i49.i, ptr noundef nonnull align 8 dereferenceable(16) %m_pr.i50.i)
           to label %if.end109.i.i unwind label %lpad36.i.i252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end109.i.i:                                    ; preds = %if.end87.i.i254
@@ -9254,12 +9254,12 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr i8, ptr %0, i64 144
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17reduce_quantifierEP10quantifierP4exprPKS4_S6_R7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(2585) %.val, ptr noundef %old_q, ptr noundef %new_body, ptr noundef %new_patterns, ptr noundef %new_no_patterns, ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) %result_pr)
+  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17reduce_quantifierEP10quantifierP4exprPKS4_S6_R7obj_refIS3_11ast_managerERS7_I3appS8_E.retelim(ptr noundef nonnull align 8 dereferenceable(2585) %.val, ptr noundef %old_q, ptr noundef %new_body, ptr noundef %new_patterns, ptr noundef %new_no_patterns, ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) %result_pr)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17reduce_quantifierEP10quantifierP4exprPKS4_S6_R7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef %old_q, ptr noundef %new_body, ptr nocapture noundef readonly %new_patterns, ptr nocapture noundef readonly %new_no_patterns, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) %result_pr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17reduce_quantifierEP10quantifierP4exprPKS4_S6_R7obj_refIS3_11ast_managerERS7_I3appS8_E.retelim(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef %old_q, ptr noundef %new_body, ptr nocapture noundef readonly %new_patterns, ptr nocapture noundef readonly %new_no_patterns, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(16) %result_pr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %stack.i.i.i = alloca %class.sbuffer, align 8
   %tmp.i = alloca %class.obj_ref, align 8
@@ -10723,7 +10723,7 @@ while.end.i.i.i:                                  ; preds = %sw.bb15.i.i.i, %whi
   %call58.val.i.i.i = load i32, ptr %125, align 4
   %162 = load i32, ptr %m_marks.i.i.i131.i.i.i, align 8
   %cmp.i.i.i181.i.i.i = icmp ult i32 %call58.val.i.i.i, %162
-  br i1 %cmp.i.i.i181.i.i.i, label %land.rhs.i.i.i183.i.i.i, label %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit189.i.i.i
+  br i1 %cmp.i.i.i181.i.i.i, label %land.rhs.i.i.i183.i.i.i, label %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.argprom.exit189.i.i.i
 
 land.rhs.i.i.i183.i.i.i:                          ; preds = %while.end.i.i.i
   %163 = load ptr, ptr %m_data.i.i.i.i.i135.i.i.i, align 8
@@ -10734,9 +10734,9 @@ land.rhs.i.i.i183.i.i.i:                          ; preds = %while.end.i.i.i
   %rem.i.i.i.i.i188.i.i.i = and i32 %call58.val.i.i.i, 31
   %165 = lshr i32 %164, %rem.i.i.i.i.i188.i.i.i
   %166 = trunc i32 %165 to i1
-  br label %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit189.i.i.i
+  br label %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.argprom.exit189.i.i.i
 
-_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit189.i.i.i: ; preds = %land.rhs.i.i.i183.i.i.i, %while.end.i.i.i
+_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.argprom.exit189.i.i.i: ; preds = %land.rhs.i.i.i183.i.i.i, %while.end.i.i.i
   %167 = phi i1 [ false, %while.end.i.i.i ], [ %166, %land.rhs.i.i.i183.i.i.i ]
   %168 = or i1 %has_mark.sroa.5.5.i, %167
   br label %sw.epilog92.i.i.i
@@ -10937,9 +10937,9 @@ invoke.cont91.i.i.i:                              ; preds = %sw.default90.i.i.i
   call void @exit(i32 noundef 114) #23
   unreachable
 
-sw.epilog92.i.i.i:                                ; preds = %while.end86.i.i.i, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit189.i.i.i, %invoke.cont13.i.i.i
-  %has_mark.sroa.5.4.i = phi i1 [ true, %while.end86.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit189.i.i.i ], [ %132, %invoke.cont13.i.i.i ]
-  %.pr.i.i.i = phi i32 [ %dec.i278.i.i.i, %while.end86.i.i.i ], [ %dec.i179.pre-phi.i.i.i, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit189.i.i.i ], [ %sub.i.i.i.i, %invoke.cont13.i.i.i ]
+sw.epilog92.i.i.i:                                ; preds = %while.end86.i.i.i, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.argprom.exit189.i.i.i, %invoke.cont13.i.i.i
+  %has_mark.sroa.5.4.i = phi i1 [ true, %while.end86.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.argprom.exit189.i.i.i ], [ %132, %invoke.cont13.i.i.i ]
+  %.pr.i.i.i = phi i32 [ %dec.i278.i.i.i, %while.end86.i.i.i ], [ %dec.i179.pre-phi.i.i.i, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.argprom.exit189.i.i.i ], [ %sub.i.i.i.i, %invoke.cont13.i.i.i ]
   %cmp.i.i.i.i372 = icmp eq i32 %.pr.i.i.i, 0
   br i1 %cmp.i.i.i.i372, label %while.end93.i.i.i, label %start.preheader.i.i.i, !llvm.loop !42
 
@@ -16171,7 +16171,7 @@ invoke.cont86.i:                                  ; preds = %if.then84.i
   %m_num_deleted.i.i.i.i = getelementptr inbounds i8, ptr %reference_map.i, i64 16
   store i32 0, ptr %m_num_deleted.i.i.i.i, align 8
   %67 = load ptr, ptr %result, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg29count_down_subterm_referencesEP4exprR3mapIS2_j8ptr_hashIS1_E6ptr_eqIS1_EE(ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(24) %reference_map.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg29count_down_subterm_referencesEP4exprR3mapIS2_j8ptr_hashIS1_E6ptr_eqIS1_EE.argprom(ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(24) %reference_map.i)
           to label %invoke.cont90.i unwind label %lpad87.loopexit.split-lp.i
 
 invoke.cont90.i:                                  ; preds = %invoke.cont86.i
@@ -16389,7 +16389,7 @@ if.then11:                                        ; preds = %lor.lhs.false, %if.
 
 if.then13:                                        ; preds = %if.then11
   %f.val = load ptr, ptr %m_info.i.i, align 8
-  %call14 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr %f.val, ptr noundef %args, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call14 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr %f.val, ptr noundef %args, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %if.end17
 
 if.else:                                          ; preds = %if.then11
@@ -16419,7 +16419,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %land.rhs.i.i.i44
 
 if.then.i:                                        ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
   %m_args.i.i = getelementptr inbounds i8, ptr %93, i64 32
-  %99 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr nonnull %95, ptr noundef nonnull %m_args.i.i, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %99 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr nonnull %95, ptr noundef nonnull %m_args.i.i, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %land.rhs.i.i.i44, %if.else, %if.then13, %lor.lhs.false
@@ -16490,7 +16490,7 @@ return:                                           ; preds = %if.then.i51, %if.en
 declare noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 4, 6) i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr readonly %f.24.val, ptr nocapture noundef readonly %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 4, 6) i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr readonly %f.24.val, ptr nocapture noundef readonly %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i25 = alloca [2 x ptr], align 16
   %args.i = alloca [2 x ptr], align 16
@@ -16873,7 +16873,7 @@ land.lhs.true14:                                  ; preds = %if.then10
 
 if.then18:                                        ; preds = %land.lhs.true14
   %12 = load ptr, ptr %arrayidx12, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb0EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %f, ptr noundef nonnull %10, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb0EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE.argelim(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %f, ptr noundef nonnull %10, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true14, %if.then10
@@ -16980,7 +16980,7 @@ land.lhs.true67:                                  ; preds = %land.lhs.true63
 
 if.then71:                                        ; preds = %land.lhs.true67
   %37 = load ptr, ptr %args, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb1EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %f, ptr noundef nonnull %35, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb1EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE.argelim(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %f, ptr noundef nonnull %35, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %return
 
 if.end78:                                         ; preds = %land.rhs.i.i83, %if.end59, %_ZNK11ast_manager6is_iteEPK4expr.exit91, %land.lhs.true63, %land.lhs.true67, %land.lhs.true4, %land.lhs.true
@@ -17018,7 +17018,7 @@ land.lhs.true94:                                  ; preds = %if.then90
 if.then97:                                        ; preds = %land.lhs.true94
   %43 = load ptr, ptr %arrayidx95, align 8
   %44 = load ptr, ptr %args, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb1EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %f, ptr noundef %43, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb1EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE.argelim(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %f, ptr noundef %43, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %return
 
 if.end103:                                        ; preds = %land.lhs.true94, %if.then90
@@ -17036,7 +17036,7 @@ land.lhs.true107:                                 ; preds = %if.end103
 if.then110:                                       ; preds = %land.lhs.true107
   %47 = load ptr, ptr %args, align 8
   %48 = load ptr, ptr %arrayidx105, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb0EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %f, ptr noundef %47, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb0EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE.argelim(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %f, ptr noundef %47, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false87, %land.lhs.true107, %if.end103, %if.then110, %if.then97, %if.then71, %if.then35, %if.then18
@@ -17362,7 +17362,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg29count_down_subterm_referencesEP4exprR3mapIS2_j8ptr_hashIS1_E6ptr_eqIS1_EE(ptr nocapture noundef readonly %e, ptr noundef nonnull align 8 dereferenceable(24) %reference_map) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg29count_down_subterm_referencesEP4exprR3mapIS2_j8ptr_hashIS1_E6ptr_eqIS1_EE.argprom(ptr nocapture noundef readonly %e, ptr noundef nonnull align 8 dereferenceable(24) %reference_map) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %struct._key_data, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %e, i64 4
@@ -17474,7 +17474,7 @@ _ZNK9table2mapI17default_map_entryIP4exprjE8ptr_hashIS1_E6ptr_eqIS1_EE3getERKS2_
   br i1 %cmp7, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %_ZNK9table2mapI17default_map_entryIP4exprjE8ptr_hashIS1_E6ptr_eqIS1_EE3getERKS2_RKj.exit
-  call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg29count_down_subterm_referencesEP4exprR3mapIS2_j8ptr_hashIS1_E6ptr_eqIS1_EE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %reference_map)
+  call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg29count_down_subterm_referencesEP4exprR3mapIS2_j8ptr_hashIS1_E6ptr_eqIS1_EE.argprom(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %reference_map)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK9table2mapI17default_map_entryIP4exprjE8ptr_hashIS1_E6ptr_eqIS1_EE3getERKS2_RKj.exit, %if.then8
@@ -18282,7 +18282,7 @@ declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnul
 declare noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb0EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2585) %this, ptr noundef %p, ptr nocapture noundef readonly %ite, ptr noundef %value, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb0EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2585) %this, ptr noundef %p, ptr nocapture noundef readonly %ite, ptr noundef %value, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 {
 entry:
   %args.i41 = alloca [2 x ptr], align 16
   %args.i = alloca [2 x ptr], align 16
@@ -18450,7 +18450,7 @@ return:                                           ; preds = %if.then2.i.i.i56, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb1EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2585) %this, ptr noundef %p, ptr nocapture noundef readonly %ite, ptr noundef %value, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb1EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2585) %this, ptr noundef %p, ptr nocapture noundef readonly %ite, ptr noundef %value, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 {
 entry:
   %args.i41 = alloca [2 x ptr], align 16
   %args.i = alloca [2 x ptr], align 16
@@ -19523,13 +19523,13 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %cmp.not.i = icmp eq ptr %t, %10
   %cmp.i.i.i = icmp eq ptr %this.val32, null
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp.i.i.i
-  br i1 %or.cond.i, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i
+  br i1 %or.cond.i, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i
 
 _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this.val32, i64 -4
   %12 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp3.i.i.i = icmp eq i32 %12, 0
-  br i1 %cmp3.i.i.i, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i
+  br i1 %cmp3.i.i.i, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i
 
 _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i: ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i
   %13 = add i32 %12, -1
@@ -19538,21 +19538,21 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i: ; preds = %_ZNK6vector
   %bf.load.i.i = load i32, ptr %m_new_child.i.i, align 8
   %bf.set.i.i = or i32 %bf.load.i.i, 2
   store i32 %bf.set.i.i, ptr %m_new_child.i.i, align 8
-  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit
+  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit
 
-_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i
+_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i
   %15 = load ptr, ptr %new_t_pr, align 8
   %tobool.not.i.i.i.i38 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i38, label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %if.then.i.i.i.i39
 
-if.then.i.i.i.i39:                                ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit
+if.then.i.i.i.i39:                                ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit
   %m_ref_count.i.i.i.i.i40 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i32, ptr %m_ref_count.i.i.i.i.i40, align 4
   %inc.i.i.i.i.i41 = add i32 %16, 1
   store i32 %inc.i.i.i.i.i41, ptr %m_ref_count.i.i.i.i.i40, align 4
   br label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
-_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %if.then.i.i.i.i39, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit
+_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %if.then.i.i.i.i39, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit
   %m_nodes.i42 = getelementptr inbounds i8, ptr %this, i64 88
   %17 = load ptr, ptr %m_nodes.i42, align 8
   %cmp.i.i43 = icmp eq ptr %17, null
@@ -19765,13 +19765,13 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %cmp.not.i118 = icmp eq ptr %t, %call.i.i
   %cmp.i.i.i119 = icmp eq ptr %this.val33, null
   %or.cond.i120 = select i1 %cmp.not.i118, i1 true, i1 %cmp.i.i.i119
-  br i1 %or.cond.i120, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit128, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i121
+  br i1 %or.cond.i120, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit128, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i121
 
 _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i121: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit117
   %arrayidx.i.i.i122 = getelementptr inbounds i8, ptr %this.val33, i64 -4
   %54 = load i32, ptr %arrayidx.i.i.i122, align 4
   %cmp3.i.i.i123 = icmp eq i32 %54, 0
-  br i1 %cmp3.i.i.i123, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit128, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i124
+  br i1 %cmp3.i.i.i123, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit128, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i124
 
 _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i124: ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i121
   %55 = add i32 %54, -1
@@ -19780,23 +19780,23 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i124: ; preds = %_ZNK6vec
   %bf.load.i.i126 = load i32, ptr %m_new_child.i.i125, align 8
   %bf.set.i.i127 = or i32 %bf.load.i.i126, 2
   store i32 %bf.set.i.i127, ptr %m_new_child.i.i125, align 8
-  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit128
+  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit128
 
-_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit128: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit117, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i121, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i124
+_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit128: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit117, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i121, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i124
   %m_cache_pr.i = getelementptr inbounds i8, ptr %this, i64 72
   %57 = load ptr, ptr %m_cache_pr.i, align 8
   %call.i.i129 = call noundef ptr @_ZN9act_cache4findEP4exprj(ptr noundef nonnull align 8 dereferenceable(92) %57, ptr noundef nonnull %t, i32 noundef 0)
   %tobool.not.i.i.i.i131 = icmp eq ptr %call.i.i129, null
   br i1 %tobool.not.i.i.i.i131, label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i135, label %if.then.i.i.i.i132
 
-if.then.i.i.i.i132:                               ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit128
+if.then.i.i.i.i132:                               ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit128
   %m_ref_count.i.i.i.i.i133 = getelementptr inbounds i8, ptr %call.i.i129, i64 8
   %58 = load i32, ptr %m_ref_count.i.i.i.i.i133, align 4
   %inc.i.i.i.i.i134 = add i32 %58, 1
   store i32 %inc.i.i.i.i.i134, ptr %m_ref_count.i.i.i.i.i133, align 4
   br label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i135
 
-_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i135: ; preds = %if.then.i.i.i.i132, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit128
+_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i135: ; preds = %if.then.i.i.i.i132, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit128
   %m_nodes.i136 = getelementptr inbounds i8, ptr %this, i64 88
   %59 = load ptr, ptr %m_nodes.i136, align 8
   %cmp.i.i137 = icmp eq ptr %59, null
@@ -20367,13 +20367,13 @@ if.end63:                                         ; preds = %invoke.cont61, %if.
   %cmp.not.i198 = icmp eq ptr %t, %138
   %cmp.i.i.i199 = icmp eq ptr %this.val34, null
   %or.cond.i200 = select i1 %cmp.not.i198, i1 true, i1 %cmp.i.i.i199
-  br i1 %or.cond.i200, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit208, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i201
+  br i1 %or.cond.i200, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit208, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i201
 
 _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i201: ; preds = %if.end63
   %arrayidx.i.i.i202 = getelementptr inbounds i8, ptr %this.val34, i64 -4
   %140 = load i32, ptr %arrayidx.i.i.i202, align 4
   %cmp3.i.i.i203 = icmp eq i32 %140, 0
-  br i1 %cmp3.i.i.i203, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit208, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i204
+  br i1 %cmp3.i.i.i203, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit208, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i204
 
 _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i204: ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i201
   %141 = add i32 %140, -1
@@ -20383,9 +20383,9 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i204: ; preds = %_ZNK6vec
   %bf.set.i.i207 = or i32 %bf.load.i.i206, 2
   store i32 %bf.set.i.i207, ptr %m_new_child.i.i205, align 8
   %.pre = load ptr, ptr %m_r.i, align 8
-  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit208
+  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit208
 
-_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit208: ; preds = %if.end63, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i201, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i204
+_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit208: ; preds = %if.end63, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i201, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i204
   %143 = phi ptr [ %138, %if.end63 ], [ %138, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i201 ], [ %.pre, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i204 ]
   %m_result_stack.i209 = getelementptr inbounds i8, ptr %this, i64 48
   %call69 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_result_stack.i209, ptr noundef %143)
@@ -20512,8 +20512,8 @@ sw.default:                                       ; preds = %if.end30
   call void @exit(i32 noundef 114) #23
   unreachable
 
-return:                                           ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb1EEEbP3app.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit237, %sw.bb75, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit208, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit150, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit93, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
-  %retval.0 = phi i1 [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit93 ], [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit150 ], [ false, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit237 ], [ true, %sw.bb75 ], [ true, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit208 ], [ false, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit ], [ true, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb1EEEbP3app.exit ]
+return:                                           ; preds = %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb1EEEbP3app.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit237, %sw.bb75, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit208, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit150, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit93, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
+  %retval.0 = phi i1 [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit93 ], [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit150 ], [ false, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit237 ], [ true, %sw.bb75 ], [ true, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit208 ], [ false, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit ], [ true, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb1EEEbP3app.exit ]
   ret i1 %retval.0
 }
 
@@ -21489,7 +21489,7 @@ declare void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef no
 declare void @_ZN11var_shifterclEP4exprjjjR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(156), ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE15check_max_stepsEv(ptr nocapture readonly %this.144.val, i32 %this.152.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE15check_max_stepsEv.argprom(ptr nocapture readonly %this.144.val, i32 %this.152.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4.i = alloca %"class.std::allocator.117", align 1
@@ -22337,13 +22337,13 @@ if.end51:                                         ; preds = %invoke.cont49, %if.
   %cmp.not.i123 = icmp eq ptr %t, %91
   %cmp.i.i.i124 = icmp eq ptr %this.val31, null
   %or.cond.i125 = select i1 %cmp.not.i123, i1 true, i1 %cmp.i.i.i124
-  br i1 %or.cond.i125, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit133, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i126
+  br i1 %or.cond.i125, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit133, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i126
 
 _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i126: ; preds = %if.end51
   %arrayidx.i.i.i127 = getelementptr inbounds i8, ptr %this.val31, i64 -4
   %93 = load i32, ptr %arrayidx.i.i.i127, align 4
   %cmp3.i.i.i128 = icmp eq i32 %93, 0
-  br i1 %cmp3.i.i.i128, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit133, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i129
+  br i1 %cmp3.i.i.i128, label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit133, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i129
 
 _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i129: ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i126
   %94 = add i32 %93, -1
@@ -22353,9 +22353,9 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i129: ; preds = %_ZNK6vec
   %bf.set.i.i132 = or i32 %bf.load.i.i131, 2
   store i32 %bf.set.i.i132, ptr %m_new_child.i.i130, align 8
   %.pre = load ptr, ptr %m_r.i, align 8
-  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit133
+  br label %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit133
 
-_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit133: ; preds = %if.end51, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i126, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i129
+_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit133: ; preds = %if.end51, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i126, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i129
   %96 = phi ptr [ %91, %if.end51 ], [ %91, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i126 ], [ %.pre, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i129 ]
   %m_result_stack.i134 = getelementptr inbounds i8, ptr %this, i64 48
   %call57 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_result_stack.i134, ptr noundef %96)
@@ -22482,8 +22482,8 @@ sw.default:                                       ; preds = %if.end21
   call void @exit(i32 noundef 114) #23
   unreachable
 
-return:                                           ; preds = %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i88, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i85, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit81, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb0EEEbP3app.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit162, %sw.bb63, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit133, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit57
-  %retval.0 = phi i1 [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit57 ], [ false, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit162 ], [ true, %sw.bb63 ], [ true, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit133 ], [ false, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit ], [ true, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb0EEEbP3app.exit ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ true, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i ], [ true, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit81 ], [ true, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i85 ], [ true, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i88 ]
+return:                                           ; preds = %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i88, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i85, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit81, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb0EEEbP3app.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit162, %sw.bb63, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit133, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit57
+  %retval.0 = phi i1 [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit57 ], [ false, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit162 ], [ true, %sw.bb63 ], [ true, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4exprS4_.argprom.exit133 ], [ false, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10push_frameEP4exprbj.exit ], [ true, %_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb0EEEbP3app.exit ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ true, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i ], [ true, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit81 ], [ true, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i85 ], [ true, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i88 ]
   ret i1 %retval.0
 }
 
@@ -22720,21 +22720,21 @@ if.end48:                                         ; preds = %_ZN6vectorIN13rewri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10flat_assocEP9func_decl(i32 %this.144.val.176.val, i8 %this.144.val.2577.val, ptr nocapture noundef readonly %f) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE10flat_assocEP9func_decl.argprom.argprom(i32 %this.144.val.176.val, i8 %this.144.val.2577.val, ptr nocapture noundef readonly %f) unnamed_addr #4 align 2 {
 entry:
   %tobool.i = trunc i8 %this.144.val.2577.val to i1
-  br i1 %tobool.i, label %if.end.i, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
+  br i1 %tobool.i, label %if.end.i, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %m_info.i.i = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %m_info.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit, label %_ZNK4decl13get_family_idEv.exit.i
+  br i1 %cmp.i.i, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.argprom.exit, label %_ZNK4decl13get_family_idEv.exit.i
 
 _ZNK4decl13get_family_idEv.exit.i:                ; preds = %if.end.i
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, -1
-  br i1 %cmp.i, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit, label %_ZNK4decl13get_decl_kindEv.exit.i
+  br i1 %cmp.i, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.argprom.exit, label %_ZNK4decl13get_decl_kindEv.exit.i
 
 _ZNK4decl13get_decl_kindEv.exit.i:                ; preds = %_ZNK4decl13get_family_idEv.exit.i
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -22747,25 +22747,25 @@ _ZNK4decl13get_decl_kindEv.exit.i:                ; preds = %_ZNK4decl13get_fami
 if.then7.i:                                       ; preds = %_ZNK4decl13get_decl_kindEv.exit.i
   %3 = add i32 %2, -5
   %4 = icmp ult i32 %3, 2
-  br label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
+  br label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.argprom.exit
 
 if.then13.i:                                      ; preds = %_ZNK4decl13get_decl_kindEv.exit.i
   %cmp14.i = icmp eq i32 %2, 6
-  br label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
+  br label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.argprom.exit
 
 if.end15.i:                                       ; preds = %_ZNK4decl13get_decl_kindEv.exit.i
   %cmp17.i = icmp eq i32 %1, %this.144.val.176.val
   %5 = icmp ult i32 %2, 34
   %or.cond = select i1 %cmp17.i, i1 %5, i1 false
-  br i1 %or.cond, label %switch.lookup, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
+  br i1 %or.cond, label %switch.lookup, label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.argprom.exit
 
 switch.lookup:                                    ; preds = %if.end15.i
   %switch.cast = zext nneg i32 %2 to i34
   %switch.downshift = lshr i34 -5368709104, %switch.cast
   %switch.masked = trunc i34 %switch.downshift to i1
-  br label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit
+  br label %_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.argprom.exit
 
-_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.exit: ; preds = %switch.lookup, %entry, %if.end.i, %_ZNK4decl13get_family_idEv.exit.i, %if.then7.i, %if.then13.i, %if.end15.i
+_ZNK12_GLOBAL__N_115th_rewriter_cfg10flat_assocEP9func_decl.argprom.exit: ; preds = %switch.lookup, %entry, %if.end.i, %_ZNK4decl13get_family_idEv.exit.i, %if.then7.i, %if.then13.i, %if.end15.i
   %retval.0.i = phi i1 [ %4, %if.then7.i ], [ %cmp14.i, %if.then13.i ], [ false, %entry ], [ false, %_ZNK4decl13get_family_idEv.exit.i ], [ false, %if.end15.i ], [ false, %if.end.i ], [ %switch.masked, %switch.lookup ]
   ret i1 %retval.0.i
 }

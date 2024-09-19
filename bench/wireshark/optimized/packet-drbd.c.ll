@@ -2034,9 +2034,9 @@ define internal fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1,
   %20 = getelementptr ptr, ptr @state_fields, i64 %indvars.iv.next.i
   %21 = load ptr, ptr %20, align 8
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.i, label %mask_fields.exit, label %7, !llvm.loop !9
+  br i1 %exitcond.i, label %mask_fields.argprom.exit, label %7, !llvm.loop !9
 
-mask_fields.exit:                                 ; preds = %19
+mask_fields.argprom.exit:                         ; preds = %19
   %22 = sext i32 %.1.i to i64
   %23 = getelementptr ptr, ptr %4, i64 %22
   store ptr null, ptr %23, align 8
@@ -2044,14 +2044,14 @@ mask_fields.exit:                                 ; preds = %19
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %30, label %25
 
-25:                                               ; preds = %mask_fields.exit
+25:                                               ; preds = %mask_fields.argprom.exit
   %26 = add nuw nsw i32 %2, 4
   %27 = load i32, ptr @hf_drbd_state, align 4
   %28 = load i32, ptr @ett_drbd_state, align 4
   %29 = call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef nonnull %4, i32 noundef 0) #8
   br label %34
 
-30:                                               ; preds = %mask_fields.exit
+30:                                               ; preds = %mask_fields.argprom.exit
   %31 = load i32, ptr @hf_drbd_state, align 4
   %32 = add nuw nsw i32 %2, 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef 0) #8

@@ -801,7 +801,7 @@ if.end.i.i:                                       ; preds = %for.inc26
   %dec.i.i = add i32 %6, -1
   store i32 %dec.i.i, ptr %depth.i.i11, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i13, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i13, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i13:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i10 release, align 8
@@ -810,7 +810,7 @@ while.end.i.i13:                                  ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
   %7 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %7 to i1
-  br i1 %tobool.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.sink.split, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true, %for.body11
   %retval.0 = phi ptr [ %call12, %for.body11 ], [ %3, %land.lhs.true ]
@@ -828,7 +828,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -837,17 +837,17 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %9 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.sink.split, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit.sink.split: ; preds = %while.end.i.i.i.i, %while.end.i.i13
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit.sink.split: ; preds = %while.end.i.i.i.i, %while.end.i.i13
   %waiting.i.i.sink = phi ptr [ %waiting.i.i, %while.end.i.i13 ], [ %waiting.i.i.i.i, %while.end.i.i.i.i ]
   %spec.select.ph = phi ptr [ null, %while.end.i.i13 ], [ %retval.0, %while.end.i.i.i.i ]
   store atomic i8 0, ptr %waiting.i.i.sink monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #14
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split, %while.end.i.i13, %if.end.i.i, %if.end.i.i.i.i, %while.end.i.i.i.i
-  %spec.select = phi ptr [ %retval.0, %if.end.i.i.i.i ], [ %retval.0, %while.end.i.i.i.i ], [ null, %if.end.i.i ], [ null, %while.end.i.i13 ], [ %spec.select.ph, %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split ]
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.sink.split, %while.end.i.i13, %if.end.i.i, %if.end.i.i.i.i, %while.end.i.i.i.i
+  %spec.select = phi ptr [ %retval.0, %if.end.i.i.i.i ], [ %retval.0, %while.end.i.i.i.i ], [ null, %if.end.i.i ], [ null, %while.end.i.i13 ], [ %spec.select.ph, %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.sink.split ]
   ret ptr %spec.select
 }
 

@@ -4909,7 +4909,7 @@ php_var_serialize_string.exit:                    ; preds = %325, %331
 
 544:                                              ; preds = %519
   %.val = load ptr, ptr %16, align 8
-  %545 = call fastcc zeroext i1 @php_var_serialize_class_name(ptr noundef %0, ptr %.val)
+  %545 = call fastcc zeroext i1 @php_var_serialize_class_name.argprom(ptr noundef %0, ptr %.val)
   %546 = load ptr, ptr %15, align 8
   %547 = getelementptr inbounds i8, ptr %546, i64 28
   %548 = load i32, ptr %547, align 4
@@ -5577,7 +5577,7 @@ php_var_serialize_string.exit1472:                ; preds = %646, %651
 
 878:                                              ; preds = %813, %811
   %.01222.val = phi ptr [ %.01222.val.pre, %813 ], [ %342, %811 ]
-  %879 = tail call fastcc zeroext i1 @php_var_serialize_class_name(ptr noundef %0, ptr %.01222.val)
+  %879 = tail call fastcc zeroext i1 @php_var_serialize_class_name.argprom(ptr noundef %0, ptr %.01222.val)
   %880 = load ptr, ptr %.01222, align 8
   %881 = getelementptr inbounds i8, ptr %880, i64 32
   %882 = load ptr, ptr %881, align 8
@@ -7302,7 +7302,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_var_serialize_call_magic_serial
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @php_var_serialize_class_name(ptr noundef %0, ptr %.0.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @php_var_serialize_class_name.argprom(ptr noundef %0, ptr %.0.val) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -8154,7 +8154,7 @@ php_var_serialize_get_sleep_props.exit:           ; preds = %.loopexit.i, %327, 
 
 336:                                              ; preds = %php_var_serialize_get_sleep_props.exit
   %.val = load ptr, ptr %1, align 8
-  %337 = call fastcc zeroext i1 @php_var_serialize_class_name(ptr noundef %0, ptr %.val)
+  %337 = call fastcc zeroext i1 @php_var_serialize_class_name.argprom(ptr noundef %0, ptr %.val)
   %338 = getelementptr inbounds i8, ptr %5, i64 28
   %339 = load i32, ptr %338, align 4
   %340 = load i32, ptr %5, align 8

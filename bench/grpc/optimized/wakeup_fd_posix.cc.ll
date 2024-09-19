@@ -104,7 +104,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store ptr @grpc_specialized_wakeup_fd_vtable, ptr @_ZL16wakeup_fd_vtable, align 8
-  br label %"_ZZ26grpc_wakeup_fd_global_initvENK3$_0clEv.exit"
+  br label %"_ZZ26grpc_wakeup_fd_global_initvENK3$_0clEv.argprom.exit"
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %entry
   %2 = load i32, ptr @grpc_allow_pipe_wakeup_fd, align 4
@@ -119,13 +119,13 @@ land.lhs.true4.i:                                 ; preds = %if.else.i
 
 if.then7.i:                                       ; preds = %land.lhs.true4.i
   store ptr @grpc_pipe_wakeup_fd_vtable, ptr @_ZL16wakeup_fd_vtable, align 8
-  br label %"_ZZ26grpc_wakeup_fd_global_initvENK3$_0clEv.exit"
+  br label %"_ZZ26grpc_wakeup_fd_global_initvENK3$_0clEv.argprom.exit"
 
 if.else8.i:                                       ; preds = %land.lhs.true4.i, %if.else.i
   store i1 true, ptr @_ZL18has_real_wakeup_fd, align 4
-  br label %"_ZZ26grpc_wakeup_fd_global_initvENK3$_0clEv.exit"
+  br label %"_ZZ26grpc_wakeup_fd_global_initvENK3$_0clEv.argprom.exit"
 
-"_ZZ26grpc_wakeup_fd_global_initvENK3$_0clEv.exit": ; preds = %if.then.i, %if.then7.i, %if.else8.i
+"_ZZ26grpc_wakeup_fd_global_initvENK3$_0clEv.argprom.exit": ; preds = %if.then.i, %if.then7.i, %if.else8.i
   ret void
 }
 

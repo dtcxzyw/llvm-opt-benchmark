@@ -621,7 +621,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %sw.bb34.i
 if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i.i, %sw.bb34.i
   %bf.clear.i5.i.i.i.i.i = and i32 %bf.load.i, 255
   %cmp.i6.i.i.i.i.i = icmp eq i32 %bf.clear.i5.i.i.i.i.i, 134
-  br i1 %cmp.i6.i.i.i.i.i, label %plugin_gen_mem_regular.exit.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i6.i.i.i.i.i, label %plugin_gen_mem_regular.argprom.argprom.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i.i.i
   %op.addr.04.i7.i.i.i.i.i = phi ptr [ %33, %if.end.i.i.i.i.i.i ], [ %op.085.i, %if.then.i.i.i.i ]
@@ -630,7 +630,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %i
   %bf.load.i.i.i.i.i.i = load i32, ptr %33, align 8
   %bf.clear.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i, 255
   %cmp.i.i.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i.i, 134
-  br i1 %cmp.i.i.i.i.i.i, label %plugin_gen_mem_regular.exit.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %plugin_gen_mem_regular.argprom.argprom.exit.i, label %if.end.i.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i, %if.end.i.i.i.i48.i
   %op.addr.04.i.i.i.i.i = phi ptr [ %34, %if.end.i.i.i.i48.i ], [ %op.085.i, %lor.lhs.false.i.i.i.i ]
@@ -800,9 +800,9 @@ for.inc.i.i.i.i:                                  ; preds = %append_mem_cb.exit.
   %op.1.i.i.i.i = phi ptr [ %call.i.i29.i.i.i.i, %append_mem_cb.exit.i.i.i ], [ %op.016.i.i.i.i, %for.body.i.i.i.i ]
   %inc.i.i.i.i = add nuw i32 %i.015.i.i.i.i, 1
   %cmp6.i.i.i.i = icmp ult i32 %inc.i.i.i.i, %61
-  br i1 %cmp6.i.i.i.i, label %for.body.i.i.i.i, label %plugin_gen_mem_regular.exit.i, !llvm.loop !11
+  br i1 %cmp6.i.i.i.i, label %for.body.i.i.i.i, label %plugin_gen_mem_regular.argprom.argprom.exit.i, !llvm.loop !11
 
-plugin_gen_mem_regular.exit.i:                    ; preds = %for.inc.i.i.i.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i
+plugin_gen_mem_regular.argprom.argprom.exit.i:    ; preds = %for.inc.i.i.i.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i
   %op.addr.0.lcssa.i.pn.i.i.i.i = phi ptr [ %op.085.i, %if.then.i.i.i.i ], [ %33, %if.end.i.i.i.i.i.i ], [ %op.addr.0.lcssa.i.i.i.i.i, %for.inc.i.i.i.i ]
   %link.i13.sink.i.i.i.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.pn.i.i.i.i, i64 8
   %.sink.in.i.i.i.i = getelementptr inbounds i8, ptr %op.085.i, i64 16
@@ -898,8 +898,8 @@ do.body54.i:                                      ; preds = %sw.bb1.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 782, ptr noundef nonnull @__func__.plugin_gen_inject, ptr noundef null) #10
   unreachable
 
-for.inc.i:                                        ; preds = %if.end.i.i77.i, %rm_ops.exit.i.i69.i, %sw.bb35.i, %plugin_gen_mem_regular.exit.i, %if.end.i.i.i, %rm_ops.exit.i.i.i, %sw.bb20.i, %sw.bb19.i, %sw.bb8.i, %sw.bb7.i, %sw.bb.i, %for.body.i
-  %insn_idx.1.i = phi i32 [ %insn_idx.084.i, %for.body.i ], [ %insn_idx.084.i, %sw.bb35.i ], [ %insn_idx.084.i, %plugin_gen_mem_regular.exit.i ], [ %insn_idx.084.i, %sw.bb20.i ], [ %insn_idx.084.i, %sw.bb19.i ], [ -1, %sw.bb8.i ], [ -1, %sw.bb7.i ], [ %inc.i, %sw.bb.i ], [ %insn_idx.084.i, %rm_ops.exit.i.i.i ], [ %insn_idx.084.i, %if.end.i.i.i ], [ %insn_idx.084.i, %rm_ops.exit.i.i69.i ], [ %insn_idx.084.i, %if.end.i.i77.i ]
+for.inc.i:                                        ; preds = %if.end.i.i77.i, %rm_ops.exit.i.i69.i, %sw.bb35.i, %plugin_gen_mem_regular.argprom.argprom.exit.i, %if.end.i.i.i, %rm_ops.exit.i.i.i, %sw.bb20.i, %sw.bb19.i, %sw.bb8.i, %sw.bb7.i, %sw.bb.i, %for.body.i
+  %insn_idx.1.i = phi i32 [ %insn_idx.084.i, %for.body.i ], [ %insn_idx.084.i, %sw.bb35.i ], [ %insn_idx.084.i, %plugin_gen_mem_regular.argprom.argprom.exit.i ], [ %insn_idx.084.i, %sw.bb20.i ], [ %insn_idx.084.i, %sw.bb19.i ], [ -1, %sw.bb8.i ], [ -1, %sw.bb7.i ], [ %inc.i, %sw.bb.i ], [ %insn_idx.084.i, %rm_ops.exit.i.i.i ], [ %insn_idx.084.i, %if.end.i.i.i ], [ %insn_idx.084.i, %rm_ops.exit.i.i69.i ], [ %insn_idx.084.i, %if.end.i.i77.i ]
   %link.i = getelementptr inbounds i8, ptr %op.085.i, i64 8
   %op.0.i = load ptr, ptr %link.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null

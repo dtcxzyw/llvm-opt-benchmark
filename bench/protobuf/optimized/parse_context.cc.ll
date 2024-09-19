@@ -554,13 +554,13 @@ do.body.i:                                        ; preds = %if.end8.i, %entry
   %chunk_size.0.i = phi i32 [ %conv.i, %entry ], [ %conv15.i, %if.end8.i ]
   %1 = load ptr, ptr %next_chunk_.i, align 8
   %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit", label %if.end.i
+  br i1 %cmp.i, label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %do.body.i
   %sub.i = sub nsw i32 %size.addr.0.i, %chunk_size.0.i
   %2 = load i32, ptr %limit_.i, align 4
   %cmp3.i = icmp slt i32 %2, 17
-  br i1 %cmp3.i, label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit", label %if.end5.i
+  br i1 %cmp3.i, label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit", label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %call.i.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 0, i32 noundef -1)
@@ -572,7 +572,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds =
   %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 1, ptr %last_tag_minus_1_.i.i.i, align 8
   store ptr %3, ptr %this, align 8
-  br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit"
+  br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit"
 
 if.end8.i:                                        ; preds = %if.end5.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -598,9 +598,9 @@ if.end8.i:                                        ; preds = %if.end5.i
 do.end.i:                                         ; preds = %if.end8.i
   %idx.ext17.i = sext i32 %sub.i to i64
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr9.i, i64 %idx.ext17.i
-  br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit"
+  br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit"
 
-"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit": ; preds = %do.body.i, %if.end.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, %do.end.i
+"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.argprom.exit": ; preds = %do.body.i, %if.end.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, %do.end.i
   %retval.0.i = phi ptr [ %add.ptr18.i, %do.end.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i ], [ null, %if.end.i ], [ null, %do.body.i ]
   ret ptr %retval.0.i
 }

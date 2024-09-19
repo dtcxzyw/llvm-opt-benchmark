@@ -955,7 +955,7 @@ _ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypePointerEJRNS_8codeview9
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread17"
+  br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread17"
 
 32:                                               ; preds = %3
   %33 = and i32 %1, 255
@@ -967,28 +967,28 @@ _ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypePointerEJRNS_8codeview9
   %.02956.i.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.idx
   %.029.val.i.i.i.i = load i32, ptr %.02956.i.i.i.i.ptr, align 16
   %34 = icmp eq i32 %.029.val.i.i.i.i, %33
-  br i1 %34, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread25", label %35
+  br i1 %34, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread25", label %35
 
 35:                                               ; preds = %.lr.ph.i.i.i.i
   %.02956.i.i.i.i.add20 = or disjoint i64 %.02956.i.i.i.i.idx, 12
   %.ptr23 = getelementptr inbounds i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add20
   %.val31.i.i.i.i = load i32, ptr %.ptr23, align 4
   %36 = icmp eq i32 %.val31.i.i.i.i, %33
-  br i1 %36, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread25", label %37
+  br i1 %36, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread25", label %37
 
 37:                                               ; preds = %35
   %.02956.i.i.i.i.add19 = add nuw nsw i64 %.02956.i.i.i.i.idx, 24
   %.ptr22 = getelementptr inbounds i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add19
   %.val33.i.i.i.i = load i32, ptr %.ptr22, align 8
   %38 = icmp eq i32 %.val33.i.i.i.i, %33
-  br i1 %38, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit", label %39
+  br i1 %38, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit", label %39
 
 39:                                               ; preds = %37
   %.02956.i.i.i.i.add = add nuw nsw i64 %.02956.i.i.i.i.idx, 36
   %.ptr = getelementptr inbounds i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add
   %.val35.i.i.i.i = load i32, ptr %.ptr, align 4
   %40 = icmp eq i32 %.val35.i.i.i.i, %33
-  br i1 %40, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread25", label %41
+  br i1 %40, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread25", label %41
 
 41:                                               ; preds = %39
   %.02956.i.i.i.i.add21 = add nuw nsw i64 %.02956.i.i.i.i.idx, 48
@@ -998,26 +998,26 @@ _ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypePointerEJRNS_8codeview9
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %41
   %trunc = trunc i32 %1 to i8
-  switch i8 %trunc, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread17" [
-    i8 66, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread"
-    i8 48, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split"
+  switch i8 %trunc, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread17" [
+    i8 66, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread"
+    i8 48, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread.fold.split"
   ]
 
-"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread25": ; preds = %.lr.ph.i.i.i.i, %35, %39
+"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread25": ; preds = %.lr.ph.i.i.i.i, %35, %39
   %.028.i.i.i.i.idx.ph = phi i64 [ %.02956.i.i.i.i.add, %39 ], [ %.02956.i.i.i.i.add20, %35 ], [ %.02956.i.i.i.i.idx, %.lr.ph.i.i.i.i ]
   %.028.i.i.i.i.ptr27 = getelementptr inbounds i8, ptr @_ZL12BuiltinTypes, i64 %.028.i.i.i.i.idx.ph
-  br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread"
+  br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit": ; preds = %37
+"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %37
   %.028.i.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add19
   %44 = icmp eq i64 %.02956.i.i.i.i.add19, 264
-  br i1 %44, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread17", label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread"
+  br i1 %44, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread17", label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split": ; preds = %._crit_edge.loopexit.i.i.i.i
-  br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread"
+"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread.fold.split": ; preds = %._crit_edge.loopexit.i.i.i.i
+  br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread": ; preds = %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread25", %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split", %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit"
-  %.028.i.i.i.i16 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds (i8, ptr @_ZL12BuiltinTypes, i64 240), %._crit_edge.loopexit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZL12BuiltinTypes, i64 252), %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split" ], [ %.028.i.i.i.i.ptr27, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread25" ]
+"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread": ; preds = %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread25", %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread.fold.split", %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit"
+  %.028.i.i.i.i16 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit" ], [ getelementptr inbounds (i8, ptr @_ZL12BuiltinTypes, i64 240), %._crit_edge.loopexit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZL12BuiltinTypes, i64 252), %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread.fold.split" ], [ %.028.i.i.i.i.ptr27, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread25" ]
   %45 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i16, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i16, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -1045,7 +1045,7 @@ _ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypePointerEJRNS_8codeview9
   %.not.i.i.i7 = icmp eq ptr %62, %64
   br i1 %.not.i.i.i7, label %_ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.i9, label %_ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread.i8
 
-_ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread.i8: ; preds = %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread"
+_ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread.i8: ; preds = %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread"
   %65 = ptrtoint ptr %57 to i64
   store i64 %65, ptr %62, align 8
   %66 = load ptr, ptr %48, align 8
@@ -1053,7 +1053,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EE
   store ptr %67, ptr %48, align 8
   br label %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypeBuiltinEJRNS_8codeview15ModifierOptionsERKNS0_15PDB_BuiltinTypeERKjEEEjDpOT0_.exit
 
-_ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.i9: ; preds = %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread"
+_ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.i9: ; preds = %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread"
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr %62, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i10 = load ptr, ptr %4, align 8
   %.not.i.i11 = icmp eq ptr %.pr.i10, null
@@ -1073,10 +1073,10 @@ _ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypeBuiltinEJRNS_8codeview1
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(24) %57) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread17"
+  br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread17"
 
-"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread17": ; preds = %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit", %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypeBuiltinEJRNS_8codeview15ModifierOptionsERKNS0_15PDB_BuiltinTypeERKjEEEjDpOT0_.exit, %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypePointerEJRNS_8codeview9TypeIndexEEEEjDpOT0_.exit
-  %.0 = phi i32 [ %16, %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypePointerEJRNS_8codeview9TypeIndexEEEEjDpOT0_.exit ], [ %55, %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypeBuiltinEJRNS_8codeview15ModifierOptionsERKNS0_15PDB_BuiltinTypeERKjEEEjDpOT0_.exit ], [ 0, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit" ], [ 0, %._crit_edge.loopexit.i.i.i.i ]
+"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit.thread17": ; preds = %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit", %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypeBuiltinEJRNS_8codeview15ModifierOptionsERKNS0_15PDB_BuiltinTypeERKjEEEjDpOT0_.exit, %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypePointerEJRNS_8codeview9TypeIndexEEEEjDpOT0_.exit
+  %.0 = phi i32 [ %16, %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypePointerEJRNS_8codeview9TypeIndexEEEEjDpOT0_.exit ], [ %55, %_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypeBuiltinEJRNS_8codeview15ModifierOptionsERKNS0_15PDB_BuiltinTypeERKjEEEjDpOT0_.exit ], [ 0, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.argprom.exit" ], [ 0, %._crit_edge.loopexit.i.i.i.i ]
   ret i32 %.0
 }
 
@@ -6781,7 +6781,7 @@ _ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArray
   %.val = load ptr, ptr %22, align 8
   %.val40 = load ptr, ptr %229, align 8
   %.not.i.i.i.i57 = icmp eq ptr %.val, %.val40
-  br i1 %.not.i.i.i.i57, label %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.exit", label %289
+  br i1 %.not.i.i.i.i57, label %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.argprom.exit", label %289
 
 289:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit
   %290 = ptrtoint ptr %.val40 to i64
@@ -6799,7 +6799,7 @@ _ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArray
   %299 = getelementptr inbounds i8, ptr %.val, i64 384
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_T0_"(ptr %.val, ptr nonnull %299)
   %.not6.i.i.i.i.i.i = icmp eq ptr %299, %.val40
-  br i1 %.not6.i.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not6.i.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %298, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %.sroa.0.07.i.i.i.i.i.i = phi ptr [ %324, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %299, %298 ]
@@ -6877,19 +6877,19 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EEaSEOS5_.exit.i.i.i.
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_.exit.i.i.i.i.i.i": ; preds = %320, %._crit_edge.i.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i.i
   %324 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i58 = icmp eq ptr %324, %.val40
-  br i1 %.not.i.i.i.i.i.i58, label %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !145
+  br i1 %.not.i.i.i.i.i.i58, label %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !145
 
 325:                                              ; preds = %289
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_T0_"(ptr %.val, ptr %.val40)
-  br label %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.exit"
+  br label %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.argprom.exit"
 
-"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit, %298, %325
+"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.argprom.exit": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit, %298, %325
   %326 = load ptr, ptr %22, align 8
   %327 = load ptr, ptr %229, align 8
   %.not333351 = icmp eq ptr %326, %327
   br i1 %.not333351, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.exit"
+.lr.ph:                                           ; preds = %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.argprom.exit"
   %328 = getelementptr inbounds nuw i8, ptr %.0.i.i41, i64 16
   br label %1090
 
@@ -8732,7 +8732,7 @@ _ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit: ; preds = %_ZN4llvm18Binary
   %.not333 = icmp eq ptr %1100, %327
   br i1 %.not333, label %._crit_edge, label %1090
 
-._crit_edge:                                      ; preds = %1090, %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.exit"
+._crit_edge:                                      ; preds = %1090, %"_ZN4llvm4sortIRSt6vectorIS1_INS_3pdb11SymbolCache14LineTableEntryESaIS4_EESaIS6_EEZNKS3_13findLineTableEtE3$_0EEvOT_T0_.argprom.exit"
   %1101 = getelementptr inbounds nuw i8, ptr %.0.i.i41, i64 16
   %1102 = load ptr, ptr %1101, align 8
   %1103 = load ptr, ptr %108, align 8
@@ -9861,7 +9861,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolCache19findLineNumbersByVAEmj(ptr de
   %33 = ptrtoint ptr %26 to i64
   %34 = sub i64 %32, %33
   %35 = icmp sgt i64 %34, 0
-  br i1 %35, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.exit"
+  br i1 %35, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.argprom.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %31
   %36 = udiv exact i64 %34, 24
@@ -9886,19 +9886,19 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableE
   %.sroa.014.1.i.i = select i1 %or.cond.i.i, ptr %43, ptr %.sroa.014.016.i.i
   %.1.i.i = select i1 %or.cond.i.i, i64 %45, i64 %37
   %46 = icmp sgt i64 %.1.i.i, 0
-  br i1 %46, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.exit", !llvm.loop !228
+  br i1 %46, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.argprom.exit", !llvm.loop !228
 
-"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, %31
+"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.argprom.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, %31
   %.sroa.014.0.lcssa.i.i = phi ptr [ %26, %31 ], [ %.sroa.014.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ]
   %47 = icmp eq ptr %.sroa.014.0.lcssa.i.i, %28
   br i1 %47, label %.critedge, label %48
 
-48:                                               ; preds = %"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.exit"
+48:                                               ; preds = %"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.argprom.exit"
   %49 = load i64, ptr %.sroa.014.0.lcssa.i.i, align 8
   %50 = icmp ugt i64 %49, %2
   br i1 %50, label %.critedge, label %57
 
-.critedge:                                        ; preds = %"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.exit", %48
+.critedge:                                        ; preds = %"_ZN4llvm15partition_pointIRSt6vectorINS_3pdb11SymbolCache14LineTableEntryESaIS4_EEZNKS3_19findLineNumbersByVAEmjE3$_0RS4_EEDaOT_T0_.argprom.exit", %48
   %51 = icmp eq ptr %.sroa.014.0.lcssa.i.i, %26
   br i1 %51, label %.critedge2, label %52
 
@@ -24450,16 +24450,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i: ; preds = %32, %24
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %37 = add nsw i64 %.08.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_RT0_.exit.i.i", label %24
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_RT0_.argprom.exit.i.i", label %24
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_RT0_.exit.i.i": ; preds = %_ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_RT0_.argprom.exit.i.i": ; preds = %_ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %40
 
-40:                                               ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.exit.i11.i", %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_RT0_.exit.i.i"
-  %.sroa.0.03.i.i = phi ptr [ %storemerge24, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_RT0_.exit.i.i" ], [ %41, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.exit.i11.i" ]
+40:                                               ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.argprom.exit.i11.i", %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_RT0_.argprom.exit.i.i"
+  %.sroa.0.03.i.i = phi ptr [ %storemerge24, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_RT0_.argprom.exit.i.i" ], [ %41, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.argprom.exit.i11.i" ]
   %41 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %42 = load ptr, ptr %41, align 8
@@ -24484,7 +24484,7 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i: 
   call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef %4)
   %53 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i10.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i.i.i10.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.exit.i11.i", label %54
+  br i1 %.not.i.i.i.i.i10.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.argprom.exit.i11.i", label %54
 
 54:                                               ; preds = %40
   %55 = load ptr, ptr %39, align 8
@@ -24492,9 +24492,9 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i: 
   %57 = ptrtoint ptr %53 to i64
   %58 = sub i64 %56, %57
   tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %58) #17
-  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.exit.i11.i"
+  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.argprom.exit.i11.i"
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.exit.i11.i": ; preds = %54, %40
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.argprom.exit.i11.i": ; preds = %54, %40
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %59 = icmp sgt i64 %51, 24
   br i1 %59, label %40, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_T0_.exit", !llvm.loop !402
@@ -24669,7 +24669,7 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i: 
   %129 = icmp sgt i64 %128, 384
   br i1 %129, label %15, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_T0_.exit", !llvm.loop !406
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEET_SH_SH_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.exit.i11.i", %3
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEET_SH_SH_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.argprom.exit.i11.i", %3
   ret void
 }
 

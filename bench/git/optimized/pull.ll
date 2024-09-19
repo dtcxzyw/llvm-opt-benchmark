@@ -1352,7 +1352,7 @@ if.end9.i:                                        ; preds = %if.end5.i158
   br label %cleanup
 
 if.end104:                                        ; preds = %is_null_oid.exit152
-  br i1 %cmp99, label %if.then107, label %get_can_ff.exit
+  br i1 %cmp99, label %if.then107, label %get_can_ff.argprom.exit
 
 if.then107:                                       ; preds = %if.end104
   %109 = load i32, ptr @opt_rebase, align 4
@@ -1379,7 +1379,7 @@ if.then116:                                       ; preds = %land.lhs.true113
   call void (ptr, ...) @die(ptr noundef %call117) #19
   unreachable
 
-get_can_ff.exit:                                  ; preds = %if.end104
+get_can_ff.argprom.exit:                          ; preds = %if.end104
   %merge_heads.val = load ptr, ptr %merge_heads, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %list.i)
   store ptr null, ptr %list.i, align 8
@@ -1397,14 +1397,14 @@ get_can_ff.exit:                                  ; preds = %if.end104
   %tobool121.not = icmp eq i32 %call3.i170, 0
   br i1 %tobool121.not, label %land.rhs, label %land.end
 
-land.rhs:                                         ; preds = %if.end111, %land.lhs.true113, %get_can_ff.exit
+land.rhs:                                         ; preds = %if.end111, %land.lhs.true113, %get_can_ff.argprom.exit
   %call122 = call fastcc i32 @already_up_to_date(ptr noundef %orig_head, ptr noundef %merge_heads)
   %tobool123.not = icmp eq i32 %call122, 0
   br label %land.end
 
-land.end:                                         ; preds = %land.rhs, %get_can_ff.exit
-  %tobool121.not215 = phi i1 [ false, %get_can_ff.exit ], [ true, %land.rhs ]
-  %116 = phi i1 [ false, %get_can_ff.exit ], [ %tobool123.not, %land.rhs ]
+land.end:                                         ; preds = %land.rhs, %get_can_ff.argprom.exit
+  %tobool121.not215 = phi i1 [ false, %get_can_ff.argprom.exit ], [ true, %land.rhs ]
+  %116 = phi i1 [ false, %get_can_ff.argprom.exit ], [ %tobool123.not, %land.rhs ]
   %117 = load ptr, ptr @opt_ff, align 8
   %tobool124.not = icmp eq ptr %117, null
   br i1 %tobool124.not, label %if.end132, label %land.lhs.true125
@@ -1849,13 +1849,13 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
-hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
+hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32

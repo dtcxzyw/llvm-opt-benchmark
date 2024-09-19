@@ -220,9 +220,9 @@ define internal i32 @dissect_yami_pdu(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %27
-  tail call fastcc void @dissect_yami_data(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %11, i32 noundef 16)
+  tail call fastcc void @dissect_yami_data.retelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %11, i32 noundef 16)
   %29 = add i32 %20, 16
-  tail call fastcc void @dissect_yami_data(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %11, i32 noundef %29)
+  tail call fastcc void @dissect_yami_data.retelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %11, i32 noundef %29)
   br label %30
 
 30:                                               ; preds = %19, %27, %28
@@ -245,7 +245,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_yami_data(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_yami_data.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %6 = load i32, ptr @hf_yami_message_data, align 4
   %7 = load i32, ptr @hf_yami_message_hdr, align 4

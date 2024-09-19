@@ -1531,7 +1531,7 @@ define hidden noundef ptr @_ZN12PerfDataList12find_by_nameEPKc(ptr nocapture nou
   %4 = getelementptr i8, ptr %3, i64 8
   %.val5 = load ptr, ptr %4, align 8
   %5 = icmp sgt i32 %.val, 0
-  br i1 %5, label %.lr.ph.i, label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit.thread"
+  br i1 %5, label %.lr.ph.i, label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit.thread"
 
 .lr.ph.i:                                         ; preds = %2
   %wide.trip.count.i = zext nneg i32 %.val to i64
@@ -1545,26 +1545,26 @@ define hidden noundef ptr @_ZN12PerfDataList12find_by_nameEPKc(ptr nocapture nou
   %.val6.i = load ptr, ptr %9, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %.val6.i) #14
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit", label %12
+  br i1 %11, label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit", label %12
 
 12:                                               ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit.thread", label %6, !llvm.loop !10
+  br i1 %exitcond.not.i, label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit.thread", label %6, !llvm.loop !10
 
-"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit": ; preds = %6
+"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit": ; preds = %6
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.not = icmp slt i32 %.val, %13
-  br i1 %.not, label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit.thread", label %14
+  br i1 %.not, label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit.thread", label %14
 
-14:                                               ; preds = %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit"
+14:                                               ; preds = %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit"
   %15 = and i64 %indvars.iv.i, 4294967295
   %16 = getelementptr inbounds ptr, ptr %.val5, i64 %15
   %17 = load ptr, ptr %16, align 8
-  br label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit.thread"
+  br label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit.thread"
 
-"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit.thread": ; preds = %12, %2, %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit", %14
-  %.0 = phi ptr [ %17, %14 ], [ null, %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit" ], [ null, %2 ], [ null, %12 ]
+"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit.thread": ; preds = %12, %2, %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit", %14
+  %.0 = phi ptr [ %17, %14 ], [ null, %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.argprom.exit" ], [ null, %2 ], [ null, %12 ]
   ret ptr %.0
 }
 

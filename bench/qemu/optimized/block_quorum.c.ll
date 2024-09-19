@@ -1172,7 +1172,7 @@ quorum_get_vote_winner.exit:                      ; preds = %for.body.i13
 if.end13:                                         ; preds = %for.end, %quorum_get_vote_winner.exit
   %result.0 = phi i32 [ %conv12, %quorum_get_vote_winner.exit ], [ 0, %for.end ]
   %tobool.not3.i = icmp eq ptr %error_votes.val.pre, null
-  br i1 %tobool.not3.i, label %quorum_free_vote_list.exit, label %land.rhs.i
+  br i1 %tobool.not3.i, label %quorum_free_vote_list.argprom.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end13, %for.end.i
   %version.04.i = phi ptr [ %18, %for.end.i ], [ %error_votes.val.pre, %if.end13 ]
@@ -1234,9 +1234,9 @@ for.end.critedge.i:                               ; preds = %if.then28.i, %land.
 
 for.end.i:                                        ; preds = %for.end.critedge.i, %if.end.i
   call void @g_free(ptr noundef nonnull %version.04.i) #17
-  br i1 %cmp.not.i19, label %quorum_free_vote_list.exit, label %land.rhs.i, !llvm.loop !21
+  br i1 %cmp.not.i19, label %quorum_free_vote_list.argprom.exit, label %land.rhs.i, !llvm.loop !21
 
-quorum_free_vote_list.exit:                       ; preds = %for.end.i, %if.end13
+quorum_free_vote_list.argprom.exit:               ; preds = %for.end.i, %if.end13
   ret i32 %result.0
 }
 
@@ -1544,8 +1544,8 @@ entry:
   %.pre = load i32, ptr %children_read, align 8
   br label %do.body
 
-do.body:                                          ; preds = %quorum_report_bad_acb.exit, %entry
-  %2 = phi i32 [ %19, %quorum_report_bad_acb.exit ], [ %.pre, %entry ]
+do.body:                                          ; preds = %quorum_report_bad_acb.argprom.exit, %entry
+  %2 = phi i32 [ %19, %quorum_report_bad_acb.argprom.exit ], [ %.pre, %entry ]
   %inc = add i32 %2, 1
   store i32 %inc, ptr %children_read, align 8
   %3 = load ptr, ptr %1, align 8
@@ -1564,9 +1564,9 @@ do.body:                                          ; preds = %quorum_report_bad_a
   %11 = load ptr, ptr %qiov, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef %11, i32 noundef 0) #17
   %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %quorum_report_bad_acb.exit, label %do.end
+  br i1 %cmp, label %quorum_report_bad_acb.argprom.exit, label %do.end
 
-quorum_report_bad_acb.exit:                       ; preds = %do.body
+quorum_report_bad_acb.argprom.exit:               ; preds = %do.body
   %12 = load ptr, ptr %qcrs, align 8
   %arrayidx10 = getelementptr %struct.QuorumChildRequest, ptr %12, i64 %idxprom
   %arrayidx10.val = load ptr, ptr %arrayidx10, align 8
@@ -1595,7 +1595,7 @@ quorum_report_bad_acb.exit:                       ; preds = %do.body
   %cmp13 = icmp slt i32 %19, %20
   br i1 %cmp13, label %do.body, label %do.end, !llvm.loop !28
 
-do.end:                                           ; preds = %do.body, %quorum_report_bad_acb.exit
+do.end:                                           ; preds = %do.body, %quorum_report_bad_acb.argprom.exit
   ret i32 %call
 }
 
@@ -1674,14 +1674,14 @@ if.else:                                          ; preds = %entry
   %bytes.i = getelementptr inbounds i8, ptr %arrayidx.val23, i64 24
   %17 = load i64, ptr %bytes.i, align 8
   %cmp.i.i = icmp slt i32 %call, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %quorum_report_bad_acb.exit
+  br i1 %cmp.i.i, label %if.then.i.i, label %quorum_report_bad_acb.argprom.exit
 
 if.then.i.i:                                      ; preds = %if.else
   %sub3.i.i = sub i32 0, %call
   %call.i.i = tail call ptr @strerror(i32 noundef %sub3.i.i) #17
-  br label %quorum_report_bad_acb.exit
+  br label %quorum_report_bad_acb.argprom.exit
 
-quorum_report_bad_acb.exit:                       ; preds = %if.else, %if.then.i.i
+quorum_report_bad_acb.argprom.exit:               ; preds = %if.else, %if.then.i.i
   %msg.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ null, %if.else ]
   %node_name.i = getelementptr inbounds i8, ptr %arrayidx.val, i64 16600
   %18 = and i8 %15, 1
@@ -1695,7 +1695,7 @@ quorum_report_bad_acb.exit:                       ; preds = %if.else, %if.then.i
   tail call void @qapi_event_send_quorum_report_bad(i32 noundef %cond.i, ptr noundef %msg.0.i.i, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
   br label %if.end
 
-if.end:                                           ; preds = %quorum_report_bad_acb.exit, %if.then
+if.end:                                           ; preds = %quorum_report_bad_acb.argprom.exit, %if.then
   %count = getelementptr inbounds i8, ptr %0, i64 56
   %20 = load i32, ptr %count, align 8
   %inc15 = add i32 %20, 1
@@ -2892,14 +2892,14 @@ if.else21:                                        ; preds = %if.end
   %bytes.i = getelementptr inbounds i8, ptr %arrayidx.val31, i64 24
   %19 = load i64, ptr %bytes.i, align 8
   %cmp.i.i = icmp slt i32 %call.sink, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %quorum_report_bad_acb.exit
+  br i1 %cmp.i.i, label %if.then.i.i, label %quorum_report_bad_acb.argprom.exit
 
 if.then.i.i:                                      ; preds = %if.else21
   %sub3.i.i = sub i32 0, %call.sink
   %call.i.i = tail call ptr @strerror(i32 noundef %sub3.i.i) #17
-  br label %quorum_report_bad_acb.exit
+  br label %quorum_report_bad_acb.argprom.exit
 
-quorum_report_bad_acb.exit:                       ; preds = %if.else21, %if.then.i.i
+quorum_report_bad_acb.argprom.exit:               ; preds = %if.else21, %if.then.i.i
   %msg.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ null, %if.else21 ]
   %node_name.i = getelementptr inbounds i8, ptr %arrayidx.val, i64 16600
   %20 = and i8 %17, 1
@@ -2913,7 +2913,7 @@ quorum_report_bad_acb.exit:                       ; preds = %if.else21, %if.then
   tail call void @qapi_event_send_quorum_report_bad(i32 noundef %cond.i, ptr noundef %msg.0.i.i, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
   br label %if.end23
 
-if.end23:                                         ; preds = %quorum_report_bad_acb.exit, %if.then20
+if.end23:                                         ; preds = %quorum_report_bad_acb.argprom.exit, %if.then20
   %count = getelementptr inbounds i8, ptr %0, i64 56
   %22 = load i32, ptr %count, align 8
   %inc24 = add i32 %22, 1

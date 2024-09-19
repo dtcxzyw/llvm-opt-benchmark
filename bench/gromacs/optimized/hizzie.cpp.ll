@@ -204,7 +204,7 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
   %66 = load ptr, ptr %57, align 8
   store i32 0, ptr %66, align 4
   %67 = icmp sgt i32 %.val, 0
-  br i1 %67, label %.lr.ph15.i, label %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit
+  br i1 %67, label %.lr.ph15.i, label %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.argprom.exit
 
 .lr.ph15.i:                                       ; preds = %._crit_edge
   %68 = fmul float %4, %4
@@ -338,9 +338,9 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
   %145 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv.i146
   store i32 %.3.i, ptr %145, align 4
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next27.pre-phi.i, %69
-  br i1 %exitcond34.not.i, label %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit, label %70, !llvm.loop !11
+  br i1 %exitcond34.not.i, label %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.argprom.exit, label %70, !llvm.loop !11
 
-_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit: ; preds = %.loopexit.i, %._crit_edge
+_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.argprom.exit: ; preds = %.loopexit.i, %._crit_edge
   %.049.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %.3.i, %.loopexit.i ]
   store i32 %.049.lcssa.i, ptr %65, align 8
   %146 = load ptr, ptr @stderr, align 8
@@ -348,7 +348,7 @@ _ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit: ; preds = %.loopexit.i, %._cr
   %148 = icmp slt i32 %.0.lcssa, %9
   br i1 %148, label %.lr.ph206, label %._crit_edge207
 
-.lr.ph206:                                        ; preds = %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit
+.lr.ph206:                                        ; preds = %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.argprom.exit
   %149 = getelementptr inbounds i8, ptr %0, i64 8
   %150 = getelementptr inbounds i8, ptr %0, i64 16
   %151 = getelementptr inbounds i8, ptr %6, i64 4
@@ -601,7 +601,7 @@ sub_1:                                            ; preds = %sub_0
   %306 = icmp slt i32 %.2, %9
   br i1 %306, label %155, label %._crit_edge207, !llvm.loop !13
 
-._crit_edge207:                                   ; preds = %305, %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit
+._crit_edge207:                                   ; preds = %305, %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.argprom.exit
   tail call void @_Z11done_blockaP8t_blocka(ptr noundef nonnull %33)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.21, i32 noundef 314, ptr noundef nonnull %33)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 315, ptr noundef %30)

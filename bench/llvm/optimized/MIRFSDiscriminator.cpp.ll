@@ -990,7 +990,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJNS_9StringRefEjjmEEjNS_12DenseMapI
   %376 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   %377 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   %378 = icmp eq i64 %377, 0
-  br i1 %378, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit.i", label %379
+  br i1 %378, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit.i", label %379
 
 379:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %12)
@@ -1002,17 +1002,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJNS_9StringRefEjjmEEjNS_12DenseMapI
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit.i"
+  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit.i"
 
-"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit.i": ; preds = %379, %373
+"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit.i": ; preds = %379, %373
   %.0.i.i73 = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i, %379 ], [ 0, %373 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   %380 = call { ptr, i64 } @_ZNK4llvm17MachineBasicBlock7getNameEv(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.0114.0147) #16
   %381 = extractvalue { ptr, i64 } %380, 1
   %382 = icmp eq i64 %381, 0
-  br i1 %382, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit24.i", label %383
+  br i1 %382, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit24.i", label %383
 
-383:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit.i"
+383:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit.i"
   %384 = extractvalue { ptr, i64 } %380, 0
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
@@ -1023,23 +1023,23 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJNS_9StringRefEjjmEEjNS_12DenseMapI
   %.0.copyload.i.i.i.i.i.i.i22.i = load i64, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit24.i"
+  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit24.i"
 
-"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit24.i": ; preds = %383, %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit.i"
-  %.0.i23.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i22.i, %383 ], [ 0, %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit.i" ]
+"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit24.i": ; preds = %383, %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit.i"
+  %.0.i23.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i22.i, %383 ], [ 0, %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit.i" ]
   %385 = xor i64 %.0.i23.i, %.0.i.i73
   %386 = load i64, ptr %99, align 8
   %387 = and i64 %386, 2
   %.not.i.i.i.i.i74 = icmp eq i64 %387, 0
   br i1 %.not.i.i.i.i.i74, label %392, label %388
 
-388:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit24.i"
+388:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit24.i"
   %389 = getelementptr inbounds i8, ptr %81, i64 -32
   %390 = load ptr, ptr %389, align 8
   %391 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %389) #16
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i75
 
-392:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit24.i"
+392:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit24.i"
   %393 = lshr i64 %386, 2
   %394 = and i64 %393, 15
   %395 = sub nsw i64 0, %394
@@ -1074,13 +1074,13 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i: ; preds = %406, %
   %411 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i78, i64 24
   %412 = load ptr, ptr %411, align 8
   %.not.i.i.i = icmp eq ptr %412, null
-  br i1 %.not.i.i.i, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit27.i", label %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i
+  br i1 %.not.i.i.i, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit27.i", label %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i
 
 _ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
   %413 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %412) #16
   %414 = extractvalue { ptr, i64 } %413, 1
   %415 = icmp eq i64 %414, 0
-  br i1 %415, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit27.i", label %416
+  br i1 %415, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit27.i", label %416
 
 416:                                              ; preds = %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i
   %417 = extractvalue { ptr, i64 } %413, 0
@@ -1093,9 +1093,9 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i: ; preds = %_ZNK4llvm6DINode12g
   %.0.copyload.i.i.i.i.i.i.i25.i = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit27.i"
+  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit27.i"
 
-"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit27.i": ; preds = %416, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
+"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit27.i": ; preds = %416, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
   %.0.i26.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i25.i, %416 ], [ 0, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i ]
   %418 = xor i64 %385, %.0.i26.i
   %419 = load i64, ptr %99, align 8
@@ -1103,13 +1103,13 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i: ; preds = %_ZNK4llvm6DINode12g
   %.not.i.i.i.i28.i = icmp eq i64 %420, 0
   br i1 %.not.i.i.i.i28.i, label %421, label %425
 
-421:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit27.i"
+421:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit27.i"
   %422 = trunc i64 %419 to i32
   %423 = lshr i32 %422, 6
   %424 = and i32 %423, 15
   br label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i79
 
-425:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit27.i"
+425:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit27.i"
   %426 = getelementptr inbounds i8, ptr %81, i64 -32
   %427 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %426) #16
   %428 = trunc i64 %427 to i32
@@ -1118,7 +1118,7 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit.i: ; preds = %_ZNK4llvm6DINode12g
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i79:  ; preds = %425, %421
   %.0.i.i.i.i.i80 = phi i32 [ %428, %425 ], [ %424, %421 ]
   %429 = icmp eq i32 %.0.i.i.i.i.i80, 2
-  br i1 %429, label %430, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit
+  br i1 %429, label %430, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.argprom.exit
 
 430:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i79
   %431 = load i64, ptr %99, align 8
@@ -1144,7 +1144,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.i82:   ; preds = %437, %433
   %442 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i29.i, i64 8
   %443 = load ptr, ptr %442, align 8
   %.not17.i = icmp eq ptr %443, null
-  br i1 %.not17.i, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit, label %.lr.ph.i83
+  br i1 %.not17.i, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.argprom.exit, label %.lr.ph.i83
 
 .lr.ph.i83:                                       ; preds = %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i82, %_ZNK4llvm10DILocation12getInlinedAtEv.exit55.i
   %.019.i = phi i64 [ %538, %_ZNK4llvm10DILocation12getInlinedAtEv.exit55.i ], [ %418, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i82 ]
@@ -1259,7 +1259,7 @@ _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %487, %497
   %500 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   %501 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   %502 = icmp eq i64 %501, 0
-  br i1 %502, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit32.i", label %503
+  br i1 %502, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit32.i", label %503
 
 503:                                              ; preds = %_ZNSt7__cxx119to_stringEj.exit
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6)
@@ -1271,9 +1271,9 @@ _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %487, %497
   %.0.copyload.i.i.i.i.i.i.i30.i = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit32.i"
+  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit32.i"
 
-"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit32.i": ; preds = %503, %_ZNSt7__cxx119to_stringEj.exit
+"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit32.i": ; preds = %503, %_ZNSt7__cxx119to_stringEj.exit
   %.0.i31.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i30.i, %503 ], [ 0, %_ZNSt7__cxx119to_stringEj.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   %504 = getelementptr inbounds i8, ptr %.01218.i, i64 -16
@@ -1282,13 +1282,13 @@ _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %487, %497
   %.not.i.i.i.i33.i = icmp eq i64 %506, 0
   br i1 %.not.i.i.i.i33.i, label %511, label %507
 
-507:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit32.i"
+507:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit32.i"
   %508 = getelementptr inbounds i8, ptr %.01218.i, i64 -32
   %509 = load ptr, ptr %508, align 8
   %510 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %508) #16
   br label %_ZNK4llvm10DILocation8getScopeEv.exit35.i
 
-511:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit32.i"
+511:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit32.i"
   %512 = lshr i64 %505, 2
   %513 = and i64 %512, 15
   %514 = sub nsw i64 0, %513
@@ -1323,13 +1323,13 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i37.i: ; preds = %525,
   %530 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i38.i, i64 24
   %531 = load ptr, ptr %530, align 8
   %.not.i.i39.i = icmp eq ptr %531, null
-  br i1 %.not.i.i39.i, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit47.i", label %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i
+  br i1 %.not.i.i39.i, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit47.i", label %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i
 
 _ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i37.i
   %532 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %531) #16
   %533 = extractvalue { ptr, i64 } %532, 1
   %534 = icmp eq i64 %533, 0
-  br i1 %534, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit47.i", label %535
+  br i1 %534, label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit47.i", label %535
 
 535:                                              ; preds = %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i
   %536 = extractvalue { ptr, i64 } %532, 0
@@ -1342,9 +1342,9 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i: ; preds = %_ZNK4llvm6DINode1
   %.0.copyload.i.i.i.i.i.i.i45.i = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit47.i"
+  br label %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit47.i"
 
-"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit47.i": ; preds = %535, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i37.i
+"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit47.i": ; preds = %535, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i37.i
   %.0.i46.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i45.i, %535 ], [ 0, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i37.i ]
   %537 = xor i64 %.0.i31.i, %.019.i
   %538 = xor i64 %537, %.0.i46.i
@@ -1353,13 +1353,13 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i: ; preds = %_ZNK4llvm6DINode1
   %.not.i.i.i.i48.i = icmp eq i64 %540, 0
   br i1 %.not.i.i.i.i48.i, label %541, label %545
 
-541:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit47.i"
+541:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit47.i"
   %542 = trunc i64 %539 to i32
   %543 = lshr i32 %542, 6
   %544 = and i32 %543, 15
   br label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i49.i
 
-545:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.exit47.i"
+545:                                              ; preds = %"_ZZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationEENK3$_0clERKNS_9StringRefE.argprom.exit47.i"
   %546 = getelementptr inbounds i8, ptr %.01218.i, i64 -32
   %547 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %546) #16
   %548 = trunc i64 %547 to i32
@@ -1368,7 +1368,7 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit44.i: ; preds = %_ZNK4llvm6DINode1
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i49.i:  ; preds = %545, %541
   %.0.i.i.i.i50.i = phi i32 [ %548, %545 ], [ %544, %541 ]
   %549 = icmp eq i32 %.0.i.i.i.i50.i, 2
-  br i1 %549, label %550, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit
+  br i1 %549, label %550, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.argprom.exit
 
 550:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i49.i
   %551 = load i64, ptr %504, align 8
@@ -1394,9 +1394,9 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit55.i:   ; preds = %557, %553
   %562 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i54.i, i64 8
   %563 = load ptr, ptr %562, align 8
   %.not.i84 = icmp eq ptr %563, null
-  br i1 %.not.i84, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit, label %.lr.ph.i83, !llvm.loop !17
+  br i1 %.not.i84, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.argprom.exit, label %.lr.ph.i83, !llvm.loop !17
 
-_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i49.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit55.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i79, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i82
+_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.argprom.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i49.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit55.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i79, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i82
   %.0.lcssa.i = phi i64 [ %418, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i82 ], [ %418, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i79 ], [ %538, %_ZNK4llvm10DILocation12getInlinedAtEv.exit55.i ], [ %538, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i49.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
@@ -1404,8 +1404,8 @@ _ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DI
   %565 = add i32 %370, %564
   br label %566
 
-566:                                              ; preds = %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJNS_9StringRefEjjmEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit72
-  %.049 = phi i32 [ %370, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJNS_9StringRefEjjmEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit72 ], [ %565, %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit ]
+566:                                              ; preds = %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.argprom.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJNS_9StringRefEjjmEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit72
+  %.049 = phi i32 [ %370, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJNS_9StringRefEjjmEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit72 ], [ %565, %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.argprom.exit ]
   %567 = and i32 %.049, %50
   %568 = or i32 %567, %.0119
   %569 = call noundef ptr @_ZNK4llvm10DILocation22cloneWithDiscriminatorEj(ptr noundef nonnull align 8 dereferenceable(16) %81, i32 noundef %568)

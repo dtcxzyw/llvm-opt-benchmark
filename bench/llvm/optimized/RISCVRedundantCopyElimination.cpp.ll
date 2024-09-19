@@ -322,11 +322,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129RISCVRedundantCopyElimina
   %41 = getelementptr inbounds i8, ptr %40, i64 256
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull align 8 dereferenceable(288) %34, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext false) #14
-  br i1 %43, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, label %44
+  br i1 %43, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i, label %44
 
 44:                                               ; preds = %38
   %45 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  br i1 %45, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, label %46
+  br i1 %45, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i, label %46
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %3, align 8
@@ -334,7 +334,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129RISCVRedundantCopyElimina
   %48 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = trunc i64 %49 to i32
-  switch i32 %50, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i [
+  switch i32 %50, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i [
     i32 0, label %51
     i32 1, label %61
   ]
@@ -344,7 +344,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129RISCVRedundantCopyElimina
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 255
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i
+  br i1 %55, label %56, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %.val.i, i64 68
@@ -352,14 +352,14 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129RISCVRedundantCopyElimina
   %59 = icmp eq i32 %58, 43
   %60 = icmp eq ptr %47, %.sroa.012.021
   %or.cond.i.i = and i1 %60, %59
-  br i1 %or.cond.i.i, label %70, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i
+  br i1 %or.cond.i.i, label %70, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i
 
 61:                                               ; preds = %46
   %62 = getelementptr inbounds i8, ptr %.val.i, i64 64
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 255
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i
+  br i1 %65, label %66, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds i8, ptr %.val.i, i64 68
@@ -367,13 +367,13 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129RISCVRedundantCopyElimina
   %69 = icmp ne i32 %68, 43
   %.not.i.i = icmp eq ptr %47, %.sroa.012.021
   %or.cond14.i.i = or i1 %.not.i.i, %69
-  br i1 %or.cond14.i.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, label %70
+  br i1 %or.cond14.i.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i, label %70
 
 70:                                               ; preds = %66, %56
   %71 = getelementptr inbounds i8, ptr %.val.i, i64 36
   %72 = load i32, ptr %71, align 4
   %.not36.i = icmp eq i32 %72, 0
-  br i1 %.not36.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, label %73
+  br i1 %.not36.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds i8, ptr %.sroa.012.021, i64 56
@@ -476,7 +476,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   br i1 %.not67.i, label %77, label %129, !llvm.loop !6
 
 129:                                              ; preds = %126, %77
-  br i1 %.034.ph.i, label %130, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i
+  br i1 %.034.ph.i, label %130, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i
 
 130:                                              ; preds = %129
   %131 = call ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288) %34) #14
@@ -492,7 +492,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
 135:                                              ; preds = %134, %130
   %.sroa.048.072.i = load ptr, ptr %74, align 8
   %.not6873.i = icmp eq ptr %.sroa.048.072.i, %.sroa.056.0.ph.i
-  br i1 %.not6873.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, label %.lr.ph.i
+  br i1 %.not6873.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %135, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit47.i
   %.sroa.048.074.i = phi ptr [ %.sroa.048.0.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit47.i ], [ %.sroa.048.072.i, %135 ]
@@ -525,21 +525,21 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit47.i: ; pre
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i41.i, i64 8
   %.sroa.048.0.i = load ptr, ptr %146, align 8
   %.not68.i = icmp eq ptr %.sroa.048.0.i, %.sroa.056.0.ph.i
-  br i1 %.not68.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, label %.lr.ph.i
+  br i1 %.not68.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i, label %.lr.ph.i
 
-_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit47.i, %135, %129, %70, %66, %61, %56, %51, %46, %44, %38
+_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit47.i, %135, %129, %70, %66, %61, %56, %51, %46, %44, %38
   %.1.i = phi i1 [ false, %44 ], [ false, %38 ], [ false, %70 ], [ false, %129 ], [ false, %46 ], [ false, %51 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ true, %135 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit47.i ]
   %147 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   %148 = load ptr, ptr %5, align 8
   %149 = icmp eq ptr %148, %27
   br i1 %149, label %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit, label %150
 
-150:                                              ; preds = %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i
+150:                                              ; preds = %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i
   call void @free(ptr noundef %148) #14
   br label %_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit
 
-_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit: ; preds = %28, %32, %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, %150
-  %.0.i = phi i1 [ false, %28 ], [ false, %32 ], [ %.1.i, %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i ], [ %.1.i, %150 ]
+_ZN12_GLOBAL__N_129RISCVRedundantCopyElimination13optimizeBlockERN4llvm17MachineBasicBlockE.exit: ; preds = %28, %32, %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i, %150
+  %.0.i = phi i1 [ false, %28 ], [ false, %32 ], [ %.1.i, %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.argprom.exit.i ], [ %.1.i, %150 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)

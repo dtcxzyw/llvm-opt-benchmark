@@ -2666,13 +2666,13 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5clang16serialized_diags15SDErrorCategoryEv() local_unnamed_addr #0 {
   %1 = load atomic i64, ptr @_ZL13ErrorCategory acquire, align 8
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %2, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_119SDErrorCategoryTypeENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+  br i1 %.not.i, label %2, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_119SDErrorCategoryTypeENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
 
 2:                                                ; preds = %0
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL13ErrorCategory, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEPv) #15
-  br label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_119SDErrorCategoryTypeENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+  br label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_119SDErrorCategoryTypeENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
 
-_ZN4llvm13ManagedStaticIN12_GLOBAL__N_119SDErrorCategoryTypeENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %0, %2
+_ZN4llvm13ManagedStaticIN12_GLOBAL__N_119SDErrorCategoryTypeENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit: ; preds = %0, %2
   %3 = load atomic i64, ptr @_ZL13ErrorCategory monotonic, align 8
   %.0.i2.i = inttoptr i64 %3 to ptr
   ret ptr %.0.i2.i

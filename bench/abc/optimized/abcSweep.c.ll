@@ -493,10 +493,10 @@ Abc_NtkFraigEquiv.exit:                           ; preds = %.outer._crit_edge.i
   %.not1722.i = icmp eq i32 %230, 0
   br i1 %.not1722.i, label %.sink.split.i, label %.critedge.i75
 
-.critedge.i75:                                    ; preds = %227, %Abc_NtkFraigMergeClassMapped.exit.i
+.critedge.i75:                                    ; preds = %227, %Abc_NtkFraigMergeClassMapped.argprom.exit.i
   %231 = load ptr, ptr %6, align 8
   %.not5.i.i = icmp eq ptr %231, null
-  br i1 %.not5.i.i, label %Abc_NtkFraigMergeClassMapped.exit.i, label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %Abc_NtkFraigMergeClassMapped.argprom.exit.i, label %.lr.ph.i.i
 
 .preheader4.i.i:                                  ; preds = %.lr.ph.i.i
   %.not7811.i.i = icmp eq ptr %.173.i.i, null
@@ -551,7 +551,7 @@ Abc_NtkFraigEquiv.exit:                           ; preds = %.outer._crit_edge.i
 
 .preheader2.i.i:                                  ; preds = %253, %.preheader4.i.i
   %.not8019.i.i = icmp eq ptr %.171.i.i, null
-  br i1 %.not8019.i.i, label %Abc_NtkFraigMergeClassMapped.exit.i, label %.lr.ph22.i.i
+  br i1 %.not8019.i.i, label %Abc_NtkFraigMergeClassMapped.argprom.exit.i, label %.lr.ph22.i.i
 
 .lr.ph18.i.i:                                     ; preds = %.critedge.i.i, %253
   %.217.i.i = phi ptr [ %255, %253 ], [ %.173.i.i, %.critedge.i.i ]
@@ -611,9 +611,9 @@ Abc_NtkFraigEquiv.exit:                           ; preds = %.outer._crit_edge.i
   %273 = getelementptr inbounds i8, ptr %.425.i.i, i64 8
   %274 = load ptr, ptr %273, align 8
   %.not81.i.i = icmp eq ptr %274, null
-  br i1 %.not81.i.i, label %Abc_NtkFraigMergeClassMapped.exit.i, label %.lr.ph26.i.i, !llvm.loop !16
+  br i1 %.not81.i.i, label %Abc_NtkFraigMergeClassMapped.argprom.exit.i, label %.lr.ph26.i.i, !llvm.loop !16
 
-Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %272, %.preheader2.i.i, %.critedge.i75
+Abc_NtkFraigMergeClassMapped.argprom.exit.i:      ; preds = %272, %.preheader2.i.i, %.critedge.i75
   %275 = call i32 @stmm_gen(ptr noundef %229, ptr noundef nonnull %6, ptr noundef null) #9
   %.not17.i = icmp eq i32 %275, 0
   br i1 %.not17.i, label %.sink.split.i, label %.critedge.i75, !llvm.loop !17
@@ -722,8 +722,8 @@ Abc_NtkFraigMergeClass.exit.i:                    ; preds = %308, %._crit_edge69
   %.not16.i = icmp eq i32 %311, 0
   br i1 %.not16.i, label %.sink.split.i, label %.critedge2.i74, !llvm.loop !22
 
-.sink.split.i:                                    ; preds = %Abc_NtkFraigMergeClass.exit.i, %Abc_NtkFraigMergeClassMapped.exit.i, %276, %227
-  %.sink.i = phi ptr [ %229, %227 ], [ %277, %276 ], [ %229, %Abc_NtkFraigMergeClassMapped.exit.i ], [ %277, %Abc_NtkFraigMergeClass.exit.i ]
+.sink.split.i:                                    ; preds = %Abc_NtkFraigMergeClass.exit.i, %Abc_NtkFraigMergeClassMapped.argprom.exit.i, %276, %227
+  %.sink.i = phi ptr [ %229, %227 ], [ %277, %276 ], [ %229, %Abc_NtkFraigMergeClassMapped.argprom.exit.i ], [ %277, %Abc_NtkFraigMergeClass.exit.i ]
   call void @stmm_free_gen(ptr noundef %.sink.i) #9
   br label %Abc_NtkFraigTransform.exit
 
@@ -1717,7 +1717,7 @@ define i32 @Abc_NodeRemoveNonCurrentObjects(ptr nocapture noundef readonly %0) l
   %.val3.i = load i32, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %13 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %12, i32 noundef %13)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %12, i32 noundef %13)
   %14 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %14, align 8
   %15 = sext i32 %.val3.i to i64
@@ -1760,7 +1760,7 @@ define void @Abc_NtkSetTravId_rec(ptr nocapture noundef readonly %0) local_unnam
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %.val57, i64 224
   %6 = add nsw i32 %.val68, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %5, i32 noundef %6)
   %7 = getelementptr i8, ptr %.val57, i64 232
   %.val.i.i.i9 = load ptr, ptr %7, align 8
   %8 = sext i32 %.val68 to i64
@@ -1791,7 +1791,7 @@ tailrecurse:                                      ; preds = %1, %tailrecurse
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.val5, i64 224
   %22 = add nsw i32 %.val6, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %21, i32 noundef %22)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %21, i32 noundef %22)
   %23 = getelementptr i8, ptr %.val5, i64 232
   %.val.i.i.i = load ptr, ptr %23, align 8
   %24 = sext i32 %.val6 to i64
@@ -2092,7 +2092,7 @@ define i32 @Abc_NtkReplaceAutonomousLogic(ptr noundef %0) local_unnamed_addr #0 
   %.val3.i = load i32, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %18 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %17, i32 noundef %18)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %17, i32 noundef %18)
   %19 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %19, align 8
   %20 = sext i32 %.val3.i to i64
@@ -2587,16 +2587,16 @@ Abc_NtkSetTravId_rec.exit:                        ; preds = %Vec_IntFillExtra.ex
   %.pre126 = load i32, ptr %3, align 4
   %.pre128.pre.pre = load ptr, ptr %5, align 8
   %229 = icmp slt i32 %.pre126, 2
-  br i1 %229, label %Vec_PtrUniqify.exit, label %Vec_PtrSort.exit.i
+  br i1 %229, label %Vec_PtrUniqify.argprom.exit, label %Vec_PtrSort.argprom.exit.i
 
-Vec_PtrSort.exit.i:                               ; preds = %.critedge
+Vec_PtrSort.argprom.exit.i:                       ; preds = %.critedge
   %230 = zext nneg i32 %.pre126 to i64
   tail call void @qsort(ptr noundef %.pre128.pre.pre, i64 noundef %230, i64 noundef 8, ptr noundef nonnull @Abc_ObjPointerCompare) #9
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %Vec_PtrSort.exit.i, %239
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %239 ], [ 1, %Vec_PtrSort.exit.i ]
-  %.02.i = phi i32 [ %.1.i, %239 ], [ 1, %Vec_PtrSort.exit.i ]
+.lr.ph.i:                                         ; preds = %Vec_PtrSort.argprom.exit.i, %239
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %239 ], [ 1, %Vec_PtrSort.argprom.exit.i ]
+  %.02.i = phi i32 [ %.1.i, %239 ], [ 1, %Vec_PtrSort.argprom.exit.i ]
   %231 = getelementptr inbounds ptr, ptr %.pre128.pre.pre, i64 %indvars.iv.i
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr i8, ptr %231, i64 -8
@@ -2619,14 +2619,14 @@ Vec_PtrSort.exit.i:                               ; preds = %.critedge
 
 ._crit_edge.i:                                    ; preds = %239
   store i32 %.1.i, ptr %3, align 4
-  br label %Vec_PtrUniqify.exit
+  br label %Vec_PtrUniqify.argprom.exit
 
-Vec_PtrUniqify.exit:                              ; preds = %.critedge, %._crit_edge.i
+Vec_PtrUniqify.argprom.exit:                      ; preds = %.critedge, %._crit_edge.i
   %.val43 = phi i32 [ %.pre126, %.critedge ], [ %.1.i, %._crit_edge.i ]
   %240 = icmp sgt i32 %.val43, 0
   br i1 %240, label %.lr.ph114, label %.critedge4
 
-.lr.ph114:                                        ; preds = %Vec_PtrUniqify.exit
+.lr.ph114:                                        ; preds = %Vec_PtrUniqify.argprom.exit
   %wide.trip.count = zext nneg i32 %.val43 to i64
   br label %241
 
@@ -2644,7 +2644,7 @@ Vec_PtrUniqify.exit:                              ; preds = %.critedge, %._crit_
   %249 = load i32, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %.val52, i64 224
   %251 = add nsw i32 %.val53, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %250, i32 noundef %251)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %250, i32 noundef %251)
   %252 = getelementptr i8, ptr %.val52, i64 232
   %.val.i.i.i64 = load ptr, ptr %252, align 8
   %253 = sext i32 %.val53 to i64
@@ -2655,9 +2655,9 @@ Vec_PtrUniqify.exit:                              ; preds = %.critedge, %._crit_
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
   br i1 %exitcond122.not, label %.critedge4.thread, label %241, !llvm.loop !38
 
-.critedge4:                                       ; preds = %1, %Vec_PtrUniqify.exit
-  %.val43135 = phi i32 [ %.val43, %Vec_PtrUniqify.exit ], [ 0, %1 ]
-  %.pre128.pre131134 = phi ptr [ %.pre128.pre.pre, %Vec_PtrUniqify.exit ], [ %4, %1 ]
+.critedge4:                                       ; preds = %1, %Vec_PtrUniqify.argprom.exit
+  %.val43135 = phi i32 [ %.val43, %Vec_PtrUniqify.argprom.exit ], [ 0, %1 ]
+  %.pre128.pre131134 = phi ptr [ %.pre128.pre.pre, %Vec_PtrUniqify.argprom.exit ], [ %4, %1 ]
   %.not.i65 = icmp eq ptr %.pre128.pre131134, null
   br i1 %.not.i65, label %Vec_PtrFree.exit, label %.critedge4.thread
 
@@ -2715,7 +2715,7 @@ Vec_PtrFree.exit:                                 ; preds = %4, %8
   %.val3.i.i = load i32, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %.val2.i.i, i64 224
   %21 = add nsw i32 %.val3.i.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %20, i32 noundef %21)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %20, i32 noundef %21)
   %22 = getelementptr i8, ptr %.val2.i.i, i64 232
   %.val.i.i.i.i = load ptr, ptr %22, align 8
   %23 = sext i32 %.val3.i.i to i64
@@ -2813,7 +2813,7 @@ Vec_PtrFree.exit23:                               ; preds = %43, %47
   %.val3.i.i31 = load i32, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %.val2.i.i30, i64 224
   %63 = add nsw i32 %.val3.i.i31, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %62, i32 noundef %63)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %62, i32 noundef %63)
   %64 = getelementptr i8, ptr %.val2.i.i30, i64 232
   %.val.i.i.i.i32 = load ptr, ptr %64, align 8
   %65 = sext i32 %.val3.i.i31 to i64
@@ -3240,7 +3240,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

@@ -1175,7 +1175,7 @@ define dso_local noundef i64 @_ZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %22, align 1
-  br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
+  br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit"
 
 23:                                               ; preds = %19
   %.sroa.0.0.copyload.i17.i = load i64, ptr %1, align 8
@@ -1183,7 +1183,7 @@ define dso_local noundef i64 @_ZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   %.0.copyload.i.i.i18.i = load i32, ptr %25, align 1
-  br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
+  br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit"
 
 26:                                               ; preds = %19
   %.not30 = icmp eq i32 %17, 14
@@ -1196,7 +1196,7 @@ define dso_local noundef i64 @_ZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_
   call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   %.0.copyload.i.i.i21.i = load i32, ptr %29, align 1
   %30 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i21.i)
-  br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
+  br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit"
 
 31:                                               ; preds = %26
   %32 = tail call noundef ptr @_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE(ptr noundef nonnull align 8 dereferenceable(177) %14, i64 %.sroa.0.0.copyload.i22.i)
@@ -1204,14 +1204,14 @@ define dso_local noundef i64 @_ZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_
   call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %.0.copyload.i.i.i23.i = load i32, ptr %33, align 1
   %34 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i23.i)
-  br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
+  br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit"
 
-"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit": ; preds = %20, %23, %27, %31
+"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit": ; preds = %20, %23, %27, %31
   %.0.i = phi i32 [ %.0.copyload.i.i.i.i, %20 ], [ %.0.copyload.i.i.i18.i, %23 ], [ %30, %27 ], [ %34, %31 ]
   %35 = icmp eq i32 %.0.i, 4
   br i1 %35, label %36, label %121
 
-36:                                               ; preds = %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
+36:                                               ; preds = %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit"
   %.sroa.01.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0.copyload = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -1412,9 +1412,9 @@ _ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit: ; preds = %_ZN4llvm5Er
   %spec.select = select i1 %.not20, i64 %3, i64 0
   br label %121
 
-121:                                              ; preds = %116, %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit", %111, %106, %_ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit, %15
-  %.015 = phi i64 [ %101, %111 ], [ %101, %106 ], [ %101, %_ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit ], [ 0, %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit" ], [ 0, %15 ], [ %101, %116 ]
-  %.014 = phi i64 [ %3, %111 ], [ %3, %106 ], [ %3, %_ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit ], [ %3, %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit" ], [ %3, %15 ], [ %spec.select, %116 ]
+121:                                              ; preds = %116, %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit", %111, %106, %_ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit, %15
+  %.015 = phi i64 [ %101, %111 ], [ %101, %106 ], [ %101, %_ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit ], [ 0, %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit" ], [ 0, %15 ], [ %101, %116 ]
+  %.014 = phi i64 [ %3, %111 ], [ %3, %106 ], [ %3, %_ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit ], [ %3, %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.argprom.argprom.exit" ], [ %3, %15 ], [ %spec.select, %116 ]
   %122 = load ptr, ptr %13, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %123 = load ptr, ptr %122, align 8
@@ -3109,18 +3109,18 @@ attributes #16 = { builtin nounwind }
 !8 = distinct !{!8, !9, !"_ZN4llvm8ExpectedIlE9takeErrorEv: argument 0"}
 !9 = distinct !{!9, !"_ZN4llvm8ExpectedIlE9takeErrorEv"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN4llvm12handleErrorsIJZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0EEENS_5ErrorES4_DpOT_: argument 0"}
-!12 = distinct !{!12, !"_ZN4llvm12handleErrorsIJZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0EEENS_5ErrorES4_DpOT_"}
+!11 = distinct !{!11, !12, !"_ZN4llvm12handleErrorsIJZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0EEENS_5ErrorES4_DpOT_.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZN4llvm12handleErrorsIJZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0EEENS_5ErrorES4_DpOT_.argprom"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN4llvm15handleErrorImplIZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_: argument 0"}
-!15 = distinct !{!15, !"_ZN4llvm15handleErrorImplIZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"}
+!14 = distinct !{!14, !15, !"_ZN4llvm15handleErrorImplIZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZN4llvm15handleErrorImplIZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_.argprom"}
 !16 = !{!14, !11}
 !17 = !{!18, !14}
 !18 = distinct !{!18, !19, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE: argument 0"}
 !19 = distinct !{!19, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE"}
 !20 = !{!21, !11}
-!21 = distinct !{!21, !22, !"_ZN4llvm15handleErrorImplIZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_: argument 0"}
-!22 = distinct !{!22, !"_ZN4llvm15handleErrorImplIZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"}
+!21 = distinct !{!21, !22, !"_ZN4llvm15handleErrorImplIZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_.argprom: argument 0"}
+!22 = distinct !{!22, !"_ZN4llvm15handleErrorImplIZNS_6objectL12getELFAddendENS1_13RelocationRefEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_.argprom"}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE10getSectionEj: argument 0"}
 !25 = distinct !{!25, !"_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE10getSectionEj"}

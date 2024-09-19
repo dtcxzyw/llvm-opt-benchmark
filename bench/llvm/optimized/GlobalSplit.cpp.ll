@@ -539,8 +539,8 @@ _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoL
   %245 = getelementptr inbounds %struct.GEPInfo, ptr %.val.i.i.i.i.i, i64 %244
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
-  %.06.i.i.i.i.i.i = phi ptr [ %246, %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i.i.i ], [ %245, %.lr.ph.i.preheader.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
+  %.06.i.i.i.i.i.i = phi ptr [ %246, %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i.i.i ], [ %245, %.lr.ph.i.preheader.i.i.i.i.i ]
   %246 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 -32
   %247 = getelementptr i8, ptr %.06.i.i.i.i.i.i, i64 -16
   %.val.i4.i.i.i.i.i = load ptr, ptr %247, align 8
@@ -549,17 +549,17 @@ _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoL
   %249 = icmp ult i32 %.val4.i.i.i.i.i.i, 65
   %250 = icmp eq ptr %.val.i4.i.i.i.i.i, null
   %or.cond.i.i.i.i.i.i.i = select i1 %249, i1 true, i1 %250
-  br i1 %or.cond.i.i.i.i.i.i.i, label %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i.i.i, label %251
+  br i1 %or.cond.i.i.i.i.i.i.i, label %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i.i.i, label %251
 
 251:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %.val.i4.i.i.i.i.i) #13
-  br label %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i.i.i
+  br label %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i.i.i
 
-_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i.i.i: ; preds = %251, %.lr.ph.i.i.i.i.i.i
+_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i.i.i: ; preds = %251, %.lr.ph.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, %246
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
 
-_ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i: ; preds = %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i.i.i.i
+_ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i: ; preds = %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i.i.i.i
   %252 = load i64, ptr %7, align 8
   %253 = load ptr, ptr %8, align 8
   %254 = icmp eq ptr %253, %57
@@ -1187,8 +1187,8 @@ _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit150.i.i: ; preds = %_ZN4llvm8dyn_
   %522 = getelementptr inbounds %struct.GEPInfo, ptr %.val.i183.i.i, i64 %521
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
-  %.06.i.i.i.i = phi ptr [ %523, %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i ], [ %522, %.lr.ph.i.preheader.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
+  %.06.i.i.i.i = phi ptr [ %523, %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i ], [ %522, %.lr.ph.i.preheader.i.i.i ]
   %523 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 -32
   %524 = getelementptr i8, ptr %.06.i.i.i.i, i64 -16
   %.val.i1.i.i.i = load ptr, ptr %524, align 8
@@ -1197,17 +1197,17 @@ _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit150.i.i: ; preds = %_ZN4llvm8dyn_
   %526 = icmp ult i32 %.val4.i.i.i.i, 65
   %527 = icmp eq ptr %.val.i1.i.i.i, null
   %or.cond.i.i.i.i.i = select i1 %526, i1 true, i1 %527
-  br i1 %or.cond.i.i.i.i.i, label %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i, label %528
+  br i1 %or.cond.i.i.i.i.i, label %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i, label %528
 
 528:                                              ; preds = %.lr.ph.i.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %.val.i1.i.i.i) #13
-  br label %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i
+  br label %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i
 
-_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i: ; preds = %528, %.lr.ph.i.i.i.i
+_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i: ; preds = %528, %.lr.ph.i.i.i.i
   %.not.i.i184.i.i = icmp eq ptr %.val.i183.i.i, %523
   br i1 %.not.i.i184.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE13destroy_rangeEPS3_S5_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
-_ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE13destroy_rangeEPS3_S5_.exit.i.i.i: ; preds = %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.exit.i.i.i.i, %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit150.i.i
+_ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE13destroy_rangeEPS3_S5_.exit.i.i.i: ; preds = %_ZZL11splitGlobalRN4llvm14GlobalVariableEEN7GEPInfoD2Ev.argprom.exit.i.i.i.i, %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit150.i.i
   %529 = load ptr, ptr %8, align 8
   %530 = icmp eq ptr %529, %57
   br i1 %530, label %_ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i, label %531

@@ -1519,7 +1519,7 @@ _ZN16cmGraphVizWriter16EscapeForDotFileERKNSt7__cxx1112basic_stringIcSt11char_tr
   %20 = getelementptr inbounds i8, ptr %2, i64 32
   %.val = load ptr, ptr %20, align 8
   %21 = icmp eq ptr %.val, null
-  br i1 %21, label %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.exit, label %22
+  br i1 %21, label %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.argprom.exit, label %22
 
 22:                                               ; preds = %19
   %23 = invoke noundef i32 @_ZNK17cmGeneratorTarget7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(2728) %.val)
@@ -1527,20 +1527,20 @@ _ZN16cmGraphVizWriter16EscapeForDotFileERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 .noexc:                                           ; preds = %22
   %24 = icmp ult i32 %23, 8
-  br i1 %24, label %switch.lookup, label %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.exit
+  br i1 %24, label %switch.lookup, label %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.argprom.exit
 
 switch.lookup:                                    ; preds = %.noexc
   %25 = zext nneg i32 %23 to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN16cmGraphVizWriter9WriteNodeER21cmGeneratedFileStreamRK10cmLinkItem, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.exit
+  br label %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.argprom.exit
 
-_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.exit: ; preds = %.noexc, %switch.lookup, %19
+_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.argprom.exit: ; preds = %.noexc, %switch.lookup, %19
   %.0.i = phi ptr [ @.str.42, %19 ], [ %switch.load, %switch.lookup ], [ @.str.42, %.noexc ]
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %.0.i)
           to label %27 unwind label %32
 
-27:                                               ; preds = %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.exit
+27:                                               ; preds = %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.argprom.exit
   %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.57)
           to label %29 unwind label %32
 
@@ -1554,7 +1554,7 @@ _ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.exit: ; preds = %.noexc, %sw
           cleanup
   br label %34
 
-32:                                               ; preds = %22, %27, %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.exit, %17, %15, %13, %11, %_ZN16cmGraphVizWriter16EscapeForDotFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+32:                                               ; preds = %22, %27, %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.argprom.exit, %17, %15, %13, %11, %_ZN16cmGraphVizWriter16EscapeForDotFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22

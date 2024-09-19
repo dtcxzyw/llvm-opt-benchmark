@@ -210,8 +210,8 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   %.not.i26 = icmp eq ptr %.sroa.029.0.i25, %.pre.i
   br i1 %.not.i26, label %_ZN12_GLOBAL__N_115VectorLegalizer3RunEv.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i"
-  %.sroa.029.0.i27 = phi ptr [ %.sroa.029.0.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i" ], [ %.sroa.029.0.i25, %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit ]
+.lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i"
+  %.sroa.029.0.i27 = phi ptr [ %.sroa.029.0.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i" ], [ %.sroa.029.0.i25, %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit ]
   %28 = icmp eq ptr %.sroa.029.0.i27, null
   %29 = getelementptr inbounds i8, ptr %.sroa.029.0.i27, i64 -8
   %30 = select i1 %28, ptr null, ptr %29
@@ -239,20 +239,20 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   store i16 %.029.val.i.i.i.i.i.i.i, ptr %8, align 8
   store ptr %.029.val30.i.i.i.i.i.i.i, ptr %21, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %.029.val.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit.i.i.i.i.i.i.i", label %41
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit.i.i.i.i.i.i.i", label %41
 
 41:                                               ; preds = %39
   %42 = add i16 %.029.val.i.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %42, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", label %44
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", label %44
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit.i.i.i.i.i.i.i": ; preds = %39
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit.i.i.i.i.i.i.i": ; preds = %39
   %43 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %43, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", label %44
+  br i1 %43, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", label %44
 
-44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit.i.i.i.i.i.i.i", %41
+44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit.i.i.i.i.i.i.i", %41
   %45 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i.i = load i16, ptr %45, align 8
   %46 = getelementptr i8, ptr %.02979.i.i.i.i.i.i.i, i64 24
@@ -261,20 +261,20 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   store i16 %.val.i.i.i.i.i.i.i, ptr %7, align 8
   store ptr %.val31.i.i.i.i.i.i.i, ptr %22, align 8
   %.not.i.i.i40.i.i.i.i.i.i.i = icmp eq i16 %.val.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i40.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit42.i.i.i.i.i.i.i", label %47
+  br i1 %.not.i.i.i40.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit42.i.i.i.i.i.i.i", label %47
 
 47:                                               ; preds = %44
   %48 = add i16 %.val.i.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i41.i.i.i.i.i.i.i = icmp ult i16 %48, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %spec.select.i.i.i.i41.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit51", label %50
+  br i1 %spec.select.i.i.i.i41.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit51", label %50
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit42.i.i.i.i.i.i.i": ; preds = %44
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit42.i.i.i.i.i.i.i": ; preds = %44
   %49 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %49, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", label %50
+  br i1 %49, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit", label %50
 
-50:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit42.i.i.i.i.i.i.i", %47
+50:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit42.i.i.i.i.i.i.i", %47
   %51 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 32
   %.val32.i.i.i.i.i.i.i = load i16, ptr %51, align 8
   %52 = getelementptr i8, ptr %.02979.i.i.i.i.i.i.i, i64 40
@@ -283,20 +283,20 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   store i16 %.val32.i.i.i.i.i.i.i, ptr %6, align 8
   store ptr %.val33.i.i.i.i.i.i.i, ptr %23, align 8
   %.not.i.i.i43.i.i.i.i.i.i.i = icmp eq i16 %.val32.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i43.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit45.i.i.i.i.i.i.i", label %53
+  br i1 %.not.i.i.i43.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit45.i.i.i.i.i.i.i", label %53
 
 53:                                               ; preds = %50
   %54 = add i16 %.val32.i.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i44.i.i.i.i.i.i.i = icmp ult i16 %54, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %spec.select.i.i.i.i44.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit53", label %56
+  br i1 %spec.select.i.i.i.i44.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit53", label %56
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit45.i.i.i.i.i.i.i": ; preds = %50
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit45.i.i.i.i.i.i.i": ; preds = %50
   %55 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %55, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit47", label %56
+  br i1 %55, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit47", label %56
 
-56:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit45.i.i.i.i.i.i.i", %53
+56:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit45.i.i.i.i.i.i.i", %53
   %57 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 48
   %.val34.i.i.i.i.i.i.i = load i16, ptr %57, align 8
   %58 = getelementptr i8, ptr %.02979.i.i.i.i.i.i.i, i64 56
@@ -305,20 +305,20 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   store i16 %.val34.i.i.i.i.i.i.i, ptr %5, align 8
   store ptr %.val35.i.i.i.i.i.i.i, ptr %24, align 8
   %.not.i.i.i46.i.i.i.i.i.i.i = icmp eq i16 %.val34.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i46.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit48.i.i.i.i.i.i.i", label %59
+  br i1 %.not.i.i.i46.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit48.i.i.i.i.i.i.i", label %59
 
 59:                                               ; preds = %56
   %60 = add i16 %.val34.i.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i47.i.i.i.i.i.i.i = icmp ult i16 %60, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %spec.select.i.i.i.i47.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit55", label %62
+  br i1 %spec.select.i.i.i.i47.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit55", label %62
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit48.i.i.i.i.i.i.i": ; preds = %56
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit48.i.i.i.i.i.i.i": ; preds = %56
   %61 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %61, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit49", label %62
+  br i1 %61, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit49", label %62
 
-62:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit48.i.i.i.i.i.i.i", %59
+62:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit48.i.i.i.i.i.i.i", %59
   %63 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 64
   %64 = add nsw i64 %.080.i.i.i.i.i.i.i, -1
   %65 = icmp sgt i64 %.080.i.i.i.i.i.i.i, 1
@@ -333,7 +333,7 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %.lr.ph
   %.pre-phi89.i.i.i.i.i.i.i = phi i64 [ %66, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %35, %.lr.ph ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %63, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %32, %.lr.ph ]
-  switch i64 %.pre-phi89.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i" [
+  switch i64 %.pre-phi89.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i" [
     i64 3, label %67
     i64 2, label %74
     i64 1, label %81
@@ -347,20 +347,20 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   store i16 %.029.val36.i.i.i.i.i.i.i, ptr %4, align 8
   store ptr %.029.val37.i.i.i.i.i.i.i, ptr %25, align 8
   %.not.i.i.i49.i.i.i.i.i.i.i = icmp eq i16 %.029.val36.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i49.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit51.i.i.i.i.i.i.i", label %69
+  br i1 %.not.i.i.i49.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i.i", label %69
 
 69:                                               ; preds = %67
   %70 = add i16 %.029.val36.i.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i50.i.i.i.i.i.i.i = icmp ult i16 %70, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %spec.select.i.i.i.i50.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", label %72
+  br i1 %spec.select.i.i.i.i50.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", label %72
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit51.i.i.i.i.i.i.i": ; preds = %67
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i.i": ; preds = %67
   %71 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %71, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", label %72
+  br i1 %71, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", label %72
 
-72:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit51.i.i.i.i.i.i.i", %69
+72:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i.i", %69
   %73 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 16
   br label %74
 
@@ -373,20 +373,20 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   store i16 %.1.val.i.i.i.i.i.i.i, ptr %3, align 8
   store ptr %.1.val38.i.i.i.i.i.i.i, ptr %26, align 8
   %.not.i.i.i52.i.i.i.i.i.i.i = icmp eq i16 %.1.val.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i52.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit54.i.i.i.i.i.i.i", label %76
+  br i1 %.not.i.i.i52.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i.i", label %76
 
 76:                                               ; preds = %74
   %77 = add i16 %.1.val.i.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i53.i.i.i.i.i.i.i = icmp ult i16 %77, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br i1 %spec.select.i.i.i.i53.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", label %79
+  br i1 %spec.select.i.i.i.i53.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", label %79
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit54.i.i.i.i.i.i.i": ; preds = %74
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i.i": ; preds = %74
   %78 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br i1 %78, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", label %79
+  br i1 %78, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", label %79
 
-79:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit54.i.i.i.i.i.i.i", %76
+79:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i.i", %76
   %80 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 16
   br label %81
 
@@ -399,55 +399,55 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   store i16 %.2.val.i.i.i.i.i.i.i, ptr %2, align 8
   store ptr %.2.val39.i.i.i.i.i.i.i, ptr %27, align 8
   %.not.i.i.i55.i.i.i.i.i.i.i = icmp eq i16 %.2.val.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i55.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit57.i.i.i.i.i.i.i", label %83
+  br i1 %.not.i.i.i55.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i.i", label %83
 
 83:                                               ; preds = %81
   %84 = add i16 %.2.val.i.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i56.i.i.i.i.i.i.i = icmp ult i16 %84, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br i1 %spec.select.i.i.i.i56.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i"
+  br i1 %spec.select.i.i.i.i56.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit57.i.i.i.i.i.i.i": ; preds = %81
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i.i": ; preds = %81
   %85 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br i1 %85, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i"
+  br i1 %85, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit42.i.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit42.i.i.i.i.i.i.i"
   %86 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit47": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit45.i.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit47": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit45.i.i.i.i.i.i.i"
   %87 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit49": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit48.i.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit49": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit48.i.i.i.i.i.i.i"
   %88 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit51": ; preds = %47
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit51": ; preds = %47
   %89 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit53": ; preds = %53
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit53": ; preds = %53
   %90 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit55": ; preds = %59
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit55": ; preds = %59
   %91 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit.i.i.i.i.i.i.i", %41, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit47", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit49", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit51", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit53", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit55", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit57.i.i.i.i.i.i.i", %83, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit54.i.i.i.i.i.i.i", %76, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit51.i.i.i.i.i.i.i", %69
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit51.i.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit54.i.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit57.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %69 ], [ %.1.i.i.i.i.i.i.i, %76 ], [ %.2.i.i.i.i.i.i.i, %83 ], [ %86, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %87, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit47" ], [ %88, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit49" ], [ %89, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit51" ], [ %90, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit53" ], [ %91, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit55" ], [ %.02979.i.i.i.i.i.i.i, %41 ], [ %.02979.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit.i.i.i.i.i.i.i" ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit.i.i.i.i.i.i.i", %41, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit47", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit49", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit51", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit53", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit55", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i.i", %83, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i.i", %76, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i.i", %69
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %69 ], [ %.1.i.i.i.i.i.i.i, %76 ], [ %.2.i.i.i.i.i.i.i, %83 ], [ %86, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit" ], [ %87, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit47" ], [ %88, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit49" ], [ %89, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit51" ], [ %90, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit53" ], [ %91, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit55" ], [ %.02979.i.i.i.i.i.i.i, %41 ], [ %.02979.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit.i.i.i.i.i.i.i" ]
   %.not37.i = icmp eq ptr %36, %.028.i.i.i.i.i.i.i
-  br i1 %.not37.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i", label %.thread.i
+  br i1 %.not37.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i", label %.thread.i
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i": ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.exit57.i.i.i.i.i.i.i", %83, %._crit_edge.i.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i": ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EclIPKN4llvm3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i.i", %83, %._crit_edge.i.i.i.i.i.i.i
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.029.0.i27, i64 8
   %.sroa.029.0.i = load ptr, ptr %92, align 8
   %.not.i = icmp eq ptr %.sroa.029.0.i, %.pre.i
   br i1 %.not.i, label %_ZN12_GLOBAL__N_115VectorLegalizer3RunEv.exit, label %.lr.ph, !llvm.loop !7
 
-.thread.i:                                        ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i"
+.thread.i:                                        ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.i"
   %93 = call noundef i32 @_ZN4llvm12SelectionDAG22AssignTopologicalOrderEv(ptr noundef nonnull align 8 dereferenceable(904) %17) #17
   %94 = load ptr, ptr %19, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -636,8 +636,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoI
   %180 = trunc i8 %179 to i1
   br label %_ZN12_GLOBAL__N_115VectorLegalizer3RunEv.exit
 
-_ZN12_GLOBAL__N_115VectorLegalizer3RunEv.exit:    ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i", %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E5clearEv.exit.i
-  %.0.i = phi i1 [ %180, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E5clearEv.exit.i ], [ false, %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit ], [ false, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.thread.i" ]
+_ZN12_GLOBAL__N_115VectorLegalizer3RunEv.exit:    ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i", %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E5clearEv.exit.i
+  %.0.i = phi i1 [ %180, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E5clearEv.exit.i ], [ false, %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit ], [ false, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.argprom.exit.thread.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %181 = load i32, ptr %15, align 8
   %182 = and i32 %181, 1
@@ -957,20 +957,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i16 %.029.val.i.i.i.i.i.i, ptr %34, align 8
   store ptr %.029.val30.i.i.i.i.i.i, ptr %217, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i16 %.029.val.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit.i.i.i.i.i.i", label %223
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit.i.i.i.i.i.i", label %223
 
 223:                                              ; preds = %221
   %224 = add i16 %.029.val.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %224, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", label %226
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", label %226
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit.i.i.i.i.i.i": ; preds = %221
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %221
   %225 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  br i1 %225, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", label %226
+  br i1 %225, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", label %226
 
-226:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit.i.i.i.i.i.i", %223
+226:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit.i.i.i.i.i.i", %223
   %227 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i = load i16, ptr %227, align 8
   %228 = getelementptr i8, ptr %.02979.i.i.i.i.i.i, i64 24
@@ -979,20 +979,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i16 %.val.i.i.i.i.i.i, ptr %33, align 8
   store ptr %.val31.i.i.i.i.i.i, ptr %218, align 8
   %.not.i.i.i40.i.i.i.i.i.i = icmp eq i16 %.val.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i40.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit42.i.i.i.i.i.i", label %229
+  br i1 %.not.i.i.i40.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit42.i.i.i.i.i.i", label %229
 
 229:                                              ; preds = %226
   %230 = add i16 %.val.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i41.i.i.i.i.i.i = icmp ult i16 %230, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
-  br i1 %spec.select.i.i.i.i41.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5067", label %232
+  br i1 %spec.select.i.i.i.i41.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5067", label %232
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit42.i.i.i.i.i.i": ; preds = %226
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit42.i.i.i.i.i.i": ; preds = %226
   %231 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
-  br i1 %231, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %232
+  br i1 %231, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %232
 
-232:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit42.i.i.i.i.i.i", %229
+232:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit42.i.i.i.i.i.i", %229
   %233 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 32
   %.val32.i.i.i.i.i.i = load i16, ptr %233, align 8
   %234 = getelementptr i8, ptr %.02979.i.i.i.i.i.i, i64 40
@@ -1001,20 +1001,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i16 %.val32.i.i.i.i.i.i, ptr %32, align 8
   store ptr %.val33.i.i.i.i.i.i, ptr %219, align 8
   %.not.i.i.i43.i.i.i.i.i.i = icmp eq i16 %.val32.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit45.i.i.i.i.i.i", label %235
+  br i1 %.not.i.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit45.i.i.i.i.i.i", label %235
 
 235:                                              ; preds = %232
   %236 = add i16 %.val32.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i44.i.i.i.i.i.i = icmp ult i16 %236, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  br i1 %spec.select.i.i.i.i44.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5069", label %238
+  br i1 %spec.select.i.i.i.i44.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5069", label %238
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit45.i.i.i.i.i.i": ; preds = %232
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit45.i.i.i.i.i.i": ; preds = %232
   %237 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  br i1 %237, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5063", label %238
+  br i1 %237, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5063", label %238
 
-238:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit45.i.i.i.i.i.i", %235
+238:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit45.i.i.i.i.i.i", %235
   %239 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 48
   %.val34.i.i.i.i.i.i = load i16, ptr %239, align 8
   %240 = getelementptr i8, ptr %.02979.i.i.i.i.i.i, i64 56
@@ -1023,20 +1023,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i16 %.val34.i.i.i.i.i.i, ptr %31, align 8
   store ptr %.val35.i.i.i.i.i.i, ptr %220, align 8
   %.not.i.i.i46.i.i.i.i.i.i = icmp eq i16 %.val34.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i46.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit48.i.i.i.i.i.i", label %241
+  br i1 %.not.i.i.i46.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit48.i.i.i.i.i.i", label %241
 
 241:                                              ; preds = %238
   %242 = add i16 %.val34.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i47.i.i.i.i.i.i = icmp ult i16 %242, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
-  br i1 %spec.select.i.i.i.i47.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5071", label %244
+  br i1 %spec.select.i.i.i.i47.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5071", label %244
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit48.i.i.i.i.i.i": ; preds = %238
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit48.i.i.i.i.i.i": ; preds = %238
   %243 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
-  br i1 %243, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5065", label %244
+  br i1 %243, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5065", label %244
 
-244:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit48.i.i.i.i.i.i", %241
+244:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit48.i.i.i.i.i.i", %241
   %245 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 64
   %246 = add nsw i64 %.080.i.i.i.i.i.i, -1
   %247 = icmp sgt i64 %.080.i.i.i.i.i.i, 1
@@ -1051,7 +1051,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %._crit_edge
   %.pre-phi89.i.i.i.i.i.i = phi i64 [ %248, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %213, %._crit_edge ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %245, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %210, %._crit_edge ]
-  switch i64 %.pre-phi89.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread" [
+  switch i64 %.pre-phi89.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread" [
     i64 3, label %249
     i64 2, label %257
     i64 1, label %265
@@ -1066,20 +1066,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %251 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.029.val37.i.i.i.i.i.i, ptr %251, align 8
   %.not.i.i.i49.i.i.i.i.i.i = icmp eq i16 %.029.val36.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i49.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit51.i.i.i.i.i.i", label %252
+  br i1 %.not.i.i.i49.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i", label %252
 
 252:                                              ; preds = %249
   %253 = add i16 %.029.val36.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i50.i.i.i.i.i.i = icmp ult i16 %253, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
-  br i1 %spec.select.i.i.i.i50.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", label %255
+  br i1 %spec.select.i.i.i.i50.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", label %255
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit51.i.i.i.i.i.i": ; preds = %249
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i": ; preds = %249
   %254 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
-  br i1 %254, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", label %255
+  br i1 %254, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", label %255
 
-255:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit51.i.i.i.i.i.i", %252
+255:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i", %252
   %256 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
   br label %257
 
@@ -1093,20 +1093,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %259 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %.1.val38.i.i.i.i.i.i, ptr %259, align 8
   %.not.i.i.i52.i.i.i.i.i.i = icmp eq i16 %.1.val.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i52.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit54.i.i.i.i.i.i", label %260
+  br i1 %.not.i.i.i52.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i", label %260
 
 260:                                              ; preds = %257
   %261 = add i16 %.1.val.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i53.i.i.i.i.i.i = icmp ult i16 %261, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
-  br i1 %spec.select.i.i.i.i53.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", label %263
+  br i1 %spec.select.i.i.i.i53.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", label %263
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit54.i.i.i.i.i.i": ; preds = %257
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i": ; preds = %257
   %262 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
-  br i1 %262, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", label %263
+  br i1 %262, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", label %263
 
-263:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit54.i.i.i.i.i.i", %260
+263:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i", %260
   %264 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 16
   br label %265
 
@@ -1120,49 +1120,49 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %267 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %.2.val39.i.i.i.i.i.i, ptr %267, align 8
   %.not.i.i.i55.i.i.i.i.i.i = icmp eq i16 %.2.val.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i55.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit57.i.i.i.i.i.i", label %268
+  br i1 %.not.i.i.i55.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i", label %268
 
 268:                                              ; preds = %265
   %269 = add i16 %.2.val.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i56.i.i.i.i.i.i = icmp ult i16 %269, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  br i1 %spec.select.i.i.i.i56.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread"
+  br i1 %spec.select.i.i.i.i56.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit57.i.i.i.i.i.i": ; preds = %265
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i": ; preds = %265
   %270 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  br i1 %270, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread"
+  br i1 %270, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit42.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit42.i.i.i.i.i.i"
   %271 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5063": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit45.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5063": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit45.i.i.i.i.i.i"
   %272 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5065": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit48.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5065": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit48.i.i.i.i.i.i"
   %273 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5067": ; preds = %229
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5067": ; preds = %229
   %274 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5069": ; preds = %235
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5069": ; preds = %235
   %275 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5071": ; preds = %241
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5071": ; preds = %241
   %276 = getelementptr inbounds i8, ptr %.02979.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit": ; preds = %223, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5063", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5065", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5067", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5069", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5071", %252, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit51.i.i.i.i.i.i", %260, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit54.i.i.i.i.i.i", %268, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit57.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit51.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit54.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit57.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %252 ], [ %.1.i.i.i.i.i.i, %260 ], [ %.2.i.i.i.i.i.i, %268 ], [ %271, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %272, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5063" ], [ %273, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5065" ], [ %274, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5067" ], [ %275, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5069" ], [ %276, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit5071" ], [ %.02979.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit.i.i.i.i.i.i" ], [ %.02979.i.i.i.i.i.i, %223 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit": ; preds = %223, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5063", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5065", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5067", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5069", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5071", %252, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i", %260, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i", %268, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit51.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit54.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %252 ], [ %.1.i.i.i.i.i.i, %260 ], [ %.2.i.i.i.i.i.i, %268 ], [ %271, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %272, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5063" ], [ %273, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5065" ], [ %274, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5067" ], [ %275, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5069" ], [ %276, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5071" ], [ %.02979.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit.i.i.i.i.i.i" ], [ %.02979.i.i.i.i.i.i, %223 ]
   %.not4820 = icmp eq ptr %214, %.028.i.i.i.i.i.i
-  br i1 %.not4820, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread", label %.critedge1316
+  br i1 %.not4820, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread", label %.critedge1316
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.exit57.i.i.i.i.i.i", %268, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_0EclIPKNS4_3EVTEEEbT_.argprom.exit57.i.i.i.i.i.i", %268, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit"
   %277 = getelementptr inbounds nuw i8, ptr %208, i64 40
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds nuw i8, ptr %208, i64 64
@@ -1173,7 +1173,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %.not4821 = icmp ult i16 %280, 4
   br i1 %.not4821, label %._crit_edge.i.i.i.i.i.i1330, label %.lr.ph.i.i.i.i.i.i1333
 
-.lr.ph.i.i.i.i.i.i1333:                           ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread"
+.lr.ph.i.i.i.i.i.i1333:                           ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread"
   %284 = lshr i64 %281, 2
   %285 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %286 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1198,20 +1198,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %27, align 8
   store ptr %.sroa.21.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %285, align 8
   %.not.i.i.i.i.i.i.i.i.i1334 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i1334, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit.i.i.i.i.i.i", label %294
+  br i1 %.not.i.i.i.i.i.i.i.i.i1334, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit.i.i.i.i.i.i", label %294
 
 294:                                              ; preds = %289
   %295 = add i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i.i.i.i.i.i.i1335 = icmp ult i16 %295, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i1335, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit", label %297
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i1335, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit", label %297
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit.i.i.i.i.i.i": ; preds = %289
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %289
   %296 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
-  br i1 %296, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit", label %297
+  br i1 %296, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit", label %297
 
-297:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit.i.i.i.i.i.i", %294
+297:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit.i.i.i.i.i.i", %294
   %298 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 40
   %.sroa.0.0.copyload.i16.i.i.i.i.i.i = load ptr, ptr %298, align 8
   %.sroa.2.0..sroa_idx.i17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 48
@@ -1227,20 +1227,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i16 %.sroa.0.0.copyload.i.i.i.i19.i.i.i.i.i.i, ptr %26, align 8
   store ptr %.sroa.21.0.copyload.i.i.i.i21.i.i.i.i.i.i, ptr %286, align 8
   %.not.i.i.i22.i.i.i.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i19.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i22.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit24.i.i.i.i.i.i", label %303
+  br i1 %.not.i.i.i22.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit24.i.i.i.i.i.i", label %303
 
 303:                                              ; preds = %297
   %304 = add i16 %.sroa.0.0.copyload.i.i.i.i19.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i23.i.i.i.i.i.i = icmp ult i16 %304, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
-  br i1 %spec.select.i.i.i.i23.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5086", label %306
+  br i1 %spec.select.i.i.i.i23.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5086", label %306
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit24.i.i.i.i.i.i": ; preds = %297
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit24.i.i.i.i.i.i": ; preds = %297
   %305 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
-  br i1 %305, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", label %306
+  br i1 %305, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %306
 
-306:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit24.i.i.i.i.i.i", %303
+306:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit24.i.i.i.i.i.i", %303
   %307 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 80
   %.sroa.0.0.copyload.i25.i.i.i.i.i.i = load ptr, ptr %307, align 8
   %.sroa.2.0..sroa_idx.i26.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 88
@@ -1256,20 +1256,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i16 %.sroa.0.0.copyload.i.i.i.i28.i.i.i.i.i.i, ptr %25, align 8
   store ptr %.sroa.21.0.copyload.i.i.i.i30.i.i.i.i.i.i, ptr %287, align 8
   %.not.i.i.i31.i.i.i.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i28.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit33.i.i.i.i.i.i", label %312
+  br i1 %.not.i.i.i31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit33.i.i.i.i.i.i", label %312
 
 312:                                              ; preds = %306
   %313 = add i16 %.sroa.0.0.copyload.i.i.i.i28.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i32.i.i.i.i.i.i = icmp ult i16 %313, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
-  br i1 %spec.select.i.i.i.i32.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5088", label %315
+  br i1 %spec.select.i.i.i.i32.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5088", label %315
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit33.i.i.i.i.i.i": ; preds = %306
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit33.i.i.i.i.i.i": ; preds = %306
   %314 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
-  br i1 %314, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5082", label %315
+  br i1 %314, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5082", label %315
 
-315:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit33.i.i.i.i.i.i", %312
+315:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit33.i.i.i.i.i.i", %312
   %316 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 120
   %.sroa.0.0.copyload.i34.i.i.i.i.i.i = load ptr, ptr %316, align 8
   %.sroa.2.0..sroa_idx.i35.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 128
@@ -1285,20 +1285,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i16 %.sroa.0.0.copyload.i.i.i.i37.i.i.i.i.i.i, ptr %24, align 8
   store ptr %.sroa.21.0.copyload.i.i.i.i39.i.i.i.i.i.i, ptr %288, align 8
   %.not.i.i.i40.i.i.i.i.i.i1336 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i37.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i40.i.i.i.i.i.i1336, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit42.i.i.i.i.i.i", label %321
+  br i1 %.not.i.i.i40.i.i.i.i.i.i1336, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit42.i.i.i.i.i.i", label %321
 
 321:                                              ; preds = %315
   %322 = add i16 %.sroa.0.0.copyload.i.i.i.i37.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i41.i.i.i.i.i.i1337 = icmp ult i16 %322, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  br i1 %spec.select.i.i.i.i41.i.i.i.i.i.i1337, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5090", label %324
+  br i1 %spec.select.i.i.i.i41.i.i.i.i.i.i1337, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5090", label %324
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit42.i.i.i.i.i.i": ; preds = %315
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit42.i.i.i.i.i.i": ; preds = %315
   %323 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  br i1 %323, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5084", label %324
+  br i1 %323, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5084", label %324
 
-324:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit42.i.i.i.i.i.i", %321
+324:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit42.i.i.i.i.i.i", %321
   %325 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 160
   %326 = add nsw i64 %.0103.i.i.i.i.i.i, -1
   %327 = icmp sgt i64 %.0103.i.i.i.i.i.i, 1
@@ -1310,10 +1310,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %328 = sdiv exact i64 %.pre111.i.i.i.i.i.i, 40
   br label %._crit_edge.i.i.i.i.i.i1330
 
-._crit_edge.i.i.i.i.i.i1330:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i1338, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread"
-  %.pre-phi112.i.i.i.i.i.i = phi i64 [ %328, %._crit_edge.loopexit.i.i.i.i.i.i1338 ], [ %281, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread" ]
-  %.sroa.072.0.lcssa.i.i.i.i.i.i = phi ptr [ %325, %._crit_edge.loopexit.i.i.i.i.i.i1338 ], [ %278, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit.thread" ]
-  switch i64 %.pre-phi112.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.thread" [
+._crit_edge.i.i.i.i.i.i1330:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i1338, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread"
+  %.pre-phi112.i.i.i.i.i.i = phi i64 [ %328, %._crit_edge.loopexit.i.i.i.i.i.i1338 ], [ %281, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread" ]
+  %.sroa.072.0.lcssa.i.i.i.i.i.i = phi ptr [ %325, %._crit_edge.loopexit.i.i.i.i.i.i1338 ], [ %278, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit.thread" ]
+  switch i64 %.pre-phi112.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.thread" [
     i64 3, label %329
     i64 2, label %340
     i64 1, label %351
@@ -1335,20 +1335,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %334 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %.sroa.21.0.copyload.i.i.i.i48.i.i.i.i.i.i, ptr %334, align 8
   %.not.i.i.i49.i.i.i.i.i.i1331 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i46.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i49.i.i.i.i.i.i1331, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit51.i.i.i.i.i.i", label %335
+  br i1 %.not.i.i.i49.i.i.i.i.i.i1331, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit51.i.i.i.i.i.i", label %335
 
 335:                                              ; preds = %329
   %336 = add i16 %.sroa.0.0.copyload.i.i.i.i46.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i50.i.i.i.i.i.i1332 = icmp ult i16 %336, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  br i1 %spec.select.i.i.i.i50.i.i.i.i.i.i1332, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit", label %338
+  br i1 %spec.select.i.i.i.i50.i.i.i.i.i.i1332, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit", label %338
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit51.i.i.i.i.i.i": ; preds = %329
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit51.i.i.i.i.i.i": ; preds = %329
   %337 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  br i1 %337, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit", label %338
+  br i1 %337, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit", label %338
 
-338:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit51.i.i.i.i.i.i", %335
+338:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit51.i.i.i.i.i.i", %335
   %339 = getelementptr inbounds i8, ptr %.sroa.072.0.lcssa.i.i.i.i.i.i, i64 40
   br label %340
 
@@ -1369,20 +1369,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %345 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %.sroa.21.0.copyload.i.i.i.i57.i.i.i.i.i.i, ptr %345, align 8
   %.not.i.i.i58.i.i.i.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i55.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i58.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit60.i.i.i.i.i.i", label %346
+  br i1 %.not.i.i.i58.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit60.i.i.i.i.i.i", label %346
 
 346:                                              ; preds = %340
   %347 = add i16 %.sroa.0.0.copyload.i.i.i.i55.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i59.i.i.i.i.i.i = icmp ult i16 %347, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  br i1 %spec.select.i.i.i.i59.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit", label %349
+  br i1 %spec.select.i.i.i.i59.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit", label %349
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit60.i.i.i.i.i.i": ; preds = %340
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit60.i.i.i.i.i.i": ; preds = %340
   %348 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  br i1 %348, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit", label %349
+  br i1 %348, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit", label %349
 
-349:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit60.i.i.i.i.i.i", %346
+349:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit60.i.i.i.i.i.i", %346
   %350 = getelementptr inbounds i8, ptr %.sroa.072.1.i.i.i.i.i.i, i64 40
   br label %351
 
@@ -1403,56 +1403,56 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %356 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.sroa.21.0.copyload.i.i.i.i66.i.i.i.i.i.i, ptr %356, align 8
   %.not.i.i.i67.i.i.i.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i64.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i67.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit69.i.i.i.i.i.i", label %357
+  br i1 %.not.i.i.i67.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit69.i.i.i.i.i.i", label %357
 
 357:                                              ; preds = %351
   %358 = add i16 %.sroa.0.0.copyload.i.i.i.i64.i.i.i.i.i.i, -17
   %spec.select.i.i.i.i68.i.i.i.i.i.i = icmp ult i16 %358, 173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  br i1 %spec.select.i.i.i.i68.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.thread"
+  br i1 %spec.select.i.i.i.i68.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.thread"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit69.i.i.i.i.i.i": ; preds = %351
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit69.i.i.i.i.i.i": ; preds = %351
   %359 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  br i1 %359, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.thread"
+  br i1 %359, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit24.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit24.i.i.i.i.i.i"
   %360 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 40
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5082": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit33.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5082": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit33.i.i.i.i.i.i"
   %361 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 80
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5084": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit42.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5084": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit42.i.i.i.i.i.i"
   %362 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 120
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5086": ; preds = %303
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5086": ; preds = %303
   %363 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 40
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5088": ; preds = %312
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5088": ; preds = %312
   %364 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 80
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5090": ; preds = %321
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5090": ; preds = %321
   %365 = getelementptr inbounds i8, ptr %.sroa.072.0102.i.i.i.i.i.i, i64 120
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit": ; preds = %294, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5082", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5084", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5086", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5088", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5090", %335, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit51.i.i.i.i.i.i", %346, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit60.i.i.i.i.i.i", %357, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit69.i.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.072.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit51.i.i.i.i.i.i" ], [ %.sroa.072.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit60.i.i.i.i.i.i" ], [ %.sroa.072.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit69.i.i.i.i.i.i" ], [ %.sroa.072.0.lcssa.i.i.i.i.i.i, %335 ], [ %.sroa.072.1.i.i.i.i.i.i, %346 ], [ %.sroa.072.2.i.i.i.i.i.i, %357 ], [ %360, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %361, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5082" ], [ %362, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5084" ], [ %363, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5086" ], [ %364, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5088" ], [ %365, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit5090" ], [ %.sroa.072.0102.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit.i.i.i.i.i.i" ], [ %.sroa.072.0102.i.i.i.i.i.i, %294 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit": ; preds = %294, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5082", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5084", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5086", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5088", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5090", %335, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit51.i.i.i.i.i.i", %346, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit60.i.i.i.i.i.i", %357, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit69.i.i.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.072.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit51.i.i.i.i.i.i" ], [ %.sroa.072.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit60.i.i.i.i.i.i" ], [ %.sroa.072.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit69.i.i.i.i.i.i" ], [ %.sroa.072.0.lcssa.i.i.i.i.i.i, %335 ], [ %.sroa.072.1.i.i.i.i.i.i, %346 ], [ %.sroa.072.2.i.i.i.i.i.i, %357 ], [ %360, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %361, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5082" ], [ %362, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5084" ], [ %363, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5086" ], [ %364, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5088" ], [ %365, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit5090" ], [ %.sroa.072.0102.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit.i.i.i.i.i.i" ], [ %.sroa.072.0102.i.i.i.i.i.i, %294 ]
   %.not4822 = icmp eq ptr %282, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
-  br i1 %.not4822, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.thread", label %.critedge1316
+  br i1 %.not4822, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.thread", label %.critedge1316
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.thread": ; preds = %357, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.exit69.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i1330, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit"
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.thread": ; preds = %357, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpEN4llvm7SDValueEE3$_1EclINS4_6SDNode17value_op_iteratorEEEbT_.argprom.exit69.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i1330, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit"
   %366 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 66
   %367 = load i16, ptr %366, align 2
   %368 = zext i16 %367 to i32
   %.not14.i = icmp eq i16 %367, 0
   br i1 %.not14.i, label %_ZN12_GLOBAL__N_115VectorLegalizer24TranslateLegalizeResultsEN4llvm7SDValueEPNS1_6SDNodeE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.thread"
+.lr.ph.i:                                         ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.thread"
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %369 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 24
@@ -1505,12 +1505,12 @@ _ZN12_GLOBAL__N_115VectorLegalizer19AddLegalizedOperandEN4llvm7SDValueES2_.exit.
   %.not.i = icmp eq i32 %372, %368
   br i1 %.not.i, label %_ZN12_GLOBAL__N_115VectorLegalizer24TranslateLegalizeResultsEN4llvm7SDValueEPNS1_6SDNodeE.exit, label %_ZN12_GLOBAL__N_115VectorLegalizer19AddLegalizedOperandEN4llvm7SDValueES2_.exit.i, !llvm.loop !14
 
-_ZN12_GLOBAL__N_115VectorLegalizer24TranslateLegalizeResultsEN4llvm7SDValueEPNS1_6SDNodeE.exit: ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer19AddLegalizedOperandEN4llvm7SDValueES2_.exit.i, %_ZN12_GLOBAL__N_115VectorLegalizer19AddLegalizedOperandEN4llvm7SDValueES2_.exit.us.i, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit.thread"
+_ZN12_GLOBAL__N_115VectorLegalizer24TranslateLegalizeResultsEN4llvm7SDValueEPNS1_6SDNodeE.exit: ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer19AddLegalizedOperandEN4llvm7SDValueES2_.exit.i, %_ZN12_GLOBAL__N_115VectorLegalizer19AddLegalizedOperandEN4llvm7SDValueES2_.exit.us.i, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit.thread"
   %.fca.0.insert.i = insertvalue { ptr, i32 } poison, ptr %208, 0
   %.fca.1.insert.i = insertvalue { ptr, i32 } %.fca.0.insert.i, i32 %2, 1
   br label %_ZN4llvm11SmallVectorINS_7SDValueELj8EED2Ev.exit
 
-.critedge1316:                                    ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.exit"
+.critedge1316:                                    ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_0EEbOT_T0_.argprom.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZN12_GLOBAL__N_115VectorLegalizer10LegalizeOpENS_7SDValueEE3$_1EEbOT_T0_.argprom.exit"
   store i16 0, ptr %36, align 8
   %373 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr null, ptr %373, align 8
@@ -1855,7 +1855,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %385, %387
   %.sroa.0.0.copyload.i1344 = load i16, ptr %210, align 8
   %.not.i.i = icmp eq i16 %.sroa.0.0.copyload.i1344, 0
   %or.cond.i = or i1 %.not.i1343, %.not.i.i
-  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %392
+  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %392
 
 392:                                              ; preds = %391
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1912,7 +1912,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1356:                ; preds = %404
 424:                                              ; preds = %420
   %.not.i.i1357 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 0
   %or.cond.i1358 = or i1 %.not.i1354, %.not.i.i1357
-  br i1 %or.cond.i1358, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %425
+  br i1 %or.cond.i1358, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %425
 
 425:                                              ; preds = %424
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1937,7 +1937,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1356:                ; preds = %404
 
 440:                                              ; preds = %433
   %.not.i.i1367 = icmp eq i16 %.sroa.0.0.copyload.i1360, 0
-  br i1 %.not.i.i1367, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit
+  br i1 %.not.i.i1367, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit
 
 _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit: ; preds = %440
   %441 = zext i16 %.sroa.0.0.copyload.i1360 to i64
@@ -1945,7 +1945,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit: ; preds = %440
   %443 = load i8, ptr %442, align 1
   %.fr = freeze i8 %443
   %444 = icmp eq i8 %.fr, 0
-  br i1 %444, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit
+  br i1 %444, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit
 
 445:                                              ; preds = %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316
   %.sroa.0.0.copyload.i1368 = load i16, ptr %210, align 8
@@ -2072,14 +2072,14 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1379.thread: ; p
   %511 = getelementptr inbounds nuw i8, ptr %509, i64 408122
   %512 = load i8, ptr %511, align 2
   %513 = trunc i8 %512 to i1
-  br i1 %513, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %514
+  br i1 %513, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %514
 
 514:                                              ; preds = %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1379.thread
   %515 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %516 = load i32, ptr %515, align 8
   %517 = call noundef zeroext i8 @_ZNK4llvm18TargetLoweringBase26getStrictFPOperationActionEjNS_3EVTE(ptr noundef nonnull align 8 dereferenceable(408123) %509, i32 noundef %516, i16 %.sroa.0814.0.copyload, ptr %.sroa.2816.0.copyload)
   %518 = icmp eq i8 %517, 0
-  br i1 %518, label %519, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split
+  br i1 %518, label %519, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split
 
 519:                                              ; preds = %514
   %520 = load i16, ptr %36, align 8
@@ -2107,7 +2107,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %521, %526
   %532 = zext i32 %531 to i64
   %533 = getelementptr inbounds nuw i8, ptr %530, i64 5468
   %.not.i1387 = icmp ult i32 %531, 491
-  br i1 %.not.i1387, label %534, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split
+  br i1 %.not.i1387, label %534, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split
 
 534:                                              ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
   %.not.i.i1389 = icmp eq i16 %.sroa.0.0.i, 0
@@ -2118,12 +2118,12 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390: ; preds = 
   %536 = getelementptr inbounds [233 x [491 x i8]], ptr %533, i64 0, i64 %535, i64 %532
   %537 = load i8, ptr %536, align 1
   %538 = icmp eq i8 %537, 2
-  br i1 %538, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390.thread, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split
+  br i1 %538, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390.thread, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split
 
 _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390.thread: ; preds = %534, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390
   %539 = call noundef zeroext i8 @_ZNK4llvm18TargetLoweringBase26getStrictFPOperationActionEjNS_3EVTE(ptr noundef nonnull align 8 dereferenceable(408123) %530, i32 noundef %531, i16 %.sroa.0.0.i, ptr %.sroa.3.0.i)
   %540 = icmp eq i8 %539, 0
-  br i1 %540, label %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.thread4808, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split
+  br i1 %540, label %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.thread4808, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split
 
 541:                                              ; preds = %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2138,7 +2138,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390.thread: ; p
 
 548:                                              ; preds = %541
   %.not.i.i1398 = icmp eq i16 %.sroa.0.0.copyload.i1391, 0
-  br i1 %.not.i.i1398, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %549
+  br i1 %.not.i.i1398, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %549
 
 549:                                              ; preds = %548
   %550 = zext i16 %.sroa.0.0.copyload.i1391 to i64
@@ -2175,7 +2175,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390.thread: ; p
 
 572:                                              ; preds = %553
   %.not.i.i.i1407 = icmp eq i16 %.sroa.0.0.copyload.i1400, 0
-  br i1 %.not.i.i.i1407, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i
+  br i1 %.not.i.i.i1407, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i
 
 _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i: ; preds = %572
   %573 = zext i16 %.sroa.0.0.copyload.i1400 to i64
@@ -2189,7 +2189,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i: ; preds = %5
   %578 = getelementptr inbounds i8, ptr %577, i64 648
   %579 = load ptr, ptr %578, align 8
   %580 = call noundef zeroext i1 %579(ptr noundef nonnull align 8 dereferenceable(408123) %567, i32 noundef %569, i16 %.sroa.0.0.copyload.i1400, ptr %.sroa.21.0.copyload.i1402, i32 noundef %565) #17
-  br i1 %580, label %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.thread4808, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split
+  br i1 %580, label %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.thread4808, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split
 
 581:                                              ; preds = %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316, %.critedge1316
   %582 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2213,7 +2213,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i: ; preds = %5
 
 597:                                              ; preds = %581
   %.not.i.i1416 = icmp eq i16 %.sroa.0.0.copyload.i.i1409, 0
-  br i1 %.not.i.i1416, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %598
+  br i1 %.not.i.i1416, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %598
 
 598:                                              ; preds = %597
   %599 = zext i16 %.sroa.0.0.copyload.i.i1409 to i64
@@ -2244,7 +2244,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i: ; preds = %5
 
 619:                                              ; preds = %602
   %.not.i.i1425 = icmp eq i16 %.sroa.0.0.copyload.i.i1418, 0
-  br i1 %.not.i.i1425, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %620
+  br i1 %.not.i.i1425, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %620
 
 620:                                              ; preds = %619
   %621 = zext i16 %.sroa.0.0.copyload.i.i1418 to i64
@@ -2294,7 +2294,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i: ; preds = %5
 
 658:                                              ; preds = %653
   %.not.i.i1430 = icmp eq i16 %.sroa.0.0.copyload.i.i.i1427, 0
-  br i1 %.not.i.i1430, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %659
+  br i1 %.not.i.i1430, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %659
 
 659:                                              ; preds = %658
   %660 = zext i16 %.sroa.0.0.copyload.i.i.i1427 to i64
@@ -2336,7 +2336,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1444:                ; preds = %663
   %671 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %672 = load i32, ptr %671, align 8
   %.not.i14524373 = icmp ult i32 %672, 491
-  br i1 %.not.i14524373, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i14524373, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge.thread:                                 ; preds = %665
   %673 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2345,7 +2345,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1444:                ; preds = %663
   br i1 %.not.i14524370, label %.thread4371, label %.sink.split
 
 675:                                              ; preds = %.critedge
-  br i1 %.not.i1442, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4371
+  br i1 %.not.i1442, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4371
 
 .thread4371:                                      ; preds = %.critedge.thread, %675
   %.in4954 = phi i32 [ %670, %675 ], [ %674, %.critedge.thread ]
@@ -2392,7 +2392,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1468:                ; preds = %681
   %689 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %690 = load i32, ptr %689, align 8
   %.not.i14774379 = icmp ult i32 %690, 491
-  br i1 %.not.i14774379, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i14774379, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge3.thread:                                ; preds = %683
   %691 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2401,7 +2401,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1468:                ; preds = %681
   br i1 %.not.i14774376, label %.thread4377, label %.sink.split
 
 693:                                              ; preds = %.critedge3
-  br i1 %.not.i1466, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4377
+  br i1 %.not.i1466, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4377
 
 .thread4377:                                      ; preds = %.critedge3.thread, %693
   %.in4952 = phi i32 [ %688, %693 ], [ %692, %.critedge3.thread ]
@@ -2448,7 +2448,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1493:                ; preds = %699
   %707 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %708 = load i32, ptr %707, align 8
   %.not.i15024385 = icmp ult i32 %708, 491
-  br i1 %.not.i15024385, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i15024385, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge5.thread:                                ; preds = %701
   %709 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2457,7 +2457,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1493:                ; preds = %699
   br i1 %.not.i15024382, label %.thread4383, label %.sink.split
 
 711:                                              ; preds = %.critedge5
-  br i1 %.not.i1491, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4383
+  br i1 %.not.i1491, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4383
 
 .thread4383:                                      ; preds = %.critedge5.thread, %711
   %.in4950 = phi i32 [ %706, %711 ], [ %710, %.critedge5.thread ]
@@ -2504,7 +2504,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1518:                ; preds = %717
   %725 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %726 = load i32, ptr %725, align 8
   %.not.i15274391 = icmp ult i32 %726, 491
-  br i1 %.not.i15274391, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i15274391, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge7.thread:                                ; preds = %719
   %727 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2513,7 +2513,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1518:                ; preds = %717
   br i1 %.not.i15274388, label %.thread4389, label %.sink.split
 
 729:                                              ; preds = %.critedge7
-  br i1 %.not.i1516, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4389
+  br i1 %.not.i1516, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4389
 
 .thread4389:                                      ; preds = %.critedge7.thread, %729
   %.in4948 = phi i32 [ %724, %729 ], [ %728, %.critedge7.thread ]
@@ -2560,7 +2560,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1543:                ; preds = %735
   %743 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %744 = load i32, ptr %743, align 8
   %.not.i15524397 = icmp ult i32 %744, 491
-  br i1 %.not.i15524397, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i15524397, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge9.thread:                                ; preds = %737
   %745 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2569,7 +2569,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1543:                ; preds = %735
   br i1 %.not.i15524394, label %.thread4395, label %.sink.split
 
 747:                                              ; preds = %.critedge9
-  br i1 %.not.i1541, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4395
+  br i1 %.not.i1541, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4395
 
 .thread4395:                                      ; preds = %.critedge9.thread, %747
   %.in4946 = phi i32 [ %742, %747 ], [ %746, %.critedge9.thread ]
@@ -2616,7 +2616,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1568:                ; preds = %753
   %761 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %762 = load i32, ptr %761, align 8
   %.not.i15774403 = icmp ult i32 %762, 491
-  br i1 %.not.i15774403, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i15774403, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge11.thread:                               ; preds = %755
   %763 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2625,7 +2625,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1568:                ; preds = %753
   br i1 %.not.i15774400, label %.thread4401, label %.sink.split
 
 765:                                              ; preds = %.critedge11
-  br i1 %.not.i1566, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4401
+  br i1 %.not.i1566, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4401
 
 .thread4401:                                      ; preds = %.critedge11.thread, %765
   %.in4944 = phi i32 [ %760, %765 ], [ %764, %.critedge11.thread ]
@@ -2672,7 +2672,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1593:                ; preds = %771
   %779 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %780 = load i32, ptr %779, align 8
   %.not.i16024409 = icmp ult i32 %780, 491
-  br i1 %.not.i16024409, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i16024409, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge13.thread:                               ; preds = %773
   %781 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2681,7 +2681,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1593:                ; preds = %771
   br i1 %.not.i16024406, label %.thread4407, label %.sink.split
 
 783:                                              ; preds = %.critedge13
-  br i1 %.not.i1591, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4407
+  br i1 %.not.i1591, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4407
 
 .thread4407:                                      ; preds = %.critedge13.thread, %783
   %.in4942 = phi i32 [ %778, %783 ], [ %782, %.critedge13.thread ]
@@ -2728,7 +2728,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1618:                ; preds = %789
   %797 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %798 = load i32, ptr %797, align 8
   %.not.i16274415 = icmp ult i32 %798, 491
-  br i1 %.not.i16274415, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i16274415, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge15.thread:                               ; preds = %791
   %799 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2737,7 +2737,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1618:                ; preds = %789
   br i1 %.not.i16274412, label %.thread4413, label %.sink.split
 
 801:                                              ; preds = %.critedge15
-  br i1 %.not.i1616, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4413
+  br i1 %.not.i1616, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4413
 
 .thread4413:                                      ; preds = %.critedge15.thread, %801
   %.in4940 = phi i32 [ %796, %801 ], [ %800, %.critedge15.thread ]
@@ -2784,7 +2784,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1643:                ; preds = %807
   %815 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %816 = load i32, ptr %815, align 8
   %.not.i16524421 = icmp ult i32 %816, 491
-  br i1 %.not.i16524421, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i16524421, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge17.thread:                               ; preds = %809
   %817 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2793,7 +2793,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1643:                ; preds = %807
   br i1 %.not.i16524418, label %.thread4419, label %.sink.split
 
 819:                                              ; preds = %.critedge17
-  br i1 %.not.i1641, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4419
+  br i1 %.not.i1641, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4419
 
 .thread4419:                                      ; preds = %.critedge17.thread, %819
   %.in4938 = phi i32 [ %814, %819 ], [ %818, %.critedge17.thread ]
@@ -2840,7 +2840,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1668:                ; preds = %825
   %833 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %834 = load i32, ptr %833, align 8
   %.not.i16774427 = icmp ult i32 %834, 491
-  br i1 %.not.i16774427, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i16774427, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge19.thread:                               ; preds = %827
   %835 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2849,7 +2849,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1668:                ; preds = %825
   br i1 %.not.i16774424, label %.thread4425, label %.sink.split
 
 837:                                              ; preds = %.critedge19
-  br i1 %.not.i1666, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4425
+  br i1 %.not.i1666, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4425
 
 .thread4425:                                      ; preds = %.critedge19.thread, %837
   %.in4936 = phi i32 [ %832, %837 ], [ %836, %.critedge19.thread ]
@@ -2896,7 +2896,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1693:                ; preds = %843
   %851 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %852 = load i32, ptr %851, align 8
   %.not.i17024433 = icmp ult i32 %852, 491
-  br i1 %.not.i17024433, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i17024433, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge21.thread:                               ; preds = %845
   %853 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2905,7 +2905,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1693:                ; preds = %843
   br i1 %.not.i17024430, label %.thread4431, label %.sink.split
 
 855:                                              ; preds = %.critedge21
-  br i1 %.not.i1691, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4431
+  br i1 %.not.i1691, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4431
 
 .thread4431:                                      ; preds = %.critedge21.thread, %855
   %.in4934 = phi i32 [ %850, %855 ], [ %854, %.critedge21.thread ]
@@ -2952,7 +2952,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1718:                ; preds = %861
   %869 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %870 = load i32, ptr %869, align 8
   %.not.i17274439 = icmp ult i32 %870, 491
-  br i1 %.not.i17274439, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i17274439, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge23.thread:                               ; preds = %863
   %871 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -2961,7 +2961,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1718:                ; preds = %861
   br i1 %.not.i17274436, label %.thread4437, label %.sink.split
 
 873:                                              ; preds = %.critedge23
-  br i1 %.not.i1716, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4437
+  br i1 %.not.i1716, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4437
 
 .thread4437:                                      ; preds = %.critedge23.thread, %873
   %.in4932 = phi i32 [ %868, %873 ], [ %872, %.critedge23.thread ]
@@ -3008,7 +3008,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1743:                ; preds = %879
   %887 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %888 = load i32, ptr %887, align 8
   %.not.i17524445 = icmp ult i32 %888, 491
-  br i1 %.not.i17524445, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i17524445, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge25.thread:                               ; preds = %881
   %889 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3017,7 +3017,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1743:                ; preds = %879
   br i1 %.not.i17524442, label %.thread4443, label %.sink.split
 
 891:                                              ; preds = %.critedge25
-  br i1 %.not.i1741, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4443
+  br i1 %.not.i1741, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4443
 
 .thread4443:                                      ; preds = %.critedge25.thread, %891
   %.in4930 = phi i32 [ %886, %891 ], [ %890, %.critedge25.thread ]
@@ -3064,7 +3064,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1768:                ; preds = %897
   %905 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %906 = load i32, ptr %905, align 8
   %.not.i17774451 = icmp ult i32 %906, 491
-  br i1 %.not.i17774451, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i17774451, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge27.thread:                               ; preds = %899
   %907 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3073,7 +3073,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1768:                ; preds = %897
   br i1 %.not.i17774448, label %.thread4449, label %.sink.split
 
 909:                                              ; preds = %.critedge27
-  br i1 %.not.i1766, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4449
+  br i1 %.not.i1766, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4449
 
 .thread4449:                                      ; preds = %.critedge27.thread, %909
   %.in4928 = phi i32 [ %904, %909 ], [ %908, %.critedge27.thread ]
@@ -3120,7 +3120,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1793:                ; preds = %915
   %923 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %924 = load i32, ptr %923, align 8
   %.not.i18024457 = icmp ult i32 %924, 491
-  br i1 %.not.i18024457, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i18024457, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge29.thread:                               ; preds = %917
   %925 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3129,7 +3129,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1793:                ; preds = %915
   br i1 %.not.i18024454, label %.thread4455, label %.sink.split
 
 927:                                              ; preds = %.critedge29
-  br i1 %.not.i1791, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4455
+  br i1 %.not.i1791, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4455
 
 .thread4455:                                      ; preds = %.critedge29.thread, %927
   %.in4926 = phi i32 [ %922, %927 ], [ %926, %.critedge29.thread ]
@@ -3176,7 +3176,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1818:                ; preds = %933
   %941 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %942 = load i32, ptr %941, align 8
   %.not.i18274463 = icmp ult i32 %942, 491
-  br i1 %.not.i18274463, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i18274463, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge31.thread:                               ; preds = %935
   %943 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3185,7 +3185,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1818:                ; preds = %933
   br i1 %.not.i18274460, label %.thread4461, label %.sink.split
 
 945:                                              ; preds = %.critedge31
-  br i1 %.not.i1816, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4461
+  br i1 %.not.i1816, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4461
 
 .thread4461:                                      ; preds = %.critedge31.thread, %945
   %.in4924 = phi i32 [ %940, %945 ], [ %944, %.critedge31.thread ]
@@ -3232,7 +3232,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1843:                ; preds = %951
   %959 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %960 = load i32, ptr %959, align 8
   %.not.i18524469 = icmp ult i32 %960, 491
-  br i1 %.not.i18524469, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i18524469, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge33.thread:                               ; preds = %953
   %961 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3241,7 +3241,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1843:                ; preds = %951
   br i1 %.not.i18524466, label %.thread4467, label %.sink.split
 
 963:                                              ; preds = %.critedge33
-  br i1 %.not.i1841, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4467
+  br i1 %.not.i1841, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4467
 
 .thread4467:                                      ; preds = %.critedge33.thread, %963
   %.in4922 = phi i32 [ %958, %963 ], [ %962, %.critedge33.thread ]
@@ -3288,7 +3288,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1868:                ; preds = %969
   %977 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %978 = load i32, ptr %977, align 8
   %.not.i18774475 = icmp ult i32 %978, 491
-  br i1 %.not.i18774475, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i18774475, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge35.thread:                               ; preds = %971
   %979 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3297,7 +3297,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1868:                ; preds = %969
   br i1 %.not.i18774472, label %.thread4473, label %.sink.split
 
 981:                                              ; preds = %.critedge35
-  br i1 %.not.i1866, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4473
+  br i1 %.not.i1866, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4473
 
 .thread4473:                                      ; preds = %.critedge35.thread, %981
   %.in4920 = phi i32 [ %976, %981 ], [ %980, %.critedge35.thread ]
@@ -3344,7 +3344,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1893:                ; preds = %987
   %995 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %996 = load i32, ptr %995, align 8
   %.not.i19024481 = icmp ult i32 %996, 491
-  br i1 %.not.i19024481, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i19024481, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge37.thread:                               ; preds = %989
   %997 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3353,7 +3353,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1893:                ; preds = %987
   br i1 %.not.i19024478, label %.thread4479, label %.sink.split
 
 999:                                              ; preds = %.critedge37
-  br i1 %.not.i1891, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4479
+  br i1 %.not.i1891, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4479
 
 .thread4479:                                      ; preds = %.critedge37.thread, %999
   %.in4918 = phi i32 [ %994, %999 ], [ %998, %.critedge37.thread ]
@@ -3400,7 +3400,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1918:                ; preds = %1005
   %1013 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1014 = load i32, ptr %1013, align 8
   %.not.i19274487 = icmp ult i32 %1014, 491
-  br i1 %.not.i19274487, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i19274487, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge39.thread:                               ; preds = %1007
   %1015 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3409,7 +3409,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1918:                ; preds = %1005
   br i1 %.not.i19274484, label %.thread4485, label %.sink.split
 
 1017:                                             ; preds = %.critedge39
-  br i1 %.not.i1916, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4485
+  br i1 %.not.i1916, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4485
 
 .thread4485:                                      ; preds = %.critedge39.thread, %1017
   %.in4916 = phi i32 [ %1012, %1017 ], [ %1016, %.critedge39.thread ]
@@ -3456,7 +3456,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1943:                ; preds = %1023
   %1031 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1032 = load i32, ptr %1031, align 8
   %.not.i19524493 = icmp ult i32 %1032, 491
-  br i1 %.not.i19524493, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i19524493, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge41.thread:                               ; preds = %1025
   %1033 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3465,7 +3465,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1943:                ; preds = %1023
   br i1 %.not.i19524490, label %.thread4491, label %.sink.split
 
 1035:                                             ; preds = %.critedge41
-  br i1 %.not.i1941, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4491
+  br i1 %.not.i1941, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4491
 
 .thread4491:                                      ; preds = %.critedge41.thread, %1035
   %.in4914 = phi i32 [ %1030, %1035 ], [ %1034, %.critedge41.thread ]
@@ -3512,7 +3512,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1968:                ; preds = %1041
   %1049 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1050 = load i32, ptr %1049, align 8
   %.not.i19774499 = icmp ult i32 %1050, 491
-  br i1 %.not.i19774499, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i19774499, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge43.thread:                               ; preds = %1043
   %1051 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3521,7 +3521,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1968:                ; preds = %1041
   br i1 %.not.i19774496, label %.thread4497, label %.sink.split
 
 1053:                                             ; preds = %.critedge43
-  br i1 %.not.i1966, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4497
+  br i1 %.not.i1966, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4497
 
 .thread4497:                                      ; preds = %.critedge43.thread, %1053
   %.in4912 = phi i32 [ %1048, %1053 ], [ %1052, %.critedge43.thread ]
@@ -3568,7 +3568,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1993:                ; preds = %1059
   %1067 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1068 = load i32, ptr %1067, align 8
   %.not.i20024505 = icmp ult i32 %1068, 491
-  br i1 %.not.i20024505, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i20024505, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge45.thread:                               ; preds = %1061
   %1069 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3577,7 +3577,7 @@ _ZNK4llvm3EVT8isVectorEv.exit1993:                ; preds = %1059
   br i1 %.not.i20024502, label %.thread4503, label %.sink.split
 
 1071:                                             ; preds = %.critedge45
-  br i1 %.not.i1991, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4503
+  br i1 %.not.i1991, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4503
 
 .thread4503:                                      ; preds = %.critedge45.thread, %1071
   %.in4910 = phi i32 [ %1066, %1071 ], [ %1070, %.critedge45.thread ]
@@ -3624,7 +3624,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2018:                ; preds = %1077
   %1085 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1086 = load i32, ptr %1085, align 8
   %.not.i20274511 = icmp ult i32 %1086, 491
-  br i1 %.not.i20274511, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i20274511, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge47.thread:                               ; preds = %1079
   %1087 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3633,7 +3633,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2018:                ; preds = %1077
   br i1 %.not.i20274508, label %.thread4509, label %.sink.split
 
 1089:                                             ; preds = %.critedge47
-  br i1 %.not.i2016, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4509
+  br i1 %.not.i2016, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4509
 
 .thread4509:                                      ; preds = %.critedge47.thread, %1089
   %.in4908 = phi i32 [ %1084, %1089 ], [ %1088, %.critedge47.thread ]
@@ -3680,7 +3680,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2043:                ; preds = %1095
   %1103 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1104 = load i32, ptr %1103, align 8
   %.not.i20524517 = icmp ult i32 %1104, 491
-  br i1 %.not.i20524517, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i20524517, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge49.thread:                               ; preds = %1097
   %1105 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3689,7 +3689,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2043:                ; preds = %1095
   br i1 %.not.i20524514, label %.thread4515, label %.sink.split
 
 1107:                                             ; preds = %.critedge49
-  br i1 %.not.i2041, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4515
+  br i1 %.not.i2041, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4515
 
 .thread4515:                                      ; preds = %.critedge49.thread, %1107
   %.in4906 = phi i32 [ %1102, %1107 ], [ %1106, %.critedge49.thread ]
@@ -3748,7 +3748,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2068:                ; preds = %1113
 
 1134:                                             ; preds = %.critedge51
   %.not.i.i2079 = icmp eq i16 %.sroa.0.0.copyload.i.i2056, 0
-  br i1 %.not.i.i2079, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %1135
+  br i1 %.not.i.i2079, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %1135
 
 1135:                                             ; preds = %1134
   %1136 = zext i16 %.sroa.0.0.copyload.i.i2056 to i64
@@ -3802,7 +3802,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2093:                ; preds = %1139
 
 1160:                                             ; preds = %.critedge53
   %.not.i.i2104 = icmp eq i16 %.sroa.0.0.copyload.i.i2081, 0
-  br i1 %.not.i.i2104, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %1161
+  br i1 %.not.i.i2104, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %1161
 
 1161:                                             ; preds = %1160
   %1162 = zext i16 %.sroa.0.0.copyload.i.i2081 to i64
@@ -3844,7 +3844,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2118:                ; preds = %1165
   %1173 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1174 = load i32, ptr %1173, align 8
   %.not.i21274525 = icmp ult i32 %1174, 491
-  br i1 %.not.i21274525, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i21274525, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge55.thread:                               ; preds = %1167
   %1175 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3853,7 +3853,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2118:                ; preds = %1165
   br i1 %.not.i21274522, label %.thread4523, label %.sink.split
 
 1177:                                             ; preds = %.critedge55
-  br i1 %.not.i2116, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4523
+  br i1 %.not.i2116, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4523
 
 .thread4523:                                      ; preds = %.critedge55.thread, %1177
   %.in4904 = phi i32 [ %1172, %1177 ], [ %1176, %.critedge55.thread ]
@@ -3900,7 +3900,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2143:                ; preds = %1183
   %1191 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1192 = load i32, ptr %1191, align 8
   %.not.i21524531 = icmp ult i32 %1192, 491
-  br i1 %.not.i21524531, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i21524531, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge57.thread:                               ; preds = %1185
   %1193 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3909,7 +3909,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2143:                ; preds = %1183
   br i1 %.not.i21524528, label %.thread4529, label %.sink.split
 
 1195:                                             ; preds = %.critedge57
-  br i1 %.not.i2141, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4529
+  br i1 %.not.i2141, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4529
 
 .thread4529:                                      ; preds = %.critedge57.thread, %1195
   %.in4902 = phi i32 [ %1190, %1195 ], [ %1194, %.critedge57.thread ]
@@ -3956,7 +3956,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2168:                ; preds = %1201
   %1209 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1210 = load i32, ptr %1209, align 8
   %.not.i21774537 = icmp ult i32 %1210, 491
-  br i1 %.not.i21774537, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i21774537, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge59.thread:                               ; preds = %1203
   %1211 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -3965,7 +3965,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2168:                ; preds = %1201
   br i1 %.not.i21774534, label %.thread4535, label %.sink.split
 
 1213:                                             ; preds = %.critedge59
-  br i1 %.not.i2166, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4535
+  br i1 %.not.i2166, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4535
 
 .thread4535:                                      ; preds = %.critedge59.thread, %1213
   %.in4900 = phi i32 [ %1208, %1213 ], [ %1212, %.critedge59.thread ]
@@ -4012,7 +4012,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2193:                ; preds = %1219
   %1227 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1228 = load i32, ptr %1227, align 8
   %.not.i22024543 = icmp ult i32 %1228, 491
-  br i1 %.not.i22024543, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i22024543, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge61.thread:                               ; preds = %1221
   %1229 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4021,7 +4021,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2193:                ; preds = %1219
   br i1 %.not.i22024540, label %.thread4541, label %.sink.split
 
 1231:                                             ; preds = %.critedge61
-  br i1 %.not.i2191, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4541
+  br i1 %.not.i2191, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4541
 
 .thread4541:                                      ; preds = %.critedge61.thread, %1231
   %.in4898 = phi i32 [ %1226, %1231 ], [ %1230, %.critedge61.thread ]
@@ -4068,7 +4068,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2218:                ; preds = %1237
   %1245 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1246 = load i32, ptr %1245, align 8
   %.not.i22274549 = icmp ult i32 %1246, 491
-  br i1 %.not.i22274549, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i22274549, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge63.thread:                               ; preds = %1239
   %1247 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4077,7 +4077,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2218:                ; preds = %1237
   br i1 %.not.i22274546, label %.thread4547, label %.sink.split
 
 1249:                                             ; preds = %.critedge63
-  br i1 %.not.i2216, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4547
+  br i1 %.not.i2216, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4547
 
 .thread4547:                                      ; preds = %.critedge63.thread, %1249
   %.in4896 = phi i32 [ %1244, %1249 ], [ %1248, %.critedge63.thread ]
@@ -4124,7 +4124,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2243:                ; preds = %1255
   %1263 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1264 = load i32, ptr %1263, align 8
   %.not.i22524555 = icmp ult i32 %1264, 491
-  br i1 %.not.i22524555, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i22524555, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge65.thread:                               ; preds = %1257
   %1265 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4133,7 +4133,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2243:                ; preds = %1255
   br i1 %.not.i22524552, label %.thread4553, label %.sink.split
 
 1267:                                             ; preds = %.critedge65
-  br i1 %.not.i2241, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4553
+  br i1 %.not.i2241, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4553
 
 .thread4553:                                      ; preds = %.critedge65.thread, %1267
   %.in4894 = phi i32 [ %1262, %1267 ], [ %1266, %.critedge65.thread ]
@@ -4180,7 +4180,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2268:                ; preds = %1273
   %1281 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1282 = load i32, ptr %1281, align 8
   %.not.i22774561 = icmp ult i32 %1282, 491
-  br i1 %.not.i22774561, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i22774561, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge67.thread:                               ; preds = %1275
   %1283 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4189,7 +4189,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2268:                ; preds = %1273
   br i1 %.not.i22774558, label %.thread4559, label %.sink.split
 
 1285:                                             ; preds = %.critedge67
-  br i1 %.not.i2266, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4559
+  br i1 %.not.i2266, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4559
 
 .thread4559:                                      ; preds = %.critedge67.thread, %1285
   %.in4892 = phi i32 [ %1280, %1285 ], [ %1284, %.critedge67.thread ]
@@ -4236,7 +4236,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2293:                ; preds = %1291
   %1299 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1300 = load i32, ptr %1299, align 8
   %.not.i23024567 = icmp ult i32 %1300, 491
-  br i1 %.not.i23024567, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i23024567, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge69.thread:                               ; preds = %1293
   %1301 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4245,7 +4245,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2293:                ; preds = %1291
   br i1 %.not.i23024564, label %.thread4565, label %.sink.split
 
 1303:                                             ; preds = %.critedge69
-  br i1 %.not.i2291, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4565
+  br i1 %.not.i2291, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4565
 
 .thread4565:                                      ; preds = %.critedge69.thread, %1303
   %.in4890 = phi i32 [ %1298, %1303 ], [ %1302, %.critedge69.thread ]
@@ -4292,7 +4292,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2318:                ; preds = %1309
   %1317 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1318 = load i32, ptr %1317, align 8
   %.not.i23274573 = icmp ult i32 %1318, 491
-  br i1 %.not.i23274573, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i23274573, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge71.thread:                               ; preds = %1311
   %1319 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4301,7 +4301,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2318:                ; preds = %1309
   br i1 %.not.i23274570, label %.thread4571, label %.sink.split
 
 1321:                                             ; preds = %.critedge71
-  br i1 %.not.i2316, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4571
+  br i1 %.not.i2316, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4571
 
 .thread4571:                                      ; preds = %.critedge71.thread, %1321
   %.in4888 = phi i32 [ %1316, %1321 ], [ %1320, %.critedge71.thread ]
@@ -4348,7 +4348,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2343:                ; preds = %1327
   %1335 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1336 = load i32, ptr %1335, align 8
   %.not.i23524579 = icmp ult i32 %1336, 491
-  br i1 %.not.i23524579, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i23524579, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge73.thread:                               ; preds = %1329
   %1337 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4357,7 +4357,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2343:                ; preds = %1327
   br i1 %.not.i23524576, label %.thread4577, label %.sink.split
 
 1339:                                             ; preds = %.critedge73
-  br i1 %.not.i2341, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4577
+  br i1 %.not.i2341, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4577
 
 .thread4577:                                      ; preds = %.critedge73.thread, %1339
   %.in4886 = phi i32 [ %1334, %1339 ], [ %1338, %.critedge73.thread ]
@@ -4404,7 +4404,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2368:                ; preds = %1345
   %1353 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1354 = load i32, ptr %1353, align 8
   %.not.i23774585 = icmp ult i32 %1354, 491
-  br i1 %.not.i23774585, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i23774585, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge75.thread:                               ; preds = %1347
   %1355 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4413,7 +4413,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2368:                ; preds = %1345
   br i1 %.not.i23774582, label %.thread4583, label %.sink.split
 
 1357:                                             ; preds = %.critedge75
-  br i1 %.not.i2366, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4583
+  br i1 %.not.i2366, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4583
 
 .thread4583:                                      ; preds = %.critedge75.thread, %1357
   %.in4884 = phi i32 [ %1352, %1357 ], [ %1356, %.critedge75.thread ]
@@ -4460,7 +4460,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2393:                ; preds = %1363
   %1371 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1372 = load i32, ptr %1371, align 8
   %.not.i24024591 = icmp ult i32 %1372, 491
-  br i1 %.not.i24024591, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i24024591, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge77.thread:                               ; preds = %1365
   %1373 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4469,7 +4469,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2393:                ; preds = %1363
   br i1 %.not.i24024588, label %.thread4589, label %.sink.split
 
 1375:                                             ; preds = %.critedge77
-  br i1 %.not.i2391, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4589
+  br i1 %.not.i2391, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4589
 
 .thread4589:                                      ; preds = %.critedge77.thread, %1375
   %.in4882 = phi i32 [ %1370, %1375 ], [ %1374, %.critedge77.thread ]
@@ -4516,7 +4516,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2418:                ; preds = %1381
   %1389 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1390 = load i32, ptr %1389, align 8
   %.not.i24274597 = icmp ult i32 %1390, 491
-  br i1 %.not.i24274597, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i24274597, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge79.thread:                               ; preds = %1383
   %1391 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4525,7 +4525,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2418:                ; preds = %1381
   br i1 %.not.i24274594, label %.thread4595, label %.sink.split
 
 1393:                                             ; preds = %.critedge79
-  br i1 %.not.i2416, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4595
+  br i1 %.not.i2416, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4595
 
 .thread4595:                                      ; preds = %.critedge79.thread, %1393
   %.in4880 = phi i32 [ %1388, %1393 ], [ %1392, %.critedge79.thread ]
@@ -4572,7 +4572,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2443:                ; preds = %1399
   %1407 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1408 = load i32, ptr %1407, align 8
   %.not.i24524603 = icmp ult i32 %1408, 491
-  br i1 %.not.i24524603, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i24524603, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge81.thread:                               ; preds = %1401
   %1409 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4581,7 +4581,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2443:                ; preds = %1399
   br i1 %.not.i24524600, label %.thread4601, label %.sink.split
 
 1411:                                             ; preds = %.critedge81
-  br i1 %.not.i2441, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4601
+  br i1 %.not.i2441, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4601
 
 .thread4601:                                      ; preds = %.critedge81.thread, %1411
   %.in4878 = phi i32 [ %1406, %1411 ], [ %1410, %.critedge81.thread ]
@@ -4628,7 +4628,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2468:                ; preds = %1417
   %1425 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1426 = load i32, ptr %1425, align 8
   %.not.i24774609 = icmp ult i32 %1426, 491
-  br i1 %.not.i24774609, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i24774609, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge83.thread:                               ; preds = %1419
   %1427 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4637,7 +4637,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2468:                ; preds = %1417
   br i1 %.not.i24774606, label %.thread4607, label %.sink.split
 
 1429:                                             ; preds = %.critedge83
-  br i1 %.not.i2466, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4607
+  br i1 %.not.i2466, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4607
 
 .thread4607:                                      ; preds = %.critedge83.thread, %1429
   %.in4876 = phi i32 [ %1424, %1429 ], [ %1428, %.critedge83.thread ]
@@ -4684,7 +4684,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2493:                ; preds = %1435
   %1443 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1444 = load i32, ptr %1443, align 8
   %.not.i25024615 = icmp ult i32 %1444, 491
-  br i1 %.not.i25024615, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i25024615, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge85.thread:                               ; preds = %1437
   %1445 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4693,7 +4693,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2493:                ; preds = %1435
   br i1 %.not.i25024612, label %.thread4613, label %.sink.split
 
 1447:                                             ; preds = %.critedge85
-  br i1 %.not.i2491, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4613
+  br i1 %.not.i2491, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4613
 
 .thread4613:                                      ; preds = %.critedge85.thread, %1447
   %.in4874 = phi i32 [ %1442, %1447 ], [ %1446, %.critedge85.thread ]
@@ -4740,7 +4740,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2518:                ; preds = %1453
   %1461 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1462 = load i32, ptr %1461, align 8
   %.not.i25274621 = icmp ult i32 %1462, 491
-  br i1 %.not.i25274621, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i25274621, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge87.thread:                               ; preds = %1455
   %1463 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4749,7 +4749,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2518:                ; preds = %1453
   br i1 %.not.i25274618, label %.thread4619, label %.sink.split
 
 1465:                                             ; preds = %.critedge87
-  br i1 %.not.i2516, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4619
+  br i1 %.not.i2516, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4619
 
 .thread4619:                                      ; preds = %.critedge87.thread, %1465
   %.in4872 = phi i32 [ %1460, %1465 ], [ %1464, %.critedge87.thread ]
@@ -4796,7 +4796,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2543:                ; preds = %1471
   %1479 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1480 = load i32, ptr %1479, align 8
   %.not.i25524627 = icmp ult i32 %1480, 491
-  br i1 %.not.i25524627, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i25524627, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge89.thread:                               ; preds = %1473
   %1481 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4805,7 +4805,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2543:                ; preds = %1471
   br i1 %.not.i25524624, label %.thread4625, label %.sink.split
 
 1483:                                             ; preds = %.critedge89
-  br i1 %.not.i2541, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4625
+  br i1 %.not.i2541, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4625
 
 .thread4625:                                      ; preds = %.critedge89.thread, %1483
   %.in4870 = phi i32 [ %1478, %1483 ], [ %1482, %.critedge89.thread ]
@@ -4852,7 +4852,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2568:                ; preds = %1489
   %1497 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1498 = load i32, ptr %1497, align 8
   %.not.i25774633 = icmp ult i32 %1498, 491
-  br i1 %.not.i25774633, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i25774633, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge91.thread:                               ; preds = %1491
   %1499 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4861,7 +4861,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2568:                ; preds = %1489
   br i1 %.not.i25774630, label %.thread4631, label %.sink.split
 
 1501:                                             ; preds = %.critedge91
-  br i1 %.not.i2566, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4631
+  br i1 %.not.i2566, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4631
 
 .thread4631:                                      ; preds = %.critedge91.thread, %1501
   %.in4868 = phi i32 [ %1496, %1501 ], [ %1500, %.critedge91.thread ]
@@ -4908,7 +4908,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2593:                ; preds = %1507
   %1515 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1516 = load i32, ptr %1515, align 8
   %.not.i26024639 = icmp ult i32 %1516, 491
-  br i1 %.not.i26024639, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i26024639, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge93.thread:                               ; preds = %1509
   %1517 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4917,7 +4917,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2593:                ; preds = %1507
   br i1 %.not.i26024636, label %.thread4637, label %.sink.split
 
 1519:                                             ; preds = %.critedge93
-  br i1 %.not.i2591, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4637
+  br i1 %.not.i2591, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4637
 
 .thread4637:                                      ; preds = %.critedge93.thread, %1519
   %.in4866 = phi i32 [ %1514, %1519 ], [ %1518, %.critedge93.thread ]
@@ -4964,7 +4964,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2618:                ; preds = %1525
   %1533 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1534 = load i32, ptr %1533, align 8
   %.not.i26274645 = icmp ult i32 %1534, 491
-  br i1 %.not.i26274645, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i26274645, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge95.thread:                               ; preds = %1527
   %1535 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -4973,7 +4973,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2618:                ; preds = %1525
   br i1 %.not.i26274642, label %.thread4643, label %.sink.split
 
 1537:                                             ; preds = %.critedge95
-  br i1 %.not.i2616, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4643
+  br i1 %.not.i2616, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4643
 
 .thread4643:                                      ; preds = %.critedge95.thread, %1537
   %.in4864 = phi i32 [ %1532, %1537 ], [ %1536, %.critedge95.thread ]
@@ -5020,7 +5020,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2643:                ; preds = %1543
   %1551 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1552 = load i32, ptr %1551, align 8
   %.not.i26524651 = icmp ult i32 %1552, 491
-  br i1 %.not.i26524651, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i26524651, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge97.thread:                               ; preds = %1545
   %1553 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5029,7 +5029,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2643:                ; preds = %1543
   br i1 %.not.i26524648, label %.thread4649, label %.sink.split
 
 1555:                                             ; preds = %.critedge97
-  br i1 %.not.i2641, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4649
+  br i1 %.not.i2641, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4649
 
 .thread4649:                                      ; preds = %.critedge97.thread, %1555
   %.in4862 = phi i32 [ %1550, %1555 ], [ %1554, %.critedge97.thread ]
@@ -5076,7 +5076,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2668:                ; preds = %1561
   %1569 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1570 = load i32, ptr %1569, align 8
   %.not.i26774657 = icmp ult i32 %1570, 491
-  br i1 %.not.i26774657, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i26774657, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge99.thread:                               ; preds = %1563
   %1571 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5085,7 +5085,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2668:                ; preds = %1561
   br i1 %.not.i26774654, label %.thread4655, label %.sink.split
 
 1573:                                             ; preds = %.critedge99
-  br i1 %.not.i2666, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4655
+  br i1 %.not.i2666, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4655
 
 .thread4655:                                      ; preds = %.critedge99.thread, %1573
   %.in4860 = phi i32 [ %1568, %1573 ], [ %1572, %.critedge99.thread ]
@@ -5132,7 +5132,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2693:                ; preds = %1579
   %1587 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1588 = load i32, ptr %1587, align 8
   %.not.i27024663 = icmp ult i32 %1588, 491
-  br i1 %.not.i27024663, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i27024663, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge101.thread:                              ; preds = %1581
   %1589 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5141,7 +5141,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2693:                ; preds = %1579
   br i1 %.not.i27024660, label %.thread4661, label %.sink.split
 
 1591:                                             ; preds = %.critedge101
-  br i1 %.not.i2691, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4661
+  br i1 %.not.i2691, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4661
 
 .thread4661:                                      ; preds = %.critedge101.thread, %1591
   %.in4858 = phi i32 [ %1586, %1591 ], [ %1590, %.critedge101.thread ]
@@ -5188,7 +5188,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2718:                ; preds = %1597
   %1605 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1606 = load i32, ptr %1605, align 8
   %.not.i27274669 = icmp ult i32 %1606, 491
-  br i1 %.not.i27274669, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i27274669, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge103.thread:                              ; preds = %1599
   %1607 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5197,7 +5197,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2718:                ; preds = %1597
   br i1 %.not.i27274666, label %.thread4667, label %.sink.split
 
 1609:                                             ; preds = %.critedge103
-  br i1 %.not.i2716, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4667
+  br i1 %.not.i2716, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4667
 
 .thread4667:                                      ; preds = %.critedge103.thread, %1609
   %.in4856 = phi i32 [ %1604, %1609 ], [ %1608, %.critedge103.thread ]
@@ -5244,7 +5244,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2743:                ; preds = %1615
   %1623 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1624 = load i32, ptr %1623, align 8
   %.not.i27524675 = icmp ult i32 %1624, 491
-  br i1 %.not.i27524675, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i27524675, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge105.thread:                              ; preds = %1617
   %1625 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5253,7 +5253,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2743:                ; preds = %1615
   br i1 %.not.i27524672, label %.thread4673, label %.sink.split
 
 1627:                                             ; preds = %.critedge105
-  br i1 %.not.i2741, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4673
+  br i1 %.not.i2741, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4673
 
 .thread4673:                                      ; preds = %.critedge105.thread, %1627
   %.in4854 = phi i32 [ %1622, %1627 ], [ %1626, %.critedge105.thread ]
@@ -5300,7 +5300,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2768:                ; preds = %1633
   %1641 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1642 = load i32, ptr %1641, align 8
   %.not.i27774681 = icmp ult i32 %1642, 491
-  br i1 %.not.i27774681, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i27774681, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge107.thread:                              ; preds = %1635
   %1643 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5309,7 +5309,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2768:                ; preds = %1633
   br i1 %.not.i27774678, label %.thread4679, label %.sink.split
 
 1645:                                             ; preds = %.critedge107
-  br i1 %.not.i2766, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4679
+  br i1 %.not.i2766, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4679
 
 .thread4679:                                      ; preds = %.critedge107.thread, %1645
   %.in4852 = phi i32 [ %1640, %1645 ], [ %1644, %.critedge107.thread ]
@@ -5356,7 +5356,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2793:                ; preds = %1651
   %1659 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1660 = load i32, ptr %1659, align 8
   %.not.i28024687 = icmp ult i32 %1660, 491
-  br i1 %.not.i28024687, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i28024687, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge109.thread:                              ; preds = %1653
   %1661 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5365,7 +5365,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2793:                ; preds = %1651
   br i1 %.not.i28024684, label %.thread4685, label %.sink.split
 
 1663:                                             ; preds = %.critedge109
-  br i1 %.not.i2791, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4685
+  br i1 %.not.i2791, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4685
 
 .thread4685:                                      ; preds = %.critedge109.thread, %1663
   %.in4850 = phi i32 [ %1658, %1663 ], [ %1662, %.critedge109.thread ]
@@ -5424,7 +5424,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2818:                ; preds = %1669
 
 1690:                                             ; preds = %.critedge111
   %.not.i.i2829 = icmp eq i16 %.sroa.0.0.copyload.i.i2806, 0
-  br i1 %.not.i.i2829, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %1691
+  br i1 %.not.i.i2829, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %1691
 
 1691:                                             ; preds = %1690
   %1692 = zext i16 %.sroa.0.0.copyload.i.i2806 to i64
@@ -5478,7 +5478,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2843:                ; preds = %1695
 
 1716:                                             ; preds = %.critedge113
   %.not.i.i2854 = icmp eq i16 %.sroa.0.0.copyload.i.i2831, 0
-  br i1 %.not.i.i2854, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %1717
+  br i1 %.not.i.i2854, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %1717
 
 1717:                                             ; preds = %1716
   %1718 = zext i16 %.sroa.0.0.copyload.i.i2831 to i64
@@ -5520,7 +5520,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2868:                ; preds = %1721
   %1729 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1730 = load i32, ptr %1729, align 8
   %.not.i28774695 = icmp ult i32 %1730, 491
-  br i1 %.not.i28774695, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i28774695, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge115.thread:                              ; preds = %1723
   %1731 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5529,7 +5529,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2868:                ; preds = %1721
   br i1 %.not.i28774692, label %.thread4693, label %.sink.split
 
 1733:                                             ; preds = %.critedge115
-  br i1 %.not.i2866, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4693
+  br i1 %.not.i2866, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4693
 
 .thread4693:                                      ; preds = %.critedge115.thread, %1733
   %.in4848 = phi i32 [ %1728, %1733 ], [ %1732, %.critedge115.thread ]
@@ -5576,7 +5576,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2893:                ; preds = %1739
   %1747 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1748 = load i32, ptr %1747, align 8
   %.not.i29024701 = icmp ult i32 %1748, 491
-  br i1 %.not.i29024701, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i29024701, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge117.thread:                              ; preds = %1741
   %1749 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5585,7 +5585,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2893:                ; preds = %1739
   br i1 %.not.i29024698, label %.thread4699, label %.sink.split
 
 1751:                                             ; preds = %.critedge117
-  br i1 %.not.i2891, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4699
+  br i1 %.not.i2891, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4699
 
 .thread4699:                                      ; preds = %.critedge117.thread, %1751
   %.in4846 = phi i32 [ %1746, %1751 ], [ %1750, %.critedge117.thread ]
@@ -5632,7 +5632,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2918:                ; preds = %1757
   %1765 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1766 = load i32, ptr %1765, align 8
   %.not.i29274707 = icmp ult i32 %1766, 491
-  br i1 %.not.i29274707, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i29274707, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge119.thread:                              ; preds = %1759
   %1767 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5641,7 +5641,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2918:                ; preds = %1757
   br i1 %.not.i29274704, label %.thread4705, label %.sink.split
 
 1769:                                             ; preds = %.critedge119
-  br i1 %.not.i2916, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4705
+  br i1 %.not.i2916, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4705
 
 .thread4705:                                      ; preds = %.critedge119.thread, %1769
   %.in4844 = phi i32 [ %1764, %1769 ], [ %1768, %.critedge119.thread ]
@@ -5688,7 +5688,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2943:                ; preds = %1775
   %1783 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1784 = load i32, ptr %1783, align 8
   %.not.i29524713 = icmp ult i32 %1784, 491
-  br i1 %.not.i29524713, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i29524713, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge121.thread:                              ; preds = %1777
   %1785 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5697,7 +5697,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2943:                ; preds = %1775
   br i1 %.not.i29524710, label %.thread4711, label %.sink.split
 
 1787:                                             ; preds = %.critedge121
-  br i1 %.not.i2941, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4711
+  br i1 %.not.i2941, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4711
 
 .thread4711:                                      ; preds = %.critedge121.thread, %1787
   %.in4842 = phi i32 [ %1782, %1787 ], [ %1786, %.critedge121.thread ]
@@ -5744,7 +5744,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2968:                ; preds = %1793
   %1801 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1802 = load i32, ptr %1801, align 8
   %.not.i29774719 = icmp ult i32 %1802, 491
-  br i1 %.not.i29774719, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i29774719, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge123.thread:                              ; preds = %1795
   %1803 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5753,7 +5753,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2968:                ; preds = %1793
   br i1 %.not.i29774716, label %.thread4717, label %.sink.split
 
 1805:                                             ; preds = %.critedge123
-  br i1 %.not.i2966, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4717
+  br i1 %.not.i2966, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4717
 
 .thread4717:                                      ; preds = %.critedge123.thread, %1805
   %.in4840 = phi i32 [ %1800, %1805 ], [ %1804, %.critedge123.thread ]
@@ -5800,7 +5800,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2993:                ; preds = %1811
   %1819 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1820 = load i32, ptr %1819, align 8
   %.not.i30024725 = icmp ult i32 %1820, 491
-  br i1 %.not.i30024725, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i30024725, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge125.thread:                              ; preds = %1813
   %1821 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5809,7 +5809,7 @@ _ZNK4llvm3EVT8isVectorEv.exit2993:                ; preds = %1811
   br i1 %.not.i30024722, label %.thread4723, label %.sink.split
 
 1823:                                             ; preds = %.critedge125
-  br i1 %.not.i2991, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4723
+  br i1 %.not.i2991, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4723
 
 .thread4723:                                      ; preds = %.critedge125.thread, %1823
   %.in4838 = phi i32 [ %1818, %1823 ], [ %1822, %.critedge125.thread ]
@@ -5856,7 +5856,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3018:                ; preds = %1829
   %1837 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1838 = load i32, ptr %1837, align 8
   %.not.i30274731 = icmp ult i32 %1838, 491
-  br i1 %.not.i30274731, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i30274731, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge127.thread:                              ; preds = %1831
   %1839 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5865,7 +5865,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3018:                ; preds = %1829
   br i1 %.not.i30274728, label %.thread4729, label %.sink.split
 
 1841:                                             ; preds = %.critedge127
-  br i1 %.not.i3016, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4729
+  br i1 %.not.i3016, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4729
 
 .thread4729:                                      ; preds = %.critedge127.thread, %1841
   %.in4836 = phi i32 [ %1836, %1841 ], [ %1840, %.critedge127.thread ]
@@ -5912,7 +5912,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3043:                ; preds = %1847
   %1855 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1856 = load i32, ptr %1855, align 8
   %.not.i30524737 = icmp ult i32 %1856, 491
-  br i1 %.not.i30524737, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i30524737, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge129.thread:                              ; preds = %1849
   %1857 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5921,7 +5921,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3043:                ; preds = %1847
   br i1 %.not.i30524734, label %.thread4735, label %.sink.split
 
 1859:                                             ; preds = %.critedge129
-  br i1 %.not.i3041, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4735
+  br i1 %.not.i3041, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4735
 
 .thread4735:                                      ; preds = %.critedge129.thread, %1859
   %.in4834 = phi i32 [ %1854, %1859 ], [ %1858, %.critedge129.thread ]
@@ -5968,7 +5968,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3068:                ; preds = %1865
   %1873 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1874 = load i32, ptr %1873, align 8
   %.not.i30774743 = icmp ult i32 %1874, 491
-  br i1 %.not.i30774743, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i30774743, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge131.thread:                              ; preds = %1867
   %1875 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -5977,7 +5977,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3068:                ; preds = %1865
   br i1 %.not.i30774740, label %.thread4741, label %.sink.split
 
 1877:                                             ; preds = %.critedge131
-  br i1 %.not.i3066, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4741
+  br i1 %.not.i3066, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4741
 
 .thread4741:                                      ; preds = %.critedge131.thread, %1877
   %.in4832 = phi i32 [ %1872, %1877 ], [ %1876, %.critedge131.thread ]
@@ -6024,7 +6024,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3093:                ; preds = %1883
   %1891 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1892 = load i32, ptr %1891, align 8
   %.not.i31024749 = icmp ult i32 %1892, 491
-  br i1 %.not.i31024749, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i31024749, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge133.thread:                              ; preds = %1885
   %1893 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -6033,7 +6033,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3093:                ; preds = %1883
   br i1 %.not.i31024746, label %.thread4747, label %.sink.split
 
 1895:                                             ; preds = %.critedge133
-  br i1 %.not.i3091, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4747
+  br i1 %.not.i3091, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4747
 
 .thread4747:                                      ; preds = %.critedge133.thread, %1895
   %.in4830 = phi i32 [ %1890, %1895 ], [ %1894, %.critedge133.thread ]
@@ -6080,7 +6080,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3118:                ; preds = %1901
   %1909 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %1910 = load i32, ptr %1909, align 8
   %.not.i31274755 = icmp ult i32 %1910, 491
-  br i1 %.not.i31274755, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i31274755, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge135.thread:                              ; preds = %1903
   %1911 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -6089,7 +6089,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3118:                ; preds = %1901
   br i1 %.not.i31274752, label %.thread4753, label %.sink.split
 
 1913:                                             ; preds = %.critedge135
-  br i1 %.not.i3116, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4753
+  br i1 %.not.i3116, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4753
 
 .thread4753:                                      ; preds = %.critedge135.thread, %1913
   %.in4828 = phi i32 [ %1908, %1913 ], [ %1912, %.critedge135.thread ]
@@ -6168,7 +6168,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3144:                ; preds = %1947
 
 1957:                                             ; preds = %.critedge137
   %.not.i.i3155 = icmp eq i16 %.sroa.0.0.copyload.i.i3131, 0
-  br i1 %.not.i.i3155, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %1958
+  br i1 %.not.i.i3155, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %1958
 
 1958:                                             ; preds = %1957
   %1959 = zext i16 %.sroa.0.0.copyload.i.i3131 to i64
@@ -6222,7 +6222,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3169:                ; preds = %1962
 
 1983:                                             ; preds = %.critedge139
   %.not.i.i3180 = icmp eq i16 %.sroa.0.0.copyload.i.i3157, 0
-  br i1 %.not.i.i3180, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %1984
+  br i1 %.not.i.i3180, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %1984
 
 1984:                                             ; preds = %1983
   %1985 = zext i16 %.sroa.0.0.copyload.i.i3157 to i64
@@ -6277,7 +6277,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3194:                ; preds = %1988
 
 2010:                                             ; preds = %.critedge141
   %.not.i.i3205 = icmp eq i16 %.sroa.0.0.copyload.i.i3182, 0
-  br i1 %.not.i.i3205, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2011
+  br i1 %.not.i.i3205, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2011
 
 2011:                                             ; preds = %2010
   %2012 = zext i16 %.sroa.0.0.copyload.i.i3182 to i64
@@ -6332,7 +6332,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3219:                ; preds = %2015
 
 2037:                                             ; preds = %.critedge143
   %.not.i.i3230 = icmp eq i16 %.sroa.0.0.copyload.i.i3207, 0
-  br i1 %.not.i.i3230, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2038
+  br i1 %.not.i.i3230, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2038
 
 2038:                                             ; preds = %2037
   %2039 = zext i16 %.sroa.0.0.copyload.i.i3207 to i64
@@ -6387,7 +6387,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3244:                ; preds = %2042
 
 2064:                                             ; preds = %.critedge145
   %.not.i.i3255 = icmp eq i16 %.sroa.0.0.copyload.i.i3232, 0
-  br i1 %.not.i.i3255, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2065
+  br i1 %.not.i.i3255, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2065
 
 2065:                                             ; preds = %2064
   %2066 = zext i16 %.sroa.0.0.copyload.i.i3232 to i64
@@ -6429,7 +6429,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3269:                ; preds = %2069
   %2077 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %2078 = load i32, ptr %2077, align 8
   %.not.i32784766 = icmp ult i32 %2078, 491
-  br i1 %.not.i32784766, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i32784766, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge147.thread:                              ; preds = %2071
   %2079 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -6438,7 +6438,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3269:                ; preds = %2069
   br i1 %.not.i32784763, label %.thread4764, label %.sink.split
 
 2081:                                             ; preds = %.critedge147
-  br i1 %.not.i3267, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4764
+  br i1 %.not.i3267, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4764
 
 .thread4764:                                      ; preds = %.critedge147.thread, %2081
   %.in4826 = phi i32 [ %2076, %2081 ], [ %2080, %.critedge147.thread ]
@@ -6485,7 +6485,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3294:                ; preds = %2087
   %2095 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %2096 = load i32, ptr %2095, align 8
   %.not.i33034772 = icmp ult i32 %2096, 491
-  br i1 %.not.i33034772, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i33034772, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge149.thread:                              ; preds = %2089
   %2097 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -6494,7 +6494,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3294:                ; preds = %2087
   br i1 %.not.i33034769, label %.thread4770, label %.sink.split
 
 2099:                                             ; preds = %.critedge149
-  br i1 %.not.i3292, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4770
+  br i1 %.not.i3292, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4770
 
 .thread4770:                                      ; preds = %.critedge149.thread, %2099
   %.in4824 = phi i32 [ %2094, %2099 ], [ %2098, %.critedge149.thread ]
@@ -6541,7 +6541,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3319:                ; preds = %2105
   %2113 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %2114 = load i32, ptr %2113, align 8
   %.not.i33284778 = icmp ult i32 %2114, 491
-  br i1 %.not.i33284778, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i33284778, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge151.thread:                              ; preds = %2107
   %2115 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -6550,7 +6550,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3319:                ; preds = %2105
   br i1 %.not.i33284775, label %.thread4776, label %.sink.split
 
 2117:                                             ; preds = %.critedge151
-  br i1 %.not.i3317, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread4776
+  br i1 %.not.i3317, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread4776
 
 .thread4776:                                      ; preds = %.critedge151.thread, %2117
   %.in = phi i32 [ %2112, %2117 ], [ %2116, %.critedge151.thread ]
@@ -6610,7 +6610,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3344:                ; preds = %2123
 
 2145:                                             ; preds = %.critedge153
   %.not.i.i3355 = icmp eq i16 %.sroa.0.0.copyload.i.i3332, 0
-  br i1 %.not.i.i3355, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2146
+  br i1 %.not.i.i3355, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2146
 
 2146:                                             ; preds = %2145
   %2147 = zext i16 %.sroa.0.0.copyload.i.i3332 to i64
@@ -6665,7 +6665,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3369:                ; preds = %2150
 
 2172:                                             ; preds = %.critedge155
   %.not.i.i3380 = icmp eq i16 %.sroa.0.0.copyload.i.i3357, 0
-  br i1 %.not.i.i3380, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2173
+  br i1 %.not.i.i3380, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2173
 
 2173:                                             ; preds = %2172
   %2174 = zext i16 %.sroa.0.0.copyload.i.i3357 to i64
@@ -6720,7 +6720,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3394:                ; preds = %2177
 
 2199:                                             ; preds = %.critedge157
   %.not.i.i3405 = icmp eq i16 %.sroa.0.0.copyload.i.i3382, 0
-  br i1 %.not.i.i3405, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2200
+  br i1 %.not.i.i3405, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2200
 
 2200:                                             ; preds = %2199
   %2201 = zext i16 %.sroa.0.0.copyload.i.i3382 to i64
@@ -6775,7 +6775,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3419:                ; preds = %2204
 
 2226:                                             ; preds = %.critedge159
   %.not.i.i3430 = icmp eq i16 %.sroa.0.0.copyload.i.i3407, 0
-  br i1 %.not.i.i3430, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2227
+  br i1 %.not.i.i3430, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2227
 
 2227:                                             ; preds = %2226
   %2228 = zext i16 %.sroa.0.0.copyload.i.i3407 to i64
@@ -6830,7 +6830,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3444:                ; preds = %2231
 
 2253:                                             ; preds = %.critedge161
   %.not.i.i3455 = icmp eq i16 %.sroa.0.0.copyload.i.i3432, 0
-  br i1 %.not.i.i3455, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2254
+  br i1 %.not.i.i3455, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2254
 
 2254:                                             ; preds = %2253
   %2255 = zext i16 %.sroa.0.0.copyload.i.i3432 to i64
@@ -6885,7 +6885,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3469:                ; preds = %2258
 
 2280:                                             ; preds = %.critedge163
   %.not.i.i3480 = icmp eq i16 %.sroa.0.0.copyload.i.i3457, 0
-  br i1 %.not.i.i3480, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2281
+  br i1 %.not.i.i3480, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2281
 
 2281:                                             ; preds = %2280
   %2282 = zext i16 %.sroa.0.0.copyload.i.i3457 to i64
@@ -6940,7 +6940,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3494:                ; preds = %2285
 
 2307:                                             ; preds = %.critedge165
   %.not.i.i3505 = icmp eq i16 %.sroa.0.0.copyload.i.i3482, 0
-  br i1 %.not.i.i3505, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2308
+  br i1 %.not.i.i3505, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2308
 
 2308:                                             ; preds = %2307
   %2309 = zext i16 %.sroa.0.0.copyload.i.i3482 to i64
@@ -6995,7 +6995,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3519:                ; preds = %2312
 
 2334:                                             ; preds = %.critedge167
   %.not.i.i3530 = icmp eq i16 %.sroa.0.0.copyload.i.i3507, 0
-  br i1 %.not.i.i3530, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2335
+  br i1 %.not.i.i3530, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2335
 
 2335:                                             ; preds = %2334
   %2336 = zext i16 %.sroa.0.0.copyload.i.i3507 to i64
@@ -7050,7 +7050,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3544:                ; preds = %2339
 
 2361:                                             ; preds = %.critedge169
   %.not.i.i3555 = icmp eq i16 %.sroa.0.0.copyload.i.i3532, 0
-  br i1 %.not.i.i3555, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2362
+  br i1 %.not.i.i3555, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2362
 
 2362:                                             ; preds = %2361
   %2363 = zext i16 %.sroa.0.0.copyload.i.i3532 to i64
@@ -7105,7 +7105,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3569:                ; preds = %2366
 
 2388:                                             ; preds = %.critedge171
   %.not.i.i3580 = icmp eq i16 %.sroa.0.0.copyload.i.i3557, 0
-  br i1 %.not.i.i3580, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2389
+  br i1 %.not.i.i3580, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2389
 
 2389:                                             ; preds = %2388
   %2390 = zext i16 %.sroa.0.0.copyload.i.i3557 to i64
@@ -7160,7 +7160,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3594:                ; preds = %2393
 
 2415:                                             ; preds = %.critedge173
   %.not.i.i3605 = icmp eq i16 %.sroa.0.0.copyload.i.i3582, 0
-  br i1 %.not.i.i3605, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2416
+  br i1 %.not.i.i3605, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2416
 
 2416:                                             ; preds = %2415
   %2417 = zext i16 %.sroa.0.0.copyload.i.i3582 to i64
@@ -7215,7 +7215,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3619:                ; preds = %2420
 
 2442:                                             ; preds = %.critedge175
   %.not.i.i3630 = icmp eq i16 %.sroa.0.0.copyload.i.i3607, 0
-  br i1 %.not.i.i3630, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2443
+  br i1 %.not.i.i3630, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2443
 
 2443:                                             ; preds = %2442
   %2444 = zext i16 %.sroa.0.0.copyload.i.i3607 to i64
@@ -7270,7 +7270,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3644:                ; preds = %2447
 
 2469:                                             ; preds = %.critedge177
   %.not.i.i3655 = icmp eq i16 %.sroa.0.0.copyload.i.i3632, 0
-  br i1 %.not.i.i3655, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2470
+  br i1 %.not.i.i3655, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2470
 
 2470:                                             ; preds = %2469
   %2471 = zext i16 %.sroa.0.0.copyload.i.i3632 to i64
@@ -7325,7 +7325,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3669:                ; preds = %2474
 
 2496:                                             ; preds = %.critedge179
   %.not.i.i3680 = icmp eq i16 %.sroa.0.0.copyload.i.i3657, 0
-  br i1 %.not.i.i3680, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2497
+  br i1 %.not.i.i3680, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2497
 
 2497:                                             ; preds = %2496
   %2498 = zext i16 %.sroa.0.0.copyload.i.i3657 to i64
@@ -7380,7 +7380,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3694:                ; preds = %2501
 
 2523:                                             ; preds = %.critedge181
   %.not.i.i3705 = icmp eq i16 %.sroa.0.0.copyload.i.i3682, 0
-  br i1 %.not.i.i3705, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2524
+  br i1 %.not.i.i3705, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2524
 
 2524:                                             ; preds = %2523
   %2525 = zext i16 %.sroa.0.0.copyload.i.i3682 to i64
@@ -7435,7 +7435,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3719:                ; preds = %2528
 
 2550:                                             ; preds = %.critedge183
   %.not.i.i3730 = icmp eq i16 %.sroa.0.0.copyload.i.i3707, 0
-  br i1 %.not.i.i3730, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2551
+  br i1 %.not.i.i3730, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2551
 
 2551:                                             ; preds = %2550
   %2552 = zext i16 %.sroa.0.0.copyload.i.i3707 to i64
@@ -7490,7 +7490,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3744:                ; preds = %2555
 
 2577:                                             ; preds = %.critedge185
   %.not.i.i3755 = icmp eq i16 %.sroa.0.0.copyload.i.i3732, 0
-  br i1 %.not.i.i3755, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %2578
+  br i1 %.not.i.i3755, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %2578
 
 2578:                                             ; preds = %2577
   %2579 = zext i16 %.sroa.0.0.copyload.i.i3732 to i64
@@ -7532,7 +7532,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3769:                ; preds = %2582
   %2590 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %2591 = load i32, ptr %2590, align 8
   %.not.i37785036 = icmp ult i32 %2591, 491
-  br i1 %.not.i37785036, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i37785036, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge187.thread:                              ; preds = %2584
   %2592 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -7541,7 +7541,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3769:                ; preds = %2582
   br i1 %.not.i37785034, label %.thread, label %.sink.split
 
 2594:                                             ; preds = %.critedge187
-  br i1 %.not.i3767, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread
+  br i1 %.not.i3767, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread
 
 .thread:                                          ; preds = %.critedge187.thread, %2594
   %.in5113 = phi i32 [ %2589, %2594 ], [ %2593, %.critedge187.thread ]
@@ -7588,7 +7588,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3794:                ; preds = %2600
   %2608 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %2609 = load i32, ptr %2608, align 8
   %.not.i38035041 = icmp ult i32 %2609, 491
-  br i1 %.not.i38035041, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i38035041, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge189.thread:                              ; preds = %2602
   %2610 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -7597,7 +7597,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3794:                ; preds = %2600
   br i1 %.not.i38035038, label %.thread5039, label %.sink.split
 
 2612:                                             ; preds = %.critedge189
-  br i1 %.not.i3792, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread5039
+  br i1 %.not.i3792, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread5039
 
 .thread5039:                                      ; preds = %.critedge189.thread, %2612
   %.in5111 = phi i32 [ %2607, %2612 ], [ %2611, %.critedge189.thread ]
@@ -7644,7 +7644,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3819:                ; preds = %2618
   %2626 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %2627 = load i32, ptr %2626, align 8
   %.not.i38285046 = icmp ult i32 %2627, 491
-  br i1 %.not.i38285046, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i38285046, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge191.thread:                              ; preds = %2620
   %2628 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -7653,7 +7653,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3819:                ; preds = %2618
   br i1 %.not.i38285043, label %.thread5044, label %.sink.split
 
 2630:                                             ; preds = %.critedge191
-  br i1 %.not.i3817, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread5044
+  br i1 %.not.i3817, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread5044
 
 .thread5044:                                      ; preds = %.critedge191.thread, %2630
   %.in5109 = phi i32 [ %2625, %2630 ], [ %2629, %.critedge191.thread ]
@@ -7700,7 +7700,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3844:                ; preds = %2636
   %2644 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %2645 = load i32, ptr %2644, align 8
   %.not.i38535051 = icmp ult i32 %2645, 491
-  br i1 %.not.i38535051, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i38535051, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge193.thread:                              ; preds = %2638
   %2646 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -7709,7 +7709,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3844:                ; preds = %2636
   br i1 %.not.i38535048, label %.thread5049, label %.sink.split
 
 2648:                                             ; preds = %.critedge193
-  br i1 %.not.i3842, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread5049
+  br i1 %.not.i3842, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread5049
 
 .thread5049:                                      ; preds = %.critedge193.thread, %2648
   %.in5107 = phi i32 [ %2643, %2648 ], [ %2647, %.critedge193.thread ]
@@ -7756,7 +7756,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3869:                ; preds = %2654
   %2662 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %2663 = load i32, ptr %2662, align 8
   %.not.i38785056 = icmp ult i32 %2663, 491
-  br i1 %.not.i38785056, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.sink.split
+  br i1 %.not.i38785056, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.sink.split
 
 .critedge195.thread:                              ; preds = %2656
   %2664 = getelementptr inbounds nuw i8, ptr %208, i64 24
@@ -7765,7 +7765,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3869:                ; preds = %2654
   br i1 %.not.i38785053, label %.thread5054, label %.sink.split
 
 2666:                                             ; preds = %.critedge195
-  br i1 %.not.i3867, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, label %.thread5054
+  br i1 %.not.i3867, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, label %.thread5054
 
 .thread5054:                                      ; preds = %.critedge195.thread, %2666
   %.in5105 = phi i32 [ %2661, %2666 ], [ %2665, %.critedge195.thread ]
@@ -7781,7 +7781,7 @@ _ZNK4llvm3EVT8isVectorEv.exit3869:                ; preds = %2654
 _ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.thread4808: ; preds = %420, %_ZNK4llvm3EVT8isVectorEv.exit1356, %_ZNK4llvm3EVT8isVectorEv.exit, %417, %668, %686, %704, %722, %740, %758, %776, %794, %812, %830, %848, %866, %884, %902, %920, %938, %956, %974, %992, %1010, %1028, %1046, %1064, %1082, %1100, %1127, %1153, %1170, %1188, %1206, %1224, %1242, %1260, %1278, %1296, %1314, %1332, %1350, %1368, %1386, %1404, %1422, %1440, %1458, %1476, %1494, %1512, %1530, %1548, %1566, %1584, %1602, %1620, %1638, %1656, %1683, %1709, %1726, %1744, %1762, %1780, %1798, %1816, %1834, %1852, %1870, %1888, %1906, %1952, %1976, %2003, %2030, %2057, %2074, %2092, %2110, %2138, %2165, %2192, %2219, %2246, %2273, %2300, %2327, %2354, %2381, %2408, %2435, %2462, %2489, %2516, %2543, %2570, %2587, %2605, %2623, %2641, %2659, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390.thread, %576
   %2672 = getelementptr inbounds i8, ptr %137, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull %2672, i64 noundef 8) #17
-  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
+  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread
 
 _ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit: ; preds = %.thread5054, %.thread5049, %.thread5044, %.thread5039, %.thread, %2578, %2551, %2524, %2497, %2470, %2443, %2416, %2389, %2362, %2335, %2308, %2281, %2254, %2227, %2200, %2173, %2146, %.thread4776, %.thread4770, %.thread4764, %2065, %2038, %2011, %1984, %1958, %.thread4753, %.thread4747, %.thread4741, %.thread4735, %.thread4729, %.thread4723, %.thread4717, %.thread4711, %.thread4705, %.thread4699, %.thread4693, %1717, %1691, %.thread4685, %.thread4679, %.thread4673, %.thread4667, %.thread4661, %.thread4655, %.thread4649, %.thread4643, %.thread4637, %.thread4631, %.thread4625, %.thread4619, %.thread4613, %.thread4607, %.thread4601, %.thread4595, %.thread4589, %.thread4583, %.thread4577, %.thread4571, %.thread4565, %.thread4559, %.thread4553, %.thread4547, %.thread4541, %.thread4535, %.thread4529, %.thread4523, %1161, %1135, %.thread4515, %.thread4509, %.thread4503, %.thread4497, %.thread4491, %.thread4485, %.thread4479, %.thread4473, %.thread4467, %.thread4461, %.thread4455, %.thread4449, %.thread4443, %.thread4437, %.thread4431, %.thread4425, %.thread4419, %.thread4413, %.thread4407, %.thread4401, %.thread4395, %.thread4389, %.thread4383, %.thread4377, %.thread4371, %659, %620, %598, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i, %549, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit, %425, %392, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1379, %624, %1919
   %.1 = phi i8 [ %1946, %1919 ], [ %651, %624 ], [ %.0, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1379 ], [ %403, %392 ], [ %432, %425 ], [ %.fr, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit ], [ %552, %549 ], [ %575, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i ], [ %601, %598 ], [ %623, %620 ], [ %662, %659 ], [ %680, %.thread4371 ], [ %698, %.thread4377 ], [ %716, %.thread4383 ], [ %734, %.thread4389 ], [ %752, %.thread4395 ], [ %770, %.thread4401 ], [ %788, %.thread4407 ], [ %806, %.thread4413 ], [ %824, %.thread4419 ], [ %842, %.thread4425 ], [ %860, %.thread4431 ], [ %878, %.thread4437 ], [ %896, %.thread4443 ], [ %914, %.thread4449 ], [ %932, %.thread4455 ], [ %950, %.thread4461 ], [ %968, %.thread4467 ], [ %986, %.thread4473 ], [ %1004, %.thread4479 ], [ %1022, %.thread4485 ], [ %1040, %.thread4491 ], [ %1058, %.thread4497 ], [ %1076, %.thread4503 ], [ %1094, %.thread4509 ], [ %1112, %.thread4515 ], [ %1138, %1135 ], [ %1164, %1161 ], [ %1182, %.thread4523 ], [ %1200, %.thread4529 ], [ %1218, %.thread4535 ], [ %1236, %.thread4541 ], [ %1254, %.thread4547 ], [ %1272, %.thread4553 ], [ %1290, %.thread4559 ], [ %1308, %.thread4565 ], [ %1326, %.thread4571 ], [ %1344, %.thread4577 ], [ %1362, %.thread4583 ], [ %1380, %.thread4589 ], [ %1398, %.thread4595 ], [ %1416, %.thread4601 ], [ %1434, %.thread4607 ], [ %1452, %.thread4613 ], [ %1470, %.thread4619 ], [ %1488, %.thread4625 ], [ %1506, %.thread4631 ], [ %1524, %.thread4637 ], [ %1542, %.thread4643 ], [ %1560, %.thread4649 ], [ %1578, %.thread4655 ], [ %1596, %.thread4661 ], [ %1614, %.thread4667 ], [ %1632, %.thread4673 ], [ %1650, %.thread4679 ], [ %1668, %.thread4685 ], [ %1694, %1691 ], [ %1720, %1717 ], [ %1738, %.thread4693 ], [ %1756, %.thread4699 ], [ %1774, %.thread4705 ], [ %1792, %.thread4711 ], [ %1810, %.thread4717 ], [ %1828, %.thread4723 ], [ %1846, %.thread4729 ], [ %1864, %.thread4735 ], [ %1882, %.thread4741 ], [ %1900, %.thread4747 ], [ %1918, %.thread4753 ], [ %1961, %1958 ], [ %1987, %1984 ], [ %2014, %2011 ], [ %2041, %2038 ], [ %2068, %2065 ], [ %2086, %.thread4764 ], [ %2104, %.thread4770 ], [ %2122, %.thread4776 ], [ %2149, %2146 ], [ %2176, %2173 ], [ %2203, %2200 ], [ %2230, %2227 ], [ %2257, %2254 ], [ %2284, %2281 ], [ %2311, %2308 ], [ %2338, %2335 ], [ %2365, %2362 ], [ %2392, %2389 ], [ %2419, %2416 ], [ %2446, %2443 ], [ %2473, %2470 ], [ %2500, %2497 ], [ %2527, %2524 ], [ %2554, %2551 ], [ %2581, %2578 ], [ %2599, %.thread ], [ %2617, %.thread5039 ], [ %2635, %.thread5044 ], [ %2653, %.thread5049 ], [ %2671, %.thread5054 ]
@@ -7789,9 +7789,9 @@ _ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit: ; preds = %.t
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull %2673, i64 noundef 8) #17
   switch i8 %.1, label %2674 [
     i8 1, label %2675
-    i8 0, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
+    i8 0, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread
     i8 4, label %2677
-    i8 2, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+    i8 2, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   ]
 
 2674:                                             ; preds = %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit
@@ -7799,7 +7799,7 @@ _ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit: ; preds = %.t
 
 2675:                                             ; preds = %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer7PromoteEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
-  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
+  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread
 
 .sink.split:                                      ; preds = %thread-pre-split, %487, %.critedge195, %.critedge193, %.critedge191, %.critedge189, %.critedge187, %.critedge185, %.critedge183, %.critedge181, %.critedge179, %.critedge177, %.critedge175, %.critedge173, %.critedge171, %.critedge169, %.critedge167, %.critedge165, %.critedge163, %.critedge161, %.critedge159, %.critedge157, %.critedge155, %.critedge153, %.critedge151.thread4777, %.critedge151.thread, %.critedge151, %.critedge149.thread4771, %.critedge149.thread, %.critedge149, %.critedge147.thread4765, %.critedge147.thread, %.critedge147, %.critedge145, %.critedge143, %.critedge141, %.critedge139, %.critedge137, %.critedge135.thread4754, %.critedge135.thread, %.critedge135, %.critedge133.thread4748, %.critedge133.thread, %.critedge133, %.critedge131.thread4742, %.critedge131.thread, %.critedge131, %.critedge129.thread4736, %.critedge129.thread, %.critedge129, %.critedge127.thread4730, %.critedge127.thread, %.critedge127, %.critedge125.thread4724, %.critedge125.thread, %.critedge125, %.critedge123.thread4718, %.critedge123.thread, %.critedge123, %.critedge121.thread4712, %.critedge121.thread, %.critedge121, %.critedge119.thread4706, %.critedge119.thread, %.critedge119, %.critedge117.thread4700, %.critedge117.thread, %.critedge117, %.critedge115.thread4694, %.critedge115.thread, %.critedge115, %.critedge113, %.critedge111, %.critedge109.thread4686, %.critedge109.thread, %.critedge109, %.critedge107.thread4680, %.critedge107.thread, %.critedge107, %.critedge105.thread4674, %.critedge105.thread, %.critedge105, %.critedge103.thread4668, %.critedge103.thread, %.critedge103, %.critedge101.thread4662, %.critedge101.thread, %.critedge101, %.critedge99.thread4656, %.critedge99.thread, %.critedge99, %.critedge97.thread4650, %.critedge97.thread, %.critedge97, %.critedge95.thread4644, %.critedge95.thread, %.critedge95, %.critedge93.thread4638, %.critedge93.thread, %.critedge93, %.critedge91.thread4632, %.critedge91.thread, %.critedge91, %.critedge89.thread4626, %.critedge89.thread, %.critedge89, %.critedge87.thread4620, %.critedge87.thread, %.critedge87, %.critedge85.thread4614, %.critedge85.thread, %.critedge85, %.critedge83.thread4608, %.critedge83.thread, %.critedge83, %.critedge81.thread4602, %.critedge81.thread, %.critedge81, %.critedge79.thread4596, %.critedge79.thread, %.critedge79, %.critedge77.thread4590, %.critedge77.thread, %.critedge77, %.critedge75.thread4584, %.critedge75.thread, %.critedge75, %.critedge73.thread4578, %.critedge73.thread, %.critedge73, %.critedge71.thread4572, %.critedge71.thread, %.critedge71, %.critedge69.thread4566, %.critedge69.thread, %.critedge69, %.critedge67.thread4560, %.critedge67.thread, %.critedge67, %.critedge65.thread4554, %.critedge65.thread, %.critedge65, %.critedge63.thread4548, %.critedge63.thread, %.critedge63, %.critedge61.thread4542, %.critedge61.thread, %.critedge61, %.critedge59.thread4536, %.critedge59.thread, %.critedge59, %.critedge57.thread4530, %.critedge57.thread, %.critedge57, %.critedge55.thread4524, %.critedge55.thread, %.critedge55, %.critedge53, %.critedge51, %.critedge49.thread4516, %.critedge49.thread, %.critedge49, %.critedge47.thread4510, %.critedge47.thread, %.critedge47, %.critedge45.thread4504, %.critedge45.thread, %.critedge45, %.critedge43.thread4498, %.critedge43.thread, %.critedge43, %.critedge41.thread4492, %.critedge41.thread, %.critedge41, %.critedge39.thread4486, %.critedge39.thread, %.critedge39, %.critedge37.thread4480, %.critedge37.thread, %.critedge37, %.critedge35.thread4474, %.critedge35.thread, %.critedge35, %.critedge33.thread4468, %.critedge33.thread, %.critedge33, %.critedge31.thread4462, %.critedge31.thread, %.critedge31, %.critedge29.thread4456, %.critedge29.thread, %.critedge29, %.critedge27.thread4450, %.critedge27.thread, %.critedge27, %.critedge25.thread4444, %.critedge25.thread, %.critedge25, %.critedge23.thread4438, %.critedge23.thread, %.critedge23, %.critedge21.thread4432, %.critedge21.thread, %.critedge21, %.critedge19.thread4426, %.critedge19.thread, %.critedge19, %.critedge17.thread4420, %.critedge17.thread, %.critedge17, %.critedge15.thread4414, %.critedge15.thread, %.critedge15, %.critedge13.thread4408, %.critedge13.thread, %.critedge13, %.critedge11.thread4402, %.critedge11.thread, %.critedge11, %.critedge9.thread4396, %.critedge9.thread, %.critedge9, %.critedge7.thread4390, %.critedge7.thread, %.critedge7, %.critedge5.thread4384, %.critedge5.thread, %.critedge5, %.critedge3.thread4378, %.critedge3.thread, %.critedge3, %.critedge.thread4372, %.critedge.thread, %.critedge, %653, %602, %581, %553, %541, %.critedge187.thread, %.critedge187.thread5035, %.critedge189.thread, %.critedge189.thread5040, %.critedge191.thread, %.critedge191.thread5045, %.critedge193.thread, %.critedge193.thread5050, %.critedge195.thread, %.critedge195.thread5055, %433
   %2676 = getelementptr inbounds i8, ptr %137, i64 16
@@ -7818,20 +7818,20 @@ _ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit: ; preds = %.t
   %.fca.0.extract8.i = extractvalue { ptr, i32 } %2683, 0
   %.fca.1.extract9.i = extractvalue { ptr, i32 } %2683, 1
   %.not.i3882.not = icmp eq ptr %.fca.0.extract8.i, null
-  br i1 %.not.i3882.not, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, label %2684
+  br i1 %.not.i3882.not, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, label %2684
 
 2684:                                             ; preds = %2677
   %2685 = icmp eq ptr %.fca.0.extract8.i, %208
   %2686 = icmp eq i32 %.fca.1.extract9.i, 0
   %2687 = select i1 %2685, i1 %2686, i1 false
-  br i1 %2687, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread, label %2688
+  br i1 %2687, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread, label %2688
 
 2688:                                             ; preds = %2684
   %2689 = load i16, ptr %211, align 2
   %2690 = zext i16 %2689 to i32
   switch i16 %2689, label %.lr.ph.i3884 [
     i16 1, label %2691
-    i16 0, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
+    i16 0, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread
   ]
 
 2691:                                             ; preds = %2688
@@ -7855,7 +7855,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i: ; pred
   %2699 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %137) #17
   %2700 = add i64 %2699, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %137, i64 noundef %2700) #17
-  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
+  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread
 
 .lr.ph.i3884:                                     ; preds = %2688, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit23.i
   %.0198.i = phi i32 [ %2710, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit23.i ], [ 0, %2688 ]
@@ -7881,15 +7881,15 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit23.i: ; pr
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %137, i64 noundef %2709) #17
   %2710 = add nuw nsw i32 %.0198.i, 1
   %.not20.i = icmp eq i32 %2710, %2690
-  br i1 %.not20.i, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread, label %.lr.ph.i3884, !llvm.loop !15
+  br i1 %.not20.i, label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread, label %.lr.ph.i3884, !llvm.loop !15
 
-_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split: ; preds = %.critedge151.thread4777, %.critedge149.thread4771, %.critedge147.thread4765, %.critedge135.thread4754, %.critedge133.thread4748, %.critedge131.thread4742, %.critedge129.thread4736, %.critedge127.thread4730, %.critedge125.thread4724, %.critedge123.thread4718, %.critedge121.thread4712, %.critedge119.thread4706, %.critedge117.thread4700, %.critedge115.thread4694, %.critedge109.thread4686, %.critedge107.thread4680, %.critedge105.thread4674, %.critedge103.thread4668, %.critedge101.thread4662, %.critedge99.thread4656, %.critedge97.thread4650, %.critedge95.thread4644, %.critedge93.thread4638, %.critedge91.thread4632, %.critedge89.thread4626, %.critedge87.thread4620, %.critedge85.thread4614, %.critedge83.thread4608, %.critedge81.thread4602, %.critedge79.thread4596, %.critedge77.thread4590, %.critedge75.thread4584, %.critedge73.thread4578, %.critedge71.thread4572, %.critedge69.thread4566, %.critedge67.thread4560, %.critedge65.thread4554, %.critedge63.thread4548, %.critedge61.thread4542, %.critedge59.thread4536, %.critedge57.thread4530, %.critedge55.thread4524, %.critedge49.thread4516, %.critedge47.thread4510, %.critedge45.thread4504, %.critedge43.thread4498, %.critedge41.thread4492, %.critedge39.thread4486, %.critedge37.thread4480, %.critedge35.thread4474, %.critedge33.thread4468, %.critedge31.thread4462, %.critedge29.thread4456, %.critedge27.thread4450, %.critedge25.thread4444, %.critedge23.thread4438, %.critedge21.thread4432, %.critedge19.thread4426, %.critedge17.thread4420, %.critedge15.thread4414, %.critedge13.thread4408, %.critedge11.thread4402, %.critedge9.thread4396, %.critedge7.thread4390, %.critedge5.thread4384, %.critedge3.thread4378, %.critedge.thread4372, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit, %2666, %2648, %2630, %2612, %2594, %2577, %2550, %2523, %2496, %2469, %2442, %2415, %2388, %2361, %2334, %2307, %2280, %2253, %2226, %2199, %2172, %2145, %2117, %2099, %2081, %2064, %2037, %2010, %1983, %1957, %1913, %1895, %1877, %1859, %1841, %1823, %1805, %1787, %1769, %1751, %1733, %1716, %1690, %1663, %1645, %1627, %1609, %1591, %1573, %1555, %1537, %1519, %1501, %1483, %1465, %1447, %1429, %1411, %1393, %1375, %1357, %1339, %1321, %1303, %1285, %1267, %1249, %1231, %1213, %1195, %1177, %1160, %1134, %1107, %1089, %1071, %1053, %1035, %1017, %999, %981, %963, %945, %927, %909, %891, %873, %855, %837, %819, %801, %783, %765, %747, %729, %711, %693, %675, %658, %619, %597, %572, %576, %548, %424, %391, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390.thread, %514, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1379.thread, %.critedge187.thread5035, %.critedge189.thread5040, %.critedge191.thread5045, %.critedge193.thread5050, %.critedge195.thread5055, %440
+_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split: ; preds = %.critedge151.thread4777, %.critedge149.thread4771, %.critedge147.thread4765, %.critedge135.thread4754, %.critedge133.thread4748, %.critedge131.thread4742, %.critedge129.thread4736, %.critedge127.thread4730, %.critedge125.thread4724, %.critedge123.thread4718, %.critedge121.thread4712, %.critedge119.thread4706, %.critedge117.thread4700, %.critedge115.thread4694, %.critedge109.thread4686, %.critedge107.thread4680, %.critedge105.thread4674, %.critedge103.thread4668, %.critedge101.thread4662, %.critedge99.thread4656, %.critedge97.thread4650, %.critedge95.thread4644, %.critedge93.thread4638, %.critedge91.thread4632, %.critedge89.thread4626, %.critedge87.thread4620, %.critedge85.thread4614, %.critedge83.thread4608, %.critedge81.thread4602, %.critedge79.thread4596, %.critedge77.thread4590, %.critedge75.thread4584, %.critedge73.thread4578, %.critedge71.thread4572, %.critedge69.thread4566, %.critedge67.thread4560, %.critedge65.thread4554, %.critedge63.thread4548, %.critedge61.thread4542, %.critedge59.thread4536, %.critedge57.thread4530, %.critedge55.thread4524, %.critedge49.thread4516, %.critedge47.thread4510, %.critedge45.thread4504, %.critedge43.thread4498, %.critedge41.thread4492, %.critedge39.thread4486, %.critedge37.thread4480, %.critedge35.thread4474, %.critedge33.thread4468, %.critedge31.thread4462, %.critedge29.thread4456, %.critedge27.thread4450, %.critedge25.thread4444, %.critedge23.thread4438, %.critedge21.thread4432, %.critedge19.thread4426, %.critedge17.thread4420, %.critedge15.thread4414, %.critedge13.thread4408, %.critedge11.thread4402, %.critedge9.thread4396, %.critedge7.thread4390, %.critedge5.thread4384, %.critedge3.thread4378, %.critedge.thread4372, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit, %2666, %2648, %2630, %2612, %2594, %2577, %2550, %2523, %2496, %2469, %2442, %2415, %2388, %2361, %2334, %2307, %2280, %2253, %2226, %2199, %2172, %2145, %2117, %2099, %2081, %2064, %2037, %2010, %1983, %1957, %1913, %1895, %1877, %1859, %1841, %1823, %1805, %1787, %1769, %1751, %1733, %1716, %1690, %1663, %1645, %1627, %1609, %1591, %1573, %1555, %1537, %1519, %1501, %1483, %1465, %1447, %1429, %1411, %1393, %1375, %1357, %1339, %1321, %1303, %1285, %1267, %1249, %1231, %1213, %1195, %1177, %1160, %1134, %1107, %1089, %1071, %1053, %1035, %1017, %999, %981, %963, %945, %927, %909, %891, %873, %855, %837, %819, %801, %783, %765, %747, %729, %711, %693, %675, %658, %619, %597, %572, %576, %548, %424, %391, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390.thread, %514, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1390, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit1379.thread, %.critedge187.thread5035, %.critedge189.thread5040, %.critedge191.thread5045, %.critedge193.thread5050, %.critedge195.thread5055, %440
   %2711 = getelementptr inbounds i8, ptr %137, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull %2711, i64 noundef 8) #17
-  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
 
-_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810: ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split, %2677, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit
-  %2712 = phi ptr [ %2673, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit ], [ %2678, %2677 ], [ %2711, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810.sink.split ]
+_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810: ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split, %2677, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit
+  %2712 = phi ptr [ %2673, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit ], [ %2678, %2677 ], [ %2711, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810.sink.split ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
@@ -8046,7 +8046,7 @@ _ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15
     i32 481, label %2980
   ]
 
-2715:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2715:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %.val.i = load ptr, ptr %0, align 8
   %2716 = getelementptr inbounds i8, ptr %0, i64 8
   %.val434.i = load ptr, ptr %2716, align 8
@@ -8062,7 +8062,7 @@ _ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.sroa.0301.0.copyload.i, i32 %.sroa.2302.0.copyload.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2718:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2718:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %.val435.i = load ptr, ptr %0, align 8
   %2719 = getelementptr inbounds i8, ptr %0, i64 8
   %.val436.i = load ptr, ptr %2719, align 8
@@ -8072,7 +8072,7 @@ _ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract295.i, i32 %.fca.1.extract296.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2721:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2721:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2722 = load i16, ptr %211, align 2
   %.not549.i = icmp eq i16 %2722, 0
   br i1 %.not549.i, label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit, label %.lr.ph.i3891
@@ -8113,42 +8113,42 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i3893: ; 
   %.not.i3895 = icmp eq i64 %indvars.iv.next.i, %2724
   br i1 %.not.i3895, label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit, label %2725, !llvm.loop !16
 
-2737:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2737:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2738 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer15ExpandSEXTINREGEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract282.i = extractvalue { ptr, i32 } %2738, 0
   %.fca.1.extract283.i = extractvalue { ptr, i32 } %2738, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract282.i, i32 %.fca.1.extract283.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2739:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2739:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2740 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer29ExpandANY_EXTEND_VECTOR_INREGEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract276.i = extractvalue { ptr, i32 } %2740, 0
   %.fca.1.extract277.i = extractvalue { ptr, i32 } %2740, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract276.i, i32 %.fca.1.extract277.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2741:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2741:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2742 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer30ExpandSIGN_EXTEND_VECTOR_INREGEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract270.i = extractvalue { ptr, i32 } %2742, 0
   %.fca.1.extract271.i = extractvalue { ptr, i32 } %2742, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract270.i, i32 %.fca.1.extract271.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2743:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2743:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2744 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer30ExpandZERO_EXTEND_VECTOR_INREGEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract264.i = extractvalue { ptr, i32 } %2744, 0
   %.fca.1.extract265.i = extractvalue { ptr, i32 } %2744, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract264.i, i32 %.fca.1.extract265.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2745:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2745:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2746 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer11ExpandBSWAPEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract258.i = extractvalue { ptr, i32 } %2746, 0
   %.fca.1.extract259.i = extractvalue { ptr, i32 } %2746, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract258.i, i32 %.fca.1.extract259.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2747:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2747:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2748 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2749 = load ptr, ptr %2748, align 8
   %2750 = load ptr, ptr %0, align 8
@@ -8158,21 +8158,21 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i3893: ; 
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract252.i, i32 %.fca.1.extract253.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2752:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2752:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2753 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer13ExpandVSELECTEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract246.i = extractvalue { ptr, i32 } %2753, 0
   %.fca.1.extract247.i = extractvalue { ptr, i32 } %2753, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract246.i, i32 %.fca.1.extract247.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2754:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2754:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2755 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer15ExpandVP_SELECTEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract240.i = extractvalue { ptr, i32 } %2755, 0
   %.fca.1.extract241.i = extractvalue { ptr, i32 } %2755, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract240.i, i32 %.fca.1.extract241.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2756:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2756:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2757 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer12ExpandVP_REMEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract236.i = extractvalue { ptr, i32 } %2757, 0
   %.not547.i = icmp eq ptr %.fca.0.extract236.i, null
@@ -8183,7 +8183,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i3893: ; 
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract236.i, i32 %.fca.1.extract237.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2759:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2759:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2760 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer13ExpandVP_FNEGEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract229.i = extractvalue { ptr, i32 } %2760, 0
   %.not546.i = icmp eq ptr %.fca.0.extract229.i, null
@@ -8194,7 +8194,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i3893: ; 
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract229.i, i32 %.fca.1.extract230.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2762:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2762:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2763 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer13ExpandVP_FABSEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract222.i = extractvalue { ptr, i32 } %2763, 0
   %.not545.i = icmp eq ptr %.fca.0.extract222.i, null
@@ -8205,7 +8205,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i3893: ; 
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract222.i, i32 %.fca.1.extract223.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2765:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2765:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2766 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer18ExpandVP_FCOPYSIGNEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract215.i = extractvalue { ptr, i32 } %2766, 0
   %.not544.i = icmp eq ptr %.fca.0.extract215.i, null
@@ -8216,14 +8216,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i3893: ; 
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract215.i, i32 %.fca.1.extract216.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2768:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2768:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2769 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer12ExpandSELECTEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract206.i = extractvalue { ptr, i32 } %2769, 0
   %.fca.1.extract207.i = extractvalue { ptr, i32 } %2769, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract206.i, i32 %.fca.1.extract207.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2770:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2770:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2771 = load ptr, ptr %209, align 8
   %.sroa.0.0.copyload.i.i3887 = load i16, ptr %2771, align 8
   %.sroa.21.0..sroa_idx.i.i3888 = getelementptr inbounds i8, ptr %2771, i64 8
@@ -8328,15 +8328,15 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(8) %2819) #17
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2821:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2821:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer16ExpandFP_TO_UINTEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2822:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2822:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer19ExpandUINT_TO_FLOATEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2823:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2823:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2824 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer10ExpandFNEGEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract177.i = extractvalue { ptr, i32 } %2824, 0
   %.not543.i = icmp eq ptr %.fca.0.extract177.i, null
@@ -8347,18 +8347,18 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract177.i, i32 %.fca.1.extract178.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2826:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2826:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %.val437.i = load ptr, ptr %0, align 8
   %2827 = getelementptr inbounds i8, ptr %0, i64 8
   %.val438.i = load ptr, ptr %2827, align 8
-  call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer10ExpandFSUBEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr %.val437.i, ptr %.val438.i, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
+  call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer10ExpandFSUBEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom(ptr %.val437.i, ptr %.val438.i, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2828:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2828:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer11ExpandSETCCEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2829:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2829:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2830 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2831 = load ptr, ptr %2830, align 8
   %2832 = load ptr, ptr %0, align 8
@@ -8372,7 +8372,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract170.i, i32 %.fca.1.extract171.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2835:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2835:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2836 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2837 = load ptr, ptr %2836, align 8
   %2838 = load ptr, ptr %0, align 8
@@ -8386,7 +8386,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract163.i, i32 %.fca.1.extract164.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2841:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2841:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2842 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2843 = load ptr, ptr %2842, align 8
   %2844 = load ptr, ptr %0, align 8
@@ -8400,11 +8400,11 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract156.i, i32 %.fca.1.extract157.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2847:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2847:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer16ExpandBITREVERSEEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2848:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2848:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2849 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2850 = load ptr, ptr %2849, align 8
   %2851 = load ptr, ptr %0, align 8
@@ -8418,7 +8418,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract149.i, i32 %.fca.1.extract150.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2854:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2854:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2855 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2856 = load ptr, ptr %2855, align 8
   %2857 = load ptr, ptr %0, align 8
@@ -8432,7 +8432,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract142.i, i32 %.fca.1.extract143.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2860:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2860:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2861 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2862 = load ptr, ptr %2861, align 8
   %2863 = load ptr, ptr %0, align 8
@@ -8446,7 +8446,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract135.i, i32 %.fca.1.extract136.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2866:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2866:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2867 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2868 = load ptr, ptr %2867, align 8
   %2869 = load ptr, ptr %0, align 8
@@ -8460,7 +8460,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract128.i, i32 %.fca.1.extract129.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2872:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2872:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2873 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2874 = load ptr, ptr %2873, align 8
   %2875 = load ptr, ptr %0, align 8
@@ -8474,7 +8474,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract121.i, i32 %.fca.1.extract122.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2878:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2878:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2879 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2880 = load ptr, ptr %2879, align 8
   %2881 = load ptr, ptr %0, align 8
@@ -8488,7 +8488,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract114.i, i32 %.fca.1.extract115.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2884:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2884:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2885 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2886 = load ptr, ptr %2885, align 8
   %2887 = load ptr, ptr %0, align 8
@@ -8502,7 +8502,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract107.i, i32 %.fca.1.extract108.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2890:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2890:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2891 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2892 = load ptr, ptr %2891, align 8
   %2893 = load ptr, ptr %0, align 8
@@ -8516,7 +8516,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract100.i, i32 %.fca.1.extract101.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2896:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2896:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2897 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2898 = load ptr, ptr %2897, align 8
   %2899 = load ptr, ptr %0, align 8
@@ -8530,7 +8530,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract93.i, i32 %.fca.1.extract94.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2902:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2902:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2903 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2904 = load ptr, ptr %2903, align 8
   %2905 = load ptr, ptr %0, align 8
@@ -8544,7 +8544,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract86.i, i32 %.fca.1.extract87.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2908:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2908:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2909 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2910 = load ptr, ptr %2909, align 8
   %2911 = load ptr, ptr %0, align 8
@@ -8554,7 +8554,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract77.i, i32 %.fca.1.extract78.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2913:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2913:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2914 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2915 = load ptr, ptr %2914, align 8
   %2916 = load ptr, ptr %0, align 8
@@ -8568,25 +8568,25 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract73.i, i32 %.fca.1.extract74.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2919:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2919:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %.val439.i = load ptr, ptr %0, align 8
   %2920 = getelementptr inbounds i8, ptr %0, i64 8
   %.val440.i = load ptr, ptr %2920, align 8
-  call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandUADDSUBOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr %.val439.i, ptr %.val440.i, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
+  call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandUADDSUBOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom(ptr %.val439.i, ptr %.val440.i, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2921:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2921:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %.val441.i = load ptr, ptr %0, align 8
   %2922 = getelementptr inbounds i8, ptr %0, i64 8
   %.val442.i = load ptr, ptr %2922, align 8
-  call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandSADDSUBOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr %.val441.i, ptr %.val442.i, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
+  call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandSADDSUBOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom(ptr %.val441.i, ptr %.val442.i, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2923:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2923:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer10ExpandMULOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2924:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2924:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2925 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2926 = load ptr, ptr %2925, align 8
   %2927 = load ptr, ptr %0, align 8
@@ -8600,7 +8600,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract66.i, i32 %.fca.1.extract67.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2930:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2930:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2931 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2932 = load ptr, ptr %2931, align 8
   %2933 = load ptr, ptr %0, align 8
@@ -8614,7 +8614,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit450.i:         ; preds = %2810, %_ZN4llvm5SDL
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract59.i, i32 %.fca.1.extract60.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2936:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2936:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2937 = load ptr, ptr %209, align 8
   %.sroa.0.0.copyload.i458.i = load i16, ptr %2937, align 8
   %.sroa.21.0..sroa_idx.i459.i = getelementptr inbounds i8, ptr %2937, i64 8
@@ -8648,7 +8648,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit465.i:      ; preds = %2936
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract52.i, i32 %.fca.1.extract53.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2948:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2948:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2949 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2950 = load ptr, ptr %2949, align 8
   %2951 = load ptr, ptr %0, align 8
@@ -8662,11 +8662,11 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit465.i:      ; preds = %2936
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr nonnull %.fca.0.extract45.i, i32 %.fca.1.extract46.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2954:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2954:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer19ExpandFixedPointDivEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2955:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2955:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   switch i32 %2714, label %2959 [
     i32 143, label %2956
     i32 141, label %2957
@@ -8690,7 +8690,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit465.i:      ; preds = %2936
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer16UnrollStrictFPOpEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2960:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2960:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2961 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2962 = load ptr, ptr %2961, align 8
   %2963 = load ptr, ptr %0, align 8
@@ -8719,7 +8719,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit468.i: ; p
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %137, i64 noundef %2973) #17
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2974:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2974:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2975 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2976 = load ptr, ptr %2975, align 8
   %2977 = load ptr, ptr %0, align 8
@@ -8729,22 +8729,22 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit468.i: ; p
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract30.i, i32 %.fca.1.extract31.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2979:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2979:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   call fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer9ExpandREMEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2980:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2980:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2981 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandVP_MERGEEPN4llvm6SDNodeE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208)
   %.fca.0.extract24.i = extractvalue { ptr, i32 } %2981, 0
   %.fca.1.extract25.i = extractvalue { ptr, i32 } %2981, 1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract24.i, i32 %.fca.1.extract25.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2982:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
-  %2983 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115VectorLegalizer20tryExpandVecMathCallEPN4llvm6SDNodeENS1_5RTLIB7LibcallES5_S5_S5_S5_RNS1_15SmallVectorImplINS1_7SDValueEEE(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
+2982:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
+  %2983 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115VectorLegalizer20tryExpandVecMathCallEPN4llvm6SDNodeENS1_5RTLIB7LibcallES5_S5_S5_S5_RNS1_15SmallVectorImplINS1_7SDValueEEE.argelim(ptr noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr noundef nonnull %208, ptr noundef nonnull align 8 dereferenceable(16) %137)
   br i1 %2983, label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit, label %2994
 
-2984:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2984:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2985 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2986 = load ptr, ptr %2985, align 8
   %2987 = load ptr, ptr %0, align 8
@@ -8754,7 +8754,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit468.i: ; p
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract18.i, i32 %.fca.1.extract19.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2989:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2989:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2990 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2991 = load ptr, ptr %2990, align 8
   %2992 = load ptr, ptr %0, align 8
@@ -8764,7 +8764,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit468.i: ; p
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr %.fca.0.extract12.i, i32 %.fca.1.extract13.i)
   br label %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
-2994:                                             ; preds = %2982, %2948, %2942, %_ZNK4llvm3EVT16isScalableVectorEv.exit465.i, %2939, %2930, %2924, %2913, %2902, %2896, %2890, %2884, %2878, %2872, %2866, %2860, %2854, %2848, %2841, %2835, %2829, %2823, %_ZNK4llvm3EVT16isScalableVectorEv.exit.i, %2773, %2765, %2762, %2759, %2756, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread4810
+2994:                                             ; preds = %2982, %2948, %2942, %_ZNK4llvm3EVT16isScalableVectorEv.exit465.i, %2939, %2930, %2924, %2913, %2902, %2896, %2890, %2884, %2878, %2872, %2866, %2860, %2854, %2848, %2841, %2835, %2829, %2823, %_ZNK4llvm3EVT16isScalableVectorEv.exit.i, %2773, %2765, %2762, %2759, %2756, %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread4810
   %2995 = load ptr, ptr %0, align 8
   %2996 = call { ptr, i32 } @_ZN4llvm12SelectionDAG14UnrollVectorOpEPNS_6SDNodeEj(ptr noundef nonnull align 8 dereferenceable(904) %2995, ptr noundef nonnull %208, i32 noundef 0) #17
   %.fca.0.extract8.i3885 = extractvalue { ptr, i32 } %2996, 0
@@ -8835,14 +8835,14 @@ _ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
+  br label %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread
 
-_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit23.i, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i, %2688, %2684, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.thread4808, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit, %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit, %2675
+_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit23.i, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i, %2688, %2684, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.thread4808, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit, %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit, %2675
   %3023 = phi ptr [ %2673, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit ], [ %2712, %_ZN12_GLOBAL__N_115VectorLegalizer6ExpandEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit ], [ %2673, %2675 ], [ %2672, %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.thread4808 ], [ %2678, %2684 ], [ %2678, %2688 ], [ %2678, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i ], [ %2678, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit23.i ]
   %3024 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %137) #17
   br i1 %3024, label %3025, label %3033
 
-3025:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
+3025:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread
   %3026 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 66
   %3027 = load i16, ptr %3026, align 2
   %3028 = zext i16 %3027 to i32
@@ -8902,7 +8902,7 @@ _ZN12_GLOBAL__N_115VectorLegalizer19AddLegalizedOperandEN4llvm7SDValueES2_.exit.
   %.not.i3906 = icmp eq i32 %3032, %3028
   br i1 %.not.i3906, label %_ZN12_GLOBAL__N_115VectorLegalizer24TranslateLegalizeResultsEN4llvm7SDValueEPNS1_6SDNodeE.exit3912, label %_ZN12_GLOBAL__N_115VectorLegalizer19AddLegalizedOperandEN4llvm7SDValueES2_.exit.i3904, !llvm.loop !14
 
-3033:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.thread
+3033:                                             ; preds = %_ZN12_GLOBAL__N_115VectorLegalizer21LowerOperationWrapperEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom.exit.thread
   %3034 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %3034, align 8
   %3035 = load ptr, ptr %137, align 8
@@ -15840,7 +15840,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %32, %_ZNK4llvm18Tar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer10ExpandFSUBEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr %.0.val, ptr nocapture readonly %.8.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer10ExpandFSUBEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom(ptr %.0.val, ptr nocapture readonly %.8.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload.i = load i16, ptr %4, align 8
@@ -17305,7 +17305,7 @@ declare { ptr, i32 } @_ZNK4llvm14TargetLowering23expandFMINIMUM_FMAXIMUMEPNS_6SD
 declare { ptr, i32 } @_ZNK4llvm14TargetLowering15expandIntMINMAXEPNS_6SDNodeERNS_12SelectionDAGE(ptr noundef nonnull align 8 dereferenceable(408123), ptr noundef, ptr noundef nonnull align 8 dereferenceable(904)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandUADDSUBOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr nonnull %.0.val, ptr nonnull %.8.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandUADDSUBOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom(ptr nonnull %.0.val, ptr nonnull %.8.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDValue", align 8
   %4 = alloca %"class.llvm::SDValue", align 8
   store ptr null, ptr %3, align 8
@@ -17365,7 +17365,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit9: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandSADDSUBOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE(ptr nonnull %.0.val, ptr nonnull %.8.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115VectorLegalizer14ExpandSADDSUBOEPN4llvm6SDNodeERNS1_15SmallVectorImplINS1_7SDValueEEE.argprom(ptr nonnull %.0.val, ptr nonnull %.8.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDValue", align 8
   %4 = alloca %"class.llvm::SDValue", align 8
   store ptr null, ptr %3, align 8
@@ -17985,7 +17985,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %136, %138
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115VectorLegalizer20tryExpandVecMathCallEPN4llvm6SDNodeENS1_5RTLIB7LibcallES5_S5_S5_S5_RNS1_15SmallVectorImplINS1_7SDValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115VectorLegalizer20tryExpandVecMathCallEPN4llvm6SDNodeENS1_5RTLIB7LibcallES5_S5_S5_S5_RNS1_15SmallVectorImplINS1_7SDValueEEE.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2080) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::EVT", align 8
   %5 = alloca %"class.llvm::ElementCount", align 8
   %6 = alloca %"class.llvm::SmallVector.208", align 8

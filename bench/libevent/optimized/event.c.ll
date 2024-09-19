@@ -1568,7 +1568,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %dec.i, ptr getelementptr inbounds (i8, ptr @global_debug_map, i64 12), align 4
   %9 = load ptr, ptr %ent.020, align 8
   %tobool.not.i4 = icmp eq ptr %9, null
-  br i1 %tobool.not.i4, label %if.else.i, label %event_debug_map_HT_NEXT_RMV.exit
+  br i1 %tobool.not.i4, label %if.else.i, label %event_debug_map_HT_NEXT_RMV.argprom.exit
 
 if.else.i:                                        ; preds = %for.body
   %10 = ptrtoint ptr %.val.i to i64
@@ -1583,30 +1583,30 @@ while.cond.i6:                                    ; preds = %while.body.i7, %if.
   %b.0.in.i = phi i32 [ %rem.i, %if.else.i ], [ %b.0.i, %while.body.i7 ]
   %b.0.i = add i32 %b.0.in.i, 1
   %cmp.i = icmp ult i32 %b.0.i, %11
-  br i1 %cmp.i, label %while.body.i7, label %event_debug_map_HT_NEXT_RMV.exit
+  br i1 %cmp.i, label %while.body.i7, label %event_debug_map_HT_NEXT_RMV.argprom.exit
 
 while.body.i7:                                    ; preds = %while.cond.i6
   %idxprom.i = zext i32 %b.0.i to i64
   %arrayidx.i8 = getelementptr inbounds ptr, ptr %12, i64 %idxprom.i
   %13 = load ptr, ptr %arrayidx.i8, align 8
   %tobool2.not.i = icmp eq ptr %13, null
-  br i1 %tobool2.not.i, label %while.cond.i6, label %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit, !llvm.loop !18
+  br i1 %tobool2.not.i, label %while.cond.i6, label %event_debug_map_HT_NEXT_RMV.argprom.exit.loopexit.split.loop.exit, !llvm.loop !18
 
-event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit: ; preds = %while.body.i7
+event_debug_map_HT_NEXT_RMV.argprom.exit.loopexit.split.loop.exit: ; preds = %while.body.i7
   %arrayidx.i8.le = getelementptr inbounds ptr, ptr %12, i64 %idxprom.i
-  br label %event_debug_map_HT_NEXT_RMV.exit
+  br label %event_debug_map_HT_NEXT_RMV.argprom.exit
 
-event_debug_map_HT_NEXT_RMV.exit:                 ; preds = %while.cond.i6, %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit, %for.body
-  %retval.0.i5 = phi ptr [ %ent.020, %for.body ], [ %arrayidx.i8.le, %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit ], [ null, %while.cond.i6 ]
+event_debug_map_HT_NEXT_RMV.argprom.exit:         ; preds = %while.cond.i6, %event_debug_map_HT_NEXT_RMV.argprom.exit.loopexit.split.loop.exit, %for.body
+  %retval.0.i5 = phi ptr [ %ent.020, %for.body ], [ %arrayidx.i8.le, %event_debug_map_HT_NEXT_RMV.argprom.exit.loopexit.split.loop.exit ], [ null, %while.cond.i6 ]
   %14 = load ptr, ptr @mm_free_fn_, align 8
   %tobool.not.i11 = icmp eq ptr %14, null
   br i1 %tobool.not.i11, label %if.else.i12, label %if.then.i
 
-if.then.i:                                        ; preds = %event_debug_map_HT_NEXT_RMV.exit
+if.then.i:                                        ; preds = %event_debug_map_HT_NEXT_RMV.argprom.exit
   tail call void %14(ptr noundef nonnull %5) #26
   br label %event_mm_free_.exit
 
-if.else.i12:                                      ; preds = %event_debug_map_HT_NEXT_RMV.exit
+if.else.i12:                                      ; preds = %event_debug_map_HT_NEXT_RMV.argprom.exit
   tail call void @free(ptr noundef %5) #26
   br label %event_mm_free_.exit
 
@@ -2811,34 +2811,34 @@ if.end94:                                         ; preds = %if.then91, %land.lh
   %timeheap.val = load ptr, ptr %timeheap, align 8
   %tobool.not.i131 = icmp eq ptr %timeheap.val, null
   %.pr.pre221 = load ptr, ptr @mm_free_fn_, align 8
-  br i1 %tobool.not.i131, label %min_heap_dtor_.exit, label %if.then.i132
+  br i1 %tobool.not.i131, label %min_heap_dtor_.argprom.exit, label %if.then.i132
 
 if.then.i132:                                     ; preds = %if.end94
   %tobool.not.i.i133 = icmp eq ptr %.pr.pre221, null
-  br i1 %tobool.not.i.i133, label %min_heap_dtor_.exit.thread, label %if.then.i.i134
+  br i1 %tobool.not.i.i133, label %min_heap_dtor_.argprom.exit.thread, label %if.then.i.i134
 
 if.then.i.i134:                                   ; preds = %if.then.i132
   tail call void %.pr.pre221(ptr noundef nonnull %timeheap.val) #26
   %.pr.pre = load ptr, ptr @mm_free_fn_, align 8
-  br label %min_heap_dtor_.exit
+  br label %min_heap_dtor_.argprom.exit
 
-min_heap_dtor_.exit.thread:                       ; preds = %if.then.i132
+min_heap_dtor_.argprom.exit.thread:               ; preds = %if.then.i132
   tail call void @free(ptr noundef nonnull %timeheap.val) #26
   %179 = load ptr, ptr %activequeues.i, align 8
   br label %if.else.i137
 
-min_heap_dtor_.exit:                              ; preds = %if.end94, %if.then.i.i134
+min_heap_dtor_.argprom.exit:                      ; preds = %if.end94, %if.then.i.i134
   %.pr = phi ptr [ %.pr.pre221, %if.end94 ], [ %.pr.pre, %if.then.i.i134 ]
   %180 = load ptr, ptr %activequeues.i, align 8
   %tobool.not.i135 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i135, label %if.else.i137, label %if.then.i136
 
-if.then.i136:                                     ; preds = %min_heap_dtor_.exit
+if.then.i136:                                     ; preds = %min_heap_dtor_.argprom.exit
   tail call void %.pr(ptr noundef %180) #26
   br label %event_mm_free_.exit138
 
-if.else.i137:                                     ; preds = %min_heap_dtor_.exit.thread, %min_heap_dtor_.exit
-  %181 = phi ptr [ %179, %min_heap_dtor_.exit.thread ], [ %180, %min_heap_dtor_.exit ]
+if.else.i137:                                     ; preds = %min_heap_dtor_.argprom.exit.thread, %min_heap_dtor_.argprom.exit
+  %181 = phi ptr [ %179, %min_heap_dtor_.argprom.exit.thread ], [ %180, %min_heap_dtor_.argprom.exit ]
   tail call void @free(ptr noundef %181) #26
   br label %event_mm_free_.exit138
 
@@ -4068,9 +4068,9 @@ gettime.exit:                                     ; preds = %if.then5.i, %if.end
   %tv.val = load i64, ptr %73, align 8
   %and.i = and i64 %tv.val, 4026531840
   %cmp.not.i116 = icmp eq i64 %and.i, 1342177280
-  br i1 %cmp.not.i116, label %is_common_timeout.exit, label %is_common_timeout.exit.thread
+  br i1 %cmp.not.i116, label %is_common_timeout.argprom.exit, label %is_common_timeout.argprom.exit.thread
 
-is_common_timeout.exit:                           ; preds = %gettime.exit
+is_common_timeout.argprom.exit:                   ; preds = %gettime.exit
   %74 = trunc i64 %tv.val to i32
   %75 = lshr i32 %74, 20
   %conv.i119 = and i32 %75, 255
@@ -4080,21 +4080,21 @@ is_common_timeout.exit:                           ; preds = %gettime.exit
   %conv4.i = zext i1 %cmp3.i to i32
   br i1 %tobool113, label %if.then154, label %if.else156
 
-is_common_timeout.exit.thread:                    ; preds = %gettime.exit
-  br i1 %tobool113, label %if.then154, label %is_common_timeout.exit.thread.do.body187_crit_edge
+is_common_timeout.argprom.exit.thread:            ; preds = %gettime.exit
+  br i1 %tobool113, label %if.then154, label %is_common_timeout.argprom.exit.thread.do.body187_crit_edge
 
-is_common_timeout.exit.thread.do.body187_crit_edge: ; preds = %is_common_timeout.exit.thread
+is_common_timeout.argprom.exit.thread.do.body187_crit_edge: ; preds = %is_common_timeout.argprom.exit.thread
   %.pre206 = load i64, ptr %now, align 8
   br label %do.body187
 
-if.then154:                                       ; preds = %is_common_timeout.exit.thread, %is_common_timeout.exit
-  %retval.0.i117186 = phi i32 [ 0, %is_common_timeout.exit.thread ], [ %conv4.i, %is_common_timeout.exit ]
+if.then154:                                       ; preds = %is_common_timeout.argprom.exit.thread, %is_common_timeout.argprom.exit
+  %retval.0.i117186 = phi i32 [ 0, %is_common_timeout.argprom.exit.thread ], [ %conv4.i, %is_common_timeout.argprom.exit ]
   %ev_timeout155 = getelementptr inbounds i8, ptr %ev, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ev_timeout155, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   %77 = icmp eq i32 %retval.0.i117186, 0
   br label %do.body213
 
-if.else156:                                       ; preds = %is_common_timeout.exit
+if.else156:                                       ; preds = %is_common_timeout.argprom.exit
   %.pre207 = load i64, ptr %now, align 8
   br i1 %cmp3.i, label %if.then158, label %do.body187
 
@@ -4127,8 +4127,8 @@ do.end181:                                        ; preds = %if.then158, %if.the
   store i64 %or, ptr %tv_usec169, align 8
   br label %do.body213
 
-do.body187:                                       ; preds = %is_common_timeout.exit.thread.do.body187_crit_edge, %if.else156
-  %81 = phi i64 [ %.pre206, %is_common_timeout.exit.thread.do.body187_crit_edge ], [ %.pre207, %if.else156 ]
+do.body187:                                       ; preds = %is_common_timeout.argprom.exit.thread.do.body187_crit_edge, %if.else156
+  %81 = phi i64 [ %.pre206, %is_common_timeout.argprom.exit.thread.do.body187_crit_edge ], [ %.pre207, %if.else156 ]
   %82 = load i64, ptr %tv, align 8
   %add190 = add nsw i64 %82, %81
   %ev_timeout191 = getelementptr inbounds i8, ptr %ev, i64 104
@@ -4186,9 +4186,9 @@ do.end223:                                        ; preds = %do.body213, %if.the
   %ev_timeout.val.i = load i64, ptr %95, align 8
   %and.i.i = and i64 %ev_timeout.val.i, 4026531840
   %cmp.not.i.i = icmp eq i64 %and.i.i, 1342177280
-  br i1 %cmp.not.i.i, label %is_common_timeout.exit.i, label %if.else.i127
+  br i1 %cmp.not.i.i, label %is_common_timeout.argprom.exit.i, label %if.else.i127
 
-is_common_timeout.exit.i:                         ; preds = %do.end223
+is_common_timeout.argprom.exit.i:                 ; preds = %do.end223
   %96 = trunc i64 %ev_timeout.val.i to i32
   %97 = lshr i32 %96, 20
   %conv.i.i = and i32 %97, 255
@@ -4197,7 +4197,7 @@ is_common_timeout.exit.i:                         ; preds = %do.end223
   %cmp3.i.not.i = icmp slt i32 %conv.i.i, %98
   br i1 %cmp3.i.not.i, label %if.then17.i, label %if.else.i127
 
-if.then17.i:                                      ; preds = %is_common_timeout.exit.i
+if.then17.i:                                      ; preds = %is_common_timeout.argprom.exit.i
   %99 = getelementptr i8, ptr %0, i64 792
   %base.val.i = load ptr, ptr %99, align 8
   %and.i16.i = lshr i64 %ev_timeout.val.i, 20
@@ -4260,7 +4260,7 @@ insert_common_timeout_inorder.exit.i:             ; preds = %for.inc.i.i, %do.bo
   store ptr %ctl.sink.i.i, ptr %tqe_prev62.i.i, align 8
   br label %event_queue_insert_timeout.exit
 
-if.else.i127:                                     ; preds = %is_common_timeout.exit.i, %do.end223
+if.else.i127:                                     ; preds = %is_common_timeout.argprom.exit.i, %do.end223
   %timeheap.i = getelementptr inbounds i8, ptr %0, i64 840
   %n.i.i = getelementptr inbounds i8, ptr %0, i64 848
   %105 = load i64, ptr %n.i.i, align 8
@@ -5197,9 +5197,9 @@ if.then4:                                         ; preds = %do.end3
   %tv.sroa.0.0.copyload = load i64, ptr %duration, align 8
   %and.i = and i64 %2, 4026531840
   %cmp.not.i = icmp eq i64 %and.i, 1342177280
-  br i1 %cmp.not.i, label %is_common_timeout.exit, label %if.end9
+  br i1 %cmp.not.i, label %is_common_timeout.argprom.exit, label %if.end9
 
-is_common_timeout.exit:                           ; preds = %if.then4
+is_common_timeout.argprom.exit:                   ; preds = %if.then4
   %3 = trunc i64 %2 to i32
   %4 = lshr i32 %3, 20
   %conv.i = and i32 %4, 255
@@ -5210,8 +5210,8 @@ is_common_timeout.exit:                           ; preds = %if.then4
   %spec.select85 = select i1 %cmp3.i.not, i64 %and, i64 %2
   br label %if.end9
 
-if.end9:                                          ; preds = %is_common_timeout.exit, %if.then4
-  %tv.sroa.5.0.tv.sroa.5.0.tv.sroa.5.0.tv.sroa.5.8.55 = phi i64 [ %2, %if.then4 ], [ %spec.select85, %is_common_timeout.exit ]
+if.end9:                                          ; preds = %is_common_timeout.argprom.exit, %if.then4
+  %tv.sroa.5.0.tv.sroa.5.0.tv.sroa.5.0.tv.sroa.5.8.55 = phi i64 [ %2, %if.then4 ], [ %spec.select85, %is_common_timeout.argprom.exit ]
   %div = udiv i64 %tv.sroa.5.0.tv.sroa.5.0.tv.sroa.5.0.tv.sroa.5.8.55, 1000000
   %add = add nsw i64 %div, %tv.sroa.0.0.copyload
   store i64 %add, ptr %tv.sroa.0, align 8
@@ -5715,16 +5715,16 @@ if.end10.i:                                       ; preds = %event_mm_malloc_.ex
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @global_debug_map, i64 16), align 8
   %cmp.not.i.i = icmp ult i32 %.pre.i.i, %26
   %or.cond.i.i = select i1 %tobool.not.i8.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.i.i, label %event_debug_map_HT_INSERT.exit.i, label %if.then.i.i
+  br i1 %or.cond.i.i, label %event_debug_map_HT_INSERT.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end10.i
   %add.i.i = add i32 %.pre.i.i, 1
   %call.i9.i = tail call i32 @event_debug_map_HT_GROW(ptr noundef nonnull @global_debug_map, i32 noundef %add.i.i)
   %.pre1.i.i = load i32, ptr getelementptr inbounds (i8, ptr @global_debug_map, i64 12), align 4
   %.pre2.i.i = load ptr, ptr @global_debug_map, align 8
-  br label %event_debug_map_HT_INSERT.exit.i
+  br label %event_debug_map_HT_INSERT.argprom.exit.i
 
-event_debug_map_HT_INSERT.exit.i:                 ; preds = %if.then.i.i, %if.end10.i
+event_debug_map_HT_INSERT.argprom.exit.i:         ; preds = %if.then.i.i, %if.end10.i
   %27 = phi ptr [ %.pre2.i.i, %if.then.i.i ], [ %25, %if.end10.i ]
   %28 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %.pre.i.i, %if.end10.i ]
   %inc.i.i = add i32 %28, 1
@@ -5742,7 +5742,7 @@ event_debug_map_HT_INSERT.exit.i:                 ; preds = %if.then.i.i, %if.en
   store ptr %retval.0.i.i, ptr %arrayidx.i.i, align 8
   br label %do.body17.i
 
-do.body17.i:                                      ; preds = %event_debug_map_HT_INSERT.exit.i, %if.then6.i
+do.body17.i:                                      ; preds = %event_debug_map_HT_INSERT.argprom.exit.i, %if.then6.i
   %32 = load ptr, ptr @event_debug_map_lock_, align 8
   %tobool18.not.i = icmp eq ptr %32, null
   br i1 %tobool18.not.i, label %event_debug_note_setup_.exit, label %if.then19.i
@@ -9249,9 +9249,9 @@ entry:
   %ev_timeout.val = load i64, ptr %6, align 8
   %and.i = and i64 %ev_timeout.val, 4026531840
   %cmp.not.i = icmp eq i64 %and.i, 1342177280
-  br i1 %cmp.not.i, label %is_common_timeout.exit, label %if.else30
+  br i1 %cmp.not.i, label %is_common_timeout.argprom.exit, label %if.else30
 
-is_common_timeout.exit:                           ; preds = %entry
+is_common_timeout.argprom.exit:                   ; preds = %entry
   %7 = trunc i64 %ev_timeout.val to i32
   %8 = lshr i32 %7, 20
   %conv.i = and i32 %8, 255
@@ -9260,7 +9260,7 @@ is_common_timeout.exit:                           ; preds = %entry
   %cmp3.i.not = icmp slt i32 %conv.i, %9
   br i1 %cmp3.i.not, label %if.then11, label %if.else30
 
-if.then11:                                        ; preds = %is_common_timeout.exit
+if.then11:                                        ; preds = %is_common_timeout.argprom.exit
   %ev_timeout_pos = getelementptr inbounds i8, ptr %ev, i64 40
   %10 = load ptr, ptr %ev_timeout_pos, align 8
   %cmp.not = icmp eq ptr %10, null
@@ -9292,7 +9292,7 @@ if.end24:                                         ; preds = %if.else, %if.then16
   store ptr %16, ptr %15, align 8
   br label %if.end32
 
-if.else30:                                        ; preds = %entry, %is_common_timeout.exit
+if.else30:                                        ; preds = %entry, %is_common_timeout.argprom.exit
   %timeheap = getelementptr inbounds i8, ptr %base, i64 840
   %ev_timeout_pos.i = getelementptr inbounds i8, ptr %ev, i64 40
   %17 = load i64, ptr %ev_timeout_pos.i, align 8
@@ -11576,13 +11576,13 @@ gettime.exit.i:                                   ; preds = %do.end32.i.i, %if.e
   %ev_timeout4.val.i = load i64, ptr %61, align 8
   %and.i.i = and i64 %ev_timeout4.val.i, 4026531840
   %cmp.not.i.i = icmp eq i64 %and.i.i, 1342177280
-  br i1 %cmp.not.i.i, label %is_common_timeout.exit.i, label %gettime.exit.if.else20_crit_edge.i
+  br i1 %cmp.not.i.i, label %is_common_timeout.argprom.exit.i, label %gettime.exit.if.else20_crit_edge.i
 
 gettime.exit.if.else20_crit_edge.i:               ; preds = %gettime.exit.i
   %delay.sroa.0.0.copyload2.pre.i = load i64, ptr %ev_timeout.i, align 8
   br label %if.else20.i
 
-is_common_timeout.exit.i:                         ; preds = %gettime.exit.i
+is_common_timeout.argprom.exit.i:                 ; preds = %gettime.exit.i
   %62 = trunc i64 %ev_timeout4.val.i to i32
   %63 = lshr i32 %62, 20
   %conv.i.i = and i32 %63, 255
@@ -11591,7 +11591,7 @@ is_common_timeout.exit.i:                         ; preds = %gettime.exit.i
   %delay.sroa.0.0.copyload2.pre36.i = load i64, ptr %ev_timeout.i, align 8
   br i1 %cmp3.i.not.i, label %if.then7.i, label %if.else20.i
 
-if.then7.i:                                       ; preds = %is_common_timeout.exit.i
+if.then7.i:                                       ; preds = %is_common_timeout.argprom.exit.i
   %delay.sroa.4.0.ev_timeout9.sroa_idx.i = getelementptr inbounds i8, ptr %ev.0, i64 96
   %delay.sroa.4.0.copyload.i = load i64, ptr %delay.sroa.4.0.ev_timeout9.sroa_idx.i, align 8
   %65 = trunc i64 %delay.sroa.4.0.copyload.i to i32
@@ -11611,8 +11611,8 @@ if.else.i105:                                     ; preds = %if.then7.i
   %relative_to.sroa.5.0.copyload10.i = load i64, ptr %tv_usec18.i.i, align 8
   br label %do.body32.i
 
-if.else20.i:                                      ; preds = %is_common_timeout.exit.i, %gettime.exit.if.else20_crit_edge.i
-  %delay.sroa.0.0.copyload2.i = phi i64 [ %delay.sroa.0.0.copyload2.pre.i, %gettime.exit.if.else20_crit_edge.i ], [ %delay.sroa.0.0.copyload2.pre36.i, %is_common_timeout.exit.i ]
+if.else20.i:                                      ; preds = %is_common_timeout.argprom.exit.i, %gettime.exit.if.else20_crit_edge.i
+  %delay.sroa.0.0.copyload2.i = phi i64 [ %delay.sroa.0.0.copyload2.pre.i, %gettime.exit.if.else20_crit_edge.i ], [ %delay.sroa.0.0.copyload2.pre36.i, %is_common_timeout.argprom.exit.i ]
   %delay.sroa.4.0.ev_timeout22.sroa_idx.i = getelementptr inbounds i8, ptr %ev.0, i64 96
   %delay.sroa.4.0.copyload3.i = load i64, ptr %delay.sroa.4.0.ev_timeout22.sroa_idx.i, align 8
   %ev_res23.i = getelementptr inbounds i8, ptr %ev.0, i64 62

@@ -3695,17 +3695,17 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZL14add_noarg_insnP14disassembler_tPKcjj.exit:   ; preds = %230, %232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef 3)
-  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef 16387)
-  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef 4099)
-  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef 20483)
-  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef 8195)
-  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef 24579)
-  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.80, i32 noundef 12291)
-  call fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.81, i32 noundef 35)
-  call fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.82, i32 noundef 4131)
-  call fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.83, i32 noundef 8227)
-  call fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.84, i32 noundef 12323)
+  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef 3)
+  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef 16387)
+  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef 4099)
+  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef 20483)
+  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef 8195)
+  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef 24579)
+  call fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.80, i32 noundef 12291)
+  call fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.81, i32 noundef 35)
+  call fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.82, i32 noundef 4131)
+  call fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.83, i32 noundef 8227)
+  call fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.84, i32 noundef 12323)
   %237 = getelementptr inbounds i8, ptr %1, i64 24
   %238 = load i64, ptr %237, align 8
   %239 = and i64 %238, 2
@@ -3720,24 +3720,24 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit:   ; preds = %230, %232
   br i1 %.not3805, label %265, label %244
 
 244:                                              ; preds = %240, %_ZL14add_noarg_insnP14disassembler_tPKcjj.exit
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.85, i32 noundef 8239)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.86, i32 noundef 134225967)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.87, i32 noundef 1610620975)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.88, i32 noundef 1073750063)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.89, i32 noundef 536879151)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.90, i32 noundef -2147475409)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.91, i32 noundef -1610604497)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.92, i32 noundef -1073733585)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.93, i32 noundef -536862673)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.94, i32 noundef 12335)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.95, i32 noundef 134230063)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.96, i32 noundef 1610625071)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.97, i32 noundef 1073754159)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.98, i32 noundef 536883247)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.99, i32 noundef -2147471313)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.100, i32 noundef -1610600401)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef -1073729489)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.102, i32 noundef -536858577)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.85, i32 noundef 8239)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.86, i32 noundef 134225967)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.87, i32 noundef 1610620975)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.88, i32 noundef 1073750063)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.89, i32 noundef 536879151)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.90, i32 noundef -2147475409)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.91, i32 noundef -1610604497)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.92, i32 noundef -1073733585)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.93, i32 noundef -536862673)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.94, i32 noundef 12335)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.95, i32 noundef 134230063)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.96, i32 noundef 1610625071)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.97, i32 noundef 1073754159)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.98, i32 noundef 536883247)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.99, i32 noundef -2147471313)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.100, i32 noundef -1610600401)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef -1073729489)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.102, i32 noundef -536858577)
   %.pre = load i64, ptr %237, align 8
   br label %265
 
@@ -3831,9 +3831,9 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1313:       ; preds = %249, %252
 
 272:                                              ; preds = %268, %265
   call fastcc void @_ZL12add_xlr_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.103, i32 noundef 268443695, i32 noundef -101683073)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.104, i32 noundef 402661423)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.104, i32 noundef 402661423)
   call fastcc void @_ZL12add_xlr_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.105, i32 noundef 268447791, i32 noundef -101683073)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.106, i32 noundef 402665519)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.106, i32 noundef 402665519)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 32
   %.pre3965 = load i64, ptr %.phi.trans.insert, align 8
   br label %273
@@ -3846,9 +3846,9 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1313:       ; preds = %249, %252
   br i1 %.not3808, label %278, label %277
 
 277:                                              ; preds = %273
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.107, i32 noundef 671096879)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.108, i32 noundef 671100975)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.109, i32 noundef 671105071)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.107, i32 noundef 671096879)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.108, i32 noundef 671100975)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.109, i32 noundef 671105071)
   %.pre3987 = load i64, ptr %275, align 8
   br label %278
 
@@ -3859,26 +3859,26 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1313:       ; preds = %249, %252
   br i1 %.not3809, label %282, label %281
 
 281:                                              ; preds = %278
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.110, i32 noundef 47)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.111, i32 noundef 134217775)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.112, i32 noundef 1610612783)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.113, i32 noundef 1073741871)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.114, i32 noundef 536870959)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.115, i32 noundef -2147483601)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.116, i32 noundef -1610612689)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.117, i32 noundef -1073741777)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.118, i32 noundef -536870865)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.119, i32 noundef 671088687)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.120, i32 noundef 4143)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.121, i32 noundef 134221871)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.122, i32 noundef 1610616879)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.123, i32 noundef 1073745967)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.124, i32 noundef 536875055)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.125, i32 noundef -2147479505)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.126, i32 noundef -1610608593)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.127, i32 noundef -1073737681)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.128, i32 noundef -536866769)
-  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.129, i32 noundef 671092783)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.110, i32 noundef 47)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.111, i32 noundef 134217775)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.112, i32 noundef 1610612783)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.113, i32 noundef 1073741871)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.114, i32 noundef 536870959)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.115, i32 noundef -2147483601)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.116, i32 noundef -1610612689)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.117, i32 noundef -1073741777)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.118, i32 noundef -536870865)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.119, i32 noundef 671088687)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.120, i32 noundef 4143)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.121, i32 noundef 134221871)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.122, i32 noundef 1610616879)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.123, i32 noundef 1073745967)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.124, i32 noundef 536875055)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.125, i32 noundef -2147479505)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.126, i32 noundef -1610608593)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.127, i32 noundef -1073737681)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.128, i32 noundef -536866769)
+  call fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.129, i32 noundef 671092783)
   br label %282
 
 282:                                              ; preds = %281, %278
@@ -3989,16 +3989,16 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1338:       ; preds = %304, %306
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1346
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1346:       ; preds = %316, %318
-  call fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.132, i32 noundef 99)
-  call fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.133, i32 noundef 4195)
-  call fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.134, i32 noundef 16483)
-  call fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.135, i32 noundef 20579)
-  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.136, i32 noundef 99)
-  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.137, i32 noundef 4195)
-  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.138, i32 noundef 16483)
-  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.139, i32 noundef 20579)
-  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.140, i32 noundef 24675)
-  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.141, i32 noundef 28771)
+  call fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.132, i32 noundef 99)
+  call fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.133, i32 noundef 4195)
+  call fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.134, i32 noundef 16483)
+  call fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.135, i32 noundef 20579)
+  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.136, i32 noundef 99)
+  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.137, i32 noundef 4195)
+  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.138, i32 noundef 16483)
+  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.139, i32 noundef 20579)
+  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.140, i32 noundef 24675)
+  call fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.141, i32 noundef 28771)
   %319 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %320 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -4162,7 +4162,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1373:       ; preds = %357, %359
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1381
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1381:       ; preds = %369, %371
-  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.146, i32 noundef 103)
+  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.146, i32 noundef 103)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %372 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
@@ -4273,8 +4273,8 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1394:       ; preds = %390, %392
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1402
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1402:       ; preds = %402, %404
-  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.150, i32 noundef 19)
-  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.151, i32 noundef 8211)
+  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.150, i32 noundef 19)
+  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.151, i32 noundef 8211)
   %405 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   %406 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -4312,7 +4312,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1402:       ; preds = %402, %404
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1410
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1410:       ; preds = %414, %416
-  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.153, i32 noundef 12307)
+  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.153, i32 noundef 12307)
   %417 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %418 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -4350,12 +4350,12 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1410:       ; preds = %414, %416
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1418
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1418:       ; preds = %426, %428
-  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.155, i32 noundef 16403)
+  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.155, i32 noundef 16403)
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.156, i32 noundef 4115, i32 noundef -67080065)
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.157, i32 noundef 20499, i32 noundef -67080065)
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.158, i32 noundef 1073762323, i32 noundef -67080065)
-  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.159, i32 noundef 24595)
-  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.160, i32 noundef 28691)
+  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.159, i32 noundef 24595)
+  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.160, i32 noundef 28691)
   %429 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %430 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -4393,7 +4393,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1418:       ; preds = %426, %428
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1426
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1426:       ; preds = %438, %440
-  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.162, i32 noundef 27)
+  call fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.162, i32 noundef 27)
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.163, i32 noundef 4123, i32 noundef -33525633)
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.164, i32 noundef 20507, i32 noundef -33525633)
   call fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.165, i32 noundef 1073762331, i32 noundef -33525633)
@@ -5211,7 +5211,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit7.i1579:    ; preds = %686, %683
 
 _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1581: ; preds = %680, %682
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.208, i32 noundef 301990003)
+  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.208, i32 noundef 301990003)
   %.pre3966 = load i64, ptr %237, align 8
   br label %799
 
@@ -6165,9 +6165,9 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit7.i1739:    ; preds = %960, %957
 
 _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.272, i32 noundef 369098867)
-  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.273, i32 noundef 637534323)
-  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.274, i32 noundef 1711276147)
+  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.272, i32 noundef 369098867)
+  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.273, i32 noundef 637534323)
+  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.274, i32 noundef 1711276147)
   %.pre3970 = load i64, ptr %237, align 8
   br label %961
 
@@ -6178,24 +6178,24 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   br i1 %.not3818, label %965, label %964
 
 964:                                              ; preds = %961
-  call fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.275, i32 noundef 8199)
-  call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.276, i32 noundef 8231)
+  call fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.275, i32 noundef 8199)
+  call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.276, i32 noundef 8231)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.277, i32 noundef 83, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.278, i32 noundef 134217811, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.279, i32 noundef 268435539, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.280, i32 noundef 402653267, i32 noundef -33554305)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.281, i32 noundef 1476395091)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.281, i32 noundef 1476395091)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.282, i32 noundef 671088723, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.283, i32 noundef 671092819, i32 noundef -33525633)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.284, i32 noundef 67)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.285, i32 noundef 71)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.286, i32 noundef 79)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.287, i32 noundef 75)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.284, i32 noundef 67)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.285, i32 noundef 71)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.286, i32 noundef 79)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.287, i32 noundef 75)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.288, i32 noundef 536870995, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.289, i32 noundef 536875091, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.290, i32 noundef 536879187, i32 noundef -33525633)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.291, i32 noundef 1074790483)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.292, i32 noundef 1076887635)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.291, i32 noundef 1074790483)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.292, i32 noundef 1076887635)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.293, i32 noundef -803209133, i32 noundef -1048449)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.294, i32 noundef -802160557, i32 noundef -1048449)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.295, i32 noundef -805306285, i32 noundef -1048449)
@@ -6208,9 +6208,9 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.301, i32 noundef -1072693165, i32 noundef -1048449)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.302, i32 noundef -536866733, i32 noundef -1019777)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.303, i32 noundef -536870829, i32 noundef -1019777)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.304, i32 noundef -1610604461)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.305, i32 noundef -1610608557)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.306, i32 noundef -1610612653)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.304, i32 noundef -1610604461)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.305, i32 noundef -1610608557)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.306, i32 noundef -1610612653)
   br label %965
 
 965:                                              ; preds = %964, %961
@@ -6257,24 +6257,24 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   br i1 %.not3820, label %973, label %972
 
 972:                                              ; preds = %969
-  call fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.307, i32 noundef 12295)
-  call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.308, i32 noundef 12327)
+  call fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.307, i32 noundef 12295)
+  call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.308, i32 noundef 12327)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.309, i32 noundef 33554515, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.310, i32 noundef 167772243, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.311, i32 noundef 301989971, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.312, i32 noundef 436207699, i32 noundef -33554305)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.313, i32 noundef 1509949523)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.313, i32 noundef 1509949523)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.314, i32 noundef 704643155, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.315, i32 noundef 704647251, i32 noundef -33525633)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.316, i32 noundef 33554499)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.317, i32 noundef 33554503)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.318, i32 noundef 33554511)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.319, i32 noundef 33554507)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.316, i32 noundef 33554499)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.317, i32 noundef 33554503)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.318, i32 noundef 33554511)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.319, i32 noundef 33554507)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.320, i32 noundef 570425427, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.321, i32 noundef 570429523, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.322, i32 noundef 570433619, i32 noundef -33525633)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.323, i32 noundef 1107296339)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.324, i32 noundef 1110442067)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.323, i32 noundef 1107296339)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.324, i32 noundef 1110442067)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.325, i32 noundef -769654701, i32 noundef -1048449)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.326, i32 noundef -768606125, i32 noundef -1048449)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.327, i32 noundef -771751853, i32 noundef -1048449)
@@ -6287,9 +6287,9 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.333, i32 noundef -1039138733, i32 noundef -1048449)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.334, i32 noundef -503312301, i32 noundef -1019777)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.335, i32 noundef -503316397, i32 noundef -1019777)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.336, i32 noundef -1577050029)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.337, i32 noundef -1577054125)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.338, i32 noundef -1577058221)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.336, i32 noundef -1577050029)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.337, i32 noundef -1577054125)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.338, i32 noundef -1577058221)
   %.pre3971 = load i64, ptr %237, align 8
   br label %973
 
@@ -6342,13 +6342,13 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.340, i32 noundef 201326675, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.341, i32 noundef 335544403, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.342, i32 noundef 469762131, i32 noundef -33554305)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.343, i32 noundef 1543503955)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.343, i32 noundef 1543503955)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.344, i32 noundef 738197587, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.345, i32 noundef 738201683, i32 noundef -33525633)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.346, i32 noundef 67108931)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.347, i32 noundef 67108935)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.348, i32 noundef 67108943)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.349, i32 noundef 67108939)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.346, i32 noundef 67108931)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.347, i32 noundef 67108935)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.348, i32 noundef 67108943)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.349, i32 noundef 67108939)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.350, i32 noundef 603979859, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.351, i32 noundef 603983955, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef 603988051, i32 noundef -33525633)
@@ -6362,9 +6362,9 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.359, i32 noundef -1006632877, i32 noundef -1048449)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.360, i32 noundef -1005584301, i32 noundef -1048449)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.361, i32 noundef -469757869, i32 noundef -1019777)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.362, i32 noundef -1543495597)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.363, i32 noundef -1543499693)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.364, i32 noundef -1543503789)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.362, i32 noundef -1543495597)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.363, i32 noundef -1543499693)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.364, i32 noundef -1543503789)
   br label %981
 
 981:                                              ; preds = %980, %977
@@ -6410,12 +6410,12 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   br i1 %.not3824, label %989, label %988
 
 988:                                              ; preds = %985
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.365, i32 noundef 1140850771)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.366, i32 noundef 1141899347)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.367, i32 noundef 1143996499)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.368, i32 noundef 1075839059)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.369, i32 noundef 1109393491)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.370, i32 noundef 1176502355)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.365, i32 noundef 1140850771)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.366, i32 noundef 1141899347)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.367, i32 noundef 1143996499)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.368, i32 noundef 1075839059)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.369, i32 noundef 1109393491)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.370, i32 noundef 1176502355)
   br label %989
 
 989:                                              ; preds = %988, %985
@@ -6425,8 +6425,8 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   br i1 %.not3825, label %993, label %992
 
 992:                                              ; preds = %989
-  call fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.371, i32 noundef 4103)
-  call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef 4135)
+  call fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.371, i32 noundef 4103)
+  call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef 4135)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.373, i32 noundef -201326509, i32 noundef -1019777)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.374, i32 noundef -469761965, i32 noundef -1019777)
   %.pre3973 = load i64, ptr %275, align 8
@@ -6452,24 +6452,24 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   br i1 %.not3827, label %1001, label %1000
 
 1000:                                             ; preds = %997
-  call fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.375, i32 noundef 16391)
-  call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.376, i32 noundef 16423)
+  call fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.375, i32 noundef 16391)
+  call fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.376, i32 noundef 16423)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.377, i32 noundef 100663379, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.378, i32 noundef 234881107, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.379, i32 noundef 369098835, i32 noundef -33554305)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.380, i32 noundef 503316563, i32 noundef -33554305)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.381, i32 noundef 1577058387)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.381, i32 noundef 1577058387)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.382, i32 noundef 771752019, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.383, i32 noundef 771756115, i32 noundef -33525633)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.384, i32 noundef 100663363)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.385, i32 noundef 100663367)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.386, i32 noundef 100663375)
-  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.387, i32 noundef 100663371)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.384, i32 noundef 100663363)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.385, i32 noundef 100663367)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.386, i32 noundef 100663375)
+  call fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.387, i32 noundef 100663371)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.388, i32 noundef 637534291, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.389, i32 noundef 637538387, i32 noundef -33525633)
   call fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.390, i32 noundef 637542483, i32 noundef -33525633)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.391, i32 noundef 1174405203)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.392, i32 noundef 1175453779)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.391, i32 noundef 1174405203)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.392, i32 noundef 1175453779)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.393, i32 noundef -702545837, i32 noundef -1048449)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.394, i32 noundef -701497261, i32 noundef -1048449)
   call fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.395, i32 noundef -704642989, i32 noundef -1048449)
@@ -6480,9 +6480,9 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.399, i32 noundef -973078445, i32 noundef -1048449)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.400, i32 noundef -972029869, i32 noundef -1048449)
   call fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.401, i32 noundef -436203437, i32 noundef -1019777)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.402, i32 noundef -1509941165)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.403, i32 noundef -1509945261)
-  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.404, i32 noundef -1509949357)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.402, i32 noundef -1509941165)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.403, i32 noundef -1509945261)
+  call fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.404, i32 noundef -1509949357)
   br label %1001
 
 1001:                                             ; preds = %1000, %997
@@ -6492,8 +6492,8 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   br i1 %.not3828, label %1005, label %1004
 
 1004:                                             ; preds = %1001
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.405, i32 noundef 1149239379)
-  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.406, i32 noundef 1080033363)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.405, i32 noundef 1149239379)
+  call fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.406, i32 noundef 1080033363)
   br label %1005
 
 1005:                                             ; preds = %1004, %1001
@@ -6516,8 +6516,8 @@ _ZL14add_noarg_insnP14disassembler_tPKcjj.exit1741: ; preds = %954, %956
   call fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.417, i32 noundef 1711292531, i32 noundef -33521665)
   call fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.418, i32 noundef 1778401395, i32 noundef -33521665)
   call fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.419, i32 noundef 1845510259, i32 noundef -33521665)
-  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.420, i32 noundef 1644167283)
-  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.421, i32 noundef 570425459)
+  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.420, i32 noundef 1644167283)
+  call fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.421, i32 noundef 570425459)
   %.pre3974 = load i64, ptr %237, align 8
   br label %1009
 
@@ -11783,35 +11783,35 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %2641, %2643
           to label %2675 unwind label %.loopexit.split-lp
 
 2675:                                             ; preds = %2674
-  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.540, i32 noundef 1073741911)
+  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.540, i32 noundef 1073741911)
           to label %2676 unwind label %.loopexit.split-lp
 
 2676:                                             ; preds = %2675
-  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.541, i32 noundef 1073758295)
+  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.541, i32 noundef 1073758295)
           to label %2677 unwind label %.loopexit.split-lp
 
 2677:                                             ; preds = %2676
-  invoke fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.542, i32 noundef 1073754199)
+  invoke fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.542, i32 noundef 1073754199)
           to label %2678 unwind label %.loopexit.split-lp
 
 2678:                                             ; preds = %2677
-  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.543, i32 noundef 1207959639)
+  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.543, i32 noundef 1207959639)
           to label %2679 unwind label %.loopexit.split-lp
 
 2679:                                             ; preds = %2678
-  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.544, i32 noundef 1207976023)
+  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.544, i32 noundef 1207976023)
           to label %2680 unwind label %.loopexit.split-lp
 
 2680:                                             ; preds = %2679
-  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.545, i32 noundef 1140850775)
+  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.545, i32 noundef 1140850775)
           to label %2681 unwind label %.loopexit.split-lp
 
 2681:                                             ; preds = %2680
-  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.546, i32 noundef 1140867159)
+  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.546, i32 noundef 1140867159)
           to label %2682 unwind label %.loopexit.split-lp
 
 2682:                                             ; preds = %2681
-  invoke fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.547, i32 noundef 1140863063)
+  invoke fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.547, i32 noundef 1140863063)
           to label %2683 unwind label %.loopexit.split-lp
 
 2683:                                             ; preds = %2682
@@ -11827,11 +11827,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %2641, %2643
           to label %2686 unwind label %.loopexit.split-lp
 
 2686:                                             ; preds = %2685
-  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.551, i32 noundef 1275068503)
+  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.551, i32 noundef 1275068503)
           to label %2687 unwind label %.loopexit.split-lp
 
 2687:                                             ; preds = %2686
-  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.552, i32 noundef 1275084887)
+  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.552, i32 noundef 1275084887)
           to label %2688 unwind label %.loopexit.split-lp
 
 2688:                                             ; preds = %2687
@@ -11843,15 +11843,15 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2595:       ; preds = %2641, %2643
           to label %2690 unwind label %.loopexit.split-lp
 
 2690:                                             ; preds = %2689
-  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.555, i32 noundef 1543503959)
+  invoke fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.555, i32 noundef 1543503959)
           to label %2691 unwind label %.loopexit.split-lp
 
 2691:                                             ; preds = %2690
-  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.556, i32 noundef 1543520343)
+  invoke fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.556, i32 noundef 1543520343)
           to label %2692 unwind label %.loopexit.split-lp
 
 2692:                                             ; preds = %2691
-  invoke fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.557, i32 noundef 1543516247)
+  invoke fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.557, i32 noundef 1543516247)
           to label %2693 unwind label %.loopexit.split-lp
 
 2693:                                             ; preds = %2692
@@ -13029,7 +13029,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2707:       ; preds = %2962, %2964
           to label %3026 unwind label %.loopexit.split-lp
 
 3026:                                             ; preds = %3025
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.723, i32 noundef 20567)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.723, i32 noundef 20567)
           to label %3027 unwind label %.loopexit.split-lp
 
 3027:                                             ; preds = %3026
@@ -13041,7 +13041,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2707:       ; preds = %2962, %2964
           to label %3029 unwind label %.loopexit.split-lp
 
 3029:                                             ; preds = %3028
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.726, i32 noundef 134238295)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.726, i32 noundef 134238295)
           to label %3030 unwind label %.loopexit.split-lp
 
 3030:                                             ; preds = %3029
@@ -13053,7 +13053,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2707:       ; preds = %2962, %2964
           to label %3032 unwind label %.loopexit.split-lp
 
 3032:                                             ; preds = %3031
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.729, i32 noundef 268456023)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.729, i32 noundef 268456023)
           to label %3033 unwind label %.loopexit.split-lp
 
 3033:                                             ; preds = %3032
@@ -13065,7 +13065,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2707:       ; preds = %2962, %2964
           to label %3035 unwind label %.loopexit.split-lp
 
 3035:                                             ; preds = %3034
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.732, i32 noundef 402673751)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.732, i32 noundef 402673751)
           to label %3036 unwind label %.loopexit.split-lp
 
 3036:                                             ; preds = %3035
@@ -13077,7 +13077,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2707:       ; preds = %2962, %2964
           to label %3038 unwind label %.loopexit.split-lp
 
 3038:                                             ; preds = %3037
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.735, i32 noundef 536891479)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.735, i32 noundef 536891479)
           to label %3039 unwind label %.loopexit.split-lp
 
 3039:                                             ; preds = %3038
@@ -13085,7 +13085,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2707:       ; preds = %2962, %2964
           to label %3040 unwind label %.loopexit.split-lp
 
 3040:                                             ; preds = %3039
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.737, i32 noundef 604000343)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.737, i32 noundef 604000343)
           to label %3041 unwind label %.loopexit.split-lp
 
 3041:                                             ; preds = %3040
@@ -13093,7 +13093,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2707:       ; preds = %2962, %2964
           to label %3042 unwind label %.loopexit.split-lp
 
 3042:                                             ; preds = %3041
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.739, i32 noundef 671109207)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.739, i32 noundef 671109207)
           to label %3043 unwind label %.loopexit.split-lp
 
 3043:                                             ; preds = %3042
@@ -13177,11 +13177,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2715:       ; preds = %3054, %3056
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2723
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2723:       ; preds = %3067, %3069
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.742, i32 noundef 939544663)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.742, i32 noundef 939544663)
           to label %3070 unwind label %.loopexit.split-lp
 
 3070:                                             ; preds = %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2723
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.743, i32 noundef 1006653527)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.743, i32 noundef 1006653527)
           to label %3071 unwind label %.loopexit.split-lp
 
 3071:                                             ; preds = %3070
@@ -13267,7 +13267,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3098 unwind label %.loopexit.split-lp
 
 3098:                                             ; preds = %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.748, i32 noundef 1610633303)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.748, i32 noundef 1610633303)
           to label %3099 unwind label %.loopexit.split-lp
 
 3099:                                             ; preds = %3098
@@ -13275,7 +13275,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3100 unwind label %.loopexit.split-lp
 
 3100:                                             ; preds = %3099
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.750, i32 noundef 1677742167)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.750, i32 noundef 1677742167)
           to label %3101 unwind label %.loopexit.split-lp
 
 3101:                                             ; preds = %3100
@@ -13283,7 +13283,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3102 unwind label %.loopexit.split-lp
 
 3102:                                             ; preds = %3101
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.752, i32 noundef 1811959895)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.752, i32 noundef 1811959895)
           to label %3103 unwind label %.loopexit.split-lp
 
 3103:                                             ; preds = %3102
@@ -13291,15 +13291,15 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3104 unwind label %.loopexit.split-lp
 
 3104:                                             ; preds = %3103
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.754, i32 noundef 1879068759)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.754, i32 noundef 1879068759)
           to label %3105 unwind label %.loopexit.split-lp
 
 3105:                                             ; preds = %3104
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.755, i32 noundef 1946177623)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.755, i32 noundef 1946177623)
           to label %3106 unwind label %.loopexit.split-lp
 
 3106:                                             ; preds = %3105
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.756, i32 noundef 2080395351)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.756, i32 noundef 2080395351)
           to label %3107 unwind label %.loopexit.split-lp
 
 3107:                                             ; preds = %3106
@@ -13307,11 +13307,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3108 unwind label %.loopexit.split-lp
 
 3108:                                             ; preds = %3107
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.758, i32 noundef -2147463081)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.758, i32 noundef -2147463081)
           to label %3109 unwind label %.loopexit.split-lp
 
 3109:                                             ; preds = %3108
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.759, i32 noundef -2080354217)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.759, i32 noundef -2080354217)
           to label %3110 unwind label %.loopexit.split-lp
 
 3110:                                             ; preds = %3109
@@ -13419,11 +13419,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3136 unwind label %.loopexit.split-lp
 
 3136:                                             ; preds = %3135
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.786, i32 noundef -1879027625)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.786, i32 noundef -1879027625)
           to label %3137 unwind label %.loopexit.split-lp
 
 3137:                                             ; preds = %3136
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.787, i32 noundef -1677701033)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.787, i32 noundef -1677701033)
           to label %3138 unwind label %.loopexit.split-lp
 
 3138:                                             ; preds = %3137
@@ -13431,7 +13431,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3139 unwind label %.loopexit.split-lp
 
 3139:                                             ; preds = %3138
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.789, i32 noundef -1610592169)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.789, i32 noundef -1610592169)
           to label %3140 unwind label %.loopexit.split-lp
 
 3140:                                             ; preds = %3139
@@ -13439,7 +13439,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3141 unwind label %.loopexit.split-lp
 
 3141:                                             ; preds = %3140
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.791, i32 noundef -1543483305)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.791, i32 noundef -1543483305)
           to label %3142 unwind label %.loopexit.split-lp
 
 3142:                                             ; preds = %3141
@@ -13447,7 +13447,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3143 unwind label %.loopexit.split-lp
 
 3143:                                             ; preds = %3142
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.793, i32 noundef -1476374441)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.793, i32 noundef -1476374441)
           to label %3144 unwind label %.loopexit.split-lp
 
 3144:                                             ; preds = %3143
@@ -13455,7 +13455,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3145 unwind label %.loopexit.split-lp
 
 3145:                                             ; preds = %3144
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.795, i32 noundef -1409265577)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.795, i32 noundef -1409265577)
           to label %3146 unwind label %.loopexit.split-lp
 
 3146:                                             ; preds = %3145
@@ -13463,7 +13463,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3147 unwind label %.loopexit.split-lp
 
 3147:                                             ; preds = %3146
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.797, i32 noundef -1342156713)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.797, i32 noundef -1342156713)
           to label %3148 unwind label %.loopexit.split-lp
 
 3148:                                             ; preds = %3147
@@ -13471,7 +13471,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3149 unwind label %.loopexit.split-lp
 
 3149:                                             ; preds = %3148
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.799, i32 noundef -1275047849)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.799, i32 noundef -1275047849)
           to label %3150 unwind label %.loopexit.split-lp
 
 3150:                                             ; preds = %3149
@@ -13479,7 +13479,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3151 unwind label %.loopexit.split-lp
 
 3151:                                             ; preds = %3150
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.801, i32 noundef -1207938985)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.801, i32 noundef -1207938985)
           to label %3152 unwind label %.loopexit.split-lp
 
 3152:                                             ; preds = %3151
@@ -13487,7 +13487,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3153 unwind label %.loopexit.split-lp
 
 3153:                                             ; preds = %3152
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.803, i32 noundef -1140830121)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.803, i32 noundef -1140830121)
           to label %3154 unwind label %.loopexit.split-lp
 
 3154:                                             ; preds = %3153
@@ -13495,7 +13495,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3155 unwind label %.loopexit.split-lp
 
 3155:                                             ; preds = %3154
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.805, i32 noundef -1073721257)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.805, i32 noundef -1073721257)
           to label %3156 unwind label %.loopexit.split-lp
 
 3156:                                             ; preds = %3155
@@ -13507,7 +13507,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3158 unwind label %.loopexit.split-lp
 
 3158:                                             ; preds = %3157
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.808, i32 noundef -939503529)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.808, i32 noundef -939503529)
           to label %3159 unwind label %.loopexit.split-lp
 
 3159:                                             ; preds = %3158
@@ -13519,7 +13519,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3161 unwind label %.loopexit.split-lp
 
 3161:                                             ; preds = %3160
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.811, i32 noundef -805285801)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.811, i32 noundef -805285801)
           to label %3162 unwind label %.loopexit.split-lp
 
 3162:                                             ; preds = %3161
@@ -13527,7 +13527,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3163 unwind label %.loopexit.split-lp
 
 3163:                                             ; preds = %3162
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.813, i32 noundef -671068073)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.813, i32 noundef -671068073)
           to label %3164 unwind label %.loopexit.split-lp
 
 3164:                                             ; preds = %3163
@@ -13535,7 +13535,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3165 unwind label %.loopexit.split-lp
 
 3165:                                             ; preds = %3164
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.815, i32 noundef -536850345)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.815, i32 noundef -536850345)
           to label %3166 unwind label %.loopexit.split-lp
 
 3166:                                             ; preds = %3165
@@ -13543,7 +13543,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3167 unwind label %.loopexit.split-lp
 
 3167:                                             ; preds = %3166
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.817, i32 noundef -268414889)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.817, i32 noundef -268414889)
           to label %3168 unwind label %.loopexit.split-lp
 
 3168:                                             ; preds = %3167
@@ -13551,7 +13551,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3169 unwind label %.loopexit.split-lp
 
 3169:                                             ; preds = %3168
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.819, i32 noundef -201306025)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.819, i32 noundef -201306025)
           to label %3170 unwind label %.loopexit.split-lp
 
 3170:                                             ; preds = %3169
@@ -13559,7 +13559,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3171 unwind label %.loopexit.split-lp
 
 3171:                                             ; preds = %3170
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.821, i32 noundef -134197161)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.821, i32 noundef -134197161)
           to label %3172 unwind label %.loopexit.split-lp
 
 3172:                                             ; preds = %3171
@@ -13567,7 +13567,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2739:       ; preds = %3095, %3097
           to label %3173 unwind label %.loopexit.split-lp
 
 3173:                                             ; preds = %3172
-  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.823, i32 noundef -67088297)
+  invoke fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.823, i32 noundef -67088297)
           to label %3174 unwind label %.loopexit.split-lp
 
 3174:                                             ; preds = %3173
@@ -14140,7 +14140,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2757:       ; preds = %3186, %_ZNSt6vector
 
 3293:                                             ; preds = %3290
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.826, i32 noundef -335540137, i32 noundef -67080065)
-  call fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.827, i32 noundef -335523753)
+  call fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.827, i32 noundef -335523753)
   br label %3294
 
 3294:                                             ; preds = %3293, %3290
@@ -14394,24 +14394,24 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2857:       ; preds = %3327, %3329
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.913, i32 noundef 1677721719, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.914, i32 noundef 1577058423, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.915, i32 noundef 1442840695, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.916, i32 noundef 2013266039)
-  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.917, i32 noundef 1879048311)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.918, i32 noundef 2046820471)
-  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.919, i32 noundef 1912602743)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.920, i32 noundef 2080374903)
-  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.921, i32 noundef 1946157175)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.922, i32 noundef 2088763511)
-  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.923, i32 noundef 1962934391)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.916, i32 noundef 2013266039)
+  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.917, i32 noundef 1879048311)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.918, i32 noundef 2046820471)
+  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.919, i32 noundef 1912602743)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.920, i32 noundef 2080374903)
+  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.921, i32 noundef 1946157175)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.922, i32 noundef 2088763511)
+  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.923, i32 noundef 1962934391)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.924, i32 noundef 1744830583, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.925, i32 noundef 1610612855, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.926, i32 noundef 1778385015, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.927, i32 noundef 1644167287, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.928, i32 noundef 1845493879, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.929, i32 noundef 1711276151, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.930, i32 noundef 2021654647)
-  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.931, i32 noundef 1895825527)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.932, i32 noundef 2055209079)
-  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.933, i32 noundef 1929379959)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.930, i32 noundef 2021654647)
+  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.931, i32 noundef 1895825527)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.932, i32 noundef 2055209079)
+  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.933, i32 noundef 1929379959)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.934, i32 noundef 1308622967, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.935, i32 noundef 1275068535, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.936, i32 noundef 234881143, i32 noundef -33525633)
@@ -14442,10 +14442,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2857:       ; preds = %3327, %3329
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.961, i32 noundef -2113929097, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.962, i32 noundef -1711275913, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.963, i32 noundef -1845493641, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.964, i32 noundef -1946156937)
-  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.965, i32 noundef -2080374665)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.966, i32 noundef -1929379721)
-  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.967, i32 noundef -2063597449)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.964, i32 noundef -1946156937)
+  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.965, i32 noundef -2080374665)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.966, i32 noundef -1929379721)
+  call fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.967, i32 noundef -2063597449)
   call fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.968, i32 noundef -1391460233, i32 noundef -1019777)
   call fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.969, i32 noundef -1367342985, i32 noundef -1019777)
   call fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.970, i32 noundef -1366294409, i32 noundef -1019777)
@@ -14534,7 +14534,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2857:       ; preds = %3327, %3329
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1053, i32 noundef 1845497975, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1054, i32 noundef 2113933431, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1055, i32 noundef 637538423, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1056, i32 noundef 905973879)
+  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1056, i32 noundef 905973879)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1057, i32 noundef -771747721, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1058, i32 noundef -503312265, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1059, i32 noundef -234876809, i32 noundef -33525633)
@@ -14575,11 +14575,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2857:       ; preds = %3327, %3329
 3362:                                             ; preds = %3361
   %3363 = load ptr, ptr %4, align 8
   %.not.i.i.i.i2866 = icmp eq ptr %3363, null
-  br i1 %.not.i.i.i.i2866, label %_ZL16add_pitype6_insnP14disassembler_tPKcjj.exit, label %3364
+  br i1 %.not.i.i.i.i2866, label %_ZL16add_pitype6_insnP14disassembler_tPKcjj.argprom.exit, label %3364
 
 3364:                                             ; preds = %3362
   call void @_ZdlPv(ptr noundef nonnull %3363) #23
-  br label %_ZL16add_pitype6_insnP14disassembler_tPKcjj.exit
+  br label %_ZL16add_pitype6_insnP14disassembler_tPKcjj.argprom.exit
 
 3365:                                             ; preds = %3361, %3357
   %.0.i2864 = phi i1 [ false, %3361 ], [ true, %3357 ]
@@ -14596,15 +14596,15 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2857:       ; preds = %3327, %3329
 .body.i2865:                                      ; preds = %3365
   br i1 %.0.i2864, label %common.resume.sink.split, label %common.resume
 
-_ZL16add_pitype6_insnP14disassembler_tPKcjj.exit: ; preds = %3362, %3364
+_ZL16add_pitype6_insnP14disassembler_tPKcjj.argprom.exit: ; preds = %3362, %3364
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1069, i32 noundef -1409286025)
+  call fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1069, i32 noundef -1409286025)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1070, i32 noundef -1006628745, i32 noundef -33525633)
   %3369 = load i32, ptr %1, align 8
   %3370 = icmp eq i32 %3369, 64
   br i1 %3370, label %3371, label %3372
 
-3371:                                             ; preds = %_ZL16add_pitype6_insnP14disassembler_tPKcjj.exit
+3371:                                             ; preds = %_ZL16add_pitype6_insnP14disassembler_tPKcjj.argprom.exit
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1071, i32 noundef 1073750135, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1072, i32 noundef 8311, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1073, i32 noundef 536879223, i32 noundef -33525633)
@@ -14636,17 +14636,17 @@ _ZL16add_pitype6_insnP14disassembler_tPKcjj.exit: ; preds = %3362, %3364
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1099, i32 noundef -1040179081, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1100, i32 noundef -503308169, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1101, i32 noundef 1342185591, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1102, i32 noundef 1879056503)
+  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1102, i32 noundef 1879056503)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1103, i32 noundef 1610621047, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1104, i32 noundef -2147475337)
+  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1104, i32 noundef -2147475337)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1105, i32 noundef 1375740023, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1106, i32 noundef 1912610935)
+  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1106, i32 noundef 1912610935)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1107, i32 noundef 1644175479, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1108, i32 noundef -2113920905)
+  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1108, i32 noundef -2113920905)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1109, i32 noundef 1409294455, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1110, i32 noundef 1946165367)
+  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1110, i32 noundef 1946165367)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1111, i32 noundef 1677729911, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1112, i32 noundef -2080366473)
+  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1112, i32 noundef -2080366473)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1113, i32 noundef 1442848887, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1114, i32 noundef 1711284343, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1115, i32 noundef -1879039881, i32 noundef -33525633)
@@ -14679,12 +14679,12 @@ _ZL16add_pitype6_insnP14disassembler_tPKcjj.exit: ; preds = %3362, %3364
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1142, i32 noundef 1476403319, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1143, i32 noundef 1744838775, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1144, i32 noundef 2013274231, i32 noundef -33525633)
-  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1145, i32 noundef 872419447)
+  call fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr noundef %0, ptr noundef nonnull @.str.1145, i32 noundef 872419447)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1146, i32 noundef 503324791, i32 noundef -33525633)
   call fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1147, i32 noundef 1040195703, i32 noundef -33525633)
   br label %3372
 
-3372:                                             ; preds = %_ZL16add_pitype6_insnP14disassembler_tPKcjj.exit, %3371, %3349
+3372:                                             ; preds = %_ZL16add_pitype6_insnP14disassembler_tPKcjj.argprom.exit, %3371, %3349
   %3373 = load i64, ptr %275, align 8
   %3374 = and i64 %3373, 16
   %.not3841 = icmp eq i64 %3374, 0
@@ -15740,11 +15740,11 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit3030:       ; preds = %3655, %3653, %3628
 3680:                                             ; preds = %3679
   %3681 = load ptr, ptr %3, align 8
   %.not.i.i.i.i3043 = icmp eq ptr %3681, null
-  br i1 %.not.i.i.i.i3043, label %_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.exit, label %3682
+  br i1 %.not.i.i.i.i3043, label %_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.argprom.exit, label %3682
 
 3682:                                             ; preds = %3680
   call void @_ZdlPv(ptr noundef nonnull %3681) #23
-  br label %_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.exit
+  br label %_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.argprom.exit
 
 3683:                                             ; preds = %3679, %3675
   %.0.i3040 = phi i1 [ false, %3679 ], [ true, %3675 ]
@@ -15761,7 +15761,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit3030:       ; preds = %3655, %3653, %3628
 .body.i3042:                                      ; preds = %3683
   br i1 %.0.i3040, label %common.resume.sink.split, label %common.resume
 
-_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.exit: ; preds = %3680, %3682
+_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.argprom.exit: ; preds = %3680, %3682
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1251, i32 noundef -738197417, i32 noundef -67080065)
   call fastcc void @_ZL18add_vector_vx_insnP14disassembler_tPKcjj(ptr noundef %0, ptr noundef nonnull @.str.1252, i32 noundef -738181033, i32 noundef -67080065)
@@ -15769,8 +15769,8 @@ _ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.exit: ; preds = %3680, %3682
   %.pre3980 = load i64, ptr %275, align 8
   br label %3687
 
-3687:                                             ; preds = %_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.exit, %3667
-  %3688 = phi i64 [ %.pre3980, %_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.exit ], [ %3668, %3667 ]
+3687:                                             ; preds = %_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.argprom.exit, %3667
+  %3688 = phi i64 [ %.pre3980, %_ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.argprom.exit ], [ %3668, %3667 ]
   %3689 = and i64 %3688, 1024
   %.not3852 = icmp eq i64 %3689, 0
   br i1 %.not3852, label %3691, label %3690
@@ -16099,7 +16099,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %48, %51
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 3, 24580) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 3, 24580) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16166,7 +16166,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 35, 12324) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 35, 12324) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16233,7 +16233,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 -536870865, -1073729488) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 -536870865, -1073729488) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16365,7 +16365,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 99, 20580) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 99, 20580) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16432,7 +16432,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 99, 28772) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 99, 28772) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16497,7 +16497,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 19, 28692) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 19, 28692) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16692,7 +16692,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 301990003, 1711276148) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 301990003, 1711276148) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16826,7 +16826,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 4103, 16392) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 4103, 16392) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16893,7 +16893,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 4135, 16424) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 4135, 16424) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -17025,7 +17025,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1074790483, 1577058388) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1074790483, 1577058388) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -17092,7 +17092,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 67, 100663376) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 67, 100663376) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -17291,7 +17291,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -17957,7 +17957,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073741911, 1543503960) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073741911, 1543503960) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18022,7 +18022,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073758295, 1543520344) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073758295, 1543520344) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18087,7 +18087,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073754199, 1543516248) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073754199, 1543516248) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18223,7 +18223,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18296,7 +18296,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 2013266039, -1409286024) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 2013266039, -1409286024) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18361,7 +18361,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1879048311, -2063597448) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1879048311, -2063597448) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18426,7 +18426,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 872419447, -2080366472) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 872419447, -2080366472) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)

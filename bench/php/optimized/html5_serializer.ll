@@ -140,16 +140,16 @@ dom_html5_serialize_doctype.exit.i:               ; preds = %23
   %39 = getelementptr i8, ptr %34, i64 72
   %.val.i.i = load ptr, ptr %39, align 8
   %40 = icmp eq ptr %.val.i.i, null
-  br i1 %40, label %dom_is_html_ns.exit.thread.i.i, label %dom_is_html_ns.exit.i.i
+  br i1 %40, label %dom_is_html_ns.argprom.exit.thread.i.i, label %dom_is_html_ns.argprom.exit.i.i
 
-dom_is_html_ns.exit.i.i:                          ; preds = %38
+dom_is_html_ns.argprom.exit.i.i:                  ; preds = %38
   %41 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(29) @.str.18) #5
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %dom_is_html_ns.exit.thread.i.i, label %dom_local_name_compare_ex.exit28.thread.i.i
+  br i1 %44, label %dom_is_html_ns.argprom.exit.thread.i.i, label %dom_local_name_compare_ex.exit28.thread.i.i
 
-dom_is_html_ns.exit.thread.i.i:                   ; preds = %dom_is_html_ns.exit.i.i, %38
+dom_is_html_ns.argprom.exit.thread.i.i:           ; preds = %dom_is_html_ns.argprom.exit.i.i, %38
   %45 = getelementptr inbounds i8, ptr %34, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #5
@@ -162,17 +162,17 @@ dom_is_html_ns.exit.thread.i.i:                   ; preds = %dom_is_html_ns.exit
     i64 9, label %dom_local_name_compare_ex.exit28.i.i
   ]
 
-dom_local_name_compare_ex.exit.i.i:               ; preds = %dom_is_html_ns.exit.thread.i.i
+dom_local_name_compare_ex.exit.i.i:               ; preds = %dom_is_html_ns.argprom.exit.thread.i.i
   %48 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 5, ptr noundef nonnull @.str.21, i64 noundef 5) #4
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
-dom_local_name_compare_ex.exit23.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
+dom_local_name_compare_ex.exit23.i.i:             ; preds = %dom_is_html_ns.argprom.exit.thread.i.i
   %50 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #4
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %63, label %dom_local_name_compare_ex.exit25.i.i
 
-dom_local_name_compare_ex.exit24.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
+dom_local_name_compare_ex.exit24.i.i:             ; preds = %dom_is_html_ns.argprom.exit.thread.i.i
   %52 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 3, ptr noundef nonnull @.str.23, i64 noundef 3) #4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
@@ -183,17 +183,17 @@ dom_local_name_compare_ex.exit25.i.i:             ; preds = %dom_local_name_comp
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
-dom_local_name_compare_ex.exit26.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
+dom_local_name_compare_ex.exit26.i.i:             ; preds = %dom_is_html_ns.argprom.exit.thread.i.i
   %57 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 7, ptr noundef nonnull @.str.25, i64 noundef 7) #4
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
-dom_local_name_compare_ex.exit27.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
+dom_local_name_compare_ex.exit27.i.i:             ; preds = %dom_is_html_ns.argprom.exit.thread.i.i
   %59 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 8, ptr noundef nonnull @.str.26, i64 noundef 8) #4
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
-dom_local_name_compare_ex.exit28.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
+dom_local_name_compare_ex.exit28.i.i:             ; preds = %dom_is_html_ns.argprom.exit.thread.i.i
   %61 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 9, ptr noundef nonnull @.str.27, i64 noundef 9) #4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
@@ -206,7 +206,7 @@ dom_local_name_compare_ex.exit28.i.i:             ; preds = %dom_is_html_ns.exit
   %68 = tail call i32 %64(ptr noundef %65, ptr noundef %67) #4
   br label %dom_html5_serialize_text_node.exit.i
 
-dom_local_name_compare_ex.exit28.thread.i.i:      ; preds = %dom_local_name_compare_ex.exit28.i.i, %dom_local_name_compare_ex.exit27.i.i, %dom_local_name_compare_ex.exit26.i.i, %dom_local_name_compare_ex.exit25.i.i, %dom_local_name_compare_ex.exit24.i.i, %dom_local_name_compare_ex.exit.i.i, %dom_is_html_ns.exit.thread.i.i, %dom_is_html_ns.exit.i.i, %32
+dom_local_name_compare_ex.exit28.thread.i.i:      ; preds = %dom_local_name_compare_ex.exit28.i.i, %dom_local_name_compare_ex.exit27.i.i, %dom_local_name_compare_ex.exit26.i.i, %dom_local_name_compare_ex.exit25.i.i, %dom_local_name_compare_ex.exit24.i.i, %dom_local_name_compare_ex.exit.i.i, %dom_is_html_ns.argprom.exit.thread.i.i, %dom_is_html_ns.argprom.exit.i.i, %32
   %69 = getelementptr inbounds i8, ptr %.02778.i, i64 80
   %70 = load ptr, ptr %69, align 8
   %71 = tail call fastcc i32 @dom_html5_escape_string(ptr noundef readonly %0, ptr noundef %70, i1 noundef zeroext false)
@@ -380,7 +380,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
   %153 = getelementptr inbounds i8, ptr %.078120.i.i, i64 72
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %dom_is_ns.exit.i.i
+  br i1 %155, label %156, label %dom_is_ns.argprom.exit.i.i
 
 156:                                              ; preds = %152
   %157 = load ptr, ptr %0, align 8
@@ -391,14 +391,14 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
   %.not96.i.i = icmp eq i32 %161, 0
   br i1 %.not96.i.i, label %228, label %dom_html5_serialize_node.exit
 
-dom_is_ns.exit.i.i:                               ; preds = %152
+dom_is_ns.argprom.exit.i.i:                       ; preds = %152
   %162 = getelementptr inbounds i8, ptr %154, i64 16
   %163 = load ptr, ptr %162, align 8
   %164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull readonly dereferenceable(37) @.str.44) #5
   %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %dom_is_ns.exit111.i.i
+  br i1 %165, label %166, label %dom_is_ns.argprom.exit111.i.i
 
-166:                                              ; preds = %dom_is_ns.exit.i.i
+166:                                              ; preds = %dom_is_ns.argprom.exit.i.i
   %167 = load ptr, ptr %14, align 8
   %168 = load ptr, ptr %15, align 8
   %169 = tail call i32 %167(ptr noundef %168, ptr noundef nonnull @.str.45, i64 noundef 4) #4
@@ -414,12 +414,12 @@ dom_is_ns.exit.i.i:                               ; preds = %152
   %.not95.i.i = icmp eq i32 %175, 0
   br i1 %.not95.i.i, label %228, label %dom_html5_serialize_node.exit
 
-dom_is_ns.exit111.i.i:                            ; preds = %dom_is_ns.exit.i.i
+dom_is_ns.argprom.exit111.i.i:                    ; preds = %dom_is_ns.argprom.exit.i.i
   %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull readonly dereferenceable(30) @.str.46) #5
   %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %dom_is_ns.exit113.i.i
+  br i1 %177, label %178, label %dom_is_ns.argprom.exit113.i.i
 
-178:                                              ; preds = %dom_is_ns.exit111.i.i
+178:                                              ; preds = %dom_is_ns.argprom.exit111.i.i
   %179 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.47) #5
@@ -446,12 +446,12 @@ dom_is_ns.exit111.i.i:                            ; preds = %dom_is_ns.exit.i.i
   %.not92.i.i = icmp eq i32 %193, 0
   br i1 %.not92.i.i, label %228, label %dom_html5_serialize_node.exit
 
-dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i.i
+dom_is_ns.argprom.exit113.i.i:                    ; preds = %dom_is_ns.argprom.exit111.i.i
   %194 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull readonly dereferenceable(29) @.str.49) #5
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %206
 
-196:                                              ; preds = %dom_is_ns.exit113.i.i
+196:                                              ; preds = %dom_is_ns.argprom.exit113.i.i
   %197 = load ptr, ptr %14, align 8
   %198 = load ptr, ptr %15, align 8
   %199 = tail call i32 %197(ptr noundef %198, ptr noundef nonnull @.str.50, i64 noundef 6) #4
@@ -467,7 +467,7 @@ dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i
   %.not90.i.i = icmp eq i32 %205, 0
   br i1 %.not90.i.i, label %228, label %dom_html5_serialize_node.exit
 
-206:                                              ; preds = %dom_is_ns.exit113.i.i
+206:                                              ; preds = %dom_is_ns.argprom.exit113.i.i
   %207 = getelementptr inbounds i8, ptr %154, i64 24
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
@@ -636,16 +636,16 @@ define internal fastcc noundef zeroext i1 @dom_html5_serializes_as_void(ptr noca
   %2 = getelementptr i8, ptr %0, i64 72
   %.val = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val, null
-  br i1 %3, label %dom_is_html_ns.exit.thread, label %dom_is_html_ns.exit
+  br i1 %3, label %dom_is_html_ns.argprom.exit.thread, label %dom_is_html_ns.argprom.exit
 
-dom_is_html_ns.exit:                              ; preds = %1
+dom_is_html_ns.argprom.exit:                      ; preds = %1
   %4 = getelementptr inbounds i8, ptr %.val, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(29) @.str.18) #5
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %dom_is_html_ns.exit.thread, label %dom_local_name_compare_ex.exit54.thread
+  br i1 %7, label %dom_is_html_ns.argprom.exit.thread, label %dom_local_name_compare_ex.exit54.thread
 
-dom_is_html_ns.exit.thread:                       ; preds = %1, %dom_is_html_ns.exit
+dom_is_html_ns.argprom.exit.thread:               ; preds = %1, %dom_is_html_ns.argprom.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #5
@@ -659,7 +659,7 @@ dom_is_html_ns.exit.thread:                       ; preds = %1, %dom_is_html_ns.
     i64 7, label %dom_local_name_compare_ex.exit51
   ]
 
-dom_local_name_compare_ex.exit:                   ; preds = %dom_is_html_ns.exit.thread
+dom_local_name_compare_ex.exit:                   ; preds = %dom_is_html_ns.argprom.exit.thread
   %11 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 4, ptr noundef nonnull @.str, i64 noundef 4) #4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %61, label %dom_local_name_compare_ex.exit38
@@ -670,17 +670,17 @@ dom_local_name_compare_ex.exit38:                 ; preds = %dom_local_name_comp
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %61, label %dom_local_name_compare_ex.exit45
 
-dom_local_name_compare_ex.exit39:                 ; preds = %dom_is_html_ns.exit.thread
+dom_local_name_compare_ex.exit39:                 ; preds = %dom_is_html_ns.argprom.exit.thread
   %16 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 2, ptr noundef nonnull @.str.2, i64 noundef 2) #4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %61, label %dom_local_name_compare_ex.exit42
 
-dom_local_name_compare_ex.exit40:                 ; preds = %dom_is_html_ns.exit.thread
+dom_local_name_compare_ex.exit40:                 ; preds = %dom_is_html_ns.argprom.exit.thread
   %18 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 3, ptr noundef nonnull @.str.3, i64 noundef 3) #4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %61, label %dom_local_name_compare_ex.exit43
 
-dom_local_name_compare_ex.exit41:                 ; preds = %dom_is_html_ns.exit.thread
+dom_local_name_compare_ex.exit41:                 ; preds = %dom_is_html_ns.argprom.exit.thread
   %20 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 5) #4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %61, label %dom_local_name_compare_ex.exit44
@@ -715,7 +715,7 @@ dom_local_name_compare_ex.exit46:                 ; preds = %dom_local_name_comp
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %61, label %dom_local_name_compare_ex.exit54.thread
 
-dom_local_name_compare_ex.exit47:                 ; preds = %dom_is_html_ns.exit.thread
+dom_local_name_compare_ex.exit47:                 ; preds = %dom_is_html_ns.argprom.exit.thread
   %37 = load ptr, ptr %8, align 8
   %38 = tail call i32 @zend_binary_strcmp(ptr noundef %37, i64 noundef 6, ptr noundef nonnull @.str.10, i64 noundef 6) #4
   %39 = icmp eq i32 %38, 0
@@ -733,13 +733,13 @@ dom_local_name_compare_ex.exit49:                 ; preds = %dom_local_name_comp
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %61, label %dom_local_name_compare_ex.exit54.thread
 
-dom_local_name_compare_ex.exit50:                 ; preds = %dom_is_html_ns.exit.thread
+dom_local_name_compare_ex.exit50:                 ; preds = %dom_is_html_ns.argprom.exit.thread
   %46 = load ptr, ptr %8, align 8
   %47 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 8, ptr noundef nonnull @.str.13, i64 noundef 8) #4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %61, label %dom_local_name_compare_ex.exit54.thread
 
-dom_local_name_compare_ex.exit51:                 ; preds = %dom_is_html_ns.exit.thread
+dom_local_name_compare_ex.exit51:                 ; preds = %dom_is_html_ns.argprom.exit.thread
   %49 = load ptr, ptr %8, align 8
   %50 = tail call i32 @zend_binary_strcmp(ptr noundef %49, i64 noundef 7, ptr noundef nonnull @.str.14, i64 noundef 7) #4
   %51 = icmp eq i32 %50, 0
@@ -763,7 +763,7 @@ dom_local_name_compare_ex.exit54:                 ; preds = %dom_local_name_comp
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %dom_local_name_compare_ex.exit54.thread
 
-dom_local_name_compare_ex.exit54.thread:          ; preds = %dom_local_name_compare_ex.exit53, %dom_is_html_ns.exit.thread, %dom_local_name_compare_ex.exit46, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit50, %dom_local_name_compare_ex.exit42, %dom_local_name_compare_ex.exit54, %dom_is_html_ns.exit
+dom_local_name_compare_ex.exit54.thread:          ; preds = %dom_local_name_compare_ex.exit53, %dom_is_html_ns.argprom.exit.thread, %dom_local_name_compare_ex.exit46, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit50, %dom_local_name_compare_ex.exit42, %dom_local_name_compare_ex.exit54, %dom_is_html_ns.argprom.exit
   br label %61
 
 61:                                               ; preds = %dom_local_name_compare_ex.exit, %dom_local_name_compare_ex.exit38, %dom_local_name_compare_ex.exit39, %dom_local_name_compare_ex.exit40, %dom_local_name_compare_ex.exit41, %dom_local_name_compare_ex.exit42, %dom_local_name_compare_ex.exit43, %dom_local_name_compare_ex.exit44, %dom_local_name_compare_ex.exit45, %dom_local_name_compare_ex.exit46, %dom_local_name_compare_ex.exit47, %dom_local_name_compare_ex.exit48, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit50, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit52, %dom_local_name_compare_ex.exit53, %dom_local_name_compare_ex.exit54, %dom_local_name_compare_ex.exit54.thread
@@ -946,26 +946,26 @@ define internal fastcc i32 @dom_html5_serialize_element_tag_name(ptr nocapture n
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
-  br i1 %.not14, label %26, label %dom_is_html_ns.exit
+  br i1 %.not14, label %26, label %dom_is_html_ns.argprom.exit
 
-dom_is_html_ns.exit:                              ; preds = %5
+dom_is_html_ns.argprom.exit:                      ; preds = %5
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(29) @.str.18) #5
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %26, label %dom_is_ns.exit
+  br i1 %11, label %26, label %dom_is_ns.argprom.exit
 
-dom_is_ns.exit:                                   ; preds = %dom_is_html_ns.exit
+dom_is_ns.argprom.exit:                           ; preds = %dom_is_html_ns.argprom.exit
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(35) @.str.52) #5
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %26, label %dom_is_ns.exit20
+  br i1 %13, label %26, label %dom_is_ns.argprom.exit20
 
-dom_is_ns.exit20:                                 ; preds = %dom_is_ns.exit
+dom_is_ns.argprom.exit20:                         ; preds = %dom_is_ns.argprom.exit
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(27) @.str.53) #5
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %26, label %16
 
-16:                                               ; preds = %dom_is_ns.exit20
+16:                                               ; preds = %dom_is_ns.argprom.exit20
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -981,7 +981,7 @@ dom_is_ns.exit20:                                 ; preds = %dom_is_ns.exit
   %.not16 = icmp eq i32 %25, 0
   br i1 %.not16, label %26, label %33
 
-26:                                               ; preds = %21, %dom_is_ns.exit20, %dom_is_ns.exit, %dom_is_html_ns.exit, %5, %2
+26:                                               ; preds = %21, %dom_is_ns.argprom.exit20, %dom_is_ns.argprom.exit, %dom_is_html_ns.argprom.exit, %5, %2
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8

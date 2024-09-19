@@ -8153,7 +8153,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 362:                                              ; preds = %347
   %.val = load ptr, ptr %97, align 8
-  call fastcc void @respond_ID(ptr %.val)
+  call fastcc void @respond_ID.argprom(ptr %.val)
   br label %.thread41, !llvm.loop !130
 
 363:                                              ; preds = %347
@@ -8461,7 +8461,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 508:                                              ; preds = %506
   %.val37 = load ptr, ptr %97, align 8
-  call fastcc void @status_report(ptr %.val37)
+  call fastcc void @status_report.argprom(ptr %.val37)
   br label %.thread41, !llvm.loop !130
 
 509:                                              ; preds = %506
@@ -8700,7 +8700,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 609:                                              ; preds = %606
   %.val36 = load ptr, ptr %97, align 8
-  call fastcc void @respond_ID(ptr %.val36)
+  call fastcc void @respond_ID.argprom(ptr %.val36)
   br label %.thread41, !llvm.loop !130
 
 610:                                              ; preds = %514
@@ -9404,7 +9404,7 @@ define internal fastcc void @ri(ptr noundef nonnull %0) unnamed_addr #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @respond_ID(ptr %.24.val) unnamed_addr #19 align 16 {
+define internal fastcc void @respond_ID.argprom(ptr %.24.val) unnamed_addr #19 align 16 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 0, ptr %1, align 1
@@ -9708,7 +9708,7 @@ define internal fastcc void @set_mode(ptr noundef nonnull %0, i32 noundef range(
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @status_report(ptr %.24.val) unnamed_addr #19 align 16 {
+define internal fastcc void @status_report.argprom(ptr %.24.val) unnamed_addr #19 align 16 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 0, ptr %1, align 1

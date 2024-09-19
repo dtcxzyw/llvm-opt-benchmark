@@ -332,7 +332,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
   br i1 %137, label %138, label %.thread
 
 138:                                              ; preds = %135
-  call fastcc void @calc_chksums(ptr noundef %0, ptr noundef %73, ptr noundef nonnull %9, ptr noundef nonnull %11)
+  call fastcc void @calc_chksums.retelim(ptr noundef %0, ptr noundef %73, ptr noundef nonnull %9, ptr noundef nonnull %11)
   %139 = getelementptr inbounds i8, ptr %73, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %139, ptr elementtype(i32) %139) #9
   br label %select.unfold49, !llvm.loop !11
@@ -1651,7 +1651,7 @@ define internal fastcc range(i32 0, 2) i32 @jbd2_descriptor_block_csum_verify(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @calc_chksums(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @calc_chksums.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr null, ptr %5, align 8, !annotation !5

@@ -1104,7 +1104,7 @@ thread-pre-split:                                 ; preds = %2, %24, %29, %_ZN4l
 53:                                               ; preds = %50
   %.val = load i32, ptr %5, align 8
   %.val14 = load i32, ptr %7, align 4
-  %54 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE(i32 %.val, i32 %.val14)
+  %54 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE.argprom(i32 %.val, i32 %.val14)
   store i32 %54, ptr %9, align 4
   br label %55
 
@@ -3457,7 +3457,7 @@ _ZN4llvm12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 1, 9) i32 @_ZL16getDefaultFormatRKN4llvm6TripleE(i32 %.32.val, i32 %.44.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 1, 9) i32 @_ZL16getDefaultFormatRKN4llvm6TripleE.argprom(i32 %.32.val, i32 %.44.val) unnamed_addr #0 {
   switch i32 %.32.val, label %17 [
     i32 0, label %1
     i32 3, label %1
@@ -3811,7 +3811,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit53:                ; preds = %48, %51, %52
   store i32 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.val = load i32, ptr %59, align 8
-  %77 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE(i32 %.val, i32 %74)
+  %77 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE.argprom(i32 %.val, i32 %74)
   store i32 %77, ptr %76, align 4
   ret void
 }
@@ -4155,7 +4155,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit86:                ; preds = %76, %79, %80
 112:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit86
   %.val = load i32, ptr %87, align 8
   %.val11 = load i32, ptr %99, align 4
-  %113 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE(i32 %.val, i32 %.val11)
+  %113 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE.argprom(i32 %.val, i32 %.val11)
   store i32 %113, ptr %107, align 4
   br label %114
 
@@ -6437,7 +6437,7 @@ define dso_local void @_ZN4llvm6Triple14setEnvironmentENS0_15EnvironmentTypeE(pt
   %.val = load i32, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 44
   %.val2 = load i32, ptr %9, align 4
-  %10 = tail call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE(i32 %.val, i32 %.val2)
+  %10 = tail call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvm6TripleE.argprom(i32 %.val, i32 %.val2)
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %switch.lookup, label %switch.lookup36
 

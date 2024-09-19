@@ -1853,22 +1853,22 @@ entry:
   %nr = getelementptr inbounds i8, ptr %q, i64 12
   %0 = load i32, ptr %nr, align 4
   %cmp.i = icmp ugt i32 %0, 1
-  br i1 %cmp.i, label %if.then.i, label %sane_qsort.exit
+  br i1 %cmp.i, label %if.then.i, label %sane_qsort.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %conv = sext i32 %0 to i64
   %1 = load ptr, ptr %q, align 8
   tail call void @qsort(ptr noundef %1, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @depth_first) #18
   %.pre = load i32, ptr %nr, align 4
-  br label %sane_qsort.exit
+  br label %sane_qsort.argprom.exit
 
-sane_qsort.exit:                                  ; preds = %entry, %if.then.i
+sane_qsort.argprom.exit:                          ; preds = %entry, %if.then.i
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %cmp41 = icmp sgt i32 %2, 0
   br i1 %cmp41, label %for.body, label %for.end
 
-for.body:                                         ; preds = %sane_qsort.exit, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sane_qsort.exit ]
+for.body:                                         ; preds = %sane_qsort.argprom.exit, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sane_qsort.argprom.exit ]
   %3 = load ptr, ptr %q, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
@@ -2024,7 +2024,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %cmp = icmp slt i64 %indvars.iv.next, %33
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
-for.end:                                          ; preds = %for.inc, %sane_qsort.exit
+for.end:                                          ; preds = %for.inc, %sane_qsort.argprom.exit
   ret void
 }
 

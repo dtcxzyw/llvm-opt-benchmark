@@ -951,15 +951,15 @@ if.then3.i:                                       ; preds = %if.end.i135
 if.end6.i:                                        ; preds = %if.then3.i, %if.end.i135
   %expected_len.0.i = phi i1 [ %64, %if.then3.i ], [ true, %if.end.i135 ]
   %or.cond.i = select i1 %result_len.0.i, i1 %expected_len.0.i, i1 false
-  br i1 %or.cond.i, label %check_session_ticket_app_data.exit, label %if.end10.i
+  br i1 %or.cond.i, label %check_session_ticket_app_data.argprom.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
   %call13.i136 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 209, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %result.val65, ptr noundef %63) #3
   %tobool.not.i137 = icmp ne i32 %call13.i136, 0
   %..i138 = zext i1 %tobool.not.i137 to i32
-  br label %check_session_ticket_app_data.exit
+  br label %check_session_ticket_app_data.argprom.exit
 
-check_session_ticket_app_data.exit:               ; preds = %if.end6.i, %if.end10.i
+check_session_ticket_app_data.argprom.exit:       ; preds = %if.end6.i, %if.end10.i
   %retval.0.i139 = phi i32 [ 1, %if.end6.i ], [ %..i138, %if.end10.i ]
   %and23 = and i32 %retval.0.i139, %and21
   %client_resumed.i = getelementptr inbounds i8, ptr %result, i64 88
@@ -970,7 +970,7 @@ check_session_ticket_app_data.exit:               ; preds = %if.end6.i, %if.end1
   %tobool.not.i141 = icmp eq i32 %call.i140, 0
   br i1 %tobool.not.i141, label %check_resumption.exit, label %if.end.i142
 
-if.end.i142:                                      ; preds = %check_session_ticket_app_data.exit
+if.end.i142:                                      ; preds = %check_session_ticket_app_data.argprom.exit
   %67 = load i32, ptr %client_resumed.i, align 8
   %resumption_expected.i = getelementptr inbounds i8, ptr %test_ctx, i64 472
   %68 = load i32, ptr %resumption_expected.i, align 8
@@ -979,8 +979,8 @@ if.end.i142:                                      ; preds = %check_session_ticke
   %..i145 = zext i1 %tobool3.not.i144 to i32
   br label %check_resumption.exit
 
-check_resumption.exit:                            ; preds = %check_session_ticket_app_data.exit, %if.end.i142
-  %retval.0.i146 = phi i32 [ 0, %check_session_ticket_app_data.exit ], [ %..i145, %if.end.i142 ]
+check_resumption.exit:                            ; preds = %check_session_ticket_app_data.argprom.exit, %if.end.i142
+  %retval.0.i146 = phi i32 [ 0, %check_session_ticket_app_data.argprom.exit ], [ %..i145, %if.end.i142 ]
   %and25 = and i32 %and23, %retval.0.i146
   %69 = getelementptr i8, ptr %result, i64 96
   %result.val66 = load i32, ptr %69, align 8
@@ -989,7 +989,7 @@ check_resumption.exit:                            ; preds = %check_session_ticke
   %cmp.i.i = icmp eq i32 %test_ctx.val67, 0
   %cmp1.i.i = icmp eq i32 %test_ctx.val67, %result.val66
   %or.cond.i.i = or i1 %cmp.i.i, %cmp1.i.i
-  br i1 %or.cond.i.i, label %check_tmp_key.exit, label %if.end.i.i
+  br i1 %or.cond.i.i, label %check_tmp_key.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %check_resumption.exit
   %call.i.i147 = tail call ptr @OBJ_nid2ln(i32 noundef %test_ctx.val67) #3
@@ -1003,9 +1003,9 @@ cond.false.i.i:                                   ; preds = %if.end.i.i
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.end.i.i
   %cond.i.i148 = phi ptr [ %call3.i.i, %cond.false.i.i ], [ @.str.97, %if.end.i.i ]
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 230, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.95, ptr noundef %call.i.i147, ptr noundef %cond.i.i148) #3
-  br label %check_tmp_key.exit
+  br label %check_tmp_key.argprom.exit
 
-check_tmp_key.exit:                               ; preds = %check_resumption.exit, %cond.end.i.i
+check_tmp_key.argprom.exit:                       ; preds = %check_resumption.exit, %cond.end.i.i
   %retval.0.i.i = phi i32 [ 0, %cond.end.i.i ], [ 1, %check_resumption.exit ]
   %and27 = and i32 %and25, %retval.0.i.i
   %71 = getelementptr i8, ptr %result, i64 100
@@ -1015,9 +1015,9 @@ check_tmp_key.exit:                               ; preds = %check_resumption.ex
   %cmp.i.i149 = icmp eq i32 %test_ctx.val69, 0
   %cmp1.i.i150 = icmp eq i32 %test_ctx.val69, %result.val68
   %or.cond.i.i151 = or i1 %cmp.i.i149, %cmp1.i.i150
-  br i1 %or.cond.i.i151, label %check_server_cert_type.exit, label %if.end.i.i152
+  br i1 %or.cond.i.i151, label %check_server_cert_type.argprom.exit, label %if.end.i.i152
 
-if.end.i.i152:                                    ; preds = %check_tmp_key.exit
+if.end.i.i152:                                    ; preds = %check_tmp_key.argprom.exit
   %call.i.i153 = tail call ptr @OBJ_nid2ln(i32 noundef %test_ctx.val69) #3
   %cmp2.i.i154 = icmp eq i32 %result.val68, 0
   br i1 %cmp2.i.i154, label %cond.end.i.i157, label %cond.false.i.i155
@@ -1029,10 +1029,10 @@ cond.false.i.i155:                                ; preds = %if.end.i.i152
 cond.end.i.i157:                                  ; preds = %cond.false.i.i155, %if.end.i.i152
   %cond.i.i158 = phi ptr [ %call3.i.i156, %cond.false.i.i155 ], [ @.str.97, %if.end.i.i152 ]
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 230, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.98, ptr noundef %call.i.i153, ptr noundef %cond.i.i158) #3
-  br label %check_server_cert_type.exit
+  br label %check_server_cert_type.argprom.exit
 
-check_server_cert_type.exit:                      ; preds = %check_tmp_key.exit, %cond.end.i.i157
-  %retval.0.i.i159 = phi i32 [ 0, %cond.end.i.i157 ], [ 1, %check_tmp_key.exit ]
+check_server_cert_type.argprom.exit:              ; preds = %check_tmp_key.argprom.exit, %cond.end.i.i157
+  %retval.0.i.i159 = phi i32 [ 0, %cond.end.i.i157 ], [ 1, %check_tmp_key.argprom.exit ]
   %and29 = and i32 %and27, %retval.0.i.i159
   %73 = getelementptr i8, ptr %result, i64 104
   %result.val70 = load i32, ptr %73, align 8
@@ -1041,9 +1041,9 @@ check_server_cert_type.exit:                      ; preds = %check_tmp_key.exit,
   %cmp.i.i160 = icmp eq i32 %test_ctx.val71, 0
   %cmp1.i.i161 = icmp eq i32 %test_ctx.val71, %result.val70
   %or.cond.i.i162 = or i1 %cmp.i.i160, %cmp1.i.i161
-  br i1 %or.cond.i.i162, label %check_server_sign_hash.exit, label %if.end.i.i163
+  br i1 %or.cond.i.i162, label %check_server_sign_hash.argprom.exit, label %if.end.i.i163
 
-if.end.i.i163:                                    ; preds = %check_server_cert_type.exit
+if.end.i.i163:                                    ; preds = %check_server_cert_type.argprom.exit
   %call.i.i164 = tail call ptr @OBJ_nid2ln(i32 noundef %test_ctx.val71) #3
   %cmp2.i.i165 = icmp eq i32 %result.val70, 0
   br i1 %cmp2.i.i165, label %cond.end.i.i168, label %cond.false.i.i166
@@ -1055,10 +1055,10 @@ cond.false.i.i166:                                ; preds = %if.end.i.i163
 cond.end.i.i168:                                  ; preds = %cond.false.i.i166, %if.end.i.i163
   %cond.i.i169 = phi ptr [ %call3.i.i167, %cond.false.i.i166 ], [ @.str.97, %if.end.i.i163 ]
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 230, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.99, ptr noundef %call.i.i164, ptr noundef %cond.i.i169) #3
-  br label %check_server_sign_hash.exit
+  br label %check_server_sign_hash.argprom.exit
 
-check_server_sign_hash.exit:                      ; preds = %check_server_cert_type.exit, %cond.end.i.i168
-  %retval.0.i.i170 = phi i32 [ 0, %cond.end.i.i168 ], [ 1, %check_server_cert_type.exit ]
+check_server_sign_hash.argprom.exit:              ; preds = %check_server_cert_type.argprom.exit, %cond.end.i.i168
+  %retval.0.i.i170 = phi i32 [ 0, %cond.end.i.i168 ], [ 1, %check_server_cert_type.argprom.exit ]
   %and31 = and i32 %and29, %retval.0.i.i170
   %75 = getelementptr i8, ptr %result, i64 108
   %result.val72 = load i32, ptr %75, align 4
@@ -1067,9 +1067,9 @@ check_server_sign_hash.exit:                      ; preds = %check_server_cert_t
   %cmp.i.i171 = icmp eq i32 %test_ctx.val73, 0
   %cmp1.i.i172 = icmp eq i32 %test_ctx.val73, %result.val72
   %or.cond.i.i173 = or i1 %cmp.i.i171, %cmp1.i.i172
-  br i1 %or.cond.i.i173, label %check_server_sign_type.exit, label %if.end.i.i174
+  br i1 %or.cond.i.i173, label %check_server_sign_type.argprom.exit, label %if.end.i.i174
 
-if.end.i.i174:                                    ; preds = %check_server_sign_hash.exit
+if.end.i.i174:                                    ; preds = %check_server_sign_hash.argprom.exit
   %call.i.i175 = tail call ptr @OBJ_nid2ln(i32 noundef %test_ctx.val73) #3
   %cmp2.i.i176 = icmp eq i32 %result.val72, 0
   br i1 %cmp2.i.i176, label %cond.end.i.i179, label %cond.false.i.i177
@@ -1081,10 +1081,10 @@ cond.false.i.i177:                                ; preds = %if.end.i.i174
 cond.end.i.i179:                                  ; preds = %cond.false.i.i177, %if.end.i.i174
   %cond.i.i180 = phi ptr [ %call3.i.i178, %cond.false.i.i177 ], [ @.str.97, %if.end.i.i174 ]
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 230, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.100, ptr noundef %call.i.i175, ptr noundef %cond.i.i180) #3
-  br label %check_server_sign_type.exit
+  br label %check_server_sign_type.argprom.exit
 
-check_server_sign_type.exit:                      ; preds = %check_server_sign_hash.exit, %cond.end.i.i179
-  %retval.0.i.i181 = phi i32 [ 0, %cond.end.i.i179 ], [ 1, %check_server_sign_hash.exit ]
+check_server_sign_type.argprom.exit:              ; preds = %check_server_sign_hash.argprom.exit, %cond.end.i.i179
+  %retval.0.i.i181 = phi i32 [ 0, %cond.end.i.i179 ], [ 1, %check_server_sign_hash.argprom.exit ]
   %and33 = and i32 %and31, %retval.0.i.i181
   %77 = getelementptr i8, ptr %result, i64 112
   %result.val74 = load ptr, ptr %77, align 8
@@ -1099,9 +1099,9 @@ check_server_sign_type.exit:                      ; preds = %check_server_sign_h
   %cmp.i.i183 = icmp eq i32 %test_ctx.val77, 0
   %cmp1.i.i184 = icmp eq i32 %test_ctx.val77, %result.val76
   %or.cond.i.i185 = or i1 %cmp.i.i183, %cmp1.i.i184
-  br i1 %or.cond.i.i185, label %check_client_cert_type.exit, label %if.end.i.i186
+  br i1 %or.cond.i.i185, label %check_client_cert_type.argprom.exit, label %if.end.i.i186
 
-if.end.i.i186:                                    ; preds = %check_server_sign_type.exit
+if.end.i.i186:                                    ; preds = %check_server_sign_type.argprom.exit
   %call.i.i187 = tail call ptr @OBJ_nid2ln(i32 noundef %test_ctx.val77) #3
   %cmp2.i.i188 = icmp eq i32 %result.val76, 0
   br i1 %cmp2.i.i188, label %cond.end.i.i191, label %cond.false.i.i189
@@ -1113,10 +1113,10 @@ cond.false.i.i189:                                ; preds = %if.end.i.i186
 cond.end.i.i191:                                  ; preds = %cond.false.i.i189, %if.end.i.i186
   %cond.i.i192 = phi ptr [ %call3.i.i190, %cond.false.i.i189 ], [ @.str.97, %if.end.i.i186 ]
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 230, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.109, ptr noundef %call.i.i187, ptr noundef %cond.i.i192) #3
-  br label %check_client_cert_type.exit
+  br label %check_client_cert_type.argprom.exit
 
-check_client_cert_type.exit:                      ; preds = %check_server_sign_type.exit, %cond.end.i.i191
-  %retval.0.i.i193 = phi i32 [ 0, %cond.end.i.i191 ], [ 1, %check_server_sign_type.exit ]
+check_client_cert_type.argprom.exit:              ; preds = %check_server_sign_type.argprom.exit, %cond.end.i.i191
+  %retval.0.i.i193 = phi i32 [ 0, %cond.end.i.i191 ], [ 1, %check_server_sign_type.argprom.exit ]
   %and37 = and i32 %and35, %retval.0.i.i193
   %81 = getelementptr i8, ptr %result, i64 124
   %result.val78 = load i32, ptr %81, align 4
@@ -1125,9 +1125,9 @@ check_client_cert_type.exit:                      ; preds = %check_server_sign_t
   %cmp.i.i194 = icmp eq i32 %test_ctx.val79, 0
   %cmp1.i.i195 = icmp eq i32 %test_ctx.val79, %result.val78
   %or.cond.i.i196 = or i1 %cmp.i.i194, %cmp1.i.i195
-  br i1 %or.cond.i.i196, label %check_client_sign_hash.exit, label %if.end.i.i197
+  br i1 %or.cond.i.i196, label %check_client_sign_hash.argprom.exit, label %if.end.i.i197
 
-if.end.i.i197:                                    ; preds = %check_client_cert_type.exit
+if.end.i.i197:                                    ; preds = %check_client_cert_type.argprom.exit
   %call.i.i198 = tail call ptr @OBJ_nid2ln(i32 noundef %test_ctx.val79) #3
   %cmp2.i.i199 = icmp eq i32 %result.val78, 0
   br i1 %cmp2.i.i199, label %cond.end.i.i202, label %cond.false.i.i200
@@ -1139,10 +1139,10 @@ cond.false.i.i200:                                ; preds = %if.end.i.i197
 cond.end.i.i202:                                  ; preds = %cond.false.i.i200, %if.end.i.i197
   %cond.i.i203 = phi ptr [ %call3.i.i201, %cond.false.i.i200 ], [ @.str.97, %if.end.i.i197 ]
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 230, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.110, ptr noundef %call.i.i198, ptr noundef %cond.i.i203) #3
-  br label %check_client_sign_hash.exit
+  br label %check_client_sign_hash.argprom.exit
 
-check_client_sign_hash.exit:                      ; preds = %check_client_cert_type.exit, %cond.end.i.i202
-  %retval.0.i.i204 = phi i32 [ 0, %cond.end.i.i202 ], [ 1, %check_client_cert_type.exit ]
+check_client_sign_hash.argprom.exit:              ; preds = %check_client_cert_type.argprom.exit, %cond.end.i.i202
+  %retval.0.i.i204 = phi i32 [ 0, %cond.end.i.i202 ], [ 1, %check_client_cert_type.argprom.exit ]
   %and39 = and i32 %and37, %retval.0.i.i204
   %83 = getelementptr i8, ptr %result, i64 128
   %result.val80 = load i32, ptr %83, align 8
@@ -1151,9 +1151,9 @@ check_client_sign_hash.exit:                      ; preds = %check_client_cert_t
   %cmp.i.i205 = icmp eq i32 %test_ctx.val81, 0
   %cmp1.i.i206 = icmp eq i32 %test_ctx.val81, %result.val80
   %or.cond.i.i207 = or i1 %cmp.i.i205, %cmp1.i.i206
-  br i1 %or.cond.i.i207, label %check_client_sign_type.exit, label %if.end.i.i208
+  br i1 %or.cond.i.i207, label %check_client_sign_type.argprom.exit, label %if.end.i.i208
 
-if.end.i.i208:                                    ; preds = %check_client_sign_hash.exit
+if.end.i.i208:                                    ; preds = %check_client_sign_hash.argprom.exit
   %call.i.i209 = tail call ptr @OBJ_nid2ln(i32 noundef %test_ctx.val81) #3
   %cmp2.i.i210 = icmp eq i32 %result.val80, 0
   br i1 %cmp2.i.i210, label %cond.end.i.i213, label %cond.false.i.i211
@@ -1165,10 +1165,10 @@ cond.false.i.i211:                                ; preds = %if.end.i.i208
 cond.end.i.i213:                                  ; preds = %cond.false.i.i211, %if.end.i.i208
   %cond.i.i214 = phi ptr [ %call3.i.i212, %cond.false.i.i211 ], [ @.str.97, %if.end.i.i208 ]
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 230, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.111, ptr noundef %call.i.i209, ptr noundef %cond.i.i214) #3
-  br label %check_client_sign_type.exit
+  br label %check_client_sign_type.argprom.exit
 
-check_client_sign_type.exit:                      ; preds = %check_client_sign_hash.exit, %cond.end.i.i213
-  %retval.0.i.i215 = phi i32 [ 0, %cond.end.i.i213 ], [ 1, %check_client_sign_hash.exit ]
+check_client_sign_type.argprom.exit:              ; preds = %check_client_sign_hash.argprom.exit, %cond.end.i.i213
+  %retval.0.i.i215 = phi i32 [ 0, %cond.end.i.i213 ], [ 1, %check_client_sign_hash.argprom.exit ]
   %and41 = and i32 %and39, %retval.0.i.i215
   %85 = getelementptr i8, ptr %result, i64 136
   %result.val82 = load ptr, ptr %85, align 8
@@ -1178,8 +1178,8 @@ check_client_sign_type.exit:                      ; preds = %check_client_sign_h
   %and43 = and i32 %and41, %call.i216
   br label %if.end
 
-if.end:                                           ; preds = %check_client_sign_type.exit, %check_alerts.exit
-  %ret.0 = phi i32 [ %and43, %check_client_sign_type.exit ], [ %and2, %check_alerts.exit ]
+if.end:                                           ; preds = %check_client_sign_type.argprom.exit, %check_alerts.exit
+  %ret.0 = phi i32 [ %and43, %check_client_sign_type.argprom.exit ], [ %and2, %check_alerts.exit ]
   ret i32 %ret.0
 }
 

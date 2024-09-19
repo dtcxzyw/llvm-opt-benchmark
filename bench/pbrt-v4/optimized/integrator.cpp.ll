@@ -4037,9 +4037,9 @@ invoke.cont89:                                    ; preds = %if.end87
   %useGPU.i81 = getelementptr inbounds i8, ptr %59, i64 10
   %60 = load i8, ptr %useGPU.i81, align 2
   %tobool.i82 = trunc i8 %60 to i1
-  br i1 %tobool.i82, label %if.then.i211.invoke, label %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit"
+  br i1 %tobool.i82, label %if.then.i211.invoke, label %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit"
 
-"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit": ; preds = %invoke.cont89
+"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit": ; preds = %invoke.cont89
   %61 = load atomic i32, ptr %size.i.i.i monotonic, align 4
   %conv.i.i = sext i32 %61 to i64
   %62 = load ptr, ptr %stats.i.i, align 8
@@ -4052,10 +4052,10 @@ invoke.cont89:                                    ; preds = %if.end87
   %tobool.i88301 = trunc i8 %65 to i1
   br i1 %tobool.i88301, label %if.then.i211.invoke, label %if.else.i
 
-if.else.i:                                        ; preds = %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit", %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit" ]
-  %arrayidx.i303 = phi ptr [ %arrayidx.i, %for.inc ], [ %arrayidx.i299, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit" ]
-  %66 = phi i32 [ %145, %for.inc ], [ 0, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit" ]
+if.else.i:                                        ; preds = %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit", %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit" ]
+  %arrayidx.i303 = phi ptr [ %arrayidx.i, %for.inc ], [ %arrayidx.i299, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit" ]
+  %66 = phi i32 [ %145, %for.inc ], [ 0, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit" ]
   %67 = load ptr, ptr %arrayidx.i303, align 8
   %size.i.i.i89 = getelementptr inbounds i8, ptr %67, i64 400
   store atomic i32 0, ptr %size.i.i.i89 monotonic, align 4
@@ -4190,9 +4190,9 @@ if.then108:                                       ; preds = %invoke.cont106
   %useGPU.i106 = getelementptr inbounds i8, ptr %88, i64 10
   %89 = load i8, ptr %useGPU.i106, align 2
   %tobool.i107 = trunc i8 %89 to i1
-  br i1 %tobool.i107, label %if.then.i211.invoke, label %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_4EEvPKcOT_.exit"
+  br i1 %tobool.i107, label %if.then.i211.invoke, label %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_4EEvPKcOT_.argprom.exit"
 
-"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_4EEvPKcOT_.exit": ; preds = %if.then108
+"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_4EEvPKcOT_.argprom.exit": ; preds = %if.then108
   %90 = load ptr, ptr %arrayidx.i97, align 8
   %size.i.i.i109 = getelementptr inbounds i8, ptr %90, i64 400
   %91 = load atomic i32, ptr %size.i.i.i109 monotonic, align 4
@@ -4206,7 +4206,7 @@ if.then108:                                       ; preds = %invoke.cont106
   store i64 %add.i.i112, ptr %arrayidx.i.i.i, align 8
   br label %if.end113
 
-if.end113:                                        ; preds = %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_4EEvPKcOT_.exit", %invoke.cont106
+if.end113:                                        ; preds = %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_4EEvPKcOT_.argprom.exit", %invoke.cont106
   invoke void @_ZN4pbrt23WavefrontPathIntegrator23SampleMediumInteractionEi(ptr noundef nonnull align 8 dereferenceable(648) %this, i32 noundef %77)
           to label %invoke.cont114 unwind label %lpad68.loopexit
 
@@ -4281,11 +4281,11 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i.i, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   %106 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %106, null
-  br i1 %tobool.not.i.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit.i", label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   %call.i.i.i.i = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i32 noundef 3)
-          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit.i" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %107 = landingpad { ptr, i32 }
@@ -4310,12 +4310,12 @@ terminate.lpad.i.i6.i.i:                          ; preds = %if.then.i.i4.i.i
   call void @__clang_call_terminate(ptr %111) #26
   unreachable
 
-"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit.i": ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
+"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit.i": ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   br label %invoke.cont115
 
-invoke.cont115:                                   ; preds = %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit.i", %invoke.cont114
+invoke.cont115:                                   ; preds = %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit.i", %invoke.cont114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i115)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i125)
   %112 = load ptr, ptr %hitAreaLightQueue.i.i, align 8
@@ -4622,9 +4622,9 @@ if.then181:                                       ; preds = %invoke.cont175
   %tobool.i195 = trunc i8 %165 to i1
   br i1 %tobool.i195, label %if.then.i211.invoke, label %if.else.i196
 
-if.then.i211.invoke:                              ; preds = %if.then181, %for.body73, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit", %invoke.cont89, %.noexc167, %invoke.cont115, %if.end.i, %if.then108, %for.inc
-  %166 = phi ptr [ @.str.82, %for.inc ], [ @.str.82, %if.then108 ], [ @.str.85, %if.end.i ], [ @.str.85, %invoke.cont115 ], [ @.str.82, %.noexc167 ], [ @.str.82, %invoke.cont89 ], [ @.str.82, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit" ], [ @.str.82, %for.body73 ], [ @.str.82, %if.then181 ]
-  %167 = phi i32 [ 109, %for.inc ], [ 109, %if.then108 ], [ 130, %if.end.i ], [ 130, %invoke.cont115 ], [ 109, %.noexc167 ], [ 109, %invoke.cont89 ], [ 109, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.exit" ], [ 109, %for.body73 ], [ 97, %if.then181 ]
+if.then.i211.invoke:                              ; preds = %if.then181, %for.body73, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit", %invoke.cont89, %.noexc167, %invoke.cont115, %if.end.i, %if.then108, %for.inc
+  %166 = phi ptr [ @.str.82, %for.inc ], [ @.str.82, %if.then108 ], [ @.str.85, %if.end.i ], [ @.str.85, %invoke.cont115 ], [ @.str.82, %.noexc167 ], [ @.str.82, %invoke.cont89 ], [ @.str.82, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit" ], [ @.str.82, %for.body73 ], [ @.str.82, %if.then181 ]
+  %167 = phi i32 [ 109, %for.inc ], [ 109, %if.then108 ], [ 130, %if.end.i ], [ 130, %invoke.cont115 ], [ 109, %.noexc167 ], [ 109, %invoke.cont89 ], [ 109, %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_6RenderEvE3$_2EEvPKcOT_.argprom.exit" ], [ 109, %for.body73 ], [ 97, %if.then181 ]
   invoke void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull %166, i32 noundef %167, ptr noundef nonnull @.str.13) #30
           to label %if.then.i211.cont unwind label %lpad68.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4695,11 +4695,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i206,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i193)
   %175 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i209 = icmp eq ptr %175, null
-  br i1 %tobool.not.i.i.i209, label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.exit", label %if.then.i.i.i210
+  br i1 %tobool.not.i.i.i209, label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.argprom.exit", label %if.then.i.i.i210
 
 if.then.i.i.i210:                                 ; preds = %invoke.cont.i
   %call.i.i.i = invoke noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
-          to label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.argprom.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i210
   %176 = landingpad { ptr, i32 }
@@ -4724,11 +4724,11 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
   call void @__clang_call_terminate(ptr %180) #26
   unreachable
 
-"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.exit": ; preds = %invoke.cont.i, %if.then.i.i.i210
+"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i.i210
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   br label %for.inc190
 
-for.inc190:                                       ; preds = %if.end138, %invoke.cont175, %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.exit"
+for.inc190:                                       ; preds = %if.end138, %invoke.cont175, %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.argprom.exit"
   call void @_ZN4pbrt18CheckCallbackScopeD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %_) #27
   %181 = load i32, ptr %sampleIndex, align 4
   %inc191 = add nsw i32 %181, 1
@@ -5205,11 +5205,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %13 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit", label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %call.i.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
-          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %14 = landingpad { ptr, i32 }
@@ -5237,12 +5237,12 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
 _ZNSt8functionIFvlEED2Ev.exit7.i:                 ; preds = %if.then.i.i4.i, %lpad.body.i
   resume { ptr, i32 } %9
 
-"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
+"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.addr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   br label %return
 
-return:                                           ; preds = %entry, %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit"
+return:                                           ; preds = %entry, %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS_18EscapedRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit"
   ret void
 }
 
@@ -5330,11 +5330,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %13 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS_20HitAreaLightWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit", label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS_20HitAreaLightWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %call.i.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
-          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS_20HitAreaLightWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS_20HitAreaLightWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %14 = landingpad { ptr, i32 }
@@ -5362,7 +5362,7 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
 _ZNSt8functionIFvlEED2Ev.exit7.i:                 ; preds = %if.then.i.i4.i, %lpad.body.i
   resume { ptr, i32 } %9
 
-"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS_20HitAreaLightWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
+"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS_20HitAreaLightWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.addr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   ret void
@@ -5392,13 +5392,13 @@ entry:
   %useGPU.i = getelementptr inbounds i8, ptr %5, i64 10
   %6 = load i8, ptr %useGPU.i, align 2
   %tobool.i = trunc i8 %6 to i1
-  br i1 %tobool.i, label %if.then.i, label %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_15TraceShadowRaysEiE3$_0EEvPKcOT_.exit"
+  br i1 %tobool.i, label %if.then.i, label %"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_15TraceShadowRaysEiE3$_0EEvPKcOT_.argprom.exit"
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.82, i32 noundef 109, ptr noundef nonnull @.str.13) #30
   unreachable
 
-"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_15TraceShadowRaysEiE3$_0EEvPKcOT_.exit": ; preds = %entry
+"_ZN4pbrt23WavefrontPathIntegrator2DoIZNS0_15TraceShadowRaysEiE3$_0EEvPKcOT_.argprom.exit": ; preds = %entry
   %shadowRayQueue.i.i = getelementptr inbounds i8, ptr %this, i64 592
   %7 = load ptr, ptr %shadowRayQueue.i.i, align 8
   %size.i.i.i = getelementptr inbounds i8, ptr %7, i64 224
@@ -5522,11 +5522,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %12 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i, label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_25UpdateFramebufferFromFilmENS_7Bounds2IiEEfPNS_3RGBEE3$_0EEvPKciOT_.exit", label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_25UpdateFramebufferFromFilmENS_7Bounds2IiEEfPNS_3RGBEE3$_0EEvPKciOT_.argprom.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %call.i.i.i = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
-          to label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_25UpdateFramebufferFromFilmENS_7Bounds2IiEEfPNS_3RGBEE3$_0EEvPKciOT_.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_25UpdateFramebufferFromFilmENS_7Bounds2IiEEfPNS_3RGBEE3$_0EEvPKciOT_.argprom.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -5554,7 +5554,7 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
 _ZNSt8functionIFvlEED2Ev.exit7.i:                 ; preds = %if.then.i.i4.i, %lpad.body.i
   resume { ptr, i32 } %8
 
-"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_25UpdateFramebufferFromFilmENS_7Bounds2IiEEfPNS_3RGBEE3$_0EEvPKciOT_.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
+"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_25UpdateFramebufferFromFilmENS_7Bounds2IiEEfPNS_3RGBEE3$_0EEvPKciOT_.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   ret void
 }
@@ -19989,7 +19989,7 @@ entry:
   %call.val = load ptr, ptr %__functor, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRiJS2_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.81, ptr noundef nonnull align 4 dereferenceable(4) %call.val, ptr noundef nonnull align 4 dereferenceable(4) %call.val)
-          to label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt23WavefrontPathIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit" unwind label %lpad.i.i.i.i
+          to label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt23WavefrontPathIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit" unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -19997,7 +19997,7 @@ lpad.i.i.i.i:                                     ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
   resume { ptr, i32 } %0
 
-"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt23WavefrontPathIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %entry
+"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt23WavefrontPathIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %entry
   ret void
 }
 
@@ -21080,7 +21080,7 @@ for.body.i120.i.i.i.i:                            ; preds = %for.body.i120.i.i.i
   br i1 %or.cond.i126.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit127.i.i.i.i, label %for.body.i120.i.i.i.i, !llvm.loop !76
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit127.i.i.i.i:  ; preds = %for.body.i120.i.i.i.i
-  br i1 %cmp2.i123.i.i.i.i, label %if.then52.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS0_18EscapedRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
+  br i1 %cmp2.i123.i.i.i.i, label %if.then52.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS0_18EscapedRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
 
 if.then52.i.i.i.i:                                ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit127.i.i.i.i
   %91 = load i32, ptr %agg.tmp.sroa.10.0.agg.tmp1.sroa_idx.i.i.i, align 4
@@ -21114,9 +21114,9 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit137.i.i.i.i: ; preds = %for.body.i130.i.i.
   %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i = shufflevector <4 x float> %96, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, align 16
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS0_18EscapedRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS0_18EscapedRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS0_18EscapedRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit": ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit127.i.i.i.i, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit137.i.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS0_18EscapedRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit": ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit127.i.i.i.i, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit137.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 164, ptr nonnull %agg.tmp1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %L.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %Le.i.i.i.i)
@@ -23237,7 +23237,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %or.cond.i.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !76
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i:     ; preds = %for.body.i.i.i.i.i
-  br i1 %cmp2.i.i.i.i.i, label %if.end.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS0_20HitAreaLightWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
+  br i1 %cmp2.i.i.i.i.i, label %if.end.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS0_20HitAreaLightWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %L.i.i.i.i, i8 0, i64 16, i1 false)
@@ -23533,9 +23533,9 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit.i.i.i.i:   ; preds = %for.body.i87.i.i.i.
   %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i = shufflevector <4 x float> %99, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, align 16
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS0_20HitAreaLightWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS0_20HitAreaLightWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS0_20HitAreaLightWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit": ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit.i.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS0_20HitAreaLightWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit": ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %Le.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %L.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ctx.i.i.i.i)
@@ -24385,7 +24385,7 @@ entry:
   %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i77.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
   %cmp4.i.i77.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i77.i.not1.i.i
-  br i1 %cmp4.i.i77.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp4.i.i77.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 16
@@ -24636,9 +24636,9 @@ for.end.i.i.i:                                    ; preds = %_ZN4pbrt3RGBixEi.ex
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin2.sroa.0.1.i.i.i, %b.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin2.sroa.7.1.i.i.i, %1
   %36 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %36, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+  br i1 %36, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %for.end.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %for.end.i.i.i, %entry
   ret void
 }
 
@@ -24928,7 +24928,7 @@ _ZNK4pbrt7RGBFilm11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i: ; preds = %_ZN4pbrt3R
   %outputRGBFromSensorRGB.i45.i.i.i = getelementptr inbounds i8, ptr %6, i64 100
   %call.i.i46.i.i.i = call { <2 x float>, float } @_ZN4pbrt3MulINS_3RGBELi3ES1_EET_RKNS_12SquareMatrixIXT0_EEERKT1_(ptr noundef nonnull align 4 dereferenceable(36) %outputRGBFromSensorRGB.i45.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %retval.i6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %retval.i6.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
 
 sw.bb3.i.i.i.i.i.i:                               ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %retval.i.i.i.i)
@@ -25015,7 +25015,7 @@ _ZNK4pbrt11GBufferFilm11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i: ; preds = %_ZN4p
   %outputRGBFromSensorRGB.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 836
   %call.i.i.i.i.i = call { <2 x float>, float } @_ZN4pbrt3MulINS_3RGBELi3ES1_EET_RKNS_12SquareMatrixIXT0_EEERKT1_(ptr noundef nonnull align 4 dereferenceable(36) %outputRGBFromSensorRGB.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %retval.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %retval.i.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
 
 sw.default.i.i.i.i.i.i:                           ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %add.i.i.i.i to i64
@@ -25023,9 +25023,9 @@ sw.default.i.i.i.i.i.i:                           ; preds = %entry
   %retval.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i, 32
   %retval.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i.i
   %call.i9.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt12SpectralFilm11GetPixelRGBENS_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(180) %6, i64 %retval.sroa.0.0.insert.insert.i.i.i.i, float noundef 1.000000e+00)
-  br label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %_ZNK4pbrt7RGBFilm11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i, %_ZNK4pbrt11GBufferFilm11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i, %sw.default.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %_ZNK4pbrt7RGBFilm11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i, %_ZNK4pbrt11GBufferFilm11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i, %sw.default.i.i.i.i.i.i
   %call6.pn.i.i.i.i.i.i = phi { <2 x float>, float } [ %call.i9.i.i.i.i.i.i, %sw.default.i.i.i.i.i.i ], [ %call.i.i.i.i.i, %_ZNK4pbrt11GBufferFilm11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i ], [ %call.i.i46.i.i.i, %_ZNK4pbrt7RGBFilm11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i ]
   %call10.fca.0.extract.i.i.i = extractvalue { <2 x float>, float } %call6.pn.i.i.i.i.i.i, 0
   %call10.fca.1.extract.i.i.i = extractvalue { <2 x float>, float } %call6.pn.i.i.i.i.i.i, 1

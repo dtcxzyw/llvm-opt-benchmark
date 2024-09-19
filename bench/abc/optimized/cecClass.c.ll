@@ -4370,7 +4370,7 @@ define range(i32 0, 2) i32 @Cec_ManSimClassesPrepare(ptr noundef %0, i32 noundef
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
   %.not.i.not.i.i.i = icmp slt i64 %indvars.iv164, %76
-  br i1 %.not.i.not.i.i.i, label %Gia_ObjLevel.exit, label %77
+  br i1 %.not.i.not.i.i.i, label %Gia_ObjLevel.argprom.exit, label %77
 
 77:                                               ; preds = %71
   %78 = load i32, ptr %.val128, align 8
@@ -4456,9 +4456,9 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.si
 ._crit_edge.i.i.i.i:                              ; preds = %106, %Vec_IntGrow.exit.i.i.i.i
   %109 = trunc nuw nsw i64 %73 to i32
   store i32 %109, ptr %74, align 4
-  br label %Gia_ObjLevel.exit
+  br label %Gia_ObjLevel.argprom.exit
 
-Gia_ObjLevel.exit:                                ; preds = %71, %._crit_edge.i.i.i.i
+Gia_ObjLevel.argprom.exit:                        ; preds = %71, %._crit_edge.i.i.i.i
   %110 = getelementptr i8, ptr %.val128, i64 8
   %.val.i.i.i = load ptr, ptr %110, align 8
   %sext.i = shl nuw nsw i64 %indvars.iv164, 2
@@ -4468,9 +4468,9 @@ Gia_ObjLevel.exit:                                ; preds = %71, %._crit_edge.i.
   %113 = select i1 %.not94, i32 268435455, i32 0
   br label %114
 
-114:                                              ; preds = %._crit_edge176, %Gia_ObjLevel.exit
-  %indvars.iv.next165.pre-phi = phi i64 [ %.pre177, %._crit_edge176 ], [ %73, %Gia_ObjLevel.exit ]
-  %115 = phi i32 [ 268435455, %._crit_edge176 ], [ %113, %Gia_ObjLevel.exit ]
+114:                                              ; preds = %._crit_edge176, %Gia_ObjLevel.argprom.exit
+  %indvars.iv.next165.pre-phi = phi i64 [ %.pre177, %._crit_edge176 ], [ %73, %Gia_ObjLevel.argprom.exit ]
+  %115 = phi i32 [ 268435455, %._crit_edge176 ], [ %113, %Gia_ObjLevel.argprom.exit ]
   %116 = getelementptr i8, ptr %64, i64 192
   %.val107 = load ptr, ptr %116, align 8
   %117 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val107, i64 %indvars.iv164

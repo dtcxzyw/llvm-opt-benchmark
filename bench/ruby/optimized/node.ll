@@ -189,7 +189,7 @@ define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noun
   %20 = getelementptr inbounds i8, ptr %8, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = icmp ugt i64 %19, %21
-  br i1 %22, label %23, label %ast_newnode_in_bucket.exit
+  br i1 %22, label %23, label %ast_newnode_in_bucket.argprom.exit
 
 23:                                               ; preds = %4
   %24 = shl i64 %21, 1
@@ -210,9 +210,9 @@ define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noun
   store ptr %25, ptr %7, align 8
   %.pre.i = load i64, ptr %27, align 8
   %.pre = add i64 %.pre.i, %2
-  br label %ast_newnode_in_bucket.exit
+  br label %ast_newnode_in_bucket.argprom.exit
 
-ast_newnode_in_bucket.exit:                       ; preds = %4, %23
+ast_newnode_in_bucket.argprom.exit:               ; preds = %4, %23
   %.pre-phi = phi i64 [ %18, %4 ], [ %.pre, %23 ]
   %34 = phi i64 [ %11, %4 ], [ %.pre.i, %23 ]
   %35 = phi ptr [ %8, %4 ], [ %25, %23 ]
@@ -341,14 +341,14 @@ define dso_local void @rb_ast_mark_and_move(ptr noundef %0, i1 noundef zeroext %
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %.01.i = load ptr, ptr %8, align 8
   %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %iterate_node_values.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %iterate_node_values.argprom.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %5, %iterate_buffer_elements.exit.i
-  %.03.i = phi ptr [ %.0.i, %iterate_buffer_elements.exit.i ], [ %.01.i, %5 ]
+.lr.ph.i:                                         ; preds = %5, %iterate_buffer_elements.argprom.exit.i
+  %.03.i = phi ptr [ %.0.i, %iterate_buffer_elements.argprom.exit.i ], [ %.01.i, %5 ]
   %9 = getelementptr inbounds i8, ptr %.03.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %.lr.ph.i.i, label %iterate_buffer_elements.exit.i
+  br i1 %11, label %.lr.ph.i.i, label %iterate_buffer_elements.argprom.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %.03.i, i64 32
@@ -376,24 +376,24 @@ mark_and_move_ast_value.exit:                     ; preds = %13
   tail call void @rb_gc_mark_and_move(ptr noundef nonnull %23) #12
   %24 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %24, %10
-  br i1 %exitcond.not.i.i, label %iterate_buffer_elements.exit.i, label %13, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %iterate_buffer_elements.argprom.exit.i, label %13, !llvm.loop !7
 
-iterate_buffer_elements.exit.i:                   ; preds = %mark_and_move_ast_value.exit, %.lr.ph.i
+iterate_buffer_elements.argprom.exit.i:           ; preds = %mark_and_move_ast_value.exit, %.lr.ph.i
   %.0.i = load ptr, ptr %.03.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %iterate_node_values.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %iterate_node_values.argprom.exit, label %.lr.ph.i, !llvm.loop !9
 
-iterate_node_values.exit:                         ; preds = %iterate_buffer_elements.exit.i, %5
+iterate_node_values.argprom.exit:                 ; preds = %iterate_buffer_elements.argprom.exit.i, %5
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
   %.not7 = icmp eq i64 %26, 0
   br i1 %.not7, label %28, label %27
 
-27:                                               ; preds = %iterate_node_values.exit
+27:                                               ; preds = %iterate_node_values.argprom.exit
   tail call void @rb_gc_mark_and_move(ptr noundef nonnull %25) #12
   br label %28
 
-28:                                               ; preds = %iterate_node_values.exit, %27, %2
+28:                                               ; preds = %iterate_node_values.argprom.exit, %27, %2
   ret void
 }
 
@@ -409,14 +409,14 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
 4:                                                ; preds = %1
   %.01.i.i = load ptr, ptr %3, align 8
   %.not2.i.i = icmp eq ptr %.01.i.i, null
-  br i1 %.not2.i.i, label %iterate_node_values.exit.i, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %iterate_node_values.argprom.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %4, %iterate_buffer_elements.exit.i.i
-  %.03.i.i = phi ptr [ %.0.i.i, %iterate_buffer_elements.exit.i.i ], [ %.01.i.i, %4 ]
+.lr.ph.i.i:                                       ; preds = %4, %iterate_buffer_elements.argprom.exit.i.i
+  %.03.i.i = phi ptr [ %.0.i.i, %iterate_buffer_elements.argprom.exit.i.i ], [ %.01.i.i, %4 ]
   %5 = getelementptr inbounds i8, ptr %.03.i.i, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %.lr.ph.i.i.i, label %iterate_buffer_elements.exit.i.i
+  br i1 %7, label %.lr.ph.i.i.i, label %iterate_buffer_elements.argprom.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
   %8 = getelementptr inbounds i8, ptr %.03.i.i, i64 32
@@ -592,26 +592,26 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
 free_ast_value.exit.i:                            ; preds = %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %9
   %83 = add nuw nsw i64 %.01.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %83, %6
-  br i1 %exitcond.not.i.i.i, label %iterate_buffer_elements.exit.i.i, label %9, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %iterate_buffer_elements.argprom.exit.i.i, label %9, !llvm.loop !7
 
-iterate_buffer_elements.exit.i.i:                 ; preds = %free_ast_value.exit.i, %.lr.ph.i.i
+iterate_buffer_elements.argprom.exit.i.i:         ; preds = %free_ast_value.exit.i, %.lr.ph.i.i
   %.0.i.i = load ptr, ptr %.03.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %iterate_node_values.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %iterate_node_values.argprom.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !9
 
-iterate_node_values.exit.loopexit.i:              ; preds = %iterate_buffer_elements.exit.i.i
+iterate_node_values.argprom.exit.loopexit.i:      ; preds = %iterate_buffer_elements.argprom.exit.i.i
   %.pre.i = load ptr, ptr %3, align 8
-  br label %iterate_node_values.exit.i
+  br label %iterate_node_values.argprom.exit.i
 
-iterate_node_values.exit.i:                       ; preds = %iterate_node_values.exit.loopexit.i, %4
-  %84 = phi ptr [ %.pre.i, %iterate_node_values.exit.loopexit.i ], [ null, %4 ]
+iterate_node_values.argprom.exit.i:               ; preds = %iterate_node_values.argprom.exit.loopexit.i, %4
+  %84 = phi ptr [ %.pre.i, %iterate_node_values.argprom.exit.loopexit.i ], [ null, %4 ]
   %85 = getelementptr inbounds i8, ptr %3, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not1.i.i = icmp eq ptr %84, %86
-  br i1 %.not1.i.i, label %node_buffer_list_free.exit.i, label %.lr.ph.i12.i
+  br i1 %.not1.i.i, label %node_buffer_list_free.argprom.exit.i, label %.lr.ph.i12.i
 
-.lr.ph.i12.i:                                     ; preds = %iterate_node_values.exit.i, %.lr.ph.i12.i
-  %.02.i.i = phi ptr [ %89, %.lr.ph.i12.i ], [ %84, %iterate_node_values.exit.i ]
+.lr.ph.i12.i:                                     ; preds = %iterate_node_values.argprom.exit.i, %.lr.ph.i12.i
+  %.02.i.i = phi ptr [ %89, %.lr.ph.i12.i ], [ %84, %iterate_node_values.argprom.exit.i ]
   %87 = getelementptr inbounds i8, ptr %.02.i.i, i64 32
   %88 = load ptr, ptr %87, align 8
   tail call void @ruby_xfree(ptr noundef %88) #12
@@ -619,10 +619,10 @@ iterate_node_values.exit.i:                       ; preds = %iterate_node_values
   tail call void @ruby_xfree(ptr noundef nonnull %.02.i.i) #12
   %90 = load ptr, ptr %85, align 8
   %.not.i13.i = icmp eq ptr %89, %90
-  br i1 %.not.i13.i, label %node_buffer_list_free.exit.i, label %.lr.ph.i12.i, !llvm.loop !10
+  br i1 %.not.i13.i, label %node_buffer_list_free.argprom.exit.i, label %.lr.ph.i12.i, !llvm.loop !10
 
-node_buffer_list_free.exit.i:                     ; preds = %.lr.ph.i12.i, %iterate_node_values.exit.i
-  %.0.lcssa.i.i = phi ptr [ %84, %iterate_node_values.exit.i ], [ %89, %.lr.ph.i12.i ]
+node_buffer_list_free.argprom.exit.i:             ; preds = %.lr.ph.i12.i, %iterate_node_values.argprom.exit.i
+  %.0.lcssa.i.i = phi ptr [ %84, %iterate_node_values.argprom.exit.i ], [ %89, %.lr.ph.i12.i ]
   %91 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 32
   %92 = load ptr, ptr %91, align 8
   tail call void @ruby_xfree(ptr noundef %92) #12
@@ -631,10 +631,10 @@ node_buffer_list_free.exit.i:                     ; preds = %.lr.ph.i12.i, %iter
   %95 = getelementptr inbounds i8, ptr %3, i64 24
   %96 = load ptr, ptr %95, align 8
   %.not1.i14.i = icmp eq ptr %94, %96
-  br i1 %.not1.i14.i, label %node_buffer_list_free.exit19.i, label %.lr.ph.i15.i
+  br i1 %.not1.i14.i, label %node_buffer_list_free.argprom.exit19.i, label %.lr.ph.i15.i
 
-.lr.ph.i15.i:                                     ; preds = %node_buffer_list_free.exit.i, %.lr.ph.i15.i
-  %.02.i16.i = phi ptr [ %99, %.lr.ph.i15.i ], [ %94, %node_buffer_list_free.exit.i ]
+.lr.ph.i15.i:                                     ; preds = %node_buffer_list_free.argprom.exit.i, %.lr.ph.i15.i
+  %.02.i16.i = phi ptr [ %99, %.lr.ph.i15.i ], [ %94, %node_buffer_list_free.argprom.exit.i ]
   %97 = getelementptr inbounds i8, ptr %.02.i16.i, i64 32
   %98 = load ptr, ptr %97, align 8
   tail call void @ruby_xfree(ptr noundef %98) #12
@@ -642,31 +642,31 @@ node_buffer_list_free.exit.i:                     ; preds = %.lr.ph.i12.i, %iter
   tail call void @ruby_xfree(ptr noundef nonnull %.02.i16.i) #12
   %100 = load ptr, ptr %95, align 8
   %.not.i17.i = icmp eq ptr %99, %100
-  br i1 %.not.i17.i, label %node_buffer_list_free.exit19.i, label %.lr.ph.i15.i, !llvm.loop !10
+  br i1 %.not.i17.i, label %node_buffer_list_free.argprom.exit19.i, label %.lr.ph.i15.i, !llvm.loop !10
 
-node_buffer_list_free.exit19.i:                   ; preds = %.lr.ph.i15.i, %node_buffer_list_free.exit.i
-  %.0.lcssa.i18.i = phi ptr [ %94, %node_buffer_list_free.exit.i ], [ %99, %.lr.ph.i15.i ]
+node_buffer_list_free.argprom.exit19.i:           ; preds = %.lr.ph.i15.i, %node_buffer_list_free.argprom.exit.i
+  %.0.lcssa.i18.i = phi ptr [ %94, %node_buffer_list_free.argprom.exit.i ], [ %99, %.lr.ph.i15.i ]
   %101 = getelementptr inbounds i8, ptr %.0.lcssa.i18.i, i64 32
   %102 = load ptr, ptr %101, align 8
   tail call void @ruby_xfree(ptr noundef %102) #12
   %103 = getelementptr inbounds i8, ptr %3, i64 32
   %104 = load ptr, ptr %103, align 8
   %.not2.i = icmp eq ptr %104, null
-  br i1 %.not2.i, label %rb_node_buffer_free.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %rb_node_buffer_free.argprom.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %node_buffer_list_free.exit19.i, %.lr.ph.i
-  %.03.i = phi ptr [ %105, %.lr.ph.i ], [ %104, %node_buffer_list_free.exit19.i ]
+.lr.ph.i:                                         ; preds = %node_buffer_list_free.argprom.exit19.i, %.lr.ph.i
+  %.03.i = phi ptr [ %105, %.lr.ph.i ], [ %104, %node_buffer_list_free.argprom.exit19.i ]
   %105 = load ptr, ptr %.03.i, align 8
   tail call void @ruby_xfree(ptr noundef nonnull %.03.i) #12
   %.not.i = icmp eq ptr %105, null
-  br i1 %.not.i, label %rb_node_buffer_free.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %rb_node_buffer_free.argprom.exit, label %.lr.ph.i, !llvm.loop !11
 
-rb_node_buffer_free.exit:                         ; preds = %.lr.ph.i, %node_buffer_list_free.exit19.i
+rb_node_buffer_free.argprom.exit:                 ; preds = %.lr.ph.i, %node_buffer_list_free.argprom.exit19.i
   tail call void @ruby_xfree(ptr noundef nonnull %3) #12
   store ptr null, ptr %2, align 8
   br label %106
 
-106:                                              ; preds = %rb_node_buffer_free.exit, %1
+106:                                              ; preds = %rb_node_buffer_free.argprom.exit, %1
   ret void
 }
 
@@ -754,14 +754,14 @@ define dso_local void @rb_ast_set_tokens(ptr noundef %0, i64 noundef %1) local_u
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %1, 0
   %9 = or i1 %8, %7
-  br i1 %9, label %rb_obj_write.exit, label %10
+  br i1 %9, label %rb_obj_write.argprom.exit, label %10
 
 10:                                               ; preds = %2
   %11 = ptrtoint ptr %0 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %11, i64 noundef %1) #12
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %2, %10
+rb_obj_write.argprom.exit:                        ; preds = %2, %10
   ret void
 }
 

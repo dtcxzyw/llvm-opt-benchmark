@@ -1199,13 +1199,13 @@ cond.false3.i:                                    ; preds = %cond.end.i
 get_module_state.exit:                            ; preds = %cond.end.i
   %call.val = load ptr, ptr %call.i, align 8
   %tobool.not.i = icmp eq ptr %call.val, null
-  br i1 %tobool.not.i, label %traverse_module_state.exit, label %if.then.i
+  br i1 %tobool.not.i, label %traverse_module_state.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %get_module_state.exit
   %call.i2 = tail call i32 %visit(ptr noundef nonnull %call.val, ptr noundef %arg) #9
-  br label %traverse_module_state.exit
+  br label %traverse_module_state.argprom.exit
 
-traverse_module_state.exit:                       ; preds = %if.then.i, %get_module_state.exit
+traverse_module_state.argprom.exit:               ; preds = %if.then.i, %get_module_state.exit
   ret i32 0
 }
 
@@ -2837,19 +2837,19 @@ cond.false87.i:                                   ; preds = %cond.end82.i
 
 cond.end88.i:                                     ; preds = %cond.end82.i
   %cmp90.i = icmp sgt i32 %retval.0.i65.i, -1
-  br i1 %cmp90.i, label %_testinternalcapi_assemble_code_object_impl.exit, label %cond.false93.i
+  br i1 %cmp90.i, label %_testinternalcapi_assemble_code_object_impl.argprom.exit, label %cond.false93.i
 
 cond.false93.i:                                   ; preds = %cond.end88.i
   call void @__assert_fail(ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.65, i32 noundef 828, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #10
   unreachable
 
-_testinternalcapi_assemble_code_object_impl.exit: ; preds = %cond.end88.i
+_testinternalcapi_assemble_code_object_impl.argprom.exit: ; preds = %cond.end88.i
   %call95.i = call ptr @_PyCompile_Assemble(ptr noundef nonnull %umd.i, ptr noundef %1, ptr noundef %2) #9
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %umd.i)
   br label %exit
 
-exit:                                             ; preds = %cond.end, %_testinternalcapi_assemble_code_object_impl.exit
-  %return_value.0 = phi ptr [ %call95.i, %_testinternalcapi_assemble_code_object_impl.exit ], [ null, %cond.end ]
+exit:                                             ; preds = %cond.end, %_testinternalcapi_assemble_code_object_impl.argprom.exit
+  %return_value.0 = phi ptr [ %call95.i, %_testinternalcapi_assemble_code_object_impl.argprom.exit ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
@@ -3549,14 +3549,14 @@ define internal noundef ptr @check_pyobject_null_is_freed(ptr nocapture readnone
 entry:
   %call.i = tail call i32 @_PyObject_IsFreed(ptr noundef null) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then.i, label %test_pyobject_is_freed.exit
+  br i1 %tobool.not.i, label %if.then.i, label %test_pyobject_is_freed.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_AssertionError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.203) #9
-  br label %test_pyobject_is_freed.exit
+  br label %test_pyobject_is_freed.argprom.exit
 
-test_pyobject_is_freed.exit:                      ; preds = %entry, %if.then.i
+test_pyobject_is_freed.argprom.exit:              ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %entry ]
   ret ptr %retval.0.i
 }
@@ -4097,7 +4097,7 @@ entry:
 for.cond.i:                                       ; preds = %if.end9.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 15
-  br i1 %exitcond.not.i, label %_testinternalcapi_test_long_numbits_impl.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_testinternalcapi_test_long_numbits_impl.argprom.exit, label %for.body.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %i.01.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
@@ -4105,7 +4105,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   %0 = load i64, ptr %arrayidx.i, align 8
   %call.i = tail call ptr @PyLong_FromLong(i64 noundef %0) #9
   %cmp1.i = icmp eq ptr %call.i, null
-  br i1 %cmp1.i, label %_testinternalcapi_test_long_numbits_impl.exit, label %if.end.i
+  br i1 %cmp1.i, label %_testinternalcapi_test_long_numbits_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
   %call2.i = tail call i64 @_PyLong_NumBits(ptr noundef nonnull %call.i) #9
@@ -4141,9 +4141,9 @@ return.sink.split.i:                              ; preds = %if.end9.i, %Py_DECR
   %.str.239.sink.i = phi ptr [ @.str.238, %Py_DECREF.exit.i ], [ @.str.239, %if.end9.i ]
   %5 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i10.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.57, ptr noundef nonnull %.str.239.sink.i) #9
-  br label %_testinternalcapi_test_long_numbits_impl.exit
+  br label %_testinternalcapi_test_long_numbits_impl.argprom.exit
 
-_testinternalcapi_test_long_numbits_impl.exit:    ; preds = %for.cond.i, %for.body.i, %return.sink.split.i
+_testinternalcapi_test_long_numbits_impl.argprom.exit: ; preds = %for.cond.i, %for.body.i, %return.sink.split.i
   %retval.0.i = phi ptr [ null, %return.sink.split.i ], [ null, %for.body.i ], [ @_Py_NoneStruct, %for.cond.i ]
   ret ptr %retval.0.i
 }

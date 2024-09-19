@@ -1163,14 +1163,14 @@ define hidden i32 @psa_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2
   store i64 %2, ptr %8, align 8
   store i32 0, ptr %3, align 4
   %9 = icmp eq i64 %2, 0
-  br i1 %9, label %psa_fail_key_creation.exit, label %10
+  br i1 %9, label %psa_fail_key_creation.argprom.exit, label %10
 
 10:                                               ; preds = %4
   %11 = icmp ugt i64 %2, 2305843009213693951
-  br i1 %11, label %psa_fail_key_creation.exit, label %12
+  br i1 %11, label %psa_fail_key_creation.argprom.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = call fastcc i32 @psa_start_key_creation(ptr noundef %0, ptr noundef %5, ptr noundef %6)
+  %13 = call fastcc i32 @psa_start_key_creation.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %6)
   %.not = icmp eq i32 %13, 0
   %.pr40.pre46 = load ptr, ptr %5, align 8
   br i1 %.not, label %14, label %.thread
@@ -1265,9 +1265,9 @@ psa_allocate_buffer_to_slot.exit:                 ; preds = %.thread53
   br i1 %.not33, label %55, label %.thread
 
 55:                                               ; preds = %53
-  %56 = call fastcc i32 @psa_finish_key_creation(ptr noundef %.pr40.pre49, ptr noundef nonnull %3)
+  %56 = call fastcc i32 @psa_finish_key_creation.argprom(ptr noundef %.pr40.pre49, ptr noundef nonnull %3)
   %.not34 = icmp eq i32 %56, 0
-  br i1 %.not34, label %psa_fail_key_creation.exit, label %..threadthread-pre-split_crit_edge
+  br i1 %.not34, label %psa_fail_key_creation.argprom.exit, label %..threadthread-pre-split_crit_edge
 
 ..threadthread-pre-split_crit_edge:               ; preds = %55
   %.pr40.pre = load ptr, ptr %5, align 8
@@ -1277,7 +1277,7 @@ psa_allocate_buffer_to_slot.exit:                 ; preds = %.thread53
   %57 = phi ptr [ %.pr40.pre46, %12 ], [ %.pr40.pre47, %22 ], [ %.pr40.pre48, %32 ], [ %.pr40.pre49, %53 ], [ %.pr40.pre50, %50 ], [ %.pr40.pre, %..threadthread-pre-split_crit_edge ]
   %.039 = phi i32 [ %13, %12 ], [ %23, %22 ], [ %40, %32 ], [ %54, %53 ], [ -134, %50 ], [ %56, %..threadthread-pre-split_crit_edge ]
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %psa_fail_key_creation.exit, label %.thread.thread
+  br i1 %58, label %psa_fail_key_creation.argprom.exit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %48, %.thread53, %24, %.thread
   %.03956 = phi i32 [ %.039, %.thread ], [ -135, %48 ], [ -141, %.thread53 ], [ -139, %24 ]
@@ -1298,15 +1298,15 @@ psa_wipe_key_slot.exit.i:                         ; preds = %62, %.thread.thread
   %65 = phi ptr [ %.pre.i.i.i, %62 ], [ null, %.thread.thread ]
   call void @free(ptr noundef %65) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 56, i1 false)
-  br label %psa_fail_key_creation.exit
+  br label %psa_fail_key_creation.argprom.exit
 
-psa_fail_key_creation.exit:                       ; preds = %psa_wipe_key_slot.exit.i, %.thread, %55, %10, %4
+psa_fail_key_creation.argprom.exit:               ; preds = %psa_wipe_key_slot.exit.i, %.thread, %55, %10, %4
   %.021 = phi i32 [ -135, %4 ], [ -134, %10 ], [ 0, %55 ], [ %.039, %.thread ], [ %.03956, %psa_wipe_key_slot.exit.i ]
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_start_key_creation(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc i32 @psa_start_key_creation.argelim(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = alloca i32, align 4
   store ptr null, ptr %2, align 8
   %5 = getelementptr i8, ptr %0, i64 4
@@ -1486,7 +1486,7 @@ select.unfold:                                    ; preds = %32, %27, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_finish_key_creation(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 {
+define internal fastcc i32 @psa_finish_key_creation.argprom(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 255
@@ -1534,7 +1534,7 @@ define hidden i32 @psa_copy_key(i32 noundef %0, ptr nocapture noundef readonly %
   store i32 0, ptr %2, align 4
   %9 = call i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef nonnull %4) #15
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %10, label %psa_fail_key_creation.exit.thread
+  br i1 %.not.i, label %10, label %psa_fail_key_creation.argprom.exit.thread
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %4, align 8
@@ -1547,12 +1547,12 @@ define hidden i32 @psa_copy_key(i32 noundef %0, ptr nocapture noundef readonly %
 psa_key_policy_permits.exit.thread.i:             ; preds = %10
   store ptr null, ptr %4, align 8
   %15 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %11) #15
-  br label %psa_fail_key_creation.exit.thread
+  br label %psa_fail_key_creation.argprom.exit.thread
 
 psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   %16 = call fastcc i32 @psa_validate_optional_attributes(ptr noundef nonnull %11, ptr noundef nonnull %1)
   %.not24 = icmp eq i32 %16, 0
-  br i1 %.not24, label %17, label %psa_fail_key_creation.exit.thread
+  br i1 %.not24, label %17, label %psa_fail_key_creation.argprom.exit.thread
 
 17:                                               ; preds = %psa_get_and_lock_key_slot_with_policy.exit
   %18 = load ptr, ptr %4, align 8
@@ -1579,7 +1579,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   %or.cond.i = or i1 %.not.i34, %35
   %.not18.i = icmp eq i32 %28, 0
   %or.cond21.i = or i1 %.not18.i, %or.cond.i
-  br i1 %or.cond21.i, label %36, label %psa_fail_key_creation.exit.thread
+  br i1 %or.cond21.i, label %36, label %psa_fail_key_creation.argprom.exit.thread
 
 36:                                               ; preds = %17
   %37 = icmp ne i32 %34, 0
@@ -1587,7 +1587,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   %or.cond22.i = or i1 %.not19.i, %37
   %.not20.i = icmp eq i32 %33, 0
   %or.cond23.i = or i1 %.not20.i, %or.cond22.i
-  br i1 %or.cond23.i, label %38, label %psa_fail_key_creation.exit.thread
+  br i1 %or.cond23.i, label %38, label %psa_fail_key_creation.argprom.exit.thread
 
 38:                                               ; preds = %36
   %39 = load i32, ptr %24, align 4
@@ -1596,7 +1596,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   store i32 %41, ptr %23, align 4
   store i32 %29, ptr %25, align 8
   store i32 %34, ptr %30, align 4
-  %42 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %6, ptr noundef %5, ptr noundef %7)
+  %42 = call fastcc i32 @psa_start_key_creation.argelim(ptr noundef nonnull %6, ptr noundef %5, ptr noundef %7)
   %.not26 = icmp eq i32 %42, 0
   %.pr.pre53 = load ptr, ptr %5, align 8
   br i1 %.not26, label %43, label %.thread
@@ -1673,7 +1673,7 @@ psa_copy_key_material_into_slot.exit:             ; preds = %77
 
 ._crit_edge:                                      ; preds = %62, %psa_copy_key_material_into_slot.exit
   %81 = phi ptr [ %.pr.pre53, %psa_copy_key_material_into_slot.exit ], [ %.pr.pre55, %62 ]
-  %82 = call fastcc i32 @psa_finish_key_creation(ptr noundef %81, ptr noundef nonnull %2)
+  %82 = call fastcc i32 @psa_finish_key_creation.argprom(ptr noundef %81, ptr noundef nonnull %2)
   %.not33 = icmp eq i32 %82, 0
   br i1 %.not33, label %94, label %..threadthread-pre-split_crit_edge
 
@@ -1685,7 +1685,7 @@ psa_copy_key_material_into_slot.exit:             ; preds = %77
   %83 = phi ptr [ %.pr.pre53, %38 ], [ %.pr.pre54, %53 ], [ %.pr.pre55, %62 ], [ %.pr.pre, %..threadthread-pre-split_crit_edge ]
   %.049 = phi i32 [ %42, %38 ], [ %54, %53 ], [ %69, %62 ], [ %82, %..threadthread-pre-split_crit_edge ]
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %psa_fail_key_creation.exit.thread, label %.thread.thread60
+  br i1 %84, label %psa_fail_key_creation.argprom.exit.thread, label %.thread.thread60
 
 .thread.thread60:                                 ; preds = %43, %59, %70, %77, %55, %.thread
   %.04962 = phi i32 [ %.049, %.thread ], [ -134, %43 ], [ -141, %59 ], [ -139, %70 ], [ -141, %77 ], [ -139, %55 ]
@@ -1706,9 +1706,9 @@ psa_wipe_key_slot.exit.i:                         ; preds = %88, %.thread.thread
   %91 = phi ptr [ %.pre.i.i.i, %88 ], [ null, %.thread.thread60 ]
   call void @free(ptr noundef %91) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %85, i8 0, i64 56, i1 false)
-  br label %psa_fail_key_creation.exit.thread
+  br label %psa_fail_key_creation.argprom.exit.thread
 
-psa_fail_key_creation.exit.thread:                ; preds = %.thread, %psa_wipe_key_slot.exit.i, %36, %17, %psa_key_policy_permits.exit.thread.i, %3, %psa_get_and_lock_key_slot_with_policy.exit
+psa_fail_key_creation.argprom.exit.thread:        ; preds = %.thread, %psa_wipe_key_slot.exit.i, %36, %17, %psa_key_policy_permits.exit.thread.i, %3, %psa_get_and_lock_key_slot_with_policy.exit
   %.050.ph = phi i32 [ %.04962, %psa_wipe_key_slot.exit.i ], [ %.049, %.thread ], [ %16, %psa_get_and_lock_key_slot_with_policy.exit ], [ %9, %3 ], [ -133, %psa_key_policy_permits.exit.thread.i ], [ -135, %17 ], [ -135, %36 ]
   %92 = load ptr, ptr %4, align 8
   %93 = call i32 @psa_unlock_key_slot(ptr noundef %92) #15
@@ -1719,8 +1719,8 @@ psa_fail_key_creation.exit.thread:                ; preds = %.thread, %psa_wipe_
   %96 = call i32 @psa_unlock_key_slot(ptr noundef %95) #15
   br label %97
 
-97:                                               ; preds = %psa_fail_key_creation.exit.thread, %94
-  %98 = phi i32 [ %96, %94 ], [ %.050.ph, %psa_fail_key_creation.exit.thread ]
+97:                                               ; preds = %psa_fail_key_creation.argprom.exit.thread, %94
+  %98 = phi i32 [ %96, %94 ], [ %.050.ph, %psa_fail_key_creation.argprom.exit.thread ]
   ret i32 %98
 }
 
@@ -2068,7 +2068,7 @@ define internal fastcc i32 @psa_mac_setup(ptr noundef %0, i32 noundef %1, i32 no
   %14 = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %.val = load i16, ptr %6, align 8
-  %15 = call fastcc i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %2, i16 %.val, ptr noundef nonnull %14)
+  %15 = call fastcc i32 @psa_mac_finalize_alg_and_key_validation.argprom.argelim(i32 noundef %2, i16 %.val, ptr noundef nonnull %14)
   %.not23 = icmp eq i32 %15, 0
   br i1 %.not23, label %16, label %.thread
 
@@ -2330,7 +2330,7 @@ define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef
   %16 = getelementptr inbounds i8, ptr %11, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %.val = load i16, ptr %11, align 8
-  %17 = call fastcc i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %1, i16 %.val, ptr noundef nonnull %10)
+  %17 = call fastcc i32 @psa_mac_finalize_alg_and_key_validation.argprom.argelim(i32 noundef %1, i16 %.val, ptr noundef nonnull %10)
   %.not26 = icmp eq i32 %17, 0
   br i1 %.not26, label %18, label %.thread
 
@@ -5446,22 +5446,22 @@ define hidden i32 @psa_key_derivation_output_key(ptr nocapture noundef readonly 
   %13 = getelementptr i8, ptr %0, i64 2
   %.val = load i16, ptr %13, align 2
   %14 = icmp eq i16 %.val, 0
-  br i1 %14, label %psa_finish_key_creation.exit, label %15
+  br i1 %14, label %psa_finish_key_creation.argprom.exit, label %15
 
 15:                                               ; preds = %3
   %16 = load i32, ptr %1, align 8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %psa_finish_key_creation.exit, label %18
+  br i1 %17, label %psa_finish_key_creation.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %1, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = and i8 %20, 1
   %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %psa_finish_key_creation.exit, label %22
+  br i1 %.not, label %psa_finish_key_creation.argprom.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %12)
+  %23 = call fastcc i32 @psa_start_key_creation.argelim(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %12)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.thread
 
@@ -5844,7 +5844,7 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %100, %99
   store i32 %160, ptr %2, align 4
   %161 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %147) #15
   %.not.i = icmp eq i32 %161, 0
-  br i1 %.not.i, label %psa_finish_key_creation.exit, label %162
+  br i1 %.not.i, label %psa_finish_key_creation.argprom.exit, label %162
 
 162:                                              ; preds = %.thread.i
   store i32 0, ptr %2, align 4
@@ -5854,7 +5854,7 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %100, %99
   %.1.ph = phi i32 [ %157, %152 ], [ %161, %162 ], [ %.029.i.ph, %.thread20 ], [ %.0.i.ph, %.thread17 ], [ %140, %144 ], [ %23, %22 ]
   %163 = load ptr, ptr %11, align 8
   %164 = icmp eq ptr %163, null
-  br i1 %164, label %psa_finish_key_creation.exit, label %165
+  br i1 %164, label %psa_finish_key_creation.argprom.exit, label %165
 
 165:                                              ; preds = %.thread
   %166 = getelementptr inbounds i8, ptr %163, i64 40
@@ -5873,9 +5873,9 @@ psa_wipe_key_slot.exit.i:                         ; preds = %168, %165
   %171 = phi ptr [ %.pre.i.i.i, %168 ], [ null, %165 ]
   call void @free(ptr noundef %171) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %163, i8 0, i64 56, i1 false)
-  br label %psa_finish_key_creation.exit
+  br label %psa_finish_key_creation.argprom.exit
 
-psa_finish_key_creation.exit:                     ; preds = %psa_wipe_key_slot.exit.i, %.thread, %.thread.i, %18, %15, %3
+psa_finish_key_creation.argprom.exit:             ; preds = %psa_wipe_key_slot.exit.i, %.thread, %.thread.i, %18, %15, %3
   %.012 = phi i32 [ -135, %3 ], [ -137, %15 ], [ -133, %18 ], [ 0, %.thread.i ], [ %.1.ph, %.thread ], [ %.1.ph, %psa_wipe_key_slot.exit.i ]
   ret i32 %.012
 }
@@ -7027,16 +7027,16 @@ define hidden i32 @psa_generate_key(ptr noundef %0, ptr nocapture noundef writeo
   %6 = getelementptr i8, ptr %0, i64 2
   %.val = load i16, ptr %6, align 2
   %7 = icmp eq i16 %.val, 0
-  br i1 %7, label %psa_finish_key_creation.exit, label %8
+  br i1 %7, label %psa_finish_key_creation.argprom.exit, label %8
 
 8:                                                ; preds = %2
   %9 = load i16, ptr %0, align 8
   %10 = and i16 %9, 28672
   %11 = icmp eq i16 %10, 16384
-  br i1 %11, label %psa_finish_key_creation.exit, label %12
+  br i1 %11, label %psa_finish_key_creation.argprom.exit, label %12
 
 12:                                               ; preds = %8
-  %13 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4)
+  %13 = call fastcc i32 @psa_start_key_creation.argelim(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %.thread
 
@@ -7289,7 +7289,7 @@ psa_remove_key_data_from_memory.exit:             ; preds = %95, %98
   store i32 %115, ptr %1, align 4
   %116 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %94) #15
   %.not.i58 = icmp eq i32 %116, 0
-  br i1 %.not.i58, label %psa_finish_key_creation.exit, label %117
+  br i1 %.not.i58, label %psa_finish_key_creation.argprom.exit, label %117
 
 117:                                              ; preds = %.thread.i
   store i32 0, ptr %1, align 4
@@ -7299,7 +7299,7 @@ psa_remove_key_data_from_memory.exit:             ; preds = %95, %98
   %.1.ph.ph = phi i32 [ -141, %81 ], [ -134, %37 ], [ -134, %40 ], [ -135, %34 ], [ -134, %28 ], [ -135, %33 ], [ -135, %32 ], [ -135, %31 ], [ -135, %30 ], [ -135, %29 ], [ %13, %12 ], [ %93, %psa_remove_key_data_from_memory.exit ], [ %78, %77 ], [ %116, %117 ], [ %112, %107 ]
   %.pr = load ptr, ptr %3, align 8
   %118 = icmp eq ptr %.pr, null
-  br i1 %118, label %psa_finish_key_creation.exit, label %.thread.thread
+  br i1 %118, label %psa_finish_key_creation.argprom.exit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %79, %.thread
   %.1.ph80 = phi i32 [ %.1.ph.ph, %.thread ], [ -139, %79 ]
@@ -7320,9 +7320,9 @@ psa_wipe_key_slot.exit.i:                         ; preds = %122, %.thread.threa
   %125 = phi ptr [ %.pre.i.i.i, %122 ], [ null, %.thread.thread ]
   call void @free(ptr noundef %125) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %119, i8 0, i64 56, i1 false)
-  br label %psa_finish_key_creation.exit
+  br label %psa_finish_key_creation.argprom.exit
 
-psa_finish_key_creation.exit:                     ; preds = %psa_wipe_key_slot.exit.i, %.thread, %.thread.i, %8, %2
+psa_finish_key_creation.argprom.exit:             ; preds = %psa_wipe_key_slot.exit.i, %.thread, %.thread.i, %8, %2
   %.033 = phi i32 [ -135, %2 ], [ -135, %8 ], [ 0, %.thread.i ], [ %.1.ph.ph, %.thread ], [ %.1.ph80, %psa_wipe_key_slot.exit.i ]
   ret i32 %.033
 }
@@ -7391,13 +7391,13 @@ define hidden i32 @psa_crypto_init() local_unnamed_addr #5 {
   %9 = phi ptr [ @mbedtls_entropy_init, %7 ], [ %5, %4 ]
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @global_data, i64 16), align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %mbedtls_psa_random_init.exit
+  br i1 %11, label %12, label %mbedtls_psa_random_init.argprom.exit
 
 12:                                               ; preds = %8
   store ptr @mbedtls_entropy_free, ptr getelementptr inbounds (i8, ptr @global_data, i64 16), align 8
-  br label %mbedtls_psa_random_init.exit
+  br label %mbedtls_psa_random_init.argprom.exit
 
-mbedtls_psa_random_init.exit:                     ; preds = %8, %12
+mbedtls_psa_random_init.argprom.exit:             ; preds = %8, %12
   tail call void %9(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 24)) #15
   tail call void @mbedtls_ctr_drbg_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056)) #15
   %13 = load i8, ptr @global_data, align 8
@@ -7412,7 +7412,7 @@ mbedtls_psa_random_init.exit:                     ; preds = %8, %12
   %.not10 = icmp eq i32 %17, 0
   br i1 %.not10, label %18, label %28
 
-18:                                               ; preds = %mbedtls_psa_random_init.exit
+18:                                               ; preds = %mbedtls_psa_random_init.argprom.exit
   %19 = load i8, ptr @global_data, align 8
   %20 = and i8 %19, -7
   %21 = or disjoint i8 %20, 4
@@ -7432,8 +7432,8 @@ mbedtls_psa_random_init.exit:                     ; preds = %8, %12
   store i8 %27, ptr @global_data, align 8
   br label %33
 
-28:                                               ; preds = %mbedtls_psa_random_init.exit, %18, %23
-  %.0.ph = phi i32 [ %24, %23 ], [ %22, %18 ], [ %17, %mbedtls_psa_random_init.exit ]
+28:                                               ; preds = %mbedtls_psa_random_init.argprom.exit, %18, %23
+  %.0.ph = phi i32 [ %24, %23 ], [ %22, %18 ], [ %17, %mbedtls_psa_random_init.argprom.exit ]
   call void @psa_wipe_all_key_slots() #15
   %29 = load i8, ptr @global_data, align 8
   %30 = and i8 %29, 6
@@ -8061,7 +8061,7 @@ psa_mac_key_can_do.exit:                          ; preds = %59, %.thread, %48, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %0, i16 %.0.val, ptr nocapture noundef writeonly %1) unnamed_addr #11 {
+define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_validation.argprom.argelim(i32 noundef %0, i16 %.0.val, ptr nocapture noundef writeonly %1) unnamed_addr #11 {
   %3 = and i32 %0, 2130706432
   %4 = icmp eq i32 %3, 50331648
   br i1 %4, label %5, label %psa_mac_key_can_do.exit

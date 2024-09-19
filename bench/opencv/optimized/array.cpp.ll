@@ -9688,7 +9688,7 @@ define void @cvClearND(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 per
   %51 = getelementptr inbounds ptr, ptr %49, i64 %50
   %.05315.i = load ptr, ptr %51, align 8
   %.not16.i = icmp eq ptr %.05315.i, null
-  br i1 %.not16.i, label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.exit, label %.lr.ph20.i
+  br i1 %.not16.i, label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.argprom.exit, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %._crit_edge.i
   %52 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9729,7 +9729,7 @@ define void @cvClearND(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 per
   %66 = getelementptr inbounds i8, ptr %.05318.us.i, i64 8
   %.053.us.i = load ptr, ptr %66, align 8
   %.not.us.i = icmp eq ptr %.053.us.i, null
-  br i1 %.not.us.i, label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.exit, label %.lr.ph20.split.us.i, !llvm.loop !59
+  br i1 %.not.us.i, label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.argprom.exit, label %.lr.ph20.split.us.i, !llvm.loop !59
 
 67:                                               ; preds = %58
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
@@ -9738,7 +9738,7 @@ define void @cvClearND(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 per
 
 .lr.ph20.split.i:                                 ; preds = %.lr.ph20.i
   %68 = icmp eq i32 %.fr38.i, 0
-  br i1 %68, label %.lr.ph20.split.split.us.i, label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.exit
+  br i1 %68, label %.lr.ph20.split.split.us.i, label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.argprom.exit
 
 .lr.ph20.split.split.us.i:                        ; preds = %.lr.ph20.split.i
   %69 = load i32, ptr %.05315.i, align 8
@@ -9755,7 +9755,7 @@ define void @cvClearND(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 per
   %74 = getelementptr inbounds i8, ptr %.05318.us2233.i, i64 8
   %.053.us24.i = load ptr, ptr %74, align 8
   %.not.us25.i = icmp eq ptr %.053.us24.i, null
-  br i1 %.not.us25.i, label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.exit, label %71, !llvm.loop !59
+  br i1 %.not.us25.i, label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.argprom.exit, label %71, !llvm.loop !59
 
 .split.us.i:                                      ; preds = %._crit_edge11.us.i, %67
   %.not59.i = icmp eq ptr %.05217.us.i, null
@@ -9794,19 +9794,19 @@ define void @cvClearND(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 per
   %90 = load i32, ptr %89, align 8
   %91 = add nsw i32 %90, -1
   store i32 %91, ptr %89, align 8
-  br label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.exit
+  br label %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.argprom.exit
 
 92:                                               ; preds = %38, %36
   %.pn61.pn.i = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
   resume { ptr, i32 } %.pn61.pn.i
 
-_ZL13icvDeleteNodeP11CvSparseMatPKiPj.exit:       ; preds = %.lr.ph34.i, %65, %._crit_edge.i, %.lr.ph20.split.i, %80
+_ZL13icvDeleteNodeP11CvSparseMatPKiPj.argprom.exit: ; preds = %.lr.ph34.i, %65, %._crit_edge.i, %.lr.ph20.split.i, %80
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %93
 
-93:                                               ; preds = %12, %13, %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.exit
+93:                                               ; preds = %12, %13, %_ZL13icvDeleteNodeP11CvSparseMatPKiPj.argprom.exit
   ret void
 }
 

@@ -2691,7 +2691,7 @@ for.body.i.i:                                     ; preds = %cond.end16.i, %for.
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %tobool.not.i.i = icmp eq ptr %error, null
-  br i1 %tobool.not.i.i, label %compare_data_.exit.thread.i, label %return.sink.split.i.i
+  br i1 %tobool.not.i.i, label %compare_data_.argprom.exit.thread.i, label %return.sink.split.i.i
 
 if.end4.i.i:                                      ; preds = %for.body.i.i
   %call6.i.i = call i64 @fread(ptr noundef nonnull %buffer_out.i.i, i64 noundef 1, i64 noundef %cond.i.i, ptr noundef nonnull %call3)
@@ -2700,7 +2700,7 @@ if.end4.i.i:                                      ; preds = %for.body.i.i
 
 if.then8.i.i:                                     ; preds = %if.end4.i.i
   %tobool9.not.i.i = icmp eq ptr %error, null
-  br i1 %tobool9.not.i.i, label %compare_data_.exit.thread.i, label %return.sink.split.i.i
+  br i1 %tobool9.not.i.i, label %compare_data_.argprom.exit.thread.i, label %return.sink.split.i.i
 
 if.end12.i.i:                                     ; preds = %if.end4.i.i
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %buffer_in.i.i, ptr noundef nonnull dereferenceable(1) %buffer_out.i.i, i64 %cond.i.i)
@@ -2709,14 +2709,14 @@ if.end12.i.i:                                     ; preds = %if.end4.i.i
 
 if.then17.i.i:                                    ; preds = %if.end12.i.i
   %tobool18.not.i.i = icmp eq ptr %error, null
-  br i1 %tobool18.not.i.i, label %compare_data_.exit.thread.i, label %return.sink.split.i.i
+  br i1 %tobool18.not.i.i, label %compare_data_.argprom.exit.thread.i, label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %if.then17.i.i, %if.then8.i.i, %if.then.i.i
   %compare_error.sink.i.i = phi ptr [ @.str.120, %if.then.i.i ], [ @.str.123, %if.then8.i.i ], [ %cond17.i, %if.then17.i.i ]
   store ptr %compare_error.sink.i.i, ptr %error, align 8
-  br label %compare_data_.exit.thread.i
+  br label %compare_data_.argprom.exit.thread.i
 
-compare_data_.exit.thread.i:                      ; preds = %return.sink.split.i.i, %if.then17.i.i, %if.then8.i.i, %if.then.i.i
+compare_data_.argprom.exit.thread.i:              ; preds = %return.sink.split.i.i, %if.then17.i.i, %if.then8.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer_in.i.i)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer_out.i.i)
   br label %compare_with_iff_.exit
@@ -2792,7 +2792,7 @@ for.body.i33.i:                                   ; preds = %for.cond.i49.i, %fo
 
 if.then.i54.i:                                    ; preds = %for.body.i33.i
   %tobool.not.i55.i = icmp eq ptr %error, null
-  br i1 %tobool.not.i55.i, label %compare_data_.exit56.thread.i, label %return.sink.split.i46.i
+  br i1 %tobool.not.i55.i, label %compare_data_.argprom.exit56.thread.i, label %return.sink.split.i46.i
 
 if.end4.i38.i:                                    ; preds = %for.body.i33.i
   %call6.i39.i = call i64 @fread(ptr noundef nonnull %buffer_out.i31.i, i64 noundef 1, i64 noundef %cond.i35.i, ptr noundef nonnull %call3)
@@ -2801,7 +2801,7 @@ if.end4.i38.i:                                    ; preds = %for.body.i33.i
 
 if.then8.i52.i:                                   ; preds = %if.end4.i38.i
   %tobool9.not.i53.i = icmp eq ptr %error, null
-  br i1 %tobool9.not.i53.i, label %compare_data_.exit56.thread.i, label %return.sink.split.i46.i
+  br i1 %tobool9.not.i53.i, label %compare_data_.argprom.exit56.thread.i, label %return.sink.split.i46.i
 
 if.end12.i41.i:                                   ; preds = %if.end4.i38.i
   %bcmp.i42.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %buffer_in.i30.i, ptr noundef nonnull dereferenceable(1) %buffer_out.i31.i, i64 %cond.i35.i)
@@ -2810,14 +2810,14 @@ if.end12.i41.i:                                   ; preds = %if.end4.i38.i
 
 if.then17.i44.i:                                  ; preds = %if.end12.i41.i
   %tobool18.not.i45.i = icmp eq ptr %error, null
-  br i1 %tobool18.not.i45.i, label %compare_data_.exit56.thread.i, label %return.sink.split.i46.i
+  br i1 %tobool18.not.i45.i, label %compare_data_.argprom.exit56.thread.i, label %return.sink.split.i46.i
 
 return.sink.split.i46.i:                          ; preds = %if.then17.i44.i, %if.then8.i52.i, %if.then.i54.i
   %compare_error.sink.i47.i = phi ptr [ @.str.120, %if.then.i54.i ], [ @.str.123, %if.then8.i52.i ], [ @.str.127, %if.then17.i44.i ]
   store ptr %compare_error.sink.i47.i, ptr %error, align 8
-  br label %compare_data_.exit56.thread.i
+  br label %compare_data_.argprom.exit56.thread.i
 
-compare_data_.exit56.thread.i:                    ; preds = %return.sink.split.i46.i, %if.then17.i44.i, %if.then8.i52.i, %if.then.i54.i
+compare_data_.argprom.exit56.thread.i:            ; preds = %return.sink.split.i46.i, %if.then17.i44.i, %if.then8.i52.i, %if.then.i54.i
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer_in.i30.i)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer_out.i31.i)
   br label %compare_with_iff_.exit
@@ -2830,8 +2830,8 @@ for.inc53.i:                                      ; preds = %for.cond.i49.i, %if
   %cmp31.i = icmp ult i64 %inc54.i, %12
   br i1 %cmp31.i, label %for.body33.i, label %compare_with_iff_.exit, !llvm.loop !19
 
-compare_with_iff_.exit:                           ; preds = %for.inc53.i, %if.then.i, %if.then2.i, %compare_data_.exit.thread.i, %for.cond30.preheader.i, %if.then25.i, %if.then27.i, %if.then40.i, %if.then42.i, %compare_data_.exit56.thread.i
-  %retval.0.i = phi i32 [ 0, %if.then2.i ], [ 0, %if.then.i ], [ 0, %if.then27.i ], [ 0, %if.then25.i ], [ 0, %if.then42.i ], [ 0, %if.then40.i ], [ 0, %compare_data_.exit.thread.i ], [ 0, %compare_data_.exit56.thread.i ], [ 1, %for.cond30.preheader.i ], [ 1, %for.inc53.i ]
+compare_with_iff_.exit:                           ; preds = %for.inc53.i, %if.then.i, %if.then2.i, %compare_data_.argprom.exit.thread.i, %for.cond30.preheader.i, %if.then25.i, %if.then27.i, %if.then40.i, %if.then42.i, %compare_data_.argprom.exit56.thread.i
+  %retval.0.i = phi i32 [ 0, %if.then2.i ], [ 0, %if.then.i ], [ 0, %if.then27.i ], [ 0, %if.then25.i ], [ 0, %if.then42.i ], [ 0, %if.then40.i ], [ 0, %compare_data_.argprom.exit.thread.i ], [ 0, %compare_data_.argprom.exit56.thread.i ], [ 1, %for.cond30.preheader.i ], [ 1, %for.inc53.i ]
   %call12 = tail call i32 @fclose(ptr noundef nonnull %call)
   %call13 = tail call i32 @fclose(ptr noundef nonnull %call3)
   br label %return

@@ -376,23 +376,23 @@ define internal fastcc void @rb_insert_case1(ptr nocapture noundef %0, ptr nound
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ne ptr %.val.i, %15
-  br i1 %16, label %node_uncle.exit.i, label %17
+  br i1 %16, label %node_uncle.argprom.exit.i, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %11, i64 16
   %19 = load ptr, ptr %18, align 8
-  br label %node_uncle.exit.i
+  br label %node_uncle.argprom.exit.i
 
-node_uncle.exit.i:                                ; preds = %17, %13
+node_uncle.argprom.exit.i:                        ; preds = %17, %13
   %.0.i.i = phi ptr [ %19, %17 ], [ %15, %13 ]
   %.not.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i, label %node_uncle.exit.thread.thread33.i, label %20
+  br i1 %.not.i, label %node_uncle.argprom.exit.thread.thread33.i, label %20
 
-20:                                               ; preds = %node_uncle.exit.i
+20:                                               ; preds = %node_uncle.argprom.exit.i
   %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %node_uncle.exit.thread.thread33.i
+  br i1 %23, label %24, label %node_uncle.argprom.exit.thread.thread33.i
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 40
@@ -415,7 +415,7 @@ node_uncle.exit.i:                                ; preds = %17, %13
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.preheader, label %rb_insert_case2.exit
 
-node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exit.i
+node_uncle.argprom.exit.thread.thread33.i:        ; preds = %20, %node_uncle.argprom.exit.i
   %35 = getelementptr inbounds i8, ptr %11, i64 8
   %36 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %37 = load ptr, ptr %36, align 8
@@ -423,7 +423,7 @@ node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exi
   %brmerge = or i1 %38, %16
   br i1 %brmerge, label %50, label %39
 
-39:                                               ; preds = %node_uncle.exit.thread.thread33.i
+39:                                               ; preds = %node_uncle.argprom.exit.thread.thread33.i
   store ptr %37, ptr %35, align 8
   %40 = load ptr, ptr %.val.i, align 8
   store ptr %40, ptr %37, align 8
@@ -449,7 +449,7 @@ node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exi
   %.not27.i.i.i = icmp eq ptr %49, null
   br i1 %.not27.i.i.i, label %.sink.split.i.i, label %.sink.split.sink.split.i.i
 
-50:                                               ; preds = %node_uncle.exit.thread.thread33.i
+50:                                               ; preds = %node_uncle.argprom.exit.thread.thread33.i
   %51 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %.tr16.i, %52
@@ -632,12 +632,12 @@ rb_insert_case2.exit:                             ; preds = %.preheader, %31, %7
 
 ; Function Attrs: nounwind uwtable
 define void @wmem_tree_insert32(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  tail call fastcc void @lookup_or_insert32(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @lookup_or_insert32.retelim(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @lookup_or_insert32.retelim(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -1063,7 +1063,7 @@ wmem_tree_lookup32.exit:                          ; preds = %.lr.ph.i
   br i1 %.not, label %wmem_tree_lookup32.exit.thread, label %20
 
 20:                                               ; preds = %wmem_tree_lookup32.exit
-  tail call fastcc void @lookup_or_insert32(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @lookup_or_insert32.retelim(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %wmem_tree_lookup32.exit.thread
 
 wmem_tree_lookup32.exit.thread:                   ; preds = %17, %3, %2, %20, %wmem_tree_lookup32.exit
@@ -1561,7 +1561,7 @@ lookup_or_insert32.exit:                          ; preds = %.preheader.split.sp
 ._crit_edge34:                                    ; preds = %._crit_edge, %3
   %.017.lcssa = phi ptr [ null, %3 ], [ %.2, %._crit_edge ]
   %.0.lcssa = phi i32 [ 0, %3 ], [ %67, %._crit_edge ]
-  tail call fastcc void @lookup_or_insert32(ptr noundef %.017.lcssa, i32 noundef %.0.lcssa, ptr noundef null, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @lookup_or_insert32.retelim(ptr noundef %.017.lcssa, i32 noundef %.0.lcssa, ptr noundef null, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
   ret void
 }
 

@@ -859,7 +859,7 @@ define noundef ptr @_ZNK3gmx19TopologyInformation5atomsEv(ptr nocapture noundef 
 
 11:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false), !noalias !15
-  br label %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit
+  br label %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit
 
 12:                                               ; preds = %14, %10
   %13 = landingpad { ptr, i32 }
@@ -869,9 +869,9 @@ define noundef ptr @_ZNK3gmx19TopologyInformation5atomsEv(ptr nocapture noundef 
 
 14:                                               ; preds = %6
   invoke void @_Z9init_atomP7t_atoms(ptr noundef nonnull %8)
-          to label %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit unwind label %12, !noalias !15
+          to label %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit unwind label %12, !noalias !15
 
-_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit: ; preds = %11, %14
+_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit: ; preds = %11, %14
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
   store ptr null, ptr %3, align 8
   %15 = load ptr, ptr %4, align 8
@@ -879,7 +879,7 @@ _ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit: ; preds = %11,
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit, label %16
 
-16:                                               ; preds = %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit
+16:                                               ; preds = %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit
   invoke void @_Z21done_and_delete_atomsP7t_atoms(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEEaSEOS5_.exit._ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit_crit_edge unwind label %17
 
@@ -894,8 +894,8 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
   %.pre.pre = load ptr, ptr %4, align 8
   br label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit
 
-_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit: ; preds = %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit, %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEEaSEOS5_.exit._ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit_crit_edge, %1
-  %20 = phi ptr [ %5, %1 ], [ %.pre.pre, %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEEaSEOS5_.exit._ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit_crit_edge ], [ %8, %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit ]
+_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit: ; preds = %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit, %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEEaSEOS5_.exit._ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit_crit_edge, %1
+  %20 = phi ptr [ %5, %1 ], [ %.pre.pre, %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEEaSEOS5_.exit._ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit_crit_edge ], [ %8, %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit ]
   ret ptr %20
 }
 
@@ -922,7 +922,7 @@ define void @_ZNK3gmx19TopologyInformation9copyAtomsEv(ptr dead_on_unwind noalia
 
 8:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !18
-  br label %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit
+  br label %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit
 
 9:                                                ; preds = %11, %7
   %10 = landingpad { ptr, i32 }
@@ -932,9 +932,9 @@ define void @_ZNK3gmx19TopologyInformation9copyAtomsEv(ptr dead_on_unwind noalia
 
 11:                                               ; preds = %2
   invoke void @_Z9init_atomP7t_atoms(ptr noundef nonnull %5)
-          to label %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit unwind label %9, !noalias !18
+          to label %_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit unwind label %9, !noalias !18
 
-_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit: ; preds = %8, %11
+_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom.exit: ; preds = %8, %11
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   ret void
 }
@@ -1610,9 +1610,9 @@ attributes #21 = { noreturn }
 !13 = distinct !{!13, !14, !"_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !14 = distinct !{!14, !"_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE: argument 0"}
-!17 = distinct !{!17, !"_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE"}
+!16 = distinct !{!16, !17, !"_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom: argument 0"}
+!17 = distinct !{!17, !"_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE: argument 0"}
-!20 = distinct !{!20, !"_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE"}
+!19 = distinct !{!19, !20, !"_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.argprom"}
 !21 = distinct !{!21, !6}

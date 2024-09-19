@@ -80,26 +80,26 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %6 = load ptr, ptr %interp.i.i.i, align 8
   %call3.i.i = tail call ptr @_PyStaticType_GetState(ptr noundef %6, ptr noundef nonnull %object) #3
   %tp_weaklist.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
-  br label %_weakref_getweakrefcount_impl.exit
+  br label %_weakref_getweakrefcount_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end.i
   %add.ptr.i.i = getelementptr i8, ptr %object, i64 %call.val.i
-  br label %_weakref_getweakrefcount_impl.exit
+  br label %_weakref_getweakrefcount_impl.argprom.exit
 
-_weakref_getweakrefcount_impl.exit:               ; preds = %if.then.i.i, %if.end.i.i
+_weakref_getweakrefcount_impl.argprom.exit:       ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %tp_weaklist.i.i.i, %if.then.i.i ], [ %add.ptr.i.i, %if.end.i.i ]
   %7 = load ptr, ptr %retval.0.i.i, align 8
   %call3.i = tail call i64 @_PyWeakref_GetWeakrefCount(ptr noundef %7) #3
   %cmp = icmp eq i64 %call3.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
-land.lhs.true:                                    ; preds = %_weakref_getweakrefcount_impl.exit
+land.lhs.true:                                    ; preds = %_weakref_getweakrefcount_impl.argprom.exit
   %call1 = tail call ptr @PyErr_Occurred() #3
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end, label %exit
 
-if.end:                                           ; preds = %entry, %land.lhs.true, %_weakref_getweakrefcount_impl.exit
-  %retval.0.i4 = phi i64 [ -1, %land.lhs.true ], [ %call3.i, %_weakref_getweakrefcount_impl.exit ], [ 0, %entry ]
+if.end:                                           ; preds = %entry, %land.lhs.true, %_weakref_getweakrefcount_impl.argprom.exit
+  %retval.0.i4 = phi i64 [ -1, %land.lhs.true ], [ %call3.i, %_weakref_getweakrefcount_impl.argprom.exit ], [ 0, %entry ]
   %call2 = tail call ptr @PyLong_FromSsize_t(i64 noundef %retval.0.i4) #3
   br label %exit
 
@@ -167,7 +167,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call2.i = tail call ptr @PyList_New(i64 noundef 0) #3
-  br label %_weakref_getweakrefs_impl.exit
+  br label %_weakref_getweakrefs_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %2 = getelementptr i8, ptr %object.val.i, i64 168
@@ -202,11 +202,11 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i:            ; preds = %if.end.i.i, %if.the
   %call4.i = tail call i64 @_PyWeakref_GetWeakrefCount(ptr noundef %7) #3
   %call5.i = tail call ptr @PyList_New(i64 noundef %call4.i) #3
   %cmp.i = icmp eq ptr %call5.i, null
-  br i1 %cmp.i, label %_weakref_getweakrefs_impl.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %_weakref_getweakrefs_impl.argprom.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i
   %cmp81.i = icmp sgt i64 %call4.i, 0
-  br i1 %cmp81.i, label %for.body.lr.ph.i, label %_weakref_getweakrefs_impl.exit
+  br i1 %cmp81.i, label %for.body.lr.ph.i, label %_weakref_getweakrefs_impl.argprom.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %8 = getelementptr i8, ptr %call5.i, i64 24
@@ -232,9 +232,9 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.
   %wr_next.i = getelementptr inbounds i8, ptr %current.0.i, i64 48
   %inc.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call4.i
-  br i1 %exitcond.not.i, label %_weakref_getweakrefs_impl.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %_weakref_getweakrefs_impl.argprom.exit, label %for.body.i, !llvm.loop !5
 
-_weakref_getweakrefs_impl.exit:                   ; preds = %_Py_NewRef.exit.i, %if.then.i, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i, %for.cond.preheader.i
+_weakref_getweakrefs_impl.argprom.exit:           ; preds = %_Py_NewRef.exit.i, %if.then.i, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i, %for.cond.preheader.i
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ null, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i ], [ %call5.i, %for.cond.preheader.i ], [ %call5.i, %_Py_NewRef.exit.i ]
   ret ptr %retval.0.i
 }
@@ -294,14 +294,14 @@ entry:
   %0 = getelementptr i8, ptr %value, i64 8
   %value.val5 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %value.val5, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val5, ptr noundef nonnull @_PyWeakref_RefType) #3
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.lhs.false, label %if.end
 
-lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.argprom.exit
   %value.val = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %value.val, @_PyWeakref_ProxyType
   %cmp.i7.not = icmp eq ptr %value.val, @_PyWeakref_CallableProxyType
@@ -313,7 +313,7 @@ if.then:                                          ; preds = %lor.lhs.false
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.8) #3
   br label %return
 
-if.end:                                           ; preds = %entry, %lor.lhs.false, %PyObject_TypeCheck.exit
+if.end:                                           ; preds = %entry, %lor.lhs.false, %PyObject_TypeCheck.argprom.exit
   %2 = getelementptr i8, ptr %value, i64 16
   %value.val6 = load ptr, ptr %2, align 8
   %cmp.i9 = icmp eq ptr %value.val6, @_Py_NoneStruct

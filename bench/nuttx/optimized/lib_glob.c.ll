@@ -50,7 +50,7 @@ define range(i32 0, 4) i32 @glob(ptr nocapture noundef readonly %0, i32 noundef 
 20:                                               ; preds = %18
   %21 = call noalias ptr @strdup(ptr noundef nonnull %0) #13
   %.not72 = icmp eq ptr %21, null
-  br i1 %.not72, label %freelist.exit, label %22
+  br i1 %.not72, label %freelist.argprom.exit, label %22
 
 22:                                               ; preds = %20
   store i8 0, ptr %7, align 16
@@ -62,14 +62,14 @@ define range(i32 0, 4) i32 @glob(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %22
-  br i1 %.not1.i, label %freelist.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %freelist.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %.02.i = phi ptr [ %26, %.lr.ph.i ], [ %.pre, %25 ]
   %26 = load ptr, ptr %.02.i, align 8
   call void @free(ptr noundef nonnull %.02.i)
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %freelist.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %freelist.argprom.exit, label %.lr.ph.i, !llvm.loop !6
 
 .thread:                                          ; preds = %22
   br i1 %.not1.i, label %._crit_edge.thread, label %.lr.ph
@@ -91,14 +91,14 @@ define range(i32 0, 4) i32 @glob(ptr nocapture noundef readonly %0, i32 noundef 
   %.06394118123 = phi i32 [ %23, %._crit_edge ], [ %23, %.thread ], [ 0, %18 ]
   %30 = and i32 %1, 16
   %.not75 = icmp eq i32 %30, 0
-  br i1 %.not75, label %freelist.exit, label %31
+  br i1 %.not75, label %freelist.argprom.exit, label %31
 
 31:                                               ; preds = %._crit_edge.thread
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %33 = add i64 %32, 17
   %34 = call noalias ptr @malloc(i64 noundef %33) #14
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %freelist.exit, label %append.exit.thread
+  br i1 %35, label %freelist.argprom.exit, label %append.exit.thread
 
 append.exit.thread:                               ; preds = %31
   store ptr %34, ptr %5, align 8
@@ -130,14 +130,14 @@ append.exit.thread:                               ; preds = %31
 48:                                               ; preds = %39
   %.val80 = load ptr, ptr %5, align 8
   %.not1.i83 = icmp eq ptr %.val80, null
-  br i1 %.not1.i83, label %freelist.exit, label %.lr.ph.i84
+  br i1 %.not1.i83, label %freelist.argprom.exit, label %.lr.ph.i84
 
 .lr.ph.i84:                                       ; preds = %48, %.lr.ph.i84
   %.02.i85 = phi ptr [ %49, %.lr.ph.i84 ], [ %.val80, %48 ]
   %49 = load ptr, ptr %.02.i85, align 8
   call void @free(ptr noundef nonnull %.02.i85)
   %.not.i86 = icmp eq ptr %49, null
-  br i1 %.not.i86, label %freelist.exit, label %.lr.ph.i84, !llvm.loop !6
+  br i1 %.not.i86, label %freelist.argprom.exit, label %.lr.ph.i84, !llvm.loop !6
 
 50:                                               ; preds = %39
   store ptr %47, ptr %40, align 8
@@ -164,7 +164,7 @@ append.exit.thread:                               ; preds = %31
   %59 = load ptr, ptr %.02.i90, align 8
   call void @free(ptr noundef nonnull %.02.i90)
   %.not.i91 = icmp eq ptr %59, null
-  br i1 %.not.i91, label %freelist.exit, label %.lr.ph.i89, !llvm.loop !6
+  br i1 %.not.i91, label %freelist.argprom.exit, label %.lr.ph.i89, !llvm.loop !6
 
 .lr.ph103:                                        ; preds = %.preheader, %.lr.ph103
   %.061102 = phi i64 [ %62, %.lr.ph103 ], [ 0, %.preheader ]
@@ -203,15 +203,15 @@ append.exit.thread:                               ; preds = %31
   store i64 %76, ptr %3, align 8
   %77 = and i32 %1, 64
   %.not79 = icmp eq i32 %77, 0
-  br i1 %.not79, label %78, label %freelist.exit
+  br i1 %.not79, label %78, label %freelist.argprom.exit
 
 78:                                               ; preds = %71
   %79 = load ptr, ptr %63, align 8
   %80 = getelementptr inbounds ptr, ptr %79, i64 %.064
   call void @qsort(ptr noundef %80, i64 noundef %.1, i64 noundef 8, ptr noundef nonnull @sort) #13
-  br label %freelist.exit
+  br label %freelist.argprom.exit
 
-freelist.exit:                                    ; preds = %.lr.ph.i, %.lr.ph.i84, %.lr.ph.i89, %48, %31, %25, %71, %78, %._crit_edge.thread, %20
+freelist.argprom.exit:                            ; preds = %.lr.ph.i, %.lr.ph.i84, %.lr.ph.i89, %48, %31, %25, %71, %78, %._crit_edge.thread, %20
   %.0 = phi i32 [ 3, %20 ], [ 2, %._crit_edge.thread ], [ %.06394118122, %78 ], [ %.06394118122, %71 ], [ 3, %25 ], [ 3, %31 ], [ 3, %48 ], [ 3, %.lr.ph.i89 ], [ 3, %.lr.ph.i84 ], [ 3, %.lr.ph.i ]
   ret i32 %.0
 }

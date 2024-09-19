@@ -258,7 +258,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke fastcc void @_ZN8facebook5velox4util12_GLOBAL__N_114makeReverseMapERKSt13unordered_mapIlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIlESt8equal_toIlESaISt4pairIKlS9_EEE(ptr noundef nonnull align 8 dereferenceable(56) %call)
+  invoke fastcc void @_ZN8facebook5velox4util12_GLOBAL__N_114makeReverseMapERKSt13unordered_mapIlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIlESt8equal_toIlESaISt4pairIKlS9_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %call)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
@@ -1157,7 +1157,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4util12_GLOBAL__N_114makeReverseMapERKSt13unordered_mapIlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIlESt8equal_toIlESaISt4pairIKlS9_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %map) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4util12_GLOBAL__N_114makeReverseMapERKSt13unordered_mapIlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIlESt8equal_toIlESaISt4pairIKlS9_EEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %map) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %rv.i10 = alloca %"struct.std::pair.37", align 8
   %rv.i = alloca %"struct.std::pair.37", align 8

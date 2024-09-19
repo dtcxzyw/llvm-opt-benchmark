@@ -629,7 +629,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__25ArchGetNanoseconds
   %4 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23Arch_NanosecondsPerTickE monotonic, align 8
   %5 = bitcast i64 %4 to double
   %6 = fcmp ult double %5, 0.000000e+00
-  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.exit
+  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.argprom.exit
 
 7:                                                ; preds = %0
   %8 = fcmp oeq double %5, -1.000000e+00
@@ -1082,21 +1082,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__L30Arch_ComputeNanosecondsPerTickEv.exit: ;
   %198 = fdiv double %191, %197
   %199 = bitcast double %198 to i64
   store atomic i64 %199, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23Arch_NanosecondsPerTickE monotonic, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.argprom.exit
 
 200:                                              ; preds = %_ZNSt6atomicIdE23compare_exchange_strongERddSt12memory_orderS2_.exit.i, %7
   %.1.i = phi double [ %13, %_ZNSt6atomicIdE23compare_exchange_strongERddSt12memory_orderS2_.exit.i ], [ %5, %7 ]
   %201 = fcmp olt double %.1.i, 0.000000e+00
-  br i1 %201, label %.lr.ph.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.exit
+  br i1 %201, label %.lr.ph.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.argprom.exit
 
 .lr.ph.i:                                         ; preds = %200, %.lr.ph.i
   %202 = tail call noundef i32 @sched_yield() #3
   %203 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23Arch_NanosecondsPerTickE monotonic, align 8
   %204 = bitcast i64 %203 to double
   %205 = fcmp olt double %204, 0.000000e+00
-  br i1 %205, label %.lr.ph.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.exit, !llvm.loop !22
+  br i1 %205, label %.lr.ph.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.argprom.exit, !llvm.loop !22
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.exit: ; preds = %.lr.ph.i, %0, %_ZN32pxrInternal_v0_24__pxrReserved__L30Arch_ComputeNanosecondsPerTickEv.exit, %200
+_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIdEET_RSt6atomicIS1_EPFS1_vE.argprom.exit: ; preds = %.lr.ph.i, %0, %_ZN32pxrInternal_v0_24__pxrReserved__L30Arch_ComputeNanosecondsPerTickEv.exit, %200
   %.0.i = phi double [ %198, %_ZN32pxrInternal_v0_24__pxrReserved__L30Arch_ComputeNanosecondsPerTickEv.exit ], [ %5, %0 ], [ %.1.i, %200 ], [ %204, %.lr.ph.i ]
   ret double %.0.i
 }

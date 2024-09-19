@@ -135,14 +135,14 @@ define hidden void @_ZN27JfrFinalizerStatisticsEvent17send_unload_eventEPK13Inst
   store ptr %0, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
   store i64 %23, ptr %29, align 8
-  br i1 %.not.i, label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit, label %30
+  br i1 %.not.i, label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.argprom.exit, label %30
 
 30:                                               ; preds = %.thread.i
   %31 = tail call noundef i64 @_ZNK14FinalizerEntry15objects_on_heapEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #7
   %32 = tail call noundef i64 @_ZNK14FinalizerEntry20total_finalizers_runEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #7
-  br label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
+  br label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.argprom.exit
 
-_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit: ; preds = %.thread.i, %30
+_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.argprom.exit: ; preds = %.thread.i, %30
   %.sink2.i = phi i64 [ %31, %30 ], [ 0, %.thread.i ]
   %.sink.i = phi i64 [ %32, %30 ], [ 0, %.thread.i ]
   %33 = getelementptr inbounds i8, ptr %2, i64 40
@@ -155,12 +155,12 @@ _ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepre
   %.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i, label %37, label %36
 
-36:                                               ; preds = %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
+36:                                               ; preds = %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.argprom.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #7
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #7
   br label %37
 
-37:                                               ; preds = %36, %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
+37:                                               ; preds = %36, %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.argprom.exit
   %38 = load ptr, ptr %11, align 8
   %.not8.i.i.i.i = icmp eq ptr %38, %12
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %39
@@ -1649,13 +1649,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN31FinalizerStatisticsEventClos
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %5 = tail call noundef ptr @_ZNK14FinalizerEntry10codesourceEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
   %.not11.i = icmp eq ptr %5, null
-  br i1 %.not11.i, label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit, label %6
+  br i1 %.not11.i, label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.argprom.exit, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef i64 @_ZN14JfrSymbolTable3addEPKc(ptr noundef nonnull %5) #7
-  br label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
+  br label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.argprom.exit
 
-_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit: ; preds = %6, %2
+_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.argprom.exit: ; preds = %6, %2
   %8 = phi i64 [ %7, %6 ], [ 0, %2 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = getelementptr inbounds i8, ptr %3, i64 16

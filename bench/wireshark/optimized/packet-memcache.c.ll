@@ -1293,19 +1293,19 @@ define internal i32 @memcache_response_dissector(ptr noundef %0, ptr nocapture r
   %.090.i = phi i32 [ %3, %17 ], [ %.021.i.i, %content_data_dissector.exit.i ]
   %19 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %.090.i) #8
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %get_response_dissector.exit, label %20
+  br i1 %.not.i, label %get_response_dissector.argprom.exit, label %20
 
 20:                                               ; preds = %18
   %21 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.090.i, i32 noundef -1, ptr noundef nonnull %13, i32 noundef 0) #8
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %get_response_dissector.exit, label %23
+  br i1 %22, label %get_response_dissector.argprom.exit, label %23
 
 23:                                               ; preds = %20
   %24 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.090.i, i32 noundef %21) #8
   %25 = zext nneg i32 %21 to i64
   %26 = getelementptr i8, ptr %24, i64 %25
   %27 = call i32 @get_token_len(ptr noundef %24, ptr noundef %26, ptr noundef nonnull %14) #8
-  switch i32 %27, label %get_response_dissector.exit [
+  switch i32 %27, label %get_response_dissector.argprom.exit [
     i32 3, label %sub_0.i
     i32 5, label %28
   ]
@@ -1313,24 +1313,24 @@ define internal i32 @memcache_response_dissector(ptr noundef %0, ptr nocapture r
 28:                                               ; preds = %23
   %29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(6) @.str.171, i64 noundef 5) #9
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %44, label %get_response_dissector.exit
+  br i1 %30, label %44, label %get_response_dissector.argprom.exit
 
 sub_0.i:                                          ; preds = %23
   %31 = load i8, ptr %24, align 1
   %.not2.i = icmp eq i8 %31, 69
-  br i1 %.not2.i, label %sub_1.i, label %get_response_dissector.exit
+  br i1 %.not2.i, label %sub_1.i, label %get_response_dissector.argprom.exit
 
 sub_1.i:                                          ; preds = %sub_0.i
   %32 = getelementptr inbounds i8, ptr %24, i64 1
   %33 = load i8, ptr %32, align 1
   %.not3.i = icmp eq i8 %33, 78
-  br i1 %.not3.i, label %.tail.i, label %get_response_dissector.exit
+  br i1 %.not3.i, label %.tail.i, label %get_response_dissector.argprom.exit
 
 .tail.i:                                          ; preds = %sub_1.i
   %34 = getelementptr inbounds i8, ptr %24, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 68
-  br i1 %36, label %37, label %get_response_dissector.exit
+  br i1 %36, label %37, label %get_response_dissector.argprom.exit
 
 37:                                               ; preds = %.tail.i
   %38 = load ptr, ptr %14, align 8
@@ -1339,13 +1339,13 @@ sub_1.i:                                          ; preds = %sub_0.i
   %41 = sub i64 %39, %40
   %42 = trunc i64 %41 to i32
   %43 = add i32 %.090.i, %42
-  br label %get_response_dissector.exit
+  br label %get_response_dissector.argprom.exit
 
 44:                                               ; preds = %28
   %45 = load ptr, ptr %14, align 8
   %46 = call i32 @get_token_len(ptr noundef %45, ptr noundef %26, ptr noundef nonnull %14) #8
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %get_response_dissector.exit, label %dissect_key.exit.i
+  br i1 %47, label %get_response_dissector.argprom.exit, label %dissect_key.exit.i
 
 dissect_key.exit.i:                               ; preds = %44
   %48 = ptrtoint ptr %45 to i64
@@ -1360,7 +1360,7 @@ dissect_key.exit.i:                               ; preds = %44
   %57 = icmp eq i32 %56, 0
   %58 = icmp sgt i32 %56, 5
   %or.cond.i = or i1 %57, %58
-  br i1 %or.cond.i, label %get_response_dissector.exit, label %59
+  br i1 %or.cond.i, label %get_response_dissector.argprom.exit, label %59
 
 59:                                               ; preds = %dissect_key.exit.i
   %60 = ptrtoint ptr %55 to i64
@@ -1381,7 +1381,7 @@ dissect_key.exit.i:                               ; preds = %44
   %73 = icmp eq i32 %72, 0
   %74 = icmp sgt i32 %72, 10
   %or.cond3.i = or i1 %73, %74
-  br i1 %or.cond3.i, label %get_response_dissector.exit, label %75
+  br i1 %or.cond3.i, label %get_response_dissector.argprom.exit, label %75
 
 75:                                               ; preds = %59
   %76 = ptrtoint ptr %71 to i64
@@ -1403,7 +1403,7 @@ dissect_key.exit.i:                               ; preds = %44
   %90 = add i32 %79, %89
   %91 = call i32 @get_token_len(ptr noundef %86, ptr noundef %26, ptr noundef nonnull %14) #8
   %92 = icmp sgt i32 %91, 20
-  br i1 %92, label %get_response_dissector.exit, label %93
+  br i1 %92, label %get_response_dissector.argprom.exit, label %93
 
 93:                                               ; preds = %75
   %.not98.i = icmp eq i32 %91, 0
@@ -1419,7 +1419,7 @@ dissect_key.exit.i:                               ; preds = %44
   %99 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef %90, i32 noundef %91, i64 noundef %97) #8
   %100 = call i32 @get_token_len(ptr noundef %86, ptr noundef %26, ptr noundef nonnull %14) #8
   %.not99.i = icmp eq i32 %100, 0
-  br i1 %.not99.i, label %101, label %get_response_dissector.exit
+  br i1 %.not99.i, label %101, label %get_response_dissector.argprom.exit
 
 101:                                              ; preds = %94, %93
   %102 = load i32, ptr %13, align 4
@@ -1460,9 +1460,9 @@ dissect_value.exit.i:                             ; preds = %104
 content_data_dissector.exit.i:                    ; preds = %116, %113, %dissect_value.exit.i, %104, %101
   %.021.i.i = phi i32 [ %117, %116 ], [ %115, %113 ], [ %102, %dissect_value.exit.i ], [ %102, %101 ], [ %102, %104 ]
   %118 = icmp eq i32 %.021.i.i, -1
-  br i1 %118, label %get_response_dissector.exit, label %18, !llvm.loop !7
+  br i1 %118, label %get_response_dissector.argprom.exit, label %18, !llvm.loop !7
 
-get_response_dissector.exit:                      ; preds = %18, %20, %23, %28, %44, %dissect_key.exit.i, %59, %75, %94, %content_data_dissector.exit.i, %sub_0.i, %sub_1.i, %.tail.i, %37
+get_response_dissector.argprom.exit:              ; preds = %18, %20, %23, %28, %44, %dissect_key.exit.i, %59, %75, %94, %content_data_dissector.exit.i, %sub_0.i, %sub_1.i, %.tail.i, %37
   %.0.i = phi i32 [ %43, %37 ], [ -1, %.tail.i ], [ -1, %sub_0.i ], [ -1, %sub_1.i ], [ -1, %20 ], [ -1, %23 ], [ -1, %44 ], [ -1, %dissect_key.exit.i ], [ -1, %59 ], [ -1, %75 ], [ -1, %94 ], [ -1, %content_data_dissector.exit.i ], [ %.090.i, %18 ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -1789,8 +1789,8 @@ sub_180:                                          ; preds = %sub_079
   %281 = call fastcc i32 @incr_dissector(ptr noundef %0, ptr noundef %2, i32 noundef %3)
   br label %282
 
-282:                                              ; preds = %243, %119, %.thread77, %128, %124, %121, %280, %270, %stat_dissector.exit, %138, %get_response_dissector.exit
-  %.0 = phi i32 [ %278, %270 ], [ %281, %280 ], [ %.0.i69, %stat_dissector.exit ], [ %142, %138 ], [ %.0.i, %get_response_dissector.exit ], [ -1, %119 ], [ -1, %121 ], [ -1, %124 ], [ -1, %128 ], [ -1, %243 ], [ %3, %.thread77 ]
+282:                                              ; preds = %243, %119, %.thread77, %128, %124, %121, %280, %270, %stat_dissector.exit, %138, %get_response_dissector.argprom.exit
+  %.0 = phi i32 [ %278, %270 ], [ %281, %280 ], [ %.0.i69, %stat_dissector.exit ], [ %142, %138 ], [ %.0.i, %get_response_dissector.argprom.exit ], [ -1, %119 ], [ -1, %121 ], [ -1, %124 ], [ -1, %128 ], [ -1, %243 ], [ %3, %.thread77 ]
   ret i32 %.0
 }
 

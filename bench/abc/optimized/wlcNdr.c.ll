@@ -295,7 +295,7 @@ Ndr_AddModule.exit:
   %37 = lshr i16 %36, 6
   %38 = and i16 %37, 1
   %39 = zext nneg i16 %38 to i32
-  call fastcc void @Ndr_AddObject(ptr noundef nonnull %2, i32 noundef 258, i32 noundef 3, i32 noundef %33, i32 noundef %35, i32 noundef %39, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %1, ptr noundef null)
+  call fastcc void @Ndr_AddObject.argelim(ptr noundef nonnull %2, i32 noundef 258, i32 noundef 3, i32 noundef %33, i32 noundef %35, i32 noundef %39, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %1, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val71 = load i32, ptr %18, align 4
   %40 = sext i32 %.val71 to i64
@@ -579,7 +579,7 @@ Vec_IntPush.exit99:                               ; preds = %.Vec_IntGrow.exit10
   %163 = sext i32 %138 to i64
   %164 = getelementptr inbounds i32, ptr %161, i64 %163
   store i32 %137, ptr %164, align 4
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %14, i32 noundef 7)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %14, i32 noundef 7)
   %.pre130 = load i16, ptr %47, align 8
   br label %167
 
@@ -600,7 +600,7 @@ Vec_IntPush.exit99:                               ; preds = %.Vec_IntGrow.exit10
   %175 = zext nneg i16 %174 to i32
   %.val = load i32, ptr %15, align 4
   %.val87 = load ptr, ptr %17, align 8
-  call fastcc void @Ndr_AddObject(ptr noundef nonnull %2, i32 noundef 258, i32 noundef %.067, i32 noundef %170, i32 noundef %172, i32 noundef %175, i32 noundef %.val, ptr noundef %.val87, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %.0)
+  call fastcc void @Ndr_AddObject.argelim(ptr noundef nonnull %2, i32 noundef 258, i32 noundef %.067, i32 noundef %170, i32 noundef %172, i32 noundef %175, i32 noundef %.val, ptr noundef %.val87, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %.0)
   %.pre131 = load i32, ptr %1, align 4
   %.val78.pre = load i32, ptr %22, align 8
   br label %.critedge
@@ -662,7 +662,7 @@ Vec_IntGrow.exit.i101:                            ; preds = %192, %185
   %201 = lshr i16 %200, 6
   %202 = and i16 %201, 1
   %203 = zext nneg i16 %202 to i32
-  tail call fastcc void @Ndr_AddObject(ptr noundef nonnull %2, i32 noundef 258, i32 noundef 4, i32 noundef %197, i32 noundef %199, i32 noundef %203, i32 noundef 1, ptr noundef nonnull %194, i32 noundef 0, ptr noundef null, ptr noundef null)
+  tail call fastcc void @Ndr_AddObject.argelim(ptr noundef nonnull %2, i32 noundef 258, i32 noundef 4, i32 noundef %197, i32 noundef %199, i32 noundef %203, i32 noundef 1, ptr noundef nonnull %194, i32 noundef 0, ptr noundef null, ptr noundef null)
   %.val79.pre = load i32, ptr %22, align 8
   br label %.critedge2
 
@@ -690,7 +690,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %209
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Ndr_AddObject(ptr noundef %0, i32 noundef range(i32 -2147483392, -2147483648) %1, i32 noundef range(i32 -1, 99) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef range(i32 0, 2) %8, ptr nocapture noundef readonly %9, ptr noundef %10) unnamed_addr #5 {
+define internal fastcc void @Ndr_AddObject.argelim(ptr noundef %0, i32 noundef range(i32 -2147483392, -2147483648) %1, i32 noundef range(i32 -1, 99) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef range(i32 0, 2) %8, ptr nocapture noundef readonly %9, ptr noundef %10) unnamed_addr #5 {
   %12 = load i32, ptr %0, align 8
   %13 = add nsw i32 %12, 6
   %14 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1052,7 +1052,7 @@ Ndr_DataPushString.exit:                          ; preds = %Ndr_DataPushArray.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #4 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -1217,7 +1217,7 @@ define void @Wlc_NtkToNdrTest(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %1
-  tail call fastcc void @Ndr_WriteVerilog(ptr noundef null, ptr noundef %2, ptr noundef %6)
+  tail call fastcc void @Ndr_WriteVerilog.argelim(ptr noundef null, ptr noundef %2, ptr noundef %6)
   %13 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.23)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %Ndr_Write.exit, label %Ndr_Write.exit.thread
@@ -1270,7 +1270,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare ptr @Wlc_ObjName(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ndr_WriteVerilog(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
+define internal fastcc void @Ndr_WriteVerilog.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 
@@ -4435,7 +4435,7 @@ Ndr_ObjReadBody.exit68.thread:                    ; preds = %Ndr_DataSize.exit.i
 
 56:                                               ; preds = %Ndr_ObjReadBody.exit
   %57 = add nuw nsw i32 %38, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2, i32 noundef %57)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %2, i32 noundef %57)
   %.val.i = load ptr, ptr %5, align 8
   %58 = sext i32 %38 to i64
   %59 = getelementptr inbounds i32, ptr %.val.i, i64 %58
@@ -4444,7 +4444,7 @@ Ndr_ObjReadBody.exit68.thread:                    ; preds = %Ndr_DataSize.exit.i
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %56
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2, i32 noundef %57)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %2, i32 noundef %57)
   %.val.i69 = load ptr, ptr %5, align 8
   %63 = getelementptr inbounds i32, ptr %.val.i69, i64 %58
   %64 = load i32, ptr %63, align 4
@@ -4452,7 +4452,7 @@ Ndr_ObjReadBody.exit68.thread:                    ; preds = %Ndr_DataSize.exit.i
   br label %66
 
 66:                                               ; preds = %62, %56
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2, i32 noundef %57)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %2, i32 noundef %57)
   %.val.i70 = load ptr, ptr %5, align 8
   %67 = getelementptr inbounds i32, ptr %.val.i70, i64 %58
   store i32 %.0104, ptr %67, align 4
@@ -7065,7 +7065,7 @@ define void @Ndr_DumpNdr(ptr nocapture noundef readonly %0) local_unnamed_addr #
   br i1 %exitcond.not, label %12, label %4, !llvm.loop !53
 
 12:                                               ; preds = %4
-  tail call fastcc void @Ndr_WriteVerilog(ptr noundef nonnull @.str.20, ptr noundef %0, ptr noundef nonnull %3)
+  tail call fastcc void @Ndr_WriteVerilog.argelim(ptr noundef nonnull @.str.20, ptr noundef %0, ptr noundef nonnull %3)
   ret void
 }
 

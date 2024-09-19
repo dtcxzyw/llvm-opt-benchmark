@@ -245,7 +245,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.else
-  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv()
+  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.retelim()
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5.i.i.i, %if.then.i.i.i, %lor.lhs.false.i.i.i, %if.then, %if.else, %if.then4
@@ -281,7 +281,7 @@ if.end6:                                          ; preds = %if.then5.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.retelim() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
   %cmp.not.i = icmp eq i32 %0, 221
@@ -378,7 +378,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %do.body4, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv()
+  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.retelim()
   %cmp3 = icmp eq ptr %arena, @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE
   br i1 %cmp3, label %do.body4, label %do.end7
 
@@ -455,19 +455,19 @@ if.then7.i.i:                                     ; preds = %if.then9
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %if.then9
   %10 = load i8, ptr %mask_valid_.i, align 1
   %tobool.i = trunc i8 %10 to i1
-  br i1 %tobool.i, label %if.then.i25, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit
+  br i1 %tobool.i, label %if.then.i25, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.argprom.exit
 
 if.then.i25:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
   %mask_.i = getelementptr inbounds i8, ptr %section, i64 8
   %call.i26 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
   %cmp.not.i27 = icmp eq i32 %call.i26, 0
-  br i1 %cmp.not.i27, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %do.body.i41.invoke
+  br i1 %cmp.not.i27, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.argprom.exit, label %do.body.i41.invoke
 
 lpad:                                             ; preds = %do.body77.invoke, %do.body.i41.invoke, %if.then7.i.i33, %if.then7.i.i, %invoke.cont106
   %11 = landingpad { ptr, i32 }
           cleanup
   %section.val = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val) #11
+  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.argprom(i8 %section.val) #11
   resume { ptr, i32 } %11
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end93
@@ -580,7 +580,7 @@ invoke.cont106:                                   ; preds = %if.then.i37, %_ZN4a
 cleanup:                                          ; preds = %invoke.cont106
   %section.val22.pre = load i8, ptr %section, align 8
   %32 = trunc i8 %section.val22.pre to i1
-  br i1 %32, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %do.body2.i
+  br i1 %32, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.argprom.exit, label %do.body2.i
 
 do.body2.i:                                       ; preds = %cleanup
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 294, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
@@ -596,7 +596,7 @@ terminate.lpad.i:                                 ; preds = %do.body2.i
   call void @__clang_call_terminate(ptr %34) #14
   unreachable
 
-_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %if.then.i25, %cleanup
+_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.argprom.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %if.then.i25, %cleanup
   ret i1 %cmp8.not
 }
 
@@ -684,7 +684,7 @@ lpad:                                             ; preds = %do.body.i, %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
   %section.val = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val) #11
+  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.argprom(i8 %section.val) #11
   resume { ptr, i32 } %8
 
 do.end10:                                         ; preds = %do.body
@@ -724,7 +724,7 @@ if.end13:                                         ; preds = %if.then.i9, %_ZN4ab
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.argprom(i8 %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = trunc i8 %this.0.val to i1
   br i1 %tobool, label %do.end7, label %do.body2
@@ -1085,7 +1085,7 @@ lpad.loopexit.split-lp:                           ; preds = %do.body76.invoke, %
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit102, %lpad.loopexit ], [ %lpad.loopexit.split-lp103, %lpad.loopexit.split-lp ]
   %section.val49 = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val49) #11
+  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.argprom(i8 %section.val49) #11
   resume { ptr, i32 } %lpad.phi
 
 if.end14:                                         ; preds = %do.end4.i, %invoke.cont3

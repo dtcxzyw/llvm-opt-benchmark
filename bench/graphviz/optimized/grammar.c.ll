@@ -932,7 +932,7 @@ appendnode.exit237:                               ; preds = %391, %394
 412:                                              ; preds = %409
   %413 = load ptr, ptr @stderr, align 8
   %414 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %413, ptr noundef nonnull @.str.13, i64 noundef %407) #19
-  call fastcc void @graphviz_exit() #20
+  call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %409, %403
@@ -1151,7 +1151,7 @@ opensubg.exit:                                    ; preds = %480, %485
 526:                                              ; preds = %523
   %527 = load ptr, ptr @stderr, align 8
   %528 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %527, ptr noundef nonnull @.str.13, i64 noundef %521) #19
-  call fastcc void @graphviz_exit() #20
+  call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %523, %514
@@ -1753,7 +1753,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #22
   unreachable
 }

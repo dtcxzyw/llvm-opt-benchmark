@@ -925,21 +925,21 @@ Io_NtkWriteBlifMvSubckt.exit.i:                   ; preds = %.critedge4.i.i, %.c
   %399 = load i32, ptr %384, align 4
   %400 = sext i32 %399 to i64
   %401 = icmp slt i64 %indvars.iv220.i, %400
-  br i1 %401, label %Extra_ProgressBarUpdate.exit.i, label %402
+  br i1 %401, label %Extra_ProgressBarUpdate.argprom.exit.i, label %402
 
 402:                                              ; preds = %398, %397
   %403 = trunc nuw nsw i64 %indvars.iv220.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %384, i32 noundef %403, ptr noundef null) #9
-  br label %Extra_ProgressBarUpdate.exit.i
+  br label %Extra_ProgressBarUpdate.argprom.exit.i
 
-Extra_ProgressBarUpdate.exit.i:                   ; preds = %402, %398
+Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %402, %398
   %fputc.i163.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %404 = getelementptr i8, ptr %392, i64 28
   %.val5268.i.i = load i32, ptr %404, align 4
   %405 = icmp sgt i32 %.val5268.i.i, 0
   br i1 %405, label %.lr.ph.i172.i, label %.critedge.i.i
 
-.lr.ph.i172.i:                                    ; preds = %Extra_ProgressBarUpdate.exit.i
+.lr.ph.i172.i:                                    ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
   %406 = getelementptr i8, ptr %392, i64 32
   br label %407
 
@@ -989,7 +989,7 @@ Abc_ObjMvVarNum.exit.thread.i182.i:               ; preds = %424, %Abc_ObjMvVarN
   %428 = icmp slt i64 %indvars.iv.next.i183.i, %427
   br i1 %428, label %407, label %.critedge.i.i, !llvm.loop !16
 
-.critedge.i.i:                                    ; preds = %Abc_ObjMvVarNum.exit.thread.i182.i, %Extra_ProgressBarUpdate.exit.i
+.critedge.i.i:                                    ; preds = %Abc_ObjMvVarNum.exit.thread.i182.i, %Extra_ProgressBarUpdate.argprom.exit.i
   %.val49.i.i = load ptr, ptr %392, align 8
   %429 = getelementptr i8, ptr %392, i64 48
   %.val50.i.i = load ptr, ptr %429, align 8

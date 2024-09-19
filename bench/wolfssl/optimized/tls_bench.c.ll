@@ -307,7 +307,7 @@ if.end55.i:                                       ; preds = %if.end51.i, %lor.lh
 if.end70.i:                                       ; preds = %if.end55.i
   %incdec.ptr71.i = getelementptr inbounds i8, ptr %memchr.i, i64 1
   %18 = load i8, ptr %incdec.ptr71.i, align 1
-  switch i8 %18, label %mygetopt.exit [
+  switch i8 %18, label %mygetopt.argprom.exit [
     i8 58, label %if.then75.i
     i8 59, label %if.then93.i
   ]
@@ -320,7 +320,7 @@ if.then75.i:                                      ; preds = %if.end70.i
 if.then79.i:                                      ; preds = %if.then75.i
   store ptr %incdec.ptr56.i, ptr @myoptarg, align 8
   store ptr null, ptr @mygetopt.next, align 8
-  br label %mygetopt.exit
+  br label %mygetopt.argprom.exit
 
 if.else.i:                                        ; preds = %if.then75.i
   %cmp80.i = icmp slt i32 %13, %0
@@ -333,7 +333,7 @@ if.then82.i:                                      ; preds = %if.else.i
   store ptr %20, ptr @myoptarg, align 8
   %inc85.i = add nsw i32 %13, 1
   store i32 %inc85.i, ptr @myoptind, align 4
-  br label %mygetopt.exit
+  br label %mygetopt.argprom.exit
 
 if.then93.i:                                      ; preds = %if.end70.i
   store ptr @.str.33, ptr @myoptarg, align 8
@@ -344,31 +344,31 @@ if.then93.i:                                      ; preds = %if.end70.i
 if.then97.i:                                      ; preds = %if.then93.i
   store ptr %incdec.ptr56.i, ptr @myoptarg, align 8
   store ptr null, ptr @mygetopt.next, align 8
-  br label %mygetopt.exit
+  br label %mygetopt.argprom.exit
 
 if.else98.i:                                      ; preds = %if.then93.i
   %cmp99.i = icmp slt i32 %13, %0
-  br i1 %cmp99.i, label %if.then101.i, label %mygetopt.exit
+  br i1 %cmp99.i, label %if.then101.i, label %mygetopt.argprom.exit
 
 if.then101.i:                                     ; preds = %if.else98.i
   %idxprom102.i = sext i32 %13 to i64
   %arrayidx103.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom102.i
   %22 = load ptr, ptr %arrayidx103.i, align 8
   %tobool.not.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i, label %mygetopt.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %mygetopt.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then101.i
   %23 = load i8, ptr %22, align 1
   %cmp108.not.i = icmp eq i8 %23, 45
-  br i1 %cmp108.not.i, label %mygetopt.exit, label %if.then110.i
+  br i1 %cmp108.not.i, label %mygetopt.argprom.exit, label %if.then110.i
 
 if.then110.i:                                     ; preds = %land.lhs.true.i
   store ptr %22, ptr @myoptarg, align 8
   %inc113.i = add nsw i32 %13, 1
   store i32 %inc113.i, ptr @myoptind, align 4
-  br label %mygetopt.exit
+  br label %mygetopt.argprom.exit
 
-mygetopt.exit:                                    ; preds = %if.end70.i, %if.then79.i, %if.then82.i, %if.then97.i, %if.else98.i, %if.then101.i, %land.lhs.true.i, %if.then110.i
+mygetopt.argprom.exit:                            ; preds = %if.end70.i, %if.then79.i, %if.then82.i, %if.then97.i, %if.else98.i, %if.then101.i, %land.lhs.true.i, %if.then110.i
   %24 = phi ptr [ %4, %if.end70.i ], [ %incdec.ptr56.i, %if.then79.i ], [ %20, %if.then82.i ], [ %incdec.ptr56.i, %if.then97.i ], [ @.str.33, %if.else98.i ], [ @.str.33, %if.then101.i ], [ @.str.33, %land.lhs.true.i ], [ %22, %if.then110.i ]
   %25 = phi ptr [ %incdec.ptr56.i, %if.end70.i ], [ null, %if.then79.i ], [ %incdec.ptr56.i, %if.then82.i ], [ null, %if.then97.i ], [ %incdec.ptr56.i, %if.else98.i ], [ %incdec.ptr56.i, %if.then101.i ], [ %incdec.ptr56.i, %land.lhs.true.i ], [ %incdec.ptr56.i, %if.then110.i ]
   %26 = phi i32 [ %13, %if.end70.i ], [ %13, %if.then79.i ], [ %inc85.i, %if.then82.i ], [ %13, %if.then97.i ], [ %13, %if.else98.i ], [ %13, %if.then101.i ], [ %13, %land.lhs.true.i ], [ %inc113.i, %if.then110.i ]
@@ -393,40 +393,40 @@ mygetopt.exit:                                    ; preds = %if.end70.i, %if.the
     i8 117, label %if.end.i.backedge
   ]
 
-if.end.i.backedge:                                ; preds = %mygetopt.exit, %mygetopt.exit, %sw.bb15, %sw.bb28, %sw.bb26, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5
-  %argDoGroups.0303.be = phi i32 [ %argDoGroups.0303, %sw.bb28 ], [ %argDoGroups.0303, %sw.bb26 ], [ %argDoGroups.0303, %sw.bb25 ], [ %argDoGroups.0303, %sw.bb23 ], [ %argDoGroups.0303, %sw.bb21 ], [ %argDoGroups.0303, %sw.bb15 ], [ %argDoGroups.0303, %sw.bb14 ], [ %argDoGroups.0303, %sw.bb13 ], [ 1, %sw.bb12 ], [ %argDoGroups.0303, %sw.bb8 ], [ %argDoGroups.0303, %sw.bb7 ], [ %argDoGroups.0303, %sw.bb6 ], [ %argDoGroups.0303, %sw.bb5 ], [ %argDoGroups.0303, %mygetopt.exit ], [ %argDoGroups.0303, %mygetopt.exit ]
-  %argLocalMem.0302.be = phi i32 [ 1, %sw.bb28 ], [ %argLocalMem.0302, %sw.bb26 ], [ %argLocalMem.0302, %sw.bb25 ], [ %argLocalMem.0302, %sw.bb23 ], [ %argLocalMem.0302, %sw.bb21 ], [ %argLocalMem.0302, %sw.bb15 ], [ %argLocalMem.0302, %sw.bb14 ], [ %argLocalMem.0302, %sw.bb13 ], [ %argLocalMem.0302, %sw.bb12 ], [ %argLocalMem.0302, %sw.bb8 ], [ %argLocalMem.0302, %sw.bb7 ], [ %argLocalMem.0302, %sw.bb6 ], [ %argLocalMem.0302, %sw.bb5 ], [ %argLocalMem.0302, %mygetopt.exit ], [ %argLocalMem.0302, %mygetopt.exit ]
-  %argShowPeerInfo.0301.be = phi i32 [ %argShowPeerInfo.0301, %sw.bb28 ], [ %argShowPeerInfo.0301, %sw.bb26 ], [ %argShowPeerInfo.0301, %sw.bb25 ], [ %argShowPeerInfo.0301, %sw.bb23 ], [ %argShowPeerInfo.0301, %sw.bb21 ], [ %argShowPeerInfo.0301, %sw.bb15 ], [ %argShowPeerInfo.0301, %sw.bb14 ], [ 1, %sw.bb13 ], [ %argShowPeerInfo.0301, %sw.bb12 ], [ %argShowPeerInfo.0301, %sw.bb8 ], [ %argShowPeerInfo.0301, %sw.bb7 ], [ %argShowPeerInfo.0301, %sw.bb6 ], [ %argShowPeerInfo.0301, %sw.bb5 ], [ %argShowPeerInfo.0301, %mygetopt.exit ], [ %argShowPeerInfo.0301, %mygetopt.exit ]
-  %argPort.0300.be = phi i32 [ %argPort.0300, %sw.bb28 ], [ %argPort.0300, %sw.bb26 ], [ %argPort.0300, %sw.bb25 ], [ %argPort.0300, %sw.bb23 ], [ %argPort.0300, %sw.bb21 ], [ %argPort.0300, %sw.bb15 ], [ %argPort.0300, %sw.bb14 ], [ %argPort.0300, %sw.bb13 ], [ %argPort.0300, %sw.bb12 ], [ %call9, %sw.bb8 ], [ %argPort.0300, %sw.bb7 ], [ %argPort.0300, %sw.bb6 ], [ %argPort.0300, %sw.bb5 ], [ %argPort.0300, %mygetopt.exit ], [ %argPort.0300, %mygetopt.exit ]
-  %argHost.0299.be = phi ptr [ %argHost.0299, %sw.bb28 ], [ %argHost.0299, %sw.bb26 ], [ %argHost.0299, %sw.bb25 ], [ %argHost.0299, %sw.bb23 ], [ %argHost.0299, %sw.bb21 ], [ %argHost.0299, %sw.bb15 ], [ %argHost.0299, %sw.bb14 ], [ %argHost.0299, %sw.bb13 ], [ %argHost.0299, %sw.bb12 ], [ %argHost.0299, %sw.bb8 ], [ %24, %sw.bb7 ], [ %argHost.0299, %sw.bb6 ], [ %argHost.0299, %sw.bb5 ], [ %argHost.0299, %mygetopt.exit ], [ %argHost.0299, %mygetopt.exit ]
-  %argServerOnly.0298.be = phi i32 [ %argServerOnly.0298, %sw.bb28 ], [ %argServerOnly.0298, %sw.bb26 ], [ %argServerOnly.0298, %sw.bb25 ], [ %argServerOnly.0298, %sw.bb23 ], [ %argServerOnly.0298, %sw.bb21 ], [ %argServerOnly.0298, %sw.bb15 ], [ %argServerOnly.0298, %sw.bb14 ], [ %argServerOnly.0298, %sw.bb13 ], [ %argServerOnly.0298, %sw.bb12 ], [ %argServerOnly.0298, %sw.bb8 ], [ %argServerOnly.0298, %sw.bb7 ], [ %argServerOnly.0298, %sw.bb6 ], [ 1, %sw.bb5 ], [ %argServerOnly.0298, %mygetopt.exit ], [ %argServerOnly.0298, %mygetopt.exit ]
-  %argClientOnly.0297.be = phi i32 [ %argClientOnly.0297, %sw.bb28 ], [ %argClientOnly.0297, %sw.bb26 ], [ %argClientOnly.0297, %sw.bb25 ], [ %argClientOnly.0297, %sw.bb23 ], [ %argClientOnly.0297, %sw.bb21 ], [ %argClientOnly.0297, %sw.bb15 ], [ %argClientOnly.0297, %sw.bb14 ], [ %argClientOnly.0297, %sw.bb13 ], [ %argClientOnly.0297, %sw.bb12 ], [ %argClientOnly.0297, %sw.bb8 ], [ %argClientOnly.0297, %sw.bb7 ], [ 1, %sw.bb6 ], [ %argClientOnly.0297, %sw.bb5 ], [ %argClientOnly.0297, %mygetopt.exit ], [ %argClientOnly.0297, %mygetopt.exit ]
-  %argShowVerbose.0296.be = phi i32 [ %argShowVerbose.0296, %sw.bb28 ], [ %argShowVerbose.0296, %sw.bb26 ], [ 1, %sw.bb25 ], [ %argShowVerbose.0296, %sw.bb23 ], [ %argShowVerbose.0296, %sw.bb21 ], [ %argShowVerbose.0296, %sw.bb15 ], [ %argShowVerbose.0296, %sw.bb14 ], [ %argShowVerbose.0296, %sw.bb13 ], [ %argShowVerbose.0296, %sw.bb12 ], [ %argShowVerbose.0296, %sw.bb8 ], [ %argShowVerbose.0296, %sw.bb7 ], [ %argShowVerbose.0296, %sw.bb6 ], [ %argShowVerbose.0296, %sw.bb5 ], [ %argShowVerbose.0296, %mygetopt.exit ], [ %argShowVerbose.0296, %mygetopt.exit ]
-  %argThreadPairs.0295.be = phi i32 [ %argThreadPairs.0295, %sw.bb28 ], [ %call27, %sw.bb26 ], [ %argThreadPairs.0295, %sw.bb25 ], [ %argThreadPairs.0295, %sw.bb23 ], [ %argThreadPairs.0295, %sw.bb21 ], [ %argThreadPairs.0295, %sw.bb15 ], [ %argThreadPairs.0295, %sw.bb14 ], [ %argThreadPairs.0295, %sw.bb13 ], [ %argThreadPairs.0295, %sw.bb12 ], [ %argThreadPairs.0295, %sw.bb8 ], [ %argThreadPairs.0295, %sw.bb7 ], [ %argThreadPairs.0295, %sw.bb6 ], [ %argThreadPairs.0295, %sw.bb5 ], [ %argThreadPairs.0295, %mygetopt.exit ], [ %argThreadPairs.0295, %mygetopt.exit ]
-  %argTestMaxSize.0294.be = phi i32 [ %argTestMaxSize.0294, %sw.bb28 ], [ %argTestMaxSize.0294, %sw.bb26 ], [ %argTestMaxSize.0294, %sw.bb25 ], [ %argTestMaxSize.0294, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %argTestMaxSize.0294, %sw.bb15 ], [ %argTestMaxSize.0294, %sw.bb14 ], [ %argTestMaxSize.0294, %sw.bb13 ], [ %argTestMaxSize.0294, %sw.bb12 ], [ %argTestMaxSize.0294, %sw.bb8 ], [ %argTestMaxSize.0294, %sw.bb7 ], [ %argTestMaxSize.0294, %sw.bb6 ], [ %argTestMaxSize.0294, %sw.bb5 ], [ %argTestMaxSize.0294, %mygetopt.exit ], [ %argTestMaxSize.0294, %mygetopt.exit ]
-  %argTestPacketSize.0293.be = phi i32 [ %argTestPacketSize.0293, %sw.bb28 ], [ %argTestPacketSize.0293, %sw.bb26 ], [ %argTestPacketSize.0293, %sw.bb25 ], [ %argTestPacketSize.0293, %sw.bb23 ], [ %argTestPacketSize.0293, %sw.bb21 ], [ %call16, %sw.bb15 ], [ %argTestPacketSize.0293, %sw.bb14 ], [ %argTestPacketSize.0293, %sw.bb13 ], [ %argTestPacketSize.0293, %sw.bb12 ], [ %argTestPacketSize.0293, %sw.bb8 ], [ %argTestPacketSize.0293, %sw.bb7 ], [ %argTestPacketSize.0293, %sw.bb6 ], [ %argTestPacketSize.0293, %sw.bb5 ], [ %argTestPacketSize.0293, %mygetopt.exit ], [ %argTestPacketSize.0293, %mygetopt.exit ]
-  %argCipherList.0292.be = phi ptr [ %argCipherList.0292, %sw.bb28 ], [ %argCipherList.0292, %sw.bb26 ], [ %argCipherList.0292, %sw.bb25 ], [ %argCipherList.0292, %sw.bb23 ], [ %argCipherList.0292, %sw.bb21 ], [ %argCipherList.0292, %sw.bb15 ], [ %24, %sw.bb14 ], [ %argCipherList.0292, %sw.bb13 ], [ %argCipherList.0292, %sw.bb12 ], [ %argCipherList.0292, %sw.bb8 ], [ %argCipherList.0292, %sw.bb7 ], [ %argCipherList.0292, %sw.bb6 ], [ %argCipherList.0292, %sw.bb5 ], [ %argCipherList.0292, %mygetopt.exit ], [ %argCipherList.0292, %mygetopt.exit ]
-  %argRuntimeSec.0291.be = phi i32 [ %argRuntimeSec.0291, %sw.bb28 ], [ %argRuntimeSec.0291, %sw.bb26 ], [ %argRuntimeSec.0291, %sw.bb25 ], [ %call24, %sw.bb23 ], [ %argRuntimeSec.0291, %sw.bb21 ], [ %argRuntimeSec.0291, %sw.bb15 ], [ %argRuntimeSec.0291, %sw.bb14 ], [ %argRuntimeSec.0291, %sw.bb13 ], [ %argRuntimeSec.0291, %sw.bb12 ], [ %argRuntimeSec.0291, %sw.bb8 ], [ %argRuntimeSec.0291, %sw.bb7 ], [ %argRuntimeSec.0291, %sw.bb6 ], [ %argRuntimeSec.0291, %sw.bb5 ], [ %argRuntimeSec.0291, %mygetopt.exit ], [ %argRuntimeSec.0291, %mygetopt.exit ]
+if.end.i.backedge:                                ; preds = %mygetopt.argprom.exit, %mygetopt.argprom.exit, %sw.bb15, %sw.bb28, %sw.bb26, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5
+  %argDoGroups.0303.be = phi i32 [ %argDoGroups.0303, %sw.bb28 ], [ %argDoGroups.0303, %sw.bb26 ], [ %argDoGroups.0303, %sw.bb25 ], [ %argDoGroups.0303, %sw.bb23 ], [ %argDoGroups.0303, %sw.bb21 ], [ %argDoGroups.0303, %sw.bb15 ], [ %argDoGroups.0303, %sw.bb14 ], [ %argDoGroups.0303, %sw.bb13 ], [ 1, %sw.bb12 ], [ %argDoGroups.0303, %sw.bb8 ], [ %argDoGroups.0303, %sw.bb7 ], [ %argDoGroups.0303, %sw.bb6 ], [ %argDoGroups.0303, %sw.bb5 ], [ %argDoGroups.0303, %mygetopt.argprom.exit ], [ %argDoGroups.0303, %mygetopt.argprom.exit ]
+  %argLocalMem.0302.be = phi i32 [ 1, %sw.bb28 ], [ %argLocalMem.0302, %sw.bb26 ], [ %argLocalMem.0302, %sw.bb25 ], [ %argLocalMem.0302, %sw.bb23 ], [ %argLocalMem.0302, %sw.bb21 ], [ %argLocalMem.0302, %sw.bb15 ], [ %argLocalMem.0302, %sw.bb14 ], [ %argLocalMem.0302, %sw.bb13 ], [ %argLocalMem.0302, %sw.bb12 ], [ %argLocalMem.0302, %sw.bb8 ], [ %argLocalMem.0302, %sw.bb7 ], [ %argLocalMem.0302, %sw.bb6 ], [ %argLocalMem.0302, %sw.bb5 ], [ %argLocalMem.0302, %mygetopt.argprom.exit ], [ %argLocalMem.0302, %mygetopt.argprom.exit ]
+  %argShowPeerInfo.0301.be = phi i32 [ %argShowPeerInfo.0301, %sw.bb28 ], [ %argShowPeerInfo.0301, %sw.bb26 ], [ %argShowPeerInfo.0301, %sw.bb25 ], [ %argShowPeerInfo.0301, %sw.bb23 ], [ %argShowPeerInfo.0301, %sw.bb21 ], [ %argShowPeerInfo.0301, %sw.bb15 ], [ %argShowPeerInfo.0301, %sw.bb14 ], [ 1, %sw.bb13 ], [ %argShowPeerInfo.0301, %sw.bb12 ], [ %argShowPeerInfo.0301, %sw.bb8 ], [ %argShowPeerInfo.0301, %sw.bb7 ], [ %argShowPeerInfo.0301, %sw.bb6 ], [ %argShowPeerInfo.0301, %sw.bb5 ], [ %argShowPeerInfo.0301, %mygetopt.argprom.exit ], [ %argShowPeerInfo.0301, %mygetopt.argprom.exit ]
+  %argPort.0300.be = phi i32 [ %argPort.0300, %sw.bb28 ], [ %argPort.0300, %sw.bb26 ], [ %argPort.0300, %sw.bb25 ], [ %argPort.0300, %sw.bb23 ], [ %argPort.0300, %sw.bb21 ], [ %argPort.0300, %sw.bb15 ], [ %argPort.0300, %sw.bb14 ], [ %argPort.0300, %sw.bb13 ], [ %argPort.0300, %sw.bb12 ], [ %call9, %sw.bb8 ], [ %argPort.0300, %sw.bb7 ], [ %argPort.0300, %sw.bb6 ], [ %argPort.0300, %sw.bb5 ], [ %argPort.0300, %mygetopt.argprom.exit ], [ %argPort.0300, %mygetopt.argprom.exit ]
+  %argHost.0299.be = phi ptr [ %argHost.0299, %sw.bb28 ], [ %argHost.0299, %sw.bb26 ], [ %argHost.0299, %sw.bb25 ], [ %argHost.0299, %sw.bb23 ], [ %argHost.0299, %sw.bb21 ], [ %argHost.0299, %sw.bb15 ], [ %argHost.0299, %sw.bb14 ], [ %argHost.0299, %sw.bb13 ], [ %argHost.0299, %sw.bb12 ], [ %argHost.0299, %sw.bb8 ], [ %24, %sw.bb7 ], [ %argHost.0299, %sw.bb6 ], [ %argHost.0299, %sw.bb5 ], [ %argHost.0299, %mygetopt.argprom.exit ], [ %argHost.0299, %mygetopt.argprom.exit ]
+  %argServerOnly.0298.be = phi i32 [ %argServerOnly.0298, %sw.bb28 ], [ %argServerOnly.0298, %sw.bb26 ], [ %argServerOnly.0298, %sw.bb25 ], [ %argServerOnly.0298, %sw.bb23 ], [ %argServerOnly.0298, %sw.bb21 ], [ %argServerOnly.0298, %sw.bb15 ], [ %argServerOnly.0298, %sw.bb14 ], [ %argServerOnly.0298, %sw.bb13 ], [ %argServerOnly.0298, %sw.bb12 ], [ %argServerOnly.0298, %sw.bb8 ], [ %argServerOnly.0298, %sw.bb7 ], [ %argServerOnly.0298, %sw.bb6 ], [ 1, %sw.bb5 ], [ %argServerOnly.0298, %mygetopt.argprom.exit ], [ %argServerOnly.0298, %mygetopt.argprom.exit ]
+  %argClientOnly.0297.be = phi i32 [ %argClientOnly.0297, %sw.bb28 ], [ %argClientOnly.0297, %sw.bb26 ], [ %argClientOnly.0297, %sw.bb25 ], [ %argClientOnly.0297, %sw.bb23 ], [ %argClientOnly.0297, %sw.bb21 ], [ %argClientOnly.0297, %sw.bb15 ], [ %argClientOnly.0297, %sw.bb14 ], [ %argClientOnly.0297, %sw.bb13 ], [ %argClientOnly.0297, %sw.bb12 ], [ %argClientOnly.0297, %sw.bb8 ], [ %argClientOnly.0297, %sw.bb7 ], [ 1, %sw.bb6 ], [ %argClientOnly.0297, %sw.bb5 ], [ %argClientOnly.0297, %mygetopt.argprom.exit ], [ %argClientOnly.0297, %mygetopt.argprom.exit ]
+  %argShowVerbose.0296.be = phi i32 [ %argShowVerbose.0296, %sw.bb28 ], [ %argShowVerbose.0296, %sw.bb26 ], [ 1, %sw.bb25 ], [ %argShowVerbose.0296, %sw.bb23 ], [ %argShowVerbose.0296, %sw.bb21 ], [ %argShowVerbose.0296, %sw.bb15 ], [ %argShowVerbose.0296, %sw.bb14 ], [ %argShowVerbose.0296, %sw.bb13 ], [ %argShowVerbose.0296, %sw.bb12 ], [ %argShowVerbose.0296, %sw.bb8 ], [ %argShowVerbose.0296, %sw.bb7 ], [ %argShowVerbose.0296, %sw.bb6 ], [ %argShowVerbose.0296, %sw.bb5 ], [ %argShowVerbose.0296, %mygetopt.argprom.exit ], [ %argShowVerbose.0296, %mygetopt.argprom.exit ]
+  %argThreadPairs.0295.be = phi i32 [ %argThreadPairs.0295, %sw.bb28 ], [ %call27, %sw.bb26 ], [ %argThreadPairs.0295, %sw.bb25 ], [ %argThreadPairs.0295, %sw.bb23 ], [ %argThreadPairs.0295, %sw.bb21 ], [ %argThreadPairs.0295, %sw.bb15 ], [ %argThreadPairs.0295, %sw.bb14 ], [ %argThreadPairs.0295, %sw.bb13 ], [ %argThreadPairs.0295, %sw.bb12 ], [ %argThreadPairs.0295, %sw.bb8 ], [ %argThreadPairs.0295, %sw.bb7 ], [ %argThreadPairs.0295, %sw.bb6 ], [ %argThreadPairs.0295, %sw.bb5 ], [ %argThreadPairs.0295, %mygetopt.argprom.exit ], [ %argThreadPairs.0295, %mygetopt.argprom.exit ]
+  %argTestMaxSize.0294.be = phi i32 [ %argTestMaxSize.0294, %sw.bb28 ], [ %argTestMaxSize.0294, %sw.bb26 ], [ %argTestMaxSize.0294, %sw.bb25 ], [ %argTestMaxSize.0294, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %argTestMaxSize.0294, %sw.bb15 ], [ %argTestMaxSize.0294, %sw.bb14 ], [ %argTestMaxSize.0294, %sw.bb13 ], [ %argTestMaxSize.0294, %sw.bb12 ], [ %argTestMaxSize.0294, %sw.bb8 ], [ %argTestMaxSize.0294, %sw.bb7 ], [ %argTestMaxSize.0294, %sw.bb6 ], [ %argTestMaxSize.0294, %sw.bb5 ], [ %argTestMaxSize.0294, %mygetopt.argprom.exit ], [ %argTestMaxSize.0294, %mygetopt.argprom.exit ]
+  %argTestPacketSize.0293.be = phi i32 [ %argTestPacketSize.0293, %sw.bb28 ], [ %argTestPacketSize.0293, %sw.bb26 ], [ %argTestPacketSize.0293, %sw.bb25 ], [ %argTestPacketSize.0293, %sw.bb23 ], [ %argTestPacketSize.0293, %sw.bb21 ], [ %call16, %sw.bb15 ], [ %argTestPacketSize.0293, %sw.bb14 ], [ %argTestPacketSize.0293, %sw.bb13 ], [ %argTestPacketSize.0293, %sw.bb12 ], [ %argTestPacketSize.0293, %sw.bb8 ], [ %argTestPacketSize.0293, %sw.bb7 ], [ %argTestPacketSize.0293, %sw.bb6 ], [ %argTestPacketSize.0293, %sw.bb5 ], [ %argTestPacketSize.0293, %mygetopt.argprom.exit ], [ %argTestPacketSize.0293, %mygetopt.argprom.exit ]
+  %argCipherList.0292.be = phi ptr [ %argCipherList.0292, %sw.bb28 ], [ %argCipherList.0292, %sw.bb26 ], [ %argCipherList.0292, %sw.bb25 ], [ %argCipherList.0292, %sw.bb23 ], [ %argCipherList.0292, %sw.bb21 ], [ %argCipherList.0292, %sw.bb15 ], [ %24, %sw.bb14 ], [ %argCipherList.0292, %sw.bb13 ], [ %argCipherList.0292, %sw.bb12 ], [ %argCipherList.0292, %sw.bb8 ], [ %argCipherList.0292, %sw.bb7 ], [ %argCipherList.0292, %sw.bb6 ], [ %argCipherList.0292, %sw.bb5 ], [ %argCipherList.0292, %mygetopt.argprom.exit ], [ %argCipherList.0292, %mygetopt.argprom.exit ]
+  %argRuntimeSec.0291.be = phi i32 [ %argRuntimeSec.0291, %sw.bb28 ], [ %argRuntimeSec.0291, %sw.bb26 ], [ %argRuntimeSec.0291, %sw.bb25 ], [ %call24, %sw.bb23 ], [ %argRuntimeSec.0291, %sw.bb21 ], [ %argRuntimeSec.0291, %sw.bb15 ], [ %argRuntimeSec.0291, %sw.bb14 ], [ %argRuntimeSec.0291, %sw.bb13 ], [ %argRuntimeSec.0291, %sw.bb12 ], [ %argRuntimeSec.0291, %sw.bb8 ], [ %argRuntimeSec.0291, %sw.bb7 ], [ %argRuntimeSec.0291, %sw.bb6 ], [ %argRuntimeSec.0291, %sw.bb5 ], [ %argRuntimeSec.0291, %mygetopt.argprom.exit ], [ %argRuntimeSec.0291, %mygetopt.argprom.exit ]
   br label %if.end.i
 
-sw.bb:                                            ; preds = %if.else.i, %if.end55.i, %mygetopt.exit
+sw.bb:                                            ; preds = %if.else.i, %if.end55.i, %mygetopt.argprom.exit
   tail call fastcc void @Usage()
   br label %exit
 
-sw.bb5:                                           ; preds = %mygetopt.exit
+sw.bb5:                                           ; preds = %mygetopt.argprom.exit
   br label %if.end.i.backedge
 
-sw.bb6:                                           ; preds = %mygetopt.exit
+sw.bb6:                                           ; preds = %mygetopt.argprom.exit
   br label %if.end.i.backedge
 
-sw.bb7:                                           ; preds = %mygetopt.exit
+sw.bb7:                                           ; preds = %mygetopt.argprom.exit
   br label %if.end.i.backedge
 
-sw.bb8:                                           ; preds = %mygetopt.exit
+sw.bb8:                                           ; preds = %mygetopt.argprom.exit
   %call9 = tail call i32 @atoi(ptr nocapture noundef %24) #17
   br label %if.end.i.backedge
 
-sw.bb11:                                          ; preds = %mygetopt.exit
+sw.bb11:                                          ; preds = %mygetopt.argprom.exit
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %ciphers.i)
   %call.i = call i32 @wolfSSL_get_ciphers(ptr noundef nonnull %ciphers.i, i32 noundef 4096) #16
   %cmp.i134 = icmp eq i32 %call.i, 1
@@ -441,16 +441,16 @@ ShowCiphers.exit:                                 ; preds = %sw.bb11, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %ciphers.i)
   br label %exit
 
-sw.bb12:                                          ; preds = %mygetopt.exit
+sw.bb12:                                          ; preds = %mygetopt.argprom.exit
   br label %if.end.i.backedge
 
-sw.bb13:                                          ; preds = %mygetopt.exit
+sw.bb13:                                          ; preds = %mygetopt.argprom.exit
   br label %if.end.i.backedge
 
-sw.bb14:                                          ; preds = %mygetopt.exit
+sw.bb14:                                          ; preds = %mygetopt.argprom.exit
   br label %if.end.i.backedge
 
-sw.bb15:                                          ; preds = %mygetopt.exit
+sw.bb15:                                          ; preds = %mygetopt.argprom.exit
   %call16 = tail call i32 @atoi(ptr nocapture noundef %24) #17
   %cmp17 = icmp sgt i32 %call16, 16384
   br i1 %cmp17, label %if.then18, label %if.end.i.backedge
@@ -461,25 +461,25 @@ if.then18:                                        ; preds = %sw.bb15
   tail call fastcc void @Usage()
   br label %exit
 
-sw.bb21:                                          ; preds = %mygetopt.exit
+sw.bb21:                                          ; preds = %mygetopt.argprom.exit
   %call22 = tail call i32 @atoi(ptr nocapture noundef %24) #17
   br label %if.end.i.backedge
 
-sw.bb23:                                          ; preds = %mygetopt.exit
+sw.bb23:                                          ; preds = %mygetopt.argprom.exit
   %call24 = tail call i32 @atoi(ptr nocapture noundef %24) #17
   br label %if.end.i.backedge
 
-sw.bb25:                                          ; preds = %mygetopt.exit
+sw.bb25:                                          ; preds = %mygetopt.argprom.exit
   br label %if.end.i.backedge
 
-sw.bb26:                                          ; preds = %mygetopt.exit
+sw.bb26:                                          ; preds = %mygetopt.argprom.exit
   %call27 = tail call i32 @atoi(ptr nocapture noundef %24) #17
   br label %if.end.i.backedge
 
-sw.bb28:                                          ; preds = %mygetopt.exit
+sw.bb28:                                          ; preds = %mygetopt.argprom.exit
   br label %if.end.i.backedge
 
-sw.default:                                       ; preds = %mygetopt.exit
+sw.default:                                       ; preds = %mygetopt.argprom.exit
   tail call fastcc void @Usage()
   br label %exit
 
@@ -494,7 +494,7 @@ while.end.sink.split:                             ; preds = %if.end11.i, %while.
   store ptr %.sink, ptr @myoptarg, align 8
   br label %while.end
 
-while.end:                                        ; preds = %mygetopt.exit, %while.end.sink.split, %if.then43.i
+while.end:                                        ; preds = %mygetopt.argprom.exit, %while.end.sink.split, %if.then43.i
   store i32 0, ptr @myoptind, align 4
   %cmp30.not = icmp eq ptr %argCipherList.0292, null
   br i1 %cmp30.not, label %if.else, label %if.end37
@@ -669,7 +669,7 @@ if.end52:                                         ; preds = %if.end43
   br i1 %or.cond1, label %if.end63, label %if.then57
 
 if.then57:                                        ; preds = %if.end52
-  %call58 = call fastcc i32 @SetupSocketAndListen(ptr noundef nonnull %listenFd, i32 noundef %argPort.0207510)
+  %call58 = call fastcc i32 @SetupSocketAndListen.argelim(ptr noundef nonnull %listenFd, i32 noundef %argPort.0207510)
   %cmp59.not = icmp eq i32 %call58, 0
   br i1 %cmp59.not, label %if.end63, label %exit
 
@@ -1209,7 +1209,7 @@ declare i32 @wolfSSL_get_ciphers(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @SetupSocketAndListen(ptr nocapture noundef %listenFd, i32 noundef %port) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @SetupSocketAndListen.argelim(ptr nocapture noundef %listenFd, i32 noundef %port) unnamed_addr #0 {
 entry:
   %servAddr = alloca %struct.sockaddr_in, align 4
   %optval = alloca i32, align 4
@@ -2548,7 +2548,7 @@ if.then:                                          ; preds = %entry
   %listenFd = getelementptr inbounds i8, ptr %args, i64 48
   %port = getelementptr inbounds i8, ptr %args, i64 24
   %1 = load i32, ptr %port, align 8
-  %call = tail call fastcc i32 @SetupSocketAndListen(ptr noundef nonnull %listenFd, i32 noundef %1)
+  %call = tail call fastcc i32 @SetupSocketAndListen.argelim(ptr noundef nonnull %listenFd, i32 noundef %1)
   %2 = icmp eq i32 %call, 0
   br i1 %2, label %if.then1, label %do.body
 

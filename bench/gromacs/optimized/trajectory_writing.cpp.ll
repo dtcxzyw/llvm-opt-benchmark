@@ -306,14 +306,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
           to label %159 unwind label %207
 
 159:                                              ; preds = %143
-  br i1 %19, label %160, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+  br i1 %19, label %160, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds i8, ptr %7, i64 8
   %162 = load i64, ptr %161, align 8
   %163 = icmp eq i64 %5, %162
   %brmerge.not = and i1 %20, %163
-  br i1 %brmerge.not, label %164, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+  br i1 %brmerge.not, label %164, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
 
 164:                                              ; preds = %160
   %165 = getelementptr inbounds i8, ptr %1, i64 52
@@ -326,10 +326,10 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
   %170 = load i32, ptr %169, align 8
   %171 = icmp sgt i32 %170, 1
   %brmerge93 = or i1 %18, %171
-  br i1 %brmerge93, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, label %173
+  br i1 %brmerge93, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit, label %173
 
 172:                                              ; preds = %164
-  br i1 %18, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, label %173
+  br i1 %18, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit, label %173
 
 173:                                              ; preds = %168, %172
   %174 = getelementptr inbounds i8, ptr %12, i64 12
@@ -394,7 +394,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL10copy_rvecnPA3_KfPA3_fii.exit, label %.lr.ph.i, !llvm.loop !6
 
-207:                                              ; preds = %238, %232, %189, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, %222, %220, %216, %181, %143
+207:                                              ; preds = %238, %232, %189, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit, %222, %220, %216, %181, %143
   %208 = landingpad { ptr, i32 }
           cleanup
   br label %279
@@ -444,11 +444,11 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %193
 
 231:                                              ; preds = %223
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #11
-  br i1 %or.cond139141, label %232, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+  br i1 %or.cond139141, label %232, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
 
 232:                                              ; preds = %231
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef %.0144)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit unwind label %207
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit unwind label %207
 
 233:                                              ; preds = %223
   %234 = landingpad { ptr, i32 }
@@ -456,11 +456,11 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %193
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #11
   br label %279
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %232, %168, %160, %231, %172, %159
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit: ; preds = %232, %168, %160, %231, %172, %159
   %235 = invoke noundef ptr @_Z17mdoutf_get_wcycleP10gmx_mdoutf(ptr noundef %13)
           to label %236 unwind label %207
 
-236:                                              ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+236:                                              ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
   %237 = icmp eq ptr %235, null
   br i1 %237, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %238
 

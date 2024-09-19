@@ -1557,12 +1557,12 @@ entry:
   %.val = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   %cmp.i = icmp eq ptr %.val, null
-  br i1 %cmp.i, label %_PySys_GetObject.exit, label %if.end.i
+  br i1 %cmp.i, label %_PySys_GetObject.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call.i = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %.val, ptr noundef %name, ptr noundef nonnull %value.i) #15
   %cmp2.not.i = icmp eq i32 %call.i, 1
-  br i1 %cmp2.not.i, label %if.end4.i, label %_PySys_GetObject.exit
+  br i1 %cmp2.not.i, label %if.end4.i, label %_PySys_GetObject.argprom.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr %value.i, align 8
@@ -1583,33 +1583,33 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.end4.i
   %7 = load ptr, ptr %value.i, align 8
-  br label %_PySys_GetObject.exit
+  br label %_PySys_GetObject.argprom.exit
 
-_PySys_GetObject.exit:                            ; preds = %entry, %if.end.i, %Py_DECREF.exit.i
+_PySys_GetObject.argprom.exit:                    ; preds = %entry, %if.end.i, %Py_DECREF.exit.i
   %retval.0.i = phi ptr [ %7, %Py_DECREF.exit.i ], [ null, %entry ], [ null, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %8 = getelementptr i8, ptr %1, i64 104
   %call.val = load ptr, ptr %8, align 8
   %cmp.i4 = icmp eq ptr %call.val, null
-  br i1 %cmp.i4, label %if.end, label %_PyErr_Occurred.exit
+  br i1 %cmp.i4, label %if.end, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %_PySys_GetObject.exit
+_PyErr_Occurred.argprom.exit:                     ; preds = %_PySys_GetObject.argprom.exit
   %9 = getelementptr i8, ptr %call.val, i64 8
   %.val.i = load ptr, ptr %9, align 8
   %tobool.not = icmp eq ptr %.val.i, null
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_PyErr_Occurred.exit
+if.then:                                          ; preds = %_PyErr_Occurred.argprom.exit
   call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str) #15
   br label %if.end
 
-if.end:                                           ; preds = %_PySys_GetObject.exit, %if.then, %_PyErr_Occurred.exit
+if.end:                                           ; preds = %_PySys_GetObject.argprom.exit, %if.then, %_PyErr_Occurred.argprom.exit
   call void @_PyErr_SetRaisedException(ptr noundef nonnull %1, ptr noundef %call1) #15
   ret ptr %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PySys_GetObject(ptr %interp.1240.val, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc ptr @_PySys_GetObject.argprom(ptr %interp.1240.val, ptr noundef %name) unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %cmp = icmp eq ptr %interp.1240.val, null
@@ -1957,14 +1957,14 @@ _PyVectorcall_FunctionInline.exit.i:              ; preds = %if.then56
 
 if.then.i:                                        ; preds = %_PyVectorcall_FunctionInline.exit.i, %if.then56
   %call2.i = call ptr @_PyObject_MakeTpCall(ptr noundef nonnull %ts, ptr noundef nonnull %call43190, ptr noundef nonnull %args, i64 noundef 2, ptr noundef null) #15
-  br label %_PyObject_VectorcallTstate.exit
+  br label %_PyObject_VectorcallTstate.argprom.exit
 
 if.end.i55:                                       ; preds = %_PyVectorcall_FunctionInline.exit.i
   %call3.i = call ptr %ptr.0.copyload.i.i(ptr noundef nonnull %call43190, ptr noundef nonnull %args, i64 noundef 2, ptr noundef null) #15
   %call4.i = call ptr @_Py_CheckFunctionResult(ptr noundef nonnull %ts, ptr noundef nonnull %call43190, ptr noundef %call3.i, ptr noundef null) #15
-  br label %_PyObject_VectorcallTstate.exit
+  br label %_PyObject_VectorcallTstate.argprom.exit
 
-_PyObject_VectorcallTstate.exit:                  ; preds = %if.then.i, %if.end.i55
+_PyObject_VectorcallTstate.argprom.exit:          ; preds = %if.then.i, %if.end.i55
   %retval.0.i56 = phi ptr [ %call2.i, %if.then.i ], [ %call4.i, %if.end.i55 ]
   store ptr %retval.0.i56, ptr %o, align 8
   call void @PyThreadState_EnterTracing(ptr noundef nonnull %ts) #15
@@ -1992,20 +1992,20 @@ _PyVectorcall_FunctionInline.exit.i60:            ; preds = %if.end61.critedge
 
 if.then.i69:                                      ; preds = %_PyVectorcall_FunctionInline.exit.i60, %if.end61.critedge
   %call2.i70 = call ptr @_PyObject_MakeTpCall(ptr noundef nonnull %ts, ptr noundef nonnull %call43190, ptr noundef nonnull %args, i64 noundef 2, ptr noundef null) #15
-  br label %_PyObject_VectorcallTstate.exit71
+  br label %_PyObject_VectorcallTstate.argprom.exit71
 
 if.end.i65:                                       ; preds = %_PyVectorcall_FunctionInline.exit.i60
   %call3.i66 = call ptr %ptr.0.copyload.i.i63(ptr noundef nonnull %call43190, ptr noundef nonnull %args, i64 noundef 2, ptr noundef null) #15
   %call4.i67 = call ptr @_Py_CheckFunctionResult(ptr noundef nonnull %ts, ptr noundef nonnull %call43190, ptr noundef %call3.i66, ptr noundef null) #15
-  br label %_PyObject_VectorcallTstate.exit71
+  br label %_PyObject_VectorcallTstate.argprom.exit71
 
-_PyObject_VectorcallTstate.exit71:                ; preds = %if.then.i69, %if.end.i65
+_PyObject_VectorcallTstate.argprom.exit71:        ; preds = %if.then.i69, %if.end.i65
   %retval.0.i68 = phi ptr [ %call2.i70, %if.then.i69 ], [ %call4.i67, %if.end.i65 ]
   store ptr %retval.0.i68, ptr %o, align 8
   br label %if.end61
 
-if.end61:                                         ; preds = %_PyObject_VectorcallTstate.exit71, %_PyObject_VectorcallTstate.exit
-  %27 = phi ptr [ %retval.0.i68, %_PyObject_VectorcallTstate.exit71 ], [ %.pr, %_PyObject_VectorcallTstate.exit ]
+if.end61:                                         ; preds = %_PyObject_VectorcallTstate.argprom.exit71, %_PyObject_VectorcallTstate.argprom.exit
+  %27 = phi ptr [ %retval.0.i68, %_PyObject_VectorcallTstate.argprom.exit71 ], [ %.pr, %_PyObject_VectorcallTstate.argprom.exit ]
   %tobool62.not = icmp eq ptr %27, null
   br i1 %tobool62.not, label %while.end, label %if.end64
 
@@ -2327,36 +2327,36 @@ if.end18:                                         ; preds = %if.end10.thread27, 
   store ptr %userData, ptr %userData19, align 8
   %4 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3592), i8 0, i8 1 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 1
-  br i1 %5, label %PyMutex_Lock.exit, label %if.then.i
+  br i1 %5, label %PyMutex_Lock.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end18
   tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3592)) #15
-  br label %PyMutex_Lock.exit
+  br label %PyMutex_Lock.argprom.exit
 
-PyMutex_Lock.exit:                                ; preds = %if.end18, %if.then.i
+PyMutex_Lock.argprom.exit:                        ; preds = %if.end18, %if.then.i
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3600), align 8
   %cmp.i = icmp eq ptr %6, null
-  br i1 %cmp.i, label %add_audit_hook_entry_unlocked.exit, label %while.cond.i
+  br i1 %cmp.i, label %add_audit_hook_entry_unlocked.argprom.exit, label %while.cond.i
 
-while.cond.i:                                     ; preds = %PyMutex_Lock.exit, %while.cond.i
-  %last.0.i = phi ptr [ %7, %while.cond.i ], [ %6, %PyMutex_Lock.exit ]
+while.cond.i:                                     ; preds = %PyMutex_Lock.argprom.exit, %while.cond.i
+  %last.0.i = phi ptr [ %7, %while.cond.i ], [ %6, %PyMutex_Lock.argprom.exit ]
   %7 = load ptr, ptr %last.0.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i, label %add_audit_hook_entry_unlocked.exit, label %while.cond.i, !llvm.loop !9
+  br i1 %tobool.not.i, label %add_audit_hook_entry_unlocked.argprom.exit, label %while.cond.i, !llvm.loop !9
 
-add_audit_hook_entry_unlocked.exit:               ; preds = %while.cond.i, %PyMutex_Lock.exit
-  %last.0.lcssa.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3600), %PyMutex_Lock.exit ], [ %last.0.i, %while.cond.i ]
+add_audit_hook_entry_unlocked.argprom.exit:       ; preds = %while.cond.i, %PyMutex_Lock.argprom.exit
+  %last.0.lcssa.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3600), %PyMutex_Lock.argprom.exit ], [ %last.0.i, %while.cond.i ]
   store ptr %call1124, ptr %last.0.lcssa.sink.i, align 8
   %8 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3592), i8 1, i8 0 seq_cst seq_cst, align 1
   %9 = extractvalue { i8, i1 } %8, 1
   br i1 %9, label %return, label %if.then.i13
 
-if.then.i13:                                      ; preds = %add_audit_hook_entry_unlocked.exit
+if.then.i13:                                      ; preds = %add_audit_hook_entry_unlocked.argprom.exit
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3592)) #15
   br label %return
 
-return:                                           ; preds = %if.end10, %if.end10.thread, %if.then.i13, %add_audit_hook_entry_unlocked.exit, %if.then15, %if.then4, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then7 ], [ -1, %if.then4 ], [ -1, %if.then15 ], [ 0, %add_audit_hook_entry_unlocked.exit ], [ 0, %if.then.i13 ], [ -1, %if.end10.thread ], [ -1, %if.end10 ]
+return:                                           ; preds = %if.end10, %if.end10.thread, %if.then.i13, %add_audit_hook_entry_unlocked.argprom.exit, %if.then15, %if.then4, %if.then7
+  %retval.0 = phi i32 [ 0, %if.then7 ], [ -1, %if.then4 ], [ -1, %if.then15 ], [ 0, %add_audit_hook_entry_unlocked.argprom.exit ], [ 0, %if.then.i13 ], [ -1, %if.end10.thread ], [ -1, %if.end10 ]
   ret i32 %retval.0
 }
 
@@ -2386,15 +2386,15 @@ if.then5:                                         ; preds = %if.end
   %3 = getelementptr i8, ptr %1, i64 104
   %call.val19 = load ptr, ptr %3, align 8
   %cmp.i20 = icmp eq ptr %call.val19, null
-  br i1 %cmp.i20, label %if.then7, label %_PyErr_Occurred.exit
+  br i1 %cmp.i20, label %if.then7, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %if.then5
+_PyErr_Occurred.argprom.exit:                     ; preds = %if.then5
   %4 = getelementptr i8, ptr %call.val19, i64 8
   %.val.i = load ptr, ptr %4, align 8
   %tobool.not = icmp eq ptr %.val.i, null
   br i1 %tobool.not, label %if.then7, label %return
 
-if.then7:                                         ; preds = %if.then5, %_PyErr_Occurred.exit
+if.then7:                                         ; preds = %if.then5, %_PyErr_Occurred.argprom.exit
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %o.val17 = load ptr, ptr %2, align 8
   %tp_name = getelementptr inbounds i8, ptr %o.val17, i64 24
@@ -2475,9 +2475,9 @@ land.lhs.true:                                    ; preds = %Py_DECREF.exit
   %16 = getelementptr i8, ptr %1, i64 104
   %call.val = load ptr, ptr %16, align 8
   %cmp.i22 = icmp eq ptr %call.val, null
-  br i1 %cmp.i22, label %if.then23, label %_PyErr_Occurred.exit26
+  br i1 %cmp.i22, label %if.then23, label %_PyErr_Occurred.argprom.exit26
 
-_PyErr_Occurred.exit26:                           ; preds = %land.lhs.true
+_PyErr_Occurred.argprom.exit26:                   ; preds = %land.lhs.true
   %17 = getelementptr i8, ptr %call.val, i64 8
   %.val.i24 = load ptr, ptr %17, align 8
   %tobool19.not = icmp eq ptr %.val.i24, null
@@ -2487,7 +2487,7 @@ if.end21:                                         ; preds = %Py_DECREF.exit
   %cmp22 = icmp slt i64 %call16, 0
   br i1 %cmp22, label %if.then23, label %if.end24
 
-if.then23:                                        ; preds = %land.lhs.true, %_PyErr_Occurred.exit26, %if.end21
+if.then23:                                        ; preds = %land.lhs.true, %_PyErr_Occurred.argprom.exit26, %if.end21
   %18 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @_PyErr_SetString(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @.str.8) #15
   br label %return
@@ -2506,8 +2506,8 @@ if.end24:                                         ; preds = %if.end21
   %add = add nuw i64 %narrow.i, %call16
   br label %return
 
-return:                                           ; preds = %if.then7, %_PyErr_Occurred.exit, %_PyErr_Occurred.exit26, %if.end12, %entry, %if.end24, %if.then23
-  %retval.0 = phi i64 [ -1, %if.then23 ], [ %add, %if.end24 ], [ -1, %entry ], [ -1, %if.end12 ], [ -1, %_PyErr_Occurred.exit26 ], [ -1, %_PyErr_Occurred.exit ], [ -1, %if.then7 ]
+return:                                           ; preds = %if.then7, %_PyErr_Occurred.argprom.exit, %_PyErr_Occurred.argprom.exit26, %if.end12, %entry, %if.end24, %if.then23
+  %retval.0 = phi i64 [ -1, %if.then23 ], [ %add, %if.end24 ], [ -1, %entry ], [ -1, %if.end12 ], [ -1, %_PyErr_Occurred.argprom.exit26 ], [ -1, %_PyErr_Occurred.argprom.exit ], [ -1, %if.then7 ]
   ret i64 %retval.0
 }
 
@@ -3014,7 +3014,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_append_preinit_entry(ptr noundef nonnull @_preinit_warnoptions, ptr noundef %s)
+  tail call fastcc void @_append_preinit_entry.retelim(ptr noundef nonnull @_preinit_warnoptions, ptr noundef %s)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3044,7 +3044,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_append_preinit_entry(ptr nocapture noundef %optionlist, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc void @_append_preinit_entry.retelim(ptr nocapture noundef %optionlist, ptr noundef %value) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.PyStatus, align 8
   %old_alloc.i = alloca %struct.PyMemAllocatorEx, align 8
@@ -3151,7 +3151,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_append_preinit_entry(ptr noundef nonnull @_preinit_xoptions, ptr noundef %s)
+  tail call fastcc void @_append_preinit_entry.retelim(ptr noundef nonnull @_preinit_xoptions, ptr noundef %s)
   br label %if.end5
 
 if.end:                                           ; preds = %entry
@@ -3745,7 +3745,7 @@ do.body167:                                       ; preds = %Py_DECREF.exit254
   %call.val = load i64, ptr %35, align 8
   %36 = getelementptr i8, ptr %call, i64 152
   %call.val129 = load ptr, ptr %36, align 8
-  %call169 = tail call fastcc ptr @sys_create_xoptions_dict(i64 %call.val, ptr %call.val129)
+  %call169 = tail call fastcc ptr @sys_create_xoptions_dict.argprom(i64 %call.val, ptr %call.val129)
   %cmp170 = icmp eq ptr %call169, null
   br i1 %cmp170, label %err_occurred, label %if.end172
 
@@ -3808,7 +3808,7 @@ if.else192:                                       ; preds = %do.end177
 
 if.end197:                                        ; preds = %if.else192, %Py_DECREF.exit236
   %.val = load ptr, ptr %sysdict2, align 8
-  %call198 = tail call fastcc ptr @_PySys_GetObject(ptr %.val, ptr noundef nonnull @.str.29)
+  %call198 = tail call fastcc ptr @_PySys_GetObject.argprom(ptr %.val, ptr noundef nonnull @.str.29)
   %cmp199 = icmp eq ptr %call198, null
   br i1 %cmp199, label %if.then200, label %if.end205
 
@@ -3816,15 +3816,15 @@ if.then200:                                       ; preds = %if.end197
   %41 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val128 = load ptr, ptr %41, align 8
   %cmp.i130 = icmp eq ptr %tstate.val128, null
-  br i1 %cmp.i130, label %if.then203, label %_PyErr_Occurred.exit
+  br i1 %cmp.i130, label %if.then203, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %if.then200
+_PyErr_Occurred.argprom.exit:                     ; preds = %if.then200
   %42 = getelementptr i8, ptr %tstate.val128, i64 8
   %.val.i = load ptr, ptr %42, align 8
   %tobool202.not = icmp eq ptr %.val.i, null
   br i1 %tobool202.not, label %if.then203, label %return
 
-if.then203:                                       ; preds = %if.then200, %_PyErr_Occurred.exit
+if.then203:                                       ; preds = %if.then200, %_PyErr_Occurred.argprom.exit
   %43 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @_PyErr_SetString(ptr noundef nonnull %tstate, ptr noundef %43, ptr noundef nonnull @.str.30) #15
   br label %return
@@ -3868,26 +3868,26 @@ do.end223:                                        ; preds = %Py_DECREF.exit
   %47 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val = load ptr, ptr %47, align 8
   %cmp.i132 = icmp eq ptr %tstate.val, null
-  br i1 %cmp.i132, label %return, label %_PyErr_Occurred.exit136
+  br i1 %cmp.i132, label %return, label %_PyErr_Occurred.argprom.exit136
 
-_PyErr_Occurred.exit136:                          ; preds = %do.end223
+_PyErr_Occurred.argprom.exit136:                  ; preds = %do.end223
   %48 = getelementptr i8, ptr %tstate.val, i64 8
   %.val.i134 = load ptr, ptr %48, align 8
   %tobool225.not = icmp eq ptr %.val.i134, null
   br i1 %tobool225.not, label %return, label %err_occurred
 
-err_occurred:                                     ; preds = %_PyErr_Occurred.exit136, %Py_DECREF.exit, %do.body210, %Py_DECREF.exit236, %do.body181, %Py_DECREF.exit245, %do.body167, %Py_DECREF.exit254, %do.body156, %Py_DECREF.exit263, %do.body145, %Py_DECREF.exit272, %do.body134, %Py_DECREF.exit281, %do.body117, %Py_DECREF.exit290, %do.body102, %Py_DECREF.exit299, %do.body87, %Py_DECREF.exit308, %do.body72, %Py_DECREF.exit317, %do.body57, %Py_DECREF.exit326, %do.body42, %Py_DECREF.exit335, %do.body27, %Py_DECREF.exit344, %do.body12, %Py_DECREF.exit353, %do.body
+err_occurred:                                     ; preds = %_PyErr_Occurred.argprom.exit136, %Py_DECREF.exit, %do.body210, %Py_DECREF.exit236, %do.body181, %Py_DECREF.exit245, %do.body167, %Py_DECREF.exit254, %do.body156, %Py_DECREF.exit263, %do.body145, %Py_DECREF.exit272, %do.body134, %Py_DECREF.exit281, %do.body117, %Py_DECREF.exit290, %do.body102, %Py_DECREF.exit299, %do.body87, %Py_DECREF.exit308, %do.body72, %Py_DECREF.exit317, %do.body57, %Py_DECREF.exit326, %do.body42, %Py_DECREF.exit335, %do.body27, %Py_DECREF.exit344, %do.body12, %Py_DECREF.exit353, %do.body
   br label %return
 
-return:                                           ; preds = %do.end223, %_PyErr_Occurred.exit136, %if.end205, %_PyErr_Occurred.exit, %if.then203, %if.else192, %if.else, %err_occurred
-  %retval.0 = phi i32 [ -1, %err_occurred ], [ -1, %if.else ], [ -1, %if.else192 ], [ -1, %if.then203 ], [ -1, %_PyErr_Occurred.exit ], [ -1, %if.end205 ], [ 0, %_PyErr_Occurred.exit136 ], [ 0, %do.end223 ]
+return:                                           ; preds = %do.end223, %_PyErr_Occurred.argprom.exit136, %if.end205, %_PyErr_Occurred.argprom.exit, %if.then203, %if.else192, %if.else, %err_occurred
+  %retval.0 = phi i32 [ -1, %err_occurred ], [ -1, %if.else ], [ -1, %if.else192 ], [ -1, %if.then203 ], [ -1, %_PyErr_Occurred.argprom.exit ], [ -1, %if.end205 ], [ 0, %_PyErr_Occurred.argprom.exit136 ], [ 0, %do.end223 ]
   ret i32 %retval.0
 }
 
 declare ptr @_PyWideStringList_AsList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sys_create_xoptions_dict(i64 %config.144.val, ptr nocapture readonly %config.152.val) unnamed_addr #0 {
+define internal fastcc ptr @sys_create_xoptions_dict.argprom(i64 %config.144.val, ptr nocapture readonly %config.152.val) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyDict_New() #15
   %cmp = icmp eq ptr %call, null
@@ -5295,16 +5295,16 @@ do.end328.i:                                      ; preds = %Py_DECREF.exit.i29
   %65 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val.i = load ptr, ptr %65, align 8, !noalias !18
   %cmp.i180.i = icmp eq ptr %tstate.val.i, null
-  br i1 %cmp.i180.i, label %if.end28, label %_PyErr_Occurred.exit.i
+  br i1 %cmp.i180.i, label %if.end28, label %_PyErr_Occurred.argprom.exit.i
 
-_PyErr_Occurred.exit.i:                           ; preds = %do.end328.i
+_PyErr_Occurred.argprom.exit.i:                   ; preds = %do.end328.i
   %66 = getelementptr i8, ptr %tstate.val.i, i64 8
   %.val.i.i = load ptr, ptr %66, align 8, !noalias !18
   %tobool.not.i = icmp eq ptr %.val.i.i, null
   br i1 %tobool.not.i, label %if.end28, label %if.then27
 
-if.then27:                                        ; preds = %if.end24, %Py_DECREF.exit579.i, %do.body6.i, %Py_DECREF.exit570.i, %do.body17.i, %Py_DECREF.exit561.i, %do.body28.i, %Py_DECREF.exit552.i, %do.body39.i, %Py_DECREF.exit543.i, %do.body51.i, %Py_DECREF.exit534.i, %do.body62.i, %Py_DECREF.exit525.i, %do.body75.i, %Py_DECREF.exit516.i, %do.body86.i, %Py_DECREF.exit507.i, %do.body97.i, %Py_DECREF.exit498.i, %do.body109.i, %Py_DECREF.exit489.i, %do.body121.i, %Py_DECREF.exit480.i, %do.body132.i, %Py_DECREF.exit471.i, %do.body143.i, %Py_DECREF.exit462.i, %do.body158.i, %Py_DECREF.exit453.i, %do.body169.i, %Py_DECREF.exit444.i, %do.body180.i, %Py_DECREF.exit435.i, %do.body191.i, %Py_DECREF.exit426.i, %do.body202.i, %Py_DECREF.exit417.i, %do.body213.i, %Py_DECREF.exit408.i, %do.end229.i, %Py_DECREF.exit399.i, %do.body241.i, %Py_DECREF.exit390.i, %do.body258.i, %Py_DECREF.exit381.i, %do.body270.i, %Py_DECREF.exit372.i, %do.body281.i, %Py_DECREF.exit363.i, %do.body296.i, %Py_DECREF.exit354.i, %do.body307.i, %Py_DECREF.exit345.i, %do.body318.i, %Py_DECREF.exit.i29, %_PyErr_Occurred.exit.i, %do.end291.i, %do.body252.i, %do.body224.i, %do.end153.i
-  %tmp.sroa.6.0.ph = phi ptr [ @.str.169, %do.end153.i ], [ @.str.169, %do.body224.i ], [ @.str.169, %do.body252.i ], [ @.str.169, %do.end291.i ], [ @.str.36, %_PyErr_Occurred.exit.i ], [ @.str.36, %Py_DECREF.exit.i29 ], [ @.str.36, %do.body318.i ], [ @.str.36, %Py_DECREF.exit345.i ], [ @.str.36, %do.body307.i ], [ @.str.36, %Py_DECREF.exit354.i ], [ @.str.36, %do.body296.i ], [ @.str.36, %Py_DECREF.exit363.i ], [ @.str.36, %do.body281.i ], [ @.str.36, %Py_DECREF.exit372.i ], [ @.str.36, %do.body270.i ], [ @.str.36, %Py_DECREF.exit381.i ], [ @.str.36, %do.body258.i ], [ @.str.36, %Py_DECREF.exit390.i ], [ @.str.36, %do.body241.i ], [ @.str.36, %Py_DECREF.exit399.i ], [ @.str.36, %do.end229.i ], [ @.str.36, %Py_DECREF.exit408.i ], [ @.str.36, %do.body213.i ], [ @.str.36, %Py_DECREF.exit417.i ], [ @.str.36, %do.body202.i ], [ @.str.36, %Py_DECREF.exit426.i ], [ @.str.36, %do.body191.i ], [ @.str.36, %Py_DECREF.exit435.i ], [ @.str.36, %do.body180.i ], [ @.str.36, %Py_DECREF.exit444.i ], [ @.str.36, %do.body169.i ], [ @.str.36, %Py_DECREF.exit453.i ], [ @.str.36, %do.body158.i ], [ @.str.36, %Py_DECREF.exit462.i ], [ @.str.36, %do.body143.i ], [ @.str.36, %Py_DECREF.exit471.i ], [ @.str.36, %do.body132.i ], [ @.str.36, %Py_DECREF.exit480.i ], [ @.str.36, %do.body121.i ], [ @.str.36, %Py_DECREF.exit489.i ], [ @.str.36, %do.body109.i ], [ @.str.36, %Py_DECREF.exit498.i ], [ @.str.36, %do.body97.i ], [ @.str.36, %Py_DECREF.exit507.i ], [ @.str.36, %do.body86.i ], [ @.str.36, %Py_DECREF.exit516.i ], [ @.str.36, %do.body75.i ], [ @.str.36, %Py_DECREF.exit525.i ], [ @.str.36, %do.body62.i ], [ @.str.36, %Py_DECREF.exit534.i ], [ @.str.36, %do.body51.i ], [ @.str.36, %Py_DECREF.exit543.i ], [ @.str.36, %do.body39.i ], [ @.str.36, %Py_DECREF.exit552.i ], [ @.str.36, %do.body28.i ], [ @.str.36, %Py_DECREF.exit561.i ], [ @.str.36, %do.body17.i ], [ @.str.36, %Py_DECREF.exit570.i ], [ @.str.36, %do.body6.i ], [ @.str.36, %Py_DECREF.exit579.i ], [ @.str.36, %if.end24 ]
+if.then27:                                        ; preds = %if.end24, %Py_DECREF.exit579.i, %do.body6.i, %Py_DECREF.exit570.i, %do.body17.i, %Py_DECREF.exit561.i, %do.body28.i, %Py_DECREF.exit552.i, %do.body39.i, %Py_DECREF.exit543.i, %do.body51.i, %Py_DECREF.exit534.i, %do.body62.i, %Py_DECREF.exit525.i, %do.body75.i, %Py_DECREF.exit516.i, %do.body86.i, %Py_DECREF.exit507.i, %do.body97.i, %Py_DECREF.exit498.i, %do.body109.i, %Py_DECREF.exit489.i, %do.body121.i, %Py_DECREF.exit480.i, %do.body132.i, %Py_DECREF.exit471.i, %do.body143.i, %Py_DECREF.exit462.i, %do.body158.i, %Py_DECREF.exit453.i, %do.body169.i, %Py_DECREF.exit444.i, %do.body180.i, %Py_DECREF.exit435.i, %do.body191.i, %Py_DECREF.exit426.i, %do.body202.i, %Py_DECREF.exit417.i, %do.body213.i, %Py_DECREF.exit408.i, %do.end229.i, %Py_DECREF.exit399.i, %do.body241.i, %Py_DECREF.exit390.i, %do.body258.i, %Py_DECREF.exit381.i, %do.body270.i, %Py_DECREF.exit372.i, %do.body281.i, %Py_DECREF.exit363.i, %do.body296.i, %Py_DECREF.exit354.i, %do.body307.i, %Py_DECREF.exit345.i, %do.body318.i, %Py_DECREF.exit.i29, %_PyErr_Occurred.argprom.exit.i, %do.end291.i, %do.body252.i, %do.body224.i, %do.end153.i
+  %tmp.sroa.6.0.ph = phi ptr [ @.str.169, %do.end153.i ], [ @.str.169, %do.body224.i ], [ @.str.169, %do.body252.i ], [ @.str.169, %do.end291.i ], [ @.str.36, %_PyErr_Occurred.argprom.exit.i ], [ @.str.36, %Py_DECREF.exit.i29 ], [ @.str.36, %do.body318.i ], [ @.str.36, %Py_DECREF.exit345.i ], [ @.str.36, %do.body307.i ], [ @.str.36, %Py_DECREF.exit354.i ], [ @.str.36, %do.body296.i ], [ @.str.36, %Py_DECREF.exit363.i ], [ @.str.36, %do.body281.i ], [ @.str.36, %Py_DECREF.exit372.i ], [ @.str.36, %do.body270.i ], [ @.str.36, %Py_DECREF.exit381.i ], [ @.str.36, %do.body258.i ], [ @.str.36, %Py_DECREF.exit390.i ], [ @.str.36, %do.body241.i ], [ @.str.36, %Py_DECREF.exit399.i ], [ @.str.36, %do.end229.i ], [ @.str.36, %Py_DECREF.exit408.i ], [ @.str.36, %do.body213.i ], [ @.str.36, %Py_DECREF.exit417.i ], [ @.str.36, %do.body202.i ], [ @.str.36, %Py_DECREF.exit426.i ], [ @.str.36, %do.body191.i ], [ @.str.36, %Py_DECREF.exit435.i ], [ @.str.36, %do.body180.i ], [ @.str.36, %Py_DECREF.exit444.i ], [ @.str.36, %do.body169.i ], [ @.str.36, %Py_DECREF.exit453.i ], [ @.str.36, %do.body158.i ], [ @.str.36, %Py_DECREF.exit462.i ], [ @.str.36, %do.body143.i ], [ @.str.36, %Py_DECREF.exit471.i ], [ @.str.36, %do.body132.i ], [ @.str.36, %Py_DECREF.exit480.i ], [ @.str.36, %do.body121.i ], [ @.str.36, %Py_DECREF.exit489.i ], [ @.str.36, %do.body109.i ], [ @.str.36, %Py_DECREF.exit498.i ], [ @.str.36, %do.body97.i ], [ @.str.36, %Py_DECREF.exit507.i ], [ @.str.36, %do.body86.i ], [ @.str.36, %Py_DECREF.exit516.i ], [ @.str.36, %do.body75.i ], [ @.str.36, %Py_DECREF.exit525.i ], [ @.str.36, %do.body62.i ], [ @.str.36, %Py_DECREF.exit534.i ], [ @.str.36, %do.body51.i ], [ @.str.36, %Py_DECREF.exit543.i ], [ @.str.36, %do.body39.i ], [ @.str.36, %Py_DECREF.exit552.i ], [ @.str.36, %do.body28.i ], [ @.str.36, %Py_DECREF.exit561.i ], [ @.str.36, %do.body17.i ], [ @.str.36, %Py_DECREF.exit570.i ], [ @.str.36, %do.body6.i ], [ @.str.36, %Py_DECREF.exit579.i ], [ @.str.36, %if.end24 ]
   store i32 1, ptr %agg.result, align 8
   %status.sroa.7.0.agg.result.sroa_idx40 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 0, ptr %status.sroa.7.0.agg.result.sroa_idx40, align 4
@@ -5318,7 +5318,7 @@ if.then27:                                        ; preds = %if.end24, %Py_DECRE
   store i32 0, ptr %status.sroa.14.0.agg.result.sroa_idx48, align 4
   br label %return
 
-if.end28:                                         ; preds = %_PyErr_Occurred.exit.i, %do.end328.i
+if.end28:                                         ; preds = %_PyErr_Occurred.argprom.exit.i, %do.end328.i
   %call29 = tail call i32 @_PyImport_FixupBuiltin(ptr noundef nonnull %call2, ptr noundef nonnull @.str.34, ptr noundef nonnull %call) #15
   %cmp30 = icmp slt i32 %call29, 0
   br i1 %cmp30, label %error, label %if.end32
@@ -6180,22 +6180,22 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %cmp.i17 = icmp eq ptr %1, null
-  br i1 %cmp.i17, label %if.then.i, label %_Py_EnsureFuncTstateNotNULL.exit
+  br i1 %cmp.i17, label %if.then.i, label %_Py_EnsureFuncTstateNotNULL.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.sys_audit, ptr noundef nonnull @.str.96) #17
   unreachable
 
-_Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
+_Py_EnsureFuncTstateNotNULL.argprom.exit:         ; preds = %entry
   %cmp = icmp eq i64 %argc, 0
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_Py_EnsureFuncTstateNotNULL.exit
+if.then:                                          ; preds = %_Py_EnsureFuncTstateNotNULL.argprom.exit
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @_PyErr_SetString(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @.str.93) #15
   br label %return
 
-if.end:                                           ; preds = %_Py_EnsureFuncTstateNotNULL.exit
+if.end:                                           ; preds = %_Py_EnsureFuncTstateNotNULL.argprom.exit
   %interp = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %interp, align 8
   %tobool.not.i = icmp eq ptr %3, null
@@ -6476,15 +6476,15 @@ if.then:                                          ; preds = %entry
   %2 = getelementptr i8, ptr %1, i64 104
   %call.val = load ptr, ptr %2, align 8
   %cmp.i18 = icmp eq ptr %call.val, null
-  br i1 %cmp.i18, label %if.then3, label %_PyErr_Occurred.exit
+  br i1 %cmp.i18, label %if.then3, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %if.then
+_PyErr_Occurred.argprom.exit:                     ; preds = %if.then
   %3 = getelementptr i8, ptr %call.val, i64 8
   %.val.i = load ptr, ptr %3, align 8
   %tobool.not = icmp eq ptr %.val.i, null
   br i1 %tobool.not, label %if.then3, label %return
 
-if.then3:                                         ; preds = %if.then, %_PyErr_Occurred.exit
+if.then3:                                         ; preds = %if.then, %_PyErr_Occurred.argprom.exit
   %4 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @_PyErr_SetString(ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull @.str.102) #15
   br label %return
@@ -6747,8 +6747,8 @@ if.end32:                                         ; preds = %if.end28
   %_Py_NoneStruct. = select i1 %cmp34.not, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-return:                                           ; preds = %sys_displayhook_unencodable.exit.thread, %if.end32, %if.end28, %if.then19, %sys_displayhook_unencodable.exit, %if.end7, %Py_DECREF.exit, %_PyErr_Occurred.exit, %if.then3, %if.then15
-  %retval.0 = phi ptr [ null, %if.then15 ], [ null, %if.then3 ], [ null, %_PyErr_Occurred.exit ], [ @_Py_NoneStruct, %Py_DECREF.exit ], [ null, %if.end7 ], [ null, %sys_displayhook_unencodable.exit ], [ null, %if.then19 ], [ null, %if.end28 ], [ %_Py_NoneStruct., %if.end32 ], [ null, %sys_displayhook_unencodable.exit.thread ]
+return:                                           ; preds = %sys_displayhook_unencodable.exit.thread, %if.end32, %if.end28, %if.then19, %sys_displayhook_unencodable.exit, %if.end7, %Py_DECREF.exit, %_PyErr_Occurred.argprom.exit, %if.then3, %if.then15
+  %retval.0 = phi ptr [ null, %if.then15 ], [ null, %if.then3 ], [ null, %_PyErr_Occurred.argprom.exit ], [ @_Py_NoneStruct, %Py_DECREF.exit ], [ null, %if.end7 ], [ null, %sys_displayhook_unencodable.exit ], [ null, %if.then19 ], [ null, %if.end28 ], [ %_Py_NoneStruct., %if.end32 ], [ null, %sys_displayhook_unencodable.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -6760,19 +6760,19 @@ entry:
   %call1.i = tail call ptr @_PyErr_GetTopmostException(ptr noundef %1) #15
   %2 = load ptr, ptr %call1.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i, label %sys_exception_impl.exit, label %if.then.i
+  br i1 %cmp.not.i, label %sys_exception_impl.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %3 = load i32, ptr %2, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %sys_exception_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %sys_exception_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i
   store i32 %add.i.i.i, ptr %2, align 8
-  br label %sys_exception_impl.exit
+  br label %sys_exception_impl.argprom.exit
 
-sys_exception_impl.exit:                          ; preds = %entry, %if.then.i, %if.end.i.i.i
+sys_exception_impl.argprom.exit:                  ; preds = %entry, %if.then.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ @_Py_NoneStruct, %entry ], [ %2, %if.then.i ], [ %2, %if.end.i.i.i ]
   ret ptr %retval.0.i
 }
@@ -6846,13 +6846,13 @@ entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696), align 8
   %add.i.i.i.i = add i32 %0, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %sys_getdefaultencoding_impl.exit, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %sys_getdefaultencoding_impl.argprom.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
   store i32 %add.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696), align 8
-  br label %sys_getdefaultencoding_impl.exit
+  br label %sys_getdefaultencoding_impl.argprom.exit
 
-sys_getdefaultencoding_impl.exit:                 ; preds = %entry, %if.end.i.i.i.i
+sys_getdefaultencoding_impl.argprom.exit:         ; preds = %entry, %if.end.i.i.i.i
   ret ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696)
 }
 
@@ -6931,24 +6931,24 @@ if.then.i:                                        ; preds = %entry
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696), align 8
   %add.i.i.i.i = add i32 %4, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %sys_getfilesystemencoding_impl.exit, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %sys_getfilesystemencoding_impl.argprom.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i
   store i32 %add.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696), align 8
-  br label %sys_getfilesystemencoding_impl.exit
+  br label %sys_getfilesystemencoding_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call5.i = tail call ptr @PyUnicode_FromWideChar(ptr noundef %3, i64 noundef -1) #15
   store ptr %call5.i, ptr %u.i, align 8
   %cmp6.i = icmp eq ptr %call5.i, null
-  br i1 %cmp6.i, label %sys_getfilesystemencoding_impl.exit, label %if.end8.i
+  br i1 %cmp6.i, label %sys_getfilesystemencoding_impl.argprom.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   call void @_PyUnicode_InternInPlace(ptr noundef %2, ptr noundef nonnull %u.i) #15
   %5 = load ptr, ptr %u.i, align 8
-  br label %sys_getfilesystemencoding_impl.exit
+  br label %sys_getfilesystemencoding_impl.argprom.exit
 
-sys_getfilesystemencoding_impl.exit:              ; preds = %if.then.i, %if.end.i.i.i.i, %if.end.i, %if.end8.i
+sys_getfilesystemencoding_impl.argprom.exit:      ; preds = %if.then.i, %if.end.i.i.i.i, %if.end.i, %if.end8.i
   %retval.0.i = phi ptr [ %5, %if.end8.i ], [ null, %if.end.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696), %if.then.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696), %if.end.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i)
   ret ptr %retval.0.i
@@ -6969,14 +6969,14 @@ entry:
   %call2.i = tail call ptr @PyUnicode_FromWideChar(ptr noundef %3, i64 noundef -1) #15
   store ptr %call2.i, ptr %u.i, align 8
   %cmp.i = icmp eq ptr %call2.i, null
-  br i1 %cmp.i, label %sys_getfilesystemencodeerrors_impl.exit, label %if.end.i
+  br i1 %cmp.i, label %sys_getfilesystemencodeerrors_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   call void @_PyUnicode_InternInPlace(ptr noundef %2, ptr noundef nonnull %u.i) #15
   %4 = load ptr, ptr %u.i, align 8
-  br label %sys_getfilesystemencodeerrors_impl.exit
+  br label %sys_getfilesystemencodeerrors_impl.argprom.exit
 
-sys_getfilesystemencodeerrors_impl.exit:          ; preds = %entry, %if.end.i
+sys_getfilesystemencodeerrors_impl.argprom.exit:  ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %4, %if.end.i ], [ null, %entry ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i)
   ret ptr %retval.0.i
@@ -7034,15 +7034,15 @@ land.lhs.true:                                    ; preds = %if.end
   %3 = getelementptr i8, ptr %1, i64 104
   %call.val = load ptr, ptr %3, align 8
   %cmp.i = icmp eq ptr %call.val, null
-  br i1 %cmp.i, label %if.end12, label %_PyErr_Occurred.exit
+  br i1 %cmp.i, label %if.end12, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %land.lhs.true
+_PyErr_Occurred.argprom.exit:                     ; preds = %land.lhs.true
   %4 = getelementptr i8, ptr %call.val, i64 8
   %.val.i = load ptr, ptr %4, align 8
   %tobool4.not = icmp eq ptr %.val.i, null
   br i1 %tobool4.not, label %if.end12, label %if.then5
 
-if.then5:                                         ; preds = %_PyErr_Occurred.exit
+if.then5:                                         ; preds = %_PyErr_Occurred.argprom.exit
   %5 = load ptr, ptr %dflt, align 8
   %cmp6.not = icmp eq ptr %5, null
   br i1 %cmp6.not, label %return, label %land.lhs.true7
@@ -7065,7 +7065,7 @@ if.end.i.i:                                       ; preds = %if.then10
   store i32 %add.i.i, ptr %7, align 8
   br label %return
 
-if.end12:                                         ; preds = %land.lhs.true, %_PyErr_Occurred.exit, %if.end
+if.end12:                                         ; preds = %land.lhs.true, %_PyErr_Occurred.argprom.exit, %if.end
   %call13 = call ptr @PyLong_FromSize_t(i64 noundef %call2) #15
   br label %return
 
@@ -7375,22 +7375,22 @@ if.end.i.i:                                       ; preds = %if.then.i
 Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %if.then.i
   call void @PyUnicode_InternInPlace(ptr noundef nonnull %s.addr.i) #15
   %4 = load ptr, ptr %s.addr.i, align 8
-  br label %sys_intern_impl.exit
+  br label %sys_intern_impl.argprom.exit
 
 if.else.i:                                        ; preds = %if.end
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %arg.val, i64 24
   %6 = load ptr, ptr %tp_name.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.118, ptr noundef %6) #15
-  br label %sys_intern_impl.exit
+  br label %sys_intern_impl.argprom.exit
 
-sys_intern_impl.exit:                             ; preds = %Py_INCREF.exit.i, %if.else.i
+sys_intern_impl.argprom.exit:                     ; preds = %Py_INCREF.exit.i, %if.else.i
   %retval.0.i = phi ptr [ %4, %Py_INCREF.exit.i ], [ null, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.addr.i)
   br label %exit
 
-exit:                                             ; preds = %sys_intern_impl.exit, %if.then
-  %return_value.0 = phi ptr [ %retval.0.i, %sys_intern_impl.exit ], [ null, %if.then ]
+exit:                                             ; preds = %sys_intern_impl.argprom.exit, %if.then
+  %return_value.0 = phi ptr [ %retval.0.i, %sys_intern_impl.argprom.exit ], [ null, %if.then ]
   ret ptr %return_value.0
 }
 
@@ -7572,13 +7572,13 @@ entry:
   %3 = load i32, ptr %spec.store.select.i, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %sys_getprofile_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %sys_getprofile_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %spec.store.select.i, align 8
-  br label %sys_getprofile_impl.exit
+  br label %sys_getprofile_impl.argprom.exit
 
-sys_getprofile_impl.exit:                         ; preds = %entry, %if.end.i.i.i
+sys_getprofile_impl.argprom.exit:                 ; preds = %entry, %if.end.i.i.i
   ret ptr %spec.store.select.i
 }
 
@@ -7683,13 +7683,13 @@ entry:
   %3 = load i32, ptr %spec.store.select.i, align 8
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %sys_gettrace_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %sys_gettrace_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %spec.store.select.i, align 8
-  br label %sys_gettrace_impl.exit
+  br label %sys_gettrace_impl.argprom.exit
 
-sys_gettrace_impl.exit:                           ; preds = %entry, %if.end.i.i.i
+sys_gettrace_impl.argprom.exit:                   ; preds = %entry, %if.end.i.i.i
   ret ptr %spec.store.select.i
 }
 
@@ -7735,14 +7735,14 @@ entry:
   %0 = load ptr, ptr @stderr, align 8
   %call.i = tail call i32 @_PyObject_DebugMallocStats(ptr noundef %0) #15
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %sys__debugmallocstats_impl.exit, label %if.then.i
+  br i1 %tobool.not.i, label %sys__debugmallocstats_impl.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %call1.i = tail call i32 @fputc(i32 noundef 10, ptr noundef %1)
-  br label %sys__debugmallocstats_impl.exit
+  br label %sys__debugmallocstats_impl.argprom.exit
 
-sys__debugmallocstats_impl.exit:                  ; preds = %entry, %if.then.i
+sys__debugmallocstats_impl.argprom.exit:          ; preds = %entry, %if.then.i
   %2 = load ptr, ptr @stderr, align 8
   tail call void @_PyObject_DebugTypeStats(ptr noundef %2) #15
   ret ptr @_Py_NoneStruct
@@ -7910,7 +7910,7 @@ entry:
   %call1.i = tail call ptr @_PyEval_GetAsyncGenFinalizer() #15
   %call2.i = tail call ptr @PyStructSequence_New(ptr noundef nonnull @AsyncGenHooksType) #15
   %cmp.i = icmp eq ptr %call2.i, null
-  br i1 %cmp.i, label %sys_get_asyncgen_hooks_impl.exit, label %if.end.i
+  br i1 %cmp.i, label %sys_get_asyncgen_hooks_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %cmp3.i = icmp eq ptr %call.i, null
@@ -7939,9 +7939,9 @@ if.end.i.i9.i:                                    ; preds = %_Py_NewRef.exit.i
 
 _Py_NewRef.exit10.i:                              ; preds = %if.end.i.i9.i, %_Py_NewRef.exit.i
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call2.i, i64 noundef 1, ptr noundef nonnull %spec.store.select1.i) #15
-  br label %sys_get_asyncgen_hooks_impl.exit
+  br label %sys_get_asyncgen_hooks_impl.argprom.exit
 
-sys_get_asyncgen_hooks_impl.exit:                 ; preds = %entry, %_Py_NewRef.exit10.i
+sys_get_asyncgen_hooks_impl.argprom.exit:         ; preds = %entry, %_Py_NewRef.exit10.i
   ret ptr %call2.i
 }
 
@@ -8000,26 +8000,26 @@ if.then2.i:                                       ; preds = %if.then.i
 if.then5.i:                                       ; preds = %if.then2.i
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.131) #15
-  br label %sys_activate_stack_trampoline_impl.exit
+  br label %sys_activate_stack_trampoline_impl.argprom.exit
 
 if.else.i:                                        ; preds = %if.end8
   %8 = load ptr, ptr @PyExc_ValueError, align 8
   %call7.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.132, ptr noundef nonnull %call2) #15
-  br label %sys_activate_stack_trampoline_impl.exit
+  br label %sys_activate_stack_trampoline_impl.argprom.exit
 
 if.end8.i:                                        ; preds = %if.then2.i, %if.then.i
   %call9.i = call i32 @_PyPerfTrampoline_Init(i32 noundef 1) #15
   %cmp10.i = icmp slt i32 %call9.i, 0
   %._Py_NoneStruct.i = select i1 %cmp10.i, ptr null, ptr @_Py_NoneStruct
-  br label %sys_activate_stack_trampoline_impl.exit
+  br label %sys_activate_stack_trampoline_impl.argprom.exit
 
-sys_activate_stack_trampoline_impl.exit:          ; preds = %if.then5.i, %if.else.i, %if.end8.i
+sys_activate_stack_trampoline_impl.argprom.exit:  ; preds = %if.then5.i, %if.else.i, %if.end8.i
   %retval.0.i = phi ptr [ null, %if.then5.i ], [ null, %if.else.i ], [ %._Py_NoneStruct.i, %if.end8.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cur_cb.i)
   br label %exit
 
-exit:                                             ; preds = %if.end, %sys_activate_stack_trampoline_impl.exit, %if.then7, %if.then
-  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.then7 ], [ %retval.0.i, %sys_activate_stack_trampoline_impl.exit ], [ null, %if.then ]
+exit:                                             ; preds = %if.end, %sys_activate_stack_trampoline_impl.argprom.exit, %if.then7, %if.then
+  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.then7 ], [ %retval.0.i, %sys_activate_stack_trampoline_impl.argprom.exit ], [ null, %if.then ]
   ret ptr %return_value.0
 }
 
@@ -8333,20 +8333,20 @@ _PyVectorcall_FunctionInline.exit.i:              ; preds = %if.end2
 
 if.then.i:                                        ; preds = %_PyVectorcall_FunctionInline.exit.i, %if.end2
   %call2.i = call ptr @_PyObject_MakeTpCall(ptr noundef %tstate, ptr noundef nonnull %callback, ptr noundef nonnull %args, i64 noundef 3, ptr noundef null) #15
-  br label %_PyObject_VectorcallTstate.exit
+  br label %_PyObject_VectorcallTstate.argprom.exit
 
 if.end.i:                                         ; preds = %_PyVectorcall_FunctionInline.exit.i
   %call3.i = call ptr %ptr.0.copyload.i.i(ptr noundef nonnull %callback, ptr noundef nonnull %args, i64 noundef 3, ptr noundef null) #15
   %call4.i = call ptr @_Py_CheckFunctionResult(ptr noundef %tstate, ptr noundef nonnull %callback, ptr noundef %call3.i, ptr noundef null) #15
-  br label %_PyObject_VectorcallTstate.exit
+  br label %_PyObject_VectorcallTstate.argprom.exit
 
-_PyObject_VectorcallTstate.exit:                  ; preds = %if.then.i, %if.end.i
+_PyObject_VectorcallTstate.argprom.exit:          ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ %call4.i, %if.end.i ]
   call void @PyFrame_LocalsToFast(ptr noundef nonnull %frame, i32 noundef 1) #15
   br label %return
 
-return:                                           ; preds = %if.then, %_PyObject_VectorcallTstate.exit
-  %retval.0 = phi ptr [ %retval.0.i, %_PyObject_VectorcallTstate.exit ], [ null, %if.then ]
+return:                                           ; preds = %if.then, %_PyObject_VectorcallTstate.argprom.exit
+  %retval.0 = phi ptr [ %retval.0.i, %_PyObject_VectorcallTstate.argprom.exit ], [ null, %if.then ]
   ret ptr %retval.0
 }
 
@@ -8551,15 +8551,15 @@ if.end:                                           ; preds = %entry
   %3 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val = load ptr, ptr %3, align 8
   %cmp.i26 = icmp eq ptr %tstate.val, null
-  br i1 %cmp.i26, label %return, label %_PyErr_Occurred.exit
+  br i1 %cmp.i26, label %return, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %if.end
+_PyErr_Occurred.argprom.exit:                     ; preds = %if.end
   %4 = getelementptr i8, ptr %tstate.val, i64 8
   %.val.i = load ptr, ptr %4, align 8
   %tobool.not = icmp eq ptr %.val.i, null
   br i1 %tobool.not, label %return, label %if.then33
 
-if.then33:                                        ; preds = %_PyErr_Occurred.exit
+if.then33:                                        ; preds = %_PyErr_Occurred.argprom.exit
   %5 = load i64, ptr %call, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i37.not = icmp eq i64 %6, 0
@@ -8575,8 +8575,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call) #15
   br label %return
 
-return:                                           ; preds = %if.end, %_PyErr_Occurred.exit, %if.end.i, %if.then1.i, %if.then33, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then33 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call, %_PyErr_Occurred.exit ], [ %call, %if.end ]
+return:                                           ; preds = %if.end, %_PyErr_Occurred.argprom.exit, %if.end.i, %if.then1.i, %if.then33, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then33 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call, %_PyErr_Occurred.argprom.exit ], [ %call, %if.end ]
   ret ptr %retval.0
 }
 
@@ -8711,15 +8711,15 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val = load ptr, ptr %0, align 8
   %cmp.i16 = icmp eq ptr %tstate.val, null
-  br i1 %cmp.i16, label %return, label %_PyErr_Occurred.exit
+  br i1 %cmp.i16, label %return, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %if.end
+_PyErr_Occurred.argprom.exit:                     ; preds = %if.end
   %1 = getelementptr i8, ptr %tstate.val, i64 8
   %.val.i = load ptr, ptr %1, align 8
   %tobool.not = icmp eq ptr %.val.i, null
   br i1 %tobool.not, label %return, label %if.then18
 
-if.then18:                                        ; preds = %_PyErr_Occurred.exit
+if.then18:                                        ; preds = %_PyErr_Occurred.argprom.exit
   %2 = load i64, ptr %call, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i22.not = icmp eq i64 %3, 0
@@ -8735,8 +8735,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call) #15
   br label %return
 
-return:                                           ; preds = %if.end, %_PyErr_Occurred.exit, %if.end.i, %if.then1.i, %if.then18, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then18 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call, %_PyErr_Occurred.exit ], [ %call, %if.end ]
+return:                                           ; preds = %if.end, %_PyErr_Occurred.argprom.exit, %if.end.i, %if.then1.i, %if.then18, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then18 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call, %_PyErr_Occurred.argprom.exit ], [ %call, %if.end ]
   ret ptr %retval.0
 }
 

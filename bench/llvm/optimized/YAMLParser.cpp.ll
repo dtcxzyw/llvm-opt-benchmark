@@ -14424,7 +14424,7 @@ _ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i.i.i: ; preds = %37,
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %43, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
-  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 44:                                               ; preds = %3
   %45 = icmp ne i64 %.val4, 0
@@ -14519,7 +14519,7 @@ _ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit31.i.i.i: ; preds = %7
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %77, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #25
-  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 78:                                               ; preds = %44
   %79 = icmp ugt i64 %47, 1
@@ -14550,7 +14550,7 @@ _ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit31.i.i.i: ; preds = %7
   %92 = load ptr, ptr %13, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 %.sroa.speculated.i.i.i.i
   %94 = sub i64 %91, %.sroa.speculated.i.i.i.i
-  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 95:                                               ; preds = %44
   %96 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
@@ -14871,7 +14871,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i.i.i: ; preds = %242
   call fastcc void @_ZL10encodeUTF8jRN4llvm15SmallVectorImplIcEE(i32 noundef %.146.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %248 = getelementptr inbounds i8, ptr %46, i64 3
   %249 = add i64 %47, -3
-  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 250:                                              ; preds = %44
   %251 = icmp ult i64 %47, 5
@@ -14890,7 +14890,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit78.i.i.i: ; preds = %250
   call fastcc void @_ZL10encodeUTF8jRN4llvm15SmallVectorImplIcEE(i32 noundef %.144.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %256 = getelementptr inbounds i8, ptr %46, i64 5
   %257 = add i64 %47, -5
-  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 258:                                              ; preds = %44
   %259 = icmp ult i64 %47, 9
@@ -14909,16 +14909,16 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit91.i.i.i: ; preds = %258
   call fastcc void @_ZL10encodeUTF8jRN4llvm15SmallVectorImplIcEE(i32 noundef %.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %264 = getelementptr inbounds i8, ptr %46, i64 9
   %265 = add i64 %47, -9
-  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 266:                                              ; preds = %258, %250, %242, %241, %240, %239, %238, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit62.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit60.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit58.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit56.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit54.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit52.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit50.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit48.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit46.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit44.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit42.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit40.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i.i.i
   %267 = icmp ne i64 %47, 0
   %.sroa.speculated5.i.i95.i.i.i = zext i1 %267 to i64
   %268 = getelementptr inbounds i8, ptr %46, i64 %.sroa.speculated5.i.i95.i.i.i
   %269 = sub i64 %47, %.sroa.speculated5.i.i95.i.i.i
-  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i.i.i, %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit31.i.i.i, %85, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i.i.i, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit78.i.i.i, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit91.i.i.i, %266
+"_ZSt10__invoke_rIN4llvm9StringRefERZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i.i.i, %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit31.i.i.i, %85, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i.i.i, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit78.i.i.i, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit91.i.i.i, %266
   %.sroa.10.0.i.i.i = phi i64 [ 0, %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i.i.i ], [ 0, %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit31.i.i.i ], [ %269, %266 ], [ %265, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit91.i.i.i ], [ %257, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit78.i.i.i ], [ %249, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i.i.i ], [ %94, %85 ]
   %.sroa.036.0.i.i.i = phi ptr [ null, %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit.i.i.i ], [ null, %_ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit31.i.i.i ], [ %268, %266 ], [ %264, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit91.i.i.i ], [ %256, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit78.i.i.i ], [ %248, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i.i.i ], [ %93, %85 ]
   %.fca.0.insert.i.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.036.0.i.i.i, 0
@@ -14933,7 +14933,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit91.i.i.i: ; preds = %258
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -14941,18 +14941,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm9StringRefE
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -14967,14 +14967,14 @@ define internal { ptr, i64 } @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS
   %6 = add i64 %5, 1
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
   %.not.i.i.i.i.i.i = icmp ugt i64 %6, %7
-  br i1 %.not.i.i.i.i.i.i, label %8, label %"_ZSt10__invoke_rIN4llvm9StringRefERZNS0_4yaml10ScalarNode20getSingleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %.not.i.i.i.i.i.i, label %8, label %"_ZSt10__invoke_rIN4llvm9StringRefERZNS0_4yaml10ScalarNode20getSingleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %9, i64 noundef %6, i64 noundef 1) #25
-  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNS0_4yaml10ScalarNode20getSingleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIN4llvm9StringRefERZNS0_4yaml10ScalarNode20getSingleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIN4llvm9StringRefERZNS0_4yaml10ScalarNode20getSingleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %3, %8
+"_ZSt10__invoke_rIN4llvm9StringRefERZNS0_4yaml10ScalarNode20getSingleQuotedValueES1_RNS0_15SmallVectorImplIcEEE3$_0JS1_S6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %3, %8
   %10 = load ptr, ptr %2, align 8
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
@@ -14992,20 +14992,20 @@ define internal { ptr, i64 } @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNS0_4yaml10ScalarNode20getSingleQuotedValueES1_S4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm4yaml10ScalarNode20getSingleQuotedValueENS1_9StringRefERNS1_15SmallVectorImplIcEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 

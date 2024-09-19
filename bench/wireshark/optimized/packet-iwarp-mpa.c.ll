@@ -546,15 +546,15 @@ define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %
 63:                                               ; preds = %58
   %64 = sub nuw i32 %59, %62
   %65 = icmp ult i32 %64, 3
-  br i1 %65, label %dissect_iwarp_mpa.exit.thread, label %expected_ulpdu_length.exit.i.i
+  br i1 %65, label %dissect_iwarp_mpa.exit.thread, label %expected_ulpdu_length.argprom.exit.i.i
 
-expected_ulpdu_length.exit.i.i:                   ; preds = %63
+expected_ulpdu_length.argprom.exit.i.i:           ; preds = %63
   %66 = trunc i32 %64 to i16
   %67 = add i16 %66, -2
   %.not77.i.i = icmp eq i16 %67, 0
   br i1 %.not77.i.i, label %dissect_iwarp_mpa.exit.thread, label %68
 
-68:                                               ; preds = %expected_ulpdu_length.exit.i.i
+68:                                               ; preds = %expected_ulpdu_length.argprom.exit.i.i
   %69 = zext i16 %67 to i32
   %70 = zext i16 %27 to i32
   %71 = zext nneg i8 %52 to i32
@@ -621,7 +621,7 @@ expected_ulpdu_length.exit.i.i:                   ; preds = %63
   %112 = add nuw nsw i32 %111, %109
   %113 = getelementptr i8, ptr %9, i64 44
   %.val88.i.i = load i32, ptr %113, align 4
-  tail call fastcc void @dissect_fpdu_crc(ptr noundef %0, ptr noundef %90, i32 %.val88.i.i, i32 noundef %108, i32 noundef %112)
+  tail call fastcc void @dissect_fpdu_crc.argprom(ptr noundef %0, ptr noundef %90, i32 %.val88.i.i, i32 noundef %108, i32 noundef %112)
   %114 = load i32, ptr @hf_mpa_marker, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %114, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %116 = load i32, ptr @ett_mpa, align 4
@@ -693,7 +693,7 @@ expected_ulpdu_length.exit.i.i:                   ; preds = %63
   %157 = add nuw nsw i32 %156, %150
   %158 = getelementptr i8, ptr %9, i64 44
   %.val89.i.i = load i32, ptr %158, align 4
-  tail call fastcc void @dissect_fpdu_crc(ptr noundef %0, ptr noundef %90, i32 %.val89.i.i, i32 noundef %.1.i.i, i32 noundef %157)
+  tail call fastcc void @dissect_fpdu_crc.argprom(ptr noundef %0, ptr noundef %90, i32 %.val89.i.i, i32 noundef %.1.i.i, i32 noundef %157)
   br label %dissect_mpa_fpdu.exit.i
 
 dissect_mpa_fpdu.exit.i:                          ; preds = %125, %155
@@ -811,7 +811,7 @@ dissect_iwarp_mpa.exit.thread12:                  ; preds = %201
   %.not45.i = icmp eq i32 %213, 0
   br i1 %.not45.i, label %dissect_iwarp_mpa.exit.thread, label %dissect_iwarp_mpa.exit
 
-dissect_iwarp_mpa.exit.thread:                    ; preds = %4, %dissect_mpa_fpdu.exit.i, %212, %207, %68, %expected_ulpdu_length.exit.i.i, %48, %54, %58, %63
+dissect_iwarp_mpa.exit.thread:                    ; preds = %4, %dissect_mpa_fpdu.exit.i, %212, %207, %68, %expected_ulpdu_length.argprom.exit.i.i, %48, %54, %58, %63
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %215
 
@@ -1037,7 +1037,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fpdu_crc(ptr noundef %0, ptr noundef %1, i32 %.44.val, i32 noundef %2, i32 noundef range(i32 2, 33619973) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_fpdu_crc.argprom(ptr noundef %0, ptr noundef %1, i32 %.44.val, i32 noundef %2, i32 noundef range(i32 2, 33619973) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %.44.val, 0
   br i1 %.not, label %15, label %5
 

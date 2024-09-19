@@ -4190,7 +4190,7 @@ define internal ptr @gtk3_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull @.str.270) #19
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %get_boolean_property.exit, label %38
+  br i1 %37, label %get_boolean_property.argprom.exit, label %38
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr @create_Boolean.cid, align 8
@@ -4220,9 +4220,9 @@ define internal ptr @gtk3_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %54 = getelementptr inbounds i8, ptr %53, i64 184
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull %0, ptr noundef nonnull %36) #19
-  br label %get_boolean_property.exit
+  br label %get_boolean_property.argprom.exit
 
-get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.i.i
+get_boolean_property.argprom.exit:                ; preds = %29, %.sink.split.i.i.i
   %.0.i.i.i = phi ptr [ null, %29 ], [ %.0.ph.i.i.i, %.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -4241,7 +4241,7 @@ get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr %61(ptr noundef nonnull %0, ptr noundef nonnull @.str.273) #19
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %get_integer_property.exit, label %64
+  br i1 %63, label %get_integer_property.argprom.exit, label %64
 
 64:                                               ; preds = %56
   %65 = load ptr, ptr @create_Integer.cid, align 8
@@ -4271,16 +4271,16 @@ get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.
   %80 = getelementptr inbounds i8, ptr %79, i64 184
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull %0, ptr noundef nonnull %62) #19
-  br label %get_integer_property.exit
+  br label %get_integer_property.argprom.exit
 
-get_integer_property.exit:                        ; preds = %56, %.sink.split.i.i.i9
+get_integer_property.argprom.exit:                ; preds = %56, %.sink.split.i.i.i9
   %.0.i.i.i11 = phi ptr [ null, %56 ], [ %.0.ph.i.i.i10, %.sink.split.i.i.i9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %82
 
-82:                                               ; preds = %2, %get_integer_property.exit, %get_boolean_property.exit, %20, %11
-  %.0 = phi ptr [ %.0.i.i.i11, %get_integer_property.exit ], [ %.0.i.i.i, %get_boolean_property.exit ], [ %26, %20 ], [ %17, %11 ], [ null, %2 ]
+82:                                               ; preds = %2, %get_integer_property.argprom.exit, %get_boolean_property.argprom.exit, %20, %11
+  %.0 = phi ptr [ %.0.i.i.i11, %get_integer_property.argprom.exit ], [ %.0.i.i.i, %get_boolean_property.argprom.exit ], [ %26, %20 ], [ %17, %11 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -6291,7 +6291,7 @@ switch.lookup:                                    ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %13 = load ptr, ptr @gtk3_window, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %gtk3_get_stock_icon.exit
+  br i1 %14, label %15, label %gtk3_get_stock_icon.argprom.exit
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @fp_gtk_window_new, align 8
@@ -6321,9 +6321,9 @@ switch.lookup:                                    ; preds = %8
   %33 = load ptr, ptr %9, align 8
   %34 = call ptr %32(ptr noundef %33, ptr noundef null) #19
   store ptr %34, ptr @gtk3_css, align 8
-  br label %gtk3_get_stock_icon.exit
+  br label %gtk3_get_stock_icon.argprom.exit
 
-gtk3_get_stock_icon.exit:                         ; preds = %12, %15
+gtk3_get_stock_icon.argprom.exit:                 ; preds = %12, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %35 = icmp slt i32 %1, 0
   %36 = select i1 %35, i32 25, i32 %1

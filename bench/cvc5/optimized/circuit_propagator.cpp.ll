@@ -10172,7 +10172,7 @@ for.cond.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i, %fo
   %retval.sroa.0.0.in.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i3716, %for.body.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i.i.i.i, align 8, !noalias !243
   %cmp.i.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.cond.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, i64 8
@@ -10191,7 +10191,7 @@ call2.i.i.i.i.i1.i1.i.i.i.i.noexc:                ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %41, i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !243
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %call2.i.i.i.i.i1.i1.i.i.i.i.noexc
   %43 = load ptr, ptr %42, align 8, !noalias !243
@@ -10217,34 +10217,34 @@ if.end3.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %50, %for.cond.i.i.i.i.i.i.i.i.i.i.i ], [ %43, %if.end.i.i.i.i.i.i.i.i.i.i.i ]
   %50 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !243
   %tobool5.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.end3.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 24
   %51 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !243
   %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i = urem i64 %51, %40
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i.i.i.i = phi ptr [ %43, %if.end.i.i.i.i.i.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %50, %for.cond.i.i.i.i.i.i.i.i.i.i.i ]
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i.i.i.i, i64 16
   %52 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8, !noalias !243
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %52, null
-  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i, %call2.i.i.i.i.i1.i1.i.i.i.i.noexc, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i, %call2.i.i.i.i.i1.i1.i.i.i.i.noexc, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   br label %invoke.cont70
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 48
   %53 = load i32, ptr %second.i.i.i.i.i.i, align 8
   %cmp.i.i.i.not.i.i.i = icmp eq i32 %53, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   br i1 %cmp.i.i.i.not.i.i.i, label %if.end.i.i.i, label %invoke.cont70
 
-if.end.i.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i"
+if.end.i.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i"
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 8
   %54 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8, !noalias !246
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i)
@@ -10257,7 +10257,7 @@ for.cond.i.i.i.i.i.i51.i.i.i:                     ; preds = %if.end.i.i.i, %for.
   %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i, %for.body.i.i.i.i.i.i55.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i.i, align 8, !noalias !249
   %cmp.i.not.i.i.i.i.i.i54.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %for.body.i.i.i.i.i.i55.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %for.body.i.i.i.i.i.i55.i.i.i
 
 for.body.i.i.i.i.i.i55.i.i.i:                     ; preds = %for.cond.i.i.i.i.i.i51.i.i.i
   %add.ptr.i.i.i.i.i.i56.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i, i64 8
@@ -10276,7 +10276,7 @@ call2.i.i.i.i.i1.i1.i20.i.i.i.noexc:              ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i23.i.i.i = getelementptr inbounds ptr, ptr %58, i64 %rem.i.i.i.i.i.i.i.i.i22.i.i.i
   %59 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i23.i.i.i, align 8, !noalias !249
   %tobool.not.i.i.i.i.i.i.i.i24.i.i.i = icmp eq ptr %59, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i.i
 
 if.end.i.i.i.i.i.i.i.i25.i.i.i:                   ; preds = %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc
   %60 = load ptr, ptr %59, align 8, !noalias !249
@@ -10302,35 +10302,35 @@ if.end3.i.i.i.i.i.i.i.i30.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i31.i.i.i = phi ptr [ %67, %for.cond.i.i.i.i.i.i.i.i38.i.i.i ], [ %60, %if.end.i.i.i.i.i.i.i.i25.i.i.i ]
   %67 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i31.i.i.i, align 8, !noalias !249
   %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i = icmp eq ptr %67, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i:            ; preds = %if.end3.i.i.i.i.i.i.i.i30.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i.i = getelementptr inbounds i8, ptr %67, i64 24
   %68 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i.i, align 8, !noalias !249
   %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i.i = urem i64 %68, %57
   %cmp.not.i.i.i.i.i.i.i.i36.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i.i, %rem.i.i.i.i.i.i.i.i.i22.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i.i, label %for.cond.i.i.i.i.i.i.i.i38.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i.i, label %for.cond.i.i.i.i.i.i.i.i38.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i38.i.i.i, %for.body.i.i.i.i.i.i55.i.i.i, %if.end.i.i.i.i.i.i.i.i25.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i43.i.i.i = phi ptr [ %60, %if.end.i.i.i.i.i.i.i.i25.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i, %for.body.i.i.i.i.i.i55.i.i.i ], [ %67, %for.cond.i.i.i.i.i.i.i.i38.i.i.i ]
   %second.i.i.i.i44.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i43.i.i.i, i64 16
   %69 = load ptr, ptr %second.i.i.i.i44.i.i.i, align 8, !noalias !249
   %cmp.i.i.i.i45.i.i.i = icmp eq ptr %69, null
-  br i1 %cmp.i.i.i.i45.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+  br i1 %cmp.i.i.i.i45.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i, %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i, %if.end3.i.i.i.i.i.i.i.i30.i.i.i, %for.cond.i.i.i.i.i.i51.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i, %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i, %if.end3.i.i.i.i.i.i.i.i30.i.i.i, %for.cond.i.i.i.i.i.i51.i.i.i
   %incdec.ptr.i.i.i.i.le5931 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i)
   br label %invoke.cont70
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i
   %second.i.i.i47.i.i.i = getelementptr inbounds i8, ptr %69, i64 48
   %70 = load i32, ptr %second.i.i.i47.i.i.i, align 8
   %cmp.i.i.i48.not.i.i.i = icmp eq i32 %70, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i)
   br i1 %cmp.i.i.i48.not.i.i.i, label %if.end13.i.i.i, label %invoke.cont70.loopexit.split.loop.exit
 
-if.end13.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+if.end13.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
   %incdec.ptr.i59.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 16
   %71 = load ptr, ptr %incdec.ptr.i59.i.i.i, align 8, !noalias !252
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i)
@@ -10343,7 +10343,7 @@ for.cond.i.i.i.i.i.i96.i.i.i:                     ; preds = %if.end13.i.i.i, %fo
   %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i, %for.body.i.i.i.i.i.i100.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end13.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i.i, align 8, !noalias !255
   %cmp.i.not.i.i.i.i.i.i99.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %for.body.i.i.i.i.i.i100.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %for.body.i.i.i.i.i.i100.i.i.i
 
 for.body.i.i.i.i.i.i100.i.i.i:                    ; preds = %for.cond.i.i.i.i.i.i96.i.i.i
   %add.ptr.i.i.i.i.i.i101.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i, i64 8
@@ -10362,7 +10362,7 @@ call2.i.i.i.i.i1.i1.i65.i.i.i.noexc:              ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i68.i.i.i = getelementptr inbounds ptr, ptr %75, i64 %rem.i.i.i.i.i.i.i.i.i67.i.i.i
   %76 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i68.i.i.i, align 8, !noalias !255
   %tobool.not.i.i.i.i.i.i.i.i69.i.i.i = icmp eq ptr %76, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i.i
 
 if.end.i.i.i.i.i.i.i.i70.i.i.i:                   ; preds = %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc
   %77 = load ptr, ptr %76, align 8, !noalias !255
@@ -10388,35 +10388,35 @@ if.end3.i.i.i.i.i.i.i.i75.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i76.i.i.i = phi ptr [ %84, %for.cond.i.i.i.i.i.i.i.i83.i.i.i ], [ %77, %if.end.i.i.i.i.i.i.i.i70.i.i.i ]
   %84 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i76.i.i.i, align 8, !noalias !255
   %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i = icmp eq ptr %84, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i:            ; preds = %if.end3.i.i.i.i.i.i.i.i75.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i.i = getelementptr inbounds i8, ptr %84, i64 24
   %85 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i.i, align 8, !noalias !255
   %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i.i = urem i64 %85, %74
   %cmp.not.i.i.i.i.i.i.i.i81.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i.i, %rem.i.i.i.i.i.i.i.i.i67.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i.i, label %for.cond.i.i.i.i.i.i.i.i83.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i.i, label %for.cond.i.i.i.i.i.i.i.i83.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i83.i.i.i, %for.body.i.i.i.i.i.i100.i.i.i, %if.end.i.i.i.i.i.i.i.i70.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i88.i.i.i = phi ptr [ %77, %if.end.i.i.i.i.i.i.i.i70.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i, %for.body.i.i.i.i.i.i100.i.i.i ], [ %84, %for.cond.i.i.i.i.i.i.i.i83.i.i.i ]
   %second.i.i.i.i89.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i88.i.i.i, i64 16
   %86 = load ptr, ptr %second.i.i.i.i89.i.i.i, align 8, !noalias !255
   %cmp.i.i.i.i90.i.i.i = icmp eq ptr %86, null
-  br i1 %cmp.i.i.i.i90.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+  br i1 %cmp.i.i.i.i90.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i, %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i, %if.end3.i.i.i.i.i.i.i.i75.i.i.i, %for.cond.i.i.i.i.i.i96.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i, %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i, %if.end3.i.i.i.i.i.i.i.i75.i.i.i, %for.cond.i.i.i.i.i.i96.i.i.i
   %incdec.ptr.i59.i.i.i.le5924 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i)
   br label %invoke.cont70
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i
   %second.i.i.i92.i.i.i = getelementptr inbounds i8, ptr %86, i64 48
   %87 = load i32, ptr %second.i.i.i92.i.i.i, align 8
   %cmp.i.i.i93.not.i.i.i = icmp eq i32 %87, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i)
   br i1 %cmp.i.i.i93.not.i.i.i, label %if.end19.i.i.i, label %invoke.cont70.loopexit.split.loop.exit5907
 
-if.end19.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+if.end19.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
   %incdec.ptr.i104.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 24
   %88 = load ptr, ptr %incdec.ptr.i104.i.i.i, align 8, !noalias !258
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i)
@@ -10429,7 +10429,7 @@ for.cond.i.i.i.i.i.i141.i.i.i:                    ; preds = %if.end19.i.i.i, %fo
   %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i, %for.body.i.i.i.i.i.i145.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end19.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i.i, align 8, !noalias !261
   %cmp.i.not.i.i.i.i.i.i144.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %for.body.i.i.i.i.i.i145.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %for.body.i.i.i.i.i.i145.i.i.i
 
 for.body.i.i.i.i.i.i145.i.i.i:                    ; preds = %for.cond.i.i.i.i.i.i141.i.i.i
   %add.ptr.i.i.i.i.i.i146.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i, i64 8
@@ -10448,7 +10448,7 @@ call2.i.i.i.i.i1.i1.i110.i.i.i.noexc:             ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i113.i.i.i = getelementptr inbounds ptr, ptr %92, i64 %rem.i.i.i.i.i.i.i.i.i112.i.i.i
   %93 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i113.i.i.i, align 8, !noalias !261
   %tobool.not.i.i.i.i.i.i.i.i114.i.i.i = icmp eq ptr %93, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i.i
 
 if.end.i.i.i.i.i.i.i.i115.i.i.i:                  ; preds = %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc
   %94 = load ptr, ptr %93, align 8, !noalias !261
@@ -10474,35 +10474,35 @@ if.end3.i.i.i.i.i.i.i.i120.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i121.i.i.i = phi ptr [ %101, %for.cond.i.i.i.i.i.i.i.i128.i.i.i ], [ %94, %if.end.i.i.i.i.i.i.i.i115.i.i.i ]
   %101 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i121.i.i.i, align 8, !noalias !261
   %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i = icmp eq ptr %101, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i:           ; preds = %if.end3.i.i.i.i.i.i.i.i120.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i.i = getelementptr inbounds i8, ptr %101, i64 24
   %102 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i.i, align 8, !noalias !261
   %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i.i = urem i64 %102, %91
   %cmp.not.i.i.i.i.i.i.i.i126.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i.i, %rem.i.i.i.i.i.i.i.i.i112.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i.i, label %for.cond.i.i.i.i.i.i.i.i128.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i.i, label %for.cond.i.i.i.i.i.i.i.i128.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i128.i.i.i, %for.body.i.i.i.i.i.i145.i.i.i, %if.end.i.i.i.i.i.i.i.i115.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i133.i.i.i = phi ptr [ %94, %if.end.i.i.i.i.i.i.i.i115.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i, %for.body.i.i.i.i.i.i145.i.i.i ], [ %101, %for.cond.i.i.i.i.i.i.i.i128.i.i.i ]
   %second.i.i.i.i134.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i133.i.i.i, i64 16
   %103 = load ptr, ptr %second.i.i.i.i134.i.i.i, align 8, !noalias !261
   %cmp.i.i.i.i135.i.i.i = icmp eq ptr %103, null
-  br i1 %cmp.i.i.i.i135.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+  br i1 %cmp.i.i.i.i135.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i, %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i, %if.end3.i.i.i.i.i.i.i.i120.i.i.i, %for.cond.i.i.i.i.i.i141.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i, %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i, %if.end3.i.i.i.i.i.i.i.i120.i.i.i, %for.cond.i.i.i.i.i.i141.i.i.i
   %incdec.ptr.i104.i.i.i.le5917 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i)
   br label %invoke.cont70
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i
   %second.i.i.i137.i.i.i = getelementptr inbounds i8, ptr %103, i64 48
   %104 = load i32, ptr %second.i.i.i137.i.i.i, align 8
   %cmp.i.i.i138.not.i.i.i = icmp eq i32 %104, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i)
   br i1 %cmp.i.i.i138.not.i.i.i, label %if.end25.i.i.i, label %invoke.cont70.loopexit.split.loop.exit5909
 
-if.end25.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+if.end25.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
   %incdec.ptr.i149.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 32
   %dec.i.i.i = add nsw i64 %__trip_count.0396.i.i.i, -1
   %cmp.i.i.i = icmp sgt i64 %__trip_count.0396.i.i.i, 1
@@ -10535,7 +10535,7 @@ for.cond.i.i.i.i.i.i190.i.i.i:                    ; preds = %sw.bb.i.i.i, %for.b
   %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i, %for.body.i.i.i.i.i.i194.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i.i, align 8, !noalias !268
   %cmp.i.not.i.i.i.i.i.i193.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %for.body.i.i.i.i.i.i194.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %for.body.i.i.i.i.i.i194.i.i.i
 
 for.body.i.i.i.i.i.i194.i.i.i:                    ; preds = %for.cond.i.i.i.i.i.i190.i.i.i
   %add.ptr.i.i.i.i.i.i195.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i, i64 8
@@ -10554,7 +10554,7 @@ call2.i.i.i.i.i1.i1.i159.i.i.i.noexc:             ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i162.i.i.i = getelementptr inbounds ptr, ptr %109, i64 %rem.i.i.i.i.i.i.i.i.i161.i.i.i
   %110 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i162.i.i.i, align 8, !noalias !268
   %tobool.not.i.i.i.i.i.i.i.i163.i.i.i = icmp eq ptr %110, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i.i
 
 if.end.i.i.i.i.i.i.i.i164.i.i.i:                  ; preds = %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc
   %111 = load ptr, ptr %110, align 8, !noalias !268
@@ -10580,34 +10580,34 @@ if.end3.i.i.i.i.i.i.i.i169.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i170.i.i.i = phi ptr [ %118, %for.cond.i.i.i.i.i.i.i.i177.i.i.i ], [ %111, %if.end.i.i.i.i.i.i.i.i164.i.i.i ]
   %118 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i170.i.i.i, align 8, !noalias !268
   %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i = icmp eq ptr %118, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i:           ; preds = %if.end3.i.i.i.i.i.i.i.i169.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i.i = getelementptr inbounds i8, ptr %118, i64 24
   %119 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i.i, align 8, !noalias !268
   %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i.i = urem i64 %119, %108
   %cmp.not.i.i.i.i.i.i.i.i175.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i.i, %rem.i.i.i.i.i.i.i.i.i161.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i.i, label %for.cond.i.i.i.i.i.i.i.i177.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i.i, label %for.cond.i.i.i.i.i.i.i.i177.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i177.i.i.i, %for.body.i.i.i.i.i.i194.i.i.i, %if.end.i.i.i.i.i.i.i.i164.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i182.i.i.i = phi ptr [ %111, %if.end.i.i.i.i.i.i.i.i164.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i, %for.body.i.i.i.i.i.i194.i.i.i ], [ %118, %for.cond.i.i.i.i.i.i.i.i177.i.i.i ]
   %second.i.i.i.i183.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i182.i.i.i, i64 16
   %120 = load ptr, ptr %second.i.i.i.i183.i.i.i, align 8, !noalias !268
   %cmp.i.i.i.i184.i.i.i = icmp eq ptr %120, null
-  br i1 %cmp.i.i.i.i184.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i"
+  br i1 %cmp.i.i.i.i184.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i, %if.end3.i.i.i.i.i.i.i.i169.i.i.i, %for.cond.i.i.i.i.i.i190.i.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i, %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i, %if.end3.i.i.i.i.i.i.i.i169.i.i.i, %for.cond.i.i.i.i.i.i190.i.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i, %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i.i)
   br label %invoke.cont70
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i
   %second.i.i.i186.i.i.i = getelementptr inbounds i8, ptr %120, i64 48
   %121 = load i32, ptr %second.i.i.i186.i.i.i, align 8
   %cmp.i.i.i187.not.i.i.i = icmp eq i32 %121, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i.i)
   br i1 %cmp.i.i.i187.not.i.i.i, label %if.end34.i.i.i, label %invoke.cont70
 
-if.end34.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i"
+if.end34.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i"
   %incdec.ptr.i198.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 8
   br label %sw.bb36.i.i.i
 
@@ -10624,7 +10624,7 @@ for.cond.i.i.i.i.i.i235.i.i.i:                    ; preds = %sw.bb36.i.i.i, %for
   %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i, %for.body.i.i.i.i.i.i239.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb36.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i.i, align 8, !noalias !274
   %cmp.i.not.i.i.i.i.i.i238.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %for.body.i.i.i.i.i.i239.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %for.body.i.i.i.i.i.i239.i.i.i
 
 for.body.i.i.i.i.i.i239.i.i.i:                    ; preds = %for.cond.i.i.i.i.i.i235.i.i.i
   %add.ptr.i.i.i.i.i.i240.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i, i64 8
@@ -10643,7 +10643,7 @@ call2.i.i.i.i.i1.i1.i204.i.i.i.noexc:             ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i207.i.i.i = getelementptr inbounds ptr, ptr %126, i64 %rem.i.i.i.i.i.i.i.i.i206.i.i.i
   %127 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i207.i.i.i, align 8, !noalias !274
   %tobool.not.i.i.i.i.i.i.i.i208.i.i.i = icmp eq ptr %127, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i.i
 
 if.end.i.i.i.i.i.i.i.i209.i.i.i:                  ; preds = %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc
   %128 = load ptr, ptr %127, align 8, !noalias !274
@@ -10669,34 +10669,34 @@ if.end3.i.i.i.i.i.i.i.i214.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i215.i.i.i = phi ptr [ %135, %for.cond.i.i.i.i.i.i.i.i222.i.i.i ], [ %128, %if.end.i.i.i.i.i.i.i.i209.i.i.i ]
   %135 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i215.i.i.i, align 8, !noalias !274
   %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i = icmp eq ptr %135, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i:           ; preds = %if.end3.i.i.i.i.i.i.i.i214.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i.i = getelementptr inbounds i8, ptr %135, i64 24
   %136 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i.i, align 8, !noalias !274
   %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i.i = urem i64 %136, %125
   %cmp.not.i.i.i.i.i.i.i.i220.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i.i, %rem.i.i.i.i.i.i.i.i.i206.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i.i, label %for.cond.i.i.i.i.i.i.i.i222.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i.i, label %for.cond.i.i.i.i.i.i.i.i222.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i222.i.i.i, %for.body.i.i.i.i.i.i239.i.i.i, %if.end.i.i.i.i.i.i.i.i209.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i227.i.i.i = phi ptr [ %128, %if.end.i.i.i.i.i.i.i.i209.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i, %for.body.i.i.i.i.i.i239.i.i.i ], [ %135, %for.cond.i.i.i.i.i.i.i.i222.i.i.i ]
   %second.i.i.i.i228.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i227.i.i.i, i64 16
   %137 = load ptr, ptr %second.i.i.i.i228.i.i.i, align 8, !noalias !274
   %cmp.i.i.i.i229.i.i.i = icmp eq ptr %137, null
-  br i1 %cmp.i.i.i.i229.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i"
+  br i1 %cmp.i.i.i.i229.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i, %if.end3.i.i.i.i.i.i.i.i214.i.i.i, %for.cond.i.i.i.i.i.i235.i.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i, %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i, %if.end3.i.i.i.i.i.i.i.i214.i.i.i, %for.cond.i.i.i.i.i.i235.i.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i, %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i.i)
   br label %invoke.cont70
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i
   %second.i.i.i231.i.i.i = getelementptr inbounds i8, ptr %137, i64 48
   %138 = load i32, ptr %second.i.i.i231.i.i.i, align 8
   %cmp.i.i.i232.not.i.i.i = icmp eq i32 %138, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i.i)
   br i1 %cmp.i.i.i232.not.i.i.i, label %if.end41.i.i.i, label %invoke.cont70
 
-if.end41.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i"
+if.end41.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i"
   %incdec.ptr.i243.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 8
   br label %sw.bb43.i.i.i
 
@@ -10713,7 +10713,7 @@ for.cond.i.i.i.i.i.i280.i.i.i:                    ; preds = %sw.bb43.i.i.i, %for
   %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i, %for.body.i.i.i.i.i.i284.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb43.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i.i, align 8, !noalias !280
   %cmp.i.not.i.i.i.i.i.i283.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %for.body.i.i.i.i.i.i284.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %for.body.i.i.i.i.i.i284.i.i.i
 
 for.body.i.i.i.i.i.i284.i.i.i:                    ; preds = %for.cond.i.i.i.i.i.i280.i.i.i
   %add.ptr.i.i.i.i.i.i285.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i, i64 8
@@ -10732,7 +10732,7 @@ call2.i.i.i.i.i1.i1.i249.i.i.i.noexc:             ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i252.i.i.i = getelementptr inbounds ptr, ptr %143, i64 %rem.i.i.i.i.i.i.i.i.i251.i.i.i
   %144 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i252.i.i.i, align 8, !noalias !280
   %tobool.not.i.i.i.i.i.i.i.i253.i.i.i = icmp eq ptr %144, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i.i
 
 if.end.i.i.i.i.i.i.i.i254.i.i.i:                  ; preds = %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc
   %145 = load ptr, ptr %144, align 8, !noalias !280
@@ -10758,27 +10758,27 @@ if.end3.i.i.i.i.i.i.i.i259.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i260.i.i.i = phi ptr [ %152, %for.cond.i.i.i.i.i.i.i.i267.i.i.i ], [ %145, %if.end.i.i.i.i.i.i.i.i254.i.i.i ]
   %152 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i260.i.i.i, align 8, !noalias !280
   %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i = icmp eq ptr %152, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i:           ; preds = %if.end3.i.i.i.i.i.i.i.i259.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i.i = getelementptr inbounds i8, ptr %152, i64 24
   %153 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i.i, align 8, !noalias !280
   %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i.i = urem i64 %153, %142
   %cmp.not.i.i.i.i.i.i.i.i265.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i.i, %rem.i.i.i.i.i.i.i.i.i251.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i.i, label %for.cond.i.i.i.i.i.i.i.i267.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i.i, label %for.cond.i.i.i.i.i.i.i.i267.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i267.i.i.i, %for.body.i.i.i.i.i.i284.i.i.i, %if.end.i.i.i.i.i.i.i.i254.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i272.i.i.i = phi ptr [ %145, %if.end.i.i.i.i.i.i.i.i254.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i, %for.body.i.i.i.i.i.i284.i.i.i ], [ %152, %for.cond.i.i.i.i.i.i.i.i267.i.i.i ]
   %second.i.i.i.i273.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i272.i.i.i, i64 16
   %154 = load ptr, ptr %second.i.i.i.i273.i.i.i, align 8, !noalias !280
   %cmp.i.i.i.i274.i.i.i = icmp eq ptr %154, null
-  br i1 %cmp.i.i.i.i274.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i"
+  br i1 %cmp.i.i.i.i274.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i, %if.end3.i.i.i.i.i.i.i.i259.i.i.i, %for.cond.i.i.i.i.i.i280.i.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i, %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i, %if.end3.i.i.i.i.i.i.i.i259.i.i.i, %for.cond.i.i.i.i.i.i280.i.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i, %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i244.i.i.i)
   br label %invoke.cont70
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i
   %second.i.i.i276.i.i.i = getelementptr inbounds i8, ptr %154, i64 48
   %155 = load i32, ptr %second.i.i.i276.i.i.i, align 8
   %cmp.i.i.i277.not.i.i.i = icmp eq i32 %155, 1
@@ -10786,20 +10786,20 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   %spec.select.i.i.i = select i1 %cmp.i.i.i277.not.i.i.i, ptr %add.ptr.i.i356, ptr %__first.sroa.0.2.i.i.i
   br label %invoke.cont70
 
-invoke.cont70.loopexit.split.loop.exit:           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+invoke.cont70.loopexit.split.loop.exit:           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
   %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 8
   br label %invoke.cont70
 
-invoke.cont70.loopexit.split.loop.exit5907:       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+invoke.cont70.loopexit.split.loop.exit5907:       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
   %incdec.ptr.i59.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 16
   br label %invoke.cont70
 
-invoke.cont70.loopexit.split.loop.exit5909:       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+invoke.cont70.loopexit.split.loop.exit5909:       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
   %incdec.ptr.i104.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i, i64 24
   br label %invoke.cont70
 
-invoke.cont70:                                    ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i", %invoke.cont70.loopexit.split.loop.exit, %invoke.cont70.loopexit.split.loop.exit5907, %invoke.cont70.loopexit.split.loop.exit5909, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", %for.end.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i" ], [ %__first.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i" ], [ %add.ptr.i.i356, %for.end.i.i.i ], [ %__first.sroa.0.0395.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i" ], [ %incdec.ptr.i.i.i.i.le5931, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i" ], [ %incdec.ptr.i59.i.i.i.le5924, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i" ], [ %incdec.ptr.i104.i.i.i.le5917, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i" ], [ %__first.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i" ], [ %__first.sroa.0.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i" ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i" ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont70.loopexit.split.loop.exit ], [ %incdec.ptr.i59.i.i.i.le, %invoke.cont70.loopexit.split.loop.exit5907 ], [ %incdec.ptr.i104.i.i.i.le, %invoke.cont70.loopexit.split.loop.exit5909 ], [ %__first.sroa.0.0395.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i" ]
+invoke.cont70:                                    ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i", %invoke.cont70.loopexit.split.loop.exit, %invoke.cont70.loopexit.split.loop.exit5907, %invoke.cont70.loopexit.split.loop.exit5909, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", %for.end.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i" ], [ %__first.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i" ], [ %add.ptr.i.i356, %for.end.i.i.i ], [ %__first.sroa.0.0395.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i" ], [ %incdec.ptr.i.i.i.i.le5931, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i" ], [ %incdec.ptr.i59.i.i.i.le5924, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i" ], [ %incdec.ptr.i104.i.i.i.le5917, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i" ], [ %__first.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i" ], [ %__first.sroa.0.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i" ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i" ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont70.loopexit.split.loop.exit ], [ %incdec.ptr.i59.i.i.i.le, %invoke.cont70.loopexit.split.loop.exit5907 ], [ %incdec.ptr.i104.i.i.i.le, %invoke.cont70.loopexit.split.loop.exit5909 ], [ %__first.sroa.0.0395.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i" ]
   %bf.load.i.i366 = load i32, ptr %d_nchildren.i.i, align 4
   %bf.clear.i.i367 = and i32 %bf.load.i.i366, 67108863
   %idx.ext.i.i368 = zext nneg i32 %bf.clear.i.i367 to i64
@@ -10987,7 +10987,7 @@ for.cond.i.i.i.i.i.i.i.i.i690:                    ; preds = %for.body.i.i.i539, 
   %retval.sroa.0.0.in.i.i.i.i.i.i.i.i.i691 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i692, %for.body.i.i.i.i.i.i.i.i.i694 ], [ %_M_before_begin.i.i.i.i.i.i3716, %for.body.i.i.i539 ]
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i692 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i.i.i.i691, align 8, !noalias !289
   %cmp.i.not.i.i.i.i.i.i.i.i.i693 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i692, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i693, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i694
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i693, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i694
 
 for.body.i.i.i.i.i.i.i.i.i694:                    ; preds = %for.cond.i.i.i.i.i.i.i.i.i690
   %add.ptr.i.i.i.i.i.i.i.i.i695 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i692, i64 8
@@ -11006,7 +11006,7 @@ call2.i.i.i.i.i1.i1.i.i.i.i.noexc697:             ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i545 = getelementptr inbounds ptr, ptr %187, i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i544
   %188 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i545, align 8, !noalias !289
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i546 = icmp eq ptr %188, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i546, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i.i547
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i546, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i.i547
 
 if.end.i.i.i.i.i.i.i.i.i.i.i547:                  ; preds = %call2.i.i.i.i.i1.i1.i.i.i.i.noexc697
   %189 = load ptr, ptr %188, align 8, !noalias !289
@@ -11032,34 +11032,34 @@ if.end3.i.i.i.i.i.i.i.i.i.i.i552:                 ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i.i.i.i553 = phi ptr [ %196, %for.cond.i.i.i.i.i.i.i.i.i.i.i559 ], [ %189, %if.end.i.i.i.i.i.i.i.i.i.i.i547 ]
   %196 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i.i.i.i553, align 8, !noalias !289
   %tobool5.not.i.i.i.i.i.i.i.i.i.i.i554 = icmp eq ptr %196, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i.i554, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i555
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i.i554, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i555
 
 lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i555:           ; preds = %if.end3.i.i.i.i.i.i.i.i.i.i.i552
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i556 = getelementptr inbounds i8, ptr %196, i64 24
   %197 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i556, align 8, !noalias !289
   %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i557 = urem i64 %197, %186
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i558 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i557, %rem.i.i.i.i.i.i.i.i.i.i.i.i544
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i558, label %for.cond.i.i.i.i.i.i.i.i.i.i.i559, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i558, label %for.cond.i.i.i.i.i.i.i.i.i.i.i559, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i563: ; preds = %for.cond.i.i.i.i.i.i.i.i.i.i.i559, %for.body.i.i.i.i.i.i.i.i.i694, %if.end.i.i.i.i.i.i.i.i.i.i.i547
   %retval.sroa.0.1.i.i.i.i.i.i.i.i.i564 = phi ptr [ %189, %if.end.i.i.i.i.i.i.i.i.i.i.i547 ], [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i692, %for.body.i.i.i.i.i.i.i.i.i694 ], [ %196, %for.cond.i.i.i.i.i.i.i.i.i.i.i559 ]
   %second.i.i.i.i.i.i.i565 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i.i.i.i564, i64 16
   %198 = load ptr, ptr %second.i.i.i.i.i.i.i565, align 8, !noalias !289
   %cmp.i.i.i.i.i.i.i566 = icmp eq ptr %198, null
-  br i1 %cmp.i.i.i.i.i.i.i566, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i566, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i563, %call2.i.i.i.i.i1.i1.i.i.i.i.noexc697, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i555, %if.end3.i.i.i.i.i.i.i.i.i.i.i552, %for.cond.i.i.i.i.i.i.i.i.i690
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i563, %call2.i.i.i.i.i1.i1.i.i.i.i.noexc697, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i555, %if.end3.i.i.i.i.i.i.i.i.i.i.i552, %for.cond.i.i.i.i.i.i.i.i.i690
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i396)
   br label %invoke.cont108
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i563
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i563
   %second.i.i.i.i.i.i567 = getelementptr inbounds i8, ptr %198, i64 48
   %199 = load i32, ptr %second.i.i.i.i.i.i567, align 8
   %cmp.i.i.i.not.i.i.i568 = icmp eq i32 %199, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i396)
   br i1 %cmp.i.i.i.not.i.i.i568, label %if.end.i.i.i569, label %invoke.cont108
 
-if.end.i.i.i569:                                  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i"
+if.end.i.i.i569:                                  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i"
   %incdec.ptr.i.i.i.i570 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 8
   %200 = load ptr, ptr %incdec.ptr.i.i.i.i570, align 8, !noalias !292
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i395)
@@ -11072,7 +11072,7 @@ for.cond.i.i.i.i.i.i51.i.i.i683:                  ; preds = %if.end.i.i.i569, %f
   %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i.i684 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i685, %for.body.i.i.i.i.i.i55.i.i.i687 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end.i.i.i569 ]
   %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i685 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i.i684, align 8, !noalias !295
   %cmp.i.not.i.i.i.i.i.i54.i.i.i686 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i685, null
-  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i.i686, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %for.body.i.i.i.i.i.i55.i.i.i687
+  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i.i686, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %for.body.i.i.i.i.i.i55.i.i.i687
 
 for.body.i.i.i.i.i.i55.i.i.i687:                  ; preds = %for.cond.i.i.i.i.i.i51.i.i.i683
   %add.ptr.i.i.i.i.i.i56.i.i.i688 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i685, i64 8
@@ -11091,7 +11091,7 @@ call2.i.i.i.i.i1.i1.i20.i.i.i.noexc699:           ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i23.i.i.i574 = getelementptr inbounds ptr, ptr %204, i64 %rem.i.i.i.i.i.i.i.i.i22.i.i.i573
   %205 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i23.i.i.i574, align 8, !noalias !295
   %tobool.not.i.i.i.i.i.i.i.i24.i.i.i575 = icmp eq ptr %205, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i.i575, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i.i576
+  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i.i575, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i.i576
 
 if.end.i.i.i.i.i.i.i.i25.i.i.i576:                ; preds = %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc699
   %206 = load ptr, ptr %205, align 8, !noalias !295
@@ -11117,35 +11117,35 @@ if.end3.i.i.i.i.i.i.i.i30.i.i.i581:               ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i31.i.i.i582 = phi ptr [ %213, %for.cond.i.i.i.i.i.i.i.i38.i.i.i589 ], [ %206, %if.end.i.i.i.i.i.i.i.i25.i.i.i576 ]
   %213 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i31.i.i.i582, align 8, !noalias !295
   %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i583 = icmp eq ptr %213, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i583, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i584
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i583, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i584
 
 lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i584:         ; preds = %if.end3.i.i.i.i.i.i.i.i30.i.i.i581
   %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i.i585 = getelementptr inbounds i8, ptr %213, i64 24
   %214 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i.i585, align 8, !noalias !295
   %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i.i586 = urem i64 %214, %203
   %cmp.not.i.i.i.i.i.i.i.i36.i.i.i587 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i.i586, %rem.i.i.i.i.i.i.i.i.i22.i.i.i573
-  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i.i587, label %for.cond.i.i.i.i.i.i.i.i38.i.i.i589, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i.i587, label %for.cond.i.i.i.i.i.i.i.i38.i.i.i589, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i593: ; preds = %for.cond.i.i.i.i.i.i.i.i38.i.i.i589, %for.body.i.i.i.i.i.i55.i.i.i687, %if.end.i.i.i.i.i.i.i.i25.i.i.i576
   %retval.sroa.0.1.i.i.i.i.i.i43.i.i.i594 = phi ptr [ %206, %if.end.i.i.i.i.i.i.i.i25.i.i.i576 ], [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i685, %for.body.i.i.i.i.i.i55.i.i.i687 ], [ %213, %for.cond.i.i.i.i.i.i.i.i38.i.i.i589 ]
   %second.i.i.i.i44.i.i.i595 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i43.i.i.i594, i64 16
   %215 = load ptr, ptr %second.i.i.i.i44.i.i.i595, align 8, !noalias !295
   %cmp.i.i.i.i45.i.i.i596 = icmp eq ptr %215, null
-  br i1 %cmp.i.i.i.i45.i.i.i596, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+  br i1 %cmp.i.i.i.i45.i.i.i596, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i593, %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc699, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i584, %if.end3.i.i.i.i.i.i.i.i30.i.i.i581, %for.cond.i.i.i.i.i.i51.i.i.i683
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i593, %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc699, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i584, %if.end3.i.i.i.i.i.i.i.i30.i.i.i581, %for.cond.i.i.i.i.i.i51.i.i.i683
   %incdec.ptr.i.i.i.i570.le5957 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i395)
   br label %invoke.cont108
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i593
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i593
   %second.i.i.i47.i.i.i597 = getelementptr inbounds i8, ptr %215, i64 48
   %216 = load i32, ptr %second.i.i.i47.i.i.i597, align 8
   %cmp.i.i.i48.not.i.i.i598 = icmp eq i32 %216, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i395)
   br i1 %cmp.i.i.i48.not.i.i.i598, label %if.end13.i.i.i600, label %invoke.cont108.loopexit.split.loop.exit
 
-if.end13.i.i.i600:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+if.end13.i.i.i600:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
   %incdec.ptr.i59.i.i.i601 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 16
   %217 = load ptr, ptr %incdec.ptr.i59.i.i.i601, align 8, !noalias !298
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i394)
@@ -11158,7 +11158,7 @@ for.cond.i.i.i.i.i.i96.i.i.i676:                  ; preds = %if.end13.i.i.i600, 
   %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i.i677 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i678, %for.body.i.i.i.i.i.i100.i.i.i680 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end13.i.i.i600 ]
   %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i678 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i.i677, align 8, !noalias !301
   %cmp.i.not.i.i.i.i.i.i99.i.i.i679 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i678, null
-  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i.i679, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %for.body.i.i.i.i.i.i100.i.i.i680
+  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i.i679, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %for.body.i.i.i.i.i.i100.i.i.i680
 
 for.body.i.i.i.i.i.i100.i.i.i680:                 ; preds = %for.cond.i.i.i.i.i.i96.i.i.i676
   %add.ptr.i.i.i.i.i.i101.i.i.i681 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i678, i64 8
@@ -11177,7 +11177,7 @@ call2.i.i.i.i.i1.i1.i65.i.i.i.noexc701:           ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i68.i.i.i605 = getelementptr inbounds ptr, ptr %221, i64 %rem.i.i.i.i.i.i.i.i.i67.i.i.i604
   %222 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i68.i.i.i605, align 8, !noalias !301
   %tobool.not.i.i.i.i.i.i.i.i69.i.i.i606 = icmp eq ptr %222, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i.i606, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i.i607
+  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i.i606, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i.i607
 
 if.end.i.i.i.i.i.i.i.i70.i.i.i607:                ; preds = %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc701
   %223 = load ptr, ptr %222, align 8, !noalias !301
@@ -11203,35 +11203,35 @@ if.end3.i.i.i.i.i.i.i.i75.i.i.i612:               ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i76.i.i.i613 = phi ptr [ %230, %for.cond.i.i.i.i.i.i.i.i83.i.i.i620 ], [ %223, %if.end.i.i.i.i.i.i.i.i70.i.i.i607 ]
   %230 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i76.i.i.i613, align 8, !noalias !301
   %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i614 = icmp eq ptr %230, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i614, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i615
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i614, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i615
 
 lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i615:         ; preds = %if.end3.i.i.i.i.i.i.i.i75.i.i.i612
   %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i.i616 = getelementptr inbounds i8, ptr %230, i64 24
   %231 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i.i616, align 8, !noalias !301
   %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i.i617 = urem i64 %231, %220
   %cmp.not.i.i.i.i.i.i.i.i81.i.i.i618 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i.i617, %rem.i.i.i.i.i.i.i.i.i67.i.i.i604
-  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i.i618, label %for.cond.i.i.i.i.i.i.i.i83.i.i.i620, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i.i618, label %for.cond.i.i.i.i.i.i.i.i83.i.i.i620, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i624: ; preds = %for.cond.i.i.i.i.i.i.i.i83.i.i.i620, %for.body.i.i.i.i.i.i100.i.i.i680, %if.end.i.i.i.i.i.i.i.i70.i.i.i607
   %retval.sroa.0.1.i.i.i.i.i.i88.i.i.i625 = phi ptr [ %223, %if.end.i.i.i.i.i.i.i.i70.i.i.i607 ], [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i678, %for.body.i.i.i.i.i.i100.i.i.i680 ], [ %230, %for.cond.i.i.i.i.i.i.i.i83.i.i.i620 ]
   %second.i.i.i.i89.i.i.i626 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i88.i.i.i625, i64 16
   %232 = load ptr, ptr %second.i.i.i.i89.i.i.i626, align 8, !noalias !301
   %cmp.i.i.i.i90.i.i.i627 = icmp eq ptr %232, null
-  br i1 %cmp.i.i.i.i90.i.i.i627, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+  br i1 %cmp.i.i.i.i90.i.i.i627, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i624, %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc701, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i615, %if.end3.i.i.i.i.i.i.i.i75.i.i.i612, %for.cond.i.i.i.i.i.i96.i.i.i676
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i624, %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc701, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i615, %if.end3.i.i.i.i.i.i.i.i75.i.i.i612, %for.cond.i.i.i.i.i.i96.i.i.i676
   %incdec.ptr.i59.i.i.i601.le5950 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i394)
   br label %invoke.cont108
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i624
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i624
   %second.i.i.i92.i.i.i628 = getelementptr inbounds i8, ptr %232, i64 48
   %233 = load i32, ptr %second.i.i.i92.i.i.i628, align 8
   %cmp.i.i.i93.not.i.i.i629 = icmp eq i32 %233, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i394)
   br i1 %cmp.i.i.i93.not.i.i.i629, label %if.end19.i.i.i631, label %invoke.cont108.loopexit.split.loop.exit5933
 
-if.end19.i.i.i631:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+if.end19.i.i.i631:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
   %incdec.ptr.i104.i.i.i632 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 24
   %234 = load ptr, ptr %incdec.ptr.i104.i.i.i632, align 8, !noalias !304
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i393)
@@ -11244,7 +11244,7 @@ for.cond.i.i.i.i.i.i141.i.i.i669:                 ; preds = %if.end19.i.i.i631, 
   %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i.i670 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i671, %for.body.i.i.i.i.i.i145.i.i.i673 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end19.i.i.i631 ]
   %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i671 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i.i670, align 8, !noalias !307
   %cmp.i.not.i.i.i.i.i.i144.i.i.i672 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i671, null
-  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i.i672, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %for.body.i.i.i.i.i.i145.i.i.i673
+  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i.i672, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %for.body.i.i.i.i.i.i145.i.i.i673
 
 for.body.i.i.i.i.i.i145.i.i.i673:                 ; preds = %for.cond.i.i.i.i.i.i141.i.i.i669
   %add.ptr.i.i.i.i.i.i146.i.i.i674 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i671, i64 8
@@ -11263,7 +11263,7 @@ call2.i.i.i.i.i1.i1.i110.i.i.i.noexc703:          ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i113.i.i.i636 = getelementptr inbounds ptr, ptr %238, i64 %rem.i.i.i.i.i.i.i.i.i112.i.i.i635
   %239 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i113.i.i.i636, align 8, !noalias !307
   %tobool.not.i.i.i.i.i.i.i.i114.i.i.i637 = icmp eq ptr %239, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i.i637, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i.i638
+  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i.i637, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i.i638
 
 if.end.i.i.i.i.i.i.i.i115.i.i.i638:               ; preds = %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc703
   %240 = load ptr, ptr %239, align 8, !noalias !307
@@ -11289,35 +11289,35 @@ if.end3.i.i.i.i.i.i.i.i120.i.i.i643:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i121.i.i.i644 = phi ptr [ %247, %for.cond.i.i.i.i.i.i.i.i128.i.i.i651 ], [ %240, %if.end.i.i.i.i.i.i.i.i115.i.i.i638 ]
   %247 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i121.i.i.i644, align 8, !noalias !307
   %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i645 = icmp eq ptr %247, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i645, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i646
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i645, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i646
 
 lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i646:        ; preds = %if.end3.i.i.i.i.i.i.i.i120.i.i.i643
   %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i.i647 = getelementptr inbounds i8, ptr %247, i64 24
   %248 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i.i647, align 8, !noalias !307
   %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i.i648 = urem i64 %248, %237
   %cmp.not.i.i.i.i.i.i.i.i126.i.i.i649 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i.i648, %rem.i.i.i.i.i.i.i.i.i112.i.i.i635
-  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i.i649, label %for.cond.i.i.i.i.i.i.i.i128.i.i.i651, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i.i649, label %for.cond.i.i.i.i.i.i.i.i128.i.i.i651, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i655: ; preds = %for.cond.i.i.i.i.i.i.i.i128.i.i.i651, %for.body.i.i.i.i.i.i145.i.i.i673, %if.end.i.i.i.i.i.i.i.i115.i.i.i638
   %retval.sroa.0.1.i.i.i.i.i.i133.i.i.i656 = phi ptr [ %240, %if.end.i.i.i.i.i.i.i.i115.i.i.i638 ], [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i671, %for.body.i.i.i.i.i.i145.i.i.i673 ], [ %247, %for.cond.i.i.i.i.i.i.i.i128.i.i.i651 ]
   %second.i.i.i.i134.i.i.i657 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i133.i.i.i656, i64 16
   %249 = load ptr, ptr %second.i.i.i.i134.i.i.i657, align 8, !noalias !307
   %cmp.i.i.i.i135.i.i.i658 = icmp eq ptr %249, null
-  br i1 %cmp.i.i.i.i135.i.i.i658, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+  br i1 %cmp.i.i.i.i135.i.i.i658, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i655, %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc703, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i646, %if.end3.i.i.i.i.i.i.i.i120.i.i.i643, %for.cond.i.i.i.i.i.i141.i.i.i669
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i655, %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc703, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i646, %if.end3.i.i.i.i.i.i.i.i120.i.i.i643, %for.cond.i.i.i.i.i.i141.i.i.i669
   %incdec.ptr.i104.i.i.i632.le5943 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i393)
   br label %invoke.cont108
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i655
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i655
   %second.i.i.i137.i.i.i659 = getelementptr inbounds i8, ptr %249, i64 48
   %250 = load i32, ptr %second.i.i.i137.i.i.i659, align 8
   %cmp.i.i.i138.not.i.i.i660 = icmp eq i32 %250, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i393)
   br i1 %cmp.i.i.i138.not.i.i.i660, label %if.end25.i.i.i662, label %invoke.cont108.loopexit.split.loop.exit5935
 
-if.end25.i.i.i662:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+if.end25.i.i.i662:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
   %incdec.ptr.i149.i.i.i663 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 32
   %dec.i.i.i664 = add nsw i64 %__trip_count.0396.i.i.i540, -1
   %cmp.i.i.i665 = icmp sgt i64 %__trip_count.0396.i.i.i540, 1
@@ -11350,7 +11350,7 @@ for.cond.i.i.i.i.i.i190.i.i.i527:                 ; preds = %sw.bb.i.i.i492, %fo
   %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i.i528 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i529, %for.body.i.i.i.i.i.i194.i.i.i531 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb.i.i.i492 ]
   %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i529 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i.i528, align 8, !noalias !314
   %cmp.i.not.i.i.i.i.i.i193.i.i.i530 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i529, null
-  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i.i530, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %for.body.i.i.i.i.i.i194.i.i.i531
+  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i.i530, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %for.body.i.i.i.i.i.i194.i.i.i531
 
 for.body.i.i.i.i.i.i194.i.i.i531:                 ; preds = %for.cond.i.i.i.i.i.i190.i.i.i527
   %add.ptr.i.i.i.i.i.i195.i.i.i532 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i529, i64 8
@@ -11369,7 +11369,7 @@ call2.i.i.i.i.i1.i1.i159.i.i.i.noexc705:          ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i162.i.i.i499 = getelementptr inbounds ptr, ptr %255, i64 %rem.i.i.i.i.i.i.i.i.i161.i.i.i498
   %256 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i162.i.i.i499, align 8, !noalias !314
   %tobool.not.i.i.i.i.i.i.i.i163.i.i.i500 = icmp eq ptr %256, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i.i500, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i.i501
+  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i.i500, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i.i501
 
 if.end.i.i.i.i.i.i.i.i164.i.i.i501:               ; preds = %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc705
   %257 = load ptr, ptr %256, align 8, !noalias !314
@@ -11395,34 +11395,34 @@ if.end3.i.i.i.i.i.i.i.i169.i.i.i506:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i170.i.i.i507 = phi ptr [ %264, %for.cond.i.i.i.i.i.i.i.i177.i.i.i513 ], [ %257, %if.end.i.i.i.i.i.i.i.i164.i.i.i501 ]
   %264 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i170.i.i.i507, align 8, !noalias !314
   %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i508 = icmp eq ptr %264, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i508, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i509
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i508, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i509
 
 lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i509:        ; preds = %if.end3.i.i.i.i.i.i.i.i169.i.i.i506
   %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i.i510 = getelementptr inbounds i8, ptr %264, i64 24
   %265 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i.i510, align 8, !noalias !314
   %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i.i511 = urem i64 %265, %254
   %cmp.not.i.i.i.i.i.i.i.i175.i.i.i512 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i.i511, %rem.i.i.i.i.i.i.i.i.i161.i.i.i498
-  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i.i512, label %for.cond.i.i.i.i.i.i.i.i177.i.i.i513, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i.i512, label %for.cond.i.i.i.i.i.i.i.i177.i.i.i513, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i517: ; preds = %for.cond.i.i.i.i.i.i.i.i177.i.i.i513, %for.body.i.i.i.i.i.i194.i.i.i531, %if.end.i.i.i.i.i.i.i.i164.i.i.i501
   %retval.sroa.0.1.i.i.i.i.i.i182.i.i.i518 = phi ptr [ %257, %if.end.i.i.i.i.i.i.i.i164.i.i.i501 ], [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i529, %for.body.i.i.i.i.i.i194.i.i.i531 ], [ %264, %for.cond.i.i.i.i.i.i.i.i177.i.i.i513 ]
   %second.i.i.i.i183.i.i.i519 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i182.i.i.i518, i64 16
   %266 = load ptr, ptr %second.i.i.i.i183.i.i.i519, align 8, !noalias !314
   %cmp.i.i.i.i184.i.i.i520 = icmp eq ptr %266, null
-  br i1 %cmp.i.i.i.i184.i.i.i520, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i"
+  br i1 %cmp.i.i.i.i184.i.i.i520, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i509, %if.end3.i.i.i.i.i.i.i.i169.i.i.i506, %for.cond.i.i.i.i.i.i190.i.i.i527, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i517, %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc705
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i509, %if.end3.i.i.i.i.i.i.i.i169.i.i.i506, %for.cond.i.i.i.i.i.i190.i.i.i527, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i517, %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc705
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i.i392)
   br label %invoke.cont108
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i517
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i517
   %second.i.i.i186.i.i.i521 = getelementptr inbounds i8, ptr %266, i64 48
   %267 = load i32, ptr %second.i.i.i186.i.i.i521, align 8
   %cmp.i.i.i187.not.i.i.i522 = icmp eq i32 %267, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i.i392)
   br i1 %cmp.i.i.i187.not.i.i.i522, label %if.end34.i.i.i523, label %invoke.cont108
 
-if.end34.i.i.i523:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i"
+if.end34.i.i.i523:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i"
   %incdec.ptr.i198.i.i.i524 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i404, i64 8
   br label %sw.bb36.i.i.i449
 
@@ -11439,7 +11439,7 @@ for.cond.i.i.i.i.i.i235.i.i.i485:                 ; preds = %sw.bb36.i.i.i449, %
   %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i.i486 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i487, %for.body.i.i.i.i.i.i239.i.i.i489 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb36.i.i.i449 ]
   %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i487 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i.i486, align 8, !noalias !320
   %cmp.i.not.i.i.i.i.i.i238.i.i.i488 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i487, null
-  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i.i488, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %for.body.i.i.i.i.i.i239.i.i.i489
+  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i.i488, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %for.body.i.i.i.i.i.i239.i.i.i489
 
 for.body.i.i.i.i.i.i239.i.i.i489:                 ; preds = %for.cond.i.i.i.i.i.i235.i.i.i485
   %add.ptr.i.i.i.i.i.i240.i.i.i490 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i487, i64 8
@@ -11458,7 +11458,7 @@ call2.i.i.i.i.i1.i1.i204.i.i.i.noexc707:          ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i207.i.i.i457 = getelementptr inbounds ptr, ptr %272, i64 %rem.i.i.i.i.i.i.i.i.i206.i.i.i456
   %273 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i207.i.i.i457, align 8, !noalias !320
   %tobool.not.i.i.i.i.i.i.i.i208.i.i.i458 = icmp eq ptr %273, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i.i458, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i.i459
+  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i.i458, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i.i459
 
 if.end.i.i.i.i.i.i.i.i209.i.i.i459:               ; preds = %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc707
   %274 = load ptr, ptr %273, align 8, !noalias !320
@@ -11484,34 +11484,34 @@ if.end3.i.i.i.i.i.i.i.i214.i.i.i464:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i215.i.i.i465 = phi ptr [ %281, %for.cond.i.i.i.i.i.i.i.i222.i.i.i471 ], [ %274, %if.end.i.i.i.i.i.i.i.i209.i.i.i459 ]
   %281 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i215.i.i.i465, align 8, !noalias !320
   %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i466 = icmp eq ptr %281, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i466, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i467
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i466, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i467
 
 lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i467:        ; preds = %if.end3.i.i.i.i.i.i.i.i214.i.i.i464
   %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i.i468 = getelementptr inbounds i8, ptr %281, i64 24
   %282 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i.i468, align 8, !noalias !320
   %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i.i469 = urem i64 %282, %271
   %cmp.not.i.i.i.i.i.i.i.i220.i.i.i470 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i.i469, %rem.i.i.i.i.i.i.i.i.i206.i.i.i456
-  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i.i470, label %for.cond.i.i.i.i.i.i.i.i222.i.i.i471, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i.i470, label %for.cond.i.i.i.i.i.i.i.i222.i.i.i471, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i475: ; preds = %for.cond.i.i.i.i.i.i.i.i222.i.i.i471, %for.body.i.i.i.i.i.i239.i.i.i489, %if.end.i.i.i.i.i.i.i.i209.i.i.i459
   %retval.sroa.0.1.i.i.i.i.i.i227.i.i.i476 = phi ptr [ %274, %if.end.i.i.i.i.i.i.i.i209.i.i.i459 ], [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i487, %for.body.i.i.i.i.i.i239.i.i.i489 ], [ %281, %for.cond.i.i.i.i.i.i.i.i222.i.i.i471 ]
   %second.i.i.i.i228.i.i.i477 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i227.i.i.i476, i64 16
   %283 = load ptr, ptr %second.i.i.i.i228.i.i.i477, align 8, !noalias !320
   %cmp.i.i.i.i229.i.i.i478 = icmp eq ptr %283, null
-  br i1 %cmp.i.i.i.i229.i.i.i478, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i"
+  br i1 %cmp.i.i.i.i229.i.i.i478, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i467, %if.end3.i.i.i.i.i.i.i.i214.i.i.i464, %for.cond.i.i.i.i.i.i235.i.i.i485, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i475, %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc707
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i467, %if.end3.i.i.i.i.i.i.i.i214.i.i.i464, %for.cond.i.i.i.i.i.i235.i.i.i485, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i475, %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc707
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i.i391)
   br label %invoke.cont108
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i475
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i475
   %second.i.i.i231.i.i.i479 = getelementptr inbounds i8, ptr %283, i64 48
   %284 = load i32, ptr %second.i.i.i231.i.i.i479, align 8
   %cmp.i.i.i232.not.i.i.i480 = icmp eq i32 %284, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i.i391)
   br i1 %cmp.i.i.i232.not.i.i.i480, label %if.end41.i.i.i481, label %invoke.cont108
 
-if.end41.i.i.i481:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i"
+if.end41.i.i.i481:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i"
   %incdec.ptr.i243.i.i.i482 = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i450, i64 8
   br label %sw.bb43.i.i.i406
 
@@ -11528,7 +11528,7 @@ for.cond.i.i.i.i.i.i280.i.i.i442:                 ; preds = %sw.bb43.i.i.i406, %
   %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i.i443 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i444, %for.body.i.i.i.i.i.i284.i.i.i446 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb43.i.i.i406 ]
   %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i444 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i.i443, align 8, !noalias !326
   %cmp.i.not.i.i.i.i.i.i283.i.i.i445 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i444, null
-  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i.i445, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %for.body.i.i.i.i.i.i284.i.i.i446
+  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i.i445, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %for.body.i.i.i.i.i.i284.i.i.i446
 
 for.body.i.i.i.i.i.i284.i.i.i446:                 ; preds = %for.cond.i.i.i.i.i.i280.i.i.i442
   %add.ptr.i.i.i.i.i.i285.i.i.i447 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i444, i64 8
@@ -11547,7 +11547,7 @@ call2.i.i.i.i.i1.i1.i249.i.i.i.noexc709:          ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i252.i.i.i414 = getelementptr inbounds ptr, ptr %289, i64 %rem.i.i.i.i.i.i.i.i.i251.i.i.i413
   %290 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i252.i.i.i414, align 8, !noalias !326
   %tobool.not.i.i.i.i.i.i.i.i253.i.i.i415 = icmp eq ptr %290, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i.i415, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i.i416
+  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i.i415, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i.i416
 
 if.end.i.i.i.i.i.i.i.i254.i.i.i416:               ; preds = %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc709
   %291 = load ptr, ptr %290, align 8, !noalias !326
@@ -11573,27 +11573,27 @@ if.end3.i.i.i.i.i.i.i.i259.i.i.i421:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i260.i.i.i422 = phi ptr [ %298, %for.cond.i.i.i.i.i.i.i.i267.i.i.i429 ], [ %291, %if.end.i.i.i.i.i.i.i.i254.i.i.i416 ]
   %298 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i260.i.i.i422, align 8, !noalias !326
   %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i423 = icmp eq ptr %298, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i423, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i424
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i423, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i424
 
 lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i424:        ; preds = %if.end3.i.i.i.i.i.i.i.i259.i.i.i421
   %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i.i425 = getelementptr inbounds i8, ptr %298, i64 24
   %299 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i.i425, align 8, !noalias !326
   %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i.i426 = urem i64 %299, %288
   %cmp.not.i.i.i.i.i.i.i.i265.i.i.i427 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i.i426, %rem.i.i.i.i.i.i.i.i.i251.i.i.i413
-  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i.i427, label %for.cond.i.i.i.i.i.i.i.i267.i.i.i429, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i.i427, label %for.cond.i.i.i.i.i.i.i.i267.i.i.i429, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i433: ; preds = %for.cond.i.i.i.i.i.i.i.i267.i.i.i429, %for.body.i.i.i.i.i.i284.i.i.i446, %if.end.i.i.i.i.i.i.i.i254.i.i.i416
   %retval.sroa.0.1.i.i.i.i.i.i272.i.i.i434 = phi ptr [ %291, %if.end.i.i.i.i.i.i.i.i254.i.i.i416 ], [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i444, %for.body.i.i.i.i.i.i284.i.i.i446 ], [ %298, %for.cond.i.i.i.i.i.i.i.i267.i.i.i429 ]
   %second.i.i.i.i273.i.i.i435 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i272.i.i.i434, i64 16
   %300 = load ptr, ptr %second.i.i.i.i273.i.i.i435, align 8, !noalias !326
   %cmp.i.i.i.i274.i.i.i436 = icmp eq ptr %300, null
-  br i1 %cmp.i.i.i.i274.i.i.i436, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i"
+  br i1 %cmp.i.i.i.i274.i.i.i436, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i424, %if.end3.i.i.i.i.i.i.i.i259.i.i.i421, %for.cond.i.i.i.i.i.i280.i.i.i442, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i433, %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc709
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i424, %if.end3.i.i.i.i.i.i.i.i259.i.i.i421, %for.cond.i.i.i.i.i.i280.i.i.i442, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i433, %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc709
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i244.i.i.i390)
   br label %invoke.cont108
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i433
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i433
   %second.i.i.i276.i.i.i437 = getelementptr inbounds i8, ptr %300, i64 48
   %301 = load i32, ptr %second.i.i.i276.i.i.i437, align 8
   %cmp.i.i.i277.not.i.i.i438 = icmp eq i32 %301, 1
@@ -11601,20 +11601,20 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   %spec.select.i.i.i439 = select i1 %cmp.i.i.i277.not.i.i.i438, ptr %add.ptr.i.i389, ptr %__first.sroa.0.2.i.i.i407
   br label %invoke.cont108
 
-invoke.cont108.loopexit.split.loop.exit:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+invoke.cont108.loopexit.split.loop.exit:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
   %incdec.ptr.i.i.i.i570.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 8
   br label %invoke.cont108
 
-invoke.cont108.loopexit.split.loop.exit5933:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+invoke.cont108.loopexit.split.loop.exit5933:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
   %incdec.ptr.i59.i.i.i601.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 16
   br label %invoke.cont108
 
-invoke.cont108.loopexit.split.loop.exit5935:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+invoke.cont108.loopexit.split.loop.exit5935:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
   %incdec.ptr.i104.i.i.i632.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i541, i64 24
   br label %invoke.cont108
 
-invoke.cont108:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i", %invoke.cont108.loopexit.split.loop.exit, %invoke.cont108.loopexit.split.loop.exit5933, %invoke.cont108.loopexit.split.loop.exit5935, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", %for.end.i.i.i402, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i428 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i404, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i" ], [ %__first.sroa.0.1.i.i.i450, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i" ], [ %add.ptr.i.i389, %for.end.i.i.i402 ], [ %__first.sroa.0.0395.i.i.i541, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i" ], [ %incdec.ptr.i.i.i.i570.le5957, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i" ], [ %incdec.ptr.i59.i.i.i601.le5950, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i" ], [ %incdec.ptr.i104.i.i.i632.le5943, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i404, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i" ], [ %__first.sroa.0.1.i.i.i450, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i" ], [ %__first.sroa.0.2.i.i.i407, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i" ], [ %spec.select.i.i.i439, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i" ], [ %incdec.ptr.i.i.i.i570.le, %invoke.cont108.loopexit.split.loop.exit ], [ %incdec.ptr.i59.i.i.i601.le, %invoke.cont108.loopexit.split.loop.exit5933 ], [ %incdec.ptr.i104.i.i.i632.le, %invoke.cont108.loopexit.split.loop.exit5935 ], [ %__first.sroa.0.0395.i.i.i541, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i" ]
+invoke.cont108:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i", %invoke.cont108.loopexit.split.loop.exit, %invoke.cont108.loopexit.split.loop.exit5933, %invoke.cont108.loopexit.split.loop.exit5935, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", %for.end.i.i.i402, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i428 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i404, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i" ], [ %__first.sroa.0.1.i.i.i450, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i" ], [ %add.ptr.i.i389, %for.end.i.i.i402 ], [ %__first.sroa.0.0395.i.i.i541, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i" ], [ %incdec.ptr.i.i.i.i570.le5957, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i" ], [ %incdec.ptr.i59.i.i.i601.le5950, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i" ], [ %incdec.ptr.i104.i.i.i632.le5943, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i404, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i" ], [ %__first.sroa.0.1.i.i.i450, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i" ], [ %__first.sroa.0.2.i.i.i407, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i" ], [ %spec.select.i.i.i439, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i" ], [ %incdec.ptr.i.i.i.i570.le, %invoke.cont108.loopexit.split.loop.exit ], [ %incdec.ptr.i59.i.i.i601.le, %invoke.cont108.loopexit.split.loop.exit5933 ], [ %incdec.ptr.i104.i.i.i632.le, %invoke.cont108.loopexit.split.loop.exit5935 ], [ %__first.sroa.0.0395.i.i.i541, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i" ]
   %bf.load.i.i713 = load i32, ptr %d_nchildren.i.i, align 4
   %bf.clear.i.i714 = and i32 %bf.load.i.i713, 67108863
   %idx.ext.i.i715 = zext nneg i32 %bf.clear.i.i714 to i64
@@ -11976,7 +11976,7 @@ for.cond.i.i.i.i.i.i.i.i.i1151:                   ; preds = %for.body.i.i.i1004,
   %retval.sroa.0.0.in.i.i.i.i.i.i.i.i.i1152 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1153, %for.body.i.i.i.i.i.i.i.i.i1155 ], [ %_M_before_begin.i.i.i.i.i.i3716, %for.body.i.i.i1004 ]
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1153 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i.i.i.i1152, align 8, !noalias !335
   %cmp.i.not.i.i.i.i.i.i.i.i.i1154 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1153, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i1154, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i1155
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i1154, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i1155
 
 for.body.i.i.i.i.i.i.i.i.i1155:                   ; preds = %for.cond.i.i.i.i.i.i.i.i.i1151
   %add.ptr.i.i.i.i.i.i.i.i.i1156 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1153, i64 8
@@ -11995,7 +11995,7 @@ call2.i.i.i.i.i1.i1.i.i.i.i.noexc1158:            ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i1010 = getelementptr inbounds ptr, ptr %349, i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i1009
   %350 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i1010, align 8, !noalias !335
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i1011 = icmp eq ptr %350, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i1011, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i.i1012
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i1011, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i.i1012
 
 if.end.i.i.i.i.i.i.i.i.i.i.i1012:                 ; preds = %call2.i.i.i.i.i1.i1.i.i.i.i.noexc1158
   %351 = load ptr, ptr %350, align 8, !noalias !335
@@ -12021,34 +12021,34 @@ if.end3.i.i.i.i.i.i.i.i.i.i.i1017:                ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i.i.i.i1018 = phi ptr [ %358, %for.cond.i.i.i.i.i.i.i.i.i.i.i1024 ], [ %351, %if.end.i.i.i.i.i.i.i.i.i.i.i1012 ]
   %358 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i.i.i.i1018, align 8, !noalias !335
   %tobool5.not.i.i.i.i.i.i.i.i.i.i.i1019 = icmp eq ptr %358, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i.i1019, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1020
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i.i1019, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1020
 
 lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1020:          ; preds = %if.end3.i.i.i.i.i.i.i.i.i.i.i1017
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i1021 = getelementptr inbounds i8, ptr %358, i64 24
   %359 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i1021, align 8, !noalias !335
   %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i1022 = urem i64 %359, %348
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1023 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i1022, %rem.i.i.i.i.i.i.i.i.i.i.i.i1009
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i1023, label %for.cond.i.i.i.i.i.i.i.i.i.i.i1024, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i1023, label %for.cond.i.i.i.i.i.i.i.i.i.i.i1024, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1028: ; preds = %for.cond.i.i.i.i.i.i.i.i.i.i.i1024, %for.body.i.i.i.i.i.i.i.i.i1155, %if.end.i.i.i.i.i.i.i.i.i.i.i1012
   %retval.sroa.0.1.i.i.i.i.i.i.i.i.i1029 = phi ptr [ %351, %if.end.i.i.i.i.i.i.i.i.i.i.i1012 ], [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1153, %for.body.i.i.i.i.i.i.i.i.i1155 ], [ %358, %for.cond.i.i.i.i.i.i.i.i.i.i.i1024 ]
   %second.i.i.i.i.i.i.i1030 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i.i.i.i1029, i64 16
   %360 = load ptr, ptr %second.i.i.i.i.i.i.i1030, align 8, !noalias !335
   %cmp.i.i.i.i.i.i.i1031 = icmp eq ptr %360, null
-  br i1 %cmp.i.i.i.i.i.i.i1031, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i1031, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1028, %call2.i.i.i.i.i1.i1.i.i.i.i.noexc1158, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1020, %if.end3.i.i.i.i.i.i.i.i.i.i.i1017, %for.cond.i.i.i.i.i.i.i.i.i1151
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1028, %call2.i.i.i.i.i1.i1.i.i.i.i.noexc1158, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1020, %if.end3.i.i.i.i.i.i.i.i.i.i.i1017, %for.cond.i.i.i.i.i.i.i.i.i1151
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i864)
   br label %invoke.cont174
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1028
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1028
   %second.i.i.i.i.i.i1032 = getelementptr inbounds i8, ptr %360, i64 48
   %361 = load i32, ptr %second.i.i.i.i.i.i1032, align 8
   %cmp10.i.i.i.not.i.i.i = icmp eq i32 %361, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i864)
   br i1 %cmp10.i.i.i.not.i.i.i, label %if.end.i.i.i1033, label %invoke.cont174
 
-if.end.i.i.i1033:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i"
+if.end.i.i.i1033:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i"
   %incdec.ptr.i.i.i.i1034 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 8
   %362 = load ptr, ptr %incdec.ptr.i.i.i.i1034, align 8, !noalias !338
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i863)
@@ -12061,7 +12061,7 @@ for.cond.i.i.i.i.i.i51.i.i.i1144:                 ; preds = %if.end.i.i.i1033, %
   %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i.i1145 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1146, %for.body.i.i.i.i.i.i55.i.i.i1148 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end.i.i.i1033 ]
   %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1146 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i.i1145, align 8, !noalias !341
   %cmp.i.not.i.i.i.i.i.i54.i.i.i1147 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1146, null
-  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i.i1147, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %for.body.i.i.i.i.i.i55.i.i.i1148
+  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i.i1147, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %for.body.i.i.i.i.i.i55.i.i.i1148
 
 for.body.i.i.i.i.i.i55.i.i.i1148:                 ; preds = %for.cond.i.i.i.i.i.i51.i.i.i1144
   %add.ptr.i.i.i.i.i.i56.i.i.i1149 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1146, i64 8
@@ -12080,7 +12080,7 @@ call2.i.i.i.i.i1.i1.i20.i.i.i.noexc1160:          ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i23.i.i.i1038 = getelementptr inbounds ptr, ptr %366, i64 %rem.i.i.i.i.i.i.i.i.i22.i.i.i1037
   %367 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i23.i.i.i1038, align 8, !noalias !341
   %tobool.not.i.i.i.i.i.i.i.i24.i.i.i1039 = icmp eq ptr %367, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i.i1039, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i.i1040
+  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i.i1039, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i.i1040
 
 if.end.i.i.i.i.i.i.i.i25.i.i.i1040:               ; preds = %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc1160
   %368 = load ptr, ptr %367, align 8, !noalias !341
@@ -12106,35 +12106,35 @@ if.end3.i.i.i.i.i.i.i.i30.i.i.i1045:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i31.i.i.i1046 = phi ptr [ %375, %for.cond.i.i.i.i.i.i.i.i38.i.i.i1053 ], [ %368, %if.end.i.i.i.i.i.i.i.i25.i.i.i1040 ]
   %375 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i31.i.i.i1046, align 8, !noalias !341
   %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i1047 = icmp eq ptr %375, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i1047, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1048
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i1047, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1048
 
 lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1048:        ; preds = %if.end3.i.i.i.i.i.i.i.i30.i.i.i1045
   %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i.i1049 = getelementptr inbounds i8, ptr %375, i64 24
   %376 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i.i1049, align 8, !noalias !341
   %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i.i1050 = urem i64 %376, %365
   %cmp.not.i.i.i.i.i.i.i.i36.i.i.i1051 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i.i1050, %rem.i.i.i.i.i.i.i.i.i22.i.i.i1037
-  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i.i1051, label %for.cond.i.i.i.i.i.i.i.i38.i.i.i1053, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i.i1051, label %for.cond.i.i.i.i.i.i.i.i38.i.i.i1053, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1057: ; preds = %for.cond.i.i.i.i.i.i.i.i38.i.i.i1053, %for.body.i.i.i.i.i.i55.i.i.i1148, %if.end.i.i.i.i.i.i.i.i25.i.i.i1040
   %retval.sroa.0.1.i.i.i.i.i.i43.i.i.i1058 = phi ptr [ %368, %if.end.i.i.i.i.i.i.i.i25.i.i.i1040 ], [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1146, %for.body.i.i.i.i.i.i55.i.i.i1148 ], [ %375, %for.cond.i.i.i.i.i.i.i.i38.i.i.i1053 ]
   %second.i.i.i.i44.i.i.i1059 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i43.i.i.i1058, i64 16
   %377 = load ptr, ptr %second.i.i.i.i44.i.i.i1059, align 8, !noalias !341
   %cmp.i.i.i.i45.i.i.i1060 = icmp eq ptr %377, null
-  br i1 %cmp.i.i.i.i45.i.i.i1060, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+  br i1 %cmp.i.i.i.i45.i.i.i1060, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1057, %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc1160, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1048, %if.end3.i.i.i.i.i.i.i.i30.i.i.i1045, %for.cond.i.i.i.i.i.i51.i.i.i1144
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1057, %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc1160, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1048, %if.end3.i.i.i.i.i.i.i.i30.i.i.i1045, %for.cond.i.i.i.i.i.i51.i.i.i1144
   %incdec.ptr.i.i.i.i1034.le5879 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i863)
   br label %invoke.cont174
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1057
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1057
   %second.i.i.i47.i.i.i1061 = getelementptr inbounds i8, ptr %377, i64 48
   %378 = load i32, ptr %second.i.i.i47.i.i.i1061, align 8
   %cmp10.i.i.i48.not.i.i.i = icmp eq i32 %378, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i863)
   br i1 %cmp10.i.i.i48.not.i.i.i, label %if.end13.i.i.i1063, label %invoke.cont174.loopexit.split.loop.exit
 
-if.end13.i.i.i1063:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+if.end13.i.i.i1063:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
   %incdec.ptr.i59.i.i.i1064 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 16
   %379 = load ptr, ptr %incdec.ptr.i59.i.i.i1064, align 8, !noalias !344
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i862)
@@ -12147,7 +12147,7 @@ for.cond.i.i.i.i.i.i96.i.i.i1137:                 ; preds = %if.end13.i.i.i1063,
   %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i.i1138 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1139, %for.body.i.i.i.i.i.i100.i.i.i1141 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end13.i.i.i1063 ]
   %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1139 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i.i1138, align 8, !noalias !347
   %cmp.i.not.i.i.i.i.i.i99.i.i.i1140 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1139, null
-  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i.i1140, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %for.body.i.i.i.i.i.i100.i.i.i1141
+  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i.i1140, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %for.body.i.i.i.i.i.i100.i.i.i1141
 
 for.body.i.i.i.i.i.i100.i.i.i1141:                ; preds = %for.cond.i.i.i.i.i.i96.i.i.i1137
   %add.ptr.i.i.i.i.i.i101.i.i.i1142 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1139, i64 8
@@ -12166,7 +12166,7 @@ call2.i.i.i.i.i1.i1.i65.i.i.i.noexc1162:          ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i68.i.i.i1068 = getelementptr inbounds ptr, ptr %383, i64 %rem.i.i.i.i.i.i.i.i.i67.i.i.i1067
   %384 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i68.i.i.i1068, align 8, !noalias !347
   %tobool.not.i.i.i.i.i.i.i.i69.i.i.i1069 = icmp eq ptr %384, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i.i1069, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i.i1070
+  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i.i1069, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i.i1070
 
 if.end.i.i.i.i.i.i.i.i70.i.i.i1070:               ; preds = %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc1162
   %385 = load ptr, ptr %384, align 8, !noalias !347
@@ -12192,35 +12192,35 @@ if.end3.i.i.i.i.i.i.i.i75.i.i.i1075:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i76.i.i.i1076 = phi ptr [ %392, %for.cond.i.i.i.i.i.i.i.i83.i.i.i1083 ], [ %385, %if.end.i.i.i.i.i.i.i.i70.i.i.i1070 ]
   %392 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i76.i.i.i1076, align 8, !noalias !347
   %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i1077 = icmp eq ptr %392, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i1077, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1078
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i1077, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1078
 
 lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1078:        ; preds = %if.end3.i.i.i.i.i.i.i.i75.i.i.i1075
   %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i.i1079 = getelementptr inbounds i8, ptr %392, i64 24
   %393 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i.i1079, align 8, !noalias !347
   %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i.i1080 = urem i64 %393, %382
   %cmp.not.i.i.i.i.i.i.i.i81.i.i.i1081 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i.i1080, %rem.i.i.i.i.i.i.i.i.i67.i.i.i1067
-  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i.i1081, label %for.cond.i.i.i.i.i.i.i.i83.i.i.i1083, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i.i1081, label %for.cond.i.i.i.i.i.i.i.i83.i.i.i1083, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1087: ; preds = %for.cond.i.i.i.i.i.i.i.i83.i.i.i1083, %for.body.i.i.i.i.i.i100.i.i.i1141, %if.end.i.i.i.i.i.i.i.i70.i.i.i1070
   %retval.sroa.0.1.i.i.i.i.i.i88.i.i.i1088 = phi ptr [ %385, %if.end.i.i.i.i.i.i.i.i70.i.i.i1070 ], [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1139, %for.body.i.i.i.i.i.i100.i.i.i1141 ], [ %392, %for.cond.i.i.i.i.i.i.i.i83.i.i.i1083 ]
   %second.i.i.i.i89.i.i.i1089 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i88.i.i.i1088, i64 16
   %394 = load ptr, ptr %second.i.i.i.i89.i.i.i1089, align 8, !noalias !347
   %cmp.i.i.i.i90.i.i.i1090 = icmp eq ptr %394, null
-  br i1 %cmp.i.i.i.i90.i.i.i1090, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+  br i1 %cmp.i.i.i.i90.i.i.i1090, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1087, %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc1162, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1078, %if.end3.i.i.i.i.i.i.i.i75.i.i.i1075, %for.cond.i.i.i.i.i.i96.i.i.i1137
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1087, %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc1162, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1078, %if.end3.i.i.i.i.i.i.i.i75.i.i.i1075, %for.cond.i.i.i.i.i.i96.i.i.i1137
   %incdec.ptr.i59.i.i.i1064.le5872 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i862)
   br label %invoke.cont174
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1087
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1087
   %second.i.i.i92.i.i.i1091 = getelementptr inbounds i8, ptr %394, i64 48
   %395 = load i32, ptr %second.i.i.i92.i.i.i1091, align 8
   %cmp10.i.i.i93.not.i.i.i = icmp eq i32 %395, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i862)
   br i1 %cmp10.i.i.i93.not.i.i.i, label %if.end19.i.i.i1093, label %invoke.cont174.loopexit.split.loop.exit5855
 
-if.end19.i.i.i1093:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+if.end19.i.i.i1093:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
   %incdec.ptr.i104.i.i.i1094 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 24
   %396 = load ptr, ptr %incdec.ptr.i104.i.i.i1094, align 8, !noalias !350
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i861)
@@ -12233,7 +12233,7 @@ for.cond.i.i.i.i.i.i141.i.i.i1130:                ; preds = %if.end19.i.i.i1093,
   %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i.i1131 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1132, %for.body.i.i.i.i.i.i145.i.i.i1134 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end19.i.i.i1093 ]
   %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1132 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i.i1131, align 8, !noalias !353
   %cmp.i.not.i.i.i.i.i.i144.i.i.i1133 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1132, null
-  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i.i1133, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %for.body.i.i.i.i.i.i145.i.i.i1134
+  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i.i1133, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %for.body.i.i.i.i.i.i145.i.i.i1134
 
 for.body.i.i.i.i.i.i145.i.i.i1134:                ; preds = %for.cond.i.i.i.i.i.i141.i.i.i1130
   %add.ptr.i.i.i.i.i.i146.i.i.i1135 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1132, i64 8
@@ -12252,7 +12252,7 @@ call2.i.i.i.i.i1.i1.i110.i.i.i.noexc1164:         ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i113.i.i.i1098 = getelementptr inbounds ptr, ptr %400, i64 %rem.i.i.i.i.i.i.i.i.i112.i.i.i1097
   %401 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i113.i.i.i1098, align 8, !noalias !353
   %tobool.not.i.i.i.i.i.i.i.i114.i.i.i1099 = icmp eq ptr %401, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i.i1099, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i.i1100
+  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i.i1099, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i.i1100
 
 if.end.i.i.i.i.i.i.i.i115.i.i.i1100:              ; preds = %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc1164
   %402 = load ptr, ptr %401, align 8, !noalias !353
@@ -12278,35 +12278,35 @@ if.end3.i.i.i.i.i.i.i.i120.i.i.i1105:             ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i121.i.i.i1106 = phi ptr [ %409, %for.cond.i.i.i.i.i.i.i.i128.i.i.i1113 ], [ %402, %if.end.i.i.i.i.i.i.i.i115.i.i.i1100 ]
   %409 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i121.i.i.i1106, align 8, !noalias !353
   %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i1107 = icmp eq ptr %409, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i1107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1108
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i1107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1108
 
 lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1108:       ; preds = %if.end3.i.i.i.i.i.i.i.i120.i.i.i1105
   %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i.i1109 = getelementptr inbounds i8, ptr %409, i64 24
   %410 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i.i1109, align 8, !noalias !353
   %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i.i1110 = urem i64 %410, %399
   %cmp.not.i.i.i.i.i.i.i.i126.i.i.i1111 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i.i1110, %rem.i.i.i.i.i.i.i.i.i112.i.i.i1097
-  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i.i1111, label %for.cond.i.i.i.i.i.i.i.i128.i.i.i1113, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i.i1111, label %for.cond.i.i.i.i.i.i.i.i128.i.i.i1113, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1117: ; preds = %for.cond.i.i.i.i.i.i.i.i128.i.i.i1113, %for.body.i.i.i.i.i.i145.i.i.i1134, %if.end.i.i.i.i.i.i.i.i115.i.i.i1100
   %retval.sroa.0.1.i.i.i.i.i.i133.i.i.i1118 = phi ptr [ %402, %if.end.i.i.i.i.i.i.i.i115.i.i.i1100 ], [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1132, %for.body.i.i.i.i.i.i145.i.i.i1134 ], [ %409, %for.cond.i.i.i.i.i.i.i.i128.i.i.i1113 ]
   %second.i.i.i.i134.i.i.i1119 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i133.i.i.i1118, i64 16
   %411 = load ptr, ptr %second.i.i.i.i134.i.i.i1119, align 8, !noalias !353
   %cmp.i.i.i.i135.i.i.i1120 = icmp eq ptr %411, null
-  br i1 %cmp.i.i.i.i135.i.i.i1120, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+  br i1 %cmp.i.i.i.i135.i.i.i1120, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1117, %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc1164, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1108, %if.end3.i.i.i.i.i.i.i.i120.i.i.i1105, %for.cond.i.i.i.i.i.i141.i.i.i1130
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1117, %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc1164, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1108, %if.end3.i.i.i.i.i.i.i.i120.i.i.i1105, %for.cond.i.i.i.i.i.i141.i.i.i1130
   %incdec.ptr.i104.i.i.i1094.le5865 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i861)
   br label %invoke.cont174
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1117
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1117
   %second.i.i.i137.i.i.i1121 = getelementptr inbounds i8, ptr %411, i64 48
   %412 = load i32, ptr %second.i.i.i137.i.i.i1121, align 8
   %cmp10.i.i.i138.not.i.i.i = icmp eq i32 %412, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i861)
   br i1 %cmp10.i.i.i138.not.i.i.i, label %if.end25.i.i.i1123, label %invoke.cont174.loopexit.split.loop.exit5857
 
-if.end25.i.i.i1123:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+if.end25.i.i.i1123:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
   %incdec.ptr.i149.i.i.i1124 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 32
   %dec.i.i.i1125 = add nsw i64 %__trip_count.0396.i.i.i1005, -1
   %cmp.i.i.i1126 = icmp sgt i64 %__trip_count.0396.i.i.i1005, 1
@@ -12339,7 +12339,7 @@ for.cond.i.i.i.i.i.i190.i.i.i992:                 ; preds = %sw.bb.i.i.i958, %fo
   %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i.i993 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i994, %for.body.i.i.i.i.i.i194.i.i.i996 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb.i.i.i958 ]
   %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i994 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i.i993, align 8, !noalias !360
   %cmp.i.not.i.i.i.i.i.i193.i.i.i995 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i994, null
-  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i.i995, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %for.body.i.i.i.i.i.i194.i.i.i996
+  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i.i995, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %for.body.i.i.i.i.i.i194.i.i.i996
 
 for.body.i.i.i.i.i.i194.i.i.i996:                 ; preds = %for.cond.i.i.i.i.i.i190.i.i.i992
   %add.ptr.i.i.i.i.i.i195.i.i.i997 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i994, i64 8
@@ -12358,7 +12358,7 @@ call2.i.i.i.i.i1.i1.i159.i.i.i.noexc1166:         ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i162.i.i.i965 = getelementptr inbounds ptr, ptr %417, i64 %rem.i.i.i.i.i.i.i.i.i161.i.i.i964
   %418 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i162.i.i.i965, align 8, !noalias !360
   %tobool.not.i.i.i.i.i.i.i.i163.i.i.i966 = icmp eq ptr %418, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i.i966, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i.i967
+  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i.i966, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i.i967
 
 if.end.i.i.i.i.i.i.i.i164.i.i.i967:               ; preds = %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc1166
   %419 = load ptr, ptr %418, align 8, !noalias !360
@@ -12384,34 +12384,34 @@ if.end3.i.i.i.i.i.i.i.i169.i.i.i972:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i170.i.i.i973 = phi ptr [ %426, %for.cond.i.i.i.i.i.i.i.i177.i.i.i979 ], [ %419, %if.end.i.i.i.i.i.i.i.i164.i.i.i967 ]
   %426 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i170.i.i.i973, align 8, !noalias !360
   %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i974 = icmp eq ptr %426, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i974, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i975
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i974, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i975
 
 lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i975:        ; preds = %if.end3.i.i.i.i.i.i.i.i169.i.i.i972
   %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i.i976 = getelementptr inbounds i8, ptr %426, i64 24
   %427 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i.i976, align 8, !noalias !360
   %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i.i977 = urem i64 %427, %416
   %cmp.not.i.i.i.i.i.i.i.i175.i.i.i978 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i.i977, %rem.i.i.i.i.i.i.i.i.i161.i.i.i964
-  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i.i978, label %for.cond.i.i.i.i.i.i.i.i177.i.i.i979, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i.i978, label %for.cond.i.i.i.i.i.i.i.i177.i.i.i979, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i983: ; preds = %for.cond.i.i.i.i.i.i.i.i177.i.i.i979, %for.body.i.i.i.i.i.i194.i.i.i996, %if.end.i.i.i.i.i.i.i.i164.i.i.i967
   %retval.sroa.0.1.i.i.i.i.i.i182.i.i.i984 = phi ptr [ %419, %if.end.i.i.i.i.i.i.i.i164.i.i.i967 ], [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i994, %for.body.i.i.i.i.i.i194.i.i.i996 ], [ %426, %for.cond.i.i.i.i.i.i.i.i177.i.i.i979 ]
   %second.i.i.i.i183.i.i.i985 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i182.i.i.i984, i64 16
   %428 = load ptr, ptr %second.i.i.i.i183.i.i.i985, align 8, !noalias !360
   %cmp.i.i.i.i184.i.i.i986 = icmp eq ptr %428, null
-  br i1 %cmp.i.i.i.i184.i.i.i986, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i"
+  br i1 %cmp.i.i.i.i184.i.i.i986, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i975, %if.end3.i.i.i.i.i.i.i.i169.i.i.i972, %for.cond.i.i.i.i.i.i190.i.i.i992, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i983, %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc1166
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i975, %if.end3.i.i.i.i.i.i.i.i169.i.i.i972, %for.cond.i.i.i.i.i.i190.i.i.i992, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i983, %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc1166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i.i860)
   br label %invoke.cont174
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i983
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i983
   %second.i.i.i186.i.i.i987 = getelementptr inbounds i8, ptr %428, i64 48
   %429 = load i32, ptr %second.i.i.i186.i.i.i987, align 8
   %cmp10.i.i.i187.not.i.i.i = icmp eq i32 %429, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i.i860)
   br i1 %cmp10.i.i.i187.not.i.i.i, label %if.end34.i.i.i988, label %invoke.cont174
 
-if.end34.i.i.i988:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i"
+if.end34.i.i.i988:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i"
   %incdec.ptr.i198.i.i.i989 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i872, i64 8
   br label %sw.bb36.i.i.i916
 
@@ -12428,7 +12428,7 @@ for.cond.i.i.i.i.i.i235.i.i.i951:                 ; preds = %sw.bb36.i.i.i916, %
   %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i.i952 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i953, %for.body.i.i.i.i.i.i239.i.i.i955 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb36.i.i.i916 ]
   %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i953 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i.i952, align 8, !noalias !366
   %cmp.i.not.i.i.i.i.i.i238.i.i.i954 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i953, null
-  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i.i954, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %for.body.i.i.i.i.i.i239.i.i.i955
+  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i.i954, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %for.body.i.i.i.i.i.i239.i.i.i955
 
 for.body.i.i.i.i.i.i239.i.i.i955:                 ; preds = %for.cond.i.i.i.i.i.i235.i.i.i951
   %add.ptr.i.i.i.i.i.i240.i.i.i956 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i953, i64 8
@@ -12447,7 +12447,7 @@ call2.i.i.i.i.i1.i1.i204.i.i.i.noexc1168:         ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i207.i.i.i924 = getelementptr inbounds ptr, ptr %434, i64 %rem.i.i.i.i.i.i.i.i.i206.i.i.i923
   %435 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i207.i.i.i924, align 8, !noalias !366
   %tobool.not.i.i.i.i.i.i.i.i208.i.i.i925 = icmp eq ptr %435, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i.i925, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i.i926
+  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i.i925, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i.i926
 
 if.end.i.i.i.i.i.i.i.i209.i.i.i926:               ; preds = %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc1168
   %436 = load ptr, ptr %435, align 8, !noalias !366
@@ -12473,34 +12473,34 @@ if.end3.i.i.i.i.i.i.i.i214.i.i.i931:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i215.i.i.i932 = phi ptr [ %443, %for.cond.i.i.i.i.i.i.i.i222.i.i.i938 ], [ %436, %if.end.i.i.i.i.i.i.i.i209.i.i.i926 ]
   %443 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i215.i.i.i932, align 8, !noalias !366
   %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i933 = icmp eq ptr %443, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i933, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i934
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i933, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i934
 
 lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i934:        ; preds = %if.end3.i.i.i.i.i.i.i.i214.i.i.i931
   %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i.i935 = getelementptr inbounds i8, ptr %443, i64 24
   %444 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i.i935, align 8, !noalias !366
   %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i.i936 = urem i64 %444, %433
   %cmp.not.i.i.i.i.i.i.i.i220.i.i.i937 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i.i936, %rem.i.i.i.i.i.i.i.i.i206.i.i.i923
-  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i.i937, label %for.cond.i.i.i.i.i.i.i.i222.i.i.i938, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i.i937, label %for.cond.i.i.i.i.i.i.i.i222.i.i.i938, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i942: ; preds = %for.cond.i.i.i.i.i.i.i.i222.i.i.i938, %for.body.i.i.i.i.i.i239.i.i.i955, %if.end.i.i.i.i.i.i.i.i209.i.i.i926
   %retval.sroa.0.1.i.i.i.i.i.i227.i.i.i943 = phi ptr [ %436, %if.end.i.i.i.i.i.i.i.i209.i.i.i926 ], [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i953, %for.body.i.i.i.i.i.i239.i.i.i955 ], [ %443, %for.cond.i.i.i.i.i.i.i.i222.i.i.i938 ]
   %second.i.i.i.i228.i.i.i944 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i227.i.i.i943, i64 16
   %445 = load ptr, ptr %second.i.i.i.i228.i.i.i944, align 8, !noalias !366
   %cmp.i.i.i.i229.i.i.i945 = icmp eq ptr %445, null
-  br i1 %cmp.i.i.i.i229.i.i.i945, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i"
+  br i1 %cmp.i.i.i.i229.i.i.i945, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i934, %if.end3.i.i.i.i.i.i.i.i214.i.i.i931, %for.cond.i.i.i.i.i.i235.i.i.i951, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i942, %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc1168
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i934, %if.end3.i.i.i.i.i.i.i.i214.i.i.i931, %for.cond.i.i.i.i.i.i235.i.i.i951, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i942, %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc1168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i.i859)
   br label %invoke.cont174
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i942
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i942
   %second.i.i.i231.i.i.i946 = getelementptr inbounds i8, ptr %445, i64 48
   %446 = load i32, ptr %second.i.i.i231.i.i.i946, align 8
   %cmp10.i.i.i232.not.i.i.i = icmp eq i32 %446, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i.i859)
   br i1 %cmp10.i.i.i232.not.i.i.i, label %if.end41.i.i.i947, label %invoke.cont174
 
-if.end41.i.i.i947:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i"
+if.end41.i.i.i947:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i"
   %incdec.ptr.i243.i.i.i948 = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i917, i64 8
   br label %sw.bb43.i.i.i874
 
@@ -12517,7 +12517,7 @@ for.cond.i.i.i.i.i.i280.i.i.i909:                 ; preds = %sw.bb43.i.i.i874, %
   %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i.i910 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i911, %for.body.i.i.i.i.i.i284.i.i.i913 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb43.i.i.i874 ]
   %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i911 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i.i910, align 8, !noalias !372
   %cmp.i.not.i.i.i.i.i.i283.i.i.i912 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i911, null
-  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i.i912, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %for.body.i.i.i.i.i.i284.i.i.i913
+  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i.i912, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %for.body.i.i.i.i.i.i284.i.i.i913
 
 for.body.i.i.i.i.i.i284.i.i.i913:                 ; preds = %for.cond.i.i.i.i.i.i280.i.i.i909
   %add.ptr.i.i.i.i.i.i285.i.i.i914 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i911, i64 8
@@ -12536,7 +12536,7 @@ call2.i.i.i.i.i1.i1.i249.i.i.i.noexc1170:         ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i252.i.i.i882 = getelementptr inbounds ptr, ptr %451, i64 %rem.i.i.i.i.i.i.i.i.i251.i.i.i881
   %452 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i252.i.i.i882, align 8, !noalias !372
   %tobool.not.i.i.i.i.i.i.i.i253.i.i.i883 = icmp eq ptr %452, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i.i883, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i.i884
+  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i.i883, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i.i884
 
 if.end.i.i.i.i.i.i.i.i254.i.i.i884:               ; preds = %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc1170
   %453 = load ptr, ptr %452, align 8, !noalias !372
@@ -12562,27 +12562,27 @@ if.end3.i.i.i.i.i.i.i.i259.i.i.i889:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i260.i.i.i890 = phi ptr [ %460, %for.cond.i.i.i.i.i.i.i.i267.i.i.i897 ], [ %453, %if.end.i.i.i.i.i.i.i.i254.i.i.i884 ]
   %460 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i260.i.i.i890, align 8, !noalias !372
   %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i891 = icmp eq ptr %460, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i891, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i892
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i891, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i892
 
 lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i892:        ; preds = %if.end3.i.i.i.i.i.i.i.i259.i.i.i889
   %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i.i893 = getelementptr inbounds i8, ptr %460, i64 24
   %461 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i.i893, align 8, !noalias !372
   %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i.i894 = urem i64 %461, %450
   %cmp.not.i.i.i.i.i.i.i.i265.i.i.i895 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i.i894, %rem.i.i.i.i.i.i.i.i.i251.i.i.i881
-  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i.i895, label %for.cond.i.i.i.i.i.i.i.i267.i.i.i897, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i.i895, label %for.cond.i.i.i.i.i.i.i.i267.i.i.i897, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i901: ; preds = %for.cond.i.i.i.i.i.i.i.i267.i.i.i897, %for.body.i.i.i.i.i.i284.i.i.i913, %if.end.i.i.i.i.i.i.i.i254.i.i.i884
   %retval.sroa.0.1.i.i.i.i.i.i272.i.i.i902 = phi ptr [ %453, %if.end.i.i.i.i.i.i.i.i254.i.i.i884 ], [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i911, %for.body.i.i.i.i.i.i284.i.i.i913 ], [ %460, %for.cond.i.i.i.i.i.i.i.i267.i.i.i897 ]
   %second.i.i.i.i273.i.i.i903 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i272.i.i.i902, i64 16
   %462 = load ptr, ptr %second.i.i.i.i273.i.i.i903, align 8, !noalias !372
   %cmp.i.i.i.i274.i.i.i904 = icmp eq ptr %462, null
-  br i1 %cmp.i.i.i.i274.i.i.i904, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i"
+  br i1 %cmp.i.i.i.i274.i.i.i904, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i892, %if.end3.i.i.i.i.i.i.i.i259.i.i.i889, %for.cond.i.i.i.i.i.i280.i.i.i909, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i901, %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc1170
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i892, %if.end3.i.i.i.i.i.i.i.i259.i.i.i889, %for.cond.i.i.i.i.i.i280.i.i.i909, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i901, %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc1170
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i244.i.i.i858)
   br label %invoke.cont174
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i901
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i901
   %second.i.i.i276.i.i.i905 = getelementptr inbounds i8, ptr %462, i64 48
   %463 = load i32, ptr %second.i.i.i276.i.i.i905, align 8
   %cmp10.i.i.i277.not.i.i.i = icmp eq i32 %463, 2
@@ -12590,20 +12590,20 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   %spec.select.i.i.i906 = select i1 %cmp10.i.i.i277.not.i.i.i, ptr %add.ptr.i.i857, ptr %__first.sroa.0.2.i.i.i875
   br label %invoke.cont174
 
-invoke.cont174.loopexit.split.loop.exit:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+invoke.cont174.loopexit.split.loop.exit:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
   %incdec.ptr.i.i.i.i1034.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 8
   br label %invoke.cont174
 
-invoke.cont174.loopexit.split.loop.exit5855:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+invoke.cont174.loopexit.split.loop.exit5855:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
   %incdec.ptr.i59.i.i.i1064.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 16
   br label %invoke.cont174
 
-invoke.cont174.loopexit.split.loop.exit5857:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+invoke.cont174.loopexit.split.loop.exit5857:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
   %incdec.ptr.i104.i.i.i1094.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1006, i64 24
   br label %invoke.cont174
 
-invoke.cont174:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i", %invoke.cont174.loopexit.split.loop.exit, %invoke.cont174.loopexit.split.loop.exit5855, %invoke.cont174.loopexit.split.loop.exit5857, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", %for.end.i.i.i870, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i896 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i872, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i" ], [ %__first.sroa.0.1.i.i.i917, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i" ], [ %add.ptr.i.i857, %for.end.i.i.i870 ], [ %__first.sroa.0.0395.i.i.i1006, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i" ], [ %incdec.ptr.i.i.i.i1034.le5879, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i" ], [ %incdec.ptr.i59.i.i.i1064.le5872, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i" ], [ %incdec.ptr.i104.i.i.i1094.le5865, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i872, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i" ], [ %__first.sroa.0.1.i.i.i917, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i" ], [ %__first.sroa.0.2.i.i.i875, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i" ], [ %spec.select.i.i.i906, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i" ], [ %incdec.ptr.i.i.i.i1034.le, %invoke.cont174.loopexit.split.loop.exit ], [ %incdec.ptr.i59.i.i.i1064.le, %invoke.cont174.loopexit.split.loop.exit5855 ], [ %incdec.ptr.i104.i.i.i1094.le, %invoke.cont174.loopexit.split.loop.exit5857 ], [ %__first.sroa.0.0395.i.i.i1006, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i" ]
+invoke.cont174:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i", %invoke.cont174.loopexit.split.loop.exit, %invoke.cont174.loopexit.split.loop.exit5855, %invoke.cont174.loopexit.split.loop.exit5857, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", %for.end.i.i.i870, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i896 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i872, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i" ], [ %__first.sroa.0.1.i.i.i917, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i" ], [ %add.ptr.i.i857, %for.end.i.i.i870 ], [ %__first.sroa.0.0395.i.i.i1006, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i" ], [ %incdec.ptr.i.i.i.i1034.le5879, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i" ], [ %incdec.ptr.i59.i.i.i1064.le5872, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i" ], [ %incdec.ptr.i104.i.i.i1094.le5865, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i872, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i" ], [ %__first.sroa.0.1.i.i.i917, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i" ], [ %__first.sroa.0.2.i.i.i875, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i" ], [ %spec.select.i.i.i906, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i" ], [ %incdec.ptr.i.i.i.i1034.le, %invoke.cont174.loopexit.split.loop.exit ], [ %incdec.ptr.i59.i.i.i1064.le, %invoke.cont174.loopexit.split.loop.exit5855 ], [ %incdec.ptr.i104.i.i.i1094.le, %invoke.cont174.loopexit.split.loop.exit5857 ], [ %__first.sroa.0.0395.i.i.i1006, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i" ]
   %bf.load.i.i1174 = load i32, ptr %d_nchildren.i.i853, align 4
   %bf.clear.i.i1175 = and i32 %bf.load.i.i1174, 67108863
   %idx.ext.i.i1176 = zext nneg i32 %bf.clear.i.i1175 to i64
@@ -12791,7 +12791,7 @@ for.cond.i.i.i.i.i.i.i.i.i1563:                   ; preds = %for.body.i.i.i1412,
   %retval.sroa.0.0.in.i.i.i.i.i.i.i.i.i1564 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1565, %for.body.i.i.i.i.i.i.i.i.i1567 ], [ %_M_before_begin.i.i.i.i.i.i3716, %for.body.i.i.i1412 ]
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1565 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i.i.i.i1564, align 8, !noalias !381
   %cmp.i.not.i.i.i.i.i.i.i.i.i1566 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1565, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i1566, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i1567
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i1566, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i1567
 
 for.body.i.i.i.i.i.i.i.i.i1567:                   ; preds = %for.cond.i.i.i.i.i.i.i.i.i1563
   %add.ptr.i.i.i.i.i.i.i.i.i1568 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1565, i64 8
@@ -12810,7 +12810,7 @@ call2.i.i.i.i.i1.i1.i.i.i.i.noexc1570:            ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i1418 = getelementptr inbounds ptr, ptr %495, i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i1417
   %496 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i1418, align 8, !noalias !381
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i1419 = icmp eq ptr %496, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i1419, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i.i1420
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i1419, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i.i1420
 
 if.end.i.i.i.i.i.i.i.i.i.i.i1420:                 ; preds = %call2.i.i.i.i.i1.i1.i.i.i.i.noexc1570
   %497 = load ptr, ptr %496, align 8, !noalias !381
@@ -12836,34 +12836,34 @@ if.end3.i.i.i.i.i.i.i.i.i.i.i1425:                ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i.i.i.i1426 = phi ptr [ %504, %for.cond.i.i.i.i.i.i.i.i.i.i.i1432 ], [ %497, %if.end.i.i.i.i.i.i.i.i.i.i.i1420 ]
   %504 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i.i.i.i1426, align 8, !noalias !381
   %tobool5.not.i.i.i.i.i.i.i.i.i.i.i1427 = icmp eq ptr %504, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i.i1427, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1428
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i.i1427, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1428
 
 lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1428:          ; preds = %if.end3.i.i.i.i.i.i.i.i.i.i.i1425
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i1429 = getelementptr inbounds i8, ptr %504, i64 24
   %505 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i1429, align 8, !noalias !381
   %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i1430 = urem i64 %505, %494
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i1431 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i1430, %rem.i.i.i.i.i.i.i.i.i.i.i.i1417
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i1431, label %for.cond.i.i.i.i.i.i.i.i.i.i.i1432, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i1431, label %for.cond.i.i.i.i.i.i.i.i.i.i.i1432, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1436: ; preds = %for.cond.i.i.i.i.i.i.i.i.i.i.i1432, %for.body.i.i.i.i.i.i.i.i.i1567, %if.end.i.i.i.i.i.i.i.i.i.i.i1420
   %retval.sroa.0.1.i.i.i.i.i.i.i.i.i1437 = phi ptr [ %497, %if.end.i.i.i.i.i.i.i.i.i.i.i1420 ], [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i1565, %for.body.i.i.i.i.i.i.i.i.i1567 ], [ %504, %for.cond.i.i.i.i.i.i.i.i.i.i.i1432 ]
   %second.i.i.i.i.i.i.i1438 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i.i.i.i1437, i64 16
   %506 = load ptr, ptr %second.i.i.i.i.i.i.i1438, align 8, !noalias !381
   %cmp.i.i.i.i.i.i.i1439 = icmp eq ptr %506, null
-  br i1 %cmp.i.i.i.i.i.i.i1439, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i1439, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1436, %call2.i.i.i.i.i1.i1.i.i.i.i.noexc1570, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1428, %if.end3.i.i.i.i.i.i.i.i.i.i.i1425, %for.cond.i.i.i.i.i.i.i.i.i1563
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1436, %call2.i.i.i.i.i1.i1.i.i.i.i.noexc1570, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i1428, %if.end3.i.i.i.i.i.i.i.i.i.i.i1425, %for.cond.i.i.i.i.i.i.i.i.i1563
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i1269)
   br label %invoke.cont214
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1436
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i1436
   %second.i.i.i.i.i.i1440 = getelementptr inbounds i8, ptr %506, i64 48
   %507 = load i32, ptr %second.i.i.i.i.i.i1440, align 8
   %cmp10.i.i.i.not.i.i.i1441 = icmp eq i32 %507, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i1269)
   br i1 %cmp10.i.i.i.not.i.i.i1441, label %if.end.i.i.i1442, label %invoke.cont214
 
-if.end.i.i.i1442:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i"
+if.end.i.i.i1442:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i"
   %incdec.ptr.i.i.i.i1443 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 8
   %508 = load ptr, ptr %incdec.ptr.i.i.i.i1443, align 8, !noalias !384
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i1268)
@@ -12876,7 +12876,7 @@ for.cond.i.i.i.i.i.i51.i.i.i1556:                 ; preds = %if.end.i.i.i1442, %
   %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i.i1557 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1558, %for.body.i.i.i.i.i.i55.i.i.i1560 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end.i.i.i1442 ]
   %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1558 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i.i1557, align 8, !noalias !387
   %cmp.i.not.i.i.i.i.i.i54.i.i.i1559 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1558, null
-  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i.i1559, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %for.body.i.i.i.i.i.i55.i.i.i1560
+  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i.i1559, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %for.body.i.i.i.i.i.i55.i.i.i1560
 
 for.body.i.i.i.i.i.i55.i.i.i1560:                 ; preds = %for.cond.i.i.i.i.i.i51.i.i.i1556
   %add.ptr.i.i.i.i.i.i56.i.i.i1561 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1558, i64 8
@@ -12895,7 +12895,7 @@ call2.i.i.i.i.i1.i1.i20.i.i.i.noexc1572:          ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i23.i.i.i1447 = getelementptr inbounds ptr, ptr %512, i64 %rem.i.i.i.i.i.i.i.i.i22.i.i.i1446
   %513 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i23.i.i.i1447, align 8, !noalias !387
   %tobool.not.i.i.i.i.i.i.i.i24.i.i.i1448 = icmp eq ptr %513, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i.i1448, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i.i1449
+  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i.i1448, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i.i1449
 
 if.end.i.i.i.i.i.i.i.i25.i.i.i1449:               ; preds = %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc1572
   %514 = load ptr, ptr %513, align 8, !noalias !387
@@ -12921,35 +12921,35 @@ if.end3.i.i.i.i.i.i.i.i30.i.i.i1454:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i31.i.i.i1455 = phi ptr [ %521, %for.cond.i.i.i.i.i.i.i.i38.i.i.i1462 ], [ %514, %if.end.i.i.i.i.i.i.i.i25.i.i.i1449 ]
   %521 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i31.i.i.i1455, align 8, !noalias !387
   %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i1456 = icmp eq ptr %521, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i1456, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1457
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i.i1456, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1457
 
 lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1457:        ; preds = %if.end3.i.i.i.i.i.i.i.i30.i.i.i1454
   %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i.i1458 = getelementptr inbounds i8, ptr %521, i64 24
   %522 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i.i1458, align 8, !noalias !387
   %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i.i1459 = urem i64 %522, %511
   %cmp.not.i.i.i.i.i.i.i.i36.i.i.i1460 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i.i1459, %rem.i.i.i.i.i.i.i.i.i22.i.i.i1446
-  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i.i1460, label %for.cond.i.i.i.i.i.i.i.i38.i.i.i1462, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i.i1460, label %for.cond.i.i.i.i.i.i.i.i38.i.i.i1462, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1466: ; preds = %for.cond.i.i.i.i.i.i.i.i38.i.i.i1462, %for.body.i.i.i.i.i.i55.i.i.i1560, %if.end.i.i.i.i.i.i.i.i25.i.i.i1449
   %retval.sroa.0.1.i.i.i.i.i.i43.i.i.i1467 = phi ptr [ %514, %if.end.i.i.i.i.i.i.i.i25.i.i.i1449 ], [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i.i1558, %for.body.i.i.i.i.i.i55.i.i.i1560 ], [ %521, %for.cond.i.i.i.i.i.i.i.i38.i.i.i1462 ]
   %second.i.i.i.i44.i.i.i1468 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i43.i.i.i1467, i64 16
   %523 = load ptr, ptr %second.i.i.i.i44.i.i.i1468, align 8, !noalias !387
   %cmp.i.i.i.i45.i.i.i1469 = icmp eq ptr %523, null
-  br i1 %cmp.i.i.i.i45.i.i.i1469, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+  br i1 %cmp.i.i.i.i45.i.i.i1469, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1466, %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc1572, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1457, %if.end3.i.i.i.i.i.i.i.i30.i.i.i1454, %for.cond.i.i.i.i.i.i51.i.i.i1556
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1466, %call2.i.i.i.i.i1.i1.i20.i.i.i.noexc1572, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i.i1457, %if.end3.i.i.i.i.i.i.i.i30.i.i.i1454, %for.cond.i.i.i.i.i.i51.i.i.i1556
   %incdec.ptr.i.i.i.i1443.le5905 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i1268)
   br label %invoke.cont214
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1466
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i.i1466
   %second.i.i.i47.i.i.i1470 = getelementptr inbounds i8, ptr %523, i64 48
   %524 = load i32, ptr %second.i.i.i47.i.i.i1470, align 8
   %cmp10.i.i.i48.not.i.i.i1471 = icmp eq i32 %524, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i1268)
   br i1 %cmp10.i.i.i48.not.i.i.i1471, label %if.end13.i.i.i1473, label %invoke.cont214.loopexit.split.loop.exit
 
-if.end13.i.i.i1473:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+if.end13.i.i.i1473:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
   %incdec.ptr.i59.i.i.i1474 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 16
   %525 = load ptr, ptr %incdec.ptr.i59.i.i.i1474, align 8, !noalias !390
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i1267)
@@ -12962,7 +12962,7 @@ for.cond.i.i.i.i.i.i96.i.i.i1549:                 ; preds = %if.end13.i.i.i1473,
   %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i.i1550 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1551, %for.body.i.i.i.i.i.i100.i.i.i1553 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end13.i.i.i1473 ]
   %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1551 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i.i1550, align 8, !noalias !393
   %cmp.i.not.i.i.i.i.i.i99.i.i.i1552 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1551, null
-  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i.i1552, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %for.body.i.i.i.i.i.i100.i.i.i1553
+  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i.i1552, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %for.body.i.i.i.i.i.i100.i.i.i1553
 
 for.body.i.i.i.i.i.i100.i.i.i1553:                ; preds = %for.cond.i.i.i.i.i.i96.i.i.i1549
   %add.ptr.i.i.i.i.i.i101.i.i.i1554 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1551, i64 8
@@ -12981,7 +12981,7 @@ call2.i.i.i.i.i1.i1.i65.i.i.i.noexc1574:          ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i68.i.i.i1478 = getelementptr inbounds ptr, ptr %529, i64 %rem.i.i.i.i.i.i.i.i.i67.i.i.i1477
   %530 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i68.i.i.i1478, align 8, !noalias !393
   %tobool.not.i.i.i.i.i.i.i.i69.i.i.i1479 = icmp eq ptr %530, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i.i1479, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i.i1480
+  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i.i1479, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i.i1480
 
 if.end.i.i.i.i.i.i.i.i70.i.i.i1480:               ; preds = %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc1574
   %531 = load ptr, ptr %530, align 8, !noalias !393
@@ -13007,35 +13007,35 @@ if.end3.i.i.i.i.i.i.i.i75.i.i.i1485:              ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i76.i.i.i1486 = phi ptr [ %538, %for.cond.i.i.i.i.i.i.i.i83.i.i.i1493 ], [ %531, %if.end.i.i.i.i.i.i.i.i70.i.i.i1480 ]
   %538 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i76.i.i.i1486, align 8, !noalias !393
   %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i1487 = icmp eq ptr %538, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i1487, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1488
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i.i1487, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1488
 
 lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1488:        ; preds = %if.end3.i.i.i.i.i.i.i.i75.i.i.i1485
   %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i.i1489 = getelementptr inbounds i8, ptr %538, i64 24
   %539 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i.i1489, align 8, !noalias !393
   %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i.i1490 = urem i64 %539, %528
   %cmp.not.i.i.i.i.i.i.i.i81.i.i.i1491 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i.i1490, %rem.i.i.i.i.i.i.i.i.i67.i.i.i1477
-  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i.i1491, label %for.cond.i.i.i.i.i.i.i.i83.i.i.i1493, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i.i1491, label %for.cond.i.i.i.i.i.i.i.i83.i.i.i1493, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1497: ; preds = %for.cond.i.i.i.i.i.i.i.i83.i.i.i1493, %for.body.i.i.i.i.i.i100.i.i.i1553, %if.end.i.i.i.i.i.i.i.i70.i.i.i1480
   %retval.sroa.0.1.i.i.i.i.i.i88.i.i.i1498 = phi ptr [ %531, %if.end.i.i.i.i.i.i.i.i70.i.i.i1480 ], [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i.i1551, %for.body.i.i.i.i.i.i100.i.i.i1553 ], [ %538, %for.cond.i.i.i.i.i.i.i.i83.i.i.i1493 ]
   %second.i.i.i.i89.i.i.i1499 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i88.i.i.i1498, i64 16
   %540 = load ptr, ptr %second.i.i.i.i89.i.i.i1499, align 8, !noalias !393
   %cmp.i.i.i.i90.i.i.i1500 = icmp eq ptr %540, null
-  br i1 %cmp.i.i.i.i90.i.i.i1500, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+  br i1 %cmp.i.i.i.i90.i.i.i1500, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1497, %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc1574, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1488, %if.end3.i.i.i.i.i.i.i.i75.i.i.i1485, %for.cond.i.i.i.i.i.i96.i.i.i1549
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1497, %call2.i.i.i.i.i1.i1.i65.i.i.i.noexc1574, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i.i1488, %if.end3.i.i.i.i.i.i.i.i75.i.i.i1485, %for.cond.i.i.i.i.i.i96.i.i.i1549
   %incdec.ptr.i59.i.i.i1474.le5898 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i1267)
   br label %invoke.cont214
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1497
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i.i1497
   %second.i.i.i92.i.i.i1501 = getelementptr inbounds i8, ptr %540, i64 48
   %541 = load i32, ptr %second.i.i.i92.i.i.i1501, align 8
   %cmp10.i.i.i93.not.i.i.i1502 = icmp eq i32 %541, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i.i1267)
   br i1 %cmp10.i.i.i93.not.i.i.i1502, label %if.end19.i.i.i1504, label %invoke.cont214.loopexit.split.loop.exit5881
 
-if.end19.i.i.i1504:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+if.end19.i.i.i1504:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
   %incdec.ptr.i104.i.i.i1505 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 24
   %542 = load ptr, ptr %incdec.ptr.i104.i.i.i1505, align 8, !noalias !396
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i1266)
@@ -13048,7 +13048,7 @@ for.cond.i.i.i.i.i.i141.i.i.i1542:                ; preds = %if.end19.i.i.i1504,
   %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i.i1543 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1544, %for.body.i.i.i.i.i.i145.i.i.i1546 ], [ %_M_before_begin.i.i.i.i.i.i3716, %if.end19.i.i.i1504 ]
   %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1544 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i.i1543, align 8, !noalias !399
   %cmp.i.not.i.i.i.i.i.i144.i.i.i1545 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1544, null
-  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i.i1545, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %for.body.i.i.i.i.i.i145.i.i.i1546
+  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i.i1545, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %for.body.i.i.i.i.i.i145.i.i.i1546
 
 for.body.i.i.i.i.i.i145.i.i.i1546:                ; preds = %for.cond.i.i.i.i.i.i141.i.i.i1542
   %add.ptr.i.i.i.i.i.i146.i.i.i1547 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1544, i64 8
@@ -13067,7 +13067,7 @@ call2.i.i.i.i.i1.i1.i110.i.i.i.noexc1576:         ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i113.i.i.i1509 = getelementptr inbounds ptr, ptr %546, i64 %rem.i.i.i.i.i.i.i.i.i112.i.i.i1508
   %547 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i113.i.i.i1509, align 8, !noalias !399
   %tobool.not.i.i.i.i.i.i.i.i114.i.i.i1510 = icmp eq ptr %547, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i.i1510, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i.i1511
+  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i.i1510, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i.i1511
 
 if.end.i.i.i.i.i.i.i.i115.i.i.i1511:              ; preds = %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc1576
   %548 = load ptr, ptr %547, align 8, !noalias !399
@@ -13093,35 +13093,35 @@ if.end3.i.i.i.i.i.i.i.i120.i.i.i1516:             ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i121.i.i.i1517 = phi ptr [ %555, %for.cond.i.i.i.i.i.i.i.i128.i.i.i1524 ], [ %548, %if.end.i.i.i.i.i.i.i.i115.i.i.i1511 ]
   %555 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i121.i.i.i1517, align 8, !noalias !399
   %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i1518 = icmp eq ptr %555, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i1518, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1519
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i.i1518, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1519
 
 lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1519:       ; preds = %if.end3.i.i.i.i.i.i.i.i120.i.i.i1516
   %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i.i1520 = getelementptr inbounds i8, ptr %555, i64 24
   %556 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i.i1520, align 8, !noalias !399
   %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i.i1521 = urem i64 %556, %545
   %cmp.not.i.i.i.i.i.i.i.i126.i.i.i1522 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i.i1521, %rem.i.i.i.i.i.i.i.i.i112.i.i.i1508
-  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i.i1522, label %for.cond.i.i.i.i.i.i.i.i128.i.i.i1524, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i.i1522, label %for.cond.i.i.i.i.i.i.i.i128.i.i.i1524, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1528: ; preds = %for.cond.i.i.i.i.i.i.i.i128.i.i.i1524, %for.body.i.i.i.i.i.i145.i.i.i1546, %if.end.i.i.i.i.i.i.i.i115.i.i.i1511
   %retval.sroa.0.1.i.i.i.i.i.i133.i.i.i1529 = phi ptr [ %548, %if.end.i.i.i.i.i.i.i.i115.i.i.i1511 ], [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i.i1544, %for.body.i.i.i.i.i.i145.i.i.i1546 ], [ %555, %for.cond.i.i.i.i.i.i.i.i128.i.i.i1524 ]
   %second.i.i.i.i134.i.i.i1530 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i133.i.i.i1529, i64 16
   %557 = load ptr, ptr %second.i.i.i.i134.i.i.i1530, align 8, !noalias !399
   %cmp.i.i.i.i135.i.i.i1531 = icmp eq ptr %557, null
-  br i1 %cmp.i.i.i.i135.i.i.i1531, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+  br i1 %cmp.i.i.i.i135.i.i.i1531, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1528, %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc1576, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1519, %if.end3.i.i.i.i.i.i.i.i120.i.i.i1516, %for.cond.i.i.i.i.i.i141.i.i.i1542
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1528, %call2.i.i.i.i.i1.i1.i110.i.i.i.noexc1576, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i.i1519, %if.end3.i.i.i.i.i.i.i.i120.i.i.i1516, %for.cond.i.i.i.i.i.i141.i.i.i1542
   %incdec.ptr.i104.i.i.i1505.le5891 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i1266)
   br label %invoke.cont214
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1528
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i.i1528
   %second.i.i.i137.i.i.i1532 = getelementptr inbounds i8, ptr %557, i64 48
   %558 = load i32, ptr %second.i.i.i137.i.i.i1532, align 8
   %cmp10.i.i.i138.not.i.i.i1533 = icmp eq i32 %558, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i.i1266)
   br i1 %cmp10.i.i.i138.not.i.i.i1533, label %if.end25.i.i.i1535, label %invoke.cont214.loopexit.split.loop.exit5883
 
-if.end25.i.i.i1535:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+if.end25.i.i.i1535:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
   %incdec.ptr.i149.i.i.i1536 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 32
   %dec.i.i.i1537 = add nsw i64 %__trip_count.0396.i.i.i1413, -1
   %cmp.i.i.i1538 = icmp sgt i64 %__trip_count.0396.i.i.i1413, 1
@@ -13154,7 +13154,7 @@ for.cond.i.i.i.i.i.i190.i.i.i1400:                ; preds = %sw.bb.i.i.i1365, %f
   %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i.i1401 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i1402, %for.body.i.i.i.i.i.i194.i.i.i1404 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb.i.i.i1365 ]
   %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i1402 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i.i1401, align 8, !noalias !406
   %cmp.i.not.i.i.i.i.i.i193.i.i.i1403 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i1402, null
-  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i.i1403, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %for.body.i.i.i.i.i.i194.i.i.i1404
+  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i.i1403, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %for.body.i.i.i.i.i.i194.i.i.i1404
 
 for.body.i.i.i.i.i.i194.i.i.i1404:                ; preds = %for.cond.i.i.i.i.i.i190.i.i.i1400
   %add.ptr.i.i.i.i.i.i195.i.i.i1405 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i1402, i64 8
@@ -13173,7 +13173,7 @@ call2.i.i.i.i.i1.i1.i159.i.i.i.noexc1578:         ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i162.i.i.i1372 = getelementptr inbounds ptr, ptr %563, i64 %rem.i.i.i.i.i.i.i.i.i161.i.i.i1371
   %564 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i162.i.i.i1372, align 8, !noalias !406
   %tobool.not.i.i.i.i.i.i.i.i163.i.i.i1373 = icmp eq ptr %564, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i.i1373, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i.i1374
+  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i.i1373, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i.i1374
 
 if.end.i.i.i.i.i.i.i.i164.i.i.i1374:              ; preds = %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc1578
   %565 = load ptr, ptr %564, align 8, !noalias !406
@@ -13199,34 +13199,34 @@ if.end3.i.i.i.i.i.i.i.i169.i.i.i1379:             ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i170.i.i.i1380 = phi ptr [ %572, %for.cond.i.i.i.i.i.i.i.i177.i.i.i1386 ], [ %565, %if.end.i.i.i.i.i.i.i.i164.i.i.i1374 ]
   %572 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i170.i.i.i1380, align 8, !noalias !406
   %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i1381 = icmp eq ptr %572, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i1381, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i1382
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i.i1381, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i1382
 
 lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i1382:       ; preds = %if.end3.i.i.i.i.i.i.i.i169.i.i.i1379
   %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i.i1383 = getelementptr inbounds i8, ptr %572, i64 24
   %573 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i.i1383, align 8, !noalias !406
   %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i.i1384 = urem i64 %573, %562
   %cmp.not.i.i.i.i.i.i.i.i175.i.i.i1385 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i.i1384, %rem.i.i.i.i.i.i.i.i.i161.i.i.i1371
-  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i.i1385, label %for.cond.i.i.i.i.i.i.i.i177.i.i.i1386, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i.i1385, label %for.cond.i.i.i.i.i.i.i.i177.i.i.i1386, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i1390: ; preds = %for.cond.i.i.i.i.i.i.i.i177.i.i.i1386, %for.body.i.i.i.i.i.i194.i.i.i1404, %if.end.i.i.i.i.i.i.i.i164.i.i.i1374
   %retval.sroa.0.1.i.i.i.i.i.i182.i.i.i1391 = phi ptr [ %565, %if.end.i.i.i.i.i.i.i.i164.i.i.i1374 ], [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i.i1402, %for.body.i.i.i.i.i.i194.i.i.i1404 ], [ %572, %for.cond.i.i.i.i.i.i.i.i177.i.i.i1386 ]
   %second.i.i.i.i183.i.i.i1392 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i182.i.i.i1391, i64 16
   %574 = load ptr, ptr %second.i.i.i.i183.i.i.i1392, align 8, !noalias !406
   %cmp.i.i.i.i184.i.i.i1393 = icmp eq ptr %574, null
-  br i1 %cmp.i.i.i.i184.i.i.i1393, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i"
+  br i1 %cmp.i.i.i.i184.i.i.i1393, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i1382, %if.end3.i.i.i.i.i.i.i.i169.i.i.i1379, %for.cond.i.i.i.i.i.i190.i.i.i1400, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i1390, %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc1578
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i.i1382, %if.end3.i.i.i.i.i.i.i.i169.i.i.i1379, %for.cond.i.i.i.i.i.i190.i.i.i1400, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i1390, %call2.i.i.i.i.i1.i1.i159.i.i.i.noexc1578
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i.i1265)
   br label %invoke.cont214
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i1390
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i.i1390
   %second.i.i.i186.i.i.i1394 = getelementptr inbounds i8, ptr %574, i64 48
   %575 = load i32, ptr %second.i.i.i186.i.i.i1394, align 8
   %cmp10.i.i.i187.not.i.i.i1395 = icmp eq i32 %575, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i.i1265)
   br i1 %cmp10.i.i.i187.not.i.i.i1395, label %if.end34.i.i.i1396, label %invoke.cont214
 
-if.end34.i.i.i1396:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i"
+if.end34.i.i.i1396:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i"
   %incdec.ptr.i198.i.i.i1397 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i1277, i64 8
   br label %sw.bb36.i.i.i1322
 
@@ -13243,7 +13243,7 @@ for.cond.i.i.i.i.i.i235.i.i.i1358:                ; preds = %sw.bb36.i.i.i1322, 
   %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i.i1359 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i1360, %for.body.i.i.i.i.i.i239.i.i.i1362 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb36.i.i.i1322 ]
   %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i1360 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i.i1359, align 8, !noalias !412
   %cmp.i.not.i.i.i.i.i.i238.i.i.i1361 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i1360, null
-  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i.i1361, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %for.body.i.i.i.i.i.i239.i.i.i1362
+  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i.i1361, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %for.body.i.i.i.i.i.i239.i.i.i1362
 
 for.body.i.i.i.i.i.i239.i.i.i1362:                ; preds = %for.cond.i.i.i.i.i.i235.i.i.i1358
   %add.ptr.i.i.i.i.i.i240.i.i.i1363 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i1360, i64 8
@@ -13262,7 +13262,7 @@ call2.i.i.i.i.i1.i1.i204.i.i.i.noexc1580:         ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i207.i.i.i1330 = getelementptr inbounds ptr, ptr %580, i64 %rem.i.i.i.i.i.i.i.i.i206.i.i.i1329
   %581 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i207.i.i.i1330, align 8, !noalias !412
   %tobool.not.i.i.i.i.i.i.i.i208.i.i.i1331 = icmp eq ptr %581, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i.i1331, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i.i1332
+  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i.i1331, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i.i1332
 
 if.end.i.i.i.i.i.i.i.i209.i.i.i1332:              ; preds = %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc1580
   %582 = load ptr, ptr %581, align 8, !noalias !412
@@ -13288,34 +13288,34 @@ if.end3.i.i.i.i.i.i.i.i214.i.i.i1337:             ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i215.i.i.i1338 = phi ptr [ %589, %for.cond.i.i.i.i.i.i.i.i222.i.i.i1344 ], [ %582, %if.end.i.i.i.i.i.i.i.i209.i.i.i1332 ]
   %589 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i215.i.i.i1338, align 8, !noalias !412
   %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i1339 = icmp eq ptr %589, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i1339, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i1340
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i.i1339, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i1340
 
 lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i1340:       ; preds = %if.end3.i.i.i.i.i.i.i.i214.i.i.i1337
   %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i.i1341 = getelementptr inbounds i8, ptr %589, i64 24
   %590 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i.i1341, align 8, !noalias !412
   %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i.i1342 = urem i64 %590, %579
   %cmp.not.i.i.i.i.i.i.i.i220.i.i.i1343 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i.i1342, %rem.i.i.i.i.i.i.i.i.i206.i.i.i1329
-  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i.i1343, label %for.cond.i.i.i.i.i.i.i.i222.i.i.i1344, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i.i1343, label %for.cond.i.i.i.i.i.i.i.i222.i.i.i1344, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i1348: ; preds = %for.cond.i.i.i.i.i.i.i.i222.i.i.i1344, %for.body.i.i.i.i.i.i239.i.i.i1362, %if.end.i.i.i.i.i.i.i.i209.i.i.i1332
   %retval.sroa.0.1.i.i.i.i.i.i227.i.i.i1349 = phi ptr [ %582, %if.end.i.i.i.i.i.i.i.i209.i.i.i1332 ], [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i.i1360, %for.body.i.i.i.i.i.i239.i.i.i1362 ], [ %589, %for.cond.i.i.i.i.i.i.i.i222.i.i.i1344 ]
   %second.i.i.i.i228.i.i.i1350 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i227.i.i.i1349, i64 16
   %591 = load ptr, ptr %second.i.i.i.i228.i.i.i1350, align 8, !noalias !412
   %cmp.i.i.i.i229.i.i.i1351 = icmp eq ptr %591, null
-  br i1 %cmp.i.i.i.i229.i.i.i1351, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i"
+  br i1 %cmp.i.i.i.i229.i.i.i1351, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i1340, %if.end3.i.i.i.i.i.i.i.i214.i.i.i1337, %for.cond.i.i.i.i.i.i235.i.i.i1358, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i1348, %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc1580
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i.i1340, %if.end3.i.i.i.i.i.i.i.i214.i.i.i1337, %for.cond.i.i.i.i.i.i235.i.i.i1358, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i1348, %call2.i.i.i.i.i1.i1.i204.i.i.i.noexc1580
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i.i1264)
   br label %invoke.cont214
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i1348
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i.i1348
   %second.i.i.i231.i.i.i1352 = getelementptr inbounds i8, ptr %591, i64 48
   %592 = load i32, ptr %second.i.i.i231.i.i.i1352, align 8
   %cmp10.i.i.i232.not.i.i.i1353 = icmp eq i32 %592, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i.i1264)
   br i1 %cmp10.i.i.i232.not.i.i.i1353, label %if.end41.i.i.i1354, label %invoke.cont214
 
-if.end41.i.i.i1354:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i"
+if.end41.i.i.i1354:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i"
   %incdec.ptr.i243.i.i.i1355 = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i1323, i64 8
   br label %sw.bb43.i.i.i1279
 
@@ -13332,7 +13332,7 @@ for.cond.i.i.i.i.i.i280.i.i.i1315:                ; preds = %sw.bb43.i.i.i1279, 
   %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i.i1316 = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i1317, %for.body.i.i.i.i.i.i284.i.i.i1319 ], [ %_M_before_begin.i.i.i.i.i.i3716, %sw.bb43.i.i.i1279 ]
   %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i1317 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i.i1316, align 8, !noalias !418
   %cmp.i.not.i.i.i.i.i.i283.i.i.i1318 = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i1317, null
-  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i.i1318, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %for.body.i.i.i.i.i.i284.i.i.i1319
+  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i.i1318, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %for.body.i.i.i.i.i.i284.i.i.i1319
 
 for.body.i.i.i.i.i.i284.i.i.i1319:                ; preds = %for.cond.i.i.i.i.i.i280.i.i.i1315
   %add.ptr.i.i.i.i.i.i285.i.i.i1320 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i1317, i64 8
@@ -13351,7 +13351,7 @@ call2.i.i.i.i.i1.i1.i249.i.i.i.noexc1582:         ; preds = %if.end15.i.i.i.i.i.
   %arrayidx.i.i.i.i.i.i.i.i252.i.i.i1287 = getelementptr inbounds ptr, ptr %597, i64 %rem.i.i.i.i.i.i.i.i.i251.i.i.i1286
   %598 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i252.i.i.i1287, align 8, !noalias !418
   %tobool.not.i.i.i.i.i.i.i.i253.i.i.i1288 = icmp eq ptr %598, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i.i1288, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i.i1289
+  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i.i1288, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i.i1289
 
 if.end.i.i.i.i.i.i.i.i254.i.i.i1289:              ; preds = %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc1582
   %599 = load ptr, ptr %598, align 8, !noalias !418
@@ -13377,27 +13377,27 @@ if.end3.i.i.i.i.i.i.i.i259.i.i.i1294:             ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i260.i.i.i1295 = phi ptr [ %606, %for.cond.i.i.i.i.i.i.i.i267.i.i.i1302 ], [ %599, %if.end.i.i.i.i.i.i.i.i254.i.i.i1289 ]
   %606 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i260.i.i.i1295, align 8, !noalias !418
   %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i1296 = icmp eq ptr %606, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i1296, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i1297
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i.i1296, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i1297
 
 lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i1297:       ; preds = %if.end3.i.i.i.i.i.i.i.i259.i.i.i1294
   %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i.i1298 = getelementptr inbounds i8, ptr %606, i64 24
   %607 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i.i1298, align 8, !noalias !418
   %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i.i1299 = urem i64 %607, %596
   %cmp.not.i.i.i.i.i.i.i.i265.i.i.i1300 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i.i1299, %rem.i.i.i.i.i.i.i.i.i251.i.i.i1286
-  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i.i1300, label %for.cond.i.i.i.i.i.i.i.i267.i.i.i1302, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i.i1300, label %for.cond.i.i.i.i.i.i.i.i267.i.i.i1302, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i1306: ; preds = %for.cond.i.i.i.i.i.i.i.i267.i.i.i1302, %for.body.i.i.i.i.i.i284.i.i.i1319, %if.end.i.i.i.i.i.i.i.i254.i.i.i1289
   %retval.sroa.0.1.i.i.i.i.i.i272.i.i.i1307 = phi ptr [ %599, %if.end.i.i.i.i.i.i.i.i254.i.i.i1289 ], [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i.i1317, %for.body.i.i.i.i.i.i284.i.i.i1319 ], [ %606, %for.cond.i.i.i.i.i.i.i.i267.i.i.i1302 ]
   %second.i.i.i.i273.i.i.i1308 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i272.i.i.i1307, i64 16
   %608 = load ptr, ptr %second.i.i.i.i273.i.i.i1308, align 8, !noalias !418
   %cmp.i.i.i.i274.i.i.i1309 = icmp eq ptr %608, null
-  br i1 %cmp.i.i.i.i274.i.i.i1309, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i"
+  br i1 %cmp.i.i.i.i274.i.i.i1309, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i1297, %if.end3.i.i.i.i.i.i.i.i259.i.i.i1294, %for.cond.i.i.i.i.i.i280.i.i.i1315, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i1306, %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc1582
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i.i1297, %if.end3.i.i.i.i.i.i.i.i259.i.i.i1294, %for.cond.i.i.i.i.i.i280.i.i.i1315, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i1306, %call2.i.i.i.i.i1.i1.i249.i.i.i.noexc1582
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i244.i.i.i1263)
   br label %invoke.cont214
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i1306
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i.i1306
   %second.i.i.i276.i.i.i1310 = getelementptr inbounds i8, ptr %608, i64 48
   %609 = load i32, ptr %second.i.i.i276.i.i.i1310, align 8
   %cmp10.i.i.i277.not.i.i.i1311 = icmp eq i32 %609, 2
@@ -13405,20 +13405,20 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   %spec.select.i.i.i1312 = select i1 %cmp10.i.i.i277.not.i.i.i1311, ptr %add.ptr.i.i1262, ptr %__first.sroa.0.2.i.i.i1280
   br label %invoke.cont214
 
-invoke.cont214.loopexit.split.loop.exit:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i.i"
+invoke.cont214.loopexit.split.loop.exit:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i.i"
   %incdec.ptr.i.i.i.i1443.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 8
   br label %invoke.cont214
 
-invoke.cont214.loopexit.split.loop.exit5881:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i.i"
+invoke.cont214.loopexit.split.loop.exit5881:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i.i"
   %incdec.ptr.i59.i.i.i1474.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 16
   br label %invoke.cont214
 
-invoke.cont214.loopexit.split.loop.exit5883:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i.i"
+invoke.cont214.loopexit.split.loop.exit5883:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i.i"
   %incdec.ptr.i104.i.i.i1505.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i.i1414, i64 24
   br label %invoke.cont214
 
-invoke.cont214:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i", %invoke.cont214.loopexit.split.loop.exit, %invoke.cont214.loopexit.split.loop.exit5881, %invoke.cont214.loopexit.split.loop.exit5883, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i", %for.end.i.i.i1275, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i1301 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i1277, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i.i" ], [ %__first.sroa.0.1.i.i.i1323, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i.i" ], [ %add.ptr.i.i1262, %for.end.i.i.i1275 ], [ %__first.sroa.0.0395.i.i.i1414, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i" ], [ %incdec.ptr.i.i.i.i1443.le5905, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i.i" ], [ %incdec.ptr.i59.i.i.i1474.le5898, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i.i" ], [ %incdec.ptr.i104.i.i.i1505.le5891, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i1277, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i.i" ], [ %__first.sroa.0.1.i.i.i1323, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i.i" ], [ %__first.sroa.0.2.i.i.i1280, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i.i" ], [ %spec.select.i.i.i1312, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i.i" ], [ %incdec.ptr.i.i.i.i1443.le, %invoke.cont214.loopexit.split.loop.exit ], [ %incdec.ptr.i59.i.i.i1474.le, %invoke.cont214.loopexit.split.loop.exit5881 ], [ %incdec.ptr.i104.i.i.i1505.le, %invoke.cont214.loopexit.split.loop.exit5883 ], [ %__first.sroa.0.0395.i.i.i1414, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i.i" ]
+invoke.cont214:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i", %invoke.cont214.loopexit.split.loop.exit, %invoke.cont214.loopexit.split.loop.exit5881, %invoke.cont214.loopexit.split.loop.exit5883, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i", %for.end.i.i.i1275, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i1301 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i1277, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i.i" ], [ %__first.sroa.0.1.i.i.i1323, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i.i" ], [ %add.ptr.i.i1262, %for.end.i.i.i1275 ], [ %__first.sroa.0.0395.i.i.i1414, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i.i" ], [ %incdec.ptr.i.i.i.i1443.le5905, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i.i" ], [ %incdec.ptr.i59.i.i.i1474.le5898, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i.i" ], [ %incdec.ptr.i104.i.i.i1505.le5891, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i1277, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i.i" ], [ %__first.sroa.0.1.i.i.i1323, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i.i" ], [ %__first.sroa.0.2.i.i.i1280, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i.i" ], [ %spec.select.i.i.i1312, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i.i" ], [ %incdec.ptr.i.i.i.i1443.le, %invoke.cont214.loopexit.split.loop.exit ], [ %incdec.ptr.i59.i.i.i1474.le, %invoke.cont214.loopexit.split.loop.exit5881 ], [ %incdec.ptr.i104.i.i.i1505.le, %invoke.cont214.loopexit.split.loop.exit5883 ], [ %__first.sroa.0.0395.i.i.i1414, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i.i" ]
   %bf.load.i.i1586 = load i32, ptr %d_nchildren.i.i853, align 4
   %bf.clear.i.i1587 = and i32 %bf.load.i.i1586, 67108863
   %idx.ext.i.i1588 = zext nneg i32 %bf.clear.i.i1587 to i64
@@ -24715,7 +24715,7 @@ for.cond.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i, %for.
   %retval.sroa.0.0.in.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i.i.i.i.i, %for.body.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i.i.i, align 8, !noalias !711
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", label %for.body.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.cond.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i, i64 8
@@ -24731,7 +24731,7 @@ if.end15.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i.i.i.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !711
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end15.i.i.i.i.i.i.i.i
   %6 = load ptr, ptr %5, align 8, !noalias !711
@@ -24757,34 +24757,34 @@ if.end3.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i.i.i = phi ptr [ %13, %for.cond.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i.i.i.i.i ]
   %13 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !711
   %tobool5.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end3.i.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !711
   %rem.i.i.i.i.i.i.i.i.i.i.i.i.i = urem i64 %14, %3
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %13, %for.cond.i.i.i.i.i.i.i.i.i.i ]
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %second.i.i.i.i.i.i, align 8, !noalias !711
   %cmp.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %cmp.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i, %if.end15.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i, %if.end15.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 48
   %16 = load i32, ptr %second.i.i.i.i.i, align 8
   %cmp.i.i.i.not.i.i = icmp eq i32 %16, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   br i1 %cmp.i.i.i.not.i.i, label %if.end.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-if.end.i.i:                                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i"
+if.end.i.i:                                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i"
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 8
   %17 = load ptr, ptr %incdec.ptr.i.i.i, align 8, !noalias !714
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i)
@@ -24797,7 +24797,7 @@ for.cond.i.i.i.i.i.i51.i.i:                       ; preds = %if.end.i.i, %for.bo
   %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i, %for.body.i.i.i.i.i.i55.i.i ], [ %_M_before_begin.i.i.i.i.i.i.i.i.i.i, %if.end.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i53.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i, align 8, !noalias !717
   %cmp.i.not.i.i.i.i.i.i54.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", label %for.body.i.i.i.i.i.i55.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", label %for.body.i.i.i.i.i.i55.i.i
 
 for.body.i.i.i.i.i.i55.i.i:                       ; preds = %for.cond.i.i.i.i.i.i51.i.i
   %add.ptr.i.i.i.i.i.i56.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i, i64 8
@@ -24813,7 +24813,7 @@ if.end15.i.i.i.i.i.i18.i.i:                       ; preds = %if.end.i.i
   %arrayidx.i.i.i.i.i.i.i.i23.i.i = getelementptr inbounds ptr, ptr %21, i64 %rem.i.i.i.i.i.i.i.i.i22.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i23.i.i, align 8, !noalias !717
   %tobool.not.i.i.i.i.i.i.i.i24.i.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i
 
 if.end.i.i.i.i.i.i.i.i25.i.i:                     ; preds = %if.end15.i.i.i.i.i.i18.i.i
   %23 = load ptr, ptr %22, align 8, !noalias !717
@@ -24839,35 +24839,35 @@ if.end3.i.i.i.i.i.i.i.i30.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i31.i.i = phi ptr [ %30, %for.cond.i.i.i.i.i.i.i.i38.i.i ], [ %23, %if.end.i.i.i.i.i.i.i.i25.i.i ]
   %30 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i31.i.i, align 8, !noalias !717
   %tobool5.not.i.i.i.i.i.i.i.i32.i.i = icmp eq ptr %30, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i33.i.i:              ; preds = %if.end3.i.i.i.i.i.i.i.i30.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i, align 8, !noalias !717
   %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i = urem i64 %31, %20
   %cmp.not.i.i.i.i.i.i.i.i36.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i, %rem.i.i.i.i.i.i.i.i.i22.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i, label %for.cond.i.i.i.i.i.i.i.i38.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i, label %for.cond.i.i.i.i.i.i.i.i38.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i38.i.i, %for.body.i.i.i.i.i.i55.i.i, %if.end.i.i.i.i.i.i.i.i25.i.i
   %retval.sroa.0.1.i.i.i.i.i.i43.i.i = phi ptr [ %23, %if.end.i.i.i.i.i.i.i.i25.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i, %for.body.i.i.i.i.i.i55.i.i ], [ %30, %for.cond.i.i.i.i.i.i.i.i38.i.i ]
   %second.i.i.i.i44.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i43.i.i, i64 16
   %32 = load ptr, ptr %second.i.i.i.i44.i.i, align 8, !noalias !717
   %cmp.i.i.i.i45.i.i = icmp eq ptr %32, null
-  br i1 %cmp.i.i.i.i45.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i"
+  br i1 %cmp.i.i.i.i45.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i, %if.end15.i.i.i.i.i.i18.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i, %if.end3.i.i.i.i.i.i.i.i30.i.i, %for.cond.i.i.i.i.i.i51.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i, %if.end15.i.i.i.i.i.i18.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i, %if.end3.i.i.i.i.i.i.i.i30.i.i, %for.cond.i.i.i.i.i.i51.i.i
   %incdec.ptr.i.i.i.le233 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i
   %second.i.i.i47.i.i = getelementptr inbounds i8, ptr %32, i64 48
   %33 = load i32, ptr %second.i.i.i47.i.i, align 8
   %cmp.i.i.i48.not.i.i = icmp eq i32 %33, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i)
   br i1 %cmp.i.i.i48.not.i.i, label %if.end13.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit"
 
-if.end13.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i"
+if.end13.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i"
   %incdec.ptr.i59.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 16
   %34 = load ptr, ptr %incdec.ptr.i59.i.i, align 8, !noalias !720
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i)
@@ -24880,7 +24880,7 @@ for.cond.i.i.i.i.i.i96.i.i:                       ; preds = %if.end13.i.i, %for.
   %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i, %for.body.i.i.i.i.i.i100.i.i ], [ %_M_before_begin.i.i.i.i.i.i.i.i.i.i, %if.end13.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i98.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i, align 8, !noalias !723
   %cmp.i.not.i.i.i.i.i.i99.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", label %for.body.i.i.i.i.i.i100.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", label %for.body.i.i.i.i.i.i100.i.i
 
 for.body.i.i.i.i.i.i100.i.i:                      ; preds = %for.cond.i.i.i.i.i.i96.i.i
   %add.ptr.i.i.i.i.i.i101.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i, i64 8
@@ -24896,7 +24896,7 @@ if.end15.i.i.i.i.i.i63.i.i:                       ; preds = %if.end13.i.i
   %arrayidx.i.i.i.i.i.i.i.i68.i.i = getelementptr inbounds ptr, ptr %38, i64 %rem.i.i.i.i.i.i.i.i.i67.i.i
   %39 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i68.i.i, align 8, !noalias !723
   %tobool.not.i.i.i.i.i.i.i.i69.i.i = icmp eq ptr %39, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i
 
 if.end.i.i.i.i.i.i.i.i70.i.i:                     ; preds = %if.end15.i.i.i.i.i.i63.i.i
   %40 = load ptr, ptr %39, align 8, !noalias !723
@@ -24922,35 +24922,35 @@ if.end3.i.i.i.i.i.i.i.i75.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i76.i.i = phi ptr [ %47, %for.cond.i.i.i.i.i.i.i.i83.i.i ], [ %40, %if.end.i.i.i.i.i.i.i.i70.i.i ]
   %47 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i76.i.i, align 8, !noalias !723
   %tobool5.not.i.i.i.i.i.i.i.i77.i.i = icmp eq ptr %47, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i78.i.i:              ; preds = %if.end3.i.i.i.i.i.i.i.i75.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i = getelementptr inbounds i8, ptr %47, i64 24
   %48 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i, align 8, !noalias !723
   %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i = urem i64 %48, %37
   %cmp.not.i.i.i.i.i.i.i.i81.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i, %rem.i.i.i.i.i.i.i.i.i67.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i, label %for.cond.i.i.i.i.i.i.i.i83.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i, label %for.cond.i.i.i.i.i.i.i.i83.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i83.i.i, %for.body.i.i.i.i.i.i100.i.i, %if.end.i.i.i.i.i.i.i.i70.i.i
   %retval.sroa.0.1.i.i.i.i.i.i88.i.i = phi ptr [ %40, %if.end.i.i.i.i.i.i.i.i70.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i, %for.body.i.i.i.i.i.i100.i.i ], [ %47, %for.cond.i.i.i.i.i.i.i.i83.i.i ]
   %second.i.i.i.i89.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i88.i.i, i64 16
   %49 = load ptr, ptr %second.i.i.i.i89.i.i, align 8, !noalias !723
   %cmp.i.i.i.i90.i.i = icmp eq ptr %49, null
-  br i1 %cmp.i.i.i.i90.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i"
+  br i1 %cmp.i.i.i.i90.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i, %if.end15.i.i.i.i.i.i63.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i, %if.end3.i.i.i.i.i.i.i.i75.i.i, %for.cond.i.i.i.i.i.i96.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i, %if.end15.i.i.i.i.i.i63.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i, %if.end3.i.i.i.i.i.i.i.i75.i.i, %for.cond.i.i.i.i.i.i96.i.i
   %incdec.ptr.i59.i.i.le226 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i
   %second.i.i.i92.i.i = getelementptr inbounds i8, ptr %49, i64 48
   %50 = load i32, ptr %second.i.i.i92.i.i, align 8
   %cmp.i.i.i93.not.i.i = icmp eq i32 %50, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i)
   br i1 %cmp.i.i.i93.not.i.i, label %if.end19.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208"
 
-if.end19.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i"
+if.end19.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i"
   %incdec.ptr.i104.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 24
   %51 = load ptr, ptr %incdec.ptr.i104.i.i, align 8, !noalias !726
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i)
@@ -24963,7 +24963,7 @@ for.cond.i.i.i.i.i.i141.i.i:                      ; preds = %if.end19.i.i, %for.
   %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i, %for.body.i.i.i.i.i.i145.i.i ], [ %_M_before_begin.i.i.i.i.i.i.i.i.i.i, %if.end19.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i143.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i, align 8, !noalias !729
   %cmp.i.not.i.i.i.i.i.i144.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", label %for.body.i.i.i.i.i.i145.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", label %for.body.i.i.i.i.i.i145.i.i
 
 for.body.i.i.i.i.i.i145.i.i:                      ; preds = %for.cond.i.i.i.i.i.i141.i.i
   %add.ptr.i.i.i.i.i.i146.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i, i64 8
@@ -24979,7 +24979,7 @@ if.end15.i.i.i.i.i.i108.i.i:                      ; preds = %if.end19.i.i
   %arrayidx.i.i.i.i.i.i.i.i113.i.i = getelementptr inbounds ptr, ptr %55, i64 %rem.i.i.i.i.i.i.i.i.i112.i.i
   %56 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i113.i.i, align 8, !noalias !729
   %tobool.not.i.i.i.i.i.i.i.i114.i.i = icmp eq ptr %56, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i
 
 if.end.i.i.i.i.i.i.i.i115.i.i:                    ; preds = %if.end15.i.i.i.i.i.i108.i.i
   %57 = load ptr, ptr %56, align 8, !noalias !729
@@ -25005,35 +25005,35 @@ if.end3.i.i.i.i.i.i.i.i120.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i121.i.i = phi ptr [ %64, %for.cond.i.i.i.i.i.i.i.i128.i.i ], [ %57, %if.end.i.i.i.i.i.i.i.i115.i.i ]
   %64 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i121.i.i, align 8, !noalias !729
   %tobool5.not.i.i.i.i.i.i.i.i122.i.i = icmp eq ptr %64, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i123.i.i:             ; preds = %if.end3.i.i.i.i.i.i.i.i120.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i = getelementptr inbounds i8, ptr %64, i64 24
   %65 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i, align 8, !noalias !729
   %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i = urem i64 %65, %54
   %cmp.not.i.i.i.i.i.i.i.i126.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i, %rem.i.i.i.i.i.i.i.i.i112.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i, label %for.cond.i.i.i.i.i.i.i.i128.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i, label %for.cond.i.i.i.i.i.i.i.i128.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i128.i.i, %for.body.i.i.i.i.i.i145.i.i, %if.end.i.i.i.i.i.i.i.i115.i.i
   %retval.sroa.0.1.i.i.i.i.i.i133.i.i = phi ptr [ %57, %if.end.i.i.i.i.i.i.i.i115.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i, %for.body.i.i.i.i.i.i145.i.i ], [ %64, %for.cond.i.i.i.i.i.i.i.i128.i.i ]
   %second.i.i.i.i134.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i133.i.i, i64 16
   %66 = load ptr, ptr %second.i.i.i.i134.i.i, align 8, !noalias !729
   %cmp.i.i.i.i135.i.i = icmp eq ptr %66, null
-  br i1 %cmp.i.i.i.i135.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i"
+  br i1 %cmp.i.i.i.i135.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i, %if.end15.i.i.i.i.i.i108.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i, %if.end3.i.i.i.i.i.i.i.i120.i.i, %for.cond.i.i.i.i.i.i141.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i, %if.end15.i.i.i.i.i.i108.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i, %if.end3.i.i.i.i.i.i.i.i120.i.i, %for.cond.i.i.i.i.i.i141.i.i
   %incdec.ptr.i104.i.i.le219 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i
   %second.i.i.i137.i.i = getelementptr inbounds i8, ptr %66, i64 48
   %67 = load i32, ptr %second.i.i.i137.i.i, align 8
   %cmp.i.i.i138.not.i.i = icmp eq i32 %67, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i)
   br i1 %cmp.i.i.i138.not.i.i, label %if.end25.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210"
 
-if.end25.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i"
+if.end25.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i"
   %incdec.ptr.i149.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 32
   %dec.i.i = add nsw i64 %__trip_count.0396.i.i, -1
   %cmp.i.i = icmp sgt i64 %__trip_count.0396.i.i, 1
@@ -25071,7 +25071,7 @@ for.cond.i.i.i.i.i.i190.i.i:                      ; preds = %for.body.i.i.i.i.i.
   %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i.i.i.i189.i.i, %if.then.i.i.i.i.i.i188.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i, %for.body.i.i.i.i.i.i194.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i192.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i, align 8, !noalias !736
   %cmp.i.not.i.i.i.i.i.i193.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", label %for.body.i.i.i.i.i.i194.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", label %for.body.i.i.i.i.i.i194.i.i
 
 for.body.i.i.i.i.i.i194.i.i:                      ; preds = %for.cond.i.i.i.i.i.i190.i.i
   %add.ptr.i.i.i.i.i.i195.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i, i64 8
@@ -25089,7 +25089,7 @@ if.end15.i.i.i.i.i.i157.i.i:                      ; preds = %sw.bb.i.i
   %arrayidx.i.i.i.i.i.i.i.i162.i.i = getelementptr inbounds ptr, ptr %72, i64 %rem.i.i.i.i.i.i.i.i.i161.i.i
   %73 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i162.i.i, align 8, !noalias !736
   %tobool.not.i.i.i.i.i.i.i.i163.i.i = icmp eq ptr %73, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i
 
 if.end.i.i.i.i.i.i.i.i164.i.i:                    ; preds = %if.end15.i.i.i.i.i.i157.i.i
   %74 = load ptr, ptr %73, align 8, !noalias !736
@@ -25115,34 +25115,34 @@ if.end3.i.i.i.i.i.i.i.i169.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i170.i.i = phi ptr [ %81, %for.cond.i.i.i.i.i.i.i.i177.i.i ], [ %74, %if.end.i.i.i.i.i.i.i.i164.i.i ]
   %81 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i170.i.i, align 8, !noalias !736
   %tobool5.not.i.i.i.i.i.i.i.i171.i.i = icmp eq ptr %81, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i172.i.i:             ; preds = %if.end3.i.i.i.i.i.i.i.i169.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i = getelementptr inbounds i8, ptr %81, i64 24
   %82 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i, align 8, !noalias !736
   %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i = urem i64 %82, %71
   %cmp.not.i.i.i.i.i.i.i.i175.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i, %rem.i.i.i.i.i.i.i.i.i161.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i, label %for.cond.i.i.i.i.i.i.i.i177.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i, label %for.cond.i.i.i.i.i.i.i.i177.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i177.i.i, %for.body.i.i.i.i.i.i194.i.i, %if.end.i.i.i.i.i.i.i.i164.i.i
   %retval.sroa.0.1.i.i.i.i.i.i182.i.i = phi ptr [ %74, %if.end.i.i.i.i.i.i.i.i164.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i, %for.body.i.i.i.i.i.i194.i.i ], [ %81, %for.cond.i.i.i.i.i.i.i.i177.i.i ]
   %second.i.i.i.i183.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i182.i.i, i64 16
   %83 = load ptr, ptr %second.i.i.i.i183.i.i, align 8, !noalias !736
   %cmp.i.i.i.i184.i.i = icmp eq ptr %83, null
-  br i1 %cmp.i.i.i.i184.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i"
+  br i1 %cmp.i.i.i.i184.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i, %if.end3.i.i.i.i.i.i.i.i169.i.i, %for.cond.i.i.i.i.i.i190.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i, %if.end15.i.i.i.i.i.i157.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i, %if.end3.i.i.i.i.i.i.i.i169.i.i, %for.cond.i.i.i.i.i.i190.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i, %if.end15.i.i.i.i.i.i157.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i
   %second.i.i.i186.i.i = getelementptr inbounds i8, ptr %83, i64 48
   %84 = load i32, ptr %second.i.i.i186.i.i, align 8
   %cmp.i.i.i187.not.i.i = icmp eq i32 %84, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i)
   br i1 %cmp.i.i.i187.not.i.i, label %if.end34.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-if.end34.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i"
+if.end34.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i"
   %incdec.ptr.i198.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 8
   br label %sw.bb36.i.i
 
@@ -25164,7 +25164,7 @@ for.cond.i.i.i.i.i.i235.i.i:                      ; preds = %for.body.i.i.i.i.i.
   %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i.i.i.i234.i.i, %if.then.i.i.i.i.i.i233.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i, %for.body.i.i.i.i.i.i239.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i237.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i, align 8, !noalias !742
   %cmp.i.not.i.i.i.i.i.i238.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", label %for.body.i.i.i.i.i.i239.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", label %for.body.i.i.i.i.i.i239.i.i
 
 for.body.i.i.i.i.i.i239.i.i:                      ; preds = %for.cond.i.i.i.i.i.i235.i.i
   %add.ptr.i.i.i.i.i.i240.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i, i64 8
@@ -25182,7 +25182,7 @@ if.end15.i.i.i.i.i.i202.i.i:                      ; preds = %sw.bb36.i.i
   %arrayidx.i.i.i.i.i.i.i.i207.i.i = getelementptr inbounds ptr, ptr %89, i64 %rem.i.i.i.i.i.i.i.i.i206.i.i
   %90 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i207.i.i, align 8, !noalias !742
   %tobool.not.i.i.i.i.i.i.i.i208.i.i = icmp eq ptr %90, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i
 
 if.end.i.i.i.i.i.i.i.i209.i.i:                    ; preds = %if.end15.i.i.i.i.i.i202.i.i
   %91 = load ptr, ptr %90, align 8, !noalias !742
@@ -25208,34 +25208,34 @@ if.end3.i.i.i.i.i.i.i.i214.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i215.i.i = phi ptr [ %98, %for.cond.i.i.i.i.i.i.i.i222.i.i ], [ %91, %if.end.i.i.i.i.i.i.i.i209.i.i ]
   %98 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i215.i.i, align 8, !noalias !742
   %tobool5.not.i.i.i.i.i.i.i.i216.i.i = icmp eq ptr %98, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i217.i.i:             ; preds = %if.end3.i.i.i.i.i.i.i.i214.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i = getelementptr inbounds i8, ptr %98, i64 24
   %99 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i, align 8, !noalias !742
   %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i = urem i64 %99, %88
   %cmp.not.i.i.i.i.i.i.i.i220.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i, %rem.i.i.i.i.i.i.i.i.i206.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i, label %for.cond.i.i.i.i.i.i.i.i222.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i, label %for.cond.i.i.i.i.i.i.i.i222.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i222.i.i, %for.body.i.i.i.i.i.i239.i.i, %if.end.i.i.i.i.i.i.i.i209.i.i
   %retval.sroa.0.1.i.i.i.i.i.i227.i.i = phi ptr [ %91, %if.end.i.i.i.i.i.i.i.i209.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i, %for.body.i.i.i.i.i.i239.i.i ], [ %98, %for.cond.i.i.i.i.i.i.i.i222.i.i ]
   %second.i.i.i.i228.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i227.i.i, i64 16
   %100 = load ptr, ptr %second.i.i.i.i228.i.i, align 8, !noalias !742
   %cmp.i.i.i.i229.i.i = icmp eq ptr %100, null
-  br i1 %cmp.i.i.i.i229.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i"
+  br i1 %cmp.i.i.i.i229.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i, %if.end3.i.i.i.i.i.i.i.i214.i.i, %for.cond.i.i.i.i.i.i235.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i, %if.end15.i.i.i.i.i.i202.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i, %if.end3.i.i.i.i.i.i.i.i214.i.i, %for.cond.i.i.i.i.i.i235.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i, %if.end15.i.i.i.i.i.i202.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i
   %second.i.i.i231.i.i = getelementptr inbounds i8, ptr %100, i64 48
   %101 = load i32, ptr %second.i.i.i231.i.i, align 8
   %cmp.i.i.i232.not.i.i = icmp eq i32 %101, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i)
   br i1 %cmp.i.i.i232.not.i.i, label %if.end41.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-if.end41.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i"
+if.end41.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i"
   %incdec.ptr.i243.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 8
   br label %sw.bb43.i.i
 
@@ -25257,7 +25257,7 @@ for.cond.i.i.i.i.i.i280.i.i:                      ; preds = %for.body.i.i.i.i.i.
   %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i.i.i.i279.i.i, %if.then.i.i.i.i.i.i278.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i, %for.body.i.i.i.i.i.i284.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i282.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i, align 8, !noalias !748
   %cmp.i.not.i.i.i.i.i.i283.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", label %for.body.i.i.i.i.i.i284.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", label %for.body.i.i.i.i.i.i284.i.i
 
 for.body.i.i.i.i.i.i284.i.i:                      ; preds = %for.cond.i.i.i.i.i.i280.i.i
   %add.ptr.i.i.i.i.i.i285.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i, i64 8
@@ -25275,7 +25275,7 @@ if.end15.i.i.i.i.i.i247.i.i:                      ; preds = %sw.bb43.i.i
   %arrayidx.i.i.i.i.i.i.i.i252.i.i = getelementptr inbounds ptr, ptr %106, i64 %rem.i.i.i.i.i.i.i.i.i251.i.i
   %107 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i252.i.i, align 8, !noalias !748
   %tobool.not.i.i.i.i.i.i.i.i253.i.i = icmp eq ptr %107, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i
 
 if.end.i.i.i.i.i.i.i.i254.i.i:                    ; preds = %if.end15.i.i.i.i.i.i247.i.i
   %108 = load ptr, ptr %107, align 8, !noalias !748
@@ -25301,27 +25301,27 @@ if.end3.i.i.i.i.i.i.i.i259.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i260.i.i = phi ptr [ %115, %for.cond.i.i.i.i.i.i.i.i267.i.i ], [ %108, %if.end.i.i.i.i.i.i.i.i254.i.i ]
   %115 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i260.i.i, align 8, !noalias !748
   %tobool5.not.i.i.i.i.i.i.i.i261.i.i = icmp eq ptr %115, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i262.i.i:             ; preds = %if.end3.i.i.i.i.i.i.i.i259.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i = getelementptr inbounds i8, ptr %115, i64 24
   %116 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i, align 8, !noalias !748
   %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i = urem i64 %116, %105
   %cmp.not.i.i.i.i.i.i.i.i265.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i, %rem.i.i.i.i.i.i.i.i.i251.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i, label %for.cond.i.i.i.i.i.i.i.i267.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i, label %for.cond.i.i.i.i.i.i.i.i267.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i267.i.i, %for.body.i.i.i.i.i.i284.i.i, %if.end.i.i.i.i.i.i.i.i254.i.i
   %retval.sroa.0.1.i.i.i.i.i.i272.i.i = phi ptr [ %108, %if.end.i.i.i.i.i.i.i.i254.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i, %for.body.i.i.i.i.i.i284.i.i ], [ %115, %for.cond.i.i.i.i.i.i.i.i267.i.i ]
   %second.i.i.i.i273.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i272.i.i, i64 16
   %117 = load ptr, ptr %second.i.i.i.i273.i.i, align 8, !noalias !748
   %cmp.i.i.i.i274.i.i = icmp eq ptr %117, null
-  br i1 %cmp.i.i.i.i274.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i"
+  br i1 %cmp.i.i.i.i274.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i, %if.end3.i.i.i.i.i.i.i.i259.i.i, %for.cond.i.i.i.i.i.i280.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i, %if.end15.i.i.i.i.i.i247.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i, %if.end3.i.i.i.i.i.i.i.i259.i.i, %for.cond.i.i.i.i.i.i280.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i, %if.end15.i.i.i.i.i.i247.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i244.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i
   %second.i.i.i276.i.i = getelementptr inbounds i8, ptr %117, i64 48
   %118 = load i32, ptr %second.i.i.i276.i.i, align 8
   %cmp.i.i.i277.not.i.i = icmp eq i32 %118, 1
@@ -25329,20 +25329,20 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   %spec.select.i.i = select i1 %cmp.i.i.i277.not.i.i, ptr %__last.coerce, ptr %__first.sroa.0.2.i.i
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i"
+"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i"
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 8
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i"
+"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i"
   %incdec.ptr.i59.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 16
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i"
+"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i"
   %incdec.ptr.i104.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 24
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit"
 
-"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", %for.end.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i" ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i" ], [ %__last.coerce, %for.end.i.i ], [ %__first.sroa.0.0395.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i" ], [ %incdec.ptr.i.i.i.le233, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i" ], [ %incdec.ptr.i59.i.i.le226, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i" ], [ %incdec.ptr.i104.i.i.le219, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i" ], [ %__first.sroa.0.0.lcssa.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i" ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i" ], [ %__first.sroa.0.2.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i" ], [ %spec.select.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i" ], [ %incdec.ptr.i.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i59.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208" ], [ %incdec.ptr.i104.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210" ], [ %__first.sroa.0.0395.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i" ]
+"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", %for.end.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i" ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i" ], [ %__last.coerce, %for.end.i.i ], [ %__first.sroa.0.0395.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i" ], [ %incdec.ptr.i.i.i.le233, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i" ], [ %incdec.ptr.i59.i.i.le226, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i" ], [ %incdec.ptr.i104.i.i.le219, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i" ], [ %__first.sroa.0.0.lcssa.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i" ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i" ], [ %__first.sroa.0.2.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i" ], [ %spec.select.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i" ], [ %incdec.ptr.i.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i59.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208" ], [ %incdec.ptr.i104.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210" ], [ %__first.sroa.0.0395.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i" ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated.i.i
 }
 
@@ -25384,7 +25384,7 @@ for.cond.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i, %for.
   %retval.sroa.0.0.in.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i.i.i.i.i, %for.body.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i.i.i, align 8, !noalias !754
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", label %for.body.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.cond.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i, i64 8
@@ -25400,7 +25400,7 @@ if.end15.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i.i.i.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !754
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end15.i.i.i.i.i.i.i.i
   %6 = load ptr, ptr %5, align 8, !noalias !754
@@ -25426,34 +25426,34 @@ if.end3.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i.i.i = phi ptr [ %13, %for.cond.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i.i.i.i.i ]
   %13 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !754
   %tobool5.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end3.i.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !754
   %rem.i.i.i.i.i.i.i.i.i.i.i.i.i = urem i64 %14, %3
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i
   %retval.sroa.0.1.i.i.i.i.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %13, %for.cond.i.i.i.i.i.i.i.i.i.i ]
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %second.i.i.i.i.i.i, align 8, !noalias !754
   %cmp.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %cmp.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i, %if.end15.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i, %if.end15.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 48
   %16 = load i32, ptr %second.i.i.i.i.i, align 8
   %cmp10.i.i.i.not.i.i = icmp eq i32 %16, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   br i1 %cmp10.i.i.i.not.i.i, label %if.end.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-if.end.i.i:                                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i"
+if.end.i.i:                                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i"
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 8
   %17 = load ptr, ptr %incdec.ptr.i.i.i, align 8, !noalias !757
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i)
@@ -25466,7 +25466,7 @@ for.cond.i.i.i.i.i.i51.i.i:                       ; preds = %if.end.i.i, %for.bo
   %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i, %for.body.i.i.i.i.i.i55.i.i ], [ %_M_before_begin.i.i.i.i.i.i.i.i.i.i, %if.end.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i53.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i52.i.i, align 8, !noalias !760
   %cmp.i.not.i.i.i.i.i.i54.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", label %for.body.i.i.i.i.i.i55.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i54.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", label %for.body.i.i.i.i.i.i55.i.i
 
 for.body.i.i.i.i.i.i55.i.i:                       ; preds = %for.cond.i.i.i.i.i.i51.i.i
   %add.ptr.i.i.i.i.i.i56.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i53.i.i, i64 8
@@ -25482,7 +25482,7 @@ if.end15.i.i.i.i.i.i18.i.i:                       ; preds = %if.end.i.i
   %arrayidx.i.i.i.i.i.i.i.i23.i.i = getelementptr inbounds ptr, ptr %21, i64 %rem.i.i.i.i.i.i.i.i.i22.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i23.i.i, align 8, !noalias !760
   %tobool.not.i.i.i.i.i.i.i.i24.i.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i24.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", label %if.end.i.i.i.i.i.i.i.i25.i.i
 
 if.end.i.i.i.i.i.i.i.i25.i.i:                     ; preds = %if.end15.i.i.i.i.i.i18.i.i
   %23 = load ptr, ptr %22, align 8, !noalias !760
@@ -25508,35 +25508,35 @@ if.end3.i.i.i.i.i.i.i.i30.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i31.i.i = phi ptr [ %30, %for.cond.i.i.i.i.i.i.i.i38.i.i ], [ %23, %if.end.i.i.i.i.i.i.i.i25.i.i ]
   %30 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i31.i.i, align 8, !noalias !760
   %tobool5.not.i.i.i.i.i.i.i.i32.i.i = icmp eq ptr %30, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i32.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i33.i.i:              ; preds = %if.end3.i.i.i.i.i.i.i.i30.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i34.i.i, align 8, !noalias !760
   %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i = urem i64 %31, %20
   %cmp.not.i.i.i.i.i.i.i.i36.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i35.i.i, %rem.i.i.i.i.i.i.i.i.i22.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i, label %for.cond.i.i.i.i.i.i.i.i38.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i36.i.i, label %for.cond.i.i.i.i.i.i.i.i38.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i38.i.i, %for.body.i.i.i.i.i.i55.i.i, %if.end.i.i.i.i.i.i.i.i25.i.i
   %retval.sroa.0.1.i.i.i.i.i.i43.i.i = phi ptr [ %23, %if.end.i.i.i.i.i.i.i.i25.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i53.i.i, %for.body.i.i.i.i.i.i55.i.i ], [ %30, %for.cond.i.i.i.i.i.i.i.i38.i.i ]
   %second.i.i.i.i44.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i43.i.i, i64 16
   %32 = load ptr, ptr %second.i.i.i.i44.i.i, align 8, !noalias !760
   %cmp.i.i.i.i45.i.i = icmp eq ptr %32, null
-  br i1 %cmp.i.i.i.i45.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i"
+  br i1 %cmp.i.i.i.i45.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i, %if.end15.i.i.i.i.i.i18.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i, %if.end3.i.i.i.i.i.i.i.i30.i.i, %for.cond.i.i.i.i.i.i51.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i, %if.end15.i.i.i.i.i.i18.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i33.i.i, %if.end3.i.i.i.i.i.i.i.i30.i.i, %for.cond.i.i.i.i.i.i51.i.i
   %incdec.ptr.i.i.i.le233 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i42.i.i
   %second.i.i.i47.i.i = getelementptr inbounds i8, ptr %32, i64 48
   %33 = load i32, ptr %second.i.i.i47.i.i, align 8
   %cmp10.i.i.i48.not.i.i = icmp eq i32 %33, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i)
   br i1 %cmp10.i.i.i48.not.i.i, label %if.end13.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit"
 
-if.end13.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i"
+if.end13.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i"
   %incdec.ptr.i59.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 16
   %34 = load ptr, ptr %incdec.ptr.i59.i.i, align 8, !noalias !763
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i)
@@ -25549,7 +25549,7 @@ for.cond.i.i.i.i.i.i96.i.i:                       ; preds = %if.end13.i.i, %for.
   %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i, %for.body.i.i.i.i.i.i100.i.i ], [ %_M_before_begin.i.i.i.i.i.i.i.i.i.i, %if.end13.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i98.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i97.i.i, align 8, !noalias !766
   %cmp.i.not.i.i.i.i.i.i99.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", label %for.body.i.i.i.i.i.i100.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i99.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", label %for.body.i.i.i.i.i.i100.i.i
 
 for.body.i.i.i.i.i.i100.i.i:                      ; preds = %for.cond.i.i.i.i.i.i96.i.i
   %add.ptr.i.i.i.i.i.i101.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i98.i.i, i64 8
@@ -25565,7 +25565,7 @@ if.end15.i.i.i.i.i.i63.i.i:                       ; preds = %if.end13.i.i
   %arrayidx.i.i.i.i.i.i.i.i68.i.i = getelementptr inbounds ptr, ptr %38, i64 %rem.i.i.i.i.i.i.i.i.i67.i.i
   %39 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i68.i.i, align 8, !noalias !766
   %tobool.not.i.i.i.i.i.i.i.i69.i.i = icmp eq ptr %39, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i69.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", label %if.end.i.i.i.i.i.i.i.i70.i.i
 
 if.end.i.i.i.i.i.i.i.i70.i.i:                     ; preds = %if.end15.i.i.i.i.i.i63.i.i
   %40 = load ptr, ptr %39, align 8, !noalias !766
@@ -25591,35 +25591,35 @@ if.end3.i.i.i.i.i.i.i.i75.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i76.i.i = phi ptr [ %47, %for.cond.i.i.i.i.i.i.i.i83.i.i ], [ %40, %if.end.i.i.i.i.i.i.i.i70.i.i ]
   %47 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i76.i.i, align 8, !noalias !766
   %tobool5.not.i.i.i.i.i.i.i.i77.i.i = icmp eq ptr %47, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i77.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i78.i.i:              ; preds = %if.end3.i.i.i.i.i.i.i.i75.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i = getelementptr inbounds i8, ptr %47, i64 24
   %48 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i79.i.i, align 8, !noalias !766
   %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i = urem i64 %48, %37
   %cmp.not.i.i.i.i.i.i.i.i81.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i80.i.i, %rem.i.i.i.i.i.i.i.i.i67.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i, label %for.cond.i.i.i.i.i.i.i.i83.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i81.i.i, label %for.cond.i.i.i.i.i.i.i.i83.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i83.i.i, %for.body.i.i.i.i.i.i100.i.i, %if.end.i.i.i.i.i.i.i.i70.i.i
   %retval.sroa.0.1.i.i.i.i.i.i88.i.i = phi ptr [ %40, %if.end.i.i.i.i.i.i.i.i70.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i98.i.i, %for.body.i.i.i.i.i.i100.i.i ], [ %47, %for.cond.i.i.i.i.i.i.i.i83.i.i ]
   %second.i.i.i.i89.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i88.i.i, i64 16
   %49 = load ptr, ptr %second.i.i.i.i89.i.i, align 8, !noalias !766
   %cmp.i.i.i.i90.i.i = icmp eq ptr %49, null
-  br i1 %cmp.i.i.i.i90.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i"
+  br i1 %cmp.i.i.i.i90.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i, %if.end15.i.i.i.i.i.i63.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i, %if.end3.i.i.i.i.i.i.i.i75.i.i, %for.cond.i.i.i.i.i.i96.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i, %if.end15.i.i.i.i.i.i63.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i78.i.i, %if.end3.i.i.i.i.i.i.i.i75.i.i, %for.cond.i.i.i.i.i.i96.i.i
   %incdec.ptr.i59.i.i.le226 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i87.i.i
   %second.i.i.i92.i.i = getelementptr inbounds i8, ptr %49, i64 48
   %50 = load i32, ptr %second.i.i.i92.i.i, align 8
   %cmp10.i.i.i93.not.i.i = icmp eq i32 %50, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i60.i.i)
   br i1 %cmp10.i.i.i93.not.i.i, label %if.end19.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208"
 
-if.end19.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i"
+if.end19.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i"
   %incdec.ptr.i104.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 24
   %51 = load ptr, ptr %incdec.ptr.i104.i.i, align 8, !noalias !769
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i)
@@ -25632,7 +25632,7 @@ for.cond.i.i.i.i.i.i141.i.i:                      ; preds = %if.end19.i.i, %for.
   %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i, %for.body.i.i.i.i.i.i145.i.i ], [ %_M_before_begin.i.i.i.i.i.i.i.i.i.i, %if.end19.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i143.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i142.i.i, align 8, !noalias !772
   %cmp.i.not.i.i.i.i.i.i144.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", label %for.body.i.i.i.i.i.i145.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i144.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", label %for.body.i.i.i.i.i.i145.i.i
 
 for.body.i.i.i.i.i.i145.i.i:                      ; preds = %for.cond.i.i.i.i.i.i141.i.i
   %add.ptr.i.i.i.i.i.i146.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i143.i.i, i64 8
@@ -25648,7 +25648,7 @@ if.end15.i.i.i.i.i.i108.i.i:                      ; preds = %if.end19.i.i
   %arrayidx.i.i.i.i.i.i.i.i113.i.i = getelementptr inbounds ptr, ptr %55, i64 %rem.i.i.i.i.i.i.i.i.i112.i.i
   %56 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i113.i.i, align 8, !noalias !772
   %tobool.not.i.i.i.i.i.i.i.i114.i.i = icmp eq ptr %56, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i114.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", label %if.end.i.i.i.i.i.i.i.i115.i.i
 
 if.end.i.i.i.i.i.i.i.i115.i.i:                    ; preds = %if.end15.i.i.i.i.i.i108.i.i
   %57 = load ptr, ptr %56, align 8, !noalias !772
@@ -25674,35 +25674,35 @@ if.end3.i.i.i.i.i.i.i.i120.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i121.i.i = phi ptr [ %64, %for.cond.i.i.i.i.i.i.i.i128.i.i ], [ %57, %if.end.i.i.i.i.i.i.i.i115.i.i ]
   %64 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i121.i.i, align 8, !noalias !772
   %tobool5.not.i.i.i.i.i.i.i.i122.i.i = icmp eq ptr %64, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i122.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i123.i.i:             ; preds = %if.end3.i.i.i.i.i.i.i.i120.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i = getelementptr inbounds i8, ptr %64, i64 24
   %65 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i124.i.i, align 8, !noalias !772
   %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i = urem i64 %65, %54
   %cmp.not.i.i.i.i.i.i.i.i126.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i125.i.i, %rem.i.i.i.i.i.i.i.i.i112.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i, label %for.cond.i.i.i.i.i.i.i.i128.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i126.i.i, label %for.cond.i.i.i.i.i.i.i.i128.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i128.i.i, %for.body.i.i.i.i.i.i145.i.i, %if.end.i.i.i.i.i.i.i.i115.i.i
   %retval.sroa.0.1.i.i.i.i.i.i133.i.i = phi ptr [ %57, %if.end.i.i.i.i.i.i.i.i115.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i143.i.i, %for.body.i.i.i.i.i.i145.i.i ], [ %64, %for.cond.i.i.i.i.i.i.i.i128.i.i ]
   %second.i.i.i.i134.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i133.i.i, i64 16
   %66 = load ptr, ptr %second.i.i.i.i134.i.i, align 8, !noalias !772
   %cmp.i.i.i.i135.i.i = icmp eq ptr %66, null
-  br i1 %cmp.i.i.i.i135.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i"
+  br i1 %cmp.i.i.i.i135.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i, %if.end15.i.i.i.i.i.i108.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i, %if.end3.i.i.i.i.i.i.i.i120.i.i, %for.cond.i.i.i.i.i.i141.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i, %if.end15.i.i.i.i.i.i108.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i123.i.i, %if.end3.i.i.i.i.i.i.i.i120.i.i, %for.cond.i.i.i.i.i.i141.i.i
   %incdec.ptr.i104.i.i.le219 = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i132.i.i
   %second.i.i.i137.i.i = getelementptr inbounds i8, ptr %66, i64 48
   %67 = load i32, ptr %second.i.i.i137.i.i, align 8
   %cmp10.i.i.i138.not.i.i = icmp eq i32 %67, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i105.i.i)
   br i1 %cmp10.i.i.i138.not.i.i, label %if.end25.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210"
 
-if.end25.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i"
+if.end25.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i"
   %incdec.ptr.i149.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 32
   %dec.i.i = add nsw i64 %__trip_count.0396.i.i, -1
   %cmp.i.i = icmp sgt i64 %__trip_count.0396.i.i, 1
@@ -25740,7 +25740,7 @@ for.cond.i.i.i.i.i.i190.i.i:                      ; preds = %for.body.i.i.i.i.i.
   %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i.i.i.i189.i.i, %if.then.i.i.i.i.i.i188.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i, %for.body.i.i.i.i.i.i194.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i192.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i191.i.i, align 8, !noalias !779
   %cmp.i.not.i.i.i.i.i.i193.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", label %for.body.i.i.i.i.i.i194.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i193.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", label %for.body.i.i.i.i.i.i194.i.i
 
 for.body.i.i.i.i.i.i194.i.i:                      ; preds = %for.cond.i.i.i.i.i.i190.i.i
   %add.ptr.i.i.i.i.i.i195.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i192.i.i, i64 8
@@ -25758,7 +25758,7 @@ if.end15.i.i.i.i.i.i157.i.i:                      ; preds = %sw.bb.i.i
   %arrayidx.i.i.i.i.i.i.i.i162.i.i = getelementptr inbounds ptr, ptr %72, i64 %rem.i.i.i.i.i.i.i.i.i161.i.i
   %73 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i162.i.i, align 8, !noalias !779
   %tobool.not.i.i.i.i.i.i.i.i163.i.i = icmp eq ptr %73, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i163.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", label %if.end.i.i.i.i.i.i.i.i164.i.i
 
 if.end.i.i.i.i.i.i.i.i164.i.i:                    ; preds = %if.end15.i.i.i.i.i.i157.i.i
   %74 = load ptr, ptr %73, align 8, !noalias !779
@@ -25784,34 +25784,34 @@ if.end3.i.i.i.i.i.i.i.i169.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i170.i.i = phi ptr [ %81, %for.cond.i.i.i.i.i.i.i.i177.i.i ], [ %74, %if.end.i.i.i.i.i.i.i.i164.i.i ]
   %81 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i170.i.i, align 8, !noalias !779
   %tobool5.not.i.i.i.i.i.i.i.i171.i.i = icmp eq ptr %81, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i171.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i172.i.i:             ; preds = %if.end3.i.i.i.i.i.i.i.i169.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i = getelementptr inbounds i8, ptr %81, i64 24
   %82 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i173.i.i, align 8, !noalias !779
   %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i = urem i64 %82, %71
   %cmp.not.i.i.i.i.i.i.i.i175.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i174.i.i, %rem.i.i.i.i.i.i.i.i.i161.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i, label %for.cond.i.i.i.i.i.i.i.i177.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i175.i.i, label %for.cond.i.i.i.i.i.i.i.i177.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i177.i.i, %for.body.i.i.i.i.i.i194.i.i, %if.end.i.i.i.i.i.i.i.i164.i.i
   %retval.sroa.0.1.i.i.i.i.i.i182.i.i = phi ptr [ %74, %if.end.i.i.i.i.i.i.i.i164.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i192.i.i, %for.body.i.i.i.i.i.i194.i.i ], [ %81, %for.cond.i.i.i.i.i.i.i.i177.i.i ]
   %second.i.i.i.i183.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i182.i.i, i64 16
   %83 = load ptr, ptr %second.i.i.i.i183.i.i, align 8, !noalias !779
   %cmp.i.i.i.i184.i.i = icmp eq ptr %83, null
-  br i1 %cmp.i.i.i.i184.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i"
+  br i1 %cmp.i.i.i.i184.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i, %if.end3.i.i.i.i.i.i.i.i169.i.i, %for.cond.i.i.i.i.i.i190.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i, %if.end15.i.i.i.i.i.i157.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i172.i.i, %if.end3.i.i.i.i.i.i.i.i169.i.i, %for.cond.i.i.i.i.i.i190.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i, %if.end15.i.i.i.i.i.i157.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i181.i.i
   %second.i.i.i186.i.i = getelementptr inbounds i8, ptr %83, i64 48
   %84 = load i32, ptr %second.i.i.i186.i.i, align 8
   %cmp10.i.i.i187.not.i.i = icmp eq i32 %84, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i154.i.i)
   br i1 %cmp10.i.i.i187.not.i.i, label %if.end34.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-if.end34.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i"
+if.end34.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i"
   %incdec.ptr.i198.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 8
   br label %sw.bb36.i.i
 
@@ -25833,7 +25833,7 @@ for.cond.i.i.i.i.i.i235.i.i:                      ; preds = %for.body.i.i.i.i.i.
   %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i.i.i.i234.i.i, %if.then.i.i.i.i.i.i233.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i, %for.body.i.i.i.i.i.i239.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i237.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i236.i.i, align 8, !noalias !785
   %cmp.i.not.i.i.i.i.i.i238.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", label %for.body.i.i.i.i.i.i239.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i238.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", label %for.body.i.i.i.i.i.i239.i.i
 
 for.body.i.i.i.i.i.i239.i.i:                      ; preds = %for.cond.i.i.i.i.i.i235.i.i
   %add.ptr.i.i.i.i.i.i240.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i237.i.i, i64 8
@@ -25851,7 +25851,7 @@ if.end15.i.i.i.i.i.i202.i.i:                      ; preds = %sw.bb36.i.i
   %arrayidx.i.i.i.i.i.i.i.i207.i.i = getelementptr inbounds ptr, ptr %89, i64 %rem.i.i.i.i.i.i.i.i.i206.i.i
   %90 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i207.i.i, align 8, !noalias !785
   %tobool.not.i.i.i.i.i.i.i.i208.i.i = icmp eq ptr %90, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i208.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", label %if.end.i.i.i.i.i.i.i.i209.i.i
 
 if.end.i.i.i.i.i.i.i.i209.i.i:                    ; preds = %if.end15.i.i.i.i.i.i202.i.i
   %91 = load ptr, ptr %90, align 8, !noalias !785
@@ -25877,34 +25877,34 @@ if.end3.i.i.i.i.i.i.i.i214.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i215.i.i = phi ptr [ %98, %for.cond.i.i.i.i.i.i.i.i222.i.i ], [ %91, %if.end.i.i.i.i.i.i.i.i209.i.i ]
   %98 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i215.i.i, align 8, !noalias !785
   %tobool5.not.i.i.i.i.i.i.i.i216.i.i = icmp eq ptr %98, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i216.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i217.i.i:             ; preds = %if.end3.i.i.i.i.i.i.i.i214.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i = getelementptr inbounds i8, ptr %98, i64 24
   %99 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i218.i.i, align 8, !noalias !785
   %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i = urem i64 %99, %88
   %cmp.not.i.i.i.i.i.i.i.i220.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i219.i.i, %rem.i.i.i.i.i.i.i.i.i206.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i, label %for.cond.i.i.i.i.i.i.i.i222.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i220.i.i, label %for.cond.i.i.i.i.i.i.i.i222.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i222.i.i, %for.body.i.i.i.i.i.i239.i.i, %if.end.i.i.i.i.i.i.i.i209.i.i
   %retval.sroa.0.1.i.i.i.i.i.i227.i.i = phi ptr [ %91, %if.end.i.i.i.i.i.i.i.i209.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i237.i.i, %for.body.i.i.i.i.i.i239.i.i ], [ %98, %for.cond.i.i.i.i.i.i.i.i222.i.i ]
   %second.i.i.i.i228.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i227.i.i, i64 16
   %100 = load ptr, ptr %second.i.i.i.i228.i.i, align 8, !noalias !785
   %cmp.i.i.i.i229.i.i = icmp eq ptr %100, null
-  br i1 %cmp.i.i.i.i229.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i"
+  br i1 %cmp.i.i.i.i229.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i, %if.end3.i.i.i.i.i.i.i.i214.i.i, %for.cond.i.i.i.i.i.i235.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i, %if.end15.i.i.i.i.i.i202.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i217.i.i, %if.end3.i.i.i.i.i.i.i.i214.i.i, %for.cond.i.i.i.i.i.i235.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i, %if.end15.i.i.i.i.i.i202.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i226.i.i
   %second.i.i.i231.i.i = getelementptr inbounds i8, ptr %100, i64 48
   %101 = load i32, ptr %second.i.i.i231.i.i, align 8
   %cmp10.i.i.i232.not.i.i = icmp eq i32 %101, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i199.i.i)
   br i1 %cmp10.i.i.i232.not.i.i, label %if.end41.i.i, label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-if.end41.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i"
+if.end41.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i"
   %incdec.ptr.i243.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 8
   br label %sw.bb43.i.i
 
@@ -25926,7 +25926,7 @@ for.cond.i.i.i.i.i.i280.i.i:                      ; preds = %for.body.i.i.i.i.i.
   %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i.i.i.i279.i.i, %if.then.i.i.i.i.i.i278.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i, %for.body.i.i.i.i.i.i284.i.i ]
   %retval.sroa.0.0.i.i.i.i.i.i282.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i281.i.i, align 8, !noalias !791
   %cmp.i.not.i.i.i.i.i.i283.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", label %for.body.i.i.i.i.i.i284.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i283.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", label %for.body.i.i.i.i.i.i284.i.i
 
 for.body.i.i.i.i.i.i284.i.i:                      ; preds = %for.cond.i.i.i.i.i.i280.i.i
   %add.ptr.i.i.i.i.i.i285.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i282.i.i, i64 8
@@ -25944,7 +25944,7 @@ if.end15.i.i.i.i.i.i247.i.i:                      ; preds = %sw.bb43.i.i
   %arrayidx.i.i.i.i.i.i.i.i252.i.i = getelementptr inbounds ptr, ptr %106, i64 %rem.i.i.i.i.i.i.i.i.i251.i.i
   %107 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i252.i.i, align 8, !noalias !791
   %tobool.not.i.i.i.i.i.i.i.i253.i.i = icmp eq ptr %107, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i253.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", label %if.end.i.i.i.i.i.i.i.i254.i.i
 
 if.end.i.i.i.i.i.i.i.i254.i.i:                    ; preds = %if.end15.i.i.i.i.i.i247.i.i
   %108 = load ptr, ptr %107, align 8, !noalias !791
@@ -25970,27 +25970,27 @@ if.end3.i.i.i.i.i.i.i.i259.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   %__p.012.i.i.i.i.i.i.i.i260.i.i = phi ptr [ %115, %for.cond.i.i.i.i.i.i.i.i267.i.i ], [ %108, %if.end.i.i.i.i.i.i.i.i254.i.i ]
   %115 = load ptr, ptr %__p.012.i.i.i.i.i.i.i.i260.i.i, align 8, !noalias !791
   %tobool5.not.i.i.i.i.i.i.i.i261.i.i = icmp eq ptr %115, null
-  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i.i.i261.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", label %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i.i262.i.i:             ; preds = %if.end3.i.i.i.i.i.i.i.i259.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i = getelementptr inbounds i8, ptr %115, i64 24
   %116 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i263.i.i, align 8, !noalias !791
   %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i = urem i64 %116, %105
   %cmp.not.i.i.i.i.i.i.i.i265.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i.i.i264.i.i, %rem.i.i.i.i.i.i.i.i.i251.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i, label %for.cond.i.i.i.i.i.i.i.i267.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", !llvm.loop !63
+  br i1 %cmp.not.i.i.i.i.i.i.i.i265.i.i, label %for.cond.i.i.i.i.i.i.i.i267.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", !llvm.loop !63
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i: ; preds = %for.cond.i.i.i.i.i.i.i.i267.i.i, %for.body.i.i.i.i.i.i284.i.i, %if.end.i.i.i.i.i.i.i.i254.i.i
   %retval.sroa.0.1.i.i.i.i.i.i272.i.i = phi ptr [ %108, %if.end.i.i.i.i.i.i.i.i254.i.i ], [ %retval.sroa.0.0.i.i.i.i.i.i282.i.i, %for.body.i.i.i.i.i.i284.i.i ], [ %115, %for.cond.i.i.i.i.i.i.i.i267.i.i ]
   %second.i.i.i.i273.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i.i272.i.i, i64 16
   %117 = load ptr, ptr %second.i.i.i.i273.i.i, align 8, !noalias !791
   %cmp.i.i.i.i274.i.i = icmp eq ptr %117, null
-  br i1 %cmp.i.i.i.i274.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i"
+  br i1 %cmp.i.i.i.i274.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i, %if.end3.i.i.i.i.i.i.i.i259.i.i, %for.cond.i.i.i.i.i.i280.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i, %if.end15.i.i.i.i.i.i247.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i": ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i262.i.i, %if.end3.i.i.i.i.i.i.i.i259.i.i, %for.cond.i.i.i.i.i.i280.i.i, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i, %if.end15.i.i.i.i.i.i247.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i244.i.i)
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i": ; preds = %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i271.i.i
   %second.i.i.i276.i.i = getelementptr inbounds i8, ptr %117, i64 48
   %118 = load i32, ptr %second.i.i.i276.i.i, align 8
   %cmp10.i.i.i277.not.i.i = icmp eq i32 %118, 2
@@ -25998,20 +25998,20 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   %spec.select.i.i = select i1 %cmp10.i.i.i277.not.i.i, ptr %__last.coerce, ptr %__first.sroa.0.2.i.i
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.i.i"
+"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.i.i"
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 8
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.i.i"
+"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.i.i"
   %incdec.ptr.i59.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 16
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.i.i"
+"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.i.i"
   %incdec.ptr.i104.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0395.i.i, i64 24
   br label %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit"
 
-"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i", %for.end.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.i.i" ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.i.i" ], [ %__last.coerce, %for.end.i.i ], [ %__first.sroa.0.0395.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i" ], [ %incdec.ptr.i.i.i.le233, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit58.thread.i.i" ], [ %incdec.ptr.i59.i.i.le226, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit103.thread.i.i" ], [ %incdec.ptr.i104.i.i.le219, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit148.thread.i.i" ], [ %__first.sroa.0.0.lcssa.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit197.thread.i.i" ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit242.thread.i.i" ], [ %__first.sroa.0.2.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.thread.i.i" ], [ %spec.select.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit287.i.i" ], [ %incdec.ptr.i.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i59.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208" ], [ %incdec.ptr.i104.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210" ], [ %__first.sroa.0.0395.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.i.i" ]
+"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208", %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i", %for.end.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.i.i" ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.i.i" ], [ %__last.coerce, %for.end.i.i ], [ %__first.sroa.0.0395.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.thread.i.i" ], [ %incdec.ptr.i.i.i.le233, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit58.thread.i.i" ], [ %incdec.ptr.i59.i.i.le226, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit103.thread.i.i" ], [ %incdec.ptr.i104.i.i.le219, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit148.thread.i.i" ], [ %__first.sroa.0.0.lcssa.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit197.thread.i.i" ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit242.thread.i.i" ], [ %__first.sroa.0.2.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.thread.i.i" ], [ %spec.select.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit287.i.i" ], [ %incdec.ptr.i.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i59.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit208" ], [ %incdec.ptr.i104.i.i.le, %"_ZSt9__find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEN9__gnu_cxx5__ops10_Iter_predIZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1EEET_SG_SG_T0_.exit.loopexit.split.loop.exit210" ], [ %__first.sroa.0.0395.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom.exit.i.i" ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated.i.i
 }
 

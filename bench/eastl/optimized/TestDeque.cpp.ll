@@ -19857,13 +19857,13 @@ invoke.cont3.i.i.i2.i.i:                          ; preds = %if.else.i.i2005
 _ZZ9TestDequevEN1aD2Ev.exit3.i.i:                 ; preds = %invoke.cont3.i.i.i2.i.i, %if.else.i.i2005
   %727 = load ptr, ptr %mpBegin.i.i.i.i1918, align 8, !noalias !701
   %tobool.not.i.i.i2006 = icmp eq ptr %727, null
-  br i1 %tobool.not.i.i.i2006, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2007
+  br i1 %tobool.not.i.i.i2006, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2007
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2007: ; preds = %_ZZ9TestDequevEN1aD2Ev.exit3.i.i
   call void @_ZdaPv(ptr noundef nonnull %727) #15, !noalias !701
-  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i
+  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2007, %_ZZ9TestDequevEN1aD2Ev.exit3.i.i
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2007, %_ZZ9TestDequevEN1aD2Ev.exit3.i.i
   %728 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i1917, align 8, !noalias !701
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %728, i64 8
   store ptr %add.ptr10.i.i, ptr %mpCurrentArrayPtr.i.i.i.i1917, align 8, !noalias !701
@@ -19964,13 +19964,13 @@ if.then.i57.i:                                    ; preds = %_ZN5eastl13DequeIte
 
 if.else.i59.i:                                    ; preds = %_ZN5eastl13DequeIteratorIZ9TestDequevE1aPS1_RS1_Lj32EE4copyERKS4_S6_NS_17integral_constantIbLb0EEE.exit.i
   %tobool.not.i.i60.i = icmp eq ptr %734, null
-  br i1 %tobool.not.i.i60.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i62.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i61.i
+  br i1 %tobool.not.i.i60.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i62.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i61.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i61.i: ; preds = %if.else.i59.i
   call void @_ZdaPv(ptr noundef nonnull %734) #15, !noalias !701
-  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i62.i
+  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i62.i
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i62.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i61.i, %if.else.i59.i
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i62.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i61.i, %if.else.i59.i
   %737 = load ptr, ptr %mpCurrentArrayPtr.i10.i.i.i, align 8, !noalias !701
   %add.ptr.i64.i = getelementptr inbounds i8, ptr %737, i64 -8
   store ptr %add.ptr.i64.i, ptr %mpCurrentArrayPtr.i10.i.i.i, align 8, !noalias !701
@@ -19984,14 +19984,14 @@ _ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exi
   %cmp.not.i.i.i2.i.i = icmp eq ptr %739, null
   br i1 %cmp.not.i.i.i2.i.i, label %if.end.i1983, label %if.end.sink.split.i.i
 
-if.end.sink.split.i.i:                            ; preds = %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i62.i, %if.then.i57.i
-  %add.ptr10.sink.i.i = phi ptr [ %incdec.ptr.i.i1982, %if.then.i57.i ], [ %add.ptr10.i67.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i62.i ]
-  %.sink.i.i = phi ptr [ %736, %if.then.i57.i ], [ %739, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i62.i ]
+if.end.sink.split.i.i:                            ; preds = %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i62.i, %if.then.i57.i
+  %add.ptr10.sink.i.i = phi ptr [ %incdec.ptr.i.i1982, %if.then.i57.i ], [ %add.ptr10.i67.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i62.i ]
+  %.sink.i.i = phi ptr [ %736, %if.then.i57.i ], [ %739, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i62.i ]
   store ptr null, ptr %add.ptr10.sink.i.i, align 8, !noalias !701
   call void @_ZdlPv(ptr noundef nonnull %.sink.i.i) #15, !noalias !701
   br label %if.end.i1983
 
-if.end.i1983:                                     ; preds = %if.end.sink.split.i.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i62.i, %if.then.i57.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i, %invoke.cont3.i.i.i.i.i, %if.then.i.i2004
+if.end.i1983:                                     ; preds = %if.end.sink.split.i.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i62.i, %if.then.i57.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i, %invoke.cont3.i.i.i.i.i, %if.then.i.i2004
   %740 = load ptr, ptr %mItBegin.i.i1912, align 8
   %mItEnd.val9.i = load ptr, ptr %mItEnd.i.i1913, align 8
   %cmp.i.not10.i = icmp eq ptr %740, %mItEnd.val9.i
@@ -20044,29 +20044,29 @@ if.then.i5.i2024:                                 ; preds = %for.end.i2022
   %747 = load ptr, ptr %mpCurrentArrayPtr.i10.i.i.i, align 8
   %add.ptr.i7.i2026 = getelementptr inbounds i8, ptr %747, i64 8
   %cmp1.i.i.i = icmp ult ptr %746, %add.ptr.i7.i2026
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i2028, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i.i
+  br i1 %cmp1.i.i.i, label %while.body.i.i.i2028, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i.i
 
-while.body.i.i.i2028:                             ; preds = %if.then.i5.i2024, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i.i
-  %pBegin.addr.02.i.i.i = phi ptr [ %incdec.ptr.i.i.i2029, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i.i ], [ %746, %if.then.i5.i2024 ]
+while.body.i.i.i2028:                             ; preds = %if.then.i5.i2024, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i.i
+  %pBegin.addr.02.i.i.i = phi ptr [ %incdec.ptr.i.i.i2029, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i.i ], [ %746, %if.then.i5.i2024 ]
   %incdec.ptr.i.i.i2029 = getelementptr inbounds i8, ptr %pBegin.addr.02.i.i.i, i64 8
   %748 = load ptr, ptr %pBegin.addr.02.i.i.i, align 8
   %tobool.not.i.i.i.i2030 = icmp eq ptr %748, null
-  br i1 %tobool.not.i.i.i.i2030, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2031
+  br i1 %tobool.not.i.i.i.i2030, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2031
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2031: ; preds = %while.body.i.i.i2028
   call void @_ZdaPv(ptr noundef nonnull %748) #15
-  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i.i
+  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i.i
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2031, %while.body.i.i.i2028
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i2031, %while.body.i.i.i2028
   %cmp.i.i.i2032 = icmp ult ptr %pBegin.addr.02.i.i.i, %747
-  br i1 %cmp.i.i.i2032, label %while.body.i.i.i2028, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i.i, !llvm.loop !727
+  br i1 %cmp.i.i.i2032, label %while.body.i.i.i2028, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i.i, !llvm.loop !727
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i.i: ; preds = %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i.i, %if.then.i5.i2024
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i.i: ; preds = %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i.i, %if.then.i5.i2024
   call void @_ZdaPv(ptr noundef nonnull %745) #15
   store ptr null, ptr %d598, align 8
   br label %_ZN5eastl5dequeIZ9TestDequevE1aNS_9allocatorELj32EED2Ev.exit
 
-_ZN5eastl5dequeIZ9TestDequevE1aNS_9allocatorELj32EED2Ev.exit: ; preds = %for.end.i2022, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i.i
+_ZN5eastl5dequeIZ9TestDequevE1aNS_9allocatorELj32EED2Ev.exit: ; preds = %for.end.i2022, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp622, ptr noundef nonnull align 4 dereferenceable(36) @constinit.55, i64 36, i1 false)
   call void @_ZN5eastl5dequeIiNS_9allocatorELj64EEC1ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(81) %d620, ptr nonnull %ref.tmp622, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627)
   store i32 2, ptr %ref.tmp628, align 4
@@ -65612,25 +65612,25 @@ call.i.i.i.i.noexc:                               ; preds = %if.else32.i
   %sub.ptr.sub43.i = sub i64 %sub.ptr.lhs.cast41.i, %sub.ptr.rhs.cast42.i
   %add.ptr45.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 %sub.ptr.sub43.i
   %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i, label %if.end52.i
+  br i1 %tobool.not.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i, label %if.end52.i
 
 if.end52.i:                                       ; preds = %call.i.i.i.i.noexc
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr45.i, ptr align 8 %8, i64 %mul.i, i1 false)
   %.pre.i = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %.pre.i, null
-  br i1 %tobool.not.i.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
+  br i1 %tobool.not.i.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %if.end52.i
   tail call void @_ZdaPv(ptr noundef nonnull %.pre.i) #15
-  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i
+  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %if.end52.i, %call.i.i.i.i.noexc
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %if.end52.i, %call.i.i.i.i.noexc
   store ptr %call.i.i.i.i2, ptr %this, align 8
   store i64 %add36.i, ptr %mnPtrArraySize, align 8
   br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE17DoReallocPtrArrayEmNS3_4SideE.exit
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE17DoReallocPtrArrayEmNS3_4SideE.exit: ; preds = %if.then.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i
-  %pPtrArrayBegin.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %add.ptr45.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i ]
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE17DoReallocPtrArrayEmNS3_4SideE.exit: ; preds = %if.then.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i
+  %pPtrArrayBegin.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %add.ptr45.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i ]
   store ptr %pPtrArrayBegin.0.i, ptr %mpCurrentArrayPtr.i, align 8
   %10 = load ptr, ptr %pPtrArrayBegin.0.i, align 8
   %mpBegin.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -65751,36 +65751,36 @@ if.then.i5:                                       ; preds = %for.end
   %cmp1.i.i = icmp ult ptr %6, %add.ptr.i7
   br i1 %cmp1.i.i, label %while.body.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
-while.body.i.i:                                   ; preds = %if.then.i5, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i
-  %pBegin.addr.02.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i ], [ %6, %if.then.i5 ]
+while.body.i.i:                                   ; preds = %if.then.i5, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i
+  %pBegin.addr.02.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i ], [ %6, %if.then.i5 ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pBegin.addr.02.i.i, i64 8
   %8 = load ptr, ptr %pBegin.addr.02.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %while.body.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %8) #15
-  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i
+  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %while.body.i.i
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %while.body.i.i
   %cmp.i.i = icmp ult ptr %pBegin.addr.02.i.i, %7
   br i1 %cmp.i.i, label %while.body.i.i, label %invoke.cont.i, !llvm.loop !727
 
-invoke.cont.i:                                    ; preds = %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.exit.i.i
+invoke.cont.i:                                    ; preds = %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreeSubarrayEPS1_.argprom.exit.i.i
   %.pre.i = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %.pre.i, null
-  br i1 %tobool.not.i.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
+  br i1 %tobool.not.i.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %invoke.cont.i, %if.then.i5
   %9 = phi ptr [ %.pre.i, %invoke.cont.i ], [ %5, %if.then.i5 ]
   tail call void @_ZdaPv(ptr noundef nonnull %9) #15
-  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i
+  br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %invoke.cont.i
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %invoke.cont.i
   store ptr null, ptr %this, align 8
   br label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EED2Ev.exit
 
-_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EED2Ev.exit: ; preds = %for.end, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i
+_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EED2Ev.exit: ; preds = %for.end, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.argprom.exit.i
   ret void
 }
 

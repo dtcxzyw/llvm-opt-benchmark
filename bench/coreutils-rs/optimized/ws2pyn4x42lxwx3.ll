@@ -25,7 +25,7 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
   %10 = call { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h2438c75ba06ae5b2E"(ptr align 1 %8, i64 %9, ptr nonnull align 1 %1, i64 %2)
   %11 = extractvalue { ptr, i64 } %10, 0
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h978053b37bea64e8E.exit", label %12
+  br i1 %.not.i, label %"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h978053b37bea64e8E.argprom.exit", label %12
 
 12:                                               ; preds = %3
   %13 = extractvalue { ptr, i64 } %10, 1
@@ -39,9 +39,9 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
   %19 = extractvalue { ptr, i64 } %17, 1
   %spec.select.i = select i1 %.not7.i, ptr %11, ptr %18
   %spec.select8.i = select i1 %.not7.i, i64 %13, i64 %19
-  br label %"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h978053b37bea64e8E.exit"
+  br label %"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h978053b37bea64e8E.argprom.exit"
 
-"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h978053b37bea64e8E.exit": ; preds = %3, %12
+"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h978053b37bea64e8E.argprom.exit": ; preds = %3, %12
   %.sroa.01.0.i = phi ptr [ %1, %3 ], [ %spec.select.i, %12 ]
   %.sroa.4.0.i = phi i64 [ %2, %3 ], [ %spec.select8.i, %12 ]
   %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0.i, 0

@@ -553,23 +553,23 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   %17 = load ptr, ptr %4, align 8, !noalias !7
   %.not.i = icmp eq ptr %17, null
   %or.cond = select i1 %.not.i.i.i, i1 true, i1 %.not.i
-  br i1 %or.cond, label %_ZNKSt8weak_ptrIN5osgeo4proj4util10BaseObjectEE4lockEv.exit.thread, label %"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.exit"
+  br i1 %or.cond, label %_ZNKSt8weak_ptrIN5osgeo4proj4util10BaseObjectEE4lockEv.exit.thread, label %"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.argprom.exit"
 
 _ZNKSt8weak_ptrIN5osgeo4proj4util10BaseObjectEE4lockEv.exit.thread: ; preds = %10, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i, %2
   tail call void @abort() #28, !noalias !12
   unreachable
 
-"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.exit": ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
+"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.argprom.exit": ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i.i.i.i, label %21, label %19
 
-19:                                               ; preds = %"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.exit"
+19:                                               ; preds = %"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.argprom.exit"
   %20 = add nsw i32 %.fr.i.i.i, 1
   store i32 %20, ptr %8, align 4
   br label %23
 
-21:                                               ; preds = %"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.exit"
+21:                                               ; preds = %"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.argprom.exit"
   %22 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %23
 
@@ -7085,8 +7085,8 @@ attributes #29 = { noreturn }
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E: argument 0"}
-!14 = distinct !{!14, !"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E"}
+!13 = distinct !{!13, !14, !"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.argprom: argument 0"}
+!14 = distinct !{!14, !"_ZZNK5osgeo4proj4util10BaseObject16shared_from_thisEvENK3$_0clESt10shared_ptrIS2_E.argprom"}
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZN5osgeo4proj8internal11make_uniqueINS0_4util10BaseObject7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_: argument 0"}
 !17 = distinct !{!17, !"_ZN5osgeo4proj8internal11make_uniqueINS0_4util10BaseObject7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_"}

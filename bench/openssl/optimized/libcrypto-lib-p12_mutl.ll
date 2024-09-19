@@ -93,12 +93,12 @@ declare void @X509_SIG_get0(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @PKCS12_gen_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @pkcs12_gen_mac(ptr noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen)
+  %call = tail call fastcc i32 @pkcs12_gen_mac.argprom(ptr noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac.argprom(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) unnamed_addr #1 {
 entry:
   %out.i = alloca [96 x i8], align 16
   %key = alloca [64 x i8], align 16
@@ -292,7 +292,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @pkcs12_gen_mac(ptr noundef nonnull %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef nonnull %mac, ptr noundef nonnull %maclen)
+  %call = call fastcc i32 @pkcs12_gen_mac.argprom(ptr noundef nonnull %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef nonnull %mac, ptr noundef nonnull %maclen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then2, label %if.end3
 
@@ -367,7 +367,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %call7 = call fastcc i32 @pkcs12_gen_mac(ptr noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef nonnull %mac, ptr noundef nonnull %maclen)
+  %call7 = call fastcc i32 @pkcs12_gen_mac.argprom(ptr noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef nonnull %mac, ptr noundef nonnull %maclen)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %if.end10
 

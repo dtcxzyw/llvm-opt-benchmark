@@ -660,7 +660,7 @@ if.then.i:                                        ; preds = %sw.epilog.i
   %call36.i = tail call { ptr, i64 } %34(ptr noundef nonnull align 8 dereferenceable(8) %33)
   %35 = extractvalue { ptr, i64 } %call36.i, 0
   %36 = extractvalue { ptr, i64 } %call36.i, 1
-  %call37.i = tail call fastcc noundef i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_(ptr %24, i64 %25, ptr noundef %28, ptr %31, i64 %32, ptr %35, i64 %36)
+  %call37.i = tail call fastcc noundef i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_.argprom(ptr %24, i64 %25, ptr noundef %28, ptr %31, i64 %32, ptr %35, i64 %36)
   %cmp.not.i = icmp eq i32 %call37.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then45
 
@@ -1822,7 +1822,7 @@ if.end:                                           ; preds = %lor.rhs
   %call46 = tail call { ptr, i64 } %26(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %27 = extractvalue { ptr, i64 } %call46, 0
   %28 = extractvalue { ptr, i64 } %call46, 1
-  %call47 = tail call fastcc noundef i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_(ptr %16, i64 %17, ptr noundef %20, ptr %23, i64 %24, ptr %27, i64 %28)
+  %call47 = tail call fastcc noundef i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_.argprom(ptr %16, i64 %17, ptr noundef %20, ptr %23, i64 %24, ptr %27, i64 %28)
   %cmp48.not = icmp eq i32 %call47, 0
   br i1 %cmp48.not, label %if.end50, label %return.sink.split
 
@@ -1858,7 +1858,7 @@ declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_(ptr nocapture writeonly %dst.coerce0, i64 %dst.coerce1, ptr noundef %buf, ptr %kdf_key.coerce0, i64 %kdf_key.coerce1, ptr %kdf_counter.0.val, i64 %kdf_counter.8.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_.argprom(ptr nocapture writeonly %dst.coerce0, i64 %dst.coerce1, ptr noundef %buf, ptr %kdf_key.coerce0, i64 %kdf_key.coerce1, ptr %kdf_counter.0.val, i64 %kdf_counter.8.val) unnamed_addr #0 {
 entry:
   %ctr = alloca i8, align 1
   store i8 1, ptr %ctr, align 1

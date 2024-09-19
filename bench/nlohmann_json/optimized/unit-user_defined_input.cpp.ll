@@ -1912,7 +1912,7 @@ terminate.lpad.i.i8.i.i:                          ; preds = %if.then.i.i6.i.i
 
 invoke.cont11.i:                                  ; preds = %if.then.i.i3.i.i, %invoke.cont.i5.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !20
-  invoke fastcc void @_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEEE5parseEbRSF_(ptr noundef nonnull align 8 dereferenceable(193) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %as_json)
+  invoke fastcc void @_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEEE5parseEbRSF_.argelim(ptr noundef nonnull align 8 dereferenceable(193) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %as_json)
           to label %invoke.cont13.i unwind label %lpad12.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont11.i
@@ -28298,7 +28298,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 declare void @_ZN7doctest8toStringEb(ptr sret(%"class.doctest::String") align 8, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEEE5parseEbRSF_(ptr noundef nonnull align 8 dereferenceable(193) %this, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEEE5parseEbRSF_.argelim(ptr noundef nonnull align 8 dereferenceable(193) %this, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cs.i472 = alloca %"struct.std::array.120", align 1
   %cs.i445 = alloca %"struct.std::array.120", align 1
@@ -35375,20 +35375,20 @@ attributes #30 = { nounwind willreturn memory(none) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIRKN12_GLOBAL__N_111MyContainerEEESD_OT_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb: %agg.result"}
-!10 = distinct !{!10, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIRKN12_GLOBAL__N_111MyContainerEEESD_OT_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb"}
+!9 = distinct !{!9, !10, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIRKN12_GLOBAL__N_111MyContainerEEESD_OT_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb.argprom: %agg.result"}
+!10 = distinct !{!10, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIRKN12_GLOBAL__N_111MyContainerEEESD_OT_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb.argprom"}
 !11 = !{!12, !9}
 !12 = distinct !{!12, !13, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6parserINS0_6detail22iterator_input_adapterIPKcEEEENSF_6parserISD_T_EESL_St8functionIFbiNSF_13parse_event_tERSD_EEbb: %agg.result"}
 !13 = distinct !{!13, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6parserINS0_6detail22iterator_input_adapterIPKcEEEENSF_6parserISD_T_EESL_St8functionIFbiNSF_13parse_event_tERSD_EEbb"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIRKZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_6EvE12MyContainer2EESD_OT_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb: %agg.result"}
-!16 = distinct !{!16, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIRKZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_6EvE12MyContainer2EESD_OT_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb"}
+!15 = distinct !{!15, !16, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIRKZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_6EvE12MyContainer2EESD_OT_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb.argprom: %agg.result"}
+!16 = distinct !{!16, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIRKZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_6EvE12MyContainer2EESD_OT_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb.argprom"}
 !17 = !{!18, !15}
 !18 = distinct !{!18, !19, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6parserINS0_6detail22iterator_input_adapterIPKcEEEENSF_6parserISD_T_EESL_St8functionIFbiNSF_13parse_event_tERSD_EEbb: %agg.result"}
 !19 = distinct !{!19, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6parserINS0_6detail22iterator_input_adapterIPKcEEEENSF_6parserISD_T_EESL_St8functionIFbiNSF_13parse_event_tERSD_EEbb"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEESD_T_SH_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb: %agg.result"}
-!22 = distinct !{!22, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEESD_T_SH_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb"}
+!21 = distinct !{!21, !22, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEESD_T_SH_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb.argprom: %agg.result"}
+!22 = distinct !{!22, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5parseIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEESD_T_SH_St8functionIFbiNS0_6detail13parse_event_tERSD_EEbb.argprom"}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6parserINS0_6detail22iterator_input_adapterIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEEEENSF_6parserISD_T_EESL_St8functionIFbiNSF_13parse_event_tERSD_EEbb: %agg.result"}
 !25 = distinct !{!25, !"_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6parserINS0_6detail22iterator_input_adapterIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEEEENSF_6parserISD_T_EESL_St8functionIFbiNSF_13parse_event_tERSD_EEbb"}

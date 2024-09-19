@@ -114,7 +114,7 @@ define range(i32 -1, 2) i32 @Fra_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
   br i1 %.not91, label %71, label %70
 
 70:                                               ; preds = %66
-  call fastcc void @Fra_SetActivityFactors(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  call fastcc void @Fra_SetActivityFactors.retelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   br label %71
 
 71:                                               ; preds = %70, %66
@@ -506,7 +506,7 @@ declare void @Fra_CnfNodeAddToSolver(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fra_SetActivityFactors(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @Fra_SetActivityFactors.retelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -678,7 +678,7 @@ define range(i32 -1, 2) i32 @Fra_NodesAreImp(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not47, label %40, label %39
 
 39:                                               ; preds = %35
-  call fastcc void @Fra_SetActivityFactors(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  call fastcc void @Fra_SetActivityFactors.retelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   br label %40
 
 40:                                               ; preds = %39, %35
@@ -934,7 +934,7 @@ define range(i32 -1, 2) i32 @Fra_NodesAreClause(ptr noundef %0, ptr noundef %1, 
   br i1 %.not47, label %40, label %39
 
 39:                                               ; preds = %35
-  call fastcc void @Fra_SetActivityFactors(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  call fastcc void @Fra_SetActivityFactors.retelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   br label %40
 
 40:                                               ; preds = %39, %35
@@ -1174,7 +1174,7 @@ define range(i32 -1, 2) i32 @Fra_NodeIsConst(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %21
-  call fastcc void @Fra_SetActivityFactors(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1)
+  call fastcc void @Fra_SetActivityFactors.retelim(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1)
   br label %26
 
 26:                                               ; preds = %25, %21

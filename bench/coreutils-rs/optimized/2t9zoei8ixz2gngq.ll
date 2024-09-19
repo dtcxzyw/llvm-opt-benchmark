@@ -706,7 +706,7 @@ common.resume:                                    ; preds = %.body.i.i, %.body.i
   %40 = getelementptr inbounds i8, ptr %3, i64 8
   %.val5.i = load ptr, ptr %40, align 8, !noalias !180
   %41 = icmp eq ptr %.val.i, null
-  br i1 %41, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i", label %42
+  br i1 %41, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.argprom.exit.i", label %42
 
 42:                                               ; preds = %39
   %43 = icmp ne ptr %.val5.i, null
@@ -739,18 +739,18 @@ common.resume:                                    ; preds = %.body.i.i, %.body.i
   %59 = icmp ult i64 %58, -9223372036854775807
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %56, 0
-  br i1 %60, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i", label %61
+  br i1 %60, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.argprom.exit.i", label %61
 
 61:                                               ; preds = %54
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %56, i64 noundef %58) #18, !noalias !192
-  br label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i"
+  br label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.argprom.exit.i"
 
 .body.i:                                          ; preds = %53, %45
   store ptr %.sroa.5.0.copyload, ptr %3, align 8, !noalias !180
   store ptr %.sroa.6.0.copyload, ptr %40, align 8, !noalias !180
   br label %common.resume
 
-"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i": ; preds = %61, %54, %39
+"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.argprom.exit.i": ; preds = %61, %54, %39
   store ptr %.sroa.5.0.copyload, ptr %3, align 8, !noalias !180
   store ptr %.sroa.6.0.copyload, ptr %40, align 8, !noalias !180
   br label %62
@@ -759,10 +759,10 @@ common.resume:                                    ; preds = %.body.i.i, %.body.i
   store i64 -9223372036854775805, ptr %0, align 8, !alias.scope !195
   br label %63
 
-62:                                               ; preds = %38, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i"
-  %.sroa.0.0.copyload2038 = phi i64 [ -9223372036854775806, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i" ], [ %.pre.pre.i.i, %38 ]
-  %.sroa.5.0.copyload2137 = phi ptr [ %.sroa.5.0.copyload, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i" ], [ %.sroa.5.0.copyload16, %38 ]
-  %.sroa.6.0.copyload2235 = phi ptr [ %.sroa.6.0.copyload, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.exit.i" ], [ %.sroa.6.0.copyload18, %38 ]
+62:                                               ; preds = %38, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.argprom.exit.i"
+  %.sroa.0.0.copyload2038 = phi i64 [ -9223372036854775806, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.argprom.exit.i" ], [ %.pre.pre.i.i, %38 ]
+  %.sroa.5.0.copyload2137 = phi ptr [ %.sroa.5.0.copyload, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.argprom.exit.i" ], [ %.sroa.5.0.copyload16, %38 ]
+  %.sroa.6.0.copyload2235 = phi ptr [ %.sroa.6.0.copyload, %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h96f72780f9607d7dE.argprom.exit.i" ], [ %.sroa.6.0.copyload18, %38 ]
   store i64 %.sroa.0.0.copyload2038, ptr %0, align 8, !alias.scope !198
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.5.0.copyload2137, ptr %.sroa.29.0..sroa_idx, align 8, !alias.scope !198
@@ -1319,9 +1319,9 @@ attributes #18 = { nounwind }
 !178 = distinct !{!178, !179, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE: argument 0"}
 !179 = distinct !{!179, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE"}
 !180 = !{!181, !183}
-!181 = distinct !{!181, !182, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7409e0b51ca15691E: argument 0"}
-!182 = distinct !{!182, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7409e0b51ca15691E"}
-!183 = distinct !{!183, !182, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7409e0b51ca15691E: argument 1"}
+!181 = distinct !{!181, !182, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7409e0b51ca15691E.argprom: argument 0"}
+!182 = distinct !{!182, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7409e0b51ca15691E.argprom"}
+!183 = distinct !{!183, !182, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7409e0b51ca15691E.argprom: argument 1"}
 !184 = !{!185, !187, !181, !183}
 !185 = distinct !{!185, !186, !"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$17h1033695bcb9a26afE.llvm.15812483133845673217: argument 0"}
 !186 = distinct !{!186, !"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$17h1033695bcb9a26afE.llvm.15812483133845673217"}

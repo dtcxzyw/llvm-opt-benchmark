@@ -1079,7 +1079,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load i64, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp, i64 51, ptr nonnull @.str.80, i64 %this.val, ptr %this.val2)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp, i64 51, ptr nonnull @.str.80, i64 %this.val, ptr %this.val2)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -1186,7 +1186,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load i64, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp, i64 34, ptr nonnull @.str.82, i64 %this.val, ptr %this.val2)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp, i64 34, ptr nonnull @.str.82, i64 %this.val, ptr %this.val2)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -1293,7 +1293,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load i64, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp, i64 62, ptr nonnull @.str.83, i64 %this.val, ptr %this.val2)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp, i64 62, ptr nonnull @.str.83, i64 %this.val, ptr %this.val2)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -1400,7 +1400,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load i64, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp, i64 35, ptr nonnull @.str.84, i64 %this.val, ptr %this.val2)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp, i64 35, ptr nonnull @.str.84, i64 %this.val, ptr %this.val2)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -4197,7 +4197,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %this, i64 %format.coerce0, ptr %format.coerce1, i64 %args1.0.val, ptr %args1.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %this, i64 %format.coerce0, ptr %format.coerce1, i64 %args1.0.val, ptr %args1.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i.i = alloca [2 x %"class.std::basic_string_view"], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4516,8 +4516,8 @@ attributes #24 = { builtin allocsize(0) }
 !16 = distinct !{!16, !17, !"_ZNO6google8protobuf2io7Printer3Sub10WithSuffixENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}
 !17 = distinct !{!17, !"_ZNO6google8protobuf2io7Printer3Sub10WithSuffixENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120RepeatedFieldGettersEPKNS0_15FieldDescriptorERKNS2_7OptionsE: %agg.result"}
-!20 = distinct !{!20, !"_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120RepeatedFieldGettersEPKNS0_15FieldDescriptorERKNS2_7OptionsE"}
+!19 = distinct !{!19, !20, !"_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120RepeatedFieldGettersEPKNS0_15FieldDescriptorERKNS2_7OptionsE.argprom: %agg.result"}
+!20 = distinct !{!20, !"_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120RepeatedFieldGettersEPKNS0_15FieldDescriptorERKNS2_7OptionsE.argprom"}
 !21 = !{!22, !19}
 !22 = distinct !{!22, !23, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE: %agg.result"}
 !23 = distinct !{!23, !"_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE"}

@@ -6195,13 +6195,13 @@ sw.bb1.thread:                                    ; preds = %entry
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %from, i8 0, i64 16, i1 false)
-  br label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.exit"
+  br label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.argprom.exit"
 
 sw.bb1:                                           ; preds = %entry
   %.phi.trans.insert = getelementptr i8, ptr %from, i64 8
   %call.val.pre = load ptr, ptr %.phi.trans.insert, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %call.val.pre, null
-  br i1 %cmp.not.i.i.i.i, label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.exit", label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb1
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.pre, i64 12
@@ -6222,16 +6222,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %3, %if.then.i.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.exit"
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.argprom.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %call.val.pre, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %call.val.pre) #26
-  br label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.exit"
+  br label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.argprom.exit"
 
-"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.exit": ; preds = %sw.bb1.thread, %sw.bb1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.argprom.exit": ; preds = %sw.bb1.thread, %sw.bb1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i.i.i
   ret void
 }
 
@@ -6795,7 +6795,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i: ; preds = %cleanup.i.i.i.i
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %crl.i.i.i.i, i64 16
   %84 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i25.i.i.i.i = icmp eq ptr %84, null
-  br i1 %cmp.not.i.i.i.i25.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit", label %if.then.i.i.i.i26.i.i.i.i
+  br i1 %cmp.not.i.i.i.i25.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit", label %if.then.i.i.i.i26.i.i.i.i
 
 if.then.i.i.i.i26.i.i.i.i:                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i
   %_M_use_count.i.i.i.i.i27.i.i.i.i = getelementptr inbounds i8, ptr %84, i64 8
@@ -6831,7 +6831,7 @@ if.else.i.i.i.i.i.i50.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i29.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i33.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i50.i.i.i.i, %if.then.i.i.i.i.i.i31.i.i.i.i
   %retval.i.0.i.i.i.i.i34.i.i.i.i = phi i32 [ %86, %if.then.i.i.i.i.i.i31.i.i.i.i ], [ %89, %if.else.i.i.i.i.i.i50.i.i.i.i ]
   %cmp6.i.i.i.i.i35.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i34.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i35.i.i.i.i, label %if.then7.i.i.i.i.i36.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit"
+  br i1 %cmp6.i.i.i.i.i35.i.i.i.i, label %if.then7.i.i.i.i.i36.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit"
 
 if.then7.i.i.i.i.i36.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i33.i.i.i.i
   %vtable.i.i.i.i.i.i.i37.i.i.i.i = load ptr, ptr %84, align 8
@@ -6856,23 +6856,23 @@ if.else.i.i.i.i.i.i.i.i49.i.i.i.i:                ; preds = %if.then7.i.i.i.i.i3
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i43.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i49.i.i.i.i, %if.then.i.i.i.i.i.i.i.i41.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i44.i.i.i.i = phi i32 [ %92, %if.then.i.i.i.i.i.i.i.i41.i.i.i.i ], [ %93, %if.else.i.i.i.i.i.i.i.i49.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i45.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i44.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i45.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i46.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit"
+  br i1 %cmp.i.i.i.i.i.i.i45.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i46.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit"
 
 if.end8.sink.split.i.i.i.i.i46.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i43.i.i.i.i, %if.then.i.i.i.i.i51.i.i.i.i
   %vtable2.i.i.i.i.i.i.i47.i.i.i.i = load ptr, ptr %84, align 8
   %vfn3.i.i.i.i.i.i.i48.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i47.i.i.i.i, i64 24
   %94 = load ptr, ptr %vfn3.i.i.i.i.i.i.i48.i.i.i.i, align 8
   call void %94(ptr noundef nonnull align 8 dereferenceable(16) %84) #26
-  br label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit"
 
 if.else.i.i.i.i.i:                                ; preds = %cleanup.i.i.i.i
   %and.i.i.i1.i.i.i.i.i = and i64 %83, 1
   %cmp.i.i.i2.i.i.i.i.i = icmp eq i64 %and.i.i.i1.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i2.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit", label %if.then.i.i3.i.i.i.i.i
+  br i1 %cmp.i.i.i2.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit", label %if.then.i.i3.i.i.i.i.i
 
 if.then.i.i3.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %83)
-          to label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit" unwind label %terminate.lpad.i4.i.i.i.i.i
+          to label %"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit" unwind label %terminate.lpad.i4.i.i.i.i.i
 
 terminate.lpad.i4.i.i.i.i.i:                      ; preds = %if.then.i.i3.i.i.i.i.i
   %95 = landingpad { ptr, i32 }
@@ -6903,7 +6903,7 @@ ehcleanup45.i.i.i.i:                              ; preds = %ehcleanup43.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i.i) #26
   resume { ptr, i32 } %.pn2.pn.i.i.i.i
 
-"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit": ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i33.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i43.i.i.i.i, %if.end8.sink.split.i.i.i.i.i46.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i3.i.i.i.i.i
+"_ZSt6invokeIRKZN9grpc_core12experimental28DirectoryReloaderCrlProvider6UpdateEvE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i33.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i43.i.i.i.i, %if.end8.sink.split.i.i.i.i.i46.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i3.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i.i) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %file_path.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i)

@@ -91,21 +91,21 @@ do.body.i:                                        ; preds = %do.cond.i, %if.else
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.2, i64 %prefix.addr.0.idx.i
   %1 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %2 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %2, %1
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !5
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !5
 
-skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
+skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
   %out.2 = phi ptr [ %out.012, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.then7, label %if.else13
 
-if.then7:                                         ; preds = %skip_prefix.exit
+if.then7:                                         ; preds = %skip_prefix.argprom.exit
   %3 = load i64, ptr %nr, align 8
   %cmp9 = icmp ult i64 %3, 65536
   br i1 %cmp9, label %if.then10, label %if.end25
@@ -114,7 +114,7 @@ if.then10:                                        ; preds = %if.then7
   %call12 = call ptr @strvec_push(ptr noundef nonnull %prefixes, ptr noundef %out.2) #9
   br label %if.end25
 
-if.else13:                                        ; preds = %skip_prefix.exit
+if.else13:                                        ; preds = %skip_prefix.argprom.exit
   %call14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #10
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.then16, label %if.else20

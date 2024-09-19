@@ -284,7 +284,7 @@ strbuf_setlen.exit40:                             ; preds = %strbuf_setlen.exit3
   %call.i42 = call ptr @opendir(ptr noundef nonnull @.str.15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count_path.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
   %tobool.not.i = icmp eq ptr %call.i42, null
-  br i1 %tobool.not.i, label %loose_objs_stats.exit, label %if.end.i43
+  br i1 %tobool.not.i, label %loose_objs_stats.argprom.exit, label %if.end.i43
 
 if.end.i43:                                       ; preds = %strbuf_setlen.exit40
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.32, i64 noundef 27) #12
@@ -411,9 +411,9 @@ while.end.i:                                      ; preds = %if.end19.i, %strbuf
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.36, i32 noundef %total.0.lcssa.i) #12
   call void @strbuf_release(ptr noundef nonnull %count_path.i) #12
   %call20.i = call i32 @closedir(ptr noundef nonnull %call.i42)
-  br label %loose_objs_stats.exit
+  br label %loose_objs_stats.argprom.exit
 
-loose_objs_stats.exit:                            ; preds = %strbuf_setlen.exit40, %while.end.i
+loose_objs_stats.argprom.exit:                    ; preds = %strbuf_setlen.exit40, %while.end.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %count_path.i)
   %35 = load ptr, ptr %buf.i, align 8
@@ -426,8 +426,8 @@ for.cond:                                         ; preds = %for.body
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %if.end44, label %for.body, !llvm.loop !9
 
-for.body:                                         ; preds = %loose_objs_stats.exit, %for.cond
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %loose_objs_stats.exit ]
+for.body:                                         ; preds = %loose_objs_stats.argprom.exit, %for.cond
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %loose_objs_stats.argprom.exit ]
   %arrayidx = getelementptr inbounds [5 x %struct.archive_dir], ptr @__const.create_diagnostics_archive.archive_dirs, i64 0, i64 %indvars.iv
   %36 = load ptr, ptr %arrayidx, align 16
   %recursive = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -450,7 +450,7 @@ _.exit52:                                         ; preds = %if.then36, %if.end3
   %call41 = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i51, ptr noundef %36) #12
   br label %diagnose_cleanup
 
-if.end44:                                         ; preds = %for.cond, %loose_objs_stats.exit
+if.end44:                                         ; preds = %for.cond, %loose_objs_stats.argprom.exit
   %39 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %39, i64 256
   %40 = load ptr, ptr %hash_algo, align 8

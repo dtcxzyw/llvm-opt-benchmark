@@ -911,33 +911,33 @@ if.end.i114:                                      ; preds = %_ZN6hermes6parser7J
 while.cond.i:                                     ; preds = %if.end.i114, %sw.epilog.i
   %previousTokenKind.sroa.0.0.i = phi i32 [ %90, %sw.epilog.i ], [ 0, %if.end.i114 ]
   %tobool.i.not.i.i = phi i1 [ false, %sw.epilog.i ], [ true, %if.end.i114 ]
-  br i1 %tobool.i.not.i.i, label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i", label %if.end.i.i116
+  br i1 %tobool.i.not.i.i, label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.argprom.exit.i", label %if.end.i.i116
 
 if.end.i.i116:                                    ; preds = %while.cond.i
   %switch.tableidx = add i32 %previousTokenKind.sroa.0.0.i, -7
   %75 = icmp ult i32 %switch.tableidx, 87
-  br i1 %75, label %switch.lookup, label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i"
+  br i1 %75, label %switch.lookup, label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.argprom.exit.i"
 
 switch.lookup:                                    ; preds = %if.end.i.i116
   %76 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [87 x i32], ptr @switch.table._Z4replRKN6hermes2vm13RuntimeConfigE, i64 0, i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i"
+  br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.argprom.exit.i"
 
-"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i": ; preds = %if.end.i.i116, %switch.lookup, %while.cond.i
+"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.argprom.exit.i": ; preds = %if.end.i.i116, %switch.lookup, %while.cond.i
   %not.call5.i = phi i32 [ 0, %while.cond.i ], [ %switch.load, %switch.lookup ], [ 1, %if.end.i.i116 ]
   %call6.i117 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer.i, i32 noundef %not.call5.i) #20
   %tobool.not.i = icmp eq ptr %call6.i117, null
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i
 
-while.body.i:                                     ; preds = %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i"
+while.body.i:                                     ; preds = %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.argprom.exit.i"
   %77 = load i32, ptr %call6.i117, align 8
   switch i32 %77, label %sw.epilog.i [
     i32 120, label %while.end.i
     i32 49, label %sw.bb.i
     i32 53, label %sw.bb.i
     i32 55, label %sw.bb.i
-    i32 51, label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i"
+    i32 51, label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.argprom.exit.i"
     i32 54, label %sw.bb2.i.i
     i32 56, label %sw.bb3.i.i
   ]
@@ -962,19 +962,19 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb.i
   br label %sw.epilog.i
 
 sw.bb2.i.i:                                       ; preds = %while.body.i
-  br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i"
+  br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.argprom.exit.i"
 
 sw.bb3.i.i:                                       ; preds = %while.body.i
-  br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i"
+  br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.argprom.exit.i"
 
-"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i": ; preds = %sw.bb3.i.i, %sw.bb2.i.i, %while.body.i
+"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.argprom.exit.i": ; preds = %sw.bb3.i.i, %sw.bb2.i.i, %while.body.i
   %retval.0.i7.i = phi i32 [ 55, %sw.bb3.i.i ], [ 53, %sw.bb2.i.i ], [ 49, %while.body.i ]
   %81 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %82 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
   %cmp.i.i.i.i118 = icmp eq ptr %81, %82
   br i1 %cmp.i.i.i.i118, label %cleanup.i, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i"
+land.lhs.true.i:                                  ; preds = %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.argprom.exit.i"
   %83 = load ptr, ptr %_M_first.i10.i.i.i.i.i, align 8
   %cmp.i.i.i10.i = icmp eq ptr %81, %83
   br i1 %cmp.i.i.i10.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i
@@ -1015,14 +1015,14 @@ sw.epilog.i:                                      ; preds = %_ZNSt5stackIN6herme
   %90 = load i32, ptr %call6.i117, align 8
   br label %while.cond.i, !llvm.loop !14
 
-while.end.i:                                      ; preds = %while.body.i, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i"
+while.end.i:                                      ; preds = %while.body.i, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.argprom.exit.i"
   %91 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %92 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
   %cmp.i.i.i22.i = icmp ne ptr %91, %92
   br label %cleanup.i
 
-cleanup.i:                                        ; preds = %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i", %while.end.i, %if.end.i114, %_ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i
-  %retval.0.i119 = phi i1 [ %cmp.i.i.i22.i, %while.end.i ], [ false, %_ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i ], [ true, %if.end.i114 ], [ false, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i" ], [ false, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ false, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i ]
+cleanup.i:                                        ; preds = %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.argprom.exit.i", %while.end.i, %if.end.i114, %_ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i
+  %retval.0.i119 = phi i1 [ %cmp.i.i.i22.i, %while.end.i ], [ false, %_ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i ], [ true, %if.end.i114 ], [ false, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.argprom.exit.i" ], [ false, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ false, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i ]
   %93 = load ptr, ptr %stack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %93, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEED2Ev.exit.i, label %if.then.i.i.i23.i

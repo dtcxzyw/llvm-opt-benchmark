@@ -313,9 +313,9 @@ define i32 @Bmcg_ManUnfold_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %.val51 = load i64, ptr %16, align 4
   %17 = and i64 %.val51, 2684354559
   %narrow.i.not = icmp eq i64 %17, 2684354559
-  br i1 %narrow.i.not, label %Gia_ObjIsPi.exit, label %112
+  br i1 %narrow.i.not, label %Gia_ObjIsPi.argprom.exit, label %112
 
-Gia_ObjIsPi.exit:                                 ; preds = %12
+Gia_ObjIsPi.argprom.exit:                         ; preds = %12
   %18 = lshr i64 %.val51, 32
   %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 536870911
@@ -327,9 +327,9 @@ Gia_ObjIsPi.exit:                                 ; preds = %12
   %.val5.val.i = load i32, ptr %23, align 4
   %24 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not = icmp slt i32 %20, %24
-  br i1 %.not, label %25, label %Gia_ObjIsPi.exit.thread
+  br i1 %.not, label %25, label %Gia_ObjIsPi.argprom.exit.thread
 
-25:                                               ; preds = %Gia_ObjIsPi.exit
+25:                                               ; preds = %Gia_ObjIsPi.argprom.exit
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   %27 = getelementptr inbounds i8, ptr %0, i64 68
   %28 = load i32, ptr %27, align 4
@@ -467,11 +467,11 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %90 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %89)
   br label %139
 
-Gia_ObjIsPi.exit.thread:                          ; preds = %Gia_ObjIsPi.exit
+Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %Gia_ObjIsPi.argprom.exit
   %91 = icmp sgt i32 %2, 0
   br i1 %91, label %92, label %139
 
-92:                                               ; preds = %Gia_ObjIsPi.exit.thread
+92:                                               ; preds = %Gia_ObjIsPi.argprom.exit.thread
   %93 = getelementptr i8, ptr %14, i64 72
   %.val5.i62 = load ptr, ptr %93, align 8
   %94 = getelementptr i8, ptr %.val5.i62, i64 4
@@ -535,8 +535,8 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %Gia_ObjIsPi.exit
   %138 = tail call i32 @Gia_ManHashAnd(ptr noundef %137, i32 noundef %124, i32 noundef %135) #17
   br label %139
 
-139:                                              ; preds = %126, %116, %112, %Vec_IntPushTwo.exit, %92, %Gia_ObjIsPi.exit.thread
-  %.044 = phi i32 [ %90, %Vec_IntPushTwo.exit ], [ %111, %92 ], [ 0, %Gia_ObjIsPi.exit.thread ], [ %138, %126 ], [ %124, %116 ], [ 0, %112 ]
+139:                                              ; preds = %126, %116, %112, %Vec_IntPushTwo.exit, %92, %Gia_ObjIsPi.argprom.exit.thread
+  %.044 = phi i32 [ %90, %Vec_IntPushTwo.exit ], [ %111, %92 ], [ 0, %Gia_ObjIsPi.argprom.exit.thread ], [ %138, %126 ], [ %124, %116 ], [ 0, %112 ]
   store i32 %.044, ptr %9, align 4
   br label %140
 
@@ -1226,12 +1226,12 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %168 = load ptr, ptr %4, align 8
   %169 = getelementptr i8, ptr %168, i64 24
   %.val89 = load i32, ptr %169, align 8
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %167, i32 noundef %.val89)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %167, i32 noundef %.val89)
   %170 = load ptr, ptr %4, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 392
   %172 = getelementptr i8, ptr %170, i64 24
   %.val88 = load i32, ptr %172, align 8
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %171, i32 noundef %.val88)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %171, i32 noundef %.val88)
   %173 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @Gia_ManStopP(ptr noundef nonnull %173) #17
   %174 = load ptr, ptr %4, align 8
@@ -1503,7 +1503,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int1_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -28,12 +28,12 @@ datatype_check.exit:
   %15 = xor i32 %.028, %.0
   %16 = and i32 %15, 8
   %.not34 = icmp eq i32 %16, 0
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %17, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %18, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %19, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %17, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %18, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %19, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %.030, i1 false)
   %17 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %18 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -41,14 +41,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %19, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !4
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %20 = icmp ugt i64 %.030, 1
   br i1 %20, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.032.us40 = phi ptr [ %27, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us41 = phi ptr [ %28, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us42 = phi i64 [ %29, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.032.us40 = phi ptr [ %27, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us41 = phi ptr [ %28, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us42 = phi i64 [ %29, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.argprom.exit.split ]
   %21 = load i8, ptr %.031.us41, align 1
   store i8 %21, ptr %.032.us40, align 1
   br label %.lr.ph.i.us
@@ -72,10 +72,10 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.lr.ph.i.us
   %.not35.us44 = icmp eq i64 %29, 0
   br i1 %.not35.us44, label %.split.us, label %.preheader.us, !llvm.loop !4
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %.preheader
-  %.032 = phi ptr [ %31, %.preheader ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %32, %.preheader ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %33, %.preheader ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %.preheader
+  %.032 = phi ptr [ %31, %.preheader ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %32, %.preheader ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %33, %.preheader ], [ %.029, %datatype_check.argprom.exit.split ]
   %30 = load i8, ptr %.031, align 1
   store i8 %30, ptr %.032, align 1
   %31 = getelementptr inbounds i8, ptr %.032, i64 %7
@@ -93,7 +93,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.lr.ph.i.us
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int2_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -116,12 +116,12 @@ datatype_check.exit:
   %19 = and i32 %18, 8
   %.not34 = icmp eq i32 %19, 0
   %20 = shl i64 %.030, 1
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %22 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -129,14 +129,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %23, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !7
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %24 = icmp ugt i64 %.030, 1
   br i1 %24, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -183,10 +183,10 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
   %.not35.us44 = icmp eq i64 %43, 0
   br i1 %.not35.us44, label %.split.us, label %.preheader.us, !llvm.loop !7
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %.preheader.i
-  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %.preheader.i
+  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %47
 
 .preheader.i:                                     ; preds = %47
@@ -217,7 +217,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int4_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -240,12 +240,12 @@ datatype_check.exit:
   %19 = and i32 %18, 8
   %.not34 = icmp eq i32 %19, 0
   %20 = shl i64 %.030, 2
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %22 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -253,14 +253,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %23, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !10
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %24 = icmp ugt i64 %.030, 1
   br i1 %24, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -307,10 +307,10 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
   %.not35.us44 = icmp eq i64 %43, 0
   br i1 %.not35.us44, label %.split.us, label %.preheader.us, !llvm.loop !10
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %.preheader.i
-  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %.preheader.i
+  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %47
 
 .preheader.i:                                     ; preds = %47
@@ -341,7 +341,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int8_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -364,12 +364,12 @@ datatype_check.exit:
   %19 = and i32 %18, 8
   %.not34 = icmp eq i32 %19, 0
   %20 = shl i64 %.030, 3
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %22 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -377,14 +377,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %23, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !11
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %24 = icmp ugt i64 %.030, 1
   br i1 %24, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -431,10 +431,10 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
   %.not35.us44 = icmp eq i64 %43, 0
   br i1 %.not35.us44, label %.split.us, label %.preheader.us, !llvm.loop !11
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %.preheader.i
-  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %.preheader.i
+  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %47
 
 .preheader.i:                                     ; preds = %47
@@ -465,7 +465,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float2_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -488,12 +488,12 @@ datatype_check.exit:
   %19 = and i32 %18, 8
   %.not34 = icmp eq i32 %19, 0
   %20 = shl i64 %.030, 1
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %22 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -501,14 +501,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %23, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !12
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %24 = icmp ugt i64 %.030, 1
   br i1 %24, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -555,10 +555,10 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
   %.not35.us44 = icmp eq i64 %43, 0
   br i1 %.not35.us44, label %.split.us, label %.preheader.us, !llvm.loop !12
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %.preheader.i
-  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %.preheader.i
+  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %47
 
 .preheader.i:                                     ; preds = %47
@@ -589,7 +589,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float4_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -612,12 +612,12 @@ datatype_check.exit:
   %19 = and i32 %18, 8
   %.not34 = icmp eq i32 %19, 0
   %20 = shl i64 %.030, 2
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %22 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -625,14 +625,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %23, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !13
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %24 = icmp ugt i64 %.030, 1
   br i1 %24, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -679,10 +679,10 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
   %.not35.us44 = icmp eq i64 %43, 0
   br i1 %.not35.us44, label %.split.us, label %.preheader.us, !llvm.loop !13
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %.preheader.i
-  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %.preheader.i
+  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %47
 
 .preheader.i:                                     ; preds = %47
@@ -713,7 +713,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float8_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -736,12 +736,12 @@ datatype_check.exit:
   %19 = and i32 %18, 8
   %.not34 = icmp eq i32 %19, 0
   %20 = shl i64 %.030, 3
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %22 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -749,14 +749,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %23, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !14
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %24 = icmp ugt i64 %.030, 1
   br i1 %24, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -803,10 +803,10 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
   %.not35.us44 = icmp eq i64 %43, 0
   br i1 %.not35.us44, label %.split.us, label %.preheader.us, !llvm.loop !14
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %.preheader.i
-  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %.preheader.i
+  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %47
 
 .preheader.i:                                     ; preds = %47
@@ -837,7 +837,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float16_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #1 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = alloca [32 x i8], align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
@@ -867,22 +867,22 @@ datatype_check.exit:
   %or.cond75 = icmp eq i32 %24, 5767168
   %25 = add i64 %.064, -2
   %26 = shl i64 %.064, 4
-  br i1 %21, label %datatype_check.exit.split.us, label %datatype_check.exit.split.preheader
+  br i1 %21, label %datatype_check.argprom.exit.split.us, label %datatype_check.argprom.exit.split.preheader
 
-datatype_check.exit.split.preheader:              ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split.preheader:      ; preds = %datatype_check.argprom.exit
   %alignment_of_long_double.val.promoted.b = load i1, ptr @alignment_of_long_double.val, align 8
   %alignment_of_long_double.val.promoted = select i1 %alignment_of_long_double.val.promoted.b, i64 16, i64 0
-  br label %datatype_check.exit.split
+  br label %datatype_check.argprom.exit.split
 
-datatype_check.exit.split.us:                     ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split.us:             ; preds = %datatype_check.argprom.exit
   %27 = and i32 %19, 8
   %.not70 = icmp eq i32 %27, 0
-  br i1 %.not70, label %opal_dt_swap_bytes.exit.us.us, label %datatype_check.exit.split.us.split
+  br i1 %.not70, label %opal_dt_swap_bytes.exit.us.us, label %datatype_check.argprom.exit.split.us.split
 
-opal_dt_swap_bytes.exit.us.us:                    ; preds = %datatype_check.exit.split.us, %opal_dt_swap_bytes.exit.us.us
-  %.066.us.us = phi ptr [ %28, %opal_dt_swap_bytes.exit.us.us ], [ %5, %datatype_check.exit.split.us ]
-  %.065.us.us = phi ptr [ %29, %opal_dt_swap_bytes.exit.us.us ], [ %2, %datatype_check.exit.split.us ]
-  %.163.us.us = phi i64 [ %30, %opal_dt_swap_bytes.exit.us.us ], [ %.062, %datatype_check.exit.split.us ]
+opal_dt_swap_bytes.exit.us.us:                    ; preds = %datatype_check.argprom.exit.split.us, %opal_dt_swap_bytes.exit.us.us
+  %.066.us.us = phi ptr [ %28, %opal_dt_swap_bytes.exit.us.us ], [ %5, %datatype_check.argprom.exit.split.us ]
+  %.065.us.us = phi ptr [ %29, %opal_dt_swap_bytes.exit.us.us ], [ %2, %datatype_check.argprom.exit.split.us ]
+  %.163.us.us = phi i64 [ %30, %opal_dt_swap_bytes.exit.us.us ], [ %.062, %datatype_check.argprom.exit.split.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.066.us.us, ptr align 1 %.065.us.us, i64 %26, i1 false)
   %28 = getelementptr inbounds i8, ptr %.066.us.us, i64 %7
   %29 = getelementptr inbounds i8, ptr %.065.us.us, i64 %4
@@ -890,13 +890,13 @@ opal_dt_swap_bytes.exit.us.us:                    ; preds = %datatype_check.exit
   %.not71.us.us = icmp eq i64 %30, 0
   br i1 %.not71.us.us, label %.split.us, label %opal_dt_swap_bytes.exit.us.us, !llvm.loop !15
 
-datatype_check.exit.split.us.split:               ; preds = %datatype_check.exit.split.us
+datatype_check.argprom.exit.split.us.split:       ; preds = %datatype_check.argprom.exit.split.us
   br i1 %22, label %.preheader.us.us, label %.preheader.us
 
-.preheader.us.us:                                 ; preds = %datatype_check.exit.split.us.split, %opal_dt_swap_bytes.exit.loopexit.us.us
-  %.066.us.us127 = phi ptr [ %47, %opal_dt_swap_bytes.exit.loopexit.us.us ], [ %5, %datatype_check.exit.split.us.split ]
-  %.065.us.us128 = phi ptr [ %48, %opal_dt_swap_bytes.exit.loopexit.us.us ], [ %2, %datatype_check.exit.split.us.split ]
-  %.163.us.us129 = phi i64 [ %49, %opal_dt_swap_bytes.exit.loopexit.us.us ], [ %.062, %datatype_check.exit.split.us.split ]
+.preheader.us.us:                                 ; preds = %datatype_check.argprom.exit.split.us.split, %opal_dt_swap_bytes.exit.loopexit.us.us
+  %.066.us.us127 = phi ptr [ %47, %opal_dt_swap_bytes.exit.loopexit.us.us ], [ %5, %datatype_check.argprom.exit.split.us.split ]
+  %.065.us.us128 = phi ptr [ %48, %opal_dt_swap_bytes.exit.loopexit.us.us ], [ %2, %datatype_check.argprom.exit.split.us.split ]
+  %.163.us.us129 = phi i64 [ %49, %opal_dt_swap_bytes.exit.loopexit.us.us ], [ %.062, %datatype_check.argprom.exit.split.us.split ]
   br label %31
 
 31:                                               ; preds = %31, %.preheader.us.us
@@ -943,10 +943,10 @@ opal_dt_swap_bytes.exit.loopexit.us.us:           ; preds = %.loopexit.i.us.us
   %.not71.us.us131 = icmp eq i64 %49, 0
   br i1 %.not71.us.us131, label %.split.us, label %.preheader.us.us, !llvm.loop !15
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split.us.split, %.preheader.i.us
-  %.066.us = phi ptr [ %56, %.preheader.i.us ], [ %5, %datatype_check.exit.split.us.split ]
-  %.065.us = phi ptr [ %57, %.preheader.i.us ], [ %2, %datatype_check.exit.split.us.split ]
-  %.163.us = phi i64 [ %58, %.preheader.i.us ], [ %.062, %datatype_check.exit.split.us.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split.us.split, %.preheader.i.us
+  %.066.us = phi ptr [ %56, %.preheader.i.us ], [ %5, %datatype_check.argprom.exit.split.us.split ]
+  %.065.us = phi ptr [ %57, %.preheader.i.us ], [ %2, %datatype_check.argprom.exit.split.us.split ]
+  %.163.us = phi i64 [ %58, %.preheader.i.us ], [ %.062, %datatype_check.argprom.exit.split.us.split ]
   br label %50
 
 50:                                               ; preds = %.preheader.us, %50
@@ -968,11 +968,11 @@ opal_dt_swap_bytes.exit.loopexit.us.us:           ; preds = %.loopexit.i.us.us
   %.not71.us = icmp eq i64 %58, 0
   br i1 %.not71.us, label %.split.us, label %.preheader.us, !llvm.loop !15
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit.split.preheader, %opal_dt_swap_bytes.exit
-  %59 = phi i64 [ %123, %opal_dt_swap_bytes.exit ], [ %alignment_of_long_double.val.promoted, %datatype_check.exit.split.preheader ]
-  %.066 = phi ptr [ %157, %opal_dt_swap_bytes.exit ], [ %5, %datatype_check.exit.split.preheader ]
-  %.065 = phi ptr [ %158, %opal_dt_swap_bytes.exit ], [ %2, %datatype_check.exit.split.preheader ]
-  %.163 = phi i64 [ %159, %opal_dt_swap_bytes.exit ], [ %.062, %datatype_check.exit.split.preheader ]
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit.split.preheader, %opal_dt_swap_bytes.exit
+  %59 = phi i64 [ %123, %opal_dt_swap_bytes.exit ], [ %alignment_of_long_double.val.promoted, %datatype_check.argprom.exit.split.preheader ]
+  %.066 = phi ptr [ %157, %opal_dt_swap_bytes.exit ], [ %5, %datatype_check.argprom.exit.split.preheader ]
+  %.065 = phi ptr [ %158, %opal_dt_swap_bytes.exit ], [ %2, %datatype_check.argprom.exit.split.preheader ]
+  %.163 = phi i64 [ %159, %opal_dt_swap_bytes.exit ], [ %.062, %datatype_check.argprom.exit.split.preheader ]
   %60 = load i32, ptr @opal_local_arch, align 4
   %61 = xor i32 %60, %.061
   %62 = and i32 %61, 8
@@ -982,9 +982,9 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 .preheader.i79:                                   ; preds = %.preheader126
   br i1 %22, label %.lr.ph.i80, label %opal_dt_swap_bytes.exit88
 
-.preheader126:                                    ; preds = %datatype_check.exit.split, %.preheader126
-  %.02631.i76 = phi i64 [ %67, %.preheader126 ], [ 15, %datatype_check.exit.split ]
-  %.02730.i77 = phi i64 [ %66, %.preheader126 ], [ 0, %datatype_check.exit.split ]
+.preheader126:                                    ; preds = %datatype_check.argprom.exit.split, %.preheader126
+  %.02631.i76 = phi i64 [ %67, %.preheader126 ], [ 15, %datatype_check.argprom.exit.split ]
+  %.02730.i77 = phi i64 [ %66, %.preheader126 ], [ 0, %datatype_check.argprom.exit.split ]
   %63 = getelementptr inbounds i8, ptr %.065, i64 %.02730.i77
   %64 = load i8, ptr %63, align 1
   %65 = getelementptr inbounds i8, ptr %.066, i64 %.02631.i76
@@ -1019,8 +1019,8 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %exitcond37.not.i86 = icmp eq i64 %76, 16
   br i1 %exitcond37.not.i86, label %.loopexit.i87, label %72, !llvm.loop !9
 
-opal_dt_swap_bytes.exit88:                        ; preds = %.loopexit.i87, %.preheader.i79, %datatype_check.exit.split
-  %.0 = phi ptr [ %.065, %datatype_check.exit.split ], [ %.066, %.preheader.i79 ], [ %.066, %.loopexit.i87 ]
+opal_dt_swap_bytes.exit88:                        ; preds = %.loopexit.i87, %.preheader.i79, %datatype_check.argprom.exit.split
+  %.0 = phi ptr [ %.065, %datatype_check.argprom.exit.split ], [ %.066, %.preheader.i79 ], [ %.066, %.loopexit.i87 ]
   br i1 %or.cond73, label %ldbl_to_f128.exit, label %78
 
 78:                                               ; preds = %opal_dt_swap_bytes.exit88
@@ -1236,7 +1236,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %.loopexit.i112, %.p
   %158 = getelementptr inbounds i8, ptr %.065, i64 %4
   %159 = add i64 %.163, -1
   %.not71 = icmp eq i64 %159, 0
-  br i1 %.not71, label %.split.us, label %datatype_check.exit.split, !llvm.loop !15
+  br i1 %.not71, label %.split.us, label %datatype_check.argprom.exit.split, !llvm.loop !15
 
 .split.us:                                        ; preds = %opal_dt_swap_bytes.exit, %.preheader.i.us, %opal_dt_swap_bytes.exit.loopexit.us.us, %opal_dt_swap_bytes.exit.us.us
   %160 = mul i64 %spec.select, %4
@@ -1247,7 +1247,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %.loopexit.i112, %.p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_short_float_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -1271,12 +1271,12 @@ datatype_check.exit:
   %20 = and i32 %19, 8
   %.not34 = icmp eq i32 %20, 0
   %21 = shl i64 %.030, 2
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %23, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %24, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %23, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %24, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %21, i1 false)
   %22 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %23 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -1284,14 +1284,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %24, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !21
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %.not40 = icmp eq i64 %.030, 0
   br i1 %.not40, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %.preheader.i.us
-  %.032.us41 = phi ptr [ %31, %.preheader.i.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us42 = phi ptr [ %32, %.preheader.i.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us43 = phi i64 [ %33, %.preheader.i.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %.preheader.i.us
+  %.032.us41 = phi ptr [ %31, %.preheader.i.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us42 = phi ptr [ %32, %.preheader.i.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us43 = phi i64 [ %33, %.preheader.i.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -1313,10 +1313,10 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.not35.us45 = icmp eq i64 %33, 0
   br i1 %.not35.us45, label %.split.us, label %.preheader.us, !llvm.loop !21
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit
-  %.032 = phi ptr [ %50, %opal_dt_swap_bytes.exit.loopexit ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %51, %opal_dt_swap_bytes.exit.loopexit ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %52, %opal_dt_swap_bytes.exit.loopexit ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit
+  %.032 = phi ptr [ %50, %opal_dt_swap_bytes.exit.loopexit ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %51, %opal_dt_swap_bytes.exit.loopexit ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %52, %opal_dt_swap_bytes.exit.loopexit ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %34
 
 34:                                               ; preds = %.preheader, %34
@@ -1372,7 +1372,7 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %.loopexit.i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -1396,12 +1396,12 @@ datatype_check.exit:
   %20 = and i32 %19, 8
   %.not34 = icmp eq i32 %20, 0
   %21 = shl i64 %.030, 2
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %23, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %24, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %23, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %24, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %21, i1 false)
   %22 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %23 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -1409,14 +1409,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %24, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !22
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %.not40 = icmp eq i64 %.030, 0
   br i1 %.not40, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %.preheader.i.us
-  %.032.us41 = phi ptr [ %31, %.preheader.i.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us42 = phi ptr [ %32, %.preheader.i.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us43 = phi i64 [ %33, %.preheader.i.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %.preheader.i.us
+  %.032.us41 = phi ptr [ %31, %.preheader.i.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us42 = phi ptr [ %32, %.preheader.i.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us43 = phi i64 [ %33, %.preheader.i.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -1438,10 +1438,10 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.not35.us45 = icmp eq i64 %33, 0
   br i1 %.not35.us45, label %.split.us, label %.preheader.us, !llvm.loop !22
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit
-  %.032 = phi ptr [ %50, %opal_dt_swap_bytes.exit.loopexit ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %51, %opal_dt_swap_bytes.exit.loopexit ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %52, %opal_dt_swap_bytes.exit.loopexit ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit
+  %.032 = phi ptr [ %50, %opal_dt_swap_bytes.exit.loopexit ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %51, %opal_dt_swap_bytes.exit.loopexit ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %52, %opal_dt_swap_bytes.exit.loopexit ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %34
 
 34:                                               ; preds = %.preheader, %34
@@ -1497,7 +1497,7 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %.loopexit.i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_double_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -1521,12 +1521,12 @@ datatype_check.exit:
   %20 = and i32 %19, 8
   %.not34 = icmp eq i32 %20, 0
   %21 = shl i64 %.030, 3
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %23, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %24, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %23, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %24, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %21, i1 false)
   %22 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %23 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -1534,14 +1534,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %24, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !23
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %.not40 = icmp eq i64 %.030, 0
   br i1 %.not40, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %.preheader.i.us
-  %.032.us41 = phi ptr [ %31, %.preheader.i.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us42 = phi ptr [ %32, %.preheader.i.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us43 = phi i64 [ %33, %.preheader.i.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %.preheader.i.us
+  %.032.us41 = phi ptr [ %31, %.preheader.i.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us42 = phi ptr [ %32, %.preheader.i.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us43 = phi i64 [ %33, %.preheader.i.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -1563,10 +1563,10 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.not35.us45 = icmp eq i64 %33, 0
   br i1 %.not35.us45, label %.split.us, label %.preheader.us, !llvm.loop !23
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit
-  %.032 = phi ptr [ %50, %opal_dt_swap_bytes.exit.loopexit ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %51, %opal_dt_swap_bytes.exit.loopexit ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %52, %opal_dt_swap_bytes.exit.loopexit ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit
+  %.032 = phi ptr [ %50, %opal_dt_swap_bytes.exit.loopexit ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %51, %opal_dt_swap_bytes.exit.loopexit ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %52, %opal_dt_swap_bytes.exit.loopexit ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %34
 
 34:                                               ; preds = %.preheader, %34
@@ -1622,7 +1622,7 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %.loopexit.i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_long_double_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #1 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = alloca [32 x i8], align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
@@ -1655,22 +1655,22 @@ datatype_check.exit:
   %26 = sdiv i64 %7, 2
   %27 = add i64 %.064, -2
   %28 = shl i64 %.064, 4
-  br i1 %22, label %datatype_check.exit.split.us, label %datatype_check.exit.split.preheader
+  br i1 %22, label %datatype_check.argprom.exit.split.us, label %datatype_check.argprom.exit.split.preheader
 
-datatype_check.exit.split.preheader:              ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split.preheader:      ; preds = %datatype_check.argprom.exit
   %alignment_of_long_double.val.promoted.b = load i1, ptr @alignment_of_long_double.val, align 8
   %alignment_of_long_double.val.promoted = select i1 %alignment_of_long_double.val.promoted.b, i64 16, i64 0
-  br label %datatype_check.exit.split
+  br label %datatype_check.argprom.exit.split
 
-datatype_check.exit.split.us:                     ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split.us:             ; preds = %datatype_check.argprom.exit
   %29 = and i32 %20, 8
   %.not70 = icmp eq i32 %29, 0
-  br i1 %.not70, label %opal_dt_swap_bytes.exit.us.us, label %datatype_check.exit.split.us.split
+  br i1 %.not70, label %opal_dt_swap_bytes.exit.us.us, label %datatype_check.argprom.exit.split.us.split
 
-opal_dt_swap_bytes.exit.us.us:                    ; preds = %datatype_check.exit.split.us, %opal_dt_swap_bytes.exit.us.us
-  %.066.us.us = phi ptr [ %30, %opal_dt_swap_bytes.exit.us.us ], [ %5, %datatype_check.exit.split.us ]
-  %.065.us.us = phi ptr [ %31, %opal_dt_swap_bytes.exit.us.us ], [ %2, %datatype_check.exit.split.us ]
-  %.163.us.us = phi i64 [ %32, %opal_dt_swap_bytes.exit.us.us ], [ %.062, %datatype_check.exit.split.us ]
+opal_dt_swap_bytes.exit.us.us:                    ; preds = %datatype_check.argprom.exit.split.us, %opal_dt_swap_bytes.exit.us.us
+  %.066.us.us = phi ptr [ %30, %opal_dt_swap_bytes.exit.us.us ], [ %5, %datatype_check.argprom.exit.split.us ]
+  %.065.us.us = phi ptr [ %31, %opal_dt_swap_bytes.exit.us.us ], [ %2, %datatype_check.argprom.exit.split.us ]
+  %.163.us.us = phi i64 [ %32, %opal_dt_swap_bytes.exit.us.us ], [ %.062, %datatype_check.argprom.exit.split.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.066.us.us, ptr align 1 %.065.us.us, i64 %28, i1 false)
   %30 = getelementptr inbounds i8, ptr %.066.us.us, i64 %7
   %31 = getelementptr inbounds i8, ptr %.065.us.us, i64 %4
@@ -1678,13 +1678,13 @@ opal_dt_swap_bytes.exit.us.us:                    ; preds = %datatype_check.exit
   %.not71.us.us = icmp eq i64 %32, 0
   br i1 %.not71.us.us, label %.split.us, label %opal_dt_swap_bytes.exit.us.us, !llvm.loop !24
 
-datatype_check.exit.split.us.split:               ; preds = %datatype_check.exit.split.us
+datatype_check.argprom.exit.split.us.split:       ; preds = %datatype_check.argprom.exit.split.us
   br i1 %.not122, label %.preheader.us.us, label %.preheader.us
 
-.preheader.us.us:                                 ; preds = %datatype_check.exit.split.us.split, %.preheader.i.us.us
-  %.066.us.us131 = phi ptr [ %39, %.preheader.i.us.us ], [ %5, %datatype_check.exit.split.us.split ]
-  %.065.us.us132 = phi ptr [ %40, %.preheader.i.us.us ], [ %2, %datatype_check.exit.split.us.split ]
-  %.163.us.us133 = phi i64 [ %41, %.preheader.i.us.us ], [ %.062, %datatype_check.exit.split.us.split ]
+.preheader.us.us:                                 ; preds = %datatype_check.argprom.exit.split.us.split, %.preheader.i.us.us
+  %.066.us.us131 = phi ptr [ %39, %.preheader.i.us.us ], [ %5, %datatype_check.argprom.exit.split.us.split ]
+  %.065.us.us132 = phi ptr [ %40, %.preheader.i.us.us ], [ %2, %datatype_check.argprom.exit.split.us.split ]
+  %.163.us.us133 = phi i64 [ %41, %.preheader.i.us.us ], [ %.062, %datatype_check.argprom.exit.split.us.split ]
   br label %33
 
 33:                                               ; preds = %33, %.preheader.us.us
@@ -1706,10 +1706,10 @@ datatype_check.exit.split.us.split:               ; preds = %datatype_check.exit
   %.not71.us.us135 = icmp eq i64 %41, 0
   br i1 %.not71.us.us135, label %.split.us, label %.preheader.us.us, !llvm.loop !24
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split.us.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.066.us = phi ptr [ %58, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split.us.split ]
-  %.065.us = phi ptr [ %59, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split.us.split ]
-  %.163.us = phi i64 [ %60, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.062, %datatype_check.exit.split.us.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split.us.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.066.us = phi ptr [ %58, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split.us.split ]
+  %.065.us = phi ptr [ %59, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split.us.split ]
+  %.163.us = phi i64 [ %60, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.062, %datatype_check.argprom.exit.split.us.split ]
   br label %42
 
 42:                                               ; preds = %.preheader.us, %42
@@ -1756,11 +1756,11 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
   %.not71.us = icmp eq i64 %60, 0
   br i1 %.not71.us, label %.split.us, label %.preheader.us, !llvm.loop !24
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit.split.preheader, %opal_dt_swap_bytes.exit
-  %61 = phi i64 [ %125, %opal_dt_swap_bytes.exit ], [ %alignment_of_long_double.val.promoted, %datatype_check.exit.split.preheader ]
-  %.066 = phi ptr [ %159, %opal_dt_swap_bytes.exit ], [ %5, %datatype_check.exit.split.preheader ]
-  %.065 = phi ptr [ %160, %opal_dt_swap_bytes.exit ], [ %2, %datatype_check.exit.split.preheader ]
-  %.163 = phi i64 [ %161, %opal_dt_swap_bytes.exit ], [ %.062, %datatype_check.exit.split.preheader ]
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit.split.preheader, %opal_dt_swap_bytes.exit
+  %61 = phi i64 [ %125, %opal_dt_swap_bytes.exit ], [ %alignment_of_long_double.val.promoted, %datatype_check.argprom.exit.split.preheader ]
+  %.066 = phi ptr [ %159, %opal_dt_swap_bytes.exit ], [ %5, %datatype_check.argprom.exit.split.preheader ]
+  %.065 = phi ptr [ %160, %opal_dt_swap_bytes.exit ], [ %2, %datatype_check.argprom.exit.split.preheader ]
+  %.163 = phi i64 [ %161, %opal_dt_swap_bytes.exit ], [ %.062, %datatype_check.argprom.exit.split.preheader ]
   %62 = load i32, ptr @opal_local_arch, align 4
   %63 = xor i32 %62, %.061
   %64 = and i32 %63, 8
@@ -1770,9 +1770,9 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 .preheader.i79:                                   ; preds = %.preheader130
   br i1 %.not122, label %opal_dt_swap_bytes.exit88, label %.lr.ph.i80
 
-.preheader130:                                    ; preds = %datatype_check.exit.split, %.preheader130
-  %.02631.i76 = phi i64 [ %69, %.preheader130 ], [ 15, %datatype_check.exit.split ]
-  %.02730.i77 = phi i64 [ %68, %.preheader130 ], [ 0, %datatype_check.exit.split ]
+.preheader130:                                    ; preds = %datatype_check.argprom.exit.split, %.preheader130
+  %.02631.i76 = phi i64 [ %69, %.preheader130 ], [ 15, %datatype_check.argprom.exit.split ]
+  %.02730.i77 = phi i64 [ %68, %.preheader130 ], [ 0, %datatype_check.argprom.exit.split ]
   %65 = getelementptr inbounds i8, ptr %.065, i64 %.02730.i77
   %66 = load i8, ptr %65, align 1
   %67 = getelementptr inbounds i8, ptr %.066, i64 %.02631.i76
@@ -1807,8 +1807,8 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %exitcond37.not.i86 = icmp eq i64 %78, 16
   br i1 %exitcond37.not.i86, label %.loopexit.i87, label %74, !llvm.loop !9
 
-opal_dt_swap_bytes.exit88:                        ; preds = %.loopexit.i87, %.preheader.i79, %datatype_check.exit.split
-  %.0 = phi ptr [ %.065, %datatype_check.exit.split ], [ %.066, %.preheader.i79 ], [ %.066, %.loopexit.i87 ]
+opal_dt_swap_bytes.exit88:                        ; preds = %.loopexit.i87, %.preheader.i79, %datatype_check.argprom.exit.split
+  %.0 = phi ptr [ %.065, %datatype_check.argprom.exit.split ], [ %.066, %.preheader.i79 ], [ %.066, %.loopexit.i87 ]
   br i1 %or.cond73, label %ldbl_to_f128.exit, label %80
 
 80:                                               ; preds = %opal_dt_swap_bytes.exit88
@@ -2024,7 +2024,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %.loopexit.i112, %.p
   %160 = getelementptr inbounds i8, ptr %.065, i64 %4
   %161 = add i64 %.163, -1
   %.not71 = icmp eq i64 %161, 0
-  br i1 %.not71, label %.split.us, label %datatype_check.exit.split, !llvm.loop !24
+  br i1 %.not71, label %.split.us, label %datatype_check.argprom.exit.split, !llvm.loop !24
 
 .split.us:                                        ; preds = %opal_dt_swap_bytes.exit, %opal_dt_swap_bytes.exit.loopexit.us, %.preheader.i.us.us, %opal_dt_swap_bytes.exit.us.us
   %162 = mul i64 %spec.select, %4
@@ -2041,32 +2041,32 @@ define internal noundef i32 @copy_cxx_bool_heterogeneous(ptr nocapture noundef r
   %13 = load i32, ptr @opal_local_arch, align 4
   %14 = and i32 %13, 3072
   %.not = icmp eq i32 %12, %14
-  br i1 %.not, label %datatype_check.exit, label %15
+  br i1 %.not, label %datatype_check.argprom.exit, label %15
 
 15:                                               ; preds = %9
   %16 = lshr exact i32 %12, 10
   switch i32 %16, label %default.unreachable [
     i32 0, label %17
-    i32 1, label %datatype_check.exit.thread
+    i32 1, label %datatype_check.argprom.exit.thread
     i32 2, label %18
-    i32 3, label %datatype_check.exit
+    i32 3, label %datatype_check.argprom.exit
   ]
 
 17:                                               ; preds = %15
-  br label %datatype_check.exit
+  br label %datatype_check.argprom.exit
 
 18:                                               ; preds = %15
-  br label %datatype_check.exit.thread
+  br label %datatype_check.argprom.exit.thread
 
 default.unreachable:                              ; preds = %24, %15
   unreachable
 
-datatype_check.exit.thread:                       ; preds = %18, %15
+datatype_check.argprom.exit.thread:               ; preds = %18, %15
   %.045.ph = phi i64 [ 4, %18 ], [ 2, %15 ]
   %spec.select82 = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   br label %24
 
-datatype_check.exit:                              ; preds = %17, %15, %9
+datatype_check.argprom.exit:                      ; preds = %17, %15, %9
   %.045 = phi i64 [ %4, %15 ], [ 1, %17 ], [ %4, %9 ]
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %19 = icmp ne i64 %7, 1
@@ -2074,15 +2074,15 @@ datatype_check.exit:                              ; preds = %17, %15, %9
   %or.cond = or i1 %19, %20
   br i1 %or.cond, label %24, label %21
 
-21:                                               ; preds = %datatype_check.exit
+21:                                               ; preds = %datatype_check.argprom.exit
   %22 = xor i32 %13, %11
   %23 = and i32 %22, 3072
   %.not52 = icmp eq i32 %23, 0
   br i1 %.not52, label %45, label %24
 
-24:                                               ; preds = %datatype_check.exit.thread, %21, %datatype_check.exit
-  %spec.select87 = phi i64 [ %spec.select82, %datatype_check.exit.thread ], [ %spec.select, %21 ], [ %spec.select, %datatype_check.exit ]
-  %.04585 = phi i64 [ %.045.ph, %datatype_check.exit.thread ], [ 1, %21 ], [ %.045, %datatype_check.exit ]
+24:                                               ; preds = %datatype_check.argprom.exit.thread, %21, %datatype_check.argprom.exit
+  %spec.select87 = phi i64 [ %spec.select82, %datatype_check.argprom.exit.thread ], [ %spec.select, %21 ], [ %spec.select, %datatype_check.argprom.exit ]
+  %.04585 = phi i64 [ %.045.ph, %datatype_check.argprom.exit.thread ], [ 1, %21 ], [ %.045, %datatype_check.argprom.exit ]
   %25 = lshr i32 %11, 10
   %26 = and i32 %25, 3
   switch i32 %26, label %default.unreachable [
@@ -2161,7 +2161,7 @@ datatype_check.exit:                              ; preds = %17, %15, %9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_wchar_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-datatype_check.exit:
+datatype_check.argprom.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
@@ -2184,12 +2184,12 @@ datatype_check.exit:
   %19 = and i32 %18, 8
   %.not34 = icmp eq i32 %19, 0
   %20 = shl i64 %.030, 2
-  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.exit.split
+  br i1 %.not34, label %opal_dt_swap_bytes.exit.us, label %datatype_check.argprom.exit.split
 
-opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit, %opal_dt_swap_bytes.exit.us
-  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.exit ]
-  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.exit ]
-  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.exit ]
+opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.argprom.exit, %opal_dt_swap_bytes.exit.us
+  %.032.us = phi ptr [ %21, %opal_dt_swap_bytes.exit.us ], [ %5, %datatype_check.argprom.exit ]
+  %.031.us = phi ptr [ %22, %opal_dt_swap_bytes.exit.us ], [ %2, %datatype_check.argprom.exit ]
+  %.1.us = phi i64 [ %23, %opal_dt_swap_bytes.exit.us ], [ %.029, %datatype_check.argprom.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.us, ptr align 1 %.031.us, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %.032.us, i64 %7
   %22 = getelementptr inbounds i8, ptr %.031.us, i64 %4
@@ -2197,14 +2197,14 @@ opal_dt_swap_bytes.exit.us:                       ; preds = %datatype_check.exit
   %.not35.us = icmp eq i64 %23, 0
   br i1 %.not35.us, label %.split.us, label %opal_dt_swap_bytes.exit.us, !llvm.loop !28
 
-datatype_check.exit.split:                        ; preds = %datatype_check.exit
+datatype_check.argprom.exit.split:                ; preds = %datatype_check.argprom.exit
   %24 = icmp ugt i64 %.030, 1
   br i1 %24, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %datatype_check.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
-  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.exit.split ]
-  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.exit.split ]
-  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.exit.split ]
+.preheader.us:                                    ; preds = %datatype_check.argprom.exit.split, %opal_dt_swap_bytes.exit.loopexit.us
+  %.032.us40 = phi ptr [ %41, %opal_dt_swap_bytes.exit.loopexit.us ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031.us41 = phi ptr [ %42, %opal_dt_swap_bytes.exit.loopexit.us ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1.us42 = phi i64 [ %43, %opal_dt_swap_bytes.exit.loopexit.us ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us
@@ -2251,10 +2251,10 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
   %.not35.us44 = icmp eq i64 %43, 0
   br i1 %.not35.us44, label %.split.us, label %.preheader.us, !llvm.loop !28
 
-.preheader:                                       ; preds = %datatype_check.exit.split, %.preheader.i
-  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.exit.split ]
-  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.exit.split ]
-  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.exit.split ]
+.preheader:                                       ; preds = %datatype_check.argprom.exit.split, %.preheader.i
+  %.032 = phi ptr [ %44, %.preheader.i ], [ %5, %datatype_check.argprom.exit.split ]
+  %.031 = phi ptr [ %45, %.preheader.i ], [ %2, %datatype_check.argprom.exit.split ]
+  %.1 = phi i64 [ %46, %.preheader.i ], [ %.029, %datatype_check.argprom.exit.split ]
   br label %47
 
 .preheader.i:                                     ; preds = %47
@@ -2295,13 +2295,13 @@ define internal i32 @copy_long_heterogeneous(ptr nocapture noundef readonly %0, 
   %17 = load i64, ptr %16, align 8
   %18 = mul i64 %17, %1
   %19 = icmp ugt i64 %18, %3
-  br i1 %19, label %20, label %datatype_check.exit
+  br i1 %19, label %20, label %datatype_check.argprom.exit
 
 20:                                               ; preds = %9
   %21 = udiv i64 %3, %17
-  br label %datatype_check.exit
+  br label %datatype_check.argprom.exit
 
-datatype_check.exit:                              ; preds = %9, %20
+datatype_check.argprom.exit:                      ; preds = %9, %20
   %.0154 = phi i64 [ %21, %20 ], [ %1, %9 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
@@ -2311,7 +2311,7 @@ datatype_check.exit:                              ; preds = %9, %20
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %27, label %42
 
-27:                                               ; preds = %datatype_check.exit
+27:                                               ; preds = %datatype_check.argprom.exit
   %28 = and i32 %25, 8
   %.not119 = icmp eq i32 %28, 0
   %.not221 = icmp eq i64 %.0154, 0
@@ -2360,7 +2360,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %29
   %exitcond239.not = icmp eq i64 %41, %.0154
   br i1 %exitcond239.not, label %.loopexit, label %.lr.ph211, !llvm.loop !30
 
-42:                                               ; preds = %datatype_check.exit
+42:                                               ; preds = %datatype_check.argprom.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 262144
@@ -2594,13 +2594,13 @@ define internal i32 @copy_unsigned_long_heterogeneous(ptr nocapture noundef read
   %17 = load i64, ptr %16, align 8
   %18 = mul i64 %17, %1
   %19 = icmp ugt i64 %18, %3
-  br i1 %19, label %20, label %datatype_check.exit
+  br i1 %19, label %20, label %datatype_check.argprom.exit
 
 20:                                               ; preds = %9
   %21 = udiv i64 %3, %17
-  br label %datatype_check.exit
+  br label %datatype_check.argprom.exit
 
-datatype_check.exit:                              ; preds = %9, %20
+datatype_check.argprom.exit:                      ; preds = %9, %20
   %.0154 = phi i64 [ %21, %20 ], [ %1, %9 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
@@ -2610,7 +2610,7 @@ datatype_check.exit:                              ; preds = %9, %20
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %27, label %42
 
-27:                                               ; preds = %datatype_check.exit
+27:                                               ; preds = %datatype_check.argprom.exit
   %28 = and i32 %25, 8
   %.not119 = icmp eq i32 %28, 0
   %.not221 = icmp eq i64 %.0154, 0
@@ -2659,7 +2659,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %29
   %exitcond239.not = icmp eq i64 %41, %.0154
   br i1 %exitcond239.not, label %.loopexit, label %.lr.ph211, !llvm.loop !40
 
-42:                                               ; preds = %datatype_check.exit
+42:                                               ; preds = %datatype_check.argprom.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 262144

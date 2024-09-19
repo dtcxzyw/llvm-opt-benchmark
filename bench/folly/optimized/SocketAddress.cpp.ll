@@ -712,7 +712,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb.argelim(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %port = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
@@ -801,7 +801,7 @@ define void @_ZN5folly13SocketAddress13setFromIpPortEPKc(ptr nocapture noundef n
 entry:
   %hp = alloca %"struct.(anonymous namespace)::HostAndPort", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %hp) #27
-  call fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb(ptr noundef nonnull align 8 dereferenceable(24) %hp, ptr noundef %addressAndPort)
+  call fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb.argelim(ptr noundef nonnull align 8 dereferenceable(24) %hp, ptr noundef %addressAndPort)
   %0 = load ptr, ptr %hp, align 8, !tbaa !54
   %port = getelementptr inbounds i8, ptr %hp, i64 8
   %1 = load ptr, ptr %port, align 8, !tbaa !55
@@ -849,7 +849,7 @@ define void @_ZN5folly13SocketAddress15setFromHostPortEPKc(ptr nocapture noundef
 entry:
   %hp = alloca %"struct.(anonymous namespace)::HostAndPort", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %hp) #27
-  call fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb(ptr noundef nonnull align 8 dereferenceable(24) %hp, ptr noundef %hostAndPort)
+  call fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb.argelim(ptr noundef nonnull align 8 dereferenceable(24) %hp, ptr noundef %hostAndPort)
   %0 = load ptr, ptr %hp, align 8, !tbaa !54
   %port = getelementptr inbounds i8, ptr %hp, i64 8
   %1 = load ptr, ptr %port, align 8, !tbaa !55

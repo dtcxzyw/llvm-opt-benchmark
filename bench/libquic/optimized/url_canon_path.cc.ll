@@ -81,7 +81,7 @@ if.end.i:                                         ; preds = %do.body.i.i.i, %ret
   %path.val11.i = phi i32 [ %1, %if.then.i ], [ %1, %if.then.i ], [ %path.val11.pre.i, %return.sink.split.i.i ], [ %1, %do.body.i.i.i ]
   %path.val.i = phi i32 [ %2, %if.then.i ], [ %2, %if.then.i ], [ %path.val.pre.i, %return.sink.split.i.i ], [ %2, %do.body.i.i.i ]
   %8 = phi i32 [ %0, %if.then.i ], [ %0, %if.then.i ], [ %.pre.i, %return.sink.split.i.i ], [ %0, %do.body.i.i.i ]
-  %call5.i = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef readonly %spec, i32 %path.val.i, i32 %path.val11.i, i32 noundef %8, ptr noundef nonnull %output)
+  %call5.i = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE.argprom(ptr noundef readonly %spec, i32 %path.val.i, i32 %path.val11.i, i32 noundef %8, ptr noundef nonnull %output)
   %.pre43.i = load i32, ptr %cur_len_.i.i, align 4
   br label %_ZN3url12_GLOBAL__N_16DoPathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit
 
@@ -205,7 +205,7 @@ if.end.i:                                         ; preds = %do.body.i.i.i, %ret
   %path.val11.i = phi i32 [ %1, %if.then.i ], [ %1, %if.then.i ], [ %path.val11.pre.i, %return.sink.split.i.i ], [ %1, %do.body.i.i.i ]
   %path.val.i = phi i32 [ %2, %if.then.i ], [ %2, %if.then.i ], [ %path.val.pre.i, %return.sink.split.i.i ], [ %2, %do.body.i.i.i ]
   %8 = phi i32 [ %0, %if.then.i ], [ %0, %if.then.i ], [ %.pre.i, %return.sink.split.i.i ], [ %0, %do.body.i.i.i ]
-  %call5.i = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIttEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 %path.val.i, i32 %path.val11.i, i32 noundef %8, ptr noundef nonnull %output)
+  %call5.i = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIttEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE.argprom(ptr noundef %spec, i32 %path.val.i, i32 %path.val11.i, i32 noundef %8, ptr noundef nonnull %output)
   %.pre43.i = load i32, ptr %cur_len_.i.i, align 4
   br label %_ZN3url12_GLOBAL__N_16DoPathIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit
 
@@ -266,12 +266,12 @@ entry:
   %path.val = load i32, ptr %path, align 4
   %0 = getelementptr inbounds i8, ptr %path, i64 4
   %path.val1 = load i32, ptr %0, align 4
-  %call = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 %path.val, i32 %path.val1, i32 noundef %path_begin_in_output, ptr noundef %output)
+  %call = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE.argprom(ptr noundef %spec, i32 %path.val, i32 %path.val1, i32 noundef %path_begin_in_output, ptr noundef %output)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %spec, i32 %path.0.val, i32 %path.4.val, i32 noundef %path_begin_in_output, ptr noundef %output) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE.argprom(ptr nocapture noundef readonly %spec, i32 %path.0.val, i32 %path.4.val, i32 noundef %path_begin_in_output, ptr noundef %output) unnamed_addr #0 {
 entry:
   %add.i = add nsw i32 %path.4.val, %path.0.val
   %cmp58 = icmp sgt i32 %path.4.val, 0
@@ -1090,12 +1090,12 @@ entry:
   %path.val = load i32, ptr %path, align 4
   %0 = getelementptr inbounds i8, ptr %path, i64 4
   %path.val1 = load i32, ptr %0, align 4
-  %call = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIttEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 %path.val, i32 %path.val1, i32 noundef %path_begin_in_output, ptr noundef %output)
+  %call = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIttEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE.argprom(ptr noundef %spec, i32 %path.val, i32 %path.val1, i32 noundef %path_begin_in_output, ptr noundef %output)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIttEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 %path.0.val, i32 %path.4.val, i32 noundef %path_begin_in_output, ptr noundef %output) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIttEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE.argprom(ptr noundef %spec, i32 %path.0.val, i32 %path.4.val, i32 noundef %path_begin_in_output, ptr noundef %output) unnamed_addr #0 {
 entry:
   %char_value.i = alloca i32, align 4
   %i = alloca i32, align 4

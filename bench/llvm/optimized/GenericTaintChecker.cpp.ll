@@ -1194,7 +1194,7 @@ define internal void @_ZN12_GLOBAL__N_119GenericTaintCheckerD2Ev(ptr noundef non
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load ptr, ptr %8, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %9
-  br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %6, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %23, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i ], [ %7, %6 ]
@@ -1235,18 +1235,18 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %17, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %23 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, %9
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
   %.val.pr.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, %6
-  %.val.i.i.i.i.i.i.i = phi ptr [ %.val.pr.i.i.i.i.i.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i ], [ %7, %6 ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i.i, %6
+  %.val.i.i.i.i.i.i.i = phi ptr [ %.val.pr.i.i.i.i.i.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i.i ], [ %7, %6 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i
+24:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %0, i64 200
   %.val1.i.i.i.i.i.i.i = load ptr, ptr %25, align 8
   %26 = ptrtoint ptr %.val1.i.i.i.i.i.i.i to i64
@@ -1255,7 +1255,7 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTai
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i.i.i.i.i, i64 noundef %28) #20
   br label %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit
 
-_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit: ; preds = %1, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i, %24
+_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit: ; preds = %1, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i, %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %31 = load i8, ptr %30, align 8
@@ -1268,7 +1268,7 @@ _ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRul
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %36 = load ptr, ptr %35, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i1 = icmp eq ptr %34, %36
-  br i1 %.not4.i.i.i.i.i.i.i.i.i.i1, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i16, label %.lr.ph.i.i.i.i.i.i.i.i.i.i2
+  br i1 %.not4.i.i.i.i.i.i.i.i.i.i1, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i16, label %.lr.ph.i.i.i.i.i.i.i.i.i.i2
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i2:                      ; preds = %33, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i12
   %.05.i.i.i.i.i.i.i.i.i.i3 = phi ptr [ %50, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i12 ], [ %34, %33 ]
@@ -1309,18 +1309,18 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i12: ; preds = %44, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i10
   %50 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i3, i64 216
   %.not.i.i.i.i.i.i.i.i.i.i13 = icmp eq ptr %50, %36
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i13, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i14, label %.lr.ph.i.i.i.i.i.i.i.i.i.i2, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i13, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i.i14, label %.lr.ph.i.i.i.i.i.i.i.i.i.i2, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i14: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i12
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i.i14: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i12
   %.val.pr.i.i.i.i.i.i.i15 = load ptr, ptr %29, align 8
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i16
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i16
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i16: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i14, %33
-  %.val.i.i.i.i.i.i.i17 = phi ptr [ %.val.pr.i.i.i.i.i.i.i15, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i14 ], [ %34, %33 ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i16: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i.i14, %33
+  %.val.i.i.i.i.i.i.i17 = phi ptr [ %.val.pr.i.i.i.i.i.i.i15, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i.i14 ], [ %34, %33 ]
   %.not.i.i.i.i.i.i.i.i.i18 = icmp eq ptr %.val.i.i.i.i.i.i.i17, null
   br i1 %.not.i.i.i.i.i.i.i.i.i18, label %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit20, label %51
 
-51:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i16
+51:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i16
   %52 = getelementptr inbounds i8, ptr %0, i64 168
   %.val1.i.i.i.i.i.i.i19 = load ptr, ptr %52, align 8
   %53 = ptrtoint ptr %.val1.i.i.i.i.i.i.i19 to i64
@@ -1329,7 +1329,7 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTai
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i.i.i.i.i17, i64 noundef %55) #20
   br label %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit20
 
-_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit20: ; preds = %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i.i16, %51
+_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit20: ; preds = %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEED2Ev.exit, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i16, %51
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %57 = load i8, ptr %56, align 8
   %58 = trunc i8 %57 to i1
@@ -1521,7 +1521,7 @@ define internal void @_ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_119
 .lr.ph.i.i:                                       ; preds = %44, %48
   %.sroa.01.04.i.i = phi ptr [ %49, %48 ], [ %.val.i, %44 ]
   %47 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.01.04.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #21
-  br i1 %47, label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.sink.split.i, label %48
+  br i1 %47, label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.sink.split.i, label %48
 
 48:                                               ; preds = %.lr.ph.i.i
   %49 = getelementptr inbounds i8, ptr %.sroa.01.04.i.i, i64 216
@@ -1534,19 +1534,19 @@ define internal void @_ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_119
   %51 = getelementptr inbounds i8, ptr %0, i64 192
   %.val21.i = load ptr, ptr %51, align 8
   %.not3.i22.i = icmp eq ptr %.val20.i, %.val21.i
-  br i1 %.not3.i22.i, label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.i, label %.lr.ph.i23.i
+  br i1 %.not3.i22.i, label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.i, label %.lr.ph.i23.i
 
 .lr.ph.i23.i:                                     ; preds = %.loopexit.i, %53
   %.sroa.01.04.i24.i = phi ptr [ %54, %53 ], [ %.val20.i, %.loopexit.i ]
   %52 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.01.04.i24.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #21
-  br i1 %52, label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.sink.split.i, label %53
+  br i1 %52, label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.sink.split.i, label %53
 
 53:                                               ; preds = %.lr.ph.i23.i
   %54 = getelementptr inbounds i8, ptr %.sroa.01.04.i24.i, i64 216
   %.not.i25.i = icmp eq ptr %54, %.val21.i
-  br i1 %.not.i25.i, label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.i, label %.lr.ph.i23.i
+  br i1 %.not.i25.i, label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.i, label %.lr.ph.i23.i
 
-_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.sink.split.i: ; preds = %.lr.ph.i.i, %.lr.ph.i23.i
+_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.sink.split.i: ; preds = %.lr.ph.i.i, %.lr.ph.i23.i
   %.sroa.01.04.i24.lcssa.sink.i = phi ptr [ %.sroa.01.04.i24.i, %.lr.ph.i23.i ], [ %.sroa.01.04.i.i, %.lr.ph.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i24.lcssa.sink.i, i64 64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
@@ -1559,11 +1559,11 @@ _ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupER
   %.not.i.i.i3 = icmp eq ptr %59, null
   br i1 %.not.i.i.i3, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i, label %60
 
-60:                                               ; preds = %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.sink.split.i
+60:                                               ; preds = %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.sink.split.i
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %59) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %60, %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.sink.split.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %60, %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.sink.split.i
   %61 = load ptr, ptr %1, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -1577,9 +1577,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i24.lcssa.sink.i, i64 208
   br label %69
 
-69:                                               ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i", %.lr.ph.i.i9
-  %.sroa.0130.2.i = phi ptr [ %59, %.lr.ph.i.i9 ], [ %.sroa.0130.3.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
-  %.09.i.i = phi i32 [ -1, %.lr.ph.i.i9 ], [ %149, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
+69:                                               ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i", %.lr.ph.i.i9
+  %.sroa.0130.2.i = phi ptr [ %59, %.lr.ph.i.i9 ], [ %.sroa.0130.3.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
+  %.09.i.i = phi i32 [ -1, %.lr.ph.i.i9 ], [ %149, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
   %70 = icmp eq i32 %.09.i.i, -1
   %71 = load ptr, ptr %1, align 8
   br i1 %70, label %72, label %76
@@ -1693,7 +1693,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i: ; pre
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i.i: ; preds = %127, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i, %_ZN12_GLOBAL__N_116GenericTaintRule10GetArgExprEiRKN5clang4ento9CallEventE.exit.i.i
   %.sroa.0130.3.i = phi ptr [ %124, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i ], [ %124, %127 ], [ %.sroa.0130.2.i, %_ZN12_GLOBAL__N_116GenericTaintRule10GetArgExprEiRKN5clang4ento9CallEventE.exit.i.i ]
   %128 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_16ArgSet8containsEi(ptr noundef nonnull align 8 dereferenceable(32) %55, i32 noundef %.09.i.i)
-  br i1 %128, label %129, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br i1 %128, label %129, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
 129:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i.i
   %.not.i.i28.i.i.i = icmp eq ptr %.sroa.0130.3.i, null
@@ -1733,7 +1733,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit29.i.i.i:
   %143 = trunc i8 %142 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  br i1 %143, label %146, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br i1 %143, label %146, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33.i.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit29.i.i.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0130.3.i) #21
@@ -1744,7 +1744,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33.i.i.i: ; p
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0130.3.i) #21
-  br i1 %145, label %146, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br i1 %145, label %146, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
 146:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33.i.i.i, %.thread3.i.i.i
   %147 = load i8, ptr %68, align 8
@@ -1753,25 +1753,25 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33.i.i.i: ; p
   %.sroa.3.0.in.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 8
   %.sroa.3.0.i.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i.i, align 8
   %.sroa.0.0.i.i.i.i = load ptr, ptr %spec.select.i.i.i.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_119GenericTaintChecker23generateReportIfTaintedEPKN5clang4ExprEN4llvm9StringRefERNS1_4ento14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %80, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
-  br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  call fastcc void @_ZNK12_GLOBAL__N_119GenericTaintChecker23generateReportIfTaintedEPKN5clang4ExprEN4llvm9StringRefERNS1_4ento14CheckerContextE.argelim(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %80, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
-"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i": ; preds = %146, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33.i.i.i, %.thread3.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i.i
+"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i": ; preds = %146, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33.i.i.i, %.thread3.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   %149 = add nsw i32 %.09.i.i, 1
   %exitcond.not.i = icmp eq i32 %149, %64
   br i1 %exitcond.not.i, label %.lr.ph.i15.i, label %69, !llvm.loop !15
 
-.lr.ph.i15.i:                                     ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+.lr.ph.i15.i:                                     ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_1clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
   %150 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i24.lcssa.sink.i, i64 96
   br label %152
 
-152:                                              ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i", %.lr.ph.i15.i
-  %.sroa.0130.5.i = phi ptr [ %.sroa.0130.3.i, %.lr.ph.i15.i ], [ %.sroa.0130.6.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
-  %.09.i16.i = phi i32 [ -1, %.lr.ph.i15.i ], [ %193, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
+152:                                              ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i", %.lr.ph.i15.i
+  %.sroa.0130.5.i = phi ptr [ %.sroa.0130.3.i, %.lr.ph.i15.i ], [ %.sroa.0130.6.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
+  %.09.i16.i = phi i32 [ -1, %.lr.ph.i15.i ], [ %193, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
   %153 = icmp eq i32 %.09.i16.i, -1
   %154 = load ptr, ptr %1, align 8
   br i1 %153, label %155, label %159
@@ -1814,7 +1814,7 @@ _ZN12_GLOBAL__N_116GenericTaintRule10GetArgExprEiRKN5clang4ento9CallEventE.exit.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   %175 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_16ArgSet8containsEi(ptr noundef nonnull align 8 dereferenceable(32) %151, i32 noundef %.09.i16.i)
-  br i1 %175, label %176, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br i1 %175, label %176, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
 176:                                              ; preds = %_ZN12_GLOBAL__N_116GenericTaintRule10GetArgExprEiRKN5clang4ento9CallEventE.exit.i17.i
   store ptr %.sroa.0130.5.i, ptr %21, align 8
@@ -1850,18 +1850,18 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12.i.i.i: ; p
   br i1 %.not.i.i13.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.thread.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias writable align 8 %22, ptr null, ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE.argprom(ptr dead_on_unwind noalias writable align 8 %22, ptr null, ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i)
   %183 = load i8, ptr %150, align 8
   %184 = trunc i8 %183 to i1
-  br i1 %184, label %187, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br i1 %184, label %187, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.thread.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12.i.i.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %180) #21
-  call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias writable align 8 %22, ptr nonnull %180, ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE.argprom(ptr dead_on_unwind noalias writable align 8 %22, ptr nonnull %180, ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %180) #21
   %185 = load i8, ptr %150, align 8
   %186 = trunc i8 %185 to i1
-  br i1 %186, label %188, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br i1 %186, label %188, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
 187:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.i
   store ptr null, ptr %24, align 8
@@ -1887,13 +1887,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit18.i.i.i:
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i: ; preds = %190, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit18.i.i.i
   %191 = load ptr, ptr %24, align 8
   %.not.i.i21.i.i.i = icmp eq ptr %191, null
-  br i1 %.not.i.i21.i.i.i, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i", label %192
+  br i1 %.not.i.i21.i.i.i, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i", label %192
 
 192:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %191) #21
-  br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
-"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i": ; preds = %192, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.thread.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.i, %_ZN12_GLOBAL__N_116GenericTaintRule10GetArgExprEiRKN5clang4ento9CallEventE.exit.i17.i
+"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i": ; preds = %192, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.thread.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.i, %_ZN12_GLOBAL__N_116GenericTaintRule10GetArgExprEiRKN5clang4ento9CallEventE.exit.i17.i
   %.sroa.0130.6.i = phi ptr [ %189, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i ], [ %189, %192 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.i ], [ %.sroa.0130.5.i, %_ZN12_GLOBAL__N_116GenericTaintRule10GetArgExprEiRKN5clang4ento9CallEventE.exit.i17.i ], [ %180, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit16.i.i.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
@@ -1904,8 +1904,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i: ; p
   %exitcond189.not.i = icmp eq i32 %193, %64
   br i1 %exitcond189.not.i, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_0clIZNKS0_7processES3_S8_SA_E3$_2EEDaOT_.exit.i", label %152, !llvm.loop !16
 
-"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_0clIZNKS0_7processES3_S8_SA_E3$_2EEDaOT_.exit.i": ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i", %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  %.sroa.0130.7.i = phi ptr [ %59, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %.sroa.0130.6.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
+"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_0clIZNKS0_7processES3_S8_SA_E3$_2EEDaOT_.exit.i": ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i", %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
+  %.sroa.0130.7.i = phi ptr [ %59, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %.sroa.0130.6.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_2clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i24.lcssa.sink.i, i64 128
   %195 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %194) #21
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i24.lcssa.sink.i, i64 156
@@ -1926,12 +1926,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i: ; p
   %205 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %206
 
-206:                                              ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i", %.lr.ph.i23.i5
-  %.0.i = phi i8 [ %201, %.lr.ph.i23.i5 ], [ %248, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
-  %.sroa.0.1.i = phi ptr [ null, %.lr.ph.i23.i5 ], [ %.sroa.0.2.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
-  %.sroa.6.0.i = phi ptr [ null, %.lr.ph.i23.i5 ], [ %.sroa.6.1.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
-  %.sroa.11.1.i = phi ptr [ null, %.lr.ph.i23.i5 ], [ %.sroa.11.2.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
-  %.09.i24.i = phi i32 [ -1, %.lr.ph.i23.i5 ], [ %301, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i" ]
+206:                                              ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i", %.lr.ph.i23.i5
+  %.0.i = phi i8 [ %201, %.lr.ph.i23.i5 ], [ %248, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
+  %.sroa.0.1.i = phi ptr [ null, %.lr.ph.i23.i5 ], [ %.sroa.0.2.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
+  %.sroa.6.0.i = phi ptr [ null, %.lr.ph.i23.i5 ], [ %.sroa.6.1.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
+  %.sroa.11.1.i = phi ptr [ null, %.lr.ph.i23.i5 ], [ %.sroa.11.2.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
+  %.09.i24.i = phi i32 [ -1, %.lr.ph.i23.i5 ], [ %301, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i" ]
   %207 = icmp eq i32 %.09.i24.i, -1
   %208 = load ptr, ptr %1, align 8
   br i1 %207, label %209, label %213
@@ -2023,7 +2023,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i._crit_edge
   %247 = phi i8 [ %.pre.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i._crit_edge.i.i ], [ %.pre12.i.i, %244 ]
   %248 = phi i8 [ 1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i._crit_edge.i.i ], [ %spec.select.i.i, %244 ]
   %249 = trunc i8 %247 to i1
-  br i1 %249, label %250, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br i1 %249, label %250, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
 250:                                              ; preds = %246
   %.sroa.01.0.copyload.i.i.i = load ptr, ptr %15, align 8
@@ -2036,7 +2036,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i._crit_edge
   %256 = load ptr, ptr %255, align 8
   %257 = call noundef nonnull align 8 dereferenceable(23096) ptr %256(ptr noundef nonnull align 8 dereferenceable(256) %253) #21
   %258 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17isStdinEN5clang4ento4SValERKNS0_10ASTContextE(ptr %.sroa.01.0.copyload.i.i.i, i8 %.sroa.22.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(23096) %257)
-  br i1 %258, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i", label %259
+  br i1 %258, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i", label %259
 
 259:                                              ; preds = %250
   store ptr %.sroa.0130.7.i, ptr %18, align 8
@@ -2141,7 +2141,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i:    ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.11.4.i = phi ptr [ %.sroa.11.1.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.i.i.i ], [ %.sroa.11.3.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exitthread-pre-split.i.i.i ]
   %295 = phi ptr [ %263, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.i.i.i ], [ %.pr.i.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exitthread-pre-split.i.i.i ]
   %.not.i.i.i15.i.i.i = icmp eq ptr %295, null
-  br i1 %.not.i.i.i15.i.i.i, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i", label %296
+  br i1 %.not.i.i.i15.i.i.i, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i", label %296
 
 296:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i
   %297 = load ptr, ptr %204, align 8
@@ -2149,9 +2149,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i:    ; preds = %_ZNSt6vectorIiSaIiE
   %299 = ptrtoint ptr %295 to i64
   %300 = sub i64 %298, %299
   call void @_ZdlPvm(ptr noundef nonnull %295, i64 noundef %300) #20
-  br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
 
-"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i": ; preds = %296, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i, %250, %246
+"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i": ; preds = %296, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i, %250, %246
   %.sroa.0.2.i = phi ptr [ %.sroa.0.1.i, %250 ], [ %.sroa.0.4.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i ], [ %.sroa.0.4.i, %296 ], [ %.sroa.0.1.i, %246 ]
   %.sroa.6.1.i = phi ptr [ %.sroa.6.0.i, %250 ], [ %.sroa.6.3.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i ], [ %.sroa.6.3.i, %296 ], [ %.sroa.6.0.i, %246 ]
   %.sroa.11.2.i = phi ptr [ %.sroa.11.1.i, %250 ], [ %.sroa.11.4.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i ], [ %.sroa.11.4.i, %296 ], [ %.sroa.11.1.i, %246 ]
@@ -2163,7 +2163,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i:    ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond190.not.i = icmp eq i32 %301, %64
   br i1 %exitcond190.not.i, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_0clIZNKS0_7processES3_S8_SA_E3$_3EEDaOT_.exit.i", label %206, !llvm.loop !17
 
-"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_0clIZNKS0_7processES3_S8_SA_E3$_3EEDaOT_.exit.i": ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_0clIZNKS0_7processES3_S8_SA_E3$_3EEDaOT_.exit.i": ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_3clEiPKNS4_4ExprENS5_4SValE.argprom.exit.i.i"
   %302 = trunc i8 %248 to i1
   br i1 %302, label %.lr.ph.i38.i, label %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit61.i
 
@@ -2321,7 +2321,7 @@ _ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit13.i.i.i: ; preds = 
 372:                                              ; preds = %361
   %373 = and i64 %.sroa.0.0.copyload.i.i.i.i, 1
   %.not.i.i.i.i46.i = icmp eq i64 %373, 0
-  br i1 %.not.i.i.i.i46.i, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.exit.i.i.i", label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_4clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
+  br i1 %.not.i.i.i.i46.i, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.argprom.exit.i.i.i", label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_4clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
 
 374:                                              ; preds = %361
   %375 = icmp eq i8 %370, 41
@@ -2336,9 +2336,9 @@ _ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit13.i.i.i: ; preds = 
 379:                                              ; preds = %376
   %380 = and i64 %377, -16
   %381 = inttoptr i64 %380 to ptr
-  br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.exit.i.i.i"
+  br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.argprom.exit.i.i.i"
 
-"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.exit.i.i.i": ; preds = %379, %372
+"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.argprom.exit.i.i.i": ; preds = %379, %372
   %.sink6.i.i.i.i = phi ptr [ %381, %379 ], [ %363, %372 ]
   %382 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i.i, i64 8
   %.0.copyload.i.i.i.i.i1.i.i.i.i.i = load i64, ptr %382, align 8
@@ -2346,7 +2346,7 @@ _ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit13.i.i.i: ; preds = 
   %384 = icmp eq i64 %383, 0
   br i1 %384, label %385, label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_4clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
 
-385:                                              ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.exit.i.i.i"
+385:                                              ; preds = %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.argprom.exit.i.i.i"
   store ptr %.sroa.0130.7.i, ptr %10, align 8
   br i1 %.not.i.i.i.i28.i, label %.thread27.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i45.i
 
@@ -2425,8 +2425,8 @@ _ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit21.i.i.i: ; preds = 
   call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIiEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %407)
   br label %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_4clEiPKNS4_4ExprENS5_4SValE.exit.i.i"
 
-"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_4clEiPKNS4_4ExprENS5_4SValE.exit.i.i": ; preds = %413, %408, %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit21.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i45.i, %.thread27.i.i.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.exit.i.i.i", %376, %374, %372, %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit13.i.i.i
-  %.sroa.0146.2.i = phi ptr [ %406, %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit21.i.i.i ], [ %406, %413 ], [ %406, %408 ], [ %.sroa.0146.1.i, %.thread27.i.i.i ], [ %.sroa.0146.1.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i45.i ], [ %.sroa.0146.1.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.exit.i.i.i" ], [ %.sroa.0146.1.i, %372 ], [ %.sroa.0146.1.i, %376 ], [ %.sroa.0146.1.i, %374 ], [ %.sroa.0146.1.i, %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit13.i.i.i ]
+"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_4clEiPKNS4_4ExprENS5_4SValE.exit.i.i": ; preds = %413, %408, %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit21.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i45.i, %.thread27.i.i.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.argprom.exit.i.i.i", %376, %374, %372, %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit13.i.i.i
+  %.sroa.0146.2.i = phi ptr [ %406, %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit21.i.i.i ], [ %406, %413 ], [ %406, %408 ], [ %.sroa.0146.1.i, %.thread27.i.i.i ], [ %.sroa.0146.1.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i45.i ], [ %.sroa.0146.1.i, %"_ZZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextEENK3$_5clENS5_4SValENS4_8QualTypeE.argprom.exit.i.i.i" ], [ %.sroa.0146.1.i, %372 ], [ %.sroa.0146.1.i, %376 ], [ %.sroa.0146.1.i, %374 ], [ %.sroa.0146.1.i, %_ZN4llvm12ImmutableSetIiNS_17ImutContainerInfoIiEEED2Ev.exit13.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -2616,9 +2616,9 @@ _ZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clan
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  br label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.i
+  br label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.i
 
-_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.i: ; preds = %53, %_ZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextE.exit, %.loopexit.i
+_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.i: ; preds = %53, %_ZNK12_GLOBAL__N_116GenericTaintRule7processERKNS_19GenericTaintCheckerERKN5clang4ento9CallEventERNS5_14CheckerContextE.exit, %.loopexit.i
   %476 = load ptr, ptr %1, align 8
   %477 = getelementptr inbounds i8, ptr %476, i64 48
   %478 = load ptr, ptr %477, align 8
@@ -2626,7 +2626,7 @@ _ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupER
   %.not.i.i.i = icmp eq ptr %479, null
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_119GenericTaintChecker29checkUncontrolledFormatStringERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, label %480
 
-480:                                              ; preds = %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.i
+480:                                              ; preds = %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.i
   %481 = call noundef ptr @_ZN5clang4Decl13getAsFunctionEv(ptr noundef nonnull align 8 dereferenceable(33) %479) #22
   %.not18.i.i.i = icmp eq ptr %481, null
   br i1 %.not18.i.i.i, label %_ZNK12_GLOBAL__N_119GenericTaintChecker29checkUncontrolledFormatStringERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, label %482
@@ -2739,22 +2739,22 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %_ZNK5clang22specifi
   %536 = icmp eq i32 %bcmp.i.i.i.i, 0
   %537 = icmp sge i32 %486, %534
   %or.cond.i.i.i = select i1 %536, i1 %537, i1 false
-  br i1 %or.cond.i.i.i, label %_ZL26getPrintfFormatArgumentNumRKN5clang4ento9CallEventERKNS0_14CheckerContextERi.exit.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZL26getPrintfFormatArgumentNumRKN5clang4ento9CallEventERKNS0_14CheckerContextERi.argprom.exit.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZNK5clang22specific_attr_iteratorINS_10FormatAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i.i.i
   %538 = getelementptr inbounds i8, ptr %.sroa.01.1.i.i.i, i64 8
   br label %500
 
-_ZL26getPrintfFormatArgumentNumRKN5clang4ento9CallEventERKNS0_14CheckerContextERi.exit.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
+_ZL26getPrintfFormatArgumentNumRKN5clang4ento9CallEventERKNS0_14CheckerContextERi.argprom.exit.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   %539 = add nsw i32 %534, -1
   %540 = load ptr, ptr %1, align 8
   %541 = getelementptr inbounds i8, ptr %540, i64 96
   %542 = load ptr, ptr %541, align 8
   %543 = call noundef ptr %542(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %539) #21
-  call fastcc void @_ZNK12_GLOBAL__N_119GenericTaintChecker23generateReportIfTaintedEPKN5clang4ExprEN4llvm9StringRefERNS1_4ento14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %543, ptr nonnull @.str.133, i64 79, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  call fastcc void @_ZNK12_GLOBAL__N_119GenericTaintChecker23generateReportIfTaintedEPKN5clang4ExprEN4llvm9StringRefERNS1_4ento14CheckerContextE.argelim(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %543, ptr nonnull @.str.133, i64 79, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %_ZNK12_GLOBAL__N_119GenericTaintChecker29checkUncontrolledFormatStringERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i
 
-_ZNK12_GLOBAL__N_119GenericTaintChecker29checkUncontrolledFormatStringERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_10FormatAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %508, %513, %506, %_ZL26getPrintfFormatArgumentNumRKN5clang4ento9CallEventERKNS0_14CheckerContextERi.exit.i.i, %480, %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.exit27.thread.i
+_ZNK12_GLOBAL__N_119GenericTaintChecker29checkUncontrolledFormatStringERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_10FormatAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %508, %513, %506, %_ZL26getPrintfFormatArgumentNumRKN5clang4ento9CallEventERKNS0_14CheckerContextERi.argprom.exit.i.i, %480, %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEE6lookupERKNS0_9CallEventE.argprom.exit27.thread.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
@@ -15894,7 +15894,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEC2IS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6010, ptr noundef nonnull readonly align 8 dereferenceable(20) %6011, i64 20, i1 false)
   %6012 = getelementptr inbounds i8, ptr %85, i64 27064
   call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6012, ptr noundef nonnull align 8 dereferenceable(152) %1111)
-  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EEC2ESt16initializer_listIS6_ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr nonnull %85, i64 126)
+  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EEC2ESt16initializer_listIS6_ERKS7_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr nonnull %85, i64 126)
   %6013 = getelementptr inbounds i8, ptr %85, i64 27216
   br label %6014
 
@@ -24823,7 +24823,7 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
   %9227 = getelementptr inbounds i8, ptr %9226, i64 56
   %9228 = load ptr, ptr %9227, align 8, !noalias !25
   %9229 = call noundef zeroext i1 %9228(ptr noundef nonnull align 8 dereferenceable(16) %79) #21, !noalias !25
-  br i1 %9229, label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i
+  br i1 %9229, label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66), !noalias !25
@@ -24832,7 +24832,7 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
   %9231 = getelementptr inbounds i8, ptr %9230, i64 120
   %9232 = load ptr, ptr %9231, align 8, !noalias !25
   %9233 = call noundef zeroext i1 %9232(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.143, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 8 dereferenceable(8) %66) #21, !noalias !25
-  br i1 %9233, label %9234, label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i
+  br i1 %9233, label %9234, label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i
 
 9234:                                             ; preds = %.critedge.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65), !noalias !25
@@ -24846,7 +24846,7 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
   %9242 = call noundef zeroext i1 %9241(ptr noundef nonnull align 8 dereferenceable(16) %79) #21, !noalias !25
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %9238, 0
   %or.cond.i = or i1 %.not.i.i.i.i.i.i.i.i.i, %9242
-  br i1 %or.cond.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %9234
   %9243 = getelementptr inbounds i8, ptr %80, i64 8
@@ -24871,7 +24871,7 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
   %9254 = sub i64 %9252, %9253
   %9255 = sdiv exact i64 %9254, 120
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %9255, %indvars.iv.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i, label %9256
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i, label %9256
 
 9256:                                             ; preds = %9251
   %9257 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -24884,7 +24884,7 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
   %9264 = icmp ule i64 %9262, %9263
   call void @llvm.assume(i1 %9264)
   %.not27.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %9262, %9258
-  br i1 %.not27.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not27.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %9256, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9271, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i.i.i.i, %9256 ]
@@ -24902,14 +24902,14 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
   %9270 = add i64 %.057.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %9271 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %9270, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !37
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %9271, ptr %9243, align 8, !noalias !25
   %.val6.pre.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %80, align 8, !noalias !25
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9256
+_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9256
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %9255, i64 %9258)
   %9272 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i, %9255
   %9273 = mul nuw nsw i64 %9272, 120
@@ -24917,9 +24917,9 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_chec
   %9275 = getelementptr inbounds i8, ptr %9274, i64 %9254
   br label %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9282, %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9275, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.057.i.i.i34.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %9281, %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9258, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9282, %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9275, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.057.i.i.i34.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %9281, %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9258, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 120, i1 false), !noalias !25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i) #21, !noalias !25
   %9276 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
@@ -24933,15 +24933,15 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_chec
   %9281 = add i64 %.057.i.i.i34.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %9282 = getelementptr inbounds i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %9281, 0
-  br i1 %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !37
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i.i, %.val5.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration11PropagationEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9301, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration11PropagationEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9274, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9300, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration11PropagationEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration11PropagationEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9301, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration11PropagationEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9274, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9300, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration11PropagationEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #21, !noalias !25
   %9283 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %9284 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
@@ -25010,29 +25010,29 @@ _ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration11PropagationEEvPT_.exit.i.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #21, !noalias !25
   %9315 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i39.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9315, %.val5.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i39.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i38.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !39
+  br i1 %.not.i.i.i39.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i38.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !39
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration11PropagationEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration11PropagationEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i
   %.not.i40.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i40.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %9316
+  br i1 %.not.i40.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %9316
 
-9316:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i
+9316:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %9317 = load ptr, ptr %9244, align 8, !noalias !25
   %9318 = ptrtoint ptr %9317 to i64
   %9319 = sub i64 %9318, %9253
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i.i.i.i.i.i.i.i, i64 noundef %9319) #20, !noalias !25
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9316, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9316, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %9274, ptr %80, align 8, !noalias !25
   %9320 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Propagation", ptr %9275, i64 %9258
   store ptr %9320, ptr %9243, align 8, !noalias !25
   %9321 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Propagation", ptr %9274, i64 %9272
   store ptr %9321, ptr %9244, align 8, !noalias !25
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, %9251
-  %.val6.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9274, %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i.i, %9251 ]
+_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, %9251
+  %.val6.i.i.i.i.i.i.i.i.i.i = phi ptr [ %9274, %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration11PropagationEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i.i, %9251 ]
   %9322 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Propagation", ptr %.val6.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %9323 = load ptr, ptr %79, align 8, !noalias !25
   %9324 = getelementptr inbounds i8, ptr %9323, i64 104
@@ -25047,7 +25047,7 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Pr
   %9329 = call noundef zeroext i1 %9328(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.146, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(8) %62) #21, !noalias !25
   br i1 %9329, label %9330, label %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-9330:                                             ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+9330:                                             ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
   call void @_ZN4llvm4yaml7yamlizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(32) %9322, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %64), !noalias !25
   %9331 = load ptr, ptr %62, align 8, !noalias !25
   %9332 = load ptr, ptr %79, align 8, !noalias !25
@@ -25056,7 +25056,7 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Pr
   call void %9334(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9331) #21, !noalias !25
   br label %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9330, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9330, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %63), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %64), !noalias !25
@@ -25166,7 +25166,7 @@ _ZN4llvm4yaml2IO11mapOptionalINS_11SmallVectorIiLj2EEEEEvPKcRT_.exit14.i.i.i.i.i
   %9381 = getelementptr inbounds i8, ptr %9380, i64 120
   %9382 = load ptr, ptr %9381, align 8, !noalias !25
   %9383 = call noundef zeroext i1 %9382(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.150, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 8 dereferenceable(8) %51) #21, !noalias !25
-  br i1 %9383, label %9384, label %_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %9383, label %9384, label %_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 9384:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalINS_11SmallVectorIiLj2EEEEEvPKcRT_.exit14.i.i.i.i.i.i.i.i.i.i.i.i
   %9385 = load ptr, ptr %79, align 8, !noalias !25
@@ -25220,13 +25220,13 @@ _ZN4llvm4yaml2IO8enumCaseIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvR
   %9420 = getelementptr inbounds i8, ptr %9419, i64 168
   %9421 = load ptr, ptr %9420, align 8, !noalias !25
   %9422 = call noundef zeroext i1 %9421(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.181, i1 noundef zeroext %9418) #21, !noalias !25
-  br i1 %9422, label %9423, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS6_bRNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %9422, label %9423, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS6_bRNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 9423:                                             ; preds = %_ZN4llvm4yaml2IO8enumCaseIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvRT_PKcS6_.exit6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store i32 2, ptr %9379, align 4, !noalias !25
-  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS6_bRNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS6_bRNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS6_bRNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9423, %_ZN4llvm4yaml2IO8enumCaseIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvRT_PKcS6_.exit6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS6_bRNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9423, %_ZN4llvm4yaml2IO8enumCaseIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvRT_PKcS6_.exit6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %9424 = load ptr, ptr %79, align 8, !noalias !25
   %9425 = getelementptr inbounds i8, ptr %9424, i64 184
   %9426 = load ptr, ptr %9425, align 8, !noalias !25
@@ -25236,9 +25236,9 @@ _ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9en
   %9429 = getelementptr inbounds i8, ptr %9428, i64 128
   %9430 = load ptr, ptr %9429, align 8, !noalias !25
   call void %9430(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9427) #21, !noalias !25
-  br label %_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS6_bRNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm4yaml2IO11mapOptionalINS_11SmallVectorIiLj2EEEEEvPKcRT_.exit14.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS6_bRNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm4yaml2IO11mapOptionalINS_11SmallVectorIiLj2EEEEEvPKcRT_.exit14.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %52), !noalias !25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %50), !noalias !25
@@ -25248,9 +25248,9 @@ _ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeE
   %9432 = getelementptr inbounds i8, ptr %9431, i64 120
   %9433 = load ptr, ptr %9432, align 8, !noalias !25
   %9434 = call noundef zeroext i1 %9433(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.151, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(8) %48) #21, !noalias !25
-  br i1 %9434, label %9435, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i
+  br i1 %9434, label %9435, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i
 
-9435:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+9435:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %9436 = getelementptr inbounds nuw i8, ptr %9322, i64 116
   call void @_ZN4llvm4yaml7yamlizeIiEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS3_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 4 dereferenceable(4) %9436, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %50), !noalias !25
   %9437 = load ptr, ptr %48, align 8, !noalias !25
@@ -25258,9 +25258,9 @@ _ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeE
   %9439 = getelementptr inbounds i8, ptr %9438, i64 128
   %9440 = load ptr, ptr %9439, align 8, !noalias !25
   call void %9440(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9437) #21, !noalias !25
-  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i: ; preds = %9435, %_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %9435, %_ZN4llvm4yaml2IO11mapOptionalIN12_GLOBAL__N_118TaintConfiguration12VariadicTypeEEEvPKcRT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %49), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %50), !noalias !25
@@ -25275,12 +25275,12 @@ _ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12Emp
   call void %9447(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9444) #21, !noalias !25
   br label %9448
 
-9448:                                             ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i, %9245
+9448:                                             ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration11PropagationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i, %9245
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, label %9245, !llvm.loop !40
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, label %9245, !llvm.loop !40
 
-_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i: ; preds = %9448, %9234
+_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %9448, %9234
   %9449 = load ptr, ptr %79, align 8, !noalias !25
   %9450 = getelementptr inbounds i8, ptr %9449, i64 48
   %9451 = load ptr, ptr %9450, align 8, !noalias !25
@@ -25291,14 +25291,14 @@ _ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Propagation
   %9454 = getelementptr inbounds i8, ptr %9453, i64 128
   %9455 = load ptr, ptr %9454, align 8, !noalias !25
   call void %9455(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9452) #21, !noalias !25
-  br label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i
+_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %67), !noalias !25
-  br label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i
+  br label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i: ; preds = %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i, %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread.i
+_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i: ; preds = %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i, %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread.i
   %9456 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %9457 = load ptr, ptr %79, align 8, !noalias !25
   %9458 = getelementptr inbounds i8, ptr %9457, i64 56
@@ -25306,21 +25306,21 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Pro
   %9460 = call noundef zeroext i1 %9459(ptr noundef nonnull align 8 dereferenceable(16) %79) #21, !noalias !25
   br i1 %9460, label %9461, label %.critedge.i.i6.i.i.i.i.i
 
-9461:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i
+9461:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i
   %.val.i.i41.i.i.i.i.i = load ptr, ptr %9456, align 8, !noalias !25
   %9462 = getelementptr inbounds i8, ptr %80, i64 32
   %.val6.i.i42.i.i.i.i.i = load ptr, ptr %9462, align 8, !noalias !25
   %.not.i.i43.i.i.i.i.i = icmp eq ptr %.val.i.i41.i.i.i.i.i, %.val6.i.i42.i.i.i.i.i
-  br i1 %.not.i.i43.i.i.i.i.i, label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i, label %.critedge.i.i6.i.i.i.i.i
+  br i1 %.not.i.i43.i.i.i.i.i, label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i, label %.critedge.i.i6.i.i.i.i.i
 
-.critedge.i.i6.i.i.i.i.i:                         ; preds = %9461, %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i
+.critedge.i.i6.i.i.i.i.i:                         ; preds = %9461, %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46), !noalias !25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47), !noalias !25
   %9463 = load ptr, ptr %79, align 8, !noalias !25
   %9464 = getelementptr inbounds i8, ptr %9463, i64 120
   %9465 = load ptr, ptr %9464, align 8, !noalias !25
   %9466 = call noundef zeroext i1 %9465(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.144, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 8 dereferenceable(8) %46) #21, !noalias !25
-  br i1 %9466, label %9467, label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i
+  br i1 %9466, label %9467, label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i
 
 9467:                                             ; preds = %.critedge.i.i6.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45), !noalias !25
@@ -25348,7 +25348,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Pro
 9483:                                             ; preds = %9476, %9467
   %9484 = phi i32 [ %9482, %9476 ], [ %9471, %9467 ]
   %.not.i.i.i.i7.i.i.i.i.i = icmp eq i32 %9484, 0
-  br i1 %.not.i.i.i.i7.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i8.i.i.i.i.i
+  br i1 %.not.i.i.i.i7.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i8.i.i.i.i.i
 
 .lr.ph.i.i.i.i8.i.i.i.i.i:                        ; preds = %9483
   %9485 = getelementptr inbounds i8, ptr %80, i64 32
@@ -25373,7 +25373,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Pro
   %9496 = sub i64 %9494, %9495
   %9497 = sdiv exact i64 %9496, 88
   %.not.i.i.i.i.i15.i.i.i.i.i = icmp ugt i64 %9497, %indvars.iv.i.i.i.i10.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i15.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i, label %9498
+  br i1 %.not.i.i.i.i.i15.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i, label %9498
 
 9498:                                             ; preds = %9493
   %9499 = add nuw nsw i64 %indvars.iv.i.i.i.i10.i.i.i.i.i, 1
@@ -25386,7 +25386,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Pro
   %9506 = icmp ule i64 %9504, %9505
   call void @llvm.assume(i1 %9506)
   %.not27.i.i.i.i.i.i.i16.i.i.i.i.i = icmp ult i64 %9504, %9500
-  br i1 %.not27.i.i.i.i.i.i.i16.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i
+  br i1 %.not27.i.i.i.i.i.i.i16.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i:           ; preds = %9498, %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i
   %.08.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i = phi ptr [ %9511, %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i ], [ %.val5.i.i.i.i.i14.i.i.i.i.i, %9498 ]
@@ -25401,14 +25401,14 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Pro
   %9510 = add i64 %.057.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i, -1
   %9511 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i, i64 88
   %.not.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i = icmp eq i64 %9510, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i, !llvm.loop !41
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i
   store ptr %9511, ptr %9485, align 8, !noalias !25
   %.val6.pre.i.i.i.i.i21.i.i.i.i.i = load ptr, ptr %9456, align 8, !noalias !25
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9498
+_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9498
   %.sroa.speculated.i.i.i.i.i.i.i.i25.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %9497, i64 %9500)
   %9512 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i.i.i.i25.i.i.i.i.i, %9497
   %9513 = mul nuw nsw i64 %9512, 88
@@ -25416,9 +25416,9 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenE
   %9515 = getelementptr inbounds i8, ptr %9514, i64 %9496
   br label %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i
 
-.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i:         ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i = phi ptr [ %9520, %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %9515, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.057.i.i.i34.i.i.i.i.i.i.i28.i.i.i.i.i = phi i64 [ %9519, %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %9500, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i:         ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i = phi ptr [ %9520, %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %9515, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.057.i.i.i34.i.i.i.i.i.i.i28.i.i.i.i.i = phi i64 [ %9519, %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %9500, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i) #21, !noalias !25
   %9516 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i, i64 32
@@ -25429,15 +25429,15 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenE
   %9519 = add i64 %.057.i.i.i34.i.i.i.i.i.i.i28.i.i.i.i.i, -1
   %9520 = getelementptr inbounds i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i, i64 88
   %.not.i.i.i35.i.i.i.i.i.i.i29.i.i.i.i.i = icmp eq i64 %9519, 0
-  br i1 %.not.i.i.i35.i.i.i.i.i.i.i29.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i35.i.i.i.i.i.i.i29.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i, !llvm.loop !41
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i13.i.i.i.i.i, %.val5.i.i.i.i.i14.i.i.i.i.i
-  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i:       ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration6FilterEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i = phi ptr [ %9530, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration6FilterEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9514, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i33.i.i.i.i.i = phi ptr [ %9529, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration6FilterEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i13.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i:       ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration6FilterEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i = phi ptr [ %9530, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration6FilterEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9514, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i33.i.i.i.i.i = phi ptr [ %9529, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration6FilterEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i13.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i.i.i.i.i.i.i.i.i33.i.i.i.i.i) #21, !noalias !25
   %9521 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i, i64 32
   %9522 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i33.i.i.i.i.i, i64 32
@@ -25478,29 +25478,29 @@ _ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration6FilterEEvPT_.exit.i.i.i.i.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i.i36.i.i.i.i.i) #21, !noalias !25
   %9538 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i36.i.i.i.i.i, i64 88
   %.not.i.i.i39.i.i.i.i.i.i.i37.i.i.i.i.i = icmp eq ptr %9538, %.val5.i.i.i.i.i14.i.i.i.i.i
-  br i1 %.not.i.i.i39.i.i.i.i.i.i.i37.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i38.i.i.i.i.i.i.i35.i.i.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i39.i.i.i.i.i.i.i37.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i38.i.i.i.i.i.i.i35.i.i.i.i.i, !llvm.loop !43
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration6FilterEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration6FilterEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i
   %.not.i40.i.i.i.i.i.i.i38.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i13.i.i.i.i.i, null
-  br i1 %.not.i40.i.i.i.i.i.i.i38.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %9539
+  br i1 %.not.i40.i.i.i.i.i.i.i38.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %9539
 
-9539:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i
+9539:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %9540 = load ptr, ptr %9486, align 8, !noalias !25
   %9541 = ptrtoint ptr %9540 to i64
   %9542 = sub i64 %9541, %9495
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i.i.i13.i.i.i.i.i, i64 noundef %9542) #20, !noalias !25
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9539, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9539, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %9514, ptr %9456, align 8, !noalias !25
   %9543 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Filter", ptr %9515, i64 %9500
   store ptr %9543, ptr %9485, align 8, !noalias !25
   %9544 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Filter", ptr %9514, i64 %9512
   store ptr %9544, ptr %9486, align 8, !noalias !25
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, %9493
-  %.val6.i.i.i.i.i22.i.i.i.i.i = phi ptr [ %9514, %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i21.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i13.i.i.i.i.i, %9493 ]
+_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, %9493
+  %.val6.i.i.i.i.i22.i.i.i.i.i = phi ptr [ %9514, %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i21.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration6FilterEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i13.i.i.i.i.i, %9493 ]
   %9545 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Filter", ptr %.val6.i.i.i.i.i22.i.i.i.i.i, i64 %indvars.iv.i.i.i.i10.i.i.i.i.i
   %9546 = load ptr, ptr %79, align 8, !noalias !25
   %9547 = getelementptr inbounds i8, ptr %9546, i64 104
@@ -25515,7 +25515,7 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6Fil
   %9552 = call noundef zeroext i1 %9551(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.146, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(8) %42) #21, !noalias !25
   br i1 %9552, label %9553, label %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i23.i.i.i.i.i
 
-9553:                                             ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+9553:                                             ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
   call void @_ZN4llvm4yaml7yamlizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(32) %9545, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %44), !noalias !25
   %9554 = load ptr, ptr %42, align 8, !noalias !25
   %9555 = load ptr, ptr %79, align 8, !noalias !25
@@ -25524,7 +25524,7 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6Fil
   call void %9557(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9554) #21, !noalias !25
   br label %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i23.i.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i23.i.i.i.i.i: ; preds = %9553, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i23.i.i.i.i.i: ; preds = %9553, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %44), !noalias !25
@@ -25558,7 +25558,7 @@ _ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %9569 = getelementptr inbounds i8, ptr %9568, i64 120
   %9570 = load ptr, ptr %9569, align 8, !noalias !25
   %9571 = call noundef zeroext i1 %9570(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.183, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(8) %36) #21, !noalias !25
-  br i1 %9571, label %9572, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i
+  br i1 %9571, label %9572, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i
 
 9572:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i24.i.i.i.i.i
   %9573 = getelementptr inbounds nuw i8, ptr %9545, i64 64
@@ -25568,9 +25568,9 @@ _ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %9576 = getelementptr inbounds i8, ptr %9575, i64 128
   %9577 = load ptr, ptr %9576, align 8, !noalias !25
   call void %9577(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9574) #21, !noalias !25
-  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i: ; preds = %9572, %_ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i24.i.i.i.i.i
+_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %9572, %_ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i24.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38), !noalias !25
@@ -25585,12 +25585,12 @@ _ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyCont
   call void %9584(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9581) #21, !noalias !25
   br label %9585
 
-9585:                                             ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i, %9487
+9585:                                             ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration6FilterENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i, %9487
   %indvars.iv.next.i.i.i.i11.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i10.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i12.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i11.i.i.i.i.i, %wide.trip.count.i.i.i.i9.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i12.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, label %9487, !llvm.loop !44
+  br i1 %exitcond.not.i.i.i.i12.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, label %9487, !llvm.loop !44
 
-_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i: ; preds = %9585, %9483
+_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %9585, %9483
   %9586 = load ptr, ptr %79, align 8, !noalias !25
   %9587 = getelementptr inbounds i8, ptr %9586, i64 48
   %9588 = load ptr, ptr %9587, align 8, !noalias !25
@@ -25601,14 +25601,14 @@ _ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5
   %9591 = getelementptr inbounds i8, ptr %9590, i64 128
   %9592 = load ptr, ptr %9591, align 8, !noalias !25
   call void %9592(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9589) #21, !noalias !25
-  br label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, %.critedge.i.i6.i.i.i.i.i
+_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, %.critedge.i.i6.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47), !noalias !25
-  br label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i
+  br label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i: ; preds = %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i, %9461
+_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i: ; preds = %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i, %9461
   %9593 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %9594 = load ptr, ptr %79, align 8, !noalias !25
   %9595 = getelementptr inbounds i8, ptr %9594, i64 56
@@ -25616,21 +25616,21 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6Filt
   %9597 = call noundef zeroext i1 %9596(ptr noundef nonnull align 8 dereferenceable(16) %79) #21, !noalias !25
   br i1 %9597, label %9598, label %.critedge.i.i44.i.i.i.i.i
 
-9598:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i
+9598:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i
   %.val.i.i79.i.i.i.i.i = load ptr, ptr %9593, align 8, !noalias !25
   %9599 = getelementptr inbounds i8, ptr %80, i64 56
   %.val6.i.i80.i.i.i.i.i = load ptr, ptr %9599, align 8, !noalias !25
   %.not.i.i81.i.i.i.i.i = icmp eq ptr %.val.i.i79.i.i.i.i.i, %.val6.i.i80.i.i.i.i.i
   br i1 %.not.i.i81.i.i.i.i.i, label %_ZN4llvm4yamlrsIN12_GLOBAL__N_118TaintConfigurationEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0_12EmptyContextEEE5valueERNS0_5InputEE4typeES8_RS5_.exit.i, label %.critedge.i.i44.i.i.i.i.i
 
-.critedge.i.i44.i.i.i.i.i:                        ; preds = %9598, %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.exit.i.i.i.i.i
+.critedge.i.i44.i.i.i.i.i:                        ; preds = %9598, %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS6_EEEEvPKcRT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34), !noalias !25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35), !noalias !25
   %9600 = load ptr, ptr %79, align 8, !noalias !25
   %9601 = getelementptr inbounds i8, ptr %9600, i64 120
   %9602 = load ptr, ptr %9601, align 8, !noalias !25
   %9603 = call noundef zeroext i1 %9602(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.145, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(8) %34) #21, !noalias !25
-  br i1 %9603, label %9604, label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i
+  br i1 %9603, label %9604, label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i
 
 9604:                                             ; preds = %.critedge.i.i44.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33), !noalias !25
@@ -25658,7 +25658,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6Filt
 9620:                                             ; preds = %9613, %9604
   %9621 = phi i32 [ %9619, %9613 ], [ %9608, %9604 ]
   %.not.i.i.i.i45.i.i.i.i.i = icmp eq i32 %9621, 0
-  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i46.i.i.i.i.i
+  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i46.i.i.i.i.i
 
 .lr.ph.i.i.i.i46.i.i.i.i.i:                       ; preds = %9620
   %9622 = getelementptr inbounds i8, ptr %80, i64 56
@@ -25683,7 +25683,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6Filt
   %9633 = sub i64 %9631, %9632
   %9634 = sdiv exact i64 %9633, 88
   %.not.i.i.i.i.i53.i.i.i.i.i = icmp ugt i64 %9634, %indvars.iv.i.i.i.i48.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i53.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i, label %9635
+  br i1 %.not.i.i.i.i.i53.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i, label %9635
 
 9635:                                             ; preds = %9630
   %9636 = add nuw nsw i64 %indvars.iv.i.i.i.i48.i.i.i.i.i, 1
@@ -25696,7 +25696,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6Filt
   %9643 = icmp ule i64 %9641, %9642
   call void @llvm.assume(i1 %9643)
   %.not27.i.i.i.i.i.i.i54.i.i.i.i.i = icmp ult i64 %9641, %9637
-  br i1 %.not27.i.i.i.i.i.i.i54.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i
+  br i1 %.not27.i.i.i.i.i.i.i54.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i:           ; preds = %9635, %.lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i
   %.08.i.i.i.i.i.i.i.i.i.i56.i.i.i.i.i = phi ptr [ %9648, %.lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i ], [ %.val5.i.i.i.i.i52.i.i.i.i.i, %9635 ]
@@ -25711,14 +25711,14 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6Filt
   %9647 = add i64 %.057.i.i.i.i.i.i.i.i.i.i57.i.i.i.i.i, -1
   %9648 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i.i.i56.i.i.i.i.i, i64 88
   %.not.i.i.i.i.i.i.i.i.i.i58.i.i.i.i.i = icmp eq i64 %9647, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i58.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i58.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i, !llvm.loop !45
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i55.i.i.i.i.i
   store ptr %9648, ptr %9622, align 8, !noalias !25
   %.val6.pre.i.i.i.i.i59.i.i.i.i.i = load ptr, ptr %9593, align 8, !noalias !25
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9635
+_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9635
   %.sroa.speculated.i.i.i.i.i.i.i.i63.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %9634, i64 %9637)
   %9649 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i.i.i.i63.i.i.i.i.i, %9634
   %9650 = mul nuw nsw i64 %9649, 88
@@ -25726,9 +25726,9 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmP
   %9652 = getelementptr inbounds i8, ptr %9651, i64 %9633
   br label %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i
 
-.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i:         ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %.08.i.i.i33.i.i.i.i.i.i.i65.i.i.i.i.i = phi ptr [ %9657, %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i ], [ %9652, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.057.i.i.i34.i.i.i.i.i.i.i66.i.i.i.i.i = phi i64 [ %9656, %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i ], [ %9637, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i:         ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %.08.i.i.i33.i.i.i.i.i.i.i65.i.i.i.i.i = phi ptr [ %9657, %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i ], [ %9652, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.057.i.i.i34.i.i.i.i.i.i.i66.i.i.i.i.i = phi i64 [ %9656, %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i ], [ %9637, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.08.i.i.i33.i.i.i.i.i.i.i65.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i33.i.i.i.i.i.i.i65.i.i.i.i.i) #21, !noalias !25
   %9653 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i65.i.i.i.i.i, i64 32
@@ -25739,15 +25739,15 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmP
   %9656 = add i64 %.057.i.i.i34.i.i.i.i.i.i.i66.i.i.i.i.i, -1
   %9657 = getelementptr inbounds i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i65.i.i.i.i.i, i64 88
   %.not.i.i.i35.i.i.i.i.i.i.i67.i.i.i.i.i = icmp eq i64 %9656, 0
-  br i1 %.not.i.i.i35.i.i.i.i.i.i.i67.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i35.i.i.i.i.i.i.i67.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i, !llvm.loop !45
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i32.i.i.i.i.i.i.i64.i.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i.i.i.i.i68.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i51.i.i.i.i.i, %.val5.i.i.i.i.i52.i.i.i.i.i
-  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i68.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i69.i.i.i.i.i
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i68.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i69.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i69.i.i.i.i.i:       ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration4SinkEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i.i.i.i.i70.i.i.i.i.i = phi ptr [ %9667, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration4SinkEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9651, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i71.i.i.i.i.i = phi ptr [ %9666, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration4SinkEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i51.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i69.i.i.i.i.i:       ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration4SinkEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i.i.i.i.i.i70.i.i.i.i.i = phi ptr [ %9667, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration4SinkEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9651, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i71.i.i.i.i.i = phi ptr [ %9666, %_ZSt10_ConstructIN12_GLOBAL__N_118TaintConfiguration4SinkEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i51.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i.i.i.i.i.i.i.i.i70.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i.i.i.i.i.i.i.i.i71.i.i.i.i.i) #21, !noalias !25
   %9658 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i70.i.i.i.i.i, i64 32
   %9659 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i71.i.i.i.i.i, i64 32
@@ -25788,29 +25788,29 @@ _ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration4SinkEEvPT_.exit.i.i.i.i.i.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i.i74.i.i.i.i.i) #21, !noalias !25
   %9675 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i74.i.i.i.i.i, i64 88
   %.not.i.i.i39.i.i.i.i.i.i.i75.i.i.i.i.i = icmp eq ptr %9675, %.val5.i.i.i.i.i52.i.i.i.i.i
-  br i1 %.not.i.i.i39.i.i.i.i.i.i.i75.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i38.i.i.i.i.i.i.i73.i.i.i.i.i, !llvm.loop !47
+  br i1 %.not.i.i.i39.i.i.i.i.i.i.i75.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i38.i.i.i.i.i.i.i73.i.i.i.i.i, !llvm.loop !47
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration4SinkEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit37.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration4SinkEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit37.i.i.i.i.i.i.i.i.i.i.i.i
   %.not.i40.i.i.i.i.i.i.i76.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i51.i.i.i.i.i, null
-  br i1 %.not.i40.i.i.i.i.i.i.i76.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %9676
+  br i1 %.not.i40.i.i.i.i.i.i.i76.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %9676
 
-9676:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i
+9676:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %9677 = load ptr, ptr %9623, align 8, !noalias !25
   %9678 = ptrtoint ptr %9677 to i64
   %9679 = sub i64 %9678, %9632
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i.i.i51.i.i.i.i.i, i64 noundef %9679) #20, !noalias !25
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9676, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9676, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %9651, ptr %9593, align 8, !noalias !25
   %9680 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Sink", ptr %9652, i64 %9637
   store ptr %9680, ptr %9622, align 8, !noalias !25
   %9681 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Sink", ptr %9651, i64 %9649
   store ptr %9681, ptr %9623, align 8, !noalias !25
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i, %9630
-  %.val6.i.i.i.i.i60.i.i.i.i.i = phi ptr [ %9651, %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i59.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i51.i.i.i.i.i, %9630 ]
+_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, %9630
+  %.val6.i.i.i.i.i60.i.i.i.i.i = phi ptr [ %9651, %_ZNSt12_Vector_baseIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i59.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_118TaintConfiguration4SinkEmS2_ET_S4_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i51.i.i.i.i.i, %9630 ]
   %9682 = getelementptr inbounds %"struct.(anonymous namespace)::TaintConfiguration::Sink", ptr %.val6.i.i.i.i.i60.i.i.i.i.i, i64 %indvars.iv.i.i.i.i48.i.i.i.i.i
   %9683 = load ptr, ptr %79, align 8, !noalias !25
   %9684 = getelementptr inbounds i8, ptr %9683, i64 104
@@ -25825,7 +25825,7 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4Sin
   %9689 = call noundef zeroext i1 %9688(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.146, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(8) %30) #21, !noalias !25
   br i1 %9689, label %9690, label %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i61.i.i.i.i.i
 
-9690:                                             ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+9690:                                             ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
   call void @_ZN4llvm4yaml7yamlizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(32) %9682, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %32), !noalias !25
   %9691 = load ptr, ptr %30, align 8, !noalias !25
   %9692 = load ptr, ptr %79, align 8, !noalias !25
@@ -25834,7 +25834,7 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4Sin
   call void %9694(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9691) #21, !noalias !25
   br label %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i61.i.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i61.i.i.i.i.i: ; preds = %9690, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.exit.i.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i61.i.i.i.i.i: ; preds = %9690, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EELb1EE7elementERNS0_2IOERS7_m.argprom.exit.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32), !noalias !25
@@ -25868,7 +25868,7 @@ _ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %9706 = getelementptr inbounds i8, ptr %9705, i64 120
   %9707 = load ptr, ptr %9706, align 8, !noalias !25
   %9708 = call noundef zeroext i1 %9707(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull @.str.183, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 8 dereferenceable(8) %24) #21, !noalias !25
-  br i1 %9708, label %9709, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i
+  br i1 %9708, label %9709, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i
 
 9709:                                             ; preds = %_ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i62.i.i.i.i.i
   %9710 = getelementptr inbounds nuw i8, ptr %9682, i64 64
@@ -25878,9 +25878,9 @@ _ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %9713 = getelementptr inbounds i8, ptr %9712, i64 128
   %9714 = load ptr, ptr %9713, align 8, !noalias !25
   call void %9714(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9711) #21, !noalias !25
-  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i: ; preds = %9709, %_ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i62.i.i.i.i.i
+_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %9709, %_ZN4llvm4yaml2IO11mapOptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i62.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26), !noalias !25
@@ -25895,12 +25895,12 @@ _ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContex
   call void %9721(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9718) #21, !noalias !25
   br label %9722
 
-9722:                                             ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.exit.i.i.i.i.i.i.i.i.i, %9624
+9722:                                             ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_118TaintConfiguration4SinkENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS7_bRS8_.argprom.exit.i.i.i.i.i.i.i.i.i, %9624
   %indvars.iv.next.i.i.i.i49.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i48.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i50.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i49.i.i.i.i.i, %wide.trip.count.i.i.i.i47.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i50.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, label %9624, !llvm.loop !48
+  br i1 %exitcond.not.i.i.i.i50.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, label %9624, !llvm.loop !48
 
-_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i: ; preds = %9722, %9620
+_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %9722, %9620
   %9723 = load ptr, ptr %79, align 8, !noalias !25
   %9724 = getelementptr inbounds i8, ptr %9723, i64 48
   %9725 = load ptr, ptr %9724, align 8, !noalias !25
@@ -25911,14 +25911,14 @@ _ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_E
   %9728 = getelementptr inbounds i8, ptr %9727, i64 128
   %9729 = load ptr, ptr %9728, align 8, !noalias !25
   call void %9729(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %9726) #21, !noalias !25
-  br label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.exit.i.i.i.i.i.i.i.i, %.critedge.i.i44.i.i.i.i.i
+_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS5_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERSA_bRT0_.argprom.exit.i.i.i.i.i.i.i.i, %.critedge.i.i44.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34), !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35), !noalias !25
   br label %_ZN4llvm4yamlrsIN12_GLOBAL__N_118TaintConfigurationEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0_12EmptyContextEEE5valueERNS0_5InputEE4typeES8_RS5_.exit.i
 
-_ZN4llvm4yamlrsIN12_GLOBAL__N_118TaintConfigurationEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0_12EmptyContextEEE5valueERNS0_5InputEE4typeES8_RS5_.exit.i: ; preds = %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i.i, %9598
+_ZN4llvm4yamlrsIN12_GLOBAL__N_118TaintConfigurationEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0_12EmptyContextEEE5valueERNS0_5InputEE4typeES8_RS5_.exit.i: ; preds = %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS6_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i.i, %9598
   %9730 = load ptr, ptr %79, align 8, !noalias !25
   %9731 = getelementptr inbounds i8, ptr %9730, i64 112
   %9732 = load ptr, ptr %9731, align 8, !noalias !25
@@ -26027,7 +26027,7 @@ _ZN5clang4ento16getConfigurationIN12_GLOBAL__N_118TaintConfigurationEKNS2_19Gene
 
 9779:                                             ; preds = %_ZN5clang4ento16getConfigurationIN12_GLOBAL__N_118TaintConfigurationEKNS2_19GenericTaintCheckerEEESt8optionalIT_ERNS0_14CheckerManagerEPT0_N4llvm9StringRefESE_.exit.thread, %_ZN5clang4ento16getConfigurationIN12_GLOBAL__N_118TaintConfigurationEKNS2_19GenericTaintCheckerEEESt8optionalIT_ERNS0_14CheckerManagerEPT0_N4llvm9StringRefESE_.exit
   %9780 = phi ptr [ %9180, %_ZN5clang4ento16getConfigurationIN12_GLOBAL__N_118TaintConfigurationEKNS2_19GenericTaintCheckerEEESt8optionalIT_ERNS0_14CheckerManagerEPT0_N4llvm9StringRefESE_.exit.thread ], [ %9778, %_ZN5clang4ento16getConfigurationIN12_GLOBAL__N_118TaintConfigurationEKNS2_19GenericTaintCheckerEEESt8optionalIT_ERNS0_14CheckerManagerEPT0_N4llvm9StringRefESE_.exit ]
-  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EEC2ESt16initializer_listIS6_ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %1137, ptr null, i64 0)
+  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EEC2ESt16initializer_listIS6_ERKS7_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1137, ptr null, i64 0)
   %.val.i = load i8, ptr %1146, align 8
   %9781 = trunc i8 %.val.i to i1
   br i1 %9781, label %9782, label %9811
@@ -26048,7 +26048,7 @@ _ZN5clang4ento16getConfigurationIN12_GLOBAL__N_118TaintConfigurationEKNS2_19Gene
   store ptr %9792, ptr %9786, align 8
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %9783, %9785
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1137, i8 0, i64 24, i1 false)
-  br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9782, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %9806, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %9783, %9782 ]
@@ -26089,13 +26089,13 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %9800, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %9806 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9806, %9785
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i, %9782
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i, %9782
   %.not.i.i.i.i.i.i.i3654 = icmp eq ptr %9783, null
   br i1 %.not.i.i.i.i.i.i.i3654, label %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit, label %9807
 
-9807:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
+9807:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i
   %9808 = ptrtoint ptr %9787 to i64
   %9809 = ptrtoint ptr %9783 to i64
   %9810 = sub i64 %9808, %9809
@@ -26117,12 +26117,12 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTai
   store i8 1, ptr %1146, align 8
   br label %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
 
-_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, %9807, %9811
+_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i, %9807, %9811
   %9819 = load ptr, ptr %1137, align 8
   %9820 = getelementptr inbounds nuw i8, ptr %1137, i64 8
   %9821 = load ptr, ptr %9820, align 8
   %.not4.i.i.i.i.i3655 = icmp eq ptr %9819, %9821
-  br i1 %.not4.i.i.i.i.i3655, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i3656
+  br i1 %.not4.i.i.i.i.i3655, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i3656
 
 .lr.ph.i.i.i.i.i3656:                             ; preds = %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i3657 = phi ptr [ %9835, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i ], [ %9819, %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit ]
@@ -26163,14 +26163,14 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i: ; preds = %9829, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
   %9835 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i3657, i64 216
   %.not.i.i.i.i.i3658 = icmp eq ptr %9835, %9821
-  br i1 %.not.i.i.i.i.i3658, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i3656, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i3658, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i3656, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i
   %.val.pr.i.i = load ptr, ptr %1137, align 8
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
-  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i ], [ %9819, %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i, %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
+  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i ], [ %9819, %_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit ]
   %.not.i.i.i.i3659 = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i3659, label %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit, label %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.sink.split
 
@@ -26288,7 +26288,7 @@ _ZN12_GLOBAL__N_122GenericTaintRuleParser14parseNamePartsINS_18TaintConfiguratio
   %9876 = load ptr, ptr %16, align 8, !noalias !56
   %9877 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21, !noalias !56
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %17, i32 noundef 4, ptr %9876, i64 %9877, i64 0, i64 0) #21, !noalias !56
-  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12emplace_backIJS3_S5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1138, ptr noundef nonnull align 8 dereferenceable(60) %17, ptr noundef nonnull align 8 dereferenceable(152) %22)
+  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12emplace_backIJS3_S5_EEERS6_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(24) %1138, ptr noundef nonnull align 8 dereferenceable(60) %17, ptr noundef nonnull align 8 dereferenceable(152) %22)
   %9878 = load ptr, ptr %9850, align 8, !noalias !56
   %9879 = load ptr, ptr %9851, align 8, !noalias !56
   %.not4.i.i.i.i.i.i.i.i3660 = icmp eq ptr %9878, %9879
@@ -26408,7 +26408,7 @@ _ZN12_GLOBAL__N_122GenericTaintRuleParser14parseNamePartsINS_18TaintConfiguratio
   %9917 = load ptr, ptr %10, align 8, !noalias !56
   %9918 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21, !noalias !56
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %11, i32 noundef 4, ptr %9917, i64 %9918, i64 0, i64 0) #21, !noalias !56
-  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12emplace_backIJS3_S5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1138, ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef nonnull align 8 dereferenceable(152) %12)
+  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12emplace_backIJS3_S5_EEERS6_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(24) %1138, ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef nonnull align 8 dereferenceable(152) %12)
   %9919 = load ptr, ptr %9903, align 8, !noalias !56
   %9920 = load ptr, ptr %9904, align 8, !noalias !56
   %.not4.i.i.i.i.i.i.i32.i = icmp eq ptr %9919, %9920
@@ -26551,7 +26551,7 @@ _ZN12_GLOBAL__N_122GenericTaintRuleParser14parseNamePartsINS_18TaintConfiguratio
   %9968 = load ptr, ptr %4, align 8, !noalias !56
   %9969 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21, !noalias !56
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %5, i32 noundef 4, ptr %9968, i64 %9969, i64 0, i64 0) #21, !noalias !56
-  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12emplace_backIJS3_S5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1138, ptr noundef nonnull align 8 dereferenceable(60) %5, ptr noundef nonnull align 8 dereferenceable(152) %8)
+  call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12emplace_backIJS3_S5_EEERS6_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(24) %1138, ptr noundef nonnull align 8 dereferenceable(60) %5, ptr noundef nonnull align 8 dereferenceable(152) %8)
   %9970 = load ptr, ptr %9944, align 8, !noalias !56
   %9971 = load ptr, ptr %9945, align 8, !noalias !56
   %.not4.i.i.i.i.i.i.i42.i = icmp eq ptr %9970, %9971
@@ -26630,7 +26630,7 @@ _ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112ba
   store ptr %.val433, ptr %1140, align 8
   %9993 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8optionalIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEEE7emplaceIJSt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_15CallDescriptionES4_ESt6vectorISD_SaISD_EEEEESJ_EEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOSL_(ptr noundef nonnull align 8 dereferenceable(32) %1145, ptr noundef nonnull align 8 dereferenceable(8) %1139, ptr noundef nonnull align 8 dereferenceable(8) %1140)
   %.not4.i.i.i.i = icmp eq ptr %.val435, %.val433
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_18TaintConfigurationE.exit, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %10007, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i ], [ %.val435, %_ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_18TaintConfigurationE.exit ]
@@ -26671,21 +26671,21 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i: ; preds = %10001, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
   %10007 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 216
   %.not.i.i.i.i3669 = icmp eq ptr %10007, %.val433
-  br i1 %.not.i.i.i.i3669, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i3669, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i
   %.val.pr.i = load ptr, ptr %1138, align 8
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, %_ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_18TaintConfigurationE.exit
-  %.val.i3670 = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i ], [ %.val435, %_ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_18TaintConfigurationE.exit ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i, %_ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_18TaintConfigurationE.exit
+  %.val.i3670 = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %.val435, %_ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_18TaintConfigurationE.exit ]
   %.not.i.i.i3671 = icmp eq ptr %.val.i3670, null
   br i1 %.not.i.i.i3671, label %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit, label %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.sink.split
 
-_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.sink.split: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i
-  %.sink6227.sroa.phi = phi ptr [ %.sink6227.sroa.gep, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i ], [ %.sink6227.sroa.gep6488, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i ]
-  %.val.i3670.sink6226 = phi ptr [ %.val.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i ], [ %.val.i3670, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i ]
-  %.ph = phi ptr [ %9780, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i ], [ %9778, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i ]
+_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.sink.split: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i
+  %.sink6227.sroa.phi = phi ptr [ %.sink6227.sroa.gep, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i ], [ %.sink6227.sroa.gep6488, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i ]
+  %.val.i3670.sink6226 = phi ptr [ %.val.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i ], [ %.val.i3670, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i ]
+  %.ph = phi ptr [ %9780, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i ], [ %9778, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i ]
   %.val1.i = load ptr, ptr %.sink6227.sroa.phi, align 8
   %10008 = ptrtoint ptr %.val1.i to i64
   %10009 = ptrtoint ptr %.val.i3670.sink6226 to i64
@@ -26693,8 +26693,8 @@ _ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.
   call void @_ZdlPvm(ptr noundef nonnull %.val.i3670.sink6226, i64 noundef %10010) #20
   br label %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit
 
-_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit: ; preds = %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.sink.split, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i
-  %10011 = phi ptr [ %9778, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i ], [ %9780, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i ], [ %.ph, %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.sink.split ]
+_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit: ; preds = %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.sink.split, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i
+  %10011 = phi ptr [ %9778, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i ], [ %9780, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i ], [ %.ph, %_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEED2Ev.exit.sink.split ]
   %10012 = load i8, ptr %10011, align 8
   %10013 = trunc i8 %10012 to i1
   br i1 %10013, label %10014, label %_ZNSt8optionalIN12_GLOBAL__N_118TaintConfigurationEED2Ev.exit
@@ -26709,7 +26709,7 @@ _ZNSt8optionalIN12_GLOBAL__N_118TaintConfigurationEED2Ev.exit: ; preds = %_ZN5cl
   %10015 = load ptr, ptr %84, align 8
   %10016 = load ptr, ptr %9151, align 8
   %.not4.i.i.i.i3672 = icmp eq ptr %10015, %10016
-  br i1 %.not4.i.i.i.i3672, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i3687, label %.lr.ph.i.i.i.i3673
+  br i1 %.not4.i.i.i.i3672, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i3687, label %.lr.ph.i.i.i.i3673
 
 .lr.ph.i.i.i.i3673:                               ; preds = %_ZNSt8optionalIN12_GLOBAL__N_118TaintConfigurationEED2Ev.exit, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i3683
   %.05.i.i.i.i3674 = phi ptr [ %10030, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i3683 ], [ %10015, %_ZNSt8optionalIN12_GLOBAL__N_118TaintConfigurationEED2Ev.exit ]
@@ -26750,18 +26750,18 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i3683: ; preds = %10024, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i3681
   %10030 = getelementptr inbounds i8, ptr %.05.i.i.i.i3674, i64 216
   %.not.i.i.i.i3684 = icmp eq ptr %10030, %10016
-  br i1 %.not.i.i.i.i3684, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i3685, label %.lr.ph.i.i.i.i3673, !llvm.loop !14
+  br i1 %.not.i.i.i.i3684, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i3685, label %.lr.ph.i.i.i.i3673, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i3685: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i3683
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i3685: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i3683
   %.val.pr.i3686 = load ptr, ptr %84, align 8
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i3687
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i3687
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i3687: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i3685, %_ZNSt8optionalIN12_GLOBAL__N_118TaintConfigurationEED2Ev.exit
-  %.val.i3688 = phi ptr [ %.val.pr.i3686, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i3685 ], [ %10015, %_ZNSt8optionalIN12_GLOBAL__N_118TaintConfigurationEED2Ev.exit ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i3687: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i3685, %_ZNSt8optionalIN12_GLOBAL__N_118TaintConfigurationEED2Ev.exit
+  %.val.i3688 = phi ptr [ %.val.pr.i3686, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i3685 ], [ %10015, %_ZNSt8optionalIN12_GLOBAL__N_118TaintConfigurationEED2Ev.exit ]
   %.not.i.i.i3689 = icmp eq ptr %.val.i3688, null
   br i1 %.not.i.i.i3689, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EED2Ev.exit3691, label %10031
 
-10031:                                            ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i3687
+10031:                                            ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i3687
   %10032 = getelementptr inbounds i8, ptr %84, i64 16
   %.val1.i3690 = load ptr, ptr %10032, align 8
   %10033 = ptrtoint ptr %.val1.i3690 to i64
@@ -26770,7 +26770,7 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTai
   call void @_ZdlPvm(ptr noundef nonnull %.val.i3688, i64 noundef %10035) #20
   br label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EED2Ev.exit3691
 
-_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EED2Ev.exit3691: ; preds = %10031, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i3687, %2, %1144
+_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EED2Ev.exit3691: ; preds = %10031, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i3687, %2, %1144
   ret void
 }
 
@@ -26931,28 +26931,28 @@ _ZN12_GLOBAL__N_16ArgSetD2Ev.exit2:               ; preds = %_ZN12_GLOBAL__N_16A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EEC2ESt16initializer_listIS6_ERKS7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EEC2ESt16initializer_listIS6_ERKS7_.argprom(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds %"struct.std::pair.147", ptr %1, i64 %2
   %.idx = mul nsw i64 %2, 216
   %5 = icmp ugt i64 %2, 42700796466920258
-  br i1 %5, label %6, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
+  br i1 %5, label %6, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.argprom.exit.i
 
 6:                                                ; preds = %3
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.135) #19
   unreachable
 
-_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i: ; preds = %3
+_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.argprom.exit.i: ; preds = %3
   %.not.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.exit.thread.i, label %.lr.ph.i.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.argprom.exit.thread.i, label %.lr.ph.i.i.i.i.preheader.i
 
-_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
+_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.argprom.exit.thread.i: ; preds = %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.argprom.exit.i
   %7 = getelementptr inbounds i8, ptr null, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8
   br label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE19_M_range_initializeIPKS6_EEvT_SC_St20forward_iterator_tag.exit
 
-.lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
+.lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.argprom.exit.i
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #18
   store ptr %9, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 %.idx
@@ -27027,8 +27027,8 @@ _ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericT
   %.not.i.i.i.i.i = icmp eq ptr %37, %4
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE19_M_range_initializeIPKS6_EEvT_SC_St20forward_iterator_tag.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !71
 
-_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE19_M_range_initializeIPKS6_EEvT_SC_St20forward_iterator_tag.exit: ; preds = %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.exit.thread.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.exit.thread.i ], [ %38, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE19_M_range_initializeIPKS6_EEvT_SC_St20forward_iterator_tag.exit: ; preds = %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.argprom.exit.thread.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.argprom.exit.thread.i ], [ %38, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %39, align 8
   ret void
@@ -27075,13 +27075,13 @@ define internal fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionE
   %25 = ptrtoint ptr %.val.i.i to i64
   %26 = sub i64 %24, %25
   %27 = icmp eq i64 %26, 9223372036854775728
-  br i1 %27, label %28, label %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %27, label %28, label %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i
 
 28:                                               ; preds = %23
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %23
+_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %23
   %29 = sdiv exact i64 %26, 216
   %30 = icmp eq ptr %4, %.val.i.i
   %.sroa.speculated.i.i.i = select i1 %30, i64 1, i64 %29
@@ -27114,15 +27114,15 @@ _ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTain
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2EOS0_(ptr noundef nonnull align 8 dereferenceable(152) %49, ptr noundef nonnull align 8 dereferenceable(152) %50)
-  br i1 %30, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.exit38.i.thread.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %30, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.argprom.exit38.i.thread.i, label %.lr.ph.i.i.i.i.i.i.i
 
-_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.exit38.i.thread.i: ; preds = %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.argprom.exit38.i.thread.i: ; preds = %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i
   %51 = getelementptr inbounds i8, ptr %36, i64 216
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i.i, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %78, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %36, %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %77, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %.val.i.i, %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i.i = phi ptr [ %78, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %36, %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %77, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %.val.i.i, %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.i.i.i.i.i.i, i64 16, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
@@ -27226,25 +27226,25 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i: ; preds = %86, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
   %92 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i = icmp eq ptr %92, %4
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.loopexit.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i
   %93 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 432
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.exit38.i.thread.i
-  %94 = phi ptr [ %51, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.exit38.i.thread.i ], [ %93, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.loopexit.i, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.argprom.exit38.i.thread.i
+  %94 = phi ptr [ %51, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.argprom.exit38.i.thread.i ], [ %93, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.loopexit.i ]
   %.not.i39.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i39.i.i, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %95
 
-95:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i
+95:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i
   %96 = load ptr, ptr %5, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = sub i64 %97, %25
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %98) #20
   br label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
-_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %95, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %95, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i
   store ptr %36, ptr %0, align 8
   store ptr %94, ptr %3, align 8
   %99 = getelementptr inbounds %"struct.std::pair.147", ptr %36, i64 %34
@@ -27268,7 +27268,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8op
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %8, %10
-  br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %7, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %24, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %8, %7 ]
@@ -27309,18 +27309,18 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %18, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %24, %10
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i.i.i.i.i
   %.val.pr.i.i.i.i.i = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, %7
-  %.val.i.i.i.i.i = phi ptr [ %.val.pr.i.i.i.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i ], [ %8, %7 ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i, %7
+  %.val.i.i.i.i.i = phi ptr [ %.val.pr.i.i.i.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i ], [ %8, %7 ]
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE8_M_resetEv.exit, label %25
 
-25:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
+25:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1.i.i.i.i.i = load ptr, ptr %26, align 8
   %27 = ptrtoint ptr %.val1.i.i.i.i.i to i64
@@ -27329,7 +27329,7 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTai
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i.i.i, i64 noundef %29) #20
   br label %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE8_M_resetEv.exit
 
-_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE8_M_resetEv.exit: ; preds = %3, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, %25
+_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE8_M_resetEv.exit: ; preds = %3, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.i.i.i.i, %25
   %.val = load ptr, ptr %1, align 8
   %.val3 = load ptr, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -27338,23 +27338,23 @@ _ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116Gen
   %32 = sub i64 %30, %31
   %33 = sdiv exact i64 %32, 216
   %34 = icmp ugt i64 %33, 42700796466920258
-  br i1 %34, label %35, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.i.i.i.i.i
+  br i1 %34, label %35, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.argprom.exit.i.i.i.i.i.i
 
 35:                                               ; preds = %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE8_M_resetEv.exit
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.135) #19
   unreachable
 
-_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.i.i.i.i.i: ; preds = %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE8_M_resetEv.exit
+_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE8_M_resetEv.exit
   %.not.i.i.i.i.i.i.i4 = icmp eq ptr %.val3, %.val
-  br i1 %.not.i.i.i.i.i.i.i4, label %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i4, label %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.argprom.exit.thread.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.i.i.i.i.i
+_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.argprom.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.argprom.exit.i.i.i.i.i.i
   %36 = getelementptr inbounds i8, ptr null, i64 %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %36, ptr %37, align 8
-  br label %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJSt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_15CallDescriptionES4_ESt6vectorISF_SaISF_EEEEESL_EEEvDpOT_.exit
+  br label %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJSt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_15CallDescriptionES4_ESt6vectorISF_SaISF_EEEEESL_EEEvDpOT_.argprom.exit
 
-.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i:             ; preds = %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.i.i.i.i.i
+.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i:             ; preds = %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_S_check_init_lenEmRKS7_.argprom.exit.i.i.i.i.i.i
   %38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #18
   store ptr %38, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %32
@@ -27388,10 +27388,10 @@ _ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116Gener
   %54 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i, i64 216
   %55 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %54, %.val3
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJSt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_15CallDescriptionES4_ESt6vectorISF_SaISF_EEEEESL_EEEvDpOT_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !72
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJSt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_15CallDescriptionES4_ESt6vectorISF_SaISF_EEEEESL_EEEvDpOT_.argprom.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !72
 
-_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJSt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_15CallDescriptionES4_ESt6vectorISF_SaISF_EEEEESL_EEEvDpOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+_ZNSt19_Optional_base_implIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJSt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_15CallDescriptionES4_ESt6vectorISF_SaISF_EEEEESL_EEEvDpOT_.argprom.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.argprom.exit.thread.i.i.i.i.i.i
+  %.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE11_M_allocateEm.argprom.exit.thread.i.i.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i, ptr %56, align 8
   store i8 1, ptr %4, align 8
@@ -27939,7 +27939,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118TaintConfigurationD2Ev(ptr nocap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration4SinkEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %13, %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration4SinkEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
@@ -27960,18 +27960,18 @@ _ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration4SinkEEvPT_.exit.i.i.i.i: ; pre
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #21
   %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 88
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !47
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !47
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration4SinkEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration4SinkEEvPT_.exit.i.i.i.i
   %.val.pr.i = load ptr, ptr %2, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %1
-  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %3, %1 ]
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i, %1
+  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %3, %1 ]
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit, label %14
 
-14:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i
+14:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1.i = load ptr, ptr %15, align 8
   %16 = ptrtoint ptr %.val1.i to i64
@@ -27980,13 +27980,13 @@ _ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %18) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.exit.i, %14
+_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration4SinkES2_EvT_S4_RSaIT0_E.argprom.exit.i, %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not4.i.i.i.i1 = icmp eq ptr %20, %22
-  br i1 %.not4.i.i.i.i1, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i2
+  br i1 %.not4.i.i.i.i1, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i2
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit, %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration6FilterEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i3 = phi ptr [ %30, %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration6FilterEEvPT_.exit.i.i.i.i ], [ %20, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit ]
@@ -28007,18 +28007,18 @@ _ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration6FilterEEvPT_.exit.i.i.i.i: ; p
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3) #21
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 88
   %.not.i.i.i.i4 = icmp eq ptr %30, %22
-  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !43
+  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !43
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration6FilterEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration6FilterEEvPT_.exit.i.i.i.i
   %.val.pr.i5 = load ptr, ptr %19, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit
-  %.val.i6 = phi ptr [ %.val.pr.i5, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %20, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit ]
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit
+  %.val.i6 = phi ptr [ %.val.pr.i5, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %20, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EED2Ev.exit ]
   %.not.i.i.i7 = icmp eq ptr %.val.i6, null
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit, label %31
 
-31:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i
+31:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %.val1.i8 = load ptr, ptr %32, align 8
   %33 = ptrtoint ptr %.val1.i8 to i64
@@ -28027,12 +28027,12 @@ _ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exi
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i6, i64 noundef %35) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.exit.i, %31
+_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration6FilterES2_EvT_S4_RSaIT0_E.argprom.exit.i, %31
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not4.i.i.i.i9 = icmp eq ptr %36, %38
-  br i1 %.not4.i.i.i.i9, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i10
+  br i1 %.not4.i.i.i.i9, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i10
 
 .lr.ph.i.i.i.i10:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit, %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration11PropagationEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i11 = phi ptr [ %52, %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration11PropagationEEvPT_.exit.i.i.i.i ], [ %36, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit ]
@@ -28065,18 +28065,18 @@ _ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration11PropagationEEvPT_.exit.i.i.i.
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i11) #21
   %52 = getelementptr inbounds i8, ptr %.05.i.i.i.i11, i64 120
   %.not.i.i.i.i12 = icmp eq ptr %52, %38
-  br i1 %.not.i.i.i.i12, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i10, !llvm.loop !39
+  br i1 %.not.i.i.i.i12, label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i10, !llvm.loop !39
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration11PropagationEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_118TaintConfiguration11PropagationEEvPT_.exit.i.i.i.i
   %.val.pr.i13 = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit
-  %.val.i14 = phi ptr [ %.val.pr.i13, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %36, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit ]
+_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit
+  %.val.i14 = phi ptr [ %.val.pr.i13, %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %36, %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EED2Ev.exit ]
   %.not.i.i.i15 = icmp eq ptr %.val.i14, null
   br i1 %.not.i.i.i15, label %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EED2Ev.exit, label %53
 
-53:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i
+53:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1.i16 = load ptr, ptr %54, align 8
   %55 = ptrtoint ptr %.val1.i16 to i64
@@ -28085,7 +28085,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i14, i64 noundef %57) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.exit.i, %53
+_ZNSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_118TaintConfiguration11PropagationES2_EvT_S4_RSaIT0_E.argprom.exit.i, %53
   ret void
 }
 
@@ -28929,7 +28929,7 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_119GenericTaintCheckerE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12emplace_backIJS3_S5_EEERS6_DpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(152) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12emplace_backIJS3_S5_EEERS6_DpOT_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(152) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -28968,13 +28968,13 @@ define internal fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionE
   %25 = ptrtoint ptr %.val.i to i64
   %26 = sub i64 %24, %25
   %27 = icmp eq i64 %26, 9223372036854775728
-  br i1 %27, label %28, label %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i
+  br i1 %27, label %28, label %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i
 
 28:                                               ; preds = %23
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
+_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i: ; preds = %23
   %29 = sdiv exact i64 %26, 216
   %30 = icmp eq ptr %5, %.val.i
   %.sroa.speculated.i.i = select i1 %30, i64 1, i64 %29
@@ -29006,15 +29006,15 @@ _ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTain
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %47, ptr noundef nonnull align 8 dereferenceable(20) %48, i64 20, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 64
   tail call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2EOS0_(ptr noundef nonnull align 8 dereferenceable(152) %49, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br i1 %30, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.exit39.i.thread, label %.lr.ph.i.i.i.i.i.i
+  br i1 %30, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.argprom.exit39.i.thread, label %.lr.ph.i.i.i.i.i.i
 
-_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.exit39.i.thread: ; preds = %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i
+_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.argprom.exit39.i.thread: ; preds = %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i
   %50 = getelementptr inbounds i8, ptr %36, i64 216
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %77, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %36, %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %76, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %.val.i, %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.exit.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i = phi ptr [ %77, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %36, %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %76, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %.val.i, %_ZNKSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.i.i.i.i.i, i64 16, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
@@ -29118,25 +29118,25 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i: ; preds = %85, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
   %91 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 216
   %.not.i.i.i.i = icmp eq ptr %91, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.loopexit: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEEEvPT_.exit.i.i.i.i
   %92 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 432
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.exit39.i.thread
-  %93 = phi ptr [ %50, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.exit39.i.thread ], [ %92, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.argprom.exit39.i.thread
+  %93 = phi ptr [ %50, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES7_SaIS6_EET0_T_SA_S9_RT1_.argprom.exit39.i.thread ], [ %92, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i.loopexit ]
   %.not.i40.i = icmp eq ptr %.val.i, null
   br i1 %.not.i40.i, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_M_realloc_insertIJS3_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, label %94
 
-94:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i
+94:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i
   %95 = load ptr, ptr %6, align 8
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %96, %25
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %97) #20
   br label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_M_realloc_insertIJS3_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit
 
-_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_M_realloc_insertIJS3_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i, %94
+_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE17_M_realloc_insertIJS3_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.argprom.exit.i, %94
   store ptr %36, ptr %0, align 8
   store ptr %93, ptr %4, align 8
   %98 = getelementptr inbounds %"struct.std::pair.147", ptr %36, i64 %34
@@ -29721,7 +29721,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIiLj2EEEiEEbOT_RKT0_.exit: ; preds = %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_119GenericTaintChecker23generateReportIfTaintedEPKN5clang4ExprEN4llvm9StringRefERNS1_4ento14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(81) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_119GenericTaintChecker23generateReportIfTaintedEPKN5clang4ExprEN4llvm9StringRefERNS1_4ento14CheckerContextE.argelim(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(81) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::unique_ptr.929", align 8
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -30002,12 +30002,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_126getTaintedPointeeOrPointerEN4llv
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %8
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %4
-  tail call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias writable align 8 %0, ptr null, ptr %2, i8 %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr null, ptr %2, i8 %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 8:                                                ; preds = %4
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %7) #21
-  tail call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %7, ptr %2, i8 %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %7, ptr %2, i8 %3)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %7) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -30082,7 +30082,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %1, i8 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %1, i8 %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::ento::Loc", align 8
   %5 = add i8 %2, -2
   %spec.select.i.i.i.i.i = icmp ult i8 %5, 3
@@ -35176,7 +35176,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread12.i.i.i: ; preds = %_ZN4llvmneENS_9Stri
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZN12_GLOBAL__N_121taintOriginTrackerTagERNS7_14CheckerContextESt6vectorIPKNS7_7SymExprESaISH_EESE_IiSaIiEEPKNS6_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %49
@@ -35185,11 +35185,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basi
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
@@ -35276,12 +35276,12 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.i.i.thread.i.i.i: ; preds = %_ZNSt6vec
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %46, align 8
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 49:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %50 = icmp eq ptr %.val6.i, null
-  br i1 %50, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit", label %51
+  br i1 %50, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit", label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 24
@@ -35314,9 +35314,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i:              ; preds = %54, %51
 
 "_ZZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS1_7SymExprESaIS7_EES4_IiSaIiEEPKNS0_15LocationContextEEN3$_0D2Ev.exit.i.i": ; preds = %61, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #20
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS1_7SymExprESaIS7_EES4_IiSaIiEEPKNS0_15LocationContextEEN3$_0D2Ev.exit.i.i", %49, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E15_M_init_functorIRKSH_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS1_7SymExprESaIS7_EES4_IiSaIiEEPKNS0_15LocationContextEEN3$_0D2Ev.exit.i.i", %49, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_121taintOriginTrackerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E15_M_init_functorIRKSH_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -36098,7 +36098,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit74.i: ; p
   %232 = call { ptr, i8 } %231(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %164) #21
   %.fca.0.extract.i = extractvalue { ptr, i8 } %232, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %232, 1
-  call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias writable align 8 %16, ptr nonnull %.sroa.050.0.i, ptr %.fca.0.extract.i, i8 %.fca.1.extract.i)
+  call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE.argprom(ptr dead_on_unwind noalias writable align 8 %16, ptr nonnull %.sroa.050.0.i, ptr %.fca.0.extract.i, i8 %.fca.1.extract.i)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.050.0.i) #21
   %233 = load i8, ptr %48, align 8
   %234 = trunc i8 %233 to i1
@@ -36111,7 +36111,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.critedge.i
   %238 = call { ptr, i8 } %237(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %164) #21
   %.fca.0.extract.c.i = extractvalue { ptr, i8 } %238, 0
   %.fca.1.extract.c.i = extractvalue { ptr, i8 } %238, 1
-  call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias writable align 8 %16, ptr null, ptr %.fca.0.extract.c.i, i8 %.fca.1.extract.c.i)
+  call fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE.argprom(ptr dead_on_unwind noalias writable align 8 %16, ptr null, ptr %.fca.0.extract.c.i, i8 %.fca.1.extract.c.i)
   %239 = load i8, ptr %48, align 8
   %240 = trunc i8 %239 to i1
   br i1 %240, label %241, label %_ZNSt6vectorIPKN5clang4ento7SymExprESaIS4_EED2Ev.exit72.i
@@ -36371,13 +36371,13 @@ _ZNSt6vectorIPKN5clang4ento7SymExprESaIS4_EED2Ev.exit54.thread83.i: ; preds = %4
 _ZN4llvm12ImmutableMapIPKN5clang15LocationContextENS_12ImmutableSetIiNS_17ImutContainerInfoIiEEEENS_16ImutKeyValueInfoIS4_S8_EEED2Ev.exit.i: ; preds = %318, %_ZNSt6vectorIPKN5clang4ento7SymExprESaIS4_EED2Ev.exit54.thread83.i, %32, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   %.sroa.050.282.i = phi ptr [ %.sroa.050.281.i, %_ZNSt6vectorIPKN5clang4ento7SymExprESaIS4_EED2Ev.exit54.thread83.i ], [ %.sroa.050.281.i, %318 ], [ %25, %32 ], [ %25, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ]
   %.not.i.i109.i = icmp eq ptr %.sroa.050.282.i, null
-  br i1 %.not.i.i109.i, label %_ZNK12_GLOBAL__N_119GenericTaintChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %319
+  br i1 %.not.i.i109.i, label %_ZNK12_GLOBAL__N_119GenericTaintChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit, label %319
 
 319:                                              ; preds = %_ZN4llvm12ImmutableMapIPKN5clang15LocationContextENS_12ImmutableSetIiNS_17ImutContainerInfoIiEEEENS_16ImutKeyValueInfoIS4_S8_EEED2Ev.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.050.282.i) #21
-  br label %_ZNK12_GLOBAL__N_119GenericTaintChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+  br label %_ZNK12_GLOBAL__N_119GenericTaintChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit
 
-_ZNK12_GLOBAL__N_119GenericTaintChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %_ZN4llvm12ImmutableMapIPKN5clang15LocationContextENS_12ImmutableSetIiNS_17ImutContainerInfoIiEEEENS_16ImutKeyValueInfoIS4_S8_EEED2Ev.exit.i, %319
+_ZNK12_GLOBAL__N_119GenericTaintChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit: ; preds = %_ZN4llvm12ImmutableMapIPKN5clang15LocationContextENS_12ImmutableSetIiNS_17ImutContainerInfoIiEEEENS_16ImutKeyValueInfoIS4_S8_EEED2Ev.exit.i, %319
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -36852,7 +36852,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27.i.i.i:         ; preds = %121, %119, %_ZN4llv
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZN12_GLOBAL__N_128taintPropagationExplainerTagERNS7_14CheckerContextESt6vectorIPKNS7_7SymExprESaISH_EESE_IiSaIiEEPKNS6_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %49
@@ -36861,11 +36861,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basi
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
@@ -36952,12 +36952,12 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.i.i.thread.i.i.i: ; preds = %_ZNSt6vec
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %46, align 8
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 49:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %50 = icmp eq ptr %.val6.i, null
-  br i1 %50, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit", label %51
+  br i1 %50, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit", label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 24
@@ -36990,9 +36990,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i:              ; preds = %54, %51
 
 "_ZZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS1_7SymExprESaIS7_EES4_IiSaIiEEPKNS0_15LocationContextEEN3$_0D2Ev.exit.i.i": ; preds = %61, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #20
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS1_7SymExprESaIS7_EES4_IiSaIiEEPKNS0_15LocationContextEEN3$_0D2Ev.exit.i.i", %49, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E15_M_init_functorIRKSH_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS1_7SymExprESaIS7_EES4_IiSaIiEEPKNS0_15LocationContextEEN3$_0D2Ev.exit.i.i", %49, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_128taintPropagationExplainerTagERN5clang4ento14CheckerContextESt6vectorIPKNS3_7SymExprESaIS9_EES6_IiSaIiEEPKNS2_15LocationContextEE3$_0E15_M_init_functorIRKSH_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 

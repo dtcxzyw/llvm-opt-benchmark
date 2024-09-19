@@ -69,7 +69,7 @@ define i32 @mca_btl_smcuda_accelerator_init() local_unnamed_addr #0 {
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not1.i = icmp eq ptr %6, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
@@ -78,20 +78,20 @@ define i32 @mca_btl_smcuda_accelerator_init() local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
+opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %4
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 8), align 8
   %11 = tail call i32 %10(i32 noundef -1, ptr noundef nonnull @ipc_stream) #7
   %.not26 = icmp eq i32 %11, 0
   br i1 %.not26, label %15, label %12
 
-12:                                               ; preds = %opal_obj_run_constructors.exit
+12:                                               ; preds = %opal_obj_run_constructors.argprom.exit
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %14 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %13) #7
   br i1 %14, label %.sink.split, label %40
 
-15:                                               ; preds = %opal_obj_run_constructors.exit
+15:                                               ; preds = %opal_obj_run_constructors.argprom.exit
   store volatile i32 0, ptr @accelerator_event_ipc_num_used, align 4
   store i32 0, ptr @accelerator_event_ipc_first_avail, align 4
   store i32 0, ptr @accelerator_event_ipc_first_used, align 4

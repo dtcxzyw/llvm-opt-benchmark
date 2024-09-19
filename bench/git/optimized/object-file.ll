@@ -2298,13 +2298,13 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
-hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
+hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32
@@ -4084,7 +4084,7 @@ format_object_header.exit:                        ; preds = %if.end
   %add.i.i = add nsw i32 %call.i.i, 1
   %buf = getelementptr inbounds i8, ptr %filename, i64 16
   %2 = load ptr, ptr %buf, align 8
-  %call5 = call fastcc i32 @start_loose_object_common(ptr noundef nonnull %tmp_file, ptr noundef %2, i32 noundef 0, ptr noundef %stream, ptr noundef %compressed, ptr noundef %c, ptr noundef nonnull %hdr, i32 noundef %add.i.i)
+  %call5 = call fastcc i32 @start_loose_object_common.argelim(ptr noundef nonnull %tmp_file, ptr noundef %2, i32 noundef 0, ptr noundef %stream, ptr noundef %compressed, ptr noundef %c, ptr noundef nonnull %hdr, i32 noundef %add.i.i)
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %cleanup, label %do.body.preheader
 
@@ -4321,7 +4321,7 @@ declare void @prepare_loose_object_bulk_checkin() local_unnamed_addr #4
 declare ptr @get_object_directory() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @start_loose_object_common(ptr noundef %tmp_file, ptr noundef %filename, i32 noundef %flags, ptr noundef nonnull %stream, ptr noundef nonnull %buf, ptr noundef nonnull %c, ptr noundef %hdr, i32 noundef %hdrlen) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @start_loose_object_common.argelim(ptr noundef %tmp_file, ptr noundef %filename, i32 noundef %flags, ptr noundef nonnull %stream, ptr noundef nonnull %buf, ptr noundef nonnull %c, ptr noundef %hdr, i32 noundef %hdrlen) unnamed_addr #1 {
 entry:
   %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 47) #26
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -4642,7 +4642,7 @@ if.end:                                           ; preds = %if.then, %entry
   %4 = load ptr, ptr %3, align 8
   %call.i = tail call fastcc ptr @odb_loose_path(ptr noundef %4, ptr noundef nonnull @write_loose_object.filename, ptr noundef readonly %oid)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @write_loose_object.filename, i64 16), align 8
-  %call2 = call fastcc i32 @start_loose_object_common(ptr noundef nonnull @write_loose_object.tmp_file, ptr noundef %5, i32 noundef %flags, ptr noundef %stream, ptr noundef %compressed, ptr noundef %c, ptr noundef %hdr, i32 noundef %hdrlen)
+  %call2 = call fastcc i32 @start_loose_object_common.argelim(ptr noundef nonnull @write_loose_object.tmp_file, ptr noundef %5, i32 noundef %flags, ptr noundef %stream, ptr noundef %compressed, ptr noundef %c, ptr noundef %hdr, i32 noundef %hdrlen)
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %return, label %if.end4
 

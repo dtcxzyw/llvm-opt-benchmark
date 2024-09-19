@@ -3524,7 +3524,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noun
   %20 = getelementptr inbounds i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %22, label %drsuapi_dissect_element_DsBindInfoCtr_info.exit
+  br i1 %.not.i, label %22, label %drsuapi_dissect_element_DsBindInfoCtr_info.argprom.exit
 
 22:                                               ; preds = %17
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfoCtr_info, align 4
@@ -3598,9 +3598,9 @@ drsuapi_dissect_DsBindInfo.exit.i:                ; preds = %51, %48, %45, %42, 
   call void @proto_item_set_len(ptr noundef %54, i32 noundef %55) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %drsuapi_dissect_element_DsBindInfoCtr_info.exit
+  br label %drsuapi_dissect_element_DsBindInfoCtr_info.argprom.exit
 
-drsuapi_dissect_element_DsBindInfoCtr_info.exit:  ; preds = %17, %drsuapi_dissect_DsBindInfo.exit.i
+drsuapi_dissect_element_DsBindInfoCtr_info.argprom.exit: ; preds = %17, %drsuapi_dissect_DsBindInfo.exit.i
   %.0.i = phi i32 [ %.1.i.i, %drsuapi_dissect_DsBindInfo.exit.i ], [ %19, %17 ]
   %56 = sub i32 %.0.i, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %56) #5
@@ -6398,15 +6398,15 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr7(ptr noundef %0, i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.043, null
-  br i1 %.not.i.i, label %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit, label %38
+  br i1 %.not.i.i, label %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.argprom.exit, label %38
 
 38:                                               ; preds = %33
   %39 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesCompressedCtr, align 4
   %40 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.043, ptr noundef %0, i32 noundef %37, i32 noundef -1, i32 noundef %39, ptr noundef nonnull %9, ptr noundef nonnull @.str.1453) #5
   %.pre.i.i = load ptr, ptr %9, align 8
-  br label %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit
+  br label %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.argprom.exit
 
-drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit: ; preds = %33, %38
+drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.argprom.exit: ; preds = %33, %38
   %41 = phi ptr [ null, %33 ], [ %.pre.i.i, %38 ]
   call void @proto_item_set_len(ptr noundef %41, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -6419,7 +6419,7 @@ drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit: ; preds = %33, %38
   %.not51 = icmp eq i32 %46, 0
   br i1 %.not51, label %54, label %47
 
-47:                                               ; preds = %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit
+47:                                               ; preds = %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.argprom.exit
   %48 = getelementptr inbounds i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not52 = icmp ne i32 %49, 0
@@ -6433,8 +6433,8 @@ drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit: ; preds = %33, %38
   %53 = add i32 %52, 8
   br label %54
 
-54:                                               ; preds = %51, %47, %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit
-  %.1 = phi i32 [ %37, %47 ], [ %53, %51 ], [ %37, %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit ]
+54:                                               ; preds = %51, %47, %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.argprom.exit
+  %.1 = phi i32 [ %37, %47 ], [ %53, %51 ], [ %37, %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.argprom.exit ]
   ret i32 %.1
 }
 
@@ -10211,7 +10211,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
 61:                                               ; preds = %58, %56, %53, %51
   %.0.i.i = phi i32 [ %44, %51 ], [ %55, %53 ], [ %44, %56 ], [ %60, %58 ]
   %62 = load i32, ptr %10, align 4
-  switch i32 %62, label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit [
+  switch i32 %62, label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit [
     i32 1, label %63
     i32 2, label %66
     i32 3, label %69
@@ -10224,39 +10224,39 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
 63:                                               ; preds = %61
   %64 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_attr_err, align 4
   %65 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Attr_V1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
-  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
+  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
 
 66:                                               ; preds = %61
   %67 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_name_err, align 4
   %68 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Name_V1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, i32 poison)
-  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
+  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
 
 69:                                               ; preds = %61
   %70 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_referral_err, align 4
   %71 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Referr_V1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 poison)
-  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
+  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
 
 72:                                               ; preds = %61
   %73 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_security_err, align 4
   %74 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, i32 poison)
-  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
+  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
 
 75:                                               ; preds = %61
   %76 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_service_err, align 4
   %77 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 poison)
-  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
+  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
 
 78:                                               ; preds = %61
   %79 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_update_err, align 4
   %80 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %79, i32 poison)
-  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
+  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
 
 81:                                               ; preds = %61
   %82 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_system_err, align 4
   %83 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
-  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
+  br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
 
-drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit: ; preds = %61, %63, %66, %69, %72, %75, %78, %81
+drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit: ; preds = %61, %63, %66, %69, %72, %75, %78, %81
   %.1.i.i = phi i32 [ %.0.i.i, %61 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ]
   %84 = load ptr, ptr %9, align 8
   %85 = sub i32 %.1.i.i, %38
@@ -10272,7 +10272,7 @@ drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit: ; preds = %61, %63, %66
   %.not51 = icmp eq i32 %90, 0
   br i1 %.not51, label %97, label %91
 
-91:                                               ; preds = %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
+91:                                               ; preds = %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
   %92 = load i32, ptr %49, align 4
   %.not52 = icmp ne i32 %92, 0
   %93 = and i32 %.1.i.i, 7
@@ -10285,8 +10285,8 @@ drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit: ; preds = %61, %63, %66
   %96 = add i32 %95, 8
   br label %97
 
-97:                                               ; preds = %94, %91, %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
-  %.1 = phi i32 [ %.1.i.i, %91 ], [ %96, %94 ], [ %.1.i.i, %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit ]
+97:                                               ; preds = %94, %91, %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit
+  %.1 = phi i32 [ %.1.i.i, %91 ], [ %96, %94 ], [ %.1.i.i, %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.argprom.exit ]
   ret i32 %.1
 }
 
@@ -10548,14 +10548,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 nou
   %.0.i.i = phi i32 [ %43, %50 ], [ %54, %52 ], [ %43, %55 ], [ %59, %57 ]
   %61 = load i32, ptr %10, align 4
   %cond.i.i = icmp eq i32 %61, 1
-  br i1 %cond.i.i, label %62, label %drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit
+  br i1 %cond.i.i, label %62, label %drsuapi_dissect_element_DsAddEntryCtr3_err_data.argprom.exit
 
 62:                                               ; preds = %60
   %63 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ErrData_v1, align 4
   %64 = call i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, i32 poison)
-  br label %drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit
+  br label %drsuapi_dissect_element_DsAddEntryCtr3_err_data.argprom.exit
 
-drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit: ; preds = %60, %62
+drsuapi_dissect_element_DsAddEntryCtr3_err_data.argprom.exit: ; preds = %60, %62
   %.1.i.i = phi i32 [ %64, %62 ], [ %.0.i.i, %60 ]
   %65 = load ptr, ptr %9, align 8
   %66 = sub i32 %.1.i.i, %37
@@ -10575,7 +10575,7 @@ drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit: ; preds = %60, %62
   %.not63 = icmp eq i32 %75, 0
   br i1 %.not63, label %82, label %76
 
-76:                                               ; preds = %drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit
+76:                                               ; preds = %drsuapi_dissect_element_DsAddEntryCtr3_err_data.argprom.exit
   %77 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %77, 0
   %78 = and i32 %70, 7
@@ -10588,8 +10588,8 @@ drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit: ; preds = %60, %62
   %81 = add i32 %80, 8
   br label %82
 
-82:                                               ; preds = %79, %76, %drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit
-  %.1 = phi i32 [ %70, %76 ], [ %81, %79 ], [ %70, %drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit ]
+82:                                               ; preds = %79, %76, %drsuapi_dissect_element_DsAddEntryCtr3_err_data.argprom.exit
+  %.1 = phi i32 [ %70, %76 ], [ %81, %79 ], [ %70, %drsuapi_dissect_element_DsAddEntryCtr3_err_data.argprom.exit ]
   ret i32 %.1
 }
 

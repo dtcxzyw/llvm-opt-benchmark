@@ -695,17 +695,17 @@ if.then252:                                       ; preds = %sw.epilog
   %cmp260129 = icmp ugt i64 %71, 1
   br i1 %cmp260129, label %for.body262, label %if.end271
 
-for.body262:                                      ; preds = %if.then252, %_.exit
-  %indvars.iv159 = phi i64 [ %indvars.iv.next160, %_.exit ], [ 1, %if.then252 ]
+for.body262:                                      ; preds = %if.then252, %_.argprom.exit
+  %indvars.iv159 = phi i64 [ %indvars.iv.next160, %_.argprom.exit ], [ 1, %if.then252 ]
   %72 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %72, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
+  br i1 %tobool1.not.i, label %_.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %for.body262
   %call.i = call ptr @gettext(ptr noundef nonnull @.str.31) #10
-  br label %_.exit
+  br label %_.argprom.exit
 
-_.exit:                                           ; preds = %for.body262, %if.end3.i
+_.argprom.exit:                                   ; preds = %for.body262, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.31, %for.body262 ]
   %73 = load ptr, ptr %pack_lockfiles, align 8
   %arrayidx266 = getelementptr inbounds %struct.string_list_item, ptr %73, i64 %indvars.iv159
@@ -716,7 +716,7 @@ _.exit:                                           ; preds = %for.body262, %if.en
   %cmp260 = icmp ugt i64 %75, %indvars.iv.next160
   br i1 %cmp260, label %for.body262, label %if.end271, !llvm.loop !10
 
-if.end271:                                        ; preds = %_.exit, %if.then252, %sw.epilog
+if.end271:                                        ; preds = %_.argprom.exit, %if.then252, %sw.epilog
   %bf.load273 = load i32, ptr %stdin_refs179, align 8
   %76 = and i32 %bf.load273, 12288
   %or.cond.not = icmp eq i32 %76, 12288

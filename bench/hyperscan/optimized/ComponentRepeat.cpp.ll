@@ -1020,8 +1020,8 @@ for.body.lr.ph:                                   ; preds = %if.end53
   %48 = load i32, ptr @_ZN3ue218GlushkovBuildState11POS_EPSILONE, align 4
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.exit
-  %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.argprom.exit
+  %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.argprom.exit ]
   %49 = load ptr, ptr %m_firsts, align 8
   %add.ptr.i86 = getelementptr inbounds %"class.std::vector.5", ptr %49, i64 %indvars.iv
   %call69 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ue212PositionInfoESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i86, ptr noundef nonnull align 8 dereferenceable(24) %49)
@@ -1061,7 +1061,7 @@ for.end.i:                                        ; preds = %for.inc.i, %for.bod
   %_M_finish.i5.i = getelementptr inbounds i8, ptr %add.ptr.i90, i64 8
   %57 = load ptr, ptr %_M_finish.i5.i, align 8
   %cmp.i6.not7.i = icmp eq ptr %56, %57
-  br i1 %cmp.i6.not7.i, label %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.exit, label %for.body16.i
+  br i1 %cmp.i6.not7.i, label %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.argprom.exit, label %for.body16.i
 
 for.body16.i:                                     ; preds = %for.end.i, %for.body16.i
   %__begin18.sroa.0.08.i = phi ptr [ %incdec.ptr.i7.i, %for.body16.i ], [ %56, %for.end.i ]
@@ -1070,14 +1070,14 @@ for.body16.i:                                     ; preds = %for.end.i, %for.bod
   store i32 %add20.i, ptr %__begin18.sroa.0.08.i, align 4
   %incdec.ptr.i7.i = getelementptr inbounds i8, ptr %__begin18.sroa.0.08.i, i64 8
   %cmp.i6.not.i = icmp eq ptr %incdec.ptr.i7.i, %57
-  br i1 %cmp.i6.not.i, label %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.exit, label %for.body16.i
+  br i1 %cmp.i6.not.i, label %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.argprom.exit, label %for.body16.i
 
-_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.exit: ; preds = %for.body16.i, %for.end.i
+_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.argprom.exit: ; preds = %for.body16.i, %for.end.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
-for.end:                                          ; preds = %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.exit, %if.end53
+for.end:                                          ; preds = %_ZN3ue2L7addBaseEjRSt6vectorINS_12PositionInfoESaIS1_EES4_.argprom.exit, %if.end53
   %59 = load i32, ptr %posFirst, align 8
   %vtable84 = load ptr, ptr %bs, align 8
   %vfn85 = getelementptr inbounds i8, ptr %vtable84, i64 16

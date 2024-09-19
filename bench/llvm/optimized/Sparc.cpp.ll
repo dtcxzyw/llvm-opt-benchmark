@@ -523,7 +523,7 @@ define hidden noundef i32 @_ZNK5clang7targets15SparcTargetInfo16getCPUGeneration
   %4 = getelementptr i8, ptr %.02956.i.i.i.i, i64 16
   %.029.val.i.i.i.i = load i32, ptr %4, align 8
   %5 = icmp eq i32 %.029.val.i.i.i.i, %1
-  br i1 %5, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit", label %6
+  br i1 %5, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit", label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i.i
   %7 = getelementptr i8, ptr %.02956.i.i.i.i, i64 40
@@ -551,26 +551,26 @@ define hidden noundef i32 @_ZNK5clang7targets15SparcTargetInfo16getCPUGeneration
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %15
   %19 = icmp eq i32 %1, 33
-  br i1 %19, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit", label %20
+  br i1 %19, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit", label %20
 
 20:                                               ; preds = %._crit_edge.loopexit.i.i.i.i
   %21 = icmp eq i32 %1, 34
   %spec.select.i = select i1 %21, ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 816)
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit"
 
 .loopexit.split.loop.exit47.i.i.i.i:              ; preds = %6
   %22 = getelementptr inbounds i8, ptr %.02956.i.i.i.i, i64 24
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit"
 
 .loopexit.split.loop.exit49.i.i.i.i:              ; preds = %9
   %23 = getelementptr inbounds i8, ptr %.02956.i.i.i.i, i64 48
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit"
 
 .loopexit.split.loop.exit51.i.i.i.i:              ; preds = %12
   %24 = getelementptr inbounds i8, ptr %.02956.i.i.i.i, i64 72
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit"
 
-"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %._crit_edge.loopexit.i.i.i.i, %20, %.loopexit.split.loop.exit47.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i
+"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %._crit_edge.loopexit.i.i.i.i, %20, %.loopexit.split.loop.exit47.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i
   %.028.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i ], [ %22, %.loopexit.split.loop.exit47.i.i.i.i ], [ %23, %.loopexit.split.loop.exit49.i.i.i.i ], [ %24, %.loopexit.split.loop.exit51.i.i.i.i ], [ %spec.select.i, %20 ], [ %.02956.i.i.i.i, %.lr.ph.i.i.i.i ]
   %25 = icmp ne ptr %.028.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 816)
   tail call void @llvm.assume(i1 %25)
@@ -578,8 +578,8 @@ define hidden noundef i32 @_ZNK5clang7targets15SparcTargetInfo16getCPUGeneration
   %27 = load i32, ptr %26, align 4
   br label %28
 
-28:                                               ; preds = %2, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit"
-  %.0 = phi i32 [ %27, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit" ], [ 0, %2 ]
+28:                                               ; preds = %2, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit"
+  %.0 = phi i32 [ %27, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit" ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -589,159 +589,159 @@ define hidden noundef i32 @_ZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llv
   %4 = icmp eq i64 %.fr44.i.i.i, 0
   br i1 %4, label %.lr.ph.i.us.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.us.i.i.i:                                ; preds = %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.us.i.i.i"
-  %.0127.i.us.i.i.i = phi i64 [ %9, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.us.i.i.i" ], [ 8, %3 ]
-  %.029126.i.us.i.i.i.idx = phi i64 [ %.029126.i.us.i.i.i.add13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.us.i.i.i" ], [ 0, %3 ]
+.lr.ph.i.us.i.i.i:                                ; preds = %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.us.i.i.i"
+  %.0127.i.us.i.i.i = phi i64 [ %9, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.us.i.i.i" ], [ 8, %3 ]
+  %.029126.i.us.i.i.i.idx = phi i64 [ %.029126.i.us.i.i.i.add13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.us.i.i.i" ], [ 0, %3 ]
   %.029126.i.us.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZL7CPUInfo, i64 %.029126.i.us.i.i.i.idx
   %5 = getelementptr i8, ptr %.029126.i.us.i.i.i.ptr, i64 8
   %.029.val31.i.us.i.i.i = load i64, ptr %5, align 8
   %.not.i.i.i.i.us.i.i.i = icmp eq i64 %.029.val31.i.us.i.i.i, 0
-  br i1 %.not.i.i.i.i.us.i.i.i, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.us.i.i.i"
+  br i1 %.not.i.i.i.i.us.i.i.i, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.us.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.us.i.i.i": ; preds = %.lr.ph.i.us.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.us.i.i.i": ; preds = %.lr.ph.i.us.i.i.i
   %6 = getelementptr i8, ptr %.029126.i.us.i.i.i.ptr, i64 32
   %.val35.i.us.i.i.i = load i64, ptr %6, align 16
   %.not.i.i.i54.i.us.i.i.i = icmp eq i64 %.val35.i.us.i.i.i, 0
-  br i1 %.not.i.i.i54.i.us.i.i.i, label %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit24.split.us.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.us.i.i.i"
+  br i1 %.not.i.i.i54.i.us.i.i.i, label %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit24.split.us.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.us.i.i.i"
 
-"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit24.split.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.us.i.i.i"
+"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit24.split.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.us.i.i.i"
   %.029126.i.us.i.i.i.add12 = or disjoint i64 %.029126.i.us.i.i.i.idx, 24
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.us.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.us.i.i.i"
   %7 = getelementptr i8, ptr %.029126.i.us.i.i.i.ptr, i64 56
   %.val39.i.us.i.i.i = load i64, ptr %7, align 8
   %.not.i.i.i58.i.us.i.i.i = icmp eq i64 %.val39.i.us.i.i.i, 0
-  br i1 %.not.i.i.i58.i.us.i.i.i, label %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit26.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.us.i.i.i"
+  br i1 %.not.i.i.i58.i.us.i.i.i, label %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit26.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.us.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.us.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.us.i.i.i"
   %8 = getelementptr i8, ptr %.029126.i.us.i.i.i.ptr, i64 80
   %.val43.i.us.i.i.i = load i64, ptr %8, align 16
   %.not.i.i.i62.i.us.i.i.i = icmp eq i64 %.val43.i.us.i.i.i, 0
-  br i1 %.not.i.i.i62.i.us.i.i.i, label %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.split.us.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.us.i.i.i"
+  br i1 %.not.i.i.i62.i.us.i.i.i, label %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.split.us.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.us.i.i.i"
 
-"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.split.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.us.i.i.i"
+"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.split.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.us.i.i.i"
   %.029126.i.us.i.i.i.add = add nuw nsw i64 %.029126.i.us.i.i.i.idx, 72
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.us.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.us.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.us.i.i.i"
   %.029126.i.us.i.i.i.add13 = add nuw nsw i64 %.029126.i.us.i.i.i.idx, 96
   %9 = add nsw i64 %.0127.i.us.i.i.i, -1
   %10 = icmp ugt i64 %.0127.i.us.i.i.i, 1
   br i1 %10, label %.lr.ph.i.us.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !6
 
-.lr.ph.i.i.i.i:                                   ; preds = %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.i.i.i"
-  %.0127.i.i.i.i = phi i64 [ %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.i.i.i" ], [ 8, %3 ]
-  %.029126.i.i.i.i.idx = phi i64 [ %.029126.i.i.i.i.add14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.i.i.i" ], [ 0, %3 ]
+.lr.ph.i.i.i.i:                                   ; preds = %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.i.i.i"
+  %.0127.i.i.i.i = phi i64 [ %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.i.i.i" ], [ 8, %3 ]
+  %.029126.i.i.i.i.idx = phi i64 [ %.029126.i.i.i.i.add14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.i.i.i" ], [ 0, %3 ]
   %.029126.i.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZL7CPUInfo, i64 %.029126.i.i.i.i.idx
   %11 = getelementptr i8, ptr %.029126.i.i.i.i.ptr, i64 8
   %.029.val31.i.i.i.i = load i64, ptr %11, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.029.val31.i.i.i.i, %.fr44.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   %.029.val.i.i.i.i = load ptr, ptr %.029126.i.i.i.i.ptr, align 16
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.029.val.i.i.i.i, ptr readonly %1, i64 %.fr44.i.i.i)
   %12 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %12, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.thread.i.i.i"
+  br i1 %12, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   %13 = getelementptr i8, ptr %.029126.i.i.i.i.ptr, i64 32
   %.val35.i.i.i.i = load i64, ptr %13, align 16
   %.not.i.i.i54.i.i.i.i = icmp eq i64 %.val35.i.i.i.i, %.fr44.i.i.i
-  br i1 %.not.i.i.i54.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.i.i.i"
+  br i1 %.not.i.i.i54.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.i.i.i.i"
   %14 = getelementptr i8, ptr %.029126.i.i.i.i.ptr, i64 32
   %.val35.i4.i.i.i = load i64, ptr %14, align 16
   %.not.i.i.i54.i5.i.i.i = icmp eq i64 %.val35.i4.i.i.i, %.fr44.i.i.i
-  br i1 %.not.i.i.i54.i5.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.i.i.i"
+  br i1 %.not.i.i.i54.i5.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.i.i.i"
   %.029126.i.i.i.i.add = or disjoint i64 %.029126.i.i.i.i.idx, 24
   %.ptr = getelementptr inbounds i8, ptr @_ZL7CPUInfo, i64 %.029126.i.i.i.i.add
   %.val34.i68.i.i.i = load ptr, ptr %.ptr, align 8
   %bcmp.i.i.i56.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val34.i68.i.i.i, ptr readonly %1, i64 %.fr44.i.i.i)
   %15 = icmp eq i32 %bcmp.i.i.i56.i.i.i.i, 0
-  br i1 %15, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.i.i.i"
+  br i1 %15, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.thread85.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.thread85.i.i.i.i"
   %16 = getelementptr i8, ptr %.029126.i.i.i.i.ptr, i64 56
   %.val39.i.i.i.i = load i64, ptr %16, align 8
   %.not.i.i.i58.i.i.i.i = icmp eq i64 %.val39.i.i.i.i, %.fr44.i.i.i
-  br i1 %.not.i.i.i58.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.i.i.i"
+  br i1 %.not.i.i.i58.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.i.i.i"
   %.029126.i.i.i.i.add10 = add nuw nsw i64 %.029126.i.i.i.i.idx, 48
   %.ptr16 = getelementptr inbounds i8, ptr @_ZL7CPUInfo, i64 %.029126.i.i.i.i.add10
   %.val38.i.i.i.i = load ptr, ptr %.ptr16, align 16
   %bcmp.i.i.i60.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val38.i.i.i.i, ptr readonly %1, i64 %.fr44.i.i.i)
   %17 = icmp eq i32 %bcmp.i.i.i60.i.i.i.i, 0
-  br i1 %17, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.thread.i.i.i"
+  br i1 %17, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.i.i.i"
   %18 = getelementptr i8, ptr %.029126.i.i.i.i.ptr, i64 80
   %.val43.i.i.i.i = load i64, ptr %18, align 16
   %.not.i.i.i62.i.i.i.i = icmp eq i64 %.val43.i.i.i.i, %.fr44.i.i.i
-  br i1 %.not.i.i.i62.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.i.i.i"
+  br i1 %.not.i.i.i62.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.i.i.i.i"
   %19 = getelementptr i8, ptr %.029126.i.i.i.i.ptr, i64 80
   %.val43.i10.i.i.i = load i64, ptr %19, align 16
   %.not.i.i.i62.i11.i.i.i = icmp eq i64 %.val43.i10.i.i.i, %.fr44.i.i.i
-  br i1 %.not.i.i.i62.i11.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.i.i.i"
+  br i1 %.not.i.i.i62.i11.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.i.i.i"
   %.029126.i.i.i.i.add9 = add nuw nsw i64 %.029126.i.i.i.i.idx, 72
   %.ptr15 = getelementptr inbounds i8, ptr @_ZL7CPUInfo, i64 %.029126.i.i.i.i.add9
   %.val42.i1215.i.i.i = load ptr, ptr %.ptr15, align 8
   %bcmp.i.i.i64.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val42.i1215.i.i.i, ptr readonly %1, i64 %.fr44.i.i.i)
   %20 = icmp eq i32 %bcmp.i.i.i64.i.i.i.i, 0
-  br i1 %20, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.i.i.i"
+  br i1 %20, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.thread91.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.thread91.i.i.i.i"
   %.029126.i.i.i.i.add14 = add nuw nsw i64 %.029126.i.i.i.i.idx, 96
   %21 = add nsw i64 %.0127.i.i.i.i, -1
   %22 = icmp ugt i64 %.0127.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !6
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.thread94.i.us.i.i.i"
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.thread94.i.us.i.i.i"
   %.not.i.i.i70.i.i.i.i = icmp eq i64 %.fr44.i.i.i, 5
-  br i1 %.not.i.i.i70.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit73.i.i.i.i", label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7"
+  br i1 %.not.i.i.i70.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit73.i.i.i.i", label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread7"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit73.i.i.i.i": ; preds = %._crit_edge.loopexit.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit73.i.i.i.i": ; preds = %._crit_edge.loopexit.i.i.i.i
   %bcmp.i.i.i72.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.163, ptr noundef nonnull readonly dereferenceable(5) %1, i64 5)
   %23 = icmp eq i32 %bcmp.i.i.i72.i.i.i.i, 0
-  br i1 %23, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i"
+  br i1 %23, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit77.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit73.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit77.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit73.i.i.i.i"
   %bcmp.i.i.i76.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.164, ptr noundef nonnull readonly dereferenceable(5) %1, i64 5)
   %24 = icmp eq i32 %bcmp.i.i.i76.i.i.i.i, 0
-  br i1 %24, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread", label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7"
+  br i1 %24, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread", label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread7"
 
-"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.thread88.i.us.i.i.i"
+"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.thread88.i.us.i.i.i"
   %.029126.i.us.i.i.i.add11 = add nuw nsw i64 %.029126.i.us.i.i.i.idx, 48
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit"
 
-"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.i.i.i.i", %.lr.ph.i.us.i.i.i, %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit24.split.us.i.i.i", %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.split.us.i.i.i"
-  %.028.i.i.i.i.idx.ph = phi i64 [ %.029126.i.us.i.i.i.add, %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.split.us.i.i.i" ], [ %.029126.i.us.i.i.i.add12, %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit24.split.us.i.i.i" ], [ %.029126.i.us.i.i.i.idx, %.lr.ph.i.us.i.i.i ], [ %.029126.i.i.i.i.idx, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit.i.i.i.i" ], [ %.029126.i.i.i.i.add9, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit65.i.i.i.i" ], [ %.029126.i.i.i.i.add, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit57.i.i.i.i" ]
+"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.i.i.i.i", %.lr.ph.i.us.i.i.i, %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit24.split.us.i.i.i", %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.split.us.i.i.i"
+  %.028.i.i.i.i.idx.ph = phi i64 [ %.029126.i.us.i.i.i.add, %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit28.split.us.i.i.i" ], [ %.029126.i.us.i.i.i.add12, %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit24.split.us.i.i.i" ], [ %.029126.i.us.i.i.i.idx, %.lr.ph.i.us.i.i.i ], [ %.029126.i.i.i.i.idx, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit.i.i.i.i" ], [ %.029126.i.i.i.i.add9, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit65.i.i.i.i" ], [ %.029126.i.i.i.i.add, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit57.i.i.i.i" ]
   %.028.i.i.i.i.ptr36 = getelementptr inbounds i8, ptr @_ZL7CPUInfo, i64 %.028.i.i.i.i.idx.ph
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.i.i.i.i", %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit26.i.i.i"
-  %.028.i.i.i.i.idx = phi i64 [ %.029126.i.us.i.i.i.add11, %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit26.i.i.i" ], [ %.029126.i.i.i.i.add10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit61.i.i.i.i" ]
+"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.i.i.i.i", %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit26.i.i.i"
+  %.028.i.i.i.i.idx = phi i64 [ %.029126.i.us.i.i.i.add11, %"_ZSt9__find_ifIPK12SparcCPUInfoN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit26.i.i.i" ], [ %.029126.i.i.i.i.add10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit61.i.i.i.i" ]
   %.028.i.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZL7CPUInfo, i64 %.028.i.i.i.i.idx
   %25 = icmp eq i64 %.028.i.i.i.i.idx, 816
-  br i1 %25, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7", label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread"
+  br i1 %25, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread7", label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread": ; preds = %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit73.i.i.i.i", %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit"
-  %.028.i.i.i.i6 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit73.i.i.i.i" ], [ %.028.i.i.i.i.ptr36, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34" ]
+"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread": ; preds = %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit77.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit73.i.i.i.i", %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit"
+  %.028.i.i.i.i6 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit" ], [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit77.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit73.i.i.i.i" ], [ %.028.i.i.i.i.ptr36, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread34" ]
   %26 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i6, i64 16
   %27 = load i32, ptr %26, align 8
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread7"
 
-"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i", %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit", %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread"
-  %.0 = phi i32 [ %27, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread" ], [ 0, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit" ], [ 0, %._crit_edge.loopexit.i.i.i.i ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i" ]
+"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread7": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit77.i.i.i.i", %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit", %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread"
+  %.0 = phi i32 [ %27, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit.thread" ], [ 0, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.argprom.exit" ], [ 0, %._crit_edge.loopexit.i.i.i.i ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.argprom.exit77.i.i.i.i" ]
   ret i32 %.0
 }
 
@@ -2662,7 +2662,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SparcV9Target
   %6 = getelementptr i8, ptr %.02956.i.i.i.i.i, i64 16
   %.029.val.i.i.i.i.i = load i32, ptr %6, align 8
   %7 = icmp eq i32 %.029.val.i.i.i.i.i, %4
-  br i1 %7, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i", label %8
+  br i1 %7, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i", label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i
   %9 = getelementptr i8, ptr %.02956.i.i.i.i.i, i64 40
@@ -2690,26 +2690,26 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SparcV9Target
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %17
   %21 = icmp eq i32 %4, 33
-  br i1 %21, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i", label %22
+  br i1 %21, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i", label %22
 
 22:                                               ; preds = %._crit_edge.loopexit.i.i.i.i.i
   %23 = icmp eq i32 %4, 34
   %spec.select.i.i = select i1 %23, ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 816)
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i"
 
 .loopexit.split.loop.exit47.i.i.i.i.i:            ; preds = %8
   %24 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i"
 
 .loopexit.split.loop.exit49.i.i.i.i.i:            ; preds = %11
   %25 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i"
 
 .loopexit.split.loop.exit51.i.i.i.i.i:            ; preds = %14
   %26 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i, i64 72
-  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i"
 
-"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i.i, %.loopexit.split.loop.exit47.i.i.i.i.i, %22, %._crit_edge.loopexit.i.i.i.i.i
+"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i.i, %.loopexit.split.loop.exit47.i.i.i.i.i, %22, %._crit_edge.loopexit.i.i.i.i.i
   %.028.i.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i ], [ %24, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %25, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %26, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %spec.select.i.i, %22 ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %27 = icmp ne ptr %.028.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 816)
   tail call void @llvm.assume(i1 %27)
@@ -2718,8 +2718,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SparcV9Target
   %30 = icmp eq i32 %29, 1
   br label %_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit
 
-_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit: ; preds = %3, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i"
-  %.0.i = phi i1 [ %30, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i" ], [ false, %3 ]
+_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit: ; preds = %3, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i"
+  %.0.i = phi i1 [ %30, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.argprom.exit.i" ], [ false, %3 ]
   ret i1 %.0.i
 }
 

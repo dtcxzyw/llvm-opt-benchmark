@@ -3895,14 +3895,14 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 
 120:                                              ; preds = %117
   %121 = call i32 @hwloc_bitmap_copy(ptr noundef %24, ptr noundef %13) #22
-  call fastcc void @hwloc_x86_add_groups(ptr noundef %10, ptr noundef %1, i32 noundef %12, ptr noundef %24, i32 noundef 7, ptr noundef nonnull @.str.44, i32 noundef 121)
+  call fastcc void @hwloc_x86_add_groups.argelim(ptr noundef %10, ptr noundef %1, i32 noundef %12, ptr noundef %24, i32 noundef 7, ptr noundef nonnull @.str.44, i32 noundef 121)
   %.pr = load i32, ptr %118, align 8
   %.not424 = icmp eq i32 %.pr, 0
   br i1 %.not424, label %.thread, label %122
 
 122:                                              ; preds = %120
   %123 = call i32 @hwloc_bitmap_copy(ptr noundef %24, ptr noundef %13) #22
-  call fastcc void @hwloc_x86_add_groups(ptr noundef %10, ptr noundef %1, i32 noundef %12, ptr noundef %24, i32 noundef 3, ptr noundef nonnull @.str.45, i32 noundef 120)
+  call fastcc void @hwloc_x86_add_groups.argelim(ptr noundef %10, ptr noundef %1, i32 noundef %12, ptr noundef %24, i32 noundef 3, ptr noundef nonnull @.str.45, i32 noundef 120)
   br label %.thread
 
 .thread:                                          ; preds = %117, %122, %120
@@ -3913,7 +3913,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 
 126:                                              ; preds = %.thread
   %127 = call i32 @hwloc_bitmap_copy(ptr noundef %24, ptr noundef %13) #22
-  call fastcc void @hwloc_x86_add_groups(ptr noundef %10, ptr noundef %1, i32 noundef %12, ptr noundef %24, i32 noundef 5, ptr noundef nonnull @.str.46, i32 noundef 102)
+  call fastcc void @hwloc_x86_add_groups.argelim(ptr noundef %10, ptr noundef %1, i32 noundef %12, ptr noundef %24, i32 noundef 5, ptr noundef nonnull @.str.46, i32 noundef 102)
   br label %128
 
 128:                                              ; preds = %126, %.thread
@@ -3924,7 +3924,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 
 131:                                              ; preds = %128
   %132 = call i32 @hwloc_bitmap_copy(ptr noundef %24, ptr noundef %13) #22
-  call fastcc void @hwloc_x86_add_groups(ptr noundef %10, ptr noundef %1, i32 noundef %12, ptr noundef %24, i32 noundef 4, ptr noundef nonnull @.str.47, i32 noundef 103)
+  call fastcc void @hwloc_x86_add_groups.argelim(ptr noundef %10, ptr noundef %1, i32 noundef %12, ptr noundef %24, i32 noundef 4, ptr noundef nonnull @.str.47, i32 noundef 103)
   br label %133
 
 133:                                              ; preds = %131, %128
@@ -4379,7 +4379,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
   %324 = getelementptr inbounds i8, ptr %.01.i.i453, i64 224
   %325 = load i32, ptr %324, align 8
   %.not2.i.i = icmp eq i32 %325, 0
-  br i1 %.not2.i.i, label %hwloc_obj_get_info_by_name.exit.thread, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %hwloc_obj_get_info_by_name.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %322
   %326 = getelementptr inbounds i8, ptr %.01.i.i453, i64 216
@@ -4390,7 +4390,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
 328:                                              ; preds = %329
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %hwloc_obj_get_info_by_name.exit.thread, label %329, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %hwloc_obj_get_info_by_name.argprom.exit.thread, label %329, !llvm.loop !38
 
 329:                                              ; preds = %328, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %328 ]
@@ -4398,15 +4398,15 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
   %331 = load ptr, ptr %330, align 8
   %332 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %331, ptr noundef nonnull dereferenceable(10) @.str.54) #23
   %.not.i.i458 = icmp eq i32 %332, 0
-  br i1 %.not.i.i458, label %hwloc_obj_get_info_by_name.exit, label %328
+  br i1 %.not.i.i458, label %hwloc_obj_get_info_by_name.argprom.exit, label %328
 
-hwloc_obj_get_info_by_name.exit:                  ; preds = %329
+hwloc_obj_get_info_by_name.argprom.exit:          ; preds = %329
   %333 = getelementptr inbounds i8, ptr %330, i64 8
   %334 = load ptr, ptr %333, align 8
   %.not438 = icmp eq ptr %334, null
-  br i1 %.not438, label %hwloc_obj_get_info_by_name.exit.thread, label %343
+  br i1 %.not438, label %hwloc_obj_get_info_by_name.argprom.exit.thread, label %343
 
-hwloc_obj_get_info_by_name.exit.thread:           ; preds = %328, %322, %hwloc_obj_get_info_by_name.exit
+hwloc_obj_get_info_by_name.argprom.exit.thread:   ; preds = %328, %322, %hwloc_obj_get_info_by_name.argprom.exit
   %335 = getelementptr inbounds i8, ptr %292, i64 56
   %336 = load ptr, ptr %335, align 8
   %337 = zext i32 %.0390.lcssa to i64
@@ -4418,7 +4418,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %328, %322, %hwloc_o
   %342 = call i32 @hwloc_modify_infos(ptr noundef nonnull %341, i64 noundef 1, ptr noundef nonnull @.str.54, ptr noundef nonnull %340) #22
   br label %343
 
-343:                                              ; preds = %hwloc_obj_get_info_by_name.exit.thread, %hwloc_obj_get_info_by_name.exit
+343:                                              ; preds = %hwloc_obj_get_info_by_name.argprom.exit.thread, %hwloc_obj_get_info_by_name.argprom.exit
   %344 = load ptr, ptr %323, align 8
   %345 = call i32 @hwloc_bitmap_andnot(ptr noundef %24, ptr noundef %24, ptr noundef %344) #22
   br label %.backedge
@@ -5102,7 +5102,7 @@ declare ptr @hwloc__insert_object_by_cpuset(ptr noundef, ptr noundef, ptr nounde
 declare i32 @hwloc_bitmap_andnot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 3, 8) %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 102, 122) %6) unnamed_addr #0 {
+define internal fastcc void @hwloc_x86_add_groups.argelim(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 3, 8) %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 102, 122) %6) unnamed_addr #0 {
   %8 = tail call i32 @hwloc_bitmap_first(ptr noundef %3) #23
   %.not44 = icmp eq i32 %8, -1
   br i1 %.not44, label %._crit_edge47, label %.lr.ph46

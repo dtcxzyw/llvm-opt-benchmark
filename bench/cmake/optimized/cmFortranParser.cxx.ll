@@ -141,7 +141,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 23:                                               ; preds = %21
   %24 = icmp eq i32 %.4, 256
-  br i1 %24, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit, label %25
+  br i1 %24, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit, label %25
 
 25:                                               ; preds = %23
   %26 = icmp ult i32 %.4, 296
@@ -510,13 +510,13 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 215:                                              ; preds = %210, %209, %207
   %216 = phi i32 [ -2, %207 ], [ %214, %210 ], [ 2, %209 ]
-  switch i32 %.0216353, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit [
+  switch i32 %.0216353, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit [
     i32 0, label %217
     i32 3, label %231
   ]
 
 217:                                              ; preds = %215
-  %218 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr %.0281350, ptr nonnull %.0219.ptr357, i32 %216)
+  %218 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr noundef %6, ptr %.0281350, ptr nonnull %.0219.ptr357, i32 %216)
   switch i32 %218, label %229 [
     i32 0, label %219
     i32 -1, label %220
@@ -540,7 +540,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br i1 %.not256, label %228, label %225
 
 225:                                              ; preds = %222
-  %226 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr nonnull %224, ptr nonnull %.0219.ptr357, i32 %216)
+  %226 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr noundef %6, ptr nonnull %224, ptr nonnull %.0219.ptr357, i32 %216)
   %227 = icmp eq i32 %226, -2
   br label %229
 
@@ -554,7 +554,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   %.0 = phi i1 [ true, %217 ], [ true, %228 ], [ %227, %225 ], [ false, %219 ]
   %230 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
   call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %230, ptr noundef %.0207)
-  br i1 %.0, label %251, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  br i1 %.0, label %251, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit
 
 231:                                              ; preds = %215
   %232 = icmp slt i32 %.3, 1
@@ -562,28 +562,28 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 233:                                              ; preds = %231
   %234 = icmp eq i32 %.3, 0
-  br i1 %234, label %.thread306, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  br i1 %234, label %.thread306, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit
 
 235:                                              ; preds = %231
   %.off.i = add nsw i32 %216, -32
   %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %.sink.split.i, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  br i1 %switch.i, label %.sink.split.i, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit
 
 .sink.split.i:                                    ; preds = %235
   %236 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %236) #8
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit
 
-_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit: ; preds = %215, %229, %.sink.split.i, %235, %23, %233
+_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit: ; preds = %215, %229, %.sink.split.i, %235, %23, %233
   %.3284 = phi ptr [ %.0281350, %233 ], [ %.0281350, %23 ], [ %.0281350, %235 ], [ %.0281350, %.sink.split.i ], [ %.5286, %229 ], [ %.0281350, %215 ]
   %.6 = phi i32 [ %.3, %233 ], [ 257, %23 ], [ -2, %235 ], [ -2, %.sink.split.i ], [ %.3, %229 ], [ %.3, %215 ]
   %237 = icmp eq i32 %.0213354, 1
   br i1 %237, label %._crit_edge410, label %.lr.ph409
 
-.lr.ph409:                                        ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268
-  %.in412 = phi i32 [ %247, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ], [ %.0213354, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
-  %.3222.idx408 = phi i64 [ %.3222.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ], [ %.0219.idx352, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
-  %.3228407 = phi ptr [ %245, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ], [ %.0225351, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
+.lr.ph409:                                        ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268
+  %.in412 = phi i32 [ %247, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268 ], [ %.0213354, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit ]
+  %.3222.idx408 = phi i64 [ %.3222.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268 ], [ %.0219.idx352, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit ]
+  %.3228407 = phi ptr [ %245, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268 ], [ %.0225351, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit ]
   %238 = icmp eq i64 %.3222.idx408, 0
   br i1 %238, label %.loopexit333, label %239
 
@@ -594,14 +594,14 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit: ; preds = %215, 
   %243 = sext i8 %242 to i32
   %.off.i265 = add nsw i32 %243, -32
   %switch.i266 = icmp ult i32 %.off.i265, 3
-  br i1 %switch.i266, label %.sink.split.i267, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268
+  br i1 %switch.i266, label %.sink.split.i267, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268
 
 .sink.split.i267:                                 ; preds = %239
   %244 = load ptr, ptr %.3228407, align 8
   call void @free(ptr noundef %244) #8
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268
 
-_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268: ; preds = %239, %.sink.split.i267
+_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268: ; preds = %239, %.sink.split.i267
   %245 = getelementptr inbounds i8, ptr %.3228407, i64 -8
   %.3222.add = add nsw i64 %.3222.idx408, -1
   %.ptr251 = getelementptr inbounds i8, ptr %3, i64 %.3222.add
@@ -610,9 +610,9 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268: ; preds = %23
   %248 = icmp eq i8 %246, 1
   br i1 %248, label %._crit_edge410, label %.lr.ph409, !llvm.loop !5
 
-._crit_edge410:                                   ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
-  %.3228.lcssa = phi ptr [ %.0225351, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %245, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ]
-  %.3222.idx.lcssa = phi i64 [ %.0219.idx352, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %.3222.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ]
+._crit_edge410:                                   ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit
+  %.3228.lcssa = phi ptr [ %.0225351, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit ], [ %245, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268 ]
+  %.3222.idx.lcssa = phi i64 [ %.0219.idx352, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit ], [ %.3222.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit268 ]
   %249 = getelementptr inbounds i8, ptr %.3228.lcssa, i64 8
   %250 = load i64, ptr %2, align 8
   store i64 %250, ptr %249, align 8
@@ -634,7 +634,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268: ; preds = %23
   %.4223 = phi ptr [ %.0219.ptr.lcssa, %251 ], [ %3, %.lr.ph409 ], [ %.0219.ptr357, %9 ]
   %.9 = phi i32 [ %.2, %251 ], [ %.6, %.lr.ph409 ], [ %.0208356, %9 ]
   %or.cond11 = icmp ult i32 %.9, 296
-  br i1 %or.cond11, label %.thread306, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
+  br i1 %or.cond11, label %.thread306, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit272
 
 .thread306:                                       ; preds = %233, %.loopexit333
   %.6287297321 = phi ptr [ %.6287, %.loopexit333 ], [ %.0281350, %233 ]
@@ -648,14 +648,14 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268: ; preds = %23
   %256 = sext i8 %255 to i32
   %.off.i269 = add nsw i32 %256, -32
   %switch.i270 = icmp ult i32 %.off.i269, 3
-  br i1 %switch.i270, label %.sink.split.i271, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
+  br i1 %switch.i270, label %.sink.split.i271, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit272
 
 .sink.split.i271:                                 ; preds = %.thread306
   %257 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %257) #8
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit272
 
-_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272: ; preds = %.sink.split.i271, %.thread306, %.loopexit333
+_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit272: ; preds = %.sink.split.i271, %.thread306, %.loopexit333
   %.4223304 = phi ptr [ %.4223, %.loopexit333 ], [ %.4223303315, %.thread306 ], [ %.4223303315, %.sink.split.i271 ]
   %.4229302 = phi ptr [ %.4229, %.loopexit333 ], [ %.4229301317, %.thread306 ], [ %.4229301317, %.sink.split.i271 ]
   %.0232300 = phi i32 [ %.0232, %.loopexit333 ], [ %.0232299319, %.thread306 ], [ %.0232299319, %.sink.split.i271 ]
@@ -663,9 +663,9 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272: ; preds = %.s
   %.not258358 = icmp eq ptr %.4223304, %3
   br i1 %.not258358, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
-  %.5224360 = phi ptr [ %265, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276 ], [ %.4223304, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ]
-  %.5230359 = phi ptr [ %264, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276 ], [ %.4229302, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ]
+.lr.ph:                                           ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit272, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit276
+  %.5224360 = phi ptr [ %265, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit276 ], [ %.4223304, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit272 ]
+  %.5230359 = phi ptr [ %264, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit276 ], [ %.4229302, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit272 ]
   %258 = load i8, ptr %.5224360, align 1
   %259 = sext i8 %258 to i64
   %260 = getelementptr inbounds [123 x i8], ptr @_ZL6yystos, i64 0, i64 %259
@@ -673,20 +673,20 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272: ; preds = %.s
   %262 = sext i8 %261 to i32
   %.off.i273 = add nsw i32 %262, -32
   %switch.i274 = icmp ult i32 %.off.i273, 3
-  br i1 %switch.i274, label %.sink.split.i275, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
+  br i1 %switch.i274, label %.sink.split.i275, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit276
 
 .sink.split.i275:                                 ; preds = %.lr.ph
   %263 = load ptr, ptr %.5230359, align 8
   call void @free(ptr noundef %263) #8
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit276
 
-_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276: ; preds = %.lr.ph, %.sink.split.i275
+_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit276: ; preds = %.lr.ph, %.sink.split.i275
   %264 = getelementptr inbounds i8, ptr %.5230359, i64 -8
   %265 = getelementptr inbounds i8, ptr %.5224360, i64 -1
   %.not258 = icmp eq ptr %265, %3
   br i1 %.not258, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
+._crit_edge:                                      ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit276, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.argprom.exit272
   %.not259 = icmp eq ptr %.6287298, %5
   br i1 %.not259, label %267, label %266
 
@@ -740,7 +740,7 @@ declare void @_Z24cmFortranParser_RuleElseP17cmFortranParser_s(ptr noundef) loca
 declare void @_Z25cmFortranParser_RuleEndifP17cmFortranParser_s(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %3

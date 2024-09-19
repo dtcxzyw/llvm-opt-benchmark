@@ -1565,7 +1565,7 @@ sw.bb1.i:                                         ; preds = %sw.bb.i
   br label %vc_putchar.exit
 
 sw.bb3.i:                                         ; preds = %sw.bb.i
-  tail call fastcc void @vc_put_lf(ptr %4)
+  tail call fastcc void @vc_put_lf.argprom(ptr %4)
   br label %vc_putchar.exit
 
 sw.bb4.i:                                         ; preds = %sw.bb.i
@@ -1593,7 +1593,7 @@ sw.bb7.i:                                         ; preds = %sw.bb.i
 if.then11.i:                                      ; preds = %sw.bb7.i
   store i32 0, ptr %x8.i, align 8
   %vc.val151.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_put_lf(ptr %vc.val151.i)
+  tail call fastcc void @vc_put_lf.argprom(ptr %vc.val151.i)
   br label %vc_putchar.exit
 
 if.else.i:                                        ; preds = %sw.bb7.i
@@ -1615,7 +1615,7 @@ sw.default.i:                                     ; preds = %sw.bb.i
 if.then.i.i:                                      ; preds = %sw.default.i
   store i32 0, ptr %x.i.i, align 8
   %vc.val.i.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_put_lf(ptr %vc.val.i.i)
+  tail call fastcc void @vc_put_lf.argprom(ptr %vc.val.i.i)
   %.pre.i.i = load i32, ptr %width.i.i, align 8
   %.pre17.i.i = load i32, ptr %x.i.i, align 8
   br label %vc_put_one.exit.i
@@ -1644,7 +1644,7 @@ vc_put_one.exit.i:                                ; preds = %if.then.i.i, %sw.de
   %18 = load i32, ptr %x.i.i, align 8
   %19 = load i32, ptr %y.i.i, align 4
   %vc.val16.i.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val16.i.i, i32 noundef %18, i32 noundef %19)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val16.i.i, i32 noundef %18, i32 noundef %19)
   %20 = load i32, ptr %x.i.i, align 8
   %inc.i.i = add i32 %20, 1
   store i32 %inc.i.i, ptr %x.i.i, align 8
@@ -2032,7 +2032,7 @@ if.end148.i:                                      ; preds = %land.lhs.true144.i,
   %t_attrib.i232.i = getelementptr inbounds i8, ptr %arrayidx.i231.i, i64 1
   store i16 7, ptr %t_attrib.i232.i, align 1
   %vc.val.i233.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i233.i, i32 noundef %spec.select.i225.i, i32 noundef %y.0320.i)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val.i233.i, i32 noundef %spec.select.i225.i, i32 noundef %y.0320.i)
   %.pre332.i = load i32, ptr %width139.i, align 8
   br label %for.inc149.i
 
@@ -2096,7 +2096,7 @@ if.end170.i:                                      ; preds = %land.lhs.true166.i,
   %t_attrib.i248.i = getelementptr inbounds i8, ptr %arrayidx.i247.i, i64 1
   store i16 7, ptr %t_attrib.i248.i, align 1
   %vc.val.i249.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i249.i, i32 noundef %spec.select.i240.i, i32 noundef %y.1316.i)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val.i249.i, i32 noundef %spec.select.i240.i, i32 noundef %y.1316.i)
   %inc172.i = add nuw nsw i32 %x.1314.i, 1
   %102 = load i32, ptr %width161.i, align 8
   %cmp162.i = icmp slt i32 %inc172.i, %102
@@ -2144,7 +2144,7 @@ for.body185.i:                                    ; preds = %for.cond182.prehead
   %t_attrib.i264.i = getelementptr inbounds i8, ptr %arrayidx.i263.i, i64 1
   store i16 7, ptr %t_attrib.i264.i, align 1
   %vc.val.i265.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i265.i, i32 noundef %spec.select.i256.i, i32 noundef %y.2312.i)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val.i265.i, i32 noundef %spec.select.i256.i, i32 noundef %y.2312.i)
   %inc187.i = add nuw nsw i32 %x.2310.i, 1
   %112 = load i32, ptr %width183.i, align 8
   %cmp184.i = icmp slt i32 %inc187.i, %112
@@ -2227,7 +2227,7 @@ for.body201.i:                                    ; preds = %for.body201.i, %for
   %t_attrib.i280.i = getelementptr inbounds i8, ptr %arrayidx.i279.i, i64 1
   store i16 7, ptr %t_attrib.i280.i, align 1
   %vc.val.i281.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i281.i, i32 noundef %spec.select.i272.i, i32 noundef %120)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val.i281.i, i32 noundef %spec.select.i272.i, i32 noundef %120)
   %inc204.i = add nsw i32 %x.3308.i, 1
   %126 = load i32, ptr %width199.i, align 8
   %cmp200.i = icmp slt i32 %inc204.i, %126
@@ -2263,7 +2263,7 @@ for.body212.i:                                    ; preds = %land.rhs.i
   %t_attrib.i = getelementptr inbounds i8, ptr %arrayidx.i85, i64 1
   store i16 7, ptr %t_attrib.i, align 1
   %vc.val.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i, i32 noundef %spec.select.i, i32 noundef %128)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val.i, i32 noundef %spec.select.i, i32 noundef %128)
   %inc215.i = add nuw nsw i32 %x.4306.i, 1
   %134 = load i32, ptr %x208.i, align 8
   %cmp209.not.not.i = icmp slt i32 %x.4306.i, %134
@@ -2294,7 +2294,7 @@ for.body221.i:                                    ; preds = %for.body221.i, %for
   %t_attrib.i296.i = getelementptr inbounds i8, ptr %arrayidx.i295.i, i64 1
   store i16 7, ptr %t_attrib.i296.i, align 1
   %vc.val.i297.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i297.i, i32 noundef %spec.select.i288.i, i32 noundef %135)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val.i297.i, i32 noundef %spec.select.i288.i, i32 noundef %135)
   %inc224.i = add nuw nsw i32 %x.5304.i, 1
   %141 = load i32, ptr %width219.i, align 8
   %cmp220.i = icmp slt i32 %inc224.i, %141
@@ -2526,7 +2526,7 @@ while.body.i49:                                   ; preds = %sw.bb228.i, %vc_put
 if.then.i.i54:                                    ; preds = %while.body.i49
   store i32 0, ptr %x.i.i51, align 8
   %vc.val.i.i55 = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_put_lf(ptr %vc.val.i.i55)
+  tail call fastcc void @vc_put_lf.argprom(ptr %vc.val.i.i55)
   %.pre.i.i56 = load i32, ptr %width.i.i52, align 8
   %.pre17.i.i57 = load i32, ptr %x.i.i51, align 8
   br label %vc_put_one.exit.i58
@@ -2555,7 +2555,7 @@ vc_put_one.exit.i58:                              ; preds = %if.then.i.i54, %whi
   %156 = load i32, ptr %x.i.i51, align 8
   %157 = load i32, ptr %y.i.i60, align 4
   %vc.val16.i.i70 = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val16.i.i70, i32 noundef %156, i32 noundef %157)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val16.i.i70, i32 noundef %156, i32 noundef %157)
   %158 = load i32, ptr %x.i.i51, align 8
   %inc.i.i71 = add i32 %158, 1
   store i32 %inc.i.i71, ptr %x.i.i51, align 8
@@ -2596,7 +2596,7 @@ while.body.i:                                     ; preds = %sw.bb232.i, %vc_put
 if.then.i.i28:                                    ; preds = %while.body.i
   store i32 0, ptr %x.i.i25, align 8
   %vc.val.i.i29 = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_put_lf(ptr %vc.val.i.i29)
+  tail call fastcc void @vc_put_lf.argprom(ptr %vc.val.i.i29)
   %.pre.i.i30 = load i32, ptr %width.i.i26, align 8
   %.pre17.i.i31 = load i32, ptr %x.i.i25, align 8
   br label %vc_put_one.exit.i32
@@ -2625,7 +2625,7 @@ vc_put_one.exit.i32:                              ; preds = %if.then.i.i28, %whi
   %176 = load i32, ptr %x.i.i25, align 8
   %177 = load i32, ptr %y.i.i34, align 4
   %vc.val16.i.i44 = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val16.i.i44, i32 noundef %176, i32 noundef %177)
+  tail call fastcc void @vc_update_xy.argprom(ptr %vc.val16.i.i44, i32 noundef %176, i32 noundef %177)
   %178 = load i32, ptr %x.i.i25, align 8
   %inc.i.i45 = add i32 %178, 1
   store i32 %inc.i.i45, ptr %x.i.i25, align 8
@@ -2797,7 +2797,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vc_put_lf(ptr %vc.152.val) unnamed_addr #0 {
+define internal fastcc void @vc_put_lf.argprom(ptr %vc.152.val) unnamed_addr #0 {
 entry:
   %color.i = alloca %struct.pixman_color, align 8
   %rect.i = alloca %struct.pixman_rectangle16, align 2
@@ -2977,7 +2977,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare void @pixman_image_composite(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vc_update_xy(ptr %vc.152.val, i32 noundef %x, i32 noundef %y) unnamed_addr #0 {
+define internal fastcc void @vc_update_xy.argprom(ptr %vc.152.val, i32 noundef %x, i32 noundef %y) unnamed_addr #0 {
 entry:
   %text_x = getelementptr inbounds i8, ptr %vc.152.val, i64 272
   %0 = load i32, ptr %text_x, align 8

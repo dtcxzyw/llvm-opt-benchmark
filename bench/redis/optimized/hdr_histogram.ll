@@ -2564,9 +2564,9 @@ lor.lhs.false:                                    ; preds = %entry
   %counts_len.i = getelementptr inbounds i8, ptr %iter.val17, i64 80
   %3 = load i32, ptr %counts_len.i, align 8
   %cmp.not.i = icmp slt i32 %iter.val18, %3
-  br i1 %cmp.not.i, label %next_value_greater_than_reporting_level_upper_bound.exit, label %return
+  br i1 %cmp.not.i, label %next_value_greater_than_reporting_level_upper_bound.argprom.exit, label %return
 
-next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %lor.lhs.false
+next_value_greater_than_reporting_level_upper_bound.argprom.exit: ; preds = %lor.lhs.false
   %next_value_reporting_level_lowest_equivalent = getelementptr inbounds i8, ptr %iter, i64 112
   %4 = load i64, ptr %next_value_reporting_level_lowest_equivalent, align 8
   %add.i.i = add nsw i32 %iter.val18, 1
@@ -2591,8 +2591,8 @@ next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %lor.lhs.fal
   %cmp1.i = icmp sgt i64 %shl.i.i.i.i, %4
   br i1 %cmp1.i, label %if.then, label %return
 
-if.then:                                          ; preds = %entry.if.then_crit_edge, %next_value_greater_than_reporting_level_upper_bound.exit
-  %8 = phi i64 [ %.pre, %entry.if.then_crit_edge ], [ %4, %next_value_greater_than_reporting_level_upper_bound.exit ]
+if.then:                                          ; preds = %entry.if.then_crit_edge, %next_value_greater_than_reporting_level_upper_bound.argprom.exit
+  %8 = phi i64 [ %.pre, %entry.if.then_crit_edge ], [ %4, %next_value_greater_than_reporting_level_upper_bound.argprom.exit ]
   %value = getelementptr inbounds i8, ptr %iter, i64 40
   %next_value_reporting_level_lowest_equivalent2 = getelementptr inbounds i8, ptr %iter, i64 112
   %9 = load i64, ptr %value, align 8
@@ -2646,8 +2646,8 @@ if.end10:                                         ; preds = %if.end
   %cmp.not = icmp slt i64 %20, %21
   br i1 %cmp.not, label %if.end, label %if.then3
 
-return:                                           ; preds = %if.end, %lor.lhs.false, %next_value_greater_than_reporting_level_upper_bound.exit, %if.then3
-  %retval.0 = phi i1 [ true, %if.then3 ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ false, %lor.lhs.false ], [ true, %if.end ]
+return:                                           ; preds = %if.end, %lor.lhs.false, %next_value_greater_than_reporting_level_upper_bound.argprom.exit, %if.then3
+  %retval.0 = phi i1 [ true, %if.then3 ], [ false, %next_value_greater_than_reporting_level_upper_bound.argprom.exit ], [ false, %lor.lhs.false ], [ true, %if.end ]
   ret i1 %retval.0
 }
 
@@ -2726,9 +2726,9 @@ lor.lhs.false:                                    ; preds = %entry
   %counts_len.i = getelementptr inbounds i8, ptr %iter.val17, i64 80
   %3 = load i32, ptr %counts_len.i, align 8
   %cmp.not.i = icmp slt i32 %iter.val18, %3
-  br i1 %cmp.not.i, label %next_value_greater_than_reporting_level_upper_bound.exit, label %return
+  br i1 %cmp.not.i, label %next_value_greater_than_reporting_level_upper_bound.argprom.exit, label %return
 
-next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %lor.lhs.false
+next_value_greater_than_reporting_level_upper_bound.argprom.exit: ; preds = %lor.lhs.false
   %next_value_reporting_level_lowest_equivalent = getelementptr inbounds i8, ptr %iter, i64 112
   %4 = load i64, ptr %next_value_reporting_level_lowest_equivalent, align 8
   %add.i.i = add nsw i32 %iter.val18, 1
@@ -2753,8 +2753,8 @@ next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %lor.lhs.fal
   %cmp1.i = icmp sgt i64 %shl.i.i.i.i, %4
   br i1 %cmp1.i, label %if.then, label %return
 
-if.then:                                          ; preds = %entry.if.then_crit_edge, %next_value_greater_than_reporting_level_upper_bound.exit
-  %8 = phi i64 [ %.pre, %entry.if.then_crit_edge ], [ %4, %next_value_greater_than_reporting_level_upper_bound.exit ]
+if.then:                                          ; preds = %entry.if.then_crit_edge, %next_value_greater_than_reporting_level_upper_bound.argprom.exit
+  %8 = phi i64 [ %.pre, %entry.if.then_crit_edge ], [ %4, %next_value_greater_than_reporting_level_upper_bound.argprom.exit ]
   %value = getelementptr inbounds i8, ptr %iter, i64 40
   %next_value_reporting_level_lowest_equivalent2 = getelementptr inbounds i8, ptr %iter, i64 112
   %9 = load i64, ptr %value, align 8
@@ -2809,8 +2809,8 @@ if.end10:                                         ; preds = %if.end
   %cmp.not = icmp slt i64 %20, %21
   br i1 %cmp.not, label %if.end, label %if.then3
 
-return:                                           ; preds = %if.end, %lor.lhs.false, %next_value_greater_than_reporting_level_upper_bound.exit, %if.then3
-  %retval.0 = phi i1 [ true, %if.then3 ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ false, %lor.lhs.false ], [ true, %if.end ]
+return:                                           ; preds = %if.end, %lor.lhs.false, %next_value_greater_than_reporting_level_upper_bound.argprom.exit, %if.then3
+  %retval.0 = phi i1 [ true, %if.then3 ], [ false, %next_value_greater_than_reporting_level_upper_bound.argprom.exit ], [ false, %lor.lhs.false ], [ true, %if.end ]
   ret i1 %retval.0
 }
 

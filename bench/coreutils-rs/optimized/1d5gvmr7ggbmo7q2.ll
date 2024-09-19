@@ -154,7 +154,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN12clap_builde
   %.sroa.8.0.i = phi i64 [ 0, %2 ], [ %13, %11 ]
   %.sroa.0.0.i = phi ptr [ %5, %2 ], [ %12, %11 ]
   %10 = icmp eq ptr %.sroa.0.0.i, %8
-  br i1 %10, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.exit", label %11
+  br i1 %10, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.argprom.exit", label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 1
@@ -173,13 +173,13 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN12clap_builde
   %20 = getelementptr inbounds i8, ptr %3, i64 64
   %21 = load ptr, ptr %20, align 8, !alias.scope !31, !nonnull !20, !noundef !20
   %22 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %21, i64 0, i64 %.sroa.8.0.i
-  br label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.exit"
+  br label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.argprom.exit"
 
 23:                                               ; preds = %15
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.8.0.i, i64 noundef %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.44212b8c2050d08e2b5ea60990f9cde9.3) #13, !noalias !31
   unreachable
 
-"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.exit": ; preds = %9, %19
+"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.argprom.exit": ; preds = %9, %19
   %.0.i = phi ptr [ %22, %19 ], [ null, %9 ]
   ret ptr %.0.i
 }
@@ -809,8 +809,8 @@ attributes #16 = { nounwind }
 !29 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !30 = !{i64 8}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E: argument 0"}
-!33 = distinct !{!33, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E"}
+!32 = distinct !{!32, !33, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h0ae601c28065b662E.argprom"}
 !34 = !{i8 0, i8 17}
 !35 = !{!36}
 !36 = distinct !{!36, !37, !"_ZN97_$LT$clap_builder..builder..value_parser..ValueParser$u20$as$u20$core..convert..From$LT$P$GT$$GT$4from17hf174d6fb08abf7c9E: argument 0"}

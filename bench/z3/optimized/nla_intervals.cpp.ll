@@ -7183,7 +7183,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lemma.i.i.i)
   call void @_ZN3nla9new_lemmaC1ERNS_4coreEPKc(ptr noundef nonnull align 8 dereferenceable(16) %lemma.i.i.i, ptr noundef nonnull align 8 dereferenceable(4720) %call.val.val, ptr noundef nonnull @.str.22)
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN3nla9new_lemmaaNERKN2lp11explanationE(ptr noundef nonnull align 8 dereferenceable(16) %lemma.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
-          to label %"_ZSt10__invoke_rIvRZN3nla9intervals9check_nexEPKNS0_3nexEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEE3$_0JRKN2lp11explanationEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit" unwind label %lpad.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN3nla9intervals9check_nexEPKNS0_3nexEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEE3$_0JRKN2lp11explanationEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit" unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -7191,7 +7191,7 @@ lpad.i.i.i:                                       ; preds = %entry
   call void @_ZN3nla9new_lemmaD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %lemma.i.i.i) #19
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIvRZN3nla9intervals9check_nexEPKNS0_3nexEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEE3$_0JRKN2lp11explanationEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN3nla9intervals9check_nexEPKNS0_3nexEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEE3$_0JRKN2lp11explanationEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit": ; preds = %entry
   call void @_ZN3nla9new_lemmaD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %lemma.i.i.i) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lemma.i.i.i)
   ret void

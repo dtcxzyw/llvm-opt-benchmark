@@ -701,14 +701,14 @@ entry:
   %add.i = add i64 %spec.store.select.i, %spec.select1.i
   %call7.i = call i64 @target_mmap(i64 noundef 0, i64 noundef %add.i, i32 noundef %spec.select.i, i32 noundef 34, i32 noundef -1, i64 noundef 0) #20
   %cmp8.i = icmp eq i64 %call7.i, -1
-  br i1 %cmp8.i, label %if.then9.i, label %setup_arg_pages.exit
+  br i1 %cmp8.i, label %if.then9.i, label %setup_arg_pages.argprom.exit
 
 if.then9.i:                                       ; preds = %entry
   call void @perror(ptr noundef nonnull @.str.22) #22
   call void @exit(i32 noundef -1) #21
   unreachable
 
-setup_arg_pages.exit:                             ; preds = %entry
+setup_arg_pages.argprom.exit:                     ; preds = %entry
   %call11.i = call i32 @target_mprotect(i64 noundef %call7.i, i64 noundef %spec.select1.i, i32 noundef 0) #20
   %add12.i = add i64 %call7.i, %spec.select1.i
   %stack_limit.i = getelementptr inbounds i8, ptr %info, i64 64
@@ -749,7 +749,7 @@ setup_arg_pages.exit:                             ; preds = %entry
   %tobool.not = icmp eq i64 %14, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %setup_arg_pages.exit
+if.then:                                          ; preds = %setup_arg_pages.argprom.exit
   %15 = load ptr, ptr @stderr, align 8
   %16 = load ptr, ptr %filename, align 8
   %call19 = call ptr @strerror(i32 noundef 7) #20
@@ -757,7 +757,7 @@ if.then:                                          ; preds = %setup_arg_pages.exi
   call void @exit(i32 noundef -1) #21
   unreachable
 
-if.end:                                           ; preds = %setup_arg_pages.exit
+if.end:                                           ; preds = %setup_arg_pages.argprom.exit
   %17 = load ptr, ptr %elf_interpreter, align 8
   %tobool21.not = icmp eq ptr %17, null
   br i1 %tobool21.not, label %if.then39, label %if.then22
@@ -869,9 +869,9 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   store i64 %add4.i, ptr %31, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 27
-  br i1 %exitcond.not.i, label %load_elf_vdso.exit, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %load_elf_vdso.argprom.exit, label %for.body.i, !llvm.loop !9
 
-load_elf_vdso.exit:                               ; preds = %for.body.i
+load_elf_vdso.argprom.exit:                       ; preds = %for.body.i
   %add13.i = add i64 %27, 1648
   store i64 %add13.i, ptr @default_rt_sigreturn, align 8
   %start_data.i = getelementptr inbounds i8, ptr %vdso_info, i64 32
@@ -927,11 +927,11 @@ load_elf_vdso.exit:                               ; preds = %for.body.i
   %tobool67.not.i = icmp eq ptr %call66.i, null
   br i1 %tobool67.not.i, label %if.end71.i, label %do.body69.i
 
-do.body69.i:                                      ; preds = %load_elf_vdso.exit
+do.body69.i:                                      ; preds = %load_elf_vdso.argprom.exit
   store i64 3, ptr %call66.i, align 1
   br label %if.end71.i
 
-if.end71.i:                                       ; preds = %do.body69.i, %load_elf_vdso.exit
+if.end71.i:                                       ; preds = %do.body69.i, %load_elf_vdso.argprom.exit
   %add72.i = add i64 %add61.i, 8
   %call76.i = call ptr @lock_user(i32 noundef 3, i64 noundef %add72.i, i64 noundef 8, i1 noundef zeroext false) #20
   %tobool77.not.i = icmp eq ptr %call76.i, null
@@ -1933,12 +1933,12 @@ if.then258:                                       ; preds = %if.end256
   %cmp.i160 = icmp ne ptr %call.i159, null
   %cmp34.i161 = icmp ne i16 %ehdr.val150, 0
   %or.cond9.i = and i1 %cmp34.i161, %cmp.i160
-  br i1 %or.cond9.i, label %for.body.i, label %load_symbols.exit
+  br i1 %or.cond9.i, label %for.body.i, label %load_symbols.argprom.exit
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv1.i
-  br i1 %exitcond.not.i, label %load_symbols.exit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %load_symbols.argprom.exit, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %if.then258, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.then258 ]
@@ -2055,19 +2055,19 @@ if.end84.i:                                       ; preds = %if.end78.i
   %next.i = getelementptr inbounds i8, ptr %call86.i, i64 32
   store ptr %69, ptr %next.i, align 8
   store ptr %call86.i, ptr @syminfos, align 8
-  br label %load_symbols.exit
+  br label %load_symbols.argprom.exit
 
 give_up.i:                                        ; preds = %if.end78.i, %for.end74.i, %if.end33.i, %if.end27.i, %if.end20.i, %if.end15.i, %if.then7.i
   %syms.0.i = phi ptr [ null, %if.end20.i ], [ %call30.i, %for.end74.i ], [ %call30.i, %if.end78.i ], [ %call30.i, %if.end33.i ], [ null, %if.end27.i ], [ null, %if.end15.i ], [ null, %if.then7.i ]
   call void @g_free(ptr noundef %call13.i) #20
   call void @g_free(ptr noundef %syms.0.i) #20
-  br label %load_symbols.exit
+  br label %load_symbols.argprom.exit
 
-load_symbols.exit:                                ; preds = %for.cond.i, %if.then258, %if.end84.i, %give_up.i
+load_symbols.argprom.exit:                        ; preds = %for.cond.i, %if.then258, %if.end84.i, %give_up.i
   call void @g_free(ptr noundef %call.i159) #20
   br label %if.end259
 
-if.end259:                                        ; preds = %load_symbols.exit, %if.end256
+if.end259:                                        ; preds = %load_symbols.argprom.exit, %if.end256
   %fd = getelementptr inbounds i8, ptr %src, i64 12
   call void @mmap_unlock() #20
   %70 = load i32, ptr %fd, align 4

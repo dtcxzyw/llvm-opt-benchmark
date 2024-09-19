@@ -687,7 +687,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_ad
 
 339:                                              ; preds = %336
   %.val5 = load ptr, ptr %0, align 8
-  tail call fastcc void @dg1_ctx_workarounds_init(ptr %.val5, ptr noundef %23)
+  tail call fastcc void @dg1_ctx_workarounds_init.argprom(ptr %.val5, ptr noundef %23)
   br label %390
 
 340:                                              ; preds = %336
@@ -699,7 +699,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_ad
 
 342:                                              ; preds = %340
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @gen12_ctx_workarounds_init(ptr %.val, ptr noundef %23)
+  tail call fastcc void @gen12_ctx_workarounds_init.argprom(ptr %.val, ptr noundef %23)
   br label %390
 
 343:                                              ; preds = %340
@@ -715,7 +715,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_ad
 
 349:                                              ; preds = %344
   %.val6 = load ptr, ptr %0, align 8
-  tail call fastcc void @cfl_ctx_workarounds_init(ptr %.val6, ptr noundef %23)
+  tail call fastcc void @cfl_ctx_workarounds_init.argprom(ptr %.val6, ptr noundef %23)
   br label %390
 
 350:                                              ; preds = %344
@@ -725,7 +725,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_ad
 
 353:                                              ; preds = %350
   %.val7 = load ptr, ptr %0, align 8
-  tail call fastcc void @glk_ctx_workarounds_init(ptr %.val7, ptr noundef %23)
+  tail call fastcc void @glk_ctx_workarounds_init.argprom(ptr %.val7, ptr noundef %23)
   br label %390
 
 354:                                              ; preds = %350
@@ -735,7 +735,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_ad
 
 357:                                              ; preds = %354
   %.val8 = load ptr, ptr %0, align 8
-  tail call fastcc void @kbl_ctx_workarounds_init(ptr %.val8, ptr noundef %23)
+  tail call fastcc void @kbl_ctx_workarounds_init.argprom(ptr %.val8, ptr noundef %23)
   br label %390
 
 358:                                              ; preds = %354
@@ -745,7 +745,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_ad
 
 361:                                              ; preds = %358
   %.val9 = load ptr, ptr %0, align 8
-  tail call fastcc void @bxt_ctx_workarounds_init(ptr %.val9, ptr noundef %23)
+  tail call fastcc void @bxt_ctx_workarounds_init.argprom(ptr %.val9, ptr noundef %23)
   br label %390
 
 362:                                              ; preds = %358
@@ -773,7 +773,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_ad
 
 373:                                              ; preds = %370
   %.val10 = load ptr, ptr %0, align 8
-  tail call fastcc void @bdw_ctx_workarounds_init(ptr %.val10, ptr noundef %23)
+  tail call fastcc void @bdw_ctx_workarounds_init.argprom(ptr %.val10, ptr noundef %23)
   br label %390
 
 374:                                              ; preds = %370
@@ -2350,7 +2350,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %622, label %624, label %623
 
 623:                                              ; preds = %618
-  tail call fastcc void @cfl_gt_workarounds_init(ptr %168, ptr noundef %48)
+  tail call fastcc void @cfl_gt_workarounds_init.argprom(ptr %168, ptr noundef %48)
   br label %670
 
 624:                                              ; preds = %618
@@ -2359,7 +2359,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %626, label %628, label %627
 
 627:                                              ; preds = %624
-  tail call fastcc void @gen9_gt_workarounds_init(ptr %168, ptr noundef %48)
+  tail call fastcc void @gen9_gt_workarounds_init.argprom(ptr %168, ptr noundef %48)
   br label %670
 
 628:                                              ; preds = %624
@@ -2377,7 +2377,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %634, label %636, label %635
 
 635:                                              ; preds = %632
-  tail call fastcc void @gen9_gt_workarounds_init(ptr %168, ptr noundef %48)
+  tail call fastcc void @gen9_gt_workarounds_init.argprom(ptr %168, ptr noundef %48)
   br label %670
 
 636:                                              ; preds = %632
@@ -6921,10 +6921,10 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dg1_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @dg1_ctx_workarounds_init.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
-  tail call fastcc void @gen12_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
+  tail call fastcc void @gen12_ctx_workarounds_init.argprom(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
@@ -6957,7 +6957,7 @@ define internal fastcc void @dg1_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen12_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @gen12_ctx_workarounds_init.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -7164,10 +7164,10 @@ define internal fastcc void @icl_ctx_workarounds_init(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cfl_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cfl_ctx_workarounds_init.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
-  tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
+  tail call fastcc void @gen9_ctx_workarounds_init.argprom(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
@@ -7200,9 +7200,9 @@ define internal fastcc void @cfl_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @glk_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @glk_ctx_workarounds_init.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
-  tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
+  tail call fastcc void @gen9_ctx_workarounds_init.argprom(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 0, ptr %3, align 4, !annotation !5
@@ -7221,10 +7221,10 @@ define internal fastcc void @glk_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kbl_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @kbl_ctx_workarounds_init.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
-  tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
+  tail call fastcc void @gen9_ctx_workarounds_init.argprom(ptr %.0.val, ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 7184
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 134217728
@@ -7304,10 +7304,10 @@ define internal fastcc void @kbl_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bxt_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @bxt_ctx_workarounds_init.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
-  tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
+  tail call fastcc void @gen9_ctx_workarounds_init.argprom(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
@@ -7344,7 +7344,7 @@ define internal fastcc void @skl_ctx_workarounds_init(ptr nocapture noundef read
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca [3 x i8], align 1
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @gen9_ctx_workarounds_init(ptr %.val, ptr noundef %1)
+  tail call fastcc void @gen9_ctx_workarounds_init.argprom(ptr %.val, ptr noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #10
@@ -7454,7 +7454,7 @@ define internal fastcc void @chv_ctx_workarounds_init(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bdw_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @bdw_ctx_workarounds_init.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -7747,7 +7747,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @gen9_ctx_workarounds_init.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -8514,10 +8514,10 @@ icl_wa_init_mcr.exit:                             ; preds = %28, %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cfl_gt_workarounds_init(ptr %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cfl_gt_workarounds_init.argprom(ptr %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
-  tail call fastcc void @gen9_gt_workarounds_init(ptr %.0.val, ptr noundef %0)
+  tail call fastcc void @gen9_gt_workarounds_init.argprom(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
@@ -8551,7 +8551,7 @@ define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef reado
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @gen9_gt_workarounds_init(ptr %.val, ptr noundef %1)
+  tail call fastcc void @gen9_gt_workarounds_init.argprom(ptr %.val, ptr noundef %1)
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 7184
   %8 = load i32, ptr %7, align 4
@@ -8644,7 +8644,7 @@ define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @gen9_gt_workarounds_init.argprom(ptr readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -8752,7 +8752,7 @@ define internal fastcc void @skl_gt_workarounds_init(ptr nocapture noundef reado
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @gen9_gt_workarounds_init(ptr %.val, ptr noundef %1)
+  tail call fastcc void @gen9_gt_workarounds_init.argprom(ptr %.val, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 0, ptr %5, align 4, !annotation !5

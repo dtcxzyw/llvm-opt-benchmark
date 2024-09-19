@@ -5839,7 +5839,7 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread.i: ; preds = %_ZNK5clang
   %252 = icmp ne i8 %251, 47
   %.not1.i.i = icmp eq ptr %249, null
   %.not.i12.i = or i1 %.not1.i.i, %252
-  br i1 %.not.i12.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i, label %253
+  br i1 %.not.i12.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i, label %253
 
 253:                                              ; preds = %237
   %254 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %249) #13
@@ -5847,19 +5847,19 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread.i: ; preds = %_ZNK5clang
   %256 = load i16, ptr %255, align 8
   %.mask.i.i.i = and i16 %256, -8192
   %257 = icmp eq i16 %.mask.i.i.i, 16384
-  br i1 %257, label %258, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i
+  br i1 %257, label %258, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i
 
 258:                                              ; preds = %253
   %259 = load i64, ptr %255, align 8
   %260 = and i64 %259, 16777216
   %.not2.i.i = icmp eq i64 %260, 0
-  br i1 %.not2.i.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i
+  br i1 %.not2.i.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i
 
-_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i: ; preds = %258, %253
+_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i: ; preds = %258, %253
   %261 = tail call fastcc noundef zeroext i1 @_ZL24HasTrivialDestructorBodyRN5clang10ASTContextEPKNS_13CXXRecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(23096) %240, ptr noundef nonnull %254, ptr noundef nonnull %254)
-  br i1 %261, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i, label %_ZL34CanSkipVTablePointerInitializationRN5clang7CodeGen15CodeGenFunctionEPKNS_17CXXDestructorDeclE.exit
+  br i1 %261, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i, label %_ZL34CanSkipVTablePointerInitializationRN5clang7CodeGen15CodeGenFunctionEPKNS_17CXXDestructorDeclE.exit
 
-_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i, %258, %237
+_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i, %258, %237
   %262 = getelementptr inbounds nuw i8, ptr %.sroa.013.019.i, i64 8
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %262, align 8
   %263 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
@@ -5867,8 +5867,8 @@ _ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thr
   %.not1.i.i.i = icmp eq i64 %263, 0
   br i1 %.not1.i.i.i, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i, label %.lr.ph.i.i.i57
 
-.lr.ph.i.i.i57:                                   ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i, %270
-  %.sroa.013.1.i = phi ptr [ %273, %270 ], [ %264, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i ]
+.lr.ph.i.i.i57:                                   ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i, %270
+  %.sroa.013.1.i = phi ptr [ %273, %270 ], [ %264, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i ]
   %265 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i, i64 28
   %266 = load i32, ptr %265, align 4
   %267 = and i32 %266, 127
@@ -5884,12 +5884,12 @@ _ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thr
   %.not.i.i.i59 = icmp eq i64 %272, 0
   br i1 %.not.i.i.i59, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i, label %.lr.ph.i.i.i57, !llvm.loop !39
 
-_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i: ; preds = %270, %.lr.ph.i.i.i57, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i
-  %.sroa.013.2.i = phi ptr [ %264, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i ], [ %.sroa.013.1.i, %.lr.ph.i.i.i57 ], [ %273, %270 ]
+_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i: ; preds = %270, %.lr.ph.i.i.i57, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i
+  %.sroa.013.2.i = phi ptr [ %264, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i ], [ %.sroa.013.1.i, %.lr.ph.i.i.i57 ], [ %273, %270 ]
   %.not17.i = icmp eq ptr %.sroa.013.2.i, null
   br i1 %.not17.i, label %_ZL34CanSkipVTablePointerInitializationRN5clang7CodeGen15CodeGenFunctionEPKNS_17CXXDestructorDeclE.exit.thread, label %237
 
-_ZL34CanSkipVTablePointerInitializationRN5clang7CodeGen15CodeGenFunctionEPKNS_17CXXDestructorDeclE.exit: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i, %232
+_ZL34CanSkipVTablePointerInitializationRN5clang7CodeGen15CodeGenFunctionEPKNS_17CXXDestructorDeclE.exit: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i, %232
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 184
@@ -6566,7 +6566,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit108:   ; preds = %253, %261
   %323 = icmp ne i8 %322, 47
   %.not1.i.i = icmp eq ptr %320, null
   %.not.i.i123 = or i1 %.not1.i.i, %323
-  br i1 %.not.i.i123, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i, label %324
+  br i1 %.not.i.i123, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i, label %324
 
 324:                                              ; preds = %310
   %325 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %320) #13
@@ -6574,24 +6574,24 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit108:   ; preds = %253, %261
   %327 = load i16, ptr %326, align 8
   %.mask.i.i.i = and i16 %327, -8192
   %328 = icmp eq i16 %.mask.i.i.i, 16384
-  br i1 %328, label %329, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i
+  br i1 %328, label %329, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i
 
 329:                                              ; preds = %324
   %330 = load i64, ptr %326, align 8
   %331 = and i64 %330, 16777216
   %.not2.i.i = icmp eq i64 %331, 0
-  br i1 %.not2.i.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i
+  br i1 %.not2.i.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i
 
-_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i: ; preds = %329, %324
+_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i: ; preds = %329, %324
   %332 = tail call fastcc noundef zeroext i1 @_ZL24HasTrivialDestructorBodyRN5clang10ASTContextEPKNS_13CXXRecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(23096) %305, ptr noundef nonnull %325, ptr noundef nonnull %325)
-  br i1 %332, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i, label %334
+  br i1 %332, label %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i, label %334
 
-_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i, %329, %310
+_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i, %329, %310
   %333 = trunc nuw i8 %.sroa.12.0166 to i1
   %spec.select = select i1 %333, i32 %.sroa.9.0165, i32 %311
   br label %_ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder19PushCleanupForFieldEPKN5clang9FieldDeclE.exit
 
-334:                                              ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.i
+334:                                              ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.i
   %335 = trunc nuw i8 %.sroa.12.0166 to i1
   br i1 %335, label %336, label %_ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder19PushCleanupForFieldEPKN5clang9FieldDeclE.exit
 
@@ -6606,9 +6606,9 @@ _ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thr
   store i32 %311, ptr %340, align 4
   br label %_ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder19PushCleanupForFieldEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder19PushCleanupForFieldEPKN5clang9FieldDeclE.exit: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i, %336, %334, %308, %.lr.ph168
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0165, %.lr.ph168 ], [ %.sroa.9.0165, %308 ], [ %.sroa.9.0165, %336 ], [ %.sroa.9.0165, %334 ], [ %spec.select, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i ]
-  %.sroa.12.1 = phi i8 [ %.sroa.12.0166, %.lr.ph168 ], [ %.sroa.12.0166, %308 ], [ 0, %336 ], [ %.sroa.12.0166, %334 ], [ 1, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i ]
+_ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder19PushCleanupForFieldEPKN5clang9FieldDeclE.exit: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i, %336, %334, %308, %.lr.ph168
+  %.sroa.9.1 = phi i32 [ %.sroa.9.0165, %.lr.ph168 ], [ %.sroa.9.0165, %308 ], [ %.sroa.9.0165, %336 ], [ %.sroa.9.0165, %334 ], [ %spec.select, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i ]
+  %.sroa.12.1 = phi i8 [ %.sroa.12.0166, %.lr.ph168 ], [ %.sroa.12.0166, %308 ], [ 0, %336 ], [ %.sroa.12.0166, %334 ], [ 1, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.argprom.exit.thread.i ]
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0133.0164, i64 48
   %.sroa.0.0.copyload.i124 = load i64, ptr %341, align 8
   %342 = tail call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %.sroa.0.0.copyload.i124) #13
@@ -6828,7 +6828,7 @@ _ZN12_GLOBAL__N_120AssignmentMemcpyizerC2ERN5clang7CodeGen15CodeGenFunctionEPKNS
   %56 = load ptr, ptr %.035, align 8
   %57 = load i8, ptr %39, align 4
   %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %58, label %59, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 59:                                               ; preds = %55
   %60 = load i8, ptr %56, align 8
@@ -6840,14 +6840,14 @@ _ZN12_GLOBAL__N_120AssignmentMemcpyizerC2ERN5clang7CodeGen15CodeGenFunctionEPKNS
   %63 = load i32, ptr %56, align 8
   %64 = and i32 %63, 16515072
   %.not105.i.i = icmp eq i32 %64, 5505024
-  br i1 %.not105.i.i, label %65, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not105.i.i, label %65, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = load i8, ptr %67, align 8
   %.not.i.i = icmp eq i8 %68, 46
-  br i1 %.not.i.i, label %69, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not.i.i, label %69, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -6859,7 +6859,7 @@ _ZN12_GLOBAL__N_120AssignmentMemcpyizerC2ERN5clang7CodeGen15CodeGenFunctionEPKNS
   %76 = icmp ult i32 %75, -3
   %.not107141.i.i = icmp eq ptr %71, null
   %.not107.i.i = or i1 %.not107141.i.i, %76
-  br i1 %.not107.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread, label %77
+  br i1 %.not107.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread, label %77
 
 77:                                               ; preds = %69
   %.val113.i.i = load ptr, ptr %4, align 8
@@ -6873,7 +6873,7 @@ _ZN12_GLOBAL__N_120AssignmentMemcpyizerC2ERN5clang7CodeGen15CodeGenFunctionEPKNS
   %.val113.val.val.val.val.i.i = load i64, ptr %81, align 8
   %82 = and i64 %.val113.val.val.val.val.i.i, 96
   %.not.i.i.i = icmp eq i64 %82, 0
-  br i1 %.not.i.i.i, label %83, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not.i.i.i, label %83, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 83:                                               ; preds = %77
   %84 = getelementptr inbounds nuw i8, ptr %71, i64 48
@@ -6901,7 +6901,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i.i.i:  ; preds = %89, %83
   %96 = and i64 %.sroa.0.0.i.i.i.i.i, 448
   %97 = or disjoint i64 %95, %96
   %or.cond.i.i = icmp eq i64 %97, 0
-  br i1 %or.cond.i.i, label %98, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %or.cond.i.i, label %98, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 98:                                               ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i.i.i
   %99 = getelementptr inbounds i8, ptr %56, i64 24
@@ -6914,7 +6914,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i.i.i:  ; preds = %89, %83
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %104 = load ptr, ptr %103, align 8
   %.not109.i.i = icmp eq ptr %104, null
-  br i1 %.not109.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread, label %..thread_crit_edge.i.i
+  br i1 %.not109.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread, label %..thread_crit_edge.i.i
 
 ..thread_crit_edge.i.i:                           ; preds = %102
   %.pre169.i.i = load i8, ptr %104, align 8
@@ -6924,13 +6924,13 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i.i.i:  ; preds = %89, %83
   %105 = phi i8 [ %.pre169.i.i, %..thread_crit_edge.i.i ], [ %101, %98 ]
   %.064138.i.i = phi ptr [ %104, %..thread_crit_edge.i.i ], [ %100, %98 ]
   %.not144.i.i = icmp eq i8 %105, 46
-  br i1 %.not144.i.i, label %106, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not144.i.i, label %106, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 106:                                              ; preds = %.thread.i.i
   %107 = getelementptr inbounds nuw i8, ptr %.064138.i.i, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, %71
-  br i1 %109, label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer18getMemcpyableFieldEPN5clang4StmtE.exit.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %109, label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer18getMemcpyableFieldEPN5clang4StmtE.exit.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 110:                                              ; preds = %59
   %.not146.i.i = icmp eq i8 %60, 92
@@ -6949,17 +6949,17 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i.i.i:  ; preds = %89, %83
   %121 = icmp ne i32 %120, 32
   %.not100147.i.i = icmp eq ptr %117, null
   %.not100.i.i = or i1 %.not100147.i.i, %121
-  br i1 %.not100.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread, label %122
+  br i1 %.not100.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread, label %122
 
 122:                                              ; preds = %111
   %123 = call fastcc noundef zeroext i1 @_ZL31isMemcpyEquivalentSpecialMemberPKN5clang13CXXMethodDeclE(ptr noundef nonnull %117)
-  br i1 %123, label %124, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %123, label %124, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 124:                                              ; preds = %122
   %125 = call noundef ptr @_ZNK5clang17CXXMemberCallExpr25getImplicitObjectArgumentEv(ptr noundef nonnull align 8 dereferenceable(24) %56) #13
   %126 = load i8, ptr %125, align 8
   %.not149.i.i = icmp eq i8 %126, 46
-  br i1 %.not149.i.i, label %127, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not149.i.i, label %127, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 24
@@ -6971,7 +6971,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i.i.i:  ; preds = %89, %83
   %134 = icmp ult i32 %133, -3
   %.not102150.i.i = icmp eq ptr %129, null
   %.not102.i.i = or i1 %.not102150.i.i, %134
-  br i1 %.not102.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread, label %135
+  br i1 %.not102.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread, label %135
 
 135:                                              ; preds = %127
   %.val112.i.i = load ptr, ptr %4, align 8
@@ -6985,7 +6985,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i.i.i:  ; preds = %89, %83
   %.val112.val.val.val.val.i.i = load i64, ptr %139, align 8
   %140 = and i64 %.val112.val.val.val.val.i.i, 96
   %.not.i20 = icmp eq i64 %140, 0
-  br i1 %.not.i20, label %141, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not.i20, label %141, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 141:                                              ; preds = %135
   %142 = getelementptr inbounds nuw i8, ptr %129, i64 48
@@ -7013,7 +7013,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i26:    ; preds = %147, %141
   %154 = and i64 %.sroa.0.0.i.i.i27, 448
   %155 = or disjoint i64 %153, %154
   %or.cond = icmp eq i64 %155, 0
-  br i1 %or.cond, label %156, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %or.cond, label %156, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 156:                                              ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i26
   %157 = load i32, ptr %56, align 8
@@ -7028,7 +7028,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i26:    ; preds = %147, %141
   %166 = load ptr, ptr %165, align 8
   %167 = load i8, ptr %166, align 8
   %.not152.i.i = icmp eq i8 %167, 46
-  br i1 %.not152.i.i, label %168, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not152.i.i, label %168, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 168:                                              ; preds = %156
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 24
@@ -7040,12 +7040,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i26:    ; preds = %147, %141
   %175 = icmp ult i32 %174, 3
   %spec.select.i.i123.i.i = select i1 %175, ptr %170, ptr null
   %.not104.i.i = icmp eq ptr %129, %spec.select.i.i123.i.i
-  br i1 %.not104.i.i, label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer18getMemcpyableFieldEPN5clang4StmtE.exit.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not104.i.i, label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer18getMemcpyableFieldEPN5clang4StmtE.exit.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 176:                                              ; preds = %110
   %177 = add i8 %60, -94
   %spec.select.i.i.i.i.i.i.i.i124.i.i = icmp ult i8 %177, -5
-  br i1 %spec.select.i.i.i.i.i.i.i.i124.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread, label %178
+  br i1 %spec.select.i.i.i.i.i.i.i.i124.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread, label %178
 
 178:                                              ; preds = %176
   %179 = load i32, ptr %56, align 8
@@ -7061,12 +7061,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i26:    ; preds = %147, %141
   %189 = icmp ult i32 %188, -6
   %.not88154.i.i = icmp eq ptr %184, null
   %.not88.i.i = or i1 %.not88154.i.i, %189
-  br i1 %.not88.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread, label %190
+  br i1 %.not88.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread, label %190
 
 190:                                              ; preds = %178
   %191 = call noundef i32 @_ZNK5clang12FunctionDecl12getBuiltinIDEb(ptr noundef nonnull align 8 dereferenceable(168) %184, i1 noundef zeroext false) #13
   %.not89.i.i = icmp eq i32 %191, 868
-  br i1 %.not89.i.i, label %192, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not89.i.i, label %192, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 192:                                              ; preds = %190
   %193 = load i32, ptr %56, align 8
@@ -7093,20 +7093,20 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i26:    ; preds = %147, %141
   %208 = phi i8 [ %.pre.i.i, %204 ], [ %203, %192 ]
   %.065.i.i = phi ptr [ %206, %204 ], [ %202, %192 ]
   %.not158.i.i = icmp eq i8 %208, 4
-  br i1 %.not158.i.i, label %209, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not158.i.i, label %209, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 209:                                              ; preds = %207
   %210 = load i32, ptr %.065.i.i, align 8
   %211 = and i32 %210, 8126464
   %.not92.i.i = icmp eq i32 %211, 1048576
-  br i1 %.not92.i.i, label %212, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not92.i.i, label %212, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 212:                                              ; preds = %209
   %213 = getelementptr inbounds nuw i8, ptr %.065.i.i, i64 16
   %214 = load ptr, ptr %213, align 8
   %215 = load i8, ptr %214, align 8
   %.not160.i.i = icmp eq i8 %215, 46
-  br i1 %.not160.i.i, label %216, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not160.i.i, label %216, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 24
@@ -7118,7 +7118,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i26:    ; preds = %147, %141
   %223 = icmp ult i32 %222, -3
   %.not94161.i.i = icmp eq ptr %218, null
   %.not94.i.i = or i1 %.not94161.i.i, %223
-  br i1 %.not94.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread, label %224
+  br i1 %.not94.i.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread, label %224
 
 224:                                              ; preds = %216
   %.val.i.i = load ptr, ptr %4, align 8
@@ -7132,7 +7132,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i26:    ; preds = %147, %141
   %.val.val.val.val.val.i.i = load i64, ptr %228, align 8
   %229 = and i64 %.val.val.val.val.val.i.i, 96
   %.not.i = icmp eq i64 %229, 0
-  br i1 %.not.i, label %230, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not.i, label %230, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 230:                                              ; preds = %224
   %231 = getelementptr inbounds nuw i8, ptr %218, i64 48
@@ -7160,7 +7160,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i:      ; preds = %236, %230
   %243 = and i64 %.sroa.0.0.i.i.i, 448
   %244 = or disjoint i64 %242, %243
   %or.cond33 = icmp eq i64 %244, 0
-  br i1 %or.cond33, label %245, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %or.cond33, label %245, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 245:                                              ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i
   %246 = getelementptr inbounds i8, ptr %201, i64 8
@@ -7179,20 +7179,20 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i:      ; preds = %236, %230
   %253 = phi i8 [ %.pre168.i.i, %249 ], [ %248, %245 ]
   %.066.i.i = phi ptr [ %251, %249 ], [ %247, %245 ]
   %.not165.i.i = icmp eq i8 %253, 4
-  br i1 %.not165.i.i, label %254, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not165.i.i, label %254, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 254:                                              ; preds = %252
   %255 = load i32, ptr %.066.i.i, align 8
   %256 = and i32 %255, 8126464
   %.not97.i.i = icmp eq i32 %256, 1048576
-  br i1 %.not97.i.i, label %257, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not97.i.i, label %257, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 257:                                              ; preds = %254
   %258 = getelementptr inbounds nuw i8, ptr %.066.i.i, i64 16
   %259 = load ptr, ptr %258, align 8
   %260 = load i8, ptr %259, align 8
   %.not167.i.i = icmp eq i8 %260, 46
-  br i1 %.not167.i.i, label %261, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not167.i.i, label %261, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 261:                                              ; preds = %257
   %262 = getelementptr inbounds nuw i8, ptr %259, i64 24
@@ -7204,7 +7204,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i:      ; preds = %236, %230
   %268 = icmp ult i32 %267, 3
   %spec.select.i.i134.i.i = select i1 %268, ptr %263, ptr null
   %.not99.i.i = icmp eq ptr %218, %spec.select.i.i134.i.i
-  br i1 %.not99.i.i, label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer18getMemcpyableFieldEPN5clang4StmtE.exit.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+  br i1 %.not99.i.i, label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer18getMemcpyableFieldEPN5clang4StmtE.exit.i, label %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
 
 _ZN12_GLOBAL__N_120AssignmentMemcpyizer18getMemcpyableFieldEPN5clang4StmtE.exit.i: ; preds = %261, %168, %106
   %.0.i.i = phi ptr [ %71, %106 ], [ %129, %168 ], [ %218, %261 ]
@@ -7230,13 +7230,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4StmtELb1EE9push_backES3_.exit.i: ; pr
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %278) #13
   br label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer14emitAssignmentEPN5clang4StmtE.exit
 
-_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread: ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i, %224, %_ZNK5clang8QualType13getQualifiersEv.exit.i26, %135, %261, %257, %254, %252, %216, %212, %209, %207, %190, %178, %176, %168, %156, %127, %124, %122, %111, %106, %.thread.i.i, %102, %_ZNK5clang8QualType13getQualifiersEv.exit.i.i.i, %77, %69, %65, %62, %55
+_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread: ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i, %224, %_ZNK5clang8QualType13getQualifiersEv.exit.i26, %135, %261, %257, %254, %252, %216, %212, %209, %207, %190, %178, %176, %168, %156, %127, %124, %122, %111, %106, %.thread.i.i, %102, %_ZNK5clang8QualType13getQualifiersEv.exit.i.i.i, %77, %69, %65, %62, %55
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.22.i.i)
   %279 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #13
   %280 = icmp ult i64 %279, 2
   br i1 %280, label %281, label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer19emitAggregatedStmtsEv.exit.i
 
-281:                                              ; preds = %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+281:                                              ; preds = %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
   %282 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #13
   br i1 %282, label %289, label %283
 
@@ -7257,7 +7257,7 @@ _ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit3
   store ptr null, ptr %38, align 8
   br label %_ZN12_GLOBAL__N_120AssignmentMemcpyizer19emitAggregatedStmtsEv.exit.i
 
-_ZN12_GLOBAL__N_120AssignmentMemcpyizer19emitAggregatedStmtsEv.exit.i: ; preds = %289, %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.exit30.thread
+_ZN12_GLOBAL__N_120AssignmentMemcpyizer19emitAggregatedStmtsEv.exit.i: ; preds = %289, %_ZNK12_GLOBAL__N_115FieldMemcpyizer17isMemcpyableFieldEPN5clang9FieldDeclE.argprom.argprom.argprom.argprom.argprom.exit30.thread
   call fastcc void @_ZN12_GLOBAL__N_115FieldMemcpyizer10emitMemcpyEv(ptr noundef nonnull align 8 dereferenceable(68) %4)
   %290 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #13
   store i32 0, ptr %54, align 8
@@ -16502,7 +16502,7 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i.i: ; preds = %121
   %131 = zext i32 %130 to i64
   %132 = getelementptr inbounds ptr, ptr %128, i64 %131
   %.not6.i.i = icmp eq i32 %130, 0
-  br i1 %.not6.i.i, label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit.i, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i.i, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %134, %.lr.ph.i.i ], [ %128, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i.i ]
@@ -16511,22 +16511,22 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i.i: ; preds = %121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
   %134 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %.not.i14.i = icmp eq ptr %134, %132
-  br i1 %.not.i14.i, label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i14.i, label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit.i, label %.lr.ph.i.i
 
 _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i.i: ; preds = %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread3.i.i, %121
   %.0.i5.i.i = phi ptr [ %124, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread3.i.i ], [ null, %121 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction32EmitLValueForFieldInitializationENS0_6LValueEPKNS_9FieldDeclE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %3, ptr noundef nonnull align 8 dereferenceable(6488) %100, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %7, ptr noundef %.0.i5.i.i) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(136) %3, i64 136, i1 false)
-  br label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit.i
+  br label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit.i
 
-_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit.i: ; preds = %.lr.ph.i.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i.i
+_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit.i: ; preds = %.lr.ph.i.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
   %135 = load ptr, ptr %0, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_(ptr noundef nonnull align 8 dereferenceable(6488) %135, i32 noundef %99, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %80, i64 %.sroa.0.0.copyload.i.i) #13
   br label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread.i
 
-_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread.i: ; preds = %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit.i, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %107, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i
+_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread.i: ; preds = %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit.i, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %107, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i
   %136 = add i32 %.020.i, 1
   %137 = zext i32 %136 to i64
   %138 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
@@ -16651,7 +16651,7 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i: ; preds = %52
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %59, i64 %62
   %.not6.i = icmp eq i32 %61, 0
-  br i1 %.not6.i, label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit, label %.lr.ph.i
+  br i1 %.not6.i, label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i, %.lr.ph.i
   %.07.i = phi ptr [ %65, %.lr.ph.i ], [ %59, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i ]
@@ -16660,15 +16660,15 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i: ; preds = %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(136) %7, i64 136, i1 false)
   %65 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %.not.i55 = icmp eq ptr %65, %63
-  br i1 %.not.i55, label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit, label %.lr.ph.i
+  br i1 %.not.i55, label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit, label %.lr.ph.i
 
 _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i: ; preds = %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread3.i, %52
   %.0.i5.i = phi ptr [ %55, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread3.i ], [ null, %52 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction32EmitLValueForFieldInitializationENS0_6LValueEPKNS_9FieldDeclE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %8, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %10, ptr noundef %.0.i5.i) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(136) %8, i64 136, i1 false)
-  br label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit
+  br label %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit
 
-_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit: ; preds = %.lr.ph.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i
+_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit: ; preds = %.lr.ph.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.thread.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8)
   %66 = load ptr, ptr %35, align 8
@@ -16678,7 +16678,7 @@ _ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18
   %.not.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i.i, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %70
 
-70:                                               ; preds = %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit
+70:                                               ; preds = %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %72 = load i8, ptr %71, align 16
   %73 = and i8 %72, -2
@@ -16856,7 +16856,7 @@ _ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKind
   call void @_ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 noundef %150, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %46, i64 %.sroa.0.0.copyload.i) #13
   br label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread
 
-_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread: ; preds = %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.exit, %70, %92, %93, %77, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit
+_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread: ; preds = %_ZL35EmitLValueForAnyFieldInitializationRN5clang7CodeGen15CodeGenFunctionEPNS_18CXXCtorInitializerERNS0_6LValueE.argprom.exit, %70, %92, %93, %77, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %171 = load ptr, ptr %170, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction23EmitInitializerForFieldEPNS_9FieldDeclENS0_6LValueEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %.0.i, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %10, ptr noundef %171)

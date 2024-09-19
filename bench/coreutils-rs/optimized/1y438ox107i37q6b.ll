@@ -3090,11 +3090,11 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17h20328a7
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   br label %28
 
-28:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit", %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit"
-  %.sroa.09.0 = phi ptr [ %23, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit" ], [ %32, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit" ]
-  %.sroa.710.0 = phi ptr [ %24, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit" ], [ %.sroa.710.121, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit" ]
-  %.sroa.10.0 = phi ptr [ %22, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit" ], [ %.sroa.10.122, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit" ]
-  %.sroa.13.0 = phi ptr [ %25, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit" ], [ %.sroa.13.123, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit" ]
+28:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit", %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit"
+  %.sroa.09.0 = phi ptr [ %23, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit" ], [ %32, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit" ]
+  %.sroa.710.0 = phi ptr [ %24, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit" ], [ %.sroa.710.121, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit" ]
+  %.sroa.10.0 = phi ptr [ %22, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit" ], [ %.sroa.10.122, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit" ]
+  %.sroa.13.0 = phi ptr [ %25, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit" ], [ %.sroa.13.123, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit" ]
   %29 = icmp eq ptr %.sroa.09.0, %.sroa.710.0
   br i1 %29, label %30, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88aa7160074d713E.exit.thread16"
 
@@ -3129,7 +3129,7 @@ _ZN7uu_tail6chunks10BytesChunk10get_buffer17hcbb4dd09726de4a7E.exit: ; preds = %
 
 42:                                               ; preds = %_ZN7uu_tail6chunks10BytesChunk10get_buffer17hcbb4dd09726de4a7E.exit
   %43 = tail call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h2f9e5119f2f52969E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %35)
-  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit"
+  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit"
 
 44:                                               ; preds = %_ZN7uu_tail6chunks10BytesChunk10get_buffer17hcbb4dd09726de4a7E.exit
   %45 = load ptr, ptr %27, align 8, !alias.scope !355, !noalias !358, !nonnull !9, !noundef !9
@@ -3137,9 +3137,9 @@ _ZN7uu_tail6chunks10BytesChunk10get_buffer17hcbb4dd09726de4a7E.exit: ; preds = %
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 8 %33, i64 %35, i1 false), !noalias !355
   %47 = add i64 %39, %35
   store i64 %47, ptr %26, align 8, !alias.scope !355, !noalias !358
-  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit"
+  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit": ; preds = %42, %44
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit": ; preds = %42, %44
   %.0.i.i = phi ptr [ null, %44 ], [ %43, %42 ]
   %48 = icmp eq ptr %.0.i.i, null
   br i1 %48, label %28, label %51
@@ -3151,7 +3151,7 @@ _ZN7uu_tail6chunks10BytesChunk10get_buffer17hcbb4dd09726de4a7E.exit: ; preds = %
   %50 = insertvalue { ptr, ptr } %49, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %50
 
-51:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit"
+51:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit"
   %52 = tail call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %.0.i.i)
   %53 = extractvalue { ptr, ptr } %52, 0
   %54 = extractvalue { ptr, ptr } %52, 1
@@ -4508,11 +4508,11 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16LinesChunkBuffer5print17hf22b216
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   br label %28
 
-28:                                               ; preds = %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit"
-  %.sroa.010.0 = phi ptr [ %23, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %32, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
-  %.sroa.711.0 = phi ptr [ %24, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.711.122, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
-  %.sroa.10.0 = phi ptr [ %22, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.10.123, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
-  %.sroa.13.0 = phi ptr [ %25, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.13.124, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit ]
+28:                                               ; preds = %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit"
+  %.sroa.010.0 = phi ptr [ %23, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %32, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit ]
+  %.sroa.711.0 = phi ptr [ %24, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.711.122, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit ]
+  %.sroa.10.0 = phi ptr [ %22, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.10.123, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit ]
+  %.sroa.13.0 = phi ptr [ %25, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit" ], [ %.sroa.13.124, %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit ]
   %29 = icmp eq ptr %.sroa.010.0, %.sroa.711.0
   br i1 %29, label %30, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread17"
 
@@ -4545,30 +4545,30 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; pr
   %39 = load i64, ptr %26, align 8, !alias.scope !670, !noalias !673, !noundef !9
   %40 = sub i64 %38, %39
   %41 = icmp ult i64 %35, %40
-  br i1 %41, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.thread.i", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.i"
+  br i1 %41, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.thread.i", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.i"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.thread.i": ; preds = %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.thread.i": ; preds = %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i
   %42 = load ptr, ptr %27, align 8, !alias.scope !670, !noalias !673, !nonnull !9, !noundef !9
   %43 = getelementptr inbounds i8, ptr %42, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 8 %33, i64 %35, i1 false), !noalias !670
   %44 = add i64 %39, %35
   store i64 %44, ptr %26, align 8, !alias.scope !670, !noalias !673
-  br label %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit
+  br label %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.i": ; preds = %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.i": ; preds = %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i
   %45 = tail call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h2f9e5119f2f52969E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %35)
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit, label %47
+  br i1 %46, label %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit, label %47
 
-47:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.i"
+47:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.i"
   %48 = tail call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %45)
   %49 = extractvalue { ptr, ptr } %48, 0
   %50 = extractvalue { ptr, ptr } %48, 1
-  br label %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit
+  br label %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit
 
-_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.thread.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.i", %47
-  %.sroa.3.0.i = phi ptr [ %50, %47 ], [ undef, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.i" ], [ undef, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.thread.i" ]
-  %.sroa.0.0.i = phi ptr [ %49, %47 ], [ null, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.i" ], [ null, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.thread.i" ]
+_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.thread.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.i", %47
+  %.sroa.3.0.i = phi ptr [ %50, %47 ], [ undef, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.i" ], [ undef, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.thread.i" ]
+  %.sroa.0.0.i = phi ptr [ %49, %47 ], [ null, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.i" ], [ null, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom.exit.thread.i" ]
   %51 = icmp eq ptr %.sroa.0.0.i, null
   br i1 %51, label %28, label %54
 
@@ -4579,7 +4579,7 @@ _ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit: ; preds = 
   %53 = insertvalue { ptr, ptr } %52, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %53
 
-54:                                               ; preds = %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.exit
+54:                                               ; preds = %_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom.exit
   %55 = icmp ne ptr %.sroa.3.0.i, null
   tail call void @llvm.assume(i1 %55)
   br label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h232936ee18c22e60E.exit.thread"
@@ -5070,12 +5070,12 @@ attributes #28 = { cold noreturn nounwind }
 !209 = distinct !{!209, !210, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72144978ea3524daE: argument 0"}
 !210 = distinct !{!210, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72144978ea3524daE"}
 !211 = !{!212, !214, !215, !217}
-!212 = distinct !{!212, !213, !"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$4read17hcdeeeb3d61603be0E: argument 0"}
-!213 = distinct !{!213, !"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$4read17hcdeeeb3d61603be0E"}
-!214 = distinct !{!214, !213, !"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$4read17hcdeeeb3d61603be0E: argument 1"}
-!215 = distinct !{!215, !216, !"_ZN7uu_tail6chunks10BytesChunk4fill17h33608698141ad3e1E: argument 0"}
-!216 = distinct !{!216, !"_ZN7uu_tail6chunks10BytesChunk4fill17h33608698141ad3e1E"}
-!217 = distinct !{!217, !216, !"_ZN7uu_tail6chunks10BytesChunk4fill17h33608698141ad3e1E: argument 1"}
+!212 = distinct !{!212, !213, !"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$4read17hcdeeeb3d61603be0E.argprom: argument 0"}
+!213 = distinct !{!213, !"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$4read17hcdeeeb3d61603be0E.argprom"}
+!214 = distinct !{!214, !213, !"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$4read17hcdeeeb3d61603be0E.argprom: argument 1"}
+!215 = distinct !{!215, !216, !"_ZN7uu_tail6chunks10BytesChunk4fill17h33608698141ad3e1E.argprom: argument 0"}
+!216 = distinct !{!216, !"_ZN7uu_tail6chunks10BytesChunk4fill17h33608698141ad3e1E.argprom"}
+!217 = distinct !{!217, !216, !"_ZN7uu_tail6chunks10BytesChunk4fill17h33608698141ad3e1E.argprom: argument 1"}
 !218 = !{!217}
 !219 = !{!215, !217}
 !220 = !{!215}
@@ -5218,8 +5218,8 @@ attributes #28 = { cold noreturn nounwind }
 !357 = distinct !{!357, !"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882"}
 !358 = !{!359, !360}
 !359 = distinct !{!359, !357, !"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882: argument 1"}
-!360 = distinct !{!360, !361, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E: argument 0"}
-!361 = distinct !{!361, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E"}
+!360 = distinct !{!360, !361, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom: argument 0"}
+!361 = distinct !{!361, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom"}
 !362 = !{!363, !365}
 !363 = distinct !{!363, !364, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h9ed18acefcd02b87E: argument 1"}
 !364 = distinct !{!364, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h9ed18acefcd02b87E"}
@@ -5516,8 +5516,8 @@ attributes #28 = { cold noreturn nounwind }
 !655 = !{!651, !645, !646}
 !656 = !{!648, !641, !638}
 !657 = !{!658}
-!658 = distinct !{!658, !659, !"_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE: argument 0"}
-!659 = distinct !{!659, !"_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE"}
+!658 = distinct !{!658, !659, !"_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom: argument 0"}
+!659 = distinct !{!659, !"_ZN7uu_tail6chunks10LinesChunk11print_bytes17h373468c72bbda28bE.argprom"}
 !660 = !{!661}
 !661 = distinct !{!661, !662, !"_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E: argument 0"}
 !662 = distinct !{!662, !"_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E"}
@@ -5533,5 +5533,5 @@ attributes #28 = { cold noreturn nounwind }
 !672 = distinct !{!672, !"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882"}
 !673 = !{!674, !675, !658}
 !674 = distinct !{!674, !672, !"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882: argument 1"}
-!675 = distinct !{!675, !676, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E: argument 0"}
-!676 = distinct !{!676, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E"}
+!675 = distinct !{!675, !676, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom: argument 0"}
+!676 = distinct !{!676, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.argprom"}

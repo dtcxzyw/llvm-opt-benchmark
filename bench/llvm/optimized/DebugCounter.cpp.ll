@@ -847,7 +847,7 @@ define dso_local void @_ZN4llvm23initDebugCounterOptionsEv() local_unnamed_addr 
   br i1 %.not.i, label %_ZN4llvm12DebugCounter8instanceEv.exit, label %5
 
 5:                                                ; preds = %3
-  tail call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev()
+  tail call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev.argprom()
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117DebugCounterOwnerD2Ev, ptr nonnull @_ZZN4llvm12DebugCounter8instanceEvE1O, ptr nonnull @__dso_handle) #5
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm12DebugCounter8instanceEvE1O) #5
   br label %_ZN4llvm12DebugCounter8instanceEv.exit
@@ -868,7 +868,7 @@ define dso_local noundef nonnull align 8 dereferenceable(99) ptr @_ZN4llvm12Debu
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev()
+  tail call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev.argprom()
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117DebugCounterOwnerD2Ev, ptr nonnull @_ZZN4llvm12DebugCounter8instanceEvE1O, ptr nonnull @__dso_handle) #5
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm12DebugCounter8instanceEvE1O) #5
   br label %7
@@ -881,7 +881,7 @@ define dso_local noundef nonnull align 8 dereferenceable(99) ptr @_ZN4llvm12Debu
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev() unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev.argprom() unnamed_addr #0 align 2 {
   %1 = alloca i32, align 4
   %2 = alloca %"struct.llvm::cl::desc", align 8
   %3 = alloca i32, align 4
@@ -1293,7 +1293,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %100, %102, %103
   br i1 %.not.i.i, label %_ZN4llvm12DebugCounter17enableAllCountersEv.exit, label %124
 
 124:                                              ; preds = %122
-  call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev()
+  call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev.argprom()
   %125 = call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117DebugCounterOwnerD2Ev, ptr nonnull @_ZZN4llvm12DebugCounter8instanceEvE1O, ptr nonnull @__dso_handle) #5
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm12DebugCounter8instanceEvE1O) #5
   br label %_ZN4llvm12DebugCounter17enableAllCountersEv.exit
@@ -1428,7 +1428,7 @@ _ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj16EEEEEvOT_.exit: ; preds = %2, 
   br i1 %.not.i, label %_ZN4llvm12DebugCounter8instanceEv.exit, label %22
 
 22:                                               ; preds = %20
-  call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev()
+  call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev.argprom()
   %23 = call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117DebugCounterOwnerD2Ev, ptr nonnull @_ZZN4llvm12DebugCounter8instanceEvE1O, ptr nonnull @__dso_handle) #5
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm12DebugCounter8instanceEvE1O) #5
   br label %_ZN4llvm12DebugCounter8instanceEv.exit
@@ -1755,7 +1755,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12DebugCounter17shouldExecuteImplEj
   br i1 %.not.i, label %_ZN4llvm12DebugCounter8instanceEv.exit, label %6
 
 6:                                                ; preds = %4
-  tail call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev()
+  tail call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev.argprom()
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117DebugCounterOwnerD2Ev, ptr nonnull @_ZZN4llvm12DebugCounter8instanceEvE1O, ptr nonnull @__dso_handle) #5
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm12DebugCounter8instanceEvE1O) #5
   br label %_ZN4llvm12DebugCounter8instanceEv.exit
@@ -2225,7 +2225,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %29, %31, %32
   br i1 %.not.i11, label %_ZN4llvm12DebugCounter8instanceEv.exit, label %42
 
 42:                                               ; preds = %40
-  tail call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev()
+  tail call fastcc void @_ZN12_GLOBAL__N_117DebugCounterOwnerC2Ev.argprom()
   %43 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117DebugCounterOwnerD2Ev, ptr nonnull @_ZZN4llvm12DebugCounter8instanceEvE1O, ptr nonnull @__dso_handle) #5
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm12DebugCounter8instanceEvE1O) #5
   br label %_ZN4llvm12DebugCounter8instanceEv.exit

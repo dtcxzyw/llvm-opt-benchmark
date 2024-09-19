@@ -185,14 +185,14 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_l1_csnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l1_csnp_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_csnp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l1_csnp_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_l2_csnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l2_csnp_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_csnp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l2_csnp_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %5
 }
@@ -222,20 +222,20 @@ define hidden void @proto_reg_handoff_isis_psnp() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_l1_psnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l1_psnp_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_psnp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l1_psnp_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_l2_psnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l2_psnp_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_psnp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l2_psnp_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_isis_csnp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.48) #2
@@ -542,7 +542,7 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 declare i32 @osi_check_and_get_checksum(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_isis_psnp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.62) #2

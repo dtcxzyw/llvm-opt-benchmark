@@ -202,7 +202,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %36 = call ptr @ft_mem_qalloc(ptr noundef %35, i64 noundef 1024, ptr noundef nonnull %10) #18
   %37 = load i32, ptr %10, align 4
   %.not.i.i = icmp eq i32 %37, 0
-  br i1 %.not.i.i, label %38, label %bdf_readstream_.exit.i
+  br i1 %.not.i.i, label %38, label %bdf_readstream_.argprom.exit.i
 
 38:                                               ; preds = %25
   store ptr @bdf_parse_start_, ptr %9, align 8
@@ -295,7 +295,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 59:                                               ; preds = %.critedge.i.i
   %60 = icmp eq i64 %.0.ph.ph.i.i, 1
-  br i1 %60, label %bdf_readstream_.exit.sink.split.i, label %bdf_readstream_.exit.i
+  br i1 %60, label %bdf_readstream_.argprom.exit.sink.split.i, label %bdf_readstream_.argprom.exit.i
 
 61:                                               ; preds = %.critedge.i.i
   %62 = icmp eq i64 %.090.i.i, 0
@@ -308,14 +308,14 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 65:                                               ; preds = %63
   %66 = icmp eq i64 %.0.ph.ph.i.i, 1
   %..i = select i1 %66, i32 176, i32 6
-  br label %bdf_readstream_.exit.sink.split.i
+  br label %bdf_readstream_.argprom.exit.sink.split.i
 
 67:                                               ; preds = %63
   %68 = shl nuw nsw i64 %.081.i.i.ph, 1
   %69 = call ptr @ft_mem_qrealloc(ptr noundef %35, i64 noundef 1, i64 noundef %.081.i.i.ph, i64 noundef %68, ptr noundef %.082.i.i.ph, ptr noundef nonnull %10) #18
   %70 = load i32, ptr %10, align 4
   %.not110.i.i = icmp eq i32 %70, 0
-  br i1 %.not110.i.i, label %.outer, label %bdf_readstream_.exit.i
+  br i1 %.not110.i.i, label %.outer, label %bdf_readstream_.argprom.exit.i
 
 71:                                               ; preds = %61
   %72 = sub nsw i64 %.185.i.i, %.090.i.i
@@ -354,7 +354,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 88:                                               ; preds = %85, %80
   %89 = phi i32 [ %87, %85 ], [ %83, %80 ]
   %.not109.i.i = icmp eq i32 %89, 0
-  br i1 %.not109.i.i, label %90, label %bdf_readstream_.exit.i
+  br i1 %.not109.i.i, label %90, label %bdf_readstream_.argprom.exit.i
 
 90:                                               ; preds = %88, %78, %74, %74
   %91 = add i64 %.0.ph.ph.i.i, 1
@@ -366,13 +366,13 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %switch.select112.i.i = select i1 %switch.selectcmp111.i.i, i32 13, i32 %switch.select.i.i
   br label %.outer.outer.i.i
 
-bdf_readstream_.exit.sink.split.i:                ; preds = %65, %59
+bdf_readstream_.argprom.exit.sink.split.i:        ; preds = %65, %59
   %.sink.i = phi i32 [ 176, %59 ], [ %..i, %65 ]
   store i32 %.sink.i, ptr %10, align 4
-  br label %bdf_readstream_.exit.i
+  br label %bdf_readstream_.argprom.exit.i
 
-bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_readstream_.exit.sink.split.i, %59, %25
-  %.2.i.i = phi ptr [ %36, %25 ], [ %.082.i.i.ph, %59 ], [ %.082.i.i.ph, %bdf_readstream_.exit.sink.split.i ], [ %69, %67 ], [ %.082.i.i.ph, %88 ]
+bdf_readstream_.argprom.exit.i:                   ; preds = %88, %67, %bdf_readstream_.argprom.exit.sink.split.i, %59, %25
+  %.2.i.i = phi ptr [ %36, %25 ], [ %.082.i.i.ph, %59 ], [ %.082.i.i.ph, %bdf_readstream_.argprom.exit.sink.split.i ], [ %69, %67 ], [ %.082.i.i.ph, %88 ]
   call void @ft_mem_free(ptr noundef %35, ptr noundef %.2.i.i) #18
   %93 = load i32, ptr %10, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -381,7 +381,7 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   %.not70.i = icmp eq i32 %93, 0
   br i1 %.not70.i, label %94, label %176
 
-94:                                               ; preds = %bdf_readstream_.exit.i
+94:                                               ; preds = %bdf_readstream_.argprom.exit.i
   %95 = getelementptr inbounds i8, ptr %23, i64 56
   %96 = load ptr, ptr %95, align 8
   %.not71.i = icmp eq ptr %96, null
@@ -552,7 +552,7 @@ bdf_list_done_.exit.i:                            ; preds = %171, %.thread.i
   %.pre164.i = load i32, ptr %11, align 4
   br label %bdf_load_font.exit
 
-176:                                              ; preds = %.sink.split.i, %bdf_readstream_.exit.i
+176:                                              ; preds = %.sink.split.i, %bdf_readstream_.argprom.exit.i
   %177 = getelementptr inbounds i8, ptr %23, i64 56
   %178 = load ptr, ptr %177, align 8
   call fastcc void @bdf_free_font(ptr noundef %178)
@@ -2314,7 +2314,7 @@ switch.edge226:                                   ; preds = %204, %204, %204, %2
   br label %bdf_list_shift_.exit
 
 bdf_list_shift_.exit:                             ; preds = %209, %.sink.split.i
-  %221 = call fastcc ptr @bdf_list_join_(ptr noundef nonnull %207, ptr noundef %7)
+  %221 = call fastcc ptr @bdf_list_join_.argelim(ptr noundef nonnull %207, ptr noundef %7)
   %.not206 = icmp eq ptr %221, null
   br i1 %.not206, label %.loopexit, label %222
 
@@ -2337,7 +2337,7 @@ bdf_list_shift_.exit:                             ; preds = %209, %.sink.split.i
   %232 = load ptr, ptr %10, align 8
   %233 = getelementptr inbounds i8, ptr %4, i64 64
   %234 = load ptr, ptr %233, align 8
-  %235 = call fastcc i32 @bdf_set_default_spacing_(ptr noundef %232, ptr noundef %234)
+  %235 = call fastcc i32 @bdf_set_default_spacing_.argelim(ptr noundef %232, ptr noundef %234)
   %.not208 = icmp eq i32 %235, 0
   br i1 %.not208, label %236, label %.loopexit
 
@@ -2484,7 +2484,7 @@ switch.edge232:                                   ; preds = %296, %296, %296, %2
   %308 = sext i16 %307 to i32
   %309 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %308) #18
   %310 = load ptr, ptr %10, align 8
-  %311 = call fastcc i32 @bdf_add_property_(ptr noundef %310, ptr noundef nonnull @.str.26, ptr noundef nonnull %9)
+  %311 = call fastcc i32 @bdf_add_property_.argelim(ptr noundef %310, ptr noundef nonnull @.str.26, ptr noundef nonnull %9)
   store i32 %311, ptr %8, align 4
   %.not201 = icmp eq i32 %311, 0
   br i1 %.not201, label %312, label %.loopexit
@@ -2502,7 +2502,7 @@ switch.edge232:                                   ; preds = %296, %296, %296, %2
   %321 = sext i16 %320 to i32
   %322 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %321) #18
   %323 = load ptr, ptr %10, align 8
-  %324 = call fastcc i32 @bdf_add_property_(ptr noundef %323, ptr noundef nonnull @.str.27, ptr noundef nonnull %9)
+  %324 = call fastcc i32 @bdf_add_property_.argelim(ptr noundef %323, ptr noundef nonnull @.str.27, ptr noundef nonnull %9)
   %.not202 = icmp eq i32 %324, 0
   br i1 %.not202, label %325, label %.loopexit
 
@@ -3127,7 +3127,7 @@ bdf_get_font_property.exit.thread:                ; preds = %18, %switch.edge, %
   %33 = sext i16 %32 to i32
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %33) #18
   %35 = load ptr, ptr %11, align 8
-  %36 = call fastcc i32 @bdf_add_property_(ptr noundef %35, ptr noundef nonnull @.str.26, ptr noundef nonnull %6)
+  %36 = call fastcc i32 @bdf_add_property_.argelim(ptr noundef %35, ptr noundef nonnull @.str.26, ptr noundef nonnull %6)
   %.not70 = icmp eq i32 %36, 0
   br i1 %.not70, label %37, label %switch.edge72
 
@@ -3168,7 +3168,7 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   %59 = sext i16 %58 to i32
   %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %59) #18
   %61 = load ptr, ptr %11, align 8
-  %62 = call fastcc i32 @bdf_add_property_(ptr noundef %61, ptr noundef nonnull @.str.27, ptr noundef nonnull %6)
+  %62 = call fastcc i32 @bdf_add_property_.argelim(ptr noundef %61, ptr noundef nonnull @.str.27, ptr noundef nonnull %6)
   %.not71 = icmp eq i32 %62, 0
   br i1 %.not71, label %63, label %switch.edge72
 
@@ -3220,7 +3220,7 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   %.0 = phi ptr [ %75, %74 ], [ %72, %71 ]
   %77 = getelementptr inbounds i8, ptr %4, i64 56
   %78 = load ptr, ptr %77, align 8
-  %79 = tail call fastcc i32 @bdf_add_property_(ptr noundef %78, ptr noundef nonnull %0, ptr noundef nonnull %.0)
+  %79 = tail call fastcc i32 @bdf_add_property_.argelim(ptr noundef %78, ptr noundef nonnull %0, ptr noundef nonnull %.0)
   br label %switch.edge72
 
 .critedge77:                                      ; preds = %71, %.critedge74
@@ -3340,7 +3340,7 @@ thread-pre-split.i:                               ; preds = %.loopexit58.i
 
 117:                                              ; preds = %116, %.loopexit.i
   %118 = load ptr, ptr %80, align 8
-  %119 = tail call fastcc i32 @bdf_add_property_(ptr noundef %118, ptr noundef %0, ptr noundef nonnull %spec.select.i)
+  %119 = tail call fastcc i32 @bdf_add_property_.argelim(ptr noundef %118, ptr noundef %0, ptr noundef nonnull %spec.select.i)
   br label %switch.edge72
 
 120:                                              ; preds = %102
@@ -3448,7 +3448,7 @@ bdf_list_shift_.exit:                             ; preds = %.lr.ph.i
 bdf_list_join_.exit:                              ; preds = %123, %._crit_edge38.i, %159, %bdf_list_shift_.exit.thread99, %bdf_list_shift_.exit
   %.024.i = phi ptr [ null, %bdf_list_shift_.exit ], [ null, %bdf_list_shift_.exit.thread99 ], [ %139, %159 ], [ @empty, %._crit_edge38.i ], [ null, %123 ]
   %161 = load ptr, ptr %80, align 8
-  %162 = tail call fastcc i32 @bdf_add_property_(ptr noundef %161, ptr noundef %125, ptr noundef %.024.i)
+  %162 = tail call fastcc i32 @bdf_add_property_.argelim(ptr noundef %161, ptr noundef %125, ptr noundef %.024.i)
   br label %switch.edge72
 
 switch.edge72:                                    ; preds = %67, %67, %67, %67, %67, %bdf_list_join_.exit, %117, %76, %120, %bdf_get_font_property.exit80.thread, %bdf_get_font_property.exit.thread, %63
@@ -3579,7 +3579,7 @@ define internal fastcc signext i16 @bdf_atos_(ptr noundef readonly %0) unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
+define internal fastcc ptr @bdf_list_join_.argelim(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
   store i64 0, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %32, label %4
@@ -3663,7 +3663,7 @@ define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocaptur
 declare hidden ptr @ft_mem_dup(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bdf_set_default_spacing_(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @bdf_set_default_spacing_.argelim(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca %struct.bdf_list_t__, align 8
   %5 = icmp eq ptr %0, null
@@ -3748,7 +3748,7 @@ bdf_list_done_.exit:                              ; preds = %37, %35, %12, %2, %
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @bdf_add_property_.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 184
@@ -4693,7 +4693,7 @@ switch.edge410:                                   ; preds = %153, %153, %153, %1
   br label %bdf_list_shift_.exit
 
 bdf_list_shift_.exit:                             ; preds = %162, %.sink.split.i
-  %174 = call fastcc ptr @bdf_list_join_(ptr noundef nonnull %160, ptr noundef %7)
+  %174 = call fastcc ptr @bdf_list_join_.argelim(ptr noundef nonnull %160, ptr noundef %7)
   %.not394 = icmp eq ptr %174, null
   br i1 %.not394, label %.thread438.sink.split, label %175
 

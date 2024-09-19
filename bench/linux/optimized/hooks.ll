@@ -859,7 +859,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   %.val = load i32, ptr %13, align 8
   %281 = getelementptr i8, ptr %8, i64 128
   %.val33 = load ptr, ptr %281, align 8
-  %282 = tail call fastcc i32 @may_context_mount_sb_relabel(i32 noundef %145, i32 %.val, ptr %.val33)
+  %282 = tail call fastcc i32 @may_context_mount_sb_relabel.argprom(i32 noundef %145, i32 %.val, ptr %.val33)
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %284, label %.thread
 
@@ -878,15 +878,15 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   %292 = load i32, ptr %13, align 8
   %293 = tail call i32 @avc_has_perm(i32 noundef %291, i32 noundef %292, i16 noundef zeroext 6, i32 noundef 16, ptr noundef null) #24
   %294 = icmp eq i32 %293, 0
-  br i1 %294, label %may_context_mount_inode_relabel.exit, label %.thread
+  br i1 %294, label %may_context_mount_inode_relabel.argprom.exit, label %.thread
 
-may_context_mount_inode_relabel.exit:             ; preds = %285
+may_context_mount_inode_relabel.argprom.exit:     ; preds = %285
   %295 = load i32, ptr %13, align 8
   %296 = tail call i32 @avc_has_perm(i32 noundef %145, i32 noundef %295, i16 noundef zeroext 6, i32 noundef 64, ptr noundef null) #24
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %298, label %.thread
 
-298:                                              ; preds = %may_context_mount_inode_relabel.exit, %284
+298:                                              ; preds = %may_context_mount_inode_relabel.argprom.exit, %284
   %299 = icmp eq i32 %146, 0
   %300 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 %145, ptr %300, align 8
@@ -910,15 +910,15 @@ may_context_mount_inode_relabel.exit:             ; preds = %285
   %310 = load i32, ptr %13, align 8
   %311 = tail call i32 @avc_has_perm(i32 noundef %309, i32 noundef %310, i16 noundef zeroext 6, i32 noundef 16, ptr noundef null) #24
   %312 = icmp eq i32 %311, 0
-  br i1 %312, label %may_context_mount_inode_relabel.exit37, label %.thread
+  br i1 %312, label %may_context_mount_inode_relabel.argprom.exit37, label %.thread
 
-may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
+may_context_mount_inode_relabel.argprom.exit37:   ; preds = %.thread39
   %313 = load i32, ptr %13, align 8
   %314 = tail call i32 @avc_has_perm(i32 noundef %303, i32 noundef %313, i16 noundef zeroext 6, i32 noundef 64, ptr noundef null) #24
   %315 = icmp eq i32 %314, 0
   br i1 %315, label %316, label %.thread
 
-316:                                              ; preds = %may_context_mount_inode_relabel.exit37
+316:                                              ; preds = %may_context_mount_inode_relabel.argprom.exit37
   %317 = getelementptr inbounds i8, ptr %59, i64 28
   store i32 %303, ptr %317, align 4
   %318 = getelementptr inbounds i8, ptr %59, i64 34
@@ -949,7 +949,7 @@ may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
 329:                                              ; preds = %325
   %330 = getelementptr i8, ptr %8, i64 128
   %.val36 = load ptr, ptr %330, align 8
-  %331 = tail call fastcc i32 @may_context_mount_inode_relabel(i32 noundef %147, ptr noundef %13, ptr %.val36)
+  %331 = tail call fastcc i32 @may_context_mount_inode_relabel.argprom(i32 noundef %147, ptr noundef %13, ptr %.val36)
   %332 = icmp eq i32 %331, 0
   br i1 %332, label %333, label %.thread
 
@@ -961,8 +961,8 @@ may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
   %335 = tail call fastcc i32 @sb_finish_set_opts(ptr noundef %0)
   br label %.thread
 
-.thread:                                          ; preds = %.thread39, %285, %249, %.critedge, %334, %329, %323, %may_context_mount_inode_relabel.exit37, %may_context_mount_inode_relabel.exit, %280, %260, %235, %227, %205, %151, %41, %34, %28, %25
-  %336 = phi i32 [ -22, %.critedge ], [ %245, %235 ], [ %335, %334 ], [ %262, %260 ], [ %296, %may_context_mount_inode_relabel.exit ], [ %314, %may_context_mount_inode_relabel.exit37 ], [ -22, %323 ], [ %331, %329 ], [ %282, %280 ], [ %203, %205 ], [ 0, %41 ], [ -22, %34 ], [ 0, %28 ], [ 0, %25 ], [ 0, %151 ], [ -13, %227 ], [ %258, %249 ], [ %293, %285 ], [ %311, %.thread39 ]
+.thread:                                          ; preds = %.thread39, %285, %249, %.critedge, %334, %329, %323, %may_context_mount_inode_relabel.argprom.exit37, %may_context_mount_inode_relabel.argprom.exit, %280, %260, %235, %227, %205, %151, %41, %34, %28, %25
+  %336 = phi i32 [ -22, %.critedge ], [ %245, %235 ], [ %335, %334 ], [ %262, %260 ], [ %296, %may_context_mount_inode_relabel.argprom.exit ], [ %314, %may_context_mount_inode_relabel.argprom.exit37 ], [ -22, %323 ], [ %331, %329 ], [ %282, %280 ], [ %203, %205 ], [ 0, %41 ], [ -22, %34 ], [ 0, %28 ], [ 0, %25 ], [ 0, %151 ], [ -13, %227 ], [ %258, %249 ], [ %293, %285 ], [ %311, %.thread39 ]
   tail call void @mutex_unlock(ptr noundef %20) #24
   br label %342
 
@@ -992,7 +992,7 @@ declare dso_local i32 @security_fs_use(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @security_transition_sid(i32 noundef, i32 noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @may_context_mount_sb_relabel(i32 noundef range(i32 1, 0) %0, i32 %.0.val, ptr nocapture readonly %.128.val) unnamed_addr #1 align 16 {
+define internal fastcc i32 @may_context_mount_sb_relabel.argprom(i32 noundef range(i32 1, 0) %0, i32 %.0.val, ptr nocapture readonly %.128.val) unnamed_addr #1 align 16 {
   %2 = load i32, ptr @selinux_blob_sizes, align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr i8, ptr %.128.val, i64 %3
@@ -1013,7 +1013,7 @@ define internal fastcc i32 @may_context_mount_sb_relabel(i32 noundef range(i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @may_context_mount_inode_relabel(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.128.val) unnamed_addr #1 align 16 {
+define internal fastcc i32 @may_context_mount_inode_relabel.argprom(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.128.val) unnamed_addr #1 align 16 {
   %3 = load i32, ptr @selinux_blob_sizes, align 4
   %4 = sext i32 %3 to i64
   %5 = getelementptr i8, ptr %.128.val, i64 %4
@@ -5992,7 +5992,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %130, label %131, label %150
 
 131:                                              ; preds = %127
-  %132 = call fastcc zeroext i1 @has_cap_mac_admin()
+  %132 = call fastcc zeroext i1 @has_cap_mac_admin.argelim()
   br i1 %132, label %148, label %133
 
 133:                                              ; preds = %131
@@ -7618,14 +7618,14 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %159 = trunc i32 %1 to i16
   %160 = getelementptr i8, ptr %12, i64 128
   %.val = load ptr, ptr %160, align 8
-  %161 = tail call fastcc i32 @ioctl_has_perm(ptr %.val, ptr noundef %0, i16 noundef zeroext %159)
+  %161 = tail call fastcc i32 @ioctl_has_perm.argprom(ptr %.val, ptr noundef %0, i16 noundef zeroext %159)
   br label %166
 
 162:                                              ; preds = %3
   %163 = trunc i32 %1 to i16
   %164 = getelementptr i8, ptr %12, i64 128
   %.val10 = load ptr, ptr %164, align 8
-  %165 = tail call fastcc i32 @ioctl_has_perm(ptr %.val10, ptr noundef %0, i16 noundef zeroext %163)
+  %165 = tail call fastcc i32 @ioctl_has_perm.argprom(ptr %.val10, ptr noundef %0, i16 noundef zeroext %163)
   br label %166
 
 166:                                              ; preds = %162, %158, %155, %153, %127, %105, %58
@@ -10498,7 +10498,7 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
 define internal i32 @selinux_socket_connect(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc i32 @selinux_socket_connect_helper(ptr %5, ptr noundef %1, i32 noundef %2)
+  %6 = tail call fastcc i32 @selinux_socket_connect_helper.argprom(ptr %5, ptr noundef %1, i32 noundef %2)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
 
@@ -11729,7 +11729,7 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
 
 41:                                               ; preds = %37
   %.val.us = load ptr, ptr %11, align 8
-  %42 = tail call fastcc i32 @selinux_socket_connect_helper(ptr %.val.us, ptr noundef %30, i32 noundef %38)
+  %42 = tail call fastcc i32 @selinux_socket_connect_helper.argprom(ptr %.val.us, ptr noundef %30, i32 noundef %38)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %.thread
 
@@ -13588,7 +13588,7 @@ declare dso_local zeroext i1 @inode_owner_or_capable(ptr noundef, ptr noundef) l
 declare dso_local i32 @security_context_to_sid(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @has_cap_mac_admin() unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @has_cap_mac_admin.argelim() unnamed_addr #1 align 16 {
   %1 = alloca %struct.common_audit_data, align 8
   %2 = alloca %struct.av_decision, align 4
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
@@ -13696,7 +13696,7 @@ declare dso_local i32 @kernfs_xattr_set(ptr noundef, ptr noundef, ptr noundef, i
 declare dso_local i32 @avc_policy_seqno() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ioctl_has_perm(ptr nocapture readonly %.128.val, ptr nocapture noundef readonly %0, i16 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @ioctl_has_perm.argprom(ptr nocapture readonly %.128.val, ptr nocapture noundef readonly %0, i16 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
   %4 = alloca %struct.lsm_ioctlop_audit, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
@@ -14088,7 +14088,7 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
   br i1 %41, label %42, label %57
 
 42:                                               ; preds = %35
-  %43 = call fastcc zeroext i1 @has_cap_mac_admin()
+  %43 = call fastcc zeroext i1 @has_cap_mac_admin.argelim()
   br i1 %43, label %55, label %44
 
 44:                                               ; preds = %42
@@ -14535,7 +14535,7 @@ declare dso_local i32 @sel_netport_sid(i8 noundef zeroext, i16 noundef zeroext, 
 declare dso_local i32 @sel_netnode_sid(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @selinux_socket_connect_helper.argprom(ptr %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
   %4 = alloca %struct.lsm_network_audit, align 8
   %5 = alloca %struct.common_audit_data, align 8

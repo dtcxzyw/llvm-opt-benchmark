@@ -3239,15 +3239,15 @@ _ZL17exception_messageRK18constantPoolHandlei11constantTagP7oopDesc.exit.i: ; pr
 144:                                              ; preds = %143, %_ZL17exception_messageRK18constantPoolHandlei11constantTagP7oopDesc.exit.i
   %145 = load ptr, ptr %45, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %145, %46
-  br i1 %.not8.i.i.i.i.i, label %_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.exit, label %146
+  br i1 %.not8.i.i.i.i.i, label %_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.argprom.exit, label %146
 
 146:                                              ; preds = %144
   store ptr %44, ptr %43, align 8
   store ptr %46, ptr %45, align 8
   store ptr %48, ptr %47, align 8
-  br label %_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.exit
+  br label %_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.argprom.exit
 
-_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.exit: ; preds = %144, %146
+_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.argprom.exit: ; preds = %144, %146
   %147 = load ptr, ptr %0, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
@@ -3261,7 +3261,7 @@ _ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopD
   %or.cond = select i1 %.not19, i1 true, i1 %.not20
   br i1 %or.cond, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25, label %155
 
-155:                                              ; preds = %_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.exit
+155:                                              ; preds = %_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.argprom.exit
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %3) #17
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25
 
@@ -3269,7 +3269,7 @@ _ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopD
   call void @_ZN12ConstantPool22throw_resolution_errorERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull %3)
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25
 
-_ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %31, %156, %155, %_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.exit, %_ZNK7oopDesc4is_aEP5Klass.exit
+_ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %31, %156, %155, %_ZL20add_resolution_errorP10JavaThreadRK18constantPoolHandlei11constantTagP7oopDesc.argprom.exit, %_ZNK7oopDesc4is_aEP5Klass.exit
   ret void
 }
 

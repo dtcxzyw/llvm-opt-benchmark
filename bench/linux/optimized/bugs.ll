@@ -367,7 +367,7 @@ define dso_local void @cpu_select_mitigations() local_unnamed_addr #4 section ".
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i64 @native_read_msr() unnamed_addr #5 align 16 {
+define internal fastcc i64 @native_read_msr.argelim() unnamed_addr #5 align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 291) #15, !srcloc !11
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1
@@ -1367,7 +1367,7 @@ define internal fastcc void @gds_select_mitigation() unnamed_addr #4 section ".i
   br label %24
 
 24:                                               ; preds = %23, %22
-  %25 = tail call fastcc i64 @native_read_msr()
+  %25 = tail call fastcc i64 @native_read_msr.argelim()
   %26 = and i64 %25, 32
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %34, label %28

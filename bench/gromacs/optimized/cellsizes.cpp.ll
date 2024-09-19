@@ -491,7 +491,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149:                 ; preds = %151, %150, %._crit_
   %212 = icmp eq ptr %209, %211
   %213 = getelementptr inbounds i8, ptr %204, i64 16
   %214 = load ptr, ptr %213, align 8
-  tail call fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK11gmx_ddbox_tN3gmx8ArrayRefIKfEE(ptr noundef %0, ptr noundef nonnull %204, i1 noundef zeroext %212, ptr noundef nonnull %1, ptr %214)
+  tail call fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK11gmx_ddbox_tN3gmx8ArrayRefIKfEE.argelim(ptr noundef %0, ptr noundef nonnull %204, i1 noundef zeroext %212, ptr noundef nonnull %1, ptr %214)
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %215 = load i32, ptr %198, align 8
   %216 = sext i32 %215 to i64
@@ -611,7 +611,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK11gmx_ddbox_tN3gmx8ArrayRefIKfEE(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3, ptr nocapture readonly %4) unnamed_addr #8 {
+define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK11gmx_ddbox_tN3gmx8ArrayRefIKfEE.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3, ptr nocapture readonly %4) unnamed_addr #8 {
   %6 = getelementptr inbounds i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
@@ -1615,7 +1615,7 @@ _Z15grid_jump_limitPK17gmx_domdec_comm_tfi.exit.i.i.i: ; preds = %288, %_ZL16cel
 473:                                              ; preds = %._crit_edge267.i.i.i
   %474 = getelementptr inbounds i8, ptr %161, i64 72
   %475 = getelementptr inbounds [2 x %struct.gmx_ddpme], ptr %474, i64 0, i64 %indvars.iv.i.i
-  call fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK11gmx_ddbox_tN3gmx8ArrayRefIKfEE(ptr noundef %0, ptr noundef nonnull %475, i1 noundef zeroext %3, ptr noundef nonnull %1, ptr %.pre310.i.i.i)
+  call fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK11gmx_ddbox_tN3gmx8ArrayRefIKfEE.argelim(ptr noundef %0, ptr noundef nonnull %475, i1 noundef zeroext %3, ptr noundef nonnull %1, ptr %.pre310.i.i.i)
   %.pre309.i.i.i = load ptr, ptr %399, align 8
   br label %476
 

@@ -137,7 +137,7 @@ define internal range(i32 0, 2) i32 @aethra_read(ptr nocapture noundef readonly 
   %.val = load ptr, ptr %8, align 8
   %25 = call i32 @wtap_read_bytes_or_eof(ptr noundef %24, ptr noundef nonnull %7, i32 noundef 8, ptr noundef %3, ptr noundef %4) #5
   %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %aethra_read_rec_header.exit.thread, label %26
+  br i1 %.not.i, label %aethra_read_rec_header.argprom.exit.thread, label %26
 
 26:                                               ; preds = %21
   %.val.i = load i8, ptr %7, align 1
@@ -154,7 +154,7 @@ define internal range(i32 0, 2) i32 @aethra_read(ptr nocapture noundef readonly 
   store i32 -13, ptr %3, align 4
   %34 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %31, i32 noundef 6) #5
   store ptr %34, ptr %4, align 8
-  br label %aethra_read_rec_header.exit.thread
+  br label %aethra_read_rec_header.argprom.exit.thread
 
 35:                                               ; preds = %26
   %36 = add nsw i32 %31, -6
@@ -185,7 +185,7 @@ define internal range(i32 0, 2) i32 @aethra_read(ptr nocapture noundef readonly 
   %49 = load ptr, ptr %0, align 8
   %50 = call i32 @wtap_read_packet_bytes(ptr noundef %49, ptr noundef %2, i32 noundef %36, ptr noundef %3, ptr noundef %4) #5
   %.not16 = icmp eq i32 %50, 0
-  br i1 %.not16, label %aethra_read_rec_header.exit.thread, label %._crit_edge
+  br i1 %.not16, label %aethra_read_rec_header.argprom.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %48
   %.pre = load i8, ptr %17, align 1
@@ -197,9 +197,9 @@ define internal range(i32 0, 2) i32 @aethra_read(ptr nocapture noundef readonly 
   %cond = icmp eq i8 %53, 1
   %cond1 = icmp ult i8 %52, 2
   %or.cond = select i1 %cond, i1 %cond1, i1 false
-  br i1 %or.cond, label %aethra_read_rec_header.exit.thread, label %21
+  br i1 %or.cond, label %aethra_read_rec_header.argprom.exit.thread, label %21
 
-aethra_read_rec_header.exit.thread:               ; preds = %21, %51, %48, %33
+aethra_read_rec_header.argprom.exit.thread:       ; preds = %21, %51, %48, %33
   %.0 = phi i32 [ 0, %33 ], [ 0, %21 ], [ 1, %51 ], [ 0, %48 ]
   ret i32 %.0
 }

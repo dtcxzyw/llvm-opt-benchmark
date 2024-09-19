@@ -1667,9 +1667,9 @@ Vec_IntFill.exit:                                 ; preds = %18, %Vec_IntGrow.ex
   %37 = getelementptr inbounds i8, ptr %29, i64 16
   br label %38
 
-38:                                               ; preds = %.lr.ph, %Vec_IntUpdateEntry.exit
-  %.val5686 = phi i32 [ %.val5663, %.lr.ph ], [ %.val56, %Vec_IntUpdateEntry.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntUpdateEntry.exit ]
+38:                                               ; preds = %.lr.ph, %Vec_IntUpdateEntry.argprom.exit
+  %.val5686 = phi i32 [ %.val5663, %.lr.ph ], [ %.val56, %Vec_IntUpdateEntry.argprom.exit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntUpdateEntry.argprom.exit ]
   %39 = icmp ugt i32 %.val5686, 2
   br i1 %39, label %Wlc_ObjHasArray.exit.thread.i.i, label %40
 
@@ -1694,21 +1694,21 @@ Wlc_ObjFaninId.exit:                              ; preds = %40, %Wlc_ObjHasArra
   %48 = getelementptr inbounds i32, ptr %.val62, i64 %47
   %49 = load i32, ptr %48, align 4
   %.not = icmp sgt i32 %49, %33
-  br i1 %.not, label %Vec_IntUpdateEntry.exit, label %50
+  br i1 %.not, label %Vec_IntUpdateEntry.argprom.exit, label %50
 
 50:                                               ; preds = %Wlc_ObjFaninId.exit
   store i32 %34, ptr %48, align 4
   %.val56.pre = load i32, ptr %35, align 4
-  br label %Vec_IntUpdateEntry.exit
+  br label %Vec_IntUpdateEntry.argprom.exit
 
-Vec_IntUpdateEntry.exit:                          ; preds = %Wlc_ObjFaninId.exit, %50
+Vec_IntUpdateEntry.argprom.exit:                  ; preds = %Wlc_ObjFaninId.exit, %50
   %.val56 = phi i32 [ %.val5686, %Wlc_ObjFaninId.exit ], [ %.val56.pre, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = sext i32 %.val56 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
   br i1 %52, label %38, label %.critedge2, !llvm.loop !10
 
-.critedge2:                                       ; preds = %Vec_IntUpdateEntry.exit, %31
+.critedge2:                                       ; preds = %Vec_IntUpdateEntry.argprom.exit, %31
   %53 = tail call noundef i32 @llvm.smax.i32(i32 %.067, i32 %34)
   br label %54
 
@@ -3341,7 +3341,7 @@ Wlc_ObjFanin1.exit:                               ; preds = %Wlc_ObjHasArray.exi
   %263 = load i64, ptr %262, align 8
   %264 = add i64 %263, 1
   store i64 %264, ptr %262, align 8
-  br label %Wlc_NtkPrintDistribAddOne.exit
+  br label %Wlc_NtkPrintDistribAddOne.argprom.exit
 
 .critedge.i598:                                   ; preds = %255, %244
   %265 = load i32, ptr %249, align 8
@@ -3474,9 +3474,9 @@ Vec_WrdPush.exit25.i:                             ; preds = %318, %Vec_WrdGrow.e
   %323 = sext i32 %321 to i64
   %324 = getelementptr inbounds i64, ptr %320, i64 %323
   store i64 1, ptr %324, align 8
-  br label %Wlc_NtkPrintDistribAddOne.exit
+  br label %Wlc_NtkPrintDistribAddOne.argprom.exit
 
-Wlc_NtkPrintDistribAddOne.exit:                   ; preds = %260, %Vec_WrdPush.exit25.i
+Wlc_NtkPrintDistribAddOne.argprom.exit:           ; preds = %260, %Vec_WrdPush.exit25.i
   %325 = load i16, ptr %53, align 8
   %326 = and i16 %325, 63
   switch i16 %326, label %1293 [
@@ -3522,7 +3522,7 @@ Wlc_NtkPrintDistribAddOne.exit:                   ; preds = %260, %Vec_WrdPush.e
     i16 47, label %1073
   ]
 
-327:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+327:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %.val421 = load i32, ptr %54, align 8
   %.val422 = load i32, ptr %55, align 4
   %328 = sub nsw i32 %.val421, %.val422
@@ -3540,7 +3540,7 @@ Wlc_NtkPrintDistribAddOne.exit:                   ; preds = %260, %Vec_WrdPush.e
   store i32 %337, ptr %335, align 4
   br label %1293
 
-338:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+338:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %339 = getelementptr inbounds i8, ptr %53, i64 4
   %340 = load i32, ptr %339, align 4
   %341 = icmp ugt i32 %340, 2
@@ -3581,7 +3581,7 @@ Wlc_ObjFanin0.exit605:                            ; preds = %338, %Wlc_ObjHasArr
   store i32 %362, ptr %360, align 4
   br label %1293
 
-363:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+363:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %.val427 = load i32, ptr %54, align 8
   %.val428 = load i32, ptr %55, align 4
   %364 = sub nsw i32 %.val427, %.val428
@@ -3624,7 +3624,7 @@ Wlc_ObjFanin0.exit608:                            ; preds = %363, %Wlc_ObjHasArr
   store i32 %389, ptr %387, align 4
   br label %1293
 
-390:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+390:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %.val433 = load i32, ptr %54, align 8
   %.val434 = load i32, ptr %55, align 4
   %391 = sub nsw i32 %.val433, %.val434
@@ -3667,7 +3667,7 @@ Wlc_ObjFanin0.exit612:                            ; preds = %390, %Wlc_ObjHasArr
   store i32 %416, ptr %414, align 4
   br label %1293
 
-417:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+417:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %.val439 = load i32, ptr %54, align 8
   %.val440 = load i32, ptr %55, align 4
   %418 = sub nsw i32 %.val439, %.val440
@@ -3710,7 +3710,7 @@ Wlc_ObjFanin0.exit616:                            ; preds = %417, %Wlc_ObjHasArr
   store i32 %443, ptr %441, align 4
   br label %1293
 
-444:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+444:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %.val445 = load i32, ptr %54, align 8
   %.val446 = load i32, ptr %55, align 4
   %445 = sub nsw i32 %.val445, %.val446
@@ -3753,7 +3753,7 @@ Wlc_ObjFanin0.exit620:                            ; preds = %444, %Wlc_ObjHasArr
   store i32 %470, ptr %468, align 4
   br label %1293
 
-471:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+471:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %.val451 = load i32, ptr %54, align 8
   %.val452 = load i32, ptr %55, align 4
   %472 = sub nsw i32 %.val451, %.val452
@@ -3796,7 +3796,7 @@ Wlc_ObjFanin0.exit624:                            ; preds = %471, %Wlc_ObjHasArr
   store i32 %497, ptr %495, align 4
   br label %1293
 
-498:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+498:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %499 = getelementptr inbounds i8, ptr %53, i64 4
   %500 = load i32, ptr %499, align 4
   %501 = icmp ugt i32 %500, 2
@@ -3827,7 +3827,7 @@ Wlc_ObjFanin0.exit628:                            ; preds = %498, %Wlc_ObjHasArr
   store i32 %515, ptr %513, align 4
   br label %1293
 
-516:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+516:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %517 = getelementptr inbounds i8, ptr %53, i64 4
   %518 = load i32, ptr %517, align 4
   %519 = icmp ugt i32 %518, 2
@@ -3858,7 +3858,7 @@ Wlc_ObjFanin0.exit631:                            ; preds = %516, %Wlc_ObjHasArr
   store i32 %533, ptr %531, align 4
   br label %1293
 
-534:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+534:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %535 = getelementptr inbounds i8, ptr %53, i64 4
   %536 = load i32, ptr %535, align 4
   %537 = icmp ugt i32 %536, 2
@@ -3890,7 +3890,7 @@ Wlc_ObjFanin0.exit634:                            ; preds = %534, %Wlc_ObjHasArr
   store i32 %552, ptr %549, align 4
   br label %1293
 
-553:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+553:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %554 = getelementptr inbounds i8, ptr %53, i64 4
   %555 = load i32, ptr %554, align 4
   %556 = icmp ugt i32 %555, 2
@@ -3921,7 +3921,7 @@ Wlc_ObjFanin0.exit637:                            ; preds = %553, %Wlc_ObjHasArr
   store i32 %570, ptr %568, align 4
   br label %1293
 
-571:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+571:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %572 = getelementptr inbounds i8, ptr %53, i64 4
   %573 = load i32, ptr %572, align 4
   %574 = icmp ugt i32 %573, 2
@@ -3952,7 +3952,7 @@ Wlc_ObjFanin0.exit640:                            ; preds = %571, %Wlc_ObjHasArr
   store i32 %588, ptr %586, align 4
   br label %1293
 
-589:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+589:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %590 = getelementptr inbounds i8, ptr %53, i64 4
   %591 = load i32, ptr %590, align 4
   %592 = icmp ugt i32 %591, 2
@@ -3984,7 +3984,7 @@ Wlc_ObjFanin0.exit643:                            ; preds = %589, %Wlc_ObjHasArr
   store i32 %607, ptr %604, align 4
   br label %1293
 
-608:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+608:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %609 = getelementptr inbounds i8, ptr %53, i64 4
   %610 = load i32, ptr %609, align 4
   %611 = icmp ugt i32 %610, 2
@@ -4014,7 +4014,7 @@ Wlc_ObjFanin0.exit646:                            ; preds = %608, %Wlc_ObjHasArr
   store i32 %624, ptr %622, align 4
   br label %1293
 
-625:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+625:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %626 = getelementptr inbounds i8, ptr %53, i64 4
   %627 = load i32, ptr %626, align 4
   %628 = icmp ugt i32 %627, 2
@@ -4065,7 +4065,7 @@ Wlc_ObjFanin1.exit652:                            ; preds = %Wlc_ObjFanin0.exit6
   store i32 %654, ptr %650, align 4
   br label %1293
 
-655:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+655:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %656 = getelementptr inbounds i8, ptr %53, i64 4
   %657 = load i32, ptr %656, align 4
   %658 = icmp ugt i32 %657, 2
@@ -4116,7 +4116,7 @@ Wlc_ObjFanin1.exit658:                            ; preds = %Wlc_ObjFanin0.exit6
   store i32 %684, ptr %680, align 4
   br label %1293
 
-685:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+685:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %686 = getelementptr inbounds i8, ptr %53, i64 4
   %687 = load i32, ptr %686, align 4
   %688 = icmp ugt i32 %687, 2
@@ -4167,7 +4167,7 @@ Wlc_ObjFanin1.exit664:                            ; preds = %Wlc_ObjFanin0.exit6
   store i32 %714, ptr %710, align 4
   br label %1293
 
-715:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+715:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %716 = getelementptr inbounds i8, ptr %53, i64 4
   %717 = load i32, ptr %716, align 4
   %718 = icmp ugt i32 %717, 2
@@ -4218,7 +4218,7 @@ Wlc_ObjFanin1.exit670:                            ; preds = %Wlc_ObjFanin0.exit6
   store i32 %744, ptr %740, align 4
   br label %1293
 
-745:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+745:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %746 = getelementptr inbounds i8, ptr %53, i64 4
   %747 = load i32, ptr %746, align 4
   %748 = icmp ugt i32 %747, 2
@@ -4250,7 +4250,7 @@ Wlc_ObjFanin0.exit673:                            ; preds = %745, %Wlc_ObjHasArr
   store i32 %763, ptr %760, align 4
   br label %1293
 
-764:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+764:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %765 = getelementptr inbounds i8, ptr %53, i64 4
   %766 = load i32, ptr %765, align 4
   %767 = icmp ugt i32 %766, 2
@@ -4282,7 +4282,7 @@ Wlc_ObjFanin0.exit676:                            ; preds = %764, %Wlc_ObjHasArr
   store i32 %782, ptr %779, align 4
   br label %1293
 
-783:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+783:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %784 = getelementptr inbounds i8, ptr %53, i64 4
   %785 = load i32, ptr %784, align 4
   %786 = icmp ugt i32 %785, 2
@@ -4313,7 +4313,7 @@ Wlc_ObjFanin0.exit679:                            ; preds = %783, %Wlc_ObjHasArr
   store i32 %800, ptr %798, align 4
   br label %1293
 
-801:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+801:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %802 = getelementptr inbounds i8, ptr %53, i64 4
   %803 = load i32, ptr %802, align 4
   %804 = icmp ugt i32 %803, 2
@@ -4344,7 +4344,7 @@ Wlc_ObjFanin0.exit682:                            ; preds = %801, %Wlc_ObjHasArr
   store i32 %818, ptr %816, align 4
   br label %1293
 
-819:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+819:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %820 = getelementptr inbounds i8, ptr %53, i64 4
   %821 = load i32, ptr %820, align 4
   %822 = icmp ugt i32 %821, 2
@@ -4375,7 +4375,7 @@ Wlc_ObjFanin0.exit685:                            ; preds = %819, %Wlc_ObjHasArr
   store i32 %836, ptr %834, align 4
   br label %1293
 
-837:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+837:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %838 = getelementptr inbounds i8, ptr %53, i64 4
   %839 = load i32, ptr %838, align 4
   %840 = icmp ugt i32 %839, 2
@@ -4406,7 +4406,7 @@ Wlc_ObjFanin0.exit688:                            ; preds = %837, %Wlc_ObjHasArr
   store i32 %854, ptr %852, align 4
   br label %1293
 
-855:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+855:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %856 = getelementptr inbounds i8, ptr %53, i64 4
   %857 = load i32, ptr %856, align 4
   %858 = icmp ugt i32 %857, 2
@@ -4436,7 +4436,7 @@ Wlc_ObjFanin0.exit691:                            ; preds = %855, %Wlc_ObjHasArr
   store i32 %871, ptr %869, align 4
   br label %1293
 
-872:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+872:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %873 = getelementptr inbounds i8, ptr %53, i64 4
   %874 = load i32, ptr %873, align 4
   %875 = icmp ugt i32 %874, 2
@@ -4466,7 +4466,7 @@ Wlc_ObjFanin0.exit694:                            ; preds = %872, %Wlc_ObjHasArr
   store i32 %888, ptr %886, align 4
   br label %1293
 
-889:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+889:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %890 = getelementptr inbounds i8, ptr %53, i64 4
   %891 = load i32, ptr %890, align 4
   %892 = icmp ugt i32 %891, 2
@@ -4497,7 +4497,7 @@ Wlc_ObjFanin0.exit697:                            ; preds = %889, %Wlc_ObjHasArr
   store i32 %906, ptr %904, align 4
   br label %1293
 
-907:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+907:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %908 = getelementptr inbounds i8, ptr %53, i64 4
   %909 = load i32, ptr %908, align 4
   %910 = icmp ugt i32 %909, 2
@@ -4527,7 +4527,7 @@ Wlc_ObjFanin0.exit700:                            ; preds = %907, %Wlc_ObjHasArr
   store i32 %923, ptr %921, align 4
   br label %1293
 
-924:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+924:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %925 = getelementptr inbounds i8, ptr %53, i64 4
   %926 = load i32, ptr %925, align 4
   %927 = icmp ugt i32 %926, 2
@@ -4557,7 +4557,7 @@ Wlc_ObjFanin0.exit703:                            ; preds = %924, %Wlc_ObjHasArr
   store i32 %940, ptr %938, align 4
   br label %1293
 
-941:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+941:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %942 = getelementptr inbounds i8, ptr %53, i64 4
   %943 = load i32, ptr %942, align 4
   %944 = icmp ugt i32 %943, 2
@@ -4588,7 +4588,7 @@ Wlc_ObjFanin0.exit706:                            ; preds = %941, %Wlc_ObjHasArr
   store i32 %958, ptr %956, align 4
   br label %1293
 
-959:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+959:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %960 = getelementptr inbounds i8, ptr %53, i64 4
   %961 = load i32, ptr %960, align 4
   %962 = icmp ugt i32 %961, 2
@@ -4620,7 +4620,7 @@ Wlc_ObjFanin0.exit709:                            ; preds = %959, %Wlc_ObjHasArr
   store i32 %977, ptr %974, align 4
   br label %1293
 
-978:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+978:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %979 = getelementptr inbounds i8, ptr %53, i64 4
   %980 = load i32, ptr %979, align 4
   %981 = icmp ugt i32 %980, 2
@@ -4652,7 +4652,7 @@ Wlc_ObjFanin0.exit712:                            ; preds = %978, %Wlc_ObjHasArr
   store i32 %996, ptr %993, align 4
   br label %1293
 
-997:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+997:                                              ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %998 = getelementptr inbounds i8, ptr %53, i64 4
   %999 = load i32, ptr %998, align 4
   %1000 = icmp ugt i32 %999, 2
@@ -4705,7 +4705,7 @@ Wlc_ObjFanin1.exit718:                            ; preds = %Wlc_ObjFanin0.exit7
   store i32 %1028, ptr %1026, align 4
   br label %1293
 
-1029:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+1029:                                             ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %1030 = getelementptr inbounds i8, ptr %53, i64 4
   %1031 = load i32, ptr %1030, align 4
   %1032 = icmp ugt i32 %1031, 2
@@ -4778,7 +4778,7 @@ Wlc_ObjFanin0.exit727:                            ; preds = %Wlc_ObjFanin0.exit7
   store i32 %1072, ptr %1068, align 4
   br label %1293
 
-1073:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+1073:                                             ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %1074 = getelementptr inbounds i8, ptr %53, i64 4
   %1075 = load i32, ptr %1074, align 4
   %1076 = icmp ugt i32 %1075, 2
@@ -4851,7 +4851,7 @@ Wlc_ObjFanin0.exit736:                            ; preds = %Wlc_ObjFanin0.exit7
   store i32 %1116, ptr %1112, align 4
   br label %1293
 
-1117:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+1117:                                             ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %1118 = getelementptr inbounds i8, ptr %53, i64 4
   %1119 = load i32, ptr %1118, align 4
   %1120 = icmp ugt i32 %1119, 2
@@ -4924,7 +4924,7 @@ Wlc_ObjFanin0.exit745:                            ; preds = %Wlc_ObjFanin0.exit7
   store i32 %1160, ptr %1156, align 4
   br label %1293
 
-1161:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+1161:                                             ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %1162 = getelementptr inbounds i8, ptr %53, i64 4
   %1163 = load i32, ptr %1162, align 4
   %1164 = icmp ugt i32 %1163, 2
@@ -4979,7 +4979,7 @@ Wlc_ObjFanin0.exit751:                            ; preds = %Wlc_ObjFanin0.exit7
   store i32 %1194, ptr %1192, align 4
   br label %1293
 
-1195:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+1195:                                             ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %1196 = getelementptr inbounds i8, ptr %53, i64 4
   %1197 = load i32, ptr %1196, align 4
   %1198 = icmp ugt i32 %1197, 2
@@ -5011,7 +5011,7 @@ Wlc_ObjFanin0.exit754:                            ; preds = %1195, %Wlc_ObjHasAr
   store i32 %1213, ptr %1210, align 4
   br label %1293
 
-1214:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+1214:                                             ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %1215 = getelementptr inbounds i8, ptr %53, i64 4
   %1216 = load i32, ptr %1215, align 4
   %1217 = icmp ugt i32 %1216, 2
@@ -5087,7 +5087,7 @@ Wlc_ObjFanin0.exit763:                            ; preds = %Wlc_ObjFanin0.exit7
   store i32 %1260, ptr %1256, align 4
   br label %1293
 
-1261:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+1261:                                             ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit
   %1262 = getelementptr inbounds i8, ptr %53, i64 4
   %1263 = load i32, ptr %1262, align 4
   %1264 = icmp ugt i32 %1263, 2
@@ -5140,7 +5140,7 @@ Wlc_ObjFanin1.exit769:                            ; preds = %Wlc_ObjFanin0.exit7
   store i32 %1292, ptr %1290, align 4
   br label %1293
 
-1293:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit, %327, %Wlc_ObjFanin0.exit608, %Wlc_ObjFanin0.exit616, %Wlc_ObjFanin0.exit624, %Wlc_ObjFanin0.exit628, %Wlc_ObjFanin0.exit634, %Wlc_ObjFanin0.exit640, %Wlc_ObjFanin0.exit646, %Wlc_ObjFanin1.exit658, %Wlc_ObjFanin1.exit670, %Wlc_ObjFanin0.exit676, %Wlc_ObjFanin0.exit682, %Wlc_ObjFanin0.exit688, %Wlc_ObjFanin0.exit694, %Wlc_ObjFanin0.exit700, %Wlc_ObjFanin0.exit706, %Wlc_ObjFanin0.exit712, %Wlc_ObjFanin0.exit727, %Wlc_ObjFanin0.exit745, %Wlc_ObjFanin0.exit754, %Wlc_ObjFanin1.exit769, %Wlc_ObjFanin0.exit763, %Wlc_ObjFanin0.exit751, %Wlc_ObjFanin0.exit736, %Wlc_ObjFanin1.exit718, %Wlc_ObjFanin0.exit709, %Wlc_ObjFanin0.exit703, %Wlc_ObjFanin0.exit697, %Wlc_ObjFanin0.exit691, %Wlc_ObjFanin0.exit685, %Wlc_ObjFanin0.exit679, %Wlc_ObjFanin0.exit673, %Wlc_ObjFanin1.exit664, %Wlc_ObjFanin1.exit652, %Wlc_ObjFanin0.exit643, %Wlc_ObjFanin0.exit637, %Wlc_ObjFanin0.exit631, %Wlc_ObjFanin0.exit620, %Wlc_ObjFanin0.exit612, %Wlc_ObjFanin0.exit605
+1293:                                             ; preds = %Wlc_NtkPrintDistribAddOne.argprom.exit, %327, %Wlc_ObjFanin0.exit608, %Wlc_ObjFanin0.exit616, %Wlc_ObjFanin0.exit624, %Wlc_ObjFanin0.exit628, %Wlc_ObjFanin0.exit634, %Wlc_ObjFanin0.exit640, %Wlc_ObjFanin0.exit646, %Wlc_ObjFanin1.exit658, %Wlc_ObjFanin1.exit670, %Wlc_ObjFanin0.exit676, %Wlc_ObjFanin0.exit682, %Wlc_ObjFanin0.exit688, %Wlc_ObjFanin0.exit694, %Wlc_ObjFanin0.exit700, %Wlc_ObjFanin0.exit706, %Wlc_ObjFanin0.exit712, %Wlc_ObjFanin0.exit727, %Wlc_ObjFanin0.exit745, %Wlc_ObjFanin0.exit754, %Wlc_ObjFanin1.exit769, %Wlc_ObjFanin0.exit763, %Wlc_ObjFanin0.exit751, %Wlc_ObjFanin0.exit736, %Wlc_ObjFanin1.exit718, %Wlc_ObjFanin0.exit709, %Wlc_ObjFanin0.exit703, %Wlc_ObjFanin0.exit697, %Wlc_ObjFanin0.exit691, %Wlc_ObjFanin0.exit685, %Wlc_ObjFanin0.exit679, %Wlc_ObjFanin0.exit673, %Wlc_ObjFanin1.exit664, %Wlc_ObjFanin1.exit652, %Wlc_ObjFanin0.exit643, %Wlc_ObjFanin0.exit637, %Wlc_ObjFanin0.exit631, %Wlc_ObjFanin0.exit620, %Wlc_ObjFanin0.exit612, %Wlc_ObjFanin0.exit605
   %indvars.iv.next848 = add nuw nsw i64 %indvars.iv847, 1
   %.val362 = load i32, ptr %41, align 8
   %1294 = sext i32 %.val362 to i64

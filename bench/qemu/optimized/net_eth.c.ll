@@ -587,7 +587,7 @@ if.then29:                                        ; preds = %if.then25
   %add.i = add i64 %add31, 8
   %add1.i = add i64 %add31, 24
   %cmp.i = icmp ult i64 %call.i54, %add1.i
-  br i1 %cmp.i, label %_eth_get_rss_ex_dst_addr.exit, label %if.end.i
+  br i1 %cmp.i, label %_eth_get_rss_ex_dst_addr.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then29
   br i1 %tobool.i.not, label %iov_to_buf.exit.i, label %land.lhs.true1.i.i
@@ -615,7 +615,7 @@ if.end5.i:                                        ; preds = %iov_to_buf.exit.i
   %11 = load i8, ptr %segleft.i, align 1
   %cmp9.i = icmp ne i8 %11, 1
   %or.cond.i = select i1 %cmp6.i, i1 true, i1 %cmp9.i
-  br i1 %or.cond.i, label %_eth_get_rss_ex_dst_addr.exit, label %if.end12.i
+  br i1 %or.cond.i, label %_eth_get_rss_ex_dst_addr.argprom.exit, label %if.end12.i
 
 if.end5.thread.i:                                 ; preds = %land.lhs.true1.i.i
   %12 = load ptr, ptr %pkt, align 8
@@ -624,7 +624,7 @@ if.end5.thread.i:                                 ; preds = %land.lhs.true1.i.i
   store i64 %13, ptr %rt_hdr.i, align 8
   %14 = and i64 %13, 4294901760
   %or.cond7.not.i = icmp eq i64 %14, 16908288
-  br i1 %or.cond7.not.i, label %land.lhs.true1.i12.i, label %_eth_get_rss_ex_dst_addr.exit
+  br i1 %or.cond7.not.i, label %land.lhs.true1.i12.i, label %_eth_get_rss_ex_dst_addr.argprom.exit
 
 if.end12.i:                                       ; preds = %if.end5.i
   br i1 %tobool.i.not, label %iov_to_buf.exit20.i, label %if.end12.land.lhs.true1.i12_crit_edge.i
@@ -645,18 +645,18 @@ iov_to_buf.exit20.thread.i:                       ; preds = %land.lhs.true1.i12.
   %16 = load ptr, ptr %pkt, align 8
   %add.ptr.i19.i = getelementptr i8, ptr %16, i64 %add.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %rss_ex_dst, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i19.i, i64 16, i1 false)
-  br label %_eth_get_rss_ex_dst_addr.exit
+  br label %_eth_get_rss_ex_dst_addr.argprom.exit
 
 iov_to_buf.exit20.i:                              ; preds = %land.lhs.true1.i12.i, %if.end12.i
   %call.i10.i = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %add.i, ptr noundef nonnull %rss_ex_dst, i64 noundef 16) #8
   %cmp15.i = icmp eq i64 %call.i10.i, 16
-  br i1 %cmp15.i, label %_eth_get_rss_ex_dst_addr.exit, label %if.else18.i
+  br i1 %cmp15.i, label %_eth_get_rss_ex_dst_addr.argprom.exit, label %if.else18.i
 
 if.else18.i:                                      ; preds = %iov_to_buf.exit20.i
   call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 397, ptr noundef nonnull @__PRETTY_FUNCTION__._eth_get_rss_ex_dst_addr) #9
   unreachable
 
-_eth_get_rss_ex_dst_addr.exit:                    ; preds = %if.then29, %if.end5.i, %if.end5.thread.i, %iov_to_buf.exit20.thread.i, %iov_to_buf.exit20.i
+_eth_get_rss_ex_dst_addr.argprom.exit:            ; preds = %if.then29, %if.end5.i, %if.end5.thread.i, %iov_to_buf.exit20.thread.i, %iov_to_buf.exit20.i
   %retval.0.i55 = phi i8 [ 0, %if.then29 ], [ 0, %if.end5.i ], [ 1, %iov_to_buf.exit20.i ], [ 0, %if.end5.thread.i ], [ 1, %iov_to_buf.exit20.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rt_hdr.i)
   store i8 %retval.0.i55, ptr %rss_ex_dst_valid, align 2
@@ -677,12 +677,12 @@ while.body.us.i:                                  ; preds = %if.then38, %if.end3
   %opt_offset.04.us.i = phi i64 [ %add35.us.i, %if.end34.us.i ], [ %add2.i, %if.then38 ]
   %call.us.i = call i64 @iov_size(ptr noundef %pkt, i32 noundef 0) #8
   %cmp4.us.i = icmp ult i64 %call.us.i, %opt_offset.04.us.i
-  br i1 %cmp4.us.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end.us.i
+  br i1 %cmp4.us.i, label %_eth_get_rss_ex_src_addr.argprom.exit, label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %while.body.us.i
   %call.i.us.i = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef 0, i64 noundef %opt_offset.04.us.i, ptr noundef nonnull %opthdr.i, i64 noundef 2) #8
   %cmp7.not.us.i = icmp eq i64 %call.i.us.i, 2
-  br i1 %cmp7.not.us.i, label %if.end10.us.i, label %_eth_get_rss_ex_src_addr.exit
+  br i1 %cmp7.not.us.i, label %if.end10.us.i, label %_eth_get_rss_ex_src_addr.argprom.exit
 
 if.end10.us.i:                                    ; preds = %if.end.us.i
   %18 = load i8, ptr %opthdr.i, align 2
@@ -692,7 +692,7 @@ if.end10.us.i:                                    ; preds = %if.end.us.i
   %add15.us.i = add nuw nsw i64 %conv14.us.i, 2
   %cond.us.i = select i1 %cmp12.us.i, i64 1, i64 %add15.us.i
   %cmp16.us.i = icmp ugt i64 %cond.us.i, %bytes_left.05.us.i
-  br i1 %cmp16.us.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end19.us.i
+  br i1 %cmp16.us.i, label %_eth_get_rss_ex_src_addr.argprom.exit, label %if.end19.us.i
 
 if.end19.us.i:                                    ; preds = %if.end10.us.i
   %cmp22.us.i = icmp eq i8 %18, -55
@@ -702,14 +702,14 @@ if.end34.us.i:                                    ; preds = %if.end19.us.i
   %add35.us.i = add i64 %cond.us.i, %opt_offset.04.us.i
   %sub36.us.i = sub i64 %bytes_left.05.us.i, %cond.us.i
   %cmp.us.i = icmp ugt i64 %sub36.us.i, 2
-  br i1 %cmp.us.i, label %while.body.us.i, label %_eth_get_rss_ex_src_addr.exit, !llvm.loop !5
+  br i1 %cmp.us.i, label %while.body.us.i, label %_eth_get_rss_ex_src_addr.argprom.exit, !llvm.loop !5
 
 while.body.i:                                     ; preds = %if.then38, %if.end34.i
   %bytes_left.05.i = phi i64 [ %sub36.i, %if.end34.i ], [ %sub.i58, %if.then38 ]
   %opt_offset.04.i = phi i64 [ %add35.i, %if.end34.i ], [ %add2.i, %if.then38 ]
   %call.i61 = call i64 @iov_size(ptr noundef %pkt, i32 noundef %pkt_frags) #8
   %cmp4.i = icmp ult i64 %call.i61, %opt_offset.04.i
-  br i1 %cmp4.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end.i62
+  br i1 %cmp4.i, label %_eth_get_rss_ex_src_addr.argprom.exit, label %if.end.i62
 
 if.end.i62:                                       ; preds = %while.body.i
   %20 = load i64, ptr %iov_len.i46, align 8
@@ -732,7 +732,7 @@ iov_to_buf.exit.thread.i:                         ; preds = %if.end.i62
 iov_to_buf.exit.i70:                              ; preds = %if.end.i62
   %call.i.i71 = call i64 @iov_to_buf_full(ptr noundef nonnull %pkt, i32 noundef %pkt_frags, i64 noundef %opt_offset.04.i, ptr noundef nonnull %opthdr.i, i64 noundef 2) #8
   %cmp7.not.i = icmp eq i64 %call.i.i71, 2
-  br i1 %cmp7.not.i, label %iov_to_buf.exit.if.end10_crit_edge.i, label %_eth_get_rss_ex_src_addr.exit
+  br i1 %cmp7.not.i, label %iov_to_buf.exit.if.end10_crit_edge.i, label %_eth_get_rss_ex_src_addr.argprom.exit
 
 iov_to_buf.exit.if.end10_crit_edge.i:             ; preds = %iov_to_buf.exit.i70
   %.pre.i72 = load i8, ptr %opthdr.i, align 2
@@ -747,7 +747,7 @@ if.end10.i:                                       ; preds = %iov_to_buf.exit.if.
   %add15.i = add nuw nsw i64 %conv14.i, 2
   %cond.i = select i1 %cmp12.i, i64 1, i64 %add15.i
   %cmp16.i = icmp ugt i64 %cond.i, %bytes_left.05.i
-  br i1 %cmp16.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end19.i
+  br i1 %cmp16.i, label %_eth_get_rss_ex_src_addr.argprom.exit, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end10.i
   %cmp22.i = icmp eq i8 %27, -55
@@ -758,7 +758,7 @@ if.then24.i:                                      ; preds = %if.end19.i, %if.end
   %.us-phi7.i = phi i64 [ %opt_offset.04.us.i, %if.end19.us.i ], [ %opt_offset.04.i, %if.end19.i ]
   %add25.i = add i64 %.us-phi7.i, 2
   %cmp26.i = icmp ult i64 %.us-phi6.i, %add25.i
-  br i1 %cmp26.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end29.i
+  br i1 %cmp26.i, label %_eth_get_rss_ex_src_addr.argprom.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then24.i
   br i1 %tobool.i.not, label %if.else.i16.i, label %land.lhs.true1.i19.i
@@ -775,21 +775,21 @@ if.then.i25.i:                                    ; preds = %land.lhs.true1.i19.
   %29 = load ptr, ptr %pkt, align 8
   %add.ptr.i26.i = getelementptr i8, ptr %29, i64 %add25.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %rss_ex_src, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i26.i, i64 16, i1 false)
-  br label %_eth_get_rss_ex_src_addr.exit
+  br label %_eth_get_rss_ex_src_addr.argprom.exit
 
 if.else.i16.i:                                    ; preds = %land.lhs.true1.i19.i, %if.end29.i
   %call.i17.i = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %add25.i, ptr noundef nonnull %rss_ex_src, i64 noundef 16) #8
   %30 = icmp eq i64 %call.i17.i, 16
   %31 = zext i1 %30 to i8
-  br label %_eth_get_rss_ex_src_addr.exit
+  br label %_eth_get_rss_ex_src_addr.argprom.exit
 
 if.end34.i:                                       ; preds = %if.end19.i
   %add35.i = add i64 %cond.i, %opt_offset.04.i
   %sub36.i = sub i64 %bytes_left.05.i, %cond.i
   %cmp.i68 = icmp ugt i64 %sub36.i, 2
-  br i1 %cmp.i68, label %while.body.i, label %_eth_get_rss_ex_src_addr.exit, !llvm.loop !5
+  br i1 %cmp.i68, label %while.body.i, label %_eth_get_rss_ex_src_addr.argprom.exit, !llvm.loop !5
 
-_eth_get_rss_ex_src_addr.exit:                    ; preds = %while.body.i, %iov_to_buf.exit.i70, %if.end10.i, %if.end34.i, %while.body.us.i, %if.end.us.i, %if.end10.us.i, %if.end34.us.i, %if.then24.i, %if.then.i25.i, %if.else.i16.i
+_eth_get_rss_ex_src_addr.argprom.exit:            ; preds = %while.body.i, %iov_to_buf.exit.i70, %if.end10.i, %if.end34.i, %while.body.us.i, %if.end.us.i, %if.end10.us.i, %if.end34.us.i, %if.then24.i, %if.then.i25.i, %if.else.i16.i
   %retval.0.i69 = phi i8 [ 0, %if.then24.i ], [ 1, %if.then.i25.i ], [ %31, %if.else.i16.i ], [ 0, %if.end34.us.i ], [ 0, %if.end10.us.i ], [ 0, %if.end.us.i ], [ 0, %while.body.us.i ], [ 0, %if.end34.i ], [ 0, %if.end10.i ], [ 0, %iov_to_buf.exit.i70 ], [ 0, %while.body.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %opthdr.i)
   store i8 %retval.0.i69, ptr %rss_ex_src_valid, align 1
@@ -799,7 +799,7 @@ if.then48:                                        ; preds = %if.end22
   store i8 1, ptr %fragment, align 1
   br label %if.end52
 
-if.end52:                                         ; preds = %if.end22, %_eth_get_rss_ex_src_addr.exit, %if.then48, %if.then25, %_eth_get_rss_ex_dst_addr.exit
+if.end52:                                         ; preds = %if.end22, %_eth_get_rss_ex_src_addr.argprom.exit, %if.then48, %if.then25, %_eth_get_rss_ex_dst_addr.argprom.exit
   %32 = load i8, ptr %3, align 1
   %conv54 = zext i8 %32 to i64
   %add55 = shl nuw nsw i64 %conv54, 3

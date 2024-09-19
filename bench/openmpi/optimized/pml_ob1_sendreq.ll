@@ -89,7 +89,7 @@ define void @mca_pml_ob1_send_request_process_pending(ptr nocapture noundef read
 12:                                               ; preds = %10, %7
   %13 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2184), align 8
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %opal_list_remove_first.exit.thread.i, label %15
+  br i1 %14, label %opal_list_remove_first.argprom.exit.thread.i, label %15
 
 15:                                               ; preds = %12
   %16 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2184), align 8
@@ -107,20 +107,20 @@ define void @mca_pml_ob1_send_request_process_pending(ptr nocapture noundef read
   %25 = getelementptr inbounds i8, ptr %18, i64 588
   %26 = load i32, ptr %25, align 4
   store i32 0, ptr %25, align 4
-  br label %opal_list_remove_first.exit.thread.i
+  br label %opal_list_remove_first.argprom.exit.thread.i
 
-opal_list_remove_first.exit.thread.i:             ; preds = %15, %12
+opal_list_remove_first.argprom.exit.thread.i:     ; preds = %15, %12
   %.027 = phi i32 [ 0, %12 ], [ %26, %15 ]
   %.0.i7.i = phi ptr [ null, %12 ], [ %18, %15 ]
   %27 = load i8, ptr @opal_uses_threads, align 1
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %get_request_from_send_pending.exit
 
-29:                                               ; preds = %opal_list_remove_first.exit.thread.i
+29:                                               ; preds = %opal_list_remove_first.argprom.exit.thread.i
   %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
   br label %get_request_from_send_pending.exit
 
-get_request_from_send_pending.exit:               ; preds = %opal_list_remove_first.exit.thread.i, %29
+get_request_from_send_pending.exit:               ; preds = %opal_list_remove_first.argprom.exit.thread.i, %29
   %31 = icmp eq ptr %.0.i7.i, null
   br i1 %31, label %mca_pml_ob1_send_request_schedule_exclusive.exit, label %32
 

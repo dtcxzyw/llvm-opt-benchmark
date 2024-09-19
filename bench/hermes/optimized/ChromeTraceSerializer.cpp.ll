@@ -3407,7 +3407,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %__functor, i64 8
   %call.val1 = load ptr, ptr %0, align 8
   %cmp.i.i.i = icmp eq ptr %__args, %call.val1
-  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0JRKNS1_20ChromeStackFrameNodeEPS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %if.else.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0JRKNS1_20ChromeStackFrameNodeEPS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i.i.i.i)
@@ -3660,9 +3660,9 @@ _ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11processNodeERKNS0_20Chr
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp25.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp30.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31.i.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0JRKNS1_20ChromeStackFrameNodeEPS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0JRKNS1_20ChromeStackFrameNodeEPS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0JRKNS1_20ChromeStackFrameNodeEPS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %entry, %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11processNodeERKNS0_20ChromeStackFrameNodeE.exit.i.i.i
+"_ZSt10__invoke_rIvRZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0JRKNS1_20ChromeStackFrameNodeEPS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %entry, %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11processNodeERKNS0_20ChromeStackFrameNodeE.exit.i.i.i
   ret void
 }
 
@@ -4337,7 +4337,7 @@ if.then.i.i.i:                                    ; preds = %entry
   call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr nonnull @.str.47, i64 4) #14
   %6 = load ptr, ptr %0, align 8
   call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #14
-  br label %"_ZSt10__invoke_rIvRZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0JRKNS1_20ChromeStackFrameNodeEPS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0JRKNS1_20ChromeStackFrameNodeEPS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
 
 if.end.i.i.i:                                     ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frameName.i.i.i) #14
@@ -4760,9 +4760,9 @@ sw.epilog.i.i.i:                                  ; preds = %sw.bb64.i.i.i, %_ZS
   call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %63) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %categoryName.i.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frameName.i.i.i) #14
-  br label %"_ZSt10__invoke_rIvRZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0JRKNS1_20ChromeStackFrameNodeEPS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0JRKNS1_20ChromeStackFrameNodeEPS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0JRKNS1_20ChromeStackFrameNodeEPS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %if.then.i.i.i, %sw.epilog.i.i.i
+"_ZSt10__invoke_rIvRZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0JRKNS1_20ChromeStackFrameNodeEPS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %if.then.i.i.i, %sw.epilog.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %frameName.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %categoryName.i.i.i)

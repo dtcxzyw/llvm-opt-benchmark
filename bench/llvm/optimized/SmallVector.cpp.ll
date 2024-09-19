@@ -96,7 +96,7 @@ define weak_odr noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %5
-  tail call fastcc void @_ZL20report_size_overflowmm(i64 noundef %2) #10
+  tail call fastcc void @_ZL20report_size_overflowmm.argelim(i64 noundef %2) #10
   unreachable
 
 11:                                               ; preds = %5
@@ -228,7 +228,7 @@ define weak_odr void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef non
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call fastcc void @_ZL20report_size_overflowmm(i64 noundef %2) #10
+  tail call fastcc void @_ZL20report_size_overflowmm.argelim(i64 noundef %2) #10
   unreachable
 
 10:                                               ; preds = %4
@@ -755,7 +755,7 @@ declare void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zero
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZL20report_size_overflowmm(i64 noundef range(i64 4294967296, 0) %0) unnamed_addr #6 {
+define internal fastcc void @_ZL20report_size_overflowmm.argelim(i64 noundef range(i64 4294967296, 0) %0) unnamed_addr #6 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

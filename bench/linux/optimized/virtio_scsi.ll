@@ -755,7 +755,7 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
   %57 = getelementptr i8, ptr %1, i64 382
   store i8 3, ptr %57, align 1
   %58 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %8) #12
-  tail call fastcc void @virtscsi_complete_cmd(ptr noundef %9)
+  tail call fastcc void @virtscsi_complete_cmd.argelim(ptr noundef %9)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %58) #12
   br label %59
 
@@ -856,7 +856,7 @@ define internal range(i32 8194, 8196) i32 @virtscsi_abort(ptr noundef %0) #2 ali
 44:                                               ; preds = %44, %41
   %45 = phi i64 [ 0, %41 ], [ %47, %44 ]
   %46 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %42, i64 0, i64 %45
-  call fastcc void @virtscsi_vq_done(ptr noundef %46)
+  call fastcc void @virtscsi_vq_done.argprom(ptr noundef %46)
   %47 = add nuw nsw i64 %45, 1
   %48 = icmp eq i64 %47, %43
   br i1 %48, label %virtscsi_tmf.exit, label %44, !llvm.loop !24
@@ -942,7 +942,7 @@ define internal range(i32 8194, 8196) i32 @virtscsi_device_reset(ptr nocapture n
 44:                                               ; preds = %44, %41
   %45 = phi i64 [ 0, %41 ], [ %47, %44 ]
   %46 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %42, i64 0, i64 %45
-  call fastcc void @virtscsi_vq_done(ptr noundef %46)
+  call fastcc void @virtscsi_vq_done.argprom(ptr noundef %46)
   %47 = add nuw nsw i64 %45, 1
   %48 = icmp eq i64 %47, %43
   br i1 %48, label %virtscsi_tmf.exit, label %44, !llvm.loop !24
@@ -1046,7 +1046,7 @@ define internal i32 @virtscsi_mq_poll(ptr noundef %0, i32 noundef %1) #2 align 1
 .preheader:                                       ; preds = %2, %.preheader
   %12 = phi ptr [ %16, %.preheader ], [ %10, %2 ]
   %13 = phi i32 [ %14, %.preheader ], [ 0, %2 ]
-  call fastcc void @virtscsi_complete_cmd(ptr noundef nonnull %12)
+  call fastcc void @virtscsi_complete_cmd.argelim(ptr noundef nonnull %12)
   %14 = add i32 %13, 1
   %15 = load ptr, ptr %8, align 8
   %16 = call ptr @virtqueue_get_buf(ptr noundef %15, ptr noundef nonnull %3) #12
@@ -1224,7 +1224,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtscsi_complete_cmd(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @virtscsi_complete_cmd.argelim(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 75
   %4 = getelementptr inbounds i8, ptr %0, i64 85
@@ -1374,7 +1374,7 @@ declare dso_local void @wait_for_completion(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mempool_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtscsi_vq_done(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @virtscsi_vq_done.argprom(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 0, ptr %2, align 4, !annotation !5
@@ -1646,7 +1646,7 @@ define internal void @virtscsi_req_done(ptr nocapture noundef readonly %0) #2 al
   %9 = getelementptr inbounds i8, ptr %5, i64 2592
   %10 = sext i32 %8 to i64
   %11 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %9, i64 0, i64 %10
-  tail call fastcc void @virtscsi_vq_done(ptr noundef %11)
+  tail call fastcc void @virtscsi_vq_done.argprom(ptr noundef %11)
   ret void
 }
 

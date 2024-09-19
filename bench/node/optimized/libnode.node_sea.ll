@@ -489,7 +489,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv"()
+  tail call fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv.argprom"()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource) #22
   br label %init.end
 
@@ -502,7 +502,7 @@ init.end:                                         ; preds = %init, %init.check, 
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv"() unnamed_addr #4 align 2 {
+define internal fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv.argprom"() unnamed_addr #4 align 2 {
 entry:
   %magic.i = alloca i32, align 4
   %ref.tmp.i = alloca i32, align 4
@@ -540,7 +540,7 @@ init.check.i:                                     ; preds = %do.end4.i
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call5.i = tail call fastcc { i64, ptr } @"_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvENK3$_0clEv"()
+  %call5.i = tail call fastcc { i64, ptr } @"_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvENK3$_0clEv.argprom"()
   %3 = extractvalue { i64, ptr } %call5.i, 0
   store i64 %3, ptr @_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result.0, align 8
   %4 = extractvalue { i64, ptr } %call5.i, 1
@@ -684,7 +684,7 @@ if.then.i11.i:                                    ; preds = %_ZNK4node26BlobSeri
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i: ; preds = %if.then.i11.i, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit.i
   %and.i12.i = and i32 %call6.i, 4
   %tobool33.not.i = icmp eq i32 %and.i12.i, 0
-  br i1 %tobool33.not.i, label %_ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v.exit, label %if.then34.i
+  br i1 %tobool33.not.i, label %_ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v.argprom.exit, label %if.then34.i
 
 if.then34.i:                                      ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i
   %call36.i = call fastcc { i64, ptr } @_ZN4node16BlobDeserializerINS_3sea12_GLOBAL__N_115SeaDeserializerEE14ReadStringViewENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %deserializer, i32 noundef 0)
@@ -694,14 +694,14 @@ if.then34.i:                                      ; preds = %_ZNK4node26BlobSeri
   store i64 %26, ptr %ref.tmp39.i, align 8
   %28 = load i8, ptr %deserializer, align 8
   %tobool.i14.i = trunc i8 %28 to i1
-  br i1 %tobool.i14.i, label %if.then.i15.i, label %_ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v.exit
+  br i1 %tobool.i14.i, label %if.then.i15.i, label %_ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v.argprom.exit
 
 if.then.i15.i:                                    ; preds = %if.then34.i
   %29 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJPKcmEEEvP8_IO_FILES2_DpOT_(ptr noundef %29, ptr noundef nonnull @.str.37, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39.i) #24
-  br label %_ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v.exit
+  br label %_ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v.argprom.exit
 
-_ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v.exit: ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i, %if.then34.i, %if.then.i15.i
+_ZN4node3sea12_GLOBAL__N_115SeaDeserializer4ReadINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v.argprom.exit: ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i, %if.then34.i, %if.then.i15.i
   %code_cache.sroa.0.0.i = phi i64 [ 0, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i ], [ %26, %if.then34.i ], [ %26, %if.then.i15.i ]
   %code_cache.sroa.4.0.i = phi ptr [ null, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i ], [ %27, %if.then34.i ], [ %27, %if.then.i15.i ]
   store i32 %call6.i, ptr @_ZZN4node3sea28FindSingleExecutableResourceEvE12sea_resource, align 8
@@ -799,7 +799,7 @@ init.check.i:                                     ; preds = %if.end8
   br i1 %tobool.not.i, label %_ZN4node3sea28FindSingleExecutableResourceEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv"(), !noalias !6
+  tail call fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv.argprom"(), !noalias !6
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource) #22, !noalias !6
   br label %_ZN4node3sea28FindSingleExecutableResourceEv.exit
 
@@ -853,7 +853,7 @@ init.check.i:                                     ; preds = %if.end
   br i1 %tobool.not.i, label %_ZN4node3sea28FindSingleExecutableResourceEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv"(), !noalias !9
+  tail call fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv.argprom"(), !noalias !9
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource) #22, !noalias !9
   br label %_ZN4node3sea28FindSingleExecutableResourceEv.exit
 
@@ -1098,7 +1098,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN4node3sea28FindSingleExecutableResourceEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv"(), !noalias !12
+  tail call fastcc void @"_ZZN4node3sea28FindSingleExecutableResourceEvENK3$_0clEv.argprom"(), !noalias !12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource) #22, !noalias !12
   br label %_ZN4node3sea28FindSingleExecutableResourceEv.exit
 
@@ -2253,7 +2253,7 @@ if.then.i19.i.i:                                  ; preds = %_ZNSt6vectorIcSaIcE
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJRKjEEEvPKcDpOT_.exit.i.i
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJRKjEEEvPKcDpOT_.exit.i.i: ; preds = %if.then.i19.i.i, %_ZNSt6vectorIcSaIcEE7reserveEm.exit.i.i
-  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticIjEEmRKT_(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, ptr noundef nonnull align 4 dereferenceable(4) @_ZN4node3seaL6kMagicE)
+  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticIjEEmRKT_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, ptr noundef nonnull align 4 dereferenceable(4) @_ZN4node3seaL6kMagicE)
   store i32 %76, ptr %flags.i.i4, align 4
   %80 = load i8, ptr %serializer.i, align 8
   %tobool.i20.i.i = trunc i8 %80 to i1
@@ -2265,7 +2265,7 @@ if.then.i22.i.i:                                  ; preds = %_ZNK4node26BlobSeri
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJRjEEEvPKcDpOT_.exit.i.i
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJRjEEEvPKcDpOT_.exit.i.i: ; preds = %if.then.i22.i.i, %_ZNK4node26BlobSerializerDeserializer5DebugIJRKjEEEvPKcDpOT_.exit.i.i
-  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticIjEEmRKT_(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.i.i4)
+  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticIjEEmRKT_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.i.i4)
   store ptr %74, ptr %ref.tmp.i45.i, align 8
   store i64 %75, ptr %ref.tmp7.i.i, align 8
   %82 = load i8, ptr %serializer.i, align 8
@@ -2278,7 +2278,7 @@ if.then.i25.i.i:                                  ; preds = %_ZNK4node26BlobSeri
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit.i.i
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit.i.i: ; preds = %if.then.i25.i.i, %_ZNK4node26BlobSerializerDeserializer5DebugIJRjEEEvPKcDpOT_.exit.i.i
-  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %75, ptr %74, i32 noundef 1)
+  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %75, ptr %74, i32 noundef 1)
   %and.i.i.i.i = and i32 %76, 2
   %tobool.i26.not.i.i = icmp eq i32 %and.i.i.i.i, 0
   %cond.i.i = select i1 %tobool.i26.not.i.i, ptr @.str.36, ptr @.str.35
@@ -2298,7 +2298,7 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i: ; pre
   %and.i.i31.i.i = lshr i32 %76, 1
   %and.i.i31.lobit.i.i = and i32 %and.i.i31.i.i, 1
   %cond24.i.i = xor i32 %and.i.i31.lobit.i.i, 1
-  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %sea.sroa.10.0.i, ptr %sea.sroa.15.0.i, i32 noundef %cond24.i.i)
+  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %sea.sroa.10.0.i, ptr %sea.sroa.15.0.i, i32 noundef %cond24.i.i)
   br i1 %optional_sv_code_cache.sroa.4.080.i, label %if.then.i54.i, label %_ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i
 
 if.then.i54.i:                                    ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i
@@ -2314,7 +2314,7 @@ if.then.i36.i.i:                                  ; preds = %if.then.i54.i
   br label %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i
 
 _ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i: ; preds = %if.then.i36.i.i, %if.then.i54.i
-  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %optional_sv_code_cache.sroa.0.076.i, ptr %optional_sv_code_cache.sroa.2.078.i, i32 noundef 0)
+  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %optional_sv_code_cache.sroa.0.076.i, ptr %optional_sv_code_cache.sroa.2.078.i, i32 noundef 0)
   br label %_ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i
 
 _ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i: ; preds = %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i
@@ -2736,7 +2736,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, ptr } @"_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvENK3$_0clEv"() unnamed_addr #4 align 2 {
+define internal fastcc { i64, ptr } @"_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvENK3$_0clEv.argprom"() unnamed_addr #4 align 2 {
 entry:
   %main_program_info.i = alloca %struct.dl_phdr_info, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %main_program_info.i)
@@ -2745,7 +2745,7 @@ entry:
   %0 = load i16, ptr %dlpi_phnum.i, align 8
   %1 = load i64, ptr %main_program_info.i, align 8
   %cmp6.not4.i = icmp eq i16 %0, 0
-  br i1 %cmp6.not4.i, label %_ZL22postject_find_resourcePKcPmPK16postject_options.exit, label %for.body.preheader.i
+  br i1 %cmp6.not4.i, label %_ZL22postject_find_resourcePKcPmPK16postject_options.argprom.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %entry
   %conv.i = zext i16 %0 to i64
@@ -2803,7 +2803,7 @@ if.then23.i:                                      ; preds = %land.lhs.true19.i
   %conv29.i = zext i32 %and.i to i64
   %add30.i = add i64 %add12.i, %conv29.i
   %11 = inttoptr i64 %add30.i to ptr
-  br label %_ZL22postject_find_resourcePKcPmPK16postject_options.exit
+  br label %_ZL22postject_find_resourcePKcPmPK16postject_options.argprom.exit
 
 if.end31.i:                                       ; preds = %land.lhs.true19.i, %land.lhs.true17.i, %if.end15.i
   %12 = phi i32 [ %.pre.i, %land.lhs.true19.i ], [ 0, %land.lhs.true17.i ], [ %.pre.i, %if.end15.i ]
@@ -2822,9 +2822,9 @@ for.inc.i:                                        ; preds = %if.end31.i, %while.
   %dec.i = add nsw i64 %n.05.i, -1
   %add45.i = add i64 %p.06.i, 56
   %cmp6.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp6.not.i, label %_ZL22postject_find_resourcePKcPmPK16postject_options.exit, label %for.body.i, !llvm.loop !32
+  br i1 %cmp6.not.i, label %_ZL22postject_find_resourcePKcPmPK16postject_options.argprom.exit, label %for.body.i, !llvm.loop !32
 
-_ZL22postject_find_resourcePKcPmPK16postject_options.exit: ; preds = %for.inc.i, %entry, %if.then23.i
+_ZL22postject_find_resourcePKcPmPK16postject_options.argprom.exit: ; preds = %for.inc.i, %entry, %if.then23.i
   %size.0 = phi i64 [ 0, %entry ], [ %conv25.i, %if.then23.i ], [ 0, %for.inc.i ]
   %retval.0.i = phi ptr [ null, %entry ], [ %11, %if.then23.i ], [ null, %for.inc.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %main_program_info.i)
@@ -6526,7 +6526,7 @@ declare void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(
 declare void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticIjEEmRKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(4) %data) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticIjEEmRKT_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(4) %data) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6630,7 +6630,7 @@ _ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmetic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %data.coerce0, ptr %data.coerce1, i32 noundef range(i32 0, 2) %mode) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %data.coerce0, ptr %data.coerce1, i32 noundef range(i32 0, 2) %mode) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8

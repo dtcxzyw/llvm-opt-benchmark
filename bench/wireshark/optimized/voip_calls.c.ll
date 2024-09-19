@@ -1401,7 +1401,7 @@ define internal fastcc void @copy_address(ptr nocapture noundef writeonly %0, pt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %3, ptr %0, align 8
   %8 = icmp eq i32 %5, 0
-  br i1 %8, label %copy_address_wmem.exit, label %9
+  br i1 %8, label %copy_address_wmem.argprom.exit, label %9
 
 9:                                                ; preds = %2
   %10 = sext i32 %5 to i64
@@ -1412,9 +1412,9 @@ define internal fastcc void @copy_address(ptr nocapture noundef writeonly %0, pt
   store ptr %11, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %5, ptr %14, align 4
-  br label %copy_address_wmem.exit
+  br label %copy_address_wmem.argprom.exit
 
-copy_address_wmem.exit:                           ; preds = %2, %9
+copy_address_wmem.argprom.exit:                   ; preds = %2, %9
   ret void
 }
 
@@ -2516,20 +2516,20 @@ free_address.exit167:                             ; preds = %free_address.exit, 
   %306 = getelementptr i8, ptr %9, i64 88
   %.val = load ptr, ptr %306, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %append_to_frame_graph.exit, label %307
+  br i1 %.not.i, label %append_to_frame_graph.argprom.exit, label %307
 
 307:                                              ; preds = %305
   %308 = getelementptr inbounds i8, ptr %.val, i64 24
   %309 = load ptr, ptr %308, align 8
   %.not21.i = icmp eq ptr %309, null
-  br i1 %.not21.i, label %append_to_frame_graph.exit, label %310
+  br i1 %.not21.i, label %append_to_frame_graph.argprom.exit, label %310
 
 310:                                              ; preds = %307
   %311 = zext i32 %302 to i64
   %312 = inttoptr i64 %311 to ptr
   %313 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %309, ptr noundef %312) #12
   %.not22.not.i = icmp eq ptr %313, null
-  br i1 %.not22.not.i, label %append_to_frame_graph.exit, label %314
+  br i1 %.not22.not.i, label %append_to_frame_graph.argprom.exit, label %314
 
 314:                                              ; preds = %310
   %315 = getelementptr inbounds i8, ptr %313, i64 72
@@ -2537,15 +2537,15 @@ free_address.exit167:                             ; preds = %free_address.exit, 
   %317 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %316, ptr noundef nonnull %299) #12
   store ptr %317, ptr %315, align 8
   tail call void @g_free(ptr noundef %316) #12
-  br label %append_to_frame_graph.exit
+  br label %append_to_frame_graph.argprom.exit
 
-append_to_frame_graph.exit:                       ; preds = %305, %307, %310, %314
+append_to_frame_graph.argprom.exit:               ; preds = %305, %307, %310, %314
   %318 = load ptr, ptr %298, align 8
   tail call void @g_free(ptr noundef %318) #12
   store ptr null, ptr %298, align 8
   br label %.thread
 
-.thread:                                          ; preds = %38, %36, %41, %free_address.exit167, %300, %append_to_frame_graph.exit
+.thread:                                          ; preds = %38, %36, %41, %free_address.exit167, %300, %append_to_frame_graph.argprom.exit
   %319 = getelementptr inbounds i8, ptr %9, i64 240
   %320 = load i32, ptr %319, align 8
   %321 = or i32 %320, 32768
@@ -3291,7 +3291,7 @@ define internal range(i32 0, 2) i32 @q931_calls_packet(ptr noundef %0, ptr nocap
   %113 = load i16, ptr %57, align 8
   %114 = getelementptr i8, ptr %9, i64 88
   %.val246 = load ptr, ptr %114, align 8
-  %115 = tail call fastcc i32 @change_call_num_graph(ptr %.val246, i16 noundef zeroext %112, i16 noundef zeroext %113)
+  %115 = tail call fastcc i32 @change_call_num_graph.argprom(ptr %.val246, i16 noundef zeroext %112, i16 noundef zeroext %113)
   %116 = getelementptr inbounds i8, ptr %47, i64 72
   %117 = load i32, ptr %116, align 8
   %118 = add i32 %117, %115
@@ -3399,20 +3399,20 @@ free_address.exit:                                ; preds = %.lr.ph300, %128, %1
   %170 = getelementptr i8, ptr %9, i64 88
   %.val247 = load ptr, ptr %170, align 8
   %.not.i = icmp eq ptr %.val247, null
-  br i1 %.not.i, label %change_frame_graph.exit, label %171
+  br i1 %.not.i, label %change_frame_graph.argprom.exit, label %171
 
 171:                                              ; preds = %168
   %172 = getelementptr inbounds i8, ptr %.val247, i64 24
   %173 = load ptr, ptr %172, align 8
   %.not19.i = icmp eq ptr %173, null
-  br i1 %.not19.i, label %change_frame_graph.exit, label %174
+  br i1 %.not19.i, label %change_frame_graph.argprom.exit, label %174
 
 174:                                              ; preds = %171
   %175 = zext i32 %169 to i64
   %176 = inttoptr i64 %175 to ptr
   %177 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %173, ptr noundef %176) #12
   %.not20.not.i = icmp eq ptr %177, null
-  br i1 %.not20.not.i, label %change_frame_graph.exit, label %178
+  br i1 %.not20.not.i, label %change_frame_graph.argprom.exit, label %178
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds i8, ptr %177, i64 88
@@ -3420,13 +3420,13 @@ free_address.exit:                                ; preds = %.lr.ph300, %128, %1
   %181 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.0203) #12
   store ptr %181, ptr %179, align 8
   tail call void @g_free(ptr noundef %180) #12
-  br label %change_frame_graph.exit
+  br label %change_frame_graph.argprom.exit
 
-change_frame_graph.exit:                          ; preds = %168, %171, %174, %178
+change_frame_graph.argprom.exit:                  ; preds = %168, %171, %174, %178
   tail call void @g_free(ptr noundef nonnull %.0203) #12
   br label %.thread261
 
-.thread261:                                       ; preds = %68, %41, %71, %167, %change_frame_graph.exit
+.thread261:                                       ; preds = %68, %41, %71, %167, %change_frame_graph.argprom.exit
   store i32 0, ptr %38, align 4
   br label %.loopexit272
 
@@ -3491,7 +3491,7 @@ change_frame_graph.exit:                          ; preds = %168, %171, %174, %1
   %215 = inttoptr i64 %214 to ptr
   %216 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %212, ptr noundef %215) #12
   %.not22.not.i = icmp eq ptr %216, null
-  br i1 %.not22.not.i, label %217, label %append_to_frame_graph.exit
+  br i1 %.not22.not.i, label %217, label %append_to_frame_graph.argprom.exit
 
 217:                                              ; preds = %213, %210, %207
   %218 = getelementptr inbounds i8, ptr %191, i64 96
@@ -3507,9 +3507,9 @@ change_frame_graph.exit:                          ; preds = %168, %171, %174, %1
   %226 = load i32, ptr %225, align 8
   %227 = add i32 %226, 1
   store i32 %227, ptr %225, align 8
-  br label %append_to_frame_graph.exit
+  br label %append_to_frame_graph.argprom.exit
 
-append_to_frame_graph.exit:                       ; preds = %213, %217
+append_to_frame_graph.argprom.exit:               ; preds = %213, %217
   %228 = load i32, ptr %32, align 4
   tail call fastcc void @h245_add_to_graph(ptr noundef nonnull %9, i32 noundef %228)
   br label %.loopexit272
@@ -3794,7 +3794,7 @@ copy_address.exit:                                ; preds = %264, %282
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %376) #12
   br label %.loopexit272
 
-.loopexit272:                                     ; preds = %229, %377, %375, %361, %187, %append_to_frame_graph.exit, %232, %.thread261
+.loopexit272:                                     ; preds = %229, %377, %375, %361, %187, %append_to_frame_graph.argprom.exit, %232, %.thread261
   %378 = getelementptr inbounds i8, ptr %9, i64 240
   %379 = load i32, ptr %378, align 8
   %380 = or i32 %379, 1024
@@ -3835,7 +3835,7 @@ define internal void @q931_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @change_call_num_graph(ptr readonly %.88.val, i16 noundef zeroext %0, i16 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc i32 @change_call_num_graph.argprom(ptr readonly %.88.val, i16 noundef zeroext %0, i16 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %.88.val, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -3894,9 +3894,9 @@ define internal fastcc void @h245_add_to_graph(ptr nocapture noundef readonly %0
   %11 = inttoptr i64 %10 to ptr
   br label %12
 
-12:                                               ; preds = %.lr.ph, %append_to_frame_graph.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %append_to_frame_graph.exit ]
-  %13 = phi ptr [ %4, %.lr.ph ], [ %48, %append_to_frame_graph.exit ]
+12:                                               ; preds = %.lr.ph, %append_to_frame_graph.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %append_to_frame_graph.argprom.exit ]
+  %13 = phi ptr [ %4, %.lr.ph ], [ %48, %append_to_frame_graph.argprom.exit ]
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = getelementptr [6 x %struct.graph_str], ptr %14, i64 0, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
@@ -3904,18 +3904,18 @@ define internal fastcc void @h245_add_to_graph(ptr nocapture noundef readonly %0
   %18 = load ptr, ptr %17, align 8
   %.val = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %append_to_frame_graph.exit, label %19
+  br i1 %.not.i, label %append_to_frame_graph.argprom.exit, label %19
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %.val, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not21.i = icmp eq ptr %21, null
-  br i1 %.not21.i, label %append_to_frame_graph.exit, label %22
+  br i1 %.not21.i, label %append_to_frame_graph.argprom.exit, label %22
 
 22:                                               ; preds = %19
   %23 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %21, ptr noundef %11) #12
   %.not22.not.i = icmp eq ptr %23, null
-  br i1 %.not22.not.i, label %append_to_frame_graph.exit, label %24
+  br i1 %.not22.not.i, label %append_to_frame_graph.argprom.exit, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %23, i64 88
@@ -3933,15 +3933,15 @@ define internal fastcc void @h245_add_to_graph(ptr nocapture noundef readonly %0
 
 31:                                               ; preds = %27, %24
   %.not24.i = icmp eq ptr %18, null
-  br i1 %.not24.i, label %append_to_frame_graph.exit, label %32
+  br i1 %.not24.i, label %append_to_frame_graph.argprom.exit, label %32
 
 32:                                               ; preds = %31
   %33 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %26, ptr noundef nonnull %18) #12
   store ptr %33, ptr %25, align 8
   tail call void @g_free(ptr noundef %26) #12
-  br label %append_to_frame_graph.exit
+  br label %append_to_frame_graph.argprom.exit
 
-append_to_frame_graph.exit:                       ; preds = %12, %19, %22, %31, %32
+append_to_frame_graph.argprom.exit:               ; preds = %12, %19, %22, %31, %32
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = getelementptr [6 x %struct.graph_str], ptr %35, i64 0, i64 %indvars.iv
@@ -3968,8 +3968,8 @@ append_to_frame_graph.exit:                       ; preds = %12, %19, %22, %31, 
   %52 = icmp slt i64 %indvars.iv.next, %51
   br i1 %52, label %12, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %append_to_frame_graph.exit, %.preheader
-  %.lcssa = phi ptr [ %4, %.preheader ], [ %48, %append_to_frame_graph.exit ]
+._crit_edge:                                      ; preds = %append_to_frame_graph.argprom.exit, %.preheader
+  %.lcssa = phi ptr [ %4, %.preheader ], [ %48, %append_to_frame_graph.argprom.exit ]
   store i32 0, ptr %.lcssa, align 8
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 4
@@ -4487,22 +4487,22 @@ copy_address.exit:                                ; preds = %.loopexit, %95
   store ptr %287, ptr %285, align 8
   tail call void @g_free(ptr noundef %286) #12
   %.not24.i = icmp eq ptr %.0148, null
-  br i1 %.not24.i, label %append_to_frame_graph.exit, label %288
+  br i1 %.not24.i, label %append_to_frame_graph.argprom.exit, label %288
 
 288:                                              ; preds = %282
   %289 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %284, ptr noundef nonnull %.0148) #12
   store ptr %289, ptr %283, align 8
   tail call void @g_free(ptr noundef %284) #12
-  br label %append_to_frame_graph.exit
+  br label %append_to_frame_graph.argprom.exit
 
 290:                                              ; preds = %278, %275, %271
   %291 = load i16, ptr %129, align 8
   %292 = getelementptr inbounds i8, ptr %1, i64 208
   %293 = getelementptr inbounds i8, ptr %1, i64 232
   tail call fastcc void @add_to_graph(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0150, ptr noundef %.0148, i16 noundef zeroext %291, ptr noundef nonnull %292, ptr noundef nonnull %293, i16 noundef zeroext 1)
-  br label %append_to_frame_graph.exit
+  br label %append_to_frame_graph.argprom.exit
 
-append_to_frame_graph.exit:                       ; preds = %288, %282, %290
+append_to_frame_graph.argprom.exit:               ; preds = %288, %282, %290
   %294 = load i32, ptr %126, align 4
   tail call fastcc void @h245_add_to_graph(ptr noundef nonnull %8, i32 noundef %294)
   tail call void @g_free(ptr noundef %.0150) #12
@@ -4513,8 +4513,8 @@ append_to_frame_graph.exit:                       ; preds = %288, %282, %290
   store i32 %297, ptr %295, align 8
   br label %298
 
-298:                                              ; preds = %22, %29, %23, %11, %append_to_frame_graph.exit
-  %.0 = phi i32 [ 1, %append_to_frame_graph.exit ], [ 0, %11 ], [ 0, %23 ], [ 0, %29 ], [ 0, %22 ]
+298:                                              ; preds = %22, %29, %23, %11, %append_to_frame_graph.argprom.exit
+  %.0 = phi i32 [ 1, %append_to_frame_graph.argprom.exit ], [ 0, %11 ], [ 0, %23 ], [ 0, %29 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -4781,9 +4781,9 @@ addresses_equal.exit60:                           ; preds = %75, %68, %addresses
   %112 = inttoptr i64 %111 to ptr
   %113 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %109, ptr noundef %112) #12
   %.not22.not.i = icmp eq ptr %113, null
-  br i1 %.not22.not.i, label %120, label %append_to_frame_graph.exit
+  br i1 %.not22.not.i, label %120, label %append_to_frame_graph.argprom.exit
 
-append_to_frame_graph.exit:                       ; preds = %110
+append_to_frame_graph.argprom.exit:               ; preds = %110
   %114 = getelementptr inbounds i8, ptr %113, i64 88
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %113, i64 72
@@ -4886,7 +4886,7 @@ h245_free_labels.exit.i:                          ; preds = %._crit_edge.i.i, %.
   store i8 %175, ptr %171, align 4
   br label %h245_add_label.exit
 
-h245_add_label.exit:                              ; preds = %174, %h245_free_labels.exit.i, %append_to_frame_graph.exit, %120
+h245_add_label.exit:                              ; preds = %174, %h245_free_labels.exit.i, %append_to_frame_graph.argprom.exit, %120
   %176 = getelementptr inbounds i8, ptr %8, i64 240
   %177 = load i32, ptr %176, align 8
   %178 = or i32 %177, 4
@@ -4959,13 +4959,13 @@ define internal range(i32 0, 2) i32 @sdp_calls_packet(ptr noundef %0, ptr nocapt
   %26 = getelementptr i8, ptr %8, i64 88
   %.val = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %append_to_frame_graph.exit, label %27
+  br i1 %.not.i, label %append_to_frame_graph.argprom.exit, label %27
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds i8, ptr %.val, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not21.i = icmp eq ptr %29, null
-  br i1 %.not21.i, label %append_to_frame_graph.exit, label %30
+  br i1 %.not21.i, label %append_to_frame_graph.argprom.exit, label %30
 
 30:                                               ; preds = %27
   %31 = zext i32 %25 to i64
@@ -4974,7 +4974,7 @@ define internal range(i32 0, 2) i32 @sdp_calls_packet(ptr noundef %0, ptr nocapt
   %.not22.not.i = icmp eq ptr %33, null
   %.not23.i = icmp eq ptr %24, null
   %or.cond = select i1 %.not22.not.i, i1 true, i1 %.not23.i
-  br i1 %or.cond, label %append_to_frame_graph.exit, label %34
+  br i1 %or.cond, label %append_to_frame_graph.argprom.exit, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %33, i64 72
@@ -4982,17 +4982,17 @@ define internal range(i32 0, 2) i32 @sdp_calls_packet(ptr noundef %0, ptr nocapt
   %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %36, ptr noundef nonnull %24) #12
   store ptr %37, ptr %35, align 8
   tail call void @g_free(ptr noundef %36) #12
-  br label %append_to_frame_graph.exit
+  br label %append_to_frame_graph.argprom.exit
 
-append_to_frame_graph.exit:                       ; preds = %34, %18, %27, %30
+append_to_frame_graph.argprom.exit:               ; preds = %34, %18, %27, %30
   %38 = getelementptr inbounds i8, ptr %8, i64 240
   %39 = load i32, ptr %38, align 8
   %40 = or i32 %39, 16384
   store i32 %40, ptr %38, align 8
   br label %41
 
-41:                                               ; preds = %11, %append_to_frame_graph.exit
-  %.0 = phi i32 [ 1, %append_to_frame_graph.exit ], [ 0, %11 ]
+41:                                               ; preds = %11, %append_to_frame_graph.argprom.exit
+  %.0 = phi i32 [ 1, %append_to_frame_graph.argprom.exit ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -5653,20 +5653,20 @@ is_mgcp_signal.exit227.thread:                    ; preds = %235, %is_mgcp_signa
   %326 = getelementptr i8, ptr %8, i64 88
   %.val = load ptr, ptr %326, align 8
   %.not.i228 = icmp eq ptr %.val, null
-  br i1 %.not.i228, label %append_to_frame_graph.exit, label %327
+  br i1 %.not.i228, label %append_to_frame_graph.argprom.exit, label %327
 
 327:                                              ; preds = %325
   %328 = getelementptr inbounds i8, ptr %.val, i64 24
   %329 = load ptr, ptr %328, align 8
   %.not21.i = icmp eq ptr %329, null
-  br i1 %.not21.i, label %append_to_frame_graph.exit, label %330
+  br i1 %.not21.i, label %append_to_frame_graph.argprom.exit, label %330
 
 330:                                              ; preds = %327
   %331 = zext i32 %321 to i64
   %332 = inttoptr i64 %331 to ptr
   %333 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %329, ptr noundef %332) #12
   %.not22.not.i = icmp eq ptr %333, null
-  br i1 %.not22.not.i, label %append_to_frame_graph.exit, label %334
+  br i1 %.not22.not.i, label %append_to_frame_graph.argprom.exit, label %334
 
 334:                                              ; preds = %330
   %335 = getelementptr inbounds i8, ptr %333, i64 72
@@ -5674,15 +5674,15 @@ is_mgcp_signal.exit227.thread:                    ; preds = %235, %is_mgcp_signa
   %337 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %336, ptr noundef nonnull %318) #12
   store ptr %337, ptr %335, align 8
   tail call void @g_free(ptr noundef %336) #12
-  br label %append_to_frame_graph.exit
+  br label %append_to_frame_graph.argprom.exit
 
-append_to_frame_graph.exit:                       ; preds = %325, %327, %330, %334
+append_to_frame_graph.argprom.exit:               ; preds = %325, %327, %330, %334
   %338 = load ptr, ptr %317, align 8
   tail call void @g_free(ptr noundef %338) #12
   store ptr null, ptr %317, align 8
   br label %339
 
-339:                                              ; preds = %append_to_frame_graph.exit, %319, %293
+339:                                              ; preds = %append_to_frame_graph.argprom.exit, %319, %293
   %340 = getelementptr inbounds i8, ptr %8, i64 240
   %341 = load i32, ptr %340, align 8
   %342 = or i32 %341, 256
@@ -6498,7 +6498,7 @@ define internal range(i32 0, 2) i32 @sccp_calls_packet(ptr noundef %0, ptr nocap
 
 18:                                               ; preds = %11, %5
   store ptr @sccp_message_type_acro_values, ptr @sccp_payload_values, align 8
-  tail call fastcc void @sccp_calls(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 8192)
+  tail call fastcc void @sccp_calls.retelim(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 8192)
   br label %19
 
 19:                                               ; preds = %11, %18
@@ -6555,7 +6555,7 @@ define internal range(i32 0, 2) i32 @sua_calls_packet(ptr noundef %0, ptr nocapt
 
 18:                                               ; preds = %11, %5
   store ptr @sua_co_class_type_acro_values, ptr @sccp_payload_values, align 8
-  tail call fastcc void @sccp_calls(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 131072)
+  tail call fastcc void @sccp_calls.retelim(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 131072)
   br label %19
 
 19:                                               ; preds = %11, %18
@@ -6592,7 +6592,7 @@ define internal void @sua_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sccp_calls(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 8192, 131073) %4) unnamed_addr #0 {
+define internal fastcc void @sccp_calls.retelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 8192, 131073) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -8087,13 +8087,13 @@ copy_address.exit:                                ; preds = %67, %77
   %157 = getelementptr i8, ptr %8, i64 88
   %.val = load ptr, ptr %157, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %append_to_frame_graph.exit, label %158
+  br i1 %.not.i, label %append_to_frame_graph.argprom.exit, label %158
 
 158:                                              ; preds = %148
   %159 = getelementptr inbounds i8, ptr %.val, i64 24
   %160 = load ptr, ptr %159, align 8
   %.not21.i = icmp eq ptr %160, null
-  br i1 %.not21.i, label %append_to_frame_graph.exit, label %161
+  br i1 %.not21.i, label %append_to_frame_graph.argprom.exit, label %161
 
 161:                                              ; preds = %158
   %162 = zext i32 %154 to i64
@@ -8102,7 +8102,7 @@ copy_address.exit:                                ; preds = %67, %77
   %.not22.not.i = icmp eq ptr %164, null
   %.not23.i = icmp eq ptr %156, null
   %or.cond113 = select i1 %.not22.not.i, i1 true, i1 %.not23.i
-  br i1 %or.cond113, label %append_to_frame_graph.exit, label %165
+  br i1 %or.cond113, label %append_to_frame_graph.argprom.exit, label %165
 
 165:                                              ; preds = %161
   %166 = getelementptr inbounds i8, ptr %164, i64 72
@@ -8110,17 +8110,17 @@ copy_address.exit:                                ; preds = %67, %77
   %168 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %167, ptr noundef nonnull %156) #12
   store ptr %168, ptr %166, align 8
   tail call void @g_free(ptr noundef %167) #12
-  br label %append_to_frame_graph.exit
+  br label %append_to_frame_graph.argprom.exit
 
-append_to_frame_graph.exit:                       ; preds = %165, %148, %158, %161
+append_to_frame_graph.argprom.exit:               ; preds = %165, %148, %158, %161
   %169 = getelementptr inbounds i8, ptr %8, i64 240
   %170 = load i32, ptr %169, align 8
   %171 = or i32 %170, 65536
   store i32 %171, ptr %169, align 8
   br label %172
 
-172:                                              ; preds = %19, %24, %11, %append_to_frame_graph.exit
-  %.0 = phi i32 [ 1, %append_to_frame_graph.exit ], [ 0, %11 ], [ 0, %24 ], [ 0, %19 ]
+172:                                              ; preds = %19, %24, %11, %append_to_frame_graph.argprom.exit
+  %.0 = phi i32 [ 1, %append_to_frame_graph.argprom.exit ], [ 0, %11 ], [ 0, %24 ], [ 0, %19 ]
   ret i32 %.0
 }
 

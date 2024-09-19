@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pm_regexp_options_t = type { [24 x i8] }
 %struct.pm_string_t = type { ptr, i64, i32 }
 
-@switch.table.pm_regexp_parse_quantifier = private unnamed_addr constant [14 x i32] [i32 3, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
+@switch.table.pm_regexp_parse_quantifier.retelim = private unnamed_addr constant [14 x i32] [i32 3, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef zeroext i1 @pm_regexp_named_capture_group_names(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -108,7 +108,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   br label %13
 
 13:                                               ; preds = %11, %8
-  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
+  tail call fastcc void @pm_regexp_parse_quantifier.retelim(ptr noundef %0)
   br label %154
 
 14:                                               ; preds = %1
@@ -441,7 +441,7 @@ pm_regexp_parse_group.exit.thread:                ; preds = %101, %96, %94, %105
 
 .loopexit:                                        ; preds = %67, %.lr.ph91, %.loopexit.sink.split
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
+  tail call fastcc void @pm_regexp_parse_quantifier.retelim(ptr noundef %0)
   br label %154
 
 124:                                              ; preds = %1
@@ -451,7 +451,7 @@ pm_regexp_parse_group.exit.thread:                ; preds = %101, %96, %94, %105
   br i1 %126, label %127, label %154
 
 127:                                              ; preds = %124
-  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
+  tail call fastcc void @pm_regexp_parse_quantifier.retelim(ptr noundef %0)
   br label %154
 
 128:                                              ; preds = %1
@@ -490,7 +490,7 @@ pm_regexp_parse_group.exit.thread:                ; preds = %101, %96, %94, %105
   %152 = load ptr, ptr %3, align 8
   %153 = getelementptr i8, ptr %152, i64 %.0
   store ptr %153, ptr %3, align 8
-  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
+  tail call fastcc void @pm_regexp_parse_quantifier.retelim(ptr noundef %0)
   br label %154
 
 154:                                              ; preds = %pm_regexp_parse_group.exit.thread, %149, %124, %127, %.loopexit, %151, %13, %6
@@ -499,7 +499,7 @@ pm_regexp_parse_group.exit.thread:                ; preds = %101, %96, %94, %105
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pm_regexp_parse_quantifier(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
+define internal fastcc void @pm_regexp_parse_quantifier.retelim(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16
@@ -599,7 +599,7 @@ switch.hole_check:                                ; preds = %13
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %23 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table.pm_regexp_parse_quantifier, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table.pm_regexp_parse_quantifier.retelim, i64 0, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %24
 

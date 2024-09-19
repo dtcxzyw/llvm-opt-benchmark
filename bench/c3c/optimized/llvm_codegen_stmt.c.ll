@@ -3195,7 +3195,7 @@ define internal fastcc void @llvm_emit_asm_block_stmt(ptr noundef %0, ptr nounde
   %11 = alloca [10 x i8], align 1
   tail call void @scratch_buffer_clear() #9
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
-  switch i32 %12, label %add_target_clobbers_to_buffer.exit [
+  switch i32 %12, label %add_target_clobbers_to_buffer.argprom.exit [
     i32 32, label %.sink.split.i
     i32 31, label %.sink.split.i
     i32 11, label %13
@@ -3210,9 +3210,9 @@ define internal fastcc void @llvm_emit_asm_block_stmt(ptr noundef %0, ptr nounde
 .sink.split.i:                                    ; preds = %13, %2, %2
   %.str.44.sink.i = phi ptr [ @.str.44, %13 ], [ @.str.43, %2 ], [ @.str.43, %2 ]
   tail call void @scratch_buffer_append(ptr noundef nonnull %.str.44.sink.i) #9
-  br label %add_target_clobbers_to_buffer.exit
+  br label %add_target_clobbers_to_buffer.argprom.exit
 
-add_target_clobbers_to_buffer.exit:               ; preds = %2, %.sink.split.i
+add_target_clobbers_to_buffer.argprom.exit:       ; preds = %2, %.sink.split.i
   %14 = tail call ptr @scratch_buffer_copy() #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %3, i8 0, i64 1028, i1 false)
   %15 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3223,7 +3223,7 @@ add_target_clobbers_to_buffer.exit:               ; preds = %2, %.sink.split.i
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %25, label %.thread
 
-.thread:                                          ; preds = %add_target_clobbers_to_buffer.exit
+.thread:                                          ; preds = %add_target_clobbers_to_buffer.argprom.exit
   %20 = ptrtoint ptr %17 to i64
   %21 = load ptr, ptr @expr_arena, align 8
   %22 = and i64 %20, 4294967295
@@ -3231,7 +3231,7 @@ add_target_clobbers_to_buffer.exit:               ; preds = %2, %.sink.split.i
   %24 = load ptr, ptr %23, align 8
   br label %234
 
-25:                                               ; preds = %add_target_clobbers_to_buffer.exit
+25:                                               ; preds = %add_target_clobbers_to_buffer.argprom.exit
   %26 = tail call ptr @codegen_create_asm(ptr noundef nonnull %1) #9
   %27 = getelementptr inbounds i8, ptr %17, i64 48
   %28 = load ptr, ptr %27, align 8

@@ -309,14 +309,14 @@ if.then19:                                        ; preds = %lor.lhs.false, %con
 if.else:                                          ; preds = %lor.lhs.false
   %6 = load i32, ptr @lib_code, align 4
   %cmp.i = icmp eq i32 %6, 0
-  br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.exit
+  br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.argprom.exit
 
 if.then.i:                                        ; preds = %if.else
   %call.i = tail call i32 @ERR_get_next_error_library() #10
   store i32 %call.i, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit
+  br label %ERR_ATTIC_error.argprom.exit
 
-ERR_ATTIC_error.exit:                             ; preds = %if.else, %if.then.i
+ERR_ATTIC_error.argprom.exit:                     ; preds = %if.else, %if.then.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %7 = load i32, ptr @lib_code, align 4
@@ -357,14 +357,14 @@ land.lhs.true:                                    ; preds = %for.body
 if.then42:                                        ; preds = %land.lhs.true
   %9 = load i32, ptr @lib_code, align 4
   %cmp.i46 = icmp eq i32 %9, 0
-  br i1 %cmp.i46, label %if.then.i47, label %ERR_ATTIC_error.exit49
+  br i1 %cmp.i46, label %if.then.i47, label %ERR_ATTIC_error.argprom.exit49
 
 if.then.i47:                                      ; preds = %if.then42
   %call.i48 = tail call i32 @ERR_get_next_error_library() #10
   store i32 %call.i48, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit49
+  br label %ERR_ATTIC_error.argprom.exit49
 
-ERR_ATTIC_error.exit49:                           ; preds = %if.then42, %if.then.i47
+ERR_ATTIC_error.argprom.exit49:                   ; preds = %if.then42, %if.then.i47
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %10 = load i32, ptr @lib_code, align 4
@@ -539,8 +539,8 @@ OSSL_STORE_LOADER_CTX_free.exit:                  ; preds = %if.end.i53, %if.the
   call void @CRYPTO_free(ptr noundef nonnull %call64, ptr noundef nonnull @.str.2, i32 noundef 923) #10
   br label %return
 
-return:                                           ; preds = %if.end63, %for.end, %OSSL_STORE_LOADER_CTX_free.exit, %if.end122, %ERR_ATTIC_error.exit49, %ERR_ATTIC_error.exit
-  %retval.0 = phi ptr [ null, %ERR_ATTIC_error.exit49 ], [ null, %OSSL_STORE_LOADER_CTX_free.exit ], [ %call64, %if.end122 ], [ null, %ERR_ATTIC_error.exit ], [ null, %for.end ], [ null, %if.end63 ]
+return:                                           ; preds = %if.end63, %for.end, %OSSL_STORE_LOADER_CTX_free.exit, %if.end122, %ERR_ATTIC_error.argprom.exit49, %ERR_ATTIC_error.argprom.exit
+  %retval.0 = phi ptr [ null, %ERR_ATTIC_error.argprom.exit49 ], [ null, %OSSL_STORE_LOADER_CTX_free.exit ], [ %call64, %if.end122 ], [ null, %ERR_ATTIC_error.argprom.exit ], [ null, %for.end ], [ null, %if.end63 ]
   ret ptr %retval.0
 }
 
@@ -732,14 +732,14 @@ sw.bb2:                                           ; preds = %vaarg.end
 sw.default:                                       ; preds = %vaarg.end
   %8 = load i32, ptr @lib_code, align 4
   %cmp.i = icmp eq i32 %8, 0
-  br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.exit
+  br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.argprom.exit
 
 if.then.i:                                        ; preds = %sw.default
   %call.i = tail call i32 @ERR_get_next_error_library() #10
   store i32 %call.i, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit
+  br label %ERR_ATTIC_error.argprom.exit
 
-ERR_ATTIC_error.exit:                             ; preds = %sw.default, %if.then.i
+ERR_ATTIC_error.argprom.exit:                     ; preds = %sw.default, %if.then.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %9 = load i32, ptr @lib_code, align 4
@@ -747,8 +747,8 @@ ERR_ATTIC_error.exit:                             ; preds = %sw.default, %if.the
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1110, ptr noundef null) #10
   br label %sw.epilog5
 
-sw.epilog5:                                       ; preds = %entry, %sw.bb1, %sw.bb2, %ERR_ATTIC_error.exit
-  %ret.0 = phi i32 [ 0, %ERR_ATTIC_error.exit ], [ 1, %sw.bb2 ], [ 1, %sw.bb1 ], [ 1, %entry ]
+sw.epilog5:                                       ; preds = %entry, %sw.bb1, %sw.bb2, %ERR_ATTIC_error.argprom.exit
+  %ret.0 = phi i32 [ 0, %ERR_ATTIC_error.argprom.exit ], [ 1, %sw.bb2 ], [ 1, %sw.bb1 ], [ 1, %entry ]
   ret i32 %ret.0
 }
 
@@ -784,14 +784,14 @@ if.end:                                           ; preds = %if.then
 if.then4:                                         ; preds = %if.end
   %1 = load i32, ptr @lib_code, align 4
   %cmp.i = icmp eq i32 %1, 0
-  br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.exit
+  br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.argprom.exit
 
 if.then.i:                                        ; preds = %if.then4
   %call.i = tail call i32 @ERR_get_next_error_library() #10
   store i32 %call.i, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit
+  br label %ERR_ATTIC_error.argprom.exit
 
-ERR_ATTIC_error.exit:                             ; preds = %if.then4, %if.then.i
+ERR_ATTIC_error.argprom.exit:                     ; preds = %if.then4, %if.then.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %2 = load i32, ptr @lib_code, align 4
@@ -812,14 +812,14 @@ if.end9:                                          ; preds = %entry
 if.then11:                                        ; preds = %if.end9
   %3 = load i32, ptr @lib_code, align 4
   %cmp.i5 = icmp eq i32 %3, 0
-  br i1 %cmp.i5, label %if.then.i6, label %ERR_ATTIC_error.exit8
+  br i1 %cmp.i5, label %if.then.i6, label %ERR_ATTIC_error.argprom.exit8
 
 if.then.i6:                                       ; preds = %if.then11
   %call.i7 = tail call i32 @ERR_get_next_error_library() #10
   store i32 %call.i7, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit8
+  br label %ERR_ATTIC_error.argprom.exit8
 
-ERR_ATTIC_error.exit8:                            ; preds = %if.then11, %if.then.i6
+ERR_ATTIC_error.argprom.exit8:                    ; preds = %if.then11, %if.then.i6
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %4 = load i32, ptr @lib_code, align 4
@@ -827,8 +827,8 @@ ERR_ATTIC_error.exit8:                            ; preds = %if.then11, %if.then
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1156, ptr noundef null) #10
   br label %return
 
-return:                                           ; preds = %if.end9, %ERR_ATTIC_error.exit8, %if.then, %if.end5, %ERR_ATTIC_error.exit
-  %retval.0 = phi i32 [ 0, %ERR_ATTIC_error.exit ], [ 1, %if.end5 ], [ 1, %if.then ], [ 0, %ERR_ATTIC_error.exit8 ], [ 0, %if.end9 ]
+return:                                           ; preds = %if.end9, %ERR_ATTIC_error.argprom.exit8, %if.then, %if.end5, %ERR_ATTIC_error.argprom.exit
+  %retval.0 = phi i32 [ 0, %ERR_ATTIC_error.argprom.exit ], [ 1, %if.end5 ], [ 1, %if.then ], [ 0, %ERR_ATTIC_error.argprom.exit8 ], [ 0, %if.end9 ]
   ret i32 %retval.0
 }
 
@@ -1060,14 +1060,14 @@ if.then49:                                        ; preds = %land.lhs.true45
   tail call void @CRYPTO_free(ptr noundef nonnull %newname.0, ptr noundef nonnull @.str.2, i32 noundef 1536) #10
   %29 = load i32, ptr @lib_code, align 4
   %cmp.i63 = icmp eq i32 %29, 0
-  br i1 %cmp.i63, label %if.then.i, label %ERR_ATTIC_error.exit
+  br i1 %cmp.i63, label %if.then.i, label %ERR_ATTIC_error.argprom.exit
 
 if.then.i:                                        ; preds = %if.then49
   %call.i65 = tail call i32 @ERR_get_next_error_library() #10
   store i32 %call.i65, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit
+  br label %ERR_ATTIC_error.argprom.exit
 
-ERR_ATTIC_error.exit:                             ; preds = %if.then49, %if.then.i
+ERR_ATTIC_error.argprom.exit:                     ; preds = %if.then49, %if.then.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %30 = load i32, ptr @lib_code, align 4
@@ -1610,14 +1610,14 @@ if.end120:                                        ; preds = %if.end106
 if.then123:                                       ; preds = %if.end120
   %95 = load i32, ptr @lib_code, align 4
   %cmp.i163 = icmp eq i32 %95, 0
-  br i1 %cmp.i163, label %if.then.i165, label %ERR_ATTIC_error.exit167
+  br i1 %cmp.i163, label %if.then.i165, label %ERR_ATTIC_error.argprom.exit167
 
 if.then.i165:                                     ; preds = %if.then123
   %call.i166 = call i32 @ERR_get_next_error_library() #10
   store i32 %call.i166, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit167
+  br label %ERR_ATTIC_error.argprom.exit167
 
-ERR_ATTIC_error.exit167:                          ; preds = %if.then123, %if.then.i165
+ERR_ATTIC_error.argprom.exit167:                  ; preds = %if.then123, %if.then.i165
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %96 = load i32, ptr @lib_code, align 4
@@ -1637,14 +1637,14 @@ if.then127:                                       ; preds = %if.else124
 if.then131:                                       ; preds = %if.then127
   %97 = load i32, ptr @lib_code, align 4
   %cmp.i168 = icmp eq i32 %97, 0
-  br i1 %cmp.i168, label %if.then.i170, label %ERR_ATTIC_error.exit172
+  br i1 %cmp.i168, label %if.then.i170, label %ERR_ATTIC_error.argprom.exit172
 
 if.then.i170:                                     ; preds = %if.then131
   %call.i171 = call i32 @ERR_get_next_error_library() #10
   store i32 %call.i171, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit172
+  br label %ERR_ATTIC_error.argprom.exit172
 
-ERR_ATTIC_error.exit172:                          ; preds = %if.then131, %if.then.i170
+ERR_ATTIC_error.argprom.exit172:                  ; preds = %if.then131, %if.then.i170
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %98 = load i32, ptr @lib_code, align 4
@@ -1654,11 +1654,11 @@ ERR_ATTIC_error.exit172:                          ; preds = %if.then131, %if.the
   %cmp132.not = icmp eq ptr %99, null
   br i1 %cmp132.not, label %if.then141, label %if.then134
 
-if.then134:                                       ; preds = %ERR_ATTIC_error.exit172
+if.then134:                                       ; preds = %ERR_ATTIC_error.argprom.exit172
   call void (i32, ...) @ERR_add_error_data(i32 noundef 3, ptr noundef nonnull @.str.22, ptr noundef nonnull %99, ptr noundef nonnull @.str.23) #10
   br label %if.then141
 
-if.then141:                                       ; preds = %ERR_ATTIC_error.exit172, %if.then134, %if.then127, %ERR_ATTIC_error.exit167
+if.then141:                                       ; preds = %ERR_ATTIC_error.argprom.exit172, %if.then134, %if.then127, %ERR_ATTIC_error.argprom.exit167
   %100 = load i32, ptr %errcnt, align 4
   %inc143 = add nsw i32 %100, 1
   store i32 %inc143, ptr %errcnt, align 4
@@ -1812,8 +1812,8 @@ store_info_free.exit219:                          ; preds = %land.lhs.true.i213,
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %result.4) #10
   br label %again
 
-return:                                           ; preds = %land.lhs.true179, %land.lhs.true176, %if.end173, %file_eof.exit95, %ossl_ends_with_dirsep.exit.i, %file_eof.exit, %file_load_try_repeat.exit, %land.lhs.true45, %if.then2, %if.then4, %store_info_free.exit, %ERR_ATTIC_error.exit
-  %retval.0 = phi ptr [ null, %ERR_ATTIC_error.exit ], [ null, %store_info_free.exit ], [ null, %if.then4 ], [ null, %if.then2 ], [ %call.i76, %file_load_try_repeat.exit ], [ %call46, %land.lhs.true45 ], [ null, %file_eof.exit ], [ null, %ossl_ends_with_dirsep.exit.i ], [ null, %if.end173 ], [ %result.4, %land.lhs.true176 ], [ %result.4, %land.lhs.true179 ], [ null, %file_eof.exit95 ]
+return:                                           ; preds = %land.lhs.true179, %land.lhs.true176, %if.end173, %file_eof.exit95, %ossl_ends_with_dirsep.exit.i, %file_eof.exit, %file_load_try_repeat.exit, %land.lhs.true45, %if.then2, %if.then4, %store_info_free.exit, %ERR_ATTIC_error.argprom.exit
+  %retval.0 = phi ptr [ null, %ERR_ATTIC_error.argprom.exit ], [ null, %store_info_free.exit ], [ null, %if.then4 ], [ null, %if.then2 ], [ %call.i76, %file_load_try_repeat.exit ], [ %call46, %land.lhs.true45 ], [ null, %file_eof.exit ], [ null, %ossl_ends_with_dirsep.exit.i ], [ null, %if.end173 ], [ %result.4, %land.lhs.true176 ], [ %result.4, %land.lhs.true179 ], [ null, %file_eof.exit95 ]
   ret ptr %retval.0
 }
 
@@ -1989,7 +1989,7 @@ declare i32 @OSSL_STORE_register_loader(ptr noundef) local_unnamed_addr #2
 declare void @OSSL_STORE_LOADER_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ERR_ATTIC_error(i32 noundef range(i32 100, 524551) %reason, i32 noundef range(i32 62, 1737) %line) unnamed_addr #1 {
+define internal fastcc void @ERR_ATTIC_error.argprom.argelim(i32 noundef range(i32 100, 524551) %reason, i32 noundef range(i32 62, 1737) %line) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @lib_code, align 4
   %cmp = icmp eq i32 %0, 0
@@ -2145,14 +2145,14 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr @lib_code, align 4
   %cmp.i = icmp eq i32 %0, 0
-  br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.exit
+  br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.argprom.exit
 
 if.then.i:                                        ; preds = %if.then
   %call.i = tail call i32 @ERR_get_next_error_library() #10
   store i32 %call.i, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit
+  br label %ERR_ATTIC_error.argprom.exit
 
-ERR_ATTIC_error.exit:                             ; preds = %if.then, %if.then.i
+ERR_ATTIC_error.argprom.exit:                     ; preds = %if.then, %if.then.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %1 = load i32, ptr @lib_code, align 4
@@ -2231,8 +2231,8 @@ if.end17:                                         ; preds = %if.end17.sink.split
   tail call void @UI_free(ptr noundef nonnull %call) #10
   br label %return
 
-return:                                           ; preds = %if.end17, %ERR_ATTIC_error.exit
-  %retval.0 = phi ptr [ null, %ERR_ATTIC_error.exit ], [ %pass.addr.0, %if.end17 ]
+return:                                           ; preds = %if.end17, %ERR_ATTIC_error.argprom.exit
+  %retval.0 = phi ptr [ null, %ERR_ATTIC_error.argprom.exit ], [ %pass.addr.0, %if.end17 ]
   ret ptr %retval.0
 }
 
@@ -2323,7 +2323,7 @@ if.else:                                          ; preds = %lor.lhs.false8
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.else
-  call fastcc void @ERR_ATTIC_error(i32 noundef 104, i32 noundef 331)
+  call fastcc void @ERR_ATTIC_error.argprom.argelim(i32 noundef 104, i32 noundef 331)
   br label %p12_end.thread
 
 if.end15:                                         ; preds = %if.else
@@ -2334,7 +2334,7 @@ if.end15:                                         ; preds = %if.else
   br i1 %tobool18.not, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end15
-  call fastcc void @ERR_ATTIC_error(i32 noundef 102, i32 noundef 335)
+  call fastcc void @ERR_ATTIC_error.argprom.argelim(i32 noundef 102, i32 noundef 335)
   br label %p12_end.thread
 
 if.end21:                                         ; preds = %if.then4, %lor.lhs.false, %lor.lhs.false8, %if.end15
@@ -2594,14 +2594,14 @@ if.end.i:                                         ; preds = %if.end19
 if.then3.i:                                       ; preds = %if.end.i
   %8 = load i32, ptr @lib_code, align 4
   %cmp.i.i = icmp eq i32 %8, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %ERR_ATTIC_error.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %ERR_ATTIC_error.argprom.exit.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   %call.i.i = call i32 @ERR_get_next_error_library() #10
   store i32 %call.i.i, ptr @lib_code, align 4
-  br label %ERR_ATTIC_error.exit.i
+  br label %ERR_ATTIC_error.argprom.exit.i
 
-ERR_ATTIC_error.exit.i:                           ; preds = %if.then.i.i, %if.then3.i
+ERR_ATTIC_error.argprom.exit.i:                   ; preds = %if.then.i.i, %if.then3.i
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %9 = load i32, ptr @lib_code, align 4
@@ -2636,7 +2636,7 @@ store_info_free.exit.i:                           ; preds = %if.then.i8.i, %land
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %call1.i) #10
   br label %if.then26
 
-if.then26:                                        ; preds = %ERR_ATTIC_error.exit.i, %if.end19, %store_info_free.exit.i
+if.then26:                                        ; preds = %ERR_ATTIC_error.argprom.exit.i, %if.end19, %store_info_free.exit.i
   %12 = load i32, ptr @lib_code, align 4
   %cmp.i17 = icmp eq i32 %12, 0
   br i1 %cmp.i17, label %nop8.sink.split.sink.split, label %nop8.sink.split

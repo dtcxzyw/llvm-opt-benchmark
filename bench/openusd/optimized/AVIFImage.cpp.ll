@@ -484,7 +484,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %132, ptr %140, align 4
   store ptr %128, ptr %13, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125nanoexr_Gaussian_resampleEPKNS0_19nanoexr_ImageData_tEPS1_(ptr noundef %12, ptr noundef %13)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125nanoexr_Gaussian_resampleEPKNS0_19nanoexr_ImageData_tEPS1_.retelim(ptr noundef %12, ptr noundef %13)
   %141 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %141, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %142
@@ -926,7 +926,7 @@ _ZNSt6vectorIfSaIfEE15_M_erase_at_endEPf.exit:    ; preds = %17, %15, %13, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125nanoexr_Gaussian_resampleEPKNS0_19nanoexr_ImageData_tEPS1_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #6 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125nanoexr_Gaussian_resampleEPKNS0_19nanoexr_ImageData_tEPS1_.retelim(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 2

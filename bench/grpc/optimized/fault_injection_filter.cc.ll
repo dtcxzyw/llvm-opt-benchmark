@@ -878,21 +878,21 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %12 = load i8, ptr %active_fault_.i, align 8
   store i8 1, ptr %active_fault_.i, align 8
   %tobool.i.i = trunc i8 %12 to i1
-  br i1 %tobool.i.i, label %monotonic.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i
+  br i1 %tobool.i.i, label %monotonic.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i
 
 monotonic.i.i.i:                                  ; preds = %if.then.i
   %13 = atomicrmw sub ptr @_ZN9grpc_core12_GLOBAL__N_115g_active_faultsE, i32 1 monotonic, align 4
-  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i
+  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i: ; preds = %monotonic.i.i.i, %if.then.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i: ; preds = %monotonic.i.i.i, %if.then.i
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit.i, label %14
 
-14:                                               ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i
+14:                                               ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i
   invoke void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
           to label %_ZN9grpc_core9Timestamp3NowEv.exit.i unwind label %lpad
 
-_ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %14, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i
+_ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %14, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i
   %15 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   %16 = load ptr, ptr %15, align 8
   %vtable.i.i = load ptr, ptr %16, align 8
@@ -1005,9 +1005,9 @@ invoke.cont16:                                    ; preds = %if.end.i
   %28 = load ptr, ptr %closure_3.i.i.i.i.i.i, align 8, !noalias !12
   store ptr null, ptr %closure_3.i.i.i.i.i.i, align 8, !noalias !12
   store ptr %28, ptr %closure_.i.i.i.i.i.i, align 8, !alias.scope !12
-  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i.i
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i.i: ; preds = %invoke.cont16
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i.i: ; preds = %invoke.cont16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sink18.i.i.i.i.i.i.i.sroa.gep, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i64 16, i1 false)
   br label %invoke.cont18
 
@@ -1019,8 +1019,8 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont16
   store i64 %29, ptr %.sink18.i.i.i.i.i.i.i.sroa.gep36, align 16, !alias.scope !12
   br label %invoke.cont18
 
-invoke.cont18:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i.i
-  %.sink.i.i.i = phi i8 [ 1, %if.then.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i.i ]
+invoke.cont18:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i.i
+  %.sink.i.i.i = phi i8 [ 1, %if.then.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i.i ]
   store i8 0, ptr %active_fault_.i10, align 8
   %30 = getelementptr inbounds i8, ptr %ref.tmp8, i64 40
   store i8 %.sink.i.i.i, ptr %30, align 8, !alias.scope !12
@@ -1197,23 +1197,23 @@ terminate.lpad.i.i:                               ; preds = %_ZN9grpc_core8Activ
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i: ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i, %if.then.i.i, %_ZN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit
   %56 = load ptr, ptr %22, align 8
   %cmp.not.i1.i = icmp eq ptr %56, null
-  br i1 %cmp.not.i1.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i, label %if.then.i2.i
+  br i1 %cmp.not.i1.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i
   %57 = load i8, ptr %agg.tmp14, align 8
   %tobool.i.i.i21 = trunc i8 %57 to i1
-  br i1 %tobool.i.i.i21, label %delete.notnull.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i
+  br i1 %tobool.i.i.i21, label %delete.notnull.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i2.i
   call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %56) #27
   call void @_ZdlPv(ptr noundef nonnull %56) #28
-  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i
+  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i: ; preds = %delete.notnull.i.i.i, %if.then.i2.i, %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i: ; preds = %delete.notnull.i.i.i, %if.then.i2.i, %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i
   store ptr null, ptr %22, align 8
-  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i25, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i28
+  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i25, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i28
 
-if.then.i.i.i.i.i.i25:                            ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i
+if.then.i.i.i.i.i.i25:                            ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i
   %abort_request_.i.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %58 = load i64, ptr %abort_request_.i.i, align 8
@@ -1232,7 +1232,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %60) #31
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i28: ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i28: ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i
   call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #27
   br label %_ZN9grpc_core20FaultInjectionFilter17InjectionDecisionD2Ev.exit
 
@@ -1256,7 +1256,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %63) #31
   unreachable
 
-_ZN9grpc_core20FaultInjectionFilter17InjectionDecisionD2Ev.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i28, %if.then.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i.i
+_ZN9grpc_core20FaultInjectionFilter17InjectionDecisionD2Ev.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i28, %if.then.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i.i
   ret void
 
 lpad15:                                           ; preds = %if.end.i, %if.then.i11
@@ -1938,21 +1938,21 @@ if.then:                                          ; preds = %land.lhs.true
   %4 = load i8, ptr %active_fault_, align 8
   store i8 1, ptr %active_fault_, align 8
   %tobool.i = trunc i8 %4 to i1
-  br i1 %tobool.i, label %monotonic.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit
+  br i1 %tobool.i, label %monotonic.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit
 
 monotonic.i.i:                                    ; preds = %if.then
   %5 = atomicrmw sub ptr @_ZN9grpc_core12_GLOBAL__N_115g_active_faultsE, i32 1 monotonic, align 4
-  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit
+  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit: ; preds = %if.then, %monotonic.i.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit: ; preds = %if.then, %monotonic.i.i
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %6
 
-6:                                                ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit
+6:                                                ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
   br label %_ZN9grpc_core9Timestamp3NowEv.exit
 
-_ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit, %6
+_ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit, %6
   %7 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   %8 = load ptr, ptr %7, align 8
   %vtable.i = load ptr, ptr %8, align 8
@@ -2014,19 +2014,19 @@ sw.bb2.i:                                         ; preds = %entry
   %active_fault_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %active_fault_.val.i.i.i.i.i = load i8, ptr %active_fault_.i.i.i.i.i, align 16
   %tobool.i.i.i.i.i.i = trunc i8 %active_fault_.val.i.i.i.i.i to i1
-  br i1 %tobool.i.i.i.i.i.i, label %monotonic.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i, label %monotonic.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i
 
 monotonic.i.i.i.i.i.i.i:                          ; preds = %sw.bb2.i
   %1 = atomicrmw sub ptr @_ZN9grpc_core12_GLOBAL__N_115g_active_faultsE, i32 1 monotonic, align 4
-  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i
+  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i: ; preds = %monotonic.i.i.i.i.i.i.i, %sw.bb2.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i: ; preds = %monotonic.i.i.i.i.i.i.i, %sw.bb2.i
   %_M_engaged.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %tail1.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i
   %abort_request_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8
   %3 = load i64, ptr %abort_request_.i.i.i.i.i, align 16
@@ -2064,19 +2064,19 @@ tail0.i:                                          ; preds = %sw.bb.i, %entry
   %active_fault_.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 48
   %active_fault_.val.i.i.i.i2.i = load i8, ptr %active_fault_.i.i.i.i1.i, align 16
   %tobool.i.i.i.i.i3.i = trunc i8 %active_fault_.val.i.i.i.i2.i to i1
-  br i1 %tobool.i.i.i.i.i3.i, label %monotonic.i.i.i.i.i.i13.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i4.i
+  br i1 %tobool.i.i.i.i.i3.i, label %monotonic.i.i.i.i.i.i13.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i4.i
 
 monotonic.i.i.i.i.i.i13.i:                        ; preds = %tail0.i
   %10 = atomicrmw sub ptr @_ZN9grpc_core12_GLOBAL__N_115g_active_faultsE, i32 1 monotonic, align 4
-  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i4.i
+  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i4.i
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i4.i: ; preds = %monotonic.i.i.i.i.i.i13.i, %tail0.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i4.i: ; preds = %monotonic.i.i.i.i.i.i13.i, %tail0.i
   %_M_engaged.i.i.i.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i5.i, align 8
   %tobool.i.i.i.i.i.i.i.i6.i = trunc i8 %11 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i6.i, label %if.then.i.i.i.i.i.i.i.i7.i, label %tail1.i
 
-if.then.i.i.i.i.i.i.i.i7.i:                       ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i4.i
+if.then.i.i.i.i.i.i.i.i7.i:                       ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i4.i
   %abort_request_.i.i.i.i8.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i5.i, align 8
   %12 = load i64, ptr %abort_request_.i.i.i.i8.i, align 16
@@ -2095,7 +2095,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i12.i:           ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %14) #31
   unreachable
 
-tail1.i:                                          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i11.i, %if.then.i.i.i.i.i.i.i.i7.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i4.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i
+tail1.i:                                          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i11.i, %if.then.i.i.i.i.i.i.i.i7.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i4.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i
   %next_factory7.i = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %next_factory7.i, align 16
   %destroy.i.i.i14.i = getelementptr inbounds i8, ptr %15, i64 8
@@ -2189,19 +2189,19 @@ entry:
   %active_fault_.i = getelementptr inbounds i8, ptr %this, i64 32
   %active_fault_.val.i = load i8, ptr %active_fault_.i, align 8
   %tobool.i.i = trunc i8 %active_fault_.val.i to i1
-  br i1 %tobool.i.i, label %monotonic.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i
+  br i1 %tobool.i.i, label %monotonic.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i
 
 monotonic.i.i.i:                                  ; preds = %entry
   %0 = atomicrmw sub ptr @_ZN9grpc_core12_GLOBAL__N_115g_active_faultsE, i32 1 monotonic, align 4
-  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i
+  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i: ; preds = %monotonic.i.i.i, %entry
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i: ; preds = %monotonic.i.i.i, %entry
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core20FaultInjectionFilter17InjectionDecisionD2Ev.exit
 
-if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i
+if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i
   %abort_request_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   %2 = load i64, ptr %abort_request_.i, align 8
@@ -2220,7 +2220,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %4) #31
   unreachable
 
-_ZN9grpc_core20FaultInjectionFilter17InjectionDecisionD2Ev.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i, %if.then.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
+_ZN9grpc_core20FaultInjectionFilter17InjectionDecisionD2Ev.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i, %if.then.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   ret void
 }
 
@@ -2233,19 +2233,19 @@ entry:
   %active_fault_ = getelementptr inbounds i8, ptr %this, i64 32
   %active_fault_.val = load i8, ptr %active_fault_, align 8
   %tobool.i = trunc i8 %active_fault_.val to i1
-  br i1 %tobool.i, label %monotonic.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit
+  br i1 %tobool.i, label %monotonic.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit
 
 monotonic.i.i:                                    ; preds = %entry
   %0 = atomicrmw sub ptr @_ZN9grpc_core12_GLOBAL__N_115g_active_faultsE, i32 1 monotonic, align 4
-  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit
+  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit: ; preds = %entry, %monotonic.i.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit: ; preds = %entry, %monotonic.i.i
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalIN4absl12lts_202308026StatusEED2Ev.exit
 
-if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit
+if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit
   %abort_request_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
   %2 = load i64, ptr %abort_request_, align 8
@@ -2264,7 +2264,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %4) #31
   unreachable
 
-_ZNSt8optionalIN4absl12lts_202308026StatusEED2Ev.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit, %if.then.i.i.i.i, %if.then.i.i.i.i.i.i.i
+_ZNSt8optionalIN4absl12lts_202308026StatusEED2Ev.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit, %if.then.i.i.i.i, %if.then.i.i.i.i.i.i.i
   ret void
 }
 
@@ -3281,9 +3281,9 @@ if.end9.i.i:                                      ; preds = %invoke.cont3.i.i
   %13 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %tobool.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %13 to i1
   %abort_request_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i: ; preds = %if.end9.i.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i: ; preds = %if.end9.i.i
   %active_fault_4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i8, ptr %active_fault_4.i.i.i.i.i.i, align 1, !noalias !60
   store i8 0, ptr %active_fault_4.i.i.i.i.i.i, align 1, !noalias !60
@@ -3311,12 +3311,12 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end9.i.i
   store i8 1, ptr %state.i.i, align 16, !noalias !38
   br label %cleanup.i.i
 
-cleanup.i.i:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i, %if.then.i.i
-  %agg.tmp.sroa.9.4 = phi ptr [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ %12, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
-  %agg.tmp.sroa.5.4 = phi i8 [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ %10, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
-  %agg.tmp.sroa.0.2 = phi i8 [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ 1, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ 0, %if.then.i.i ]
-  %17 = phi ptr [ %5, %if.then.i.i.i.i.i.i.i.i.i ], [ %5, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ %5, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ %3, %if.then.i.i ]
-  %switch.i.i = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i ], [ true, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ false, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ false, %if.then.i.i ]
+cleanup.i.i:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i, %if.then.i.i
+  %agg.tmp.sroa.9.4 = phi ptr [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i ], [ %12, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
+  %agg.tmp.sroa.5.4 = phi i8 [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i ], [ %10, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
+  %agg.tmp.sroa.0.2 = phi i8 [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i ], [ 1, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ 0, %if.then.i.i ]
+  %17 = phi ptr [ %5, %if.then.i.i.i.i.i.i.i.i.i ], [ %5, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i ], [ %5, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ %3, %if.then.i.i ]
+  %switch.i.i = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i ], [ true, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i.i ], [ false, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ false, %if.then.i.i ]
   %18 = load i8, ptr %result.i.i, align 8, !noalias !38
   %tobool.i.i.i = trunc i8 %18 to i1
   br i1 %tobool.i.i.i, label %if.then.i22.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i
@@ -3433,18 +3433,18 @@ if.end35.i.i:                                     ; preds = %invoke.cont27.i.i, 
   %active_fault_.i.i.i.i42.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %active_fault_.val.i.i.i.i43.i.i = load i8, ptr %active_fault_.i.i.i.i42.i.i, align 1, !noalias !38
   %tobool.i.i.i.i.i44.i.i = trunc i8 %active_fault_.val.i.i.i.i43.i.i to i1
-  br i1 %tobool.i.i.i.i.i44.i.i, label %monotonic.i.i.i.i.i.i54.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i45.i.i
+  br i1 %tobool.i.i.i.i.i44.i.i, label %monotonic.i.i.i.i.i.i54.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i45.i.i
 
 monotonic.i.i.i.i.i.i54.i.i:                      ; preds = %if.end35.i.i
   %38 = atomicrmw sub ptr @_ZN9grpc_core12_GLOBAL__N_115g_active_faultsE, i32 1 monotonic, align 4, !noalias !38
-  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i45.i.i
+  br label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i45.i.i
 
-_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i45.i.i: ; preds = %monotonic.i.i.i.i.i.i54.i.i, %if.end35.i.i
+_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i45.i.i: ; preds = %monotonic.i.i.i.i.i.i54.i.i, %if.end35.i.i
   %39 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !noalias !38
   %tobool.i.i.i.i.i.i.i.i47.i.i = trunc i8 %39 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i47.i.i, label %if.then.i.i.i.i.i.i.i.i48.i.i, label %cleanup44.thread.i.i
 
-if.then.i.i.i.i.i.i.i.i48.i.i:                    ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i45.i.i
+if.then.i.i.i.i.i.i.i.i48.i.i:                    ; preds = %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i45.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !noalias !38
   %40 = load i64, ptr %abort_request_.i.i.i24.i.i, align 8, !noalias !38
   %and.i.i.i.i.i.i.i.i.i.i.i.i50.i.i = and i64 %40, 1
@@ -3462,7 +3462,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i53.i.i:         ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %42) #31
   unreachable
 
-cleanup44.thread.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i52.i.i, %if.then.i.i.i.i.i.i.i.i48.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i45.i.i
+cleanup44.thread.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i52.i.i, %if.then.i.i.i.i.i.i.i.i48.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.argprom.exit.i.i.i.i45.i.i
   %next_factory37.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %next_factory37.i.i, align 16, !noalias !85
   %agg.tmp.sroa.3.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
@@ -6758,8 +6758,8 @@ attributes #32 = { nounwind willreturn memory(read) }
 !60 = !{!61, !63, !39, !36}
 !61 = distinct !{!61, !62, !"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEE3$_0E4MakeEv: %agg.result"}
 !62 = distinct !{!62, !"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEE3$_0E4MakeEv"}
-!63 = distinct !{!63, !64, !"_ZN9grpc_core14promise_detail22TrySeqTraitsWithSfinaeIN4absl12lts_202308026StatusEvE11CallFactoryINS0_18OncePromiseFactoryIvZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES9_EEE3$_0EEEEDaPT_OS4_: %agg.result"}
-!64 = distinct !{!64, !"_ZN9grpc_core14promise_detail22TrySeqTraitsWithSfinaeIN4absl12lts_202308026StatusEvE11CallFactoryINS0_18OncePromiseFactoryIvZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES9_EEE3$_0EEEEDaPT_OS4_"}
+!63 = distinct !{!63, !64, !"_ZN9grpc_core14promise_detail22TrySeqTraitsWithSfinaeIN4absl12lts_202308026StatusEvE11CallFactoryINS0_18OncePromiseFactoryIvZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES9_EEE3$_0EEEEDaPT_OS4_.argprom: %agg.result"}
+!64 = distinct !{!64, !"_ZN9grpc_core14promise_detail22TrySeqTraitsWithSfinaeIN4absl12lts_202308026StatusEvE11CallFactoryINS0_18OncePromiseFactoryIvZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES9_EEE3$_0EEEEDaPT_OS4_.argprom"}
 !65 = !{!66}
 !66 = distinct !{!66, !67, !"_ZN9grpc_core14promise_detail11PromiseLikeIZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEE3$_0vEclEv: %agg.result"}
 !67 = distinct !{!67, !"_ZN9grpc_core14promise_detail11PromiseLikeIZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEE3$_0vEclEv"}

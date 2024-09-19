@@ -3685,7 +3685,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13AttachRequestEE4typeEv
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -3707,7 +3707,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13AttachRequestEE4typeEv
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -4567,7 +4567,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_26BreakpointLocationsReq
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -4586,7 +4586,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_26BreakpointLocationsReq
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -5139,7 +5139,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13CancelRequestEE4typeEv
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -5158,7 +5158,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13CancelRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -5825,7 +5825,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18CompletionsRequestEE4t
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -5844,7 +5844,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18CompletionsRequestEE4t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -5915,7 +5915,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_24ConfigurationDoneReque
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -5934,7 +5934,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_24ConfigurationDoneReque
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -6487,7 +6487,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_15ContinueRequestEE4type
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -6506,7 +6506,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_15ContinueRequestEE4type
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -7077,7 +7077,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_25DataBreakpointInfoRequ
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -7096,7 +7096,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_25DataBreakpointInfoRequ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -7855,7 +7855,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18DisassembleRequestEE4t
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -7874,7 +7874,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18DisassembleRequestEE4t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -8445,7 +8445,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_17DisconnectRequestEE4ty
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -8464,7 +8464,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_17DisconnectRequestEE4ty
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -9217,7 +9217,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_15EvaluateRequestEE4type
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -9236,7 +9236,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_15EvaluateRequestEE4type
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -9555,7 +9555,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20ExceptionInfoRequestEE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -9574,7 +9574,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20ExceptionInfoRequestEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -10039,7 +10039,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_11GotoRequestEE4typeEv()
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -10058,7 +10058,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_11GotoRequestEE4typeEv()
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -10629,7 +10629,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18GotoTargetsRequestEE4t
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -10648,7 +10648,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18GotoTargetsRequestEE4t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -12443,7 +12443,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_17InitializeRequestEE4ty
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -12462,7 +12462,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_17InitializeRequestEE4ty
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -12927,7 +12927,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13LaunchRequestEE4typeEv
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -12946,7 +12946,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13LaunchRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -13017,7 +13017,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20LoadedSourcesRequestEE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -13036,7 +13036,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20LoadedSourcesRequestEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -13501,7 +13501,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_14ModulesRequestEE4typeE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -13520,7 +13520,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_14ModulesRequestEE4typeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -14091,7 +14091,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_11NextRequestEE4typeEv()
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -14110,7 +14110,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_11NextRequestEE4typeEv()
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -14429,7 +14429,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_12PauseRequestEE4typeEv(
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -14448,7 +14448,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_12PauseRequestEE4typeEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -15019,7 +15019,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_17ReadMemoryRequestEE4ty
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -15038,7 +15038,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_17ReadMemoryRequestEE4ty
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -15357,7 +15357,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_19RestartFrameRequestEE4
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -15376,7 +15376,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_19RestartFrameRequestEE4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -15783,7 +15783,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_14RestartRequestEE4typeE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -15802,7 +15802,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_14RestartRequestEE4typeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -16267,7 +16267,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_22ReverseContinueRequest
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -16286,7 +16286,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_22ReverseContinueRequest
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -17227,7 +17227,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20RunInTerminalRequestEE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -17246,7 +17246,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20RunInTerminalRequestEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -17565,7 +17565,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13ScopesRequestEE4typeEv
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -17584,7 +17584,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13ScopesRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -18425,7 +18425,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_21SetBreakpointsRequestE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -18444,7 +18444,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_21SetBreakpointsRequestE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -18851,7 +18851,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_25SetDataBreakpointsRequ
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -18870,7 +18870,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_25SetDataBreakpointsRequ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -19617,7 +19617,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_30SetExceptionBreakpoint
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -19636,7 +19636,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_30SetExceptionBreakpoint
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -20301,7 +20301,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20SetExpressionRequestEE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -20320,7 +20320,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20SetExpressionRequestEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -20727,7 +20727,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_29SetFunctionBreakpoints
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -20746,7 +20746,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_29SetFunctionBreakpoints
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -21153,7 +21153,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_32SetInstructionBreakpoi
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -21172,7 +21172,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_32SetInstructionBreakpoi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -21837,7 +21837,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18SetVariableRequestEE4t
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -21856,7 +21856,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18SetVariableRequestEE4t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -22409,7 +22409,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13SourceRequestEE4typeEv
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -22428,7 +22428,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13SourceRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -23181,7 +23181,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_17StackTraceRequestEE4ty
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -23200,7 +23200,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_17StackTraceRequestEE4ty
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -23667,7 +23667,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_21StartDebuggingRequestE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -23686,7 +23686,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_21StartDebuggingRequestE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -24257,7 +24257,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_15StepBackRequestEE4type
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -24276,7 +24276,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_15StepBackRequestEE4type
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -24941,7 +24941,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13StepInRequestEE4typeEv
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -24960,7 +24960,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_13StepInRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -25279,7 +25279,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20StepInTargetsRequestEE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -25298,7 +25298,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_20StepInTargetsRequestEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -25869,7 +25869,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_14StepOutRequestEE4typeE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -25888,7 +25888,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_14StepOutRequestEE4typeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -26207,7 +26207,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_16TerminateRequestEE4typ
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -26226,7 +26226,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_16TerminateRequestEE4typ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -26545,7 +26545,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_23TerminateThreadsReques
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -26564,7 +26564,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_23TerminateThreadsReques
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -26635,7 +26635,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_14ThreadsRequestEE4typeE
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -26654,7 +26654,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_14ThreadsRequestEE4typeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -27413,7 +27413,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_16VariablesRequestEE4typ
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -27432,7 +27432,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_16VariablesRequestEE4typ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -28097,7 +28097,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18WriteMemoryRequestEE4t
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -28116,7 +28116,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_18WriteMemoryRequestEE4t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TIC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TIC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
@@ -28442,7 +28442,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13A
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_13AttachRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -28476,7 +28476,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13A
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_13AttachRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -30422,7 +30422,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_26B
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_26BreakpointLocationsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -30456,7 +30456,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_26B
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_26BreakpointLocationsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -31271,7 +31271,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13C
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_13CancelRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -31305,7 +31305,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13C
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_13CancelRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -31528,7 +31528,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18C
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_18CompletionsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -31562,7 +31562,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18C
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_18CompletionsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -31756,7 +31756,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_24C
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_24ConfigurationDoneRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -31790,7 +31790,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_24C
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_24ConfigurationDoneRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -31993,7 +31993,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_15C
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_15ContinueRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -32027,7 +32027,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_15C
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_15ContinueRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -32250,7 +32250,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_25D
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_25DataBreakpointInfoRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -32284,7 +32284,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_25D
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_25DataBreakpointInfoRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -32524,7 +32524,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18D
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_18DisassembleRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -32558,7 +32558,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18D
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_18DisassembleRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -32779,7 +32779,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_17D
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_17DisconnectRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -32813,7 +32813,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_17D
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_17DisconnectRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -33064,7 +33064,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_15E
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_15EvaluateRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -33098,7 +33098,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_15E
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_15EvaluateRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -33296,7 +33296,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20E
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_20ExceptionInfoRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -33330,7 +33330,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20E
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_20ExceptionInfoRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -33527,7 +33527,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_11G
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_11GotoRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -33561,7 +33561,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_11G
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_11GotoRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -33801,7 +33801,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18G
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_18GotoTargetsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -33835,7 +33835,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18G
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_18GotoTargetsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -34062,7 +34062,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_17I
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_17InitializeRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -34096,7 +34096,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_17I
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_17InitializeRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -34518,7 +34518,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13L
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_13LaunchRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -34552,7 +34552,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13L
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_13LaunchRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -34841,7 +34841,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20L
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_20LoadedSourcesRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -34875,7 +34875,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20L
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_20LoadedSourcesRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -35083,7 +35083,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_14M
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_14ModulesRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -35117,7 +35117,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_14M
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_14ModulesRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -35342,7 +35342,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_11N
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_11NextRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -35376,7 +35376,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_11N
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_11NextRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -35574,7 +35574,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_12P
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_12PauseRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -35608,7 +35608,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_12P
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_12PauseRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -35826,7 +35826,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_17R
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_17ReadMemoryRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -35860,7 +35860,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_17R
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_17ReadMemoryRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -36058,7 +36058,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_19R
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_19RestartFrameRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -36092,7 +36092,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_19R
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_19RestartFrameRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -36326,7 +36326,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_14R
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_14RestartRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -36360,7 +36360,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_14R
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_14RestartRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -36999,7 +36999,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_22R
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_22ReverseContinueRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -37033,7 +37033,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_22R
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_22ReverseContinueRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -37287,7 +37287,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20R
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_20RunInTerminalRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -37321,7 +37321,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20R
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_20RunInTerminalRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -37764,7 +37764,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_13ScopesRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -37798,7 +37798,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_13ScopesRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -38040,7 +38040,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_21S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_21SetBreakpointsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -38074,7 +38074,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_21S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_21SetBreakpointsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -38749,7 +38749,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_25S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_25SetDataBreakpointsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -38783,7 +38783,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_25S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_25SetDataBreakpointsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -39186,7 +39186,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_30S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_30SetExceptionBreakpointsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -39220,7 +39220,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_30S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_30SetExceptionBreakpointsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -40297,7 +40297,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_20SetExpressionRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -40331,7 +40331,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_20SetExpressionRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -40610,7 +40610,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_29S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_29SetFunctionBreakpointsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -40644,7 +40644,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_29S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_29SetFunctionBreakpointsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -41058,7 +41058,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_32S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_32SetInstructionBreakpointsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -41092,7 +41092,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_32S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_32SetInstructionBreakpointsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -41473,7 +41473,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_18SetVariableRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -41507,7 +41507,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_18SetVariableRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -41742,7 +41742,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_13SourceRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -41776,7 +41776,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_13SourceRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -42069,7 +42069,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_17S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_17StackTraceRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -42103,7 +42103,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_17S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_17StackTraceRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -42336,7 +42336,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_21S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_21StartDebuggingRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -42370,7 +42370,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_21S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_21StartDebuggingRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -42643,7 +42643,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_15S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_15StepBackRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -42677,7 +42677,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_15S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_15StepBackRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -42915,7 +42915,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_13StepInRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -42949,7 +42949,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_13S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_13StepInRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -43147,7 +43147,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_20StepInTargetsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -43181,7 +43181,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_20S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_20StepInTargetsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -43406,7 +43406,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_14S
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_14StepOutRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -43440,7 +43440,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_14S
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_14StepOutRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -43643,7 +43643,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_16T
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_16TerminateRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -43677,7 +43677,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_16T
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_16TerminateRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -43936,7 +43936,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_23T
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_23TerminateThreadsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -43970,7 +43970,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_23T
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_23TerminateThreadsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -44164,7 +44164,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_14T
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_14ThreadsRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -44198,7 +44198,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_14T
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_14ThreadsRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -44446,7 +44446,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_16V
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_16VariablesRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -44480,7 +44480,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_16V
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_16VariablesRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -44719,7 +44719,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18W
   br i1 %.not.i.i, label %_ZNK3dap12Deserializer11deserializeINS_18WriteMemoryRequestESt9enable_ifILb1EvEEEbPT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8
@@ -44753,7 +44753,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_18W
   br i1 %.not.i.i, label %_ZN3dap10Serializer9serializeINS_18WriteMemoryRequestESt9enable_ifILb1EvEEEbRKT_.exit, label %8
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TIC2Ev()
+  invoke fastcc void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TIC2Ev.argprom()
           to label %9 unwind label %11
 
 9:                                                ; preds = %8

@@ -120,7 +120,7 @@ for.body9.i:                                      ; preds = %if.then21, %for.bod
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
-  tail call fastcc void @Transform(ptr noundef %sha, ptr noundef %buffer)
+  tail call fastcc void @Transform.retelim(ptr noundef %sha, ptr noundef %buffer)
   store i32 0, ptr %sha, align 8
   br label %if.end33
 
@@ -155,7 +155,7 @@ for.body.i53.us:                                  ; preds = %while.body.us, %for
 
 ByteReverseWords.exit60.loopexit.us:              ; preds = %for.body.i53.us
   %sub39.us = add i32 %len.addr.164.us, -64
-  tail call fastcc void @Transform(ptr noundef %sha, ptr noundef %buffer)
+  tail call fastcc void @Transform.retelim(ptr noundef %sha, ptr noundef %buffer)
   %cmp34.us = icmp ugt i32 %sub39.us, 63
   br i1 %cmp34.us, label %while.body.us, label %while.end, !llvm.loop !7
 
@@ -178,7 +178,7 @@ for.body9.i44:                                    ; preds = %while.body, %for.bo
 
 ByteReverseWords.exit60.loopexit61:               ; preds = %for.body9.i44
   %sub39 = add i32 %len.addr.164, -64
-  tail call fastcc void @Transform(ptr noundef %sha, ptr noundef %buffer)
+  tail call fastcc void @Transform.retelim(ptr noundef %sha, ptr noundef %buffer)
   %cmp34 = icmp ugt i32 %sub39, 63
   br i1 %cmp34, label %while.body, label %while.end, !llvm.loop !7
 
@@ -203,7 +203,7 @@ return:                                           ; preds = %while.end, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @Transform(ptr nocapture noundef nonnull %sha, ptr nocapture noundef nonnull readonly %data) unnamed_addr #3 {
+define internal fastcc void @Transform.retelim(ptr nocapture noundef nonnull %sha, ptr nocapture noundef nonnull readonly %data) unnamed_addr #3 {
 entry:
   %digest = getelementptr inbounds i8, ptr %sha, i64 76
   %0 = load i32, ptr %digest, align 4
@@ -1323,7 +1323,7 @@ for.body9.i:                                      ; preds = %if.then8, %for.body
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
-  tail call fastcc void @Transform(ptr noundef %sha, ptr noundef %buffer)
+  tail call fastcc void @Transform.retelim(ptr noundef %sha, ptr noundef %buffer)
   store i32 0, ptr %sha, align 8
   br label %if.end25
 
@@ -1371,7 +1371,7 @@ ByteReverseWords.exit57:                          ; preds = %for.body9.i41, %for
   store i32 %add36, ptr %arrayidx41, align 1
   %arrayidx43 = getelementptr inbounds i8, ptr %sha, i64 72
   store i32 %shl39, ptr %arrayidx43, align 1
-  tail call fastcc void @Transform(ptr noundef %sha, ptr noundef %buffer)
+  tail call fastcc void @Transform.retelim(ptr noundef %sha, ptr noundef %buffer)
   %digest = getelementptr inbounds i8, ptr %sha, i64 76
   %8 = ptrtoint ptr %digest to i64
   %9 = and i64 %8, 3

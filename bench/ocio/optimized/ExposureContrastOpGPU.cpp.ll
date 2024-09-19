@@ -1013,7 +1013,7 @@ invoke.cont125.i:                                 ; preds = %invoke.cont123.i
 
 .noexc35:                                         ; preds = %.noexc34
   %call137.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp134.i, ptr noundef nonnull @.str.4)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddECLinearShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit unwind label %lpad135.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddECLinearShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit unwind label %lpad135.i
 
 lpad.i25:                                         ; preds = %.noexc
   %73 = landingpad { ptr, i32 }
@@ -1154,7 +1154,7 @@ eh.resume.i26:                                    ; preds = %lpad135.i, %ehclean
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp134.sink.i) #13
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddECLinearShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit: ; preds = %.noexc35
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddECLinearShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit: ; preds = %.noexc35
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp134.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i)
@@ -1435,7 +1435,7 @@ invoke.cont130.i:                                 ; preds = %invoke.cont128.i
 
 invoke.cont134.i:                                 ; preds = %invoke.cont130.i
   %call137.i113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %call135.i, ptr noundef nonnull @.str.27)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120AddECLinearRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit unwind label %lpad127.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120AddECLinearRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit unwind label %lpad127.i
 
 lpad.i49:                                         ; preds = %.noexc114
   %95 = landingpad { ptr, i32 }
@@ -1576,7 +1576,7 @@ eh.resume.i52:                                    ; preds = %lpad127.i, %lpad120
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp124.sink.i) #13
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120AddECLinearRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit: ; preds = %invoke.cont134.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120AddECLinearRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit: ; preds = %invoke.cont134.i
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp124.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i38)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i39)
@@ -1866,7 +1866,7 @@ invoke.cont130.i179:                              ; preds = %invoke.cont128.i177
 
 .noexc188:                                        ; preds = %.noexc187
   %call142.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp139.i, ptr noundef nonnull @.str.4)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddECVideoShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit unwind label %lpad140.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddECVideoShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit unwind label %lpad140.i
 
 lpad.i135:                                        ; preds = %.noexc180
   %117 = landingpad { ptr, i32 }
@@ -2007,7 +2007,7 @@ eh.resume.i137:                                   ; preds = %lpad140.i, %ehclean
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp139.sink.i) #13
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddECVideoShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit: ; preds = %.noexc188
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddECVideoShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit: ; preds = %.noexc188
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp139.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i125)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i126)
@@ -2297,7 +2297,7 @@ invoke.cont135.i:                                 ; preds = %invoke.cont133.i
 
 invoke.cont139.i:                                 ; preds = %invoke.cont135.i
   %call142.i289 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %call140.i, ptr noundef nonnull @.str.27)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119AddECVideoRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit unwind label %lpad132.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119AddECVideoRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit unwind label %lpad132.i
 
 lpad.i207:                                        ; preds = %.noexc290
   %139 = landingpad { ptr, i32 }
@@ -2438,7 +2438,7 @@ eh.resume.i210:                                   ; preds = %lpad132.i, %lpad125
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp129.sink.i) #13
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119AddECVideoRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit: ; preds = %invoke.cont139.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119AddECVideoRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit: ; preds = %invoke.cont139.i
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp129.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i191)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i192)
@@ -3053,7 +3053,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125AddECLogarithmicRevShaderERSt10shared_pt
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp90.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125AddECLogarithmicRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122AddECLogarithmicShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119AddECVideoRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddECVideoShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120AddECLinearRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddECLinearShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit, %invoke.cont32
+sw.epilog:                                        ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125AddECLogarithmicRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122AddECLogarithmicShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119AddECVideoRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddECVideoShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120AddECLinearRevShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddECLinearShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERS1_IKNS_22ExposureContrastOpDataEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_.argprom.argprom.exit, %invoke.cont32
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %st)
           to label %invoke.cont46 unwind label %lpad2
 

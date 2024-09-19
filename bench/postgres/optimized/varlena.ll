@@ -3595,7 +3595,7 @@ define internal i32 @namefastcmp_locale(i64 noundef %0, i64 noundef %1, ptr noca
   %9 = trunc i64 %8 to i32
   %10 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %10, align 8
-  %11 = tail call fastcc i32 @varstrfastcmp_locale(ptr noundef %4, i32 noundef %7, ptr noundef %5, i32 noundef %9, ptr %.val)
+  %11 = tail call fastcc i32 @varstrfastcmp_locale.argprom(ptr noundef %4, i32 noundef %7, ptr noundef %5, i32 noundef %9, ptr %.val)
   ret i32 %11
 }
 
@@ -3683,7 +3683,7 @@ define internal i32 @varlenafastcmp_locale(i64 noundef %0, i64 noundef %1, ptr n
   %58 = phi i32 [ %47, %40 ], [ %52, %50 ], [ %56, %53 ]
   %59 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %59, align 8
-  %60 = tail call fastcc i32 @varstrfastcmp_locale(ptr noundef nonnull %13, i32 noundef %37, ptr noundef nonnull %18, i32 noundef %58, ptr %.val)
+  %60 = tail call fastcc i32 @varstrfastcmp_locale.argprom(ptr noundef nonnull %13, i32 noundef %37, ptr noundef nonnull %18, i32 noundef %58, ptr %.val)
   %61 = ptrtoint ptr %5 to i64
   %.not38 = icmp eq i64 %0, %61
   br i1 %.not38, label %63, label %62
@@ -13987,7 +13987,7 @@ declare i32 @bpchartruelen(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @varstrfastcmp_locale(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture %.16.val) unnamed_addr #0 {
+define internal fastcc i32 @varstrfastcmp_locale.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture %.16.val) unnamed_addr #0 {
   %5 = icmp eq i32 %1, %3
   br i1 %5, label %6, label %9
 

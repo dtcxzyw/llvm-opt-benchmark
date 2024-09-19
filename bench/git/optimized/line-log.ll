@@ -183,23 +183,23 @@ entry:
   %nr = getelementptr inbounds i8, ptr %rs, i64 4
   %0 = load i32, ptr %nr, align 4
   %cmp.i = icmp ugt i32 %0, 1
-  br i1 %cmp.i, label %if.then.i, label %sane_qsort.exit
+  br i1 %cmp.i, label %if.then.i, label %sane_qsort.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %conv = zext i32 %0 to i64
   %1 = load ptr, ptr %ranges, align 8
   tail call void @qsort(ptr noundef %1, i64 noundef %conv, i64 noundef 16, ptr noundef nonnull @range_cmp) #16
   %.pre = load i32, ptr %nr, align 4
-  br label %sane_qsort.exit
+  br label %sane_qsort.argprom.exit
 
-sane_qsort.exit:                                  ; preds = %entry, %if.then.i
+sane_qsort.argprom.exit:                          ; preds = %entry, %if.then.i
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %cmp34.not = icmp eq i32 %2, 0
   br i1 %cmp34.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %sane_qsort.exit, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sane_qsort.exit ]
-  %o.036 = phi i32 [ %o.1, %for.inc ], [ 0, %sane_qsort.exit ]
+for.body:                                         ; preds = %sane_qsort.argprom.exit, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sane_qsort.argprom.exit ]
+  %o.036 = phi i32 [ %o.1, %for.inc ], [ 0, %sane_qsort.argprom.exit ]
   %3 = load ptr, ptr %ranges, align 8
   %arrayidx = getelementptr inbounds %struct.range, ptr %3, i64 %indvars.iv
   %4 = load i64, ptr %arrayidx, align 8
@@ -248,8 +248,8 @@ for.inc:                                          ; preds = %if.else, %if.then33
   %cmp = icmp ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc, %sane_qsort.exit
-  %o.0.lcssa = phi i32 [ 0, %sane_qsort.exit ], [ %o.1, %for.inc ]
+for.end:                                          ; preds = %for.inc, %sane_qsort.argprom.exit
+  %o.0.lcssa = phi i32 [ 0, %sane_qsort.argprom.exit ], [ %o.1, %for.inc ]
   store i32 %o.0.lcssa, ptr %nr, align 4
   ret void
 }
@@ -687,23 +687,23 @@ for.body60.i:                                     ; preds = %for.end.i7, %sort_a
   %nr.i.i = getelementptr inbounds i8, ptr %p.0.in.sroa.speculated67.i, i64 20
   %65 = load i32, ptr %nr.i.i, align 4
   %cmp.i.i.i = icmp ugt i32 %65, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %sane_qsort.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %sane_qsort.argprom.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body60.i
   %conv.i.i = zext i32 %65 to i64
   %66 = load ptr, ptr %ranges.i37.i, align 8
   call void @qsort(ptr noundef %66, i64 noundef %conv.i.i, i64 noundef 16, ptr noundef nonnull @range_cmp) #16
   %.pre.i.i = load i32, ptr %nr.i.i, align 4
-  br label %sane_qsort.exit.i.i
+  br label %sane_qsort.argprom.exit.i.i
 
-sane_qsort.exit.i.i:                              ; preds = %if.then.i.i.i, %for.body60.i
+sane_qsort.argprom.exit.i.i:                      ; preds = %if.then.i.i.i, %for.body60.i
   %67 = phi i32 [ %65, %for.body60.i ], [ %.pre.i.i, %if.then.i.i.i ]
   %cmp34.not.i.i = icmp eq i32 %67, 0
   br i1 %cmp34.not.i.i, label %sort_and_merge_range_set.exit.i, label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %sane_qsort.exit.i.i, %for.inc.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %sane_qsort.exit.i.i ]
-  %o.036.i.i = phi i32 [ %o.1.i.i, %for.inc.i.i ], [ 0, %sane_qsort.exit.i.i ]
+for.body.i.i:                                     ; preds = %sane_qsort.argprom.exit.i.i, %for.inc.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %sane_qsort.argprom.exit.i.i ]
+  %o.036.i.i = phi i32 [ %o.1.i.i, %for.inc.i.i ], [ 0, %sane_qsort.argprom.exit.i.i ]
   %68 = load ptr, ptr %ranges.i37.i, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.range, ptr %68, i64 %indvars.iv.i.i
   %69 = load i64, ptr %arrayidx.i.i, align 8
@@ -752,8 +752,8 @@ for.inc.i.i:                                      ; preds = %if.else.i39.i, %if.
   %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %75
   br i1 %cmp.i.i, label %for.body.i.i, label %sort_and_merge_range_set.exit.i, !llvm.loop !5
 
-sort_and_merge_range_set.exit.i:                  ; preds = %for.inc.i.i, %sane_qsort.exit.i.i
-  %o.0.lcssa.i.i = phi i32 [ 0, %sane_qsort.exit.i.i ], [ %o.1.i.i, %for.inc.i.i ]
+sort_and_merge_range_set.exit.i:                  ; preds = %for.inc.i.i, %sane_qsort.argprom.exit.i.i
+  %o.0.lcssa.i.i = phi i32 [ 0, %sane_qsort.argprom.exit.i.i ], [ %o.1.i.i, %for.inc.i.i ]
   store i32 %o.0.lcssa.i.i, ptr %nr.i.i, align 4
   %p.0.in.sroa.speculate.load.sort_and_merge_range_set.exit.i = load ptr, ptr %p.0.in.sroa.speculated67.i, align 8
   %tobool59.not.i = icmp eq ptr %p.0.in.sroa.speculate.load.sort_and_merge_range_set.exit.i, null

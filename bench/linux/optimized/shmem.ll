@@ -1485,12 +1485,12 @@ define dso_local i32 @shmem_get_folio(ptr noundef %0, i64 noundef %1, ptr nocapt
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 64
   %8 = load i32, ptr %7, align 8
-  %9 = tail call fastcc i32 @shmem_get_folio_gfp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %8, ptr noundef null)
+  %9 = tail call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %8, ptr noundef null)
   ret i32 %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @shmem_get_folio_gfp(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   %8 = icmp ugt i64 %1, 2251799813685247
@@ -2478,7 +2478,7 @@ define internal i32 @shmem_write_begin(ptr nocapture readnone %0, ptr nocapture 
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 64
   %30 = load i32, ptr %29, align 8
-  %31 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %8, i64 noundef %9, ptr noundef nonnull %7, i32 noundef 3, i32 noundef %30, ptr noundef null)
+  %31 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %8, i64 noundef %9, ptr noundef nonnull %7, i32 noundef 3, i32 noundef %30, ptr noundef null)
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %47
 
@@ -2987,7 +2987,7 @@ define dso_local ptr @shmem_read_folio_gfp(ptr nocapture noundef readonly %0, i6
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8, !annotation !7
-  %11 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %5, i64 noundef %1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef %2, ptr noundef null)
+  %11 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %5, i64 noundef %1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef %2, ptr noundef null)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %16, label %13
 
@@ -3027,7 +3027,7 @@ define dso_local ptr @shmem_read_mapping_page_gfp(ptr nocapture noundef readonly
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8, !annotation !7
-  %11 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %5, i64 noundef %1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef %2, ptr noundef null)
+  %11 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %5, i64 noundef %1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef %2, ptr noundef null)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %16, label %13
 
@@ -3178,7 +3178,7 @@ define internal fastcc ptr @shmem_get_partial_folio(ptr noundef %0, i64 noundef 
   %30 = load ptr, ptr %4, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 64
   %32 = load i32, ptr %31, align 8
-  %33 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %32, ptr noundef null)
+  %33 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %32, ptr noundef null)
   %34 = load ptr, ptr %3, align 8
   br label %35
 
@@ -4038,7 +4038,7 @@ define internal i32 @shmem_fault(ptr nocapture noundef %0) #1 align 16 {
 24:                                               ; preds = %23, %19
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
-  %27 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %8, i64 noundef %26, ptr noundef nonnull %2, i32 noundef 2, i32 noundef %12, ptr noundef nonnull %3)
+  %27 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %8, i64 noundef %26, ptr noundef nonnull %2, i32 noundef 2, i32 noundef %12, ptr noundef nonnull %3)
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %34, label %29
 
@@ -6929,7 +6929,7 @@ define internal i64 @shmem_file_read_iter(ptr nocapture noundef %0, ptr noundef 
   %31 = load ptr, ptr %7, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 64
   %33 = load i32, ptr %32, align 8
-  %34 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %6, i64 noundef %25, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %33, ptr noundef null)
+  %34 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %6, i64 noundef %25, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %33, ptr noundef null)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %40, label %36
 
@@ -7278,7 +7278,7 @@ define internal i64 @shmem_file_splice_read(ptr noundef %0, ptr nocapture nounde
   %38 = load ptr, ptr %9, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 64
   %40 = load i32, ptr %39, align 8
-  %41 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %8, i64 noundef %37, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %40, ptr noundef null)
+  %41 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %8, i64 noundef %37, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %40, ptr noundef null)
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.loopexit
 
@@ -7629,7 +7629,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @shmem_fallocate(ptr noun
   %114 = load ptr, ptr %96, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 64
   %116 = load i32, ptr %115, align 8
-  %117 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %9, i64 noundef %102, ptr noundef nonnull %7, i32 noundef 4, i32 noundef %116, ptr noundef null)
+  %117 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %9, i64 noundef %102, ptr noundef nonnull %7, i32 noundef 4, i32 noundef %116, ptr noundef null)
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %124, label %.critedge.thread
 
@@ -8056,7 +8056,7 @@ define internal i32 @shmem_symlink(ptr noundef %0, ptr noundef %1, ptr noundef %
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 64
   %41 = load i32, ptr %40, align 8
-  %42 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %14, i64 noundef 0, ptr noundef nonnull %5, i32 noundef 3, i32 noundef %41, ptr noundef null)
+  %42 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %14, i64 noundef 0, ptr noundef nonnull %5, i32 noundef 3, i32 noundef %41, ptr noundef null)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %75
 
@@ -8578,7 +8578,7 @@ define internal ptr @shmem_get_link(ptr noundef readnone %0, ptr noundef %1, ptr
 22:                                               ; preds = %3
   %23 = getelementptr inbounds i8, ptr %7, i64 64
   %24 = load i32, ptr %23, align 8
-  %25 = call fastcc i32 @shmem_get_folio_gfp(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %24, ptr noundef null)
+  %25 = call fastcc i32 @shmem_get_folio_gfp.argprom(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %24, ptr noundef null)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %30, label %27
 

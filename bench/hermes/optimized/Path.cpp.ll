@@ -7098,23 +7098,23 @@ if.end:                                           ; preds = %entry
   %Vfs.val = load i64, ptr %Vfs, align 8
   %conv.i = trunc i64 %Vfs.val to i32
   switch i32 %conv.i, label %sw.default.i [
-    i32 26985, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit
-    i32 20859, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit
-    i32 -11317950, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit
+    i32 26985, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit
+    i32 20859, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit
+    i32 -11317950, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit
   ]
 
 sw.default.i:                                     ; preds = %if.end
-  br label %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit
+  br label %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit
 
-_ZN4llvh3sys2fsL13is_local_implER6statfs.exit:    ; preds = %if.end, %if.end, %if.end, %sw.default.i
+_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit: ; preds = %if.end, %if.end, %if.end, %sw.default.i
   %retval.0.i = phi i8 [ 1, %sw.default.i ], [ 0, %if.end ], [ 0, %if.end ], [ 0, %if.end ]
   store i8 %retval.0.i, ptr %Result, align 1
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
   br label %return
 
-return:                                           ; preds = %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit, %if.then
-  %retval.sroa.3.0 = phi ptr [ %call.i, %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit ], [ %call3, %if.then ]
-  %retval.sroa.0.0 = phi i32 [ 0, %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit ], [ %0, %if.then ]
+return:                                           ; preds = %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit, %if.then
+  %retval.sroa.3.0 = phi ptr [ %call.i, %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit ], [ %call3, %if.then ]
+  %retval.sroa.0.0 = phi i32 [ 0, %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit ], [ %0, %if.then ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -7138,23 +7138,23 @@ if.end:                                           ; preds = %entry
   %Vfs.val = load i64, ptr %Vfs, align 8
   %conv.i = trunc i64 %Vfs.val to i32
   switch i32 %conv.i, label %sw.default.i [
-    i32 26985, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit
-    i32 20859, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit
-    i32 -11317950, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit
+    i32 26985, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit
+    i32 20859, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit
+    i32 -11317950, label %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit
   ]
 
 sw.default.i:                                     ; preds = %if.end
-  br label %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit
+  br label %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit
 
-_ZN4llvh3sys2fsL13is_local_implER6statfs.exit:    ; preds = %if.end, %if.end, %if.end, %sw.default.i
+_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit: ; preds = %if.end, %if.end, %if.end, %sw.default.i
   %retval.0.i = phi i8 [ 1, %sw.default.i ], [ 0, %if.end ], [ 0, %if.end ], [ 0, %if.end ]
   store i8 %retval.0.i, ptr %Result, align 1
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
   br label %return
 
-return:                                           ; preds = %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit, %if.then
-  %retval.sroa.3.0 = phi ptr [ %call.i, %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit ], [ %call2, %if.then ]
-  %retval.sroa.0.0 = phi i32 [ 0, %_ZN4llvh3sys2fsL13is_local_implER6statfs.exit ], [ %0, %if.then ]
+return:                                           ; preds = %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit, %if.then
+  %retval.sroa.3.0 = phi ptr [ %call.i, %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit ], [ %call2, %if.then ]
+  %retval.sroa.0.0 = phi i32 [ 0, %_ZN4llvh3sys2fsL13is_local_implER6statfs.argprom.exit ], [ %0, %if.then ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -8030,16 +8030,16 @@ if.end:                                           ; preds = %if.then7, %land.lhs
   %and.i.i = and i32 %shl.i, 61440
   %9 = add nsw i32 %and.i.i, -4096
   %10 = icmp ult i32 %9, 49152
-  br i1 %10, label %switch.lookup, label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit
+  br i1 %10, label %switch.lookup, label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.argprom.exit
 
 switch.lookup:                                    ; preds = %if.end
   %11 = lshr exact i32 %9, 12
   %12 = zext nneg i32 %11 to i64
   %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit
+  br label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.argprom.exit
 
-_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit:       ; preds = %if.end, %switch.lookup
+_ZN4llvh3sys2fsL10direntTypeEP6dirent.argprom.exit: ; preds = %if.end, %switch.lookup
   %retval.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 9, %if.end ]
   %Perms.i = getelementptr inbounds i8, ptr %agg.tmp, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 40, i1 false)
@@ -8077,9 +8077,9 @@ _ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit: ;
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i)
   br label %return
 
-return:                                           ; preds = %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit, %if.then23, %if.then
-  %retval.sroa.5.0 = phi ptr [ %call.i4.i, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %7, %if.then23 ], [ %call.i10, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ], [ %call5, %if.then ]
-  %retval.sroa.0.0 = phi i32 [ 0, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %6, %if.then23 ], [ 0, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ], [ %2, %if.then ]
+return:                                           ; preds = %_ZN4llvh3sys2fsL10direntTypeEP6dirent.argprom.exit, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit, %if.then23, %if.then
+  %retval.sroa.5.0 = phi ptr [ %call.i4.i, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %7, %if.then23 ], [ %call.i10, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.argprom.exit ], [ %call5, %if.then ]
+  %retval.sroa.0.0 = phi i32 [ 0, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %6, %if.then23 ], [ 0, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.argprom.exit ], [ %2, %if.then ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.5.0, 1
   ret { i32, ptr } %.fca.1.insert

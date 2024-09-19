@@ -13393,34 +13393,34 @@ entry:
 
 cond.true.i.i.i.i.i:                              ; preds = %entry
   %cmp8.i.i.i.i.i = icmp slt i64 %call.fca.0.extract.i.i, %x.val
-  br i1 %cmp8.i.i.i.i.i, label %if.end.i, label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.exit"
+  br i1 %cmp8.i.i.i.i.i, label %if.end.i, label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.argprom.exit"
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   %cmp12.i.i.i.i.i = icmp eq i64 %x.val, -9223372036854775808
-  br i1 %cmp12.i.i.i.i.i, label %cond.true13.i.i.i.i.i, label %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.exit.i"
+  br i1 %cmp12.i.i.i.i.i, label %cond.true13.i.i.i.i.i, label %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.argprom.exit.i"
 
 cond.true13.i.i.i.i.i:                            ; preds = %cond.false.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %call.fca.1.extract.i.i, 1
   %add18.i.i.i.i.i = add i32 %x.val1, 1
   %cmp19.i.i.i.i.i = icmp ult i32 %add.i.i.i.i.i, %add18.i.i.i.i.i
-  br i1 %cmp19.i.i.i.i.i, label %if.end.i, label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.exit"
+  br i1 %cmp19.i.i.i.i.i, label %if.end.i, label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.argprom.exit"
 
-"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.exit.i": ; preds = %cond.false.i.i.i.i.i
+"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.argprom.exit.i": ; preds = %cond.false.i.i.i.i.i
   %cmp25.i.i.i.i.i = icmp ult i32 %call.fca.1.extract.i.i, %x.val1
-  br i1 %cmp25.i.i.i.i.i, label %if.end.i, label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.exit"
+  br i1 %cmp25.i.i.i.i.i, label %if.end.i, label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.argprom.exit"
 
-if.end.i:                                         ; preds = %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.exit.i", %cond.true13.i.i.i.i.i, %cond.true.i.i.i.i.i
+if.end.i:                                         ; preds = %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.argprom.exit.i", %cond.true13.i.i.i.i.i, %cond.true.i.i.i.i.i
   %stream_.i.i = getelementptr inbounds i8, ptr %listener, i64 8
   %1 = load ptr, ptr %stream_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %call.i1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.39)
-  br label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.exit"
+  br label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.argprom.exit"
 
-"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.exit": ; preds = %cond.true.i.i.i.i.i, %cond.true13.i.i.i.i.i, %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.exit.i", %if.end.i, %if.then.i.i
-  %lnot.i.i.i = phi i1 [ true, %cond.true.i.i.i.i.i ], [ false, %if.then.i.i ], [ false, %if.end.i ], [ true, %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.exit.i" ], [ true, %cond.true13.i.i.i.i.i ]
+"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.argprom.exit": ; preds = %cond.true.i.i.i.i.i, %cond.true13.i.i.i.i.i, %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.argprom.exit.i", %if.end.i, %if.then.i.i
+  %lnot.i.i.i = phi i1 [ true, %cond.true.i.i.i.i.i ], [ false, %if.then.i.i ], [ false, %if.end.i ], [ true, %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.argprom.exit.i" ], [ true, %cond.true13.i.i.i.i.i ]
   ret i1 %lnot.i.i.i
 }
 
@@ -15773,20 +15773,20 @@ attributes #25 = { nounwind willreturn memory(read, argmem: readwrite) }
 !87 = !{!85, !82, !79, !76}
 !88 = !{!85, !82, !79, !76, !71, !68, !65, !62, !59}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN7testing15SafeMatcherCastIRKN4absl4TimeENS_18PolymorphicMatcherINS_8internal12TrulyMatcherIZNS1_12log_internal22TimestampInMatchWindowEvE3$_0EEEEEENS_7MatcherIT_EERKT0_: %agg.result"}
-!91 = distinct !{!91, !"_ZN7testing15SafeMatcherCastIRKN4absl4TimeENS_18PolymorphicMatcherINS_8internal12TrulyMatcherIZNS1_12log_internal22TimestampInMatchWindowEvE3$_0EEEEEENS_7MatcherIT_EERKT0_"}
+!90 = distinct !{!90, !91, !"_ZN7testing15SafeMatcherCastIRKN4absl4TimeENS_18PolymorphicMatcherINS_8internal12TrulyMatcherIZNS1_12log_internal22TimestampInMatchWindowEvE3$_0EEEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!91 = distinct !{!91, !"_ZN7testing15SafeMatcherCastIRKN4absl4TimeENS_18PolymorphicMatcherINS_8internal12TrulyMatcherIZNS1_12log_internal22TimestampInMatchWindowEvE3$_0EEEEEENS_7MatcherIT_EERKT0_.argprom"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN7testing11MatcherCastIRKN4absl4TimeENS_18PolymorphicMatcherINS_8internal12TrulyMatcherIZNS1_12log_internal22TimestampInMatchWindowEvE3$_0EEEEEENS_7MatcherIT_EERKT0_: %agg.result"}
-!94 = distinct !{!94, !"_ZN7testing11MatcherCastIRKN4absl4TimeENS_18PolymorphicMatcherINS_8internal12TrulyMatcherIZNS1_12log_internal22TimestampInMatchWindowEvE3$_0EEEEEENS_7MatcherIT_EERKT0_"}
+!93 = distinct !{!93, !94, !"_ZN7testing11MatcherCastIRKN4absl4TimeENS_18PolymorphicMatcherINS_8internal12TrulyMatcherIZNS1_12log_internal22TimestampInMatchWindowEvE3$_0EEEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!94 = distinct !{!94, !"_ZN7testing11MatcherCastIRKN4absl4TimeENS_18PolymorphicMatcherINS_8internal12TrulyMatcherIZNS1_12log_internal22TimestampInMatchWindowEvE3$_0EEEEEENS_7MatcherIT_EERKT0_.argprom"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4TimeENS_18PolymorphicMatcherINS0_12TrulyMatcherIZNS2_12log_internal22TimestampInMatchWindowEvE3$_0EEEEE4CastERKSB_: %agg.result"}
-!97 = distinct !{!97, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4TimeENS_18PolymorphicMatcherINS0_12TrulyMatcherIZNS2_12log_internal22TimestampInMatchWindowEvE3$_0EEEEE4CastERKSB_"}
+!96 = distinct !{!96, !97, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4TimeENS_18PolymorphicMatcherINS0_12TrulyMatcherIZNS2_12log_internal22TimestampInMatchWindowEvE3$_0EEEEE4CastERKSB_.argprom: %agg.result"}
+!97 = distinct !{!97, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4TimeENS_18PolymorphicMatcherINS0_12TrulyMatcherIZNS2_12log_internal22TimestampInMatchWindowEvE3$_0EEEEE4CastERKSB_.argprom"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4TimeENS_18PolymorphicMatcherINS0_12TrulyMatcherIZNS2_12log_internal22TimestampInMatchWindowEvE3$_0EEEEE8CastImplILb0EEENS_7MatcherIS5_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE: %agg.result"}
-!100 = distinct !{!100, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4TimeENS_18PolymorphicMatcherINS0_12TrulyMatcherIZNS2_12log_internal22TimestampInMatchWindowEvE3$_0EEEEE8CastImplILb0EEENS_7MatcherIS5_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE"}
+!99 = distinct !{!99, !100, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4TimeENS_18PolymorphicMatcherINS0_12TrulyMatcherIZNS2_12log_internal22TimestampInMatchWindowEvE3$_0EEEEE8CastImplILb0EEENS_7MatcherIS5_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom: %agg.result"}
+!100 = distinct !{!100, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4TimeENS_18PolymorphicMatcherINS0_12TrulyMatcherIZNS2_12log_internal22TimestampInMatchWindowEvE3$_0EEEEE8CastImplILb0EEENS_7MatcherIS5_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom"}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0EEEcvNS_7MatcherIT_EEIRKNS3_4TimeEEEv: %agg.result"}
-!103 = distinct !{!103, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0EEEcvNS_7MatcherIT_EEIRKNS3_4TimeEEEv"}
+!102 = distinct !{!102, !103, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0EEEcvNS_7MatcherIT_EEIRKNS3_4TimeEEEv.argprom: %agg.result"}
+!103 = distinct !{!103, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0EEEcvNS_7MatcherIT_EEIRKNS3_4TimeEEEv.argprom"}
 !104 = !{!102, !99, !96, !93, !90, !71, !68, !65, !62, !59}
 !105 = !{!102, !99, !96, !93, !90}
 !106 = !{!71, !68, !65, !62}

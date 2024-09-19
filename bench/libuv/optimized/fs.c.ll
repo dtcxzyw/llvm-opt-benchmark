@@ -1096,7 +1096,7 @@ sw.bb79:                                          ; preds = %do.body
   %nentries.i = getelementptr inbounds i8, ptr %add.ptr.val69, i64 8
   %120 = load i64, ptr %nentries.i, align 8
   %cmp1315.not.i = icmp eq i64 %120, 0
-  br i1 %cmp1315.not.i, label %uv__fs_readdir.exit, label %while.body.lr.ph.lr.ph.i
+  br i1 %cmp1315.not.i, label %uv__fs_readdir.argprom.exit, label %while.body.lr.ph.lr.ph.i
 
 while.body.lr.ph.lr.ph.i:                         ; preds = %sw.bb79
   %dir2.i204 = getelementptr inbounds i8, ptr %add.ptr.val69, i64 48
@@ -1117,7 +1117,7 @@ while.body.i:                                     ; preds = %if.then19.i, %while
 if.then.i213:                                     ; preds = %while.body.i
   %122 = load i32, ptr %call, align 4
   %cmp7.not.i = icmp eq i32 %122, 0
-  br i1 %cmp7.not.i, label %uv__fs_readdir.exit, label %error.i211
+  br i1 %cmp7.not.i, label %uv__fs_readdir.argprom.exit, label %error.i211
 
 if.end10.i:                                       ; preds = %while.body.i
   %d_name.i = getelementptr inbounds i8, ptr %call3.i205, i64 19
@@ -1142,7 +1142,7 @@ lor.lhs.false.tail.i:                             ; preds = %if.end10.tail.i
 if.then19.i:                                      ; preds = %if.end10.tail.i, %lor.lhs.false.tail.i
   %129 = load i64, ptr %nentries.i, align 8
   %cmp.i212 = icmp ugt i64 %129, %conv17.i
-  br i1 %cmp.i212, label %while.body.i, label %uv__fs_readdir.exit
+  br i1 %cmp.i212, label %while.body.i, label %uv__fs_readdir.argprom.exit
 
 if.end20.i:                                       ; preds = %if.end10.tail.i, %lor.lhs.false.tail.i, %if.end10.i
   %d_name.i.le = getelementptr inbounds i8, ptr %call3.i205, i64 19
@@ -1161,11 +1161,11 @@ if.end28.i:                                       ; preds = %if.end20.i
   %conv.i209 = zext i32 %inc.i to i64
   %131 = load i64, ptr %nentries.i, align 8
   %cmp13.i = icmp ugt i64 %131, %conv.i209
-  br i1 %cmp13.i, label %while.body.lr.ph.i, label %uv__fs_readdir.exit
+  br i1 %cmp13.i, label %while.body.lr.ph.i, label %uv__fs_readdir.argprom.exit
 
 error.i211:                                       ; preds = %if.end20.i, %if.then.i213
   %cmp3019.not.i = icmp eq i32 %dirent_idx.0.ph16.i, 0
-  br i1 %cmp3019.not.i, label %uv__fs_readdir.exit, label %for.body.preheader.i
+  br i1 %cmp3019.not.i, label %uv__fs_readdir.argprom.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %error.i211
   %wide.trip.count.i = zext i32 %dirent_idx.0.ph16.i to i64
@@ -1182,9 +1182,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store ptr null, ptr %arrayidx38.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %for.body.i
+  br i1 %exitcond.not.i, label %uv__fs_readdir.argprom.exit, label %for.body.i
 
-uv__fs_readdir.exit:                              ; preds = %if.end28.i, %for.body.i, %if.then19.i, %sw.bb79, %if.then.i213, %error.i211
+uv__fs_readdir.argprom.exit:                      ; preds = %if.end28.i, %for.body.i, %if.then19.i, %sw.bb79, %if.then.i213, %error.i211
   %retval.0.i210 = phi i32 [ %dirent_idx.0.ph16.i, %if.then.i213 ], [ -1, %error.i211 ], [ 0, %sw.bb79 ], [ %dirent_idx.0.ph16.i, %if.then19.i ], [ -1, %for.body.i ], [ %inc.i, %if.end28.i ]
   %conv81 = sext i32 %retval.0.i210 to i64
   br label %do.cond
@@ -1884,8 +1884,8 @@ if.end.thread458:                                 ; preds = %sw.bb87, %if.end14.
   store i64 0, ptr %result130460, align 8
   br label %land.lhs.true133
 
-do.cond:                                          ; preds = %sw.bb, %sw.bb5, %sw.bb9, %uv__fs_close.exit, %uv__fs_copyfile.exit, %sw.bb18, %sw.bb23, %sw.bb29, %sw.bb35, %uv__fs_fstat.exit, %sw.bb41, %sw.bb43, %sw.bb47, %sw.bb49, %uv__fs_lstat.exit, %sw.bb56, %sw.bb60, %sw.bb65, %uv__fs_mkstemp.exit, %sw.bb70, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.exit, %sw.bb89, %sw.bb94, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %sw.bb108, %sw.bb113, %sw.bb117, %uv__fs_write_all.exit
-  %r.0 = phi i64 [ %total.1.i, %uv__fs_write_all.exit ], [ %conv.i352, %sw.bb117 ], [ %conv116, %sw.bb113 ], [ %conv112, %sw.bb108 ], [ %retval.0.i309, %uv__fs_statfs.exit ], [ %conv104, %uv__fs_stat.exit ], [ %retval.0.i247, %uv__fs_sendfile.exit ], [ %conv97, %sw.bb94 ], [ %conv93, %sw.bb89 ], [ %conv81, %uv__fs_readdir.exit ], [ %retval.0.i202, %uv__fs_opendir.exit ], [ %retval.0.i195, %uv__fs_scandir.exit ], [ %r.0.i, %uv__fs_read.exit ], [ %conv.i187, %sw.bb70 ], [ %conv69, %uv__fs_mkstemp.exit ], [ %conv.i172, %sw.bb65 ], [ %conv64, %sw.bb60 ], [ %conv59, %sw.bb56 ], [ %conv55, %uv__fs_lstat.exit ], [ %conv.i118, %sw.bb49 ], [ %conv.i81, %sw.bb47 ], [ %conv46, %sw.bb43 ], [ %conv.i79, %sw.bb41 ], [ %conv40, %uv__fs_fstat.exit ], [ %conv.i75, %sw.bb35 ], [ %conv34, %sw.bb29 ], [ %conv28, %sw.bb23 ], [ %conv22, %sw.bb18 ], [ %retval.0.i, %uv__fs_copyfile.exit ], [ %conv15, %uv__fs_close.exit ], [ %conv12, %sw.bb9 ], [ %conv8, %sw.bb5 ], [ %conv, %sw.bb ]
+do.cond:                                          ; preds = %sw.bb, %sw.bb5, %sw.bb9, %uv__fs_close.exit, %uv__fs_copyfile.exit, %sw.bb18, %sw.bb23, %sw.bb29, %sw.bb35, %uv__fs_fstat.exit, %sw.bb41, %sw.bb43, %sw.bb47, %sw.bb49, %uv__fs_lstat.exit, %sw.bb56, %sw.bb60, %sw.bb65, %uv__fs_mkstemp.exit, %sw.bb70, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.argprom.exit, %sw.bb89, %sw.bb94, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %sw.bb108, %sw.bb113, %sw.bb117, %uv__fs_write_all.exit
+  %r.0 = phi i64 [ %total.1.i, %uv__fs_write_all.exit ], [ %conv.i352, %sw.bb117 ], [ %conv116, %sw.bb113 ], [ %conv112, %sw.bb108 ], [ %retval.0.i309, %uv__fs_statfs.exit ], [ %conv104, %uv__fs_stat.exit ], [ %retval.0.i247, %uv__fs_sendfile.exit ], [ %conv97, %sw.bb94 ], [ %conv93, %sw.bb89 ], [ %conv81, %uv__fs_readdir.argprom.exit ], [ %retval.0.i202, %uv__fs_opendir.exit ], [ %retval.0.i195, %uv__fs_scandir.exit ], [ %r.0.i, %uv__fs_read.exit ], [ %conv.i187, %sw.bb70 ], [ %conv69, %uv__fs_mkstemp.exit ], [ %conv.i172, %sw.bb65 ], [ %conv64, %sw.bb60 ], [ %conv59, %sw.bb56 ], [ %conv55, %uv__fs_lstat.exit ], [ %conv.i118, %sw.bb49 ], [ %conv.i81, %sw.bb47 ], [ %conv46, %sw.bb43 ], [ %conv.i79, %sw.bb41 ], [ %conv40, %uv__fs_fstat.exit ], [ %conv.i75, %sw.bb35 ], [ %conv34, %sw.bb29 ], [ %conv28, %sw.bb23 ], [ %conv22, %sw.bb18 ], [ %retval.0.i, %uv__fs_copyfile.exit ], [ %conv15, %uv__fs_close.exit ], [ %conv12, %sw.bb9 ], [ %conv8, %sw.bb5 ], [ %conv, %sw.bb ]
   %cmp121 = icmp eq i64 %r.0, -1
   br i1 %cmp121, label %land.lhs.true, label %if.end
 

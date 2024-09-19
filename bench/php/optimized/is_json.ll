@@ -122,7 +122,7 @@ json_skip_space.exit:                             ; preds = %.lr.ph.i, %json_iss
   ]
 
 22:                                               ; preds = %19
-  %23 = call fastcc i32 @json_parse_string(ptr noundef %7, ptr noundef %1)
+  %23 = call fastcc i32 @json_parse_string.argelim(ptr noundef %7, ptr noundef %1)
   br label %json_parse_const.exit
 
 24:                                               ; preds = %19
@@ -258,7 +258,7 @@ json_skip_space.exit106:                          ; preds = %.lr.ph.i102, %json_
   br i1 %.not.i50, label %67, label %json_parse_object.exit.loopexit.split.loop.exit181
 
 67:                                               ; preds = %65
-  %68 = call fastcc i32 @json_parse_string(ptr noundef %5, ptr noundef nonnull %1)
+  %68 = call fastcc i32 @json_parse_string.argelim(ptr noundef %5, ptr noundef nonnull %1)
   %.not20.i = icmp eq i32 %68, 0
   %storemerge.i49.pre.pre158 = load ptr, ptr %5, align 8
   br i1 %.not20.i, label %json_parse_object.exit, label %69
@@ -657,7 +657,7 @@ json_isspace.exit.i80:                            ; preds = %.lr.ph.i78, %.lr.ph
 declare i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @json_parse_string(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @json_parse_string.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %.lr.ph, label %json_isxdigit.exit

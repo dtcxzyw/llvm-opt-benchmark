@@ -360,7 +360,7 @@ ompi_osc_rdma_lock_acquire_exclusive.exit:        ; preds = %ompi_osc_rdma_lock_
   %170 = load i32, ptr %169, align 16
   %171 = and i32 %170, 16777216
   %.not31.i = icmp eq i32 %171, 0
-  br i1 %.not31.i, label %ompi_osc_rdma_cas_atomic.exit.thread, label %172
+  br i1 %.not31.i, label %ompi_osc_rdma_cas_atomic.argprom.exit.thread, label %172
 
 172:                                              ; preds = %.critedge.thread, %167
   %.val106 = phi ptr [ %.val105, %.critedge.thread ], [ %.val, %167 ]
@@ -399,7 +399,7 @@ ompi_osc_rdma_lock_acquire_exclusive.exit:        ; preds = %ompi_osc_rdma_lock_
 osc_rdma_accelerator_mem_copy.exit.thread.i:      ; preds = %187, %181
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  br label %ompi_osc_rdma_cas_atomic.exit.thread
+  br label %ompi_osc_rdma_cas_atomic.argprom.exit.thread
 
 188:                                              ; preds = %184, %180
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -438,7 +438,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i:      ; preds = %187, %181
 osc_rdma_accelerator_mem_copy.exit37.thread.i:    ; preds = %202, %196
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  br label %ompi_osc_rdma_cas_atomic.exit.thread
+  br label %ompi_osc_rdma_cas_atomic.argprom.exit.thread
 
 203:                                              ; preds = %199, %195
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
@@ -458,7 +458,7 @@ osc_rdma_accelerator_mem_copy.exit37.thread.i:    ; preds = %202, %196
   %214 = load i64, ptr %31, align 8
   %215 = call fastcc i32 @ompi_osc_rdma_btl_cswap(ptr noundef %.val106, i8 noundef zeroext %210, ptr noundef %212, i64 noundef %.199, ptr noundef %.097, i64 noundef %213, i64 noundef %214, i32 noundef %spec.select.i.i, ptr noundef %2)
   %216 = icmp eq i32 %215, 0
-  br i1 %216, label %217, label %ompi_osc_rdma_cas_atomic.exit.thread
+  br i1 %216, label %217, label %ompi_osc_rdma_cas_atomic.argprom.exit.thread
 
 217:                                              ; preds = %203
   br i1 %173, label %218, label %ompi_osc_rdma_lock_release_exclusive.exit.i.i
@@ -479,7 +479,7 @@ osc_rdma_accelerator_mem_copy.exit37.thread.i:    ; preds = %202, %196
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i8, ptr %.pre147.pre148, i64 64
   %230 = load ptr, ptr %229, align 8
-  %231 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %.val106, i8 noundef zeroext %226, ptr noundef %228, i64 noundef %221, ptr noundef %230, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
+  %231 = call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %.val106, i8 noundef zeroext %226, ptr noundef %228, i64 noundef %221, ptr noundef %230, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
   %.not.i.i.i = icmp eq i32 %231, 0
   br i1 %.not.i.i.i, label %ompi_osc_rdma_lock_release_exclusive.exit.i.i, label %232
 
@@ -501,29 +501,29 @@ ompi_osc_rdma_lock_release_exclusive.exit.i.i:    ; preds = %233, %224, %217
 
 238:                                              ; preds = %ompi_osc_rdma_lock_release_exclusive.exit.i.i
   %239 = atomicrmw volatile and ptr %148, i32 -9 monotonic, align 4
-  br label %ompi_osc_rdma_cas_atomic.exit
+  br label %ompi_osc_rdma_cas_atomic.argprom.exit
 
 240:                                              ; preds = %ompi_osc_rdma_lock_release_exclusive.exit.i.i
   %241 = load volatile i32, ptr %148, align 4
   %242 = and i32 %241, -9
   store volatile i32 %242, ptr %148, align 4
   %243 = load volatile i32, ptr %148, align 4
-  br label %ompi_osc_rdma_cas_atomic.exit
+  br label %ompi_osc_rdma_cas_atomic.argprom.exit
 
-ompi_osc_rdma_cas_atomic.exit.thread:             ; preds = %167, %203, %osc_rdma_accelerator_mem_copy.exit.thread.i, %osc_rdma_accelerator_mem_copy.exit37.thread.i
+ompi_osc_rdma_cas_atomic.argprom.exit.thread:     ; preds = %167, %203, %osc_rdma_accelerator_mem_copy.exit.thread.i, %osc_rdma_accelerator_mem_copy.exit37.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   %.pre147.pre = load ptr, ptr %34, align 8
   br label %.critedge57
 
-ompi_osc_rdma_cas_atomic.exit:                    ; preds = %238, %240
+ompi_osc_rdma_cas_atomic.argprom.exit:            ; preds = %238, %240
   fence seq_cst
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   br label %584
 
-.critedge57:                                      ; preds = %ompi_osc_rdma_cas_atomic.exit.thread, %ompi_osc_rdma_lock_acquire_exclusive.exit, %151, %162, %154
-  %.pre147 = phi ptr [ %.pre147.pre, %ompi_osc_rdma_cas_atomic.exit.thread ], [ %.pre147.pre148, %ompi_osc_rdma_lock_acquire_exclusive.exit ], [ %.pre147.pre148, %151 ], [ %.pre147.pre148, %162 ], [ %.pre147.pre148, %154 ]
+.critedge57:                                      ; preds = %ompi_osc_rdma_cas_atomic.argprom.exit.thread, %ompi_osc_rdma_lock_acquire_exclusive.exit, %151, %162, %154
+  %.pre147 = phi ptr [ %.pre147.pre, %ompi_osc_rdma_cas_atomic.argprom.exit.thread ], [ %.pre147.pre148, %ompi_osc_rdma_lock_acquire_exclusive.exit ], [ %.pre147.pre148, %151 ], [ %.pre147.pre148, %162 ], [ %.pre147.pre148, %154 ]
   %244 = trunc nuw i8 %.049 to i1
   br i1 %244, label %ompi_osc_rdma_lock_acquire_exclusive.exit67, label %245
 
@@ -638,11 +638,11 @@ ompi_osc_rdma_lock_acquire_exclusive.exit67:      ; preds = %ompi_osc_rdma_lock_
 
 298:                                              ; preds = %292
   %299 = icmp slt i32 %284, 0
-  br i1 %299, label %ompi_osc_rdma_cas_local.exit.thread, label %300
+  br i1 %299, label %ompi_osc_rdma_cas_local.argprom.exit.thread, label %300
 
 300:                                              ; preds = %298
   %301 = icmp slt i32 %287, 0
-  br i1 %301, label %ompi_osc_rdma_cas_local.exit.thread, label %.thread.i
+  br i1 %301, label %ompi_osc_rdma_cas_local.argprom.exit.thread, label %.thread.i
 
 302:                                              ; preds = %282
   %303 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 56), align 8
@@ -748,7 +748,7 @@ osc_rdma_accelerator_mem_copy.exit.i:             ; preds = %334, %329
   %349 = load ptr, ptr %348, align 8
   %350 = getelementptr inbounds i8, ptr %277, i64 64
   %351 = load ptr, ptr %350, align 8
-  %352 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %36, i8 noundef zeroext %347, ptr noundef %349, i64 noundef %342, ptr noundef %351, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
+  %352 = call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %36, i8 noundef zeroext %347, ptr noundef %349, i64 noundef %342, ptr noundef %351, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
   %.not.i.i.i72 = icmp eq i32 %352, 0
   br i1 %.not.i.i.i72, label %ompi_osc_rdma_lock_release_exclusive.exit.i.i69, label %353
 
@@ -795,13 +795,13 @@ ompi_osc_rdma_peer_accumulate_cleanup.exit.i70:   ; preds = %361, %359
 
 366:                                              ; preds = %.thread4.i, %365
   %.05710.i = phi i32 [ %.05711.i, %.thread4.i ], [ %.057.i, %365 ]
-  br i1 %.1.i68, label %.thread23.i, label %ompi_osc_rdma_cas_local.exit
+  br i1 %.1.i68, label %.thread23.i, label %ompi_osc_rdma_cas_local.argprom.exit
 
 .thread23.i:                                      ; preds = %366, %307
   %.0571028.i = phi i32 [ %.05710.i, %366 ], [ %311, %307 ]
   %.0511327.i = phi ptr [ %.152.i, %366 ], [ %309, %307 ]
   call void @free(ptr noundef %.0511327.i) #13
-  br label %ompi_osc_rdma_cas_local.exit
+  br label %ompi_osc_rdma_cas_local.argprom.exit
 
 367:                                              ; preds = %ompi_osc_rdma_lock_acquire_exclusive.exit67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
@@ -907,7 +907,7 @@ ompi_osc_rdma_peer_accumulate_cleanup.exit.i70:   ; preds = %361, %359
   %417 = load ptr, ptr %416, align 8
   %418 = getelementptr inbounds i8, ptr %277, i64 64
   %419 = load ptr, ptr %418, align 8
-  %420 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %369, i8 noundef zeroext %415, ptr noundef %417, i64 noundef %410, ptr noundef %419, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
+  %420 = call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %369, i8 noundef zeroext %415, ptr noundef %417, i64 noundef %410, ptr noundef %419, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
   %.not.i.i.i82 = icmp eq i32 %420, 0
   br i1 %.not.i.i.i82, label %ompi_osc_rdma_lock_release_exclusive.exit.i.i79, label %421
 
@@ -1053,7 +1053,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i88:    ; preds = %475, %470, %468
 
 490:                                              ; preds = %485
   %491 = getelementptr inbounds i8, ptr %489, i64 208
-  br label %ompi_osc_rdma_btl_put.exit.i
+  br label %ompi_osc_rdma_btl_put.argprom.exit.i
 
 492:                                              ; preds = %485
   %493 = load i8, ptr %372, align 8
@@ -1061,9 +1061,9 @@ osc_rdma_accelerator_mem_copy.exit.thread.i88:    ; preds = %475, %470, %468
   %495 = getelementptr inbounds ptr, ptr %489, i64 %494
   %496 = load ptr, ptr %495, align 8
   %497 = getelementptr inbounds i8, ptr %496, i64 64
-  br label %ompi_osc_rdma_btl_put.exit.i
+  br label %ompi_osc_rdma_btl_put.argprom.exit.i
 
-ompi_osc_rdma_btl_put.exit.i:                     ; preds = %492, %490
+ompi_osc_rdma_btl_put.argprom.exit.i:             ; preds = %492, %490
   %.sink2.i.i = phi ptr [ %497, %492 ], [ %491, %490 ]
   %.sink.i.i = phi ptr [ %496, %492 ], [ %489, %490 ]
   %498 = load ptr, ptr %.sink2.i.i, align 8
@@ -1072,11 +1072,11 @@ ompi_osc_rdma_btl_put.exit.i:                     ; preds = %492, %490
   %or.cond.i83 = icmp ult i32 %500, -2
   br i1 %or.cond.i83, label %503, label %501
 
-501:                                              ; preds = %ompi_osc_rdma_btl_put.exit.i
+501:                                              ; preds = %ompi_osc_rdma_btl_put.argprom.exit.i
   %502 = call i32 @opal_progress() #13
   br label %485
 
-503:                                              ; preds = %ompi_osc_rdma_btl_put.exit.i
+503:                                              ; preds = %ompi_osc_rdma_btl_put.argprom.exit.i
   %504 = icmp eq i32 %499, 0
   br i1 %504, label %.preheader.i, label %cas_rdma.exit
 
@@ -1144,7 +1144,7 @@ ompi_osc_rdma_frag_complete.exit.i:               ; preds = %522, %opal_thread_a
   %536 = load ptr, ptr %535, align 8
   %537 = getelementptr inbounds i8, ptr %277, i64 64
   %538 = load ptr, ptr %537, align 8
-  %539 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %369, i8 noundef zeroext %534, ptr noundef %536, i64 noundef %529, ptr noundef %538, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
+  %539 = call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %369, i8 noundef zeroext %534, ptr noundef %536, i64 noundef %529, ptr noundef %538, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
   %.not.i.i100.i = icmp eq i32 %539, 0
   br i1 %.not.i.i100.i, label %ompi_osc_rdma_lock_release_exclusive.exit.i98.i, label %540
 
@@ -1184,26 +1184,26 @@ cas_rdma.exit:                                    ; preds = %367, %385, %393, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %ompi_osc_rdma_cas_local.exit
+  br label %ompi_osc_rdma_cas_local.argprom.exit
 
-ompi_osc_rdma_cas_local.exit:                     ; preds = %.thread23.i, %366, %cas_rdma.exit
+ompi_osc_rdma_cas_local.argprom.exit:             ; preds = %.thread23.i, %366, %cas_rdma.exit
   %.048 = phi i32 [ %.080.i, %cas_rdma.exit ], [ %.0571028.i, %.thread23.i ], [ %.05710.i, %366 ]
   %.not55 = icmp eq i32 %.048, 0
-  br i1 %.not55, label %584, label %ompi_osc_rdma_cas_local.exit.ompi_osc_rdma_cas_local.exit.thread_crit_edge
+  br i1 %.not55, label %584, label %ompi_osc_rdma_cas_local.argprom.exit.ompi_osc_rdma_cas_local.argprom.exit.thread_crit_edge
 
-ompi_osc_rdma_cas_local.exit.ompi_osc_rdma_cas_local.exit.thread_crit_edge: ; preds = %ompi_osc_rdma_cas_local.exit
+ompi_osc_rdma_cas_local.argprom.exit.ompi_osc_rdma_cas_local.argprom.exit.thread_crit_edge: ; preds = %ompi_osc_rdma_cas_local.argprom.exit
   %.pre151 = trunc nuw i8 %.1 to i1
   %552 = load ptr, ptr %34, align 8
   br i1 %.pre151, label %554, label %ompi_osc_rdma_lock_release_exclusive.exit.i
 
-ompi_osc_rdma_cas_local.exit.thread:              ; preds = %300, %298
+ompi_osc_rdma_cas_local.argprom.exit.thread:      ; preds = %300, %298
   %.048110 = phi i32 [ %287, %300 ], [ %284, %298 ]
   %553 = load ptr, ptr %34, align 8
   br i1 %281, label %554, label %ompi_osc_rdma_lock_release_exclusive.exit.i
 
-554:                                              ; preds = %ompi_osc_rdma_cas_local.exit.ompi_osc_rdma_cas_local.exit.thread_crit_edge, %ompi_osc_rdma_cas_local.exit.thread
-  %555 = phi ptr [ %552, %ompi_osc_rdma_cas_local.exit.ompi_osc_rdma_cas_local.exit.thread_crit_edge ], [ %553, %ompi_osc_rdma_cas_local.exit.thread ]
-  %.048110153 = phi i32 [ %.048, %ompi_osc_rdma_cas_local.exit.ompi_osc_rdma_cas_local.exit.thread_crit_edge ], [ %.048110, %ompi_osc_rdma_cas_local.exit.thread ]
+554:                                              ; preds = %ompi_osc_rdma_cas_local.argprom.exit.ompi_osc_rdma_cas_local.argprom.exit.thread_crit_edge, %ompi_osc_rdma_cas_local.argprom.exit.thread
+  %555 = phi ptr [ %552, %ompi_osc_rdma_cas_local.argprom.exit.ompi_osc_rdma_cas_local.argprom.exit.thread_crit_edge ], [ %553, %ompi_osc_rdma_cas_local.argprom.exit.thread ]
+  %.048110153 = phi i32 [ %.048, %ompi_osc_rdma_cas_local.argprom.exit.ompi_osc_rdma_cas_local.argprom.exit.thread_crit_edge ], [ %.048110, %ompi_osc_rdma_cas_local.argprom.exit.thread ]
   %556 = getelementptr inbounds i8, ptr %555, i64 56
   %557 = load i64, ptr %556, align 8
   %558 = add i64 %557, 16
@@ -1220,7 +1220,7 @@ ompi_osc_rdma_cas_local.exit.thread:              ; preds = %300, %298
   %566 = load ptr, ptr %565, align 8
   %567 = getelementptr inbounds i8, ptr %555, i64 64
   %568 = load ptr, ptr %567, align 8
-  %569 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %36, i8 noundef zeroext %564, ptr noundef %566, i64 noundef %558, ptr noundef %568, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
+  %569 = call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %36, i8 noundef zeroext %564, ptr noundef %566, i64 noundef %558, ptr noundef %568, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
   %.not.i.i90 = icmp eq i32 %569, 0
   br i1 %.not.i.i90, label %ompi_osc_rdma_lock_release_exclusive.exit.i, label %570
 
@@ -1235,9 +1235,9 @@ ompi_osc_rdma_cas_local.exit.thread:              ; preds = %300, %298
   fence seq_cst
   br label %ompi_osc_rdma_lock_release_exclusive.exit.i
 
-ompi_osc_rdma_lock_release_exclusive.exit.i:      ; preds = %ompi_osc_rdma_cas_local.exit.ompi_osc_rdma_cas_local.exit.thread_crit_edge, %571, %562, %ompi_osc_rdma_cas_local.exit.thread
-  %574 = phi ptr [ %552, %ompi_osc_rdma_cas_local.exit.ompi_osc_rdma_cas_local.exit.thread_crit_edge ], [ %555, %571 ], [ %555, %562 ], [ %553, %ompi_osc_rdma_cas_local.exit.thread ]
-  %.048110152 = phi i32 [ %.048, %ompi_osc_rdma_cas_local.exit.ompi_osc_rdma_cas_local.exit.thread_crit_edge ], [ %.048110153, %571 ], [ %.048110153, %562 ], [ %.048110, %ompi_osc_rdma_cas_local.exit.thread ]
+ompi_osc_rdma_lock_release_exclusive.exit.i:      ; preds = %ompi_osc_rdma_cas_local.argprom.exit.ompi_osc_rdma_cas_local.argprom.exit.thread_crit_edge, %571, %562, %ompi_osc_rdma_cas_local.argprom.exit.thread
+  %574 = phi ptr [ %552, %ompi_osc_rdma_cas_local.argprom.exit.ompi_osc_rdma_cas_local.argprom.exit.thread_crit_edge ], [ %555, %571 ], [ %555, %562 ], [ %553, %ompi_osc_rdma_cas_local.argprom.exit.thread ]
+  %.048110152 = phi i32 [ %.048, %ompi_osc_rdma_cas_local.argprom.exit.ompi_osc_rdma_cas_local.argprom.exit.thread_crit_edge ], [ %.048110153, %571 ], [ %.048110153, %562 ], [ %.048110, %ompi_osc_rdma_cas_local.argprom.exit.thread ]
   %575 = getelementptr inbounds i8, ptr %574, i64 140
   %576 = load i8, ptr @opal_uses_threads, align 1
   %577 = trunc i8 %576 to i1
@@ -1258,8 +1258,8 @@ ompi_osc_rdma_peer_accumulate_cleanup.exit:       ; preds = %578, %580
   fence seq_cst
   br label %584
 
-584:                                              ; preds = %ompi_osc_rdma_cas_atomic.exit, %osc_rdma_get_remote_segment.exit.thread, %ompi_osc_rdma_cas_local.exit, %ompi_osc_rdma_peer_accumulate_cleanup.exit, %7
-  %.0 = phi i32 [ -102, %7 ], [ 0, %ompi_osc_rdma_cas_atomic.exit ], [ %.048110152, %ompi_osc_rdma_peer_accumulate_cleanup.exit ], [ 0, %ompi_osc_rdma_cas_local.exit ], [ %.0.i.ph, %osc_rdma_get_remote_segment.exit.thread ]
+584:                                              ; preds = %ompi_osc_rdma_cas_atomic.argprom.exit, %osc_rdma_get_remote_segment.exit.thread, %ompi_osc_rdma_cas_local.argprom.exit, %ompi_osc_rdma_peer_accumulate_cleanup.exit, %7
+  %.0 = phi i32 [ -102, %7 ], [ 0, %ompi_osc_rdma_cas_atomic.argprom.exit ], [ %.048110152, %ompi_osc_rdma_peer_accumulate_cleanup.exit ], [ 0, %ompi_osc_rdma_cas_local.argprom.exit ], [ %.0.i.ph, %osc_rdma_get_remote_segment.exit.thread ]
   ret i32 %.0
 }
 
@@ -1418,12 +1418,12 @@ ompi_osc_rdma_module_peer.exit28:                 ; preds = %ompi_osc_module_get
 define i32 @ompi_osc_rdma_get_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11) local_unnamed_addr #0 {
   %13 = getelementptr i8, ptr %11, i64 272
   %.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal(ptr %.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef null)
+  %14 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal.argprom(ptr %.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef null)
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_rget_accumulate_internal(ptr %.272.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef writeonly %11) unnamed_addr #0 {
+define internal fastcc i32 @ompi_osc_rdma_rget_accumulate_internal.argprom(ptr %.272.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef writeonly %11) unnamed_addr #0 {
   %13 = alloca [64 x %struct.iovec], align 16
   %14 = alloca [64 x %struct.iovec], align 16
   %15 = alloca i32, align 4
@@ -1521,7 +1521,7 @@ define internal fastcc i32 @ompi_osc_rdma_rget_accumulate_internal(ptr %.272.val
   br i1 %or.cond39, label %.thread12, label %66
 
 65:                                               ; preds = %.loopexit45
-  call fastcc void @ompi_osc_rdma_request_complete(ptr noundef nonnull %37)
+  call fastcc void @ompi_osc_rdma_request_complete.argelim(ptr noundef nonnull %37)
   br label %.thread12
 
 66:                                               ; preds = %.thread, %.loopexit45
@@ -1855,7 +1855,7 @@ ompi_osc_rdma_lock_acquire_exclusive.exit:        ; preds = %ompi_osc_rdma_lock_
 
 238:                                              ; preds = %224
   %239 = icmp eq i32 %226, 0
-  br i1 %239, label %240, label %ompi_osc_rdma_gacc_local.exit.thread26
+  br i1 %239, label %240, label %ompi_osc_rdma_gacc_local.argprom.exit.thread26
 
 240:                                              ; preds = %238
   %241 = inttoptr i64 %.15 to ptr
@@ -1887,7 +1887,7 @@ ompi_osc_rdma_lock_acquire_exclusive.exit:        ; preds = %ompi_osc_rdma_lock_
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds i8, ptr %213, i64 64
   %259 = load ptr, ptr %258, align 8
-  %260 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %.272.val, i8 noundef zeroext %255, ptr noundef %257, i64 noundef %250, ptr noundef %259, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
+  %260 = call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %.272.val, i8 noundef zeroext %255, ptr noundef %257, i64 noundef %250, ptr noundef %259, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
   %.not.i.i.i = icmp eq i32 %260, 0
   br i1 %.not.i.i.i, label %ompi_osc_rdma_lock_release_exclusive.exit.i.i, label %261
 
@@ -1921,14 +1921,14 @@ ompi_osc_rdma_lock_release_exclusive.exit.i.i:    ; preds = %262, %253, %246
 ompi_osc_rdma_peer_accumulate_cleanup.exit.i:     ; preds = %269, %267
   fence seq_cst
   %.not58.i = icmp eq i32 %.051.i, 0
-  br i1 %.not58.i, label %273, label %ompi_osc_rdma_gacc_local.exit.thread26
+  br i1 %.not58.i, label %273, label %ompi_osc_rdma_gacc_local.argprom.exit.thread26
 
 273:                                              ; preds = %ompi_osc_rdma_peer_accumulate_cleanup.exit.i
   %.not59.i = icmp eq ptr %.07511, null
   br i1 %.not59.i, label %.thread12, label %274
 
 274:                                              ; preds = %273
-  call fastcc void @ompi_osc_rdma_request_complete(ptr noundef nonnull %.07511)
+  call fastcc void @ompi_osc_rdma_request_complete.argelim(ptr noundef nonnull %.07511)
   br label %.thread12
 
 275:                                              ; preds = %ompi_osc_rdma_lock_acquire_exclusive.exit
@@ -2090,7 +2090,7 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %288,
   %phi.call.i = phi i32 [ %334, %.split.i107 ], [ %340, %.split167.i ]
   %.1165.i = phi ptr [ %3, %.split.i107 ], [ %339, %.split167.i ]
   %342 = icmp eq i32 %phi.call.i, 0
-  br i1 %342, label %ompi_osc_rdma_gacc_local.exit.thread35, label %343
+  br i1 %342, label %ompi_osc_rdma_gacc_local.argprom.exit.thread35, label %343
 
 343:                                              ; preds = %341
   br i1 %.not185.i, label %350, label %344
@@ -2122,7 +2122,7 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %288,
   %358 = sub i64 %312, %357
   %359 = call i32 @ompi_osc_base_get_primitive_type_info(ptr noundef nonnull %9, ptr noundef nonnull %23, ptr noundef nonnull %16) #13
   %.not186.i = icmp eq i32 %359, 0
-  br i1 %.not186.i, label %360, label %ompi_osc_rdma_gacc_local.exit.thread31
+  br i1 %.not186.i, label %360, label %ompi_osc_rdma_gacc_local.argprom.exit.thread31
 
 360:                                              ; preds = %.critedge.i
   %.not187.i = icmp eq ptr %.0163.i, null
@@ -2131,13 +2131,13 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %288,
 361:                                              ; preds = %360
   %362 = call i32 @ompi_osc_base_get_primitive_type_info(ptr noundef nonnull %.0163.i, ptr noundef nonnull %22, ptr noundef nonnull %15) #13
   %.not188.i = icmp eq i32 %362, 0
-  br i1 %.not188.i, label %363, label %ompi_osc_rdma_gacc_local.exit.thread31
+  br i1 %.not188.i, label %363, label %ompi_osc_rdma_gacc_local.argprom.exit.thread31
 
 363:                                              ; preds = %361
   %364 = load ptr, ptr %22, align 8
   %365 = load ptr, ptr %23, align 8
   %.not189.i = icmp eq ptr %364, %365
-  br i1 %.not189.i, label %366, label %ompi_osc_rdma_gacc_local.exit.thread31
+  br i1 %.not189.i, label %366, label %ompi_osc_rdma_gacc_local.argprom.exit.thread31
 
 366:                                              ; preds = %363
   %367 = load i32, ptr @opal_class_init_epoch, align 4
@@ -2184,7 +2184,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i102, %370
   store ptr %386, ptr %387, align 8
   %388 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %17, ptr noundef nonnull %.0163.i, i64 noundef %378, ptr noundef %.1158.i) #13
   %.not191.i = icmp eq i32 %388, 0
-  br i1 %.not191.i, label %390, label %ompi_osc_rdma_gacc_local.exit.thread31
+  br i1 %.not191.i, label %390, label %ompi_osc_rdma_gacc_local.argprom.exit.thread31
 
 .critedge205.i:                                   ; preds = %360
   %389 = getelementptr inbounds i8, ptr %13, i64 8
@@ -2242,7 +2242,7 @@ opal_obj_run_constructors.exit212.i:              ; preds = %.lr.ph.i209.i, %395
   store ptr %411, ptr %412, align 8
   %413 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %19, ptr noundef nonnull %5, i64 noundef %403, ptr noundef %.0164.i) #13
   %.not193.i = icmp eq i32 %413, 0
-  br i1 %.not193.i, label %414, label %ompi_osc_rdma_gacc_local.exit.thread31
+  br i1 %.not193.i, label %414, label %ompi_osc_rdma_gacc_local.argprom.exit.thread31
 
 414:                                              ; preds = %opal_obj_run_constructors.exit212.i, %390
   %415 = load i32, ptr @opal_class_init_epoch, align 4
@@ -2289,7 +2289,7 @@ opal_obj_run_constructors.exit217.i:              ; preds = %.lr.ph.i214.i, %418
   store ptr %434, ptr %435, align 8
   %436 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %18, ptr noundef %9, i64 noundef %68, ptr noundef %426) #13
   %.not195.i = icmp eq i32 %436, 0
-  br i1 %.not195.i, label %437, label %ompi_osc_rdma_gacc_local.exit.thread31
+  br i1 %.not195.i, label %437, label %ompi_osc_rdma_gacc_local.argprom.exit.thread31
 
 437:                                              ; preds = %opal_obj_run_constructors.exit217.i
   %438 = getelementptr inbounds i8, ptr %.0162.i, i64 208
@@ -2470,14 +2470,14 @@ opal_thread_add_fetch_32.exit._crit_edge.i:       ; preds = %opal_thread_add_fet
 
 516:                                              ; preds = %511
   %517 = atomicrmw volatile add ptr %438, i32 -1 monotonic, align 4
-  br label %ompi_osc_rdma_gacc_local.exit
+  br label %ompi_osc_rdma_gacc_local.argprom.exit
 
 518:                                              ; preds = %511
   %519 = load volatile i32, ptr %438, align 4
   %520 = add nsw i32 %519, -1
   store volatile i32 %520, ptr %438, align 4
   %521 = load volatile i32, ptr %438, align 4
-  br label %ompi_osc_rdma_gacc_local.exit
+  br label %ompi_osc_rdma_gacc_local.argprom.exit
 
 522:                                              ; preds = %opal_thread_add_fetch_32.exit.i
   %523 = call i32 @opal_progress() #13
@@ -2640,7 +2640,7 @@ opal_convertor_cleanup.exit237.i:                 ; preds = %592, %opal_obj_run_
   %600 = load ptr, ptr %599, align 8
   %601 = load ptr, ptr %600, align 8
   %.not6.i238.i = icmp eq ptr %601, null
-  br i1 %.not6.i238.i, label %ompi_osc_rdma_gacc_local.exit.thread35, label %.lr.ph.i239.i
+  br i1 %.not6.i238.i, label %ompi_osc_rdma_gacc_local.argprom.exit.thread35, label %.lr.ph.i239.i
 
 .lr.ph.i239.i:                                    ; preds = %opal_convertor_cleanup.exit237.i, %.lr.ph.i239.i
   %602 = phi ptr [ %604, %.lr.ph.i239.i ], [ %601, %opal_convertor_cleanup.exit237.i ]
@@ -2649,9 +2649,9 @@ opal_convertor_cleanup.exit237.i:                 ; preds = %592, %opal_obj_run_
   %603 = getelementptr inbounds i8, ptr %.07.i240.i, i64 8
   %604 = load ptr, ptr %603, align 8
   %.not.i241.i = icmp eq ptr %604, null
-  br i1 %.not.i241.i, label %ompi_osc_rdma_gacc_local.exit.thread35, label %.lr.ph.i239.i, !llvm.loop !15
+  br i1 %.not.i241.i, label %ompi_osc_rdma_gacc_local.argprom.exit.thread35, label %.lr.ph.i239.i, !llvm.loop !15
 
-ompi_osc_rdma_gacc_local.exit.thread31:           ; preds = %.critedge.i, %361, %363, %opal_obj_run_constructors.exit.i, %opal_obj_run_constructors.exit212.i, %opal_obj_run_constructors.exit217.i
+ompi_osc_rdma_gacc_local.argprom.exit.thread31:   ; preds = %.critedge.i, %361, %363, %opal_obj_run_constructors.exit.i, %opal_obj_run_constructors.exit212.i, %opal_obj_run_constructors.exit217.i
   %.0.i100.ph = phi i32 [ %436, %opal_obj_run_constructors.exit217.i ], [ %413, %opal_obj_run_constructors.exit212.i ], [ %388, %opal_obj_run_constructors.exit.i ], [ 3, %363 ], [ %362, %361 ], [ %359, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14)
@@ -2666,9 +2666,9 @@ ompi_osc_rdma_gacc_local.exit.thread31:           ; preds = %.critedge.i, %361, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  br label %ompi_osc_rdma_gacc_local.exit.thread26
+  br label %ompi_osc_rdma_gacc_local.argprom.exit.thread26
 
-ompi_osc_rdma_gacc_local.exit.thread35:           ; preds = %.lr.ph.i239.i, %341, %opal_convertor_cleanup.exit237.i
+ompi_osc_rdma_gacc_local.argprom.exit.thread35:   ; preds = %.lr.ph.i239.i, %341, %opal_convertor_cleanup.exit237.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
@@ -2684,7 +2684,7 @@ ompi_osc_rdma_gacc_local.exit.thread35:           ; preds = %.lr.ph.i239.i, %341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   br label %.thread12
 
-ompi_osc_rdma_gacc_local.exit:                    ; preds = %518, %516
+ompi_osc_rdma_gacc_local.argprom.exit:            ; preds = %518, %516
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
@@ -2699,13 +2699,13 @@ ompi_osc_rdma_gacc_local.exit:                    ; preds = %518, %516
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   %.not83 = icmp eq i32 %504, 0
-  br i1 %.not83, label %.thread12, label %ompi_osc_rdma_gacc_local.exit.thread26
+  br i1 %.not83, label %.thread12, label %ompi_osc_rdma_gacc_local.argprom.exit.thread26
 
-ompi_osc_rdma_gacc_local.exit.thread26:           ; preds = %ompi_osc_rdma_peer_accumulate_cleanup.exit.i, %238, %ompi_osc_rdma_gacc_local.exit.thread31, %ompi_osc_rdma_gacc_local.exit
-  %.029 = phi i32 [ %504, %ompi_osc_rdma_gacc_local.exit ], [ %.0.i100.ph, %ompi_osc_rdma_gacc_local.exit.thread31 ], [ %.051.i, %ompi_osc_rdma_peer_accumulate_cleanup.exit.i ], [ %226, %238 ]
+ompi_osc_rdma_gacc_local.argprom.exit.thread26:   ; preds = %ompi_osc_rdma_peer_accumulate_cleanup.exit.i, %238, %ompi_osc_rdma_gacc_local.argprom.exit.thread31, %ompi_osc_rdma_gacc_local.argprom.exit
+  %.029 = phi i32 [ %504, %ompi_osc_rdma_gacc_local.argprom.exit ], [ %.0.i100.ph, %ompi_osc_rdma_gacc_local.argprom.exit.thread31 ], [ %.051.i, %ompi_osc_rdma_peer_accumulate_cleanup.exit.i ], [ %226, %238 ]
   br i1 %.not, label %614, label %605
 
-605:                                              ; preds = %ompi_osc_rdma_gacc_local.exit.thread26
+605:                                              ; preds = %ompi_osc_rdma_gacc_local.argprom.exit.thread26
   store ptr @ompi_request_null, ptr %11, align 8
   %606 = getelementptr inbounds i8, ptr %.07511, i64 96
   store volatile i32 0, ptr %606, align 8
@@ -2726,7 +2726,7 @@ ompi_osc_rdma_gacc_local.exit.thread26:           ; preds = %ompi_osc_rdma_peer_
   call void @free(ptr noundef nonnull %.07511) #13
   br label %614
 
-614:                                              ; preds = %611, %ompi_osc_rdma_gacc_local.exit.thread26
+614:                                              ; preds = %611, %ompi_osc_rdma_gacc_local.argprom.exit.thread26
   %615 = load ptr, ptr %31, align 8
   br i1 %.1, label %616, label %ompi_osc_rdma_lock_release_exclusive.exit.i
 
@@ -2747,7 +2747,7 @@ ompi_osc_rdma_gacc_local.exit.thread26:           ; preds = %ompi_osc_rdma_peer_
   %627 = load ptr, ptr %626, align 8
   %628 = getelementptr inbounds i8, ptr %615, i64 64
   %629 = load ptr, ptr %628, align 8
-  %630 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %.272.val, i8 noundef zeroext %625, ptr noundef %627, i64 noundef %619, ptr noundef %629, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
+  %630 = call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %.272.val, i8 noundef zeroext %625, ptr noundef %627, i64 noundef %619, ptr noundef %629, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
   %.not.i.i110 = icmp eq i32 %630, 0
   br i1 %.not.i.i110, label %ompi_osc_rdma_lock_release_exclusive.exit.i, label %631
 
@@ -2783,8 +2783,8 @@ ompi_osc_rdma_peer_accumulate_cleanup.exit:       ; preds = %638, %640
   fence seq_cst
   br label %.thread12
 
-.thread12:                                        ; preds = %273, %274, %.thread, %ompi_osc_rdma_gacc_local.exit.thread35, %osc_rdma_get_remote_segment.exit.thread, %ompi_osc_rdma_gacc_local.exit, %ompi_osc_rdma_peer_accumulate_cleanup.exit, %65, %12
-  %.073 = phi i32 [ -102, %12 ], [ 0, %65 ], [ %.029, %ompi_osc_rdma_peer_accumulate_cleanup.exit ], [ 0, %ompi_osc_rdma_gacc_local.exit ], [ %.0.i86.ph, %osc_rdma_get_remote_segment.exit.thread ], [ 0, %ompi_osc_rdma_gacc_local.exit.thread35 ], [ 0, %.thread ], [ 0, %274 ], [ 0, %273 ]
+.thread12:                                        ; preds = %273, %274, %.thread, %ompi_osc_rdma_gacc_local.argprom.exit.thread35, %osc_rdma_get_remote_segment.exit.thread, %ompi_osc_rdma_gacc_local.argprom.exit, %ompi_osc_rdma_peer_accumulate_cleanup.exit, %65, %12
+  %.073 = phi i32 [ -102, %12 ], [ 0, %65 ], [ %.029, %ompi_osc_rdma_peer_accumulate_cleanup.exit ], [ 0, %ompi_osc_rdma_gacc_local.argprom.exit ], [ %.0.i86.ph, %osc_rdma_get_remote_segment.exit.thread ], [ 0, %ompi_osc_rdma_gacc_local.argprom.exit.thread35 ], [ 0, %.thread ], [ 0, %274 ], [ 0, %273 ]
   ret i32 %.073
 }
 
@@ -2792,7 +2792,7 @@ ompi_osc_rdma_peer_accumulate_cleanup.exit:       ; preds = %638, %640
 define i32 @ompi_osc_rdma_rget_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = getelementptr i8, ptr %11, i64 272
   %.val = load ptr, ptr %14, align 8
-  %15 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal(ptr %.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %12)
+  %15 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal.argprom(ptr %.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %12)
   ret i32 %15
 }
 
@@ -2800,7 +2800,7 @@ define i32 @ompi_osc_rdma_rget_accumulate(ptr noundef %0, i32 noundef %1, ptr no
 define i32 @ompi_osc_rdma_raccumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr i8, ptr %8, i64 272
   %.val = load ptr, ptr %11, align 8
-  %12 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal(ptr %.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %9)
+  %12 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal.argprom(ptr %.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %9)
   ret i32 %12
 }
 
@@ -2808,7 +2808,7 @@ define i32 @ompi_osc_rdma_raccumulate(ptr noundef %0, i32 noundef %1, ptr nounde
 define i32 @ompi_osc_rdma_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %8, i64 272
   %.val = load ptr, ptr %10, align 8
-  %11 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal(ptr %.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null)
+  %11 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal.argprom(ptr %.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null)
   ret i32 %11
 }
 
@@ -2816,7 +2816,7 @@ define i32 @ompi_osc_rdma_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef
 define i32 @ompi_osc_rdma_fetch_and_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %6, i64 272
   %.val = load ptr, ptr %8, align 8
-  %9 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal(ptr %.val, ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef %1, i32 noundef 1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef 1, ptr noundef %2, ptr noundef %5, ptr noundef null)
+  %9 = tail call fastcc i32 @ompi_osc_rdma_rget_accumulate_internal.argprom(ptr %.val, ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef %1, i32 noundef 1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef 1, ptr noundef %2, ptr noundef %5, ptr noundef null)
   ret i32 %9
 }
 
@@ -2922,23 +2922,23 @@ opal_thread_add_fetch_32.exit:                    ; preds = %26, %28
 
 53:                                               ; preds = %.thread
   %54 = getelementptr inbounds i8, ptr %52, i64 248
-  br label %ompi_osc_rdma_btl_atomic_cswap.exit
+  br label %ompi_osc_rdma_btl_atomic_cswap.argprom.exit
 
 55:                                               ; preds = %.thread
   %56 = getelementptr inbounds ptr, ptr %52, i64 %40
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 88
-  br label %ompi_osc_rdma_btl_atomic_cswap.exit
+  br label %ompi_osc_rdma_btl_atomic_cswap.argprom.exit
 
-ompi_osc_rdma_btl_atomic_cswap.exit:              ; preds = %53, %55
+ompi_osc_rdma_btl_atomic_cswap.argprom.exit:      ; preds = %53, %55
   %.sink2.i = phi ptr [ %58, %55 ], [ %54, %53 ]
   %.sink.i = phi ptr [ %57, %55 ], [ %52, %53 ]
   %59 = load ptr, ptr %.sink2.i, align 8
   %60 = tail call i32 %59(ptr noundef %.sink.i, ptr noundef %2, ptr noundef %47, i64 noundef %3, ptr noundef %49, ptr noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef 0, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %11, ptr noundef null) #13
   br label %61
 
-61:                                               ; preds = %ompi_osc_rdma_btl_atomic_cswap.exit, %44
-  %.2 = phi i32 [ %60, %ompi_osc_rdma_btl_atomic_cswap.exit ], [ %45, %44 ]
+61:                                               ; preds = %ompi_osc_rdma_btl_atomic_cswap.argprom.exit, %44
+  %.2 = phi i32 [ %60, %ompi_osc_rdma_btl_atomic_cswap.argprom.exit ], [ %45, %44 ]
   %62 = add i32 %.2, 1
   %63 = icmp ult i32 %62, -2
   br i1 %63, label %66, label %64
@@ -3061,7 +3061,7 @@ define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr nound
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %13 to i64
   %15 = icmp ugt i64 %11, %14
-  br i1 %15, label %_ompi_osc_rdma_register.exit, label %16
+  br i1 %15, label %_ompi_osc_rdma_register.argprom.exit, label %16
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %9, align 8
@@ -3090,10 +3090,10 @@ define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr nound
   %27 = icmp eq ptr %26, getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 464)
   br i1 %27, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %22, %opal_update_counted_pointer.exit.i.i.i
-  %28 = phi ptr [ %36, %opal_update_counted_pointer.exit.i.i.i ], [ %26, %22 ]
-  %.sroa.4.0..sroa.4.8.7.i.i.i = phi i64 [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, %opal_update_counted_pointer.exit.i.i.i ], [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, %22 ]
-  %.sroa.0.06.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i, %opal_update_counted_pointer.exit.i.i.i ], [ %23, %22 ]
+.lr.ph.i.i.i:                                     ; preds = %22, %opal_update_counted_pointer.argprom.exit.i.i.i
+  %28 = phi ptr [ %36, %opal_update_counted_pointer.argprom.exit.i.i.i ], [ %26, %22 ]
+  %.sroa.4.0..sroa.4.8.7.i.i.i = phi i64 [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, %opal_update_counted_pointer.argprom.exit.i.i.i ], [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, %22 ]
+  %.sroa.0.06.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i, %opal_update_counted_pointer.argprom.exit.i.i.i ], [ %23, %22 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load volatile ptr, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3113,9 +3113,9 @@ define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr nound
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %.sroa.4.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   %33 = cmpxchg volatile ptr %.0..0..0..0..0..0..0..0..0..0..0..0.5.i.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i.i.i acquire monotonic, align 16
   %34 = extractvalue { i128, i1 } %33, 1
-  br i1 %34, label %opal_lifo_pop_atomic.exit.i.i, label %opal_update_counted_pointer.exit.i.i.i
+  br i1 %34, label %opal_lifo_pop_atomic.argprom.exit.i.i, label %opal_update_counted_pointer.argprom.exit.i.i.i
 
-opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
+opal_update_counted_pointer.argprom.exit.i.i.i:   ; preds = %.lr.ph.i.i.i
   %35 = extractvalue { i128, i1 } %33, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %35 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %35, 64
@@ -3128,7 +3128,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %37 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 464)
   br i1 %37, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
+opal_lifo_pop_atomic.argprom.exit.i.i:            ; preds = %.lr.ph.i.i.i
   %38 = getelementptr inbounds i8, ptr %28, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -3136,9 +3136,9 @@ opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   store volatile ptr null, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
-  br label %opal_free_list_get_mt.exit.i
+  br label %opal_free_list_get_mt.argprom.exit.i
 
-.loopexit.i.i:                                    ; preds = %opal_update_counted_pointer.exit.i.i.i, %22
+.loopexit.i.i:                                    ; preds = %opal_update_counted_pointer.argprom.exit.i.i.i, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   store ptr null, ptr %8, align 8
@@ -3147,12 +3147,12 @@ opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   %41 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 432), i64 noundef %40, ptr noundef nonnull %8) #13
   %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 616)) #13
   %.pre.i.i = load ptr, ptr %8, align 8
-  br label %opal_free_list_get_mt.exit.i
+  br label %opal_free_list_get_mt.argprom.exit.i
 
-opal_free_list_get_mt.exit.i:                     ; preds = %.loopexit.i.i, %opal_lifo_pop_atomic.exit.i.i
-  %43 = phi ptr [ %28, %opal_lifo_pop_atomic.exit.i.i ], [ %.pre.i.i, %.loopexit.i.i ]
+opal_free_list_get_mt.argprom.exit.i:             ; preds = %.loopexit.i.i, %opal_lifo_pop_atomic.argprom.exit.i.i
+  %43 = phi ptr [ %28, %opal_lifo_pop_atomic.argprom.exit.i.i ], [ %.pre.i.i, %.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %opal_free_list_get.exit
+  br label %opal_free_list_get.argprom.exit
 
 44:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -3163,42 +3163,42 @@ opal_free_list_get_mt.exit.i:                     ; preds = %.loopexit.i.i, %opa
   %49 = ptrtoint ptr %48 to i64
   store volatile i64 %49, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 456), align 8
   %50 = icmp eq ptr %46, getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 464)
-  br i1 %50, label %52, label %opal_lifo_pop_st.exit.i.i
+  br i1 %50, label %52, label %opal_lifo_pop_st.argprom.exit.i.i
 
-opal_lifo_pop_st.exit.i.i:                        ; preds = %44
+opal_lifo_pop_st.argprom.exit.i.i:                ; preds = %44
   store volatile ptr null, ptr %47, align 8
   %51 = getelementptr inbounds i8, ptr %46, i64 32
   store i32 1, ptr %51, align 8
-  br label %opal_free_list_get_st.exit.i
+  br label %opal_free_list_get_st.argprom.exit.i
 
 52:                                               ; preds = %44
   store ptr null, ptr %5, align 8
   %53 = load i64, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 528), align 16
   %54 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 432), i64 noundef %53, ptr noundef nonnull %5) #13
   %.pre.i3.i = load ptr, ptr %5, align 8
-  br label %opal_free_list_get_st.exit.i
+  br label %opal_free_list_get_st.argprom.exit.i
 
-opal_free_list_get_st.exit.i:                     ; preds = %52, %opal_lifo_pop_st.exit.i.i
-  %55 = phi ptr [ %46, %opal_lifo_pop_st.exit.i.i ], [ %.pre.i3.i, %52 ]
+opal_free_list_get_st.argprom.exit.i:             ; preds = %52, %opal_lifo_pop_st.argprom.exit.i.i
+  %55 = phi ptr [ %46, %opal_lifo_pop_st.argprom.exit.i.i ], [ %.pre.i3.i, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %opal_free_list_get.exit
+  br label %opal_free_list_get.argprom.exit
 
-opal_free_list_get.exit:                          ; preds = %opal_free_list_get_mt.exit.i, %opal_free_list_get_st.exit.i
-  %.0.i = phi ptr [ %43, %opal_free_list_get_mt.exit.i ], [ %55, %opal_free_list_get_st.exit.i ]
+opal_free_list_get.argprom.exit:                  ; preds = %opal_free_list_get_mt.argprom.exit.i, %opal_free_list_get_st.argprom.exit.i
+  %.0.i = phi ptr [ %43, %opal_free_list_get_mt.argprom.exit.i ], [ %55, %opal_free_list_get_st.argprom.exit.i ]
   %56 = icmp eq ptr %.0.i, null
   br i1 %56, label %57, label %63
 
-57:                                               ; preds = %opal_free_list_get.exit
+57:                                               ; preds = %opal_free_list_get.argprom.exit
   %58 = load i8, ptr @opal_uses_threads, align 1
   %59 = trunc i8 %58 to i1
-  br i1 %59, label %60, label %_ompi_osc_rdma_register.exit
+  br i1 %59, label %60, label %_ompi_osc_rdma_register.argprom.exit
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %0, i64 256
   %62 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %61) #13
-  br label %_ompi_osc_rdma_register.exit
+  br label %_ompi_osc_rdma_register.argprom.exit
 
-63:                                               ; preds = %opal_free_list_get.exit
+63:                                               ; preds = %opal_free_list_get.argprom.exit
   %64 = getelementptr inbounds i8, ptr %.0.i, i64 80
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %.0.i, i64 56
@@ -3210,7 +3210,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   %68 = getelementptr inbounds i8, ptr %0, i64 1096
   %69 = load i8, ptr %68, align 8
   %70 = trunc i8 %69 to i1
-  br i1 %70, label %71, label %_ompi_osc_rdma_register.exit.thread
+  br i1 %70, label %71, label %_ompi_osc_rdma_register.argprom.exit.thread
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds i8, ptr %.0.i, i64 48
@@ -3224,18 +3224,18 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   %80 = call ptr %79(ptr noundef %77, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %73, i64 noundef %75, i32 noundef 15) #13
   store ptr %80, ptr %64, align 8
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %_ompi_osc_rdma_register.exit, label %_ompi_osc_rdma_register.exit.thread
+  br i1 %81, label %_ompi_osc_rdma_register.argprom.exit, label %_ompi_osc_rdma_register.argprom.exit.thread
 
-_ompi_osc_rdma_register.exit.thread:              ; preds = %71, %63
+_ompi_osc_rdma_register.argprom.exit.thread:      ; preds = %71, %63
   %82 = ptrtoint ptr %.0.i to i64
   %83 = cmpxchg volatile ptr %9, i64 0, i64 %82 acquire monotonic, align 8
   %84 = extractvalue { i64, i1 } %83, 1
   br i1 %84, label %opal_atomic_compare_exchange_strong_ptr.exit.thread, label %85
 
-85:                                               ; preds = %_ompi_osc_rdma_register.exit.thread
+85:                                               ; preds = %_ompi_osc_rdma_register.argprom.exit.thread
   %86 = load ptr, ptr %64, align 8
   %.not.i = icmp eq ptr %86, null
-  br i1 %.not.i, label %_ompi_osc_rdma_deregister.exit, label %87
+  br i1 %.not.i, label %_ompi_osc_rdma_deregister.argprom.exit, label %87
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds i8, ptr %0, i64 1080
@@ -3243,23 +3243,23 @@ _ompi_osc_rdma_register.exit.thread:              ; preds = %71, %63
   %90 = getelementptr inbounds i8, ptr %89, i64 264
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 %91(ptr noundef %89, ptr noundef nonnull %86) #13
-  br label %_ompi_osc_rdma_deregister.exit
+  br label %_ompi_osc_rdma_deregister.argprom.exit
 
-_ompi_osc_rdma_deregister.exit:                   ; preds = %85, %87
+_ompi_osc_rdma_deregister.argprom.exit:           ; preds = %85, %87
   store ptr null, ptr %64, align 8
   %93 = load i8, ptr @opal_uses_threads, align 1
   %94 = trunc i8 %93 to i1
   %95 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 456), align 8
   br i1 %94, label %96, label %108
 
-96:                                               ; preds = %_ompi_osc_rdma_deregister.exit
+96:                                               ; preds = %_ompi_osc_rdma_deregister.argprom.exit
   %97 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %.04.i.i.i = inttoptr i64 %95 to ptr
   store volatile ptr %.04.i.i.i, ptr %97, align 8
   fence release
   %98 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 456), i64 %95, i64 %82 acquire monotonic, align 8
   %99 = extractvalue { i64, i1 } %98, 1
-  br i1 %99, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
+  br i1 %99, label %opal_lifo_push_atomic.argprom.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
 opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %96, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
   %100 = phi { i64, i1 } [ %102, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ], [ %98, %96 ]
@@ -3269,22 +3269,22 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %96, %opal_atomic_
   fence release
   %102 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 456), i64 %101, i64 %82 acquire monotonic, align 8
   %103 = extractvalue { i64, i1 } %102, 1
-  br i1 %103, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
+  br i1 %103, label %opal_lifo_push_atomic.argprom.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
-opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %96
+opal_lifo_push_atomic.argprom.exit.i.i:           ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %96
   %.0.lcssa.i.i.i = phi ptr [ %.04.i.i.i, %96 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
   %104 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 464)
   %105 = load i64, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 536), align 8
   %.not.i.i = icmp eq i64 %105, 0
   %or.cond.i.i = select i1 %104, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i.i, label %opal_free_list_return.exit, label %106
+  br i1 %or.cond.i.i, label %opal_free_list_return.argprom.exit, label %106
 
-106:                                              ; preds = %opal_lifo_push_atomic.exit.i.i
+106:                                              ; preds = %opal_lifo_push_atomic.argprom.exit.i.i
   %107 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 680), align 8
   %.not.i.i.i = icmp eq i32 %107, 0
-  br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
+  br i1 %.not.i.i.i, label %opal_free_list_return.argprom.exit, label %opal_free_list_return_mt.argprom.exit.sink.split.i
 
-108:                                              ; preds = %_ompi_osc_rdma_deregister.exit
+108:                                              ; preds = %_ompi_osc_rdma_deregister.argprom.exit
   %109 = inttoptr i64 %95 to ptr
   %110 = getelementptr inbounds i8, ptr %.0.i, i64 16
   store volatile ptr %109, ptr %110, align 8
@@ -3296,25 +3296,25 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %114 = load i64, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 536), align 8
   %.not.i4.i = icmp eq i64 %114, 0
   %or.cond.i5.i = select i1 %113, i1 true, i1 %.not.i4.i
-  br i1 %or.cond.i5.i, label %opal_free_list_return.exit, label %115
+  br i1 %or.cond.i5.i, label %opal_free_list_return.argprom.exit, label %115
 
 115:                                              ; preds = %108
   %116 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 680), align 8
   %.not.i.i6.i = icmp eq i32 %116, 0
-  br i1 %.not.i.i6.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
+  br i1 %.not.i.i6.i, label %opal_free_list_return.argprom.exit, label %opal_free_list_return_mt.argprom.exit.sink.split.i
 
-opal_free_list_return_mt.exit.sink.split.i:       ; preds = %115, %106
+opal_free_list_return_mt.argprom.exit.sink.split.i: ; preds = %115, %106
   %117 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 684), align 4
   %118 = add nsw i32 %117, 1
   store volatile i32 %118, ptr getelementptr inbounds (i8, ptr @mca_osc_rdma_component, i64 684), align 4
-  br label %opal_free_list_return.exit
+  br label %opal_free_list_return.argprom.exit
 
-opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %106, %108, %115, %opal_free_list_return_mt.exit.sink.split.i
+opal_free_list_return.argprom.exit:               ; preds = %opal_lifo_push_atomic.argprom.exit.i.i, %106, %108, %115, %opal_free_list_return_mt.argprom.exit.sink.split.i
   %119 = load ptr, ptr %9, align 8
   br label %opal_atomic_compare_exchange_strong_ptr.exit.thread
 
-opal_atomic_compare_exchange_strong_ptr.exit.thread: ; preds = %_ompi_osc_rdma_register.exit.thread, %opal_free_list_return.exit, %16
-  %.037 = phi ptr [ %119, %opal_free_list_return.exit ], [ %17, %16 ], [ %.0.i, %_ompi_osc_rdma_register.exit.thread ]
+opal_atomic_compare_exchange_strong_ptr.exit.thread: ; preds = %_ompi_osc_rdma_register.argprom.exit.thread, %opal_free_list_return.argprom.exit, %16
+  %.037 = phi ptr [ %119, %opal_free_list_return.argprom.exit ], [ %17, %16 ], [ %.0.i, %_ompi_osc_rdma_register.argprom.exit.thread ]
   %120 = getelementptr inbounds i8, ptr %.037, i64 56
   %121 = load i8, ptr @opal_uses_threads, align 1
   %122 = trunc i8 %121 to i1
@@ -3391,13 +3391,13 @@ ompi_osc_rdma_frag_complete.exit:                 ; preds = %145, %opal_thread_a
 opal_thread_add_fetch_32.exit.i45:                ; preds = %153, %150
   %.0.i.i46 = phi i32 [ %152, %150 ], [ %156, %153 ]
   %157 = icmp eq i32 %.0.i.i46, 0
-  br i1 %157, label %158, label %_ompi_osc_rdma_register.exit
+  br i1 %157, label %158, label %_ompi_osc_rdma_register.argprom.exit
 
 158:                                              ; preds = %opal_thread_add_fetch_32.exit.i45
   fence acquire
   %159 = atomicrmw volatile xchg ptr %120, i32 1 monotonic, align 4
   %160 = atomicrmw volatile xchg ptr %129, i64 0 monotonic, align 8
-  br label %_ompi_osc_rdma_register.exit
+  br label %_ompi_osc_rdma_register.argprom.exit
 
 161:                                              ; preds = %opal_thread_add_fetch_32.exit
   %162 = getelementptr inbounds i8, ptr %.037, i64 48
@@ -3407,9 +3407,9 @@ opal_thread_add_fetch_32.exit.i45:                ; preds = %153, %150
   %166 = inttoptr i64 %165 to ptr
   store ptr %166, ptr %3, align 8
   store ptr %.037, ptr %2, align 8
-  br label %_ompi_osc_rdma_register.exit
+  br label %_ompi_osc_rdma_register.argprom.exit
 
-_ompi_osc_rdma_register.exit:                     ; preds = %158, %opal_thread_add_fetch_32.exit.i45, %71, %60, %57, %4, %161
+_ompi_osc_rdma_register.argprom.exit:             ; preds = %158, %opal_thread_add_fetch_32.exit.i45, %71, %60, %57, %4, %161
   %.0 = phi i32 [ 0, %161 ], [ -18, %4 ], [ -2, %57 ], [ -2, %60 ], [ -2, %71 ], [ -2, %opal_thread_add_fetch_32.exit.i45 ], [ -2, %158 ]
   ret i32 %.0
 }
@@ -3474,7 +3474,7 @@ define internal void @ompi_osc_rdma_cas_put_complete(ptr nocapture readnone %0, 
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 4) %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 4) %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 1072
   %11 = load i8, ptr %10, align 16
   %12 = trunc i8 %11 to i1
@@ -3490,7 +3490,7 @@ define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op(ptr noundef %0,
   br i1 %.not, label %18, label %20
 
 18:                                               ; preds = %9, %13
-  %19 = tail call fastcc i32 @ompi_osc_rdma_btl_fop(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef null, i1 noundef zeroext %8)
+  %19 = tail call fastcc i32 @ompi_osc_rdma_btl_fop.argprom(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef null, i1 noundef zeroext %8)
   br label %112
 
 20:                                               ; preds = %13
@@ -3561,16 +3561,16 @@ opal_thread_add_fetch_32.exit:                    ; preds = %37, %39
 49:                                               ; preds = %62, %47
   %50 = load i8, ptr %10, align 16
   %51 = trunc i8 %50 to i1
-  br i1 %51, label %ompi_osc_rdma_btl_atomic_op.exit, label %52
+  br i1 %51, label %ompi_osc_rdma_btl_atomic_op.argprom.exit, label %52
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %14, align 8
   %54 = getelementptr inbounds ptr, ptr %53, i64 %48
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
-  br label %ompi_osc_rdma_btl_atomic_op.exit
+  br label %ompi_osc_rdma_btl_atomic_op.argprom.exit
 
-ompi_osc_rdma_btl_atomic_op.exit:                 ; preds = %49, %52
+ompi_osc_rdma_btl_atomic_op.argprom.exit:         ; preds = %49, %52
   %.0.in.i = phi ptr [ %56, %52 ], [ %14, %49 ]
   %.0.i77 = load ptr, ptr %.0.in.i, align 8
   %57 = getelementptr inbounds i8, ptr %.0.i77, i64 232
@@ -3580,11 +3580,11 @@ ompi_osc_rdma_btl_atomic_op.exit:                 ; preds = %49, %52
   %61 = icmp ult i32 %60, -2
   br i1 %61, label %64, label %62
 
-62:                                               ; preds = %ompi_osc_rdma_btl_atomic_op.exit
+62:                                               ; preds = %ompi_osc_rdma_btl_atomic_op.argprom.exit
   %63 = tail call i32 @opal_progress() #13
   br label %49
 
-64:                                               ; preds = %ompi_osc_rdma_btl_atomic_op.exit
+64:                                               ; preds = %ompi_osc_rdma_btl_atomic_op.argprom.exit
   %.not76 = icmp eq i32 %59, 0
   br i1 %.not76, label %86, label %65
 
@@ -3704,7 +3704,7 @@ opal_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %104
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 4) %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop.argprom(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 4) %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 1072
   %12 = load i8, ptr %11, align 16
   %13 = trunc i8 %12 to i1
@@ -3819,23 +3819,23 @@ opal_thread_add_fetch_32.exit:                    ; preds = %47, %49
 
 69:                                               ; preds = %.thread
   %70 = getelementptr inbounds i8, ptr %68, i64 240
-  br label %ompi_osc_rdma_btl_atomic_fop.exit
+  br label %ompi_osc_rdma_btl_atomic_fop.argprom.exit
 
 71:                                               ; preds = %.thread
   %72 = getelementptr inbounds ptr, ptr %68, i64 %56
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 80
-  br label %ompi_osc_rdma_btl_atomic_fop.exit
+  br label %ompi_osc_rdma_btl_atomic_fop.argprom.exit
 
-ompi_osc_rdma_btl_atomic_fop.exit:                ; preds = %69, %71
+ompi_osc_rdma_btl_atomic_fop.argprom.exit:        ; preds = %69, %71
   %.sink2.i = phi ptr [ %74, %71 ], [ %70, %69 ]
   %.sink.i = phi ptr [ %73, %71 ], [ %68, %69 ]
   %75 = load ptr, ptr %.sink2.i, align 8
   %76 = tail call i32 %75(ptr noundef %.sink.i, ptr noundef %2, ptr noundef %63, i64 noundef %3, ptr noundef %65, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %23, ptr noundef null) #13
   br label %77
 
-77:                                               ; preds = %ompi_osc_rdma_btl_atomic_fop.exit, %60
-  %.2 = phi i32 [ %76, %ompi_osc_rdma_btl_atomic_fop.exit ], [ %61, %60 ]
+77:                                               ; preds = %ompi_osc_rdma_btl_atomic_fop.argprom.exit, %60
+  %.2 = phi i32 [ %76, %ompi_osc_rdma_btl_atomic_fop.argprom.exit ], [ %61, %60 ]
   %78 = add i32 %.2, 1
   %79 = icmp ult i32 %78, -2
   br i1 %79, label %82, label %80
@@ -3950,7 +3950,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %118
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_osc_rdma_request_complete(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @ompi_osc_rdma_request_complete.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 168
@@ -3991,7 +3991,7 @@ opal_thread_fetch_add_32.exit:                    ; preds = %14, %16
   br i1 %19, label %20, label %ompi_osc_rdma_request_deref.exit
 
 20:                                               ; preds = %opal_thread_fetch_add_32.exit
-  tail call fastcc void @ompi_osc_rdma_request_complete(ptr noundef nonnull %3)
+  tail call fastcc void @ompi_osc_rdma_request_complete.argelim(ptr noundef nonnull %3)
   br label %ompi_osc_rdma_request_deref.exit
 
 ompi_osc_rdma_request_deref.exit:                 ; preds = %20, %opal_thread_fetch_add_32.exit, %7
@@ -4132,7 +4132,7 @@ opal_thread_fetch_add_32.exit:                    ; preds = %5, %7
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %opal_thread_fetch_add_32.exit
-  tail call fastcc void @ompi_osc_rdma_request_complete(ptr noundef %0)
+  tail call fastcc void @ompi_osc_rdma_request_complete.argelim(ptr noundef %0)
   br label %12
 
 12:                                               ; preds = %11, %opal_thread_fetch_add_32.exit
@@ -4174,7 +4174,7 @@ define internal void @ompi_osc_rdma_gacc_master_cleanup(ptr nocapture noundef re
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 64
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %3, i8 noundef zeroext %17, ptr noundef %19, i64 noundef %12, ptr noundef %21, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
+  %22 = tail call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %3, i8 noundef zeroext %17, ptr noundef %19, i64 noundef %12, ptr noundef %21, i32 noundef 1, i64 noundef -9223372036854775808, i32 noundef 0, i1 noundef zeroext false)
   %.not.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i, label %ompi_osc_rdma_lock_release_exclusive.exit.i, label %23
 
@@ -4323,7 +4323,7 @@ define internal fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef nonnull %0, pt
   %82 = and i32 %81, 16777216
   %83 = icmp ne i32 %82, 0
   %or.cond.i83.us.i = and i1 %72, %83
-  br i1 %or.cond.i83.us.i, label %84, label %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i
+  br i1 %or.cond.i83.us.i, label %84, label %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i
 
 84:                                               ; preds = %79, %78
   %85 = load i16, ptr %73, align 8
@@ -4334,20 +4334,20 @@ define internal fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef nonnull %0, pt
 87:                                               ; preds = %84
   %.old.i86.us.i = and i16 %85, 12288
   %.old3.i87.us.i = icmp eq i16 %.old.i86.us.i, 12288
-  br i1 %.old3.i87.us.i, label %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i, label %92
+  br i1 %.old3.i87.us.i, label %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i, label %92
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %.val.us.i, i64 1136
   %90 = load i32, ptr %89, align 16
   %91 = and i32 %90, 33554432
   %.not30.i.us.i = icmp eq i32 %91, 0
-  br i1 %.not30.i.us.i, label %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i, label %92
+  br i1 %.not30.i.us.i, label %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i, label %92
 
 92:                                               ; preds = %88, %87
   %.val33.i.us.i = load i32, ptr %74, align 4
   %93 = and i32 %.val33.i.us.i, 1
   %.not5.i88.us.i = icmp eq i32 %93, 0
-  br i1 %.not5.i88.us.i, label %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i, label %94
+  br i1 %.not5.i88.us.i, label %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i, label %94
 
 94:                                               ; preds = %92
   %95 = load i32, ptr %75, align 8
@@ -4357,7 +4357,7 @@ define internal fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef nonnull %0, pt
   %99 = shl nuw i64 1, %96
   %100 = and i64 %99, 22545
   %.not31.i.us.i = icmp eq i64 %100, 0
-  br i1 %.not31.i.us.i, label %101, label %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i
+  br i1 %.not31.i.us.i, label %101, label %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i
 
 101:                                              ; preds = %94
   %102 = lshr i16 %85, 12
@@ -4397,7 +4397,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i92.us.i: ; preds = %118, %113, %111
   %.0.i.ph.i93.us.i = phi i32 [ %117, %118 ], [ %108, %113 ], [ %106, %111 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  br label %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i
+  br label %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i
 
 119:                                              ; preds = %101
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 1 %.06519.us.i, i64 %60, i1 false)
@@ -4409,10 +4409,10 @@ osc_rdma_accelerator_mem_copy.exit.thread.i92.us.i: ; preds = %118, %113, %111
   %121 = load i8, ptr %67, align 8
   %122 = load ptr, ptr %68, align 8
   %123 = load i64, ptr %28, align 8
-  %124 = call fastcc i32 @ompi_osc_rdma_btl_fop(ptr noundef %.val.us.i, i8 noundef zeroext %121, ptr noundef %122, i64 noundef %.07010.us.i, ptr noundef %10, i32 noundef %98, i64 noundef %123, i32 noundef %spec.select.i.i89.us.i, ptr noundef nonnull %.16814.us.i, i1 noundef zeroext true)
-  br label %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i
+  %124 = call fastcc i32 @ompi_osc_rdma_btl_fop.argprom(ptr noundef %.val.us.i, i8 noundef zeroext %121, ptr noundef %122, i64 noundef %.07010.us.i, ptr noundef %10, i32 noundef %98, i64 noundef %123, i32 noundef %spec.select.i.i89.us.i, ptr noundef nonnull %.16814.us.i, i1 noundef zeroext true)
+  br label %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i
 
-ompi_osc_rdma_fetch_and_op_atomic.exit.us.i:      ; preds = %120, %osc_rdma_accelerator_mem_copy.exit.thread.i92.us.i, %94, %92, %88, %87, %79
+ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i: ; preds = %120, %osc_rdma_accelerator_mem_copy.exit.thread.i92.us.i, %94, %92, %88, %87, %79
   %.0.i84.us.i = phi i32 [ %124, %120 ], [ -8, %94 ], [ -8, %92 ], [ -8, %87 ], [ -8, %88 ], [ -8, %79 ], [ %.0.i.ph.i93.us.i, %osc_rdma_accelerator_mem_copy.exit.thread.i92.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   br label %174
@@ -4427,7 +4427,7 @@ ompi_osc_rdma_fetch_and_op_atomic.exit.us.i:      ; preds = %120, %osc_rdma_acce
   %129 = and i32 %128, 16777216
   %130 = icmp ne i32 %129, 0
   %or.cond.i.us.i = and i1 %72, %130
-  br i1 %or.cond.i.us.i, label %131, label %ompi_osc_rdma_acc_single_atomic.exit.us.i
+  br i1 %or.cond.i.us.i, label %131, label %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i
 
 131:                                              ; preds = %126, %125
   %132 = load i16, ptr %73, align 8
@@ -4438,20 +4438,20 @@ ompi_osc_rdma_fetch_and_op_atomic.exit.us.i:      ; preds = %120, %osc_rdma_acce
 134:                                              ; preds = %131
   %.old.i.us.i = and i16 %132, 12288
   %.old3.i.us.i = icmp eq i16 %.old.i.us.i, 12288
-  br i1 %.old3.i.us.i, label %ompi_osc_rdma_acc_single_atomic.exit.us.i, label %139
+  br i1 %.old3.i.us.i, label %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i, label %139
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds i8, ptr %.val.us.i, i64 1136
   %137 = load i32, ptr %136, align 16
   %138 = and i32 %137, 33554432
   %.not28.i.us.i = icmp eq i32 %138, 0
-  br i1 %.not28.i.us.i, label %ompi_osc_rdma_acc_single_atomic.exit.us.i, label %139
+  br i1 %.not28.i.us.i, label %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i, label %139
 
 139:                                              ; preds = %135, %134
   %.val31.i.us.i = load i32, ptr %74, align 4
   %140 = and i32 %.val31.i.us.i, 1
   %.not5.i.us.i = icmp eq i32 %140, 0
-  br i1 %.not5.i.us.i, label %ompi_osc_rdma_acc_single_atomic.exit.us.i, label %141
+  br i1 %.not5.i.us.i, label %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i, label %141
 
 141:                                              ; preds = %139
   %142 = load i32, ptr %75, align 8
@@ -4459,7 +4459,7 @@ ompi_osc_rdma_fetch_and_op_atomic.exit.us.i:      ; preds = %120, %osc_rdma_acce
   %144 = shl nuw i64 1, %143
   %145 = and i64 %144, 22545
   %.not29.i.us.i = icmp eq i64 %145, 0
-  br i1 %.not29.i.us.i, label %146, label %ompi_osc_rdma_acc_single_atomic.exit.us.i
+  br i1 %.not29.i.us.i, label %146, label %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i
 
 146:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
@@ -4495,7 +4495,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i.us.i: ; preds = %160, %155, %153
   %.0.i.ph.i.us.i = phi i32 [ %159, %160 ], [ %150, %155 ], [ %148, %153 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  br label %ompi_osc_rdma_acc_single_atomic.exit.us.i
+  br label %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i
 
 161:                                              ; preds = %146
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 1 %.06519.us.i, i64 %60, i1 false)
@@ -4516,19 +4516,19 @@ osc_rdma_accelerator_mem_copy.exit.thread.i.us.i: ; preds = %160, %155, %153
   %170 = load i8, ptr %67, align 8
   %171 = load ptr, ptr %68, align 8
   %172 = load i64, ptr %31, align 8
-  %173 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %.val.us.i, i8 noundef zeroext %170, ptr noundef %171, i64 noundef %.07010.us.i, ptr noundef %10, i32 noundef %169, i64 noundef %172, i32 noundef %spec.select.i.i.us.i, i1 noundef zeroext true)
-  br label %ompi_osc_rdma_acc_single_atomic.exit.us.i
+  %173 = call fastcc i32 @ompi_osc_rdma_btl_op.argprom(ptr noundef %.val.us.i, i8 noundef zeroext %170, ptr noundef %171, i64 noundef %.07010.us.i, ptr noundef %10, i32 noundef %169, i64 noundef %172, i32 noundef %spec.select.i.i.us.i, i1 noundef zeroext true)
+  br label %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i
 
-ompi_osc_rdma_acc_single_atomic.exit.us.i:        ; preds = %162, %osc_rdma_accelerator_mem_copy.exit.thread.i.us.i, %141, %139, %135, %134, %126
+ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i: ; preds = %162, %osc_rdma_accelerator_mem_copy.exit.thread.i.us.i, %141, %139, %135, %134, %126
   %.0.i.us.i = phi i32 [ %173, %162 ], [ -8, %141 ], [ -8, %139 ], [ -8, %134 ], [ -8, %135 ], [ -8, %126 ], [ %.0.i.ph.i.us.i, %osc_rdma_accelerator_mem_copy.exit.thread.i.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   br label %174
 
-174:                                              ; preds = %ompi_osc_rdma_acc_single_atomic.exit.us.i, %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i
-  %.062.us.i = phi i32 [ %.0.i.us.i, %ompi_osc_rdma_acc_single_atomic.exit.us.i ], [ %.0.i84.us.i, %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i ]
+174:                                              ; preds = %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i, %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i
+  %.062.us.i = phi i32 [ %.0.i.us.i, %ompi_osc_rdma_acc_single_atomic.argprom.exit.us.i ], [ %.0.i84.us.i, %ompi_osc_rdma_fetch_and_op_atomic.argprom.exit.us.i ]
   switch i32 %.062.us.i, label %184 [
     i32 0, label %175
-    i32 -8, label %ompi_osc_rdma_gacc_amo.exit.thread112
+    i32 -8, label %ompi_osc_rdma_gacc_amo.argprom.exit.thread112
   ]
 
 175:                                              ; preds = %174
@@ -4555,7 +4555,7 @@ ompi_osc_rdma_acc_single_atomic.exit.us.i:        ; preds = %162, %osc_rdma_acce
 
 .lr.ph26.split.i:                                 ; preds = %.lr.ph26.i
   %186 = icmp sgt i64 %60, 8
-  br i1 %186, label %ompi_osc_rdma_gacc_amo.exit.thread112, label %.lr.ph26.split.split.i
+  br i1 %186, label %ompi_osc_rdma_gacc_amo.argprom.exit.thread112, label %.lr.ph26.split.split.i
 
 .lr.ph26.split.split.i:                           ; preds = %.lr.ph26.split.i, %287
   %.06125.i = phi i32 [ %.1.i, %287 ], [ 0, %.lr.ph26.split.i ]
@@ -4570,7 +4570,7 @@ ompi_osc_rdma_acc_single_atomic.exit.us.i:        ; preds = %162, %osc_rdma_acce
   %189 = load ptr, ptr %68, align 8
   %190 = call i32 @ompi_osc_get_data_blocking(ptr noundef %.val81.i, i8 noundef zeroext %188, ptr noundef %189, i64 noundef %187, ptr noundef %10, ptr noundef nonnull %25, i64 noundef 8) #13
   %.not.i94.i = icmp eq i32 %190, 0
-  br i1 %.not.i94.i, label %.preheader.i.i, label %ompi_osc_rdma_fetch_and_op_cas.exit.i
+  br i1 %.not.i94.i, label %.preheader.i.i, label %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph26.split.split.i
   %191 = and i64 %.07010.i, 7
@@ -4683,7 +4683,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i96.i:  ; preds = %207, %205, %.split.
   %.0.i.ph.i97.i = phi i32 [ %211, %.split.us.i.i ], [ %200, %205 ], [ %202, %207 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  br label %ompi_osc_rdma_fetch_and_op_cas.exit.i
+  br label %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i
 
 238:                                              ; preds = %.preheader.split.split.i.i
   %239 = load i64, ptr %40, align 8
@@ -4698,7 +4698,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i96.i:  ; preds = %207, %205, %.split.
 
 245:                                              ; preds = %.preheader.split.split.i.i
   %246 = icmp eq i32 %236, 0
-  br i1 %246, label %247, label %ompi_osc_rdma_fetch_and_op_cas.exit.i
+  br i1 %246, label %247, label %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i
 
 247:                                              ; preds = %245
   %248 = load i64, ptr %70, align 8
@@ -4729,7 +4729,7 @@ osc_rdma_accelerator_mem_copy.exit.thread.i96.i:  ; preds = %207, %205, %.split.
 .split7.us.i.i:                                   ; preds = %257, %251, %.preheader.split.split.us.i.i, %.lr.ph.i, %218, %osc_rdma_accelerator_mem_copy.exit.us.i.i, %.preheader.split.split.us.i.preheader.i
   %.us-phi8.i.i = phi i32 [ %225, %.preheader.split.split.us.i.preheader.i ], [ %217, %osc_rdma_accelerator_mem_copy.exit.us.i.i ], [ 0, %218 ], [ 0, %.lr.ph.i ], [ %231, %.preheader.split.split.us.i.i ], [ %256, %251 ], [ 0, %257 ]
   %.not62.i.i = icmp eq ptr %.16814.i, null
-  br i1 %.not62.i.i, label %ompi_osc_rdma_fetch_and_op_cas.exit.i, label %262
+  br i1 %.not62.i.i, label %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i, label %262
 
 262:                                              ; preds = %.split7.us.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
@@ -4769,18 +4769,18 @@ osc_rdma_accelerator_mem_copy.exit66.i.i:         ; preds = %277, %274, %272, %2
   %.0.i65.i.i = phi i32 [ 0, %269 ], [ %264, %270 ], [ %266, %272 ], [ %276, %277 ], [ 0, %274 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  br label %ompi_osc_rdma_fetch_and_op_cas.exit.i
+  br label %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i
 
-ompi_osc_rdma_fetch_and_op_cas.exit.i:            ; preds = %245, %osc_rdma_accelerator_mem_copy.exit66.i.i, %.split7.us.i.i, %osc_rdma_accelerator_mem_copy.exit.thread.i96.i, %.lr.ph26.split.split.i
+ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i:    ; preds = %245, %osc_rdma_accelerator_mem_copy.exit66.i.i, %.split7.us.i.i, %osc_rdma_accelerator_mem_copy.exit.thread.i96.i, %.lr.ph26.split.split.i
   %.0.i95.i = phi i32 [ %190, %.lr.ph26.split.split.i ], [ %.0.i65.i.i, %osc_rdma_accelerator_mem_copy.exit66.i.i ], [ %.us-phi8.i.i, %.split7.us.i.i ], [ %.0.i.ph.i97.i, %osc_rdma_accelerator_mem_copy.exit.thread.i96.i ], [ %236, %245 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   switch i32 %.0.i95.i, label %287 [
     i32 0, label %278
-    i32 -8, label %ompi_osc_rdma_gacc_amo.exit.thread112
+    i32 -8, label %ompi_osc_rdma_gacc_amo.argprom.exit.thread112
   ]
 
-278:                                              ; preds = %ompi_osc_rdma_fetch_and_op_cas.exit.i
+278:                                              ; preds = %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i
   %.not78.i = icmp eq ptr %.06519.i, null
   %279 = ptrtoint ptr %.06519.i to i64
   %280 = add i64 %60, %279
@@ -4795,11 +4795,11 @@ ompi_osc_rdma_fetch_and_op_cas.exit.i:            ; preds = %245, %osc_rdma_acce
   %286 = add nsw i32 %.06125.i, 1
   br label %287
 
-287:                                              ; preds = %278, %ompi_osc_rdma_fetch_and_op_cas.exit.i
-  %.171.i = phi i64 [ %285, %278 ], [ %.07010.i, %ompi_osc_rdma_fetch_and_op_cas.exit.i ]
-  %.3.i = phi ptr [ %.269.i, %278 ], [ %.16814.i, %ompi_osc_rdma_fetch_and_op_cas.exit.i ]
-  %.2.i = phi ptr [ %.166.i, %278 ], [ %.06519.i, %ompi_osc_rdma_fetch_and_op_cas.exit.i ]
-  %.1.i = phi i32 [ %286, %278 ], [ %.06125.i, %ompi_osc_rdma_fetch_and_op_cas.exit.i ]
+287:                                              ; preds = %278, %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i
+  %.171.i = phi i64 [ %285, %278 ], [ %.07010.i, %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i ]
+  %.3.i = phi ptr [ %.269.i, %278 ], [ %.16814.i, %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i ]
+  %.2.i = phi ptr [ %.166.i, %278 ], [ %.06519.i, %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i ]
+  %.1.i = phi i32 [ %286, %278 ], [ %.06125.i, %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i ]
   %288 = icmp slt i32 %.1.i, %11
   br i1 %288, label %.lr.ph26.split.split.i, label %._crit_edge.i, !llvm.loop !19
 
@@ -4820,24 +4820,24 @@ ompi_osc_rdma_fetch_and_op_cas.exit.i:            ; preds = %245, %osc_rdma_acce
 
 293:                                              ; preds = %._crit_edge.i
   %.not77.i = icmp eq ptr %14, null
-  br i1 %.not77.i, label %ompi_osc_rdma_gacc_amo.exit, label %294
+  br i1 %.not77.i, label %ompi_osc_rdma_gacc_amo.argprom.exit, label %294
 
 294:                                              ; preds = %293, %.thread.i
-  call fastcc void @ompi_osc_rdma_request_complete(ptr noundef nonnull %14)
-  br label %ompi_osc_rdma_gacc_amo.exit
+  call fastcc void @ompi_osc_rdma_request_complete.argelim(ptr noundef nonnull %14)
+  br label %ompi_osc_rdma_gacc_amo.argprom.exit
 
-ompi_osc_rdma_gacc_amo.exit.thread112:            ; preds = %ompi_osc_rdma_fetch_and_op_cas.exit.i, %174, %.lr.ph26.split.i
+ompi_osc_rdma_gacc_amo.argprom.exit.thread112:    ; preds = %ompi_osc_rdma_fetch_and_op_cas.argprom.exit.i, %174, %.lr.ph26.split.i
   call void @free(ptr noundef %.063.i) #13
   br label %.sink.split
 
-ompi_osc_rdma_gacc_amo.exit:                      ; preds = %293, %294
+ompi_osc_rdma_gacc_amo.argprom.exit:              ; preds = %293, %294
   call void @free(ptr noundef %.063.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   br label %345
 
-.sink.split:                                      ; preds = %62, %ompi_osc_rdma_gacc_amo.exit.thread112
+.sink.split:                                      ; preds = %62, %ompi_osc_rdma_gacc_amo.argprom.exit.thread112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
@@ -4938,15 +4938,15 @@ ompi_osc_rdma_gacc_amo.exit:                      ; preds = %293, %294
   br label %345
 
 342:                                              ; preds = %326
-  call fastcc void @ompi_osc_rdma_request_complete(ptr noundef nonnull %14)
+  call fastcc void @ompi_osc_rdma_request_complete.argelim(ptr noundef nonnull %14)
   br label %345
 
 343:                                              ; preds = %296
   %344 = call i32 @ompi_osc_rdma_put_contig(ptr noundef nonnull %0, ptr noundef %8, i64 noundef %9, ptr noundef %10, ptr noundef %1, i64 noundef %43, ptr noundef nonnull %14) #13
   br label %345
 
-345:                                              ; preds = %ompi_osc_rdma_gacc_amo.exit, %336, %303, %300, %343, %342, %340, %324
-  %.0 = phi i32 [ %325, %324 ], [ %341, %340 ], [ 0, %342 ], [ %344, %343 ], [ 0, %ompi_osc_rdma_gacc_amo.exit ], [ -2, %300 ], [ %309, %303 ], [ %329, %336 ]
+345:                                              ; preds = %ompi_osc_rdma_gacc_amo.argprom.exit, %336, %303, %300, %343, %342, %340, %324
+  %.0 = phi i32 [ %325, %324 ], [ %341, %340 ], [ 0, %342 ], [ %344, %343 ], [ 0, %ompi_osc_rdma_gacc_amo.argprom.exit ], [ -2, %300 ], [ %309, %303 ], [ %329, %336 ]
   ret i32 %.0
 }
 

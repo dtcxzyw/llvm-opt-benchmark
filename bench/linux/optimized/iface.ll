@@ -2255,7 +2255,7 @@ declare dso_local void @netif_carrier_off(ptr noundef) local_unnamed_addr #2
 declare dso_local void @ieee80211_configure_filter(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_set_sdata_offload_flags(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_set_sdata_offload_flags.retelim(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4056
@@ -2491,7 +2491,7 @@ define dso_local i32 @ieee80211_if_change_type(ptr noundef %0, i32 noundef %1) l
   %59 = tail call i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroext 0, i16 noundef zeroext 0) #15
   %60 = getelementptr inbounds i8, ptr %0, i64 3176
   tail call void @ieee80211_link_stop(ptr noundef %60) #15
-  tail call fastcc void @ieee80211_set_sdata_offload_flags(ptr noundef %0)
+  tail call fastcc void @ieee80211_set_sdata_offload_flags.retelim(ptr noundef %0)
   %61 = tail call i32 @drv_change_interface(ptr noundef %27, ptr noundef %0, i32 noundef %54, i1 noundef zeroext %53) #15
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %70, label %63

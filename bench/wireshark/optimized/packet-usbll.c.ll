@@ -912,13 +912,13 @@ usbll_is_split_complete_token.exit.i.i:           ; preds = %127, %127, %127, %1
   %137 = load ptr, ptr @tt_non_periodic, align 8
   %138 = icmp ne ptr %137, null
   %or.cond.i.i = select i1 %136, i1 %138, i1 false
-  br i1 %or.cond.i.i, label %139, label %tt_restore_transaction.exit.thread.i
+  br i1 %or.cond.i.i, label %139, label %tt_restore_transaction.argprom.argprom.exit.thread.i
 
 139:                                              ; preds = %134
   switch i32 %104, label %140 [
-    i32 80, label %tt_restore_transaction.exit.i
-    i32 86, label %tt_restore_transaction.exit.i
-    i32 99, label %tt_restore_transaction.exit.i
+    i32 80, label %tt_restore_transaction.argprom.argprom.exit.i
+    i32 86, label %tt_restore_transaction.argprom.argprom.exit.i
+    i32 99, label %tt_restore_transaction.argprom.argprom.exit.i
     i32 39, label %usbll_is_non_periodic_split_complete_token.exit.i.i
     i32 42, label %usbll_is_non_periodic_split_complete_token.exit.i.i
     i32 47, label %usbll_is_non_periodic_split_complete_token.exit.i.i
@@ -931,9 +931,9 @@ usbll_is_split_complete_token.exit.i.i:           ; preds = %127, %127, %127, %1
   unreachable
 
 usbll_is_non_periodic_split_complete_token.exit.i.i: ; preds = %139, %139, %139, %139, %139
-  br label %tt_restore_transaction.exit.i
+  br label %tt_restore_transaction.argprom.argprom.exit.i
 
-tt_restore_transaction.exit.i:                    ; preds = %usbll_is_non_periodic_split_complete_token.exit.i.i, %139, %139, %139
+tt_restore_transaction.argprom.argprom.exit.i:    ; preds = %usbll_is_non_periodic_split_complete_token.exit.i.i, %139, %139, %139
   %.sink8.i.i = phi ptr [ %137, %usbll_is_non_periodic_split_complete_token.exit.i.i ], [ %135, %139 ], [ %135, %139 ], [ %135, %139 ]
   %141 = zext nneg i8 %121 to i64
   %142 = getelementptr ptr, ptr %.sink8.i.i, i64 %141
@@ -942,9 +942,9 @@ tt_restore_transaction.exit.i:                    ; preds = %usbll_is_non_period
   %145 = getelementptr ptr, ptr %143, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %tt_restore_transaction.exit.thread.i, label %154
+  br i1 %147, label %tt_restore_transaction.argprom.argprom.exit.thread.i, label %154
 
-tt_restore_transaction.exit.thread.i:             ; preds = %tt_restore_transaction.exit.i, %134
+tt_restore_transaction.argprom.argprom.exit.thread.i: ; preds = %tt_restore_transaction.argprom.argprom.exit.i, %134
   %148 = tail call ptr @wmem_file_scope() #13
   %149 = tail call noalias ptr @wmem_alloc0(ptr noundef %148, i64 noundef 32) #13
   %150 = getelementptr inbounds i8, ptr %149, i64 4
@@ -960,9 +960,9 @@ tt_restore_transaction.exit.thread.i:             ; preds = %tt_restore_transact
   %.pre90.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %154
 
-154:                                              ; preds = %tt_restore_transaction.exit.thread.i, %tt_restore_transaction.exit.i
-  %155 = phi ptr [ %.pre90.i, %tt_restore_transaction.exit.thread.i ], [ %112, %tt_restore_transaction.exit.i ]
-  %.0.i104 = phi ptr [ %149, %tt_restore_transaction.exit.thread.i ], [ %146, %tt_restore_transaction.exit.i ]
+154:                                              ; preds = %tt_restore_transaction.argprom.argprom.exit.thread.i, %tt_restore_transaction.argprom.argprom.exit.i
+  %155 = phi ptr [ %.pre90.i, %tt_restore_transaction.argprom.argprom.exit.thread.i ], [ %112, %tt_restore_transaction.argprom.argprom.exit.i ]
+  %.0.i104 = phi ptr [ %149, %tt_restore_transaction.argprom.argprom.exit.thread.i ], [ %146, %tt_restore_transaction.argprom.argprom.exit.i ]
   %156 = getelementptr inbounds i8, ptr %.0.i104, i64 24
   store ptr %155, ptr %156, align 8
   br label %166
@@ -1112,22 +1112,22 @@ tt_restore_transaction.exit.thread.i:             ; preds = %tt_restore_transact
     i32 78, label %usbll_is_periodic_split_start_token.exit.i.i
     i32 95, label %usbll_is_periodic_split_start_token.exit.i.i
     i32 97, label %usbll_is_periodic_split_start_token.exit.i.i
-    i32 26, label %tt_store_transaction.exit.i
-    i32 30, label %tt_store_transaction.exit.i
-    i32 35, label %tt_store_transaction.exit.i
-    i32 54, label %tt_store_transaction.exit.i
-    i32 59, label %tt_store_transaction.exit.i
+    i32 26, label %tt_store_transaction.argprom.argprom.exit.i
+    i32 30, label %tt_store_transaction.argprom.argprom.exit.i
+    i32 35, label %tt_store_transaction.argprom.argprom.exit.i
+    i32 54, label %tt_store_transaction.argprom.argprom.exit.i
+    i32 59, label %tt_store_transaction.argprom.argprom.exit.i
   ]
 
 usbll_is_periodic_split_start_token.exit.i.i:     ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
   %222 = load ptr, ptr @tt_periodic, align 8
-  br label %tt_store_transaction.exit.i
+  br label %tt_store_transaction.argprom.argprom.exit.i
 
 223:                                              ; preds = %.loopexit.i.i
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.169, i32 noundef 1422, ptr noundef nonnull @.str.181) #15
   unreachable
 
-tt_store_transaction.exit.i:                      ; preds = %usbll_is_periodic_split_start_token.exit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
+tt_store_transaction.argprom.argprom.exit.i:      ; preds = %usbll_is_periodic_split_start_token.exit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
   %.sink14.i.i = phi ptr [ %222, %usbll_is_periodic_split_start_token.exit.i.i ], [ %221, %.loopexit.i.i ], [ %221, %.loopexit.i.i ], [ %221, %.loopexit.i.i ], [ %221, %.loopexit.i.i ], [ %221, %.loopexit.i.i ]
   %224 = zext nneg i8 %185 to i64
   %225 = getelementptr ptr, ptr %.sink14.i.i, i64 %224
@@ -1137,7 +1137,7 @@ tt_store_transaction.exit.i:                      ; preds = %usbll_is_periodic_s
   store ptr %.1.i, ptr %228, align 8
   br label %229
 
-229:                                              ; preds = %tt_store_transaction.exit.i, %166
+229:                                              ; preds = %tt_store_transaction.argprom.argprom.exit.i, %166
   %230 = getelementptr inbounds i8, ptr %.0.ph191, i64 8
   store ptr %.1.i, ptr %230, align 8
   br label %dissect_usbll_token.exitthread-pre-split

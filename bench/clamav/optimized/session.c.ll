@@ -978,7 +978,7 @@ conn_reply_error.exit:                            ; preds = %17, %19
 
 48:                                               ; preds = %44, %43
   %49 = phi i8 [ %.pre59, %44 ], [ %7, %43 ]
-  tail call fastcc void @print_ver(i32 noundef %5, i8 noundef signext %49, ptr noundef %9)
+  tail call fastcc void @print_ver.retelim(i32 noundef %5, i8 noundef signext %49, ptr noundef %9)
   %50 = load ptr, ptr %10, align 8
   %.not53 = icmp eq ptr %50, null
   %51 = zext i1 %.not53 to i32
@@ -1008,7 +1008,7 @@ conn_reply_error.exit:                            ; preds = %17, %19
   br label %print_commands.exit
 
 65:                                               ; preds = %57
-  tail call fastcc void @print_ver(i32 noundef %5, i8 noundef signext 124, ptr noundef %9)
+  tail call fastcc void @print_ver.retelim(i32 noundef %5, i8 noundef signext 124, ptr noundef %9)
   %66 = tail call i32 (i32, ptr, ...) @mdprintf(i32 noundef %5, ptr noundef nonnull @.str.61) #13
   br label %67
 
@@ -1199,7 +1199,7 @@ dispatch_command.exit:                            ; preds = %143, %141, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_ver(i32 noundef %0, i8 noundef signext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @print_ver.retelim(i32 noundef %0, i8 noundef signext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca i64, align 8
   %6 = tail call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 8, ptr noundef null) #13

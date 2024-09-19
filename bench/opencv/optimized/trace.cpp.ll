@@ -459,7 +459,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %6
   br i1 %.not.i, label %24, label %20
 
 20:                                               ; preds = %18
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %21 unwind label %22
 
 21:                                               ; preds = %20
@@ -555,7 +555,7 @@ define noundef nonnull align 8 dereferenceable(208) ptr @_ZN2cv5utils5trace7deta
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -922,7 +922,7 @@ define hidden noundef ptr @_ZNK2cv5utils5trace7details23TraceManagerThreadLocal1
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %14
 
 14:                                               ; preds = %12
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %15 unwind label %16
 
 15:                                               ; preds = %14
@@ -1263,7 +1263,7 @@ _ZN2cv5utils5trace7details12TraceManager11isActivatedEv.exit.thread: ; preds = %
   br i1 %.not.i.i, label %_ZN2cv5utils5trace7details12TraceManager11isActivatedEv.exit, label %19
 
 19:                                               ; preds = %17
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %20 unwind label %21
 
 20:                                               ; preds = %19
@@ -1297,7 +1297,7 @@ _ZN2cv5utils5trace7details12TraceManager11isActivatedEv.exit: ; preds = %13, %14
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %30
 
 30:                                               ; preds = %28
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %31 unwind label %32
 
 31:                                               ; preds = %30
@@ -1929,7 +1929,7 @@ define noundef zeroext i1 @_ZN2cv5utils5trace7details12TraceManager11isActivated
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %11 unwind label %12
 
 11:                                               ; preds = %10
@@ -1965,7 +1965,7 @@ define void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr nocapture noundef n
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -3526,7 +3526,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEvE14globalInstance acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %8, !prof !4
@@ -3577,7 +3577,7 @@ define hidden void @_ZN2cv5utils5trace7details24parallelForSetRootRegionERKNS2_6
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %11
 
 11:                                               ; preds = %9
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %12 unwind label %13
 
 12:                                               ; preds = %11
@@ -3770,7 +3770,7 @@ define hidden void @_ZN2cv5utils5trace7details29parallelForAttachNestedRegionERK
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -3841,7 +3841,7 @@ define hidden void @_ZN2cv5utils5trace7details19parallelForFinalizeERKNS2_6Regio
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %7
 
 7:                                                ; preds = %5
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %8 unwind label %9
 
 8:                                                ; preds = %7
@@ -3875,7 +3875,7 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %1, %5, %8
   br i1 %.not.i26, label %23, label %19
 
 19:                                               ; preds = %17
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %20 unwind label %21
 
 20:                                               ; preds = %19
@@ -4043,7 +4043,7 @@ define void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEPKc(ptr nocaptu
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %9
 
 9:                                                ; preds = %7
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %10 unwind label %11
 
 10:                                               ; preds = %9
@@ -4104,7 +4104,7 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %2, %7, %10
   br label %common.resume
 
 28:                                               ; preds = %18
-  tail call fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  tail call fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.not17 = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not17, ptr @.str.23, ptr %1
   %29 = tail call fastcc noundef zeroext i1 @_ZN2cv5utils5trace7detailsL12isITTEnabledEv()
@@ -4134,7 +4134,7 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %2, %7, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4226,7 +4226,7 @@ define void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEi(ptr nocapture
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %11 unwind label %12
 
 11:                                               ; preds = %10
@@ -4287,7 +4287,7 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %2, %8, %11
   br label %common.resume
 
 29:                                               ; preds = %19
-  tail call fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  tail call fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %30 = tail call fastcc noundef zeroext i1 @_ZN2cv5utils5trace7detailsL12isITTEnabledEv()
   br i1 %30, label %31, label %43
 
@@ -4329,7 +4329,7 @@ define void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEl(ptr nocapture
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %11 unwind label %12
 
 11:                                               ; preds = %10
@@ -4390,7 +4390,7 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %2, %8, %11
   br label %common.resume
 
 29:                                               ; preds = %19
-  tail call fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  tail call fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %30 = tail call fastcc noundef zeroext i1 @_ZN2cv5utils5trace7detailsL12isITTEnabledEv()
   br i1 %30, label %31, label %43
 
@@ -4432,7 +4432,7 @@ define void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEd(ptr nocapture
   br i1 %.not.i, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv()
+  invoke fastcc void @_ZN2cv5utils5trace7detailsL23getTraceManagerCallOnceEv.retelim()
           to label %11 unwind label %12
 
 11:                                               ; preds = %10
@@ -4493,7 +4493,7 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %2, %8, %11
   br label %common.resume
 
 29:                                               ; preds = %19
-  tail call fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  tail call fastcc void @_ZN2cv5utils5trace7detailsL12initTraceArgERNS2_23TraceManagerThreadLocalERKNS2_8TraceArgE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %30 = tail call fastcc noundef zeroext i1 @_ZN2cv5utils5trace7detailsL12isITTEnabledEv()
   br i1 %30, label %31, label %43
 

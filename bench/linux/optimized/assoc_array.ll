@@ -142,7 +142,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @assoc_array_subtree_iterate(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @assoc_array_subtree_iterate.argprom(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   br label %.loopexit
@@ -2009,7 +2009,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   %134 = or i64 %133, 1
   %135 = inttoptr i64 %134 to ptr
   %136 = load ptr, ptr %90, align 8
-  call fastcc void @assoc_array_subtree_iterate(ptr noundef nonnull %135, ptr noundef %136, ptr noundef nonnull %4)
+  call fastcc void @assoc_array_subtree_iterate.argprom(ptr noundef nonnull %135, ptr noundef %136, ptr noundef nonnull %4)
   %137 = load i32, ptr %132, align 8
   %138 = sext i32 %137 to i64
   %139 = load i64, ptr %126, align 8

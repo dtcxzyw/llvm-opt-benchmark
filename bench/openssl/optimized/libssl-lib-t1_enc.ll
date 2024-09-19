@@ -321,7 +321,7 @@ if.end28:                                         ; preds = %if.end20
   %master_key.i = getelementptr inbounds i8, ptr %13, i64 80
   %master_key_length.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %master_key_length.i, align 8
-  %call.i22 = call fastcc range(i32 0, 2) i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef nonnull @.str.6, i64 noundef 13, ptr noundef nonnull %server_random.i, i64 noundef 32, ptr noundef nonnull %client_random.i, i64 noundef 32, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key.i, i64 noundef %14, ptr noundef nonnull %call24, i64 noundef %mul, i32 noundef 1)
+  %call.i22 = call fastcc range(i32 0, 2) i32 @tls1_PRF.argprom.argelim(ptr noundef nonnull %s, ptr noundef nonnull @.str.6, i64 noundef 13, ptr noundef nonnull %server_random.i, i64 noundef 32, ptr noundef nonnull %client_random.i, i64 noundef 32, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key.i, i64 noundef %14, ptr noundef nonnull %call24, i64 noundef %mul, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %entry, %if.then19, %if.then1
@@ -369,7 +369,7 @@ if.end7:                                          ; preds = %if.end3
   %master_key = getelementptr inbounds i8, ptr %3, i64 80
   %master_key_length = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %master_key_length, align 8
-  %call11 = call fastcc i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef %str, i64 noundef %slen, ptr noundef nonnull %hash, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key, i64 noundef %4, ptr noundef %out, i64 noundef %spec.select, i32 noundef 1)
+  %call11 = call fastcc i32 @tls1_PRF.argprom.argelim(ptr noundef nonnull %s, ptr noundef %str, i64 noundef %slen, ptr noundef nonnull %hash, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key, i64 noundef %4, ptr noundef %out, i64 noundef %spec.select, i32 noundef 1)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.end14
 
@@ -388,7 +388,7 @@ declare i32 @ssl3_digest_cached_records(ptr noundef, i32 noundef) local_unnamed_
 declare i32 @ssl_handshake_hash(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_PRF(ptr noundef %s, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef range(i64 0, 33) %seed3_len, ptr noundef %seed4, i64 noundef range(i64 0, 33) %seed4_len, ptr noundef %sec, i64 noundef %slen, ptr noundef %out, i64 noundef %olen, i32 noundef range(i32 0, 2) %fatal) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_PRF.argprom.argelim(ptr noundef %s, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef range(i64 0, 33) %seed3_len, ptr noundef %seed4, i64 noundef range(i64 0, 33) %seed4_len, ptr noundef %sec, i64 noundef %slen, ptr noundef %out, i64 noundef %olen, i32 noundef range(i32 0, 2) %fatal) unnamed_addr #0 {
 entry:
   %params = alloca [8 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -519,7 +519,7 @@ lor.lhs.false:                                    ; preds = %if.then
 
 do.body:                                          ; preds = %lor.lhs.false
   %2 = load i64, ptr %hashlen, align 8
-  %call6 = call fastcc i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef nonnull @.str.2, i64 noundef 22, ptr noundef nonnull %hash, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %p, i64 noundef %len, ptr noundef %out, i64 noundef 48, i32 noundef 1)
+  %call6 = call fastcc i32 @tls1_PRF.argprom.argelim(ptr noundef nonnull %s, ptr noundef nonnull @.str.2, i64 noundef 22, ptr noundef nonnull %hash, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %p, i64 noundef %len, ptr noundef %out, i64 noundef 48, i32 noundef 1)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %if.end9
 
@@ -531,7 +531,7 @@ if.end9:                                          ; preds = %do.body
 if.else:                                          ; preds = %entry
   %client_random = getelementptr inbounds i8, ptr %s, i64 320
   %server_random = getelementptr inbounds i8, ptr %s, i64 288
-  %call14 = tail call fastcc i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef nonnull @.str.3, i64 noundef 13, ptr noundef nonnull %client_random, i64 noundef 32, ptr noundef null, i64 noundef 0, ptr noundef nonnull %server_random, i64 noundef 32, ptr noundef %p, i64 noundef %len, ptr noundef %out, i64 noundef 48, i32 noundef 1)
+  %call14 = tail call fastcc i32 @tls1_PRF.argprom.argelim(ptr noundef nonnull %s, ptr noundef nonnull @.str.3, i64 noundef 13, ptr noundef nonnull %client_random, i64 noundef 32, ptr noundef null, i64 noundef 0, ptr noundef nonnull %server_random, i64 noundef 32, ptr noundef %p, i64 noundef %len, ptr noundef %out, i64 noundef 48, i32 noundef 1)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %do.body19
 
@@ -625,7 +625,7 @@ if.end53:                                         ; preds = %if.end48
   %master_key = getelementptr inbounds i8, ptr %0, i64 80
   %master_key_length = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %master_key_length, align 8
-  %call56 = tail call fastcc i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef nonnull %call, i64 noundef %vallen.0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key, i64 noundef %1, ptr noundef %out, i64 noundef %olen, i32 noundef 0)
+  %call56 = tail call fastcc i32 @tls1_PRF.argprom.argelim(ptr noundef nonnull %s, ptr noundef nonnull %call, i64 noundef %vallen.0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key, i64 noundef %1, ptr noundef %out, i64 noundef %olen, i32 noundef 0)
   br label %ret
 
 err1:                                             ; preds = %if.end48, %if.end43, %if.end38, %if.end33, %if.end28

@@ -793,7 +793,7 @@ readcnffile.exit:                                 ; preds = %.backedge.i, %50
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %180, ptr noundef nonnull @.str.12, ptr noundef nonnull %32)
   %181 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %181, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 0) #14
   unreachable
 
@@ -1005,7 +1005,7 @@ rename_tokens.exit158:                            ; preds = %235
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %237, ptr noundef nonnull @.str.76)
   %238 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %238, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1026,7 +1026,7 @@ rename_tokens.exit158:                            ; preds = %235
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %244, ptr noundef nonnull @.str.77)
   %245 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %245, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1129,7 +1129,7 @@ rename_tokens.exit158:                            ; preds = %235
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %294, ptr noundef nonnull @.str.85)
   %295 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %295, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1153,7 +1153,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %298, ptr noundef nonnull @.str.87)
   %299 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %299, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1169,7 +1169,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %305, ptr noundef nonnull @.str.89)
   %306 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %306, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1185,7 +1185,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %311, ptr noundef nonnull @.str.90)
   %312 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %312, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1222,7 +1222,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %335, ptr noundef nonnull @.str.109)
   %336 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %336, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1239,7 +1239,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %342, ptr noundef nonnull @.str.110)
   %343 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %343, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1547,7 +1547,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %544, ptr noundef nonnull @.str.228)
   %545 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %545, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1566,7 +1566,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %553, ptr noundef nonnull @.str.229, ptr noundef %554)
   %555 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %555, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1584,7 +1584,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %563, ptr noundef nonnull @.str.230)
   %564 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %564, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1602,7 +1602,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %572, ptr noundef nonnull @.str.231)
   %573 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %573, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1764,7 +1764,7 @@ parseconst.exit:                                  ; preds = %565
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %654, ptr noundef nonnull @.str.393)
   %655 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %655, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -1816,7 +1816,7 @@ skipdeclare.exit:                                 ; preds = %.lr.ph.i174, %.preh
 685:                                              ; preds = %682, %661
   %686 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %686, ptr noundef nonnull @.str.37)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -2196,10 +2196,10 @@ define internal void @FPRINTF(ptr noundef %0, ptr nocapture noundef readonly %1,
 }
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @Exit(i32 noundef range(i32 0, 11) %0) unnamed_addr #4 {
+define internal fastcc void @Exit.retelim(i32 noundef range(i32 0, 11) %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %2, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef %0) #14
   unreachable
 }
@@ -2525,7 +2525,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %7, ptr noundef nonnull @.str.120)
   %8 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %8, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -2573,7 +2573,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %26, ptr noundef nonnull @.str.121)
   %27 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %27, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -2588,7 +2588,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %32, ptr noundef nonnull @.str.122)
   %33 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %33, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -2644,7 +2644,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %57, ptr noundef nonnull @.str.125)
   %58 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %58, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -2665,7 +2665,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %68, ptr noundef nonnull @.str.126)
   %69 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %69, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -2780,7 +2780,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %120, ptr noundef nonnull @.str.136)
   %121 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %121, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -2841,7 +2841,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %144, ptr noundef nonnull @.str.138)
   %145 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %145, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -2900,7 +2900,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
 167:                                              ; preds = %162
   %168 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %168, ptr noundef nonnull @.str.140)
-  tail call fastcc void @Exit(i32 noundef 10)
+  tail call fastcc void @Exit.retelim(i32 noundef 10)
   unreachable
 
 .preheader205:                                    ; preds = %162, %.preheader205.backedge
@@ -2961,7 +2961,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
 192:                                              ; preds = %185
   %193 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %193, ptr noundef nonnull @.str.142)
-  tail call fastcc void @Exit(i32 noundef 10)
+  tail call fastcc void @Exit.retelim(i32 noundef 10)
   unreachable
 
 194:                                              ; preds = %185
@@ -2977,7 +2977,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %201 = load ptr, ptr @stderr, align 8
   %202 = load ptr, ptr %200, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %201, ptr noundef nonnull @.str.143, ptr noundef %202)
-  tail call fastcc void @Exit(i32 noundef 10)
+  tail call fastcc void @Exit.retelim(i32 noundef 10)
   unreachable
 
 203:                                              ; preds = %194
@@ -2994,7 +2994,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
 210:                                              ; preds = %203
   %211 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %211, ptr noundef nonnull @.str.144)
-  tail call fastcc void @Exit(i32 noundef 10)
+  tail call fastcc void @Exit.retelim(i32 noundef 10)
   unreachable
 
 212:                                              ; preds = %182
@@ -3091,7 +3091,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %256 = load ptr, ptr @stderr, align 8
   %257 = load ptr, ptr %19, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %256, ptr noundef nonnull @.str.148, ptr noundef %257)
-  tail call fastcc void @Exit(i32 noundef 10)
+  tail call fastcc void @Exit.retelim(i32 noundef 10)
   unreachable
 
 ._crit_edge:                                      ; preds = %37, %.backedge218, %.backedge217, %.backedge214, %.backedge, %109, %101, %14
@@ -3117,7 +3117,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %10, ptr noundef nonnull @.str.206)
   %11 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %11, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3142,7 +3142,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %23, ptr noundef nonnull @.str.207)
   %24 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %24, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3159,7 +3159,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %31, ptr noundef nonnull @.str.208)
   %32 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %32, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3181,7 +3181,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %40, ptr noundef nonnull @.str.209)
   %41 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %41, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3206,7 +3206,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %51, ptr noundef nonnull @.str.210)
   %52 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %52, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3276,7 +3276,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %82, ptr noundef nonnull @.str.212)
   %83 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %83, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3313,7 +3313,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %100, ptr noundef nonnull @.str.213)
   %101 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %101, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3333,7 +3333,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %107, ptr noundef nonnull @.str.215)
   %108 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %108, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3426,7 +3426,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %148, ptr noundef nonnull @.str.225)
   %149 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %149, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3461,7 +3461,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %163, ptr noundef nonnull @.str.225)
   %164 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %164, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3494,7 +3494,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %14, ptr noundef nonnull @.str.235)
   %15 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %15, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3522,7 +3522,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %26, ptr noundef nonnull @.str.236, i32 noundef %24)
   %27 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %27, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3539,7 +3539,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %32, ptr noundef nonnull @.str.237)
   %33 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %33, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3556,7 +3556,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %40, ptr noundef nonnull @.str.238)
   %41 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %41, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3611,7 +3611,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %61, ptr noundef nonnull @.str.239)
   %62 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %62, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3693,7 +3693,7 @@ check_if_to_emit.exit:                            ; preds = %68
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %94, ptr noundef nonnull @.str.250, i32 noundef %90)
   %95 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %95, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3791,7 +3791,7 @@ check_if_to_emit.exit:                            ; preds = %68
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %128, ptr noundef nonnull @.str.236, i32 noundef %125)
   %129 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %129, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3815,7 +3815,7 @@ check_if_to_emit.exit:                            ; preds = %68
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %137, ptr noundef nonnull @.str.256, ptr noundef %138)
   %139 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %139, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -3922,7 +3922,7 @@ prepend_pointer_list.exit:                        ; preds = %157, %.preheader.i
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %178, ptr noundef nonnull @.str.258, ptr noundef %179)
   %180 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %180, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4002,7 +4002,7 @@ prepend_pointer_list.exit248:                     ; preds = %196, %.preheader.i2
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %205, ptr noundef nonnull @.str.260, ptr noundef %65, ptr noundef nonnull %7, ptr noundef %206)
   %207 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %207, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4027,7 +4027,7 @@ prepend_pointer_list.exit248:                     ; preds = %196, %.preheader.i2
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %217, ptr noundef nonnull @.str.261, ptr noundef %218)
   %219 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %219, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4481,7 +4481,7 @@ ptr_to_define.exit303:                            ; preds = %check_if_to_emit.ex
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %396, ptr noundef nonnull @.str.285)
   %397 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %397, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4528,7 +4528,7 @@ ptr_to_define.exit303:                            ; preds = %check_if_to_emit.ex
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %413, ptr noundef nonnull @.str.289)
   %414 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %414, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4550,7 +4550,7 @@ ptr_to_define.exit303:                            ; preds = %check_if_to_emit.ex
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %423, ptr noundef nonnull @.str.290)
   %424 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %424, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4583,7 +4583,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef range(i32 0, 2) %0) u
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %12, ptr noundef nonnull @.str.296)
   %13 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %13, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4612,7 +4612,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef range(i32 0, 2) %0) u
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %25, ptr noundef nonnull @.str.297, i32 noundef %22)
   %26 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %26, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4631,7 +4631,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef range(i32 0, 2) %0) u
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %32, ptr noundef nonnull @.str.298)
   %33 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %33, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4648,7 +4648,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef range(i32 0, 2) %0) u
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %40, ptr noundef nonnull @.str.299)
   %41 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %41, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4700,7 +4700,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef range(i32 0, 2) %0) u
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %59, ptr noundef nonnull @.str.300)
   %60 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %60, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4795,7 +4795,7 @@ get_union_tag_size.exit:                          ; preds = %72
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %96, ptr noundef nonnull @.str.306, i32 noundef %97)
   %98 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %98, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4839,7 +4839,7 @@ get_union_tag_size.exit:                          ; preds = %72
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %112, ptr noundef nonnull @.str.311, i32 noundef %113)
   %114 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %114, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4916,7 +4916,7 @@ get_union_tag_size.exit:                          ; preds = %72
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %137, ptr noundef nonnull @.str.313)
   %138 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %138, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4931,7 +4931,7 @@ get_union_tag_size.exit:                          ; preds = %72
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %143, ptr noundef nonnull @.str.297, i32 noundef %140)
   %144 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %144, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4945,7 +4945,7 @@ get_union_tag_size.exit:                          ; preds = %72
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %148, ptr noundef nonnull @.str.314)
   %149 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %149, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -4971,7 +4971,7 @@ get_union_tag_size.exit:                          ; preds = %72
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %159, ptr noundef nonnull @.str.315, ptr noundef %160)
   %161 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %161, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5181,7 +5181,7 @@ case2str.exit168:                                 ; preds = %.thread174, %235
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %253, ptr noundef nonnull @.str.326, i32 noundef %.0100)
   %254 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %254, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5213,7 +5213,7 @@ case2str.exit168:                                 ; preds = %.thread174, %235
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %265, ptr noundef nonnull @.str.329)
   %266 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %266, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5253,7 +5253,7 @@ case2str.exit168:                                 ; preds = %.thread174, %235
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %278, ptr noundef nonnull @.str.331, i32 noundef %279)
   %280 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %280, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5275,7 +5275,7 @@ case2str.exit168:                                 ; preds = %.thread174, %235
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %289, ptr noundef nonnull @.str.333)
   %290 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %290, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5297,7 +5297,7 @@ case2str.exit168:                                 ; preds = %.thread174, %235
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %299, ptr noundef nonnull @.str.334)
   %300 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %300, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5332,7 +5332,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %14, ptr noundef nonnull @.str.337)
   %15 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %15, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5361,7 +5361,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %27, ptr noundef nonnull @.str.338, i32 noundef %24)
   %28 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %28, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5385,7 +5385,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %35, ptr noundef nonnull @.str.339)
   %36 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %36, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5402,7 +5402,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %43, ptr noundef nonnull @.str.340)
   %44 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %44, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5424,7 +5424,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %51, ptr noundef nonnull @.str.341)
   %52 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %52, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5447,7 +5447,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %59, ptr noundef nonnull @.str.342)
   %60 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %60, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5495,7 +5495,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %81, ptr noundef nonnull @.str.347, i32 noundef %.077)
   %82 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %82, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5532,7 +5532,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %95, ptr noundef nonnull @.str.347, i32 noundef %.077)
   %96 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %96, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5569,7 +5569,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %111, ptr noundef nonnull @.str.351)
   %112 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %112, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5589,7 +5589,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef range(i32 0, 2) %0) 
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %122, ptr noundef nonnull @.str.352)
   %123 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %123, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5621,7 +5621,7 @@ sub_0:                                            ; preds = %113
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %136, ptr noundef nonnull @.str.355)
   %137 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %137, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5630,7 +5630,7 @@ sub_0:                                            ; preds = %113
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %139, ptr noundef nonnull @.str.356)
   %140 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %140, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5719,7 +5719,7 @@ sub_0:                                            ; preds = %113
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %177, ptr noundef nonnull @.str.347, i32 noundef %.077)
   %178 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %178, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5738,7 +5738,7 @@ sub_0:                                            ; preds = %113
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %185, ptr noundef nonnull @.str.369)
   %186 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %186, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5760,7 +5760,7 @@ sub_0:                                            ; preds = %113
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %195, ptr noundef nonnull @.str.370)
   %196 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %196, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5792,7 +5792,7 @@ define internal fastcc void @parsefunction(i32 noundef range(i32 0, 3) %0) unnam
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %11, ptr noundef nonnull @.str.371)
   %12 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %12, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5812,7 +5812,7 @@ define internal fastcc void @parsefunction(i32 noundef range(i32 0, 3) %0) unnam
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %22, ptr noundef nonnull @.str.372)
   %23 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %23, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5914,7 +5914,7 @@ define internal fastcc void @parsefunction(i32 noundef range(i32 0, 3) %0) unnam
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %64, ptr noundef nonnull @.str.380)
   %65 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %65, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5929,7 +5929,7 @@ define internal fastcc void @parsefunction(i32 noundef range(i32 0, 3) %0) unnam
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %70, ptr noundef nonnull @.str.381, i32 noundef %67)
   %71 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %71, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5943,7 +5943,7 @@ define internal fastcc void @parsefunction(i32 noundef range(i32 0, 3) %0) unnam
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %75, ptr noundef nonnull @.str.382)
   %76 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %76, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -5959,7 +5959,7 @@ define internal fastcc void @parsefunction(i32 noundef range(i32 0, 3) %0) unnam
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %81, ptr noundef nonnull @.str.383, ptr noundef %82)
   %83 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %83, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -6102,7 +6102,7 @@ default.unreachable:                              ; preds = %178, %.loopexit157
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %144, ptr noundef nonnull @.str.386)
   %145 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %145, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -6206,7 +6206,7 @@ ptr_to_define.exit:                               ; preds = %.lr.ph232, %166, %1
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %184, ptr noundef nonnull @.str.386)
   %185 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %185, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -6334,7 +6334,7 @@ ptr_to_define.exit:                               ; preds = %.lr.ph232, %166, %1
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %234, ptr noundef nonnull @.str.391)
   %235 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %235, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -6355,7 +6355,7 @@ ptr_to_define.exit:                               ; preds = %.lr.ph232, %166, %1
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %243, ptr noundef nonnull @.str.392)
   %244 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %244, ptr noundef nonnull @.str.74)
-  call fastcc void @printtokenlist()
+  call fastcc void @printtokenlist.argelim()
   call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -6369,7 +6369,7 @@ ptr_to_define.exit:                               ; preds = %.lr.ph232, %166, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @printtokenlist() unnamed_addr #1 {
+define internal fastcc void @printtokenlist.argelim() unnamed_addr #1 {
   %1 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %1, ptr noundef nonnull @.str.394)
   %.06 = load ptr, ptr @token_list, align 8
@@ -6632,7 +6632,7 @@ define internal fastcc ptr @register_hf_field(ptr noundef %0, ptr noundef %1, pt
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %23, ptr noundef nonnull @.str.73, ptr noundef %17)
   %24 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %24, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 
@@ -6651,7 +6651,7 @@ find_hf_field.exit:                               ; preds = %19
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %30, ptr noundef nonnull @.str.65, ptr noundef %0, ptr noundef %31, ptr noundef %3, ptr noundef %32)
   %33 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %33, ptr noundef nonnull @.str.74)
-  tail call fastcc void @printtokenlist()
+  tail call fastcc void @printtokenlist.argelim()
   tail call void @exit(i32 noundef 10) #17
   unreachable
 

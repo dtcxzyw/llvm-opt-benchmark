@@ -5179,7 +5179,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN10TrafficTab10createT
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.preheader.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit"
+  br i1 %21, label %.preheader.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.argprom.exit"
 
 .preheader.i.i.i:                                 ; preds = %11
   %22 = load ptr, ptr %12, align 8
@@ -5194,7 +5194,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN10TrafficTab10createT
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit"
+  br i1 %30, label %.lr.ph.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.argprom.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %.03.i.i.i = phi i32 [ %32, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
@@ -5211,14 +5211,14 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN10TrafficTab10createT
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %39 = icmp slt i32 %32, %38
-  br i1 %39, label %.lr.ph.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit", !llvm.loop !122
+  br i1 %39, label %.lr.ph.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.argprom.exit", !llvm.loop !122
 
-"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit": ; preds = %.lr.ph.i.i.i, %11, %.preheader.i.i.i
+"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.argprom.exit": ; preds = %.lr.ph.i.i.i, %11, %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %40
 
-40:                                               ; preds = %8, %10, %"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit", %5
+40:                                               ; preds = %8, %10, %"_ZN9QtPrivate7FunctorIZN10TrafficTab10createTreeEiE3$_0Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.argprom.exit", %5
   ret void
 }
 

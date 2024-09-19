@@ -3958,7 +3958,7 @@ Prf_ManCompact.exit:                              ; preds = %279, %._crit_edge.i
   br label %326
 
 326:                                              ; preds = %325, %324
-  call fastcc void @Sat_MemCompactLearned(ptr noundef nonnull %4, i32 noundef 0)
+  call fastcc void @Sat_MemCompactLearned.retelim(ptr noundef nonnull %4, i32 noundef 0)
   %327 = load i32, ptr %0, align 8
   %328 = icmp sgt i32 %327, 0
   br i1 %328, label %.lr.ph343, label %._crit_edge354
@@ -4176,7 +4176,7 @@ clause2_read.exit285:                             ; preds = %419
   br i1 %437, label %414, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %434, %._crit_edge354
-  call fastcc void @Sat_MemCompactLearned(ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @Sat_MemCompactLearned.retelim(ptr noundef nonnull %4, i32 noundef 1)
   %438 = getelementptr inbounds i8, ptr %0, i64 456
   %439 = load ptr, ptr %438, align 8
   %.not234 = icmp eq ptr %439, null
@@ -4238,7 +4238,7 @@ Abc_Clock.exit287:                                ; preds = %444, %447
 declare ptr @Abc_MergeSortCost(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Sat_MemCompactLearned(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #12 {
+define internal fastcc void @Sat_MemCompactLearned.retelim(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32

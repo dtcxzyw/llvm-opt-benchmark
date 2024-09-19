@@ -5582,7 +5582,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 133:                                              ; preds = %62
   %134 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %134, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16VisitDeclRefExprEPN5clang11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %.val)
+  tail call fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16VisitDeclRefExprEPN5clang11DeclRefExprE.argprom(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %.val)
   br label %306
 
 135:                                              ; preds = %62
@@ -6405,7 +6405,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals21Visit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16VisitDeclRefExprEPN5clang11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16VisitDeclRefExprEPN5clang11DeclRefExprE.argprom(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %.16.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %.16.val, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 127

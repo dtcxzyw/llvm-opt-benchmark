@@ -1975,12 +1975,12 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
     i32 139, label %279
     i32 141, label %294
     i32 142, label %294
-    i32 1, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
-    i32 2, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
-    i32 3, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
-    i32 4, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
-    i32 19, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
-    i32 20, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+    i32 1, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
+    i32 2, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
+    i32 3, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
+    i32 4, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
+    i32 19, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
+    i32 20, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
   ]
 
 79:                                               ; preds = %_ZL20getFixupKindNumBytesj.exit
@@ -2008,7 +2008,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
   %90 = shl i64 %.0, 29
   %91 = and i64 %90, 1610612736
   %92 = or disjoint i64 %89, %91
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 93:                                               ; preds = %_ZL20getFixupKindNumBytesj.exit
   %94 = icmp eq i32 %.val56, 1
@@ -2036,7 +2036,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
   %105 = shl i64 %.0, 29
   %106 = and i64 %105, 1610612736
   %107 = or disjoint i64 %104, %106
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 108:                                              ; preds = %93
   %109 = lshr i64 %.0, 12
@@ -2045,7 +2045,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
   %112 = shl i64 %109, 29
   %113 = and i64 %112, 1610612736
   %114 = or disjoint i64 %111, %113
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 115:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit
   %116 = add i64 %.0, 1048576
@@ -2082,7 +2082,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 128:                                              ; preds = %124, %122
   %129 = lshr i64 %.0, 2
   %130 = and i64 %129, 524287
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 131:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit
   %132 = icmp eq i32 %.val56, 1
@@ -2090,7 +2090,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
   %spec.select.i = select i1 %7, i64 %.0, i64 %133
   %.0168.i = select i1 %132, i64 %spec.select.i, i64 %.0
   %134 = icmp ult i64 %.0168.i, 4096
-  br i1 %134, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit, label %135
+  br i1 %134, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit, label %135
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2101,7 +2101,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
   store ptr @.str.250, ptr %14, align 8
   store i8 3, ptr %137, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %76, ptr %.sroa.0.0.copyload.i195.i, ptr noundef nonnull align 8 dereferenceable(34) %14) #17
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 139:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
   %140 = icmp eq i32 %.val56, 1
@@ -2140,7 +2140,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 
 153:                                              ; preds = %149, %147
   %154 = lshr i64 %.1.i, 1
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 155:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
   %156 = icmp eq i32 %.val56, 1
@@ -2179,7 +2179,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 
 169:                                              ; preds = %165, %163
   %170 = lshr i64 %.2.i, 2
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 171:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
   %172 = icmp eq i32 %.val56, 1
@@ -2218,7 +2218,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 
 185:                                              ; preds = %181, %179
   %186 = lshr i64 %.3.i, 3
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 187:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
   %188 = icmp eq i32 %.val56, 1
@@ -2257,7 +2257,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 
 201:                                              ; preds = %197, %195
   %202 = lshr i64 %.4.i, 4
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 203:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
   %204 = and i32 %.val, 15
@@ -2289,7 +2289,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 212:                                              ; preds = %208, %206
   %.lobit.i = ashr i64 %.0, 63
   %spec.select189.i = xor i64 %.lobit.i, %.0
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 213:                                              ; preds = %205
   %214 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2300,7 +2300,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
   store ptr @.str.257, ptr %24, align 8
   store i8 3, ptr %215, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %76, ptr %.sroa.0.0.copyload.i205.i, ptr noundef nonnull align 8 dereferenceable(34) %24) #17
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 217:                                              ; preds = %203
   br i1 %7, label %222, label %218
@@ -2317,7 +2317,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
   store ptr @.str.258, ptr %25, align 8
   store i8 3, ptr %220, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %76, ptr %.sroa.0.0.copyload.i206.i, ptr noundef nonnull align 8 dereferenceable(34) %25) #17
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 222:                                              ; preds = %217
   %223 = and i32 %.val, 240
@@ -2381,7 +2381,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 
 247:                                              ; preds = %244
   %248 = and i64 %.6.i, 65535
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 249:                                              ; preds = %244
   br i1 %245, label %250, label %257
@@ -2405,11 +2405,11 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 256:                                              ; preds = %252, %250
   %.1170.lobit.i = ashr i64 %.1170.i, 63
   %spec.select190.i = xor i64 %.1170.lobit.i, %.1170.i
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 257:                                              ; preds = %249
   %258 = icmp ugt i64 %.6.i, 65535
-  br i1 %258, label %259, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br i1 %258, label %259, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 259:                                              ; preds = %257
   %260 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2420,7 +2420,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
   store ptr @.str.250, ptr %27, align 8
   store i8 3, ptr %261, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %76, ptr %.sroa.0.0.copyload.i208.i, ptr noundef nonnull align 8 dereferenceable(34) %27) #17
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 263:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
   %264 = add i64 %.0, 32768
@@ -2457,7 +2457,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 276:                                              ; preds = %272, %270
   %277 = lshr i64 %.0, 2
   %278 = and i64 %277, 16383
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 279:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
   %280 = sub nsw i64 0, %.0
@@ -2494,7 +2494,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 291:                                              ; preds = %287, %285
   %292 = lshr i64 %280, 2
   %293 = and i64 %292, 65535
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
 294:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit
   %295 = icmp ne i32 %.val56, 1
@@ -2547,9 +2547,9 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, 
 313:                                              ; preds = %309, %307
   %314 = lshr i64 %.0, 2
   %315 = and i64 %314, 67108863
-  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
 
-_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit: ; preds = %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %87, %102, %108, %128, %131, %135, %153, %169, %185, %201, %212, %213, %218, %247, %256, %257, %259, %276, %291, %313
+_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit: ; preds = %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit, %87, %102, %108, %128, %131, %135, %153, %169, %185, %201, %212, %213, %218, %247, %256, %257, %259, %276, %291, %313
   %.0.i58 = phi i64 [ %315, %313 ], [ %293, %291 ], [ %278, %276 ], [ %.0, %218 ], [ %202, %201 ], [ %186, %185 ], [ %170, %169 ], [ %154, %153 ], [ %130, %128 ], [ %107, %102 ], [ %114, %108 ], [ %92, %87 ], [ %.0168.i, %135 ], [ %.0168.i, %131 ], [ %.0, %213 ], [ %spec.select189.i, %212 ], [ %248, %247 ], [ %spec.select190.i, %256 ], [ %.6.i, %259 ], [ %.6.i, %257 ], [ %.0, %_ZL20getFixupKindNumBytesj.exit ], [ %.0, %_ZL20getFixupKindNumBytesj.exit ], [ %.0, %_ZL20getFixupKindNumBytesj.exit ], [ %.0, %_ZL20getFixupKindNumBytesj.exit ], [ %.0, %_ZL20getFixupKindNumBytesj.exit ], [ %.0, %_ZL20getFixupKindNumBytesj.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
@@ -2585,10 +2585,10 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6Triple
   %321 = icmp eq i32 %.val57, 1
   br i1 %321, label %.preheader.preheader, label %322
 
-.preheader.preheader:                             ; preds = %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+.preheader.preheader:                             ; preds = %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %322, %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
   br label %.preheader
 
-322:                                              ; preds = %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+322:                                              ; preds = %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.argprom.exit
   %323 = load i32, ptr %35, align 4
   switch i32 %323, label %324 [
     i32 1, label %.preheader70

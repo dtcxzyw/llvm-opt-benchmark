@@ -278,7 +278,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   %.val = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.067.0124, i64 68
   %27 = load i16, ptr %26, align 4
-  switch i16 %27, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
+  switch i16 %27, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread [
     i16 12804, label %28
     i16 12071, label %28
     i16 393, label %28
@@ -297,11 +297,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   %38 = and i32 %37, 4095
   %.not361.i = icmp eq i32 %38, %33
   %.not36.i = and i1 %36, %.not361.i
-  br i1 %.not36.i, label %39, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  br i1 %.not36.i, label %39, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread
 
 39:                                               ; preds = %28
   %trunc.i = trunc i32 %34 to i8
-  switch i8 %trunc.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
+  switch i8 %trunc.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread [
     i8 10, label %40
     i8 6, label %40
     i8 11, label %40
@@ -317,7 +317,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   %47 = zext i32 %46 to i64
   %48 = or disjoint i64 %44, %47
   %.not37.i = icmp eq i64 %48, 0
-  br i1 %.not37.i, label %49, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  br i1 %.not37.i, label %49, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread
 
 49:                                               ; preds = %40
   %50 = icmp eq i16 %27, 393
@@ -343,7 +343,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   %.0.in.i.i.i.i.i = select i1 %55, ptr %60, ptr %64
   %.0.i.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread, label %65
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread, label %65
 
 65:                                               ; preds = %52
   %66 = load i32, ptr %.0.i.i.i.i.i, align 8
@@ -356,7 +356,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   %storemerge.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread, label %68
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread, label %68
 
 68:                                               ; preds = %.preheader.i.i.i.i.i
   %69 = load i32, ptr %storemerge.i.i.i.i.i.i, align 8
@@ -379,7 +379,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   %72 = load i32, ptr %storemerge.i.i.i.i.i.i.i.i, align 8
   %73 = and i32 %72, 16777216
   %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %73, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread, label %.lr.ph.i.i.i.preheader.i.i.i, !llvm.loop !4
+  br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread, label %.lr.ph.i.i.i.preheader.i.i.i, !llvm.loop !4
 
 _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i
   br i1 %.not4.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i, label %.preheader.i.i.i
@@ -400,7 +400,7 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i: ; preds = 
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 68
   %79 = load i16, ptr %78, align 4
   %.not38.i = icmp eq i16 %79, 11885
-  br i1 %.not38.i, label %80, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  br i1 %.not38.i, label %80, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread
 
 80:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 32
@@ -421,11 +421,11 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i: ; preds = 
   %89 = and i32 %86, 1048320
   %.not412.i = icmp eq i32 %89, 768
   %.not41.i = and i1 %88, %.not412.i
-  br i1 %.not41.i, label %90, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  br i1 %.not41.i, label %90, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread
 
 90:                                               ; preds = %84
   %trunc3.i = trunc i32 %86 to i8
-  switch i8 %trunc3.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
+  switch i8 %trunc3.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread [
     i8 10, label %91
     i8 6, label %91
     i8 11, label %91
@@ -441,26 +441,26 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i: ; preds = 
   %98 = zext i32 %97 to i64
   %99 = or disjoint i64 %95, %98
   %.not42.i = icmp eq i64 %99, 0
-  br i1 %.not42.i, label %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  br i1 %.not42.i, label %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit_crit_edge, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread
 
-._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge: ; preds = %91
+._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit_crit_edge: ; preds = %91
   %.phi.trans.insert166 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %.pre167 = load ptr, ptr %.phi.trans.insert166, align 8
   %.phi.trans.insert168 = getelementptr inbounds nuw i8, ptr %.val, i64 304
   %.pre169 = load ptr, ptr %.phi.trans.insert168, align 8
-  br label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit
+  br label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit
 
 100:                                              ; preds = %80
   %101 = load i32, ptr %83, align 8
   %102 = and i32 %101, 1048575
   %or.cond.i = icmp eq i32 %102, 1295
-  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread
 
-_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit: ; preds = %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge, %100
-  %103 = phi ptr [ %63, %100 ], [ %.pre169, %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge ]
-  %104 = phi ptr [ %59, %100 ], [ %.pre167, %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge ]
-  %105 = phi ptr [ %82, %100 ], [ %.pre, %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge ]
-  %.07376 = phi ptr [ %77, %100 ], [ %.07377, %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge ]
+_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit: ; preds = %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit_crit_edge, %100
+  %103 = phi ptr [ %63, %100 ], [ %.pre169, %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit_crit_edge ]
+  %104 = phi ptr [ %59, %100 ], [ %.pre167, %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit_crit_edge ]
+  %105 = phi ptr [ %82, %100 ], [ %.pre, %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit_crit_edge ]
+  %.07376 = phi ptr [ %77, %100 ], [ %.07377, %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit_crit_edge ]
   %106 = getelementptr inbounds nuw i8, ptr %.07376, i64 32
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %108 = load i32, ptr %107, align 4
@@ -475,7 +475,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstr
   %.not.i.i.i.i.i19 = icmp eq ptr %.0.i.i.i.i.i18, null
   br i1 %.not.i.i.i.i.i19, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit, label %115
 
-115:                                              ; preds = %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit
+115:                                              ; preds = %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit
   %116 = load i32, ptr %.0.i.i.i.i.i18, align 8
   %117 = and i32 %116, 16777216
   %.not4.i.i.i.i.i20 = icmp eq i32 %117, 0
@@ -1158,8 +1158,8 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInst
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %.sink.i) #14
   br label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit
 
-_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit: ; preds = %.preheader.i.i.i.i.i21, %121, %.preheader.i.i.i.i.i74.i, %413, %.preheader.i.i.i.i.i.i, %245, %.preheader.i.i.i.i54, %332, %312, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i42, %225, %235, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i.i, %251, %299, %306, %350, %394, %399, %403, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i88.i, %419, %426, %429, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInstrES3_S3_NS1_8RegisterE.exit.sink.split.i
-  %.0.i35 = phi i1 [ false, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i42 ], [ false, %225 ], [ false, %251 ], [ false, %306 ], [ false, %299 ], [ false, %350 ], [ false, %235 ], [ false, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i.i ], [ false, %394 ], [ false, %399 ], [ false, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i88.i ], [ false, %426 ], [ false, %419 ], [ false, %429 ], [ false, %403 ], [ false, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit ], [ true, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInstrES3_S3_NS1_8RegisterE.exit.sink.split.i ], [ false, %312 ], [ false, %332 ], [ false, %.preheader.i.i.i.i54 ], [ false, %245 ], [ false, %.preheader.i.i.i.i.i.i ], [ false, %413 ], [ false, %.preheader.i.i.i.i.i74.i ], [ false, %121 ], [ false, %.preheader.i.i.i.i.i21 ]
+_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit: ; preds = %.preheader.i.i.i.i.i21, %121, %.preheader.i.i.i.i.i74.i, %413, %.preheader.i.i.i.i.i.i, %245, %.preheader.i.i.i.i54, %332, %312, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i42, %225, %235, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i.i, %251, %299, %306, %350, %394, %399, %403, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i88.i, %419, %426, %429, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInstrES3_S3_NS1_8RegisterE.exit.sink.split.i
+  %.0.i35 = phi i1 [ false, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i42 ], [ false, %225 ], [ false, %251 ], [ false, %306 ], [ false, %299 ], [ false, %350 ], [ false, %235 ], [ false, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i.i ], [ false, %394 ], [ false, %399 ], [ false, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i88.i ], [ false, %426 ], [ false, %419 ], [ false, %429 ], [ false, %403 ], [ false, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit ], [ true, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInstrES3_S3_NS1_8RegisterE.exit.sink.split.i ], [ false, %312 ], [ false, %332 ], [ false, %.preheader.i.i.i.i54 ], [ false, %245 ], [ false, %.preheader.i.i.i.i.i.i ], [ false, %413 ], [ false, %.preheader.i.i.i.i.i74.i ], [ false, %121 ], [ false, %.preheader.i.i.i.i.i21 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
@@ -1830,9 +1830,9 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineIn
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %785 = or i1 %.0.i35, %.1.i
   %786 = or i1 %785, %.1123
-  br label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  br label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread
 
-_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread: ; preds = %.preheader.i.i.i.i.i, %71, %90, %39, %.lr.ph, %52, %100, %84, %91, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i, %40, %28, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineInstrES3_.exit
+_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread: ; preds = %.preheader.i.i.i.i.i, %71, %90, %39, %.lr.ph, %52, %100, %84, %91, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i, %40, %28, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineInstrES3_.exit
   %.2 = phi i1 [ %786, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineInstrES3_.exit ], [ %.1123, %28 ], [ %.1123, %40 ], [ %.1123, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i ], [ %.1123, %91 ], [ %.1123, %84 ], [ %.1123, %100 ], [ %.1123, %52 ], [ %.1123, %.lr.ph ], [ %.1123, %39 ], [ %.1123, %90 ], [ %.1123, %71 ], [ %.1123, %.preheader.i.i.i.i.i ]
   %787 = icmp ne ptr %.sroa.067.0124, null
   call void @llvm.assume(i1 %787)
@@ -1841,7 +1841,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstr
   %.not.i.i.i46 = icmp eq i64 %788, 0
   br i1 %.not.i.i.i46, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
 
-_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i: ; preds = %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i: ; preds = %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread
   %789 = getelementptr inbounds nuw i8, ptr %.sroa.067.0124, i64 44
   %790 = load i32, ptr %789, align 4
   %791 = and i32 %790, 8
@@ -1858,8 +1858,8 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
   %.not3.i.i.i = icmp eq i32 %796, 0
   br i1 %.not3.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, !llvm.loop !16
 
-_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
-  %.sroa.0.0.i.i.i47 = phi ptr [ %.sroa.067.0124, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread ], [ %.sroa.067.0124, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %793, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
+_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
+  %.sroa.0.0.i.i.i47 = phi ptr [ %.sroa.067.0124, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.argprom.exit.thread ], [ %.sroa.067.0124, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %793, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
   %797 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i47, i64 8
   %.sroa.067.0 = load ptr, ptr %797, align 8
   %.not82 = icmp eq ptr %.sroa.067.0, %25

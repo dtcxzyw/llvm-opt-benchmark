@@ -39,11 +39,11 @@ define dso_local noundef i32 @_ZN4base7SysInfo18NumberOfProcessorsEv() local_unn
 entry:
   %0 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE acquire, align 8
   %tobool.not.i.i = icmp ult i64 %0, 2
-  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
+  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.argprom.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
   %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE)
-  br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
+  br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.argprom.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %call.i.i.i.i.i.i = tail call i64 @sysconf(i32 noundef 83) #11
@@ -52,9 +52,9 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i32 1, i32 %conv.i.i.i.i.i.i
   store i32 %retval.0.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 8), align 8
   tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE, ptr noundef null)
-  br label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
+  br label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.argprom.exit
 
-_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
+_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIiXadL_ZN12_GLOBAL__N_118NumberOfProcessorsEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.argprom.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
   %1 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_127g_lazy_number_of_processorsE monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   %call.val = load i32, ptr %2, align 4
@@ -67,11 +67,11 @@ entry:
   %limit.i.i.i.i.i.i = alloca %struct.rlimit, align 8
   %0 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE acquire, align 8
   %tobool.not.i.i = icmp ult i64 %0, 2
-  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
+  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.argprom.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
   %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE)
-  br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
+  br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.argprom.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %limit.i.i.i.i.i.i)
@@ -84,9 +84,9 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %limit.i.i.i.i.i.i)
   store i64 %retval.0.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 8), align 8
   call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, ptr noundef null)
-  br label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
+  br label %_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.argprom.exit
 
-_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
+_ZN4base12LazyInstanceINS_8internal16LazySysInfoValueIlXadL_ZN12_GLOBAL__N_121AmountOfVirtualMemoryEvEEEENS1_23LeakyLazyInstanceTraitsIS4_EEE3GetEv.argprom.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
   %2 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   %call.val = load i64, ptr %3, align 8

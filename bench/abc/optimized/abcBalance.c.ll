@@ -210,9 +210,9 @@ Vec_VecStart.exit:                                ; preds = %27
   %.not.i = icmp eq ptr %33, null
   br label %39
 
-39:                                               ; preds = %.lr.ph90, %Extra_ProgressBarUpdate.exit
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next94, %Extra_ProgressBarUpdate.exit ]
-  %.val5489 = phi ptr [ %.val5486, %.lr.ph90 ], [ %.val54, %Extra_ProgressBarUpdate.exit ]
+39:                                               ; preds = %.lr.ph90, %Extra_ProgressBarUpdate.argprom.exit
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next94, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.val5489 = phi ptr [ %.val5486, %.lr.ph90 ], [ %.val54, %Extra_ProgressBarUpdate.argprom.exit ]
   %40 = getelementptr i8, ptr %.val5489, i64 8
   %.val57.val = load ptr, ptr %40, align 8
   %41 = getelementptr inbounds ptr, ptr %.val57.val, i64 %indvars.iv93
@@ -223,14 +223,14 @@ Vec_VecStart.exit:                                ; preds = %27
   %44 = load i32, ptr %33, align 4
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv93, %45
-  br i1 %46, label %Extra_ProgressBarUpdate.exit, label %47
+  br i1 %46, label %Extra_ProgressBarUpdate.argprom.exit, label %47
 
 47:                                               ; preds = %43, %39
   %48 = trunc nuw nsw i64 %indvars.iv93 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %33, i32 noundef %48, ptr noundef null) #12
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %43, %47
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %43, %47
   %.val59 = load ptr, ptr %42, align 8
   %49 = getelementptr i8, ptr %42, i64 32
   %.val60 = load ptr, ptr %49, align 8
@@ -270,13 +270,13 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %43, %47
 67:                                               ; preds = %59
   %68 = load i32, ptr %33, align 4
   %69 = icmp slt i32 %.282, %68
-  br i1 %69, label %Extra_ProgressBarUpdate.exit70, label %70
+  br i1 %69, label %Extra_ProgressBarUpdate.argprom.exit70, label %70
 
 70:                                               ; preds = %67, %59
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %33, i32 noundef %.282, ptr noundef null) #12
-  br label %Extra_ProgressBarUpdate.exit70
+  br label %Extra_ProgressBarUpdate.argprom.exit70
 
-Extra_ProgressBarUpdate.exit70:                   ; preds = %67, %70
+Extra_ProgressBarUpdate.argprom.exit70:           ; preds = %67, %70
   %.val61 = load ptr, ptr %66, align 8
   %71 = getelementptr i8, ptr %66, i64 32
   %.val62 = load ptr, ptr %71, align 8
@@ -293,7 +293,7 @@ Extra_ProgressBarUpdate.exit70:                   ; preds = %67, %70
   %79 = icmp slt i32 %.282, %78
   br i1 %79, label %80, label %103
 
-80:                                               ; preds = %Extra_ProgressBarUpdate.exit70
+80:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit70
   %.val63 = load ptr, ptr %66, align 8
   %.val64 = load ptr, ptr %71, align 8
   %81 = getelementptr i8, ptr %.val63, i64 32
@@ -331,7 +331,7 @@ Extra_ProgressBarUpdate.exit70:                   ; preds = %67, %70
   store i32 %102, ptr %99, align 4
   br label %103
 
-103:                                              ; preds = %Extra_ProgressBarUpdate.exit70, %80
+103:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit70, %80
   %104 = add nuw nsw i32 %.282, 1
   %.val55 = load ptr, ptr %31, align 8
   %105 = getelementptr i8, ptr %.val55, i64 4
@@ -339,7 +339,7 @@ Extra_ProgressBarUpdate.exit70:                   ; preds = %67, %70
   %106 = icmp slt i32 %104, %.val55.val
   br i1 %106, label %59, label %.critedge2, !llvm.loop !9
 
-.critedge2:                                       ; preds = %103, %Extra_ProgressBarUpdate.exit, %.preheader74, %.preheader
+.critedge2:                                       ; preds = %103, %Extra_ProgressBarUpdate.argprom.exit, %.preheader74, %.preheader
   tail call void @Extra_ProgressBarStop(ptr noundef %33) #12
   %.val11.i = load i32, ptr %29, align 4
   %107 = icmp sgt i32 %.val11.i, 0
@@ -714,12 +714,12 @@ Vec_PtrPush.exit:                                 ; preds = %6
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %7, ptr noundef %19)
+  call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %7, ptr noundef %19)
   %20 = load ptr, ptr %3, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
-  call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %7, ptr noundef %23)
+  call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %7, ptr noundef %23)
   %.val40.pre = load i32, ptr %8, align 4
   br label %38
 
@@ -798,7 +798,7 @@ declare i32 @Abc_NodeIsMuxType(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NodeRecognizeMux(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1465,7 +1465,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %26, %14
 .Vec_PtrGrow.exit11_crit_edge.i.i.i:              ; preds = %.loopexit.i
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %Vec_VecPush.exit.i
+  br label %Vec_VecPush.argprom.exit.i
 
 42:                                               ; preds = %.loopexit.i
   %43 = icmp slt i32 %39, 16
@@ -1489,7 +1489,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %49, %47
   %51 = phi ptr [ %48, %47 ], [ %50, %49 ]
   store ptr %51, ptr %45, align 8
   store i32 16, ptr %37, align 8
-  br label %Vec_VecPush.exit.i
+  br label %Vec_VecPush.argprom.exit.i
 
 52:                                               ; preds = %42
   %53 = shl nuw nsw i32 %39, 1
@@ -1512,9 +1512,9 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %49, %47
   %63 = phi ptr [ %59, %58 ], [ %61, %60 ]
   store ptr %63, ptr %54, align 8
   store i32 %53, ptr %37, align 8
-  br label %Vec_VecPush.exit.i
+  br label %Vec_VecPush.argprom.exit.i
 
-Vec_VecPush.exit.i:                               ; preds = %62, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
+Vec_VecPush.argprom.exit.i:                       ; preds = %62, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
   %64 = phi ptr [ %.pre.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i ], [ %63, %62 ], [ %51, %Vec_PtrGrow.exit.i.i.i ]
   %65 = load i32, ptr %38, align 4
   %66 = add nsw i32 %65, 1
@@ -1524,8 +1524,8 @@ Vec_VecPush.exit.i:                               ; preds = %62, %Vec_PtrGrow.ex
   store ptr null, ptr %68, align 8
   br label %69
 
-69:                                               ; preds = %Vec_VecPush.exit.i, %._crit_edge22.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge22.i ], [ %35, %Vec_VecPush.exit.i ]
+69:                                               ; preds = %Vec_VecPush.argprom.exit.i, %._crit_edge22.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge22.i ], [ %35, %Vec_VecPush.argprom.exit.i ]
   %70 = getelementptr i8, ptr %2, i64 8
   %.val19.i = load ptr, ptr %70, align 8
   %71 = getelementptr inbounds ptr, ptr %.val19.i, i64 %.pre-phi.i
@@ -1615,15 +1615,15 @@ Abc_NodeBalanceCone.exit:                         ; preds = %._crit_edge.i
 
 ._crit_edge:                                      ; preds = %101
   %119 = icmp slt i32 %.pr61, 2
-  br i1 %119, label %._crit_edge.thread, label %Vec_PtrSort.exit
+  br i1 %119, label %._crit_edge.thread, label %Vec_PtrSort.argprom.exit
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %.pre = load i32, ptr %73, align 4
   %120 = icmp slt i32 %.pre, 2
-  br i1 %120, label %._crit_edge68, label %Vec_PtrSort.exit
+  br i1 %120, label %._crit_edge68, label %Vec_PtrSort.argprom.exit
 
-Vec_PtrSort.exit:                                 ; preds = %._crit_edge, %._crit_edge.thread
+Vec_PtrSort.argprom.exit:                         ; preds = %._crit_edge, %._crit_edge.thread
   %121 = phi i32 [ %.pre, %._crit_edge.thread ], [ %.pr61, %._crit_edge ]
   %122 = getelementptr inbounds i8, ptr %72, i64 8
   %123 = load ptr, ptr %122, align 8
@@ -1633,7 +1633,7 @@ Vec_PtrSort.exit:                                 ; preds = %._crit_edge, %._cri
   %125 = icmp sgt i32 %.pre74, 1
   br i1 %125, label %.lr.ph67, label %._crit_edge68
 
-.lr.ph67:                                         ; preds = %Vec_PtrSort.exit
+.lr.ph67:                                         ; preds = %Vec_PtrSort.argprom.exit
   %.not49 = icmp eq i32 %6, 0
   %126 = getelementptr i8, ptr %72, i64 8
   br label %127
@@ -1752,7 +1752,7 @@ Abc_NodeBalancePermute.exit:                      ; preds = %166, %Abc_NodeBalan
   %189 = icmp sgt i32 %188, 1
   br i1 %189, label %127, label %._crit_edge68, !llvm.loop !27
 
-._crit_edge68:                                    ; preds = %Abc_NodeBalancePermute.exit, %._crit_edge.thread, %Vec_PtrSort.exit
+._crit_edge68:                                    ; preds = %Abc_NodeBalancePermute.exit, %._crit_edge.thread, %Vec_PtrSort.argprom.exit
   %190 = getelementptr inbounds i8, ptr %72, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %191, align 8

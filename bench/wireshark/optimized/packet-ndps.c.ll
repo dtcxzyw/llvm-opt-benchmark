@@ -4399,13 +4399,13 @@ define internal fastcc void @dissect_ndps(ptr noundef %0, ptr noundef %1, ptr no
 .split101:                                        ; preds = %25
   %30 = load i32, ptr @hf_ndps_auth_null, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef 0) #6
-  tail call fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 24)
+  tail call fastcc void @dissect_ndps_reply.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 24)
   br label %.thread
 
 .split:                                           ; preds = %25
   %32 = load i32, ptr @hf_ndps_rpc_rej_stat, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #6
-  tail call fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 20)
+  tail call fastcc void @dissect_ndps_reply.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 20)
   br label %.thread
 
 34:                                               ; preds = %11
@@ -4482,7 +4482,7 @@ define internal fastcc void @dissect_ndps(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @col_append_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull %.0) #6
   %70 = load i32, ptr @hf_ndps_auth_null, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef 28, i32 noundef 16, i32 noundef 0) #6
-  tail call fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %37, i32 noundef %46)
+  tail call fastcc void @dissect_ndps_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %37, i32 noundef %46)
   br label %.thread
 
 .thread:                                          ; preds = %39, %.split101, %.split, %34, %66, %68, %65, %5
@@ -4520,7 +4520,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 20, 25) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_ndps_reply.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 20, 25) %3) unnamed_addr #0 {
   %5 = alloca %struct.ndps_req_hash_key, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -6847,7 +6847,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_ndps_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -6953,11 +6953,11 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   ]
 
 46:                                               ; preds = %45
-  %47 = tail call fastcc i32 @credentials(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %47 = tail call fastcc i32 @credentials.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %.loopexit3191
 
 48:                                               ; preds = %45
-  %49 = tail call fastcc i32 @credentials(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %49 = tail call fastcc i32 @credentials.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %50 = load i32, ptr @hf_ndps_retrieve_restrictions, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0) #6
   %52 = add i32 %49, 4
@@ -8694,7 +8694,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   ]
 
 1091:                                             ; preds = %1090
-  %1092 = tail call fastcc i32 @credentials(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %1092 = tail call fastcc i32 @credentials.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %1093 = load i32, ptr @hf_ndps_retrieve_restrictions, align 4
   %1094 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1093, ptr noundef %0, i32 noundef %1092, i32 noundef 4, i32 noundef 0) #6
   %1095 = add i32 %1092, 4
@@ -8804,7 +8804,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   ]
 
 1141:                                             ; preds = %1140
-  %1142 = tail call fastcc i32 @credentials(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %1142 = tail call fastcc i32 @credentials.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %1143 = load i32, ptr @hf_ndps_retrieve_restrictions, align 4
   %1144 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1143, ptr noundef %0, i32 noundef %1142, i32 noundef 4, i32 noundef 0) #6
   %1145 = add i32 %1142, 4
@@ -8981,7 +8981,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   ]
 
 1225:                                             ; preds = %1224
-  %1226 = tail call fastcc i32 @credentials(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %1226 = tail call fastcc i32 @credentials.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %1227 = load i32, ptr @hf_ndps_retrieve_restrictions, align 4
   %1228 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1227, ptr noundef %0, i32 noundef %1226, i32 noundef 4, i32 noundef 0) #6
   %1229 = add i32 %1226, 4
@@ -9634,7 +9634,7 @@ qualifiedname.exit:                               ; preds = %1257, %.sink.split.
   ]
 
 1611:                                             ; preds = %1610
-  %1612 = tail call fastcc i32 @credentials(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %1612 = tail call fastcc i32 @credentials.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %1613 = load i32, ptr @hf_ndps_retrieve_restrictions, align 4
   %1614 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1613, ptr noundef %0, i32 noundef %1612, i32 noundef 4, i32 noundef 0) #6
   %1615 = add i32 %1612, 4
@@ -9899,7 +9899,7 @@ qualifiedname.exit:                               ; preds = %1257, %.sink.split.
   ]
 
 1769:                                             ; preds = %1768
-  %1770 = tail call fastcc i32 @credentials(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %1770 = tail call fastcc i32 @credentials.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %.loopexit3191
 
 1771:                                             ; preds = %1768
@@ -13403,7 +13403,7 @@ declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @credentials(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @credentials.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 44) #6
   %6 = load i32, ptr @hf_ndps_cred_type, align 4

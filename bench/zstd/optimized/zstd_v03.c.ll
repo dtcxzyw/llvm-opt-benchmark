@@ -979,7 +979,7 @@ if.end70.i.i:                                     ; preds = %sw.default60.i.i
 if.end74.i.i:                                     ; preds = %if.end70.i.i
   %add.ptr75.i.i = getelementptr inbounds i8, ptr %ip.1.i.i, i64 %call66.i.i
   %33 = load i32, ptr %max61.i.i, align 4
-  call fastcc void @FSE_buildDTable(ptr noundef nonnull %OffTable.i, ptr noundef %norm.i.i, i32 noundef %33, i32 noundef %32)
+  call fastcc void @FSE_buildDTable.argelim(ptr noundef nonnull %OffTable.i, ptr noundef %norm.i.i, i32 noundef %33, i32 noundef %32)
   br label %sw.epilog78.i.i
 
 sw.epilog78.i.i:                                  ; preds = %for.body.i63.i.i, %if.end74.i.i, %if.end52.i.i
@@ -1046,7 +1046,7 @@ if.end99.i.i:                                     ; preds = %sw.default89.i.i
 if.end103.i.i:                                    ; preds = %if.end99.i.i
   %add.ptr104.i.i = getelementptr inbounds i8, ptr %ip.2.i.i, i64 %call95.i.i
   %36 = load i32, ptr %max90.i.i, align 4
-  call fastcc void @FSE_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef %norm.i.i, i32 noundef %36, i32 noundef %35)
+  call fastcc void @FSE_buildDTable.argelim(ptr noundef nonnull %MLTable.i, ptr noundef %norm.i.i, i32 noundef %36, i32 noundef %35)
   br label %ZSTD_decodeSeqHeaders.exit.i
 
 ZSTD_decodeSeqHeaders.exit.thread.i:              ; preds = %if.end99.i.i, %sw.default89.i.i, %sw.bb79.i.i, %if.end70.i.i, %sw.default60.i.i, %sw.bb47.i.i, %if.end39.i.i, %sw.default.i.i, %if.end25.i.i, %if.end
@@ -1823,7 +1823,7 @@ entry:
   store i32 0, ptr %tableLog.i, align 4
   store i32 0, ptr %nbSymbols.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %DTable, i64 2
-  %call.i = call fastcc i64 @HUF_readStats(ptr noundef %huffWeight.i, ptr noundef %rankVal.i, ptr noundef %nbSymbols.i, ptr noundef %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
+  %call.i = call fastcc i64 @HUF_readStats.argelim(ptr noundef %huffWeight.i, ptr noundef %rankVal.i, ptr noundef %nbSymbols.i, ptr noundef %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
   %cmp.i.i.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i.i.i, label %if.end.i, label %HUF_readDTableX2.exit.thread
 
@@ -2802,10 +2802,10 @@ for.end.i:                                        ; preds = %for.cond.for.end_cr
   br i1 %or.cond99.i, label %HUF_decompress4X2_usingDTable.exit, label %if.end153.i
 
 if.end153.i:                                      ; preds = %for.end.i
-  call fastcc void @HUF_decodeStreamX2(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr13.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr14.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr15.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
-  call fastcc void @HUF_decodeStreamX2(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i12, ptr noundef readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr13.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr14.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr15.i, ptr noundef readonly %add.ptr.i, i32 noundef %0)
+  call fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i12, ptr noundef readonly %add.ptr.i, i32 noundef %0)
   %ptr.i545.i = getelementptr inbounds i8, ptr %bitD1.i, i64 16
   %107 = load ptr, ptr %ptr.i545.i, align 8
   %108 = load ptr, ptr %start.i.i, align 8
@@ -2888,7 +2888,7 @@ if.end.i:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %rankStart0.i, i8 0, i64 72, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %rankStart0.i, i64 4
   %add.ptr2.i = getelementptr inbounds i8, ptr %DTable, i64 4
-  %call.i = call fastcc i64 @HUF_readStats(ptr noundef %weightList.i, ptr noundef %rankStats.i, ptr noundef %nbSymbols.i, ptr noundef %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
+  %call.i = call fastcc i64 @HUF_readStats.argelim(ptr noundef %weightList.i, ptr noundef %rankStats.i, ptr noundef %nbSymbols.i, ptr noundef %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
   %cmp.i.i.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i.i.i, label %if.end8.i, label %HUF_readDTableX4.exit.thread
 
@@ -4124,10 +4124,10 @@ for.end.i:                                        ; preds = %for.cond.for.end_cr
   br i1 %or.cond115.i, label %HUF_decompress4X4_usingDTable.exit, label %if.end168.i
 
 if.end168.i:                                      ; preds = %for.end.i
-  call fastcc void @HUF_decodeStreamX4(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr12.i, ptr noundef readonly %add.ptr2.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr13.i, ptr noundef readonly %add.ptr2.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr14.i, ptr noundef readonly %add.ptr2.i, i32 noundef 12)
-  call fastcc void @HUF_decodeStreamX4(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i13, ptr noundef readonly %add.ptr2.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr12.i, ptr noundef readonly %add.ptr2.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr13.i, ptr noundef readonly %add.ptr2.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr14.i, ptr noundef readonly %add.ptr2.i, i32 noundef 12)
+  call fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i13, ptr noundef readonly %add.ptr2.i, i32 noundef 12)
   %ptr.i591.i = getelementptr inbounds i8, ptr %bitD1.i, i64 16
   %136 = load ptr, ptr %ptr.i591.i, align 8
   %137 = load ptr, ptr %start.i.i, align 8
@@ -4181,7 +4181,7 @@ return:                                           ; preds = %HUF_readDTableX4.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_readStats(ptr nocapture noundef nonnull %huffWeight, ptr nocapture noundef nonnull %rankStats, ptr nocapture noundef nonnull writeonly %nbSymbolsPtr, ptr nocapture noundef nonnull writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #0 {
+define internal fastcc i64 @HUF_readStats.argelim(ptr nocapture noundef nonnull %huffWeight, ptr nocapture noundef nonnull %rankStats, ptr nocapture noundef nonnull writeonly %nbSymbolsPtr, ptr nocapture noundef nonnull writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #0 {
 entry:
   %symbolNext.i.i = alloca [256 x i16], align 16
   %counting.i = alloca [256 x i16], align 16
@@ -5810,7 +5810,7 @@ return:                                           ; preds = %land.rhs, %while.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @FSE_buildDTable(ptr nocapture noundef %dt, ptr nocapture noundef nonnull readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) unnamed_addr #0 {
+define internal fastcc void @FSE_buildDTable.argelim(ptr nocapture noundef %dt, ptr nocapture noundef nonnull readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) unnamed_addr #0 {
 entry:
   %symbolNext = alloca [256 x i16], align 16
   %add.ptr = getelementptr inbounds i8, ptr %dt, i64 4
@@ -6154,7 +6154,7 @@ return:                                           ; preds = %if.then15, %entry, 
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUF_decodeStreamX2(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef nonnull readonly %dt, i32 noundef range(i32 0, 65536) %dtLog) unnamed_addr #9 {
+define internal fastcc void @HUF_decodeStreamX2.argelim(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef nonnull readonly %dt, i32 noundef range(i32 0, 65536) %dtLog) unnamed_addr #9 {
 entry:
   %bitsConsumed.i = getelementptr inbounds i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -4
@@ -6397,7 +6397,7 @@ while.end33:                                      ; preds = %while.body30, %BIT_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUF_decodeStreamX4(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef nonnull readonly %dt, i32 noundef %dtLog) unnamed_addr #9 {
+define internal fastcc void @HUF_decodeStreamX4.argelim(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef nonnull readonly %dt, i32 noundef %dtLog) unnamed_addr #9 {
 entry:
   %bitsConsumed.i = getelementptr inbounds i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -7

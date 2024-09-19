@@ -36,7 +36,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv10 = trunc i64 %sub.ptr.sub to i32
-  %call = call fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr noundef %cx, i8 noundef signext %conv9, ptr noundef nonnull %toUBytes, i32 noundef %firstLength, ptr noundef %3, i32 noundef %conv10, ptr noundef %value, i8 noundef signext %flush)
+  %call = call fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa.argelim(ptr noundef %cx, i8 noundef signext %conv9, ptr noundef nonnull %toUBytes, i32 noundef %firstLength, ptr noundef %3, i32 noundef %conv10, ptr noundef %value, i8 noundef signext %flush)
   %cmp11 = icmp sgt i32 %call, 0
   br i1 %cmp11, label %if.then, label %if.else
 
@@ -132,7 +132,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr noundef readonly %cx, i8 noundef signext %sisoState, ptr nocapture noundef readonly %pre, i32 noundef %preLength, ptr nocapture noundef readonly %src, i32 noundef %srcLength, ptr nocapture noundef nonnull writeonly %pMatchValue, i8 noundef signext %flush) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa.argelim(ptr noundef readonly %cx, i8 noundef signext %sisoState, ptr nocapture noundef readonly %pre, i32 noundef %preLength, ptr nocapture noundef readonly %src, i32 noundef %srcLength, ptr nocapture noundef nonnull writeonly %pMatchValue, i8 noundef signext %flush) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %cx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -379,7 +379,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr noundef %cx, i8 noundef signext -1, ptr noundef %source, i32 noundef %length, ptr noundef null, i32 noundef 0, ptr noundef %value, i8 noundef signext 1)
+  %call = call fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa.argelim(ptr noundef %cx, i8 noundef signext -1, ptr noundef %source, i32 noundef %length, ptr noundef null, i32 noundef 0, ptr noundef %value, i8 noundef signext 1)
   %cmp1 = icmp eq i32 %call, %length
   %0 = load i32, ptr %value, align 4
   %cmp3 = icmp ult i32 %0, 3145728
@@ -436,7 +436,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %conv14 = trunc i64 %sub.ptr.sub to i32
   %flush = getelementptr inbounds i8, ptr %pArgs, i64 2
   %7 = load i8, ptr %flush, align 2
-  %call = call fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr noundef %1, i8 noundef signext %conv11, ptr noundef nonnull %preToU, i32 noundef %conv12, ptr noundef %5, i32 noundef %conv14, ptr noundef %value, i8 noundef signext %7)
+  %call = call fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa.argelim(ptr noundef %1, i8 noundef signext %conv11, ptr noundef nonnull %preToU, i32 noundef %conv12, ptr noundef %5, i32 noundef %conv14, ptr noundef %value, i8 noundef signext %7)
   %cmp15 = icmp sgt i32 %call, 0
   br i1 %cmp15, label %if.then, label %if.else40
 
@@ -1349,7 +1349,7 @@ if.then40:                                        ; preds = %if.else38
 if.then43:                                        ; preds = %if.then40
   %conv44 = trunc nuw i32 %c.2 to i16
   store i16 %conv44, ptr %s, align 16
-  call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef %0, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength.0, i32 noundef %c.2, ptr noundef %s, i32 noundef 1, i32 noundef %9)
+  call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode.argprom(ptr noundef %0, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength.0, i32 noundef %c.2, ptr noundef %s, i32 noundef 1, i32 noundef %9)
   br label %do.cond
 
 if.else47:                                        ; preds = %if.then40
@@ -1361,7 +1361,7 @@ if.else47:                                        ; preds = %if.then40
   %12 = and i16 %11, 1023
   %conv53 = or disjoint i16 %12, -9216
   store i16 %conv53, ptr %arrayidx56, align 2
-  call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef %0, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength.0, i32 noundef %c.2, ptr noundef %s, i32 noundef 2, i32 noundef %9)
+  call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode.argprom(ptr noundef %0, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength.0, i32 noundef %c.2, ptr noundef %s, i32 noundef 2, i32 noundef %9)
   br label %do.cond
 
 if.else58:                                        ; preds = %if.else38
@@ -1481,7 +1481,7 @@ for.end128:                                       ; preds = %for.inc126, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr nocapture noundef nonnull readonly %cx, ptr nocapture noundef readonly %sa, i32 noundef %which, i32 noundef range(i32 1, 4) %minLength, i32 noundef %firstCP, ptr noundef nonnull %s, i32 noundef %length, i32 noundef range(i32 1, 0) %sectionIndex) unnamed_addr #0 {
+define internal fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode.argprom(ptr nocapture noundef nonnull readonly %cx, ptr nocapture noundef readonly %sa, i32 noundef %which, i32 noundef range(i32 1, 4) %minLength, i32 noundef %firstCP, ptr noundef nonnull %s, i32 noundef %length, i32 noundef range(i32 1, 0) %sectionIndex) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %cx, i64 20
   %0 = load i32, ptr %arrayidx, align 4
@@ -1615,7 +1615,7 @@ if.then28.us:                                     ; preds = %_ZL16extSetUseMappi
   br label %for.inc.us
 
 if.then23.us:                                     ; preds = %if.else21.us
-  tail call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef %cx, ptr noundef %sa, i32 noundef 0, i32 noundef %minLength, i32 noundef %firstCP, ptr noundef %s, i32 noundef %add3131, i32 noundef %8)
+  tail call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode.argprom(ptr noundef %cx, ptr noundef %sa, i32 noundef 0, i32 noundef %minLength, i32 noundef %firstCP, ptr noundef %s, i32 noundef %add3131, i32 noundef %8)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then23.us, %if.then28.us, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit47.us, %if.else25.us, %for.body.us
@@ -1638,7 +1638,7 @@ if.else21:                                        ; preds = %for.body
   br i1 %cmp22, label %if.then23, label %if.else25
 
 if.then23:                                        ; preds = %if.else21
-  tail call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef %cx, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength, i32 noundef %firstCP, ptr noundef %s, i32 noundef %add3121, i32 noundef %12)
+  tail call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode.argprom(ptr noundef %cx, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength, i32 noundef %firstCP, ptr noundef %s, i32 noundef %add3121, i32 noundef %12)
   br label %for.inc
 
 if.else25:                                        ; preds = %if.else21

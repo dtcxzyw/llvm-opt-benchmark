@@ -3340,7 +3340,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
 
 13:                                               ; preds = %2
   %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43, i32 noundef %9) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 204
@@ -3385,13 +3385,13 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
 29:                                               ; preds = %26
   %30 = tail call i32 @get_log_level() #14
   %31 = icmp sgt i32 %30, 3
-  br i1 %31, label %32, label %_launch_handler.exit
+  br i1 %31, label %32, label %_launch_handler.argprom.exit
 
 32:                                               ; preds = %29
   %33 = load i32, ptr %27, align 8
   %34 = load i32, ptr %24, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.56, i32 noundef %33, i32 noundef %34) #14
-  br label %_launch_handler.exit
+  br label %_launch_handler.argprom.exit
 
 35:                                               ; preds = %26, %22
   %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
@@ -3435,7 +3435,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
 56:                                               ; preds = %53, %50
   %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   %.not58.i = icmp eq i32 %57, 0
-  br i1 %.not58.i, label %_launch_handler.exit, label %58
+  br i1 %.not58.i, label %_launch_handler.argprom.exit, label %58
 
 58:                                               ; preds = %56
   %59 = tail call ptr @__errno_location() #15
@@ -3542,7 +3542,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
 108:                                              ; preds = %105, %102
   %109 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   %.not57.i = icmp eq i32 %109, 0
-  br i1 %.not57.i, label %_launch_handler.exit, label %110
+  br i1 %.not57.i, label %_launch_handler.argprom.exit, label %110
 
 110:                                              ; preds = %108
   %111 = tail call ptr @__errno_location() #15
@@ -3550,9 +3550,9 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 1185, ptr noundef nonnull @__func__._launch_handler) #16
   unreachable
 
-_launch_handler.exit:                             ; preds = %29, %32, %56, %108
+_launch_handler.argprom.exit:                     ; preds = %29, %32, %56, %108
   %112 = tail call i32 @slurm_send_rc_msg(ptr noundef %1, i32 noundef 0) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 113:                                              ; preds = %15
   %114 = tail call i32 @get_log_level() #14
@@ -3584,11 +3584,11 @@ _launch_handler.exit:                             ; preds = %29, %32, %56, %108
 128:                                              ; preds = %123, %117
   %129 = tail call i32 @get_log_level() #14
   %130 = icmp sgt i32 %129, 4
-  br i1 %130, label %131, label %_exit_handler.exit
+  br i1 %130, label %131, label %_exit_handler.argprom.exit
 
 131:                                              ; preds = %128
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.59, ptr noundef nonnull %119) #14
-  br label %_exit_handler.exit
+  br label %_exit_handler.argprom.exit
 
 132:                                              ; preds = %123
   %133 = getelementptr inbounds i8, ptr %.val35, i64 16
@@ -3703,7 +3703,7 @@ _launch_handler.exit:                             ; preds = %29, %32, %56, %108
 180:                                              ; preds = %177, %._crit_edge.i46
   %181 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   %.not50.i47 = icmp eq i32 %181, 0
-  br i1 %.not50.i47, label %_exit_handler.exit, label %182
+  br i1 %.not50.i47, label %_exit_handler.argprom.exit, label %182
 
 182:                                              ; preds = %180
   %183 = tail call ptr @__errno_location() #15
@@ -3711,9 +3711,9 @@ _launch_handler.exit:                             ; preds = %29, %32, %56, %108
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 1224, ptr noundef nonnull @__func__._exit_handler) #16
   unreachable
 
-_exit_handler.exit:                               ; preds = %128, %131, %180
+_exit_handler.argprom.exit:                       ; preds = %128, %131, %180
   %184 = tail call i32 @slurm_send_rc_msg(ptr noundef %1, i32 noundef 0) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 185:                                              ; preds = %15
   %186 = tail call i32 @get_log_level() #14
@@ -3726,7 +3726,7 @@ _exit_handler.exit:                               ; preds = %128, %131, %180
 
 189:                                              ; preds = %188, %185
   %190 = tail call i32 @slurm_send_rc_msg(ptr noundef nonnull %1, i32 noundef 0) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 191:                                              ; preds = %15
   %192 = tail call i32 @get_log_level() #14
@@ -3753,13 +3753,13 @@ _exit_handler.exit:                               ; preds = %128, %131, %180
 201:                                              ; preds = %199
   %202 = tail call i32 @get_log_level() #14
   %203 = icmp sgt i32 %202, 3
-  br i1 %203, label %204, label %_job_complete_handler.exit
+  br i1 %203, label %204, label %_job_complete_handler.argprom.exit
 
 204:                                              ; preds = %201
   %205 = load i32, ptr %.val36, align 4
   %206 = load i32, ptr %197, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.61, i32 noundef %205, i32 noundef %206) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 207:                                              ; preds = %199, %195
   %208 = getelementptr inbounds i8, ptr %.val36, i64 8
@@ -3823,7 +3823,7 @@ _exit_handler.exit:                               ; preds = %128, %131, %180
 233:                                              ; preds = %230, %226
   %234 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   %.not29.i = icmp eq i32 %234, 0
-  br i1 %.not29.i, label %_job_complete_handler.exit, label %235
+  br i1 %.not29.i, label %_job_complete_handler.argprom.exit, label %235
 
 235:                                              ; preds = %233
   %236 = tail call ptr @__errno_location() #15
@@ -3856,13 +3856,13 @@ _exit_handler.exit:                               ; preds = %128, %131, %180
 247:                                              ; preds = %245
   %248 = tail call i32 @get_log_level() #14
   %249 = icmp sgt i32 %248, 3
-  br i1 %249, label %250, label %_job_complete_handler.exit
+  br i1 %249, label %250, label %_job_complete_handler.argprom.exit
 
 250:                                              ; preds = %247
   %251 = load i32, ptr %.val37, align 8
   %252 = load i32, ptr %243, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.64, i32 noundef %251, i32 noundef %252) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 253:                                              ; preds = %245, %241
   %254 = getelementptr inbounds i8, ptr %0, i64 272
@@ -3900,7 +3900,7 @@ _exit_handler.exit:                               ; preds = %128, %131, %180
 267:                                              ; preds = %264, %261
   %268 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   %.not25.i50 = icmp eq i32 %268, 0
-  br i1 %.not25.i50, label %_job_complete_handler.exit, label %269
+  br i1 %.not25.i50, label %_job_complete_handler.argprom.exit, label %269
 
 269:                                              ; preds = %267
   %270 = tail call ptr @__errno_location() #15
@@ -3913,13 +3913,13 @@ _exit_handler.exit:                               ; preds = %128, %131, %180
   %273 = load ptr, ptr %272, align 8
   %274 = tail call i32 @get_log_level() #14
   %275 = icmp sgt i32 %274, 2
-  br i1 %275, label %276, label %_job_complete_handler.exit
+  br i1 %275, label %276, label %_job_complete_handler.argprom.exit
 
 276:                                              ; preds = %271
   %277 = getelementptr inbounds i8, ptr %273, i64 8
   %278 = load ptr, ptr %277, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.49, ptr noundef %278) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 279:                                              ; preds = %15
   %280 = tail call i32 @get_log_level() #14
@@ -3948,13 +3948,13 @@ _exit_handler.exit:                               ; preds = %128, %131, %180
 290:                                              ; preds = %287
   %291 = tail call i32 @get_log_level() #14
   %292 = icmp sgt i32 %291, 3
-  br i1 %292, label %293, label %_node_fail_handler.exit
+  br i1 %292, label %293, label %_node_fail_handler.argprom.exit
 
 293:                                              ; preds = %290
   %294 = load i32, ptr %288, align 8
   %295 = load i32, ptr %285, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.65, i32 noundef %294, i32 noundef %295) #14
-  br label %_node_fail_handler.exit
+  br label %_node_fail_handler.argprom.exit
 
 296:                                              ; preds = %287, %283
   %297 = load ptr, ptr %.val38, align 8
@@ -4100,11 +4100,11 @@ _exit_handler.exit:                               ; preds = %128, %131, %180
   call void @hostlist_iterator_destroy(ptr noundef %301) #14
   call void @hostlist_destroy(ptr noundef %300) #14
   call void @hostlist_destroy(ptr noundef %313) #14
-  br label %_node_fail_handler.exit
+  br label %_node_fail_handler.argprom.exit
 
-_node_fail_handler.exit:                          ; preds = %290, %293, %372
+_node_fail_handler.argprom.exit:                  ; preds = %290, %293, %372
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 373:                                              ; preds = %15
   %374 = tail call i32 @get_log_level() #14
@@ -4134,13 +4134,13 @@ _node_fail_handler.exit:                          ; preds = %290, %293, %372
 384:                                              ; preds = %381
   %385 = tail call i32 @get_log_level() #14
   %386 = icmp sgt i32 %385, 3
-  br i1 %386, label %387, label %_step_missing_handler.exit
+  br i1 %386, label %387, label %_step_missing_handler.argprom.exit
 
 387:                                              ; preds = %384
   %388 = load i32, ptr %382, align 8
   %389 = load i32, ptr %379, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.69, i32 noundef %388, i32 noundef %389) #14
-  br label %_step_missing_handler.exit
+  br label %_step_missing_handler.argprom.exit
 
 390:                                              ; preds = %381, %377
   %391 = tail call i32 @get_log_level() #14
@@ -4421,12 +4421,12 @@ _node_fail_handler.exit:                          ; preds = %290, %293, %372
   call void @hostlist_iterator_destroy(ptr noundef %431) #14
   call void @hostlist_destroy(ptr noundef %430) #14
   call void @hostlist_destroy(ptr noundef %437) #14
-  br label %_step_missing_handler.exit
+  br label %_step_missing_handler.argprom.exit
 
-_step_missing_handler.exit:                       ; preds = %384, %387, %530
+_step_missing_handler.argprom.exit:               ; preds = %384, %387, %530
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 531:                                              ; preds = %15
   %532 = tail call i32 @get_log_level() #14
@@ -4454,13 +4454,13 @@ _step_missing_handler.exit:                       ; preds = %384, %387, %530
 542:                                              ; preds = %539
   %543 = tail call i32 @get_log_level() #14
   %544 = icmp sgt i32 %543, 3
-  br i1 %544, label %545, label %_job_complete_handler.exit
+  br i1 %544, label %545, label %_job_complete_handler.argprom.exit
 
 545:                                              ; preds = %542
   %546 = load i32, ptr %540, align 8
   %547 = load i32, ptr %537, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.80, i32 noundef %546, i32 noundef %547) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 548:                                              ; preds = %539, %535
   %549 = tail call i32 @get_log_level() #14
@@ -4479,14 +4479,14 @@ _step_missing_handler.exit:                       ; preds = %384, %387, %530
   %557 = getelementptr inbounds i8, ptr %0, i64 264
   %558 = load ptr, ptr %557, align 8
   %.not13.i = icmp eq ptr %558, null
-  br i1 %.not13.i, label %_job_complete_handler.exit, label %559
+  br i1 %.not13.i, label %_job_complete_handler.argprom.exit, label %559
 
 559:                                              ; preds = %556
   %560 = getelementptr inbounds i8, ptr %.val40, i64 8
   %561 = load i16, ptr %560, align 8
   %562 = zext i16 %561 to i32
   tail call void %558(i32 noundef %562) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 563:                                              ; preds = %15
   %564 = tail call i32 @get_log_level() #14
@@ -4502,7 +4502,7 @@ _step_missing_handler.exit:                       ; preds = %384, %387, %530
   %569 = load ptr, ptr %568, align 8
   %570 = tail call i32 @pmi_kvs_put(ptr noundef %569) #14
   %571 = tail call i32 @slurm_send_rc_msg(ptr noundef nonnull %1, i32 noundef %570) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 572:                                              ; preds = %15
   %573 = tail call i32 @get_log_level() #14
@@ -4518,14 +4518,14 @@ _step_missing_handler.exit:                       ; preds = %384, %387, %530
   %578 = load ptr, ptr %577, align 8
   %579 = tail call i32 @pmi_kvs_get(ptr noundef %578) #14
   %580 = tail call i32 @slurm_send_rc_msg(ptr noundef nonnull %1, i32 noundef %579) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
 581:                                              ; preds = %15
   %582 = tail call ptr @rpc_num2string(i16 noundef zeroext %17) #14
   %583 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__._handle_msg, ptr noundef %582) #14
-  br label %_job_complete_handler.exit
+  br label %_job_complete_handler.argprom.exit
 
-_job_complete_handler.exit:                       ; preds = %559, %556, %545, %542, %267, %250, %247, %233, %204, %201, %_launch_handler.exit, %_exit_handler.exit, %189, %_node_fail_handler.exit, %_step_missing_handler.exit, %567, %576, %581, %276, %271, %13
+_job_complete_handler.argprom.exit:               ; preds = %559, %556, %545, %542, %267, %250, %247, %233, %204, %201, %_launch_handler.argprom.exit, %_exit_handler.argprom.exit, %189, %_node_fail_handler.argprom.exit, %_step_missing_handler.argprom.exit, %567, %576, %581, %276, %271, %13
   ret void
 }
 

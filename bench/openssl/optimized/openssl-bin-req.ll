@@ -1457,7 +1457,7 @@ if.then554:                                       ; preds = %if.end551
 if.end561:                                        ; preds = %if.then554
   %lnot = xor i1 %tobool202, true
   %lnot.ext = zext i1 %lnot to i32
-  %call563 = call fastcc i32 @make_REQ(ptr noundef %call557, ptr noundef %pkey.2332, ptr noundef %fsubj.1, i32 noundef %lnot.ext, i64 noundef %chtype.2)
+  %call563 = call fastcc i32 @make_REQ.argelim(ptr noundef %call557, ptr noundef %pkey.2332, ptr noundef %fsubj.1, i32 noundef %lnot.ext, i64 noundef %chtype.2)
   %tobool564.not = icmp eq i32 %call563, 0
   br i1 %tobool564.not, label %if.then565, label %if.end568
 
@@ -2504,7 +2504,7 @@ declare ptr @app_get0_libctx() local_unnamed_addr #1
 declare ptr @app_get0_propq() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @make_REQ(ptr noundef nonnull %req, ptr noundef %pkey, ptr noundef %fsubj, i32 noundef range(i32 0, 2) %attribs, i64 noundef range(i64 4096, 4098) %chtype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @make_REQ.argelim(ptr noundef nonnull %req, ptr noundef %pkey, ptr noundef %fsubj, i32 noundef range(i32 0, 2) %attribs, i64 noundef range(i64 4096, 4098) %chtype) unnamed_addr #0 {
 entry:
   %buf.i172.i = alloca [1024 x i8], align 16
   %buf.i.i = alloca [1024 x i8], align 16
@@ -2915,7 +2915,7 @@ if.end104.i:                                      ; preds = %if.then103.i, %if.e
   %53 = load i64, ptr %n_min.i, align 8
   %conv106.i = trunc i64 %53 to i32
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i.i)
-  %call.i124.i = call fastcc i32 @build_data(ptr noundef %52, ptr noundef nonnull %spec.store.select.i, ptr noundef %call78.i, i32 noundef %conv106.i, i32 noundef %conv107.i, ptr noundef %buf.i.i, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222)
+  %call.i124.i = call fastcc i32 @build_data.argelim(ptr noundef %52, ptr noundef nonnull %spec.store.select.i, ptr noundef %call78.i, i32 noundef %conv106.i, i32 noundef %conv107.i, ptr noundef %buf.i.i, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222)
   %or.cond.i.i = icmp ult i32 %call.i124.i, 2
   br i1 %or.cond.i.i, label %add_DN_object.exit.i, label %if.end.i125.i
 
@@ -3074,7 +3074,7 @@ if.end189.i:                                      ; preds = %if.then188.i, %if.e
   %72 = load i64, ptr %n_min.i, align 8
   %conv191.i = trunc i64 %72 to i32
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i172.i)
-  %call.i173.i = call fastcc i32 @build_data(ptr noundef %71, ptr noundef nonnull %spec.store.select2.i, ptr noundef %call169.i, i32 noundef %conv191.i, i32 noundef %conv192.i, ptr noundef %buf.i172.i, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.228)
+  %call.i173.i = call fastcc i32 @build_data.argelim(ptr noundef %71, ptr noundef nonnull %spec.store.select2.i, ptr noundef %call169.i, i32 noundef %conv191.i, i32 noundef %conv192.i, ptr noundef %buf.i172.i, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.228)
   %or.cond.i174.i = icmp ult i32 %call.i173.i, 2
   br i1 %or.cond.i174.i, label %add_attribute_object.exit.i, label %if.end.i175.i
 
@@ -3268,7 +3268,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @build_data(ptr noundef %text, ptr noundef %def, ptr noundef %value, i32 noundef %n_min, i32 noundef %n_max, ptr noundef nonnull %buf, ptr noundef %desc1, ptr noundef %desc2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @build_data.argelim(ptr noundef %text, ptr noundef %def, ptr noundef %value, i32 noundef %n_min, i32 noundef %n_max, ptr noundef nonnull %buf, ptr noundef %desc1, ptr noundef %desc2) unnamed_addr #0 {
 entry:
   %.b24.pr = load i1, ptr @batch, align 4
   %cmp = icmp ne ptr %value, null

@@ -705,7 +705,7 @@ Mini_AigStop.exit:                                ; preds = %1, %7
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull @.str.4)
   %.phi.trans.insert = getelementptr i8, ptr %8, i64 4
   %.val.i.i.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %Mini_AigDump.exit
+  br label %Mini_AigDump.argprom.exit
 
 13:                                               ; preds = %Mini_AigStop.exit
   %14 = getelementptr inbounds i8, ptr %8, i64 4
@@ -718,14 +718,14 @@ Mini_AigStop.exit:                                ; preds = %1, %7
   %21 = sext i32 %20 to i64
   %22 = tail call i64 @fwrite(ptr noundef %19, i64 noundef 4, i64 noundef %21, ptr noundef nonnull %9)
   %23 = tail call i32 @fclose(ptr noundef nonnull %9)
-  br label %Mini_AigDump.exit
+  br label %Mini_AigDump.argprom.exit
 
-Mini_AigDump.exit:                                ; preds = %11, %13
+Mini_AigDump.argprom.exit:                        ; preds = %11, %13
   %.val.i.i = phi i32 [ %.val.i.i.pre, %11 ], [ %20, %13 ]
   %24 = icmp sgt i32 %.val.i.i, 3
   br i1 %24, label %.lr.ph.i.i, label %Mini_AigPoNum.exit.thread.i
 
-.lr.ph.i.i:                                       ; preds = %Mini_AigDump.exit
+.lr.ph.i.i:                                       ; preds = %Mini_AigDump.argprom.exit
   %25 = lshr i32 %.val.i.i, 1
   %26 = getelementptr i8, ptr %8, i64 16
   %.val.i.i.i = load ptr, ptr %26, align 8
@@ -772,7 +772,7 @@ Mini_AigNodeIsPo.exit.thread.i.i:                 ; preds = %Mini_AigNodeIsPo.ex
   %exitcond.not.i12.i = icmp eq i64 %indvars.iv.next.i11.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i12.i, label %Mini_AigPoNum.exit.i, label %.lr.ph.i6.i, !llvm.loop !10
 
-Mini_AigPoNum.exit.thread.i:                      ; preds = %Mini_AigDump.exit
+Mini_AigPoNum.exit.thread.i:                      ; preds = %Mini_AigDump.argprom.exit
   %40 = getelementptr i8, ptr %8, i64 8
   %.val27.i = load i32, ptr %40, align 8
   br label %Mini_AigPrintStats.exit
@@ -834,7 +834,7 @@ Mini_AigStop.exit12:                              ; preds = %Mini_AigPrintStats.
 58:                                               ; preds = %Mini_AigStop.exit12
   %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull @.str.4)
   %.val.i.i13.pre = load i32, ptr inttoptr (i64 4 to ptr), align 4
-  br label %Mini_AigLoad.exit
+  br label %Mini_AigLoad.argprom.exit
 
 60:                                               ; preds = %Mini_AigStop.exit12
   %61 = call i64 @fread(ptr noundef nonnull %2, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %56)
@@ -855,16 +855,16 @@ Mini_AigStop.exit12:                              ; preds = %Mini_AigPrintStats.
   %73 = sext i32 %72 to i64
   %74 = tail call i64 @fread(ptr noundef %71, i64 noundef 4, i64 noundef %73, ptr noundef nonnull %56)
   %75 = tail call i32 @fclose(ptr noundef nonnull %56)
-  br label %Mini_AigLoad.exit
+  br label %Mini_AigLoad.argprom.exit
 
-Mini_AigLoad.exit:                                ; preds = %58, %60
+Mini_AigLoad.argprom.exit:                        ; preds = %58, %60
   %.val.i.i13 = phi i32 [ %.val.i.i13.pre, %58 ], [ %72, %60 ]
   %.0.i = phi ptr [ null, %58 ], [ %62, %60 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %76 = icmp sgt i32 %.val.i.i13, 3
   br i1 %76, label %.lr.ph.i.i20, label %Mini_AigPoNum.exit.thread.i14
 
-.lr.ph.i.i20:                                     ; preds = %Mini_AigLoad.exit
+.lr.ph.i.i20:                                     ; preds = %Mini_AigLoad.argprom.exit
   %77 = lshr i32 %.val.i.i13, 1
   %78 = getelementptr i8, ptr %.0.i, i64 16
   %.val.i.i.i21 = load ptr, ptr %78, align 8
@@ -911,7 +911,7 @@ Mini_AigNodeIsPo.exit.thread.i.i37:               ; preds = %Mini_AigNodeIsPo.ex
   %exitcond.not.i12.i39 = icmp eq i64 %indvars.iv.next.i11.i38, %wide.trip.count.i.i22
   br i1 %exitcond.not.i12.i39, label %Mini_AigPoNum.exit.i40, label %.lr.ph.i6.i30, !llvm.loop !10
 
-Mini_AigPoNum.exit.thread.i14:                    ; preds = %Mini_AigLoad.exit
+Mini_AigPoNum.exit.thread.i14:                    ; preds = %Mini_AigLoad.argprom.exit
   %92 = getelementptr i8, ptr %.0.i, i64 8
   %.val27.i15 = load i32, ptr %92, align 8
   br label %Mini_AigPrintStats.exit51

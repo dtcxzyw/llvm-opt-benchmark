@@ -328,9 +328,9 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntFree.exit.lo
 
 .critedge2.us:                                    ; preds = %._crit_edge.us, %.critedge2.preheader.split.us
   %.pre130 = load i32, ptr %.val77.us, align 4
-  br label %Aig_ManObj.exit104.us
+  br label %Aig_ManObj.argprom.exit104.us
 
-Aig_ManObj.exit104.us:                            ; preds = %.critedge2.us, %95
+Aig_ManObj.argprom.exit104.us:                    ; preds = %.critedge2.us, %95
   %76 = phi i32 [ %.pre130, %.critedge2.us ], [ %96, %95 ]
   %indvars.iv123 = phi i64 [ 0, %.critedge2.us ], [ %indvars.iv.next124, %95 ]
   %.0118.us = phi i32 [ 0, %.critedge2.us ], [ %.1.us, %95 ]
@@ -357,17 +357,17 @@ Aig_ManObj.exit104.us:                            ; preds = %.critedge2.us, %95
   %92 = icmp ult i32 %83, %91
   br i1 %92, label %93, label %95
 
-93:                                               ; preds = %Aig_ManObj.exit104.us
+93:                                               ; preds = %Aig_ManObj.argprom.exit104.us
   %94 = getelementptr inbounds i32, ptr %.val77.us, i64 %indvars.iv123
   store i32 %85, ptr %94, align 4
   store i32 %76, ptr %84, align 4
   br label %95
 
-95:                                               ; preds = %93, %Aig_ManObj.exit104.us
-  %96 = phi i32 [ %76, %93 ], [ %85, %Aig_ManObj.exit104.us ]
-  %.1.us = phi i32 [ 1, %93 ], [ %.0118.us, %Aig_ManObj.exit104.us ]
+95:                                               ; preds = %93, %Aig_ManObj.argprom.exit104.us
+  %96 = phi i32 [ %76, %93 ], [ %85, %Aig_ManObj.argprom.exit104.us ]
+  %.1.us = phi i32 [ 1, %93 ], [ %.0118.us, %Aig_ManObj.argprom.exit104.us ]
   %exitcond.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %Aig_ManObj.exit104.us, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.us, label %Aig_ManObj.argprom.exit104.us, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %95
   %.not.us = icmp eq i32 %.1.us, 0

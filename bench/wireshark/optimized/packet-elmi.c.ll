@@ -227,8 +227,8 @@ define internal i32 @dissect_elmi(ptr noundef %0, ptr nocapture noundef readonly
   tail call void @col_append_str(ptr noundef %19, i32 noundef 25, ptr noundef %21) #3
   br label %22
 
-22:                                               ; preds = %dissect_elmi_info_elem.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ %.0102.i, %dissect_elmi_info_elem.exit ]
+22:                                               ; preds = %dissect_elmi_info_elem.argprom.exit, %4
+  %.0 = phi i32 [ 2, %4 ], [ %.0102.i, %dissect_elmi_info_elem.argprom.exit ]
   %23 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #3
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %.loopexit
@@ -237,9 +237,9 @@ define internal i32 @dissect_elmi(ptr noundef %0, ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #3
   %27 = icmp eq i8 %26, 0
-  br i1 %27, label %dissect_elmi_info_elem.exit.thread, label %28
+  br i1 %27, label %dissect_elmi_info_elem.argprom.exit.thread, label %28
 
-dissect_elmi_info_elem.exit.thread:               ; preds = %25
+dissect_elmi_info_elem.argprom.exit.thread:       ; preds = %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit
 
@@ -268,7 +268,7 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   %41 = load i32, ptr @hf_elmi_report_type, align 4
   %42 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0) #3
   %43 = add i32 %.0, 3
-  br label %dissect_elmi_info_elem.exit
+  br label %dissect_elmi_info_elem.argprom.exit
 
 44:                                               ; preds = %28
   %45 = load i32, ptr @hf_elmi_snd_seq_num, align 4
@@ -277,7 +277,7 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   %48 = load i32, ptr @hf_elmi_rcv_seq_num, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0) #3
   %50 = add i32 %.0, 4
-  br label %dissect_elmi_info_elem.exit
+  br label %dissect_elmi_info_elem.argprom.exit
 
 51:                                               ; preds = %28
   %52 = load i32, ptr @hf_elmi_reserved, align 4
@@ -286,7 +286,7 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   %55 = load i32, ptr @hf_elmi_dat_inst, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #3
   %57 = add i32 %.0, 7
-  br label %dissect_elmi_info_elem.exit
+  br label %dissect_elmi_info_elem.argprom.exit
 
 58:                                               ; preds = %28
   %59 = load i32, ptr @hf_elmi_uni_status, align 4
@@ -295,19 +295,19 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   %62 = zext i8 %36 to i32
   %63 = add i32 %39, %62
   %64 = icmp slt i32 %61, %63
-  br i1 %64, label %.lr.ph12.i, label %dissect_elmi_info_elem.exit
+  br i1 %64, label %.lr.ph12.i, label %dissect_elmi_info_elem.argprom.exit
 
 65:                                               ; preds = %.lr.ph12.i
   %66 = add i32 %69, %.111.i
   %67 = icmp slt i32 %66, %63
-  br i1 %67, label %.lr.ph12.i, label %dissect_elmi_info_elem.exit, !llvm.loop !4
+  br i1 %67, label %.lr.ph12.i, label %dissect_elmi_info_elem.argprom.exit, !llvm.loop !4
 
 .lr.ph12.i:                                       ; preds = %58, %65
   %.111.i = phi i32 [ %66, %65 ], [ %61, %58 ]
   %68 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.111.i, ptr noundef %32)
   %69 = and i32 %68, 255
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %dissect_elmi_info_elem.exit, label %65
+  br i1 %70, label %dissect_elmi_info_elem.argprom.exit, label %65
 
 71:                                               ; preds = %28
   %72 = load i32, ptr @hf_elmi_evc_refid, align 4
@@ -319,19 +319,19 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   %78 = zext i8 %36 to i32
   %79 = add i32 %39, %78
   %80 = icmp slt i32 %77, %79
-  br i1 %80, label %.lr.ph7.i, label %dissect_elmi_info_elem.exit
+  br i1 %80, label %.lr.ph7.i, label %dissect_elmi_info_elem.argprom.exit
 
 81:                                               ; preds = %.lr.ph7.i
   %82 = add i32 %85, %.26.i
   %83 = icmp slt i32 %82, %79
-  br i1 %83, label %.lr.ph7.i, label %dissect_elmi_info_elem.exit, !llvm.loop !6
+  br i1 %83, label %.lr.ph7.i, label %dissect_elmi_info_elem.argprom.exit, !llvm.loop !6
 
 .lr.ph7.i:                                        ; preds = %71, %81
   %.26.i = phi i32 [ %82, %81 ], [ %77, %71 ]
   %84 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.26.i, ptr noundef %32)
   %85 = and i32 %84, 255
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %dissect_elmi_info_elem.exit, label %81
+  br i1 %86, label %dissect_elmi_info_elem.argprom.exit, label %81
 
 87:                                               ; preds = %28
   %88 = load i32, ptr @hf_elmi_evc_refid, align 4
@@ -350,26 +350,26 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   %101 = zext i8 %36 to i32
   %102 = add i32 %39, %101
   %103 = icmp slt i32 %100, %102
-  br i1 %103, label %.lr.ph.i, label %dissect_elmi_info_elem.exit
+  br i1 %103, label %.lr.ph.i, label %dissect_elmi_info_elem.argprom.exit
 
 104:                                              ; preds = %.lr.ph.i
   %105 = add i32 %108, %.33.i
   %106 = icmp slt i32 %105, %102
-  br i1 %106, label %.lr.ph.i, label %dissect_elmi_info_elem.exit, !llvm.loop !7
+  br i1 %106, label %.lr.ph.i, label %dissect_elmi_info_elem.argprom.exit, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %87, %104
   %.33.i = phi i32 [ %105, %104 ], [ %100, %87 ]
   %107 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.33.i, ptr noundef %32)
   %108 = and i32 %107, 255
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %dissect_elmi_info_elem.exit, label %104
+  br i1 %109, label %dissect_elmi_info_elem.argprom.exit, label %104
 
 110:                                              ; preds = %28
   %111 = zext i8 %36 to i32
   %112 = add i32 %39, %111
-  br label %dissect_elmi_info_elem.exit
+  br label %dissect_elmi_info_elem.argprom.exit
 
-dissect_elmi_info_elem.exit:                      ; preds = %104, %.lr.ph.i, %81, %.lr.ph7.i, %65, %.lr.ph12.i, %40, %44, %51, %58, %71, %87, %110
+dissect_elmi_info_elem.argprom.exit:              ; preds = %104, %.lr.ph.i, %81, %.lr.ph7.i, %65, %.lr.ph12.i, %40, %44, %51, %58, %71, %87, %110
   %.0102.i = phi i32 [ %112, %110 ], [ %57, %51 ], [ %50, %44 ], [ %43, %40 ], [ %61, %58 ], [ %77, %71 ], [ %100, %87 ], [ %66, %65 ], [ %.111.i, %.lr.ph12.i ], [ %82, %81 ], [ %.26.i, %.lr.ph7.i ], [ %105, %104 ], [ %.33.i, %.lr.ph.i ]
   %113 = load ptr, ptr %5, align 8
   %114 = sub i32 %.0102.i, %.0
@@ -378,7 +378,7 @@ dissect_elmi_info_elem.exit:                      ; preds = %104, %.lr.ph.i, %81
   %115 = icmp slt i32 %114, 1
   br i1 %115, label %.loopexit, label %22, !llvm.loop !8
 
-.loopexit:                                        ; preds = %dissect_elmi_info_elem.exit, %22, %dissect_elmi_info_elem.exit.thread
+.loopexit:                                        ; preds = %dissect_elmi_info_elem.argprom.exit, %22, %dissect_elmi_info_elem.argprom.exit.thread
   %116 = call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %116
 }

@@ -6248,7 +6248,7 @@ entry:
   store ptr %dest_type, ptr %dest_type7, align 8
   %0 = getelementptr inbounds i8, ptr %src_type, i64 40
   %src_type.val = load i32, ptr %0, align 8
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_116TransposeIntsSrcEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, i32 %src_type.val, ptr noundef %transposer)
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_116TransposeIntsSrcEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom(ptr noalias align 8 %agg.result, i32 %src_type.val, ptr noundef %transposer)
   ret void
 }
 
@@ -6371,7 +6371,7 @@ if.then14.i518:                                   ; preds = %for.body10.i510
 
 invoke.cont.i520:                                 ; preds = %if.then14.i518
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i492) #17
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit524
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit524
 
 common.resume:                                    ; preds = %lpad.i.i.i486, %lpad.i28.i.i, %lpad.i.i.i404, %lpad.i30.i.i360, %lpad.i.i.i306, %lpad.i30.i.i259, %lpad.i.i.i, %lpad.i30.i.i, %lpad.i669, %lpad.i699, %lpad.i609, %lpad.i641, %lpad.i550, %lpad.i582, %lpad.i, %lpad.i519
   %ref.tmp.i8.sink.i.i448.sink = phi ptr [ %ref.tmp.i647, %lpad.i669 ], [ %ref.tmp.i674, %lpad.i699 ], [ %ref.tmp.i588, %lpad.i609 ], [ %ref.tmp.i614, %lpad.i641 ], [ %ref.tmp.i525, %lpad.i550 ], [ %ref.tmp.i555, %lpad.i582 ], [ %ref.tmp.i, %lpad.i ], [ %ref.tmp.i492, %lpad.i519 ], [ %ref.tmp.i8.i.i, %lpad.i30.i.i ], [ %ref.tmp.i.i.i, %lpad.i.i.i ], [ %ref.tmp.i8.i.i207, %lpad.i30.i.i259 ], [ %ref.tmp.i.i.i209, %lpad.i.i.i306 ], [ %ref.tmp.i8.i.i312, %lpad.i30.i.i360 ], [ %ref.tmp.i.i.i314, %lpad.i.i.i404 ], [ %ref.tmp.i8.i.i411, %lpad.i28.i.i ], [ %ref.tmp.i.i.i413, %lpad.i.i.i486 ]
@@ -6386,9 +6386,9 @@ lpad.i519:                                        ; preds = %if.then14.i518
 
 if.end20.i494:                                    ; preds = %for.cond8.i521, %for.end.i509, %if.then.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !174
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit524
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit524
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit524: ; preds = %invoke.cont.i520, %if.end20.i494
+_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit524: ; preds = %invoke.cont.i520, %if.end20.i494
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i492)
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEm.exit
 
@@ -6440,7 +6440,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 while.body.i.i.preheader:                         ; preds = %if.then.i.i.i, %if.end.i.i
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
   %call.i.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i), !noalias !177
   %10 = extractvalue { i64, i64 } %call.i.i, 1
   %cmp2.i.i = icmp eq i64 %10, 0
@@ -6449,7 +6449,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %while.body.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %cmp1.i = icmp sgt i64 %10, 0
-  br i1 %cmp1.i, label %for.body.lr.ph.i, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br i1 %cmp1.i, label %for.body.lr.ph.i, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 for.body.lr.ph.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %11 = extractvalue { i64, i64 } %call.i.i, 0
@@ -6471,12 +6471,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !172
 
 for.end.i:                                        ; preds = %for.body.i
-  br i1 %or10.i, label %for.body10.i, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br i1 %or10.i, label %for.body10.i, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 for.cond8.i:                                      ; preds = %for.body10.i
   %inc18.i = add nuw nsw i64 %i7.05.i, 1
   %exitcond7.not.i = icmp eq i64 %inc18.i, %10
-  br i1 %exitcond7.not.i, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit, label %for.body10.i, !llvm.loop !173
+  br i1 %exitcond7.not.i, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit, label %for.body10.i, !llvm.loop !173
 
 for.body10.i:                                     ; preds = %for.end.i, %for.cond8.i
   %i7.05.i = phi i64 [ %inc18.i, %for.cond8.i ], [ 0, %for.end.i ]
@@ -6496,14 +6496,14 @@ if.then14.i:                                      ; preds = %for.body10.i
 invoke.cont.i:                                    ; preds = %if.then14.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17, !noalias !177
   %.pr = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !181
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 lpad.i:                                           ; preds = %if.then14.i
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit: ; preds = %for.cond8.i, %_ZN5arrow6StatusD2Ev.exit.i.i, %for.end.i, %invoke.cont.i
+_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit: ; preds = %for.cond8.i, %_ZN5arrow6StatusD2Ev.exit.i.i, %for.end.i, %invoke.cont.i
   %17 = phi ptr [ %.pr, %invoke.cont.i ], [ null, %for.end.i ], [ null, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %for.cond8.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !184)
@@ -6516,7 +6516,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !185
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEm.exit
 
-_ZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit, %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit524, %while.end.i.i
+_ZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit, %_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit524, %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i), !noalias !163
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !163
   br label %return
@@ -6583,7 +6583,7 @@ if.then14.i581:                                   ; preds = %for.body10.i573
 
 invoke.cont.i583:                                 ; preds = %if.then14.i581
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i555) #17
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit587
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit587
 
 lpad.i582:                                        ; preds = %if.then14.i581
   %25 = landingpad { ptr, i32 }
@@ -6592,9 +6592,9 @@ lpad.i582:                                        ; preds = %if.then14.i581
 
 if.end20.i557:                                    ; preds = %for.cond8.i584, %for.end.i572, %if.then.i.i64
   store ptr null, ptr %agg.result, align 8, !alias.scope !199
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit587
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit587
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit587: ; preds = %invoke.cont.i583, %if.end20.i557
+_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit587: ; preds = %invoke.cont.i583, %if.end20.i557
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i555)
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEm.exit
 
@@ -6646,7 +6646,7 @@ if.then.i.i.i46:                                  ; preds = %if.end.i.i28
 while.body.i.i40.preheader:                       ; preds = %if.then.i.i.i46, %if.end.i.i28
   br label %while.body.i.i40
 
-while.body.i.i40:                                 ; preds = %while.body.i.i40.preheader, %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+while.body.i.i40:                                 ; preds = %while.body.i.i40.preheader, %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
   %call.i.i41 = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i17), !noalias !202
   %26 = extractvalue { i64, i64 } %call.i.i41, 1
   %cmp2.i.i42 = icmp eq i64 %26, 0
@@ -6655,7 +6655,7 @@ while.body.i.i40:                                 ; preds = %while.body.i.i40.pr
 _ZN5arrow6StatusD2Ev.exit.i.i43:                  ; preds = %while.body.i.i40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i525)
   %cmp1.i526 = icmp sgt i64 %26, 0
-  br i1 %cmp1.i526, label %for.body.lr.ph.i528, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br i1 %cmp1.i526, label %for.body.lr.ph.i528, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 for.body.lr.ph.i528:                              ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i43
   %27 = extractvalue { i64, i64 } %call.i.i41, 0
@@ -6677,12 +6677,12 @@ for.body.i529:                                    ; preds = %for.body.i529, %for
   br i1 %exitcond.not.i540, label %for.end.i541, label %for.body.i529, !llvm.loop !197
 
 for.end.i541:                                     ; preds = %for.body.i529
-  br i1 %or10.i538, label %for.body10.i542, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br i1 %or10.i538, label %for.body10.i542, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 for.cond8.i552:                                   ; preds = %for.body10.i542
   %inc18.i553 = add nuw nsw i64 %i7.05.i543, 1
   %exitcond7.not.i554 = icmp eq i64 %inc18.i553, %26
-  br i1 %exitcond7.not.i554, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit, label %for.body10.i542, !llvm.loop !198
+  br i1 %exitcond7.not.i554, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit, label %for.body10.i542, !llvm.loop !198
 
 for.body10.i542:                                  ; preds = %for.end.i541, %for.cond8.i552
   %i7.05.i543 = phi i64 [ %inc18.i553, %for.cond8.i552 ], [ 0, %for.end.i541 ]
@@ -6702,14 +6702,14 @@ if.then14.i549:                                   ; preds = %for.body10.i542
 invoke.cont.i551:                                 ; preds = %if.then14.i549
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i525) #17, !noalias !202
   %.pr721 = load ptr, ptr %ref.tmp.i.i18, align 8, !noalias !206
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 lpad.i550:                                        ; preds = %if.then14.i549
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit: ; preds = %for.cond8.i552, %_ZN5arrow6StatusD2Ev.exit.i.i43, %for.end.i541, %invoke.cont.i551
+_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit: ; preds = %for.cond8.i552, %_ZN5arrow6StatusD2Ev.exit.i.i43, %for.end.i541, %invoke.cont.i551
   %33 = phi ptr [ %.pr721, %invoke.cont.i551 ], [ null, %for.end.i541 ], [ null, %_ZN5arrow6StatusD2Ev.exit.i.i43 ], [ null, %for.cond8.i552 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i525)
   call void @llvm.experimental.noalias.scope.decl(metadata !209)
@@ -6722,7 +6722,7 @@ while.end.i.i45:                                  ; preds = %while.body.i.i40
   store ptr null, ptr %agg.result, align 8, !alias.scope !210
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEm.exit
 
-_ZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit, %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit587, %while.end.i.i45
+_ZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit, %_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit587, %while.end.i.i45
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i17), !noalias !188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i18), !noalias !188
   br label %return
@@ -6789,7 +6789,7 @@ if.then14.i640:                                   ; preds = %for.body10.i632
 
 invoke.cont.i642:                                 ; preds = %if.then14.i640
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i614) #17
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit646
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit646
 
 lpad.i641:                                        ; preds = %if.then14.i640
   %41 = landingpad { ptr, i32 }
@@ -6798,9 +6798,9 @@ lpad.i641:                                        ; preds = %if.then14.i640
 
 if.end20.i616:                                    ; preds = %for.cond8.i643, %for.end.i631, %if.then.i.i113
   store ptr null, ptr %agg.result, align 8, !alias.scope !224
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit646
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit646
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit646: ; preds = %invoke.cont.i642, %if.end20.i616
+_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit646: ; preds = %invoke.cont.i642, %if.end20.i616
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i614)
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEm.exit
 
@@ -6852,7 +6852,7 @@ if.then.i.i.i95:                                  ; preds = %if.end.i.i77
 while.body.i.i89.preheader:                       ; preds = %if.then.i.i.i95, %if.end.i.i77
   br label %while.body.i.i89
 
-while.body.i.i89:                                 ; preds = %while.body.i.i89.preheader, %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+while.body.i.i89:                                 ; preds = %while.body.i.i89.preheader, %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
   %call.i.i90 = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i66), !noalias !227
   %42 = extractvalue { i64, i64 } %call.i.i90, 1
   %cmp2.i.i91 = icmp eq i64 %42, 0
@@ -6861,7 +6861,7 @@ while.body.i.i89:                                 ; preds = %while.body.i.i89.pr
 _ZN5arrow6StatusD2Ev.exit.i.i92:                  ; preds = %while.body.i.i89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i588)
   %cmp1.i589 = icmp sgt i64 %42, 0
-  br i1 %cmp1.i589, label %for.body.lr.ph.i591, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br i1 %cmp1.i589, label %for.body.lr.ph.i591, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 for.body.lr.ph.i591:                              ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i92
   %43 = extractvalue { i64, i64 } %call.i.i90, 0
@@ -6883,12 +6883,12 @@ for.body.i592:                                    ; preds = %for.body.i592, %for
   br i1 %exitcond.not.i601, label %for.end.i602, label %for.body.i592, !llvm.loop !222
 
 for.end.i602:                                     ; preds = %for.body.i592
-  br i1 %or10.i599, label %for.body10.i603, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br i1 %or10.i599, label %for.body10.i603, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 for.cond8.i611:                                   ; preds = %for.body10.i603
   %inc18.i612 = add nuw nsw i64 %i7.05.i604, 1
   %exitcond7.not.i613 = icmp eq i64 %inc18.i612, %42
-  br i1 %exitcond7.not.i613, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit, label %for.body10.i603, !llvm.loop !223
+  br i1 %exitcond7.not.i613, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit, label %for.body10.i603, !llvm.loop !223
 
 for.body10.i603:                                  ; preds = %for.end.i602, %for.cond8.i611
   %i7.05.i604 = phi i64 [ %inc18.i612, %for.cond8.i611 ], [ 0, %for.end.i602 ]
@@ -6908,14 +6908,14 @@ if.then14.i608:                                   ; preds = %for.body10.i603
 invoke.cont.i610:                                 ; preds = %if.then14.i608
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i588) #17, !noalias !227
   %.pr722 = load ptr, ptr %ref.tmp.i.i67, align 8, !noalias !231
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 lpad.i609:                                        ; preds = %if.then14.i608
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit: ; preds = %for.cond8.i611, %_ZN5arrow6StatusD2Ev.exit.i.i92, %for.end.i602, %invoke.cont.i610
+_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit: ; preds = %for.cond8.i611, %_ZN5arrow6StatusD2Ev.exit.i.i92, %for.end.i602, %invoke.cont.i610
   %49 = phi ptr [ %.pr722, %invoke.cont.i610 ], [ null, %for.end.i602 ], [ null, %_ZN5arrow6StatusD2Ev.exit.i.i92 ], [ null, %for.cond8.i611 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i588)
   call void @llvm.experimental.noalias.scope.decl(metadata !234)
@@ -6928,7 +6928,7 @@ while.end.i.i94:                                  ; preds = %while.body.i.i89
   store ptr null, ptr %agg.result, align 8, !alias.scope !235
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEm.exit
 
-_ZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit, %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit646, %while.end.i.i94
+_ZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit, %_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit646, %while.end.i.i94
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i66), !noalias !213
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i67), !noalias !213
   br label %return
@@ -6993,7 +6993,7 @@ if.then14.i698:                                   ; preds = %for.body10.i691
 
 invoke.cont.i700:                                 ; preds = %if.then14.i698
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i674) #17
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit704
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit704
 
 lpad.i699:                                        ; preds = %if.then14.i698
   %56 = landingpad { ptr, i32 }
@@ -7002,9 +7002,9 @@ lpad.i699:                                        ; preds = %if.then14.i698
 
 if.end20.i676:                                    ; preds = %for.cond8.i701, %for.end.i690, %if.then.i.i162
   store ptr null, ptr %agg.result, align 8, !alias.scope !249
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit704
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit704
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit704: ; preds = %invoke.cont.i700, %if.end20.i676
+_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit704: ; preds = %invoke.cont.i700, %if.end20.i676
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i674)
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEm.exit
 
@@ -7056,7 +7056,7 @@ if.then.i.i.i144:                                 ; preds = %if.end.i.i126
 while.body.i.i138.preheader:                      ; preds = %if.then.i.i.i144, %if.end.i.i126
   br label %while.body.i.i138
 
-while.body.i.i138:                                ; preds = %while.body.i.i138.preheader, %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+while.body.i.i138:                                ; preds = %while.body.i.i138.preheader, %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
   %call.i.i139 = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i.i115), !noalias !252
   %57 = extractvalue { i64, i64 } %call.i.i139, 1
   %cmp2.i.i140 = icmp eq i64 %57, 0
@@ -7065,7 +7065,7 @@ while.body.i.i138:                                ; preds = %while.body.i.i138.p
 _ZN5arrow6StatusD2Ev.exit.i.i141:                 ; preds = %while.body.i.i138
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i647)
   %cmp1.i648 = icmp sgt i64 %57, 0
-  br i1 %cmp1.i648, label %for.body.lr.ph.i650, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br i1 %cmp1.i648, label %for.body.lr.ph.i650, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 for.body.lr.ph.i650:                              ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i141
   %58 = extractvalue { i64, i64 } %call.i.i139, 0
@@ -7086,12 +7086,12 @@ for.body.i651:                                    ; preds = %for.body.i651, %for
   br i1 %exitcond.not.i661, label %for.end.i662, label %for.body.i651, !llvm.loop !247
 
 for.end.i662:                                     ; preds = %for.body.i651
-  br i1 %or10.i659, label %for.body10.i663, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br i1 %or10.i659, label %for.body10.i663, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 for.cond8.i671:                                   ; preds = %for.body10.i663
   %inc18.i672 = add nuw nsw i64 %i7.05.i664, 1
   %exitcond7.not.i673 = icmp eq i64 %inc18.i672, %57
-  br i1 %exitcond7.not.i673, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit, label %for.body10.i663, !llvm.loop !248
+  br i1 %exitcond7.not.i673, label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit, label %for.body10.i663, !llvm.loop !248
 
 for.body10.i663:                                  ; preds = %for.end.i662, %for.cond8.i671
   %i7.05.i664 = phi i64 [ %inc18.i672, %for.cond8.i671 ], [ 0, %for.end.i662 ]
@@ -7110,14 +7110,14 @@ if.then14.i668:                                   ; preds = %for.body10.i663
 invoke.cont.i670:                                 ; preds = %if.then14.i668
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i647) #17, !noalias !252
   %.pr723 = load ptr, ptr %ref.tmp.i.i116, align 8, !noalias !256
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit
 
 lpad.i669:                                        ; preds = %if.then14.i668
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit: ; preds = %for.cond8.i671, %_ZN5arrow6StatusD2Ev.exit.i.i141, %for.end.i662, %invoke.cont.i670
+_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit: ; preds = %for.cond8.i671, %_ZN5arrow6StatusD2Ev.exit.i.i141, %for.end.i662, %invoke.cont.i670
   %63 = phi ptr [ %.pr723, %invoke.cont.i670 ], [ null, %for.end.i662 ], [ null, %_ZN5arrow6StatusD2Ev.exit.i.i141 ], [ null, %for.cond8.i671 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i647)
   call void @llvm.experimental.noalias.scope.decl(metadata !259)
@@ -7130,7 +7130,7 @@ while.end.i.i143:                                 ; preds = %while.body.i.i138
   store ptr null, ptr %agg.result, align 8, !alias.scope !260
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEm.exit
 
-_ZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit, %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit704, %while.end.i.i143
+_ZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit, %_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit704, %while.end.i.i143
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i115), !noalias !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i116), !noalias !238
   br label %return
@@ -7204,7 +7204,7 @@ if.then14.i.i.i:                                  ; preds = %for.body10.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then14.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #17
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then14.i.i.i
   %71 = landingpad { ptr, i32 }
@@ -7213,9 +7213,9 @@ lpad.i.i.i:                                       ; preds = %if.then14.i.i.i
 
 if.end20.i.i.i:                                   ; preds = %for.cond8.i.i.i, %for.end.i.i.i, %if.then.i.i206
   store ptr null, ptr %agg.result, align 8, !alias.scope !279
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i: ; preds = %if.end20.i.i.i, %invoke.cont.i.i.i
+_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i: ; preds = %if.end20.i.i.i, %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !275
   br label %_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i
 
@@ -7347,7 +7347,7 @@ while.end.i.i186:                                 ; preds = %while.body.backedge
   store ptr null, ptr %agg.result, align 8, !alias.scope !292
   br label %_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i
 
-_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i187, %while.end.i.i186, %_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i187, %while.end.i.i186, %_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i164), !noalias !263
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i165), !noalias !263
   br label %return
@@ -7421,7 +7421,7 @@ if.then14.i.i.i305:                               ; preds = %for.body10.i.i.i301
 
 invoke.cont.i.i.i307:                             ; preds = %if.then14.i.i.i305
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i209) #17
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
 
 lpad.i.i.i306:                                    ; preds = %if.then14.i.i.i305
   %87 = landingpad { ptr, i32 }
@@ -7430,9 +7430,9 @@ lpad.i.i.i306:                                    ; preds = %if.then14.i.i.i305
 
 if.end20.i.i.i289:                                ; preds = %for.cond8.i.i.i308, %for.end.i.i.i299, %if.then.i.i287
   store ptr null, ptr %agg.result, align 8, !alias.scope !311
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i: ; preds = %if.end20.i.i.i289, %invoke.cont.i.i.i307
+_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i: ; preds = %if.end20.i.i.i289, %invoke.cont.i.i.i307
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i209), !noalias !307
   br label %_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i
 
@@ -7564,7 +7564,7 @@ while.end.i.i241:                                 ; preds = %while.body.backedge
   store ptr null, ptr %agg.result, align 8, !alias.scope !324
   br label %_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i
 
-_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i263, %while.end.i.i241, %_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i263, %while.end.i.i241, %_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i210), !noalias !295
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i211), !noalias !295
   br label %return
@@ -7638,7 +7638,7 @@ if.then14.i.i.i403:                               ; preds = %for.body10.i.i.i400
 
 invoke.cont.i.i.i405:                             ; preds = %if.then14.i.i.i403
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i314) #17
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
 
 lpad.i.i.i404:                                    ; preds = %if.then14.i.i.i403
   %103 = landingpad { ptr, i32 }
@@ -7647,9 +7647,9 @@ lpad.i.i.i404:                                    ; preds = %if.then14.i.i.i403
 
 if.end20.i.i.i390:                                ; preds = %for.cond8.i.i.i406, %for.end.i.i.i398, %if.then.i.i388
   store ptr null, ptr %agg.result, align 8, !alias.scope !343
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i: ; preds = %if.end20.i.i.i390, %invoke.cont.i.i.i405
+_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i: ; preds = %if.end20.i.i.i390, %invoke.cont.i.i.i405
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i314), !noalias !339
   br label %_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i
 
@@ -7781,7 +7781,7 @@ while.end.i.i346:                                 ; preds = %while.body.backedge
   store ptr null, ptr %agg.result, align 8, !alias.scope !356
   br label %_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i
 
-_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i364, %while.end.i.i346, %_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i364, %while.end.i.i346, %_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i315), !noalias !327
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i316), !noalias !327
   br label %return
@@ -7842,7 +7842,7 @@ if.then14.i.i.i485:                               ; preds = %for.body10.i.i.i482
 
 invoke.cont.i.i.i487:                             ; preds = %if.then14.i.i.i485
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i413) #17
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
 
 lpad.i.i.i486:                                    ; preds = %if.then14.i.i.i485
   %118 = landingpad { ptr, i32 }
@@ -7851,9 +7851,9 @@ lpad.i.i.i486:                                    ; preds = %if.then14.i.i.i485
 
 if.end20.i.i.i472:                                ; preds = %for.cond8.i.i.i488, %for.end.i.i.i481, %if.then.i.i470
   store ptr null, ptr %agg.result, align 8, !alias.scope !372
-  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i
+  br label %_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i
 
-_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i: ; preds = %if.end20.i.i.i472, %invoke.cont.i.i.i487
+_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i: ; preds = %if.end20.i.i.i472, %invoke.cont.i.i.i487
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i413), !noalias !368
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEm.exit
 
@@ -7983,7 +7983,7 @@ while.end.i.i441:                                 ; preds = %while.body.backedge
   store ptr null, ptr %agg.result, align 8, !alias.scope !385
   br label %_ZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEm.exit
 
-_ZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i450, %_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.exit.i.i, %while.end.i.i441
+_ZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEm.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i450, %_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom.exit.i.i, %while.end.i.i441
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i414), !noalias !359
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i415), !noalias !359
   br label %return
@@ -8050,7 +8050,7 @@ sw.bb:                                            ; preds = %if.end
   %bound_lower.val = load i8, ptr %8, align 1
   %9 = getelementptr inbounds i8, ptr %bound_upper, i64 41
   %bound_upper.val = load i8, ptr %9, align 1
-  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_8Int8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i8 %bound_lower.val, i8 %bound_upper.val)
+  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_8Int8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i8 %bound_lower.val, i8 %bound_upper.val)
   br label %return
 
 sw.bb12:                                          ; preds = %if.end
@@ -8058,7 +8058,7 @@ sw.bb12:                                          ; preds = %if.end
   %bound_lower.val29 = load i16, ptr %10, align 2
   %11 = getelementptr i8, ptr %bound_upper, i64 42
   %bound_upper.val30 = load i16, ptr %11, align 2
-  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i16 %bound_lower.val29, i16 %bound_upper.val30)
+  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i16 %bound_lower.val29, i16 %bound_upper.val30)
   br label %return
 
 sw.bb13:                                          ; preds = %if.end
@@ -8066,7 +8066,7 @@ sw.bb13:                                          ; preds = %if.end
   %bound_lower.val31 = load i32, ptr %12, align 4
   %13 = getelementptr i8, ptr %bound_upper, i64 44
   %bound_upper.val32 = load i32, ptr %13, align 4
-  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i32 %bound_lower.val31, i32 %bound_upper.val32)
+  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i32 %bound_lower.val31, i32 %bound_upper.val32)
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
@@ -8074,7 +8074,7 @@ sw.bb14:                                          ; preds = %if.end
   %bound_lower.val33 = load i64, ptr %14, align 8
   %15 = getelementptr i8, ptr %bound_upper, i64 48
   %bound_upper.val34 = load i64, ptr %15, align 8
-  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 %bound_lower.val33, i64 %bound_upper.val34)
+  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 %bound_lower.val33, i64 %bound_upper.val34)
   br label %return
 
 sw.bb15:                                          ; preds = %if.end
@@ -8082,7 +8082,7 @@ sw.bb15:                                          ; preds = %if.end
   %bound_lower.val35 = load i8, ptr %16, align 1
   %17 = getelementptr inbounds i8, ptr %bound_upper, i64 41
   %bound_upper.val36 = load i8, ptr %17, align 1
-  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9UInt8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i8 %bound_lower.val35, i8 %bound_upper.val36)
+  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9UInt8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i8 %bound_lower.val35, i8 %bound_upper.val36)
   br label %return
 
 sw.bb16:                                          ; preds = %if.end
@@ -8090,7 +8090,7 @@ sw.bb16:                                          ; preds = %if.end
   %bound_lower.val37 = load i16, ptr %18, align 2
   %19 = getelementptr i8, ptr %bound_upper, i64 42
   %bound_upper.val38 = load i16, ptr %19, align 2
-  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i16 %bound_lower.val37, i16 %bound_upper.val38)
+  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i16 %bound_lower.val37, i16 %bound_upper.val38)
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
@@ -8098,7 +8098,7 @@ sw.bb17:                                          ; preds = %if.end
   %bound_lower.val39 = load i32, ptr %20, align 4
   %21 = getelementptr i8, ptr %bound_upper, i64 44
   %bound_upper.val40 = load i32, ptr %21, align 4
-  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i32 %bound_lower.val39, i32 %bound_upper.val40)
+  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i32 %bound_lower.val39, i32 %bound_upper.val40)
   br label %return
 
 sw.bb18:                                          ; preds = %if.end
@@ -8106,7 +8106,7 @@ sw.bb18:                                          ; preds = %if.end
   %bound_lower.val41 = load i64, ptr %22, align 8
   %23 = getelementptr i8, ptr %bound_upper, i64 48
   %bound_upper.val42 = load i64, ptr %23, align 8
-  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 %bound_lower.val41, i64 %bound_upper.val42)
+  tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 %bound_lower.val41, i64 %bound_upper.val42)
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -8118,7 +8118,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_8Int8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i8 %bound_lower.41.val, i8 %bound_upper.41.val) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_8Int8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i8 %bound_lower.41.val, i8 %bound_upper.41.val) unnamed_addr #8 {
 entry:
   %bound_lower.addr.i = alloca i8, align 1
   %bound_upper.addr.i = alloca i8, align 1
@@ -8279,9 +8279,9 @@ for.cond62.preheader.i:                           ; preds = %for.inc78.i, %for.c
   %block_out_of_bounds.4109.i = phi i1 [ false, %for.cond62.preheader.lr.ph.i ], [ %28, %for.inc78.i ]
   br label %for.body64.i
 
-for.body64.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i, %for.cond62.preheader.i
-  %i52.1106.i = phi i64 [ %i52.0110.i, %for.cond62.preheader.i ], [ %inc74.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i ]
-  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond62.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i ]
+for.body64.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit.i, %for.cond62.preheader.i
+  %i52.1106.i = phi i64 [ %i52.0110.i, %for.cond62.preheader.i ], [ %inc74.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit.i ]
+  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond62.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit.i ]
   %add.i = add nsw i64 %i52.1106.i, %offset_position.0135.i
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
@@ -8292,7 +8292,7 @@ for.body64.i:                                     ; preds = %_ZZN5arrow8internal
   %24 = shl nuw nsw i32 1, %sh_prom.i.i
   %25 = and i32 %24, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i, label %land.rhs.i.i
+  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body64.i
   %arrayidx65.i = getelementptr inbounds i8, ptr %values_data.0139.i, i64 %i52.1106.i
@@ -8300,25 +8300,25 @@ land.rhs.i.i:                                     ; preds = %for.body64.i
   %cmp.i70.i = icmp slt i8 %26, %17
   %cmp5.i72.i = icmp sgt i8 %26, %18
   %spec.select.i = select i1 %cmp.i70.i, i1 true, i1 %cmp5.i72.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i: ; preds = %land.rhs.i.i, %for.body64.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit.i: ; preds = %land.rhs.i.i, %for.body64.i
   %27 = phi i1 [ false, %for.body64.i ], [ %spec.select.i, %land.rhs.i.i ]
   %28 = or i1 %block_out_of_bounds.5105.i, %27
   %inc74.i = add nuw nsw i64 %i52.1106.i, 1
   %exitcond.not.i = icmp eq i64 %inc74.i, %indvars.iv151.i
   br i1 %exitcond.not.i, label %for.inc78.i, label %for.body64.i, !llvm.loop !397
 
-for.inc78.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i
+for.inc78.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit.i
   %29 = add nuw nsw i64 %i52.0110.i, 8
   %inc79.i = add nuw nsw i64 %chunk53.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
   %exitcond153.not.i = icmp eq i64 %inc79.i, %smax.i
   br i1 %exitcond153.not.i, label %for.cond81.preheader.loopexit.i, label %for.cond62.preheader.i, !llvm.loop !398
 
-for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i, %for.body85.lr.ph.i
-  %i52.2115.i = phi i64 [ %i52.0.lcssa.i, %for.body85.lr.ph.i ], [ %inc97.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i ]
-  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body85.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i ]
+for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit82.i, %for.body85.lr.ph.i
+  %i52.2115.i = phi i64 [ %i52.0.lcssa.i, %for.body85.lr.ph.i ], [ %inc97.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit82.i ]
+  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body85.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit82.i ]
   %add87.i = add nsw i64 %i52.2115.i, %offset_position.0135.i
   %shr.i73.i = lshr i64 %add87.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %3, i64 %shr.i73.i
@@ -8329,7 +8329,7 @@ for.body85.i:                                     ; preds = %_ZZN5arrow8internal
   %32 = shl nuw nsw i32 1, %sh_prom.i76.i
   %33 = and i32 %32, %conv.i75.i
   %tobool.i77.not.i = icmp eq i32 %33, 0
-  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i, label %land.rhs.i78.i
+  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit82.i, label %land.rhs.i78.i
 
 land.rhs.i78.i:                                   ; preds = %for.body85.i
   %arrayidx86.i = getelementptr inbounds i8, ptr %values_data.0139.i, i64 %i52.2115.i
@@ -8337,17 +8337,17 @@ land.rhs.i78.i:                                   ; preds = %for.body85.i
   %cmp.i79.i = icmp slt i8 %34, %20
   %cmp5.i81.i = icmp sgt i8 %34, %21
   %spec.select142.i = select i1 %cmp.i79.i, i1 true, i1 %cmp5.i81.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit82.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i: ; preds = %land.rhs.i78.i, %for.body85.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit82.i: ; preds = %land.rhs.i78.i, %for.body85.i
   %35 = phi i1 [ false, %for.body85.i ], [ %spec.select142.i, %land.rhs.i78.i ]
   %36 = or i1 %block_out_of_bounds.6114.i, %35
   %inc97.i = add nuw nsw i64 %i52.2115.i, 1
   %exitcond154.not.i = icmp eq i64 %inc97.i, %conv83.i
   br i1 %exitcond154.not.i, label %if.end100.i, label %for.body85.i, !llvm.loop !399
 
-if.end100.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i, %for.body36.i, %for.cond81.preheader.i, %for.cond32.preheader.i
-  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond32.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond81.preheader.i ], [ %16, %for.body36.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i ]
+if.end100.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit82.i, %for.body36.i, %for.cond81.preheader.i, %for.cond32.preheader.i
+  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond32.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond81.preheader.i ], [ %16, %for.body36.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.argprom.exit82.i ]
   br i1 %block_out_of_bounds.3.i, label %if.then104.i, label %if.end140.i
 
 if.then104.i:                                     ; preds = %if.end100.i
@@ -8445,7 +8445,7 @@ _ZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i16 %bound_lower.42.val, i16 %bound_upper.42.val) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i16 %bound_lower.42.val, i16 %bound_upper.42.val) unnamed_addr #8 {
 entry:
   %bound_lower.addr.i = alloca i16, align 2
   %bound_upper.addr.i = alloca i16, align 2
@@ -8606,9 +8606,9 @@ for.cond62.preheader.i:                           ; preds = %for.inc78.i, %for.c
   %block_out_of_bounds.4109.i = phi i1 [ false, %for.cond62.preheader.lr.ph.i ], [ %28, %for.inc78.i ]
   br label %for.body64.i
 
-for.body64.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i, %for.cond62.preheader.i
-  %i52.1106.i = phi i64 [ %i52.0110.i, %for.cond62.preheader.i ], [ %inc74.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i ]
-  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond62.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i ]
+for.body64.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit.i, %for.cond62.preheader.i
+  %i52.1106.i = phi i64 [ %i52.0110.i, %for.cond62.preheader.i ], [ %inc74.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit.i ]
+  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond62.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit.i ]
   %add.i = add nsw i64 %i52.1106.i, %offset_position.0135.i
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
@@ -8619,7 +8619,7 @@ for.body64.i:                                     ; preds = %_ZZN5arrow8internal
   %24 = shl nuw nsw i32 1, %sh_prom.i.i
   %25 = and i32 %24, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i, label %land.rhs.i.i
+  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body64.i
   %arrayidx65.i = getelementptr inbounds i16, ptr %values_data.0139.i, i64 %i52.1106.i
@@ -8627,25 +8627,25 @@ land.rhs.i.i:                                     ; preds = %for.body64.i
   %cmp.i70.i = icmp slt i16 %26, %17
   %cmp5.i72.i = icmp sgt i16 %26, %18
   %spec.select.i = select i1 %cmp.i70.i, i1 true, i1 %cmp5.i72.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i: ; preds = %land.rhs.i.i, %for.body64.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit.i: ; preds = %land.rhs.i.i, %for.body64.i
   %27 = phi i1 [ false, %for.body64.i ], [ %spec.select.i, %land.rhs.i.i ]
   %28 = or i1 %block_out_of_bounds.5105.i, %27
   %inc74.i = add nuw nsw i64 %i52.1106.i, 1
   %exitcond.not.i = icmp eq i64 %inc74.i, %indvars.iv151.i
   br i1 %exitcond.not.i, label %for.inc78.i, label %for.body64.i, !llvm.loop !415
 
-for.inc78.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i
+for.inc78.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit.i
   %29 = add nuw nsw i64 %i52.0110.i, 8
   %inc79.i = add nuw nsw i64 %chunk53.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
   %exitcond153.not.i = icmp eq i64 %inc79.i, %smax.i
   br i1 %exitcond153.not.i, label %for.cond81.preheader.loopexit.i, label %for.cond62.preheader.i, !llvm.loop !416
 
-for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i, %for.body85.lr.ph.i
-  %i52.2115.i = phi i64 [ %i52.0.lcssa.i, %for.body85.lr.ph.i ], [ %inc97.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i ]
-  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body85.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i ]
+for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit82.i, %for.body85.lr.ph.i
+  %i52.2115.i = phi i64 [ %i52.0.lcssa.i, %for.body85.lr.ph.i ], [ %inc97.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit82.i ]
+  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body85.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit82.i ]
   %add87.i = add nsw i64 %i52.2115.i, %offset_position.0135.i
   %shr.i73.i = lshr i64 %add87.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %3, i64 %shr.i73.i
@@ -8656,7 +8656,7 @@ for.body85.i:                                     ; preds = %_ZZN5arrow8internal
   %32 = shl nuw nsw i32 1, %sh_prom.i76.i
   %33 = and i32 %32, %conv.i75.i
   %tobool.i77.not.i = icmp eq i32 %33, 0
-  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i, label %land.rhs.i78.i
+  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit82.i, label %land.rhs.i78.i
 
 land.rhs.i78.i:                                   ; preds = %for.body85.i
   %arrayidx86.i = getelementptr inbounds i16, ptr %values_data.0139.i, i64 %i52.2115.i
@@ -8664,17 +8664,17 @@ land.rhs.i78.i:                                   ; preds = %for.body85.i
   %cmp.i79.i = icmp slt i16 %34, %20
   %cmp5.i81.i = icmp sgt i16 %34, %21
   %spec.select142.i = select i1 %cmp.i79.i, i1 true, i1 %cmp5.i81.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit82.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i: ; preds = %land.rhs.i78.i, %for.body85.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit82.i: ; preds = %land.rhs.i78.i, %for.body85.i
   %35 = phi i1 [ false, %for.body85.i ], [ %spec.select142.i, %land.rhs.i78.i ]
   %36 = or i1 %block_out_of_bounds.6114.i, %35
   %inc97.i = add nuw nsw i64 %i52.2115.i, 1
   %exitcond154.not.i = icmp eq i64 %inc97.i, %conv83.i
   br i1 %exitcond154.not.i, label %if.end100.i, label %for.body85.i, !llvm.loop !417
 
-if.end100.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i, %for.body36.i, %for.cond81.preheader.i, %for.cond32.preheader.i
-  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond32.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond81.preheader.i ], [ %16, %for.body36.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i ]
+if.end100.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit82.i, %for.body36.i, %for.cond81.preheader.i, %for.cond32.preheader.i
+  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond32.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond81.preheader.i ], [ %16, %for.body36.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.argprom.exit82.i ]
   br i1 %block_out_of_bounds.3.i, label %if.then104.i, label %if.end140.i
 
 if.then104.i:                                     ; preds = %if.end100.i
@@ -8772,7 +8772,7 @@ _ZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i32 %bound_lower.44.val, i32 %bound_upper.44.val) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i32 %bound_lower.44.val, i32 %bound_upper.44.val) unnamed_addr #8 {
 entry:
   %bound_lower.addr.i = alloca i32, align 4
   %bound_upper.addr.i = alloca i32, align 4
@@ -8933,9 +8933,9 @@ for.cond58.preheader.i:                           ; preds = %for.inc74.i, %for.c
   %block_out_of_bounds.4109.i = phi i1 [ false, %for.cond58.preheader.lr.ph.i ], [ %28, %for.inc74.i ]
   br label %for.body60.i
 
-for.body60.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i, %for.cond58.preheader.i
-  %i48.1106.i = phi i64 [ %i48.0110.i, %for.cond58.preheader.i ], [ %inc70.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i ]
-  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond58.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i ]
+for.body60.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit.i, %for.cond58.preheader.i
+  %i48.1106.i = phi i64 [ %i48.0110.i, %for.cond58.preheader.i ], [ %inc70.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit.i ]
+  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond58.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit.i ]
   %add.i = add nsw i64 %i48.1106.i, %offset_position.0135.i
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
@@ -8946,7 +8946,7 @@ for.body60.i:                                     ; preds = %_ZZN5arrow8internal
   %24 = shl nuw nsw i32 1, %sh_prom.i.i
   %25 = and i32 %24, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i, label %land.rhs.i.i
+  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body60.i
   %arrayidx61.i = getelementptr inbounds i32, ptr %values_data.0139.i, i64 %i48.1106.i
@@ -8954,25 +8954,25 @@ land.rhs.i.i:                                     ; preds = %for.body60.i
   %cmp.i70.i = icmp slt i32 %26, %17
   %cmp2.i72.i = icmp sgt i32 %26, %18
   %spec.select.i = select i1 %cmp.i70.i, i1 true, i1 %cmp2.i72.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i: ; preds = %land.rhs.i.i, %for.body60.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit.i: ; preds = %land.rhs.i.i, %for.body60.i
   %27 = phi i1 [ false, %for.body60.i ], [ %spec.select.i, %land.rhs.i.i ]
   %28 = or i1 %block_out_of_bounds.5105.i, %27
   %inc70.i = add nuw nsw i64 %i48.1106.i, 1
   %exitcond.not.i = icmp eq i64 %inc70.i, %indvars.iv151.i
   br i1 %exitcond.not.i, label %for.inc74.i, label %for.body60.i, !llvm.loop !433
 
-for.inc74.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i
+for.inc74.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit.i
   %29 = add nuw nsw i64 %i48.0110.i, 8
   %inc75.i = add nuw nsw i64 %chunk49.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
   %exitcond153.not.i = icmp eq i64 %inc75.i, %smax.i
   br i1 %exitcond153.not.i, label %for.cond77.preheader.loopexit.i, label %for.cond58.preheader.i, !llvm.loop !434
 
-for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i, %for.body81.lr.ph.i
-  %i48.2115.i = phi i64 [ %i48.0.lcssa.i, %for.body81.lr.ph.i ], [ %inc93.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i ]
-  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body81.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i ]
+for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit82.i, %for.body81.lr.ph.i
+  %i48.2115.i = phi i64 [ %i48.0.lcssa.i, %for.body81.lr.ph.i ], [ %inc93.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit82.i ]
+  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body81.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit82.i ]
   %add83.i = add nsw i64 %i48.2115.i, %offset_position.0135.i
   %shr.i73.i = lshr i64 %add83.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %3, i64 %shr.i73.i
@@ -8983,7 +8983,7 @@ for.body81.i:                                     ; preds = %_ZZN5arrow8internal
   %32 = shl nuw nsw i32 1, %sh_prom.i76.i
   %33 = and i32 %32, %conv.i75.i
   %tobool.i77.not.i = icmp eq i32 %33, 0
-  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i, label %land.rhs.i78.i
+  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit82.i, label %land.rhs.i78.i
 
 land.rhs.i78.i:                                   ; preds = %for.body81.i
   %arrayidx82.i = getelementptr inbounds i32, ptr %values_data.0139.i, i64 %i48.2115.i
@@ -8991,17 +8991,17 @@ land.rhs.i78.i:                                   ; preds = %for.body81.i
   %cmp.i79.i = icmp slt i32 %34, %20
   %cmp2.i81.i = icmp sgt i32 %34, %21
   %spec.select142.i = select i1 %cmp.i79.i, i1 true, i1 %cmp2.i81.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit82.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i: ; preds = %land.rhs.i78.i, %for.body81.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit82.i: ; preds = %land.rhs.i78.i, %for.body81.i
   %35 = phi i1 [ false, %for.body81.i ], [ %spec.select142.i, %land.rhs.i78.i ]
   %36 = or i1 %block_out_of_bounds.6114.i, %35
   %inc93.i = add nuw nsw i64 %i48.2115.i, 1
   %exitcond154.not.i = icmp eq i64 %inc93.i, %conv79.i
   br i1 %exitcond154.not.i, label %if.end96.i, label %for.body81.i, !llvm.loop !435
 
-if.end96.i:                                       ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i, %for.body32.i, %for.cond77.preheader.i, %for.cond28.preheader.i
-  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond28.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond77.preheader.i ], [ %16, %for.body32.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i ]
+if.end96.i:                                       ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit82.i, %for.body32.i, %for.cond77.preheader.i, %for.cond28.preheader.i
+  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond28.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond77.preheader.i ], [ %16, %for.body32.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.argprom.exit82.i ]
   br i1 %block_out_of_bounds.3.i, label %if.then100.i, label %if.end136.i
 
 if.then100.i:                                     ; preds = %if.end96.i
@@ -9099,7 +9099,7 @@ _ZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 %bound_lower.48.val, i64 %bound_upper.48.val) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 %bound_lower.48.val, i64 %bound_upper.48.val) unnamed_addr #8 {
 entry:
   %bound_lower.addr.i = alloca i64, align 8
   %bound_upper.addr.i = alloca i64, align 8
@@ -9260,9 +9260,9 @@ for.cond58.preheader.i:                           ; preds = %for.inc74.i, %for.c
   %block_out_of_bounds.4109.i = phi i1 [ false, %for.cond58.preheader.lr.ph.i ], [ %28, %for.inc74.i ]
   br label %for.body60.i
 
-for.body60.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i, %for.cond58.preheader.i
-  %i48.1106.i = phi i64 [ %i48.0110.i, %for.cond58.preheader.i ], [ %inc70.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i ]
-  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond58.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i ]
+for.body60.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit.i, %for.cond58.preheader.i
+  %i48.1106.i = phi i64 [ %i48.0110.i, %for.cond58.preheader.i ], [ %inc70.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit.i ]
+  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond58.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit.i ]
   %add.i = add nsw i64 %i48.1106.i, %offset_position.0135.i
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
@@ -9273,7 +9273,7 @@ for.body60.i:                                     ; preds = %_ZZN5arrow8internal
   %24 = shl nuw nsw i32 1, %sh_prom.i.i
   %25 = and i32 %24, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i, label %land.rhs.i.i
+  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body60.i
   %arrayidx61.i = getelementptr inbounds i64, ptr %values_data.0139.i, i64 %i48.1106.i
@@ -9281,25 +9281,25 @@ land.rhs.i.i:                                     ; preds = %for.body60.i
   %cmp.i70.i = icmp slt i64 %26, %17
   %cmp2.i72.i = icmp sgt i64 %26, %18
   %spec.select.i = select i1 %cmp.i70.i, i1 true, i1 %cmp2.i72.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i: ; preds = %land.rhs.i.i, %for.body60.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit.i: ; preds = %land.rhs.i.i, %for.body60.i
   %27 = phi i1 [ false, %for.body60.i ], [ %spec.select.i, %land.rhs.i.i ]
   %28 = or i1 %block_out_of_bounds.5105.i, %27
   %inc70.i = add nuw nsw i64 %i48.1106.i, 1
   %exitcond.not.i = icmp eq i64 %inc70.i, %indvars.iv151.i
   br i1 %exitcond.not.i, label %for.inc74.i, label %for.body60.i, !llvm.loop !451
 
-for.inc74.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i
+for.inc74.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit.i
   %29 = add nuw nsw i64 %i48.0110.i, 8
   %inc75.i = add nuw nsw i64 %chunk49.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
   %exitcond153.not.i = icmp eq i64 %inc75.i, %smax.i
   br i1 %exitcond153.not.i, label %for.cond77.preheader.loopexit.i, label %for.cond58.preheader.i, !llvm.loop !452
 
-for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i, %for.body81.lr.ph.i
-  %i48.2115.i = phi i64 [ %i48.0.lcssa.i, %for.body81.lr.ph.i ], [ %inc93.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i ]
-  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body81.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i ]
+for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit82.i, %for.body81.lr.ph.i
+  %i48.2115.i = phi i64 [ %i48.0.lcssa.i, %for.body81.lr.ph.i ], [ %inc93.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit82.i ]
+  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body81.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit82.i ]
   %add83.i = add nsw i64 %i48.2115.i, %offset_position.0135.i
   %shr.i73.i = lshr i64 %add83.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %3, i64 %shr.i73.i
@@ -9310,7 +9310,7 @@ for.body81.i:                                     ; preds = %_ZZN5arrow8internal
   %32 = shl nuw nsw i32 1, %sh_prom.i76.i
   %33 = and i32 %32, %conv.i75.i
   %tobool.i77.not.i = icmp eq i32 %33, 0
-  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i, label %land.rhs.i78.i
+  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit82.i, label %land.rhs.i78.i
 
 land.rhs.i78.i:                                   ; preds = %for.body81.i
   %arrayidx82.i = getelementptr inbounds i64, ptr %values_data.0139.i, i64 %i48.2115.i
@@ -9318,17 +9318,17 @@ land.rhs.i78.i:                                   ; preds = %for.body81.i
   %cmp.i79.i = icmp slt i64 %34, %20
   %cmp2.i81.i = icmp sgt i64 %34, %21
   %spec.select142.i = select i1 %cmp.i79.i, i1 true, i1 %cmp2.i81.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit82.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i: ; preds = %land.rhs.i78.i, %for.body81.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit82.i: ; preds = %land.rhs.i78.i, %for.body81.i
   %35 = phi i1 [ false, %for.body81.i ], [ %spec.select142.i, %land.rhs.i78.i ]
   %36 = or i1 %block_out_of_bounds.6114.i, %35
   %inc93.i = add nuw nsw i64 %i48.2115.i, 1
   %exitcond154.not.i = icmp eq i64 %inc93.i, %conv79.i
   br i1 %exitcond154.not.i, label %if.end96.i, label %for.body81.i, !llvm.loop !453
 
-if.end96.i:                                       ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i, %for.body32.i, %for.cond77.preheader.i, %for.cond28.preheader.i
-  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond28.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond77.preheader.i ], [ %16, %for.body32.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i ]
+if.end96.i:                                       ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit82.i, %for.body32.i, %for.cond77.preheader.i, %for.cond28.preheader.i
+  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond28.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond77.preheader.i ], [ %16, %for.body32.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.argprom.exit82.i ]
   br i1 %block_out_of_bounds.3.i, label %if.then100.i, label %if.end136.i
 
 if.then100.i:                                     ; preds = %if.end96.i
@@ -9426,7 +9426,7 @@ _ZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9UInt8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i8 %bound_lower.41.val, i8 %bound_upper.41.val) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9UInt8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i8 %bound_lower.41.val, i8 %bound_upper.41.val) unnamed_addr #8 {
 entry:
   %bound_lower.addr.i = alloca i8, align 1
   %bound_upper.addr.i = alloca i8, align 1
@@ -9587,9 +9587,9 @@ for.cond62.preheader.i:                           ; preds = %for.inc78.i, %for.c
   %block_out_of_bounds.4109.i = phi i1 [ false, %for.cond62.preheader.lr.ph.i ], [ %28, %for.inc78.i ]
   br label %for.body64.i
 
-for.body64.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i, %for.cond62.preheader.i
-  %i52.1106.i = phi i64 [ %i52.0110.i, %for.cond62.preheader.i ], [ %inc74.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i ]
-  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond62.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i ]
+for.body64.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit.i, %for.cond62.preheader.i
+  %i52.1106.i = phi i64 [ %i52.0110.i, %for.cond62.preheader.i ], [ %inc74.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit.i ]
+  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond62.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit.i ]
   %add.i = add nsw i64 %i52.1106.i, %offset_position.0135.i
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
@@ -9600,7 +9600,7 @@ for.body64.i:                                     ; preds = %_ZZN5arrow8internal
   %24 = shl nuw nsw i32 1, %sh_prom.i.i
   %25 = and i32 %24, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i, label %land.rhs.i.i
+  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body64.i
   %arrayidx65.i = getelementptr inbounds i8, ptr %values_data.0139.i, i64 %i52.1106.i
@@ -9608,25 +9608,25 @@ land.rhs.i.i:                                     ; preds = %for.body64.i
   %cmp.i70.i = icmp ult i8 %26, %17
   %cmp5.i72.i = icmp ugt i8 %26, %18
   %spec.select.i = select i1 %cmp.i70.i, i1 true, i1 %cmp5.i72.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i: ; preds = %land.rhs.i.i, %for.body64.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit.i: ; preds = %land.rhs.i.i, %for.body64.i
   %27 = phi i1 [ false, %for.body64.i ], [ %spec.select.i, %land.rhs.i.i ]
   %28 = or i1 %block_out_of_bounds.5105.i, %27
   %inc74.i = add nuw nsw i64 %i52.1106.i, 1
   %exitcond.not.i = icmp eq i64 %inc74.i, %indvars.iv151.i
   br i1 %exitcond.not.i, label %for.inc78.i, label %for.body64.i, !llvm.loop !469
 
-for.inc78.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i
+for.inc78.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit.i
   %29 = add nuw nsw i64 %i52.0110.i, 8
   %inc79.i = add nuw nsw i64 %chunk53.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
   %exitcond153.not.i = icmp eq i64 %inc79.i, %smax.i
   br i1 %exitcond153.not.i, label %for.cond81.preheader.loopexit.i, label %for.cond62.preheader.i, !llvm.loop !470
 
-for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i, %for.body85.lr.ph.i
-  %i52.2115.i = phi i64 [ %i52.0.lcssa.i, %for.body85.lr.ph.i ], [ %inc97.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i ]
-  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body85.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i ]
+for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit82.i, %for.body85.lr.ph.i
+  %i52.2115.i = phi i64 [ %i52.0.lcssa.i, %for.body85.lr.ph.i ], [ %inc97.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit82.i ]
+  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body85.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit82.i ]
   %add87.i = add nsw i64 %i52.2115.i, %offset_position.0135.i
   %shr.i73.i = lshr i64 %add87.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %3, i64 %shr.i73.i
@@ -9637,7 +9637,7 @@ for.body85.i:                                     ; preds = %_ZZN5arrow8internal
   %32 = shl nuw nsw i32 1, %sh_prom.i76.i
   %33 = and i32 %32, %conv.i75.i
   %tobool.i77.not.i = icmp eq i32 %33, 0
-  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i, label %land.rhs.i78.i
+  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit82.i, label %land.rhs.i78.i
 
 land.rhs.i78.i:                                   ; preds = %for.body85.i
   %arrayidx86.i = getelementptr inbounds i8, ptr %values_data.0139.i, i64 %i52.2115.i
@@ -9645,17 +9645,17 @@ land.rhs.i78.i:                                   ; preds = %for.body85.i
   %cmp.i79.i = icmp ult i8 %34, %20
   %cmp5.i81.i = icmp ugt i8 %34, %21
   %spec.select142.i = select i1 %cmp.i79.i, i1 true, i1 %cmp5.i81.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit82.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i: ; preds = %land.rhs.i78.i, %for.body85.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit82.i: ; preds = %land.rhs.i78.i, %for.body85.i
   %35 = phi i1 [ false, %for.body85.i ], [ %spec.select142.i, %land.rhs.i78.i ]
   %36 = or i1 %block_out_of_bounds.6114.i, %35
   %inc97.i = add nuw nsw i64 %i52.2115.i, 1
   %exitcond154.not.i = icmp eq i64 %inc97.i, %conv83.i
   br i1 %exitcond154.not.i, label %if.end100.i, label %for.body85.i, !llvm.loop !471
 
-if.end100.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i, %for.body36.i, %for.cond81.preheader.i, %for.cond32.preheader.i
-  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond32.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond81.preheader.i ], [ %16, %for.body36.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i ]
+if.end100.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit82.i, %for.body36.i, %for.cond81.preheader.i, %for.cond32.preheader.i
+  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond32.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond81.preheader.i ], [ %16, %for.body36.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.argprom.exit82.i ]
   br i1 %block_out_of_bounds.3.i, label %if.then104.i, label %if.end140.i
 
 if.then104.i:                                     ; preds = %if.end100.i
@@ -9753,7 +9753,7 @@ _ZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i16 %bound_lower.42.val, i16 %bound_upper.42.val) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i16 %bound_lower.42.val, i16 %bound_upper.42.val) unnamed_addr #8 {
 entry:
   %bound_lower.addr.i = alloca i16, align 2
   %bound_upper.addr.i = alloca i16, align 2
@@ -9914,9 +9914,9 @@ for.cond62.preheader.i:                           ; preds = %for.inc78.i, %for.c
   %block_out_of_bounds.4109.i = phi i1 [ false, %for.cond62.preheader.lr.ph.i ], [ %28, %for.inc78.i ]
   br label %for.body64.i
 
-for.body64.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i, %for.cond62.preheader.i
-  %i52.1106.i = phi i64 [ %i52.0110.i, %for.cond62.preheader.i ], [ %inc74.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i ]
-  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond62.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i ]
+for.body64.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit.i, %for.cond62.preheader.i
+  %i52.1106.i = phi i64 [ %i52.0110.i, %for.cond62.preheader.i ], [ %inc74.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit.i ]
+  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond62.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit.i ]
   %add.i = add nsw i64 %i52.1106.i, %offset_position.0135.i
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
@@ -9927,7 +9927,7 @@ for.body64.i:                                     ; preds = %_ZZN5arrow8internal
   %24 = shl nuw nsw i32 1, %sh_prom.i.i
   %25 = and i32 %24, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i, label %land.rhs.i.i
+  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body64.i
   %arrayidx65.i = getelementptr inbounds i16, ptr %values_data.0139.i, i64 %i52.1106.i
@@ -9935,25 +9935,25 @@ land.rhs.i.i:                                     ; preds = %for.body64.i
   %cmp.i70.i = icmp ult i16 %26, %17
   %cmp5.i72.i = icmp ugt i16 %26, %18
   %spec.select.i = select i1 %cmp.i70.i, i1 true, i1 %cmp5.i72.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i: ; preds = %land.rhs.i.i, %for.body64.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit.i: ; preds = %land.rhs.i.i, %for.body64.i
   %27 = phi i1 [ false, %for.body64.i ], [ %spec.select.i, %land.rhs.i.i ]
   %28 = or i1 %block_out_of_bounds.5105.i, %27
   %inc74.i = add nuw nsw i64 %i52.1106.i, 1
   %exitcond.not.i = icmp eq i64 %inc74.i, %indvars.iv151.i
   br i1 %exitcond.not.i, label %for.inc78.i, label %for.body64.i, !llvm.loop !487
 
-for.inc78.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i
+for.inc78.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit.i
   %29 = add nuw nsw i64 %i52.0110.i, 8
   %inc79.i = add nuw nsw i64 %chunk53.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
   %exitcond153.not.i = icmp eq i64 %inc79.i, %smax.i
   br i1 %exitcond153.not.i, label %for.cond81.preheader.loopexit.i, label %for.cond62.preheader.i, !llvm.loop !488
 
-for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i, %for.body85.lr.ph.i
-  %i52.2115.i = phi i64 [ %i52.0.lcssa.i, %for.body85.lr.ph.i ], [ %inc97.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i ]
-  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body85.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i ]
+for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit82.i, %for.body85.lr.ph.i
+  %i52.2115.i = phi i64 [ %i52.0.lcssa.i, %for.body85.lr.ph.i ], [ %inc97.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit82.i ]
+  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body85.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit82.i ]
   %add87.i = add nsw i64 %i52.2115.i, %offset_position.0135.i
   %shr.i73.i = lshr i64 %add87.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %3, i64 %shr.i73.i
@@ -9964,7 +9964,7 @@ for.body85.i:                                     ; preds = %_ZZN5arrow8internal
   %32 = shl nuw nsw i32 1, %sh_prom.i76.i
   %33 = and i32 %32, %conv.i75.i
   %tobool.i77.not.i = icmp eq i32 %33, 0
-  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i, label %land.rhs.i78.i
+  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit82.i, label %land.rhs.i78.i
 
 land.rhs.i78.i:                                   ; preds = %for.body85.i
   %arrayidx86.i = getelementptr inbounds i16, ptr %values_data.0139.i, i64 %i52.2115.i
@@ -9972,17 +9972,17 @@ land.rhs.i78.i:                                   ; preds = %for.body85.i
   %cmp.i79.i = icmp ult i16 %34, %20
   %cmp5.i81.i = icmp ugt i16 %34, %21
   %spec.select142.i = select i1 %cmp.i79.i, i1 true, i1 %cmp5.i81.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit82.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i: ; preds = %land.rhs.i78.i, %for.body85.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit82.i: ; preds = %land.rhs.i78.i, %for.body85.i
   %35 = phi i1 [ false, %for.body85.i ], [ %spec.select142.i, %land.rhs.i78.i ]
   %36 = or i1 %block_out_of_bounds.6114.i, %35
   %inc97.i = add nuw nsw i64 %i52.2115.i, 1
   %exitcond154.not.i = icmp eq i64 %inc97.i, %conv83.i
   br i1 %exitcond154.not.i, label %if.end100.i, label %for.body85.i, !llvm.loop !489
 
-if.end100.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i, %for.body36.i, %for.cond81.preheader.i, %for.cond32.preheader.i
-  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond32.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond81.preheader.i ], [ %16, %for.body36.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i ]
+if.end100.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit82.i, %for.body36.i, %for.cond81.preheader.i, %for.cond32.preheader.i
+  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond32.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond81.preheader.i ], [ %16, %for.body36.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.argprom.exit82.i ]
   br i1 %block_out_of_bounds.3.i, label %if.then104.i, label %if.end140.i
 
 if.then104.i:                                     ; preds = %if.end100.i
@@ -10080,7 +10080,7 @@ _ZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i32 %bound_lower.44.val, i32 %bound_upper.44.val) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i32 %bound_lower.44.val, i32 %bound_upper.44.val) unnamed_addr #8 {
 entry:
   %bound_lower.addr.i = alloca i32, align 4
   %bound_upper.addr.i = alloca i32, align 4
@@ -10241,9 +10241,9 @@ for.cond58.preheader.i:                           ; preds = %for.inc74.i, %for.c
   %block_out_of_bounds.4109.i = phi i1 [ false, %for.cond58.preheader.lr.ph.i ], [ %28, %for.inc74.i ]
   br label %for.body60.i
 
-for.body60.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i, %for.cond58.preheader.i
-  %i48.1106.i = phi i64 [ %i48.0110.i, %for.cond58.preheader.i ], [ %inc70.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i ]
-  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond58.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i ]
+for.body60.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit.i, %for.cond58.preheader.i
+  %i48.1106.i = phi i64 [ %i48.0110.i, %for.cond58.preheader.i ], [ %inc70.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit.i ]
+  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond58.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit.i ]
   %add.i = add nsw i64 %i48.1106.i, %offset_position.0135.i
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
@@ -10254,7 +10254,7 @@ for.body60.i:                                     ; preds = %_ZZN5arrow8internal
   %24 = shl nuw nsw i32 1, %sh_prom.i.i
   %25 = and i32 %24, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i, label %land.rhs.i.i
+  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body60.i
   %arrayidx61.i = getelementptr inbounds i32, ptr %values_data.0139.i, i64 %i48.1106.i
@@ -10262,25 +10262,25 @@ land.rhs.i.i:                                     ; preds = %for.body60.i
   %cmp.i70.i = icmp ult i32 %26, %17
   %cmp2.i72.i = icmp ugt i32 %26, %18
   %spec.select.i = select i1 %cmp.i70.i, i1 true, i1 %cmp2.i72.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i: ; preds = %land.rhs.i.i, %for.body60.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit.i: ; preds = %land.rhs.i.i, %for.body60.i
   %27 = phi i1 [ false, %for.body60.i ], [ %spec.select.i, %land.rhs.i.i ]
   %28 = or i1 %block_out_of_bounds.5105.i, %27
   %inc70.i = add nuw nsw i64 %i48.1106.i, 1
   %exitcond.not.i = icmp eq i64 %inc70.i, %indvars.iv151.i
   br i1 %exitcond.not.i, label %for.inc74.i, label %for.body60.i, !llvm.loop !505
 
-for.inc74.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i
+for.inc74.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit.i
   %29 = add nuw nsw i64 %i48.0110.i, 8
   %inc75.i = add nuw nsw i64 %chunk49.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
   %exitcond153.not.i = icmp eq i64 %inc75.i, %smax.i
   br i1 %exitcond153.not.i, label %for.cond77.preheader.loopexit.i, label %for.cond58.preheader.i, !llvm.loop !506
 
-for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i, %for.body81.lr.ph.i
-  %i48.2115.i = phi i64 [ %i48.0.lcssa.i, %for.body81.lr.ph.i ], [ %inc93.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i ]
-  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body81.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i ]
+for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit82.i, %for.body81.lr.ph.i
+  %i48.2115.i = phi i64 [ %i48.0.lcssa.i, %for.body81.lr.ph.i ], [ %inc93.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit82.i ]
+  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body81.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit82.i ]
   %add83.i = add nsw i64 %i48.2115.i, %offset_position.0135.i
   %shr.i73.i = lshr i64 %add83.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %3, i64 %shr.i73.i
@@ -10291,7 +10291,7 @@ for.body81.i:                                     ; preds = %_ZZN5arrow8internal
   %32 = shl nuw nsw i32 1, %sh_prom.i76.i
   %33 = and i32 %32, %conv.i75.i
   %tobool.i77.not.i = icmp eq i32 %33, 0
-  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i, label %land.rhs.i78.i
+  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit82.i, label %land.rhs.i78.i
 
 land.rhs.i78.i:                                   ; preds = %for.body81.i
   %arrayidx82.i = getelementptr inbounds i32, ptr %values_data.0139.i, i64 %i48.2115.i
@@ -10299,17 +10299,17 @@ land.rhs.i78.i:                                   ; preds = %for.body81.i
   %cmp.i79.i = icmp ult i32 %34, %20
   %cmp2.i81.i = icmp ugt i32 %34, %21
   %spec.select142.i = select i1 %cmp.i79.i, i1 true, i1 %cmp2.i81.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit82.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i: ; preds = %land.rhs.i78.i, %for.body81.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit82.i: ; preds = %land.rhs.i78.i, %for.body81.i
   %35 = phi i1 [ false, %for.body81.i ], [ %spec.select142.i, %land.rhs.i78.i ]
   %36 = or i1 %block_out_of_bounds.6114.i, %35
   %inc93.i = add nuw nsw i64 %i48.2115.i, 1
   %exitcond154.not.i = icmp eq i64 %inc93.i, %conv79.i
   br i1 %exitcond154.not.i, label %if.end96.i, label %for.body81.i, !llvm.loop !507
 
-if.end96.i:                                       ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i, %for.body32.i, %for.cond77.preheader.i, %for.cond28.preheader.i
-  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond28.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond77.preheader.i ], [ %16, %for.body32.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i ]
+if.end96.i:                                       ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit82.i, %for.body32.i, %for.cond77.preheader.i, %for.cond28.preheader.i
+  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond28.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond77.preheader.i ], [ %16, %for.body32.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.argprom.exit82.i ]
   br i1 %block_out_of_bounds.3.i, label %if.then100.i, label %if.end136.i
 
 if.then100.i:                                     ; preds = %if.end96.i
@@ -10407,7 +10407,7 @@ _ZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 %bound_lower.48.val, i64 %bound_upper.48.val) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %values, i64 %bound_lower.48.val, i64 %bound_upper.48.val) unnamed_addr #8 {
 entry:
   %bound_lower.addr.i = alloca i64, align 8
   %bound_upper.addr.i = alloca i64, align 8
@@ -10568,9 +10568,9 @@ for.cond58.preheader.i:                           ; preds = %for.inc74.i, %for.c
   %block_out_of_bounds.4109.i = phi i1 [ false, %for.cond58.preheader.lr.ph.i ], [ %28, %for.inc74.i ]
   br label %for.body60.i
 
-for.body60.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i, %for.cond58.preheader.i
-  %i48.1106.i = phi i64 [ %i48.0110.i, %for.cond58.preheader.i ], [ %inc70.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i ]
-  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond58.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i ]
+for.body60.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit.i, %for.cond58.preheader.i
+  %i48.1106.i = phi i64 [ %i48.0110.i, %for.cond58.preheader.i ], [ %inc70.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit.i ]
+  %block_out_of_bounds.5105.i = phi i1 [ %block_out_of_bounds.4109.i, %for.cond58.preheader.i ], [ %28, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit.i ]
   %add.i = add nsw i64 %i48.1106.i, %offset_position.0135.i
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
@@ -10581,7 +10581,7 @@ for.body60.i:                                     ; preds = %_ZZN5arrow8internal
   %24 = shl nuw nsw i32 1, %sh_prom.i.i
   %25 = and i32 %24, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i, label %land.rhs.i.i
+  br i1 %tobool.i.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body60.i
   %arrayidx61.i = getelementptr inbounds i64, ptr %values_data.0139.i, i64 %i48.1106.i
@@ -10589,25 +10589,25 @@ land.rhs.i.i:                                     ; preds = %for.body60.i
   %cmp.i70.i = icmp ult i64 %26, %17
   %cmp2.i72.i = icmp ugt i64 %26, %18
   %spec.select.i = select i1 %cmp.i70.i, i1 true, i1 %cmp2.i72.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i: ; preds = %land.rhs.i.i, %for.body60.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit.i: ; preds = %land.rhs.i.i, %for.body60.i
   %27 = phi i1 [ false, %for.body60.i ], [ %spec.select.i, %land.rhs.i.i ]
   %28 = or i1 %block_out_of_bounds.5105.i, %27
   %inc70.i = add nuw nsw i64 %i48.1106.i, 1
   %exitcond.not.i = icmp eq i64 %inc70.i, %indvars.iv151.i
   br i1 %exitcond.not.i, label %for.inc74.i, label %for.body60.i, !llvm.loop !523
 
-for.inc74.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i
+for.inc74.i:                                      ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit.i
   %29 = add nuw nsw i64 %i48.0110.i, 8
   %inc75.i = add nuw nsw i64 %chunk49.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
   %exitcond153.not.i = icmp eq i64 %inc75.i, %smax.i
   br i1 %exitcond153.not.i, label %for.cond77.preheader.loopexit.i, label %for.cond58.preheader.i, !llvm.loop !524
 
-for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i, %for.body81.lr.ph.i
-  %i48.2115.i = phi i64 [ %i48.0.lcssa.i, %for.body81.lr.ph.i ], [ %inc93.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i ]
-  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body81.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i ]
+for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit82.i, %for.body81.lr.ph.i
+  %i48.2115.i = phi i64 [ %i48.0.lcssa.i, %for.body81.lr.ph.i ], [ %inc93.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit82.i ]
+  %block_out_of_bounds.6114.i = phi i1 [ %block_out_of_bounds.4.lcssa.i, %for.body81.lr.ph.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit82.i ]
   %add83.i = add nsw i64 %i48.2115.i, %offset_position.0135.i
   %shr.i73.i = lshr i64 %add83.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %3, i64 %shr.i73.i
@@ -10618,7 +10618,7 @@ for.body81.i:                                     ; preds = %_ZZN5arrow8internal
   %32 = shl nuw nsw i32 1, %sh_prom.i76.i
   %33 = and i32 %32, %conv.i75.i
   %tobool.i77.not.i = icmp eq i32 %33, 0
-  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i, label %land.rhs.i78.i
+  br i1 %tobool.i77.not.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit82.i, label %land.rhs.i78.i
 
 land.rhs.i78.i:                                   ; preds = %for.body81.i
   %arrayidx82.i = getelementptr inbounds i64, ptr %values_data.0139.i, i64 %i48.2115.i
@@ -10626,17 +10626,17 @@ land.rhs.i78.i:                                   ; preds = %for.body81.i
   %cmp.i79.i = icmp ult i64 %34, %20
   %cmp2.i81.i = icmp ugt i64 %34, %21
   %spec.select142.i = select i1 %cmp.i79.i, i1 true, i1 %cmp2.i81.i
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit82.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i: ; preds = %land.rhs.i78.i, %for.body81.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit82.i: ; preds = %land.rhs.i78.i, %for.body81.i
   %35 = phi i1 [ false, %for.body81.i ], [ %spec.select142.i, %land.rhs.i78.i ]
   %36 = or i1 %block_out_of_bounds.6114.i, %35
   %inc93.i = add nuw nsw i64 %i48.2115.i, 1
   %exitcond154.not.i = icmp eq i64 %inc93.i, %conv79.i
   br i1 %exitcond154.not.i, label %if.end96.i, label %for.body81.i, !llvm.loop !525
 
-if.end96.i:                                       ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i, %for.body32.i, %for.cond77.preheader.i, %for.cond28.preheader.i
-  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond28.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond77.preheader.i ], [ %16, %for.body32.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i ]
+if.end96.i:                                       ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit82.i, %for.body32.i, %for.cond77.preheader.i, %for.cond28.preheader.i
+  %block_out_of_bounds.3.i = phi i1 [ %block_out_of_bounds.0.lcssa.i, %for.cond28.preheader.i ], [ %block_out_of_bounds.4.lcssa.i, %for.cond77.preheader.i ], [ %16, %for.body32.i ], [ %36, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.argprom.exit82.i ]
   br i1 %block_out_of_bounds.3.i, label %if.then100.i, label %if.end136.i
 
 if.then100.i:                                     ; preds = %if.end96.i
@@ -11042,7 +11042,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i: ; preds = %if.end8.
   %_M_refcount.i.i.i.i.i.i.i.i32.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %42 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i32.i, align 8, !noalias !538
   %cmp.not.i.i.i.i.i.i.i.i.i33.i = icmp eq ptr %42, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i
 
 if.then.i.i.i.i1.i.i.i.i.i34.i:                   ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %42, i64 12
@@ -11063,14 +11063,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i45.i:                ; preds = %if.then.i.i.i.i1.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i45.i, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i = phi i32 [ %44, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i ], [ %45, %if.else.i.i.i.i.i.i.i.i.i.i.i45.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i41.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 if.then.i.i.i.i.i2.i.i.i.i.i42.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i
   %vtable.i.i.i.i.i.i.i.i.i.i43.i = load ptr, ptr %42, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i44.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i43.i, i64 24
   %46 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i44.i, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %42) #17
-  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 lpad.i:                                           ; preds = %_ZN5arrow10Int8ScalarCI2NS_13NumericScalarINS_8Int8TypeEEEEa.exit.i
   %47 = landingpad { ptr, i32 }
@@ -11092,7 +11092,7 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   call void @_ZN5arrow10Int8ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %ref.tmp.i) #17
   br label %common.resume
 
-_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i, %if.then.i.i.i.i.i2.i.i.i.i.i42.i
+_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i, %if.then.i.i.i.i.i2.i.i.i.i.i42.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
   br label %return
@@ -11367,7 +11367,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i94: ; preds = %if.end
   %_M_refcount.i.i.i.i.i.i.i.i32.i95 = getelementptr inbounds i8, ptr %ref.tmp.i26, i64 16
   %89 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i32.i95, align 8, !noalias !549
   %cmp.not.i.i.i.i.i.i.i.i.i33.i96 = icmp eq ptr %89, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i96, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i97
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i96, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i97
 
 if.then.i.i.i.i1.i.i.i.i.i34.i97:                 ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i94
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i35.i98 = getelementptr inbounds i8, ptr %89, i64 12
@@ -11388,14 +11388,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i45.i108:             ; preds = %if.then.i.i.i.i1.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i102: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i45.i108, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i100
   %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i103 = phi i32 [ %91, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i100 ], [ %92, %if.else.i.i.i.i.i.i.i.i.i.i.i45.i108 ]
   %cmp.i.i.i.i.i.i.i.i.i.i41.i104 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i103, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i104, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i105, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i104, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i105, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 if.then.i.i.i.i.i2.i.i.i.i.i42.i105:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i102
   %vtable.i.i.i.i.i.i.i.i.i.i43.i106 = load ptr, ptr %89, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i44.i107 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i43.i106, i64 24
   %93 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i44.i107, align 8
   tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %89) #17
-  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 lpad.i44:                                         ; preds = %_ZN5arrow11Int16ScalarCI2NS_13NumericScalarINS_9Int16TypeEEEEs.exit.i
   %94 = landingpad { ptr, i32 }
@@ -11413,7 +11413,7 @@ ehcleanup.i45:                                    ; preds = %lpad2.i60, %lpad.i4
   call void @_ZN5arrow11Int16ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp.i26) #17
   br label %common.resume
 
-_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i94, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i102, %if.then.i.i.i.i.i2.i.i.i.i.i42.i105
+_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i94, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i102, %if.then.i.i.i.i.i2.i.i.i.i.i42.i105
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i26)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i27)
   br label %return
@@ -11688,7 +11688,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i225: ; preds = %if.en
   %_M_refcount.i.i.i.i.i.i.i.i32.i226 = getelementptr inbounds i8, ptr %ref.tmp.i157, i64 16
   %136 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i32.i226, align 8, !noalias !560
   %cmp.not.i.i.i.i.i.i.i.i.i33.i227 = icmp eq ptr %136, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i227, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i228
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i227, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i228
 
 if.then.i.i.i.i1.i.i.i.i.i34.i228:                ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i225
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i35.i229 = getelementptr inbounds i8, ptr %136, i64 12
@@ -11709,14 +11709,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i45.i239:             ; preds = %if.then.i.i.i.i1.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i233: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i45.i239, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i231
   %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i234 = phi i32 [ %138, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i231 ], [ %139, %if.else.i.i.i.i.i.i.i.i.i.i.i45.i239 ]
   %cmp.i.i.i.i.i.i.i.i.i.i41.i235 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i234, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i235, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i236, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i235, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i236, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 if.then.i.i.i.i.i2.i.i.i.i.i42.i236:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i233
   %vtable.i.i.i.i.i.i.i.i.i.i43.i237 = load ptr, ptr %136, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i44.i238 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i43.i237, i64 24
   %140 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i44.i238, align 8
   tail call void %140(ptr noundef nonnull align 8 dereferenceable(16) %136) #17
-  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 lpad.i175:                                        ; preds = %_ZN5arrow11Int32ScalarCI2NS_13NumericScalarINS_9Int32TypeEEEEi.exit.i
   %141 = landingpad { ptr, i32 }
@@ -11734,7 +11734,7 @@ ehcleanup.i176:                                   ; preds = %lpad2.i191, %lpad.i
   call void @_ZN5arrow11Int32ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i157) #17
   br label %common.resume
 
-_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i225, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i233, %if.then.i.i.i.i.i2.i.i.i.i.i42.i236
+_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i225, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i233, %if.then.i.i.i.i.i2.i.i.i.i.i42.i236
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i157)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i158)
   br label %return
@@ -12009,7 +12009,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i359: ; preds = %if.en
   %_M_refcount.i.i.i.i.i.i.i.i32.i360 = getelementptr inbounds i8, ptr %ref.tmp.i291, i64 16
   %183 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i32.i360, align 8, !noalias !571
   %cmp.not.i.i.i.i.i.i.i.i.i33.i361 = icmp eq ptr %183, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i361, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i362
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i361, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i362
 
 if.then.i.i.i.i1.i.i.i.i.i34.i362:                ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i359
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i35.i363 = getelementptr inbounds i8, ptr %183, i64 12
@@ -12030,14 +12030,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i45.i373:             ; preds = %if.then.i.i.i.i1.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i367: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i45.i373, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i365
   %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i368 = phi i32 [ %185, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i365 ], [ %186, %if.else.i.i.i.i.i.i.i.i.i.i.i45.i373 ]
   %cmp.i.i.i.i.i.i.i.i.i.i41.i369 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i368, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i369, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i370, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i369, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i370, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 if.then.i.i.i.i.i2.i.i.i.i.i42.i370:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i367
   %vtable.i.i.i.i.i.i.i.i.i.i43.i371 = load ptr, ptr %183, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i44.i372 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i43.i371, i64 24
   %187 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i44.i372, align 8
   tail call void %187(ptr noundef nonnull align 8 dereferenceable(16) %183) #17
-  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 lpad.i309:                                        ; preds = %_ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit.i
   %188 = landingpad { ptr, i32 }
@@ -12055,7 +12055,7 @@ ehcleanup.i310:                                   ; preds = %lpad2.i325, %lpad.i
   call void @_ZN5arrow11Int64ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i291) #17
   br label %common.resume
 
-_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i359, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i367, %if.then.i.i.i.i.i2.i.i.i.i.i42.i370
+_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i359, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i367, %if.then.i.i.i.i.i2.i.i.i.i.i42.i370
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i291)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i292)
   br label %return
@@ -12325,7 +12325,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i492: ; preds = %if.en
   %_M_refcount.i.i.i.i.i.i.i.i32.i493 = getelementptr inbounds i8, ptr %ref.tmp.i425, i64 16
   %228 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i32.i493, align 8, !noalias !582
   %cmp.not.i.i.i.i.i.i.i.i.i33.i494 = icmp eq ptr %228, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i494, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i495
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i494, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i495
 
 if.then.i.i.i.i1.i.i.i.i.i34.i495:                ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i492
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i35.i496 = getelementptr inbounds i8, ptr %228, i64 12
@@ -12346,14 +12346,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i45.i506:             ; preds = %if.then.i.i.i.i1.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i500: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i45.i506, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i498
   %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i501 = phi i32 [ %230, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i498 ], [ %231, %if.else.i.i.i.i.i.i.i.i.i.i.i45.i506 ]
   %cmp.i.i.i.i.i.i.i.i.i.i41.i502 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i501, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i502, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i503, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i502, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i503, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 if.then.i.i.i.i.i2.i.i.i.i.i42.i503:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i500
   %vtable.i.i.i.i.i.i.i.i.i.i43.i504 = load ptr, ptr %228, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i44.i505 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i43.i504, i64 24
   %232 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i44.i505, align 8
   tail call void %232(ptr noundef nonnull align 8 dereferenceable(16) %228) #17
-  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 lpad.i442:                                        ; preds = %_ZN5arrow11UInt8ScalarCI2NS_13NumericScalarINS_9UInt8TypeEEEEh.exit.i
   %233 = landingpad { ptr, i32 }
@@ -12371,7 +12371,7 @@ ehcleanup.i443:                                   ; preds = %lpad2.i458, %lpad.i
   call void @_ZN5arrow11UInt8ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %ref.tmp.i425) #17
   br label %common.resume
 
-_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i492, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i500, %if.then.i.i.i.i.i2.i.i.i.i.i42.i503
+_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i492, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i500, %if.then.i.i.i.i.i2.i.i.i.i.i42.i503
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i425)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i426)
   br label %return
@@ -12643,7 +12643,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i625: ; preds = %if.en
   %_M_refcount.i.i.i.i.i.i.i.i32.i626 = getelementptr inbounds i8, ptr %ref.tmp.i558, i64 16
   %274 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i32.i626, align 8, !noalias !593
   %cmp.not.i.i.i.i.i.i.i.i.i33.i627 = icmp eq ptr %274, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i627, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i628
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i627, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i628
 
 if.then.i.i.i.i1.i.i.i.i.i34.i628:                ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i625
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i35.i629 = getelementptr inbounds i8, ptr %274, i64 12
@@ -12664,14 +12664,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i45.i639:             ; preds = %if.then.i.i.i.i1.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i633: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i45.i639, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i631
   %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i634 = phi i32 [ %276, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i631 ], [ %277, %if.else.i.i.i.i.i.i.i.i.i.i.i45.i639 ]
   %cmp.i.i.i.i.i.i.i.i.i.i41.i635 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i634, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i635, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i636, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i635, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i636, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 if.then.i.i.i.i.i2.i.i.i.i.i42.i636:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i633
   %vtable.i.i.i.i.i.i.i.i.i.i43.i637 = load ptr, ptr %274, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i44.i638 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i43.i637, i64 24
   %278 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i44.i638, align 8
   tail call void %278(ptr noundef nonnull align 8 dereferenceable(16) %274) #17
-  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 lpad.i575:                                        ; preds = %_ZN5arrow12UInt16ScalarCI2NS_13NumericScalarINS_10UInt16TypeEEEEt.exit.i
   %279 = landingpad { ptr, i32 }
@@ -12689,7 +12689,7 @@ ehcleanup.i576:                                   ; preds = %lpad2.i591, %lpad.i
   call void @_ZN5arrow12UInt16ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp.i558) #17
   br label %common.resume
 
-_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i625, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i633, %if.then.i.i.i.i.i2.i.i.i.i.i42.i636
+_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i625, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i633, %if.then.i.i.i.i.i2.i.i.i.i.i42.i636
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i558)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i559)
   br label %return
@@ -12961,7 +12961,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i758: ; preds = %if.en
   %_M_refcount.i.i.i.i.i.i.i.i32.i759 = getelementptr inbounds i8, ptr %ref.tmp.i691, i64 16
   %320 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i32.i759, align 8, !noalias !604
   %cmp.not.i.i.i.i.i.i.i.i.i33.i760 = icmp eq ptr %320, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i760, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i761
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i760, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i761
 
 if.then.i.i.i.i1.i.i.i.i.i34.i761:                ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i758
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i35.i762 = getelementptr inbounds i8, ptr %320, i64 12
@@ -12982,14 +12982,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i45.i772:             ; preds = %if.then.i.i.i.i1.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i766: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i45.i772, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i764
   %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i767 = phi i32 [ %322, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i764 ], [ %323, %if.else.i.i.i.i.i.i.i.i.i.i.i45.i772 ]
   %cmp.i.i.i.i.i.i.i.i.i.i41.i768 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i767, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i768, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i769, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i768, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i769, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 if.then.i.i.i.i.i2.i.i.i.i.i42.i769:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i766
   %vtable.i.i.i.i.i.i.i.i.i.i43.i770 = load ptr, ptr %320, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i44.i771 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i43.i770, i64 24
   %324 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i44.i771, align 8
   tail call void %324(ptr noundef nonnull align 8 dereferenceable(16) %320) #17
-  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 lpad.i708:                                        ; preds = %_ZN5arrow12UInt32ScalarCI2NS_13NumericScalarINS_10UInt32TypeEEEEj.exit.i
   %325 = landingpad { ptr, i32 }
@@ -13007,7 +13007,7 @@ ehcleanup.i709:                                   ; preds = %lpad2.i724, %lpad.i
   call void @_ZN5arrow12UInt32ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i691) #17
   br label %common.resume
 
-_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i758, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i766, %if.then.i.i.i.i.i2.i.i.i.i.i42.i769
+_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i758, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i766, %if.then.i.i.i.i.i2.i.i.i.i.i42.i769
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i691)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i692)
   br label %return
@@ -13279,7 +13279,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i891: ; preds = %if.en
   %_M_refcount.i.i.i.i.i.i.i.i32.i892 = getelementptr inbounds i8, ptr %ref.tmp.i824, i64 16
   %366 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i32.i892, align 8, !noalias !615
   %cmp.not.i.i.i.i.i.i.i.i.i33.i893 = icmp eq ptr %366, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i893, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i894
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i33.i893, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, label %if.then.i.i.i.i1.i.i.i.i.i34.i894
 
 if.then.i.i.i.i1.i.i.i.i.i34.i894:                ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i891
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i35.i895 = getelementptr inbounds i8, ptr %366, i64 12
@@ -13300,14 +13300,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i45.i905:             ; preds = %if.then.i.i.i.i1.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i899: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i45.i905, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i897
   %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i900 = phi i32 [ %368, %if.then.i.i.i.i.i.i.i.i.i.i.i37.i897 ], [ %369, %if.else.i.i.i.i.i.i.i.i.i.i.i45.i905 ]
   %cmp.i.i.i.i.i.i.i.i.i.i41.i901 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i40.i900, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i901, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i902, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i41.i901, label %if.then.i.i.i.i.i2.i.i.i.i.i42.i902, label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 if.then.i.i.i.i.i2.i.i.i.i.i42.i902:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i899
   %vtable.i.i.i.i.i.i.i.i.i.i43.i903 = load ptr, ptr %366, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i44.i904 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i43.i903, i64 24
   %370 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i44.i904, align 8
   tail call void %370(ptr noundef nonnull align 8 dereferenceable(16) %366) #17
-  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit
+  br label %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit
 
 lpad.i841:                                        ; preds = %_ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit.i
   %371 = landingpad { ptr, i32 }
@@ -13325,7 +13325,7 @@ ehcleanup.i842:                                   ; preds = %lpad2.i857, %lpad.i
   call void @_ZN5arrow12UInt64ScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i824) #17
   br label %common.resume
 
-_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i891, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i899, %if.then.i.i.i.i.i2.i.i.i.i.i42.i902
+_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit.i.i.i.i.i31.i891, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i39.i899, %if.then.i.i.i.i.i2.i.i.i.i.i42.i902
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i824)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i825)
   br label %return
@@ -13334,7 +13334,7 @@ sw.default:                                       ; preds = %if.end
   tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str)
   br label %return
 
-return:                                           ; preds = %sw.default, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.exit, %if.then
+return:                                           ; preds = %sw.default, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, %_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom.exit, %if.then
   ret void
 }
 
@@ -13463,7 +13463,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_116TransposeIntsSrcEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull readonly %visitor) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_116TransposeIntsSrcEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom(ptr noalias align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull readonly %visitor) unnamed_addr #8 {
 entry:
   switch i32 %type.40.val, label %sw.epilog [
     i32 0, label %sw.bb
@@ -13604,7 +13604,7 @@ while.cond19.preheader.i.i.i.i.i:                 ; preds = %while.body.i.i.i.i.
   %length.addr.0.lcssa.i.i.i.i.i = phi i64 [ %4, %sw.bb4.i.i.i ], [ %sub.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %src.addr.0.lcssa.i.i.i.i.i = phi ptr [ %add.ptr.i, %sw.bb4.i.i.i ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %cmp2024.i.i.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i.i.i.i, 0
-  br i1 %cmp2024.i.i.i.i.i, label %while.body21.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i.i.i.i, label %while.body21.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %sw.bb4.i.i.i, %while.body.i.i.i.i.i
   %src.addr.021.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i, %sw.bb4.i.i.i ]
@@ -13660,9 +13660,9 @@ while.body21.i.i.i.i.i:                           ; preds = %while.cond19.prehea
   store i8 %conv24.i.i.i.i.i, ptr %dest.addr.125.i.i.i.i.i, align 1, !noalias !636
   %dec.i.i.i.i.i = add nsw i64 %length.addr.126.i.i.i.i.i, -1
   %cmp20.i.i.i.i.i = icmp ugt i64 %length.addr.126.i.i.i.i.i, 1
-  br i1 %cmp20.i.i.i.i.i, label %while.body21.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !24
+  br i1 %cmp20.i.i.i.i.i, label %while.body21.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !24
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i, %while.cond19.preheader.i.i.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i, %while.cond19.preheader.i.i.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !637
   br label %return
 
@@ -13677,7 +13677,7 @@ while.cond19.preheader.i.i92.i.i.i:               ; preds = %while.body.i.i108.i
   %length.addr.0.lcssa.i.i94.i.i.i = phi i64 [ %4, %sw.bb6.i.i.i ], [ %sub.i.i130.i.i.i, %while.body.i.i108.i.i.i ]
   %src.addr.0.lcssa.i.i95.i.i.i = phi ptr [ %add.ptr.i, %sw.bb6.i.i.i ], [ %add.ptr.i.i131.i.i.i, %while.body.i.i108.i.i.i ]
   %cmp2024.i.i96.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i94.i.i.i, 0
-  br i1 %cmp2024.i.i96.i.i.i, label %while.body21.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i96.i.i.i, label %while.body21.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i108.i.i.i:                          ; preds = %sw.bb6.i.i.i, %while.body.i.i108.i.i.i
   %src.addr.021.i.i109.i.i.i = phi ptr [ %add.ptr.i.i131.i.i.i, %while.body.i.i108.i.i.i ], [ %add.ptr.i, %sw.bb6.i.i.i ]
@@ -13733,9 +13733,9 @@ while.body21.i.i97.i.i.i:                         ; preds = %while.cond19.prehea
   store i8 %conv24.i.i104.i.i.i, ptr %dest.addr.125.i.i100.i.i.i, align 1, !noalias !643
   %dec.i.i106.i.i.i = add nsw i64 %length.addr.126.i.i99.i.i.i, -1
   %cmp20.i.i107.i.i.i = icmp ugt i64 %length.addr.126.i.i99.i.i.i, 1
-  br i1 %cmp20.i.i107.i.i.i, label %while.body21.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !8
+  br i1 %cmp20.i.i107.i.i.i, label %while.body21.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !8
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i, %while.cond19.preheader.i.i92.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i, %while.cond19.preheader.i.i92.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !644
   br label %return
 
@@ -13750,7 +13750,7 @@ while.cond19.preheader.i.i140.i.i.i:              ; preds = %while.body.i.i156.i
   %length.addr.0.lcssa.i.i142.i.i.i = phi i64 [ %4, %sw.bb8.i.i.i ], [ %sub.i.i178.i.i.i, %while.body.i.i156.i.i.i ]
   %src.addr.0.lcssa.i.i143.i.i.i = phi ptr [ %add.ptr.i, %sw.bb8.i.i.i ], [ %add.ptr.i.i179.i.i.i, %while.body.i.i156.i.i.i ]
   %cmp2024.i.i144.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i142.i.i.i, 0
-  br i1 %cmp2024.i.i144.i.i.i, label %while.body21.i.i145.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i144.i.i.i, label %while.body21.i.i145.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i156.i.i.i:                          ; preds = %sw.bb8.i.i.i, %while.body.i.i156.i.i.i
   %src.addr.021.i.i157.i.i.i = phi ptr [ %add.ptr.i.i179.i.i.i, %while.body.i.i156.i.i.i ], [ %add.ptr.i, %sw.bb8.i.i.i ]
@@ -13806,9 +13806,9 @@ while.body21.i.i145.i.i.i:                        ; preds = %while.cond19.prehea
   store i16 %conv24.i.i152.i.i.i, ptr %dest.addr.125.i.i148.i.i.i, align 2, !noalias !650
   %dec.i.i154.i.i.i = add nsw i64 %length.addr.126.i.i147.i.i.i, -1
   %cmp20.i.i155.i.i.i = icmp ugt i64 %length.addr.126.i.i147.i.i.i, 1
-  br i1 %cmp20.i.i155.i.i.i, label %while.body21.i.i145.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !56
+  br i1 %cmp20.i.i155.i.i.i, label %while.body21.i.i145.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !56
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i, %while.cond19.preheader.i.i140.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i, %while.cond19.preheader.i.i140.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !651
   br label %return
 
@@ -13823,7 +13823,7 @@ while.cond19.preheader.i.i188.i.i.i:              ; preds = %while.body.i.i204.i
   %length.addr.0.lcssa.i.i190.i.i.i = phi i64 [ %4, %sw.bb10.i.i.i ], [ %sub.i.i226.i.i.i, %while.body.i.i204.i.i.i ]
   %src.addr.0.lcssa.i.i191.i.i.i = phi ptr [ %add.ptr.i, %sw.bb10.i.i.i ], [ %add.ptr.i.i227.i.i.i, %while.body.i.i204.i.i.i ]
   %cmp2024.i.i192.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i190.i.i.i, 0
-  br i1 %cmp2024.i.i192.i.i.i, label %while.body21.i.i193.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i192.i.i.i, label %while.body21.i.i193.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i204.i.i.i:                          ; preds = %sw.bb10.i.i.i, %while.body.i.i204.i.i.i
   %src.addr.021.i.i205.i.i.i = phi ptr [ %add.ptr.i.i227.i.i.i, %while.body.i.i204.i.i.i ], [ %add.ptr.i, %sw.bb10.i.i.i ]
@@ -13879,9 +13879,9 @@ while.body21.i.i193.i.i.i:                        ; preds = %while.cond19.prehea
   store i16 %conv24.i.i200.i.i.i, ptr %dest.addr.125.i.i196.i.i.i, align 2, !noalias !657
   %dec.i.i202.i.i.i = add nsw i64 %length.addr.126.i.i195.i.i.i, -1
   %cmp20.i.i203.i.i.i = icmp ugt i64 %length.addr.126.i.i195.i.i.i, 1
-  br i1 %cmp20.i.i203.i.i.i, label %while.body21.i.i193.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !40
+  br i1 %cmp20.i.i203.i.i.i, label %while.body21.i.i193.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !40
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i, %while.cond19.preheader.i.i188.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i, %while.cond19.preheader.i.i188.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !658
   br label %return
 
@@ -13896,7 +13896,7 @@ while.cond16.preheader.i.i.i.i.i:                 ; preds = %while.body.i.i244.i
   %length.addr.0.lcssa.i.i237.i.i.i = phi i64 [ %4, %sw.bb12.i.i.i ], [ %sub.i.i256.i.i.i, %while.body.i.i244.i.i.i ]
   %src.addr.0.lcssa.i.i238.i.i.i = phi ptr [ %add.ptr.i, %sw.bb12.i.i.i ], [ %add.ptr.i.i257.i.i.i, %while.body.i.i244.i.i.i ]
   %cmp1724.i.i.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i237.i.i.i, 0
-  br i1 %cmp1724.i.i.i.i.i, label %while.body18.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i.i.i.i, label %while.body18.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i244.i.i.i:                          ; preds = %sw.bb12.i.i.i, %while.body.i.i244.i.i.i
   %src.addr.021.i.i245.i.i.i = phi ptr [ %add.ptr.i.i257.i.i.i, %while.body.i.i244.i.i.i ], [ %add.ptr.i, %sw.bb12.i.i.i ]
@@ -13947,9 +13947,9 @@ while.body18.i.i.i.i.i:                           ; preds = %while.cond16.prehea
   store i32 %57, ptr %dest.addr.125.i.i241.i.i.i, align 4, !noalias !664
   %dec.i.i243.i.i.i = add nsw i64 %length.addr.126.i.i240.i.i.i, -1
   %cmp17.i.i.i.i.i = icmp ugt i64 %length.addr.126.i.i240.i.i.i, 1
-  br i1 %cmp17.i.i.i.i.i, label %while.body18.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !88
+  br i1 %cmp17.i.i.i.i.i, label %while.body18.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !88
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i, %while.cond16.preheader.i.i.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i, %while.cond16.preheader.i.i.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !665
   br label %return
 
@@ -13964,7 +13964,7 @@ while.cond16.preheader.i.i265.i.i.i:              ; preds = %while.body.i.i280.i
   %length.addr.0.lcssa.i.i267.i.i.i = phi i64 [ %4, %sw.bb14.i.i.i ], [ %sub.i.i298.i.i.i, %while.body.i.i280.i.i.i ]
   %src.addr.0.lcssa.i.i268.i.i.i = phi ptr [ %add.ptr.i, %sw.bb14.i.i.i ], [ %add.ptr.i.i299.i.i.i, %while.body.i.i280.i.i.i ]
   %cmp1724.i.i269.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i267.i.i.i, 0
-  br i1 %cmp1724.i.i269.i.i.i, label %while.body18.i.i270.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i269.i.i.i, label %while.body18.i.i270.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i280.i.i.i:                          ; preds = %sw.bb14.i.i.i, %while.body.i.i280.i.i.i
   %src.addr.021.i.i281.i.i.i = phi ptr [ %add.ptr.i.i299.i.i.i, %while.body.i.i280.i.i.i ], [ %add.ptr.i, %sw.bb14.i.i.i ]
@@ -14015,9 +14015,9 @@ while.body18.i.i270.i.i.i:                        ; preds = %while.cond16.prehea
   store i32 %67, ptr %dest.addr.125.i.i273.i.i.i, align 4, !noalias !671
   %dec.i.i278.i.i.i = add nsw i64 %length.addr.126.i.i272.i.i.i, -1
   %cmp17.i.i279.i.i.i = icmp ugt i64 %length.addr.126.i.i272.i.i.i, 1
-  br i1 %cmp17.i.i279.i.i.i, label %while.body18.i.i270.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !72
+  br i1 %cmp17.i.i279.i.i.i, label %while.body18.i.i270.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !72
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i, %while.cond16.preheader.i.i265.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i, %while.cond16.preheader.i.i265.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !672
   br label %return
 
@@ -14032,7 +14032,7 @@ while.cond19.preheader.i.i308.i.i.i:              ; preds = %while.body.i.i324.i
   %length.addr.0.lcssa.i.i310.i.i.i = phi i64 [ %4, %sw.bb16.i.i.i ], [ %sub.i.i346.i.i.i, %while.body.i.i324.i.i.i ]
   %src.addr.0.lcssa.i.i311.i.i.i = phi ptr [ %add.ptr.i, %sw.bb16.i.i.i ], [ %add.ptr.i.i347.i.i.i, %while.body.i.i324.i.i.i ]
   %cmp2024.i.i312.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i310.i.i.i, 0
-  br i1 %cmp2024.i.i312.i.i.i, label %while.body21.i.i313.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i312.i.i.i, label %while.body21.i.i313.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i324.i.i.i:                          ; preds = %sw.bb16.i.i.i, %while.body.i.i324.i.i.i
   %src.addr.021.i.i325.i.i.i = phi ptr [ %add.ptr.i.i347.i.i.i, %while.body.i.i324.i.i.i ], [ %add.ptr.i, %sw.bb16.i.i.i ]
@@ -14088,9 +14088,9 @@ while.body21.i.i313.i.i.i:                        ; preds = %while.cond19.prehea
   store i64 %conv24.i.i320.i.i.i, ptr %dest.addr.125.i.i316.i.i.i, align 8, !noalias !678
   %dec.i.i322.i.i.i = add nsw i64 %length.addr.126.i.i315.i.i.i, -1
   %cmp20.i.i323.i.i.i = icmp ugt i64 %length.addr.126.i.i315.i.i.i, 1
-  br i1 %cmp20.i.i323.i.i.i, label %while.body21.i.i313.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !120
+  br i1 %cmp20.i.i323.i.i.i, label %while.body21.i.i313.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !120
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i, %while.cond19.preheader.i.i308.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i, %while.cond19.preheader.i.i308.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !679
   br label %return
 
@@ -14105,7 +14105,7 @@ while.cond19.preheader.i.i356.i.i.i:              ; preds = %while.body.i.i372.i
   %length.addr.0.lcssa.i.i358.i.i.i = phi i64 [ %4, %sw.bb18.i.i.i ], [ %sub.i.i394.i.i.i, %while.body.i.i372.i.i.i ]
   %src.addr.0.lcssa.i.i359.i.i.i = phi ptr [ %add.ptr.i, %sw.bb18.i.i.i ], [ %add.ptr.i.i395.i.i.i, %while.body.i.i372.i.i.i ]
   %cmp2024.i.i360.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i358.i.i.i, 0
-  br i1 %cmp2024.i.i360.i.i.i, label %while.body21.i.i361.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i360.i.i.i, label %while.body21.i.i361.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i372.i.i.i:                          ; preds = %sw.bb18.i.i.i, %while.body.i.i372.i.i.i
   %src.addr.021.i.i373.i.i.i = phi ptr [ %add.ptr.i.i395.i.i.i, %while.body.i.i372.i.i.i ], [ %add.ptr.i, %sw.bb18.i.i.i ]
@@ -14161,9 +14161,9 @@ while.body21.i.i361.i.i.i:                        ; preds = %while.cond19.prehea
   store i64 %conv24.i.i368.i.i.i, ptr %dest.addr.125.i.i364.i.i.i, align 8, !noalias !685
   %dec.i.i370.i.i.i = add nsw i64 %length.addr.126.i.i363.i.i.i, -1
   %cmp20.i.i371.i.i.i = icmp ugt i64 %length.addr.126.i.i363.i.i.i, 1
-  br i1 %cmp20.i.i371.i.i.i, label %while.body21.i.i361.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !104
+  br i1 %cmp20.i.i371.i.i.i, label %while.body21.i.i361.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !104
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i, %while.cond19.preheader.i.i356.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i, %while.cond19.preheader.i.i356.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !686
   br label %return
 
@@ -14388,7 +14388,7 @@ while.cond19.preheader.i.i.i.i.i435:              ; preds = %while.body.i.i.i.i.
   %length.addr.0.lcssa.i.i.i.i.i437 = phi i64 [ %92, %sw.bb4.i.i.i432 ], [ %sub.i.i.i.i.i473, %while.body.i.i.i.i.i451 ]
   %src.addr.0.lcssa.i.i.i.i.i438 = phi ptr [ %add.ptr.i87, %sw.bb4.i.i.i432 ], [ %add.ptr.i.i.i.i.i474, %while.body.i.i.i.i.i451 ]
   %cmp2024.i.i.i.i.i439 = icmp sgt i64 %length.addr.0.lcssa.i.i.i.i.i437, 0
-  br i1 %cmp2024.i.i.i.i.i439, label %while.body21.i.i.i.i.i440, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i.i.i.i439, label %while.body21.i.i.i.i.i440, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i.i.i.i451:                          ; preds = %sw.bb4.i.i.i432, %while.body.i.i.i.i.i451
   %src.addr.021.i.i.i.i.i452 = phi ptr [ %add.ptr.i.i.i.i.i474, %while.body.i.i.i.i.i451 ], [ %add.ptr.i87, %sw.bb4.i.i.i432 ]
@@ -14444,9 +14444,9 @@ while.body21.i.i.i.i.i440:                        ; preds = %while.cond19.prehea
   store i8 %conv24.i.i.i.i.i447, ptr %dest.addr.125.i.i.i.i.i443, align 1, !noalias !701
   %dec.i.i.i.i.i449 = add nsw i64 %length.addr.126.i.i.i.i.i442, -1
   %cmp20.i.i.i.i.i450 = icmp ugt i64 %length.addr.126.i.i.i.i.i442, 1
-  br i1 %cmp20.i.i.i.i.i450, label %while.body21.i.i.i.i.i440, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !22
+  br i1 %cmp20.i.i.i.i.i450, label %while.body21.i.i.i.i.i440, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !22
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i440, %while.cond19.preheader.i.i.i.i.i435
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i440, %while.cond19.preheader.i.i.i.i.i435
   store ptr null, ptr %agg.result, align 8, !alias.scope !702
   br label %return
 
@@ -14461,7 +14461,7 @@ while.cond19.preheader.i.i92.i.i.i390:            ; preds = %while.body.i.i108.i
   %length.addr.0.lcssa.i.i94.i.i.i392 = phi i64 [ %92, %sw.bb6.i.i.i387 ], [ %sub.i.i130.i.i.i428, %while.body.i.i108.i.i.i406 ]
   %src.addr.0.lcssa.i.i95.i.i.i393 = phi ptr [ %add.ptr.i87, %sw.bb6.i.i.i387 ], [ %add.ptr.i.i131.i.i.i429, %while.body.i.i108.i.i.i406 ]
   %cmp2024.i.i96.i.i.i394 = icmp sgt i64 %length.addr.0.lcssa.i.i94.i.i.i392, 0
-  br i1 %cmp2024.i.i96.i.i.i394, label %while.body21.i.i97.i.i.i395, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i96.i.i.i394, label %while.body21.i.i97.i.i.i395, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i108.i.i.i406:                       ; preds = %sw.bb6.i.i.i387, %while.body.i.i108.i.i.i406
   %src.addr.021.i.i109.i.i.i407 = phi ptr [ %add.ptr.i.i131.i.i.i429, %while.body.i.i108.i.i.i406 ], [ %add.ptr.i87, %sw.bb6.i.i.i387 ]
@@ -14517,9 +14517,9 @@ while.body21.i.i97.i.i.i395:                      ; preds = %while.cond19.prehea
   store i8 %conv24.i.i104.i.i.i402, ptr %dest.addr.125.i.i100.i.i.i398, align 1, !noalias !708
   %dec.i.i106.i.i.i404 = add nsw i64 %length.addr.126.i.i99.i.i.i397, -1
   %cmp20.i.i107.i.i.i405 = icmp ugt i64 %length.addr.126.i.i99.i.i.i397, 1
-  br i1 %cmp20.i.i107.i.i.i405, label %while.body21.i.i97.i.i.i395, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !6
+  br i1 %cmp20.i.i107.i.i.i405, label %while.body21.i.i97.i.i.i395, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !6
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i395, %while.cond19.preheader.i.i92.i.i.i390
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i395, %while.cond19.preheader.i.i92.i.i.i390
   store ptr null, ptr %agg.result, align 8, !alias.scope !709
   br label %return
 
@@ -14534,7 +14534,7 @@ while.cond19.preheader.i.i140.i.i.i345:           ; preds = %while.body.i.i156.i
   %length.addr.0.lcssa.i.i142.i.i.i347 = phi i64 [ %92, %sw.bb8.i.i.i342 ], [ %sub.i.i178.i.i.i383, %while.body.i.i156.i.i.i361 ]
   %src.addr.0.lcssa.i.i143.i.i.i348 = phi ptr [ %add.ptr.i87, %sw.bb8.i.i.i342 ], [ %add.ptr.i.i179.i.i.i384, %while.body.i.i156.i.i.i361 ]
   %cmp2024.i.i144.i.i.i349 = icmp sgt i64 %length.addr.0.lcssa.i.i142.i.i.i347, 0
-  br i1 %cmp2024.i.i144.i.i.i349, label %while.body21.i.i145.i.i.i350, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i144.i.i.i349, label %while.body21.i.i145.i.i.i350, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i156.i.i.i361:                       ; preds = %sw.bb8.i.i.i342, %while.body.i.i156.i.i.i361
   %src.addr.021.i.i157.i.i.i362 = phi ptr [ %add.ptr.i.i179.i.i.i384, %while.body.i.i156.i.i.i361 ], [ %add.ptr.i87, %sw.bb8.i.i.i342 ]
@@ -14590,9 +14590,9 @@ while.body21.i.i145.i.i.i350:                     ; preds = %while.cond19.prehea
   store i16 %conv24.i.i152.i.i.i357, ptr %dest.addr.125.i.i148.i.i.i353, align 2, !noalias !715
   %dec.i.i154.i.i.i359 = add nsw i64 %length.addr.126.i.i147.i.i.i352, -1
   %cmp20.i.i155.i.i.i360 = icmp ugt i64 %length.addr.126.i.i147.i.i.i352, 1
-  br i1 %cmp20.i.i155.i.i.i360, label %while.body21.i.i145.i.i.i350, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !54
+  br i1 %cmp20.i.i155.i.i.i360, label %while.body21.i.i145.i.i.i350, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !54
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i350, %while.cond19.preheader.i.i140.i.i.i345
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i350, %while.cond19.preheader.i.i140.i.i.i345
   store ptr null, ptr %agg.result, align 8, !alias.scope !716
   br label %return
 
@@ -14607,7 +14607,7 @@ while.cond19.preheader.i.i188.i.i.i300:           ; preds = %while.body.i.i204.i
   %length.addr.0.lcssa.i.i190.i.i.i302 = phi i64 [ %92, %sw.bb10.i.i.i297 ], [ %sub.i.i226.i.i.i338, %while.body.i.i204.i.i.i316 ]
   %src.addr.0.lcssa.i.i191.i.i.i303 = phi ptr [ %add.ptr.i87, %sw.bb10.i.i.i297 ], [ %add.ptr.i.i227.i.i.i339, %while.body.i.i204.i.i.i316 ]
   %cmp2024.i.i192.i.i.i304 = icmp sgt i64 %length.addr.0.lcssa.i.i190.i.i.i302, 0
-  br i1 %cmp2024.i.i192.i.i.i304, label %while.body21.i.i193.i.i.i305, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i192.i.i.i304, label %while.body21.i.i193.i.i.i305, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i204.i.i.i316:                       ; preds = %sw.bb10.i.i.i297, %while.body.i.i204.i.i.i316
   %src.addr.021.i.i205.i.i.i317 = phi ptr [ %add.ptr.i.i227.i.i.i339, %while.body.i.i204.i.i.i316 ], [ %add.ptr.i87, %sw.bb10.i.i.i297 ]
@@ -14663,9 +14663,9 @@ while.body21.i.i193.i.i.i305:                     ; preds = %while.cond19.prehea
   store i16 %conv24.i.i200.i.i.i312, ptr %dest.addr.125.i.i196.i.i.i308, align 2, !noalias !722
   %dec.i.i202.i.i.i314 = add nsw i64 %length.addr.126.i.i195.i.i.i307, -1
   %cmp20.i.i203.i.i.i315 = icmp ugt i64 %length.addr.126.i.i195.i.i.i307, 1
-  br i1 %cmp20.i.i203.i.i.i315, label %while.body21.i.i193.i.i.i305, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !38
+  br i1 %cmp20.i.i203.i.i.i315, label %while.body21.i.i193.i.i.i305, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !38
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i305, %while.cond19.preheader.i.i188.i.i.i300
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i305, %while.cond19.preheader.i.i188.i.i.i300
   store ptr null, ptr %agg.result, align 8, !alias.scope !723
   br label %return
 
@@ -14680,7 +14680,7 @@ while.cond16.preheader.i.i.i.i.i260:              ; preds = %while.body.i.i244.i
   %length.addr.0.lcssa.i.i237.i.i.i262 = phi i64 [ %92, %sw.bb12.i.i.i257 ], [ %sub.i.i256.i.i.i293, %while.body.i.i244.i.i.i275 ]
   %src.addr.0.lcssa.i.i238.i.i.i263 = phi ptr [ %add.ptr.i87, %sw.bb12.i.i.i257 ], [ %add.ptr.i.i257.i.i.i294, %while.body.i.i244.i.i.i275 ]
   %cmp1724.i.i.i.i.i264 = icmp sgt i64 %length.addr.0.lcssa.i.i237.i.i.i262, 0
-  br i1 %cmp1724.i.i.i.i.i264, label %while.body18.i.i.i.i.i265, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i.i.i.i264, label %while.body18.i.i.i.i.i265, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i244.i.i.i275:                       ; preds = %sw.bb12.i.i.i257, %while.body.i.i244.i.i.i275
   %src.addr.021.i.i245.i.i.i276 = phi ptr [ %add.ptr.i.i257.i.i.i294, %while.body.i.i244.i.i.i275 ], [ %add.ptr.i87, %sw.bb12.i.i.i257 ]
@@ -14731,9 +14731,9 @@ while.body18.i.i.i.i.i265:                        ; preds = %while.cond16.prehea
   store i32 %145, ptr %dest.addr.125.i.i241.i.i.i268, align 4, !noalias !729
   %dec.i.i243.i.i.i273 = add nsw i64 %length.addr.126.i.i240.i.i.i267, -1
   %cmp17.i.i.i.i.i274 = icmp ugt i64 %length.addr.126.i.i240.i.i.i267, 1
-  br i1 %cmp17.i.i.i.i.i274, label %while.body18.i.i.i.i.i265, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !86
+  br i1 %cmp17.i.i.i.i.i274, label %while.body18.i.i.i.i.i265, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !86
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i265, %while.cond16.preheader.i.i.i.i.i260
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i265, %while.cond16.preheader.i.i.i.i.i260
   store ptr null, ptr %agg.result, align 8, !alias.scope !730
   br label %return
 
@@ -14748,7 +14748,7 @@ while.cond16.preheader.i.i265.i.i.i220:           ; preds = %while.body.i.i280.i
   %length.addr.0.lcssa.i.i267.i.i.i222 = phi i64 [ %92, %sw.bb14.i.i.i217 ], [ %sub.i.i298.i.i.i253, %while.body.i.i280.i.i.i235 ]
   %src.addr.0.lcssa.i.i268.i.i.i223 = phi ptr [ %add.ptr.i87, %sw.bb14.i.i.i217 ], [ %add.ptr.i.i299.i.i.i254, %while.body.i.i280.i.i.i235 ]
   %cmp1724.i.i269.i.i.i224 = icmp sgt i64 %length.addr.0.lcssa.i.i267.i.i.i222, 0
-  br i1 %cmp1724.i.i269.i.i.i224, label %while.body18.i.i270.i.i.i225, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i269.i.i.i224, label %while.body18.i.i270.i.i.i225, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i280.i.i.i235:                       ; preds = %sw.bb14.i.i.i217, %while.body.i.i280.i.i.i235
   %src.addr.021.i.i281.i.i.i236 = phi ptr [ %add.ptr.i.i299.i.i.i254, %while.body.i.i280.i.i.i235 ], [ %add.ptr.i87, %sw.bb14.i.i.i217 ]
@@ -14799,9 +14799,9 @@ while.body18.i.i270.i.i.i225:                     ; preds = %while.cond16.prehea
   store i32 %155, ptr %dest.addr.125.i.i273.i.i.i228, align 4, !noalias !736
   %dec.i.i278.i.i.i233 = add nsw i64 %length.addr.126.i.i272.i.i.i227, -1
   %cmp17.i.i279.i.i.i234 = icmp ugt i64 %length.addr.126.i.i272.i.i.i227, 1
-  br i1 %cmp17.i.i279.i.i.i234, label %while.body18.i.i270.i.i.i225, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !70
+  br i1 %cmp17.i.i279.i.i.i234, label %while.body18.i.i270.i.i.i225, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !70
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i225, %while.cond16.preheader.i.i265.i.i.i220
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i225, %while.cond16.preheader.i.i265.i.i.i220
   store ptr null, ptr %agg.result, align 8, !alias.scope !737
   br label %return
 
@@ -14816,7 +14816,7 @@ while.cond19.preheader.i.i308.i.i.i175:           ; preds = %while.body.i.i324.i
   %length.addr.0.lcssa.i.i310.i.i.i177 = phi i64 [ %92, %sw.bb16.i.i.i172 ], [ %sub.i.i346.i.i.i213, %while.body.i.i324.i.i.i191 ]
   %src.addr.0.lcssa.i.i311.i.i.i178 = phi ptr [ %add.ptr.i87, %sw.bb16.i.i.i172 ], [ %add.ptr.i.i347.i.i.i214, %while.body.i.i324.i.i.i191 ]
   %cmp2024.i.i312.i.i.i179 = icmp sgt i64 %length.addr.0.lcssa.i.i310.i.i.i177, 0
-  br i1 %cmp2024.i.i312.i.i.i179, label %while.body21.i.i313.i.i.i180, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i312.i.i.i179, label %while.body21.i.i313.i.i.i180, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i324.i.i.i191:                       ; preds = %sw.bb16.i.i.i172, %while.body.i.i324.i.i.i191
   %src.addr.021.i.i325.i.i.i192 = phi ptr [ %add.ptr.i.i347.i.i.i214, %while.body.i.i324.i.i.i191 ], [ %add.ptr.i87, %sw.bb16.i.i.i172 ]
@@ -14872,9 +14872,9 @@ while.body21.i.i313.i.i.i180:                     ; preds = %while.cond19.prehea
   store i64 %conv24.i.i320.i.i.i187, ptr %dest.addr.125.i.i316.i.i.i183, align 8, !noalias !743
   %dec.i.i322.i.i.i189 = add nsw i64 %length.addr.126.i.i315.i.i.i182, -1
   %cmp20.i.i323.i.i.i190 = icmp ugt i64 %length.addr.126.i.i315.i.i.i182, 1
-  br i1 %cmp20.i.i323.i.i.i190, label %while.body21.i.i313.i.i.i180, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !118
+  br i1 %cmp20.i.i323.i.i.i190, label %while.body21.i.i313.i.i.i180, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !118
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i180, %while.cond19.preheader.i.i308.i.i.i175
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i180, %while.cond19.preheader.i.i308.i.i.i175
   store ptr null, ptr %agg.result, align 8, !alias.scope !744
   br label %return
 
@@ -14889,7 +14889,7 @@ while.cond19.preheader.i.i356.i.i.i130:           ; preds = %while.body.i.i372.i
   %length.addr.0.lcssa.i.i358.i.i.i132 = phi i64 [ %92, %sw.bb18.i.i.i127 ], [ %sub.i.i394.i.i.i168, %while.body.i.i372.i.i.i146 ]
   %src.addr.0.lcssa.i.i359.i.i.i133 = phi ptr [ %add.ptr.i87, %sw.bb18.i.i.i127 ], [ %add.ptr.i.i395.i.i.i169, %while.body.i.i372.i.i.i146 ]
   %cmp2024.i.i360.i.i.i134 = icmp sgt i64 %length.addr.0.lcssa.i.i358.i.i.i132, 0
-  br i1 %cmp2024.i.i360.i.i.i134, label %while.body21.i.i361.i.i.i135, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i360.i.i.i134, label %while.body21.i.i361.i.i.i135, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i372.i.i.i146:                       ; preds = %sw.bb18.i.i.i127, %while.body.i.i372.i.i.i146
   %src.addr.021.i.i373.i.i.i147 = phi ptr [ %add.ptr.i.i395.i.i.i169, %while.body.i.i372.i.i.i146 ], [ %add.ptr.i87, %sw.bb18.i.i.i127 ]
@@ -14945,9 +14945,9 @@ while.body21.i.i361.i.i.i135:                     ; preds = %while.cond19.prehea
   store i64 %conv24.i.i368.i.i.i142, ptr %dest.addr.125.i.i364.i.i.i138, align 8, !noalias !750
   %dec.i.i370.i.i.i144 = add nsw i64 %length.addr.126.i.i363.i.i.i137, -1
   %cmp20.i.i371.i.i.i145 = icmp ugt i64 %length.addr.126.i.i363.i.i.i137, 1
-  br i1 %cmp20.i.i371.i.i.i145, label %while.body21.i.i361.i.i.i135, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !102
+  br i1 %cmp20.i.i371.i.i.i145, label %while.body21.i.i361.i.i.i135, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !102
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i135, %while.cond19.preheader.i.i356.i.i.i130
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i135, %while.cond19.preheader.i.i356.i.i.i130
   store ptr null, ptr %agg.result, align 8, !alias.scope !751
   br label %return
 
@@ -15172,7 +15172,7 @@ while.cond19.preheader.i.i.i.i.i829:              ; preds = %while.body.i.i.i.i.
   %length.addr.0.lcssa.i.i.i.i.i831 = phi i64 [ %180, %sw.bb4.i.i.i826 ], [ %sub.i.i.i.i.i867, %while.body.i.i.i.i.i845 ]
   %src.addr.0.lcssa.i.i.i.i.i832 = phi ptr [ %add.ptr.i481, %sw.bb4.i.i.i826 ], [ %add.ptr.i.i.i.i.i868, %while.body.i.i.i.i.i845 ]
   %cmp2024.i.i.i.i.i833 = icmp sgt i64 %length.addr.0.lcssa.i.i.i.i.i831, 0
-  br i1 %cmp2024.i.i.i.i.i833, label %while.body21.i.i.i.i.i834, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i.i.i.i833, label %while.body21.i.i.i.i.i834, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i.i.i.i845:                          ; preds = %sw.bb4.i.i.i826, %while.body.i.i.i.i.i845
   %src.addr.021.i.i.i.i.i846 = phi ptr [ %add.ptr.i.i.i.i.i868, %while.body.i.i.i.i.i845 ], [ %add.ptr.i481, %sw.bb4.i.i.i826 ]
@@ -15228,9 +15228,9 @@ while.body21.i.i.i.i.i834:                        ; preds = %while.cond19.prehea
   store i8 %conv24.i.i.i.i.i841, ptr %dest.addr.125.i.i.i.i.i837, align 1, !noalias !766
   %dec.i.i.i.i.i843 = add nsw i64 %length.addr.126.i.i.i.i.i836, -1
   %cmp20.i.i.i.i.i844 = icmp ugt i64 %length.addr.126.i.i.i.i.i836, 1
-  br i1 %cmp20.i.i.i.i.i844, label %while.body21.i.i.i.i.i834, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !28
+  br i1 %cmp20.i.i.i.i.i844, label %while.body21.i.i.i.i.i834, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !28
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i834, %while.cond19.preheader.i.i.i.i.i829
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i834, %while.cond19.preheader.i.i.i.i.i829
   store ptr null, ptr %agg.result, align 8, !alias.scope !767
   br label %return
 
@@ -15245,7 +15245,7 @@ while.cond19.preheader.i.i92.i.i.i784:            ; preds = %while.body.i.i108.i
   %length.addr.0.lcssa.i.i94.i.i.i786 = phi i64 [ %180, %sw.bb6.i.i.i781 ], [ %sub.i.i130.i.i.i822, %while.body.i.i108.i.i.i800 ]
   %src.addr.0.lcssa.i.i95.i.i.i787 = phi ptr [ %add.ptr.i481, %sw.bb6.i.i.i781 ], [ %add.ptr.i.i131.i.i.i823, %while.body.i.i108.i.i.i800 ]
   %cmp2024.i.i96.i.i.i788 = icmp sgt i64 %length.addr.0.lcssa.i.i94.i.i.i786, 0
-  br i1 %cmp2024.i.i96.i.i.i788, label %while.body21.i.i97.i.i.i789, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i96.i.i.i788, label %while.body21.i.i97.i.i.i789, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i108.i.i.i800:                       ; preds = %sw.bb6.i.i.i781, %while.body.i.i108.i.i.i800
   %src.addr.021.i.i109.i.i.i801 = phi ptr [ %add.ptr.i.i131.i.i.i823, %while.body.i.i108.i.i.i800 ], [ %add.ptr.i481, %sw.bb6.i.i.i781 ]
@@ -15301,9 +15301,9 @@ while.body21.i.i97.i.i.i789:                      ; preds = %while.cond19.prehea
   store i8 %conv24.i.i104.i.i.i796, ptr %dest.addr.125.i.i100.i.i.i792, align 1, !noalias !773
   %dec.i.i106.i.i.i798 = add nsw i64 %length.addr.126.i.i99.i.i.i791, -1
   %cmp20.i.i107.i.i.i799 = icmp ugt i64 %length.addr.126.i.i99.i.i.i791, 1
-  br i1 %cmp20.i.i107.i.i.i799, label %while.body21.i.i97.i.i.i789, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !12
+  br i1 %cmp20.i.i107.i.i.i799, label %while.body21.i.i97.i.i.i789, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !12
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i789, %while.cond19.preheader.i.i92.i.i.i784
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i789, %while.cond19.preheader.i.i92.i.i.i784
   store ptr null, ptr %agg.result, align 8, !alias.scope !774
   br label %return
 
@@ -15318,7 +15318,7 @@ while.cond19.preheader.i.i140.i.i.i739:           ; preds = %while.body.i.i156.i
   %length.addr.0.lcssa.i.i142.i.i.i741 = phi i64 [ %180, %sw.bb8.i.i.i736 ], [ %sub.i.i178.i.i.i777, %while.body.i.i156.i.i.i755 ]
   %src.addr.0.lcssa.i.i143.i.i.i742 = phi ptr [ %add.ptr.i481, %sw.bb8.i.i.i736 ], [ %add.ptr.i.i179.i.i.i778, %while.body.i.i156.i.i.i755 ]
   %cmp2024.i.i144.i.i.i743 = icmp sgt i64 %length.addr.0.lcssa.i.i142.i.i.i741, 0
-  br i1 %cmp2024.i.i144.i.i.i743, label %while.body21.i.i145.i.i.i744, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i144.i.i.i743, label %while.body21.i.i145.i.i.i744, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i156.i.i.i755:                       ; preds = %sw.bb8.i.i.i736, %while.body.i.i156.i.i.i755
   %src.addr.021.i.i157.i.i.i756 = phi ptr [ %add.ptr.i.i179.i.i.i778, %while.body.i.i156.i.i.i755 ], [ %add.ptr.i481, %sw.bb8.i.i.i736 ]
@@ -15374,9 +15374,9 @@ while.body21.i.i145.i.i.i744:                     ; preds = %while.cond19.prehea
   store i16 %conv24.i.i152.i.i.i751, ptr %dest.addr.125.i.i148.i.i.i747, align 2, !noalias !780
   %dec.i.i154.i.i.i753 = add nsw i64 %length.addr.126.i.i147.i.i.i746, -1
   %cmp20.i.i155.i.i.i754 = icmp ugt i64 %length.addr.126.i.i147.i.i.i746, 1
-  br i1 %cmp20.i.i155.i.i.i754, label %while.body21.i.i145.i.i.i744, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !60
+  br i1 %cmp20.i.i155.i.i.i754, label %while.body21.i.i145.i.i.i744, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !60
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i744, %while.cond19.preheader.i.i140.i.i.i739
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i744, %while.cond19.preheader.i.i140.i.i.i739
   store ptr null, ptr %agg.result, align 8, !alias.scope !781
   br label %return
 
@@ -15391,7 +15391,7 @@ while.cond19.preheader.i.i188.i.i.i694:           ; preds = %while.body.i.i204.i
   %length.addr.0.lcssa.i.i190.i.i.i696 = phi i64 [ %180, %sw.bb10.i.i.i691 ], [ %sub.i.i226.i.i.i732, %while.body.i.i204.i.i.i710 ]
   %src.addr.0.lcssa.i.i191.i.i.i697 = phi ptr [ %add.ptr.i481, %sw.bb10.i.i.i691 ], [ %add.ptr.i.i227.i.i.i733, %while.body.i.i204.i.i.i710 ]
   %cmp2024.i.i192.i.i.i698 = icmp sgt i64 %length.addr.0.lcssa.i.i190.i.i.i696, 0
-  br i1 %cmp2024.i.i192.i.i.i698, label %while.body21.i.i193.i.i.i699, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i192.i.i.i698, label %while.body21.i.i193.i.i.i699, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i204.i.i.i710:                       ; preds = %sw.bb10.i.i.i691, %while.body.i.i204.i.i.i710
   %src.addr.021.i.i205.i.i.i711 = phi ptr [ %add.ptr.i.i227.i.i.i733, %while.body.i.i204.i.i.i710 ], [ %add.ptr.i481, %sw.bb10.i.i.i691 ]
@@ -15447,9 +15447,9 @@ while.body21.i.i193.i.i.i699:                     ; preds = %while.cond19.prehea
   store i16 %conv24.i.i200.i.i.i706, ptr %dest.addr.125.i.i196.i.i.i702, align 2, !noalias !787
   %dec.i.i202.i.i.i708 = add nsw i64 %length.addr.126.i.i195.i.i.i701, -1
   %cmp20.i.i203.i.i.i709 = icmp ugt i64 %length.addr.126.i.i195.i.i.i701, 1
-  br i1 %cmp20.i.i203.i.i.i709, label %while.body21.i.i193.i.i.i699, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !44
+  br i1 %cmp20.i.i203.i.i.i709, label %while.body21.i.i193.i.i.i699, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !44
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i699, %while.cond19.preheader.i.i188.i.i.i694
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i699, %while.cond19.preheader.i.i188.i.i.i694
   store ptr null, ptr %agg.result, align 8, !alias.scope !788
   br label %return
 
@@ -15464,7 +15464,7 @@ while.cond16.preheader.i.i.i.i.i654:              ; preds = %while.body.i.i244.i
   %length.addr.0.lcssa.i.i237.i.i.i656 = phi i64 [ %180, %sw.bb12.i.i.i651 ], [ %sub.i.i256.i.i.i687, %while.body.i.i244.i.i.i669 ]
   %src.addr.0.lcssa.i.i238.i.i.i657 = phi ptr [ %add.ptr.i481, %sw.bb12.i.i.i651 ], [ %add.ptr.i.i257.i.i.i688, %while.body.i.i244.i.i.i669 ]
   %cmp1724.i.i.i.i.i658 = icmp sgt i64 %length.addr.0.lcssa.i.i237.i.i.i656, 0
-  br i1 %cmp1724.i.i.i.i.i658, label %while.body18.i.i.i.i.i659, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i.i.i.i658, label %while.body18.i.i.i.i.i659, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i244.i.i.i669:                       ; preds = %sw.bb12.i.i.i651, %while.body.i.i244.i.i.i669
   %src.addr.021.i.i245.i.i.i670 = phi ptr [ %add.ptr.i.i257.i.i.i688, %while.body.i.i244.i.i.i669 ], [ %add.ptr.i481, %sw.bb12.i.i.i651 ]
@@ -15515,9 +15515,9 @@ while.body18.i.i.i.i.i659:                        ; preds = %while.cond16.prehea
   store i32 %233, ptr %dest.addr.125.i.i241.i.i.i662, align 4, !noalias !794
   %dec.i.i243.i.i.i667 = add nsw i64 %length.addr.126.i.i240.i.i.i661, -1
   %cmp17.i.i.i.i.i668 = icmp ugt i64 %length.addr.126.i.i240.i.i.i661, 1
-  br i1 %cmp17.i.i.i.i.i668, label %while.body18.i.i.i.i.i659, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !92
+  br i1 %cmp17.i.i.i.i.i668, label %while.body18.i.i.i.i.i659, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !92
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i659, %while.cond16.preheader.i.i.i.i.i654
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i659, %while.cond16.preheader.i.i.i.i.i654
   store ptr null, ptr %agg.result, align 8, !alias.scope !795
   br label %return
 
@@ -15532,7 +15532,7 @@ while.cond16.preheader.i.i265.i.i.i614:           ; preds = %while.body.i.i280.i
   %length.addr.0.lcssa.i.i267.i.i.i616 = phi i64 [ %180, %sw.bb14.i.i.i611 ], [ %sub.i.i298.i.i.i647, %while.body.i.i280.i.i.i629 ]
   %src.addr.0.lcssa.i.i268.i.i.i617 = phi ptr [ %add.ptr.i481, %sw.bb14.i.i.i611 ], [ %add.ptr.i.i299.i.i.i648, %while.body.i.i280.i.i.i629 ]
   %cmp1724.i.i269.i.i.i618 = icmp sgt i64 %length.addr.0.lcssa.i.i267.i.i.i616, 0
-  br i1 %cmp1724.i.i269.i.i.i618, label %while.body18.i.i270.i.i.i619, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i269.i.i.i618, label %while.body18.i.i270.i.i.i619, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i280.i.i.i629:                       ; preds = %sw.bb14.i.i.i611, %while.body.i.i280.i.i.i629
   %src.addr.021.i.i281.i.i.i630 = phi ptr [ %add.ptr.i.i299.i.i.i648, %while.body.i.i280.i.i.i629 ], [ %add.ptr.i481, %sw.bb14.i.i.i611 ]
@@ -15583,9 +15583,9 @@ while.body18.i.i270.i.i.i619:                     ; preds = %while.cond16.prehea
   store i32 %243, ptr %dest.addr.125.i.i273.i.i.i622, align 4, !noalias !801
   %dec.i.i278.i.i.i627 = add nsw i64 %length.addr.126.i.i272.i.i.i621, -1
   %cmp17.i.i279.i.i.i628 = icmp ugt i64 %length.addr.126.i.i272.i.i.i621, 1
-  br i1 %cmp17.i.i279.i.i.i628, label %while.body18.i.i270.i.i.i619, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !76
+  br i1 %cmp17.i.i279.i.i.i628, label %while.body18.i.i270.i.i.i619, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !76
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i619, %while.cond16.preheader.i.i265.i.i.i614
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i619, %while.cond16.preheader.i.i265.i.i.i614
   store ptr null, ptr %agg.result, align 8, !alias.scope !802
   br label %return
 
@@ -15600,7 +15600,7 @@ while.cond19.preheader.i.i308.i.i.i569:           ; preds = %while.body.i.i324.i
   %length.addr.0.lcssa.i.i310.i.i.i571 = phi i64 [ %180, %sw.bb16.i.i.i566 ], [ %sub.i.i346.i.i.i607, %while.body.i.i324.i.i.i585 ]
   %src.addr.0.lcssa.i.i311.i.i.i572 = phi ptr [ %add.ptr.i481, %sw.bb16.i.i.i566 ], [ %add.ptr.i.i347.i.i.i608, %while.body.i.i324.i.i.i585 ]
   %cmp2024.i.i312.i.i.i573 = icmp sgt i64 %length.addr.0.lcssa.i.i310.i.i.i571, 0
-  br i1 %cmp2024.i.i312.i.i.i573, label %while.body21.i.i313.i.i.i574, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i312.i.i.i573, label %while.body21.i.i313.i.i.i574, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i324.i.i.i585:                       ; preds = %sw.bb16.i.i.i566, %while.body.i.i324.i.i.i585
   %src.addr.021.i.i325.i.i.i586 = phi ptr [ %add.ptr.i.i347.i.i.i608, %while.body.i.i324.i.i.i585 ], [ %add.ptr.i481, %sw.bb16.i.i.i566 ]
@@ -15656,9 +15656,9 @@ while.body21.i.i313.i.i.i574:                     ; preds = %while.cond19.prehea
   store i64 %conv24.i.i320.i.i.i581, ptr %dest.addr.125.i.i316.i.i.i577, align 8, !noalias !808
   %dec.i.i322.i.i.i583 = add nsw i64 %length.addr.126.i.i315.i.i.i576, -1
   %cmp20.i.i323.i.i.i584 = icmp ugt i64 %length.addr.126.i.i315.i.i.i576, 1
-  br i1 %cmp20.i.i323.i.i.i584, label %while.body21.i.i313.i.i.i574, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !124
+  br i1 %cmp20.i.i323.i.i.i584, label %while.body21.i.i313.i.i.i574, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !124
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i574, %while.cond19.preheader.i.i308.i.i.i569
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i574, %while.cond19.preheader.i.i308.i.i.i569
   store ptr null, ptr %agg.result, align 8, !alias.scope !809
   br label %return
 
@@ -15673,7 +15673,7 @@ while.cond19.preheader.i.i356.i.i.i524:           ; preds = %while.body.i.i372.i
   %length.addr.0.lcssa.i.i358.i.i.i526 = phi i64 [ %180, %sw.bb18.i.i.i521 ], [ %sub.i.i394.i.i.i562, %while.body.i.i372.i.i.i540 ]
   %src.addr.0.lcssa.i.i359.i.i.i527 = phi ptr [ %add.ptr.i481, %sw.bb18.i.i.i521 ], [ %add.ptr.i.i395.i.i.i563, %while.body.i.i372.i.i.i540 ]
   %cmp2024.i.i360.i.i.i528 = icmp sgt i64 %length.addr.0.lcssa.i.i358.i.i.i526, 0
-  br i1 %cmp2024.i.i360.i.i.i528, label %while.body21.i.i361.i.i.i529, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i360.i.i.i528, label %while.body21.i.i361.i.i.i529, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i372.i.i.i540:                       ; preds = %sw.bb18.i.i.i521, %while.body.i.i372.i.i.i540
   %src.addr.021.i.i373.i.i.i541 = phi ptr [ %add.ptr.i.i395.i.i.i563, %while.body.i.i372.i.i.i540 ], [ %add.ptr.i481, %sw.bb18.i.i.i521 ]
@@ -15729,9 +15729,9 @@ while.body21.i.i361.i.i.i529:                     ; preds = %while.cond19.prehea
   store i64 %conv24.i.i368.i.i.i536, ptr %dest.addr.125.i.i364.i.i.i532, align 8, !noalias !815
   %dec.i.i370.i.i.i538 = add nsw i64 %length.addr.126.i.i363.i.i.i531, -1
   %cmp20.i.i371.i.i.i539 = icmp ugt i64 %length.addr.126.i.i363.i.i.i531, 1
-  br i1 %cmp20.i.i371.i.i.i539, label %while.body21.i.i361.i.i.i529, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !108
+  br i1 %cmp20.i.i371.i.i.i539, label %while.body21.i.i361.i.i.i529, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !108
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i529, %while.cond19.preheader.i.i356.i.i.i524
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i529, %while.cond19.preheader.i.i356.i.i.i524
   store ptr null, ptr %agg.result, align 8, !alias.scope !816
   br label %return
 
@@ -15956,7 +15956,7 @@ while.cond19.preheader.i.i.i.i.i1223:             ; preds = %while.body.i.i.i.i.
   %length.addr.0.lcssa.i.i.i.i.i1225 = phi i64 [ %268, %sw.bb4.i.i.i1220 ], [ %sub.i.i.i.i.i1261, %while.body.i.i.i.i.i1239 ]
   %src.addr.0.lcssa.i.i.i.i.i1226 = phi ptr [ %add.ptr.i875, %sw.bb4.i.i.i1220 ], [ %add.ptr.i.i.i.i.i1262, %while.body.i.i.i.i.i1239 ]
   %cmp2024.i.i.i.i.i1227 = icmp sgt i64 %length.addr.0.lcssa.i.i.i.i.i1225, 0
-  br i1 %cmp2024.i.i.i.i.i1227, label %while.body21.i.i.i.i.i1228, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i.i.i.i1227, label %while.body21.i.i.i.i.i1228, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i.i.i.i1239:                         ; preds = %sw.bb4.i.i.i1220, %while.body.i.i.i.i.i1239
   %src.addr.021.i.i.i.i.i1240 = phi ptr [ %add.ptr.i.i.i.i.i1262, %while.body.i.i.i.i.i1239 ], [ %add.ptr.i875, %sw.bb4.i.i.i1220 ]
@@ -16012,9 +16012,9 @@ while.body21.i.i.i.i.i1228:                       ; preds = %while.cond19.prehea
   store i8 %conv24.i.i.i.i.i1235, ptr %dest.addr.125.i.i.i.i.i1231, align 1, !noalias !831
   %dec.i.i.i.i.i1237 = add nsw i64 %length.addr.126.i.i.i.i.i1230, -1
   %cmp20.i.i.i.i.i1238 = icmp ugt i64 %length.addr.126.i.i.i.i.i1230, 1
-  br i1 %cmp20.i.i.i.i.i1238, label %while.body21.i.i.i.i.i1228, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !26
+  br i1 %cmp20.i.i.i.i.i1238, label %while.body21.i.i.i.i.i1228, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !26
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i1228, %while.cond19.preheader.i.i.i.i.i1223
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i1228, %while.cond19.preheader.i.i.i.i.i1223
   store ptr null, ptr %agg.result, align 8, !alias.scope !832
   br label %return
 
@@ -16029,7 +16029,7 @@ while.cond19.preheader.i.i92.i.i.i1178:           ; preds = %while.body.i.i108.i
   %length.addr.0.lcssa.i.i94.i.i.i1180 = phi i64 [ %268, %sw.bb6.i.i.i1175 ], [ %sub.i.i130.i.i.i1216, %while.body.i.i108.i.i.i1194 ]
   %src.addr.0.lcssa.i.i95.i.i.i1181 = phi ptr [ %add.ptr.i875, %sw.bb6.i.i.i1175 ], [ %add.ptr.i.i131.i.i.i1217, %while.body.i.i108.i.i.i1194 ]
   %cmp2024.i.i96.i.i.i1182 = icmp sgt i64 %length.addr.0.lcssa.i.i94.i.i.i1180, 0
-  br i1 %cmp2024.i.i96.i.i.i1182, label %while.body21.i.i97.i.i.i1183, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i96.i.i.i1182, label %while.body21.i.i97.i.i.i1183, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i108.i.i.i1194:                      ; preds = %sw.bb6.i.i.i1175, %while.body.i.i108.i.i.i1194
   %src.addr.021.i.i109.i.i.i1195 = phi ptr [ %add.ptr.i.i131.i.i.i1217, %while.body.i.i108.i.i.i1194 ], [ %add.ptr.i875, %sw.bb6.i.i.i1175 ]
@@ -16085,9 +16085,9 @@ while.body21.i.i97.i.i.i1183:                     ; preds = %while.cond19.prehea
   store i8 %conv24.i.i104.i.i.i1190, ptr %dest.addr.125.i.i100.i.i.i1186, align 1, !noalias !838
   %dec.i.i106.i.i.i1192 = add nsw i64 %length.addr.126.i.i99.i.i.i1185, -1
   %cmp20.i.i107.i.i.i1193 = icmp ugt i64 %length.addr.126.i.i99.i.i.i1185, 1
-  br i1 %cmp20.i.i107.i.i.i1193, label %while.body21.i.i97.i.i.i1183, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !10
+  br i1 %cmp20.i.i107.i.i.i1193, label %while.body21.i.i97.i.i.i1183, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !10
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1183, %while.cond19.preheader.i.i92.i.i.i1178
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1183, %while.cond19.preheader.i.i92.i.i.i1178
   store ptr null, ptr %agg.result, align 8, !alias.scope !839
   br label %return
 
@@ -16102,7 +16102,7 @@ while.cond19.preheader.i.i140.i.i.i1133:          ; preds = %while.body.i.i156.i
   %length.addr.0.lcssa.i.i142.i.i.i1135 = phi i64 [ %268, %sw.bb8.i.i.i1130 ], [ %sub.i.i178.i.i.i1171, %while.body.i.i156.i.i.i1149 ]
   %src.addr.0.lcssa.i.i143.i.i.i1136 = phi ptr [ %add.ptr.i875, %sw.bb8.i.i.i1130 ], [ %add.ptr.i.i179.i.i.i1172, %while.body.i.i156.i.i.i1149 ]
   %cmp2024.i.i144.i.i.i1137 = icmp sgt i64 %length.addr.0.lcssa.i.i142.i.i.i1135, 0
-  br i1 %cmp2024.i.i144.i.i.i1137, label %while.body21.i.i145.i.i.i1138, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i144.i.i.i1137, label %while.body21.i.i145.i.i.i1138, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i156.i.i.i1149:                      ; preds = %sw.bb8.i.i.i1130, %while.body.i.i156.i.i.i1149
   %src.addr.021.i.i157.i.i.i1150 = phi ptr [ %add.ptr.i.i179.i.i.i1172, %while.body.i.i156.i.i.i1149 ], [ %add.ptr.i875, %sw.bb8.i.i.i1130 ]
@@ -16158,9 +16158,9 @@ while.body21.i.i145.i.i.i1138:                    ; preds = %while.cond19.prehea
   store i16 %conv24.i.i152.i.i.i1145, ptr %dest.addr.125.i.i148.i.i.i1141, align 2, !noalias !845
   %dec.i.i154.i.i.i1147 = add nsw i64 %length.addr.126.i.i147.i.i.i1140, -1
   %cmp20.i.i155.i.i.i1148 = icmp ugt i64 %length.addr.126.i.i147.i.i.i1140, 1
-  br i1 %cmp20.i.i155.i.i.i1148, label %while.body21.i.i145.i.i.i1138, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !58
+  br i1 %cmp20.i.i155.i.i.i1148, label %while.body21.i.i145.i.i.i1138, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !58
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1138, %while.cond19.preheader.i.i140.i.i.i1133
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1138, %while.cond19.preheader.i.i140.i.i.i1133
   store ptr null, ptr %agg.result, align 8, !alias.scope !846
   br label %return
 
@@ -16175,7 +16175,7 @@ while.cond19.preheader.i.i188.i.i.i1088:          ; preds = %while.body.i.i204.i
   %length.addr.0.lcssa.i.i190.i.i.i1090 = phi i64 [ %268, %sw.bb10.i.i.i1085 ], [ %sub.i.i226.i.i.i1126, %while.body.i.i204.i.i.i1104 ]
   %src.addr.0.lcssa.i.i191.i.i.i1091 = phi ptr [ %add.ptr.i875, %sw.bb10.i.i.i1085 ], [ %add.ptr.i.i227.i.i.i1127, %while.body.i.i204.i.i.i1104 ]
   %cmp2024.i.i192.i.i.i1092 = icmp sgt i64 %length.addr.0.lcssa.i.i190.i.i.i1090, 0
-  br i1 %cmp2024.i.i192.i.i.i1092, label %while.body21.i.i193.i.i.i1093, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i192.i.i.i1092, label %while.body21.i.i193.i.i.i1093, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i204.i.i.i1104:                      ; preds = %sw.bb10.i.i.i1085, %while.body.i.i204.i.i.i1104
   %src.addr.021.i.i205.i.i.i1105 = phi ptr [ %add.ptr.i.i227.i.i.i1127, %while.body.i.i204.i.i.i1104 ], [ %add.ptr.i875, %sw.bb10.i.i.i1085 ]
@@ -16231,9 +16231,9 @@ while.body21.i.i193.i.i.i1093:                    ; preds = %while.cond19.prehea
   store i16 %conv24.i.i200.i.i.i1100, ptr %dest.addr.125.i.i196.i.i.i1096, align 2, !noalias !852
   %dec.i.i202.i.i.i1102 = add nsw i64 %length.addr.126.i.i195.i.i.i1095, -1
   %cmp20.i.i203.i.i.i1103 = icmp ugt i64 %length.addr.126.i.i195.i.i.i1095, 1
-  br i1 %cmp20.i.i203.i.i.i1103, label %while.body21.i.i193.i.i.i1093, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !42
+  br i1 %cmp20.i.i203.i.i.i1103, label %while.body21.i.i193.i.i.i1093, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !42
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1093, %while.cond19.preheader.i.i188.i.i.i1088
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1093, %while.cond19.preheader.i.i188.i.i.i1088
   store ptr null, ptr %agg.result, align 8, !alias.scope !853
   br label %return
 
@@ -16248,7 +16248,7 @@ while.cond16.preheader.i.i.i.i.i1048:             ; preds = %while.body.i.i244.i
   %length.addr.0.lcssa.i.i237.i.i.i1050 = phi i64 [ %268, %sw.bb12.i.i.i1045 ], [ %sub.i.i256.i.i.i1081, %while.body.i.i244.i.i.i1063 ]
   %src.addr.0.lcssa.i.i238.i.i.i1051 = phi ptr [ %add.ptr.i875, %sw.bb12.i.i.i1045 ], [ %add.ptr.i.i257.i.i.i1082, %while.body.i.i244.i.i.i1063 ]
   %cmp1724.i.i.i.i.i1052 = icmp sgt i64 %length.addr.0.lcssa.i.i237.i.i.i1050, 0
-  br i1 %cmp1724.i.i.i.i.i1052, label %while.body18.i.i.i.i.i1053, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i.i.i.i1052, label %while.body18.i.i.i.i.i1053, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i244.i.i.i1063:                      ; preds = %sw.bb12.i.i.i1045, %while.body.i.i244.i.i.i1063
   %src.addr.021.i.i245.i.i.i1064 = phi ptr [ %add.ptr.i.i257.i.i.i1082, %while.body.i.i244.i.i.i1063 ], [ %add.ptr.i875, %sw.bb12.i.i.i1045 ]
@@ -16299,9 +16299,9 @@ while.body18.i.i.i.i.i1053:                       ; preds = %while.cond16.prehea
   store i32 %321, ptr %dest.addr.125.i.i241.i.i.i1056, align 4, !noalias !859
   %dec.i.i243.i.i.i1061 = add nsw i64 %length.addr.126.i.i240.i.i.i1055, -1
   %cmp17.i.i.i.i.i1062 = icmp ugt i64 %length.addr.126.i.i240.i.i.i1055, 1
-  br i1 %cmp17.i.i.i.i.i1062, label %while.body18.i.i.i.i.i1053, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !90
+  br i1 %cmp17.i.i.i.i.i1062, label %while.body18.i.i.i.i.i1053, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !90
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1053, %while.cond16.preheader.i.i.i.i.i1048
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1053, %while.cond16.preheader.i.i.i.i.i1048
   store ptr null, ptr %agg.result, align 8, !alias.scope !860
   br label %return
 
@@ -16316,7 +16316,7 @@ while.cond16.preheader.i.i265.i.i.i1008:          ; preds = %while.body.i.i280.i
   %length.addr.0.lcssa.i.i267.i.i.i1010 = phi i64 [ %268, %sw.bb14.i.i.i1005 ], [ %sub.i.i298.i.i.i1041, %while.body.i.i280.i.i.i1023 ]
   %src.addr.0.lcssa.i.i268.i.i.i1011 = phi ptr [ %add.ptr.i875, %sw.bb14.i.i.i1005 ], [ %add.ptr.i.i299.i.i.i1042, %while.body.i.i280.i.i.i1023 ]
   %cmp1724.i.i269.i.i.i1012 = icmp sgt i64 %length.addr.0.lcssa.i.i267.i.i.i1010, 0
-  br i1 %cmp1724.i.i269.i.i.i1012, label %while.body18.i.i270.i.i.i1013, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i269.i.i.i1012, label %while.body18.i.i270.i.i.i1013, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i280.i.i.i1023:                      ; preds = %sw.bb14.i.i.i1005, %while.body.i.i280.i.i.i1023
   %src.addr.021.i.i281.i.i.i1024 = phi ptr [ %add.ptr.i.i299.i.i.i1042, %while.body.i.i280.i.i.i1023 ], [ %add.ptr.i875, %sw.bb14.i.i.i1005 ]
@@ -16367,9 +16367,9 @@ while.body18.i.i270.i.i.i1013:                    ; preds = %while.cond16.prehea
   store i32 %331, ptr %dest.addr.125.i.i273.i.i.i1016, align 4, !noalias !866
   %dec.i.i278.i.i.i1021 = add nsw i64 %length.addr.126.i.i272.i.i.i1015, -1
   %cmp17.i.i279.i.i.i1022 = icmp ugt i64 %length.addr.126.i.i272.i.i.i1015, 1
-  br i1 %cmp17.i.i279.i.i.i1022, label %while.body18.i.i270.i.i.i1013, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !74
+  br i1 %cmp17.i.i279.i.i.i1022, label %while.body18.i.i270.i.i.i1013, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !74
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1013, %while.cond16.preheader.i.i265.i.i.i1008
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1013, %while.cond16.preheader.i.i265.i.i.i1008
   store ptr null, ptr %agg.result, align 8, !alias.scope !867
   br label %return
 
@@ -16384,7 +16384,7 @@ while.cond19.preheader.i.i308.i.i.i963:           ; preds = %while.body.i.i324.i
   %length.addr.0.lcssa.i.i310.i.i.i965 = phi i64 [ %268, %sw.bb16.i.i.i960 ], [ %sub.i.i346.i.i.i1001, %while.body.i.i324.i.i.i979 ]
   %src.addr.0.lcssa.i.i311.i.i.i966 = phi ptr [ %add.ptr.i875, %sw.bb16.i.i.i960 ], [ %add.ptr.i.i347.i.i.i1002, %while.body.i.i324.i.i.i979 ]
   %cmp2024.i.i312.i.i.i967 = icmp sgt i64 %length.addr.0.lcssa.i.i310.i.i.i965, 0
-  br i1 %cmp2024.i.i312.i.i.i967, label %while.body21.i.i313.i.i.i968, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i312.i.i.i967, label %while.body21.i.i313.i.i.i968, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i324.i.i.i979:                       ; preds = %sw.bb16.i.i.i960, %while.body.i.i324.i.i.i979
   %src.addr.021.i.i325.i.i.i980 = phi ptr [ %add.ptr.i.i347.i.i.i1002, %while.body.i.i324.i.i.i979 ], [ %add.ptr.i875, %sw.bb16.i.i.i960 ]
@@ -16440,9 +16440,9 @@ while.body21.i.i313.i.i.i968:                     ; preds = %while.cond19.prehea
   store i64 %conv24.i.i320.i.i.i975, ptr %dest.addr.125.i.i316.i.i.i971, align 8, !noalias !873
   %dec.i.i322.i.i.i977 = add nsw i64 %length.addr.126.i.i315.i.i.i970, -1
   %cmp20.i.i323.i.i.i978 = icmp ugt i64 %length.addr.126.i.i315.i.i.i970, 1
-  br i1 %cmp20.i.i323.i.i.i978, label %while.body21.i.i313.i.i.i968, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !122
+  br i1 %cmp20.i.i323.i.i.i978, label %while.body21.i.i313.i.i.i968, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !122
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i968, %while.cond19.preheader.i.i308.i.i.i963
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i968, %while.cond19.preheader.i.i308.i.i.i963
   store ptr null, ptr %agg.result, align 8, !alias.scope !874
   br label %return
 
@@ -16457,7 +16457,7 @@ while.cond19.preheader.i.i356.i.i.i918:           ; preds = %while.body.i.i372.i
   %length.addr.0.lcssa.i.i358.i.i.i920 = phi i64 [ %268, %sw.bb18.i.i.i915 ], [ %sub.i.i394.i.i.i956, %while.body.i.i372.i.i.i934 ]
   %src.addr.0.lcssa.i.i359.i.i.i921 = phi ptr [ %add.ptr.i875, %sw.bb18.i.i.i915 ], [ %add.ptr.i.i395.i.i.i957, %while.body.i.i372.i.i.i934 ]
   %cmp2024.i.i360.i.i.i922 = icmp sgt i64 %length.addr.0.lcssa.i.i358.i.i.i920, 0
-  br i1 %cmp2024.i.i360.i.i.i922, label %while.body21.i.i361.i.i.i923, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i360.i.i.i922, label %while.body21.i.i361.i.i.i923, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i372.i.i.i934:                       ; preds = %sw.bb18.i.i.i915, %while.body.i.i372.i.i.i934
   %src.addr.021.i.i373.i.i.i935 = phi ptr [ %add.ptr.i.i395.i.i.i957, %while.body.i.i372.i.i.i934 ], [ %add.ptr.i875, %sw.bb18.i.i.i915 ]
@@ -16513,9 +16513,9 @@ while.body21.i.i361.i.i.i923:                     ; preds = %while.cond19.prehea
   store i64 %conv24.i.i368.i.i.i930, ptr %dest.addr.125.i.i364.i.i.i926, align 8, !noalias !880
   %dec.i.i370.i.i.i932 = add nsw i64 %length.addr.126.i.i363.i.i.i925, -1
   %cmp20.i.i371.i.i.i933 = icmp ugt i64 %length.addr.126.i.i363.i.i.i925, 1
-  br i1 %cmp20.i.i371.i.i.i933, label %while.body21.i.i361.i.i.i923, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !106
+  br i1 %cmp20.i.i371.i.i.i933, label %while.body21.i.i361.i.i.i923, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !106
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i923, %while.cond19.preheader.i.i356.i.i.i918
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i923, %while.cond19.preheader.i.i356.i.i.i918
   store ptr null, ptr %agg.result, align 8, !alias.scope !881
   br label %return
 
@@ -16740,7 +16740,7 @@ while.cond19.preheader.i.i.i.i.i1617:             ; preds = %while.body.i.i.i.i.
   %length.addr.0.lcssa.i.i.i.i.i1619 = phi i64 [ %356, %sw.bb4.i.i.i1614 ], [ %sub.i.i.i.i.i1655, %while.body.i.i.i.i.i1633 ]
   %src.addr.0.lcssa.i.i.i.i.i1620 = phi ptr [ %add.ptr.i1269, %sw.bb4.i.i.i1614 ], [ %add.ptr.i.i.i.i.i1656, %while.body.i.i.i.i.i1633 ]
   %cmp2024.i.i.i.i.i1621 = icmp sgt i64 %length.addr.0.lcssa.i.i.i.i.i1619, 0
-  br i1 %cmp2024.i.i.i.i.i1621, label %while.body21.i.i.i.i.i1622, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i.i.i.i1621, label %while.body21.i.i.i.i.i1622, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i.i.i.i1633:                         ; preds = %sw.bb4.i.i.i1614, %while.body.i.i.i.i.i1633
   %src.addr.021.i.i.i.i.i1634 = phi ptr [ %add.ptr.i.i.i.i.i1656, %while.body.i.i.i.i.i1633 ], [ %add.ptr.i1269, %sw.bb4.i.i.i1614 ]
@@ -16796,9 +16796,9 @@ while.body21.i.i.i.i.i1622:                       ; preds = %while.cond19.prehea
   store i8 %conv24.i.i.i.i.i1629, ptr %dest.addr.125.i.i.i.i.i1625, align 1, !noalias !896
   %dec.i.i.i.i.i1631 = add nsw i64 %length.addr.126.i.i.i.i.i1624, -1
   %cmp20.i.i.i.i.i1632 = icmp ugt i64 %length.addr.126.i.i.i.i.i1624, 1
-  br i1 %cmp20.i.i.i.i.i1632, label %while.body21.i.i.i.i.i1622, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !32
+  br i1 %cmp20.i.i.i.i.i1632, label %while.body21.i.i.i.i.i1622, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !32
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i1622, %while.cond19.preheader.i.i.i.i.i1617
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i1622, %while.cond19.preheader.i.i.i.i.i1617
   store ptr null, ptr %agg.result, align 8, !alias.scope !897
   br label %return
 
@@ -16813,7 +16813,7 @@ while.cond19.preheader.i.i92.i.i.i1572:           ; preds = %while.body.i.i108.i
   %length.addr.0.lcssa.i.i94.i.i.i1574 = phi i64 [ %356, %sw.bb6.i.i.i1569 ], [ %sub.i.i130.i.i.i1610, %while.body.i.i108.i.i.i1588 ]
   %src.addr.0.lcssa.i.i95.i.i.i1575 = phi ptr [ %add.ptr.i1269, %sw.bb6.i.i.i1569 ], [ %add.ptr.i.i131.i.i.i1611, %while.body.i.i108.i.i.i1588 ]
   %cmp2024.i.i96.i.i.i1576 = icmp sgt i64 %length.addr.0.lcssa.i.i94.i.i.i1574, 0
-  br i1 %cmp2024.i.i96.i.i.i1576, label %while.body21.i.i97.i.i.i1577, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i96.i.i.i1576, label %while.body21.i.i97.i.i.i1577, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i108.i.i.i1588:                      ; preds = %sw.bb6.i.i.i1569, %while.body.i.i108.i.i.i1588
   %src.addr.021.i.i109.i.i.i1589 = phi ptr [ %add.ptr.i.i131.i.i.i1611, %while.body.i.i108.i.i.i1588 ], [ %add.ptr.i1269, %sw.bb6.i.i.i1569 ]
@@ -16869,9 +16869,9 @@ while.body21.i.i97.i.i.i1577:                     ; preds = %while.cond19.prehea
   store i8 %conv24.i.i104.i.i.i1584, ptr %dest.addr.125.i.i100.i.i.i1580, align 1, !noalias !903
   %dec.i.i106.i.i.i1586 = add nsw i64 %length.addr.126.i.i99.i.i.i1579, -1
   %cmp20.i.i107.i.i.i1587 = icmp ugt i64 %length.addr.126.i.i99.i.i.i1579, 1
-  br i1 %cmp20.i.i107.i.i.i1587, label %while.body21.i.i97.i.i.i1577, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !16
+  br i1 %cmp20.i.i107.i.i.i1587, label %while.body21.i.i97.i.i.i1577, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !16
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1577, %while.cond19.preheader.i.i92.i.i.i1572
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1577, %while.cond19.preheader.i.i92.i.i.i1572
   store ptr null, ptr %agg.result, align 8, !alias.scope !904
   br label %return
 
@@ -16886,7 +16886,7 @@ while.cond19.preheader.i.i140.i.i.i1527:          ; preds = %while.body.i.i156.i
   %length.addr.0.lcssa.i.i142.i.i.i1529 = phi i64 [ %356, %sw.bb8.i.i.i1524 ], [ %sub.i.i178.i.i.i1565, %while.body.i.i156.i.i.i1543 ]
   %src.addr.0.lcssa.i.i143.i.i.i1530 = phi ptr [ %add.ptr.i1269, %sw.bb8.i.i.i1524 ], [ %add.ptr.i.i179.i.i.i1566, %while.body.i.i156.i.i.i1543 ]
   %cmp2024.i.i144.i.i.i1531 = icmp sgt i64 %length.addr.0.lcssa.i.i142.i.i.i1529, 0
-  br i1 %cmp2024.i.i144.i.i.i1531, label %while.body21.i.i145.i.i.i1532, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i144.i.i.i1531, label %while.body21.i.i145.i.i.i1532, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i156.i.i.i1543:                      ; preds = %sw.bb8.i.i.i1524, %while.body.i.i156.i.i.i1543
   %src.addr.021.i.i157.i.i.i1544 = phi ptr [ %add.ptr.i.i179.i.i.i1566, %while.body.i.i156.i.i.i1543 ], [ %add.ptr.i1269, %sw.bb8.i.i.i1524 ]
@@ -16942,9 +16942,9 @@ while.body21.i.i145.i.i.i1532:                    ; preds = %while.cond19.prehea
   store i16 %conv24.i.i152.i.i.i1539, ptr %dest.addr.125.i.i148.i.i.i1535, align 2, !noalias !910
   %dec.i.i154.i.i.i1541 = add nsw i64 %length.addr.126.i.i147.i.i.i1534, -1
   %cmp20.i.i155.i.i.i1542 = icmp ugt i64 %length.addr.126.i.i147.i.i.i1534, 1
-  br i1 %cmp20.i.i155.i.i.i1542, label %while.body21.i.i145.i.i.i1532, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !64
+  br i1 %cmp20.i.i155.i.i.i1542, label %while.body21.i.i145.i.i.i1532, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !64
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1532, %while.cond19.preheader.i.i140.i.i.i1527
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1532, %while.cond19.preheader.i.i140.i.i.i1527
   store ptr null, ptr %agg.result, align 8, !alias.scope !911
   br label %return
 
@@ -16959,7 +16959,7 @@ while.cond19.preheader.i.i188.i.i.i1482:          ; preds = %while.body.i.i204.i
   %length.addr.0.lcssa.i.i190.i.i.i1484 = phi i64 [ %356, %sw.bb10.i.i.i1479 ], [ %sub.i.i226.i.i.i1520, %while.body.i.i204.i.i.i1498 ]
   %src.addr.0.lcssa.i.i191.i.i.i1485 = phi ptr [ %add.ptr.i1269, %sw.bb10.i.i.i1479 ], [ %add.ptr.i.i227.i.i.i1521, %while.body.i.i204.i.i.i1498 ]
   %cmp2024.i.i192.i.i.i1486 = icmp sgt i64 %length.addr.0.lcssa.i.i190.i.i.i1484, 0
-  br i1 %cmp2024.i.i192.i.i.i1486, label %while.body21.i.i193.i.i.i1487, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i192.i.i.i1486, label %while.body21.i.i193.i.i.i1487, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i204.i.i.i1498:                      ; preds = %sw.bb10.i.i.i1479, %while.body.i.i204.i.i.i1498
   %src.addr.021.i.i205.i.i.i1499 = phi ptr [ %add.ptr.i.i227.i.i.i1521, %while.body.i.i204.i.i.i1498 ], [ %add.ptr.i1269, %sw.bb10.i.i.i1479 ]
@@ -17015,9 +17015,9 @@ while.body21.i.i193.i.i.i1487:                    ; preds = %while.cond19.prehea
   store i16 %conv24.i.i200.i.i.i1494, ptr %dest.addr.125.i.i196.i.i.i1490, align 2, !noalias !917
   %dec.i.i202.i.i.i1496 = add nsw i64 %length.addr.126.i.i195.i.i.i1489, -1
   %cmp20.i.i203.i.i.i1497 = icmp ugt i64 %length.addr.126.i.i195.i.i.i1489, 1
-  br i1 %cmp20.i.i203.i.i.i1497, label %while.body21.i.i193.i.i.i1487, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !48
+  br i1 %cmp20.i.i203.i.i.i1497, label %while.body21.i.i193.i.i.i1487, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !48
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1487, %while.cond19.preheader.i.i188.i.i.i1482
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1487, %while.cond19.preheader.i.i188.i.i.i1482
   store ptr null, ptr %agg.result, align 8, !alias.scope !918
   br label %return
 
@@ -17032,7 +17032,7 @@ while.cond16.preheader.i.i.i.i.i1442:             ; preds = %while.body.i.i244.i
   %length.addr.0.lcssa.i.i237.i.i.i1444 = phi i64 [ %356, %sw.bb12.i.i.i1439 ], [ %sub.i.i256.i.i.i1475, %while.body.i.i244.i.i.i1457 ]
   %src.addr.0.lcssa.i.i238.i.i.i1445 = phi ptr [ %add.ptr.i1269, %sw.bb12.i.i.i1439 ], [ %add.ptr.i.i257.i.i.i1476, %while.body.i.i244.i.i.i1457 ]
   %cmp1724.i.i.i.i.i1446 = icmp sgt i64 %length.addr.0.lcssa.i.i237.i.i.i1444, 0
-  br i1 %cmp1724.i.i.i.i.i1446, label %while.body18.i.i.i.i.i1447, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i.i.i.i1446, label %while.body18.i.i.i.i.i1447, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i244.i.i.i1457:                      ; preds = %sw.bb12.i.i.i1439, %while.body.i.i244.i.i.i1457
   %src.addr.021.i.i245.i.i.i1458 = phi ptr [ %add.ptr.i.i257.i.i.i1476, %while.body.i.i244.i.i.i1457 ], [ %add.ptr.i1269, %sw.bb12.i.i.i1439 ]
@@ -17083,9 +17083,9 @@ while.body18.i.i.i.i.i1447:                       ; preds = %while.cond16.prehea
   store i32 %409, ptr %dest.addr.125.i.i241.i.i.i1450, align 4, !noalias !924
   %dec.i.i243.i.i.i1455 = add nsw i64 %length.addr.126.i.i240.i.i.i1449, -1
   %cmp17.i.i.i.i.i1456 = icmp ugt i64 %length.addr.126.i.i240.i.i.i1449, 1
-  br i1 %cmp17.i.i.i.i.i1456, label %while.body18.i.i.i.i.i1447, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !96
+  br i1 %cmp17.i.i.i.i.i1456, label %while.body18.i.i.i.i.i1447, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !96
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1447, %while.cond16.preheader.i.i.i.i.i1442
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1447, %while.cond16.preheader.i.i.i.i.i1442
   store ptr null, ptr %agg.result, align 8, !alias.scope !925
   br label %return
 
@@ -17100,7 +17100,7 @@ while.cond16.preheader.i.i265.i.i.i1402:          ; preds = %while.body.i.i280.i
   %length.addr.0.lcssa.i.i267.i.i.i1404 = phi i64 [ %356, %sw.bb14.i.i.i1399 ], [ %sub.i.i298.i.i.i1435, %while.body.i.i280.i.i.i1417 ]
   %src.addr.0.lcssa.i.i268.i.i.i1405 = phi ptr [ %add.ptr.i1269, %sw.bb14.i.i.i1399 ], [ %add.ptr.i.i299.i.i.i1436, %while.body.i.i280.i.i.i1417 ]
   %cmp1724.i.i269.i.i.i1406 = icmp sgt i64 %length.addr.0.lcssa.i.i267.i.i.i1404, 0
-  br i1 %cmp1724.i.i269.i.i.i1406, label %while.body18.i.i270.i.i.i1407, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i269.i.i.i1406, label %while.body18.i.i270.i.i.i1407, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i280.i.i.i1417:                      ; preds = %sw.bb14.i.i.i1399, %while.body.i.i280.i.i.i1417
   %src.addr.021.i.i281.i.i.i1418 = phi ptr [ %add.ptr.i.i299.i.i.i1436, %while.body.i.i280.i.i.i1417 ], [ %add.ptr.i1269, %sw.bb14.i.i.i1399 ]
@@ -17151,9 +17151,9 @@ while.body18.i.i270.i.i.i1407:                    ; preds = %while.cond16.prehea
   store i32 %419, ptr %dest.addr.125.i.i273.i.i.i1410, align 4, !noalias !931
   %dec.i.i278.i.i.i1415 = add nsw i64 %length.addr.126.i.i272.i.i.i1409, -1
   %cmp17.i.i279.i.i.i1416 = icmp ugt i64 %length.addr.126.i.i272.i.i.i1409, 1
-  br i1 %cmp17.i.i279.i.i.i1416, label %while.body18.i.i270.i.i.i1407, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !80
+  br i1 %cmp17.i.i279.i.i.i1416, label %while.body18.i.i270.i.i.i1407, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !80
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1407, %while.cond16.preheader.i.i265.i.i.i1402
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1407, %while.cond16.preheader.i.i265.i.i.i1402
   store ptr null, ptr %agg.result, align 8, !alias.scope !932
   br label %return
 
@@ -17168,7 +17168,7 @@ while.cond19.preheader.i.i308.i.i.i1357:          ; preds = %while.body.i.i324.i
   %length.addr.0.lcssa.i.i310.i.i.i1359 = phi i64 [ %356, %sw.bb16.i.i.i1354 ], [ %sub.i.i346.i.i.i1395, %while.body.i.i324.i.i.i1373 ]
   %src.addr.0.lcssa.i.i311.i.i.i1360 = phi ptr [ %add.ptr.i1269, %sw.bb16.i.i.i1354 ], [ %add.ptr.i.i347.i.i.i1396, %while.body.i.i324.i.i.i1373 ]
   %cmp2024.i.i312.i.i.i1361 = icmp sgt i64 %length.addr.0.lcssa.i.i310.i.i.i1359, 0
-  br i1 %cmp2024.i.i312.i.i.i1361, label %while.body21.i.i313.i.i.i1362, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i312.i.i.i1361, label %while.body21.i.i313.i.i.i1362, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i324.i.i.i1373:                      ; preds = %sw.bb16.i.i.i1354, %while.body.i.i324.i.i.i1373
   %src.addr.021.i.i325.i.i.i1374 = phi ptr [ %add.ptr.i.i347.i.i.i1396, %while.body.i.i324.i.i.i1373 ], [ %add.ptr.i1269, %sw.bb16.i.i.i1354 ]
@@ -17224,9 +17224,9 @@ while.body21.i.i313.i.i.i1362:                    ; preds = %while.cond19.prehea
   store i64 %conv24.i.i320.i.i.i1369, ptr %dest.addr.125.i.i316.i.i.i1365, align 8, !noalias !938
   %dec.i.i322.i.i.i1371 = add nsw i64 %length.addr.126.i.i315.i.i.i1364, -1
   %cmp20.i.i323.i.i.i1372 = icmp ugt i64 %length.addr.126.i.i315.i.i.i1364, 1
-  br i1 %cmp20.i.i323.i.i.i1372, label %while.body21.i.i313.i.i.i1362, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !128
+  br i1 %cmp20.i.i323.i.i.i1372, label %while.body21.i.i313.i.i.i1362, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !128
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i1362, %while.cond19.preheader.i.i308.i.i.i1357
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i1362, %while.cond19.preheader.i.i308.i.i.i1357
   store ptr null, ptr %agg.result, align 8, !alias.scope !939
   br label %return
 
@@ -17241,7 +17241,7 @@ while.cond19.preheader.i.i356.i.i.i1312:          ; preds = %while.body.i.i372.i
   %length.addr.0.lcssa.i.i358.i.i.i1314 = phi i64 [ %356, %sw.bb18.i.i.i1309 ], [ %sub.i.i394.i.i.i1350, %while.body.i.i372.i.i.i1328 ]
   %src.addr.0.lcssa.i.i359.i.i.i1315 = phi ptr [ %add.ptr.i1269, %sw.bb18.i.i.i1309 ], [ %add.ptr.i.i395.i.i.i1351, %while.body.i.i372.i.i.i1328 ]
   %cmp2024.i.i360.i.i.i1316 = icmp sgt i64 %length.addr.0.lcssa.i.i358.i.i.i1314, 0
-  br i1 %cmp2024.i.i360.i.i.i1316, label %while.body21.i.i361.i.i.i1317, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i360.i.i.i1316, label %while.body21.i.i361.i.i.i1317, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i372.i.i.i1328:                      ; preds = %sw.bb18.i.i.i1309, %while.body.i.i372.i.i.i1328
   %src.addr.021.i.i373.i.i.i1329 = phi ptr [ %add.ptr.i.i395.i.i.i1351, %while.body.i.i372.i.i.i1328 ], [ %add.ptr.i1269, %sw.bb18.i.i.i1309 ]
@@ -17297,9 +17297,9 @@ while.body21.i.i361.i.i.i1317:                    ; preds = %while.cond19.prehea
   store i64 %conv24.i.i368.i.i.i1324, ptr %dest.addr.125.i.i364.i.i.i1320, align 8, !noalias !945
   %dec.i.i370.i.i.i1326 = add nsw i64 %length.addr.126.i.i363.i.i.i1319, -1
   %cmp20.i.i371.i.i.i1327 = icmp ugt i64 %length.addr.126.i.i363.i.i.i1319, 1
-  br i1 %cmp20.i.i371.i.i.i1327, label %while.body21.i.i361.i.i.i1317, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !112
+  br i1 %cmp20.i.i371.i.i.i1327, label %while.body21.i.i361.i.i.i1317, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !112
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i1317, %while.cond19.preheader.i.i356.i.i.i1312
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i1317, %while.cond19.preheader.i.i356.i.i.i1312
   store ptr null, ptr %agg.result, align 8, !alias.scope !946
   br label %return
 
@@ -17524,7 +17524,7 @@ while.cond19.preheader.i.i.i.i.i2011:             ; preds = %while.body.i.i.i.i.
   %length.addr.0.lcssa.i.i.i.i.i2013 = phi i64 [ %444, %sw.bb4.i.i.i2008 ], [ %sub.i.i.i.i.i2049, %while.body.i.i.i.i.i2027 ]
   %src.addr.0.lcssa.i.i.i.i.i2014 = phi ptr [ %add.ptr.i1663, %sw.bb4.i.i.i2008 ], [ %add.ptr.i.i.i.i.i2050, %while.body.i.i.i.i.i2027 ]
   %cmp2024.i.i.i.i.i2015 = icmp sgt i64 %length.addr.0.lcssa.i.i.i.i.i2013, 0
-  br i1 %cmp2024.i.i.i.i.i2015, label %while.body21.i.i.i.i.i2016, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i.i.i.i2015, label %while.body21.i.i.i.i.i2016, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i.i.i.i2027:                         ; preds = %sw.bb4.i.i.i2008, %while.body.i.i.i.i.i2027
   %src.addr.021.i.i.i.i.i2028 = phi ptr [ %add.ptr.i.i.i.i.i2050, %while.body.i.i.i.i.i2027 ], [ %add.ptr.i1663, %sw.bb4.i.i.i2008 ]
@@ -17580,9 +17580,9 @@ while.body21.i.i.i.i.i2016:                       ; preds = %while.cond19.prehea
   store i8 %conv24.i.i.i.i.i2023, ptr %dest.addr.125.i.i.i.i.i2019, align 1, !noalias !961
   %dec.i.i.i.i.i2025 = add nsw i64 %length.addr.126.i.i.i.i.i2018, -1
   %cmp20.i.i.i.i.i2026 = icmp ugt i64 %length.addr.126.i.i.i.i.i2018, 1
-  br i1 %cmp20.i.i.i.i.i2026, label %while.body21.i.i.i.i.i2016, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !30
+  br i1 %cmp20.i.i.i.i.i2026, label %while.body21.i.i.i.i.i2016, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !30
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i2016, %while.cond19.preheader.i.i.i.i.i2011
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i2016, %while.cond19.preheader.i.i.i.i.i2011
   store ptr null, ptr %agg.result, align 8, !alias.scope !962
   br label %return
 
@@ -17597,7 +17597,7 @@ while.cond19.preheader.i.i92.i.i.i1966:           ; preds = %while.body.i.i108.i
   %length.addr.0.lcssa.i.i94.i.i.i1968 = phi i64 [ %444, %sw.bb6.i.i.i1963 ], [ %sub.i.i130.i.i.i2004, %while.body.i.i108.i.i.i1982 ]
   %src.addr.0.lcssa.i.i95.i.i.i1969 = phi ptr [ %add.ptr.i1663, %sw.bb6.i.i.i1963 ], [ %add.ptr.i.i131.i.i.i2005, %while.body.i.i108.i.i.i1982 ]
   %cmp2024.i.i96.i.i.i1970 = icmp sgt i64 %length.addr.0.lcssa.i.i94.i.i.i1968, 0
-  br i1 %cmp2024.i.i96.i.i.i1970, label %while.body21.i.i97.i.i.i1971, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i96.i.i.i1970, label %while.body21.i.i97.i.i.i1971, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i108.i.i.i1982:                      ; preds = %sw.bb6.i.i.i1963, %while.body.i.i108.i.i.i1982
   %src.addr.021.i.i109.i.i.i1983 = phi ptr [ %add.ptr.i.i131.i.i.i2005, %while.body.i.i108.i.i.i1982 ], [ %add.ptr.i1663, %sw.bb6.i.i.i1963 ]
@@ -17653,9 +17653,9 @@ while.body21.i.i97.i.i.i1971:                     ; preds = %while.cond19.prehea
   store i8 %conv24.i.i104.i.i.i1978, ptr %dest.addr.125.i.i100.i.i.i1974, align 1, !noalias !968
   %dec.i.i106.i.i.i1980 = add nsw i64 %length.addr.126.i.i99.i.i.i1973, -1
   %cmp20.i.i107.i.i.i1981 = icmp ugt i64 %length.addr.126.i.i99.i.i.i1973, 1
-  br i1 %cmp20.i.i107.i.i.i1981, label %while.body21.i.i97.i.i.i1971, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !14
+  br i1 %cmp20.i.i107.i.i.i1981, label %while.body21.i.i97.i.i.i1971, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !14
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1971, %while.cond19.preheader.i.i92.i.i.i1966
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1971, %while.cond19.preheader.i.i92.i.i.i1966
   store ptr null, ptr %agg.result, align 8, !alias.scope !969
   br label %return
 
@@ -17670,7 +17670,7 @@ while.cond19.preheader.i.i140.i.i.i1921:          ; preds = %while.body.i.i156.i
   %length.addr.0.lcssa.i.i142.i.i.i1923 = phi i64 [ %444, %sw.bb8.i.i.i1918 ], [ %sub.i.i178.i.i.i1959, %while.body.i.i156.i.i.i1937 ]
   %src.addr.0.lcssa.i.i143.i.i.i1924 = phi ptr [ %add.ptr.i1663, %sw.bb8.i.i.i1918 ], [ %add.ptr.i.i179.i.i.i1960, %while.body.i.i156.i.i.i1937 ]
   %cmp2024.i.i144.i.i.i1925 = icmp sgt i64 %length.addr.0.lcssa.i.i142.i.i.i1923, 0
-  br i1 %cmp2024.i.i144.i.i.i1925, label %while.body21.i.i145.i.i.i1926, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i144.i.i.i1925, label %while.body21.i.i145.i.i.i1926, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i156.i.i.i1937:                      ; preds = %sw.bb8.i.i.i1918, %while.body.i.i156.i.i.i1937
   %src.addr.021.i.i157.i.i.i1938 = phi ptr [ %add.ptr.i.i179.i.i.i1960, %while.body.i.i156.i.i.i1937 ], [ %add.ptr.i1663, %sw.bb8.i.i.i1918 ]
@@ -17726,9 +17726,9 @@ while.body21.i.i145.i.i.i1926:                    ; preds = %while.cond19.prehea
   store i16 %conv24.i.i152.i.i.i1933, ptr %dest.addr.125.i.i148.i.i.i1929, align 2, !noalias !975
   %dec.i.i154.i.i.i1935 = add nsw i64 %length.addr.126.i.i147.i.i.i1928, -1
   %cmp20.i.i155.i.i.i1936 = icmp ugt i64 %length.addr.126.i.i147.i.i.i1928, 1
-  br i1 %cmp20.i.i155.i.i.i1936, label %while.body21.i.i145.i.i.i1926, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !62
+  br i1 %cmp20.i.i155.i.i.i1936, label %while.body21.i.i145.i.i.i1926, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !62
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1926, %while.cond19.preheader.i.i140.i.i.i1921
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1926, %while.cond19.preheader.i.i140.i.i.i1921
   store ptr null, ptr %agg.result, align 8, !alias.scope !976
   br label %return
 
@@ -17743,7 +17743,7 @@ while.cond19.preheader.i.i188.i.i.i1876:          ; preds = %while.body.i.i204.i
   %length.addr.0.lcssa.i.i190.i.i.i1878 = phi i64 [ %444, %sw.bb10.i.i.i1873 ], [ %sub.i.i226.i.i.i1914, %while.body.i.i204.i.i.i1892 ]
   %src.addr.0.lcssa.i.i191.i.i.i1879 = phi ptr [ %add.ptr.i1663, %sw.bb10.i.i.i1873 ], [ %add.ptr.i.i227.i.i.i1915, %while.body.i.i204.i.i.i1892 ]
   %cmp2024.i.i192.i.i.i1880 = icmp sgt i64 %length.addr.0.lcssa.i.i190.i.i.i1878, 0
-  br i1 %cmp2024.i.i192.i.i.i1880, label %while.body21.i.i193.i.i.i1881, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i192.i.i.i1880, label %while.body21.i.i193.i.i.i1881, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i204.i.i.i1892:                      ; preds = %sw.bb10.i.i.i1873, %while.body.i.i204.i.i.i1892
   %src.addr.021.i.i205.i.i.i1893 = phi ptr [ %add.ptr.i.i227.i.i.i1915, %while.body.i.i204.i.i.i1892 ], [ %add.ptr.i1663, %sw.bb10.i.i.i1873 ]
@@ -17799,9 +17799,9 @@ while.body21.i.i193.i.i.i1881:                    ; preds = %while.cond19.prehea
   store i16 %conv24.i.i200.i.i.i1888, ptr %dest.addr.125.i.i196.i.i.i1884, align 2, !noalias !982
   %dec.i.i202.i.i.i1890 = add nsw i64 %length.addr.126.i.i195.i.i.i1883, -1
   %cmp20.i.i203.i.i.i1891 = icmp ugt i64 %length.addr.126.i.i195.i.i.i1883, 1
-  br i1 %cmp20.i.i203.i.i.i1891, label %while.body21.i.i193.i.i.i1881, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !46
+  br i1 %cmp20.i.i203.i.i.i1891, label %while.body21.i.i193.i.i.i1881, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !46
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1881, %while.cond19.preheader.i.i188.i.i.i1876
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1881, %while.cond19.preheader.i.i188.i.i.i1876
   store ptr null, ptr %agg.result, align 8, !alias.scope !983
   br label %return
 
@@ -17816,7 +17816,7 @@ while.cond16.preheader.i.i.i.i.i1836:             ; preds = %while.body.i.i244.i
   %length.addr.0.lcssa.i.i237.i.i.i1838 = phi i64 [ %444, %sw.bb12.i.i.i1833 ], [ %sub.i.i256.i.i.i1869, %while.body.i.i244.i.i.i1851 ]
   %src.addr.0.lcssa.i.i238.i.i.i1839 = phi ptr [ %add.ptr.i1663, %sw.bb12.i.i.i1833 ], [ %add.ptr.i.i257.i.i.i1870, %while.body.i.i244.i.i.i1851 ]
   %cmp1724.i.i.i.i.i1840 = icmp sgt i64 %length.addr.0.lcssa.i.i237.i.i.i1838, 0
-  br i1 %cmp1724.i.i.i.i.i1840, label %while.body18.i.i.i.i.i1841, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i.i.i.i1840, label %while.body18.i.i.i.i.i1841, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i244.i.i.i1851:                      ; preds = %sw.bb12.i.i.i1833, %while.body.i.i244.i.i.i1851
   %src.addr.021.i.i245.i.i.i1852 = phi ptr [ %add.ptr.i.i257.i.i.i1870, %while.body.i.i244.i.i.i1851 ], [ %add.ptr.i1663, %sw.bb12.i.i.i1833 ]
@@ -17867,9 +17867,9 @@ while.body18.i.i.i.i.i1841:                       ; preds = %while.cond16.prehea
   store i32 %497, ptr %dest.addr.125.i.i241.i.i.i1844, align 4, !noalias !989
   %dec.i.i243.i.i.i1849 = add nsw i64 %length.addr.126.i.i240.i.i.i1843, -1
   %cmp17.i.i.i.i.i1850 = icmp ugt i64 %length.addr.126.i.i240.i.i.i1843, 1
-  br i1 %cmp17.i.i.i.i.i1850, label %while.body18.i.i.i.i.i1841, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !94
+  br i1 %cmp17.i.i.i.i.i1850, label %while.body18.i.i.i.i.i1841, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !94
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1841, %while.cond16.preheader.i.i.i.i.i1836
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1841, %while.cond16.preheader.i.i.i.i.i1836
   store ptr null, ptr %agg.result, align 8, !alias.scope !990
   br label %return
 
@@ -17884,7 +17884,7 @@ while.cond16.preheader.i.i265.i.i.i1796:          ; preds = %while.body.i.i280.i
   %length.addr.0.lcssa.i.i267.i.i.i1798 = phi i64 [ %444, %sw.bb14.i.i.i1793 ], [ %sub.i.i298.i.i.i1829, %while.body.i.i280.i.i.i1811 ]
   %src.addr.0.lcssa.i.i268.i.i.i1799 = phi ptr [ %add.ptr.i1663, %sw.bb14.i.i.i1793 ], [ %add.ptr.i.i299.i.i.i1830, %while.body.i.i280.i.i.i1811 ]
   %cmp1724.i.i269.i.i.i1800 = icmp sgt i64 %length.addr.0.lcssa.i.i267.i.i.i1798, 0
-  br i1 %cmp1724.i.i269.i.i.i1800, label %while.body18.i.i270.i.i.i1801, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i269.i.i.i1800, label %while.body18.i.i270.i.i.i1801, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i280.i.i.i1811:                      ; preds = %sw.bb14.i.i.i1793, %while.body.i.i280.i.i.i1811
   %src.addr.021.i.i281.i.i.i1812 = phi ptr [ %add.ptr.i.i299.i.i.i1830, %while.body.i.i280.i.i.i1811 ], [ %add.ptr.i1663, %sw.bb14.i.i.i1793 ]
@@ -17935,9 +17935,9 @@ while.body18.i.i270.i.i.i1801:                    ; preds = %while.cond16.prehea
   store i32 %507, ptr %dest.addr.125.i.i273.i.i.i1804, align 4, !noalias !996
   %dec.i.i278.i.i.i1809 = add nsw i64 %length.addr.126.i.i272.i.i.i1803, -1
   %cmp17.i.i279.i.i.i1810 = icmp ugt i64 %length.addr.126.i.i272.i.i.i1803, 1
-  br i1 %cmp17.i.i279.i.i.i1810, label %while.body18.i.i270.i.i.i1801, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !78
+  br i1 %cmp17.i.i279.i.i.i1810, label %while.body18.i.i270.i.i.i1801, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !78
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1801, %while.cond16.preheader.i.i265.i.i.i1796
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1801, %while.cond16.preheader.i.i265.i.i.i1796
   store ptr null, ptr %agg.result, align 8, !alias.scope !997
   br label %return
 
@@ -17952,7 +17952,7 @@ while.cond19.preheader.i.i308.i.i.i1751:          ; preds = %while.body.i.i324.i
   %length.addr.0.lcssa.i.i310.i.i.i1753 = phi i64 [ %444, %sw.bb16.i.i.i1748 ], [ %sub.i.i346.i.i.i1789, %while.body.i.i324.i.i.i1767 ]
   %src.addr.0.lcssa.i.i311.i.i.i1754 = phi ptr [ %add.ptr.i1663, %sw.bb16.i.i.i1748 ], [ %add.ptr.i.i347.i.i.i1790, %while.body.i.i324.i.i.i1767 ]
   %cmp2024.i.i312.i.i.i1755 = icmp sgt i64 %length.addr.0.lcssa.i.i310.i.i.i1753, 0
-  br i1 %cmp2024.i.i312.i.i.i1755, label %while.body21.i.i313.i.i.i1756, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i312.i.i.i1755, label %while.body21.i.i313.i.i.i1756, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i324.i.i.i1767:                      ; preds = %sw.bb16.i.i.i1748, %while.body.i.i324.i.i.i1767
   %src.addr.021.i.i325.i.i.i1768 = phi ptr [ %add.ptr.i.i347.i.i.i1790, %while.body.i.i324.i.i.i1767 ], [ %add.ptr.i1663, %sw.bb16.i.i.i1748 ]
@@ -18008,9 +18008,9 @@ while.body21.i.i313.i.i.i1756:                    ; preds = %while.cond19.prehea
   store i64 %conv24.i.i320.i.i.i1763, ptr %dest.addr.125.i.i316.i.i.i1759, align 8, !noalias !1003
   %dec.i.i322.i.i.i1765 = add nsw i64 %length.addr.126.i.i315.i.i.i1758, -1
   %cmp20.i.i323.i.i.i1766 = icmp ugt i64 %length.addr.126.i.i315.i.i.i1758, 1
-  br i1 %cmp20.i.i323.i.i.i1766, label %while.body21.i.i313.i.i.i1756, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !126
+  br i1 %cmp20.i.i323.i.i.i1766, label %while.body21.i.i313.i.i.i1756, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !126
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i1756, %while.cond19.preheader.i.i308.i.i.i1751
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i1756, %while.cond19.preheader.i.i308.i.i.i1751
   store ptr null, ptr %agg.result, align 8, !alias.scope !1004
   br label %return
 
@@ -18025,7 +18025,7 @@ while.cond19.preheader.i.i356.i.i.i1706:          ; preds = %while.body.i.i372.i
   %length.addr.0.lcssa.i.i358.i.i.i1708 = phi i64 [ %444, %sw.bb18.i.i.i1703 ], [ %sub.i.i394.i.i.i1744, %while.body.i.i372.i.i.i1722 ]
   %src.addr.0.lcssa.i.i359.i.i.i1709 = phi ptr [ %add.ptr.i1663, %sw.bb18.i.i.i1703 ], [ %add.ptr.i.i395.i.i.i1745, %while.body.i.i372.i.i.i1722 ]
   %cmp2024.i.i360.i.i.i1710 = icmp sgt i64 %length.addr.0.lcssa.i.i358.i.i.i1708, 0
-  br i1 %cmp2024.i.i360.i.i.i1710, label %while.body21.i.i361.i.i.i1711, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp2024.i.i360.i.i.i1710, label %while.body21.i.i361.i.i.i1711, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i372.i.i.i1722:                      ; preds = %sw.bb18.i.i.i1703, %while.body.i.i372.i.i.i1722
   %src.addr.021.i.i373.i.i.i1723 = phi ptr [ %add.ptr.i.i395.i.i.i1745, %while.body.i.i372.i.i.i1722 ], [ %add.ptr.i1663, %sw.bb18.i.i.i1703 ]
@@ -18081,9 +18081,9 @@ while.body21.i.i361.i.i.i1711:                    ; preds = %while.cond19.prehea
   store i64 %conv24.i.i368.i.i.i1718, ptr %dest.addr.125.i.i364.i.i.i1714, align 8, !noalias !1010
   %dec.i.i370.i.i.i1720 = add nsw i64 %length.addr.126.i.i363.i.i.i1713, -1
   %cmp20.i.i371.i.i.i1721 = icmp ugt i64 %length.addr.126.i.i363.i.i.i1713, 1
-  br i1 %cmp20.i.i371.i.i.i1721, label %while.body21.i.i361.i.i.i1711, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !110
+  br i1 %cmp20.i.i371.i.i.i1721, label %while.body21.i.i361.i.i.i1711, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !110
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i1711, %while.cond19.preheader.i.i356.i.i.i1706
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i1711, %while.cond19.preheader.i.i356.i.i.i1706
   store ptr null, ptr %agg.result, align 8, !alias.scope !1011
   br label %return
 
@@ -18308,7 +18308,7 @@ while.cond16.preheader.i.i.i.i.i2118:             ; preds = %while.body.i.i.i.i.
   %length.addr.0.lcssa.i.i.i.i.i2120 = phi i64 [ %532, %sw.bb4.i.i.i2115 ], [ %sub.i.i.i.i.i2145, %while.body.i.i.i.i.i2131 ]
   %src.addr.0.lcssa.i.i.i.i.i2121 = phi ptr [ %add.ptr.i2057, %sw.bb4.i.i.i2115 ], [ %add.ptr.i.i.i.i.i2146, %while.body.i.i.i.i.i2131 ]
   %cmp1724.i.i.i.i.i2122 = icmp sgt i64 %length.addr.0.lcssa.i.i.i.i.i2120, 0
-  br i1 %cmp1724.i.i.i.i.i2122, label %while.body18.i.i.i.i.i2123, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i.i.i.i2122, label %while.body18.i.i.i.i.i2123, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i.i.i.i2131:                         ; preds = %sw.bb4.i.i.i2115, %while.body.i.i.i.i.i2131
   %src.addr.021.i.i.i.i.i2132 = phi ptr [ %add.ptr.i.i.i.i.i2146, %while.body.i.i.i.i.i2131 ], [ %add.ptr.i2057, %sw.bb4.i.i.i2115 ]
@@ -18359,9 +18359,9 @@ while.body18.i.i.i.i.i2123:                       ; preds = %while.cond16.prehea
   store i8 %conv20.i.i.i.i.i, ptr %dest.addr.125.i.i.i.i.i2126, align 1, !noalias !1026
   %dec.i.i.i.i.i2129 = add nsw i64 %length.addr.126.i.i.i.i.i2125, -1
   %cmp17.i.i.i.i.i2130 = icmp ugt i64 %length.addr.126.i.i.i.i.i2125, 1
-  br i1 %cmp17.i.i.i.i.i2130, label %while.body18.i.i.i.i.i2123, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !36
+  br i1 %cmp17.i.i.i.i.i2130, label %while.body18.i.i.i.i.i2123, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !36
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i2123, %while.cond16.preheader.i.i.i.i.i2118
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i2123, %while.cond16.preheader.i.i.i.i.i2118
   store ptr null, ptr %agg.result, align 8, !alias.scope !1027
   br label %return
 
@@ -18376,7 +18376,7 @@ while.cond16.preheader.i.i92.i.i.i:               ; preds = %while.body.i.i107.i
   %length.addr.0.lcssa.i.i94.i.i.i2109 = phi i64 [ %532, %sw.bb6.i.i.i2105 ], [ %sub.i.i125.i.i.i, %while.body.i.i107.i.i.i ]
   %src.addr.0.lcssa.i.i95.i.i.i2110 = phi ptr [ %add.ptr.i2057, %sw.bb6.i.i.i2105 ], [ %add.ptr.i.i126.i.i.i, %while.body.i.i107.i.i.i ]
   %cmp1724.i.i96.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i94.i.i.i2109, 0
-  br i1 %cmp1724.i.i96.i.i.i, label %while.body18.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i96.i.i.i, label %while.body18.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i107.i.i.i:                          ; preds = %sw.bb6.i.i.i2105, %while.body.i.i107.i.i.i
   %src.addr.021.i.i108.i.i.i = phi ptr [ %add.ptr.i.i126.i.i.i, %while.body.i.i107.i.i.i ], [ %add.ptr.i2057, %sw.bb6.i.i.i2105 ]
@@ -18427,9 +18427,9 @@ while.body18.i.i97.i.i.i:                         ; preds = %while.cond16.prehea
   store i8 %conv20.i.i103.i.i.i, ptr %dest.addr.125.i.i100.i.i.i2113, align 1, !noalias !1033
   %dec.i.i105.i.i.i = add nsw i64 %length.addr.126.i.i99.i.i.i2112, -1
   %cmp17.i.i106.i.i.i = icmp ugt i64 %length.addr.126.i.i99.i.i.i2112, 1
-  br i1 %cmp17.i.i106.i.i.i, label %while.body18.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !20
+  br i1 %cmp17.i.i106.i.i.i, label %while.body18.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !20
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i97.i.i.i, %while.cond16.preheader.i.i92.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i97.i.i.i, %while.cond16.preheader.i.i92.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !1034
   br label %return
 
@@ -18444,7 +18444,7 @@ while.cond16.preheader.i.i135.i.i.i:              ; preds = %while.body.i.i150.i
   %length.addr.0.lcssa.i.i137.i.i.i = phi i64 [ %532, %sw.bb8.i.i.i2104 ], [ %sub.i.i168.i.i.i, %while.body.i.i150.i.i.i ]
   %src.addr.0.lcssa.i.i138.i.i.i = phi ptr [ %add.ptr.i2057, %sw.bb8.i.i.i2104 ], [ %add.ptr.i.i169.i.i.i, %while.body.i.i150.i.i.i ]
   %cmp1724.i.i139.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i137.i.i.i, 0
-  br i1 %cmp1724.i.i139.i.i.i, label %while.body18.i.i140.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i139.i.i.i, label %while.body18.i.i140.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i150.i.i.i:                          ; preds = %sw.bb8.i.i.i2104, %while.body.i.i150.i.i.i
   %src.addr.021.i.i151.i.i.i = phi ptr [ %add.ptr.i.i169.i.i.i, %while.body.i.i150.i.i.i ], [ %add.ptr.i2057, %sw.bb8.i.i.i2104 ]
@@ -18495,9 +18495,9 @@ while.body18.i.i140.i.i.i:                        ; preds = %while.cond16.prehea
   store i16 %conv20.i.i146.i.i.i, ptr %dest.addr.125.i.i143.i.i.i, align 2, !noalias !1040
   %dec.i.i148.i.i.i = add nsw i64 %length.addr.126.i.i142.i.i.i, -1
   %cmp17.i.i149.i.i.i = icmp ugt i64 %length.addr.126.i.i142.i.i.i, 1
-  br i1 %cmp17.i.i149.i.i.i, label %while.body18.i.i140.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !68
+  br i1 %cmp17.i.i149.i.i.i, label %while.body18.i.i140.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !68
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i140.i.i.i, %while.cond16.preheader.i.i135.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i140.i.i.i, %while.cond16.preheader.i.i135.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !1041
   br label %return
 
@@ -18512,7 +18512,7 @@ while.cond16.preheader.i.i178.i.i.i:              ; preds = %while.body.i.i193.i
   %length.addr.0.lcssa.i.i180.i.i.i = phi i64 [ %532, %sw.bb10.i.i.i2103 ], [ %sub.i.i211.i.i.i, %while.body.i.i193.i.i.i ]
   %src.addr.0.lcssa.i.i181.i.i.i = phi ptr [ %add.ptr.i2057, %sw.bb10.i.i.i2103 ], [ %add.ptr.i.i212.i.i.i, %while.body.i.i193.i.i.i ]
   %cmp1724.i.i182.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i180.i.i.i, 0
-  br i1 %cmp1724.i.i182.i.i.i, label %while.body18.i.i183.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i182.i.i.i, label %while.body18.i.i183.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i193.i.i.i:                          ; preds = %sw.bb10.i.i.i2103, %while.body.i.i193.i.i.i
   %src.addr.021.i.i194.i.i.i = phi ptr [ %add.ptr.i.i212.i.i.i, %while.body.i.i193.i.i.i ], [ %add.ptr.i2057, %sw.bb10.i.i.i2103 ]
@@ -18563,9 +18563,9 @@ while.body18.i.i183.i.i.i:                        ; preds = %while.cond16.prehea
   store i16 %conv20.i.i189.i.i.i, ptr %dest.addr.125.i.i186.i.i.i, align 2, !noalias !1047
   %dec.i.i191.i.i.i = add nsw i64 %length.addr.126.i.i185.i.i.i, -1
   %cmp17.i.i192.i.i.i = icmp ugt i64 %length.addr.126.i.i185.i.i.i, 1
-  br i1 %cmp17.i.i192.i.i.i, label %while.body18.i.i183.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !52
+  br i1 %cmp17.i.i192.i.i.i, label %while.body18.i.i183.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !52
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i183.i.i.i, %while.cond16.preheader.i.i178.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i183.i.i.i, %while.cond16.preheader.i.i178.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !1048
   br label %return
 
@@ -18580,7 +18580,7 @@ while.cond13.preheader.i.i.i.i.i:                 ; preds = %while.body.i.i229.i
   %length.addr.0.lcssa.i.i222.i.i.i = phi i64 [ %532, %sw.bb12.i.i.i2100 ], [ %sub.i.i241.i.i.i, %while.body.i.i229.i.i.i ]
   %src.addr.0.lcssa.i.i223.i.i.i = phi ptr [ %add.ptr.i2057, %sw.bb12.i.i.i2100 ], [ %add.ptr.i.i242.i.i.i, %while.body.i.i229.i.i.i ]
   %cmp1424.i.i.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i222.i.i.i, 0
-  br i1 %cmp1424.i.i.i.i.i, label %while.body15.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1424.i.i.i.i.i, label %while.body15.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i229.i.i.i:                          ; preds = %sw.bb12.i.i.i2100, %while.body.i.i229.i.i.i
   %src.addr.021.i.i230.i.i.i = phi ptr [ %add.ptr.i.i242.i.i.i, %while.body.i.i229.i.i.i ], [ %add.ptr.i2057, %sw.bb12.i.i.i2100 ]
@@ -18626,9 +18626,9 @@ while.body15.i.i.i.i.i:                           ; preds = %while.cond13.prehea
   store i32 %585, ptr %dest.addr.125.i.i226.i.i.i, align 4, !noalias !1054
   %dec.i.i228.i.i.i = add nsw i64 %length.addr.126.i.i225.i.i.i, -1
   %cmp14.i.i.i.i.i = icmp ugt i64 %length.addr.126.i.i225.i.i.i, 1
-  br i1 %cmp14.i.i.i.i.i, label %while.body15.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !100
+  br i1 %cmp14.i.i.i.i.i, label %while.body15.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !100
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body15.i.i.i.i.i, %while.cond13.preheader.i.i.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body15.i.i.i.i.i, %while.cond13.preheader.i.i.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !1055
   br label %return
 
@@ -18643,7 +18643,7 @@ while.cond13.preheader.i.i250.i.i.i:              ; preds = %while.body.i.i264.i
   %length.addr.0.lcssa.i.i252.i.i.i = phi i64 [ %532, %sw.bb14.i.i.i2099 ], [ %sub.i.i278.i.i.i, %while.body.i.i264.i.i.i ]
   %src.addr.0.lcssa.i.i253.i.i.i = phi ptr [ %add.ptr.i2057, %sw.bb14.i.i.i2099 ], [ %add.ptr.i.i279.i.i.i, %while.body.i.i264.i.i.i ]
   %cmp1424.i.i254.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i252.i.i.i, 0
-  br i1 %cmp1424.i.i254.i.i.i, label %while.body15.i.i255.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1424.i.i254.i.i.i, label %while.body15.i.i255.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i264.i.i.i:                          ; preds = %sw.bb14.i.i.i2099, %while.body.i.i264.i.i.i
   %src.addr.021.i.i265.i.i.i = phi ptr [ %add.ptr.i.i279.i.i.i, %while.body.i.i264.i.i.i ], [ %add.ptr.i2057, %sw.bb14.i.i.i2099 ]
@@ -18689,9 +18689,9 @@ while.body15.i.i255.i.i.i:                        ; preds = %while.cond13.prehea
   store i32 %595, ptr %dest.addr.125.i.i258.i.i.i, align 4, !noalias !1061
   %dec.i.i262.i.i.i = add nsw i64 %length.addr.126.i.i257.i.i.i, -1
   %cmp14.i.i263.i.i.i = icmp ugt i64 %length.addr.126.i.i257.i.i.i, 1
-  br i1 %cmp14.i.i263.i.i.i, label %while.body15.i.i255.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !84
+  br i1 %cmp14.i.i263.i.i.i, label %while.body15.i.i255.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !84
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body15.i.i255.i.i.i, %while.cond13.preheader.i.i250.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body15.i.i255.i.i.i, %while.cond13.preheader.i.i250.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !1062
   br label %return
 
@@ -18706,7 +18706,7 @@ while.cond16.preheader.i.i288.i.i.i:              ; preds = %while.body.i.i303.i
   %length.addr.0.lcssa.i.i290.i.i.i = phi i64 [ %532, %sw.bb16.i.i.i2098 ], [ %sub.i.i321.i.i.i, %while.body.i.i303.i.i.i ]
   %src.addr.0.lcssa.i.i291.i.i.i = phi ptr [ %add.ptr.i2057, %sw.bb16.i.i.i2098 ], [ %add.ptr.i.i322.i.i.i, %while.body.i.i303.i.i.i ]
   %cmp1724.i.i292.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i290.i.i.i, 0
-  br i1 %cmp1724.i.i292.i.i.i, label %while.body18.i.i293.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i292.i.i.i, label %while.body18.i.i293.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i303.i.i.i:                          ; preds = %sw.bb16.i.i.i2098, %while.body.i.i303.i.i.i
   %src.addr.021.i.i304.i.i.i = phi ptr [ %add.ptr.i.i322.i.i.i, %while.body.i.i303.i.i.i ], [ %add.ptr.i2057, %sw.bb16.i.i.i2098 ]
@@ -18757,9 +18757,9 @@ while.body18.i.i293.i.i.i:                        ; preds = %while.cond16.prehea
   store i64 %conv20.i.i299.i.i.i, ptr %dest.addr.125.i.i296.i.i.i, align 8, !noalias !1068
   %dec.i.i301.i.i.i = add nsw i64 %length.addr.126.i.i295.i.i.i, -1
   %cmp17.i.i302.i.i.i = icmp ugt i64 %length.addr.126.i.i295.i.i.i, 1
-  br i1 %cmp17.i.i302.i.i.i, label %while.body18.i.i293.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !132
+  br i1 %cmp17.i.i302.i.i.i, label %while.body18.i.i293.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !132
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i293.i.i.i, %while.cond16.preheader.i.i288.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i293.i.i.i, %while.cond16.preheader.i.i288.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !1069
   br label %return
 
@@ -18774,7 +18774,7 @@ while.cond16.preheader.i.i331.i.i.i:              ; preds = %while.body.i.i346.i
   %length.addr.0.lcssa.i.i333.i.i.i = phi i64 [ %532, %sw.bb18.i.i.i2097 ], [ %sub.i.i364.i.i.i, %while.body.i.i346.i.i.i ]
   %src.addr.0.lcssa.i.i334.i.i.i = phi ptr [ %add.ptr.i2057, %sw.bb18.i.i.i2097 ], [ %add.ptr.i.i365.i.i.i, %while.body.i.i346.i.i.i ]
   %cmp1724.i.i335.i.i.i = icmp sgt i64 %length.addr.0.lcssa.i.i333.i.i.i, 0
-  br i1 %cmp1724.i.i335.i.i.i, label %while.body18.i.i336.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i335.i.i.i, label %while.body18.i.i336.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i346.i.i.i:                          ; preds = %sw.bb18.i.i.i2097, %while.body.i.i346.i.i.i
   %src.addr.021.i.i347.i.i.i = phi ptr [ %add.ptr.i.i365.i.i.i, %while.body.i.i346.i.i.i ], [ %add.ptr.i2057, %sw.bb18.i.i.i2097 ]
@@ -18825,9 +18825,9 @@ while.body18.i.i336.i.i.i:                        ; preds = %while.cond16.prehea
   store i64 %conv20.i.i342.i.i.i, ptr %dest.addr.125.i.i339.i.i.i, align 8, !noalias !1075
   %dec.i.i344.i.i.i = add nsw i64 %length.addr.126.i.i338.i.i.i, -1
   %cmp17.i.i345.i.i.i = icmp ugt i64 %length.addr.126.i.i338.i.i.i, 1
-  br i1 %cmp17.i.i345.i.i.i, label %while.body18.i.i336.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !116
+  br i1 %cmp17.i.i345.i.i.i, label %while.body18.i.i336.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !116
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i336.i.i.i, %while.cond16.preheader.i.i331.i.i.i
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i336.i.i.i, %while.cond16.preheader.i.i331.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !1076
   br label %return
 
@@ -19052,7 +19052,7 @@ while.cond16.preheader.i.i.i.i.i2466:             ; preds = %while.body.i.i.i.i.
   %length.addr.0.lcssa.i.i.i.i.i2468 = phi i64 [ %620, %sw.bb4.i.i.i2463 ], [ %sub.i.i.i.i.i2499, %while.body.i.i.i.i.i2481 ]
   %src.addr.0.lcssa.i.i.i.i.i2469 = phi ptr [ %add.ptr.i2153, %sw.bb4.i.i.i2463 ], [ %add.ptr.i.i.i.i.i2500, %while.body.i.i.i.i.i2481 ]
   %cmp1724.i.i.i.i.i2470 = icmp sgt i64 %length.addr.0.lcssa.i.i.i.i.i2468, 0
-  br i1 %cmp1724.i.i.i.i.i2470, label %while.body18.i.i.i.i.i2471, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i.i.i.i2470, label %while.body18.i.i.i.i.i2471, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i.i.i.i2481:                         ; preds = %sw.bb4.i.i.i2463, %while.body.i.i.i.i.i2481
   %src.addr.021.i.i.i.i.i2482 = phi ptr [ %add.ptr.i.i.i.i.i2500, %while.body.i.i.i.i.i2481 ], [ %add.ptr.i2153, %sw.bb4.i.i.i2463 ]
@@ -19103,9 +19103,9 @@ while.body18.i.i.i.i.i2471:                       ; preds = %while.cond16.prehea
   store i8 %conv20.i.i.i.i.i2477, ptr %dest.addr.125.i.i.i.i.i2474, align 1, !noalias !1091
   %dec.i.i.i.i.i2479 = add nsw i64 %length.addr.126.i.i.i.i.i2473, -1
   %cmp17.i.i.i.i.i2480 = icmp ugt i64 %length.addr.126.i.i.i.i.i2473, 1
-  br i1 %cmp17.i.i.i.i.i2480, label %while.body18.i.i.i.i.i2471, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !34
+  br i1 %cmp17.i.i.i.i.i2480, label %while.body18.i.i.i.i.i2471, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !34
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i2471, %while.cond16.preheader.i.i.i.i.i2466
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i2471, %while.cond16.preheader.i.i.i.i.i2466
   store ptr null, ptr %agg.result, align 8, !alias.scope !1092
   br label %return
 
@@ -19120,7 +19120,7 @@ while.cond16.preheader.i.i92.i.i.i2426:           ; preds = %while.body.i.i107.i
   %length.addr.0.lcssa.i.i94.i.i.i2428 = phi i64 [ %620, %sw.bb6.i.i.i2423 ], [ %sub.i.i125.i.i.i2459, %while.body.i.i107.i.i.i2441 ]
   %src.addr.0.lcssa.i.i95.i.i.i2429 = phi ptr [ %add.ptr.i2153, %sw.bb6.i.i.i2423 ], [ %add.ptr.i.i126.i.i.i2460, %while.body.i.i107.i.i.i2441 ]
   %cmp1724.i.i96.i.i.i2430 = icmp sgt i64 %length.addr.0.lcssa.i.i94.i.i.i2428, 0
-  br i1 %cmp1724.i.i96.i.i.i2430, label %while.body18.i.i97.i.i.i2431, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i96.i.i.i2430, label %while.body18.i.i97.i.i.i2431, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i107.i.i.i2441:                      ; preds = %sw.bb6.i.i.i2423, %while.body.i.i107.i.i.i2441
   %src.addr.021.i.i108.i.i.i2442 = phi ptr [ %add.ptr.i.i126.i.i.i2460, %while.body.i.i107.i.i.i2441 ], [ %add.ptr.i2153, %sw.bb6.i.i.i2423 ]
@@ -19171,9 +19171,9 @@ while.body18.i.i97.i.i.i2431:                     ; preds = %while.cond16.prehea
   store i8 %conv20.i.i103.i.i.i2437, ptr %dest.addr.125.i.i100.i.i.i2434, align 1, !noalias !1098
   %dec.i.i105.i.i.i2439 = add nsw i64 %length.addr.126.i.i99.i.i.i2433, -1
   %cmp17.i.i106.i.i.i2440 = icmp ugt i64 %length.addr.126.i.i99.i.i.i2433, 1
-  br i1 %cmp17.i.i106.i.i.i2440, label %while.body18.i.i97.i.i.i2431, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !18
+  br i1 %cmp17.i.i106.i.i.i2440, label %while.body18.i.i97.i.i.i2431, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !18
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i97.i.i.i2431, %while.cond16.preheader.i.i92.i.i.i2426
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i97.i.i.i2431, %while.cond16.preheader.i.i92.i.i.i2426
   store ptr null, ptr %agg.result, align 8, !alias.scope !1099
   br label %return
 
@@ -19188,7 +19188,7 @@ while.cond16.preheader.i.i135.i.i.i2386:          ; preds = %while.body.i.i150.i
   %length.addr.0.lcssa.i.i137.i.i.i2388 = phi i64 [ %620, %sw.bb8.i.i.i2383 ], [ %sub.i.i168.i.i.i2419, %while.body.i.i150.i.i.i2401 ]
   %src.addr.0.lcssa.i.i138.i.i.i2389 = phi ptr [ %add.ptr.i2153, %sw.bb8.i.i.i2383 ], [ %add.ptr.i.i169.i.i.i2420, %while.body.i.i150.i.i.i2401 ]
   %cmp1724.i.i139.i.i.i2390 = icmp sgt i64 %length.addr.0.lcssa.i.i137.i.i.i2388, 0
-  br i1 %cmp1724.i.i139.i.i.i2390, label %while.body18.i.i140.i.i.i2391, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i139.i.i.i2390, label %while.body18.i.i140.i.i.i2391, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i150.i.i.i2401:                      ; preds = %sw.bb8.i.i.i2383, %while.body.i.i150.i.i.i2401
   %src.addr.021.i.i151.i.i.i2402 = phi ptr [ %add.ptr.i.i169.i.i.i2420, %while.body.i.i150.i.i.i2401 ], [ %add.ptr.i2153, %sw.bb8.i.i.i2383 ]
@@ -19239,9 +19239,9 @@ while.body18.i.i140.i.i.i2391:                    ; preds = %while.cond16.prehea
   store i16 %conv20.i.i146.i.i.i2397, ptr %dest.addr.125.i.i143.i.i.i2394, align 2, !noalias !1105
   %dec.i.i148.i.i.i2399 = add nsw i64 %length.addr.126.i.i142.i.i.i2393, -1
   %cmp17.i.i149.i.i.i2400 = icmp ugt i64 %length.addr.126.i.i142.i.i.i2393, 1
-  br i1 %cmp17.i.i149.i.i.i2400, label %while.body18.i.i140.i.i.i2391, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !66
+  br i1 %cmp17.i.i149.i.i.i2400, label %while.body18.i.i140.i.i.i2391, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !66
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i140.i.i.i2391, %while.cond16.preheader.i.i135.i.i.i2386
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i140.i.i.i2391, %while.cond16.preheader.i.i135.i.i.i2386
   store ptr null, ptr %agg.result, align 8, !alias.scope !1106
   br label %return
 
@@ -19256,7 +19256,7 @@ while.cond16.preheader.i.i178.i.i.i2346:          ; preds = %while.body.i.i193.i
   %length.addr.0.lcssa.i.i180.i.i.i2348 = phi i64 [ %620, %sw.bb10.i.i.i2343 ], [ %sub.i.i211.i.i.i2379, %while.body.i.i193.i.i.i2361 ]
   %src.addr.0.lcssa.i.i181.i.i.i2349 = phi ptr [ %add.ptr.i2153, %sw.bb10.i.i.i2343 ], [ %add.ptr.i.i212.i.i.i2380, %while.body.i.i193.i.i.i2361 ]
   %cmp1724.i.i182.i.i.i2350 = icmp sgt i64 %length.addr.0.lcssa.i.i180.i.i.i2348, 0
-  br i1 %cmp1724.i.i182.i.i.i2350, label %while.body18.i.i183.i.i.i2351, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i182.i.i.i2350, label %while.body18.i.i183.i.i.i2351, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i193.i.i.i2361:                      ; preds = %sw.bb10.i.i.i2343, %while.body.i.i193.i.i.i2361
   %src.addr.021.i.i194.i.i.i2362 = phi ptr [ %add.ptr.i.i212.i.i.i2380, %while.body.i.i193.i.i.i2361 ], [ %add.ptr.i2153, %sw.bb10.i.i.i2343 ]
@@ -19307,9 +19307,9 @@ while.body18.i.i183.i.i.i2351:                    ; preds = %while.cond16.prehea
   store i16 %conv20.i.i189.i.i.i2357, ptr %dest.addr.125.i.i186.i.i.i2354, align 2, !noalias !1112
   %dec.i.i191.i.i.i2359 = add nsw i64 %length.addr.126.i.i185.i.i.i2353, -1
   %cmp17.i.i192.i.i.i2360 = icmp ugt i64 %length.addr.126.i.i185.i.i.i2353, 1
-  br i1 %cmp17.i.i192.i.i.i2360, label %while.body18.i.i183.i.i.i2351, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !50
+  br i1 %cmp17.i.i192.i.i.i2360, label %while.body18.i.i183.i.i.i2351, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !50
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i183.i.i.i2351, %while.cond16.preheader.i.i178.i.i.i2346
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i183.i.i.i2351, %while.cond16.preheader.i.i178.i.i.i2346
   store ptr null, ptr %agg.result, align 8, !alias.scope !1113
   br label %return
 
@@ -19324,7 +19324,7 @@ while.cond13.preheader.i.i.i.i.i2311:             ; preds = %while.body.i.i229.i
   %length.addr.0.lcssa.i.i222.i.i.i2313 = phi i64 [ %620, %sw.bb12.i.i.i2308 ], [ %sub.i.i241.i.i.i2339, %while.body.i.i229.i.i.i2325 ]
   %src.addr.0.lcssa.i.i223.i.i.i2314 = phi ptr [ %add.ptr.i2153, %sw.bb12.i.i.i2308 ], [ %add.ptr.i.i242.i.i.i2340, %while.body.i.i229.i.i.i2325 ]
   %cmp1424.i.i.i.i.i2315 = icmp sgt i64 %length.addr.0.lcssa.i.i222.i.i.i2313, 0
-  br i1 %cmp1424.i.i.i.i.i2315, label %while.body15.i.i.i.i.i2316, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1424.i.i.i.i.i2315, label %while.body15.i.i.i.i.i2316, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i229.i.i.i2325:                      ; preds = %sw.bb12.i.i.i2308, %while.body.i.i229.i.i.i2325
   %src.addr.021.i.i230.i.i.i2326 = phi ptr [ %add.ptr.i.i242.i.i.i2340, %while.body.i.i229.i.i.i2325 ], [ %add.ptr.i2153, %sw.bb12.i.i.i2308 ]
@@ -19370,9 +19370,9 @@ while.body15.i.i.i.i.i2316:                       ; preds = %while.cond13.prehea
   store i32 %673, ptr %dest.addr.125.i.i226.i.i.i2319, align 4, !noalias !1119
   %dec.i.i228.i.i.i2323 = add nsw i64 %length.addr.126.i.i225.i.i.i2318, -1
   %cmp14.i.i.i.i.i2324 = icmp ugt i64 %length.addr.126.i.i225.i.i.i2318, 1
-  br i1 %cmp14.i.i.i.i.i2324, label %while.body15.i.i.i.i.i2316, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !98
+  br i1 %cmp14.i.i.i.i.i2324, label %while.body15.i.i.i.i.i2316, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !98
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body15.i.i.i.i.i2316, %while.cond13.preheader.i.i.i.i.i2311
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body15.i.i.i.i.i2316, %while.cond13.preheader.i.i.i.i.i2311
   store ptr null, ptr %agg.result, align 8, !alias.scope !1120
   br label %return
 
@@ -19387,7 +19387,7 @@ while.cond13.preheader.i.i250.i.i.i2276:          ; preds = %while.body.i.i264.i
   %length.addr.0.lcssa.i.i252.i.i.i2278 = phi i64 [ %620, %sw.bb14.i.i.i2273 ], [ %sub.i.i278.i.i.i2304, %while.body.i.i264.i.i.i2290 ]
   %src.addr.0.lcssa.i.i253.i.i.i2279 = phi ptr [ %add.ptr.i2153, %sw.bb14.i.i.i2273 ], [ %add.ptr.i.i279.i.i.i2305, %while.body.i.i264.i.i.i2290 ]
   %cmp1424.i.i254.i.i.i2280 = icmp sgt i64 %length.addr.0.lcssa.i.i252.i.i.i2278, 0
-  br i1 %cmp1424.i.i254.i.i.i2280, label %while.body15.i.i255.i.i.i2281, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1424.i.i254.i.i.i2280, label %while.body15.i.i255.i.i.i2281, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i264.i.i.i2290:                      ; preds = %sw.bb14.i.i.i2273, %while.body.i.i264.i.i.i2290
   %src.addr.021.i.i265.i.i.i2291 = phi ptr [ %add.ptr.i.i279.i.i.i2305, %while.body.i.i264.i.i.i2290 ], [ %add.ptr.i2153, %sw.bb14.i.i.i2273 ]
@@ -19433,9 +19433,9 @@ while.body15.i.i255.i.i.i2281:                    ; preds = %while.cond13.prehea
   store i32 %683, ptr %dest.addr.125.i.i258.i.i.i2284, align 4, !noalias !1126
   %dec.i.i262.i.i.i2288 = add nsw i64 %length.addr.126.i.i257.i.i.i2283, -1
   %cmp14.i.i263.i.i.i2289 = icmp ugt i64 %length.addr.126.i.i257.i.i.i2283, 1
-  br i1 %cmp14.i.i263.i.i.i2289, label %while.body15.i.i255.i.i.i2281, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !82
+  br i1 %cmp14.i.i263.i.i.i2289, label %while.body15.i.i255.i.i.i2281, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !82
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body15.i.i255.i.i.i2281, %while.cond13.preheader.i.i250.i.i.i2276
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body15.i.i255.i.i.i2281, %while.cond13.preheader.i.i250.i.i.i2276
   store ptr null, ptr %agg.result, align 8, !alias.scope !1127
   br label %return
 
@@ -19450,7 +19450,7 @@ while.cond16.preheader.i.i288.i.i.i2236:          ; preds = %while.body.i.i303.i
   %length.addr.0.lcssa.i.i290.i.i.i2238 = phi i64 [ %620, %sw.bb16.i.i.i2233 ], [ %sub.i.i321.i.i.i2269, %while.body.i.i303.i.i.i2251 ]
   %src.addr.0.lcssa.i.i291.i.i.i2239 = phi ptr [ %add.ptr.i2153, %sw.bb16.i.i.i2233 ], [ %add.ptr.i.i322.i.i.i2270, %while.body.i.i303.i.i.i2251 ]
   %cmp1724.i.i292.i.i.i2240 = icmp sgt i64 %length.addr.0.lcssa.i.i290.i.i.i2238, 0
-  br i1 %cmp1724.i.i292.i.i.i2240, label %while.body18.i.i293.i.i.i2241, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i292.i.i.i2240, label %while.body18.i.i293.i.i.i2241, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i303.i.i.i2251:                      ; preds = %sw.bb16.i.i.i2233, %while.body.i.i303.i.i.i2251
   %src.addr.021.i.i304.i.i.i2252 = phi ptr [ %add.ptr.i.i322.i.i.i2270, %while.body.i.i303.i.i.i2251 ], [ %add.ptr.i2153, %sw.bb16.i.i.i2233 ]
@@ -19501,9 +19501,9 @@ while.body18.i.i293.i.i.i2241:                    ; preds = %while.cond16.prehea
   store i64 %conv20.i.i299.i.i.i2247, ptr %dest.addr.125.i.i296.i.i.i2244, align 8, !noalias !1133
   %dec.i.i301.i.i.i2249 = add nsw i64 %length.addr.126.i.i295.i.i.i2243, -1
   %cmp17.i.i302.i.i.i2250 = icmp ugt i64 %length.addr.126.i.i295.i.i.i2243, 1
-  br i1 %cmp17.i.i302.i.i.i2250, label %while.body18.i.i293.i.i.i2241, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !130
+  br i1 %cmp17.i.i302.i.i.i2250, label %while.body18.i.i293.i.i.i2241, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !130
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i293.i.i.i2241, %while.cond16.preheader.i.i288.i.i.i2236
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i293.i.i.i2241, %while.cond16.preheader.i.i288.i.i.i2236
   store ptr null, ptr %agg.result, align 8, !alias.scope !1134
   br label %return
 
@@ -19518,7 +19518,7 @@ while.cond16.preheader.i.i331.i.i.i2196:          ; preds = %while.body.i.i346.i
   %length.addr.0.lcssa.i.i333.i.i.i2198 = phi i64 [ %620, %sw.bb18.i.i.i2193 ], [ %sub.i.i364.i.i.i2229, %while.body.i.i346.i.i.i2211 ]
   %src.addr.0.lcssa.i.i334.i.i.i2199 = phi ptr [ %add.ptr.i2153, %sw.bb18.i.i.i2193 ], [ %add.ptr.i.i365.i.i.i2230, %while.body.i.i346.i.i.i2211 ]
   %cmp1724.i.i335.i.i.i2200 = icmp sgt i64 %length.addr.0.lcssa.i.i333.i.i.i2198, 0
-  br i1 %cmp1724.i.i335.i.i.i2200, label %while.body18.i.i336.i.i.i2201, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i
+  br i1 %cmp1724.i.i335.i.i.i2200, label %while.body18.i.i336.i.i.i2201, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i
 
 while.body.i.i346.i.i.i2211:                      ; preds = %sw.bb18.i.i.i2193, %while.body.i.i346.i.i.i2211
   %src.addr.021.i.i347.i.i.i2212 = phi ptr [ %add.ptr.i.i365.i.i.i2230, %while.body.i.i346.i.i.i2211 ], [ %add.ptr.i2153, %sw.bb18.i.i.i2193 ]
@@ -19569,9 +19569,9 @@ while.body18.i.i336.i.i.i2201:                    ; preds = %while.cond16.prehea
   store i64 %conv20.i.i342.i.i.i2207, ptr %dest.addr.125.i.i339.i.i.i2204, align 8, !noalias !1140
   %dec.i.i344.i.i.i2209 = add nsw i64 %length.addr.126.i.i338.i.i.i2203, -1
   %cmp17.i.i345.i.i.i2210 = icmp ugt i64 %length.addr.126.i.i338.i.i.i2203, 1
-  br i1 %cmp17.i.i345.i.i.i2210, label %while.body18.i.i336.i.i.i2201, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !114
+  br i1 %cmp17.i.i345.i.i.i2210, label %while.body18.i.i336.i.i.i2201, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, !llvm.loop !114
 
-_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i336.i.i.i2201, %while.cond16.preheader.i.i331.i.i.i2196
+_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i: ; preds = %while.body18.i.i336.i.i.i2201, %while.cond16.preheader.i.i331.i.i.i2196
   store ptr null, ptr %agg.result, align 8, !alias.scope !1141
   br label %return
 
@@ -19847,7 +19847,7 @@ sw.epilog:                                        ; preds = %entry
   tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.4)
   br label %return
 
-return:                                           ; preds = %sw.epilog.i.i.i2505, %sw.bb84.i.i.i2160, %sw.bb82.i.i.i2161, %sw.bb80.i.i.i2162, %sw.bb78.i.i.i2163, %sw.bb76.i.i.i2164, %sw.bb74.i.i.i2165, %sw.bb72.i.i.i2166, %sw.bb70.i.i.i2167, %sw.bb68.i.i.i2168, %sw.bb66.i.i.i2169, %sw.bb64.i.i.i2170, %sw.bb62.i.i.i2171, %sw.bb60.i.i.i2172, %sw.bb58.i.i.i2173, %sw.bb56.i.i.i2174, %sw.bb54.i.i.i2175, %sw.bb52.i.i.i2176, %sw.bb50.i.i.i2177, %sw.bb48.i.i.i2178, %sw.bb46.i.i.i2179, %sw.bb44.i.i.i2180, %sw.bb42.i.i.i2181, %sw.bb40.i.i.i2182, %sw.bb38.i.i.i2183, %sw.bb36.i.i.i2184, %sw.bb34.i.i.i2185, %sw.bb32.i.i.i2186, %sw.bb30.i.i.i2187, %sw.bb28.i.i.i2188, %sw.bb26.i.i.i2189, %sw.bb24.i.i.i2190, %sw.bb22.i.i.i2191, %sw.bb20.i.i.i2192, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %sw.bb2.i.i.i2503, %sw.bb.i.i.i2504, %sw.epilog.i.i.i2151, %sw.bb84.i.i.i2064, %sw.bb82.i.i.i2065, %sw.bb80.i.i.i2066, %sw.bb78.i.i.i2067, %sw.bb76.i.i.i2068, %sw.bb74.i.i.i2069, %sw.bb72.i.i.i2070, %sw.bb70.i.i.i2071, %sw.bb68.i.i.i2072, %sw.bb66.i.i.i2073, %sw.bb64.i.i.i2074, %sw.bb62.i.i.i2075, %sw.bb60.i.i.i2076, %sw.bb58.i.i.i2077, %sw.bb56.i.i.i2078, %sw.bb54.i.i.i2079, %sw.bb52.i.i.i2080, %sw.bb50.i.i.i2081, %sw.bb48.i.i.i2082, %sw.bb46.i.i.i2083, %sw.bb44.i.i.i2084, %sw.bb42.i.i.i2085, %sw.bb40.i.i.i2086, %sw.bb38.i.i.i2087, %sw.bb36.i.i.i2088, %sw.bb34.i.i.i2089, %sw.bb32.i.i.i2090, %sw.bb30.i.i.i2091, %sw.bb28.i.i.i2092, %sw.bb26.i.i.i2093, %sw.bb24.i.i.i2094, %sw.bb22.i.i.i2095, %sw.bb20.i.i.i2096, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %sw.bb2.i.i.i2149, %sw.bb.i.i.i2150, %sw.epilog.i.i.i2055, %sw.bb84.i.i.i1670, %sw.bb82.i.i.i1671, %sw.bb80.i.i.i1672, %sw.bb78.i.i.i1673, %sw.bb76.i.i.i1674, %sw.bb74.i.i.i1675, %sw.bb72.i.i.i1676, %sw.bb70.i.i.i1677, %sw.bb68.i.i.i1678, %sw.bb66.i.i.i1679, %sw.bb64.i.i.i1680, %sw.bb62.i.i.i1681, %sw.bb60.i.i.i1682, %sw.bb58.i.i.i1683, %sw.bb56.i.i.i1684, %sw.bb54.i.i.i1685, %sw.bb52.i.i.i1686, %sw.bb50.i.i.i1687, %sw.bb48.i.i.i1688, %sw.bb46.i.i.i1689, %sw.bb44.i.i.i1690, %sw.bb42.i.i.i1691, %sw.bb40.i.i.i1692, %sw.bb38.i.i.i1693, %sw.bb36.i.i.i1694, %sw.bb34.i.i.i1695, %sw.bb32.i.i.i1696, %sw.bb30.i.i.i1697, %sw.bb28.i.i.i1698, %sw.bb26.i.i.i1699, %sw.bb24.i.i.i1700, %sw.bb22.i.i.i1701, %sw.bb20.i.i.i1702, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %sw.bb2.i.i.i2053, %sw.bb.i.i.i2054, %sw.epilog.i.i.i1661, %sw.bb84.i.i.i1276, %sw.bb82.i.i.i1277, %sw.bb80.i.i.i1278, %sw.bb78.i.i.i1279, %sw.bb76.i.i.i1280, %sw.bb74.i.i.i1281, %sw.bb72.i.i.i1282, %sw.bb70.i.i.i1283, %sw.bb68.i.i.i1284, %sw.bb66.i.i.i1285, %sw.bb64.i.i.i1286, %sw.bb62.i.i.i1287, %sw.bb60.i.i.i1288, %sw.bb58.i.i.i1289, %sw.bb56.i.i.i1290, %sw.bb54.i.i.i1291, %sw.bb52.i.i.i1292, %sw.bb50.i.i.i1293, %sw.bb48.i.i.i1294, %sw.bb46.i.i.i1295, %sw.bb44.i.i.i1296, %sw.bb42.i.i.i1297, %sw.bb40.i.i.i1298, %sw.bb38.i.i.i1299, %sw.bb36.i.i.i1300, %sw.bb34.i.i.i1301, %sw.bb32.i.i.i1302, %sw.bb30.i.i.i1303, %sw.bb28.i.i.i1304, %sw.bb26.i.i.i1305, %sw.bb24.i.i.i1306, %sw.bb22.i.i.i1307, %sw.bb20.i.i.i1308, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %sw.bb2.i.i.i1659, %sw.bb.i.i.i1660, %sw.epilog.i.i.i1267, %sw.bb84.i.i.i882, %sw.bb82.i.i.i883, %sw.bb80.i.i.i884, %sw.bb78.i.i.i885, %sw.bb76.i.i.i886, %sw.bb74.i.i.i887, %sw.bb72.i.i.i888, %sw.bb70.i.i.i889, %sw.bb68.i.i.i890, %sw.bb66.i.i.i891, %sw.bb64.i.i.i892, %sw.bb62.i.i.i893, %sw.bb60.i.i.i894, %sw.bb58.i.i.i895, %sw.bb56.i.i.i896, %sw.bb54.i.i.i897, %sw.bb52.i.i.i898, %sw.bb50.i.i.i899, %sw.bb48.i.i.i900, %sw.bb46.i.i.i901, %sw.bb44.i.i.i902, %sw.bb42.i.i.i903, %sw.bb40.i.i.i904, %sw.bb38.i.i.i905, %sw.bb36.i.i.i906, %sw.bb34.i.i.i907, %sw.bb32.i.i.i908, %sw.bb30.i.i.i909, %sw.bb28.i.i.i910, %sw.bb26.i.i.i911, %sw.bb24.i.i.i912, %sw.bb22.i.i.i913, %sw.bb20.i.i.i914, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %sw.bb2.i.i.i1265, %sw.bb.i.i.i1266, %sw.epilog.i.i.i873, %sw.bb84.i.i.i488, %sw.bb82.i.i.i489, %sw.bb80.i.i.i490, %sw.bb78.i.i.i491, %sw.bb76.i.i.i492, %sw.bb74.i.i.i493, %sw.bb72.i.i.i494, %sw.bb70.i.i.i495, %sw.bb68.i.i.i496, %sw.bb66.i.i.i497, %sw.bb64.i.i.i498, %sw.bb62.i.i.i499, %sw.bb60.i.i.i500, %sw.bb58.i.i.i501, %sw.bb56.i.i.i502, %sw.bb54.i.i.i503, %sw.bb52.i.i.i504, %sw.bb50.i.i.i505, %sw.bb48.i.i.i506, %sw.bb46.i.i.i507, %sw.bb44.i.i.i508, %sw.bb42.i.i.i509, %sw.bb40.i.i.i510, %sw.bb38.i.i.i511, %sw.bb36.i.i.i512, %sw.bb34.i.i.i513, %sw.bb32.i.i.i514, %sw.bb30.i.i.i515, %sw.bb28.i.i.i516, %sw.bb26.i.i.i517, %sw.bb24.i.i.i518, %sw.bb22.i.i.i519, %sw.bb20.i.i.i520, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %sw.bb2.i.i.i871, %sw.bb.i.i.i872, %sw.epilog.i.i.i479, %sw.bb84.i.i.i94, %sw.bb82.i.i.i95, %sw.bb80.i.i.i96, %sw.bb78.i.i.i97, %sw.bb76.i.i.i98, %sw.bb74.i.i.i99, %sw.bb72.i.i.i100, %sw.bb70.i.i.i101, %sw.bb68.i.i.i102, %sw.bb66.i.i.i103, %sw.bb64.i.i.i104, %sw.bb62.i.i.i105, %sw.bb60.i.i.i106, %sw.bb58.i.i.i107, %sw.bb56.i.i.i108, %sw.bb54.i.i.i109, %sw.bb52.i.i.i110, %sw.bb50.i.i.i111, %sw.bb48.i.i.i112, %sw.bb46.i.i.i113, %sw.bb44.i.i.i114, %sw.bb42.i.i.i115, %sw.bb40.i.i.i116, %sw.bb38.i.i.i117, %sw.bb36.i.i.i118, %sw.bb34.i.i.i119, %sw.bb32.i.i.i120, %sw.bb30.i.i.i121, %sw.bb28.i.i.i122, %sw.bb26.i.i.i123, %sw.bb24.i.i.i124, %sw.bb22.i.i.i125, %sw.bb20.i.i.i126, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %sw.bb2.i.i.i477, %sw.bb.i.i.i478, %sw.epilog.i.i.i, %sw.bb84.i.i.i, %sw.bb82.i.i.i, %sw.bb80.i.i.i, %sw.bb78.i.i.i, %sw.bb76.i.i.i, %sw.bb74.i.i.i, %sw.bb72.i.i.i, %sw.bb70.i.i.i, %sw.bb68.i.i.i, %sw.bb66.i.i.i, %sw.bb64.i.i.i, %sw.bb62.i.i.i, %sw.bb60.i.i.i, %sw.bb58.i.i.i, %sw.bb56.i.i.i, %sw.bb54.i.i.i, %sw.bb52.i.i.i, %sw.bb50.i.i.i, %sw.bb48.i.i.i, %sw.bb46.i.i.i, %sw.bb44.i.i.i, %sw.bb42.i.i.i, %sw.bb40.i.i.i, %sw.bb38.i.i.i, %sw.bb36.i.i.i, %sw.bb34.i.i.i, %sw.bb32.i.i.i, %sw.bb30.i.i.i, %sw.bb28.i.i.i, %sw.bb26.i.i.i, %sw.bb24.i.i.i, %sw.bb22.i.i.i, %sw.bb20.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, %sw.bb2.i.i.i, %sw.bb.i.i.i, %sw.epilog, %sw.bb84, %sw.bb82, %sw.bb80, %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %sw.bb2, %sw.bb
+return:                                           ; preds = %sw.epilog.i.i.i2505, %sw.bb84.i.i.i2160, %sw.bb82.i.i.i2161, %sw.bb80.i.i.i2162, %sw.bb78.i.i.i2163, %sw.bb76.i.i.i2164, %sw.bb74.i.i.i2165, %sw.bb72.i.i.i2166, %sw.bb70.i.i.i2167, %sw.bb68.i.i.i2168, %sw.bb66.i.i.i2169, %sw.bb64.i.i.i2170, %sw.bb62.i.i.i2171, %sw.bb60.i.i.i2172, %sw.bb58.i.i.i2173, %sw.bb56.i.i.i2174, %sw.bb54.i.i.i2175, %sw.bb52.i.i.i2176, %sw.bb50.i.i.i2177, %sw.bb48.i.i.i2178, %sw.bb46.i.i.i2179, %sw.bb44.i.i.i2180, %sw.bb42.i.i.i2181, %sw.bb40.i.i.i2182, %sw.bb38.i.i.i2183, %sw.bb36.i.i.i2184, %sw.bb34.i.i.i2185, %sw.bb32.i.i.i2186, %sw.bb30.i.i.i2187, %sw.bb28.i.i.i2188, %sw.bb26.i.i.i2189, %sw.bb24.i.i.i2190, %sw.bb22.i.i.i2191, %sw.bb20.i.i.i2192, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %sw.bb2.i.i.i2503, %sw.bb.i.i.i2504, %sw.epilog.i.i.i2151, %sw.bb84.i.i.i2064, %sw.bb82.i.i.i2065, %sw.bb80.i.i.i2066, %sw.bb78.i.i.i2067, %sw.bb76.i.i.i2068, %sw.bb74.i.i.i2069, %sw.bb72.i.i.i2070, %sw.bb70.i.i.i2071, %sw.bb68.i.i.i2072, %sw.bb66.i.i.i2073, %sw.bb64.i.i.i2074, %sw.bb62.i.i.i2075, %sw.bb60.i.i.i2076, %sw.bb58.i.i.i2077, %sw.bb56.i.i.i2078, %sw.bb54.i.i.i2079, %sw.bb52.i.i.i2080, %sw.bb50.i.i.i2081, %sw.bb48.i.i.i2082, %sw.bb46.i.i.i2083, %sw.bb44.i.i.i2084, %sw.bb42.i.i.i2085, %sw.bb40.i.i.i2086, %sw.bb38.i.i.i2087, %sw.bb36.i.i.i2088, %sw.bb34.i.i.i2089, %sw.bb32.i.i.i2090, %sw.bb30.i.i.i2091, %sw.bb28.i.i.i2092, %sw.bb26.i.i.i2093, %sw.bb24.i.i.i2094, %sw.bb22.i.i.i2095, %sw.bb20.i.i.i2096, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %sw.bb2.i.i.i2149, %sw.bb.i.i.i2150, %sw.epilog.i.i.i2055, %sw.bb84.i.i.i1670, %sw.bb82.i.i.i1671, %sw.bb80.i.i.i1672, %sw.bb78.i.i.i1673, %sw.bb76.i.i.i1674, %sw.bb74.i.i.i1675, %sw.bb72.i.i.i1676, %sw.bb70.i.i.i1677, %sw.bb68.i.i.i1678, %sw.bb66.i.i.i1679, %sw.bb64.i.i.i1680, %sw.bb62.i.i.i1681, %sw.bb60.i.i.i1682, %sw.bb58.i.i.i1683, %sw.bb56.i.i.i1684, %sw.bb54.i.i.i1685, %sw.bb52.i.i.i1686, %sw.bb50.i.i.i1687, %sw.bb48.i.i.i1688, %sw.bb46.i.i.i1689, %sw.bb44.i.i.i1690, %sw.bb42.i.i.i1691, %sw.bb40.i.i.i1692, %sw.bb38.i.i.i1693, %sw.bb36.i.i.i1694, %sw.bb34.i.i.i1695, %sw.bb32.i.i.i1696, %sw.bb30.i.i.i1697, %sw.bb28.i.i.i1698, %sw.bb26.i.i.i1699, %sw.bb24.i.i.i1700, %sw.bb22.i.i.i1701, %sw.bb20.i.i.i1702, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %sw.bb2.i.i.i2053, %sw.bb.i.i.i2054, %sw.epilog.i.i.i1661, %sw.bb84.i.i.i1276, %sw.bb82.i.i.i1277, %sw.bb80.i.i.i1278, %sw.bb78.i.i.i1279, %sw.bb76.i.i.i1280, %sw.bb74.i.i.i1281, %sw.bb72.i.i.i1282, %sw.bb70.i.i.i1283, %sw.bb68.i.i.i1284, %sw.bb66.i.i.i1285, %sw.bb64.i.i.i1286, %sw.bb62.i.i.i1287, %sw.bb60.i.i.i1288, %sw.bb58.i.i.i1289, %sw.bb56.i.i.i1290, %sw.bb54.i.i.i1291, %sw.bb52.i.i.i1292, %sw.bb50.i.i.i1293, %sw.bb48.i.i.i1294, %sw.bb46.i.i.i1295, %sw.bb44.i.i.i1296, %sw.bb42.i.i.i1297, %sw.bb40.i.i.i1298, %sw.bb38.i.i.i1299, %sw.bb36.i.i.i1300, %sw.bb34.i.i.i1301, %sw.bb32.i.i.i1302, %sw.bb30.i.i.i1303, %sw.bb28.i.i.i1304, %sw.bb26.i.i.i1305, %sw.bb24.i.i.i1306, %sw.bb22.i.i.i1307, %sw.bb20.i.i.i1308, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %sw.bb2.i.i.i1659, %sw.bb.i.i.i1660, %sw.epilog.i.i.i1267, %sw.bb84.i.i.i882, %sw.bb82.i.i.i883, %sw.bb80.i.i.i884, %sw.bb78.i.i.i885, %sw.bb76.i.i.i886, %sw.bb74.i.i.i887, %sw.bb72.i.i.i888, %sw.bb70.i.i.i889, %sw.bb68.i.i.i890, %sw.bb66.i.i.i891, %sw.bb64.i.i.i892, %sw.bb62.i.i.i893, %sw.bb60.i.i.i894, %sw.bb58.i.i.i895, %sw.bb56.i.i.i896, %sw.bb54.i.i.i897, %sw.bb52.i.i.i898, %sw.bb50.i.i.i899, %sw.bb48.i.i.i900, %sw.bb46.i.i.i901, %sw.bb44.i.i.i902, %sw.bb42.i.i.i903, %sw.bb40.i.i.i904, %sw.bb38.i.i.i905, %sw.bb36.i.i.i906, %sw.bb34.i.i.i907, %sw.bb32.i.i.i908, %sw.bb30.i.i.i909, %sw.bb28.i.i.i910, %sw.bb26.i.i.i911, %sw.bb24.i.i.i912, %sw.bb22.i.i.i913, %sw.bb20.i.i.i914, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %sw.bb2.i.i.i1265, %sw.bb.i.i.i1266, %sw.epilog.i.i.i873, %sw.bb84.i.i.i488, %sw.bb82.i.i.i489, %sw.bb80.i.i.i490, %sw.bb78.i.i.i491, %sw.bb76.i.i.i492, %sw.bb74.i.i.i493, %sw.bb72.i.i.i494, %sw.bb70.i.i.i495, %sw.bb68.i.i.i496, %sw.bb66.i.i.i497, %sw.bb64.i.i.i498, %sw.bb62.i.i.i499, %sw.bb60.i.i.i500, %sw.bb58.i.i.i501, %sw.bb56.i.i.i502, %sw.bb54.i.i.i503, %sw.bb52.i.i.i504, %sw.bb50.i.i.i505, %sw.bb48.i.i.i506, %sw.bb46.i.i.i507, %sw.bb44.i.i.i508, %sw.bb42.i.i.i509, %sw.bb40.i.i.i510, %sw.bb38.i.i.i511, %sw.bb36.i.i.i512, %sw.bb34.i.i.i513, %sw.bb32.i.i.i514, %sw.bb30.i.i.i515, %sw.bb28.i.i.i516, %sw.bb26.i.i.i517, %sw.bb24.i.i.i518, %sw.bb22.i.i.i519, %sw.bb20.i.i.i520, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %sw.bb2.i.i.i871, %sw.bb.i.i.i872, %sw.epilog.i.i.i479, %sw.bb84.i.i.i94, %sw.bb82.i.i.i95, %sw.bb80.i.i.i96, %sw.bb78.i.i.i97, %sw.bb76.i.i.i98, %sw.bb74.i.i.i99, %sw.bb72.i.i.i100, %sw.bb70.i.i.i101, %sw.bb68.i.i.i102, %sw.bb66.i.i.i103, %sw.bb64.i.i.i104, %sw.bb62.i.i.i105, %sw.bb60.i.i.i106, %sw.bb58.i.i.i107, %sw.bb56.i.i.i108, %sw.bb54.i.i.i109, %sw.bb52.i.i.i110, %sw.bb50.i.i.i111, %sw.bb48.i.i.i112, %sw.bb46.i.i.i113, %sw.bb44.i.i.i114, %sw.bb42.i.i.i115, %sw.bb40.i.i.i116, %sw.bb38.i.i.i117, %sw.bb36.i.i.i118, %sw.bb34.i.i.i119, %sw.bb32.i.i.i120, %sw.bb30.i.i.i121, %sw.bb28.i.i.i122, %sw.bb26.i.i.i123, %sw.bb24.i.i.i124, %sw.bb22.i.i.i125, %sw.bb20.i.i.i126, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %sw.bb2.i.i.i477, %sw.bb.i.i.i478, %sw.epilog.i.i.i, %sw.bb84.i.i.i, %sw.bb82.i.i.i, %sw.bb80.i.i.i, %sw.bb78.i.i.i, %sw.bb76.i.i.i, %sw.bb74.i.i.i, %sw.bb72.i.i.i, %sw.bb70.i.i.i, %sw.bb68.i.i.i, %sw.bb66.i.i.i, %sw.bb64.i.i.i, %sw.bb62.i.i.i, %sw.bb60.i.i.i, %sw.bb58.i.i.i, %sw.bb56.i.i.i, %sw.bb54.i.i.i, %sw.bb52.i.i.i, %sw.bb50.i.i.i, %sw.bb48.i.i.i, %sw.bb46.i.i.i, %sw.bb44.i.i.i, %sw.bb42.i.i.i, %sw.bb40.i.i.i, %sw.bb38.i.i.i, %sw.bb36.i.i.i, %sw.bb34.i.i.i, %sw.bb32.i.i.i, %sw.bb30.i.i.i, %sw.bb28.i.i.i, %sw.bb26.i.i.i, %sw.bb24.i.i.i, %sw.bb22.i.i.i, %sw.bb20.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom.exit.i.i.i, %sw.bb2.i.i.i, %sw.bb.i.i.i, %sw.epilog, %sw.bb84, %sw.bb82, %sw.bb80, %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %sw.bb2, %sw.bb
   ret void
 }
 
@@ -26548,8 +26548,8 @@ attributes #18 = { builtin nounwind }
 !167 = distinct !{!167, !168, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_: %agg.result"}
 !168 = distinct !{!168, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_"}
 !169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!171 = distinct !{!171, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!170 = distinct !{!170, !171, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!171 = distinct !{!171, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !172 = distinct !{!172, !5}
 !173 = distinct !{!173, !5}
 !174 = !{!175, !170}
@@ -26557,8 +26557,8 @@ attributes #18 = { builtin nounwind }
 !176 = distinct !{!176, !"_ZN5arrow6Status2OKEv"}
 !177 = !{!167, !164}
 !178 = !{!179, !167, !164}
-!179 = distinct !{!179, !180, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!180 = distinct !{!180, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!179 = distinct !{!179, !180, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!180 = distinct !{!180, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIaLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !181 = !{!182, !167, !164}
 !182 = distinct !{!182, !183, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !183 = distinct !{!183, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -26573,8 +26573,8 @@ attributes #18 = { builtin nounwind }
 !192 = distinct !{!192, !193, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_: %agg.result"}
 !193 = distinct !{!193, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_"}
 !194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!196 = distinct !{!196, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!195 = distinct !{!195, !196, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!196 = distinct !{!196, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !197 = distinct !{!197, !5}
 !198 = distinct !{!198, !5}
 !199 = !{!200, !195}
@@ -26582,8 +26582,8 @@ attributes #18 = { builtin nounwind }
 !201 = distinct !{!201, !"_ZN5arrow6Status2OKEv"}
 !202 = !{!192, !189}
 !203 = !{!204, !192, !189}
-!204 = distinct !{!204, !205, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!205 = distinct !{!205, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!204 = distinct !{!204, !205, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!205 = distinct !{!205, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIsLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !206 = !{!207, !192, !189}
 !207 = distinct !{!207, !208, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !208 = distinct !{!208, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -26598,8 +26598,8 @@ attributes #18 = { builtin nounwind }
 !217 = distinct !{!217, !218, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_: %agg.result"}
 !218 = distinct !{!218, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_"}
 !219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!221 = distinct !{!221, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!220 = distinct !{!220, !221, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!221 = distinct !{!221, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !222 = distinct !{!222, !5}
 !223 = distinct !{!223, !5}
 !224 = !{!225, !220}
@@ -26607,8 +26607,8 @@ attributes #18 = { builtin nounwind }
 !226 = distinct !{!226, !"_ZN5arrow6Status2OKEv"}
 !227 = !{!217, !214}
 !228 = !{!229, !217, !214}
-!229 = distinct !{!229, !230, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!230 = distinct !{!230, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!229 = distinct !{!229, !230, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!230 = distinct !{!230, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIiLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !231 = !{!232, !217, !214}
 !232 = distinct !{!232, !233, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !233 = distinct !{!233, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -26623,8 +26623,8 @@ attributes #18 = { builtin nounwind }
 !242 = distinct !{!242, !243, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_: %agg.result"}
 !243 = distinct !{!243, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_"}
 !244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!246 = distinct !{!246, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!245 = distinct !{!245, !246, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!246 = distinct !{!246, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !247 = distinct !{!247, !5}
 !248 = distinct !{!248, !5}
 !249 = !{!250, !245}
@@ -26632,8 +26632,8 @@ attributes #18 = { builtin nounwind }
 !251 = distinct !{!251, !"_ZN5arrow6Status2OKEv"}
 !252 = !{!242, !239}
 !253 = !{!254, !242, !239}
-!254 = distinct !{!254, !255, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!255 = distinct !{!255, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!254 = distinct !{!254, !255, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!255 = distinct !{!255, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIlLb1EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !256 = !{!257, !242, !239}
 !257 = distinct !{!257, !258, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !258 = distinct !{!258, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -26651,8 +26651,8 @@ attributes #18 = { builtin nounwind }
 !270 = distinct !{!270, !271, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_: %agg.result"}
 !271 = distinct !{!271, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_"}
 !272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!274 = distinct !{!274, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!273 = distinct !{!273, !274, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!274 = distinct !{!274, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !275 = !{!270, !264}
 !276 = !{!273, !270, !264}
 !277 = distinct !{!277, !5}
@@ -26661,8 +26661,8 @@ attributes #18 = { builtin nounwind }
 !280 = distinct !{!280, !281, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !281 = distinct !{!281, !"_ZN5arrow6Status2OKEv"}
 !282 = !{!283, !270, !264}
-!283 = distinct !{!283, !284, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!284 = distinct !{!284, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!283 = distinct !{!283, !284, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!284 = distinct !{!284, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIhLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !285 = !{!286}
 !286 = distinct !{!286, !287, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !287 = distinct !{!287, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -26683,8 +26683,8 @@ attributes #18 = { builtin nounwind }
 !302 = distinct !{!302, !303, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_: %agg.result"}
 !303 = distinct !{!303, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_"}
 !304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!306 = distinct !{!306, !"_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!305 = distinct !{!305, !306, !"_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!306 = distinct !{!306, !"_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !307 = !{!302, !296}
 !308 = !{!305, !302, !296}
 !309 = distinct !{!309, !5}
@@ -26693,8 +26693,8 @@ attributes #18 = { builtin nounwind }
 !312 = distinct !{!312, !313, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !313 = distinct !{!313, !"_ZN5arrow6Status2OKEv"}
 !314 = !{!315, !302, !296}
-!315 = distinct !{!315, !316, !"_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!316 = distinct !{!316, !"_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!315 = distinct !{!315, !316, !"_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!316 = distinct !{!316, !"_ZZN5arrow8internalL20CheckIndexBoundsImplItLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !317 = !{!318}
 !318 = distinct !{!318, !319, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !319 = distinct !{!319, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -26715,8 +26715,8 @@ attributes #18 = { builtin nounwind }
 !334 = distinct !{!334, !335, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_: %agg.result"}
 !335 = distinct !{!335, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_"}
 !336 = !{!337}
-!337 = distinct !{!337, !338, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!338 = distinct !{!338, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!337 = distinct !{!337, !338, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!338 = distinct !{!338, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !339 = !{!334, !328}
 !340 = !{!337, !334, !328}
 !341 = distinct !{!341, !5}
@@ -26725,8 +26725,8 @@ attributes #18 = { builtin nounwind }
 !344 = distinct !{!344, !345, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !345 = distinct !{!345, !"_ZN5arrow6Status2OKEv"}
 !346 = !{!347, !334, !328}
-!347 = distinct !{!347, !348, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!348 = distinct !{!348, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!347 = distinct !{!347, !348, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!348 = distinct !{!348, !"_ZZN5arrow8internalL20CheckIndexBoundsImplIjLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !349 = !{!350}
 !350 = distinct !{!350, !351, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !351 = distinct !{!351, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -26744,8 +26744,8 @@ attributes #18 = { builtin nounwind }
 !363 = distinct !{!363, !364, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_: %agg.result"}
 !364 = distinct !{!364, !"_ZN5arrow8internal15VisitSetBitRunsIZNS0_L20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmEUlllE_EES3_PKhllOT_"}
 !365 = !{!366}
-!366 = distinct !{!366, !367, !"_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!367 = distinct !{!367, !"_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!366 = distinct !{!366, !367, !"_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!367 = distinct !{!367, !"_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !368 = !{!363, !360}
 !369 = !{!366, !363, !360}
 !370 = distinct !{!370, !5}
@@ -26754,8 +26754,8 @@ attributes #18 = { builtin nounwind }
 !373 = distinct !{!373, !374, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !374 = distinct !{!374, !"_ZN5arrow6Status2OKEv"}
 !375 = !{!376, !363, !360}
-!376 = distinct !{!376, !377, !"_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll: %agg.result"}
-!377 = distinct !{!377, !"_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll"}
+!376 = distinct !{!376, !377, !"_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom: %agg.result"}
+!377 = distinct !{!377, !"_ZZN5arrow8internalL20CheckIndexBoundsImplImLb0EEENS_6StatusERKNS_9ArraySpanEmENKUlllE_clEll.argprom"}
 !378 = !{!379}
 !379 = distinct !{!379, !380, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !380 = distinct !{!380, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -26914,8 +26914,8 @@ attributes #18 = { builtin nounwind }
 !533 = distinct !{!533, !534, !"_ZN5arrow10TypeTraitsINS_8Int8TypeEE14type_singletonEv: %agg.result"}
 !534 = distinct !{!534, !"_ZN5arrow10TypeTraitsINS_8Int8TypeEE14type_singletonEv"}
 !535 = !{!533, !536}
-!536 = distinct !{!536, !537, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE: %agg.result"}
-!537 = distinct !{!537, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE"}
+!536 = distinct !{!536, !537, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom: %agg.result"}
+!537 = distinct !{!537, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom"}
 !538 = !{!536}
 !539 = !{!540}
 !540 = distinct !{!540, !541, !"_ZN5arrow10TypeTraitsINS_8Int8TypeEE14type_singletonEv: %agg.result"}
@@ -26925,8 +26925,8 @@ attributes #18 = { builtin nounwind }
 !544 = distinct !{!544, !545, !"_ZN5arrow10TypeTraitsINS_9Int16TypeEE14type_singletonEv: %agg.result"}
 !545 = distinct !{!545, !"_ZN5arrow10TypeTraitsINS_9Int16TypeEE14type_singletonEv"}
 !546 = !{!544, !547}
-!547 = distinct !{!547, !548, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE: %agg.result"}
-!548 = distinct !{!548, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE"}
+!547 = distinct !{!547, !548, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom: %agg.result"}
+!548 = distinct !{!548, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom"}
 !549 = !{!547}
 !550 = !{!551}
 !551 = distinct !{!551, !552, !"_ZN5arrow10TypeTraitsINS_9Int16TypeEE14type_singletonEv: %agg.result"}
@@ -26936,8 +26936,8 @@ attributes #18 = { builtin nounwind }
 !555 = distinct !{!555, !556, !"_ZN5arrow10TypeTraitsINS_9Int32TypeEE14type_singletonEv: %agg.result"}
 !556 = distinct !{!556, !"_ZN5arrow10TypeTraitsINS_9Int32TypeEE14type_singletonEv"}
 !557 = !{!555, !558}
-!558 = distinct !{!558, !559, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE: %agg.result"}
-!559 = distinct !{!559, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE"}
+!558 = distinct !{!558, !559, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom: %agg.result"}
+!559 = distinct !{!559, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom"}
 !560 = !{!558}
 !561 = !{!562}
 !562 = distinct !{!562, !563, !"_ZN5arrow10TypeTraitsINS_9Int32TypeEE14type_singletonEv: %agg.result"}
@@ -26947,8 +26947,8 @@ attributes #18 = { builtin nounwind }
 !566 = distinct !{!566, !567, !"_ZN5arrow10TypeTraitsINS_9Int64TypeEE14type_singletonEv: %agg.result"}
 !567 = distinct !{!567, !"_ZN5arrow10TypeTraitsINS_9Int64TypeEE14type_singletonEv"}
 !568 = !{!566, !569}
-!569 = distinct !{!569, !570, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE: %agg.result"}
-!570 = distinct !{!570, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE"}
+!569 = distinct !{!569, !570, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom: %agg.result"}
+!570 = distinct !{!570, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int64TypeElNS_11Int64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom"}
 !571 = !{!569}
 !572 = !{!573}
 !573 = distinct !{!573, !574, !"_ZN5arrow10TypeTraitsINS_9Int64TypeEE14type_singletonEv: %agg.result"}
@@ -26958,8 +26958,8 @@ attributes #18 = { builtin nounwind }
 !577 = distinct !{!577, !578, !"_ZN5arrow10TypeTraitsINS_9UInt8TypeEE14type_singletonEv: %agg.result"}
 !578 = distinct !{!578, !"_ZN5arrow10TypeTraitsINS_9UInt8TypeEE14type_singletonEv"}
 !579 = !{!577, !580}
-!580 = distinct !{!580, !581, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE: %agg.result"}
-!581 = distinct !{!581, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE"}
+!580 = distinct !{!580, !581, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom: %agg.result"}
+!581 = distinct !{!581, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom"}
 !582 = !{!580}
 !583 = !{!584}
 !584 = distinct !{!584, !585, !"_ZN5arrow10TypeTraitsINS_9UInt8TypeEE14type_singletonEv: %agg.result"}
@@ -26969,8 +26969,8 @@ attributes #18 = { builtin nounwind }
 !588 = distinct !{!588, !589, !"_ZN5arrow10TypeTraitsINS_10UInt16TypeEE14type_singletonEv: %agg.result"}
 !589 = distinct !{!589, !"_ZN5arrow10TypeTraitsINS_10UInt16TypeEE14type_singletonEv"}
 !590 = !{!588, !591}
-!591 = distinct !{!591, !592, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE: %agg.result"}
-!592 = distinct !{!592, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE"}
+!591 = distinct !{!591, !592, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom: %agg.result"}
+!592 = distinct !{!592, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt16ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom"}
 !593 = !{!591}
 !594 = !{!595}
 !595 = distinct !{!595, !596, !"_ZN5arrow10TypeTraitsINS_10UInt16TypeEE14type_singletonEv: %agg.result"}
@@ -26980,8 +26980,8 @@ attributes #18 = { builtin nounwind }
 !599 = distinct !{!599, !600, !"_ZN5arrow10TypeTraitsINS_10UInt32TypeEE14type_singletonEv: %agg.result"}
 !600 = distinct !{!600, !"_ZN5arrow10TypeTraitsINS_10UInt32TypeEE14type_singletonEv"}
 !601 = !{!599, !602}
-!602 = distinct !{!602, !603, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE: %agg.result"}
-!603 = distinct !{!603, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE"}
+!602 = distinct !{!602, !603, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom: %agg.result"}
+!603 = distinct !{!603, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt32ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom"}
 !604 = !{!602}
 !605 = !{!606}
 !606 = distinct !{!606, !607, !"_ZN5arrow10TypeTraitsINS_10UInt32TypeEE14type_singletonEv: %agg.result"}
@@ -26991,8 +26991,8 @@ attributes #18 = { builtin nounwind }
 !610 = distinct !{!610, !611, !"_ZN5arrow10TypeTraitsINS_10UInt64TypeEE14type_singletonEv: %agg.result"}
 !611 = distinct !{!611, !"_ZN5arrow10TypeTraitsINS_10UInt64TypeEE14type_singletonEv"}
 !612 = !{!610, !613}
-!613 = distinct !{!613, !614, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE: %agg.result"}
-!614 = distinct !{!614, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE"}
+!613 = distinct !{!613, !614, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom: %agg.result"}
+!614 = distinct !{!614, !"_ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt64TypeEmNS_12UInt64ScalarEEENS_6StatusERKNS_9ArraySpanERKNS_8DataTypeE.argprom"}
 !615 = !{!613}
 !616 = !{!617}
 !617 = distinct !{!617, !618, !"_ZN5arrow10TypeTraitsINS_10UInt64TypeEE14type_singletonEv: %agg.result"}
@@ -27003,521 +27003,521 @@ attributes #18 = { builtin nounwind }
 !622 = distinct !{!622, !"_ZN5arrow6Status2OKEv"}
 !623 = distinct !{!623, !5}
 !624 = !{!625}
-!625 = distinct !{!625, !626, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_: %agg.result"}
-!626 = distinct !{!626, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_"}
+!625 = distinct !{!625, !626, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom: %agg.result"}
+!626 = distinct !{!626, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom"}
 !627 = !{!628}
-!628 = distinct !{!628, !629, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaEclERKNS_8DataTypeE: %agg.result"}
-!629 = distinct !{!629, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaEclERKNS_8DataTypeE"}
+!628 = distinct !{!628, !629, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaEclERKNS_8DataTypeE.argprom: %agg.result"}
+!629 = distinct !{!629, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaEclERKNS_8DataTypeE.argprom"}
 !630 = !{!631}
-!631 = distinct !{!631, !632, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIaEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
-!632 = distinct !{!632, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIaEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
+!631 = distinct !{!631, !632, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIaEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom: %agg.result"}
+!632 = distinct !{!632, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIaEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom"}
 !633 = !{!634}
-!634 = distinct !{!634, !635, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!635 = distinct !{!635, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!634 = distinct !{!634, !635, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!635 = distinct !{!635, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !636 = !{!634, !631, !628, !625}
 !637 = !{!638, !634, !631, !628, !625}
 !638 = distinct !{!638, !639, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !639 = distinct !{!639, !"_ZN5arrow6Status2OKEv"}
 !640 = !{!641}
-!641 = distinct !{!641, !642, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!642 = distinct !{!642, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!641 = distinct !{!641, !642, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!642 = distinct !{!642, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !643 = !{!641, !631, !628, !625}
 !644 = !{!645, !641, !631, !628, !625}
 !645 = distinct !{!645, !646, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !646 = distinct !{!646, !"_ZN5arrow6Status2OKEv"}
 !647 = !{!648}
-!648 = distinct !{!648, !649, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!649 = distinct !{!649, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!648 = distinct !{!648, !649, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!649 = distinct !{!649, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !650 = !{!648, !631, !628, !625}
 !651 = !{!652, !648, !631, !628, !625}
 !652 = distinct !{!652, !653, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !653 = distinct !{!653, !"_ZN5arrow6Status2OKEv"}
 !654 = !{!655}
-!655 = distinct !{!655, !656, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!656 = distinct !{!656, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!655 = distinct !{!655, !656, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!656 = distinct !{!656, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !657 = !{!655, !631, !628, !625}
 !658 = !{!659, !655, !631, !628, !625}
 !659 = distinct !{!659, !660, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !660 = distinct !{!660, !"_ZN5arrow6Status2OKEv"}
 !661 = !{!662}
-!662 = distinct !{!662, !663, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!663 = distinct !{!663, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!662 = distinct !{!662, !663, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!663 = distinct !{!663, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !664 = !{!662, !631, !628, !625}
 !665 = !{!666, !662, !631, !628, !625}
 !666 = distinct !{!666, !667, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !667 = distinct !{!667, !"_ZN5arrow6Status2OKEv"}
 !668 = !{!669}
-!669 = distinct !{!669, !670, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!670 = distinct !{!670, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!669 = distinct !{!669, !670, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!670 = distinct !{!670, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !671 = !{!669, !631, !628, !625}
 !672 = !{!673, !669, !631, !628, !625}
 !673 = distinct !{!673, !674, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !674 = distinct !{!674, !"_ZN5arrow6Status2OKEv"}
 !675 = !{!676}
-!676 = distinct !{!676, !677, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!677 = distinct !{!677, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!676 = distinct !{!676, !677, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!677 = distinct !{!677, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !678 = !{!676, !631, !628, !625}
 !679 = !{!680, !676, !631, !628, !625}
 !680 = distinct !{!680, !681, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !681 = distinct !{!681, !"_ZN5arrow6Status2OKEv"}
 !682 = !{!683}
-!683 = distinct !{!683, !684, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!684 = distinct !{!684, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!683 = distinct !{!683, !684, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!684 = distinct !{!684, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !685 = !{!683, !631, !628, !625}
 !686 = !{!687, !683, !631, !628, !625}
 !687 = distinct !{!687, !688, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !688 = distinct !{!688, !"_ZN5arrow6Status2OKEv"}
 !689 = !{!690}
-!690 = distinct !{!690, !691, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_: %agg.result"}
-!691 = distinct !{!691, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_"}
+!690 = distinct !{!690, !691, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom: %agg.result"}
+!691 = distinct !{!691, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom"}
 !692 = !{!693}
-!693 = distinct !{!693, !694, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhEclERKNS_8DataTypeE: %agg.result"}
-!694 = distinct !{!694, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhEclERKNS_8DataTypeE"}
+!693 = distinct !{!693, !694, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhEclERKNS_8DataTypeE.argprom: %agg.result"}
+!694 = distinct !{!694, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhEclERKNS_8DataTypeE.argprom"}
 !695 = !{!696}
-!696 = distinct !{!696, !697, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIhEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
-!697 = distinct !{!697, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIhEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
+!696 = distinct !{!696, !697, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIhEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom: %agg.result"}
+!697 = distinct !{!697, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIhEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom"}
 !698 = !{!699}
-!699 = distinct !{!699, !700, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!700 = distinct !{!700, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!699 = distinct !{!699, !700, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!700 = distinct !{!700, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !701 = !{!699, !696, !693, !690}
 !702 = !{!703, !699, !696, !693, !690}
 !703 = distinct !{!703, !704, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !704 = distinct !{!704, !"_ZN5arrow6Status2OKEv"}
 !705 = !{!706}
-!706 = distinct !{!706, !707, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!707 = distinct !{!707, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!706 = distinct !{!706, !707, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!707 = distinct !{!707, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !708 = !{!706, !696, !693, !690}
 !709 = !{!710, !706, !696, !693, !690}
 !710 = distinct !{!710, !711, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !711 = distinct !{!711, !"_ZN5arrow6Status2OKEv"}
 !712 = !{!713}
-!713 = distinct !{!713, !714, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!714 = distinct !{!714, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!713 = distinct !{!713, !714, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!714 = distinct !{!714, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !715 = !{!713, !696, !693, !690}
 !716 = !{!717, !713, !696, !693, !690}
 !717 = distinct !{!717, !718, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !718 = distinct !{!718, !"_ZN5arrow6Status2OKEv"}
 !719 = !{!720}
-!720 = distinct !{!720, !721, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!721 = distinct !{!721, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!720 = distinct !{!720, !721, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!721 = distinct !{!721, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !722 = !{!720, !696, !693, !690}
 !723 = !{!724, !720, !696, !693, !690}
 !724 = distinct !{!724, !725, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !725 = distinct !{!725, !"_ZN5arrow6Status2OKEv"}
 !726 = !{!727}
-!727 = distinct !{!727, !728, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!728 = distinct !{!728, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!727 = distinct !{!727, !728, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!728 = distinct !{!728, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !729 = !{!727, !696, !693, !690}
 !730 = !{!731, !727, !696, !693, !690}
 !731 = distinct !{!731, !732, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !732 = distinct !{!732, !"_ZN5arrow6Status2OKEv"}
 !733 = !{!734}
-!734 = distinct !{!734, !735, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!735 = distinct !{!735, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!734 = distinct !{!734, !735, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!735 = distinct !{!735, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !736 = !{!734, !696, !693, !690}
 !737 = !{!738, !734, !696, !693, !690}
 !738 = distinct !{!738, !739, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !739 = distinct !{!739, !"_ZN5arrow6Status2OKEv"}
 !740 = !{!741}
-!741 = distinct !{!741, !742, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!742 = distinct !{!742, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!741 = distinct !{!741, !742, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!742 = distinct !{!742, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !743 = !{!741, !696, !693, !690}
 !744 = !{!745, !741, !696, !693, !690}
 !745 = distinct !{!745, !746, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !746 = distinct !{!746, !"_ZN5arrow6Status2OKEv"}
 !747 = !{!748}
-!748 = distinct !{!748, !749, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!749 = distinct !{!749, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!748 = distinct !{!748, !749, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!749 = distinct !{!749, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !750 = !{!748, !696, !693, !690}
 !751 = !{!752, !748, !696, !693, !690}
 !752 = distinct !{!752, !753, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !753 = distinct !{!753, !"_ZN5arrow6Status2OKEv"}
 !754 = !{!755}
-!755 = distinct !{!755, !756, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_: %agg.result"}
-!756 = distinct !{!756, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_"}
+!755 = distinct !{!755, !756, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom: %agg.result"}
+!756 = distinct !{!756, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom"}
 !757 = !{!758}
-!758 = distinct !{!758, !759, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsEclERKNS_8DataTypeE: %agg.result"}
-!759 = distinct !{!759, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsEclERKNS_8DataTypeE"}
+!758 = distinct !{!758, !759, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsEclERKNS_8DataTypeE.argprom: %agg.result"}
+!759 = distinct !{!759, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsEclERKNS_8DataTypeE.argprom"}
 !760 = !{!761}
-!761 = distinct !{!761, !762, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIsEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
-!762 = distinct !{!762, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIsEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
+!761 = distinct !{!761, !762, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIsEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom: %agg.result"}
+!762 = distinct !{!762, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIsEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom"}
 !763 = !{!764}
-!764 = distinct !{!764, !765, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!765 = distinct !{!765, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!764 = distinct !{!764, !765, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!765 = distinct !{!765, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !766 = !{!764, !761, !758, !755}
 !767 = !{!768, !764, !761, !758, !755}
 !768 = distinct !{!768, !769, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !769 = distinct !{!769, !"_ZN5arrow6Status2OKEv"}
 !770 = !{!771}
-!771 = distinct !{!771, !772, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!772 = distinct !{!772, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!771 = distinct !{!771, !772, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!772 = distinct !{!772, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !773 = !{!771, !761, !758, !755}
 !774 = !{!775, !771, !761, !758, !755}
 !775 = distinct !{!775, !776, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !776 = distinct !{!776, !"_ZN5arrow6Status2OKEv"}
 !777 = !{!778}
-!778 = distinct !{!778, !779, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!779 = distinct !{!779, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!778 = distinct !{!778, !779, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!779 = distinct !{!779, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !780 = !{!778, !761, !758, !755}
 !781 = !{!782, !778, !761, !758, !755}
 !782 = distinct !{!782, !783, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !783 = distinct !{!783, !"_ZN5arrow6Status2OKEv"}
 !784 = !{!785}
-!785 = distinct !{!785, !786, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!786 = distinct !{!786, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!785 = distinct !{!785, !786, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!786 = distinct !{!786, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !787 = !{!785, !761, !758, !755}
 !788 = !{!789, !785, !761, !758, !755}
 !789 = distinct !{!789, !790, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !790 = distinct !{!790, !"_ZN5arrow6Status2OKEv"}
 !791 = !{!792}
-!792 = distinct !{!792, !793, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!793 = distinct !{!793, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!792 = distinct !{!792, !793, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!793 = distinct !{!793, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !794 = !{!792, !761, !758, !755}
 !795 = !{!796, !792, !761, !758, !755}
 !796 = distinct !{!796, !797, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !797 = distinct !{!797, !"_ZN5arrow6Status2OKEv"}
 !798 = !{!799}
-!799 = distinct !{!799, !800, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!800 = distinct !{!800, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!799 = distinct !{!799, !800, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!800 = distinct !{!800, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !801 = !{!799, !761, !758, !755}
 !802 = !{!803, !799, !761, !758, !755}
 !803 = distinct !{!803, !804, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !804 = distinct !{!804, !"_ZN5arrow6Status2OKEv"}
 !805 = !{!806}
-!806 = distinct !{!806, !807, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!807 = distinct !{!807, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!806 = distinct !{!806, !807, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!807 = distinct !{!807, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !808 = !{!806, !761, !758, !755}
 !809 = !{!810, !806, !761, !758, !755}
 !810 = distinct !{!810, !811, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !811 = distinct !{!811, !"_ZN5arrow6Status2OKEv"}
 !812 = !{!813}
-!813 = distinct !{!813, !814, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!814 = distinct !{!814, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!813 = distinct !{!813, !814, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!814 = distinct !{!814, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !815 = !{!813, !761, !758, !755}
 !816 = !{!817, !813, !761, !758, !755}
 !817 = distinct !{!817, !818, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !818 = distinct !{!818, !"_ZN5arrow6Status2OKEv"}
 !819 = !{!820}
-!820 = distinct !{!820, !821, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_: %agg.result"}
-!821 = distinct !{!821, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_"}
+!820 = distinct !{!820, !821, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom: %agg.result"}
+!821 = distinct !{!821, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom"}
 !822 = !{!823}
-!823 = distinct !{!823, !824, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItEclERKNS_8DataTypeE: %agg.result"}
-!824 = distinct !{!824, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItEclERKNS_8DataTypeE"}
+!823 = distinct !{!823, !824, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItEclERKNS_8DataTypeE.argprom: %agg.result"}
+!824 = distinct !{!824, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItEclERKNS_8DataTypeE.argprom"}
 !825 = !{!826}
-!826 = distinct !{!826, !827, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestItEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
-!827 = distinct !{!827, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestItEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
+!826 = distinct !{!826, !827, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestItEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom: %agg.result"}
+!827 = distinct !{!827, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestItEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom"}
 !828 = !{!829}
-!829 = distinct !{!829, !830, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!830 = distinct !{!830, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!829 = distinct !{!829, !830, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!830 = distinct !{!830, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !831 = !{!829, !826, !823, !820}
 !832 = !{!833, !829, !826, !823, !820}
 !833 = distinct !{!833, !834, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !834 = distinct !{!834, !"_ZN5arrow6Status2OKEv"}
 !835 = !{!836}
-!836 = distinct !{!836, !837, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!837 = distinct !{!837, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!836 = distinct !{!836, !837, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!837 = distinct !{!837, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !838 = !{!836, !826, !823, !820}
 !839 = !{!840, !836, !826, !823, !820}
 !840 = distinct !{!840, !841, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !841 = distinct !{!841, !"_ZN5arrow6Status2OKEv"}
 !842 = !{!843}
-!843 = distinct !{!843, !844, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!844 = distinct !{!844, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!843 = distinct !{!843, !844, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!844 = distinct !{!844, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !845 = !{!843, !826, !823, !820}
 !846 = !{!847, !843, !826, !823, !820}
 !847 = distinct !{!847, !848, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !848 = distinct !{!848, !"_ZN5arrow6Status2OKEv"}
 !849 = !{!850}
-!850 = distinct !{!850, !851, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!851 = distinct !{!851, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!850 = distinct !{!850, !851, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!851 = distinct !{!851, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !852 = !{!850, !826, !823, !820}
 !853 = !{!854, !850, !826, !823, !820}
 !854 = distinct !{!854, !855, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !855 = distinct !{!855, !"_ZN5arrow6Status2OKEv"}
 !856 = !{!857}
-!857 = distinct !{!857, !858, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!858 = distinct !{!858, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!857 = distinct !{!857, !858, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!858 = distinct !{!858, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !859 = !{!857, !826, !823, !820}
 !860 = !{!861, !857, !826, !823, !820}
 !861 = distinct !{!861, !862, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !862 = distinct !{!862, !"_ZN5arrow6Status2OKEv"}
 !863 = !{!864}
-!864 = distinct !{!864, !865, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!865 = distinct !{!865, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!864 = distinct !{!864, !865, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!865 = distinct !{!865, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !866 = !{!864, !826, !823, !820}
 !867 = !{!868, !864, !826, !823, !820}
 !868 = distinct !{!868, !869, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !869 = distinct !{!869, !"_ZN5arrow6Status2OKEv"}
 !870 = !{!871}
-!871 = distinct !{!871, !872, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!872 = distinct !{!872, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!871 = distinct !{!871, !872, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!872 = distinct !{!872, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !873 = !{!871, !826, !823, !820}
 !874 = !{!875, !871, !826, !823, !820}
 !875 = distinct !{!875, !876, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !876 = distinct !{!876, !"_ZN5arrow6Status2OKEv"}
 !877 = !{!878}
-!878 = distinct !{!878, !879, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!879 = distinct !{!879, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!878 = distinct !{!878, !879, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!879 = distinct !{!879, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !880 = !{!878, !826, !823, !820}
 !881 = !{!882, !878, !826, !823, !820}
 !882 = distinct !{!882, !883, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !883 = distinct !{!883, !"_ZN5arrow6Status2OKEv"}
 !884 = !{!885}
-!885 = distinct !{!885, !886, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_: %agg.result"}
-!886 = distinct !{!886, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_"}
+!885 = distinct !{!885, !886, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom: %agg.result"}
+!886 = distinct !{!886, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom"}
 !887 = !{!888}
-!888 = distinct !{!888, !889, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiEclERKNS_8DataTypeE: %agg.result"}
-!889 = distinct !{!889, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiEclERKNS_8DataTypeE"}
+!888 = distinct !{!888, !889, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiEclERKNS_8DataTypeE.argprom: %agg.result"}
+!889 = distinct !{!889, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiEclERKNS_8DataTypeE.argprom"}
 !890 = !{!891}
-!891 = distinct !{!891, !892, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIiEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
-!892 = distinct !{!892, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIiEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
+!891 = distinct !{!891, !892, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIiEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom: %agg.result"}
+!892 = distinct !{!892, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIiEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom"}
 !893 = !{!894}
-!894 = distinct !{!894, !895, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!895 = distinct !{!895, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!894 = distinct !{!894, !895, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!895 = distinct !{!895, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !896 = !{!894, !891, !888, !885}
 !897 = !{!898, !894, !891, !888, !885}
 !898 = distinct !{!898, !899, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !899 = distinct !{!899, !"_ZN5arrow6Status2OKEv"}
 !900 = !{!901}
-!901 = distinct !{!901, !902, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!902 = distinct !{!902, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!901 = distinct !{!901, !902, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!902 = distinct !{!902, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !903 = !{!901, !891, !888, !885}
 !904 = !{!905, !901, !891, !888, !885}
 !905 = distinct !{!905, !906, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !906 = distinct !{!906, !"_ZN5arrow6Status2OKEv"}
 !907 = !{!908}
-!908 = distinct !{!908, !909, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!909 = distinct !{!909, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!908 = distinct !{!908, !909, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!909 = distinct !{!909, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !910 = !{!908, !891, !888, !885}
 !911 = !{!912, !908, !891, !888, !885}
 !912 = distinct !{!912, !913, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !913 = distinct !{!913, !"_ZN5arrow6Status2OKEv"}
 !914 = !{!915}
-!915 = distinct !{!915, !916, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!916 = distinct !{!916, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!915 = distinct !{!915, !916, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!916 = distinct !{!916, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !917 = !{!915, !891, !888, !885}
 !918 = !{!919, !915, !891, !888, !885}
 !919 = distinct !{!919, !920, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !920 = distinct !{!920, !"_ZN5arrow6Status2OKEv"}
 !921 = !{!922}
-!922 = distinct !{!922, !923, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!923 = distinct !{!923, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!922 = distinct !{!922, !923, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!923 = distinct !{!923, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !924 = !{!922, !891, !888, !885}
 !925 = !{!926, !922, !891, !888, !885}
 !926 = distinct !{!926, !927, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !927 = distinct !{!927, !"_ZN5arrow6Status2OKEv"}
 !928 = !{!929}
-!929 = distinct !{!929, !930, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!930 = distinct !{!930, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!929 = distinct !{!929, !930, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!930 = distinct !{!930, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !931 = !{!929, !891, !888, !885}
 !932 = !{!933, !929, !891, !888, !885}
 !933 = distinct !{!933, !934, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !934 = distinct !{!934, !"_ZN5arrow6Status2OKEv"}
 !935 = !{!936}
-!936 = distinct !{!936, !937, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!937 = distinct !{!937, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!936 = distinct !{!936, !937, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!937 = distinct !{!937, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !938 = !{!936, !891, !888, !885}
 !939 = !{!940, !936, !891, !888, !885}
 !940 = distinct !{!940, !941, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !941 = distinct !{!941, !"_ZN5arrow6Status2OKEv"}
 !942 = !{!943}
-!943 = distinct !{!943, !944, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!944 = distinct !{!944, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!943 = distinct !{!943, !944, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!944 = distinct !{!944, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !945 = !{!943, !891, !888, !885}
 !946 = !{!947, !943, !891, !888, !885}
 !947 = distinct !{!947, !948, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !948 = distinct !{!948, !"_ZN5arrow6Status2OKEv"}
 !949 = !{!950}
-!950 = distinct !{!950, !951, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_: %agg.result"}
-!951 = distinct !{!951, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_"}
+!950 = distinct !{!950, !951, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom: %agg.result"}
+!951 = distinct !{!951, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom"}
 !952 = !{!953}
-!953 = distinct !{!953, !954, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjEclERKNS_8DataTypeE: %agg.result"}
-!954 = distinct !{!954, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjEclERKNS_8DataTypeE"}
+!953 = distinct !{!953, !954, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjEclERKNS_8DataTypeE.argprom: %agg.result"}
+!954 = distinct !{!954, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjEclERKNS_8DataTypeE.argprom"}
 !955 = !{!956}
-!956 = distinct !{!956, !957, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIjEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
-!957 = distinct !{!957, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIjEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
+!956 = distinct !{!956, !957, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIjEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom: %agg.result"}
+!957 = distinct !{!957, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIjEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom"}
 !958 = !{!959}
-!959 = distinct !{!959, !960, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!960 = distinct !{!960, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!959 = distinct !{!959, !960, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!960 = distinct !{!960, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !961 = !{!959, !956, !953, !950}
 !962 = !{!963, !959, !956, !953, !950}
 !963 = distinct !{!963, !964, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !964 = distinct !{!964, !"_ZN5arrow6Status2OKEv"}
 !965 = !{!966}
-!966 = distinct !{!966, !967, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!967 = distinct !{!967, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!966 = distinct !{!966, !967, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!967 = distinct !{!967, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !968 = !{!966, !956, !953, !950}
 !969 = !{!970, !966, !956, !953, !950}
 !970 = distinct !{!970, !971, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !971 = distinct !{!971, !"_ZN5arrow6Status2OKEv"}
 !972 = !{!973}
-!973 = distinct !{!973, !974, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!974 = distinct !{!974, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!973 = distinct !{!973, !974, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!974 = distinct !{!974, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !975 = !{!973, !956, !953, !950}
 !976 = !{!977, !973, !956, !953, !950}
 !977 = distinct !{!977, !978, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !978 = distinct !{!978, !"_ZN5arrow6Status2OKEv"}
 !979 = !{!980}
-!980 = distinct !{!980, !981, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!981 = distinct !{!981, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!980 = distinct !{!980, !981, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!981 = distinct !{!981, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !982 = !{!980, !956, !953, !950}
 !983 = !{!984, !980, !956, !953, !950}
 !984 = distinct !{!984, !985, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !985 = distinct !{!985, !"_ZN5arrow6Status2OKEv"}
 !986 = !{!987}
-!987 = distinct !{!987, !988, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!988 = distinct !{!988, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!987 = distinct !{!987, !988, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!988 = distinct !{!988, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !989 = !{!987, !956, !953, !950}
 !990 = !{!991, !987, !956, !953, !950}
 !991 = distinct !{!991, !992, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !992 = distinct !{!992, !"_ZN5arrow6Status2OKEv"}
 !993 = !{!994}
-!994 = distinct !{!994, !995, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!995 = distinct !{!995, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!994 = distinct !{!994, !995, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!995 = distinct !{!995, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !996 = !{!994, !956, !953, !950}
 !997 = !{!998, !994, !956, !953, !950}
 !998 = distinct !{!998, !999, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !999 = distinct !{!999, !"_ZN5arrow6Status2OKEv"}
 !1000 = !{!1001}
-!1001 = distinct !{!1001, !1002, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1002 = distinct !{!1002, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1001 = distinct !{!1001, !1002, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1002 = distinct !{!1002, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1003 = !{!1001, !956, !953, !950}
 !1004 = !{!1005, !1001, !956, !953, !950}
 !1005 = distinct !{!1005, !1006, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1006 = distinct !{!1006, !"_ZN5arrow6Status2OKEv"}
 !1007 = !{!1008}
-!1008 = distinct !{!1008, !1009, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1009 = distinct !{!1009, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1008 = distinct !{!1008, !1009, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1009 = distinct !{!1009, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1010 = !{!1008, !956, !953, !950}
 !1011 = !{!1012, !1008, !956, !953, !950}
 !1012 = distinct !{!1012, !1013, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1013 = distinct !{!1013, !"_ZN5arrow6Status2OKEv"}
 !1014 = !{!1015}
-!1015 = distinct !{!1015, !1016, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_: %agg.result"}
-!1016 = distinct !{!1016, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_"}
+!1015 = distinct !{!1015, !1016, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom: %agg.result"}
+!1016 = distinct !{!1016, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom"}
 !1017 = !{!1018}
-!1018 = distinct !{!1018, !1019, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlEclERKNS_8DataTypeE: %agg.result"}
-!1019 = distinct !{!1019, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlEclERKNS_8DataTypeE"}
+!1018 = distinct !{!1018, !1019, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlEclERKNS_8DataTypeE.argprom: %agg.result"}
+!1019 = distinct !{!1019, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlEclERKNS_8DataTypeE.argprom"}
 !1020 = !{!1021}
-!1021 = distinct !{!1021, !1022, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIlEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
-!1022 = distinct !{!1022, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIlEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
+!1021 = distinct !{!1021, !1022, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIlEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom: %agg.result"}
+!1022 = distinct !{!1022, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestIlEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom"}
 !1023 = !{!1024}
-!1024 = distinct !{!1024, !1025, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1025 = distinct !{!1025, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1024 = distinct !{!1024, !1025, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1025 = distinct !{!1025, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1026 = !{!1024, !1021, !1018, !1015}
 !1027 = !{!1028, !1024, !1021, !1018, !1015}
 !1028 = distinct !{!1028, !1029, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1029 = distinct !{!1029, !"_ZN5arrow6Status2OKEv"}
 !1030 = !{!1031}
-!1031 = distinct !{!1031, !1032, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1032 = distinct !{!1032, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1031 = distinct !{!1031, !1032, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1032 = distinct !{!1032, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1033 = !{!1031, !1021, !1018, !1015}
 !1034 = !{!1035, !1031, !1021, !1018, !1015}
 !1035 = distinct !{!1035, !1036, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1036 = distinct !{!1036, !"_ZN5arrow6Status2OKEv"}
 !1037 = !{!1038}
-!1038 = distinct !{!1038, !1039, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1039 = distinct !{!1039, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1038 = distinct !{!1038, !1039, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1039 = distinct !{!1039, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1040 = !{!1038, !1021, !1018, !1015}
 !1041 = !{!1042, !1038, !1021, !1018, !1015}
 !1042 = distinct !{!1042, !1043, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1043 = distinct !{!1043, !"_ZN5arrow6Status2OKEv"}
 !1044 = !{!1045}
-!1045 = distinct !{!1045, !1046, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1046 = distinct !{!1046, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1045 = distinct !{!1045, !1046, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1046 = distinct !{!1046, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1047 = !{!1045, !1021, !1018, !1015}
 !1048 = !{!1049, !1045, !1021, !1018, !1015}
 !1049 = distinct !{!1049, !1050, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1050 = distinct !{!1050, !"_ZN5arrow6Status2OKEv"}
 !1051 = !{!1052}
-!1052 = distinct !{!1052, !1053, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1053 = distinct !{!1053, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1052 = distinct !{!1052, !1053, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1053 = distinct !{!1053, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1054 = !{!1052, !1021, !1018, !1015}
 !1055 = !{!1056, !1052, !1021, !1018, !1015}
 !1056 = distinct !{!1056, !1057, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1057 = distinct !{!1057, !"_ZN5arrow6Status2OKEv"}
 !1058 = !{!1059}
-!1059 = distinct !{!1059, !1060, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1060 = distinct !{!1060, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1059 = distinct !{!1059, !1060, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1060 = distinct !{!1060, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1061 = !{!1059, !1021, !1018, !1015}
 !1062 = !{!1063, !1059, !1021, !1018, !1015}
 !1063 = distinct !{!1063, !1064, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1064 = distinct !{!1064, !"_ZN5arrow6Status2OKEv"}
 !1065 = !{!1066}
-!1066 = distinct !{!1066, !1067, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1067 = distinct !{!1067, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1066 = distinct !{!1066, !1067, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1067 = distinct !{!1067, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1068 = !{!1066, !1021, !1018, !1015}
 !1069 = !{!1070, !1066, !1021, !1018, !1015}
 !1070 = distinct !{!1070, !1071, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1071 = distinct !{!1071, !"_ZN5arrow6Status2OKEv"}
 !1072 = !{!1073}
-!1073 = distinct !{!1073, !1074, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1074 = distinct !{!1074, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1073 = distinct !{!1073, !1074, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1074 = distinct !{!1074, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1075 = !{!1073, !1021, !1018, !1015}
 !1076 = !{!1077, !1073, !1021, !1018, !1015}
 !1077 = distinct !{!1077, !1078, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1078 = distinct !{!1078, !"_ZN5arrow6Status2OKEv"}
 !1079 = !{!1080}
-!1080 = distinct !{!1080, !1081, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_: %agg.result"}
-!1081 = distinct !{!1081, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_"}
+!1080 = distinct !{!1080, !1081, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom: %agg.result"}
+!1081 = distinct !{!1081, !"_ZN5arrow8internal12_GLOBAL__N_116TransposeIntsSrc5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS6_.argprom"}
 !1082 = !{!1083}
-!1083 = distinct !{!1083, !1084, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImEclERKNS_8DataTypeE: %agg.result"}
-!1084 = distinct !{!1084, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImEclERKNS_8DataTypeE"}
+!1083 = distinct !{!1083, !1084, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImEclERKNS_8DataTypeE.argprom: %agg.result"}
+!1084 = distinct !{!1084, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImEclERKNS_8DataTypeE.argprom"}
 !1085 = !{!1086}
-!1086 = distinct !{!1086, !1087, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestImEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
-!1087 = distinct !{!1087, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestImEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
+!1086 = distinct !{!1086, !1087, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestImEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom: %agg.result"}
+!1087 = distinct !{!1087, !"_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_117TransposeIntsDestImEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom"}
 !1088 = !{!1089}
-!1089 = distinct !{!1089, !1090, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1090 = distinct !{!1090, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1089 = distinct !{!1089, !1090, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1090 = distinct !{!1090, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1091 = !{!1089, !1086, !1083, !1080}
 !1092 = !{!1093, !1089, !1086, !1083, !1080}
 !1093 = distinct !{!1093, !1094, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1094 = distinct !{!1094, !"_ZN5arrow6Status2OKEv"}
 !1095 = !{!1096}
-!1096 = distinct !{!1096, !1097, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1097 = distinct !{!1097, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1096 = distinct !{!1096, !1097, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1097 = distinct !{!1097, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1098 = !{!1096, !1086, !1083, !1080}
 !1099 = !{!1100, !1096, !1086, !1083, !1080}
 !1100 = distinct !{!1100, !1101, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1101 = distinct !{!1101, !"_ZN5arrow6Status2OKEv"}
 !1102 = !{!1103}
-!1103 = distinct !{!1103, !1104, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1104 = distinct !{!1104, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1103 = distinct !{!1103, !1104, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1104 = distinct !{!1104, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1105 = !{!1103, !1086, !1083, !1080}
 !1106 = !{!1107, !1103, !1086, !1083, !1080}
 !1107 = distinct !{!1107, !1108, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1108 = distinct !{!1108, !"_ZN5arrow6Status2OKEv"}
 !1109 = !{!1110}
-!1110 = distinct !{!1110, !1111, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1111 = distinct !{!1111, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1110 = distinct !{!1110, !1111, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1111 = distinct !{!1111, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1112 = !{!1110, !1086, !1083, !1080}
 !1113 = !{!1114, !1110, !1086, !1083, !1080}
 !1114 = distinct !{!1114, !1115, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1115 = distinct !{!1115, !"_ZN5arrow6Status2OKEv"}
 !1116 = !{!1117}
-!1117 = distinct !{!1117, !1118, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1118 = distinct !{!1118, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1117 = distinct !{!1117, !1118, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1118 = distinct !{!1118, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1119 = !{!1117, !1086, !1083, !1080}
 !1120 = !{!1121, !1117, !1086, !1083, !1080}
 !1121 = distinct !{!1121, !1122, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1122 = distinct !{!1122, !"_ZN5arrow6Status2OKEv"}
 !1123 = !{!1124}
-!1124 = distinct !{!1124, !1125, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1125 = distinct !{!1125, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1124 = distinct !{!1124, !1125, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1125 = distinct !{!1125, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1126 = !{!1124, !1086, !1083, !1080}
 !1127 = !{!1128, !1124, !1086, !1083, !1080}
 !1128 = distinct !{!1128, !1129, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1129 = distinct !{!1129, !"_ZN5arrow6Status2OKEv"}
 !1130 = !{!1131}
-!1131 = distinct !{!1131, !1132, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1132 = distinct !{!1132, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1131 = distinct !{!1131, !1132, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1132 = distinct !{!1132, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1133 = !{!1131, !1086, !1083, !1080}
 !1134 = !{!1135, !1131, !1086, !1083, !1080}
 !1135 = distinct !{!1135, !1136, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1136 = distinct !{!1136, !"_ZN5arrow6Status2OKEv"}
 !1137 = !{!1138}
-!1138 = distinct !{!1138, !1139, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!1139 = distinct !{!1139, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
+!1138 = distinct !{!1138, !1139, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!1139 = distinct !{!1139, !"_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !1140 = !{!1138, !1086, !1083, !1080}
 !1141 = !{!1142, !1138, !1086, !1083, !1080}
 !1142 = distinct !{!1142, !1143, !"_ZN5arrow6Status2OKEv: %agg.result"}

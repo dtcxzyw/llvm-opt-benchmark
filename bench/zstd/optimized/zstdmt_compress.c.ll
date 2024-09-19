@@ -48,22 +48,22 @@ if.end.i:                                         ; preds = %entry
 
 if.end6.i:                                        ; preds = %if.end.i
   %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %ZSTD_customCalloc.exit.i, label %ZSTD_customCalloc.exit.thread.i
+  br i1 %tobool.not.i.i, label %ZSTD_customCalloc.argprom.exit.i, label %ZSTD_customCalloc.argprom.exit.thread.i
 
-ZSTD_customCalloc.exit.thread.i:                  ; preds = %if.end6.i
+ZSTD_customCalloc.argprom.exit.thread.i:          ; preds = %if.end6.i
   %2 = getelementptr inbounds i8, ptr %cMem1, i64 16
   %cMem.val36.i = load ptr, ptr %2, align 8
   %call.i.i = tail call ptr %0(ptr noundef %cMem.val36.i, i64 noundef 3104) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3104) %call.i.i, i8 0, i64 3104, i1 false)
   br label %if.end9.i
 
-ZSTD_customCalloc.exit.i:                         ; preds = %if.end6.i
+ZSTD_customCalloc.argprom.exit.i:                 ; preds = %if.end6.i
   %call2.i.i = tail call noalias dereferenceable_or_null(3104) ptr @calloc(i64 noundef 1, i64 noundef 3104) #15
   %tobool7.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool7.not.i, label %ZSTDMT_createCCtx_advanced_internal.exit, label %if.end9.i
 
-if.end9.i:                                        ; preds = %ZSTD_customCalloc.exit.i, %ZSTD_customCalloc.exit.thread.i
-  %retval.0.i44.i = phi ptr [ %call.i.i, %ZSTD_customCalloc.exit.thread.i ], [ %call2.i.i, %ZSTD_customCalloc.exit.i ]
+if.end9.i:                                        ; preds = %ZSTD_customCalloc.argprom.exit.i, %ZSTD_customCalloc.argprom.exit.thread.i
+  %retval.0.i44.i = phi ptr [ %call.i.i, %ZSTD_customCalloc.argprom.exit.thread.i ], [ %call2.i.i, %ZSTD_customCalloc.argprom.exit.i ]
   %params.i = getelementptr inbounds i8, ptr %retval.0.i44.i, i64 40
   %call.i37.i = tail call i64 @ZSTD_CCtxParams_setParameter(ptr noundef nonnull %params.i, i32 noundef 400, i32 noundef %cond.i) #14
   %cMem11.i = getelementptr inbounds i8, ptr %retval.0.i44.i, i64 3056
@@ -158,8 +158,8 @@ if.then52.i:                                      ; preds = %ZSTDMT_createSeqPoo
   %call53.i = tail call i64 @ZSTDMT_freeCCtx(ptr noundef nonnull %retval.0.i44.i)
   br label %ZSTDMT_createCCtx_advanced_internal.exit
 
-ZSTDMT_createCCtx_advanced_internal.exit:         ; preds = %entry, %if.end.i, %ZSTD_customCalloc.exit.i, %ZSTDMT_createSeqPool.exit.i, %if.then52.i
-  %retval.0.i = phi ptr [ null, %if.then52.i ], [ null, %entry ], [ null, %if.end.i ], [ null, %ZSTD_customCalloc.exit.i ], [ %retval.0.i44.i, %ZSTDMT_createSeqPool.exit.i ]
+ZSTDMT_createCCtx_advanced_internal.exit:         ; preds = %entry, %if.end.i, %ZSTD_customCalloc.argprom.exit.i, %ZSTDMT_createSeqPool.exit.i, %if.then52.i
+  %retval.0.i = phi ptr [ null, %if.then52.i ], [ null, %entry ], [ null, %if.end.i ], [ null, %ZSTD_customCalloc.argprom.exit.i ], [ %retval.0.i44.i, %ZSTDMT_createSeqPool.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cMem1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nbJobs.i)
   ret ptr %retval.0.i
@@ -195,7 +195,7 @@ if.end2:                                          ; preds = %if.then1, %if.end
   %4 = getelementptr i8, ptr %mtctx, i64 3072
   %cMem.val21 = load ptr, ptr %4, align 8
   %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %ZSTDMT_freeJobsTable.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %ZSTDMT_freeJobsTable.argprom.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end2
   %cmp11.not.i = icmp eq i32 %add, 0
@@ -222,13 +222,13 @@ if.then.i.i:                                      ; preds = %for.body.i, %for.co
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
   tail call void %cMem.val20(ptr noundef %cMem.val21, ptr noundef nonnull %1) #14
-  br label %ZSTDMT_freeJobsTable.exit
+  br label %ZSTDMT_freeJobsTable.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @free(ptr noundef nonnull %1) #14
-  br label %ZSTDMT_freeJobsTable.exit
+  br label %ZSTDMT_freeJobsTable.argprom.exit
 
-ZSTDMT_freeJobsTable.exit:                        ; preds = %if.end2, %if.then1.i.i, %if.else.i.i
+ZSTDMT_freeJobsTable.argprom.exit:                ; preds = %if.end2, %if.then1.i.i, %if.else.i.i
   %bufPool = getelementptr inbounds i8, ptr %mtctx, i64 16
   %5 = load ptr, ptr %bufPool, align 8
   tail call fastcc void @ZSTDMT_freeBufferPool(ptr noundef %5)
@@ -253,30 +253,30 @@ ZSTDMT_freeJobsTable.exit:                        ; preds = %if.end2, %if.then1.
   %hashTable.i = getelementptr inbounds i8, ptr %mtctx, i64 688
   %8 = load ptr, ptr %hashTable.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i, label %ZSTD_customFree.exit.i, label %if.then.i.i23
+  br i1 %cmp.not.i.i, label %ZSTD_customFree.argprom.exit.i, label %if.then.i.i23
 
-if.then.i.i23:                                    ; preds = %ZSTDMT_freeJobsTable.exit
+if.then.i.i23:                                    ; preds = %ZSTDMT_freeJobsTable.argprom.exit
   %tobool.not.i.i24 = icmp eq ptr %cMem.sroa.1.0.copyload.i, null
-  br i1 %tobool.not.i.i24, label %ZSTD_customFree.exit.thread.i, label %if.then1.i.i25
+  br i1 %tobool.not.i.i24, label %ZSTD_customFree.argprom.exit.thread.i, label %if.then1.i.i25
 
 if.then1.i.i25:                                   ; preds = %if.then.i.i23
   tail call void %cMem.sroa.1.0.copyload.i(ptr noundef %cMem.sroa.3.0.copyload.i, ptr noundef nonnull %8) #14
-  br label %ZSTD_customFree.exit.i
+  br label %ZSTD_customFree.argprom.exit.i
 
-ZSTD_customFree.exit.i:                           ; preds = %if.then1.i.i25, %ZSTDMT_freeJobsTable.exit
+ZSTD_customFree.argprom.exit.i:                   ; preds = %if.then1.i.i25, %ZSTDMT_freeJobsTable.argprom.exit
   %bucketOffsets.i = getelementptr inbounds i8, ptr %mtctx, i64 704
   %9 = load ptr, ptr %bucketOffsets.i, align 8
   %cmp.not.i10.i = icmp eq ptr %9, null
   br i1 %cmp.not.i10.i, label %ZSTDMT_serialState_free.exit, label %if.then.i11.i
 
-ZSTD_customFree.exit.thread.i:                    ; preds = %if.then.i.i23
+ZSTD_customFree.argprom.exit.thread.i:            ; preds = %if.then.i.i23
   tail call void @free(ptr noundef nonnull %8) #14
   %bucketOffsets16.i = getelementptr inbounds i8, ptr %mtctx, i64 704
   %10 = load ptr, ptr %bucketOffsets16.i, align 8
   %cmp.not.i1017.i = icmp eq ptr %10, null
   br i1 %cmp.not.i1017.i, label %ZSTDMT_serialState_free.exit, label %if.else.i14.i
 
-if.then.i11.i:                                    ; preds = %ZSTD_customFree.exit.i
+if.then.i11.i:                                    ; preds = %ZSTD_customFree.argprom.exit.i
   %tobool.not.i12.i = icmp eq ptr %cMem.sroa.1.0.copyload.i, null
   br i1 %tobool.not.i12.i, label %if.else.i14.i, label %if.then1.i13.i
 
@@ -284,12 +284,12 @@ if.then1.i13.i:                                   ; preds = %if.then.i11.i
   tail call void %cMem.sroa.1.0.copyload.i(ptr noundef %cMem.sroa.3.0.copyload.i, ptr noundef nonnull %9) #14
   br label %ZSTDMT_serialState_free.exit
 
-if.else.i14.i:                                    ; preds = %if.then.i11.i, %ZSTD_customFree.exit.thread.i
-  %11 = phi ptr [ %9, %if.then.i11.i ], [ %10, %ZSTD_customFree.exit.thread.i ]
+if.else.i14.i:                                    ; preds = %if.then.i11.i, %ZSTD_customFree.argprom.exit.thread.i
+  %11 = phi ptr [ %9, %if.then.i11.i ], [ %10, %ZSTD_customFree.argprom.exit.thread.i ]
   tail call void @free(ptr noundef nonnull %11) #14
   br label %ZSTDMT_serialState_free.exit
 
-ZSTDMT_serialState_free.exit:                     ; preds = %ZSTD_customFree.exit.i, %ZSTD_customFree.exit.thread.i, %if.then1.i13.i, %if.else.i14.i
+ZSTDMT_serialState_free.exit:                     ; preds = %ZSTD_customFree.argprom.exit.i, %ZSTD_customFree.argprom.exit.thread.i, %if.then1.i13.i, %if.else.i14.i
   %cdictLocal = getelementptr inbounds i8, ptr %mtctx, i64 3080
   %12 = load ptr, ptr %cdictLocal, align 8
   %call = tail call i64 @ZSTD_freeCDict(ptr noundef %12) #14
@@ -443,15 +443,15 @@ do.end4.lr.ph:                                    ; preds = %for.cond.preheader
   %3 = getelementptr i8, ptr %bufPool, i64 72
   br label %do.end4
 
-do.end4:                                          ; preds = %do.end4.lr.ph, %ZSTD_customFree.exit
-  %indvars.iv = phi i64 [ 0, %do.end4.lr.ph ], [ %indvars.iv.next, %ZSTD_customFree.exit ]
+do.end4:                                          ; preds = %do.end4.lr.ph, %ZSTD_customFree.argprom.exit
+  %indvars.iv = phi i64 [ 0, %do.end4.lr.ph ], [ %indvars.iv.next, %ZSTD_customFree.argprom.exit ]
   %4 = load ptr, ptr %buffers, align 8
   %arrayidx = getelementptr inbounds %struct.buffer_s, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
   %cMem.val = load ptr, ptr %2, align 8
   %cMem.val12 = load ptr, ptr %3, align 8
   %cmp.not.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i, label %ZSTD_customFree.exit, label %if.then.i
+  br i1 %cmp.not.i, label %ZSTD_customFree.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end4
   %tobool.not.i = icmp eq ptr %cMem.val, null
@@ -459,20 +459,20 @@ if.then.i:                                        ; preds = %do.end4
 
 if.then1.i:                                       ; preds = %if.then.i
   tail call void %cMem.val(ptr noundef %cMem.val12, ptr noundef nonnull %5) #14
-  br label %ZSTD_customFree.exit
+  br label %ZSTD_customFree.argprom.exit
 
 if.else.i:                                        ; preds = %if.then.i
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %ZSTD_customFree.exit
+  br label %ZSTD_customFree.argprom.exit
 
-ZSTD_customFree.exit:                             ; preds = %do.end4, %if.then1.i, %if.else.i
+ZSTD_customFree.argprom.exit:                     ; preds = %do.end4, %if.then1.i, %if.else.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %totalBuffers, align 8
   %7 = zext i32 %6 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %do.end4, label %for.end, !llvm.loop !7
 
-for.end:                                          ; preds = %ZSTD_customFree.exit
+for.end:                                          ; preds = %ZSTD_customFree.argprom.exit
   %.pre = load ptr, ptr %buffers, align 8
   %8 = getelementptr i8, ptr %bufPool, i64 64
   %cmp.not.i15 = icmp eq ptr %.pre, null
@@ -923,7 +923,7 @@ if.then.i.i:                                      ; preds = %do.body.i
   %6 = getelementptr i8, ptr %mtctx, i64 3072
   %cMem.val9.i.i = load ptr, ptr %6, align 8
   %cmp.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.i.i, label %ZSTDMT_freeJobsTable.exit.i.i, label %for.cond.preheader.i.i.i
+  br i1 %cmp.i.i.i, label %ZSTDMT_freeJobsTable.argprom.exit.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then.i.i
   %cmp11.not.i.i.i = icmp eq i32 %add1.i.i, 0
@@ -950,26 +950,26 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i, %fo
 
 if.then1.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   tail call void %cMem.val.i.i(ptr noundef %cMem.val9.i.i, ptr noundef nonnull %4) #14
-  br label %ZSTDMT_freeJobsTable.exit.i.i
+  br label %ZSTDMT_freeJobsTable.argprom.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   tail call void @free(ptr noundef nonnull %4) #14
-  br label %ZSTDMT_freeJobsTable.exit.i.i
+  br label %ZSTDMT_freeJobsTable.argprom.exit.i.i
 
-ZSTDMT_freeJobsTable.exit.i.i:                    ; preds = %if.else.i.i.i.i, %if.then1.i.i.i.i, %if.then.i.i
+ZSTDMT_freeJobsTable.argprom.exit.i.i:            ; preds = %if.else.i.i.i.i, %if.then1.i.i.i.i, %if.then.i.i
   store i32 0, ptr %jobIDMask.i.i, align 8
   %call.i.i = call fastcc ptr @ZSTDMT_createJobsTable(ptr noundef %nbJobs.i.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem.i.i)
   store ptr %call.i.i, ptr %jobs.i.i, align 8
   %cmp8.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp8.i.i, label %ZSTDMT_expandJobsTable.exit.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %ZSTDMT_freeJobsTable.exit.i.i
+if.end.i.i:                                       ; preds = %ZSTDMT_freeJobsTable.argprom.exit.i.i
   %7 = load i32, ptr %nbJobs.i.i, align 4
   %sub.i.i = add i32 %7, -1
   store i32 %sub.i.i, ptr %jobIDMask.i.i, align 8
   br label %do.end13.i
 
-ZSTDMT_expandJobsTable.exit.i:                    ; preds = %ZSTDMT_freeJobsTable.exit.i.i
+ZSTDMT_expandJobsTable.exit.i:                    ; preds = %ZSTDMT_freeJobsTable.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nbJobs.i.i)
   br label %return
 
@@ -1423,23 +1423,23 @@ if.then.i96:                                      ; preds = %if.end143
   %64 = getelementptr i8, ptr %mtctx, i64 3072
   %cMem144.val73 = load ptr, ptr %64, align 8
   %call.i97 = tail call ptr %cMem144.val(ptr noundef %cMem144.val73, i64 noundef %add132) #14
-  br label %ZSTD_customMalloc.exit
+  br label %ZSTD_customMalloc.argprom.exit
 
 if.end.i99:                                       ; preds = %if.end143
   %call2.i100 = tail call noalias ptr @malloc(i64 noundef %add132) #16
-  br label %ZSTD_customMalloc.exit
+  br label %ZSTD_customMalloc.argprom.exit
 
-ZSTD_customMalloc.exit:                           ; preds = %if.then.i96, %if.end.i99
+ZSTD_customMalloc.argprom.exit:                   ; preds = %if.then.i96, %if.end.i99
   %retval.0.i98 = phi ptr [ %call.i97, %if.then.i96 ], [ %call2.i100, %if.end.i99 ]
   store ptr %retval.0.i98, ptr %roundBuff, align 8
   %cmp150 = icmp eq ptr %retval.0.i98, null
   br i1 %cmp150, label %if.then152, label %if.end155
 
-if.then152:                                       ; preds = %ZSTD_customMalloc.exit
+if.then152:                                       ; preds = %ZSTD_customMalloc.argprom.exit
   store i64 0, ptr %capacity133, align 8
   br label %return
 
-if.end155:                                        ; preds = %ZSTD_customMalloc.exit
+if.end155:                                        ; preds = %ZSTD_customMalloc.argprom.exit
   store i64 %add132, ptr %capacity133, align 8
   %.pre = load i64, ptr %targetSectionSize, align 8
   br label %do.end160
@@ -1532,7 +1532,7 @@ if.then8.i:                                       ; preds = %if.end4.i
   %hashTable.i = getelementptr inbounds i8, ptr %mtctx, i64 688
   %75 = load ptr, ptr %hashTable.i, align 8
   %cmp26.i = icmp eq ptr %75, null
-  br i1 %cmp26.i, label %ZSTD_customFree.exit.i, label %lor.lhs.false.i
+  br i1 %cmp26.i, label %ZSTD_customFree.argprom.exit.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then8.i
   %76 = load i32, ptr %hashLog16.i, align 4
@@ -1545,31 +1545,31 @@ if.then.i.i122:                                   ; preds = %lor.lhs.false.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i122
   call void %cMem.sroa.3.0.copyload.i(ptr noundef %cMem.sroa.5.0.copyload.i, ptr noundef nonnull %75) #14
-  br label %ZSTD_customFree.exit.i
+  br label %ZSTD_customFree.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i122
   call void @free(ptr noundef nonnull %75) #14
-  br label %ZSTD_customFree.exit.i
+  br label %ZSTD_customFree.argprom.exit.i
 
-ZSTD_customFree.exit.i:                           ; preds = %if.else.i.i, %if.then1.i.i, %if.then8.i
+ZSTD_customFree.argprom.exit.i:                   ; preds = %if.else.i.i, %if.then1.i.i, %if.then8.i
   %tobool.not.i43.i = icmp eq ptr %cMem.sroa.0.0.copyload.i, null
   br i1 %tobool.not.i43.i, label %if.end.i.i124, label %if.then.i44.i
 
-if.then.i44.i:                                    ; preds = %ZSTD_customFree.exit.i
+if.then.i44.i:                                    ; preds = %ZSTD_customFree.argprom.exit.i
   %call.i.i123 = call ptr %cMem.sroa.0.0.copyload.i(ptr noundef %cMem.sroa.5.0.copyload.i, i64 noundef %mul.i111) #14
-  br label %ZSTD_customMalloc.exit.i
+  br label %ZSTD_customMalloc.argprom.exit.i
 
-if.end.i.i124:                                    ; preds = %ZSTD_customFree.exit.i
+if.end.i.i124:                                    ; preds = %ZSTD_customFree.argprom.exit.i
   %call2.i.i = call noalias ptr @malloc(i64 noundef %mul.i111) #16
-  br label %ZSTD_customMalloc.exit.i
+  br label %ZSTD_customMalloc.argprom.exit.i
 
-ZSTD_customMalloc.exit.i:                         ; preds = %if.end.i.i124, %if.then.i44.i
+ZSTD_customMalloc.argprom.exit.i:                 ; preds = %if.end.i.i124, %if.then.i44.i
   %retval.0.i.i = phi ptr [ %call.i.i123, %if.then.i44.i ], [ %call2.i.i, %if.end.i.i124 ]
   store ptr %retval.0.i.i, ptr %hashTable.i, align 8
   br label %if.end37.i
 
-if.end37.i:                                       ; preds = %ZSTD_customMalloc.exit.i, %lor.lhs.false.i
-  %77 = phi ptr [ %retval.0.i.i, %ZSTD_customMalloc.exit.i ], [ %75, %lor.lhs.false.i ]
+if.end37.i:                                       ; preds = %ZSTD_customMalloc.argprom.exit.i, %lor.lhs.false.i
+  %77 = phi ptr [ %retval.0.i.i, %ZSTD_customMalloc.argprom.exit.i ], [ %75, %lor.lhs.false.i ]
   %bucketOffsets.i = getelementptr inbounds i8, ptr %mtctx, i64 704
   %78 = load ptr, ptr %bucketOffsets.i, align 8
   %cmp39.i = icmp eq ptr %78, null
@@ -1578,7 +1578,7 @@ if.end37.i:                                       ; preds = %ZSTD_customMalloc.e
   br i1 %or.cond35.i, label %if.then42.i, label %if.end48.thread.i
 
 if.then42.i:                                      ; preds = %if.end37.i
-  br i1 %cmp39.i, label %ZSTD_customFree.exit50.i, label %if.then.i46.i
+  br i1 %cmp39.i, label %ZSTD_customFree.argprom.exit50.i, label %if.then.i46.i
 
 if.then.i46.i:                                    ; preds = %if.then42.i
   %tobool.not.i47.i = icmp eq ptr %cMem.sroa.3.0.copyload.i, null
@@ -1586,21 +1586,21 @@ if.then.i46.i:                                    ; preds = %if.then42.i
 
 if.then1.i48.i:                                   ; preds = %if.then.i46.i
   call void %cMem.sroa.3.0.copyload.i(ptr noundef %cMem.sroa.5.0.copyload.i, ptr noundef nonnull %78) #14
-  br label %ZSTD_customFree.exit50.i
+  br label %ZSTD_customFree.argprom.exit50.i
 
 if.else.i49.i:                                    ; preds = %if.then.i46.i
   call void @free(ptr noundef nonnull %78) #14
-  br label %ZSTD_customFree.exit50.i
+  br label %ZSTD_customFree.argprom.exit50.i
 
-ZSTD_customFree.exit50.i:                         ; preds = %if.else.i49.i, %if.then1.i48.i, %if.then42.i
+ZSTD_customFree.argprom.exit50.i:                 ; preds = %if.else.i49.i, %if.then1.i48.i, %if.then42.i
   %tobool.not.i51.i = icmp eq ptr %cMem.sroa.0.0.copyload.i, null
   br i1 %tobool.not.i51.i, label %if.end.i55.i, label %if.then.i52.i
 
-if.then.i52.i:                                    ; preds = %ZSTD_customFree.exit50.i
+if.then.i52.i:                                    ; preds = %ZSTD_customFree.argprom.exit50.i
   %call.i53.i = call ptr %cMem.sroa.0.0.copyload.i(ptr noundef %cMem.sroa.5.0.copyload.i, i64 noundef %shl22.i) #14
   br label %if.end48.i
 
-if.end.i55.i:                                     ; preds = %ZSTD_customFree.exit50.i
+if.end.i55.i:                                     ; preds = %ZSTD_customFree.argprom.exit50.i
   %call2.i56.i = call noalias ptr @malloc(i64 noundef %shl22.i) #16
   br label %if.end48.i
 
@@ -2821,18 +2821,18 @@ if.then.i:                                        ; preds = %entry
   %cMem.val14 = load ptr, ptr %4, align 8
   %call.i = tail call ptr %cMem.val(ptr noundef %cMem.val14, i64 noundef %mul) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i8 0, i64 %mul, i1 false)
-  br label %ZSTD_customCalloc.exit
+  br label %ZSTD_customCalloc.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul) #15
-  br label %ZSTD_customCalloc.exit
+  br label %ZSTD_customCalloc.argprom.exit
 
-ZSTD_customCalloc.exit:                           ; preds = %if.then.i, %if.end.i
+ZSTD_customCalloc.argprom.exit:                   ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %call2.i, %if.end.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %ZSTD_customCalloc.exit
+if.end:                                           ; preds = %ZSTD_customCalloc.argprom.exit
   store i32 %shl, ptr %nbJobsPtr, align 4
   %wide.trip.count = zext i32 %shl to i64
   br label %for.body
@@ -2884,8 +2884,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @free(ptr noundef nonnull %retval.0.i) #14
   br label %return
 
-return:                                           ; preds = %if.else.i.i, %if.then1.i.i, %for.end, %ZSTD_customCalloc.exit
-  %retval.0 = phi ptr [ null, %ZSTD_customCalloc.exit ], [ %retval.0.i, %for.end ], [ null, %if.then1.i.i ], [ null, %if.else.i.i ]
+return:                                           ; preds = %if.else.i.i, %if.then1.i.i, %for.end, %ZSTD_customCalloc.argprom.exit
+  %retval.0 = phi ptr [ null, %ZSTD_customCalloc.argprom.exit ], [ %retval.0.i, %for.end ], [ null, %if.then1.i.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0
 }
 
@@ -2896,14 +2896,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %cMem, i64 16
   %cMem.val14 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %cMem.val13, null
-  br i1 %tobool.not.i, label %ZSTD_customCalloc.exit, label %if.end.thread
+  br i1 %tobool.not.i, label %ZSTD_customCalloc.argprom.exit, label %if.end.thread
 
-ZSTD_customCalloc.exit:                           ; preds = %entry
+ZSTD_customCalloc.argprom.exit:                   ; preds = %entry
   %call2.i = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #15
   %cmp = icmp eq ptr %call2.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %ZSTD_customCalloc.exit
+if.end:                                           ; preds = %ZSTD_customCalloc.argprom.exit
   %call1 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %call2.i, ptr noundef null) #14
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end.i23, label %if.then.i17
@@ -2935,15 +2935,15 @@ if.then.i20:                                      ; preds = %if.end.thread
   %mul36 = shl nuw nsw i64 %conv35, 4
   %call.i21 = tail call ptr %cMem.val13(ptr noundef %cMem.val14, i64 noundef %mul36) #14
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i21, i8 0, i64 %mul36, i1 false)
-  br label %ZSTD_customCalloc.exit25
+  br label %ZSTD_customCalloc.argprom.exit25
 
 if.end.i23:                                       ; preds = %if.end
   %conv = zext i32 %maxNbBuffers to i64
   %mul = shl nuw nsw i64 %conv, 4
   %call2.i24 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul) #15
-  br label %ZSTD_customCalloc.exit25
+  br label %ZSTD_customCalloc.argprom.exit25
 
-ZSTD_customCalloc.exit25:                         ; preds = %if.then.i20, %if.end.i23
+ZSTD_customCalloc.argprom.exit25:                 ; preds = %if.then.i20, %if.end.i23
   %retval.0.i283237 = phi ptr [ %call.i, %if.then.i20 ], [ %call2.i, %if.end.i23 ]
   %retval.0.i22 = phi ptr [ %call.i21, %if.then.i20 ], [ %call2.i24, %if.end.i23 ]
   %buffers = getelementptr inbounds i8, ptr %retval.0.i283237, i64 80
@@ -2951,11 +2951,11 @@ ZSTD_customCalloc.exit25:                         ; preds = %if.then.i20, %if.en
   %cmp6 = icmp eq ptr %retval.0.i22, null
   br i1 %cmp6, label %if.then8, label %if.end9
 
-if.then8:                                         ; preds = %ZSTD_customCalloc.exit25
+if.then8:                                         ; preds = %ZSTD_customCalloc.argprom.exit25
   tail call fastcc void @ZSTDMT_freeBufferPool(ptr noundef nonnull %retval.0.i283237)
   br label %return
 
-if.end9:                                          ; preds = %ZSTD_customCalloc.exit25
+if.end9:                                          ; preds = %ZSTD_customCalloc.argprom.exit25
   %bufferSize = getelementptr inbounds i8, ptr %retval.0.i283237, i64 40
   store i64 65536, ptr %bufferSize, align 8
   %totalBuffers = getelementptr inbounds i8, ptr %retval.0.i283237, i64 48
@@ -2966,8 +2966,8 @@ if.end9:                                          ; preds = %ZSTD_customCalloc.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cMem10, ptr noundef nonnull align 8 dereferenceable(24) %cMem, i64 24, i1 false)
   br label %return
 
-return:                                           ; preds = %if.else.i, %if.then1.i, %ZSTD_customCalloc.exit, %if.end9, %if.then8
-  %retval.0 = phi ptr [ null, %if.then8 ], [ %retval.0.i283237, %if.end9 ], [ null, %ZSTD_customCalloc.exit ], [ null, %if.then1.i ], [ null, %if.else.i ]
+return:                                           ; preds = %if.else.i, %if.then1.i, %ZSTD_customCalloc.argprom.exit, %if.end9, %if.then8
+  %retval.0 = phi ptr [ null, %if.then8 ], [ %retval.0.i283237, %if.end9 ], [ null, %ZSTD_customCalloc.argprom.exit ], [ null, %if.then1.i ], [ null, %if.else.i ]
   ret ptr %retval.0
 }
 
@@ -2977,21 +2977,21 @@ entry:
   %cMem.val15 = load ptr, ptr %cMem, align 8
   %0 = getelementptr inbounds i8, ptr %cMem, i64 16
   %tobool.not.i = icmp eq ptr %cMem.val15, null
-  br i1 %tobool.not.i, label %ZSTD_customCalloc.exit, label %ZSTD_customCalloc.exit.thread
+  br i1 %tobool.not.i, label %ZSTD_customCalloc.argprom.exit, label %ZSTD_customCalloc.argprom.exit.thread
 
-ZSTD_customCalloc.exit.thread:                    ; preds = %entry
+ZSTD_customCalloc.argprom.exit.thread:            ; preds = %entry
   %cMem.val16 = load ptr, ptr %0, align 8
   %call.i = tail call ptr %cMem.val15(ptr noundef %cMem.val16, i64 noundef 80) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %call.i, i8 0, i64 80, i1 false)
   br label %if.end
 
-ZSTD_customCalloc.exit:                           ; preds = %entry
+ZSTD_customCalloc.argprom.exit:                   ; preds = %entry
   %call2.i = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
   %tobool.not = icmp eq ptr %call2.i, null
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %ZSTD_customCalloc.exit.thread, %ZSTD_customCalloc.exit
-  %retval.0.i30 = phi ptr [ %call.i, %ZSTD_customCalloc.exit.thread ], [ %call2.i, %ZSTD_customCalloc.exit ]
+if.end:                                           ; preds = %ZSTD_customCalloc.argprom.exit.thread, %ZSTD_customCalloc.argprom.exit
+  %retval.0.i30 = phi ptr [ %call.i, %ZSTD_customCalloc.argprom.exit.thread ], [ %call2.i, %ZSTD_customCalloc.argprom.exit ]
   %call1 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %retval.0.i30, ptr noundef null) #14
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then.i19
@@ -3022,24 +3022,24 @@ if.then.i22:                                      ; preds = %if.end4
   %cMem.val14 = load ptr, ptr %0, align 8
   %call.i23 = tail call ptr %cMem.val15(ptr noundef %cMem.val14, i64 noundef %mul) #14
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i23, i8 0, i64 %mul, i1 false)
-  br label %ZSTD_customCalloc.exit27
+  br label %ZSTD_customCalloc.argprom.exit27
 
 if.end.i25:                                       ; preds = %if.end4
   %call2.i26 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul) #15
-  br label %ZSTD_customCalloc.exit27
+  br label %ZSTD_customCalloc.argprom.exit27
 
-ZSTD_customCalloc.exit27:                         ; preds = %if.then.i22, %if.end.i25
+ZSTD_customCalloc.argprom.exit27:                 ; preds = %if.then.i22, %if.end.i25
   %retval.0.i24 = phi ptr [ %call.i23, %if.then.i22 ], [ %call2.i26, %if.end.i25 ]
   %cctxs = getelementptr inbounds i8, ptr %retval.0.i30, i64 72
   store ptr %retval.0.i24, ptr %cctxs, align 8
   %tobool7.not = icmp eq ptr %retval.0.i24, null
   br i1 %tobool7.not, label %if.then8, label %if.end9
 
-if.then8:                                         ; preds = %ZSTD_customCalloc.exit27
+if.then8:                                         ; preds = %ZSTD_customCalloc.argprom.exit27
   tail call fastcc void @ZSTDMT_freeCCtxPool(ptr noundef nonnull %retval.0.i30)
   br label %return
 
-if.end9:                                          ; preds = %ZSTD_customCalloc.exit27
+if.end9:                                          ; preds = %ZSTD_customCalloc.argprom.exit27
   %cMem10 = getelementptr inbounds i8, ptr %retval.0.i30, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cMem10, ptr noundef nonnull align 8 dereferenceable(24) %cMem, i64 24, i1 false)
   %call11 = tail call ptr @ZSTD_createCCtx_advanced(ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem) #14
@@ -3059,8 +3059,8 @@ if.end17:                                         ; preds = %if.end9
   store i32 1, ptr %availCCtx, align 4
   br label %return
 
-return:                                           ; preds = %if.else.i, %if.then1.i, %ZSTD_customCalloc.exit, %if.end17, %if.then16, %if.then8
-  %retval.0 = phi ptr [ %retval.0.i30, %if.end17 ], [ null, %if.then16 ], [ null, %if.then8 ], [ null, %ZSTD_customCalloc.exit ], [ null, %if.then1.i ], [ null, %if.else.i ]
+return:                                           ; preds = %if.else.i, %if.then1.i, %ZSTD_customCalloc.argprom.exit, %if.end17, %if.then16, %if.then8
+  %retval.0 = phi ptr [ %retval.0.i30, %if.end17 ], [ null, %if.then16 ], [ null, %if.then8 ], [ null, %ZSTD_customCalloc.argprom.exit ], [ null, %if.then1.i ], [ null, %if.else.i ]
   ret ptr %retval.0
 }
 
@@ -3642,7 +3642,7 @@ ZSTDMT_serialState_ensureFinished.exit:           ; preds = %_endJob, %do.end.i1
   %49 = load ptr, ptr %seqPool, align 8
   %mul.i.i = mul nuw i64 %rawSeqStore.sroa.6.0, 12
   %cmp.i.i163 = icmp eq ptr %rawSeqStore.sroa.0.0, null
-  br i1 %cmp.i.i163, label %ZSTDMT_releaseSeq.exit, label %if.end.i.i164
+  br i1 %cmp.i.i163, label %ZSTDMT_releaseSeq.argprom.exit, label %if.end.i.i164
 
 if.end.i.i164:                                    ; preds = %ZSTDMT_serialState_ensureFinished.exit
   %call.i.i = call i32 @pthread_mutex_lock(ptr noundef %49) #14
@@ -3664,7 +3664,7 @@ if.then2.i.i165:                                  ; preds = %if.end.i.i164
   %buf.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store i64 %mul.i.i, ptr %buf.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   %call7.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #14
-  br label %ZSTDMT_releaseSeq.exit
+  br label %ZSTDMT_releaseSeq.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i164
   %call10.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #14
@@ -3677,17 +3677,17 @@ if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
   %54 = getelementptr i8, ptr %49, i64 72
   %cMem.val9.i.i = load ptr, ptr %54, align 8
   call void %cMem.val.i.i(ptr noundef %cMem.val9.i.i, ptr noundef nonnull %rawSeqStore.sroa.0.0) #14
-  br label %ZSTDMT_releaseSeq.exit
+  br label %ZSTDMT_releaseSeq.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   call void @free(ptr noundef nonnull %rawSeqStore.sroa.0.0) #14
-  br label %ZSTDMT_releaseSeq.exit
+  br label %ZSTDMT_releaseSeq.argprom.exit
 
-ZSTDMT_releaseSeq.exit:                           ; preds = %ZSTDMT_serialState_ensureFinished.exit, %if.then2.i.i165, %if.then1.i.i.i, %if.else.i.i.i
+ZSTDMT_releaseSeq.argprom.exit:                   ; preds = %ZSTDMT_serialState_ensureFinished.exit, %if.then2.i.i165, %if.then1.i.i.i, %if.else.i.i.i
   %55 = load ptr, ptr %cctxPool, align 8
   br i1 %cmp, label %ZSTDMT_releaseCCtx.exit, label %if.end.i167
 
-if.end.i167:                                      ; preds = %ZSTDMT_releaseSeq.exit
+if.end.i167:                                      ; preds = %ZSTDMT_releaseSeq.argprom.exit
   %call.i168 = call i32 @pthread_mutex_lock(ptr noundef %55) #14
   %availCCtx.i169 = getelementptr inbounds i8, ptr %55, i64 44
   %56 = load i32, ptr %availCCtx.i169, align 4
@@ -3714,7 +3714,7 @@ if.end5.i:                                        ; preds = %do.end.i170, %if.th
   %call7.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #14
   br label %ZSTDMT_releaseCCtx.exit
 
-ZSTDMT_releaseCCtx.exit:                          ; preds = %ZSTDMT_releaseSeq.exit, %if.end5.i
+ZSTDMT_releaseCCtx.exit:                          ; preds = %ZSTDMT_releaseSeq.argprom.exit, %if.end5.i
   %cSize209 = getelementptr inbounds i8, ptr %jobDescription, i64 8
   %job_mutex222 = getelementptr inbounds i8, ptr %jobDescription, i64 16
   %call223 = call i32 @pthread_mutex_lock(ptr noundef nonnull %job_mutex222) #14
@@ -3793,21 +3793,21 @@ if.then.i22:                                      ; preds = %if.end16
   %5 = getelementptr i8, ptr %bufPool, i64 72
   %cMem22.val20 = load ptr, ptr %5, align 8
   %call.i = tail call ptr %cMem22.val(ptr noundef %cMem22.val20, i64 noundef %0) #14
-  br label %ZSTD_customMalloc.exit
+  br label %ZSTD_customMalloc.argprom.exit
 
 if.end.i:                                         ; preds = %if.end16
   %call2.i = tail call noalias ptr @malloc(i64 noundef %0) #16
-  br label %ZSTD_customMalloc.exit
+  br label %ZSTD_customMalloc.argprom.exit
 
-ZSTD_customMalloc.exit:                           ; preds = %if.then.i22, %if.end.i
+ZSTD_customMalloc.argprom.exit:                   ; preds = %if.then.i22, %if.end.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i22 ], [ %call2.i, %if.end.i ]
   %cmp25 = icmp eq ptr %retval.0.i, null
   %cond = select i1 %cmp25, i64 0, i64 %0
   br label %return
 
-return:                                           ; preds = %ZSTD_customMalloc.exit, %do.end11
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %do.end11 ], [ %retval.0.i, %ZSTD_customMalloc.exit ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %do.end11 ], [ %cond, %ZSTD_customMalloc.exit ]
+return:                                           ; preds = %ZSTD_customMalloc.argprom.exit, %do.end11
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload, %do.end11 ], [ %retval.0.i, %ZSTD_customMalloc.argprom.exit ]
+  %retval.sroa.4.0 = phi i64 [ %retval.sroa.4.0.copyload, %do.end11 ], [ %cond, %ZSTD_customMalloc.argprom.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert

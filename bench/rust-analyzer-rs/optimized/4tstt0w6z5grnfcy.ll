@@ -965,10 +965,10 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %8 = trunc nuw i64 %.pre.i.i to i1
   br label %9
 
-9:                                                ; preds = %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i", %2
-  %trunc.i.i.i = phi i1 [ true, %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i" ], [ %8, %2 ]
+9:                                                ; preds = %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i", %2
+  %trunc.i.i.i = phi i1 [ true, %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i" ], [ %8, %2 ]
   %.0.i.i.i = select i1 %trunc.i.i.i, ptr %6, ptr null
-  br i1 %trunc.i.i.i, label %.preheader.i.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.exit.i.i"
+  br i1 %trunc.i.i.i, label %.preheader.i.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.argprom.exit.i.i"
 
 .preheader.i.i.i:                                 ; preds = %9, %.preheader.i.i.i.backedge
   %10 = call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17he23999db68c2612bE.llvm.6887668541773461223(ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.i.i.i)
@@ -1007,7 +1007,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i.i.i: ; preds =
   %19 = icmp eq i64 %.val.i.i.i, 0
   %20 = icmp eq ptr %.val10.i.i.i, null
   %or.cond.i.i.i.i = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond.i.i.i.i, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i.i", label %21
+  br i1 %or.cond.i.i.i.i, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i.i", label %21
 
 21:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i.i.i
   %22 = getelementptr inbounds i8, ptr %.val10.i.i.i, i64 48
@@ -1015,15 +1015,15 @@ _ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i.i.i: ; preds =
   %24 = add i32 %23, -1
   store i32 %24, ptr %22, align 4, !noalias !411
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i.i"
+  br i1 %25, label %26, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i.i"
 
 26:                                               ; preds = %21
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val10.i.i.i)
-          to label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i.i" unwind label %27
+          to label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i.i" unwind label %27
 
-"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i.i": ; preds = %26, %21, %_ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i.i.i
+"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i.i": ; preds = %26, %21, %_ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i.i.i
   store i64 0, ptr %5, align 8, !alias.scope !396
-  br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.exit.i.i"
+  br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.argprom.exit.i.i"
 
 common.resume.i.i:                                ; preds = %82, %71, %41, %35, %27
   %common.resume.op.i.i = phi { ptr, i32 } [ %28, %27 ], [ %72, %71 ], [ %83, %82 ], [ %36, %41 ], [ %36, %35 ]
@@ -1035,13 +1035,13 @@ common.resume.i.i:                                ; preds = %82, %71, %41, %35, 
   store i64 0, ptr %5, align 8, !alias.scope !396
   br label %common.resume.i.i
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.exit.i.i": ; preds = %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i.i", %9
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.argprom.exit.i.i": ; preds = %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i.i", %9
   call void @llvm.experimental.noalias.scope.decl(metadata !426)
   %29 = load i64, ptr %1, align 8, !range !284, !alias.scope !429, !noundef !16
   %trunc.i10.i.i = trunc nuw i64 %29 to i1
   br i1 %trunc.i10.i.i, label %30, label %50
 
-30:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.exit.i.i"
+30:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.argprom.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !430)
   %31 = load ptr, ptr %7, align 8, !alias.scope !433, !noundef !16
   store ptr null, ptr %7, align 8, !alias.scope !433
@@ -1086,7 +1086,7 @@ common.resume.i.i:                                ; preds = %82, %71, %41, %35, 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #19, !noalias !437
   unreachable
 
-50:                                               ; preds = %30, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.exit.i.i"
+50:                                               ; preds = %30, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..node_ext..TypeOrConstParam$GT$$GT$17h14f2f119cbeca2a6E.argprom.exit.i.i"
   %51 = getelementptr inbounds i8, ptr %1, i64 32
   %52 = load i64, ptr %51, align 8, !range !284, !alias.scope !456, !noundef !16
   %trunc.i13.i.i = trunc nuw i64 %52 to i1
@@ -1131,7 +1131,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i20.i.i: ; preds
   %63 = icmp eq i64 %.val.i21.i.i, 0
   %64 = icmp eq ptr %.val10.i22.i.i, null
   %or.cond.i.i23.i.i = select i1 %63, i1 true, i1 %64
-  br i1 %or.cond.i.i23.i.i, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i24.i.i", label %65
+  br i1 %or.cond.i.i23.i.i, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i24.i.i", label %65
 
 65:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i20.i.i
   %66 = getelementptr inbounds i8, ptr %.val10.i22.i.i, i64 48
@@ -1139,13 +1139,13 @@ _ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i20.i.i: ; preds
   %68 = add i32 %67, -1
   store i32 %68, ptr %66, align 4, !noalias !471
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i24.i.i"
+  br i1 %69, label %70, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i24.i.i"
 
 70:                                               ; preds = %65
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val10.i22.i.i)
-          to label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i24.i.i" unwind label %71
+          to label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i24.i.i" unwind label %71
 
-"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i24.i.i": ; preds = %70, %65, %_ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i20.i.i
+"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i24.i.i": ; preds = %70, %65, %_ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i20.i.i
   store i64 0, ptr %51, align 8, !alias.scope !456
   br label %84
 
@@ -1162,7 +1162,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i20.i.i: ; preds
   %74 = icmp eq i64 %.val.i.i, 0
   %75 = icmp eq ptr %.val7.i.i, null
   %or.cond.i.i.i = select i1 %74, i1 true, i1 %75
-  br i1 %or.cond.i.i.i, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i", label %76
+  br i1 %or.cond.i.i.i, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i", label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %.val7.i.i, i64 48
@@ -1170,11 +1170,11 @@ _ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i20.i.i: ; preds
   %79 = add i32 %78, -1
   store i32 %79, ptr %77, align 4, !noalias !487
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i"
+  br i1 %80, label %81, label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i"
 
 81:                                               ; preds = %76
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val7.i.i)
-          to label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i" unwind label %82
+          to label %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i" unwind label %82
 
 82:                                               ; preds = %81
   %83 = landingpad { ptr, i32 }
@@ -1183,12 +1183,12 @@ _ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i20.i.i: ; preds
   store ptr %34, ptr %6, align 8, !alias.scope !486
   br label %common.resume.i.i
 
-"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i.i": ; preds = %81, %76, %73
+"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i.i": ; preds = %81, %76, %73
   store i64 1, ptr %5, align 8, !alias.scope !486
   store ptr %34, ptr %6, align 8, !alias.scope !486
   br label %9
 
-84:                                               ; preds = %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.exit.i24.i.i", %50
+84:                                               ; preds = %"_ZN4core3ptr316drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h354ec3b9493be542E.argprom.exit.i24.i.i", %50
   %85 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 4, ptr %85, align 8
   br label %87
@@ -9774,7 +9774,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %9, ptr %10, align 8, !noalias !2920
   %11 = call noundef align 8 dereferenceable_or_null(72) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30781ea9723654e3E.llvm.12643631695175265107"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !2923
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE.exit", label %.lr.ph.i.i.i
+  br i1 %12, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE.argprom.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i.i ], [ %11, %2 ]
@@ -9784,9 +9784,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !2920
   %15 = call noundef align 8 dereferenceable_or_null(72) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30781ea9723654e3E.llvm.12643631695175265107"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE.exit", label %.lr.ph.i.i.i
+  br i1 %16, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE.argprom.exit", label %.lr.ph.i.i.i
 
-"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE.exit": ; preds = %.lr.ph.i.i.i, %2
+"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE.argprom.exit": ; preds = %.lr.ph.i.i.i, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2920
   %17 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2913
@@ -9812,7 +9812,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %9, ptr %10, align 8, !noalias !2931
   %11 = call noundef align 8 dereferenceable_or_null(48) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9701398e73f66fdE.llvm.12643631695175265107"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !2934
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE.exit", label %.lr.ph.i.i.i
+  br i1 %12, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE.argprom.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i.i ], [ %11, %2 ]
@@ -9822,9 +9822,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !2931
   %15 = call noundef align 8 dereferenceable_or_null(48) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9701398e73f66fdE.llvm.12643631695175265107"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE.exit", label %.lr.ph.i.i.i
+  br i1 %16, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE.argprom.exit", label %.lr.ph.i.i.i
 
-"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE.exit": ; preds = %.lr.ph.i.i.i, %2
+"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE.argprom.exit": ; preds = %.lr.ph.i.i.i, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2931
   %17 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2924
@@ -22160,8 +22160,8 @@ attributes #23 = { nounwind }
 !2632 = distinct !{!2632, !2633, !"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h116bda9ebe855027E: argument 1"}
 !2633 = distinct !{!2633, !"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h116bda9ebe855027E"}
 !2634 = !{!2635}
-!2635 = distinct !{!2635, !2636, !"_ZN4core4iter6traits8iterator8Iterator4find17h571659e04c1e325cE: argument 1"}
-!2636 = distinct !{!2636, !"_ZN4core4iter6traits8iterator8Iterator4find17h571659e04c1e325cE"}
+!2635 = distinct !{!2635, !2636, !"_ZN4core4iter6traits8iterator8Iterator4find17h571659e04c1e325cE.argprom: argument 1"}
+!2636 = distinct !{!2636, !"_ZN4core4iter6traits8iterator8Iterator4find17h571659e04c1e325cE.argprom"}
 !2637 = !{!2638}
 !2638 = distinct !{!2638, !2639, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h4477e8be00388e20E: argument 1"}
 !2639 = distinct !{!2639, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h4477e8be00388e20E"}
@@ -22171,7 +22171,7 @@ attributes #23 = { nounwind }
 !2643 = !{!2644, !2645, !2646, !2647, !2648, !2627, !2620}
 !2644 = distinct !{!2644, !2642, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42d7719c0138637bE: argument 0"}
 !2645 = distinct !{!2645, !2639, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h4477e8be00388e20E: argument 0"}
-!2646 = distinct !{!2646, !2636, !"_ZN4core4iter6traits8iterator8Iterator4find17h571659e04c1e325cE: argument 0"}
+!2646 = distinct !{!2646, !2636, !"_ZN4core4iter6traits8iterator8Iterator4find17h571659e04c1e325cE.argprom: argument 0"}
 !2647 = distinct !{!2647, !2633, !"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h116bda9ebe855027E: argument 0"}
 !2648 = distinct !{!2648, !2630, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9e43e22b5e58e6E: argument 0"}
 !2649 = !{!2641}
@@ -22186,10 +22186,10 @@ attributes #23 = { nounwind }
 !2658 = distinct !{!2658, !"_ZN10hir_expand5fixup15reverse_fixups_28_$u7b$$u7b$closure$u7d$$u7d$17h6d93a76dc5384f44E.llvm.6887668541773461223"}
 !2659 = distinct !{!2659, !2660, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h968000b02a7b6ec7E: argument 0"}
 !2660 = distinct !{!2660, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h968000b02a7b6ec7E"}
-!2661 = distinct !{!2661, !2662, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c3de593f57f6688E: argument 1"}
-!2662 = distinct !{!2662, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c3de593f57f6688E"}
+!2661 = distinct !{!2661, !2662, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c3de593f57f6688E.argprom: argument 1"}
+!2662 = distinct !{!2662, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c3de593f57f6688E.argprom"}
 !2663 = !{!2664, !2645, !2638, !2646, !2635, !2647, !2632, !2648, !2629, !2627, !2623, !2620, !2617}
-!2664 = distinct !{!2664, !2662, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c3de593f57f6688E: argument 0"}
+!2664 = distinct !{!2664, !2662, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c3de593f57f6688E.argprom: argument 0"}
 !2665 = !{!2657, !2659, !2661}
 !2666 = !{!2664, !2645, !2638, !2646, !2635, !2647, !2632, !2648, !2629, !2627, !2623, !2620}
 !2667 = !{!2648, !2629, !2627, !2623, !2620, !2617}
@@ -22442,8 +22442,8 @@ attributes #23 = { nounwind }
 !2914 = distinct !{!2914, !2915, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha20665b6b6640c05E: argument 0"}
 !2915 = distinct !{!2915, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha20665b6b6640c05E"}
 !2916 = distinct !{!2916, !2915, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha20665b6b6640c05E: argument 1"}
-!2917 = distinct !{!2917, !2918, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE: argument 0"}
-!2918 = distinct !{!2918, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE"}
+!2917 = distinct !{!2917, !2918, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE.argprom: argument 0"}
+!2918 = distinct !{!2918, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a17a761f635398dE.argprom"}
 !2919 = !{!2914}
 !2920 = !{!2921, !2914, !2916, !2917}
 !2921 = distinct !{!2921, !2922, !"_ZN4core3fmt8builders9DebugList7entries17h9910897bf46279ffE: argument 0"}
@@ -22453,8 +22453,8 @@ attributes #23 = { nounwind }
 !2925 = distinct !{!2925, !2926, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb40c70e1ead0efbaE: argument 0"}
 !2926 = distinct !{!2926, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb40c70e1ead0efbaE"}
 !2927 = distinct !{!2927, !2926, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb40c70e1ead0efbaE: argument 1"}
-!2928 = distinct !{!2928, !2929, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE: argument 0"}
-!2929 = distinct !{!2929, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE"}
+!2928 = distinct !{!2928, !2929, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE.argprom: argument 0"}
+!2929 = distinct !{!2929, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h30583cfb6a48c03eE.argprom"}
 !2930 = !{!2925}
 !2931 = !{!2932, !2925, !2927, !2928}
 !2932 = distinct !{!2932, !2933, !"_ZN4core3fmt8builders9DebugList7entries17hf3ff6d84c2873858E: argument 0"}

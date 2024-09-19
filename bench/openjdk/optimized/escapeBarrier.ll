@@ -540,7 +540,7 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier27deoptimize_objects_interna
   %24 = getelementptr inbounds i8, ptr %19, i64 40
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
-  br i1 %26, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.exit, label %.preheader40
+  br i1 %26, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.argprom.exit, label %.preheader40
 
 .preheader40:                                     ; preds = %16, %.preheader.i, %3, %23
   %27 = getelementptr inbounds i8, ptr %6, i64 48
@@ -731,7 +731,7 @@ _ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1
   %116 = trunc i8 %115 to i1
   %.not23 = xor i1 %114, true
   %brmerge = or i1 %.not23, %116
-  br i1 %brmerge, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.exit, label %.preheader
+  br i1 %brmerge, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.argprom.exit, label %.preheader
 
 .preheader:                                       ; preds = %_ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1_.exit27
   %117 = load i32, ptr %66, align 4
@@ -753,13 +753,13 @@ _ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1
 ._crit_edge50:                                    ; preds = %.lr.ph49, %.preheader
   %.val = load ptr, ptr %8, align 8
   %125 = icmp eq ptr %.val, null
-  br i1 %125, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.exit, label %.preheader.i28
+  br i1 %125, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.argprom.exit, label %.preheader.i28
 
 .preheader.i28:                                   ; preds = %._crit_edge50
   %126 = getelementptr inbounds i8, ptr %.val, i64 8
   %127 = load i32, ptr %126, align 4
   %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %.lr.ph.i29, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.exit
+  br i1 %128, label %.lr.ph.i29, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.argprom.exit
 
 .lr.ph.i29:                                       ; preds = %.preheader.i28
   %129 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -770,7 +770,7 @@ _ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1
 131:                                              ; preds = %132
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i30
-  br i1 %exitcond.not.i33, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.exit, label %132, !llvm.loop !26
+  br i1 %exitcond.not.i33, label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.argprom.exit, label %132, !llvm.loop !26
 
 132:                                              ; preds = %131, %.lr.ph.i29
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i29 ], [ %indvars.iv.next.i32, %131 ]
@@ -784,9 +784,9 @@ _ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1
 138:                                              ; preds = %132
   %139 = getelementptr inbounds i8, ptr %134, i64 40
   store i8 1, ptr %139, align 8
-  br label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.exit
+  br label %_ZL24set_objs_are_deoptimizedP10JavaThreadPl.argprom.exit
 
-_ZL24set_objs_are_deoptimizedP10JavaThreadPl.exit: ; preds = %131, %138, %.preheader.i28, %._crit_edge50, %23, %_ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1_.exit27
+_ZL24set_objs_are_deoptimizedP10JavaThreadPl.argprom.exit: ; preds = %131, %138, %.preheader.i28, %._crit_edge50, %23, %_ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1_.exit27
   %140 = load i8, ptr %5, align 1
   %141 = trunc i8 %140 to i1
   %142 = xor i1 %141, true

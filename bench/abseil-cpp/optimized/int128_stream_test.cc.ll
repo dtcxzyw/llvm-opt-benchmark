@@ -1910,7 +1910,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24576) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 16 dereferenceable(24576) @constinit, i64 24576, i1 false), !noalias !37
   br label %for.body
 
-_ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.exit: ; preds = %for.inc
+_ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.argprom.argprom.exit: ; preds = %for.inc
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i5.i1.i) #18
   ret void
 
@@ -1918,14 +1918,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.0.idx11 = phi i64 [ 0, %entry ], [ %__begin1.sroa.0.0.add, %for.inc ]
   %__begin1.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 %__begin1.sroa.0.0.idx11
   invoke fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %__begin1.sroa.0.0.ptr)
-          to label %for.inc unwind label %_ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.exit10
+          to label %for.inc unwind label %_ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.argprom.argprom.exit10
 
 for.inc:                                          ; preds = %for.body
   %__begin1.sroa.0.0.add = add nuw nsw i64 %__begin1.sroa.0.0.idx11, 48
   %cmp.i.not = icmp eq i64 %__begin1.sroa.0.0.add, 24576
-  br i1 %cmp.i.not, label %_ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.exit, label %for.body
+  br i1 %cmp.i.not, label %_ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.argprom.argprom.exit, label %for.body
 
-_ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.exit10: ; preds = %for.body
+_ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.argprom.argprom.exit10: ; preds = %for.body
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i5.i1.i) #18
@@ -2750,7 +2750,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(30720) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 16 dereferenceable(30720) @constinit.118, i64 30720, i1 false), !noalias !53
   br label %for.body
 
-_ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.exit: ; preds = %for.inc
+_ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.argprom.argprom.exit: ; preds = %for.inc
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i5.i1.i) #18
   ret void
 
@@ -2758,14 +2758,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.0.idx11 = phi i64 [ 0, %entry ], [ %__begin1.sroa.0.0.add, %for.inc ]
   %__begin1.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 %__begin1.sroa.0.0.idx11
   invoke fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %__begin1.sroa.0.0.ptr)
-          to label %for.inc unwind label %_ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.exit10
+          to label %for.inc unwind label %_ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.argprom.argprom.exit10
 
 for.inc:                                          ; preds = %for.body
   %__begin1.sroa.0.0.add = add nuw nsw i64 %__begin1.sroa.0.0.idx11, 48
   %cmp.i.not = icmp eq i64 %__begin1.sroa.0.0.add, 30720
-  br i1 %cmp.i.not, label %_ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.exit, label %for.body
+  br i1 %cmp.i.not, label %_ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.argprom.argprom.exit, label %for.body
 
-_ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.exit10: ; preds = %for.body
+_ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.argprom.argprom.exit10: ; preds = %for.body
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i5.i1.i) #18

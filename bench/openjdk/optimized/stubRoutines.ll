@@ -608,7 +608,7 @@ define hidden void @_ZN12StubRoutines24initialize_initial_stubsEv() local_unname
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 0, i32 noundef 20000, i32 noundef 10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
+  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 0, i32 noundef 20000, i32 noundef 10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
   store ptr %4, ptr @_ZN12StubRoutines19_initial_stubs_codeE, align 8
   br label %5
 
@@ -617,7 +617,7 @@ define hidden void @_ZN12StubRoutines24initialize_initial_stubsEv() local_unname
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef range(i32 0, 4) %0, i32 noundef range(i32 2000, 66001) %1, i32 noundef range(i32 10, 101) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef nonnull ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef range(i32 0, 4) %0, i32 noundef range(i32 2000, 66001) %1, i32 noundef range(i32 10, 101) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %class.TraceTime, align 8
   %7 = alloca %class.CodeBuffer, align 8
   %8 = alloca %class.LogStream, align 8
@@ -724,7 +724,7 @@ define hidden void @_ZN12StubRoutines29initialize_continuation_stubsEv() local_u
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 1, i32 noundef 2000, i32 noundef 10, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 1, i32 noundef 2000, i32 noundef 10, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   store ptr %4, ptr @_ZN12StubRoutines24_continuation_stubs_codeE, align 8
   br label %5
 
@@ -739,7 +739,7 @@ define hidden void @_ZN12StubRoutines25initialize_compiler_stubsEv() local_unnam
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   store ptr %4, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
   br label %5
 
@@ -754,7 +754,7 @@ define hidden void @_ZN12StubRoutines22initialize_final_stubsEv() local_unnamed_
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 3, i32 noundef 50000, i32 noundef 10, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13)
+  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 3, i32 noundef 50000, i32 noundef 10, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13)
   store ptr %4, ptr @_ZN12StubRoutines17_final_stubs_codeE, align 8
   br label %5
 
@@ -769,7 +769,7 @@ define hidden void @_Z18initial_stubs_initv() local_unnamed_addr #1 {
   br i1 %2, label %3, label %_ZN12StubRoutines24initialize_initial_stubsEv.exit
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 0, i32 noundef 20000, i32 noundef 10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
+  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 0, i32 noundef 20000, i32 noundef 10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
   store ptr %4, ptr @_ZN12StubRoutines19_initial_stubs_codeE, align 8
   br label %_ZN12StubRoutines24initialize_initial_stubsEv.exit
 
@@ -784,7 +784,7 @@ define hidden void @_Z23continuation_stubs_initv() local_unnamed_addr #1 {
   br i1 %2, label %3, label %_ZN12StubRoutines29initialize_continuation_stubsEv.exit
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 1, i32 noundef 2000, i32 noundef 10, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 1, i32 noundef 2000, i32 noundef 10, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   store ptr %4, ptr @_ZN12StubRoutines24_continuation_stubs_codeE, align 8
   br label %_ZN12StubRoutines29initialize_continuation_stubsEv.exit
 
@@ -799,7 +799,7 @@ define hidden void @_Z16final_stubs_initv() local_unnamed_addr #1 {
   br i1 %2, label %3, label %_ZN12StubRoutines22initialize_final_stubsEv.exit
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 3, i32 noundef 50000, i32 noundef 10, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13)
+  %4 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 3, i32 noundef 50000, i32 noundef 10, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13)
   store ptr %4, ptr @_ZN12StubRoutines17_final_stubs_codeE, align 8
   br label %_ZN12StubRoutines22initialize_final_stubsEv.exit
 
@@ -823,7 +823,7 @@ define hidden void @_Z19compiler_stubs_initb(i1 noundef zeroext %0) local_unname
   br i1 %7, label %8, label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit
 
 8:                                                ; preds = %5
-  %9 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  %9 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   store ptr %9, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
   br label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit
 
@@ -838,7 +838,7 @@ _ZN12StubRoutines25initialize_compiler_stubsEv.exit: ; preds = %5, %8
   br i1 %or.cond.not, label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit2, label %12
 
 12:                                               ; preds = %.critedge
-  %13 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  %13 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_.argprom(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   store ptr %13, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
   br label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit2
 

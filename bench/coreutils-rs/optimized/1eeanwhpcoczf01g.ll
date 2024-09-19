@@ -34,7 +34,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %.not = icmp ult i64 %6, %4
-  br i1 %.not, label %7, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread"
+  br i1 %.not, label %7, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.argprom.exit.thread"
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !5
@@ -53,7 +53,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   %19 = load i64, ptr %18, align 8, !noalias !7, !noundef !4
   %20 = getelementptr inbounds { { ptr, i64 }, { i8, [1 x i8] }, [6 x i8] }, ptr %17, i64 %19
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread", label %.lr.ph.i
+  br i1 %21, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.argprom.exit.thread", label %.lr.ph.i
 
 22:                                               ; preds = %7
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %13, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0d780a28b50e5aabcf6cc8b92a0a1700.22) #3, !noalias !7
@@ -75,7 +75,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i": ; preds = %26, %.lr.ph.i
   %29 = icmp eq ptr %23, %20
-  br i1 %29, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread", label %.lr.ph.i
+  br i1 %29, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.argprom.exit.thread", label %.lr.ph.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %.sroa.0.04.i, i64 16
@@ -84,9 +84,9 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   %34 = load i8, ptr %33, align 1, !noalias !7, !noundef !4
   %35 = add i64 %6, 1
   store i64 %35, ptr %5, align 8
-  br label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread"
+  br label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.argprom.exit.thread"
 
-"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i", %15, %30, %2
+"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.argprom.exit.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i", %15, %30, %2
   %.sroa.4.0 = phi i8 [ undef, %2 ], [ %34, %30 ], [ undef, %15 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i" ]
   %.sroa.0.0 = phi i8 [ 3, %2 ], [ %32, %30 ], [ 3, %15 ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i" ]
   %36 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
@@ -119,8 +119,8 @@ attributes #3 = { noreturn }
 !5 = !{i64 8}
 !6 = !{i64 1}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E: argument 0"}
-!9 = distinct !{!9, !"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E"}
+!8 = distinct !{!8, !9, !"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.argprom: argument 0"}
+!9 = distinct !{!9, !"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.argprom"}
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !11 = !{!12, !14}
 !12 = distinct !{!12, !13, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E: argument 0"}

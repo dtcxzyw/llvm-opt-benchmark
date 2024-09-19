@@ -116,7 +116,7 @@ declare i32 @PGTYPESnumeric_add(ptr noundef, ptr noundef, ptr noundef) #2
 define i32 @deccmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @PGTYPESnumeric_new() #16
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %deccall2.exit, label %5
+  br i1 %4, label %deccall2.argprom.exit, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @PGTYPESnumeric_new() #16
@@ -146,9 +146,9 @@ define i32 @deccmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink.i = phi ptr [ %3, %5 ], [ %6, %.sink.split.sink.split.i ]
   %.0.ph.i = phi i32 [ -1211, %5 ], [ %.0.ph.ph.i, %.sink.split.sink.split.i ]
   tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink.i) #16
-  br label %deccall2.exit
+  br label %deccall2.argprom.exit
 
-deccall2.exit:                                    ; preds = %2, %.sink.split.i
+deccall2.argprom.exit:                            ; preds = %2, %.sink.split.i
   %.0.i = phi i32 [ -1211, %2 ], [ %.0.ph.i, %.sink.split.i ]
   ret i32 %.0.i
 }

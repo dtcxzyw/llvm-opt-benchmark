@@ -547,7 +547,7 @@ define hidden void @"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h48
   %61 = load ptr, ptr %60, align 8, !noalias !144, !nonnull !18, !align !149, !noundef !18
   %62 = getelementptr inbounds i8, ptr %20, i64 16
   %63 = load i64, ptr %62, align 8, !noalias !144, !noundef !18
-  br label %_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.argprom.exit
 
 64:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !150
@@ -555,9 +555,9 @@ define hidden void @"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h48
   %65 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h9e9ac37a823e8122E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %.val10, i64 noundef %.val11), !noalias !155
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !150
   %66 = ptrtoint ptr %65 to i64
-  br label %_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.argprom.exit
 
-_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.exit: ; preds = %59, %64
+_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.argprom.exit: ; preds = %59, %64
   %.sink1.i.i = phi i64 [ %66, %64 ], [ %63, %59 ]
   %.sink.i.i = phi ptr [ null, %64 ], [ %61, %59 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1181,7 +1181,7 @@ tailrecurse.i:                                    ; preds = %277
   store ptr null, ptr %0, align 8, !alias.scope !315, !noalias !320
   br label %342
 
-342:                                              ; preds = %._crit_edge, %_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.exit, %324, %337
+342:                                              ; preds = %._crit_edge, %_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.argprom.exit, %324, %337
   ret void
 }
 
@@ -1812,19 +1812,19 @@ define hidden void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llv
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   br label %12
 
-._crit_edge.i:                                    ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.exit.i", %2
+._crit_edge.i:                                    ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.argprom.exit.i", %2
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8, !noalias !468, !noundef !18
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %27, label %28
 
-12:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.exit.i", %.lr.ph.i
+12:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.argprom.exit.i", %.lr.ph.i
   %.val.i = load ptr, ptr %7, align 8, !noalias !468, !nonnull !18, !noundef !18
   %13 = ptrtoint ptr %.val.i to i64
   %14 = and i64 %13, 3
   switch i64 %14, label %default.unreachable [
     i64 2, label %15
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i
     i64 0, label %17
     i64 1, label %21
   ]
@@ -1863,29 +1863,29 @@ default.unreachable:                              ; preds = %12
   store i8 %29, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !465, !noalias !471
   br label %_ZN3std2io22inlined_slow_read_byte17hbacbf715a39bee47E.exit
 
-_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i: ; preds = %12
+_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i: ; preds = %12
   %.mask20.i.i = and i64 %13, -4294967296
   %switch.i.i = icmp eq i64 %.mask20.i.i, 150323855360
   br i1 %switch.i.i, label %31, label %30
 
-30:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i, %21, %17, %15
+30:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i, %21, %17, %15
   store i8 1, ptr %0, align 8, !alias.scope !465, !noalias !471
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.val.i, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !465, !noalias !471
   br label %_ZN3std2io22inlined_slow_read_byte17hbacbf715a39bee47E.exit
 
-31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i, %21, %17, %15
+31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i, %21, %17, %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !472
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7fe281308b7a2d8eE.llvm.4482545766329047864(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noundef nonnull %.val.i), !noalias !479
   %32 = load i8, ptr %3, align 8, !range !480, !alias.scope !481, !noalias !472, !noundef !18
   %switch.not.i.i.i.i.i.i = icmp eq i8 %32, 3
-  br i1 %switch.not.i.i.i.i.i.i, label %33, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.exit.i"
+  br i1 %switch.not.i.i.i.i.i.i, label %33, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.argprom.exit.i"
 
 33:                                               ; preds = %31
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hefa37f298c578ee4E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !479
-  br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.exit.i"
+  br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.argprom.exit.i"
 
-"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.exit.i": ; preds = %33, %31
+"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8a78b814d478a99dE.argprom.exit.i": ; preds = %33, %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !472
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !468
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !468
@@ -1975,20 +1975,20 @@ define hidden noundef zeroext i1 @_ZN3std2io8buffered9bufreader6buffer6Buffer12c
 12:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %13, label %"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.exit", !prof !499
+  br i1 %.not.i, label %13, label %"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom.exit", !prof !499
 
 13:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f995eab9e051666c7337493b56022542.40) #25, !noalias !496
   unreachable
 
-"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.exit": ; preds = %12
+"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom.exit": ; preds = %12
   %14 = load i8, ptr %10, align 1, !alias.scope !496, !noundef !18
   store i8 %14, ptr %2, align 1, !noalias !496
   %15 = add i64 %6, %1
   store i64 %15, ptr %5, align 8
   br label %16
 
-16:                                               ; preds = %3, %"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.exit"
+16:                                               ; preds = %3, %"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom.exit"
   ret i1 %11
 }
 
@@ -2033,7 +2033,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %24, align 8, !nonnull !18, !align !500, !noundef !18
   %25 = icmp eq i64 %2, 0
-  br i1 %25, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.exit", label %.lr.ph.i.i
+  br i1 %25, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22
   %26 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2061,7 +2061,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %36 = and i64 %35, 3
   switch i64 %36, label %default.unreachable [
     i64 2, label %37
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i.i
     i64 0, label %39
     i64 1, label %43
   ]
@@ -2093,10 +2093,10 @@ default.unreachable:                              ; preds = %34
   %50 = icmp ugt i64 %31, %.sroa.4.028.i.i
   br i1 %50, label %52, label %53
 
-51:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i, %43, %39, %37, %30
-  %.1.i.i = phi ptr [ @anon.f995eab9e051666c7337493b56022542.11, %30 ], [ %.val.i.i, %37 ], [ %.val.i.i, %39 ], [ %.val.i.i, %43 ], [ %.val.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i ]
+51:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i.i, %43, %39, %37, %30
+  %.1.i.i = phi ptr [ @anon.f995eab9e051666c7337493b56022542.11, %30 ], [ %.val.i.i, %37 ], [ %.val.i.i, %39 ], [ %.val.i.i, %43 ], [ %.val.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !501
-  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.exit"
+  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.argprom.exit"
 
 52:                                               ; preds = %49
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %31, i64 noundef %.sroa.4.028.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f995eab9e051666c7337493b56022542.13) #25
@@ -2117,15 +2117,15 @@ default.unreachable:                              ; preds = %34
 58:                                               ; preds = %52
   unreachable
 
-_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %34
+_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i.i: ; preds = %34
   %.mask20.i.i.i = and i64 %35, -4294967296
   %switch.i.i.i = icmp eq i64 %.mask20.i.i.i, 150323855360
   br i1 %switch.i.i.i, label %.thread.i.i, label %51
 
-.thread.i.i:                                      ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i, %53, %43, %39, %37
-  %59 = phi ptr [ %33, %53 ], [ %.val.i.i, %37 ], [ %.val.i.i, %39 ], [ %.val.i.i, %43 ], [ %.val.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i ]
-  %.sroa.0.122.i.i = phi ptr [ %55, %53 ], [ %.sroa.0.029.i.i, %37 ], [ %.sroa.0.029.i.i, %39 ], [ %.sroa.0.029.i.i, %43 ], [ %.sroa.0.029.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i ]
-  %.sroa.4.120.i.i = phi i64 [ %54, %53 ], [ %.sroa.4.028.i.i, %37 ], [ %.sroa.4.028.i.i, %39 ], [ %.sroa.4.028.i.i, %43 ], [ %.sroa.4.028.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i ]
+.thread.i.i:                                      ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i.i, %53, %43, %39, %37
+  %59 = phi ptr [ %33, %53 ], [ %.val.i.i, %37 ], [ %.val.i.i, %39 ], [ %.val.i.i, %43 ], [ %.val.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i.i ]
+  %.sroa.0.122.i.i = phi ptr [ %55, %53 ], [ %.sroa.0.029.i.i, %37 ], [ %.sroa.0.029.i.i, %39 ], [ %.sroa.0.029.i.i, %43 ], [ %.sroa.0.029.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i.i ]
+  %.sroa.4.120.i.i = phi i64 [ %54, %53 ], [ %.sroa.4.028.i.i, %37 ], [ %.sroa.4.028.i.i, %39 ], [ %.sroa.4.028.i.i, %43 ], [ %.sroa.4.028.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !507
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7fe281308b7a2d8eE.llvm.4482545766329047864(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %59), !noalias !514
   %60 = load i8, ptr %4, align 8, !range !480, !alias.scope !515, !noalias !507, !noundef !18
@@ -2145,7 +2145,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   %.sroa.4.121.i.i = phi i64 [ %.sroa.4.120.i.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b72dbbfff39c5a2E.exit.i.i" ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !501
   %63 = icmp eq i64 %.sroa.4.121.i.i, 0
-  br i1 %63, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.exit", label %28
+  br i1 %63, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.argprom.exit", label %28
 
 64:                                               ; preds = %56
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b72dbbfff39c5a2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26) #26
@@ -2160,13 +2160,13 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #27
   unreachable
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.exit": ; preds = %62, %22, %51
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.argprom.exit": ; preds = %62, %22, %51
   %.0.i.i = phi ptr [ %.1.i.i, %51 ], [ null, %22 ], [ null, %62 ]
   store i8 0, ptr %23, align 8
   br label %68
 
-68:                                               ; preds = %11, %16, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.exit"
-  %.0 = phi ptr [ %.0.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.exit" ], [ null, %16 ], [ %12, %11 ]
+68:                                               ; preds = %11, %16, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.argprom.exit"
+  %.0 = phi ptr [ %.0.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.argprom.exit" ], [ null, %16 ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -2208,26 +2208,26 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
   %18 = extractvalue { ptr, i64 } %13, 1
   %.val9 = load ptr, ptr %9, align 8, !nonnull !18, !align !500, !noundef !18
   invoke void @"_ZN48_$LT$std..fs..File$u20$as$u20$std..io..Write$GT$5write17hb181c5c2f72ad783E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 4 dereferenceable(4) %.val9, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18)
-          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h690c253138d34b79E.exit" unwind label %14
+          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h690c253138d34b79E.argprom.exit" unwind label %14
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h690c253138d34b79E.exit": ; preds = %16
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h690c253138d34b79E.argprom.exit": ; preds = %16
   store i8 0, ptr %8, align 8
   %19 = load i64, ptr %3, align 8, !range !148, !noundef !18
   %trunc = trunc nuw i64 %19 to i1
   br i1 %trunc, label %23, label %20
 
-20:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h690c253138d34b79E.exit"
+20:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h690c253138d34b79E.argprom.exit"
   %21 = load i64, ptr %10, align 8, !noundef !18
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %38, label %39
 
-23:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h690c253138d34b79E.exit"
+23:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h690c253138d34b79E.argprom.exit"
   %.val = load ptr, ptr %10, align 8, !nonnull !18, !noundef !18
   %24 = ptrtoint ptr %.val to i64
   %25 = and i64 %24, 3
   switch i64 %25, label %default.unreachable [
     i64 2, label %26
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit
     i64 0, label %28
     i64 1, label %32
   ]
@@ -2255,8 +2255,8 @@ default.unreachable:                              ; preds = %23
   %37 = icmp eq i8 %36, 35
   br i1 %37, label %.thread, label %38
 
-38:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %32, %28, %26, %20
-  %.1 = phi ptr [ @anon.f995eab9e051666c7337493b56022542.21, %20 ], [ %.val, %26 ], [ %.val, %28 ], [ %.val, %32 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ]
+38:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit, %32, %28, %26, %20
+  %.1 = phi ptr [ @anon.f995eab9e051666c7337493b56022542.21, %20 ], [ %.val, %26 ], [ %.val, %28 ], [ %.val, %32 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %._crit_edge
 
@@ -2268,7 +2268,7 @@ default.unreachable:                              ; preds = %23
   %.not7 = icmp eq i64 %19, 0
   br i1 %.not7, label %46, label %.thread
 
-_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit: ; preds = %23
+_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit: ; preds = %23
   %.mask20.i = and i64 %24, -4294967296
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %38
@@ -2279,8 +2279,8 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit: ; preds = %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret ptr %.0
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %32, %28, %26, %39
-  %43 = phi ptr [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ], [ %.val, %32 ], [ %.val, %28 ], [ %.val, %26 ], [ %40, %39 ]
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit, %32, %28, %26, %39
+  %43 = phi ptr [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit ], [ %.val, %32 ], [ %.val, %28 ], [ %.val, %26 ], [ %40, %39 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !518
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7fe281308b7a2d8eE.llvm.4482545766329047864(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %2, ptr noundef nonnull %43)
           to label %.noexc unwind label %14
@@ -3001,7 +3001,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %19 = and i64 %18, 3
   switch i64 %19, label %default.unreachable [
     i64 2, label %20
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i
     i64 0, label %22
     i64 1, label %26
   ]
@@ -3052,15 +3052,15 @@ default.unreachable:                              ; preds = %17
 40:                                               ; preds = %34
   unreachable
 
-_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i: ; preds = %17
+_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i: ; preds = %17
   %.mask20.i.i = and i64 %18, -4294967296
   %switch.i.i = icmp eq i64 %.mask20.i.i, 150323855360
   br i1 %switch.i.i, label %.thread.i, label %49
 
-.thread.i:                                        ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i, %35, %26, %22, %20
-  %41 = phi ptr [ %16, %35 ], [ %.val.i, %20 ], [ %.val.i, %22 ], [ %.val.i, %26 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i ]
-  %.sroa.0.122.i = phi ptr [ %37, %35 ], [ %.sroa.0.029.i, %20 ], [ %.sroa.0.029.i, %22 ], [ %.sroa.0.029.i, %26 ], [ %.sroa.0.029.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i ]
-  %.sroa.4.120.i = phi i64 [ %36, %35 ], [ %.sroa.4.028.i, %20 ], [ %.sroa.4.028.i, %22 ], [ %.sroa.4.028.i, %26 ], [ %.sroa.4.028.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i ]
+.thread.i:                                        ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i, %35, %26, %22, %20
+  %41 = phi ptr [ %16, %35 ], [ %.val.i, %20 ], [ %.val.i, %22 ], [ %.val.i, %26 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i ]
+  %.sroa.0.122.i = phi ptr [ %37, %35 ], [ %.sroa.0.029.i, %20 ], [ %.sroa.0.029.i, %22 ], [ %.sroa.0.029.i, %26 ], [ %.sroa.0.029.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i ]
+  %.sroa.4.120.i = phi i64 [ %36, %35 ], [ %.sroa.4.028.i, %20 ], [ %.sroa.4.028.i, %22 ], [ %.sroa.4.028.i, %26 ], [ %.sroa.4.028.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !648
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7fe281308b7a2d8eE.llvm.4482545766329047864(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noundef nonnull %41), !noalias !655
   %42 = load i8, ptr %5, align 8, !range !480, !alias.scope !656, !noalias !648, !noundef !18
@@ -3096,8 +3096,8 @@ common.resume:                                    ; preds = %38, %46, %58
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #27
   unreachable
 
-49:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i, %26, %22, %20, %13
-  %.1.i = phi ptr [ @anon.f995eab9e051666c7337493b56022542.11, %13 ], [ %.val.i, %20 ], [ %.val.i, %22 ], [ %.val.i, %26 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i ]
+49:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i, %26, %22, %20, %13
+  %.1.i = phi ptr [ @anon.f995eab9e051666c7337493b56022542.11, %13 ], [ %.val.i, %20 ], [ %.val.i, %22 ], [ %.val.i, %26 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.argprom.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !644
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !659)
@@ -3454,8 +3454,8 @@ attributes #28 = { nounwind }
 !17 = distinct !{!17, !6, !"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711: argument 0"}
 !18 = !{}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E: argument 0"}
-!21 = distinct !{!21, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E"}
+!20 = distinct !{!20, !21, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom"}
 !22 = !{!11, !15, !16, !8, !17, !5}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4next17ha4469c6c4ca948cbE.llvm.13024266015450051711: argument 1"}
@@ -3483,8 +3483,8 @@ attributes #28 = { nounwind }
 !46 = distinct !{!46, !39, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte17h1073fd21c8d6121fE.llvm.13024266015450051711: argument 0"}
 !47 = distinct !{!47, !36, !"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711: argument 0"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E: argument 0"}
-!50 = distinct !{!50, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E"}
+!49 = distinct !{!49, !50, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom: argument 0"}
+!50 = distinct !{!50, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom"}
 !51 = !{!41, !45, !46, !38, !47, !35, !33, !30, !28, !24}
 !52 = !{!33, !28}
 !53 = !{!30, !24}
@@ -3526,8 +3526,8 @@ attributes #28 = { nounwind }
 !89 = distinct !{!89, !82, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte17h1073fd21c8d6121fE.llvm.13024266015450051711: argument 0"}
 !90 = distinct !{!90, !79, !"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711: argument 0"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E: argument 0"}
-!93 = distinct !{!93, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E"}
+!92 = distinct !{!92, !93, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom: argument 0"}
+!93 = distinct !{!93, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom"}
 !94 = !{!84, !88, !89, !81, !90, !78, !76, !73, !71, !68}
 !95 = !{!76, !71}
 !96 = !{!73, !68}
@@ -3564,30 +3564,30 @@ attributes #28 = { nounwind }
 !127 = distinct !{!127, !128, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711: argument 0"}
 !128 = distinct !{!128, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711"}
 !129 = !{!130, !132, !124, !121}
-!130 = distinct !{!130, !131, !"_ZN10serde_json4read5error17h8f11146953aa7255E: argument 0"}
-!131 = distinct !{!131, !"_ZN10serde_json4read5error17h8f11146953aa7255E"}
-!132 = distinct !{!132, !131, !"_ZN10serde_json4read5error17h8f11146953aa7255E: argument 1"}
+!130 = distinct !{!130, !131, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom: argument 0"}
+!131 = distinct !{!131, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom"}
+!132 = distinct !{!132, !131, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom: argument 1"}
 !133 = !{!130, !124, !121}
 !134 = !{!130, !132, !124}
 !135 = !{!136}
 !136 = distinct !{!136, !137, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h679ed622967c58eaE: argument 0"}
 !137 = distinct !{!137, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h679ed622967c58eaE"}
 !138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE: argument 0"}
-!140 = distinct !{!140, !"_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE"}
+!139 = distinct !{!139, !140, !"_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.argprom: argument 0"}
+!140 = distinct !{!140, !"_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.argprom"}
 !141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN10serde_json4read6as_str17h821da07bdb4aad2eE: argument 0"}
-!143 = distinct !{!143, !"_ZN10serde_json4read6as_str17h821da07bdb4aad2eE"}
+!142 = distinct !{!142, !143, !"_ZN10serde_json4read6as_str17h821da07bdb4aad2eE.argprom: argument 0"}
+!143 = distinct !{!143, !"_ZN10serde_json4read6as_str17h821da07bdb4aad2eE.argprom"}
 !144 = !{!142, !145, !139, !146}
-!145 = distinct !{!145, !143, !"_ZN10serde_json4read6as_str17h821da07bdb4aad2eE: argument 1"}
-!146 = distinct !{!146, !140, !"_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE: argument 1"}
+!145 = distinct !{!145, !143, !"_ZN10serde_json4read6as_str17h821da07bdb4aad2eE.argprom: argument 1"}
+!146 = distinct !{!146, !140, !"_ZN4core3ops8function6FnOnce9call_once17hc9636964daf2fc6fE.argprom: argument 1"}
 !147 = !{!142, !139}
 !148 = !{i64 0, i64 2}
 !149 = !{i64 1}
 !150 = !{!151, !153, !142, !145, !139, !146}
-!151 = distinct !{!151, !152, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E: argument 0"}
-!152 = distinct !{!152, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E"}
-!153 = distinct !{!153, !152, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E: argument 1"}
+!151 = distinct !{!151, !152, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E.argprom: argument 0"}
+!152 = distinct !{!152, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E.argprom"}
+!153 = distinct !{!153, !152, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E.argprom: argument 1"}
 !154 = !{!151, !142, !145, !139, !146}
 !155 = !{!151, !153, !142, !139}
 !156 = !{!145, !146}
@@ -3643,9 +3643,9 @@ attributes #28 = { nounwind }
 !206 = distinct !{!206, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711"}
 !207 = !{!202, !161}
 !208 = !{!209, !211, !202, !199, !158, !161}
-!209 = distinct !{!209, !210, !"_ZN10serde_json4read5error17h8f11146953aa7255E: argument 0"}
-!210 = distinct !{!210, !"_ZN10serde_json4read5error17h8f11146953aa7255E"}
-!211 = distinct !{!211, !210, !"_ZN10serde_json4read5error17h8f11146953aa7255E: argument 1"}
+!209 = distinct !{!209, !210, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom: argument 0"}
+!210 = distinct !{!210, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom"}
+!211 = distinct !{!211, !210, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom: argument 1"}
 !212 = !{!209, !202, !199, !158, !161}
 !213 = !{!209, !211, !202}
 !214 = !{!215}
@@ -3677,9 +3677,9 @@ attributes #28 = { nounwind }
 !240 = distinct !{!240, !241, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711: argument 0"}
 !241 = distinct !{!241, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711"}
 !242 = !{!243, !245, !237, !234}
-!243 = distinct !{!243, !244, !"_ZN10serde_json4read5error17h8f11146953aa7255E: argument 0"}
-!244 = distinct !{!244, !"_ZN10serde_json4read5error17h8f11146953aa7255E"}
-!245 = distinct !{!245, !244, !"_ZN10serde_json4read5error17h8f11146953aa7255E: argument 1"}
+!243 = distinct !{!243, !244, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom: argument 0"}
+!244 = distinct !{!244, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom"}
+!245 = distinct !{!245, !244, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom: argument 1"}
 !246 = !{!243, !237, !234}
 !247 = !{!243, !245, !237}
 !248 = !{!249}
@@ -3750,10 +3750,10 @@ attributes #28 = { nounwind }
 !313 = distinct !{!313, !314, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711: argument 0"}
 !314 = distinct !{!314, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711"}
 !315 = !{!316}
-!316 = distinct !{!316, !317, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E: argument 0"}
-!317 = distinct !{!317, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E"}
+!316 = distinct !{!316, !317, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E.argprom: argument 0"}
+!317 = distinct !{!317, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E.argprom"}
 !318 = !{!316, !319}
-!319 = distinct !{!319, !317, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E: argument 1"}
+!319 = distinct !{!319, !317, !"_ZN10serde_json4read5error17hbc1e9cbe12b60078E.argprom: argument 1"}
 !320 = !{!319}
 !321 = !{!322}
 !322 = distinct !{!322, !323, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711: argument 0"}
@@ -3931,16 +3931,16 @@ attributes #28 = { nounwind }
 !494 = distinct !{!494, !495, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17had8eb37df8197aadE.llvm.4482545766329047864: argument 0"}
 !495 = distinct !{!495, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17had8eb37df8197aadE.llvm.4482545766329047864"}
 !496 = !{!497}
-!497 = distinct !{!497, !498, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E: argument 0"}
-!498 = distinct !{!498, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E"}
+!497 = distinct !{!497, !498, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom: argument 0"}
+!498 = distinct !{!498, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom"}
 !499 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !500 = !{i64 4}
 !501 = !{!502, !504, !505}
 !502 = distinct !{!502, !503, !"_ZN3std2io5Write9write_all17ha42f6ef6d4f651f8E: argument 0"}
 !503 = distinct !{!503, !"_ZN3std2io5Write9write_all17ha42f6ef6d4f651f8E"}
 !504 = distinct !{!504, !503, !"_ZN3std2io5Write9write_all17ha42f6ef6d4f651f8E: argument 1"}
-!505 = distinct !{!505, !506, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE: argument 0"}
-!506 = distinct !{!506, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE"}
+!505 = distinct !{!505, !506, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.argprom: argument 0"}
+!506 = distinct !{!506, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.argprom"}
 !507 = !{!508, !510, !512, !502, !504, !505}
 !508 = distinct !{!508, !509, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcd0fda5b36be54abE.llvm.4482545766329047864: argument 0"}
 !509 = distinct !{!509, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcd0fda5b36be54abE.llvm.4482545766329047864"}
@@ -4045,9 +4045,9 @@ attributes #28 = { nounwind }
 !608 = distinct !{!608, !609, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711: argument 0"}
 !609 = distinct !{!609, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h07ee41b0f1e914d4E.llvm.13024266015450051711"}
 !610 = !{!611, !613}
-!611 = distinct !{!611, !612, !"_ZN10serde_json4read5error17h8f11146953aa7255E: argument 0"}
-!612 = distinct !{!612, !"_ZN10serde_json4read5error17h8f11146953aa7255E"}
-!613 = distinct !{!613, !612, !"_ZN10serde_json4read5error17h8f11146953aa7255E: argument 1"}
+!611 = distinct !{!611, !612, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom: argument 0"}
+!612 = distinct !{!612, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom"}
+!613 = distinct !{!613, !612, !"_ZN10serde_json4read5error17h8f11146953aa7255E.argprom: argument 1"}
 !614 = !{!611}
 !615 = !{!616}
 !616 = distinct !{!616, !617, !"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ba9faedc0d76edeE: argument 1"}
@@ -4069,8 +4069,8 @@ attributes #28 = { nounwind }
 !632 = distinct !{!632, !625, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte17h1073fd21c8d6121fE.llvm.13024266015450051711: argument 0"}
 !633 = distinct !{!633, !622, !"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711: argument 0"}
 !634 = !{!635}
-!635 = distinct !{!635, !636, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E: argument 0"}
-!636 = distinct !{!636, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E"}
+!635 = distinct !{!635, !636, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom: argument 0"}
+!636 = distinct !{!636, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom"}
 !637 = !{!627, !631, !632, !624, !633, !621, !619, !616}
 !638 = !{!619}
 !639 = !{!640}
@@ -4118,8 +4118,8 @@ attributes #28 = { nounwind }
 !681 = !{!682, !673}
 !682 = distinct !{!682, !679, !"_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h4904b5dae2a5aff4E.llvm.13024266015450051711: argument 1"}
 !683 = !{!684}
-!684 = distinct !{!684, !685, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E: argument 0"}
-!685 = distinct !{!685, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E"}
+!684 = distinct !{!684, !685, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom: argument 0"}
+!685 = distinct !{!685, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom"}
 !686 = !{!678, !682, !673, !676}
 !687 = !{!688}
 !688 = distinct !{!688, !689, !"_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h4904b5dae2a5aff4E.llvm.13024266015450051711: argument 0"}
@@ -4127,8 +4127,8 @@ attributes #28 = { nounwind }
 !690 = !{!691}
 !691 = distinct !{!691, !689, !"_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h4904b5dae2a5aff4E.llvm.13024266015450051711: argument 1"}
 !692 = !{!693}
-!693 = distinct !{!693, !694, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E: argument 0"}
-!694 = distinct !{!694, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E"}
+!693 = distinct !{!693, !694, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom: argument 0"}
+!694 = distinct !{!694, !"_ZN90_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte28_$u7b$$u7b$closure$u7d$$u7d$17h208e5f78df56fe80E.argprom"}
 !695 = !{!688, !691}
 !696 = !{!697}
 !697 = distinct !{!697, !698, !"_ZN6sparse5index12posting_list19PostingListIterator10len_to_end17h6cd18caf0e689a4cE: argument 0"}

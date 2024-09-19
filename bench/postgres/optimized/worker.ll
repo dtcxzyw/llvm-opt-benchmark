@@ -1282,7 +1282,7 @@ begin_replication_step.exit.i23:                  ; preds = %208, %206
   %301 = call ptr @table_slot_create(ptr noundef %299, ptr noundef nonnull %300) #17
   %.not.i.i.i = icmp eq i32 %294, 0
   %302 = getelementptr inbounds i8, ptr %234, i64 8
-  br i1 %.not.i.i.i, label %FindReplTupleInLocalRel.exit.i.i, label %303
+  br i1 %.not.i.i.i, label %FindReplTupleInLocalRel.argprom.exit.i.i, label %303
 
 303:                                              ; preds = %290
   %304 = call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %299, i32 noundef %294, i32 noundef 3, ptr noundef nonnull %234, ptr noundef %301) #17
@@ -1292,7 +1292,7 @@ begin_replication_step.exit.i23:                  ; preds = %208, %206
   call void %307(ptr noundef nonnull %234) #17
   br i1 %304, label %312, label %324
 
-FindReplTupleInLocalRel.exit.i.i:                 ; preds = %290
+FindReplTupleInLocalRel.argprom.exit.i.i:         ; preds = %290
   %308 = call zeroext i1 @RelationFindReplTupleSeq(ptr noundef %299, i32 noundef 3, ptr noundef nonnull %234, ptr noundef %301) #17
   %309 = load ptr, ptr %302, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 24
@@ -1300,7 +1300,7 @@ FindReplTupleInLocalRel.exit.i.i:                 ; preds = %290
   call void %311(ptr noundef nonnull %234) #17
   br i1 %308, label %312, label %324
 
-312:                                              ; preds = %FindReplTupleInLocalRel.exit.i.i, %303
+312:                                              ; preds = %FindReplTupleInLocalRel.argprom.exit.i.i, %303
   %313 = getelementptr inbounds i8, ptr %295, i64 232
   %314 = load ptr, ptr %313, align 8
   %.not.i.i26 = icmp eq ptr %314, null
@@ -1325,7 +1325,7 @@ FindReplTupleInLocalRel.exit.i.i:                 ; preds = %290
   call void @ExecSimpleRelationUpdate(ptr noundef nonnull %292, ptr noundef nonnull %295, ptr noundef nonnull %26, ptr noundef %301, ptr noundef nonnull %234) #17
   br label %apply_handle_update_internal.exit.i
 
-324:                                              ; preds = %FindReplTupleInLocalRel.exit.i.i, %303
+324:                                              ; preds = %FindReplTupleInLocalRel.argprom.exit.i.i, %303
   %325 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
   br i1 %325, label %326, label %apply_handle_update_internal.exit.i
 
@@ -2708,13 +2708,13 @@ am_parallel_apply_worker.exit.thread.i.i63:       ; preds = %am_parallel_apply_w
 
 ._crit_edge.i.i.i:                                ; preds = %am_parallel_apply_worker.exit.thread.i.i63
   %.pre.i.i.i = load ptr, ptr @lsn_mapping, align 8
-  br label %dlist_push_tail.exit.i.i
+  br label %dlist_push_tail.argprom.exit.i.i
 
 937:                                              ; preds = %am_parallel_apply_worker.exit.thread.i.i63
   store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
-  br label %dlist_push_tail.exit.i.i
+  br label %dlist_push_tail.argprom.exit.i.i
 
-dlist_push_tail.exit.i.i:                         ; preds = %937, %._crit_edge.i.i.i
+dlist_push_tail.argprom.exit.i.i:                 ; preds = %937, %._crit_edge.i.i.i
   %938 = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ @lsn_mapping, %937 ]
   %939 = getelementptr inbounds i8, ptr %932, i64 8
   store ptr @lsn_mapping, ptr %939, align 8
@@ -2727,8 +2727,8 @@ dlist_push_tail.exit.i.i:                         ; preds = %937, %._crit_edge.i
   %.pre.i64 = load i64, ptr %922, align 8
   br label %store_flush_position.exit.i
 
-store_flush_position.exit.i:                      ; preds = %dlist_push_tail.exit.i.i, %am_parallel_apply_worker.exit.i.i66
-  %942 = phi i64 [ %923, %am_parallel_apply_worker.exit.i.i66 ], [ %.pre.i64, %dlist_push_tail.exit.i.i ]
+store_flush_position.exit.i:                      ; preds = %dlist_push_tail.argprom.exit.i.i, %am_parallel_apply_worker.exit.i.i66
+  %942 = phi i64 [ %923, %am_parallel_apply_worker.exit.i.i66 ], [ %.pre.i64, %dlist_push_tail.argprom.exit.i.i ]
   store i8 0, ptr @in_remote_transaction, align 1
   call void @process_syncing_tables(i64 noundef %942) #17
   %943 = load i64, ptr @skip_xact_finish_lsn, align 8
@@ -2840,13 +2840,13 @@ am_parallel_apply_worker.exit.thread.i.i69:       ; preds = %am_parallel_apply_w
 
 ._crit_edge.i.i.i70:                              ; preds = %am_parallel_apply_worker.exit.thread.i.i69
   %.pre.i.i.i71 = load ptr, ptr @lsn_mapping, align 8
-  br label %dlist_push_tail.exit.i.i72
+  br label %dlist_push_tail.argprom.exit.i.i72
 
 988:                                              ; preds = %am_parallel_apply_worker.exit.thread.i.i69
   store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
-  br label %dlist_push_tail.exit.i.i72
+  br label %dlist_push_tail.argprom.exit.i.i72
 
-dlist_push_tail.exit.i.i72:                       ; preds = %988, %._crit_edge.i.i.i70
+dlist_push_tail.argprom.exit.i.i72:               ; preds = %988, %._crit_edge.i.i.i70
   %989 = phi ptr [ %.pre.i.i.i71, %._crit_edge.i.i.i70 ], [ @lsn_mapping, %988 ]
   %990 = getelementptr inbounds i8, ptr %983, i64 8
   store ptr @lsn_mapping, ptr %990, align 8
@@ -2859,8 +2859,8 @@ dlist_push_tail.exit.i.i72:                       ; preds = %988, %._crit_edge.i
   %.pre.i73 = load i64, ptr %969, align 8
   br label %apply_handle_commit_prepared.exit
 
-apply_handle_commit_prepared.exit:                ; preds = %am_parallel_apply_worker.exit.i.i75, %dlist_push_tail.exit.i.i72
-  %993 = phi i64 [ %974, %am_parallel_apply_worker.exit.i.i75 ], [ %.pre.i73, %dlist_push_tail.exit.i.i72 ]
+apply_handle_commit_prepared.exit:                ; preds = %am_parallel_apply_worker.exit.i.i75, %dlist_push_tail.argprom.exit.i.i72
+  %993 = phi i64 [ %974, %am_parallel_apply_worker.exit.i.i75 ], [ %.pre.i73, %dlist_push_tail.argprom.exit.i.i72 ]
   store i8 0, ptr @in_remote_transaction, align 1
   call void @process_syncing_tables(i64 noundef %993) #17
   %994 = load i64, ptr %969, align 8
@@ -2963,13 +2963,13 @@ am_parallel_apply_worker.exit.thread.i.i78:       ; preds = %am_parallel_apply_w
 
 ._crit_edge.i.i.i79:                              ; preds = %am_parallel_apply_worker.exit.thread.i.i78
   %.pre.i.i.i80 = load ptr, ptr @lsn_mapping, align 8
-  br label %dlist_push_tail.exit.i.i81
+  br label %dlist_push_tail.argprom.exit.i.i81
 
 1036:                                             ; preds = %am_parallel_apply_worker.exit.thread.i.i78
   store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
-  br label %dlist_push_tail.exit.i.i81
+  br label %dlist_push_tail.argprom.exit.i.i81
 
-dlist_push_tail.exit.i.i81:                       ; preds = %1036, %._crit_edge.i.i.i79
+dlist_push_tail.argprom.exit.i.i81:               ; preds = %1036, %._crit_edge.i.i.i79
   %1037 = phi ptr [ %.pre.i.i.i80, %._crit_edge.i.i.i79 ], [ @lsn_mapping, %1036 ]
   %1038 = getelementptr inbounds i8, ptr %1031, i64 8
   store ptr @lsn_mapping, ptr %1038, align 8
@@ -2982,8 +2982,8 @@ dlist_push_tail.exit.i.i81:                       ; preds = %1036, %._crit_edge.
   %.pre.i82 = load i64, ptr %998, align 8
   br label %apply_handle_rollback_prepared.exit
 
-apply_handle_rollback_prepared.exit:              ; preds = %am_parallel_apply_worker.exit.i.i84, %dlist_push_tail.exit.i.i81
-  %1041 = phi i64 [ %1022, %am_parallel_apply_worker.exit.i.i84 ], [ %.pre.i82, %dlist_push_tail.exit.i.i81 ]
+apply_handle_rollback_prepared.exit:              ; preds = %am_parallel_apply_worker.exit.i.i84, %dlist_push_tail.argprom.exit.i.i81
+  %1041 = phi i64 [ %1022, %am_parallel_apply_worker.exit.i.i84 ], [ %.pre.i82, %dlist_push_tail.argprom.exit.i.i81 ]
   store i8 0, ptr @in_remote_transaction, align 1
   call void @process_syncing_tables(i64 noundef %1041) #17
   call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
@@ -3246,13 +3246,13 @@ am_parallel_apply_worker.exit.thread:             ; preds = %2, %am_parallel_app
 
 ._crit_edge.i:                                    ; preds = %am_parallel_apply_worker.exit.thread
   %.pre.i = load ptr, ptr @lsn_mapping, align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
 15:                                               ; preds = %am_parallel_apply_worker.exit.thread
   store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
-dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %15
+dlist_push_tail.argprom.exit:                     ; preds = %._crit_edge.i, %15
   %16 = phi ptr [ %.pre.i, %._crit_edge.i ], [ @lsn_mapping, %15 ]
   %17 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr @lsn_mapping, ptr %17, align 8
@@ -3264,7 +3264,7 @@ dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %15
   store ptr %19, ptr @CurrentMemoryContext, align 8
   br label %20
 
-20:                                               ; preds = %am_parallel_apply_worker.exit, %dlist_push_tail.exit
+20:                                               ; preds = %am_parallel_apply_worker.exit, %dlist_push_tail.argprom.exit
   ret void
 }
 
@@ -4701,13 +4701,13 @@ am_parallel_apply_worker.exit.thread.i:           ; preds = %am_parallel_apply_w
 
 ._crit_edge.i.i:                                  ; preds = %am_parallel_apply_worker.exit.thread.i
   %.pre.i.i = load ptr, ptr @lsn_mapping, align 8
-  br label %dlist_push_tail.exit.i
+  br label %dlist_push_tail.argprom.exit.i
 
 40:                                               ; preds = %am_parallel_apply_worker.exit.thread.i
   store ptr @lsn_mapping, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
-  br label %dlist_push_tail.exit.i
+  br label %dlist_push_tail.argprom.exit.i
 
-dlist_push_tail.exit.i:                           ; preds = %40, %._crit_edge.i.i
+dlist_push_tail.argprom.exit.i:                   ; preds = %40, %._crit_edge.i.i
   %41 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ @lsn_mapping, %40 ]
   %42 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr @lsn_mapping, ptr %42, align 8
@@ -4724,7 +4724,7 @@ dlist_push_tail.exit.i:                           ; preds = %40, %._crit_edge.i.
   tail call void @maybe_reread_subscription()
   br label %store_flush_position.exit
 
-store_flush_position.exit:                        ; preds = %dlist_push_tail.exit.i, %am_parallel_apply_worker.exit.i, %45
+store_flush_position.exit:                        ; preds = %dlist_push_tail.argprom.exit.i, %am_parallel_apply_worker.exit.i, %45
   store i8 0, ptr @in_remote_transaction, align 1
   ret void
 }
@@ -5496,17 +5496,17 @@ slot_getallattrs.exit:                            ; preds = %66, %54, %50
   %78 = getelementptr inbounds i8, ptr %.val145, i64 168
   %79 = tail call ptr @table_slot_create(ptr noundef nonnull %32, ptr noundef nonnull %78) #17
   %.not.i = icmp eq i32 %77, 0
-  br i1 %.not.i, label %FindReplTupleInLocalRel.exit, label %80
+  br i1 %.not.i, label %FindReplTupleInLocalRel.argprom.exit, label %80
 
 80:                                               ; preds = %75
   %81 = tail call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef nonnull %32, i32 noundef %77, i32 noundef 3, ptr noundef %.1, ptr noundef %79) #17
   br i1 %81, label %89, label %83
 
-FindReplTupleInLocalRel.exit:                     ; preds = %75
+FindReplTupleInLocalRel.argprom.exit:             ; preds = %75
   %82 = tail call zeroext i1 @RelationFindReplTupleSeq(ptr noundef nonnull %32, i32 noundef 3, ptr noundef %.1, ptr noundef %79) #17
   br i1 %82, label %89, label %83
 
-83:                                               ; preds = %80, %FindReplTupleInLocalRel.exit
+83:                                               ; preds = %80, %FindReplTupleInLocalRel.argprom.exit
   %84 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
   br i1 %84, label %85, label %185
 
@@ -5517,7 +5517,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %75
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3039, ptr noundef nonnull @__func__.apply_handle_tuple_routing) #17
   br label %185
 
-89:                                               ; preds = %80, %FindReplTupleInLocalRel.exit
+89:                                               ; preds = %80, %FindReplTupleInLocalRel.argprom.exit
   %90 = load ptr, ptr %21, align 8
   %.not140 = icmp eq ptr %90, null
   br i1 %.not140, label %91, label %93
@@ -5817,17 +5817,17 @@ define internal fastcc void @apply_handle_delete_internal(ptr nocapture noundef 
   %9 = getelementptr inbounds i8, ptr %.val, i64 168
   %10 = call ptr @table_slot_create(ptr noundef %8, ptr noundef nonnull %9) #17
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %FindReplTupleInLocalRel.exit, label %11
+  br i1 %.not.i, label %FindReplTupleInLocalRel.argprom.exit, label %11
 
 11:                                               ; preds = %4
   %12 = call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %8, i32 noundef %3, i32 noundef 3, ptr noundef %2, ptr noundef %10) #17
   br i1 %12, label %14, label %17
 
-FindReplTupleInLocalRel.exit:                     ; preds = %4
+FindReplTupleInLocalRel.argprom.exit:             ; preds = %4
   %13 = call zeroext i1 @RelationFindReplTupleSeq(ptr noundef %8, i32 noundef 3, ptr noundef %2, ptr noundef %10) #17
   br i1 %13, label %14, label %17
 
-14:                                               ; preds = %11, %FindReplTupleInLocalRel.exit
+14:                                               ; preds = %11, %FindReplTupleInLocalRel.argprom.exit
   %15 = getelementptr inbounds i8, ptr %5, i64 56
   store ptr %10, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
@@ -5835,7 +5835,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %4
   call void @ExecSimpleRelationDelete(ptr noundef nonnull %1, ptr noundef %6, ptr noundef nonnull %5, ptr noundef %10) #17
   br label %24
 
-17:                                               ; preds = %11, %FindReplTupleInLocalRel.exit
+17:                                               ; preds = %11, %FindReplTupleInLocalRel.argprom.exit
   %18 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
   br i1 %18, label %19, label %24
 

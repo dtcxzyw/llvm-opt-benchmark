@@ -1407,27 +1407,27 @@ define internal void @_ZL10init_kwstrPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr 
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 72
   %23 = icmp ult i64 %22, %14
-  br i1 %23, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit
+  br i1 %23, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %17
+_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i: ; preds = %17
   %24 = mul nuw nsw i64 %14, 72
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #26
   %.not.i11.i = icmp eq ptr %.val, null
-  br i1 %.not.i11.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit.i, label %26
+  br i1 %.not.i11.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i, label %26
 
-26:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+26:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #28
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %26, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i: ; preds = %26, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i
   store ptr %25, ptr %8, align 8
   store ptr %25, ptr %9, align 8
   %27 = getelementptr inbounds %"class.(anonymous namespace)::StringKeywordMatchItem", ptr %25, i64 %14
   store ptr %27, ptr %18, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit: ; preds = %17, %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit.i
-  %28 = phi ptr [ %.val13, %17 ], [ %25, %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit.i ]
+_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit: ; preds = %17, %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i
+  %28 = phi ptr [ %.val13, %17 ], [ %25, %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i ]
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1436,9 +1436,9 @@ _ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit: ; 
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %30
 
-30:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.exit
-  %31 = phi ptr [ %28, %.lr.ph ], [ %89, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.exit ]
+30:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.argprom.exit
+  %31 = phi ptr [ %28, %.lr.ph ], [ %89, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.argprom.exit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.argprom.exit ]
   %32 = load ptr, ptr %29, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
@@ -1448,11 +1448,11 @@ _ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit: ; 
   br i1 %.not.i, label %39, label %36
 
 36:                                               ; preds = %30
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvRS2_PT_DpOT0_(ptr noundef %31, i32 %.val14, ptr %34)
+  tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvRS2_PT_DpOT0_.argprom(ptr noundef %31, i32 %.val14, ptr %34)
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 72
   store ptr %38, ptr %9, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.argprom.exit
 
 39:                                               ; preds = %30
   %.val28.i.i = load ptr, ptr %8, align 8
@@ -1460,13 +1460,13 @@ _ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit: ; 
   %41 = ptrtoint ptr %.val28.i.i to i64
   %42 = sub i64 %40, %41
   %43 = icmp eq i64 %42, 9223372036854775800
-  br i1 %43, label %44, label %_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %43, label %44, label %_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
 
 44:                                               ; preds = %39
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #27
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %39
+_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %39
   %45 = sdiv exact i64 %42, 72
   %46 = icmp eq ptr %31, %.val28.i.i
   %.sroa.speculated.i.i.i = select i1 %46, i64 1, i64 %45
@@ -1475,21 +1475,21 @@ _ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPK
   %49 = tail call i64 @llvm.umin.i64(i64 %47, i64 128102389400760775)
   %50 = select i1 %48, i64 128102389400760775, i64 %49
   %.not.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.exit.i.i, label %51
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.argprom.exit.i.i, label %51
 
-51:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+51:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
   %52 = mul nuw nsw i64 %50, 72
   %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #26
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.exit.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.argprom.exit.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %51, %_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %54 = phi ptr [ %53, %51 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %51, %_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  %54 = phi ptr [ %53, %51 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
   %55 = getelementptr inbounds %"class.(anonymous namespace)::StringKeywordMatchItem", ptr %54, i64 %45
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvRS2_PT_DpOT0_(ptr noundef %55, i32 %.val14, ptr %34)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvRS2_PT_DpOT0_.argprom(ptr noundef %55, i32 %.val14, ptr %34)
           to label %56 unwind label %76
 
-56:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.exit.i.i
-  br i1 %46, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39.i.i, label %.lr.ph.i.i.i.i.i
+56:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.argprom.exit.i.i
+  br i1 %46, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit39.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %56, %.lr.ph.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %73, %.lr.ph.i.i.i.i.i ], [ %54, %56 ]
@@ -1524,19 +1524,19 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocat
   %72 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 72
   %73 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq ptr %72, %31
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit39.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
 
-_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39.i.i: ; preds = %.lr.ph.i.i.i.i.i, %56
+_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit39.i.i: ; preds = %.lr.ph.i.i.i.i.i, %56
   %.0.lcssa.i.i.i.i.i = phi ptr [ %54, %56 ], [ %73, %.lr.ph.i.i.i.i.i ]
   %74 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 72
   %.not.i40.i.i = icmp eq ptr %.val28.i.i, null
-  br i1 %.not.i40.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %75
+  br i1 %.not.i40.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, label %75
 
-75:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39.i.i
+75:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit39.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val28.i.i) #28
-  br label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i
 
-76:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.exit.i.i
+76:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_M_allocateEm.argprom.exit.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
@@ -1545,10 +1545,10 @@ _ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S
   br i1 %.not.i.i, label %.thread.i.i, label %82
 
 .thread.i.i:                                      ; preds = %76
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE7destroyIS1_EEvRS2_PT_(ptr noundef %55) #29
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit44.i.i
+  tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE7destroyIS1_EEvRS2_PT_.argprom(ptr noundef %55) #29
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit44.i.i
 
-80:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit44.i.i
+80:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit44.i.i
   %81 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -1556,9 +1556,9 @@ _ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S
 
 82:                                               ; preds = %76
   tail call void @_ZdlPv(ptr noundef nonnull %54) #28
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit44.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit44.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit44.i.i: ; preds = %82, %.thread.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit44.i.i: ; preds = %82, %.thread.i.i
   invoke void @__cxa_rethrow() #27
           to label %87 unwind label %80
 
@@ -1572,23 +1572,23 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_dealloc
   tail call void @__clang_call_terminate(ptr %86) #30
   unreachable
 
-87:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.exit44.i.i
+87:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE13_M_deallocateEPS1_m.argprom.exit44.i.i
   unreachable
 
-_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %75, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39.i.i
+_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i: ; preds = %75, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit39.i.i
   store ptr %54, ptr %8, align 8
   store ptr %74, ptr %9, align 8
   %88 = getelementptr inbounds %"class.(anonymous namespace)::StringKeywordMatchItem", ptr %54, i64 %50
   store ptr %88, ptr %18, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.argprom.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.exit: ; preds = %36, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %89 = phi ptr [ %38, %36 ], [ %74, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.argprom.exit: ; preds = %36, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i
+  %89 = phi ptr [ %38, %36 ], [ %74, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE17_M_realloc_insertIJRN3gmx24SelectionStringMatchTypeERPKcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !16
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.exit, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit, %4
+.loopexit:                                        ; preds = %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE12emplace_backIJRN3gmx24SelectionStringMatchTypeERPKcEEERS1_DpOT_.argprom.exit, %_ZNSt6vectorIN12_GLOBAL__N_122StringKeywordMatchItemESaIS1_EE7reserveEm.exit, %4
   ret void
 }
 
@@ -1603,7 +1603,7 @@ define internal void @_ZL15free_data_kwstrPv(ptr noundef %0) #4 personality ptr 
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %5, %7
-  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %3, %_ZSt8_DestroyIN12_GLOBAL__N_122StringKeywordMatchItemEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %45, %_ZSt8_DestroyIN12_GLOBAL__N_122StringKeywordMatchItemEEvPT_.exit.i.i.i.i.i ], [ %5, %3 ]
@@ -1686,22 +1686,22 @@ _ZSt8_DestroyIN12_GLOBAL__N_122StringKeywordMatchItemEEvPT_.exit.i.i.i.i.i: ; pr
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #29
   %45 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq ptr %45, %7
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
 
-_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_122StringKeywordMatchItemEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_122StringKeywordMatchItemEEvPT_.exit.i.i.i.i.i
   %.val.pr.i.i = load ptr, ptr %4, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exit.i.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %3
-  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %5, %3 ]
+_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i, %3
+  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i ], [ %5, %3 ]
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_118t_methoddata_kwstrD2Ev.exit, label %46
 
-46:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exit.i.i
+46:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i) #28
   br label %_ZN12_GLOBAL__N_118t_methoddata_kwstrD2Ev.exit
 
-_ZN12_GLOBAL__N_118t_methoddata_kwstrD2Ev.exit:   ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.exit.i.i, %46
+_ZN12_GLOBAL__N_118t_methoddata_kwstrD2Ev.exit:   ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_122StringKeywordMatchItemES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, %46
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   br label %47
 
@@ -1864,11 +1864,11 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE7destroyIS1_EEvRS2_PT_(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE7destroyIS1_EEvRS2_PT_.argprom(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.exit, label %4
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.argprom.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1904,7 +1904,7 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringK
 20:                                               ; preds = %18, %16
   %.0.i.i.i.i.i.i.i = phi i32 [ %8, %16 ], [ %19, %18 ]
   %21 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %21, label %22, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.exit
+  br i1 %21, label %22, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.argprom.exit
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
@@ -1929,16 +1929,16 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringK
 33:                                               ; preds = %31, %28
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %29, %28 ], [ %32, %31 ]
   %34 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %34, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.exit
+  br i1 %34, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.argprom.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  br label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.exit
+  br label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.argprom.exit
 
-_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
+_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE7destroyIS1_EEvPT_.argprom.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #29
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
@@ -2042,7 +2042,7 @@ declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) u
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvRS2_PT_DpOT0_(ptr noundef %0, i32 %.0.val, ptr %.0.val1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringKeywordMatchItemEEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvRS2_PT_DpOT0_.argprom(ptr noundef %0, i32 %.0.val, ptr %.0.val1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.0", align 1
   %3 = alloca %"class.gmx::InvalidInputError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
@@ -2102,7 +2102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
 .preheader.i.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.val1) #31
   %.not55.i.i = icmp eq i64 %23, 0
-  br i1 %.not55.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.exit, label %.lr.ph.i.i
+  br i1 %.not55.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.argprom.exit, label %.lr.ph.i.i
 
 24:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i.i
   %exitcond.not.i.i = icmp eq i64 %29, %23
@@ -2142,13 +2142,13 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
   br label %62
 
 .loopexit.i.i:                                    ; preds = %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i
-  br i1 %19, label %34, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.exit
+  br i1 %19, label %34, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.argprom.exit
 
 34:                                               ; preds = %.loopexit.i.i, %.loopexit.thread.i.i
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.val1) #29
   %36 = getelementptr inbounds i8, ptr %.0.val1, i64 %35
   invoke void @_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEE10_M_compileEPKcS5_NSt15regex_constants18syntax_option_typeE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %.0.val1, ptr noundef nonnull %36, i32 noundef 66)
-          to label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.exit unwind label %37
+          to label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.argprom.exit unwind label %37
 
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
@@ -2265,7 +2265,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
 68:                                               ; preds = %51
   unreachable
 
-_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.exit: ; preds = %.preheader.i.i, %.loopexit.i.i, %34
+_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.argprom.exit: ; preds = %.preheader.i.i, %.loopexit.i.i, %34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
@@ -29654,10 +29654,10 @@ attributes #31 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_122StringKeywordMatchItemES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!12 = distinct !{!12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_122StringKeywordMatchItemES1_SaIS1_EEvPT_PT0_RT1_"}
+!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_122StringKeywordMatchItemES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_122StringKeywordMatchItemES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
 !13 = !{!14}
-!14 = distinct !{!14, !12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_122StringKeywordMatchItemES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!14 = distinct !{!14, !12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_122StringKeywordMatchItemES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}

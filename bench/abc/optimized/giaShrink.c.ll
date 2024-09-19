@@ -246,7 +246,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %122 = sdiv exact i64 %121, 12
   %123 = trunc i64 %122 to i32
   %124 = add nsw i32 %123, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %113, i32 noundef %124)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %113, i32 noundef %124)
   %125 = getelementptr i8, ptr %113, i64 8
   %.val.i.i.i = load ptr, ptr %125, align 8
   %sext.i = shl i64 %122, 32
@@ -260,7 +260,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %131 = sdiv exact i64 %130, 12
   %132 = trunc i64 %131 to i32
   %133 = add nsw i32 %132, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val145, i32 noundef %133)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val145, i32 noundef %133)
   %134 = getelementptr i8, ptr %.val145, i64 8
   %.val.i.i.i154 = load ptr, ptr %134, align 8
   %sext.i155 = shl i64 %131, 32
@@ -1092,7 +1092,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

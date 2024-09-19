@@ -609,7 +609,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit8: ; p
 
 26:                                               ; preds = %24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %25) #12
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
           to label %27 unwind label %64
 
 27:                                               ; preds = %26
@@ -1122,7 +1122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48: ; 
 
 117:                                              ; preds = %115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %116) #12
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
           to label %118 unwind label %130
 
 118:                                              ; preds = %117
@@ -1262,7 +1262,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug16TimedScopeH
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @llvm.va_end.p0(ptr nonnull %4)
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
           to label %13 unwind label %21
 
 13:                                               ; preds = %10
@@ -1304,7 +1304,7 @@ declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug13_ScopedOutputEbPKc(i1 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
   %3 = load atomic i64, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEvE11_outputFile seq_cst, align 8
   %.0.i = inttoptr i64 %3 to ptr
   br i1 %0, label %4, label %9
@@ -1364,7 +1364,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit: ; preds 
 
 21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit
   %22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
           to label %23 unwind label %31
 
 23:                                               ; preds = %21
@@ -1594,7 +1594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50: ; 
 
 39:                                               ; preds = %37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %38) #12
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
           to label %40 unwind label %56
 
 40:                                               ; preds = %39
@@ -2581,7 +2581,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug13SetOutputFileEP8_IO_
   br i1 %or.cond, label %7, label %9
 
 7:                                                ; preds = %1
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
   %8 = ptrtoint ptr %0 to i64
   store atomic i64 %8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEvE11_outputFile seq_cst, align 8
   br label %14
@@ -2604,7 +2604,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug13SetOutputFileEP8_IO_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.15", align 1
@@ -3181,7 +3181,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit21: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug6Helper3MsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
   %2 = load atomic i64, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEvE11_outputFile seq_cst, align 8
   %.0.i = inttoptr i64 %2 to ptr
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
@@ -3202,7 +3202,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug6Helper3MsgEPKcz(ptr n
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.va_start.p0(ptr nonnull %2)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfVStringPrintfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef %0, ptr noundef nonnull %2)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetOutputFileEv.retelim()
           to label %4 unwind label %8
 
 4:                                                ; preds = %1

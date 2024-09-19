@@ -2699,9 +2699,9 @@ MergeAttributes.exit:                             ; preds = %895, %.lr.ph781.spl
   %1019 = getelementptr inbounds i8, ptr %8, i64 8
   br label %1020
 
-1020:                                             ; preds = %StoreCatalogInheritance1.exit.i, %.lr.ph.i294
-  %indvars.iv.i295 = phi i64 [ 0, %.lr.ph.i294 ], [ %indvars.iv.next.i297, %StoreCatalogInheritance1.exit.i ]
-  %.019.i = phi i32 [ 1, %.lr.ph.i294 ], [ %1026, %StoreCatalogInheritance1.exit.i ]
+1020:                                             ; preds = %StoreCatalogInheritance1.argprom.exit.i, %.lr.ph.i294
+  %indvars.iv.i295 = phi i64 [ 0, %.lr.ph.i294 ], [ %indvars.iv.next.i297, %StoreCatalogInheritance1.argprom.exit.i ]
+  %.019.i = phi i32 [ 1, %.lr.ph.i294 ], [ %1026, %StoreCatalogInheritance1.argprom.exit.i ]
   %1021 = load ptr, ptr %1015, align 8
   %1022 = getelementptr %union.ListCell, ptr %1021, i64 %indvars.iv.i295
   %1023 = load i32, ptr %1022, align 8
@@ -2717,13 +2717,13 @@ MergeAttributes.exit:                             ; preds = %895, %.lr.ph781.spl
   call void @recordDependencyOn(ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.in) #13
   %1024 = load ptr, ptr @object_access_hook, align 8
   %.not.i.i296 = icmp eq ptr %1024, null
-  br i1 %.not.i.i296, label %StoreCatalogInheritance1.exit.i, label %1025
+  br i1 %.not.i.i296, label %StoreCatalogInheritance1.argprom.exit.i, label %1025
 
 1025:                                             ; preds = %1020
   call void @RunObjectPostAlterHook(i32 noundef 2611, i32 noundef %976, i32 noundef 0, i32 noundef %1023, i1 noundef zeroext false) #13
-  br label %StoreCatalogInheritance1.exit.i
+  br label %StoreCatalogInheritance1.argprom.exit.i
 
-StoreCatalogInheritance1.exit.i:                  ; preds = %1025, %1020
+StoreCatalogInheritance1.argprom.exit.i:          ; preds = %1025, %1020
   call void @SetRelationHasSubclass(i32 noundef %1023, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
@@ -2734,7 +2734,7 @@ StoreCatalogInheritance1.exit.i:                  ; preds = %1025, %1020
   %.not.i298 = icmp slt i64 %indvars.iv.next.i297, %1028
   br i1 %.not.i298, label %1020, label %._crit_edge.i293, !llvm.loop !13
 
-._crit_edge.i293:                                 ; preds = %StoreCatalogInheritance1.exit.i, %1011
+._crit_edge.i293:                                 ; preds = %StoreCatalogInheritance1.argprom.exit.i, %1011
   call void @table_close(ptr noundef %1012, i32 noundef 3) #13
   br label %StoreCatalogInheritance.exit
 
@@ -4221,7 +4221,7 @@ GetForeignKeyActionTriggers.exit.i:               ; preds = %182, %187
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18)
   %191 = load i32, ptr %20, align 4
   %192 = load i32, ptr %27, align 4
-  %193 = call fastcc { i64, i32 } @addFkRecurseReferenced(ptr noundef nonnull %97, ptr noundef %84, ptr noundef %2, i32 noundef %142, i32 noundef %59, i32 noundef %191, ptr noundef nonnull %22, ptr noundef %21, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %192, ptr noundef %28, i32 noundef %.2103149155.i, i32 noundef %.2150154.i)
+  %193 = call fastcc { i64, i32 } @addFkRecurseReferenced.argprom.argelim(ptr noundef nonnull %97, ptr noundef %84, ptr noundef %2, i32 noundef %142, i32 noundef %59, i32 noundef %191, ptr noundef nonnull %22, ptr noundef %21, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %192, ptr noundef %28, i32 noundef %.2103149155.i, i32 noundef %.2150154.i)
   call void @table_close(ptr noundef %84, i32 noundef 0) #13
   br label %194
 
@@ -7149,7 +7149,7 @@ define dso_local { i64, i32 } @RenameConstraint(ptr nocapture noundef readonly %
 
 44:                                               ; preds = %40, %33
   %45 = phi i1 [ false, %33 ], [ %43, %40 ]
-  %46 = tail call fastcc i64 @rename_constraint_internal(i32 noundef %.0, i32 noundef %.020, ptr noundef %35, ptr noundef %37, i1 noundef zeroext %45, i32 noundef 0)
+  %46 = tail call fastcc i64 @rename_constraint_internal.argelim(i32 noundef %.0, i32 noundef %.020, ptr noundef %35, ptr noundef %37, i1 noundef zeroext %45, i32 noundef 0)
   br label %47
 
 47:                                               ; preds = %44, %32
@@ -7169,7 +7169,7 @@ declare void @checkDomainOwner(ptr noundef) local_unnamed_addr #3
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @rename_constraint_internal(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i64 @rename_constraint_internal.argelim(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %10, label %8
@@ -7274,7 +7274,7 @@ define internal fastcc i64 @rename_constraint_internal(i32 noundef %0, i32 nound
 
 63:                                               ; preds = %60
   %64 = load i32, ptr %56, align 8
-  %65 = call fastcc i64 @rename_constraint_internal(i32 noundef %61, i32 noundef 0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i32 noundef %64)
+  %65 = call fastcc i64 @rename_constraint_internal.argelim(i32 noundef %61, i32 noundef 0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i32 noundef %64)
   br label %66
 
 66:                                               ; preds = %60, %63
@@ -11428,7 +11428,7 @@ ATGetQueueEntry.exit:                             ; preds = %17, %._crit_edge.i
   tail call fastcc void @ATSimplePermissions(i32 noundef 34, ptr noundef nonnull %1, i32 noundef 77)
   %165 = getelementptr inbounds i8, ptr %58, i64 8
   %166 = load ptr, ptr %165, align 8
-  tail call fastcc void @ATPrepSetTableSpace(ptr noundef nonnull %.0.i, ptr noundef %166)
+  tail call fastcc void @ATPrepSetTableSpace.argprom.argelim(ptr noundef nonnull %.0.i, ptr noundef %166)
   br label %ATPrepSetAccessMethod.exit
 
 167:                                              ; preds = %57, %57, %57
@@ -11438,7 +11438,7 @@ ATGetQueueEntry.exit:                             ; preds = %17, %._crit_edge.i
 168:                                              ; preds = %57
   tail call fastcc void @ATSimplePermissions(i32 noundef 50, ptr noundef nonnull %1, i32 noundef 33)
   %.val = load ptr, ptr %39, align 8
-  tail call fastcc void @ATPrepAddInherit(ptr %.val)
+  tail call fastcc void @ATPrepAddInherit.argprom(ptr %.val)
   br label %ATPrepSetAccessMethod.exit
 
 169:                                              ; preds = %57
@@ -12129,7 +12129,7 @@ ATExecColumnDefault.exit:                         ; preds = %209, %212
 
 374:                                              ; preds = %357
   store ptr null, ptr %7, align 8
-  call fastcc void @dropconstraint_internal(ptr noundef nonnull %143, ptr noundef nonnull %359, i32 noundef 0, i1 noundef zeroext %265, i1 noundef zeroext false, ptr noundef %7, i32 noundef %1)
+  call fastcc void @dropconstraint_internal.argelim(ptr noundef nonnull %143, ptr noundef nonnull %359, i32 noundef 0, i1 noundef zeroext %265, i1 noundef zeroext false, ptr noundef %7, i32 noundef %1)
   call void @heap_freetuple(ptr noundef nonnull %359) #13
   %375 = load ptr, ptr @object_access_hook, align 8
   %.not60.i230 = icmp eq ptr %375, null
@@ -12679,7 +12679,7 @@ ATExecSetStatistics.exit:                         ; preds = %645, %651
   %658 = load ptr, ptr %657, align 8
   %659 = getelementptr inbounds i8, ptr %142, i64 32
   %660 = load ptr, ptr %659, align 8
-  %661 = call fastcc { i64, i32 } @ATExecSetOptions(ptr noundef %143, ptr noundef %658, ptr noundef %660, i1 noundef zeroext false)
+  %661 = call fastcc { i64, i32 } @ATExecSetOptions.argelim(ptr noundef %143, ptr noundef %658, ptr noundef %660, i1 noundef zeroext false)
   %.fca.0.extract143.i = extractvalue { i64, i32 } %661, 0
   %.fca.1.extract144.i = extractvalue { i64, i32 } %661, 1
   br label %.thread.i
@@ -12689,7 +12689,7 @@ ATExecSetStatistics.exit:                         ; preds = %645, %651
   %664 = load ptr, ptr %663, align 8
   %665 = getelementptr inbounds i8, ptr %142, i64 32
   %666 = load ptr, ptr %665, align 8
-  %667 = call fastcc { i64, i32 } @ATExecSetOptions(ptr noundef %143, ptr noundef %664, ptr noundef %666, i1 noundef zeroext true)
+  %667 = call fastcc { i64, i32 } @ATExecSetOptions.argelim(ptr noundef %143, ptr noundef %664, ptr noundef %666, i1 noundef zeroext true)
   %.fca.0.extract137.i = extractvalue { i64, i32 } %667, 0
   %.fca.1.extract138.i = extractvalue { i64, i32 } %667, 1
   br label %.thread.i
@@ -12958,20 +12958,20 @@ GetAttributeCompression.exit:                     ; preds = %795, %799, %809
   call void @CatalogTupleUpdate(ptr noundef %769, ptr noundef nonnull %816, ptr noundef nonnull %772) #13
   %817 = load ptr, ptr @object_access_hook, align 8
   %.not31.i = icmp eq ptr %817, null
-  br i1 %.not31.i, label %ATExecSetCompression.exit, label %818
+  br i1 %.not31.i, label %ATExecSetCompression.argprom.exit, label %818
 
 818:                                              ; preds = %GetAttributeCompression.exit
   %819 = load i32, ptr %770, align 8
   call void @RunObjectPostAlterHook(i32 noundef 1259, i32 noundef %819, i32 noundef %789, i32 noundef 0, i1 noundef zeroext false) #13
-  br label %ATExecSetCompression.exit
+  br label %ATExecSetCompression.argprom.exit
 
-ATExecSetCompression.exit:                        ; preds = %GetAttributeCompression.exit, %818
+ATExecSetCompression.argprom.exit:                ; preds = %GetAttributeCompression.exit, %818
   %820 = call ptr @RelationGetIndexList(ptr noundef nonnull %143) #13
   %821 = getelementptr inbounds i8, ptr %820, i64 4
   %.not.i272 = icmp eq ptr %820, null
   br i1 %.not.i272, label %SetIndexStorageProperties.exit, label %.lr.ph50.i
 
-.lr.ph50.i:                                       ; preds = %ATExecSetCompression.exit
+.lr.ph50.i:                                       ; preds = %ATExecSetCompression.argprom.exit
   %822 = getelementptr inbounds i8, ptr %820, i64 16
   %823 = load i32, ptr %821, align 4
   %824 = icmp sgt i32 %823, 0
@@ -13062,7 +13062,7 @@ ATExecSetCompression.exit:                        ; preds = %GetAttributeCompres
   %868 = icmp slt i64 %indvars.iv.next55.i, %867
   br i1 %868, label %.lr.ph, label %SetIndexStorageProperties.exit
 
-SetIndexStorageProperties.exit:                   ; preds = %865, %.lr.ph50.i, %ATExecSetCompression.exit
+SetIndexStorageProperties.exit:                   ; preds = %865, %.lr.ph50.i, %ATExecSetCompression.argprom.exit
   call void @heap_freetuple(ptr noundef nonnull %772) #13
   call void @table_close(ptr noundef %769, i32 noundef 3) #13
   call void @CommandCounterIncrement() #13
@@ -13083,7 +13083,7 @@ SetIndexStorageProperties.exit:                   ; preds = %865, %.lr.ph50.i, %
   %878 = getelementptr inbounds i8, ptr %142, i64 44
   %879 = load i8, ptr %878, align 4
   %880 = trunc i8 %879 to i1
-  %881 = call fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %143, ptr noundef %872, i32 noundef %874, i1 noundef zeroext %877, i1 noundef zeroext false, i1 noundef zeroext %880, i32 noundef %1, ptr noundef null)
+  %881 = call fastcc { i64, i32 } @ATExecDropColumn.argprom(ptr noundef %143, ptr noundef %872, i32 noundef %874, i1 noundef zeroext %877, i1 noundef zeroext false, i1 noundef zeroext %880, i32 noundef %1, ptr noundef null)
   %.fca.0.extract119.i = extractvalue { i64, i32 } %881, 0
   %.fca.1.extract120.i = extractvalue { i64, i32 } %881, 1
   br label %.thread.i
@@ -13110,7 +13110,7 @@ SetIndexStorageProperties.exit:                   ; preds = %865, %.lr.ph50.i, %
   %896 = load i32, ptr %895, align 4
   %.not.i187 = icmp eq i32 %896, 0
   %.pre1493 = extractvalue { i64, i32 } %894, 0
-  br i1 %.not.i187, label %ATExecAddIndex.exit194, label %897
+  br i1 %.not.i187, label %ATExecAddIndex.argprom.exit194, label %897
 
 897:                                              ; preds = %890
   %.sroa.222.0.extract.shift.i189 = lshr i64 %.pre1493, 32
@@ -13129,9 +13129,9 @@ SetIndexStorageProperties.exit:                   ; preds = %865, %.lr.ph50.i, %
   %.sroa.22.0.copyload.i193 = load i32, ptr %.sroa.22.0..sroa_idx.i192, align 8
   call void @RelationPreserveStorage(i64 %.sroa.01.0.copyload.i191, i32 %.sroa.22.0.copyload.i193, i1 noundef zeroext true) #13
   call void @index_close(ptr noundef nonnull %898, i32 noundef 0) #13
-  br label %ATExecAddIndex.exit194
+  br label %ATExecAddIndex.argprom.exit194
 
-ATExecAddIndex.exit194:                           ; preds = %890, %897
+ATExecAddIndex.argprom.exit194:                   ; preds = %890, %897
   %.fca.1.extract114.i = extractvalue { i64, i32 } %894, 1
   br label %.thread.i
 
@@ -13157,7 +13157,7 @@ ATExecAddIndex.exit194:                           ; preds = %890, %897
   %919 = load i32, ptr %918, align 4
   %.not.i185 = icmp eq i32 %919, 0
   %.pre1494 = extractvalue { i64, i32 } %917, 0
-  br i1 %.not.i185, label %ATExecAddIndex.exit, label %920
+  br i1 %.not.i185, label %ATExecAddIndex.argprom.exit, label %920
 
 920:                                              ; preds = %913
   %.sroa.222.0.extract.shift.i = lshr i64 %.pre1494, 32
@@ -13176,9 +13176,9 @@ ATExecAddIndex.exit194:                           ; preds = %890, %897
   %.sroa.22.0.copyload.i = load i32, ptr %.sroa.22.0..sroa_idx.i, align 8
   call void @RelationPreserveStorage(i64 %.sroa.01.0.copyload.i, i32 %.sroa.22.0.copyload.i, i1 noundef zeroext true) #13
   call void @index_close(ptr noundef nonnull %921, i32 noundef 0) #13
-  br label %ATExecAddIndex.exit
+  br label %ATExecAddIndex.argprom.exit
 
-ATExecAddIndex.exit:                              ; preds = %913, %920
+ATExecAddIndex.argprom.exit:                      ; preds = %913, %920
   %.fca.1.extract108.i = extractvalue { i64, i32 } %917, 1
   br label %.thread.i
 
@@ -13310,16 +13310,16 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %999 = getelementptr inbounds i8, ptr %962, i64 106
   %1000 = load i8, ptr %999, align 2
   %1001 = trunc i8 %1000 to i1
-  br i1 %1001, label %1002, label %ATExecAddIndexConstraint.exit
+  br i1 %1001, label %1002, label %ATExecAddIndexConstraint.argprom.exit
 
 1002:                                             ; preds = %998
   call void @index_check_primary_key(ptr noundef nonnull %143, ptr noundef nonnull %980, i1 noundef zeroext true, ptr noundef nonnull %962) #13
   %.pre.i184 = load i8, ptr %999, align 2
   %.pre1.i = trunc i8 %.pre.i184 to i1
   %1003 = select i1 %.pre1.i, i8 112, i8 117
-  br label %ATExecAddIndexConstraint.exit
+  br label %ATExecAddIndexConstraint.argprom.exit
 
-ATExecAddIndexConstraint.exit:                    ; preds = %998, %1002
+ATExecAddIndexConstraint.argprom.exit:            ; preds = %998, %1002
   %.pre-phi.i = phi i8 [ %1003, %1002 ], [ 117, %998 ]
   %1004 = phi i8 [ %.pre.i184, %1002 ], [ %1000, %998 ]
   %1005 = getelementptr inbounds i8, ptr %962, i64 110
@@ -13512,13 +13512,13 @@ ATExecAddIndexConstraint.exit:                    ; preds = %998, %1002
   %1121 = load ptr, ptr %12, align 8
   %1122 = getelementptr inbounds i8, ptr %1121, i64 4
   %.not65.i = icmp eq ptr %1121, null
-  br i1 %.not65.i, label %ATExecAlterConstraint.exit, label %.lr.ph7.i
+  br i1 %.not65.i, label %ATExecAlterConstraint.argprom.exit, label %.lr.ph7.i
 
 .lr.ph7.i:                                        ; preds = %1120
   %1123 = getelementptr inbounds i8, ptr %1121, i64 16
   %1124 = load i32, ptr %1122, align 4
   %1125 = icmp sgt i32 %1124, 0
-  br i1 %1125, label %.lr.ph10.i, label %ATExecAlterConstraint.exit
+  br i1 %1125, label %.lr.ph10.i, label %ATExecAlterConstraint.argprom.exit
 
 .lr.ph10.i:                                       ; preds = %.lr.ph7.i, %.lr.ph10.i
   %indvars.iv.i180 = phi i64 [ %indvars.iv.next.i181, %.lr.ph10.i ], [ 0, %.lr.ph7.i ]
@@ -13530,9 +13530,9 @@ ATExecAddIndexConstraint.exit:                    ; preds = %998, %1002
   %1129 = load i32, ptr %1122, align 4
   %1130 = sext i32 %1129 to i64
   %1131 = icmp slt i64 %indvars.iv.next.i181, %1130
-  br i1 %1131, label %.lr.ph10.i, label %ATExecAlterConstraint.exit
+  br i1 %1131, label %.lr.ph10.i, label %ATExecAlterConstraint.argprom.exit
 
-ATExecAlterConstraint.exit:                       ; preds = %.lr.ph10.i, %1120, %.lr.ph7.i
+ATExecAlterConstraint.argprom.exit:               ; preds = %.lr.ph10.i, %1120, %.lr.ph7.i
   call void @systable_endscan(ptr noundef %1030) #13
   call void @table_close(ptr noundef %1023, i32 noundef 3) #13
   call void @table_close(ptr noundef %1022, i32 noundef 3) #13
@@ -13582,7 +13582,7 @@ ATExecAlterConstraint.exit:                       ; preds = %.lr.ph10.i, %1120, 
 1155:                                             ; preds = %1139
   %1156 = trunc i8 %1145 to i1
   store ptr null, ptr %14, align 8
-  call fastcc void @dropconstraint_internal(ptr noundef nonnull %143, ptr noundef nonnull %1154, i32 noundef %1143, i1 noundef zeroext %1156, i1 noundef zeroext false, ptr noundef %14, i32 noundef %1)
+  call fastcc void @dropconstraint_internal.argelim(ptr noundef nonnull %143, ptr noundef nonnull %1154, i32 noundef %1143, i1 noundef zeroext %1156, i1 noundef zeroext false, ptr noundef %14, i32 noundef %1)
   call void @systable_endscan(ptr noundef %1153) #13
   br label %ATExecDropConstraint.exit
 
@@ -14095,7 +14095,7 @@ add_column_collation_dependency.exit.i:           ; preds = %1420, %list_length.
 
 1425:                                             ; preds = %1423, %add_column_collation_dependency.exit.i
   %.not142.i = icmp eq ptr %.0132.i, null
-  br i1 %.not142.i, label %ATExecAlterColumnType.exit, label %1426
+  br i1 %.not142.i, label %ATExecAlterColumnType.argprom.exit, label %1426
 
 1426:                                             ; preds = %1425
   %1427 = getelementptr inbounds i8, ptr %.0131.i, i64 94
@@ -14126,9 +14126,9 @@ add_column_collation_dependency.exit.i:           ; preds = %1420, %list_length.
   %1439 = load i32, ptr %1184, align 8
   call void @RemoveAttrDefault(i32 noundef %1439, i16 noundef signext %1202, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext true) #13
   %1440 = call i32 @StoreAttrDefault(ptr noundef nonnull %143, i16 noundef signext %1202, ptr noundef nonnull %.0132.i, i1 noundef zeroext true, i1 noundef zeroext false) #13
-  br label %ATExecAlterColumnType.exit
+  br label %ATExecAlterColumnType.argprom.exit
 
-ATExecAlterColumnType.exit:                       ; preds = %1425, %1438
+ATExecAlterColumnType.argprom.exit:               ; preds = %1425, %1438
   %1441 = load i32, ptr %1184, align 8
   call void @heap_freetuple(ptr noundef %.0.i167) #13
   %.sroa.2130.0.insert.ext.i = zext i32 %1441 to i64
@@ -15602,15 +15602,15 @@ ATExecDropOf.exit:                                ; preds = %2190, %2200
   ]
 
 2206:                                             ; preds = %2201
-  call fastcc void @relation_mark_replica_identity(ptr noundef %143, i8 noundef signext 100, i32 noundef 0)
+  call fastcc void @relation_mark_replica_identity.argelim(ptr noundef %143, i8 noundef signext 100, i32 noundef 0)
   br label %.thread.i
 
 2207:                                             ; preds = %2201
-  call fastcc void @relation_mark_replica_identity(ptr noundef %143, i8 noundef signext 102, i32 noundef 0)
+  call fastcc void @relation_mark_replica_identity.argelim(ptr noundef %143, i8 noundef signext 102, i32 noundef 0)
   br label %.thread.i
 
 2208:                                             ; preds = %2201
-  call fastcc void @relation_mark_replica_identity(ptr noundef %143, i8 noundef signext 110, i32 noundef 0)
+  call fastcc void @relation_mark_replica_identity.argelim(ptr noundef %143, i8 noundef signext 110, i32 noundef 0)
   br label %.thread.i
 
 2209:                                             ; preds = %2201
@@ -15811,7 +15811,7 @@ ATExecDropOf.exit:                                ; preds = %2190, %2200
 
 ._crit_edge.i110:                                 ; preds = %2303, %.preheader.i109
   %2333 = load i8, ptr %2204, align 4
-  call fastcc void @relation_mark_replica_identity(ptr noundef nonnull %143, i8 noundef signext %2333, i32 noundef %2221)
+  call fastcc void @relation_mark_replica_identity.argelim(ptr noundef nonnull %143, i8 noundef signext %2333, i32 noundef %2221)
   call void @index_close(ptr noundef nonnull %2232, i32 noundef 0) #13
   br label %.thread.i
 
@@ -16781,7 +16781,7 @@ ATExecAttachPartition.exit:                       ; preds = %.lr.ph143.i, %2821,
   %2873 = getelementptr inbounds i8, ptr %143, i64 72
   %2874 = load i32, ptr %2873, align 8
   %.not76.i = icmp eq i32 %2872, %2874
-  br i1 %.not76.i, label %ATExecAttachPartitionIdx.exit, label %2875
+  br i1 %.not76.i, label %ATExecAttachPartitionIdx.argprom.exit, label %2875
 
 2875:                                             ; preds = %2871
   %2876 = call i32 @index_get_partition(ptr noundef %2861, i32 noundef %2874) #13
@@ -17003,9 +17003,9 @@ verifyPartitionIndexNotNull.exit.i:               ; preds = %2993, %2986, %2981
 3016:                                             ; preds = %3013, %verifyPartitionIndexNotNull.exit.i
   call void @free_attrmap(ptr noundef %2935) #13
   call fastcc void @validatePartitionedIndex(ptr noundef nonnull %143, ptr noundef %2856)
-  br label %ATExecAttachPartitionIdx.exit
+  br label %ATExecAttachPartitionIdx.argprom.exit
 
-ATExecAttachPartitionIdx.exit:                    ; preds = %2871, %3016
+ATExecAttachPartitionIdx.argprom.exit:            ; preds = %2871, %3016
   call void @relation_close(ptr noundef %2856, i32 noundef 1) #13
   call void @relation_close(ptr noundef %2861, i32 noundef 0) #13
   call void @relation_close(ptr noundef %2852, i32 noundef 0) #13
@@ -17606,10 +17606,10 @@ ATExecDetachPartition.exit:                       ; preds = %ATDetachCheckNoFore
   %.not389.i = icmp eq ptr %3315, null
   br i1 %.not389.i, label %ATExecCmd.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %._crit_edge.i110, %2208, %2207, %2206, %1803, %1799, %1796, %1792, %1789, %1785, %1782, %1778, %1775, %1770, %1767, %1762, %1759, %1754, %1751, %1746, %1743, %1736, %1733, %1726, %1723, %1716, %1713, %1706, %1584, %1552, %1550, %3314, %3298, %ATExecDetachPartition.exit, %ATExecAttachPartitionIdx.exit, %ATExecAttachPartition.exit, %ATExecGenericOptions.exit, %ATExecForceNoForceRowSecurity.exit, %ATExecForceNoForceRowSecurity.exit102, %ATExecSetRowSecurity.exit, %ATExecSetRowSecurity.exit107, %ATExecDropOf.exit, %ATExecAddOf.exit, %ATInheritAdjustNotNulls.exit, %ATInheritAdjustNotNulls.exit267, %1542, %1541, %ATExecClusterOn.exit, %1520, %ATExecAlterColumnGenericOptions.exit, %ATExecAlterColumnType.exit, %ATExecDropConstraint.exit, %1132, %ATExecAlterConstraint.exit, %ATExecAddIndexConstraint.exit, %956, %948, %944, %thread-pre-split.thread.i, %928, %ATExecAddIndex.exit, %ATExecAddIndex.exit194, %870, %SetIndexStorageProperties.exit, %SetIndexStorageProperties.exit296, %662, %656, %ATExecSetStatistics.exit, %ATExecDropExpression.exit, %ATExecSetExpression.exit, %ATExecSetAttNotNull.exit, %378, %ATExecDropNotNull.exit, %250, %240, %230, %220, %ATExecColumnDefault.exit, %139, %139, %139, %139
-  %.sroa.39.0400.i = phi i32 [ %.sroa.39.0.i, %3314 ], [ %.sroa.39.0.copyload.i, %1542 ], [ %161, %ATExecColumnDefault.exit ], [ %229, %220 ], [ %.fca.1.extract198.i, %230 ], [ %.fca.1.extract192.i, %240 ], [ %.fca.1.extract186.i, %250 ], [ %.sroa.4.0.i226, %ATExecDropNotNull.exit ], [ %.fca.1.extract174.i, %378 ], [ %.sroa.4.0.i221, %ATExecSetAttNotNull.exit ], [ %428, %ATExecSetExpression.exit ], [ %.sroa.4.0.i214, %ATExecDropExpression.exit ], [ %604, %ATExecSetStatistics.exit ], [ %.fca.1.extract144.i, %656 ], [ %.fca.1.extract138.i, %662 ], [ %711, %SetIndexStorageProperties.exit296 ], [ %789, %SetIndexStorageProperties.exit ], [ %.fca.1.extract120.i, %870 ], [ %.fca.1.extract114.i, %ATExecAddIndex.exit194 ], [ %.fca.1.extract108.i, %ATExecAddIndex.exit ], [ %.fca.1.extract102.i, %928 ], [ %.fca.1.extract96.i, %thread-pre-split.thread.i ], [ %.fca.1.extract90.i, %944 ], [ %.fca.1.extract84.i, %948 ], [ %.fca.1.extract78.i, %956 ], [ %.fca.1.extract72.i, %ATExecAddIndexConstraint.exit ], [ %.sroa.452.0.i, %ATExecAlterConstraint.exit ], [ %.fca.1.extract60.i, %1132 ], [ %.sroa.39.0.copyload.i, %ATExecDropConstraint.exit ], [ %1205, %ATExecAlterColumnType.exit ], [ %.sroa.4.0.i, %ATExecAlterColumnGenericOptions.exit ], [ %.sroa.39.0.copyload.i, %1520 ], [ 0, %ATExecClusterOn.exit ], [ %.sroa.39.0.copyload.i, %1541 ], [ %.sroa.39.0.copyload.i, %139 ], [ %.sroa.39.0.copyload.i, %139 ], [ %.sroa.39.0.copyload.i, %139 ], [ %.sroa.39.0.copyload.i, %139 ], [ 0, %ATInheritAdjustNotNulls.exit267 ], [ 0, %ATInheritAdjustNotNulls.exit ], [ %.sroa.2.0.copyload.i, %ATExecAddOf.exit ], [ %.sroa.39.0.copyload.i, %ATExecDropOf.exit ], [ %.sroa.39.0.copyload.i, %ATExecSetRowSecurity.exit107 ], [ %.sroa.39.0.copyload.i, %ATExecSetRowSecurity.exit ], [ %.sroa.39.0.copyload.i, %ATExecForceNoForceRowSecurity.exit102 ], [ %.sroa.39.0.copyload.i, %ATExecForceNoForceRowSecurity.exit ], [ %.sroa.39.0.copyload.i, %ATExecGenericOptions.exit ], [ 0, %ATExecAttachPartitionIdx.exit ], [ 0, %ATExecAttachPartition.exit ], [ 0, %ATExecDetachPartition.exit ], [ 0, %3298 ], [ %.sroa.39.0.copyload.i, %1550 ], [ %.sroa.39.0.copyload.i, %1552 ], [ %.sroa.39.0.copyload.i, %1584 ], [ %.sroa.39.0.copyload.i, %1706 ], [ %.sroa.39.0.copyload.i, %1713 ], [ %.sroa.39.0.copyload.i, %1716 ], [ %.sroa.39.0.copyload.i, %1723 ], [ %.sroa.39.0.copyload.i, %1726 ], [ %.sroa.39.0.copyload.i, %1733 ], [ %.sroa.39.0.copyload.i, %1736 ], [ %.sroa.39.0.copyload.i, %1743 ], [ %.sroa.39.0.copyload.i, %1746 ], [ %.sroa.39.0.copyload.i, %1751 ], [ %.sroa.39.0.copyload.i, %1754 ], [ %.sroa.39.0.copyload.i, %1759 ], [ %.sroa.39.0.copyload.i, %1762 ], [ %.sroa.39.0.copyload.i, %1767 ], [ %.sroa.39.0.copyload.i, %1770 ], [ %.sroa.39.0.copyload.i, %1775 ], [ %.sroa.39.0.copyload.i, %1778 ], [ %.sroa.39.0.copyload.i, %1782 ], [ %.sroa.39.0.copyload.i, %1785 ], [ %.sroa.39.0.copyload.i, %1789 ], [ %.sroa.39.0.copyload.i, %1792 ], [ %.sroa.39.0.copyload.i, %1796 ], [ %.sroa.39.0.copyload.i, %1799 ], [ %.sroa.39.0.copyload.i, %1803 ], [ %.sroa.39.0.copyload.i, %2206 ], [ %.sroa.39.0.copyload.i, %2207 ], [ %.sroa.39.0.copyload.i, %2208 ], [ %.sroa.39.0.copyload.i, %._crit_edge.i110 ]
-  %.sroa.0287.0399.i = phi i64 [ %.sroa.0287.0.i, %3314 ], [ %.sroa.0287.0.copyload.i, %1542 ], [ %.sroa.034.0.insert.insert.i, %ATExecColumnDefault.exit ], [ %.sroa.06.0.insert.insert.i235, %220 ], [ %.fca.0.extract197.i, %230 ], [ %.fca.0.extract191.i, %240 ], [ %.fca.0.extract185.i, %250 ], [ %.sroa.055.sroa.0.0.insert.insert.i, %ATExecDropNotNull.exit ], [ %.fca.0.extract173.i, %378 ], [ %.sroa.010.sroa.0.0.insert.insert.i, %ATExecSetAttNotNull.exit ], [ %.sroa.052.0.insert.insert.i, %ATExecSetExpression.exit ], [ %.sroa.037.sroa.0.0.insert.insert.i, %ATExecDropExpression.exit ], [ %.sroa.049.0.insert.insert.i, %ATExecSetStatistics.exit ], [ %.fca.0.extract143.i, %656 ], [ %.fca.0.extract137.i, %662 ], [ %.sroa.026.0.insert.insert.i, %SetIndexStorageProperties.exit296 ], [ %.sroa.028.0.insert.insert.i, %SetIndexStorageProperties.exit ], [ %.fca.0.extract119.i, %870 ], [ %.pre1493, %ATExecAddIndex.exit194 ], [ %.pre1494, %ATExecAddIndex.exit ], [ %.fca.0.extract101.i, %928 ], [ %.fca.0.extract95.i, %thread-pre-split.thread.i ], [ %.fca.0.extract89.i, %944 ], [ %.fca.0.extract83.i, %948 ], [ %.fca.0.extract77.i, %956 ], [ %.fca.0.extract71.i, %ATExecAddIndexConstraint.exit ], [ %.sroa.051.sroa.0.0.insert.insert.i, %ATExecAlterConstraint.exit ], [ %.fca.0.extract59.i, %1132 ], [ %.sroa.0287.0.copyload.i, %ATExecDropConstraint.exit ], [ %.sroa.0129.0.insert.insert.i, %ATExecAlterColumnType.exit ], [ %.sroa.039.sroa.0.0.insert.insert.i, %ATExecAlterColumnGenericOptions.exit ], [ %.sroa.0287.0.copyload.i, %1520 ], [ %.sroa.010.0.insert.insert.i, %ATExecClusterOn.exit ], [ %.sroa.0287.0.copyload.i, %1541 ], [ %.sroa.0287.0.copyload.i, %139 ], [ %.sroa.0287.0.copyload.i, %139 ], [ %.sroa.0287.0.copyload.i, %139 ], [ %.sroa.0287.0.copyload.i, %139 ], [ %.sroa.027.0.insert.insert.i, %ATInheritAdjustNotNulls.exit267 ], [ %.sroa.08.0.insert.insert.i, %ATInheritAdjustNotNulls.exit ], [ %.sroa.0.0.copyload.i, %ATExecAddOf.exit ], [ %.sroa.0287.0.copyload.i, %ATExecDropOf.exit ], [ %.sroa.0287.0.copyload.i, %ATExecSetRowSecurity.exit107 ], [ %.sroa.0287.0.copyload.i, %ATExecSetRowSecurity.exit ], [ %.sroa.0287.0.copyload.i, %ATExecForceNoForceRowSecurity.exit102 ], [ %.sroa.0287.0.copyload.i, %ATExecForceNoForceRowSecurity.exit ], [ %.sroa.0287.0.copyload.i, %ATExecGenericOptions.exit ], [ %.sroa.068.0.insert.insert.i, %ATExecAttachPartitionIdx.exit ], [ %.sroa.0106.0.insert.insert.i, %ATExecAttachPartition.exit ], [ %.sroa.040.0.insert.insert.i, %ATExecDetachPartition.exit ], [ %.sroa.06.0.insert.insert.i, %3298 ], [ %.sroa.0287.0.copyload.i, %1550 ], [ %.sroa.0287.0.copyload.i, %1552 ], [ %.sroa.0287.0.copyload.i, %1584 ], [ %.sroa.0287.0.copyload.i, %1706 ], [ %.sroa.0287.0.copyload.i, %1713 ], [ %.sroa.0287.0.copyload.i, %1716 ], [ %.sroa.0287.0.copyload.i, %1723 ], [ %.sroa.0287.0.copyload.i, %1726 ], [ %.sroa.0287.0.copyload.i, %1733 ], [ %.sroa.0287.0.copyload.i, %1736 ], [ %.sroa.0287.0.copyload.i, %1743 ], [ %.sroa.0287.0.copyload.i, %1746 ], [ %.sroa.0287.0.copyload.i, %1751 ], [ %.sroa.0287.0.copyload.i, %1754 ], [ %.sroa.0287.0.copyload.i, %1759 ], [ %.sroa.0287.0.copyload.i, %1762 ], [ %.sroa.0287.0.copyload.i, %1767 ], [ %.sroa.0287.0.copyload.i, %1770 ], [ %.sroa.0287.0.copyload.i, %1775 ], [ %.sroa.0287.0.copyload.i, %1778 ], [ %.sroa.0287.0.copyload.i, %1782 ], [ %.sroa.0287.0.copyload.i, %1785 ], [ %.sroa.0287.0.copyload.i, %1789 ], [ %.sroa.0287.0.copyload.i, %1792 ], [ %.sroa.0287.0.copyload.i, %1796 ], [ %.sroa.0287.0.copyload.i, %1799 ], [ %.sroa.0287.0.copyload.i, %1803 ], [ %.sroa.0287.0.copyload.i, %2206 ], [ %.sroa.0287.0.copyload.i, %2207 ], [ %.sroa.0287.0.copyload.i, %2208 ], [ %.sroa.0287.0.copyload.i, %._crit_edge.i110 ]
-  %3316 = phi ptr [ %3315, %3314 ], [ %142, %1542 ], [ %142, %ATExecColumnDefault.exit ], [ %142, %220 ], [ %231, %230 ], [ %241, %240 ], [ %142, %250 ], [ %142, %ATExecDropNotNull.exit ], [ %142, %378 ], [ %142, %ATExecSetAttNotNull.exit ], [ %142, %ATExecSetExpression.exit ], [ %142, %ATExecDropExpression.exit ], [ %142, %ATExecSetStatistics.exit ], [ %142, %656 ], [ %142, %662 ], [ %142, %SetIndexStorageProperties.exit296 ], [ %142, %SetIndexStorageProperties.exit ], [ %142, %870 ], [ %142, %ATExecAddIndex.exit194 ], [ %142, %ATExecAddIndex.exit ], [ %142, %928 ], [ %937, %thread-pre-split.thread.i ], [ %142, %944 ], [ %142, %948 ], [ %142, %956 ], [ %142, %ATExecAddIndexConstraint.exit ], [ %142, %ATExecAlterConstraint.exit ], [ %142, %1132 ], [ %142, %ATExecDropConstraint.exit ], [ %142, %ATExecAlterColumnType.exit ], [ %142, %ATExecAlterColumnGenericOptions.exit ], [ %142, %1520 ], [ %142, %ATExecClusterOn.exit ], [ %142, %1541 ], [ %142, %139 ], [ %142, %139 ], [ %142, %139 ], [ %142, %139 ], [ %142, %ATInheritAdjustNotNulls.exit267 ], [ %142, %ATInheritAdjustNotNulls.exit ], [ %142, %ATExecAddOf.exit ], [ %142, %ATExecDropOf.exit ], [ %142, %ATExecSetRowSecurity.exit107 ], [ %142, %ATExecSetRowSecurity.exit ], [ %142, %ATExecForceNoForceRowSecurity.exit102 ], [ %142, %ATExecForceNoForceRowSecurity.exit ], [ %142, %ATExecGenericOptions.exit ], [ %2466, %ATExecAttachPartitionIdx.exit ], [ %2466, %ATExecAttachPartition.exit ], [ %3018, %ATExecDetachPartition.exit ], [ %142, %3298 ], [ %142, %1550 ], [ %142, %1552 ], [ %142, %1584 ], [ %142, %1706 ], [ %142, %1713 ], [ %142, %1716 ], [ %142, %1723 ], [ %142, %1726 ], [ %142, %1733 ], [ %142, %1736 ], [ %142, %1743 ], [ %142, %1746 ], [ %142, %1751 ], [ %142, %1754 ], [ %142, %1759 ], [ %142, %1762 ], [ %142, %1767 ], [ %142, %1770 ], [ %142, %1775 ], [ %142, %1778 ], [ %142, %1782 ], [ %142, %1785 ], [ %142, %1789 ], [ %142, %1792 ], [ %142, %1796 ], [ %142, %1799 ], [ %142, %1803 ], [ %142, %2206 ], [ %142, %2207 ], [ %142, %2208 ], [ %142, %._crit_edge.i110 ]
+.thread.i:                                        ; preds = %._crit_edge.i110, %2208, %2207, %2206, %1803, %1799, %1796, %1792, %1789, %1785, %1782, %1778, %1775, %1770, %1767, %1762, %1759, %1754, %1751, %1746, %1743, %1736, %1733, %1726, %1723, %1716, %1713, %1706, %1584, %1552, %1550, %3314, %3298, %ATExecDetachPartition.exit, %ATExecAttachPartitionIdx.argprom.exit, %ATExecAttachPartition.exit, %ATExecGenericOptions.exit, %ATExecForceNoForceRowSecurity.exit, %ATExecForceNoForceRowSecurity.exit102, %ATExecSetRowSecurity.exit, %ATExecSetRowSecurity.exit107, %ATExecDropOf.exit, %ATExecAddOf.exit, %ATInheritAdjustNotNulls.exit, %ATInheritAdjustNotNulls.exit267, %1542, %1541, %ATExecClusterOn.exit, %1520, %ATExecAlterColumnGenericOptions.exit, %ATExecAlterColumnType.argprom.exit, %ATExecDropConstraint.exit, %1132, %ATExecAlterConstraint.argprom.exit, %ATExecAddIndexConstraint.argprom.exit, %956, %948, %944, %thread-pre-split.thread.i, %928, %ATExecAddIndex.argprom.exit, %ATExecAddIndex.argprom.exit194, %870, %SetIndexStorageProperties.exit, %SetIndexStorageProperties.exit296, %662, %656, %ATExecSetStatistics.exit, %ATExecDropExpression.exit, %ATExecSetExpression.exit, %ATExecSetAttNotNull.exit, %378, %ATExecDropNotNull.exit, %250, %240, %230, %220, %ATExecColumnDefault.exit, %139, %139, %139, %139
+  %.sroa.39.0400.i = phi i32 [ %.sroa.39.0.i, %3314 ], [ %.sroa.39.0.copyload.i, %1542 ], [ %161, %ATExecColumnDefault.exit ], [ %229, %220 ], [ %.fca.1.extract198.i, %230 ], [ %.fca.1.extract192.i, %240 ], [ %.fca.1.extract186.i, %250 ], [ %.sroa.4.0.i226, %ATExecDropNotNull.exit ], [ %.fca.1.extract174.i, %378 ], [ %.sroa.4.0.i221, %ATExecSetAttNotNull.exit ], [ %428, %ATExecSetExpression.exit ], [ %.sroa.4.0.i214, %ATExecDropExpression.exit ], [ %604, %ATExecSetStatistics.exit ], [ %.fca.1.extract144.i, %656 ], [ %.fca.1.extract138.i, %662 ], [ %711, %SetIndexStorageProperties.exit296 ], [ %789, %SetIndexStorageProperties.exit ], [ %.fca.1.extract120.i, %870 ], [ %.fca.1.extract114.i, %ATExecAddIndex.argprom.exit194 ], [ %.fca.1.extract108.i, %ATExecAddIndex.argprom.exit ], [ %.fca.1.extract102.i, %928 ], [ %.fca.1.extract96.i, %thread-pre-split.thread.i ], [ %.fca.1.extract90.i, %944 ], [ %.fca.1.extract84.i, %948 ], [ %.fca.1.extract78.i, %956 ], [ %.fca.1.extract72.i, %ATExecAddIndexConstraint.argprom.exit ], [ %.sroa.452.0.i, %ATExecAlterConstraint.argprom.exit ], [ %.fca.1.extract60.i, %1132 ], [ %.sroa.39.0.copyload.i, %ATExecDropConstraint.exit ], [ %1205, %ATExecAlterColumnType.argprom.exit ], [ %.sroa.4.0.i, %ATExecAlterColumnGenericOptions.exit ], [ %.sroa.39.0.copyload.i, %1520 ], [ 0, %ATExecClusterOn.exit ], [ %.sroa.39.0.copyload.i, %1541 ], [ %.sroa.39.0.copyload.i, %139 ], [ %.sroa.39.0.copyload.i, %139 ], [ %.sroa.39.0.copyload.i, %139 ], [ %.sroa.39.0.copyload.i, %139 ], [ 0, %ATInheritAdjustNotNulls.exit267 ], [ 0, %ATInheritAdjustNotNulls.exit ], [ %.sroa.2.0.copyload.i, %ATExecAddOf.exit ], [ %.sroa.39.0.copyload.i, %ATExecDropOf.exit ], [ %.sroa.39.0.copyload.i, %ATExecSetRowSecurity.exit107 ], [ %.sroa.39.0.copyload.i, %ATExecSetRowSecurity.exit ], [ %.sroa.39.0.copyload.i, %ATExecForceNoForceRowSecurity.exit102 ], [ %.sroa.39.0.copyload.i, %ATExecForceNoForceRowSecurity.exit ], [ %.sroa.39.0.copyload.i, %ATExecGenericOptions.exit ], [ 0, %ATExecAttachPartitionIdx.argprom.exit ], [ 0, %ATExecAttachPartition.exit ], [ 0, %ATExecDetachPartition.exit ], [ 0, %3298 ], [ %.sroa.39.0.copyload.i, %1550 ], [ %.sroa.39.0.copyload.i, %1552 ], [ %.sroa.39.0.copyload.i, %1584 ], [ %.sroa.39.0.copyload.i, %1706 ], [ %.sroa.39.0.copyload.i, %1713 ], [ %.sroa.39.0.copyload.i, %1716 ], [ %.sroa.39.0.copyload.i, %1723 ], [ %.sroa.39.0.copyload.i, %1726 ], [ %.sroa.39.0.copyload.i, %1733 ], [ %.sroa.39.0.copyload.i, %1736 ], [ %.sroa.39.0.copyload.i, %1743 ], [ %.sroa.39.0.copyload.i, %1746 ], [ %.sroa.39.0.copyload.i, %1751 ], [ %.sroa.39.0.copyload.i, %1754 ], [ %.sroa.39.0.copyload.i, %1759 ], [ %.sroa.39.0.copyload.i, %1762 ], [ %.sroa.39.0.copyload.i, %1767 ], [ %.sroa.39.0.copyload.i, %1770 ], [ %.sroa.39.0.copyload.i, %1775 ], [ %.sroa.39.0.copyload.i, %1778 ], [ %.sroa.39.0.copyload.i, %1782 ], [ %.sroa.39.0.copyload.i, %1785 ], [ %.sroa.39.0.copyload.i, %1789 ], [ %.sroa.39.0.copyload.i, %1792 ], [ %.sroa.39.0.copyload.i, %1796 ], [ %.sroa.39.0.copyload.i, %1799 ], [ %.sroa.39.0.copyload.i, %1803 ], [ %.sroa.39.0.copyload.i, %2206 ], [ %.sroa.39.0.copyload.i, %2207 ], [ %.sroa.39.0.copyload.i, %2208 ], [ %.sroa.39.0.copyload.i, %._crit_edge.i110 ]
+  %.sroa.0287.0399.i = phi i64 [ %.sroa.0287.0.i, %3314 ], [ %.sroa.0287.0.copyload.i, %1542 ], [ %.sroa.034.0.insert.insert.i, %ATExecColumnDefault.exit ], [ %.sroa.06.0.insert.insert.i235, %220 ], [ %.fca.0.extract197.i, %230 ], [ %.fca.0.extract191.i, %240 ], [ %.fca.0.extract185.i, %250 ], [ %.sroa.055.sroa.0.0.insert.insert.i, %ATExecDropNotNull.exit ], [ %.fca.0.extract173.i, %378 ], [ %.sroa.010.sroa.0.0.insert.insert.i, %ATExecSetAttNotNull.exit ], [ %.sroa.052.0.insert.insert.i, %ATExecSetExpression.exit ], [ %.sroa.037.sroa.0.0.insert.insert.i, %ATExecDropExpression.exit ], [ %.sroa.049.0.insert.insert.i, %ATExecSetStatistics.exit ], [ %.fca.0.extract143.i, %656 ], [ %.fca.0.extract137.i, %662 ], [ %.sroa.026.0.insert.insert.i, %SetIndexStorageProperties.exit296 ], [ %.sroa.028.0.insert.insert.i, %SetIndexStorageProperties.exit ], [ %.fca.0.extract119.i, %870 ], [ %.pre1493, %ATExecAddIndex.argprom.exit194 ], [ %.pre1494, %ATExecAddIndex.argprom.exit ], [ %.fca.0.extract101.i, %928 ], [ %.fca.0.extract95.i, %thread-pre-split.thread.i ], [ %.fca.0.extract89.i, %944 ], [ %.fca.0.extract83.i, %948 ], [ %.fca.0.extract77.i, %956 ], [ %.fca.0.extract71.i, %ATExecAddIndexConstraint.argprom.exit ], [ %.sroa.051.sroa.0.0.insert.insert.i, %ATExecAlterConstraint.argprom.exit ], [ %.fca.0.extract59.i, %1132 ], [ %.sroa.0287.0.copyload.i, %ATExecDropConstraint.exit ], [ %.sroa.0129.0.insert.insert.i, %ATExecAlterColumnType.argprom.exit ], [ %.sroa.039.sroa.0.0.insert.insert.i, %ATExecAlterColumnGenericOptions.exit ], [ %.sroa.0287.0.copyload.i, %1520 ], [ %.sroa.010.0.insert.insert.i, %ATExecClusterOn.exit ], [ %.sroa.0287.0.copyload.i, %1541 ], [ %.sroa.0287.0.copyload.i, %139 ], [ %.sroa.0287.0.copyload.i, %139 ], [ %.sroa.0287.0.copyload.i, %139 ], [ %.sroa.0287.0.copyload.i, %139 ], [ %.sroa.027.0.insert.insert.i, %ATInheritAdjustNotNulls.exit267 ], [ %.sroa.08.0.insert.insert.i, %ATInheritAdjustNotNulls.exit ], [ %.sroa.0.0.copyload.i, %ATExecAddOf.exit ], [ %.sroa.0287.0.copyload.i, %ATExecDropOf.exit ], [ %.sroa.0287.0.copyload.i, %ATExecSetRowSecurity.exit107 ], [ %.sroa.0287.0.copyload.i, %ATExecSetRowSecurity.exit ], [ %.sroa.0287.0.copyload.i, %ATExecForceNoForceRowSecurity.exit102 ], [ %.sroa.0287.0.copyload.i, %ATExecForceNoForceRowSecurity.exit ], [ %.sroa.0287.0.copyload.i, %ATExecGenericOptions.exit ], [ %.sroa.068.0.insert.insert.i, %ATExecAttachPartitionIdx.argprom.exit ], [ %.sroa.0106.0.insert.insert.i, %ATExecAttachPartition.exit ], [ %.sroa.040.0.insert.insert.i, %ATExecDetachPartition.exit ], [ %.sroa.06.0.insert.insert.i, %3298 ], [ %.sroa.0287.0.copyload.i, %1550 ], [ %.sroa.0287.0.copyload.i, %1552 ], [ %.sroa.0287.0.copyload.i, %1584 ], [ %.sroa.0287.0.copyload.i, %1706 ], [ %.sroa.0287.0.copyload.i, %1713 ], [ %.sroa.0287.0.copyload.i, %1716 ], [ %.sroa.0287.0.copyload.i, %1723 ], [ %.sroa.0287.0.copyload.i, %1726 ], [ %.sroa.0287.0.copyload.i, %1733 ], [ %.sroa.0287.0.copyload.i, %1736 ], [ %.sroa.0287.0.copyload.i, %1743 ], [ %.sroa.0287.0.copyload.i, %1746 ], [ %.sroa.0287.0.copyload.i, %1751 ], [ %.sroa.0287.0.copyload.i, %1754 ], [ %.sroa.0287.0.copyload.i, %1759 ], [ %.sroa.0287.0.copyload.i, %1762 ], [ %.sroa.0287.0.copyload.i, %1767 ], [ %.sroa.0287.0.copyload.i, %1770 ], [ %.sroa.0287.0.copyload.i, %1775 ], [ %.sroa.0287.0.copyload.i, %1778 ], [ %.sroa.0287.0.copyload.i, %1782 ], [ %.sroa.0287.0.copyload.i, %1785 ], [ %.sroa.0287.0.copyload.i, %1789 ], [ %.sroa.0287.0.copyload.i, %1792 ], [ %.sroa.0287.0.copyload.i, %1796 ], [ %.sroa.0287.0.copyload.i, %1799 ], [ %.sroa.0287.0.copyload.i, %1803 ], [ %.sroa.0287.0.copyload.i, %2206 ], [ %.sroa.0287.0.copyload.i, %2207 ], [ %.sroa.0287.0.copyload.i, %2208 ], [ %.sroa.0287.0.copyload.i, %._crit_edge.i110 ]
+  %3316 = phi ptr [ %3315, %3314 ], [ %142, %1542 ], [ %142, %ATExecColumnDefault.exit ], [ %142, %220 ], [ %231, %230 ], [ %241, %240 ], [ %142, %250 ], [ %142, %ATExecDropNotNull.exit ], [ %142, %378 ], [ %142, %ATExecSetAttNotNull.exit ], [ %142, %ATExecSetExpression.exit ], [ %142, %ATExecDropExpression.exit ], [ %142, %ATExecSetStatistics.exit ], [ %142, %656 ], [ %142, %662 ], [ %142, %SetIndexStorageProperties.exit296 ], [ %142, %SetIndexStorageProperties.exit ], [ %142, %870 ], [ %142, %ATExecAddIndex.argprom.exit194 ], [ %142, %ATExecAddIndex.argprom.exit ], [ %142, %928 ], [ %937, %thread-pre-split.thread.i ], [ %142, %944 ], [ %142, %948 ], [ %142, %956 ], [ %142, %ATExecAddIndexConstraint.argprom.exit ], [ %142, %ATExecAlterConstraint.argprom.exit ], [ %142, %1132 ], [ %142, %ATExecDropConstraint.exit ], [ %142, %ATExecAlterColumnType.argprom.exit ], [ %142, %ATExecAlterColumnGenericOptions.exit ], [ %142, %1520 ], [ %142, %ATExecClusterOn.exit ], [ %142, %1541 ], [ %142, %139 ], [ %142, %139 ], [ %142, %139 ], [ %142, %139 ], [ %142, %ATInheritAdjustNotNulls.exit267 ], [ %142, %ATInheritAdjustNotNulls.exit ], [ %142, %ATExecAddOf.exit ], [ %142, %ATExecDropOf.exit ], [ %142, %ATExecSetRowSecurity.exit107 ], [ %142, %ATExecSetRowSecurity.exit ], [ %142, %ATExecForceNoForceRowSecurity.exit102 ], [ %142, %ATExecForceNoForceRowSecurity.exit ], [ %142, %ATExecGenericOptions.exit ], [ %2466, %ATExecAttachPartitionIdx.argprom.exit ], [ %2466, %ATExecAttachPartition.exit ], [ %3018, %ATExecDetachPartition.exit ], [ %142, %3298 ], [ %142, %1550 ], [ %142, %1552 ], [ %142, %1584 ], [ %142, %1706 ], [ %142, %1713 ], [ %142, %1716 ], [ %142, %1723 ], [ %142, %1726 ], [ %142, %1733 ], [ %142, %1736 ], [ %142, %1743 ], [ %142, %1746 ], [ %142, %1751 ], [ %142, %1754 ], [ %142, %1759 ], [ %142, %1762 ], [ %142, %1767 ], [ %142, %1770 ], [ %142, %1775 ], [ %142, %1778 ], [ %142, %1782 ], [ %142, %1785 ], [ %142, %1789 ], [ %142, %1792 ], [ %142, %1796 ], [ %142, %1799 ], [ %142, %1803 ], [ %142, %2206 ], [ %142, %2207 ], [ %142, %2208 ], [ %142, %._crit_edge.i110 ]
   call void @EventTriggerCollectAlterTableSubcmd(ptr noundef nonnull %3316, i64 %.sroa.0287.0399.i, i32 %.sroa.39.0400.i) #13
   br label %ATExecCmd.exit
 
@@ -17743,7 +17743,7 @@ ATExecCmd.exit:                                   ; preds = %thread-pre-split.i,
   %3386 = load ptr, ptr %3344, align 8
   %3387 = load i32, ptr %3329, align 4
   %3388 = icmp ne i32 %3387, 0
-  call fastcc void @ATPostAlterTypeParse(i32 noundef %3349, i32 noundef %.0.i, i32 noundef %3374, ptr noundef %3386, ptr noundef %0, i1 noundef zeroext %3388)
+  call fastcc void @ATPostAlterTypeParse.argelim(i32 noundef %3349, i32 noundef %.0.i, i32 noundef %3374, ptr noundef %3386, ptr noundef %0, i1 noundef zeroext %3388)
   br label %3389
 
 3389:                                             ; preds = %3385, %3372
@@ -17797,7 +17797,7 @@ ATExecCmd.exit:                                   ; preds = %thread-pre-split.i,
   %3418 = load ptr, ptr %3411, align 8
   %3419 = load i32, ptr %3329, align 4
   %3420 = icmp ne i32 %3419, 0
-  call fastcc void @ATPostAlterTypeParse(i32 noundef %3416, i32 noundef %3417, i32 noundef 0, ptr noundef %3418, ptr noundef %0, i1 noundef zeroext %3420)
+  call fastcc void @ATPostAlterTypeParse.argelim(i32 noundef %3416, i32 noundef %3417, i32 noundef 0, ptr noundef %3418, ptr noundef %0, i1 noundef zeroext %3420)
   store i32 1259, ptr %46, align 4
   store i32 %3416, ptr %109, align 4
   store i32 0, ptr %110, align 4
@@ -17854,7 +17854,7 @@ ATExecCmd.exit:                                   ; preds = %thread-pre-split.i,
   %3450 = load ptr, ptr %3443, align 8
   %3451 = load i32, ptr %3329, align 4
   %3452 = icmp ne i32 %3451, 0
-  call fastcc void @ATPostAlterTypeParse(i32 noundef %3448, i32 noundef %3449, i32 noundef 0, ptr noundef %3450, ptr noundef %0, i1 noundef zeroext %3452)
+  call fastcc void @ATPostAlterTypeParse.argelim(i32 noundef %3448, i32 noundef %3449, i32 noundef 0, ptr noundef %3450, ptr noundef %0, i1 noundef zeroext %3452)
   store i32 3381, ptr %46, align 4
   store i32 %3448, ptr %109, align 4
   store i32 0, ptr %110, align 4
@@ -19265,7 +19265,7 @@ define internal fastcc noundef zeroext i1 @ATPrepChangePersistence(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepSetTableSpace(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @ATPrepSetTableSpace.argprom.argelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @get_tablespace_oid(ptr noundef %1, i1 noundef zeroext false) #13
   %.not = icmp eq i32 %3, 0
   %4 = load i32, ptr @MyDatabaseTableSpace, align 4
@@ -19303,7 +19303,7 @@ define internal fastcc void @ATPrepSetTableSpace(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepAddInherit(ptr nocapture readonly %.56.val) unnamed_addr #0 {
+define internal fastcc void @ATPrepAddInherit.argprom(ptr nocapture readonly %.56.val) unnamed_addr #0 {
   %1 = getelementptr inbounds i8, ptr %.56.val, i64 76
   %2 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %2, 0
@@ -21060,7 +21060,7 @@ define internal fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef nonnull %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecSetOptions(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecSetOptions.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca [26 x i64], align 16
   %7 = alloca [26 x i8], align 16
@@ -21159,7 +21159,7 @@ define internal fastcc { i64, i32 } @ATExecSetOptions(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecDropColumn.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.ObjectAddress, align 4
   %10 = alloca i8, align 1
   br i1 %4, label %11, label %.critedge
@@ -21331,7 +21331,7 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
   br i1 %105, label %108, label %106
 
 106:                                              ; preds = %102
-  %107 = call fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %88, ptr noundef %1, i32 noundef %2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %6, ptr noundef %.0)
+  %107 = call fastcc { i64, i32 } @ATExecDropColumn.argprom(ptr noundef %88, ptr noundef %1, i32 noundef %2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %6, ptr noundef %.0)
   br label %111
 
 108:                                              ; preds = %102, %100
@@ -22613,7 +22613,7 @@ findFkeyCast.exit235.i:                           ; preds = %575, %574
 
 ATAddForeignKeyConstraint.exit:                   ; preds = %.thread382.i, %._crit_edge315.loopexit.i
   %.0187.lcssa.i = phi i1 [ %594, %._crit_edge315.loopexit.i ], [ %471, %.thread382.i ]
-  %595 = call fastcc { i64, i32 } @addFkRecurseReferenced(ptr noundef %3, ptr noundef %2, ptr noundef %.0.i, i32 noundef %.0238.i, i32 noundef 0, i32 noundef %195, ptr noundef nonnull %8, ptr noundef %9, ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef %199, ptr noundef %16, i32 noundef 0, i32 noundef 0)
+  %595 = call fastcc { i64, i32 } @addFkRecurseReferenced.argprom.argelim(ptr noundef %3, ptr noundef %2, ptr noundef %.0.i, i32 noundef %.0238.i, i32 noundef 0, i32 noundef %195, ptr noundef nonnull %8, ptr noundef %9, ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef %199, ptr noundef %16, i32 noundef 0, i32 noundef 0)
   %.fca.0.extract.i = extractvalue { i64, i32 } %595, 0
   %.sroa.2184.0.extract.shift.i = lshr i64 %.fca.0.extract.i, 32
   %.sroa.2184.0.extract.trunc.i = trunc nuw i64 %.sroa.2184.0.extract.shift.i to i32
@@ -23051,7 +23051,7 @@ declare void @performDeletion(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare ptr @findNotNullConstraint(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dropconstraint_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dropconstraint_internal.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.ObjectAddress, align 4
   %9 = alloca i8, align 1
   %10 = alloca [3 x %struct.ScanKeyData], align 16
@@ -23532,7 +23532,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %77, %45, %
   br i1 %268, label %270, label %269
 
 269:                                              ; preds = %265
-  call fastcc void @dropconstraint_internal(ptr noundef %219, ptr noundef nonnull %.0227, i32 noundef %2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %5, i32 noundef %6)
+  call fastcc void @dropconstraint_internal.argelim(ptr noundef %219, ptr noundef nonnull %.0227, i32 noundef %2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %5, i32 noundef %6)
   br label %280
 
 270:                                              ; preds = %265, %263
@@ -23677,7 +23677,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %77, %45, %
   unreachable
 
 338:                                              ; preds = %.lr.ph338
-  call fastcc void @dropconstraint_internal(ptr noundef %325, ptr noundef nonnull %331, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %11, i32 noundef %6)
+  call fastcc void @dropconstraint_internal.argelim(ptr noundef %325, ptr noundef nonnull %331, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %11, i32 noundef %6)
   store ptr null, ptr %11, align 8
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
   %339 = load i32, ptr %305, align 4
@@ -24619,7 +24619,7 @@ declare i32 @getBaseType(i32 noundef) local_unnamed_addr #3
 declare zeroext i1 @can_coerce_type(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @addFkRecurseReferenced(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %11, ptr noundef nonnull %12, i32 noundef %13, i32 noundef %14) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @addFkRecurseReferenced.argprom.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %11, ptr noundef nonnull %12, i32 noundef %13, i32 noundef %14) unnamed_addr #0 {
   %16 = alloca [128 x i8], align 16
   %17 = alloca %struct.ObjectAddress, align 8
   %18 = alloca i32, align 4
@@ -24848,7 +24848,7 @@ ChooseForeignKeyConstraintNameAddition.exit:      ; preds = %47, %61, %37, %.lr.
 150:                                              ; preds = %.loopexit
   %151 = load i32, ptr %18, align 4
   %152 = load i32, ptr %19, align 4
-  %153 = call fastcc { i64, i32 } @addFkRecurseReferenced(ptr noundef %0, ptr noundef %1, ptr noundef %128, i32 noundef %143, i32 noundef %103, i32 noundef %5, ptr noundef %.096, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef %151, i32 noundef %152)
+  %153 = call fastcc { i64, i32 } @addFkRecurseReferenced.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %128, i32 noundef %143, i32 noundef %103, i32 noundef %5, ptr noundef %.096, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef %151, i32 noundef %152)
   call void @table_close(ptr noundef %128, i32 noundef 0) #13
   br i1 %.not104, label %155, label %154
 
@@ -26719,13 +26719,13 @@ MergeConstraintsIntoExisting.exit:                ; preds = %.backedge72.i, %Mer
   call void @recordDependencyOn(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %342) #13
   %343 = load ptr, ptr @object_access_hook, align 8
   %.not.i28 = icmp eq ptr %343, null
-  br i1 %.not.i28, label %StoreCatalogInheritance1.exit, label %344
+  br i1 %.not.i28, label %StoreCatalogInheritance1.argprom.exit, label %344
 
 344:                                              ; preds = %MergeConstraintsIntoExisting.exit
   call void @RunObjectPostAlterHook(i32 noundef 2611, i32 noundef %331, i32 noundef 0, i32 noundef %332, i1 noundef zeroext false) #13
-  br label %StoreCatalogInheritance1.exit
+  br label %StoreCatalogInheritance1.argprom.exit
 
-StoreCatalogInheritance1.exit:                    ; preds = %MergeConstraintsIntoExisting.exit, %344
+StoreCatalogInheritance1.argprom.exit:            ; preds = %MergeConstraintsIntoExisting.exit, %344
   call void @SetRelationHasSubclass(i32 noundef %332, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
@@ -27163,7 +27163,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @relation_mark_replica_identity(ptr noundef %0, i8 noundef signext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @relation_mark_replica_identity.argelim(ptr noundef %0, i8 noundef signext %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 3) #13
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
@@ -28156,7 +28156,7 @@ declare void @WaitForOlderSnapshots(i32 noundef, i1 noundef zeroext) local_unnam
 declare i32 @get_typ_typrelid(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPostAlterTypeParse(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @ATPostAlterTypeParse.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call ptr @raw_parser(ptr noundef %3, i32 noundef 0) #13

@@ -162,24 +162,24 @@ if.then3.i:                                       ; preds = %if.else.i
 if.else4.i:                                       ; preds = %if.else.i
   %call5.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(4) @.str.39) #16
   %tobool6.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i, label %if.then7.i, label %vpc_parse_options.exit
+  br i1 %tobool6.not.i, label %if.then7.i, label %vpc_parse_options.argprom.exit
 
 if.then7.i:                                       ; preds = %if.else4.i
   %force_use_chs.i = getelementptr inbounds i8, ptr %bs.val, i64 608
   store i8 1, ptr %force_use_chs.i, align 8
   br label %if.end7
 
-vpc_parse_options.exit:                           ; preds = %if.else4.i
+vpc_parse_options.argprom.exit:                   ; preds = %if.else4.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.11, i32 noundef 215, ptr noundef nonnull @__func__.vpc_parse_options, ptr noundef nonnull @.str.40, ptr noundef nonnull %call.i) #15
   %.pre = load ptr, ptr %local_err, align 8
   %tobool.not = icmp eq ptr %.pre, null
   br i1 %tobool.not, label %if.end7, label %if.then6
 
-if.then6:                                         ; preds = %vpc_parse_options.exit
+if.then6:                                         ; preds = %vpc_parse_options.argprom.exit
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %.pre) #15
   br label %fail
 
-if.end7:                                          ; preds = %if.then7.i, %if.then3.i, %if.end5, %vpc_parse_options.exit
+if.end7:                                          ; preds = %if.then7.i, %if.then3.i, %if.end5, %vpc_parse_options.argprom.exit
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %footer8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -535,7 +535,7 @@ if.end230:                                        ; preds = %if.end229, %if.end9
 if.end237:                                        ; preds = %if.end230
   call void @qemu_co_mutex_init(ptr noundef nonnull %0) #15
   call void @qemu_opts_del(ptr noundef %call2) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 fail:                                             ; preds = %if.end93, %if.end, %if.end230, %if.end26, %if.then228, %if.then220, %if.then180, %if.then171, %if.then159, %if.then149, %if.then138, %if.then124, %if.then112, %if.then107, %if.then49, %if.then40, %if.then24, %if.then21, %if.then11, %if.then6
   %ret.0 = phi i32 [ -22, %if.then6 ], [ %call9, %if.then11 ], [ %conv, %if.then21 ], [ -22, %if.then24 ], [ %call28, %if.end26 ], [ -22, %if.then40 ], [ -22, %if.then49 ], [ %call104, %if.then107 ], [ -22, %if.then112 ], [ -22, %if.then124 ], [ -22, %if.then138 ], [ -22, %if.then149 ], [ -22, %if.then159 ], [ -12, %if.then171 ], [ %call177, %if.then180 ], [ %46, %if.then220 ], [ -22, %if.then228 ], [ %call233, %if.end230 ], [ -22, %if.end ], [ -27, %if.end93 ]
@@ -543,15 +543,15 @@ fail:                                             ; preds = %if.end93, %if.end, 
   %pagetable238 = getelementptr inbounds i8, ptr %0, i64 576
   %48 = load ptr, ptr %pagetable238, align 8
   call void @qemu_vfree(ptr noundef %48) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %fail, %if.end237
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %fail, %if.end237
   %retval.1 = phi i32 [ %ret.0, %fail ], [ 0, %if.end237 ]
   call void @bdrv_graph_rdunlock_main_loop() #15
   br label %return
 
-return:                                           ; preds = %entry, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call, %entry ]
+return:                                           ; preds = %entry, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %call, %entry ]
   ret i32 %retval.0
 }
 
@@ -711,9 +711,9 @@ if.end.i:                                         ; preds = %if.end.loopexit.i, 
 if.then14.i:                                      ; preds = %if.end.i
   %div1511.i = lshr i64 %u.val, 9
   %cmp16.i = icmp ugt i64 %u.val, 2190433321471
-  br i1 %cmp16.i, label %calculate_rounded_image_size.exit, label %if.end15
+  br i1 %cmp16.i, label %calculate_rounded_image_size.argprom.exit, label %if.end15
 
-calculate_rounded_image_size.exit:                ; preds = %if.then14.i
+calculate_rounded_image_size.argprom.exit:        ; preds = %if.then14.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 955, ptr noundef nonnull @__func__.calculate_rounded_image_size, ptr noundef nonnull @.str.47) #15
   br label %out
 
@@ -816,8 +816,8 @@ if.then3.i:                                       ; preds = %if.end.i36
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 909, ptr noundef nonnull @__func__.create_fixed_disk, i32 noundef %sub4.i, ptr noundef nonnull @.str.48) #15
   br label %out
 
-out:                                              ; preds = %if.then3.i, %if.end.i36, %if.else59, %calculate_rounded_image_size.exit, %if.end7, %if.then57, %if.then53, %if.then17
-  %ret.0 = phi i32 [ -27, %calculate_rounded_image_size.exit ], [ -22, %if.then17 ], [ %call54, %if.then57 ], [ %call54, %if.then53 ], [ -1, %if.end7 ], [ %call1.i, %if.then3.i ], [ %call.i, %if.else59 ], [ 0, %if.end.i36 ]
+out:                                              ; preds = %if.then3.i, %if.end.i36, %if.else59, %calculate_rounded_image_size.argprom.exit, %if.end7, %if.then57, %if.then53, %if.then17
+  %ret.0 = phi i32 [ -27, %calculate_rounded_image_size.argprom.exit ], [ -22, %if.then17 ], [ %call54, %if.then57 ], [ %call54, %if.then53 ], [ -1, %if.end7 ], [ %call1.i, %if.then3.i ], [ %call.i, %if.else59 ], [ 0, %if.end.i36 ]
   call void @blk_co_unref(ptr noundef %call8) #15
   call void @bdrv_co_unref(ptr noundef nonnull %call) #15
   br label %return
@@ -955,9 +955,9 @@ if.end.i:                                         ; preds = %calculate_geometry.
 if.then14.i:                                      ; preds = %if.end.i
   %div1511.i = lshr i64 %sub, 9
   %cmp16.i = icmp ugt i64 %sub, 2190433321471
-  br i1 %cmp16.i, label %calculate_rounded_image_size.exit, label %if.end28
+  br i1 %cmp16.i, label %calculate_rounded_image_size.argprom.exit, label %if.end28
 
-calculate_rounded_image_size.exit:                ; preds = %if.then14.i
+calculate_rounded_image_size.argprom.exit:        ; preds = %if.then14.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 955, ptr noundef nonnull @__func__.calculate_rounded_image_size, ptr noundef nonnull @.str.47) #15
   br label %fail
 
@@ -974,9 +974,9 @@ if.end31:                                         ; preds = %if.end18.if.end31_c
   %call32 = call i32 @vpc_co_create(ptr noundef %8, ptr noundef %errp)
   br label %fail
 
-fail:                                             ; preds = %calculate_rounded_image_size.exit, %if.end11, %if.end8, %if.end4, %entry, %if.end, %if.end31
-  %ret.0 = phi i32 [ %call2, %if.end ], [ %call32, %if.end31 ], [ -27, %calculate_rounded_image_size.exit ], [ -22, %entry ], [ -5, %if.end4 ], [ -22, %if.end8 ], [ -22, %if.end11 ]
-  %bs.0 = phi ptr [ null, %if.end ], [ %call5, %if.end31 ], [ %call5, %calculate_rounded_image_size.exit ], [ null, %entry ], [ null, %if.end4 ], [ %call5, %if.end8 ], [ %call5, %if.end11 ]
+fail:                                             ; preds = %calculate_rounded_image_size.argprom.exit, %if.end11, %if.end8, %if.end4, %entry, %if.end, %if.end31
+  %ret.0 = phi i32 [ %call2, %if.end ], [ %call32, %if.end31 ], [ -27, %calculate_rounded_image_size.argprom.exit ], [ -22, %entry ], [ -5, %if.end4 ], [ -22, %if.end8 ], [ -22, %if.end11 ]
+  %bs.0 = phi ptr [ null, %if.end ], [ %call5, %if.end31 ], [ %call5, %calculate_rounded_image_size.argprom.exit ], [ null, %entry ], [ null, %if.end4 ], [ %call5, %if.end8 ], [ %call5, %if.end11 ]
   %tobool33.not = icmp eq ptr %call, null
   br i1 %tobool33.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 

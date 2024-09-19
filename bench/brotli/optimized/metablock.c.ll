@@ -980,12 +980,12 @@ InitBlockSplitterLiteral.exit:                    ; preds = %if.end21.i, %if.end
   %command_split.i29 = getelementptr inbounds i8, ptr %mb, i64 48
   %command_histograms.i30 = getelementptr inbounds i8, ptr %mb, i64 192
   %command_histograms_size.i31 = getelementptr inbounds i8, ptr %mb, i64 200
-  tail call fastcc void @InitBlockSplitterCommand(ptr noundef %m, ptr noundef nonnull %cmd_blocks.i28, i64 noundef %n_commands, ptr noundef nonnull %command_split.i29, ptr noundef nonnull %command_histograms.i30, ptr noundef nonnull %command_histograms_size.i31)
+  tail call fastcc void @InitBlockSplitterCommand.argelim(ptr noundef %m, ptr noundef nonnull %cmd_blocks.i28, i64 noundef %n_commands, ptr noundef nonnull %command_split.i29, ptr noundef nonnull %command_histograms.i30, ptr noundef nonnull %command_histograms_size.i31)
   %dist_blocks.i32 = getelementptr inbounds i8, ptr %call, i64 7984
   %distance_split.i33 = getelementptr inbounds i8, ptr %mb, i64 96
   %distance_histograms.i34 = getelementptr inbounds i8, ptr %mb, i64 208
   %distance_histograms_size.i35 = getelementptr inbounds i8, ptr %mb, i64 216
-  tail call fastcc void @InitBlockSplitterDistance(ptr noundef %m, ptr noundef nonnull %dist_blocks.i32, i64 noundef %n_commands, ptr noundef nonnull %distance_split.i33, ptr noundef nonnull %distance_histograms.i34, ptr noundef nonnull %distance_histograms_size.i35)
+  tail call fastcc void @InitBlockSplitterDistance.argelim(ptr noundef %m, ptr noundef nonnull %dist_blocks.i32, i64 noundef %n_commands, ptr noundef nonnull %distance_split.i33, ptr noundef nonnull %distance_histograms.i34, ptr noundef nonnull %distance_histograms_size.i35)
   br i1 %cmp.i21270.not, label %if.then66.i46, label %for.body10.i47.lr.ph
 
 for.body10.i47.lr.ph:                             ; preds = %InitBlockSplitterLiteral.exit
@@ -1280,12 +1280,12 @@ InitContextBlockSplitter.exit:                    ; preds = %for.body.i.i
   %command_split.i = getelementptr inbounds i8, ptr %mb, i64 48
   %command_histograms.i = getelementptr inbounds i8, ptr %mb, i64 192
   %command_histograms_size.i = getelementptr inbounds i8, ptr %mb, i64 200
-  tail call fastcc void @InitBlockSplitterCommand(ptr noundef %m, ptr noundef nonnull %cmd_blocks.i, i64 noundef %n_commands, ptr noundef nonnull %command_split.i, ptr noundef nonnull %command_histograms.i, ptr noundef nonnull %command_histograms_size.i)
+  tail call fastcc void @InitBlockSplitterCommand.argelim(ptr noundef %m, ptr noundef nonnull %cmd_blocks.i, i64 noundef %n_commands, ptr noundef nonnull %command_split.i, ptr noundef nonnull %command_histograms.i, ptr noundef nonnull %command_histograms_size.i)
   %dist_blocks.i = getelementptr inbounds i8, ptr %call, i64 7984
   %distance_split.i = getelementptr inbounds i8, ptr %mb, i64 96
   %distance_histograms.i = getelementptr inbounds i8, ptr %mb, i64 208
   %distance_histograms_size.i = getelementptr inbounds i8, ptr %mb, i64 216
-  tail call fastcc void @InitBlockSplitterDistance(ptr noundef %m, ptr noundef nonnull %dist_blocks.i, i64 noundef %n_commands, ptr noundef nonnull %distance_split.i, ptr noundef nonnull %distance_histograms.i, ptr noundef nonnull %distance_histograms_size.i)
+  tail call fastcc void @InitBlockSplitterDistance.argelim(ptr noundef %m, ptr noundef nonnull %dist_blocks.i, i64 noundef %n_commands, ptr noundef nonnull %distance_split.i, ptr noundef nonnull %distance_histograms.i, ptr noundef nonnull %distance_histograms_size.i)
   br i1 %cmp.i21270.not, label %if.then75.i, label %for.body10.i.lr.ph
 
 for.body10.i.lr.ph:                               ; preds = %InitContextBlockSplitter.exit
@@ -1583,7 +1583,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterCommand(ptr noundef %m, ptr nocapture noundef %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
+define internal fastcc void @InitBlockSplitterCommand.argelim(ptr noundef %m, ptr nocapture noundef %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
 entry:
   %div69 = lshr i64 %num_symbols, 10
   %add = add nuw nsw i64 %div69, 1
@@ -1699,7 +1699,7 @@ if.end55:                                         ; preds = %if.end50, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterDistance(ptr noundef %m, ptr nocapture noundef %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
+define internal fastcc void @InitBlockSplitterDistance.argelim(ptr noundef %m, ptr nocapture noundef %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
 entry:
   %div69 = lshr i64 %num_symbols, 9
   %add = add nuw nsw i64 %div69, 1

@@ -1460,13 +1460,13 @@ define void @Bac_End(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 528
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Bac_AbcFreeMan.exit, label %3
+  br i1 %.not.i, label %Bac_AbcFreeMan.argprom.exit, label %3
 
 3:                                                ; preds = %1
   tail call fastcc void @Bac_ManFree(ptr noundef nonnull %.val)
-  br label %Bac_AbcFreeMan.exit
+  br label %Bac_AbcFreeMan.argprom.exit
 
-Bac_AbcFreeMan.exit:                              ; preds = %1, %3
+Bac_AbcFreeMan.argprom.exit:                      ; preds = %1, %3
   ret void
 }
 
@@ -2186,30 +2186,30 @@ define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noca
   %18 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.exit
+  br i1 %20, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.argprom.exit
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %17
   %21 = getelementptr i8, ptr %.val20, i64 36
   %.val.i.i.i = load i32, ptr %21, align 4
   %.not4.i.i = icmp sgt i32 %19, %.val.i.i.i
-  br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %22
+  br i1 %.not4.i.i, label %Bac_BoxNtk.argprom.exit, label %22
 
 22:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
   %23 = getelementptr inbounds i8, ptr %.val20, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %19 to i64
   %26 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %24, i64 %25
-  br label %Bac_BoxNtk.exit
+  br label %Bac_BoxNtk.argprom.exit
 
-Bac_BoxNtk.exit:                                  ; preds = %17, %Bac_ManNtkIsOk.exit.i.i, %22
+Bac_BoxNtk.argprom.exit:                          ; preds = %17, %Bac_ManNtkIsOk.exit.i.i, %22
   %27 = phi ptr [ %26, %22 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %17 ]
   %28 = tail call fastcc i32 @Bac_ManBoxNum_rec(ptr noundef %27)
   %.val.pre.pre = load i32, ptr %5, align 4
   br label %29
 
-29:                                               ; preds = %16, %Bac_BoxNtk.exit
-  %.val.pre = phi i32 [ %.val.pre.pre, %Bac_BoxNtk.exit ], [ %.val.pre28, %16 ]
-  %30 = phi i32 [ %28, %Bac_BoxNtk.exit ], [ 1, %16 ]
+29:                                               ; preds = %16, %Bac_BoxNtk.argprom.exit
+  %.val.pre = phi i32 [ %.val.pre.pre, %Bac_BoxNtk.argprom.exit ], [ %.val.pre28, %16 ]
+  %30 = phi i32 [ %28, %Bac_BoxNtk.argprom.exit ], [ 1, %16 ]
   %31 = add nuw nsw i32 %30, %.024
   br label %32
 

@@ -1190,8 +1190,8 @@ define ptr @Cloud_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  tail call fastcc void @cloudSupport(ptr noundef %8, ptr noundef %5)
-  tail call fastcc void @cloudClearMark(ptr noundef %8)
+  tail call fastcc void @cloudSupport.argprom(ptr noundef %8, ptr noundef %5)
+  tail call fastcc void @cloudClearMark.argprom(ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %0, align 8
@@ -1278,7 +1278,7 @@ Cloud_bddAnd.exit:                                ; preds = %40, %42
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @cloudSupport(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
+define internal fastcc void @cloudSupport.argprom(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, -268435457
@@ -1299,7 +1299,7 @@ tailrecurse:                                      ; preds = %2, %tailrecurse
   store i32 1, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %.tr4, i64 16
   %14 = load ptr, ptr %13, align 8
-  tail call fastcc void @cloudSupport(ptr noundef %14, ptr noundef %1)
+  tail call fastcc void @cloudSupport.argprom(ptr noundef %14, ptr noundef %1)
   %15 = getelementptr inbounds i8, ptr %.tr4, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
@@ -1319,7 +1319,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @cloudClearMark(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc void @cloudClearMark.argprom(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 268435456
@@ -1338,7 +1338,7 @@ define internal fastcc void @cloudClearMark(ptr nocapture noundef %0) unnamed_ad
 tailrecurse:                                      ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %.tr2, i64 16
   %10 = load ptr, ptr %9, align 8
-  tail call fastcc void @cloudClearMark(ptr noundef %10)
+  tail call fastcc void @cloudClearMark.argprom(ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %.tr2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
@@ -1362,8 +1362,8 @@ define i32 @Cloud_SupportSize(ptr nocapture noundef readonly %0, ptr noundef %1)
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  tail call fastcc void @cloudSupport(ptr noundef %8, ptr noundef %5)
-  tail call fastcc void @cloudClearMark(ptr noundef %8)
+  tail call fastcc void @cloudSupport.argprom(ptr noundef %8, ptr noundef %5)
+  tail call fastcc void @cloudClearMark.argprom(ptr noundef %8)
   %9 = load i32, ptr %0, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -1403,13 +1403,13 @@ define i32 @Cloud_DagSize(ptr nocapture noundef readnone %0, ptr noundef %1) loc
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call fastcc i32 @cloudDagSize(ptr noundef %5)
-  tail call fastcc void @cloudClearMark(ptr noundef %5)
+  %6 = tail call fastcc i32 @cloudDagSize.argprom(ptr noundef %5)
+  tail call fastcc void @cloudClearMark.argprom(ptr noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @cloudDagSize(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc i32 @cloudDagSize.argprom(ptr nocapture noundef %0) unnamed_addr #7 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %8, %1
@@ -1435,7 +1435,7 @@ common.ret:                                       ; preds = %tailrecurse, %5
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %.tr, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call fastcc i32 @cloudDagSize(ptr noundef %10)
+  %11 = tail call fastcc i32 @cloudDagSize.argprom(ptr noundef %10)
   %12 = getelementptr inbounds i8, ptr %.tr, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -1469,7 +1469,7 @@ define i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
   %17 = call fastcc i32 @Cloud_DagCollect_rec(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %3)
-  call fastcc void @cloudClearMark(ptr noundef %16)
+  call fastcc void @cloudClearMark.argprom(ptr noundef %16)
   ret i32 %17
 }
 
@@ -1546,7 +1546,7 @@ define i32 @Cloud_SharingSize(ptr nocapture noundef readnone %0, ptr nocapture n
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call fastcc i32 @cloudDagSize(ptr noundef %9)
+  %10 = tail call fastcc i32 @cloudDagSize.argprom(ptr noundef %9)
   %11 = add nsw i32 %10, %.01315
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1559,7 +1559,7 @@ define i32 @Cloud_SharingSize(ptr nocapture noundef readnone %0, ptr nocapture n
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  tail call fastcc void @cloudClearMark(ptr noundef %16)
+  tail call fastcc void @cloudClearMark.argprom(ptr noundef %16)
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
   br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph18, !llvm.loop !14

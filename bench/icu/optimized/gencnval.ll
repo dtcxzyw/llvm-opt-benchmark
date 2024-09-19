@@ -632,14 +632,14 @@ while.end72.i.i:                                  ; preds = %land.rhs58.i.i, %wh
   br i1 %cmp78.i.i, label %if.then80.i.i, label %if.else.i.i
 
 if.then80.i.i:                                    ; preds = %while.end72.i.i
-  call fastcc void @addAlias(ptr noundef %call18.i.i, i16 noundef zeroext 1, i16 noundef zeroext %.lcssa.i.i.i, i8 noundef signext 1)
+  call fastcc void @addAlias.retelim(ptr noundef %call18.i.i, i16 noundef zeroext 1, i16 noundef zeroext %.lcssa.i.i.i, i8 noundef signext 1)
   br label %if.end88.i.i
 
 if.else.i.i:                                      ; preds = %while.end72.i.i
   %sub75.i.i = sub i16 %pos.3.i.i, %pos.2101.i.lcssa.i
   %conv85.i.i = zext i16 %sub75.i.i to i32
   %call86.i.i = call fastcc ptr @allocString(ptr noundef nonnull @stringBlock, ptr noundef nonnull %arrayidx22.le.i.i, i32 noundef %conv85.i.i)
-  call fastcc void @addAlias(ptr noundef %call86.i.i, i16 noundef zeroext 1, i16 noundef zeroext %.lcssa.i.i.i, i8 noundef signext 0)
+  call fastcc void @addAlias.retelim(ptr noundef %call86.i.i, i16 noundef zeroext 1, i16 noundef zeroext %.lcssa.i.i.i, i8 noundef signext 0)
   br label %if.end88.i.i
 
 if.end88.i.i:                                     ; preds = %if.else.i.i, %if.then80.i.i
@@ -741,7 +741,7 @@ if.then146.i.i:                                   ; preds = %while.end141.i.i
   %96 = load i8, ptr %gep.i.i, align 1
   %cmp160.i.i = icmp eq i8 %96, 42
   %conv162.i.i = zext i1 %cmp160.i.i to i8
-  call fastcc void @addAlias(ptr noundef %alias.0.i.i, i16 noundef zeroext %call154.i.i, i16 noundef zeroext %.lcssa.i.i.i, i8 noundef signext %conv162.i.i)
+  call fastcc void @addAlias.retelim(ptr noundef %alias.0.i.i, i16 noundef zeroext %call154.i.i, i16 noundef zeroext %.lcssa.i.i.i, i8 noundef signext %conv162.i.i)
   %.pre.i.i = load i8, ptr %arrayidx118.i.i.le, align 1
   br label %if.end164.i.i
 
@@ -793,7 +793,7 @@ if.else205.i.i:                                   ; preds = %while.body106.i.i, 
   %106 = load i16, ptr %arrayidx207.i.i, align 8
   %cmp209.i.i = icmp eq i16 %106, 0
   %conv211.i.i = zext i1 %cmp209.i.i to i8
-  call fastcc void @addAlias(ptr noundef %alias.0.i.i, i16 noundef zeroext 0, i16 noundef zeroext %.lcssa.i.i.i, i8 noundef signext %conv211.i.i)
+  call fastcc void @addAlias.retelim(ptr noundef %alias.0.i.i, i16 noundef zeroext 0, i16 noundef zeroext %.lcssa.i.i.i, i8 noundef signext %conv211.i.i)
   br label %if.end213.i.i
 
 if.end213.i.i:                                    ; preds = %if.else205.i.i, %if.then200.i.i
@@ -1995,7 +1995,7 @@ declare signext i8 @uprv_isInvariantString_75(ptr noundef, i32 noundef) local_un
 declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addAlias(ptr noundef %alias, i16 noundef zeroext %standard, i16 noundef zeroext %converter, i8 noundef signext range(i8 0, 2) %defaultName) unnamed_addr #0 {
+define internal fastcc void @addAlias.retelim(ptr noundef %alias, i16 noundef zeroext %standard, i16 noundef zeroext %converter, i8 noundef signext range(i8 0, 2) %defaultName) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i16 %standard, 62
   br i1 %cmp, label %if.then, label %if.end

@@ -1241,7 +1241,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i), !noalias !10
   %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_7DynamicEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i" unwind label %lpad80.i.i.i, !noalias !10
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_7DynamicEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad80.i.i.i, !noalias !10
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %if.end76.i.i.i
   %31 = landingpad { ptr, i32 }
@@ -1259,7 +1259,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i) #29, !noalias !10
   br label %ehcleanup14
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_7DynamicEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i": ; preds = %invoke.cont.i.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_7DynamicEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %invoke.cont.i.i.i
   %_priority.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store i32 0, ptr %_priority.i.i.i.i, align 8, !noalias !10
   %_topology.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 48
@@ -1305,14 +1305,14 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   %cmp.not.i.i.i.i = icmp eq ptr %34, %35
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i2.i.i, label %if.then.i.i1.i.i
 
-if.then.i.i1.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_7DynamicEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i"
+if.then.i.i1.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_7DynamicEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i"
   store ptr %retval.0.i.i.i.i, ptr %34, align 8, !noalias !10
   %36 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !10
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !10
   br label %invoke.cont8
 
-if.else.i.i2.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_7DynamicEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i"
+if.else.i.i2.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_7DynamicEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i"
   %37 = load ptr, ptr %taskflow.val, align 8, !noalias !10
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %37 to i64
@@ -20666,7 +20666,7 @@ _ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i.i.i.i: ;
   %cond.i60.i.i.i.i.i.i = select i1 %cmp.i58.i.i.i.i.i.i, i64 4, i64 %div.i59.i.i.i.i.i.i
   %conv69.i.i.i.i.i.i = trunc i64 %cond.i60.i.i.i.i.i.i to i32
   %cmp70.not.i.i.i.i.i.i = icmp eq i32 %f.1.i.i.i.i.i.i, %conv69.i.i.i.i.i.i
-  br i1 %cmp70.not.i.i.i.i.i.i, label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.exit.i.i.i.i.i", label %if.then71.i.i.i.i.i.i
+  br i1 %cmp70.not.i.i.i.i.i.i, label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.argprom.exit.i.i.i.i.i", label %if.then71.i.i.i.i.i.i
 
 if.then71.i.i.i.i.i.i:                            ; preds = %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i.i.i.i
   %list_node72.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s.1.i.i.i.i.i.i, i64 8
@@ -20685,9 +20685,9 @@ if.then71.i.i.i.i.i.i:                            ; preds = %_ZN2tf10ObjectPoolI
   store ptr %35, ptr %next.i61.i.i.i.i.i.i, align 8
   store ptr %arrayidx75.i.i.i.i.i.i, ptr %list_node72.i.i.i.i.i.i, align 8
   store ptr %list_node72.i.i.i.i.i.i, ptr %next.i.i63.i.i.i.i.i.i, align 8
-  br label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.exit.i.i.i.i.i"
+  br label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.argprom.exit.i.i.i.i.i"
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.exit.i.i.i.i.i": ; preds = %if.then71.i.i.i.i.i.i, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i.i.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.argprom.exit.i.i.i.i.i": ; preds = %if.then71.i.i.i.i.i.i, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i.i.i.i
   %_topology.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
   %call1.i.i64.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i) #29
   %36 = load ptr, ptr %_topology.i.i.i.i.i, align 8
@@ -20696,7 +20696,7 @@ if.then71.i.i.i.i.i.i:                            ; preds = %_ZN2tf10ObjectPoolI
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i)
           to label %.noexc7.i.i.i.i unwind label %lpad3.i.loopexit.i.i.i
 
-.noexc7.i.i.i.i:                                  ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.exit.i.i.i.i.i"
+.noexc7.i.i.i.i:                                  ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.argprom.exit.i.i.i.i.i"
   %_priority.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 40
   store i32 0, ptr %_priority.i.i.i.i.i.i.i, align 8
   %_topology.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 48
@@ -20744,7 +20744,7 @@ lpad.i.i.i.i:                                     ; preds = %call.i.noexc.i.i.i.
           cleanup
   br label %ehcleanup.i.i.i.i
 
-lpad3.i.loopexit.i.i.i:                           ; preds = %.noexc7.i.i.i.i, %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.exit.i.i.i.i.i", %if.else.i.i.i.i.i.i
+lpad3.i.loopexit.i.i.i:                           ; preds = %.noexc7.i.i.i.i, %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPNS_8TopologyERPS1_iSt15in_place_type_tINS1_5AsyncEEZZ4mainENK3$_0clERNS_7SubflowEEUlvE_EEESF_DpOT_.argprom.exit.i.i.i.i.i", %if.else.i.i.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad3.i.i.i.i
@@ -21034,8 +21034,8 @@ attributes #37 = { cold }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX17is_dynamic_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_: %agg.result"}
-!12 = distinct !{!12, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX17is_dynamic_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_"}
+!11 = distinct !{!11, !12, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX17is_dynamic_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX17is_dynamic_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom"}
 !13 = distinct !{!13, !6}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN2tf8Executor3runERNS_8TaskflowE: %agg.result"}

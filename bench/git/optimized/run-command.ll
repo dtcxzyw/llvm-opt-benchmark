@@ -2176,7 +2176,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  tail call fastcc void @async_exit() #25
+  tail call fastcc void @async_exit.argelim() #25
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -2191,7 +2191,7 @@ if.end5:                                          ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @async_exit() unnamed_addr #10 {
+define internal fastcc void @async_exit.argelim() unnamed_addr #10 {
 entry:
   tail call void @pthread_exit(ptr noundef nonnull inttoptr (i64 141 to ptr)) #24
   unreachable
@@ -2355,26 +2355,26 @@ if.end75:                                         ; preds = %if.then.i39, %if.th
 if.then80:                                        ; preds = %if.end75
   %12 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %12, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
+  br i1 %tobool1.not.i, label %_.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then80
   %call.i43 = call ptr @gettext(ptr noundef nonnull @.str.10) #21
-  br label %_.exit
+  br label %_.argprom.exit
 
-_.exit:                                           ; preds = %if.then80, %if.end3.i
+_.argprom.exit:                                   ; preds = %if.then80, %if.end3.i
   %retval.0.i = phi ptr [ %call.i43, %if.end3.i ], [ @.str.10, %if.then80 ]
   %call82 = call ptr @strerror(i32 noundef %call78) #21
   %call83 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %call82) #21
   br i1 %cmp, label %if.then87, label %if.else89
 
-if.then87:                                        ; preds = %_.exit
+if.then87:                                        ; preds = %_.argprom.exit
   %13 = load i32, ptr %fdin, align 4
   %call.i44 = call i32 @close(i32 noundef %13) #21
   %arrayidx1.i45 = getelementptr inbounds i8, ptr %fdin, i64 4
   %14 = load i32, ptr %arrayidx1.i45, align 4
   br label %if.end96.sink.split
 
-if.else89:                                        ; preds = %_.exit
+if.else89:                                        ; preds = %_.argprom.exit
   %15 = load i32, ptr %in, align 8
   %tobool91.not = icmp eq i32 %15, 0
   br i1 %tobool91.not, label %if.end96, label %if.end96.sink.split
@@ -4154,7 +4154,7 @@ entry:
   %processes.i.i = getelementptr inbounds i8, ptr %.val, i64 16
   %1 = load i64, ptr %processes.i.i, align 8
   %cmp5.not.i.i = icmp eq i64 %1, 0
-  br i1 %cmp5.not.i.i, label %kill_children_signal.exit, label %for.body.lr.ph.i.i
+  br i1 %cmp5.not.i.i, label %kill_children_signal.argprom.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4182,9 +4182,9 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   %7 = phi i64 [ %3, %for.body.i.i ], [ %.pre.i.i, %if.then.i.i ]
   %inc.i.i = add nuw i64 %i.06.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %7
-  br i1 %cmp.i.i, label %for.body.i.i, label %kill_children_signal.exit, !llvm.loop !20
+  br i1 %cmp.i.i, label %for.body.i.i, label %kill_children_signal.argprom.exit, !llvm.loop !20
 
-kill_children_signal.exit:                        ; preds = %for.inc.i.i, %entry
+kill_children_signal.argprom.exit:                ; preds = %for.inc.i.i, %entry
   %call = tail call i32 @sigchain_pop(i32 noundef %signo) #21
   %call1 = tail call i32 @raise(i32 noundef %signo) #21
   ret void

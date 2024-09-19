@@ -1158,13 +1158,13 @@ define i32 @Kit_GraphLeafDepth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   %11 = sdiv exact i64 %10, 24
   %12 = trunc i64 %11 to i32
   %.not = icmp sgt i32 %.val, %12
-  br i1 %.not, label %common.ret27, label %Kit_GraphNodeFanin1.exit
+  br i1 %.not, label %common.ret27, label %Kit_GraphNodeFanin1.argprom.exit
 
-common.ret27:                                     ; preds = %5, %3, %Kit_GraphNodeFanin1.exit
-  %common.ret27.op = phi i32 [ %29, %Kit_GraphNodeFanin1.exit ], [ 0, %3 ], [ -100, %5 ]
+common.ret27:                                     ; preds = %5, %3, %Kit_GraphNodeFanin1.argprom.exit
+  %common.ret27.op = phi i32 [ %29, %Kit_GraphNodeFanin1.argprom.exit ], [ 0, %3 ], [ -100, %5 ]
   ret i32 %common.ret27.op
 
-Kit_GraphNodeFanin1.exit:                         ; preds = %5
+Kit_GraphNodeFanin1.argprom.exit:                 ; preds = %5
   %13 = load i32, ptr %1, align 8
   %14 = lshr i32 %13, 1
   %15 = and i32 %14, 1073741823
@@ -1197,13 +1197,13 @@ define i32 @Kit_GraphLevelNum_rec(ptr noundef %0, ptr noundef %1) local_unnamed_
   %8 = sdiv exact i64 %7, 24
   %9 = trunc i64 %8 to i32
   %.not = icmp sgt i32 %.val, %9
-  br i1 %.not, label %common.ret18, label %Kit_GraphNodeFanin1.exit
+  br i1 %.not, label %common.ret18, label %Kit_GraphNodeFanin1.argprom.exit
 
-common.ret18:                                     ; preds = %2, %Kit_GraphNodeFanin1.exit
-  %common.ret18.op = phi i32 [ %24, %Kit_GraphNodeFanin1.exit ], [ 0, %2 ]
+common.ret18:                                     ; preds = %2, %Kit_GraphNodeFanin1.argprom.exit
+  %common.ret18.op = phi i32 [ %24, %Kit_GraphNodeFanin1.argprom.exit ], [ 0, %2 ]
   ret i32 %common.ret18.op
 
-Kit_GraphNodeFanin1.exit:                         ; preds = %2
+Kit_GraphNodeFanin1.argprom.exit:                 ; preds = %2
   %10 = load i32, ptr %1, align 8
   %11 = lshr i32 %10, 1
   %12 = and i32 %11, 1073741823

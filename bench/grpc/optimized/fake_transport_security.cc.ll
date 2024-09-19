@@ -214,23 +214,23 @@ entry:
   %incoming_frame = getelementptr inbounds i8, ptr %self, i64 32
   %incoming_frame.val = load ptr, ptr %incoming_frame, align 8
   %cmp.not.i = icmp eq ptr %incoming_frame.val, null
-  br i1 %cmp.not.i, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @gpr_free(ptr noundef nonnull %incoming_frame.val)
-  br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit
+  br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit
 
-_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit: ; preds = %entry, %if.then.i
+_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit: ; preds = %entry, %if.then.i
   %outgoing_frame = getelementptr inbounds i8, ptr %self, i64 72
   %outgoing_frame.val = load ptr, ptr %outgoing_frame, align 8
   %cmp.not.i4 = icmp eq ptr %outgoing_frame.val, null
-  br i1 %cmp.not.i4, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6, label %if.then.i5
+  br i1 %cmp.not.i4, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit6, label %if.then.i5
 
-if.then.i5:                                       ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit
+if.then.i5:                                       ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit
   tail call void @gpr_free(ptr noundef nonnull %outgoing_frame.val)
-  br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6
+  br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit6
 
-_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6: ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit, %if.then.i5
+_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit6: ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit, %if.then.i5
   %outgoing_bytes_buffer = getelementptr inbounds i8, ptr %self, i64 112
   %0 = load ptr, ptr %outgoing_bytes_buffer, align 8
   tail call void @gpr_free(ptr noundef %0)
@@ -1277,23 +1277,23 @@ entry:
   %protect_frame = getelementptr inbounds i8, ptr %self, i64 8
   %protect_frame.val = load ptr, ptr %protect_frame, align 8
   %cmp.not.i = icmp eq ptr %protect_frame.val, null
-  br i1 %cmp.not.i, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @gpr_free(ptr noundef nonnull %protect_frame.val)
-  br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit
+  br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit
 
-_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit: ; preds = %entry, %if.then.i
+_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit: ; preds = %entry, %if.then.i
   %unprotect_frame = getelementptr inbounds i8, ptr %self, i64 48
   %unprotect_frame.val = load ptr, ptr %unprotect_frame, align 8
   %cmp.not.i3 = icmp eq ptr %unprotect_frame.val, null
-  br i1 %cmp.not.i3, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit5, label %if.then.i4
+  br i1 %cmp.not.i3, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit5, label %if.then.i4
 
-if.then.i4:                                       ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit
+if.then.i4:                                       ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit
   tail call void @gpr_free(ptr noundef nonnull %unprotect_frame.val)
-  br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit5
+  br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit5
 
-_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit5: ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit, %if.then.i4
+_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit5: ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.argprom.exit, %if.then.i4
   tail call void @gpr_free(ptr noundef nonnull %self)
   ret void
 }

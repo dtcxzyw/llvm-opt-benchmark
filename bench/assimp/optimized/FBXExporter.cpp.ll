@@ -34561,16 +34561,16 @@ ehcleanup2303:                                    ; preds = %lpad2009.loopexit, 
 
 for.end2306:                                      ; preds = %for.inc2304
   %1246 = icmp eq i32 %1245, 0
-  br i1 %1246, label %invoke.cont2312, label %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.exit.i
+  br i1 %1246, label %invoke.cont2312, label %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.argprom.exit.i
 
-_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.exit.i: ; preds = %for.end2306
+_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.argprom.exit.i: ; preds = %for.end2306
   %mul.i.i.i.i.i.i4638 = mul nuw nsw i64 %conv1985, 48
   %call5.i.i.i.i1.i.i4645 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i4638) #34
           to label %for.body.i.i.i.i.i4641 unwind label %lpad2311
 
-for.body.i.i.i.i.i4641:                           ; preds = %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.exit.i, %for.body.i.i.i.i.i4641
-  %__cur.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i4642, %for.body.i.i.i.i.i4641 ], [ %call5.i.i.i.i1.i.i4645, %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.exit.i ]
-  %__n.addr.05.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i4641 ], [ %conv1985, %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.exit.i ]
+for.body.i.i.i.i.i4641:                           ; preds = %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.argprom.exit.i, %for.body.i.i.i.i.i4641
+  %__cur.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i4642, %for.body.i.i.i.i.i4641 ], [ %call5.i.i.i.i1.i.i4645, %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.argprom.exit.i ]
+  %__n.addr.05.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i4641 ], [ %conv1985, %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.argprom.exit.i ]
   %1247 = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 8
   %_M_left.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.06.i.i.i.i.i, i8 0, i64 24, i1 false)
@@ -34671,7 +34671,7 @@ invoke.cont2338:                                  ; preds = %invoke.cont2336
   %cmp2326 = icmp ult i64 %indvars.iv.next9824, %1258
   br i1 %cmp2326, label %for.body2327, label %for.inc2345.loopexit, !llvm.loop !47
 
-lpad2311:                                         ; preds = %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.exit.i
+lpad2311:                                         ; preds = %_ZNSt12_Vector_baseISt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS3_EESaIS8_EEC2EmRKS9_.argprom.exit.i
   %1259 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup3569
@@ -34857,7 +34857,7 @@ lpad2373.body:                                    ; preds = %lpad.i4678, %lpad23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2372) #31
   br label %ehcleanup2527
 
-lpad2377.loopexit:                                ; preds = %if.end2419, %if.else2389, %invoke.cont2420, %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
+lpad2377.loopexit:                                ; preds = %if.end2419, %if.else2389, %invoke.cont2420, %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i
   %lpad.loopexit7369 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup2520
@@ -35002,12 +35002,12 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i4728, 
   %data.i1.i7.i.i.i = getelementptr inbounds i8, ptr %n2381.val, i64 4
   %call4.i8.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %data.i.i6.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %data.i1.i7.i.i.i) #36
   %cmp.i9.i.i.i = icmp slt i32 %call4.i8.i.i.i, 0
-  br i1 %cmp.i9.i.i.i, label %if.then.i.i4726, label %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit
+  br i1 %cmp.i9.i.i.i, label %if.then.i.i4726, label %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit
 
 if.then.i.i4726:                                  ; preds = %if.end12.i.i.i, %if.then.i.i.i4727
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa18.i.i.i, %if.then.i.i.i4727 ], [ %__y.0.lcssa19.i.i.i, %if.end12.i.i.i ]
   %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %1268
-  br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
+  br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i4726
   %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
@@ -35016,26 +35016,26 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i4726
   %data.i1.i.i8.i.i = getelementptr inbounds i8, ptr %1292, i64 4
   %call4.i.i9.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %data.i.i.i7.i.i, ptr noundef nonnull readonly dereferenceable(1) %data.i1.i.i8.i.i) #36
   %cmp.i.i10.i.i = icmp slt i32 %call4.i.i9.i.i, 0
-  br label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
+  br label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i
 
-_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i4726
+_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i4726
   %1293 = phi i1 [ true, %if.then.i.i4726 ], [ %cmp.i.i10.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i4731 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad2377.loopexit
 
-call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
+call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.argprom.exit.i.i
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i4731, i64 32
   store ptr %n2381.val, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1293, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i4731, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1268) #31
   %1294 = load i64, ptr %_M_node_count.i.i.i.i.i4671, align 8
   %inc.i.i.i = add i64 %1294, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i.i.i4671, align 8
-  %.pn457.in.sroa.speculate.load._ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit.pre = load ptr, ptr %n2381, align 8
-  br label %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit
+  %.pn457.in.sroa.speculate.load._ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit.pre = load ptr, ptr %n2381, align 8
+  br label %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit
 
-_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit: ; preds = %if.end12.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc
-  %.pn457.in.sroa.speculate.load._ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit = phi ptr [ %n2381.val, %if.end12.i.i.i ], [ %.pn457.in.sroa.speculate.load._ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit.pre, %call5.i.i.i.i.i.i.i.i.noexc ]
-  %storemerge.in9384 = getelementptr inbounds i8, ptr %.pn457.in.sroa.speculate.load._ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit, i64 1096
+_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit: ; preds = %if.end12.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc
+  %.pn457.in.sroa.speculate.load._ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit = phi ptr [ %n2381.val, %if.end12.i.i.i ], [ %.pn457.in.sroa.speculate.load._ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit.pre, %call5.i.i.i.i.i.i.i.i.noexc ]
+  %storemerge.in9384 = getelementptr inbounds i8, ptr %.pn457.in.sroa.speculate.load._ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit, i64 1096
   %storemerge9385 = load ptr, ptr %storemerge.in9384, align 8
   %tobool2430.not9386 = icmp eq ptr %storemerge9385, null
   br i1 %tobool2430.not9386, label %for.end2519, label %land.rhs
@@ -35044,8 +35044,8 @@ for.cond2429.critedge:                            ; preds = %_ZNK12aiMatrix4x4tI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %node_name) #31
   br label %for.cond2429.backedge
 
-land.rhs:                                         ; preds = %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit, %for.cond2429.backedge
-  %storemerge9387 = phi ptr [ %storemerge, %for.cond2429.backedge ], [ %storemerge9385, %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit ]
+land.rhs:                                         ; preds = %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit, %for.cond2429.backedge
+  %storemerge9387 = phi ptr [ %storemerge, %for.cond2429.backedge ], [ %storemerge9385, %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit ]
   %1295 = load ptr, ptr %mScene, align 8
   %mRootNode2432 = getelementptr inbounds i8, ptr %1295, i64 8
   %1296 = load ptr, ptr %mRootNode2432, align 8
@@ -35074,13 +35074,13 @@ while.body.i.i.i4735:                             ; preds = %while.body.i.i.i473
   %__x.addr.1.in.i.i.i4742 = getelementptr i8, ptr %__x.addr.03.i.i.i, i64 %__x.addr.1.in.v.i.i.i4741
   %__x.addr.1.i.i.i4743 = load ptr, ptr %__x.addr.1.in.i.i.i4742, align 8
   %cmp.not.i.i.i4744 = icmp eq ptr %__x.addr.1.i.i.i4743, null
-  br i1 %cmp.not.i.i.i4744, label %_ZNKSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i, label %while.body.i.i.i4735, !llvm.loop !51
+  br i1 %cmp.not.i.i.i4744, label %_ZNKSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.argprom.exit.i.i, label %while.body.i.i.i4735, !llvm.loop !51
 
-_ZNKSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i: ; preds = %while.body.i.i.i4735
+_ZNKSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.argprom.exit.i.i: ; preds = %while.body.i.i.i4735
   %cmp.i.i.i4745 = icmp eq ptr %__y.addr.1.i.i.i4740, %1268
   br i1 %cmp.i.i.i4745, label %if.end2439, label %invoke.cont2435
 
-invoke.cont2435:                                  ; preds = %_ZNKSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i
+invoke.cont2435:                                  ; preds = %_ZNKSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.argprom.exit.i.i
   %__y.addr.1.i.i.i4740.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i4739, ptr %__y.addr.02.i.i.i, ptr %__x.addr.03.i.i.i
   %__y.addr.1.i.i.i4740.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i4740.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %1298 = load ptr, ptr %__y.addr.1.i.i.i4740.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
@@ -35089,7 +35089,7 @@ invoke.cont2435:                                  ; preds = %_ZNKSt8_Rb_treeIPK6
   %cmp.i4.i.i4748 = icmp slt i32 %call4.i.i.i, 0
   br i1 %cmp.i4.i.i4748, label %if.end2439, label %for.end2519
 
-if.end2439:                                       ; preds = %for.body2434, %_ZNKSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i, %invoke.cont2435
+if.end2439:                                       ; preds = %for.body2434, %_ZNKSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.argprom.exit.i.i, %invoke.cont2435
   %data.i4752 = getelementptr inbounds i8, ptr %storemerge9387, i64 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2443) #31
   %call.i47534761 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %node_name)
@@ -35439,7 +35439,7 @@ for.cond2429.backedge:                            ; preds = %for.end2509, %for.c
   %tobool2430.not = icmp eq ptr %storemerge, null
   br i1 %tobool2430.not, label %for.end2519, label %land.rhs, !llvm.loop !57
 
-for.end2519:                                      ; preds = %land.rhs, %invoke.cont2435, %for.cond2429.backedge, %for.end2509, %for.end2509.thread, %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.exit
+for.end2519:                                      ; preds = %land.rhs, %invoke.cont2435, %for.cond2429.backedge, %for.end2509, %for.end2509.thread, %_ZNSt3setIPK6aiNodeZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE6insertERKS2_.argprom.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name2367) #31
   %inc2522 = add nuw nsw i64 %bi.09390, 1
   %1344 = load i32, ptr %mNumBones2360, align 8
@@ -35495,7 +35495,7 @@ _ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjects
   br i1 %cmp5.not.i.i, label %if.end.i.i, label %if.then6.i.i4788
 
 if.then6.i.i4788:                                 ; preds = %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE20_Reuse_or_alloc_nodeC2ERS9_.exit.i.i
-  %call3.i8.i.i = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %__x.val.i.i, ptr noundef nonnull %add.ptr.i.i4786, ptr noundef nonnull align 8 dereferenceable(24) %__roan.i.i)
+  %call3.i8.i.i = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_.argprom(ptr noundef nonnull %__x.val.i.i, ptr noundef nonnull %add.ptr.i.i4786, ptr noundef nonnull align 8 dereferenceable(24) %__roan.i.i)
           to label %while.cond.i.i.i.i.i unwind label %lpad.i.i4789
 
 while.cond.i.i.i.i.i:                             ; preds = %if.then6.i.i4788, %while.cond.i.i.i.i.i
@@ -35528,18 +35528,18 @@ lpad.i.i4789:                                     ; preds = %if.then6.i.i4788
   %1351 = landingpad { ptr, i32 }
           cleanup
   %__roan.val.i.i = load ptr, ptr %__roan.i.i, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %__roan.val.i.i)
+  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %__roan.val.i.i)
   br label %ehcleanup2527
 
 if.end.i.i:                                       ; preds = %invoke.cont.i.i4793, %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE20_Reuse_or_alloc_nodeC2ERS9_.exit.i.i
   %__roan.val3.i.i = phi ptr [ %__roan.val3.pre.i.i, %invoke.cont.i.i4793 ], [ %1345, %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE20_Reuse_or_alloc_nodeC2ERS9_.exit.i.i ]
-  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %__roan.val3.i.i)
+  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %__roan.val3.i.i)
   br label %invoke.cont2525
 
 invoke.cont2525:                                  ; preds = %if.end.i.i, %for.end2523
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__roan.i.i)
   %skeleton.val = load ptr, ptr %_M_parent.i.i.i.i.i4668, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %skeleton.val)
+  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %skeleton.val)
   %inc2529 = add nuw nsw i64 %mi2348.09394, 1
   %1352 = load ptr, ptr %mScene, align 8
   %mNumMeshes2351 = getelementptr inbounds i8, ptr %1352, i64 16
@@ -35551,7 +35551,7 @@ invoke.cont2525:                                  ; preds = %if.end.i.i, %for.en
 ehcleanup2527:                                    ; preds = %lpad.i.i4789, %ehcleanup2520, %lpad2373.body
   %.pn453.pn = phi { ptr, i32 } [ %.pn453, %ehcleanup2520 ], [ %eh.lpad-body4683, %lpad2373.body ], [ %1351, %lpad.i.i4789 ]
   %skeleton.val761 = load ptr, ptr %_M_parent.i.i.i.i.i4668, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %skeleton.val761)
+  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %skeleton.val761)
   br label %ehcleanup3565
 
 for.cond2572.preheader:                           ; preds = %for.inc2568
@@ -35913,7 +35913,7 @@ invoke.cont2647:                                  ; preds = %invoke.cont2636
   br i1 %cmp.not.i.i4900, label %for.end2828, label %if.then.i.i4901
 
 if.then.i.i4901:                                  ; preds = %invoke.cont2647
-  %call3.i.i5.i.i4903 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %__x.val.i.i4899, ptr noundef nonnull %1357)
+  %call3.i.i5.i.i4903 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_.argprom(ptr noundef nonnull %__x.val.i.i4899, ptr noundef nonnull %1357)
           to label %while.cond.i.i.i.i.i.i unwind label %lpad2643
 
 while.cond.i.i.i.i.i.i:                           ; preds = %if.then.i.i4901, %while.cond.i.i.i.i.i.i
@@ -37303,7 +37303,7 @@ ehcleanup2924:                                    ; preds = %ehcleanup2920, %cle
 
 if.end2925:                                       ; preds = %for.end2828
   %skeleton2648.val = load ptr, ptr %_M_parent.i.i.i.i.i4895, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %skeleton2648.val)
+  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %skeleton2648.val)
   %1596 = load ptr, ptr %_M_parent.i.i.i.i.i4890, align 8
   invoke void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %no_offset_matrix, ptr noundef %1596)
           to label %_ZNSt3setIPK6aiNodeSt4lessIS2_ESaIS2_EED2Ev.exit unwind label %terminate.lpad.i.i5287
@@ -37405,7 +37405,7 @@ for.inc2930:                                      ; preds = %for.body2577, %_ZN6
 ehcleanup2926:                                    ; preds = %lpad2673.loopexit, %lpad2673.loopexit.split-lp, %ehcleanup2924, %ehcleanup2825, %ehcleanup2711, %lpad2680, %lpad2677.body
   %.pn443.pn.pn.pn = phi { ptr, i32 } [ %.pn443.pn.pn, %ehcleanup2825 ], [ %.pn429, %ehcleanup2711 ], [ %1416, %lpad2680 ], [ %eh.lpad-body4918, %lpad2677.body ], [ %.pn426.pn, %ehcleanup2924 ], [ %lpad.loopexit7364, %lpad2673.loopexit ], [ %lpad.loopexit.split-lp7365, %lpad2673.loopexit.split-lp ]
   %skeleton2648.val762 = load ptr, ptr %_M_parent.i.i.i.i.i4895, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %skeleton2648.val762)
+  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %skeleton2648.val762)
   br label %ehcleanup2927
 
 ehcleanup2927:                                    ; preds = %ehcleanup2926, %lpad2643
@@ -41912,7 +41912,7 @@ for.body.i.i.i.i6767:                             ; preds = %_ZNSt13unordered_se
   %__first.addr.04.i.i.i.i6768 = phi ptr [ %incdec.ptr.i.i.i.i6769, %for.body.i.i.i.i6767 ], [ %skeleton_by_mesh.sroa.0.0, %_ZNSt13unordered_setIPK6aiNodeSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit ]
   %2153 = getelementptr i8, ptr %__first.addr.04.i.i.i.i6768, i64 16
   %__first.addr.0.val.i.i.i.i = load ptr, ptr %2153, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %__first.addr.0.val.i.i.i.i)
+  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %__first.addr.0.val.i.i.i.i)
   %incdec.ptr.i.i.i.i6769 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i6768, i64 48
   %cmp.not.i.i.i.i6770 = icmp eq ptr %incdec.ptr.i.i.i.i6769, %__cur.0.lcssa.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i6770, label %invoke.cont.i6772, label %for.body.i.i.i.i6767, !llvm.loop !91
@@ -42198,7 +42198,7 @@ for.body.i.i.i.i6877:                             ; preds = %_ZNSt13unordered_se
   %__first.addr.04.i.i.i.i6878 = phi ptr [ %incdec.ptr.i.i.i.i6880, %for.body.i.i.i.i6877 ], [ %skeleton_by_mesh.sroa.0.0, %_ZNSt13unordered_setIPK6aiNodeSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6874 ]
   %2191 = getelementptr i8, ptr %__first.addr.04.i.i.i.i6878, i64 16
   %__first.addr.0.val.i.i.i.i6879 = load ptr, ptr %2191, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %__first.addr.0.val.i.i.i.i6879)
+  call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %__first.addr.0.val.i.i.i.i6879)
   %incdec.ptr.i.i.i.i6880 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i6878, i64 48
   %cmp.not.i.i.i.i6881 = icmp eq ptr %incdec.ptr.i.i.i.i6880, %__cur.0.lcssa.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i6881, label %invoke.cont.i6884, label %for.body.i.i.i.i6877, !llvm.loop !91
@@ -57605,7 +57605,7 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #19
 declare noundef ptr @_ZN6aiNode8FindNodeEPKc(ptr noundef nonnull align 8 dereferenceable(1144), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_.argprom(ptr nocapture noundef readonly %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   %_M_nodes.i.i.i = getelementptr inbounds i8, ptr %__node_gen, i64 8
@@ -57663,14 +57663,14 @@ if.else37.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.then.i.i:                                      ; preds = %if.else37.i.i.i, %if.else.i.i.i, %if.then28.i.i.i, %while.end.i.i.i, %if.then10.i.i.i
   %__arg.val.i.i = load ptr, ptr %_M_storage.i.i, align 8
-  br label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.exit
+  br label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.argprom.exit
 
 if.end.i.i:                                       ; preds = %entry
   %__arg.val5.i.i = load ptr, ptr %_M_storage.i.i, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
-  br label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.exit
+  br label %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.argprom.exit
 
-_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.exit: ; preds = %if.then.i.i, %if.end.i.i
+_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.argprom.exit: ; preds = %if.then.i.i, %if.end.i.i
   %call5.i.i.i.i.sink.i.i = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i ], [ %0, %if.then.i.i ]
   %__arg.val5.sink.i.i = phi ptr [ %__arg.val5.i.i, %if.end.i.i ], [ %__arg.val.i.i, %if.then.i.i ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 32
@@ -57686,8 +57686,8 @@ _ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjects
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.exit
-  %call3 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %8, ptr noundef nonnull %call5.i.i.i.i.sink.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen)
+if.then:                                          ; preds = %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.argprom.exit
+  %call3 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_.argprom(ptr noundef nonnull %8, ptr noundef nonnull %call5.i.i.i.i.sink.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
@@ -57709,11 +57709,11 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit1, %lpad.loopexit ], [ %lpad.loopexit.split-lp2, %lpad.loopexit.split-lp ]
   %9 = extractvalue { ptr, i32 } %lpad.phi, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #31
-  tail call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull %call5.i.i.i.i.sink.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef nonnull %call5.i.i.i.i.sink.i.i)
   invoke void @__cxa_rethrow() #30
           to label %unreachable unwind label %lpad18
 
-if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.exit
+if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_RT0_.argprom.exit
   %__x.addr.0.in3 = getelementptr i8, ptr %__x, i64 16
   %__x.addr.04 = load ptr, ptr %__x.addr.0.in3, align 8
   %cmp.not5 = icmp eq ptr %__x.addr.04, null
@@ -57803,7 +57803,7 @@ invoke.cont6:                                     ; preds = %if.then.i.i36, %if.
   br i1 %tobool10.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont6
-  %call14 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %19, ptr noundef nonnull %call5.i.i.i.i.sink.i.i38, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen)
+  %call14 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_.argprom(ptr noundef nonnull %19, ptr noundef nonnull %call5.i.i.i.i.sink.i.i38, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen)
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
@@ -57841,7 +57841,7 @@ unreachable:                                      ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %__x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %__x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not1 = icmp eq ptr %__x, null
   br i1 %cmp.not1, label %while.end, label %while.body
@@ -57850,7 +57850,7 @@ while.body:                                       ; preds = %entry, %while.body
   %__x.addr.02 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
   %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val4 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %__x.addr.0.val4)
+  tail call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef %__x.addr.0.val4)
   %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #33
@@ -57875,7 +57875,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #19
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %__x, ptr noundef %__p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_.argprom(ptr nocapture noundef readonly %__x, ptr noundef %__p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   %call.val.i = load ptr, ptr %_M_storage.i.i, align 8
@@ -57894,7 +57894,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call3 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %1, ptr noundef nonnull %call5.i.i.i.i.i.i)
+  %call3 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_.argprom(ptr noundef nonnull %1, ptr noundef nonnull %call5.i.i.i.i.i.i)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
@@ -57916,7 +57916,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit1, %lpad.loopexit ], [ %lpad.loopexit.split-lp2, %lpad.loopexit.split-lp ]
   %2 = extractvalue { ptr, i32 } %lpad.phi, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #31
-  tail call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull %call5.i.i.i.i.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E.argprom(ptr noundef nonnull %call5.i.i.i.i.i.i)
   invoke void @__cxa_rethrow() #30
           to label %unreachable unwind label %lpad18
 
@@ -57951,7 +57951,7 @@ invoke.cont6:                                     ; preds = %while.body
   br i1 %tobool10.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont6
-  %call14 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %5, ptr noundef nonnull %call5.i.i.i.i.i.i2730)
+  %call14 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK6aiNodeS2_St9_IdentityIS2_EZN6Assimp11FBXExporter12WriteObjectsEvE14SortNodeByNameSaIS2_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESE_PSt18_Rb_tree_node_baseRT0_.argprom(ptr noundef nonnull %5, ptr noundef nonnull %call5.i.i.i.i.i.i2730)
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11

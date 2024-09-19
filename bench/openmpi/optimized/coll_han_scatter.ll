@@ -2360,9 +2360,9 @@ opal_obj_run_destructors.exit485:                 ; preds = %.lr.ph.i482, %690
   %726 = zext i16 %.342.val348 to i32
   %727 = and i32 %726, 16
   %.not.i.i = icmp eq i32 %727, 0
-  br i1 %.not.i.i, label %ompi_datatype_is_contiguous_memory_layout.exit.thread, label %ompi_datatype_is_contiguous_memory_layout.exit
+  br i1 %.not.i.i, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit
 
-ompi_datatype_is_contiguous_memory_layout.exit:   ; preds = %724
+ompi_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %724
   %728 = icmp eq i32 %1, 1
   %729 = and i32 %726, 32
   %.not3.i.i = icmp ne i32 %729, 0
@@ -2371,16 +2371,16 @@ ompi_datatype_is_contiguous_memory_layout.exit:   ; preds = %724
   %731 = load i8, ptr %730, align 8
   %732 = trunc i8 %731 to i1
   %or.cond = and i1 %or.cond.not.i.i, %732
-  br i1 %or.cond, label %._crit_edge, label %ompi_datatype_is_contiguous_memory_layout.exit.thread
+  br i1 %or.cond, label %._crit_edge, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread
 
-ompi_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %724, %ompi_datatype_is_contiguous_memory_layout.exit
+ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %724, %ompi_datatype_is_contiguous_memory_layout.argprom.exit
   %733 = sext i32 %.val345.val to i64
   %734 = mul i64 %723, %733
   %735 = tail call noalias ptr @malloc(i64 noundef %734) #8
   %736 = icmp eq ptr %735, null
   br i1 %736, label %781, label %737
 
-737:                                              ; preds = %ompi_datatype_is_contiguous_memory_layout.exit.thread
+737:                                              ; preds = %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread
   %738 = getelementptr i8, ptr %2, i64 48
   %.342.val = load i64, ptr %738, align 8
   %739 = getelementptr i8, ptr %2, i64 56
@@ -2411,10 +2411,10 @@ ompi_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %724, %ompi_dat
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %744, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %744, %737, %ompi_datatype_is_contiguous_memory_layout.exit, %705
-  %.1337 = phi i32 [ %4, %705 ], [ %1, %ompi_datatype_is_contiguous_memory_layout.exit ], [ %743, %737 ], [ %743, %744 ]
-  %.0335 = phi ptr [ null, %705 ], [ %0, %ompi_datatype_is_contiguous_memory_layout.exit ], [ %735, %737 ], [ %735, %744 ]
-  %.1 = phi ptr [ %5, %705 ], [ %2, %ompi_datatype_is_contiguous_memory_layout.exit ], [ @ompi_mpi_byte, %737 ], [ @ompi_mpi_byte, %744 ]
+._crit_edge:                                      ; preds = %744, %737, %ompi_datatype_is_contiguous_memory_layout.argprom.exit, %705
+  %.1337 = phi i32 [ %4, %705 ], [ %1, %ompi_datatype_is_contiguous_memory_layout.argprom.exit ], [ %743, %737 ], [ %743, %744 ]
+  %.0335 = phi ptr [ null, %705 ], [ %0, %ompi_datatype_is_contiguous_memory_layout.argprom.exit ], [ %735, %737 ], [ %735, %744 ]
+  %.1 = phi ptr [ %5, %705 ], [ %2, %ompi_datatype_is_contiguous_memory_layout.argprom.exit ], [ @ompi_mpi_byte, %737 ], [ @ompi_mpi_byte, %744 ]
   %755 = icmp eq i32 %.val, %719
   br i1 %755, label %756, label %._crit_edge501
 
@@ -2462,8 +2462,8 @@ ompi_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %724, %ompi_dat
   tail call void @free(ptr noundef %.0335) #7
   br label %781
 
-781:                                              ; preds = %779, %780, %ompi_datatype_is_contiguous_memory_layout.exit.thread, %698, %350
-  %.0333 = phi i32 [ %356, %350 ], [ %704, %698 ], [ -1, %ompi_datatype_is_contiguous_memory_layout.exit.thread ], [ 0, %780 ], [ 0, %779 ]
+781:                                              ; preds = %779, %780, %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread, %698, %350
+  %.0333 = phi i32 [ %356, %350 ], [ %704, %698 ], [ -1, %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread ], [ 0, %780 ], [ 0, %779 ]
   ret i32 %.0333
 }
 

@@ -1340,7 +1340,7 @@ lpad14:                                           ; preds = %for.body
   br label %ehcleanup74
 
 if.end:                                           ; preds = %if.then17
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias align 8 %ref.tmp21, i64 noundef %cp.0357)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em.argprom"(ptr noalias align 8 %ref.tmp21, i64 noundef %cp.0357)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %if.end
@@ -1362,13 +1362,13 @@ if.else:                                          ; preds = %invoke.cont15
   %sub = add nsw i64 %cp.0357, -65536
   %shr = lshr i64 %sub, 10
   %add = or disjoint i64 %shr, 55296
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias align 8 %ref.tmp31, i64 noundef %add)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em.argprom"(ptr noalias align 8 %ref.tmp31, i64 noundef %add)
           to label %invoke.cont32 unwind label %lpad22
 
 invoke.cont32:                                    ; preds = %if.else
   %and28 = and i64 %cp.0357, 1023
   %add29 = or disjoint i64 %and28, 56320
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias align 8 %ref.tmp33, i64 noundef %add29)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em.argprom"(ptr noalias align 8 %ref.tmp33, i64 noundef %add29)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
@@ -8447,7 +8447,7 @@ entry:
   %m_stream.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_5.i, i64 40
   store ptr %s, ptr %m_stream.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA290_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i, ptr noundef nonnull align 1 dereferenceable(290) @.str.10)
-          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit" unwind label %lpad.i
+          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -8455,7 +8455,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #23
   resume { ptr, i32 } %0
 
-"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit": ; preds = %entry
+"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit": ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %DOCTEST_CAPTURE_5.i)
   ret void
@@ -8566,7 +8566,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 0, 65536) %cp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em.argprom"(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 0, 65536) %cp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
@@ -51320,8 +51320,8 @@ attributes #30 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
-!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_"}
+!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
+!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom"}
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !10 = distinct !{!10, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}

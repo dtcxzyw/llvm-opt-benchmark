@@ -582,7 +582,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.413 = private unnamed_addr constant [28 x i8] c"BIG-IP Virtual Edition (VE)\00", align 1
 @.str.414 = private unnamed_addr constant [5 x i8] c"Z101\00", align 1
 @.str.415 = private unnamed_addr constant [18 x i8] c"BIG-IP vCMP Guest\00", align 1
-@switch.table.f5eth_add_tls_keylog = private unnamed_addr constant [6 x ptr] [ptr @.str.306, ptr @.str.307, ptr @.str.308, ptr @.str.309, ptr @.str.310, ptr @.str.311], align 8
+@switch.table.f5eth_add_tls_keylog.argprom = private unnamed_addr constant [6 x ptr] [ptr @.str.306, ptr @.str.307, ptr @.str.308, ptr @.str.309, ptr @.str.310, ptr @.str.311], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_f5ethtrailer() local_unnamed_addr #0 {
@@ -1561,8 +1561,8 @@ define internal noundef i32 @dissect_f5ethtrailer(ptr noundef %0, ptr noundef %1
   %.not.i.i = icmp eq ptr %.0108, null
   br i1 %.not.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %dissect_dpt_trailer_unknown.exit.us.i
-  %.06467.us.i = phi i32 [ %106, %dissect_dpt_trailer_unknown.exit.us.i ], [ 8, %.lr.ph.i ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %dissect_dpt_trailer_unknown.argprom.exit.us.i
+  %.06467.us.i = phi i32 [ %106, %dissect_dpt_trailer_unknown.argprom.exit.us.i ], [ 8, %.lr.ph.i ]
   %90 = add i32 %.06467.us.i, 4
   %91 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %72, i32 noundef %90) #7
   %92 = zext i16 %91 to i32
@@ -1581,13 +1581,13 @@ define internal noundef i32 @dissect_f5ethtrailer(ptr noundef %0, ptr noundef %1
   %101 = load ptr, ptr @provider_subdissector_table, align 8
   %102 = tail call i32 @dissector_try_uint_new(ptr noundef %101, i32 noundef %99, ptr noundef %100, ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %59) #7
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %dissect_dpt_trailer_unknown.exit.us.i
+  br i1 %103, label %104, label %dissect_dpt_trailer_unknown.argprom.exit.us.i
 
 104:                                              ; preds = %97
   %105 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %100, i32 noundef 4) #7
-  br label %dissect_dpt_trailer_unknown.exit.us.i
+  br label %dissect_dpt_trailer_unknown.argprom.exit.us.i
 
-dissect_dpt_trailer_unknown.exit.us.i:            ; preds = %104, %97
+dissect_dpt_trailer_unknown.argprom.exit.us.i:    ; preds = %104, %97
   %106 = add i32 %.06467.us.i, %92
   %107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %72, i32 noundef %106) #7
   %108 = icmp sgt i32 %107, 7
@@ -1599,8 +1599,8 @@ dissect_dpt_trailer_unknown.exit.us.i:            ; preds = %104, %97
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %.0108, i32 noundef %110, ptr noundef %72, i32 noundef 8, i32 noundef %111, i32 noundef 0) #7
   br label %dissect_dpt_trailer.exit
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %dissect_dpt_trailer_unknown.exit.i
-  %.06467.i = phi i32 [ %153, %dissect_dpt_trailer_unknown.exit.i ], [ 8, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %dissect_dpt_trailer_unknown.argprom.exit.i
+  %.06467.i = phi i32 [ %153, %dissect_dpt_trailer_unknown.argprom.exit.i ], [ 8, %.lr.ph.i ]
   %113 = add i32 %.06467.i, 4
   %114 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %72, i32 noundef %113) #7
   %115 = zext i16 %114 to i32
@@ -1643,7 +1643,7 @@ dissect_dpt_trailer_unknown.exit.us.i:            ; preds = %104, %97
   %140 = load ptr, ptr @provider_subdissector_table, align 8
   %141 = tail call i32 @dissector_try_uint_new(ptr noundef %140, i32 noundef %138, ptr noundef %139, ptr noundef %1, ptr noundef nonnull %.0108, i32 noundef 0, ptr noundef nonnull %59) #7
   %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %dissect_dpt_trailer_unknown.exit.i
+  br i1 %142, label %143, label %dissect_dpt_trailer_unknown.argprom.exit.i
 
 143:                                              ; preds = %136
   %144 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %139, i32 noundef 4) #7
@@ -1652,13 +1652,13 @@ dissect_dpt_trailer_unknown.exit.us.i:            ; preds = %104, %97
   %147 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0108, i32 noundef %146, ptr noundef %139, i32 noundef 0, i32 noundef %145, i32 noundef 0) #7
   %148 = load i32, ptr @ett_f5ethtrailer_unknown, align 4
   %149 = tail call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %148) #7
-  tail call fastcc void @render_f5dptv1_tlvhdr(ptr noundef %139, ptr noundef %149)
+  tail call fastcc void @render_f5dptv1_tlvhdr.argelim(ptr noundef %139, ptr noundef %149)
   %150 = load i32, ptr @hf_data, align 4
   %151 = add nsw i32 %145, -8
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %139, i32 noundef 8, i32 noundef %151, i32 noundef 0) #7
-  br label %dissect_dpt_trailer_unknown.exit.i
+  br label %dissect_dpt_trailer_unknown.argprom.exit.i
 
-dissect_dpt_trailer_unknown.exit.i:               ; preds = %143, %136
+dissect_dpt_trailer_unknown.argprom.exit.i:       ; preds = %143, %136
   %153 = add i32 %.06467.i, %115
   %154 = tail call i32 @tvb_reported_length_remaining(ptr noundef %72, i32 noundef %153) #7
   %155 = icmp sgt i32 %154, 7
@@ -2387,7 +2387,7 @@ proto_item_set_hidden.exit242.i.i:                ; preds = %461, %458, %452
 
 577:                                              ; preds = %568
   %578 = load i32, ptr @hf_ip_ipaddr, align 4
-  call fastcc void @displayIPv6as4(ptr noundef nonnull %545, i32 noundef %578, i32 noundef -1, ptr noundef %72, i32 noundef %575, i32 noundef 1)
+  call fastcc void @displayIPv6as4.argelim(ptr noundef nonnull %545, i32 noundef %578, i32 noundef -1, ptr noundef %72, i32 noundef %575, i32 noundef 1)
   %579 = load i32, ptr @hf_ip6_ip6addr, align 4
   %580 = call ptr @proto_tree_add_item(ptr noundef nonnull %545, i32 noundef %579, ptr noundef %72, i32 noundef %575, i32 noundef 16, i32 noundef 0) #7
   %.not.i.i96.i = icmp eq ptr %580, null
@@ -2409,10 +2409,10 @@ proto_item_set_hidden.exit242.i.i:                ; preds = %461, %458, %452
 proto_item_set_hidden.exit.i98.i:                 ; preds = %584, %581, %577, %568
   %588 = load i32, ptr @hf_peer_remote_addr, align 4
   %589 = load i32, ptr @hf_peer_remote_rtdom, align 4
-  call fastcc void @displayIPv6as4(ptr noundef nonnull %545, i32 noundef %588, i32 noundef %589, ptr noundef %72, i32 noundef %575, i32 noundef 0)
+  call fastcc void @displayIPv6as4.argelim(ptr noundef nonnull %545, i32 noundef %588, i32 noundef %589, ptr noundef %72, i32 noundef %575, i32 noundef 0)
   %590 = load i32, ptr @hf_peer_ipaddr, align 4
   %591 = load i32, ptr @hf_peer_rtdom, align 4
-  call fastcc void @displayIPv6as4(ptr noundef nonnull %545, i32 noundef %590, i32 noundef %591, ptr noundef %72, i32 noundef %575, i32 noundef 1)
+  call fastcc void @displayIPv6as4.argelim(ptr noundef nonnull %545, i32 noundef %590, i32 noundef %591, ptr noundef %72, i32 noundef %575, i32 noundef 1)
   %592 = load i32, ptr @hf_peer_remote_ip6addr, align 4
   %593 = call ptr @proto_tree_add_item(ptr noundef nonnull %545, i32 noundef %592, ptr noundef %72, i32 noundef %575, i32 noundef 16, i32 noundef 0) #7
   %594 = load i32, ptr @hf_peer_ip6addr, align 4
@@ -2441,7 +2441,7 @@ proto_item_set_hidden.exit113.i.i:                ; preds = %599, %596, %proto_i
 
 605:                                              ; preds = %proto_item_set_hidden.exit113.i.i
   %606 = load i32, ptr @hf_ip_ipaddr, align 4
-  call fastcc void @displayIPv6as4(ptr noundef nonnull %545, i32 noundef %606, i32 noundef -1, ptr noundef %72, i32 noundef %603, i32 noundef 1)
+  call fastcc void @displayIPv6as4.argelim(ptr noundef nonnull %545, i32 noundef %606, i32 noundef -1, ptr noundef %72, i32 noundef %603, i32 noundef 1)
   %607 = load i32, ptr @hf_ip6_ip6addr, align 4
   %608 = call ptr @proto_tree_add_item(ptr noundef nonnull %545, i32 noundef %607, ptr noundef %72, i32 noundef %603, i32 noundef 16, i32 noundef 0) #7
   %.not.i114.i.i = icmp eq ptr %608, null
@@ -2463,10 +2463,10 @@ proto_item_set_hidden.exit113.i.i:                ; preds = %599, %596, %proto_i
 proto_item_set_hidden.exit116.i.i:                ; preds = %612, %609, %605, %proto_item_set_hidden.exit113.i.i
   %616 = load i32, ptr @hf_peer_local_addr, align 4
   %617 = load i32, ptr @hf_peer_local_rtdom, align 4
-  call fastcc void @displayIPv6as4(ptr noundef nonnull %545, i32 noundef %616, i32 noundef %617, ptr noundef %72, i32 noundef %603, i32 noundef 0)
+  call fastcc void @displayIPv6as4.argelim(ptr noundef nonnull %545, i32 noundef %616, i32 noundef %617, ptr noundef %72, i32 noundef %603, i32 noundef 0)
   %618 = load i32, ptr @hf_peer_ipaddr, align 4
   %619 = load i32, ptr @hf_peer_rtdom, align 4
-  call fastcc void @displayIPv6as4(ptr noundef nonnull %545, i32 noundef %618, i32 noundef %619, ptr noundef %72, i32 noundef %603, i32 noundef 1)
+  call fastcc void @displayIPv6as4.argelim(ptr noundef nonnull %545, i32 noundef %618, i32 noundef %619, ptr noundef %72, i32 noundef %603, i32 noundef 1)
   %620 = load i32, ptr @hf_peer_local_ip6addr, align 4
   %621 = call ptr @proto_tree_add_item(ptr noundef nonnull %545, i32 noundef %620, ptr noundef %72, i32 noundef %603, i32 noundef 16, i32 noundef 0) #7
   %622 = load i32, ptr @hf_peer_ip6addr, align 4
@@ -2650,8 +2650,8 @@ dissect_high_trailer.exit.i:                      ; preds = %688, %685, %proto_i
   %698 = icmp sgt i32 %697, 6
   br i1 %698, label %166, label %dissect_dpt_trailer.exit, !llvm.loop !10
 
-dissect_dpt_trailer.exit:                         ; preds = %dissect_high_trailer.exit.i, %175, %166, %dissect_dpt_trailer_unknown.exit.i, %dissect_dpt_trailer_unknown.exit.us.i, %dissect_low_trailer.exit.thread.i, %156, %132, %.split.us.i, %109, %.preheader.i
-  %.0109 = phi i32 [ %75, %.preheader.i ], [ %75, %109 ], [ %75, %.split.us.i ], [ %75, %132 ], [ %.078124.i, %dissect_low_trailer.exit.thread.i ], [ 0, %156 ], [ %75, %dissect_dpt_trailer_unknown.exit.us.i ], [ %75, %dissect_dpt_trailer_unknown.exit.i ], [ %696, %dissect_high_trailer.exit.i ], [ %.078124.i, %175 ], [ %.078124.i, %166 ]
+dissect_dpt_trailer.exit:                         ; preds = %dissect_high_trailer.exit.i, %175, %166, %dissect_dpt_trailer_unknown.argprom.exit.i, %dissect_dpt_trailer_unknown.argprom.exit.us.i, %dissect_low_trailer.exit.thread.i, %156, %132, %.split.us.i, %109, %.preheader.i
+  %.0109 = phi i32 [ %75, %.preheader.i ], [ %75, %109 ], [ %75, %.split.us.i ], [ %75, %132 ], [ %.078124.i, %dissect_low_trailer.exit.thread.i ], [ 0, %156 ], [ %75, %dissect_dpt_trailer_unknown.argprom.exit.us.i ], [ %75, %dissect_dpt_trailer_unknown.argprom.exit.i ], [ %696, %dissect_high_trailer.exit.i ], [ %.078124.i, %175 ], [ %.078124.i, %166 ]
   %699 = getelementptr inbounds i8, ptr %59, i64 4
   store i32 %.0109, ptr %699, align 4
   call void @proto_item_set_len(ptr noundef %.0106, i32 noundef %.0109) #7
@@ -2833,7 +2833,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_low(ptr nound
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef %8, i32 noundef 0) #7
   %14 = load i32, ptr @ett_f5ethtrailer_low, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #7
-  tail call fastcc void @render_f5dptv1_tlvhdr(ptr noundef %0, ptr noundef %15)
+  tail call fastcc void @render_f5dptv1_tlvhdr.argelim(ptr noundef %0, ptr noundef %15)
   %16 = getelementptr inbounds i8, ptr %3, i64 36
   %17 = load i8, ptr %16, align 4
   %18 = or i8 %17, 1
@@ -3087,7 +3087,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_med(ptr nound
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef %8, i32 noundef 0) #7
   %13 = load i32, ptr @ett_f5ethtrailer_med, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #7
-  tail call fastcc void @render_f5dptv1_tlvhdr(ptr noundef %0, ptr noundef %14)
+  tail call fastcc void @render_f5dptv1_tlvhdr.argelim(ptr noundef %0, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %3, i64 36
   %16 = load i8, ptr %15, align 4
   %17 = or i8 %16, 2
@@ -3278,7 +3278,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_high(ptr noun
   %14 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %8, i32 noundef 0) #7
   %15 = load i32, ptr @ett_f5ethtrailer_high, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #7
-  tail call fastcc void @render_f5dptv1_tlvhdr(ptr noundef %0, ptr noundef %16)
+  tail call fastcc void @render_f5dptv1_tlvhdr.argelim(ptr noundef %0, ptr noundef %16)
   %17 = getelementptr inbounds i8, ptr %3, i64 36
   %18 = load i8, ptr %17, align 4
   %19 = or i8 %18, 4
@@ -3306,7 +3306,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_high(ptr noun
 
 34:                                               ; preds = %27
   %35 = load i32, ptr @hf_ip_ipaddr, align 4
-  tail call fastcc void @displayIPv6as4(ptr noundef %16, i32 noundef %35, i32 noundef -1, ptr noundef %0, i32 noundef 11, i32 noundef 1)
+  tail call fastcc void @displayIPv6as4.argelim(ptr noundef %16, i32 noundef %35, i32 noundef -1, ptr noundef %0, i32 noundef 11, i32 noundef 1)
   %36 = load i32, ptr @hf_ip6_ip6addr, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef 11, i32 noundef 16, i32 noundef 0) #7
   %.not.i = icmp eq ptr %37, null
@@ -3328,10 +3328,10 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_high(ptr noun
 proto_item_set_hidden.exit:                       ; preds = %41, %38, %34, %27
   %45 = load i32, ptr @hf_peer_remote_addr, align 4
   %46 = load i32, ptr @hf_peer_remote_rtdom, align 4
-  tail call fastcc void @displayIPv6as4(ptr noundef %16, i32 noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef 11, i32 noundef 0)
+  tail call fastcc void @displayIPv6as4.argelim(ptr noundef %16, i32 noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef 11, i32 noundef 0)
   %47 = load i32, ptr @hf_peer_ipaddr, align 4
   %48 = load i32, ptr @hf_peer_rtdom, align 4
-  tail call fastcc void @displayIPv6as4(ptr noundef %16, i32 noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef 11, i32 noundef 1)
+  tail call fastcc void @displayIPv6as4.argelim(ptr noundef %16, i32 noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef 11, i32 noundef 1)
   %49 = load i32, ptr @hf_peer_remote_ip6addr, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %49, ptr noundef %0, i32 noundef 11, i32 noundef 16, i32 noundef 0) #7
   %51 = load i32, ptr @hf_peer_ip6addr, align 4
@@ -3359,7 +3359,7 @@ proto_item_set_hidden.exit116:                    ; preds = %proto_item_set_hidd
 
 61:                                               ; preds = %proto_item_set_hidden.exit116
   %62 = load i32, ptr @hf_ip_ipaddr, align 4
-  tail call fastcc void @displayIPv6as4(ptr noundef %16, i32 noundef %62, i32 noundef -1, ptr noundef %0, i32 noundef 27, i32 noundef 1)
+  tail call fastcc void @displayIPv6as4.argelim(ptr noundef %16, i32 noundef %62, i32 noundef -1, ptr noundef %0, i32 noundef 27, i32 noundef 1)
   %63 = load i32, ptr @hf_ip6_ip6addr, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %63, ptr noundef %0, i32 noundef 27, i32 noundef 16, i32 noundef 0) #7
   %.not.i117 = icmp eq ptr %64, null
@@ -3381,10 +3381,10 @@ proto_item_set_hidden.exit116:                    ; preds = %proto_item_set_hidd
 proto_item_set_hidden.exit119:                    ; preds = %68, %65, %61, %proto_item_set_hidden.exit116
   %72 = load i32, ptr @hf_peer_local_addr, align 4
   %73 = load i32, ptr @hf_peer_local_rtdom, align 4
-  tail call fastcc void @displayIPv6as4(ptr noundef %16, i32 noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef 27, i32 noundef 0)
+  tail call fastcc void @displayIPv6as4.argelim(ptr noundef %16, i32 noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef 27, i32 noundef 0)
   %74 = load i32, ptr @hf_peer_ipaddr, align 4
   %75 = load i32, ptr @hf_peer_rtdom, align 4
-  tail call fastcc void @displayIPv6as4(ptr noundef %16, i32 noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef 27, i32 noundef 1)
+  tail call fastcc void @displayIPv6as4.argelim(ptr noundef %16, i32 noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef 27, i32 noundef 1)
   %76 = load i32, ptr @hf_peer_local_ip6addr, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %76, ptr noundef %0, i32 noundef 27, i32 noundef 16, i32 noundef 0) #7
   %78 = load i32, ptr @hf_peer_ip6addr, align 4
@@ -3551,7 +3551,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type0(ptr nound
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #7
   %11 = load i32, ptr @ett_f5tls_std, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #7
-  tail call fastcc void @render_f5dptv1_tlvhdr(ptr noundef %0, ptr noundef %12)
+  tail call fastcc void @render_f5dptv1_tlvhdr.argelim(ptr noundef %0, ptr noundef %12)
   %13 = load i32, ptr @hf_f5tls_mstr_sec, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 8, i32 noundef 48, i32 noundef 0) #7
   %15 = load i32, ptr @hf_f5tls_clnt_rand, align 4
@@ -3578,12 +3578,12 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type0(ptr nound
 
 31:                                               ; preds = %22
   %32 = icmp eq ptr %25, null
-  br i1 %32, label %f5eth_add_tls_element.exit, label %33
+  br i1 %32, label %f5eth_add_tls_element.argprom.exit, label %33
 
 33:                                               ; preds = %31
   %34 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @f5tls_zeros, i64 noundef 48) #7
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %f5eth_add_tls_element.exit, label %36
+  br i1 %35, label %f5eth_add_tls_element.argprom.exit, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %25, i64 8
@@ -3595,7 +3595,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type0(ptr nound
   %41 = load ptr, ptr %25, align 8
   %42 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 8, ptr noundef %41, i64 noundef 48) #7
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %f5eth_add_tls_element.exit, label %44
+  br i1 %43, label %f5eth_add_tls_element.argprom.exit, label %44
 
 44:                                               ; preds = %40, %36
   %45 = tail call ptr @wmem_file_scope() #7
@@ -3604,16 +3604,16 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type0(ptr nound
   store ptr %47, ptr %25, align 8
   store i32 48, ptr %37, align 8
   %48 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %47, i32 noundef 8, i64 noundef 48) #7
-  br label %f5eth_add_tls_element.exit
+  br label %f5eth_add_tls_element.argprom.exit
 
-f5eth_add_tls_element.exit:                       ; preds = %31, %33, %40, %44
+f5eth_add_tls_element.argprom.exit:               ; preds = %31, %33, %40, %44
   %49 = phi i1 [ true, %44 ], [ false, %33 ], [ false, %31 ], [ false, %40 ]
   %50 = getelementptr inbounds i8, ptr %25, i64 16
   %51 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @f5tls_zeros, i64 noundef 32) #7
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %f5eth_add_tls_element.exit49, label %53
+  br i1 %52, label %f5eth_add_tls_element.argprom.exit49, label %53
 
-53:                                               ; preds = %f5eth_add_tls_element.exit
+53:                                               ; preds = %f5eth_add_tls_element.argprom.exit
   %54 = getelementptr inbounds i8, ptr %25, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 32
@@ -3623,7 +3623,7 @@ f5eth_add_tls_element.exit:                       ; preds = %31, %33, %40, %44
   %58 = load ptr, ptr %50, align 8
   %59 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 56, ptr noundef %58, i64 noundef 32) #7
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %f5eth_add_tls_element.exit49, label %61
+  br i1 %60, label %f5eth_add_tls_element.argprom.exit49, label %61
 
 61:                                               ; preds = %57, %53
   %62 = tail call ptr @wmem_file_scope() #7
@@ -3632,16 +3632,16 @@ f5eth_add_tls_element.exit:                       ; preds = %31, %33, %40, %44
   store ptr %64, ptr %50, align 8
   store i32 32, ptr %54, align 8
   %65 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %64, i32 noundef 56, i64 noundef 32) #7
-  br label %f5eth_add_tls_element.exit49
+  br label %f5eth_add_tls_element.argprom.exit49
 
-f5eth_add_tls_element.exit49:                     ; preds = %f5eth_add_tls_element.exit, %57, %61
+f5eth_add_tls_element.argprom.exit49:             ; preds = %f5eth_add_tls_element.argprom.exit, %57, %61
   %66 = getelementptr i8, ptr %25, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = icmp ne i32 %67, 0
   %or.cond3 = and i1 %49, %68
   br i1 %or.cond3, label %69, label %thread-pre-split
 
-69:                                               ; preds = %f5eth_add_tls_element.exit49
+69:                                               ; preds = %f5eth_add_tls_element.argprom.exit49
   %.val = load ptr, ptr %50, align 8
   %70 = getelementptr inbounds i8, ptr %1, i64 408
   %71 = load ptr, ptr %70, align 8
@@ -3668,7 +3668,7 @@ f5eth_add_tls_element.exit49:                     ; preds = %f5eth_add_tls_eleme
   store ptr %89, ptr %24, align 8
   br label %90
 
-thread-pre-split:                                 ; preds = %22, %f5eth_add_tls_element.exit49
+thread-pre-split:                                 ; preds = %22, %f5eth_add_tls_element.argprom.exit49
   %.pr = load ptr, ptr %24, align 8
   br label %90
 
@@ -3710,7 +3710,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_extended(ptr no
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.313) #7
   %9 = load i32, ptr @ett_f5tls_ext, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #7
-  tail call fastcc void @render_f5dptv1_tlvhdr(ptr noundef %0, ptr noundef %10)
+  tail call fastcc void @render_f5dptv1_tlvhdr.argelim(ptr noundef %0, ptr noundef %10)
   %11 = load i32, ptr @hf_data, align 4
   %12 = add nsw i32 %6, -8
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 8, i32 noundef %12, i32 noundef 0) #7
@@ -3730,7 +3730,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type2(ptr nound
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #7
   %11 = load i32, ptr @ett_f5tls_std, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #7
-  tail call fastcc void @render_f5dptv1_tlvhdr(ptr noundef %0, ptr noundef %12)
+  tail call fastcc void @render_f5dptv1_tlvhdr.argelim(ptr noundef %0, ptr noundef %12)
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #7
   %14 = zext i8 %13 to i32
   %15 = load i32, ptr @hf_f5tls_secret_len, align 4
@@ -3802,7 +3802,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type2(ptr nound
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds i8, ptr %53, i64 32
-  %62 = tail call fastcc i32 @f5eth_add_tls_element(ptr noundef nonnull %61, ptr noundef %0, i32 noundef 9, i32 noundef %14)
+  %62 = tail call fastcc i32 @f5eth_add_tls_element.argprom(ptr noundef nonnull %61, ptr noundef %0, i32 noundef 9, i32 noundef %14)
   %63 = icmp ne i32 %62, 0
   br label %66
 
@@ -3818,7 +3818,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type2(ptr nound
   %68 = zext nneg i8 %13 to i64
   %69 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %f5eth_add_tls_element.exit, label %71
+  br i1 %70, label %f5eth_add_tls_element.argprom.exit, label %71
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds i8, ptr %53, i64 56
@@ -3830,7 +3830,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type2(ptr nound
   %76 = load ptr, ptr %67, align 8
   %77 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.1, ptr noundef %76, i64 noundef %68) #7
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %f5eth_add_tls_element.exit, label %79
+  br i1 %78, label %f5eth_add_tls_element.argprom.exit, label %79
 
 79:                                               ; preds = %75, %71
   %80 = tail call ptr @wmem_file_scope() #7
@@ -3839,17 +3839,17 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type2(ptr nound
   store ptr %82, ptr %67, align 8
   store i32 %14, ptr %72, align 8
   %83 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %82, i32 noundef %.1, i64 noundef %68) #7
-  br label %f5eth_add_tls_element.exit
+  br label %f5eth_add_tls_element.argprom.exit
 
-f5eth_add_tls_element.exit:                       ; preds = %66, %75, %79
+f5eth_add_tls_element.argprom.exit:               ; preds = %66, %75, %79
   %.not170 = phi i1 [ false, %79 ], [ true, %66 ], [ true, %75 ]
   %84 = add nuw nsw i32 %.1, 64
   %85 = getelementptr inbounds i8, ptr %53, i64 64
   %86 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %84, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %f5eth_add_tls_element.exit188, label %88
+  br i1 %87, label %f5eth_add_tls_element.argprom.exit188, label %88
 
-88:                                               ; preds = %f5eth_add_tls_element.exit
+88:                                               ; preds = %f5eth_add_tls_element.argprom.exit
   %89 = getelementptr inbounds i8, ptr %53, i64 72
   %90 = load i32, ptr %89, align 8
   %91 = icmp eq i32 %90, %14
@@ -3859,7 +3859,7 @@ f5eth_add_tls_element.exit:                       ; preds = %66, %75, %79
   %93 = load ptr, ptr %85, align 8
   %94 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %84, ptr noundef %93, i64 noundef %68) #7
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %f5eth_add_tls_element.exit188, label %96
+  br i1 %95, label %f5eth_add_tls_element.argprom.exit188, label %96
 
 96:                                               ; preds = %92, %88
   %97 = tail call ptr @wmem_file_scope() #7
@@ -3868,17 +3868,17 @@ f5eth_add_tls_element.exit:                       ; preds = %66, %75, %79
   store ptr %99, ptr %85, align 8
   store i32 %14, ptr %89, align 8
   %100 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %99, i32 noundef %84, i64 noundef %68) #7
-  br label %f5eth_add_tls_element.exit188
+  br label %f5eth_add_tls_element.argprom.exit188
 
-f5eth_add_tls_element.exit188:                    ; preds = %f5eth_add_tls_element.exit, %92, %96
-  %.not171 = phi i1 [ false, %96 ], [ true, %f5eth_add_tls_element.exit ], [ true, %92 ]
+f5eth_add_tls_element.argprom.exit188:            ; preds = %f5eth_add_tls_element.argprom.exit, %92, %96
+  %.not171 = phi i1 [ false, %96 ], [ true, %f5eth_add_tls_element.argprom.exit ], [ true, %92 ]
   %101 = or disjoint i32 %.1, 128
   %102 = getelementptr inbounds i8, ptr %53, i64 80
   %103 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %101, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %f5eth_add_tls_element.exit190, label %105
+  br i1 %104, label %f5eth_add_tls_element.argprom.exit190, label %105
 
-105:                                              ; preds = %f5eth_add_tls_element.exit188
+105:                                              ; preds = %f5eth_add_tls_element.argprom.exit188
   %106 = getelementptr inbounds i8, ptr %53, i64 88
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, %14
@@ -3888,7 +3888,7 @@ f5eth_add_tls_element.exit188:                    ; preds = %f5eth_add_tls_eleme
   %110 = load ptr, ptr %102, align 8
   %111 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %101, ptr noundef %110, i64 noundef %68) #7
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %f5eth_add_tls_element.exit190, label %113
+  br i1 %112, label %f5eth_add_tls_element.argprom.exit190, label %113
 
 113:                                              ; preds = %109, %105
   %114 = tail call ptr @wmem_file_scope() #7
@@ -3897,17 +3897,17 @@ f5eth_add_tls_element.exit188:                    ; preds = %f5eth_add_tls_eleme
   store ptr %116, ptr %102, align 8
   store i32 %14, ptr %106, align 8
   %117 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %116, i32 noundef %101, i64 noundef %68) #7
-  br label %f5eth_add_tls_element.exit190
+  br label %f5eth_add_tls_element.argprom.exit190
 
-f5eth_add_tls_element.exit190:                    ; preds = %f5eth_add_tls_element.exit188, %109, %113
-  %.not168 = phi i1 [ false, %113 ], [ true, %f5eth_add_tls_element.exit188 ], [ true, %109 ]
+f5eth_add_tls_element.argprom.exit190:            ; preds = %f5eth_add_tls_element.argprom.exit188, %109, %113
+  %.not168 = phi i1 [ false, %113 ], [ true, %f5eth_add_tls_element.argprom.exit188 ], [ true, %109 ]
   %118 = add nuw nsw i32 %.1, 192
   %119 = getelementptr inbounds i8, ptr %53, i64 96
   %120 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %118, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %f5eth_add_tls_element.exit192, label %122
+  br i1 %121, label %f5eth_add_tls_element.argprom.exit192, label %122
 
-122:                                              ; preds = %f5eth_add_tls_element.exit190
+122:                                              ; preds = %f5eth_add_tls_element.argprom.exit190
   %123 = getelementptr inbounds i8, ptr %53, i64 104
   %124 = load i32, ptr %123, align 8
   %125 = icmp eq i32 %124, %14
@@ -3917,7 +3917,7 @@ f5eth_add_tls_element.exit190:                    ; preds = %f5eth_add_tls_eleme
   %127 = load ptr, ptr %119, align 8
   %128 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %118, ptr noundef %127, i64 noundef %68) #7
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %f5eth_add_tls_element.exit192, label %130
+  br i1 %129, label %f5eth_add_tls_element.argprom.exit192, label %130
 
 130:                                              ; preds = %126, %122
   %131 = tail call ptr @wmem_file_scope() #7
@@ -3926,17 +3926,17 @@ f5eth_add_tls_element.exit190:                    ; preds = %f5eth_add_tls_eleme
   store ptr %133, ptr %119, align 8
   store i32 %14, ptr %123, align 8
   %134 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %133, i32 noundef %118, i64 noundef %68) #7
-  br label %f5eth_add_tls_element.exit192
+  br label %f5eth_add_tls_element.argprom.exit192
 
-f5eth_add_tls_element.exit192:                    ; preds = %f5eth_add_tls_element.exit190, %126, %130
-  %.not169 = phi i1 [ false, %130 ], [ true, %f5eth_add_tls_element.exit190 ], [ true, %126 ]
+f5eth_add_tls_element.argprom.exit192:            ; preds = %f5eth_add_tls_element.argprom.exit190, %126, %130
+  %.not169 = phi i1 [ false, %130 ], [ true, %f5eth_add_tls_element.argprom.exit190 ], [ true, %126 ]
   %135 = or disjoint i32 %.1, 256
   %136 = getelementptr inbounds i8, ptr %53, i64 16
   %137 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %135, ptr noundef nonnull @f5tls_zeros, i64 noundef 32) #7
   %138 = icmp eq i32 %137, 0
-  br i1 %138, label %f5eth_add_tls_element.exit194, label %139
+  br i1 %138, label %f5eth_add_tls_element.argprom.exit194, label %139
 
-139:                                              ; preds = %f5eth_add_tls_element.exit192
+139:                                              ; preds = %f5eth_add_tls_element.argprom.exit192
   %140 = getelementptr inbounds i8, ptr %53, i64 24
   %141 = load i32, ptr %140, align 8
   %142 = icmp eq i32 %141, 32
@@ -3946,7 +3946,7 @@ f5eth_add_tls_element.exit192:                    ; preds = %f5eth_add_tls_eleme
   %144 = load ptr, ptr %136, align 8
   %145 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %135, ptr noundef %144, i64 noundef 32) #7
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %f5eth_add_tls_element.exit194, label %147
+  br i1 %146, label %f5eth_add_tls_element.argprom.exit194, label %147
 
 147:                                              ; preds = %143, %139
   %148 = tail call ptr @wmem_file_scope() #7
@@ -3955,21 +3955,21 @@ f5eth_add_tls_element.exit192:                    ; preds = %f5eth_add_tls_eleme
   store ptr %150, ptr %136, align 8
   store i32 32, ptr %140, align 8
   %151 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %150, i32 noundef %135, i64 noundef 32) #7
-  br label %f5eth_add_tls_element.exit194
+  br label %f5eth_add_tls_element.argprom.exit194
 
-f5eth_add_tls_element.exit194:                    ; preds = %f5eth_add_tls_element.exit192, %143, %147
+f5eth_add_tls_element.argprom.exit194:            ; preds = %f5eth_add_tls_element.argprom.exit192, %143, %147
   %152 = getelementptr i8, ptr %53, i64 24
   %153 = load i32, ptr %152, align 8
   %.not167 = icmp eq i32 %153, 0
   br i1 %.not167, label %175, label %154
 
-154:                                              ; preds = %f5eth_add_tls_element.exit194
+154:                                              ; preds = %f5eth_add_tls_element.argprom.exit194
   br i1 %or.cond7, label %155, label %159
 
 155:                                              ; preds = %154
   %156 = getelementptr inbounds i8, ptr %53, i64 32
   %.val = load ptr, ptr %136, align 8
-  %157 = tail call fastcc ptr @f5eth_add_tls_keylog(ptr noundef nonnull %1, i32 noundef 5, ptr %.val, i32 %153, ptr noundef nonnull %156)
+  %157 = tail call fastcc ptr @f5eth_add_tls_keylog.argprom(ptr noundef nonnull %1, i32 noundef 5, ptr %.val, i32 %153, ptr noundef nonnull %156)
   %158 = getelementptr inbounds i8, ptr %52, i64 8
   store ptr %157, ptr %158, align 8
   br label %159
@@ -3980,7 +3980,7 @@ f5eth_add_tls_element.exit194:                    ; preds = %f5eth_add_tls_eleme
 160:                                              ; preds = %159
   %.val179 = load ptr, ptr %136, align 8
   %.val180 = load i32, ptr %152, align 8
-  %161 = tail call fastcc ptr @f5eth_add_tls_keylog(ptr noundef nonnull %1, i32 noundef 1, ptr %.val179, i32 %.val180, ptr noundef nonnull %102)
+  %161 = tail call fastcc ptr @f5eth_add_tls_keylog.argprom(ptr noundef nonnull %1, i32 noundef 1, ptr %.val179, i32 %.val180, ptr noundef nonnull %102)
   %162 = getelementptr inbounds i8, ptr %52, i64 16
   store ptr %161, ptr %162, align 8
   br label %163
@@ -3991,7 +3991,7 @@ f5eth_add_tls_element.exit194:                    ; preds = %f5eth_add_tls_eleme
 164:                                              ; preds = %163
   %.val181 = load ptr, ptr %136, align 8
   %.val182 = load i32, ptr %152, align 8
-  %165 = tail call fastcc ptr @f5eth_add_tls_keylog(ptr noundef nonnull %1, i32 noundef 2, ptr %.val181, i32 %.val182, ptr noundef nonnull %119)
+  %165 = tail call fastcc ptr @f5eth_add_tls_keylog.argprom(ptr noundef nonnull %1, i32 noundef 2, ptr %.val181, i32 %.val182, ptr noundef nonnull %119)
   %166 = getelementptr inbounds i8, ptr %52, i64 24
   store ptr %165, ptr %166, align 8
   br label %167
@@ -4002,7 +4002,7 @@ f5eth_add_tls_element.exit194:                    ; preds = %f5eth_add_tls_eleme
 168:                                              ; preds = %167
   %.val183 = load ptr, ptr %136, align 8
   %.val184 = load i32, ptr %152, align 8
-  %169 = tail call fastcc ptr @f5eth_add_tls_keylog(ptr noundef nonnull %1, i32 noundef 3, ptr %.val183, i32 %.val184, ptr noundef nonnull %67)
+  %169 = tail call fastcc ptr @f5eth_add_tls_keylog.argprom(ptr noundef nonnull %1, i32 noundef 3, ptr %.val183, i32 %.val184, ptr noundef nonnull %67)
   %170 = getelementptr inbounds i8, ptr %52, i64 32
   store ptr %169, ptr %170, align 8
   br label %171
@@ -4013,12 +4013,12 @@ f5eth_add_tls_element.exit194:                    ; preds = %f5eth_add_tls_eleme
 172:                                              ; preds = %171
   %.val185 = load ptr, ptr %136, align 8
   %.val186 = load i32, ptr %152, align 8
-  %173 = tail call fastcc ptr @f5eth_add_tls_keylog(ptr noundef nonnull %1, i32 noundef 4, ptr %.val185, i32 %.val186, ptr noundef nonnull %85)
+  %173 = tail call fastcc ptr @f5eth_add_tls_keylog.argprom(ptr noundef nonnull %1, i32 noundef 4, ptr %.val185, i32 %.val186, ptr noundef nonnull %85)
   %174 = getelementptr inbounds i8, ptr %52, i64 40
   store ptr %173, ptr %174, align 8
   br label %175
 
-175:                                              ; preds = %f5eth_add_tls_element.exit194, %172, %171, %50
+175:                                              ; preds = %f5eth_add_tls_element.argprom.exit194, %172, %171, %50
   %176 = getelementptr inbounds i8, ptr %52, i64 8
   %177 = load ptr, ptr %176, align 8
   %.not172 = icmp eq ptr %177, null
@@ -4822,7 +4822,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @render_f5dptv1_tlvhdr(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @render_f5dptv1_tlvhdr.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_trailer_hdr, align 4
@@ -4865,7 +4865,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint64_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @displayIPv6as4(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @displayIPv6as4.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_memeql(ptr noundef %3, i32 noundef %4, ptr noundef nonnull @ipv4as6prefix, i64 noundef 12) #7
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %17
@@ -4959,7 +4959,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @f5eth_add_tls_element(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 330) %2, i32 noundef range(i32 1, 65) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @f5eth_add_tls_element.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 330) %2, i32 noundef range(i32 1, 65) %3) unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %23, label %6
 
@@ -4996,7 +4996,7 @@ define internal fastcc range(i32 0, 2) i32 @f5eth_add_tls_element(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @f5eth_add_tls_keylog(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 6) %1, ptr %.0.val, i32 %.8.val, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @f5eth_add_tls_keylog.argprom(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 6) %1, ptr %.0.val, i32 %.8.val, ptr nocapture noundef readonly %2) unnamed_addr #0 {
 switch.lookup:
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
@@ -5020,7 +5020,7 @@ switch.lookup:
   store i8 0, ptr %20, align 1
   %21 = tail call ptr @wmem_file_scope() #7
   %22 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.f5eth_add_tls_keylog, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.f5eth_add_tls_keylog.argprom, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %21, ptr noundef nonnull %switch.load, ptr noundef %8, ptr noundef %18) #7
   ret ptr %23

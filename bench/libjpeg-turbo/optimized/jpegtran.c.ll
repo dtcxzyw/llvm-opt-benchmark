@@ -150,7 +150,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %19 = call ptr @jpeg_std_error(ptr noundef nonnull %8) #11
   store ptr %19, ptr %6, align 8
   call void @jpeg_CreateCompress(ptr noundef nonnull %6, i32 noundef 62, i64 noundef 520) #11
-  %20 = call fastcc i32 @parse_switches(ptr noundef %6, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 0)
+  %20 = call fastcc i32 @parse_switches.argelim(ptr noundef %6, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   %21 = getelementptr inbounds i8, ptr %8, i64 124
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %7, i64 124
@@ -431,7 +431,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 162:                                              ; preds = %152, %160
   %.1 = phi ptr [ %153, %152 ], [ %161, %160 ]
-  %163 = call fastcc i32 @parse_switches(ptr noundef %6, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 1)
+  %163 = call fastcc i32 @parse_switches.argelim(ptr noundef %6, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 1)
   call void @jpeg_stdio_dest(ptr noundef nonnull %6, ptr noundef %.1) #11
   call void @jpeg_write_coefficients(ptr noundef nonnull %6, ptr noundef %146) #11
   %164 = load i32, ptr @copyoption, align 4
@@ -533,7 +533,7 @@ declare void @jpeg_CreateDecompress(ptr noundef, i32 noundef, i64 noundef) local
 declare void @jpeg_CreateCompress(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
+define internal fastcc i32 @parse_switches.argelim(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
   %7 = alloca i64, align 8

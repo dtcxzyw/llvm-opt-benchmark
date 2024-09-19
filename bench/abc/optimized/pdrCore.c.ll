@@ -296,7 +296,7 @@ Abc_Clock.exit..critedge_crit_edge:               ; preds = %Abc_Clock.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %31, 2
-  br i1 %32, label %Vec_PtrSort.exit, label %33
+  br i1 %32, label %Vec_PtrSort.argprom.exit, label %33
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds i8, ptr %29, i64 8
@@ -307,9 +307,9 @@ Abc_Clock.exit..critedge_crit_edge:               ; preds = %Abc_Clock.exit
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
   %.val134.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.val127164.pre = load i32, ptr %30, align 4
-  br label %Vec_PtrSort.exit
+  br label %Vec_PtrSort.argprom.exit
 
-Vec_PtrSort.exit:                                 ; preds = %25, %33
+Vec_PtrSort.argprom.exit:                         ; preds = %25, %33
   %.val127164 = phi i32 [ %31, %25 ], [ %.val127164.pre, %33 ]
   %.val134 = phi ptr [ %.val133, %25 ], [ %.val134.pre, %33 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -318,7 +318,7 @@ Vec_PtrSort.exit:                                 ; preds = %25, %33
   %39 = icmp sgt i32 %.val127164, 0
   br i1 %39, label %.lr.ph167, label %.critedge2
 
-.lr.ph167:                                        ; preds = %Vec_PtrSort.exit
+.lr.ph167:                                        ; preds = %Vec_PtrSort.argprom.exit
   %40 = getelementptr i8, ptr %29, i64 8
   %41 = getelementptr i8, ptr %38, i64 4
   %42 = getelementptr i8, ptr %38, i64 8
@@ -519,8 +519,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %120 = icmp slt i32 %.pre-phi, %.val127
   br i1 %120, label %45, label %.critedge2, !llvm.loop !9
 
-.critedge2:                                       ; preds = %119, %Vec_PtrSort.exit
-  %.val127.lcssa = phi i32 [ %.val127164, %Vec_PtrSort.exit ], [ %.val127, %119 ]
+.critedge2:                                       ; preds = %119, %Vec_PtrSort.argprom.exit
+  %.val127.lcssa = phi i32 [ %.val127164, %Vec_PtrSort.argprom.exit ], [ %.val127, %119 ]
   %121 = icmp eq i32 %.val127.lcssa, 0
   %spec.select = select i1 %121, i32 1, i32 %.0106170
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -538,7 +538,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %127 = getelementptr inbounds i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4
   %129 = icmp slt i32 %128, 2
-  br i1 %129, label %Vec_PtrSort.exit148, label %130
+  br i1 %129, label %Vec_PtrSort.argprom.exit148, label %130
 
 130:                                              ; preds = %.critedge
   %131 = getelementptr inbounds i8, ptr %126, i64 8
@@ -546,14 +546,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %133 = zext nneg i32 %128 to i64
   call void @qsort(ptr noundef %132, i64 noundef %133, i64 noundef 8, ptr noundef nonnull @Pdr_SetCompare) #18
   %.val131177.pre = load i32, ptr %127, align 4
-  br label %Vec_PtrSort.exit148
+  br label %Vec_PtrSort.argprom.exit148
 
-Vec_PtrSort.exit148:                              ; preds = %.critedge, %130
+Vec_PtrSort.argprom.exit148:                      ; preds = %.critedge, %130
   %.val131177 = phi i32 [ %128, %.critedge ], [ %.val131177.pre, %130 ]
   %134 = icmp sgt i32 %.val131177, 0
   br i1 %134, label %.lr.ph179, label %.critedge8
 
-.lr.ph179:                                        ; preds = %Vec_PtrSort.exit148
+.lr.ph179:                                        ; preds = %Vec_PtrSort.argprom.exit148
   %135 = getelementptr i8, ptr %126, i64 8
   br label %137
 
@@ -618,7 +618,7 @@ Vec_PtrSort.exit148:                              ; preds = %.critedge, %130
   %157 = icmp slt i32 %.3, %.val132
   br i1 %157, label %.lr.ph176, label %.critedge10.loopexit.loopexit, !llvm.loop !12
 
-.critedge8:                                       ; preds = %.critedge10.loopexit, %Vec_PtrSort.exit148
+.critedge8:                                       ; preds = %.critedge10.loopexit, %Vec_PtrSort.argprom.exit148
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %158 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #18
   %159 = icmp slt i32 %158, 0
@@ -2142,7 +2142,7 @@ Pdr_ManSortByPriority.exit261:                    ; preds = %._crit_edge.i258, %
 
 295:                                              ; preds = %294
   %296 = load i32, ptr %225, align 4
-  call fastcc void @Hash_IntWriteEntry(ptr noundef %139, i32 noundef %296)
+  call fastcc void @Hash_IntWriteEntry.argelim(ptr noundef %139, i32 noundef %296)
   br label %297
 
 297:                                              ; preds = %295, %294
@@ -2564,7 +2564,7 @@ declare ptr @Pdr_ManCubeToLits(ptr noundef, i32 noundef, ptr noundef, i32 nounde
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Hash_IntWriteEntry(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Hash_IntWriteEntry.argelim(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4

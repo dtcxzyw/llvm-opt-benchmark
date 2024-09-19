@@ -6625,7 +6625,7 @@ define internal fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi_
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %ri = alloca %struct.stbi__result_info, align 4
-  %call = call fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp, ptr noundef %ri)
+  %call = call fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.argelim(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp, ptr noundef %ri)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -6842,7 +6842,7 @@ define internal fastcc noundef ptr @_ZL32stbi__load_and_postprocess_16bitP13stbi
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %ri = alloca %struct.stbi__result_info, align 4
-  %call = call fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp, ptr noundef %ri)
+  %call = call fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.argelim(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp, ptr noundef %ri)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -11469,7 +11469,7 @@ declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #25
 declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull writeonly %ri) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.argelim(ptr noundef nonnull %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull writeonly %ri) unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.stbi__png, align 8
   store i32 8, ptr %ri, align 4
@@ -13697,11 +13697,11 @@ if.then364:                                       ; preds = %if.end362
   br i1 %cmp366, label %if.then367, label %if.else373
 
 if.then367:                                       ; preds = %if.then364
-  call fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti(i32 %z.val.val, i32 %z.val.val184, ptr %z.val183, ptr noundef %tc16, i32 noundef %204)
+  call fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti.argprom.argprom.argelim(i32 %z.val.val, i32 %z.val.val184, ptr %z.val183, ptr noundef %tc16, i32 noundef %204)
   br label %if.end381
 
 if.else373:                                       ; preds = %if.then364
-  call fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi(i32 %z.val.val, i32 %z.val.val184, ptr %z.val183, ptr noundef %tc, i32 noundef %204)
+  call fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi.argprom.argprom.argelim(i32 %z.val.val, i32 %z.val.val184, ptr %z.val183, ptr noundef %tc, i32 noundef %204)
   br label %if.end381
 
 if.end381:                                        ; preds = %if.else373, %if.then367, %if.end362
@@ -13726,7 +13726,7 @@ land.lhs.true390:                                 ; preds = %land.lhs.true383
 if.then393:                                       ; preds = %land.lhs.true390
   %z.val188 = load ptr, ptr %z, align 8
   %z.val189 = load ptr, ptr %out, align 8
-  call fastcc void @_ZL15stbi__de_iphoneP9stbi__png(ptr %z.val188, ptr %z.val189)
+  call fastcc void @_ZL15stbi__de_iphoneP9stbi__png.argprom(ptr %z.val188, ptr %z.val189)
   br label %if.end394
 
 if.end394:                                        ; preds = %if.then393, %land.lhs.true390, %land.lhs.true383, %if.end381
@@ -13738,7 +13738,7 @@ if.then396:                                       ; preds = %if.end394
   %cmp401 = icmp ugt i32 %req_comp, 2
   %spec.select = select i1 %cmp401, i32 %req_comp, i32 %conv397
   store i32 %spec.select, ptr %199, align 4
-  %call407 = call fastcc noundef i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii(ptr noundef %z, ptr noundef %palette, i32 noundef %spec.select)
+  %call407 = call fastcc noundef i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii.argelim(ptr noundef %z, ptr noundef %palette, i32 noundef %spec.select)
   %tobool408.not = icmp eq i32 %call407, 0
   br i1 %tobool408.not, label %return, label %if.end417
 
@@ -13755,7 +13755,7 @@ if.end417:                                        ; preds = %if.else411, %if.the
   %213 = load ptr, ptr %expanded, align 8
   call void @free(ptr noundef %213) #44
   store ptr null, ptr %expanded, align 8
-  call fastcc void @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %0)
+  call fastcc void @_ZL13stbi__get32beP13stbi__context.argelim(ptr noundef nonnull %0)
   br label %return
 
 sw.default:                                       ; preds = %for.cond
@@ -13854,7 +13854,7 @@ return:                                           ; preds = %if.end266, %_ZL22st
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13stbi__get32beP13stbi__context(ptr noundef %s) unnamed_addr #3 {
+define internal fastcc void @_ZL13stbi__get32beP13stbi__context.argelim(ptr noundef %s) unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %s)
   %call1 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %s)
@@ -14181,7 +14181,7 @@ return:                                           ; preds = %for.end84, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti(i32 %z.0.val.0.val, i32 %z.0.val.4.val, ptr nocapture %z.24.val, ptr nocapture noundef nonnull readonly %tc, i32 noundef %out_n) unnamed_addr #30 {
+define internal fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti.argprom.argprom.argelim(i32 %z.0.val.0.val, i32 %z.0.val.4.val, ptr nocapture %z.24.val, ptr nocapture noundef nonnull readonly %tc, i32 noundef %out_n) unnamed_addr #30 {
 entry:
   %mul = mul i32 %z.0.val.4.val, %z.0.val.0.val
   %cmp = icmp eq i32 %out_n, 2
@@ -14251,7 +14251,7 @@ if.end33:                                         ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi(i32 %z.0.val.0.val, i32 %z.0.val.4.val, ptr nocapture %z.24.val, ptr nocapture noundef nonnull readonly %tc, i32 noundef %out_n) unnamed_addr #30 {
+define internal fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi.argprom.argprom.argelim(i32 %z.0.val.0.val, i32 %z.0.val.4.val, ptr nocapture %z.24.val, ptr nocapture noundef nonnull readonly %tc, i32 noundef %out_n) unnamed_addr #30 {
 entry:
   %mul = mul i32 %z.0.val.4.val, %z.0.val.0.val
   %cmp = icmp eq i32 %out_n, 2
@@ -14321,7 +14321,7 @@ if.end33:                                         ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL15stbi__de_iphoneP9stbi__png(ptr nocapture readonly %z.0.val, ptr nocapture %z.24.val) unnamed_addr #31 {
+define internal fastcc void @_ZL15stbi__de_iphoneP9stbi__png.argprom(ptr nocapture readonly %z.0.val, ptr nocapture %z.24.val) unnamed_addr #31 {
 entry:
   %0 = load i32, ptr %z.0.val, align 8
   %img_y = getelementptr inbounds i8, ptr %z.0.val, i64 4
@@ -14438,7 +14438,7 @@ if.end64:                                         ; preds = %if.end, %for.body53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull readonly %palette, i32 noundef %pal_img_n) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii.argelim(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull readonly %palette, i32 noundef %pal_img_n) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i32, ptr %0, align 8

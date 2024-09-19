@@ -615,7 +615,7 @@ _is_preemptable.exit.thread.i:                    ; preds = %_is_preemptable.exi
   %156 = icmp eq i16 %155, 2
   %157 = icmp eq i16 %155, 8
   %or.cond.i = or i1 %156, %157
-  %158 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef nonnull %110, ptr noundef nonnull %136, ptr noundef nonnull @__func__._will_run_test, i1 noundef zeroext %or.cond.i)
+  %158 = tail call fastcc i32 @_rm_job_from_nodes.argelim(ptr noundef nonnull %110, ptr noundef nonnull %136, ptr noundef nonnull @__func__._will_run_test, i1 noundef zeroext %or.cond.i)
   br label %.backedge136.i
 
 ._crit_edge.i:                                    ; preds = %.backedge136.i, %.backedge136.us.i, %114
@@ -661,7 +661,7 @@ _is_preemptable.exit.thread.i:                    ; preds = %_is_preemptable.exi
   br i1 %.not119.i, label %.loopexit.i, label %176
 
 176:                                              ; preds = %174
-  %177 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef nonnull %110, ptr noundef nonnull %175, ptr noundef nonnull @__func__._will_run_test, i1 noundef zeroext true)
+  %177 = tail call fastcc i32 @_rm_job_from_nodes.argelim(ptr noundef nonnull %110, ptr noundef nonnull %175, ptr noundef nonnull @__func__._will_run_test, i1 noundef zeroext true)
   %178 = tail call fastcc i32 @_job_count_bitmap(ptr noundef nonnull %110, ptr noundef %0, ptr noundef %97, ptr noundef %1, i32 noundef %96, i32 noundef 65534, i16 noundef zeroext 0)
   %179 = icmp ult i32 %178, %2
   br i1 %179, label %174, label %180, !llvm.loop !11
@@ -1011,7 +1011,7 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %251
   %318 = icmp eq i16 %317, 2
   %319 = icmp eq i16 %317, 8
   %or.cond4.i90 = or i1 %318, %319
-  %320 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef nonnull %309, ptr noundef nonnull %312, ptr noundef nonnull @.str.22, i1 noundef zeroext %or.cond4.i90)
+  %320 = tail call fastcc i32 @_rm_job_from_nodes.argelim(ptr noundef nonnull %309, ptr noundef nonnull %312, ptr noundef nonnull @.str.22, i1 noundef zeroext %or.cond4.i90)
   %321 = tail call fastcc i32 @_job_count_bitmap(ptr noundef nonnull %309, ptr noundef %0, ptr noundef %225, ptr noundef %1, i32 noundef %230, i32 noundef 65534, i16 noundef zeroext 0)
   %322 = getelementptr inbounds i8, ptr %312, i64 576
   %323 = load ptr, ptr %322, align 8
@@ -2557,9 +2557,9 @@ _test_tot_job.exit186.thread.i:                   ; preds = %_test_tot_job.exit1
   br label %_job_expand.exit
 
 70:                                               ; preds = %64
-  %71 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef nonnull @__func__.select_p_job_expand, i1 noundef zeroext true)
+  %71 = tail call fastcc i32 @_rm_job_from_nodes.argelim(ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef nonnull @__func__.select_p_job_expand, i1 noundef zeroext true)
   %72 = load ptr, ptr @cr_ptr, align 8
-  %73 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef %72, ptr noundef nonnull %1, ptr noundef nonnull @__func__.select_p_job_expand, i1 noundef zeroext true)
+  %73 = tail call fastcc i32 @_rm_job_from_nodes.argelim(ptr noundef %72, ptr noundef nonnull %1, ptr noundef nonnull @__func__.select_p_job_expand, i1 noundef zeroext true)
   %74 = getelementptr inbounds i8, ptr %58, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i = icmp eq ptr %75, null
@@ -2924,7 +2924,7 @@ define dso_local noundef i32 @select_p_job_resized(ptr noundef %0, ptr nocapture
 
 11:                                               ; preds = %9
   %12 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.select_p_job_resized) #11
-  br label %_rm_job_from_one_node.exit
+  br label %_rm_job_from_one_node.argprom.exit
 
 .thread:                                          ; preds = %6, %9
   %13 = phi ptr [ %.pr, %9 ], [ %7, %6 ]
@@ -2962,11 +2962,11 @@ _test_tot_job.exit.i:                             ; preds = %23
 _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.i, %19, %.thread
   %26 = tail call i32 @slurm_get_log_level() #11
   %27 = icmp sgt i32 %26, 2
-  br i1 %27, label %28, label %_rm_job_from_one_node.exit
+  br i1 %27, label %28, label %_rm_job_from_one_node.argprom.exit
 
 28:                                               ; preds = %_test_tot_job.exit.thread.i
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._rm_job_from_one_node, ptr noundef nonnull @plugin_type, ptr noundef %0) #11
-  br label %_rm_job_from_one_node.exit
+  br label %_rm_job_from_one_node.argprom.exit
 
 29:                                               ; preds = %_test_tot_job.exit.i
   %30 = getelementptr inbounds i8, ptr %0, i64 216
@@ -3009,7 +3009,7 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
 
 48:                                               ; preds = %44, %40
   %49 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.18, ptr noundef nonnull %0) #11
-  br label %_rm_job_from_one_node.exit
+  br label %_rm_job_from_one_node.argprom.exit
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %1, i64 192
@@ -3025,7 +3025,7 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
   %58 = getelementptr inbounds i8, ptr %1, i64 256
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.31, ptr noundef nonnull %0, ptr noundef %59) #11
-  br label %_rm_job_from_one_node.exit
+  br label %_rm_job_from_one_node.argprom.exit
 
 61:                                               ; preds = %50
   %62 = load ptr, ptr %53, align 8
@@ -3066,7 +3066,7 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
   %76 = getelementptr inbounds i8, ptr %1, i64 256
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.32, ptr noundef %77, ptr noundef %0) #11
-  br label %_rm_job_from_one_node.exit
+  br label %_rm_job_from_one_node.argprom.exit
 
 79:                                               ; preds = %._crit_edge.i
   %80 = tail call i32 @extract_job_resources_node(ptr noundef nonnull %42, i32 noundef %.066.lcssa.i) #11
@@ -3281,20 +3281,20 @@ _test_run_job.exit.i.i:                           ; preds = %161, %157, %.crited
 188:                                              ; preds = %184, %182
   %189 = phi i16 [ %.pr.i.i, %184 ], [ %183, %182 ]
   %190 = icmp eq i16 %189, 0
-  br i1 %190, label %191, label %_rm_job_from_one_node.exit
+  br i1 %190, label %191, label %_rm_job_from_one_node.argprom.exit
 
 191:                                              ; preds = %188
   %192 = getelementptr inbounds i8, ptr %.0364.i.i, i64 8
   %193 = load i16, ptr %192, align 8
   %.not46.i.i = icmp eq i16 %193, 0
-  br i1 %.not46.i.i, label %_rm_job_from_one_node.exit, label %194
+  br i1 %.not46.i.i, label %_rm_job_from_one_node.argprom.exit, label %194
 
 194:                                              ; preds = %191
   store i16 0, ptr %192, align 8
   %195 = getelementptr inbounds i8, ptr %135, i64 256
   %196 = load ptr, ptr %195, align 8
   %197 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.select_p_job_resized, ptr noundef %196) #11
-  br label %_rm_job_from_one_node.exit
+  br label %_rm_job_from_one_node.argprom.exit
 
 ._crit_edge.i.i:                                  ; preds = %167, %_test_run_job.exit.i.i
   %.not42.i.i = icmp eq ptr %.pre.i.i, null
@@ -3306,26 +3306,26 @@ _test_run_job.exit.i.i:                           ; preds = %161, %157, %.crited
   %201 = getelementptr inbounds i8, ptr %135, i64 256
   %202 = load ptr, ptr %201, align 8
   %203 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.38, ptr noundef nonnull @__func__.select_p_job_resized, ptr noundef %200, ptr noundef %202) #11
-  br label %_rm_job_from_one_node.exit
+  br label %_rm_job_from_one_node.argprom.exit
 
 204:                                              ; preds = %._crit_edge.i.i
   %205 = getelementptr inbounds i8, ptr %135, i64 256
   %206 = load ptr, ptr %205, align 8
   %207 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__.select_p_job_resized, ptr noundef nonnull %0, ptr noundef %206) #11
-  br label %_rm_job_from_one_node.exit
+  br label %_rm_job_from_one_node.argprom.exit
 
-_rm_job_from_one_node.exit:                       ; preds = %11, %_test_tot_job.exit.thread.i, %28, %48, %57, %75, %188, %191, %194, %198, %204
+_rm_job_from_one_node.argprom.exit:               ; preds = %11, %_test_tot_job.exit.thread.i, %28, %48, %57, %75, %188, %191, %194, %198, %204
   %208 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cr_mutex) #11
   %.not7 = icmp eq i32 %208, 0
   br i1 %.not7, label %211, label %209
 
-209:                                              ; preds = %_rm_job_from_one_node.exit
+209:                                              ; preds = %_rm_job_from_one_node.argprom.exit
   %210 = tail call ptr @__errno_location() #12
   store i32 %208, ptr %210, align 4
   tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 2421, ptr noundef nonnull @__func__.select_p_job_resized) #13
   unreachable
 
-211:                                              ; preds = %_rm_job_from_one_node.exit
+211:                                              ; preds = %_rm_job_from_one_node.argprom.exit
   ret i32 0
 }
 
@@ -3353,7 +3353,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_fini(ptr noundef %0) local_u
 
 9:                                                ; preds = %8, %5
   %10 = phi ptr [ %.pre, %8 ], [ %6, %5 ]
-  %11 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @__func__.select_p_job_fini, i1 noundef zeroext true)
+  %11 = tail call fastcc i32 @_rm_job_from_nodes.argelim(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @__func__.select_p_job_fini, i1 noundef zeroext true)
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cr_mutex) #11
   %.not8 = icmp eq i32 %12, 0
   br i1 %.not8, label %15, label %13
@@ -3371,7 +3371,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_fini(ptr noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_rm_job_from_nodes(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_rm_job_from_nodes.argelim(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %9
@@ -3818,7 +3818,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_suspend(ptr noundef %0, i1 n
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ %.pre, %10 ], [ %8, %7 ]
-  %13 = tail call fastcc i32 @_rm_job_from_nodes(ptr noundef %12, ptr noundef %0, ptr noundef nonnull @__func__.select_p_job_suspend, i1 noundef zeroext false)
+  %13 = tail call fastcc i32 @_rm_job_from_nodes.argelim(ptr noundef %12, ptr noundef %0, ptr noundef nonnull @__func__.select_p_job_suspend, i1 noundef zeroext false)
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cr_mutex) #11
   %.not9 = icmp eq i32 %14, 0
   br i1 %.not9, label %17, label %15
@@ -4702,7 +4702,7 @@ define internal fastcc range(i32 0, 23) i32 @_job_test(ptr nocapture noundef %0,
   %42 = load i32, ptr %6, align 4
   %.val = load ptr, ptr %16, align 8
   %43 = icmp eq ptr %.val, null
-  br i1 %43, label %_get_avail_cpus.exit, label %44
+  br i1 %43, label %_get_avail_cpus.argprom.exit, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %.val, i64 96
@@ -4740,9 +4740,9 @@ define internal fastcc range(i32 0, 23) i32 @_job_test(ptr nocapture noundef %0,
   %68 = call i32 @llvm.smin.i32(i32 %66, i32 %67)
   %.022.i = select i1 %.not31.i, i32 %66, i32 %68
   %.pre = load i32, ptr %6, align 4
-  br label %_get_avail_cpus.exit
+  br label %_get_avail_cpus.argprom.exit
 
-_get_avail_cpus.exit:                             ; preds = %41, %55
+_get_avail_cpus.argprom.exit:                     ; preds = %41, %55
   %69 = phi i32 [ %.pre, %55 ], [ %42, %41 ]
   %.023.i = phi i32 [ %.022.i, %55 ], [ 0, %41 ]
   %70 = sext i32 %69 to i64
@@ -4767,15 +4767,15 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %88
 
-85:                                               ; preds = %_get_avail_cpus.exit
+85:                                               ; preds = %_get_avail_cpus.argprom.exit
   %86 = load ptr, ptr %9, align 8
   %87 = getelementptr inbounds i32, ptr %86, i64 %81
   store i32 %75, ptr %87, align 4
   %.pre508 = load i32, ptr %6, align 4
   br label %88
 
-88:                                               ; preds = %85, %_get_avail_cpus.exit
-  %89 = phi i32 [ %.pre508, %85 ], [ %75, %_get_avail_cpus.exit ]
+88:                                               ; preds = %85, %_get_avail_cpus.argprom.exit
+  %89 = phi i32 [ %.pre508, %85 ], [ %75, %_get_avail_cpus.argprom.exit ]
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i32, ptr %74, i64 %90
   %92 = load i32, ptr %91, align 4

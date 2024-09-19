@@ -571,15 +571,15 @@ if.end12.i.i.i.i:                                 ; preds = %for.end.i.i.i.i, %i
   %arrayidx15.i.i.i.i = getelementptr inbounds ptr, ptr %41, i64 %idxprom14.i.i.i.i
   %42 = load ptr, ptr %arrayidx15.i.i.i.i, align 8
   %tobool16.not.i.i.i.i = icmp eq ptr %42, null
-  br i1 %tobool16.not.i.i.i.i, label %commit_rev_name_at.exit.i.i, label %commit_rev_name_at.exit.thread.i.i
+  br i1 %tobool16.not.i.i.i.i, label %commit_rev_name_at.argprom.exit.i.i, label %commit_rev_name_at.argprom.exit.thread.i.i
 
-commit_rev_name_at.exit.thread.i.i:               ; preds = %if.end12.i.i.i.i
+commit_rev_name_at.argprom.exit.thread.i.i:       ; preds = %if.end12.i.i.i.i
   %rem.i.i5.i.i = urem i32 %start_commit.val.i.i, 16383
   %idxprom34.i.i7.i.i = zext nneg i32 %rem.i.i5.i.i to i64
   %arrayidx35.i.i8.i.i = getelementptr inbounds %struct.rev_name, ptr %42, i64 %idxprom34.i.i7.i.i
   br label %is_valid_rev_name.exit.i.i
 
-commit_rev_name_at.exit.i.i:                      ; preds = %if.end12.i.i.i.i
+commit_rev_name_at.argprom.exit.i.i:              ; preds = %if.end12.i.i.i.i
   %call24.i.i.i.i = call ptr @xcalloc(i64 noundef 16383, i64 noundef 32) #16
   %43 = load ptr, ptr @rev_names.3, align 8
   %arrayidx27.i.i.i.i = getelementptr inbounds ptr, ptr %43, i64 %idxprom14.i.i.i.i
@@ -587,13 +587,13 @@ commit_rev_name_at.exit.i.i:                      ; preds = %if.end12.i.i.i.i
   %idxprom34.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
   %arrayidx35.i.i.i.i = getelementptr inbounds %struct.rev_name, ptr %call24.i.i.i.i, i64 %idxprom34.i.i.i.i
   %tobool.not.i.i23.i = icmp eq ptr %call24.i.i.i.i, null
-  br i1 %tobool.not.i.i23.i, label %create_or_update_name.exit.i, label %is_valid_rev_name.exit.i.i
+  br i1 %tobool.not.i.i23.i, label %create_or_update_name.argprom.exit.i, label %is_valid_rev_name.exit.i.i
 
-is_valid_rev_name.exit.i.i:                       ; preds = %commit_rev_name_at.exit.i.i, %commit_rev_name_at.exit.thread.i.i
-  %arrayidx35.i.i10.i.i = phi ptr [ %arrayidx35.i.i8.i.i, %commit_rev_name_at.exit.thread.i.i ], [ %arrayidx35.i.i.i.i, %commit_rev_name_at.exit.i.i ]
+is_valid_rev_name.exit.i.i:                       ; preds = %commit_rev_name_at.argprom.exit.i.i, %commit_rev_name_at.argprom.exit.thread.i.i
+  %arrayidx35.i.i10.i.i = phi ptr [ %arrayidx35.i.i8.i.i, %commit_rev_name_at.argprom.exit.thread.i.i ], [ %arrayidx35.i.i.i.i, %commit_rev_name_at.argprom.exit.i.i ]
   %44 = load ptr, ptr %arrayidx35.i.i10.i.i, align 8
   %tobool1.i.not.i.i = icmp eq ptr %44, null
-  br i1 %tobool1.i.not.i.i, label %create_or_update_name.exit.thread27.i, label %land.lhs.true.i.i
+  br i1 %tobool1.i.not.i.i, label %create_or_update_name.argprom.exit.thread27.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %is_valid_rev_name.exit.i.i
   %distance1.i.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i10.i.i, i64 20
@@ -645,9 +645,9 @@ if.then20.i.i.i:                                  ; preds = %if.end16.i.i.i
 is_better_name.exit.i.i:                          ; preds = %if.then20.i.i.i, %if.then13.i.i.i, %if.end.i.i20.i, %if.then.i.i15.i
   %retval.0.i.i.i = phi i32 [ %conv.i.i17.i, %if.then.i.i15.i ], [ %conv15.i.i.i, %if.then13.i.i.i ], [ %conv23.i.i.i, %if.then20.i.i.i ], [ %bf.cast.i, %if.end.i.i20.i ]
   %tobool3.not.i18.i = icmp eq i32 %retval.0.i.i.i, 0
-  br i1 %tobool3.not.i18.i, label %name_rev.exit.i, label %create_or_update_name.exit.thread27.i
+  br i1 %tobool3.not.i18.i, label %name_rev.exit.i, label %create_or_update_name.argprom.exit.thread27.i
 
-create_or_update_name.exit.thread27.i:            ; preds = %is_better_name.exit.i.i, %is_valid_rev_name.exit.i.i
+create_or_update_name.argprom.exit.thread27.i:    ; preds = %is_better_name.exit.i.i, %is_valid_rev_name.exit.i.i
   %taggerdate4.i29.i = getelementptr inbounds i8, ptr %arrayidx35.i.i10.i.i, i64 8
   store i64 %30, ptr %taggerdate4.i29.i, align 8
   %generation5.i30.i = getelementptr inbounds i8, ptr %arrayidx35.i.i10.i.i, i64 16
@@ -660,7 +660,7 @@ create_or_update_name.exit.thread27.i:            ; preds = %is_better_name.exit
   %tobool6.not.i.i = icmp eq i8 %49, 0
   br i1 %tobool6.not.i.i, label %if.else.i.i, label %if.then7.i.i
 
-create_or_update_name.exit.i:                     ; preds = %commit_rev_name_at.exit.i.i
+create_or_update_name.argprom.exit.i:             ; preds = %commit_rev_name_at.argprom.exit.i.i
   %taggerdate4.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i.i.i, i64 8
   store i64 %30, ptr %taggerdate4.i.i, align 8
   %generation5.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i.i.i, i64 16
@@ -671,11 +671,11 @@ create_or_update_name.exit.i:                     ; preds = %commit_rev_name_at.
   store i32 %bf.cast.i, ptr %from_tag7.i.i, align 8
   br label %name_rev.exit.i
 
-if.then7.i.i:                                     ; preds = %create_or_update_name.exit.thread27.i
+if.then7.i.i:                                     ; preds = %create_or_update_name.argprom.exit.thread27.i
   %call8.i.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.34, ptr noundef %29) #16
   br label %if.end12.i.i
 
-if.else.i.i:                                      ; preds = %create_or_update_name.exit.thread27.i
+if.else.i.i:                                      ; preds = %create_or_update_name.argprom.exit.thread27.i
   %call10.i.i = call ptr @xstrdup(ptr noundef %29) #16
   br label %if.end12.i.i
 
@@ -692,9 +692,9 @@ while.body.lr.ph.i.i:                             ; preds = %if.end12.i.i
   %tobool.not.i12.i.i.i = icmp eq i8 %bf.clear.i, 0
   br label %while.body.i.i
 
-while.cond.loopexit.i.i:                          ; preds = %while.body62.i.i, %while.cond60.preheader.i.i, %get_commit_rev_name.exit.i.i
-  %parents_to_queue.1.lcssa118.i.i = phi ptr [ %parents_to_queue.2.i.i, %while.cond60.preheader.i.i ], [ %parents_to_queue.0109.i.i, %get_commit_rev_name.exit.i.i ], [ %parents_to_queue.2.i.i, %while.body62.i.i ]
-  %parents_to_queue_alloc.1.lcssa117.i.i = phi i64 [ %parents_to_queue_alloc.2.i.i, %while.cond60.preheader.i.i ], [ %parents_to_queue_alloc.0108.i.i, %get_commit_rev_name.exit.i.i ], [ %parents_to_queue_alloc.2.i.i, %while.body62.i.i ]
+while.cond.loopexit.i.i:                          ; preds = %while.body62.i.i, %while.cond60.preheader.i.i, %get_commit_rev_name.argprom.exit.i.i
+  %parents_to_queue.1.lcssa118.i.i = phi ptr [ %parents_to_queue.2.i.i, %while.cond60.preheader.i.i ], [ %parents_to_queue.0109.i.i, %get_commit_rev_name.argprom.exit.i.i ], [ %parents_to_queue.2.i.i, %while.body62.i.i ]
+  %parents_to_queue_alloc.1.lcssa117.i.i = phi i64 [ %parents_to_queue_alloc.2.i.i, %while.cond60.preheader.i.i ], [ %parents_to_queue_alloc.0108.i.i, %get_commit_rev_name.argprom.exit.i.i ], [ %parents_to_queue_alloc.2.i.i, %while.body62.i.i ]
   %call13.i.i = call ptr @prio_queue_get(ptr noundef nonnull %queue.i.i) #16
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %while.end64.i.i, label %while.body.i.i, !llvm.loop !8
@@ -725,19 +725,19 @@ is_valid_rev_name.exit.i.i.i:                     ; preds = %if.end12.i.i.i.i.i
   %54 = load ptr, ptr %arrayidx35.i.i.i.i.i, align 8
   %.fr.i.i.i = freeze ptr %54
   %tobool1.i.not.i.i.i = icmp eq ptr %.fr.i.i.i, null
-  br i1 %tobool1.i.not.i.i.i, label %is_valid_rev_name.exit.thread.i.i.i, label %get_commit_rev_name.exit.i.i
+  br i1 %tobool1.i.not.i.i.i, label %is_valid_rev_name.exit.thread.i.i.i, label %get_commit_rev_name.argprom.exit.i.i
 
 is_valid_rev_name.exit.thread.i.i.i:              ; preds = %is_valid_rev_name.exit.i.i.i, %if.end12.i.i.i.i.i, %while.body.i.i
-  br label %get_commit_rev_name.exit.i.i
+  br label %get_commit_rev_name.argprom.exit.i.i
 
-get_commit_rev_name.exit.i.i:                     ; preds = %is_valid_rev_name.exit.thread.i.i.i, %is_valid_rev_name.exit.i.i.i
+get_commit_rev_name.argprom.exit.i.i:             ; preds = %is_valid_rev_name.exit.thread.i.i.i, %is_valid_rev_name.exit.i.i.i
   %55 = phi ptr [ null, %is_valid_rev_name.exit.thread.i.i.i ], [ %arrayidx35.i.i.i.i.i, %is_valid_rev_name.exit.i.i.i ]
   %parents16.i.i = getelementptr inbounds i8, ptr %call13110.i.i, i64 48
   %parents.093.i.i = load ptr, ptr %parents16.i.i, align 8
   %tobool17.not94.i.i = icmp eq ptr %parents.093.i.i, null
   br i1 %tobool17.not94.i.i, label %while.cond.loopexit.i.i, label %for.body.lr.ph.i.i
 
-for.body.lr.ph.i.i:                               ; preds = %get_commit_rev_name.exit.i.i
+for.body.lr.ph.i.i:                               ; preds = %get_commit_rev_name.argprom.exit.i.i
   %generation26.i.i = getelementptr inbounds i8, ptr %55, i64 16
   %distance28.i.i = getelementptr inbounds i8, ptr %55, i64 20
   br label %for.body.i.i
@@ -837,15 +837,15 @@ if.end12.i.i.i54.i.i:                             ; preds = %for.end.i.i.i.i.i, 
   %arrayidx15.i.i.i56.i.i = getelementptr inbounds ptr, ptr %69, i64 %idxprom14.i.i.i55.i.i
   %70 = load ptr, ptr %arrayidx15.i.i.i56.i.i, align 8
   %tobool16.not.i.i.i57.i.i = icmp eq ptr %70, null
-  br i1 %tobool16.not.i.i.i57.i.i, label %commit_rev_name_at.exit.i.i.i, label %commit_rev_name_at.exit.thread.i.i.i
+  br i1 %tobool16.not.i.i.i57.i.i, label %commit_rev_name_at.argprom.exit.i.i.i, label %commit_rev_name_at.argprom.exit.thread.i.i.i
 
-commit_rev_name_at.exit.thread.i.i.i:             ; preds = %if.end12.i.i.i54.i.i
+commit_rev_name_at.argprom.exit.thread.i.i.i:     ; preds = %if.end12.i.i.i54.i.i
   %rem.i.i5.i.i.i = urem i32 %.val.i.i, 16383
   %idxprom34.i.i7.i.i.i = zext nneg i32 %rem.i.i5.i.i.i to i64
   %arrayidx35.i.i8.i.i.i = getelementptr inbounds %struct.rev_name, ptr %70, i64 %idxprom34.i.i7.i.i.i
   br label %is_valid_rev_name.exit.i58.i.i
 
-commit_rev_name_at.exit.i.i.i:                    ; preds = %if.end12.i.i.i54.i.i
+commit_rev_name_at.argprom.exit.i.i.i:            ; preds = %if.end12.i.i.i54.i.i
   %call24.i.i.i.i.i = call ptr @xcalloc(i64 noundef 16383, i64 noundef 32) #16
   %71 = load ptr, ptr @rev_names.3, align 8
   %arrayidx27.i.i.i.i.i = getelementptr inbounds ptr, ptr %71, i64 %idxprom14.i.i.i55.i.i
@@ -853,13 +853,13 @@ commit_rev_name_at.exit.i.i.i:                    ; preds = %if.end12.i.i.i54.i.
   %idxprom34.i.i.i64.i.i = zext nneg i32 %rem.i.i.i62.i.i to i64
   %arrayidx35.i.i.i65.i.i = getelementptr inbounds %struct.rev_name, ptr %call24.i.i.i.i.i, i64 %idxprom34.i.i.i64.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %call24.i.i.i.i.i, null
-  br i1 %tobool.not.i.i.i.i, label %create_or_update_name.exit.i.i, label %is_valid_rev_name.exit.i58.i.i
+  br i1 %tobool.not.i.i.i.i, label %create_or_update_name.argprom.exit.i.i, label %is_valid_rev_name.exit.i58.i.i
 
-is_valid_rev_name.exit.i58.i.i:                   ; preds = %commit_rev_name_at.exit.i.i.i, %commit_rev_name_at.exit.thread.i.i.i
-  %arrayidx35.i.i10.i.i.i = phi ptr [ %arrayidx35.i.i8.i.i.i, %commit_rev_name_at.exit.thread.i.i.i ], [ %arrayidx35.i.i.i65.i.i, %commit_rev_name_at.exit.i.i.i ]
+is_valid_rev_name.exit.i58.i.i:                   ; preds = %commit_rev_name_at.argprom.exit.i.i.i, %commit_rev_name_at.argprom.exit.thread.i.i.i
+  %arrayidx35.i.i10.i.i.i = phi ptr [ %arrayidx35.i.i8.i.i.i, %commit_rev_name_at.argprom.exit.thread.i.i.i ], [ %arrayidx35.i.i.i65.i.i, %commit_rev_name_at.argprom.exit.i.i.i ]
   %72 = load ptr, ptr %arrayidx35.i.i10.i.i.i, align 8
   %tobool1.i.not.i59.i.i = icmp eq ptr %72, null
-  br i1 %tobool1.i.not.i59.i.i, label %create_or_update_name.exit.thread81.i.i, label %land.lhs.true.i.i.i
+  br i1 %tobool1.i.not.i59.i.i, label %create_or_update_name.argprom.exit.thread81.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %is_valid_rev_name.exit.i58.i.i
   %distance1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i10.i.i.i, i64 20
@@ -913,9 +913,9 @@ if.then20.i.i.i.i:                                ; preds = %if.end16.i.i.i.i
 is_better_name.exit.i.i.i:                        ; preds = %if.then20.i.i.i.i, %if.then13.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i32 [ %conv.i.i.i.i, %if.then.i.i.i.i ], [ %conv15.i.i.i.i, %if.then13.i.i.i.i ], [ %conv23.i.i.i.i, %if.then20.i.i.i.i ], [ %bf.cast.i, %if.end.i.i.i.i ]
   %tobool3.not.i.i.i = icmp eq i32 %retval.0.i.i.i.i, 0
-  br i1 %tobool3.not.i.i.i, label %for.inc.i.i, label %create_or_update_name.exit.thread81.i.i
+  br i1 %tobool3.not.i.i.i, label %for.inc.i.i, label %create_or_update_name.argprom.exit.thread81.i.i
 
-create_or_update_name.exit.thread81.i.i:          ; preds = %is_better_name.exit.i.i.i, %is_valid_rev_name.exit.i58.i.i
+create_or_update_name.argprom.exit.thread81.i.i:  ; preds = %is_better_name.exit.i.i.i, %is_valid_rev_name.exit.i58.i.i
   %taggerdate4.i83.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i10.i.i.i, i64 8
   store i64 %30, ptr %taggerdate4.i83.i.i, align 8
   %generation5.i84.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i10.i.i.i, i64 16
@@ -926,7 +926,7 @@ create_or_update_name.exit.thread81.i.i:          ; preds = %is_better_name.exit
   store i32 %bf.cast.i, ptr %from_tag7.i86.i.i, align 8
   br i1 %cmp.i8.i, label %if.then35.i.i, label %if.else38.i.i
 
-create_or_update_name.exit.i.i:                   ; preds = %commit_rev_name_at.exit.i.i.i
+create_or_update_name.argprom.exit.i.i:           ; preds = %commit_rev_name_at.argprom.exit.i.i.i
   %taggerdate4.i.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i.i65.i.i, i64 8
   store i64 %30, ptr %taggerdate4.i.i.i, align 8
   %generation5.i.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i.i65.i.i, i64 16
@@ -937,13 +937,13 @@ create_or_update_name.exit.i.i:                   ; preds = %commit_rev_name_at.
   store i32 %bf.cast.i, ptr %from_tag7.i.i.i, align 8
   br label %for.inc.i.i
 
-if.then35.i.i:                                    ; preds = %create_or_update_name.exit.thread81.i.i
+if.then35.i.i:                                    ; preds = %create_or_update_name.argprom.exit.thread81.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_name.buf, i64 24, i1 false)
   %77 = load ptr, ptr %55, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %77) #19
   %cmp.i.i.i66.i.i = icmp ult i64 %call.i.i.i.i, 2
-  br i1 %cmp.i.i.i66.i.i, label %strip_suffix.exit.i.i.i, label %lor.lhs.false.i.i.i.i.i
+  br i1 %cmp.i.i.i66.i.i, label %strip_suffix.argprom.exit.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then35.i.i
   %sub.i.i.i.i.i = add i64 %call.i.i.i.i, -2
@@ -951,15 +951,15 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then35.i.i
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
   %tobool.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %spec.select.i.i.i = select i1 %tobool.not.i.i.i.i.i, i64 %sub.i.i.i.i.i, i64 %call.i.i.i.i
-  br label %strip_suffix.exit.i.i.i
+  br label %strip_suffix.argprom.exit.i.i.i
 
-strip_suffix.exit.i.i.i:                          ; preds = %lor.lhs.false.i.i.i.i.i, %if.then35.i.i
+strip_suffix.argprom.exit.i.i.i:                  ; preds = %lor.lhs.false.i.i.i.i.i, %if.then35.i.i
   %len.0.i.i.i = phi i64 [ %call.i.i.i.i, %if.then35.i.i ], [ %spec.select.i.i.i, %lor.lhs.false.i.i.i.i.i ]
   %78 = load i32, ptr %generation26.i.i, align 8
   %cmp.i67.i.i = icmp sgt i32 %78, 0
   br i1 %cmp.i67.i.i, label %if.then.i69.i.i, label %if.else.i.i.i
 
-if.then.i69.i.i:                                  ; preds = %strip_suffix.exit.i.i.i
+if.then.i69.i.i:                                  ; preds = %strip_suffix.argprom.exit.i.i.i
   %conv.i.i.i = zext nneg i32 %78 to i64
   %call2.i.i.i = call i32 @decimal_width(i64 noundef %conv.i.i.i) #16
   %conv3.i.i.i = sext i32 %call2.i.i.i to i64
@@ -976,7 +976,7 @@ if.then.i69.i.i:                                  ; preds = %strip_suffix.exit.i
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i.i.i, ptr noundef nonnull @.str.36, i32 noundef %conv10.i.i.i, ptr noundef %79, i32 noundef %80, i32 noundef %81) #16
   br label %get_parent_name.exit.i.i
 
-if.else.i.i.i:                                    ; preds = %strip_suffix.exit.i.i.i
+if.else.i.i.i:                                    ; preds = %strip_suffix.argprom.exit.i.i.i
   %add13.i.i.i = add i64 %len.0.i.i.i, 1
   %call15.i.i.i = call i32 @decimal_width(i64 noundef %indvars.iv.i.i) #16
   %conv16.i.i.i = sext i32 %call15.i.i.i to i64
@@ -993,7 +993,7 @@ get_parent_name.exit.i.i:                         ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i.i.i)
   br label %do.body.i.i
 
-if.else38.i.i:                                    ; preds = %create_or_update_name.exit.thread81.i.i
+if.else38.i.i:                                    ; preds = %create_or_update_name.argprom.exit.thread81.i.i
   %84 = load ptr, ptr %55, align 8
   br label %do.body.i.i
 
@@ -1028,10 +1028,10 @@ do.end.i.i:                                       ; preds = %st_mult.exit.i.i, %
   store ptr %56, ptr %arrayidx.i.i, align 8
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %do.end.i.i, %create_or_update_name.exit.i.i, %is_better_name.exit.i.i.i, %if.end16.i.i.i.i, %commit_is_before_cutoff.exit51.i.i, %if.end.i41.i.i
-  %parents_to_queue_alloc.2.i.i = phi i64 [ %parents_to_queue_alloc.195.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %parents_to_queue_alloc.4.i.i, %do.end.i.i ], [ %parents_to_queue_alloc.195.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue_alloc.195.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue_alloc.195.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue_alloc.195.i.i, %if.end.i41.i.i ]
-  %parents_to_queue_nr.1.i.i = phi i64 [ %parents_to_queue_nr.099.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %add42.i.i, %do.end.i.i ], [ %parents_to_queue_nr.099.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue_nr.099.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue_nr.099.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue_nr.099.i.i, %if.end.i41.i.i ]
-  %parents_to_queue.2.i.i = phi ptr [ %parents_to_queue.1100.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %parents_to_queue.3.i.i, %do.end.i.i ], [ %parents_to_queue.1100.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue.1100.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue.1100.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue.1100.i.i, %if.end.i41.i.i ]
+for.inc.i.i:                                      ; preds = %do.end.i.i, %create_or_update_name.argprom.exit.i.i, %is_better_name.exit.i.i.i, %if.end16.i.i.i.i, %commit_is_before_cutoff.exit51.i.i, %if.end.i41.i.i
+  %parents_to_queue_alloc.2.i.i = phi i64 [ %parents_to_queue_alloc.195.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %parents_to_queue_alloc.4.i.i, %do.end.i.i ], [ %parents_to_queue_alloc.195.i.i, %create_or_update_name.argprom.exit.i.i ], [ %parents_to_queue_alloc.195.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue_alloc.195.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue_alloc.195.i.i, %if.end.i41.i.i ]
+  %parents_to_queue_nr.1.i.i = phi i64 [ %parents_to_queue_nr.099.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %add42.i.i, %do.end.i.i ], [ %parents_to_queue_nr.099.i.i, %create_or_update_name.argprom.exit.i.i ], [ %parents_to_queue_nr.099.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue_nr.099.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue_nr.099.i.i, %if.end.i41.i.i ]
+  %parents_to_queue.2.i.i = phi ptr [ %parents_to_queue.1100.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %parents_to_queue.3.i.i, %do.end.i.i ], [ %parents_to_queue.1100.i.i, %create_or_update_name.argprom.exit.i.i ], [ %parents_to_queue.1100.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue.1100.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue.1100.i.i, %if.end.i41.i.i ]
   %next.i.i = getelementptr inbounds i8, ptr %parents.0101.i.i, i64 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %parents.0.i.i = load ptr, ptr %next.i.i, align 8
@@ -1053,7 +1053,7 @@ while.end64.i.i:                                  ; preds = %while.cond.loopexit
   call void @free(ptr noundef %parents_to_queue.0.lcssa.i.i) #16
   br label %name_rev.exit.i
 
-name_rev.exit.i:                                  ; preds = %while.end64.i.i, %create_or_update_name.exit.i, %is_better_name.exit.i.i, %if.end16.i.i.i, %commit_is_before_cutoff.exit.i.i, %if.end.i.i.i
+name_rev.exit.i:                                  ; preds = %while.end64.i.i, %create_or_update_name.argprom.exit.i, %is_better_name.exit.i.i, %if.end16.i.i.i, %commit_is_before_cutoff.exit.i.i, %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %queue.i.i)
   %.pre38.i = load i32, ptr @tip_table.1, align 8
   br label %for.inc.i
@@ -1899,14 +1899,14 @@ strbuf_setlen.exit:                               ; preds = %if.else, %if.then4.
   %15 = load ptr, ptr %buf.i, align 8
   %16 = load i64, ptr %len2.i, align 8
   %cmp.i.i15 = icmp ult i64 %16, 2
-  br i1 %cmp.i.i15, label %strbuf_strip_suffix.exit, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i15, label %strbuf_strip_suffix.argprom.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %strbuf_setlen.exit
   %sub.i.i = add i64 %16, -2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %add.ptr.i.i, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.exit
+  br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.argprom.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i.i
   store i64 %sub.i.i, ptr %len2.i, align 8
@@ -1921,19 +1921,19 @@ if.then.i.i17:                                    ; preds = %if.then.i
 
 if.end.i5.i:                                      ; preds = %if.then.i
   %cmp3.not.i.i = icmp eq ptr %15, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i, label %strbuf_strip_suffix.exit, label %if.then4.i.i
+  br i1 %cmp3.not.i.i, label %strbuf_strip_suffix.argprom.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i5.i
   store i8 0, ptr %add.ptr.i.i, align 1
-  br label %strbuf_strip_suffix.exit
+  br label %strbuf_strip_suffix.argprom.exit
 
-strbuf_strip_suffix.exit:                         ; preds = %strbuf_setlen.exit, %lor.lhs.false.i.i, %if.end.i5.i, %if.then4.i.i
+strbuf_strip_suffix.argprom.exit:                 ; preds = %strbuf_setlen.exit, %lor.lhs.false.i.i, %if.end.i5.i, %if.then4.i.i
   %18 = load i32, ptr %generation, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.40, i32 noundef %18) #16
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %strbuf_strip_suffix.exit, %if.then7.i
-  %refname.i.sink = phi ptr [ %refname.i, %if.then7.i ], [ %buf.i, %strbuf_strip_suffix.exit ]
+return.sink.split:                                ; preds = %strbuf_strip_suffix.argprom.exit, %if.then7.i
+  %refname.i.sink = phi ptr [ %refname.i, %if.then7.i ], [ %buf.i, %strbuf_strip_suffix.argprom.exit ]
   %19 = load ptr, ptr %refname.i.sink, align 8
   br label %return
 

@@ -554,7 +554,7 @@ define internal fastcc void @io_buffer_initialize(i64 noundef %0, ptr nocapture 
 
 7:                                                ; preds = %6
   %.not19 = icmp eq i64 %3, 0
-  br i1 %.not19, label %rb_obj_write.exit, label %8
+  br i1 %.not19, label %rb_obj_write.argprom.exit, label %8
 
 8:                                                ; preds = %7
   %9 = and i32 %4, 2
@@ -607,13 +607,13 @@ io_buffer_map_memory.exit.thread:                 ; preds = %12, %io_buffer_map_
   %27 = icmp ne i64 %26, 0
   %28 = icmp eq i64 %5, 0
   %29 = or i1 %28, %27
-  br i1 %29, label %rb_obj_write.exit, label %30
+  br i1 %29, label %rb_obj_write.argprom.exit, label %30
 
 30:                                               ; preds = %22
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %5) #20
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %30, %22, %7
+rb_obj_write.argprom.exit:                        ; preds = %30, %22, %7
   ret void
 }
 
@@ -1567,15 +1567,15 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local
 28:                                               ; preds = %20
   %.val = load i64, ptr %21, align 8
   %29 = icmp ugt i64 %1, %.val
-  br i1 %29, label %30, label %io_buffer_resize_clear.exit
+  br i1 %29, label %30, label %io_buffer_resize_clear.argprom.exit
 
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %23, i64 %.val
   %32 = sub nuw i64 %1, %.val
   tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
-  br label %io_buffer_resize_clear.exit
+  br label %io_buffer_resize_clear.argprom.exit
 
-io_buffer_resize_clear.exit:                      ; preds = %28, %30
+io_buffer_resize_clear.argprom.exit:              ; preds = %28, %30
   store ptr %23, ptr %3, align 8
   store i64 %1, ptr %21, align 8
   br label %88
@@ -1624,15 +1624,15 @@ io_buffer_free.exit:                              ; preds = %37, %39
   %51 = getelementptr i8, ptr %3, i64 8
   %.val44 = load i64, ptr %51, align 8
   %52 = icmp ugt i64 %1, %.val44
-  br i1 %52, label %53, label %io_buffer_resize_clear.exit46
+  br i1 %52, label %53, label %io_buffer_resize_clear.argprom.exit46
 
 53:                                               ; preds = %50
   %54 = getelementptr i8, ptr %46, i64 %.val44
   %55 = sub nuw i64 %1, %.val44
   tail call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %55, i1 false)
-  br label %io_buffer_resize_clear.exit46
+  br label %io_buffer_resize_clear.argprom.exit46
 
-io_buffer_resize_clear.exit46:                    ; preds = %50, %53
+io_buffer_resize_clear.argprom.exit46:            ; preds = %50, %53
   store ptr %46, ptr %3, align 8
   store i64 %1, ptr %51, align 8
   br label %88
@@ -1696,20 +1696,20 @@ io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_init
 ruby_nonempty_memcpy.exit.i:                      ; preds = %72, %io_buffer_initialize.exit.i.thread
   %.val.i = phi i64 [ %71, %io_buffer_initialize.exit.i.thread ], [ %.val.pre.i, %72 ]
   %73 = icmp ugt i64 %1, %.val.i
-  br i1 %73, label %74, label %io_buffer_resize_clear.exit.i
+  br i1 %73, label %74, label %io_buffer_resize_clear.argprom.exit.i
 
 74:                                               ; preds = %ruby_nonempty_memcpy.exit.i
   %75 = getelementptr i8, ptr %.sroa.0.0.i50, i64 %.val.i
   %76 = sub nuw i64 %1, %.val.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 0, i64 %76, i1 false)
-  br label %io_buffer_resize_clear.exit.i
+  br label %io_buffer_resize_clear.argprom.exit.i
 
-io_buffer_resize_clear.exit.i:                    ; preds = %74, %ruby_nonempty_memcpy.exit.i
+io_buffer_resize_clear.argprom.exit.i:            ; preds = %74, %ruby_nonempty_memcpy.exit.i
   %.pr.i = load ptr, ptr %3, align 8
   %.not.i16.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i16.i, label %io_buffer_resize_copy.exit, label %77
 
-77:                                               ; preds = %io_buffer_resize_clear.exit.i
+77:                                               ; preds = %io_buffer_resize_clear.argprom.exit.i
   %78 = load i32, ptr %4, align 8
   %79 = and i32 %78, 2
   %.not10.i.i = icmp eq i32 %79, 0
@@ -1732,8 +1732,8 @@ io_buffer_resize_clear.exit.i:                    ; preds = %74, %ruby_nonempty_
   %87 = tail call i32 @munmap(ptr noundef %85, i64 noundef %86) #20
   br label %io_buffer_resize_copy.exit
 
-io_buffer_resize_copy.exit:                       ; preds = %io_buffer_initialize.exit.i, %io_buffer_resize_clear.exit.i, %81, %84
-  %.sroa.0.0.i51 = phi ptr [ %.1.i.i, %io_buffer_initialize.exit.i ], [ %.sroa.0.0.i50, %io_buffer_resize_clear.exit.i ], [ %.sroa.0.0.i50, %81 ], [ %.sroa.0.0.i50, %84 ]
+io_buffer_resize_copy.exit:                       ; preds = %io_buffer_initialize.exit.i, %io_buffer_resize_clear.argprom.exit.i, %81, %84
+  %.sroa.0.0.i51 = phi ptr [ %.1.i.i, %io_buffer_initialize.exit.i ], [ %.sroa.0.0.i50, %io_buffer_resize_clear.argprom.exit.i ], [ %.sroa.0.0.i50, %81 ], [ %.sroa.0.0.i50, %84 ]
   store ptr %.sroa.0.0.i51, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %1, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -1742,7 +1742,7 @@ io_buffer_resize_copy.exit:                       ; preds = %io_buffer_initializ
   store i64 4, ptr %.sroa.618.0..sroa_idx.i, align 8
   br label %88
 
-88:                                               ; preds = %io_buffer_resize_copy.exit, %io_buffer_resize_clear.exit46, %io_buffer_free.exit, %io_buffer_resize_clear.exit, %12
+88:                                               ; preds = %io_buffer_resize_copy.exit, %io_buffer_resize_clear.argprom.exit46, %io_buffer_free.exit, %io_buffer_resize_clear.argprom.exit, %12
   ret void
 }
 
@@ -1795,14 +1795,14 @@ io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.
   %.val = load i64, ptr %20, align 8
   %21 = add i64 %3, %2
   %22 = icmp ugt i64 %21, %.val
-  br i1 %22, label %23, label %io_buffer_validate_range.exit
+  br i1 %22, label %23, label %io_buffer_validate_range.argprom.exit
 
 23:                                               ; preds = %io_buffer_validate.exit.thread.i
   %24 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit:                    ; preds = %io_buffer_validate.exit.thread.i
+io_buffer_validate_range.argprom.exit:            ; preds = %io_buffer_validate.exit.thread.i
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr i8, ptr %25, i64 %2
   tail call void @llvm.memset.p0.i64(ptr align 1 %26, i8 %1, i64 %3, i1 false)
@@ -1831,14 +1831,14 @@ define dso_local i64 @rb_io_buffer_read(i64 noundef %0, i64 noundef %1, i64 noun
   %.val = load i64, ptr %13, align 8
   %14 = add i64 %3, %2
   %15 = icmp ugt i64 %14, %.val
-  br i1 %15, label %16, label %io_buffer_validate_range.exit
+  br i1 %15, label %16, label %io_buffer_validate_range.argprom.exit
 
 16:                                               ; preds = %11
   %17 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit:                    ; preds = %11
+io_buffer_validate_range.argprom.exit:            ; preds = %11
   %18 = tail call i32 @rb_io_descriptor(i64 noundef %1) #20
   %19 = getelementptr inbounds i8, ptr %12, i64 16
   %20 = load i32, ptr %19, align 8
@@ -1846,12 +1846,12 @@ io_buffer_validate_range.exit:                    ; preds = %11
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %24, label %22
 
-22:                                               ; preds = %io_buffer_validate_range.exit
+22:                                               ; preds = %io_buffer_validate_range.argprom.exit
   %23 = load i64, ptr @rb_eIOBufferAccessError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.116) #21
   unreachable
 
-24:                                               ; preds = %io_buffer_validate_range.exit
+24:                                               ; preds = %io_buffer_validate_range.argprom.exit
   %25 = getelementptr inbounds i8, ptr %12, i64 24
   %26 = load i64, ptr %25, align 8
   %.not.i.i = icmp eq i64 %26, 4
@@ -2038,14 +2038,14 @@ define dso_local i64 @rb_io_buffer_pread(i64 noundef %0, i64 noundef %1, i64 nou
   %.val = load i64, ptr %14, align 8
   %15 = add i64 %4, %3
   %16 = icmp ugt i64 %15, %.val
-  br i1 %16, label %17, label %io_buffer_validate_range.exit
+  br i1 %16, label %17, label %io_buffer_validate_range.argprom.exit
 
 17:                                               ; preds = %12
   %18 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit:                    ; preds = %12
+io_buffer_validate_range.argprom.exit:            ; preds = %12
   %19 = tail call i32 @rb_io_descriptor(i64 noundef %1) #20
   %20 = getelementptr inbounds i8, ptr %13, i64 16
   %21 = load i32, ptr %20, align 8
@@ -2053,12 +2053,12 @@ io_buffer_validate_range.exit:                    ; preds = %12
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %25, label %23
 
-23:                                               ; preds = %io_buffer_validate_range.exit
+23:                                               ; preds = %io_buffer_validate_range.argprom.exit
   %24 = load i64, ptr @rb_eIOBufferAccessError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.116) #21
   unreachable
 
-25:                                               ; preds = %io_buffer_validate_range.exit
+25:                                               ; preds = %io_buffer_validate_range.argprom.exit
   %26 = getelementptr inbounds i8, ptr %13, i64 24
   %27 = load i64, ptr %26, align 8
   %.not.i.i = icmp eq i64 %27, 4
@@ -2250,21 +2250,21 @@ define dso_local i64 @rb_io_buffer_write(i64 noundef %0, i64 noundef %1, i64 nou
   %.val = load i64, ptr %13, align 8
   %14 = add i64 %3, %2
   %15 = icmp ugt i64 %14, %.val
-  br i1 %15, label %16, label %io_buffer_validate_range.exit
+  br i1 %15, label %16, label %io_buffer_validate_range.argprom.exit
 
 16:                                               ; preds = %11
   %17 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit:                    ; preds = %11
+io_buffer_validate_range.argprom.exit:            ; preds = %11
   %18 = tail call i32 @rb_io_descriptor(i64 noundef %1) #20
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = load i64, ptr %19, align 8
   %.not.i.i = icmp eq i64 %20, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
-io_buffer_validate.exit.i:                        ; preds = %io_buffer_validate_range.exit
+io_buffer_validate.exit.i:                        ; preds = %io_buffer_validate_range.argprom.exit
   %21 = load ptr, ptr %12, align 8
   %22 = load i64, ptr %13, align 8
   %23 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %20, ptr noundef %21, i64 noundef %22)
@@ -2276,7 +2276,7 @@ io_buffer_validate.exit.i:                        ; preds = %io_buffer_validate_
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.118) #21
   unreachable
 
-io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.exit.i, %io_buffer_validate_range.exit
+io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.exit.i, %io_buffer_validate_range.argprom.exit
   %26 = load ptr, ptr %12, align 8
   %.not8.i = icmp eq ptr %26, null
   br i1 %.not8.i, label %io_buffer_get_bytes_for_reading.exit, label %27
@@ -2444,21 +2444,21 @@ define dso_local i64 @rb_io_buffer_pwrite(i64 noundef %0, i64 noundef %1, i64 no
   %.val = load i64, ptr %14, align 8
   %15 = add i64 %4, %3
   %16 = icmp ugt i64 %15, %.val
-  br i1 %16, label %17, label %io_buffer_validate_range.exit
+  br i1 %16, label %17, label %io_buffer_validate_range.argprom.exit
 
 17:                                               ; preds = %12
   %18 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit:                    ; preds = %12
+io_buffer_validate_range.argprom.exit:            ; preds = %12
   %19 = tail call i32 @rb_io_descriptor(i64 noundef %1) #20
   %20 = getelementptr inbounds i8, ptr %13, i64 24
   %21 = load i64, ptr %20, align 8
   %.not.i.i = icmp eq i64 %21, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
-io_buffer_validate.exit.i:                        ; preds = %io_buffer_validate_range.exit
+io_buffer_validate.exit.i:                        ; preds = %io_buffer_validate_range.argprom.exit
   %22 = load ptr, ptr %13, align 8
   %23 = load i64, ptr %14, align 8
   %24 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %21, ptr noundef %22, i64 noundef %23)
@@ -2470,7 +2470,7 @@ io_buffer_validate.exit.i:                        ; preds = %io_buffer_validate_
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.118) #21
   unreachable
 
-io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.exit.i, %io_buffer_validate_range.exit
+io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.exit.i, %io_buffer_validate_range.argprom.exit
   %27 = load ptr, ptr %13, align 8
   %.not8.i = icmp eq ptr %27, null
   br i1 %.not8.i, label %io_buffer_get_bytes_for_reading.exit, label %28
@@ -3088,26 +3088,26 @@ io_buffer_extract_width.exit:                     ; preds = %rb_num2ull_inline.e
   %.val = load i64, ptr %26, align 8
   %27 = add i64 %25, %24
   %28 = icmp ugt i64 %27, %.val
-  br i1 %28, label %29, label %io_buffer_validate_range.exit
+  br i1 %28, label %29, label %io_buffer_validate_range.argprom.exit
 
 29:                                               ; preds = %io_buffer_extract_width.exit
   %30 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit:                    ; preds = %io_buffer_extract_width.exit
+io_buffer_validate_range.argprom.exit:            ; preds = %io_buffer_extract_width.exit
   %31 = getelementptr inbounds i8, ptr %7, i64 24
   %32 = load i64, ptr %31, align 8
   %.not.i15 = icmp eq i64 %32, 4
   br i1 %.not.i15, label %io_buffer_validate.exit.thread, label %io_buffer_validate.exit
 
-io_buffer_validate.exit:                          ; preds = %io_buffer_validate_range.exit
+io_buffer_validate.exit:                          ; preds = %io_buffer_validate_range.argprom.exit
   %33 = load ptr, ptr %7, align 8
   %34 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %32, ptr noundef %33, i64 noundef %.val)
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %48, label %io_buffer_validate.exit.thread
 
-io_buffer_validate.exit.thread:                   ; preds = %io_buffer_validate_range.exit, %io_buffer_validate.exit
+io_buffer_validate.exit.thread:                   ; preds = %io_buffer_validate_range.argprom.exit, %io_buffer_validate.exit
   %35 = load ptr, ptr %7, align 8
   %.not14 = icmp eq ptr %35, null
   br i1 %.not14, label %48, label %36
@@ -3271,26 +3271,26 @@ rb_check_arity.exit:                              ; preds = %3
   %.val.i = load i64, ptr %10, align 8
   %11 = add i64 %9, %8
   %12 = icmp ugt i64 %11, %.val.i
-  br i1 %12, label %13, label %io_buffer_validate_range.exit.i
+  br i1 %12, label %13, label %io_buffer_validate_range.argprom.exit.i
 
 13:                                               ; preds = %rb_check_arity.exit
   %14 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit.i:                  ; preds = %rb_check_arity.exit
+io_buffer_validate_range.argprom.exit.i:          ; preds = %rb_check_arity.exit
   %15 = and i64 %2, 7
   %16 = icmp ne i64 %15, 0
   %17 = icmp eq i64 %2, 0
   %18 = or i1 %17, %16
   br i1 %18, label %22, label %19
 
-19:                                               ; preds = %io_buffer_validate_range.exit.i
+19:                                               ; preds = %io_buffer_validate_range.argprom.exit.i
   %20 = inttoptr i64 %2 to ptr
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   br label %rb_class_of.exit.i
 
-22:                                               ; preds = %io_buffer_validate_range.exit.i
+22:                                               ; preds = %io_buffer_validate_range.argprom.exit.i
   switch i64 %2, label %25 [
     i64 0, label %rb_class_of.exit.i
     i64 4, label %23
@@ -3353,18 +3353,18 @@ rb_io_buffer_type_allocate.exit.i:                ; preds = %36, %rb_class_of.ex
   %49 = icmp ne i64 %48, 0
   %50 = icmp eq i64 %45, 0
   %51 = or i1 %50, %49
-  br i1 %51, label %rb_io_buffer_slice.exit, label %rb_obj_write.exit.sink.split.i
+  br i1 %51, label %rb_io_buffer_slice.exit, label %rb_obj_write.argprom.exit.sink.split.i
 
 52:                                               ; preds = %rb_io_buffer_type_allocate.exit.i
   store i64 %2, ptr %46, align 8
-  br i1 %18, label %rb_io_buffer_slice.exit, label %rb_obj_write.exit.sink.split.i
+  br i1 %18, label %rb_io_buffer_slice.exit, label %rb_obj_write.argprom.exit.sink.split.i
 
-rb_obj_write.exit.sink.split.i:                   ; preds = %52, %47
+rb_obj_write.argprom.exit.sink.split.i:           ; preds = %52, %47
   %.sink.i = phi i64 [ %45, %47 ], [ %2, %52 ]
   tail call void @rb_gc_writebarrier(i64 noundef %30, i64 noundef %.sink.i) #20
   br label %rb_io_buffer_slice.exit
 
-rb_io_buffer_slice.exit:                          ; preds = %47, %52, %rb_obj_write.exit.sink.split.i
+rb_io_buffer_slice.exit:                          ; preds = %47, %52, %rb_obj_write.argprom.exit.sink.split.i
   ret i64 %30
 }
 
@@ -4425,14 +4425,14 @@ io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.
   %.val = load i64, ptr %27, align 8
   %28 = add i64 %26, %25
   %29 = icmp ugt i64 %28, %.val
-  br i1 %29, label %30, label %io_buffer_validate_range.exit
+  br i1 %29, label %30, label %io_buffer_validate_range.argprom.exit
 
 30:                                               ; preds = %24
   %31 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %31, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit:                    ; preds = %24
+io_buffer_validate_range.argprom.exit:            ; preds = %24
   %32 = getelementptr i8, ptr %16, i64 %25
   %33 = tail call i64 @rb_enc_str_new(ptr noundef %32, i64 noundef %26, ptr noundef %.0) #20
   ret i64 %33
@@ -4480,14 +4480,14 @@ define internal i64 @io_buffer_and(i64 noundef %0, i64 noundef %1) #0 {
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load i64, ptr %5, align 8
   %6 = icmp eq i64 %.val, 0
-  br i1 %6, label %7, label %io_buffer_check_mask.exit
+  br i1 %6, label %7, label %io_buffer_check_mask.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @rb_eIOBufferMaskError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.142) #21
   unreachable
 
-io_buffer_check_mask.exit:                        ; preds = %2
+io_buffer_check_mask.argprom.exit:                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
@@ -4503,12 +4503,12 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %18 = getelementptr i8, ptr %14, i64 32
   br i1 %.not.i.i.i, label %19, label %rb_io_buffer_new.exit
 
-19:                                               ; preds = %io_buffer_check_mask.exit
+19:                                               ; preds = %io_buffer_check_mask.argprom.exit
   %20 = load ptr, ptr %18, align 8
   br label %rb_io_buffer_new.exit
 
-rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
-  %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
+rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.argprom.exit, %19
+  %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.argprom.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
@@ -4551,14 +4551,14 @@ define internal i64 @io_buffer_or(i64 noundef %0, i64 noundef %1) #0 {
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load i64, ptr %5, align 8
   %6 = icmp eq i64 %.val, 0
-  br i1 %6, label %7, label %io_buffer_check_mask.exit
+  br i1 %6, label %7, label %io_buffer_check_mask.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @rb_eIOBufferMaskError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.142) #21
   unreachable
 
-io_buffer_check_mask.exit:                        ; preds = %2
+io_buffer_check_mask.argprom.exit:                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
@@ -4574,12 +4574,12 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %18 = getelementptr i8, ptr %14, i64 32
   br i1 %.not.i.i.i, label %19, label %rb_io_buffer_new.exit
 
-19:                                               ; preds = %io_buffer_check_mask.exit
+19:                                               ; preds = %io_buffer_check_mask.argprom.exit
   %20 = load ptr, ptr %18, align 8
   br label %rb_io_buffer_new.exit
 
-rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
-  %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
+rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.argprom.exit, %19
+  %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.argprom.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
@@ -4622,14 +4622,14 @@ define internal i64 @io_buffer_xor(i64 noundef %0, i64 noundef %1) #0 {
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load i64, ptr %5, align 8
   %6 = icmp eq i64 %.val, 0
-  br i1 %6, label %7, label %io_buffer_check_mask.exit
+  br i1 %6, label %7, label %io_buffer_check_mask.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @rb_eIOBufferMaskError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.142) #21
   unreachable
 
-io_buffer_check_mask.exit:                        ; preds = %2
+io_buffer_check_mask.argprom.exit:                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
@@ -4645,12 +4645,12 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %18 = getelementptr i8, ptr %14, i64 32
   br i1 %.not.i.i.i, label %19, label %rb_io_buffer_new.exit
 
-19:                                               ; preds = %io_buffer_check_mask.exit
+19:                                               ; preds = %io_buffer_check_mask.argprom.exit
   %20 = load ptr, ptr %18, align 8
   br label %rb_io_buffer_new.exit
 
-rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
-  %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
+rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.argprom.exit, %19
+  %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.argprom.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
@@ -4746,21 +4746,21 @@ define internal noundef i64 @io_buffer_and_inplace(i64 noundef returned %0, i64 
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load i64, ptr %5, align 8
   %6 = icmp eq i64 %.val, 0
-  br i1 %6, label %7, label %io_buffer_check_mask.exit
+  br i1 %6, label %7, label %io_buffer_check_mask.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @rb_eIOBufferMaskError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.142) #21
   unreachable
 
-io_buffer_check_mask.exit:                        ; preds = %2
+io_buffer_check_mask.argprom.exit:                ; preds = %2
   %.pre.i.i = load ptr, ptr %3, align 8
   br label %tailrecurse.i.i
 
-tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %io_buffer_check_mask.exit
-  %9 = phi ptr [ %.pre.i.i, %io_buffer_check_mask.exit ], [ %10, %tailrecurse.i.i ]
-  %.tr.i.i = phi ptr [ %3, %io_buffer_check_mask.exit ], [ %.tr11.i.i, %tailrecurse.i.i ]
-  %.tr11.i.i = phi ptr [ %4, %io_buffer_check_mask.exit ], [ %.tr.i.i, %tailrecurse.i.i ]
+tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %io_buffer_check_mask.argprom.exit
+  %9 = phi ptr [ %.pre.i.i, %io_buffer_check_mask.argprom.exit ], [ %10, %tailrecurse.i.i ]
+  %.tr.i.i = phi ptr [ %3, %io_buffer_check_mask.argprom.exit ], [ %.tr11.i.i, %tailrecurse.i.i ]
+  %.tr11.i.i = phi ptr [ %4, %io_buffer_check_mask.argprom.exit ], [ %.tr.i.i, %tailrecurse.i.i ]
   %10 = load ptr, ptr %.tr11.i.i, align 8
   %11 = icmp ugt ptr %9, %10
   br i1 %11, label %tailrecurse.i.i, label %io_buffer_overlaps.exit.i
@@ -4850,21 +4850,21 @@ define internal noundef i64 @io_buffer_or_inplace(i64 noundef returned %0, i64 n
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load i64, ptr %5, align 8
   %6 = icmp eq i64 %.val, 0
-  br i1 %6, label %7, label %io_buffer_check_mask.exit
+  br i1 %6, label %7, label %io_buffer_check_mask.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @rb_eIOBufferMaskError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.142) #21
   unreachable
 
-io_buffer_check_mask.exit:                        ; preds = %2
+io_buffer_check_mask.argprom.exit:                ; preds = %2
   %.pre.i.i = load ptr, ptr %3, align 8
   br label %tailrecurse.i.i
 
-tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %io_buffer_check_mask.exit
-  %9 = phi ptr [ %.pre.i.i, %io_buffer_check_mask.exit ], [ %10, %tailrecurse.i.i ]
-  %.tr.i.i = phi ptr [ %3, %io_buffer_check_mask.exit ], [ %.tr11.i.i, %tailrecurse.i.i ]
-  %.tr11.i.i = phi ptr [ %4, %io_buffer_check_mask.exit ], [ %.tr.i.i, %tailrecurse.i.i ]
+tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %io_buffer_check_mask.argprom.exit
+  %9 = phi ptr [ %.pre.i.i, %io_buffer_check_mask.argprom.exit ], [ %10, %tailrecurse.i.i ]
+  %.tr.i.i = phi ptr [ %3, %io_buffer_check_mask.argprom.exit ], [ %.tr11.i.i, %tailrecurse.i.i ]
+  %.tr11.i.i = phi ptr [ %4, %io_buffer_check_mask.argprom.exit ], [ %.tr.i.i, %tailrecurse.i.i ]
   %10 = load ptr, ptr %.tr11.i.i, align 8
   %11 = icmp ugt ptr %9, %10
   br i1 %11, label %tailrecurse.i.i, label %io_buffer_overlaps.exit.i
@@ -4954,21 +4954,21 @@ define internal noundef i64 @io_buffer_xor_inplace(i64 noundef returned %0, i64 
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load i64, ptr %5, align 8
   %6 = icmp eq i64 %.val, 0
-  br i1 %6, label %7, label %io_buffer_check_mask.exit
+  br i1 %6, label %7, label %io_buffer_check_mask.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @rb_eIOBufferMaskError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.142) #21
   unreachable
 
-io_buffer_check_mask.exit:                        ; preds = %2
+io_buffer_check_mask.argprom.exit:                ; preds = %2
   %.pre.i.i = load ptr, ptr %3, align 8
   br label %tailrecurse.i.i
 
-tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %io_buffer_check_mask.exit
-  %9 = phi ptr [ %.pre.i.i, %io_buffer_check_mask.exit ], [ %10, %tailrecurse.i.i ]
-  %.tr.i.i = phi ptr [ %3, %io_buffer_check_mask.exit ], [ %.tr11.i.i, %tailrecurse.i.i ]
-  %.tr11.i.i = phi ptr [ %4, %io_buffer_check_mask.exit ], [ %.tr.i.i, %tailrecurse.i.i ]
+tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %io_buffer_check_mask.argprom.exit
+  %9 = phi ptr [ %.pre.i.i, %io_buffer_check_mask.argprom.exit ], [ %10, %tailrecurse.i.i ]
+  %.tr.i.i = phi ptr [ %3, %io_buffer_check_mask.argprom.exit ], [ %.tr11.i.i, %tailrecurse.i.i ]
+  %.tr11.i.i = phi ptr [ %4, %io_buffer_check_mask.argprom.exit ], [ %.tr.i.i, %tailrecurse.i.i ]
   %10 = load ptr, ptr %.tr11.i.i, align 8
   %11 = icmp ugt ptr %9, %10
   br i1 %11, label %tailrecurse.i.i, label %io_buffer_overlaps.exit.i
@@ -5125,7 +5125,7 @@ rb_check_arity.exit:                              ; preds = %3
   %8 = load i64, ptr %1, align 8
   %9 = add nsw i32 %0, -1
   %10 = getelementptr i8, ptr %1, i64 8
-  call fastcc void @io_buffer_extract_length_offset(i64 noundef %2, i32 noundef %9, ptr noundef %10, ptr noundef %4, ptr noundef %5)
+  call fastcc void @io_buffer_extract_length_offset.retelim(i64 noundef %2, i32 noundef %9, ptr noundef %10, ptr noundef %4, ptr noundef %5)
   %11 = load i64, ptr %4, align 8
   %12 = load i64, ptr %5, align 8
   %13 = tail call i64 @rb_io_buffer_read(i64 noundef %2, i64 noundef %8, i64 noundef %11, i64 noundef %12)
@@ -5164,7 +5164,7 @@ rb_num2long_inline.exit:                          ; preds = %12, %14
   %.0.i = phi i64 [ %13, %12 ], [ %15, %14 ]
   %16 = add nsw i32 %0, -2
   %17 = getelementptr i8, ptr %1, i64 16
-  call fastcc void @io_buffer_extract_length_offset(i64 noundef %2, i32 noundef %16, ptr noundef %17, ptr noundef %4, ptr noundef %5)
+  call fastcc void @io_buffer_extract_length_offset.retelim(i64 noundef %2, i32 noundef %16, ptr noundef %17, ptr noundef %4, ptr noundef %5)
   %18 = load i64, ptr %4, align 8
   %19 = load i64, ptr %5, align 8
   %20 = tail call i64 @rb_io_buffer_pread(i64 noundef %2, i64 noundef %8, i64 noundef %.0.i, i64 noundef %18, i64 noundef %19)
@@ -5187,7 +5187,7 @@ rb_check_arity.exit:                              ; preds = %3
   %8 = load i64, ptr %1, align 8
   %9 = add nsw i32 %0, -1
   %10 = getelementptr i8, ptr %1, i64 8
-  call fastcc void @io_buffer_extract_length_offset(i64 noundef %2, i32 noundef %9, ptr noundef %10, ptr noundef %4, ptr noundef %5)
+  call fastcc void @io_buffer_extract_length_offset.retelim(i64 noundef %2, i32 noundef %9, ptr noundef %10, ptr noundef %4, ptr noundef %5)
   %11 = load i64, ptr %4, align 8
   %12 = load i64, ptr %5, align 8
   %13 = tail call i64 @rb_io_buffer_write(i64 noundef %2, i64 noundef %8, i64 noundef %11, i64 noundef %12)
@@ -5226,7 +5226,7 @@ rb_num2long_inline.exit:                          ; preds = %12, %14
   %.0.i = phi i64 [ %13, %12 ], [ %15, %14 ]
   %16 = add nsw i32 %0, -2
   %17 = getelementptr i8, ptr %1, i64 16
-  call fastcc void @io_buffer_extract_length_offset(i64 noundef %2, i32 noundef %16, ptr noundef %17, ptr noundef %4, ptr noundef %5)
+  call fastcc void @io_buffer_extract_length_offset.retelim(i64 noundef %2, i32 noundef %16, ptr noundef %17, ptr noundef %4, ptr noundef %5)
   %18 = load i64, ptr %4, align 8
   %19 = load i64, ptr %5, align 8
   %20 = tail call i64 @rb_io_buffer_pwrite(i64 noundef %2, i64 noundef %8, i64 noundef %.0.i, i64 noundef %18, i64 noundef %19)
@@ -5549,24 +5549,24 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   %.val.i = load i64, ptr %64, align 8
   %65 = add i64 %.017, %.0182932
   %66 = icmp ugt i64 %65, %.val.i
-  br i1 %66, label %67, label %io_buffer_validate_range.exit.i
+  br i1 %66, label %67, label %io_buffer_validate_range.argprom.exit.i
 
 67:                                               ; preds = %io_buffer_validate.exit.thread.i.i
   %68 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %68, ptr noundef nonnull @.str.125) #21
   unreachable
 
-io_buffer_validate_range.exit.i:                  ; preds = %io_buffer_validate.exit.thread.i.i
+io_buffer_validate_range.argprom.exit.i:          ; preds = %io_buffer_validate.exit.thread.i.i
   %69 = add i64 %.017, %.037
   %70 = icmp ugt i64 %69, %2
   br i1 %70, label %71, label %73
 
-71:                                               ; preds = %io_buffer_validate_range.exit.i
+71:                                               ; preds = %io_buffer_validate_range.argprom.exit.i
   %72 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %72, ptr noundef nonnull @.str.132) #21
   unreachable
 
-73:                                               ; preds = %io_buffer_validate_range.exit.i
+73:                                               ; preds = %io_buffer_validate_range.argprom.exit.i
   %.not.i10.i = icmp eq i64 %.017, 0
   br i1 %.not.i10.i, label %io_buffer_memcpy.exit.thread, label %io_buffer_memcpy.exit
 
@@ -5601,7 +5601,7 @@ define internal fastcc ptr @io_buffer_extract_offset_length(i64 noundef %0, i32 
   store i64 0, ptr %3, align 8
   %8 = getelementptr i8, ptr %6, i64 8
   %.val20 = load i64, ptr %8, align 8
-  br label %io_buffer_default_length.exit
+  br label %io_buffer_default_length.argprom.exit
 
 9:                                                ; preds = %5
   %10 = load i64, ptr %2, align 8
@@ -5670,21 +5670,21 @@ io_buffer_extract_offset.exit:                    ; preds = %20, %18, %9
   %37 = getelementptr i8, ptr %6, i64 8
   %.val = load i64, ptr %37, align 8
   %38 = icmp ugt i64 %storemerge, %.val
-  br i1 %38, label %39, label %io_buffer_default_length.exit
+  br i1 %38, label %39, label %io_buffer_default_length.argprom.exit
 
 39:                                               ; preds = %36
   %40 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %40, ptr noundef nonnull @.str.133) #21
   unreachable
 
-io_buffer_default_length.exit:                    ; preds = %.thread, %36
+io_buffer_default_length.argprom.exit:            ; preds = %.thread, %36
   %.val22 = phi i64 [ %.val20, %.thread ], [ %.val, %36 ]
   %storemerge1821 = phi i64 [ 0, %.thread ], [ %storemerge, %36 ]
   %41 = sub nuw i64 %.val22, %storemerge1821
   br label %io_buffer_extract_length.exit
 
-io_buffer_extract_length.exit:                    ; preds = %34, %32, %io_buffer_default_length.exit
-  %storemerge13 = phi i64 [ %41, %io_buffer_default_length.exit ], [ %33, %32 ], [ %35, %34 ]
+io_buffer_extract_length.exit:                    ; preds = %34, %32, %io_buffer_default_length.argprom.exit
+  %storemerge13 = phi i64 [ %41, %io_buffer_default_length.argprom.exit ], [ %33, %32 ], [ %35, %34 ]
   store i64 %storemerge13, ptr %4, align 8
   ret ptr %6
 }
@@ -7304,7 +7304,7 @@ declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed
 declare i64 @rb_str_to_str(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_extract_length_offset(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @io_buffer_extract_length_offset.retelim(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %7 = icmp sgt i32 %1, 1
   br i1 %7, label %8, label %io_buffer_extract_offset.exit
@@ -7351,7 +7351,7 @@ io_buffer_extract_offset.exit:                    ; preds = %5
 .thread:                                          ; preds = %io_buffer_extract_offset.exit
   %23 = getelementptr i8, ptr %6, i64 8
   %.val21 = load i64, ptr %23, align 8
-  br label %io_buffer_default_length.exit
+  br label %io_buffer_default_length.argprom.exit
 
 24:                                               ; preds = %io_buffer_extract_offset.exit.thread, %io_buffer_extract_offset.exit
   %storemerge19 = phi i64 [ %storemerge.ph, %io_buffer_extract_offset.exit.thread ], [ 0, %io_buffer_extract_offset.exit ]
@@ -7386,21 +7386,21 @@ io_buffer_extract_offset.exit:                    ; preds = %5
   %38 = getelementptr i8, ptr %6, i64 8
   %.val = load i64, ptr %38, align 8
   %39 = icmp ugt i64 %storemerge19, %.val
-  br i1 %39, label %40, label %io_buffer_default_length.exit
+  br i1 %39, label %40, label %io_buffer_default_length.argprom.exit
 
 40:                                               ; preds = %37
   %41 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %41, ptr noundef nonnull @.str.133) #21
   unreachable
 
-io_buffer_default_length.exit:                    ; preds = %.thread, %37
+io_buffer_default_length.argprom.exit:            ; preds = %.thread, %37
   %.val23 = phi i64 [ %.val21, %.thread ], [ %.val, %37 ]
   %storemerge1822 = phi i64 [ 0, %.thread ], [ %storemerge19, %37 ]
   %42 = sub nuw i64 %.val23, %storemerge1822
   br label %io_buffer_extract_length.exit
 
-io_buffer_extract_length.exit:                    ; preds = %35, %33, %io_buffer_default_length.exit
-  %storemerge13 = phi i64 [ %42, %io_buffer_default_length.exit ], [ %34, %33 ], [ %36, %35 ]
+io_buffer_extract_length.exit:                    ; preds = %35, %33, %io_buffer_default_length.argprom.exit
+  %storemerge13 = phi i64 [ %42, %io_buffer_default_length.argprom.exit ], [ %34, %33 ], [ %36, %35 ]
   store i64 %storemerge13, ptr %3, align 8
   ret void
 }

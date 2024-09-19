@@ -513,14 +513,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %144, %147
   %207 = load i32, ptr @_ZZ10gmx_bundleiPPcE1n, align 4
   %208 = sext i32 %207 to i64
   %209 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.50, i32 noundef 291, i64 noundef %208, i64 noundef 12)
-          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit165 unwind label %.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit165 unwind label %.loopexit.split-lp
 
-_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit165:    ; preds = %206
+_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit165: ; preds = %206
   %210 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %209, ptr %210, align 8
   br label %211
 
-211:                                              ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit165, %205
+211:                                              ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit165, %205
   %212 = getelementptr inbounds i8, ptr %20, i64 32
   %213 = load i32, ptr @_ZZ10gmx_bundleiPPcE1n, align 4
   %214 = sext i32 %213 to i64

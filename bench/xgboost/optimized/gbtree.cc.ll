@@ -1770,12 +1770,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
   %sext.i.i = shl i32 %.sroa.0.0.copyload.i.i10.i, 16
   %205 = ashr exact i32 %sext.i.i, 16
   switch i32 %205, label %207 [
-    i32 0, label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.exit.i"
+    i32 0, label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.argprom.exit.i"
     i32 1, label %206
   ]
 
 206:                                              ; preds = %204
-  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.exit.i"
+  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.argprom.exit.i"
 
 207:                                              ; preds = %204
   %.sroa.0.0.extract.trunc1.i.i = trunc i32 %.sroa.0.0.copyload.i.i10.i to i16
@@ -1785,7 +1785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
 
 208:                                              ; preds = %207
   %209 = call noundef zeroext i1 @_ZN7xgboost13ConsoleLogger9ShouldLogENS0_12LogVerbosityE(i32 noundef 1), !noalias !29
-  br i1 %209, label %210, label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.exit.i"
+  br i1 %209, label %210, label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.argprom.exit.i"
 
 210:                                              ; preds = %208
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #18, !noalias !29
@@ -1822,7 +1822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
   call void @_ZN7xgboost13ConsoleLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(380) %9) #18, !noalias !29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18, !noalias !29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #18, !noalias !29
-  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.exit.i"
+  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.argprom.exit.i"
 
 219:                                              ; preds = %.noexc.i.i, %210
   %220 = landingpad { ptr, i32 }
@@ -1884,7 +1884,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i: ; preds = %.noexc17.i.i, %_Z
 
 239:                                              ; preds = %237
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12), !noalias !29
-  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.exit.i"
+  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.argprom.exit.i"
 
 240:                                              ; preds = %237, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i, %234
   %241 = landingpad { ptr, i32 }
@@ -1905,7 +1905,7 @@ common.resume.sink.split.i:                       ; preds = %386, %.body84, %345
   call void @__clang_call_terminate(ptr %244) #35
   unreachable
 
-"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.exit.i": ; preds = %239, %218, %208, %206, %204
+"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.argprom.exit.i": ; preds = %239, %218, %208, %206, %204
   %245 = phi i1 [ true, %239 ], [ false, %206 ], [ false, %204 ], [ false, %218 ], [ false, %208 ]
   %.0.i.i = phi ptr [ null, %239 ], [ @.str.47, %206 ], [ @.str.48, %204 ], [ @.str.48, %218 ], [ @.str.48, %208 ]
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %9), !noalias !29
@@ -1916,7 +1916,7 @@ common.resume.sink.split.i:                       ; preds = %386, %.body84, %345
   %246 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %.noexc.i unwind label %254
 
-.noexc.i:                                         ; preds = %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.exit.i"
+.noexc.i:                                         ; preds = %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.argprom.exit.i"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %246, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc11.i unwind label %254
 
@@ -1942,7 +1942,7 @@ common.resume.sink.split.i:                       ; preds = %386, %.body84, %345
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %253)
           to label %_ZN7xgboost3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKNS_7ContextENS_10TreeMethodE.exit unwind label %249
 
-254:                                              ; preds = %.noexc.i, %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.exit.i"
+254:                                              ; preds = %.noexc.i, %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_0ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_1EEDcOT_OT0_.argprom.exit.i"
   %255 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split.i
@@ -1956,12 +1956,12 @@ common.resume.sink.split.i:                       ; preds = %386, %.body84, %345
   %sext.i13.i = shl i32 %.sroa.0.0.copyload.i.i12.i, 16
   %257 = ashr exact i32 %sext.i13.i, 16
   switch i32 %257, label %259 [
-    i32 0, label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.exit.i"
+    i32 0, label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.argprom.exit.i"
     i32 1, label %258
   ]
 
 258:                                              ; preds = %256
-  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.exit.i"
+  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.argprom.exit.i"
 
 259:                                              ; preds = %256
   %.sroa.0.0.extract.trunc1.i15.i = trunc i32 %.sroa.0.0.copyload.i.i12.i to i16
@@ -1971,7 +1971,7 @@ common.resume.sink.split.i:                       ; preds = %386, %.body84, %345
 
 260:                                              ; preds = %259
   %261 = call noundef zeroext i1 @_ZN7xgboost13ConsoleLogger9ShouldLogENS0_12LogVerbosityE(i32 noundef 1), !noalias !29
-  br i1 %261, label %262, label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.exit.i"
+  br i1 %261, label %262, label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.argprom.exit.i"
 
 262:                                              ; preds = %260
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18, !noalias !29
@@ -2008,7 +2008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i28.i
   call void @_ZN7xgboost13ConsoleLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(380) %5) #18, !noalias !29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18, !noalias !29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18, !noalias !29
-  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.exit.i"
+  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.argprom.exit.i"
 
 271:                                              ; preds = %.noexc.i26.i, %262
   %272 = landingpad { ptr, i32 }
@@ -2070,7 +2070,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i19.i: ; preds = %.noexc17.i23.i,
 
 291:                                              ; preds = %289
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8), !noalias !29
-  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.exit.i"
+  br label %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.argprom.exit.i"
 
 292:                                              ; preds = %289, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i19.i, %286
   %293 = landingpad { ptr, i32 }
@@ -2085,7 +2085,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i19.i: ; preds = %.noexc17.i23.i,
   call void @__clang_call_terminate(ptr %296) #35
   unreachable
 
-"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.exit.i": ; preds = %291, %270, %260, %258, %256
+"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.argprom.exit.i": ; preds = %291, %270, %260, %258, %256
   %297 = phi i1 [ true, %291 ], [ false, %258 ], [ false, %256 ], [ false, %270 ], [ false, %260 ]
   %.0.i14.i = phi ptr [ null, %291 ], [ @.str.102, %258 ], [ @.str.101, %256 ], [ @.str.101, %270 ], [ @.str.101, %260 ]
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5), !noalias !29
@@ -2096,7 +2096,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i19.i: ; preds = %.noexc17.i23.i,
   %298 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %.noexc30.i unwind label %306
 
-.noexc30.i:                                       ; preds = %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.exit.i"
+.noexc30.i:                                       ; preds = %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.argprom.exit.i"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %298, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc31.i unwind label %306
 
@@ -2122,7 +2122,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i19.i: ; preds = %.noexc17.i23.i,
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull %.0.i14.i, ptr noundef nonnull %305)
           to label %_ZN7xgboost3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKNS_7ContextENS_10TreeMethodE.exit unwind label %301
 
-306:                                              ; preds = %.noexc30.i, %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.exit.i"
+306:                                              ; preds = %.noexc30.i, %"_ZNK7xgboost7Context14DispatchDeviceIZNS_3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKS0_NS_10TreeMethodEE3$_2ZNS3_23MapTreeMethodToUpdatersB5cxx11ES5_S6_E3$_3EEDcOT_OT0_.argprom.exit.i"
   %307 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split.i
@@ -2433,7 +2433,7 @@ _ZN7xgboost3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKNS_7ContextENS_1
   %405 = sub i64 %403, %404
   %406 = ashr exact i64 %405, 3
   %.not.i54 = icmp eq i64 %402, %406
-  br i1 %.not.i54, label %407, label %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit
+  br i1 %.not.i54, label %407, label %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit
 
 407:                                              ; preds = %395
   %.not6.i.i = icmp eq ptr %.val, %.val31
@@ -2456,22 +2456,22 @@ _ZN7xgboost3gbm12_GLOBAL__N_123MapTreeMethodToUpdatersB5cxx11EPKNS_7ContextENS_1
   %415 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 8
   %.not.i.i = icmp ne ptr %414, %.val31
   %or.cond.not = select i1 %413, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit.loopexit, !llvm.loop !33
+  br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit.loopexit, !llvm.loop !33
 
-_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit.loopexit: ; preds = %.noexc55
+_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit.loopexit: ; preds = %.noexc55
   %.pre114 = load ptr, ptr %30, align 8
   %.pre115 = load ptr, ptr %397, align 8
-  br label %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit
+  br label %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit
 
-_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit: ; preds = %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit.loopexit, %395
-  %416 = phi ptr [ %.val31, %395 ], [ %.pre115, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit.loopexit ]
-  %417 = phi ptr [ %.val, %395 ], [ %.pre114, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit.loopexit ]
-  %.0.i = phi i1 [ false, %395 ], [ %413, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit.loopexit ]
+_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit: ; preds = %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit.loopexit, %395
+  %416 = phi ptr [ %.val31, %395 ], [ %.pre115, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit.loopexit ]
+  %417 = phi ptr [ %.val, %395 ], [ %.pre114, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit.loopexit ]
+  %.0.i = phi i1 [ false, %395 ], [ %413, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit.loopexit ]
   %.not4.i.i.i.i56 = icmp eq ptr %417, %416
   br i1 %.not4.i.i.i.i56, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i57
 
-.lr.ph.i.i.i.i57:                                 ; preds = %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit, %.lr.ph.i.i.i.i57
-  %.05.i.i.i.i58 = phi ptr [ %418, %.lr.ph.i.i.i.i57 ], [ %417, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit ]
+.lr.ph.i.i.i.i57:                                 ; preds = %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit, %.lr.ph.i.i.i.i57
+  %.05.i.i.i.i58 = phi ptr [ %418, %.lr.ph.i.i.i.i57 ], [ %417, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i58) #18
   %418 = getelementptr inbounds i8, ptr %.05.i.i.i.i58, i64 32
   %.not.i.i.i.i59 = icmp eq ptr %418, %416
@@ -2481,9 +2481,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %.pr.i60 = load ptr, ptr %30, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %407, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit
-  %.0.i120 = phi i1 [ %.0.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.0.i, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit ], [ true, %407 ]
-  %419 = phi ptr [ %.pr.i60, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %417, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.exit ], [ %.val, %407 ]
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %407, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit
+  %.0.i120 = phi i1 [ %.0.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.0.i, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit ], [ true, %407 ]
+  %419 = phi ptr [ %.pr.i60, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %417, %_ZN7xgboost3gbm12_GLOBAL__N_115UpdatersMatchedESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ISt10unique_ptrINS_11TreeUpdaterESt14default_deleteISC_EESaISF_EE.argprom.exit ], [ %.val, %407 ]
   %.not.i.i.i61 = icmp eq ptr %419, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %420
 
@@ -37183,7 +37183,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost15Grad
   %.val3 = load ptr, ptr %2, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #37
   invoke void @_ZN7xgboost3gbm6GBTreeC2EPKNS_17LearnerModelParamEPKNS_7ContextE(ptr noundef nonnull align 8 dereferenceable(640) %4, ptr noundef %.val, ptr noundef %.val3)
-          to label %"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_6EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %5
+          to label %"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_6EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit" unwind label %5
 
 5:                                                ; preds = %3
   %6 = landingpad { ptr, i32 }
@@ -37191,7 +37191,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost15Grad
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 640) #34
   resume { ptr, i32 } %6
 
-"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_6EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %3
+"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_6EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %3
   ret ptr %4
 }
 
@@ -37427,7 +37427,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost15Grad
   %.val3 = load ptr, ptr %2, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(736) ptr @_Znwm(i64 noundef 736) #37
   invoke void @_ZN7xgboost3gbm6GBTreeC2EPKNS_17LearnerModelParamEPKNS_7ContextE(ptr noundef nonnull align 8 dereferenceable(640) %4, ptr noundef %.val, ptr noundef %.val3)
-          to label %"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_7EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %5
+          to label %"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_7EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit" unwind label %5
 
 5:                                                ; preds = %3
   %6 = landingpad { ptr, i32 }
@@ -37435,7 +37435,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost15Grad
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 736) #34
   resume { ptr, i32 } %6
 
-"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_7EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %3
+"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_7EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %3
   store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTVN7xgboost3gbm4DartE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7xgboost3gbm4DartE, i64 216), ptr %7, align 8

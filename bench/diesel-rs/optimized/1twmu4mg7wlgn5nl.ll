@@ -48,11 +48,11 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.80199
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Result$LT$migrations_internals..TomlMetadata$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$17ha916fa9fb6b4b31cE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Result$LT$migrations_internals..TomlMetadata$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$17ha916fa9fb6b4b31cE.argprom"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
-  br i1 %1, label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.exit", label %2
+  br i1 %1, label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.argprom.exit", label %2
 
-"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.exit": ; preds = %21, %14, %0
+"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.argprom.exit": ; preds = %21, %14, %0
   ret void
 
 2:                                                ; preds = %0
@@ -72,11 +72,11 @@ define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Resu
   %11 = icmp ult i64 %10, -9223372036854775807
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0b3a03e6f2bd1b53E.exit.i", label %13
+  br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0b3a03e6f2bd1b53E.argprom.exit.i", label %13
 
 13:                                               ; preds = %5
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %8, i64 noundef %10) #11
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0b3a03e6f2bd1b53E.exit.i"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0b3a03e6f2bd1b53E.argprom.exit.i"
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -86,13 +86,13 @@ define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Resu
   %19 = icmp ult i64 %18, -9223372036854775807
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %16, 0
-  br i1 %20, label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.exit", label %21
+  br i1 %20, label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.argprom.exit", label %21
 
 21:                                               ; preds = %14
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %16, i64 noundef %18) #11
-  br label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.exit"
+  br label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.argprom.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0b3a03e6f2bd1b53E.exit.i": ; preds = %13, %5
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0b3a03e6f2bd1b53E.argprom.exit.i": ; preds = %13, %5
   resume { ptr, i32 } %6
 }
 
@@ -398,7 +398,7 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
           cleanup
   %53 = getelementptr inbounds i8, ptr %12, i64 8
   %.val1.i = load ptr, ptr %53, align 8, !alias.scope !36
-  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Result$LT$migrations_internals..TomlMetadata$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$17ha916fa9fb6b4b31cE"(ptr nonnull %24, ptr %.val1.i) #12
+  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Result$LT$migrations_internals..TomlMetadata$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$17ha916fa9fb6b4b31cE.argprom"(ptr nonnull %24, ptr %.val1.i) #12
           to label %.body unwind label %54, !noalias !36
 
 54:                                               ; preds = %51

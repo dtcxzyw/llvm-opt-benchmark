@@ -25,19 +25,19 @@ define hidden i32 @mbedtls_ssl_ticket_rotate(ptr noundef %0, ptr nocapture nound
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %.val = load ptr, ptr %12, align 8
   %13 = icmp eq ptr %.val, null
-  br i1 %13, label %mbedtls_cipher_get_key_bitlen.exit, label %14
+  br i1 %13, label %mbedtls_cipher_get_key_bitlen.argprom.exit, label %14
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %.val, i64 8
   %16 = load i32, ptr %15, align 8
-  br label %mbedtls_cipher_get_key_bitlen.exit
+  br label %mbedtls_cipher_get_key_bitlen.argprom.exit
 
-mbedtls_cipher_get_key_bitlen.exit:               ; preds = %6, %14
+mbedtls_cipher_get_key_bitlen.argprom.exit:       ; preds = %6, %14
   %.0.i = phi i32 [ %16, %14 ], [ 0, %6 ]
   %17 = icmp ult i64 %2, 4
   br i1 %17, label %30, label %18
 
-18:                                               ; preds = %mbedtls_cipher_get_key_bitlen.exit
+18:                                               ; preds = %mbedtls_cipher_get_key_bitlen.argprom.exit
   %19 = shl i64 %4, 3
   %20 = sext i32 %.0.i to i64
   %21 = icmp ult i64 %19, %20
@@ -60,8 +60,8 @@ mbedtls_cipher_get_key_bitlen.exit:               ; preds = %6, %14
   store i32 %28, ptr %29, align 4
   br label %30
 
-30:                                               ; preds = %22, %mbedtls_cipher_get_key_bitlen.exit, %18, %24
-  %.0 = phi i32 [ 0, %24 ], [ -24832, %18 ], [ -24832, %mbedtls_cipher_get_key_bitlen.exit ], [ %23, %22 ]
+30:                                               ; preds = %22, %mbedtls_cipher_get_key_bitlen.argprom.exit, %18, %24
+  %.0 = phi i32 [ 0, %24 ], [ -24832, %18 ], [ -24832, %mbedtls_cipher_get_key_bitlen.argprom.exit ], [ %23, %22 ]
   ret i32 %.0
 }
 
@@ -178,21 +178,21 @@ ssl_ticket_gen_key.exit:                          ; preds = %35, %37
 53:                                               ; preds = %49
   %.val.i41 = load ptr, ptr %22, align 8
   %54 = icmp eq ptr %.val.i41, null
-  br i1 %54, label %mbedtls_cipher_get_key_bitlen.exit.i42, label %55
+  br i1 %54, label %mbedtls_cipher_get_key_bitlen.argprom.exit.i42, label %55
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %.val.i41, i64 8
   %57 = load i32, ptr %56, align 8
-  br label %mbedtls_cipher_get_key_bitlen.exit.i42
+  br label %mbedtls_cipher_get_key_bitlen.argprom.exit.i42
 
-mbedtls_cipher_get_key_bitlen.exit.i42:           ; preds = %55, %53
+mbedtls_cipher_get_key_bitlen.argprom.exit.i42:   ; preds = %55, %53
   %.0.i.i43 = phi i32 [ %57, %55 ], [ 0, %53 ]
   %58 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %22, ptr noundef nonnull %6, i32 noundef %.0.i.i43, i32 noundef 1) #7
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 32) #7
   br label %ssl_ticket_gen_key.exit44
 
-ssl_ticket_gen_key.exit44:                        ; preds = %41, %49, %mbedtls_cipher_get_key_bitlen.exit.i42
-  %.0.i39 = phi i32 [ %58, %mbedtls_cipher_get_key_bitlen.exit.i42 ], [ %48, %41 ], [ %52, %49 ]
+ssl_ticket_gen_key.exit44:                        ; preds = %41, %49, %mbedtls_cipher_get_key_bitlen.argprom.exit.i42
+  %.0.i39 = phi i32 [ %58, %mbedtls_cipher_get_key_bitlen.argprom.exit.i42 ], [ %48, %41 ], [ %52, %49 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %mbedtls_cipher_info_get_mode.exit35.thread
 
@@ -347,21 +347,21 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnam
   %34 = getelementptr inbounds i8, ptr %20, i64 8
   %.val.i = load ptr, ptr %34, align 8
   %35 = icmp eq ptr %.val.i, null
-  br i1 %35, label %mbedtls_cipher_get_key_bitlen.exit.i, label %36
+  br i1 %35, label %mbedtls_cipher_get_key_bitlen.argprom.exit.i, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %38 = load i32, ptr %37, align 8
-  br label %mbedtls_cipher_get_key_bitlen.exit.i
+  br label %mbedtls_cipher_get_key_bitlen.argprom.exit.i
 
-mbedtls_cipher_get_key_bitlen.exit.i:             ; preds = %36, %33
+mbedtls_cipher_get_key_bitlen.argprom.exit.i:     ; preds = %36, %33
   %.0.i.i = phi i32 [ %38, %36 ], [ 0, %33 ]
   %39 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %34, ptr noundef nonnull %2, i32 noundef %.0.i.i, i32 noundef 1) #7
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 32) #7
   br label %ssl_ticket_gen_key.exit
 
-ssl_ticket_gen_key.exit:                          ; preds = %17, %29, %mbedtls_cipher_get_key_bitlen.exit.i
-  %.0.i = phi i32 [ %39, %mbedtls_cipher_get_key_bitlen.exit.i ], [ %28, %17 ], [ %32, %29 ]
+ssl_ticket_gen_key.exit:                          ; preds = %17, %29, %mbedtls_cipher_get_key_bitlen.argprom.exit.i
+  %.0.i = phi i32 [ %39, %mbedtls_cipher_get_key_bitlen.argprom.exit.i ], [ %28, %17 ], [ %32, %29 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   br label %40
 

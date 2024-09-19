@@ -250,7 +250,7 @@ define hidden noundef i32 @_ZN2cv7optflow12CImageBuffer12buildPyramidENS_5Size_I
   store i64 0, ptr %21, align 8
   store i32 33882112, ptr %7, align 8
   store ptr %0, ptr %20, align 8
-  %22 = call fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %1, i32 noundef %2, ptr noundef %3)
+  %22 = call fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf.argelim(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %1, i32 noundef %2, ptr noundef %3)
   store i32 %22, ptr %13, align 8
   br label %31
 
@@ -268,7 +268,7 @@ define hidden noundef i32 @_ZN2cv7optflow12CImageBuffer12buildPyramidENS_5Size_I
   store i64 0, ptr %29, align 8
   store i32 33882112, ptr %9, align 8
   store ptr %0, ptr %28, align 8
-  %30 = call fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %1, i32 noundef %2, ptr noundef %3)
+  %30 = call fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf.argelim(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %1, i32 noundef %2, ptr noundef %3)
   store i32 %30, ptr %13, align 8
   br label %31
 
@@ -278,7 +278,7 @@ define hidden noundef i32 @_ZN2cv7optflow12CImageBuffer12buildPyramidENS_5Size_I
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf.argelim(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.5", align 1
@@ -2194,7 +2194,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc236, %161
   store i64 0, ptr %193, align 8
   store i32 33882112, ptr %28, align 8
   store ptr %181, ptr %192, align 8
-  %194 = invoke fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 %.sroa.0305.0.insert.insert, i32 noundef %182, ptr noundef nonnull readonly %39)
+  %194 = invoke fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf.argelim(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 %.sroa.0305.0.insert.insert, i32 noundef %182, ptr noundef nonnull readonly %39)
           to label %.noexc237 unwind label %244
 
 .noexc237:                                        ; preds = %187
@@ -2232,7 +2232,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc236, %161
   store i64 0, ptr %207, align 8
   store i32 33882112, ptr %26, align 8
   store ptr %196, ptr %206, align 8
-  %208 = invoke fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 %.sroa.0305.0.insert.insert, i32 noundef %.0.i, ptr noundef nonnull readonly %39)
+  %208 = invoke fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf.argelim(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 %.sroa.0305.0.insert.insert, i32 noundef %.0.i, ptr noundef nonnull readonly %39)
           to label %.noexc241 unwind label %244
 
 .noexc241:                                        ; preds = %201
@@ -2270,7 +2270,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc236, %161
   store i64 0, ptr %223, align 8
   store i32 33882112, ptr %24, align 8
   store ptr %212, ptr %222, align 8
-  %224 = invoke fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 %.sroa.0305.0.insert.insert, i32 noundef %.0.i240, ptr noundef nonnull readonly %39)
+  %224 = invoke fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf.argelim(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 %.sroa.0305.0.insert.insert, i32 noundef %.0.i240, ptr noundef nonnull readonly %39)
           to label %.noexc246 unwind label %244
 
 .noexc246:                                        ; preds = %217
@@ -2304,7 +2304,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc236, %161
   store i64 0, ptr %238, align 8
   store i32 33882112, ptr %22, align 8
   store ptr %227, ptr %237, align 8
-  %239 = invoke fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 %.sroa.0305.0.insert.insert, i32 noundef %.0.i240, ptr noundef nonnull readonly %39)
+  %239 = invoke fastcc noundef i32 @_ZN2cv7optflowL28buildOpticalFlowPyramidScaleERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEibiibPf.argelim(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 %.sroa.0305.0.insert.insert, i32 noundef %.0.i240, ptr noundef nonnull readonly %39)
           to label %.noexc251 unwind label %244
 
 .noexc251:                                        ; preds = %232

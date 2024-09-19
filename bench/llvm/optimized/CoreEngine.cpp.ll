@@ -6062,20 +6062,20 @@ define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento18BugReporterContextERNS7_22PathSensitiveBugReportEEZNS7_10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #10 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS1_9BlockEdgeEPNS2_12ExplodedNodeEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6263,10 +6263,10 @@ attributes #19 = { builtin nounwind }
 !60 = !{!61}
 !61 = distinct !{!61, !59, !"_ZSt19__relocate_object_aISt10unique_ptrIN5clang4ento7DataTagESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
 !62 = !{!63, !65}
-!63 = distinct !{!63, !64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0JRNS7_18BugReporterContextERNS7_22PathSensitiveBugReportEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!64 = distinct !{!64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0JRNS7_18BugReporterContextERNS7_22PathSensitiveBugReportEEET_St14__invoke_otherOT0_DpOT1_"}
-!65 = distinct !{!65, !66, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0JRNS7_18BugReporterContextERNS7_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_: argument 0"}
-!66 = distinct !{!66, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0JRNS7_18BugReporterContextERNS7_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_"}
+!63 = distinct !{!63, !64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0JRNS7_18BugReporterContextERNS7_22PathSensitiveBugReportEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!64 = distinct !{!64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0JRNS7_18BugReporterContextERNS7_22PathSensitiveBugReportEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!65 = distinct !{!65, !66, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0JRNS7_18BugReporterContextERNS7_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom: argument 0"}
+!66 = distinct !{!66, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS6_9BlockEdgeEPNS7_12ExplodedNodeEE3$_0JRNS7_18BugReporterContextERNS7_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom"}
 !67 = !{!68, !63, !65}
-!68 = distinct !{!68, !69, !"_ZZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS_9BlockEdgeEPNS0_12ExplodedNodeEENK3$_0clB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE: argument 0"}
-!69 = distinct !{!69, !"_ZZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS_9BlockEdgeEPNS0_12ExplodedNodeEENK3$_0clB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE"}
+!68 = distinct !{!68, !69, !"_ZZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS_9BlockEdgeEPNS0_12ExplodedNodeEENK3$_0clB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.argprom: argument 0"}
+!69 = distinct !{!69, !"_ZZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS_9BlockEdgeEPNS0_12ExplodedNodeEENK3$_0clB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.argprom"}

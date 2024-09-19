@@ -1440,19 +1440,19 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %55, %62, %60, %53
 
 148:                                              ; preds = %.lr.ph340
   %149 = tail call i32 @ompi_datatype_sndrcv(ptr noundef nonnull %143, i32 noundef %121, ptr noundef %3, ptr noundef %145, i32 noundef %140, ptr noundef %3) #8
-  br label %ompi_coll_base_sendrecv.exit
+  br label %ompi_coll_base_sendrecv.argprom.exit
 
 150:                                              ; preds = %.lr.ph340
   %151 = sext i32 %121 to i64
   %152 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %143, i64 noundef %151, ptr noundef %3, i32 noundef %99, i32 noundef -22, ptr noundef %145, i64 noundef %146, ptr noundef %3, i32 noundef %99, i32 noundef -22, ptr noundef %5, ptr noundef null) #8
-  br label %ompi_coll_base_sendrecv.exit
+  br label %ompi_coll_base_sendrecv.argprom.exit
 
-ompi_coll_base_sendrecv.exit:                     ; preds = %148, %150
+ompi_coll_base_sendrecv.argprom.exit:             ; preds = %148, %150
   %.0.i280 = phi i32 [ %149, %148 ], [ %152, %150 ]
   %.not256 = icmp eq i32 %.0.i280, 0
   br i1 %.not256, label %153, label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
-153:                                              ; preds = %ompi_coll_base_sendrecv.exit
+153:                                              ; preds = %ompi_coll_base_sendrecv.argprom.exit
   %154 = icmp slt i32 %.0220, %94
   %155 = getelementptr inbounds i8, ptr %.0214339, i64 %144
   br i1 %154, label %156, label %157
@@ -1522,7 +1522,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %148, %150
   %196 = getelementptr inbounds i32, ptr %2, i64 %195
   %197 = load i32, ptr %196, align 4
   %198 = sext i32 %197 to i64
-  %199 = tail call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %191, i64 noundef %194, ptr noundef %3, i32 noundef %166, ptr noundef %1, i64 noundef %198, ptr noundef %3, i32 noundef %166, ptr noundef %5, i32 noundef %.val)
+  %199 = tail call fastcc i32 @ompi_coll_base_sendrecv.argprom.argelim(ptr noundef %191, i64 noundef %194, ptr noundef %3, i32 noundef %166, ptr noundef %1, i64 noundef %198, ptr noundef %3, i32 noundef %166, ptr noundef %5, i32 noundef %.val)
   br label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
 200:                                              ; preds = %183
@@ -1555,8 +1555,8 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %148, %150
   %224 = tail call i32 %219(ptr noundef %1, i64 noundef %223, ptr noundef %3, i32 noundef %218, i32 noundef -22, ptr noundef %5, ptr noundef null) #8
   br label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
-ompi_datatype_copy_content_same_ddt.exit.thread295: ; preds = %.lr.ph.i, %.lr.ph.i267, %ompi_coll_base_sendrecv.exit, %80, %84, %.thread, %171, %184, %200, %opal_datatype_span.exit
-  %.0218299 = phi i32 [ -2, %opal_datatype_span.exit ], [ %210, %200 ], [ %199, %184 ], [ %182, %171 ], [ %83, %80 ], [ %224, %.thread ], [ %87, %84 ], [ %.0.i280, %ompi_coll_base_sendrecv.exit ], [ %61, %.lr.ph.i267 ], [ %54, %.lr.ph.i ]
+ompi_datatype_copy_content_same_ddt.exit.thread295: ; preds = %.lr.ph.i, %.lr.ph.i267, %ompi_coll_base_sendrecv.argprom.exit, %80, %84, %.thread, %171, %184, %200, %opal_datatype_span.exit
+  %.0218299 = phi i32 [ -2, %opal_datatype_span.exit ], [ %210, %200 ], [ %199, %184 ], [ %182, %171 ], [ %83, %80 ], [ %224, %.thread ], [ %87, %84 ], [ %.0.i280, %ompi_coll_base_sendrecv.argprom.exit ], [ %61, %.lr.ph.i267 ], [ %54, %.lr.ph.i ]
   tail call void @free(ptr noundef nonnull %15) #8
   br i1 %47, label %226, label %225
 
@@ -1577,7 +1577,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread295: ; preds = %.lr.ph.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, i32 noundef range(i32 -2147483647, -2147483648) %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc i32 @ompi_coll_base_sendrecv.argprom.argelim(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, i32 noundef range(i32 -2147483647, -2147483648) %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = icmp eq i32 %3, %7
   %12 = icmp eq i32 %7, %9
   %or.cond = and i1 %11, %12

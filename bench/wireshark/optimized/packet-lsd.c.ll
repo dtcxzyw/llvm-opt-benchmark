@@ -121,7 +121,7 @@ define internal range(i32 0, 2) i32 @dissect_lsd_heur(ptr noundef %0, ptr nounde
   br i1 %35, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %32, %28
-  %36 = tail call fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %36 = tail call fastcc i32 @dissect_lsd.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
   br label %.thread
@@ -132,7 +132,7 @@ define internal range(i32 0, 2) i32 @dissect_lsd_heur(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_lsd.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2

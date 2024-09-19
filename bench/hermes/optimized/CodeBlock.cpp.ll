@@ -393,7 +393,7 @@ entry:
   %functionID_ = getelementptr inbounds i8, ptr %this, i64 24
   %functionID_.val = load i32, ptr %functionID_, align 8
   %cmp4.i.i = icmp sgt i64 %retval.sroa.2.0.copyload.i, 0
-  br i1 %cmp4.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit"
+  br i1 %cmp4.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.argprom.exit"
 
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %__first.addr.06.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %retval.sroa.0.0.copyload.i, %entry ]
@@ -409,14 +409,14 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %__len.1.i.i = select i1 %cmp.i.i8.i.i, i64 %sub2.i.i, i64 %shr.i.i
   %__first.addr.1.i.i = select i1 %cmp.i.i8.i.i, ptr %incdec.ptr.i.i, ptr %__first.addr.06.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit", !llvm.loop !4
+  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.argprom.exit", !llvm.loop !4
 
-"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit": ; preds = %while.body.i.i, %entry
+"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.argprom.exit": ; preds = %while.body.i.i, %entry
   %__first.addr.0.lcssa.i.i = phi ptr [ %retval.sroa.0.0.copyload.i, %entry ], [ %__first.addr.1.i.i, %while.body.i.i ]
   %cmp = icmp eq ptr %__first.addr.0.lcssa.i.i, %add.ptr.i
   br i1 %cmp, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit"
+lor.lhs.false:                                    ; preds = %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.argprom.exit"
   %3 = load i32, ptr %__first.addr.0.lcssa.i.i, align 4
   %cmp9.not = icmp eq i32 %3, %functionID_.val
   br i1 %cmp9.not, label %if.else, label %return
@@ -427,9 +427,9 @@ if.else:                                          ; preds = %lor.lhs.false
   %5 = zext i32 %4 to i64
   br label %return
 
-return:                                           ; preds = %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit", %lor.lhs.false, %if.else
-  %retval.sroa.0.0 = phi i64 [ %5, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit" ]
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit" ]
+return:                                           ; preds = %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.argprom.exit", %lor.lhs.false, %if.else
+  %retval.sroa.0.0 = phi i64 [ %5, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.argprom.exit" ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.argprom.exit" ]
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0
   ret i64 %retval.sroa.0.0.insert.insert
 }

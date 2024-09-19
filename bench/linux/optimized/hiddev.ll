@@ -79,7 +79,7 @@ define dso_local void @hiddev_hid_event(ptr nocapture noundef readonly %0, ptr n
   %30 = getelementptr inbounds i8, ptr %.val, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %30
-  br i1 %32, label %hiddev_send_event.exit, label %.preheader
+  br i1 %32, label %hiddev_send_event.argprom.exit, label %.preheader
 
 .preheader:                                       ; preds = %11
   %33 = icmp eq i32 %18, -1
@@ -121,7 +121,7 @@ define dso_local void @hiddev_hid_event(ptr nocapture noundef readonly %0, ptr n
 49:                                               ; preds = %39, %.preheader.split.us
   %50 = load ptr, ptr %34, align 8
   %51 = icmp eq ptr %50, %30
-  br i1 %51, label %hiddev_send_event.exit, label %.preheader.split.us, !llvm.loop !6
+  br i1 %51, label %hiddev_send_event.argprom.exit, label %.preheader.split.us, !llvm.loop !6
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %52 = phi ptr [ %62, %.preheader.split ], [ %31, %.preheader ]
@@ -149,9 +149,9 @@ define dso_local void @hiddev_hid_event(ptr nocapture noundef readonly %0, ptr n
   tail call void @kill_fasync(ptr noundef %61, i32 noundef 29, i32 noundef 1) #13
   %62 = load ptr, ptr %52, align 8
   %63 = icmp eq ptr %62, %30
-  br i1 %63, label %hiddev_send_event.exit, label %.preheader.split, !llvm.loop !6
+  br i1 %63, label %hiddev_send_event.argprom.exit, label %.preheader.split, !llvm.loop !6
 
-hiddev_send_event.exit:                           ; preds = %.preheader.split, %49, %11
+hiddev_send_event.argprom.exit:                   ; preds = %.preheader.split, %49, %11
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %28, i64 noundef %29) #13
   %64 = getelementptr inbounds i8, ptr %.val, i64 48
   %65 = tail call i32 @__wake_up(ptr noundef %64, i32 noundef 1, i32 noundef 1, ptr noundef null) #13
@@ -195,7 +195,7 @@ define dso_local void @hiddev_report_event(ptr nocapture noundef readonly %0, pt
   %16 = getelementptr inbounds i8, ptr %.val, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
-  br i1 %18, label %hiddev_send_event.exit, label %.preheader
+  br i1 %18, label %hiddev_send_event.argprom.exit, label %.preheader
 
 .preheader:                                       ; preds = %9, %34
   %19 = phi ptr [ %35, %34 ], [ %17, %9 ]
@@ -229,9 +229,9 @@ define dso_local void @hiddev_report_event(ptr nocapture noundef readonly %0, pt
 34:                                               ; preds = %24, %.preheader
   %35 = load ptr, ptr %19, align 8
   %36 = icmp eq ptr %35, %16
-  br i1 %36, label %hiddev_send_event.exit, label %.preheader, !llvm.loop !6
+  br i1 %36, label %hiddev_send_event.argprom.exit, label %.preheader, !llvm.loop !6
 
-hiddev_send_event.exit:                           ; preds = %34, %9
+hiddev_send_event.argprom.exit:                   ; preds = %34, %9
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %14, i64 noundef %15) #13
   %37 = getelementptr inbounds i8, ptr %.val, i64 48
   %38 = tail call i32 @__wake_up(ptr noundef %37, i32 noundef 1, i32 noundef 1, ptr noundef null) #13
@@ -752,7 +752,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %14 = getelementptr inbounds i8, ptr %11, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %hiddev_ioctl_string.exit, label %17
+  br i1 %16, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %17
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %11, i64 72
@@ -788,20 +788,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %26 = and i64 %25, 4294967295
   %27 = icmp eq i64 %26, 0
   %28 = select i1 %27, i32 0, i32 -14
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 29:                                               ; preds = %17
   %30 = getelementptr inbounds i8, ptr %19, i64 48
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = icmp ult i64 %2, %32
-  br i1 %33, label %34, label %hiddev_ioctl_string.exit
+  br i1 %33, label %34, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %19, i64 44
   %36 = load i32, ptr %35, align 4
   %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %hiddev_ioctl_string.exit, label %37
+  br i1 %.not, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %19, i64 32
@@ -828,15 +828,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %53 = add nuw i32 %43, 1
   %54 = icmp ult i32 %53, %36
   %55 = icmp eq i32 %53, %36
-  br i1 %55, label %hiddev_ioctl_string.exit, label %40, !llvm.loop !18
+  br i1 %55, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %40, !llvm.loop !18
 
 56:                                               ; preds = %48
-  br i1 %41, label %57, label %hiddev_ioctl_string.exit
+  br i1 %41, label %57, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 57:                                               ; preds = %56
   %58 = getelementptr %struct.hid_collection, ptr %39, i64 %44, i32 2
   %59 = load i32, ptr %58, align 4
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 60:                                               ; preds = %17
   %61 = getelementptr inbounds i8, ptr %19, i64 6416
@@ -881,7 +881,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %91 = call i64 @_copy_to_user(ptr noundef %12, ptr noundef nonnull %7, i64 noundef 28) #13
   %92 = icmp eq i64 %91, 0
   %93 = select i1 %92, i32 0, i32 -14
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 94:                                               ; preds = %17
   %95 = getelementptr inbounds i8, ptr %9, i64 49160
@@ -895,7 +895,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %102 = and i64 %101, 4294967295
   %103 = icmp eq i64 %102, 0
   %104 = select i1 %103, i32 0, i32 -14
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 105:                                              ; preds = %17
   %106 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -907,23 +907,23 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   tail call void @llvm.write_register.i64(metadata !0, i64 %110)
   %112 = and i64 %111, 4294967295
   %113 = icmp eq i64 %112, 0
-  br i1 %113, label %114, label %hiddev_ioctl_string.exit
+  br i1 %113, label %114, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 114:                                              ; preds = %105
   %115 = icmp ult i32 %109, 4
-  br i1 %115, label %116, label %hiddev_ioctl_string.exit
+  br i1 %115, label %116, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 116:                                              ; preds = %114
   %117 = icmp ugt i32 %109, 1
   %118 = and i32 %109, 1
   %119 = icmp eq i32 %118, 0
   %120 = and i1 %117, %119
-  br i1 %120, label %hiddev_ioctl_string.exit, label %121
+  br i1 %120, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %121
 
 121:                                              ; preds = %116
   %122 = getelementptr inbounds i8, ptr %9, i64 49160
   store i32 %109, ptr %122, align 8
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 123:                                              ; preds = %17
   %124 = getelementptr i8, ptr %19, i64 6416
@@ -940,13 +940,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   tail call void @llvm.write_register.i64(metadata !0, i64 %131)
   %133 = and i64 %132, 4294967295
   %134 = icmp eq i64 %133, 0
-  br i1 %134, label %135, label %hiddev_ioctl_string.exit
+  br i1 %134, label %135, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 135:                                              ; preds = %123
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %137 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %136, i32 noundef 3264, i64 noundef 256) #14
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %hiddev_ioctl_string.exit, label %139
+  br i1 %138, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %139
 
 139:                                              ; preds = %135
   %140 = tail call i32 @usb_string(ptr noundef %126, i32 noundef %130, ptr noundef nonnull %137, i64 noundef 255) #13
@@ -973,28 +973,28 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
 152:                                              ; preds = %147, %146, %139
   %153 = phi i32 [ -22, %139 ], [ -14, %146 ], [ %151, %147 ]
   tail call void @kfree(ptr noundef nonnull %137) #13
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 154:                                              ; preds = %17
   tail call void @usbhid_init_reports(ptr noundef %19) #13
   %155 = getelementptr inbounds i8, ptr %11, i64 100
   store i8 1, ptr %155, align 4
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 156:                                              ; preds = %17
   %157 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %12, i64 noundef 12) #13
   %158 = icmp eq i64 %157, 0
-  br i1 %158, label %159, label %hiddev_ioctl_string.exit
+  br i1 %158, label %159, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 159:                                              ; preds = %156
   %160 = load i32, ptr %5, align 4
   %161 = icmp eq i32 %160, 2
-  br i1 %161, label %hiddev_ioctl_string.exit, label %162
+  br i1 %161, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %162
 
 162:                                              ; preds = %159
   %163 = call fastcc ptr @hiddev_lookup_report(ptr noundef %19, ptr noundef nonnull %5)
   %164 = icmp eq ptr %163, null
-  br i1 %164, label %hiddev_ioctl_string.exit, label %165
+  br i1 %164, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %165
 
 165:                                              ; preds = %162
   call void @hid_hw_request(ptr noundef %19, ptr noundef nonnull %163, i32 noundef 1) #13
@@ -1003,26 +1003,26 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %168 = getelementptr inbounds i8, ptr %167, i64 56
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %hiddev_ioctl_string.exit, label %171
+  br i1 %170, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %171
 
 171:                                              ; preds = %165
   %172 = call i32 %169(ptr noundef %19) #13
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 173:                                              ; preds = %17
   %174 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %12, i64 noundef 12) #13
   %175 = icmp eq i64 %174, 0
-  br i1 %175, label %176, label %hiddev_ioctl_string.exit
+  br i1 %175, label %176, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 176:                                              ; preds = %173
   %177 = load i32, ptr %5, align 4
   %178 = icmp eq i32 %177, 1
-  br i1 %178, label %hiddev_ioctl_string.exit, label %179
+  br i1 %178, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %179
 
 179:                                              ; preds = %176
   %180 = call fastcc ptr @hiddev_lookup_report(ptr noundef %19, ptr noundef nonnull %5)
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %hiddev_ioctl_string.exit, label %182
+  br i1 %181, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %182
 
 182:                                              ; preds = %179
   call void @hid_hw_request(ptr noundef %19, ptr noundef nonnull %180, i32 noundef 9) #13
@@ -1031,21 +1031,21 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %185 = getelementptr inbounds i8, ptr %184, i64 56
   %186 = load ptr, ptr %185, align 8
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %hiddev_ioctl_string.exit, label %188
+  br i1 %187, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %188
 
 188:                                              ; preds = %182
   %189 = call i32 %186(ptr noundef %19) #13
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 190:                                              ; preds = %17
   %191 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %12, i64 noundef 12) #13
   %192 = icmp eq i64 %191, 0
-  br i1 %192, label %193, label %hiddev_ioctl_string.exit
+  br i1 %192, label %193, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 193:                                              ; preds = %190
   %194 = call fastcc ptr @hiddev_lookup_report(ptr noundef %19, ptr noundef nonnull %5)
   %195 = icmp eq ptr %194, null
-  br i1 %195, label %hiddev_ioctl_string.exit, label %196
+  br i1 %195, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %196
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds i8, ptr %194, i64 2120
@@ -1055,12 +1055,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %200 = call i64 @_copy_to_user(ptr noundef %12, ptr noundef nonnull %5, i64 noundef 12) #13
   %201 = icmp eq i64 %200, 0
   %202 = select i1 %201, i32 0, i32 -14
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 203:                                              ; preds = %17
   %204 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %12, i64 noundef 56) #13
   %205 = icmp eq i64 %204, 0
-  br i1 %205, label %206, label %hiddev_ioctl_string.exit
+  br i1 %205, label %206, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 206:                                              ; preds = %203
   %207 = load i32, ptr %6, align 4
@@ -1071,7 +1071,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   store i32 %209, ptr %210, align 4
   %211 = call fastcc ptr @hiddev_lookup_report(ptr noundef %19, ptr noundef nonnull %5)
   %212 = icmp eq ptr %211, null
-  br i1 %212, label %hiddev_ioctl_string.exit, label %213
+  br i1 %212, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %213
 
 213:                                              ; preds = %206
   %214 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1079,7 +1079,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %216 = getelementptr inbounds i8, ptr %211, i64 2120
   %217 = load i32, ptr %216, align 8
   %218 = icmp ult i32 %215, %217
-  br i1 %218, label %219, label %hiddev_ioctl_string.exit
+  br i1 %218, label %219, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 219:                                              ; preds = %213
   %220 = zext i32 %215 to i64
@@ -1148,7 +1148,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %267 = call i64 @_copy_to_user(ptr noundef %12, ptr noundef nonnull %6, i64 noundef 56) #13
   %268 = icmp eq i64 %267, 0
   %269 = select i1 %268, i32 0, i32 -14
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 270:                                              ; preds = %17, %17, %17, %17, %17, %17
   %271 = getelementptr inbounds i8, ptr %11, i64 100
@@ -1167,7 +1167,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %276 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %277 = tail call noalias align 8 dereferenceable_or_null(4124) ptr @kmalloc_trace(ptr noundef %276, i32 noundef 3264, i64 noundef 4124) #14
   %278 = icmp eq ptr %277, null
-  br i1 %278, label %hiddev_ioctl_string.exit, label %279
+  br i1 %278, label %hiddev_ioctl_string.argprom.argprom.argprom.exit, label %279
 
 279:                                              ; preds = %275
   switch i32 %1, label %283 [
@@ -1626,19 +1626,19 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
 .thread.i:                                        ; preds = %.loopexit7.i, %563, %576, %.loopexit.i, %540, %533, %529, %520, %515, %503, %496, %490, %486, %483, %479, %470, %451, %444, %436, %430, %426, %421, %417, %411, %370, %367, %359, %345, %330, %324, %317, %309, %303, %299, %294, %287
   %577 = phi i32 [ %547, %540 ], [ -14, %576 ], [ 0, %503 ], [ 0, %483 ], [ 0, %496 ], [ 0, %.loopexit.i ], [ 0, %520 ], [ 0, %345 ], [ 0, %533 ], [ -22, %529 ], [ -22, %515 ], [ -22, %486 ], [ -22, %490 ], [ -22, %479 ], [ -22, %470 ], [ -22, %451 ], [ -22, %444 ], [ -22, %411 ], [ -22, %359 ], [ -22, %330 ], [ -22, %324 ], [ -22, %317 ], [ -22, %287 ], [ -22, %299 ], [ -22, %303 ], [ -22, %309 ], [ -22, %294 ], [ -22, %367 ], [ -22, %370 ], [ -22, %417 ], [ -22, %426 ], [ -22, %430 ], [ -22, %436 ], [ -22, %421 ], [ 0, %563 ], [ -22, %.loopexit7.i ]
   tail call void @kfree(ptr noundef nonnull %277) #13
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 578:                                              ; preds = %17
   %579 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %12, i64 noundef 16) #13
   %580 = icmp eq i64 %579, 0
-  br i1 %580, label %581, label %hiddev_ioctl_string.exit
+  br i1 %580, label %581, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 581:                                              ; preds = %578
   %582 = load i32, ptr %4, align 4
   %583 = getelementptr inbounds i8, ptr %19, i64 44
   %584 = load i32, ptr %583, align 4
   %585 = icmp ult i32 %582, %584
-  br i1 %585, label %586, label %hiddev_ioctl_string.exit
+  br i1 %585, label %586, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 586:                                              ; preds = %581
   %587 = zext i32 %582 to i64
@@ -1665,16 +1665,16 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %604 = call i64 @_copy_to_user(ptr noundef %12, ptr noundef nonnull %4, i64 noundef 16) #13
   %605 = icmp eq i64 %604, 0
   %606 = select i1 %605, i32 0, i32 -14
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 607:                                              ; preds = %17
   %608 = and i32 %1, -1073676544
   %609 = icmp eq i32 %608, -2147465216
-  br i1 %609, label %610, label %hiddev_ioctl_string.exit
+  br i1 %609, label %610, label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 610:                                              ; preds = %607
   %611 = trunc i32 %1 to i8
-  switch i8 %611, label %hiddev_ioctl_string.exit [
+  switch i8 %611, label %hiddev_ioctl_string.argprom.argprom.argprom.exit [
     i8 6, label %612
     i8 18, label %624
   ]
@@ -1691,7 +1691,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %621 = tail call i64 @_copy_to_user(ptr noundef %12, ptr noundef %613, i64 noundef %620) #13
   %622 = icmp eq i64 %621, 0
   %623 = select i1 %622, i32 %619, i32 -14
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
 624:                                              ; preds = %610
   %625 = getelementptr inbounds i8, ptr %19, i64 7328
@@ -1705,9 +1705,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %633 = tail call i64 @_copy_to_user(ptr noundef %12, ptr noundef %625, i64 noundef %632) #13
   %634 = icmp eq i64 %633, 0
   %635 = select i1 %634, i32 %631, i32 -14
-  br label %hiddev_ioctl_string.exit
+  br label %hiddev_ioctl_string.argprom.argprom.argprom.exit
 
-hiddev_ioctl_string.exit:                         ; preds = %51, %.thread.i, %275, %152, %135, %123, %624, %612, %610, %607, %586, %581, %578, %219, %213, %206, %203, %196, %193, %190, %188, %182, %179, %176, %173, %171, %165, %162, %159, %156, %154, %121, %116, %114, %105, %94, %60, %57, %56, %34, %29, %20, %3
+hiddev_ioctl_string.argprom.argprom.argprom.exit: ; preds = %51, %.thread.i, %275, %152, %135, %123, %624, %612, %610, %607, %586, %581, %578, %219, %213, %206, %203, %196, %193, %190, %188, %182, %179, %176, %173, %171, %165, %162, %159, %156, %154, %121, %116, %114, %105, %94, %60, %57, %56, %34, %29, %20, %3
   %636 = phi i32 [ -22, %607 ], [ -22, %581 ], [ %606, %586 ], [ -22, %206 ], [ -22, %213 ], [ %269, %219 ], [ -22, %193 ], [ %202, %196 ], [ -22, %176 ], [ -22, %179 ], [ -22, %159 ], [ -22, %162 ], [ 0, %154 ], [ %104, %94 ], [ %93, %60 ], [ -22, %29 ], [ %59, %57 ], [ -22, %56 ], [ %28, %20 ], [ -19, %3 ], [ 0, %121 ], [ -14, %105 ], [ -22, %116 ], [ -22, %114 ], [ -14, %156 ], [ -14, %173 ], [ -14, %190 ], [ -14, %203 ], [ -14, %578 ], [ -22, %610 ], [ 0, %165 ], [ 0, %171 ], [ 0, %182 ], [ 0, %188 ], [ %623, %612 ], [ %635, %624 ], [ -22, %34 ], [ -14, %123 ], [ -12, %135 ], [ %153, %152 ], [ -12, %275 ], [ %577, %.thread.i ], [ -22, %51 ]
   call void @mutex_unlock(ptr noundef %13) #13
   %637 = sext i32 %636 to i64

@@ -836,7 +836,7 @@ define { ptr, ptr } @block_bind_library(ptr nocapture readnone %0, ptr %1, ptr %
   %spec.select = select i1 %.not40, i32 %8, i32 1028
   store ptr %33, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %44 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %7, ptr nonnull %.03542, ptr %2, i32 noundef %spec.select, i32 noundef 0)
+  %44 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %7, ptr nonnull %.03542, ptr %2, i32 noundef %spec.select, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   store ptr %30, ptr %29, align 8
   tail call void @free(ptr noundef %33) #17
@@ -889,7 +889,7 @@ define { ptr, ptr } @block_bind_referenced(ptr nocapture readnone %0, ptr %1, pt
 14:                                               ; preds = %.lr.ph, %11
   %.sroa.2.1.ph = phi ptr [ null, %.lr.ph ], [ %13, %11 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %15 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr nonnull %.sroa.2.019, ptr %.sroa.07.020, i32 noundef %7, i32 noundef 0)
+  %15 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %6, ptr nonnull %.sroa.2.019, ptr %.sroa.07.020, i32 noundef %7, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.lr.ph.i, label %18
@@ -967,7 +967,7 @@ define { ptr, ptr } @block_bind_self(ptr nocapture readnone %0, ptr %1, i32 noun
 12:                                               ; preds = %.lr.ph, %9
   %.sroa.2.1.ph = phi ptr [ null, %.lr.ph ], [ %11, %9 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %13 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr nonnull %.sroa.2.014, ptr %.sroa.05.015, i32 noundef %5, i32 noundef 0)
+  %13 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %4, ptr nonnull %.sroa.2.014, ptr %.sroa.05.015, i32 noundef %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not.i.i = icmp eq ptr %.sroa.05.015, null
   br i1 %.not.i.i, label %block_join.exit, label %14
@@ -993,7 +993,7 @@ block_take_last.exit:                             ; preds = %block_join.exit, %3
 
 ; Function Attrs: nounwind uwtable
 define { ptr, ptr } @block_drop_unreferenced(ptr %0, ptr %1) local_unnamed_addr #1 {
-  tail call fastcc void @block_mark_referenced(ptr %1)
+  tail call fastcc void @block_mark_referenced.argprom(ptr %1)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %block_take.exit, label %.lr.ph
 
@@ -1054,7 +1054,7 @@ block_take.exit:                                  ; preds = %block_join.exit, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @block_mark_referenced(ptr readonly %0) unnamed_addr #12 {
+define internal fastcc void @block_mark_referenced.argprom(ptr readonly %0) unnamed_addr #12 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -1090,10 +1090,10 @@ define internal fastcc void @block_mark_referenced(ptr readonly %0) unnamed_addr
 11:                                               ; preds = %9, %.lr.ph._crit_edge
   %12 = getelementptr inbounds i8, ptr %.03, i64 136
   %13 = load ptr, ptr %12, align 8
-  tail call fastcc void @block_mark_referenced(ptr %13)
+  tail call fastcc void @block_mark_referenced.argprom(ptr %13)
   %14 = getelementptr inbounds i8, ptr %.03, i64 120
   %15 = load ptr, ptr %14, align 8
-  tail call fastcc void @block_mark_referenced(ptr %15)
+  tail call fastcc void @block_mark_referenced.argprom(ptr %15)
   br label %16
 
 16:                                               ; preds = %3, %11
@@ -1669,7 +1669,7 @@ define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr
   %.sroa.022.1 = phi ptr [ %52, %22 ], [ %.sroa.022.036, %.lr.ph ]
   %.sroa.5.1 = phi ptr [ %53, %22 ], [ %.sroa.5.037, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %55 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %7, ptr nonnull %.03034, ptr %.sroa.022.1, i32 noundef 1152, i32 noundef 0)
+  %55 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %7, ptr nonnull %.03034, ptr %.sroa.022.1, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %56 = getelementptr inbounds i8, ptr %.03034, i64 8
   %57 = load ptr, ptr %56, align 8
@@ -1696,7 +1696,7 @@ define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr
   %.fca.0.insert.i31 = insertvalue { ptr, ptr } poison, ptr %8, 0
   %.fca.1.insert.i32 = insertvalue { ptr, ptr } %.fca.0.insert.i31, ptr %8, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %62 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr %8, ptr %8, i32 noundef 1152, i32 noundef 0)
+  %62 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %6, ptr %8, ptr %8, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   ret { ptr, ptr } %.fca.1.insert.i32
 }
@@ -1760,7 +1760,7 @@ define { ptr, ptr } @gen_call(ptr nocapture noundef readonly %0, ptr %1, ptr %2)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 136
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
   %.not1.i = icmp eq ptr %1, null
-  br i1 %.not1.i, label %block_count_actuals.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %block_count_actuals.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %21
   %.03.i = phi ptr [ %22, %21 ], [ %1, %3 ]
@@ -1781,9 +1781,9 @@ define { ptr, ptr } @gen_call(ptr nocapture noundef readonly %0, ptr %1, ptr %2)
   %.1.i = phi i32 [ %.042.i, %.lr.ph.i ], [ %20, %19 ]
   %22 = load ptr, ptr %.03.i, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %block_count_actuals.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %block_count_actuals.argprom.exit, label %.lr.ph.i, !llvm.loop !17
 
-block_count_actuals.exit:                         ; preds = %21, %3
+block_count_actuals.argprom.exit:                 ; preds = %21, %3
   %.04.lcssa.i = phi i32 [ 0, %3 ], [ %.1.i, %21 ]
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %4, 0
   %.fca.1.insert.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i, ptr %4, 1
@@ -1885,7 +1885,7 @@ define { ptr, ptr } @gen_lambda(ptr %0, ptr %1) local_unnamed_addr #1 {
   %.fca.1.insert.i32.i = insertvalue { ptr, ptr } %.fca.0.insert.i31.i, ptr %4, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %17 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr %4, ptr %4, i32 noundef 1152, i32 noundef 0)
+  %17 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %3, ptr %4, ptr %4, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret { ptr, ptr } %.fca.1.insert.i32.i
 }
@@ -2957,7 +2957,7 @@ block_append.exit:                                ; preds = %17, %16
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %27 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr nonnull %.019.i, ptr %2, i32 noundef 4, i32 noundef 0)
+  %27 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %6, ptr nonnull %.019.i, ptr %2, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %28
 
@@ -2987,8 +2987,8 @@ block_append.exit:                                ; preds = %17, %16
   %34 = getelementptr inbounds i8, ptr %7, i64 8
   %35 = extractvalue { i64, ptr } %32, 1
   store ptr %35, ptr %34, align 8
-  call fastcc void @block_get_unbound_vars(ptr nonnull %.sroa.0153.0.lcssa, ptr noundef %7)
-  call fastcc void @block_get_unbound_vars(ptr %.sroa.0.0.lcssa, ptr noundef %7)
+  call fastcc void @block_get_unbound_vars.argprom(ptr nonnull %.sroa.0153.0.lcssa, ptr noundef %7)
+  call fastcc void @block_get_unbound_vars.argprom(ptr %.sroa.0.0.lcssa, ptr noundef %7)
   %36 = load i64, ptr %7, align 8
   %37 = load ptr, ptr %34, align 8
   %38 = tail call i32 @jv_object_iter(i64 %36, ptr %37) #17
@@ -3242,7 +3242,7 @@ block_join.exit132:                               ; preds = %block_join.exit125,
 
 124:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %125 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr nonnull %.019.i135, ptr %.sroa.0.1.i129, i32 noundef 4, i32 noundef 0)
+  %125 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %5, ptr nonnull %.019.i135, ptr %.sroa.0.1.i129, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %126
 
@@ -5469,7 +5469,7 @@ block_join.exit:
   %18 = getelementptr inbounds i8, ptr %6, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %19 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr %6, ptr %6, i32 noundef 1152, i32 noundef 0)
+  %19 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %5, ptr %6, ptr %6, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %20 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %21 = getelementptr inbounds i8, ptr %20, i64 16
@@ -5523,7 +5523,7 @@ block_join.exit:
   %44 = getelementptr inbounds i8, ptr %32, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %45 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr %32, ptr %32, i32 noundef 1152, i32 noundef 0)
+  %45 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %4, ptr %32, ptr %32, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store ptr %32, ptr %6, align 8
   %46 = getelementptr inbounds i8, ptr %32, i64 8
@@ -5727,23 +5727,23 @@ block_join.exit.i:                                ; preds = %gen_call.exit, %111
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %block_join.exit.i
   %.0102.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i ], [ %125, %block_join.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %137 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr nonnull %.0102.i.i.i, ptr %75, i32 noundef 3076, i32 noundef 0)
+  %137 = call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %3, ptr nonnull %.0102.i.i.i, ptr %75, i32 noundef 3076, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %138 = load ptr, ptr %.0102.i.i.i, align 8
   %.not.i.i15.i = icmp eq ptr %138, null
-  br i1 %.not.i.i15.i, label %block_bind_each.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i15.i, label %block_bind_each.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
 
-block_bind_each.exit.i.i:                         ; preds = %.lr.ph.i.i.i
+block_bind_each.argprom.exit.i.i:                 ; preds = %.lr.ph.i.i.i
   %.not.i.i.i.i = icmp eq ptr %75, null
   br i1 %.not.i.i.i.i, label %block_bind.exit.i, label %block_bind.exit.thread.i
 
-block_bind.exit.thread.i:                         ; preds = %block_bind_each.exit.i.i
+block_bind.exit.thread.i:                         ; preds = %block_bind_each.argprom.exit.i.i
   store ptr %75, ptr %125, align 8
   %139 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %125, ptr %139, align 8
   br label %140
 
-block_bind.exit.i:                                ; preds = %block_bind_each.exit.i.i
+block_bind.exit.i:                                ; preds = %block_bind_each.argprom.exit.i.i
   %.not.i.i18.i = icmp eq ptr %125, null
   br i1 %.not.i.i18.i, label %gen_wildvar_binding.exit, label %140
 
@@ -5845,7 +5845,7 @@ define i32 @block_compile(ptr %0, ptr %1, ptr nocapture noundef writeonly %2, pt
   %11 = tail call ptr @jv_mem_alloc(i64 noundef 32) #17
   %12 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %11, ptr %12, align 8
-  %13 = tail call fastcc i32 @count_cfunctions(ptr %0)
+  %13 = tail call fastcc i32 @count_cfunctions.argprom(ptr %0)
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 0, ptr %14, align 8
   %15 = sext i32 %13 to i64
@@ -5901,7 +5901,7 @@ define i32 @block_compile(ptr %0, ptr %1, ptr nocapture noundef writeonly %2, pt
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @count_cfunctions(ptr readonly %0) unnamed_addr #14 {
+define internal fastcc i32 @count_cfunctions.argprom(ptr readonly %0) unnamed_addr #14 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -5915,7 +5915,7 @@ define internal fastcc i32 @count_cfunctions(ptr readonly %0) unnamed_addr #14 {
   %spec.select = add nsw i32 %.062, %5
   %6 = getelementptr inbounds i8, ptr %.03, i64 112
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc i32 @count_cfunctions(ptr %7)
+  %8 = tail call fastcc i32 @count_cfunctions.argprom(ptr %7)
   %9 = add nsw i32 %spec.select, %8
   %10 = load ptr, ptr %.03, align 8
   %.not = icmp eq ptr %10, null
@@ -6584,7 +6584,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i284, %.loop
 declare void @bytecode_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @block_bind_subblock_inner(ptr nocapture noundef nonnull writeonly %0, ptr %1, ptr %2, i32 noundef range(i32 1024, 5) %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @block_bind_subblock_inner.argprom(ptr nocapture noundef nonnull writeonly %0, ptr %1, ptr %2, i32 noundef range(i32 1024, 5) %3, i32 noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %1, ptr %6, align 8
   %.not1 = icmp eq ptr %2, null
@@ -6706,11 +6706,11 @@ define internal fastcc i32 @block_bind_subblock_inner(ptr nocapture noundef nonn
   store i32 %71, ptr %11, align 8
   %72 = getelementptr inbounds i8, ptr %.0503, i64 112
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call fastcc i32 @block_bind_subblock_inner(ptr noundef %11, ptr %1, ptr %73, i32 noundef %3, i32 noundef %.2)
+  %74 = tail call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %11, ptr %1, ptr %73, i32 noundef %3, i32 noundef %.2)
   %75 = add nsw i32 %74, %.253
   %76 = getelementptr inbounds i8, ptr %.0503, i64 128
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call fastcc i32 @block_bind_subblock_inner(ptr noundef %11, ptr %1, ptr %77, i32 noundef %3, i32 noundef %.2)
+  %78 = tail call fastcc i32 @block_bind_subblock_inner.argprom(ptr noundef %11, ptr %1, ptr %77, i32 noundef %3, i32 noundef %.2)
   %79 = add nsw i32 %75, %78
   %80 = load i32, ptr %11, align 8
   %.not62 = icmp eq i32 %80, 0
@@ -6745,7 +6745,7 @@ declare void @locfile_free(ptr noundef) local_unnamed_addr #3
 declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @block_get_unbound_vars(ptr readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc void @block_get_unbound_vars.argprom(ptr readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #1 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -6761,7 +6761,7 @@ define internal fastcc void @block_get_unbound_vars(ptr readonly %0, ptr nocaptu
   br i1 %.not19, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call fastcc void @block_get_unbound_vars(ptr nonnull %6, ptr noundef %1)
+  tail call fastcc void @block_get_unbound_vars.argprom(ptr nonnull %6, ptr noundef %1)
   br label %29
 
 8:                                                ; preds = %4

@@ -829,7 +829,7 @@ if.then.i:                                        ; preds = %rcu_read_lock.exit
   br label %cpu_exec_enter.exit
 
 cpu_exec_enter.exit:                              ; preds = %rcu_read_lock.exit, %if.then.i
-  %call1 = tail call fastcc i32 @cpu_exec_setjmp(ptr noundef %cpu)
+  %call1 = tail call fastcc i32 @cpu_exec_setjmp.argprom(ptr noundef %cpu)
   %call.i.i6 = tail call ptr @object_get_class(ptr noundef %cpu) #12
   %call1.i.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i6, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #12
   %tcg_ops.i8 = getelementptr inbounds i8, ptr %call1.i.i7, i64 328
@@ -879,7 +879,7 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @cpu_exec_setjmp(ptr noundef %cpu) unnamed_addr #2 {
+define internal fastcc i32 @cpu_exec_setjmp.argprom(ptr noundef %cpu) unnamed_addr #2 {
 entry:
   %desc.i60.i = alloca %struct.tb_desc, align 8
   %desc.i.i = alloca %struct.tb_desc, align 8
@@ -960,7 +960,7 @@ while.body.lr.ph.i:                               ; preds = %if.end
 if.end.i.i:                                       ; preds = %while.end44.i, %if.end
   %.lcssa22.i = phi i32 [ %3, %if.end ], [ %84, %while.end44.i ]
   %cmp5.i.i = icmp eq i32 %.lcssa22.i, 65538
-  br i1 %cmp5.i.i, label %if.then6.i.i, label %cpu_exec_loop.exit
+  br i1 %cmp5.i.i, label %if.then6.i.i, label %cpu_exec_loop.argprom.exit
 
 if.then6.i.i:                                     ; preds = %if.end.i.thread.i, %if.end.i.i
   %call.i.i.i.i = call ptr @object_get_class(ptr noundef nonnull %cpu) #12
@@ -993,11 +993,11 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i, %if
   %debug_excp_handler.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load ptr, ptr %debug_excp_handler.i.i.i, align 8
   %tobool3.not.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool3.not.i.i.i, label %cpu_exec_loop.exit, label %if.then4.i.i.i
+  br i1 %tobool3.not.i.i.i, label %cpu_exec_loop.argprom.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   call void %7(ptr noundef %cpu) #12
-  br label %cpu_exec_loop.exit
+  br label %cpu_exec_loop.argprom.exit
 
 while.body.i:                                     ; preds = %while.end44.i, %while.body.lr.ph.i
   store i32 0, ptr %tb_exit.i, align 4
@@ -1078,7 +1078,7 @@ while.end76.i.i:                                  ; preds = %land.lhs.true64.i.i
   store atomic i8 0, ptr %exit_request.i.i monotonic, align 1
   %17 = load i32, ptr %exception_index.i.i, align 8
   %cmp81.i.i = icmp eq i32 %17, -1
-  br i1 %cmp81.i.i, label %cpu_exec_loop.exit, label %while.end44.i
+  br i1 %cmp81.i.i, label %cpu_exec_loop.argprom.exit, label %while.end44.i
 
 while.body4.i:                                    ; preds = %land.lhs.true64.i.i, %land.lhs.true56.i.i, %lor.lhs.false.i.i, %while.cond1.i
   %last_tb.3.ph.i = phi ptr [ %last_tb.0.i, %while.cond1.i ], [ %last_tb.2.i, %land.lhs.true64.i.i ], [ %last_tb.2.i, %land.lhs.true56.i.i ], [ %last_tb.2.i, %lor.lhs.false.i.i ]
@@ -1599,7 +1599,7 @@ while.end44.i:                                    ; preds = %while.end76.i.i, %i
   %cmp.i.i = icmp sgt i32 %84, -1
   br i1 %cmp.i.i, label %if.end.i.i, label %while.body.i, !llvm.loop !15
 
-cpu_exec_loop.exit:                               ; preds = %while.end76.i.i, %if.end.i.i, %if.end.i.i.i, %if.then4.i.i.i
+cpu_exec_loop.argprom.exit:                       ; preds = %while.end76.i.i, %if.end.i.i, %if.end.i.i.i, %if.then4.i.i.i
   %.lcssa2235.i = phi i32 [ 65538, %if.then4.i.i.i ], [ 65538, %if.end.i.i.i ], [ %.lcssa22.i, %if.end.i.i ], [ 65536, %while.end76.i.i ]
   store i32 -1, ptr %exception_index.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tb_exit.i)

@@ -177,27 +177,27 @@ define noundef i32 @ompi_osc_rdma_free(ptr nocapture noundef %0) local_unnamed_a
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %_ompi_osc_rdma_deregister.exit, label %65
+  br i1 %.not.i, label %_ompi_osc_rdma_deregister.argprom.exit, label %65
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %58, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 264
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 %68(ptr noundef %66, ptr noundef nonnull %64) #4
-  br label %_ompi_osc_rdma_deregister.exit
+  br label %_ompi_osc_rdma_deregister.argprom.exit
 
-_ompi_osc_rdma_deregister.exit:                   ; preds = %59, %65
+_ompi_osc_rdma_deregister.argprom.exit:           ; preds = %59, %65
   %70 = getelementptr inbounds i8, ptr %62, i64 8
   %71 = load i8, ptr @opal_uses_threads, align 1
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %76
 
-73:                                               ; preds = %_ompi_osc_rdma_deregister.exit
+73:                                               ; preds = %_ompi_osc_rdma_deregister.argprom.exit
   %74 = atomicrmw volatile add ptr %70, i32 -1 monotonic, align 4
   %75 = add i32 %74, -1
   br label %opal_thread_add_fetch_32.exit
 
-76:                                               ; preds = %_ompi_osc_rdma_deregister.exit
+76:                                               ; preds = %_ompi_osc_rdma_deregister.argprom.exit
   %77 = load volatile i32, ptr %70, align 4
   %78 = add nsw i32 %77, -1
   store volatile i32 %78, ptr %70, align 4
@@ -320,7 +320,7 @@ opal_obj_run_destructors.exit150:                 ; preds = %.lr.ph.i147, %opal_
   %124 = getelementptr inbounds i8, ptr %6, i64 424
   %125 = load ptr, ptr %124, align 8
   %.not.i151 = icmp eq ptr %125, null
-  br i1 %.not.i151, label %_ompi_osc_rdma_deregister.exit152, label %126
+  br i1 %.not.i151, label %_ompi_osc_rdma_deregister.argprom.exit152, label %126
 
 126:                                              ; preds = %opal_obj_run_destructors.exit150
   %127 = getelementptr inbounds i8, ptr %6, i64 1080
@@ -328,30 +328,30 @@ opal_obj_run_destructors.exit150:                 ; preds = %.lr.ph.i147, %opal_
   %129 = getelementptr inbounds i8, ptr %128, i64 264
   %130 = load ptr, ptr %129, align 8
   %131 = tail call i32 %130(ptr noundef %128, ptr noundef nonnull %125) #4
-  br label %_ompi_osc_rdma_deregister.exit152
+  br label %_ompi_osc_rdma_deregister.argprom.exit152
 
-_ompi_osc_rdma_deregister.exit152:                ; preds = %opal_obj_run_destructors.exit150, %126
+_ompi_osc_rdma_deregister.argprom.exit152:        ; preds = %opal_obj_run_destructors.exit150, %126
   %132 = getelementptr inbounds i8, ptr %6, i64 432
   %133 = load ptr, ptr %132, align 16
   %.not.i153 = icmp eq ptr %133, null
-  br i1 %.not.i153, label %_ompi_osc_rdma_deregister.exit154, label %134
+  br i1 %.not.i153, label %_ompi_osc_rdma_deregister.argprom.exit154, label %134
 
-134:                                              ; preds = %_ompi_osc_rdma_deregister.exit152
+134:                                              ; preds = %_ompi_osc_rdma_deregister.argprom.exit152
   %135 = getelementptr inbounds i8, ptr %6, i64 1080
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 264
   %138 = load ptr, ptr %137, align 8
   %139 = tail call i32 %138(ptr noundef %136, ptr noundef nonnull %133) #4
-  br label %_ompi_osc_rdma_deregister.exit154
+  br label %_ompi_osc_rdma_deregister.argprom.exit154
 
-_ompi_osc_rdma_deregister.exit154:                ; preds = %_ompi_osc_rdma_deregister.exit152, %134
+_ompi_osc_rdma_deregister.argprom.exit154:        ; preds = %_ompi_osc_rdma_deregister.argprom.exit152, %134
   %140 = getelementptr inbounds i8, ptr %6, i64 776
   %141 = getelementptr inbounds i8, ptr %6, i64 784
   %142 = load volatile i32, ptr %141, align 8
   %143 = icmp eq i32 %142, 1
   br i1 %143, label %.preheader200, label %opal_list_remove_first.exit.thread
 
-.preheader200:                                    ; preds = %_ompi_osc_rdma_deregister.exit154
+.preheader200:                                    ; preds = %_ompi_osc_rdma_deregister.argprom.exit154
   %144 = getelementptr inbounds i8, ptr %6, i64 832
   %145 = load volatile i64, ptr %144, align 8
   %146 = icmp eq i64 %145, 0
@@ -422,7 +422,7 @@ opal_obj_run_destructors.exit162:                 ; preds = %.lr.ph.i159, %169
   %179 = icmp eq i64 %178, 0
   br i1 %179, label %opal_list_remove_first.exit.thread, label %148, !llvm.loop !8
 
-opal_list_remove_first.exit.thread:               ; preds = %177, %.preheader200, %_ompi_osc_rdma_deregister.exit154
+opal_list_remove_first.exit.thread:               ; preds = %177, %.preheader200, %_ompi_osc_rdma_deregister.argprom.exit154
   %180 = load ptr, ptr %140, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 48
   %182 = load ptr, ptr %181, align 8
@@ -443,13 +443,13 @@ opal_obj_run_destructors.exit167:                 ; preds = %.lr.ph.i164, %opal_
   %187 = getelementptr inbounds i8, ptr %6, i64 1144
   %188 = load ptr, ptr %187, align 8
   %.not116 = icmp eq ptr %188, null
-  br i1 %.not116, label %_ompi_osc_rdma_deregister.exit169, label %189
+  br i1 %.not116, label %_ompi_osc_rdma_deregister.argprom.exit169, label %189
 
 189:                                              ; preds = %opal_obj_run_destructors.exit167
   %190 = getelementptr inbounds i8, ptr %188, i64 80
   %191 = load ptr, ptr %190, align 8
   %.not.i168 = icmp eq ptr %191, null
-  br i1 %.not.i168, label %_ompi_osc_rdma_deregister.exit169, label %192
+  br i1 %.not.i168, label %_ompi_osc_rdma_deregister.argprom.exit169, label %192
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds i8, ptr %6, i64 1080
@@ -457,15 +457,15 @@ opal_obj_run_destructors.exit167:                 ; preds = %.lr.ph.i164, %opal_
   %195 = getelementptr inbounds i8, ptr %194, i64 264
   %196 = load ptr, ptr %195, align 8
   %197 = tail call i32 %196(ptr noundef %194, ptr noundef nonnull %191) #4
-  br label %_ompi_osc_rdma_deregister.exit169
+  br label %_ompi_osc_rdma_deregister.argprom.exit169
 
-_ompi_osc_rdma_deregister.exit169:                ; preds = %192, %189, %opal_obj_run_destructors.exit167
+_ompi_osc_rdma_deregister.argprom.exit169:        ; preds = %192, %189, %opal_obj_run_destructors.exit167
   %198 = getelementptr inbounds i8, ptr %6, i64 1000
   %199 = load ptr, ptr %198, align 8
   %200 = icmp eq ptr %199, null
   br i1 %200, label %201, label %237
 
-201:                                              ; preds = %_ompi_osc_rdma_deregister.exit169
+201:                                              ; preds = %_ompi_osc_rdma_deregister.argprom.exit169
   %202 = getelementptr inbounds i8, ptr %6, i64 928
   %203 = call i32 @opal_hash_table_get_first_key_uint32(ptr noundef nonnull %202, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4) #4
   %204 = icmp eq i32 %203, 0
@@ -545,7 +545,7 @@ opal_obj_run_destructors.exit176:                 ; preds = %opal_obj_run_destru
   %.not.i180 = icmp eq ptr %236, null
   br i1 %.not.i180, label %opal_obj_run_destructors.exit181, label %.lr.ph.i178, !llvm.loop !6
 
-237:                                              ; preds = %_ompi_osc_rdma_deregister.exit169
+237:                                              ; preds = %_ompi_osc_rdma_deregister.argprom.exit169
   %238 = load ptr, ptr %12, align 8
   %.not117 = icmp eq ptr %238, null
   br i1 %.not117, label %opal_obj_run_destructors.exit181, label %.preheader198

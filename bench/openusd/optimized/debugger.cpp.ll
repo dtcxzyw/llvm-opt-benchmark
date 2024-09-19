@@ -491,7 +491,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchDebuggerIs
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit, label %11
 
 11:                                               ; preds = %9
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19InitPosixC2Ev()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19InitPosixC2Ev.argprom()
           to label %12 unwind label %13
 
 12:                                               ; preds = %11
@@ -694,7 +694,7 @@ declare noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__11ArchEnvironEv() loca
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19InitPosixC2Ev() unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19InitPosixC2Ev.argprom() unnamed_addr #0 align 2 {
   %1 = alloca %struct.sigaction, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8

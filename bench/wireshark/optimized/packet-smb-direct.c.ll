@@ -181,7 +181,7 @@ define internal i32 @dissect_smb_direct_infiniband(ptr noundef %0, ptr noundef %
   ]
 
 9:                                                ; preds = %6, %6, %6, %6, %6, %6, %6, %6
-  %10 = tail call fastcc i32 @is_smb_direct(ptr noundef %0)
+  %10 = tail call fastcc i32 @is_smb_direct.argprom(ptr noundef %0)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %14, label %12
 
@@ -228,7 +228,7 @@ define internal range(i32 0, 2) i32 @dissect_smb_direct_iwarp_heur(ptr noundef %
   br i1 %switch, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc i32 @is_smb_direct(ptr noundef %0)
+  %9 = tail call fastcc i32 @is_smb_direct.argprom(ptr noundef %0)
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %12, label %11
 
@@ -261,7 +261,7 @@ define internal range(i32 0, 2) i32 @dissect_smb_direct_infiniband_heur(ptr noun
   ]
 
 9:                                                ; preds = %6, %6, %6, %6, %6, %6, %6, %6
-  %10 = tail call fastcc i32 @is_smb_direct(ptr noundef %0)
+  %10 = tail call fastcc i32 @is_smb_direct.argprom(ptr noundef %0)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %dissect_smb_direct_infiniband.exit, label %12
 
@@ -280,7 +280,7 @@ dissect_smb_direct_infiniband.exit:               ; preds = %4, %6, %9, %12
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @is_smb_direct.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %3 = icmp ult i32 %2, 20
   br i1 %3, label %.thread, label %4

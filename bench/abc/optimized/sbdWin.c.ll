@@ -153,7 +153,7 @@ define noundef ptr @Sbd_ManSatSolver(ptr noundef %0, ptr nocapture noundef reado
   %.not258 = icmp ult i32 %68, %75
   %or.cond = and i1 %narrow.i.not.i.not271, %.not258
   %105 = shl nsw i32 %90, 1
-  br i1 %or.cond, label %106, label %Gia_ObjIsXor.exit.thread
+  br i1 %or.cond, label %106, label %Gia_ObjIsXor.argprom.exit.thread
 
 106:                                              ; preds = %64
   %107 = xor i32 %101, %95
@@ -183,7 +183,7 @@ define noundef ptr @Sbd_ManSatSolver(ptr noundef %0, ptr nocapture noundef reado
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   br label %128
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %64
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %64
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
   %118 = shl nsw i32 %66, 1
   %119 = or disjoint i32 %118, 1
@@ -205,7 +205,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
   br label %128
 
-128:                                              ; preds = %106, %Gia_ObjIsXor.exit.thread, %58
+128:                                              ; preds = %106, %Gia_ObjIsXor.argprom.exit.thread, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val204 = load i32, ptr %17, align 4
   %129 = sext i32 %.val204 to i64
@@ -291,7 +291,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   %.not257 = icmp ult i32 %140, %147
   %or.cond259 = and i1 %narrow.i.not.i251.not273, %.not257
   %195 = shl nsw i32 %.0178, 1
-  br i1 %or.cond259, label %196, label %Gia_ObjIsXor.exit252.thread
+  br i1 %or.cond259, label %196, label %Gia_ObjIsXor.argprom.exit252.thread
 
 196:                                              ; preds = %131
   %197 = xor i32 %191, %181
@@ -321,7 +321,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   br label %.critedge
 
-Gia_ObjIsXor.exit252.thread:                      ; preds = %131
+Gia_ObjIsXor.argprom.exit252.thread:              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
   %208 = shl nsw i32 %138, 1
   %209 = or disjoint i32 %208, 1
@@ -343,7 +343,7 @@ Gia_ObjIsXor.exit252.thread:                      ; preds = %131
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   br label %.critedge
 
-.critedge:                                        ; preds = %196, %Gia_ObjIsXor.exit252.thread
+.critedge:                                        ; preds = %196, %Gia_ObjIsXor.argprom.exit252.thread
   %indvars.iv.next277 = add nsw i64 %indvars.iv276, 1
   %.val205 = load i32, ptr %17, align 4
   %218 = sext i32 %.val205 to i64

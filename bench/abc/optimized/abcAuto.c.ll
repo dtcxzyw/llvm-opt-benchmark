@@ -131,13 +131,13 @@ Vec_AttGrow.exit.i.i:                             ; preds = %50, %36, %.lr.ph
   %61 = getelementptr inbounds ptr, ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %Abc_ObjGlobalBdd.exit
+  br i1 %63, label %64, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
 
 64:                                               ; preds = %Vec_AttGrow.exit.i.i
   %65 = getelementptr inbounds i8, ptr %.val55.val.val.val, i64 32
   %66 = load ptr, ptr %65, align 8
   %.not18.i.i = icmp eq ptr %66, null
-  br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.exit, label %67
+  br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds i8, ptr %.val55.val.val.val, i64 16
@@ -149,20 +149,20 @@ Vec_AttGrow.exit.i.i:                             ; preds = %50, %36, %.lr.ph
   %.pre.i.i = load ptr, ptr %58, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %60
   %.pre19.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %Abc_ObjGlobalBdd.exit
+  br label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
 
-Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.i, %64, %67
+Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit: ; preds = %Vec_AttGrow.exit.i.i, %64, %67
   %73 = phi ptr [ %.pre19.i.i, %67 ], [ null, %64 ], [ %62, %Vec_AttGrow.exit.i.i ]
   %74 = load i32, ptr %20, align 4
   %75 = load i32, ptr %18, align 8
   %76 = icmp eq i32 %74, %75
   br i1 %76, label %77, label %.Vec_PtrGrow.exit11_crit_edge.i
 
-.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Abc_ObjGlobalBdd.exit
+.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
   %.pre.i = load ptr, ptr %26, align 8
   br label %Vec_PtrPush.exit
 
-77:                                               ; preds = %Abc_ObjGlobalBdd.exit
+77:                                               ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
   %78 = icmp slt i32 %74, 16
   br i1 %78, label %79, label %86
 
@@ -356,7 +356,7 @@ Abc_Clock.exit.i:                                 ; preds = %120, %117
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %152 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
   %153 = icmp slt i32 %152, 0
-  br i1 %153, label %Abc_NtkAutoPrintAll.exit, label %154
+  br i1 %153, label %Abc_NtkAutoPrintAll.argprom.exit, label %154
 
 154:                                              ; preds = %._crit_edge.i
   %155 = load i64, ptr %5, align 8
@@ -365,9 +365,9 @@ Abc_Clock.exit.i:                                 ; preds = %120, %117
   %158 = load i64, ptr %157, align 8
   %159 = sdiv i64 %158, 1000
   %160 = add nsw i64 %159, %156
-  br label %Abc_NtkAutoPrintAll.exit
+  br label %Abc_NtkAutoPrintAll.argprom.exit
 
-Abc_NtkAutoPrintAll.exit:                         ; preds = %._crit_edge.i, %154
+Abc_NtkAutoPrintAll.argprom.exit:                 ; preds = %._crit_edge.i, %154
   %.0.i77.i = phi i64 [ %160, %154 ], [ -1, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %161 = add i64 %.0.i77.i, %.0.i.neg.i
@@ -401,7 +401,7 @@ Abc_NtkAutoPrintAll.exit:                         ; preds = %._crit_edge.i, %154
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef %.val53.val.val.val, ptr noundef %174) #11
   br label %179
 
-179:                                              ; preds = %166, %Abc_NtkAutoPrintAll.exit
+179:                                              ; preds = %166, %Abc_NtkAutoPrintAll.argprom.exit
   %180 = call ptr @Abc_NtkFreeGlobalBdds(ptr noundef %0, i32 noundef 1) #11
   %.not48 = icmp eq ptr %104, null
   br i1 %.not48, label %182, label %181

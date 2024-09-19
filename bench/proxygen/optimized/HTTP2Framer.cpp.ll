@@ -508,7 +508,7 @@ if.then.i8:                                       ; preds = %call4.i.i.noexc
   unreachable
 
 invoke.cont46:                                    ; preds = %call4.i.i.noexc
-  %call48 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %storemerge.i)
+  %call48 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb.argelim(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %storemerge.i)
           to label %return unwind label %terminate.lpad
 
 return:                                           ; preds = %invoke.cont46, %cond.false, %cleanup.action, %cond.end, %entry
@@ -535,7 +535,7 @@ declare noundef ptr @_ZN8proxygen18getErrorCodeStringENS_9ErrorCodeE(i8 noundef 
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %length) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb.argelim(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %length) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not13 = icmp eq i8 %length, 0
   br i1 %cmp.not13, label %return, label %while.body.lr.ph
@@ -820,7 +820,7 @@ entry:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %bufLen, i64 %pendingDataFramePaddingBytes)
   store i64 %.sroa.speculated, ptr %toSkip, align 8
   %conv = trunc i64 %.sroa.speculated to i8
-  %call2 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %conv)
+  %call2 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb.argelim(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %conv)
           to label %invoke.cont1 unwind label %terminate.lpad
 
 invoke.cont1:                                     ; preds = %entry
@@ -1032,7 +1032,7 @@ if.then.i10:                                      ; preds = %call4.i.i.noexc
   unreachable
 
 invoke.cont55:                                    ; preds = %call4.i.i.noexc
-  %call57 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %storemerge.i)
+  %call57 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb.argelim(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %storemerge.i)
           to label %return unwind label %terminate.lpad
 
 return:                                           ; preds = %invoke.cont55, %cond.false, %if.then43, %cleanup.action, %cond.end, %entry
@@ -1382,7 +1382,7 @@ if.then.i25.cont:                                 ; preds = %if.then.i25.invoke
   unreachable
 
 invoke.cont72:                                    ; preds = %call4.i.i.noexc
-  %call74 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %storemerge.i)
+  %call74 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb.argelim(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %storemerge.i)
           to label %return unwind label %terminate.lpad
 
 return:                                           ; preds = %invoke.cont72, %cond.false, %invoke.cont62, %if.end53, %if.then43, %cleanup.action, %cond.end, %entry
@@ -1885,7 +1885,7 @@ if.then.i24.cont:                                 ; preds = %if.then.i24.invoke
   unreachable
 
 invoke.cont55:                                    ; preds = %call4.i.i.noexc
-  %call57 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %storemerge.i)
+  %call57 = invoke fastcc noundef zeroext i8 @_ZN8proxygen5http212_GLOBAL__N_111skipPaddingERN5folly2io6CursorEhb.argelim(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i8 noundef zeroext %storemerge.i)
           to label %return unwind label %terminate.lpad
 
 return:                                           ; preds = %invoke.cont55, %cond.false, %invoke.cont45, %if.end41, %cleanup.action, %cond.end, %entry

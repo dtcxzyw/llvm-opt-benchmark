@@ -350,27 +350,27 @@ define dso_local i64 @hex_decode_safe(ptr noundef %0, i64 noundef %1, ptr nounde
 
 12:                                               ; preds = %7
   %13 = icmp ult i8 %8, 127
-  br i1 %13, label %get_hex.exit, label %get_hex.exit.thread
+  br i1 %13, label %get_hex.argprom.exit, label %get_hex.argprom.exit.thread
 
-get_hex.exit:                                     ; preds = %12
+get_hex.argprom.exit:                             ; preds = %12
   %14 = zext nneg i8 %8 to i64
   %15 = getelementptr [128 x i8], ptr @hexlookup, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = icmp sgt i8 %16, -1
-  br i1 %17, label %23, label %get_hex.exit.thread
+  br i1 %17, label %23, label %get_hex.argprom.exit.thread
 
-get_hex.exit.thread:                              ; preds = %12, %get_hex.exit
+get_hex.argprom.exit.thread:                      ; preds = %12, %get_hex.argprom.exit
   %18 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
   br i1 %18, label %19, label %49
 
-19:                                               ; preds = %get_hex.exit.thread
+19:                                               ; preds = %get_hex.argprom.exit.thread
   %20 = tail call i32 @errcode(i32 noundef 50856066) #7
   %21 = tail call i32 @pg_mblen(ptr noundef nonnull %.03351) #7
   %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %21, ptr noundef nonnull %.03351) #7
   tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.hex_decode_safe) #7
   br label %49
 
-23:                                               ; preds = %get_hex.exit
+23:                                               ; preds = %get_hex.argprom.exit
   %24 = getelementptr i8, ptr %.03351, i64 1
   %.not = icmp ult ptr %24, %5
   br i1 %.not, label %30, label %25
@@ -388,27 +388,27 @@ get_hex.exit.thread:                              ; preds = %12, %get_hex.exit
 30:                                               ; preds = %23
   %.val = load i8, ptr %24, align 1
   %31 = icmp ult i8 %.val, 127
-  br i1 %31, label %get_hex.exit39, label %get_hex.exit39.thread
+  br i1 %31, label %get_hex.argprom.exit39, label %get_hex.argprom.exit39.thread
 
-get_hex.exit39:                                   ; preds = %30
+get_hex.argprom.exit39:                           ; preds = %30
   %32 = zext nneg i8 %.val to i64
   %33 = getelementptr [128 x i8], ptr @hexlookup, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = icmp sgt i8 %34, -1
-  br i1 %35, label %.outer, label %get_hex.exit39.thread
+  br i1 %35, label %.outer, label %get_hex.argprom.exit39.thread
 
-get_hex.exit39.thread:                            ; preds = %30, %get_hex.exit39
+get_hex.argprom.exit39.thread:                    ; preds = %30, %get_hex.argprom.exit39
   %36 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
   br i1 %36, label %37, label %49
 
-37:                                               ; preds = %get_hex.exit39.thread
+37:                                               ; preds = %get_hex.argprom.exit39.thread
   %38 = tail call i32 @errcode(i32 noundef 50856066) #7
   %39 = tail call i32 @pg_mblen(ptr noundef nonnull %24) #7
   %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %39, ptr noundef nonnull %24) #7
   tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__func__.hex_decode_safe) #7
   br label %49
 
-.outer:                                           ; preds = %get_hex.exit39
+.outer:                                           ; preds = %get_hex.argprom.exit39
   %41 = getelementptr i8, ptr %.03351, i64 2
   %42 = shl i8 %16, 4
   %43 = or i8 %34, %42
@@ -424,8 +424,8 @@ get_hex.exit39.thread:                            ; preds = %30, %get_hex.exit39
   %48 = sub i64 %46, %47
   br label %49
 
-49:                                               ; preds = %37, %get_hex.exit39.thread, %27, %25, %19, %get_hex.exit.thread, %.outer._crit_edge
-  %.0 = phi i64 [ %48, %.outer._crit_edge ], [ 0, %get_hex.exit.thread ], [ 0, %19 ], [ 0, %25 ], [ 0, %27 ], [ 0, %get_hex.exit39.thread ], [ 0, %37 ]
+49:                                               ; preds = %37, %get_hex.argprom.exit39.thread, %27, %25, %19, %get_hex.argprom.exit.thread, %.outer._crit_edge
+  %.0 = phi i64 [ %48, %.outer._crit_edge ], [ 0, %get_hex.argprom.exit.thread ], [ 0, %19 ], [ 0, %25 ], [ 0, %27 ], [ 0, %get_hex.argprom.exit39.thread ], [ 0, %37 ]
   ret i64 %.0
 }
 

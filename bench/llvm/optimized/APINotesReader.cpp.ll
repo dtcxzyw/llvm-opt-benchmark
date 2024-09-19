@@ -382,11 +382,11 @@ define dso_local { i64, i8 } @_ZN5clang9api_notes14APINotesReader14Implementatio
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread, label %5
+  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.thread, label %5
 
 5:                                                ; preds = %3
   %6 = icmp eq i64 %2, 0
-  br i1 %6, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread, label %7
+  br i1 %6, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.thread, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -401,9 +401,9 @@ define dso_local { i64, i8 } @_ZN5clang9api_notes14APINotesReader14Implementatio
   %12 = add i32 %10, %11
   %13 = getelementptr inbounds i8, ptr %.0913.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %13, %8
-  br i1 %.not.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i, label %.lr.ph.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i: ; preds = %.lr.ph.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i.i.i
   %14 = load i32, ptr %.val, align 8, !noalias !7
   %15 = add i32 %14, -1
   %16 = and i32 %15, %12
@@ -415,9 +415,9 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %21, align 4, !noalias !7
   %22 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %22, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread, label %23
+  br i1 %22, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.thread, label %23
 
-23:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i
+23:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %25 = load ptr, ptr %24, align 8, !noalias !7
   %26 = zext i32 %.0.copyload.i.i.i.i.i to i64
@@ -426,7 +426,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %.0.copyload.i.i.i33.i.i = load i16, ptr %27, align 1, !noalias !7
   %28 = zext i16 %.0.copyload.i.i.i33.i.i to i32
   %.not14.i.i = icmp eq i16 %.0.copyload.i.i.i33.i.i, 0
-  br i1 %.not14.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not14.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %23
   %29 = getelementptr inbounds i8, ptr %27, i64 2
@@ -454,26 +454,26 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i: ; preds = %.lr.ph.i.i
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %32, ptr readonly %1, i64 %2), !noalias !7
   %33 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %33, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i
+  br i1 %33, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i, %.lr.ph.i.i
   %34 = getelementptr inbounds i8, ptr %32, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %34, i64 %.sroa.0.0.extract.trunc.i.i
   %35 = add nuw nsw i32 %.02513.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %35, %28
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i
   %36 = getelementptr inbounds i8, ptr %32, i64 %2
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   %.0.copyload.i.i.i.i.i7 = load i32, ptr %36, align 1
   %37 = zext i32 %.0.copyload.i.i.i.i.i7 to i64
   %38 = shl i64 %37, 33
-  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread
+  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.thread
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i, %23, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i, %5, %3, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit
-  %.sroa.019.0 = phi i64 [ %38, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit ], [ undef, %3 ], [ 0, %5 ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i ], [ undef, %23 ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i ]
-  %.sroa.320.0 = phi i8 [ 1, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit ], [ 0, %3 ], [ 1, %5 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i ], [ 0, %23 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i ]
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i, %23, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i, %5, %3, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit
+  %.sroa.019.0 = phi i64 [ %38, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit ], [ undef, %3 ], [ 0, %5 ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i ], [ undef, %23 ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i ]
+  %.sroa.320.0 = phi i8 [ 1, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit ], [ 0, %3 ], [ 1, %5 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i ], [ 0, %23 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.320.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -543,9 +543,9 @@ define dso_local { i64, i8 } @_ZN5clang9api_notes14APINotesReader14Implementatio
   %33 = add i32 %31, %32
   %34 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %34, %29
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %35 = load i32, ptr %.val.i, align 8, !noalias !15
   %36 = add i32 %35, -1
   %37 = and i32 %36, %33
@@ -559,7 +559,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %43 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %43, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit25, label %44
 
-44:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+44:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %46 = load ptr, ptr %45, align 8, !noalias !15
   %47 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -596,7 +596,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %53, ptr readonly %.sroa.02.0.copyload, i64 %.sroa.23.0.copyload), !noalias !15
   %54 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %54, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %54, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %55 = getelementptr inbounds i8, ptr %53, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -605,7 +605,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %56, %49
   br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit25, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %57 = getelementptr inbounds i8, ptr %53, i64 %.sroa.23.0.copyload
   call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %57, align 1
@@ -613,8 +613,8 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %59 = shl i64 %58, 33
   br label %60
 
-60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %26
-  %.sroa.019.0.i = phi i64 [ %59, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %26 ]
+60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %26
+  %.sroa.019.0.i = phi i64 [ %59, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %26 ]
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
   %62 = add i64 %61, 1
   %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
@@ -667,23 +667,23 @@ _ZN5clang9api_notes18StoredObjCSelectorC2ERKS1_.exit.i: ; preds = %75, %._crit_e
   %79 = getelementptr inbounds i8, ptr %8, i64 24
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull %79, i64 noundef 2) #17
   %80 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #17
-  br i1 %80, label %_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.exit.i, label %81
+  br i1 %80, label %_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.argprom.exit.i, label %81
 
 81:                                               ; preds = %_ZN5clang9api_notes18StoredObjCSelectorC2ERKS1_.exit.i
   %82 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_18PointerEmbeddedIntIjLi31EEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %72)
-  br label %_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.exit.i
+  br label %_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.argprom.exit.i
 
-_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.exit.i: ; preds = %81, %_ZN5clang9api_notes18StoredObjCSelectorC2ERKS1_.exit.i
+_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.argprom.exit.i: ; preds = %81, %_ZN5clang9api_notes18StoredObjCSelectorC2ERKS1_.exit.i
   %83 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #17
   %84 = load ptr, ptr %72, align 8, !noalias !18
   %85 = icmp eq ptr %84, %73
   br i1 %85, label %_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit.i, label %86
 
-86:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.exit.i
+86:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.argprom.exit.i
   call void @free(ptr noundef %84) #17
   br label %_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit.i
 
-_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit.i: ; preds = %86, %_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.exit.i
+_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit.i: ; preds = %86, %_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.argprom.exit.i
   %87 = load i32, ptr %8, align 8, !noalias !18
   store i32 %87, ptr %10, align 8, !noalias !18
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -965,7 +965,7 @@ _ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit35.i.i: ; preds = %205, %_ZN4llv
   br label %_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit36.i.i
 
 _ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit36.i.i: ; preds = %209, %_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit35.i.i
-  br i1 %180, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.exit.i, label %210
+  br i1 %180, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.argprom.exit.i, label %210
 
 210:                                              ; preds = %_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit36.i.i, %133
   %.2.i.i = phi ptr [ %.1.i.i, %_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit36.i.i ], [ %135, %133 ]
@@ -984,9 +984,9 @@ _ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit36.i.i: ; preds = %209, %_ZN5cla
   store i32 0, ptr %215, align 8, !alias.scope !28
   %216 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr null, ptr %216, align 8, !alias.scope !28
-  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.exit.i
+  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.argprom.exit.i
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.exit.i: ; preds = %_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit36.i.i, %.loopexit.sink.split.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit36.i.i, %.loopexit.sink.split.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !18
@@ -994,13 +994,13 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTa
   %217 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %78) #17
   %218 = load ptr, ptr %78, align 8, !noalias !18
   %219 = icmp eq ptr %218, %79
-  br i1 %219, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.exit, label %220
+  br i1 %219, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.argprom.exit, label %220
 
-220:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.exit.i
+220:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.argprom.exit.i
   call void @free(ptr noundef %218) #17
-  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.exit
+  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.argprom.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.exit: ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.exit.i, %220
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.argprom.exit: ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.argprom.exit.i, %220
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -1022,11 +1022,11 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTa
   %230 = icmp eq ptr %229, %222
   br i1 %230, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit, label %231
 
-231:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.exit
+231:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.argprom.exit
   call void @free(ptr noundef %229) #17
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit: ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.exit, %231
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit: ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.argprom.exit, %231
   br i1 %227, label %247, label %232
 
 232:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit
@@ -1077,9 +1077,9 @@ _ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorT
   call void @free(ptr noundef %250) #17
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit25
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit25: ; preds = %44, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %.lr.ph, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %253, %247
-  %.sroa.027.1 = phi i64 [ %.sroa.027.2, %247 ], [ %.sroa.027.2, %253 ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ], [ undef, %.lr.ph ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ undef, %44 ]
-  %.sroa.228.1 = phi i8 [ %.sroa.228.2, %247 ], [ %.sroa.228.2, %253 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ], [ 0, %.lr.ph ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %44 ]
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE8iteratorD2Ev.exit25: ; preds = %44, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %.lr.ph, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %253, %247
+  %.sroa.027.1 = phi i64 [ %.sroa.027.2, %247 ], [ %.sroa.027.2, %253 ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ], [ undef, %.lr.ph ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ undef, %44 ]
+  %.sroa.228.1 = phi i8 [ %.sroa.228.2, %247 ], [ %.sroa.228.2, %253 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ], [ 0, %.lr.ph ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %44 ]
   %254 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
   %255 = load ptr, ptr %18, align 8
   %256 = icmp eq ptr %255, %19
@@ -2111,13 +2111,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -2913,13 +2913,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -3295,13 +3295,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -3677,13 +3677,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -4059,13 +4059,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -4441,13 +4441,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -4823,13 +4823,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -5205,13 +5205,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -5587,13 +5587,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -5969,13 +5969,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -6351,13 +6351,13 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %83, %_ZNSt10unique_
   %105 = load ptr, ptr %41, align 8
   store ptr %100, ptr %41, align 8
   %.not.i.i39 = icmp eq ptr %105, null
-  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.exit.i.i
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.exit.i.i: ; preds = %90
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.argprom.exit.i.i: ; preds = %90
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.exit.i.i, %90, %87
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.argprom.exit.i.i, %90, %87
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %106 = load i8, ptr %25, align 8
   %107 = trunc i8 %106 to i1
@@ -7336,13 +7336,13 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesRead
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.val = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %6
+  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %.val.i = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %8
+  br i1 %.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = icmp eq i64 %2, 0
@@ -7361,9 +7361,9 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesRead
   %15 = add i32 %13, %14
   %16 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %16, %11
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %17 = load i32, ptr %.val.i, align 8, !noalias !291
   %18 = add i32 %17, -1
   %19 = and i32 %18, %15
@@ -7375,9 +7375,9 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 4) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %24, align 4, !noalias !291
   %25 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
-  br i1 %25, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %26
+  br i1 %25, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %26
 
-26:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+26:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !291
   %29 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -7386,7 +7386,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %.0.copyload.i.i.i33.i.i.i = load i16, ptr %30, align 1, !noalias !291
   %31 = zext i16 %.0.copyload.i.i.i33.i.i.i to i32
   %.not14.i.i.i = icmp eq i16 %.0.copyload.i.i.i33.i.i.i, 0
-  br i1 %.not14.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i.i
+  br i1 %.not14.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %26
   %32 = getelementptr inbounds i8, ptr %30, i64 2
@@ -7414,24 +7414,24 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %35, ptr readonly %1, i64 %2), !noalias !291
   %36 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %36, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %36, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %37 = getelementptr inbounds i8, ptr %35, i64 %.sroa.4.0.extract.trunc.i.i.i
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %37, i64 %.sroa.0.0.extract.trunc.i.i.i
   %38 = add nuw nsw i32 %.02513.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %38, %31
-  br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %39 = getelementptr inbounds i8, ptr %35, i64 %2
   call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %39, align 1
   %40 = and i32 %.0.copyload.i.i.i.i.i7.i, 2147483647
   br label %41
 
-41:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %8
-  %.sroa.019.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %8 ]
+41:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %8
+  %.sroa.019.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   store i32 -1, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !294
   %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 4
@@ -7467,7 +7467,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %63, align 4, !noalias !297
   %64 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %64, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %65
+  br i1 %64, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %65
 
 65:                                               ; preds = %41
   %66 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -7478,7 +7478,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i42.i.i = load i16, ptr %69, align 1, !noalias !297
   %70 = zext i16 %.0.copyload.i.i.i42.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i42.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %65
   %71 = getelementptr inbounds i8, ptr %69, i64 2
@@ -7517,25 +7517,25 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %or.cond.i.i.i10 = icmp eq i64 %.sroa.0.0.insert.insert.i48.i.i, 4294967295
   %79 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.019.0.i
   %spec.select.i.i.i = select i1 %or.cond.i.i.i10, i1 %79, i1 false
-  br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, label %80
+  br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit, label %80
 
 80:                                               ; preds = %76, %72
   %81 = getelementptr inbounds i8, ptr %75, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %81, i64 %.sroa.0.0.extract.trunc.i.i
   %82 = add nuw nsw i32 %.0339.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %82, %70
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %72, !llvm.loop !300
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %72, !llvm.loop !300
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit: ; preds = %76
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit: ; preds = %76
   %83 = getelementptr inbounds i8, ptr %75, i64 %.sroa.0.0.extract.trunc.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 1) ]
   %.0.copyload.i.i.i.i.i11 = load i32, ptr %83, align 1
   %84 = zext i32 %.0.copyload.i.i.i.i.i11 to i64
-  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
+  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %80, %65, %41, %26, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %6, %3, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit
-  %.sroa.024.0 = phi i64 [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ 0, %41 ], [ 0, %65 ], [ 0, %80 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
-  %.sroa.225.0 = phi i64 [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ 0, %41 ], [ 0, %65 ], [ 0, %80 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %80, %65, %41, %26, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %6, %3, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit
+  %.sroa.024.0 = phi i64 [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %26 ], [ 0, %41 ], [ 0, %65 ], [ 0, %80 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
+  %.sroa.225.0 = phi i64 [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %26 ], [ 0, %41 ], [ 0, %65 ], [ 0, %80 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.225.0, %.sroa.024.0
   ret i64 %.sroa.024.0.insert.insert
 }
@@ -7595,7 +7595,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader19lookupObjCClassInfoE
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %36, align 4, !noalias !307
   %37 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %37, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, label %38
+  br i1 %37, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread, label %38
 
 38:                                               ; preds = %17
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -7606,7 +7606,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader19lookupObjCClassInfoE
   %.0.copyload.i.i.i28.i.i = load i16, ptr %42, align 1, !noalias !307
   %43 = zext i16 %.0.copyload.i.i.i28.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i28.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %38
   %44 = getelementptr inbounds i8, ptr %42, i64 2
@@ -7634,23 +7634,23 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader19lookupObjCClassInfoE
   call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 1) ]
   %.0.copyload.i.i.i.i30.i.i = load i32, ptr %47, align 1, !noalias !307
   %50 = icmp eq i32 %.0.copyload.i.i.i.i30.i.i, %.sroa.010.0.extract.trunc
-  br i1 %50, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit, label %51
+  br i1 %50, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit, label %51
 
 51:                                               ; preds = %49, %.lr.ph.i.i
   %.pn.i.i = zext nneg i32 %48 to i64
   %storemerge.i.i = getelementptr inbounds i8, ptr %47, i64 %.pn.i.i
   %52 = add nuw nsw i32 %.0219.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %52, %43
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !308
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !308
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread: ; preds = %51, %17, %38
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread: ; preds = %51, %17, %38
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %53, i64 noundef 1) #17
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i8 0, ptr %54, align 4
   br label %60
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit: ; preds = %49
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit: ; preds = %49
   %.sroa.0.0.insert.ext.i.le.i.i = zext i16 %.0.copyload.i.i.i.i.i.i to i64
   %55 = getelementptr inbounds i8, ptr %47, i64 %.sroa.0.0.insert.ext.i.le.i.i
   store i32 %.sroa.010.0.extract.trunc, ptr %5, align 8, !alias.scope !307
@@ -7669,7 +7669,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTab
   call void @_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %6) #17
   br label %60
 
-60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, %14, %9
+60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread, %14, %9
   ret void
 }
 
@@ -8152,13 +8152,13 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesRead
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.val = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %6
+  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %.val.i = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %8
+  br i1 %.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = icmp eq i64 %2, 0
@@ -8177,9 +8177,9 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesRead
   %15 = add i32 %13, %14
   %16 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %16, %11
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %17 = load i32, ptr %.val.i, align 8, !noalias !322
   %18 = add i32 %17, -1
   %19 = and i32 %18, %15
@@ -8191,9 +8191,9 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 4) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %24, align 4, !noalias !322
   %25 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
-  br i1 %25, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %26
+  br i1 %25, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %26
 
-26:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+26:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !322
   %29 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -8202,7 +8202,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %.0.copyload.i.i.i33.i.i.i = load i16, ptr %30, align 1, !noalias !322
   %31 = zext i16 %.0.copyload.i.i.i33.i.i.i to i32
   %.not14.i.i.i = icmp eq i16 %.0.copyload.i.i.i33.i.i.i, 0
-  br i1 %.not14.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i.i
+  br i1 %.not14.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %26
   %32 = getelementptr inbounds i8, ptr %30, i64 2
@@ -8230,24 +8230,24 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %35, ptr readonly %1, i64 %2), !noalias !322
   %36 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %36, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %36, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %37 = getelementptr inbounds i8, ptr %35, i64 %.sroa.4.0.extract.trunc.i.i.i
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %37, i64 %.sroa.0.0.extract.trunc.i.i.i
   %38 = add nuw nsw i32 %.02513.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %38, %31
-  br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %39 = getelementptr inbounds i8, ptr %35, i64 %2
   call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %39, align 1
   %40 = and i32 %.0.copyload.i.i.i.i.i7.i, 2147483647
   br label %41
 
-41:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %8
-  %.sroa.019.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %8 ]
+41:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %8
+  %.sroa.019.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   store i32 -1, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !325
   %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 4
@@ -8283,7 +8283,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %63, align 4, !noalias !328
   %64 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %64, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %65
+  br i1 %64, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %65
 
 65:                                               ; preds = %41
   %66 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -8294,7 +8294,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i42.i.i = load i16, ptr %69, align 1, !noalias !328
   %70 = zext i16 %.0.copyload.i.i.i42.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i42.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %65
   %71 = getelementptr inbounds i8, ptr %69, i64 2
@@ -8333,25 +8333,25 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %or.cond.i.i.i10 = icmp eq i64 %.sroa.0.0.insert.insert.i48.i.i, 8589934591
   %79 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.019.0.i
   %spec.select.i.i.i = select i1 %or.cond.i.i.i10, i1 %79, i1 false
-  br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, label %80
+  br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit, label %80
 
 80:                                               ; preds = %76, %72
   %81 = getelementptr inbounds i8, ptr %75, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %81, i64 %.sroa.0.0.extract.trunc.i.i
   %82 = add nuw nsw i32 %.0339.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %82, %70
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %72, !llvm.loop !300
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %72, !llvm.loop !300
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit: ; preds = %76
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit: ; preds = %76
   %83 = getelementptr inbounds i8, ptr %75, i64 %.sroa.0.0.extract.trunc.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 1) ]
   %.0.copyload.i.i.i.i.i11 = load i32, ptr %83, align 1
   %84 = zext i32 %.0.copyload.i.i.i.i.i11 to i64
-  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
+  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %80, %65, %41, %26, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %6, %3, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit
-  %.sroa.024.0 = phi i64 [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ 0, %41 ], [ 0, %65 ], [ 0, %80 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
-  %.sroa.225.0 = phi i64 [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ 0, %41 ], [ 0, %65 ], [ 0, %80 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %80, %65, %41, %26, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %6, %3, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit
+  %.sroa.024.0 = phi i64 [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %26 ], [ 0, %41 ], [ 0, %65 ], [ 0, %80 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
+  %.sroa.225.0 = phi i64 [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %26 ], [ 0, %41 ], [ 0, %65 ], [ 0, %80 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.225.0, %.sroa.024.0
   ret i64 %.sroa.024.0.insert.insert
 }
@@ -8411,7 +8411,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader22lookupObjCProtocolIn
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %36, align 4, !noalias !337
   %37 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %37, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, label %38
+  br i1 %37, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread, label %38
 
 38:                                               ; preds = %17
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -8422,7 +8422,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader22lookupObjCProtocolIn
   %.0.copyload.i.i.i28.i.i = load i16, ptr %42, align 1, !noalias !337
   %43 = zext i16 %.0.copyload.i.i.i28.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i28.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %38
   %44 = getelementptr inbounds i8, ptr %42, i64 2
@@ -8450,23 +8450,23 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader22lookupObjCProtocolIn
   call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 1) ]
   %.0.copyload.i.i.i.i30.i.i = load i32, ptr %47, align 1, !noalias !337
   %50 = icmp eq i32 %.0.copyload.i.i.i.i30.i.i, %.sroa.010.0.extract.trunc
-  br i1 %50, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit, label %51
+  br i1 %50, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit, label %51
 
 51:                                               ; preds = %49, %.lr.ph.i.i
   %.pn.i.i = zext nneg i32 %48 to i64
   %storemerge.i.i = getelementptr inbounds i8, ptr %47, i64 %.pn.i.i
   %52 = add nuw nsw i32 %.0219.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %52, %43
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !308
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !308
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread: ; preds = %51, %17, %38
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread: ; preds = %51, %17, %38
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %53, i64 noundef 1) #17
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i8 0, ptr %54, align 4
   br label %60
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit: ; preds = %49
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit: ; preds = %49
   %.sroa.0.0.insert.ext.i.le.i.i = zext i16 %.0.copyload.i.i.i.i.i.i to i64
   %55 = getelementptr inbounds i8, ptr %47, i64 %.sroa.0.0.insert.ext.i.le.i.i
   store i32 %.sroa.010.0.extract.trunc, ptr %5, align 8, !alias.scope !337
@@ -8485,7 +8485,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTab
   call void @_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %6) #17
   br label %60
 
-60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, %14, %9
+60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom.exit.thread, %14, %9
   ret void
 }
 
@@ -8534,9 +8534,9 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader18lookupObjCPropertyEN
   %27 = add i32 %25, %26
   %28 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %28, %23
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %29 = load i32, ptr %.val.i, align 8, !noalias !341
   %30 = add i32 %29, -1
   %31 = and i32 %30, %27
@@ -8550,7 +8550,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %37 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %37, label %.loopexit, label %38
 
-38:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+38:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %40 = load ptr, ptr %39, align 8, !noalias !341
   %41 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -8587,7 +8587,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %47, ptr readonly %3, i64 %4), !noalias !341
   %48 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %48, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %48, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %49 = getelementptr inbounds i8, ptr %47, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -8596,22 +8596,22 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %50, %43
   br i1 %exitcond.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %51 = getelementptr inbounds i8, ptr %47, i64 %4
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %51, align 1
   %52 = and i32 %.0.copyload.i.i.i.i.i7.i, 2147483647
   br label %55
 
-.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %18, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %38
+.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %18, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %38
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %53, i64 noundef 1) #17
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 0, ptr %54, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELj1EED2Ev.exit
 
-55:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %20
-  %.sroa.019.0.i = phi i32 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
+55:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %20
+  %.sroa.019.0.i = phi i32 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %20 ]
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %.sroa.0.i.i.i.i.i.i)
   store i32 %2, ptr %.sroa.0.i.i.i.i.i.i, align 8, !noalias !344
   %.sroa.0.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i.i.i, i64 4
@@ -8647,7 +8647,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %77, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %77, align 4, !noalias !347
   %78 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %78, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, label %79
+  br i1 %78, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread, label %79
 
 79:                                               ; preds = %55
   %80 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -8658,7 +8658,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i27.i.i = load i16, ptr %83, align 1, !noalias !347
   %84 = zext i16 %.0.copyload.i.i.i27.i.i to i32
   %.not18.i.i = icmp eq i16 %.0.copyload.i.i.i27.i.i, 0
-  br i1 %.not18.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, label %.lr.ph.i.i
+  br i1 %.not18.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %79
   %85 = getelementptr inbounds i8, ptr %83, i64 2
@@ -8695,23 +8695,23 @@ _ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInf
   %94 = icmp eq i32 %.0.copyload.i.i.i1.i.i.i, %.sroa.019.0.i
   %95 = icmp eq i8 %.0.copyload.i.i.i2.i30.i.i, %12
   %96 = select i1 %94, i1 %95, i1 false
-  br i1 %96, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit, label %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8EqualKeyES5_S5_.exit.thread.i.i
+  br i1 %96, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit, label %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8EqualKeyES5_S5_.exit.thread.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8EqualKeyES5_S5_.exit.thread.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8EqualKeyES5_S5_.exit.i.i, %90, %86
   %97 = getelementptr inbounds i8, ptr %89, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %97, i64 %.sroa.0.0.extract.trunc.i.i
   %98 = add nuw nsw i32 %.02117.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %98, %84
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, label %86, !llvm.loop !353
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread, label %86, !llvm.loop !353
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8EqualKeyES5_S5_.exit.thread.i.i, %55, %79
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8EqualKeyES5_S5_.exit.thread.i.i, %55, %79
   %99 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %99, i64 noundef 1) #17
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 0, ptr %100, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELj1EED2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8EqualKeyES5_S5_.exit.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8EqualKeyES5_S5_.exit.i.i
   %101 = getelementptr inbounds i8, ptr %89, i64 %.sroa.0.0.extract.trunc.i.i
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.0.0.copyload = load i64, ptr %102, align 8
@@ -8733,7 +8733,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTa
   %108 = icmp ult i64 %107, %106
   br i1 %108, label %109, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEE7reserveEm.exit.i.i
 
-109:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit
+109:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !360
   %110 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %105, i64 noundef %106, i64 noundef 136, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE19moveElementsForGrowEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %110)
@@ -8751,7 +8751,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16O
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !360
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit
   %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i10, 0
   br i1 %.not5.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i11
 
@@ -8770,9 +8770,9 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPrope
   %125 = getelementptr inbounds nuw i8, ptr %10, i64 128
   br label %126
 
-126:                                              ; preds = %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.exit.i.i, %.lr.ph.i.i11
-  %127 = phi ptr [ %103, %.lr.ph.i.i11 ], [ %177, %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.exit.i.i ]
-  %.06.i.i = phi i32 [ 0, %.lr.ph.i.i11 ], [ %209, %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.exit.i.i ]
+126:                                              ; preds = %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom.exit.i.i, %.lr.ph.i.i11
+  %127 = phi ptr [ %103, %.lr.ph.i.i11 ], [ %177, %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom.exit.i.i ]
+  %.06.i.i = phi i32 [ 0, %.lr.ph.i.i11 ], [ %209, %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom.exit.i.i ]
   %128 = getelementptr inbounds i8, ptr %127, i64 1
   %129 = load i8, ptr %127, align 1
   %130 = and i8 %129, 3
@@ -8865,7 +8865,7 @@ _ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i: ; preds = %15
   %178 = load i8, ptr %176, align 1
   %179 = and i8 %178, 1
   %.not.i.i.i13 = icmp eq i8 %179, 0
-  br i1 %.not.i.i.i13, label %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.exit.i.i, label %180
+  br i1 %.not.i.i.i13, label %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom.exit.i.i, label %180
 
 180:                                              ; preds = %_ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i
   %181 = load i8, ptr %119, align 8, !alias.scope !361, !noalias !360
@@ -8873,9 +8873,9 @@ _ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i: ; preds = %15
   %183 = and i8 %178, 3
   %184 = or disjoint i8 %182, %183
   store i8 %184, ptr %119, align 8, !alias.scope !361, !noalias !360
-  br label %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.exit.i.i
+  br label %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom.exit.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.exit.i.i: ; preds = %180, %_ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i
+_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom.exit.i.i: ; preds = %180, %_ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i
   store i64 %.sroa.0.0.i.i.i, ptr %10, align 8, !noalias !360
   store i64 %.sroa.5.0.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !360
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 8 dereferenceable(32) %9) #17
@@ -8926,7 +8926,7 @@ _ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tup
   %.not.i.i14 = icmp eq i32 %209, %104
   br i1 %.not.i.i14, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE8iteratordeEv.exit, label %126, !llvm.loop !365
 
-_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE8iteratordeEv.exit: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.exit.i.i, %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEE7reserveEm.exit.i.i
+_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE8iteratordeEv.exit: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom.exit.i.i, %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEE7reserveEm.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !354
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9), !noalias !354
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10), !noalias !354
@@ -8961,7 +8961,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16O
   call void @free(ptr noundef %217) #17
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELj1EED2Ev.exit: ; preds = %219, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, %.loopexit, %15
+_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELj1EED2Ev.exit: ; preds = %219, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread, %.loopexit, %15
   ret void
 }
 
@@ -9162,7 +9162,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader16lookupObjCMethodENS0
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %51, align 4, !noalias !371
   %52 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %52, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, label %53
+  br i1 %52, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread, label %53
 
 53:                                               ; preds = %24
   %54 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
@@ -9173,7 +9173,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader16lookupObjCMethodENS0
   %.0.copyload.i.i.i27.i.i = load i16, ptr %57, align 1, !noalias !371
   %58 = zext i16 %.0.copyload.i.i.i27.i.i to i32
   %.not18.i.i = icmp eq i16 %.0.copyload.i.i.i27.i.i, 0
-  br i1 %.not18.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, label %.lr.ph.i.i
+  br i1 %.not18.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %53
   %59 = getelementptr inbounds i8, ptr %57, i64 2
@@ -9210,23 +9210,23 @@ _ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoE
   %68 = icmp eq i32 %.0.copyload.i.i.i1.i.i.i, %29
   %69 = icmp eq i8 %.0.copyload.i.i.i2.i30.i.i, %11
   %70 = select i1 %68, i1 %69, i1 false
-  br i1 %70, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit, label %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8EqualKeyES5_S5_.exit.thread.i.i
+  br i1 %70, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit, label %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8EqualKeyES5_S5_.exit.thread.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8EqualKeyES5_S5_.exit.thread.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8EqualKeyES5_S5_.exit.i.i, %64, %60
   %71 = getelementptr inbounds i8, ptr %63, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %71, i64 %.sroa.0.0.extract.trunc.i.i
   %72 = add nuw nsw i32 %.02117.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %72, %58
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, label %60, !llvm.loop !377
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread, label %60, !llvm.loop !377
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8EqualKeyES5_S5_.exit.thread.i.i, %24, %53
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8EqualKeyES5_S5_.exit.thread.i.i, %24, %53
   %73 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %73, i64 noundef 1) #17
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i8 0, ptr %74, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELj1EED2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8EqualKeyES5_S5_.exit.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8EqualKeyES5_S5_.exit.i.i
   %75 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.extract.trunc.i.i
   %76 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.0.0.copyload = load i64, ptr %76, align 8
@@ -9249,7 +9249,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTabl
   %82 = icmp ult i64 %81, %80
   br i1 %82, label %83, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEE7reserveEm.exit.i.i
 
-83:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit
+83:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !384
   %84 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %79, i64 noundef %80, i64 noundef 168, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE19moveElementsForGrowEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %84)
@@ -9267,7 +9267,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14O
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !384
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit
   %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i5, 0
   br i1 %.not5.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i6
 
@@ -9537,7 +9537,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14O
   call void @free(ptr noundef %225) #17
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELj1EED2Ev.exit: ; preds = %227, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, %21, %14
+_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELj1EED2Ev.exit: ; preds = %227, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom.exit.thread, %21, %14
   ret void
 }
 
@@ -9704,9 +9704,9 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader11lookupFieldENS0_9Con
   %25 = add i32 %23, %24
   %26 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %26, %21
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %27 = load i32, ptr %.val.i, align 8, !noalias !396
   %28 = add i32 %27, -1
   %29 = and i32 %28, %25
@@ -9720,7 +9720,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %35 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %35, label %.loopexit, label %36
 
-36:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+36:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %38 = load ptr, ptr %37, align 8, !noalias !396
   %39 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -9757,7 +9757,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %45, ptr readonly %3, i64 %4), !noalias !396
   %46 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %46, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %46, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %47 = getelementptr inbounds i8, ptr %45, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -9766,7 +9766,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %48, %41
   br i1 %exitcond.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %49 = getelementptr inbounds i8, ptr %45, i64 %4
   call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %49, align 1
@@ -9775,15 +9775,15 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %52 = shl nuw nsw i64 %51, 32
   br label %55
 
-.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %16, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %36
+.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %16, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %36
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %53, i64 noundef 1) #17
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i8 0, ptr %54, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELj1EED2Ev.exit
 
-55:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %18
-  %.sroa.019.0.i = phi i64 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %18 ]
+55:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %18
+  %.sroa.019.0.i = phi i64 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %18 ]
   %.sroa.018.0.insert.ext = zext i32 %2 to i64
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.018.0.insert.ext
   %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
@@ -9811,7 +9811,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %76, align 4, !noalias !399
   %77 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %77, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %78
+  br i1 %77, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %78
 
 78:                                               ; preds = %55
   %79 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -9822,7 +9822,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i31.i.i = load i16, ptr %82, align 1, !noalias !399
   %83 = zext i16 %.0.copyload.i.i.i31.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i31.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %78
   %84 = getelementptr inbounds i8, ptr %82, i64 2
@@ -9851,23 +9851,23 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %89 = getelementptr inbounds i8, ptr %.08.i.i, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 1) ]
   %90 = icmp eq i64 %.0.copyload.i.i.i.i33.i.i, %.sroa.018.0.insert.insert
-  br i1 %90, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit, label %91
+  br i1 %90, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit, label %91
 
 91:                                               ; preds = %88, %.lr.ph.i.i
   %92 = getelementptr inbounds i8, ptr %87, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %92, i64 %.sroa.0.0.extract.trunc.i.i
   %93 = add nuw nsw i32 %.0239.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %93, %83
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !404
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !404
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread: ; preds = %91, %55, %78
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread: ; preds = %91, %55, %78
   %94 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %94, i64 noundef 1) #17
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i8 0, ptr %95, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELj1EED2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit: ; preds = %88
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit: ; preds = %88
   %96 = getelementptr inbounds i8, ptr %87, i64 %.sroa.0.0.extract.trunc.i.i
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.0.0.copyload = load i64, ptr %97, align 8
@@ -9890,7 +9890,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfo
   %103 = icmp ult i64 %102, %101
   br i1 %103, label %104, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEEE7reserveEm.exit.i.i
 
-104:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+104:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !411
   %105 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %100, i64 noundef %101, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE19moveElementsForGrowEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %105)
@@ -9908,7 +9908,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9Fi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !411
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i12, 0
   br i1 %.not5.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i13
 
@@ -10089,7 +10089,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9Fi
   call void @free(ptr noundef %195) #17
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELj1EED2Ev.exit: ; preds = %197, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, %.loopexit, %13
+_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELj1EED2Ev.exit: ; preds = %197, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, %.loopexit, %13
   ret void
 }
 
@@ -10256,9 +10256,9 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader15lookupCXXMethodENS0_
   %25 = add i32 %23, %24
   %26 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %26, %21
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %27 = load i32, ptr %.val.i, align 8, !noalias !421
   %28 = add i32 %27, -1
   %29 = and i32 %28, %25
@@ -10272,7 +10272,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %35 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %35, label %.loopexit, label %36
 
-36:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+36:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %38 = load ptr, ptr %37, align 8, !noalias !421
   %39 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -10309,7 +10309,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %45, ptr readonly %3, i64 %4), !noalias !421
   %46 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %46, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %46, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %47 = getelementptr inbounds i8, ptr %45, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -10318,7 +10318,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %48, %41
   br i1 %exitcond.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %49 = getelementptr inbounds i8, ptr %45, i64 %4
   call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %49, align 1
@@ -10327,15 +10327,15 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %52 = shl nuw nsw i64 %51, 32
   br label %55
 
-.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %16, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %36
+.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %16, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %36
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %53, i64 noundef 1) #17
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i8 0, ptr %54, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELj1EED2Ev.exit
 
-55:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %18
-  %.sroa.019.0.i = phi i64 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %18 ]
+55:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %18
+  %.sroa.019.0.i = phi i64 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %18 ]
   %.sroa.018.0.insert.ext = zext i32 %2 to i64
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.018.0.insert.ext
   %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
@@ -10363,7 +10363,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %76, align 4, !noalias !424
   %77 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %77, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %78
+  br i1 %77, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %78
 
 78:                                               ; preds = %55
   %79 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -10374,7 +10374,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i31.i.i = load i16, ptr %82, align 1, !noalias !424
   %83 = zext i16 %.0.copyload.i.i.i31.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i31.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %78
   %84 = getelementptr inbounds i8, ptr %82, i64 2
@@ -10403,23 +10403,23 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %89 = getelementptr inbounds i8, ptr %.08.i.i, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 1) ]
   %90 = icmp eq i64 %.0.copyload.i.i.i.i33.i.i, %.sroa.018.0.insert.insert
-  br i1 %90, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit, label %91
+  br i1 %90, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit, label %91
 
 91:                                               ; preds = %88, %.lr.ph.i.i
   %92 = getelementptr inbounds i8, ptr %87, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %92, i64 %.sroa.0.0.extract.trunc.i.i
   %93 = add nuw nsw i32 %.0239.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %93, %83
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !429
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !429
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread: ; preds = %91, %55, %78
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread: ; preds = %91, %55, %78
   %94 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %94, i64 noundef 1) #17
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i8 0, ptr %95, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELj1EED2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit: ; preds = %88
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit: ; preds = %88
   %96 = getelementptr inbounds i8, ptr %87, i64 %.sroa.0.0.extract.trunc.i.i
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.0.0.copyload = load i64, ptr %97, align 8
@@ -10442,7 +10442,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTable
   %103 = icmp ult i64 %102, %101
   br i1 %103, label %104, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEEE7reserveEm.exit.i.i
 
-104:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+104:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !436
   %105 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %100, i64 noundef %101, i64 noundef 160, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE19moveElementsForGrowEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %105)
@@ -10460,7 +10460,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13C
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !436
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i12, 0
   br i1 %.not5.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i13
 
@@ -10713,7 +10713,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13C
   call void @free(ptr noundef %233) #17
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELj1EED2Ev.exit: ; preds = %235, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, %.loopexit, %13
+_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELj1EED2Ev.exit: ; preds = %235, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, %.loopexit, %13
   ret void
 }
 
@@ -10880,9 +10880,9 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader20lookupGlobalVariable
   %26 = add i32 %24, %25
   %27 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %27, %22
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %28 = load i32, ptr %.val.i, align 8, !noalias !446
   %29 = add i32 %28, -1
   %30 = and i32 %29, %26
@@ -10896,7 +10896,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %36 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %36, label %.loopexit, label %37
 
-37:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+37:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %39 = load ptr, ptr %38, align 8, !noalias !446
   %40 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -10933,7 +10933,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %46, ptr readonly %2, i64 %3), !noalias !446
   %47 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %47, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %47, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %48 = getelementptr inbounds i8, ptr %46, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -10942,7 +10942,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %49, %42
   br i1 %exitcond.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %50 = getelementptr inbounds i8, ptr %46, i64 %3
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %50, align 1
@@ -10951,15 +10951,15 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %53 = shl nuw nsw i64 %52, 32
   br label %56
 
-.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %17, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %37
+.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %17, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %37
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %54, i64 noundef 1) #17
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i8 0, ptr %55, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELj1EED2Ev.exit
 
-56:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %19
-  %.sroa.019.0.i = phi i64 [ %53, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %19 ]
+56:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %19
+  %.sroa.019.0.i = phi i64 [ %53, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %19 ]
   %57 = trunc i8 %5 to i1
   %58 = and i64 %4, 4294967295
   %.sroa.030.0.insert.ext = select i1 %57, i64 %58, i64 4294967295
@@ -10989,7 +10989,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %79, align 4, !noalias !449
   %80 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %80, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %81
+  br i1 %80, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %81
 
 81:                                               ; preds = %56
   %82 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -11000,7 +11000,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i31.i.i = load i16, ptr %85, align 1, !noalias !449
   %86 = zext i16 %.0.copyload.i.i.i31.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i31.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %81
   %87 = getelementptr inbounds i8, ptr %85, i64 2
@@ -11029,23 +11029,23 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %92 = getelementptr inbounds i8, ptr %.08.i.i, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %92, i64 1) ]
   %93 = icmp eq i64 %.0.copyload.i.i.i.i33.i.i, %.sroa.030.0.insert.insert
-  br i1 %93, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit, label %94
+  br i1 %93, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit, label %94
 
 94:                                               ; preds = %91, %.lr.ph.i.i
   %95 = getelementptr inbounds i8, ptr %90, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %95, i64 %.sroa.0.0.extract.trunc.i.i
   %96 = add nuw nsw i32 %.0239.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %96, %86
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !454
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !454
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread: ; preds = %94, %56, %81
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread: ; preds = %94, %56, %81
   %97 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %97, i64 noundef 1) #17
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i8 0, ptr %98, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELj1EED2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit: ; preds = %91
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit: ; preds = %91
   %99 = getelementptr inbounds i8, ptr %90, i64 %.sroa.0.0.extract.trunc.i.i
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.0.0.copyload = load i64, ptr %100, align 8
@@ -11068,7 +11068,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariable
   %106 = icmp ult i64 %105, %104
   br i1 %106, label %107, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEE7reserveEm.exit.i.i
 
-107:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+107:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !461
   %108 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %103, i64 noundef %104, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE19moveElementsForGrowEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %108)
@@ -11086,7 +11086,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !461
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i22, 0
   br i1 %.not5.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i23
 
@@ -11267,7 +11267,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   call void @free(ptr noundef %198) #17
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELj1EED2Ev.exit: ; preds = %200, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, %.loopexit, %14
+_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELj1EED2Ev.exit: ; preds = %200, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, %.loopexit, %14
   ret void
 }
 
@@ -11434,9 +11434,9 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader20lookupGlobalFunction
   %26 = add i32 %24, %25
   %27 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %27, %22
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %28 = load i32, ptr %.val.i, align 8, !noalias !471
   %29 = add i32 %28, -1
   %30 = and i32 %29, %26
@@ -11450,7 +11450,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %36 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %36, label %.loopexit, label %37
 
-37:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+37:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %39 = load ptr, ptr %38, align 8, !noalias !471
   %40 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -11487,7 +11487,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %46, ptr readonly %2, i64 %3), !noalias !471
   %47 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %47, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %47, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %48 = getelementptr inbounds i8, ptr %46, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -11496,7 +11496,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %49, %42
   br i1 %exitcond.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %50 = getelementptr inbounds i8, ptr %46, i64 %3
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %50, align 1
@@ -11505,15 +11505,15 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %53 = shl nuw nsw i64 %52, 32
   br label %56
 
-.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %17, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %37
+.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %17, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %37
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %54, i64 noundef 1) #17
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i8 0, ptr %55, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELj1EED2Ev.exit
 
-56:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %19
-  %.sroa.019.0.i = phi i64 [ %53, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %19 ]
+56:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %19
+  %.sroa.019.0.i = phi i64 [ %53, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %19 ]
   %57 = trunc i8 %5 to i1
   %58 = and i64 %4, 4294967295
   %.sroa.030.0.insert.ext = select i1 %57, i64 %58, i64 4294967295
@@ -11543,7 +11543,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %79, align 4, !noalias !474
   %80 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %80, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %81
+  br i1 %80, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %81
 
 81:                                               ; preds = %56
   %82 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -11554,7 +11554,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i31.i.i = load i16, ptr %85, align 1, !noalias !474
   %86 = zext i16 %.0.copyload.i.i.i31.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i31.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %81
   %87 = getelementptr inbounds i8, ptr %85, i64 2
@@ -11583,23 +11583,23 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %92 = getelementptr inbounds i8, ptr %.08.i.i, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %92, i64 1) ]
   %93 = icmp eq i64 %.0.copyload.i.i.i.i33.i.i, %.sroa.030.0.insert.insert
-  br i1 %93, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit, label %94
+  br i1 %93, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit, label %94
 
 94:                                               ; preds = %91, %.lr.ph.i.i
   %95 = getelementptr inbounds i8, ptr %90, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %95, i64 %.sroa.0.0.extract.trunc.i.i
   %96 = add nuw nsw i32 %.0239.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %96, %86
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !479
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !479
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread: ; preds = %94, %56, %81
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread: ; preds = %94, %56, %81
   %97 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %97, i64 noundef 1) #17
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i8 0, ptr %98, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELj1EED2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit: ; preds = %91
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit: ; preds = %91
   %99 = getelementptr inbounds i8, ptr %90, i64 %.sroa.0.0.extract.trunc.i.i
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.0.0.copyload = load i64, ptr %100, align 8
@@ -11622,7 +11622,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunction
   %106 = icmp ult i64 %105, %104
   br i1 %106, label %107, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEE7reserveEm.exit.i.i
 
-107:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+107:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !486
   %108 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %103, i64 noundef %104, i64 noundef 160, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE19moveElementsForGrowEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %108)
@@ -11640,7 +11640,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !486
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i22, 0
   br i1 %.not5.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i23
 
@@ -11893,7 +11893,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   call void @free(ptr noundef %236) #17
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELj1EED2Ev.exit: ; preds = %238, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, %.loopexit, %14
+_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELj1EED2Ev.exit: ; preds = %238, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, %.loopexit, %14
   ret void
 }
 
@@ -12060,9 +12060,9 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader18lookupEnumConstantEN
   %24 = add i32 %22, %23
   %25 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %25, %20
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %26 = load i32, ptr %.val.i, align 8, !noalias !496
   %27 = add i32 %26, -1
   %28 = and i32 %27, %24
@@ -12076,7 +12076,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %34 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %34, label %.loopexit, label %35
 
-35:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+35:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %37 = load ptr, ptr %36, align 8, !noalias !496
   %38 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -12113,7 +12113,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %44, ptr readonly %2, i64 %3), !noalias !496
   %45 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %45, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %45, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %46 = getelementptr inbounds i8, ptr %44, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -12122,22 +12122,22 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %47, %40
   br i1 %exitcond.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %48 = getelementptr inbounds i8, ptr %44, i64 %3
   call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %48, align 1
   %49 = and i32 %.0.copyload.i.i.i.i.i7.i, 2147483647
   br label %52
 
-.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %15, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %35
+.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %15, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %35
   %50 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %50, i64 noundef 1) #17
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 0, ptr %51, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELj1EED2Ev.exit
 
-52:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %17
-  %.sroa.019.0.i = phi i32 [ %49, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %17 ]
+52:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %17
+  %.sroa.019.0.i = phi i32 [ %49, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %17 ]
   %53 = zext nneg i32 %.sroa.019.0.i to i64
   %54 = mul i64 %53, -1225172306242737336
   %55 = add i64 %54, -4650441984963589867
@@ -12159,7 +12159,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %70, align 4, !noalias !499
   %71 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %71, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit.thread, label %72
+  br i1 %71, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit.thread, label %72
 
 72:                                               ; preds = %52
   %73 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -12170,7 +12170,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i28.i.i = load i16, ptr %76, align 1, !noalias !499
   %77 = zext i16 %.0.copyload.i.i.i28.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i28.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %72
   %78 = getelementptr inbounds i8, ptr %76, i64 2
@@ -12197,23 +12197,23 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %81, i64 1) ]
   %.0.copyload.i.i.i.i30.i.i = load i32, ptr %81, align 1, !noalias !499
   %83 = icmp eq i32 %.0.copyload.i.i.i.i30.i.i, %.sroa.019.0.i
-  br i1 %83, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit, label %84
+  br i1 %83, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit, label %84
 
 84:                                               ; preds = %82, %.lr.ph.i.i
   %85 = getelementptr inbounds i8, ptr %81, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %85, i64 %.sroa.0.0.extract.trunc.i.i
   %86 = add nuw nsw i32 %.0219.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %86, %77
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !504
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !504
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit.thread: ; preds = %84, %52, %72
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit.thread: ; preds = %84, %52, %72
   %87 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %87, i64 noundef 1) #17
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 0, ptr %88, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELj1EED2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit: ; preds = %82
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit: ; preds = %82
   %89 = getelementptr inbounds i8, ptr %81, i64 %.sroa.0.0.extract.trunc.i.i
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.0.0.copyload = load i64, ptr %90, align 8
@@ -12236,7 +12236,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTa
   %96 = icmp ult i64 %95, %94
   br i1 %96, label %97, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEEE7reserveEm.exit.i.i
 
-97:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit
+97:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !511
   %98 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %93, i64 noundef %94, i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE19moveElementsForGrowEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %98)
@@ -12254,7 +12254,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16E
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !511
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit
   %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i11, 0
   br i1 %.not5.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i12
 
@@ -12413,7 +12413,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16E
   call void @free(ptr noundef %175) #17
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELj1EED2Ev.exit: ; preds = %177, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit.thread, %.loopexit, %12
+_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELj1EED2Ev.exit: ; preds = %177, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom.exit.thread, %.loopexit, %12
   ret void
 }
 
@@ -12544,13 +12544,13 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesRead
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %.val = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %8
+  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %.val.i = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %10
+  br i1 %.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %10
 
 10:                                               ; preds = %8
   %11 = icmp eq i64 %2, 0
@@ -12569,9 +12569,9 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesRead
   %17 = add i32 %15, %16
   %18 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %18, %13
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %19 = load i32, ptr %.val.i, align 8, !noalias !521
   %20 = add i32 %19, -1
   %21 = and i32 %20, %17
@@ -12583,9 +12583,9 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 4) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %26, align 4, !noalias !521
   %27 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
-  br i1 %27, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %28
+  br i1 %27, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %28
 
-28:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+28:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %30 = load ptr, ptr %29, align 8, !noalias !521
   %31 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -12594,7 +12594,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %.0.copyload.i.i.i33.i.i.i = load i16, ptr %32, align 1, !noalias !521
   %33 = zext i16 %.0.copyload.i.i.i33.i.i.i to i32
   %.not14.i.i.i = icmp eq i16 %.0.copyload.i.i.i33.i.i.i, 0
-  br i1 %.not14.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i.i
+  br i1 %.not14.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %28
   %34 = getelementptr inbounds i8, ptr %32, i64 2
@@ -12622,24 +12622,24 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %37, ptr readonly %1, i64 %2), !noalias !521
   %38 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %38, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %38, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %39 = getelementptr inbounds i8, ptr %37, i64 %.sroa.4.0.extract.trunc.i.i.i
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %39, i64 %.sroa.0.0.extract.trunc.i.i.i
   %40 = add nuw nsw i32 %.02513.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %40, %33
-  br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %41 = getelementptr inbounds i8, ptr %37, i64 %2
   call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %41, align 1
   %42 = and i32 %.0.copyload.i.i.i.i.i7.i, 2147483647
   br label %43
 
-43:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %10
-  %.sroa.019.0.i = phi i32 [ %42, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %10 ]
+43:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %10
+  %.sroa.019.0.i = phi i32 [ %42, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %10 ]
   %44 = trunc i8 %4 to i1
   %45 = and i64 %3, 4294967295
   %46 = or disjoint i64 %45, 12884901888
@@ -12680,7 +12680,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %68, align 4, !noalias !527
   %69 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %69, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %70
+  br i1 %69, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %70
 
 70:                                               ; preds = %43
   %71 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -12691,7 +12691,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i42.i.i = load i16, ptr %74, align 1, !noalias !527
   %75 = zext i16 %.0.copyload.i.i.i42.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i42.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %70
   %76 = getelementptr inbounds i8, ptr %74, i64 2
@@ -12730,25 +12730,25 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %or.cond.i.i.i20 = icmp eq i64 %.sroa.0.0.insert.insert.i48.i.i, %.sroa.023.0.insert.insert
   %84 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.019.0.i
   %spec.select.i.i.i = select i1 %or.cond.i.i.i20, i1 %84, i1 false
-  br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, label %85
+  br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit, label %85
 
 85:                                               ; preds = %81, %77
   %86 = getelementptr inbounds i8, ptr %80, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %86, i64 %.sroa.0.0.extract.trunc.i.i
   %87 = add nuw nsw i32 %.0339.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %87, %75
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %77, !llvm.loop !300
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %77, !llvm.loop !300
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit: ; preds = %81
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit: ; preds = %81
   %88 = getelementptr inbounds i8, ptr %80, i64 %.sroa.0.0.extract.trunc.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 1) ]
   %.0.copyload.i.i.i.i.i21 = load i32, ptr %88, align 1
   %89 = zext i32 %.0.copyload.i.i.i.i.i21 to i64
-  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
+  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %85, %70, %43, %28, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %8, %5, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit
-  %.sroa.034.0 = phi i64 [ %89, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %5 ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %28 ], [ 0, %43 ], [ 0, %70 ], [ 0, %85 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
-  %.sroa.235.0 = phi i64 [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %5 ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %28 ], [ 0, %43 ], [ 0, %70 ], [ 0, %85 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %85, %70, %43, %28, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %8, %5, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit
+  %.sroa.034.0 = phi i64 [ %89, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit ], [ 0, %5 ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %28 ], [ 0, %43 ], [ 0, %70 ], [ 0, %85 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
+  %.sroa.235.0 = phi i64 [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit ], [ 0, %5 ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %28 ], [ 0, %43 ], [ 0, %70 ], [ 0, %85 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
   %.sroa.034.0.insert.insert = or disjoint i64 %.sroa.235.0, %.sroa.034.0
   ret i64 %.sroa.034.0.insert.insert
 }
@@ -12803,9 +12803,9 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader9lookupTagEN4llvm9Stri
   %33 = add i32 %31, %32
   %34 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %34, %29
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %35 = load i32, ptr %.val.i, align 8, !noalias !533
   %36 = add i32 %35, -1
   %37 = and i32 %36, %33
@@ -12819,7 +12819,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %43 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %43, label %.loopexit, label %44
 
-44:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+44:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %46 = load ptr, ptr %45, align 8, !noalias !533
   %47 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -12856,7 +12856,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %53, ptr readonly %2, i64 %3), !noalias !533
   %54 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %54, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %54, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %55 = getelementptr inbounds i8, ptr %53, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -12865,7 +12865,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %56, %49
   br i1 %exitcond.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %57 = getelementptr inbounds i8, ptr %53, i64 %3
   call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %57, align 1
@@ -12874,15 +12874,15 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %60 = shl nuw nsw i64 %59, 32
   br label %63
 
-.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %24, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %44
+.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %24, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %44
   %61 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %61, i64 noundef 1) #17
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i8 0, ptr %62, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELj1EED2Ev.exit
 
-63:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %26
-  %.sroa.019.0.i = phi i64 [ %60, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %26 ]
+63:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %26
+  %.sroa.019.0.i = phi i64 [ %60, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %26 ]
   %64 = trunc i8 %5 to i1
   %65 = and i64 %4, 4294967295
   %.sroa.031.0.insert.ext = select i1 %64, i64 %65, i64 4294967295
@@ -12912,7 +12912,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %86, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %86, align 4, !noalias !536
   %87 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %87, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %88
+  br i1 %87, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %88
 
 88:                                               ; preds = %63
   %89 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -12923,7 +12923,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i31.i.i = load i16, ptr %92, align 1, !noalias !536
   %93 = zext i16 %.0.copyload.i.i.i31.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i31.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %88
   %94 = getelementptr inbounds i8, ptr %92, i64 2
@@ -12957,23 +12957,23 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.sroa.02.0.insert.ext.i.i.i = zext i32 %.0.copyload.i.i.i.i33.i.i to i64
   %.sroa.02.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i34.i.i, %.sroa.02.0.insert.ext.i.i.i
   %102 = icmp eq i64 %.sroa.02.0.insert.insert.i.i.i, %.sroa.031.0.insert.insert
-  br i1 %102, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit, label %103
+  br i1 %102, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit, label %103
 
 103:                                              ; preds = %98, %.lr.ph.i.i
   %104 = getelementptr inbounds i8, ptr %97, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %104, i64 %.sroa.0.0.extract.trunc.i.i
   %105 = add nuw nsw i32 %.0239.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %105, %93
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !541
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !541
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread: ; preds = %103, %63, %88
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread: ; preds = %103, %63, %88
   %106 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %106, i64 noundef 1) #17
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i8 0, ptr %107, align 4
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELj1EED2Ev.exit
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit: ; preds = %98
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit: ; preds = %98
   %108 = getelementptr inbounds i8, ptr %97, i64 %.sroa.0.0.extract.trunc.i.i
   %109 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.0.0.copyload = load i64, ptr %109, align 8
@@ -12994,11 +12994,11 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE
   %115 = icmp ult i64 %114, %113
   br i1 %115, label %116, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE7reserveEm.exit.i.i
 
-116:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+116:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %113)
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE7reserveEm.exit.i.i: ; preds = %116, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE7reserveEm.exit.i.i: ; preds = %116, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   %.not6.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i22, 0
   br i1 %.not6.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i23
 
@@ -13360,7 +13360,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7Ta
   call void @free(ptr noundef %262) #17
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELj1EED2Ev.exit: ; preds = %264, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, %.loopexit, %21
+_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELj1EED2Ev.exit: ; preds = %264, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELb0EE13destroy_rangeEPS6_S8_.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, %.loopexit, %21
   ret void
 }
 
@@ -13527,9 +13527,9 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader13lookupTypedefEN4llvm
   %26 = add i32 %24, %25
   %27 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %27, %22
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %28 = load i32, ptr %.val.i, align 8, !noalias !558
   %29 = add i32 %28, -1
   %30 = and i32 %29, %26
@@ -13543,7 +13543,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %36 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %36, label %.loopexit, label %37
 
-37:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+37:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %39 = load ptr, ptr %38, align 8, !noalias !558
   %40 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -13580,7 +13580,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %46, ptr readonly %2, i64 %3), !noalias !558
   %47 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %47, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %47, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %48 = getelementptr inbounds i8, ptr %46, i64 %.sroa.4.0.extract.trunc.i.i.i
@@ -13589,7 +13589,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRef
   %exitcond.not.i.i.i = icmp eq i32 %49, %42
   br i1 %exitcond.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %50 = getelementptr inbounds i8, ptr %46, i64 %3
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %50, align 1
@@ -13598,15 +13598,15 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %53 = shl nuw nsw i64 %52, 32
   br label %56
 
-.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %17, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %37
+.loopexit:                                        ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %17, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %37
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %54, i64 noundef 1) #17
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i8 0, ptr %55, align 4
   br label %205
 
-56:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %19
-  %.sroa.019.0.i = phi i64 [ %53, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %19 ]
+56:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %19
+  %.sroa.019.0.i = phi i64 [ %53, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %19 ]
   %57 = trunc i8 %5 to i1
   %58 = and i64 %4, 4294967295
   %.sroa.029.0.insert.ext = select i1 %57, i64 %58, i64 4294967295
@@ -13636,7 +13636,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %79, align 4, !noalias !561
   %80 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %80, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %81
+  br i1 %80, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %81
 
 81:                                               ; preds = %56
   %82 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -13647,7 +13647,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i31.i.i = load i16, ptr %85, align 1, !noalias !561
   %86 = zext i16 %.0.copyload.i.i.i31.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i31.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %81
   %87 = getelementptr inbounds i8, ptr %85, i64 2
@@ -13681,23 +13681,23 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.sroa.02.0.insert.ext.i.i.i = zext i32 %.0.copyload.i.i.i.i33.i.i to i64
   %.sroa.02.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i34.i.i, %.sroa.02.0.insert.ext.i.i.i
   %95 = icmp eq i64 %.sroa.02.0.insert.insert.i.i.i, %.sroa.029.0.insert.insert
-  br i1 %95, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit, label %96
+  br i1 %95, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit, label %96
 
 96:                                               ; preds = %91, %.lr.ph.i.i
   %97 = getelementptr inbounds i8, ptr %90, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %97, i64 %.sroa.0.0.extract.trunc.i.i
   %98 = add nuw nsw i32 %.0239.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %98, %86
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %.lr.ph.i.i, !llvm.loop !566
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i, !llvm.loop !566
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread: ; preds = %96, %56, %81
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread: ; preds = %96, %56, %81
   %99 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %99, i64 noundef 1) #17
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i8 0, ptr %100, align 4
   br label %205
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit: ; preds = %91
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit: ; preds = %91
   %101 = getelementptr inbounds i8, ptr %90, i64 %.sroa.0.0.extract.trunc.i.i
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.0.0.copyload = load i64, ptr %102, align 8
@@ -13720,7 +13720,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableIn
   %108 = icmp ult i64 %107, %106
   br i1 %108, label %109, label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEEE7reserveEm.exit.i.i
 
-109:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+109:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !573
   %110 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %105, i64 noundef %106, i64 noundef 176, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE19moveElementsForGrowEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %110)
@@ -13738,7 +13738,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !573
   br label %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit
+_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEEE7reserveEm.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE4growEm.exit.i.i.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit
   %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i22, 0
   br i1 %.not5.i.i, label %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE8iteratordeEv.exit, label %.lr.ph.i.i23
 
@@ -13946,7 +13946,7 @@ _ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableI
   call void @_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %11) #17
   br label %205
 
-205:                                              ; preds = %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE8iteratordeEv.exit, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, %.loopexit, %14
+205:                                              ; preds = %_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE8iteratordeEv.exit, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom.exit.thread, %.loopexit, %14
   ret void
 }
 
@@ -14136,13 +14136,13 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesRead
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %.val = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %7
+  br i1 %.not, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %.val.i = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %9
+  br i1 %.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq i64 %2, 0
@@ -14161,9 +14161,9 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesRead
   %16 = add i32 %14, %15
   %17 = getelementptr inbounds i8, ptr %.0913.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %17, %12
-  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %18 = load i32, ptr %.val.i, align 8, !noalias !584
   %19 = add i32 %18, -1
   %20 = and i32 %19, %16
@@ -14175,9 +14175,9 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 4) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %25, align 4, !noalias !584
   %26 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
-  br i1 %26, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %27
+  br i1 %26, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %27
 
-27:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i
+27:                                               ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %29 = load ptr, ptr %28, align 8, !noalias !584
   %30 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -14186,7 +14186,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %.0.copyload.i.i.i33.i.i.i = load i16, ptr %31, align 1, !noalias !584
   %32 = zext i16 %.0.copyload.i.i.i33.i.i.i to i32
   %.not14.i.i.i = icmp eq i16 %.0.copyload.i.i.i33.i.i.i, 0
-  br i1 %.not14.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.preheader.i.i.i
+  br i1 %.not14.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %27
   %33 = getelementptr inbounds i8, ptr %31, i64 2
@@ -14214,24 +14214,24 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %36, ptr readonly %1, i64 %2), !noalias !584
   %37 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %37, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
+  br i1 %37, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, label %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i
 
 _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i, %.lr.ph.i.i.i
   %38 = getelementptr inbounds i8, ptr %36, i64 %.sroa.4.0.extract.trunc.i.i.i
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %38, i64 %.sroa.0.0.extract.trunc.i.i.i
   %39 = add nuw nsw i32 %.02513.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %39, %32
-  br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.i.i.i
   %40 = getelementptr inbounds i8, ptr %36, i64 %2
   call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 1) ]
   %.0.copyload.i.i.i.i.i7.i = load i32, ptr %40, align 1
   %41 = and i32 %.0.copyload.i.i.i.i.i7.i, 2147483647
   br label %42
 
-42:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %9
-  %.sroa.019.0.i = phi i32 [ %41, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %9 ]
+42:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i, %9
+  %.sroa.019.0.i = phi i32 [ %41, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom.exit.i ], [ 0, %9 ]
   %43 = and i64 %3, 4294967296
   %.not35 = icmp eq i64 %43, 0
   %44 = and i64 %3, 4294967295
@@ -14273,7 +14273,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 4) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %67, align 4, !noalias !590
   %68 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
-  br i1 %68, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %69
+  br i1 %68, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %69
 
 69:                                               ; preds = %42
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -14284,7 +14284,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.0.copyload.i.i.i42.i.i = load i16, ptr %73, align 1, !noalias !590
   %74 = zext i16 %.0.copyload.i.i.i42.i.i to i32
   %.not10.i.i = icmp eq i16 %.0.copyload.i.i.i42.i.i, 0
-  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %69
   %75 = getelementptr inbounds i8, ptr %73, i64 2
@@ -14323,25 +14323,25 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %or.cond.i.i.i10 = icmp eq i64 %.sroa.0.0.insert.insert.i48.i.i, %.sroa.013.0.insert.insert
   %83 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.019.0.i
   %spec.select.i.i.i = select i1 %or.cond.i.i.i10, i1 %83, i1 false
-  br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, label %84
+  br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit, label %84
 
 84:                                               ; preds = %80, %76
   %85 = getelementptr inbounds i8, ptr %79, i64 %.sroa.4.0.extract.trunc.i.i
   %storemerge.i.i = getelementptr inbounds i8, ptr %85, i64 %.sroa.0.0.extract.trunc.i.i
   %86 = add nuw nsw i32 %.0339.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %86, %74
-  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %76, !llvm.loop !300
+  br i1 %exitcond.not.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread, label %76, !llvm.loop !300
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit: ; preds = %80
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit: ; preds = %80
   %87 = getelementptr inbounds i8, ptr %79, i64 %.sroa.0.0.extract.trunc.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 1) ]
   %.0.copyload.i.i.i.i.i11 = load i32, ptr %87, align 1
   %88 = zext i32 %.0.copyload.i.i.i.i.i11 to i64
-  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
+  br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %84, %69, %42, %27, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %7, %4, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit
-  %.sroa.027.0 = phi i64 [ %88, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %27 ], [ 0, %42 ], [ 0, %69 ], [ 0, %84 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
-  %.sroa.228.0 = phi i64 [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %27 ], [ 0, %42 ], [ 0, %69 ], [ 0, %84 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
+_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit.thread: ; preds = %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i, %84, %69, %42, %27, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i, %7, %4, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit
+  %.sroa.027.0 = phi i64 [ %88, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %27 ], [ 0, %42 ], [ 0, %69 ], [ 0, %84 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
+  %.sroa.228.0 = phi i64 [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.argprom.exit.i.i ], [ 0, %27 ], [ 0, %42 ], [ 0, %69 ], [ 0, %84 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo8EqualKeyEN4llvm9StringRefES4_.exit.thread9.i.i.i ]
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.228.0, %.sroa.027.0
   ret i64 %.sroa.027.0.insert.insert
 }
@@ -16432,145 +16432,145 @@ define linkonce_odr hidden void @_ZN5clang9api_notes14APINotesReader14Implementa
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.exit.i: ; preds = %1
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %1
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %.not.i1 = icmp eq ptr %5, null
-  br i1 %.not.i1, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i1, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   %.not.i2 = icmp eq ptr %7, null
-  br i1 %.not.i2, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i2, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
   %.not.i3 = icmp eq ptr %9, null
-  br i1 %.not.i3, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i3, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
   %.not.i4 = icmp eq ptr %11, null
-  br i1 %.not.i4, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i4, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8
   %.not.i5 = icmp eq ptr %13, null
-  br i1 %.not.i5, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i5, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load ptr, ptr %14, align 8
   %.not.i6 = icmp eq ptr %15, null
-  br i1 %.not.i6, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i6, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load ptr, ptr %16, align 8
   %.not.i7 = icmp eq ptr %17, null
-  br i1 %.not.i7, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i7, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load ptr, ptr %18, align 8
   %.not.i8 = icmp eq ptr %19, null
-  br i1 %.not.i8, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i8, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not.i9 = icmp eq ptr %21, null
-  br i1 %.not.i9, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i9, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   %.not.i10 = icmp eq ptr %23, null
-  br i1 %.not.i10, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i10, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load ptr, ptr %24, align 8
   %.not.i11 = icmp eq ptr %25, null
-  br i1 %.not.i11, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i11, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %.not.i12 = icmp eq ptr %27, null
-  br i1 %.not.i12, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.exit.i
+  br i1 %.not.i12, label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.exit.i
+_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEEESt14default_deleteIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEEEEclEPS6_.argprom.exit.i
   store ptr null, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
@@ -22619,29 +22619,29 @@ attributes #21 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!6 = distinct !{!6, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!5 = distinct !{!5, !6, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!6 = distinct !{!6, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !7 = !{!8, !5}
-!8 = distinct !{!8, !9, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!9 = distinct !{!9, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!8 = distinct !{!8, !9, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!9 = distinct !{!9, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!14 = distinct !{!14, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!13 = distinct !{!13, !14, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!14 = distinct !{!14, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !15 = !{!16, !13}
-!16 = distinct !{!16, !17, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!17 = distinct !{!17, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!16 = distinct !{!16, !17, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!17 = distinct !{!17, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_: argument 0"}
-!20 = distinct !{!20, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_"}
+!19 = distinct !{!19, !20, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE4findERKNS2_18StoredObjCSelectorEPS4_.argprom"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE: argument 0"}
-!23 = distinct !{!23, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE"}
+!22 = distinct !{!22, !23, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.argprom: argument 0"}
+!23 = distinct !{!23, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo14GetInternalKeyENS0_18StoredObjCSelectorE.argprom"}
 !24 = !{!22, !19}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_: argument 0"}
-!27 = distinct !{!27, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_"}
+!26 = distinct !{!26, !27, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE11find_hashedERKNS2_18StoredObjCSelectorEjPS4_.argprom"}
 !28 = !{!26, !19}
 !29 = !{!30}
 !30 = distinct !{!30, !31, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfo7ReadKeyEPKhj: argument 0"}
@@ -22650,8 +22650,8 @@ attributes #21 = { noreturn nounwind }
 !33 = distinct !{!33, !11}
 !34 = distinct !{!34, !11}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE3endEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE3endEv"}
+!36 = distinct !{!36, !37, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE3endEv.argprom: argument 0"}
+!37 = distinct !{!37, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE3endEv.argprom"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv: argument 0"}
 !40 = distinct !{!40, !"_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv"}
@@ -22903,24 +22903,24 @@ attributes #21 = { noreturn nounwind }
 !286 = distinct !{!286, !"_ZN4llvm5Error11takePayloadEv"}
 !287 = distinct !{!287, !11}
 !288 = !{!289}
-!289 = distinct !{!289, !290, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!290 = distinct !{!290, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!289 = distinct !{!289, !290, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!290 = distinct !{!290, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !291 = !{!292, !289}
-!292 = distinct !{!292, !293, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!293 = distinct !{!293, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!292 = distinct !{!292, !293, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!293 = distinct !{!293, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !294 = !{!295}
-!295 = distinct !{!295, !296, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_: argument 0"}
-!296 = distinct !{!296, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_"}
+!295 = distinct !{!295, !296, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom: argument 0"}
+!296 = distinct !{!296, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom"}
 !297 = !{!298, !295}
-!298 = distinct !{!298, !299, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_: argument 0"}
-!299 = distinct !{!299, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_"}
+!298 = distinct !{!298, !299, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_.argprom: argument 0"}
+!299 = distinct !{!299, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_.argprom"}
 !300 = distinct !{!300, !11}
 !301 = !{!302}
-!302 = distinct !{!302, !303, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_: argument 0"}
-!303 = distinct !{!303, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_"}
+!302 = distinct !{!302, !303, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom: argument 0"}
+!303 = distinct !{!303, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom"}
 !304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE11find_hashedERKjmPS4_: argument 0"}
-!306 = distinct !{!306, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE11find_hashedERKjmPS4_"}
+!305 = distinct !{!305, !306, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE11find_hashedERKjmPS4_.argprom: argument 0"}
+!306 = distinct !{!306, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE11find_hashedERKjmPS4_.argprom"}
 !307 = !{!305, !302}
 !308 = distinct !{!308, !11}
 !309 = !{!310}
@@ -22934,36 +22934,36 @@ attributes #21 = { noreturn nounwind }
 !317 = distinct !{!317, !11}
 !318 = distinct !{!318, !11}
 !319 = !{!320}
-!320 = distinct !{!320, !321, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!321 = distinct !{!321, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!320 = distinct !{!320, !321, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!321 = distinct !{!321, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !322 = !{!323, !320}
-!323 = distinct !{!323, !324, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!324 = distinct !{!324, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!323 = distinct !{!323, !324, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!324 = distinct !{!324, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !325 = !{!326}
-!326 = distinct !{!326, !327, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_: argument 0"}
-!327 = distinct !{!327, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_"}
+!326 = distinct !{!326, !327, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom: argument 0"}
+!327 = distinct !{!327, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom"}
 !328 = !{!329, !326}
-!329 = distinct !{!329, !330, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_: argument 0"}
-!330 = distinct !{!330, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_"}
+!329 = distinct !{!329, !330, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_.argprom: argument 0"}
+!330 = distinct !{!330, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_.argprom"}
 !331 = !{!332}
-!332 = distinct !{!332, !333, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_: argument 0"}
-!333 = distinct !{!333, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_"}
+!332 = distinct !{!332, !333, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom: argument 0"}
+!333 = distinct !{!333, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.argprom"}
 !334 = !{!335}
-!335 = distinct !{!335, !336, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE11find_hashedERKjmPS4_: argument 0"}
-!336 = distinct !{!336, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE11find_hashedERKjmPS4_"}
+!335 = distinct !{!335, !336, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE11find_hashedERKjmPS4_.argprom: argument 0"}
+!336 = distinct !{!336, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE11find_hashedERKjmPS4_.argprom"}
 !337 = !{!335, !332}
 !338 = !{!339}
-!339 = distinct !{!339, !340, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!340 = distinct !{!340, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!339 = distinct !{!339, !340, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!340 = distinct !{!340, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !341 = !{!342, !339}
-!342 = distinct !{!342, !343, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!343 = distinct !{!343, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!342 = distinct !{!342, !343, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!343 = distinct !{!343, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !344 = !{!345}
-!345 = distinct !{!345, !346, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_: argument 0"}
-!346 = distinct !{!346, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_"}
+!345 = distinct !{!345, !346, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom: argument 0"}
+!346 = distinct !{!346, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom"}
 !347 = !{!348, !345}
-!348 = distinct !{!348, !349, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE11find_hashedERKSt5tupleIJjjhEEmPS4_: argument 0"}
-!349 = distinct !{!349, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE11find_hashedERKSt5tupleIJjjhEEmPS4_"}
+!348 = distinct !{!348, !349, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE11find_hashedERKSt5tupleIJjjhEEmPS4_.argprom: argument 0"}
+!349 = distinct !{!349, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE11find_hashedERKSt5tupleIJjjhEEmPS4_.argprom"}
 !350 = !{!351, !348, !345}
 !351 = distinct !{!351, !352, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo7ReadKeyEPKhj: argument 0"}
 !352 = distinct !{!352, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo7ReadKeyEPKhj"}
@@ -22976,18 +22976,18 @@ attributes #21 = { noreturn nounwind }
 !359 = distinct !{!359, !"_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInfoESt5tupleIJjjhEENS0_16ObjCPropertyInfoEE8ReadDataES5_PKhj"}
 !360 = !{!358, !355}
 !361 = !{!362}
-!362 = distinct !{!362, !363, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh: argument 0"}
-!363 = distinct !{!363, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh"}
+!362 = distinct !{!362, !363, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom: argument 0"}
+!363 = distinct !{!363, !"_ZN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom"}
 !364 = !{!362, !358, !355}
 !365 = distinct !{!365, !11}
 !366 = distinct !{!366, !11}
 !367 = distinct !{!367, !11}
 !368 = !{!369}
-!369 = distinct !{!369, !370, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_: argument 0"}
-!370 = distinct !{!370, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_"}
+!369 = distinct !{!369, !370, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom: argument 0"}
+!370 = distinct !{!370, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.argprom"}
 !371 = !{!372, !369}
-!372 = distinct !{!372, !373, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE11find_hashedERKSt5tupleIJjjhEEmPS4_: argument 0"}
-!373 = distinct !{!373, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE11find_hashedERKSt5tupleIJjjhEEmPS4_"}
+!372 = distinct !{!372, !373, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE11find_hashedERKSt5tupleIJjjhEEmPS4_.argprom: argument 0"}
+!373 = distinct !{!373, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE11find_hashedERKSt5tupleIJjjhEEmPS4_.argprom"}
 !374 = !{!375, !372, !369}
 !375 = distinct !{!375, !376, !"_ZN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfo7ReadKeyEPKhj: argument 0"}
 !376 = distinct !{!376, !"_ZN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfo7ReadKeyEPKhj"}
@@ -23000,24 +23000,24 @@ attributes #21 = { noreturn nounwind }
 !383 = distinct !{!383, !"_ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_19ObjCMethodTableInfoESt5tupleIJjjhEENS0_14ObjCMethodInfoEE8ReadDataES5_PKhj"}
 !384 = !{!382, !379}
 !385 = !{!386}
-!386 = distinct !{!386, !387, !"_ZN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfo15readUnversionedESt5tupleIJjjhEERPKh: argument 0"}
-!387 = distinct !{!387, !"_ZN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfo15readUnversionedESt5tupleIJjjhEERPKh"}
+!386 = distinct !{!386, !387, !"_ZN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom: argument 0"}
+!387 = distinct !{!387, !"_ZN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfo15readUnversionedESt5tupleIJjjhEERPKh.argprom"}
 !388 = !{!386, !382, !379}
 !389 = distinct !{!389, !11}
 !390 = distinct !{!390, !11}
 !391 = distinct !{!391, !11}
 !392 = distinct !{!392, !11}
 !393 = !{!394}
-!394 = distinct !{!394, !395, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!395 = distinct !{!395, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!394 = distinct !{!394, !395, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!395 = distinct !{!395, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !396 = !{!397, !394}
-!397 = distinct !{!397, !398, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!398 = distinct !{!398, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!397 = distinct !{!397, !398, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!398 = distinct !{!398, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !399 = !{!400, !402}
-!400 = distinct !{!400, !401, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_: argument 0"}
-!401 = distinct !{!401, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_"}
-!402 = distinct !{!402, !403, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_: argument 0"}
-!403 = distinct !{!403, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_"}
+!400 = distinct !{!400, !401, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom: argument 0"}
+!401 = distinct !{!401, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom"}
+!402 = distinct !{!402, !403, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom: argument 0"}
+!403 = distinct !{!403, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom"}
 !404 = distinct !{!404, !11}
 !405 = !{!406}
 !406 = distinct !{!406, !407, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE8iteratordeEv: argument 0"}
@@ -23033,16 +23033,16 @@ attributes #21 = { noreturn nounwind }
 !416 = distinct !{!416, !11}
 !417 = distinct !{!417, !11}
 !418 = !{!419}
-!419 = distinct !{!419, !420, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!420 = distinct !{!420, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!419 = distinct !{!419, !420, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!420 = distinct !{!420, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !421 = !{!422, !419}
-!422 = distinct !{!422, !423, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!423 = distinct !{!423, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!422 = distinct !{!422, !423, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!423 = distinct !{!423, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !424 = !{!425, !427}
-!425 = distinct !{!425, !426, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_: argument 0"}
-!426 = distinct !{!426, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_"}
-!427 = distinct !{!427, !428, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_: argument 0"}
-!428 = distinct !{!428, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_"}
+!425 = distinct !{!425, !426, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom: argument 0"}
+!426 = distinct !{!426, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom"}
+!427 = distinct !{!427, !428, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom: argument 0"}
+!428 = distinct !{!428, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom"}
 !429 = distinct !{!429, !11}
 !430 = !{!431}
 !431 = distinct !{!431, !432, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE8iteratordeEv: argument 0"}
@@ -23058,16 +23058,16 @@ attributes #21 = { noreturn nounwind }
 !441 = distinct !{!441, !11}
 !442 = distinct !{!442, !11}
 !443 = !{!444}
-!444 = distinct !{!444, !445, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!445 = distinct !{!445, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!444 = distinct !{!444, !445, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!445 = distinct !{!445, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !446 = !{!447, !444}
-!447 = distinct !{!447, !448, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!448 = distinct !{!448, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!447 = distinct !{!447, !448, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!448 = distinct !{!448, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !449 = !{!450, !452}
-!450 = distinct !{!450, !451, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_: argument 0"}
-!451 = distinct !{!451, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_"}
-!452 = distinct !{!452, !453, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_: argument 0"}
-!453 = distinct !{!453, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_"}
+!450 = distinct !{!450, !451, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom: argument 0"}
+!451 = distinct !{!451, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom"}
+!452 = distinct !{!452, !453, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom: argument 0"}
+!453 = distinct !{!453, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom"}
 !454 = distinct !{!454, !11}
 !455 = !{!456}
 !456 = distinct !{!456, !457, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE8iteratordeEv: argument 0"}
@@ -23083,16 +23083,16 @@ attributes #21 = { noreturn nounwind }
 !466 = distinct !{!466, !11}
 !467 = distinct !{!467, !11}
 !468 = !{!469}
-!469 = distinct !{!469, !470, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!470 = distinct !{!470, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!469 = distinct !{!469, !470, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!470 = distinct !{!470, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !471 = !{!472, !469}
-!472 = distinct !{!472, !473, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!473 = distinct !{!473, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!472 = distinct !{!472, !473, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!473 = distinct !{!473, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !474 = !{!475, !477}
-!475 = distinct !{!475, !476, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_: argument 0"}
-!476 = distinct !{!476, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_"}
-!477 = distinct !{!477, !478, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_: argument 0"}
-!478 = distinct !{!478, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_"}
+!475 = distinct !{!475, !476, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom: argument 0"}
+!476 = distinct !{!476, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom"}
+!477 = distinct !{!477, !478, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom: argument 0"}
+!478 = distinct !{!478, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom"}
 !479 = distinct !{!479, !11}
 !480 = !{!481}
 !481 = distinct !{!481, !482, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE8iteratordeEv: argument 0"}
@@ -23108,16 +23108,16 @@ attributes #21 = { noreturn nounwind }
 !491 = distinct !{!491, !11}
 !492 = distinct !{!492, !11}
 !493 = !{!494}
-!494 = distinct !{!494, !495, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!495 = distinct !{!495, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!494 = distinct !{!494, !495, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!495 = distinct !{!495, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !496 = !{!497, !494}
-!497 = distinct !{!497, !498, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!498 = distinct !{!498, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!497 = distinct !{!497, !498, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!498 = distinct !{!498, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !499 = !{!500, !502}
-!500 = distinct !{!500, !501, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE11find_hashedERKjmPS4_: argument 0"}
-!501 = distinct !{!501, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE11find_hashedERKjmPS4_"}
-!502 = distinct !{!502, !503, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_: argument 0"}
-!503 = distinct !{!503, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_"}
+!500 = distinct !{!500, !501, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE11find_hashedERKjmPS4_.argprom: argument 0"}
+!501 = distinct !{!501, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE11find_hashedERKjmPS4_.argprom"}
+!502 = distinct !{!502, !503, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom: argument 0"}
+!503 = distinct !{!503, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.argprom"}
 !504 = distinct !{!504, !11}
 !505 = !{!506}
 !506 = distinct !{!506, !507, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE8iteratordeEv: argument 0"}
@@ -23133,28 +23133,28 @@ attributes #21 = { noreturn nounwind }
 !516 = distinct !{!516, !11}
 !517 = distinct !{!517, !11}
 !518 = !{!519}
-!519 = distinct !{!519, !520, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!520 = distinct !{!520, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!519 = distinct !{!519, !520, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!520 = distinct !{!520, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !521 = !{!522, !519}
-!522 = distinct !{!522, !523, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!523 = distinct !{!523, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!522 = distinct !{!522, !523, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!523 = distinct !{!523, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !524 = !{!525}
-!525 = distinct !{!525, !526, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_: argument 0"}
-!526 = distinct !{!526, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_"}
+!525 = distinct !{!525, !526, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom: argument 0"}
+!526 = distinct !{!526, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom"}
 !527 = !{!528, !525}
-!528 = distinct !{!528, !529, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_: argument 0"}
-!529 = distinct !{!529, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_"}
+!528 = distinct !{!528, !529, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_.argprom: argument 0"}
+!529 = distinct !{!529, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_.argprom"}
 !530 = !{!531}
-!531 = distinct !{!531, !532, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!532 = distinct !{!532, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!531 = distinct !{!531, !532, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!532 = distinct !{!532, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !533 = !{!534, !531}
-!534 = distinct !{!534, !535, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!535 = distinct !{!535, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!534 = distinct !{!534, !535, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!535 = distinct !{!535, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !536 = !{!537, !539}
-!537 = distinct !{!537, !538, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_: argument 0"}
-!538 = distinct !{!538, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_"}
-!539 = distinct !{!539, !540, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_: argument 0"}
-!540 = distinct !{!540, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_"}
+!537 = distinct !{!537, !538, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom: argument 0"}
+!538 = distinct !{!538, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom"}
+!539 = distinct !{!539, !540, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom: argument 0"}
+!540 = distinct !{!540, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom"}
 !541 = distinct !{!541, !11}
 !542 = !{!543}
 !543 = distinct !{!543, !544, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE8iteratordeEv: argument 0"}
@@ -23170,16 +23170,16 @@ attributes #21 = { noreturn nounwind }
 !553 = distinct !{!553, !11}
 !554 = distinct !{!554, !11}
 !555 = !{!556}
-!556 = distinct !{!556, !557, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!557 = distinct !{!557, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!556 = distinct !{!556, !557, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!557 = distinct !{!557, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !558 = !{!559, !556}
-!559 = distinct !{!559, !560, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!560 = distinct !{!560, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!559 = distinct !{!559, !560, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!560 = distinct !{!560, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !561 = !{!562, !564}
-!562 = distinct !{!562, !563, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_: argument 0"}
-!563 = distinct !{!563, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_"}
-!564 = distinct !{!564, !565, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_: argument 0"}
-!565 = distinct !{!565, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_"}
+!562 = distinct !{!562, !563, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom: argument 0"}
+!563 = distinct !{!563, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE11find_hashedERKNS2_18SingleDeclTableKeyEmPS4_.argprom"}
+!564 = distinct !{!564, !565, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom: argument 0"}
+!565 = distinct !{!565, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.argprom"}
 !566 = distinct !{!566, !11}
 !567 = !{!568}
 !568 = distinct !{!568, !569, !"_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE8iteratordeEv: argument 0"}
@@ -23196,17 +23196,17 @@ attributes #21 = { noreturn nounwind }
 !579 = distinct !{!579, !11}
 !580 = distinct !{!580, !11}
 !581 = !{!582}
-!582 = distinct !{!582, !583, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_: argument 0"}
-!583 = distinct !{!583, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_"}
+!582 = distinct !{!582, !583, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom: argument 0"}
+!583 = distinct !{!583, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.argprom"}
 !584 = !{!585, !582}
-!585 = distinct !{!585, !586, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_: argument 0"}
-!586 = distinct !{!586, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_"}
+!585 = distinct !{!585, !586, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom: argument 0"}
+!586 = distinct !{!586, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE11find_hashedERKNS_9StringRefEjPS4_.argprom"}
 !587 = !{!588}
-!588 = distinct !{!588, !589, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_: argument 0"}
-!589 = distinct !{!589, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_"}
+!588 = distinct !{!588, !589, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom: argument 0"}
+!589 = distinct !{!589, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.argprom"}
 !590 = !{!591, !588}
-!591 = distinct !{!591, !592, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_: argument 0"}
-!592 = distinct !{!592, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_"}
+!591 = distinct !{!591, !592, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_.argprom: argument 0"}
+!592 = distinct !{!592, !"_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE11find_hashedERKNS2_15ContextTableKeyEmPS4_.argprom"}
 !593 = distinct !{!593, !11}
 !594 = !{!595}
 !595 = distinct !{!595, !596, !"_ZN4llvm17createStringErrorESt10error_codePKc: argument 0"}

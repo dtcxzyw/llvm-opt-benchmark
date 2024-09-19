@@ -412,9 +412,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %126 = load ptr, ptr %14, align 8, !noalias !19
   %.not.i.i70 = icmp eq ptr %126, null
-  br i1 %.not.i.i70, label %128, label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit.thread"
+  br i1 %.not.i.i70, label %128, label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit.thread"
 
-"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit.thread": ; preds = %125
+"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit.thread": ; preds = %125
   %127 = ptrtoint ptr %126 to i64
   store i64 %127, ptr %13, align 8, !alias.scope !19
   br label %_ZN7xgboost10collective6ResultD2Ev.exit
@@ -439,7 +439,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %137 = getelementptr inbounds i8, ptr %5, i64 8
   %138 = load ptr, ptr %137, align 8, !noalias !22
   %.not.i.i.i.i.i71 = icmp eq ptr %138, null
-  br i1 %.not.i.i.i.i.i71, label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit", label %139
+  br i1 %.not.i.i.i.i.i71, label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit", label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds i8, ptr %138, i64 8
@@ -475,7 +475,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 155:                                              ; preds = %153, %151
   %.0.i.i.i.i.i.i73 = phi i32 [ %143, %151 ], [ %154, %153 ]
   %156 = icmp eq i32 %.0.i.i.i.i.i.i73, 1
-  br i1 %156, label %157, label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit"
+  br i1 %156, label %157, label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit"
 
 157:                                              ; preds = %155
   %158 = load ptr, ptr %138, align 8
@@ -500,14 +500,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 168:                                              ; preds = %166, %163
   %.0.i.i.i.i.i.i.i.i75 = phi i32 [ %164, %163 ], [ %167, %166 ]
   %169 = icmp eq i32 %.0.i.i.i.i.i.i.i.i75, 1
-  br i1 %169, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i76, label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit"
+  br i1 %169, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i76, label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i76: ; preds = %168, %144
   %170 = load ptr, ptr %138, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 24
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(16) %138) #13
-  br label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit"
+  br label %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit"
 
 173:                                              ; preds = %.noexc77
   %174 = landingpad { ptr, i32 }
@@ -515,18 +515,18 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   br label %.body78
 
-"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit": ; preds = %136, %155, %168, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i76
+"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit": ; preds = %136, %155, %168, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !19
   %.pr = load ptr, ptr %14, align 8
   %.not.i.i80 = icmp eq ptr %.pr, null
   br i1 %.not.i.i80, label %_ZN7xgboost10collective6ResultD2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
 
-_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i: ; preds = %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit"
+_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i: ; preds = %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit"
   call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pr) #13
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 56) #23
   br label %_ZN7xgboost10collective6ResultD2Ev.exit
 
-_ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit.thread", %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.exit", %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
+_ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit.thread", %"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom.exit", %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
   store ptr null, ptr %14, align 8
   %175 = load ptr, ptr %15, align 8
   %.not.i.i81 = icmp eq ptr %175, null
@@ -2063,11 +2063,11 @@ attributes #27 = { noreturn }
 !17 = distinct !{!17, !18, !"_ZN7xgboost10collective7Channel7RecvAllENS_6common4SpanIaLm18446744073709551615EEE: argument 0"}
 !18 = distinct !{!18, !"_ZN7xgboost10collective7Channel7RecvAllENS_6common4SpanIaLm18446744073709551615EEE"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_: argument 0"}
-!21 = distinct !{!21, !"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_"}
+!20 = distinct !{!20, !21, !"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZN7xgboost10collectivelsIZNS0_8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiE3$_1EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSC_OSB_.argprom"}
 !22 = !{!23, !20}
-!23 = distinct !{!23, !24, !"_ZZN7xgboost10collective8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiENK3$_1clEv: argument 0"}
-!24 = distinct !{!24, !"_ZZN7xgboost10collective8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiENK3$_1clEv"}
+!23 = distinct !{!23, !24, !"_ZZN7xgboost10collective8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiENK3$_1clEv.argprom.argprom: argument 0"}
+!24 = distinct !{!24, !"_ZZN7xgboost10collective8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEiENK3$_1clEv.argprom.argprom"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN4dmlc11LogCheck_NEB5cxx11Eii: argument 0"}
 !27 = distinct !{!27, !"_ZN4dmlc11LogCheck_NEB5cxx11Eii"}

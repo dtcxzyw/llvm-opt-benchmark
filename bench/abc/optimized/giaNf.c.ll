@@ -156,7 +156,7 @@ define void @Nf_StoCreateGateAdd(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %11
-  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %1)
+  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %1)
   br label %21
 
 21:                                               ; preds = %20, %11
@@ -205,7 +205,7 @@ define void @Nf_StoCreateGateAdd(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %40
-  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %6)
+  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %6)
   br label %44
 
 44:                                               ; preds = %43, %40
@@ -1294,7 +1294,7 @@ Vec_MemHashLookup.exit:                           ; preds = %171, %.lr.ph.i18, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WecPushLevel(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_WecPushLevel.retelim(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -1536,8 +1536,8 @@ define ptr @Nf_StoDeriveMatches(ptr nocapture noundef %0, ptr nocapture noundef 
   %16 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #26
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %16, ptr %17, align 8
-  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %10)
-  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %10)
+  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %10)
+  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %10)
   br label %18
 
 18:                                               ; preds = %6, %18
@@ -2552,14 +2552,14 @@ define void @Nf_ObjMergeOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %46 = getelementptr i8, ptr %45, i64 208
   %.val176 = load ptr, ptr %46, align 8
   %.not.i = icmp ne ptr %.val176, null
-  br i1 %.not.i, label %47, label %Gia_ObjSibl.exit
+  br i1 %.not.i, label %47, label %Gia_ObjSibl.argprom.exit
 
 47:                                               ; preds = %2
   %48 = getelementptr inbounds i32, ptr %.val176, i64 %13
   %49 = load i32, ptr %48, align 4
-  br label %Gia_ObjSibl.exit
+  br label %Gia_ObjSibl.argprom.exit
 
-Gia_ObjSibl.exit:                                 ; preds = %2, %47
+Gia_ObjSibl.argprom.exit:                         ; preds = %2, %47
   %50 = phi i32 [ %49, %47 ], [ 0, %2 ]
   %51 = sext i32 %33 to i64
   %52 = getelementptr inbounds %struct.Nf_Cut_t_, ptr %5, i64 %51
@@ -2568,7 +2568,7 @@ Gia_ObjSibl.exit:                                 ; preds = %2, %47
   %55 = icmp sgt i32 %29, 0
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %Gia_ObjSibl.exit
+.lr.ph.preheader:                                 ; preds = %Gia_ObjSibl.argprom.exit
   %wide.trip.count = zext nneg i32 %29 to i64
   br label %.lr.ph
 
@@ -2581,7 +2581,7 @@ Gia_ObjSibl.exit:                                 ; preds = %2, %47
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.lr.ph, %Gia_ObjSibl.exit
+._crit_edge:                                      ; preds = %.lr.ph, %Gia_ObjSibl.argprom.exit
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %.loopexit380, label %Gia_ObjSiblObj.exit
 
@@ -2691,15 +2691,15 @@ Nf_CutParams.exit:                                ; preds = %72, %._crit_edge.i,
   %115 = getelementptr i8, ptr %114, i64 40
   %.val179 = load ptr, ptr %115, align 8
   %.not.i187 = icmp eq ptr %.val179, null
-  br i1 %.not.i187, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
+  br i1 %.not.i187, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
 
-Gia_ObjIsMuxId.exit:                              ; preds = %.loopexit380
+Gia_ObjIsMuxId.argprom.exit:                      ; preds = %.loopexit380
   %116 = getelementptr inbounds i32, ptr %.val179, i64 %13
   %117 = load i32, ptr %116, align 4
   %.not360 = icmp eq i32 %117, 0
-  br i1 %.not360, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFaninId2.exit
+  br i1 %.not360, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjFaninId2.argprom.exit
 
-Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
+Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argprom.exit
   %118 = ashr i32 %117, 1
   %119 = call fastcc i32 @Nf_ManPrepareCuts(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %118, i32 noundef 1)
   %120 = load ptr, ptr %0, align 8
@@ -2708,7 +2708,7 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %.not.i189 = icmp eq ptr %122, null
   br i1 %.not.i189, label %Gia_ObjFaninC2.exit, label %123
 
-123:                                              ; preds = %Gia_ObjFaninId2.exit
+123:                                              ; preds = %Gia_ObjFaninId2.argprom.exit
   %124 = getelementptr i8, ptr %120, i64 32
   %.val.i190 = load ptr, ptr %124, align 8
   %125 = ptrtoint ptr %14 to i64
@@ -2722,8 +2722,8 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %132 = and i32 %131, 1
   br label %Gia_ObjFaninC2.exit
 
-Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjFaninId2.exit, %123
-  %133 = phi i32 [ 0, %Gia_ObjFaninId2.exit ], [ %132, %123 ]
+Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjFaninId2.argprom.exit, %123
+  %133 = phi i32 [ 0, %Gia_ObjFaninId2.argprom.exit ], [ %132, %123 ]
   %134 = sext i32 %119 to i64
   %135 = getelementptr inbounds %struct.Nf_Cut_t_, ptr %10, i64 %134
   %136 = mul nsw i32 %38, %33
@@ -3450,26 +3450,26 @@ Nf_CutMergeOrderMux.exit.thread.us.us.us:         ; preds = %205, %241, %273, %2
   %542 = icmp ult ptr %541, %52
   br i1 %542, label %.preheader378.us.us, label %.loopexit370, !llvm.loop !45
 
-Gia_ObjIsMuxId.exit.thread:                       ; preds = %.loopexit380, %Gia_ObjIsMuxId.exit
+Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %.loopexit380, %Gia_ObjIsMuxId.argprom.exit
   %.val181 = load i64, ptr %14, align 4
   %543 = and i64 %.val181, 2147483648
   %.not.i.i229 = icmp ne i64 %543, 0
   %544 = and i64 %.val181, 536870911
   %545 = icmp eq i64 %544, 536870911
   %narrow.i.not.i = or i1 %.not.i.i229, %545
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit, label %546
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit, label %546
 
-546:                                              ; preds = %Gia_ObjIsMuxId.exit.thread
+546:                                              ; preds = %Gia_ObjIsMuxId.argprom.exit.thread
   %547 = trunc i64 %.val181 to i32
   %548 = and i32 %547, 536870911
   %549 = lshr i64 %.val181, 32
   %550 = trunc nuw i64 %549 to i32
   %551 = and i32 %550, 536870911
   %552 = icmp uge i32 %548, %551
-  br label %Gia_ObjIsXor.exit
+  br label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit.thread, %546
-  %.not39.i = phi i1 [ true, %Gia_ObjIsMuxId.exit.thread ], [ %552, %546 ]
+Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMuxId.argprom.exit.thread, %546
+  %.not39.i = phi i1 [ true, %Gia_ObjIsMuxId.argprom.exit.thread ], [ %552, %546 ]
   %553 = mul nsw i32 %38, %33
   %554 = sitofp i32 %553 to double
   %555 = getelementptr inbounds i8, ptr %0, i64 232
@@ -3479,7 +3479,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %558 = icmp sgt i32 %33, 0
   br i1 %558, label %.preheader.lr.ph, label %.loopexit370
 
-.preheader.lr.ph:                                 ; preds = %Gia_ObjIsXor.exit
+.preheader.lr.ph:                                 ; preds = %Gia_ObjIsXor.argprom.exit
   %559 = icmp sgt i32 %38, 0
   %560 = getelementptr inbounds i8, ptr %0, i64 240
   %561 = icmp eq i32 %27, 0
@@ -4196,8 +4196,8 @@ Nf_CutMergeOrder.exit.thread.us:                  ; preds = %615, %.lr.ph134.i.u
   %915 = icmp ult ptr %914, %52
   br i1 %915, label %.preheader.us, label %.loopexit370, !llvm.loop !50
 
-.loopexit370:                                     ; preds = %._crit_edge405.split.us.us.us, %._crit_edge422.us, %.preheader.lr.ph, %.preheader378.lr.ph, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.exit
-  %.6 = phi i32 [ %.0155, %Gia_ObjIsXor.exit ], [ %.0155, %Gia_ObjFaninC2.exit ], [ %.0155, %.preheader378.lr.ph ], [ %.0155, %.preheader.lr.ph ], [ %.9.us, %._crit_edge422.us ], [ %.5.us.us.us, %._crit_edge405.split.us.us.us ]
+.loopexit370:                                     ; preds = %._crit_edge405.split.us.us.us, %._crit_edge422.us, %.preheader.lr.ph, %.preheader378.lr.ph, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.argprom.exit
+  %.6 = phi i32 [ %.0155, %Gia_ObjIsXor.argprom.exit ], [ %.0155, %Gia_ObjFaninC2.exit ], [ %.0155, %.preheader378.lr.ph ], [ %.0155, %.preheader.lr.ph ], [ %.9.us, %._crit_edge422.us ], [ %.5.us.us.us, %._crit_edge405.split.us.us.us ]
   %916 = load ptr, ptr %8, align 16
   %917 = getelementptr inbounds i8, ptr %916, i64 12
   %918 = load float, ptr %917, align 4
@@ -6685,10 +6685,10 @@ Vec_IntFill.exit:                                 ; preds = %42, %Vec_IntGrow.ex
   %151 = getelementptr inbounds i8, ptr %0, i64 200
   br label %152
 
-152:                                              ; preds = %.lr.ph134, %Nf_ObjUpdateRequired.exit125
-  %indvars.iv138 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next139, %Nf_ObjUpdateRequired.exit125 ]
-  %153 = phi ptr [ %145, %.lr.ph134 ], [ %243, %Nf_ObjUpdateRequired.exit125 ]
-  %154 = phi ptr [ %143, %.lr.ph134 ], [ %241, %Nf_ObjUpdateRequired.exit125 ]
+152:                                              ; preds = %.lr.ph134, %Nf_ObjUpdateRequired.argprom.exit125
+  %indvars.iv138 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next139, %Nf_ObjUpdateRequired.argprom.exit125 ]
+  %153 = phi ptr [ %145, %.lr.ph134 ], [ %243, %Nf_ObjUpdateRequired.argprom.exit125 ]
+  %154 = phi ptr [ %143, %.lr.ph134 ], [ %241, %Nf_ObjUpdateRequired.argprom.exit125 ]
   %155 = getelementptr i8, ptr %154, i64 32
   %.val114 = load ptr, ptr %155, align 8
   %.not97 = icmp eq ptr %.val114, null
@@ -6794,37 +6794,37 @@ Vec_IntFill.exit:                                 ; preds = %42, %Vec_IntGrow.ex
   %219 = getelementptr inbounds i32, ptr %.val118, i64 %218
   %220 = load i32, ptr %219, align 4
   %221 = icmp sgt i32 %220, %.0
-  br i1 %221, label %222, label %Nf_ObjUpdateRequired.exit
+  br i1 %221, label %222, label %Nf_ObjUpdateRequired.argprom.exit
 
 222:                                              ; preds = %215
   store i32 %.0, ptr %219, align 4
-  br label %Nf_ObjUpdateRequired.exit
+  br label %Nf_ObjUpdateRequired.argprom.exit
 
-Nf_ObjUpdateRequired.exit:                        ; preds = %215, %222
+Nf_ObjUpdateRequired.argprom.exit:                ; preds = %215, %222
   %223 = icmp sgt i32 %164, 0
   %or.cond = select i1 %150, i1 %223, i1 false
-  br i1 %or.cond, label %224, label %Nf_ObjUpdateRequired.exit125
+  br i1 %or.cond, label %224, label %Nf_ObjUpdateRequired.argprom.exit125
 
-224:                                              ; preds = %Nf_ObjUpdateRequired.exit
+224:                                              ; preds = %Nf_ObjUpdateRequired.argprom.exit
   %.val120 = load ptr, ptr %148, align 8
   %225 = getelementptr inbounds %struct.Nf_Obj_t_, ptr %.val120, i64 %167
   %226 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %225, i64 0, i64 %168, i64 1
   %227 = load i32, ptr %226, align 4
   %.not.i = icmp sgt i32 %227, -1
-  br i1 %.not.i, label %228, label %Nf_ObjMatchBest.exit
+  br i1 %.not.i, label %228, label %Nf_ObjMatchBest.argprom.exit
 
 228:                                              ; preds = %224
   %229 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %225, i64 0, i64 %168
   %.pre144 = load i32, ptr %229, align 4
-  br label %Nf_ObjMatchBest.exit
+  br label %Nf_ObjMatchBest.argprom.exit
 
-Nf_ObjMatchBest.exit:                             ; preds = %224, %228
+Nf_ObjMatchBest.argprom.exit:                     ; preds = %224, %228
   %230 = phi i32 [ %227, %224 ], [ %.pre144, %228 ]
   %231 = and i32 %230, 1073741824
   %.not102 = icmp eq i32 %231, 0
-  br i1 %.not102, label %Nf_ObjUpdateRequired.exit125, label %232
+  br i1 %.not102, label %Nf_ObjUpdateRequired.argprom.exit125, label %232
 
-232:                                              ; preds = %Nf_ObjMatchBest.exit
+232:                                              ; preds = %Nf_ObjMatchBest.argprom.exit
   %233 = load i32, ptr %151, align 8
   %234 = sub nsw i32 %.0, %233
   %.val119 = load ptr, ptr %149, align 8
@@ -6833,13 +6833,13 @@ Nf_ObjMatchBest.exit:                             ; preds = %224, %228
   %237 = getelementptr inbounds i32, ptr %.val119, i64 %236
   %238 = load i32, ptr %237, align 4
   %239 = icmp sgt i32 %238, %234
-  br i1 %239, label %240, label %Nf_ObjUpdateRequired.exit125
+  br i1 %239, label %240, label %Nf_ObjUpdateRequired.argprom.exit125
 
 240:                                              ; preds = %232
   store i32 %234, ptr %237, align 4
-  br label %Nf_ObjUpdateRequired.exit125
+  br label %Nf_ObjUpdateRequired.argprom.exit125
 
-Nf_ObjUpdateRequired.exit125:                     ; preds = %240, %232, %Nf_ObjUpdateRequired.exit, %Nf_ObjMatchBest.exit
+Nf_ObjUpdateRequired.argprom.exit125:             ; preds = %240, %232, %Nf_ObjUpdateRequired.argprom.exit, %Nf_ObjMatchBest.argprom.exit
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %241 = load ptr, ptr %0, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 72
@@ -6850,7 +6850,7 @@ Nf_ObjUpdateRequired.exit125:                     ; preds = %240, %232, %Nf_ObjU
   %246 = icmp slt i64 %indvars.iv.next139, %245
   br i1 %246, label %152, label %.critedge2, !llvm.loop !78
 
-.critedge2:                                       ; preds = %152, %Nf_ObjUpdateRequired.exit125, %142
+.critedge2:                                       ; preds = %152, %Nf_ObjUpdateRequired.argprom.exit125, %142
   ret void
 }
 
@@ -6948,8 +6948,8 @@ define void @Nf_ManSetMapRefsGate(ptr nocapture noundef readonly %0, i32 noundef
   %31 = getelementptr i8, ptr %0, i64 128
   br label %32
 
-32:                                               ; preds = %.lr.ph, %Nf_ObjUpdateRequired.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Nf_ObjUpdateRequired.exit ]
+32:                                               ; preds = %.lr.ph, %Nf_ObjUpdateRequired.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Nf_ObjUpdateRequired.argprom.exit ]
   %33 = load i32, ptr %27, align 4
   %34 = lshr i32 %33, 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -6983,13 +6983,13 @@ define void @Nf_ManSetMapRefsGate(ptr nocapture noundef readonly %0, i32 noundef
   %56 = getelementptr inbounds i32, ptr %.val32, i64 %49
   %57 = load i32, ptr %56, align 4
   %58 = icmp sgt i32 %57, %55
-  br i1 %58, label %59, label %Nf_ObjUpdateRequired.exit
+  br i1 %58, label %59, label %Nf_ObjUpdateRequired.argprom.exit
 
 59:                                               ; preds = %41
   store i32 %55, ptr %56, align 4
-  br label %Nf_ObjUpdateRequired.exit
+  br label %Nf_ObjUpdateRequired.argprom.exit
 
-Nf_ObjUpdateRequired.exit:                        ; preds = %41, %59
+Nf_ObjUpdateRequired.argprom.exit:                ; preds = %41, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val30 = load i32, ptr %25, align 4
   %60 = and i32 %.val30, 31
@@ -6997,7 +6997,7 @@ Nf_ObjUpdateRequired.exit:                        ; preds = %41, %59
   %62 = icmp ult i64 %indvars.iv.next, %61
   br i1 %62, label %32, label %.critedge, !llvm.loop !79
 
-.critedge:                                        ; preds = %Nf_ObjUpdateRequired.exit, %32, %4
+.critedge:                                        ; preds = %Nf_ObjUpdateRequired.argprom.exit, %32, %4
   %63 = getelementptr inbounds i8, ptr %9, i64 20
   %64 = load float, ptr %63, align 4
   %65 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7310,13 +7310,13 @@ define i32 @Nf_ManSetMapRefs(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %108 = getelementptr inbounds i32, ptr %.val256, i64 %96
   %109 = load i32, ptr %108, align 4
   %110 = icmp sgt i32 %109, %107
-  br i1 %110, label %111, label %Nf_ObjUpdateRequired.exit
+  br i1 %110, label %111, label %Nf_ObjUpdateRequired.argprom.exit
 
 111:                                              ; preds = %100
   store i32 %107, ptr %108, align 4
-  br label %Nf_ObjUpdateRequired.exit
+  br label %Nf_ObjUpdateRequired.argprom.exit
 
-Nf_ObjUpdateRequired.exit:                        ; preds = %100, %111
+Nf_ObjUpdateRequired.argprom.exit:                ; preds = %100, %111
   %112 = load float, ptr %65, align 8
   %113 = load ptr, ptr %51, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 232
@@ -7341,9 +7341,9 @@ Nf_ObjUpdateRequired.exit:                        ; preds = %100, %111
   %.pre344 = and i32 %.pre343, 536870911
   br label %127
 
-127:                                              ; preds = %Nf_ObjUpdateRequired.exit, %95
-  %.pre-phi345 = phi i32 [ %.pre344, %Nf_ObjUpdateRequired.exit ], [ %88, %95 ]
-  %.pre-phi = phi i32 [ %.pre343, %Nf_ObjUpdateRequired.exit ], [ %87, %95 ]
+127:                                              ; preds = %Nf_ObjUpdateRequired.argprom.exit, %95
+  %.pre-phi345 = phi i32 [ %.pre344, %Nf_ObjUpdateRequired.argprom.exit ], [ %88, %95 ]
+  %.pre-phi = phi i32 [ %.pre343, %Nf_ObjUpdateRequired.argprom.exit ], [ %87, %95 ]
   %128 = trunc nuw nsw i64 %indvars.iv.next318 to i32
   %129 = sub nsw i32 %128, %.pre-phi345
   %130 = lshr i32 %.pre-phi, 29
@@ -7357,7 +7357,7 @@ Nf_ObjUpdateRequired.exit:                        ; preds = %100, %111
   %137 = getelementptr inbounds i32, ptr %.val255, i64 %136
   %138 = load i32, ptr %137, align 4
   %139 = icmp sgt i32 %138, %133
-  br i1 %139, label %140, label %Nf_ObjUpdateRequired.exit280
+  br i1 %139, label %140, label %Nf_ObjUpdateRequired.argprom.exit280
 
 140:                                              ; preds = %127
   store i32 %133, ptr %137, align 4
@@ -7370,9 +7370,9 @@ Nf_ObjUpdateRequired.exit:                        ; preds = %100, %111
   %.pre356 = shl nsw i32 %.pre350, 1
   %.pre358 = or disjoint i32 %.pre356, %.pre354
   %.pre360 = sext i32 %.pre358 to i64
-  br label %Nf_ObjUpdateRequired.exit280
+  br label %Nf_ObjUpdateRequired.argprom.exit280
 
-Nf_ObjUpdateRequired.exit280:                     ; preds = %127, %140
+Nf_ObjUpdateRequired.argprom.exit280:             ; preds = %127, %140
   %.pre-phi361 = phi i64 [ %136, %127 ], [ %.pre360, %140 ]
   %.val268 = load ptr, ptr %13, align 8
   %141 = getelementptr inbounds i32, ptr %.val268, i64 %.pre-phi361
@@ -7473,16 +7473,16 @@ Nf_ObjUpdateRequired.exit280:                     ; preds = %127, %140
   %188 = getelementptr inbounds i32, ptr %.val262, i64 %182
   %189 = load i32, ptr %188, align 4
   %190 = icmp sgt i32 %189, %187
-  br i1 %190, label %191, label %Nf_ObjUpdateRequired.exit281
+  br i1 %190, label %191, label %Nf_ObjUpdateRequired.argprom.exit281
 
 191:                                              ; preds = %169
   store i32 %187, ptr %188, align 4
   %.val253.pre = load ptr, ptr %62, align 8
   %.phi.trans.insert335 = getelementptr inbounds i32, ptr %.val253.pre, i64 %182
   %.pre336 = load i32, ptr %.phi.trans.insert335, align 4
-  br label %Nf_ObjUpdateRequired.exit281
+  br label %Nf_ObjUpdateRequired.argprom.exit281
 
-Nf_ObjUpdateRequired.exit281:                     ; preds = %169, %191
+Nf_ObjUpdateRequired.argprom.exit281:             ; preds = %169, %191
   %192 = phi i32 [ %189, %169 ], [ %.pre336, %191 ]
   %.val234 = load ptr, ptr %63, align 8
   %193 = getelementptr inbounds %struct.Nf_Obj_t_, ptr %.val234, i64 %indvars.iv.next318
@@ -7562,16 +7562,16 @@ Nf_ObjUpdateRequired.exit281:                     ; preds = %169, %191
   %247 = getelementptr inbounds i32, ptr %.val261, i64 %241
   %248 = load i32, ptr %247, align 4
   %249 = icmp sgt i32 %248, %246
-  br i1 %249, label %250, label %Nf_ObjUpdateRequired.exit282
+  br i1 %249, label %250, label %Nf_ObjUpdateRequired.argprom.exit282
 
 250:                                              ; preds = %233
   store i32 %246, ptr %247, align 4
   %.val251.pre = load ptr, ptr %62, align 8
   %.phi.trans.insert = getelementptr inbounds i32, ptr %.val251.pre, i64 %241
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %Nf_ObjUpdateRequired.exit282
+  br label %Nf_ObjUpdateRequired.argprom.exit282
 
-Nf_ObjUpdateRequired.exit282:                     ; preds = %233, %250
+Nf_ObjUpdateRequired.argprom.exit282:             ; preds = %233, %250
   %251 = phi i32 [ %248, %233 ], [ %.pre, %250 ]
   %.val232 = load ptr, ptr %63, align 8
   %252 = getelementptr inbounds %struct.Nf_Obj_t_, ptr %.val232, i64 %indvars.iv.next318
@@ -7600,15 +7600,15 @@ Nf_ObjUpdateRequired.exit282:                     ; preds = %233, %250
   store i64 %271, ptr %269, align 8
   br label %272
 
-272:                                              ; preds = %Nf_ObjUpdateRequired.exit282, %216
-  %.0204 = phi ptr [ %258, %Nf_ObjUpdateRequired.exit282 ], [ %230, %216 ]
-  %.2 = phi i32 [ %251, %Nf_ObjUpdateRequired.exit282 ], [ %223, %216 ]
+272:                                              ; preds = %Nf_ObjUpdateRequired.argprom.exit282, %216
+  %.0204 = phi ptr [ %258, %Nf_ObjUpdateRequired.argprom.exit282 ], [ %230, %216 ]
+  %.2 = phi i32 [ %251, %Nf_ObjUpdateRequired.argprom.exit282 ], [ %223, %216 ]
   %273 = trunc nuw nsw i64 %indvars.iv.next318 to i32
   tail call void @Nf_ManSetMapRefsGate(ptr noundef nonnull %0, i32 noundef %273, i32 noundef %.2, ptr noundef %.0204)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader.preheader, %82, %Nf_ObjUpdateRequired.exit281, %272, %.preheader285, %Nf_ObjUpdateRequired.exit280
-  %.1 = phi i32 [ %.0293, %Nf_ObjUpdateRequired.exit280 ], [ %192, %Nf_ObjUpdateRequired.exit281 ], [ %.2, %272 ], [ %.0293, %.preheader285 ], [ %.0293, %82 ], [ %.0293, %.preheader.preheader ]
+.loopexit:                                        ; preds = %.preheader.preheader, %82, %Nf_ObjUpdateRequired.argprom.exit281, %272, %.preheader285, %Nf_ObjUpdateRequired.argprom.exit280
+  %.1 = phi i32 [ %.0293, %Nf_ObjUpdateRequired.argprom.exit280 ], [ %192, %Nf_ObjUpdateRequired.argprom.exit281 ], [ %.2, %272 ], [ %.0293, %.preheader285 ], [ %.0293, %82 ], [ %.0293, %.preheader.preheader ]
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next316, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit..critedge2.loopexit_crit_edge, label %73, !llvm.loop !82
@@ -7666,13 +7666,13 @@ Nf_ObjUpdateRequired.exit282:                     ; preds = %233, %250
   %301 = getelementptr inbounds i32, ptr %.val260, i64 %295
   %302 = load i32, ptr %301, align 4
   %303 = icmp sgt i32 %302, %300
-  br i1 %303, label %304, label %Nf_ObjUpdateRequired.exit283
+  br i1 %303, label %304, label %Nf_ObjUpdateRequired.argprom.exit283
 
 304:                                              ; preds = %294
   store i32 %300, ptr %301, align 4
-  br label %Nf_ObjUpdateRequired.exit283
+  br label %Nf_ObjUpdateRequired.argprom.exit283
 
-Nf_ObjUpdateRequired.exit283:                     ; preds = %294, %304
+Nf_ObjUpdateRequired.argprom.exit283:             ; preds = %294, %304
   %305 = load float, ptr %281, align 8
   %306 = load ptr, ptr %51, align 8
   %307 = getelementptr inbounds i8, ptr %306, i64 232
@@ -7695,8 +7695,8 @@ Nf_ObjUpdateRequired.exit283:                     ; preds = %294, %304
   %.pre340 = load ptr, ptr %0, align 8
   br label %320
 
-320:                                              ; preds = %288, %Nf_ObjUpdateRequired.exit283
-  %321 = phi ptr [ %283, %288 ], [ %.pre340, %Nf_ObjUpdateRequired.exit283 ]
+320:                                              ; preds = %288, %Nf_ObjUpdateRequired.argprom.exit283
+  %321 = phi ptr [ %283, %288 ], [ %.pre340, %Nf_ObjUpdateRequired.argprom.exit283 ]
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %322 = getelementptr inbounds i8, ptr %321, i64 64
   %323 = load ptr, ptr %322, align 8
@@ -8619,9 +8619,9 @@ define range(i32 0, -2147483648) i32 @Nf_ManComputeArrival(ptr nocapture noundef
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %20
 
-20:                                               ; preds = %.lr.ph, %Nf_ObjMatchBest.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Nf_ObjMatchBest.exit ]
-  %.024 = phi i32 [ 0, %.lr.ph ], [ %44, %Nf_ObjMatchBest.exit ]
+20:                                               ; preds = %.lr.ph, %Nf_ObjMatchBest.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Nf_ObjMatchBest.argprom.exit ]
+  %.024 = phi i32 [ 0, %.lr.ph ], [ %44, %Nf_ObjMatchBest.argprom.exit ]
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %21 = shl i32 %indvars.iv.tr, 2
   %22 = lshr i32 %16, %21
@@ -8643,16 +8643,16 @@ define range(i32 0, -2147483648) i32 @Nf_ManComputeArrival(ptr nocapture noundef
   %34 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %32, i64 0, i64 %33, i64 1
   %35 = load i32, ptr %34, align 4
   %.not.i = icmp sgt i32 %35, -1
-  br i1 %.not.i, label %36, label %Nf_ObjMatchBest.exit
+  br i1 %.not.i, label %36, label %Nf_ObjMatchBest.argprom.exit
 
 36:                                               ; preds = %27
   %37 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %32, i64 0, i64 %33
   %38 = load i32, ptr %37, align 4
   %.not10.i = icmp sgt i32 %38, -1
   %..i = select i1 %.not10.i, ptr null, ptr %37
-  br label %Nf_ObjMatchBest.exit
+  br label %Nf_ObjMatchBest.argprom.exit
 
-Nf_ObjMatchBest.exit:                             ; preds = %27, %36
+Nf_ObjMatchBest.argprom.exit:                     ; preds = %27, %36
   %.0.i = phi ptr [ %34, %27 ], [ %..i, %36 ]
   %39 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %40 = load i32, ptr %39, align 4
@@ -8664,8 +8664,8 @@ Nf_ObjMatchBest.exit:                             ; preds = %27, %36
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !92
 
-.critedge:                                        ; preds = %Nf_ObjMatchBest.exit, %20, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %.024, %20 ], [ %44, %Nf_ObjMatchBest.exit ]
+.critedge:                                        ; preds = %Nf_ObjMatchBest.argprom.exit, %20, %3
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.024, %20 ], [ %44, %Nf_ObjMatchBest.argprom.exit ]
   ret i32 %.0.lcssa
 }
 
@@ -8737,16 +8737,16 @@ define void @Nf_ManResetMatches(ptr nocapture noundef readonly %0, i32 noundef %
   %40 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %39, i64 0, i64 %37, i64 1
   %41 = load i32, ptr %40, align 4
   %.not.i104 = icmp sgt i32 %41, -1
-  br i1 %.not.i104, label %42, label %Nf_ObjMatchBest.exit
+  br i1 %.not.i104, label %42, label %Nf_ObjMatchBest.argprom.exit
 
 42:                                               ; preds = %33
   %43 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %39, i64 0, i64 %37
   %44 = load i32, ptr %43, align 4
   %.not10.i = icmp sgt i32 %44, -1
   %..i = select i1 %.not10.i, ptr null, ptr %43
-  br label %Nf_ObjMatchBest.exit
+  br label %Nf_ObjMatchBest.argprom.exit
 
-Nf_ObjMatchBest.exit:                             ; preds = %33, %42
+Nf_ObjMatchBest.argprom.exit:                     ; preds = %33, %42
   %.0.i = phi ptr [ %40, %33 ], [ %..i, %42 ]
   %.val88152 = load ptr, ptr %10, align 8
   %45 = getelementptr inbounds %struct.Nf_Obj_t_, ptr %.val88152, i64 %indvars.iv140
@@ -8878,9 +8878,9 @@ Nf_ObjMatchBest.exit:                             ; preds = %33, %42
   %wide.trip.count.i = zext nneg i32 %104 to i64
   br label %110
 
-110:                                              ; preds = %Nf_ObjMatchBest.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Nf_ObjMatchBest.exit.i ]
-  %.024.i = phi i32 [ 0, %.lr.ph.i ], [ %133, %Nf_ObjMatchBest.exit.i ]
+110:                                              ; preds = %Nf_ObjMatchBest.argprom.exit.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Nf_ObjMatchBest.argprom.exit.i ]
+  %.024.i = phi i32 [ 0, %.lr.ph.i ], [ %133, %Nf_ObjMatchBest.argprom.exit.i ]
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
   %111 = shl i32 %indvars.iv.tr.i, 2
   %112 = lshr i32 %107, %111
@@ -8901,16 +8901,16 @@ Nf_ObjMatchBest.exit:                             ; preds = %33, %42
   %123 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %121, i64 0, i64 %122, i64 1
   %124 = load i32, ptr %123, align 4
   %.not.i.i = icmp sgt i32 %124, -1
-  br i1 %.not.i.i, label %125, label %Nf_ObjMatchBest.exit.i
+  br i1 %.not.i.i, label %125, label %Nf_ObjMatchBest.argprom.exit.i
 
 125:                                              ; preds = %117
   %126 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %121, i64 0, i64 %122
   %127 = load i32, ptr %126, align 4
   %.not10.i.i = icmp sgt i32 %127, -1
   %..i.i = select i1 %.not10.i.i, ptr null, ptr %126
-  br label %Nf_ObjMatchBest.exit.i
+  br label %Nf_ObjMatchBest.argprom.exit.i
 
-Nf_ObjMatchBest.exit.i:                           ; preds = %125, %117
+Nf_ObjMatchBest.argprom.exit.i:                   ; preds = %125, %117
   %.0.i.i = phi ptr [ %123, %117 ], [ %..i.i, %125 ]
   %128 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %129 = load i32, ptr %128, align 4
@@ -8922,8 +8922,8 @@ Nf_ObjMatchBest.exit.i:                           ; preds = %125, %117
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Nf_ManComputeArrival.exit, label %110, !llvm.loop !92
 
-Nf_ManComputeArrival.exit:                        ; preds = %110, %Nf_ObjMatchBest.exit.i, %.preheader
-  %.0.lcssa.i = phi i32 [ 0, %.preheader ], [ %133, %Nf_ObjMatchBest.exit.i ], [ %.024.i, %110 ]
+Nf_ManComputeArrival.exit:                        ; preds = %110, %Nf_ObjMatchBest.argprom.exit.i, %.preheader
+  %.0.lcssa.i = phi i32 [ 0, %.preheader ], [ %133, %Nf_ObjMatchBest.argprom.exit.i ], [ %.024.i, %110 ]
   %134 = getelementptr inbounds i8, ptr %86, i64 8
   store i32 %.0.lcssa.i, ptr %134, align 4
   br i1 %85, label %.preheader, label %.loopexit, !llvm.loop !94
@@ -8967,9 +8967,9 @@ Nf_ManComputeArrival.exit:                        ; preds = %110, %Nf_ObjMatchBe
   %wide.trip.count.i110 = zext nneg i32 %155 to i64
   br label %161
 
-161:                                              ; preds = %Nf_ObjMatchBest.exit.i117, %.lr.ph.i109
-  %indvars.iv.i111 = phi i64 [ 0, %.lr.ph.i109 ], [ %indvars.iv.next.i119, %Nf_ObjMatchBest.exit.i117 ]
-  %.024.i112 = phi i32 [ 0, %.lr.ph.i109 ], [ %184, %Nf_ObjMatchBest.exit.i117 ]
+161:                                              ; preds = %Nf_ObjMatchBest.argprom.exit.i117, %.lr.ph.i109
+  %indvars.iv.i111 = phi i64 [ 0, %.lr.ph.i109 ], [ %indvars.iv.next.i119, %Nf_ObjMatchBest.argprom.exit.i117 ]
+  %.024.i112 = phi i32 [ 0, %.lr.ph.i109 ], [ %184, %Nf_ObjMatchBest.argprom.exit.i117 ]
   %indvars.iv.tr.i113 = trunc i64 %indvars.iv.i111 to i32
   %162 = shl i32 %indvars.iv.tr.i113, 2
   %163 = lshr i32 %158, %162
@@ -8989,16 +8989,16 @@ Nf_ManComputeArrival.exit:                        ; preds = %110, %Nf_ObjMatchBe
   %174 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %172, i64 0, i64 %173, i64 1
   %175 = load i32, ptr %174, align 4
   %.not.i.i116 = icmp sgt i32 %175, -1
-  br i1 %.not.i.i116, label %176, label %Nf_ObjMatchBest.exit.i117
+  br i1 %.not.i.i116, label %176, label %Nf_ObjMatchBest.argprom.exit.i117
 
 176:                                              ; preds = %168
   %177 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %172, i64 0, i64 %173
   %178 = load i32, ptr %177, align 4
   %.not10.i.i122 = icmp sgt i32 %178, -1
   %..i.i123 = select i1 %.not10.i.i122, ptr null, ptr %177
-  br label %Nf_ObjMatchBest.exit.i117
+  br label %Nf_ObjMatchBest.argprom.exit.i117
 
-Nf_ObjMatchBest.exit.i117:                        ; preds = %176, %168
+Nf_ObjMatchBest.argprom.exit.i117:                ; preds = %176, %168
   %.0.i.i118 = phi ptr [ %174, %168 ], [ %..i.i123, %176 ]
   %179 = getelementptr inbounds i8, ptr %.0.i.i118, i64 8
   %180 = load i32, ptr %179, align 4
@@ -9010,8 +9010,8 @@ Nf_ObjMatchBest.exit.i117:                        ; preds = %176, %168
   %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i119, %wide.trip.count.i110
   br i1 %exitcond.not.i120, label %Nf_ManComputeArrival.exit124, label %161, !llvm.loop !92
 
-Nf_ManComputeArrival.exit124:                     ; preds = %161, %Nf_ObjMatchBest.exit.i117, %._crit_edge
-  %.0.lcssa.i121 = phi i32 [ 0, %._crit_edge ], [ %184, %Nf_ObjMatchBest.exit.i117 ], [ %.024.i112, %161 ]
+Nf_ManComputeArrival.exit124:                     ; preds = %161, %Nf_ObjMatchBest.argprom.exit.i117, %._crit_edge
+  %.0.lcssa.i121 = phi i32 [ 0, %._crit_edge ], [ %184, %Nf_ObjMatchBest.argprom.exit.i117 ], [ %.024.i112, %161 ]
   %185 = getelementptr inbounds i8, ptr %137, i64 8
   store i32 %.0.lcssa.i121, ptr %185, align 4
   %.lobit = lshr exact i32 %84, 30
@@ -9029,7 +9029,7 @@ Nf_ManComputeArrival.exit124:                     ; preds = %161, %Nf_ObjMatchBe
   store i32 %194, ptr %188, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %Nf_ManComputeArrival.exit, %Nf_ObjMatchBest.exit, %21, %Nf_ManComputeArrival.exit124
+.loopexit:                                        ; preds = %Nf_ManComputeArrival.exit, %Nf_ObjMatchBest.argprom.exit, %21, %Nf_ManComputeArrival.exit124
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %195 = load ptr, ptr %0, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 24
@@ -9075,8 +9075,8 @@ define void @Nf_ManComputeMappingEla(ptr noundef %0) local_unnamed_addr #1 {
   %25 = zext nneg i32 %12 to i64
   br label %26
 
-26:                                               ; preds = %.lr.ph202, %Nf_ObjUpdateRequired.exit176
-  %indvars.iv213 = phi i64 [ %25, %.lr.ph202 ], [ %indvars.iv.next214, %Nf_ObjUpdateRequired.exit176 ]
+26:                                               ; preds = %.lr.ph202, %Nf_ObjUpdateRequired.argprom.exit176
+  %indvars.iv213 = phi i64 [ %25, %.lr.ph202 ], [ %indvars.iv.next214, %Nf_ObjUpdateRequired.argprom.exit176 ]
   %indvars.iv.next214 = add nsw i64 %indvars.iv213, -1
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr i8, ptr %27, i64 32
@@ -9092,7 +9092,7 @@ define void @Nf_ManComputeMappingEla(ptr noundef %0) local_unnamed_addr #1 {
   %32 = and i64 %.val154, 536870911
   %33 = icmp ne i64 %32, 536870911
   %narrow.i = and i1 %.not.i, %33
-  br i1 %narrow.i, label %34, label %Nf_ObjUpdateRequired.exit176
+  br i1 %narrow.i, label %34, label %Nf_ObjUpdateRequired.argprom.exit176
 
 34:                                               ; preds = %30
   %35 = trunc i64 %.val154 to i32
@@ -9118,7 +9118,7 @@ define void @Nf_ManComputeMappingEla(ptr noundef %0) local_unnamed_addr #1 {
   %47 = load i32, ptr %46, align 4
   %.not146 = icmp eq i32 %47, 0
   %.val159.pre221 = load ptr, ptr %16, align 8
-  br i1 %.not146, label %Nf_ObjUpdateRequired.exit, label %48
+  br i1 %.not146, label %Nf_ObjUpdateRequired.argprom.exit, label %48
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds i32, ptr %.val159.pre221, i64 %45
@@ -9128,7 +9128,7 @@ define void @Nf_ManComputeMappingEla(ptr noundef %0) local_unnamed_addr #1 {
   %53 = getelementptr inbounds i32, ptr %.val159.pre221, i64 %44
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, %52
-  br i1 %55, label %56, label %Nf_ObjUpdateRequired.exit
+  br i1 %55, label %56, label %Nf_ObjUpdateRequired.argprom.exit
 
 56:                                               ; preds = %48
   store i32 %52, ptr %53, align 4
@@ -9136,9 +9136,9 @@ define void @Nf_ManComputeMappingEla(ptr noundef %0) local_unnamed_addr #1 {
   %.val159.pre = load ptr, ptr %16, align 8
   %.pre226 = trunc i64 %.val148.pre to i32
   %.pre227 = and i32 %.pre226, 536870911
-  br label %Nf_ObjUpdateRequired.exit
+  br label %Nf_ObjUpdateRequired.argprom.exit
 
-Nf_ObjUpdateRequired.exit:                        ; preds = %56, %48, %43
+Nf_ObjUpdateRequired.argprom.exit:                ; preds = %56, %48, %43
   %.pre-phi228 = phi i32 [ %.pre227, %56 ], [ %36, %48 ], [ %36, %43 ]
   %.pre-phi = phi i32 [ %.pre226, %56 ], [ %35, %48 ], [ %35, %43 ]
   %.val159 = phi ptr [ %.val159.pre, %56 ], [ %.val159.pre221, %48 ], [ %.val159.pre221, %43 ]
@@ -9154,11 +9154,11 @@ Nf_ObjUpdateRequired.exit:                        ; preds = %56, %48, %43
   %66 = getelementptr inbounds i32, ptr %.val159, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = icmp sgt i32 %67, %62
-  br i1 %68, label %69, label %Nf_ObjUpdateRequired.exit176
+  br i1 %68, label %69, label %Nf_ObjUpdateRequired.argprom.exit176
 
-69:                                               ; preds = %Nf_ObjUpdateRequired.exit
+69:                                               ; preds = %Nf_ObjUpdateRequired.argprom.exit
   store i32 %62, ptr %66, align 4
-  br label %Nf_ObjUpdateRequired.exit176
+  br label %Nf_ObjUpdateRequired.argprom.exit176
 
 70:                                               ; preds = %.preheader, %.critedge2
   %71 = phi i1 [ true, %.preheader ], [ false, %.critedge2 ]
@@ -9176,14 +9176,14 @@ Nf_ObjUpdateRequired.exit:                        ; preds = %56, %48, %43
   %77 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %76, i64 0, i64 %indvars.iv210, i64 1
   %78 = load i32, ptr %77, align 4
   %.not.i177 = icmp sgt i32 %78, -1
-  br i1 %.not.i177, label %79, label %Nf_ObjMatchBest.exit
+  br i1 %.not.i177, label %79, label %Nf_ObjMatchBest.argprom.exit
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %76, i64 0, i64 %indvars.iv210
   %.pre = load i32, ptr %80, align 4
-  br label %Nf_ObjMatchBest.exit
+  br label %Nf_ObjMatchBest.argprom.exit
 
-Nf_ObjMatchBest.exit:                             ; preds = %75, %79
+Nf_ObjMatchBest.argprom.exit:                     ; preds = %75, %79
   %81 = phi i32 [ %78, %75 ], [ %.pre, %79 ]
   %.0.i = phi ptr [ %77, %75 ], [ %80, %79 ]
   %.val158 = load ptr, ptr %16, align 8
@@ -9193,7 +9193,7 @@ Nf_ObjMatchBest.exit:                             ; preds = %75, %79
   %.not142 = icmp eq i32 %84, 0
   br i1 %.not142, label %85, label %.critedge2
 
-85:                                               ; preds = %Nf_ObjMatchBest.exit
+85:                                               ; preds = %Nf_ObjMatchBest.argprom.exit
   %86 = trunc nuw nsw i64 %indvars.iv210 to i32
   %87 = tail call i64 @Nf_MatchDeref_rec(ptr noundef nonnull %0, i32 noundef %42, i32 noundef %86, ptr noundef nonnull %.0.i)
   %.val20.i = load ptr, ptr %17, align 8
@@ -9286,8 +9286,8 @@ Nf_ManElaBestMatch.exit:                          ; preds = %Nf_ManElaBestMatch.
   %136 = and i32 %135, 127
   br label %137
 
-137:                                              ; preds = %.lr.ph, %Nf_ObjUpdateRequired.exit190
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Nf_ObjUpdateRequired.exit190 ]
+137:                                              ; preds = %.lr.ph, %Nf_ObjUpdateRequired.argprom.exit190
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Nf_ObjUpdateRequired.argprom.exit190 ]
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %138 = shl nuw nsw i32 %indvars.iv.tr, 2
   %139 = lshr i32 %134, %138
@@ -9309,16 +9309,16 @@ Nf_ManElaBestMatch.exit:                          ; preds = %Nf_ManElaBestMatch.
   %151 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %149, i64 0, i64 %150, i64 1
   %152 = load i32, ptr %151, align 4
   %.not.i179 = icmp sgt i32 %152, -1
-  br i1 %.not.i179, label %153, label %Nf_ObjMatchBest.exit183
+  br i1 %.not.i179, label %153, label %Nf_ObjMatchBest.argprom.exit183
 
 153:                                              ; preds = %144
   %154 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %149, i64 0, i64 %150
   %155 = load i32, ptr %154, align 4
   %.not10.i181 = icmp sgt i32 %155, -1
   %..i182 = select i1 %.not10.i181, ptr null, ptr %154
-  br label %Nf_ObjMatchBest.exit183
+  br label %Nf_ObjMatchBest.argprom.exit183
 
-Nf_ObjMatchBest.exit183:                          ; preds = %144, %153
+Nf_ObjMatchBest.argprom.exit183:                  ; preds = %144, %153
   %.0.i180 = phi ptr [ %151, %144 ], [ %..i182, %153 ]
   %156 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %.val156, i64 %117, i32 7, i64 %indvars.iv
   %157 = load i32, ptr %156, align 4
@@ -9330,19 +9330,19 @@ Nf_ObjMatchBest.exit183:                          ; preds = %144, %153
   %162 = getelementptr inbounds i32, ptr %.val163, i64 %161
   %163 = load i32, ptr %162, align 4
   %164 = icmp sgt i32 %163, %158
-  br i1 %164, label %165, label %Nf_ObjUpdateRequired.exit184
+  br i1 %164, label %165, label %Nf_ObjUpdateRequired.argprom.exit184
 
-165:                                              ; preds = %Nf_ObjMatchBest.exit183
+165:                                              ; preds = %Nf_ObjMatchBest.argprom.exit183
   store i32 %158, ptr %162, align 4
-  br label %Nf_ObjUpdateRequired.exit184
+  br label %Nf_ObjUpdateRequired.argprom.exit184
 
-Nf_ObjUpdateRequired.exit184:                     ; preds = %Nf_ObjMatchBest.exit183, %165
+Nf_ObjUpdateRequired.argprom.exit184:             ; preds = %Nf_ObjMatchBest.argprom.exit183, %165
   %166 = load i32, ptr %.0.i180, align 4
   %167 = and i32 %166, 1073741824
   %.not144 = icmp eq i32 %167, 0
-  br i1 %.not144, label %Nf_ObjUpdateRequired.exit190, label %Nf_ObjMatchBest.exit189
+  br i1 %.not144, label %Nf_ObjUpdateRequired.argprom.exit190, label %Nf_ObjMatchBest.argprom.exit189
 
-Nf_ObjMatchBest.exit189:                          ; preds = %Nf_ObjUpdateRequired.exit184
+Nf_ObjMatchBest.argprom.exit189:                  ; preds = %Nf_ObjUpdateRequired.argprom.exit184
   %168 = load i32, ptr %156, align 4
   %169 = load i32, ptr %24, align 8
   %170 = add i32 %168, %169
@@ -9353,13 +9353,13 @@ Nf_ObjMatchBest.exit189:                          ; preds = %Nf_ObjUpdateRequire
   %174 = getelementptr inbounds i32, ptr %.val162, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = icmp sgt i32 %175, %171
-  br i1 %176, label %177, label %Nf_ObjUpdateRequired.exit190
+  br i1 %176, label %177, label %Nf_ObjUpdateRequired.argprom.exit190
 
-177:                                              ; preds = %Nf_ObjMatchBest.exit189
+177:                                              ; preds = %Nf_ObjMatchBest.argprom.exit189
   store i32 %171, ptr %174, align 4
-  br label %Nf_ObjUpdateRequired.exit190
+  br label %Nf_ObjUpdateRequired.argprom.exit190
 
-Nf_ObjUpdateRequired.exit190:                     ; preds = %177, %Nf_ObjMatchBest.exit189, %Nf_ObjUpdateRequired.exit184
+Nf_ObjUpdateRequired.argprom.exit190:             ; preds = %177, %Nf_ObjMatchBest.argprom.exit189, %Nf_ObjUpdateRequired.argprom.exit184
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val151 = load i32, ptr %130, align 4
   %178 = and i32 %.val151, 31
@@ -9367,19 +9367,19 @@ Nf_ObjUpdateRequired.exit190:                     ; preds = %177, %Nf_ObjMatchBe
   %180 = icmp ult i64 %indvars.iv.next, %179
   br i1 %180, label %137, label %.critedge2, !llvm.loop !96
 
-.critedge2:                                       ; preds = %Nf_ObjUpdateRequired.exit190, %137, %Nf_ManElaBestMatch.exit, %70, %Nf_ObjMatchBest.exit
-  br i1 %71, label %70, label %Nf_ObjUpdateRequired.exit176, !llvm.loop !97
+.critedge2:                                       ; preds = %Nf_ObjUpdateRequired.argprom.exit190, %137, %Nf_ManElaBestMatch.exit, %70, %Nf_ObjMatchBest.argprom.exit
+  br i1 %71, label %70, label %Nf_ObjUpdateRequired.argprom.exit176, !llvm.loop !97
 
-Nf_ObjUpdateRequired.exit176:                     ; preds = %.critedge2, %69, %Nf_ObjUpdateRequired.exit, %30
+Nf_ObjUpdateRequired.argprom.exit176:             ; preds = %.critedge2, %69, %Nf_ObjUpdateRequired.argprom.exit, %30
   %181 = icmp sgt i64 %indvars.iv213, 2
-  br i1 %181, label %26, label %Nf_ObjUpdateRequired.exit176..critedge.loopexit_crit_edge, !llvm.loop !98
+  br i1 %181, label %26, label %Nf_ObjUpdateRequired.argprom.exit176..critedge.loopexit_crit_edge, !llvm.loop !98
 
-Nf_ObjUpdateRequired.exit176..critedge.loopexit_crit_edge: ; preds = %Nf_ObjUpdateRequired.exit176
+Nf_ObjUpdateRequired.argprom.exit176..critedge.loopexit_crit_edge: ; preds = %Nf_ObjUpdateRequired.argprom.exit176
   %.pre223.pre = load ptr, ptr %0, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %26, %Nf_ObjUpdateRequired.exit176..critedge.loopexit_crit_edge, %1
-  %182 = phi ptr [ %10, %1 ], [ %.pre223.pre, %Nf_ObjUpdateRequired.exit176..critedge.loopexit_crit_edge ], [ %27, %26 ]
+.critedge:                                        ; preds = %26, %Nf_ObjUpdateRequired.argprom.exit176..critedge.loopexit_crit_edge, %1
+  %182 = phi ptr [ %10, %1 ], [ %.pre223.pre, %Nf_ObjUpdateRequired.argprom.exit176..critedge.loopexit_crit_edge ], [ %27, %26 ]
   %183 = getelementptr inbounds i8, ptr %182, i64 64
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr i8, ptr %184, i64 4
@@ -9393,10 +9393,10 @@ Nf_ObjUpdateRequired.exit176..critedge.loopexit_crit_edge: ; preds = %Nf_ObjUpda
   %189 = getelementptr inbounds i8, ptr %0, i64 200
   br label %190
 
-190:                                              ; preds = %.lr.ph206, %Nf_ObjUpdateRequired.exit191
-  %191 = phi ptr [ %182, %.lr.ph206 ], [ %214, %Nf_ObjUpdateRequired.exit191 ]
-  %indvars.iv216 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next217, %Nf_ObjUpdateRequired.exit191 ]
-  %192 = phi ptr [ %184, %.lr.ph206 ], [ %216, %Nf_ObjUpdateRequired.exit191 ]
+190:                                              ; preds = %.lr.ph206, %Nf_ObjUpdateRequired.argprom.exit191
+  %191 = phi ptr [ %182, %.lr.ph206 ], [ %214, %Nf_ObjUpdateRequired.argprom.exit191 ]
+  %indvars.iv216 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next217, %Nf_ObjUpdateRequired.argprom.exit191 ]
+  %192 = phi ptr [ %184, %.lr.ph206 ], [ %216, %Nf_ObjUpdateRequired.argprom.exit191 ]
   %193 = getelementptr i8, ptr %192, i64 8
   %.val173.val = load ptr, ptr %193, align 8
   %194 = getelementptr inbounds i32, ptr %.val173.val, i64 %indvars.iv216
@@ -9412,7 +9412,7 @@ Nf_ObjUpdateRequired.exit176..critedge.loopexit_crit_edge: ; preds = %Nf_ObjUpda
   %200 = getelementptr inbounds i32, ptr %.val169, i64 %199
   %201 = load i32, ptr %200, align 4
   %.not138 = icmp eq i32 %201, 0
-  br i1 %.not138, label %Nf_ObjUpdateRequired.exit191, label %202
+  br i1 %.not138, label %Nf_ObjUpdateRequired.argprom.exit191, label %202
 
 202:                                              ; preds = %196
   %.val157 = load ptr, ptr %188, align 8
@@ -9426,14 +9426,14 @@ Nf_ObjUpdateRequired.exit176..critedge.loopexit_crit_edge: ; preds = %Nf_ObjUpda
   %210 = getelementptr inbounds i32, ptr %.val157, i64 %209
   %211 = load i32, ptr %210, align 4
   %212 = icmp sgt i32 %211, %208
-  br i1 %212, label %213, label %Nf_ObjUpdateRequired.exit191
+  br i1 %212, label %213, label %Nf_ObjUpdateRequired.argprom.exit191
 
 213:                                              ; preds = %202
   store i32 %208, ptr %210, align 4
   %.pre224 = load ptr, ptr %0, align 8
-  br label %Nf_ObjUpdateRequired.exit191
+  br label %Nf_ObjUpdateRequired.argprom.exit191
 
-Nf_ObjUpdateRequired.exit191:                     ; preds = %213, %202, %196
+Nf_ObjUpdateRequired.argprom.exit191:             ; preds = %213, %202, %196
   %214 = phi ptr [ %.pre224, %213 ], [ %191, %202 ], [ %191, %196 ]
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %215 = getelementptr inbounds i8, ptr %214, i64 64
@@ -9444,7 +9444,7 @@ Nf_ObjUpdateRequired.exit191:                     ; preds = %213, %202, %196
   %219 = icmp slt i64 %indvars.iv.next217, %218
   br i1 %219, label %190, label %.critedge4, !llvm.loop !99
 
-.critedge4:                                       ; preds = %190, %Nf_ObjUpdateRequired.exit191, %.critedge
+.critedge4:                                       ; preds = %190, %Nf_ObjUpdateRequired.argprom.exit191, %.critedge
   ret void
 }
 
@@ -9814,27 +9814,27 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntFill.exit.lo
   %112 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %111, i64 0, i64 %indvars.iv134, i64 1
   %113 = load i32, ptr %112, align 4
   %.not.i104 = icmp sgt i32 %113, -1
-  br i1 %.not.i104, label %114, label %Nf_ObjMatchBest.exit
+  br i1 %.not.i104, label %114, label %Nf_ObjMatchBest.argprom.exit
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %111, i64 0, i64 %indvars.iv134
   %.pre141 = load i32, ptr %115, align 4
-  br label %Nf_ObjMatchBest.exit
+  br label %Nf_ObjMatchBest.argprom.exit
 
-Nf_ObjMatchBest.exit:                             ; preds = %110, %114
+Nf_ObjMatchBest.argprom.exit:                     ; preds = %110, %114
   %116 = phi i32 [ %113, %110 ], [ %.pre141, %114 ]
   %.0.i = phi ptr [ %112, %110 ], [ %115, %114 ]
   %117 = and i32 %116, 1073741824
   %.not74 = icmp eq i32 %117, 0
   br i1 %.not74, label %120, label %118
 
-118:                                              ; preds = %Nf_ObjMatchBest.exit
+118:                                              ; preds = %Nf_ObjMatchBest.argprom.exit
   %.val92 = load ptr, ptr %42, align 8
   %119 = getelementptr inbounds i32, ptr %.val92, i64 %107
   store i32 -1, ptr %119, align 4
   br label %227
 
-120:                                              ; preds = %Nf_ObjMatchBest.exit
+120:                                              ; preds = %Nf_ObjMatchBest.argprom.exit
   %.val83 = load ptr, ptr %79, align 8
   %.val84 = load ptr, ptr %80, align 8
   %121 = getelementptr inbounds i32, ptr %.val84, i64 %indvars.iv137
@@ -10180,20 +10180,20 @@ define void @Nf_ManUpdateStats(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %64 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %63, i64 0, i64 %indvars.iv, i64 1
   %65 = load i32, ptr %64, align 4
   %.not.i82 = icmp sgt i32 %65, -1
-  br i1 %.not.i82, label %66, label %Nf_ObjMatchBest.exit
+  br i1 %.not.i82, label %66, label %Nf_ObjMatchBest.argprom.exit
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %63, i64 0, i64 %indvars.iv
   %.pre = load i32, ptr %67, align 4
-  br label %Nf_ObjMatchBest.exit
+  br label %Nf_ObjMatchBest.argprom.exit
 
-Nf_ObjMatchBest.exit:                             ; preds = %62, %66
+Nf_ObjMatchBest.argprom.exit:                     ; preds = %62, %66
   %68 = phi i32 [ %65, %62 ], [ %.pre, %66 ]
   %69 = and i32 %68, 1073741824
   %.not64 = icmp eq i32 %69, 0
   br i1 %.not64, label %86, label %70
 
-70:                                               ; preds = %Nf_ObjMatchBest.exit
+70:                                               ; preds = %Nf_ObjMatchBest.argprom.exit
   %71 = load float, ptr %16, align 8
   %72 = load ptr, ptr %2, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 232
@@ -10215,7 +10215,7 @@ Nf_ObjMatchBest.exit:                             ; preds = %62, %66
   store i32 %85, ptr %5, align 4
   br label %118
 
-86:                                               ; preds = %Nf_ObjMatchBest.exit
+86:                                               ; preds = %Nf_ObjMatchBest.argprom.exit
   %.val67 = load ptr, ptr %17, align 8
   %.val68 = load ptr, ptr %18, align 8
   %87 = getelementptr inbounds i32, ptr %.val68, i64 %indvars.iv.next93
@@ -10621,21 +10621,21 @@ Vec_WecClear.exit236:                             ; preds = %101, %Vec_WecClear.
   %145 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %144, i64 0, i64 %indvars.iv403, i64 1
   %146 = load i32, ptr %145, align 4
   %.not.i237 = icmp sgt i32 %146, -1
-  br i1 %.not.i237, label %Nf_ObjMatchBest.exit, label %Nf_ObjMatchBest.exit.thread
+  br i1 %.not.i237, label %Nf_ObjMatchBest.argprom.exit, label %Nf_ObjMatchBest.argprom.exit.thread
 
-Nf_ObjMatchBest.exit:                             ; preds = %143
+Nf_ObjMatchBest.argprom.exit:                     ; preds = %143
   %147 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %144, i64 0, i64 %indvars.iv403
   %148 = load i32, ptr %147, align 4
   %149 = and i32 %148, 1073741824
   %.not189 = icmp eq i32 %149, 0
   br i1 %.not189, label %179, label %151
 
-Nf_ObjMatchBest.exit.thread:                      ; preds = %143
+Nf_ObjMatchBest.argprom.exit.thread:              ; preds = %143
   %150 = and i32 %146, 1073741824
   %.not189369 = icmp eq i32 %150, 0
-  br i1 %.not189369, label %Nf_ObjMatchBest.exit249, label %151
+  br i1 %.not189369, label %Nf_ObjMatchBest.argprom.exit249, label %151
 
-151:                                              ; preds = %Nf_ObjMatchBest.exit.thread, %Nf_ObjMatchBest.exit
+151:                                              ; preds = %Nf_ObjMatchBest.argprom.exit.thread, %Nf_ObjMatchBest.argprom.exit
   %.val191 = load i32, ptr %105, align 4
   store i32 %.val191, ptr %indvars.iv403.sroa.phi435, align 4
   %152 = load i32, ptr %4, align 8
@@ -10701,17 +10701,17 @@ Vec_IntPush.exit244:                              ; preds = %.Vec_IntGrow.exit10
   store i32 -1, ptr %178, align 4
   br label %180
 
-179:                                              ; preds = %Nf_ObjMatchBest.exit
+179:                                              ; preds = %Nf_ObjMatchBest.argprom.exit
   %.not10.i247 = icmp sgt i32 %148, -1
   %..i248 = select i1 %.not10.i247, ptr null, ptr %147
-  br label %Nf_ObjMatchBest.exit249
+  br label %Nf_ObjMatchBest.argprom.exit249
 
-Nf_ObjMatchBest.exit249:                          ; preds = %Nf_ObjMatchBest.exit.thread, %179
-  %.0.i246 = phi ptr [ %..i248, %179 ], [ %145, %Nf_ObjMatchBest.exit.thread ]
+Nf_ObjMatchBest.argprom.exit249:                  ; preds = %Nf_ObjMatchBest.argprom.exit.thread, %179
+  %.0.i246 = phi ptr [ %..i248, %179 ], [ %145, %Nf_ObjMatchBest.argprom.exit.thread ]
   store ptr %.0.i246, ptr %indvars.iv403.sroa.phi, align 8
   br label %180
 
-180:                                              ; preds = %137, %Nf_ObjMatchBest.exit249, %Vec_IntPush.exit244
+180:                                              ; preds = %137, %Nf_ObjMatchBest.argprom.exit249, %Vec_IntPush.exit244
   br i1 %138, label %137, label %.preheader377, !llvm.loop !110
 
 181:                                              ; preds = %.preheader377, %Vec_IntPush.exit257

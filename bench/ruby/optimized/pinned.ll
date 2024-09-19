@@ -83,13 +83,13 @@ define internal noundef i64 @initialize(i64 noundef returned %0, i64 noundef %1)
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %1, 0
   %7 = or i1 %6, %5
-  br i1 %7, label %rb_obj_write.exit, label %8
+  br i1 %7, label %rb_obj_write.argprom.exit, label %8
 
 8:                                                ; preds = %2
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) #4
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %2, %8
+rb_obj_write.argprom.exit:                        ; preds = %2, %8
   ret i64 %0
 }
 

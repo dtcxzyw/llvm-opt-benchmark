@@ -96,7 +96,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Dot11DecryptRsnaMng.7 = private unnamed_addr constant [10 x i8] c"\01d\FFe\02\FF\FFghf", align 1
 @switch.table.Dot11DecryptScanFtAssocForKeys = private unnamed_addr constant [18 x i64] [i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 24, i64 24, i64 16, i64 16, i64 16, i64 16, i64 16], align 8
 @switch.table.Dot11DecryptScanFtAssocForKeys.8 = private unnamed_addr constant [4 x i64] [i64 130, i64 136, i64 130, i64 136], align 8
-@switch.table.Dot11DecryptFtDerivePtk = private unnamed_addr constant [18 x i32] [i32 2, i32 2, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 9, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 8], align 4
+@switch.table.Dot11DecryptFtDerivePtk.argelim = private unnamed_addr constant [18 x i32] [i32 2, i32 2, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 9, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @Dot11DecryptDecryptKeyData(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
@@ -1483,7 +1483,7 @@ Dot11DecryptIsWpaKeyType.exit.i:                  ; preds = %97, %.backedge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %9, ptr noundef nonnull align 8 dereferenceable(432) %.0124.i, i64 424, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %75, ptr nonnull align 8 %76, i64 %110, i1 false)
   store i64 %110, ptr %77, align 8
-  call fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef nonnull %74, ptr noundef nonnull %78)
+  call fastcc void @Dot11DecryptRsnaPwd2Psk.retelim(ptr noundef nonnull %74, ptr noundef nonnull %78)
   br label %Dot11DecryptIsPwdWildcardSsid.exit.i
 
 Dot11DecryptIsPwdWildcardSsid.exit.i:             ; preds = %112, %109, %105, %103, %103, %103
@@ -1556,7 +1556,7 @@ Dot11DecryptDerivePmkFromMsk.exit.i:              ; preds = %133, %132, %122
   %141 = load i8, ptr %86, align 8
   %142 = zext i8 %141 to i64
   %143 = load ptr, ptr %87, align 8
-  %144 = call fastcc zeroext i8 @Dot11DecryptFtDerivePtk(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull %.0123.i, ptr noundef %138, ptr noundef %139, ptr noundef %140, i64 noundef %142, ptr noundef %143, i32 noundef %.3113.i, i32 noundef %.3109.i, ptr noundef %11, ptr noundef %12)
+  %144 = call fastcc zeroext i8 @Dot11DecryptFtDerivePtk.argelim(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull %.0123.i, ptr noundef %138, ptr noundef %139, ptr noundef %140, i64 noundef %142, ptr noundef %143, i32 noundef %.3113.i, i32 noundef %.3109.i, ptr noundef %11, ptr noundef %12)
   br label %174
 
 Dot11DecryptIsFtAkm.exit.i:                       ; preds = %Dot11DecryptDerivePmkFromMsk.exit.i
@@ -1727,28 +1727,28 @@ Dot11DecryptGetIntegrityAlgoFromAkm.exit.i.i:     ; preds = %185
   %.1512.i.i = phi i32 [ 1, %182 ], [ 2, %184 ], [ 9, %186 ], [ 2, %.sink.split.i.i.i ], [ 8, %185 ], [ 8, %185 ]
   %187 = call i32 @ws_hmac_buffer(i32 noundef %.1512.i.i, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %79, ptr noundef nonnull %11, i64 noundef %.0.i.i148.i) #14
   %.not25.i.i = icmp eq i32 %187, 0
-  br i1 %.not25.i.i, label %Dot11DecryptRsnaMicCheck.exit.i, label %Dot11DecryptIsWpaKeyType.exit141.thread.i
+  br i1 %.not25.i.i, label %Dot11DecryptRsnaMicCheck.argprom.exit.i, label %Dot11DecryptIsWpaKeyType.exit141.thread.i
 
 188:                                              ; preds = %185, %185, %185, %185, %185, %185, %185, %185
   %189 = call i32 @ws_cmac_buffer(i32 noundef 201, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %79, ptr noundef nonnull %11, i64 noundef %.0.i.i148.i) #14
   %.not24.i.i = icmp eq i32 %189, 0
-  br i1 %.not24.i.i, label %Dot11DecryptRsnaMicCheck.exit.i, label %Dot11DecryptIsWpaKeyType.exit141.thread.i
+  br i1 %.not24.i.i, label %Dot11DecryptRsnaMicCheck.argprom.exit.i, label %Dot11DecryptIsWpaKeyType.exit141.thread.i
 
-Dot11DecryptRsnaMicCheck.exit.i:                  ; preds = %188, %.thread.i.i
+Dot11DecryptRsnaMicCheck.argprom.exit.i:          ; preds = %188, %.thread.i.i
   %190 = call i32 @memcmp(ptr noundef nonnull readonly %.val138.i, ptr noundef nonnull %7, i64 noundef %183) #16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %.thread.i, label %Dot11DecryptIsWpaKeyType.exit141.i
 
-.thread.i:                                        ; preds = %Dot11DecryptRsnaMicCheck.exit.i
+.thread.i:                                        ; preds = %Dot11DecryptRsnaMicCheck.argprom.exit.i
   store ptr %.0124.i, ptr %65, align 8
   br label %199
 
-Dot11DecryptIsWpaKeyType.exit141.i:               ; preds = %Dot11DecryptRsnaMicCheck.exit.i, %174, %103
-  %.2118.i = phi i32 [ %.3119.i, %174 ], [ %190, %Dot11DecryptRsnaMicCheck.exit.i ], [ %.0116175.i, %103 ]
-  %.2112.i = phi i32 [ %.3113.i, %174 ], [ %.3113.i, %Dot11DecryptRsnaMicCheck.exit.i ], [ %.0110177.i, %103 ]
-  %.2108.i = phi i32 [ %.3109.i, %174 ], [ %.3109.i, %Dot11DecryptRsnaMicCheck.exit.i ], [ %.0106178.i, %103 ]
-  %.2.i = phi i32 [ %.3.i, %174 ], [ %.3.i, %Dot11DecryptRsnaMicCheck.exit.i ], [ %.0179.i, %103 ]
+Dot11DecryptIsWpaKeyType.exit141.i:               ; preds = %Dot11DecryptRsnaMicCheck.argprom.exit.i, %174, %103
+  %.2118.i = phi i32 [ %.3119.i, %174 ], [ %190, %Dot11DecryptRsnaMicCheck.argprom.exit.i ], [ %.0116175.i, %103 ]
+  %.2112.i = phi i32 [ %.3113.i, %174 ], [ %.3113.i, %Dot11DecryptRsnaMicCheck.argprom.exit.i ], [ %.0110177.i, %103 ]
+  %.2108.i = phi i32 [ %.3109.i, %174 ], [ %.3109.i, %Dot11DecryptRsnaMicCheck.argprom.exit.i ], [ %.0106178.i, %103 ]
+  %.2.i = phi i32 [ %.3.i, %174 ], [ %.3.i, %Dot11DecryptRsnaMicCheck.argprom.exit.i ], [ %.0179.i, %103 ]
   %192 = load i64, ptr %67, align 8
   %193 = trunc i64 %192 to i32
   %194 = icmp slt i32 %.1121.i, %193
@@ -2884,7 +2884,7 @@ Dot11DecryptValidateKey.exit.thread34:            ; preds = %.thread
 43:                                               ; preds = %Dot11DecryptValidateKey.exit.thread34
   %44 = getelementptr inbounds i8, ptr %16, i64 320
   %45 = getelementptr inbounds i8, ptr %16, i64 8
-  tail call fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef nonnull %44, ptr noundef nonnull %45)
+  tail call fastcc void @Dot11DecryptRsnaPwd2Psk.retelim(ptr noundef nonnull %44, ptr noundef nonnull %45)
   %46 = getelementptr inbounds i8, ptr %16, i64 144
   store i8 32, ptr %46, align 8
   br label %Dot11DecryptValidateKey.exit.thread34.thread
@@ -2950,7 +2950,7 @@ Dot11DecryptCleanSecAssoc.exit:                   ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @Dot11DecryptRsnaPwd2Psk.retelim(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca [36 x i8], align 16
   %4 = alloca [36 x i8], align 16
   %5 = alloca [40 x i8], align 16
@@ -3331,7 +3331,7 @@ Dot11DecryptIsWpaKeyType.exit:                    ; preds = %69, %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %10, ptr noundef nonnull align 8 dereferenceable(432) %.088, i64 424, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %54, i64 %81, i1 false)
   store i64 %81, ptr %55, align 8
-  call fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef nonnull %52, ptr noundef nonnull %56)
+  call fastcc void @Dot11DecryptRsnaPwd2Psk.retelim(ptr noundef nonnull %52, ptr noundef nonnull %56)
   %.pre = load i8, ptr %10, align 8
   br label %Dot11DecryptIsPwdWildcardSsid.exit
 
@@ -3376,7 +3376,7 @@ Dot11DecryptDerivePmkFromMsk.exit:                ; preds = %80, %76, %95, %94, 
   %106 = zext i8 %105 to i32
   %107 = load i8, ptr %61, align 2
   %108 = zext i8 %107 to i32
-  %109 = call fastcc zeroext i8 @Dot11DecryptFtDerivePtk(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %.087134, ptr noundef %99, ptr noundef %100, ptr noundef %101, i64 noundef %103, ptr noundef %104, i32 noundef %106, i32 noundef %108, ptr noundef %11, ptr noundef %12)
+  %109 = call fastcc zeroext i8 @Dot11DecryptFtDerivePtk.argelim(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %.087134, ptr noundef %99, ptr noundef %100, ptr noundef %101, i64 noundef %103, ptr noundef %104, i32 noundef %106, i32 noundef %108, ptr noundef %11, ptr noundef %12)
   %110 = zext nneg i8 %109 to i32
   %.not98 = icmp eq i8 %109, 0
   br i1 %.not98, label %111, label %Dot11DecryptIsWpaKeyType.exit105
@@ -3661,7 +3661,7 @@ Dot11DecryptIsFtAkm.exit:                         ; preds = %18, %222, %Dot11Dec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef range(i64 0, 256) %6, ptr noundef %7, i32 noundef range(i32 0, 256) %8, i32 noundef range(i32 0, 256) %9, ptr noundef nonnull %10, ptr nocapture noundef nonnull %11) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef range(i64 0, 256) %6, ptr noundef %7, i32 noundef range(i32 0, 256) %8, i32 noundef range(i32 0, 256) %9, ptr noundef nonnull %10, ptr nocapture noundef nonnull %11) unnamed_addr #0 {
   %13 = alloca [48 x i8], align 16
   %14 = alloca [48 x i8], align 16
   %15 = alloca [16 x i8], align 16
@@ -3676,7 +3676,7 @@ define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr no
 
 switch.lookup:                                    ; preds = %12
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i32], ptr @switch.table.Dot11DecryptFtDerivePtk, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds [18 x i32], ptr @switch.table.Dot11DecryptFtDerivePtk.argelim, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetHashAlgoFromAkm.exit
 

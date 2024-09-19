@@ -198,7 +198,7 @@ if.else22:                                        ; preds = %if.end5
 if.then24:                                        ; preds = %if.else22
   %sh_prom25 = zext nneg i32 %retval.0.i63 to i64
   %shl26 = shl nuw i64 %retval.0.i, %sh_prom25
-  tail call fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %shl26, ptr %buffer.coerce0, ptr noundef nonnull %length)
+  tail call fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi.argelim(i64 noundef %shl26, ptr %buffer.coerce0, ptr noundef nonnull %length)
   %18 = load i32, ptr %length, align 4
   store i32 %18, ptr %decimal_point, align 4
   br label %if.end55
@@ -217,7 +217,7 @@ if.then30:                                        ; preds = %if.else28
   br i1 %cmp37, label %if.then38, label %if.else40
 
 if.then38:                                        ; preds = %if.then30
-  tail call fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %shr, ptr %buffer.coerce0, ptr noundef nonnull %length)
+  tail call fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi.argelim(i64 noundef %shr, ptr %buffer.coerce0, ptr noundef nonnull %length)
   %.pre126 = load i32, ptr %length, align 4
   br label %if.end43
 
@@ -289,7 +289,7 @@ _ZN14arrow_vendored17double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit99:
 if.end43:                                         ; preds = %_ZN14arrow_vendored17double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit99, %if.then38
   %26 = phi i32 [ %add12.pre-phi.i86, %_ZN14arrow_vendored17double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit99 ], [ %.pre126, %if.then38 ]
   store i32 %26, ptr %decimal_point, align 4
-  tail call fastcc void @_ZN14arrow_vendored17double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %sub36, i32 noundef %retval.0.i63, i32 noundef %fractional_count, ptr %buffer.coerce0, ptr noundef nonnull %length, ptr noundef nonnull %decimal_point)
+  tail call fastcc void @_ZN14arrow_vendored17double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_.argelim(i64 noundef %sub36, i32 noundef %retval.0.i63, i32 noundef %fractional_count, ptr %buffer.coerce0, ptr noundef nonnull %length, ptr noundef nonnull %decimal_point)
   br label %if.end55
 
 if.else45:                                        ; preds = %if.else28
@@ -305,7 +305,7 @@ if.then47:                                        ; preds = %if.else45
 
 if.else50:                                        ; preds = %if.else45
   store i32 0, ptr %decimal_point, align 4
-  tail call fastcc void @_ZN14arrow_vendored17double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %retval.0.i, i32 noundef %retval.0.i63, i32 noundef %fractional_count, ptr %buffer.coerce0, ptr noundef nonnull %length, ptr noundef nonnull %decimal_point)
+  tail call fastcc void @_ZN14arrow_vendored17double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_.argelim(i64 noundef %retval.0.i, i32 noundef %retval.0.i63, i32 noundef %fractional_count, ptr %buffer.coerce0, ptr noundef nonnull %length, ptr noundef nonnull %decimal_point)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then24, %if.then47, %if.else50, %if.end43, %_ZN14arrow_vendored17double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit
@@ -415,7 +415,7 @@ return:                                           ; preds = %_ZN14arrow_vendored
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %number, ptr nocapture %buffer.coerce0, ptr nocapture noundef %length) unnamed_addr #0 {
+define internal fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi.argelim(i64 noundef %number, ptr nocapture %buffer.coerce0, ptr nocapture noundef %length) unnamed_addr #0 {
 entry:
   %rem = urem i64 %number, 10000000
   %conv = trunc nuw nsw i64 %rem to i32
@@ -650,7 +650,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN14arrow_vendored17double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %fractionals, i32 noundef range(i32 -128, 0) %exponent, i32 noundef range(i32 -2147483648, 21) %fractional_count, ptr nocapture %buffer.coerce0, ptr nocapture noundef %length, ptr nocapture noundef %decimal_point) unnamed_addr #0 {
+define internal fastcc void @_ZN14arrow_vendored17double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_.argelim(i64 noundef %fractionals, i32 noundef range(i32 -128, 0) %exponent, i32 noundef range(i32 -2147483648, 21) %fractional_count, ptr nocapture %buffer.coerce0, ptr nocapture noundef %length, ptr nocapture noundef %decimal_point) unnamed_addr #0 {
 entry:
   %sub = sub nsw i32 0, %exponent
   %cmp = icmp ult i32 %sub, 65

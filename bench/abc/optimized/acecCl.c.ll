@@ -69,21 +69,21 @@ define void @Acec_ManDerive_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %26 = icmp eq i64 %25, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %26
   %.pre = trunc i64 %.val42 to i32
-  br i1 %narrow.i.not.i, label %.Gia_ObjIsXor.exit.thread_crit_edge, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not.i, label %.Gia_ObjIsXor.argprom.exit.thread_crit_edge, label %Gia_ObjIsXor.argprom.exit
 
-.Gia_ObjIsXor.exit.thread_crit_edge:              ; preds = %16
+.Gia_ObjIsXor.argprom.exit.thread_crit_edge:      ; preds = %16
   %.pre45 = lshr i64 %.val42, 32
-  br label %Gia_ObjIsXor.exit.thread
+  br label %Gia_ObjIsXor.argprom.exit.thread
 
-Gia_ObjIsXor.exit:                                ; preds = %16
+Gia_ObjIsXor.argprom.exit:                        ; preds = %16
   %27 = and i32 %.pre, 536870911
   %28 = lshr i64 %.val42, 32
   %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 536870911
   %.not44 = icmp ult i32 %27, %30
-  br i1 %.not44, label %31, label %Gia_ObjIsXor.exit.thread
+  br i1 %.not44, label %31, label %Gia_ObjIsXor.argprom.exit.thread
 
-31:                                               ; preds = %Gia_ObjIsXor.exit
+31:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %32 = sub nsw i64 0, %25
   %33 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %13, i64 %32, i32 1
   %34 = load i32, ptr %33, align 4
@@ -178,8 +178,8 @@ Gia_ManAppendXorReal.exit:                        ; preds = %58, %79
   %107 = shl i32 %106, 1
   br label %.sink.split
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %.Gia_ObjIsXor.exit.thread_crit_edge, %Gia_ObjIsXor.exit
-  %.pre-phi46 = phi i64 [ %.pre45, %.Gia_ObjIsXor.exit.thread_crit_edge ], [ %28, %Gia_ObjIsXor.exit ]
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %.Gia_ObjIsXor.argprom.exit.thread_crit_edge, %Gia_ObjIsXor.argprom.exit
+  %.pre-phi46 = phi i64 [ %.pre45, %.Gia_ObjIsXor.argprom.exit.thread_crit_edge ], [ %28, %Gia_ObjIsXor.argprom.exit ]
   %108 = sub nsw i64 0, %25
   %109 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %13, i64 %108, i32 1
   %110 = load i32, ptr %109, align 4
@@ -197,8 +197,8 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %.Gia_ObjIsXor.exit.
   %122 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %113, i32 noundef %121)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %Gia_ObjIsXor.exit.thread, %Gia_ManAppendXorReal.exit
-  %.sink = phi i32 [ %107, %Gia_ManAppendXorReal.exit ], [ %122, %Gia_ObjIsXor.exit.thread ]
+.sink.split:                                      ; preds = %Gia_ObjIsXor.argprom.exit.thread, %Gia_ManAppendXorReal.exit
+  %.sink = phi i32 [ %107, %Gia_ManAppendXorReal.exit ], [ %122, %Gia_ObjIsXor.argprom.exit.thread ]
   store i32 %.sink, ptr %14, align 4
   br label %123
 

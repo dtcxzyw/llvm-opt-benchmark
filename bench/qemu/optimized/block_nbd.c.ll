@@ -332,7 +332,7 @@ declare void @yank_register_function(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nbd_yank(ptr nocapture noundef readonly %opaque) #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %opaque1 = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque1, align 8
   %requests_lock = getelementptr inbounds i8, ptr %0, i64 96
@@ -863,7 +863,7 @@ if.end:                                           ; preds = %entry
   %bs.val = load ptr, ptr %opaque, align 8
   %call.i = call ptr @qemu_opts_create(ptr noundef nonnull @nbd_runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #15
   %call1.i = call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call.i, ptr noundef %options, ptr noundef %errp) #15
-  br i1 %call1.i, label %if.end.i, label %nbd_process_options.exit.thread
+  br i1 %call1.i, label %if.end.i, label %nbd_process_options.argprom.exit.thread
 
 if.end.i:                                         ; preds = %if.end
   %call.i.i = call ptr @qemu_opt_get(ptr noundef %call.i, ptr noundef nonnull @.str.9) #15
@@ -890,7 +890,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.in
 
 if.then10.i.i:                                    ; preds = %for.body.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1694, ptr noundef nonnull @__func__.nbd_process_legacy_socket_options, ptr noundef nonnull @.str.50) #15
-  br label %nbd_process_options.exit.thread
+  br label %nbd_process_options.argprom.exit.thread
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %call12.i.i = call ptr @qdict_next(ptr noundef %options, ptr noundef nonnull %e.024.i.i) #15
@@ -903,7 +903,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %if.en
 
 if.then16.i.i:                                    ; preds = %for.end.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1700, ptr noundef nonnull @__func__.nbd_process_legacy_socket_options, ptr noundef nonnull @.str.51) #15
-  br label %nbd_process_options.exit.thread
+  br label %nbd_process_options.argprom.exit.thread
 
 if.else.i.i:                                      ; preds = %for.end.i.i
   br i1 %tobool.i.i, label %if.then18.i.i, label %if.else22.i.i
@@ -913,7 +913,7 @@ if.then18.i.i:                                    ; preds = %if.else.i.i
 
 if.then20.i.i:                                    ; preds = %if.then18.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1704, ptr noundef nonnull @__func__.nbd_process_legacy_socket_options, ptr noundef nonnull @.str.52) #15
-  br label %nbd_process_options.exit.thread
+  br label %nbd_process_options.argprom.exit.thread
 
 if.end21.i.i:                                     ; preds = %if.then18.i.i
   call void @qdict_put_str(ptr noundef %options, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #15
@@ -971,7 +971,7 @@ done.i.i:                                         ; preds = %if.then9.i.i, %if.e
   %iv.0.i.i = phi ptr [ %call1.i38.i, %if.then9.i.i ], [ %call1.i38.i, %if.end7.i.i ], [ %call1.i38.i, %if.end4.i.i ], [ null, %if.end.i37.i ], [ null, %if.then.i.i ]
   %6 = load ptr, ptr %addr.i.i, align 8
   %tobool11.not.i.i = icmp eq ptr %6, null
-  br i1 %tobool11.not.i.i, label %nbd_config.exit.i, label %lor.lhs.false.i.i.i
+  br i1 %tobool11.not.i.i, label %nbd_config.argprom.exit.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %done.i.i
   %refcnt.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -987,13 +987,13 @@ land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
   %dec.i.i.i = add i64 %7, -1
   store i64 %dec.i.i.i, ptr %refcnt.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then5.i.i.i, label %nbd_config.exit.i
+  br i1 %cmp.i.i.i, label %if.then5.i.i.i, label %nbd_config.argprom.exit.i
 
 if.then5.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   call void @qobject_destroy(ptr noundef nonnull %6) #15
-  br label %nbd_config.exit.i
+  br label %nbd_config.argprom.exit.i
 
-nbd_config.exit.i:                                ; preds = %if.then5.i.i.i, %land.lhs.true.i.i.i, %done.i.i
+nbd_config.argprom.exit.i:                        ; preds = %if.then5.i.i.i, %land.lhs.true.i.i.i, %done.i.i
   call void @visit_free(ptr noundef %iv.0.i.i) #15
   %8 = load ptr, ptr %saddr.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %saddr.i.i)
@@ -1001,9 +1001,9 @@ nbd_config.exit.i:                                ; preds = %if.then5.i.i.i, %la
   %saddr.i = getelementptr inbounds i8, ptr %bs.val, i64 720
   store ptr %8, ptr %saddr.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i, label %nbd_process_options.exit.thread, label %if.end8.i
+  br i1 %tobool.not.i, label %nbd_process_options.argprom.exit.thread, label %if.end8.i
 
-if.end8.i:                                        ; preds = %nbd_config.exit.i
+if.end8.i:                                        ; preds = %nbd_config.argprom.exit.i
   %call9.i = call ptr @qemu_opt_get(ptr noundef %call.i, ptr noundef nonnull @.str.12) #15
   %call10.i = call noalias ptr @g_strdup(ptr noundef %call9.i) #15
   %export.i = getelementptr inbounds i8, ptr %bs.val, i64 728
@@ -1018,7 +1018,7 @@ land.lhs.true.i:                                  ; preds = %if.end8.i
 
 if.then15.i:                                      ; preds = %land.lhs.true.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1873, ptr noundef nonnull @__func__.nbd_process_options, ptr noundef nonnull @.str.35) #15
-  br label %nbd_process_options.exit.thread
+  br label %nbd_process_options.argprom.exit.thread
 
 if.end16.i:                                       ; preds = %land.lhs.true.i, %if.end8.i
   %call17.i = call ptr @qemu_opt_get(ptr noundef %call.i, ptr noundef nonnull @.str.13) #15
@@ -1054,7 +1054,7 @@ if.end5.i.i:                                      ; preds = %if.end.i43.i
 nbd_get_tls_creds.exit.thread.i:                  ; preds = %if.end5.i.i, %if.then4.i.i, %if.then.i47.i
   %tlscreds3.i = getelementptr inbounds i8, ptr %bs.val, i64 744
   store ptr null, ptr %tlscreds3.i, align 8
-  br label %nbd_process_options.exit.thread
+  br label %nbd_process_options.argprom.exit.thread
 
 if.end27.i:                                       ; preds = %if.end5.i.i
   %call9.i.i = call ptr @object_ref(ptr noundef nonnull %call1.i41.i) #15
@@ -1095,9 +1095,9 @@ land.lhs.true45.i:                                ; preds = %if.end40.i
 
 if.then49.i:                                      ; preds = %land.lhs.true45.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1893, ptr noundef nonnull @__func__.nbd_process_options, ptr noundef nonnull @.str.37) #15
-  br label %nbd_process_options.exit.thread
+  br label %nbd_process_options.argprom.exit.thread
 
-nbd_process_options.exit.thread:                  ; preds = %if.then15.i, %if.then49.i, %nbd_config.exit.i, %if.end, %if.then10.i.i, %if.then16.i.i, %if.then20.i.i, %nbd_get_tls_creds.exit.thread.i
+nbd_process_options.argprom.exit.thread:          ; preds = %if.then15.i, %if.then49.i, %nbd_config.argprom.exit.i, %if.end, %if.then10.i.i, %if.then16.i.i, %if.then20.i.i, %nbd_get_tls_creds.exit.thread.i
   call void @qemu_opts_del(ptr noundef %call.i) #15
   br label %fail
 
@@ -1179,8 +1179,8 @@ open_timer_del.exit:                              ; preds = %if.end16, %if.then.
   call void @nbd_client_connection_enable_retry(ptr noundef %22) #15
   br label %return
 
-fail:                                             ; preds = %nbd_process_options.exit.thread, %if.end11
-  %ret.0 = phi i32 [ %call12, %if.end11 ], [ -22, %nbd_process_options.exit.thread ]
+fail:                                             ; preds = %nbd_process_options.argprom.exit.thread, %if.end11
+  %ret.0 = phi i32 [ %call12, %if.end11 ], [ -22, %nbd_process_options.argprom.exit.thread ]
   %open_timer.i34 = getelementptr inbounds i8, ptr %0, i64 696
   %23 = load ptr, ptr %open_timer.i34, align 8
   %tobool.not.i35 = icmp eq ptr %23, null
@@ -2614,12 +2614,12 @@ if.then14.i:                                      ; preds = %lor.lhs.false9.i, %
 if.end15.i:                                       ; preds = %lor.lhs.false9.i
   %7 = load i32, ptr %min_block.i, align 4
   %tobool16.not.i = icmp eq i32 %7, 0
-  br i1 %tobool16.not.i, label %nbd_parse_offset_hole_payload.exit, label %land.lhs.true.i
+  br i1 %tobool16.not.i, label %nbd_parse_offset_hole_payload.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end15.i
   %rem.i = urem i32 %5, %7
   %cmp19.i = icmp eq i32 %rem.i, 0
-  br i1 %cmp19.i, label %nbd_parse_offset_hole_payload.exit, label %if.then21.i
+  br i1 %cmp19.i, label %nbd_parse_offset_hole_payload.argprom.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -2655,9 +2655,9 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_nbd_structured_read_compliance.exit.i:      ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then21.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  br label %nbd_parse_offset_hole_payload.exit
+  br label %nbd_parse_offset_hole_payload.argprom.exit
 
-nbd_parse_offset_hole_payload.exit:               ; preds = %if.end15.i, %land.lhs.true.i, %trace_nbd_structured_read_compliance.exit.i
+nbd_parse_offset_hole_payload.argprom.exit:       ; preds = %if.end15.i, %land.lhs.true.i, %trace_nbd_structured_read_compliance.exit.i
   %sub23.i = sub i64 %4, %offset
   %call25.i = call i64 @qemu_iovec_memset(ptr noundef nonnull %qiov, i64 noundef %sub23.i, i32 noundef 0, i64 noundef %conv6.i) #15
   br label %sw.epilog
@@ -2754,7 +2754,7 @@ nbd_iter_channel_error.exit25:                    ; preds = %if.then7.i22, %if.e
   store ptr null, ptr %local_err, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %nbd_parse_offset_hole_payload.exit, %sw.default, %nbd_iter_channel_error.exit25, %nbd_iter_channel_error.exit, %if.end
+sw.epilog:                                        ; preds = %nbd_parse_offset_hole_payload.argprom.exit, %sw.default, %nbd_iter_channel_error.exit25, %nbd_iter_channel_error.exit, %if.end
   %27 = load ptr, ptr %payload, align 8
   call void @g_free(ptr noundef %27) #15
   store ptr null, ptr %payload, align 8
@@ -3083,7 +3083,7 @@ for.body.us:                                      ; preds = %if.then.i, %entry
   %state = getelementptr inbounds i8, ptr %opaque, i64 144
   %3 = load i32, ptr %state, align 8
   %cmp.not.us = icmp eq i32 %3, 0
-  br i1 %cmp.not.us, label %qemu_lockable_auto_unlock.exit.us, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp.not.us, label %qemu_lockable_auto_unlock.exit.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
   store i32 1, ptr %state, align 8
@@ -3093,11 +3093,11 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
   tail call void @nbd_co_establish_connection_cancel(ptr noundef %4) #15
   br label %return
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   br label %return
 
-return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit.us
+return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit, %qemu_lockable_auto_unlock.exit.us
   ret void
 }
 
@@ -3253,7 +3253,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 if.then2.i:                                       ; preds = %if.end.i
   %4 = load i32, ptr %state.i, align 8
   %cmp4.i = icmp eq i32 %4, 2
-  br i1 %cmp4.i, label %if.then5.i, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp4.i, label %if.then5.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
   %reconnect_delay.i = getelementptr inbounds i8, ptr %s, i64 712
@@ -3265,9 +3265,9 @@ if.then5.i:                                       ; preds = %if.then2.i
 if.end9.sink.split.i:                             ; preds = %if.then5.i, %if.end.i
   %cond.sink.i = phi i32 [ %cond.i, %if.then5.i ], [ 3, %if.end.i ]
   store i32 %cond.sink.i, ptr %state.i, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then2.i, %if.end9.sink.split.i
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.then2.i, %if.end9.sink.split.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   ret void
 }
@@ -3568,7 +3568,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.body, !llvm.loop !13
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
@@ -3583,9 +3583,9 @@ nbd_recv_coroutine_wake_one.exit.thread:          ; preds = %for.body
   store i8 0, ptr %receiving.i.le, align 8
   %1 = load ptr, ptr %arrayidx, align 8
   tail call void @aio_co_wake(ptr noundef %1) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.cond, %nbd_recv_coroutine_wake_one.exit.thread
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.cond, %nbd_recv_coroutine_wake_one.exit.thread
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %receive_mutex) #15
   ret void
 }
@@ -3599,7 +3599,7 @@ entry:
   %cookie3 = getelementptr inbounds i8, ptr %s, i64 672
   %0 = load i64, ptr %cookie3, align 8
   %cmp61 = icmp eq i64 %0, %cookie
-  br i1 %cmp61, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end.lr.ph
+  br i1 %cmp61, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
   %sub = add i64 %cookie, -1
@@ -3693,7 +3693,7 @@ if.end9.sink.split.i.i:                           ; preds = %if.then5.i.i, %if.e
 
 nbd_channel_error.exit:                           ; preds = %if.then2.i.i, %if.end9.sink.split.i.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 132) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end39:                                         ; preds = %if.end36
   %reply.val = load i32, ptr %reply, align 8
@@ -3724,7 +3724,7 @@ nbd_channel_error.exit44:                         ; preds = %if.then45, %if.then
   store i32 3, ptr %state.i.i37, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i36, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 474, ptr noundef nonnull @__func__.nbd_receive_replies, ptr noundef nonnull @.str.93) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end46:                                         ; preds = %land.lhs.true, %if.end39
   %18 = load i64, ptr %cookie3, align 8
@@ -3757,11 +3757,11 @@ nbd_channel_error.exit53:                         ; preds = %if.then54, %if.then
   store i32 3, ptr %state.i.i46, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i45, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 480, ptr noundef nonnull @__func__.nbd_receive_replies, ptr noundef nonnull @.str.94) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end55:                                         ; preds = %lor.lhs.false
   %cmp58 = icmp eq i64 %18, %cookie
-  br i1 %cmp58, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end60
+  br i1 %cmp58, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end60
 
 if.end60:                                         ; preds = %if.end55
   %receiving.i = getelementptr inbounds i8, ptr %arrayidx52, i64 16
@@ -3777,9 +3777,9 @@ if.then.i:                                        ; preds = %if.end60
 while.cond.backedge:                              ; preds = %if.then.i, %if.end60, %if.end12
   %25 = load i64, ptr %cookie3, align 8
   %cmp = icmp eq i64 %25, %cookie
-  br i1 %cmp, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
+  br i1 %cmp, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %while.cond.backedge, %if.end55, %entry, %nbd_channel_error.exit53, %nbd_channel_error.exit44, %nbd_channel_error.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %while.cond.backedge, %if.end55, %entry, %nbd_channel_error.exit53, %nbd_channel_error.exit44, %nbd_channel_error.exit
   %retval.0 = phi i32 [ %ret.057, %nbd_channel_error.exit ], [ -22, %nbd_channel_error.exit44 ], [ -22, %nbd_channel_error.exit53 ], [ 0, %entry ], [ 0, %if.end55 ], [ 0, %while.cond.backedge ]
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %receive_mutex) #15
   ret i32 %retval.0
@@ -3828,9 +3828,9 @@ if.end4:                                          ; preds = %if.end
   %spec.select.i.i = select i1 %or.cond.i.i, ptr %_auto_errp_prop.i.i, ptr %errp
   %call.i.i = call i32 @qio_channel_read_all(ptr noundef %1, ptr noundef nonnull %offset, i64 noundef 8, ptr noundef %spec.select.i.i) #15
   %cmp3.i.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp3.i.i, label %nbd_read64.exit.thread, label %if.end9
+  br i1 %cmp3.i.i, label %nbd_read64.argprom.exit.thread, label %if.end9
 
-nbd_read64.exit.thread:                           ; preds = %if.end4
+nbd_read64.argprom.exit.thread:                   ; preds = %if.end4
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.97) #15
   %_auto_errp_prop.val.i2.i = load ptr, ptr %_auto_errp_prop.i.i, align 8
   %_auto_errp_prop.val7.i3.i = load ptr, ptr %errp1.i.i, align 8
@@ -3911,8 +3911,8 @@ if.end33:                                         ; preds = %if.then32, %land.lh
   %cond = select i1 %cmp39, i32 -5, i32 0
   br label %return
 
-return:                                           ; preds = %nbd_read64.exit.thread, %if.end33, %if.then24, %if.then3
-  %retval.0 = phi i32 [ -22, %if.then3 ], [ -22, %if.then24 ], [ %cond, %if.end33 ], [ -5, %nbd_read64.exit.thread ]
+return:                                           ; preds = %nbd_read64.argprom.exit.thread, %if.end33, %if.then24, %if.then3
+  %retval.0 = phi i32 [ -22, %if.then3 ], [ -22, %if.then24 ], [ %cond, %if.end33 ], [ -5, %nbd_read64.argprom.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -4482,13 +4482,13 @@ if.then16:                                        ; preds = %sw.bb
   %6 = load i16, ptr @_TRACE_NBD_EXTENDED_HEADERS_COMPLIANCE_DSTATE, align 2
   %tobool4.i.i = icmp ne i16 %6, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
-  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_nbd_extended_headers_compliance.exit
+  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_nbd_extended_headers_compliance.argprom.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then16
   %7 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %7, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.i.not.i.i, label %trace_nbd_extended_headers_compliance.exit, label %if.then.i.i
+  br i1 %cmp.i.not.i.i, label %trace_nbd_extended_headers_compliance.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
@@ -4501,17 +4501,17 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.128) #15
-  br label %trace_nbd_extended_headers_compliance.exit
+  br label %trace_nbd_extended_headers_compliance.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.128) #15
-  br label %trace_nbd_extended_headers_compliance.exit
+  br label %trace_nbd_extended_headers_compliance.argprom.exit
 
-trace_nbd_extended_headers_compliance.exit:       ; preds = %if.then16, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_nbd_extended_headers_compliance.argprom.exit: ; preds = %if.then16, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %if.end17
 
-if.end17:                                         ; preds = %trace_nbd_extended_headers_compliance.exit, %sw.bb
+if.end17:                                         ; preds = %trace_nbd_extended_headers_compliance.argprom.exit, %sw.bb
   br i1 %received.059, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end17

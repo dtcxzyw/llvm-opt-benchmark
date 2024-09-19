@@ -2185,7 +2185,7 @@ if.end103:                                        ; preds = %if.end88
 sw.bb106:                                         ; preds = %if.then55, %if.then55
   %30 = load i32, ptr %data_start, align 8
   store i64 214748364811, ptr %dm_arg_type112, align 8
-  %call115 = call fastcc i32 @thunk_type_size(ptr noundef nonnull %dm_arg_type112)
+  %call115 = call fastcc i32 @thunk_type_size.argelim(ptr noundef nonnull %dm_arg_type112)
   %target_count118 = getelementptr inbounds i8, ptr %call5, i64 20
   %31 = load i32, ptr %target_count118, align 4
   %cmp119169.not = icmp eq i32 %31, 0
@@ -2259,7 +2259,7 @@ sw.bb177:                                         ; preds = %if.then55
   %idx.ext179 = zext i32 %39 to i64
   %add.ptr180 = getelementptr i8, ptr %call5, i64 %idx.ext179
   store i64 227633266699, ptr %dm_arg_type183, align 8
-  %call185 = call fastcc i32 @thunk_type_size(ptr noundef nonnull %dm_arg_type183)
+  %call185 = call fastcc i32 @thunk_type_size.argelim(ptr noundef nonnull %dm_arg_type183)
   %40 = add i32 %call185, 1
   %idx.ext209 = sext i32 %call185 to i64
   br label %while.body186
@@ -2965,7 +2965,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @thunk_type_size(ptr noundef %type_ptr) unnamed_addr #2 {
+define internal fastcc i32 @thunk_type_size.argelim(ptr noundef %type_ptr) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %type_ptr, align 4
   switch i32 %0, label %do.body [
@@ -3270,13 +3270,13 @@ if.then.i:                                        ; preds = %entry
   %call7.i = call i32 @walk_memory_regions(ptr noundef nonnull %d.i, ptr noundef nonnull @open_self_maps_2) #27
   %1 = load ptr, ptr %host_maps.i, align 8
   call void @free_self_maps(ptr noundef %1) #27
-  br label %open_self_maps_1.exit
+  br label %open_self_maps_1.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %call9.i = call i32 @walk_memory_regions(ptr noundef nonnull %d.i, ptr noundef nonnull @open_self_maps_3) #27
-  br label %open_self_maps_1.exit
+  br label %open_self_maps_1.argprom.exit
 
-open_self_maps_1.exit:                            ; preds = %if.then.i, %if.else.i
+open_self_maps_1.argprom.exit:                    ; preds = %if.then.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %d.i)
   ret i32 0
 }
@@ -3353,13 +3353,13 @@ if.then.i:                                        ; preds = %entry
   %call7.i = call i32 @walk_memory_regions(ptr noundef nonnull %d.i, ptr noundef nonnull @open_self_maps_2) #27
   %1 = load ptr, ptr %host_maps.i, align 8
   call void @free_self_maps(ptr noundef %1) #27
-  br label %open_self_maps_1.exit
+  br label %open_self_maps_1.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %call9.i = call i32 @walk_memory_regions(ptr noundef nonnull %d.i, ptr noundef nonnull @open_self_maps_3) #27
-  br label %open_self_maps_1.exit
+  br label %open_self_maps_1.argprom.exit
 
-open_self_maps_1.exit:                            ; preds = %if.then.i, %if.else.i
+open_self_maps_1.argprom.exit:                    ; preds = %if.then.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %d.i)
   ret i32 0
 }
@@ -3379,7 +3379,7 @@ entry:
 for.cond:                                         ; preds = %if.end31
   %inc = add nuw nsw i32 %i.026, 1
   %exitcond.not = icmp eq i32 %inc, 44
-  br i1 %exitcond.not, label %glib_autoptr_cleanup_GString.exit, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %glib_autoptr_cleanup_GString.argprom.exit, label %for.body, !llvm.loop !14
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.026 = phi i32 [ 0, %entry ], [ %inc, %for.cond ]
@@ -3455,9 +3455,9 @@ if.end31:                                         ; preds = %cond.end, %if.then1
   %call32 = tail call i64 @write(i32 noundef %fd, ptr noundef %10, i64 noundef %11) #27
   %12 = load i64, ptr %len, align 8
   %cmp34.not = icmp eq i64 %call32, %12
-  br i1 %cmp34.not, label %for.cond, label %glib_autoptr_cleanup_GString.exit
+  br i1 %cmp34.not, label %for.cond, label %glib_autoptr_cleanup_GString.argprom.exit
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %for.cond, %if.end31
+glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %for.cond, %if.end31
   %retval.024 = phi i32 [ 0, %for.cond ], [ -1, %if.end31 ]
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call1, i32 noundef 1) #27
   ret i32 %retval.024
@@ -3684,7 +3684,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call3 = tail call fastcc i64 @do_syscall1(ptr noundef %cpu_env, i32 noundef %num, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 noundef %arg6)
+  %call3 = tail call fastcc i64 @do_syscall1.argelim(ptr noundef %cpu_env, i32 noundef %num, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 noundef %arg6)
   %1 = load i32, ptr @qemu_loglevel, align 4
   %and.i31 = and i32 %1, 524288
   %cmp.i32.not = icmp eq i32 %and.i31, 0
@@ -3702,7 +3702,7 @@ if.end12:                                         ; preds = %if.then11, %if.end
 declare void @print_syscall(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_syscall1(ptr noundef %cpu_env, i32 noundef %num, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 noundef %arg6) unnamed_addr #2 {
+define internal fastcc i64 @do_syscall1.argelim(ptr noundef %cpu_env, i32 noundef %num, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 noundef %arg6) unnamed_addr #2 {
 entry:
   %st = alloca %struct.stat, align 8
   %stfs = alloca %struct.statfs, align 8
@@ -4388,20 +4388,20 @@ if.end.i:                                         ; preds = %for.body
   tail call void %40(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %41 = load i32, ptr @target_fd_max, align 4
   %cmp1.i.i = icmp ugt i32 %41, %conv163
-  br i1 %cmp1.i.i, label %if.then.i.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
+  br i1 %cmp1.i.i, label %if.then.i.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %42 = load ptr, ptr @target_fd_trans, align 8
   %idxprom.i.i = and i64 %fd.03887, 2147483647
   %arrayidx.i.i = getelementptr ptr, ptr %42, i64 %idxprom.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit.i
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.i
 
-glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %if.then.i.i, %if.end.i
+glib_autoptr_cleanup_QemuLockable.argprom.exit.i: ; preds = %if.then.i.i, %if.end.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   br label %fd_trans_unregister.exit
 
-fd_trans_unregister.exit:                         ; preds = %for.body, %glib_autoptr_cleanup_QemuLockable.exit.i
+fd_trans_unregister.exit:                         ; preds = %for.body, %glib_autoptr_cleanup_QemuLockable.argprom.exit.i
   %inc = add nsw i64 %fd.03887, 1
   %exitcond3910.not = icmp eq i64 %inc, %cond
   br i1 %exitcond3910.not, label %return, label %for.body, !llvm.loop !20
@@ -4506,12 +4506,12 @@ if.then.i1912:                                    ; preds = %if.end212
 sw.bb218:                                         ; preds = %entry
   %conv219 = trunc i64 %arg1 to i32
   %conv220 = trunc i64 %arg5 to i32
-  %call221 = tail call fastcc i32 @do_execv(i32 noundef %conv219, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i32 noundef %conv220, i1 noundef zeroext true)
+  %call221 = tail call fastcc i32 @do_execv.argprom(i32 noundef %conv219, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i32 noundef %conv220, i1 noundef zeroext true)
   %conv222 = sext i32 %call221 to i64
   br label %return
 
 sw.bb223:                                         ; preds = %entry
-  %call224 = tail call fastcc i32 @do_execv(i32 noundef -100, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i32 noundef 0, i1 noundef zeroext false)
+  %call224 = tail call fastcc i32 @do_execv.argprom(i32 noundef -100, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i32 noundef 0, i1 noundef zeroext false)
   %conv225 = sext i32 %call224 to i64
   br label %return
 
@@ -4842,7 +4842,7 @@ if.then404:                                       ; preds = %get_errno.exit2025
 sw.bb408:                                         ; preds = %entry
   %conv409 = trunc i64 %arg2 to i32
   %call410 = tail call i32 @target_to_host_bitmask_len(i32 noundef %conv409, ptr noundef nonnull @fcntl_flags_tbl, i64 noundef 19) #27
-  %call411 = tail call fastcc i64 @do_pipe(i64 noundef %arg1, i32 noundef %call410)
+  %call411 = tail call fastcc i64 @do_pipe.argprom.argelim(i64 noundef %arg1, i32 noundef %call410)
   br label %return
 
 sw.bb412:                                         ; preds = %entry
@@ -5531,7 +5531,7 @@ if.then.i2225:                                    ; preds = %if.end774
   br label %return
 
 sw.bb778:                                         ; preds = %entry
-  %call779 = tail call fastcc i64 @do_pselect6(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 noundef %arg6)
+  %call779 = tail call fastcc i64 @do_pselect6.argelim(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 noundef %arg6)
   br label %return
 
 sw.bb780:                                         ; preds = %entry
@@ -6616,13 +6616,13 @@ if.then.i2531:                                    ; preds = %sw.bb1395
 sw.bb1402:                                        ; preds = %entry
   %conv1403 = trunc i64 %arg1 to i32
   %conv1404 = trunc i64 %arg3 to i32
-  %call1405 = tail call fastcc i64 @do_semtimedop(i32 noundef %conv1403, i64 noundef %arg2, i32 noundef %conv1404, i64 noundef 0)
+  %call1405 = tail call fastcc i64 @do_semtimedop.argelim(i32 noundef %conv1403, i64 noundef %arg2, i32 noundef %conv1404, i64 noundef 0)
   br label %return
 
 sw.bb1406:                                        ; preds = %entry
   %conv1407 = trunc i64 %arg1 to i32
   %conv1408 = trunc i64 %arg3 to i32
-  %call1409 = tail call fastcc i64 @do_semtimedop(i32 noundef %conv1407, i64 noundef %arg2, i32 noundef %conv1408, i64 noundef %arg4)
+  %call1409 = tail call fastcc i64 @do_semtimedop.argelim(i32 noundef %conv1407, i64 noundef %arg2, i32 noundef %conv1408, i64 noundef %arg4)
   br label %return
 
 sw.bb1410:                                        ; preds = %entry
@@ -6906,7 +6906,7 @@ sw.bb1545:                                        ; preds = %entry
   br label %return
 
 sw.bb1548:                                        ; preds = %entry
-  %call1549 = tail call fastcc i64 @do_ppoll(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5)
+  %call1549 = tail call fastcc i64 @do_ppoll.argelim(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5)
   br label %return
 
 sw.bb1550:                                        ; preds = %entry
@@ -7445,7 +7445,7 @@ do.body1884:                                      ; preds = %if.then1877
 
 if.end1892:                                       ; preds = %if.end1870
   %conv1874 = zext i32 %spec.store.select to i64
-  %call1894 = tail call fastcc i32 @check_zeroed_user(i64 noundef %arg2, i64 noundef %conv1874)
+  %call1894 = tail call fastcc i32 @check_zeroed_user.argelim(i64 noundef %arg2, i64 noundef %conv1874)
   %cmp1895 = icmp slt i32 %call1894, 0
   br i1 %cmp1895, label %if.then1897, label %if.else1899
 
@@ -7661,7 +7661,7 @@ do.body.i2848:                                    ; preds = %if.then2001
   br label %return
 
 sw.bb2004:                                        ; preds = %entry
-  %call2005 = tail call fastcc i64 @do_prctl(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5)
+  %call2005 = tail call fastcc i64 @do_prctl.argprom(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5)
   br label %return
 
 sw.bb2006:                                        ; preds = %entry
@@ -7932,7 +7932,7 @@ get_errno.exit2909:                               ; preds = %if.end2219, %if.the
   br i1 %cmp.i2910, label %if.then2228, label %return
 
 if.then2228:                                      ; preds = %get_errno.exit2909
-  %call2229 = call fastcc i64 @host_to_target_stat64(i64 noundef %arg3, ptr noundef %st)
+  %call2229 = call fastcc i64 @host_to_target_stat64.argprom(i64 noundef %arg3, ptr noundef %st)
   br label %return
 
 sw.bb2231:                                        ; preds = %entry
@@ -9099,7 +9099,7 @@ sw.bb2941:                                        ; preds = %entry
   %conv2942 = trunc i64 %arg2 to i32
   %conv2943 = trunc i64 %arg3 to i32
   %conv2944 = trunc i64 %arg6 to i32
-  %call2945 = tail call fastcc i32 @do_futex(i64 noundef %arg1, i32 noundef %conv2942, i32 noundef %conv2943, i64 noundef %arg4, i64 noundef %arg5, i32 noundef %conv2944)
+  %call2945 = tail call fastcc i32 @do_futex.argprom.argelim(i64 noundef %arg1, i32 noundef %conv2942, i32 noundef %conv2943, i64 noundef %arg4, i64 noundef %arg5, i32 noundef %conv2944)
   %conv2946 = sext i32 %call2945 to i64
   br label %return
 
@@ -10887,7 +10887,7 @@ if.end:                                           ; preds = %entry
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
   %cmp2 = icmp ult i32 %fd, %2
-  br i1 %cmp2, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp2, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 land.lhs.true:                                    ; preds = %if.end
   %3 = load ptr, ptr @target_fd_trans, align 8
@@ -10895,19 +10895,19 @@ land.lhs.true:                                    ; preds = %if.end
   %arrayidx = getelementptr ptr, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then3
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
   %5 = load ptr, ptr %4, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end, %land.lhs.true, %if.then3
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end, %land.lhs.true, %if.then3
   %retval.1 = phi ptr [ %5, %if.then3 ], [ null, %land.lhs.true ], [ null, %if.end ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   br label %return
 
-return:                                           ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.exit
-  %retval.0 = phi ptr [ %retval.1, %glib_autoptr_cleanup_QemuLockable.exit ], [ null, %entry ]
+return:                                           ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  %retval.0 = phi ptr [ %retval.1, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -10923,7 +10923,7 @@ if.end:                                           ; preds = %entry
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
   %cmp2 = icmp ult i32 %fd, %2
-  br i1 %cmp2, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp2, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 land.lhs.true:                                    ; preds = %if.end
   %3 = load ptr, ptr @target_fd_trans, align 8
@@ -10931,20 +10931,20 @@ land.lhs.true:                                    ; preds = %if.end
   %arrayidx = getelementptr ptr, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then3
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
   %target_to_host_data = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %target_to_host_data, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end, %land.lhs.true, %if.then3
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end, %land.lhs.true, %if.then3
   %retval.1 = phi ptr [ %5, %if.then3 ], [ null, %land.lhs.true ], [ null, %if.end ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   br label %return
 
-return:                                           ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.exit
-  %retval.0 = phi ptr [ %retval.1, %glib_autoptr_cleanup_QemuLockable.exit ], [ null, %entry ]
+return:                                           ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  %retval.0 = phi ptr [ %retval.1, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -10963,20 +10963,20 @@ if.end:                                           ; preds = %entry
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
   %cmp1.i = icmp ult i32 %fd, %2
-  br i1 %cmp1.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp1.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.then.i:                                        ; preds = %if.end
   %3 = load ptr, ptr @target_fd_trans, align 8
   %idxprom.i = zext nneg i32 %fd to i64
   %arrayidx.i = getelementptr ptr, ptr %3, i64 %idxprom.i
   store ptr null, ptr %arrayidx.i, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end, %if.then.i
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end, %if.then.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   br label %return
 
-return:                                           ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.exit
+return:                                           ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.argprom.exit
   ret void
 }
 
@@ -11100,7 +11100,7 @@ declare i32 @linkat(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @unlinkat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @do_execv(i32 noundef %dirfd, i64 noundef %pathname, i64 noundef %guest_argp, i64 noundef %guest_envp, i32 noundef %flags, i1 noundef zeroext %is_execveat) unnamed_addr #2 {
+define internal fastcc i32 @do_execv.argprom(i32 noundef %dirfd, i64 noundef %pathname, i64 noundef %guest_argp, i64 noundef %guest_envp, i32 noundef %flags, i1 noundef zeroext %is_execveat) unnamed_addr #2 {
 entry:
   %tobool.not17 = icmp eq i64 %guest_argp, 0
   br i1 %tobool.not17, label %for.end, label %for.body
@@ -11369,7 +11369,7 @@ if.then.i:                                        ; preds = %entry
 internal_fd_trans_unregister_unsafe.exit:         ; preds = %entry, %if.then.i
   %4 = phi i32 [ %2, %entry ], [ %.pre, %if.then.i ]
   %cmp = icmp ult i32 %oldfd, %4
-  br i1 %cmp, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 land.lhs.true:                                    ; preds = %internal_fd_trans_unregister_unsafe.exit
   %5 = load ptr, ptr @target_fd_trans, align 8
@@ -11377,7 +11377,7 @@ land.lhs.true:                                    ; preds = %internal_fd_trans_u
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %6, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %cmp.not.i = icmp ult i32 %newfd, %4
@@ -11405,15 +11405,15 @@ internal_fd_trans_register_unsafe.exit:           ; preds = %if.then, %if.then.i
   %idxprom.i5 = sext i32 %newfd to i64
   %arrayidx.i6 = getelementptr ptr, ptr %8, i64 %idxprom.i5
   store ptr %6, ptr %arrayidx.i6, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %internal_fd_trans_register_unsafe.exit, %land.lhs.true, %internal_fd_trans_unregister_unsafe.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %internal_fd_trans_register_unsafe.exit, %land.lhs.true, %internal_fd_trans_unregister_unsafe.exit
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_pipe(i64 noundef %pipedes, i32 noundef %flags) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_pipe.argprom.argelim(i64 noundef %pipedes, i32 noundef %flags) unnamed_addr #2 {
 entry:
   %host_pipe = alloca [2 x i32], align 4
   %call = call i32 @pipe2(ptr noundef nonnull %host_pipe, i32 noundef %flags) #27
@@ -11560,7 +11560,7 @@ if.then.i61:                                      ; preds = %sw.bb23
 
 sw.bb29:                                          ; preds = %if.end19
   %incdec.ptr30 = getelementptr i8, ptr %ie.095, i64 36
-  %call31 = tail call fastcc i32 @thunk_type_size(ptr noundef %incdec.ptr30)
+  %call31 = tail call fastcc i32 @thunk_type_size.argelim(ptr noundef %incdec.ptr30)
   %access = getelementptr inbounds i8, ptr %ie.095, i64 16
   %15 = load i32, ptr %access, align 8
   switch i32 %15, label %sw.bb65 [
@@ -12257,7 +12257,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare i32 @settimeofday(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_pselect6(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 noundef %arg6) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_pselect6.argelim(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 noundef %arg6) unnamed_addr #2 {
 entry:
   %rfds = alloca %struct.fd_set, align 8
   %wfds = alloca %struct.fd_set, align 8
@@ -12729,7 +12729,7 @@ cond.true.i.i:                                    ; preds = %if.end24
   %tobool.not.i.i.i = icmp eq i64 %4, 0
   %cmp1.i.i.i = icmp uge i64 %4, %target_addr
   %cmp.i.i.i = or i1 %tobool.not.i.i.i, %cmp1.i.i.i
-  br i1 %cmp.i.i.i, label %access_ok.exit, label %return
+  br i1 %cmp.i.i.i, label %access_ok.argprom.exit, label %return
 
 cond.false.i.i:                                   ; preds = %if.end24
   %sub.i.i.i = add nsw i64 %conv25, -1
@@ -12741,13 +12741,13 @@ cond.false.i.i:                                   ; preds = %if.end24
   %add.i.i.i = add i64 %reass.sub, 1
   %cmp7.i.i.i = icmp ule i64 %target_addr, %add.i.i.i
   %6 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
-  br i1 %6, label %access_ok.exit, label %return
+  br i1 %6, label %access_ok.argprom.exit, label %return
 
-access_ok.exit:                                   ; preds = %cond.true.i.i, %cond.false.i.i
+access_ok.argprom.exit:                           ; preds = %cond.true.i.i, %cond.false.i.i
   %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef %conv25, i32 noundef 3) #27
   br i1 %call2.i.i, label %if.end28, label %return
 
-if.end28:                                         ; preds = %access_ok.exit
+if.end28:                                         ; preds = %access_ok.argprom.exit
   %7 = alloca i8, i64 %conv25, align 16
   store i32 %call13.val, ptr %ret_addrlen, align 4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
@@ -12786,8 +12786,8 @@ do.body46:                                        ; preds = %if.then35
   store i32 %13, ptr %call43, align 1
   br label %return
 
-return:                                           ; preds = %do.body46, %if.then35, %cond.true.i.i, %cond.false.i.i, %if.end12, %if.then.i, %if.then10, %get_errno.exit35, %access_ok.exit, %if.end20, %entry
-  %retval.0 = phi i64 [ -22, %entry ], [ -22, %if.end20 ], [ -14, %access_ok.exit ], [ %retval.0.i30, %get_errno.exit35 ], [ %conv.i24, %if.then.i ], [ %conv, %if.then10 ], [ -14, %if.end12 ], [ -14, %cond.false.i.i ], [ -14, %cond.true.i.i ], [ -14, %if.then35 ], [ %retval.0.i30, %do.body46 ]
+return:                                           ; preds = %do.body46, %if.then35, %cond.true.i.i, %cond.false.i.i, %if.end12, %if.then.i, %if.then10, %get_errno.exit35, %access_ok.argprom.exit, %if.end20, %entry
+  %retval.0 = phi i64 [ -22, %entry ], [ -22, %if.end20 ], [ -14, %access_ok.argprom.exit ], [ %retval.0.i30, %get_errno.exit35 ], [ %conv.i24, %if.then.i ], [ %conv, %if.then10 ], [ -14, %if.end12 ], [ -14, %cond.false.i.i ], [ -14, %cond.true.i.i ], [ -14, %if.then35 ], [ %retval.0.i30, %do.body46 ]
   ret i64 %retval.0
 }
 
@@ -12884,7 +12884,7 @@ cond.true.i.i:                                    ; preds = %if.end6
   %tobool.not.i.i.i = icmp eq i64 %0, 0
   %cmp1.i.i.i = icmp uge i64 %0, %target_addr
   %cmp.i.i.i = or i1 %tobool.not.i.i.i, %cmp1.i.i.i
-  br i1 %cmp.i.i.i, label %access_ok.exit, label %return
+  br i1 %cmp.i.i.i, label %access_ok.argprom.exit, label %return
 
 cond.false.i.i:                                   ; preds = %if.end6
   %sub.i.i.i = add nsw i64 %conv, -1
@@ -12896,13 +12896,13 @@ cond.false.i.i:                                   ; preds = %if.end6
   %add.i.i.i = add i64 %reass.sub, 1
   %cmp7.i.i.i = icmp ule i64 %target_addr, %add.i.i.i
   %2 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
-  br i1 %2, label %access_ok.exit, label %return
+  br i1 %2, label %access_ok.argprom.exit, label %return
 
-access_ok.exit:                                   ; preds = %cond.true.i.i, %cond.false.i.i
+access_ok.argprom.exit:                           ; preds = %cond.true.i.i, %cond.false.i.i
   %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef %conv, i32 noundef 3) #27
   br i1 %call2.i.i, label %if.end9, label %return
 
-if.end9:                                          ; preds = %access_ok.exit
+if.end9:                                          ; preds = %access_ok.argprom.exit
   %3 = alloca i8, i64 %conv, align 16
   store i32 %call.val, ptr %ret_addrlen, align 4
   %call11 = call i32 @getpeername(i32 noundef %fd, ptr nonnull %3, ptr noundef nonnull %ret_addrlen) #27
@@ -12971,8 +12971,8 @@ do.body27:                                        ; preds = %host_to_target_sock
   store i32 %8, ptr %call24, align 1
   br label %return
 
-return:                                           ; preds = %do.body27, %host_to_target_sockaddr.exit, %cond.true.i.i, %cond.false.i.i, %entry, %get_errno.exit, %access_ok.exit, %if.end4
-  %retval.0 = phi i64 [ -22, %if.end4 ], [ -14, %access_ok.exit ], [ %retval.0.i, %get_errno.exit ], [ -14, %entry ], [ -14, %cond.false.i.i ], [ -14, %cond.true.i.i ], [ -14, %host_to_target_sockaddr.exit ], [ %retval.0.i, %do.body27 ]
+return:                                           ; preds = %do.body27, %host_to_target_sockaddr.exit, %cond.true.i.i, %cond.false.i.i, %entry, %get_errno.exit, %access_ok.argprom.exit, %if.end4
+  %retval.0 = phi i64 [ -22, %if.end4 ], [ -14, %access_ok.argprom.exit ], [ %retval.0.i, %get_errno.exit ], [ -14, %entry ], [ -14, %cond.false.i.i ], [ -14, %cond.true.i.i ], [ -14, %host_to_target_sockaddr.exit ], [ %retval.0.i, %do.body27 ]
   ret i64 %retval.0
 }
 
@@ -12999,7 +12999,7 @@ cond.true.i.i:                                    ; preds = %if.end6
   %tobool.not.i.i.i = icmp eq i64 %0, 0
   %cmp1.i.i.i = icmp uge i64 %0, %target_addr
   %cmp.i.i.i = or i1 %tobool.not.i.i.i, %cmp1.i.i.i
-  br i1 %cmp.i.i.i, label %access_ok.exit, label %return
+  br i1 %cmp.i.i.i, label %access_ok.argprom.exit, label %return
 
 cond.false.i.i:                                   ; preds = %if.end6
   %sub.i.i.i = add nsw i64 %conv, -1
@@ -13011,13 +13011,13 @@ cond.false.i.i:                                   ; preds = %if.end6
   %add.i.i.i = add i64 %reass.sub, 1
   %cmp7.i.i.i = icmp ule i64 %target_addr, %add.i.i.i
   %2 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
-  br i1 %2, label %access_ok.exit, label %return
+  br i1 %2, label %access_ok.argprom.exit, label %return
 
-access_ok.exit:                                   ; preds = %cond.true.i.i, %cond.false.i.i
+access_ok.argprom.exit:                           ; preds = %cond.true.i.i, %cond.false.i.i
   %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef %conv, i32 noundef 3) #27
   br i1 %call2.i.i, label %if.end9, label %return
 
-if.end9:                                          ; preds = %access_ok.exit
+if.end9:                                          ; preds = %access_ok.argprom.exit
   %3 = alloca i8, i64 %conv, align 16
   store i32 %call.val, ptr %ret_addrlen, align 4
   %call11 = call i32 @getsockname(i32 noundef %fd, ptr nonnull %3, ptr noundef nonnull %ret_addrlen) #27
@@ -13086,8 +13086,8 @@ do.body27:                                        ; preds = %host_to_target_sock
   store i32 %8, ptr %call24, align 1
   br label %return
 
-return:                                           ; preds = %do.body27, %host_to_target_sockaddr.exit, %cond.true.i.i, %cond.false.i.i, %entry, %get_errno.exit, %access_ok.exit, %if.end4
-  %retval.0 = phi i64 [ -22, %if.end4 ], [ -14, %access_ok.exit ], [ %retval.0.i, %get_errno.exit ], [ -14, %entry ], [ -14, %cond.false.i.i ], [ -14, %cond.true.i.i ], [ -14, %host_to_target_sockaddr.exit ], [ %retval.0.i, %do.body27 ]
+return:                                           ; preds = %do.body27, %host_to_target_sockaddr.exit, %cond.true.i.i, %cond.false.i.i, %entry, %get_errno.exit, %access_ok.argprom.exit, %if.end4
+  %retval.0 = phi i64 [ -22, %if.end4 ], [ -14, %access_ok.argprom.exit ], [ %retval.0.i, %get_errno.exit ], [ -14, %entry ], [ -14, %cond.false.i.i ], [ -14, %cond.true.i.i ], [ -14, %host_to_target_sockaddr.exit ], [ %retval.0.i, %do.body27 ]
   ret i64 %retval.0
 }
 
@@ -14922,7 +14922,7 @@ declare i32 @sysinfo(ptr noundef) local_unnamed_addr #3
 declare i32 @semget(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_semtimedop(i32 noundef %semid, i64 noundef %ptr, i32 noundef %nsops, i64 noundef %timeout) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_semtimedop.argelim(i32 noundef %semid, i64 noundef %ptr, i32 noundef %nsops, i64 noundef %timeout) unnamed_addr #2 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %tobool.not = icmp eq i64 %timeout, 0
@@ -16586,7 +16586,7 @@ cleanup:                                          ; preds = %if.end38, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_ppoll(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_ppoll.argelim(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5) unnamed_addr #2 {
 entry:
   %_timeout_ts = alloca %struct.timespec, align 8
   %set = alloca ptr, align 8
@@ -16969,7 +16969,7 @@ return:                                           ; preds = %for.inc19, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -14, 2) i32 @check_zeroed_user(i64 noundef range(i64 1, 0) %addr, i64 noundef range(i64 48, 4294967296) %usize) unnamed_addr #2 {
+define internal fastcc range(i32 -14, 2) i32 @check_zeroed_user.argelim(i64 noundef range(i64 1, 0) %addr, i64 noundef range(i64 48, 4294967296) %usize) unnamed_addr #2 {
 entry:
   %cmp = icmp ult i64 %usize, 57
   br i1 %cmp, label %return, label %for.body
@@ -17011,7 +17011,7 @@ declare i32 @sched_get_priority_min(i32 noundef) local_unnamed_addr #3
 declare i32 @sched_rr_get_interval(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_prctl(i64 noundef %option, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_prctl.argprom(i64 noundef %option, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5) unnamed_addr #2 {
 entry:
   %deathsig = alloca i32, align 4
   switch i64 %option, label %do.body84 [
@@ -17193,7 +17193,7 @@ declare i64 @sendfile64(i32 noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare i32 @fstatat64(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @host_to_target_stat64(i64 noundef %target_addr, ptr nocapture noundef nonnull readonly %host_st) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @host_to_target_stat64.argprom(i64 noundef %target_addr, ptr nocapture noundef nonnull readonly %host_st) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %target_addr, i64 noundef 128, i1 noundef zeroext false) #27
   %tobool.not = icmp eq ptr %call, null
@@ -17480,7 +17480,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @do_futex(i64 noundef %uaddr, i32 noundef %op, i32 noundef %val, i64 noundef %timeout, i64 noundef %uaddr2, i32 noundef %val3) unnamed_addr #2 {
+define internal fastcc i32 @do_futex.argprom.argelim(i64 noundef %uaddr, i32 noundef %op, i32 noundef %val, i64 noundef %timeout, i64 noundef %uaddr2, i32 noundef %val3) unnamed_addr #2 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %and = and i32 %op, -385
@@ -17583,7 +17583,7 @@ entry:
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
   %cmp.not.i = icmp ult i32 %fd, %2
-  br i1 %cmp.not.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then.i
+  br i1 %cmp.not.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %shr.i = and i32 %fd, -64
@@ -17600,9 +17600,9 @@ if.then.i:                                        ; preds = %entry
   %conv1.i = zext i32 %sub.i to i64
   %mul.i = shl nuw nsw i64 %conv1.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %mul.i, i1 false)
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry, %if.then.i
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %entry, %if.then.i
   %5 = load ptr, ptr @target_fd_trans, align 8
   %idxprom.i = sext i32 %fd to i64
   %arrayidx.i = getelementptr ptr, ptr %5, i64 %idxprom.i

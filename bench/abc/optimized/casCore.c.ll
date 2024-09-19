@@ -653,16 +653,16 @@ define ptr @Cudd_bddTransferPermute(ptr nocapture readnone %0, ptr noundef %1, p
   %7 = getelementptr inbounds i8, ptr %1, i64 448
   br label %8
 
-8:                                                ; preds = %cuddBddTransferPermute.exit, %4
+8:                                                ; preds = %cuddBddTransferPermute.argprom.exit, %4
   store i32 0, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %9 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #14
   %cond.i = icmp eq ptr %9, null
-  br i1 %cond.i, label %cuddBddTransferPermute.exit, label %10
+  br i1 %cond.i, label %cuddBddTransferPermute.argprom.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = call fastcc ptr @cuddBddTransferPermuteRecur(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %9, ptr noundef %3)
+  %11 = call fastcc ptr @cuddBddTransferPermuteRecur.argprom(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %9, ptr noundef %3)
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %19, label %12
 
@@ -696,7 +696,7 @@ define ptr @Cudd_bddTransferPermute(ptr nocapture readnone %0, ptr noundef %1, p
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @st__free_gen(ptr noundef nonnull %20) #14
   call void @st__free_table(ptr noundef nonnull %9) #14
-  br i1 %.not.i, label %cuddBddTransferPermute.exit, label %25
+  br i1 %.not.i, label %cuddBddTransferPermute.argprom.exit, label %25
 
 25:                                               ; preds = %._crit_edge.i
   %26 = ptrtoint ptr %11 to i64
@@ -706,13 +706,13 @@ define ptr @Cudd_bddTransferPermute(ptr nocapture readnone %0, ptr noundef %1, p
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, -1
   store i32 %31, ptr %29, align 4
-  br label %cuddBddTransferPermute.exit
+  br label %cuddBddTransferPermute.argprom.exit
 
 32:                                               ; preds = %19
   call void @st__free_table(ptr noundef nonnull %9) #14
-  br label %cuddBddTransferPermute.exit
+  br label %cuddBddTransferPermute.argprom.exit
 
-cuddBddTransferPermute.exit:                      ; preds = %8, %._crit_edge.i, %25, %32
+cuddBddTransferPermute.argprom.exit:              ; preds = %8, %._crit_edge.i, %25, %32
   %.022.i = phi ptr [ %11, %25 ], [ null, %._crit_edge.i ], [ null, %32 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -720,7 +720,7 @@ cuddBddTransferPermute.exit:                      ; preds = %8, %._crit_edge.i, 
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %8, label %35, !llvm.loop !21
 
-35:                                               ; preds = %cuddBddTransferPermute.exit
+35:                                               ; preds = %cuddBddTransferPermute.argprom.exit
   ret ptr %.022.i
 }
 
@@ -1033,7 +1033,7 @@ declare ptr @Cudd_bddTransfer(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cuddBddTransferPermuteRecur(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @cuddBddTransferPermuteRecur.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -1072,7 +1072,7 @@ define internal fastcc ptr @cuddBddTransferPermuteRecur(ptr noundef %0, ptr noun
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %10, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = call fastcc ptr @cuddBddTransferPermuteRecur(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %2, ptr noundef %3)
+  %34 = call fastcc ptr @cuddBddTransferPermuteRecur.argprom(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %2, ptr noundef %3)
   %35 = icmp eq ptr %34, null
   br i1 %35, label %79, label %36
 
@@ -1084,7 +1084,7 @@ define internal fastcc ptr @cuddBddTransferPermuteRecur(ptr noundef %0, ptr noun
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4
-  %43 = call fastcc ptr @cuddBddTransferPermuteRecur(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %2, ptr noundef nonnull %3)
+  %43 = call fastcc ptr @cuddBddTransferPermuteRecur.argprom(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %2, ptr noundef nonnull %3)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
 

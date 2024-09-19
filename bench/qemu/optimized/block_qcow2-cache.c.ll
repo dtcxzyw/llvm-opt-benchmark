@@ -778,21 +778,21 @@ for.end:                                          ; preds = %if.end4, %for.cond.
   %cmp.i14 = icmp ugt i64 %mul.i, %sub8.i
   %cmp15.i = icmp ne i64 %sub9.fr.i, %13
   %or.cond.i = and i1 %cmp.i14, %cmp15.i
-  br i1 %or.cond.i, label %if.then.i15, label %qcow2_cache_table_release.exit
+  br i1 %or.cond.i, label %if.then.i15, label %qcow2_cache_table_release.argprom.exit
 
 if.then.i15:                                      ; preds = %for.end
   %mul13.i = sub nuw i64 %sub9.fr.i, %13
   %add.ptr.i = getelementptr i8, ptr %c.val13, i64 %sub8.i
   %call17.i = tail call i32 @madvise(ptr noundef %add.ptr.i, i64 noundef %mul13.i, i32 noundef 4) #13
-  br label %qcow2_cache_table_release.exit
+  br label %qcow2_cache_table_release.argprom.exit
 
-qcow2_cache_table_release.exit:                   ; preds = %for.end, %if.then.i15
+qcow2_cache_table_release.argprom.exit:           ; preds = %for.end, %if.then.i15
   %lru_counter12 = getelementptr inbounds i8, ptr %c, i64 40
   store i64 0, ptr %lru_counter12, align 8
   br label %return
 
-return:                                           ; preds = %entry, %qcow2_cache_flush.exit, %qcow2_cache_table_release.exit
-  %retval.0 = phi i32 [ 0, %qcow2_cache_table_release.exit ], [ %call2.i, %qcow2_cache_flush.exit ], [ %call.i, %entry ]
+return:                                           ; preds = %entry, %qcow2_cache_flush.exit, %qcow2_cache_table_release.argprom.exit
+  %retval.0 = phi i32 [ 0, %qcow2_cache_table_release.argprom.exit ], [ %call2.i, %qcow2_cache_flush.exit ], [ %call.i, %entry ]
   ret i32 %retval.0
 }
 
@@ -1354,15 +1354,15 @@ if.end:                                           ; preds = %qcow2_cache_get_tab
   %cmp.i11 = icmp ult i64 %sub8.i, %conv1.i.i
   %cmp15.i = icmp ne i64 %sub9.fr.i, %10
   %or.cond.i = and i1 %cmp.i11, %cmp15.i
-  br i1 %or.cond.i, label %if.then.i, label %qcow2_cache_table_release.exit
+  br i1 %or.cond.i, label %if.then.i, label %qcow2_cache_table_release.argprom.exit
 
 if.then.i:                                        ; preds = %if.end
   %mul13.i = sub nuw i64 %sub9.fr.i, %10
   %add.ptr.i = getelementptr i8, ptr %add.ptr.i.i, i64 %sub8.i
   %call17.i = tail call i32 @madvise(ptr noundef %add.ptr.i, i64 noundef %mul13.i, i32 noundef 4) #13
-  br label %qcow2_cache_table_release.exit
+  br label %qcow2_cache_table_release.argprom.exit
 
-qcow2_cache_table_release.exit:                   ; preds = %if.end, %if.then.i
+qcow2_cache_table_release.argprom.exit:           ; preds = %if.end, %if.then.i
   ret void
 }
 

@@ -715,8 +715,8 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %86
   %107 = load ptr, ptr %106, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %100, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit"
-  %.tr.be = phi ptr [ %107, %100 ], [ %115, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit" ]
+tailrecurse.backedge:                             ; preds = %100, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.argprom.exit"
+  %.tr.be = phi ptr [ %107, %100 ], [ %115, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.argprom.exit" ]
   br label %tailrecurse
 
 108:                                              ; preds = %97
@@ -732,13 +732,13 @@ tailrecurse.backedge:                             ; preds = %100, %"_ZZN4llvm18g
   %118 = tail call noundef ptr @_ZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_(ptr noundef %117, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef null)
   %119 = load i8, ptr %118, align 8
   %.not.i94 = icmp eq i8 %119, 5
-  br i1 %.not.i94, label %120, label %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit"
+  br i1 %.not.i94, label %120, label %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.argprom.exit"
 
 120:                                              ; preds = %108
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 2
   %122 = load i16, ptr %121, align 2
   %.not8.i = icmp eq i16 %122, 34
-  br i1 %.not8.i, label %123, label %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit"
+  br i1 %.not8.i, label %123, label %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.argprom.exit"
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 4
@@ -748,15 +748,15 @@ tailrecurse.backedge:                             ; preds = %100, %"_ZZN4llvm18g
   %128 = sub nsw i64 0, %127
   %129 = getelementptr inbounds %"class.llvm::Use", ptr %118, i64 %128
   %130 = load ptr, ptr %129, align 8
-  br label %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit"
+  br label %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.argprom.exit"
 
-"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit": ; preds = %108, %120, %123
+"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.argprom.exit": ; preds = %108, %120, %123
   %.0.i = phi ptr [ %130, %123 ], [ %118, %108 ], [ %118, %120 ]
   %.not80 = icmp eq ptr %.0.i, %3
   br i1 %.not80, label %tailrecurse.backedge, label %.loopexit
 
-.loopexit:                                        ; preds = %96, %97, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit", %91, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %.thread, %49, %23, %20, %_ZNK4llvm4User10getOperandEj.exit91, %_ZNK4llvm4User10getOperandEj.exit
-  %.0 = phi ptr [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ %83, %_ZNK4llvm4User10getOperandEj.exit91 ], [ %.068., %20 ], [ null, %23 ], [ null, %49 ], [ %.068, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.068, %91 ], [ null, %.thread ], [ null, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit" ], [ null, %97 ], [ null, %96 ]
+.loopexit:                                        ; preds = %96, %97, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.argprom.exit", %91, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %.thread, %49, %23, %20, %_ZNK4llvm4User10getOperandEj.exit91, %_ZNK4llvm4User10getOperandEj.exit
+  %.0 = phi ptr [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ %83, %_ZNK4llvm4User10getOperandEj.exit91 ], [ %.068., %20 ], [ null, %23 ], [ null, %49 ], [ %.068, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.068, %91 ], [ null, %.thread ], [ null, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.argprom.exit" ], [ null, %97 ], [ null, %96 ]
   ret ptr %.0
 }
 

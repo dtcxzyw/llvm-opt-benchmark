@@ -1545,18 +1545,18 @@ parse_command_line.exit:                          ; preds = %.thread.i, %.sink.s
 410:                                              ; preds = %408
   %411 = call noalias ptr @calloc(i64 noundef %409, i64 noundef 1) #23
   store ptr %411, ptr @prefix, align 8
-  br label %init_prefix.exit
+  br label %init_prefix.argprom.exit
 
 412:                                              ; preds = %408
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.247) #22
-  br label %init_prefix.exit
+  br label %init_prefix.argprom.exit
 
-init_prefix.exit:                                 ; preds = %410, %412
+init_prefix.argprom.exit:                         ; preds = %410, %412
   %413 = call i32 @fill_ref_path_table(i64 noundef %405) #22
   %.b116136 = load i1, ptr @doxml_g, align 1
   br i1 %.b116136, label %414, label %425
 
-414:                                              ; preds = %init_prefix.exit
+414:                                              ; preds = %init_prefix.argprom.exit
   %415 = load ptr, ptr @prefix, align 8
   store i8 0, ptr %415, align 1
   %416 = load ptr, ptr @xml_dtd_uri_g, align 8
@@ -1590,7 +1590,7 @@ init_prefix.exit:                                 ; preds = %410, %412
   call void @h5tools_setstatus(i32 noundef 1) #22
   br label %.thread590
 
-425:                                              ; preds = %420, %419, %422, %421, %init_prefix.exit
+425:                                              ; preds = %420, %419, %422, %421, %init_prefix.argprom.exit
   %426 = call i32 @H5Oget_info_by_name3(i64 noundef %405, ptr noundef nonnull @.str.18, ptr noundef nonnull %3, i32 noundef 1, i64 noundef 0) #22
   %427 = icmp slt i32 %426, 0
   br i1 %427, label %428, label %429

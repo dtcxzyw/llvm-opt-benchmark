@@ -1838,7 +1838,7 @@ cond.false37:                                     ; preds = %sw.bb32
   %arraylen.i202 = getelementptr inbounds i8, ptr %agg.tmp38, i64 4
   %33 = load i32, ptr %arraylen5.i196, align 4
   store i32 %33, ptr %arraylen.i202, align 4
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_.argprom(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb40:                                          ; preds = %if.end
@@ -3510,7 +3510,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.132", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

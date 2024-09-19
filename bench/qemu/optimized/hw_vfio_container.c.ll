@@ -1049,7 +1049,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.th
   %cond.i = phi i32 [ %sub.i, %cond.true.i ], [ -36, %if.then.i ]
   %sub5.i = sub i32 0, %cond.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 861, ptr noundef nonnull @__func__.vfio_device_groupid, i32 noundef %sub5.i, ptr noundef nonnull @.str.14) #15
-  br label %vfio_device_groupid.exit
+  br label %vfio_device_groupid.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %arrayidx.i = getelementptr [4096 x i8], ptr %group_path.i, i64 0, i64 %call1.i
@@ -1065,20 +1065,20 @@ if.then10.i:                                      ; preds = %if.end.i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 869, ptr noundef nonnull @__func__.vfio_device_groupid, i32 noundef %3, ptr noundef nonnull @.str.16, ptr noundef nonnull %group_path.i) #15
   %4 = load i32, ptr %call11.i, align 4
   %sub14.i = sub i32 0, %4
-  br label %vfio_device_groupid.exit
+  br label %vfio_device_groupid.argprom.exit
 
 if.end15.i:                                       ; preds = %if.end.i
   %5 = load i32, ptr %groupid.i, align 4
-  br label %vfio_device_groupid.exit
+  br label %vfio_device_groupid.argprom.exit
 
-vfio_device_groupid.exit:                         ; preds = %cond.end.i, %if.then10.i, %if.end15.i
+vfio_device_groupid.argprom.exit:                 ; preds = %cond.end.i, %if.then10.i, %if.end15.i
   %retval.0.i = phi i32 [ %cond.i, %cond.end.i ], [ %sub14.i, %if.then10.i ], [ %5, %if.end15.i ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %group_path.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %groupid.i)
   %cmp = icmp slt i32 %retval.0.i, 0
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %vfio_device_groupid.exit
+if.end:                                           ; preds = %vfio_device_groupid.argprom.exit
   %name1 = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %6 = load ptr, ptr %name1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1214,18 +1214,18 @@ if.then.i.i36:                                    ; preds = %for.body.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i36, %if.then.i.i36
   %call.i.i.i = call i32 @ram_block_uncoordinated_discard_disable(i1 noundef zeroext true) #15
-  br label %vfio_ram_block_discard_disable.exit.i.i
+  br label %vfio_ram_block_discard_disable.argprom.exit.i.i
 
 sw.default.i.i.i:                                 ; preds = %if.then.i.i36
   %call2.i.i.i = call i32 @ram_block_discard_disable(i1 noundef zeroext true) #15
-  br label %vfio_ram_block_discard_disable.exit.i.i
+  br label %vfio_ram_block_discard_disable.argprom.exit.i.i
 
-vfio_ram_block_discard_disable.exit.i.i:          ; preds = %sw.default.i.i.i, %sw.bb.i.i.i
+vfio_ram_block_discard_disable.argprom.exit.i.i:  ; preds = %sw.default.i.i.i, %sw.bb.i.i.i
   %retval.0.i.i.i = phi i32 [ %call2.i.i.i, %sw.default.i.i.i ], [ %call.i.i.i, %sw.bb.i.i.i ]
   %tobool6.not.i.i = icmp eq i32 %retval.0.i.i.i, 0
   br i1 %tobool6.not.i.i, label %if.end13.i.i, label %if.then7.i.i
 
-if.then7.i.i:                                     ; preds = %vfio_ram_block_discard_disable.exit.i.i
+if.then7.i.i:                                     ; preds = %vfio_ram_block_discard_disable.argprom.exit.i.i
   %sub.i.i = sub i32 0, %retval.0.i.i.i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 516, ptr noundef nonnull @__func__.vfio_connect_container, i32 noundef %sub.i.i, ptr noundef nonnull @.str.26) #15
   %22 = load i32, ptr %call.i32, align 8
@@ -1238,7 +1238,7 @@ if.then12.i.i:                                    ; preds = %if.then7.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, i32 noundef %23) #15
   br label %vfio_connect_container.exit.thread34.i
 
-if.end13.i.i:                                     ; preds = %vfio_ram_block_discard_disable.exit.i.i
+if.end13.i.i:                                     ; preds = %vfio_ram_block_discard_disable.argprom.exit.i.i
   %container14.i.i = getelementptr inbounds i8, ptr %call.i32, i64 8
   store ptr %container.0132.i.i, ptr %container14.i.i, align 8
   %group_list.i.i = getelementptr inbounds i8, ptr %container.0132.i.i, i64 472
@@ -1395,23 +1395,23 @@ if.end55.i.i:                                     ; preds = %vfio_init_container
 
 sw.bb.i115.i.i:                                   ; preds = %if.end55.i.i, %if.end55.i.i
   %call.i116.i.i = call i32 @ram_block_uncoordinated_discard_disable(i1 noundef zeroext true) #15
-  br label %vfio_ram_block_discard_disable.exit120.i.i
+  br label %vfio_ram_block_discard_disable.argprom.exit120.i.i
 
 sw.default.i118.i.i:                              ; preds = %if.end55.i.i
   %call2.i119.i.i = call i32 @ram_block_discard_disable(i1 noundef zeroext true) #15
-  br label %vfio_ram_block_discard_disable.exit120.i.i
+  br label %vfio_ram_block_discard_disable.argprom.exit120.i.i
 
-vfio_ram_block_discard_disable.exit120.i.i:       ; preds = %sw.default.i118.i.i, %sw.bb.i115.i.i
+vfio_ram_block_discard_disable.argprom.exit120.i.i: ; preds = %sw.default.i118.i.i, %sw.bb.i115.i.i
   %retval.0.i117.i.i = phi i32 [ %call2.i119.i.i, %sw.default.i118.i.i ], [ %call.i116.i.i, %sw.bb.i115.i.i ]
   %tobool57.not.i.i = icmp eq i32 %retval.0.i117.i.i, 0
   br i1 %tobool57.not.i.i, label %if.end60.i.i, label %if.then58.i.i
 
-if.then58.i.i:                                    ; preds = %vfio_ram_block_discard_disable.exit120.i.i
+if.then58.i.i:                                    ; preds = %vfio_ram_block_discard_disable.argprom.exit120.i.i
   %sub59.i.i = sub i32 0, %retval.0.i117.i.i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 563, ptr noundef nonnull @__func__.vfio_connect_container, i32 noundef %sub59.i.i, ptr noundef nonnull @.str.26) #15
   br label %free_container_exit.i.i
 
-if.end60.i.i:                                     ; preds = %vfio_ram_block_discard_disable.exit120.i.i
+if.end60.i.i:                                     ; preds = %vfio_ram_block_discard_disable.argprom.exit120.i.i
   %37 = load i32, ptr %36, align 8
   switch i32 %37, label %sw.epilog.i.i [
     i32 3, label %sw.bb.i.i
@@ -1460,7 +1460,7 @@ if.then73.i.i:                                    ; preds = %if.end70.i.i
   br label %if.end75.i.i
 
 if.end75.i.i:                                     ; preds = %if.then73.i.i, %if.end70.i.i
-  call fastcc void @vfio_get_info_iova_range(ptr noundef nonnull %38, ptr noundef nonnull %call42.i.i)
+  call fastcc void @vfio_get_info_iova_range.retelim(ptr noundef nonnull %38, ptr noundef nonnull %call42.i.i)
   call fastcc void @vfio_get_iommu_info_migration(ptr noundef nonnull %call42.i.i, ptr noundef nonnull %38)
   call void @g_free(ptr noundef nonnull %38) #15
   br label %sw.epilog.i.i
@@ -1578,7 +1578,7 @@ if.then184.i.i:                                   ; preds = %if.end169.i.i, %if.
 enable_discards_exit.i.i:                         ; preds = %if.then184.i.i, %if.end169.i.i, %sw.bb77.i.i, %if.then63.i.i
   %ret.3.i.i = phi i32 [ -1, %if.then184.i.i ], [ %call78.i.i, %sw.bb77.i.i ], [ %call61.i.i, %if.then63.i.i ], [ -1, %if.end169.i.i ]
   %call42.val111.i.i = load i32, ptr %36, align 8
-  call fastcc void @vfio_ram_block_discard_disable(i32 %call42.val111.i.i, i1 noundef zeroext false)
+  call fastcc void @vfio_ram_block_discard_disable.argprom.retelim(i32 %call42.val111.i.i, i1 noundef zeroext false)
   br label %free_container_exit.i.i
 
 free_container_exit.i.i:                          ; preds = %enable_discards_exit.i.i, %if.then58.i.i, %vfio_init_container.exit.i.i, %vfio_init_container.exit.thread124.i.i
@@ -1858,8 +1858,8 @@ if.end43:                                         ; preds = %if.then38, %if.end2
   store ptr @vfio_device_list, ptr %le_prev45, align 8
   br label %return
 
-return:                                           ; preds = %vfio_get_group.exit.thread, %vfio_device_groupid.exit, %if.end43, %if.then14, %if.then10
-  %retval.0 = phi i32 [ -16, %if.then10 ], [ %retval.0.i48.ph, %if.then14 ], [ 0, %if.end43 ], [ %retval.0.i, %vfio_device_groupid.exit ], [ -2, %vfio_get_group.exit.thread ]
+return:                                           ; preds = %vfio_get_group.exit.thread, %vfio_device_groupid.argprom.exit, %if.end43, %if.then14, %if.then10
+  %retval.0 = phi i32 [ -16, %if.then10 ], [ %retval.0.i48.ph, %if.then14 ], [ 0, %if.end43 ], [ %retval.0.i, %vfio_device_groupid.argprom.exit ], [ -2, %vfio_get_group.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -2353,7 +2353,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare ptr @vfio_get_address_space(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_ram_block_discard_disable(i32 %container.400.val, i1 noundef zeroext %state) unnamed_addr #0 {
+define internal fastcc void @vfio_ram_block_discard_disable.argprom.retelim(i32 %container.400.val, i1 noundef zeroext %state) unnamed_addr #0 {
 entry:
   switch i32 %container.400.val, label %sw.default [
     i32 3, label %sw.bb
@@ -2438,7 +2438,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_get_info_iova_range(ptr noundef %info, ptr nocapture noundef %container) unnamed_addr #0 {
+define internal fastcc void @vfio_get_info_iova_range.retelim(ptr noundef %info, ptr nocapture noundef %container) unnamed_addr #0 {
 entry:
   %flags.i = getelementptr inbounds i8, ptr %info, i64 4
   %0 = load i32, ptr %flags.i, align 4
@@ -2479,21 +2479,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %ra
   %add.i.i.i = add i64 %4, 1
   %cmp3.i.i.i = icmp eq i64 %3, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
-  br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
+  br i1 %or.cond.i.i.i, label %range_is_empty.argprom.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body
   tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.38, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #18
   unreachable
 
-range_is_empty.exit.i:                            ; preds = %for.body
+range_is_empty.argprom.exit.i:                    ; preds = %for.body
   %cmp.i.i = icmp ugt i64 %3, %4
   br i1 %cmp.i.i, label %if.else.i, label %range_set_bounds.exit
 
-if.else.i:                                        ; preds = %range_is_empty.exit.i
+if.else.i:                                        ; preds = %range_is_empty.argprom.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.range_set_bounds) #18
   unreachable
 
-range_set_bounds.exit:                            ; preds = %range_is_empty.exit.i
+range_set_bounds.exit:                            ; preds = %range_is_empty.argprom.exit.i
   %5 = load ptr, ptr %iova_ranges5, align 8
   %call6 = tail call ptr @range_list_insert(ptr noundef %5, ptr noundef nonnull %call1) #15
   store ptr %call6, ptr %iova_ranges5, align 8

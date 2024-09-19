@@ -106,7 +106,7 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
 
 20:                                               ; preds = %19, %14
   %.not22.i = icmp eq ptr %16, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %21
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %21
 
 21:                                               ; preds = %20
   %22 = call i32 @pthread_mutex_init(ptr noundef nonnull %16, ptr noundef null) #16
@@ -121,7 +121,7 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_odls_launch_local_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i = icmp eq ptr %28, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
   %29 = phi ptr [ %31, %.lr.ph.i.i ], [ %28, %21 ]
@@ -130,9 +130,9 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
   %30 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %21
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %20, %21
   %32 = getelementptr inbounds i8, ptr %16, i64 128
   call void @PMIx_Load_nspace(ptr noundef nonnull %32, ptr noundef nonnull %2) #16
   %33 = getelementptr inbounds i8, ptr %16, i64 384
@@ -145,8 +145,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %2
   call void @event_active(ptr noundef %38, i32 noundef 4, i16 noundef signext 1) #16
   br label %39
 
-39:                                               ; preds = %4, %6, %11, %pmix_obj_new_tma.exit
-  %.0 = phi i32 [ 0, %pmix_obj_new_tma.exit ], [ %3, %11 ], [ %3, %6 ], [ %3, %4 ]
+39:                                               ; preds = %4, %6, %11, %pmix_obj_new_tma.argprom.exit
+  %.0 = phi i32 [ 0, %pmix_obj_new_tma.argprom.exit ], [ %3, %11 ], [ %3, %6 ], [ %3, %4 ]
   ret i32 %.0
 }
 
@@ -1052,7 +1052,7 @@ define internal void @send_error_show_help(i32 noundef %0, i32 %1, ptr noundef %
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 1, ptr %7, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call fastcc void @write_help_msg(i32 noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+  call fastcc void @write_help_msg.retelim(i32 noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @_exit(i32 noundef 1) #21
   unreachable
@@ -1098,7 +1098,7 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_help_msg(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #1 {
+define internal fastcc void @write_help_msg.retelim(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #1 {
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %3, null
   %or.cond = or i1 %6, %7

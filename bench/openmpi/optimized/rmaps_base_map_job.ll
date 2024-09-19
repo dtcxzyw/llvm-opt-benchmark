@@ -203,7 +203,7 @@ define void @prte_rmaps_base_map_job(i32 noundef %0, i16 noundef signext %1, ptr
 
 83:                                               ; preds = %82, %77
   %.not22.i = icmp eq ptr %79, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %84
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %84
 
 84:                                               ; preds = %83
   %85 = call i32 @pthread_mutex_init(ptr noundef nonnull %79, ptr noundef null) #14
@@ -218,7 +218,7 @@ define void @prte_rmaps_base_map_job(i32 noundef %0, i16 noundef signext %1, ptr
   %90 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_job_map_t_class, i64 40), align 8
   %91 = load ptr, ptr %90, align 8
   %.not6.i.i = icmp eq ptr %91, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %84, %.lr.ph.i.i
   %92 = phi ptr [ %94, %.lr.ph.i.i ], [ %91, %84 ]
@@ -227,13 +227,13 @@ define void @prte_rmaps_base_map_job(i32 noundef %0, i16 noundef signext %1, ptr
   %93 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %94 = load ptr, ptr %93, align 8
   %.not.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %84
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %83, %84
   store ptr %79, ptr %74, align 8
   br label %95
 
-95:                                               ; preds = %pmix_obj_new_tma.exit, %73
+95:                                               ; preds = %pmix_obj_new_tma.argprom.exit, %73
   %96 = getelementptr inbounds i8, ptr %44, i64 488
   store i32 5, ptr %96, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false)

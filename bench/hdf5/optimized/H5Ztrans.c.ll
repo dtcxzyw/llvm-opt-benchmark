@@ -7368,7 +7368,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr nocapture noundef %0) local_unna
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef %54, ptr noundef nonnull %19)
+  %55 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef %54, ptr noundef nonnull %19)
   %56 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %55, ptr %56, align 8
   %57 = icmp eq ptr %55, null
@@ -7425,7 +7425,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree.argprom(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %125 [
@@ -7525,7 +7525,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr nocapture n
   br i1 %.not107, label %57, label %55
 
 55:                                               ; preds = %52
-  %56 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %54, ptr noundef %1)
+  %56 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef nonnull %54, ptr noundef %1)
   br label %57
 
 57:                                               ; preds = %52, %55
@@ -7541,7 +7541,7 @@ common.ret1:                                      ; preds = %12, %36, %83, %123,
   ret ptr %common.ret1.op
 
 60:                                               ; preds = %57
-  %61 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %59, ptr noundef %1)
+  %61 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef nonnull %59, ptr noundef %1)
   %62 = getelementptr inbounds i8, ptr %46, i64 8
   store ptr %61, ptr %62, align 8
   br label %common.ret1
@@ -7570,7 +7570,7 @@ common.ret1:                                      ; preds = %12, %36, %83, %123,
   br i1 %.not104, label %77, label %75
 
 75:                                               ; preds = %72
-  %76 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %74, ptr noundef %1)
+  %76 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef nonnull %74, ptr noundef %1)
   br label %77
 
 77:                                               ; preds = %72, %75
@@ -7582,7 +7582,7 @@ common.ret1:                                      ; preds = %12, %36, %83, %123,
   br i1 %.not106, label %83, label %80
 
 80:                                               ; preds = %77
-  %81 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %79, ptr noundef %1)
+  %81 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef nonnull %79, ptr noundef %1)
   %82 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr %81, ptr %82, align 8
   br label %common.ret1
@@ -7611,7 +7611,7 @@ common.ret1:                                      ; preds = %12, %36, %83, %123,
   br i1 %.not101, label %97, label %95
 
 95:                                               ; preds = %92
-  %96 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %94, ptr noundef %1)
+  %96 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef nonnull %94, ptr noundef %1)
   br label %97
 
 97:                                               ; preds = %92, %95
@@ -7623,7 +7623,7 @@ common.ret1:                                      ; preds = %12, %36, %83, %123,
   br i1 %.not103, label %103, label %100
 
 100:                                              ; preds = %97
-  %101 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %99, ptr noundef %1)
+  %101 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef nonnull %99, ptr noundef %1)
   %102 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %101, ptr %102, align 8
   br label %common.ret1
@@ -7652,7 +7652,7 @@ common.ret1:                                      ; preds = %12, %36, %83, %123,
   br i1 %.not, label %117, label %115
 
 115:                                              ; preds = %112
-  %116 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %114, ptr noundef %1)
+  %116 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef nonnull %114, ptr noundef %1)
   br label %117
 
 117:                                              ; preds = %112, %115
@@ -7664,7 +7664,7 @@ common.ret1:                                      ; preds = %12, %36, %83, %123,
   br i1 %.not100, label %123, label %120
 
 120:                                              ; preds = %117
-  %121 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %119, ptr noundef %1)
+  %121 = tail call fastcc ptr @H5Z__xform_copy_tree.argprom(ptr noundef nonnull %119, ptr noundef %1)
   %122 = getelementptr inbounds i8, ptr %106, i64 8
   store ptr %121, ptr %122, align 8
   br label %common.ret1

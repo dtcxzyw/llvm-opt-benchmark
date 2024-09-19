@@ -344,7 +344,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %71 = sub nsw i32 %0, %68
   %72 = sext i32 %68 to i64
   %73 = getelementptr inbounds ptr, ptr %1, i64 %72
-  call fastcc void @_process_command(i32 noundef %71, ptr noundef nonnull %73)
+  call fastcc void @_process_command.retelim(i32 noundef %71, ptr noundef nonnull %73)
   br label %179
 
 74:                                               ; preds = %67
@@ -584,7 +584,7 @@ _get_command.exit:                                ; preds = %.lr.ph63.i, %.loope
   br i1 %.not, label %173, label %.loopexit
 
 173:                                              ; preds = %_get_command.exit
-  call fastcc void @_process_command(i32 noundef %.264.ph, ptr noundef %107)
+  call fastcc void @_process_command.retelim(i32 noundef %.264.ph, ptr noundef %107)
   %174 = load i32, ptr @exit_code, align 4
   %.not54 = icmp eq i32 %174, 0
   br i1 %.not54, label %176, label %175
@@ -730,7 +730,7 @@ declare ptr @slurmdb_connection_get(ptr noundef) local_unnamed_addr #2
 declare i32 @getuid() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @_process_command.retelim(i32 noundef %0, ptr noundef %1) unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = icmp slt i32 %0, 1
   br i1 %4, label %5, label %11
@@ -932,7 +932,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call fastcc void @_clear_it(ptr noundef nonnull %114)
+  tail call fastcc void @_clear_it.argelim(ptr noundef nonnull %114)
   br label %252
 
 115:                                              ; preds = %109
@@ -1478,7 +1478,7 @@ define internal fastcc void @_archive_it(i32 noundef range(i32 0, 2147483647) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_clear_it(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc void @_clear_it.argelim(ptr nocapture noundef readonly %0) unnamed_addr #6 {
   %2 = load i8, ptr @have_db_conn, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %5, label %4

@@ -2566,7 +2566,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %161 = getelementptr inbounds [4 x %struct.lstopo_text_line], ptr %157, i64 0, i64 %160
   %162 = getelementptr inbounds i8, ptr %0, i64 664
   %163 = load i64, ptr %162, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %161, i64 noundef 128, i64 noundef %156, i64 noundef %163)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %161, i64 noundef 128, i64 noundef %156, i64 noundef %163)
   br label %164
 
 164:                                              ; preds = %154, %152
@@ -2579,7 +2579,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %168 = shl i64 %167, 10
   %169 = getelementptr inbounds i8, ptr %0, i64 664
   %170 = load i64, ptr %169, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %7, i64 noundef 25, i64 noundef %168, i64 noundef %170)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %7, i64 noundef 25, i64 noundef %168, i64 noundef %170)
   %171 = getelementptr inbounds i8, ptr %12, i64 220
   %172 = load i32, ptr %15, align 4
   %173 = add i32 %172, 1
@@ -2647,7 +2647,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %212 = getelementptr inbounds [4 x %struct.lstopo_text_line], ptr %208, i64 0, i64 %211
   %213 = getelementptr inbounds i8, ptr %0, i64 664
   %214 = load i64, ptr %213, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %212, i64 noundef 128, i64 noundef %207, i64 noundef %214)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %212, i64 noundef 128, i64 noundef %207, i64 noundef %214)
   br label %286
 
 215:                                              ; preds = %191
@@ -2687,7 +2687,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %236 = getelementptr inbounds [4 x %struct.lstopo_text_line], ptr %232, i64 0, i64 %235
   %237 = getelementptr inbounds i8, ptr %0, i64 664
   %238 = load i64, ptr %237, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %236, i64 noundef 128, i64 noundef %231, i64 noundef %238)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %236, i64 noundef 128, i64 noundef %231, i64 noundef %238)
   br label %286
 
 239:                                              ; preds = %215
@@ -2705,7 +2705,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %245 = shl i64 %244, 10
   %246 = getelementptr inbounds i8, ptr %0, i64 664
   %247 = load i64, ptr %246, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %8, i64 noundef 25, i64 noundef %245, i64 noundef %247)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %8, i64 noundef 25, i64 noundef %245, i64 noundef %247)
   %248 = getelementptr inbounds i8, ptr %12, i64 220
   %249 = load i32, ptr %15, align 4
   %250 = add i32 %249, 1
@@ -2737,7 +2737,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %264 = getelementptr inbounds [4 x %struct.lstopo_text_line], ptr %260, i64 0, i64 %263
   %265 = getelementptr inbounds i8, ptr %0, i64 664
   %266 = load i64, ptr %265, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %264, i64 noundef 128, i64 noundef %259, i64 noundef %266)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %264, i64 noundef 128, i64 noundef %259, i64 noundef %266)
   br label %267
 
 267:                                              ; preds = %.thread, %256
@@ -2816,7 +2816,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %296
   %309 = getelementptr inbounds [4 x %struct.lstopo_text_line], ptr %305, i64 0, i64 %308
   %310 = getelementptr inbounds i8, ptr %0, i64 664
   %311 = load i64, ptr %310, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %309, i64 noundef 128, i64 noundef %304, i64 noundef %311)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %309, i64 noundef 128, i64 noundef %304, i64 noundef %311)
   br label %hwloc_obj_get_info_by_name.exit.thread
 
 hwloc_obj_get_info_by_name.exit.thread:           ; preds = %295, %290, %hwloc_obj_get_info_by_name.exit, %302, %286
@@ -2855,7 +2855,7 @@ hwloc_obj_get_info_by_name.exit238:               ; preds = %317
   %325 = shl i64 %324, 10
   %326 = getelementptr inbounds i8, ptr %0, i64 664
   %327 = load i64, ptr %326, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %9, i64 noundef 25, i64 noundef %325, i64 noundef %327)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %9, i64 noundef 25, i64 noundef %325, i64 noundef %327)
   %328 = getelementptr inbounds i8, ptr %12, i64 220
   %329 = load i32, ptr %15, align 4
   %330 = add i32 %329, 1
@@ -2900,7 +2900,7 @@ hwloc_obj_get_info_by_name.exit247:               ; preds = %336
   %344 = shl i64 %343, 10
   %345 = getelementptr inbounds i8, ptr %0, i64 664
   %346 = load i64, ptr %345, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %10, i64 noundef 25, i64 noundef %344, i64 noundef %346)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %10, i64 noundef 25, i64 noundef %344, i64 noundef %346)
   %347 = getelementptr inbounds i8, ptr %12, i64 220
   %348 = load i32, ptr %15, align 4
   %349 = add i32 %348, 1
@@ -3168,7 +3168,7 @@ thread-pre-split101:                              ; preds = %66
 
 96:                                               ; preds = %93
   %97 = load i64, ptr %88, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %10, i64 noundef 25, i64 noundef %95, i64 noundef %97)
+  call fastcc void @hwloc_memory_size_snprintf.retelim(ptr noundef nonnull %10, i64 noundef 25, i64 noundef %95, i64 noundef %97)
   %98 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 64, ptr noundef nonnull @.str.72, ptr noundef nonnull %10) #25
   br label %99
 
@@ -3193,7 +3193,7 @@ thread-pre-split101:                              ; preds = %66
 declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef writeonly %0, i64 noundef range(i64 25, 129) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define internal fastcc void @hwloc_memory_size_snprintf.retelim(ptr nocapture noundef writeonly %0, i64 noundef range(i64 25, 129) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = and i64 %3, 16
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %8, label %6
@@ -4686,7 +4686,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   br i1 %.not246, label %267, label %266
 
 266:                                              ; preds = %264
-  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %265, i32 %.2321, i32 noundef 0, i32 noundef %spec.select266, ptr noundef %5, ptr noundef %6)
+  call fastcc void @place__children.argprom(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %265, i32 %.2321, i32 noundef 0, i32 noundef %spec.select266, ptr noundef %5, ptr noundef %6)
   br label %267
 
 267:                                              ; preds = %266, %264
@@ -4695,7 +4695,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   br i1 %.not247, label %270, label %269
 
 269:                                              ; preds = %267
-  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %268, i32 %spec.select336, i32 noundef 0, i32 noundef %16, ptr noundef %9, ptr noundef %10)
+  call fastcc void @place__children.argprom(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %268, i32 %spec.select336, i32 noundef 0, i32 noundef %16, ptr noundef %9, ptr noundef %10)
   br label %270
 
 270:                                              ; preds = %269, %267
@@ -4704,7 +4704,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   br i1 %.not248, label %273, label %272
 
 272:                                              ; preds = %270
-  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %271, i32 %.0322, i32 noundef 0, i32 noundef %16, ptr noundef %11, ptr noundef %12)
+  call fastcc void @place__children.argprom(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %271, i32 %.0322, i32 noundef 0, i32 noundef %16, ptr noundef %11, ptr noundef %12)
   %.pre = load i32, ptr %11, align 4
   br label %273
 
@@ -4744,7 +4744,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   %293 = phi i1 [ %292, %286 ], [ false, %283 ]
   %294 = phi i32 [ %spec.select338, %286 ], [ 0, %283 ]
   %295 = load i32, ptr %37, align 8
-  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %295, i32 %spec.store.select, i32 noundef %294, i32 noundef %16, ptr noundef %7, ptr noundef %8)
+  call fastcc void @place__children.argprom(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %295, i32 %spec.store.select, i32 noundef %294, i32 noundef %16, ptr noundef %7, ptr noundef %8)
   %296 = load i32, ptr %1, align 8
   %297 = icmp eq i32 %296, 18
   br i1 %297, label %298, label %301
@@ -5430,7 +5430,7 @@ declare i32 @hwloc_obj_type_is_normal(i32 noundef) local_unnamed_addr #13
 declare i32 @hwloc_obj_type_is_cache(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @place__children(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %.0.val, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #17 {
+define internal fastcc void @place__children.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %.0.val, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #17 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4

@@ -621,7 +621,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %212, %199, 
   br i1 %.not.i.i64, label %_ZL16_GetPopulatedIdsv.exit.i, label %222
 
 222:                                              ; preds = %220
-  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv.argprom"()
           to label %223 unwind label %225
 
 223:                                              ; preds = %222
@@ -1225,7 +1225,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i96: ; preds = %394, %381
   br i1 %.not.i.i107, label %_ZL16_GetPopulatedIdsv.exit.i97, label %404
 
 404:                                              ; preds = %402
-  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv.argprom"()
           to label %405 unwind label %407
 
 405:                                              ; preds = %404
@@ -1778,7 +1778,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i141: ; preds = %563, %55
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !9
   %.not14.i.i = icmp eq ptr %.val.val.i, %.val.val55.i
-  br i1 %.not14.i.i, label %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i", label %.lr.ph17.i.i
+  br i1 %.not14.i.i, label %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i", label %.lr.ph17.i.i
 
 .lr.ph17.i.i:                                     ; preds = %568
   %569 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -1814,7 +1814,7 @@ _ZNSt6vectorIS_IN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EESaIS3_EE12em
   br i1 %.not.i10.i.i, label %_ZL13_GetInitPathsv.exit.i.i, label %582
 
 582:                                              ; preds = %580
-  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv.argprom"()
           to label %583 unwind label %585
 
 583:                                              ; preds = %582
@@ -2001,9 +2001,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
 ._crit_edge.i.i:                                  ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit.i.i, %_ZL13_GetInitPathsv.exit.i.i
   %661 = getelementptr inbounds i8, ptr %.sroa.05.015.i.i, i64 8
   %.not.i.i142 = icmp eq ptr %661, %.val.val55.i
-  br i1 %.not.i.i142, label %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i", label %571
+  br i1 %.not.i.i142, label %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i", label %571
 
-"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i": ; preds = %._crit_edge.i.i
+"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i": ; preds = %._crit_edge.i.i
   %.pre.i = load ptr, ptr %545, align 8
   %.pre157.i = load ptr, ptr %37, align 8
   %.pre158.i = load ptr, ptr %569, align 8
@@ -2012,12 +2012,12 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   %663 = ptrtoint ptr %.pre159.i to i64
   %664 = sub i64 %662, %663
   %665 = sdiv exact i64 %664, 24
-  br label %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i"
+  br label %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i"
 
-"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i": ; preds = %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i", %568
-  %666 = phi ptr [ %.pre157.i, %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i" ], [ %.val.val.i, %568 ]
-  %667 = phi ptr [ %.pre.i, %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i" ], [ %.val.val.i, %568 ]
-  %668 = phi i64 [ %665, %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i" ], [ 0, %568 ]
+"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i": ; preds = %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i", %568
+  %666 = phi ptr [ %.pre157.i, %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i" ], [ %.val.val.i, %568 ]
+  %667 = phi ptr [ %.pre.i, %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i" ], [ %.val.val.i, %568 ]
+  %668 = phi i64 [ %665, %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i" ], [ 0, %568 ]
   %669 = ptrtoint ptr %667 to i64
   %670 = ptrtoint ptr %666 to i64
   %671 = sub i64 %669, %670
@@ -2027,7 +2027,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36)
   br i1 %674, label %677, label %675
 
-675:                                              ; preds = %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i"
+675:                                              ; preds = %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i"
   store ptr @.str.34, ptr %36, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 8
   store ptr @__func__._ZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -2045,7 +2045,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
 .noexc78.i:                                       ; preds = %675
   unreachable
 
-677:                                              ; preds = %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i"
+677:                                              ; preds = %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36)
   %678 = load atomic i8, ptr @_ZGVZL16_GetPopulatedIdsvE6theIds acquire, align 8
   %679 = icmp eq i8 %678, 0
@@ -2057,7 +2057,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   br i1 %.not.i79.i, label %_ZL16_GetPopulatedIdsv.exit.i143, label %682
 
 682:                                              ; preds = %680
-  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv.argprom"()
           to label %683 unwind label %685
 
 683:                                              ; preds = %682
@@ -2780,7 +2780,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i214: ; preds = %890, %87
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false), !alias.scope !19
   %.not17.i.i = icmp eq ptr %.val.val.i215, %.val.val55.i216
-  br i1 %.not17.i.i, label %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i", label %.lr.ph21.i.i
+  br i1 %.not17.i.i, label %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i", label %.lr.ph21.i.i
 
 .lr.ph21.i.i:                                     ; preds = %895
   %896 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2817,7 +2817,7 @@ _ZNSt6vectorIS_IN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EESaIS3_EE12em
   br i1 %.not.i11.i.i312, label %_ZL13_GetInitPathsv.exit.i.i219, label %909
 
 909:                                              ; preds = %907
-  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv.argprom"()
           to label %910 unwind label %912
 
 910:                                              ; preds = %909
@@ -3013,9 +3013,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   %.1.lcssa.i.i = phi i64 [ %.019.i.i, %_ZL13_GetInitPathsv.exit.i.i219 ], [ %.2.i.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit.i.i225 ]
   %992 = getelementptr inbounds i8, ptr %.sroa.05.018.i.i, i64 8
   %.not.i.i228 = icmp eq ptr %992, %.val.val55.i216
-  br i1 %.not.i.i228, label %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i", label %898
+  br i1 %.not.i.i228, label %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i", label %898
 
-"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i": ; preds = %._crit_edge.i.i227
+"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i": ; preds = %._crit_edge.i.i227
   %.pre.i229 = load ptr, ptr %872, align 8
   %.pre157.i230 = load ptr, ptr %19, align 8
   %.pre158.i231 = load ptr, ptr %896, align 8
@@ -3024,12 +3024,12 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   %994 = ptrtoint ptr %.pre159.i232 to i64
   %995 = sub i64 %993, %994
   %996 = sdiv exact i64 %995, 24
-  br label %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i"
+  br label %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i"
 
-"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i": ; preds = %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i", %895
-  %997 = phi ptr [ %.pre157.i230, %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i" ], [ %.val.val.i215, %895 ]
-  %998 = phi ptr [ %.pre.i229, %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i" ], [ %.val.val.i215, %895 ]
-  %999 = phi i64 [ %996, %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.loopexit.i" ], [ 0, %895 ]
+"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i": ; preds = %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i", %895
+  %997 = phi ptr [ %.pre157.i230, %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i" ], [ %.val.val.i215, %895 ]
+  %998 = phi ptr [ %.pre.i229, %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i" ], [ %.val.val.i215, %895 ]
+  %999 = phi i64 [ %996, %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.loopexit.i" ], [ 0, %895 ]
   %1000 = ptrtoint ptr %998 to i64
   %1001 = ptrtoint ptr %997 to i64
   %1002 = sub i64 %1000, %1001
@@ -3039,7 +3039,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
   br i1 %1005, label %1008, label %1006
 
-1006:                                             ; preds = %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i"
+1006:                                             ; preds = %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i"
   store ptr @.str.34, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i233 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr @__func__._ZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE, ptr %.sroa.2.0..sroa_idx.i233, align 8
@@ -3057,7 +3057,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
 .noexc78.i237:                                    ; preds = %1006
   unreachable
 
-1008:                                             ; preds = %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.exit.i"
+1008:                                             ; preds = %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom.exit.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   %1009 = load atomic i8, ptr @_ZGVZL16_GetPopulatedIdsvE6theIds acquire, align 8
   %1010 = icmp eq i8 %1009, 0
@@ -3069,7 +3069,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   br i1 %.not.i79.i295, label %_ZL16_GetPopulatedIdsv.exit.i238, label %1013
 
 1013:                                             ; preds = %1011
-  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv.argprom"()
           to label %1014 unwind label %1016
 
 1014:                                             ; preds = %1013
@@ -4393,7 +4393,7 @@ define internal fastcc void @_ZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINS
   br i1 %.not.i.i, label %_ZL13_GetInitPathsv.exit.i, label %17
 
 17:                                               ; preds = %15
-  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv.argprom"()
           to label %18 unwind label %20, !noalias !29
 
 18:                                               ; preds = %17
@@ -4531,7 +4531,7 @@ common.resume:                                    ; preds = %147, %89, %138, %20
   br i1 %.not.i10, label %_ZL16_GetPopulatedIdsv.exit, label %86
 
 86:                                               ; preds = %84
-  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv.argprom"()
           to label %87 unwind label %89
 
 87:                                               ; preds = %86
@@ -4721,7 +4721,7 @@ define internal fastcc void @_ZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7_
   br i1 %.not.i, label %_ZL16_GetPopulatedIdsv.exit, label %13
 
 13:                                               ; preds = %11
-  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv.argprom"()
           to label %14 unwind label %16
 
 14:                                               ; preds = %13
@@ -4965,7 +4965,7 @@ define internal fastcc void @_ZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1
   br i1 %.not.i.i, label %_ZL13_GetInitPathsv.exit.i, label %19
 
 19:                                               ; preds = %17
-  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv.argprom"()
           to label %20 unwind label %22, !noalias !34
 
 20:                                               ; preds = %19
@@ -5114,7 +5114,7 @@ common.resume:                                    ; preds = %154, %88, %136, %22
   br i1 %.not.i19, label %_ZL16_GetPopulatedIdsv.exit, label %85
 
 85:                                               ; preds = %83
-  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv.argprom"()
           to label %86 unwind label %88
 
 86:                                               ; preds = %85
@@ -5408,10 +5408,10 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %4 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %.not1.i.i = icmp eq i32 %1, 0
-  br i1 %.not1.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i
+  br i1 %.not1.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2, %"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i"
-  %.in.i.i = phi i32 [ %5, %"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i" ], [ %1, %2 ]
+.lr.ph.i.i:                                       ; preds = %2, %"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.argprom.exit.i.i"
+  %.in.i.i = phi i32 [ %5, %"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.argprom.exit.i.i" ], [ %1, %2 ]
   %5 = add nsw i32 %.in.i.i, -1
   fence syncscope("singlethread") seq_cst
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
@@ -5426,7 +5426,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   br i1 %.not.i.i.i.i, label %_ZL13_GetInitPathsv.exit.i.i.i, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv.argprom"()
           to label %11 unwind label %13
 
 11:                                               ; preds = %10
@@ -5473,16 +5473,16 @@ _ZL13_GetInitPathsv.exit.i.i.i:                   ; preds = %11, %8, %.lr.ph.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %17, %_ZL13_GetInitPathsv.exit.i.i.i
   %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-          to label %"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i" unwind label %.loopexit.split-lp.i.i.i
+          to label %"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.argprom.exit.i.i" unwind label %.loopexit.split-lp.i.i.i
 
-"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i": ; preds = %._crit_edge.i.i.i
+"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.argprom.exit.i.i": ; preds = %._crit_edge.i.i.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i, !llvm.loop !41
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !41
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit": ; preds = %"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit": ; preds = %"_ZZL12PopulateTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.argprom.exit.i.i", %2
   %20 = extractvalue { i32, i32 } %4, 1
   %21 = extractvalue { i32, i32 } %4, 0
   fence syncscope("singlethread") seq_cst
@@ -5515,7 +5515,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsD1Ev(ptr nounde
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv.argprom"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [9 x i8], align 1
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6609,7 +6609,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13: ; 
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv.argprom"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) @_ZZL16_GetPopulatedIdsvE6theIds)
   %1 = load atomic i8, ptr @_ZGVZL13_GetInitPathsvE12theInitPaths acquire, align 8
   %2 = icmp eq i8 %1, 0
@@ -6621,7 +6621,7 @@ define internal fastcc void @"_ZZL16_GetPopulatedIdsvENK3$_0clEv"() unnamed_addr
   br i1 %.not.i, label %_ZL13_GetInitPathsv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv"()
+  invoke fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv.argprom"()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -6679,7 +6679,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %3 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %.not4.i.i = icmp eq i32 %1, 0
-  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SingleRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SingleRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.05.i.i = phi i32 [ %4, %.lr.ph.i.i ], [ %1, %2 ]
@@ -6699,9 +6699,9 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SingleRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i, !llvm.loop !69
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SingleRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !69
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SingleRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit": ; preds = %.lr.ph.i.i, %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SingleRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit": ; preds = %.lr.ph.i.i, %2
   %15 = extractvalue { i32, i32 } %3, 1
   %16 = extractvalue { i32, i32 } %3, 0
   fence syncscope("singlethread") seq_cst
@@ -6847,7 +6847,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %3 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %.not4.i.i = icmp eq i32 %1, 0
-  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i"
   %.in.i.i = phi i32 [ %4, %"_ZZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i" ], [ %1, %2 ]
@@ -6893,9 +6893,9 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %21)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i, !llvm.loop !80
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !80
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit": ; preds = %"_ZZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit": ; preds = %"_ZZL21MultiRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i", %2
   %23 = extractvalue { i32, i32 } %3, 1
   %24 = extractvalue { i32, i32 } %3, 0
   fence syncscope("singlethread") seq_cst
@@ -7443,7 +7443,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %3 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %.not4.i.i = icmp eq i32 %1, 0
-  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i"
   %.in.i.i = phi i32 [ %4, %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i" ], [ %1, %2 ]
@@ -7489,9 +7489,9 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %21)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i, !llvm.loop !113
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !113
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit": ; preds = %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit": ; preds = %"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i", %2
   %23 = extractvalue { i32, i32 } %3, 1
   %24 = extractvalue { i32, i32 } %3, 0
   fence syncscope("singlethread") seq_cst
@@ -7516,7 +7516,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %3 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %.not4.i.i = icmp eq i32 %1, 0
-  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i"
   %.in.i.i = phi i32 [ %4, %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i" ], [ %1, %2 ]
@@ -7562,9 +7562,9 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %21)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i, !llvm.loop !114
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !114
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit": ; preds = %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit": ; preds = %"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_0clEv.exit.i.i", %2
   %23 = extractvalue { i32, i32 } %3, 1
   %24 = extractvalue { i32, i32 } %3, 0
   fence syncscope("singlethread") seq_cst
@@ -7697,7 +7697,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %3 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %.not4.i.i = icmp eq i32 %1, 0
-  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEjRKS8_E3$_0EEmRKT_mPbENKUlPKviE_clESL_i.exit", label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEjRKS8_E3$_0EEmRKT_mPbENKUlPKviE_clESL_i.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEjRKS6_ENK3$_0clEv.exit.i.i"
   %.in.i.i = phi i32 [ %4, %"_ZZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEjRKS6_ENK3$_0clEv.exit.i.i" ], [ %1, %2 ]
@@ -7743,9 +7743,9 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %21)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEjRKS8_E3$_0EEmRKT_mPbENKUlPKviE_clESL_i.exit", label %.lr.ph.i.i, !llvm.loop !117
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEjRKS8_E3$_0EEmRKT_mPbENKUlPKviE_clESL_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !117
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEjRKS8_E3$_0EEmRKT_mPbENKUlPKviE_clESL_i.exit": ; preds = %"_ZZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEjRKS6_ENK3$_0clEv.exit.i.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEjRKS8_E3$_0EEmRKT_mPbENKUlPKviE_clESL_i.argprom.exit": ; preds = %"_ZZL25ScatteredRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEjRKS6_ENK3$_0clEv.exit.i.i", %2
   %23 = extractvalue { i32, i32 } %3, 1
   %24 = extractvalue { i32, i32 } %3, 0
   fence syncscope("singlethread") seq_cst
@@ -7792,7 +7792,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %3 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %.not4.i.i = icmp eq i32 %1, 0
-  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEmE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEmE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEmENK3$_0clEv.exit.i.i"
   %.in.i.i = phi i32 [ %4, %"_ZZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEmENK3$_0clEv.exit.i.i" ], [ %1, %2 ]
@@ -7838,9 +7838,9 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %21)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEmE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit", label %.lr.ph.i.i, !llvm.loop !118
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEmE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !118
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEmE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.exit": ; preds = %"_ZZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEmENK3$_0clEv.exit.i.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EEmE3$_0EEmRKT_mPbENKUlPKviE_clESJ_i.argprom.exit": ; preds = %"_ZZL22SpreadRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEmENK3$_0clEv.exit.i.i", %2
   %23 = extractvalue { i32, i32 } %3, 1
   %24 = extractvalue { i32, i32 } %3, 0
   fence syncscope("singlethread") seq_cst
@@ -8132,7 +8132,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %3 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %.not4.i.i = icmp eq i32 %1, 0
-  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EERKNS_7SdfPathESF_E3$_0EEmRKT_mPbENKUlPKviE_clESM_i.exit", label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EERKNS_7SdfPathESF_E3$_0EEmRKT_mPbENKUlPKviE_clESM_i.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EERKN32pxrInternal_v0_24__pxrReserved__7SdfPathESE_ENK3$_0clEv.exit.i.i"
   %.in.i.i = phi i32 [ %4, %"_ZZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EERKN32pxrInternal_v0_24__pxrReserved__7SdfPathESE_ENK3$_0clEv.exit.i.i" ], [ %1, %2 ]
@@ -8184,9 +8184,9 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %25)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EERKNS_7SdfPathESF_E3$_0EEmRKT_mPbENKUlPKviE_clESM_i.exit", label %.lr.ph.i.i, !llvm.loop !131
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EERKNS_7SdfPathESF_E3$_0EEmRKT_mPbENKUlPKviE_clESM_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !131
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EERKNS_7SdfPathESF_E3$_0EEmRKT_mPbENKUlPKviE_clESM_i.exit": ; preds = %"_ZZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EERKN32pxrInternal_v0_24__pxrReserved__7SdfPathESE_ENK3$_0clEv.exit.i.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS9_EERKNS_7SdfPathESF_E3$_0EEmRKT_mPbENKUlPKviE_clESM_i.argprom.exit": ; preds = %"_ZZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EERKN32pxrInternal_v0_24__pxrReserved__7SdfPathESE_ENK3$_0clEv.exit.i.i", %2
   %27 = extractvalue { i32, i32 } %3, 1
   %28 = extractvalue { i32, i32 } %3, 0
   fence syncscope("singlethread") seq_cst
@@ -8495,8 +8495,8 @@ attributes #22 = { noreturn }
 !7 = !{!"branch_weights", i32 1, i32 1048575}
 !8 = distinct !{!8, !6}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv: argument 0"}
-!11 = distinct !{!11, !"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv"}
+!10 = distinct !{!10, !11, !"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom: argument 0"}
+!11 = distinct !{!11, !"_ZZL23SubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom"}
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !14 = distinct !{!14, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_"}
@@ -8505,8 +8505,8 @@ attributes #22 = { noreturn }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv: argument 0"}
-!21 = distinct !{!21, !"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv"}
+!20 = distinct !{!20, !21, !"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZZL30PartialSubtreeRemoveInsertTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EEENK3$_1clEv.argprom.argprom"}
 !22 = !{!23}
 !23 = distinct !{!23, !24, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !24 = distinct !{!24, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_"}

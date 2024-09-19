@@ -255,7 +255,7 @@ define dso_local i32 @cpuidle_find_deepest_state(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc i32 @find_deepest_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #8 align 16 {
+define internal fastcc i32 @find_deepest_state.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1064
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 1
@@ -460,7 +460,7 @@ define dso_local i32 @cpuidle_enter_state(ptr noundef %0, ptr noundef %1, i32 no
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %7, i64 48
   %19 = load i64, ptr %18, align 8
-  %20 = tail call fastcc i32 @find_deepest_state(ptr noundef %1, ptr noundef %0, i64 noundef %19)
+  %20 = tail call fastcc i32 @find_deepest_state.argelim(ptr noundef %1, ptr noundef %0, i64 noundef %19)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %23
 

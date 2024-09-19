@@ -37,7 +37,7 @@ define range(i32 -1, 1) i32 @mca_topo_base_find_available(i1 noundef zeroext %0,
   %.sink22 = phi ptr [ %6, %.split ], [ inttoptr (i64 40 to ptr), %.lr.ph ]
   %7 = phi ptr [ %5, %.split ], [ null, %.lr.ph ]
   %8 = load ptr, ptr %.sink22, align 8
-  %9 = tail call fastcc i32 @init_query(ptr noundef %8, i1 noundef zeroext %0, i1 noundef zeroext %1)
+  %9 = tail call fastcc i32 @init_query.argprom(ptr noundef %8, i1 noundef zeroext %0, i1 noundef zeroext %1)
   %.not19 = icmp eq i32 %9, 0
   br i1 %.not19, label %42, label %10
 
@@ -126,7 +126,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc i32 @init_query.argprom(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %5 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %4) #3
   br i1 %5, label %6, label %9

@@ -646,7 +646,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.449 = private unnamed_addr constant [52 x i8] c"CDMA Wireless Enhanced Messaging Teleservice (WEMT)\00", align 1
 @switch.table.tele_param_user_data_cmas = private unnamed_addr constant [3 x ptr] [ptr @.str.361, ptr @.str.362, ptr @.str.363], align 8
 @switch.table.tele_param_msg_status = private unnamed_addr constant [4 x ptr] [ptr @.str.233, ptr @.str.234, ptr @.str.235, ptr @.str.236], align 8
-@switch.table.tele_param_timestamp_rel = private unnamed_addr constant [4 x ptr] [ptr @.str.348, ptr @.str.349, ptr @.str.350, ptr @.str.351], align 8
+@switch.table.tele_param_timestamp_rel.argprom.argelim = private unnamed_addr constant [4 x ptr] [ptr @.str.348, ptr @.str.349, ptr @.str.350, ptr @.str.351], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
@@ -1695,7 +1695,7 @@ define internal void @tele_param_message_center_timestamp(ptr noundef %0, ptr no
   %13 = load i32, ptr @hf_ansi_637_tele_message_center_ts_hours, align 4
   %14 = load i32, ptr @hf_ansi_637_tele_message_center_ts_minutes, align 4
   %15 = load i32, ptr @hf_ansi_637_tele_message_center_ts_seconds, align 4
-  tail call fastcc void @tele_param_timestamp(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
+  tail call fastcc void @tele_param_timestamp.argprom.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
   br label %16
 
 16:                                               ; preds = %9, %7
@@ -1718,7 +1718,7 @@ define internal void @tele_param_validity_period_abs(ptr noundef %0, ptr noundef
   %13 = load i32, ptr @hf_ansi_637_tele_validity_period_ts_hours, align 4
   %14 = load i32, ptr @hf_ansi_637_tele_validity_period_ts_minutes, align 4
   %15 = load i32, ptr @hf_ansi_637_tele_validity_period_ts_seconds, align 4
-  tail call fastcc void @tele_param_timestamp(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
+  tail call fastcc void @tele_param_timestamp.argprom.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
   br label %16
 
 16:                                               ; preds = %9, %7
@@ -1736,7 +1736,7 @@ define internal void @tele_param_validity_period_rel(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ansi_637_tele_validity_period_relative_validity, align 4
-  tail call fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10)
+  tail call fastcc void @tele_param_timestamp_rel.argprom.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10)
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -1759,7 +1759,7 @@ define internal void @tele_param_deferred_del_abs(ptr noundef %0, ptr noundef %1
   %13 = load i32, ptr @hf_ansi_637_tele_deferred_del_ts_hours, align 4
   %14 = load i32, ptr @hf_ansi_637_tele_deferred_del_ts_minutes, align 4
   %15 = load i32, ptr @hf_ansi_637_tele_deferred_del_ts_seconds, align 4
-  tail call fastcc void @tele_param_timestamp(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
+  tail call fastcc void @tele_param_timestamp.argprom.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
   br label %16
 
 16:                                               ; preds = %9, %7
@@ -1777,7 +1777,7 @@ define internal void @tele_param_deferred_del_rel(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ansi_637_tele_deferred_del_relative, align 4
-  tail call fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10)
+  tail call fastcc void @tele_param_timestamp_rel.argprom.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %10)
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -2699,7 +2699,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tele_param_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @tele_param_timestamp.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #6
   %11 = zext i8 %10 to i32
   %12 = lshr i32 %11, 4
@@ -2758,7 +2758,7 @@ define internal fastcc void @tele_param_timestamp(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @tele_param_timestamp_rel.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #6
   %6 = zext i8 %5 to i32
   %switch.tableidx = add i8 %5, 11
@@ -2801,7 +2801,7 @@ define internal fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %4
   %26 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.tele_param_timestamp_rel, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.tele_param_timestamp_rel.argprom.argelim, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %27
 

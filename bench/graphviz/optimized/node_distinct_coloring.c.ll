@@ -117,7 +117,7 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
 56:                                               ; preds = %53
   %57 = load ptr, ptr @stderr, align 8
   %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.7, i64 noundef %55, i64 noundef 8) #18
-  call fastcc void @graphviz_exit() #19
+  call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 59:                                               ; preds = %53
@@ -131,7 +131,7 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
   %64 = load ptr, ptr @stderr, align 8
   %65 = shl nuw nsw i64 %55, 3
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.8, i64 noundef %65) #18
-  call fastcc void @graphviz_exit() #19
+  call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 67:                                               ; preds = %59
@@ -145,7 +145,7 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
   %71 = load ptr, ptr @stderr, align 8
   %72 = shl nuw nsw i64 %55, 3
   %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.8, i64 noundef %72) #18
-  call fastcc void @graphviz_exit() #19
+  call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 gv_calloc.exit95:                                 ; preds = %67
@@ -294,7 +294,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #21
   unreachable
 }
@@ -454,7 +454,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
 72:                                               ; preds = %._crit_edge
   %73 = load ptr, ptr @stderr, align 8
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.7, i64 noundef %71, i64 noundef 8) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 75:                                               ; preds = %._crit_edge
@@ -468,7 +468,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   %80 = load ptr, ptr @stderr, align 8
   %81 = shl nuw nsw i64 %71, 3
   %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.8, i64 noundef %81) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 gv_calloc.exit:                                   ; preds = %75
@@ -482,7 +482,7 @@ gv_calloc.exit:                                   ; preds = %75
 85:                                               ; preds = %83
   %86 = load ptr, ptr @stderr, align 8
   %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.7, i64 noundef %84, i64 noundef 8) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 88:                                               ; preds = %83
@@ -495,7 +495,7 @@ gv_calloc.exit:                                   ; preds = %75
   %92 = load ptr, ptr @stderr, align 8
   %93 = shl nuw nsw i64 %84, 3
   %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.8, i64 noundef %93) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 gv_calloc.exit193:                                ; preds = %88, %gv_calloc.exit

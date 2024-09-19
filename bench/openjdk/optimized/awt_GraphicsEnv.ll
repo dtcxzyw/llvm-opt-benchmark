@@ -3484,7 +3484,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 
 40:                                               ; preds = %37
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.54) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 .thread.i:                                        ; preds = %37, %34
   %.02.i = phi ptr [ %38, %37 ], [ %35, %34 ]
@@ -3496,7 +3496,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 43:                                               ; preds = %.thread.i
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.55) #17
   %44 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 45:                                               ; preds = %.thread.i
   %46 = load ptr, ptr @awt_display, align 8
@@ -3507,7 +3507,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 48:                                               ; preds = %45
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.57) #17
   %49 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 50:                                               ; preds = %45
   %51 = load i32, ptr @usingXinerama, align 4
@@ -3529,7 +3529,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 58:                                               ; preds = %55
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.58, i32 noundef %53, i32 noundef %.pre.i) #17
   %59 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 60:                                               ; preds = %55
   %61 = icmp ult i32 %.pre.i, 3
@@ -3541,7 +3541,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 64:                                               ; preds = %60
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.59) #17
   %65 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 .thread3.i:                                       ; preds = %60, %52, %50
   %66 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.60) #17
@@ -3552,7 +3552,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 68:                                               ; preds = %.thread3.i
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.60) #17
   %69 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 70:                                               ; preds = %.thread3.i
   %71 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.61) #17
@@ -3563,7 +3563,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 73:                                               ; preds = %70
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.61) #17
   %74 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 75:                                               ; preds = %70
   %76 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.62) #17
@@ -3574,7 +3574,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 78:                                               ; preds = %75
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.62) #17
   %79 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 80:                                               ; preds = %75
   %81 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.63) #17
@@ -3585,7 +3585,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 83:                                               ; preds = %80
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.63) #17
   %84 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 85:                                               ; preds = %80
   %86 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.64) #17
@@ -3596,7 +3596,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 88:                                               ; preds = %85
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.64) #17
   %89 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 90:                                               ; preds = %85
   %91 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.65) #17
@@ -3607,7 +3607,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 93:                                               ; preds = %90
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.65) #17
   %94 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 95:                                               ; preds = %90
   %96 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.66) #17
@@ -3618,7 +3618,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 98:                                               ; preds = %95
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.66) #17
   %99 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 100:                                              ; preds = %95
   %101 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.67) #17
@@ -3629,7 +3629,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 103:                                              ; preds = %100
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.67) #17
   %104 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 105:                                              ; preds = %100
   %106 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.68) #17
@@ -3640,7 +3640,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 108:                                              ; preds = %105
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.68) #17
   %109 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 110:                                              ; preds = %105
   %111 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.69) #17
@@ -3651,7 +3651,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 113:                                              ; preds = %110
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.69) #17
   %114 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 115:                                              ; preds = %110
   %116 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.70) #17
@@ -3662,7 +3662,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 118:                                              ; preds = %115
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.70) #17
   %119 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 120:                                              ; preds = %115
   %121 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.71) #17
@@ -3673,7 +3673,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 123:                                              ; preds = %120
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.71) #17
   %124 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 125:                                              ; preds = %120
   %126 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.72) #17
@@ -3684,27 +3684,27 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 128:                                              ; preds = %125
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.72) #17
   %129 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
 130:                                              ; preds = %125
   %131 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.73) #17
   store ptr %131, ptr @awt_XRRFreeCrtcInfo, align 8
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %X11GD_InitXrandrFuncs.exit
+  br i1 %132, label %133, label %X11GD_InitXrandrFuncs.argprom.exit
 
 133:                                              ; preds = %130
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.73) #17
   %134 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
-  br label %X11GD_InitXrandrFuncs.exit
+  br label %X11GD_InitXrandrFuncs.argprom.exit
 
-X11GD_InitXrandrFuncs.exit:                       ; preds = %40, %43, %48, %58, %64, %68, %73, %78, %83, %88, %93, %98, %103, %108, %113, %118, %123, %128, %130, %133
+X11GD_InitXrandrFuncs.argprom.exit:               ; preds = %40, %43, %48, %58, %64, %68, %73, %78, %83, %88, %93, %98, %103, %108, %113, %118, %123, %128, %130, %133
   %.040.i = phi i8 [ 0, %40 ], [ 0, %43 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %78 ], [ 0, %83 ], [ 0, %88 ], [ 0, %93 ], [ 0, %98 ], [ 0, %103 ], [ 0, %108 ], [ 0, %113 ], [ 0, %118 ], [ 0, %123 ], [ 0, %128 ], [ 0, %133 ], [ 0, %58 ], [ 0, %48 ], [ 1, %130 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %135
 
-135:                                              ; preds = %30, %X11GD_InitXrandrFuncs.exit
-  %.0 = phi i8 [ %.040.i, %X11GD_InitXrandrFuncs.exit ], [ 0, %30 ]
+135:                                              ; preds = %30, %X11GD_InitXrandrFuncs.argprom.exit
+  %.0 = phi i8 [ %.040.i, %X11GD_InitXrandrFuncs.argprom.exit ], [ 0, %30 ]
   call void (...) @awt_output_flush() #17
   %136 = load ptr, ptr %0, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 120

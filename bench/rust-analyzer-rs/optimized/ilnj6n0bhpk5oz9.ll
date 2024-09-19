@@ -1474,13 +1474,13 @@ define hidden noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit: ; preds = %9, %12
   %17 = phi i16 [ %16, %12 ], [ 1, %9 ]
   %18 = icmp eq i16 %17, %2
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %5, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !10
   %.not.i.i = icmp ult i64 %8, %21
-  br i1 %.not.i.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i: ; preds = %19
   %22 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1488,18 +1488,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i: ; preds = %19
   %24 = getelementptr inbounds i16, ptr %23, i64 %8
   %25 = load i16, ptr %24, align 2, !range !94, !noalias !167, !noundef !10
   %26 = icmp eq i16 %25, 25
-  br i1 %26, label %27, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %26, label %27, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 27:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i
   %28 = add nuw i64 %8, 1
   %.not.i5.i = icmp ult i64 %28, %21
-  br i1 %.not.i5.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i: ; preds = %27
   %29 = getelementptr inbounds i16, ptr %23, i64 %28
   %30 = load i16, ptr %29, align 2, !range !94, !noalias !170, !noundef !10
   %31 = icmp eq i16 %30, 25
-  br i1 %31, label %32, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %31, label %32, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 32:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
@@ -1522,13 +1522,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i: ; preds = %32
   %43 = shl nuw i64 1, %38
   %44 = and i64 %42, %43
   %45 = icmp ne i64 %44, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 46:                                               ; preds = %3
   %47 = getelementptr inbounds i8, ptr %5, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !10
   %.not.i.i51 = icmp ult i64 %8, %48
-  br i1 %.not.i.i51, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i51, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53: ; preds = %46
   %49 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1536,29 +1536,29 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53: ; preds = %46
   %51 = getelementptr inbounds i16, ptr %50, i64 %8
   %52 = load i16, ptr %51, align 2, !range !94, !noalias !176, !noundef !10
   %53 = icmp eq i16 %52, 25
-  br i1 %53, label %54, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %53, label %54, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 54:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53
   %55 = add nuw i64 %8, 1
   %.not.i7.i = icmp ult i64 %55, %48
-  br i1 %.not.i7.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i7.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i: ; preds = %54
   %56 = getelementptr inbounds i16, ptr %50, i64 %55
   %57 = load i16, ptr %56, align 2, !range !94, !noalias !179, !noundef !10
   %58 = icmp eq i16 %57, 25
-  br i1 %58, label %59, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %58, label %59, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 59:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i
   %60 = add nuw i64 %8, 2
   %.not.i9.i = icmp ult i64 %60, %48
-  br i1 %.not.i9.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i9.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i: ; preds = %59
   %61 = getelementptr inbounds i16, ptr %50, i64 %60
   %62 = load i16, ptr %61, align 2, !range !94, !noalias !182, !noundef !10
   %63 = icmp eq i16 %62, 25
-  br i1 %63, label %64, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %63, label %64, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 64:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i
   %65 = lshr i64 %8, 6
@@ -1580,7 +1580,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54: ; preds = %64
   %75 = shl nuw i64 1, %70
   %76 = and i64 %74, %75
   %.not.i55 = icmp eq i64 %76, 0
-  br i1 %.not.i55, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit, label %77
+  br i1 %.not.i55, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit, label %77
 
 77:                                               ; preds = %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54
   %78 = lshr i64 %55, 6
@@ -1598,13 +1598,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i: ; preds = %77
   %84 = shl nuw i64 1, %81
   %85 = and i64 %83, %84
   %86 = icmp ne i64 %85, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 87:                                               ; preds = %3
   %88 = getelementptr inbounds i8, ptr %5, i64 16
   %89 = load i64, ptr %88, align 8, !noundef !10
   %.not.i.i56 = icmp ult i64 %8, %89
-  br i1 %.not.i.i56, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i56, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58: ; preds = %87
   %90 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1612,29 +1612,29 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58: ; preds = %87
   %92 = getelementptr inbounds i16, ptr %91, i64 %8
   %93 = load i16, ptr %92, align 2, !range !94, !noalias !191, !noundef !10
   %94 = icmp eq i16 %93, 25
-  br i1 %94, label %95, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %94, label %95, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 95:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58
   %96 = add nuw i64 %8, 1
   %.not.i7.i59 = icmp ult i64 %96, %89
-  br i1 %.not.i7.i59, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i7.i59, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60: ; preds = %95
   %97 = getelementptr inbounds i16, ptr %91, i64 %96
   %98 = load i16, ptr %97, align 2, !range !94, !noalias !194, !noundef !10
   %99 = icmp eq i16 %98, 25
-  br i1 %99, label %100, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %99, label %100, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 100:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60
   %101 = add nuw i64 %8, 2
   %.not.i9.i61 = icmp ult i64 %101, %89
-  br i1 %.not.i9.i61, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i9.i61, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62: ; preds = %100
   %102 = getelementptr inbounds i16, ptr %91, i64 %101
   %103 = load i16, ptr %102, align 2, !range !94, !noalias !197, !noundef !10
   %104 = icmp eq i16 %103, 31
-  br i1 %104, label %105, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %104, label %105, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 105:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62
   %106 = lshr i64 %8, 6
@@ -1656,7 +1656,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63: ; preds = %105
   %116 = shl nuw i64 1, %111
   %117 = and i64 %115, %116
   %.not.i64 = icmp eq i64 %117, 0
-  br i1 %.not.i64, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit, label %118
+  br i1 %.not.i64, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit, label %118
 
 118:                                              ; preds = %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63
   %119 = lshr i64 %96, 6
@@ -1674,13 +1674,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65: ; preds = %118
   %125 = shl nuw i64 1, %122
   %126 = and i64 %124, %125
   %127 = icmp ne i64 %126, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 128:                                              ; preds = %3
   %129 = getelementptr inbounds i8, ptr %5, i64 16
   %130 = load i64, ptr %129, align 8, !noundef !10
   %.not.i.i67 = icmp ult i64 %8, %130
-  br i1 %.not.i.i67, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i67, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69: ; preds = %128
   %131 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1688,18 +1688,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69: ; preds = %128
   %133 = getelementptr inbounds i16, ptr %132, i64 %8
   %134 = load i16, ptr %133, align 2, !range !94, !noalias !206, !noundef !10
   %135 = icmp eq i16 %134, 29
-  br i1 %135, label %136, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %135, label %136, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 136:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69
   %137 = add nuw i64 %8, 1
   %.not.i5.i70 = icmp ult i64 %137, %130
-  br i1 %.not.i5.i70, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i70, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71: ; preds = %136
   %138 = getelementptr inbounds i16, ptr %132, i64 %137
   %139 = load i16, ptr %138, align 2, !range !94, !noalias !209, !noundef !10
   %140 = icmp eq i16 %139, 29
-  br i1 %140, label %141, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %140, label %141, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 141:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
@@ -1722,13 +1722,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72: ; preds = %141
   %152 = shl nuw i64 1, %147
   %153 = and i64 %151, %152
   %154 = icmp ne i64 %153, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 155:                                              ; preds = %3
   %156 = getelementptr inbounds i8, ptr %5, i64 16
   %157 = load i64, ptr %156, align 8, !noundef !10
   %.not.i.i74 = icmp ult i64 %8, %157
-  br i1 %.not.i.i74, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i74, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76: ; preds = %155
   %158 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1736,18 +1736,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76: ; preds = %155
   %160 = getelementptr inbounds i16, ptr %159, i64 %8
   %161 = load i16, ptr %160, align 2, !range !94, !noalias !215, !noundef !10
   %162 = icmp eq i16 %161, 31
-  br i1 %162, label %163, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %162, label %163, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 163:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76
   %164 = add nuw i64 %8, 1
   %.not.i5.i77 = icmp ult i64 %164, %157
-  br i1 %.not.i5.i77, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i77, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78: ; preds = %163
   %165 = getelementptr inbounds i16, ptr %159, i64 %164
   %166 = load i16, ptr %165, align 2, !range !94, !noalias !218, !noundef !10
   %167 = icmp eq i16 %166, 31
-  br i1 %167, label %168, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %167, label %168, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 168:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
@@ -1770,13 +1770,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79: ; preds = %168
   %179 = shl nuw i64 1, %174
   %180 = and i64 %178, %179
   %181 = icmp ne i64 %180, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 182:                                              ; preds = %3
   %183 = getelementptr inbounds i8, ptr %5, i64 16
   %184 = load i64, ptr %183, align 8, !noundef !10
   %.not.i.i81 = icmp ult i64 %8, %184
-  br i1 %.not.i.i81, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i81, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83: ; preds = %182
   %185 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1784,18 +1784,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83: ; preds = %182
   %187 = getelementptr inbounds i16, ptr %186, i64 %8
   %188 = load i16, ptr %187, align 2, !range !94, !noalias !224, !noundef !10
   %189 = icmp eq i16 %188, 31
-  br i1 %189, label %190, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %189, label %190, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 190:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83
   %191 = add nuw i64 %8, 1
   %.not.i5.i84 = icmp ult i64 %191, %184
-  br i1 %.not.i5.i84, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i84, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85: ; preds = %190
   %192 = getelementptr inbounds i16, ptr %186, i64 %191
   %193 = load i16, ptr %192, align 2, !range !94, !noalias !227, !noundef !10
   %194 = icmp eq i16 %193, 11
-  br i1 %194, label %195, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %194, label %195, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 195:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
@@ -1818,13 +1818,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86: ; preds = %195
   %206 = shl nuw i64 1, %201
   %207 = and i64 %205, %206
   %208 = icmp ne i64 %207, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 209:                                              ; preds = %3
   %210 = getelementptr inbounds i8, ptr %5, i64 16
   %211 = load i64, ptr %210, align 8, !noundef !10
   %.not.i.i88 = icmp ult i64 %8, %211
-  br i1 %.not.i.i88, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i88, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90: ; preds = %209
   %212 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1832,18 +1832,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90: ; preds = %209
   %214 = getelementptr inbounds i16, ptr %213, i64 %8
   %215 = load i16, ptr %214, align 2, !range !94, !noalias !233, !noundef !10
   %216 = icmp eq i16 %215, 34
-  br i1 %216, label %217, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %216, label %217, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 217:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90
   %218 = add nuw i64 %8, 1
   %.not.i5.i91 = icmp ult i64 %218, %211
-  br i1 %.not.i5.i91, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i91, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92: ; preds = %217
   %219 = getelementptr inbounds i16, ptr %213, i64 %218
   %220 = load i16, ptr %219, align 2, !range !94, !noalias !236, !noundef !10
   %221 = icmp eq i16 %220, 31
-  br i1 %221, label %222, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %221, label %222, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 222:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
@@ -1866,13 +1866,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93: ; preds = %222
   %233 = shl nuw i64 1, %228
   %234 = and i64 %232, %233
   %235 = icmp ne i64 %234, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 236:                                              ; preds = %3
   %237 = getelementptr inbounds i8, ptr %5, i64 16
   %238 = load i64, ptr %237, align 8, !noundef !10
   %.not.i.i95 = icmp ult i64 %8, %238
-  br i1 %.not.i.i95, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i95, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97: ; preds = %236
   %239 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1880,18 +1880,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97: ; preds = %236
   %241 = getelementptr inbounds i16, ptr %240, i64 %8
   %242 = load i16, ptr %241, align 2, !range !94, !noalias !242, !noundef !10
   %243 = icmp eq i16 %242, 36
-  br i1 %243, label %244, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %243, label %244, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 244:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97
   %245 = add nuw i64 %8, 1
   %.not.i5.i98 = icmp ult i64 %245, %238
-  br i1 %.not.i5.i98, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i98, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99: ; preds = %244
   %246 = getelementptr inbounds i16, ptr %240, i64 %245
   %247 = load i16, ptr %246, align 2, !range !94, !noalias !245, !noundef !10
   %248 = icmp eq i16 %247, 11
-  br i1 %248, label %249, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %248, label %249, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 249:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
@@ -1914,13 +1914,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100: ; preds = %249
   %260 = shl nuw i64 1, %255
   %261 = and i64 %259, %260
   %262 = icmp ne i64 %261, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 263:                                              ; preds = %3
   %264 = getelementptr inbounds i8, ptr %5, i64 16
   %265 = load i64, ptr %264, align 8, !noundef !10
   %.not.i.i102 = icmp ult i64 %8, %265
-  br i1 %.not.i.i102, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i102, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104: ; preds = %263
   %266 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1928,18 +1928,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104: ; preds = %263
   %268 = getelementptr inbounds i16, ptr %267, i64 %8
   %269 = load i16, ptr %268, align 2, !range !94, !noalias !251, !noundef !10
   %270 = icmp eq i16 %269, 10
-  br i1 %270, label %271, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %270, label %271, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 271:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104
   %272 = add nuw i64 %8, 1
   %.not.i5.i105 = icmp ult i64 %272, %265
-  br i1 %.not.i5.i105, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i105, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106: ; preds = %271
   %273 = getelementptr inbounds i16, ptr %267, i64 %272
   %274 = load i16, ptr %273, align 2, !range !94, !noalias !254, !noundef !10
   %275 = icmp eq i16 %274, 31
-  br i1 %275, label %276, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %275, label %276, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 276:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
@@ -1962,13 +1962,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107: ; preds = %276
   %287 = shl nuw i64 1, %282
   %288 = and i64 %286, %287
   %289 = icmp ne i64 %288, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 290:                                              ; preds = %3
   %291 = getelementptr inbounds i8, ptr %5, i64 16
   %292 = load i64, ptr %291, align 8, !noundef !10
   %.not.i.i109 = icmp ult i64 %8, %292
-  br i1 %.not.i.i109, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i109, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111: ; preds = %290
   %293 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1976,18 +1976,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111: ; preds = %290
   %295 = getelementptr inbounds i16, ptr %294, i64 %8
   %296 = load i16, ptr %295, align 2, !range !94, !noalias !260, !noundef !10
   %297 = icmp eq i16 %296, 11
-  br i1 %297, label %298, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %297, label %298, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 298:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111
   %299 = add nuw i64 %8, 1
   %.not.i5.i112 = icmp ult i64 %299, %292
-  br i1 %.not.i5.i112, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i112, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113: ; preds = %298
   %300 = getelementptr inbounds i16, ptr %294, i64 %299
   %301 = load i16, ptr %300, align 2, !range !94, !noalias !263, !noundef !10
   %302 = icmp eq i16 %301, 31
-  br i1 %302, label %303, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %302, label %303, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 303:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
@@ -2010,13 +2010,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114: ; preds = %303
   %314 = shl nuw i64 1, %309
   %315 = and i64 %313, %314
   %316 = icmp ne i64 %315, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 317:                                              ; preds = %3
   %318 = getelementptr inbounds i8, ptr %5, i64 16
   %319 = load i64, ptr %318, align 8, !noundef !10
   %.not.i.i116 = icmp ult i64 %8, %319
-  br i1 %.not.i.i116, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i116, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118: ; preds = %317
   %320 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2024,18 +2024,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118: ; preds = %317
   %322 = getelementptr inbounds i16, ptr %321, i64 %8
   %323 = load i16, ptr %322, align 2, !range !94, !noalias !269, !noundef !10
   %324 = icmp eq i16 %323, 19
-  br i1 %324, label %325, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %324, label %325, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 325:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118
   %326 = add nuw i64 %8, 1
   %.not.i5.i119 = icmp ult i64 %326, %319
-  br i1 %.not.i5.i119, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i119, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120: ; preds = %325
   %327 = getelementptr inbounds i16, ptr %321, i64 %326
   %328 = load i16, ptr %327, align 2, !range !94, !noalias !272, !noundef !10
   %329 = icmp eq i16 %328, 31
-  br i1 %329, label %330, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %329, label %330, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 330:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
@@ -2058,13 +2058,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121: ; preds = %330
   %341 = shl nuw i64 1, %336
   %342 = and i64 %340, %341
   %343 = icmp ne i64 %342, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 344:                                              ; preds = %3
   %345 = getelementptr inbounds i8, ptr %5, i64 16
   %346 = load i64, ptr %345, align 8, !noundef !10
   %.not.i.i123 = icmp ult i64 %8, %346
-  br i1 %.not.i.i123, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i123, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125: ; preds = %344
   %347 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2072,18 +2072,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125: ; preds = %344
   %349 = getelementptr inbounds i16, ptr %348, i64 %8
   %350 = load i16, ptr %349, align 2, !range !94, !noalias !278, !noundef !10
   %351 = icmp eq i16 %350, 36
-  br i1 %351, label %352, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %351, label %352, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 352:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125
   %353 = add nuw i64 %8, 1
   %.not.i5.i126 = icmp ult i64 %353, %346
-  br i1 %.not.i5.i126, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i126, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127: ; preds = %352
   %354 = getelementptr inbounds i16, ptr %348, i64 %353
   %355 = load i16, ptr %354, align 2, !range !94, !noalias !281, !noundef !10
   %356 = icmp eq i16 %355, 31
-  br i1 %356, label %357, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %356, label %357, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 357:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127
   tail call void @llvm.experimental.noalias.scope.decl(metadata !284)
@@ -2106,13 +2106,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128: ; preds = %357
   %368 = shl nuw i64 1, %363
   %369 = and i64 %367, %368
   %370 = icmp ne i64 %369, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 371:                                              ; preds = %3
   %372 = getelementptr inbounds i8, ptr %5, i64 16
   %373 = load i64, ptr %372, align 8, !noundef !10
   %.not.i.i130 = icmp ult i64 %8, %373
-  br i1 %.not.i.i130, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i130, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132: ; preds = %371
   %374 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2120,18 +2120,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132: ; preds = %371
   %376 = getelementptr inbounds i16, ptr %375, i64 %8
   %377 = load i16, ptr %376, align 2, !range !94, !noalias !287, !noundef !10
   %378 = icmp eq i16 %377, 18
-  br i1 %378, label %379, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %378, label %379, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 379:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132
   %380 = add nuw i64 %8, 1
   %.not.i5.i133 = icmp ult i64 %380, %373
-  br i1 %.not.i5.i133, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i133, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134: ; preds = %379
   %381 = getelementptr inbounds i16, ptr %375, i64 %380
   %382 = load i16, ptr %381, align 2, !range !94, !noalias !290, !noundef !10
   %383 = icmp eq i16 %382, 31
-  br i1 %383, label %384, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %383, label %384, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 384:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
@@ -2154,13 +2154,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135: ; preds = %384
   %395 = shl nuw i64 1, %390
   %396 = and i64 %394, %395
   %397 = icmp ne i64 %396, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 398:                                              ; preds = %3
   %399 = getelementptr inbounds i8, ptr %5, i64 16
   %400 = load i64, ptr %399, align 8, !noundef !10
   %.not.i.i137 = icmp ult i64 %8, %400
-  br i1 %.not.i.i137, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i137, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139: ; preds = %398
   %401 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2168,18 +2168,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139: ; preds = %398
   %403 = getelementptr inbounds i16, ptr %402, i64 %8
   %404 = load i16, ptr %403, align 2, !range !94, !noalias !296, !noundef !10
   %405 = icmp eq i16 %404, 17
-  br i1 %405, label %406, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %405, label %406, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 406:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139
   %407 = add nuw i64 %8, 1
   %.not.i5.i140 = icmp ult i64 %407, %400
-  br i1 %.not.i5.i140, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i140, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141: ; preds = %406
   %408 = getelementptr inbounds i16, ptr %402, i64 %407
   %409 = load i16, ptr %408, align 2, !range !94, !noalias !299, !noundef !10
   %410 = icmp eq i16 %409, 31
-  br i1 %410, label %411, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %410, label %411, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 411:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
@@ -2202,13 +2202,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142: ; preds = %411
   %422 = shl nuw i64 1, %417
   %423 = and i64 %421, %422
   %424 = icmp ne i64 %423, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 425:                                              ; preds = %3
   %426 = getelementptr inbounds i8, ptr %5, i64 16
   %427 = load i64, ptr %426, align 8, !noundef !10
   %.not.i.i144 = icmp ult i64 %8, %427
-  br i1 %.not.i.i144, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i144, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146: ; preds = %425
   %428 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2216,18 +2216,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146: ; preds = %425
   %430 = getelementptr inbounds i16, ptr %429, i64 %8
   %431 = load i16, ptr %430, align 2, !range !94, !noalias !305, !noundef !10
   %432 = icmp eq i16 %431, 22
-  br i1 %432, label %433, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %432, label %433, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 433:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146
   %434 = add nuw i64 %8, 1
   %.not.i5.i147 = icmp ult i64 %434, %427
-  br i1 %.not.i5.i147, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i147, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148: ; preds = %433
   %435 = getelementptr inbounds i16, ptr %429, i64 %434
   %436 = load i16, ptr %435, align 2, !range !94, !noalias !308, !noundef !10
   %437 = icmp eq i16 %436, 31
-  br i1 %437, label %438, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %437, label %438, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 438:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
@@ -2250,13 +2250,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149: ; preds = %438
   %449 = shl nuw i64 1, %444
   %450 = and i64 %448, %449
   %451 = icmp ne i64 %450, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 452:                                              ; preds = %3
   %453 = getelementptr inbounds i8, ptr %5, i64 16
   %454 = load i64, ptr %453, align 8, !noundef !10
   %.not.i.i151 = icmp ult i64 %8, %454
-  br i1 %.not.i.i151, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i151, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153: ; preds = %452
   %455 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2264,18 +2264,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153: ; preds = %452
   %457 = getelementptr inbounds i16, ptr %456, i64 %8
   %458 = load i16, ptr %457, align 2, !range !94, !noalias !314, !noundef !10
   %459 = icmp eq i16 %458, 21
-  br i1 %459, label %460, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %459, label %460, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 460:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153
   %461 = add nuw i64 %8, 1
   %.not.i5.i154 = icmp ult i64 %461, %454
-  br i1 %.not.i5.i154, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i154, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155: ; preds = %460
   %462 = getelementptr inbounds i16, ptr %456, i64 %461
   %463 = load i16, ptr %462, align 2, !range !94, !noalias !317, !noundef !10
   %464 = icmp eq i16 %463, 31
-  br i1 %464, label %465, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %464, label %465, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 465:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
@@ -2298,13 +2298,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156: ; preds = %465
   %476 = shl nuw i64 1, %471
   %477 = and i64 %475, %476
   %478 = icmp ne i64 %477, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 479:                                              ; preds = %3
   %480 = getelementptr inbounds i8, ptr %5, i64 16
   %481 = load i64, ptr %480, align 8, !noundef !10
   %.not.i.i158 = icmp ult i64 %8, %481
-  br i1 %.not.i.i158, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i158, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160: ; preds = %479
   %482 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2312,18 +2312,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160: ; preds = %479
   %484 = getelementptr inbounds i16, ptr %483, i64 %8
   %485 = load i16, ptr %484, align 2, !range !94, !noalias !323, !noundef !10
   %486 = icmp eq i16 %485, 20
-  br i1 %486, label %487, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %486, label %487, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 487:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160
   %488 = add nuw i64 %8, 1
   %.not.i5.i161 = icmp ult i64 %488, %481
-  br i1 %.not.i5.i161, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i161, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162: ; preds = %487
   %489 = getelementptr inbounds i16, ptr %483, i64 %488
   %490 = load i16, ptr %489, align 2, !range !94, !noalias !326, !noundef !10
   %491 = icmp eq i16 %490, 31
-  br i1 %491, label %492, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %491, label %492, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 492:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
@@ -2346,13 +2346,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163: ; preds = %492
   %503 = shl nuw i64 1, %498
   %504 = and i64 %502, %503
   %505 = icmp ne i64 %504, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 506:                                              ; preds = %3
   %507 = getelementptr inbounds i8, ptr %5, i64 16
   %508 = load i64, ptr %507, align 8, !noundef !10
   %.not.i.i165 = icmp ult i64 %8, %508
-  br i1 %.not.i.i165, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i165, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167: ; preds = %506
   %509 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2360,18 +2360,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167: ; preds = %506
   %511 = getelementptr inbounds i16, ptr %510, i64 %8
   %512 = load i16, ptr %511, align 2, !range !94, !noalias !332, !noundef !10
   %513 = icmp eq i16 %512, 23
-  br i1 %513, label %514, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %513, label %514, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 514:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167
   %515 = add nuw i64 %8, 1
   %.not.i5.i168 = icmp ult i64 %515, %508
-  br i1 %.not.i5.i168, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i168, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169: ; preds = %514
   %516 = getelementptr inbounds i16, ptr %510, i64 %515
   %517 = load i16, ptr %516, align 2, !range !94, !noalias !335, !noundef !10
   %518 = icmp eq i16 %517, 31
-  br i1 %518, label %519, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %518, label %519, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 519:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169
   tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
@@ -2394,13 +2394,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170: ; preds = %519
   %530 = shl nuw i64 1, %525
   %531 = and i64 %529, %530
   %532 = icmp ne i64 %531, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 533:                                              ; preds = %3
   %534 = getelementptr inbounds i8, ptr %5, i64 16
   %535 = load i64, ptr %534, align 8, !noundef !10
   %.not.i.i172 = icmp ult i64 %8, %535
-  br i1 %.not.i.i172, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i172, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174: ; preds = %533
   %536 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2408,18 +2408,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174: ; preds = %533
   %538 = getelementptr inbounds i16, ptr %537, i64 %8
   %539 = load i16, ptr %538, align 2, !range !94, !noalias !341, !noundef !10
   %540 = icmp eq i16 %539, 17
-  br i1 %540, label %541, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %540, label %541, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 541:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174
   %542 = add nuw i64 %8, 1
   %.not.i5.i175 = icmp ult i64 %542, %535
-  br i1 %.not.i5.i175, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i175, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176: ; preds = %541
   %543 = getelementptr inbounds i16, ptr %537, i64 %542
   %544 = load i16, ptr %543, align 2, !range !94, !noalias !344, !noundef !10
   %545 = icmp eq i16 %544, 17
-  br i1 %545, label %546, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %545, label %546, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 546:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
@@ -2442,13 +2442,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177: ; preds = %546
   %557 = shl nuw i64 1, %552
   %558 = and i64 %556, %557
   %559 = icmp ne i64 %558, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 560:                                              ; preds = %3
   %561 = getelementptr inbounds i8, ptr %5, i64 16
   %562 = load i64, ptr %561, align 8, !noundef !10
   %.not.i.i179 = icmp ult i64 %8, %562
-  br i1 %.not.i.i179, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i179, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181: ; preds = %560
   %563 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2456,18 +2456,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181: ; preds = %560
   %565 = getelementptr inbounds i16, ptr %564, i64 %8
   %566 = load i16, ptr %565, align 2, !range !94, !noalias !350, !noundef !10
   %567 = icmp eq i16 %566, 18
-  br i1 %567, label %568, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %567, label %568, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 568:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181
   %569 = add nuw i64 %8, 1
   %.not.i5.i182 = icmp ult i64 %569, %562
-  br i1 %.not.i5.i182, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i182, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183: ; preds = %568
   %570 = getelementptr inbounds i16, ptr %564, i64 %569
   %571 = load i16, ptr %570, align 2, !range !94, !noalias !353, !noundef !10
   %572 = icmp eq i16 %571, 18
-  br i1 %572, label %573, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %572, label %573, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 573:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183
   tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
@@ -2490,13 +2490,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184: ; preds = %573
   %584 = shl nuw i64 1, %579
   %585 = and i64 %583, %584
   %586 = icmp ne i64 %585, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 587:                                              ; preds = %3
   %588 = getelementptr inbounds i8, ptr %5, i64 16
   %589 = load i64, ptr %588, align 8, !noundef !10
   %.not.i.i186 = icmp ult i64 %8, %589
-  br i1 %.not.i.i186, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i186, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188: ; preds = %587
   %590 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2504,18 +2504,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188: ; preds = %587
   %592 = getelementptr inbounds i16, ptr %591, i64 %8
   %593 = load i16, ptr %592, align 2, !range !94, !noalias !359, !noundef !10
   %594 = icmp eq i16 %593, 10
-  br i1 %594, label %595, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %594, label %595, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 595:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188
   %596 = add nuw i64 %8, 1
   %.not.i5.i189 = icmp ult i64 %596, %589
-  br i1 %.not.i5.i189, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i189, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190: ; preds = %595
   %597 = getelementptr inbounds i16, ptr %591, i64 %596
   %598 = load i16, ptr %597, align 2, !range !94, !noalias !362, !noundef !10
   %599 = icmp eq i16 %598, 10
-  br i1 %599, label %600, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %599, label %600, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 600:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
@@ -2538,13 +2538,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191: ; preds = %600
   %611 = shl nuw i64 1, %606
   %612 = and i64 %610, %611
   %613 = icmp ne i64 %612, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 614:                                              ; preds = %3
   %615 = getelementptr inbounds i8, ptr %5, i64 16
   %616 = load i64, ptr %615, align 8, !noundef !10
   %.not.i.i193 = icmp ult i64 %8, %616
-  br i1 %.not.i.i193, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i193, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195: ; preds = %614
   %617 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2552,18 +2552,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195: ; preds = %614
   %619 = getelementptr inbounds i16, ptr %618, i64 %8
   %620 = load i16, ptr %619, align 2, !range !94, !noalias !368, !noundef !10
   %621 = icmp eq i16 %620, 11
-  br i1 %621, label %622, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %621, label %622, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 622:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195
   %623 = add nuw i64 %8, 1
   %.not.i5.i196 = icmp ult i64 %623, %616
-  br i1 %.not.i5.i196, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i5.i196, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197: ; preds = %622
   %624 = getelementptr inbounds i16, ptr %618, i64 %623
   %625 = load i16, ptr %624, align 2, !range !94, !noalias !371, !noundef !10
   %626 = icmp eq i16 %625, 11
-  br i1 %626, label %627, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %626, label %627, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 627:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197
   tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
@@ -2586,13 +2586,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198: ; preds = %627
   %638 = shl nuw i64 1, %633
   %639 = and i64 %637, %638
   %640 = icmp ne i64 %639, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 641:                                              ; preds = %3
   %642 = getelementptr inbounds i8, ptr %5, i64 16
   %643 = load i64, ptr %642, align 8, !noundef !10
   %.not.i.i200 = icmp ult i64 %8, %643
-  br i1 %.not.i.i200, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i200, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202: ; preds = %641
   %644 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2600,29 +2600,29 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202: ; preds = %641
   %646 = getelementptr inbounds i16, ptr %645, i64 %8
   %647 = load i16, ptr %646, align 2, !range !94, !noalias !377, !noundef !10
   %648 = icmp eq i16 %647, 10
-  br i1 %648, label %649, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %648, label %649, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 649:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202
   %650 = add nuw i64 %8, 1
   %.not.i7.i203 = icmp ult i64 %650, %643
-  br i1 %.not.i7.i203, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i7.i203, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204: ; preds = %649
   %651 = getelementptr inbounds i16, ptr %645, i64 %650
   %652 = load i16, ptr %651, align 2, !range !94, !noalias !380, !noundef !10
   %653 = icmp eq i16 %652, 10
-  br i1 %653, label %654, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %653, label %654, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 654:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204
   %655 = add nuw i64 %8, 2
   %.not.i9.i205 = icmp ult i64 %655, %643
-  br i1 %.not.i9.i205, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i9.i205, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206: ; preds = %654
   %656 = getelementptr inbounds i16, ptr %645, i64 %655
   %657 = load i16, ptr %656, align 2, !range !94, !noalias !383, !noundef !10
   %658 = icmp eq i16 %657, 31
-  br i1 %658, label %659, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %658, label %659, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 659:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206
   %660 = lshr i64 %8, 6
@@ -2644,7 +2644,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207: ; preds = %659
   %670 = shl nuw i64 1, %665
   %671 = and i64 %669, %670
   %.not.i208 = icmp eq i64 %671, 0
-  br i1 %.not.i208, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit, label %672
+  br i1 %.not.i208, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit, label %672
 
 672:                                              ; preds = %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207
   %673 = lshr i64 %650, 6
@@ -2662,13 +2662,13 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209: ; preds = %672
   %679 = shl nuw i64 1, %676
   %680 = and i64 %678, %679
   %681 = icmp ne i64 %680, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 682:                                              ; preds = %3
   %683 = getelementptr inbounds i8, ptr %5, i64 16
   %684 = load i64, ptr %683, align 8, !noundef !10
   %.not.i.i211 = icmp ult i64 %8, %684
-  br i1 %.not.i.i211, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i211, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213: ; preds = %682
   %685 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2676,29 +2676,29 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213: ; preds = %682
   %687 = getelementptr inbounds i16, ptr %686, i64 %8
   %688 = load i16, ptr %687, align 2, !range !94, !noalias !392, !noundef !10
   %689 = icmp eq i16 %688, 11
-  br i1 %689, label %690, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %689, label %690, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 690:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213
   %691 = add nuw i64 %8, 1
   %.not.i7.i214 = icmp ult i64 %691, %684
-  br i1 %.not.i7.i214, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i7.i214, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215: ; preds = %690
   %692 = getelementptr inbounds i16, ptr %686, i64 %691
   %693 = load i16, ptr %692, align 2, !range !94, !noalias !395, !noundef !10
   %694 = icmp eq i16 %693, 11
-  br i1 %694, label %695, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %694, label %695, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 695:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215
   %696 = add nuw i64 %8, 2
   %.not.i9.i216 = icmp ult i64 %696, %684
-  br i1 %.not.i9.i216, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i9.i216, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217: ; preds = %695
   %697 = getelementptr inbounds i16, ptr %686, i64 %696
   %698 = load i16, ptr %697, align 2, !range !94, !noalias !398, !noundef !10
   %699 = icmp eq i16 %698, 31
-  br i1 %699, label %700, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %699, label %700, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
 700:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217
   %701 = lshr i64 %8, 6
@@ -2720,7 +2720,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218: ; preds = %700
   %711 = shl nuw i64 1, %706
   %712 = and i64 %710, %711
   %.not.i219 = icmp eq i64 %712, 0
-  br i1 %.not.i219, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit, label %713
+  br i1 %.not.i219, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit, label %713
 
 713:                                              ; preds = %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218
   %714 = lshr i64 %691, 6
@@ -2738,9 +2738,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220: ; preds = %713
   %720 = shl nuw i64 1, %717
   %721 = and i64 %719, %720
   %722 = icmp ne i64 %721, 0
-  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit
 
-_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit: ; preds = %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217, %695, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215, %690, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213, %682, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206, %654, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204, %649, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202, %641, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197, %622, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195, %614, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190, %595, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188, %587, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183, %568, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181, %560, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176, %541, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174, %533, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169, %514, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167, %506, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162, %487, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160, %479, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155, %460, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153, %452, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148, %433, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146, %425, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141, %406, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139, %398, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134, %379, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132, %371, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127, %352, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125, %344, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120, %325, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118, %317, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113, %298, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111, %290, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106, %271, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104, %263, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99, %244, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97, %236, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92, %217, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90, %209, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85, %190, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83, %182, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78, %163, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76, %155, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71, %136, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69, %128, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62, %100, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60, %95, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58, %87, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i, %59, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i, %54, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53, %46, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i, %27, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i, %19, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit
+_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.argprom.exit: ; preds = %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217, %695, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215, %690, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213, %682, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206, %654, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204, %649, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202, %641, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197, %622, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195, %614, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190, %595, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188, %587, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183, %568, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181, %560, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176, %541, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174, %533, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169, %514, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167, %506, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162, %487, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160, %479, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155, %460, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153, %452, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148, %433, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146, %425, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141, %406, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139, %398, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134, %379, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132, %371, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127, %352, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125, %344, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120, %325, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118, %317, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113, %298, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111, %290, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106, %271, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104, %263, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99, %244, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97, %236, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92, %217, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90, %209, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85, %190, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83, %182, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78, %163, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76, %155, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71, %136, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69, %128, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62, %100, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60, %95, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58, %87, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i, %59, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i, %54, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53, %46, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i, %27, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i, %19, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit
   %.0.in = phi i1 [ %18, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit ], [ %45, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i ], [ false, %19 ], [ false, %27 ], [ %86, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i ], [ false, %46 ], [ false, %54 ], [ false, %59 ], [ %127, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62 ], [ false, %87 ], [ false, %95 ], [ false, %100 ], [ %154, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71 ], [ false, %128 ], [ false, %136 ], [ %181, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78 ], [ false, %155 ], [ false, %163 ], [ %208, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85 ], [ false, %182 ], [ false, %190 ], [ %235, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92 ], [ false, %209 ], [ false, %217 ], [ %262, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99 ], [ false, %236 ], [ false, %244 ], [ %289, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106 ], [ false, %263 ], [ false, %271 ], [ %316, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113 ], [ false, %290 ], [ false, %298 ], [ %343, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120 ], [ false, %317 ], [ false, %325 ], [ %370, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127 ], [ false, %344 ], [ false, %352 ], [ %397, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134 ], [ false, %371 ], [ false, %379 ], [ %424, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141 ], [ false, %398 ], [ false, %406 ], [ %451, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148 ], [ false, %425 ], [ false, %433 ], [ %478, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155 ], [ false, %452 ], [ false, %460 ], [ %505, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162 ], [ false, %479 ], [ false, %487 ], [ %532, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169 ], [ false, %506 ], [ false, %514 ], [ %559, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176 ], [ false, %533 ], [ false, %541 ], [ %586, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183 ], [ false, %560 ], [ false, %568 ], [ %613, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190 ], [ false, %587 ], [ false, %595 ], [ %640, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197 ], [ false, %614 ], [ false, %622 ], [ %681, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206 ], [ false, %641 ], [ false, %649 ], [ false, %654 ], [ %722, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217 ], [ false, %682 ], [ false, %690 ], [ false, %695 ]
   ret i1 %.0.in
 }

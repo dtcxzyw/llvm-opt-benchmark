@@ -241,16 +241,16 @@ define internal i32 @dissect_fp_hint(ptr noundef %0, ptr noundef %1, ptr noundef
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 1
   %.not61.not = icmp eq i8 %54, 0
-  br i1 %.not61.not, label %switch.lookup, label %assign_fph_pch.exit.i
+  br i1 %.not61.not, label %switch.lookup, label %assign_fph_pch.argprom.exit.i
 
 switch.lookup:                                    ; preds = %44
   %55 = lshr i8 %51, 6
   %56 = zext nneg i8 %55 to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_fp_hint, i64 0, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %assign_fph_pch.exit.i
+  br label %assign_fph_pch.argprom.exit.i
 
-assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
+assign_fph_pch.argprom.exit.i:                    ; preds = %44, %switch.lookup
   %.sink.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %44 ]
   %57 = getelementptr inbounds i8, ptr %.0.i, i64 712
   store i32 %.sink.i.i, ptr %57, align 8
@@ -302,7 +302,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   br i1 %.not.i.i, label %attach_info.exit, label %93
 
 93:                                               ; preds = %71
-  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext 9, i8 noundef zeroext %92, ptr noundef %.0)
+  tail call fastcc void @assign_rb_info.retelim(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext 9, i8 noundef zeroext %92, ptr noundef %.0)
   br label %attach_info.exit
 
 94:                                               ; preds = %32
@@ -335,7 +335,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   br i1 %.not.i48.i, label %attach_info.exit, label %116
 
 116:                                              ; preds = %94
-  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext 9, i8 noundef zeroext %115, ptr noundef %.0)
+  tail call fastcc void @assign_rb_info.retelim(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext 9, i8 noundef zeroext %115, ptr noundef %.0)
   br label %attach_info.exit
 
 117:                                              ; preds = %32
@@ -449,7 +449,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
 
 181:                                              ; preds = %._crit_edge.i.i
   %182 = add i16 %.0.lcssa.i.i, 1
-  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %182, i8 noundef zeroext %180, ptr noundef %.0)
+  tail call fastcc void @assign_rb_info.retelim(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %182, i8 noundef zeroext %180, ptr noundef %.0)
   br label %attach_info.exit
 
 183:                                              ; preds = %32
@@ -477,7 +477,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   br i1 %.not22.i.i, label %attach_info.exit, label %196
 
 196:                                              ; preds = %194
-  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext 6, i8 noundef zeroext %195, ptr noundef %.0)
+  tail call fastcc void @assign_rb_info.retelim(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext 6, i8 noundef zeroext %195, ptr noundef %.0)
   br label %attach_info.exit
 
 197:                                              ; preds = %32
@@ -582,7 +582,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
 247:                                              ; preds = %.split65.us.i.i
   %.us-phi.i.i = trunc i32 %.us-phi.in.i.i to i16
   %248 = or disjoint i16 %.us-phi.i.i, 1
-  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %248, i8 noundef zeroext %246, ptr noundef %.0)
+  tail call fastcc void @assign_rb_info.retelim(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %248, i8 noundef zeroext %246, ptr noundef %.0)
   br label %attach_info.exit
 
 249:                                              ; preds = %32
@@ -590,7 +590,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   store i32 0, ptr %250, align 4
   br label %attach_info.exit
 
-attach_info.exit:                                 ; preds = %assign_fph_pch.exit.i, %71, %93, %94, %116, %175, %._crit_edge.i.i, %181, %194, %196, %.split67.us.i.i, %.split65.us.i.i, %247, %249
+attach_info.exit:                                 ; preds = %assign_fph_pch.argprom.exit.i, %71, %93, %94, %116, %175, %._crit_edge.i.i, %181, %194, %196, %.split67.us.i.i, %.split65.us.i.i, %247, %249
   switch i8 %9, label %270 [
     i8 0, label %251
     i8 1, label %271
@@ -698,7 +698,7 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @assign_rb_info.retelim(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @wmem_file_scope() #3
   %7 = load i32, ptr @proto_umts_mac, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #3

@@ -27,12 +27,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_logical_slot_get_changes(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
+  tail call fastcc void @pg_logical_slot_get_changes_guts.retelim(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @pg_logical_slot_get_changes_guts.retelim(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -481,19 +481,19 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_logical_slot_peek_changes(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @pg_logical_slot_get_changes_guts.retelim(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_logical_slot_get_binary_changes(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext true)
+  tail call fastcc void @pg_logical_slot_get_changes_guts.retelim(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_logical_slot_peek_binary_changes(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @pg_logical_slot_get_changes_guts.retelim(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext true)
   ret i64 0
 }
 

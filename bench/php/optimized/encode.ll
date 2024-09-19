@@ -6699,7 +6699,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_16be_single(pt
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2
   %7 = icmp ugt ptr %6, %2
-  br i1 %7, label %lxb_encoding_encode_utf_16_single.exit, label %8
+  br i1 %7, label %lxb_encoding_encode_utf_16_single.argprom.exit, label %8
 
 8:                                                ; preds = %4
   %9 = icmp ult i32 %3, 65536
@@ -6716,7 +6716,7 @@ lxb_encoding_encode_utf_16_write_single.exit.i:   ; preds = %8
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %5, i64 4
   %13 = icmp ugt ptr %12, %2
-  br i1 %13, label %lxb_encoding_encode_utf_16_single.exit, label %14
+  br i1 %13, label %lxb_encoding_encode_utf_16_single.argprom.exit, label %14
 
 14:                                               ; preds = %11
   %15 = add i32 %3, -65536
@@ -6750,9 +6750,9 @@ lxb_encoding_encode_utf_16_write_single.exit.i:   ; preds = %8
   %32 = getelementptr inbounds i8, ptr %31, i64 1
   store ptr %32, ptr %1, align 8
   store i8 %30, ptr %31, align 1
-  br label %lxb_encoding_encode_utf_16_single.exit
+  br label %lxb_encoding_encode_utf_16_single.argprom.exit
 
-lxb_encoding_encode_utf_16_single.exit:           ; preds = %4, %11, %.sink.split.i
+lxb_encoding_encode_utf_16_single.argprom.exit:   ; preds = %4, %11, %.sink.split.i
   %.0.i = phi i8 [ -2, %4 ], [ -2, %11 ], [ %.0.ph.i, %.sink.split.i ]
   ret i8 %.0.i
 }
@@ -6762,7 +6762,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_16le_single(pt
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2
   %7 = icmp ugt ptr %6, %2
-  br i1 %7, label %lxb_encoding_encode_utf_16_single.exit, label %8
+  br i1 %7, label %lxb_encoding_encode_utf_16_single.argprom.exit, label %8
 
 8:                                                ; preds = %4
   %9 = icmp ult i32 %3, 65536
@@ -6779,7 +6779,7 @@ lxb_encoding_encode_utf_16_write_single.exit.i:   ; preds = %8
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %5, i64 4
   %13 = icmp ugt ptr %12, %2
-  br i1 %13, label %lxb_encoding_encode_utf_16_single.exit, label %14
+  br i1 %13, label %lxb_encoding_encode_utf_16_single.argprom.exit, label %14
 
 14:                                               ; preds = %11
   %15 = add i32 %3, -65536
@@ -6813,9 +6813,9 @@ lxb_encoding_encode_utf_16_write_single.exit.i:   ; preds = %8
   %32 = getelementptr inbounds i8, ptr %31, i64 1
   store ptr %32, ptr %1, align 8
   store i8 %30, ptr %31, align 1
-  br label %lxb_encoding_encode_utf_16_single.exit
+  br label %lxb_encoding_encode_utf_16_single.argprom.exit
 
-lxb_encoding_encode_utf_16_single.exit:           ; preds = %4, %11, %.sink.split.i
+lxb_encoding_encode_utf_16_single.argprom.exit:   ; preds = %4, %11, %.sink.split.i
   %.0.i = phi i8 [ -2, %4 ], [ -2, %11 ], [ %.0.ph.i, %.sink.split.i ]
   ret i8 %.0.i
 }

@@ -2828,9 +2828,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %11 = getelementptr inbounds i8, ptr %2, i64 128
   br label %12
 
-12:                                               ; preds = %.lr.ph, %parse_keyword.exit
-  %.01621 = phi ptr [ %.01618, %.lr.ph ], [ %.016, %parse_keyword.exit ]
-  %.01520 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %parse_keyword.exit ]
+12:                                               ; preds = %.lr.ph, %parse_keyword.argprom.exit
+  %.01621 = phi ptr [ %.01618, %.lr.ph ], [ %.016, %parse_keyword.argprom.exit ]
+  %.01520 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %parse_keyword.argprom.exit ]
   %13 = getelementptr i8, ptr %.01621, i64 8
   %.016.val = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -2838,7 +2838,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %14 = load i8, ptr %.016.val, align 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %parse_keyword.exit, label %16
+  br i1 %15, label %parse_keyword.argprom.exit, label %16
 
 16:                                               ; preds = %12
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(9) @.str.22) #21
@@ -2849,7 +2849,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %20 = load i32, ptr %4, align 4
   %21 = or i32 %20, 4096
   store i32 %21, ptr %4, align 4
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 22:                                               ; preds = %16
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(9) @.str.23) #21
@@ -2860,12 +2860,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %26 = load i32, ptr %4, align 4
   %27 = or i32 %26, 2048
   store i32 %27, ptr %4, align 4
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 28:                                               ; preds = %22
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(7) @.str.15) #21
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %parse_keyword.exit, label %31
+  br i1 %30, label %parse_keyword.argprom.exit, label %31
 
 31:                                               ; preds = %28
   %32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.016.val, i32 noundef 61) #21
@@ -2875,7 +2875,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 34:                                               ; preds = %31
   %35 = sext i8 %14 to i32
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.54, ptr noundef nonnull %.016.val, i32 noundef %35) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 36:                                               ; preds = %31
   store i8 0, ptr %32, align 1
@@ -2912,12 +2912,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   store i64 0, ptr %11, align 8
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #21
   %47 = tail call ptr @archive_strncat(ptr noundef nonnull %10, ptr noundef nonnull %37, i64 noundef %46) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 48:                                               ; preds = %42
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(6) @.str.10) #21
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %parse_keyword.exit, label %246
+  br i1 %50, label %parse_keyword.argprom.exit, label %246
 
 51:                                               ; preds = %36
   %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(7) @.str.11) #21
@@ -2930,12 +2930,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   store i32 %56, ptr %4, align 4
   %57 = call fastcc i32 @parse_device(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %37)
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %parse_keyword.exit
+  br i1 %58, label %59, label %parse_keyword.argprom.exit
 
 59:                                               ; preds = %54
   %60 = load i64, ptr %7, align 8
   tail call void @archive_entry_set_rdev(ptr noundef %1, i64 noundef %60) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 61:                                               ; preds = %36
   %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(6) @.str.12) #21
@@ -2947,7 +2947,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %66 = or i32 %65, 2
   store i32 %66, ptr %4, align 4
   %67 = tail call ptr @archive_entry_copy_fflags_text(ptr noundef %1, ptr noundef nonnull %37) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 68:                                               ; preds = %36
   %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(4) @.str.13) #21
@@ -2960,7 +2960,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   store i32 %73, ptr %4, align 4
   %74 = call fastcc i64 @mtree_atol(ptr noundef %6, i32 noundef 10)
   tail call void @archive_entry_set_gid(ptr noundef %1, i64 noundef %74) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 75:                                               ; preds = %68
   %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(6) @.str.14) #21
@@ -2972,7 +2972,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %80 = or i32 %79, 8
   store i32 %80, ptr %4, align 4
   tail call void @archive_entry_copy_gname(ptr noundef %1, ptr noundef nonnull %37) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 81:                                               ; preds = %36
   %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(6) @.str.16) #21
@@ -2982,7 +2982,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 84:                                               ; preds = %81
   %85 = call fastcc i64 @mtree_atol(ptr noundef %6, i32 noundef 10)
   tail call void @archive_entry_set_ino(ptr noundef %1, i64 noundef %85) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 86:                                               ; preds = %36
   %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(5) @.str.17) #21
@@ -2992,7 +2992,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 89:                                               ; preds = %86
   tail call fastcc void @parse_escapes(ptr noundef nonnull %37, ptr noundef null)
   tail call void @archive_entry_copy_symlink(ptr noundef %1, ptr noundef nonnull %37) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 90:                                               ; preds = %36
   %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(4) @.str.18) #21
@@ -3006,7 +3006,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 
 96:                                               ; preds = %93, %90
   %97 = tail call fastcc i32 @parse_digest(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %37, i32 noundef 1)
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 98:                                               ; preds = %93
   %99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(5) @.str.20) #21
@@ -3021,7 +3021,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 
 104:                                              ; preds = %101
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.55, ptr noundef nonnull %37) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 105:                                              ; preds = %101
   %106 = load i32, ptr %4, align 4
@@ -3030,7 +3030,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %108 = call fastcc i64 @mtree_atol(ptr noundef %6, i32 noundef 8)
   %109 = trunc i64 %108 to i32
   tail call void @archive_entry_set_perm(ptr noundef %1, i32 noundef %109) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 110:                                              ; preds = %36
   %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(6) @.str.21) #21
@@ -3044,7 +3044,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %116 = call fastcc i64 @mtree_atol(ptr noundef %6, i32 noundef 10)
   %117 = trunc i64 %116 to i32
   tail call void @archive_entry_set_nlink(ptr noundef %1, i32 noundef %117) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 118:                                              ; preds = %36
   %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(10) @.str.24) #21
@@ -3054,12 +3054,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 121:                                              ; preds = %118
   %122 = call fastcc i32 @parse_device(ptr noundef %8, ptr noundef %0, ptr noundef nonnull %37)
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %parse_keyword.exit
+  br i1 %123, label %124, label %parse_keyword.argprom.exit
 
 124:                                              ; preds = %121
   %125 = load i64, ptr %8, align 8
   tail call void @archive_entry_set_dev(ptr noundef %1, i64 noundef %125) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 126:                                              ; preds = %118
   %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(7) @.str.25) #21
@@ -3073,7 +3073,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 
 132:                                              ; preds = %129, %126
   %133 = tail call fastcc i32 @parse_digest(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %37, i32 noundef 2)
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 134:                                              ; preds = %36
   %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(5) @.str.27) #21
@@ -3087,7 +3087,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 
 140:                                              ; preds = %137, %134
   %141 = tail call fastcc i32 @parse_digest(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %37, i32 noundef 3)
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 142:                                              ; preds = %137
   %143 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(7) @.str.29) #21
@@ -3101,7 +3101,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 
 148:                                              ; preds = %145, %142
   %149 = tail call fastcc i32 @parse_digest(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %37, i32 noundef 4)
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 150:                                              ; preds = %145
   %151 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(7) @.str.31) #21
@@ -3115,7 +3115,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 
 156:                                              ; preds = %153, %150
   %157 = tail call fastcc i32 @parse_digest(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %37, i32 noundef 5)
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 158:                                              ; preds = %153
   %159 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(7) @.str.33) #21
@@ -3129,7 +3129,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 
 164:                                              ; preds = %161, %158
   %165 = tail call fastcc i32 @parse_digest(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %37, i32 noundef 6)
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 166:                                              ; preds = %161
   %167 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(5) @.str.35) #21
@@ -3139,12 +3139,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 169:                                              ; preds = %166
   %170 = call fastcc i64 @mtree_atol(ptr noundef %6, i32 noundef 10)
   tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef %170) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 171:                                              ; preds = %36
   %172 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(5) @.str.36) #21
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %parse_keyword.exit, label %174
+  br i1 %173, label %parse_keyword.argprom.exit, label %174
 
 174:                                              ; preds = %171
   %175 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(5) @.str.37) #21
@@ -3175,7 +3175,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
 190:                                              ; preds = %188, %184, %177
   %.0.i = phi i64 [ %189, %188 ], [ 0, %177 ], [ 0, %184 ]
   tail call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %180, i64 noundef %.0.i) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 191:                                              ; preds = %174
   %192 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(5) @.str.38) #21
@@ -3202,7 +3202,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %201 = or i32 %200, 256
   store i32 %201, ptr %4, align 4
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 24576) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 202:                                              ; preds = %194
   %203 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.57) #21
@@ -3214,7 +3214,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %207 = or i32 %206, 256
   store i32 %207, ptr %4, align 4
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 8192) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 208:                                              ; preds = %194
   %209 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.58) #21
@@ -3226,7 +3226,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %213 = or i32 %212, 256
   store i32 %213, ptr %4, align 4
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 16384) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 214:                                              ; preds = %194
   %215 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.59) #21
@@ -3238,7 +3238,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %219 = or i32 %218, 256
   store i32 %219, ptr %4, align 4
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 4096) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 220:                                              ; preds = %214
   %221 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.60) #21
@@ -3250,7 +3250,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %225 = or i32 %224, 256
   store i32 %225, ptr %4, align 4
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 226:                                              ; preds = %194
   %227 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.17) #21
@@ -3262,12 +3262,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %231 = or i32 %230, 256
   store i32 %231, ptr %4, align 4
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 40960) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 232:                                              ; preds = %226, %220, %208, %202, %196, %194
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.61, ptr noundef nonnull %37) #19
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 233:                                              ; preds = %36
   %234 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(4) @.str.39) #21
@@ -3280,7 +3280,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   store i32 %238, ptr %4, align 4
   %239 = call fastcc i64 @mtree_atol(ptr noundef %6, i32 noundef 10)
   tail call void @archive_entry_set_uid(ptr noundef %1, i64 noundef %239) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 240:                                              ; preds = %233
   %241 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.val, ptr noundef nonnull dereferenceable(6) @.str.40) #21
@@ -3292,13 +3292,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_line(ptr noundef %0,
   %245 = or i32 %244, 1024
   store i32 %245, ptr %4, align 4
   tail call void @archive_entry_copy_uname(ptr noundef %1, ptr noundef nonnull %37) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
 246:                                              ; preds = %240, %191, %166, %129, %110, %98, %86, %81, %75, %61, %51, %48, %36
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.62, ptr noundef nonnull %.016.val, ptr noundef nonnull %37) #19
-  br label %parse_keyword.exit
+  br label %parse_keyword.argprom.exit
 
-parse_keyword.exit:                               ; preds = %12, %19, %25, %28, %34, %45, %48, %54, %59, %64, %71, %78, %84, %89, %96, %104, %105, %113, %121, %124, %132, %140, %148, %156, %164, %169, %171, %190, %199, %205, %211, %217, %223, %229, %232, %236, %243, %246
+parse_keyword.argprom.exit:                       ; preds = %12, %19, %25, %28, %34, %45, %48, %54, %59, %64, %71, %78, %84, %89, %96, %104, %105, %113, %121, %124, %132, %140, %148, %156, %164, %169, %171, %190, %199, %205, %211, %217, %223, %229, %232, %236, %243, %246
   %.0111.i = phi i32 [ 0, %19 ], [ 0, %25 ], [ -20, %34 ], [ -20, %246 ], [ 0, %236 ], [ 0, %243 ], [ 0, %190 ], [ -20, %232 ], [ 0, %229 ], [ 0, %217 ], [ 0, %223 ], [ 0, %211 ], [ 0, %205 ], [ 0, %199 ], [ %141, %140 ], [ %149, %148 ], [ %157, %156 ], [ %165, %164 ], [ 0, %169 ], [ %133, %132 ], [ 0, %113 ], [ %97, %96 ], [ -20, %104 ], [ 0, %105 ], [ 0, %89 ], [ 0, %84 ], [ 0, %71 ], [ 0, %78 ], [ 0, %64 ], [ 0, %45 ], [ 0, %12 ], [ 0, %28 ], [ 0, %48 ], [ 0, %59 ], [ %57, %54 ], [ 0, %124 ], [ %122, %121 ], [ 0, %171 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -3308,7 +3308,7 @@ parse_keyword.exit:                               ; preds = %12, %19, %25, %28, 
   %.not = icmp eq ptr %.016, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %parse_keyword.exit
+._crit_edge:                                      ; preds = %parse_keyword.argprom.exit
   %247 = icmp eq i32 %spec.select, 0
   br i1 %247, label %._crit_edge.thread, label %252
 

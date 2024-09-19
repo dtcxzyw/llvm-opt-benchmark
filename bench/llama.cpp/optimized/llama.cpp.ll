@@ -10952,25 +10952,25 @@ for.body.i.i.i:                                   ; preds = %if.end12.i.i.i, %fo
   %__first.addr.050.i.i.i = phi ptr [ %14, %for.body.lr.ph.i.i.i ], [ %incdec.ptr13.i.i.i, %if.end12.i.i.i ]
   %__first.addr.0.val.i.i.i = load i32, ptr %__first.addr.050.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %__first.addr.0.val.i.i.i, %call33
-  br i1 %cmp.i.i.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit", label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.050.i.i.i, i64 12
   %incdec.ptr.val.i.i.i = load i32, ptr %incdec.ptr.i.i.i, align 4
   %cmp.i.i33.i.i.i = icmp eq i32 %incdec.ptr.val.i.i.i, %call33
-  br i1 %cmp.i.i33.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit", label %if.end4.i.i.i
+  br i1 %cmp.i.i33.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit", label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %incdec.ptr5.i.i.i = getelementptr inbounds i8, ptr %__first.addr.050.i.i.i, i64 24
   %incdec.ptr5.val.i.i.i = load i32, ptr %incdec.ptr5.i.i.i, align 4
   %cmp.i.i34.i.i.i = icmp eq i32 %incdec.ptr5.val.i.i.i, %call33
-  br i1 %cmp.i.i34.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit58", label %if.end8.i.i.i
+  br i1 %cmp.i.i34.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit58", label %if.end8.i.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end4.i.i.i
   %incdec.ptr9.i.i.i = getelementptr inbounds i8, ptr %__first.addr.050.i.i.i, i64 36
   %incdec.ptr9.val.i.i.i = load i32, ptr %incdec.ptr9.i.i.i, align 4
   %cmp.i.i35.i.i.i = icmp eq i32 %incdec.ptr9.val.i.i.i, %call33
-  br i1 %cmp.i.i35.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit60", label %if.end12.i.i.i
+  br i1 %cmp.i.i35.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit60", label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end8.i.i.i
   %incdec.ptr13.i.i.i = getelementptr inbounds i8, ptr %__first.addr.050.i.i.i, i64 48
@@ -10995,7 +10995,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   %__first.addr.0.val30.i.i.i = load i32, ptr %__first.addr.0.lcssa.i.i.i, align 4
   %cmp.i.i36.i.i.i = icmp eq i32 %__first.addr.0.val30.i.i.i, %call33
-  br i1 %cmp.i.i36.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit", label %if.end20.i.i.i
+  br i1 %cmp.i.i36.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit", label %if.end20.i.i.i
 
 if.end20.i.i.i:                                   ; preds = %sw.bb.i.i.i
   %incdec.ptr21.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 12
@@ -11005,7 +11005,7 @@ sw.bb22.i.i.i:                                    ; preds = %if.end20.i.i.i, %fo
   %__first.addr.1.i.i.i = phi ptr [ %incdec.ptr21.i.i.i, %if.end20.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ]
   %__first.addr.1.val.i.i.i = load i32, ptr %__first.addr.1.i.i.i, align 4
   %cmp.i.i37.i.i.i = icmp eq i32 %__first.addr.1.val.i.i.i, %call33
-  br i1 %cmp.i.i37.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit", label %if.end25.i.i.i
+  br i1 %cmp.i.i37.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit", label %if.end25.i.i.i
 
 if.end25.i.i.i:                                   ; preds = %sw.bb22.i.i.i
   %incdec.ptr26.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i, i64 12
@@ -11015,25 +11015,25 @@ sw.bb27.i.i.i:                                    ; preds = %if.end25.i.i.i, %fo
   %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr26.i.i.i, %if.end25.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ]
   %__first.addr.2.val.i.i.i = load i32, ptr %__first.addr.2.i.i.i, align 4
   %cmp.i.i38.i.i.i = icmp eq i32 %__first.addr.2.val.i.i.i, %call33
-  br i1 %cmp.i.i38.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit", label %sw.default.i.i.i
+  br i1 %cmp.i.i38.i.i.i, label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit", label %sw.default.i.i.i
 
 sw.default.i.i.i:                                 ; preds = %sw.bb27.i.i.i, %for.end.i.i.i
-  br label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit"
+  br label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit"
 
-"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit": ; preds = %if.end.i.i.i
+"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.050.i.i.i, i64 12
-  br label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit"
+  br label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit"
 
-"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit58": ; preds = %if.end4.i.i.i
+"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit58": ; preds = %if.end4.i.i.i
   %incdec.ptr5.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.050.i.i.i, i64 24
-  br label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit"
+  br label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit"
 
-"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit60": ; preds = %if.end8.i.i.i
+"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit60": ; preds = %if.end8.i.i.i
   %incdec.ptr9.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.050.i.i.i, i64 36
-  br label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit"
+  br label %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit"
 
-"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit": ; preds = %for.body.i.i.i, %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit58", %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit60", %sw.bb.i.i.i, %sw.bb22.i.i.i, %sw.bb27.i.i.i, %sw.default.i.i.i
-  %retval.0.i.i.i = phi ptr [ %add.ptr, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb22.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb27.i.i.i ], [ %incdec.ptr.i.i.i.le, %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr5.i.i.i.le, %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit58" ], [ %incdec.ptr9.i.i.i.le, %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.exit.loopexit.split.loop.exit60" ], [ %__first.addr.050.i.i.i, %for.body.i.i.i ]
+"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit": ; preds = %for.body.i.i.i, %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit58", %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit60", %sw.bb.i.i.i, %sw.bb22.i.i.i, %sw.bb27.i.i.i, %sw.default.i.i.i
+  %retval.0.i.i.i = phi ptr [ %add.ptr, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb22.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb27.i.i.i ], [ %incdec.ptr.i.i.i.le, %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %incdec.ptr5.i.i.i.le, %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit58" ], [ %incdec.ptr9.i.i.i.le, %"_ZSt7find_ifIP16llama_token_dataZ27llama_sample_token_mirostatE3$_0ET_S3_S3_T0_.argprom.exit.loopexit.split.loop.exit60" ], [ %__first.addr.050.i.i.i, %for.body.i.i.i ]
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %retval.0.i.i.i to i64
   %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i33, %sub.ptr.rhs.cast.i.i.i
@@ -15082,7 +15082,7 @@ if.end15.i:                                       ; preds = %if.end.i
   %154 = load ptr, ptr %progress_callback, align 8
   %progress_callback_user_data.i = getelementptr inbounds i8, ptr %params, i64 24
   %155 = load ptr, ptr %progress_callback_user_data.i, align 8
-  invoke fastcc void @_ZL16llm_load_tensorsR18llama_model_loaderR11llama_modeliiPKfbPFvfPvES5_(ptr noundef nonnull align 8 dereferenceable(180) %ml.i, ptr noundef nonnull align 8 dereferenceable(640) %call, i32 noundef %152, i1 noundef zeroext %tobool16.i, ptr noundef %154, ptr noundef %155)
+  invoke fastcc void @_ZL16llm_load_tensorsR18llama_model_loaderR11llama_modeliiPKfbPFvfPvES5_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(180) %ml.i, ptr noundef nonnull align 8 dereferenceable(640) %call, i32 noundef %152, i1 noundef zeroext %tobool16.i, ptr noundef %154, ptr noundef %155)
           to label %cleanup.i unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 cleanup.i:                                        ; preds = %if.end15.i, %if.then13.i
@@ -18460,9 +18460,9 @@ land.lhs.true.i.i:                                ; preds = %if.then20.i.i, %if.
   %cmp.i85.i.i = icmp sge i32 %qs.sroa.19.0944.i, %div.i.i.i
   %cmp3.not.i.i.i = icmp slt i32 %qs.sroa.19.0944.i, %div2.i.i.i
   %or.cond959.i = select i1 %cmp.i85.i.i, i1 %cmp3.not.i.i.i, i1 false
-  br i1 %or.cond959.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit.i.i", label %if.end49.i.i
+  br i1 %or.cond959.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit.i.i", label %if.end49.i.i
 
-"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit.i.i": ; preds = %land.lhs.true.i.i
+"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit.i.i": ; preds = %land.lhs.true.i.i
   %sub.i.i140.i = sub nsw i32 %qs.sroa.19.0944.i, %div.i.i.i
   %rem.i.i.i = srem i32 %sub.i.i140.i, 3
   %cmp5.i.i.i = icmp eq i32 %rem.i.i.i, 2
@@ -18477,8 +18477,8 @@ land.lhs.true40.i.i:                              ; preds = %if.then20.i.i
 if.end49.fold.split.i.i:                          ; preds = %if.then20.i.i
   br label %if.end49.i.i
 
-if.end49.i.i:                                     ; preds = %if.end49.fold.split.i.i, %land.lhs.true40.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit.i.i", %land.lhs.true.i.i, %if.then29.i.i, %if.then25.i.i, %if.then20.i.i
-  %new_type.addr.1.i.i = phi i32 [ %cond.i.i, %if.then25.i.i ], [ 13, %if.then29.i.i ], [ 11, %if.then20.i.i ], [ %switch.load844, %if.end49.fold.split.i.i ], [ 14, %land.lhs.true.i.i ], [ %spec.select144.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit.i.i" ], [ %spec.select145.i.i, %land.lhs.true40.i.i ]
+if.end49.i.i:                                     ; preds = %if.end49.fold.split.i.i, %land.lhs.true40.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit.i.i", %land.lhs.true.i.i, %if.then29.i.i, %if.then25.i.i, %if.then20.i.i
+  %new_type.addr.1.i.i = phi i32 [ %cond.i.i, %if.then25.i.i ], [ 13, %if.then29.i.i ], [ 11, %if.then20.i.i ], [ %switch.load844, %if.end49.fold.split.i.i ], [ 14, %land.lhs.true.i.i ], [ %spec.select144.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit.i.i" ], [ %spec.select145.i.i, %land.lhs.true40.i.i ]
   %58 = load i32, ptr %model.i, align 8
   %cmp51.i.i = icmp eq i32 %58, 11
   %59 = add nsw i32 %new_type.addr.1.i.i, -11
@@ -18528,16 +18528,16 @@ lor.rhs.i.i:                                      ; preds = %cond.false.i.i
   %cmp.i87.i.i = icmp sge i32 %qs.sroa.24.0942.i, %div.i119.i.i
   %cmp3.not.i91.i.i = icmp slt i32 %qs.sroa.24.0942.i, %div2.i123.i.i
   %or.cond960.i = select i1 %cmp.i87.i.i, i1 %cmp3.not.i91.i.i, i1 false
-  br i1 %or.cond960.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.i.i", label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.thread.i.i"
+  br i1 %or.cond960.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.i.i", label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.thread.i.i"
 
-"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.i.i": ; preds = %lor.rhs.i.i
+"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.i.i": ; preds = %lor.rhs.i.i
   %sub.i93.i.i = sub nsw i32 %qs.sroa.24.0942.i, %div.i119.i.i
   %sub.i93.fr.i.i = freeze i32 %sub.i93.i.i
   %rem.i94.i.i = srem i32 %sub.i93.fr.i.i, 3
   %cmp5.i95.i.i = icmp eq i32 %rem.i94.i.i, 2
-  br i1 %cmp5.i95.i.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.thread.i.i", label %if.end140.i.i
+  br i1 %cmp5.i95.i.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.thread.i.i", label %if.end140.i.i
 
-"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.thread.i.i": ; preds = %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.i.i", %lor.rhs.i.i
+"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.thread.i.i": ; preds = %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.i.i", %lor.rhs.i.i
   br label %if.end140.i.i
 
 if.then92.i.i:                                    ; preds = %if.then77.i.i
@@ -18557,47 +18557,47 @@ cond.false103.i.i:                                ; preds = %if.then99.i.i
   %cmp.i98.i.i = icmp sge i32 %qs.sroa.24.0942.i, %div.i119.i.i
   %cmp3.not.i102.i.i = icmp slt i32 %qs.sroa.24.0942.i, %div2.i123.i.i
   %or.cond961.i = select i1 %cmp.i98.i.i, i1 %cmp3.not.i102.i.i, i1 false
-  br i1 %or.cond961.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.i.i", label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.thread.i.i"
+  br i1 %or.cond961.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.i.i", label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.thread.i.i"
 
-"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.i.i": ; preds = %cond.false103.i.i
+"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.i.i": ; preds = %cond.false103.i.i
   %sub.i104.i.i = sub nsw i32 %qs.sroa.24.0942.i, %div.i119.i.i
   %sub.i104.fr.i.i = freeze i32 %sub.i104.i.i
   %rem.i105.i.i = srem i32 %sub.i104.fr.i.i, 3
   %cmp5.i106.i.i = icmp eq i32 %rem.i105.i.i, 2
-  br i1 %cmp5.i106.i.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.thread.i.i", label %if.end140.i.i
+  br i1 %cmp5.i106.i.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.thread.i.i", label %if.end140.i.i
 
-"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.thread.i.i": ; preds = %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.i.i", %cond.false103.i.i
+"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.thread.i.i": ; preds = %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.i.i", %cond.false103.i.i
   br label %if.end140.i.i
 
 if.else111.i.i:                                   ; preds = %if.then97.i.i
   %cmp.i109.i.i = icmp sge i32 %qs.sroa.24.0942.i, %div.i119.i.i
   %cmp3.not.i113.i.i = icmp slt i32 %qs.sroa.24.0942.i, %div2.i123.i.i
   %or.cond962.i = select i1 %cmp.i109.i.i, i1 %cmp3.not.i113.i.i, i1 false
-  br i1 %or.cond962.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.i.i", label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.thread.i.i"
+  br i1 %or.cond962.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.i.i", label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.thread.i.i"
 
-"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.i.i": ; preds = %if.else111.i.i
+"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.i.i": ; preds = %if.else111.i.i
   %sub.i115.i.i = sub nsw i32 %qs.sroa.24.0942.i, %div.i119.i.i
   %sub.i115.fr.i.i = freeze i32 %sub.i115.i.i
   %rem.i116.i.i = srem i32 %sub.i115.fr.i.i, 3
   %cmp5.i117.i.i = icmp eq i32 %rem.i116.i.i, 2
-  br i1 %cmp5.i117.i.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.thread.i.i", label %if.end140.i.i
+  br i1 %cmp5.i117.i.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.thread.i.i", label %if.end140.i.i
 
-"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.thread.i.i": ; preds = %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.i.i", %if.else111.i.i
+"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.thread.i.i": ; preds = %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.i.i", %if.else111.i.i
   br label %if.end140.i.i
 
 land.lhs.true121.i.i:                             ; preds = %if.then77.i.i
   %cmp.i120.i.i = icmp sge i32 %qs.sroa.24.0942.i, %div.i119.i.i
   %cmp3.not.i124.i.i = icmp slt i32 %qs.sroa.24.0942.i, %div2.i123.i.i
   %or.cond963.i = select i1 %cmp.i120.i.i, i1 %cmp3.not.i124.i.i, i1 false
-  br i1 %or.cond963.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit129.i.i", label %if.end140.i.i
+  br i1 %or.cond963.i, label %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit129.i.i", label %if.end140.i.i
 
-"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit129.i.i": ; preds = %land.lhs.true121.i.i
+"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit129.i.i": ; preds = %land.lhs.true121.i.i
   %sub.i126.i.i = sub nsw i32 %qs.sroa.24.0942.i, %div.i119.i.i
   %rem.i127.i.i = srem i32 %sub.i126.i.i, 3
   %cmp5.i128.i.i = icmp eq i32 %rem.i127.i.i, 2
   br i1 %cmp5.i128.i.i, label %if.end140.i.i, label %if.else127.i.i
 
-if.else127.i.i:                                   ; preds = %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit129.i.i", %if.then77.i.i
+if.else127.i.i:                                   ; preds = %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit129.i.i", %if.then77.i.i
   %cmp130.i.i = icmp ne i32 %50, 1
   %or.cond2.i.i = and i1 %cmp128.i.i, %cmp130.i.i
   %cmp133.i.i = icmp slt i32 %qs.sroa.24.0942.i, 4
@@ -18605,8 +18605,8 @@ if.else127.i.i:                                   ; preds = %"_ZZL16get_k_quant_
   %spec.select84.i.i = select i1 %or.cond81.i.i, i32 13, i32 %switch.load844
   br label %if.end140.i.i
 
-if.end140.i.i:                                    ; preds = %if.else127.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit129.i.i", %land.lhs.true121.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.thread.i.i", %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.i.i", %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.thread.i.i", %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.i.i", %if.then99.i.i, %if.then92.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.thread.i.i", %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.i.i", %cond.false.i.i, %if.then82.i.i, %if.then77.i.i
-  %new_type.addr.4.i.i = phi i32 [ %cond94.i.i, %if.then92.i.i ], [ 11, %if.then77.i.i ], [ 13, %if.then82.i.i ], [ 12, %cond.false.i.i ], [ 14, %if.then99.i.i ], [ 14, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit129.i.i" ], [ %spec.select84.i.i, %if.else127.i.i ], [ 12, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.thread.i.i" ], [ 11, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit96.i.i" ], [ 13, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.thread.i.i" ], [ 12, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit107.i.i" ], [ 14, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.thread.i.i" ], [ %switch.load844, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.exit118.i.i" ], [ 14, %land.lhs.true121.i.i ]
+if.end140.i.i:                                    ; preds = %if.else127.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit129.i.i", %land.lhs.true121.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.thread.i.i", %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.i.i", %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.thread.i.i", %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.i.i", %if.then99.i.i, %if.then92.i.i, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.thread.i.i", %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.i.i", %cond.false.i.i, %if.then82.i.i, %if.then77.i.i
+  %new_type.addr.4.i.i = phi i32 [ %cond94.i.i, %if.then92.i.i ], [ 11, %if.then77.i.i ], [ 13, %if.then82.i.i ], [ 12, %cond.false.i.i ], [ 14, %if.then99.i.i ], [ 14, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit129.i.i" ], [ %spec.select84.i.i, %if.else127.i.i ], [ 12, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.thread.i.i" ], [ 11, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit96.i.i" ], [ 13, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.thread.i.i" ], [ 12, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit107.i.i" ], [ 14, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.thread.i.i" ], [ %switch.load844, %"_ZZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftypeENK3$_0clEii.argprom.exit118.i.i" ], [ 14, %land.lhs.true121.i.i ]
   %inc142.i.i = add nsw i32 %qs.sroa.24.0942.i, 1
   br label %if.end198.i.i
 
@@ -19176,14 +19176,14 @@ call.i.i.i.i.i.noexc.i:                           ; preds = %if.then.i.i165.i
 invoke.cont9.i.i.i.i.i.i:                         ; preds = %call.i.i.i.i.i.noexc.i
   %107 = load ptr, ptr %agg.tmp.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i166.i = icmp eq ptr %107, null
-  br i1 %cmp.not.i.i.i.i.i.i166.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.exit.i.i.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i166.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.argprom.exit.i.i.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %invoke.cont9.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %107, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %108 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %108(ptr noundef nonnull align 8 dereferenceable(8) %107) #47
-  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.exit.i.i.i"
+  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.argprom.exit.i.i.i"
 
 lpad8.i.i.i.i.i.i:                                ; preds = %call.i.i.i.i.i.noexc.i
   %109 = landingpad { ptr, i32 }
@@ -19200,7 +19200,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i.i.i.i.i.i: ; preds =
   call void %111(ptr noundef nonnull align 8 dereferenceable(8) %110) #47
   br label %ehcleanup342.i
 
-"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.exit.i.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i.i, %invoke.cont9.i.i.i.i.i.i
+"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.argprom.exit.i.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i.i, %invoke.cont9.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %112 = load ptr, ptr %_M_finish.i46.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %112, i64 8
@@ -19314,11 +19314,11 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit28.i.i.i.i: ; pre
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i17.i.i.i.i, %invoke.cont.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %113, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i", label %if.then.i29.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.argprom.exit.i.i.i", label %if.then.i29.i.i.i.i
 
 if.then.i29.i.i.i.i:                              ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit28.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %113) #45
-  br label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i"
+  br label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.argprom.exit.i.i.i"
 
 lpad.i.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i.i
   %125 = landingpad { ptr, i32 }
@@ -19350,15 +19350,15 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad25.i.i.i.i
 unreachable.i.i.i.i:                              ; preds = %invoke.cont27.i.i.i.i
   unreachable
 
-"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i": ; preds = %if.then.i29.i.i.i.i, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit28.i.i.i.i
+"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.argprom.exit.i.i.i": ; preds = %if.then.i29.i.i.i.i, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit28.i.i.i.i
   store ptr %cond.i17.i.i.i.i, ptr %workers.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i46.i.i, align 8
   %add.ptr34.i.i.i.i = getelementptr inbounds %"class.std::thread", ptr %cond.i17.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr34.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvDpOT_.exit.i.i"
 
-"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvDpOT_.exit.i.i": ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i", %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.exit.i.i.i"
-  %131 = phi ptr [ %incdec.ptr.i.i.i, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.exit.i.i.i" ], [ %incdec.ptr.i.i.i.i, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i" ]
+"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvDpOT_.exit.i.i": ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.argprom.exit.i.i.i", %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.argprom.exit.i.i.i"
+  %131 = phi ptr [ %incdec.ptr.i.i.i, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS8_EERS6_IS0_S1_EmiE3$_0R9ggml_typePhPfRmEEEvRS1_PT_DpOT0_.argprom.exit.i.i.i" ], [ %incdec.ptr.i.i.i.i, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.argprom.exit.i.i.i" ]
   %add83.i.i = add i64 %mul77.i.i, %in_buff_offs.071.i.i
   %add84.i.i = add i64 %mul76.i.i, %out_buff_offs.072.i.i
   %inc.i167.i = add nuw nsw i32 %tnum.073.i.i, 1
@@ -19560,14 +19560,14 @@ call.i.i.i.i249.noexc.i:                          ; preds = %if.then.i248.i
 invoke.cont3.i.i.i.i.i:                           ; preds = %call.i.i.i.i249.noexc.i
   %140 = load ptr, ptr %agg.tmp.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i252.i = icmp eq ptr %140, null
-  br i1 %cmp.not.i.i.i.i.i252.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.exit.i.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i252.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %invoke.cont3.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %140, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %141 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %141(ptr noundef nonnull align 8 dereferenceable(8) %140) #47
-  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.exit.i.i"
+  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i"
 
 lpad2.i.i.i.i.i:                                  ; preds = %call.i.i.i.i249.noexc.i
   %142 = landingpad { ptr, i32 }
@@ -19584,7 +19584,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i.i.i.i.i: ; preds = %
   call void %144(ptr noundef nonnull align 8 dereferenceable(8) %143) #47
   br label %ehcleanup342.i
 
-"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.exit.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i, %invoke.cont3.i.i.i.i.i
+"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i, %invoke.cont3.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   %145 = load ptr, ptr %_M_finish.i46.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %145, i64 8
@@ -19728,8 +19728,8 @@ unreachable.i.i.i:                                ; preds = %invoke.cont19.i.i.i
   store ptr %add.ptr26.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %for.inc270.i
 
-for.inc270.i:                                     ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i", %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.exit.i.i"
-  %160 = phi ptr [ %incdec.ptr.i.i274.i, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i" ], [ %incdec.ptr.i.i, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ]
+for.inc270.i:                                     ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i", %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i"
+  %160 = phi ptr [ %incdec.ptr.i.i274.i, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i" ], [ %incdec.ptr.i.i, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i" ]
   %inc271.i = add nuw nsw i32 %it.0920.i, 1
   %exitcond.not.i = icmp eq i32 %it.0920.i, %137
   br i1 %exitcond.not.i, label %for.end272.i, label %for.body268.i, !llvm.loop !165
@@ -24780,7 +24780,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNSt8_Rb_treeIiiSt
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i256, %if.then.i239, %if.then.i223, %if.then.i208, %if.end.i, %if.then.i191, %invoke.cont159, %if.then.i179, %if.then271, %if.then262, %if.then254, %invoke.cont243, %invoke.cont229, %invoke.cont221, %if.end156, %land.lhs.true148, %land.lhs.true144, %if.then134, %if.then121, %invoke.cont107, %invoke.cont106, %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit
+lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i256, %if.then.i239, %if.then.i223, %if.then.i208, %if.end.i, %if.then.i191, %invoke.cont159, %if.then.i179, %if.then271, %if.then262, %if.then254, %invoke.cont243, %invoke.cont229, %invoke.cont221, %if.end156, %land.lhs.true148, %land.lhs.true144, %if.then134, %if.then121, %invoke.cont107, %invoke.cont106, %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit
   %lpad.loopexit.split-lp457 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -25159,7 +25159,7 @@ if.end96:                                         ; preds = %if.end96.loopexit, 
   %62 = load i32, ptr %lctx, align 8
   %i.01.i = add i32 %kv_self32.val, -1
   %cmp.not2.i = icmp eq i32 %i.01.i, 0
-  br i1 %cmp.not2.i, label %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit, label %for.body.preheader.i
+  br i1 %cmp.not2.i, label %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end96
   %63 = zext i32 %i.01.i to i64
@@ -25177,23 +25177,23 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 48
   %65 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %65, 0
-  br i1 %cmp.i.i.i, label %for.inc.i, label %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit.loopexit
+  br i1 %cmp.i.i.i, label %for.inc.i, label %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit.loopexit
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i183 = add nsw i64 %indvars.iv.i182, -1
   %66 = and i64 %indvars.iv.next.i183, 4294967295
   %cmp.not.i = icmp eq i64 %66, 0
   %67 = trunc nuw i64 %indvars.iv.i182 to i32
-  br i1 %cmp.not.i, label %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit.loopexit, label %for.body.i, !llvm.loop !202
+  br i1 %cmp.not.i, label %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit.loopexit, label %for.body.i, !llvm.loop !202
 
-_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit.loopexit: ; preds = %for.inc.i, %land.lhs.true.i
+_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit.loopexit: ; preds = %for.inc.i, %land.lhs.true.i
   %retval.0.i184.ph = phi i32 [ 0, %for.inc.i ], [ %i.0.in3.i, %land.lhs.true.i ]
   %68 = add nsw i32 %retval.0.i184.ph, 31
   %69 = and i32 %68, -32
-  br label %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit
+  br label %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit
 
-_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit: ; preds = %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit.loopexit, %if.end96
-  %retval.0.i184 = phi i32 [ 0, %if.end96 ], [ %69, %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit.loopexit ]
+_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit: ; preds = %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit.loopexit, %if.end96
+  %retval.0.i184 = phi i32 [ 0, %if.end96 ], [ %69, %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit.loopexit ]
   %70 = tail call i32 @llvm.smax.i32(i32 %retval.0.i184, i32 32)
   %.sroa.speculated411 = tail call i32 @llvm.smin.i32(i32 %70, i32 %62)
   %n = getelementptr inbounds i8, ptr %lctx, i64 72
@@ -25203,7 +25203,7 @@ _ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit: ; preds = %_ZL23llama_kv_ca
   invoke void @ggml_allocr_reset(ptr noundef %71)
           to label %invoke.cont106 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont106:                                   ; preds = %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit
+invoke.cont106:                                   ; preds = %_ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.argprom.exit
   %call108 = invoke fastcc noundef ptr @_ZL17llama_build_graphR13llama_contextRK11llama_batch(ptr noundef nonnull align 8 dereferenceable(5384) %lctx, ptr noundef nonnull align 8 dereferenceable(72) %batch)
           to label %invoke.cont107 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -27059,7 +27059,7 @@ init.check.i.i:                                   ; preds = %invoke.cont6.i
   br i1 %tobool.not.i.i, label %init.end.i.i, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZL24unicode_to_bytes_map_bpeB5cxx11v()
+  invoke fastcc void @_ZL24unicode_to_bytes_map_bpeB5cxx11v.argprom()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -32518,7 +32518,7 @@ entry:
   %conv.fr.i = freeze i32 %conv.i
   %0 = load i32, ptr %ctx, align 4
   %cmp1.i = icmp ult i32 %0, %conv.fr.i
-  br i1 %cmp1.i, label %while.body.lr.ph.i, label %"_ZZ26llama_load_model_from_fileENK3$_0clEfPv.exit"
+  br i1 %cmp1.i, label %while.body.lr.ph.i, label %"_ZZ26llama_load_model_from_fileENK3$_0clEfPv.argprom.exit"
 
 while.body.lr.ph.i:                               ; preds = %entry
   %cmp2.i = icmp ugt i32 %conv.fr.i, 99
@@ -32530,16 +32530,16 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i,
   tail call void (i32, ptr, ...) @_ZL18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.204)
   %1 = load i32, ptr %ctx, align 4
   %cmp.us.i = icmp ult i32 %1, %conv.fr.i
-  br i1 %cmp.us.i, label %while.body.us.i, label %"_ZZ26llama_load_model_from_fileENK3$_0clEfPv.exit", !llvm.loop !278
+  br i1 %cmp.us.i, label %while.body.us.i, label %"_ZZ26llama_load_model_from_fileENK3$_0clEfPv.argprom.exit", !llvm.loop !278
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
   store i32 %conv.fr.i, ptr %ctx, align 4
   tail call void (i32, ptr, ...) @_ZL18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.251)
   %2 = load i32, ptr %ctx, align 4
   %cmp.i = icmp ult i32 %2, %conv.fr.i
-  br i1 %cmp.i, label %while.body.i, label %"_ZZ26llama_load_model_from_fileENK3$_0clEfPv.exit", !llvm.loop !278
+  br i1 %cmp.i, label %while.body.i, label %"_ZZ26llama_load_model_from_fileENK3$_0clEfPv.argprom.exit", !llvm.loop !278
 
-"_ZZ26llama_load_model_from_fileENK3$_0clEfPv.exit": ; preds = %while.body.i, %while.body.us.i, %entry
+"_ZZ26llama_load_model_from_fileENK3$_0clEfPv.argprom.exit": ; preds = %while.body.i, %while.body.us.i, %entry
   ret void
 }
 
@@ -34395,7 +34395,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #31
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16llm_load_tensorsR18llama_model_loaderR11llama_modeliiPKfbPFvfPvES5_(ptr noundef nonnull align 8 dereferenceable(180) %ml, ptr noundef nonnull align 8 dereferenceable(640) %model, i32 noundef %n_gpu_layers, i1 noundef zeroext %use_mlock, ptr noundef %progress_callback, ptr noundef %progress_callback_user_data) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16llm_load_tensorsR18llama_model_loaderR11llama_modeliiPKfbPFvfPvES5_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(180) %ml, ptr noundef nonnull align 8 dereferenceable(640) %model, i32 noundef %n_gpu_layers, i1 noundef zeroext %use_mlock, ptr noundef %progress_callback, ptr noundef %progress_callback_user_data) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.6", align 1
   %agg.tmp = alloca %struct.ggml_init_params, align 8
@@ -52650,7 +52650,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke fastcc void @_ZL24bytes_to_unicode_map_bpeB5cxx11v()
+  invoke fastcc void @_ZL24bytes_to_unicode_map_bpeB5cxx11v.argprom()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -52800,7 +52800,7 @@ return:                                           ; preds = %_ZNKSt8__detail15_H
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24bytes_to_unicode_map_bpeB5cxx11v() unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24bytes_to_unicode_map_bpeB5cxx11v.argprom() unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca i8, align 1
@@ -56056,7 +56056,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %6, ptr noundef %9, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %do.end
   %14 = getelementptr i8, ptr %2, i64 12
@@ -56064,9 +56064,9 @@ if.else.i:                                        ; preds = %do.end
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val137 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %6, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %15 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -56080,11 +56080,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i, label %if.then.i147, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i147:                                     ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i147:                                     ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %_M_invoker.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -56236,11 +56236,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %.val140 = load float, ptr %50, align 4
   %call2.i = call ptr @ggml_rms_norm(ptr noundef %44, ptr noundef %inpL.0564, float noundef %.val140)
   %tobool.i.not = icmp eq ptr %48, null
-  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, label %if.then.i175
+  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, label %if.then.i175
 
-for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge: ; preds = %for.body
+for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge: ; preds = %for.body
   %.pre575 = trunc nuw nsw i64 %indvars.iv569 to i32
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
 if.then.i175:                                     ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i172)
@@ -56267,11 +56267,11 @@ if.then5.i:                                       ; preds = %if.then.i175
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i173)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i174)
   %call6.i179 = call ptr @ggml_mul(ptr noundef %44, ptr noundef %call2.i, ptr noundef nonnull %48)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, %if.then5.i
-  %.pre-phi = phi i32 [ %.pre575, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %51, %if.then5.i ]
-  %cur.addr.2.i = phi ptr [ %call2.i, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %call6.i179, %if.then5.i ]
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, %if.then5.i
+  %.pre-phi = phi i32 [ %.pre575, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %51, %if.then5.i ]
+  %cur.addr.2.i = phi ptr [ %call2.i, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %call6.i179, %if.then5.i ]
   %54 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i181)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i182)
@@ -56284,11 +56284,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i185 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i185, label %if.then.i188, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit189
 
-if.then.i188:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+if.then.i188:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit189: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit189: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   %_M_invoker.i187 = getelementptr inbounds i8, ptr %54, i64 24
   %56 = load ptr, ptr %_M_invoker.i187, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i181, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i182, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i183)
@@ -56670,7 +56670,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit290: ; preds = %_ZNKSt8func
   br i1 %cmp164, label %if.then165, label %if.else
 
 if.then165:                                       ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit290
-  br i1 %tobool.i297.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit308, label %if.then.i299
+  br i1 %tobool.i297.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit308, label %if.then.i299
 
 if.then.i299:                                     ; preds = %if.then165
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i293)
@@ -56696,9 +56696,9 @@ if.then5.i305:                                    ; preds = %if.then.i299
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i294)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i295)
   %call6.i306 = call ptr @ggml_mul(ptr noundef %155, ptr noundef %call2.i296, ptr noundef nonnull %157)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit308
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit308
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit308: ; preds = %if.then165, %if.then5.i305
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit308: ; preds = %if.then165, %if.then5.i305
   %cur.addr.2.i298 = phi ptr [ %call6.i306, %if.then5.i305 ], [ %call2.i296, %if.then165 ]
   %162 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i309)
@@ -56712,11 +56712,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i313 = icmp eq ptr %163, null
   br i1 %tobool.not.i.i313, label %if.then.i316, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit317
 
-if.then.i316:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit308
+if.then.i316:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit308
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit317: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit308
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit317: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit308
   %_M_invoker.i315 = getelementptr inbounds i8, ptr %162, i64 24
   %164 = load ptr, ptr %_M_invoker.i315, align 8
   call void %164(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i309, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i310, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i311)
@@ -56735,7 +56735,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit317: ; preds = %_ZL14llm_bu
   %ffn_down = getelementptr inbounds i8, ptr %add.ptr.i318, i64 168
   %170 = load ptr, ptr %ffn_down, align 8
   %171 = load ptr, ptr %cb, align 8
-  %call189 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %165, ptr noundef %cur.addr.2.i298, ptr noundef %168, ptr noundef null, ptr noundef %169, ptr noundef %170, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %171, i32 noundef %.pre-phi)
+  %call189 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %165, ptr noundef %cur.addr.2.i298, ptr noundef %168, ptr noundef null, ptr noundef %169, ptr noundef %170, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %171, i32 noundef %.pre-phi)
   %172 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i321)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i322)
@@ -56762,7 +56762,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit329: ; preds = %_ZNKSt8func
   br label %if.end292
 
 if.else:                                          ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit290
-  br i1 %tobool.i297.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit346, label %if.then.i337
+  br i1 %tobool.i297.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit346, label %if.then.i337
 
 if.then.i337:                                     ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i331)
@@ -56788,9 +56788,9 @@ if.then5.i343:                                    ; preds = %if.then.i337
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i332)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i333)
   %call6.i344 = call ptr @ggml_mul(ptr noundef %155, ptr noundef %call2.i296, ptr noundef nonnull %157)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit346
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit346
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit346: ; preds = %if.else, %if.then5.i343
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit346: ; preds = %if.else, %if.then5.i343
   %cur.addr.2.i336 = phi ptr [ %call6.i344, %if.then5.i343 ], [ %call2.i296, %if.else ]
   %177 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i347)
@@ -56804,11 +56804,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i351 = icmp eq ptr %178, null
   br i1 %tobool.not.i.i351, label %if.then.i354, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit355
 
-if.then.i354:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit346
+if.then.i354:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit346
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit355: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit346
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit355: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit346
   %_M_invoker.i353 = getelementptr inbounds i8, ptr %177, i64 24
   %179 = load ptr, ptr %_M_invoker.i353, align 8
   call void %179(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i347, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i348, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i349)
@@ -57252,7 +57252,7 @@ for.end298:                                       ; preds = %_ZNKSt8functionIFvP
   %.val146 = load float, ptr %267, align 4
   %call2.i489 = call ptr @ggml_rms_norm(ptr noundef %262, ptr noundef %inpL.0.lcssa, float noundef %.val146)
   %tobool.i490.not = icmp eq ptr %265, null
-  br i1 %tobool.i490.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit501, label %if.then.i492
+  br i1 %tobool.i490.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit501, label %if.then.i492
 
 if.then.i492:                                     ; preds = %for.end298
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i486)
@@ -57278,9 +57278,9 @@ if.then5.i498:                                    ; preds = %if.then.i492
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i487)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i488)
   %call6.i499 = call ptr @ggml_mul(ptr noundef %262, ptr noundef %call2.i489, ptr noundef nonnull %265)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit501
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit501
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit501: ; preds = %for.end298, %if.then5.i498
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit501: ; preds = %for.end298, %if.then5.i498
   %cur.addr.2.i491 = phi ptr [ %call6.i499, %if.then5.i498 ], [ %call2.i489, %for.end298 ]
   %270 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i502)
@@ -57294,11 +57294,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i506 = icmp eq ptr %271, null
   br i1 %tobool.not.i.i506, label %if.then.i509, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit510
 
-if.then.i509:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit501
+if.then.i509:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit501
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit510: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit501
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit510: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit501
   %_M_invoker.i508 = getelementptr inbounds i8, ptr %270, i64 24
   %272 = load ptr, ptr %_M_invoker.i508, align 8
   call void %272(ptr noundef nonnull align 8 dereferenceable(16) %270, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i502, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i503, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i504)
@@ -57447,7 +57447,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %1, ptr noundef %4, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %hparams, align 8
@@ -57456,9 +57456,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val64 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %1, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %11 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -57472,11 +57472,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.then.i72, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i72:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i72:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -57629,11 +57629,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %.val67 = load float, ptr %46, align 4
   %call2.i = call ptr @ggml_rms_norm(ptr noundef %40, ptr noundef %inpL.0279, float noundef %.val67)
   %tobool.i.not = icmp eq ptr %44, null
-  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, label %if.then.i100
+  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, label %if.then.i100
 
-for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge: ; preds = %for.body
+for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge: ; preds = %for.body
   %.pre = trunc nuw nsw i64 %indvars.iv to i32
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
 if.then.i100:                                     ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i97)
@@ -57660,11 +57660,11 @@ if.then5.i:                                       ; preds = %if.then.i100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i98)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i99)
   %call6.i104 = call ptr @ggml_mul(ptr noundef %40, ptr noundef %call2.i, ptr noundef nonnull %44)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, %if.then5.i
-  %.pre-phi = phi i32 [ %.pre, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %47, %if.then5.i ]
-  %cur.addr.2.i = phi ptr [ %call2.i, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %call6.i104, %if.then5.i ]
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, %if.then5.i
+  %.pre-phi = phi i32 [ %.pre, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %47, %if.then5.i ]
+  %cur.addr.2.i = phi ptr [ %call2.i, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %call6.i104, %if.then5.i ]
   %50 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i106)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i107)
@@ -57677,11 +57677,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i110 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i110, label %if.then.i113, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit114
 
-if.then.i113:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+if.then.i113:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit114: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit114: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   %_M_invoker.i112 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %_M_invoker.i112, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i106, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i107, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i108)
@@ -57979,7 +57979,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181: ; preds = %_ZNKSt8func
   %.val69 = load float, ptr %147, align 4
   %call2.i186 = call ptr @ggml_rms_norm(ptr noundef %141, ptr noundef %call122, float noundef %.val69)
   %tobool.i187.not = icmp eq ptr %145, null
-  br i1 %tobool.i187.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit198, label %if.then.i189
+  br i1 %tobool.i187.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit198, label %if.then.i189
 
 if.then.i189:                                     ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i183)
@@ -58005,9 +58005,9 @@ if.then5.i195:                                    ; preds = %if.then.i189
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i184)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i185)
   %call6.i196 = call ptr @ggml_mul(ptr noundef %141, ptr noundef %call2.i186, ptr noundef nonnull %145)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit198
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit198
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit198: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181, %if.then5.i195
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit198: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181, %if.then5.i195
   %cur.addr.2.i188 = phi ptr [ %call6.i196, %if.then5.i195 ], [ %call2.i186, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181 ]
   %150 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i199)
@@ -58021,11 +58021,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i203 = icmp eq ptr %151, null
   br i1 %tobool.not.i.i203, label %if.then.i206, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
 
-if.then.i206:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit198
+if.then.i206:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit198
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit198
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit198
   %_M_invoker.i205 = getelementptr inbounds i8, ptr %150, i64 24
   %152 = load ptr, ptr %_M_invoker.i205, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(16) %150, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i199, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i200, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i201)
@@ -58044,7 +58044,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207: ; preds = %_ZL14llm_bu
   %ffn_down = getelementptr inbounds i8, ptr %add.ptr.i208, i64 168
   %158 = load ptr, ptr %ffn_down, align 8
   %159 = load ptr, ptr %cb, align 8
-  %call147 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %153, ptr noundef %cur.addr.2.i188, ptr noundef %156, ptr noundef null, ptr noundef %157, ptr noundef %158, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %159, i32 noundef %.pre-phi)
+  %call147 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %153, ptr noundef %cur.addr.2.i188, ptr noundef %156, ptr noundef null, ptr noundef %157, ptr noundef %158, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %159, i32 noundef %.pre-phi)
   %160 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i211)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i212)
@@ -58110,7 +58110,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val71 = load float, ptr %173, align 4
   %call2.i232 = call ptr @ggml_rms_norm(ptr noundef %168, ptr noundef %inpL.0.lcssa, float noundef %.val71)
   %tobool.i233.not = icmp eq ptr %171, null
-  br i1 %tobool.i233.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit244, label %if.then.i235
+  br i1 %tobool.i233.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit244, label %if.then.i235
 
 if.then.i235:                                     ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i229)
@@ -58136,9 +58136,9 @@ if.then5.i241:                                    ; preds = %if.then.i235
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i230)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i231)
   %call6.i242 = call ptr @ggml_mul(ptr noundef %168, ptr noundef %call2.i232, ptr noundef nonnull %171)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit244
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit244
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit244: ; preds = %for.end, %if.then5.i241
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit244: ; preds = %for.end, %if.then5.i241
   %cur.addr.2.i234 = phi ptr [ %call6.i242, %if.then5.i241 ], [ %call2.i232, %for.end ]
   %176 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i245)
@@ -58152,11 +58152,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i249 = icmp eq ptr %177, null
   br i1 %tobool.not.i.i249, label %if.then.i252, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit253
 
-if.then.i252:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit244
+if.then.i252:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit244
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit253: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit244
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit253: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit244
   %_M_invoker.i251 = getelementptr inbounds i8, ptr %176, i64 24
   %178 = load ptr, ptr %_M_invoker.i251, align 8
   call void %178(ptr noundef nonnull align 8 dereferenceable(16) %176, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i245, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i246, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i247)
@@ -58299,7 +58299,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %1, ptr noundef %4, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %hparams, align 8
@@ -58308,9 +58308,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val71 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %1, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %11 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -58324,11 +58324,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.then.i79, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i79:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i79:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -58485,7 +58485,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %48 = getelementptr i8, ptr %41, i64 48
   %.val74 = load float, ptr %48, align 4
   %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %call33 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %40, ptr noundef %inpL.0238, float %.val73, float %.val74, ptr noundef %44, ptr noundef %45, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef %49)
+  %call33 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %40, ptr noundef %inpL.0238, float %.val73, float %.val74, ptr noundef %44, ptr noundef %45, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef %49)
   %50 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i105)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i106)
@@ -58528,7 +58528,7 @@ if.then40:                                        ; preds = %_ZNKSt8functionIFvP
   %.val75 = load float, ptr %60, align 4
   %61 = getelementptr i8, ptr %57, i64 48
   %.val76 = load float, ptr %61, align 4
-  %call53 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %56, ptr noundef %inpL.0238, float %.val75, float %.val76, ptr noundef nonnull %55, ptr noundef %58, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %59, i32 noundef %49)
+  %call53 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %56, ptr noundef %inpL.0238, float %.val75, float %.val76, ptr noundef nonnull %55, ptr noundef %58, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %59, i32 noundef %49)
   %62 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i116)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i117)
@@ -58817,7 +58817,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181: ; preds = %_ZNKSt8func
   %ffn_down = getelementptr inbounds i8, ptr %add.ptr.i182, i64 168
   %150 = load ptr, ptr %ffn_down, align 8
   %151 = load ptr, ptr %cb, align 8
-  %call154 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %146, ptr noundef %call33, ptr noundef %149, ptr noundef null, ptr noundef null, ptr noundef %150, ptr noundef null, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %151, i32 noundef %49)
+  %call154 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %146, ptr noundef %call33, ptr noundef %149, ptr noundef null, ptr noundef null, ptr noundef %150, ptr noundef null, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %151, i32 noundef %49)
   %152 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i184)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i185)
@@ -58910,7 +58910,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val77 = load float, ptr %170, align 4
   %171 = getelementptr i8, ptr %165, i64 48
   %.val78 = load float, ptr %171, align 4
-  %call167 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %164, ptr noundef %inpL.0.lcssa, float %.val77, float %.val78, ptr noundef %167, ptr noundef %168, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %169, i32 noundef -1)
+  %call167 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %164, ptr noundef %inpL.0.lcssa, float %.val77, float %.val78, ptr noundef %167, ptr noundef %168, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %169, i32 noundef -1)
   %172 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i208)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i209)
@@ -59073,7 +59073,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %1, ptr noundef %4, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %hparams, align 8
@@ -59082,9 +59082,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val68 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %1, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %11 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -59098,11 +59098,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.then.i76, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i76:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i76:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -59278,7 +59278,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %48 = getelementptr i8, ptr %41, i64 48
   %.val71 = load float, ptr %48, align 4
   %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %call35 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %40, ptr noundef %inpL.0245, float %.val70, float %.val71, ptr noundef %44, ptr noundef %45, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef %49)
+  %call35 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %40, ptr noundef %inpL.0245, float %.val70, float %.val71, ptr noundef %44, ptr noundef %45, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef %49)
   %50 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i118)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i119)
@@ -59551,7 +59551,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit185: ; preds = %_ZNKSt8func
   %.val72 = load float, ptr %126, align 4
   %127 = getelementptr i8, ptr %120, i64 48
   %.val73 = load float, ptr %127, align 4
-  %call123 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %119, ptr noundef %call110, float %.val72, float %.val73, ptr noundef %123, ptr noundef %124, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %125, i32 noundef %49)
+  %call123 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %119, ptr noundef %call110, float %.val72, float %.val73, ptr noundef %123, ptr noundef %124, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %125, i32 noundef %49)
   %128 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i188)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i189)
@@ -59589,7 +59589,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195: ; preds = %_ZNKSt8func
   %ffn_down_b = getelementptr inbounds i8, ptr %add.ptr.i196, i64 384
   %137 = load ptr, ptr %ffn_down_b, align 8
   %138 = load ptr, ptr %cb, align 8
-  %call143 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %131, ptr noundef %call123, ptr noundef %134, ptr noundef %135, ptr noundef null, ptr noundef %136, ptr noundef %137, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %138, i32 noundef %49)
+  %call143 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %131, ptr noundef %call123, ptr noundef %134, ptr noundef %135, ptr noundef null, ptr noundef %136, ptr noundef %137, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %138, i32 noundef %49)
   %139 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i200)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i201)
@@ -59657,7 +59657,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val74 = load float, ptr %153, align 4
   %154 = getelementptr i8, ptr %148, i64 48
   %.val75 = load float, ptr %154, align 4
-  %call153 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %147, ptr noundef %inpL.0.lcssa, float %.val74, float %.val75, ptr noundef %150, ptr noundef %151, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %152, i32 noundef -1)
+  %call153 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %147, ptr noundef %inpL.0.lcssa, float %.val74, float %.val75, ptr noundef %150, ptr noundef %151, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %152, i32 noundef -1)
   %155 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i216)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i217)
@@ -59871,7 +59871,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %2, ptr noundef %5, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %10 = load ptr, ptr %hparams, align 8
@@ -59880,9 +59880,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val141 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %2, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %12 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -59896,11 +59896,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i, label %if.then.i153, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i153:                                     ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i153:                                     ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %_M_invoker.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -60054,7 +60054,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %49 = getelementptr i8, ptr %42, i64 48
   %.val144 = load float, ptr %49, align 4
   %50 = trunc nuw nsw i64 %indvars.iv to i32
-  %call33 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %41, ptr noundef %inpL.0473, float %.val143, float %.val144, ptr noundef %45, ptr noundef %46, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef %50)
+  %call33 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %41, ptr noundef %inpL.0473, float %.val143, float %.val144, ptr noundef %45, ptr noundef %46, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef %50)
   %51 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i179)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i180)
@@ -60304,7 +60304,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit236: ; preds = %_ZNKSt8func
   %.val145 = load float, ptr %112, align 4
   %113 = getelementptr i8, ptr %106, i64 48
   %.val146 = load float, ptr %113, align 4
-  %call114 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %105, ptr noundef %call78, float %.val145, float %.val146, ptr noundef %109, ptr noundef %110, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 noundef %50)
+  %call114 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %105, ptr noundef %call78, float %.val145, float %.val146, ptr noundef %109, ptr noundef %110, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 noundef %50)
   %114 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i239)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i240)
@@ -60343,7 +60343,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit246: ; preds = %_ZNKSt8func
   %.val147 = load float, ptr %124, align 4
   %125 = getelementptr i8, ptr %118, i64 48
   %.val148 = load float, ptr %125, align 4
-  %call127 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %117, ptr noundef %call101, float %.val147, float %.val148, ptr noundef %121, ptr noundef %122, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %123, i32 noundef %50)
+  %call127 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %117, ptr noundef %call101, float %.val147, float %.val148, ptr noundef %121, ptr noundef %122, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %123, i32 noundef %50)
   %126 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i249)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i250)
@@ -60918,7 +60918,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit394: ; preds = %_ZNKSt8func
   %.val149 = load float, ptr %264, align 4
   %265 = getelementptr i8, ptr %258, i64 48
   %.val150 = load float, ptr %265, align 4
-  %call304 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %257, ptr noundef %call291, float %.val149, float %.val150, ptr noundef %261, ptr noundef %262, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %263, i32 noundef %50)
+  %call304 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %257, ptr noundef %call291, float %.val149, float %.val150, ptr noundef %261, ptr noundef %262, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %263, i32 noundef %50)
   %266 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i397)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i398)
@@ -60956,7 +60956,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit404: ; preds = %_ZNKSt8func
   %ffn_down_b = getelementptr inbounds i8, ptr %add.ptr.i405, i64 384
   %275 = load ptr, ptr %ffn_down_b, align 8
   %276 = load ptr, ptr %cb, align 8
-  %call324 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %269, ptr noundef %call304, ptr noundef %272, ptr noundef %273, ptr noundef null, ptr noundef %274, ptr noundef %275, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %276, i32 noundef %50)
+  %call324 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %269, ptr noundef %call304, ptr noundef %272, ptr noundef %273, ptr noundef null, ptr noundef %274, ptr noundef %275, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %276, i32 noundef %50)
   %277 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i409)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i410)
@@ -61024,7 +61024,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val151 = load float, ptr %291, align 4
   %292 = getelementptr i8, ptr %286, i64 48
   %.val152 = load float, ptr %292, align 4
-  %call334 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %285, ptr noundef %inpL.0.lcssa, float %.val151, float %.val152, ptr noundef %288, ptr noundef %289, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %290, i32 noundef -1)
+  %call334 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %285, ptr noundef %inpL.0.lcssa, float %.val151, float %.val152, ptr noundef %288, ptr noundef %289, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %290, i32 noundef -1)
   %293 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i425)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i426)
@@ -61187,7 +61187,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %1, ptr noundef %4, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %hparams, align 8
@@ -61196,9 +61196,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val59 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %1, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %11 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -61212,11 +61212,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.then.i67, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i67:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i67:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -61308,11 +61308,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %.val62 = load float, ptr %31, align 4
   %call2.i = call ptr @ggml_rms_norm(ptr noundef %25, ptr noundef %inpL.0265, float noundef %.val62)
   %tobool.i.not = icmp eq ptr %29, null
-  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, label %if.then.i87
+  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, label %if.then.i87
 
-for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge: ; preds = %for.body
+for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge: ; preds = %for.body
   %.pre = trunc nuw nsw i64 %indvars.iv to i32
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
 if.then.i87:                                      ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i84)
@@ -61339,11 +61339,11 @@ if.then5.i:                                       ; preds = %if.then.i87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i85)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i86)
   %call6.i91 = call ptr @ggml_mul(ptr noundef %25, ptr noundef %call2.i, ptr noundef nonnull %29)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, %if.then5.i
-  %.pre-phi = phi i32 [ %.pre, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %32, %if.then5.i ]
-  %cur.addr.2.i = phi ptr [ %call2.i, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %call6.i91, %if.then5.i ]
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, %if.then5.i
+  %.pre-phi = phi i32 [ %.pre, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %32, %if.then5.i ]
+  %cur.addr.2.i = phi ptr [ %call2.i, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %call6.i91, %if.then5.i ]
   %35 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i93)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i94)
@@ -61356,11 +61356,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i97 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i97, label %if.then.i100, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit101
 
-if.then.i100:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+if.then.i100:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit101: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit101: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   %_M_invoker.i99 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %_M_invoker.i99, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i94, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i95)
@@ -61596,7 +61596,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168: ; preds = %_ZNKSt8func
   %.val64 = load float, ptr %103, align 4
   %call2.i173 = call ptr @ggml_rms_norm(ptr noundef %97, ptr noundef %call72, float noundef %.val64)
   %tobool.i174.not = icmp eq ptr %101, null
-  br i1 %tobool.i174.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185, label %if.then.i176
+  br i1 %tobool.i174.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185, label %if.then.i176
 
 if.then.i176:                                     ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i170)
@@ -61622,9 +61622,9 @@ if.then5.i182:                                    ; preds = %if.then.i176
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i171)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i172)
   %call6.i183 = call ptr @ggml_mul(ptr noundef %97, ptr noundef %call2.i173, ptr noundef nonnull %101)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168, %if.then5.i182
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168, %if.then5.i182
   %cur.addr.2.i175 = phi ptr [ %call6.i183, %if.then5.i182 ], [ %call2.i173, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168 ]
   %106 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i186)
@@ -61638,11 +61638,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i190 = icmp eq ptr %107, null
   br i1 %tobool.not.i.i190, label %if.then.i193, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194
 
-if.then.i193:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185
+if.then.i193:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185
   %_M_invoker.i192 = getelementptr inbounds i8, ptr %106, i64 24
   %108 = load ptr, ptr %_M_invoker.i192, align 8
   call void %108(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i186, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i187, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i188)
@@ -61661,7 +61661,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZL14llm_bu
   %ffn_down = getelementptr inbounds i8, ptr %add.ptr.i195, i64 168
   %114 = load ptr, ptr %ffn_down, align 8
   %115 = load ptr, ptr %cb, align 8
-  %call97 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %109, ptr noundef %cur.addr.2.i175, ptr noundef %112, ptr noundef null, ptr noundef %113, ptr noundef %114, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %115, i32 noundef %.pre-phi)
+  %call97 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %109, ptr noundef %cur.addr.2.i175, ptr noundef %112, ptr noundef null, ptr noundef %113, ptr noundef %114, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %115, i32 noundef %.pre-phi)
   %116 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i198)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i199)
@@ -61727,7 +61727,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val66 = load float, ptr %129, align 4
   %call2.i219 = call ptr @ggml_rms_norm(ptr noundef %124, ptr noundef %inpL.0.lcssa, float noundef %.val66)
   %tobool.i220.not = icmp eq ptr %127, null
-  br i1 %tobool.i220.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit231, label %if.then.i222
+  br i1 %tobool.i220.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit231, label %if.then.i222
 
 if.then.i222:                                     ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i216)
@@ -61753,9 +61753,9 @@ if.then5.i228:                                    ; preds = %if.then.i222
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i217)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i218)
   %call6.i229 = call ptr @ggml_mul(ptr noundef %124, ptr noundef %call2.i219, ptr noundef nonnull %127)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit231
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit231
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit231: ; preds = %for.end, %if.then5.i228
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit231: ; preds = %for.end, %if.then5.i228
   %cur.addr.2.i221 = phi ptr [ %call6.i229, %if.then5.i228 ], [ %call2.i219, %for.end ]
   %132 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i232)
@@ -61769,11 +61769,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i236 = icmp eq ptr %133, null
   br i1 %tobool.not.i.i236, label %if.then.i239, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit240
 
-if.then.i239:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit231
+if.then.i239:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit231
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit240: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit231
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit240: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit231
   %_M_invoker.i238 = getelementptr inbounds i8, ptr %132, i64 24
   %134 = load ptr, ptr %_M_invoker.i238, align 8
   call void %134(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i232, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i233, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i234)
@@ -61913,7 +61913,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %1, ptr noundef %4, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %hparams, align 8
@@ -61922,9 +61922,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val66 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %1, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %11 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -61938,11 +61938,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.then.i76, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i76:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i76:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -62017,7 +62017,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit92: ; preds = %_ZNKSt8funct
   %.val68 = load float, ptr %30, align 4
   %31 = getelementptr i8, ptr %25, i64 48
   %.val69 = load float, ptr %31, align 4
-  %call17 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %24, ptr noundef %inpL.0.i, float %.val68, float %.val69, ptr noundef %27, ptr noundef %28, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef -1)
+  %call17 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %24, ptr noundef %inpL.0.i, float %.val68, float %.val69, ptr noundef %27, ptr noundef %28, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef -1)
   %32 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i93)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i94)
@@ -62074,7 +62074,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %44 = getelementptr i8, ptr %37, i64 48
   %.val71 = load float, ptr %44, align 4
   %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %call30 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %36, ptr noundef %inpL.0229, float %.val70, float %.val71, ptr noundef %40, ptr noundef %41, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef %45)
+  %call30 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %36, ptr noundef %inpL.0229, float %.val70, float %.val71, ptr noundef %40, ptr noundef %41, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef %45)
   %46 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i102)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i103)
@@ -62347,7 +62347,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit169: ; preds = %_ZNKSt8func
   %.val72 = load float, ptr %122, align 4
   %123 = getelementptr i8, ptr %116, i64 48
   %.val73 = load float, ptr %123, align 4
-  %call118 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %115, ptr noundef %call105, float %.val72, float %.val73, ptr noundef %119, ptr noundef %120, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %121, i32 noundef %45)
+  %call118 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %115, ptr noundef %call105, float %.val72, float %.val73, ptr noundef %119, ptr noundef %120, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %121, i32 noundef %45)
   %124 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i172)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i173)
@@ -62385,7 +62385,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit179: ; preds = %_ZNKSt8func
   %ffn_down_b = getelementptr inbounds i8, ptr %add.ptr.i180, i64 384
   %133 = load ptr, ptr %ffn_down_b, align 8
   %134 = load ptr, ptr %cb, align 8
-  %call138 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %127, ptr noundef %call118, ptr noundef %130, ptr noundef %131, ptr noundef null, ptr noundef %132, ptr noundef %133, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %134, i32 noundef %45)
+  %call138 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %127, ptr noundef %call118, ptr noundef %130, ptr noundef %131, ptr noundef null, ptr noundef %132, ptr noundef %133, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %134, i32 noundef %45)
   %135 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i184)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i185)
@@ -62453,7 +62453,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val74 = load float, ptr %149, align 4
   %150 = getelementptr i8, ptr %144, i64 48
   %.val75 = load float, ptr %150, align 4
-  %call148 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %143, ptr noundef %inpL.0.lcssa, float %.val74, float %.val75, ptr noundef %146, ptr noundef %147, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %148, i32 noundef -1)
+  %call148 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %143, ptr noundef %inpL.0.lcssa, float %.val74, float %.val75, ptr noundef %146, ptr noundef %147, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %148, i32 noundef -1)
   %151 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i200)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i201)
@@ -62616,7 +62616,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %1, ptr noundef %4, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %hparams, align 8
@@ -62625,9 +62625,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val60 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %1, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %11 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -62641,11 +62641,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.then.i68, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i68:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i68:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -62738,11 +62738,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %.val62 = load float, ptr %31, align 4
   %call.i88 = call ptr @ggml_norm(ptr noundef %25, ptr noundef %inpL.0264, float noundef %.val62)
   %tobool.i.not = icmp eq ptr %29, null
-  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, label %if.then.i89
+  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, label %if.then.i89
 
-for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge: ; preds = %for.body
+for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge: ; preds = %for.body
   %.pre = trunc nuw nsw i64 %indvars.iv to i32
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
 if.then.i89:                                      ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i85)
@@ -62769,11 +62769,11 @@ if.then5.i:                                       ; preds = %if.then.i89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i86)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i87)
   %call6.i93 = call ptr @ggml_mul(ptr noundef %25, ptr noundef %call.i88, ptr noundef nonnull %29)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, %if.then5.i
-  %.pre-phi = phi i32 [ %.pre, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %32, %if.then5.i ]
-  %cur.addr.2.i = phi ptr [ %call.i88, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %call6.i93, %if.then5.i ]
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, %if.then5.i
+  %.pre-phi = phi i32 [ %.pre, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %32, %if.then5.i ]
+  %cur.addr.2.i = phi ptr [ %call.i88, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %call6.i93, %if.then5.i ]
   %35 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i95)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i96)
@@ -62786,11 +62786,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i99 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i99, label %if.then.i102, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit103
 
-if.then.i102:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+if.then.i102:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit103: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit103: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   %_M_invoker.i101 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %_M_invoker.i101, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i95, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i96, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i97)
@@ -63049,7 +63049,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168: ; preds = %_ZNKSt8func
   %.val64 = load float, ptr %109, align 4
   %call.i173 = call ptr @ggml_norm(ptr noundef %103, ptr noundef %call94, float noundef %.val64)
   %tobool.i174.not = icmp eq ptr %107, null
-  br i1 %tobool.i174.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185, label %if.then.i176
+  br i1 %tobool.i174.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185, label %if.then.i176
 
 if.then.i176:                                     ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i170)
@@ -63075,9 +63075,9 @@ if.then5.i182:                                    ; preds = %if.then.i176
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i171)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i172)
   %call6.i183 = call ptr @ggml_mul(ptr noundef %103, ptr noundef %call.i173, ptr noundef nonnull %107)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168, %if.then5.i182
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168, %if.then5.i182
   %cur.addr.2.i175 = phi ptr [ %call6.i183, %if.then5.i182 ], [ %call.i173, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168 ]
   %112 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i186)
@@ -63091,11 +63091,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i190 = icmp eq ptr %113, null
   br i1 %tobool.not.i.i190, label %if.then.i193, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194
 
-if.then.i193:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185
+if.then.i193:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit185
   %_M_invoker.i192 = getelementptr inbounds i8, ptr %112, i64 24
   %114 = load ptr, ptr %_M_invoker.i192, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i186, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i187, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i188)
@@ -63112,7 +63112,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZL14llm_bu
   %ffn_down = getelementptr inbounds i8, ptr %add.ptr.i195, i64 168
   %119 = load ptr, ptr %ffn_down, align 8
   %120 = load ptr, ptr %cb, align 8
-  %call115 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %115, ptr noundef %cur.addr.2.i175, ptr noundef %118, ptr noundef null, ptr noundef null, ptr noundef %119, ptr noundef null, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %120, i32 noundef %.pre-phi)
+  %call115 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %115, ptr noundef %cur.addr.2.i175, ptr noundef %118, ptr noundef null, ptr noundef null, ptr noundef %119, ptr noundef null, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %120, i32 noundef %.pre-phi)
   %121 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i197)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i198)
@@ -63178,7 +63178,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val66 = load float, ptr %134, align 4
   %call.i218 = call ptr @ggml_norm(ptr noundef %129, ptr noundef %inpL.0.lcssa, float noundef %.val66)
   %tobool.i219.not = icmp eq ptr %132, null
-  br i1 %tobool.i219.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit230, label %if.then.i221
+  br i1 %tobool.i219.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit230, label %if.then.i221
 
 if.then.i221:                                     ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i215)
@@ -63204,9 +63204,9 @@ if.then5.i227:                                    ; preds = %if.then.i221
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i216)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i217)
   %call6.i228 = call ptr @ggml_mul(ptr noundef %129, ptr noundef %call.i218, ptr noundef nonnull %132)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit230
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit230
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit230: ; preds = %for.end, %if.then5.i227
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit230: ; preds = %for.end, %if.then5.i227
   %cur.addr.2.i220 = phi ptr [ %call6.i228, %if.then5.i227 ], [ %call.i218, %for.end ]
   %137 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i231)
@@ -63220,11 +63220,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i235 = icmp eq ptr %138, null
   br i1 %tobool.not.i.i235, label %if.then.i238, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit239
 
-if.then.i238:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit230
+if.then.i238:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit230
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit239: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit230
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit239: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit230
   %_M_invoker.i237 = getelementptr inbounds i8, ptr %137, i64 24
   %139 = load ptr, ptr %_M_invoker.i237, align 8
   call void %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i231, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i232, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i233)
@@ -63364,7 +63364,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %1, ptr noundef %4, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %hparams, align 8
@@ -63373,9 +63373,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val64 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %1, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %11 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -63389,11 +63389,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.then.i72, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i72:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i72:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -63547,7 +63547,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %48 = getelementptr i8, ptr %41, i64 48
   %.val67 = load float, ptr %48, align 4
   %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %call32 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %40, ptr noundef %inpL.0224, float %.val66, float %.val67, ptr noundef %44, ptr noundef %45, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef %49)
+  %call32 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %40, ptr noundef %inpL.0224, float %.val66, float %.val67, ptr noundef %44, ptr noundef %45, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef %49)
   %50 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i98)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i99)
@@ -63825,7 +63825,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit165: ; preds = %_ZNKSt8func
   %.val68 = load float, ptr %137, align 4
   %138 = getelementptr i8, ptr %131, i64 48
   %.val69 = load float, ptr %138, align 4
-  %call117 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %130, ptr noundef %call104, float %.val68, float %.val69, ptr noundef %134, ptr noundef %135, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef %49)
+  %call117 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %130, ptr noundef %call104, float %.val68, float %.val69, ptr noundef %134, ptr noundef %135, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef %49)
   %139 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i168)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i169)
@@ -63861,7 +63861,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit175: ; preds = %_ZNKSt8func
   %ffn_down = getelementptr inbounds i8, ptr %add.ptr.i176, i64 168
   %147 = load ptr, ptr %ffn_down, align 8
   %148 = load ptr, ptr %cb, align 8
-  %call133 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %142, ptr noundef %call117, ptr noundef %145, ptr noundef null, ptr noundef %146, ptr noundef %147, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %148, i32 noundef %49)
+  %call133 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %142, ptr noundef %call117, ptr noundef %145, ptr noundef null, ptr noundef %146, ptr noundef %147, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %148, i32 noundef %49)
   %149 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i179)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i180)
@@ -63929,7 +63929,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val70 = load float, ptr %163, align 4
   %164 = getelementptr i8, ptr %158, i64 48
   %.val71 = load float, ptr %164, align 4
-  %call143 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %157, ptr noundef %inpL.0.lcssa, float %.val70, float %.val71, ptr noundef %160, ptr noundef %161, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %162, i32 noundef -1)
+  %call143 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %157, ptr noundef %inpL.0.lcssa, float %.val70, float %.val71, ptr noundef %160, ptr noundef %161, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %162, i32 noundef -1)
   %165 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i195)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i196)
@@ -64101,7 +64101,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
   %call3.i = call ptr @ggml_get_rows(ptr noundef %1, ptr noundef %4, ptr noundef %call.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %hparams, align 8
@@ -64110,9 +64110,9 @@ if.else.i:                                        ; preds = %entry
   %conv.i = zext i32 %.val to i64
   %conv5.i = sext i32 %.val72 to i64
   %call6.i = tail call ptr @ggml_new_tensor_2d(ptr noundef %1, i32 noundef 0, i64 noundef %conv.i, i64 noundef %conv5.i)
-  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+  br label %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
 
-_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
+_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i, %if.else.i
   %inpL.0.i = phi ptr [ %call3.i, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i ], [ %call6.i, %if.else.i ]
   %11 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -64126,11 +64126,11 @@ _ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_te
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %if.then.i80, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
 
-if.then.i80:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+if.then.i80:                                      ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.argprom.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
@@ -64283,11 +64283,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %.val75 = load float, ptr %46, align 4
   %call2.i = call ptr @ggml_rms_norm(ptr noundef %40, ptr noundef %inpL.0305, float noundef %.val75)
   %tobool.i.not = icmp eq ptr %44, null
-  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, label %if.then.i108
+  br i1 %tobool.i.not, label %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, label %if.then.i108
 
-for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge: ; preds = %for.body
+for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge: ; preds = %for.body
   %.pre = trunc nuw nsw i64 %indvars.iv to i32
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
 if.then.i108:                                     ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i105)
@@ -64314,11 +64314,11 @@ if.then5.i:                                       ; preds = %if.then.i108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i106)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i107)
   %call6.i112 = call ptr @ggml_mul(ptr noundef %40, ptr noundef %call2.i, ptr noundef nonnull %44)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge, %if.then5.i
-  %.pre-phi = phi i32 [ %.pre, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %47, %if.then5.i ]
-  %cur.addr.2.i = phi ptr [ %call2.i, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit_crit_edge ], [ %call6.i112, %if.then5.i ]
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit: ; preds = %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge, %if.then5.i
+  %.pre-phi = phi i32 [ %.pre, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %47, %if.then5.i ]
+  %cur.addr.2.i = phi ptr [ %call2.i, %for.body._ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit_crit_edge ], [ %call6.i112, %if.then5.i ]
   %50 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i114)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i115)
@@ -64331,11 +64331,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i118 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i118, label %if.then.i121, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122
 
-if.then.i121:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+if.then.i121:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit
   %_M_invoker.i120 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %_M_invoker.i120, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i114, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i115, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i116)
@@ -64656,7 +64656,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit206: ; preds = %_ZNKSt8func
   %.val77 = load float, ptr %150, align 4
   %call2.i211 = call ptr @ggml_rms_norm(ptr noundef %144, ptr noundef %call126, float noundef %.val77)
   %tobool.i212.not = icmp eq ptr %148, null
-  br i1 %tobool.i212.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit223, label %if.then.i214
+  br i1 %tobool.i212.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit223, label %if.then.i214
 
 if.then.i214:                                     ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit206
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i208)
@@ -64682,9 +64682,9 @@ if.then5.i220:                                    ; preds = %if.then.i214
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i209)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i210)
   %call6.i221 = call ptr @ggml_mul(ptr noundef %144, ptr noundef %call2.i211, ptr noundef nonnull %148)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit223
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit223
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit223: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit206, %if.then5.i220
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit223: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit206, %if.then5.i220
   %cur.addr.2.i213 = phi ptr [ %call6.i221, %if.then5.i220 ], [ %call2.i211, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit206 ]
   %153 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i224)
@@ -64698,11 +64698,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i228 = icmp eq ptr %154, null
   br i1 %tobool.not.i.i228, label %if.then.i231, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit232
 
-if.then.i231:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit223
+if.then.i231:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit223
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit232: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit223
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit232: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit223
   %_M_invoker.i230 = getelementptr inbounds i8, ptr %153, i64 24
   %155 = load ptr, ptr %_M_invoker.i230, align 8
   call void %155(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i224, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i225, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i226)
@@ -64721,7 +64721,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit232: ; preds = %_ZL14llm_bu
   %ffn_down = getelementptr inbounds i8, ptr %add.ptr.i233, i64 168
   %161 = load ptr, ptr %ffn_down, align 8
   %162 = load ptr, ptr %cb, align 8
-  %call151 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %156, ptr noundef %cur.addr.2.i213, ptr noundef %159, ptr noundef null, ptr noundef %160, ptr noundef %161, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %162, i32 noundef %.pre-phi)
+  %call151 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %156, ptr noundef %cur.addr.2.i213, ptr noundef %159, ptr noundef null, ptr noundef %160, ptr noundef %161, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %162, i32 noundef %.pre-phi)
   %163 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i236)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i237)
@@ -64787,7 +64787,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
   %.val79 = load float, ptr %176, align 4
   %call2.i257 = call ptr @ggml_rms_norm(ptr noundef %171, ptr noundef %inpL.0.lcssa, float noundef %.val79)
   %tobool.i258.not = icmp eq ptr %174, null
-  br i1 %tobool.i258.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit269, label %if.then.i260
+  br i1 %tobool.i258.not, label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit269, label %if.then.i260
 
 if.then.i260:                                     ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i254)
@@ -64813,9 +64813,9 @@ if.then5.i266:                                    ; preds = %if.then.i260
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i255)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i256)
   %call6.i267 = call ptr @ggml_mul(ptr noundef %171, ptr noundef %call2.i257, ptr noundef nonnull %174)
-  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit269
+  br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit269
 
-_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit269: ; preds = %for.end, %if.then5.i266
+_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit269: ; preds = %for.end, %if.then5.i266
   %cur.addr.2.i259 = phi ptr [ %call6.i267, %if.then5.i266 ], [ %call2.i257, %for.end ]
   %179 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i270)
@@ -64829,11 +64829,11 @@ _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_nor
   %tobool.not.i.i274 = icmp eq ptr %180, null
   br i1 %tobool.not.i.i274, label %if.then.i277, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit278
 
-if.then.i277:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit269
+if.then.i277:                                     ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit269
   call void @_ZSt25__throw_bad_function_callv() #50
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit278: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit269
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit278: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom.exit269
   %_M_invoker.i276 = getelementptr inbounds i8, ptr %179, i64 24
   %181 = load ptr, ptr %_M_invoker.i276, align 8
   call void %181(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i270, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i271, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i272)
@@ -65280,7 +65280,7 @@ if.end172.i.i.i:                                  ; preds = %if.end171.i.i.i, %l
   %view_src.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 264
   %98 = load ptr, ptr %view_src.i.i.i, align 8
   %cmp173.not.i.i.i = icmp eq ptr %98, null
-  br i1 %cmp173.not.i.i.i, label %if.end175.i.i.i, label %"_ZSt10__invoke_rIvRZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0JP11ggml_tensorPKciEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit"
+  br i1 %cmp173.not.i.i.i, label %if.end175.i.i.i, label %"_ZSt10__invoke_rIvRZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0JP11ggml_tensorPKciEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.argprom.exit"
 
 if.end175.i.i.i:                                  ; preds = %if.end172.i.i.i
   %op.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 80
@@ -65391,14 +65391,14 @@ if.end.i.i.i.i:                                   ; preds = %init.end.i.i.i, %fo
   %arrayidx3.i.i.i.i = getelementptr inbounds [256 x ptr], ptr %cur.09.i.i.i.i, i64 0, i64 %idxprom2.i.i.i.i
   %111 = load ptr, ptr %arrayidx3.i.i.i.i, align 8
   %tobool4.not.i.i.i.i = icmp eq ptr %111, null
-  br i1 %tobool4.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0JP11ggml_tensorPKciEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", label %for.cond.i.i.i.i
+  br i1 %tobool4.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0JP11ggml_tensorPKciEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.argprom.exit", label %for.cond.i.i.i.i
 
 _ZNK16llm_offload_trie4findEPKc.exit.i.i.i:       ; preds = %for.cond.i.i.i.i, %init.end.i.i.i
   %cur.0.lcssa.i.i.i.i = phi ptr [ %107, %init.end.i.i.i ], [ %111, %for.cond.i.i.i.i ]
   %func.i.i.i.i = getelementptr inbounds i8, ptr %cur.0.lcssa.i.i.i.i, i64 2048
   %112 = load i32, ptr %func.i.i.i.i, align 8
   %switch.i.i.i = icmp ult i32 %112, 7
-  br i1 %switch.i.i.i, label %"_ZSt10__invoke_rIvRZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0JP11ggml_tensorPKciEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", label %do.body.i.i.i
+  br i1 %switch.i.i.i, label %"_ZSt10__invoke_rIvRZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0JP11ggml_tensorPKciEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.argprom.exit", label %do.body.i.i.i
 
 lpad.i.i.i:                                       ; preds = %invoke.cont199.i.i.i, %invoke.cont196.i.i.i, %invoke.cont193.i.i.i, %invoke.cont190.i.i.i, %invoke.cont187.i.i.i, %invoke.cont.i.i.i
   %arrayinit.endOfInit.0.i.i.i = phi ptr [ %arrayinit.element200.i.i.i, %invoke.cont199.i.i.i ], [ %arrayinit.element197.i.i.i, %invoke.cont196.i.i.i ], [ %arrayinit.element194.i.i.i, %invoke.cont193.i.i.i ], [ %arrayinit.element191.i.i.i, %invoke.cont190.i.i.i ], [ %arrayinit.element188.i.i.i, %invoke.cont187.i.i.i ], [ %arrayinit.element.i.i.i, %invoke.cont.i.i.i ]
@@ -65441,7 +65441,7 @@ do.body.i.i.i:                                    ; preds = %_ZNK16llm_offload_t
   call void @abort() #48
   unreachable
 
-"_ZSt10__invoke_rIvRZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0JP11ggml_tensorPKciEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit": ; preds = %if.end.i.i.i.i, %if.end172.i.i.i, %_ZNK16llm_offload_trie4findEPKc.exit.i.i.i
+"_ZSt10__invoke_rIvRZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0JP11ggml_tensorPKciEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %if.end.i.i.i.i, %if.end172.i.i.i, %_ZNK16llm_offload_trie4findEPKc.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp185.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp186.i.i.i)
@@ -66189,7 +66189,7 @@ for.end:                                          ; preds = %_ZNKSt8functionIFvP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %ctx, ptr noundef %cur, float %hparams.44.val, float %hparams.48.val, ptr noundef %mw, ptr noundef %mb, i32 noundef range(i32 0, 2) %type, ptr noundef nonnull align 8 dereferenceable(32) %cb, i32 noundef %il) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %ctx, ptr noundef %cur, float %hparams.44.val, float %hparams.48.val, ptr noundef %mw, ptr noundef %mb, i32 noundef range(i32 0, 2) %type, ptr noundef nonnull align 8 dereferenceable(32) %cb, i32 noundef %il) unnamed_addr #2 {
 entry:
   %__args.addr.i18 = alloca ptr, align 8
   %__args.addr2.i19 = alloca ptr, align 8
@@ -66787,7 +66787,7 @@ if.end59:                                         ; preds = %_ZNKSt8functionIFvP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %ctx, ptr noundef %cur, ptr noundef %up, ptr noundef %up_b, ptr noundef %gate, ptr noundef %down, ptr noundef %down_b, i32 noundef range(i32 0, 4) %type_op, i32 noundef range(i32 0, 2) %type_gate, ptr noundef nonnull align 8 dereferenceable(32) %cb, i32 noundef %il) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextP11ggml_tensorS2_S2_S2_S2_S2_S2_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS2_PKciEEi.argprom(ptr noundef %ctx, ptr noundef %cur, ptr noundef %up, ptr noundef %up_b, ptr noundef %gate, ptr noundef %down, ptr noundef %down_b, i32 noundef range(i32 0, 4) %type_op, i32 noundef range(i32 0, 2) %type_gate, ptr noundef nonnull align 8 dereferenceable(32) %cb, i32 noundef %il) unnamed_addr #2 {
 entry:
   %__args.addr.i140 = alloca ptr, align 8
   %__args.addr2.i141 = alloca ptr, align 8
@@ -72379,7 +72379,7 @@ init.check.i:                                     ; preds = %for.body297
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZL24bytes_to_unicode_map_bpeB5cxx11v()
+  invoke fastcc void @_ZL24bytes_to_unicode_map_bpeB5cxx11v.argprom()
           to label %invoke.cont.i unwind label %lpad.i230, !noalias !406
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -73050,7 +73050,7 @@ init.check.i:                                     ; preds = %if.end
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZL18codepoint_type_mapv()
+  invoke fastcc void @_ZL18codepoint_type_mapv.argprom()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -73351,7 +73351,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18codepoint_type_mapv() unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18codepoint_type_mapv.argprom() unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZZL14codepoint_typejE15codepoint_types, i64 48), ptr @_ZZL14codepoint_typejE15codepoint_types, align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZL14codepoint_typejE15codepoint_types, i64 8), align 8
@@ -74807,7 +74807,7 @@ invoke.cont:                                      ; preds = %while.body.i, %_ZN9
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #35
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24unicode_to_bytes_map_bpeB5cxx11v() unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24unicode_to_bytes_map_bpeB5cxx11v.argprom() unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -76903,8 +76903,8 @@ while.body.i.i43.i.i.i:                           ; preds = %land.rhs.i.i36.i.i.
 while.body.i.i.preheader:                         ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i.i", %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i.i"
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i"
-  %__last.addr.04.i.i = phi ptr [ %incdec.ptr.i3.i, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i" ], [ %__last.addr.026, %while.body.i.i.preheader ]
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31.i"
+  %__last.addr.04.i.i = phi ptr [ %incdec.ptr.i3.i, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31.i" ], [ %__last.addr.026, %while.body.i.i.preheader ]
   %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %__last.addr.04.i.i, i64 -12
   %__value.sroa.0.0.copyload.i.i4.i = load i64, ptr %incdec.ptr.i3.i, align 4
   %__value.sroa.2.0..sroa_idx.i.i5.i = getelementptr inbounds i8, ptr %__last.addr.04.i.i, i64 -4
@@ -76961,7 +76961,7 @@ if.end16.i.i.i17.i:                               ; preds = %land.lhs.true.i.i.i
   %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i18.i = lshr i64 %__value.sroa.0.0.copyload.i.i4.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i19.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i18.i to i32
   %cmp5.i.i.not.i.i20.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i14.i, 0
-  br i1 %cmp5.i.i.not.i.i20.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i", label %land.rhs.lr.ph.i.i.i.i21.i
+  br i1 %cmp5.i.i.not.i.i20.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31.i", label %land.rhs.lr.ph.i.i.i.i21.i
 
 land.rhs.lr.ph.i.i.i.i21.i:                       ; preds = %if.end16.i.i.i17.i, %if.end16.i.thread.i.i45.i
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22.i = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i51.i, %if.end16.i.thread.i.i45.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i19.i, %if.end16.i.i.i17.i ]
@@ -76977,15 +76977,15 @@ land.rhs.i.i.i.i24.i:                             ; preds = %while.body.i.i.i.i3
   %13 = getelementptr i8, ptr %add.ptr.i.i.i.i28.i, i64 4
   %add.ptr.val.i.i.i.i29.i = load float, ptr %13, align 4
   %cmp.i.i.i.i.i.i30.i = fcmp ogt float %add.ptr.val.i.i.i.i29.i, %12
-  br i1 %cmp.i.i.i.i.i.i30.i, label %while.body.i.i.i.i39.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i"
+  br i1 %cmp.i.i.i.i.i.i30.i, label %while.body.i.i.i.i39.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31.i"
 
 while.body.i.i.i.i39.i:                           ; preds = %land.rhs.i.i.i.i24.i
   %add.ptr2.i.i.i.i40.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i25.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i.i.i40.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.i.i28.i, i64 12, i1 false)
   %cmp.i.i.i.i41.i = icmp sgt i64 %__holeIndex.addr.06.i.i.i.i25.i, 2
-  br i1 %cmp.i.i.i.i41.i, label %land.rhs.i.i.i.i24.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i", !llvm.loop !458
+  br i1 %cmp.i.i.i.i41.i, label %land.rhs.i.i.i.i24.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31.i", !llvm.loop !458
 
-"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i": ; preds = %while.body.i.i.i.i39.i, %land.rhs.i.i.i.i24.i, %if.end16.i.i.i17.i
+"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31.i": ; preds = %while.body.i.i.i.i39.i, %land.rhs.i.i.i.i24.i, %if.end16.i.i.i17.i
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i32.i = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i19.i, %if.end16.i.i.i17.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22.i, %land.rhs.i.i.i.i24.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22.i, %while.body.i.i.i.i39.i ]
   %__holeIndex.addr.0.lcssa.i.i.i.i33.i = phi i64 [ 0, %if.end16.i.i.i17.i ], [ %__parent.07.i.i.i.i27.i, %while.body.i.i.i.i39.i ], [ %__holeIndex.addr.06.i.i.i.i25.i, %land.rhs.i.i.i.i24.i ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i34.i = trunc i64 %__value.sroa.0.0.copyload.i.i4.i to i32
@@ -77119,7 +77119,7 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   %cmp = icmp sgt i64 %sub.ptr.sub, 192
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !464
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEET_S7_S7_T0_.exit", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i", %entry
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEET_S7_S7_T0_.exit", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31.i", %entry
   ret void
 }
 
@@ -77292,7 +77292,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 12
   %cmp.i.i = icmp slt i64 %sub.ptr.sub.i.i, 24
-  br i1 %cmp.i.i, label %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit.i", label %if.end.split.i.i
+  br i1 %cmp.i.i, label %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit.i", label %if.end.split.i.i
 
 if.end.split.i.i:                                 ; preds = %entry
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, -2
@@ -77377,7 +77377,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %__value.sroa.3.0.add.ptr5.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i.i, i64 8
   store float %__value.sroa.2.0.copyload12.i.i, ptr %__value.sroa.3.0.add.ptr5.sroa_idx.i.i.i.i, align 4
   %cmp62.i.i = icmp ult i64 %sub.i.i, 2
-  br i1 %cmp62.i.i, label %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit.i", label %if.end8.split.lr.ph.i.i
+  br i1 %cmp62.i.i, label %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit.i", label %if.end8.split.lr.ph.i.i
 
 if.end8.split.lr.ph.i.i:                          ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i"
   %sub12.i52.i.i = or disjoint i64 %sub.i.i, 1
@@ -77459,13 +77459,13 @@ while.body.i.i43.i.i:                             ; preds = %land.rhs.i.i36.i.i
   %__value.sroa.3.0.add.ptr5.sroa_idx.i.i34.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i32.i.i, i64 8
   store float %__value.sroa.2.0.copyload16.i.i, ptr %__value.sroa.3.0.add.ptr5.sroa_idx.i.i34.i.i, align 4
   %cmp6.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp6.i.i, label %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit.i", label %if.end8.split.i.i, !llvm.loop !471
+  br i1 %cmp6.i.i, label %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit.i", label %if.end8.split.i.i, !llvm.loop !471
 
-"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit.i": ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i", %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i", %entry
+"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit.i": ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i", %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i", %entry
   %cmp58.i = icmp ult ptr %__middle, %__last
   br i1 %cmp58.i, label %for.body.lr.ph.i, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit"
 
-for.body.lr.ph.i:                                 ; preds = %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit.i"
+for.body.lr.ph.i:                                 ; preds = %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit.i"
   %8 = getelementptr i8, ptr %__first, i64 4
   %sub.i.i13.i = add nsw i64 %sub.ptr.div.i.i, -1
   %div.i.i14.i = sdiv i64 %sub.i.i13.i, 2
@@ -77524,7 +77524,7 @@ while.end.i.i16.thread.i:                         ; preds = %if.then.i
 if.end16.i.i20.thread.i:                          ; preds = %while.end.i.i16.thread.i
   %__value.sroa.0.sroa.2.0.extract.shift.i.i.i2165.i = lshr i64 %__value.sroa.0.0.copyload.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i2266.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i.i2165.i to i32
-  br label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i"
+  br label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i"
 
 if.end16.i.thread.i.i:                            ; preds = %while.end.i.i16.thread.i, %while.end.i.i16.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i.i45.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i.i44.i, i64 12, i1 false)
@@ -77536,7 +77536,7 @@ if.end16.i.i20.i:                                 ; preds = %while.end.i.i16.i
   %__value.sroa.0.sroa.2.0.extract.shift.i.i.i21.i = lshr i64 %__value.sroa.0.0.copyload.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i22.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i.i21.i to i32
   %cmp5.i.i.not.i.i = icmp eq i64 %spec.select.i.i54.i, 0
-  br i1 %cmp5.i.i.not.i.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i", label %land.rhs.lr.ph.i.i.i23.i
+  br i1 %cmp5.i.i.not.i.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i", label %land.rhs.lr.ph.i.i.i23.i
 
 land.rhs.lr.ph.i.i.i23.i:                         ; preds = %if.end16.i.i20.i, %if.end16.i.thread.i.i
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i, %if.end16.i.thread.i.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i22.i, %if.end16.i.i20.i ]
@@ -77552,15 +77552,15 @@ land.rhs.i.i.i24.i:                               ; preds = %while.body.i.i.i37.
   %13 = getelementptr i8, ptr %add.ptr.i.i.i28.i, i64 4
   %add.ptr.val.i.i.i29.i = load float, ptr %13, align 4
   %cmp.i.i.i.i.i30.i = fcmp ogt float %add.ptr.val.i.i.i29.i, %12
-  br i1 %cmp.i.i.i.i.i30.i, label %while.body.i.i.i37.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i"
+  br i1 %cmp.i.i.i.i.i30.i, label %while.body.i.i.i37.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i"
 
 while.body.i.i.i37.i:                             ; preds = %land.rhs.i.i.i24.i
   %add.ptr2.i.i.i38.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i25.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i.i38.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.i28.i, i64 12, i1 false)
   %cmp.i.i.i39.i = icmp sgt i64 %__holeIndex.addr.06.i.i.i25.i, 2
-  br i1 %cmp.i.i.i39.i, label %land.rhs.i.i.i24.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i", !llvm.loop !470
+  br i1 %cmp.i.i.i39.i, label %land.rhs.i.i.i24.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i", !llvm.loop !470
 
-"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i": ; preds = %while.body.i.i.i37.i, %land.rhs.i.i.i24.i, %if.end16.i.i20.i, %if.end16.i.i20.thread.i
+"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i": ; preds = %while.body.i.i.i37.i, %land.rhs.i.i.i24.i, %if.end16.i.i20.i, %if.end16.i.i20.thread.i
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i22.i, %if.end16.i.i20.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i2266.i, %if.end16.i.i20.thread.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i, %land.rhs.i.i.i24.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i, %while.body.i.i.i37.i ]
   %__holeIndex.addr.0.lcssa.i.i.i32.i = phi i64 [ 0, %if.end16.i.i20.i ], [ 0, %if.end16.i.i20.thread.i ], [ %__parent.07.i.i.i27.i, %while.body.i.i.i37.i ], [ %__holeIndex.addr.06.i.i.i25.i, %land.rhs.i.i.i24.i ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i33.i = trunc i64 %__value.sroa.0.0.copyload.i.i to i32
@@ -77572,17 +77572,17 @@ while.body.i.i.i37.i:                             ; preds = %land.rhs.i.i.i24.i
   store float %__value.sroa.2.0.copyload.i.i, ptr %__value.sroa.3.0.add.ptr5.sroa_idx.i.i.i36.i, align 4
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i", %for.body.i
+for.inc.i:                                        ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i", %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.059.i, i64 12
   %cmp.i = icmp ult ptr %incdec.ptr.i, %__last
   br i1 %cmp.i, label %for.body.i, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit", !llvm.loop !472
 
-"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit": ; preds = %for.inc.i, %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit.i"
+"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit": ; preds = %for.inc.i, %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit.i"
   %cmp3.i = icmp sgt i64 %sub.ptr.sub.i.i, 12
-  br i1 %cmp3.i, label %while.body.i, label %"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit"
+  br i1 %cmp3.i, label %while.body.i, label %"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit"
 
-while.body.i:                                     ; preds = %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31"
-  %__last.addr.04.i = phi ptr [ %incdec.ptr.i3, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31" ], [ %__middle, %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit" ]
+while.body.i:                                     ; preds = %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31"
+  %__last.addr.04.i = phi ptr [ %incdec.ptr.i3, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31" ], [ %__middle, %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit" ]
   %incdec.ptr.i3 = getelementptr inbounds i8, ptr %__last.addr.04.i, i64 -12
   %__value.sroa.0.0.copyload.i.i4 = load i64, ptr %incdec.ptr.i3, align 4
   %__value.sroa.2.0..sroa_idx.i.i5 = getelementptr inbounds i8, ptr %__last.addr.04.i, i64 -4
@@ -77639,7 +77639,7 @@ if.end16.i.i.i17:                                 ; preds = %land.lhs.true.i.i.i
   %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i18 = lshr i64 %__value.sroa.0.0.copyload.i.i4, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i19 = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i18 to i32
   %cmp5.i.i.not.i.i20 = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i14, 0
-  br i1 %cmp5.i.i.not.i.i20, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31", label %land.rhs.lr.ph.i.i.i.i21
+  br i1 %cmp5.i.i.not.i.i20, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31", label %land.rhs.lr.ph.i.i.i.i21
 
 land.rhs.lr.ph.i.i.i.i21:                         ; preds = %if.end16.i.i.i17, %if.end16.i.thread.i.i45
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22 = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i51, %if.end16.i.thread.i.i45 ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i19, %if.end16.i.i.i17 ]
@@ -77655,15 +77655,15 @@ land.rhs.i.i.i.i24:                               ; preds = %while.body.i.i.i.i3
   %17 = getelementptr i8, ptr %add.ptr.i.i.i.i28, i64 4
   %add.ptr.val.i.i.i.i29 = load float, ptr %17, align 4
   %cmp.i.i.i.i.i.i30 = fcmp ogt float %add.ptr.val.i.i.i.i29, %16
-  br i1 %cmp.i.i.i.i.i.i30, label %while.body.i.i.i.i39, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31"
+  br i1 %cmp.i.i.i.i.i.i30, label %while.body.i.i.i.i39, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31"
 
 while.body.i.i.i.i39:                             ; preds = %land.rhs.i.i.i.i24
   %add.ptr2.i.i.i.i40 = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i.i.i40, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.i.i28, i64 12, i1 false)
   %cmp.i.i.i.i41 = icmp sgt i64 %__holeIndex.addr.06.i.i.i.i25, 2
-  br i1 %cmp.i.i.i.i41, label %land.rhs.i.i.i.i24, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31", !llvm.loop !470
+  br i1 %cmp.i.i.i.i41, label %land.rhs.i.i.i.i24, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31", !llvm.loop !470
 
-"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31": ; preds = %while.body.i.i.i.i39, %land.rhs.i.i.i.i24, %if.end16.i.i.i17
+"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31": ; preds = %while.body.i.i.i.i39, %land.rhs.i.i.i.i24, %if.end16.i.i.i17
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i32 = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i19, %if.end16.i.i.i17 ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22, %land.rhs.i.i.i.i24 ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22, %while.body.i.i.i.i39 ]
   %__holeIndex.addr.0.lcssa.i.i.i.i33 = phi i64 [ 0, %if.end16.i.i.i17 ], [ %__parent.07.i.i.i.i27, %while.body.i.i.i.i39 ], [ %__holeIndex.addr.06.i.i.i.i25, %land.rhs.i.i.i.i24 ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i34 = trunc i64 %__value.sroa.0.0.copyload.i.i4 to i32
@@ -77674,9 +77674,9 @@ while.body.i.i.i.i39:                             ; preds = %land.rhs.i.i.i.i24
   %__value.sroa.3.0.add.ptr5.sroa_idx.i.i.i.i37 = getelementptr inbounds i8, ptr %add.ptr5.i.i.i.i35, i64 8
   store float %__value.sroa.2.0.copyload.i.i6, ptr %__value.sroa.3.0.add.ptr5.sroa_idx.i.i.i.i37, align 4
   %cmp.i38 = icmp sgt i64 %sub.ptr.sub.i.i8, 12
-  br i1 %cmp.i38, label %while.body.i, label %"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit", !llvm.loop !473
+  br i1 %cmp.i38, label %while.body.i, label %"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit", !llvm.loop !473
 
-"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.exit": ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31", %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit"
+"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_RT0_.argprom.exit": ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.argprom.exit.i31", %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_.exit"
   ret void
 }
 
@@ -88977,8 +88977,8 @@ attributes #54 = { nounwind allocsize(1) }
 !82 = distinct !{!82, !5}
 !83 = distinct !{!83, !5}
 !84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZL20llama_grammar_acceptRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IS_IPKS0_SaIS8_EESaISA_EEj: %agg.result"}
-!86 = distinct !{!86, !"_ZL20llama_grammar_acceptRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IS_IPKS0_SaIS8_EESaISA_EEj"}
+!85 = distinct !{!85, !86, !"_ZL20llama_grammar_acceptRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IS_IPKS0_SaIS8_EESaISA_EEj.argprom: %agg.result"}
+!86 = distinct !{!86, !"_ZL20llama_grammar_acceptRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IS_IPKS0_SaIS8_EESaISA_EEj.argprom"}
 !87 = distinct !{!87, !5}
 !88 = distinct !{!88, !5}
 !89 = distinct !{!89, !5}

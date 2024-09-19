@@ -32824,16 +32824,16 @@ lor.lhs.false36:                                  ; preds = %lor.lhs.false
   %arrayidx.i.i.i68 = getelementptr inbounds i32, ptr %56, i64 %idxprom.i.i.i.i64
   %57 = load i32, ptr %arrayidx.i.i.i68, align 4
   %cmp.not.i69 = icmp eq i32 %57, 0
-  br i1 %cmp.not.i69, label %if.else, label %"_ZZN3sat6solver8pop_varsEjENK3$_0clEj.exit"
+  br i1 %cmp.not.i69, label %if.else, label %"_ZZN3sat6solver8pop_varsEjENK3$_0clEj.argprom.exit"
 
-"_ZZN3sat6solver8pop_varsEjENK3$_0clEj.exit":     ; preds = %lor.lhs.false36
+"_ZZN3sat6solver8pop_varsEjENK3$_0clEj.argprom.exit": ; preds = %lor.lhs.false36
   %58 = load ptr, ptr %m_justification.i.i, align 8
   %arrayidx.i.i3.i = getelementptr inbounds %"class.sat::justification", ptr %58, i64 %idxprom.i.i60
   %59 = load i32, ptr %arrayidx.i.i3.i, align 8
   %cmp3.i.not = icmp ugt i32 %59, %sub
   br i1 %cmp3.i.not, label %if.else, label %if.then38
 
-if.then38:                                        ; preds = %"_ZZN3sat6solver8pop_varsEjENK3$_0clEj.exit", %lor.lhs.false, %for.body31
+if.then38:                                        ; preds = %"_ZZN3sat6solver8pop_varsEjENK3$_0clEj.argprom.exit", %lor.lhs.false, %for.body31
   %60 = load ptr, ptr %m_vars_to_reinit, align 8
   %cmp.i71 = icmp eq ptr %60, null
   br i1 %cmp.i71, label %if.then.i75, label %lor.lhs.false.i
@@ -32874,7 +32874,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %i
   store i32 %sub, ptr %arrayidx.i79, align 4
   br label %for.inc46
 
-if.else:                                          ; preds = %lor.lhs.false36, %"_ZZN3sat6solver8pop_varsEjENK3$_0clEj.exit"
+if.else:                                          ; preds = %lor.lhs.false36, %"_ZZN3sat6solver8pop_varsEjENK3$_0clEj.argprom.exit"
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %69 = load ptr, ptr %vfn, align 8
@@ -32952,10 +32952,10 @@ for.body58:                                       ; preds = %for.body58.lr.ph, %
   %82 = load i32, ptr %__begin152.0126, align 4
   %shl.i = shl i32 %82, 1
   %cleanup_watch.val.val = load ptr, ptr %81, align 8
-  tail call fastcc void @"_ZZN3sat6solver8pop_varsEjENK3$_1clENS_7literalE"(ptr %cleanup_watch.val.val, i32 %shl.i)
+  tail call fastcc void @"_ZZN3sat6solver8pop_varsEjENK3$_1clENS_7literalE.argprom.argprom"(ptr %cleanup_watch.val.val, i32 %shl.i)
   %add.i = or disjoint i32 %shl.i, 1
   %cleanup_watch.val19.val = load ptr, ptr %81, align 8
-  tail call fastcc void @"_ZZN3sat6solver8pop_varsEjENK3$_1clENS_7literalE"(ptr %cleanup_watch.val19.val, i32 %add.i)
+  tail call fastcc void @"_ZZN3sat6solver8pop_varsEjENK3$_1clENS_7literalE.argprom.argprom"(ptr %cleanup_watch.val19.val, i32 %add.i)
   %incdec.ptr64 = getelementptr inbounds i8, ptr %__begin152.0126, i64 4
   %cmp57.not = icmp eq ptr %incdec.ptr64, %add.ptr.i103
   br i1 %cmp57.not, label %for.end65, label %for.body58
@@ -32967,7 +32967,7 @@ for.end65:                                        ; preds = %for.body58, %_ZN6ve
 declare void @_ZN3sat6solver15gc_reinit_stackEj(ptr noundef nonnull align 8 dereferenceable(4408), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3sat6solver8pop_varsEjENK3$_1clENS_7literalE"(ptr nocapture readonly %this.0.val.3432.val, i32 %lit.coerce) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN3sat6solver8pop_varsEjENK3$_1clENS_7literalE.argprom.argprom"(ptr nocapture readonly %this.0.val.3432.val, i32 %lit.coerce) unnamed_addr #3 align 2 {
 entry:
   %idxprom.i.i = zext i32 %lit.coerce to i64
   %arrayidx.i.i = getelementptr inbounds %class.vector.53, ptr %this.0.val.3432.val, i64 %idxprom.i.i
@@ -49033,11 +49033,11 @@ invoke.cont77.i.i.i.i.i.i:                        ; preds = %catch72.i.i.i.i.i.i
   %25 = load ptr, ptr %24, align 8
   store i32 1, ptr %25, align 4
   tail call void @__cxa_end_catch()
-  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.exit"
+  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.argprom.exit"
 
 try.cont.critedge.i.i.i.i.i.i:                    ; preds = %invoke.cont17.i.i.i.i.i.i
   %call1.i.i.i.i.i.i.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %53) #34
-  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.exit"
+  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.argprom.exit"
 
 catch.fallthrough.i.i.i.i.i.i:                    ; preds = %lpad.i.i.i.i.i.i
   %26 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #34
@@ -49063,7 +49063,7 @@ invoke.cont69.i.i.i.i.i.i:                        ; preds = %invoke.cont67.i.i.i
   %32 = load ptr, ptr %31, align 8
   store i32 0, ptr %32, align 4
   tail call void @__cxa_end_catch()
-  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.exit"
+  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.argprom.exit"
 
 if.else.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i, %entry
   %33 = getelementptr inbounds i8, ptr %_M_func.val1, i64 32
@@ -49234,7 +49234,7 @@ for.end50.i.i.i.i.i.i:                            ; preds = %for.inc48.i.i.i.i.i
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %81, align 4
   %cmp51.i.i.i.i.i.i = icmp eq i32 %_M_func.val, %82
-  br i1 %cmp51.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.exit", label %if.then52.i.i.i.i.i.i
+  br i1 %cmp51.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.argprom.exit", label %if.then52.i.i.i.i.i.i
 
 if.then52.i.i.i.i.i.i:                            ; preds = %for.end50.i.i.i.i.i.i
   %m_rlimit.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -49251,12 +49251,12 @@ invoke.cont54.i.i.i.i.i.i:                        ; preds = %if.then52.i.i.i.i.i
   %86 = load ptr, ptr %84, align 8
   %87 = load i8, ptr %86, align 1
   %tobool56.i.i.i.i.i.i = trunc i8 %87 to i1
-  br i1 %tobool56.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.exit", label %if.then57.i.i.i.i.i.i
+  br i1 %tobool56.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.argprom.exit", label %if.then57.i.i.i.i.i.i
 
 if.then57.i.i.i.i.i.i:                            ; preds = %invoke.cont54.i.i.i.i.i.i
   %88 = load ptr, ptr %m_rlimit.i.i.i.i.i.i.i, align 8
   invoke void @_ZN8reslimit6cancelEv(ptr noundef nonnull align 8 dereferenceable(40) %88)
-          to label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.exit" unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i
+          to label %"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.argprom.exit" unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i
 
 lpad66.i.i.i.i.i.i:                               ; preds = %invoke.cont67.i.i.i.i.i.i, %catch.i.i.i.i.i.i
   %89 = landingpad { ptr, i32 }
@@ -49281,7 +49281,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad76.i.i.i.i.i.i,
   tail call void @__clang_call_terminate(ptr %92) #35
   unreachable
 
-"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.exit": ; preds = %invoke.cont77.i.i.i.i.i.i, %try.cont.critedge.i.i.i.i.i.i, %invoke.cont69.i.i.i.i.i.i, %for.end50.i.i.i.i.i.i, %invoke.cont54.i.i.i.i.i.i, %if.then57.i.i.i.i.i.i
+"_ZNSt6thread8_InvokerISt5tupleIJZN3sat6solver9check_parEjPKNS2_7literalEE3$_0EEEclEv.argprom.exit": ; preds = %invoke.cont77.i.i.i.i.i.i, %try.cont.critedge.i.i.i.i.i.i, %invoke.cont69.i.i.i.i.i.i, %for.end50.i.i.i.i.i.i, %invoke.cont54.i.i.i.i.i.i, %if.then57.i.i.i.i.i.i
   ret void
 }
 

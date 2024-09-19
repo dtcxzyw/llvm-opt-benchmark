@@ -204,7 +204,7 @@ quant_intra_differences.exit:                     ; preds = %.preheader36.i, %._
   br i1 %88, label %.sink.split, label %89
 
 .sink.split:                                      ; preds = %87, %86
-  call fastcc void @determine_best_pos_initial_coding(ptr noundef %0, ptr noundef %21, i32 noundef %1, i32 noundef %spec.store.select1, ptr noundef %9, ptr noundef %10)
+  call fastcc void @determine_best_pos_initial_coding.argelim(ptr noundef %0, ptr noundef %21, i32 noundef %1, i32 noundef %spec.store.select1, ptr noundef %9, ptr noundef %10)
   br label %89
 
 89:                                               ; preds = %.sink.split, %87
@@ -288,7 +288,7 @@ quant_intra_differences.exit:                     ; preds = %.preheader36.i, %._
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @determine_best_pos_initial_coding(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @determine_best_pos_initial_coding.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1680,7 +1680,7 @@ quant_inter_differences.exit:                     ; preds = %._crit_edge.us.i, %
   br i1 %56, label %.sink.split, label %57
 
 .sink.split:                                      ; preds = %55, %54
-  call fastcc void @determine_best_vel_initial_coding(ptr noundef %0, i32 noundef %1, i32 noundef %spec.store.select1, ptr noundef %9, ptr noundef %10)
+  call fastcc void @determine_best_vel_initial_coding.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %spec.store.select1, ptr noundef %9, ptr noundef %10)
   br label %57
 
 57:                                               ; preds = %.sink.split, %55
@@ -1760,7 +1760,7 @@ quant_inter_differences.exit:                     ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @determine_best_vel_initial_coding(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @determine_best_vel_initial_coding.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

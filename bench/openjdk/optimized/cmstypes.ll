@@ -519,7 +519,7 @@ define hidden void @_cmsAllocTagPluginChunk(ptr nocapture noundef %0, ptr nounde
   %9 = load ptr, ptr %6, align 8
   %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 112) #13
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %DupTagList.exit, label %12
+  br i1 %11, label %DupTagList.argprom.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %10, i64 104
@@ -548,9 +548,9 @@ define hidden void @_cmsAllocTagPluginChunk(ptr nocapture noundef %0, ptr nounde
   %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #13
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %21, ptr %22, align 8
-  br label %DupTagList.exit
+  br label %DupTagList.argprom.exit
 
-DupTagList.exit:                                  ; preds = %7, %._crit_edge.i
+DupTagList.argprom.exit:                          ; preds = %7, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %28
 
@@ -562,7 +562,7 @@ DupTagList.exit:                                  ; preds = %7, %._crit_edge.i
   store ptr %26, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %23, %DupTagList.exit
+28:                                               ; preds = %23, %DupTagList.argprom.exit
   ret void
 }
 
@@ -2986,7 +2986,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr nocapture noundef read
   br i1 %.not224, label %.loopexit211.thread, label %.lr.ph221
 
 116:                                              ; preds = %115
-  %117 = tail call fastcc i32 @Write16bitTables(ptr noundef %1, ptr noundef %.0100155171193)
+  %117 = tail call fastcc i32 @Write16bitTables.argprom(ptr noundef %1, ptr noundef %.0100155171193)
   %.not133 = icmp eq i32 %117, 0
   br i1 %.not133, label %uipow.exit.thread, label %.loopexit211
 
@@ -3065,7 +3065,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr nocapture noundef read
   br i1 %138, label %.loopexit, label %.lr.ph223
 
 139:                                              ; preds = %.thread205
-  %140 = tail call fastcc i32 @Write16bitTables(ptr noundef %1, ptr noundef %.099194)
+  %140 = tail call fastcc i32 @Write16bitTables.argprom(ptr noundef %1, ptr noundef %.099194)
   %.not137 = icmp eq i32 %140, 0
   br i1 %.not137, label %uipow.exit.thread, label %.loopexit
 
@@ -4457,7 +4457,7 @@ define internal range(i32 0, 2) i32 @Type_LUTA2B_Write(ptr nocapture noundef rea
   %52 = call i32 %51(ptr noundef nonnull %1) #13
   %53 = sub i32 %52, %13
   %54 = load ptr, ptr %5, align 8
-  %55 = call fastcc i32 @WriteSetOfCurves(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54)
+  %55 = call fastcc i32 @WriteSetOfCurves.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54)
   %.not85 = icmp eq i32 %55, 0
   br i1 %.not85, label %111, label %56
 
@@ -4478,7 +4478,7 @@ define internal range(i32 0, 2) i32 @Type_LUTA2B_Write(ptr nocapture noundef rea
   %65 = load ptr, ptr %9, align 8
   %66 = getelementptr i8, ptr %65, i64 48
   %.val = load ptr, ptr %66, align 8
-  %67 = call fastcc i32 @WriteCLUT(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %64, ptr %.val)
+  %67 = call fastcc i32 @WriteCLUT.argprom(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %64, ptr %.val)
   %.not88 = icmp eq i32 %67, 0
   br i1 %.not88, label %111, label %68
 
@@ -4493,7 +4493,7 @@ define internal range(i32 0, 2) i32 @Type_LUTA2B_Write(ptr nocapture noundef rea
   %72 = call i32 %71(ptr noundef nonnull %1) #13
   %73 = sub i32 %72, %13
   %74 = load ptr, ptr %7, align 8
-  %75 = call fastcc i32 @WriteSetOfCurves(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %74)
+  %75 = call fastcc i32 @WriteSetOfCurves.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %74)
   %.not90 = icmp eq i32 %75, 0
   br i1 %.not90, label %111, label %76
 
@@ -4508,7 +4508,7 @@ define internal range(i32 0, 2) i32 @Type_LUTA2B_Write(ptr nocapture noundef rea
   %80 = call i32 %79(ptr noundef nonnull %1) #13
   %81 = sub i32 %80, %13
   %82 = load ptr, ptr %8, align 8
-  %83 = call fastcc i32 @WriteMatrix(ptr noundef nonnull %1, ptr noundef %82)
+  %83 = call fastcc i32 @WriteMatrix.argprom(ptr noundef nonnull %1, ptr noundef %82)
   %.not92 = icmp eq i32 %83, 0
   br i1 %.not92, label %111, label %84
 
@@ -4523,7 +4523,7 @@ define internal range(i32 0, 2) i32 @Type_LUTA2B_Write(ptr nocapture noundef rea
   %88 = call i32 %87(ptr noundef nonnull %1) #13
   %89 = sub i32 %88, %13
   %90 = load ptr, ptr %6, align 8
-  %91 = call fastcc i32 @WriteSetOfCurves(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %90)
+  %91 = call fastcc i32 @WriteSetOfCurves.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %90)
   %.not94 = icmp eq i32 %91, 0
   br i1 %.not94, label %111, label %92
 
@@ -4841,7 +4841,7 @@ define internal range(i32 0, 2) i32 @Type_LUTB2A_Write(ptr nocapture noundef rea
   %50 = call i32 %49(ptr noundef nonnull %1) #13
   %51 = sub i32 %50, %13
   %52 = load ptr, ptr %5, align 8
-  %53 = call fastcc i32 @WriteSetOfCurves(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52)
+  %53 = call fastcc i32 @WriteSetOfCurves.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52)
   %.not83 = icmp eq i32 %53, 0
   br i1 %.not83, label %109, label %54
 
@@ -4862,7 +4862,7 @@ define internal range(i32 0, 2) i32 @Type_LUTB2A_Write(ptr nocapture noundef rea
   %63 = load ptr, ptr %9, align 8
   %64 = getelementptr i8, ptr %63, i64 48
   %.val = load ptr, ptr %64, align 8
-  %65 = call fastcc i32 @WriteCLUT(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %62, ptr %.val)
+  %65 = call fastcc i32 @WriteCLUT.argprom(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %62, ptr %.val)
   %.not86 = icmp eq i32 %65, 0
   br i1 %.not86, label %109, label %66
 
@@ -4877,7 +4877,7 @@ define internal range(i32 0, 2) i32 @Type_LUTB2A_Write(ptr nocapture noundef rea
   %70 = call i32 %69(ptr noundef nonnull %1) #13
   %71 = sub i32 %70, %13
   %72 = load ptr, ptr %7, align 8
-  %73 = call fastcc i32 @WriteSetOfCurves(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %72)
+  %73 = call fastcc i32 @WriteSetOfCurves.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %72)
   %.not88 = icmp eq i32 %73, 0
   br i1 %.not88, label %109, label %74
 
@@ -4892,7 +4892,7 @@ define internal range(i32 0, 2) i32 @Type_LUTB2A_Write(ptr nocapture noundef rea
   %78 = call i32 %77(ptr noundef nonnull %1) #13
   %79 = sub i32 %78, %13
   %80 = load ptr, ptr %8, align 8
-  %81 = call fastcc i32 @WriteMatrix(ptr noundef nonnull %1, ptr noundef %80)
+  %81 = call fastcc i32 @WriteMatrix.argprom(ptr noundef nonnull %1, ptr noundef %80)
   %.not90 = icmp eq i32 %81, 0
   br i1 %.not90, label %109, label %82
 
@@ -4907,7 +4907,7 @@ define internal range(i32 0, 2) i32 @Type_LUTB2A_Write(ptr nocapture noundef rea
   %86 = call i32 %85(ptr noundef nonnull %1) #13
   %87 = sub i32 %86, %13
   %88 = load ptr, ptr %6, align 8
-  %89 = call fastcc i32 @WriteSetOfCurves(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %88)
+  %89 = call fastcc i32 @WriteSetOfCurves.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %88)
   %.not92 = icmp eq i32 %89, 0
   br i1 %.not92, label %109, label %90
 
@@ -6077,7 +6077,7 @@ define internal range(i32 0, 2) i32 @Type_ProfileSequenceId_Write(ptr noundef %0
 10:                                               ; preds = %4
   %11 = add i32 %7, -8
   %12 = load i32, ptr %2, align 8
-  %13 = tail call fastcc i32 @WritePositionTable(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %12, i32 noundef %11, ptr noundef nonnull %2, ptr noundef nonnull @WriteSeqID)
+  %13 = tail call fastcc i32 @WritePositionTable.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %12, i32 noundef %11, ptr noundef nonnull %2, ptr noundef nonnull @WriteSeqID)
   br label %14
 
 14:                                               ; preds = %10, %4
@@ -8272,7 +8272,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Write16bitTables.argprom(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %.not6 = icmp eq i32 %3, 0
   br i1 %.not6, label %.loopexit, label %.lr.ph5
@@ -8752,7 +8752,7 @@ declare void @cmsStageFree(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsPipelineCheckAndRetreiveStages(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [5 x i8], align 1
   %5 = tail call i32 @cmsStageOutputChannels(ptr noundef %2) #13
   %6 = tail call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %2) #13
@@ -8937,7 +8937,7 @@ Type_Curve_Write.exit.thread:                     ; preds = %23, %Type_Curve_Wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext range(i8 1, 3) %2, ptr nocapture readonly %.48.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteCLUT.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext range(i8 1, 3) %2, ptr nocapture readonly %.48.val) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %.48.val, i64 20
   %6 = load i32, ptr %5, align 4
@@ -9051,7 +9051,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteMatrix.argprom(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -9484,7 +9484,7 @@ define internal range(i32 0, 2) i32 @Type_MPEcurve_Write(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %15
   %20 = load i32, ptr %11, align 8
-  %21 = tail call fastcc i32 @WritePositionTable(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %20, i32 noundef %10, ptr noundef %6, ptr noundef nonnull @WriteMPECurve)
+  %21 = tail call fastcc i32 @WritePositionTable.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %20, i32 noundef %10, ptr noundef %6, ptr noundef nonnull @WriteMPECurve)
   br label %22
 
 22:                                               ; preds = %19, %15, %4
@@ -10254,7 +10254,7 @@ declare ptr @cmsBuildSegmentedToneCurve(ptr noundef, i32 noundef, ptr noundef) l
 declare float @cmsEvalToneCurveFloat(ptr noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WritePositionTable.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @_cmsCalloc(ptr noundef %8, i32 noundef %2, i32 noundef 4) #13

@@ -297,7 +297,7 @@ define dso_local void @whenever_action(i32 noundef %0) local_unnamed_addr #0 {
   %11 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %10, ptr noundef nonnull @.str.1) #8
   %when_nf.val = load i32, ptr @when_nf, align 8
   %when_nf.val5 = load ptr, ptr getelementptr inbounds (i8, ptr @when_nf, i64 8), align 8
-  tail call fastcc void @print_action(i32 %when_nf.val, ptr %when_nf.val5)
+  tail call fastcc void @print_action.argprom(i32 %when_nf.val, ptr %when_nf.val5)
   br label %12
 
 12:                                               ; preds = %6, %1
@@ -314,7 +314,7 @@ define dso_local void @whenever_action(i32 noundef %0) local_unnamed_addr #0 {
   %19 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %18, ptr noundef nonnull @.str.2) #8
   %when_warn.val = load i32, ptr @when_warn, align 8
   %when_warn.val6 = load ptr, ptr getelementptr inbounds (i8, ptr @when_warn, i64 8), align 8
-  tail call fastcc void @print_action(i32 %when_warn.val, ptr %when_warn.val6)
+  tail call fastcc void @print_action.argprom(i32 %when_warn.val, ptr %when_warn.val6)
   br label %20
 
 20:                                               ; preds = %14, %12
@@ -331,7 +331,7 @@ define dso_local void @whenever_action(i32 noundef %0) local_unnamed_addr #0 {
   %27 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %26, ptr noundef nonnull @.str.3) #8
   %when_error.val = load i32, ptr @when_error, align 8
   %when_error.val7 = load ptr, ptr getelementptr inbounds (i8, ptr @when_error, i64 8), align 8
-  tail call fastcc void @print_action(i32 %when_error.val, ptr %when_error.val7)
+  tail call fastcc void @print_action.argprom(i32 %when_error.val, ptr %when_error.val7)
   br label %28
 
 28:                                               ; preds = %22, %20
@@ -353,7 +353,7 @@ define dso_local void @whenever_action(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_action(i32 %.0.val, ptr %.8.val) unnamed_addr #0 {
+define internal fastcc void @print_action.argprom(i32 %.0.val, ptr %.8.val) unnamed_addr #0 {
   %1 = load ptr, ptr @base_yyout, align 8
   switch i32 %.0.val, label %14 [
     i32 3, label %2

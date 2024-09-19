@@ -7371,13 +7371,13 @@ if.then.i.i.i.i:                                  ; preds = %if.then
 
 call.i.i.i.i.i.i.i.noexc:                         ; preds = %if.then.i.i.i.i
   %cmp5.not.i.i.i.i.i.i.i = icmp eq i32 %shl.i.i.i.i.i, 0
-  br i1 %cmp5.not.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i.i.i.i, label %for.body.i.preheader.i.i.i.i.i.i
+  br i1 %cmp5.not.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.argprom.exit.i.i.i.i.i, label %for.body.i.preheader.i.i.i.i.i.i
 
 for.body.i.preheader.i.i.i.i.i.i:                 ; preds = %call.i.i.i.i.i.i.i.noexc
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i.i.i.i.i.i.i6, i8 0, i64 %mul.i.i.i.i.i.i.i, i1 false)
-  br label %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i.i.i.i
+  br label %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.argprom.exit.i.i.i.i.i
 
-_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i.i.i.i: ; preds = %for.body.i.preheader.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc
+_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.argprom.exit.i.i.i.i.i: ; preds = %for.body.i.preheader.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc
   %11 = load ptr, ptr %m_table.i.i.i, align 8
   %sub.i.i.i.i.i.i = add i32 %shl.i.i.i.i.i, -1
   %idx.ext.i.i.i.i.i.i = zext i32 %10 to i64
@@ -7386,8 +7386,8 @@ _ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_ro
   %cmp.not28.i.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not28.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE10move_tableEPS1_jSB_j.exit.i.i.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i.i.i.i, %for.inc21.i.i.i.i.i.i
-  %source_curr.029.i.i.i.i.i.i = phi ptr [ %incdec.ptr22.i.i.i.i.i.i, %for.inc21.i.i.i.i.i.i ], [ %11, %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i.i.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.argprom.exit.i.i.i.i.i, %for.inc21.i.i.i.i.i.i
+  %source_curr.029.i.i.i.i.i.i = phi ptr [ %incdec.ptr22.i.i.i.i.i.i, %for.inc21.i.i.i.i.i.i ], [ %11, %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.argprom.exit.i.i.i.i.i ]
   %m_state.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.029.i.i.i.i.i.i, i64 4
   %12 = load i32, ptr %m_state.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %12, 2
@@ -7447,7 +7447,7 @@ for.inc21.i.i.i.i.i.i:                            ; preds = %for.inc21.sink.spli
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr22.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE10move_tableEPS1_jSB_j.exit.i.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !47
 
-_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE10move_tableEPS1_jSB_j.exit.i.i.i.i.i: ; preds = %for.inc21.i.i.i.i.i.i, %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i.i.i.i
+_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE10move_tableEPS1_jSB_j.exit.i.i.i.i.i: ; preds = %for.inc21.i.i.i.i.i.i, %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.argprom.exit.i.i.i.i.i
   %cmp.i.i4.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i4.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit.i.i.i.i, label %for.cond.preheader.i.i.i.i.i.i.i
 
@@ -7470,20 +7470,20 @@ if.end.i.i.i.i:                                   ; preds = %_ZN14core_hashtable
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds %class.svector.3, ptr %this.val.val.i.i.i.i, i64 %indvars.iv
   %19 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.exit.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.argprom.argprom.exit.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   %arrayidx.i2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 -4
   %20 = load i32, ptr %arrayidx.i2.i.i.i.i.i.i.i, align 4
   %21 = shl i32 %20, 2
-  br label %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.exit.i.i.i.i
+  br label %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.argprom.argprom.exit.i.i.i.i
 
-_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.end.i.i.i.i
+_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.argprom.argprom.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.end.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi i32 [ %21, %if.end.i.i.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %call5.i.i.i.i.i.i.i8 = invoke noundef i32 @_Z11string_hashPKcjj(ptr noundef %19, i32 noundef %retval.0.i.i.i.i.i.i.i.i, i32 noundef 3)
           to label %call5.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
-call5.i.i.i.i.i.i.i.noexc:                        ; preds = %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.exit.i.i.i.i
+call5.i.i.i.i.i.i.i.noexc:                        ; preds = %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.argprom.argprom.exit.i.i.i.i
   %tobool.i.i.i.i.i.i.i = icmp ne i32 %call5.i.i.i.i.i.i.i8, 0
   %conv.i.i.i.i.i.i = zext i1 %tobool.i.i.i.i.i.i.i to i32
   %22 = xor i32 %17, -1
@@ -7566,7 +7566,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10.i.i.i.i.i.i.i.i: ; preds = %if.en
   %retval.0.i9.i.i.i.i.i.i.i.i = phi i32 [ %33, %if.end.i7.i.i.i.i.i.i.i.i ], [ 0, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i.i.i.i.i.i.i.i ]
   %cmp3.not.i.i.i.i.i.i.i.i = icmp ne i32 %retval.0.i.i.i.i.i.i.i.i.i, %retval.0.i9.i.i.i.i.i.i.i.i
   %brmerge.i.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i.i.i, %cmp3.not.i.i.i.i.i.i.i.i
-  br i1 %brmerge.i.i.i.i.i.i.i.i, label %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit.i.i.i.i, label %for.cond.preheader.split.i.i.i.i.i.i.i.i
+  br i1 %brmerge.i.i.i.i.i.i.i.i, label %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit.i.i.i.i, label %for.cond.preheader.split.i.i.i.i.i.i.i.i
 
 for.cond.preheader.split.i.i.i.i.i.i.i.i:         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10.i.i.i.i.i.i.i.i
   %arrayidx.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 -4
@@ -7588,15 +7588,15 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.cond.i.i.i.i.i.
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i19.not.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !48
 
-_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit.i.i.i.i: ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10.i.i.i.i.i.i.i.i
+_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit.i.i.i.i: ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10.i.i.i.i.i.i.i.i
   br i1 %cmp3.not.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i, label %invoke.cont6
 
 if.then17.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %del_entry.0118.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %return.sink.split.i.i.i.i, label %return.sink.split.sink.split.i.i.i.i
 
-for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit.i.i.i.i, %if.then9.i.i.i.i, %for.body.i.i.i.i
-  %del_entry.1.i.i.i.i = phi ptr [ %del_entry.0118.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit.i.i.i.i ], [ %del_entry.0118.i.i.i.i, %if.then9.i.i.i.i ], [ %curr.0117.i.i.i.i, %for.body.i.i.i.i ], [ %del_entry.0118.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
+for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit.i.i.i.i, %if.then9.i.i.i.i, %for.body.i.i.i.i
+  %del_entry.1.i.i.i.i = phi ptr [ %del_entry.0118.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit.i.i.i.i ], [ %del_entry.0118.i.i.i.i, %if.then9.i.i.i.i ], [ %curr.0117.i.i.i.i, %for.body.i.i.i.i ], [ %del_entry.0118.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %curr.0117.i.i.i.i, i64 16
   %cmp7.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr6.i.i.i.i
   br i1 %cmp7.not.i.i.i.i, label %for.cond27.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !49
@@ -7641,7 +7641,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10.i.i.i.i68.i.i.i.i: ; preds = %if.
   %retval.0.i9.i.i.i.i69.i.i.i.i = phi i32 [ %42, %if.end.i7.i.i.i.i66.i.i.i.i ], [ 0, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i.i.i.i63.i.i.i.i ]
   %cmp3.not.i.i.i.i70.i.i.i.i = icmp ne i32 %retval.0.i.i.i.i.i64.i.i.i.i, %retval.0.i9.i.i.i.i69.i.i.i.i
   %brmerge.i.i.i.i71.i.i.i.i = or i1 %cmp.i.i.i.i.i60.i.i.i.i, %cmp3.not.i.i.i.i70.i.i.i.i
-  br i1 %brmerge.i.i.i.i71.i.i.i.i, label %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit85.i.i.i.i, label %for.cond.preheader.split.i.i.i.i73.i.i.i.i
+  br i1 %brmerge.i.i.i.i71.i.i.i.i, label %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit85.i.i.i.i, label %for.cond.preheader.split.i.i.i.i73.i.i.i.i
 
 for.cond.preheader.split.i.i.i.i73.i.i.i.i:       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10.i.i.i.i68.i.i.i.i
   %arrayidx.i13.i.i.i.i74.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 -4
@@ -7663,14 +7663,14 @@ for.body.i.i.i.i79.i.i.i.i:                       ; preds = %for.cond.i.i.i.i76.
   %indvars.iv.next.i.i.i.i83.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i77.i.i.i.i, 1
   br i1 %cmp.i19.not.i.i.i.i82.i.i.i.i, label %for.cond.i.i.i.i76.i.i.i.i, label %for.end56.i.i.i.i, !llvm.loop !48
 
-_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit85.i.i.i.i: ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10.i.i.i.i68.i.i.i.i
+_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit85.i.i.i.i: ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10.i.i.i.i68.i.i.i.i
   br i1 %cmp3.not.i.i.i.i70.i.i.i.i, label %for.end56.i.i.i.i, label %invoke.cont6
 
 if.then41.i.i.i.i:                                ; preds = %for.body29.lr.ph.i.i.i.i
   %tobool43.not.i.i.i.i = icmp eq ptr %del_entry.0.lcssa.i.i.i.i, null
   br i1 %tobool43.not.i.i.i.i, label %return.sink.split.i.i.i.i, label %return.sink.split.sink.split.i.i.i.i
 
-for.end56.i.i.i.i:                                ; preds = %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit85.i.i.i.i, %if.then31.i.i.i.i, %for.body29.lr.ph.i.i.i.i, %for.cond27.preheader.i.i.i.i, %for.body.i.i.i.i79.i.i.i.i
+for.end56.i.i.i.i:                                ; preds = %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit85.i.i.i.i, %if.then31.i.i.i.i, %for.body29.lr.ph.i.i.i.i, %for.cond27.preheader.i.i.i.i, %for.body.i.i.i.i79.i.i.i.i
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.52, i32 noundef 460, ptr noundef nonnull @.str.36)
           to label %.noexc9 unwind label %lpad.loopexit.split-lp
 
@@ -7696,9 +7696,9 @@ return.sink.split.i.i.i.i:                        ; preds = %return.sink.split.s
   store i32 %inc50.i.i.i.i, ptr %m_size.i.i.i, align 4
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %for.cond.i.i.i.i76.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i, %return.sink.split.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit85.i.i.i.i, %land.lhs.true34.i.i.i.i
-  %47 = phi i32 [ %2, %land.lhs.true34.i.i.i.i ], [ %2, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit85.i.i.i.i ], [ %inc50.i.i.i.i, %return.sink.split.i.i.i.i ], [ %2, %for.cond.i.i.i.i.i.i.i.i ], [ %2, %for.cond.i.i.i.i76.i.i.i.i ], [ %2, %land.lhs.true.i.i.i.i ], [ %2, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit.i.i.i.i ]
-  %new_entry42.0.sink.i.i.i.i = phi ptr [ %23, %land.lhs.true34.i.i.i.i ], [ %23, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit85.i.i.i.i ], [ %new_entry42.0.sink156.i.i.i.i, %return.sink.split.i.i.i.i ], [ %curr.0117.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i ], [ %23, %for.cond.i.i.i.i76.i.i.i.i ], [ %curr.0117.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %curr.0117.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.exit.i.i.i.i ]
+invoke.cont6:                                     ; preds = %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %for.cond.i.i.i.i76.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i, %return.sink.split.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit85.i.i.i.i, %land.lhs.true34.i.i.i.i
+  %47 = phi i32 [ %2, %land.lhs.true34.i.i.i.i ], [ %2, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit85.i.i.i.i ], [ %inc50.i.i.i.i, %return.sink.split.i.i.i.i ], [ %2, %for.cond.i.i.i.i.i.i.i.i ], [ %2, %for.cond.i.i.i.i76.i.i.i.i ], [ %2, %land.lhs.true.i.i.i.i ], [ %2, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit.i.i.i.i ]
+  %new_entry42.0.sink.i.i.i.i = phi ptr [ %23, %land.lhs.true34.i.i.i.i ], [ %23, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit85.i.i.i.i ], [ %new_entry42.0.sink156.i.i.i.i, %return.sink.split.i.i.i.i ], [ %curr.0117.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i ], [ %23, %for.cond.i.i.i.i76.i.i.i.i ], [ %curr.0117.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %curr.0117.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIiiESE_.argprom.argprom.exit.i.i.i.i ]
   %m_value.i = getelementptr inbounds i8, ptr %new_entry42.0.sink.i.i.i.i, i64 12
   %48 = load i32, ptr %m_value.i, align 4
   %49 = zext i32 %48 to i64
@@ -7734,7 +7734,7 @@ if.then15:                                        ; preds = %invoke.cont12
   invoke void @_ZN2bv6solver15assert_ackermanEii(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %51, i32 noundef %48)
           to label %for.inc unwind label %lpad.loopexit
 
-lpad.loopexit:                                    ; preds = %if.then15, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.exit.i.i.i.i
+lpad.loopexit:                                    ; preds = %if.then15, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryIiiEN9table2mapIS1_ZN2bv6solver11flush_rootsEvE4hashZNS4_11flush_rootsEvE2eqE15entry_hash_procENS7_13entry_eq_procEE8get_hashERK9_key_dataIiiE.argprom.argprom.exit.i.i.i.i
   %lpad.loopexit29 = landingpad { ptr, i32 }
           cleanup
   br label %lpad

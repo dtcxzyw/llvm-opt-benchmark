@@ -30,19 +30,19 @@ define noundef range(i32 0, -1) i32 @_ZN12tokio_stream10stream_map4rand12thread_
   %2 = alloca {}, align 1
   %3 = load i32, ptr @_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit5__KEY17hbb852b38e5a63c29E, align 4, !range !4, !noalias !5, !noundef !10
   %trunc.i.i.i = trunc nuw i32 %3 to i1
-  br i1 %trunc.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit", label %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i
+  br i1 %trunc.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.argprom.exit", label %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i
 
 _ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i: ; preds = %1
   %4 = tail call noundef align 4 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hf879e4c8837730ceE.llvm.510346183147660621"(ptr noundef nonnull align 4 @_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit5__KEY17hbb852b38e5a63c29E, ptr noalias noundef align 4 dereferenceable_or_null(12) null)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit"
+  br i1 %5, label %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.argprom.exit"
 
 6:                                                ; preds = %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.99617e9b38b04d979831048b7b1fbcab.2, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.99617e9b38b04d979831048b7b1fbcab.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.99617e9b38b04d979831048b7b1fbcab.4) #6
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit": ; preds = %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i, %1
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.argprom.exit": ; preds = %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i, %1
   %.0.i.i2.i = phi ptr [ %4, %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit5__KEY17hbb852b38e5a63c29E, i64 4), %1 ]
   %7 = load i32, ptr %.0.i.i2.i, align 4, !noundef !10
   %8 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 4

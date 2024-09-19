@@ -190,30 +190,30 @@ define internal noundef range(i32 0, 2) i32 @_ZL19glnvg__renderCreatePv(ptr noun
   %.val = load i32, ptr %3, align 4
   %4 = and i32 %.val, 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %6
+  br i1 %5, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit, label %6
 
 6:                                                ; preds = %1
   %7 = tail call i32 @glGetError()
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %8
+  br i1 %.not.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit, label %8
 
 8:                                                ; preds = %6
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %7, ptr noundef nonnull @.str.13)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit:    ; preds = %1, %6, %8
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit: ; preds = %1, %6, %8
   %10 = load i32, ptr %3, align 4
   %11 = and i32 %10, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %15, label %12
 
-12:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
-  %13 = tail call fastcc noundef i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
+12:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit
+  %13 = tail call fastcc noundef i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_.argprom(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %52, label %18
 
-15:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
-  %16 = tail call fastcc noundef i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr noundef nonnull %0, ptr noundef null)
+15:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit
+  %16 = tail call fastcc noundef i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_.argprom(ptr noundef nonnull %0, ptr noundef null)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %52, label %18
 
@@ -221,18 +221,18 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit:    ; preds = %1, %6, %8
   %.val14 = load i32, ptr %3, align 4
   %19 = and i32 %.val14, 4
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17, label %21
+  br i1 %20, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit17, label %21
 
 21:                                               ; preds = %18
   %22 = tail call i32 @glGetError()
   %.not.i16 = icmp eq i32 %22, 0
-  br i1 %.not.i16, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17, label %23
+  br i1 %.not.i16, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit17, label %23
 
 23:                                               ; preds = %21
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %22, ptr noundef nonnull @.str.16)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit17
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17:  ; preds = %18, %21, %23
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit17: ; preds = %18, %21, %23
   %25 = load i32, ptr %0, align 4
   %26 = tail call i32 @glGetUniformLocation(i32 noundef %25, ptr noundef nonnull @.str.26)
   %27 = getelementptr inbounds i8, ptr %0, i64 12
@@ -266,23 +266,23 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17:  ; preds = %18, %21, %23
   %.val15 = load i32, ptr %3, align 4
   %46 = and i32 %.val15, 4
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19, label %48
+  br i1 %47, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit19, label %48
 
-48:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17
+48:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit17
   %49 = call i32 @glGetError()
   %.not.i18 = icmp eq i32 %49, 0
-  br i1 %.not.i18, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19, label %50
+  br i1 %.not.i18, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit19, label %50
 
 50:                                               ; preds = %48
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %49, ptr noundef nonnull @.str.17)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit19
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19:  ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17, %48, %50
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit19: ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit17, %48, %50
   call void @glFinish()
   br label %52
 
-52:                                               ; preds = %15, %12, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19
-  %.0 = phi i32 [ 1, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19 ], [ 0, %12 ], [ 0, %15 ]
+52:                                               ; preds = %15, %12, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit19
+  %.0 = phi i32 [ 1, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit19 ], [ 0, %12 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -430,28 +430,28 @@ _ZL18glnvg__bindTextureP12GLNVGcontextj.exit:     ; preds = %_ZL19glnvg__allocTe
   %.val = load i32, ptr %60, align 4
   %61 = and i32 %.val, 4
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %63
+  br i1 %62, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit, label %63
 
 63:                                               ; preds = %59
   %64 = tail call i32 @glGetError()
   %.not.i39 = icmp eq i32 %64, 0
-  br i1 %.not.i39, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %65
+  br i1 %.not.i39, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit, label %65
 
 65:                                               ; preds = %63
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %64, ptr noundef nonnull @.str.28)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit:    ; preds = %59, %63, %65
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit: ; preds = %59, %63, %65
   %67 = load i32, ptr %46, align 8
   %.not.i40 = icmp eq i32 %67, 0
   br i1 %.not.i40, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41, label %68
 
-68:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+68:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit
   store i32 0, ptr %46, align 8
   tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
   br label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41
 
-_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41:   ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, %68
+_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41:   ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit, %68
   %69 = load i32, ptr %.1.i, align 4
   br label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread
 
@@ -843,25 +843,25 @@ _ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i:  ; preds = %95, %_ZL18glnvg__st
   %.val32.i = load i32, ptr %45, align 4
   %96 = and i32 %.val32.i, 4
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i, label %98
+  br i1 %97, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i, label %98
 
 98:                                               ; preds = %_ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i
   %99 = tail call i32 @glGetError()
   %.not.i34.i = icmp eq i32 %99, 0
-  br i1 %.not.i34.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i, label %100
+  br i1 %.not.i34.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i, label %100
 
 100:                                              ; preds = %98
   %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %99, ptr noundef nonnull @.str.29)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i:  ; preds = %100, %98, %_ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i: ; preds = %100, %98, %_ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i
   tail call void @glStencilOpSeparate(i32 noundef 1028, i32 noundef 7680, i32 noundef 7680, i32 noundef 34055)
   tail call void @glStencilOpSeparate(i32 noundef 1029, i32 noundef 7680, i32 noundef 7680, i32 noundef 34056)
   tail call void @glDisable(i32 noundef 2884)
   %102 = icmp sgt i32 %81, 0
   br i1 %102, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i
+.lr.ph.preheader.i:                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i
   %wide.trip.count.i = zext nneg i32 %81 to i64
   br label %.lr.ph.i
 
@@ -876,7 +876,7 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i:  ; preds = %100, %98, %_ZL18gln
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i
   tail call void @glEnable(i32 noundef 2884)
   tail call void @glColorMask(i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
   %107 = load i32, ptr %90, align 4
@@ -888,24 +888,24 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i:  ; preds = %100, %98, %_ZL18gln
   %.val.i = load i32, ptr %45, align 4
   %112 = and i32 %.val.i, 4
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i, label %114
+  br i1 %113, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit36.i, label %114
 
 114:                                              ; preds = %._crit_edge.i
   %115 = tail call i32 @glGetError()
   %.not.i35.i = icmp eq i32 %115, 0
-  br i1 %.not.i35.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i, label %116
+  br i1 %.not.i35.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit36.i, label %116
 
 116:                                              ; preds = %114
   %117 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %115, ptr noundef nonnull @.str.30)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit36.i
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i: ; preds = %116, %114, %._crit_edge.i
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit36.i: ; preds = %116, %114, %._crit_edge.i
   %118 = load i32, ptr %45, align 4
   %119 = and i32 %118, 1
   %.not.i48 = icmp eq i32 %119, 0
   br i1 %.not.i48, label %.loopexit.i, label %120
 
-120:                                              ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i
+120:                                              ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit36.i
   %121 = load i32, ptr %9, align 8
   %.not.i37.i = icmp eq i32 %121, 514
   br i1 %.not.i37.i, label %122, label %126
@@ -947,7 +947,7 @@ _ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit40.i: ; preds = %126, %124
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
   br i1 %exitcond53.not.i, label %.loopexit.i, label %.lr.ph47.i, !llvm.loop !10
 
-.loopexit.i:                                      ; preds = %.lr.ph47.i, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit40.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i
+.loopexit.i:                                      ; preds = %.lr.ph47.i, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit40.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit36.i
   %132 = load i32, ptr %9, align 8
   %.not.i41.i = icmp eq i32 %132, 517
   br i1 %.not.i41.i, label %133, label %137
@@ -995,22 +995,22 @@ _ZL11glnvg__fillP12GLNVGcontextP9GLNVGcall.exit:  ; preds = %135, %137
   %.val.i49 = load i32, ptr %45, align 4
   %154 = and i32 %.val.i49, 4
   %155 = icmp eq i32 %154, 0
-  br i1 %155, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51, label %156
+  br i1 %155, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i51, label %156
 
 156:                                              ; preds = %142
   %157 = tail call i32 @glGetError()
   %.not.i.i50 = icmp eq i32 %157, 0
-  br i1 %.not.i.i50, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51, label %158
+  br i1 %.not.i.i50, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i51, label %158
 
 158:                                              ; preds = %156
   %159 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %157, ptr noundef nonnull @.str.32)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i51
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51: ; preds = %158, %156, %142
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i51: ; preds = %158, %156, %142
   %160 = icmp sgt i32 %149, 0
   br i1 %160, label %.lr.ph.preheader.i53, label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
 
-.lr.ph.preheader.i53:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51
+.lr.ph.preheader.i53:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i51
   %wide.trip.count.i54 = zext nneg i32 %149 to i64
   br label %.lr.ph.i55
 
@@ -1095,22 +1095,22 @@ _ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62: ; preds = %190, %188
   %.val50.i = load i32, ptr %45, align 4
   %197 = and i32 %.val50.i, 4
   %198 = icmp eq i32 %197, 0
-  br i1 %198, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63, label %199
+  br i1 %198, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i63, label %199
 
 199:                                              ; preds = %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62
   %200 = tail call i32 @glGetError()
   %.not.i52.i = icmp eq i32 %200, 0
-  br i1 %.not.i52.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63, label %201
+  br i1 %.not.i52.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i63, label %201
 
 201:                                              ; preds = %199
   %202 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %200, ptr noundef nonnull @.str.33)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i63
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63: ; preds = %201, %199, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i63: ; preds = %201, %199, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62
   %203 = icmp sgt i32 %179, 0
   br i1 %203, label %.lr.ph.preheader.i66, label %._crit_edge.i64
 
-.lr.ph.preheader.i66:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63
+.lr.ph.preheader.i66:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i63
   %wide.trip.count.i67 = zext nneg i32 %179 to i64
   br label %.lr.ph.i68
 
@@ -1126,7 +1126,7 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63: ; preds = %201, %199, %_ZL18g
   %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i67
   br i1 %exitcond.not.i71, label %._crit_edge.i64, label %.lr.ph.i68, !llvm.loop !12
 
-._crit_edge.i64:                                  ; preds = %.lr.ph.i68, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63
+._crit_edge.i64:                                  ; preds = %.lr.ph.i68, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i63
   %209 = load i32, ptr %191, align 4
   %210 = load i32, ptr %195, align 4
   tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef %0, i32 noundef %209, i32 noundef %210)
@@ -1199,21 +1199,21 @@ _ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i: ; preds = %227, %225
   %.val49.i = load i32, ptr %45, align 4
   %228 = and i32 %.val49.i, 4
   %229 = icmp eq i32 %228, 0
-  br i1 %229, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i, label %230
+  br i1 %229, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit62.i, label %230
 
 230:                                              ; preds = %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i
   %231 = tail call i32 @glGetError()
   %.not.i61.i = icmp eq i32 %231, 0
-  br i1 %.not.i61.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i, label %232
+  br i1 %.not.i61.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit62.i, label %232
 
 232:                                              ; preds = %230
   %233 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %231, ptr noundef nonnull @.str.34)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit62.i
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i: ; preds = %232, %230, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit62.i: ; preds = %232, %230, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i
   br i1 %203, label %.lr.ph70.preheader.i, label %._crit_edge71.i
 
-.lr.ph70.preheader.i:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i
+.lr.ph70.preheader.i:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit62.i
   %wide.trip.count83.i = zext nneg i32 %179 to i64
   br label %.lr.ph70.i
 
@@ -1229,7 +1229,7 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i: ; preds = %232, %230, %_ZL18g
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
   br i1 %exitcond84.not.i, label %._crit_edge71.i, label %.lr.ph70.i, !llvm.loop !14
 
-._crit_edge71.i:                                  ; preds = %.lr.ph70.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i
+._crit_edge71.i:                                  ; preds = %.lr.ph70.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit62.i
   tail call void @glColorMask(i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
   tail call void @glDisable(i32 noundef 2960)
   br label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
@@ -1243,22 +1243,22 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i: ; preds = %232, %230, %_ZL18g
   %.val.i74 = load i32, ptr %45, align 4
   %244 = and i32 %.val.i74, 4
   %245 = icmp eq i32 %244, 0
-  br i1 %245, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i, label %246
+  br i1 %245, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit64.i, label %246
 
 246:                                              ; preds = %239
   %247 = tail call i32 @glGetError()
   %.not.i63.i = icmp eq i32 %247, 0
-  br i1 %.not.i63.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i, label %248
+  br i1 %.not.i63.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit64.i, label %248
 
 248:                                              ; preds = %246
   %249 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %247, ptr noundef nonnull @.str.35)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit64.i
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i: ; preds = %248, %246, %239
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit64.i: ; preds = %248, %246, %239
   %250 = icmp sgt i32 %179, 0
   br i1 %250, label %.lr.ph73.preheader.i, label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
 
-.lr.ph73.preheader.i:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i
+.lr.ph73.preheader.i:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit64.i
   %wide.trip.count88.i = zext nneg i32 %179 to i64
   br label %.lr.ph73.i
 
@@ -1302,7 +1302,7 @@ _ZL16glnvg__trianglesP12GLNVGcontextP9GLNVGcall.exit: ; preds = %256, %263, %265
   tail call void @glDrawArrays(i32 noundef 4, i32 noundef %268, i32 noundef %270)
   br label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
 
-_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit: ; preds = %.lr.ph73.i, %171, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i, %._crit_edge71.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51, %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit, %_ZL11glnvg__fillP12GLNVGcontextP9GLNVGcall.exit, %_ZL16glnvg__trianglesP12GLNVGcontextP9GLNVGcall.exit
+_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit: ; preds = %.lr.ph73.i, %171, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit64.i, %._crit_edge71.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit.i51, %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit, %_ZL11glnvg__fillP12GLNVGcontextP9GLNVGcall.exit, %_ZL16glnvg__trianglesP12GLNVGcontextP9GLNVGcall.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %271 = load i32, ptr %2, align 4
   %272 = sext i32 %271 to i64
@@ -1689,7 +1689,7 @@ _ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %144, %194
   %.val109 = load ptr, ptr %200, align 8
   %208 = sext i32 %207 to i64
   %209 = getelementptr inbounds i8, ptr %.val109, i64 %208
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %209, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff.retelim(ptr noundef nonnull %0, ptr noundef %209, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
 210:                                              ; preds = %._crit_edge
@@ -1737,7 +1737,7 @@ _ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125: ; preds = %210, %228
   %.val110 = load ptr, ptr %234, align 8
   %235 = sext i32 %230 to i64
   %236 = getelementptr inbounds i8, ptr %.val110, i64 %235
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %236, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff.retelim(ptr noundef nonnull %0, ptr noundef %236, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
 _ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split: ; preds = %218, %184, %40
@@ -2011,14 +2011,14 @@ _ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %124, %137
   %.val = load ptr, ptr %143, align 8
   %144 = sext i32 %139 to i64
   %145 = getelementptr inbounds i8, ptr %.val, i64 %144
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff.retelim(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
   %146 = load i32, ptr %140, align 4
   %147 = load i32, ptr %118, align 8
   %148 = add nsw i32 %147, %146
   %.val79 = load ptr, ptr %143, align 8
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i8, ptr %.val79, i64 %149
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %150, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef 0x3FEFEFEFE0000000)
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff.retelim(ptr noundef nonnull %0, ptr noundef %150, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef 0x3FEFEFEFE0000000)
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
 151:                                              ; preds = %._crit_edge
@@ -2060,7 +2060,7 @@ _ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95: ; preds = %151, %163
   %.val80 = load ptr, ptr %169, align 8
   %170 = sext i32 %165 to i64
   %171 = getelementptr inbounds i8, ptr %.val80, i64 %170
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %171, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff.retelim(ptr noundef nonnull %0, ptr noundef %171, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
 _ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split: ; preds = %153, %127, %39
@@ -2227,7 +2227,7 @@ _ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %58, %83
   %.val = load ptr, ptr %89, align 8
   %90 = sext i32 %85 to i64
   %91 = getelementptr inbounds i8, ptr %.val, i64 %90
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %91, ptr noundef nonnull %1, ptr noundef %4, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff.retelim(ptr noundef nonnull %0, ptr noundef %91, ptr noundef nonnull %1, ptr noundef %4, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
   %92 = getelementptr inbounds i8, ptr %91, i64 172
   store i32 3, ptr %92, align 4
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
@@ -6298,7 +6298,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7nanogui6Screen10drop_eventERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_.argprom(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
   %3 = alloca [513 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca [513 x i8], align 16
@@ -6334,13 +6334,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11G
   call void @glGetShaderInfoLog(i32 noundef %14, i32 noundef 512, ptr noundef nonnull %8, ptr noundef nonnull %7)
   %19 = load i32, ptr %8, align 4
   %20 = icmp sgt i32 %19, 512
-  br i1 %20, label %21, label %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit
+  br i1 %20, label %21, label %_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit
 
 21:                                               ; preds = %18
   store i32 512, ptr %8, align 4
-  br label %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit
+  br label %_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit
 
-_ZL22glnvg__dumpShaderErrorjPKcS0_.exit:          ; preds = %18, %21
+_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit:  ; preds = %18, %21
   %22 = phi i32 [ 512, %21 ], [ %19, %18 ]
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [513 x i8], ptr %7, i64 0, i64 %23
@@ -6364,13 +6364,13 @@ _ZL22glnvg__dumpShaderErrorjPKcS0_.exit:          ; preds = %18, %21
   call void @glGetShaderInfoLog(i32 noundef %15, i32 noundef 512, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %29 = load i32, ptr %6, align 4
   %30 = icmp sgt i32 %29, 512
-  br i1 %30, label %31, label %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35
+  br i1 %30, label %31, label %_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit35
 
 31:                                               ; preds = %28
   store i32 512, ptr %6, align 4
-  br label %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35
+  br label %_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit35
 
-_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35:        ; preds = %28, %31
+_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit35: ; preds = %28, %31
   %32 = phi i32 [ 512, %31 ], [ %29, %28 ]
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds [513 x i8], ptr %5, i64 0, i64 %33
@@ -6398,13 +6398,13 @@ _ZL22glnvg__dumpShaderErrorjPKcS0_.exit35:        ; preds = %28, %31
   call void @glGetProgramInfoLog(i32 noundef %13, i32 noundef 512, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %39 = load i32, ptr %4, align 4
   %40 = icmp sgt i32 %39, 512
-  br i1 %40, label %41, label %_ZL23glnvg__dumpProgramErrorjPKc.exit
+  br i1 %40, label %41, label %_ZL23glnvg__dumpProgramErrorjPKc.argprom.exit
 
 41:                                               ; preds = %38
   store i32 512, ptr %4, align 4
-  br label %_ZL23glnvg__dumpProgramErrorjPKc.exit
+  br label %_ZL23glnvg__dumpProgramErrorjPKc.argprom.exit
 
-_ZL23glnvg__dumpProgramErrorjPKc.exit:            ; preds = %38, %41
+_ZL23glnvg__dumpProgramErrorjPKc.argprom.exit:    ; preds = %38, %41
   %42 = phi i32 [ 512, %41 ], [ %39, %38 ]
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds [513 x i8], ptr %3, i64 0, i64 %43
@@ -6422,8 +6422,8 @@ _ZL23glnvg__dumpProgramErrorjPKc.exit:            ; preds = %38, %41
   store i32 %15, ptr %48, align 4
   br label %49
 
-49:                                               ; preds = %46, %_ZL23glnvg__dumpProgramErrorjPKc.exit, %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35, %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit
-  %.0 = phi i32 [ 0, %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit ], [ 0, %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35 ], [ 0, %_ZL23glnvg__dumpProgramErrorjPKc.exit ], [ 1, %46 ]
+49:                                               ; preds = %46, %_ZL23glnvg__dumpProgramErrorjPKc.argprom.exit, %_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit35, %_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit
+  %.0 = phi i32 [ 0, %_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit ], [ 0, %_ZL22glnvg__dumpShaderErrorjPKcS0_.argprom.exit35 ], [ 0, %_ZL23glnvg__dumpProgramErrorjPKc.argprom.exit ], [ 1, %46 ]
   ret i32 %.0
 }
 
@@ -6577,29 +6577,29 @@ _ZL18glnvg__bindTextureP12GLNVGcontextj.exit:     ; preds = %_ZL18glnvg__findTex
   %.val = load i32, ptr %24, align 4
   %25 = and i32 %.val, 4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %27
+  br i1 %26, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit, label %27
 
 27:                                               ; preds = %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
   %28 = tail call i32 @glGetError()
   %.not.i11 = icmp eq i32 %28, 0
-  br i1 %.not.i11, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %29
+  br i1 %.not.i11, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit, label %29
 
 29:                                               ; preds = %27
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %28, ptr noundef nonnull @.str.31)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds i8, ptr %0, i64 136
   %33 = load i32, ptr %32, align 8
   %.not.i12 = icmp eq i32 %33, 0
-  br i1 %.not.i12, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %34
+  br i1 %.not.i12, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit, label %34
 
 34:                                               ; preds = %31
   store i32 0, ptr %32, align 8
   tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit
 
-_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit:    ; preds = %34, %31, %29, %27, %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.argprom.exit: ; preds = %34, %31, %29, %27, %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
   ret void
 }
 
@@ -6835,7 +6835,7 @@ _ZL28glnvg_convertBlendFuncFactori.exit18.thread: ; preds = %_ZL28glnvg_convertB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #14 {
+define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #14 {
   %8 = alloca [6 x float], align 16
   %9 = alloca [6 x float], align 16
   %10 = alloca [6 x float], align 16
@@ -7173,7 +7173,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_08__invokeEP10GLFWwindowdd"(ptr noundef readnone %0, double noundef %1, double noundef %2) #3 align 2 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %4, %3 ]
@@ -7190,13 +7190,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %8 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit", label %9
+  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.argprom.exit", label %9
 
 9:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ult ptr %0, %11
-  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7204,13 +7204,13 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %15 = getelementptr inbounds i8, ptr %14, i64 288
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit"
+  br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.argprom.exit"
 
 18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   tail call void @_ZN7nanogui6Screen25cursor_pos_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) %14, double noundef %1, double noundef %2)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.argprom.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
   ret void
 }
 
@@ -7218,7 +7218,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
 define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_18__invokeEP10GLFWwindowiii"(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #3 align 2 {
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %5, %4 ]
@@ -7235,13 +7235,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %9 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %9, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit", label %10
+  br i1 %9, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.argprom.exit", label %10
 
 10:                                               ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ult ptr %0, %12
-  br i1 %13, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %13, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %10
   %14 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7249,13 +7249,13 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %16 = getelementptr inbounds i8, ptr %15, i64 288
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit"
+  br i1 %18, label %19, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.argprom.exit"
 
 19:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   tail call void @_ZN7nanogui6Screen27mouse_button_callback_eventEiii(ptr noundef nonnull align 8 dereferenceable(384) %15, i32 noundef %1, i32 noundef %2, i32 noundef %3)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit": ; preds = %4, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %10, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %19
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.argprom.exit": ; preds = %4, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %10, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %19
   ret void
 }
 
@@ -7263,7 +7263,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
 define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_28__invokeEP10GLFWwindowiiii"(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3 align 2 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %5, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %5 ]
@@ -7280,13 +7280,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %10, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit", label %11
+  br i1 %10, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.argprom.exit", label %11
 
 11:                                               ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ult ptr %0, %13
-  br i1 %14, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %14, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7294,13 +7294,13 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %17 = getelementptr inbounds i8, ptr %16, i64 288
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit"
+  br i1 %19, label %20, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.argprom.exit"
 
 20:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   tail call void @_ZN7nanogui6Screen18key_callback_eventEiiii(ptr noundef nonnull align 8 dereferenceable(384) %16, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit": ; preds = %5, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %11, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %20
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.argprom.exit": ; preds = %5, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %11, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %20
   ret void
 }
 
@@ -7308,7 +7308,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
 define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_38__invokeEP10GLFWwindowj"(ptr noundef readnone %0, i32 noundef %1) #3 align 2 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %3, %2 ]
@@ -7325,13 +7325,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %7 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %7, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit", label %8
+  br i1 %7, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.argprom.exit", label %8
 
 8:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %9 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ult ptr %0, %10
-  br i1 %11, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %11, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %8
   %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7339,13 +7339,13 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %14 = getelementptr inbounds i8, ptr %13, i64 288
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit"
+  br i1 %16, label %17, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.argprom.exit"
 
 17:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   tail call void @_ZN7nanogui6Screen19char_callback_eventEj(ptr noundef nonnull align 8 dereferenceable(384) %13, i32 noundef %1)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit": ; preds = %2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %8, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %17
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.argprom.exit": ; preds = %2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %8, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %17
   ret void
 }
 
@@ -7353,7 +7353,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
 define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_48__invokeEP10GLFWwindowiPPKc"(ptr noundef readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) #3 align 2 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %4, %3 ]
@@ -7370,13 +7370,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %8 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit", label %9
+  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.argprom.exit", label %9
 
 9:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ult ptr %0, %11
-  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7384,13 +7384,13 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %15 = getelementptr inbounds i8, ptr %14, i64 288
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit"
+  br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.argprom.exit"
 
 18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   tail call void @_ZN7nanogui6Screen19drop_callback_eventEiPPKc(ptr noundef nonnull align 8 dereferenceable(384) %14, i32 noundef %1, ptr noundef readonly %2)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.argprom.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
   ret void
 }
 
@@ -7398,7 +7398,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
 define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_58__invokeEP10GLFWwindowdd"(ptr noundef readnone %0, double noundef %1, double noundef %2) #3 align 2 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %4, %3 ]
@@ -7415,13 +7415,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %8 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit", label %9
+  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.argprom.exit", label %9
 
 9:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ult ptr %0, %11
-  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7429,13 +7429,13 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %15 = getelementptr inbounds i8, ptr %14, i64 288
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit"
+  br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.argprom.exit"
 
 18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   tail call void @_ZN7nanogui6Screen21scroll_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) %14, double noundef %1, double noundef %2)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.argprom.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
   ret void
 }
 
@@ -7443,7 +7443,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
 define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_68__invokeEP10GLFWwindowii"(ptr noundef readnone %0, i32 %1, i32 %2) #3 align 2 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %4, %3 ]
@@ -7460,13 +7460,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %8 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit", label %9
+  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.argprom.exit", label %9
 
 9:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ult ptr %0, %11
-  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7474,13 +7474,13 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %15 = getelementptr inbounds i8, ptr %14, i64 288
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit"
+  br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.argprom.exit"
 
 18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   tail call void @_ZN7nanogui6Screen21resize_callback_eventEii(ptr noundef nonnull align 8 dereferenceable(384) %14, i32 poison, i32 poison)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.argprom.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
   ret void
 }
 
@@ -7488,7 +7488,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
 define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_78__invokeEP10GLFWwindowi"(ptr noundef readnone %0, i32 noundef %1) #3 align 2 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %3, %2 ]
@@ -7505,13 +7505,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %7 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %7, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit", label %8
+  br i1 %7, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.argprom.exit", label %8
 
 8:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %9 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ult ptr %0, %10
-  br i1 %11, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %11, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %8
   %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7521,9 +7521,9 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %16 = getelementptr inbounds i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(140) %13, i1 noundef zeroext %14)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit": ; preds = %2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %8, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.argprom.exit": ; preds = %2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %8, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   ret void
 }
 
@@ -7533,7 +7533,7 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
   %5 = alloca float, align 4
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %3 ]
@@ -7550,13 +7550,13 @@ define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112b
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 8)
-  br i1 %10, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit", label %11
+  br i1 %10, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.argprom.exit", label %11
 
 11:                                               ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ult ptr %0, %13
-  br i1 %14, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  br i1 %14, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.argprom.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
 
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
@@ -7570,9 +7570,9 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   %18 = getelementptr inbounds i8, ptr %16, i64 248
   store float %17, ptr %18, align 8
   call void @_ZN7nanogui6Screen21resize_callback_eventEii(ptr noundef nonnull align 8 dereferenceable(384) %16, i32 poison, i32 poison)
-  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit"
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.argprom.exit"
 
-"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %11, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.argprom.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %11, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
   ret void
 }
 

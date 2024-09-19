@@ -523,7 +523,7 @@ define hidden range(i32 0, 65536) i32 @hb_ot_color_palette_get_colors(ptr nounde
   %24 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 2
   %25 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 3
   %.not13.i = icmp eq ptr %3, null
-  br i1 %.not13.i, label %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit.i, label %_ZNK10hb_array_tIKN2OT7IntTypeIjLj4EEEE9sub_arrayEjPj.exit.i
+  br i1 %.not13.i, label %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit.i, label %_ZNK10hb_array_tIKN2OT7IntTypeIjLj4EEEE9sub_arrayEjPj.exit.i
 
 _ZNK10hb_array_tIKN2OT7IntTypeIjLj4EEEE9sub_arrayEjPj.exit.i: ; preds = %23
   %26 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 9
@@ -565,7 +565,7 @@ _ZNK10hb_array_tIKN2OT7IntTypeIjLj4EEEE9sub_arrayEjPj.exit.i: ; preds = %23
   %.sroa.speculated.i.i = tail call i32 @llvm.umin.i32(i32 %storemerge.i.i, i32 %58)
   store i32 %.sroa.speculated.i.i, ptr %3, align 4
   %.not5.i.i.i = icmp eq i32 %.sroa.speculated.i.i, 0
-  br i1 %.not5.i.i.i, label %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not5.i.i.i, label %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK10hb_array_tIKN2OT7IntTypeIjLj4EEEE9sub_arrayEjPj.exit.i
   %59 = zext i8 %27 to i64
@@ -609,9 +609,9 @@ _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i: ; preds = %77, %75
   %78 = add i32 %.sroa.4.06.i.i.i, -1
   %79 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i, i64 4
   %.not.i.i.i = icmp eq i32 %78, 0
-  br i1 %.not.i.i.i, label %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit.i, label %75, !llvm.loop !6
+  br i1 %.not.i.i.i, label %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit.i, label %75, !llvm.loop !6
 
-_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit.i: ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i, %_ZNK10hb_array_tIKN2OT7IntTypeIjLj4EEEE9sub_arrayEjPj.exit.i, %23
+_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit.i: ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i, %_ZNK10hb_array_tIKN2OT7IntTypeIjLj4EEEE9sub_arrayEjPj.exit.i, %23
   %80 = load i8, ptr %24, align 1
   %81 = zext i8 %80 to i32
   %82 = shl nuw nsw i32 %81, 8
@@ -620,8 +620,8 @@ _ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr
   %85 = or disjoint i32 %82, %84
   br label %_ZNK2OT4CPAL18get_palette_colorsEjjPjS1_.exit
 
-_ZNK2OT4CPAL18get_palette_colorsEjjPjS1_.exit:    ; preds = %21, %22, %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit.i
-  %.0.i = phi i32 [ %85, %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit.i ], [ 0, %22 ], [ 0, %21 ]
+_ZNK2OT4CPAL18get_palette_colorsEjjPjS1_.exit:    ; preds = %21, %22, %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit.i
+  %.0.i = phi i32 [ %85, %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit.i ], [ 0, %22 ], [ 0, %21 ]
   ret i32 %.0.i
 }
 
@@ -867,7 +867,7 @@ _ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.ex
   %storemerge.i.i = tail call i32 @llvm.usub.sat.i32(i32 %63, i32 %71)
   %.sroa.speculated.i.i = tail call i32 @llvm.umin.i32(i32 %storemerge.i.i, i32 %79)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit, label %_ZNK10hb_array_tIKN2OT11LayerRecordEE9sub_arrayEjPj.exit
+  br i1 %.not, label %_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit, label %_ZNK10hb_array_tIKN2OT11LayerRecordEE9sub_arrayEjPj.exit
 
 _ZNK10hb_array_tIKN2OT11LayerRecordEE9sub_arrayEjPj.exit: ; preds = %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit
   %80 = getelementptr inbounds i8, ptr %0, i64 9
@@ -883,7 +883,7 @@ _ZNK10hb_array_tIKN2OT11LayerRecordEE9sub_arrayEjPj.exit: ; preds = %_ZNK2OT20So
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %storemerge.i, i32 %88)
   store i32 %.sroa.speculated.i, ptr %3, align 4
   %.not5.i.i = icmp eq i32 %.sroa.speculated.i, 0
-  br i1 %.not5.i.i, label %_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit, label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK10hb_array_tIKN2OT11LayerRecordEE9sub_arrayEjPj.exit
   %89 = zext i8 %81 to i64
@@ -938,9 +938,9 @@ _ZN9hb_iter_tI10hb_array_tI19hb_ot_color_layer_tERS1_EdeEv.exit.i.i.i: ; preds =
   %111 = add i32 %.sroa.4.06.i.i, -1
   %112 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i, i64 4
   %.not.i.i = icmp eq i32 %111, 0
-  br i1 %.not.i.i, label %_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit, label %105, !llvm.loop !9
+  br i1 %.not.i.i, label %_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit, label %105, !llvm.loop !9
 
-_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit: ; preds = %_ZN9hb_iter_tI10hb_array_tI19hb_ot_color_layer_tERS1_EdeEv.exit.i.i.i, %_ZNK10hb_array_tIKN2OT11LayerRecordEE9sub_arrayEjPj.exit, %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit
+_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.argprom.exit: ; preds = %_ZN9hb_iter_tI10hb_array_tI19hb_ot_color_layer_tERS1_EdeEv.exit.i.i.i, %_ZNK10hb_array_tIKN2OT11LayerRecordEE9sub_arrayEjPj.exit, %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit
   ret i32 %.sroa.speculated.i.i
 }
 

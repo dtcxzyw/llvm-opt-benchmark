@@ -1136,7 +1136,7 @@ land.lhs.true5:                                   ; preds = %set_fromdata_uint.e
   store ptr null, ptr %pkey.i14, align 8
   %call.i16 = call i32 @EVP_PKEY_fromdata_init(ptr noundef %call) #7
   %cmp.not.i17 = icmp eq i32 %call.i16, 1
-  br i1 %cmp.not.i17, label %if.end.i19, label %set_fromdata_string.exit
+  br i1 %cmp.not.i17, label %if.end.i19, label %set_fromdata_string.argprom.exit
 
 if.end.i19:                                       ; preds = %land.lhs.true5
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i15, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.149, i64 noundef 0) #7
@@ -1147,9 +1147,9 @@ if.end.i19:                                       ; preds = %land.lhs.true5
   %call3.i = call i32 @EVP_PKEY_fromdata(ptr noundef %call, ptr noundef nonnull %pkey.i14, i32 noundef 132, ptr noundef nonnull %params.i13) #7
   %2 = load ptr, ptr %pkey.i14, align 8
   call void @EVP_PKEY_free(ptr noundef %2) #7
-  br label %set_fromdata_string.exit
+  br label %set_fromdata_string.argprom.exit
 
-set_fromdata_string.exit:                         ; preds = %land.lhs.true5, %if.end.i19
+set_fromdata_string.argprom.exit:                 ; preds = %land.lhs.true5, %if.end.i19
   %retval.0.i18 = phi i32 [ %call3.i, %if.end.i19 ], [ -1, %land.lhs.true5 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i14)
@@ -1159,7 +1159,7 @@ set_fromdata_string.exit:                         ; preds = %land.lhs.true5, %if
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %land.end, label %land.lhs.true9
 
-land.lhs.true9:                                   ; preds = %set_fromdata_string.exit
+land.lhs.true9:                                   ; preds = %set_fromdata_string.argprom.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i21)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i22)
@@ -1167,7 +1167,7 @@ land.lhs.true9:                                   ; preds = %set_fromdata_string
   store ptr null, ptr %pkey.i21, align 8
   %call.i24 = call i32 @EVP_PKEY_fromdata_init(ptr noundef %call) #7
   %cmp.not.i25 = icmp eq i32 %call.i24, 1
-  br i1 %cmp.not.i25, label %if.end.i27, label %set_fromdata_string.exit30
+  br i1 %cmp.not.i25, label %if.end.i27, label %set_fromdata_string.argprom.exit30
 
 if.end.i27:                                       ; preds = %land.lhs.true9
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i22, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.149, i64 noundef 0) #7
@@ -1178,9 +1178,9 @@ if.end.i27:                                       ; preds = %land.lhs.true9
   %call3.i29 = call i32 @EVP_PKEY_fromdata(ptr noundef %call, ptr noundef nonnull %pkey.i21, i32 noundef 132, ptr noundef nonnull %params.i20) #7
   %3 = load ptr, ptr %pkey.i21, align 8
   call void @EVP_PKEY_free(ptr noundef %3) #7
-  br label %set_fromdata_string.exit30
+  br label %set_fromdata_string.argprom.exit30
 
-set_fromdata_string.exit30:                       ; preds = %land.lhs.true9, %if.end.i27
+set_fromdata_string.argprom.exit30:               ; preds = %land.lhs.true9, %if.end.i27
   %retval.0.i26 = phi i32 [ %call3.i29, %if.end.i27 ], [ -1, %land.lhs.true9 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i21)
@@ -1190,7 +1190,7 @@ set_fromdata_string.exit30:                       ; preds = %land.lhs.true9, %if
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %land.end, label %land.lhs.true13
 
-land.lhs.true13:                                  ; preds = %set_fromdata_string.exit30
+land.lhs.true13:                                  ; preds = %set_fromdata_string.argprom.exit30
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i31)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i32)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i33)
@@ -1198,7 +1198,7 @@ land.lhs.true13:                                  ; preds = %set_fromdata_string
   store ptr null, ptr %pkey.i32, align 8
   %call.i35 = call i32 @EVP_PKEY_fromdata_init(ptr noundef %call) #7
   %cmp.not.i36 = icmp eq i32 %call.i35, 1
-  br i1 %cmp.not.i36, label %if.end.i38, label %set_fromdata_string.exit41
+  br i1 %cmp.not.i36, label %if.end.i38, label %set_fromdata_string.argprom.exit41
 
 if.end.i38:                                       ; preds = %land.lhs.true13
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i33, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.149, i64 noundef 0) #7
@@ -1209,9 +1209,9 @@ if.end.i38:                                       ; preds = %land.lhs.true13
   %call3.i40 = call i32 @EVP_PKEY_fromdata(ptr noundef %call, ptr noundef nonnull %pkey.i32, i32 noundef 132, ptr noundef nonnull %params.i31) #7
   %4 = load ptr, ptr %pkey.i32, align 8
   call void @EVP_PKEY_free(ptr noundef %4) #7
-  br label %set_fromdata_string.exit41
+  br label %set_fromdata_string.argprom.exit41
 
-set_fromdata_string.exit41:                       ; preds = %land.lhs.true13, %if.end.i38
+set_fromdata_string.argprom.exit41:               ; preds = %land.lhs.true13, %if.end.i38
   %retval.0.i37 = phi i32 [ %call3.i40, %if.end.i38 ], [ -1, %land.lhs.true13 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i32)
@@ -1221,7 +1221,7 @@ set_fromdata_string.exit41:                       ; preds = %land.lhs.true13, %i
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %land.end, label %land.lhs.true17
 
-land.lhs.true17:                                  ; preds = %set_fromdata_string.exit41
+land.lhs.true17:                                  ; preds = %set_fromdata_string.argprom.exit41
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i42)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i43)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i44)
@@ -1229,7 +1229,7 @@ land.lhs.true17:                                  ; preds = %set_fromdata_string
   store ptr null, ptr %pkey.i43, align 8
   %call.i46 = call i32 @EVP_PKEY_fromdata_init(ptr noundef %call) #7
   %cmp.not.i47 = icmp eq i32 %call.i46, 1
-  br i1 %cmp.not.i47, label %if.end.i49, label %set_fromdata_string.exit52
+  br i1 %cmp.not.i47, label %if.end.i49, label %set_fromdata_string.argprom.exit52
 
 if.end.i49:                                       ; preds = %land.lhs.true17
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i44, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.149, i64 noundef 0) #7
@@ -1240,9 +1240,9 @@ if.end.i49:                                       ; preds = %land.lhs.true17
   %call3.i51 = call i32 @EVP_PKEY_fromdata(ptr noundef %call, ptr noundef nonnull %pkey.i43, i32 noundef 132, ptr noundef nonnull %params.i42) #7
   %5 = load ptr, ptr %pkey.i43, align 8
   call void @EVP_PKEY_free(ptr noundef %5) #7
-  br label %set_fromdata_string.exit52
+  br label %set_fromdata_string.argprom.exit52
 
-set_fromdata_string.exit52:                       ; preds = %land.lhs.true17, %if.end.i49
+set_fromdata_string.argprom.exit52:               ; preds = %land.lhs.true17, %if.end.i49
   %retval.0.i48 = phi i32 [ %call3.i51, %if.end.i49 ], [ -1, %land.lhs.true17 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i43)
@@ -1252,7 +1252,7 @@ set_fromdata_string.exit52:                       ; preds = %land.lhs.true17, %i
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %land.end, label %land.lhs.true21
 
-land.lhs.true21:                                  ; preds = %set_fromdata_string.exit52
+land.lhs.true21:                                  ; preds = %set_fromdata_string.argprom.exit52
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i54)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i55)
@@ -1260,7 +1260,7 @@ land.lhs.true21:                                  ; preds = %set_fromdata_string
   store ptr null, ptr %pkey.i54, align 8
   %call.i57 = call i32 @EVP_PKEY_fromdata_init(ptr noundef %call) #7
   %cmp.not.i58 = icmp eq i32 %call.i57, 1
-  br i1 %cmp.not.i58, label %if.end.i60, label %set_fromdata_string.exit63
+  br i1 %cmp.not.i58, label %if.end.i60, label %set_fromdata_string.argprom.exit63
 
 if.end.i60:                                       ; preds = %land.lhs.true21
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i55, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.149, i64 noundef 0) #7
@@ -1271,9 +1271,9 @@ if.end.i60:                                       ; preds = %land.lhs.true21
   %call3.i62 = call i32 @EVP_PKEY_fromdata(ptr noundef %call, ptr noundef nonnull %pkey.i54, i32 noundef 132, ptr noundef nonnull %params.i53) #7
   %6 = load ptr, ptr %pkey.i54, align 8
   call void @EVP_PKEY_free(ptr noundef %6) #7
-  br label %set_fromdata_string.exit63
+  br label %set_fromdata_string.argprom.exit63
 
-set_fromdata_string.exit63:                       ; preds = %land.lhs.true21, %if.end.i60
+set_fromdata_string.argprom.exit63:               ; preds = %land.lhs.true21, %if.end.i60
   %retval.0.i59 = phi i32 [ %call3.i62, %if.end.i60 ], [ -1, %land.lhs.true21 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i53)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i54)
@@ -1283,7 +1283,7 @@ set_fromdata_string.exit63:                       ; preds = %land.lhs.true21, %i
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %land.end, label %land.lhs.true25
 
-land.lhs.true25:                                  ; preds = %set_fromdata_string.exit63
+land.lhs.true25:                                  ; preds = %set_fromdata_string.argprom.exit63
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i64)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i65)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i66)
@@ -1291,7 +1291,7 @@ land.lhs.true25:                                  ; preds = %set_fromdata_string
   store ptr null, ptr %pkey.i65, align 8
   %call.i68 = call i32 @EVP_PKEY_fromdata_init(ptr noundef %call) #7
   %cmp.not.i69 = icmp eq i32 %call.i68, 1
-  br i1 %cmp.not.i69, label %if.end.i71, label %set_fromdata_string.exit74
+  br i1 %cmp.not.i69, label %if.end.i71, label %set_fromdata_string.argprom.exit74
 
 if.end.i71:                                       ; preds = %land.lhs.true25
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i66, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.149, i64 noundef 0) #7
@@ -1302,9 +1302,9 @@ if.end.i71:                                       ; preds = %land.lhs.true25
   %call3.i73 = call i32 @EVP_PKEY_fromdata(ptr noundef %call, ptr noundef nonnull %pkey.i65, i32 noundef 132, ptr noundef nonnull %params.i64) #7
   %7 = load ptr, ptr %pkey.i65, align 8
   call void @EVP_PKEY_free(ptr noundef %7) #7
-  br label %set_fromdata_string.exit74
+  br label %set_fromdata_string.argprom.exit74
 
-set_fromdata_string.exit74:                       ; preds = %land.lhs.true25, %if.end.i71
+set_fromdata_string.argprom.exit74:               ; preds = %land.lhs.true25, %if.end.i71
   %retval.0.i70 = phi i32 [ %call3.i73, %if.end.i71 ], [ -1, %land.lhs.true25 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i64)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i65)
@@ -1314,7 +1314,7 @@ set_fromdata_string.exit74:                       ; preds = %land.lhs.true25, %i
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %land.end, label %land.lhs.true29
 
-land.lhs.true29:                                  ; preds = %set_fromdata_string.exit74
+land.lhs.true29:                                  ; preds = %set_fromdata_string.argprom.exit74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i75)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i76)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i77)
@@ -1349,19 +1349,19 @@ set_fromdata_uint.exit86:                         ; preds = %land.lhs.true29, %i
   br i1 %tobool32.not, label %land.end, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %set_fromdata_uint.exit86
-  %call34 = call fastcc i32 @set_fromdata_string(ptr noundef %call, ptr noundef nonnull @.str.91)
+  %call34 = call fastcc i32 @set_fromdata_string.argprom(ptr noundef %call, ptr noundef nonnull @.str.91)
   %call35 = call i32 @test_int_eq(ptr noundef nonnull @.str.25, i32 noundef 442, ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.49, i32 noundef %call34, i32 noundef 0) #7
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %land.end, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %land.lhs.true33
-  %call38 = call fastcc i32 @set_fromdata_string(ptr noundef %call, ptr noundef nonnull @.str.92)
+  %call38 = call fastcc i32 @set_fromdata_string.argprom(ptr noundef %call, ptr noundef nonnull @.str.92)
   %call39 = call i32 @test_int_eq(ptr noundef nonnull @.str.25, i32 noundef 443, ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.49, i32 noundef %call38, i32 noundef 0) #7
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %land.end, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %land.lhs.true37
-  %call42 = call fastcc i32 @set_fromdata_string(ptr noundef %call, ptr noundef nonnull @.str.93)
+  %call42 = call fastcc i32 @set_fromdata_string.argprom(ptr noundef %call, ptr noundef nonnull @.str.93)
   %call43 = call i32 @test_int_eq(ptr noundef nonnull @.str.25, i32 noundef 444, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.49, i32 noundef %call42, i32 noundef 0) #7
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %land.end, label %land.rhs
@@ -1373,8 +1373,8 @@ land.rhs:                                         ; preds = %land.lhs.true41
   %9 = zext i1 %tobool47 to i32
   br label %land.end
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true41, %land.lhs.true37, %land.lhs.true33, %set_fromdata_uint.exit86, %set_fromdata_string.exit74, %set_fromdata_string.exit63, %set_fromdata_string.exit52, %set_fromdata_string.exit41, %set_fromdata_string.exit30, %set_fromdata_string.exit, %set_fromdata_uint.exit, %entry
-  %land.ext = phi i32 [ 0, %land.lhs.true41 ], [ 0, %land.lhs.true37 ], [ 0, %land.lhs.true33 ], [ 0, %set_fromdata_uint.exit86 ], [ 0, %set_fromdata_string.exit74 ], [ 0, %set_fromdata_string.exit63 ], [ 0, %set_fromdata_string.exit52 ], [ 0, %set_fromdata_string.exit41 ], [ 0, %set_fromdata_string.exit30 ], [ 0, %set_fromdata_string.exit ], [ 0, %set_fromdata_uint.exit ], [ 0, %entry ], [ %9, %land.rhs ]
+land.end:                                         ; preds = %land.rhs, %land.lhs.true41, %land.lhs.true37, %land.lhs.true33, %set_fromdata_uint.exit86, %set_fromdata_string.argprom.exit74, %set_fromdata_string.argprom.exit63, %set_fromdata_string.argprom.exit52, %set_fromdata_string.argprom.exit41, %set_fromdata_string.argprom.exit30, %set_fromdata_string.argprom.exit, %set_fromdata_uint.exit, %entry
+  %land.ext = phi i32 [ 0, %land.lhs.true41 ], [ 0, %land.lhs.true37 ], [ 0, %land.lhs.true33 ], [ 0, %set_fromdata_uint.exit86 ], [ 0, %set_fromdata_string.argprom.exit74 ], [ 0, %set_fromdata_string.argprom.exit63 ], [ 0, %set_fromdata_string.argprom.exit52 ], [ 0, %set_fromdata_string.argprom.exit41 ], [ 0, %set_fromdata_string.argprom.exit30 ], [ 0, %set_fromdata_string.argprom.exit ], [ 0, %set_fromdata_uint.exit ], [ 0, %entry ], [ %9, %land.rhs ]
   call void @EVP_PKEY_CTX_free(ptr noundef %call) #7
   ret i32 %land.ext
 }
@@ -2461,7 +2461,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_fromdata_string(ptr noundef %ctx, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc i32 @set_fromdata_string.argprom(ptr noundef %ctx, ptr noundef %name) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %pkey = alloca ptr, align 8

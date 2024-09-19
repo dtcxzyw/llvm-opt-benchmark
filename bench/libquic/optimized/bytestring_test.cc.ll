@@ -644,7 +644,7 @@ lor.lhs.false28:                                  ; preds = %lor.lhs.false26
   br i1 %call29, label %lor.lhs.false30, label %return
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false28
-  call fastcc void @_ZL8TestZerov()
+  call fastcc void @_ZL8TestZerov.retelim()
   %call33 = call fastcc noundef zeroext i1 @_ZL14TestCBBReservev()
   br i1 %call33, label %if.end, label %return
 
@@ -1758,7 +1758,7 @@ return:                                           ; preds = %if.end12, %if.end6,
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL8TestZerov() unnamed_addr #0 {
+define internal fastcc void @_ZL8TestZerov.retelim() unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   call void @CBB_zero(ptr noundef nonnull %cbb)

@@ -1068,12 +1068,12 @@ define hidden noundef zeroext i1 @_ZN2cv6detail20Jpeg2KOpjDecoderBase8readDataER
   %85 = and i32 %84, 7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   switch i32 %85, label %87 [
-    i32 0, label %"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.exit"
+    i32 0, label %"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.argprom.exit"
     i32 2, label %86
   ]
 
 86:                                               ; preds = %83
-  br label %"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.exit"
+  br label %"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.argprom.exit"
 
 87:                                               ; preds = %83
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.57, i32 noundef %85)
@@ -1093,7 +1093,7 @@ common.resume:                                    ; preds = %31, %41, %67, %82, 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %common.resume
 
-"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.exit": ; preds = %83, %86
+"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.argprom.exit": ; preds = %83, %86
   %.0.i = phi i32 [ 16, %86 ], [ 8, %83 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %91 = getelementptr inbounds i8, ptr %0, i64 320
@@ -1104,7 +1104,7 @@ common.resume:                                    ; preds = %31, %41, %67, %82, 
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %105, label %97
 
-97:                                               ; preds = %"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.exit"
+97:                                               ; preds = %"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.argprom.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %98 unwind label %100
@@ -1132,7 +1132,7 @@ common.resume:                                    ; preds = %31, %41, %67, %82, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   br label %common.resume
 
-105:                                              ; preds = %"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.exit"
+105:                                              ; preds = %"_ZZN2cv6detail20Jpeg2KOpjDecoderBase8readDataERNS_3MatEENK3$_0clEv.argprom.exit"
   %106 = getelementptr inbounds i8, ptr %93, i64 24
   %107 = load ptr, ptr %106, align 8
   %.not66 = icmp eq ptr %107, null
@@ -2326,12 +2326,12 @@ define hidden noundef zeroext i1 @_ZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6
   %62 = and i32 %48, 7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   switch i32 %62, label %64 [
-    i32 0, label %"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.exit"
+    i32 0, label %"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.argprom.exit"
     i32 2, label %63
   ]
 
 63:                                               ; preds = %61
-  br label %"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.exit"
+  br label %"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.argprom.exit"
 
 64:                                               ; preds = %61
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.58, i32 noundef %62)
@@ -2351,7 +2351,7 @@ common.resume:                                    ; preds = %46, %60, %_ZNSt6vec
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %common.resume
 
-"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.exit": ; preds = %61, %63
+"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.argprom.exit": ; preds = %61, %63
   %.0.i = phi i32 [ 16, %63 ], [ 8, %61 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
@@ -2363,7 +2363,7 @@ common.resume:                                    ; preds = %46, %60, %_ZNSt6vec
   %.not32.i = icmp eq ptr %68, %69
   br i1 %.not32.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.exit"
+.lr.ph.i:                                         ; preds = %"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.argprom.exit"
   %70 = getelementptr inbounds i8, ptr %6, i64 16
   %71 = getelementptr inbounds i8, ptr %13, i64 4800
   br label %72
@@ -2468,7 +2468,7 @@ common.resume:                                    ; preds = %46, %60, %_ZNSt6vec
   store i32 1, ptr %118, align 4, !alias.scope !27
   br i1 %.1.i, label %_ZN2cv12_GLOBAL__N_122setupEncoderParametersERKSt6vectorIiSaIiEE.exit, label %121
 
-.critedge.i:                                      ; preds = %"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.exit"
+.critedge.i:                                      ; preds = %"_ZZN2cv16Jpeg2KOpjEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEENK3$_0clEv.argprom.exit"
   %119 = getelementptr inbounds i8, ptr %13, i64 4796
   store i32 1, ptr %119, align 4, !alias.scope !27
   %120 = getelementptr inbounds i8, ptr %13, i64 20

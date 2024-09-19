@@ -912,12 +912,12 @@ define noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifR
     i32 2, label %105
     i32 11, label %105
     i32 16, label %105
-    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
-    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
-    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
-    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
-    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
-    i32 4, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 4, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
   ]
 
 ..thread56_crit_edge.i:                           ; preds = %96
@@ -984,7 +984,7 @@ define noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifR
   %142 = fmul double %141, %136
   br label %184
 
-_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i: ; preds = %96, %96, %96, %96, %96, %96
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %96, %96, %96, %96, %96, %96
   %143 = getelementptr inbounds i8, ptr %2, i64 352
   %144 = load float, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %2, i64 156
@@ -992,7 +992,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread.i: ; preds = %96, %96, %96, %
   %147 = invoke noundef float @_Z17calc_ewaldcoeff_qff(float noundef %144, float noundef %146)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+.noexc:                                           ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
   %148 = load float, ptr %143, align 8
   %149 = fmul float %147, %148
   %150 = fpext float %102 to double
@@ -1148,7 +1148,7 @@ _ZL20displacementVarianceRK10t_inputrecff.exit:   ; preds = %216, %._crit_edge.i
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %91, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i, %180
+.loopexit.split-lp:                               ; preds = %91, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i, %180
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1553,21 +1553,21 @@ _ZN6RmsMax3addEfi.exit58.us.us.i:                 ; preds = %45
   %.sroa.076.192.i = phi double [ %.sroa.076.0133.i, %.lr.ph.i ], [ %.sroa.076.2.i, %_ZN6RmsMax3addEfi.exit56.i ]
   %.sroa.785.191.i = phi float [ %.sroa.785.0132.i, %.lr.ph.i ], [ %.sroa.785.2.i, %_ZN6RmsMax3addEfi.exit56.i ]
   %.sroa.483.190.i = phi i32 [ %.sroa.483.0131.i, %.lr.ph.i ], [ %79, %_ZN6RmsMax3addEfi.exit56.i ]
-  br i1 %2, label %_ZL7getMassRK7t_atomsib.exit.thread.i, label %_ZL7getMassRK7t_atomsib.exit.i
+  br i1 %2, label %_ZL7getMassRK7t_atomsib.argprom.exit.thread.i, label %_ZL7getMassRK7t_atomsib.argprom.exit.i
 
-_ZL7getMassRK7t_atomsib.exit.i:                   ; preds = %65
+_ZL7getMassRK7t_atomsib.argprom.exit.i:           ; preds = %65
   %66 = getelementptr inbounds %struct.t_atom, ptr %31, i64 %indvars.iv.i
   %67 = load float, ptr %66, align 4
   %68 = fcmp une float %67, 0.000000e+00
-  br i1 %68, label %_ZL7getMassRK7t_atomsib.exit.thread.i, label %_ZN6RmsMax3addEfi.exit.i
+  br i1 %68, label %_ZL7getMassRK7t_atomsib.argprom.exit.thread.i, label %_ZN6RmsMax3addEfi.exit.i
 
-_ZL7getMassRK7t_atomsib.exit.thread.i:            ; preds = %_ZL7getMassRK7t_atomsib.exit.i, %65
-  %.0.i89.i = phi float [ %67, %_ZL7getMassRK7t_atomsib.exit.i ], [ 1.000000e+00, %65 ]
+_ZL7getMassRK7t_atomsib.argprom.exit.thread.i:    ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit.i, %65
+  %.0.i89.i = phi float [ %67, %_ZL7getMassRK7t_atomsib.argprom.exit.i ], [ 1.000000e+00, %65 ]
   %69 = fdiv float 1.000000e+00, %.0.i89.i
   %70 = fcmp une float %69, 0.000000e+00
   br i1 %70, label %71, label %_ZN6RmsMax3addEfi.exit.i
 
-71:                                               ; preds = %_ZL7getMassRK7t_atomsib.exit.thread.i
+71:                                               ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit.thread.i
   %72 = fmul float %69, %69
   %73 = fmul float %72, %30
   %74 = fpext float %73 to double
@@ -1578,10 +1578,10 @@ _ZL7getMassRK7t_atomsib.exit.thread.i:            ; preds = %_ZL7getMassRK7t_ato
   %.sroa.speculated.i.i = select i1 %78, float %77, float %.sroa.785.191.i
   br label %_ZN6RmsMax3addEfi.exit.i
 
-_ZN6RmsMax3addEfi.exit.i:                         ; preds = %71, %_ZL7getMassRK7t_atomsib.exit.thread.i, %_ZL7getMassRK7t_atomsib.exit.i
-  %.sroa.483.2.i = phi i32 [ %.sroa.483.190.i, %_ZL7getMassRK7t_atomsib.exit.i ], [ %76, %71 ], [ %.sroa.483.190.i, %_ZL7getMassRK7t_atomsib.exit.thread.i ]
-  %.sroa.785.2.i = phi float [ %.sroa.785.191.i, %_ZL7getMassRK7t_atomsib.exit.i ], [ %.sroa.speculated.i.i, %71 ], [ %.sroa.785.191.i, %_ZL7getMassRK7t_atomsib.exit.thread.i ]
-  %.sroa.081.2.i = phi double [ %.sroa.081.195.i, %_ZL7getMassRK7t_atomsib.exit.i ], [ %75, %71 ], [ %.sroa.081.195.i, %_ZL7getMassRK7t_atomsib.exit.thread.i ]
+_ZN6RmsMax3addEfi.exit.i:                         ; preds = %71, %_ZL7getMassRK7t_atomsib.argprom.exit.thread.i, %_ZL7getMassRK7t_atomsib.argprom.exit.i
+  %.sroa.483.2.i = phi i32 [ %.sroa.483.190.i, %_ZL7getMassRK7t_atomsib.argprom.exit.i ], [ %76, %71 ], [ %.sroa.483.190.i, %_ZL7getMassRK7t_atomsib.argprom.exit.thread.i ]
+  %.sroa.785.2.i = phi float [ %.sroa.785.191.i, %_ZL7getMassRK7t_atomsib.argprom.exit.i ], [ %.sroa.speculated.i.i, %71 ], [ %.sroa.785.191.i, %_ZL7getMassRK7t_atomsib.argprom.exit.thread.i ]
+  %.sroa.081.2.i = phi double [ %.sroa.081.195.i, %_ZL7getMassRK7t_atomsib.argprom.exit.i ], [ %75, %71 ], [ %.sroa.081.195.i, %_ZL7getMassRK7t_atomsib.argprom.exit.thread.i ]
   %79 = freeze i32 %.sroa.483.2.i
   %80 = getelementptr inbounds %struct.t_atom, ptr %31, i64 %indvars.iv.i, i32 1
   %81 = load float, ptr %80, align 4
@@ -1969,11 +1969,11 @@ thread-pre-split:                                 ; preds = %230
   %252 = load i32, ptr %251, align 4
   %253 = getelementptr i8, ptr %233, i64 8
   %254 = load i32, ptr %253, align 4
-  br i1 %2, label %._ZL7getMassRK7t_atomsib.exit130_crit_edge, label %255
+  br i1 %2, label %._ZL7getMassRK7t_atomsib.argprom.exit130_crit_edge, label %255
 
-._ZL7getMassRK7t_atomsib.exit130_crit_edge:       ; preds = %250
+._ZL7getMassRK7t_atomsib.argprom.exit130_crit_edge: ; preds = %250
   %.pre344 = sext i32 %252 to i64
-  br label %_ZL7getMassRK7t_atomsib.exit130
+  br label %_ZL7getMassRK7t_atomsib.argprom.exit130
 
 255:                                              ; preds = %250
   %.val122 = load ptr, ptr %217, align 8
@@ -1983,12 +1983,12 @@ thread-pre-split:                                 ; preds = %230
   %259 = sext i32 %254 to i64
   %260 = getelementptr inbounds %struct.t_atom, ptr %.val122, i64 %259
   %261 = load float, ptr %260, align 4
-  br label %_ZL7getMassRK7t_atomsib.exit130
+  br label %_ZL7getMassRK7t_atomsib.argprom.exit130
 
-_ZL7getMassRK7t_atomsib.exit130:                  ; preds = %._ZL7getMassRK7t_atomsib.exit130_crit_edge, %255
-  %.pre-phi = phi i64 [ %.pre344, %._ZL7getMassRK7t_atomsib.exit130_crit_edge ], [ %256, %255 ]
-  %.0.i229 = phi float [ 1.000000e+00, %._ZL7getMassRK7t_atomsib.exit130_crit_edge ], [ %258, %255 ]
-  %.0.i129 = phi float [ 1.000000e+00, %._ZL7getMassRK7t_atomsib.exit130_crit_edge ], [ %261, %255 ]
+_ZL7getMassRK7t_atomsib.argprom.exit130:          ; preds = %._ZL7getMassRK7t_atomsib.argprom.exit130_crit_edge, %255
+  %.pre-phi = phi i64 [ %.pre344, %._ZL7getMassRK7t_atomsib.argprom.exit130_crit_edge ], [ %256, %255 ]
+  %.0.i229 = phi float [ 1.000000e+00, %._ZL7getMassRK7t_atomsib.argprom.exit130_crit_edge ], [ %258, %255 ]
+  %.0.i129 = phi float [ 1.000000e+00, %._ZL7getMassRK7t_atomsib.argprom.exit130_crit_edge ], [ %261, %255 ]
   %262 = getelementptr inbounds %class.AtomNonbondedAndKineticProperties, ptr %.sroa.0204.1, i64 %.pre-phi
   %263 = fdiv float 1.000000e+00, %.0.i129
   %264 = getelementptr inbounds i8, ptr %262, i64 16
@@ -2000,7 +2000,7 @@ _ZL7getMassRK7t_atomsib.exit130:                  ; preds = %._ZL7getMassRK7t_at
   %270 = fcmp olt float %263, %269
   br i1 %270, label %271, label %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit
 
-271:                                              ; preds = %_ZL7getMassRK7t_atomsib.exit130
+271:                                              ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit130
   %272 = fdiv float %263, %265
   %273 = fadd float %272, 5.000000e-01
   %274 = fptosi float %273 to i16
@@ -2019,7 +2019,7 @@ _ZL7getMassRK7t_atomsib.exit130:                  ; preds = %._ZL7getMassRK7t_at
   store i16 1, ptr %266, align 2
   br label %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit
 
-_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit: ; preds = %_ZL7getMassRK7t_atomsib.exit130, %271, %282
+_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit: ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit130, %271, %282
   %283 = sext i32 %254 to i64
   %284 = getelementptr inbounds %class.AtomNonbondedAndKineticProperties, ptr %.sroa.0204.1, i64 %283
   %285 = fdiv float 1.000000e+00, %.0.i229
@@ -2105,16 +2105,16 @@ _ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit131: ; preds = %305
   %341 = load i32, ptr %340, align 4
   %342 = sext i32 %337 to i64
   %343 = getelementptr inbounds %class.AtomNonbondedAndKineticProperties, ptr %.sroa.0204.1, i64 %342
-  br i1 %2, label %_ZL7getMassRK7t_atomsib.exit133, label %344
+  br i1 %2, label %_ZL7getMassRK7t_atomsib.argprom.exit133, label %344
 
 344:                                              ; preds = %329
   %.val125 = load ptr, ptr %217, align 8
   %345 = sext i32 %339 to i64
   %346 = getelementptr inbounds %struct.t_atom, ptr %.val125, i64 %345
   %347 = load float, ptr %346, align 4
-  br label %_ZL7getMassRK7t_atomsib.exit133
+  br label %_ZL7getMassRK7t_atomsib.argprom.exit133
 
-_ZL7getMassRK7t_atomsib.exit133:                  ; preds = %329, %344
+_ZL7getMassRK7t_atomsib.argprom.exit133:          ; preds = %329, %344
   %.0.i132 = phi float [ %347, %344 ], [ 1.000000e+00, %329 ]
   %348 = fdiv float 1.000000e+00, %.0.i132
   %349 = getelementptr inbounds i8, ptr %343, i64 16
@@ -2126,7 +2126,7 @@ _ZL7getMassRK7t_atomsib.exit133:                  ; preds = %329, %344
   %355 = fcmp olt float %348, %354
   br i1 %355, label %356, label %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit134
 
-356:                                              ; preds = %_ZL7getMassRK7t_atomsib.exit133
+356:                                              ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit133
   %357 = load float, ptr %335, align 4
   %358 = fdiv float %348, %350
   %359 = fadd float %358, 5.000000e-01
@@ -2146,18 +2146,18 @@ _ZL7getMassRK7t_atomsib.exit133:                  ; preds = %329, %344
   store i16 1, ptr %351, align 2
   br label %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit134
 
-_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit134: ; preds = %_ZL7getMassRK7t_atomsib.exit133, %356, %368
+_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit134: ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit133, %356, %368
   %369 = sext i32 %339 to i64
   %370 = getelementptr inbounds %class.AtomNonbondedAndKineticProperties, ptr %.sroa.0204.1, i64 %369
-  br i1 %2, label %_ZL7getMassRK7t_atomsib.exit136, label %371
+  br i1 %2, label %_ZL7getMassRK7t_atomsib.argprom.exit136, label %371
 
 371:                                              ; preds = %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit134
   %.val124 = load ptr, ptr %217, align 8
   %372 = getelementptr inbounds %struct.t_atom, ptr %.val124, i64 %342
   %373 = load float, ptr %372, align 4
-  br label %_ZL7getMassRK7t_atomsib.exit136
+  br label %_ZL7getMassRK7t_atomsib.argprom.exit136
 
-_ZL7getMassRK7t_atomsib.exit136:                  ; preds = %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit134, %371
+_ZL7getMassRK7t_atomsib.argprom.exit136:          ; preds = %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit134, %371
   %.0.i135 = phi float [ %373, %371 ], [ 1.000000e+00, %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit134 ]
   %374 = fdiv float 1.000000e+00, %.0.i135
   %375 = getelementptr inbounds i8, ptr %370, i64 16
@@ -2169,7 +2169,7 @@ _ZL7getMassRK7t_atomsib.exit136:                  ; preds = %_ZN33AtomNonbondedA
   %381 = fcmp olt float %374, %380
   br i1 %381, label %382, label %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit137
 
-382:                                              ; preds = %_ZL7getMassRK7t_atomsib.exit136
+382:                                              ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit136
   %383 = load float, ptr %335, align 4
   %384 = fdiv float %374, %376
   %385 = fadd float %384, 5.000000e-01
@@ -2189,18 +2189,18 @@ _ZL7getMassRK7t_atomsib.exit136:                  ; preds = %_ZN33AtomNonbondedA
   store i16 1, ptr %377, align 2
   br label %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit137
 
-_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit137: ; preds = %_ZL7getMassRK7t_atomsib.exit136, %382, %394
+_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit137: ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit136, %382, %394
   %395 = sext i32 %341 to i64
   %396 = getelementptr inbounds %class.AtomNonbondedAndKineticProperties, ptr %.sroa.0204.1, i64 %395
-  br i1 %2, label %_ZL7getMassRK7t_atomsib.exit139, label %397
+  br i1 %2, label %_ZL7getMassRK7t_atomsib.argprom.exit139, label %397
 
 397:                                              ; preds = %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit137
   %.val123 = load ptr, ptr %217, align 8
   %398 = getelementptr inbounds %struct.t_atom, ptr %.val123, i64 %342
   %399 = load float, ptr %398, align 4
-  br label %_ZL7getMassRK7t_atomsib.exit139
+  br label %_ZL7getMassRK7t_atomsib.argprom.exit139
 
-_ZL7getMassRK7t_atomsib.exit139:                  ; preds = %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit137, %397
+_ZL7getMassRK7t_atomsib.argprom.exit139:          ; preds = %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit137, %397
   %.0.i138 = phi float [ %399, %397 ], [ 1.000000e+00, %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit137 ]
   %400 = fdiv float 1.000000e+00, %.0.i138
   %401 = getelementptr inbounds i8, ptr %396, i64 16
@@ -2212,7 +2212,7 @@ _ZL7getMassRK7t_atomsib.exit139:                  ; preds = %_ZN33AtomNonbondedA
   %407 = fcmp olt float %400, %406
   br i1 %407, label %408, label %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit140
 
-408:                                              ; preds = %_ZL7getMassRK7t_atomsib.exit139
+408:                                              ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit139
   %409 = load float, ptr %335, align 4
   %410 = fdiv float %400, %402
   %411 = fadd float %410, 5.000000e-01
@@ -2232,7 +2232,7 @@ _ZL7getMassRK7t_atomsib.exit139:                  ; preds = %_ZN33AtomNonbondedA
   store i16 1, ptr %403, align 2
   br label %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit140
 
-_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit140: ; preds = %_ZL7getMassRK7t_atomsib.exit139, %408, %420
+_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit140: ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit139, %408, %420
   %.reass = add i32 %.0117282, %invariant.op
   %421 = load ptr, ptr %319, align 8
   %422 = load ptr, ptr %318, align 8
@@ -2370,22 +2370,22 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i:          ; preds = %467
 
 .lr.ph.i147:                                      ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i
   %.val.i = load ptr, ptr %217, align 8
-  br i1 %2, label %_ZL7getMassRK7t_atomsib.exit.thread.us.i, label %_ZL7getMassRK7t_atomsib.exit.preheader.i
+  br i1 %2, label %_ZL7getMassRK7t_atomsib.argprom.exit.thread.us.i, label %_ZL7getMassRK7t_atomsib.argprom.exit.preheader.i
 
-_ZL7getMassRK7t_atomsib.exit.preheader.i:         ; preds = %.lr.ph.i147
+_ZL7getMassRK7t_atomsib.argprom.exit.preheader.i: ; preds = %.lr.ph.i147
   %.pre198.i = load ptr, ptr %441, align 8
-  br label %_ZL7getMassRK7t_atomsib.exit.i148
+  br label %_ZL7getMassRK7t_atomsib.argprom.exit.i148
 
-_ZL7getMassRK7t_atomsib.exit.thread.us.i:         ; preds = %.lr.ph.i147, %_ZL7getMassRK7t_atomsib.exit.thread.us.i
-  %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %_ZL7getMassRK7t_atomsib.exit.thread.us.i ], [ 1, %.lr.ph.i147 ]
+_ZL7getMassRK7t_atomsib.argprom.exit.thread.us.i: ; preds = %.lr.ph.i147, %_ZL7getMassRK7t_atomsib.argprom.exit.thread.us.i
+  %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %_ZL7getMassRK7t_atomsib.argprom.exit.thread.us.i ], [ 1, %.lr.ph.i147 ]
   %470 = getelementptr inbounds float, ptr %469, i64 %indvars.iv185.i
   store float 1.000000e+00, ptr %470, align 4
   %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 1
   %exitcond189.not.i = icmp eq i64 %indvars.iv.next186.i, %464
-  br i1 %exitcond189.not.i, label %._crit_edge.i152, label %_ZL7getMassRK7t_atomsib.exit.thread.us.i, !llvm.loop !18
+  br i1 %exitcond189.not.i, label %._crit_edge.i152, label %_ZL7getMassRK7t_atomsib.argprom.exit.thread.us.i, !llvm.loop !18
 
-_ZL7getMassRK7t_atomsib.exit.i148:                ; preds = %486, %_ZL7getMassRK7t_atomsib.exit.preheader.i
-  %indvars.iv.i149 = phi i64 [ 1, %_ZL7getMassRK7t_atomsib.exit.preheader.i ], [ %indvars.iv.next.i150, %486 ]
+_ZL7getMassRK7t_atomsib.argprom.exit.i148:        ; preds = %486, %_ZL7getMassRK7t_atomsib.argprom.exit.preheader.i
+  %indvars.iv.i149 = phi i64 [ 1, %_ZL7getMassRK7t_atomsib.argprom.exit.preheader.i ], [ %indvars.iv.next.i150, %486 ]
   %471 = load ptr, ptr %.pre198.i, align 8
   %472 = getelementptr i32, ptr %471, i64 %457
   %473 = getelementptr i32, ptr %472, i64 %indvars.iv.i149
@@ -2398,7 +2398,7 @@ _ZL7getMassRK7t_atomsib.exit.i148:                ; preds = %486, %_ZL7getMassRK
   %479 = fcmp oeq float %477, 0.000000e+00
   br i1 %479, label %480, label %486
 
-480:                                              ; preds = %_ZL7getMassRK7t_atomsib.exit.i148
+480:                                              ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit.i148
   %481 = getelementptr inbounds float, ptr %.sroa.0191.1, i64 %475
   %482 = load float, ptr %481, align 4
   store float %482, ptr %478, align 4
@@ -2424,13 +2424,13 @@ _ZL7getMassRK7t_atomsib.exit.i148:                ; preds = %486, %_ZL7getMassRK
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3203.i) #28
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
-486:                                              ; preds = %480, %_ZL7getMassRK7t_atomsib.exit.i148
+486:                                              ; preds = %480, %_ZL7getMassRK7t_atomsib.argprom.exit.i148
   %indvars.iv.next.i150 = add nuw nsw i64 %indvars.iv.i149, 1
   %exitcond.not.i151 = icmp eq i64 %indvars.iv.next.i150, %464
-  br i1 %exitcond.not.i151, label %._crit_edge.i152, label %_ZL7getMassRK7t_atomsib.exit.i148, !llvm.loop !18
+  br i1 %exitcond.not.i151, label %._crit_edge.i152, label %_ZL7getMassRK7t_atomsib.argprom.exit.i148, !llvm.loop !18
 
-._crit_edge.i152:                                 ; preds = %486, %_ZL7getMassRK7t_atomsib.exit.thread.us.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.0.3203.i = phi ptr [ %469, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %469, %_ZL7getMassRK7t_atomsib.exit.thread.us.i ], [ %469, %486 ]
+._crit_edge.i152:                                 ; preds = %486, %_ZL7getMassRK7t_atomsib.argprom.exit.thread.us.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %.sroa.0.3203.i = phi ptr [ %469, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %469, %_ZL7getMassRK7t_atomsib.argprom.exit.thread.us.i ], [ %469, %486 ]
   switch i32 %450, label %528 [
     i32 66, label %487
     i32 68, label %502
@@ -2729,7 +2729,7 @@ _ZL16get_vsite_massesRK13gmx_moltype_tRK14gmx_ffparams_tbN3gmx8ArrayRefIfEE.exit
 
 634:                                              ; preds = %.lr.ph289
   %635 = getelementptr inbounds float, ptr %.sroa.0191.1, i64 %indvars.iv335
-  br label %_ZL7getMassRK7t_atomsib.exit159
+  br label %_ZL7getMassRK7t_atomsib.argprom.exit159
 
 .loopexit246:                                     ; preds = %433
   %lpad.loopexit248 = landingpad { ptr, i32 }
@@ -2741,7 +2741,7 @@ _ZL16get_vsite_massesRK13gmx_moltype_tRK14gmx_ffparams_tbN3gmx8ArrayRefIfEE.exit
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-.loopexit236:                                     ; preds = %_ZL7getMassRK7t_atomsib.exit159.thread
+.loopexit236:                                     ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit159.thread
   %lpad.loopexit238 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2761,20 +2761,20 @@ _ZL16get_vsite_massesRK13gmx_moltype_tRK14gmx_ffparams_tbN3gmx8ArrayRefIfEE.exit
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 637:                                              ; preds = %.lr.ph289
-  br i1 %2, label %_ZL7getMassRK7t_atomsib.exit159.thread, label %638
+  br i1 %2, label %_ZL7getMassRK7t_atomsib.argprom.exit159.thread, label %638
 
 638:                                              ; preds = %637
   %639 = getelementptr inbounds %struct.t_atom, ptr %630, i64 %indvars.iv335
-  br label %_ZL7getMassRK7t_atomsib.exit159
+  br label %_ZL7getMassRK7t_atomsib.argprom.exit159
 
-_ZL7getMassRK7t_atomsib.exit159:                  ; preds = %638, %634
+_ZL7getMassRK7t_atomsib.argprom.exit159:          ; preds = %638, %634
   %.0114.in = phi ptr [ %635, %634 ], [ %639, %638 ]
   %.0114 = load float, ptr %.0114.in, align 4
   %640 = fcmp une float %.0114, 0.000000e+00
-  br i1 %640, label %_ZL7getMassRK7t_atomsib.exit159.thread, label %668
+  br i1 %640, label %_ZL7getMassRK7t_atomsib.argprom.exit159.thread, label %668
 
-_ZL7getMassRK7t_atomsib.exit159.thread:           ; preds = %637, %_ZL7getMassRK7t_atomsib.exit159
-  %.0114231 = phi float [ %.0114, %_ZL7getMassRK7t_atomsib.exit159 ], [ 1.000000e+00, %637 ]
+_ZL7getMassRK7t_atomsib.argprom.exit159.thread:   ; preds = %637, %_ZL7getMassRK7t_atomsib.argprom.exit159
+  %.0114231 = phi float [ %.0114, %_ZL7getMassRK7t_atomsib.argprom.exit159 ], [ 1.000000e+00, %637 ]
   %641 = getelementptr inbounds %class.AtomNonbondedAndKineticProperties, ptr %.sroa.0204.1, i64 %indvars.iv335
   %642 = getelementptr inbounds %struct.t_atom, ptr %630, i64 %indvars.iv335
   %643 = getelementptr inbounds i8, ptr %642, i64 16
@@ -2804,7 +2804,7 @@ _ZL7getMassRK7t_atomsib.exit159.thread:           ; preds = %637, %_ZL7getMassRK
   %662 = invoke { ptr, i8 } @_ZNSt10_HashtableI33AtomNonbondedAndKineticPropertiesSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS3_EEES1_INS5_14_Node_iteratorIS3_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(32) %10)
           to label %663 unwind label %.loopexit236
 
-663:                                              ; preds = %_ZL7getMassRK7t_atomsib.exit159.thread
+663:                                              ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit159.thread
   %664 = extractvalue { ptr, i8 } %662, 0
   %665 = getelementptr inbounds i8, ptr %664, i64 36
   %666 = load i32, ptr %665, align 4
@@ -2813,8 +2813,8 @@ _ZL7getMassRK7t_atomsib.exit159.thread:           ; preds = %637, %_ZL7getMassRK
   %.pre340 = load i32, ptr %206, align 8
   br label %668
 
-668:                                              ; preds = %_ZL7getMassRK7t_atomsib.exit159, %663
-  %669 = phi i32 [ %629, %_ZL7getMassRK7t_atomsib.exit159 ], [ %.pre340, %663 ]
+668:                                              ; preds = %_ZL7getMassRK7t_atomsib.argprom.exit159, %663
+  %669 = phi i32 [ %629, %_ZL7getMassRK7t_atomsib.argprom.exit159 ], [ %.pre340, %663 ]
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %670 = sext i32 %669 to i64
   %671 = icmp slt i64 %indvars.iv.next336, %670

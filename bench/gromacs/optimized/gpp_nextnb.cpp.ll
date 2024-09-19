@@ -256,7 +256,7 @@ _ZL11IS_CHEMBONDi.exit16:                         ; preds = %27
   %.val15 = load ptr, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %.not6.i = icmp eq ptr %.val, %.val15
-  br i1 %.not6.i, label %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit, label %.lr.ph.i.preheader
+  br i1 %.not6.i, label %_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %35
   %38 = sext i32 %.02639 to i64
@@ -303,19 +303,19 @@ _ZL11IS_CHEMBONDi.exit16:                         ; preds = %27
   %55 = add nuw nsw i32 %.08.i, 1
   %56 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 104
   %.not.i = icmp eq ptr %56, %.val15
-  br i1 %.not.i, label %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit.loopexit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit.loopexit, label %.lr.ph.i
 
-_ZL5add_bP18InteractionsOfTypePiP8sortable.exit.loopexit: ; preds = %49
+_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit.loopexit: ; preds = %49
   %57 = trunc nsw i64 %indvars.iv.next51 to i32
-  br label %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit
+  br label %_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit
 
-_ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit.loopexit, %35
-  %.3 = phi i32 [ %.02639, %35 ], [ %57, %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit.loopexit ]
+_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit: ; preds = %_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit.loopexit, %35
+  %.3 = phi i32 [ %.02639, %35 ], [ %57, %_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %_ZL11IS_CHEMBONDi.exit16.thread
 
-_ZL11IS_CHEMBONDi.exit16.thread:                  ; preds = %27, %_ZL11IS_CHEMBONDi.exit16, %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit
-  %.127 = phi i32 [ %.3, %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit ], [ %.02639, %_ZL11IS_CHEMBONDi.exit16 ], [ %.02639, %27 ]
+_ZL11IS_CHEMBONDi.exit16.thread:                  ; preds = %27, %_ZL11IS_CHEMBONDi.exit16, %_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit
+  %.127 = phi i32 [ %.3, %_ZL5add_bP18InteractionsOfTypePiP8sortable.argprom.exit ], [ %.02639, %_ZL11IS_CHEMBONDi.exit16 ], [ %.02639, %27 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 94
   br i1 %exitcond56.not, label %58, label %27, !llvm.loop !10

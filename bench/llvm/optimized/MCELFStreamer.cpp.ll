@@ -353,7 +353,7 @@ define dso_local void @_ZN4llvm13MCELFStreamer13changeSectionEPNS_9MCSectionEj(p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit, label %8
+  br i1 %.not, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -371,14 +371,14 @@ define dso_local void @_ZN4llvm13MCELFStreamer13changeSectionEPNS_9MCSectionEj(p
   %15 = getelementptr i8, ptr %5, i64 368
   %.val = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit, label %16
+  br i1 %.not.i, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 2
   %.not1.i = icmp eq i8 %19, 0
-  br i1 %.not1.i, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit, label %20
+  br i1 %.not1.i, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit, label %20
 
 20:                                               ; preds = %16
   %21 = zext i32 %.val to i64
@@ -388,25 +388,25 @@ define dso_local void @_ZN4llvm13MCELFStreamer13changeSectionEPNS_9MCSectionEj(p
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.sroa.01.0.copyload.i.i = load i8, ptr %25, align 8
   %26 = icmp ult i8 %.sroa.01.0.copyload.i.i, %24
-  br i1 %26, label %27, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit
+  br i1 %26, label %27, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit
 
 27:                                               ; preds = %20
   store i8 %24, ptr %25, align 8
-  br label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit
+  br label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit
 
-_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit: ; preds = %27, %20, %16, %14, %3
+_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit: ; preds = %27, %20, %16, %14, %3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %.0.copyload.i.i.i.i = load i64, ptr %28, align 8
   %29 = and i64 %.0.copyload.i.i.i.i, -8
   %.not14 = icmp eq i64 %29, 0
   br i1 %.not14, label %33, label %30
 
-30:                                               ; preds = %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit
+30:                                               ; preds = %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit
   %31 = inttoptr i64 %29 to ptr
   %32 = tail call noundef zeroext i1 @_ZN4llvm11MCAssembler14registerSymbolERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(372) %5, ptr noundef nonnull align 8 dereferenceable(32) %31) #15
   br label %33
 
-33:                                               ; preds = %30, %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit
+33:                                               ; preds = %30, %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 2097152
@@ -2138,7 +2138,7 @@ define dso_local void @_ZN4llvm13MCELFStreamer10finishImplEv(ptr noundef nonnull
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit, label %12
+  br i1 %.not, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -2148,14 +2148,14 @@ define dso_local void @_ZN4llvm13MCELFStreamer10finishImplEv(ptr noundef nonnull
   %17 = getelementptr i8, ptr %14, i64 368
   %.val = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit, label %18
+  br i1 %.not.i, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit, label %18
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 2
   %.not1.i = icmp eq i8 %21, 0
-  br i1 %.not1.i, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit, label %22
+  br i1 %.not1.i, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit, label %22
 
 22:                                               ; preds = %18
   %23 = zext i32 %.val to i64
@@ -2165,13 +2165,13 @@ define dso_local void @_ZN4llvm13MCELFStreamer10finishImplEv(ptr noundef nonnull
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.sroa.01.0.copyload.i.i = load i8, ptr %27, align 8
   %28 = icmp ult i8 %.sroa.01.0.copyload.i.i, %26
-  br i1 %28, label %29, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit
+  br i1 %28, label %29, label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit
 
 29:                                               ; preds = %22
   store i8 %26, ptr %27, align 8
-  br label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit
+  br label %_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit
 
-_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.exit: ; preds = %29, %22, %18, %12, %9
+_ZL30setSectionAlignmentForBundlingRKN4llvm11MCAssemblerEPNS_9MCSectionE.argprom.exit: ; preds = %29, %22, %18, %12, %9
   call void @_ZN4llvm13MCELFStreamer17finalizeCGProfileEv(ptr noundef nonnull align 8 dereferenceable(6601) %0)
   call void @_ZN4llvm16MCObjectStreamer10emitFramesEPNS_12MCAsmBackendE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef null) #15
   call void @_ZN4llvm16MCObjectStreamer10finishImplEv(ptr noundef nonnull align 8 dereferenceable(424) %0) #15

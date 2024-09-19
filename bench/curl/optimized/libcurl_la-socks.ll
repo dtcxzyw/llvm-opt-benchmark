@@ -143,9 +143,9 @@ if.end16:                                         ; preds = %if.end14, %if.end8
   %sx.0 = phi ptr [ %2, %if.end8 ], [ %call11, %if.end14 ]
   %8 = load i32, ptr %sx.0, align 8
   %cmp = icmp eq i32 %8, 0
-  br i1 %cmp, label %socksstate.exit, label %if.end62
+  br i1 %cmp, label %socksstate.argprom.exit, label %if.end62
 
-socksstate.exit:                                  ; preds = %if.end16
+socksstate.argprom.exit:                          ; preds = %if.end16
   store i32 1, ptr %sx.0, align 8
   %bits = getelementptr inbounds i8, ptr %0, i64 704
   %bf.load18 = load i32, ptr %bits, align 8
@@ -153,7 +153,7 @@ socksstate.exit:                                  ; preds = %if.end16
   %tobool20.not = icmp eq i32 %bf.clear19, 0
   br i1 %tobool20.not, label %cond.false, label %cond.end35
 
-cond.false:                                       ; preds = %socksstate.exit
+cond.false:                                       ; preds = %socksstate.argprom.exit
   %9 = and i32 %bf.load18, 512
   %tobool24.not = icmp eq i32 %9, 0
   br i1 %tobool24.not, label %cond.false27, label %cond.end35
@@ -162,8 +162,8 @@ cond.false27:                                     ; preds = %cond.false
   %cmp28 = icmp eq i32 %1, 1
   br i1 %cmp28, label %cond.end35.thread, label %cond.end35
 
-cond.end35:                                       ; preds = %cond.false27, %cond.false, %socksstate.exit
-  %.sink = phi i64 [ 216, %socksstate.exit ], [ 128, %cond.false ], [ 80, %cond.false27 ]
+cond.end35:                                       ; preds = %cond.false27, %cond.false, %socksstate.argprom.exit
+  %.sink = phi i64 [ 216, %socksstate.argprom.exit ], [ 128, %cond.false ], [ 80, %cond.false27 ]
   %name26 = getelementptr inbounds i8, ptr %0, i64 %.sink
   %cond36 = load ptr, ptr %name26, align 8
   %hostname = getelementptr inbounds i8, ptr %sx.0, i64 24
@@ -410,12 +410,12 @@ if.then.i.i.i:                                    ; preds = %if.end60.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit.i.i
+  br label %socks_state_send.argprom.exit.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.then.i.i.i
   %call6.i.i.i = call ptr @curl_easy_strerror(i32 noundef %28) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.5, ptr noundef %call6.i.i.i) #7
-  br label %socks_state_send.exit.i.i
+  br label %socks_state_send.argprom.exit.i.i
 
 do.end.i.i.i:                                     ; preds = %if.end60.i.i
   %29 = load i64, ptr %outstanding.i.i, align 8
@@ -426,7 +426,7 @@ do.end.i.i.i:                                     ; preds = %if.end60.i.i
   store ptr %add.ptr.i.i.i, ptr %outp.i.i, align 8
   br label %if.else.i.i
 
-socks_state_send.exit.i.i:                        ; preds = %if.end5.i.i.i, %if.then4.i.i.i
+socks_state_send.argprom.exit.i.i:                ; preds = %if.end5.i.i.i, %if.then4.i.i.i
   %retval.0.i.i.i = phi i32 [ 3, %if.then4.i.i.i ], [ 29, %if.end5.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i.i.i)
   br label %do_SOCKS5.exit.i
@@ -470,12 +470,12 @@ if.then.i309.i.i:                                 ; preds = %sw.bb73.i.i
 
 if.then4.i310.i.i:                                ; preds = %if.then.i309.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit313.i.i
+  br label %socks_state_send.argprom.exit313.i.i
 
 if.end5.i311.i.i:                                 ; preds = %if.then.i309.i.i
   %call6.i312.i.i = call ptr @curl_easy_strerror(i32 noundef %35) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.5, ptr noundef %call6.i312.i.i) #7
-  br label %socks_state_send.exit313.i.i
+  br label %socks_state_send.argprom.exit313.i.i
 
 do.end.i305.i.i:                                  ; preds = %sw.bb73.i.i
   %36 = load i64, ptr %outstanding.i302.i.i, align 8
@@ -486,7 +486,7 @@ do.end.i305.i.i:                                  ; preds = %sw.bb73.i.i
   store ptr %add.ptr.i307.i.i, ptr %outp.i301.i.i, align 8
   br label %if.else78.i.i
 
-socks_state_send.exit313.i.i:                     ; preds = %if.end5.i311.i.i, %if.then4.i310.i.i
+socks_state_send.argprom.exit313.i.i:             ; preds = %if.end5.i311.i.i, %if.then4.i310.i.i
   %retval.0.i308.i.i = phi i32 [ 3, %if.then4.i310.i.i ], [ 29, %if.end5.i311.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i300.i.i)
   br label %do_SOCKS5.exit.i
@@ -527,12 +527,12 @@ if.then.i323.i.i:                                 ; preds = %sw.bb87.i.i
 
 if.then4.i324.i.i:                                ; preds = %if.then.i323.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit.i.i
+  br label %socks_state_recv.argprom.exit.i.i
 
 if.end5.i325.i.i:                                 ; preds = %if.then.i323.i.i
   %call6.i326.i.i = call ptr @curl_easy_strerror(i32 noundef %41) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.6, ptr noundef %call6.i326.i.i) #7
-  br label %socks_state_recv.exit.i.i
+  br label %socks_state_recv.argprom.exit.i.i
 
 do.end.i319.i.i:                                  ; preds = %sw.bb87.i.i
   %outp.i315.i.i = getelementptr inbounds i8, ptr %sx.0, i64 16
@@ -544,7 +544,7 @@ do.end.i319.i.i:                                  ; preds = %sw.bb87.i.i
   store ptr %add.ptr.i321.i.i, ptr %outp.i315.i.i, align 8
   br label %if.else92.i.i
 
-socks_state_recv.exit.i.i:                        ; preds = %if.end5.i325.i.i, %if.then4.i324.i.i
+socks_state_recv.argprom.exit.i.i:                ; preds = %if.end5.i325.i.i, %if.then4.i324.i.i
   %retval.0.i322.i.i = phi i32 [ 3, %if.then4.i324.i.i ], [ 15, %if.end5.i325.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i314.i.i)
   br label %do_SOCKS5.exit.i
@@ -681,22 +681,22 @@ if.end177.i.i:                                    ; preds = %if.end174.i.i, %if.
   %add178.i.i = add i64 %proxy_password_len.0448459.i.i, %inc164460.i.i
   %54 = load i32, ptr %sx.0, align 8
   %cmp.i333.i.i = icmp eq i32 %54, 7
-  br i1 %cmp.i333.i.i, label %socksstate.exit335.i.i, label %if.end.i334.i.i
+  br i1 %cmp.i333.i.i, label %socksstate.argprom.exit335.i.i, label %if.end.i334.i.i
 
 if.end.i334.i.i:                                  ; preds = %if.end177.i.i
   store i32 7, ptr %sx.0, align 8
-  br label %socksstate.exit335.i.i
+  br label %socksstate.argprom.exit335.i.i
 
-socksstate.exit335.i.i:                           ; preds = %if.end.i334.i.i, %if.end177.i.i
+socksstate.argprom.exit335.i.i:                   ; preds = %if.end.i334.i.i, %if.end177.i.i
   %outstanding179.i.i = getelementptr inbounds i8, ptr %sx.0, i64 8
   store i64 %add178.i.i, ptr %outstanding179.i.i, align 8
   %outp180.i.i = getelementptr inbounds i8, ptr %sx.0, i64 16
   store ptr %19, ptr %outp180.i.i, align 8
   br label %sw.bb181.i.i
 
-sw.bb181.i.i:                                     ; preds = %socksstate.exit335.i.i, %entry.sw.bb181_crit_edge.i.i
-  %55 = phi i64 [ %.pre510.i.i, %entry.sw.bb181_crit_edge.i.i ], [ %add178.i.i, %socksstate.exit335.i.i ]
-  %56 = phi ptr [ %.pre509.i.i, %entry.sw.bb181_crit_edge.i.i ], [ %19, %socksstate.exit335.i.i ]
+sw.bb181.i.i:                                     ; preds = %socksstate.argprom.exit335.i.i, %entry.sw.bb181_crit_edge.i.i
+  %55 = phi i64 [ %.pre510.i.i, %entry.sw.bb181_crit_edge.i.i ], [ %add178.i.i, %socksstate.argprom.exit335.i.i ]
+  %56 = phi ptr [ %.pre509.i.i, %entry.sw.bb181_crit_edge.i.i ], [ %19, %socksstate.argprom.exit335.i.i ]
   %cf.val293.i.i = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i336.i.i)
   %outp.i337.i.i = getelementptr inbounds i8, ptr %sx.0, i64 16
@@ -714,12 +714,12 @@ if.then.i345.i.i:                                 ; preds = %sw.bb181.i.i
 
 if.then4.i346.i.i:                                ; preds = %if.then.i345.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit349.i.i
+  br label %socks_state_send.argprom.exit349.i.i
 
 if.end5.i347.i.i:                                 ; preds = %if.then.i345.i.i
   %call6.i348.i.i = call ptr @curl_easy_strerror(i32 noundef %57) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.13, ptr noundef %call6.i348.i.i) #7
-  br label %socks_state_send.exit349.i.i
+  br label %socks_state_send.argprom.exit349.i.i
 
 do.end.i341.i.i:                                  ; preds = %sw.bb181.i.i
   %58 = load i64, ptr %outstanding.i338.i.i, align 8
@@ -730,7 +730,7 @@ do.end.i341.i.i:                                  ; preds = %sw.bb181.i.i
   store ptr %add.ptr.i343.i.i, ptr %outp.i337.i.i, align 8
   br label %if.else186.i.i
 
-socks_state_send.exit349.i.i:                     ; preds = %if.end5.i347.i.i, %if.then4.i346.i.i
+socks_state_send.argprom.exit349.i.i:             ; preds = %if.end5.i347.i.i, %if.then4.i346.i.i
   %retval.0.i344.i.i = phi i32 [ 3, %if.then4.i346.i.i ], [ 28, %if.end5.i347.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i336.i.i)
   br label %do_SOCKS5.exit.i
@@ -775,12 +775,12 @@ if.then.i362.i.i:                                 ; preds = %sw.bb194.i.i
 
 if.then4.i363.i.i:                                ; preds = %if.then.i362.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit366.i.i
+  br label %socks_state_recv.argprom.exit366.i.i
 
 if.end5.i364.i.i:                                 ; preds = %if.then.i362.i.i
   %call6.i365.i.i = call ptr @curl_easy_strerror(i32 noundef %64) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.14, ptr noundef %call6.i365.i.i) #7
-  br label %socks_state_recv.exit366.i.i
+  br label %socks_state_recv.argprom.exit366.i.i
 
 do.end.i358.i.i:                                  ; preds = %sw.bb194.i.i
   %outp.i354.i.i = getelementptr inbounds i8, ptr %sx.0, i64 16
@@ -792,7 +792,7 @@ do.end.i358.i.i:                                  ; preds = %sw.bb194.i.i
   store ptr %add.ptr.i360.i.i, ptr %outp.i354.i.i, align 8
   br label %if.else199.i.i
 
-socks_state_recv.exit366.i.i:                     ; preds = %if.end5.i364.i.i, %if.then4.i363.i.i
+socks_state_recv.argprom.exit366.i.i:             ; preds = %if.end5.i364.i.i, %if.then4.i363.i.i
   %retval.0.i361.i.i = phi i32 [ 3, %if.then4.i363.i.i ], [ 14, %if.end5.i364.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i353.i.i)
   br label %do_SOCKS5.exit.i
@@ -1161,12 +1161,12 @@ if.then.i388.i.i:                                 ; preds = %sw.bb441.i.i
 
 if.then4.i389.i.i:                                ; preds = %if.then.i388.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit392.i.i
+  br label %socks_state_send.argprom.exit392.i.i
 
 if.end5.i390.i.i:                                 ; preds = %if.then.i388.i.i
   %call6.i391.i.i = call ptr @curl_easy_strerror(i32 noundef %107) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.22, ptr noundef %call6.i391.i.i) #7
-  br label %socks_state_send.exit392.i.i
+  br label %socks_state_send.argprom.exit392.i.i
 
 do.end.i384.i.i:                                  ; preds = %sw.bb441.i.i
   %108 = load i64, ptr %outstanding.i381.i.i, align 8
@@ -1177,7 +1177,7 @@ do.end.i384.i.i:                                  ; preds = %sw.bb441.i.i
   store ptr %add.ptr.i386.i.i, ptr %outp.i380.i.i, align 8
   br label %if.else446.i.i
 
-socks_state_send.exit392.i.i:                     ; preds = %if.end5.i390.i.i, %if.then4.i389.i.i
+socks_state_send.argprom.exit392.i.i:             ; preds = %if.end5.i390.i.i, %if.then4.i389.i.i
   %retval.0.i387.i.i = phi i32 [ 3, %if.then4.i389.i.i ], [ 30, %if.end5.i390.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i379.i.i)
   br label %do_SOCKS5.exit.i
@@ -1223,12 +1223,12 @@ if.then.i405.i.i:                                 ; preds = %sw.bb454.i.i
 
 if.then4.i406.i.i:                                ; preds = %if.then.i405.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit409.i.i
+  br label %socks_state_recv.argprom.exit409.i.i
 
 if.end5.i407.i.i:                                 ; preds = %if.then.i405.i.i
   %call6.i408.i.i = call ptr @curl_easy_strerror(i32 noundef %114) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.23, ptr noundef %call6.i408.i.i) #7
-  br label %socks_state_recv.exit409.i.i
+  br label %socks_state_recv.argprom.exit409.i.i
 
 do.end.i401.i.i:                                  ; preds = %sw.bb454.i.i
   %115 = load i64, ptr %outstanding.i398.i.i, align 8
@@ -1239,7 +1239,7 @@ do.end.i401.i.i:                                  ; preds = %sw.bb454.i.i
   store ptr %add.ptr.i403.i.i, ptr %outp.i397.i.i, align 8
   br label %if.else459.i.i
 
-socks_state_recv.exit409.i.i:                     ; preds = %if.end5.i407.i.i, %if.then4.i406.i.i
+socks_state_recv.argprom.exit409.i.i:             ; preds = %if.end5.i407.i.i, %if.then4.i406.i.i
   %retval.0.i404.i.i = phi i32 [ 3, %if.then4.i406.i.i ], [ 16, %if.end5.i407.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i396.i.i)
   br label %do_SOCKS5.exit.i
@@ -1341,12 +1341,12 @@ if.then.i425.i.i:                                 ; preds = %sw.bb524.i.i
 
 if.then4.i426.i.i:                                ; preds = %if.then.i425.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit429.i.i
+  br label %socks_state_recv.argprom.exit429.i.i
 
 if.end5.i427.i.i:                                 ; preds = %if.then.i425.i.i
   %call6.i428.i.i = call ptr @curl_easy_strerror(i32 noundef %128) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, ptr noundef %call6.i428.i.i) #7
-  br label %socks_state_recv.exit429.i.i
+  br label %socks_state_recv.argprom.exit429.i.i
 
 do.end.i421.i.i:                                  ; preds = %sw.bb524.i.i
   %outp.i417.i.i = getelementptr inbounds i8, ptr %sx.0, i64 16
@@ -1358,7 +1358,7 @@ do.end.i421.i.i:                                  ; preds = %sw.bb524.i.i
   store ptr %add.ptr.i423.i.i, ptr %outp.i417.i.i, align 8
   br label %if.else529.i.i
 
-socks_state_recv.exit429.i.i:                     ; preds = %if.end5.i427.i.i, %if.then4.i426.i.i
+socks_state_recv.argprom.exit429.i.i:             ; preds = %if.end5.i427.i.i, %if.then4.i426.i.i
   %retval.0.i424.i.i = phi i32 [ 3, %if.then4.i426.i.i ], [ 13, %if.end5.i427.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i416.i.i)
   br label %do_SOCKS5.exit.i
@@ -1397,8 +1397,8 @@ if.then545.i.i:                                   ; preds = %land.lhs.true537.i.
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.28) #7
   br label %do_SOCKS5.exit.i
 
-do_SOCKS5.exit.i:                                 ; preds = %if.then545.i.i, %land.lhs.true537.i.i, %do.body535.i.i, %if.else529.i.i, %socks_state_recv.exit429.i.i, %if.else511.i.i, %if.then481.i.i, %if.then472.i.i, %if.then468.i.i, %if.else459.i.i, %socks_state_recv.exit409.i.i, %if.else446.i.i, %socks_state_send.exit392.i.i, %if.then376.i.i, %if.then286.i.i, %if.then260.i.i, %if.end.i371.i.i, %if.then226.i.i, %if.then216.i.i, %if.then206.i.i, %if.else199.i.i, %socks_state_recv.exit366.i.i, %if.else186.i.i, %socks_state_send.exit349.i.i, %if.then173.i.i, %if.then159.i.i, %if.end134.i.i, %if.then127.i.i, %if.then121.i.i, %if.then101.i.i, %if.else92.i.i, %socks_state_recv.exit.i.i, %if.else78.i.i, %socks_state_send.exit313.i.i, %if.else.i.i, %socks_state_send.exit.i.i, %if.then19.i.i
-  %retval.0.i.i = phi i32 [ 2, %if.then468.i.i ], [ 1, %if.else511.i.i ], [ 27, %if.then286.i.i ], [ 33, %if.then206.i.i ], [ 11, %if.then159.i.i ], [ 10, %if.then173.i.i ], [ 2, %if.then101.i.i ], [ 12, %if.then127.i.i ], [ 32, %if.end134.i.i ], [ 5, %if.then121.i.i ], [ 9, %if.then19.i.i ], [ %retval.0.i.i.i, %socks_state_send.exit.i.i ], [ 0, %if.else.i.i ], [ %retval.0.i308.i.i, %socks_state_send.exit313.i.i ], [ 0, %if.else78.i.i ], [ %retval.0.i322.i.i, %socks_state_recv.exit.i.i ], [ 0, %if.else92.i.i ], [ %retval.0.i344.i.i, %socks_state_send.exit349.i.i ], [ 0, %if.else186.i.i ], [ %retval.0.i361.i.i, %socks_state_recv.exit366.i.i ], [ 0, %if.else199.i.i ], [ 27, %if.then216.i.i ], [ %..i.i, %if.then260.i.i ], [ 1, %if.then376.i.i ], [ %retval.0.i387.i.i, %socks_state_send.exit392.i.i ], [ 0, %if.else446.i.i ], [ %retval.0.i404.i.i, %socks_state_recv.exit409.i.i ], [ 0, %if.else459.i.i ], [ %121, %if.then481.i.i ], [ 25, %if.then472.i.i ], [ %retval.0.i424.i.i, %socks_state_recv.exit429.i.i ], [ 0, %if.else529.i.i ], [ 0, %do.body535.i.i ], [ 0, %land.lhs.true537.i.i ], [ 0, %if.then545.i.i ], [ 0, %if.then226.i.i ], [ 0, %if.end.i371.i.i ]
+do_SOCKS5.exit.i:                                 ; preds = %if.then545.i.i, %land.lhs.true537.i.i, %do.body535.i.i, %if.else529.i.i, %socks_state_recv.argprom.exit429.i.i, %if.else511.i.i, %if.then481.i.i, %if.then472.i.i, %if.then468.i.i, %if.else459.i.i, %socks_state_recv.argprom.exit409.i.i, %if.else446.i.i, %socks_state_send.argprom.exit392.i.i, %if.then376.i.i, %if.then286.i.i, %if.then260.i.i, %if.end.i371.i.i, %if.then226.i.i, %if.then216.i.i, %if.then206.i.i, %if.else199.i.i, %socks_state_recv.argprom.exit366.i.i, %if.else186.i.i, %socks_state_send.argprom.exit349.i.i, %if.then173.i.i, %if.then159.i.i, %if.end134.i.i, %if.then127.i.i, %if.then121.i.i, %if.then101.i.i, %if.else92.i.i, %socks_state_recv.argprom.exit.i.i, %if.else78.i.i, %socks_state_send.argprom.exit313.i.i, %if.else.i.i, %socks_state_send.argprom.exit.i.i, %if.then19.i.i
+  %retval.0.i.i = phi i32 [ 2, %if.then468.i.i ], [ 1, %if.else511.i.i ], [ 27, %if.then286.i.i ], [ 33, %if.then206.i.i ], [ 11, %if.then159.i.i ], [ 10, %if.then173.i.i ], [ 2, %if.then101.i.i ], [ 12, %if.then127.i.i ], [ 32, %if.end134.i.i ], [ 5, %if.then121.i.i ], [ 9, %if.then19.i.i ], [ %retval.0.i.i.i, %socks_state_send.argprom.exit.i.i ], [ 0, %if.else.i.i ], [ %retval.0.i308.i.i, %socks_state_send.argprom.exit313.i.i ], [ 0, %if.else78.i.i ], [ %retval.0.i322.i.i, %socks_state_recv.argprom.exit.i.i ], [ 0, %if.else92.i.i ], [ %retval.0.i344.i.i, %socks_state_send.argprom.exit349.i.i ], [ 0, %if.else186.i.i ], [ %retval.0.i361.i.i, %socks_state_recv.argprom.exit366.i.i ], [ 0, %if.else199.i.i ], [ 27, %if.then216.i.i ], [ %..i.i, %if.then260.i.i ], [ 1, %if.then376.i.i ], [ %retval.0.i387.i.i, %socks_state_send.argprom.exit392.i.i ], [ 0, %if.else446.i.i ], [ %retval.0.i404.i.i, %socks_state_recv.argprom.exit409.i.i ], [ 0, %if.else459.i.i ], [ %121, %if.then481.i.i ], [ 25, %if.then472.i.i ], [ %retval.0.i424.i.i, %socks_state_recv.argprom.exit429.i.i ], [ 0, %if.else529.i.i ], [ 0, %do.body535.i.i ], [ 0, %land.lhs.true537.i.i ], [ 0, %if.then545.i.i ], [ 0, %if.then226.i.i ], [ 0, %if.end.i371.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dns.i.i)
   call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %dest.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ip4.i.i)
@@ -1753,12 +1753,12 @@ if.then.i.i25.i:                                  ; preds = %sw.bb185.i.i
 
 if.then4.i.i26.i:                                 ; preds = %if.then.i.i25.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit.i27.i
+  br label %socks_state_send.argprom.exit.i27.i
 
 if.end5.i.i29.i:                                  ; preds = %if.then.i.i25.i
   %call6.i.i30.i = call ptr @curl_easy_strerror(i32 noundef %174) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.43, ptr noundef %call6.i.i30.i) #7
-  br label %socks_state_send.exit.i27.i
+  br label %socks_state_send.argprom.exit.i27.i
 
 do.end.i.i22.i:                                   ; preds = %sw.bb185.i.i
   %175 = load i64, ptr %outstanding.i.i.i, align 8
@@ -1769,7 +1769,7 @@ do.end.i.i22.i:                                   ; preds = %sw.bb185.i.i
   store ptr %add.ptr.i.i24.i, ptr %outp.i.i.i, align 8
   br label %if.else190.i.i
 
-socks_state_send.exit.i27.i:                      ; preds = %if.end5.i.i29.i, %if.then4.i.i26.i
+socks_state_send.argprom.exit.i27.i:              ; preds = %if.end5.i.i29.i, %if.then4.i.i26.i
   %retval.0.i.i28.i = phi i32 [ 3, %if.then4.i.i26.i ], [ 29, %if.end5.i.i29.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i.i8.i)
   br label %do_SOCKS4.exit.i
@@ -1814,12 +1814,12 @@ if.then.i178.i.i:                                 ; preds = %sw.bb198.i.i
 
 if.then4.i179.i.i:                                ; preds = %if.then.i178.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit.i18.i
+  br label %socks_state_recv.argprom.exit.i18.i
 
 if.end5.i180.i.i:                                 ; preds = %if.then.i178.i.i
   %call6.i181.i.i = call ptr @curl_easy_strerror(i32 noundef %181) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.44, ptr noundef %call6.i181.i.i) #7
-  br label %socks_state_recv.exit.i18.i
+  br label %socks_state_recv.argprom.exit.i18.i
 
 do.end.i174.i.i:                                  ; preds = %sw.bb198.i.i
   %outp.i170.i.i = getelementptr inbounds i8, ptr %sx.0, i64 16
@@ -1831,7 +1831,7 @@ do.end.i174.i.i:                                  ; preds = %sw.bb198.i.i
   store ptr %add.ptr.i176.i.i, ptr %outp.i170.i.i, align 8
   br label %if.else203.i14.i
 
-socks_state_recv.exit.i18.i:                      ; preds = %if.end5.i180.i.i, %if.then4.i179.i.i
+socks_state_recv.argprom.exit.i18.i:              ; preds = %if.end5.i180.i.i, %if.then4.i179.i.i
   %retval.0.i177.i.i = phi i32 [ 3, %if.then4.i179.i.i ], [ 15, %if.end5.i180.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i169.i.i)
   br label %do_SOCKS4.exit.i
@@ -1987,8 +1987,8 @@ sw.default281.i.i:                                ; preds = %if.end212.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.50, i32 noundef %conv283.i.i, i32 noundef %conv285.i.i, i32 noundef %conv287.i.i, i32 noundef %conv289.i.i, i32 noundef %or295.i.i, i32 noundef %conv214.i.i) #7
   br label %do_SOCKS4.exit.i
 
-do_SOCKS4.exit.i:                                 ; preds = %sw.default281.i.i, %sw.bb264.i.i, %sw.bb247.i.i, %sw.bb232.i.i, %if.then226.i17.i, %land.lhs.true218.i.i, %do.body216.i.i, %if.then211.i.i, %if.else203.i14.i, %socks_state_recv.exit.i18.i, %if.else190.i.i, %socks_state_send.exit.i27.i, %if.else181.i.i, %if.then153.i.i, %if.else139.i.i, %if.else136.i.i, %if.then94.i.i, %if.then59.i.i, %land.lhs.true51.i.i, %if.then40.i.i
-  %retval.0.i16.i = phi i32 [ 2, %if.then211.i.i ], [ 31, %sw.default281.i.i ], [ 8, %sw.bb264.i.i ], [ 7, %sw.bb247.i.i ], [ 26, %sw.bb232.i.i ], [ 11, %if.then153.i.i ], [ 9, %if.else181.i.i ], [ 27, %if.then40.i.i ], [ 0, %land.lhs.true51.i.i ], [ 0, %if.then59.i.i ], [ %..i49.i, %if.then94.i.i ], [ 27, %if.else139.i.i ], [ 27, %if.else136.i.i ], [ %retval.0.i.i28.i, %socks_state_send.exit.i27.i ], [ 0, %if.else190.i.i ], [ %retval.0.i177.i.i, %socks_state_recv.exit.i18.i ], [ 0, %if.else203.i14.i ], [ 0, %if.then226.i17.i ], [ 0, %land.lhs.true218.i.i ], [ 0, %do.body216.i.i ]
+do_SOCKS4.exit.i:                                 ; preds = %sw.default281.i.i, %sw.bb264.i.i, %sw.bb247.i.i, %sw.bb232.i.i, %if.then226.i17.i, %land.lhs.true218.i.i, %do.body216.i.i, %if.then211.i.i, %if.else203.i14.i, %socks_state_recv.argprom.exit.i18.i, %if.else190.i.i, %socks_state_send.argprom.exit.i27.i, %if.else181.i.i, %if.then153.i.i, %if.else139.i.i, %if.else136.i.i, %if.then94.i.i, %if.then59.i.i, %land.lhs.true51.i.i, %if.then40.i.i
+  %retval.0.i16.i = phi i32 [ 2, %if.then211.i.i ], [ 31, %sw.default281.i.i ], [ 8, %sw.bb264.i.i ], [ 7, %sw.bb247.i.i ], [ 26, %sw.bb232.i.i ], [ 11, %if.then153.i.i ], [ 9, %if.else181.i.i ], [ 27, %if.then40.i.i ], [ 0, %land.lhs.true51.i.i ], [ 0, %if.then59.i.i ], [ %..i49.i, %if.then94.i.i ], [ 27, %if.else139.i.i ], [ 27, %if.else136.i.i ], [ %retval.0.i.i28.i, %socks_state_send.argprom.exit.i27.i ], [ 0, %if.else190.i.i ], [ %retval.0.i177.i.i, %socks_state_recv.argprom.exit.i18.i ], [ 0, %if.else203.i14.i ], [ 0, %if.then226.i17.i ], [ 0, %land.lhs.true218.i.i ], [ 0, %do.body216.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dns.i9.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i.i)
   br label %sw.epilog.i

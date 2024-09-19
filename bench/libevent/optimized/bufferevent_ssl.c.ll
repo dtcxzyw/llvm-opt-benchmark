@@ -1693,7 +1693,7 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call = tail call fastcc i32 @do_write(ptr noundef nonnull %bev_ssl)
+  %call = tail call fastcc i32 @do_write.argelim(ptr noundef nonnull %bev_ssl)
   %tobool1.not = icmp ult i32 %call, 2
   br i1 %tobool1.not, label %while.cond, label %while.body.while.end_crit_edge, !llvm.loop !5
 
@@ -1888,7 +1888,7 @@ if.end53:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %bev_ssl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @do_write.argelim(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
   %space = alloca [8 x %struct.iovec], align 16
   %output3 = getelementptr inbounds i8, ptr %bev_ssl, i64 264
@@ -2744,7 +2744,7 @@ land.lhs.true31.us.us:                            ; preds = %land.lhs.true.us.us
   br i1 %tobool33.not.us.us, label %while.end56, label %land.rhs.us.us
 
 land.rhs.us.us:                                   ; preds = %land.lhs.true31.us.us
-  %call51.us.us = tail call fastcc i32 @do_write(ptr noundef nonnull %bev_ssl)
+  %call51.us.us = tail call fastcc i32 @do_write.argelim(ptr noundef nonnull %bev_ssl)
   %tobool53.not.us.us = icmp ult i32 %call51.us.us, 2
   br i1 %tobool53.not.us.us, label %while.cond24.us.us, label %while.end56, !llvm.loop !11
 
@@ -2774,7 +2774,7 @@ if.then46.us:                                     ; preds = %land.rhs.us
   br label %if.end50.us
 
 if.end50.us:                                      ; preds = %if.then46.us, %land.rhs.us
-  %call51.us = tail call fastcc i32 @do_write(ptr noundef nonnull %bev_ssl)
+  %call51.us = tail call fastcc i32 @do_write.argelim(ptr noundef nonnull %bev_ssl)
   %tobool53.not.us = icmp ult i32 %call51.us, 2
   br i1 %tobool53.not.us, label %while.cond24.us, label %while.end56, !llvm.loop !11
 
@@ -2810,7 +2810,7 @@ if.then46:                                        ; preds = %lor.rhs36
   br label %if.end50
 
 if.end50:                                         ; preds = %land.rhs, %if.then46
-  %call51 = tail call fastcc i32 @do_write(ptr noundef nonnull %bev_ssl)
+  %call51 = tail call fastcc i32 @do_write.argelim(ptr noundef nonnull %bev_ssl)
   %tobool53.not = icmp ult i32 %call51, 2
   br i1 %tobool53.not, label %while.cond24, label %while.end56, !llvm.loop !11
 

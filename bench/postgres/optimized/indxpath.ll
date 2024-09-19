@@ -1804,39 +1804,39 @@ define dso_local noundef zeroext i1 @relation_has_unique_index_ext(ptr nocapture
   br i1 %86, label %90, label %97
 
 90:                                               ; preds = %83
-  br i1 %.not.i.i, label %get_rightop.exit, label %list_length.exit.i
+  br i1 %.not.i.i, label %get_rightop.argprom.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %90
   %91 = getelementptr inbounds i8, ptr %.val110, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = icmp sgt i32 %92, 1
-  br i1 %93, label %94, label %get_rightop.exit
+  br i1 %93, label %94, label %get_rightop.argprom.exit
 
 94:                                               ; preds = %list_length.exit.i
   %95 = getelementptr i8, ptr %.val110, i64 16
   %.val.i = load ptr, ptr %95, align 8
   %96 = getelementptr i8, ptr %.val.i, i64 8
-  br label %get_rightop.exit.sink.split
+  br label %get_rightop.argprom.exit.sink.split
 
 97:                                               ; preds = %83
-  br i1 %.not.i.i, label %get_rightop.exit, label %98
+  br i1 %.not.i.i, label %get_rightop.argprom.exit, label %98
 
 98:                                               ; preds = %97
   %99 = getelementptr i8, ptr %.val110, i64 16
   %.val.i111 = load ptr, ptr %99, align 8
-  br label %get_rightop.exit.sink.split
+  br label %get_rightop.argprom.exit.sink.split
 
-get_rightop.exit.sink.split:                      ; preds = %94, %98
+get_rightop.argprom.exit.sink.split:              ; preds = %94, %98
   %.val.i111.sink = phi ptr [ %.val.i111, %98 ], [ %96, %94 ]
   %100 = load ptr, ptr %.val.i111.sink, align 8
-  br label %get_rightop.exit
+  br label %get_rightop.argprom.exit
 
-get_rightop.exit:                                 ; preds = %get_rightop.exit.sink.split, %97, %list_length.exit.i, %90
-  %.086 = phi ptr [ null, %list_length.exit.i ], [ null, %90 ], [ null, %97 ], [ %100, %get_rightop.exit.sink.split ]
+get_rightop.argprom.exit:                         ; preds = %get_rightop.argprom.exit.sink.split, %97, %list_length.exit.i, %90
+  %.086 = phi ptr [ null, %list_length.exit.i ], [ null, %90 ], [ null, %97 ], [ %100, %get_rightop.argprom.exit.sink.split ]
   %101 = tail call zeroext i1 @match_index_to_operand(ptr noundef %.086, i32 noundef %73, ptr noundef nonnull %56)
   br i1 %101, label %.split, label %112
 
-.split:                                           ; preds = %get_rightop.exit
+.split:                                           ; preds = %get_rightop.argprom.exit
   %102 = getelementptr inbounds i8, ptr %76, i64 40
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 @bms_membership(ptr noundef %103) #7
@@ -1858,7 +1858,7 @@ get_rightop.exit:                                 ; preds = %get_rightop.exit.si
   store ptr %108, ptr @CurrentMemoryContext, align 8
   br label %.thread124
 
-112:                                              ; preds = %get_rightop.exit, %.lr.ph156
+112:                                              ; preds = %get_rightop.argprom.exit, %.lr.ph156
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %113 = load i32, ptr %45, align 4
   %114 = sext i32 %113 to i64
@@ -2949,9 +2949,9 @@ list_length.exit.i.i.i:                           ; preds = %174
   %178 = getelementptr inbounds i8, ptr %.val.i.i, i64 4
   %179 = load i32, ptr %178, align 4
   %180 = icmp sgt i32 %179, 1
-  br i1 %180, label %get_rightop.exit.i.i, label %match_clause_to_ordering_op.exit.thread.i
+  br i1 %180, label %get_rightop.argprom.exit.i.i, label %match_clause_to_ordering_op.exit.thread.i
 
-get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.i.i
+get_rightop.argprom.exit.i.i:                     ; preds = %list_length.exit.i.i.i
   %181 = getelementptr i8, ptr %.val.i.i.i, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = icmp ne ptr %177, null
@@ -2959,7 +2959,7 @@ get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.
   %or.cond.i.i = select i1 %183, i1 %184, i1 false
   br i1 %or.cond.i.i, label %185, label %match_clause_to_ordering_op.exit.thread.i
 
-185:                                              ; preds = %get_rightop.exit.i.i
+185:                                              ; preds = %get_rightop.argprom.exit.i.i
   %186 = getelementptr inbounds i8, ptr %164, i64 4
   %187 = load i32, ptr %186, align 4
   %188 = icmp eq i32 %171, 0
@@ -3033,7 +3033,7 @@ match_clause_to_ordering_op.exit.thread56.i:      ; preds = %210
   %221 = icmp slt i32 %219, %220
   br i1 %221, label %.lr.ph335, label %match_pathkeys_to_index.exit
 
-match_clause_to_ordering_op.exit.thread.i:        ; preds = %210, %207, %205, %203, %201, %.thread102.i, %189, %get_rightop.exit.i.i, %list_length.exit.i.i.i, %174, %is_opclause.exit.i.i, %.lr.ph.split.i
+match_clause_to_ordering_op.exit.thread.i:        ; preds = %210, %207, %205, %203, %201, %.thread102.i, %189, %get_rightop.argprom.exit.i.i, %list_length.exit.i.i.i, %174, %is_opclause.exit.i.i, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %222 = load i32, ptr %18, align 8
   %223 = sext i32 %222 to i64

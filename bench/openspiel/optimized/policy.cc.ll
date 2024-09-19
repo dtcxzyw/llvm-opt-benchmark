@@ -575,25 +575,25 @@ define noundef double @_ZN10open_spiel7GetProbERKSt6vectorISt4pairIldESaIS2_EEl(
   %.sroa.038.057.i.i.i.i = phi ptr [ %.val, %.lr.ph.i.i.i.i ], [ %22, %21 ]
   %.val1.i.i.i.i.i = load i64, ptr %.sroa.038.057.i.i.i.i, align 8
   %11 = icmp eq i64 %.val1.i.i.i.i.i, %1
-  br i1 %11, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit", label %12
+  br i1 %11, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit", label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 16
   %.val1.i22.i.i.i.i = load i64, ptr %13, align 8
   %14 = icmp eq i64 %.val1.i22.i.i.i.i, %1
-  br i1 %14, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit", label %15
+  br i1 %14, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit", label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 32
   %.val1.i23.i.i.i.i = load i64, ptr %16, align 8
   %17 = icmp eq i64 %.val1.i23.i.i.i.i, %1
-  br i1 %17, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit24", label %18
+  br i1 %17, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit24", label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 48
   %.val1.i24.i.i.i.i = load i64, ptr %19, align 8
   %20 = icmp eq i64 %.val1.i24.i.i.i.i, %1
-  br i1 %20, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit26", label %21
+  br i1 %20, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit26", label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 64
@@ -610,7 +610,7 @@ define noundef double @_ZN10open_spiel7GetProbERKSt6vectorISt4pairIldESaIS2_EEl(
   %.pre-phi67.i.i.i.i = phi i64 [ %.pre66.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %6, %2 ]
   %.sroa.038.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.val, %2 ]
   %25 = ashr exact i64 %.pre-phi67.i.i.i.i, 4
-  switch i64 %25, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.thread" [
+  switch i64 %25, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.thread" [
     i64 3, label %26
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge64.i.i.i.i
@@ -619,7 +619,7 @@ define noundef double @_ZN10open_spiel7GetProbERKSt6vectorISt4pairIldESaIS2_EEl(
 26:                                               ; preds = %._crit_edge.i.i.i.i
   %.val1.i25.i.i.i.i = load i64, ptr %.sroa.038.0.lcssa.i.i.i.i, align 8
   %27 = icmp eq i64 %.val1.i25.i.i.i.i, %1
-  br i1 %27, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit", label %28
+  br i1 %27, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i.i, i64 16
@@ -629,7 +629,7 @@ define noundef double @_ZN10open_spiel7GetProbERKSt6vectorISt4pairIldESaIS2_EEl(
   %.sroa.038.1.i.i.i.i = phi ptr [ %29, %28 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i26.i.i.i.i = load i64, ptr %.sroa.038.1.i.i.i.i, align 8
   %30 = icmp eq i64 %.val1.i26.i.i.i.i, %1
-  br i1 %30, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit", label %31
+  br i1 %30, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit", label %31
 
 31:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
   %32 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i.i, i64 16
@@ -640,32 +640,32 @@ define noundef double @_ZN10open_spiel7GetProbERKSt6vectorISt4pairIldESaIS2_EEl(
   %.val1.i27.i.i.i.i = load i64, ptr %.sroa.038.2.i.i.i.i, align 8
   %33 = icmp eq i64 %.val1.i27.i.i.i.i, %1
   %spec.select.i.i.i.i = select i1 %33, ptr %.sroa.038.2.i.i.i.i, ptr %.val3
-  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit"
+  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit"
 
-"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit": ; preds = %12
+"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit": ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 16
-  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit"
+  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit"
 
-"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit24": ; preds = %15
+"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit24": ; preds = %15
   %35 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 32
-  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit"
+  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit"
 
-"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit26": ; preds = %18
+"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit26": ; preds = %18
   %36 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i.i, i64 48
-  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit"
+  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit"
 
-"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit": ; preds = %10, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit", %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit24", %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit26", %26, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %26 ], [ %.sroa.038.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i ], [ %34, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit" ], [ %35, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit24" ], [ %36, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.loopexit.split.loop.exit26" ], [ %.sroa.038.057.i.i.i.i, %10 ]
+"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit": ; preds = %10, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit24", %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit26", %26, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %26 ], [ %.sroa.038.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i ], [ %34, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit" ], [ %35, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit24" ], [ %36, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.loopexit.split.loop.exit26" ], [ %.sroa.038.057.i.i.i.i, %10 ]
   %37 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val3
-  br i1 %37, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.thread", label %38
+  br i1 %37, label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.thread", label %38
 
-38:                                               ; preds = %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit"
+38:                                               ; preds = %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit"
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 8
   %40 = load double, ptr %39, align 8
-  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.thread"
+  br label %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.thread"
 
-"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit.thread": ; preds = %._crit_edge.i.i.i.i, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit", %38
-  %.0 = phi double [ %40, %38 ], [ -1.000000e+00, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.exit" ], [ -1.000000e+00, %._crit_edge.i.i.i.i ]
+"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit.thread": ; preds = %._crit_edge.i.i.i.i, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit", %38
+  %.0 = phi double [ %40, %38 ], [ -1.000000e+00, %"_ZN4absl7debian29c_find_ifIKSt6vectorISt4pairIldESaIS4_EEZN10open_spiel7GetProbERS7_lE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESC_OT0_.argprom.exit" ], [ -1.000000e+00, %._crit_edge.i.i.i.i ]
   ret double %.0
 }
 
@@ -1123,9 +1123,9 @@ define void @_ZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEE(ptr dead_on
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
-6:                                                ; preds = %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.exit.i.i", %.lr.ph.i.i
-  %7 = phi ptr [ null, %.lr.ph.i.i ], [ %41, %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.exit.i.i" ]
-  %.sroa.04.08.i.i = phi ptr [ %.val, %.lr.ph.i.i ], [ %42, %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.exit.i.i" ]
+6:                                                ; preds = %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.argprom.argprom.exit.i.i", %.lr.ph.i.i
+  %7 = phi ptr [ null, %.lr.ph.i.i ], [ %41, %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.argprom.argprom.exit.i.i" ]
+  %.sroa.04.08.i.i = phi ptr [ %.val, %.lr.ph.i.i ], [ %42, %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.argprom.argprom.exit.i.i" ]
   %8 = load i64, ptr %.sroa.04.08.i.i, align 8
   %.val1.val.i.i = load ptr, ptr %1, align 8
   %.val1.val2.i.i = load ptr, ptr %3, align 8
@@ -1146,7 +1146,7 @@ define void @_ZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEE(ptr dead_on
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %18, ptr %4, align 8
-  br label %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.exit.i.i"
+  br label %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.argprom.argprom.exit.i.i"
 
 19:                                               ; preds = %6
   %20 = load ptr, ptr %0, align 8
@@ -1211,9 +1211,9 @@ _ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
   store ptr %38, ptr %4, align 8
   %40 = getelementptr inbounds %"struct.std::pair", ptr %34, i64 %30
   store ptr %40, ptr %5, align 8
-  br label %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.exit.i.i"
+  br label %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.argprom.argprom.exit.i.i"
 
-"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.exit.i.i": ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i, %16
+"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.argprom.argprom.exit.i.i": ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i, %16
   %41 = phi ptr [ %18, %16 ], [ %38, %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i ]
   %42 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i, i64 8
   %.not.i.i = icmp eq ptr %42, %.val4
@@ -1241,7 +1241,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %43, %44
   resume { ptr, i32 } %lpad.phi
 
-.loopexit8:                                       ; preds = %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.exit.i.i", %2
+.loopexit8:                                       ; preds = %"_ZZN10open_spiel18UniformStatePolicyERKSt6vectorIlSaIlEEENK3$_0clEl.argprom.argprom.exit.i.i", %2
   ret void
 }
 

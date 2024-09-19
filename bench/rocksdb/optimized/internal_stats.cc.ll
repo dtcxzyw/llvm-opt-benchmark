@@ -8103,7 +8103,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %name_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.argelim(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %name_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -8231,7 +8231,7 @@ invoke.cont26:                                    ; preds = %lor.rhs.i, %if.then
   %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(48) %second.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE.argelim(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(48) %second.i)
           to label %invoke.cont28 unwind label %lpad25
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -8357,7 +8357,7 @@ invoke.cont41:                                    ; preds = %lor.rhs.i105, %if.t
   %second.i109 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i108, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i87)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i88)
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(48) %second.i109)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE.argelim(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(48) %second.i109)
           to label %invoke.cont43 unwind label %lpad40
 
 invoke.cont43:                                    ; preds = %invoke.cont41
@@ -8492,7 +8492,7 @@ invoke.cont69:                                    ; preds = %.noexc119
           to label %invoke.cont.i unwind label %lpad.i122
 
 invoke.cont.i:                                    ; preds = %invoke.cont69
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(48) %level_stats.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE.argelim(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(48) %level_stats.i)
           to label %invoke.cont1.i unwind label %lpad.i122
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i
@@ -8543,7 +8543,7 @@ lpad.i127:                                        ; preds = %.noexc130
   br label %ehcleanup88
 
 invoke.cont84:                                    ; preds = %.noexc130
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %name_.i124, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.argelim(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %name_.i124, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %invoke.cont84
@@ -8654,7 +8654,7 @@ invoke.cont116:                                   ; preds = %lor.rhs.i179, %if.t
   %second.i183 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i182, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i161)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i162)
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(48) %second.i183)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE.argelim(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(48) %second.i183)
           to label %invoke.cont118 unwind label %lpad115
 
 invoke.cont118:                                   ; preds = %invoke.cont116
@@ -11673,7 +11673,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb22WriteStall
 declare noundef i64 @_ZN7rocksdb11ParseUint64ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr nocapture noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %cf_name, ptr noundef nonnull align 8 dereferenceable(32) %group_by) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.argelim(ptr nocapture noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %cf_name, ptr noundef nonnull align 8 dereferenceable(32) %group_by) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp35 = alloca %"class.std::allocator.3", align 1
@@ -11709,22 +11709,22 @@ lor.rhs.i.i:                                      ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i.i, align 4
   %cmp.i2.i.i = icmp sgt i32 %2, 1
-  br i1 %cmp.i2.i.i, label %if.then.i.i, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit"
+  br i1 %cmp.i2.i.i, label %if.then.i.i, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit"
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i, %entry
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit": ; preds = %lor.rhs.i.i
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit": ; preds = %lor.rhs.i.i
   %header_name.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 72
   %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i) #29
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i8 = icmp eq ptr %3, null
   br i1 %cmp.not5.i.i.i.i.i8, label %if.then.i.i26, label %while.body.i.i.i.i.i9
 
-while.body.i.i.i.i.i9:                            ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit", %while.body.i.i.i.i.i9
-  %__x.addr.07.i.i.i.i.i10 = phi ptr [ %__x.addr.1.i.i.i.i.i17, %while.body.i.i.i.i.i9 ], [ %3, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit" ]
-  %__y.addr.06.i.i.i.i.i11 = phi ptr [ %__y.addr.1.i.i.i.i.i14, %while.body.i.i.i.i.i9 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit" ]
+while.body.i.i.i.i.i9:                            ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit", %while.body.i.i.i.i.i9
+  %__x.addr.07.i.i.i.i.i10 = phi ptr [ %__x.addr.1.i.i.i.i.i17, %while.body.i.i.i.i.i9 ], [ %3, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit" ]
+  %__y.addr.06.i.i.i.i.i11 = phi ptr [ %__y.addr.1.i.i.i.i.i14, %while.body.i.i.i.i.i9 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit" ]
   %_M_storage.i.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i10, i64 32
   %4 = load i32, ptr %_M_storage.i.i.i.i.i.i.i12, align 4
   %cmp.i.i.i.i.i.i13 = icmp slt i32 %4, 3
@@ -11743,22 +11743,22 @@ lor.rhs.i.i21:                                    ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i22 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i14, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i22, align 4
   %cmp.i2.i.i23 = icmp sgt i32 %5, 3
-  br i1 %cmp.i2.i.i23, label %if.then.i.i26, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit27"
+  br i1 %cmp.i2.i.i23, label %if.then.i.i26, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit27"
 
-if.then.i.i26:                                    ; preds = %lor.rhs.i.i21, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i19, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit"
+if.then.i.i26:                                    ; preds = %lor.rhs.i.i21, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i19, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit27": ; preds = %lor.rhs.i.i21
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit27": ; preds = %lor.rhs.i.i21
   %header_name.i24 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i14, i64 72
   %call2.i25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i24) #29
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i28 = icmp eq ptr %6, null
   br i1 %cmp.not5.i.i.i.i.i28, label %if.then.i.i46, label %while.body.i.i.i.i.i29
 
-while.body.i.i.i.i.i29:                           ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit27", %while.body.i.i.i.i.i29
-  %__x.addr.07.i.i.i.i.i30 = phi ptr [ %__x.addr.1.i.i.i.i.i37, %while.body.i.i.i.i.i29 ], [ %6, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit27" ]
-  %__y.addr.06.i.i.i.i.i31 = phi ptr [ %__y.addr.1.i.i.i.i.i34, %while.body.i.i.i.i.i29 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit27" ]
+while.body.i.i.i.i.i29:                           ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit27", %while.body.i.i.i.i.i29
+  %__x.addr.07.i.i.i.i.i30 = phi ptr [ %__x.addr.1.i.i.i.i.i37, %while.body.i.i.i.i.i29 ], [ %6, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit27" ]
+  %__y.addr.06.i.i.i.i.i31 = phi ptr [ %__y.addr.1.i.i.i.i.i34, %while.body.i.i.i.i.i29 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit27" ]
   %_M_storage.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i30, i64 32
   %7 = load i32, ptr %_M_storage.i.i.i.i.i.i.i32, align 4
   %cmp.i.i.i.i.i.i33 = icmp slt i32 %7, 4
@@ -11777,22 +11777,22 @@ lor.rhs.i.i41:                                    ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i42 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i34, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i.i42, align 4
   %cmp.i2.i.i43 = icmp sgt i32 %8, 4
-  br i1 %cmp.i2.i.i43, label %if.then.i.i46, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit47"
+  br i1 %cmp.i2.i.i43, label %if.then.i.i46, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit47"
 
-if.then.i.i46:                                    ; preds = %lor.rhs.i.i41, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i39, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit27"
+if.then.i.i46:                                    ; preds = %lor.rhs.i.i41, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i39, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit27"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit47": ; preds = %lor.rhs.i.i41
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit47": ; preds = %lor.rhs.i.i41
   %header_name.i44 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i34, i64 72
   %call2.i45 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i44) #29
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i48 = icmp eq ptr %9, null
   br i1 %cmp.not5.i.i.i.i.i48, label %if.then.i.i66, label %while.body.i.i.i.i.i49
 
-while.body.i.i.i.i.i49:                           ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit47", %while.body.i.i.i.i.i49
-  %__x.addr.07.i.i.i.i.i50 = phi ptr [ %__x.addr.1.i.i.i.i.i57, %while.body.i.i.i.i.i49 ], [ %9, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit47" ]
-  %__y.addr.06.i.i.i.i.i51 = phi ptr [ %__y.addr.1.i.i.i.i.i54, %while.body.i.i.i.i.i49 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit47" ]
+while.body.i.i.i.i.i49:                           ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit47", %while.body.i.i.i.i.i49
+  %__x.addr.07.i.i.i.i.i50 = phi ptr [ %__x.addr.1.i.i.i.i.i57, %while.body.i.i.i.i.i49 ], [ %9, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit47" ]
+  %__y.addr.06.i.i.i.i.i51 = phi ptr [ %__y.addr.1.i.i.i.i.i54, %while.body.i.i.i.i.i49 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit47" ]
   %_M_storage.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i50, i64 32
   %10 = load i32, ptr %_M_storage.i.i.i.i.i.i.i52, align 4
   %cmp.i.i.i.i.i.i53 = icmp slt i32 %10, 5
@@ -11811,22 +11811,22 @@ lor.rhs.i.i61:                                    ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i62 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i54, i64 32
   %11 = load i32, ptr %_M_storage.i.i.i.i62, align 4
   %cmp.i2.i.i63 = icmp sgt i32 %11, 5
-  br i1 %cmp.i2.i.i63, label %if.then.i.i66, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit67"
+  br i1 %cmp.i2.i.i63, label %if.then.i.i66, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit67"
 
-if.then.i.i66:                                    ; preds = %lor.rhs.i.i61, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i59, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit47"
+if.then.i.i66:                                    ; preds = %lor.rhs.i.i61, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i59, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit47"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit67": ; preds = %lor.rhs.i.i61
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit67": ; preds = %lor.rhs.i.i61
   %header_name.i64 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i54, i64 72
   %call2.i65 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i64) #29
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i68 = icmp eq ptr %12, null
   br i1 %cmp.not5.i.i.i.i.i68, label %if.then.i.i86, label %while.body.i.i.i.i.i69
 
-while.body.i.i.i.i.i69:                           ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit67", %while.body.i.i.i.i.i69
-  %__x.addr.07.i.i.i.i.i70 = phi ptr [ %__x.addr.1.i.i.i.i.i77, %while.body.i.i.i.i.i69 ], [ %12, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit67" ]
-  %__y.addr.06.i.i.i.i.i71 = phi ptr [ %__y.addr.1.i.i.i.i.i74, %while.body.i.i.i.i.i69 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit67" ]
+while.body.i.i.i.i.i69:                           ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit67", %while.body.i.i.i.i.i69
+  %__x.addr.07.i.i.i.i.i70 = phi ptr [ %__x.addr.1.i.i.i.i.i77, %while.body.i.i.i.i.i69 ], [ %12, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit67" ]
+  %__y.addr.06.i.i.i.i.i71 = phi ptr [ %__y.addr.1.i.i.i.i.i74, %while.body.i.i.i.i.i69 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit67" ]
   %_M_storage.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i70, i64 32
   %13 = load i32, ptr %_M_storage.i.i.i.i.i.i.i72, align 4
   %cmp.i.i.i.i.i.i73 = icmp slt i32 %13, 6
@@ -11845,22 +11845,22 @@ lor.rhs.i.i81:                                    ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i82 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i74, i64 32
   %14 = load i32, ptr %_M_storage.i.i.i.i82, align 4
   %cmp.i2.i.i83 = icmp sgt i32 %14, 6
-  br i1 %cmp.i2.i.i83, label %if.then.i.i86, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit87"
+  br i1 %cmp.i2.i.i83, label %if.then.i.i86, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit87"
 
-if.then.i.i86:                                    ; preds = %lor.rhs.i.i81, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i79, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit67"
+if.then.i.i86:                                    ; preds = %lor.rhs.i.i81, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i79, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit67"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit87": ; preds = %lor.rhs.i.i81
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit87": ; preds = %lor.rhs.i.i81
   %header_name.i84 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i74, i64 72
   %call2.i85 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i84) #29
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i88 = icmp eq ptr %15, null
   br i1 %cmp.not5.i.i.i.i.i88, label %if.then.i.i106, label %while.body.i.i.i.i.i89
 
-while.body.i.i.i.i.i89:                           ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit87", %while.body.i.i.i.i.i89
-  %__x.addr.07.i.i.i.i.i90 = phi ptr [ %__x.addr.1.i.i.i.i.i97, %while.body.i.i.i.i.i89 ], [ %15, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit87" ]
-  %__y.addr.06.i.i.i.i.i91 = phi ptr [ %__y.addr.1.i.i.i.i.i94, %while.body.i.i.i.i.i89 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit87" ]
+while.body.i.i.i.i.i89:                           ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit87", %while.body.i.i.i.i.i89
+  %__x.addr.07.i.i.i.i.i90 = phi ptr [ %__x.addr.1.i.i.i.i.i97, %while.body.i.i.i.i.i89 ], [ %15, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit87" ]
+  %__y.addr.06.i.i.i.i.i91 = phi ptr [ %__y.addr.1.i.i.i.i.i94, %while.body.i.i.i.i.i89 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit87" ]
   %_M_storage.i.i.i.i.i.i.i92 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i90, i64 32
   %16 = load i32, ptr %_M_storage.i.i.i.i.i.i.i92, align 4
   %cmp.i.i.i.i.i.i93 = icmp slt i32 %16, 7
@@ -11879,22 +11879,22 @@ lor.rhs.i.i101:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i102 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i94, i64 32
   %17 = load i32, ptr %_M_storage.i.i.i.i102, align 4
   %cmp.i2.i.i103 = icmp sgt i32 %17, 7
-  br i1 %cmp.i2.i.i103, label %if.then.i.i106, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit107"
+  br i1 %cmp.i2.i.i103, label %if.then.i.i106, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit107"
 
-if.then.i.i106:                                   ; preds = %lor.rhs.i.i101, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i99, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit87"
+if.then.i.i106:                                   ; preds = %lor.rhs.i.i101, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i99, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit87"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit107": ; preds = %lor.rhs.i.i101
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit107": ; preds = %lor.rhs.i.i101
   %header_name.i104 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i94, i64 72
   %call2.i105 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i104) #29
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i108 = icmp eq ptr %18, null
   br i1 %cmp.not5.i.i.i.i.i108, label %if.then.i.i126, label %while.body.i.i.i.i.i109
 
-while.body.i.i.i.i.i109:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit107", %while.body.i.i.i.i.i109
-  %__x.addr.07.i.i.i.i.i110 = phi ptr [ %__x.addr.1.i.i.i.i.i117, %while.body.i.i.i.i.i109 ], [ %18, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit107" ]
-  %__y.addr.06.i.i.i.i.i111 = phi ptr [ %__y.addr.1.i.i.i.i.i114, %while.body.i.i.i.i.i109 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit107" ]
+while.body.i.i.i.i.i109:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit107", %while.body.i.i.i.i.i109
+  %__x.addr.07.i.i.i.i.i110 = phi ptr [ %__x.addr.1.i.i.i.i.i117, %while.body.i.i.i.i.i109 ], [ %18, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit107" ]
+  %__y.addr.06.i.i.i.i.i111 = phi ptr [ %__y.addr.1.i.i.i.i.i114, %while.body.i.i.i.i.i109 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit107" ]
   %_M_storage.i.i.i.i.i.i.i112 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i110, i64 32
   %19 = load i32, ptr %_M_storage.i.i.i.i.i.i.i112, align 4
   %cmp.i.i.i.i.i.i113 = icmp slt i32 %19, 8
@@ -11913,22 +11913,22 @@ lor.rhs.i.i121:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i122 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i114, i64 32
   %20 = load i32, ptr %_M_storage.i.i.i.i122, align 4
   %cmp.i2.i.i123 = icmp sgt i32 %20, 8
-  br i1 %cmp.i2.i.i123, label %if.then.i.i126, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit127"
+  br i1 %cmp.i2.i.i123, label %if.then.i.i126, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit127"
 
-if.then.i.i126:                                   ; preds = %lor.rhs.i.i121, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i119, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit107"
+if.then.i.i126:                                   ; preds = %lor.rhs.i.i121, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i119, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit107"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit127": ; preds = %lor.rhs.i.i121
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit127": ; preds = %lor.rhs.i.i121
   %header_name.i124 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i114, i64 72
   %call2.i125 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i124) #29
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i128 = icmp eq ptr %21, null
   br i1 %cmp.not5.i.i.i.i.i128, label %if.then.i.i146, label %while.body.i.i.i.i.i129
 
-while.body.i.i.i.i.i129:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit127", %while.body.i.i.i.i.i129
-  %__x.addr.07.i.i.i.i.i130 = phi ptr [ %__x.addr.1.i.i.i.i.i137, %while.body.i.i.i.i.i129 ], [ %21, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit127" ]
-  %__y.addr.06.i.i.i.i.i131 = phi ptr [ %__y.addr.1.i.i.i.i.i134, %while.body.i.i.i.i.i129 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit127" ]
+while.body.i.i.i.i.i129:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit127", %while.body.i.i.i.i.i129
+  %__x.addr.07.i.i.i.i.i130 = phi ptr [ %__x.addr.1.i.i.i.i.i137, %while.body.i.i.i.i.i129 ], [ %21, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit127" ]
+  %__y.addr.06.i.i.i.i.i131 = phi ptr [ %__y.addr.1.i.i.i.i.i134, %while.body.i.i.i.i.i129 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit127" ]
   %_M_storage.i.i.i.i.i.i.i132 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i130, i64 32
   %22 = load i32, ptr %_M_storage.i.i.i.i.i.i.i132, align 4
   %cmp.i.i.i.i.i.i133 = icmp slt i32 %22, 9
@@ -11947,22 +11947,22 @@ lor.rhs.i.i141:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i142 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i134, i64 32
   %23 = load i32, ptr %_M_storage.i.i.i.i142, align 4
   %cmp.i2.i.i143 = icmp sgt i32 %23, 9
-  br i1 %cmp.i2.i.i143, label %if.then.i.i146, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit147"
+  br i1 %cmp.i2.i.i143, label %if.then.i.i146, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit147"
 
-if.then.i.i146:                                   ; preds = %lor.rhs.i.i141, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i139, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit127"
+if.then.i.i146:                                   ; preds = %lor.rhs.i.i141, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i139, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit127"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit147": ; preds = %lor.rhs.i.i141
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit147": ; preds = %lor.rhs.i.i141
   %header_name.i144 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i134, i64 72
   %call2.i145 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i144) #29
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i148 = icmp eq ptr %24, null
   br i1 %cmp.not5.i.i.i.i.i148, label %if.then.i.i166, label %while.body.i.i.i.i.i149
 
-while.body.i.i.i.i.i149:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit147", %while.body.i.i.i.i.i149
-  %__x.addr.07.i.i.i.i.i150 = phi ptr [ %__x.addr.1.i.i.i.i.i157, %while.body.i.i.i.i.i149 ], [ %24, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit147" ]
-  %__y.addr.06.i.i.i.i.i151 = phi ptr [ %__y.addr.1.i.i.i.i.i154, %while.body.i.i.i.i.i149 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit147" ]
+while.body.i.i.i.i.i149:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit147", %while.body.i.i.i.i.i149
+  %__x.addr.07.i.i.i.i.i150 = phi ptr [ %__x.addr.1.i.i.i.i.i157, %while.body.i.i.i.i.i149 ], [ %24, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit147" ]
+  %__y.addr.06.i.i.i.i.i151 = phi ptr [ %__y.addr.1.i.i.i.i.i154, %while.body.i.i.i.i.i149 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit147" ]
   %_M_storage.i.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i150, i64 32
   %25 = load i32, ptr %_M_storage.i.i.i.i.i.i.i152, align 4
   %cmp.i.i.i.i.i.i153 = icmp slt i32 %25, 10
@@ -11981,22 +11981,22 @@ lor.rhs.i.i161:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i162 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i154, i64 32
   %26 = load i32, ptr %_M_storage.i.i.i.i162, align 4
   %cmp.i2.i.i163 = icmp sgt i32 %26, 10
-  br i1 %cmp.i2.i.i163, label %if.then.i.i166, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit167"
+  br i1 %cmp.i2.i.i163, label %if.then.i.i166, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit167"
 
-if.then.i.i166:                                   ; preds = %lor.rhs.i.i161, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i159, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit147"
+if.then.i.i166:                                   ; preds = %lor.rhs.i.i161, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i159, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit147"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit167": ; preds = %lor.rhs.i.i161
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit167": ; preds = %lor.rhs.i.i161
   %header_name.i164 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i154, i64 72
   %call2.i165 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i164) #29
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i168 = icmp eq ptr %27, null
   br i1 %cmp.not5.i.i.i.i.i168, label %if.then.i.i186, label %while.body.i.i.i.i.i169
 
-while.body.i.i.i.i.i169:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit167", %while.body.i.i.i.i.i169
-  %__x.addr.07.i.i.i.i.i170 = phi ptr [ %__x.addr.1.i.i.i.i.i177, %while.body.i.i.i.i.i169 ], [ %27, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit167" ]
-  %__y.addr.06.i.i.i.i.i171 = phi ptr [ %__y.addr.1.i.i.i.i.i174, %while.body.i.i.i.i.i169 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit167" ]
+while.body.i.i.i.i.i169:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit167", %while.body.i.i.i.i.i169
+  %__x.addr.07.i.i.i.i.i170 = phi ptr [ %__x.addr.1.i.i.i.i.i177, %while.body.i.i.i.i.i169 ], [ %27, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit167" ]
+  %__y.addr.06.i.i.i.i.i171 = phi ptr [ %__y.addr.1.i.i.i.i.i174, %while.body.i.i.i.i.i169 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit167" ]
   %_M_storage.i.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i170, i64 32
   %28 = load i32, ptr %_M_storage.i.i.i.i.i.i.i172, align 4
   %cmp.i.i.i.i.i.i173 = icmp slt i32 %28, 11
@@ -12015,22 +12015,22 @@ lor.rhs.i.i181:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i182 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i174, i64 32
   %29 = load i32, ptr %_M_storage.i.i.i.i182, align 4
   %cmp.i2.i.i183 = icmp sgt i32 %29, 11
-  br i1 %cmp.i2.i.i183, label %if.then.i.i186, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit187"
+  br i1 %cmp.i2.i.i183, label %if.then.i.i186, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit187"
 
-if.then.i.i186:                                   ; preds = %lor.rhs.i.i181, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i179, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit167"
+if.then.i.i186:                                   ; preds = %lor.rhs.i.i181, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i179, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit167"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit187": ; preds = %lor.rhs.i.i181
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit187": ; preds = %lor.rhs.i.i181
   %header_name.i184 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i174, i64 72
   %call2.i185 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i184) #29
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i188 = icmp eq ptr %30, null
   br i1 %cmp.not5.i.i.i.i.i188, label %if.then.i.i206, label %while.body.i.i.i.i.i189
 
-while.body.i.i.i.i.i189:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit187", %while.body.i.i.i.i.i189
-  %__x.addr.07.i.i.i.i.i190 = phi ptr [ %__x.addr.1.i.i.i.i.i197, %while.body.i.i.i.i.i189 ], [ %30, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit187" ]
-  %__y.addr.06.i.i.i.i.i191 = phi ptr [ %__y.addr.1.i.i.i.i.i194, %while.body.i.i.i.i.i189 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit187" ]
+while.body.i.i.i.i.i189:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit187", %while.body.i.i.i.i.i189
+  %__x.addr.07.i.i.i.i.i190 = phi ptr [ %__x.addr.1.i.i.i.i.i197, %while.body.i.i.i.i.i189 ], [ %30, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit187" ]
+  %__y.addr.06.i.i.i.i.i191 = phi ptr [ %__y.addr.1.i.i.i.i.i194, %while.body.i.i.i.i.i189 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit187" ]
   %_M_storage.i.i.i.i.i.i.i192 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i190, i64 32
   %31 = load i32, ptr %_M_storage.i.i.i.i.i.i.i192, align 4
   %cmp.i.i.i.i.i.i193 = icmp slt i32 %31, 12
@@ -12049,22 +12049,22 @@ lor.rhs.i.i201:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i202 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i194, i64 32
   %32 = load i32, ptr %_M_storage.i.i.i.i202, align 4
   %cmp.i2.i.i203 = icmp sgt i32 %32, 12
-  br i1 %cmp.i2.i.i203, label %if.then.i.i206, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit207"
+  br i1 %cmp.i2.i.i203, label %if.then.i.i206, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit207"
 
-if.then.i.i206:                                   ; preds = %lor.rhs.i.i201, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i199, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit187"
+if.then.i.i206:                                   ; preds = %lor.rhs.i.i201, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i199, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit187"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit207": ; preds = %lor.rhs.i.i201
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit207": ; preds = %lor.rhs.i.i201
   %header_name.i204 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i194, i64 72
   %call2.i205 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i204) #29
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i208 = icmp eq ptr %33, null
   br i1 %cmp.not5.i.i.i.i.i208, label %if.then.i.i226, label %while.body.i.i.i.i.i209
 
-while.body.i.i.i.i.i209:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit207", %while.body.i.i.i.i.i209
-  %__x.addr.07.i.i.i.i.i210 = phi ptr [ %__x.addr.1.i.i.i.i.i217, %while.body.i.i.i.i.i209 ], [ %33, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit207" ]
-  %__y.addr.06.i.i.i.i.i211 = phi ptr [ %__y.addr.1.i.i.i.i.i214, %while.body.i.i.i.i.i209 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit207" ]
+while.body.i.i.i.i.i209:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit207", %while.body.i.i.i.i.i209
+  %__x.addr.07.i.i.i.i.i210 = phi ptr [ %__x.addr.1.i.i.i.i.i217, %while.body.i.i.i.i.i209 ], [ %33, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit207" ]
+  %__y.addr.06.i.i.i.i.i211 = phi ptr [ %__y.addr.1.i.i.i.i.i214, %while.body.i.i.i.i.i209 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit207" ]
   %_M_storage.i.i.i.i.i.i.i212 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i210, i64 32
   %34 = load i32, ptr %_M_storage.i.i.i.i.i.i.i212, align 4
   %cmp.i.i.i.i.i.i213 = icmp slt i32 %34, 13
@@ -12083,22 +12083,22 @@ lor.rhs.i.i221:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i222 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i214, i64 32
   %35 = load i32, ptr %_M_storage.i.i.i.i222, align 4
   %cmp.i2.i.i223 = icmp sgt i32 %35, 13
-  br i1 %cmp.i2.i.i223, label %if.then.i.i226, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit227"
+  br i1 %cmp.i2.i.i223, label %if.then.i.i226, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit227"
 
-if.then.i.i226:                                   ; preds = %lor.rhs.i.i221, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i219, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit207"
+if.then.i.i226:                                   ; preds = %lor.rhs.i.i221, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i219, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit207"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit227": ; preds = %lor.rhs.i.i221
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit227": ; preds = %lor.rhs.i.i221
   %header_name.i224 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i214, i64 72
   %call2.i225 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i224) #29
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i228 = icmp eq ptr %36, null
   br i1 %cmp.not5.i.i.i.i.i228, label %if.then.i.i246, label %while.body.i.i.i.i.i229
 
-while.body.i.i.i.i.i229:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit227", %while.body.i.i.i.i.i229
-  %__x.addr.07.i.i.i.i.i230 = phi ptr [ %__x.addr.1.i.i.i.i.i237, %while.body.i.i.i.i.i229 ], [ %36, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit227" ]
-  %__y.addr.06.i.i.i.i.i231 = phi ptr [ %__y.addr.1.i.i.i.i.i234, %while.body.i.i.i.i.i229 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit227" ]
+while.body.i.i.i.i.i229:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit227", %while.body.i.i.i.i.i229
+  %__x.addr.07.i.i.i.i.i230 = phi ptr [ %__x.addr.1.i.i.i.i.i237, %while.body.i.i.i.i.i229 ], [ %36, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit227" ]
+  %__y.addr.06.i.i.i.i.i231 = phi ptr [ %__y.addr.1.i.i.i.i.i234, %while.body.i.i.i.i.i229 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit227" ]
   %_M_storage.i.i.i.i.i.i.i232 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i230, i64 32
   %37 = load i32, ptr %_M_storage.i.i.i.i.i.i.i232, align 4
   %cmp.i.i.i.i.i.i233 = icmp slt i32 %37, 14
@@ -12117,22 +12117,22 @@ lor.rhs.i.i241:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i242 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i234, i64 32
   %38 = load i32, ptr %_M_storage.i.i.i.i242, align 4
   %cmp.i2.i.i243 = icmp sgt i32 %38, 14
-  br i1 %cmp.i2.i.i243, label %if.then.i.i246, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit247"
+  br i1 %cmp.i2.i.i243, label %if.then.i.i246, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit247"
 
-if.then.i.i246:                                   ; preds = %lor.rhs.i.i241, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i239, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit227"
+if.then.i.i246:                                   ; preds = %lor.rhs.i.i241, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i239, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit227"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit247": ; preds = %lor.rhs.i.i241
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit247": ; preds = %lor.rhs.i.i241
   %header_name.i244 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i234, i64 72
   %call2.i245 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i244) #29
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i248 = icmp eq ptr %39, null
   br i1 %cmp.not5.i.i.i.i.i248, label %if.then.i.i266, label %while.body.i.i.i.i.i249
 
-while.body.i.i.i.i.i249:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit247", %while.body.i.i.i.i.i249
-  %__x.addr.07.i.i.i.i.i250 = phi ptr [ %__x.addr.1.i.i.i.i.i257, %while.body.i.i.i.i.i249 ], [ %39, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit247" ]
-  %__y.addr.06.i.i.i.i.i251 = phi ptr [ %__y.addr.1.i.i.i.i.i254, %while.body.i.i.i.i.i249 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit247" ]
+while.body.i.i.i.i.i249:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit247", %while.body.i.i.i.i.i249
+  %__x.addr.07.i.i.i.i.i250 = phi ptr [ %__x.addr.1.i.i.i.i.i257, %while.body.i.i.i.i.i249 ], [ %39, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit247" ]
+  %__y.addr.06.i.i.i.i.i251 = phi ptr [ %__y.addr.1.i.i.i.i.i254, %while.body.i.i.i.i.i249 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit247" ]
   %_M_storage.i.i.i.i.i.i.i252 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i250, i64 32
   %40 = load i32, ptr %_M_storage.i.i.i.i.i.i.i252, align 4
   %cmp.i.i.i.i.i.i253 = icmp slt i32 %40, 15
@@ -12151,22 +12151,22 @@ lor.rhs.i.i261:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i262 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i254, i64 32
   %41 = load i32, ptr %_M_storage.i.i.i.i262, align 4
   %cmp.i2.i.i263 = icmp sgt i32 %41, 15
-  br i1 %cmp.i2.i.i263, label %if.then.i.i266, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit267"
+  br i1 %cmp.i2.i.i263, label %if.then.i.i266, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit267"
 
-if.then.i.i266:                                   ; preds = %lor.rhs.i.i261, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i259, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit247"
+if.then.i.i266:                                   ; preds = %lor.rhs.i.i261, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i259, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit247"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit267": ; preds = %lor.rhs.i.i261
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit267": ; preds = %lor.rhs.i.i261
   %header_name.i264 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i254, i64 72
   %call2.i265 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i264) #29
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i268 = icmp eq ptr %42, null
   br i1 %cmp.not5.i.i.i.i.i268, label %if.then.i.i286, label %while.body.i.i.i.i.i269
 
-while.body.i.i.i.i.i269:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit267", %while.body.i.i.i.i.i269
-  %__x.addr.07.i.i.i.i.i270 = phi ptr [ %__x.addr.1.i.i.i.i.i277, %while.body.i.i.i.i.i269 ], [ %42, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit267" ]
-  %__y.addr.06.i.i.i.i.i271 = phi ptr [ %__y.addr.1.i.i.i.i.i274, %while.body.i.i.i.i.i269 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit267" ]
+while.body.i.i.i.i.i269:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit267", %while.body.i.i.i.i.i269
+  %__x.addr.07.i.i.i.i.i270 = phi ptr [ %__x.addr.1.i.i.i.i.i277, %while.body.i.i.i.i.i269 ], [ %42, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit267" ]
+  %__y.addr.06.i.i.i.i.i271 = phi ptr [ %__y.addr.1.i.i.i.i.i274, %while.body.i.i.i.i.i269 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit267" ]
   %_M_storage.i.i.i.i.i.i.i272 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i270, i64 32
   %43 = load i32, ptr %_M_storage.i.i.i.i.i.i.i272, align 4
   %cmp.i.i.i.i.i.i273 = icmp slt i32 %43, 16
@@ -12185,22 +12185,22 @@ lor.rhs.i.i281:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i282 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i274, i64 32
   %44 = load i32, ptr %_M_storage.i.i.i.i282, align 4
   %cmp.i2.i.i283 = icmp sgt i32 %44, 16
-  br i1 %cmp.i2.i.i283, label %if.then.i.i286, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit287"
+  br i1 %cmp.i2.i.i283, label %if.then.i.i286, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit287"
 
-if.then.i.i286:                                   ; preds = %lor.rhs.i.i281, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i279, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit267"
+if.then.i.i286:                                   ; preds = %lor.rhs.i.i281, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i279, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit267"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit287": ; preds = %lor.rhs.i.i281
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit287": ; preds = %lor.rhs.i.i281
   %header_name.i284 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i274, i64 72
   %call2.i285 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i284) #29
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i288 = icmp eq ptr %45, null
   br i1 %cmp.not5.i.i.i.i.i288, label %if.then.i.i306, label %while.body.i.i.i.i.i289
 
-while.body.i.i.i.i.i289:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit287", %while.body.i.i.i.i.i289
-  %__x.addr.07.i.i.i.i.i290 = phi ptr [ %__x.addr.1.i.i.i.i.i297, %while.body.i.i.i.i.i289 ], [ %45, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit287" ]
-  %__y.addr.06.i.i.i.i.i291 = phi ptr [ %__y.addr.1.i.i.i.i.i294, %while.body.i.i.i.i.i289 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit287" ]
+while.body.i.i.i.i.i289:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit287", %while.body.i.i.i.i.i289
+  %__x.addr.07.i.i.i.i.i290 = phi ptr [ %__x.addr.1.i.i.i.i.i297, %while.body.i.i.i.i.i289 ], [ %45, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit287" ]
+  %__y.addr.06.i.i.i.i.i291 = phi ptr [ %__y.addr.1.i.i.i.i.i294, %while.body.i.i.i.i.i289 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit287" ]
   %_M_storage.i.i.i.i.i.i.i292 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i290, i64 32
   %46 = load i32, ptr %_M_storage.i.i.i.i.i.i.i292, align 4
   %cmp.i.i.i.i.i.i293 = icmp slt i32 %46, 17
@@ -12219,22 +12219,22 @@ lor.rhs.i.i301:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i302 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i294, i64 32
   %47 = load i32, ptr %_M_storage.i.i.i.i302, align 4
   %cmp.i2.i.i303 = icmp sgt i32 %47, 17
-  br i1 %cmp.i2.i.i303, label %if.then.i.i306, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit307"
+  br i1 %cmp.i2.i.i303, label %if.then.i.i306, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit307"
 
-if.then.i.i306:                                   ; preds = %lor.rhs.i.i301, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i299, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit287"
+if.then.i.i306:                                   ; preds = %lor.rhs.i.i301, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i299, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit287"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit307": ; preds = %lor.rhs.i.i301
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit307": ; preds = %lor.rhs.i.i301
   %header_name.i304 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i294, i64 72
   %call2.i305 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i304) #29
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i308 = icmp eq ptr %48, null
   br i1 %cmp.not5.i.i.i.i.i308, label %if.then.i.i326, label %while.body.i.i.i.i.i309
 
-while.body.i.i.i.i.i309:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit307", %while.body.i.i.i.i.i309
-  %__x.addr.07.i.i.i.i.i310 = phi ptr [ %__x.addr.1.i.i.i.i.i317, %while.body.i.i.i.i.i309 ], [ %48, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit307" ]
-  %__y.addr.06.i.i.i.i.i311 = phi ptr [ %__y.addr.1.i.i.i.i.i314, %while.body.i.i.i.i.i309 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit307" ]
+while.body.i.i.i.i.i309:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit307", %while.body.i.i.i.i.i309
+  %__x.addr.07.i.i.i.i.i310 = phi ptr [ %__x.addr.1.i.i.i.i.i317, %while.body.i.i.i.i.i309 ], [ %48, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit307" ]
+  %__y.addr.06.i.i.i.i.i311 = phi ptr [ %__y.addr.1.i.i.i.i.i314, %while.body.i.i.i.i.i309 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit307" ]
   %_M_storage.i.i.i.i.i.i.i312 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i310, i64 32
   %49 = load i32, ptr %_M_storage.i.i.i.i.i.i.i312, align 4
   %cmp.i.i.i.i.i.i313 = icmp slt i32 %49, 18
@@ -12253,22 +12253,22 @@ lor.rhs.i.i321:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i322 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i314, i64 32
   %50 = load i32, ptr %_M_storage.i.i.i.i322, align 4
   %cmp.i2.i.i323 = icmp sgt i32 %50, 18
-  br i1 %cmp.i2.i.i323, label %if.then.i.i326, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit327"
+  br i1 %cmp.i2.i.i323, label %if.then.i.i326, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit327"
 
-if.then.i.i326:                                   ; preds = %lor.rhs.i.i321, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i319, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit307"
+if.then.i.i326:                                   ; preds = %lor.rhs.i.i321, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i319, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit307"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit327": ; preds = %lor.rhs.i.i321
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit327": ; preds = %lor.rhs.i.i321
   %header_name.i324 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i314, i64 72
   %call2.i325 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i324) #29
   %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i328 = icmp eq ptr %51, null
   br i1 %cmp.not5.i.i.i.i.i328, label %if.then.i.i346, label %while.body.i.i.i.i.i329
 
-while.body.i.i.i.i.i329:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit327", %while.body.i.i.i.i.i329
-  %__x.addr.07.i.i.i.i.i330 = phi ptr [ %__x.addr.1.i.i.i.i.i337, %while.body.i.i.i.i.i329 ], [ %51, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit327" ]
-  %__y.addr.06.i.i.i.i.i331 = phi ptr [ %__y.addr.1.i.i.i.i.i334, %while.body.i.i.i.i.i329 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit327" ]
+while.body.i.i.i.i.i329:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit327", %while.body.i.i.i.i.i329
+  %__x.addr.07.i.i.i.i.i330 = phi ptr [ %__x.addr.1.i.i.i.i.i337, %while.body.i.i.i.i.i329 ], [ %51, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit327" ]
+  %__y.addr.06.i.i.i.i.i331 = phi ptr [ %__y.addr.1.i.i.i.i.i334, %while.body.i.i.i.i.i329 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit327" ]
   %_M_storage.i.i.i.i.i.i.i332 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i330, i64 32
   %52 = load i32, ptr %_M_storage.i.i.i.i.i.i.i332, align 4
   %cmp.i.i.i.i.i.i333 = icmp slt i32 %52, 19
@@ -12287,22 +12287,22 @@ lor.rhs.i.i341:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i342 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i334, i64 32
   %53 = load i32, ptr %_M_storage.i.i.i.i342, align 4
   %cmp.i2.i.i343 = icmp sgt i32 %53, 19
-  br i1 %cmp.i2.i.i343, label %if.then.i.i346, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit347"
+  br i1 %cmp.i2.i.i343, label %if.then.i.i346, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit347"
 
-if.then.i.i346:                                   ; preds = %lor.rhs.i.i341, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i339, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit327"
+if.then.i.i346:                                   ; preds = %lor.rhs.i.i341, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i339, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit327"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit347": ; preds = %lor.rhs.i.i341
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit347": ; preds = %lor.rhs.i.i341
   %header_name.i344 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i334, i64 72
   %call2.i345 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i344) #29
   %54 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i348 = icmp eq ptr %54, null
   br i1 %cmp.not5.i.i.i.i.i348, label %if.then.i.i366, label %while.body.i.i.i.i.i349
 
-while.body.i.i.i.i.i349:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit347", %while.body.i.i.i.i.i349
-  %__x.addr.07.i.i.i.i.i350 = phi ptr [ %__x.addr.1.i.i.i.i.i357, %while.body.i.i.i.i.i349 ], [ %54, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit347" ]
-  %__y.addr.06.i.i.i.i.i351 = phi ptr [ %__y.addr.1.i.i.i.i.i354, %while.body.i.i.i.i.i349 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit347" ]
+while.body.i.i.i.i.i349:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit347", %while.body.i.i.i.i.i349
+  %__x.addr.07.i.i.i.i.i350 = phi ptr [ %__x.addr.1.i.i.i.i.i357, %while.body.i.i.i.i.i349 ], [ %54, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit347" ]
+  %__y.addr.06.i.i.i.i.i351 = phi ptr [ %__y.addr.1.i.i.i.i.i354, %while.body.i.i.i.i.i349 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit347" ]
   %_M_storage.i.i.i.i.i.i.i352 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i350, i64 32
   %55 = load i32, ptr %_M_storage.i.i.i.i.i.i.i352, align 4
   %cmp.i.i.i.i.i.i353 = icmp slt i32 %55, 20
@@ -12321,22 +12321,22 @@ lor.rhs.i.i361:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i362 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i354, i64 32
   %56 = load i32, ptr %_M_storage.i.i.i.i362, align 4
   %cmp.i2.i.i363 = icmp sgt i32 %56, 20
-  br i1 %cmp.i2.i.i363, label %if.then.i.i366, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit367"
+  br i1 %cmp.i2.i.i363, label %if.then.i.i366, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit367"
 
-if.then.i.i366:                                   ; preds = %lor.rhs.i.i361, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i359, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit347"
+if.then.i.i366:                                   ; preds = %lor.rhs.i.i361, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i359, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit347"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit367": ; preds = %lor.rhs.i.i361
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit367": ; preds = %lor.rhs.i.i361
   %header_name.i364 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i354, i64 72
   %call2.i365 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i364) #29
   %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 16), align 8
   %cmp.not5.i.i.i.i.i368 = icmp eq ptr %57, null
   br i1 %cmp.not5.i.i.i.i.i368, label %if.then.i.i386, label %while.body.i.i.i.i.i369
 
-while.body.i.i.i.i.i369:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit367", %while.body.i.i.i.i.i369
-  %__x.addr.07.i.i.i.i.i370 = phi ptr [ %__x.addr.1.i.i.i.i.i377, %while.body.i.i.i.i.i369 ], [ %57, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit367" ]
-  %__y.addr.06.i.i.i.i.i371 = phi ptr [ %__y.addr.1.i.i.i.i.i374, %while.body.i.i.i.i.i369 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit367" ]
+while.body.i.i.i.i.i369:                          ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit367", %while.body.i.i.i.i.i369
+  %__x.addr.07.i.i.i.i.i370 = phi ptr [ %__x.addr.1.i.i.i.i.i377, %while.body.i.i.i.i.i369 ], [ %57, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit367" ]
+  %__y.addr.06.i.i.i.i.i371 = phi ptr [ %__y.addr.1.i.i.i.i.i374, %while.body.i.i.i.i.i369 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13InternalStats22compaction_level_statsE, i64 8), %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit367" ]
   %_M_storage.i.i.i.i.i.i.i372 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i370, i64 32
   %58 = load i32, ptr %_M_storage.i.i.i.i.i.i.i372, align 4
   %cmp.i.i.i.i.i.i373 = icmp slt i32 %58, 21
@@ -12355,13 +12355,13 @@ lor.rhs.i.i381:                                   ; preds = %_ZNKSt3mapIN7rocksd
   %_M_storage.i.i.i.i382 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i374, i64 32
   %59 = load i32, ptr %_M_storage.i.i.i.i382, align 4
   %cmp.i2.i.i383 = icmp sgt i32 %59, 21
-  br i1 %cmp.i2.i.i383, label %if.then.i.i386, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit387"
+  br i1 %cmp.i2.i.i383, label %if.then.i.i386, label %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit387"
 
-if.then.i.i386:                                   ; preds = %lor.rhs.i.i381, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i379, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit367"
+if.then.i.i386:                                   ; preds = %lor.rhs.i.i381, %_ZNKSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i.i379, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit367"
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.303) #33
   unreachable
 
-"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit387": ; preds = %lor.rhs.i.i381
+"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit387": ; preds = %lor.rhs.i.i381
   %header_name.i384 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i374, i64 72
   %call2.i385 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i384) #29
   %call25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.300, ptr noundef %call4, ptr noundef %call2.i, ptr noundef %call2.i25, ptr noundef %call2.i45, ptr noundef %call2.i65, ptr noundef %call2.i85, ptr noundef %call2.i105, ptr noundef %call2.i125, ptr noundef %call2.i145, ptr noundef %call2.i165, ptr noundef %call2.i185, ptr noundef %call2.i205, ptr noundef %call2.i225, ptr noundef %call2.i245, ptr noundef %call2.i265, ptr noundef %call2.i285, ptr noundef %call2.i305, ptr noundef %call2.i325, ptr noundef %call2.i345, ptr noundef %call2.i365, ptr noundef %call2.i385) #29
@@ -12370,7 +12370,7 @@ if.then.i.i386:                                   ; preds = %lor.rhs.i.i381, %_Z
   %call.i390 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33)
           to label %call.i.noexc unwind label %lpad
 
-call.i.noexc:                                     ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit387"
+call.i.noexc:                                     ; preds = %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit387"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp33, ptr noundef %call.i390, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35)
           to label %.noexc unwind label %lpad
 
@@ -12396,7 +12396,7 @@ invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #29
   ret void
 
-lpad:                                             ; preds = %call.i.noexc, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit387"
+lpad:                                             ; preds = %call.i.noexc, %"_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.argprom.exit387"
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
@@ -12408,7 +12408,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr nocapture noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 dereferenceable(48) %stat_value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE.argelim(ptr nocapture noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 dereferenceable(48) %stat_value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp52 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15617,15 +15617,15 @@ entry:
   %__args3.val = load i64, ptr %__args3, align 8
   %__args5.val = load ptr, ptr %__args5, align 8
   %tobool.not.i.i.i = icmp eq ptr %__args5.val, null
-  br i1 %tobool.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %cond.true.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %entry
   %role.i.i.i = getelementptr inbounds i8, ptr %__args5.val, i64 32
   %0 = load i32, ptr %role.i.i.i, align 8
   %1 = sext i32 %0 to i64
-  br label %"_ZSt10__invoke_rIvRZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %entry, %cond.true.i.i.i
+"_ZSt10__invoke_rIvRZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %entry, %cond.true.i.i.i
   %cond.i.i.i = phi i64 [ %1, %cond.true.i.i.i ], [ 13, %entry ]
   %entry_counts.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 176
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x i64], ptr %entry_counts.i.i.i, i64 0, i64 %cond.i.i.i

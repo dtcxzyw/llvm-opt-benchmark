@@ -373,7 +373,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %.not3148.us.not = icmp eq ptr %.1.us, %.026.us
   br i1 %.not3148.us.not, label %._crit_edge53.split.us.us, label %.lr.ph52.us
 
-._crit_edge53.split.us.us:                        ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", %.split.us.split
+._crit_edge53.split.us.us:                        ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.us.us", %.split.us.split
   %16 = icmp eq ptr %.1.us, %.val
   br i1 %16, label %.loopexit, label %17
 
@@ -413,14 +413,14 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %32 = sub i64 %1, %.028.us
   %33 = load i64, ptr %.1.us, align 8
   %.not1.i.us65.us = icmp ugt i64 %33, %32
-  br i1 %.not1.i.us65.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", label %.thread.i
+  br i1 %.not1.i.us65.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.us.us", label %.thread.i
 
-34:                                               ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us"
+34:                                               ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.us.us"
   %35 = load i64, ptr %36, align 8
   %.not1.i.us.us = icmp ugt i64 %35, %32
-  br i1 %.not1.i.us.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", label %.thread.i, !llvm.loop !17
+  br i1 %.not1.i.us.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.us.us", label %.thread.i, !llvm.loop !17
 
-"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us": ; preds = %.lr.ph52.us, %34
+"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.us.us": ; preds = %.lr.ph52.us, %34
   %.02949.us66.us = phi ptr [ %36, %34 ], [ %.1.us, %.lr.ph52.us ]
   %36 = getelementptr inbounds i8, ptr %.02949.us66.us, i64 24
   %.not31.us.us.not = icmp eq ptr %36, %.026.us
@@ -493,13 +493,13 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %.val.i.i.i, ptr %64, align 8
   %.not14.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not14.i.i.i, label %65, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.thread"
+  br i1 %.not14.i.i.i, label %65, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.thread"
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %67 = load i64, ptr %66, align 8
   store i64 %67, ptr %.us-phi55, align 8
-  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.thread"
+  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.thread"
 
 68:                                               ; preds = %61
   %.not13.i.i.i = icmp eq ptr %.val.i.i.i, null
@@ -507,7 +507,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
 
 69:                                               ; preds = %68
   store ptr %.val.i.i.i, ptr %56, align 8
-  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.thread"
+  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.thread"
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds i8, ptr %.us-phi55, i64 24
@@ -528,9 +528,9 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
   %78 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #7
   %79 = add i64 %78, -1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i, i64 noundef %79) #7
-  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.thread"
+  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.thread"
 
-"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.thread": ; preds = %63, %65, %69, %_ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i
+"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.thread": ; preds = %63, %65, %69, %_ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %.val34.le, i64 8
   %81 = load ptr, ptr %80, align 8
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(33) %.013.i)
@@ -554,8 +554,8 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
   store i64 %95, ptr %97, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge53.split.us.us, %17, %.lr.ph90.split.us, %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.thread"
-  %.not3139 = phi i1 [ true, %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.thread" ], [ false, %.lr.ph90.split.us ], [ false, %17 ], [ false, %._crit_edge53.split.us.us ]
+.loopexit:                                        ; preds = %._crit_edge53.split.us.us, %17, %.lr.ph90.split.us, %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.thread"
+  %.not3139 = phi i1 [ true, %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_2clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.argprom.exit.thread" ], [ false, %.lr.ph90.split.us ], [ false, %17 ], [ false, %._crit_edge53.split.us.us ]
   ret i1 %.not3139
 }
 
@@ -619,7 +619,7 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN4llvm28performOptimizedStruct
 5:                                                ; preds = %2
   %6 = icmp ult i8 %.sroa.06.0.copyload.i, %.sroa.05.0.copyload.i
   %7 = select i1 %6, i32 1, i32 -1
-  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.exit"
+  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.argprom.exit"
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -632,7 +632,7 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN4llvm28performOptimizedStruct
 13:                                               ; preds = %8
   %14 = icmp ult i64 %10, %12
   %15 = select i1 %14, i32 1, i32 -1
-  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.exit"
+  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.argprom.exit"
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -640,14 +640,14 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN4llvm28performOptimizedStruct
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not21.i = icmp eq ptr %18, %20
-  br i1 %.not21.i, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.exit", label %21
+  br i1 %.not21.i, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.argprom.exit", label %21
 
 21:                                               ; preds = %16
   %22 = icmp ult ptr %18, %20
   %23 = select i1 %22, i32 -1, i32 1
-  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.exit"
+  br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.argprom.exit"
 
-"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.exit": ; preds = %5, %13, %16, %21
+"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_0clEPKS1_S5_.argprom.exit": ; preds = %5, %13, %16, %21
   %.0.i = phi i32 [ %7, %5 ], [ %15, %13 ], [ %23, %21 ], [ 0, %16 ]
   ret i32 %.0.i
 }

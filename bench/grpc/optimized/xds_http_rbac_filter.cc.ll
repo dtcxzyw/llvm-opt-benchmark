@@ -453,7 +453,7 @@ if.end10:                                         ; preds = %if.end.i
   %config = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %11 = getelementptr i8, ptr %retval.0.i.i.i.i, i64 16
   %call5.val = load i64, ptr %11, align 1
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119ParseHttpRbacToJsonERKNS_15XdsResourceType13DecodeContextEPK42envoy_extensions_filters_http_rbac_v3_RBACPNS_16ValidationErrorsE(ptr noalias align 8 %config, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %call5.val, ptr noundef %errors)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119ParseHttpRbacToJsonERKNS_15XdsResourceType13DecodeContextEPK42envoy_extensions_filters_http_rbac_v3_RBACPNS_16ValidationErrorsE.argprom(ptr noalias align 8 %config, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %call5.val, ptr noundef %errors)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   %config.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -524,7 +524,7 @@ return:                                           ; preds = %_ZN9grpc_core17XdsH
 declare void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_119ParseHttpRbacToJsonERKNS_15XdsResourceType13DecodeContextEPK42envoy_extensions_filters_http_rbac_v3_RBACPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %rbac.8.val, ptr noundef %errors) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_119ParseHttpRbacToJsonERKNS_15XdsResourceType13DecodeContextEPK42envoy_extensions_filters_http_rbac_v3_RBACPNS_16ValidationErrorsE.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %rbac.8.val, ptr noundef %errors) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i.i.i.i.i.i.i.i225 = alloca %class.anon, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i226 = alloca %class.anon.251, align 8
@@ -2412,7 +2412,7 @@ if.else:                                          ; preds = %invoke.cont
 invoke.cont19:                                    ; preds = %if.else
   %21 = getelementptr i8, ptr %8, i64 8
   %call11.val = load i64, ptr %21, align 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_119ParseHttpRbacToJsonERKNS_15XdsResourceType13DecodeContextEPK42envoy_extensions_filters_http_rbac_v3_RBACPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %call11.val, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_119ParseHttpRbacToJsonERKNS_15XdsResourceType13DecodeContextEPK42envoy_extensions_filters_http_rbac_v3_RBACPNS_16ValidationErrorsE.argprom(ptr noalias align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %call11.val, ptr noundef nonnull %errors)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont19
@@ -3569,7 +3569,7 @@ invoke.cont1:                                     ; preds = %if.then
   %3 = load i64, ptr %add.ptr.i.i, align 1
   %4 = inttoptr i64 %3 to ptr
   %ret.0.in.i.val = load i64, ptr %4, align 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set"(ptr noalias align 8 %permission_set_json, ptr noundef nonnull align 8 dereferenceable(8) %parse_permission_set_to_json, i64 %ret.0.in.i.val)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set.argprom"(ptr noalias align 8 %permission_set_json, ptr noundef nonnull align 8 dereferenceable(8) %parse_permission_set_to_json, i64 %ret.0.in.i.val)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont1
@@ -3644,7 +3644,7 @@ invoke.cont14:                                    ; preds = %if.then11
   %14 = load i64, ptr %add.ptr.i.i51, align 1
   %15 = inttoptr i64 %14 to ptr
   %ret.0.in.i49.val = load i64, ptr %15, align 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set"(ptr noalias align 8 %permission_set_json18, ptr noundef nonnull align 8 dereferenceable(8) %parse_permission_set_to_json, i64 %ret.0.in.i49.val)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set.argprom"(ptr noalias align 8 %permission_set_json18, ptr noundef nonnull align 8 dereferenceable(8) %parse_permission_set_to_json, i64 %ret.0.in.i49.val)
           to label %invoke.cont19 unwind label %lpad15
 
 invoke.cont19:                                    ; preds = %invoke.cont14
@@ -3954,7 +3954,7 @@ invoke.cont103:                                   ; preds = %invoke.cont
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr i8, ptr %56, i64 1
   %call104.val = load i8, ptr %57, align 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126ParseMetadataMatcherToJsonEPK37envoy_type_matcher_v3_MetadataMatcher(ptr noalias align 8 %ref.tmp102, i8 %call104.val)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126ParseMetadataMatcherToJsonEPK37envoy_type_matcher_v3_MetadataMatcher.argprom(ptr noalias align 8 %ref.tmp102, i8 %call104.val)
           to label %invoke.cont105 unwind label %lpad
 
 invoke.cont105:                                   ; preds = %invoke.cont103
@@ -4242,7 +4242,7 @@ invoke.cont1:                                     ; preds = %if.then
   %3 = load i64, ptr %add.ptr.i.i, align 1
   %4 = inttoptr i64 %3 to ptr
   %ret.0.in.i.val = load i64, ptr %4, align 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set"(ptr noalias align 8 %principal_set_json, ptr noundef nonnull align 8 dereferenceable(8) %parse_principal_set_to_json, i64 %ret.0.in.i.val)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set.argprom"(ptr noalias align 8 %principal_set_json, ptr noundef nonnull align 8 dereferenceable(8) %parse_principal_set_to_json, i64 %ret.0.in.i.val)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont1
@@ -4317,7 +4317,7 @@ invoke.cont14:                                    ; preds = %if.then11
   %14 = load i64, ptr %add.ptr.i.i58, align 1
   %15 = inttoptr i64 %14 to ptr
   %ret.0.in.i56.val = load i64, ptr %15, align 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set"(ptr noalias align 8 %principal_set_json18, ptr noundef nonnull align 8 dereferenceable(8) %parse_principal_set_to_json, i64 %ret.0.in.i56.val)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set.argprom"(ptr noalias align 8 %principal_set_json18, ptr noundef nonnull align 8 dereferenceable(8) %parse_principal_set_to_json, i64 %ret.0.in.i56.val)
           to label %invoke.cont19 unwind label %lpad15
 
 invoke.cont19:                                    ; preds = %invoke.cont14
@@ -4897,7 +4897,7 @@ invoke.cont156:                                   ; preds = %invoke.cont
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr i8, ptr %87, i64 1
   %call157.val = load i8, ptr %88, align 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126ParseMetadataMatcherToJsonEPK37envoy_type_matcher_v3_MetadataMatcher(ptr noalias align 8 %ref.tmp155, i8 %call157.val)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126ParseMetadataMatcherToJsonEPK37envoy_type_matcher_v3_MetadataMatcher.argprom(ptr noalias align 8 %ref.tmp155, i8 %call157.val)
           to label %invoke.cont158 unwind label %lpad
 
 invoke.cont158:                                   ; preds = %invoke.cont156
@@ -4991,7 +4991,7 @@ ehcleanup196:                                     ; preds = %ehcleanup180, %lpad
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %set.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set.argprom"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %set.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i.i.i.i.i20 = alloca %class.anon, align 1
@@ -5617,7 +5617,7 @@ invoke.cont45:                                    ; preds = %invoke.cont23
   %call46.val = load ptr, ptr %26, align 1
   %27 = getelementptr i8, ptr %25, i64 16
   %call46.val23 = load i64, ptr %27, align 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_123ParseRegexMatcherToJsonEPK34envoy_type_matcher_v3_RegexMatcher(ptr noalias align 8 %ref.tmp44, ptr %call46.val, i64 %call46.val23)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_123ParseRegexMatcherToJsonEPK34envoy_type_matcher_v3_RegexMatcher.argprom(ptr noalias align 8 %ref.tmp44, ptr %call46.val, i64 %call46.val23)
           to label %invoke.cont47 unwind label %lpad
 
 invoke.cont47:                                    ; preds = %invoke.cont45
@@ -6650,7 +6650,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126ParseMetadataMatcherToJsonEPK37envoy_type_matcher_v3_MetadataMatcher(ptr noalias nonnull align 8 %agg.result, i8 %metadata_matcher.1.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126ParseMetadataMatcherToJsonEPK37envoy_type_matcher_v3_MetadataMatcher.argprom(ptr noalias nonnull align 8 %agg.result, i8 %metadata_matcher.1.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i.i.i.i = alloca %class.anon, align 1
@@ -7101,7 +7101,7 @@ invoke.cont41:                                    ; preds = %invoke.cont
   %call42.val = load ptr, ptr %26, align 1
   %27 = getelementptr i8, ptr %25, i64 16
   %call42.val12 = load i64, ptr %27, align 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_123ParseRegexMatcherToJsonEPK34envoy_type_matcher_v3_RegexMatcher(ptr noalias align 8 %ref.tmp40, ptr %call42.val, i64 %call42.val12)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_123ParseRegexMatcherToJsonEPK34envoy_type_matcher_v3_RegexMatcher.argprom(ptr noalias align 8 %ref.tmp40, ptr %call42.val, i64 %call42.val12)
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %invoke.cont41
@@ -8936,7 +8936,7 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ParseRegexMatcherToJsonEPK34envoy_type_matcher_v3_RegexMatcher(ptr noalias nonnull align 8 %agg.result, ptr %regex_matcher.8.val, i64 %regex_matcher.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ParseRegexMatcherToJsonEPK34envoy_type_matcher_v3_RegexMatcher.argprom(ptr noalias nonnull align 8 %agg.result, ptr %regex_matcher.8.val, i64 %regex_matcher.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i.i.i.i = alloca %class.anon, align 1
@@ -11022,7 +11022,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %set.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set.argprom"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %set.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i.i.i.i.i20 = alloca %class.anon, align 1
@@ -13655,8 +13655,8 @@ attributes #27 = { nounwind willreturn memory(read) }
 !26 = distinct !{!26, !27, !"_ZN9grpc_core12experimental4Json10FromObjectEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_St4lessIS8_ESaISt4pairIKS8_S1_EEE: %agg.result"}
 !27 = distinct !{!27, !"_ZN9grpc_core12experimental4Json10FromObjectEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_St4lessIS8_ESaISt4pairIKS8_S1_EEE"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN9grpc_core12_GLOBAL__N_129ParseAuditLoggerConfigsToJsonERKNS_15XdsResourceType13DecodeContextEPK45envoy_config_rbac_v3_RBAC_AuditLoggingOptionsPNS_16ValidationErrorsE: %agg.result"}
-!30 = distinct !{!30, !"_ZN9grpc_core12_GLOBAL__N_129ParseAuditLoggerConfigsToJsonERKNS_15XdsResourceType13DecodeContextEPK45envoy_config_rbac_v3_RBAC_AuditLoggingOptionsPNS_16ValidationErrorsE"}
+!29 = distinct !{!29, !30, !"_ZN9grpc_core12_GLOBAL__N_129ParseAuditLoggerConfigsToJsonERKNS_15XdsResourceType13DecodeContextEPK45envoy_config_rbac_v3_RBAC_AuditLoggingOptionsPNS_16ValidationErrorsE.argprom: %agg.result"}
+!30 = distinct !{!30, !"_ZN9grpc_core12_GLOBAL__N_129ParseAuditLoggerConfigsToJsonERKNS_15XdsResourceType13DecodeContextEPK45envoy_config_rbac_v3_RBAC_AuditLoggingOptionsPNS_16ValidationErrorsE.argprom"}
 !31 = distinct !{!31, !11}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZN9grpc_core12experimental4Json9FromArrayERKSt6vectorIS1_SaIS1_EE: %agg.result"}

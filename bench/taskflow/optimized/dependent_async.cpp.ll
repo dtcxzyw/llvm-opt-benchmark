@@ -1111,7 +1111,7 @@ call5.i.i.i6.i.i.i.i.i.i.noexc.i:                 ; preds = %_ZN2tf8Executor19_i
 
 call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %call5.i.i.i6.i.i.i.i.i.i.noexc.i
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1.i.i.i.i.i.i.i.i.i.i.i.i)
-          to label %"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i" unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !26
+          to label %"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i" unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !26
 
 lpad.i.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i
   %8 = landingpad { ptr, i32 }
@@ -1130,7 +1130,7 @@ lpad.body.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %lpad.i.i.i.i.i.i.i.
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i6.i.i.i.i.i.i5.i) #36, !noalias !20
   br label %lpad3.body.i
 
-"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i
+"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_result.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i.i.i5.i, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !26
   store ptr %call.i1.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_result.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
@@ -1141,7 +1141,7 @@ lpad.body.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %lpad.i.i.i.i.i.i.i.
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr nonnull sret(%"class.std::future") align 8 %fu.i.i, ptr noundef nonnull align 8 dereferenceable(16) %p.i.i)
           to label %invoke.cont7.i.i unwind label %lpad.i3.i, !noalias !16
 
-invoke.cont7.i.i:                                 ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i"
+invoke.cont7.i.i:                                 ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %10 = load ptr, ptr %p.i.i, align 8, !noalias !30
   store ptr %10, ptr %ref.tmp5.i.i, align 8, !alias.scope !27, !noalias !16
@@ -1451,7 +1451,7 @@ if.else.i10.i.i:                                  ; preds = %_ZN2tf8Executor12_t
   invoke void @_ZN2tf8Executor9_scheduleEPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(1344) %executor, ptr noundef nonnull %retval.0.i.i.i.i)
           to label %invoke.cont2 unwind label %lpad11.i.i, !noalias !16
 
-lpad.i3.i:                                        ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i"
+lpad.i3.i:                                        ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i"
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup14.i.i
@@ -1614,7 +1614,7 @@ call5.i.i.i6.i.i.i.i.i.i.noexc.i44:               ; preds = %_ZN2tf8Executor19_i
 
 call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i56:           ; preds = %call5.i.i.i6.i.i.i.i.i.i.noexc.i44
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1.i.i.i.i.i.i.i.i.i.i.i.i52)
-          to label %"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i" unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i57, !noalias !52
+          to label %"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i" unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i57, !noalias !52
 
 lpad.i.i.i.i.i.i.i.i.i.i.i.i.i57:                 ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i56
   %58 = landingpad { ptr, i32 }
@@ -1633,7 +1633,7 @@ lpad.body.i.i.i.i.i.i.i.i.i.i.i.i54:              ; preds = %lpad.i.i.i.i.i.i.i.
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i6.i.i.i.i.i.i5.i43) #36, !noalias !46
   br label %lpad3.body.i36
 
-"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i56
+"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i56
   %_M_result.i.i.i.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i.i.i5.i43, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i1.i.i.i.i.i.i.i.i.i.i.i.i52, align 8, !noalias !52
   store ptr %call.i1.i.i.i.i.i.i.i.i.i.i.i.i52, ptr %_M_result.i.i.i.i.i.i.i.i.i.i.i.i58, align 8, !alias.scope !49, !noalias !46
@@ -1644,7 +1644,7 @@ lpad.body.i.i.i.i.i.i.i.i.i.i.i.i54:              ; preds = %lpad.i.i.i.i.i.i.i.
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr nonnull sret(%"class.std::future") align 8 %fu.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %p.i.i17)
           to label %invoke.cont7.i.i62 unwind label %lpad.i3.i60, !noalias !42
 
-invoke.cont7.i.i62:                               ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i"
+invoke.cont7.i.i62:                               ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %60 = load ptr, ptr %p.i.i17, align 8, !noalias !56
   store ptr %60, ptr %ref.tmp5.i.i20, align 8, !alias.scope !53, !noalias !42
@@ -2031,7 +2031,7 @@ if.else.i15.i.i:                                  ; preds = %_ZN2tf8Executor12_t
   invoke void @_ZN2tf8Executor9_scheduleEPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(1344) %executor, ptr noundef %.pre8.i.i)
           to label %invoke.cont7 unwind label %lpad11.i.i152, !noalias !42
 
-lpad.i3.i60:                                      ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i"
+lpad.i3.i60:                                      ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i"
   %109 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i.i
@@ -2194,7 +2194,7 @@ call5.i.i.i6.i.i.i.i.i.i.noexc.i235:              ; preds = %_ZN2tf8Executor19_i
 
 call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i247:          ; preds = %call5.i.i.i6.i.i.i.i.i.i.noexc.i235
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1.i.i.i.i.i.i.i.i.i.i.i.i243)
-          to label %"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i" unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i248, !noalias !78
+          to label %"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i" unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i248, !noalias !78
 
 lpad.i.i.i.i.i.i.i.i.i.i.i.i.i248:                ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i247
   %121 = landingpad { ptr, i32 }
@@ -2213,7 +2213,7 @@ lpad.body.i.i.i.i.i.i.i.i.i.i.i.i245:             ; preds = %lpad.i.i.i.i.i.i.i.
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i6.i.i.i.i.i.i5.i234) #36, !noalias !72
   br label %lpad3.body.i227
 
-"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i247
+"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i247
   %_M_result.i.i.i.i.i.i.i.i.i.i.i.i249 = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i.i.i5.i234, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i1.i.i.i.i.i.i.i.i.i.i.i.i243, align 8, !noalias !78
   store ptr %call.i1.i.i.i.i.i.i.i.i.i.i.i.i243, ptr %_M_result.i.i.i.i.i.i.i.i.i.i.i.i249, align 8, !alias.scope !75, !noalias !72
@@ -2224,7 +2224,7 @@ lpad.body.i.i.i.i.i.i.i.i.i.i.i.i245:             ; preds = %lpad.i.i.i.i.i.i.i.
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr nonnull sret(%"class.std::future") align 8 %fu.i.i209, ptr noundef nonnull align 8 dereferenceable(16) %p.i.i208)
           to label %invoke.cont7.i.i254 unwind label %lpad.i3.i251, !noalias !68
 
-invoke.cont7.i.i254:                              ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i"
+invoke.cont7.i.i254:                              ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %123 = load ptr, ptr %p.i.i208, align 8, !noalias !82
   store ptr %123, ptr %ref.tmp5.i.i211, align 8, !alias.scope !79, !noalias !68
@@ -2611,7 +2611,7 @@ if.else.i15.i.i366:                               ; preds = %_ZN2tf8Executor12_t
   invoke void @_ZN2tf8Executor9_scheduleEPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(1344) %executor, ptr noundef %.pre8.i.i350)
           to label %invoke.cont12 unwind label %lpad11.i.i357, !noalias !68
 
-lpad.i3.i251:                                     ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i"
+lpad.i3.i251:                                     ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i"
   %172 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i.i252
@@ -2774,7 +2774,7 @@ call5.i.i.i6.i.i.i.i.i.i.noexc.i464:              ; preds = %_ZN2tf8Executor19_i
 
 call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i476:          ; preds = %call5.i.i.i6.i.i.i.i.i.i.noexc.i464
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1.i.i.i.i.i.i.i.i.i.i.i.i472)
-          to label %"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i" unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i477, !noalias !104
+          to label %"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i" unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i477, !noalias !104
 
 lpad.i.i.i.i.i.i.i.i.i.i.i.i.i477:                ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i476
   %184 = landingpad { ptr, i32 }
@@ -2793,7 +2793,7 @@ lpad.body.i.i.i.i.i.i.i.i.i.i.i.i474:             ; preds = %lpad.i.i.i.i.i.i.i.
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i6.i.i.i.i.i.i5.i463) #36, !noalias !98
   br label %lpad5.body.i
 
-"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i476
+"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i.i.i.i476
   %_M_result.i.i.i.i.i.i.i.i.i.i.i.i478 = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i.i.i5.i463, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i1.i.i.i.i.i.i.i.i.i.i.i.i472, align 8, !noalias !104
   store ptr %call.i1.i.i.i.i.i.i.i.i.i.i.i.i472, ptr %_M_result.i.i.i.i.i.i.i.i.i.i.i.i478, align 8, !alias.scope !101, !noalias !98
@@ -2804,7 +2804,7 @@ lpad.body.i.i.i.i.i.i.i.i.i.i.i.i474:             ; preds = %lpad.i.i.i.i.i.i.i.
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr nonnull sret(%"class.std::future") align 8 %fu.i.i442, ptr noundef nonnull align 8 dereferenceable(16) %p.i.i441)
           to label %invoke.cont9.i.i unwind label %lpad.i3.i480, !noalias !94
 
-invoke.cont9.i.i:                                 ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i"
+invoke.cont9.i.i:                                 ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %186 = load ptr, ptr %p.i.i441, align 8, !noalias !108
   store ptr %186, ptr %ref.tmp7.i.i, align 8, !alias.scope !105, !noalias !94
@@ -3274,7 +3274,7 @@ if.else.i52.i.i:                                  ; preds = %_ZN2tf8Executor12_t
   invoke void @_ZN2tf8Executor9_scheduleEPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(1344) %executor, ptr noundef %.pre.i.i574)
           to label %invoke.cont17 unwind label %lpad13.i.i, !noalias !94
 
-lpad.i3.i480:                                     ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit.i.i"
+lpad.i3.i480:                                     ; preds = %"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit.i.i"
   %249 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup20.i.i
@@ -3934,7 +3934,7 @@ _ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i858: ; pr
   %cond.i60.i.i.i862 = select i1 %cmp.i58.i.i.i860, i64 4, i64 %div.i59.i.i.i861
   %conv69.i.i.i863 = trunc i64 %cond.i60.i.i.i862 to i32
   %cmp70.not.i.i.i864 = icmp eq i32 %f.1.i.i.i849, %conv69.i.i.i863
-  br i1 %cmp70.not.i.i.i864, label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.exit.i.i", label %if.then71.i.i.i865
+  br i1 %cmp70.not.i.i.i864, label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.argprom.exit.i.i", label %if.then71.i.i.i865
 
 if.then71.i.i.i865:                               ; preds = %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i858
   %list_node72.i.i.i866 = getelementptr inbounds i8, ptr %s.1.i.i.i850, i64 8
@@ -3953,15 +3953,15 @@ if.then71.i.i.i865:                               ; preds = %_ZN2tf10ObjectPoolI
   store ptr %326, ptr %next.i61.i.i.i870, align 8, !noalias !128
   store ptr %arrayidx75.i.i.i869, ptr %list_node72.i.i.i866, align 8, !noalias !128
   store ptr %list_node72.i.i.i866, ptr %next.i.i63.i.i.i872, align 8, !noalias !128
-  br label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.exit.i.i"
+  br label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.argprom.exit.i.i"
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.exit.i.i": ; preds = %if.then71.i.i.i865, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i858
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %if.then71.i.i.i865, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i858
   %call1.i.i64.i.i.i873 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %add.ptr.i.i.i.i.i835) #34, !noalias !128
   %_name.i.i.i.i874 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i859, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i874, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i808)
           to label %.noexc8.i875 unwind label %lpad3.i822, !noalias !122
 
-.noexc8.i875:                                     ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.exit.i.i"
+.noexc8.i875:                                     ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.argprom.exit.i.i"
   %_priority.i.i.i.i876 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i859, i64 40
   store i32 0, ptr %_priority.i.i.i.i876, align 8, !noalias !128
   %_topology.i.i.i.i877 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i859, i64 48
@@ -4120,7 +4120,7 @@ lpad.i811:                                        ; preds = %call.i.noexc.i814, 
           cleanup
   br label %ehcleanup.i812
 
-lpad3.i822:                                       ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.exit.i.i", %if.else.i.i.i969, %if.then.i46.i.i.invoke.i821
+lpad3.i822:                                       ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_5EEEPS1_DpOT_.argprom.exit.i.i", %if.else.i.i.i969, %if.then.i46.i.i.invoke.i821
   %346 = landingpad { ptr, i32 }
           cleanup
   br label %lpad3.body.i823
@@ -4380,7 +4380,7 @@ _ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i1056: ; p
   %cond.i60.i.i.i1060 = select i1 %cmp.i58.i.i.i1058, i64 4, i64 %div.i59.i.i.i1059
   %conv69.i.i.i1061 = trunc i64 %cond.i60.i.i.i1060 to i32
   %cmp70.not.i.i.i1062 = icmp eq i32 %f.1.i.i.i1047, %conv69.i.i.i1061
-  br i1 %cmp70.not.i.i.i1062, label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.exit.i.i", label %if.then71.i.i.i1063
+  br i1 %cmp70.not.i.i.i1062, label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.argprom.exit.i.i", label %if.then71.i.i.i1063
 
 if.then71.i.i.i1063:                              ; preds = %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i1056
   %list_node72.i.i.i1064 = getelementptr inbounds i8, ptr %s.1.i.i.i1048, i64 8
@@ -4399,15 +4399,15 @@ if.then71.i.i.i1063:                              ; preds = %_ZN2tf10ObjectPoolI
   store ptr %381, ptr %next.i61.i.i.i1068, align 8, !noalias !136
   store ptr %arrayidx75.i.i.i1067, ptr %list_node72.i.i.i1064, align 8, !noalias !136
   store ptr %list_node72.i.i.i1064, ptr %next.i.i63.i.i.i1070, align 8, !noalias !136
-  br label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.exit.i.i"
+  br label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.argprom.exit.i.i"
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.exit.i.i": ; preds = %if.then71.i.i.i1063, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i1056
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %if.then71.i.i.i1063, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i1056
   %call1.i.i64.i.i.i1071 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %add.ptr.i.i.i.i.i1033) #34, !noalias !136
   %_name.i.i.i.i1072 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i1057, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i1072, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1006)
           to label %.noexc8.i1073 unwind label %lpad3.i1020, !noalias !130
 
-.noexc8.i1073:                                    ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.exit.i.i"
+.noexc8.i1073:                                    ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.argprom.exit.i.i"
   %_priority.i.i.i.i1074 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i1057, i64 40
   store i32 0, ptr %_priority.i.i.i.i1074, align 8, !noalias !136
   %_topology.i.i.i.i1075 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i1057, i64 48
@@ -4566,7 +4566,7 @@ lpad.i1009:                                       ; preds = %call.i.noexc.i1012,
           cleanup
   br label %ehcleanup.i1010
 
-lpad3.i1020:                                      ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.exit.i.i", %if.else.i.i.i1175, %if.then.i46.i.i.invoke.i1019
+lpad3.i1020:                                      ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_6EEEPS1_DpOT_.argprom.exit.i.i", %if.else.i.i.i1175, %if.then.i46.i.i.invoke.i1019
   %401 = landingpad { ptr, i32 }
           cleanup
   br label %lpad3.body.i1021
@@ -4826,7 +4826,7 @@ _ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i1262: ; p
   %cond.i60.i.i.i1266 = select i1 %cmp.i58.i.i.i1264, i64 4, i64 %div.i59.i.i.i1265
   %conv69.i.i.i1267 = trunc i64 %cond.i60.i.i.i1266 to i32
   %cmp70.not.i.i.i1268 = icmp eq i32 %f.1.i.i.i1253, %conv69.i.i.i1267
-  br i1 %cmp70.not.i.i.i1268, label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.exit.i.i", label %if.then71.i.i.i1269
+  br i1 %cmp70.not.i.i.i1268, label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.argprom.exit.i.i", label %if.then71.i.i.i1269
 
 if.then71.i.i.i1269:                              ; preds = %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i1262
   %list_node72.i.i.i1270 = getelementptr inbounds i8, ptr %s.1.i.i.i1254, i64 8
@@ -4845,15 +4845,15 @@ if.then71.i.i.i1269:                              ; preds = %_ZN2tf10ObjectPoolI
   store ptr %436, ptr %next.i61.i.i.i1274, align 8, !noalias !144
   store ptr %arrayidx75.i.i.i1273, ptr %list_node72.i.i.i1270, align 8, !noalias !144
   store ptr %list_node72.i.i.i1270, ptr %next.i.i63.i.i.i1276, align 8, !noalias !144
-  br label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.exit.i.i"
+  br label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.argprom.exit.i.i"
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.exit.i.i": ; preds = %if.then71.i.i.i1269, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i1262
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %if.then71.i.i.i1269, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i1262
   %call1.i.i64.i.i.i1277 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %add.ptr.i.i.i.i.i1239) #34, !noalias !144
   %_name.i.i.i.i1278 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i1263, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i1278, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1212)
           to label %.noexc8.i1279 unwind label %lpad5.i1226, !noalias !138
 
-.noexc8.i1279:                                    ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.exit.i.i"
+.noexc8.i1279:                                    ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.argprom.exit.i.i"
   %_priority.i.i.i.i1280 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i1263, i64 40
   store i32 0, ptr %_priority.i.i.i.i1280, align 8, !noalias !144
   %_topology.i.i.i.i1281 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i1263, i64 48
@@ -5096,7 +5096,7 @@ lpad.i1215:                                       ; preds = %call.i.noexc.i1218,
           cleanup
   br label %ehcleanup.i1216
 
-lpad5.i1226:                                      ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.exit.i.i", %if.else.i.i.i1381, %if.then.i46.i.i.invoke.i1225
+lpad5.i1226:                                      ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZ4mainE3$_7EEEPS1_DpOT_.argprom.exit.i.i", %if.else.i.i.i1381, %if.then.i46.i.i.invoke.i1225
   %470 = landingpad { ptr, i32 }
           cleanup
   br label %lpad5.body.i1227
@@ -22618,7 +22618,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i6.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35, !noalias !362
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i, i64 8
@@ -22642,7 +22642,7 @@ entry:
 
 call.i.noexc.i.i.i.i.i.i.i.i.i:                   ; preds = %entry
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1.i.i.i.i.i.i.i.i.i)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEEED2Ev.exit" unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !368
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEEED2Ev.argprom.exit" unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !368
 
 lpad.i.i.i.i.i.i.i.i.i.i:                         ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -22661,7 +22661,7 @@ lpad.body.i.i.i.i.i.i.i.i.i:                      ; preds = %lpad.i.i.i.i.i.i.i.
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i6.i.i.i.i) #36, !noalias !362
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEEED2Ev.exit": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEEED2Ev.argprom.exit": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !368
   store ptr %call.i1.i.i.i.i.i.i.i.i.i, ptr %_M_result.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !365, !noalias !362
@@ -22714,13 +22714,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %_M_result.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_result.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_0S0_FvvEEEEEvRS0_PT_.exit", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_0S0_FvvEEEEEvRS0_PT_.argprom.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_0S0_FvvEEEEEvRS0_PT_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_0S0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -22729,14 +22729,14 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %7) #37
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_0S0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_0S0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %if.then.i.i.i.i.i.i
   store ptr null, ptr %_M_result.i.i.i.i.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
   ret void
 }
@@ -23074,7 +23074,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEE8_M_resetEv"(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.392") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
 entry:
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr noalias align 8 %agg.result)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr noalias align 8 %agg.result)
   ret void
 }
 
@@ -23560,13 +23560,13 @@ entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %call.val = load ptr, ptr %__functor.val, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS0_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_EUlvE_JEENS4_IX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit"
+  br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS0_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_EUlvE_JEENS4_IX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.argprom.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @_ZSt20__throw_future_errori(i32 noundef 3) #38
   unreachable
 
-"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS0_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_EUlvE_JEENS4_IX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS0_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_EUlvE_JEENS4_IX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.argprom.exit": ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %call.val, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -23906,7 +23906,7 @@ declare void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i6.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35, !noalias !392
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i, i64 8
@@ -23930,7 +23930,7 @@ entry:
 
 call.i.noexc.i.i.i.i.i.i.i.i.i:                   ; preds = %entry
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1.i.i.i.i.i.i.i.i.i)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEEED2Ev.exit" unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !398
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEEED2Ev.argprom.exit" unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !398
 
 lpad.i.i.i.i.i.i.i.i.i.i:                         ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -23949,7 +23949,7 @@ lpad.body.i.i.i.i.i.i.i.i.i:                      ; preds = %lpad.i.i.i.i.i.i.i.
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i6.i.i.i.i) #36, !noalias !392
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEEED2Ev.exit": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEEED2Ev.argprom.exit": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !398
   store ptr %call.i1.i.i.i.i.i.i.i.i.i, ptr %_M_result.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !395, !noalias !392
@@ -24002,13 +24002,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %_M_result.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_result.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_1S0_FvvEEEEEvRS0_PT_.exit", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_1S0_FvvEEEEEvRS0_PT_.argprom.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_1S0_FvvEEEEEvRS0_PT_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_1S0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -24017,14 +24017,14 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %7) #37
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_1S0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_1S0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %if.then.i.i.i.i.i.i
   store ptr null, ptr %_M_result.i.i.i.i.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
   ret void
 }
@@ -24350,7 +24350,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEE8_M_resetEv"(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.392") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
 entry:
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr noalias align 8 %agg.result)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr noalias align 8 %agg.result)
   ret void
 }
 
@@ -24436,13 +24436,13 @@ entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %call.val = load ptr, ptr %__functor.val, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS0_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
+  br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS0_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.argprom.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @_ZSt20__throw_future_errori(i32 noundef 3) #38
   unreachable
 
-"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS0_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS0_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.argprom.exit": ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %call.val, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -24498,7 +24498,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i6.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35, !noalias !415
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i, i64 8
@@ -24522,7 +24522,7 @@ entry:
 
 call.i.noexc.i.i.i.i.i.i.i.i.i:                   ; preds = %entry
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1.i.i.i.i.i.i.i.i.i)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEEED2Ev.exit" unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !421
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEEED2Ev.argprom.exit" unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !421
 
 lpad.i.i.i.i.i.i.i.i.i.i:                         ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -24541,7 +24541,7 @@ lpad.body.i.i.i.i.i.i.i.i.i:                      ; preds = %lpad.i.i.i.i.i.i.i.
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i6.i.i.i.i) #36, !noalias !415
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEEED2Ev.exit": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEEED2Ev.argprom.exit": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !421
   store ptr %call.i1.i.i.i.i.i.i.i.i.i, ptr %_M_result.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !418, !noalias !415
@@ -24594,13 +24594,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %_M_result.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_result.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_2S0_FvvEEEEEvRS0_PT_.exit", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_2S0_FvvEEEEEvRS0_PT_.argprom.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_2S0_FvvEEEEEvRS0_PT_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_2S0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -24609,14 +24609,14 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %7) #37
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_2S0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_2S0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %if.then.i.i.i.i.i.i
   store ptr null, ptr %_M_result.i.i.i.i.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
   ret void
 }
@@ -24942,7 +24942,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEE8_M_resetEv"(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.392") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
 entry:
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr noalias align 8 %agg.result)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr noalias align 8 %agg.result)
   ret void
 }
 
@@ -25028,13 +25028,13 @@ entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %call.val = load ptr, ptr %__functor.val, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS0_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
+  br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS0_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.argprom.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @_ZSt20__throw_future_errori(i32 noundef 3) #38
   unreachable
 
-"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS0_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS0_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.argprom.exit": ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %call.val, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -25090,7 +25090,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i6.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35, !noalias !438
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i, i64 8
@@ -25114,7 +25114,7 @@ entry:
 
 call.i.noexc.i.i.i.i.i.i.i.i.i:                   ; preds = %entry
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1.i.i.i.i.i.i.i.i.i)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEEED2Ev.exit" unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !444
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEEED2Ev.argprom.exit" unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !444
 
 lpad.i.i.i.i.i.i.i.i.i.i:                         ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -25133,7 +25133,7 @@ lpad.body.i.i.i.i.i.i.i.i.i:                      ; preds = %lpad.i.i.i.i.i.i.i.
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i6.i.i.i.i) #36, !noalias !438
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEEED2Ev.exit": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEEED2Ev.argprom.exit": ; preds = %call.i.noexc.i.i.i.i.i.i.i.i.i
   %_M_result.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i6.i.i.i.i, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %call.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !444
   store ptr %call.i1.i.i.i.i.i.i.i.i.i, ptr %_M_result.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !441, !noalias !438
@@ -25186,13 +25186,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %_M_result.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_result.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_3S0_FvvEEEEEvRS0_PT_.exit", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_3S0_FvvEEEEEvRS0_PT_.argprom.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_3S0_FvvEEEEEvRS0_PT_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_3S0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -25201,14 +25201,14 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %7) #37
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_3S0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZ4mainE3$_3S0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %if.then.i.i.i.i.i.i
   store ptr null, ptr %_M_result.i.i.i.i.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
   ret void
 }
@@ -25534,7 +25534,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEE8_M_resetEv"(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.392") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
 entry:
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr noalias align 8 %agg.result)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr noalias align 8 %agg.result)
   ret void
 }
 
@@ -25620,13 +25620,13 @@ entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %call.val = load ptr, ptr %__functor.val, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS0_9AsyncTaskES5_ETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
+  br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS0_9AsyncTaskES5_ETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.argprom.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @_ZSt20__throw_future_errori(i32 noundef 3) #38
   unreachable
 
-"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS0_9AsyncTaskES5_ETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS0_9AsyncTaskES5_ETnPNSt9enable_ifIX10all_same_vIS4_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS8_EUlvE_JEENS6_IX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.argprom.exit": ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %call.val, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -26049,18 +26049,18 @@ attributes #42 = { cold }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS6_: %agg.result"}
-!12 = distinct !{!12, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS6_"}
+!11 = distinct !{!11, !12, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS6_.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS6_.argprom"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS6_: %agg.result"}
-!15 = distinct !{!15, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS6_"}
+!14 = distinct !{!14, !15, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS6_.argprom: %agg.result"}
+!15 = distinct !{!15, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_0JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS6_.argprom"}
 !16 = !{!14, !11}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_: %agg.result"}
-!19 = distinct !{!19, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"}
+!18 = distinct !{!18, !19, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom: %agg.result"}
+!19 = distinct !{!19, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"}
 !20 = !{!21, !18, !14, !11}
-!21 = distinct !{!21, !22, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_: %agg.result"}
-!22 = distinct !{!22, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_"}
+!21 = distinct !{!21, !22, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom: %agg.result"}
+!22 = distinct !{!22, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom"}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: %agg.result"}
 !25 = distinct !{!25, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -26075,18 +26075,18 @@ attributes #42 = { cold }
 !34 = distinct !{!34, !"_ZSt9make_pairIN2tf9AsyncTaskESt6futureIvEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
 !35 = !{!33, !14, !11}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_: %agg.result"}
-!38 = distinct !{!38, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_"}
+!37 = distinct !{!37, !38, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_.argprom: %agg.result"}
+!38 = distinct !{!38, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_.argprom"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_: %agg.result"}
-!41 = distinct !{!41, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_"}
+!40 = distinct !{!40, !41, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom: %agg.result"}
+!41 = distinct !{!41, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_1JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom"}
 !42 = !{!40, !37}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_: %agg.result"}
-!45 = distinct !{!45, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"}
+!44 = distinct !{!44, !45, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom: %agg.result"}
+!45 = distinct !{!45, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"}
 !46 = !{!47, !44, !40, !37}
-!47 = distinct !{!47, !48, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_: %agg.result"}
-!48 = distinct !{!48, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_"}
+!47 = distinct !{!47, !48, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom: %agg.result"}
+!48 = distinct !{!48, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom"}
 !49 = !{!50}
 !50 = distinct !{!50, !51, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: %agg.result"}
 !51 = distinct !{!51, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -26101,18 +26101,18 @@ attributes #42 = { cold }
 !60 = distinct !{!60, !"_ZSt9make_pairIN2tf9AsyncTaskESt6futureIvEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
 !61 = !{!59}
 !62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_: %agg.result"}
-!64 = distinct !{!64, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_"}
+!63 = distinct !{!63, !64, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_.argprom: %agg.result"}
+!64 = distinct !{!64, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_.argprom"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_: %agg.result"}
-!67 = distinct !{!67, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_"}
+!66 = distinct !{!66, !67, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom: %agg.result"}
+!67 = distinct !{!67, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_2JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom"}
 !68 = !{!66, !63}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_: %agg.result"}
-!71 = distinct !{!71, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"}
+!70 = distinct !{!70, !71, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom: %agg.result"}
+!71 = distinct !{!71, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"}
 !72 = !{!73, !70, !66, !63}
-!73 = distinct !{!73, !74, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_: %agg.result"}
-!74 = distinct !{!74, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_"}
+!73 = distinct !{!73, !74, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom: %agg.result"}
+!74 = distinct !{!74, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom"}
 !75 = !{!76}
 !76 = distinct !{!76, !77, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: %agg.result"}
 !77 = distinct !{!77, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -26127,18 +26127,18 @@ attributes #42 = { cold }
 !86 = distinct !{!86, !"_ZSt9make_pairIN2tf9AsyncTaskESt6futureIvEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
 !87 = !{!85}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_: %agg.result"}
-!90 = distinct !{!90, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_"}
+!89 = distinct !{!89, !90, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_.argprom: %agg.result"}
+!90 = distinct !{!90, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaOT_DpOS7_.argprom"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_: %agg.result"}
-!93 = distinct !{!93, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_"}
+!92 = distinct !{!92, !93, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom: %agg.result"}
+!93 = distinct !{!93, !"_ZN2tf8Executor15dependent_asyncIZ4mainE3$_3JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEEDaRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom"}
 !94 = !{!92, !89}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_: %agg.result"}
-!97 = distinct !{!97, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"}
+!96 = distinct !{!96, !97, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom: %agg.result"}
+!97 = distinct !{!97, !"_ZStL19__create_task_stateIFvvEZ4mainE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"}
 !98 = !{!99, !96, !92, !89}
-!99 = distinct !{!99, !100, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_: %agg.result"}
-!100 = distinct !{!100, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_"}
+!99 = distinct !{!99, !100, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom: %agg.result"}
+!100 = distinct !{!100, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom"}
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: %agg.result"}
 !103 = distinct !{!103, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -26153,35 +26153,35 @@ attributes #42 = { cold }
 !112 = distinct !{!112, !"_ZSt9make_pairIN2tf9AsyncTaskESt6futureIvEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
 !113 = !{!111, !92, !89}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_OT_DpOS6_: %agg.result"}
-!116 = distinct !{!116, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_OT_DpOS6_"}
+!115 = distinct !{!115, !116, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_OT_DpOS6_.argprom: %agg.result"}
+!116 = distinct !{!116, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_OT_DpOS6_.argprom"}
 !117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS6_: %agg.result"}
-!119 = distinct !{!119, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS6_"}
+!118 = distinct !{!118, !119, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS6_.argprom: %agg.result"}
+!119 = distinct !{!119, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_4JETnPNSt9enable_ifIX10all_same_vINS_9AsyncTaskEDpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS6_.argprom"}
 !120 = !{!118, !115}
 !121 = distinct !{!121, !6}
 !122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_5JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_: %agg.result"}
-!124 = distinct !{!124, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_5JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_"}
+!123 = distinct !{!123, !124, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_5JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_.argprom: %agg.result"}
+!124 = distinct !{!124, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_5JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_.argprom"}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_5JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_: %agg.result"}
-!127 = distinct !{!127, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_5JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_"}
+!126 = distinct !{!126, !127, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_5JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom: %agg.result"}
+!127 = distinct !{!127, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_5JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom"}
 !128 = !{!126, !123}
 !129 = distinct !{!129, !6}
 !130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_6JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_: %agg.result"}
-!132 = distinct !{!132, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_6JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_"}
+!131 = distinct !{!131, !132, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_6JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_.argprom: %agg.result"}
+!132 = distinct !{!132, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_6JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_.argprom"}
 !133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_6JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_: %agg.result"}
-!135 = distinct !{!135, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_6JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_"}
+!134 = distinct !{!134, !135, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_6JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom: %agg.result"}
+!135 = distinct !{!135, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_6JRNS_9AsyncTaskEETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom"}
 !136 = !{!134, !131}
 !137 = distinct !{!137, !6}
 !138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_7JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_: %agg.result"}
-!140 = distinct !{!140, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_7JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_"}
+!139 = distinct !{!139, !140, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_7JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_.argprom: %agg.result"}
+!140 = distinct !{!140, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_7JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_OT_DpOS7_.argprom"}
 !141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_7JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_: %agg.result"}
-!143 = distinct !{!143, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_7JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_"}
+!142 = distinct !{!142, !143, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_7JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom: %agg.result"}
+!143 = distinct !{!143, !"_ZN2tf8Executor22silent_dependent_asyncIZ4mainE3$_7JRNS_9AsyncTaskES4_ETnPNSt9enable_ifIX10all_same_vIS3_DpNSt5decayIT0_E4typeEEEvE4typeELPv0EEES3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOS7_.argprom"}
 !144 = !{!142, !139}
 !145 = distinct !{!145, !6}
 !146 = distinct !{!146, !6}
@@ -26401,8 +26401,8 @@ attributes #42 = { cold }
 !360 = distinct !{!360, !6}
 !361 = distinct !{!361, !6}
 !362 = !{!363}
-!363 = distinct !{!363, !364, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_: %agg.result"}
-!364 = distinct !{!364, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_"}
+!363 = distinct !{!363, !364, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom: %agg.result"}
+!364 = distinct !{!364, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom"}
 !365 = !{!366}
 !366 = distinct !{!366, !367, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: %agg.result"}
 !367 = distinct !{!367, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -26431,8 +26431,8 @@ attributes #42 = { cold }
 !390 = distinct !{!390, !391, !"_ZNKSt10error_code7messageB5cxx11Ev: %agg.result"}
 !391 = distinct !{!391, !"_ZNKSt10error_code7messageB5cxx11Ev"}
 !392 = !{!393}
-!393 = distinct !{!393, !394, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_: %agg.result"}
-!394 = distinct !{!394, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_"}
+!393 = distinct !{!393, !394, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom: %agg.result"}
+!394 = distinct !{!394, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom"}
 !395 = !{!396}
 !396 = distinct !{!396, !397, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: %agg.result"}
 !397 = distinct !{!397, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -26454,8 +26454,8 @@ attributes #42 = { cold }
 !413 = distinct !{!413, !414, !"_ZSt13__invoke_implISt10unique_ptrINSt13__future_base7_ResultIvEENS1_12_Result_base8_DeleterEERNS1_12_Task_setterIS6_ZNS1_11_Task_stateIZ4mainE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
 !414 = distinct !{!414, !"_ZSt13__invoke_implISt10unique_ptrINSt13__future_base7_ResultIvEENS1_12_Result_base8_DeleterEERNS1_12_Task_setterIS6_ZNS1_11_Task_stateIZ4mainE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEET_St14__invoke_otherOT0_DpOT1_"}
 !415 = !{!416}
-!416 = distinct !{!416, !417, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_: %agg.result"}
-!417 = distinct !{!417, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_"}
+!416 = distinct !{!416, !417, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom: %agg.result"}
+!417 = distinct !{!417, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_2SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom"}
 !418 = !{!419}
 !419 = distinct !{!419, !420, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: %agg.result"}
 !420 = distinct !{!420, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -26477,8 +26477,8 @@ attributes #42 = { cold }
 !436 = distinct !{!436, !437, !"_ZSt13__invoke_implISt10unique_ptrINSt13__future_base7_ResultIvEENS1_12_Result_base8_DeleterEERNS1_12_Task_setterIS6_ZNS1_11_Task_stateIZ4mainE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
 !437 = distinct !{!437, !"_ZSt13__invoke_implISt10unique_ptrINSt13__future_base7_ResultIvEENS1_12_Result_base8_DeleterEERNS1_12_Task_setterIS6_ZNS1_11_Task_stateIZ4mainE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEET_St14__invoke_otherOT0_DpOT1_"}
 !438 = !{!439}
-!439 = distinct !{!439, !440, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_: %agg.result"}
-!440 = distinct !{!440, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_"}
+!439 = distinct !{!439, !440, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom: %agg.result"}
+!440 = distinct !{!440, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZ4mainE3$_3SaIiEFvvEEES3_JS2_RKS3_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEERKT0_DpOT1_.argprom"}
 !441 = !{!442}
 !442 = distinct !{!442, !443, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: %agg.result"}
 !443 = distinct !{!443, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}

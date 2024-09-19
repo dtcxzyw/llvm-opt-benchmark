@@ -346,9 +346,9 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   %56 = call i32 @fflush(ptr noundef %55)
   br label %303
 
-57:                                               ; preds = %.lr.ph, %ZDICT_countEStats.exit
-  %indvars.iv226 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next227, %ZDICT_countEStats.exit ]
-  %.0153200 = phi i64 [ 0, %.lr.ph ], [ %146, %ZDICT_countEStats.exit ]
+57:                                               ; preds = %.lr.ph, %ZDICT_countEStats.argprom.exit
+  %indvars.iv226 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next227, %ZDICT_countEStats.argprom.exit ]
+  %.0153200 = phi i64 [ 0, %.lr.ph ], [ %146, %ZDICT_countEStats.argprom.exit ]
   %58 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv226
   %59 = load i64, ptr %58, align 8
   %.0.i = call i64 @llvm.umin.i64(i64 %59, i64 %spec.select.i)
@@ -357,14 +357,14 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %61, label %68, label %62
 
 62:                                               ; preds = %57
-  br i1 %.not63.i, label %ZDICT_countEStats.exit, label %63
+  br i1 %.not63.i, label %ZDICT_countEStats.argprom.exit, label %63
 
 63:                                               ; preds = %62
   %64 = load ptr, ptr @stderr, align 8
   %65 = call i64 @fwrite(ptr nonnull @.str.16, i64 48, i64 1, ptr %64) #18
   %66 = load ptr, ptr @stderr, align 8
   %67 = call i32 @fflush(ptr noundef %66)
-  br label %ZDICT_countEStats.exit
+  br label %ZDICT_countEStats.argprom.exit
 
 68:                                               ; preds = %57
   %69 = getelementptr inbounds i8, ptr %3, i64 %.0153200
@@ -373,7 +373,7 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %71, label %79, label %72
 
 72:                                               ; preds = %68
-  br i1 %49, label %73, label %ZDICT_countEStats.exit
+  br i1 %49, label %73, label %ZDICT_countEStats.argprom.exit
 
 73:                                               ; preds = %72
   %74 = load ptr, ptr @stderr, align 8
@@ -381,11 +381,11 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.17, i32 noundef %75) #17
   %77 = load ptr, ptr @stderr, align 8
   %78 = call i32 @fflush(ptr noundef %77)
-  br label %ZDICT_countEStats.exit
+  br label %ZDICT_countEStats.argprom.exit
 
 79:                                               ; preds = %68
   %.not62.i = icmp eq i64 %70, 0
-  br i1 %.not62.i, label %ZDICT_countEStats.exit, label %80
+  br i1 %.not62.i, label %ZDICT_countEStats.argprom.exit, label %80
 
 80:                                               ; preds = %79
   %81 = call ptr @ZSTD_getSeqStore(ptr noundef %44) #15
@@ -422,7 +422,7 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   %104 = getelementptr inbounds i8, ptr %81, i64 48
   %105 = load ptr, ptr %104, align 8
   %.not.i179 = icmp eq i32 %102, 0
-  br i1 %.not.i179, label %ZDICT_countEStats.exit, label %.lr.ph4.preheader.i
+  br i1 %.not.i179, label %ZDICT_countEStats.argprom.exit, label %.lr.ph4.preheader.i
 
 .lr.ph4.preheader.i:                              ; preds = %._crit_edge.i
   %wide.trip.count.i180 = and i64 %101, 4294967295
@@ -479,7 +479,7 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
 
 ._crit_edge13.i:                                  ; preds = %.lr.ph12.i
   %.not27.i = icmp eq i32 %102, 1
-  br i1 %.not27.i, label %ZDICT_countEStats.exit, label %128
+  br i1 %.not27.i, label %ZDICT_countEStats.argprom.exit, label %128
 
 128:                                              ; preds = %._crit_edge13.i
   %129 = load ptr, ptr %81, align 8
@@ -502,16 +502,16 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   %143 = load i32, ptr %142, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %142, align 4
-  br label %ZDICT_countEStats.exit
+  br label %ZDICT_countEStats.argprom.exit
 
-ZDICT_countEStats.exit:                           ; preds = %62, %63, %72, %73, %79, %._crit_edge.i, %._crit_edge13.i, %128
+ZDICT_countEStats.argprom.exit:                   ; preds = %62, %63, %72, %73, %79, %._crit_edge.i, %._crit_edge13.i, %128
   %145 = load i64, ptr %58, align 8
   %146 = add i64 %145, %.0153200
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
   br i1 %exitcond230.not, label %._crit_edge, label %57, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %ZDICT_countEStats.exit, %.preheader191
+._crit_edge:                                      ; preds = %ZDICT_countEStats.argprom.exit, %.preheader191
   %147 = icmp ugt i32 %8, 3
   br i1 %147, label %148, label %.loopexit
 

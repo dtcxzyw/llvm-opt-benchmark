@@ -10496,7 +10496,7 @@ cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNK11flatbuffers5T
 
 invoke.cont6.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i.i.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i.i.i, %invoke.cont4.i.i.i.i
   %cond.i.i.i.i.i.i.i = phi ptr [ %add.ptr4.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i.i.i ], [ null, %invoke.cont4.i.i.i.i ]
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator17GenerateTypeBasicB5cxx11EPKN10reflection4TypeEb(ptr noalias align 8 %enum_type.i.i.i.i, ptr noundef %cond.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator17GenerateTypeBasicB5cxx11EPKN10reflection4TypeEb.argprom.argelim(ptr noalias align 8 %enum_type.i.i.i.i, ptr noundef %cond.i.i.i.i.i.i.i)
           to label %invoke.cont7.i.i.i.i unwind label %lpad5.i.i.i.i
 
 invoke.cont7.i.i.i.i:                             ; preds = %invoke.cont6.i.i.i.i
@@ -10564,7 +10564,7 @@ lpad.i3.i.i.i:                                    ; preds = %invoke.cont.i4.i.i.
 
 invoke.cont13.i.i.i.i:                            ; preds = %invoke.cont.i4.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i)
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_(ptr noundef %cond.i.i.i17.i.i.i.i, ptr noundef %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %code.i.i.i.i)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_.argprom(ptr noundef %cond.i.i.i17.i.i.i.i, ptr noundef %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %code.i.i.i.i)
           to label %invoke.cont15.i.i.i.i unwind label %lpad14.i.i.i.i
 
 invoke.cont15.i.i.i.i:                            ; preds = %invoke.cont13.i.i.i.i
@@ -10762,7 +10762,7 @@ invoke.cont39.i.i.i.i:                            ; preds = %_ZNSt8functionIFvPK
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator13EmitCodeBlockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(624) %call.val, ptr noundef nonnull align 8 dereferenceable(32) %code.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %enum_name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ns.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i.i.i.i)
-          to label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator18GenerateFromSchemaEPKN10reflection6SchemaERKNS0_14CodeGenOptionsEEUlPKNS3_4EnumEE_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit unwind label %lpad40.i.i.i.i
+          to label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator18GenerateFromSchemaEPKN10reflection6SchemaERKNS0_14CodeGenOptionsEEUlPKNS3_4EnumEE_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit unwind label %lpad40.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14StartCodeBlockEPKN10reflection4EnumE.exit.i.i.i
   %39 = landingpad { ptr, i32 }
@@ -10876,7 +10876,7 @@ ehcleanup45.i.i.i.i:                              ; preds = %ehcleanup44.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %code.i.i.i.i) #25
   resume { ptr, i32 } %.pn9.pn.pn.i.i.i.i
 
-_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator18GenerateFromSchemaEPKN10reflection6SchemaERKNS0_14CodeGenOptionsEEUlPKNS3_4EnumEE_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %invoke.cont39.i.i.i.i
+_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator18GenerateFromSchemaEPKN10reflection6SchemaERKNS0_14CodeGenOptionsEEUlPKNS3_4EnumEE_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit: ; preds = %invoke.cont39.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %enum_type.i.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %enum_name.i.i.i.i) #25
@@ -11000,7 +11000,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator17GenerateTypeBasicB5cxx11EPKN10reflection4TypeEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator17GenerateTypeBasicB5cxx11EPKN10reflection4TypeEb.argprom.argelim(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load i32, ptr %type, align 4
@@ -11027,7 +11027,7 @@ _ZNK10reflection4Type9base_typeEv.exit:           ; preds = %_ZNK11flatbuffers5T
   br i1 %6, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK10reflection4Type9base_typeEv.exit
-  tail call fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE(ptr noalias align 8 %agg.result, i32 noundef %4)
+  tail call fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE.argprom(ptr noalias align 8 %agg.result, i32 noundef %4)
   br label %return
 
 if.else:                                          ; preds = %entry, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %_ZNK10reflection4Type9base_typeEv.exit
@@ -11068,7 +11068,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_(ptr noundef %documentation, ptr noundef nonnull %indent, ptr noundef nonnull align 8 dereferenceable(32) %code) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_.argprom(ptr noundef %documentation, ptr noundef nonnull %indent, ptr noundef nonnull align 8 dereferenceable(32) %code) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca ptr, align 8
   %agg.tmp = alloca %"class.std::function.142", align 8
@@ -11865,7 +11865,7 @@ ehcleanup165:                                     ; preds = %lpad10.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE(ptr noalias nonnull align 8 %agg.result, i32 noundef %base_type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE.argprom(ptr noalias nonnull align 8 %agg.result, i32 noundef %base_type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -12372,7 +12372,7 @@ invoke.cont8.i.i.i:                               ; preds = %invoke.cont6.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i89.i.i.i) #25
   %5 = load ptr, ptr %__functor, align 8
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
-          to label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS0_6VectorINS0_6OffsetINS0_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_EUlPKS5_E_JSI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit unwind label %lpad9.i.i.i
+          to label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS0_6VectorINS0_6OffsetINS0_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_EUlPKS5_E_JSI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit unwind label %lpad9.i.i.i
 
 lpad5.i.i.i:                                      ; preds = %if.end7.i.i.i.i, %if.then5.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -12400,7 +12400,7 @@ ehcleanup11.i.i.i:                                ; preds = %ehcleanup.i.i.i, %l
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i) #25
   br label %common.resume.i.i.i
 
-_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS0_6VectorINS0_6OffsetINS0_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_EUlPKS5_E_JSI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit: ; preds = %invoke.cont8.i.i.i
+_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS0_6VectorINS0_6OffsetINS0_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_EUlPKS5_E_JSI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit: ; preds = %invoke.cont8.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i) #25
@@ -12550,7 +12550,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i3.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i)
   %8 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_(ptr noundef %cond.i.i.i.i.i.i, ptr noundef %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_.argprom(ptr noundef %cond.i.i.i.i.i.i, ptr noundef %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %invoke.cont3.i.i.i unwind label %lpad2.i.i.i
 
 invoke.cont3.i.i.i:                               ; preds = %invoke.cont.i.i.i
@@ -12699,7 +12699,7 @@ invoke.cont31.i.i.i:                              ; preds = %invoke.cont29.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i4950.i.i.i) #25
   %25 = load ptr, ptr %8, align 8
   %call34.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i)
-          to label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateEnumEPKN10reflection4EnumEEUlPKNS3_7EnumValEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit unwind label %lpad32.i.i.i
+          to label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateEnumEPKN10reflection4EnumEEUlPKNS3_7EnumValEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit unwind label %lpad32.i.i.i
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %_ZNK10reflection7EnumVal13documentationEv.exit.i.i.i
   %26 = landingpad { ptr, i32 }
@@ -12803,7 +12803,7 @@ ehcleanup43.i.i.i:                                ; preds = %ehcleanup42.i.i.i, 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i.i.i) #25
   br label %common.resume.i.i.i
 
-_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateEnumEPKN10reflection4EnumEEUlPKNS3_7EnumValEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %invoke.cont31.i.i.i
+_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateEnumEPKN10reflection4EnumEEUlPKNS3_7EnumValEE_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit: ; preds = %invoke.cont31.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i.i.i) #25
@@ -13183,7 +13183,7 @@ lpad.i27.i.i.i:                                   ; preds = %invoke.cont.i28.i.i
 
 invoke.cont22.i.i.i.i:                            ; preds = %invoke.cont.i28.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i21.i.i.i)
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_(ptr noundef %cond.i.i.i.i.i.i.i, ptr noundef %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %code.i.i.i.i)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_.argprom(ptr noundef %cond.i.i.i.i.i.i.i, ptr noundef %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %code.i.i.i.i)
           to label %invoke.cont24.i.i.i.i unwind label %lpad23.i.i.i.i
 
 invoke.cont24.i.i.i.i:                            ; preds = %invoke.cont22.i.i.i.i
@@ -13931,7 +13931,7 @@ invoke.cont160.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator13EmitCodeBlockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(624) %call.val, ptr noundef nonnull align 8 dereferenceable(32) %code.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %object_name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ns.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157.i.i.i.i)
-          to label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator18GenerateFromSchemaEPKN10reflection6SchemaERKNS0_14CodeGenOptionsEEUlPKNS3_6ObjectEE_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit unwind label %lpad161.i.i.i.i
+          to label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator18GenerateFromSchemaEPKN10reflection6SchemaERKNS0_14CodeGenOptionsEEUlPKNS3_6ObjectEE_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit unwind label %lpad161.i.i.i.i
 
 lpad161.i.i.i.i:                                  ; preds = %invoke.cont160.i.i.i.i
   %105 = landingpad { ptr, i32 }
@@ -13954,7 +13954,7 @@ eh.resume.i.i.i.i:                                ; preds = %ehcleanup165.i.i.i.
   %.pn28.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn28.pn.i.i.i.i, %ehcleanup165.i.i.i.i ], [ %.pn.pn.i.i.i.i, %ehcleanup10.i.i.i.i ]
   resume { ptr, i32 } %.pn28.pn.pn.i.i.i.i
 
-_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator18GenerateFromSchemaEPKN10reflection6SchemaERKNS0_14CodeGenOptionsEEUlPKNS3_6ObjectEE_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %invoke.cont160.i.i.i.i
+_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator18GenerateFromSchemaEPKN10reflection6SchemaERKNS0_14CodeGenOptionsEEUlPKNS3_6ObjectEE_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit: ; preds = %invoke.cont160.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157.i.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %object_name.i.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ns.i.i.i.i) #25
@@ -15461,7 +15461,7 @@ cond.true.i.i.i139:                               ; preds = %_ZNK11flatbuffers5T
 
 invoke.cont5:                                     ; preds = %cond.true.i.i.i139, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i136, %invoke.cont3
   %cond.i.i.i135 = phi ptr [ %add.ptr4.i.i.i143, %cond.true.i.i.i139 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i136 ], [ null, %invoke.cont3 ]
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb(ptr noalias align 8 %field_type, ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %cond.i.i.i135, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb.argelim(ptr noalias align 8 %field_type, ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %cond.i.i.i135, i1 noundef zeroext false)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -15757,7 +15757,7 @@ lpad.i225:                                        ; preds = %.noexc227
 invoke.cont59:                                    ; preds = %.noexc227
   %47 = getelementptr inbounds i8, ptr %this, i64 16
   %48 = load ptr, ptr %47, align 8
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_(ptr noundef %cond.i.i.i213, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator21GenerateDocumentationEPKNS_6VectorINS_6OffsetINS_6StringEEEjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSE_.argprom(ptr noundef %cond.i.i.i213, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont59
@@ -17589,7 +17589,7 @@ cond.true.i.i.i612:                               ; preds = %_ZNK11flatbuffers5T
 
 invoke.cont365:                                   ; preds = %cond.true.i.i.i612, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i609, %invoke.cont362
   %cond.i.i.i608 = phi ptr [ %add.ptr4.i.i.i616, %cond.true.i.i.i612 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i609 ], [ null, %invoke.cont362 ]
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb(ptr noalias align 8 %ref.tmp363, ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %cond.i.i.i608, i1 noundef zeroext true)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb.argelim(ptr noalias align 8 %ref.tmp363, ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %cond.i.i.i608, i1 noundef zeroext true)
           to label %invoke.cont367 unwind label %lpad364
 
 invoke.cont367:                                   ; preds = %invoke.cont365
@@ -17819,7 +17819,7 @@ cond.true.i.i.i692:                               ; preds = %_ZNK11flatbuffers5T
 
 invoke.cont453:                                   ; preds = %cond.true.i.i.i692, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i689, %invoke.cont450
   %cond.i.i.i688 = phi ptr [ %add.ptr4.i.i.i696, %cond.true.i.i.i692 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i689 ], [ null, %invoke.cont450 ]
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb(ptr noalias align 8 %ref.tmp451, ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %cond.i.i.i688, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb.argelim(ptr noalias align 8 %ref.tmp451, ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %cond.i.i.i688, i1 noundef zeroext false)
           to label %invoke.cont455 unwind label %lpad452
 
 invoke.cont455:                                   ; preds = %invoke.cont453
@@ -18273,7 +18273,7 @@ ehcleanup500:                                     ; preds = %ehcleanup499, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr nocapture noundef readonly %type, i1 noundef zeroext %element_type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb.argelim(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr nocapture noundef readonly %type, i1 noundef zeroext %element_type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ns.i137 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i131 = alloca %"class.std::allocator", align 1
@@ -18493,7 +18493,7 @@ ehcleanup18:                                      ; preds = %lpad.i, %ehcleanup,
   br label %eh.resume
 
 if.then21:                                        ; preds = %cond.end.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i20.i, %_ZNK10reflection4Type5indexEv.exit37.i, %lor.lhs.false2.i.i, %_ZNK10reflection4Type5indexEv.exit.i
-  call fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE(ptr noalias align 8 %ref.tmp22, i32 noundef %cond161167)
+  call fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE.argprom(ptr noalias align 8 %ref.tmp22, i32 noundef %cond161167)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %importns.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %importns.i) #25, !noalias !178
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ns.i.i), !noalias !178
@@ -18560,7 +18560,7 @@ lpad28.body:                                      ; preds = %lpad.i51, %lpad28
   br label %eh.resume
 
 sw.bb31:                                          ; preds = %if.end26
-  call fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb(ptr noalias align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull %type, i1 noundef zeroext true)
+  call fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb.argelim(ptr noalias align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull %type, i1 noundef zeroext true)
   %call.i5556 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33, i64 noundef 0, ptr noundef nonnull @.str.180)
           to label %invoke.cont35 unwind label %lpad34
 
@@ -19449,7 +19449,7 @@ lpad.i220:                                        ; preds = %invoke.cont.i221, %
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i221
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i215)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator11StringSplitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias align 8 %relative_to_vec.i, ptr noundef %agg.tmp.i, ptr noundef %agg.tmp2.i)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator11StringSplitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom(ptr noalias align 8 %relative_to_vec.i, ptr noundef %agg.tmp.i, ptr noundef %agg.tmp2.i)
           to label %invoke.cont4.i unwind label %lpad3.i, !noalias !199
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
@@ -19500,7 +19500,7 @@ lpad.i210:                                        ; preds = %invoke.cont.i211, %
 
 invoke.cont12.i:                                  ; preds = %invoke.cont.i211
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i205)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator11StringSplitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias align 8 %str2_vec.i, ptr noundef %agg.tmp6.i, ptr noundef %agg.tmp9.i)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator11StringSplitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom(ptr noalias align 8 %str2_vec.i, ptr noundef %agg.tmp6.i, ptr noundef %agg.tmp9.i)
           to label %invoke.cont14.i unwind label %lpad13.i, !noalias !199
 
 invoke.cont14.i:                                  ; preds = %invoke.cont12.i
@@ -20058,7 +20058,7 @@ lpad12:                                           ; preds = %invoke.cont11
   br label %ehcleanup84
 
 sw.bb14:                                          ; preds = %if.end
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull %type, i1 noundef zeroext %element_type)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb.argelim(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull %type, i1 noundef zeroext %element_type)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %sw.bb14
@@ -20194,7 +20194,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZNK10reflection4Ty
   br i1 %cmp5.not.i.i, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %lor.lhs.false2.i.i
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb(ptr noalias align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull %type, i1 noundef zeroext %element_type)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb.argelim(ptr noalias align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull %type, i1 noundef zeroext %element_type)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %if.then32
@@ -20208,7 +20208,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
 
 invoke.cont45:                                    ; preds = %invoke.cont43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(32) %call.i52) #25
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE(ptr noalias align 8 %ref.tmp46, i32 noundef %cond81)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE.argprom(ptr noalias align 8 %ref.tmp46, i32 noundef %cond81)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont45
@@ -20341,7 +20341,7 @@ ehcleanup66:                                      ; preds = %ehcleanup65, %lpad4
   br label %ehcleanup84
 
 if.else:                                          ; preds = %_ZNK10reflection4Type5indexEv.exit.i, %lor.lhs.false2.i.i, %_ZNK10reflection4Type5indexEv.exit37.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i20.i, %cond.end.i, %cond.false.i, %cond.true.i
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE(ptr noalias align 8 %ref.tmp70, i32 noundef %cond81)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE.argprom(ptr noalias align 8 %ref.tmp70, i32 noundef %cond81)
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %if.else
@@ -20579,7 +20579,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad.i, %l
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8), i16 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator11StringSplitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %orig_str, ptr noundef nonnull %token) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator11StringSplitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %orig_str, ptr noundef nonnull %token) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21307,7 +21307,7 @@ invoke.cont11.i.i.i:                              ; preds = %invoke.cont9.i.i.i
   %27 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %28 = load ptr, ptr %27, align 8
   %call14.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
-          to label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator25GenerateStructBuilderArgsEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit unwind label %lpad12.i.i.i
+          to label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator25GenerateStructBuilderArgsEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit unwind label %lpad12.i.i.i
 
 lpad.i.i.i:                                       ; preds = %_ZNK11flatbuffers17BaseBfbsGenerator9GetObjectEPKN10reflection4TypeEb.exit.i.i.i
   %29 = landingpad { ptr, i32 }
@@ -21401,7 +21401,7 @@ cond.true.i.i.i52.i.i.i:                          ; preds = %_ZNK11flatbuffers5T
 
 invoke.cont31.i.i.i:                              ; preds = %cond.true.i.i.i52.i.i.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i49.i.i.i, %invoke.cont28.i.i.i
   %cond.i.i.i48.i.i.i = phi ptr [ %add.ptr4.i.i.i56.i.i.i, %cond.true.i.i.i52.i.i.i ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i49.i.i.i ], [ null, %invoke.cont28.i.i.i ]
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb(ptr noalias align 8 %ref.tmp29.i.i.i, ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %cond.i.i.i48.i.i.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EPKN10reflection4TypeEbb.argelim(ptr noalias align 8 %ref.tmp29.i.i.i, ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %cond.i.i.i48.i.i.i, i1 noundef zeroext false)
           to label %invoke.cont33.i.i.i unwind label %lpad30.i.i.i
 
 invoke.cont33.i.i.i:                              ; preds = %invoke.cont31.i.i.i
@@ -21436,7 +21436,7 @@ invoke.cont35.i.i.i:                              ; preds = %if.end7.i63.i.i.i, 
 invoke.cont37.i.i.i:                              ; preds = %invoke.cont35.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i.i.i) #25
-  br label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator25GenerateStructBuilderArgsEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
+  br label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator25GenerateStructBuilderArgsEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit
 
 lpad23.i.i.i:                                     ; preds = %if.else.i.i.i
   %41 = landingpad { ptr, i32 }
@@ -21495,7 +21495,7 @@ eh.resume.i.i.i:                                  ; preds = %ehcleanup43.i.i.i, 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.sink76.i.i.i) #25
   resume { ptr, i32 } %.pn10.pn.pn.pn.i.i.i
 
-_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator25GenerateStructBuilderArgsEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit: ; preds = %invoke.cont11.i.i.i, %invoke.cont37.i.i.i
+_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator25GenerateStructBuilderArgsEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit: ; preds = %invoke.cont11.i.i.i, %invoke.cont37.i.i.i
   %ref.tmp18.sink.i.i.i = phi ptr [ %ref.tmp18.i.i.i, %invoke.cont37.i.i.i ], [ %ref.tmp.i.i.i, %invoke.cont11.i.i.i ]
   %ref.tmp19.sink.i.i.i = phi ptr [ %ref.tmp19.i.i.i, %invoke.cont37.i.i.i ], [ %agg.tmp.i.i.i, %invoke.cont11.i.i.i ]
   %ref.tmp21.sink.i.i.i = phi ptr [ %ref.tmp21.i.i.i, %invoke.cont37.i.i.i ], [ %ref.tmp6.i.i.i, %invoke.cont11.i.i.i ]
@@ -21850,7 +21850,7 @@ invoke.cont22.i.i.i:                              ; preds = %invoke.cont20.i.i.i
 invoke.cont24.i.i.i:                              ; preds = %invoke.cont22.i.i.i
   %36 = load ptr, ptr %__functor.val, align 8
   %call27.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i)
-          to label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator23AppendStructBuilderBodyEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit unwind label %lpad25.i.i.i
+          to label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator23AppendStructBuilderBodyEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit unwind label %lpad25.i.i.i
 
 lpad19.i.i.i:                                     ; preds = %_ZNK11flatbuffers17BaseBfbsGenerator9GetObjectEPKN10reflection4TypeEb.exit.i.i.i
   %37 = landingpad { ptr, i32 }
@@ -21927,7 +21927,7 @@ invoke.cont42.i.i.i:                              ; preds = %invoke.cont40.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i6263.i.i.i) #25
   %43 = load ptr, ptr %__functor.val, align 8
   %call45.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32.i.i.i)
-          to label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator23AppendStructBuilderBodyEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit unwind label %lpad43.i.i.i
+          to label %_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator23AppendStructBuilderBodyEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit unwind label %lpad43.i.i.i
 
 lpad37.i.i.i:                                     ; preds = %if.else.i.i.i
   %44 = landingpad { ptr, i32 }
@@ -21965,7 +21965,7 @@ ehcleanup49.i.i.i:                                ; preds = %ehcleanup48.i.i.i, 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34.i.i.i) #25
   br label %common.resume.i.i.i
 
-_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator23AppendStructBuilderBodyEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit: ; preds = %invoke.cont24.i.i.i, %invoke.cont42.i.i.i
+_ZSt10__invoke_rIvRZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator23AppendStructBuilderBodyEPKN10reflection6ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKNS3_5FieldEE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit: ; preds = %invoke.cont24.i.i.i, %invoke.cont42.i.i.i
   %ref.tmp32.sink.i.i.i = phi ptr [ %ref.tmp16.i.i.i, %invoke.cont24.i.i.i ], [ %ref.tmp32.i.i.i, %invoke.cont42.i.i.i ]
   %ref.tmp33.sink.i.i.i = phi ptr [ %agg.tmp.i.i.i, %invoke.cont24.i.i.i ], [ %ref.tmp33.i.i.i, %invoke.cont42.i.i.i ]
   %ref.tmp35.sink.i.i.i = phi ptr [ %ref.tmp17.i.i.i, %invoke.cont24.i.i.i ], [ %ref.tmp35.i.i.i, %invoke.cont42.i.i.i ]
@@ -22127,7 +22127,7 @@ _ZNK10reflection5Field10deprecatedEv.exit.i.i.i:  ; preds = %_ZNK11flatbuffers5T
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 %idx.ext.i.i.i.i.i
   %4 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
   %.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i.i, label %if.end.i.i.i, label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateObjectEPKN10reflection6ObjectEEUlPKNS3_5FieldEE0_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit
+  br i1 %.not.i.i.i, label %if.end.i.i.i, label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateObjectEPKN10reflection6ObjectEEUlPKNS3_5FieldEE0_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK10reflection5Field10deprecatedEv.exit.i.i.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i, %entry
   %namer_.i.i.i = getelementptr inbounds i8, ptr %0, i64 232
@@ -22160,7 +22160,7 @@ cond.true.i.i.i.i.i.i:                            ; preds = %_ZNK11flatbuffers5T
 
 invoke.cont4.i.i.i:                               ; preds = %cond.true.i.i.i.i.i.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i.i, %invoke.cont.i.i.i
   %cond.i.i.i.i.i.i = phi ptr [ %add.ptr4.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i.i ], [ null, %invoke.cont.i.i.i ]
-  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator17GenerateTypeBasicB5cxx11EPKN10reflection4TypeEb(ptr noalias align 8 %variable_type.i.i.i, ptr noundef %cond.i.i.i.i.i.i)
+  invoke fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator17GenerateTypeBasicB5cxx11EPKN10reflection4TypeEb.argprom.argelim(ptr noalias align 8 %variable_type.i.i.i, ptr noundef %cond.i.i.i.i.i.i)
           to label %invoke.cont6.i.i.i unwind label %lpad3.i.i.i
 
 invoke.cont6.i.i.i:                               ; preds = %invoke.cont4.i.i.i
@@ -23261,7 +23261,7 @@ if.end162.i.i.i:                                  ; preds = %invoke.cont154.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %variable_type.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %variable_name.i.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_name.i.i.i) #25
-  br label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateObjectEPKN10reflection6ObjectEEUlPKNS3_5FieldEE0_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit
+  br label %_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateObjectEPKN10reflection6ObjectEEUlPKNS3_5FieldEE0_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit
 
 ehcleanup163.i.i.i:                               ; preds = %ehcleanup161.i.i.i, %lpad.i263.i.i.i, %ehcleanup117.i.i.i, %ehcleanup87.i.i.i, %ehcleanup43.i.i.i, %lpad16.i.i.i, %lpad.i143.i.i.i, %eh.resume.i.i.i.i, %lpad.i.i.i.i
   %.pn34.pn.pn.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn34.pn.pn.pn.pn.i.i.i, %ehcleanup161.i.i.i ], [ %.pn29.pn.pn.pn.i.i.i, %ehcleanup117.i.i.i ], [ %.pn19.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %ehcleanup87.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %ehcleanup43.i.i.i ], [ %11, %lpad.i.i.i.i ], [ %.pn.i.i.i.i, %eh.resume.i.i.i.i ], [ %47, %lpad.i143.i.i.i ], [ %96, %lpad16.i.i.i ], [ %121, %lpad.i263.i.i.i ]
@@ -23278,7 +23278,7 @@ ehcleanup165.i.i.i:                               ; preds = %ehcleanup164.i.i.i,
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_name.i.i.i) #25
   resume { ptr, i32 } %.pn34.pn.pn.pn.pn.pn.pn.pn.i.i.i
 
-_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateObjectEPKN10reflection6ObjectEEUlPKNS3_5FieldEE0_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %_ZNK10reflection5Field10deprecatedEv.exit.i.i.i, %if.end162.i.i.i
+_ZSt10__invoke_rIvRZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateObjectEPKN10reflection6ObjectEEUlPKNS3_5FieldEE0_JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit: ; preds = %_ZNK10reflection5Field10deprecatedEv.exit.i.i.i, %if.end162.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %field_name.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %variable_name.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %variable_type.i.i.i)
@@ -25209,8 +25209,8 @@ attributes #28 = { noreturn }
 !140 = distinct !{!140, !141, !"_ZN11flatbuffers11NumToStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_: %agg.result"}
 !141 = distinct !{!141, !"_ZN11flatbuffers11NumToStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_"}
 !142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12DefaultValueB5cxx11EPKN10reflection5FieldE: %agg.result"}
-!144 = distinct !{!144, !"_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12DefaultValueB5cxx11EPKN10reflection5FieldE"}
+!143 = distinct !{!143, !144, !"_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12DefaultValueB5cxx11EPKN10reflection5FieldE.argprom: %agg.result"}
+!144 = distinct !{!144, !"_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12DefaultValueB5cxx11EPKN10reflection5FieldE.argprom"}
 !145 = !{!146, !143}
 !146 = distinct !{!146, !147, !"_ZN11flatbuffers11NumToStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_: %agg.result"}
 !147 = distinct !{!147, !"_ZN11flatbuffers11NumToStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_"}
@@ -25266,8 +25266,8 @@ attributes #28 = { noreturn }
 !197 = distinct !{!197, !198, !"_ZNK11flatbuffers6String3strB5cxx11Ev: %agg.result"}
 !198 = distinct !{!198, !"_ZNK11flatbuffers6String3strB5cxx11Ev"}
 !199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator28GetRelativePathFromNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_: %agg.result"}
-!201 = distinct !{!201, !"_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator28GetRelativePathFromNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_"}
+!200 = distinct !{!200, !201, !"_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator28GetRelativePathFromNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.argprom: %agg.result"}
+!201 = distinct !{!201, !"_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator28GetRelativePathFromNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.argprom"}
 !202 = distinct !{!202, !9}
 !203 = distinct !{!203, !9}
 !204 = distinct !{!204, !9}
@@ -25297,8 +25297,8 @@ attributes #28 = { noreturn }
 !228 = distinct !{!228, !229, !"_ZNK11flatbuffers5Namer8FunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}
 !229 = distinct !{!229, !"_ZNK11flatbuffers5Namer8FunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !230 = !{!231}
-!231 = distinct !{!231, !232, !"_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateMethodB5cxx11EPKN10reflection5FieldE: %agg.result"}
-!232 = distinct !{!232, !"_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateMethodB5cxx11EPKN10reflection5FieldE"}
+!231 = distinct !{!231, !232, !"_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateMethodB5cxx11EPKN10reflection5FieldE.argprom: %agg.result"}
+!232 = distinct !{!232, !"_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator14GenerateMethodB5cxx11EPKN10reflection5FieldE.argprom"}
 !233 = !{!234}
 !234 = distinct !{!234, !235, !"_ZN11flatbuffers11NumToStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_: %agg.result"}
 !235 = distinct !{!235, !"_ZN11flatbuffers11NumToStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_"}

@@ -174,11 +174,11 @@ entry:
 define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %c, i32 noundef %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %enable_rescheduling = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %idxprom = sext i32 %mode to i64
   %arrayidx = getelementptr inbounds [2 x i32], ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %sleep_time.sroa.0.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %sleep_time.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp = icmp slt i32 %c, %0
@@ -217,7 +217,7 @@ if.end7:                                          ; preds = %invoke.cont, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i.i.i.i.i.i = alloca %"class.absl::Duration", align 8
   %lhs.i.i.i.i.i.i.i.i.i = alloca %"class.absl::Duration", align 8
@@ -225,7 +225,7 @@ entry:
   %ref.tmp12.i.i.i.i.i.i = alloca %"class.absl::Duration", align 8
   %0 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
   %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = cmpxchg ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -235,7 +235,7 @@ if.then.i:                                        ; preds = %entry
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZN4absl12_GLOBAL__N_17globalsE, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 0)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp8.i.i.i.i.i.i)
@@ -308,13 +308,13 @@ release.i.i.i:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp12.i.i.i.i.i.i)
   %3 = atomicrmw xchg ptr @_ZN4absl12_GLOBAL__N_17globalsE, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %3, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
   call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZN4absl12_GLOBAL__N_17globalsE, i1 noundef zeroext true)
-  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
-"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
+"_ZN4absl13base_internal16LowLevelCallOnceIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
   ret void
 }
 
@@ -1461,13 +1461,13 @@ if.end11:                                         ; preds = %lor.lhs.false, %lan
   %unlock.0 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ true, %lor.lhs.false ]
   %call.i.i.i = tail call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %if.end11
   %call1.i.i.i = tail call noundef ptr @_ZN4absl24synchronization_internal20CreateThreadIdentityEv()
-  br label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+  br label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
 
-_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end11, %if.then.i.i.i
+_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit: ; preds = %if.end11, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %call1.i.i.i, %if.then.i.i.i ], [ %call.i.i.i, %if.end11 ]
   store ptr %how, ptr %waitp, align 8
   %cond.i = getelementptr inbounds i8, ptr %waitp, i64 8
@@ -1484,7 +1484,7 @@ _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end11, %i
   %cmp.i.i = icmp eq i64 %7, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
   %8 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
   %asmresult.i.i.i = extractvalue { i64, i64 } %8, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %8, 1
@@ -1492,7 +1492,7 @@ if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_Ge
   %or.i.i.i = or i64 %shl.i.i.i, %asmresult.i.i.i
   br label %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
 
-if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %7 to ptr
   %call2.i.i = tail call noundef i64 %atomic-temp.i.0.i.i.i.i()
   br label %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
@@ -1551,13 +1551,13 @@ if.end:                                           ; preds = %entry
   %cond3 = select i1 %tobool.not, ptr @_ZN4abslL8kSharedSE, ptr @_ZN4abslL11kExclusiveSE
   %call.i.i.i = tail call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
   %call1.i.i.i = tail call noundef ptr @_ZN4absl24synchronization_internal20CreateThreadIdentityEv()
-  br label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+  br label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
 
-_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end, %if.then.i.i.i
+_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit: ; preds = %if.end, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %call1.i.i.i, %if.then.i.i.i ], [ %call.i.i.i, %if.end ]
   store ptr %cond3, ptr %waitp, align 8
   %cond.i = getelementptr inbounds i8, ptr %waitp, i64 8
@@ -1574,7 +1574,7 @@ _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end, %if.
   %cmp.i.i = icmp eq i64 %2, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
   %3 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
   %asmresult.i.i.i = extractvalue { i64, i64 } %3, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %3, 1
@@ -1582,7 +1582,7 @@ if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_Ge
   %or.i.i.i = or i64 %shl.i.i.i, %asmresult.i.i.i
   br label %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
 
-if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %2 to ptr
   %call2.i.i = tail call noundef i64 %atomic-temp.i.0.i.i.i.i()
   br label %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
@@ -2317,9 +2317,9 @@ if.then343:                                       ; preds = %do.end341
 
 if.end353:                                        ; preds = %if.then37, %land.lhs.true48, %if.else45, %if.then27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %87 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i268 = icmp slt i32 %c.0, %87
@@ -2807,7 +2807,7 @@ if.then5.i.i.i:                                   ; preds = %release.i.i.i.i
 
 call.i.noexc:                                     ; preds = %if.then5.i.i.i, %release.i.i.i.i, %lor.lhs.false.i.i.i, %do.end216
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
-  call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i253 = icmp slt i32 %c.2, %50
@@ -4201,9 +4201,9 @@ do.body89:                                        ; preds = %do.body89.preheader
 
 if.end103:                                        ; preds = %do.end52, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit, %if.else60
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp slt i32 %c.0123, %19
@@ -4543,7 +4543,7 @@ if.then5.i.i.i:                                   ; preds = %release.i.i.i.i
 
 call.i55.noexc:                                   ; preds = %if.then5.i.i.i, %release.i.i.i.i, %lor.lhs.false.i.i.i, %if.else
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
-  call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp slt i32 %c.0, %12
@@ -4606,13 +4606,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call.i.i.i = tail call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
   %call1.i.i.i = tail call noundef ptr @_ZN4absl24synchronization_internal20CreateThreadIdentityEv()
-  br label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+  br label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
 
-_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end, %if.then.i.i.i
+_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit: ; preds = %if.end, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %call1.i.i.i, %if.then.i.i.i ], [ %call.i.i.i, %if.end ]
   store ptr %cond, ptr %waitp, align 8
   %cond.i = getelementptr inbounds i8, ptr %waitp, i64 8
@@ -4629,7 +4629,7 @@ _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end, %if.
   %cmp.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
   %4 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
   %asmresult.i.i.i = extractvalue { i64, i64 } %4, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %4, 1
@@ -4637,7 +4637,7 @@ if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_Ge
   %or.i.i.i = or i64 %shl.i.i.i, %asmresult.i.i.i
   br label %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
 
-if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
+if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.argprom.exit
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %3 to ptr
   %call2.i.i = tail call noundef i64 %atomic-temp.i.0.i.i.i.i()
   br label %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
@@ -4771,9 +4771,9 @@ if.then22:                                        ; preds = %if.end19.thread, %i
 
 if.else25:                                        ; preds = %land.lhs.true, %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp slt i32 %c.071, %10
@@ -4877,9 +4877,9 @@ if.then13:                                        ; preds = %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.retelim()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
   %cmp.i = icmp slt i32 %c.047, %10

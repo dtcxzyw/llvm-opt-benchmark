@@ -191,7 +191,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DWARFExpression9Operation7extract
   br i1 %.not.i, label %17, label %15
 
 15:                                               ; preds = %13
-  call fastcc void @_ZN4llvmL17getOpDescriptionsEv(), !noalias !4
+  call fastcc void @_ZN4llvmL17getOpDescriptionsEv.argprom(), !noalias !4
   %16 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN4llvm15DWARFExpression9Operation11DescriptionESaIS3_EED2Ev, ptr nonnull @_ZZN4llvmL9getOpDescEjE12Descriptions, ptr nonnull @__dso_handle) #18, !noalias !4
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvmL9getOpDescEjE12Descriptions) #18, !noalias !4
   br label %17
@@ -316,7 +316,7 @@ _ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit: ; preds = %_ZN4llvmL9
   br i1 %.not.i42, label %82, label %80
 
 80:                                               ; preds = %78
-  call fastcc void @_ZN4llvmL20getSubOpDescriptionsEv(), !noalias !12
+  call fastcc void @_ZN4llvmL20getSubOpDescriptionsEv.argprom(), !noalias !12
   %81 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN4llvm15DWARFExpression9Operation11DescriptionESaIS3_EED2Ev, ptr nonnull @_ZZN4llvmL12getSubOpDescEjjE12Descriptions, ptr nonnull @__dso_handle) #18, !noalias !12
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvmL12getSubOpDescEjjE12Descriptions) #18, !noalias !12
   br label %82
@@ -787,7 +787,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i:  ; preds = %100, %_ZNSt8functio
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:             ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i, %111
-  call fastcc void @_ZN4llvmL22prettyPrintBaseTypeRefEPNS_9DWARFUnitERNS_11raw_ostreamENS_13DIDumpOptionsENS_8ArrayRefImEEj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %10, ptr %4, i32 noundef 1)
+  call fastcc void @_ZN4llvmL22prettyPrintBaseTypeRefEPNS_9DWARFUnitERNS_11raw_ostreamENS_13DIDumpOptionsENS_8ArrayRefImEEj.argelim(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %10, ptr %4, i32 noundef 1)
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %120 = load ptr, ptr %119, align 8
   %.not.i.i.i = icmp eq ptr %120, null
@@ -832,7 +832,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL22prettyPrintBaseTypeRefEPNS_9DWARFUnitERNS_11raw_ostreamENS_13DIDumpOptionsENS_8ArrayRefImEEj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvmL22prettyPrintBaseTypeRefEPNS_9DWARFUnitERNS_11raw_ostreamENS_13DIDumpOptionsENS_8ArrayRefImEEj.argelim(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %class.anon, align 1
@@ -1537,7 +1537,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i66: ; preds = %206, %_ZNSt8functi
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit68:           ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i66, %211
   %215 = load ptr, ptr %110, align 8
   %216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %110) #18
-  call fastcc void @_ZN4llvmL22prettyPrintBaseTypeRefEPNS_9DWARFUnitERNS_11raw_ostreamENS_13DIDumpOptionsENS_8ArrayRefImEEj(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %7, ptr %215, i32 noundef %.04280)
+  call fastcc void @_ZN4llvmL22prettyPrintBaseTypeRefEPNS_9DWARFUnitERNS_11raw_ostreamENS_13DIDumpOptionsENS_8ArrayRefImEEj.argelim(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %7, ptr %215, i32 noundef %.04280)
   %217 = load ptr, ptr %137, align 8
   %.not.i.i.i69 = icmp eq ptr %217, null
   br i1 %.not.i.i.i69, label %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit.i70, label %218
@@ -3557,7 +3557,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %23, %21, %20, %15, 
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL17getOpDescriptionsEv() unnamed_addr #0 {
+define internal fastcc void @_ZN4llvmL17getOpDescriptionsEv.argprom() unnamed_addr #0 {
 _ZNSt6vectorIN4llvm15DWARFExpression9Operation11DescriptionESaIS3_EE6resizeEm.exit:
   %0 = alloca [1 x i8], align 1
   %1 = alloca [1 x i8], align 1
@@ -5695,7 +5695,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15DWARFExpression9Operation8EncodingELb1EE1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL20getSubOpDescriptionsEv() unnamed_addr #0 {
+define internal fastcc void @_ZN4llvmL20getSubOpDescriptionsEv.argprom() unnamed_addr #0 {
 _ZNSt6vectorIN4llvm15DWARFExpression9Operation11DescriptionESaIS3_EE6resizeEm.exit:
   %0 = alloca [1 x i8], align 1
   %1 = alloca %"struct.llvm::DWARFExpression::Operation::Description", align 8

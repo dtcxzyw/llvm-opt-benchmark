@@ -1986,28 +1986,28 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX6Me
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #18
   %6 = icmp eq i64 %4, %5
-  br i1 %6, label %7, label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br i1 %6, label %7, label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
 7:                                                ; preds = %2
   %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #18
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %12
+  br i1 %11, label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %12
 
 12:                                               ; preds = %7
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %10)
   %13 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %2, %7, %12
+"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %2, %7, %12
   %14 = phi i1 [ false, %2 ], [ %13, %12 ], [ true, %7 ]
   ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX6MethodEEZNS1_5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %10
@@ -2016,12 +2016,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX6Me
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -2037,19 +2037,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX6Me
 
 "_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i": ; preds = %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 10:                                               ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val7.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %12
 
 12:                                               ; preds = %10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.val7.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #21
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %12, %10, %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -2659,28 +2659,28 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX6Me
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #18
   %6 = icmp eq i64 %4, %5
-  br i1 %6, label %7, label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br i1 %6, label %7, label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
 7:                                                ; preds = %2
   %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #18
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %12
+  br i1 %11, label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %12
 
 12:                                               ; preds = %7
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %10)
   %13 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %2, %7, %12
+"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_6MethodEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %2, %7, %12
   %14 = phi i1 [ false, %2 ], [ %13, %12 ], [ true, %7 ]
   ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX6MethodEEZNKS1_5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %10
@@ -2689,12 +2689,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX6Me
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -2710,19 +2710,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX6Me
 
 "_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i": ; preds = %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 10:                                               ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val7.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %12
 
 12:                                               ; preds = %10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.val7.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #21
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %12, %10, %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -3088,28 +3088,28 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX5Fi
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #18
   %6 = icmp eq i64 %4, %5
-  br i1 %6, label %7, label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br i1 %6, label %7, label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
 7:                                                ; preds = %2
   %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #18
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %12
+  br i1 %11, label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %12
 
 12:                                               ; preds = %7
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %10)
   %13 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %2, %7, %12
+"_ZSt10__invoke_rIbRZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %2, %7, %12
   %14 = phi i1 [ false, %2 ], [ %13, %12 ], [ true, %7 ]
   ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX5FieldEEZNS1_5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %10
@@ -3118,12 +3118,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX5Fi
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -3139,19 +3139,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX5Fi
 
 "_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i": ; preds = %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 10:                                               ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val7.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %12
 
 12:                                               ; preds = %10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.val7.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #21
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %12, %10, %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %"_ZNSt14_Function_base13_Base_managerIZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -3751,28 +3751,28 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX5Fi
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #18
   %6 = icmp eq i64 %4, %5
-  br i1 %6, label %7, label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br i1 %6, label %7, label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
 7:                                                ; preds = %2
   %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #18
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %12
+  br i1 %11, label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %12
 
 12:                                               ; preds = %7
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %10)
   %13 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %2, %7, %12
+"_ZSt10__invoke_rIbRZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKPNS1_5FieldEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %2, %7, %12
   %14 = phi i1 [ false, %2 ], [ %13, %12 ], [ true, %7 ]
   ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX5FieldEEZNKS1_5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %10
@@ -3781,12 +3781,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX5Fi
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -3802,19 +3802,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKPN4LIEF3DEX5Fi
 
 "_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i": ; preds = %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 10:                                               ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val7.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %12
 
 12:                                               ; preds = %10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.val7.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #21
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %12, %10, %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %12, %10, %"_ZNSt14_Function_base13_Base_managerIZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 

@@ -293,7 +293,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
   %7 = load ptr, ptr %.03.i, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %.not12.i = icmp eq i32 %8, 0
-  br i1 %.not12.i, label %get_par_by_name.exit, label %9
+  br i1 %.not12.i, label %get_par_by_name.argprom.exit, label %9
 
 9:                                                ; preds = %.lr.ph.i
   %10 = getelementptr inbounds i8, ptr %.03.i, i64 24
@@ -305,7 +305,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.4) #12
   unreachable
 
-get_par_by_name.exit:                             ; preds = %.lr.ph.i
+get_par_by_name.argprom.exit:                     ; preds = %.lr.ph.i
   %11 = getelementptr inbounds i8, ptr %.03.i, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
@@ -334,7 +334,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
   %7 = load ptr, ptr %.03.i, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %.not12.i = icmp eq i32 %8, 0
-  br i1 %.not12.i, label %get_par_by_name.exit, label %9
+  br i1 %.not12.i, label %get_par_by_name.argprom.exit, label %9
 
 9:                                                ; preds = %.lr.ph.i
   %10 = getelementptr inbounds i8, ptr %.03.i, i64 24
@@ -346,7 +346,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.4) #12
   unreachable
 
-get_par_by_name.exit:                             ; preds = %.lr.ph.i
+get_par_by_name.argprom.exit:                     ; preds = %.lr.ph.i
   %11 = getelementptr inbounds i8, ptr %.03.i, i64 16
   %12 = load i32, ptr %11, align 8
   ret i32 %12

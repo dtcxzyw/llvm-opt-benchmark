@@ -2240,11 +2240,11 @@ _read_config.exit:                                ; preds = %1010
 1054:                                             ; preds = %1052
   call void @rehash_node() #20
   %1055 = call i32 @topology_g_build_config() #20
-  call fastcc void @_set_topo_info()
+  call fastcc void @_set_topo_info.retelim()
   call void @build_conf_buf()
   %1056 = load ptr, ptr @conf, align 8
   call void @cpu_freq_init(ptr noundef %1056) #20
-  call fastcc void @_resource_spec_init()
+  call fastcc void @_resource_spec_init.retelim()
   call fastcc void @_print_conf()
   %1057 = call i32 @proctrack_g_init() #20
   %.not15.i = icmp eq i32 %1057, 0
@@ -2315,7 +2315,7 @@ _read_config.exit:                                ; preds = %1010
   %1095 = load ptr, ptr @conf, align 8
   %1096 = getelementptr inbounds i8, ptr %1095, i64 4360
   %1097 = load ptr, ptr %1096, align 8
-  call fastcc void @_stepd_cleanup_batch_dirs(ptr noundef %1097)
+  call fastcc void @_stepd_cleanup_batch_dirs.argprom(ptr noundef %1097)
   %.pre.i = load ptr, ptr @conf, align 8
   br label %1098
 
@@ -4679,19 +4679,19 @@ _fill_registration_msg.exit:                      ; preds = %230, %236
 252:                                              ; preds = %249
   %253 = load i32, ptr %.val, align 4
   %.not.i13 = icmp eq i32 %253, 0
-  br i1 %.not.i13, label %_handle_node_reg_resp.exit, label %254
+  br i1 %.not.i13, label %_handle_node_reg_resp.argprom.exit, label %254
 
 254:                                              ; preds = %252
   call void @slurm_seterrno(i32 noundef %253) #20
-  br label %_handle_node_reg_resp.exit
+  br label %_handle_node_reg_resp.argprom.exit
 
 255:                                              ; preds = %249
   call void @slurm_seterrno(i32 noundef 1000) #20
-  br label %_handle_node_reg_resp.exit
+  br label %_handle_node_reg_resp.argprom.exit
 
 256:                                              ; preds = %249
   %.not25.i = icmp eq ptr %.val, null
-  br i1 %.not25.i, label %_handle_node_reg_resp.exit, label %257
+  br i1 %.not25.i, label %_handle_node_reg_resp.argprom.exit, label %257
 
 257:                                              ; preds = %256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) @__const._handle_node_reg_resp.locks, i64 28, i1 false)
@@ -4770,12 +4770,12 @@ _fill_registration_msg.exit:                      ; preds = %230, %236
   %287 = getelementptr inbounds i8, ptr %286, i64 4593
   %288 = load i8, ptr %287, align 1
   %289 = icmp eq i8 %288, 1
-  br i1 %289, label %290, label %_handle_node_reg_resp.exit
+  br i1 %289, label %290, label %_handle_node_reg_resp.argprom.exit
 
 290:                                              ; preds = %285
   %291 = load ptr, ptr %.val, align 8
   %.not31.i = icmp eq ptr %291, null
-  br i1 %.not31.i, label %_handle_node_reg_resp.exit, label %292
+  br i1 %.not31.i, label %_handle_node_reg_resp.argprom.exit, label %292
 
 292:                                              ; preds = %290
   %293 = call i32 @get_log_level() #20
@@ -4799,9 +4799,9 @@ _fill_registration_msg.exit:                      ; preds = %230, %236
   %305 = load ptr, ptr @conf, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 4272
   store ptr %304, ptr %306, align 8
-  br label %_handle_node_reg_resp.exit
+  br label %_handle_node_reg_resp.argprom.exit
 
-_handle_node_reg_resp.exit:                       ; preds = %252, %254, %255, %256, %285, %290, %300
+_handle_node_reg_resp.argprom.exit:               ; preds = %252, %254, %255, %256, %285, %290, %300
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
   %307 = load i16, ptr %251, align 4
   %308 = zext i16 %307 to i32
@@ -4812,11 +4812,11 @@ _handle_node_reg_resp.exit:                       ; preds = %252, %254, %255, %2
   %.not11 = icmp eq i32 %312, 0
   br i1 %.not11, label %313, label %.thread
 
-.thread:                                          ; preds = %_handle_node_reg_resp.exit
+.thread:                                          ; preds = %_handle_node_reg_resp.argprom.exit
   store i32 0, ptr %311, align 4
   br label %317
 
-313:                                              ; preds = %_handle_node_reg_resp.exit
+313:                                              ; preds = %_handle_node_reg_resp.argprom.exit
   %314 = icmp eq i32 %245, 0
   br i1 %314, label %315, label %317
 
@@ -5575,7 +5575,7 @@ declare void @rehash_node() local_unnamed_addr #3
 declare i32 @topology_g_build_config() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_topo_info() unnamed_addr #0 {
+define internal fastcc void @_set_topo_info.retelim() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
@@ -5636,7 +5636,7 @@ define internal fastcc void @_set_topo_info() unnamed_addr #0 {
 declare void @cpu_freq_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_resource_spec_init() unnamed_addr #0 {
+define internal fastcc void @_resource_spec_init.retelim() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca %struct.cpu_set_t, align 8
   %3 = alloca [1024 x i8], align 16
@@ -6881,7 +6881,7 @@ declare void @rlimits_use_max_nofile() local_unnamed_addr #3
 declare i32 @stepd_cleanup_sockets(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_stepd_cleanup_batch_dirs(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_stepd_cleanup_batch_dirs.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8

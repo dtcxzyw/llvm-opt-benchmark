@@ -2020,7 +2020,7 @@ entry:
 if.end:                                           ; preds = %entry
   %len2 = getelementptr inbounds i8, ptr %dir, i64 8
   %7 = load i64, ptr %len2, align 8
-  %call3 = call fastcc i32 @setup_git_directory_gently_1(ptr noundef %dir, ptr noundef nonnull %gitdir, i32 noundef 0)
+  %call3 = call fastcc i32 @setup_git_directory_gently_1.argprom(ptr noundef %dir, ptr noundef nonnull %gitdir, i32 noundef 0)
   %cmp = icmp slt i32 %call3, 1
   br i1 %cmp, label %if.then4, label %if.end5
 
@@ -2220,7 +2220,7 @@ return:                                           ; preds = %entry, %if.end33, %
 declare i32 @strbuf_getcwd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 4) i32 @setup_git_directory_gently_1(ptr noundef nonnull %dir, ptr noundef %gitdir, i32 noundef range(i32 0, 2) %die_on_error) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 4) i32 @setup_git_directory_gently_1.argprom(ptr noundef nonnull %dir, ptr noundef %gitdir, i32 noundef range(i32 0, 2) %die_on_error) unnamed_addr #0 {
 entry:
   %buf.i109 = alloca %struct.stat, align 8
   %data.i81 = alloca %struct.safe_directory_data, align 8
@@ -2322,20 +2322,20 @@ if.then25:                                        ; preds = %if.end21
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %buf.i53)
   %call.i54 = call i32 @stat64(ptr noundef %14, ptr noundef nonnull %buf.i53) #21
   %tobool.not.i55 = icmp eq i32 %call.i54, 0
-  br i1 %tobool.not.i55, label %get_device_or_die.exit, label %if.then.i56
+  br i1 %tobool.not.i55, label %get_device_or_die.argprom.exit, label %if.then.i56
 
 if.then.i56:                                      ; preds = %if.then25
   %call1.i = call fastcc ptr @_(ptr noundef nonnull @.str.101)
   call void (ptr, ...) @die_errno(ptr noundef %call1.i, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef %14) #22
   unreachable
 
-get_device_or_die.exit:                           ; preds = %if.then25
+get_device_or_die.argprom.exit:                   ; preds = %if.then25
   %15 = load i64, ptr %buf.i53, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %buf.i53)
   br label %if.end28
 
-if.end28:                                         ; preds = %get_device_or_die.exit, %if.end21
-  %current_device.0 = phi i64 [ %15, %get_device_or_die.exit ], [ 0, %if.end21 ]
+if.end28:                                         ; preds = %get_device_or_die.argprom.exit, %if.end21
+  %current_device.0 = phi i64 [ %15, %get_device_or_die.argprom.exit ], [ 0, %if.end21 ]
   %len29 = getelementptr inbounds i8, ptr %dir, i64 8
   %tobool36 = icmp ne i32 %die_on_error, 0
   %.error_code = select i1 %tobool36, ptr null, ptr %error_code
@@ -2451,48 +2451,48 @@ if.then62:                                        ; preds = %strbuf_setlen.exit
   store i32 0, ptr %is_safe.i, align 8
   %call.i78 = call i32 @git_env_bool(ptr noundef nonnull @.str.102, i32 noundef 0) #21
   %tobool1.not.i = icmp eq i32 %call.i78, 0
-  br i1 %tobool1.not.i, label %land.lhs.true.i, label %ensure_valid_ownership.exit
+  br i1 %tobool1.not.i, label %land.lhs.true.i, label %ensure_valid_ownership.argprom.exit
 
 land.lhs.true.i:                                  ; preds = %if.then62
   %tobool2.not.i = icmp eq ptr %gitfile.0, null
   br i1 %tobool2.not.i, label %land.lhs.true5.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %call3.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef readonly %gitfile.0)
+  %call3.i = call fastcc i32 @is_path_owned_by_current_uid.argprom(ptr noundef readonly %gitfile.0)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.not.i, label %ensure_valid_ownership.exit, label %land.lhs.true5.i
+  br i1 %tobool4.not.i, label %ensure_valid_ownership.argprom.exit, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %lor.lhs.false.i, %land.lhs.true.i
   br i1 %tobool.not.i77, label %lor.lhs.false12.i, label %lor.lhs.false7.i
 
 lor.lhs.false7.i:                                 ; preds = %land.lhs.true5.i
-  %call8.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef %30)
+  %call8.i = call fastcc i32 @is_path_owned_by_current_uid.argprom(ptr noundef %30)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %ensure_valid_ownership.exit, label %lor.lhs.false12.i
+  br i1 %tobool9.not.i, label %ensure_valid_ownership.argprom.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %land.lhs.true5.i, %lor.lhs.false7.i
-  %call13.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef %cond67)
+  %call13.i = call fastcc i32 @is_path_owned_by_current_uid.argprom(ptr noundef %cond67)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
-  br i1 %tobool14.not.i, label %ensure_valid_ownership.exit, label %ensure_valid_ownership.exit.thread
+  br i1 %tobool14.not.i, label %ensure_valid_ownership.argprom.exit, label %ensure_valid_ownership.argprom.exit.thread
 
-ensure_valid_ownership.exit.thread:               ; preds = %lor.lhs.false12.i
+ensure_valid_ownership.argprom.exit.thread:       ; preds = %lor.lhs.false12.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   br label %if.then71
 
-ensure_valid_ownership.exit:                      ; preds = %if.then62, %lor.lhs.false.i, %lor.lhs.false7.i, %lor.lhs.false12.i
+ensure_valid_ownership.argprom.exit:              ; preds = %if.then62, %lor.lhs.false.i, %lor.lhs.false7.i, %lor.lhs.false12.i
   call void @git_protected_config(ptr noundef nonnull @safe_directory_cb, ptr noundef nonnull %data.i) #21
   %31 = load i32, ptr %is_safe.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   %tobool70.not = icmp eq i32 %31, 0
   br i1 %tobool70.not, label %if.end73, label %if.then71
 
-if.then71:                                        ; preds = %ensure_valid_ownership.exit.thread, %ensure_valid_ownership.exit
+if.then71:                                        ; preds = %ensure_valid_ownership.argprom.exit.thread, %ensure_valid_ownership.argprom.exit
   %call.i80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %gitdirenv.0) #20
   call void @strbuf_add(ptr noundef %gitdir, ptr noundef nonnull %gitdirenv.0, i64 noundef %call.i80) #21
   br label %if.end73
 
-if.end73:                                         ; preds = %ensure_valid_ownership.exit, %if.then71
-  %ret.0 = phi i32 [ 2, %if.then71 ], [ -4, %ensure_valid_ownership.exit ]
+if.end73:                                         ; preds = %ensure_valid_ownership.argprom.exit, %if.then71
+  %ret.0 = phi i32 [ 2, %if.then71 ], [ -4, %ensure_valid_ownership.argprom.exit ]
   call void @free(ptr noundef %gitdir_path.0) #21
   call void @free(ptr noundef %gitfile.0) #21
   br label %return
@@ -2522,29 +2522,29 @@ if.end84:                                         ; preds = %if.then78
   store i32 0, ptr %is_safe.i83, align 8
   %call.i84 = call i32 @git_env_bool(ptr noundef nonnull @.str.102, i32 noundef 0) #21
   %tobool1.not.i85 = icmp eq i32 %call.i84, 0
-  br i1 %tobool1.not.i85, label %land.lhs.true.i88, label %ensure_valid_ownership.exit95
+  br i1 %tobool1.not.i85, label %land.lhs.true.i88, label %ensure_valid_ownership.argprom.exit95
 
 land.lhs.true.i88:                                ; preds = %if.end84
   %tobool11.not.i91 = icmp eq ptr %35, null
-  br i1 %tobool11.not.i91, label %ensure_valid_ownership.exit95.thread, label %lor.lhs.false12.i92
+  br i1 %tobool11.not.i91, label %ensure_valid_ownership.argprom.exit95.thread, label %lor.lhs.false12.i92
 
 lor.lhs.false12.i92:                              ; preds = %land.lhs.true.i88
-  %call13.i93 = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef %35)
+  %call13.i93 = call fastcc i32 @is_path_owned_by_current_uid.argprom(ptr noundef %35)
   %tobool14.not.i94 = icmp eq i32 %call13.i93, 0
-  br i1 %tobool14.not.i94, label %ensure_valid_ownership.exit95, label %ensure_valid_ownership.exit95.thread
+  br i1 %tobool14.not.i94, label %ensure_valid_ownership.argprom.exit95, label %ensure_valid_ownership.argprom.exit95.thread
 
-ensure_valid_ownership.exit95.thread:             ; preds = %lor.lhs.false12.i92, %land.lhs.true.i88
+ensure_valid_ownership.argprom.exit95.thread:     ; preds = %lor.lhs.false12.i92, %land.lhs.true.i88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i81)
   br label %if.end89
 
-ensure_valid_ownership.exit95:                    ; preds = %if.end84, %lor.lhs.false12.i92
+ensure_valid_ownership.argprom.exit95:            ; preds = %if.end84, %lor.lhs.false12.i92
   call void @git_protected_config(ptr noundef nonnull @safe_directory_cb, ptr noundef nonnull %data.i81) #21
   %36 = load i32, ptr %is_safe.i83, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i81)
   %tobool87.not = icmp eq i32 %36, 0
   br i1 %tobool87.not, label %return, label %if.end89
 
-if.end89:                                         ; preds = %ensure_valid_ownership.exit95.thread, %ensure_valid_ownership.exit95
+if.end89:                                         ; preds = %ensure_valid_ownership.argprom.exit95.thread, %ensure_valid_ownership.argprom.exit95
   call void @strbuf_add(ptr noundef %gitdir, ptr noundef nonnull @.str.21, i64 noundef 1) #21
   br label %return
 
@@ -2600,24 +2600,24 @@ land.lhs.true117:                                 ; preds = %strbuf_setlen.exit1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %buf.i109)
   %call.i110 = call i32 @stat64(ptr noundef %42, ptr noundef nonnull %buf.i109) #21
   %tobool.not.i111 = icmp eq i32 %call.i110, 0
-  br i1 %tobool.not.i111, label %get_device_or_die.exit115, label %if.then.i112
+  br i1 %tobool.not.i111, label %get_device_or_die.argprom.exit115, label %if.then.i112
 
 if.then.i112:                                     ; preds = %land.lhs.true117
   %call1.i113 = call fastcc ptr @_(ptr noundef nonnull @.str.101)
   call void (ptr, ...) @die_errno(ptr noundef %call1.i113, i32 noundef %40, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef %42) #22
   unreachable
 
-get_device_or_die.exit115:                        ; preds = %land.lhs.true117
+get_device_or_die.argprom.exit115:                ; preds = %land.lhs.true117
   %43 = load i64, ptr %buf.i109, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %buf.i109)
   %cmp120.not = icmp eq i64 %current_device.0, %43
   br i1 %cmp120.not, label %for.cond.backedge, label %return
 
-for.cond.backedge:                                ; preds = %get_device_or_die.exit115, %strbuf_setlen.exit108
+for.cond.backedge:                                ; preds = %get_device_or_die.argprom.exit115, %strbuf_setlen.exit108
   br label %for.cond
 
-return:                                           ; preds = %get_device_or_die.exit115, %if.end90, %if.else, %while.cond, %ensure_valid_ownership.exit95, %if.then78, %if.end89, %if.end73, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ %ret.0, %if.end73 ], [ 3, %if.end89 ], [ -5, %if.then78 ], [ -4, %ensure_valid_ownership.exit95 ], [ -1, %while.cond ], [ -2, %get_device_or_die.exit115 ], [ -1, %if.end90 ], [ -3, %if.else ]
+return:                                           ; preds = %get_device_or_die.argprom.exit115, %if.end90, %if.else, %while.cond, %ensure_valid_ownership.argprom.exit95, %if.then78, %if.end89, %if.end73, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ %ret.0, %if.end73 ], [ 3, %if.end89 ], [ -5, %if.then78 ], [ -4, %ensure_valid_ownership.argprom.exit95 ], [ -1, %while.cond ], [ -2, %get_device_or_die.argprom.exit115 ], [ -1, %if.end90 ], [ -3, %if.else ]
   ret i32 %retval.0
 }
 
@@ -2672,7 +2672,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   call void @strbuf_addbuf(ptr noundef nonnull %dir, ptr noundef nonnull @setup_git_directory_gently.cwd) #21
-  %call5 = call fastcc i32 @setup_git_directory_gently_1(ptr noundef %dir, ptr noundef nonnull %gitdir, i32 noundef 1)
+  %call5 = call fastcc i32 @setup_git_directory_gently_1.argprom(ptr noundef %dir, ptr noundef nonnull %gitdir, i32 noundef 1)
   switch i32 %call5, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb7
@@ -2686,7 +2686,7 @@ if.end4:                                          ; preds = %if.end
 sw.bb:                                            ; preds = %if.end4
   %buf = getelementptr inbounds i8, ptr %gitdir, i64 16
   %5 = load ptr, ptr %buf, align 8
-  %call6 = call fastcc ptr @setup_explicit_git_dir(ptr noundef %5, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
+  %call6 = call fastcc ptr @setup_explicit_git_dir.argprom(ptr noundef %5, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end4
@@ -2760,7 +2760,7 @@ if.then13.i:                                      ; preds = %if.end10.i
   unreachable
 
 if.end15.i:                                       ; preds = %if.end10.i
-  %call16.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %gitdir.addr.0.i, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
+  %call16.i = call fastcc ptr @setup_explicit_git_dir.argprom(ptr noundef %gitdir.addr.0.i, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
   call void @free(ptr noundef %to_free.0.i) #21
   br label %sw.epilog
 
@@ -2911,7 +2911,7 @@ if.then12.i:                                      ; preds = %cond.end.i
 
 if.end14.i:                                       ; preds = %cond.end.i
   %35 = load ptr, ptr @setup_bare_git_dir.gitdir, align 8
-  %call15.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %35, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
+  %call15.i = call fastcc ptr @setup_explicit_git_dir.argprom(ptr noundef %35, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
   br label %sw.epilog
 
 if.end16.i:                                       ; preds = %if.end.i23
@@ -3189,7 +3189,7 @@ setup_original_cwd.exit:                          ; preds = %if.end87, %if.then2
 declare void @git_config_clear() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @setup_explicit_git_dir(ptr noundef %gitdirenv, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok) unnamed_addr #0 {
+define internal fastcc ptr @setup_explicit_git_dir.argprom(ptr noundef %gitdirenv, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok) unnamed_addr #0 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.20) #21
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %gitdirenv) #20
@@ -5018,7 +5018,7 @@ declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_path_owned_by_current_uid(ptr nocapture noundef nonnull readonly %path) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_path_owned_by_current_uid.argprom(ptr nocapture noundef nonnull readonly %path) unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %st = alloca %struct.stat, align 8
@@ -5041,12 +5041,12 @@ if.else:                                          ; preds = %if.then2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
   %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.103) #21
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %extract_id_from_env.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %extract_id_from_env.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else
   %1 = load i8, ptr %call.i, align 1
   %tobool1.not.i = icmp eq i8 %1, 0
-  br i1 %tobool1.not.i, label %extract_id_from_env.exit, label %if.then.i
+  br i1 %tobool1.not.i, label %extract_id_from_env.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store ptr null, ptr %endptr.i, align 8
@@ -5056,22 +5056,22 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %2 = load ptr, ptr %endptr.i, align 8
   %3 = load i8, ptr %2, align 1
   %tobool4.not.i = icmp eq i8 %3, 0
-  br i1 %tobool4.not.i, label %land.lhs.true5.i, label %extract_id_from_env.exit
+  br i1 %tobool4.not.i, label %land.lhs.true5.i, label %extract_id_from_env.argprom.exit
 
 land.lhs.true5.i:                                 ; preds = %if.then.i
   %4 = load i32, ptr %call2.i, align 4
   %tobool7.not.i = icmp eq i32 %4, 0
   %conv9.i = trunc i64 %call3.i to i32
   %spec.select = select i1 %tobool7.not.i, i32 %conv9.i, i32 0
-  br label %extract_id_from_env.exit
+  br label %extract_id_from_env.argprom.exit
 
-extract_id_from_env.exit:                         ; preds = %land.lhs.true5.i, %if.else, %land.lhs.true.i, %if.then.i
+extract_id_from_env.argprom.exit:                 ; preds = %land.lhs.true5.i, %if.else, %land.lhs.true.i, %if.then.i
   %euid.0 = phi i32 [ 0, %if.else ], [ 0, %land.lhs.true.i ], [ 0, %if.then.i ], [ %spec.select, %land.lhs.true5.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
   br label %if.end6
 
-if.end6:                                          ; preds = %if.end, %extract_id_from_env.exit
-  %euid.1 = phi i32 [ %euid.0, %extract_id_from_env.exit ], [ %call1, %if.end ]
+if.end6:                                          ; preds = %if.end, %extract_id_from_env.argprom.exit
+  %euid.1 = phi i32 [ %euid.0, %extract_id_from_env.argprom.exit ], [ %call1, %if.end ]
   %cmp8 = icmp eq i32 %0, %euid.1
   %conv = zext i1 %cmp8 to i32
   br label %return

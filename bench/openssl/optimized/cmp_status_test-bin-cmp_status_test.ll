@@ -42,9 +42,9 @@ entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.3, i32 noundef 26) #4
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 26, ptr noundef nonnull @.str.4, ptr noundef %call.i) #4
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %return, label %set_up.exit
+  br i1 %tobool.not.i, label %return, label %set_up.argprom.exit
 
-set_up.exit:                                      ; preds = %entry
+set_up.argprom.exit:                              ; preds = %entry
   store ptr @.str, ptr %call.i, align 8
   %pkistatus = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 5, ptr %pkistatus, align 8
@@ -59,7 +59,7 @@ set_up.exit:                                      ; preds = %entry
   %tobool.not.i10 = icmp eq i32 %call1.i9, 0
   br i1 %tobool.not.i10, label %execute_PKISI_test.exit, label %if.end.i11
 
-if.end.i11:                                       ; preds = %set_up.exit
+if.end.i11:                                       ; preds = %set_up.argprom.exit
   %call2.i = tail call i32 @ossl_cmp_pkisi_get_status(ptr noundef %call.i8) #4
   %0 = load i32, ptr %pkistatus, align 8
   %call4.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 53, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %0, i32 noundef %call2.i) #4
@@ -113,8 +113,8 @@ for.body.i:                                       ; preds = %if.end23.i, %for.co
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %execute_PKISI_test.exit, label %for.cond.i
 
-execute_PKISI_test.exit:                          ; preds = %for.cond.i, %for.body.i, %set_up.exit, %if.end.i11, %lor.lhs.false.i, %if.end10.i, %lor.lhs.false16.i, %if.end23.i
-  %res.0.i = phi i32 [ 0, %if.end23.i ], [ 0, %lor.lhs.false16.i ], [ 0, %if.end10.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i11 ], [ 0, %set_up.exit ], [ 0, %for.body.i ], [ 1, %for.cond.i ]
+execute_PKISI_test.exit:                          ; preds = %for.cond.i, %for.body.i, %set_up.argprom.exit, %if.end.i11, %lor.lhs.false.i, %if.end10.i, %lor.lhs.false16.i, %if.end23.i
+  %res.0.i = phi i32 [ 0, %if.end23.i ], [ 0, %lor.lhs.false16.i ], [ 0, %if.end10.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i11 ], [ 0, %set_up.argprom.exit ], [ 0, %for.body.i ], [ 1, %for.cond.i ]
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %call.i8) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.3, i32 noundef 34) #4
   br label %return

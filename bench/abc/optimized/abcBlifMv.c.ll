@@ -74,14 +74,14 @@ define void @Abc_NtkSetMvVarValues(ptr nocapture noundef readonly %0, i32 nounde
   %10 = getelementptr i8, ptr %.val.val, i64 96
   %.val.val.val = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.val.val.val, null
-  br i1 %.not.i, label %Abc_NtkMvVarMan.exit, label %11
+  br i1 %.not.i, label %Abc_NtkMvVarMan.argprom.argprom.argprom.exit, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr i8, ptr %.val.val.val, i64 16
   %.val3.i = load ptr, ptr %12, align 8
-  br label %Abc_NtkMvVarMan.exit
+  br label %Abc_NtkMvVarMan.argprom.argprom.argprom.exit
 
-Abc_NtkMvVarMan.exit:                             ; preds = %6, %11
+Abc_NtkMvVarMan.argprom.argprom.argprom.exit:     ; preds = %6, %11
   %13 = phi ptr [ %.val3.i, %11 ], [ null, %6 ]
   %14 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %13, i32 noundef 16) #14
   store i32 %1, ptr %14, align 8
@@ -98,15 +98,15 @@ Abc_NtkMvVarMan.exit:                             ; preds = %6, %11
   %.val8.val.val.val = load ptr, ptr %19, align 8
   %20 = load i32, ptr %.val8.val.val.val, align 8
   %.not.i.i = icmp slt i32 %.val9, %20
-  br i1 %.not.i.i, label %Abc_ObjSetMvVar.exit, label %21
+  br i1 %.not.i.i, label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit, label %21
 
-21:                                               ; preds = %Abc_NtkMvVarMan.exit
+21:                                               ; preds = %Abc_NtkMvVarMan.argprom.argprom.argprom.exit
   %22 = shl nsw i32 %20, 1
   %23 = icmp sgt i32 %22, %.val9
   %24 = add nsw i32 %.val9, 10
   %25 = select i1 %23, i32 %22, i32 %24
   %.not.i.i.i = icmp slt i32 %20, %25
-  br i1 %.not.i.i.i, label %26, label %Abc_ObjSetMvVar.exit
+  br i1 %.not.i.i.i, label %26, label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %.val8.val.val.val, i64 8
@@ -136,9 +136,9 @@ Abc_NtkMvVarMan.exit:                             ; preds = %6, %11
   %42 = shl nsw i64 %41, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %39, i8 0, i64 %42, i1 false)
   store i32 %25, ptr %.val8.val.val.val, align 8
-  br label %Abc_ObjSetMvVar.exit
+  br label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit
 
-Abc_ObjSetMvVar.exit:                             ; preds = %Abc_NtkMvVarMan.exit, %21, %35
+Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit: ; preds = %Abc_NtkMvVarMan.argprom.argprom.argprom.exit, %21, %35
   %43 = getelementptr inbounds i8, ptr %.val8.val.val.val, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %.val9 to i64
@@ -146,7 +146,7 @@ Abc_ObjSetMvVar.exit:                             ; preds = %Abc_NtkMvVarMan.exi
   store ptr %14, ptr %46, align 8
   br label %47
 
-47:                                               ; preds = %4, %2, %Abc_ObjSetMvVar.exit
+47:                                               ; preds = %4, %2, %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit
   ret void
 }
 
@@ -1340,7 +1340,7 @@ Abc_ObjMvVarNum.exit501:                          ; preds = %81, %92, %94
   %138 = load i32, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %.val472, i64 224
   %140 = add nsw i32 %.val473, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %139, i32 noundef %140)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %139, i32 noundef %140)
   %141 = getelementptr i8, ptr %.val472, i64 232
   %.val.i.i.i = load ptr, ptr %141, align 8
   %142 = sext i32 %.val473 to i64
@@ -1517,7 +1517,7 @@ Abc_ObjMvVarNum.exit508:                          ; preds = %157, %168, %170
   %215 = load i32, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %.val474, i64 224
   %217 = add nsw i32 %.val475, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %216, i32 noundef %217)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %216, i32 noundef %217)
   %218 = getelementptr i8, ptr %.val474, i64 232
   %.val.i.i.i510 = load ptr, ptr %218, align 8
   %219 = sext i32 %.val475 to i64
@@ -2902,7 +2902,7 @@ Abc_ObjMvVarNum.exit.thread:                      ; preds = %Abc_ObjMvVarNum.exi
   %184 = load i32, ptr %183, align 8
   %185 = getelementptr inbounds i8, ptr %.val225, i64 224
   %186 = add nsw i32 %.val226, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %185, i32 noundef %186)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %185, i32 noundef %186)
   %187 = getelementptr i8, ptr %.val225, i64 232
   %.val.i.i.i = load ptr, ptr %187, align 8
   %188 = sext i32 %.val226 to i64
@@ -2939,7 +2939,7 @@ Abc_ObjMvVarNum.exit.thread:                      ; preds = %Abc_ObjMvVarNum.exi
   %.val3.i = load i32, ptr %203, align 8
   %204 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %205 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %204, i32 noundef %205)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %204, i32 noundef %205)
   %206 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i249 = load ptr, ptr %206, align 8
   %207 = sext i32 %.val3.i to i64
@@ -2955,7 +2955,7 @@ Abc_ObjMvVarNum.exit.thread:                      ; preds = %Abc_ObjMvVarNum.exi
   %.val224 = load i32, ptr %203, align 8
   %213 = getelementptr inbounds i8, ptr %.val.i250, i64 224
   %214 = add nsw i32 %.val224, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %213, i32 noundef %214)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %213, i32 noundef %214)
   %215 = getelementptr i8, ptr %.val.i250, i64 232
   %.val.i.i.i251 = load ptr, ptr %215, align 8
   %216 = sext i32 %.val224 to i64
@@ -3654,7 +3654,7 @@ declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

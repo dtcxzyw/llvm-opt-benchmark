@@ -1546,7 +1546,7 @@ _ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.i: ; preds = %_ZN4ll
   %55 = icmp ne i32 %54, 0
   %.not.i.i = icmp eq i32 %.val10.i, 0
   %or.cond.i.i = select i1 %55, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i.i, label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i, label %56
+  br i1 %or.cond.i.i, label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i, label %56
 
 56:                                               ; preds = %.lr.ph43.i
   %57 = lshr exact i32 %.val.i, 8
@@ -1558,11 +1558,11 @@ _ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.i: ; preds = %_ZN4ll
 60:                                               ; preds = %56
   %61 = and i32 %.val.i, 805306368
   %or.cond2.not.i.i = icmp eq i32 %61, 0
-  br i1 %or.cond2.not.i.i, label %62, label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i
+  br i1 %or.cond2.not.i.i, label %62, label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i
 
 62:                                               ; preds = %60
   call fastcc void @_ZNK12_GLOBAL__N_125RegisterOperandsCollector12pushRegLanesEN4llvm8RegisterEjRNS1_15SmallVectorImplINS1_16RegisterMaskPairEEE(ptr noundef nonnull readonly align 8 dereferenceable(25) %7, i32 %.val10.i, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i
+  br label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i
 
 63:                                               ; preds = %56
   %64 = and i32 %.val.i, 268435456
@@ -1573,22 +1573,22 @@ _ZN4llvm21ConstMIBundleOperandsC2ERKNS_12MachineInstrE.exit.i: ; preds = %_ZN4ll
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %63
-  br i1 %5, label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i, label %68
+  br i1 %5, label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i, label %68
 
 68:                                               ; preds = %67
   call fastcc void @_ZNK12_GLOBAL__N_125RegisterOperandsCollector12pushRegLanesEN4llvm8RegisterEjRNS1_15SmallVectorImplINS1_16RegisterMaskPairEEE(ptr noundef nonnull readonly align 8 dereferenceable(25) %7, i32 %.val10.i, i32 noundef %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52)
-  br label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i
+  br label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i
 
 69:                                               ; preds = %63
   call fastcc void @_ZNK12_GLOBAL__N_125RegisterOperandsCollector12pushRegLanesEN4llvm8RegisterEjRNS1_15SmallVectorImplINS1_16RegisterMaskPairEEE(ptr noundef nonnull readonly align 8 dereferenceable(25) %7, i32 %.val10.i, i32 noundef %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  br label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i
+  br label %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i
 
-_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i: ; preds = %69, %68, %67, %62, %60, %.lr.ph43.i
+_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i: ; preds = %69, %68, %67, %62, %60, %.lr.ph43.i
   %70 = getelementptr inbounds i8, ptr %.sroa.9.042.i, i64 32
   %71 = icmp eq ptr %70, %.sroa.16.041.i
   br i1 %71, label %.lr.ph.i.i.preheader.i, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i
 
-.lr.ph.i.i.preheader.i:                           ; preds = %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i
+.lr.ph.i.i.preheader.i:                           ; preds = %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.040.i, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, %23
@@ -1629,10 +1629,10 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit
   %91 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %89, i64 %90
   br label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i
 
-_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit, %.lr.ph28.i.preheader, %.lr.ph.i.i.preheader.i, %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.040.i, %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i ], [ %23, %.lr.ph.i.i.preheader.i ], [ %23, %.lr.ph28.i.preheader ], [ %.sroa.0.2.i.ph, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit ]
-  %.sroa.16.4.i = phi ptr [ %.sroa.16.041.i, %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i ], [ %.sroa.16.041.i, %.lr.ph.i.i.preheader.i ], [ %.sroa.16.041.i, %.lr.ph28.i.preheader ], [ %91, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit ]
-  %.sroa.9.4.i = phi ptr [ %70, %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.exit.i ], [ %70, %.lr.ph.i.i.preheader.i ], [ %70, %.lr.ph28.i.preheader ], [ %89, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit ]
+_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit, %.lr.ph28.i.preheader, %.lr.ph.i.i.preheader.i, %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.040.i, %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i ], [ %23, %.lr.ph.i.i.preheader.i ], [ %23, %.lr.ph28.i.preheader ], [ %.sroa.0.2.i.ph, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit ]
+  %.sroa.16.4.i = phi ptr [ %.sroa.16.041.i, %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i ], [ %.sroa.16.041.i, %.lr.ph.i.i.preheader.i ], [ %.sroa.16.041.i, %.lr.ph28.i.preheader ], [ %91, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit ]
+  %.sroa.9.4.i = phi ptr [ %70, %_ZNK12_GLOBAL__N_125RegisterOperandsCollector19collectOperandLanesERKN4llvm14MachineOperandE.argprom.exit.i ], [ %70, %.lr.ph.i.i.preheader.i ], [ %70, %.lr.ph28.i.preheader ], [ %89, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i.loopexit ]
   %.not14.i = icmp eq ptr %.sroa.9.4.i, %.sroa.16.4.i
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph43.i, !llvm.loop !14
 
@@ -6308,25 +6308,25 @@ _ZNK4llvm10LiveRegSet8containsENS_8RegisterE.exit: ; preds = %_ZNK4llvm9SparseSe
   %.02963.i.i.i.i.i = phi ptr [ %144, %143 ], [ %127, %.lr.ph.preheader.i.i.i.i.i ]
   %.029.val.i.i.i.i.i = load i32, ptr %.02963.i.i.i.i.i, align 8
   %133 = icmp eq i32 %.029.val.i.i.i.i.i, %.sroa.032.0.copyload
-  br i1 %133, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", label %134
+  br i1 %133, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i", label %134
 
 134:                                              ; preds = %.lr.ph.i.i.i.i.i53
   %135 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 16
   %.val32.i.i.i.i.i = load i32, ptr %135, align 8
   %136 = icmp eq i32 %.val32.i.i.i.i.i, %.sroa.032.0.copyload
-  br i1 %136, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit", label %137
+  br i1 %136, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit", label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 32
   %.val35.i.i.i.i.i = load i32, ptr %138, align 8
   %139 = icmp eq i32 %.val35.i.i.i.i.i, %.sroa.032.0.copyload
-  br i1 %139, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit170", label %140
+  br i1 %139, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit170", label %140
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 48
   %.val38.i.i.i.i.i = load i32, ptr %141, align 8
   %142 = icmp eq i32 %.val38.i.i.i.i.i, %.sroa.032.0.copyload
-  br i1 %142, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit172", label %143
+  br i1 %142, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit172", label %143
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 64
@@ -6350,7 +6350,7 @@ _ZNK4llvm10LiveRegSet8containsENS_8RegisterE.exit: ; preds = %_ZNK4llvm9SparseSe
 148:                                              ; preds = %._crit_edge.i.i.i.i.i
   %.029.val41.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i, align 8
   %149 = icmp eq i32 %.029.val41.i.i.i.i.i, %.sroa.032.0.copyload
-  br i1 %149, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", label %150
+  br i1 %149, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i", label %150
 
 150:                                              ; preds = %148
   %151 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
@@ -6360,7 +6360,7 @@ _ZNK4llvm10LiveRegSet8containsENS_8RegisterE.exit: ; preds = %_ZNK4llvm9SparseSe
   %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %151, %150 ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %153 = icmp eq i32 %.1.val.i.i.i.i.i, %.sroa.032.0.copyload
-  br i1 %153, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", label %154
+  br i1 %153, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i", label %154
 
 154:                                              ; preds = %152
   %155 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 16
@@ -6370,36 +6370,36 @@ _ZNK4llvm10LiveRegSet8containsENS_8RegisterE.exit: ; preds = %_ZNK4llvm9SparseSe
   %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %155, %154 ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %157 = icmp eq i32 %.2.val.i.i.i.i.i, %.sroa.032.0.copyload
-  br i1 %157, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", label %158
+  br i1 %157, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i", label %158
 
 158:                                              ; preds = %156, %._crit_edge.i.i.i.i.i
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %134
+"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %134
   %159 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit170": ; preds = %137
+"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit170": ; preds = %137
   %160 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit172": ; preds = %140
+"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit172": ; preds = %140
   %161 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i53, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit170", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit172", %158, %156, %152, %148
-  %.028.i.i.i.i.i = phi ptr [ %129, %158 ], [ %.029.lcssa.i.i.i.i.i, %148 ], [ %.1.i.i.i.i.i, %152 ], [ %.2.i.i.i.i.i, %156 ], [ %159, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %160, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit170" ], [ %161, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit172" ], [ %.02963.i.i.i.i.i, %.lr.ph.i.i.i.i.i53 ]
+"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i53, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit170", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit172", %158, %156, %152, %148
+  %.028.i.i.i.i.i = phi ptr [ %129, %158 ], [ %.029.lcssa.i.i.i.i.i, %148 ], [ %.1.i.i.i.i.i, %152 ], [ %.2.i.i.i.i.i, %156 ], [ %159, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit" ], [ %160, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit170" ], [ %161, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit172" ], [ %.02963.i.i.i.i.i, %.lr.ph.i.i.i.i.i53 ]
   %162 = getelementptr inbounds %"struct.llvm::RegisterMaskPair", ptr %127, i64 %128
   %163 = icmp eq ptr %.028.i.i.i.i.i, %162
   br i1 %163, label %_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit, label %164
 
-164:                                              ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i"
+164:                                              ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i"
   %165 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i, i64 8
   %.sroa.03.0.copyload.i = load i64, ptr %165, align 8
   br label %_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit
 
-_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit: ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", %164
-  %.sroa.03.0.i = phi i64 [ %.sroa.03.0.copyload.i, %164 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i" ]
+_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit: ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i", %164
+  %.sroa.03.0.i = phi i64 [ %.sroa.03.0.copyload.i, %164 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i" ]
   %166 = getelementptr inbounds nuw i8, ptr %.0136, i64 8
   %167 = load i64, ptr %166, align 8
   %168 = xor i64 %167, -1
@@ -6594,25 +6594,25 @@ _ZN4llvm18RegPressureTracker19increaseRegPressureENS_8RegisterENS_11LaneBitmaskE
   %.02963.i.i.i.i.i71 = phi ptr [ %304, %303 ], [ %287, %.lr.ph.preheader.i.i.i.i.i67 ]
   %.029.val.i.i.i.i.i72 = load i32, ptr %.02963.i.i.i.i.i71, align 8
   %293 = icmp eq i32 %.029.val.i.i.i.i.i72, %.sroa.07.0.copyload
-  br i1 %293, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60", label %294
+  br i1 %293, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60", label %294
 
 294:                                              ; preds = %.lr.ph.i.i.i.i.i69
   %295 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i71, i64 16
   %.val32.i.i.i.i.i73 = load i32, ptr %295, align 8
   %296 = icmp eq i32 %.val32.i.i.i.i.i73, %.sroa.07.0.copyload
-  br i1 %296, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit", label %297
+  br i1 %296, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit", label %297
 
 297:                                              ; preds = %294
   %298 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i71, i64 32
   %.val35.i.i.i.i.i74 = load i32, ptr %298, align 8
   %299 = icmp eq i32 %.val35.i.i.i.i.i74, %.sroa.07.0.copyload
-  br i1 %299, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit178", label %300
+  br i1 %299, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit178", label %300
 
 300:                                              ; preds = %297
   %301 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i71, i64 48
   %.val38.i.i.i.i.i75 = load i32, ptr %301, align 8
   %302 = icmp eq i32 %.val38.i.i.i.i.i75, %.sroa.07.0.copyload
-  br i1 %302, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit180", label %303
+  br i1 %302, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit180", label %303
 
 303:                                              ; preds = %300
   %304 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i71, i64 64
@@ -6636,7 +6636,7 @@ _ZN4llvm18RegPressureTracker19increaseRegPressureENS_8RegisterENS_11LaneBitmaskE
 308:                                              ; preds = %._crit_edge.i.i.i.i.i55
   %.029.val41.i.i.i.i.i66 = load i32, ptr %.029.lcssa.i.i.i.i.i57, align 8
   %309 = icmp eq i32 %.029.val41.i.i.i.i.i66, %.sroa.07.0.copyload
-  br i1 %309, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60", label %310
+  br i1 %309, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60", label %310
 
 310:                                              ; preds = %308
   %311 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i57, i64 16
@@ -6646,7 +6646,7 @@ _ZN4llvm18RegPressureTracker19increaseRegPressureENS_8RegisterENS_11LaneBitmaskE
   %.1.i.i.i.i.i64 = phi ptr [ %.029.lcssa.i.i.i.i.i57, %._crit_edge.i.i.i.i.i55 ], [ %311, %310 ]
   %.1.val.i.i.i.i.i65 = load i32, ptr %.1.i.i.i.i.i64, align 8
   %313 = icmp eq i32 %.1.val.i.i.i.i.i65, %.sroa.07.0.copyload
-  br i1 %313, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60", label %314
+  br i1 %313, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60", label %314
 
 314:                                              ; preds = %312
   %315 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i64, i64 16
@@ -6656,36 +6656,36 @@ _ZN4llvm18RegPressureTracker19increaseRegPressureENS_8RegisterENS_11LaneBitmaskE
   %.2.i.i.i.i.i58 = phi ptr [ %.029.lcssa.i.i.i.i.i57, %._crit_edge.i.i.i.i.i55 ], [ %315, %314 ]
   %.2.val.i.i.i.i.i59 = load i32, ptr %.2.i.i.i.i.i58, align 8
   %317 = icmp eq i32 %.2.val.i.i.i.i.i59, %.sroa.07.0.copyload
-  br i1 %317, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60", label %318
+  br i1 %317, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60", label %318
 
 318:                                              ; preds = %316, %._crit_edge.i.i.i.i.i55
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit": ; preds = %294
+"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit": ; preds = %294
   %319 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i71, i64 16
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit178": ; preds = %297
+"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit178": ; preds = %297
   %320 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i71, i64 32
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit180": ; preds = %300
+"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit180": ; preds = %300
   %321 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i71, i64 48
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60": ; preds = %.lr.ph.i.i.i.i.i69, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit178", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit180", %318, %316, %312, %308
-  %.028.i.i.i.i.i61 = phi ptr [ %289, %318 ], [ %.029.lcssa.i.i.i.i.i57, %308 ], [ %.1.i.i.i.i.i64, %312 ], [ %.2.i.i.i.i.i58, %316 ], [ %319, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit" ], [ %320, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit178" ], [ %321, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60.loopexit.split.loop.exit180" ], [ %.02963.i.i.i.i.i71, %.lr.ph.i.i.i.i.i69 ]
+"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60": ; preds = %.lr.ph.i.i.i.i.i69, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit178", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit180", %318, %316, %312, %308
+  %.028.i.i.i.i.i61 = phi ptr [ %289, %318 ], [ %.029.lcssa.i.i.i.i.i57, %308 ], [ %.1.i.i.i.i.i64, %312 ], [ %.2.i.i.i.i.i58, %316 ], [ %319, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit" ], [ %320, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit178" ], [ %321, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60.loopexit.split.loop.exit180" ], [ %.02963.i.i.i.i.i71, %.lr.ph.i.i.i.i.i69 ]
   %322 = getelementptr inbounds %"struct.llvm::RegisterMaskPair", ptr %287, i64 %288
   %323 = icmp eq ptr %.028.i.i.i.i.i61, %322
   br i1 %323, label %_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80.thread, label %_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80
 
-_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80: ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60"
+_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80: ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60"
   %324 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i61, i64 8
   %.sroa.03.0.copyload.i62 = load i64, ptr %324, align 8
   %.not120 = icmp eq i64 %.sroa.03.0.copyload.i62, 0
   br i1 %.not120, label %_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80.thread, label %_ZN4llvm18RegPressureTracker19increaseRegPressureENS_8RegisterENS_11LaneBitmaskES2_.exit100
 
-_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80.thread: ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i60", %_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80
+_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80.thread: ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_16RegisterMaskPairEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.argprom.exit.i60", %_ZL11getRegLanesN4llvm8ArrayRefINS_16RegisterMaskPairEEENS_8RegisterE.exit80
   %325 = icmp slt i32 %.sroa.07.0.copyload, 0
   %326 = and i32 %.sroa.07.0.copyload, 2147483647
   %327 = load i32, ptr %282, align 8
@@ -6924,7 +6924,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %47 = ptrtoint ptr %43 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 2
-  tail call fastcc void @_ZL26computeExcessPressureDeltaN4llvm8ArrayRefIjEES1_RNS_16RegPressureDeltaEPKNS_17RegisterClassInfoES1_(ptr %20, i64 %38, ptr %39, ptr noundef nonnull align 2 dereferenceable(12) %3, ptr noundef %41, ptr %43, i64 %49)
+  tail call fastcc void @_ZL26computeExcessPressureDeltaN4llvm8ArrayRefIjEES1_RNS_16RegPressureDeltaEPKNS_17RegisterClassInfoES1_.argprom.argelim(ptr %20, i64 %38, ptr %39, ptr noundef nonnull align 2 dereferenceable(12) %3, ptr noundef %41, ptr %43, i64 %49)
   %50 = lshr exact i64 %29, 2
   %51 = load ptr, ptr %22, align 8
   %52 = load ptr, ptr %51, align 8
@@ -6937,7 +6937,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %invariant.gep.i = getelementptr inbounds i8, ptr %4, i64 2
   %56 = and i64 %50, 4294967295
   %.not26.i = icmp eq i64 %56, 0
-  br i1 %.not26.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %.lr.ph23.i
+  br i1 %.not26.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit12
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -7026,7 +7026,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %101 = icmp ne i16 %89, 0
   %or.cond.i = select i1 %100, i1 true, i1 %101
   %102 = trunc i32 %97 to i16
-  br i1 %or.cond.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %103
+  br i1 %or.cond.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit, label %103
 
 103:                                              ; preds = %95, %91, %.critedge40.i, %59
   %104 = phi i16 [ %60, %59 ], [ %89, %.critedge40.i ], [ %89, %91 ], [ 0, %95 ]
@@ -7035,9 +7035,9 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %.1.i = phi i32 [ %.022.i, %59 ], [ %.2.i, %.critedge40.i ], [ %.2.i, %91 ], [ %.2.i, %95 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %56
-  br i1 %exitcond.not.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %59, !llvm.loop !46
+  br i1 %exitcond.not.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit, label %59, !llvm.loop !46
 
-_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit: ; preds = %95, %103, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit12
+_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit: ; preds = %95, %103, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit12
   %107 = load ptr, ptr %22, align 8
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -7055,14 +7055,14 @@ _ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_
   %.not.i.i.i = icmp eq ptr %108, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %115
 
-115:                                              ; preds = %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit
+115:                                              ; preds = %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit
   %116 = ptrtoint ptr %111 to i64
   %117 = ptrtoint ptr %108 to i64
   %118 = sub i64 %116, %117
   tail call void @_ZdlPvm(ptr noundef nonnull %108, i64 noundef %118) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, %115
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit, %115
   %.not.i.i.i13 = icmp eq ptr %112, null
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIjSaIjEED2Ev.exit14, label %119
 
@@ -7078,7 +7078,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26computeExcessPressureDeltaN4llvm8ArrayRefIjEES1_RNS_16RegPressureDeltaEPKNS_17RegisterClassInfoES1_(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(12) %3, ptr noundef %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL26computeExcessPressureDeltaN4llvm8ArrayRefIjEES1_RNS_16RegPressureDeltaEPKNS_17RegisterClassInfoES1_.argprom.argelim(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(12) %3, ptr noundef %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   store i32 0, ptr %3, align 2
   %6 = and i64 %1, 4294967295
   %.not16 = icmp eq i64 %6, 0
@@ -8308,7 +8308,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %46 = ptrtoint ptr %42 to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 2
-  tail call fastcc void @_ZL26computeExcessPressureDeltaN4llvm8ArrayRefIjEES1_RNS_16RegPressureDeltaEPKNS_17RegisterClassInfoES1_(ptr %19, i64 %37, ptr %38, ptr noundef nonnull align 2 dereferenceable(12) %2, ptr noundef %40, ptr %42, i64 %48)
+  tail call fastcc void @_ZL26computeExcessPressureDeltaN4llvm8ArrayRefIjEES1_RNS_16RegPressureDeltaEPKNS_17RegisterClassInfoES1_.argprom.argelim(ptr %19, i64 %37, ptr %38, ptr noundef nonnull align 2 dereferenceable(12) %2, ptr noundef %40, ptr %42, i64 %48)
   %49 = lshr exact i64 %28, 2
   %50 = load ptr, ptr %21, align 8
   %51 = load ptr, ptr %50, align 8
@@ -8321,7 +8321,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %invariant.gep.i = getelementptr inbounds i8, ptr %3, i64 2
   %55 = and i64 %49, 4294967295
   %.not26.i = icmp eq i64 %55, 0
-  br i1 %.not26.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %.lr.ph23.i
+  br i1 %.not26.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit12
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 6
@@ -8410,7 +8410,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %100 = icmp ne i16 %88, 0
   %or.cond.i = select i1 %99, i1 true, i1 %100
   %101 = trunc i32 %96 to i16
-  br i1 %or.cond.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %102
+  br i1 %or.cond.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit, label %102
 
 102:                                              ; preds = %94, %90, %.critedge40.i, %58
   %103 = phi i16 [ %59, %58 ], [ %88, %.critedge40.i ], [ %88, %90 ], [ 0, %94 ]
@@ -8419,9 +8419,9 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %.1.i = phi i32 [ %.022.i, %58 ], [ %.2.i, %.critedge40.i ], [ %.2.i, %90 ], [ %.2.i, %94 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %55
-  br i1 %exitcond.not.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %58, !llvm.loop !46
+  br i1 %exitcond.not.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit, label %58, !llvm.loop !46
 
-_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit: ; preds = %94, %102, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit12
+_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit: ; preds = %94, %102, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit12
   %106 = load ptr, ptr %21, align 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
@@ -8439,14 +8439,14 @@ _ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_
   %.not.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %114
 
-114:                                              ; preds = %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit
+114:                                              ; preds = %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit
   %115 = ptrtoint ptr %110 to i64
   %116 = ptrtoint ptr %107 to i64
   %117 = sub i64 %115, %116
   tail call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef %117) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, %114
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.argprom.exit, %114
   %.not.i.i.i13 = icmp eq ptr %111, null
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIjSaIjEED2Ev.exit14, label %118
 
@@ -8727,7 +8727,7 @@ define internal noundef zeroext i1 @"_ZZL14getLiveLanesAtRKN4llvm13LiveIntervals
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %6 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %4, i64 %5
   %.not.i.i = icmp eq ptr %3, %6
-  br i1 %.not.i.i, label %"_ZZL14getLiveLanesAtRKN4llvm13LiveIntervalsERKNS_19MachineRegisterInfoEbNS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES7_.exit", label %7
+  br i1 %.not.i.i, label %"_ZZL14getLiveLanesAtRKN4llvm13LiveIntervalsERKNS_19MachineRegisterInfoEbNS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES7_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %3, align 8
@@ -8748,9 +8748,9 @@ define internal noundef zeroext i1 @"_ZZL14getLiveLanesAtRKN4llvm13LiveIntervals
   %22 = and i32 %21, 3
   %23 = or i32 %19, %22
   %24 = icmp ule i32 %15, %23
-  br label %"_ZZL14getLiveLanesAtRKN4llvm13LiveIntervalsERKNS_19MachineRegisterInfoEbNS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES7_.exit"
+  br label %"_ZZL14getLiveLanesAtRKN4llvm13LiveIntervalsERKNS_19MachineRegisterInfoEbNS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES7_.argprom.exit"
 
-"_ZZL14getLiveLanesAtRKN4llvm13LiveIntervalsERKNS_19MachineRegisterInfoEbNS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES7_.exit": ; preds = %2, %7
+"_ZZL14getLiveLanesAtRKN4llvm13LiveIntervalsERKNS_19MachineRegisterInfoEbNS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES7_.argprom.exit": ; preds = %2, %7
   %25 = phi i1 [ false, %2 ], [ %24, %7 ]
   ret i1 %25
 }
@@ -8861,7 +8861,7 @@ define internal noundef zeroext i1 @"_ZZNK4llvm18RegPressureTracker14getLiveLane
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %6 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %4, i64 %5
   %.not.i.i = icmp eq ptr %3, %6
-  br i1 %.not.i.i, label %"_ZZNK4llvm18RegPressureTracker14getLiveLanesAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit", label %7
+  br i1 %.not.i.i, label %"_ZZNK4llvm18RegPressureTracker14getLiveLanesAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %3, align 8
@@ -8882,9 +8882,9 @@ define internal noundef zeroext i1 @"_ZZNK4llvm18RegPressureTracker14getLiveLane
   %22 = and i32 %21, 3
   %23 = or i32 %19, %22
   %24 = icmp ule i32 %15, %23
-  br label %"_ZZNK4llvm18RegPressureTracker14getLiveLanesAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit"
+  br label %"_ZZNK4llvm18RegPressureTracker14getLiveLanesAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit"
 
-"_ZZNK4llvm18RegPressureTracker14getLiveLanesAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit": ; preds = %2, %7
+"_ZZNK4llvm18RegPressureTracker14getLiveLanesAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit": ; preds = %2, %7
   %25 = phi i1 [ false, %2 ], [ %24, %7 ]
   ret i1 %25
 }
@@ -8933,7 +8933,7 @@ _ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i: ; preds = %24, 
   %32 = icmp eq ptr %28, %31
   %.not1.i = icmp eq ptr %28, null
   %.not.i = or i1 %.not1.i, %32
-  br i1 %.not.i, label %"_ZZNK4llvm18RegPressureTracker16getLastUsedLanesENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit", label %33
+  br i1 %.not.i, label %"_ZZNK4llvm18RegPressureTracker16getLastUsedLanesENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit", label %33
 
 33:                                               ; preds = %_ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -8941,9 +8941,9 @@ _ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i: ; preds = %24, 
   %36 = or disjoint i64 %35, 4
   %.0.copyload.i.i.i.i.i = load i64, ptr %34, align 8
   %37 = icmp eq i64 %.0.copyload.i.i.i.i.i, %36
-  br label %"_ZZNK4llvm18RegPressureTracker16getLastUsedLanesENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit"
+  br label %"_ZZNK4llvm18RegPressureTracker16getLastUsedLanesENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit"
 
-"_ZZNK4llvm18RegPressureTracker16getLastUsedLanesENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit": ; preds = %_ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i, %33
+"_ZZNK4llvm18RegPressureTracker16getLastUsedLanesENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit": ; preds = %_ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i, %33
   %38 = phi i1 [ false, %_ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i ], [ %37, %33 ]
   ret i1 %38
 }
@@ -8992,7 +8992,7 @@ _ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i: ; preds = %24, 
   %32 = icmp eq ptr %28, %31
   %.not2.i = icmp eq ptr %28, null
   %.not.i = or i1 %.not2.i, %32
-  br i1 %.not.i, label %"_ZZNK4llvm18RegPressureTracker16getLiveThroughAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit", label %33
+  br i1 %.not.i, label %"_ZZNK4llvm18RegPressureTracker16getLiveThroughAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit", label %33
 
 33:                                               ; preds = %_ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i
   %34 = and i64 %1, -8
@@ -9010,16 +9010,16 @@ _ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i: ; preds = %24, 
   %45 = load i32, ptr %44, align 8
   %46 = or i32 %45, 1
   %47 = icmp ult i32 %42, %46
-  br i1 %47, label %48, label %"_ZZNK4llvm18RegPressureTracker16getLiveThroughAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit"
+  br i1 %47, label %48, label %"_ZZNK4llvm18RegPressureTracker16getLiveThroughAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit"
 
 48:                                               ; preds = %33
   %49 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %50 = or disjoint i64 %34, 6
   %.0.copyload.i.i.i.i.i = load i64, ptr %49, align 8
   %51 = icmp ne i64 %.0.copyload.i.i.i.i.i, %50
-  br label %"_ZZNK4llvm18RegPressureTracker16getLiveThroughAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit"
+  br label %"_ZZNK4llvm18RegPressureTracker16getLiveThroughAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit"
 
-"_ZZNK4llvm18RegPressureTracker16getLiveThroughAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.exit": ; preds = %_ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i, %33, %48
+"_ZZNK4llvm18RegPressureTracker16getLiveThroughAtENS_8RegisterENS_9SlotIndexEENK3$_0clERKNS_9LiveRangeES2_.argprom.exit": ; preds = %_ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i, %33, %48
   %52 = phi i1 [ false, %33 ], [ false, %_ZNK4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.i ], [ %51, %48 ]
   ret i1 %52
 }

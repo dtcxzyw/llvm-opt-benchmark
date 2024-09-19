@@ -11825,7 +11825,7 @@ _ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %_ZN4llvm5SDLocC2EPK
   %70 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %71 = getelementptr inbounds i8, ptr %60, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %70, ptr noundef nonnull align 8 dereferenceable(12) %71, i64 12, i1 false)
-  br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.argprom.argprom.exit"
 
 72:                                               ; preds = %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
   %73 = icmp eq i32 %62, 462
@@ -11840,9 +11840,9 @@ _ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %_ZN4llvm5SDLocC2EPK
   %80 = select i1 %73, i64 3, i64 4
   %81 = getelementptr inbounds %"class.llvm::SDUse", ptr %60, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %79, ptr noundef nonnull align 8 dereferenceable(12) %81, i64 12, i1 false)
-  br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.argprom.argprom.exit"
 
-"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.exit": ; preds = %66, %72
+"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.argprom.argprom.exit": ; preds = %66, %72
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i125 = load i16, ptr %82, align 8
   %.sroa.21.0..sroa_idx.i126 = getelementptr inbounds i8, ptr %1, i64 96
@@ -11863,7 +11863,7 @@ _ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %_ZN4llvm5SDLocC2EPK
   %.sroa.0100.0.copyload.pre = load ptr, ptr %20, align 8
   br i1 %4, label %89, label %94
 
-89:                                               ; preds = %"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.exit"
+89:                                               ; preds = %"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.argprom.argprom.exit"
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0.copyload.pre, i64 24
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, 207
@@ -11873,7 +11873,7 @@ _ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %_ZN4llvm5SDLocC2EPK
   call void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_SETCCEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull %.sroa.0100.0.copyload.pre, ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 8 dereferenceable(12) %23)
   br label %96
 
-94:                                               ; preds = %89, %"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.exit"
+94:                                               ; preds = %89, %"_ZZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_bENK3$_0clEv.argprom.argprom.exit"
   %.sroa.2101.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
   %.sroa.2101.0.copyload = load i32, ptr %.sroa.2101.0..sroa_idx, align 8
   call void @_ZN4llvm16DAGTypeLegalizer9SplitMaskENS_7SDValueERKNS_5SDLocE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %24, ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %.sroa.0100.0.copyload.pre, i32 %.sroa.2101.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %16)
@@ -19452,9 +19452,9 @@ define internal fastcc void @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SH
   %15 = getelementptr inbounds nuw i8, ptr %.0.ptr63, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit.thread"
+  br i1 %17, label %18, label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit.thread"
 
-"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit.thread": ; preds = %14
+"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit.thread": ; preds = %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %30
 
@@ -19472,31 +19472,31 @@ define internal fastcc void @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SH
   %.ph.i = phi i1 [ %23, %21 ], [ true, %18 ]
   %.pr.i = load i32, ptr %13, align 8
   %25 = icmp ugt i32 %.pr.i, 64
-  br i1 %25, label %26, label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit"
+  br i1 %25, label %26, label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit"
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %3, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit", label %29
+  br i1 %28, label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit", label %29
 
 29:                                               ; preds = %26
   call void @_ZdaPv(ptr noundef nonnull %27) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %.ph.i, label %.sink.split, label %30
 
-"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit": ; preds = %24, %26
+"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit": ; preds = %24, %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %.ph.i, label %.sink.split, label %30
 
-30:                                               ; preds = %29, %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit.thread", %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit"
+30:                                               ; preds = %29, %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit.thread", %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit"
   %31 = load ptr, ptr %.0.ptr63, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 51
   br i1 %34, label %36, label %.sink.split
 
-.sink.split:                                      ; preds = %30, %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit", %29
-  %.sink = phi ptr [ %5, %29 ], [ %5, %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.exit" ], [ %4, %30 ]
+.sink.split:                                      ; preds = %30, %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit", %29
+  %.sink = phi ptr [ %5, %29 ], [ %5, %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_5clERKS3_.argprom.exit" ], [ %4, %30 ]
   %35 = call noundef zeroext i1 @_ZN4llvm9SetVectorINS_7SDValueENS_11SmallVectorIS1_Lj0EEENS_8DenseSetIS1_NS_12DenseMapInfoIS1_vEEEELj0EE6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %.sink, ptr noundef nonnull align 8 dereferenceable(12) %.0.ptr63)
   br label %36
 
@@ -24706,7 +24706,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZNK4llvm9MemSDNode
   %65 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %66 = getelementptr inbounds i8, ptr %61, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %65, ptr noundef nonnull align 8 dereferenceable(12) %66, i64 12, i1 false)
-  br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.argprom.argprom.exit"
 
 67:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %68 = icmp eq i32 %56, 462
@@ -24722,9 +24722,9 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZNK4llvm9MemSDNode
   %76 = select i1 %68, i64 3, i64 4
   %77 = getelementptr inbounds %"class.llvm::SDUse", ptr %70, i64 %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %75, ptr noundef nonnull align 8 dereferenceable(12) %77, i64 12, i1 false)
-  br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.argprom.argprom.exit"
 
-"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.exit": ; preds = %60, %67
+"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.argprom.argprom.exit": ; preds = %60, %67
   %.sink3.i = phi ptr [ %70, %67 ], [ %61, %60 ]
   %78 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %79 = getelementptr inbounds i8, ptr %.sink3.i, i64 40
@@ -24766,11 +24766,11 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZNK4llvm9MemSDNode
   %97 = icmp eq i8 %96, 6
   br i1 %97, label %98, label %99
 
-98:                                               ; preds = %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.exit"
+98:                                               ; preds = %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.argprom.argprom.exit"
   call void @_ZN4llvm16DAGTypeLegalizer14GetSplitVectorENS_7SDValueERS1_S2_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nonnull %85, i32 %87, ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
   br label %106
 
-99:                                               ; preds = %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.exit"
+99:                                               ; preds = %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.argprom.argprom.exit"
   %100 = load ptr, ptr %80, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -43949,7 +43949,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %_ZNK4llvm3MVT20getV
   ]
 
 111:                                              ; preds = %109, %109, %109
-  %112 = call fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE(ptr %.sroa.0221.0.copyload)
+  %112 = call fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE.argelim(ptr %.sroa.0221.0.copyload)
   %.sroa.9.0275 = extractvalue { i16, ptr } %112, 1
   %.sroa.0134.0276 = extractvalue { i16, ptr } %112, 0
   %113 = load ptr, ptr %0, align 8
@@ -44091,7 +44091,7 @@ _ZNK4llvm3EVTeqES0_.exit180:                      ; preds = %_ZL9isSETCCOpj.exit
   ]
 
 169:                                              ; preds = %167, %167, %167
-  %170 = call fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE(ptr %.sroa.0221.0.copyload)
+  %170 = call fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE.argelim(ptr %.sroa.0221.0.copyload)
   %171 = extractvalue { i16, ptr } %170, 0
   %172 = extractvalue { i16, ptr } %170, 1
   %173 = call { i16, ptr } @_ZNK4llvm16DAGTypeLegalizer18getSetCCResultTypeENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(2512) %0, i16 %171, ptr %172)
@@ -44135,7 +44135,7 @@ _ZL9isSETCCOpj.exit182:                           ; preds = %167
   %.sroa.874.0.copyload = load i32, ptr %.sroa.874.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %179, i64 52
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
-  %189 = call fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE(ptr %180)
+  %189 = call fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE.argelim(ptr %180)
   %190 = extractvalue { i16, ptr } %189, 0
   %191 = extractvalue { i16, ptr } %189, 1
   %192 = call { i16, ptr } @_ZNK4llvm16DAGTypeLegalizer18getSetCCResultTypeENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(2512) %0, i16 %190, ptr %191)
@@ -44144,7 +44144,7 @@ _ZL9isSETCCOpj.exit182:                           ; preds = %167
   %194 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %195 = extractvalue { i16, ptr } %192, 1
   store ptr %195, ptr %194, align 8
-  %196 = call fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE(ptr %185)
+  %196 = call fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE.argelim(ptr %185)
   %197 = extractvalue { i16, ptr } %196, 0
   %198 = extractvalue { i16, ptr } %196, 1
   %199 = call { i16, ptr } @_ZNK4llvm16DAGTypeLegalizer18getSetCCResultTypeENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(2512) %0, i16 %197, ptr %198)
@@ -44301,7 +44301,7 @@ _ZL9isSETCCOpj.exit186:                           ; preds = %_ZNK4llvm3EVT13getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE(ptr nonnull %0) unnamed_addr #0 {
+define internal fastcc { i16, ptr } @_ZL19getSETCCOperandTypeN4llvm7SDValueE.argelim(ptr nonnull %0) unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZN4llvm6SDNode16isStrictFPOpcodeEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -57208,7 +57208,7 @@ define internal void @"_ZN4llvm12function_refIFvNS_8ArrayRefIiEEjjEE11callback_f
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc { ptr, i32 } @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_6clES4_S4_NS_8ArrayRefIiEE"(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %13, ptr %1)
+  %21 = tail call fastcc { ptr, i32 } @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_6clES4_S4_NS_8ArrayRefIiEE.argelim"(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %13, ptr %1)
   br label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_3clENS_8ArrayRefIiEEjj.exit"
 
 22:                                               ; preds = %5
@@ -57264,7 +57264,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit.i:  ; preds = %30, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i32 } @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_6clES4_S4_NS_8ArrayRefIiEE"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr nocapture readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, i32 } @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_6clES4_S4_NS_8ArrayRefIiEE.argelim"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr nocapture readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::ArrayRef.45", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
@@ -57539,7 +57539,7 @@ define internal void @"_ZN4llvm12function_refIFvNS_8ArrayRefIiEEjjEE11callback_f
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call fastcc { ptr, i32 } @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_6clES4_S4_NS_8ArrayRefIiEE"(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr %1)
+  %43 = tail call fastcc { ptr, i32 } @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_6clES4_S4_NS_8ArrayRefIiEE.argelim"(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr %1)
   br label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_4clENS_8ArrayRefIiEEjj.exit"
 
 ._crit_edge.i:                                    ; preds = %34, %24
@@ -57584,7 +57584,7 @@ define internal void @"_ZN4llvm12function_refIFvNS_8ArrayRefIiEEjjEE11callback_f
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call fastcc { ptr, i32 } @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_6clES4_S4_NS_8ArrayRefIiEE"(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %62, ptr %1)
+  %70 = tail call fastcc { ptr, i32 } @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_6clES4_S4_NS_8ArrayRefIiEE.argelim"(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %62, ptr %1)
   br label %"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_4clENS_8ArrayRefIiEEjj.exit"
 
 ._crit_edge55.i:                                  ; preds = %61, %51
@@ -57866,8 +57866,8 @@ attributes #16 = { builtin nounwind }
 !142 = distinct !{!142, !143, !"_ZNK4llvm18MachinePointerInfo13getWithOffsetEl: argument 0"}
 !143 = distinct !{!143, !"_ZNK4llvm18MachinePointerInfo13getWithOffsetEl"}
 !144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv: argument 0"}
-!146 = distinct !{!146, !"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv"}
+!145 = distinct !{!145, !146, !"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.argprom.argprom: argument 0"}
+!146 = distinct !{!146, !"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.argprom.argprom"}
 !147 = !{!148}
 !148 = distinct !{!148, !149, !"_ZN4llvm12SelectionDAG11SplitVectorERKNS_7SDValueERKNS_5SDLocE: argument 0"}
 !149 = distinct !{!149, !"_ZN4llvm12SelectionDAG11SplitVectorERKNS_7SDValueERKNS_5SDLocE"}

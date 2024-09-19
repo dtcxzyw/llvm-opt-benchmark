@@ -1806,9 +1806,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i8 1, ptr %arrayidx2.i.i, align 1
   %inc.i.i = add nuw i64 %i.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %1
-  br i1 %exitcond.not.i.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit.i, label %for.body.i.i, !llvm.loop !8
 
-_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i: ; preds = %for.body.i.i
+_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit.i: ; preds = %for.body.i.i
   %sub.i = add i64 %0, -1
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %pos)
   %8 = load ptr, ptr %this, align 8
@@ -1820,8 +1820,8 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %tobool22.i = trunc i8 %10 to i1
   br i1 %tobool22.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %if.end15.i
 
-if.end15.i:                                       ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, %for.inc.i
-  %i.023.i = phi i64 [ %dec.i, %for.inc.i ], [ %.sroa.speculated.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i ]
+if.end15.i:                                       ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit.i, %for.inc.i
+  %i.023.i = phi i64 [ %dec.i, %for.inc.i ], [ %.sroa.speculated.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit.i ]
   %cmp16.i = icmp eq i64 %i.023.i, 0
   br i1 %cmp16.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %for.inc.i
 
@@ -1835,8 +1835,8 @@ for.inc.i:                                        ; preds = %if.end15.i
   %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %if.end15.i, !llvm.loop !12
 
-_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit: ; preds = %if.end7.i.i.i, %for.inc.i.i.i, %if.end15.i, %for.inc.i, %entry, %lor.lhs.false.i, %if.end.i.i.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i
-  %retval.0.i = phi i64 [ -1, %lor.lhs.false.i ], [ -1, %entry ], [ %.sroa.speculated.i.i.i, %if.end.i.i.i ], [ %.sroa.speculated.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i ], [ -1, %if.end15.i ], [ %dec.i, %for.inc.i ], [ -1, %if.end7.i.i.i ], [ %dec.i.i.i, %for.inc.i.i.i ]
+_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit: ; preds = %if.end7.i.i.i, %for.inc.i.i.i, %if.end15.i, %for.inc.i, %entry, %lor.lhs.false.i, %if.end.i.i.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit.i
+  %retval.0.i = phi i64 [ -1, %lor.lhs.false.i ], [ -1, %entry ], [ %.sroa.speculated.i.i.i, %if.end.i.i.i ], [ %.sroa.speculated.i, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit.i ], [ -1, %if.end15.i ], [ %dec.i, %for.inc.i ], [ -1, %if.end7.i.i.i ], [ %dec.i.i.i, %for.inc.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %lookup.i)
   ret i64 %retval.0.i
 }
@@ -1895,9 +1895,9 @@ for.body.i:                                       ; preds = %if.end8, %for.body.
   store i8 1, ptr %arrayidx2.i, align 1
   %inc.i = add nuw i64 %i.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %1
-  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit, label %for.body.i, !llvm.loop !8
 
-_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit: ; preds = %for.body.i
+_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit: ; preds = %for.body.i
   %sub = add i64 %0, -1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %pos)
   %8 = load ptr, ptr %self, align 8
@@ -1909,8 +1909,8 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %tobool22 = trunc i8 %10 to i1
   br i1 %tobool22, label %return, label %if.end15
 
-if.end15:                                         ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, %for.inc
-  %i.023 = phi i64 [ %dec, %for.inc ], [ %.sroa.speculated, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit ]
+if.end15:                                         ; preds = %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit, %for.inc
+  %i.023 = phi i64 [ %dec, %for.inc ], [ %.sroa.speculated, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit ]
   %cmp16 = icmp eq i64 %i.023, 0
   br i1 %cmp16, label %return, label %for.inc
 
@@ -1924,8 +1924,8 @@ for.inc:                                          ; preds = %if.end15
   %tobool = trunc i8 %12 to i1
   br i1 %tobool, label %return, label %if.end15, !llvm.loop !12
 
-return:                                           ; preds = %for.inc.i.i, %if.end7.i.i, %for.inc, %if.end15, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, %lor.lhs.false, %if.end.i.i, %entry
-  %retval.0 = phi i64 [ -1, %lor.lhs.false ], [ -1, %entry ], [ %.sroa.speculated.i.i, %if.end.i.i ], [ %.sroa.speculated, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit ], [ %dec, %for.inc ], [ -1, %if.end15 ], [ %dec.i.i, %for.inc.i.i ], [ -1, %if.end7.i.i ]
+return:                                           ; preds = %for.inc.i.i, %if.end7.i.i, %for.inc, %if.end15, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit, %lor.lhs.false, %if.end.i.i, %entry
+  %retval.0 = phi i64 [ -1, %lor.lhs.false ], [ -1, %entry ], [ %.sroa.speculated.i.i, %if.end.i.i ], [ %.sroa.speculated, %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.argprom.exit ], [ %dec, %for.inc ], [ -1, %if.end15 ], [ %dec.i.i, %for.inc.i.i ], [ -1, %if.end7.i.i ]
   ret i64 %retval.0
 }
 

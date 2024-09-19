@@ -151,7 +151,7 @@ define internal range(i32 0, 2) i32 @usbdump_read(ptr nocapture noundef readonly
   store i64 %10, ptr %5, align 8
   %11 = load ptr, ptr %0, align 8
   %.val = load ptr, ptr %7, align 8
-  %12 = tail call fastcc i32 @usbdump_read_packet(ptr %.val, ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %12 = tail call fastcc i32 @usbdump_read_packet.argprom(ptr %.val, ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %25, label %13
 
@@ -195,7 +195,7 @@ define internal range(i32 0, 2) i32 @usbdump_seek_read(ptr nocapture noundef rea
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc i32 @usbdump_read_packet(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %14 = tail call fastcc i32 @usbdump_read_packet.argprom(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %19
 
@@ -216,7 +216,7 @@ define internal range(i32 0, 2) i32 @usbdump_seek_read(ptr nocapture noundef rea
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet.argprom(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [18 x i8], align 16
   %7 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 18, ptr noundef %3, ptr noundef %4) #5
   %.not = icmp eq i32 %7, 0

@@ -7301,7 +7301,7 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit210: ; preds = %for.b
 if.else203:                                       ; preds = %lor.rhs191
   %second205 = getelementptr inbounds i8, ptr %it.sroa.0.0325, i64 32
   %call206 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second205)
-  call fastcc void @_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s(i64 noundef %call206, ptr noundef nonnull %z)
+  call fastcc void @_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.argelim(i64 noundef %call206, ptr noundef nonnull %z)
   call fastcc void @_ZN3netL6WriteZERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10ZDataClassEP10z_stream_s(ptr noundef nonnull align 8 dereferenceable(16) %second205, i32 noundef 2, ptr noundef nonnull %z)
   br label %for.inc211
 
@@ -7318,7 +7318,7 @@ if.end224:                                        ; preds = %for.inc211, %_ZN3ne
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s(i64 noundef %n, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc void @_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.argelim(i64 noundef %n, ptr noundef %out) unnamed_addr #0 {
 if.end:
   %buf = alloca [4 x i8], align 1
   %ref.tmp3 = alloca %"class.base::BasicStringPiece", align 8
@@ -7530,20 +7530,20 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then23:                                        ; preds = %while.body
   %2 = load atomic volatile i64, ptr @_ZN3net12_GLOBAL__N_116g_dictionary_idsE acquire, align 8
   %tobool.not.i.i = icmp ult i64 %2, 2
-  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit
+  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.argprom.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then23
   %call3.i.i = call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN3net12_GLOBAL__N_116g_dictionary_idsE)
-  br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit
+  br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.argprom.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %call.i.i.i.i.i.i = call i64 @MOZ_Z_adler32(i64 noundef 0, ptr noundef null, i32 noundef 0)
   %call1.i.i.i.i.i.i = call noundef i64 @MOZ_Z_adler32(i64 noundef %call.i.i.i.i.i.i, ptr noundef nonnull @_ZN3netL13kV3DictionaryE, i32 noundef 1423)
   store i64 %call1.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_116g_dictionary_idsE, i64 8), align 8
   call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN3net12_GLOBAL__N_116g_dictionary_idsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_116g_dictionary_idsE, i64 8) to i64), ptr noundef nonnull @_ZN3net12_GLOBAL__N_116g_dictionary_idsE, ptr noundef null)
-  br label %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit
+  br label %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.argprom.exit
 
-_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit: ; preds = %if.then23, %land.lhs.true.i.i, %if.then.i.i
+_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.argprom.exit: ; preds = %if.then23, %land.lhs.true.i.i, %if.then.i.i
   %3 = load atomic volatile i64, ptr @_ZN3net12_GLOBAL__N_116g_dictionary_idsE monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %4, align 8
@@ -7551,7 +7551,7 @@ _ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLaz
   %cmp25 = icmp eq i64 %6, %5
   br i1 %cmp25, label %if.then26, label %land.end38
 
-if.then26:                                        ; preds = %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit
+if.then26:                                        ; preds = %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.argprom.exit
   %call27 = call i32 @MOZ_Z_inflateSetDictionary(ptr noundef nonnull %call, ptr noundef nonnull @_ZN3netL13kV3DictionaryE, i32 noundef 1423)
   %cmp28 = icmp eq i32 %call27, 0
   br i1 %cmp28, label %if.then29, label %if.end33
@@ -7570,9 +7570,9 @@ land.rhs35:                                       ; preds = %if.end33
   %cmp37 = icmp eq i32 %7, 0
   br label %land.end38
 
-land.end38:                                       ; preds = %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit, %land.rhs35, %if.end33
-  %rv.040 = phi i32 [ %rv.0, %if.end33 ], [ -5, %land.rhs35 ], [ -5, %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit ]
-  %8 = phi i1 [ false, %if.end33 ], [ %cmp37, %land.rhs35 ], [ false, %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit ]
+land.end38:                                       ; preds = %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.argprom.exit, %land.rhs35, %if.end33
+  %rv.040 = phi i32 [ %rv.0, %if.end33 ], [ -5, %land.rhs35 ], [ -5, %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.argprom.exit ]
+  %8 = phi i1 [ false, %if.end33 ], [ %cmp37, %land.rhs35 ], [ false, %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.argprom.exit ]
   %cmp39 = icmp eq i32 %rv.040, 0
   %brmerge = select i1 %cmp39, i1 true, i1 %8
   br i1 %brmerge, label %if.then41, label %if.end68.thread

@@ -1463,10 +1463,10 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   %.not215316 = icmp eq ptr %.2166315, null
   br i1 %.not215316, label %.loopexit, label %.lr.ph321
 
-.lr.ph321:                                        ; preds = %499, %prepare_btree_command.exit
-  %.2166319 = phi ptr [ %.2166, %prepare_btree_command.exit ], [ %.2166315, %499 ]
-  %.0174318 = phi i64 [ %510, %prepare_btree_command.exit ], [ 0, %499 ]
-  %.0176317 = phi i64 [ %506, %prepare_btree_command.exit ], [ 0, %499 ]
+.lr.ph321:                                        ; preds = %499, %prepare_btree_command.argprom.exit
+  %.2166319 = phi ptr [ %.2166, %prepare_btree_command.argprom.exit ], [ %.2166315, %499 ]
+  %.0174318 = phi i64 [ %510, %prepare_btree_command.argprom.exit ], [ 0, %499 ]
+  %.0176317 = phi i64 [ %506, %prepare_btree_command.argprom.exit ], [ 0, %499 ]
   %500 = getelementptr inbounds i8, ptr %.2166319, i64 8
   %501 = load ptr, ptr %500, align 8
   %502 = load volatile i32, ptr @CancelRequested, align 4
@@ -1558,17 +1558,17 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
 555:                                              ; preds = %554, %541
   %556 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 72), align 8
   %557 = icmp sgt i64 %556, -1
-  br i1 %557, label %558, label %prepare_heap_command.exit
+  br i1 %557, label %558, label %prepare_heap_command.argprom.exit
 
 558:                                              ; preds = %555
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.75, i64 noundef %556) #12
-  br label %prepare_heap_command.exit
+  br label %prepare_heap_command.argprom.exit
 
-prepare_heap_command.exit:                        ; preds = %555, %558
+prepare_heap_command.argprom.exit:                ; preds = %555, %558
   %559 = getelementptr inbounds i8, ptr %501, i64 8
   %560 = load i32, ptr %559, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.76, i32 noundef %560) #12
-  br label %prepare_btree_command.exit
+  br label %prepare_btree_command.argprom.exit
 
 561:                                              ; preds = %520
   br i1 %525, label %562, label %576
@@ -1621,7 +1621,7 @@ prepare_heap_command.exit:                        ; preds = %555, %558
   %593 = getelementptr inbounds i8, ptr %501, i64 8
   %594 = load i32, ptr %593, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.77, ptr noundef %581, ptr noundef nonnull %584, ptr noundef nonnull %588, ptr noundef nonnull %592, i32 noundef %594) #12
-  br label %prepare_btree_command.exit
+  br label %prepare_btree_command.argprom.exit
 
 595:                                              ; preds = %576
   %596 = getelementptr inbounds i8, ptr %579, i64 16
@@ -1631,10 +1631,10 @@ prepare_heap_command.exit:                        ; preds = %555, %558
   %600 = getelementptr inbounds i8, ptr %501, i64 8
   %601 = load i32, ptr %600, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.80, ptr noundef %581, ptr noundef nonnull %584, ptr noundef nonnull %599, i32 noundef %601) #12
-  br label %prepare_btree_command.exit
+  br label %prepare_btree_command.argprom.exit
 
-prepare_btree_command.exit:                       ; preds = %595, %585, %prepare_heap_command.exit
-  %verify_heap_slot_handler.sink = phi ptr [ @verify_heap_slot_handler, %prepare_heap_command.exit ], [ @verify_btree_slot_handler, %585 ], [ @verify_btree_slot_handler, %595 ]
+prepare_btree_command.argprom.exit:               ; preds = %595, %585, %prepare_heap_command.argprom.exit
+  %verify_heap_slot_handler.sink = phi ptr [ @verify_heap_slot_handler, %prepare_heap_command.argprom.exit ], [ @verify_btree_slot_handler, %585 ], [ @verify_btree_slot_handler, %595 ]
   %602 = load ptr, ptr %6, align 8
   %603 = call ptr @pstrdup(ptr noundef %602) #12
   %604 = getelementptr inbounds i8, ptr %501, i64 40
@@ -1653,9 +1653,9 @@ prepare_btree_command.exit:                       ; preds = %595, %585, %prepare
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
   br label %612
 
-.loopexit:                                        ; preds = %prepare_btree_command.exit, %499
-  %.0176.lcssa = phi i64 [ 0, %499 ], [ %506, %prepare_btree_command.exit ]
-  %.0174.lcssa = phi i64 [ 0, %499 ], [ %510, %prepare_btree_command.exit ]
+.loopexit:                                        ; preds = %prepare_btree_command.argprom.exit, %499
+  %.0176.lcssa = phi i64 [ 0, %499 ], [ %506, %prepare_btree_command.argprom.exit ]
+  %.0174.lcssa = phi i64 [ 0, %499 ], [ %510, %prepare_btree_command.argprom.exit ]
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
   %.not220 = icmp eq ptr %497, null
   br i1 %.not220, label %610, label %608

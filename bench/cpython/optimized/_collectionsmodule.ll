@@ -2104,30 +2104,30 @@ entry:
   %2 = load ptr, ptr %call.val.i, align 8
   %v.val52 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %v.val52, %2
-  br i1 %cmp.i.not.i, label %lor.lhs.false, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %lor.lhs.false, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val52, ptr noundef %2) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.i.not, label %return, label %PyObject_TypeCheck.exit.lor.lhs.false_crit_edge
+  br i1 %tobool3.i.not, label %return, label %PyObject_TypeCheck.argprom.exit.lor.lhs.false_crit_edge
 
-PyObject_TypeCheck.exit.lor.lhs.false_crit_edge:  ; preds = %PyObject_TypeCheck.exit
+PyObject_TypeCheck.argprom.exit.lor.lhs.false_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit
   %.pre = load ptr, ptr %call.val.i, align 8
   br label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.exit.lor.lhs.false_crit_edge, %entry
-  %3 = phi ptr [ %.pre, %PyObject_TypeCheck.exit.lor.lhs.false_crit_edge ], [ %2, %entry ]
+lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.argprom.exit.lor.lhs.false_crit_edge, %entry
+  %3 = phi ptr [ %.pre, %PyObject_TypeCheck.argprom.exit.lor.lhs.false_crit_edge ], [ %2, %entry ]
   %4 = getelementptr i8, ptr %w, i64 8
   %w.val53 = load ptr, ptr %4, align 8
   %cmp.i.not.i54 = icmp eq ptr %w.val53, %3
-  br i1 %cmp.i.not.i54, label %if.end, label %PyObject_TypeCheck.exit59
+  br i1 %cmp.i.not.i54, label %if.end, label %PyObject_TypeCheck.argprom.exit59
 
-PyObject_TypeCheck.exit59:                        ; preds = %lor.lhs.false
+PyObject_TypeCheck.argprom.exit59:                ; preds = %lor.lhs.false
   %call2.i56 = tail call i32 @PyType_IsSubtype(ptr noundef %w.val53, ptr noundef %3) #9
   %tobool3.i57.not = icmp eq i32 %call2.i56, 0
   br i1 %tobool3.i57.not, label %return, label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false, %PyObject_TypeCheck.exit59
+if.end:                                           ; preds = %lor.lhs.false, %PyObject_TypeCheck.argprom.exit59
   %5 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %5, align 8
   %6 = getelementptr i8, ptr %w, i64 16
@@ -2378,8 +2378,8 @@ Py_XDECREF.exit87:                                ; preds = %Py_XDECREF.exit78, 
   %spec.select126 = select i1 %switch.selectcmp49, ptr @_Py_TrueStruct, ptr %spec.select
   br label %return
 
-return:                                           ; preds = %Py_XDECREF.exit87, %if.end25, %if.end21, %if.then18, %if.end12, %if.then9, %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit59
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit59 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ @_Py_TrueStruct, %if.then9 ], [ @_Py_FalseStruct, %if.end12 ], [ @_Py_FalseStruct, %if.then18 ], [ @_Py_TrueStruct, %if.end21 ], [ null, %if.end25 ], [ %spec.select126, %Py_XDECREF.exit87 ]
+return:                                           ; preds = %Py_XDECREF.exit87, %if.end25, %if.end21, %if.then18, %if.end12, %if.then9, %PyObject_TypeCheck.argprom.exit, %PyObject_TypeCheck.argprom.exit59
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.argprom.exit59 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.argprom.exit ], [ @_Py_TrueStruct, %if.then9 ], [ @_Py_FalseStruct, %if.end12 ], [ @_Py_FalseStruct, %if.then18 ], [ @_Py_TrueStruct, %if.end21 ], [ null, %if.end25 ], [ %spec.select126, %Py_XDECREF.exit87 ]
   ret ptr %retval.0
 }
 
@@ -3948,7 +3948,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
-  %call1 = tail call fastcc i32 @deque_appendleft_internal(ptr noundef %deque, ptr noundef nonnull %item)
+  %call1 = tail call fastcc i32 @deque_appendleft_internal.argelim(ptr noundef %deque, ptr noundef nonnull %item)
   %cmp = icmp slt i32 %call1, 0
   %._Py_NoneStruct = select i1 %cmp, ptr null, ptr @_Py_NoneStruct
   ret ptr %._Py_NoneStruct
@@ -4122,14 +4122,14 @@ land.lhs.true:                                    ; preds = %if.end26
   %21 = getelementptr i8, ptr %result.0, i64 8
   %result.0.val37 = load ptr, ptr %21, align 8
   %cmp.i.not.i = icmp eq ptr %result.0.val37, %20
-  br i1 %cmp.i.not.i, label %return, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %return, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %land.lhs.true
+PyObject_TypeCheck.argprom.exit:                  ; preds = %land.lhs.true
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %result.0.val37, ptr noundef %20) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then31, label %return
 
-if.then31:                                        ; preds = %PyObject_TypeCheck.exit
+if.then31:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %22 = load ptr, ptr @PyExc_TypeError, align 8
   %deque.val32 = load ptr, ptr %0, align 8
   %tp_name = getelementptr inbounds i8, ptr %deque.val32, i64 24
@@ -4155,8 +4155,8 @@ return.sink.split:                                ; preds = %if.end.i, %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i39.sink) #9
   br label %return
 
-return:                                           ; preds = %return.sink.split, %land.lhs.true, %if.end.i.i, %if.then3.i, %if.then, %if.end26, %PyObject_TypeCheck.exit, %if.end.i, %if.then31, %if.end.i40, %if.end15, %if.end.i49, %if.then14
-  %retval.0 = phi ptr [ %call.i39, %if.then14 ], [ %call.i39, %if.end.i49 ], [ null, %if.end15 ], [ null, %if.end.i40 ], [ null, %if.then31 ], [ null, %if.end.i ], [ %result.0, %PyObject_TypeCheck.exit ], [ null, %if.end26 ], [ null, %if.then ], [ null, %if.then3.i ], [ null, %if.end.i.i ], [ %result.0, %land.lhs.true ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %land.lhs.true, %if.end.i.i, %if.then3.i, %if.then, %if.end26, %PyObject_TypeCheck.argprom.exit, %if.end.i, %if.then31, %if.end.i40, %if.end15, %if.end.i49, %if.then14
+  %retval.0 = phi ptr [ %call.i39, %if.then14 ], [ %call.i39, %if.end.i49 ], [ null, %if.end15 ], [ null, %if.end.i40 ], [ null, %if.then31 ], [ null, %if.end.i ], [ %result.0, %PyObject_TypeCheck.argprom.exit ], [ null, %if.end26 ], [ null, %if.then ], [ null, %if.then3.i ], [ null, %if.end.i.i ], [ %result.0, %land.lhs.true ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -4324,7 +4324,7 @@ while.cond:                                       ; preds = %while.body, %if.end
   br i1 %cmp20.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call21 = tail call fastcc i32 @deque_appendleft_internal(ptr noundef %deque, ptr noundef nonnull %call19)
+  %call21 = tail call fastcc i32 @deque_appendleft_internal.argelim(ptr noundef %deque, ptr noundef nonnull %call19)
   %cmp22 = icmp eq i32 %call21, -1
   br i1 %cmp22, label %if.then23, label %while.cond, !llvm.loop !22
 
@@ -4658,7 +4658,7 @@ if.end.i.i.i17:                                   ; preds = %if.then11
   br label %deque_appendleft.exit
 
 deque_appendleft.exit:                            ; preds = %if.then11, %if.end.i.i.i17
-  %call1.i19 = call fastcc i32 @deque_appendleft_internal(ptr noundef nonnull %deque, ptr noundef nonnull %7)
+  %call1.i19 = call fastcc i32 @deque_appendleft_internal.argelim(ptr noundef nonnull %deque, ptr noundef nonnull %7)
   %cmp.i20 = icmp slt i32 %call1.i19, 0
   %._Py_NoneStruct.i21 = select i1 %cmp.i20, ptr null, ptr @_Py_NoneStruct
   br label %return
@@ -5068,7 +5068,7 @@ entry:
 declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @deque_appendleft_internal(ptr nocapture noundef %deque, ptr noundef %item) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @deque_appendleft_internal.argelim(ptr nocapture noundef %deque, ptr noundef %item) unnamed_addr #0 {
 entry:
   %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
   %0 = load i64, ptr %leftindex, align 8
@@ -5810,19 +5810,19 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %defdict_type, align 8
   %left.val16 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %left.val16, %3
-  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.argprom.exit.thread, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %left.val16, ptr noundef %3) #9
   %call2.i.fr = freeze i32 %call2.i
   %tobool3.i.not = icmp eq i32 %call2.i.fr, 0
   %spec.select = select i1 %tobool3.i.not, ptr %left, ptr %right
   %4 = select i1 %tobool3.i.not, ptr %right, ptr %left
-  br label %PyObject_TypeCheck.exit.thread
+  br label %PyObject_TypeCheck.argprom.exit.thread
 
-PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.exit, %if.end
-  %lor.ext.i21 = phi ptr [ %left, %if.end ], [ %4, %PyObject_TypeCheck.exit ]
-  %5 = phi ptr [ %right, %if.end ], [ %spec.select, %PyObject_TypeCheck.exit ]
+PyObject_TypeCheck.argprom.exit.thread:           ; preds = %PyObject_TypeCheck.argprom.exit, %if.end
+  %lor.ext.i21 = phi ptr [ %left, %if.end ], [ %4, %PyObject_TypeCheck.argprom.exit ]
+  %5 = phi ptr [ %right, %if.end ], [ %spec.select, %PyObject_TypeCheck.argprom.exit ]
   %6 = getelementptr i8, ptr %5, i64 8
   %left.right.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %left.right.val, i64 168
@@ -5831,7 +5831,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.
   %tobool10.not = icmp eq i64 %8, 0
   br i1 %tobool10.not, label %return, label %if.end12
 
-if.end12:                                         ; preds = %PyObject_TypeCheck.exit.thread
+if.end12:                                         ; preds = %PyObject_TypeCheck.argprom.exit.thread
   %9 = getelementptr i8, ptr %lor.ext.i21, i64 8
   %right.left.val = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %lor.ext.i21, i64 48
@@ -5863,8 +5863,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call2.i18) #9
   br label %return
 
-return:                                           ; preds = %if.end16, %if.end.i, %if.then1.i, %if.then19, %if.end12, %PyObject_TypeCheck.exit.thread
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit.thread ], [ null, %if.end12 ], [ null, %if.then19 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call2.i18, %if.end16 ]
+return:                                           ; preds = %if.end16, %if.end.i, %if.then1.i, %if.then19, %if.end12, %PyObject_TypeCheck.argprom.exit.thread
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.argprom.exit.thread ], [ null, %if.end12 ], [ null, %if.then19 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call2.i18, %if.end16 ]
   ret ptr %retval.0
 }
 

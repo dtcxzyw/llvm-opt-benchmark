@@ -12691,14 +12691,14 @@ define linkonce_odr hidden void @_ZNK3AAT5ChainINS_13ExtendedTypesEE5applyEPNS_2
   %55 = getelementptr inbounds i8, ptr %1, i64 64
   br label %56
 
-56:                                               ; preds = %.lr.ph, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread"
-  %.082 = phi i32 [ 0, %.lr.ph ], [ %277, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread" ]
-  %.07180 = phi ptr [ %46, %.lr.ph ], [ %274, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread" ]
+56:                                               ; preds = %.lr.ph, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread"
+  %.082 = phi i32 [ 0, %.lr.ph ], [ %277, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread" ]
+  %.07180 = phi ptr [ %46, %.lr.ph ], [ %274, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread" ]
   %.val24 = load ptr, ptr %47, align 8
   %57 = getelementptr i8, ptr %.val24, i64 4
   %.val24.val = load i32, ptr %57, align 4
   %.not5.i = icmp eq i32 %.val24.val, 0
-  br i1 %.not5.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread", label %.lr.ph.i
+  br i1 %.not5.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56
   %58 = getelementptr i8, ptr %.val24, i64 8
@@ -12730,15 +12730,15 @@ define linkonce_odr hidden void @_ZNK3AAT5ChainINS_13ExtendedTypesEE5applyEPNS_2
   %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i64 %.val1.i.i.i to i32
   %78 = and i32 %76, %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i.i
   %.not4.i = icmp eq i32 %78, 0
-  br i1 %.not4.i, label %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ExtendedTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit"
+  br i1 %.not4.i, label %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ExtendedTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit"
 
 _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ExtendedTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i: ; preds = %77
   %79 = add i32 %.sroa.4.06.i, -1
   %80 = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 12
   %.not.i = icmp eq i32 %79, 0
-  br i1 %.not.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread", label %77, !llvm.loop !76
+  br i1 %.not.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread", label %77, !llvm.loop !76
 
-"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit": ; preds = %77
+"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit": ; preds = %77
   store i32 %76, ptr %48, align 8
   %81 = getelementptr inbounds i8, ptr %.07180, i64 4
   %82 = load i8, ptr %81, align 1
@@ -12747,7 +12747,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags
   %.not = icmp eq i32 %84, 0
   br i1 %.not, label %85, label %92
 
-85:                                               ; preds = %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit"
+85:                                               ; preds = %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit"
   %86 = load ptr, ptr %49, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 48
   %88 = load i32, ptr %87, align 8
@@ -12755,9 +12755,9 @@ _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags
   %90 = icmp eq i32 %89, 6
   %91 = icmp sgt i8 %82, -1
   %.not21 = xor i1 %91, %90
-  br i1 %.not21, label %92, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread"
+  br i1 %.not21, label %92, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread"
 
-92:                                               ; preds = %85, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit"
+92:                                               ; preds = %85, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit"
   %93 = and i32 %83, 16
   %.not22 = icmp eq i32 %93, 0
   br i1 %.not22, label %97, label %94
@@ -12785,7 +12785,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags
   %109 = load ptr, ptr %50, align 8
   %110 = load i32, ptr %51, align 4
   %111 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %107, ptr noundef %109, ptr noundef nonnull @.str.22, i32 noundef %110)
-  br i1 %111, label %112, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread"
+  br i1 %111, label %112, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread"
 
 112:                                              ; preds = %106
   br i1 %108, label %113, label %.critedge
@@ -13082,9 +13082,9 @@ _ZN11hb_buffer_t7reverseEv.exit49:                ; preds = %.lr.ph.i10.i.i37, %
   %254 = getelementptr inbounds i8, ptr %253, i64 80
   %255 = load i8, ptr %254, align 8
   %256 = trunc i8 %255 to i1
-  br i1 %256, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread", label %_ZN11hb_buffer_t7reverseEv.exit49._crit_edge
+  br i1 %256, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread", label %_ZN11hb_buffer_t7reverseEv.exit49._crit_edge
 
-"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread": ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ExtendedTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i, %56, %_ZN11hb_buffer_t7reverseEv.exit49, %106, %85
+"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread": ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ExtendedTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i, %56, %_ZN11hb_buffer_t7reverseEv.exit49, %106, %85
   %257 = load i8, ptr %.07180, align 1
   %258 = zext i8 %257 to i64
   %259 = shl nuw nsw i64 %258, 24
@@ -13110,7 +13110,7 @@ _ZN11hb_buffer_t7reverseEv.exit49:                ; preds = %.lr.ph.i10.i.i37, %
   %exitcond.not = icmp eq i32 %277, %24
   br i1 %exitcond.not, label %_ZN11hb_buffer_t7reverseEv.exit49._crit_edge, label %56, !llvm.loop !77
 
-_ZN11hb_buffer_t7reverseEv.exit49._crit_edge:     ; preds = %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread", %_ZN11hb_buffer_t7reverseEv.exit49, %2
+_ZN11hb_buffer_t7reverseEv.exit49._crit_edge:     ; preds = %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ExtendedTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread", %_ZN11hb_buffer_t7reverseEv.exit49, %2
   ret void
 }
 
@@ -19595,14 +19595,14 @@ define linkonce_odr hidden void @_ZNK3AAT5ChainINS_13ObsoleteTypesEE5applyEPNS_2
   %34 = getelementptr inbounds i8, ptr %1, i64 64
   br label %35
 
-35:                                               ; preds = %.lr.ph, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread"
-  %.082 = phi i32 [ 0, %.lr.ph ], [ %226, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread" ]
-  %.07180 = phi ptr [ %25, %.lr.ph ], [ %223, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread" ]
+35:                                               ; preds = %.lr.ph, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread"
+  %.082 = phi i32 [ 0, %.lr.ph ], [ %226, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread" ]
+  %.07180 = phi ptr [ %25, %.lr.ph ], [ %223, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread" ]
   %.val24 = load ptr, ptr %26, align 8
   %36 = getelementptr i8, ptr %.val24, i64 4
   %.val24.val = load i32, ptr %36, align 4
   %.not5.i = icmp eq i32 %.val24.val, 0
-  br i1 %.not5.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread", label %.lr.ph.i
+  br i1 %.not5.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
   %37 = getelementptr i8, ptr %.val24, i64 8
@@ -19634,15 +19634,15 @@ define linkonce_odr hidden void @_ZNK3AAT5ChainINS_13ObsoleteTypesEE5applyEPNS_2
   %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i64 %.val1.i.i.i to i32
   %57 = and i32 %55, %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i.i
   %.not4.i = icmp eq i32 %57, 0
-  br i1 %.not4.i, label %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ObsoleteTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit"
+  br i1 %.not4.i, label %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ObsoleteTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit"
 
 _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ObsoleteTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i: ; preds = %56
   %58 = add i32 %.sroa.4.06.i, -1
   %59 = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 12
   %.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread", label %56, !llvm.loop !120
+  br i1 %.not.i, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread", label %56, !llvm.loop !120
 
-"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit": ; preds = %56
+"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit": ; preds = %56
   store i32 %55, ptr %27, align 8
   %60 = getelementptr inbounds i8, ptr %.07180, i64 2
   %61 = load i8, ptr %60, align 1
@@ -19651,7 +19651,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags
   %.not = icmp eq i32 %63, 0
   br i1 %.not, label %64, label %71
 
-64:                                               ; preds = %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit"
+64:                                               ; preds = %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit"
   %65 = load ptr, ptr %28, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 48
   %67 = load i32, ptr %66, align 8
@@ -19659,9 +19659,9 @@ _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags
   %69 = icmp eq i32 %68, 6
   %70 = icmp sgt i8 %61, -1
   %.not21 = xor i1 %70, %69
-  br i1 %.not21, label %71, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread"
+  br i1 %.not21, label %71, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread"
 
-71:                                               ; preds = %64, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit"
+71:                                               ; preds = %64, %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit"
   %72 = and i32 %62, 16
   %.not22 = icmp eq i32 %72, 0
   br i1 %.not22, label %76, label %73
@@ -19689,7 +19689,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags
   %88 = load ptr, ptr %29, align 8
   %89 = load i32, ptr %30, align 4
   %90 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %86, ptr noundef %88, ptr noundef nonnull @.str.22, i32 noundef %89)
-  br i1 %90, label %91, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread"
+  br i1 %90, label %91, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread"
 
 91:                                               ; preds = %85
   br i1 %87, label %92, label %.critedge
@@ -19966,9 +19966,9 @@ _ZN11hb_buffer_t7reverseEv.exit49:                ; preds = %.lr.ph.i10.i.i37, %
   %213 = getelementptr inbounds i8, ptr %212, i64 80
   %214 = load i8, ptr %213, align 8
   %215 = trunc i8 %214 to i1
-  br i1 %215, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread", label %_ZN11hb_buffer_t7reverseEv.exit49._crit_edge
+  br i1 %215, label %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread", label %_ZN11hb_buffer_t7reverseEv.exit49._crit_edge
 
-"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread": ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ObsoleteTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i, %35, %_ZN11hb_buffer_t7reverseEv.exit49, %85, %64
+"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread": ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS6_13ObsoleteTypesEE5applyEPNS6_22hb_aat_apply_context_tEEUlS3_E_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i, %35, %_ZN11hb_buffer_t7reverseEv.exit49, %85, %64
   %216 = load i8, ptr %.07180, align 1
   %217 = zext i8 %216 to i64
   %218 = shl nuw nsw i64 %217, 8
@@ -19984,7 +19984,7 @@ _ZN11hb_buffer_t7reverseEv.exit49:                ; preds = %.lr.ph.i10.i.i37, %
   %exitcond.not = icmp eq i32 %226, %14
   br i1 %exitcond.not, label %_ZN11hb_buffer_t7reverseEv.exit49._crit_edge, label %35, !llvm.loop !121
 
-_ZN11hb_buffer_t7reverseEv.exit49._crit_edge:     ; preds = %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.exit.thread", %_ZN11hb_buffer_t7reverseEv.exit49, %2
+_ZN11hb_buffer_t7reverseEv.exit49._crit_edge:     ; preds = %"_ZNK4$_10clI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags_tEEZNK3AAT5ChainINS7_13ObsoleteTypesEE5applyEPNS7_22hb_aat_apply_context_tEEUlS4_E_L24hb_function_sortedness_t0ELPv0EERK4$_11SJ_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSF_0EEEbOSL_OT0_OT1_.argprom.exit.thread", %_ZN11hb_buffer_t7reverseEv.exit49, %2
   ret void
 }
 

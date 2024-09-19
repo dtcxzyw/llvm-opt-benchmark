@@ -218,13 +218,13 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr no
   %54 = and i32 %53, 3
   %55 = ashr i32 %10, 3
   %56 = tail call i32 @deflateParams(ptr noundef nonnull %47, i32 noundef %55, i32 noundef %54) #6
-  br label %doDeflate.exit
+  br label %doDeflate.argprom.exit
 
 57:                                               ; preds = %42
   %58 = tail call i32 @deflate(ptr noundef nonnull %47, i32 noundef %9) #6
-  br label %doDeflate.exit
+  br label %doDeflate.argprom.exit
 
-doDeflate.exit:                                   ; preds = %52, %57
+doDeflate.argprom.exit:                           ; preds = %52, %57
   %.0.i = phi i32 [ %56, %52 ], [ %58, %57 ]
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 1784
@@ -236,7 +236,7 @@ doDeflate.exit:                                   ; preds = %52, %57
   tail call void %64(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %15, i32 noundef 0) #6
   br i1 %.not.i, label %69, label %65
 
-65:                                               ; preds = %doDeflate.exit
+65:                                               ; preds = %doDeflate.argprom.exit
   switch i32 %.0.i, label %67 [
     i32 0, label %66
     i32 -5, label %73
@@ -253,7 +253,7 @@ doDeflate.exit:                                   ; preds = %52, %57
   tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull %..i.i) #6
   br label %checkDeflateStatus.exit
 
-69:                                               ; preds = %doDeflate.exit
+69:                                               ; preds = %doDeflate.argprom.exit
   switch i32 %.0.i, label %71 [
     i32 1, label %70
     i32 0, label %73

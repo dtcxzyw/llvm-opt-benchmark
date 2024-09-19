@@ -281,7 +281,7 @@ define internal fastcc range(i32 0, 2) i32 @read_core_segments(ptr noundef nonnu
 .preheader3.i:                                    ; preds = %22
   %26 = getelementptr inbounds i8, ptr %20, i64 %.0.val24
   %27 = icmp sgt i64 %.0.val24, 0
-  br i1 %27, label %.lr.ph.i, label %core_handle_note.exit
+  br i1 %27, label %.lr.ph.i, label %core_handle_note.argprom.exit
 
 .lr.ph.i:                                         ; preds = %.preheader3.i, %core_handle_prstatus.exit.thread.i
   %.0345.i = phi ptr [ %115, %core_handle_prstatus.exit.thread.i ], [ %20, %.preheader3.i ]
@@ -430,14 +430,14 @@ core_handle_prstatus.exit.thread.i:               ; preds = %.preheader.i, %104,
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %33, i64 %114
   %116 = icmp ult ptr %115, %26
-  br i1 %116, label %.lr.ph.i, label %core_handle_note.exit, !llvm.loop !8
+  br i1 %116, label %.lr.ph.i, label %core_handle_note.argprom.exit, !llvm.loop !8
 
 117:                                              ; preds = %22
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.9) #15
   tail call void @free(ptr noundef nonnull %20) #15
   br label %.sink.split
 
-core_handle_note.exit:                            ; preds = %core_handle_prstatus.exit.thread.i, %.preheader3.i
+core_handle_note.argprom.exit:                    ; preds = %core_handle_prstatus.exit.thread.i, %.preheader3.i
   tail call void @free(ptr noundef %20) #15
   br label %132
 
@@ -460,7 +460,7 @@ core_handle_note.exit:                            ; preds = %core_handle_prstatu
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.sink.split, label %132
 
-132:                                              ; preds = %core_handle_note.exit, %118, %121, %.lr.ph
+132:                                              ; preds = %core_handle_note.argprom.exit, %118, %121, %.lr.ph
   %133 = getelementptr inbounds i8, ptr %.032, i64 56
   %134 = add nuw nsw i32 %.01931, 1
   %135 = load i16, ptr %8, align 8

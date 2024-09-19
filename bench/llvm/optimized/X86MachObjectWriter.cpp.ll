@@ -229,7 +229,7 @@ define internal void @_ZN12_GLOBAL__N_119X86MachObjectWriter16recordRelocationEP
   store ptr @.str, ptr %11, align 8
   store i8 3, ptr %79, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %77, ptr %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(34) %11) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 81:                                               ; preds = %71
   br i1 %37, label %82, label %87
@@ -244,7 +244,7 @@ define internal void @_ZN12_GLOBAL__N_119X86MachObjectWriter16recordRelocationEP
   store ptr @.str.1, ptr %12, align 8
   store i8 3, ptr %85, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %83, ptr %.sroa.0.0.copyload.i188.i, ptr noundef nonnull align 8 dereferenceable(34) %12) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 87:                                               ; preds = %81
   %88 = icmp eq ptr %63, %72
@@ -262,7 +262,7 @@ define internal void @_ZN12_GLOBAL__N_119X86MachObjectWriter16recordRelocationEP
   store ptr @.str.2, ptr %13, align 8
   store i8 3, ptr %93, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %91, ptr %.sroa.0.0.copyload.i189.i, ptr noundef nonnull align 8 dereferenceable(34) %13) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 95:                                               ; preds = %87
   %96 = load ptr, ptr %.0169.i, align 8
@@ -360,7 +360,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZN4llvmplERKNS_5Tw
   %133 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 3, ptr %133, align 1, !alias.scope !10
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %125, ptr %.sroa.0.0.copyload.i202.i, ptr noundef nonnull align 8 dereferenceable(34) %14) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 134:                                              ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread5.i
   %135 = tail call noundef i64 @_ZNK4llvm16MachObjectWriter16getSymbolAddressERKNS_8MCSymbolERKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull align 8 dereferenceable(32) %.0169.i, ptr noundef nonnull align 8 dereferenceable(372) %2) #15
@@ -590,7 +590,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit214.thread.i: ; preds = %_ZNK4llvm8MCSymbo
 248:                                              ; preds = %242
   %249 = load i64, ptr %17, align 8
   store i64 %249, ptr %6, align 8
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 250:                                              ; preds = %242
   %251 = load ptr, ptr %2, align 8
@@ -627,7 +627,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit221.i:           ; preds = %255, %250
   store i8 3, ptr %264, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %18, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef nonnull align 8 dereferenceable(34) %20)
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %251, ptr %.sroa.0.0.copyload.i215.i, ptr noundef nonnull align 8 dereferenceable(34) %18) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 266:                                              ; preds = %_ZNK4llvm8MCSymbol11isInSectionEv.exit214.thread.i
   %267 = load ptr, ptr %2, align 8
@@ -664,7 +664,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit243.i:             ; preds = %270, %266
   %281 = getelementptr inbounds nuw i8, ptr %21, i64 33
   store i8 3, ptr %281, align 1, !alias.scope !21
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %267, ptr %.sroa.0.0.copyload.i222.i, ptr noundef nonnull align 8 dereferenceable(34) %21) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 282:                                              ; preds = %205, %204
   %.2.i = phi i64 [ %209, %205 ], [ %.0160.i, %204 ]
@@ -703,7 +703,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit243.i:             ; preds = %270, %266
   store ptr @.str.8, ptr %23, align 8
   store i8 3, ptr %295, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %293, ptr %.sroa.0.0.copyload.i244.i, ptr noundef nonnull align 8 dereferenceable(34) %23) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 297:                                              ; preds = %288
   %.neg.i = shl nsw i64 -1, %49
@@ -737,7 +737,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit243.i:             ; preds = %270, %266
   store ptr @.str.9, ptr %24, align 8
   store i8 3, ptr %305, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %303, ptr %.sroa.0.0.copyload.i245.i, ptr noundef nonnull align 8 dereferenceable(34) %24) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 307:                                              ; preds = %282, %.thread23.i
   %308 = phi i16 [ %230, %.thread23.i ], [ %285, %282 ]
@@ -761,7 +761,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit243.i:             ; preds = %270, %266
   store ptr @.str.10, ptr %25, align 8
   store i8 3, ptr %312, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %310, ptr %.sroa.0.0.copyload.i246.i, ptr noundef nonnull align 8 dereferenceable(34) %25) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 314:                                              ; preds = %307
   %315 = load ptr, ptr %2, align 8
@@ -773,7 +773,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit243.i:             ; preds = %270, %266
   store ptr @.str.8, ptr %26, align 8
   store i8 3, ptr %317, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %315, ptr %.sroa.0.0.copyload.i247.i, ptr noundef nonnull align 8 dereferenceable(34) %26) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 319:                                              ; preds = %307
   %320 = load i32, ptr %35, align 4
@@ -790,7 +790,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit243.i:             ; preds = %270, %266
   store ptr @.str.11, ptr %27, align 8
   store i8 3, ptr %325, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %323, ptr %.sroa.0.0.copyload.i248.i, ptr noundef nonnull align 8 dereferenceable(34) %27) #15
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 .thread30.i:                                      ; preds = %307, %301, %300, %299, %298, %297, %289, %288
   %.0166.ph.i = phi ptr [ %.21681420.i, %301 ], [ %.21681420.i, %288 ], [ %.21681420.i, %289 ], [ %.21681420.i, %298 ], [ %.21681420.i, %299 ], [ %.21681420.i, %300 ], [ %.21681420.i, %297 ], [ %.21681427.i, %307 ]
@@ -834,9 +834,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit243.i:             ; preds = %270, %266
   %337 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %338 = load ptr, ptr %337, align 8
   call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef %.016637.i, ptr noundef %338, ptr noundef nonnull align 4 dereferenceable(8) %28)
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
-_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit: ; preds = %76, %82, %90, %_ZN4llvmplERKNS_5TwineES2_.exit.i, %248, %_ZNK4llvm8MCSymbol7getNameEv.exit221.i, %_ZN4llvmplERKNS_5TwineES2_.exit243.i, %292, %302, %309, %314, %322, %329
+_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit: ; preds = %76, %82, %90, %_ZN4llvmplERKNS_5TwineES2_.exit.i, %248, %_ZNK4llvm8MCSymbol7getNameEv.exit221.i, %_ZN4llvmplERKNS_5TwineES2_.exit243.i, %292, %302, %309, %314, %322, %329
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
@@ -881,7 +881,7 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObje
   %352 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %353 = load i32, ptr %352, align 8
   %.not.i.i21 = icmp eq ptr %.sroa.228.0.copyload, null
-  br i1 %.not.i.i21, label %_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit.i, label %354
+  br i1 %.not.i.i21, label %_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit.i, label %354
 
 354:                                              ; preds = %350
   %355 = tail call noundef i64 @_ZNK4llvm16MachObjectWriter18getFragmentAddressERKNS_11MCAssemblerEPKNS_10MCFragmentE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull align 8 dereferenceable(372) %2, ptr noundef nonnull %3) #15
@@ -897,9 +897,9 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObje
   %365 = add i64 %364, %.sroa.329.0.copyload
   %366 = sub i64 %365, %362
   %367 = add i64 %366, %359
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit.i
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit.i
 
-_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit.i: ; preds = %354, %350
+_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit.i: ; preds = %354, %350
   %storemerge.i.i = phi i64 [ %367, %354 ], [ 0, %350 ]
   %.0.i.i = phi i32 [ 16777216, %354 ], [ 0, %350 ]
   store i64 %storemerge.i.i, ptr %6, align 8
@@ -917,7 +917,7 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObject
   %377 = load ptr, ptr %376, align 8
   call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull %375, ptr noundef %377, ptr noundef nonnull align 4 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 378:                                              ; preds = %339
   %.not66.i = icmp eq ptr %.sroa.228.0.copyload, null
@@ -928,8 +928,8 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObject
   br i1 %.not669.i, label %381, label %379
 
 379:                                              ; preds = %.thread.i13, %378
-  %380 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(372) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, ptr %.sroa.027.0.copyload, ptr nonnull %.sroa.228.0.copyload, i32 noundef %344, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  %380 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm.argprom(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(372) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, ptr %.sroa.027.0.copyload, ptr nonnull %.sroa.228.0.copyload, i32 noundef %344, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 381:                                              ; preds = %.thread.i13
   %382 = getelementptr inbounds nuw i8, ptr %.sroa.027.0.copyload, i64 16
@@ -948,8 +948,8 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObject
   br i1 %390, label %399, label %391
 
 391:                                              ; preds = %389
-  %392 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(372) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nonnull %.sroa.027.0.copyload, ptr null, i32 noundef %344, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br i1 %392, label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit, label %399
+  %392 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm.argprom(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(372) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nonnull %.sroa.027.0.copyload, ptr null, i32 noundef %344, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br i1 %392, label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit, label %399
 
 393:                                              ; preds = %378
   %394 = tail call noundef i64 @_ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE(ptr noundef nonnull align 8 dereferenceable(372) %2, ptr noundef nonnull align 8 dereferenceable(30) %3) #15
@@ -983,7 +983,7 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObject
 415:                                              ; preds = %409
   %416 = load i64, ptr %9, align 8
   store i64 %416, ptr %6, align 8
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
 417:                                              ; preds = %409, %399
   %418 = call noundef zeroext i1 @_ZN4llvm16MachObjectWriter33doesSymbolRequireExternRelocationERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull align 8 dereferenceable(32) %383) #15
@@ -1169,14 +1169,14 @@ _ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit83.i: ; pred
   %515 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %516 = load ptr, ptr %515, align 8
   call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef %.061.i, ptr noundef %516, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+  br label %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
 
-_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit: ; preds = %_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit.i, %379, %391, %415, %508
+_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit: ; preds = %_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit.i, %379, %391, %415, %508
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %517
 
-517:                                              ; preds = %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit, %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
+517:                                              ; preds = %_ZN12_GLOBAL__N_119X86MachObjectWriter19RecordX86RelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit, %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.argprom.exit
   ret void
 }
 
@@ -1907,7 +1907,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(372) %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef range(i32 0, 4) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm.argprom(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(372) %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef range(i32 0, 4) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -2346,8 +2346,8 @@ attributes #17 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_119X86MachObjectWriterEJRbRjS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_119X86MachObjectWriterEJRbRjS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_119X86MachObjectWriterEJRbRjS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_119X86MachObjectWriterEJRbRjS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !9 = distinct !{!9, !"_ZN4llvmplEPKcRKNS_9StringRefE"}

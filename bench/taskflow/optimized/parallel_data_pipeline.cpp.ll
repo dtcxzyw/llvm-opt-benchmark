@@ -1609,7 +1609,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %invoke.cont.i8.i.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i), !noalias !19
   %_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.exit.i.i.i.i" unwind label %lpad80.i.i.i.i.i, !noalias !19
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.argprom.exit.i.i.i.i" unwind label %lpad80.i.i.i.i.i, !noalias !19
 
 lpad.i.i.i.i.i:                                   ; preds = %call.i.noexc.i.i.i.i.i, %if.end76.i.i.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -1627,7 +1627,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad80.i.i.i.i.i, %
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i.i.i) #31, !noalias !19
   br label %lpad25.body.i
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.exit.i.i.i.i": ; preds = %invoke.cont.i.i.i.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.argprom.exit.i.i.i.i": ; preds = %invoke.cont.i.i.i.i.i
   %_priority.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 40
   store i32 0, ptr %_priority.i.i.i.i.i.i, align 8, !noalias !19
   %_topology.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 48
@@ -1673,14 +1673,14 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad80.i.i.i.i.i, %
   %cmp.not.i.i.i.i.i29.i = icmp eq ptr %46, %47
   br i1 %cmp.not.i.i.i.i.i29.i, label %if.else.i.i2.i.i.i.i, label %if.then.i.i1.i.i.i.i
 
-if.then.i.i1.i.i.i.i:                             ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.exit.i.i.i.i"
+if.then.i.i1.i.i.i.i:                             ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.argprom.exit.i.i.i.i"
   store ptr %retval.0.i.i.i.i.i.i, ptr %46, align 8, !noalias !19
   %48 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !19
   %incdec.ptr.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %incdec.ptr.i.i.i.i.i30.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !19
-  br label %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.exit.i.i"
+  br label %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.argprom.exit.i.i"
 
-if.else.i.i2.i.i.i.i:                             ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.exit.i.i.i.i"
+if.else.i.i2.i.i.i.i:                             ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.argprom.exit.i.i.i.i"
   %49 = load ptr, ptr %pl, align 8, !noalias !19
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %46 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %49 to i64
@@ -1736,16 +1736,16 @@ _ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__norma
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !19
   %add.ptr19.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !19
-  br label %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.exit.i.i"
+  br label %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.argprom.exit.i.i"
 
-"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.exit.i.i": ; preds = %_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i, %if.then.i.i1.i.i.i.i
+"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.argprom.exit.i.i": ; preds = %_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i, %if.then.i.i1.i.i.i.i
   %51 = phi ptr [ %48, %if.then.i.i1.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i ]
   %52 = load ptr, ptr %51, align 8, !noalias !19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i.i) #31
   %call.i13.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i)
           to label %call.i.noexc.i.i unwind label %lpad.i.i
 
-call.i.noexc.i.i:                                 ; preds = %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.exit.i.i"
+call.i.noexc.i.i:                                 ; preds = %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.argprom.exit.i.i"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3.i.i, ptr noundef %call.i13.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i
 
@@ -2019,7 +2019,7 @@ invoke.cont.i.i.i79.i.i:                          ; preds = %invoke.cont.i8.i.i7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i17.i.i), !noalias !23
   %_name.i.i.i.i80.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i51.i.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i80.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i19.i.i)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i.i" unwind label %lpad80.i.i.i81.i.i, !noalias !23
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i.i" unwind label %lpad80.i.i.i81.i.i, !noalias !23
 
 lpad.i.i.i68.i.i:                                 ; preds = %call.i.noexc.i.i.i71.i.i, %if.end76.i.i.i65.i.i
   %86 = landingpad { ptr, i32 }
@@ -2037,7 +2037,7 @@ ehcleanup.i.i.i69.i.i:                            ; preds = %lpad80.i.i.i81.i.i,
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i20.i.i) #31, !noalias !23
   br label %lpad25.body.i
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i.i": ; preds = %invoke.cont.i.i.i79.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i.i": ; preds = %invoke.cont.i.i.i79.i.i
   %_priority.i.i.i.i82.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i51.i.i, i64 40
   store i32 0, ptr %_priority.i.i.i.i82.i.i, align 8, !noalias !23
   %_topology.i.i.i.i83.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i51.i.i, i64 48
@@ -2082,14 +2082,14 @@ ehcleanup.i.i.i69.i.i:                            ; preds = %lpad80.i.i.i81.i.i,
   %cmp.not.i.i.i.i98.i.i = icmp eq ptr %88, %89
   br i1 %cmp.not.i.i.i.i98.i.i, label %if.else.i.i2.i.i101.i.i, label %if.then.i.i1.i.i99.i.i
 
-if.then.i.i1.i.i99.i.i:                           ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i.i"
+if.then.i.i1.i.i99.i.i:                           ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i.i"
   store ptr %retval.0.i.i.i.i51.i.i, ptr %88, align 8, !noalias !23
   %90 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !23
   %incdec.ptr.i.i.i.i100.i.i = getelementptr inbounds i8, ptr %90, i64 8
   store ptr %incdec.ptr.i.i.i.i100.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !23
-  br label %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.exit.i.i"
+  br label %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.argprom.exit.i.i"
 
-if.else.i.i2.i.i101.i.i:                          ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i.i"
+if.else.i.i2.i.i101.i.i:                          ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i.i"
   %91 = load ptr, ptr %pl, align 8, !noalias !23
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i102.i.i = ptrtoint ptr %88 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i103.i.i = ptrtoint ptr %91 to i64
@@ -2138,9 +2138,9 @@ _ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__norma
   store ptr %incdec.ptr.i.i.i.i.i122.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !23
   %add.ptr19.i.i.i.i.i126.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i.i117.i.i, i64 %cond.i.i.i.i.i.i111.i.i
   store ptr %add.ptr19.i.i.i.i.i126.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !23
-  br label %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.exit.i.i"
+  br label %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.argprom.exit.i.i"
 
-"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.exit.i.i": ; preds = %_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i125.i.i, %if.then.i.i1.i.i99.i.i
+"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.argprom.exit.i.i": ; preds = %_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i125.i.i, %if.then.i.i1.i.i99.i.i
   %93 = phi ptr [ %90, %if.then.i.i1.i.i99.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i121.i.i, %_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i125.i.i ]
   %94 = load ptr, ptr %93, align 8, !noalias !23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
@@ -2148,13 +2148,13 @@ _ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__norma
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14.i.i, ptr noundef nonnull @.str.83, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
           to label %_ZNSt8literals15string_literalsli1sB5cxx11EPKcm.exit.i.i unwind label %lpad.i172.i.i
 
-lpad.i172.i.i:                                    ; preds = %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.exit.i.i"
+lpad.i172.i.i:                                    ; preds = %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.argprom.exit.i.i"
   %95 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #31
   br label %lpad25.body.i
 
-_ZNSt8literals15string_literalsli1sB5cxx11EPKcm.exit.i.i: ; preds = %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.exit.i.i"
+_ZNSt8literals15string_literalsli1sB5cxx11EPKcm.exit.i.i: ; preds = %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.argprom.exit.i.i"
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #31
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   invoke void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15.i.i, i64 noundef %l.0206.i.i)
@@ -2213,7 +2213,7 @@ invoke.cont21.i.i:                                ; preds = %invoke.cont19.i.i
   %cmp.i37.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i36.i
   br i1 %cmp.i37.i, label %for.body.i31.i, label %invoke.cont21, !llvm.loop !33
 
-lpad.i.i:                                         ; preds = %call.i.noexc.i.i, %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.exit.i.i"
+lpad.i.i:                                         ; preds = %call.i.noexc.i.i, %"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.argprom.exit.i.i"
   %100 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -2520,7 +2520,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i), !noalias !34
   %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i14)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6ModuleEERNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEEEEEEPS1_DpOT_.exit.i.i" unwind label %lpad80.i.i.i, !noalias !34
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6ModuleEERNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEEEEEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad80.i.i.i, !noalias !34
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %if.end76.i.i.i
   %136 = landingpad { ptr, i32 }
@@ -2538,7 +2538,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i) #31, !noalias !34
   br label %ehcleanup40
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6ModuleEERNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEEEEEEPS1_DpOT_.exit.i.i": ; preds = %invoke.cont.i.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6ModuleEERNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEEEEEEPS1_DpOT_.argprom.exit.i.i": ; preds = %invoke.cont.i.i.i
   %_priority.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store i32 0, ptr %_priority.i.i.i.i, align 8, !noalias !34
   %_topology.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 48
@@ -2577,14 +2577,14 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   %cmp.not.i.i.i.i = icmp eq ptr %138, %139
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i2.i.i, label %if.then.i.i1.i.i
 
-if.then.i.i1.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6ModuleEERNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEEEEEEPS1_DpOT_.exit.i.i"
+if.then.i.i1.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6ModuleEERNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEEEEEEPS1_DpOT_.argprom.exit.i.i"
   store ptr %retval.0.i.i.i.i, ptr %138, align 8, !noalias !34
   %140 = load ptr, ptr %_M_finish.i.i.i.i17, align 8, !noalias !34
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %140, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i17, align 8, !noalias !34
   br label %invoke.cont24
 
-if.else.i.i2.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6ModuleEERNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEEEEEEPS1_DpOT_.exit.i.i"
+if.else.i.i2.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6ModuleEERNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENSB_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENSB_ISJ_vZ4mainE3$_2EEEEEEEEPS1_DpOT_.argprom.exit.i.i"
   %141 = load ptr, ptr %taskflow.val, align 8, !noalias !34
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %138 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %141 to i64
@@ -3674,21 +3674,21 @@ _ZNSt6vectorIN2tf4TaskESaIS1_EED2Ev.exit:         ; preds = %_ZNSt6vectorIN2tf8P
   %_lines = getelementptr inbounds i8, ptr %this, i64 72
   %_lines.val = load ptr, ptr %_lines, align 8
   %tobool.not.i.i.i17 = icmp eq ptr %_lines.val, null
-  br i1 %tobool.not.i.i.i17, label %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.exit", label %if.then.i.i.i18
+  br i1 %tobool.not.i.i.i17, label %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.argprom.argprom.exit", label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %_ZNSt6vectorIN2tf4TaskESaIS1_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %_lines.val) #33
-  br label %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.exit"
+  br label %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.argprom.argprom.exit"
 
-"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.exit": ; preds = %_ZNSt6vectorIN2tf4TaskESaIS1_EED2Ev.exit, %if.then.i.i.i18
+"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.argprom.argprom.exit": ; preds = %_ZNSt6vectorIN2tf4TaskESaIS1_EED2Ev.exit, %if.then.i.i.i18
   %13 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not4.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.not4.i.i, label %invoke.cont.i19, label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.exit", %.noexc.i
-  %__begin1.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i.i, %.noexc.i ], [ %13, %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.exit" ]
+for.body.i.i:                                     ; preds = %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.argprom.argprom.exit", %.noexc.i
+  %__begin1.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i.i, %.noexc.i ], [ %13, %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.argprom.argprom.exit" ]
   %15 = load ptr, ptr %__begin1.sroa.0.05.i.i, align 8
   invoke void @_ZN2tf10ObjectPoolINS_4NodeELm65536EE7recycleEPS1_(ptr noundef nonnull align 8 dereferenceable(88) @_ZN2tf9node_poolE, ptr noundef %15)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -3708,8 +3708,8 @@ invoke.cont.i.i.i.i:                              ; preds = %for.end.i.i
   store ptr %.pre.i.i, ptr %_M_finish.i.i.i, align 8
   br label %invoke.cont.i19
 
-invoke.cont.i19:                                  ; preds = %invoke.cont.i.i.i.i, %for.end.i.i, %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.exit"
-  %16 = phi ptr [ %.pre.i.i, %invoke.cont.i.i.i.i ], [ %.pre.i.i, %for.end.i.i ], [ %13, %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.exit" ]
+invoke.cont.i19:                                  ; preds = %invoke.cont.i.i.i.i, %for.end.i.i, %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.argprom.argprom.exit"
+  %16 = phi ptr [ %.pre.i.i, %invoke.cont.i.i.i.i ], [ %.pre.i.i, %for.end.i.i ], [ %13, %"_ZNSt6vectorISt5arrayIN2tf12DataPipelineIJNS1_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE4LineELm3EESaISI_EED2Ev.argprom.argprom.exit" ]
   %tobool.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i, label %_ZN2tf5GraphD2Ev.exit, label %if.then.i.i.i.i
 
@@ -23479,10 +23479,10 @@ if.then.i.i.i:                                    ; preds = %pipeline.i.i.i
   %7 = load i64, ptr %_num_tokens.i.i.i, align 8
   store i64 %7, ptr %_token.i.i.i, align 8
   store i8 0, ptr %_stop.i.i.i, align 8
-  tail call fastcc void @"_ZN2tf12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeE"(ptr noundef nonnull align 8 dereferenceable(168) %call.val, ptr noundef nonnull align 8 dereferenceable(96) %pf.0.ph.i.i.i.ph)
+  tail call fastcc void @"_ZN2tf12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeE.argprom"(ptr noundef nonnull align 8 dereferenceable(168) %call.val, ptr noundef nonnull align 8 dereferenceable(96) %pf.0.ph.i.i.i.ph)
   %8 = load i8, ptr %_stop.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit", label %if.end.i.i.i
+  br i1 %tobool.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   %9 = load i64, ptr %_num_tokens.i.i.i, align 8
@@ -23491,7 +23491,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   br label %if.end12.i.i.i
 
 if.else.i.i.i:                                    ; preds = %pipeline.i.i.i
-  tail call fastcc void @"_ZN2tf12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeE"(ptr noundef nonnull align 8 dereferenceable(168) %call.val, ptr noundef nonnull align 8 dereferenceable(96) %pf.0.ph.i.i.i.ph)
+  tail call fastcc void @"_ZN2tf12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeE.argprom"(ptr noundef nonnull align 8 dereferenceable(168) %call.val, ptr noundef nonnull align 8 dereferenceable(96) %pf.0.ph.i.i.i.ph)
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %if.end.i.i.i
@@ -23543,7 +23543,7 @@ if.then42.i.i.i:                                  ; preds = %if.end34.i.i.i
 
 if.end45.i.i.i:                                   ; preds = %if.then42.i.i.i, %if.end34.i.i.i
   %n.1.i.i.i = phi i64 [ %inc43.i.i.i, %if.then42.i.i.i ], [ %n.0.i.i.i, %if.end34.i.i.i ]
-  switch i64 %n.1.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit" [
+  switch i64 %n.1.i.i.i, label %"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit" [
     i64 2, label %sw.bb.i.i.i
     i64 1, label %sw.bb48.i.i.i
   ]
@@ -23588,7 +23588,7 @@ if.then51.i.i.i:                                  ; preds = %sw.bb48.i.i.i
   %add.ptr.i47.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %24, i64 %rem19.i.i.i
   br label %pipeline.outer.i.i.i.outer
 
-"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %if.then.i.i.i, %if.end45.i.i.i
+"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit": ; preds = %if.then.i.i.i, %if.end45.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.sroa.4.i.i.i)
   ret void
@@ -23620,12 +23620,12 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN2tf12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull align 8 dereferenceable(96) %pf) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN2tf12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull align 8 dereferenceable(96) %pf) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %_pipe = getelementptr inbounds i8, ptr %pf, i64 8
   %0 = load i64, ptr %_pipe, align 8
-  switch i64 %0, label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.exit" [
+  switch i64 %0, label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.argprom.exit" [
     i64 0, label %if.then.i
     i64 1, label %if.then.i.i
     i64 2, label %if.then.i.i.i
@@ -23640,15 +23640,15 @@ if.then.i:                                        ; preds = %entry
 _ZN2tf8Pipeflow4stopEv.exit.i.i.i.i.i.i:          ; preds = %if.then.i
   %_stop.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pf, i64 24
   store i8 1, ptr %_stop.i.i.i.i.i.i.i, align 8
-  br label %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.exit.i.i.i.i.i"
+  br label %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.argprom.exit.i.i.i.i.i"
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i
   %call3.i.i.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.84, i64 noundef %1)
   %2 = load i64, ptr %_token.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i = trunc i64 %2 to i32
-  br label %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.exit.i.i.i.i.i"
+  br label %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.argprom.exit.i.i.i.i.i"
 
-"_ZZ4mainENK3$_0clERN2tf8PipeflowE.exit.i.i.i.i.i": ; preds = %if.else.i.i.i.i.i.i, %_ZN2tf8Pipeflow4stopEv.exit.i.i.i.i.i.i
+"_ZZ4mainENK3$_0clERN2tf8PipeflowE.argprom.exit.i.i.i.i.i": ; preds = %if.else.i.i.i.i.i.i, %_ZN2tf8Pipeflow4stopEv.exit.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi i32 [ 0, %_ZN2tf8Pipeflow4stopEv.exit.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %_buffer.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %3 = load i64, ptr %pf, align 8
@@ -23661,18 +23661,18 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i
     i8 1, label %sw.bb2.i.i.i.i.i.i.i.i.i.i
   ]
 
-invoke.cont.i.i.i.i.i.i:                          ; preds = %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.exit.i.i.i.i.i"
+invoke.cont.i.i.i.i.i.i:                          ; preds = %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.argprom.exit.i.i.i.i.i"
   store i32 %retval.0.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, align 4
-  br label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.exit"
+  br label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.argprom.exit"
 
-sw.bb2.i.i.i.i.i.i.i.i.i.i:                       ; preds = %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.exit.i.i.i.i.i"
+sw.bb2.i.i.i.i.i.i.i.i.i.i:                       ; preds = %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.argprom.exit.i.i.i.i.i"
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i) #31
   br label %_ZNSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEE7emplaceILm0EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJiS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i.i.i.i
 
-_ZNSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEE7emplaceILm0EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJiS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i, %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.exit.i.i.i.i.i"
+_ZNSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEE7emplaceILm0EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJiS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i, %"_ZZ4mainENK3$_0clERN2tf8PipeflowE.argprom.exit.i.i.i.i.i"
   store i32 %retval.0.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, align 4
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i, align 8
-  br label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.exit"
+  br label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.argprom.exit"
 
 if.then.i.i:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i)
@@ -23710,18 +23710,18 @@ _ZSt3getIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEERT
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %_ZSt3getIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEERT_RSt7variantIJDpT0_EE.exit.i.i.i.i.i.i
   %call3.i.i.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i) #31
-  br label %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSC_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.exit.i.i"
+  br label %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSC_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.argprom.exit.i.i"
 
 _ZNSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEE7emplaceILm1EJS5_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJiS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i.i.i.i.i: ; preds = %_ZSt3getIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEERT_RSt7variantIJDpT0_EE.exit.i.i.i.i.i.i
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i) #31
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  br label %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSC_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.exit.i.i"
+  br label %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSC_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.argprom.exit.i.i"
 
-"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSC_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.exit.i.i": ; preds = %_ZNSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEE7emplaceILm1EJS5_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJiS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
+"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSC_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.argprom.exit.i.i": ; preds = %_ZNSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEE7emplaceILm1EJS5_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJiS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i) #31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i)
-  br label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.exit"
+  br label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %func.val.val.i.i.i = load i64, ptr %pf, align 8
@@ -23731,7 +23731,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 32
   %15 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 1
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSE_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.exit.i.i.i", label %if.then.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSE_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.argprom.argprom.exit.i.i.i", label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i
   %exception.i.i.i.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #31
@@ -23741,12 +23741,12 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #36
   unreachable
 
-"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSE_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.exit.i.i.i": ; preds = %if.then.i.i.i
+"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSE_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.argprom.argprom.exit.i.i.i": ; preds = %if.then.i.i.i
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i) #31
   %call2.i.i.i.i.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.90, ptr noundef %call.i.i.i.i.i.i.i.i)
-  br label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.exit"
+  br label %"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.argprom.exit"
 
-"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.exit": ; preds = %entry, %invoke.cont.i.i.i.i.i.i, %_ZNSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEE7emplaceILm0EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJiS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i.i.i.i, %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSC_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.exit.i.i", %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSE_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.exit.i.i.i"
+"_ZN2tf11visit_tupleIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS_8PipeflowERNS_7RuntimeEEUlOT_E_St5tupleIJS4_SC_SE_EELm0EEEvSK_RT0_m.argprom.exit": ; preds = %entry, %invoke.cont.i.i.i.i.i.i, %_ZNSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt9monostateEE7emplaceILm0EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJiS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i.i.i.i, %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSC_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.argprom.exit.i.i", %"_ZSt6invokeIRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE8_on_pipeERNS0_8PipeflowERNS0_7RuntimeEEUlOT_E_JRSE_EENSt13invoke_resultISK_JDpT0_EE4typeESL_DpOSQ_.argprom.argprom.exit.i.i.i"
   ret void
 }
 
@@ -24130,8 +24130,8 @@ attributes #39 = { cold }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt10make_tupleIJN2tf8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSH_: %agg.result"}
-!12 = distinct !{!12, !"_ZSt10make_tupleIJN2tf8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSH_"}
+!11 = distinct !{!11, !12, !"_ZSt10make_tupleIJN2tf8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSH_.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZSt10make_tupleIJN2tf8DataPipeIviZ4mainE3$_0EENS1_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS1_IS9_vZ4mainE3$_2EEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSH_.argprom"}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
@@ -24139,12 +24139,12 @@ attributes #39 = { cold }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_: %agg.result"}
-!21 = distinct !{!21, !"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_"}
+!20 = distinct !{!20, !21, !"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.argprom: %agg.result"}
+!21 = distinct !{!21, !"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlvE_TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSJ_.argprom"}
 !22 = distinct !{!22, !6}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_: %agg.result"}
-!25 = distinct !{!25, !"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_"}
+!24 = distinct !{!24, !25, !"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.argprom: %agg.result"}
+!25 = distinct !{!25, !"_ZN2tf11FlowBuilder7emplaceIZNS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEE6_buildEvEUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOSL_.argprom"}
 !26 = distinct !{!26, !6}
 !27 = !{!28}
 !28 = distinct !{!28, !29, !"_ZNSt8literals15string_literalsli1sB5cxx11EPKcm: %agg.result"}
@@ -24154,8 +24154,8 @@ attributes #39 = { cold }
 !32 = distinct !{!32, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !33 = distinct !{!33, !6}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN2tf11FlowBuilder11composed_ofINS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEEEEENS_4TaskERT_: %agg.result"}
-!36 = distinct !{!36, !"_ZN2tf11FlowBuilder11composed_ofINS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEEEEENS_4TaskERT_"}
+!35 = distinct !{!35, !36, !"_ZN2tf11FlowBuilder11composed_ofINS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEEEEENS_4TaskERT_.argprom: %agg.result"}
+!36 = distinct !{!36, !"_ZN2tf11FlowBuilder11composed_ofINS_12DataPipelineIJNS_8DataPipeIviZ4mainE3$_0EENS3_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS3_ISB_vZ4mainE3$_2EEEEEEENS_4TaskERT_.argprom"}
 !37 = distinct !{!37, !6}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN2tf8Executor3runERNS_8TaskflowE: %agg.result"}
@@ -24418,7 +24418,7 @@ attributes #39 = { cold }
 !296 = distinct !{!296, !6}
 !297 = distinct !{!297, !6}
 !298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZZ4mainENK3$_1clB5cxx11ERi: %agg.result"}
-!300 = distinct !{!300, !"_ZZ4mainENK3$_1clB5cxx11ERi"}
+!299 = distinct !{!299, !300, !"_ZZ4mainENK3$_1clB5cxx11ERi.argprom: %agg.result"}
+!300 = distinct !{!300, !"_ZZ4mainENK3$_1clB5cxx11ERi.argprom"}
 !301 = distinct !{!301, !6}
 !302 = distinct !{!302, !6}

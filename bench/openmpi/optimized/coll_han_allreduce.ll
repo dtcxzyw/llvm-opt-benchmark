@@ -681,7 +681,7 @@ opal_obj_run_destructors.exit296:                 ; preds = %.lr.ph.i293, %340
 
 399:                                              ; preds = %398, %389
   %.not9.i = icmp eq ptr %395, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %400
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %400
 
 400:                                              ; preds = %399
   store ptr @mca_coll_task_t_class, ptr %395, align 8
@@ -690,7 +690,7 @@ opal_obj_run_destructors.exit296:                 ; preds = %.lr.ph.i293, %340
   %402 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 40), align 8
   %403 = load ptr, ptr %402, align 8
   %.not6.i.i = icmp eq ptr %403, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %400, %.lr.ph.i.i
   %404 = phi ptr [ %406, %.lr.ph.i.i ], [ %403, %400 ]
@@ -699,9 +699,9 @@ opal_obj_run_destructors.exit296:                 ; preds = %.lr.ph.i293, %340
   %405 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %406 = load ptr, ptr %405, align 8
   %.not.i.i = icmp eq ptr %406, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !6
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %399, %400
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %399, %400
   %407 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #5
   store i32 0, ptr %407, align 4
   %408 = tail call noalias dereferenceable_or_null(104) ptr @malloc(i64 noundef 104) #5
@@ -748,11 +748,11 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %399, %
   %.not.i298 = icmp eq i32 %430, %431
   br i1 %.not.i298, label %433, label %432
 
-432:                                              ; preds = %opal_obj_new.exit
+432:                                              ; preds = %opal_obj_new.argprom.exit
   tail call void @opal_class_initialize(ptr noundef nonnull @mca_coll_task_t_class) #4
   br label %433
 
-433:                                              ; preds = %432, %opal_obj_new.exit
+433:                                              ; preds = %432, %opal_obj_new.argprom.exit
   store ptr @mca_coll_task_t_class, ptr %395, align 8
   %434 = getelementptr inbounds i8, ptr %395, i64 8
   store volatile i32 1, ptr %434, align 8
@@ -789,7 +789,7 @@ init_task.exit:                                   ; preds = %.lr.ph.i.i300, %433
 
 448:                                              ; preds = %447, %init_task.exit
   %.not9.i304 = icmp eq ptr %444, null
-  br i1 %.not9.i304, label %opal_obj_new.exit309, label %449
+  br i1 %.not9.i304, label %opal_obj_new.argprom.exit309, label %449
 
 449:                                              ; preds = %448
   store ptr @mca_coll_task_t_class, ptr %444, align 8
@@ -798,7 +798,7 @@ init_task.exit:                                   ; preds = %.lr.ph.i.i300, %433
   %451 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 40), align 8
   %452 = load ptr, ptr %451, align 8
   %.not6.i.i305 = icmp eq ptr %452, null
-  br i1 %.not6.i.i305, label %opal_obj_new.exit309, label %.lr.ph.i.i306
+  br i1 %.not6.i.i305, label %opal_obj_new.argprom.exit309, label %.lr.ph.i.i306
 
 .lr.ph.i.i306:                                    ; preds = %449, %.lr.ph.i.i306
   %453 = phi ptr [ %455, %.lr.ph.i.i306 ], [ %452, %449 ]
@@ -807,20 +807,20 @@ init_task.exit:                                   ; preds = %.lr.ph.i.i300, %433
   %454 = getelementptr inbounds i8, ptr %.07.i.i307, i64 8
   %455 = load ptr, ptr %454, align 8
   %.not.i.i308 = icmp eq ptr %455, null
-  br i1 %.not.i.i308, label %opal_obj_new.exit309, label %.lr.ph.i.i306, !llvm.loop !6
+  br i1 %.not.i.i308, label %opal_obj_new.argprom.exit309, label %.lr.ph.i.i306, !llvm.loop !6
 
-opal_obj_new.exit309:                             ; preds = %.lr.ph.i.i306, %448, %449
+opal_obj_new.argprom.exit309:                     ; preds = %.lr.ph.i.i306, %448, %449
   store ptr %444, ptr %408, align 8
   %456 = load i32, ptr @opal_class_init_epoch, align 4
   %457 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 32), align 8
   %.not.i310 = icmp eq i32 %456, %457
   br i1 %.not.i310, label %459, label %458
 
-458:                                              ; preds = %opal_obj_new.exit309
+458:                                              ; preds = %opal_obj_new.argprom.exit309
   tail call void @opal_class_initialize(ptr noundef nonnull @mca_coll_task_t_class) #4
   br label %459
 
-459:                                              ; preds = %458, %opal_obj_new.exit309
+459:                                              ; preds = %458, %opal_obj_new.argprom.exit309
   store ptr @mca_coll_task_t_class, ptr %444, align 8
   %460 = getelementptr inbounds i8, ptr %444, i64 8
   store volatile i32 1, ptr %460, align 8
@@ -857,7 +857,7 @@ init_task.exit315:                                ; preds = %.lr.ph.i.i312, %459
 
 474:                                              ; preds = %473, %init_task.exit315
   %.not9.i317 = icmp eq ptr %470, null
-  br i1 %.not9.i317, label %opal_obj_new.exit322, label %475
+  br i1 %.not9.i317, label %opal_obj_new.argprom.exit322, label %475
 
 475:                                              ; preds = %474
   store ptr @mca_coll_task_t_class, ptr %470, align 8
@@ -866,7 +866,7 @@ init_task.exit315:                                ; preds = %.lr.ph.i.i312, %459
   %477 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 40), align 8
   %478 = load ptr, ptr %477, align 8
   %.not6.i.i318 = icmp eq ptr %478, null
-  br i1 %.not6.i.i318, label %opal_obj_new.exit322, label %.lr.ph.i.i319
+  br i1 %.not6.i.i318, label %opal_obj_new.argprom.exit322, label %.lr.ph.i.i319
 
 .lr.ph.i.i319:                                    ; preds = %475, %.lr.ph.i.i319
   %479 = phi ptr [ %481, %.lr.ph.i.i319 ], [ %478, %475 ]
@@ -875,20 +875,20 @@ init_task.exit315:                                ; preds = %.lr.ph.i.i312, %459
   %480 = getelementptr inbounds i8, ptr %.07.i.i320, i64 8
   %481 = load ptr, ptr %480, align 8
   %.not.i.i321 = icmp eq ptr %481, null
-  br i1 %.not.i.i321, label %opal_obj_new.exit322, label %.lr.ph.i.i319, !llvm.loop !6
+  br i1 %.not.i.i321, label %opal_obj_new.argprom.exit322, label %.lr.ph.i.i319, !llvm.loop !6
 
-opal_obj_new.exit322:                             ; preds = %.lr.ph.i.i319, %474, %475
+opal_obj_new.argprom.exit322:                     ; preds = %.lr.ph.i.i319, %474, %475
   store ptr %470, ptr %408, align 8
   %482 = load i32, ptr @opal_class_init_epoch, align 4
   %483 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 32), align 8
   %.not.i323 = icmp eq i32 %482, %483
   br i1 %.not.i323, label %485, label %484
 
-484:                                              ; preds = %opal_obj_new.exit322
+484:                                              ; preds = %opal_obj_new.argprom.exit322
   tail call void @opal_class_initialize(ptr noundef nonnull @mca_coll_task_t_class) #4
   br label %485
 
-485:                                              ; preds = %484, %opal_obj_new.exit322
+485:                                              ; preds = %484, %opal_obj_new.argprom.exit322
   store ptr @mca_coll_task_t_class, ptr %470, align 8
   %486 = getelementptr inbounds i8, ptr %470, i64 8
   store volatile i32 1, ptr %486, align 8
@@ -925,7 +925,7 @@ init_task.exit328:                                ; preds = %.lr.ph.i.i325, %485
 
 500:                                              ; preds = %499, %init_task.exit328
   %.not9.i330 = icmp eq ptr %496, null
-  br i1 %.not9.i330, label %opal_obj_new.exit335, label %501
+  br i1 %.not9.i330, label %opal_obj_new.argprom.exit335, label %501
 
 501:                                              ; preds = %500
   store ptr @mca_coll_task_t_class, ptr %496, align 8
@@ -934,7 +934,7 @@ init_task.exit328:                                ; preds = %.lr.ph.i.i325, %485
   %503 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 40), align 8
   %504 = load ptr, ptr %503, align 8
   %.not6.i.i331 = icmp eq ptr %504, null
-  br i1 %.not6.i.i331, label %opal_obj_new.exit335, label %.lr.ph.i.i332
+  br i1 %.not6.i.i331, label %opal_obj_new.argprom.exit335, label %.lr.ph.i.i332
 
 .lr.ph.i.i332:                                    ; preds = %501, %.lr.ph.i.i332
   %505 = phi ptr [ %507, %.lr.ph.i.i332 ], [ %504, %501 ]
@@ -943,20 +943,20 @@ init_task.exit328:                                ; preds = %.lr.ph.i.i325, %485
   %506 = getelementptr inbounds i8, ptr %.07.i.i333, i64 8
   %507 = load ptr, ptr %506, align 8
   %.not.i.i334 = icmp eq ptr %507, null
-  br i1 %.not.i.i334, label %opal_obj_new.exit335, label %.lr.ph.i.i332, !llvm.loop !6
+  br i1 %.not.i.i334, label %opal_obj_new.argprom.exit335, label %.lr.ph.i.i332, !llvm.loop !6
 
-opal_obj_new.exit335:                             ; preds = %.lr.ph.i.i332, %500, %501
+opal_obj_new.argprom.exit335:                     ; preds = %.lr.ph.i.i332, %500, %501
   store ptr %496, ptr %408, align 8
   %508 = load i32, ptr @opal_class_init_epoch, align 4
   %509 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 32), align 8
   %.not.i336 = icmp eq i32 %508, %509
   br i1 %.not.i336, label %511, label %510
 
-510:                                              ; preds = %opal_obj_new.exit335
+510:                                              ; preds = %opal_obj_new.argprom.exit335
   tail call void @opal_class_initialize(ptr noundef nonnull @mca_coll_task_t_class) #4
   br label %511
 
-511:                                              ; preds = %510, %opal_obj_new.exit335
+511:                                              ; preds = %510, %opal_obj_new.argprom.exit335
   store ptr @mca_coll_task_t_class, ptr %496, align 8
   %512 = getelementptr inbounds i8, ptr %496, i64 8
   store volatile i32 1, ptr %512, align 8
@@ -1000,7 +1000,7 @@ init_task.exit341:                                ; preds = %.lr.ph.i.i338, %511
 
 529:                                              ; preds = %528, %.lr.ph
   %.not9.i343 = icmp eq ptr %525, null
-  br i1 %.not9.i343, label %opal_obj_new.exit348, label %530
+  br i1 %.not9.i343, label %opal_obj_new.argprom.exit348, label %530
 
 530:                                              ; preds = %529
   store ptr @mca_coll_task_t_class, ptr %525, align 8
@@ -1009,7 +1009,7 @@ init_task.exit341:                                ; preds = %.lr.ph.i.i338, %511
   %532 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_task_t_class, i64 40), align 8
   %533 = load ptr, ptr %532, align 8
   %.not6.i.i344 = icmp eq ptr %533, null
-  br i1 %.not6.i.i344, label %opal_obj_new.exit348, label %.lr.ph.i.i345
+  br i1 %.not6.i.i344, label %opal_obj_new.argprom.exit348, label %.lr.ph.i.i345
 
 .lr.ph.i.i345:                                    ; preds = %530, %.lr.ph.i.i345
   %534 = phi ptr [ %536, %.lr.ph.i.i345 ], [ %533, %530 ]
@@ -1018,9 +1018,9 @@ init_task.exit341:                                ; preds = %.lr.ph.i.i338, %511
   %535 = getelementptr inbounds i8, ptr %.07.i.i346, i64 8
   %536 = load ptr, ptr %535, align 8
   %.not.i.i347 = icmp eq ptr %536, null
-  br i1 %.not.i.i347, label %opal_obj_new.exit348, label %.lr.ph.i.i345, !llvm.loop !6
+  br i1 %.not.i.i347, label %opal_obj_new.argprom.exit348, label %.lr.ph.i.i345, !llvm.loop !6
 
-opal_obj_new.exit348:                             ; preds = %.lr.ph.i.i345, %529, %530
+opal_obj_new.argprom.exit348:                     ; preds = %.lr.ph.i.i345, %529, %530
   store ptr %525, ptr %408, align 8
   %537 = load ptr, ptr %414, align 8
   %538 = icmp eq ptr %537, inttoptr (i64 1 to ptr)
@@ -1041,11 +1041,11 @@ opal_obj_new.exit348:                             ; preds = %.lr.ph.i.i345, %529
   %.not.i349 = icmp eq i32 %545, %546
   br i1 %.not.i349, label %548, label %547
 
-547:                                              ; preds = %opal_obj_new.exit348
+547:                                              ; preds = %opal_obj_new.argprom.exit348
   tail call void @opal_class_initialize(ptr noundef nonnull @mca_coll_task_t_class) #4
   br label %548
 
-548:                                              ; preds = %547, %opal_obj_new.exit348
+548:                                              ; preds = %547, %opal_obj_new.argprom.exit348
   store ptr @mca_coll_task_t_class, ptr %525, align 8
   %549 = getelementptr inbounds i8, ptr %525, i64 8
   store volatile i32 1, ptr %549, align 8

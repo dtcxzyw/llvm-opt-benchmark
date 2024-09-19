@@ -518,25 +518,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignR
   %.sroa.031.050.i.i.i.i.i.i.i = phi ptr [ %24, %23 ], [ %.val.val, %.lr.ph.preheader.i.i.i.i.i.i.i ]
   %.val.i.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.050.i.i.i.i.i.i.i, align 4
   %13 = icmp eq i32 %.val.i.i.i.i.i.i.i.i, 6
-  br i1 %13, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, label %14
+  br i1 %13, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %15 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 12
   %.val.i16.i.i.i.i.i.i.i = load i32, ptr %15, align 4
   %16 = icmp eq i32 %.val.i16.i.i.i.i.i.i.i, 6
-  br i1 %16, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit, label %17
+  br i1 %16, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 24
   %.val.i17.i.i.i.i.i.i.i = load i32, ptr %18, align 4
   %19 = icmp eq i32 %.val.i17.i.i.i.i.i.i.i, 6
-  br i1 %19, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit15, label %20
+  br i1 %19, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit15, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 36
   %.val.i18.i.i.i.i.i.i.i = load i32, ptr %21, align 4
   %22 = icmp eq i32 %.val.i18.i.i.i.i.i.i.i, 6
-  br i1 %22, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit17, label %23
+  br i1 %22, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit17, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 48
@@ -553,7 +553,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignR
   %.pre-phi57.i.i.i.i.i.i.i = phi i64 [ %.pre56.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %8, %2 ]
   %.sroa.031.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val.val, %2 ]
   %27 = sdiv exact i64 %.pre-phi57.i.i.i.i.i.i.i, 12
-  switch i64 %27, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit [
+  switch i64 %27, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit [
     i64 3, label %28
     i64 2, label %32
     i64 1, label %36
@@ -562,7 +562,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignR
 28:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %.val.i19.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.0.lcssa.i.i.i.i.i.i.i, align 4
   %29 = icmp eq i32 %.val.i19.i.i.i.i.i.i.i, 6
-  br i1 %29, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, label %30
+  br i1 %29, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i.i.i.i.i, i64 12
@@ -572,7 +572,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignR
   %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %31, %30 ]
   %.val.i20.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.1.i.i.i.i.i.i.i, align 4
   %33 = icmp eq i32 %.val.i20.i.i.i.i.i.i.i, 6
-  br i1 %33, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, label %34
+  br i1 %33, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i.i.i.i.i, i64 12
@@ -583,28 +583,28 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignR
   %.val.i21.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.2.i.i.i.i.i.i.i, align 4
   %37 = icmp eq i32 %.val.i21.i.i.i.i.i.i.i, 6
   %spec.select.i.i.i.i.i.i.i = select i1 %37, ptr %.sroa.031.2.i.i.i.i.i.i.i, ptr %.val.val2
-  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit: ; preds = %14
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit: ; preds = %14
   %38 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 12
-  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit15: ; preds = %17
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit15: ; preds = %17
   %39 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 24
-  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit17: ; preds = %20
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit17: ; preds = %20
   %40 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 36
-  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit15, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit17, %._crit_edge.i.i.i.i.i.i.i, %28, %32, %36
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %.val.val2, %._crit_edge.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit15 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit17 ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit15, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit17, %._crit_edge.i.i.i.i.i.i.i, %28, %32, %36
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %.val.val2, %._crit_edge.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit15 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit17 ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %42 = load i8, ptr %41, align 4
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %_ZNK4llvm19AArch64FunctionInfo23shouldSignReturnAddressEb.exit
 
-44:                                               ; preds = %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+44:                                               ; preds = %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
   %45 = icmp ne ptr %.val.val2, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 197
   %47 = load i8, ptr %46, align 1
@@ -612,8 +612,8 @@ _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.
   %..i = or i1 %45, %48
   br label %_ZNK4llvm19AArch64FunctionInfo23shouldSignReturnAddressEb.exit
 
-_ZNK4llvm19AArch64FunctionInfo23shouldSignReturnAddressEb.exit: ; preds = %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, %44
-  %.0.i = phi i1 [ false, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit ], [ %..i, %44 ]
+_ZNK4llvm19AArch64FunctionInfo23shouldSignReturnAddressEb.exit: ; preds = %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit, %44
+  %.0.i = phi i1 [ false, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit ], [ %..i, %44 ]
   ret i1 %.0.i
 }
 
@@ -643,25 +643,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo36needsShadow
   %.sroa.031.050.i.i.i.i.i.i.i = phi ptr [ %24, %23 ], [ %.val.val, %.lr.ph.preheader.i.i.i.i.i.i.i ]
   %.val.i.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.050.i.i.i.i.i.i.i, align 4
   %13 = icmp eq i32 %.val.i.i.i.i.i.i.i.i, 6
-  br i1 %13, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, label %14
+  br i1 %13, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %15 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 12
   %.val.i16.i.i.i.i.i.i.i = load i32, ptr %15, align 4
   %16 = icmp eq i32 %.val.i16.i.i.i.i.i.i.i, 6
-  br i1 %16, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit, label %17
+  br i1 %16, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 24
   %.val.i17.i.i.i.i.i.i.i = load i32, ptr %18, align 4
   %19 = icmp eq i32 %.val.i17.i.i.i.i.i.i.i, 6
-  br i1 %19, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit19, label %20
+  br i1 %19, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit19, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 36
   %.val.i18.i.i.i.i.i.i.i = load i32, ptr %21, align 4
   %22 = icmp eq i32 %.val.i18.i.i.i.i.i.i.i, 6
-  br i1 %22, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit21, label %23
+  br i1 %22, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit21, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 48
@@ -678,7 +678,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo36needsShadow
   %.pre-phi57.i.i.i.i.i.i.i = phi i64 [ %.pre56.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %8, %2 ]
   %.sroa.031.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val.val, %2 ]
   %27 = sdiv exact i64 %.pre-phi57.i.i.i.i.i.i.i, 12
-  switch i64 %27, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.thread [
+  switch i64 %27, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.thread [
     i64 3, label %28
     i64 2, label %32
     i64 1, label %36
@@ -687,7 +687,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo36needsShadow
 28:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %.val.i19.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.0.lcssa.i.i.i.i.i.i.i, align 4
   %29 = icmp eq i32 %.val.i19.i.i.i.i.i.i.i, 6
-  br i1 %29, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, label %30
+  br i1 %29, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i.i.i.i.i, i64 12
@@ -697,7 +697,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo36needsShadow
   %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %31, %30 ]
   %.val.i20.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.1.i.i.i.i.i.i.i, align 4
   %33 = icmp eq i32 %.val.i20.i.i.i.i.i.i.i, 6
-  br i1 %33, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, label %34
+  br i1 %33, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i.i.i.i.i, i64 12
@@ -708,29 +708,29 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo36needsShadow
   %.val.i21.i.i.i.i.i.i.i = load i32, ptr %.sroa.031.2.i.i.i.i.i.i.i, align 4
   %37 = icmp eq i32 %.val.i21.i.i.i.i.i.i.i, 6
   %spec.select.i.i.i.i.i.i.i = select i1 %37, ptr %.sroa.031.2.i.i.i.i.i.i.i, ptr %.val.val4
-  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit: ; preds = %14
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit: ; preds = %14
   %38 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 12
-  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit19: ; preds = %17
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit19: ; preds = %17
   %39 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 24
-  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit21: ; preds = %20
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit21: ; preds = %20
   %40 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 36
-  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+  br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit19, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit21, %28, %32, %36
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit19 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit21 ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit19, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit21, %28, %32, %36
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit19 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.loopexit.split.loop.exit21 ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not = icmp eq ptr %.val.val4, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
-  br i1 %.not, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.thread, label %41
+  br i1 %.not, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.thread, label %41
 
-41:                                               ; preds = %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
+41:                                               ; preds = %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit
   %42 = load ptr, ptr %1, align 8
   %43 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %42, i32 noundef 61) #14
-  br i1 %43, label %44, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.thread
+  br i1 %43, label %44, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.thread
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -740,14 +740,14 @@ _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, 262144
   %.not6 = icmp eq i64 %50, 0
-  br i1 %.not6, label %51, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.thread
+  br i1 %.not6, label %51, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.thread
 
 51:                                               ; preds = %44
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.7, i1 noundef zeroext true) #15
   unreachable
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i, %44, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, %41
-  %.0 = phi i1 [ false, %41 ], [ false, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit ], [ true, %44 ], [ false, %._crit_edge.i.i.i.i.i.i.i ]
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i, %44, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit, %41
+  %.0 = phi i1 [ false, %41 ], [ false, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.argprom.argprom.exit ], [ true, %44 ], [ false, %._crit_edge.i.i.i.i.i.i.i ]
   ret i1 %.0
 }
 

@@ -319,14 +319,14 @@ if.end9.i:                                        ; preds = %if.end.i
   %session_data.val.i = load ptr, ptr %session.i, align 8
   %call.i.i = tail call i32 @nghttp2_session_send(ptr noundef %session_data.val.i) #23
   %cmp.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp.not.i.i, label %if.end, label %session_send.exit.i
+  br i1 %cmp.not.i.i, label %if.end, label %session_send.argprom.exit.i
 
-session_send.exit.i:                              ; preds = %if.end9.i
+session_send.argprom.exit.i:                      ; preds = %if.end9.i
   %call1.i.i = tail call ptr @nghttp2_strerror(i32 noundef %call.i.i) #23
   tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %call1.i.i) #23
   br label %if.then
 
-if.then:                                          ; preds = %if.then.i, %if.then8.i, %session_send.exit.i
+if.then:                                          ; preds = %if.then.i, %if.then8.i, %session_send.argprom.exit.i
   tail call fastcc void @delete_http2_session_data(ptr noundef nonnull %ptr)
   br label %if.end
 
@@ -440,9 +440,9 @@ if.end:                                           ; preds = %lor.lhs.false6
   store i64 429496729603, ptr %iv.i, align 8
   %call.i16 = call i32 @nghttp2_submit_settings(ptr noundef %ptr.val, i8 noundef zeroext 0, ptr noundef nonnull %iv.i, i64 noundef 1) #23
   %cmp.not.i = icmp eq i32 %call.i16, 0
-  br i1 %cmp.not.i, label %lor.lhs.false16, label %send_server_connection_header.exit
+  br i1 %cmp.not.i, label %lor.lhs.false16, label %send_server_connection_header.argprom.exit
 
-send_server_connection_header.exit:               ; preds = %if.end
+send_server_connection_header.argprom.exit:       ; preds = %if.end
   %call1.i17 = call ptr @nghttp2_strerror(i32 noundef %call.i16) #23
   call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %call1.i17) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iv.i)
@@ -453,14 +453,14 @@ lor.lhs.false16:                                  ; preds = %if.end
   %ptr.val15 = load ptr, ptr %session.i, align 8
   %call.i18 = call i32 @nghttp2_session_send(ptr noundef %ptr.val15) #23
   %cmp.not.i19 = icmp eq i32 %call.i18, 0
-  br i1 %cmp.not.i19, label %return, label %session_send.exit
+  br i1 %cmp.not.i19, label %return, label %session_send.argprom.exit
 
-session_send.exit:                                ; preds = %lor.lhs.false16
+session_send.argprom.exit:                        ; preds = %lor.lhs.false16
   %call1.i21 = call ptr @nghttp2_strerror(i32 noundef %call.i18) #23
   call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %call1.i21) #23
   br label %if.then20
 
-if.then20:                                        ; preds = %session_send.exit, %send_server_connection_header.exit
+if.then20:                                        ; preds = %session_send.argprom.exit, %send_server_connection_header.argprom.exit
   call fastcc void @delete_http2_session_data(ptr noundef nonnull %ptr)
   br label %return
 
@@ -784,24 +784,24 @@ if.end:                                           ; preds = %entry
   %next1.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %next1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %remove_stream.exit, label %if.then.i
+  br i1 %tobool.not.i, label %remove_stream.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %2 = load ptr, ptr %call, align 8
   store ptr %2, ptr %0, align 8
-  br label %remove_stream.exit
+  br label %remove_stream.argprom.exit
 
-remove_stream.exit:                               ; preds = %if.end, %if.then.i
+remove_stream.argprom.exit:                       ; preds = %if.end, %if.then.i
   %fd.i = getelementptr inbounds i8, ptr %call, i64 28
   %3 = load i32, ptr %fd.i, align 4
   %cmp.not.i = icmp eq i32 %3, -1
   br i1 %cmp.not.i, label %delete_http2_stream_data.exit, label %if.then.i3
 
-if.then.i3:                                       ; preds = %remove_stream.exit
+if.then.i3:                                       ; preds = %remove_stream.argprom.exit
   %call.i = tail call i32 @close(i32 noundef %3) #23
   br label %delete_http2_stream_data.exit
 
-delete_http2_stream_data.exit:                    ; preds = %remove_stream.exit, %if.then.i3
+delete_http2_stream_data.exit:                    ; preds = %remove_stream.argprom.exit, %if.then.i3
   %request_path.i = getelementptr inbounds i8, ptr %call, i64 16
   %4 = load ptr, ptr %request_path.i, align 8
   tail call void @free(ptr noundef %4) #23

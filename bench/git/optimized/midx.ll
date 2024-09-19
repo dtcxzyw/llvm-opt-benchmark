@@ -2658,17 +2658,17 @@ if.end31.i:                                       ; preds = %fill_pack_entry.exi
   %fanout.sroa.16.2.i = phi i64 [ %fanout.sroa.16.1.lcssa.i, %for.end25.i ], [ %fanout.sroa.16.1.lcssa.i, %if.end.i88.i ], [ %add.i98.i, %fill_pack_entry.exit.i108.i ]
   %fanout.sroa.32.3.i = phi i64 [ %fanout.sroa.32.2.lcssa.i, %for.end25.i ], [ %fanout.sroa.32.2.lcssa.i, %if.end.i88.i ], [ %fanout.sroa.32.12.i, %fill_pack_entry.exit.i108.i ]
   %cmp.i.i135.i = icmp ugt i64 %fanout.sroa.16.2.i, 1
-  br i1 %cmp.i.i135.i, label %midx_fanout_sort.exit.thread.i, label %midx_fanout_sort.exit.i
+  br i1 %cmp.i.i135.i, label %midx_fanout_sort.argprom.exit.thread.i, label %midx_fanout_sort.argprom.exit.i
 
-midx_fanout_sort.exit.thread.i:                   ; preds = %if.end31.i
+midx_fanout_sort.argprom.exit.thread.i:           ; preds = %if.end31.i
   call void @qsort(ptr noundef %fanout.sroa.0.3.i, i64 noundef %fanout.sroa.16.2.i, i64 noundef 64, ptr noundef nonnull @midx_oid_compare) #23
   br label %for.body37.i.preheader
 
-midx_fanout_sort.exit.i:                          ; preds = %if.end31.i
+midx_fanout_sort.argprom.exit.i:                  ; preds = %if.end31.i
   %cmp35275.not.i = icmp eq i64 %fanout.sroa.16.2.i, 0
   br i1 %cmp35275.not.i, label %for.inc76.i, label %for.body37.i.preheader
 
-for.body37.i.preheader:                           ; preds = %midx_fanout_sort.exit.i, %midx_fanout_sort.exit.thread.i
+for.body37.i.preheader:                           ; preds = %midx_fanout_sort.argprom.exit.i, %midx_fanout_sort.argprom.exit.thread.i
   br label %for.body37.i
 
 for.body37.i:                                     ; preds = %for.body37.i.preheader, %for.inc73.i
@@ -2772,9 +2772,9 @@ for.inc73.i:                                      ; preds = %do.end.i, %oideq.ex
   %cmp35.i = icmp ugt i64 %fanout.sroa.16.2.i, %conv33.i
   br i1 %cmp35.i, label %for.body37.i, label %for.inc76.i, !llvm.loop !20
 
-for.inc76.i:                                      ; preds = %for.inc73.i, %midx_fanout_sort.exit.i
-  %alloc_objects.1.lcssa.i = phi i64 [ %alloc_objects.0285.i, %midx_fanout_sort.exit.i ], [ %alloc_objects.2.i, %for.inc73.i ]
-  %deduplicated_entries.1.lcssa.i = phi ptr [ %deduplicated_entries.0286.i, %midx_fanout_sort.exit.i ], [ %deduplicated_entries.2.i, %for.inc73.i ]
+for.inc76.i:                                      ; preds = %for.inc73.i, %midx_fanout_sort.argprom.exit.i
+  %alloc_objects.1.lcssa.i = phi i64 [ %alloc_objects.0285.i, %midx_fanout_sort.argprom.exit.i ], [ %alloc_objects.2.i, %for.inc73.i ]
+  %deduplicated_entries.1.lcssa.i = phi ptr [ %deduplicated_entries.0286.i, %midx_fanout_sort.argprom.exit.i ], [ %deduplicated_entries.2.i, %for.inc73.i ]
   %indvars.iv.next318.i = add nuw nsw i64 %indvars.iv317.i, 1
   %exitcond322.not.i = icmp eq i64 %indvars.iv.next318.i, 256
   br i1 %exitcond322.not.i, label %get_sorted_entries.exit, label %for.body15.i, !llvm.loop !21

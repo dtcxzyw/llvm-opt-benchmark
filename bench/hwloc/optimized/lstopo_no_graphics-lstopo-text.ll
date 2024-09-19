@@ -139,7 +139,7 @@ define hidden range(i32 -1, 1) i32 @output_console(ptr noundef %0, ptr noundef %
 
 29:                                               ; preds = %26
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @output_cpukinds(ptr %.val)
+  tail call fastcc void @output_cpukinds.argprom(ptr %.val)
   br label %115
 
 30:                                               ; preds = %26
@@ -216,7 +216,7 @@ define hidden range(i32 -1, 1) i32 @output_console(ptr noundef %0, ptr noundef %
   tail call fastcc void @output_distances(ptr noundef nonnull %0)
   tail call fastcc void @output_memattrs(ptr noundef nonnull %0)
   %.val108 = load ptr, ptr %0, align 8
-  tail call fastcc void @output_cpukinds(ptr %.val108)
+  tail call fastcc void @output_cpukinds.argprom(ptr %.val108)
   %.pr = load i32, ptr %34, align 8
   %65 = icmp eq i32 %.pr, -1
   br i1 %65, label %66, label %.critedge
@@ -667,7 +667,7 @@ define internal fastcc void @output_memattrs(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_cpukinds(ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @output_cpukinds.argprom(ptr %.0.val) unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -796,15 +796,15 @@ define internal fastcc void @output_only(ptr noundef %0, ptr noundef %1) unnamed
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(11) @.str.47) #17
   %.not.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not.i.i.i, label %hwloc_obj_get_info_by_name.exit.i, label %33
+  br i1 %.not.i.i.i, label %hwloc_obj_get_info_by_name.argprom.exit.i, label %33
 
-hwloc_obj_get_info_by_name.exit.i:                ; preds = %34
+hwloc_obj_get_info_by_name.argprom.exit.i:        ; preds = %34
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not42.i = icmp eq ptr %39, null
   br i1 %.not42.i, label %hwloc_calc_check_object_filtered.exit.thread, label %40
 
-40:                                               ; preds = %hwloc_obj_get_info_by_name.exit.i
+40:                                               ; preds = %hwloc_obj_get_info_by_name.argprom.exit.i
   %41 = tail call i32 @atoi(ptr nocapture noundef nonnull %39) #17
   %.not43.i = icmp eq i32 %41, %26
   br i1 %.not43.i, label %42, label %hwloc_calc_check_object_filtered.exit.thread
@@ -881,7 +881,7 @@ hwloc_calc_check_object_filtered.exit:            ; preds = %75, %72, %66, %63, 
   %fputc = tail call i32 @fputc(i32 10, ptr %4)
   br label %hwloc_calc_check_object_filtered.exit.thread
 
-hwloc_calc_check_object_filtered.exit.thread:     ; preds = %33, %28, %75, %66, %57, %52, %hwloc_obj_get_info_by_name.exit.i, %40, %18, %21, %hwloc_calc_check_object_filtered.exit, %9
+hwloc_calc_check_object_filtered.exit.thread:     ; preds = %33, %28, %75, %66, %57, %52, %hwloc_obj_get_info_by_name.argprom.exit.i, %40, %18, %21, %hwloc_calc_check_object_filtered.exit, %9
   %80 = getelementptr inbounds i8, ptr %1, i64 120
   %.052 = load ptr, ptr %80, align 8
   %.not4153 = icmp eq ptr %.052, null
@@ -1623,13 +1623,13 @@ define internal fastcc range(i32 -1, 1) i32 @output_memattr(ptr nocapture nounde
   %61 = getelementptr inbounds i8, ptr %50, i64 24
   %62 = load ptr, ptr %61, align 8
   %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %output_memattr_obj.exit, label %63
+  br i1 %.not.i, label %output_memattr_obj.argprom.exit, label %63
 
 63:                                               ; preds = %60
   %64 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %62)
-  br label %output_memattr_obj.exit
+  br label %output_memattr_obj.argprom.exit
 
-output_memattr_obj.exit:                          ; preds = %60, %63
+output_memattr_obj.argprom.exit:                  ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %65 = load i64, ptr %11, align 8
   %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i64 noundef %65)
@@ -1691,13 +1691,13 @@ output_memattr_obj.exit:                          ; preds = %60, %63
   %97 = getelementptr inbounds i8, ptr %86, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not.i76 = icmp eq ptr %98, null
-  br i1 %.not.i76, label %output_memattr_obj.exit77, label %99
+  br i1 %.not.i76, label %output_memattr_obj.argprom.exit77, label %99
 
 99:                                               ; preds = %96
   %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %98)
-  br label %output_memattr_obj.exit77
+  br label %output_memattr_obj.argprom.exit77
 
-output_memattr_obj.exit77:                        ; preds = %96, %99
+output_memattr_obj.argprom.exit77:                ; preds = %96, %99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %101 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv
   %102 = load i64, ptr %101, align 8
@@ -1710,7 +1710,7 @@ output_memattr_obj.exit77:                        ; preds = %96, %99
     i32 0, label %153
   ]
 
-106:                                              ; preds = %output_memattr_obj.exit77
+106:                                              ; preds = %output_memattr_obj.argprom.exit77
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr inbounds i8, ptr %104, i64 8
   %109 = load ptr, ptr %108, align 8
@@ -1748,7 +1748,7 @@ output_memattr_obj.exit77:                        ; preds = %96, %99
 124:                                              ; preds = %.lr.ph.i.us.i.i
   %125 = call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %114, ptr noundef nonnull %123) #17
   %.not13.i.us.i.i = icmp eq i32 %125, 0
-  br i1 %.not13.i.us.i.i, label %126, label %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i
+  br i1 %.not13.i.us.i.i, label %126, label %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us.i.i
 
 126:                                              ; preds = %124, %.lr.ph.i.us.i.i
   %127 = getelementptr inbounds i8, ptr %.03.i.us.i.i, i64 88
@@ -1756,12 +1756,12 @@ output_memattr_obj.exit77:                        ; preds = %96, %99
   %.not11.i.us.i.i = icmp eq ptr %.0.i.us.i.i, null
   br i1 %.not11.i.us.i.i, label %hwloc_get_obj_covering_cpuset.exit.i, label %.lr.ph.i.us.i.i, !llvm.loop !26
 
-.lr.ph.i.preheader.us.i.i:                        ; preds = %.lr.ph.split.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i
-  %.01.i.us26.i.i = phi ptr [ %.01.i.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ], [ %.01.i.us23.i.i, %.lr.ph.split.us.i.i ]
-  %.01120.us25.i.i = phi ptr [ %.03.i.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ], [ %117, %.lr.ph.split.us.i.i ]
+.lr.ph.i.preheader.us.i.i:                        ; preds = %.lr.ph.split.us.i.i, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us.i.i
+  %.01.i.us26.i.i = phi ptr [ %.01.i.us.i.i, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us.i.i ], [ %.01.i.us23.i.i, %.lr.ph.split.us.i.i ]
+  %.01120.us25.i.i = phi ptr [ %.03.i.us.i.i, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us.i.i ], [ %117, %.lr.ph.split.us.i.i ]
   br label %.lr.ph.i.us.i.i
 
-hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i: ; preds = %124
+hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us.i.i: ; preds = %124
   %128 = getelementptr inbounds i8, ptr %.03.i.us.i.i, i64 120
   %.01.i.us.i.i = load ptr, ptr %128, align 8
   %.not112.i.us.i.i = icmp eq ptr %.01.i.us.i.i, null
@@ -1776,9 +1776,9 @@ hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_c
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %hwloc_get_obj_covering_cpuset.exit.thread36.i
 
-hwloc_get_obj_covering_cpuset.exit.thread36.i:    ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i, %.lr.ph.split.us.i.i
-  %129 = phi ptr [ %.pre.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i ], [ %119, %.lr.ph.split.us.i.i ], [ %123, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ]
-  %.0.i39.i = phi ptr [ %.01120.us25.i.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i ], [ %117, %.lr.ph.split.us.i.i ], [ %.03.i.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ]
+hwloc_get_obj_covering_cpuset.exit.thread36.i:    ; preds = %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us.i.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i, %.lr.ph.split.us.i.i
+  %129 = phi ptr [ %.pre.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i ], [ %119, %.lr.ph.split.us.i.i ], [ %123, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us.i.i ]
+  %.0.i39.i = phi ptr [ %.01120.us25.i.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i ], [ %117, %.lr.ph.split.us.i.i ], [ %.03.i.us.i.i, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us.i.i ]
   %130 = call i32 @hwloc_bitmap_isequal(ptr noundef %129, ptr noundef %114) #17
   %.not23.i = icmp eq i32 %130, 0
   br i1 %.not23.i, label %output_memattr_initiator.exit, label %.preheader.i
@@ -1823,18 +1823,18 @@ hwloc_get_obj_covering_cpuset.exit.thread36.i:    ; preds = %hwloc_get_child_cov
   %149 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %150 = load ptr, ptr %149, align 8
   %.not.i28.i = icmp eq ptr %150, null
-  br i1 %.not.i28.i, label %output_memattr_obj.exit.i, label %151
+  br i1 %.not.i28.i, label %output_memattr_obj.argprom.exit.i, label %151
 
 151:                                              ; preds = %148
   %152 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %150)
-  br label %output_memattr_obj.exit.i
+  br label %output_memattr_obj.argprom.exit.i
 
-output_memattr_obj.exit.i:                        ; preds = %151, %148
+output_memattr_obj.argprom.exit.i:                ; preds = %151, %148
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %putchar.i = call i32 @putchar(i32 41)
   br label %output_memattr_initiator.exit
 
-153:                                              ; preds = %output_memattr_obj.exit77
+153:                                              ; preds = %output_memattr_obj.argprom.exit77
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43)
   %155 = getelementptr inbounds i8, ptr %104, i64 8
   %156 = load ptr, ptr %155, align 8
@@ -1861,21 +1861,21 @@ output_memattr_obj.exit.i:                        ; preds = %151, %148
   %167 = getelementptr inbounds i8, ptr %156, i64 24
   %168 = load ptr, ptr %167, align 8
   %.not.i31.i = icmp eq ptr %168, null
-  br i1 %.not.i31.i, label %output_memattr_obj.exit32.i, label %169
+  br i1 %.not.i31.i, label %output_memattr_obj.argprom.exit32.i, label %169
 
 169:                                              ; preds = %166
   %170 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %168)
-  br label %output_memattr_obj.exit32.i
+  br label %output_memattr_obj.argprom.exit32.i
 
-output_memattr_obj.exit32.i:                      ; preds = %169, %166
+output_memattr_obj.argprom.exit32.i:              ; preds = %169, %166
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %output_memattr_initiator.exit
 
-171:                                              ; preds = %output_memattr_obj.exit77
+171:                                              ; preds = %output_memattr_obj.argprom.exit77
   %172 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %105)
   br label %output_memattr_initiator.exit
 
-output_memattr_initiator.exit:                    ; preds = %106, %116, %hwloc_get_obj_covering_cpuset.exit.i, %hwloc_get_obj_covering_cpuset.exit.thread36.i, %output_memattr_obj.exit.i, %output_memattr_obj.exit32.i, %171
+output_memattr_initiator.exit:                    ; preds = %106, %116, %hwloc_get_obj_covering_cpuset.exit.i, %hwloc_get_obj_covering_cpuset.exit.thread36.i, %output_memattr_obj.argprom.exit.i, %output_memattr_obj.argprom.exit32.i, %171
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %putchar = call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1889,7 +1889,7 @@ output_memattr_initiator.exit:                    ; preds = %106, %116, %hwloc_g
   call void @free(ptr noundef %77) #14
   br label %176
 
-176:                                              ; preds = %output_memattr_obj.exit, %44, %.loopexit, %67
+176:                                              ; preds = %output_memattr_obj.argprom.exit, %44, %.loopexit, %67
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %177 = load i32, ptr %10, align 4
   %178 = zext i32 %177 to i64

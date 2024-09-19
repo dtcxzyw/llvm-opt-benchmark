@@ -505,13 +505,13 @@ usbip_get_usbip_conv.exit:                        ; preds = %4, %18
   %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %47, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #3
   %49 = load i32, ptr %9, align 4
   %.not.i.i = icmp eq i32 %49, 0
-  br i1 %.not.i.i, label %dissect_device_list_response.exit.i, label %.lr.ph5.i.i
+  br i1 %.not.i.i, label %dissect_device_list_response.argprom.exit.i, label %.lr.ph5.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %proto_item_set_generated.exit.i.i
   %.1.lcssa.i.i = phi i32 [ %69, %proto_item_set_generated.exit.i.i ], [ %86, %.lr.ph.i.i ]
   %50 = load i32, ptr %9, align 4
   %51 = icmp ult i32 %58, %50
-  br i1 %51, label %.lr.ph5.i.i, label %dissect_device_list_response.exit.i, !llvm.loop !6
+  br i1 %51, label %.lr.ph5.i.i, label %dissect_device_list_response.argprom.exit.i, !llvm.loop !6
 
 .lr.ph5.i.i:                                      ; preds = %46, %.loopexit.i.i
   %.0434.i.i = phi i32 [ %.1.lcssa.i.i, %.loopexit.i.i ], [ 12, %46 ]
@@ -570,7 +570,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %63, %60, %.lr.ph5.i
   %exitcond.not.i.i = icmp eq i32 %71, %55
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
-dissect_device_list_response.exit.i:              ; preds = %.loopexit.i.i, %46
+dissect_device_list_response.argprom.exit.i:      ; preds = %.loopexit.i.i, %46
   %.043.lcssa.i.i = phi i32 [ 12, %46 ], [ %.1.lcssa.i.i, %.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %usbip_dissect_op.exit
@@ -584,8 +584,8 @@ dissect_device_list_response.exit.i:              ; preds = %.loopexit.i.i, %46
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.121) #3
   br label %usbip_dissect_op.exit
 
-usbip_dissect_op.exit:                            ; preds = %37, %40, %43, %45, %dissect_device_list_response.exit.i, %87
-  %.0.i30 = phi i32 [ %90, %87 ], [ %.043.lcssa.i.i, %dissect_device_list_response.exit.i ], [ 0, %45 ], [ 40, %37 ], [ %44, %43 ], [ 8, %40 ]
+usbip_dissect_op.exit:                            ; preds = %37, %40, %43, %45, %dissect_device_list_response.argprom.exit.i, %87
+  %.0.i30 = phi i32 [ %90, %87 ], [ %.043.lcssa.i.i, %dissect_device_list_response.argprom.exit.i ], [ 0, %45 ], [ 40, %37 ], [ %44, %43 ], [ 8, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %299
@@ -848,7 +848,7 @@ proto_item_set_generated.exit135.i:               ; preds = %197, %194, %proto_i
   %232 = load ptr, ptr %.0.i, align 8
   %233 = call ptr @wmem_tree_lookup32(ptr noundef %232, i32 noundef %230) #3
   %.not.i136.i = icmp eq ptr %233, null
-  br i1 %.not.i136.i, label %dissect_cmd_unlink.exit.i, label %234
+  br i1 %.not.i136.i, label %dissect_cmd_unlink.argprom.exit.i, label %234
 
 234:                                              ; preds = %227
   %235 = load i32, ptr @hf_usbip_vic_frame, align 4
@@ -856,22 +856,22 @@ proto_item_set_generated.exit135.i:               ; preds = %197, %194, %proto_i
   %237 = load i32, ptr %236, align 4
   %238 = call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %235, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %237) #3
   %.not.i.i.i34 = icmp eq ptr %238, null
-  br i1 %.not.i.i.i34, label %dissect_cmd_unlink.exit.i, label %239
+  br i1 %.not.i.i.i34, label %dissect_cmd_unlink.argprom.exit.i, label %239
 
 239:                                              ; preds = %234
   %240 = getelementptr inbounds i8, ptr %238, i64 32
   %241 = load ptr, ptr %240, align 8
   %.not5.i.i.i35 = icmp eq ptr %241, null
-  br i1 %.not5.i.i.i35, label %dissect_cmd_unlink.exit.i, label %242
+  br i1 %.not5.i.i.i35, label %dissect_cmd_unlink.argprom.exit.i, label %242
 
 242:                                              ; preds = %239
   %243 = getelementptr inbounds i8, ptr %241, i64 28
   %244 = load i32, ptr %243, align 4
   %245 = or i32 %244, 2
   store i32 %245, ptr %243, align 4
-  br label %dissect_cmd_unlink.exit.i
+  br label %dissect_cmd_unlink.argprom.exit.i
 
-dissect_cmd_unlink.exit.i:                        ; preds = %242, %239, %234, %227
+dissect_cmd_unlink.argprom.exit.i:                ; preds = %242, %239, %234, %227
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %usbip_dissect_urb.exit
 
@@ -947,8 +947,8 @@ dissect_ret_unlink.exit.i:                        ; preds = %279, %276, %268, %2
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %193, ptr noundef nonnull @.str.121) #3
   br label %usbip_dissect_urb.exit
 
-usbip_dissect_urb.exit:                           ; preds = %214, %dissect_cmd_unlink.exit.i, %246, %261, %dissect_ret_unlink.exit.i, %285
-  %.0.i33 = phi i32 [ %288, %285 ], [ 24, %dissect_ret_unlink.exit.i ], [ 48, %261 ], [ 48, %246 ], [ 24, %dissect_cmd_unlink.exit.i ], [ 48, %214 ]
+usbip_dissect_urb.exit:                           ; preds = %214, %dissect_cmd_unlink.argprom.exit.i, %246, %261, %dissect_ret_unlink.exit.i, %285
+  %.0.i33 = phi i32 [ %288, %285 ], [ 24, %dissect_ret_unlink.exit.i ], [ 48, %261 ], [ 48, %246 ], [ 24, %dissect_cmd_unlink.argprom.exit.i ], [ 48, %214 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)

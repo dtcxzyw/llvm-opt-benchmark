@@ -313,7 +313,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
 11:                                               ; preds = %9
   %12 = add nsw i32 %1, -4519
   %13 = add nuw nsw i32 %12, %2
-  br label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split
+  br label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread.sink.split
 
 14:                                               ; preds = %5
   %15 = add i32 %1, -4352
@@ -328,7 +328,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   %20 = mul nuw nsw i32 %2, 28
   %21 = add nuw nsw i32 %19, -2639516
   %22 = add nsw i32 %21, %20
-  br label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split
+  br label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread.sink.split
 
 23:                                               ; preds = %14
   %24 = icmp ult i32 %1, 2048
@@ -363,7 +363,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
 
 43:                                               ; preds = %32
   %.not23.i.i = icmp eq i32 %31, %39
-  br i1 %.not23.i.i, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit, label %44
+  br i1 %.not23.i.i, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit, label %44
 
 44:                                               ; preds = %43
   %45 = add nuw nsw i32 %34, 1
@@ -373,9 +373,9 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   %.121.i.i = phi i32 [ %42, %41 ], [ %.0201.i.i, %44 ]
   %.1.i.i = phi i32 [ %.0192.i.i, %41 ], [ %45, %44 ]
   %.not.not.i.i = icmp sgt i32 %.1.i.i, %.121.i.i
-  br i1 %.not.not.i.i, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %32, !llvm.loop !6
+  br i1 %.not.not.i.i, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread, label %32, !llvm.loop !6
 
-_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
+_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit: ; preds = %43
   %47 = and i32 %38, 16383
   br label %70
 
@@ -406,7 +406,7 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
 
 64:                                               ; preds = %53
   %.not23.i.i25 = icmp eq i64 %52, %60
-  br i1 %.not23.i.i25, label %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit, label %65
+  br i1 %.not23.i.i25, label %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit, label %65
 
 65:                                               ; preds = %64
   %66 = add nuw nsw i32 %55, 1
@@ -416,25 +416,25 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
   %.121.i.i26 = phi i32 [ %63, %62 ], [ %.0201.i.i24, %65 ]
   %.1.i.i27 = phi i32 [ %.0192.i.i23, %62 ], [ %66, %65 ]
   %.not.not.i.i28 = icmp sgt i32 %.1.i.i27, %.121.i.i26
-  br i1 %.not.not.i.i28, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %53, !llvm.loop !8
+  br i1 %.not.not.i.i28, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread, label %53, !llvm.loop !8
 
-_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %64
+_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit: ; preds = %64
   %68 = trunc i64 %59 to i32
   %69 = and i32 %68, 2097151
   br label %70
 
-70:                                               ; preds = %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit
-  %.016 = phi i32 [ %47, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit ], [ %69, %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit ]
+70:                                               ; preds = %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit
+  %.016 = phi i32 [ %47, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit ], [ %69, %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit ]
   %.not20 = icmp eq i32 %.016, 0
-  br i1 %.not20, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split
+  br i1 %.not20, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread.sink.split
 
-_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split: ; preds = %70, %18, %11
+_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread.sink.split: ; preds = %70, %18, %11
   %.sink.i.sink = phi i32 [ %22, %18 ], [ %13, %11 ], [ %.016, %70 ]
   store i32 %.sink.i.sink, ptr %3, align 4
-  br label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread
+  br label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread
 
-_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread: ; preds = %46, %67, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split, %70
-  %.0 = phi i32 [ 0, %70 ], [ 1, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split ], [ 0, %67 ], [ 0, %46 ]
+_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread: ; preds = %46, %67, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread.sink.split, %70
+  %.0 = phi i32 [ 0, %70 ], [ 1, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.argprom.exit.thread.sink.split ], [ 0, %67 ], [ 0, %46 ]
   ret i32 %.0
 }
 

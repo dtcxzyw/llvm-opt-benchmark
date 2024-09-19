@@ -456,7 +456,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 185:                                              ; preds = %182
   %186 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.30) #13
-  br label %_setup_stepd_sockets.exit.thread
+  br label %_setup_stepd_sockets.argprom.exit.thread
 
 187:                                              ; preds = %182
   store i16 1, ptr %4, align 2
@@ -482,7 +482,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %202 = add i64 %199, 1
   %203 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__._setup_stepd_sockets, ptr noundef %198, i64 noundef %202, i64 noundef 108) #13
   call void @slurm_xfree(ptr noundef nonnull @fmt_tree_sock_addr) #13
-  br label %_setup_stepd_sockets.exit.thread
+  br label %_setup_stepd_sockets.argprom.exit.thread
 
 204:                                              ; preds = %187
   %205 = getelementptr inbounds i8, ptr %4, i64 2
@@ -499,7 +499,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 214:                                              ; preds = %204
   %215 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.33) #13
   %216 = call i32 @unlink(ptr noundef nonnull %205) #13
-  br label %_setup_stepd_sockets.exit.thread
+  br label %_setup_stepd_sockets.argprom.exit.thread
 
 217:                                              ; preds = %204
   %218 = load i32, ptr %12, align 8
@@ -510,7 +510,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 221:                                              ; preds = %217
   %222 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.34) #13
   %223 = call i32 @unlink(ptr noundef nonnull %205) #13
-  br label %_setup_stepd_sockets.exit.thread
+  br label %_setup_stepd_sockets.argprom.exit.thread
 
 224:                                              ; preds = %217
   %225 = load i32, ptr @tree_sock, align 4
@@ -521,7 +521,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 228:                                              ; preds = %224
   %229 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.35) #13
   %230 = call i32 @unlink(ptr noundef nonnull %205) #13
-  br label %_setup_stepd_sockets.exit.thread
+  br label %_setup_stepd_sockets.argprom.exit.thread
 
 231:                                              ; preds = %224
   %232 = getelementptr inbounds i8, ptr %0, i64 144
@@ -547,7 +547,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %244 = icmp ult i64 %indvars.iv.next.i30, %243
   br i1 %244, label %.lr.ph.i28, label %.loopexit43, !llvm.loop !9
 
-_setup_stepd_sockets.exit.thread:                 ; preds = %185, %201, %214, %221, %228
+_setup_stepd_sockets.argprom.exit.thread:         ; preds = %185, %201, %214, %221, %228
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_setup_stepd_job_info.exit
@@ -602,8 +602,8 @@ _setup_stepd_kvs.exit.thread:                     ; preds = %.loopexit43, %246
   %264 = call i32 @pmix_ring_init(ptr noundef nonnull @job_info, ptr noundef nonnull %1) #13
   br label %_setup_stepd_job_info.exit
 
-_setup_stepd_job_info.exit:                       ; preds = %163, %168, %_setup_stepd_kvs.exit.thread, %_setup_stepd_sockets.exit.thread, %109, %102, %.loopexit
-  %.0 = phi i32 [ %264, %.loopexit ], [ -1, %102 ], [ -1, %109 ], [ -1, %_setup_stepd_sockets.exit.thread ], [ %.0.i33.ph, %_setup_stepd_kvs.exit.thread ], [ -1, %168 ], [ -1, %163 ]
+_setup_stepd_job_info.exit:                       ; preds = %163, %168, %_setup_stepd_kvs.exit.thread, %_setup_stepd_sockets.argprom.exit.thread, %109, %102, %.loopexit
+  %.0 = phi i32 [ %264, %.loopexit ], [ -1, %102 ], [ -1, %109 ], [ -1, %_setup_stepd_sockets.argprom.exit.thread ], [ %.0.i33.ph, %_setup_stepd_kvs.exit.thread ], [ -1, %168 ], [ -1, %163 ]
   ret i32 %.0
 }
 

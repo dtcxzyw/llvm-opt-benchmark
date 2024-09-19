@@ -141,9 +141,9 @@ define internal i32 @socks_proxy_cf_connect(ptr nocapture noundef %0, ptr nounde
   %.0 = phi ptr [ %26, %40 ], [ %43, %44 ]
   %46 = load i32, ptr %.0, align 8
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %socksstate.exit, label %91
+  br i1 %47, label %socksstate.argprom.exit, label %91
 
-socksstate.exit:                                  ; preds = %45
+socksstate.argprom.exit:                          ; preds = %45
   store i32 1, ptr %.0, align 8
   %48 = getelementptr inbounds i8, ptr %22, i64 672
   %49 = load i32, ptr %48, align 8
@@ -151,7 +151,7 @@ socksstate.exit:                                  ; preds = %45
   %.not58 = icmp eq i32 %50, 0
   br i1 %.not58, label %51, label %55
 
-51:                                               ; preds = %socksstate.exit
+51:                                               ; preds = %socksstate.argprom.exit
   %52 = and i32 %49, 512
   %.not59 = icmp eq i32 %52, 0
   br i1 %.not59, label %53, label %55
@@ -160,8 +160,8 @@ socksstate.exit:                                  ; preds = %45
   %54 = icmp eq i32 %24, 1
   br i1 %54, label %.thread, label %55
 
-55:                                               ; preds = %53, %51, %socksstate.exit
-  %.sink = phi i64 [ 216, %socksstate.exit ], [ 128, %51 ], [ 80, %53 ]
+55:                                               ; preds = %53, %51, %socksstate.argprom.exit
+  %.sink = phi i64 [ 216, %socksstate.argprom.exit ], [ 128, %51 ], [ 80, %53 ]
   %56 = getelementptr inbounds i8, ptr %22, i64 %.sink
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %.0, i64 624
@@ -250,51 +250,51 @@ socksstate.exit:                                  ; preds = %45
   %102 = load i8, ptr %101, align 1
   store ptr null, ptr %17, align 8
   %103 = load i32, ptr %.0, align 8
-  switch i32 %103, label %socksstate.exit426.thread.i.i [
+  switch i32 %103, label %socksstate.argprom.exit426.thread.i.i [
     i32 1, label %104
     i32 2, label %158
-    i32 3, label %socksstate.exit.i.i
+    i32 3, label %socksstate.argprom.exit.i.i
     i32 4, label %._crit_edge508.i.i
-    i32 6, label %socksstate.exit409.i.i
+    i32 6, label %socksstate.argprom.exit409.i.i
     i32 7, label %._crit_edge513.i.i
-    i32 8, label %.socksstate.exit413_crit_edge.i.i
-    i32 9, label %socksstate.exit408.i.i
+    i32 8, label %.socksstate.argprom.exit413_crit_edge.i.i
+    i32 9, label %socksstate.argprom.exit408.i.i
     i32 10, label %316
-    i32 11, label %socksstate.exit418.thread.i.i
+    i32 11, label %socksstate.argprom.exit418.thread.i.i
     i32 12, label %385
     i32 13, label %421
-    i32 14, label %.socksstate.exit419_crit_edge.i.i
-    i32 15, label %.socksstate.exit422_crit_edge.i.i
-    i32 16, label %.socksstate.exit425_crit_edge.i.i
+    i32 14, label %.socksstate.argprom.exit419_crit_edge.i.i
+    i32 15, label %.socksstate.argprom.exit422_crit_edge.i.i
+    i32 16, label %.socksstate.argprom.exit425_crit_edge.i.i
   ]
 
-.socksstate.exit425_crit_edge.i.i:                ; preds = %95
+.socksstate.argprom.exit425_crit_edge.i.i:        ; preds = %95
   %.phi.trans.insert530.i.i = getelementptr inbounds i8, ptr %.0, i64 616
   %.pre531.i.i = load ptr, ptr %.phi.trans.insert530.i.i, align 8
   %.phi.trans.insert532.i.i = getelementptr inbounds i8, ptr %.0, i64 8
   %.pre533.i.i = load i64, ptr %.phi.trans.insert532.i.i, align 8
-  br label %socksstate.exit425.i.i
+  br label %socksstate.argprom.exit425.i.i
 
-.socksstate.exit422_crit_edge.i.i:                ; preds = %95
+.socksstate.argprom.exit422_crit_edge.i.i:        ; preds = %95
   %.phi.trans.insert526.i.i = getelementptr inbounds i8, ptr %.0, i64 616
   %.pre527.i.i = load ptr, ptr %.phi.trans.insert526.i.i, align 8
   %.phi.trans.insert528.i.i = getelementptr inbounds i8, ptr %.0, i64 8
   %.pre529.i.i = load i64, ptr %.phi.trans.insert528.i.i, align 8
-  br label %socksstate.exit422.i.i
+  br label %socksstate.argprom.exit422.i.i
 
-.socksstate.exit419_crit_edge.i.i:                ; preds = %95
+.socksstate.argprom.exit419_crit_edge.i.i:        ; preds = %95
   %.phi.trans.insert522.i.i = getelementptr inbounds i8, ptr %.0, i64 616
   %.pre523.i.i = load ptr, ptr %.phi.trans.insert522.i.i, align 8
   %.phi.trans.insert524.i.i = getelementptr inbounds i8, ptr %.0, i64 8
   %.pre525.i.i = load i64, ptr %.phi.trans.insert524.i.i, align 8
-  br label %socksstate.exit419.i.i
+  br label %socksstate.argprom.exit419.i.i
 
-.socksstate.exit413_crit_edge.i.i:                ; preds = %95
+.socksstate.argprom.exit413_crit_edge.i.i:        ; preds = %95
   %.phi.trans.insert518.i.i = getelementptr inbounds i8, ptr %.0, i64 616
   %.pre519.i.i = load ptr, ptr %.phi.trans.insert518.i.i, align 8
   %.phi.trans.insert520.i.i = getelementptr inbounds i8, ptr %.0, i64 8
   %.pre521.i.i = load i64, ptr %.phi.trans.insert520.i.i, align 8
-  br label %socksstate.exit413.i.i
+  br label %socksstate.argprom.exit413.i.i
 
 ._crit_edge513.i.i:                               ; preds = %95
   %.phi.trans.insert514.i.i = getelementptr inbounds i8, ptr %.0, i64 616
@@ -409,12 +409,12 @@ socksstate.exit:                                  ; preds = %45
 
 144:                                              ; preds = %142
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit.i.i
+  br label %socks_state_send.argprom.exit.i.i
 
 145:                                              ; preds = %142
   %146 = call ptr @curl_easy_strerror(i32 noundef %143) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.5, ptr noundef %146) #7
-  br label %socks_state_send.exit.i.i
+  br label %socks_state_send.argprom.exit.i.i
 
 147:                                              ; preds = %134
   %148 = load i64, ptr %139, align 8
@@ -425,7 +425,7 @@ socksstate.exit:                                  ; preds = %45
   store ptr %151, ptr %138, align 8
   br label %152
 
-socks_state_send.exit.i.i:                        ; preds = %145, %144
+socks_state_send.argprom.exit.i.i:                ; preds = %145, %144
   %.0.i.i.i = phi i32 [ 3, %144 ], [ 29, %145 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   br label %do_SOCKS5.exit.i
@@ -443,11 +443,11 @@ thread-pre-split.i.i:                             ; preds = %142
 154:                                              ; preds = %152
   %155 = load i32, ptr %.0, align 8
   %156 = icmp eq i32 %155, 4
-  br i1 %156, label %socksstate.exit.i.i, label %157
+  br i1 %156, label %socksstate.argprom.exit.i.i, label %157
 
 157:                                              ; preds = %154
   store i32 4, ptr %.0, align 8
-  br label %socksstate.exit.i.i
+  br label %socksstate.argprom.exit.i.i
 
 158:                                              ; preds = %95
   %.val398.i.i = load ptr, ptr %31, align 8
@@ -469,12 +469,12 @@ thread-pre-split.i.i:                             ; preds = %142
 
 167:                                              ; preds = %165
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit406.i.i
+  br label %socks_state_send.argprom.exit406.i.i
 
 168:                                              ; preds = %165
   %169 = call ptr @curl_easy_strerror(i32 noundef %166) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.5, ptr noundef %169) #7
-  br label %socks_state_send.exit406.i.i
+  br label %socks_state_send.argprom.exit406.i.i
 
 170:                                              ; preds = %158
   %171 = load i64, ptr %161, align 8
@@ -485,7 +485,7 @@ thread-pre-split.i.i:                             ; preds = %142
   store ptr %174, ptr %159, align 8
   br label %175
 
-socks_state_send.exit406.i.i:                     ; preds = %168, %167
+socks_state_send.argprom.exit406.i.i:             ; preds = %168, %167
   %.0.i405.i.i = phi i32 [ 3, %167 ], [ 29, %168 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %do_SOCKS5.exit.i
@@ -498,18 +498,18 @@ thread-pre-split434.i.i:                          ; preds = %165
   %176 = phi i64 [ %.pr435.i.i, %thread-pre-split434.i.i ], [ %172, %170 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   %.not357.i.i = icmp eq i64 %176, 0
-  br i1 %.not357.i.i, label %socksstate.exit.i.i, label %do_SOCKS5.exit.i
+  br i1 %.not357.i.i, label %socksstate.argprom.exit.i.i, label %do_SOCKS5.exit.i
 
-socksstate.exit.i.i:                              ; preds = %175, %157, %154, %95
+socksstate.argprom.exit.i.i:                      ; preds = %175, %157, %154, %95
   %177 = getelementptr inbounds i8, ptr %.0, i64 8
   store i64 2, ptr %177, align 8
   %178 = getelementptr inbounds i8, ptr %.0, i64 616
   store ptr %96, ptr %178, align 8
   br label %179
 
-179:                                              ; preds = %socksstate.exit.i.i, %._crit_edge508.i.i
-  %180 = phi i64 [ %.pre512.i.i, %._crit_edge508.i.i ], [ 2, %socksstate.exit.i.i ]
-  %181 = phi ptr [ %.pre510.i.i, %._crit_edge508.i.i ], [ %96, %socksstate.exit.i.i ]
+179:                                              ; preds = %socksstate.argprom.exit.i.i, %._crit_edge508.i.i
+  %180 = phi i64 [ %.pre512.i.i, %._crit_edge508.i.i ], [ 2, %socksstate.argprom.exit.i.i ]
+  %181 = phi ptr [ %.pre510.i.i, %._crit_edge508.i.i ], [ %96, %socksstate.argprom.exit.i.i ]
   %.val401.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %182 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -526,12 +526,12 @@ socksstate.exit.i.i:                              ; preds = %175, %157, %154, %9
 
 187:                                              ; preds = %185
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit.i.i
+  br label %socks_state_recv.argprom.exit.i.i
 
 188:                                              ; preds = %185
   %189 = call ptr @curl_easy_strerror(i32 noundef %186) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.6, ptr noundef %189) #7
-  br label %socks_state_recv.exit.i.i
+  br label %socks_state_recv.argprom.exit.i.i
 
 190:                                              ; preds = %179
   %191 = getelementptr inbounds i8, ptr %.0, i64 616
@@ -543,7 +543,7 @@ socksstate.exit.i.i:                              ; preds = %175, %157, %154, %9
   store ptr %195, ptr %191, align 8
   br label %196
 
-socks_state_recv.exit.i.i:                        ; preds = %188, %187
+socks_state_recv.argprom.exit.i.i:                ; preds = %188, %187
   %.0.i407.i.i = phi i32 [ 3, %187 ], [ 15, %188 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %do_SOCKS5.exit.i
@@ -580,16 +580,16 @@ thread-pre-split438.i.i:                          ; preds = %185
 204:                                              ; preds = %201
   %205 = load i32, ptr %.0, align 8
   %206 = icmp eq i32 %205, 9
-  br i1 %206, label %socksstate.exit408.i.i, label %socksstate.exit408.sink.split.i.i
+  br i1 %206, label %socksstate.argprom.exit408.i.i, label %socksstate.argprom.exit408.sink.split.i.i
 
 207:                                              ; preds = %201
   %208 = load i32, ptr %.0, align 8
   %209 = icmp eq i32 %208, 6
-  br i1 %209, label %socksstate.exit409.i.i, label %210
+  br i1 %209, label %socksstate.argprom.exit409.i.i, label %210
 
 210:                                              ; preds = %207
   store i32 6, ptr %.0, align 8
-  br label %socksstate.exit409.i.i
+  br label %socksstate.argprom.exit409.i.i
 
 211:                                              ; preds = %201
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.8) #7
@@ -603,19 +603,19 @@ thread-pre-split438.i.i:                          ; preds = %185
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.10) #7
   br label %do_SOCKS5.exit.i
 
-socksstate.exit409.i.i:                           ; preds = %210, %207, %95
+socksstate.argprom.exit409.i.i:                   ; preds = %210, %207, %95
   %214 = getelementptr inbounds i8, ptr %.0, i64 640
   %215 = load ptr, ptr %214, align 8
   %.not366.i.i = icmp eq ptr %215, null
   br i1 %.not366.i.i, label %.thread445.i.i, label %216
 
-216:                                              ; preds = %socksstate.exit409.i.i
+216:                                              ; preds = %socksstate.argprom.exit409.i.i
   %217 = getelementptr inbounds i8, ptr %.0, i64 648
   %218 = load ptr, ptr %217, align 8
   %.not367.i.i = icmp eq ptr %218, null
   br i1 %.not367.i.i, label %.thread445.i.i, label %221
 
-.thread445.i.i:                                   ; preds = %216, %socksstate.exit409.i.i
+.thread445.i.i:                                   ; preds = %216, %socksstate.argprom.exit409.i.i
   store i8 1, ptr %96, align 1
   %219 = getelementptr inbounds i8, ptr %.0, i64 17
   store i8 0, ptr %219, align 1
@@ -677,22 +677,22 @@ socksstate.exit409.i.i:                           ; preds = %210, %207, %95
   %246 = add i64 %.0324443449.i.i, %245
   %247 = load i32, ptr %.0, align 8
   %248 = icmp eq i32 %247, 7
-  br i1 %248, label %socksstate.exit410.i.i, label %249
+  br i1 %248, label %socksstate.argprom.exit410.i.i, label %249
 
 249:                                              ; preds = %244
   store i32 7, ptr %.0, align 8
-  br label %socksstate.exit410.i.i
+  br label %socksstate.argprom.exit410.i.i
 
-socksstate.exit410.i.i:                           ; preds = %249, %244
+socksstate.argprom.exit410.i.i:                   ; preds = %249, %244
   %250 = getelementptr inbounds i8, ptr %.0, i64 8
   store i64 %246, ptr %250, align 8
   %251 = getelementptr inbounds i8, ptr %.0, i64 616
   store ptr %96, ptr %251, align 8
   br label %252
 
-252:                                              ; preds = %socksstate.exit410.i.i, %._crit_edge513.i.i
-  %253 = phi i64 [ %.pre517.i.i, %._crit_edge513.i.i ], [ %246, %socksstate.exit410.i.i ]
-  %254 = phi ptr [ %.pre515.i.i, %._crit_edge513.i.i ], [ %96, %socksstate.exit410.i.i ]
+252:                                              ; preds = %socksstate.argprom.exit410.i.i, %._crit_edge513.i.i
+  %253 = phi i64 [ %.pre517.i.i, %._crit_edge513.i.i ], [ %246, %socksstate.argprom.exit410.i.i ]
+  %254 = phi ptr [ %.pre515.i.i, %._crit_edge513.i.i ], [ %96, %socksstate.argprom.exit410.i.i ]
   %.val399.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   %255 = getelementptr inbounds i8, ptr %.0, i64 616
@@ -710,12 +710,12 @@ socksstate.exit410.i.i:                           ; preds = %249, %244
 
 261:                                              ; preds = %259
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit412.i.i
+  br label %socks_state_send.argprom.exit412.i.i
 
 262:                                              ; preds = %259
   %263 = call ptr @curl_easy_strerror(i32 noundef %260) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.13, ptr noundef %263) #7
-  br label %socks_state_send.exit412.i.i
+  br label %socks_state_send.argprom.exit412.i.i
 
 264:                                              ; preds = %252
   %265 = load i64, ptr %256, align 8
@@ -726,7 +726,7 @@ socksstate.exit410.i.i:                           ; preds = %249, %244
   store ptr %268, ptr %255, align 8
   br label %269
 
-socks_state_send.exit412.i.i:                     ; preds = %262, %261
+socks_state_send.argprom.exit412.i.i:             ; preds = %262, %261
   %.0.i411.i.i = phi i32 [ 3, %261 ], [ 28, %262 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   br label %do_SOCKS5.exit.i
@@ -746,15 +746,15 @@ thread-pre-split452.i.i:                          ; preds = %259
   store i64 2, ptr %256, align 8
   %272 = load i32, ptr %.0, align 8
   %273 = icmp eq i32 %272, 8
-  br i1 %273, label %socksstate.exit413.i.i, label %274
+  br i1 %273, label %socksstate.argprom.exit413.i.i, label %274
 
 274:                                              ; preds = %271
   store i32 8, ptr %.0, align 8
-  br label %socksstate.exit413.i.i
+  br label %socksstate.argprom.exit413.i.i
 
-socksstate.exit413.i.i:                           ; preds = %274, %271, %.socksstate.exit413_crit_edge.i.i
-  %275 = phi i64 [ %.pre521.i.i, %.socksstate.exit413_crit_edge.i.i ], [ 2, %274 ], [ 2, %271 ]
-  %276 = phi ptr [ %.pre519.i.i, %.socksstate.exit413_crit_edge.i.i ], [ %96, %274 ], [ %96, %271 ]
+socksstate.argprom.exit413.i.i:                   ; preds = %274, %271, %.socksstate.argprom.exit413_crit_edge.i.i
+  %275 = phi i64 [ %.pre521.i.i, %.socksstate.argprom.exit413_crit_edge.i.i ], [ 2, %274 ], [ 2, %271 ]
+  %276 = phi ptr [ %.pre519.i.i, %.socksstate.argprom.exit413_crit_edge.i.i ], [ %96, %274 ], [ %96, %271 ]
   %.val402.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   %277 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -762,7 +762,7 @@ socksstate.exit413.i.i:                           ; preds = %274, %271, %.sockss
   %279 = icmp slt i64 %278, 1
   br i1 %279, label %280, label %285
 
-280:                                              ; preds = %socksstate.exit413.i.i
+280:                                              ; preds = %socksstate.argprom.exit413.i.i
   %281 = load i32, ptr %12, align 4
   switch i32 %281, label %283 [
     i32 81, label %thread-pre-split456.i.i
@@ -771,14 +771,14 @@ socksstate.exit413.i.i:                           ; preds = %274, %271, %.sockss
 
 282:                                              ; preds = %280
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit415.i.i
+  br label %socks_state_recv.argprom.exit415.i.i
 
 283:                                              ; preds = %280
   %284 = call ptr @curl_easy_strerror(i32 noundef %281) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.14, ptr noundef %284) #7
-  br label %socks_state_recv.exit415.i.i
+  br label %socks_state_recv.argprom.exit415.i.i
 
-285:                                              ; preds = %socksstate.exit413.i.i
+285:                                              ; preds = %socksstate.argprom.exit413.i.i
   %286 = getelementptr inbounds i8, ptr %.0, i64 616
   %287 = load i64, ptr %277, align 8
   %288 = sub nsw i64 %287, %278
@@ -788,7 +788,7 @@ socksstate.exit413.i.i:                           ; preds = %274, %271, %.sockss
   store ptr %290, ptr %286, align 8
   br label %291
 
-socks_state_recv.exit415.i.i:                     ; preds = %283, %282
+socks_state_recv.argprom.exit415.i.i:             ; preds = %283, %282
   %.0.i414.i.i = phi i32 [ 3, %282 ], [ 14, %283 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   br label %do_SOCKS5.exit.i
@@ -819,16 +819,16 @@ thread-pre-split456.i.i:                          ; preds = %280
 300:                                              ; preds = %293
   %301 = load i32, ptr %.0, align 8
   %302 = icmp eq i32 %301, 9
-  br i1 %302, label %socksstate.exit408.i.i, label %socksstate.exit408.sink.split.i.i
+  br i1 %302, label %socksstate.argprom.exit408.i.i, label %socksstate.argprom.exit408.sink.split.i.i
 
-socksstate.exit408.sink.split.i.i:                ; preds = %300, %204
+socksstate.argprom.exit408.sink.split.i.i:        ; preds = %300, %204
   store i32 9, ptr %.0, align 8
-  br label %socksstate.exit408.i.i
+  br label %socksstate.argprom.exit408.i.i
 
-socksstate.exit408.i.i:                           ; preds = %socksstate.exit408.sink.split.i.i, %300, %204, %95
+socksstate.argprom.exit408.i.i:                   ; preds = %socksstate.argprom.exit408.sink.split.i.i, %300, %204, %95
   br i1 %97, label %.critedge397.i.i, label %303
 
-303:                                              ; preds = %socksstate.exit408.i.i
+303:                                              ; preds = %socksstate.argprom.exit408.i.i
   %304 = load ptr, ptr %98, align 8
   %305 = getelementptr inbounds i8, ptr %.0, i64 632
   %306 = load i32, ptr %305, align 8
@@ -850,11 +850,11 @@ socksstate.exit408.i.i:                           ; preds = %socksstate.exit408.
 312:                                              ; preds = %303
   %313 = load i32, ptr %.0, align 8
   %314 = icmp eq i32 %313, 11
-  br i1 %314, label %socksstate.exit418.i.i, label %315
+  br i1 %314, label %socksstate.argprom.exit418.i.i, label %315
 
 315:                                              ; preds = %312
   store i32 11, ptr %.0, align 8
-  br label %socksstate.exit418.i.i
+  br label %socksstate.argprom.exit418.i.i
 
 316:                                              ; preds = %95
   %317 = getelementptr inbounds i8, ptr %.0, i64 632
@@ -869,42 +869,42 @@ socksstate.exit408.i.i:                           ; preds = %socksstate.exit408.
   %322 = load i64, ptr %321, align 2
   %323 = and i64 %322, 268435456
   %.not352.i.i = icmp eq i64 %323, 0
-  br i1 %.not352.i.i, label %socksstate.exit418.i.i, label %324
+  br i1 %.not352.i.i, label %socksstate.argprom.exit418.i.i, label %324
 
 324:                                              ; preds = %320
   %325 = load ptr, ptr %98, align 8
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, ptr noundef %325) #7
-  br label %socksstate.exit418.i.i
+  br label %socksstate.argprom.exit418.i.i
 
 .critedge493.i.i:                                 ; preds = %316
   %326 = call i32 @Curl_resolv_check(ptr noundef nonnull %1, ptr noundef nonnull %17) #7
   %327 = load ptr, ptr %17, align 8
   %.not354.i.i = icmp eq ptr %327, null
-  br i1 %.not354.i.i, label %328, label %socksstate.exit418.thread462.i.i
+  br i1 %.not354.i.i, label %328, label %socksstate.argprom.exit418.thread462.i.i
 
 328:                                              ; preds = %.critedge493.i.i
   %.not355.i.i = icmp eq i32 %326, 0
   %..i.i = select i1 %.not355.i.i, i32 0, i32 27
   br label %do_SOCKS5.exit.i
 
-socksstate.exit418.i.i:                           ; preds = %324, %320, %315, %312
+socksstate.argprom.exit418.i.i:                   ; preds = %324, %320, %315, %312
   %.pr460.i.i = load ptr, ptr %17, align 8
   %.not377.i.i = icmp eq ptr %.pr460.i.i, null
-  br i1 %.not377.i.i, label %socksstate.exit418.thread.i.i, label %socksstate.exit418.thread462.i.i
+  br i1 %.not377.i.i, label %socksstate.argprom.exit418.thread.i.i, label %socksstate.argprom.exit418.thread462.i.i
 
-socksstate.exit418.thread462.i.i:                 ; preds = %socksstate.exit418.i.i, %.critedge493.i.i
-  %329 = phi ptr [ %.pr460.i.i, %socksstate.exit418.i.i ], [ %327, %.critedge493.i.i ]
+socksstate.argprom.exit418.thread462.i.i:         ; preds = %socksstate.argprom.exit418.i.i, %.critedge493.i.i
+  %329 = phi ptr [ %.pr460.i.i, %socksstate.argprom.exit418.i.i ], [ %327, %.critedge493.i.i ]
   %330 = load ptr, ptr %329, align 8
-  br label %socksstate.exit418.thread.i.i
+  br label %socksstate.argprom.exit418.thread.i.i
 
-socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.thread462.i.i, %socksstate.exit418.i.i, %95
-  %.0321.i.i = phi ptr [ %330, %socksstate.exit418.thread462.i.i ], [ null, %socksstate.exit418.i.i ], [ null, %95 ]
+socksstate.argprom.exit418.thread.i.i:            ; preds = %socksstate.argprom.exit418.thread462.i.i, %socksstate.argprom.exit418.i.i, %95
+  %.0321.i.i = phi ptr [ %330, %socksstate.argprom.exit418.thread462.i.i ], [ null, %socksstate.argprom.exit418.i.i ], [ null, %95 ]
   %331 = getelementptr inbounds i8, ptr %1, i64 1704
   %332 = load i8, ptr %331, align 8
   %.not378.i.i = icmp eq i8 %332, 0
   br i1 %.not378.i.i, label %.critedge.i.i, label %333
 
-333:                                              ; preds = %socksstate.exit418.thread.i.i
+333:                                              ; preds = %socksstate.argprom.exit418.thread.i.i
   %334 = icmp eq i8 %332, 1
   %335 = select i1 %334, i32 2, i32 10
   %.not379495.i.i = icmp eq ptr %.0321.i.i, null
@@ -923,7 +923,7 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
   %.not379.i.i = icmp eq ptr %340, null
   br i1 %.not379.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !5
 
-.critedge.i.i:                                    ; preds = %socksstate.exit418.thread.i.i
+.critedge.i.i:                                    ; preds = %socksstate.argprom.exit418.thread.i.i
   %.not381.i.i = icmp eq ptr %.0321.i.i, null
   br i1 %.not381.i.i, label %.critedge.thread.i.i, label %.critedge.thread466.i.i
 
@@ -1039,7 +1039,7 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
   store i8 0, ptr %387, align 1
   br i1 %97, label %390, label %421
 
-.critedge397.i.i:                                 ; preds = %socksstate.exit408.i.i
+.critedge397.i.i:                                 ; preds = %socksstate.argprom.exit408.i.i
   store i8 5, ptr %96, align 1
   %388 = getelementptr inbounds i8, ptr %.0, i64 17
   store i8 1, ptr %388, align 1
@@ -1126,15 +1126,15 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
   store i64 %429, ptr %432, align 8
   %433 = load i32, ptr %.0, align 8
   %434 = icmp eq i32 %433, 14
-  br i1 %434, label %socksstate.exit419.i.i, label %435
+  br i1 %434, label %socksstate.argprom.exit419.i.i, label %435
 
 435:                                              ; preds = %421
   store i32 14, ptr %.0, align 8
-  br label %socksstate.exit419.i.i
+  br label %socksstate.argprom.exit419.i.i
 
-socksstate.exit419.i.i:                           ; preds = %435, %421, %.socksstate.exit419_crit_edge.i.i
-  %436 = phi i64 [ %.pre525.i.i, %.socksstate.exit419_crit_edge.i.i ], [ %429, %435 ], [ %429, %421 ]
-  %437 = phi ptr [ %.pre523.i.i, %.socksstate.exit419_crit_edge.i.i ], [ %96, %435 ], [ %96, %421 ]
+socksstate.argprom.exit419.i.i:                   ; preds = %435, %421, %.socksstate.argprom.exit419_crit_edge.i.i
+  %436 = phi i64 [ %.pre525.i.i, %.socksstate.argprom.exit419_crit_edge.i.i ], [ %429, %435 ], [ %429, %421 ]
+  %437 = phi ptr [ %.pre523.i.i, %.socksstate.argprom.exit419_crit_edge.i.i ], [ %96, %435 ], [ %96, %421 ]
   %.val400.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %438 = getelementptr inbounds i8, ptr %.0, i64 616
@@ -1143,7 +1143,7 @@ socksstate.exit419.i.i:                           ; preds = %435, %421, %.sockss
   %441 = icmp slt i64 %440, 1
   br i1 %441, label %442, label %447
 
-442:                                              ; preds = %socksstate.exit419.i.i
+442:                                              ; preds = %socksstate.argprom.exit419.i.i
   %443 = load i32, ptr %11, align 4
   switch i32 %443, label %445 [
     i32 81, label %thread-pre-split472.i.i
@@ -1152,14 +1152,14 @@ socksstate.exit419.i.i:                           ; preds = %435, %421, %.sockss
 
 444:                                              ; preds = %442
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit421.i.i
+  br label %socks_state_send.argprom.exit421.i.i
 
 445:                                              ; preds = %442
   %446 = call ptr @curl_easy_strerror(i32 noundef %443) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.22, ptr noundef %446) #7
-  br label %socks_state_send.exit421.i.i
+  br label %socks_state_send.argprom.exit421.i.i
 
-447:                                              ; preds = %socksstate.exit419.i.i
+447:                                              ; preds = %socksstate.argprom.exit419.i.i
   %448 = load i64, ptr %439, align 8
   %449 = sub nsw i64 %448, %440
   store i64 %449, ptr %439, align 8
@@ -1168,7 +1168,7 @@ socksstate.exit419.i.i:                           ; preds = %435, %421, %.sockss
   store ptr %451, ptr %438, align 8
   br label %452
 
-socks_state_send.exit421.i.i:                     ; preds = %445, %444
+socks_state_send.argprom.exit421.i.i:             ; preds = %445, %444
   %.0.i420.i.i = phi i32 [ 3, %444 ], [ 30, %445 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %do_SOCKS5.exit.i
@@ -1188,15 +1188,15 @@ thread-pre-split472.i.i:                          ; preds = %442
   store ptr %96, ptr %438, align 8
   %455 = load i32, ptr %.0, align 8
   %456 = icmp eq i32 %455, 15
-  br i1 %456, label %socksstate.exit422.i.i, label %457
+  br i1 %456, label %socksstate.argprom.exit422.i.i, label %457
 
 457:                                              ; preds = %454
   store i32 15, ptr %.0, align 8
-  br label %socksstate.exit422.i.i
+  br label %socksstate.argprom.exit422.i.i
 
-socksstate.exit422.i.i:                           ; preds = %457, %454, %.socksstate.exit422_crit_edge.i.i
-  %458 = phi i64 [ %.pre529.i.i, %.socksstate.exit422_crit_edge.i.i ], [ 10, %457 ], [ 10, %454 ]
-  %459 = phi ptr [ %.pre527.i.i, %.socksstate.exit422_crit_edge.i.i ], [ %96, %457 ], [ %96, %454 ]
+socksstate.argprom.exit422.i.i:                   ; preds = %457, %454, %.socksstate.argprom.exit422_crit_edge.i.i
+  %458 = phi i64 [ %.pre529.i.i, %.socksstate.argprom.exit422_crit_edge.i.i ], [ 10, %457 ], [ 10, %454 ]
+  %459 = phi ptr [ %.pre527.i.i, %.socksstate.argprom.exit422_crit_edge.i.i ], [ %96, %457 ], [ %96, %454 ]
   %.val403.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %460 = getelementptr inbounds i8, ptr %.0, i64 616
@@ -1205,7 +1205,7 @@ socksstate.exit422.i.i:                           ; preds = %457, %454, %.sockss
   %463 = icmp slt i64 %462, 1
   br i1 %463, label %464, label %469
 
-464:                                              ; preds = %socksstate.exit422.i.i
+464:                                              ; preds = %socksstate.argprom.exit422.i.i
   %465 = load i32, ptr %10, align 4
   switch i32 %465, label %467 [
     i32 81, label %thread-pre-split476.i.i
@@ -1214,14 +1214,14 @@ socksstate.exit422.i.i:                           ; preds = %457, %454, %.sockss
 
 466:                                              ; preds = %464
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit424.i.i
+  br label %socks_state_recv.argprom.exit424.i.i
 
 467:                                              ; preds = %464
   %468 = call ptr @curl_easy_strerror(i32 noundef %465) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.23, ptr noundef %468) #7
-  br label %socks_state_recv.exit424.i.i
+  br label %socks_state_recv.argprom.exit424.i.i
 
-469:                                              ; preds = %socksstate.exit422.i.i
+469:                                              ; preds = %socksstate.argprom.exit422.i.i
   %470 = load i64, ptr %461, align 8
   %471 = sub nsw i64 %470, %462
   store i64 %471, ptr %461, align 8
@@ -1230,7 +1230,7 @@ socksstate.exit422.i.i:                           ; preds = %457, %454, %.sockss
   store ptr %473, ptr %460, align 8
   br label %474
 
-socks_state_recv.exit424.i.i:                     ; preds = %467, %466
+socks_state_recv.argprom.exit424.i.i:             ; preds = %467, %466
   %.0.i423.i.i = phi i32 [ 3, %466 ], [ 16, %467 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %do_SOCKS5.exit.i
@@ -1302,20 +1302,20 @@ thread-pre-split476.i.i:                          ; preds = %464
   store ptr %501, ptr %460, align 8
   %502 = load i32, ptr %.0, align 8
   %503 = icmp eq i32 %502, 16
-  br i1 %503, label %socksstate.exit425.i.i, label %504
+  br i1 %503, label %socksstate.argprom.exit425.i.i, label %504
 
 504:                                              ; preds = %.thread478.i.i
   store i32 16, ptr %.0, align 8
-  br label %socksstate.exit425.i.i
+  br label %socksstate.argprom.exit425.i.i
 
 .thread481.i.i:                                   ; preds = %494, %490
   %505 = load i32, ptr %.0, align 8
   %506 = icmp eq i32 %505, 17
-  br i1 %506, label %socksstate.exit426.i.i, label %socksstate.exit426.sink.split.i.i
+  br i1 %506, label %socksstate.argprom.exit426.i.i, label %socksstate.argprom.exit426.sink.split.i.i
 
-socksstate.exit425.i.i:                           ; preds = %504, %.thread478.i.i, %.socksstate.exit425_crit_edge.i.i
-  %507 = phi i64 [ %.pre533.i.i, %.socksstate.exit425_crit_edge.i.i ], [ %500, %504 ], [ %500, %.thread478.i.i ]
-  %508 = phi ptr [ %.pre531.i.i, %.socksstate.exit425_crit_edge.i.i ], [ %501, %504 ], [ %501, %.thread478.i.i ]
+socksstate.argprom.exit425.i.i:                   ; preds = %504, %.thread478.i.i, %.socksstate.argprom.exit425_crit_edge.i.i
+  %507 = phi i64 [ %.pre533.i.i, %.socksstate.argprom.exit425_crit_edge.i.i ], [ %500, %504 ], [ %500, %.thread478.i.i ]
+  %508 = phi ptr [ %.pre531.i.i, %.socksstate.argprom.exit425_crit_edge.i.i ], [ %501, %504 ], [ %501, %.thread478.i.i ]
   %.val404.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %509 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -1323,7 +1323,7 @@ socksstate.exit425.i.i:                           ; preds = %504, %.thread478.i.
   %511 = icmp slt i64 %510, 1
   br i1 %511, label %512, label %517
 
-512:                                              ; preds = %socksstate.exit425.i.i
+512:                                              ; preds = %socksstate.argprom.exit425.i.i
   %513 = load i32, ptr %9, align 4
   switch i32 %513, label %515 [
     i32 81, label %thread-pre-split485.i.i
@@ -1332,14 +1332,14 @@ socksstate.exit425.i.i:                           ; preds = %504, %.thread478.i.
 
 514:                                              ; preds = %512
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit428.i.i
+  br label %socks_state_recv.argprom.exit428.i.i
 
 515:                                              ; preds = %512
   %516 = call ptr @curl_easy_strerror(i32 noundef %513) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, ptr noundef %516) #7
-  br label %socks_state_recv.exit428.i.i
+  br label %socks_state_recv.argprom.exit428.i.i
 
-517:                                              ; preds = %socksstate.exit425.i.i
+517:                                              ; preds = %socksstate.argprom.exit425.i.i
   %518 = getelementptr inbounds i8, ptr %.0, i64 616
   %519 = load i64, ptr %509, align 8
   %520 = sub nsw i64 %519, %510
@@ -1349,7 +1349,7 @@ socksstate.exit425.i.i:                           ; preds = %504, %.thread478.i.
   store ptr %522, ptr %518, align 8
   br label %523
 
-socks_state_recv.exit428.i.i:                     ; preds = %515, %514
+socks_state_recv.argprom.exit428.i.i:             ; preds = %515, %514
   %.0.i427.i.i = phi i32 [ 3, %514 ], [ 13, %515 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %do_SOCKS5.exit.i
@@ -1367,29 +1367,29 @@ thread-pre-split485.i.i:                          ; preds = %512
 525:                                              ; preds = %523
   %526 = load i32, ptr %.0, align 8
   %527 = icmp eq i32 %526, 17
-  br i1 %527, label %socksstate.exit426.i.i, label %socksstate.exit426.sink.split.i.i
+  br i1 %527, label %socksstate.argprom.exit426.i.i, label %socksstate.argprom.exit426.sink.split.i.i
 
-socksstate.exit426.sink.split.i.i:                ; preds = %525, %.thread481.i.i
+socksstate.argprom.exit426.sink.split.i.i:        ; preds = %525, %.thread481.i.i
   store i32 17, ptr %.0, align 8
-  br label %socksstate.exit426.i.i
+  br label %socksstate.argprom.exit426.i.i
 
-socksstate.exit426.i.i:                           ; preds = %socksstate.exit426.sink.split.i.i, %525, %.thread481.i.i
+socksstate.argprom.exit426.i.i:                   ; preds = %socksstate.argprom.exit426.sink.split.i.i, %525, %.thread481.i.i
   %.not394.i.i = icmp eq ptr %1, null
-  br i1 %.not394.i.i, label %do_SOCKS5.exit.i, label %socksstate.exit426.thread.i.i
+  br i1 %.not394.i.i, label %do_SOCKS5.exit.i, label %socksstate.argprom.exit426.thread.i.i
 
-socksstate.exit426.thread.i.i:                    ; preds = %socksstate.exit426.i.i, %95
+socksstate.argprom.exit426.thread.i.i:            ; preds = %socksstate.argprom.exit426.i.i, %95
   %528 = getelementptr inbounds i8, ptr %1, i64 2642
   %529 = load i64, ptr %528, align 2
   %530 = and i64 %529, 268435456
   %.not395.i.i = icmp eq i64 %530, 0
   br i1 %.not395.i.i, label %do_SOCKS5.exit.i, label %531
 
-531:                                              ; preds = %socksstate.exit426.thread.i.i
+531:                                              ; preds = %socksstate.argprom.exit426.thread.i.i
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.28) #7
   br label %do_SOCKS5.exit.i
 
-do_SOCKS5.exit.i:                                 ; preds = %531, %socksstate.exit426.thread.i.i, %socksstate.exit426.i.i, %523, %socks_state_recv.exit428.i.i, %493, %486, %482, %478, %474, %socks_state_recv.exit424.i.i, %452, %socks_state_send.exit421.i.i, %395, %.critedge.thread.i.i, %328, %311, %308, %303, %296, %291, %socks_state_recv.exit415.i.i, %269, %socks_state_send.exit412.i.i, %241, %228, %213, %212, %211, %200, %196, %socks_state_recv.exit.i.i, %175, %socks_state_send.exit406.i.i, %152, %socks_state_send.exit.i.i, %117
-  %.0.i.i = phi i32 [ 2, %478 ], [ 1, %493 ], [ 27, %.critedge.thread.i.i ], [ 33, %296 ], [ 11, %228 ], [ 10, %241 ], [ 2, %200 ], [ 12, %212 ], [ 32, %213 ], [ 5, %211 ], [ 9, %117 ], [ %.0.i.i.i, %socks_state_send.exit.i.i ], [ 0, %152 ], [ %.0.i405.i.i, %socks_state_send.exit406.i.i ], [ 0, %175 ], [ %.0.i407.i.i, %socks_state_recv.exit.i.i ], [ 0, %196 ], [ %.0.i411.i.i, %socks_state_send.exit412.i.i ], [ 0, %269 ], [ %.0.i414.i.i, %socks_state_recv.exit415.i.i ], [ 0, %291 ], [ 27, %303 ], [ %..i.i, %328 ], [ 1, %395 ], [ %.0.i420.i.i, %socks_state_send.exit421.i.i ], [ 0, %452 ], [ %.0.i423.i.i, %socks_state_recv.exit424.i.i ], [ 0, %474 ], [ %489, %486 ], [ 25, %482 ], [ %.0.i427.i.i, %socks_state_recv.exit428.i.i ], [ 0, %523 ], [ 0, %socksstate.exit426.i.i ], [ 0, %socksstate.exit426.thread.i.i ], [ 0, %531 ], [ 0, %308 ], [ 0, %311 ]
+do_SOCKS5.exit.i:                                 ; preds = %531, %socksstate.argprom.exit426.thread.i.i, %socksstate.argprom.exit426.i.i, %523, %socks_state_recv.argprom.exit428.i.i, %493, %486, %482, %478, %474, %socks_state_recv.argprom.exit424.i.i, %452, %socks_state_send.argprom.exit421.i.i, %395, %.critedge.thread.i.i, %328, %311, %308, %303, %296, %291, %socks_state_recv.argprom.exit415.i.i, %269, %socks_state_send.argprom.exit412.i.i, %241, %228, %213, %212, %211, %200, %196, %socks_state_recv.argprom.exit.i.i, %175, %socks_state_send.argprom.exit406.i.i, %152, %socks_state_send.argprom.exit.i.i, %117
+  %.0.i.i = phi i32 [ 2, %478 ], [ 1, %493 ], [ 27, %.critedge.thread.i.i ], [ 33, %296 ], [ 11, %228 ], [ 10, %241 ], [ 2, %200 ], [ 12, %212 ], [ 32, %213 ], [ 5, %211 ], [ 9, %117 ], [ %.0.i.i.i, %socks_state_send.argprom.exit.i.i ], [ 0, %152 ], [ %.0.i405.i.i, %socks_state_send.argprom.exit406.i.i ], [ 0, %175 ], [ %.0.i407.i.i, %socks_state_recv.argprom.exit.i.i ], [ 0, %196 ], [ %.0.i411.i.i, %socks_state_send.argprom.exit412.i.i ], [ 0, %269 ], [ %.0.i414.i.i, %socks_state_recv.argprom.exit415.i.i ], [ 0, %291 ], [ 27, %303 ], [ %..i.i, %328 ], [ 1, %395 ], [ %.0.i420.i.i, %socks_state_send.argprom.exit421.i.i ], [ 0, %452 ], [ %.0.i423.i.i, %socks_state_recv.argprom.exit424.i.i ], [ 0, %474 ], [ %489, %486 ], [ 25, %482 ], [ %.0.i427.i.i, %socks_state_recv.argprom.exit428.i.i ], [ 0, %523 ], [ 0, %socksstate.argprom.exit426.i.i ], [ 0, %socksstate.argprom.exit426.thread.i.i ], [ 0, %531 ], [ 0, %308 ], [ 0, %311 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
@@ -1403,28 +1403,28 @@ do_SOCKS5.exit.i:                                 ; preds = %531, %socksstate.ex
   %534 = getelementptr inbounds i8, ptr %.0, i64 16
   store ptr null, ptr %7, align 8
   %535 = load i32, ptr %.0, align 8
-  switch i32 %535, label %socksstate.exit208.i.i [
+  switch i32 %535, label %socksstate.argprom.exit208.i.i [
     i32 1, label %536
     i32 10, label %592
-    i32 11, label %socksstate.exit202.thread.i.i
-    i32 9, label %socksstate.exit203.i.i
-    i32 14, label %.socksstate.exit205_crit_edge.i.i
-    i32 4, label %.socksstate.exit206_crit_edge.i.i
+    i32 11, label %socksstate.argprom.exit202.thread.i.i
+    i32 9, label %socksstate.argprom.exit203.i.i
+    i32 14, label %.socksstate.argprom.exit205_crit_edge.i.i
+    i32 4, label %.socksstate.argprom.exit206_crit_edge.i.i
   ]
 
-.socksstate.exit206_crit_edge.i.i:                ; preds = %532
+.socksstate.argprom.exit206_crit_edge.i.i:        ; preds = %532
   %.phi.trans.insert224.i.i = getelementptr inbounds i8, ptr %.0, i64 616
   %.pre225.i.i = load ptr, ptr %.phi.trans.insert224.i.i, align 8
   %.phi.trans.insert226.i.i = getelementptr inbounds i8, ptr %.0, i64 8
   %.pre227.i.i = load i64, ptr %.phi.trans.insert226.i.i, align 8
-  br label %socksstate.exit206.i.i
+  br label %socksstate.argprom.exit206.i.i
 
-.socksstate.exit205_crit_edge.i.i:                ; preds = %532
+.socksstate.argprom.exit205_crit_edge.i.i:        ; preds = %532
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.0, i64 616
   %.pre.i14.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.phi.trans.insert222.i.i = getelementptr inbounds i8, ptr %.0, i64 8
   %.pre223.i.i = load i64, ptr %.phi.trans.insert222.i.i, align 8
-  br label %socksstate.exit205.i.i
+  br label %socksstate.argprom.exit205.i.i
 
 536:                                              ; preds = %532
   %537 = getelementptr inbounds i8, ptr %92, i64 1151
@@ -1498,16 +1498,16 @@ do_SOCKS5.exit.i:                                 ; preds = %531, %socksstate.ex
 575:                                              ; preds = %571
   %576 = load i32, ptr %.0, align 8
   %577 = icmp eq i32 %576, 10
-  br i1 %577, label %socksstate.exit.i26.i, label %578
+  br i1 %577, label %socksstate.argprom.exit.i26.i, label %578
 
 578:                                              ; preds = %575
   store i32 10, ptr %.0, align 8
-  br label %socksstate.exit.i26.i
+  br label %socksstate.argprom.exit.i26.i
 
-socksstate.exit.i26.i:                            ; preds = %578, %575
+socksstate.argprom.exit.i26.i:                    ; preds = %578, %575
   br i1 %542, label %579, label %do_SOCKS4.exit.i
 
-579:                                              ; preds = %socksstate.exit.i26.i
+579:                                              ; preds = %socksstate.argprom.exit.i26.i
   %580 = getelementptr inbounds i8, ptr %1, i64 2642
   %581 = load i64, ptr %580, align 2
   %582 = and i64 %581, 268435456
@@ -1522,16 +1522,16 @@ socksstate.exit.i26.i:                            ; preds = %578, %575
 585:                                              ; preds = %571
   %586 = load i32, ptr %.0, align 8
   %587 = icmp eq i32 %586, 11
-  br i1 %587, label %socksstate.exit202.i.i, label %socksstate.exit202.sink.split.i.i
+  br i1 %587, label %socksstate.argprom.exit202.i.i, label %socksstate.argprom.exit202.sink.split.i.i
 
 588:                                              ; preds = %562
   %589 = load i32, ptr %.0, align 8
   %590 = icmp eq i32 %589, 9
-  br i1 %590, label %socksstate.exit203.i.i, label %591
+  br i1 %590, label %socksstate.argprom.exit203.i.i, label %591
 
 591:                                              ; preds = %588
   store i32 9, ptr %.0, align 8
-  br label %socksstate.exit203.i.i
+  br label %socksstate.argprom.exit203.i.i
 
 592:                                              ; preds = %532
   %593 = getelementptr inbounds i8, ptr %.0, i64 624
@@ -1562,7 +1562,7 @@ socksstate.exit.i26.i:                            ; preds = %578, %575
 605:                                              ; preds = %603, %599, %598
   %606 = load i32, ptr %.0, align 8
   %607 = icmp eq i32 %606, 11
-  br i1 %607, label %socksstate.exit202.i.i, label %socksstate.exit202.sink.split.i.i
+  br i1 %607, label %socksstate.argprom.exit202.i.i, label %socksstate.argprom.exit202.sink.split.i.i
 
 608:                                              ; preds = %592
   %609 = call i32 @Curl_resolv_check(ptr noundef %1, ptr noundef nonnull %7) #7
@@ -1575,17 +1575,17 @@ socksstate.exit.i26.i:                            ; preds = %578, %575
   %..i24.i = select i1 %.not178.i.i, i32 0, i32 27
   br label %do_SOCKS4.exit.i
 
-socksstate.exit202.sink.split.i.i:                ; preds = %605, %585
+socksstate.argprom.exit202.sink.split.i.i:        ; preds = %605, %585
   store i32 11, ptr %.0, align 8
-  br label %socksstate.exit202.i.i
+  br label %socksstate.argprom.exit202.i.i
 
-socksstate.exit202.i.i:                           ; preds = %socksstate.exit202.sink.split.i.i, %605, %585
+socksstate.argprom.exit202.i.i:                   ; preds = %socksstate.argprom.exit202.sink.split.i.i, %605, %585
   %.pr.i21.i = load ptr, ptr %7, align 8
   %.not183.i.i = icmp eq ptr %.pr.i21.i, null
-  br i1 %.not183.i.i, label %socksstate.exit202.thread.i.i, label %.preheader.i.i
+  br i1 %.not183.i.i, label %socksstate.argprom.exit202.thread.i.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %socksstate.exit202.i.i, %608
-  %612 = phi ptr [ %.pr.i21.i, %socksstate.exit202.i.i ], [ %610, %608 ]
+.preheader.i.i:                                   ; preds = %socksstate.argprom.exit202.i.i, %608
+  %612 = phi ptr [ %.pr.i21.i, %socksstate.argprom.exit202.i.i ], [ %610, %608 ]
   %.0163218.i.i = load ptr, ptr %612, align 8
   %.not184219.i.i = icmp eq ptr %.0163218.i.i, null
   br i1 %.not184219.i.i, label %.critedge198.i.i, label %.lr.ph.i22.i
@@ -1640,7 +1640,7 @@ socksstate.exit202.i.i:                           ; preds = %socksstate.exit202.
 .critedge200.i.i:                                 ; preds = %635, %631, %.critedge.i23.i
   %636 = load ptr, ptr %7, align 8
   call void @Curl_resolv_unlock(ptr noundef %1, ptr noundef %636) #7
-  br label %socksstate.exit203.i.i
+  br label %socksstate.argprom.exit203.i.i
 
 .critedge198.i.i:                                 ; preds = %615, %.preheader.i.i
   %637 = getelementptr inbounds i8, ptr %.0, i64 624
@@ -1648,13 +1648,13 @@ socksstate.exit202.i.i:                           ; preds = %socksstate.exit202.
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef %638) #7
   br label %do_SOCKS4.exit.i
 
-socksstate.exit202.thread.i.i:                    ; preds = %socksstate.exit202.i.i, %532
+socksstate.argprom.exit202.thread.i.i:            ; preds = %socksstate.argprom.exit202.i.i, %532
   %639 = getelementptr inbounds i8, ptr %.0, i64 624
   %640 = load ptr, ptr %639, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.40, ptr noundef %640) #7
   br label %do_SOCKS4.exit.i
 
-socksstate.exit203.i.i:                           ; preds = %.critedge200.i.i, %591, %588, %532
+socksstate.argprom.exit203.i.i:                   ; preds = %.critedge200.i.i, %591, %588, %532
   %641 = getelementptr inbounds i8, ptr %.0, i64 24
   store i8 0, ptr %641, align 1
   %642 = getelementptr inbounds i8, ptr %.0, i64 640
@@ -1662,7 +1662,7 @@ socksstate.exit203.i.i:                           ; preds = %.critedge200.i.i, %
   %.not190.i.i = icmp eq ptr %643, null
   br i1 %.not190.i.i, label %650, label %644
 
-644:                                              ; preds = %socksstate.exit203.i.i
+644:                                              ; preds = %socksstate.argprom.exit203.i.i
   %645 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %643) #8
   %646 = icmp ugt i64 %645, 255
   br i1 %646, label %647, label %648
@@ -1676,7 +1676,7 @@ socksstate.exit203.i.i:                           ; preds = %.critedge200.i.i, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %641, ptr noundef nonnull align 1 dereferenceable(1) %643, i64 %649, i1 false)
   br label %650
 
-650:                                              ; preds = %648, %socksstate.exit203.i.i
+650:                                              ; preds = %648, %socksstate.argprom.exit203.i.i
   %651 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %641) #8
   %652 = add i64 %651, 9
   br i1 %533, label %653, label %670
@@ -1719,15 +1719,15 @@ socksstate.exit203.i.i:                           ; preds = %.critedge200.i.i, %
   store i64 %.0.i19.i, ptr %672, align 8
   %673 = load i32, ptr %.0, align 8
   %674 = icmp eq i32 %673, 14
-  br i1 %674, label %socksstate.exit205.i.i, label %675
+  br i1 %674, label %socksstate.argprom.exit205.i.i, label %675
 
 675:                                              ; preds = %670
   store i32 14, ptr %.0, align 8
-  br label %socksstate.exit205.i.i
+  br label %socksstate.argprom.exit205.i.i
 
-socksstate.exit205.i.i:                           ; preds = %675, %670, %.socksstate.exit205_crit_edge.i.i
-  %676 = phi i64 [ %.pre223.i.i, %.socksstate.exit205_crit_edge.i.i ], [ %.0.i19.i, %675 ], [ %.0.i19.i, %670 ]
-  %677 = phi ptr [ %.pre.i14.i, %.socksstate.exit205_crit_edge.i.i ], [ %534, %675 ], [ %534, %670 ]
+socksstate.argprom.exit205.i.i:                   ; preds = %675, %670, %.socksstate.argprom.exit205_crit_edge.i.i
+  %676 = phi i64 [ %.pre223.i.i, %.socksstate.argprom.exit205_crit_edge.i.i ], [ %.0.i19.i, %675 ], [ %.0.i19.i, %670 ]
+  %677 = phi ptr [ %.pre.i14.i, %.socksstate.argprom.exit205_crit_edge.i.i ], [ %534, %675 ], [ %534, %670 ]
   %.val.i15.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %678 = getelementptr inbounds i8, ptr %.0, i64 616
@@ -1736,7 +1736,7 @@ socksstate.exit205.i.i:                           ; preds = %675, %670, %.sockss
   %681 = icmp slt i64 %680, 1
   br i1 %681, label %682, label %687
 
-682:                                              ; preds = %socksstate.exit205.i.i
+682:                                              ; preds = %socksstate.argprom.exit205.i.i
   %683 = load i32, ptr %6, align 4
   switch i32 %683, label %685 [
     i32 81, label %thread-pre-split.i18.i
@@ -1745,14 +1745,14 @@ socksstate.exit205.i.i:                           ; preds = %675, %670, %.sockss
 
 684:                                              ; preds = %682
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_send.exit.i16.i
+  br label %socks_state_send.argprom.exit.i16.i
 
 685:                                              ; preds = %682
   %686 = call ptr @curl_easy_strerror(i32 noundef %683) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.43, ptr noundef %686) #7
-  br label %socks_state_send.exit.i16.i
+  br label %socks_state_send.argprom.exit.i16.i
 
-687:                                              ; preds = %socksstate.exit205.i.i
+687:                                              ; preds = %socksstate.argprom.exit205.i.i
   %688 = load i64, ptr %679, align 8
   %689 = sub nsw i64 %688, %680
   store i64 %689, ptr %679, align 8
@@ -1761,7 +1761,7 @@ socksstate.exit205.i.i:                           ; preds = %675, %670, %.sockss
   store ptr %691, ptr %678, align 8
   br label %692
 
-socks_state_send.exit.i16.i:                      ; preds = %685, %684
+socks_state_send.argprom.exit.i16.i:              ; preds = %685, %684
   %.0.i.i17.i = phi i32 [ 3, %684 ], [ 29, %685 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %do_SOCKS4.exit.i
@@ -1781,15 +1781,15 @@ thread-pre-split.i18.i:                           ; preds = %682
   store ptr %534, ptr %678, align 8
   %695 = load i32, ptr %.0, align 8
   %696 = icmp eq i32 %695, 4
-  br i1 %696, label %socksstate.exit206.i.i, label %697
+  br i1 %696, label %socksstate.argprom.exit206.i.i, label %697
 
 697:                                              ; preds = %694
   store i32 4, ptr %.0, align 8
-  br label %socksstate.exit206.i.i
+  br label %socksstate.argprom.exit206.i.i
 
-socksstate.exit206.i.i:                           ; preds = %697, %694, %.socksstate.exit206_crit_edge.i.i
-  %698 = phi i64 [ %.pre227.i.i, %.socksstate.exit206_crit_edge.i.i ], [ 8, %697 ], [ 8, %694 ]
-  %699 = phi ptr [ %.pre225.i.i, %.socksstate.exit206_crit_edge.i.i ], [ %534, %697 ], [ %534, %694 ]
+socksstate.argprom.exit206.i.i:                   ; preds = %697, %694, %.socksstate.argprom.exit206_crit_edge.i.i
+  %698 = phi i64 [ %.pre227.i.i, %.socksstate.argprom.exit206_crit_edge.i.i ], [ 8, %697 ], [ 8, %694 ]
+  %699 = phi ptr [ %.pre225.i.i, %.socksstate.argprom.exit206_crit_edge.i.i ], [ %534, %697 ], [ %534, %694 ]
   %.val201.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %700 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -1797,7 +1797,7 @@ socksstate.exit206.i.i:                           ; preds = %697, %694, %.sockss
   %702 = icmp slt i64 %701, 1
   br i1 %702, label %703, label %708
 
-703:                                              ; preds = %socksstate.exit206.i.i
+703:                                              ; preds = %socksstate.argprom.exit206.i.i
   %704 = load i32, ptr %5, align 4
   switch i32 %704, label %706 [
     i32 81, label %thread-pre-split215.i.i
@@ -1806,14 +1806,14 @@ socksstate.exit206.i.i:                           ; preds = %697, %694, %.sockss
 
 705:                                              ; preds = %703
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.29) #7
-  br label %socks_state_recv.exit.i13.i
+  br label %socks_state_recv.argprom.exit.i13.i
 
 706:                                              ; preds = %703
   %707 = call ptr @curl_easy_strerror(i32 noundef %704) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.44, ptr noundef %707) #7
-  br label %socks_state_recv.exit.i13.i
+  br label %socks_state_recv.argprom.exit.i13.i
 
-708:                                              ; preds = %socksstate.exit206.i.i
+708:                                              ; preds = %socksstate.argprom.exit206.i.i
   %709 = getelementptr inbounds i8, ptr %.0, i64 616
   %710 = load i64, ptr %700, align 8
   %711 = sub nsw i64 %710, %701
@@ -1823,7 +1823,7 @@ socksstate.exit206.i.i:                           ; preds = %697, %694, %.sockss
   store ptr %713, ptr %709, align 8
   br label %714
 
-socks_state_recv.exit.i13.i:                      ; preds = %706, %705
+socks_state_recv.argprom.exit.i13.i:              ; preds = %706, %705
   %.0.i207.i.i = phi i32 [ 3, %705 ], [ 15, %706 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %do_SOCKS4.exit.i
@@ -1841,22 +1841,22 @@ thread-pre-split215.i.i:                          ; preds = %703
 716:                                              ; preds = %714
   %717 = load i32, ptr %.0, align 8
   %718 = icmp eq i32 %717, 17
-  br i1 %718, label %socksstate.exit208.i.i, label %719
+  br i1 %718, label %socksstate.argprom.exit208.i.i, label %719
 
 719:                                              ; preds = %716
   store i32 17, ptr %.0, align 8
-  br label %socksstate.exit208.i.i
+  br label %socksstate.argprom.exit208.i.i
 
-socksstate.exit208.i.i:                           ; preds = %719, %716, %532
+socksstate.argprom.exit208.i.i:                   ; preds = %719, %716, %532
   %720 = load i8, ptr %534, align 1
   %.not195.i.i = icmp eq i8 %720, 0
   br i1 %.not195.i.i, label %722, label %721
 
-721:                                              ; preds = %socksstate.exit208.i.i
+721:                                              ; preds = %socksstate.argprom.exit208.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.45) #7
   br label %do_SOCKS4.exit.i
 
-722:                                              ; preds = %socksstate.exit208.i.i
+722:                                              ; preds = %socksstate.argprom.exit208.i.i
   %723 = getelementptr inbounds i8, ptr %.0, i64 17
   %724 = load i8, ptr %723, align 1
   switch i8 %724, label %795 [
@@ -1979,8 +1979,8 @@ socksstate.exit208.i.i:                           ; preds = %719, %716, %532
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %799, i32 noundef %802, i32 noundef %805, i32 noundef %808, i32 noundef %816, i32 noundef %796) #7
   br label %do_SOCKS4.exit.i
 
-do_SOCKS4.exit.i:                                 ; preds = %795, %774, %753, %732, %730, %726, %725, %721, %714, %socks_state_recv.exit.i13.i, %692, %socks_state_send.exit.i16.i, %669, %647, %socksstate.exit202.thread.i.i, %.critedge198.i.i, %611, %583, %579, %socksstate.exit.i26.i, %571
-  %.0162.i.i = phi i32 [ 2, %721 ], [ 31, %795 ], [ 8, %774 ], [ 7, %753 ], [ 26, %732 ], [ 11, %647 ], [ 9, %669 ], [ 27, %571 ], [ 0, %socksstate.exit.i26.i ], [ 0, %579 ], [ 0, %583 ], [ %..i24.i, %611 ], [ 27, %socksstate.exit202.thread.i.i ], [ 27, %.critedge198.i.i ], [ %.0.i.i17.i, %socks_state_send.exit.i16.i ], [ 0, %692 ], [ %.0.i207.i.i, %socks_state_recv.exit.i13.i ], [ 0, %714 ], [ 0, %730 ], [ 0, %726 ], [ 0, %725 ]
+do_SOCKS4.exit.i:                                 ; preds = %795, %774, %753, %732, %730, %726, %725, %721, %714, %socks_state_recv.argprom.exit.i13.i, %692, %socks_state_send.argprom.exit.i16.i, %669, %647, %socksstate.argprom.exit202.thread.i.i, %.critedge198.i.i, %611, %583, %579, %socksstate.argprom.exit.i26.i, %571
+  %.0162.i.i = phi i32 [ 2, %721 ], [ 31, %795 ], [ 8, %774 ], [ 7, %753 ], [ 26, %732 ], [ 11, %647 ], [ 9, %669 ], [ 27, %571 ], [ 0, %socksstate.argprom.exit.i26.i ], [ 0, %579 ], [ 0, %583 ], [ %..i24.i, %611 ], [ 27, %socksstate.argprom.exit202.thread.i.i ], [ 27, %.critedge198.i.i ], [ %.0.i.i17.i, %socks_state_send.argprom.exit.i16.i ], [ 0, %692 ], [ %.0.i207.i.i, %socks_state_recv.argprom.exit.i13.i ], [ 0, %714 ], [ 0, %730 ], [ 0, %726 ], [ 0, %725 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %817

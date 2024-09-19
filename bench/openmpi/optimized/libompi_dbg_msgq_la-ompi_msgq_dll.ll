@@ -469,7 +469,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   %108 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   %109 = load i64, ptr %108, align 8
   %110 = icmp eq i64 %109, %105
-  br i1 %110, label %find_communicator.exit.i, label %106, !llvm.loop !6
+  br i1 %110, label %find_communicator.argprom.exit.i, label %106, !llvm.loop !6
 
 111:                                              ; preds = %106
   %112 = load ptr, ptr @mqs_basic_entrypoints, align 8
@@ -764,9 +764,9 @@ find_or_create_group.exit.i:                      ; preds = %.loopexit99.i.i, %1
   %.089.i.i = phi ptr [ %158, %162 ], [ null, %194 ], [ %170, %.loopexit99.i.i ], [ null, %111 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   store ptr %.089.i.i, ptr %123, align 8
-  br label %find_communicator.exit.i
+  br label %find_communicator.argprom.exit.i
 
-find_communicator.exit.i:                         ; preds = %107, %find_or_create_group.exit.i
+find_communicator.argprom.exit.i:                 ; preds = %107, %find_or_create_group.exit.i
   %.0123.i = phi ptr [ %114, %find_or_create_group.exit.i ], [ %.0.i.i, %107 ]
   %281 = load i32, ptr %86, align 4
   %282 = sext i32 %281 to i64
@@ -788,7 +788,7 @@ find_communicator.exit.i:                         ; preds = %107, %find_or_creat
   %.not135.i = icmp eq ptr %295, null
   br i1 %.not135.i, label %301, label %296
 
-296:                                              ; preds = %find_communicator.exit.i
+296:                                              ; preds = %find_communicator.argprom.exit.i
   %297 = getelementptr inbounds i8, ptr %295, i64 12
   %298 = load i32, ptr %297, align 4
   %299 = sext i32 %298 to i64
@@ -796,7 +796,7 @@ find_communicator.exit.i:                         ; preds = %107, %find_or_creat
   store i64 %299, ptr %300, align 8
   br label %301
 
-301:                                              ; preds = %296, %find_communicator.exit.i
+301:                                              ; preds = %296, %find_communicator.argprom.exit.i
   %302 = getelementptr inbounds i8, ptr %.0123.i, i64 24
   store i32 1, ptr %302, align 8
   br label %303
@@ -1055,14 +1055,14 @@ define range(i32 0, 103) i32 @mqs_setup_operation_iterator(ptr noundef %0, i32 n
   %11 = getelementptr inbounds i8, ptr %8, i64 88
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
-  tail call fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %11, i64 noundef %13)
+  tail call fastcc void @opal_free_list_t_init_parser.retelim(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %11, i64 noundef %13)
   br label %19
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %8, i64 88
   %16 = getelementptr inbounds i8, ptr %8, i64 16
   %17 = load i64, ptr %16, align 8
-  tail call fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %15, i64 noundef %17)
+  tail call fastcc void @opal_free_list_t_init_parser.retelim(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %15, i64 noundef %17)
   br label %19
 
 18:                                               ; preds = %2
@@ -1074,7 +1074,7 @@ define range(i32 0, 103) i32 @mqs_setup_operation_iterator(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc void @opal_free_list_t_init_parser.retelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1245,7 +1245,7 @@ define range(i32 0, 103) i32 @mqs_next_operation(ptr noundef %0, ptr nocapture n
   br i1 %switch, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %2
-  %11 = tail call fastcc i32 @fetch_request(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %1)
+  %11 = tail call fastcc i32 @fetch_request.argelim(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %1)
   br label %12
 
 12:                                               ; preds = %2, %.sink.split
@@ -1254,7 +1254,7 @@ define range(i32 0, 103) i32 @mqs_next_operation(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @fetch_request(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @fetch_request.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
   %4 = alloca [64 x i8], align 16
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8

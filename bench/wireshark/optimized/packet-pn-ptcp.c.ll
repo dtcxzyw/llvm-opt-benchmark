@@ -291,51 +291,51 @@ define internal range(i32 0, 2) i32 @dissect_PNPTCP_Data_heur(ptr noundef %0, pt
   ]
 
 19:                                               ; preds = %10
-  %20 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 32, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.105)
+  %20 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 32, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.105)
   br label %49
 
 21:                                               ; preds = %10
-  %22 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 33, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107)
+  %22 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 33, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107)
   br label %49
 
 23:                                               ; preds = %10
-  %24 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 128, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109)
+  %24 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 128, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109)
   br label %49
 
 25:                                               ; preds = %10
-  %26 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 129, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111)
+  %26 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 129, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111)
   br label %49
 
 27:                                               ; preds = %10
-  %28 = tail call fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -256, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113)
+  %28 = tail call fastcc i32 @dissect_PNPTCP_AnnouncePDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -256, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113)
   br label %49
 
 29:                                               ; preds = %10
-  %30 = tail call fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -255, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115)
+  %30 = tail call fastcc i32 @dissect_PNPTCP_AnnouncePDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -255, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115)
   br label %49
 
 31:                                               ; preds = %10
-  %32 = tail call fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -224, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117)
+  %32 = tail call fastcc i32 @dissect_PNPTCP_FollowUpPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -224, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117)
   br label %49
 
 33:                                               ; preds = %10
-  %34 = tail call fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -223, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119)
+  %34 = tail call fastcc i32 @dissect_PNPTCP_FollowUpPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -223, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119)
   br label %49
 
 35:                                               ; preds = %10
-  %36 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -192, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121)
+  %36 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -192, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121)
   br label %49
 
 37:                                               ; preds = %10
-  %38 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -191, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123)
+  %38 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -191, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123)
   br label %49
 
 39:                                               ; preds = %10
-  %40 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -190, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125)
+  %40 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -190, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125)
   br label %49
 
 41:                                               ; preds = %10
-  %42 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -189, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123)
+  %42 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -189, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123)
   br label %49
 
 43:                                               ; preds = %10
@@ -367,7 +367,7 @@ declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
   %10 = alloca i8, align 1
@@ -433,12 +433,12 @@ define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef
   br label %60
 
 60:                                               ; preds = %48, %7
-  %61 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %2, i16 noundef zeroext %4)
+  %61 = call fastcc i32 @dissect_PNPTCP_blocks.argprom(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %2, i16 noundef zeroext %4)
   ret i32 %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_PNPTCP_AnnouncePDU.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = load i32, ptr @hf_pn_ptcp_header, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0) #3
@@ -459,12 +459,12 @@ define internal fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr nound
   %23 = load i16, ptr %8, align 2
   %24 = zext i16 %23 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.163, i32 noundef %24) #3
-  %25 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
+  %25 = call fastcc i32 @dissect_PNPTCP_blocks.argprom(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
   ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_PNPTCP_FollowUpPDU.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_pn_ptcp_header, align 4
@@ -492,12 +492,12 @@ define internal fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr nound
   %30 = zext i16 %29 to i32
   %31 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.166, i32 noundef %30, i32 noundef %31) #3
-  %32 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %20, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
+  %32 = call fastcc i32 @dissect_PNPTCP_blocks.argprom(ptr noundef %0, i32 noundef %20, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
   ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_PNPTCP_DelayPDU.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_pn_ptcp_header, align 4
@@ -525,7 +525,7 @@ define internal fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef 
   %30 = zext i16 %29 to i32
   %31 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.169, i32 noundef %30, i32 noundef %31) #3
-  %32 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %20, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
+  %32 = call fastcc i32 @dissect_PNPTCP_blocks.argprom(ptr noundef %0, i32 noundef %20, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
   ret i32 %32
 }
 
@@ -550,7 +550,7 @@ declare i32 @dissect_pn_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 declare i32 @dissect_pn_align4(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_PNPTCP_blocks.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca %struct._e_guid_t, align 4
   %8 = alloca i32, align 4
@@ -607,8 +607,8 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
   %58 = getelementptr inbounds i8, ptr %24, i64 15
   br label %59
 
-59:                                               ; preds = %dissect_PNPTCP_block.exit, %5
-  %.02 = phi i32 [ %1, %5 ], [ %296, %dissect_PNPTCP_block.exit ]
+59:                                               ; preds = %dissect_PNPTCP_block.argprom.exit, %5
+  %.02 = phi i32 [ %1, %5 ], [ %296, %dissect_PNPTCP_block.argprom.exit ]
   %60 = load i32, ptr @hf_pn_ptcp_block, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %60, ptr noundef %0, i32 noundef %.02, i32 noundef 0, i32 noundef 0) #3
   %62 = load i32, ptr @ett_pn_ptcp_block, align 4
@@ -711,7 +711,7 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.144, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %117, i32 noundef %119, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef %131) #3
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
 132:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20)
@@ -738,7 +738,7 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
 149:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18)
@@ -755,7 +755,7 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.147, i32 noundef %156, i32 noundef %158) #3
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %19)
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
 159:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
@@ -819,7 +819,7 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17)
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
 201:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
@@ -839,7 +839,7 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %211, i32 noundef %212) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
 213:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10)
@@ -874,7 +874,7 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %241 = zext i8 %240 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.156, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239, i32 noundef %241) #3
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10)
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
 242:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -887,7 +887,7 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %248 = load i32, ptr %9, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.158, i32 noundef %248) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
 249:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -964,13 +964,13 @@ dissect_PNPTCP_Option_PROFINET.exit.i.i:          ; preds = %286, %261
 
 dissect_PNPTCP_Option.exit.i:                     ; preds = %290, %dissect_PNPTCP_Option_PROFINET.exit.i.i, %251
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
 294:                                              ; preds = %59
   %295 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %3, i32 noundef %79) #3
-  br label %dissect_PNPTCP_block.exit
+  br label %dissect_PNPTCP_block.argprom.exit
 
-dissect_PNPTCP_block.exit:                        ; preds = %dissect_PNPTCP_Subdomain.exit.i, %132, %149, %dissect_PNPTCP_Master.exit.i, %201, %213, %242, %dissect_PNPTCP_Option.exit.i, %294
+dissect_PNPTCP_block.argprom.exit:                ; preds = %dissect_PNPTCP_Subdomain.exit.i, %132, %149, %dissect_PNPTCP_Master.exit.i, %201, %213, %242, %dissect_PNPTCP_Option.exit.i, %294
   %.0.i = phi i32 [ %295, %294 ], [ %73, %dissect_PNPTCP_Option.exit.i ], [ %73, %242 ], [ %73, %213 ], [ %73, %201 ], [ %73, %dissect_PNPTCP_Master.exit.i ], [ %73, %149 ], [ %73, %132 ], [ %73, %dissect_PNPTCP_Subdomain.exit.i ]
   %296 = add i32 %.0.i, %79
   %297 = sub i32 %296, %.02

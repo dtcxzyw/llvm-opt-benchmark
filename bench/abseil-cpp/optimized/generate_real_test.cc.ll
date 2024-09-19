@@ -6432,7 +6432,7 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   %mul346 = fmul float %conv344, 0x3BF0000000000000
   store float %mul346, ptr %ref.tmp343, align 4
   %cmp.i.i497 = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp.i.i497, label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit", label %if.end.i.i498
+  br i1 %cmp.i.i497, label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit", label %if.end.i.i498
 
 if.end.i.i498:                                    ; preds = %for.body
   %161 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %indvars.iv, i1 true)
@@ -6445,19 +6445,19 @@ if.end.i.i498:                                    ; preds = %for.body
   %reass.sub = sub nsw i32 %and.i.i, %162
   %or2.i.i = add nsw i32 %reass.sub, 1056964608
   %163 = bitcast i32 %or2.i.i to float
-  br label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit"
+  br label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit"
 
-"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit": ; preds = %for.body, %if.end.i.i498
+"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit": ; preds = %for.body, %if.end.i.i498
   %retval.0.i.i = phi float [ %163, %if.end.i.i498 ], [ 0.000000e+00, %for.body ]
   store float %retval.0.i.i, ptr %ref.tmp347, align 4
   %cmp.i.i499 = fcmp oeq float %mul346, %retval.0.i.i
   br i1 %cmp.i.i499, label %if.then.i.i501, label %if.end.i.i500
 
-if.then.i.i501:                                   ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit"
+if.then.i.i501:                                   ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit"
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar342)
   br label %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit502
 
-if.end.i.i500:                                    ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit"
+if.end.i.i500:                                    ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit"
   call void @_ZN7testing8internal18CmpHelperEQFailureIffEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar342, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp343, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp347)
   br label %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit502
 
@@ -6816,7 +6816,7 @@ _ZN7testing15AssertionResultD2Ev.exit583:         ; preds = %if.end433, %_ZNKSt1
   %shl441 = shl nuw i64 1, %indvars.iv706
   %add442 = add i64 %shl441, %shl
   %cmp.i.i584 = icmp eq i64 %add442, 0
-  br i1 %cmp.i.i584, label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit594", label %if.end.i.i585
+  br i1 %cmp.i.i584, label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit594", label %if.end.i.i585
 
 if.end.i.i585:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit583
   %204 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add442, i1 true)
@@ -6829,9 +6829,9 @@ if.end.i.i585:                                    ; preds = %_ZN7testing15Assert
   %reass.sub696 = sub nsw i32 %and.i.i590, %205
   %or2.i.i592 = add nsw i32 %reass.sub696, 1056964608
   %206 = bitcast i32 %or2.i.i592 to float
-  br label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit594"
+  br label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit594"
 
-"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit594": ; preds = %_ZN7testing15AssertionResultD2Ev.exit583, %if.end.i.i585
+"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit594": ; preds = %_ZN7testing15AssertionResultD2Ev.exit583, %if.end.i.i585
   %retval.0.i.i593 = phi float [ %206, %if.end.i.i585 ], [ 0.000000e+00, %_ZN7testing15AssertionResultD2Ev.exit583 ]
   store float %retval.0.i.i593, ptr %ref.tmp436, align 4
   %207 = load float, ptr %arrayidx385, align 4
@@ -6841,11 +6841,11 @@ if.end.i.i585:                                    ; preds = %_ZN7testing15Assert
   %cmp.i.i595 = fcmp oeq float %retval.0.i.i593, %add450
   br i1 %cmp.i.i595, label %if.then.i.i597, label %if.end.i.i596
 
-if.then.i.i597:                                   ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit594"
+if.then.i.i597:                                   ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit594"
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar435)
   br label %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit598
 
-if.end.i.i596:                                    ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit594"
+if.end.i.i596:                                    ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit594"
   call void @_ZN7testing8internal18CmpHelperEQFailureIffEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar435, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp436, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp444)
   br label %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit598
 
@@ -7054,7 +7054,7 @@ _ZN7testing15AssertionResultD2Ev.exit644:         ; preds = %if.end501, %_ZNKSt1
   %shl509 = shl nuw i64 1, %indvars.iv717
   %add510 = add i64 %shl509, %shl
   %cmp.i.i645 = icmp eq i64 %add510, 0
-  br i1 %cmp.i.i645, label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit655", label %if.end.i.i646
+  br i1 %cmp.i.i645, label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit655", label %if.end.i.i646
 
 if.end.i.i646:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit644
   %231 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add510, i1 true)
@@ -7067,20 +7067,20 @@ if.end.i.i646:                                    ; preds = %_ZN7testing15Assert
   %reass.sub698 = sub nsw i32 %and.i.i651, %232
   %or2.i.i653 = add nsw i32 %reass.sub698, 1056964608
   %233 = bitcast i32 %or2.i.i653 to float
-  br label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit655"
+  br label %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit655"
 
-"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit655": ; preds = %_ZN7testing15AssertionResultD2Ev.exit644, %if.end.i.i646
+"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit655": ; preds = %_ZN7testing15AssertionResultD2Ev.exit644, %if.end.i.i646
   %retval.0.i.i654 = phi float [ %233, %if.end.i.i646 ], [ 0.000000e+00, %_ZN7testing15AssertionResultD2Ev.exit644 ]
   store float %retval.0.i.i654, ptr %ref.tmp504, align 4
   %234 = load float, ptr %arrayidx385, align 4, !noalias !33
   %cmp.i.i656 = fcmp oeq float %retval.0.i.i654, %234
   br i1 %cmp.i.i656, label %if.then.i.i658, label %if.end.i.i657
 
-if.then.i.i658:                                   ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit655"
+if.then.i.i658:                                   ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit655"
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar503)
   br label %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit659
 
-if.end.i.i657:                                    ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.exit655"
+if.end.i.i657:                                    ; preds = %"_ZZN12_GLOBAL__N_136GenerateRealTest_U64ToFloatTest_Test8TestBodyEvENK3$_0clEm.argprom.exit655"
   call void @_ZN7testing8internal18CmpHelperEQFailureIffEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar503, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp504, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx385)
   br label %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit659
 
@@ -15313,7 +15313,7 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   %mul703 = fmul double %conv701, 0x3BF0000000000000
   store double %mul703, ptr %ref.tmp700, align 8
   %cmp.i.i990 = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp.i.i990, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit", label %if.end.i.i991
+  br i1 %cmp.i.i990, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit", label %if.end.i.i991
 
 if.end.i.i991:                                    ; preds = %for.body
   %331 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %indvars.iv, i1 true)
@@ -15324,19 +15324,19 @@ if.end.i.i991:                                    ; preds = %for.body
   %reass.sub = sub nsw i64 %and.i.i, %332
   %or2.i.i = add nsw i64 %reass.sub, 4602678819172646912
   %333 = bitcast i64 %or2.i.i to double
-  br label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit"
+  br label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit"
 
-"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit": ; preds = %for.body, %if.end.i.i991
+"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit": ; preds = %for.body, %if.end.i.i991
   %retval.0.i.i = phi double [ %333, %if.end.i.i991 ], [ 0.000000e+00, %for.body ]
   store double %retval.0.i.i, ptr %ref.tmp704, align 8
   %cmp.i.i992 = fcmp oeq double %mul703, %retval.0.i.i
   br i1 %cmp.i.i992, label %if.then.i.i994, label %if.end.i.i993
 
-if.then.i.i994:                                   ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit"
+if.then.i.i994:                                   ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit"
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar699)
   br label %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit995
 
-if.end.i.i993:                                    ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit"
+if.end.i.i993:                                    ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit"
   call void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar699, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp700, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp704)
   br label %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit995
 
@@ -15694,7 +15694,7 @@ _ZN7testing15AssertionResultD2Ev.exit1074:        ; preds = %if.end790, %_ZNKSt1
   %shl798 = shl nuw i64 1, %indvars.iv1193
   %add799 = add i64 %shl798, %shl
   %cmp.i.i1075 = icmp eq i64 %add799, 0
-  br i1 %cmp.i.i1075, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1083", label %if.end.i.i1076
+  br i1 %cmp.i.i1075, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1083", label %if.end.i.i1076
 
 if.end.i.i1076:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1074
   %373 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add799, i1 true)
@@ -15705,9 +15705,9 @@ if.end.i.i1076:                                   ; preds = %_ZN7testing15Assert
   %reass.sub1183 = sub nsw i64 %and.i.i1079, %374
   %or2.i.i1081 = add nsw i64 %reass.sub1183, 4602678819172646912
   %375 = bitcast i64 %or2.i.i1081 to double
-  br label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1083"
+  br label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1083"
 
-"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1083": ; preds = %_ZN7testing15AssertionResultD2Ev.exit1074, %if.end.i.i1076
+"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1083": ; preds = %_ZN7testing15AssertionResultD2Ev.exit1074, %if.end.i.i1076
   %retval.0.i.i1082 = phi double [ %375, %if.end.i.i1076 ], [ 0.000000e+00, %_ZN7testing15AssertionResultD2Ev.exit1074 ]
   store double %retval.0.i.i1082, ptr %ref.tmp793, align 8
   %376 = load double, ptr %arrayidx742, align 8
@@ -15717,11 +15717,11 @@ if.end.i.i1076:                                   ; preds = %_ZN7testing15Assert
   %cmp.i.i1084 = fcmp oeq double %retval.0.i.i1082, %add807
   br i1 %cmp.i.i1084, label %if.then.i.i1086, label %if.end.i.i1085
 
-if.then.i.i1086:                                  ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1083"
+if.then.i.i1086:                                  ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1083"
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar792)
   br label %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1087
 
-if.end.i.i1085:                                   ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1083"
+if.end.i.i1085:                                   ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1083"
   call void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar792, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.84, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp793, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp801)
   br label %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1087
 
@@ -15930,7 +15930,7 @@ _ZN7testing15AssertionResultD2Ev.exit1133:        ; preds = %if.end858, %_ZNKSt1
   %shl866 = shl nuw i64 1, %indvars.iv1204
   %add867 = add i64 %shl866, %shl
   %cmp.i.i1134 = icmp eq i64 %add867, 0
-  br i1 %cmp.i.i1134, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1142", label %if.end.i.i1135
+  br i1 %cmp.i.i1134, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1142", label %if.end.i.i1135
 
 if.end.i.i1135:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1133
   %400 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add867, i1 true)
@@ -15941,20 +15941,20 @@ if.end.i.i1135:                                   ; preds = %_ZN7testing15Assert
   %reass.sub1185 = sub nsw i64 %and.i.i1138, %401
   %or2.i.i1140 = add nsw i64 %reass.sub1185, 4602678819172646912
   %402 = bitcast i64 %or2.i.i1140 to double
-  br label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1142"
+  br label %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1142"
 
-"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1142": ; preds = %_ZN7testing15AssertionResultD2Ev.exit1133, %if.end.i.i1135
+"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1142": ; preds = %_ZN7testing15AssertionResultD2Ev.exit1133, %if.end.i.i1135
   %retval.0.i.i1141 = phi double [ %402, %if.end.i.i1135 ], [ 0.000000e+00, %_ZN7testing15AssertionResultD2Ev.exit1133 ]
   store double %retval.0.i.i1141, ptr %ref.tmp861, align 8
   %403 = load double, ptr %arrayidx742, align 8, !noalias !83
   %cmp.i.i1143 = fcmp oeq double %retval.0.i.i1141, %403
   br i1 %cmp.i.i1143, label %if.then.i.i1145, label %if.end.i.i1144
 
-if.then.i.i1145:                                  ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1142"
+if.then.i.i1145:                                  ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1142"
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar860)
   br label %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1146
 
-if.end.i.i1144:                                   ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.exit1142"
+if.end.i.i1144:                                   ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_U64ToDoubleTest_Test8TestBodyEvENK3$_0clEm.argprom.exit1142"
   call void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar860, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.83, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp861, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx742)
   br label %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1146
 
@@ -21404,9 +21404,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %dec.0.neg = select i1 %cmp4, i64 %shl.neg, i64 -1
   %chk.0 = select i1 %cmp4, i64 %shr, i64 0
   %cmp7172 = icmp ugt i64 %x.0214, %chk.0
-  br i1 %cmp7172, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.exit", label %for.cond.loopexit
+  br i1 %cmp7172, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.argprom.exit", label %for.cond.loopexit
 
-"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.exit": ; preds = %for.body, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_0clEf.exit"
+"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.argprom.exit": ; preds = %for.body, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_0clEf.exit"
   %g_unique.promoted204 = phi i64 [ %g_unique.promoted203, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_0clEf.exit" ], [ %g_unique.promoted205207, %for.body ]
   %f_unique.promoted197 = phi i64 [ %f_unique.promoted196, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_0clEf.exit" ], [ %f_unique.promoted198209, %for.body ]
   %f_collisions.promoted192 = phi i64 [ %f_collisions.promoted191, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_0clEf.exit" ], [ %f_collisions.promoted193210, %for.body ]
@@ -21435,12 +21435,12 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp.i = fcmp ult float %6, %last_f.1178
   br i1 %cmp.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.exit"
+if.then.i:                                        ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.argprom.exit"
   %inc3.i = add i64 %inc3.i165176, 1
   store i64 %inc3.i, ptr %f_collisions, align 8
   br label %if.end.i
 
-if.else.i:                                        ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.exit"
+if.else.i:                                        ; preds = %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.argprom.exit"
   %inc4.i = add i64 %inc4.i167175, 1
   store i64 %inc4.i, ptr %f_unique, align 8
   br label %if.end.i
@@ -21475,7 +21475,7 @@ if.else10.i:                                      ; preds = %if.end.i
   %cmp7 = icmp ugt i64 %sub14, %chk.0
   %cmp9 = icmp ne i64 %dec13, 0
   %8 = select i1 %cmp7, i1 %cmp9, i1 false
-  br i1 %8, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.exit", label %for.cond6.for.cond.loopexit_crit_edge, !llvm.loop !113
+  br i1 %8, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEm.argprom.exit", label %for.cond6.for.cond.loopexit_crit_edge, !llvm.loop !113
 
 for.end15:                                        ; preds = %for.cond.loopexit
   %9 = icmp eq i64 %limit.1.lcssa, 0

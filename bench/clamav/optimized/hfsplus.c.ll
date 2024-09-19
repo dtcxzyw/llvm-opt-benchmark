@@ -457,7 +457,7 @@ forkdata_to_host.exit99.i:                        ; preds = %125
 forkdata_to_host.exit103.i:                       ; preds = %142
   %149 = load i8, ptr @cli_debug_flag, align 1
   %.not86.i = icmp eq i8 %149, 0
-  br i1 %.not86.i, label %hfsplus_volumeheader.exit, label %150
+  br i1 %.not86.i, label %hfsplus_volumeheader.argprom.exit, label %150
 
 150:                                              ; preds = %forkdata_to_host.exit103.i
   tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.25, ptr noundef %64)
@@ -465,14 +465,14 @@ forkdata_to_host.exit103.i:                       ; preds = %142
   tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.3, ptr noundef %98)
   tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.4, ptr noundef %115)
   tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.27, ptr noundef %132)
-  br label %hfsplus_volumeheader.exit
+  br label %hfsplus_volumeheader.argprom.exit
 
-hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_host.exit103.i
+hfsplus_volumeheader.argprom.exit:                ; preds = %150, %forkdata_to_host.exit103.i
   %151 = call fastcc i32 @hfsplus_readheader(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.2)
   %.not36 = icmp eq i32 %151, 0
   br i1 %.not36, label %152, label %.thread69
 
-152:                                              ; preds = %hfsplus_volumeheader.exit
+152:                                              ; preds = %hfsplus_volumeheader.argprom.exit
   %153 = call fastcc i32 @hfsplus_readheader(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %2, ptr noundef %3, i32 noundef 3, ptr noundef nonnull @.str.3)
   %.not37 = icmp eq i32 %153, 0
   br i1 %.not37, label %154, label %.thread69
@@ -505,14 +505,14 @@ hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_h
   %.val45 = load i16, ptr %164, align 1
   %165 = getelementptr inbounds i8, ptr %3, i64 22
   %.val46 = load i32, ptr %165, align 1
-  %166 = tail call fastcc i32 @hfsplus_validate_catalog(ptr noundef nonnull %22, i16 %.val45, i32 %.val46)
+  %166 = tail call fastcc i32 @hfsplus_validate_catalog.argprom(ptr noundef nonnull %22, i16 %.val45, i32 %.val46)
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %163
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #12
   %169 = select i1 %.not41, ptr %7, ptr null
-  %170 = call fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %3, ptr noundef %169, ptr noundef %158)
+  %170 = call fastcc i32 @hfsplus_walk_catalog.argprom(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %3, ptr noundef %169, ptr noundef %158)
   br label %173
 
 171:                                              ; preds = %163
@@ -537,8 +537,8 @@ hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_h
   call void @free(ptr noundef nonnull %158) #12
   br label %.thread69
 
-.thread69:                                        ; preds = %159, %152, %hfsplus_volumeheader.exit, %33, %62, %59, %.thread61
-  %.0266065 = phi i32 [ %.026, %.thread61 ], [ 26, %33 ], [ 26, %62 ], [ 26, %59 ], [ %151, %hfsplus_volumeheader.exit ], [ %153, %152 ], [ 18, %159 ]
+.thread69:                                        ; preds = %159, %152, %hfsplus_volumeheader.argprom.exit, %33, %62, %59, %.thread61
+  %.0266065 = phi i32 [ %.026, %.thread61 ], [ 26, %33 ], [ 26, %62 ], [ 26, %59 ], [ %151, %hfsplus_volumeheader.argprom.exit ], [ %153, %152 ], [ 18, %159 ]
   call void @free(ptr noundef nonnull %22) #12
   br label %.thread78
 
@@ -722,7 +722,7 @@ declare ptr @cli_gentemp_with_prefix(ptr noundef, ptr noundef) local_unnamed_add
 declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @hfsplus_validate_catalog(ptr nocapture noundef readonly %0, i16 %.18.val, i32 %.22.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @hfsplus_validate_catalog.argprom(ptr nocapture noundef readonly %0, i16 %.18.val, i32 %.22.val) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 284
   %3 = load i32, ptr %2, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 44
@@ -760,7 +760,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_validate_catalog(ptr nocapt
 declare ptr @cl_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @hfsplus_walk_catalog.argprom(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.hfsPlusResourceHeader, align 4
   %7 = alloca %struct.hfsPlusResourceMap, align 1
   %8 = alloca %struct.hfsPlusResourceType, align 1
@@ -879,7 +879,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
   br label %.preheader.thread
 
 82:                                               ; preds = %79
-  %83 = call fastcc i32 @hfsplus_fetch_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %31, i32 noundef %.0218, ptr noundef nonnull %30, i64 noundef %29)
+  %83 = call fastcc i32 @hfsplus_fetch_node.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %31, i32 noundef %.0218, ptr noundef nonnull %30, i64 noundef %29)
   %.not296 = icmp eq i32 %83, 0
   br i1 %.not296, label %85, label %84
 
@@ -1190,7 +1190,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
 
 227:                                              ; preds = %.preheader.split.preheader.i, %.loopexit.i
   %228 = phi i32 [ 1, %.preheader.split.preheader.i ], [ %301, %.loopexit.i ]
-  %229 = call fastcc i32 @hfsplus_fetch_node(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %3, ptr noundef nonnull readonly %47, i32 noundef %218, ptr noundef nonnull %221, i64 noundef %220)
+  %229 = call fastcc i32 @hfsplus_fetch_node.argprom(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %3, ptr noundef nonnull readonly %47, i32 noundef %218, ptr noundef nonnull %221, i64 noundef %220)
   %.not133.i = icmp eq i32 %229, 0
   br i1 %.not133.i, label %231, label %230
 
@@ -1535,7 +1535,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
 
 357:                                              ; preds = %354
   %358 = load ptr, ptr %14, align 8
-  %359 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef %4, ptr noundef nonnull %12, ptr noundef %358)
+  %359 = call fastcc i32 @hfsplus_scanfile.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef %4, ptr noundef nonnull %12, ptr noundef %358)
   %.not323 = icmp eq i32 %359, 0
   br i1 %.not323, label %361, label %360
 
@@ -2034,7 +2034,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 546:                                              ; preds = %545
   %547 = load ptr, ptr %14, align 8
-  %548 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %36, ptr noundef %4, ptr noundef null, ptr noundef %547)
+  %548 = call fastcc i32 @hfsplus_scanfile.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %36, ptr noundef %4, ptr noundef null, ptr noundef %547)
   %.not347 = icmp eq i32 %548, 0
   br i1 %.not347, label %550, label %549
 
@@ -2049,7 +2049,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 551:                                              ; preds = %550
   %552 = load ptr, ptr %14, align 8
-  %553 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef %4, ptr noundef null, ptr noundef %552)
+  %553 = call fastcc i32 @hfsplus_scanfile.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef %4, ptr noundef null, ptr noundef %552)
   %.not349 = icmp eq i32 %553, 0
   br i1 %.not349, label %556, label %554
 
@@ -2289,7 +2289,7 @@ define internal fastcc void @forkdata_print(ptr noundef %0, ptr nocapture nounde
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef writeonly %5, i64 noundef range(i64 0, 65536) %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node.argprom(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef writeonly %5, i64 noundef range(i64 0, 65536) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 22
   %9 = load i32, ptr %8, align 1
   %.not = icmp ult i32 %4, %9
@@ -2487,7 +2487,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @hfsplus_scanfile.argprom(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr null, ptr %7, align 8

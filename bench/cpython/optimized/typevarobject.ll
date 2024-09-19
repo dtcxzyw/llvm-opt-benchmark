@@ -2752,9 +2752,9 @@ if.end.i.i:                                       ; preds = %if.end7.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   %call2.i.i = call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.25) #7
   %cmp3.i.i = icmp eq ptr %call2.i.i, null
-  br i1 %cmp3.i.i, label %type_check.exit.thread.i, label %if.end5.i.i
+  br i1 %cmp3.i.i, label %type_check.argprom.exit.thread.i, label %if.end5.i.i
 
-type_check.exit.thread.i:                         ; preds = %if.end.i.i
+type_check.argprom.exit.thread.i:                 ; preds = %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   br label %exit
 
@@ -2766,25 +2766,25 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   %14 = load i64, ptr %call2.i.i, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i8.not.i.i = icmp eq i64 %15, 0
-  br i1 %cmp.i8.not.i.i, label %if.end.i.i.i, label %type_check.exit.i
+  br i1 %cmp.i8.not.i.i, label %if.end.i.i.i, label %type_check.argprom.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end5.i.i
   %dec.i.i.i = add i64 %14, -1
   store i64 %dec.i.i.i, ptr %call2.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %type_check.exit.i
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %type_check.argprom.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call2.i.i) #7
-  br label %type_check.exit.i
+  br label %type_check.argprom.exit.i
 
-type_check.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.end5.i.i
+type_check.argprom.exit.i:                        ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.end5.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   %cmp12.i = icmp eq ptr %call6.i.i, null
   br i1 %cmp12.i, label %exit, label %if.end15.i
 
-if.end15.i:                                       ; preds = %type_check.exit.i, %if.end7.i
-  %bound.addr.0.i = phi ptr [ %call6.i.i, %type_check.exit.i ], [ null, %if.end7.i ]
+if.end15.i:                                       ; preds = %type_check.argprom.exit.i, %if.end7.i
+  %bound.addr.0.i = phi ptr [ %call6.i.i, %type_check.argprom.exit.i ], [ null, %if.end7.i ]
   %16 = getelementptr i8, ptr %6, i64 16
   %constraints.val.i = load i64, ptr %16, align 8
   switch i64 %constraints.val.i, label %if.else21.i [
@@ -3003,7 +3003,7 @@ if.end.i.i75.i:                                   ; preds = %if.then.i72.i
   %cmp.i.i77.i = icmp eq i64 %dec.i.i76.i, 0
   br i1 %cmp.i.i77.i, label %if.then.i27.sink.split, label %if.then.i27
 
-exit:                                             ; preds = %type_check.exit.i, %type_check.exit.thread.i, %if.then6.i, %if.then.i, %if.end53, %if.then43, %if.then30
+exit:                                             ; preds = %type_check.argprom.exit.i, %type_check.argprom.exit.thread.i, %if.then6.i, %if.then.i, %if.end53, %if.then43, %if.then30
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i27
 
@@ -3417,13 +3417,13 @@ entry:
   %1 = load i32, ptr %self.val, align 8
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %typevar_reduce_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %typevar_reduce_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %typevar_reduce_impl.exit
+  br label %typevar_reduce_impl.argprom.exit
 
-typevar_reduce_impl.exit:                         ; preds = %entry, %if.end.i.i.i
+typevar_reduce_impl.argprom.exit:                 ; preds = %entry, %if.end.i.i.i
   ret ptr %self.val
 }
 
@@ -4077,18 +4077,18 @@ if.then.i.i:                                      ; preds = %if.end7.i
   %21 = load i32, ptr %_Py_NoneStruct.val.i.i, align 8
   %add.i.i.i.i = add i32 %21, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %type_check.exit.thread.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %type_check.argprom.exit.thread.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   store i32 %add.i.i.i.i, ptr %_Py_NoneStruct.val.i.i, align 8
-  br label %type_check.exit.thread.i
+  br label %type_check.argprom.exit.thread.i
 
 if.end.i18.i:                                     ; preds = %if.end7.i
   %call2.i.i = call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.25) #7
   %cmp3.i.i = icmp eq ptr %call2.i.i, null
-  br i1 %cmp3.i.i, label %type_check.exit.thread3.i, label %if.end5.i.i
+  br i1 %cmp3.i.i, label %type_check.argprom.exit.thread3.i, label %if.end5.i.i
 
-type_check.exit.thread3.i:                        ; preds = %if.end.i18.i
+type_check.argprom.exit.thread3.i:                ; preds = %if.end.i18.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   br label %exit
 
@@ -4100,29 +4100,29 @@ if.end5.i.i:                                      ; preds = %if.end.i18.i
   %22 = load i64, ptr %call2.i.i, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i8.not.i.i = icmp eq i64 %23, 0
-  br i1 %cmp.i8.not.i.i, label %if.end.i.i.i, label %type_check.exit.i
+  br i1 %cmp.i8.not.i.i, label %if.end.i.i.i, label %type_check.argprom.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end5.i.i
   %dec.i.i.i = add i64 %22, -1
   store i64 %dec.i.i.i, ptr %call2.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %type_check.exit.i
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %type_check.argprom.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call2.i.i) #7
-  br label %type_check.exit.i
+  br label %type_check.argprom.exit.i
 
-type_check.exit.thread.i:                         ; preds = %if.end.i.i.i.i, %if.then.i.i
+type_check.argprom.exit.thread.i:                 ; preds = %if.end.i.i.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   br label %if.end12.i
 
-type_check.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.end5.i.i
+type_check.argprom.exit.i:                        ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.end5.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   %cmp9.i = icmp eq ptr %call6.i.i, null
   br i1 %cmp9.i, label %exit, label %if.end12.i
 
-if.end12.i:                                       ; preds = %type_check.exit.i, %type_check.exit.thread.i
-  %bound.addr.0.i = phi ptr [ %call6.i.i, %type_check.exit.i ], [ %_Py_NoneStruct.val.i.i, %type_check.exit.thread.i ]
+if.end12.i:                                       ; preds = %type_check.argprom.exit.i, %type_check.argprom.exit.thread.i
+  %bound.addr.0.i = phi ptr [ %call6.i.i, %type_check.argprom.exit.i ], [ %_Py_NoneStruct.val.i.i, %type_check.argprom.exit.thread.i ]
   %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %25 = load ptr, ptr %24, align 8
   %current_frame.i.i = getelementptr inbounds i8, ptr %25, i64 64
@@ -4272,8 +4272,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i24.i) #7
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %Py_XDECREF.exit49.i, %type_check.exit.i, %type_check.exit.thread3.i, %if.then6.i, %if.then.i, %if.end61, %if.then51, %if.then38, %cond.end15, %if.then21
-  %return_value.0 = phi ptr [ null, %if.then38 ], [ null, %if.then51 ], [ null, %if.end61 ], [ null, %if.then21 ], [ null, %cond.end15 ], [ null, %if.then.i ], [ null, %if.then6.i ], [ null, %type_check.exit.i ], [ %retval.0.i36.i, %Py_XDECREF.exit49.i ], [ %retval.0.i36.i, %if.then1.i.i ], [ %retval.0.i36.i, %if.end.i.i ], [ null, %type_check.exit.thread3.i ]
+exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %Py_XDECREF.exit49.i, %type_check.argprom.exit.i, %type_check.argprom.exit.thread3.i, %if.then6.i, %if.then.i, %if.end61, %if.then51, %if.then38, %cond.end15, %if.then21
+  %return_value.0 = phi ptr [ null, %if.then38 ], [ null, %if.then51 ], [ null, %if.end61 ], [ null, %if.then21 ], [ null, %cond.end15 ], [ null, %if.then.i ], [ null, %if.then6.i ], [ null, %type_check.argprom.exit.i ], [ %retval.0.i36.i, %Py_XDECREF.exit49.i ], [ %retval.0.i36.i, %if.then1.i.i ], [ %retval.0.i36.i, %if.end.i.i ], [ null, %type_check.argprom.exit.thread3.i ]
   ret ptr %return_value.0
 }
 
@@ -4522,13 +4522,13 @@ entry:
   %1 = load i32, ptr %self.val, align 8
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %paramspec_reduce_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %paramspec_reduce_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %paramspec_reduce_impl.exit
+  br label %paramspec_reduce_impl.argprom.exit
 
-paramspec_reduce_impl.exit:                       ; preds = %entry, %if.end.i.i.i
+paramspec_reduce_impl.argprom.exit:               ; preds = %entry, %if.end.i.i.i
   ret ptr %self.val
 }
 
@@ -4691,13 +4691,13 @@ entry:
   %1 = load i32, ptr %self.val, align 8
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %typevartuple_reduce_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %typevartuple_reduce_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %typevartuple_reduce_impl.exit
+  br label %typevartuple_reduce_impl.argprom.exit
 
-typevartuple_reduce_impl.exit:                    ; preds = %entry, %if.end.i.i.i
+typevartuple_reduce_impl.argprom.exit:            ; preds = %entry, %if.end.i.i.i
   ret ptr %self.val
 }
 
@@ -4819,13 +4819,13 @@ entry:
   %1 = load i32, ptr %self.val, align 8
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %typealias_reduce_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %typealias_reduce_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %typealias_reduce_impl.exit
+  br label %typealias_reduce_impl.argprom.exit
 
-typealias_reduce_impl.exit:                       ; preds = %entry, %if.end.i.i.i
+typealias_reduce_impl.argprom.exit:               ; preds = %entry, %if.end.i.i.i
   ret ptr %self.val
 }
 

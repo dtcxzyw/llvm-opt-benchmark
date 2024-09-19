@@ -16353,7 +16353,7 @@ define internal i32 @arg_set_data_switches(ptr noundef %0, ptr noundef %1, ptr n
   %33 = load ptr, ptr %4, align 8
   %34 = call ptr @xstrchr(ptr noundef %33, i32 noundef 64) #23
   %.not3.not.i.i = icmp eq ptr %34, null
-  br i1 %.not3.not.i.i, label %_handle_data_switches_str.exit.i, label %.lr.ph.i.i
+  br i1 %.not3.not.i.i, label %_handle_data_switches_str.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 628
@@ -16367,16 +16367,16 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %.
   store i32 %38, ptr %35, align 4
   %39 = call ptr @xstrchr(ptr noundef %33, i32 noundef 64) #23
   %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %_handle_data_switches_str.exit.i, label %tailrecurse.i.i
+  br i1 %.not.i.i, label %_handle_data_switches_str.argprom.exit.i, label %tailrecurse.i.i
 
-_handle_data_switches_str.exit.i:                 ; preds = %tailrecurse.i.i, %32
+_handle_data_switches_str.argprom.exit.i:         ; preds = %tailrecurse.i.i, %32
   %40 = call i32 @atoi(ptr nocapture noundef %33) #26
   %41 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 %40, ptr %41, align 8
   br label %_handle_data_switches_data.exit
 
-_handle_data_switches_data.exit:                  ; preds = %24, %_handle_data_switches_str.exit.i
-  %.0.i = phi i32 [ %23, %24 ], [ 0, %_handle_data_switches_str.exit.i ]
+_handle_data_switches_data.exit:                  ; preds = %24, %_handle_data_switches_str.argprom.exit.i
+  %.0.i = phi i32 [ %23, %24 ], [ 0, %_handle_data_switches_str.argprom.exit.i ]
   call void @slurm_xfree(ptr noundef nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %64

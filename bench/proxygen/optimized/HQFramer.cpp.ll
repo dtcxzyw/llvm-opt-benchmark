@@ -431,7 +431,7 @@ if.then.i:                                        ; preds = %invoke.cont16.i
   %hasValue.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 262, ptr %agg.result, align 8, !alias.scope !10
   store i8 1, ptr %hasValue.i.i3.i, align 8, !alias.scope !10
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 invoke.cont21.i:                                  ; preds = %invoke.cont16.i
   %2 = load i64, ptr %id.i, align 8, !noalias !10
@@ -445,13 +445,13 @@ if.then23.i:                                      ; preds = %invoke.cont21.i
   %hasValue.i.i9.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 262, ptr %agg.result, align 8, !alias.scope !10
   store i8 1, ptr %hasValue.i.i9.i, align 8, !alias.scope !10
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 if.end25.i:                                       ; preds = %invoke.cont21.i
   store i8 0, ptr %agg.result, align 8, !alias.scope !10
   %hasValue.i.i10.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i10.i, align 8, !alias.scope !10
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 terminate.lpad.i:                                 ; preds = %entry
   %4 = landingpad { ptr, i32 }
@@ -460,7 +460,7 @@ terminate.lpad.i:                                 ; preds = %entry
   call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
-_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
+_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %id.i)
   ret void
 }
@@ -767,7 +767,7 @@ if.then.i:                                        ; preds = %invoke.cont16.i
   %hasValue.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 262, ptr %agg.result, align 8, !alias.scope !21
   store i8 1, ptr %hasValue.i.i3.i, align 8, !alias.scope !21
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 invoke.cont21.i:                                  ; preds = %invoke.cont16.i
   %2 = load i64, ptr %id.i, align 8, !noalias !21
@@ -781,13 +781,13 @@ if.then23.i:                                      ; preds = %invoke.cont21.i
   %hasValue.i.i9.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 262, ptr %agg.result, align 8, !alias.scope !21
   store i8 1, ptr %hasValue.i.i9.i, align 8, !alias.scope !21
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 if.end25.i:                                       ; preds = %invoke.cont21.i
   store i8 0, ptr %agg.result, align 8, !alias.scope !21
   %hasValue.i.i10.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i10.i, align 8, !alias.scope !21
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 terminate.lpad.i:                                 ; preds = %entry
   %4 = landingpad { ptr, i32 }
@@ -796,7 +796,7 @@ terminate.lpad.i:                                 ; preds = %entry
   call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
-_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
+_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %id.i)
   ret void
 }
@@ -822,7 +822,7 @@ if.then.i:                                        ; preds = %invoke.cont16.i
   %hasValue.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 262, ptr %agg.result, align 8, !alias.scope !24
   store i8 1, ptr %hasValue.i.i3.i, align 8, !alias.scope !24
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 invoke.cont21.i:                                  ; preds = %invoke.cont16.i
   %2 = load i64, ptr %id.i, align 8, !noalias !24
@@ -836,13 +836,13 @@ if.then23.i:                                      ; preds = %invoke.cont21.i
   %hasValue.i.i9.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 262, ptr %agg.result, align 8, !alias.scope !24
   store i8 1, ptr %hasValue.i.i9.i, align 8, !alias.scope !24
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 if.end25.i:                                       ; preds = %invoke.cont21.i
   store i8 0, ptr %agg.result, align 8, !alias.scope !24
   %hasValue.i.i10.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i10.i, align 8, !alias.scope !24
-  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit
+  br label %_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit
 
 terminate.lpad.i:                                 ; preds = %entry
   %4 = landingpad { ptr, i32 }
@@ -851,7 +851,7 @@ terminate.lpad.i:                                 ; preds = %entry
   call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
-_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
+_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %id.i)
   ret void
 }
@@ -1073,7 +1073,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   %agg.tmp.val = load i8, ptr %5, align 8
   %agg.tmp.val1 = load ptr, ptr %queue_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %agg.tmp.val to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %invoke.cont3
   %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.val1, i64 24
@@ -1109,7 +1109,7 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i,
   %14 = phi ptr [ %7, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i ]
   %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.val1, i64 40
   %cmp.not.i.i.i.i6 = icmp eq ptr %14, %localCache_.i.i.i.i
-  br i1 %cmp.not.i.i.i.i6, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit", label %if.then.i.i.i.i7
+  br i1 %cmp.not.i.i.i.i6, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %15 = load ptr, ptr %14, align 8
@@ -1125,18 +1125,18 @@ if.then.i.i.i.i7:                                 ; preds = %_ZNK5folly10IOBufQu
   store i8 %frombool.i.i.i.i.i12, ptr %attached3.i.i.i.i.i11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i, align 8
-  br label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit"
+  br label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit"
 
-"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit": ; preds = %invoke.cont3, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i7
+"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit": ; preds = %invoke.cont3, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i7
   %18 = load i8, ptr %typeRes, align 8
   %cmp.i = icmp eq i8 %18, 2
   br i1 %cmp.i, label %if.then, label %invoke.cont5
 
-if.then:                                          ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit"
+if.then:                                          ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %typeRes, i64 24, i1 false)
   br label %cleanup
 
-invoke.cont5:                                     ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit"
+invoke.cont5:                                     ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit"
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp4, i8 0, i64 17, i1 false)
   %queue_.i.i.i13 = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
   %19 = load ptr, ptr %queue_.i.i4, align 8
@@ -1152,7 +1152,7 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   %agg.tmp4.val = load i8, ptr %21, align 8
   %agg.tmp4.val2 = load ptr, ptr %queue_.i.i.i13, align 8
   %tobool.i.i.i17 = trunc i8 %agg.tmp4.val to i1
-  br i1 %tobool.i.i.i17, label %if.then.i.i.i18, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit42"
+  br i1 %tobool.i.i.i17, label %if.then.i.i.i18, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit42"
 
 if.then.i.i.i18:                                  ; preds = %invoke.cont6
   %tailStart_.i.i.i.i.i19 = getelementptr inbounds i8, ptr %agg.tmp4.val2, i64 24
@@ -1188,7 +1188,7 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i33: ; preds = %if.then.i.i.i.i.
   %30 = phi ptr [ %23, %if.then.i.i.i18 ], [ %.pre.i.i.i.i32, %if.then.i.i.i.i.i22 ]
   %localCache_.i.i.i.i34 = getelementptr inbounds i8, ptr %agg.tmp4.val2, i64 40
   %cmp.not.i.i.i.i35 = icmp eq ptr %30, %localCache_.i.i.i.i34
-  br i1 %cmp.not.i.i.i.i35, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit42", label %if.then.i.i.i.i36
+  br i1 %cmp.not.i.i.i.i35, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit42", label %if.then.i.i.i.i36
 
 if.then.i.i.i.i36:                                ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i33
   %31 = load ptr, ptr %30, align 8
@@ -1204,18 +1204,18 @@ if.then.i.i.i.i36:                                ; preds = %_ZNK5folly10IOBufQu
   store i8 %frombool.i.i.i.i.i41, ptr %attached3.i.i.i.i.i40, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %30, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i34, ptr %cachePtr_.i.i.i.i.i20, align 8
-  br label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit42"
+  br label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit42"
 
-"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit42": ; preds = %invoke.cont6, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i33, %if.then.i.i.i.i36
+"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit42": ; preds = %invoke.cont6, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i33, %if.then.i.i.i.i36
   %34 = load i8, ptr %lengthRes, align 8
   %cmp.i43 = icmp eq i8 %34, 2
   br i1 %cmp.i43, label %if.then8, label %if.end9
 
-if.then8:                                         ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit42"
+if.then8:                                         ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit42"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %lengthRes, i64 24, i1 false)
   br label %cleanup
 
-if.end9:                                          ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit42"
+if.end9:                                          ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit42"
   %cond = icmp eq i8 %18, 1
   %cond86 = icmp eq i8 %34, 1
   %or.cond = and i1 %cond, %cond86
@@ -1245,7 +1245,7 @@ cleanup:                                          ; preds = %invoke.cont12, %if.
   %appenderOp.val = load i8, ptr %attached.i.i.i, align 8
   %appenderOp.val3 = load ptr, ptr %queue_.i.i4, align 8
   %tobool.i.i.i52 = trunc i8 %appenderOp.val to i1
-  br i1 %tobool.i.i.i52, label %if.then.i.i.i53, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit77"
+  br i1 %tobool.i.i.i52, label %if.then.i.i.i53, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit77"
 
 if.then.i.i.i53:                                  ; preds = %cleanup
   %tailStart_.i.i.i.i.i54 = getelementptr inbounds i8, ptr %appenderOp.val3, i64 24
@@ -1281,7 +1281,7 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i68: ; preds = %if.then.i.i.i.i.
   %45 = phi ptr [ %38, %if.then.i.i.i53 ], [ %.pre.i.i.i.i67, %if.then.i.i.i.i.i57 ]
   %localCache_.i.i.i.i69 = getelementptr inbounds i8, ptr %appenderOp.val3, i64 40
   %cmp.not.i.i.i.i70 = icmp eq ptr %45, %localCache_.i.i.i.i69
-  br i1 %cmp.not.i.i.i.i70, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit77", label %if.then.i.i.i.i71
+  br i1 %cmp.not.i.i.i.i70, label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit77", label %if.then.i.i.i.i71
 
 if.then.i.i.i.i71:                                ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i68
   %46 = load ptr, ptr %45, align 8
@@ -1297,14 +1297,14 @@ if.then.i.i.i.i71:                                ; preds = %_ZNK5folly10IOBufQu
   store i8 %frombool.i.i.i.i.i76, ptr %attached3.i.i.i.i.i75, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %45, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i69, ptr %cachePtr_.i.i.i.i.i55, align 8
-  br label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit77"
+  br label %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit77"
 
-"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit77": ; preds = %cleanup, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i68, %if.then.i.i.i.i71
+"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit77": ; preds = %cleanup, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i68, %if.then.i.i.i.i71
   %49 = load i8, ptr %attached3.i.i.i, align 8
   %tobool.i.i78 = trunc i8 %49 to i1
   br i1 %tobool.i.i78, label %if.then.i.i79, label %_ZN5folly2io13QueueAppenderD2Ev.exit
 
-if.then.i.i79:                                    ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit77"
+if.then.i.i79:                                    ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit77"
   %50 = load ptr, ptr %queue_.i.i, align 8
   %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 24
   %51 = load ptr, ptr %tailStart_.i.i.i.i, align 8
@@ -1357,7 +1357,7 @@ if.then.i.i.i85:                                  ; preds = %_ZNK5folly10IOBufQu
   store ptr %localCache_.i.i.i, ptr %cachePtr_.i.i.i.i81, align 8
   br label %_ZN5folly2io13QueueAppenderD2Ev.exit
 
-_ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit77", %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i, %if.then.i.i.i85
+_ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom.exit77", %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i, %if.then.i.i.i85
   ret void
 
 terminate.lpad:                                   ; preds = %if.end.i.i.i48.invoke, %invoke.cont5, %invoke.cont2
@@ -2062,12 +2062,12 @@ eh.resume:                                        ; preds = %lpad21, %lpad13, %l
   %.pn = phi { ptr, i32 } [ %110, %lpad21 ], [ %82, %lpad13 ], [ %54, %lpad5 ], [ %26, %lpad ]
   %agg.tmp20.val19 = load i8, ptr %attached.i.i.i.i173.sink, align 8
   %agg.tmp20.val20 = load ptr, ptr %queue_.i.i.i176.sink, align 8
-  call fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev"(i8 %agg.tmp20.val19, ptr %agg.tmp20.val20) #25
+  call fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom"(i8 %agg.tmp20.val19, ptr %agg.tmp20.val20) #25
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.argprom"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.i.i = trunc i8 %this.16.val to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5folly2io13QueueAppenderD2Ev.exit
@@ -3149,7 +3149,7 @@ eh.resume.i:                                      ; preds = %lpad21.i, %lpad13.i
   %.pn.i = phi { ptr, i32 } [ %113, %lpad21.i ], [ %87, %lpad13.i ], [ %61, %lpad5.i ], [ %35, %lpad.i ]
   %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.sink.i, align 8, !noalias !34
   %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.sink.i, align 8, !noalias !34
-  call fastcc void @"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !34
+  call fastcc void @"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !34
   br label %terminate.lpad.body
 
 invoke.cont8:                                     ; preds = %if.then.i.i.i.i241.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i238.i, %invoke.cont22.i, %if.then.i.i.i.i166.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i163.i, %invoke.cont14.i, %if.then.i.i.i.i89.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i86.i, %invoke.cont6.i, %if.then.i.i.i.i25.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i.i, %invoke.cont.i, %if.else16.i
@@ -3160,7 +3160,7 @@ invoke.cont8:                                     ; preds = %if.then.i.i.i.i241.
   %agg.tmp.val = load i8, ptr %attached.i.i.i, align 8
   %agg.tmp.val2 = load ptr, ptr %queue_.i.i4, align 8
   %tobool.i.i.i = trunc i8 %agg.tmp.val to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %invoke.cont8
   %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.val2, i64 24
@@ -3196,7 +3196,7 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i1
   %122 = phi ptr [ %115, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i15 ]
   %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.val2, i64 40
   %cmp.not.i.i.i.i17 = icmp eq ptr %122, %localCache_.i.i.i.i
-  br i1 %cmp.not.i.i.i.i17, label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.exit", label %if.then.i.i.i.i18
+  br i1 %cmp.not.i.i.i.i17, label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i18
 
 if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %123 = load ptr, ptr %122, align 8
@@ -3212,9 +3212,9 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   store i8 %frombool.i.i.i.i.i23, ptr %attached3.i.i.i.i.i22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %122, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i13, align 8
-  br label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+  br label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
 
-"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.exit": ; preds = %invoke.cont8, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i18
+"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit": ; preds = %invoke.cont8, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i18
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 24
   %126 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !40
@@ -3223,7 +3223,7 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   %cmp.not.i.i.i = icmp eq ptr %126, %128
   br i1 %cmp.not.i.i.i, label %invoke.cont10, label %if.then.i.i.i25
 
-if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
   %head_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 16
   %129 = load ptr, ptr %head_.i.i.i, align 8, !noalias !40
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 40
@@ -3237,8 +3237,8 @@ if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq15
   %.pre.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !37
   br label %invoke.cont10
 
-invoke.cont10:                                    ; preds = %if.then.i.i.i25, %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
-  %132 = phi ptr [ %127, %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.exit" ], [ %.pre.i, %if.then.i.i.i25 ]
+invoke.cont10:                                    ; preds = %if.then.i.i.i25, %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
+  %132 = phi ptr [ %127, %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit" ], [ %.pre.i, %if.then.i.i.i25 ]
   %head_.i = getelementptr inbounds i8, ptr %queue, i64 16
   %133 = load i64, ptr %head_.i, align 8, !noalias !37
   store i64 %133, ptr %agg.tmp9, align 8, !alias.scope !37
@@ -3391,7 +3391,7 @@ declare void @_ZN4quic18getQuicIntegerSizeEm(ptr sret(%"class.folly::Expected.14
 declare void @_ZN5folly10IOBufQueueC1ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.i.i = trunc i8 %this.16.val to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5folly2io13QueueAppenderD2Ev.exit
@@ -3718,7 +3718,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
   %agg.tmp27.val = load i8, ptr %26, align 8
   %agg.tmp27.val13 = load ptr, ptr %queue_.i.i.i60, align 8
   %tobool.i.i.i64 = trunc i8 %agg.tmp27.val to i1
-  br i1 %tobool.i.i.i64, label %if.then.i.i.i65, label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89"
+  br i1 %tobool.i.i.i64, label %if.then.i.i.i65, label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89"
 
 if.then.i.i.i65:                                  ; preds = %invoke.cont31
   %tailStart_.i.i.i.i.i66 = getelementptr inbounds i8, ptr %agg.tmp27.val13, i64 24
@@ -3754,7 +3754,7 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i80: ; preds = %if.then.i.i.i.i.
   %53 = phi ptr [ %46, %if.then.i.i.i65 ], [ %.pre.i.i.i.i79, %if.then.i.i.i.i.i69 ]
   %localCache_.i.i.i.i81 = getelementptr inbounds i8, ptr %agg.tmp27.val13, i64 40
   %cmp.not.i.i.i.i82 = icmp eq ptr %53, %localCache_.i.i.i.i81
-  br i1 %cmp.not.i.i.i.i82, label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89", label %if.then.i.i.i.i83
+  br i1 %cmp.not.i.i.i.i82, label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89", label %if.then.i.i.i.i83
 
 if.then.i.i.i.i83:                                ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i80
   %54 = load ptr, ptr %53, align 8
@@ -3770,23 +3770,23 @@ if.then.i.i.i.i83:                                ; preds = %_ZNK5folly10IOBufQu
   store i8 %frombool.i.i.i.i.i88, ptr %attached3.i.i.i.i.i87, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %53, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i81, ptr %cachePtr_.i.i.i.i.i67, align 8
-  br label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89"
+  br label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89"
 
-"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89": ; preds = %invoke.cont31, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i80, %if.then.i.i.i.i83
+"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89": ; preds = %invoke.cont31, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i80, %if.then.i.i.i.i83
   %incdec.ptr.i90 = getelementptr inbounds i8, ptr %__begin214.sroa.0.0156, i64 16
   %cmp.i92 = icmp eq ptr %incdec.ptr.i90, %__begin214.sroa.8.0155
   br i1 %cmp.i92, label %if.then.i93, label %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98
 
-if.then.i93:                                      ; preds = %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89"
+if.then.i93:                                      ; preds = %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89"
   %add.ptr.i95 = getelementptr inbounds i8, ptr %__begin214.sroa.11.0157, i64 8
   %57 = load ptr, ptr %add.ptr.i95, align 8
   %add.ptr.i.i97 = getelementptr inbounds i8, ptr %57, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98
 
-_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98: ; preds = %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89", %if.then.i93
-  %__begin214.sroa.8.1 = phi ptr [ %add.ptr.i.i97, %if.then.i93 ], [ %__begin214.sroa.8.0155, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89" ]
-  %__begin214.sroa.0.1 = phi ptr [ %57, %if.then.i93 ], [ %incdec.ptr.i90, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89" ]
-  %__begin214.sroa.11.1 = phi ptr [ %add.ptr.i95, %if.then.i93 ], [ %__begin214.sroa.11.0157, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89" ]
+_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98: ; preds = %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89", %if.then.i93
+  %__begin214.sroa.8.1 = phi ptr [ %add.ptr.i.i97, %if.then.i93 ], [ %__begin214.sroa.8.0155, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89" ]
+  %__begin214.sroa.0.1 = phi ptr [ %57, %if.then.i93 ], [ %incdec.ptr.i90, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89" ]
+  %__begin214.sroa.11.1 = phi ptr [ %add.ptr.i95, %if.then.i93 ], [ %__begin214.sroa.11.0157, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit89" ]
   %cmp.i.i52.not = icmp eq ptr %__begin214.sroa.0.1, %22
   br i1 %cmp.i.i52.not, label %for.end34, label %invoke.cont23
 
@@ -3800,7 +3800,7 @@ lpad24:                                           ; preds = %invoke.cont23
           cleanup
   %agg.tmp.val14 = load i8, ptr %25, align 8
   %agg.tmp.val15 = load ptr, ptr %queue_.i.i.i, align 8
-  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %agg.tmp.val14, ptr %agg.tmp.val15) #25
+  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom"(i8 %agg.tmp.val14, ptr %agg.tmp.val15) #25
   br label %ehcleanup
 
 lpad30:                                           ; preds = %invoke.cont28
@@ -3808,7 +3808,7 @@ lpad30:                                           ; preds = %invoke.cont28
           cleanup
   %agg.tmp27.val16 = load i8, ptr %26, align 8
   %agg.tmp27.val17 = load ptr, ptr %queue_.i.i.i60, align 8
-  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %agg.tmp27.val16, ptr %agg.tmp27.val17) #25
+  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom"(i8 %agg.tmp27.val16, ptr %agg.tmp27.val17) #25
   br label %ehcleanup
 
 for.end34:                                        ; preds = %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98, %invoke.cont
@@ -3845,7 +3845,7 @@ invoke.cont35:                                    ; preds = %for.end34
   %appenderOp.val = load i8, ptr %attached.i.i.i, align 8
   %appenderOp.val18 = load ptr, ptr %queue_.i.i36, align 8
   %tobool.i.i.i105 = trunc i8 %appenderOp.val to i1
-  br i1 %tobool.i.i.i105, label %if.then.i.i.i106, label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit130"
+  br i1 %tobool.i.i.i105, label %if.then.i.i.i106, label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit130"
 
 if.then.i.i.i106:                                 ; preds = %invoke.cont35
   %tailStart_.i.i.i.i.i107 = getelementptr inbounds i8, ptr %appenderOp.val18, i64 24
@@ -3881,7 +3881,7 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i121: ; preds = %if.then.i.i.i.i
   %71 = phi ptr [ %64, %if.then.i.i.i106 ], [ %.pre.i.i.i.i120, %if.then.i.i.i.i.i110 ]
   %localCache_.i.i.i.i122 = getelementptr inbounds i8, ptr %appenderOp.val18, i64 40
   %cmp.not.i.i.i.i123 = icmp eq ptr %71, %localCache_.i.i.i.i122
-  br i1 %cmp.not.i.i.i.i123, label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit130", label %if.then.i.i.i.i124
+  br i1 %cmp.not.i.i.i.i123, label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit130", label %if.then.i.i.i.i124
 
 if.then.i.i.i.i124:                               ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i121
   %72 = load ptr, ptr %71, align 8
@@ -3897,14 +3897,14 @@ if.then.i.i.i.i124:                               ; preds = %_ZNK5folly10IOBufQu
   store i8 %frombool.i.i.i.i.i129, ptr %attached3.i.i.i.i.i128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %71, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i122, ptr %cachePtr_.i.i.i.i.i108, align 8
-  br label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit130"
+  br label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit130"
 
-"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit130": ; preds = %invoke.cont35, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i121, %if.then.i.i.i.i124
+"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit130": ; preds = %invoke.cont35, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i121, %if.then.i.i.i.i124
   %75 = load i8, ptr %attached3.i.i.i, align 8
   %tobool.i.i131 = trunc i8 %75 to i1
   br i1 %tobool.i.i131, label %if.then.i.i132, label %return
 
-if.then.i.i132:                                   ; preds = %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit130"
+if.then.i.i132:                                   ; preds = %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit130"
   %76 = load ptr, ptr %queue_.i.i, align 8
   %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %76, i64 24
   %77 = load ptr, ptr %tailStart_.i.i.i.i, align 8
@@ -3961,11 +3961,11 @@ ehcleanup:                                        ; preds = %lpad30, %lpad24, %l
   %.pn = phi { ptr, i32 } [ %60, %lpad30 ], [ %58, %lpad22 ], [ %59, %lpad24 ]
   %appenderOp.val19 = load i8, ptr %attached.i.i.i, align 8
   %appenderOp.val20 = load ptr, ptr %queue_.i.i36, align 8
-  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %appenderOp.val19, ptr %appenderOp.val20) #25
+  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom"(i8 %appenderOp.val19, ptr %appenderOp.val20) #25
   call void @_ZN5folly2io13QueueAppenderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %appender) #25
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %if.end, %if.then.i.i.i138, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit130", %if.then11, %if.then
+return:                                           ; preds = %if.end, %if.then.i.i.i138, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom.exit130", %if.then11, %if.then
   ret void
 }
 
@@ -4663,12 +4663,12 @@ eh.resume:                                        ; preds = %lpad21, %lpad13, %l
   %.pn = phi { ptr, i32 } [ %110, %lpad21 ], [ %82, %lpad13 ], [ %54, %lpad5 ], [ %26, %lpad ]
   %agg.tmp20.val19 = load i8, ptr %attached.i.i.i.i173.sink, align 8
   %agg.tmp20.val20 = load ptr, ptr %queue_.i.i.i176.sink, align 8
-  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %agg.tmp20.val19, ptr %agg.tmp20.val20) #25
+  call fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom"(i8 %agg.tmp20.val19, ptr %agg.tmp20.val20) #25
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.argprom"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.i.i = trunc i8 %this.16.val to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5folly2io13QueueAppenderD2Ev.exit
@@ -5975,7 +5975,7 @@ eh.resume.i:                                      ; preds = %lpad21.i, %lpad13.i
   %.pn.i = phi { ptr, i32 } [ %113, %lpad21.i ], [ %87, %lpad13.i ], [ %61, %lpad5.i ], [ %35, %lpad.i ]
   %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.sink.i, align 8, !noalias !61
   %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.sink.i, align 8, !noalias !61
-  call fastcc void @"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !61
+  call fastcc void @"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !61
   br label %terminate.lpad.body
 
 invoke.cont8:                                     ; preds = %if.then.i.i.i.i241.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i238.i, %invoke.cont22.i, %if.then.i.i.i.i166.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i163.i, %invoke.cont14.i, %if.then.i.i.i.i89.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i86.i, %invoke.cont6.i, %if.then.i.i.i.i25.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i.i, %invoke.cont.i, %if.else16.i
@@ -5986,7 +5986,7 @@ invoke.cont8:                                     ; preds = %if.then.i.i.i.i241.
   %agg.tmp.val = load i8, ptr %attached.i.i.i, align 8
   %agg.tmp.val2 = load ptr, ptr %queue_.i.i4, align 8
   %tobool.i.i.i = trunc i8 %agg.tmp.val to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %invoke.cont8
   %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.val2, i64 24
@@ -6022,7 +6022,7 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i1
   %122 = phi ptr [ %115, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i15 ]
   %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.val2, i64 40
   %cmp.not.i.i.i.i17 = icmp eq ptr %122, %localCache_.i.i.i.i
-  br i1 %cmp.not.i.i.i.i17, label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.exit", label %if.then.i.i.i.i18
+  br i1 %cmp.not.i.i.i.i17, label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i18
 
 if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %123 = load ptr, ptr %122, align 8
@@ -6038,9 +6038,9 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   store i8 %frombool.i.i.i.i.i23, ptr %attached3.i.i.i.i.i22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %122, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i13, align 8
-  br label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+  br label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
 
-"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.exit": ; preds = %invoke.cont8, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i18
+"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit": ; preds = %invoke.cont8, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i18
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 24
   %126 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !67
@@ -6049,7 +6049,7 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   %cmp.not.i.i.i = icmp eq ptr %126, %128
   br i1 %cmp.not.i.i.i, label %invoke.cont10, label %if.then.i.i.i25
 
-if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
   %head_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 16
   %129 = load ptr, ptr %head_.i.i.i, align 8, !noalias !67
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 40
@@ -6063,8 +6063,8 @@ if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq11
   %.pre.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !64
   br label %invoke.cont10
 
-invoke.cont10:                                    ; preds = %if.then.i.i.i25, %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
-  %132 = phi ptr [ %127, %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.exit" ], [ %.pre.i, %if.then.i.i.i25 ]
+invoke.cont10:                                    ; preds = %if.then.i.i.i25, %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
+  %132 = phi ptr [ %127, %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit" ], [ %.pre.i, %if.then.i.i.i25 ]
   %head_.i = getelementptr inbounds i8, ptr %queue, i64 16
   %133 = load i64, ptr %head_.i, align 8, !noalias !64
   store i64 %133, ptr %agg.tmp9, align 8, !alias.scope !64
@@ -6213,7 +6213,7 @@ terminate.lpad.body:                              ; preds = %eh.resume.i, %termi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.i.i = trunc i8 %this.16.val to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5folly2io13QueueAppenderD2Ev.exit
@@ -7019,7 +7019,7 @@ eh.resume.i:                                      ; preds = %lpad21.i, %lpad13.i
   %.pn.i = phi { ptr, i32 } [ %113, %lpad21.i ], [ %87, %lpad13.i ], [ %61, %lpad5.i ], [ %35, %lpad.i ]
   %agg.tmp20.val19.i = load i8, ptr %attached.i.i.i.i173.sink.i, align 8, !noalias !73
   %agg.tmp20.val20.i = load ptr, ptr %queue_.i.i.i176.sink.i, align 8, !noalias !73
-  call fastcc void @"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !73
+  call fastcc void @"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom"(i8 %agg.tmp20.val19.i, ptr %agg.tmp20.val20.i) #25, !noalias !73
   br label %terminate.lpad.body
 
 invoke.cont8:                                     ; preds = %if.then.i.i.i.i241.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i238.i, %invoke.cont22.i, %if.then.i.i.i.i166.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i163.i, %invoke.cont14.i, %if.then.i.i.i.i89.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i86.i, %invoke.cont6.i, %if.then.i.i.i.i25.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i.i, %invoke.cont.i, %if.else16.i
@@ -7030,7 +7030,7 @@ invoke.cont8:                                     ; preds = %if.then.i.i.i.i241.
   %agg.tmp.val = load i8, ptr %attached.i.i.i, align 8
   %agg.tmp.val2 = load ptr, ptr %queue_.i.i4, align 8
   %tobool.i.i.i = trunc i8 %agg.tmp.val to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %invoke.cont8
   %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.val2, i64 24
@@ -7066,7 +7066,7 @@ _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i1
   %122 = phi ptr [ %115, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i15 ]
   %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.val2, i64 40
   %cmp.not.i.i.i.i17 = icmp eq ptr %122, %localCache_.i.i.i.i
-  br i1 %cmp.not.i.i.i.i17, label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.exit", label %if.then.i.i.i.i18
+  br i1 %cmp.not.i.i.i.i17, label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i18
 
 if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %123 = load ptr, ptr %122, align 8
@@ -7082,9 +7082,9 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   store i8 %frombool.i.i.i.i.i23, ptr %attached3.i.i.i.i.i22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %122, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i13, align 8
-  br label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+  br label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
 
-"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.exit": ; preds = %invoke.cont8, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i18
+"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit": ; preds = %invoke.cont8, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i18
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %tailStart_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 24
   %126 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !79
@@ -7093,7 +7093,7 @@ if.then.i.i.i.i18:                                ; preds = %_ZNK5folly10IOBufQu
   %cmp.not.i.i.i = icmp eq ptr %126, %128
   br i1 %cmp.not.i.i.i, label %invoke.cont10, label %if.then.i.i.i25
 
-if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
+if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
   %head_.i.i.i = getelementptr inbounds i8, ptr %queue, i64 16
   %129 = load ptr, ptr %head_.i.i.i, align 8, !noalias !79
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 40
@@ -7107,8 +7107,8 @@ if.then.i.i.i25:                                  ; preds = %"_ZZN8proxygen2hq14
   %.pre.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !76
   br label %invoke.cont10
 
-invoke.cont10:                                    ; preds = %if.then.i.i.i25, %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.exit"
-  %132 = phi ptr [ %127, %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.exit" ], [ %.pre.i, %if.then.i.i.i25 ]
+invoke.cont10:                                    ; preds = %if.then.i.i.i25, %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit"
+  %132 = phi ptr [ %127, %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom.exit" ], [ %.pre.i, %if.then.i.i.i25 ]
   %head_.i = getelementptr inbounds i8, ptr %queue, i64 16
   %133 = load i64, ptr %head_.i, align 8, !noalias !76
   store i64 %133, ptr %agg.tmp9, align 8, !alias.scope !76
@@ -7257,7 +7257,7 @@ terminate.lpad.body:                              ; preds = %eh.resume.i, %termi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0D2Ev.argprom"(i8 %this.16.val, ptr %this.24.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.i.i = trunc i8 %this.16.val to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5folly2io13QueueAppenderD2Ev.exit
@@ -11257,8 +11257,8 @@ attributes #30 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !9 = distinct !{!9, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm: %agg.result"}
-!12 = distinct !{!12, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm"}
+!11 = distinct !{!11, !12, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom"}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN8proxygen2hq18decodeSettingValueERN5folly2io6CursorERmNS0_9SettingIdE: %agg.result"}
 !15 = distinct !{!15, !"_ZN8proxygen2hq18decodeSettingValueERN5folly2io6CursorERmNS0_9SettingIdE"}
@@ -11268,11 +11268,11 @@ attributes #30 = { nounwind willreturn memory(read) }
 !19 = distinct !{!19, !20, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !20 = distinct !{!20, !"_ZSt11make_uniqueIN5folly5IOBufEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm: %agg.result"}
-!23 = distinct !{!23, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm"}
+!22 = distinct !{!22, !23, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom: %agg.result"}
+!23 = distinct !{!23, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom"}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm: %agg.result"}
-!26 = distinct !{!26, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm"}
+!25 = distinct !{!25, !26, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom: %agg.result"}
+!26 = distinct !{!26, !"_ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.argprom"}
 !27 = !{}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE: %agg.result"}

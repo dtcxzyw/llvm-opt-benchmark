@@ -847,9 +847,9 @@ Store4x4_SSE2.exit52.i:                           ; preds = %305
   %320 = getelementptr inbounds i8, ptr %.0910.i55.i, i64 %32
   %exitcond.not.i56.i = icmp eq i32 %319, 4
   %321 = extractelement <4 x i32> %318, i64 0
-  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.exit, label %315, !llvm.loop !4
+  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.argprom.exit, label %315, !llvm.loop !4
 
-Store16x4_SSE2.exit:                              ; preds = %315
+Store16x4_SSE2.argprom.exit:                      ; preds = %315
   %322 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %258, <16 x i8> %255)
   %323 = xor <16 x i8> %302, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %324 = xor <16 x i8> %291, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
@@ -869,11 +869,11 @@ Store16x4_SSE2.exit:                              ; preds = %315
   %336 = bitcast <8 x i16> %331 to <16 x i8>
   br label %337
 
-337:                                              ; preds = %337, %Store16x4_SSE2.exit
-  %.sroa.018.0.i94 = phi <16 x i8> [ %336, %Store16x4_SSE2.exit ], [ %339, %337 ]
-  %338 = phi i32 [ %.sroa.018.0.vec.extract.i93, %Store16x4_SSE2.exit ], [ %343, %337 ]
-  %.011.i.i95 = phi i32 [ 0, %Store16x4_SSE2.exit ], [ %341, %337 ]
-  %.0910.i.i96 = phi ptr [ %0, %Store16x4_SSE2.exit ], [ %342, %337 ]
+337:                                              ; preds = %337, %Store16x4_SSE2.argprom.exit
+  %.sroa.018.0.i94 = phi <16 x i8> [ %336, %Store16x4_SSE2.argprom.exit ], [ %339, %337 ]
+  %338 = phi i32 [ %.sroa.018.0.vec.extract.i93, %Store16x4_SSE2.argprom.exit ], [ %343, %337 ]
+  %.011.i.i95 = phi i32 [ 0, %Store16x4_SSE2.argprom.exit ], [ %341, %337 ]
+  %.0910.i.i96 = phi ptr [ %0, %Store16x4_SSE2.argprom.exit ], [ %342, %337 ]
   store i32 %338, ptr %.0910.i.i96, align 1
   %339 = shufflevector <16 x i8> %.sroa.018.0.i94, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
   %340 = bitcast <16 x i8> %339 to <4 x i32>
@@ -943,9 +943,9 @@ Store4x4_SSE2.exit52.i110:                        ; preds = %356
   %371 = getelementptr inbounds i8, ptr %.0910.i55.i114, i64 %32
   %exitcond.not.i56.i115 = icmp eq i32 %370, 4
   %372 = extractelement <4 x i32> %369, i64 0
-  br i1 %exitcond.not.i56.i115, label %Store16x4_SSE2.exit116, label %366, !llvm.loop !4
+  br i1 %exitcond.not.i56.i115, label %Store16x4_SSE2.argprom.exit116, label %366, !llvm.loop !4
 
-Store16x4_SSE2.exit116:                           ; preds = %366
+Store16x4_SSE2.argprom.exit116:                   ; preds = %366
   ret void
 }
 
@@ -1570,9 +1570,9 @@ Store4x4_SSE2.exit52.i:                           ; preds = %303
   %318 = getelementptr inbounds i8, ptr %.0910.i55.i, i64 %31
   %exitcond.not.i56.i = icmp eq i32 %317, 4
   %319 = extractelement <4 x i32> %316, i64 0
-  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.exit, label %313, !llvm.loop !4
+  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.argprom.exit, label %313, !llvm.loop !4
 
-Store16x4_SSE2.exit:                              ; preds = %313
+Store16x4_SSE2.argprom.exit:                      ; preds = %313
   %320 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %256, <16 x i8> %253)
   %321 = xor <16 x i8> %300, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %322 = xor <16 x i8> %289, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
@@ -1592,11 +1592,11 @@ Store16x4_SSE2.exit:                              ; preds = %313
   %334 = bitcast <8 x i16> %329 to <16 x i8>
   br label %335
 
-335:                                              ; preds = %335, %Store16x4_SSE2.exit
-  %.sroa.018.0.i91 = phi <16 x i8> [ %334, %Store16x4_SSE2.exit ], [ %337, %335 ]
-  %336 = phi i32 [ %.sroa.018.0.vec.extract.i90, %Store16x4_SSE2.exit ], [ %341, %335 ]
-  %.011.i.i92 = phi i32 [ 0, %Store16x4_SSE2.exit ], [ %339, %335 ]
-  %.0910.i.i93 = phi ptr [ %0, %Store16x4_SSE2.exit ], [ %340, %335 ]
+335:                                              ; preds = %335, %Store16x4_SSE2.argprom.exit
+  %.sroa.018.0.i91 = phi <16 x i8> [ %334, %Store16x4_SSE2.argprom.exit ], [ %337, %335 ]
+  %336 = phi i32 [ %.sroa.018.0.vec.extract.i90, %Store16x4_SSE2.argprom.exit ], [ %341, %335 ]
+  %.011.i.i92 = phi i32 [ 0, %Store16x4_SSE2.argprom.exit ], [ %339, %335 ]
+  %.0910.i.i93 = phi ptr [ %0, %Store16x4_SSE2.argprom.exit ], [ %340, %335 ]
   store i32 %336, ptr %.0910.i.i93, align 1
   %337 = shufflevector <16 x i8> %.sroa.018.0.i91, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
   %338 = bitcast <16 x i8> %337 to <4 x i32>
@@ -1666,9 +1666,9 @@ Store4x4_SSE2.exit52.i107:                        ; preds = %354
   %369 = getelementptr inbounds i8, ptr %.0910.i55.i111, i64 %31
   %exitcond.not.i56.i112 = icmp eq i32 %368, 4
   %370 = extractelement <4 x i32> %367, i64 0
-  br i1 %exitcond.not.i56.i112, label %Store16x4_SSE2.exit113, label %364, !llvm.loop !4
+  br i1 %exitcond.not.i56.i112, label %Store16x4_SSE2.argprom.exit113, label %364, !llvm.loop !4
 
-Store16x4_SSE2.exit113:                           ; preds = %364
+Store16x4_SSE2.argprom.exit113:                   ; preds = %364
   ret void
 }
 
@@ -1926,13 +1926,13 @@ define internal void @HFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, 
   %92 = shufflevector <16 x i8> %91, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %93
 
-93:                                               ; preds = %5, %Store16x4_SSE2.exit
-  %.0161 = phi ptr [ %0, %5 ], [ %95, %Store16x4_SSE2.exit ]
-  %.064160 = phi i32 [ 3, %5 ], [ %299, %Store16x4_SSE2.exit ]
-  %.0152159 = phi <2 x i64> [ %80, %5 ], [ %236, %Store16x4_SSE2.exit ]
-  %.0153158 = phi <2 x i64> [ %83, %5 ], [ %173, %Store16x4_SSE2.exit ]
-  %.0154157 = phi <2 x i64> [ %82, %5 ], [ %172, %Store16x4_SSE2.exit ]
-  %.0155156 = phi <2 x i64> [ %81, %5 ], [ %244, %Store16x4_SSE2.exit ]
+93:                                               ; preds = %5, %Store16x4_SSE2.argprom.exit
+  %.0161 = phi ptr [ %0, %5 ], [ %95, %Store16x4_SSE2.argprom.exit ]
+  %.064160 = phi i32 [ 3, %5 ], [ %299, %Store16x4_SSE2.argprom.exit ]
+  %.0152159 = phi <2 x i64> [ %80, %5 ], [ %236, %Store16x4_SSE2.argprom.exit ]
+  %.0153158 = phi <2 x i64> [ %83, %5 ], [ %173, %Store16x4_SSE2.argprom.exit ]
+  %.0154157 = phi <2 x i64> [ %82, %5 ], [ %172, %Store16x4_SSE2.argprom.exit ]
+  %.0155156 = phi <2 x i64> [ %81, %5 ], [ %244, %Store16x4_SSE2.argprom.exit ]
   %94 = getelementptr inbounds i8, ptr %.0161, i64 2
   %95 = getelementptr inbounds i8, ptr %.0161, i64 4
   %96 = bitcast <2 x i64> %.0153158 to <16 x i8>
@@ -2197,14 +2197,14 @@ Store4x4_SSE2.exit52.i:                           ; preds = %281
   %297 = getelementptr inbounds i8, ptr %.0910.i55.i, i64 %31
   %exitcond.not.i56.i = icmp eq i32 %296, 4
   %298 = extractelement <4 x i32> %295, i64 0
-  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.exit, label %292, !llvm.loop !4
+  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.argprom.exit, label %292, !llvm.loop !4
 
-Store16x4_SSE2.exit:                              ; preds = %292
+Store16x4_SSE2.argprom.exit:                      ; preds = %292
   %299 = add nsw i32 %.064160, -1
   %300 = icmp ugt i32 %.064160, 1
   br i1 %300, label %93, label %301, !llvm.loop !7
 
-301:                                              ; preds = %Store16x4_SSE2.exit
+301:                                              ; preds = %Store16x4_SSE2.argprom.exit
   ret void
 }
 
@@ -2752,9 +2752,9 @@ Store4x4_SSE2.exit52.i:                           ; preds = %274
   %290 = getelementptr inbounds i8, ptr %.0910.i55.i, i64 %29
   %exitcond.not.i56.i = icmp eq i32 %289, 4
   %291 = extractelement <4 x i32> %288, i64 0
-  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.exit, label %285, !llvm.loop !4
+  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.argprom.exit, label %285, !llvm.loop !4
 
-Store16x4_SSE2.exit:                              ; preds = %285
+Store16x4_SSE2.argprom.exit:                      ; preds = %285
   ret void
 }
 
@@ -3061,9 +3061,9 @@ Store4x4_SSE2.exit52.i:                           ; preds = %161
   %176 = getelementptr inbounds i8, ptr %.0910.i55.i, i64 %30
   %exitcond.not.i56.i = icmp eq i32 %175, 4
   %177 = extractelement <4 x i32> %174, i64 0
-  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.exit, label %171, !llvm.loop !4
+  br i1 %exitcond.not.i56.i, label %Store16x4_SSE2.argprom.exit, label %171, !llvm.loop !4
 
-Store16x4_SSE2.exit:                              ; preds = %171
+Store16x4_SSE2.argprom.exit:                      ; preds = %171
   ret void
 }
 

@@ -1222,7 +1222,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %nonfault, i64 noundef %ra)
+  %call = tail call fastcc i32 @probe_access_internal.argelim(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %nonfault, i64 noundef %ra)
   %tobool2.not = icmp ult i32 %call, 2048
   %0 = load i64, ptr @guest_base, align 8
   %add.i.i = add i64 %0, %addr
@@ -1233,7 +1233,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2049) i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %nonfault, i64 noundef %ra) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2049) i32 @probe_access_internal.argelim(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %nonfault, i64 noundef %ra) unnamed_addr #2 {
 entry:
   switch i32 %access_type, label %do.body [
     i32 1, label %sw.epilog
@@ -1339,7 +1339,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext false, i64 noundef %ra)
+  %call = tail call fastcc i32 @probe_access_internal.argelim(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext false, i64 noundef %ra)
   %and = and i32 %call, 3071
   %cmp3 = icmp eq i32 %and, 0
   br i1 %cmp3, label %do.end8, label %if.else6
@@ -1360,7 +1360,7 @@ do.end8:                                          ; preds = %do.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @get_page_addr_code_hostp(ptr noundef %env, i64 noundef returned %addr, ptr noundef writeonly %hostp) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef 2, i1 noundef zeroext false, i64 noundef 0)
+  %call = tail call fastcc i32 @probe_access_internal.argelim(ptr noundef %env, i64 noundef %addr, i32 noundef 2, i1 noundef zeroext false, i64 noundef 0)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %do.end, label %if.else
 
@@ -1699,13 +1699,13 @@ entry:
   %cmp = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
-  %call2 = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
+  %call2 = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
   %conv = zext i16 %call2 to i64
   ret i64 %conv
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @do_ld2_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) unnamed_addr #10 {
+define internal fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) unnamed_addr #10 {
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
@@ -1903,7 +1903,7 @@ if.then.i.i.i:                                    ; preds = %if.end34.i
   %17 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %16) #19, !srcloc !11
   %retval.sroa.0.0.extract.trunc.i.i.i.i = extractelement <2 x i64> %17, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i.i = extractelement <2 x i64> %17, i64 1
-  br label %load_atom_extract_al16_or_exit.exit.i
+  br label %load_atom_extract_al16_or_exit.argprom.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end34.i
   tail call void @mmap_lock() #16
@@ -1955,9 +1955,9 @@ cleanup.i.i.i:                                    ; preds = %if.else.i.i.i.i, %i
   %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
   %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
-  br label %load_atom_extract_al16_or_exit.exit.i
+  br label %load_atom_extract_al16_or_exit.argprom.exit.i
 
-load_atom_extract_al16_or_exit.exit.i:            ; preds = %cleanup.i.i.i, %if.then.i.i.i
+load_atom_extract_al16_or_exit.argprom.exit.i:    ; preds = %cleanup.i.i.i, %if.then.i.i.i
   %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.1.i.i.i, %cleanup.i.i.i ]
   %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.1.i.i.i, %cleanup.i.i.i ]
   %a.sroa.2.0.insert.ext.i.i23.i = zext i64 %retval.sroa.4.0.i.i.i to i128
@@ -1972,8 +1972,8 @@ do.body.i:                                        ; preds = %required_atomicity.
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 428, ptr noundef nonnull @__func__.load_atom_2, ptr noundef null) #17
   unreachable
 
-load_atom_2.exit:                                 ; preds = %if.then.i9, %load_atom_extract_al16_or_al8.exit.i, %sw.bb.i, %if.then31.i, %load_atom_extract_al16_or_exit.exit.i
-  %retval.0.i = phi i16 [ %3, %if.then.i9 ], [ %conv21.i, %load_atom_extract_al16_or_al8.exit.i ], [ %conv33.i, %if.then31.i ], [ %conv36.i, %load_atom_extract_al16_or_exit.exit.i ], [ %pv.val.i, %sw.bb.i ]
+load_atom_2.exit:                                 ; preds = %if.then.i9, %load_atom_extract_al16_or_al8.exit.i, %sw.bb.i, %if.then31.i, %load_atom_extract_al16_or_exit.argprom.exit.i
+  %retval.0.i = phi i16 [ %3, %if.then.i9 ], [ %conv21.i, %load_atom_extract_al16_or_al8.exit.i ], [ %conv33.i, %if.then31.i ], [ %conv36.i, %load_atom_extract_al16_or_exit.argprom.exit.i ], [ %pv.val.i, %sw.bb.i ]
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   %25 = and i32 %oi, 256
@@ -1990,13 +1990,13 @@ entry:
   %cmp = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
-  %call2 = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
+  %call2 = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
   %conv = zext i32 %call2 to i64
   ret i64 %conv
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @do_ld4_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) unnamed_addr #10 {
+define internal fastcc i32 @do_ld4_mmu.argelim(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) unnamed_addr #10 {
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
@@ -2216,7 +2216,7 @@ if.then.i.i.i:                                    ; preds = %if.end31.i
   %22 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #19, !srcloc !11
   %retval.sroa.0.0.extract.trunc.i.i.i.i = extractelement <2 x i64> %22, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i.i = extractelement <2 x i64> %22, i64 1
-  br label %load_atom_extract_al16_or_exit.exit.i
+  br label %load_atom_extract_al16_or_exit.argprom.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end31.i
   tail call void @mmap_lock() #16
@@ -2268,9 +2268,9 @@ cleanup.i.i.i:                                    ; preds = %if.else.i.i.i.i, %i
   %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
   %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
-  br label %load_atom_extract_al16_or_exit.exit.i
+  br label %load_atom_extract_al16_or_exit.argprom.exit.i
 
-load_atom_extract_al16_or_exit.exit.i:            ; preds = %cleanup.i.i.i, %if.then.i.i.i
+load_atom_extract_al16_or_exit.argprom.exit.i:    ; preds = %cleanup.i.i.i, %if.then.i.i.i
   %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.1.i.i.i, %cleanup.i.i.i ]
   %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.1.i.i.i, %cleanup.i.i.i ]
   %30 = trunc i64 %add.i.i.i to i32
@@ -2289,8 +2289,8 @@ do.body.i:                                        ; preds = %required_atomicity.
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 473, ptr noundef nonnull @__func__.load_atom_4, ptr noundef null) #17
   unreachable
 
-load_atom_4.exit:                                 ; preds = %if.then.i10, %load_atom_extract_al16_or_al8.exit.i, %sw.bb.i, %if.then29.i, %load_atom_extract_al16_or_exit.exit.i
-  %retval.0.i = phi i32 [ %3, %if.then.i10 ], [ %conv21.i, %load_atom_extract_al16_or_al8.exit.i ], [ %conv33.i, %load_atom_extract_al16_or_exit.exit.i ], [ %conv3.i.i, %if.then29.i ], [ %or.i.i, %sw.bb.i ]
+load_atom_4.exit:                                 ; preds = %if.then.i10, %load_atom_extract_al16_or_al8.exit.i, %sw.bb.i, %if.then29.i, %load_atom_extract_al16_or_exit.argprom.exit.i
+  %retval.0.i = phi i32 [ %3, %if.then.i10 ], [ %conv21.i, %load_atom_extract_al16_or_al8.exit.i ], [ %conv33.i, %load_atom_extract_al16_or_exit.argprom.exit.i ], [ %conv3.i.i, %if.then29.i ], [ %or.i.i, %sw.bb.i ]
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %1, align 8
   %31 = and i32 %oi, 256
@@ -2307,12 +2307,12 @@ entry:
   %cmp = icmp eq i32 %0, 48
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
-  %call2 = tail call fastcc i64 @do_ld8_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
+  %call2 = tail call fastcc i64 @do_ld8_mmu.argelim(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
   ret i64 %call2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_ld8_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) unnamed_addr #10 {
+define internal fastcc i64 @do_ld8_mmu.argelim(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) unnamed_addr #10 {
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
@@ -2504,7 +2504,7 @@ if.then12.i.i.i:                                  ; preds = %if.end8.i.i.i
   %retval.sroa.0.0.extract.trunc5.i.i.i = trunc i128 %18 to i64
   %retval.sroa.4.0.extract.shift7.i.i.i = lshr i128 %18, 64
   %retval.sroa.4.0.extract.trunc8.i.i.i = trunc nuw i128 %retval.sroa.4.0.extract.shift7.i.i.i to i64
-  br label %load_atom_extract_al16_or_exit.exit.i
+  br label %load_atom_extract_al16_or_exit.argprom.exit.i
 
 if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 16) ]
@@ -2517,7 +2517,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   %20 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %15) #19, !srcloc !12
   %extract.t.i.i.i.i = extractelement <2 x i64> %20, i64 0
   %extract.t3.i.i.i.i = extractelement <2 x i64> %20, i64 1
-  br label %load_atom_extract_al16_or_exit.exit.i
+  br label %load_atom_extract_al16_or_exit.argprom.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   %21 = cmpxchg ptr %15, i128 0, i128 0 seq_cst seq_cst, align 16
@@ -2525,9 +2525,9 @@ if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   %extract.t2.i.i.i.i = trunc i128 %22 to i64
   %extract4.i.i.i.i = lshr i128 %22, 64
   %extract.t5.i.i.i.i = trunc nuw i128 %extract4.i.i.i.i to i64
-  br label %load_atom_extract_al16_or_exit.exit.i
+  br label %load_atom_extract_al16_or_exit.argprom.exit.i
 
-load_atom_extract_al16_or_exit.exit.i:            ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
+load_atom_extract_al16_or_exit.argprom.exit.i:    ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
   %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
   %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
@@ -2563,8 +2563,8 @@ if.end18.i:                                       ; preds = %cpu_in_serial_conte
   %or.i.i = or i64 %shl.i.i, %shr.i.i9
   br label %load_atom_8.exit
 
-load_atom_8.exit:                                 ; preds = %if.then.i10, %load_atom_extract_al16_or_al8.exit.i, %load_atom_extract_al16_or_exit.exit.i, %if.end18.i
-  %retval.0.i = phi i64 [ %3, %if.then.i10 ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %load_atom_extract_al16_or_al8.exit.i ], [ %retval.sroa.0.0.extract.trunc.i.i20.i, %load_atom_extract_al16_or_exit.exit.i ], [ %or.i.i, %if.end18.i ]
+load_atom_8.exit:                                 ; preds = %if.then.i10, %load_atom_extract_al16_or_al8.exit.i, %load_atom_extract_al16_or_exit.argprom.exit.i, %if.end18.i
+  %retval.0.i = phi i64 [ %3, %if.then.i10 ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %load_atom_extract_al16_or_al8.exit.i ], [ %retval.sroa.0.0.extract.trunc.i.i20.i, %load_atom_extract_al16_or_exit.argprom.exit.i ], [ %or.i.i, %if.end18.i ]
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %1, align 8
   %28 = and i32 %oi, 256
@@ -2627,7 +2627,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
+  %call2.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
   %conv1 = sext i16 %call2.i to i64
   ret i64 %conv1
 }
@@ -2639,7 +2639,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
+  %call2.i = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr)
   %conv1 = sext i32 %call2.i to i64
   ret i64 %conv1
 }
@@ -4356,7 +4356,7 @@ entry:
   %cmp = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
-  %call2 = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra)
+  %call2 = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #16
   ret i16 %call2
 }
@@ -4368,7 +4368,7 @@ entry:
   %cmp = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
-  %call2 = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra)
+  %call2 = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #16
   ret i32 %call2
 }
@@ -4380,7 +4380,7 @@ entry:
   %cmp = icmp eq i32 %0, 48
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
-  %call2 = tail call fastcc i64 @do_ld8_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra)
+  %call2 = tail call fastcc i64 @do_ld8_mmu.argelim(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #16
   ret i64 %call2
 }
@@ -4594,7 +4594,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
+  %call2.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #16
   %conv = zext i16 %call2.i to i32
   ret i32 %conv
@@ -4608,7 +4608,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
+  %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #16
   %conv1 = sext i16 %call2.i.i to i32
   ret i32 %conv1
@@ -4622,7 +4622,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
+  %call2.i = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #16
   ret i32 %call2.i
 }
@@ -4635,7 +4635,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 48
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i = tail call fastcc i64 @do_ld8_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
+  %call2.i = tail call fastcc i64 @do_ld8_mmu.argelim(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #16
   ret i64 %call2.i
 }
@@ -4648,7 +4648,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
+  %call2.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #16
   %conv = zext i16 %call2.i to i32
   ret i32 %conv
@@ -4662,7 +4662,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
+  %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #16
   %conv1 = sext i16 %call2.i.i to i32
   ret i32 %conv1
@@ -4676,7 +4676,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
+  %call2.i = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #16
   ret i32 %call2.i
 }
@@ -4689,7 +4689,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 48
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i = tail call fastcc i64 @do_ld8_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
+  %call2.i = tail call fastcc i64 @do_ld8_mmu.argelim(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #16
   ret i64 %call2.i
 }
@@ -4929,7 +4929,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
+  %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #16
   %conv.i = zext i16 %call2.i.i to i32
   ret i32 %conv.i
@@ -4944,7 +4944,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef %ra)
+  %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #16
   %conv1 = sext i16 %call2.i.i.i to i32
   ret i32 %conv1
@@ -4959,7 +4959,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
+  %call2.i.i = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #16
   ret i32 %call2.i.i
 }
@@ -4973,7 +4973,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 48
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i = tail call fastcc i64 @do_ld8_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
+  %call2.i.i = tail call fastcc i64 @do_ld8_mmu.argelim(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #16
   ret i64 %call2.i.i
 }
@@ -4987,7 +4987,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
+  %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #16
   %conv.i = zext i16 %call2.i.i to i32
   ret i32 %conv.i
@@ -5002,7 +5002,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef %ra)
+  %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #16
   %conv1 = sext i16 %call2.i.i.i to i32
   ret i32 %conv1
@@ -5017,7 +5017,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
+  %call2.i.i = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #16
   ret i32 %call2.i.i
 }
@@ -5031,7 +5031,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 48
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i = tail call fastcc i64 @do_ld8_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
+  %call2.i.i = tail call fastcc i64 @do_ld8_mmu.argelim(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #16
   ret i64 %call2.i.i
 }
@@ -5276,7 +5276,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
+  %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #16
   %conv.i.i = zext i16 %call2.i.i.i to i32
   ret i32 %conv.i.i
@@ -5291,7 +5291,7 @@ entry:
   %cmp.i.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i64 noundef 0)
+  %call2.i.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i64 noundef 0)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i32 noundef 1) #16
   %conv1 = sext i16 %call2.i.i.i.i to i32
   ret i32 %conv1
@@ -5306,7 +5306,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
+  %call2.i.i.i = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #16
   ret i32 %call2.i.i.i
 }
@@ -5320,7 +5320,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 48
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i = tail call fastcc i64 @do_ld8_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
+  %call2.i.i.i = tail call fastcc i64 @do_ld8_mmu.argelim(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #16
   ret i64 %call2.i.i.i
 }
@@ -5334,7 +5334,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
+  %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #16
   %conv.i.i = zext i16 %call2.i.i.i to i32
   ret i32 %conv.i.i
@@ -5349,7 +5349,7 @@ entry:
   %cmp.i.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i64 noundef 0)
+  %call2.i.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu.argelim(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i64 noundef 0)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i32 noundef 1) #16
   %conv1 = sext i16 %call2.i.i.i.i to i32
   ret i32 %conv1
@@ -5364,7 +5364,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
+  %call2.i.i.i = tail call fastcc i32 @do_ld4_mmu.argelim(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #16
   ret i32 %call2.i.i.i
 }
@@ -5378,7 +5378,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 48
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %call2.i.i.i = tail call fastcc i64 @do_ld8_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
+  %call2.i.i.i = tail call fastcc i64 @do_ld8_mmu.argelim(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #16
   ret i64 %call2.i.i.i
 }

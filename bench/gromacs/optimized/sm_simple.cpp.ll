@@ -234,10 +234,10 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   br label %10
 
-10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
-  %11 = phi i32 [ %5, %.lr.ph ], [ %80, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
-  %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
+10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
+  %11 = phi i32 [ %5, %.lr.ph ], [ %80, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ]
+  %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ]
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
@@ -295,7 +295,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %34
   %50 = load ptr, ptr %47, align 8
   %51 = getelementptr inbounds %struct.gmx_moltype_t, ptr %50, i64 %49
   %.not33.i = icmp eq ptr %16, null
-  br i1 %.not33.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %52
+  br i1 %.not33.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, label %52
 
 52:                                               ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i
   %53 = getelementptr inbounds i8, ptr %51, i64 48
@@ -335,16 +335,16 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %34
   %.sink.i = phi i32 [ %79, %69 ], [ %68, %58 ]
   store i32 %.sink.i, ptr %41, align 4
   %.pre = load i32, ptr %1, align 8
-  br label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
+  br label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, %.sink.split.i
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, %.sink.split.i
   %80 = phi i32 [ %11, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i ], [ %.pre, %.sink.split.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
   br i1 %82, label %10, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, %4
+._crit_edge:                                      ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, %4
   ret void
 }
 
@@ -361,9 +361,9 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   br label %10
 
-10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
-  %.01013 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
+10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ]
+  %.01013 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
   %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
@@ -396,7 +396,7 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   %33 = getelementptr inbounds i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
-  br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %35
+  br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, label %35
 
 35:                                               ; preds = %32, %26
   %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
@@ -406,7 +406,7 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; preds = %32
   %39 = sub nsw i32 %14, %30
   %40 = load i32, ptr %28, align 4
   %41 = sdiv i32 %39, %40
@@ -440,7 +440,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
   %66 = icmp slt i64 %indvars.iv.next, %65
   br i1 %66, label %10, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, %4
+._crit_edge:                                      ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, %4
   ret void
 }
 
@@ -1012,9 +1012,9 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   br label %10
 
-10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
-  %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
+10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ]
+  %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
   %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
@@ -1047,7 +1047,7 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   %33 = getelementptr inbounds i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
-  br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %35
+  br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, label %35
 
 35:                                               ; preds = %32, %26
   %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
@@ -1057,7 +1057,7 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; preds = %32
   %39 = sub nsw i32 %14, %30
   %.fr = freeze i32 %39
   %40 = load i32, ptr %28, align 4
@@ -1082,7 +1082,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
   %57 = icmp slt i64 %indvars.iv.next, %56
   br i1 %57, label %10, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, %4
+._crit_edge:                                      ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, %4
   ret void
 }
 

@@ -369,31 +369,31 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %.lr.ph
   %57 = load ptr, ptr %56, align 8
   %58 = load i8, ptr %57, align 8
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit"
+  br i1 %59, label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit"
 
 60:                                               ; preds = %.lr.ph.i
   %61 = getelementptr inbounds nuw i8, ptr %.0136.i, i64 16
   %62 = load ptr, ptr %61, align 8
   %.not.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i, label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit, label %63
+  br i1 %.not.i.i, label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit, label %63
 
 63:                                               ; preds = %60
   %64 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #12
-  br label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit
+  br label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit
 
 65:                                               ; preds = %.lr.ph.i
   %66 = getelementptr inbounds i8, ptr %.0136.i, i64 32
   %.not.i = icmp eq ptr %66, %53
   br i1 %.not.i, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %.lr.ph.i
 
-_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit: ; preds = %60, %63
+_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit: ; preds = %60, %63
   %67 = phi i64 [ %64, %63 ], [ 0, %60 ]
   %68 = tail call noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %5, ptr %62, i64 %67) #12
   %.not = icmp eq ptr %68, null
-  br i1 %.not, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34
+  br i1 %.not, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34
 
-_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34: ; preds = %55, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit
-  %.0.i37 = phi ptr [ %68, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit ], [ %57, %55 ]
+_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34: ; preds = %55, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit
+  %.0.i37 = phi ptr [ %68, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit ], [ %57, %55 ]
   %69 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 32
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 15
@@ -411,11 +411,11 @@ _ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34: ; pre
     i32 8, label %72
   ]
 
-72:                                               ; preds = %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34
+72:                                               ; preds = %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34
   %73 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i37) #12
   br i1 %73, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %_ZNK4llvm11GlobalValue17isDefinitionExactEv.exit
 
-74:                                               ; preds = %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34
+74:                                               ; preds = %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34
   unreachable
 
 _ZNK4llvm11GlobalValue17isDefinitionExactEv.exit: ; preds = %72
@@ -454,8 +454,8 @@ _ZNK4llvm11GlobalValue17isDefinitionExactEv.exit: ; preds = %72
   %.not.i.i22 = icmp eq ptr %90, %83
   br i1 %.not.i.i22, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %.lr.ph.i.i
 
-"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit": ; preds = %65, %89, %72, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34, %49, %55, %76, %81, %42, %_ZNK4llvm11GlobalValue17isDefinitionExactEv.exit, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
-  %.2 = phi i1 [ %.150, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit ], [ %.150, %_ZNK4llvm11GlobalValue17isDefinitionExactEv.exit ], [ %.150, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.150, %42 ], [ %.150, %76 ], [ true, %81 ], [ %.150, %55 ], [ %.150, %49 ], [ %.150, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34 ], [ %.150, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34 ], [ %.150, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit.thread34 ], [ %.150, %72 ], [ true, %89 ], [ %.150, %65 ]
+"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit": ; preds = %65, %89, %72, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34, %49, %55, %76, %81, %42, %_ZNK4llvm11GlobalValue17isDefinitionExactEv.exit, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
+  %.2 = phi i1 [ %.150, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit ], [ %.150, %_ZNK4llvm11GlobalValue17isDefinitionExactEv.exit ], [ %.150, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.150, %42 ], [ %.150, %76 ], [ true, %81 ], [ %.150, %55 ], [ %.150, %49 ], [ %.150, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34 ], [ %.150, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34 ], [ %.150, %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.argprom.exit.thread34 ], [ %.150, %72 ], [ true, %89 ], [ %.150, %65 ]
   %91 = icmp ne ptr %.sroa.025.051, null
   tail call void @llvm.assume(i1 %91)
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.025.051, align 8

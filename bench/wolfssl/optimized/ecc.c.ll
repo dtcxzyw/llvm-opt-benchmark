@@ -237,7 +237,7 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false20
   br i1 %cmp29.not, label %if.end31, label %return
 
 if.end31:                                         ; preds = %lor.lhs.false25
-  %call32 = tail call fastcc i32 @_ecc_projective_add_point(ptr noundef nonnull %P, ptr noundef nonnull %Q, ptr noundef nonnull %R, ptr noundef nonnull %modulus, i64 noundef %mp)
+  %call32 = tail call fastcc i32 @_ecc_projective_add_point.argprom(ptr noundef nonnull %P, ptr noundef nonnull %Q, ptr noundef nonnull %R, ptr noundef nonnull %modulus, i64 noundef %mp)
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false7, %lor.lhs.false11, %lor.lhs.false15, %lor.lhs.false20, %lor.lhs.false25, %entry, %if.end31
@@ -248,7 +248,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare i32 @sp_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_ecc_projective_add_point(ptr noundef %P, ptr noundef %Q, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp) unnamed_addr #2 {
+define internal fastcc i32 @_ecc_projective_add_point.argprom(ptr noundef %P, ptr noundef %Q, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %modulus, align 8
   %mul = shl i32 %0, 1
@@ -314,7 +314,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true141
 if.then154:                                       ; preds = %lor.lhs.false, %land.lhs.true141
   call void @sp_clear(ptr noundef nonnull %vla) #19
   call void @sp_clear(ptr noundef nonnull %vla37) #19
-  %call161 = call fastcc i32 @_ecc_projective_dbl_point(ptr noundef %P.addr.0, ptr noundef %R, ptr noundef nonnull %modulus, i64 noundef %mp)
+  %call161 = call fastcc i32 @_ecc_projective_dbl_point.argprom(ptr noundef %P.addr.0, ptr noundef %R, ptr noundef nonnull %modulus, i64 noundef %mp)
   br label %cleanup
 
 if.end167:                                        ; preds = %lor.lhs.false, %land.lhs.true133, %land.lhs.true, %if.then122
@@ -600,7 +600,7 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false5
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %lor.lhs.false9
-  %call15 = tail call fastcc i32 @_ecc_projective_dbl_point(ptr noundef nonnull %P, ptr noundef nonnull %R, ptr noundef nonnull %modulus, i64 noundef %mp)
+  %call15 = tail call fastcc i32 @_ecc_projective_dbl_point.argprom(ptr noundef nonnull %P, ptr noundef nonnull %R, ptr noundef nonnull %modulus, i64 noundef %mp)
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false5, %lor.lhs.false9, %entry, %if.end14
@@ -609,7 +609,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_ecc_projective_dbl_point(ptr noundef %P, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp) unnamed_addr #2 {
+define internal fastcc i32 @_ecc_projective_dbl_point.argprom(ptr noundef %P, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %modulus, align 8
   %mul = shl i32 %0, 1
@@ -982,14 +982,14 @@ entry:
   %or.cond1 = or i1 %or.cond, %cmp3
   %cmp5 = icmp eq ptr %modulus, null
   %or.cond2 = or i1 %or.cond1, %cmp5
-  br i1 %or.cond2, label %wc_ecc_del_point_ex.exit, label %if.end
+  br i1 %or.cond2, label %wc_ecc_del_point_ex.argprom.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @sp_count_bits(ptr noundef nonnull %k) #19
   %call6 = tail call i32 @sp_count_bits(ptr noundef nonnull %modulus) #19
   %add = add nsw i32 %call6, 1
   %cmp7 = icmp sgt i32 %call, %add
-  br i1 %cmp7, label %wc_ecc_del_point_ex.exit, label %for.body
+  br i1 %cmp7, label %wc_ecc_del_point_ex.argprom.exit, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
@@ -1001,7 +1001,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 if.end3.i:                                        ; preds = %for.body
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i = icmp eq ptr %call.i, null
-  br i1 %cmp4.i, label %wc_ecc_del_point_ex.exit, label %if.end6.i
+  br i1 %cmp4.i, label %wc_ecc_del_point_ex.argprom.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end3.i, %for.body
   %p.03.i = phi ptr [ %call.i, %if.end3.i ], [ %0, %for.body ]
@@ -1014,7 +1014,7 @@ if.end6.i:                                        ; preds = %if.end3.i, %for.bod
 
 if.then12.i:                                      ; preds = %if.end6.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %p.03.i) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
 for.inc:                                          ; preds = %if.end6.i
   store ptr %p.03.i, ptr %arrayidx, align 8
@@ -1025,7 +1025,7 @@ for.inc:                                          ; preds = %if.end6.i
 if.end3.i36:                                      ; preds = %for.inc
   %call.i37 = tail call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i38 = icmp eq ptr %call.i37, null
-  br i1 %cmp4.i38, label %wc_ecc_del_point_ex.exit, label %if.end6.i27
+  br i1 %cmp4.i38, label %wc_ecc_del_point_ex.argprom.exit, label %if.end6.i27
 
 if.end6.i27:                                      ; preds = %if.end3.i36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i37, i8 0, i64 3120, i1 false)
@@ -1037,10 +1037,10 @@ if.end6.i27:                                      ; preds = %if.end3.i36
 
 if.then12.i33:                                    ; preds = %if.end6.i27
   tail call void @wolfSSL_Free(ptr noundef nonnull %call.i37) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
 if.end18:                                         ; preds = %if.end6.i27
-  %call19 = tail call fastcc i32 @ecc_point_to_mont(ptr noundef %G, ptr noundef nonnull %call.i37, ptr noundef %modulus)
+  %call19 = tail call fastcc i32 @ecc_point_to_mont.argprom(ptr noundef %G, ptr noundef nonnull %call.i37, ptr noundef %modulus)
   %cmp20.not = icmp eq i32 %call19, 0
   br i1 %cmp20.not, label %if.end22, label %if.then.i
 
@@ -1068,18 +1068,18 @@ if.then.i:                                        ; preds = %if.end18, %if.end22
   call void @sp_clear(ptr noundef nonnull %y.i29) #19
   call void @sp_clear(ptr noundef nonnull %z.i30) #19
   call void @wolfSSL_Free(ptr noundef nonnull %call.i37) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %if.end3.i, %if.end3.i36, %if.then12.i33, %if.then12.i, %if.end, %entry, %if.then.i
+wc_ecc_del_point_ex.argprom.exit:                 ; preds = %if.end3.i, %if.end3.i36, %if.then12.i33, %if.then12.i, %if.end, %entry, %if.then.i
   %err.059 = phi i32 [ %err.0, %if.then.i ], [ -217, %if.end ], [ -170, %entry ], [ %call9.i, %if.then12.i ], [ -125, %if.end3.i36 ], [ %call9.i31, %if.then12.i33 ], [ -125, %if.end3.i ]
   br label %for.body35
 
-for.body35:                                       ; preds = %wc_ecc_del_point_ex.exit, %wc_ecc_del_point_ex.exit47
-  %indvars.iv65 = phi i64 [ 0, %wc_ecc_del_point_ex.exit ], [ %indvars.iv.next66, %wc_ecc_del_point_ex.exit47 ]
+for.body35:                                       ; preds = %wc_ecc_del_point_ex.argprom.exit, %wc_ecc_del_point_ex.argprom.exit47
+  %indvars.iv65 = phi i64 [ 0, %wc_ecc_del_point_ex.argprom.exit ], [ %indvars.iv.next66, %wc_ecc_del_point_ex.argprom.exit47 ]
   %arrayidx37 = getelementptr inbounds [3 x ptr], ptr %M, i64 0, i64 %indvars.iv65
   %3 = load ptr, ptr %arrayidx37, align 8
   %cmp.not.i43 = icmp eq ptr %3, null
-  br i1 %cmp.not.i43, label %wc_ecc_del_point_ex.exit47, label %if.then.i44
+  br i1 %cmp.not.i43, label %wc_ecc_del_point_ex.argprom.exit47, label %if.then.i44
 
 if.then.i44:                                      ; preds = %for.body35
   call void @sp_clear(ptr noundef nonnull %3) #19
@@ -1088,21 +1088,21 @@ if.then.i44:                                      ; preds = %for.body35
   %z.i46 = getelementptr inbounds i8, ptr %3, i64 2080
   call void @sp_clear(ptr noundef nonnull %z.i46) #19
   call void @wolfSSL_Free(ptr noundef nonnull %3) #19
-  br label %wc_ecc_del_point_ex.exit47
+  br label %wc_ecc_del_point_ex.argprom.exit47
 
-wc_ecc_del_point_ex.exit47:                       ; preds = %for.body35, %if.then.i44
+wc_ecc_del_point_ex.argprom.exit47:               ; preds = %for.body35, %if.then.i44
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 3
   br i1 %exitcond68.not, label %for.end40, label %for.body35, !llvm.loop !8
 
-for.end40:                                        ; preds = %wc_ecc_del_point_ex.exit47
+for.end40:                                        ; preds = %wc_ecc_del_point_ex.argprom.exit47
   ret i32 %err.059
 }
 
 declare i32 @sp_count_bits(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecc_point_to_mont(ptr noundef nonnull %p, ptr noundef %r, ptr noundef nonnull %modulus) unnamed_addr #2 {
+define internal fastcc i32 @ecc_point_to_mont.argprom(ptr noundef nonnull %p, ptr noundef %r, ptr noundef nonnull %modulus) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %modulus, align 8
   %mul = shl i32 %0, 1
@@ -1538,7 +1538,7 @@ for.body:                                         ; preds = %if.end9, %for.inc
 if.end3.i:                                        ; preds = %for.body
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i = icmp eq ptr %call.i, null
-  br i1 %cmp4.i, label %wc_ecc_del_point_ex.exit, label %if.end6.i
+  br i1 %cmp4.i, label %wc_ecc_del_point_ex.argprom.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end3.i, %for.body
   %p.03.i = phi ptr [ %call.i, %if.end3.i ], [ %0, %for.body ]
@@ -1551,7 +1551,7 @@ if.end6.i:                                        ; preds = %if.end3.i, %for.bod
 
 if.then12.i:                                      ; preds = %if.end6.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %p.03.i) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
 for.inc:                                          ; preds = %if.end6.i
   store ptr %p.03.i, ptr %arrayidx, align 8
@@ -1562,7 +1562,7 @@ for.inc:                                          ; preds = %if.end6.i
 if.end3.i40:                                      ; preds = %for.inc
   %call.i41 = tail call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i42 = icmp eq ptr %call.i41, null
-  br i1 %cmp4.i42, label %wc_ecc_del_point_ex.exit, label %if.end6.i31
+  br i1 %cmp4.i42, label %wc_ecc_del_point_ex.argprom.exit, label %if.end6.i31
 
 if.end6.i31:                                      ; preds = %if.end3.i40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i41, i8 0, i64 3120, i1 false)
@@ -1574,10 +1574,10 @@ if.end6.i31:                                      ; preds = %if.end3.i40
 
 if.then12.i37:                                    ; preds = %if.end6.i31
   tail call void @wolfSSL_Free(ptr noundef nonnull %call.i41) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
 if.end18:                                         ; preds = %if.end6.i31
-  %call19 = tail call fastcc i32 @ecc_point_to_mont(ptr noundef %G, ptr noundef nonnull %call.i41, ptr noundef %modulus)
+  %call19 = tail call fastcc i32 @ecc_point_to_mont.argprom(ptr noundef %G, ptr noundef nonnull %call.i41, ptr noundef %modulus)
   %cmp20.not = icmp eq i32 %call19, 0
   br i1 %cmp20.not, label %if.end22, label %if.then.i
 
@@ -1610,18 +1610,18 @@ if.then.i:                                        ; preds = %if.end26, %if.then3
   call void @sp_clear(ptr noundef nonnull %y.i33) #19
   call void @sp_clear(ptr noundef nonnull %z.i34) #19
   call void @wolfSSL_Free(ptr noundef nonnull %call.i41) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %if.end3.i, %if.end3.i40, %if.then12.i37, %if.then12.i, %if.then.i
+wc_ecc_del_point_ex.argprom.exit:                 ; preds = %if.end3.i, %if.end3.i40, %if.then12.i37, %if.then12.i, %if.then.i
   %err.070 = phi i32 [ %err.0.ph, %if.then.i ], [ %call9.i, %if.then12.i ], [ -125, %if.end3.i40 ], [ %call9.i35, %if.then12.i37 ], [ -125, %if.end3.i ]
   br label %for.body39
 
-for.body39:                                       ; preds = %wc_ecc_del_point_ex.exit, %wc_ecc_del_point_ex.exit51
-  %indvars.iv76 = phi i64 [ 0, %wc_ecc_del_point_ex.exit ], [ %indvars.iv.next77, %wc_ecc_del_point_ex.exit51 ]
+for.body39:                                       ; preds = %wc_ecc_del_point_ex.argprom.exit, %wc_ecc_del_point_ex.argprom.exit51
+  %indvars.iv76 = phi i64 [ 0, %wc_ecc_del_point_ex.argprom.exit ], [ %indvars.iv.next77, %wc_ecc_del_point_ex.argprom.exit51 ]
   %arrayidx41 = getelementptr inbounds [3 x ptr], ptr %M, i64 0, i64 %indvars.iv76
   %3 = load ptr, ptr %arrayidx41, align 8
   %cmp.not.i47 = icmp eq ptr %3, null
-  br i1 %cmp.not.i47, label %wc_ecc_del_point_ex.exit51, label %if.then.i48
+  br i1 %cmp.not.i47, label %wc_ecc_del_point_ex.argprom.exit51, label %if.then.i48
 
 if.then.i48:                                      ; preds = %for.body39
   call void @sp_clear(ptr noundef nonnull %3) #19
@@ -1630,15 +1630,15 @@ if.then.i48:                                      ; preds = %for.body39
   %z.i50 = getelementptr inbounds i8, ptr %3, i64 2080
   call void @sp_clear(ptr noundef nonnull %z.i50) #19
   call void @wolfSSL_Free(ptr noundef nonnull %3) #19
-  br label %wc_ecc_del_point_ex.exit51
+  br label %wc_ecc_del_point_ex.argprom.exit51
 
-wc_ecc_del_point_ex.exit51:                       ; preds = %for.body39, %if.then.i48
+wc_ecc_del_point_ex.argprom.exit51:               ; preds = %for.body39, %if.then.i48
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 3
   br i1 %exitcond79.not, label %return, label %for.body39, !llvm.loop !11
 
-return:                                           ; preds = %wc_ecc_del_point_ex.exit51, %if.end, %entry
-  %retval.0 = phi i32 [ -170, %entry ], [ -217, %if.end ], [ %err.070, %wc_ecc_del_point_ex.exit51 ]
+return:                                           ; preds = %wc_ecc_del_point_ex.argprom.exit51, %if.end, %entry
+  %retval.0 = phi i32 [ -170, %entry ], [ -217, %if.end ], [ %err.070, %wc_ecc_del_point_ex.argprom.exit51 ]
   ret i32 %retval.0
 }
 
@@ -1716,7 +1716,7 @@ define ptr @wc_ecc_new_point_h(ptr nocapture noundef readnone %heap) local_unnam
 if.end3.i:
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i = icmp eq ptr %call.i, null
-  br i1 %cmp4.i, label %wc_ecc_new_point_ex.exit, label %if.end6.i
+  br i1 %cmp4.i, label %wc_ecc_new_point_ex.argprom.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end3.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i, i8 0, i64 3120, i1 false)
@@ -1724,13 +1724,13 @@ if.end6.i:                                        ; preds = %if.end3.i
   %z.i = getelementptr inbounds i8, ptr %call.i, i64 2080
   %call9.i = tail call i32 @sp_init_multi(ptr noundef nonnull %call.i, ptr noundef nonnull %y.i, ptr noundef nonnull %z.i, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %cmp10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.i, label %wc_ecc_new_point_ex.exit, label %if.then12.i
+  br i1 %cmp10.not.i, label %wc_ecc_new_point_ex.argprom.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end6.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
-  br label %wc_ecc_new_point_ex.exit
+  br label %wc_ecc_new_point_ex.argprom.exit
 
-wc_ecc_new_point_ex.exit:                         ; preds = %if.end6.i, %if.end3.i, %if.then12.i
+wc_ecc_new_point_ex.argprom.exit:                 ; preds = %if.end6.i, %if.end3.i, %if.then12.i
   %p.0 = phi ptr [ null, %if.end3.i ], [ null, %if.then12.i ], [ %call.i, %if.end6.i ]
   ret ptr %p.0
 }
@@ -1740,7 +1740,7 @@ define ptr @wc_ecc_new_point() local_unnamed_addr #2 {
 if.end3.i:
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i = icmp eq ptr %call.i, null
-  br i1 %cmp4.i, label %wc_ecc_new_point_ex.exit, label %if.end6.i
+  br i1 %cmp4.i, label %wc_ecc_new_point_ex.argprom.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end3.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i, i8 0, i64 3120, i1 false)
@@ -1748,13 +1748,13 @@ if.end6.i:                                        ; preds = %if.end3.i
   %z.i = getelementptr inbounds i8, ptr %call.i, i64 2080
   %call9.i = tail call i32 @sp_init_multi(ptr noundef nonnull %call.i, ptr noundef nonnull %y.i, ptr noundef nonnull %z.i, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %cmp10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.i, label %wc_ecc_new_point_ex.exit, label %if.then12.i
+  br i1 %cmp10.not.i, label %wc_ecc_new_point_ex.argprom.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end6.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
-  br label %wc_ecc_new_point_ex.exit
+  br label %wc_ecc_new_point_ex.argprom.exit
 
-wc_ecc_new_point_ex.exit:                         ; preds = %if.end6.i, %if.end3.i, %if.then12.i
+wc_ecc_new_point_ex.argprom.exit:                 ; preds = %if.end6.i, %if.end3.i, %if.then12.i
   %p.0 = phi ptr [ null, %if.end3.i ], [ null, %if.then12.i ], [ %call.i, %if.end6.i ]
   ret ptr %p.0
 }
@@ -1763,7 +1763,7 @@ wc_ecc_new_point_ex.exit:                         ; preds = %if.end6.i, %if.end3
 define void @wc_ecc_del_point_h(ptr noundef %p, ptr nocapture noundef readnone %heap) local_unnamed_addr #2 {
 entry:
   %cmp.not.i = icmp eq ptr %p, null
-  br i1 %cmp.not.i, label %wc_ecc_del_point_ex.exit, label %if.then.i
+  br i1 %cmp.not.i, label %wc_ecc_del_point_ex.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @sp_clear(ptr noundef nonnull %p) #19
@@ -1772,9 +1772,9 @@ if.then.i:                                        ; preds = %entry
   %z.i = getelementptr inbounds i8, ptr %p, i64 2080
   tail call void @sp_clear(ptr noundef nonnull %z.i) #19
   tail call void @wolfSSL_Free(ptr noundef nonnull %p) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %entry, %if.then.i
+wc_ecc_del_point_ex.argprom.exit:                 ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -1782,7 +1782,7 @@ wc_ecc_del_point_ex.exit:                         ; preds = %entry, %if.then.i
 define void @wc_ecc_del_point(ptr noundef %p) local_unnamed_addr #2 {
 entry:
   %cmp.not.i = icmp eq ptr %p, null
-  br i1 %cmp.not.i, label %wc_ecc_del_point_ex.exit, label %if.then.i
+  br i1 %cmp.not.i, label %wc_ecc_del_point_ex.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @sp_clear(ptr noundef nonnull %p) #19
@@ -1791,9 +1791,9 @@ if.then.i:                                        ; preds = %entry
   %z.i = getelementptr inbounds i8, ptr %p, i64 2080
   tail call void @sp_clear(ptr noundef nonnull %z.i) #19
   tail call void @wolfSSL_Free(ptr noundef nonnull %p) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %entry, %if.then.i
+wc_ecc_del_point_ex.argprom.exit:                 ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -2550,7 +2550,7 @@ entry:
   store i32 3, ptr %spec_count, align 8
   %dp = getelementptr inbounds i8, ptr %private_key, i64 16
   %0 = load ptr, ptr %dp, align 8
-  %call = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr nonnull %curve_lcl, i8 noundef zeroext 11)
+  %call = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef %0, ptr nonnull %curve_lcl, i8 noundef zeroext 11)
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %if.end3.i, label %errout
 
@@ -2571,7 +2571,7 @@ if.end14:                                         ; preds = %if.end6.i
   %rng = getelementptr inbounds i8, ptr %private_key, i64 4192
   %1 = load ptr, ptr %rng, align 8
   %cmp15.not = icmp eq ptr %1, null
-  br i1 %cmp15.not, label %wc_ecc_del_point_ex.exit, label %if.end23
+  br i1 %cmp15.not, label %wc_ecc_del_point_ex.argprom.exit, label %if.end23
 
 if.end23:                                         ; preds = %if.end14
   %Af = getelementptr inbounds i8, ptr %curve_lcl, i64 16
@@ -2582,33 +2582,33 @@ if.end23:                                         ; preds = %if.end14
   %4 = load ptr, ptr %order, align 8
   %call22 = call i32 @wc_ecc_mulmod_ex2(ptr noundef nonnull %k1, ptr noundef %point, ptr noundef nonnull %call.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %1, i32 noundef 0, ptr poison)
   %cmp24 = icmp eq i32 %call22, 0
-  br i1 %cmp24, label %if.end28, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp24, label %if.end28, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end28:                                         ; preds = %if.end23
   %prime26 = getelementptr inbounds i8, ptr %curve_lcl, i64 8
   %5 = load ptr, ptr %prime26, align 8
   %call27 = call i32 @sp_mont_setup(ptr noundef %5, ptr noundef nonnull %mp) #19
   %cmp29 = icmp eq i32 %call27, 0
-  br i1 %cmp29, label %if.end33, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp29, label %if.end33, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end33:                                         ; preds = %if.end28
   %6 = load ptr, ptr %prime26, align 8
   %7 = load i64, ptr %mp, align 8
   %call32 = call i32 @ecc_map_ex(ptr noundef nonnull %call.i, ptr noundef %6, i64 noundef %7, i32 noundef 1)
   %cmp34 = icmp eq i32 %call32, 0
-  br i1 %cmp34, label %if.then35, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp34, label %if.then35, label %wc_ecc_del_point_ex.argprom.exit
 
 if.then35:                                        ; preds = %if.end33
   %8 = load ptr, ptr %prime26, align 8
   %call37 = call i32 @sp_unsigned_bin_size(ptr noundef %8) #19
   %9 = load i32, ptr %outlen, align 4
   %cmp38 = icmp ult i32 %9, %call37
-  br i1 %cmp38, label %wc_ecc_del_point_ex.exit, label %lor.lhs.false
+  br i1 %cmp38, label %wc_ecc_del_point_ex.argprom.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then35
   %call41 = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %call.i) #19
   %cmp42 = icmp slt i32 %call37, %call41
-  br i1 %cmp42, label %wc_ecc_del_point_ex.exit, label %if.then47
+  br i1 %cmp42, label %wc_ecc_del_point_ex.argprom.exit, label %if.then47
 
 if.then47:                                        ; preds = %lor.lhs.false
   %conv = sext i32 %call37 to i64
@@ -2618,9 +2618,9 @@ if.then47:                                        ; preds = %lor.lhs.false
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %idx.ext
   %call53 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %call.i, ptr noundef %add.ptr) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %if.end14, %if.then35, %lor.lhs.false, %if.end23, %if.end28, %if.end33, %if.then47
+wc_ecc_del_point_ex.argprom.exit:                 ; preds = %if.end14, %if.then35, %lor.lhs.false, %if.end23, %if.end28, %if.end33, %if.then47
   %x.046 = phi i32 [ %call37, %if.then47 ], [ 0, %if.end33 ], [ 0, %if.end28 ], [ 0, %if.end23 ], [ %call37, %lor.lhs.false ], [ %call37, %if.then35 ], [ 0, %if.end14 ]
   %err.7 = phi i32 [ %call53, %if.then47 ], [ %call32, %if.end33 ], [ %call27, %if.end28 ], [ %call22, %if.end23 ], [ -132, %lor.lhs.false ], [ -132, %if.then35 ], [ -236, %if.end14 ]
   store i32 %x.046, ptr %outlen, align 4
@@ -2631,8 +2631,8 @@ wc_ecc_del_point_ex.exit:                         ; preds = %if.end14, %if.then3
   call void @sp_clear(ptr noundef nonnull %z.i) #19
   br label %errout.sink.split.sink.split
 
-errout.sink.split.sink.split:                     ; preds = %if.end6.i, %wc_ecc_del_point_ex.exit
-  %err.1.ph.ph = phi i32 [ %err.7, %wc_ecc_del_point_ex.exit ], [ %call9.i, %if.end6.i ]
+errout.sink.split.sink.split:                     ; preds = %if.end6.i, %wc_ecc_del_point_ex.argprom.exit
+  %err.1.ph.ph = phi i32 [ %err.7, %wc_ecc_del_point_ex.argprom.exit ], [ %call9.i, %if.end6.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
   br label %errout.sink.split
 
@@ -2647,7 +2647,7 @@ errout:                                           ; preds = %errout.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -173, 1) i32 @wc_ecc_curve_load(ptr noundef %dp, ptr %pCurve.0.val, i8 noundef zeroext range(i8 8, 60) %load_mask) unnamed_addr #2 {
+define internal fastcc range(i32 -173, 1) i32 @wc_ecc_curve_load.argprom(ptr noundef %dp, ptr %pCurve.0.val, i8 noundef zeroext range(i8 8, 60) %load_mask) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %dp, null
   br i1 %cmp, label %return, label %if.end
@@ -3137,7 +3137,7 @@ entry:
 if.then5.i:                                       ; preds = %entry
   %dp.i = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp.i, align 8
-  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr nonnull %curve_lcl.i, i8 noundef zeroext 59)
+  %call.i = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef %0, ptr nonnull %curve_lcl.i, i8 noundef zeroext 59)
   %cmp7.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
@@ -3173,7 +3173,7 @@ entry:
 if.then5:                                         ; preds = %entry
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
-  %call = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr nonnull %curve_lcl, i8 noundef zeroext 59)
+  %call = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef %0, ptr nonnull %curve_lcl, i8 noundef zeroext 59)
   %cmp7 = icmp eq i32 %call, 0
   br i1 %cmp7, label %if.then8, label %if.end10
 
@@ -3430,7 +3430,7 @@ if.end4:                                          ; preds = %if.end29.i, %if.end
 if.end18:                                         ; preds = %if.end4
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %5 = load ptr, ptr %dp, align 8
-  %call17 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %5, ptr nonnull %curve_lcl, i8 noundef zeroext 59)
+  %call17 = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef %5, ptr nonnull %curve_lcl, i8 noundef zeroext 59)
   %cmp19 = icmp eq i32 %call17, 0
   br i1 %cmp19, label %if.end26, label %if.else
 
@@ -3904,7 +3904,7 @@ cond.end67:                                       ; preds = %lor.lhs.false53
 
 if.then124:                                       ; preds = %cond.end67
   %18 = load ptr, ptr %dp54, align 8
-  %call126 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %18, ptr nonnull %curve_lcl, i8 noundef zeroext 8)
+  %call126 = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef %18, ptr nonnull %curve_lcl, i8 noundef zeroext 8)
   %cmp128 = icmp eq i32 %call126, 0
   br i1 %cmp128, label %if.then130, label %if.end165
 
@@ -4221,7 +4221,7 @@ if.then28:                                        ; preds = %land.lhs.true22
   br i1 %cmp34, label %if.then35, label %if.else37
 
 if.then35:                                        ; preds = %if.then28
-  %call36 = tail call fastcc i32 @_ecc_projective_dbl_point(ptr noundef nonnull %B, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp)
+  %call36 = tail call fastcc i32 @_ecc_projective_dbl_point.argprom(ptr noundef nonnull %B, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp)
   br label %if.end121
 
 if.else37:                                        ; preds = %if.then28
@@ -4248,7 +4248,7 @@ if.then55:                                        ; preds = %if.end51
   br label %if.end121
 
 if.else58:                                        ; preds = %land.lhs.true22, %if.else15
-  %call59 = tail call fastcc i32 @_ecc_projective_add_point(ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp)
+  %call59 = tail call fastcc i32 @_ecc_projective_add_point.argprom(ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp)
   %cmp60 = icmp eq i32 %call59, 0
   br i1 %cmp60, label %land.lhs.true61, label %if.end121
 
@@ -4286,11 +4286,11 @@ if.end88:                                         ; preds = %if.then81
   br i1 %cmp89, label %if.then90, label %if.end121
 
 if.then90:                                        ; preds = %if.end88
-  %call91 = tail call fastcc i32 @_ecc_projective_dbl_point(ptr noundef nonnull %R, ptr noundef nonnull %R, ptr noundef %modulus, i64 noundef %mp)
+  %call91 = tail call fastcc i32 @_ecc_projective_dbl_point.argprom(ptr noundef nonnull %R, ptr noundef nonnull %R, ptr noundef %modulus, i64 noundef %mp)
   br label %if.end121
 
 if.else93:                                        ; preds = %if.then76
-  %call94 = tail call fastcc i32 @_ecc_projective_dbl_point(ptr noundef nonnull %B, ptr noundef nonnull %R, ptr noundef %modulus, i64 noundef %mp)
+  %call94 = tail call fastcc i32 @_ecc_projective_dbl_point.argprom(ptr noundef nonnull %B, ptr noundef nonnull %R, ptr noundef %modulus, i64 noundef %mp)
   br label %if.end121
 
 if.else96:                                        ; preds = %land.lhs.true71, %if.then66
@@ -4357,7 +4357,7 @@ if.end13.i:                                       ; preds = %if.end6.i
   br label %if.end26
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %call4 = tail call fastcc i32 @_ecc_projective_dbl_point(ptr noundef nonnull %P, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp)
+  %call4 = tail call fastcc i32 @_ecc_projective_dbl_point.argprom(ptr noundef nonnull %P, ptr noundef %R, ptr noundef %modulus, i64 noundef %mp)
   %cmp5 = icmp eq i32 %call4, 0
   br i1 %cmp5, label %land.lhs.true6, label %if.end26
 
@@ -4490,7 +4490,7 @@ if.end55:                                         ; preds = %if.end49
   %1 = load ptr, ptr %arrayidx52, align 8
   %arrayidx53 = getelementptr inbounds i8, ptr %precomp, i64 32
   %2 = load ptr, ptr %arrayidx53, align 16
-  %call54 = call fastcc i32 @ecc_mont_norm_points(ptr noundef %A, ptr noundef %1, ptr noundef %B, ptr noundef %2, ptr noundef %modulus)
+  %call54 = call fastcc i32 @ecc_mont_norm_points.argprom(ptr noundef %A, ptr noundef %1, ptr noundef %B, ptr noundef %2, ptr noundef %modulus)
   %cmp56 = icmp eq i32 %call54, 0
   br i1 %cmp56, label %if.end61, label %if.end228
 
@@ -4769,12 +4769,12 @@ if.end228:                                        ; preds = %if.end3.i, %if.else
   %err.22 = phi i32 [ %call.i118, %if.then226 ], [ %err.15.ph, %if.end223 ], [ %err.13, %if.end107 ], [ %call80, %if.end81 ], [ %call73, %if.end74 ], [ %call67, %if.end68 ], [ %call60, %if.end61 ], [ %call54, %if.end55 ], [ %call48, %if.end49 ], [ %call35, %if.end36 ], [ %call29, %if.then28 ], [ %call9.i, %if.then12.i ], [ -173, %if.end18 ], [ %err.16, %if.else208 ], [ %err.16, %if.then174 ], [ %call184, %if.end185 ], [ %err.15.ph, %if.then152 ], [ %call195, %if.end196 ], [ %call214, %if.end215 ], [ %call156, %if.end157 ], [ -125, %if.end3.i ]
   br label %for.body232
 
-for.body232:                                      ; preds = %if.end228, %wc_ecc_del_point_ex.exit
-  %indvars.iv213 = phi i64 [ 0, %if.end228 ], [ %indvars.iv.next214, %wc_ecc_del_point_ex.exit ]
+for.body232:                                      ; preds = %if.end228, %wc_ecc_del_point_ex.argprom.exit
+  %indvars.iv213 = phi i64 [ 0, %if.end228 ], [ %indvars.iv.next214, %wc_ecc_del_point_ex.argprom.exit ]
   %arrayidx234 = getelementptr inbounds [16 x ptr], ptr %precomp, i64 0, i64 %indvars.iv213
   %33 = load ptr, ptr %arrayidx234, align 8
   %cmp.not.i = icmp eq ptr %33, null
-  br i1 %cmp.not.i, label %wc_ecc_del_point_ex.exit, label %if.then.i
+  br i1 %cmp.not.i, label %wc_ecc_del_point_ex.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body232
   call void @sp_clear(ptr noundef nonnull %33) #19
@@ -4783,14 +4783,14 @@ if.then.i:                                        ; preds = %for.body232
   %z.i120 = getelementptr inbounds i8, ptr %33, i64 2080
   call void @sp_clear(ptr noundef nonnull %z.i120) #19
   call void @wolfSSL_Free(ptr noundef nonnull %33) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %for.body232, %if.then.i
+wc_ecc_del_point_ex.argprom.exit:                 ; preds = %for.body232, %if.then.i
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next214, 16
   br i1 %exitcond216.not, label %for.end237, label %for.body232, !llvm.loop !24
 
-for.end237:                                       ; preds = %wc_ecc_del_point_ex.exit
+for.end237:                                       ; preds = %wc_ecc_del_point_ex.argprom.exit
   %34 = ptrtoint ptr %call to i64
   %35 = trunc i64 %34 to i32
   %36 = sub i32 0, %35
@@ -4889,7 +4889,7 @@ return:                                           ; preds = %if.end, %entry, %Fo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecc_mont_norm_points(ptr noundef nonnull %A, ptr noundef %Am, ptr noundef nonnull %B, ptr noundef %Bm, ptr noundef %modulus) unnamed_addr #2 {
+define internal fastcc i32 @ecc_mont_norm_points.argprom(ptr noundef nonnull %A, ptr noundef %Am, ptr noundef nonnull %B, ptr noundef %Bm, ptr noundef %modulus) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %modulus, align 8
   %mul = shl i32 %0, 1
@@ -5163,11 +5163,11 @@ if.end13:                                         ; preds = %lor.lhs.false10
   store ptr %spec_ints.i, ptr %spec_ints1.i, align 8
   %spec_count.i = getelementptr inbounds i8, ptr %curve_lcl.i, i64 56
   store i32 1, ptr %spec_count.i, align 8
-  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef nonnull %2, ptr nonnull %curve_lcl.i, i8 noundef zeroext 8)
+  %call.i = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef nonnull %2, ptr nonnull %curve_lcl.i, i8 noundef zeroext 8)
   %cmp2.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp2.not.i, label %if.end6.i, label %wc_ecc_check_r_s_range.exit.thread
+  br i1 %cmp2.not.i, label %if.end6.i, label %wc_ecc_check_r_s_range.argprom.exit.thread
 
-wc_ecc_check_r_s_range.exit.thread:               ; preds = %if.end13
+wc_ecc_check_r_s_range.argprom.exit.thread:       ; preds = %if.end13
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %spec_ints.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %curve_lcl.i)
   br label %return
@@ -5175,27 +5175,27 @@ wc_ecc_check_r_s_range.exit.thread:               ; preds = %if.end13
 if.end6.i:                                        ; preds = %if.end13
   %3 = load i32, ptr %r, align 8
   %cmp7.i = icmp eq i32 %3, 0
-  br i1 %cmp7.i, label %wc_ecc_check_r_s_range.exit.thread48, label %lor.lhs.false.i
+  br i1 %cmp7.i, label %wc_ecc_check_r_s_range.argprom.exit.thread48, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end6.i
   %4 = load i32, ptr %s, align 8
   %cmp9.i = icmp eq i32 %4, 0
-  br i1 %cmp9.i, label %wc_ecc_check_r_s_range.exit.thread48, label %land.lhs.true.i
+  br i1 %cmp9.i, label %wc_ecc_check_r_s_range.argprom.exit.thread48, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %order.i = getelementptr inbounds i8, ptr %curve_lcl.i, i64 24
   %5 = load ptr, ptr %order.i, align 8
   %call13.i = call i32 @sp_cmp(ptr noundef nonnull %r, ptr noundef %5) #19
   %cmp14.not.i = icmp eq i32 %call13.i, -1
-  br i1 %cmp14.not.i, label %land.lhs.true18.i, label %wc_ecc_check_r_s_range.exit.thread48
+  br i1 %cmp14.not.i, label %land.lhs.true18.i, label %wc_ecc_check_r_s_range.argprom.exit.thread48
 
 land.lhs.true18.i:                                ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %order.i, align 8
   %call20.i = call i32 @sp_cmp(ptr noundef nonnull %s, ptr noundef %6) #19
   %cmp21.not.i = icmp eq i32 %call20.i, -1
-  br i1 %cmp21.not.i, label %if.end17, label %wc_ecc_check_r_s_range.exit.thread48
+  br i1 %cmp21.not.i, label %if.end17, label %wc_ecc_check_r_s_range.argprom.exit.thread48
 
-wc_ecc_check_r_s_range.exit.thread48:             ; preds = %land.lhs.true18.i, %lor.lhs.false.i, %if.end6.i, %land.lhs.true.i
+wc_ecc_check_r_s_range.argprom.exit.thread48:     ; preds = %land.lhs.true18.i, %lor.lhs.false.i, %if.end6.i, %land.lhs.true.i
   %err.3.i.ph = phi i32 [ -3, %land.lhs.true.i ], [ -121, %if.end6.i ], [ -121, %lor.lhs.false.i ], [ -3, %land.lhs.true18.i ]
   call fastcc void @wc_ecc_curve_free(ptr noundef nonnull %curve_lcl.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %spec_ints.i)
@@ -5209,7 +5209,7 @@ if.end17:                                         ; preds = %land.lhs.true18.i
   %7 = load i32, ptr %key, align 8
   %cmp19.not = icmp eq i32 %7, 3
   %8 = load ptr, ptr %dp, align 8
-  %call27 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %8, ptr nonnull %curve_lcl, i8 noundef zeroext 59)
+  %call27 = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef %8, ptr nonnull %curve_lcl, i8 noundef zeroext 59)
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp19.not, label %if.end25, label %if.end56
 
@@ -5233,8 +5233,8 @@ if.end64:                                         ; preds = %if.end32, %if.end56
   call fastcc void @wc_ecc_curve_free(ptr noundef nonnull %curve_lcl)
   br label %return
 
-return:                                           ; preds = %wc_ecc_check_r_s_range.exit.thread48, %wc_ecc_check_r_s_range.exit.thread, %if.end56, %if.end25, %if.end, %lor.lhs.false10, %entry, %if.end64, %do.end37
-  %retval.0 = phi i32 [ %call33, %do.end37 ], [ %call65, %if.end64 ], [ -170, %entry ], [ -170, %lor.lhs.false10 ], [ -170, %if.end ], [ %call27, %if.end25 ], [ %call27, %if.end56 ], [ %call.i, %wc_ecc_check_r_s_range.exit.thread ], [ %err.3.i.ph, %wc_ecc_check_r_s_range.exit.thread48 ]
+return:                                           ; preds = %wc_ecc_check_r_s_range.argprom.exit.thread48, %wc_ecc_check_r_s_range.argprom.exit.thread, %if.end56, %if.end25, %if.end, %lor.lhs.false10, %entry, %if.end64, %do.end37
+  %retval.0 = phi i32 [ %call33, %do.end37 ], [ %call65, %if.end64 ], [ -170, %entry ], [ -170, %lor.lhs.false10 ], [ -170, %if.end ], [ %call27, %if.end25 ], [ %call27, %if.end56 ], [ %call.i, %wc_ecc_check_r_s_range.argprom.exit.thread ], [ %err.3.i.ph, %wc_ecc_check_r_s_range.argprom.exit.thread48 ]
   ret i32 %retval.0
 }
 
@@ -5336,11 +5336,11 @@ cond.false151:                                    ; preds = %if.end146
   %narrow369 = select i1 %19, i32 16, i32 %narrow90
   %cond183 = zext nneg i32 %narrow369 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla126133147, i8 0, i64 %cond183, i1 false)
-  br i1 %cmp137, label %cond.false198, label %wc_ecc_del_point_ex.exit112
+  br i1 %cmp137, label %cond.false198, label %wc_ecc_del_point_ex.argprom.exit112
 
 cond.end182.thread:                               ; preds = %if.end146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla126133147, i8 0, i64 160, i1 false)
-  br i1 %cmp137, label %if.end210, label %wc_ecc_del_point_ex.exit112
+  br i1 %cmp137, label %if.end210, label %wc_ecc_del_point_ex.argprom.exit112
 
 cond.false198:                                    ; preds = %cond.false151
   %22 = lshr i32 %18, 5
@@ -5351,12 +5351,12 @@ if.end210:                                        ; preds = %cond.end182.thread,
   %cond203 = phi i32 [ %23, %cond.false198 ], [ 19, %cond.end182.thread ]
   %call209 = call i32 @sp_init_size(ptr noundef nonnull %vla126133147, i32 noundef %cond203) #19
   %cmp211 = icmp eq i32 %call209, 0
-  br i1 %cmp211, label %if.end3.i, label %wc_ecc_del_point_ex.exit112
+  br i1 %cmp211, label %if.end3.i, label %wc_ecc_del_point_ex.argprom.exit112
 
 if.end3.i:                                        ; preds = %if.end210
   %call.i = call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i = icmp eq ptr %call.i, null
-  br i1 %cmp4.i, label %wc_ecc_del_point_ex.exit112, label %if.end6.i
+  br i1 %cmp4.i, label %wc_ecc_del_point_ex.argprom.exit112, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end3.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i, i8 0, i64 3120, i1 false)
@@ -5364,12 +5364,12 @@ if.end6.i:                                        ; preds = %if.end3.i
   %z.i = getelementptr inbounds i8, ptr %call.i, i64 2080
   %call9.i = call i32 @sp_init_multi(ptr noundef nonnull %call.i, ptr noundef nonnull %y.i, ptr noundef nonnull %z.i, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %cmp10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.i, label %if.end3.i102, label %wc_ecc_del_point_ex.exit112.sink.split
+  br i1 %cmp10.not.i, label %if.end3.i102, label %wc_ecc_del_point_ex.argprom.exit112.sink.split
 
 if.end3.i102:                                     ; preds = %if.end6.i
   %call.i103 = call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i104 = icmp eq ptr %call.i103, null
-  br i1 %cmp4.i104, label %wc_ecc_del_point_ex.exit, label %if.end6.i93
+  br i1 %cmp4.i104, label %wc_ecc_del_point_ex.argprom.exit, label %if.end6.i93
 
 if.end6.i93:                                      ; preds = %if.end3.i102
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i103, i8 0, i64 3120, i1 false)
@@ -5381,86 +5381,86 @@ if.end6.i93:                                      ; preds = %if.end3.i102
 
 if.then12.i99:                                    ; preds = %if.end6.i93
   call void @wolfSSL_Free(ptr noundef nonnull %call.i103) #19
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
 if.end227:                                        ; preds = %if.end6.i93
   %24 = load ptr, ptr %order, align 8
   %call226 = call i32 @sp_invmod(ptr noundef nonnull %s, ptr noundef %24, ptr noundef nonnull %vla126133147) #19
   %cmp228 = icmp eq i32 %call226, 0
-  br i1 %cmp228, label %if.end233, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp228, label %if.end233, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end233:                                        ; preds = %if.end227
   %25 = load ptr, ptr %order, align 8
   %call232 = call i32 @sp_mulmod(ptr noundef nonnull %vla66136145, ptr noundef nonnull %vla126133147, ptr noundef %25, ptr noundef nonnull %vla66136145) #19
   %cmp234 = icmp eq i32 %call232, 0
-  br i1 %cmp234, label %if.end239, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp234, label %if.end239, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end239:                                        ; preds = %if.end233
   %26 = load ptr, ptr %order, align 8
   %call238 = call i32 @sp_mulmod(ptr noundef nonnull %r, ptr noundef nonnull %vla126133147, ptr noundef %26, ptr noundef nonnull %vla126133147) #19
   %cmp240 = icmp eq i32 %call238, 0
-  br i1 %cmp240, label %if.end244, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp240, label %if.end244, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end244:                                        ; preds = %if.end239
   %Gx = getelementptr inbounds i8, ptr %curve, i64 32
   %27 = load ptr, ptr %Gx, align 8
   %call243 = call i32 @sp_copy(ptr noundef %27, ptr noundef nonnull %call.i) #19
   %cmp245 = icmp eq i32 %call243, 0
-  br i1 %cmp245, label %if.end250, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp245, label %if.end250, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end250:                                        ; preds = %if.end244
   %Gy = getelementptr inbounds i8, ptr %curve, i64 40
   %28 = load ptr, ptr %Gy, align 8
   %call249 = call i32 @sp_copy(ptr noundef %28, ptr noundef nonnull %y.i) #19
   %cmp251 = icmp eq i32 %call249, 0
-  br i1 %cmp251, label %if.end256, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp251, label %if.end256, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end256:                                        ; preds = %if.end250
   %call255 = call i32 @sp_set(ptr noundef nonnull %z.i, i64 noundef 1) #19
   %cmp257 = icmp eq i32 %call255, 0
-  br i1 %cmp257, label %if.end265, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp257, label %if.end265, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end265:                                        ; preds = %if.end256
   %pubkey = getelementptr inbounds i8, ptr %key, i64 32
   %call264 = call i32 @sp_copy(ptr noundef nonnull %pubkey, ptr noundef nonnull %call.i103) #19
   %cmp266 = icmp eq i32 %call264, 0
-  br i1 %cmp266, label %if.end275, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp266, label %if.end275, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end275:                                        ; preds = %if.end265
   %y270 = getelementptr inbounds i8, ptr %key, i64 1072
   %call274 = call i32 @sp_copy(ptr noundef nonnull %y270, ptr noundef nonnull %y.i95) #19
   %cmp276 = icmp eq i32 %call274, 0
-  br i1 %cmp276, label %if.end285, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp276, label %if.end285, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end285:                                        ; preds = %if.end275
   %z280 = getelementptr inbounds i8, ptr %key, i64 2112
   %call284 = call i32 @sp_copy(ptr noundef nonnull %z280, ptr noundef nonnull %z.i96) #19
   %cmp286 = icmp eq i32 %call284, 0
-  br i1 %cmp286, label %if.end291, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp286, label %if.end291, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end291:                                        ; preds = %if.end285
   %prime = getelementptr inbounds i8, ptr %curve, i64 8
   %29 = load ptr, ptr %prime, align 8
   %call290 = call i32 @ecc_mul2add(ptr noundef nonnull %call.i, ptr noundef nonnull %vla66136145, ptr noundef nonnull %call.i103, ptr noundef nonnull %vla126133147, ptr noundef nonnull %call.i, ptr poison, ptr noundef %29, ptr poison)
   %cmp292 = icmp eq i32 %call290, 0
-  br i1 %cmp292, label %if.end299, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp292, label %if.end299, label %wc_ecc_del_point_ex.argprom.exit
 
 if.end299:                                        ; preds = %if.end291
   %30 = load ptr, ptr %order, align 8
   %call298 = call i32 @sp_mod(ptr noundef nonnull %call.i, ptr noundef %30, ptr noundef nonnull %vla126133147) #19
   %cmp300 = icmp eq i32 %call298, 0
-  br i1 %cmp300, label %if.then302, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp300, label %if.then302, label %wc_ecc_del_point_ex.argprom.exit
 
 if.then302:                                       ; preds = %if.end299
   %call303 = call i32 @sp_cmp(ptr noundef nonnull %vla126133147, ptr noundef nonnull %r) #19
   %cmp304 = icmp eq i32 %call303, 0
-  br i1 %cmp304, label %if.then306, label %wc_ecc_del_point_ex.exit
+  br i1 %cmp304, label %if.then306, label %wc_ecc_del_point_ex.argprom.exit
 
 if.then306:                                       ; preds = %if.then302
   store i32 1, ptr %res, align 4
-  br label %wc_ecc_del_point_ex.exit
+  br label %wc_ecc_del_point_ex.argprom.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %if.end3.i102, %if.then12.i99, %if.end299, %if.then306, %if.then302, %if.end291, %if.end285, %if.end275, %if.end265, %if.end256, %if.end250, %if.end244, %if.end239, %if.end233, %if.end227
+wc_ecc_del_point_ex.argprom.exit:                 ; preds = %if.end3.i102, %if.then12.i99, %if.end299, %if.then306, %if.then302, %if.end291, %if.end285, %if.end275, %if.end265, %if.end256, %if.end250, %if.end244, %if.end239, %if.end233, %if.end227
   %mQ.0183190203210223230243250263270280286296 = phi ptr [ %call.i103, %if.end227 ], [ %call.i103, %if.end233 ], [ %call.i103, %if.end239 ], [ %call.i103, %if.end244 ], [ %call.i103, %if.end250 ], [ %call.i103, %if.end256 ], [ %call.i103, %if.end265 ], [ %call.i103, %if.end275 ], [ %call.i103, %if.end285 ], [ %call.i103, %if.end291 ], [ %call.i103, %if.then302 ], [ %call.i103, %if.then306 ], [ %call.i103, %if.end299 ], [ null, %if.then12.i99 ], [ null, %if.end3.i102 ]
   %err.14288293 = phi i32 [ %call226, %if.end227 ], [ %call232, %if.end233 ], [ %call238, %if.end239 ], [ %call243, %if.end244 ], [ %call249, %if.end250 ], [ %call255, %if.end256 ], [ %call264, %if.end265 ], [ %call274, %if.end275 ], [ %call284, %if.end285 ], [ %call290, %if.end291 ], [ 0, %if.then302 ], [ 0, %if.then306 ], [ %call298, %if.end299 ], [ %call9.i97, %if.then12.i99 ], [ -125, %if.end3.i102 ]
   call void @sp_clear(ptr noundef nonnull %call.i) #19
@@ -5468,30 +5468,30 @@ wc_ecc_del_point_ex.exit:                         ; preds = %if.end3.i102, %if.t
   call void @sp_clear(ptr noundef nonnull %z.i) #19
   call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
   %cmp.not.i108 = icmp eq ptr %mQ.0183190203210223230243250263270280286296, null
-  br i1 %cmp.not.i108, label %wc_ecc_del_point_ex.exit112, label %if.then.i109
+  br i1 %cmp.not.i108, label %wc_ecc_del_point_ex.argprom.exit112, label %if.then.i109
 
-if.then.i109:                                     ; preds = %wc_ecc_del_point_ex.exit
+if.then.i109:                                     ; preds = %wc_ecc_del_point_ex.argprom.exit
   call void @sp_clear(ptr noundef nonnull %mQ.0183190203210223230243250263270280286296) #19
   %y.i110 = getelementptr inbounds i8, ptr %mQ.0183190203210223230243250263270280286296, i64 1040
   call void @sp_clear(ptr noundef nonnull %y.i110) #19
   %z.i111 = getelementptr inbounds i8, ptr %mQ.0183190203210223230243250263270280286296, i64 2080
   call void @sp_clear(ptr noundef nonnull %z.i111) #19
-  br label %wc_ecc_del_point_ex.exit112.sink.split
+  br label %wc_ecc_del_point_ex.argprom.exit112.sink.split
 
-wc_ecc_del_point_ex.exit112.sink.split:           ; preds = %if.end6.i, %if.then.i109
+wc_ecc_del_point_ex.argprom.exit112.sink.split:   ; preds = %if.end6.i, %if.then.i109
   %call.i.sink = phi ptr [ %mQ.0183190203210223230243250263270280286296, %if.then.i109 ], [ %call.i, %if.end6.i ]
   %err.14288294356.ph = phi i32 [ %err.14288293, %if.then.i109 ], [ %call9.i, %if.end6.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %call.i.sink) #19
-  br label %wc_ecc_del_point_ex.exit112
+  br label %wc_ecc_del_point_ex.argprom.exit112
 
-wc_ecc_del_point_ex.exit112:                      ; preds = %wc_ecc_del_point_ex.exit112.sink.split, %cond.end182.thread, %cond.false151, %if.end3.i, %if.end210, %wc_ecc_del_point_ex.exit
-  %err.14288294356 = phi i32 [ %err.14288293, %wc_ecc_del_point_ex.exit ], [ %call209, %if.end210 ], [ -125, %if.end3.i ], [ %call136, %cond.false151 ], [ %call136, %cond.end182.thread ], [ %err.14288294356.ph, %wc_ecc_del_point_ex.exit112.sink.split ]
+wc_ecc_del_point_ex.argprom.exit112:              ; preds = %wc_ecc_del_point_ex.argprom.exit112.sink.split, %cond.end182.thread, %cond.false151, %if.end3.i, %if.end210, %wc_ecc_del_point_ex.argprom.exit
+  %err.14288294356 = phi i32 [ %err.14288293, %wc_ecc_del_point_ex.argprom.exit ], [ %call209, %if.end210 ], [ -125, %if.end3.i ], [ %call136, %cond.false151 ], [ %call136, %cond.end182.thread ], [ %err.14288294356.ph, %wc_ecc_del_point_ex.argprom.exit112.sink.split ]
   call void @sp_clear(ptr noundef nonnull %vla66136145) #19
   call void @sp_clear(ptr noundef nonnull %vla126133147) #19
   br label %cleanup
 
-cleanup:                                          ; preds = %cond.end115, %wc_ecc_del_point_ex.exit112
-  %retval.0 = phi i32 [ %err.14288294356, %wc_ecc_del_point_ex.exit112 ], [ -125, %cond.end115 ]
+cleanup:                                          ; preds = %cond.end115, %wc_ecc_del_point_ex.argprom.exit112
+  %retval.0 = phi i32 [ %err.14288294356, %wc_ecc_del_point_ex.argprom.exit112 ], [ -125, %cond.end115 ]
   ret i32 %retval.0
 }
 
@@ -5841,7 +5841,7 @@ land.lhs.true:                                    ; preds = %if.then21
   br i1 %cmp26, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %land.lhs.true
-  %call32 = tail call fastcc i32 @_ecc_is_point(ptr noundef nonnull %ecp, ptr noundef nonnull %b, ptr noundef nonnull %prime)
+  %call32 = tail call fastcc i32 @_ecc_is_point.argprom(ptr noundef nonnull %ecp, ptr noundef nonnull %b, ptr noundef nonnull %prime)
   br label %if.end33
 
 if.end33:                                         ; preds = %entry, %if.then21, %land.lhs.true, %if.then7, %if.then13, %if.then31
@@ -5850,7 +5850,7 @@ if.end33:                                         ; preds = %entry, %if.then21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_ecc_is_point(ptr noundef %ecp, ptr noundef %b, ptr noundef %prime) unnamed_addr #2 {
+define internal fastcc i32 @_ecc_is_point.argprom(ptr noundef %ecp, ptr noundef %b, ptr noundef %prime) unnamed_addr #2 {
 entry:
   %t1 = alloca [1 x %struct.sp_int], align 16
   %t2 = alloca [1 x %struct.sp_int], align 16
@@ -5964,7 +5964,7 @@ land.lhs.true.i.i:                                ; preds = %do.end3.i
 if.then9.i:                                       ; preds = %land.lhs.true.i.i, %do.end3.i
   %dp.i = getelementptr inbounds i8, ptr %key, i64 16
   %2 = load ptr, ptr %dp.i, align 8
-  %call10.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef %2, ptr nonnull %curve_lcl.i, i8 noundef zeroext 11)
+  %call10.i = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef %2, ptr nonnull %curve_lcl.i, i8 noundef zeroext 11)
   %cmp12.i = icmp eq i32 %call10.i, 0
   br i1 %cmp12.i, label %if.end15.i, label %if.end70.i
 
@@ -5997,7 +5997,7 @@ if.then31.i:                                      ; preds = %if.then22.i
 
 if.end45.i:                                       ; preds = %if.then31.i
   %7 = load ptr, ptr %prime.i, align 8
-  %call44.i = call fastcc i32 @_ecc_is_point(ptr noundef nonnull %pubkey.i, ptr noundef nonnull %b_lcl.i, ptr noundef %7)
+  %call44.i = call fastcc i32 @_ecc_is_point.argprom(ptr noundef nonnull %pubkey.i, ptr noundef nonnull %b_lcl.i, ptr noundef %7)
   %cmp48.i = icmp eq i32 %call44.i, 0
   br i1 %cmp48.i, label %if.then49.i, label %if.end70.i
 
@@ -6955,7 +6955,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store ptr %spec_ints.i, ptr %spec_ints1.i, align 8
   %spec_count.i = getelementptr inbounds i8, ptr %curve_lcl.i, i64 56
   store i32 1, ptr %spec_count.i, align 8
-  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef nonnull %0, ptr nonnull %curve_lcl.i, i8 noundef zeroext 8)
+  %call.i = call fastcc i32 @wc_ecc_curve_load.argprom(ptr noundef nonnull %0, ptr nonnull %curve_lcl.i, i8 noundef zeroext 8)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end6.i, label %wc_ecc_get_curve_order_bit_count.exit
 

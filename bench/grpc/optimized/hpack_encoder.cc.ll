@@ -463,18 +463,18 @@ terminate.lpad.i70:                               ; preds = %if.then.i.i.i68
 _ZN9grpc_core5SliceD2Ev.exit71:                   ; preds = %invoke.cont31, %if.then.i.i66, %if.then.i.i.i68
   %emit.val4 = load ptr, ptr %emit, align 8
   %cmp.i.i.i72 = icmp ugt ptr %emit.val4, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i72, label %if.then.i.i.i73, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i72, label %if.then.i.i.i73, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i73:                                  ; preds = %_ZN9grpc_core5SliceD2Ev.exit71
   %27 = atomicrmw sub ptr %emit.val4, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %27, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i73
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %emit.val4, i64 8
   %28 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %28(ptr noundef nonnull %emit.val4)
-          to label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   %29 = landingpad { ptr, i32 }
@@ -483,21 +483,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   call void @__clang_call_terminate(ptr %30) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit71, %if.then.i.i.i73, %if.then.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit71, %if.then.i.i.i73, %if.then.i.i.i.i
   %key.val6 = load ptr, ptr %key, align 8
   %cmp.i.i.i74 = icmp ugt ptr %key.val6, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i74, label %if.then.i.i.i75, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
+  br i1 %cmp.i.i.i74, label %if.then.i.i.i75, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit
 
-if.then.i.i.i75:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit
+if.then.i.i.i75:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit
   %31 = atomicrmw sub ptr %key.val6, i64 1 acq_rel, align 8
   %cmp.i.i.i.i76 = icmp eq i64 %31, 1
-  br i1 %cmp.i.i.i.i76, label %if.then.i.i.i.i77, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
+  br i1 %cmp.i.i.i.i76, label %if.then.i.i.i.i77, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit
 
 if.then.i.i.i.i77:                                ; preds = %if.then.i.i.i75
   %destroyer_fn_.i.i.i.i78 = getelementptr inbounds i8, ptr %key.val6, i64 8
   %32 = load ptr, ptr %destroyer_fn_.i.i.i.i78, align 8
   invoke void %32(ptr noundef nonnull %key.val6)
-          to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i79
+          to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit unwind label %terminate.lpad.i.i79
 
 terminate.lpad.i.i79:                             ; preds = %if.then.i.i.i.i77
   %33 = landingpad { ptr, i32 }
@@ -506,7 +506,7 @@ terminate.lpad.i.i79:                             ; preds = %if.then.i.i.i.i77
   call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit:   ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit, %if.then.i.i.i75, %if.then.i.i.i.i77
+_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit, %if.then.i.i.i75, %if.then.i.i.i.i77
   ret i32 %call26
 
 lpad3:                                            ; preds = %if.else.i.i, %invoke.cont4
@@ -534,13 +534,13 @@ lpad30:                                           ; preds = %invoke.cont25
 ehcleanup:                                        ; preds = %lpad30, %lpad18
   %emit.val5 = phi ptr [ null, %lpad30 ], [ %15, %lpad18 ]
   %.pn = phi { ptr, i32 } [ %38, %lpad30 ], [ %37, %lpad18 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev(ptr %emit.val5) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom(ptr %emit.val5) #22
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %ehcleanup, %lpad.i39, %lpad12, %lpad3
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %17, %lpad.i39 ], [ %36, %lpad12 ], [ %35, %lpad3 ]
   %key.val7 = load ptr, ptr %key, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val7) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom(ptr %key.val7) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup32, %lpad.i
@@ -584,7 +584,7 @@ declare void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull a
 declare noundef i32 @_ZN9grpc_core17HPackEncoderTable13AllocateIndexEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp ugt ptr %this.0.val, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
@@ -612,7 +612,7 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp ugt ptr %this.0.val, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
@@ -859,18 +859,18 @@ terminate.lpad.i50:                               ; preds = %if.then.i.i.i48
 _ZN9grpc_core5SliceD2Ev.exit51:                   ; preds = %invoke.cont26, %if.then.i.i46, %if.then.i.i.i48
   %emit.val7 = load ptr, ptr %emit, align 8
   %cmp.i.i.i.i = icmp ugt ptr %emit.val7, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5SliceD2Ev.exit51
   %32 = atomicrmw sub ptr %emit.val7, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %32, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val7, i64 8
   %33 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
   invoke void %33(ptr noundef nonnull %emit.val7)
-          to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %34 = landingpad { ptr, i32 }
@@ -879,21 +879,21 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   call void @__clang_call_terminate(ptr %35) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit51, %if.then.i.i.i.i, %if.then.i.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit51, %if.then.i.i.i.i, %if.then.i.i.i.i.i
   %key.val5 = load ptr, ptr %key, align 8
   %cmp.i.i.i52 = icmp ugt ptr %key.val5, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i52, label %if.then.i.i.i53, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
+  br i1 %cmp.i.i.i52, label %if.then.i.i.i53, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit
 
-if.then.i.i.i53:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
+if.then.i.i.i53:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit
   %36 = atomicrmw sub ptr %key.val5, i64 1 acq_rel, align 8
   %cmp.i.i.i.i54 = icmp eq i64 %36, 1
-  br i1 %cmp.i.i.i.i54, label %if.then.i.i.i.i55, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
+  br i1 %cmp.i.i.i.i54, label %if.then.i.i.i.i55, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit
 
 if.then.i.i.i.i55:                                ; preds = %if.then.i.i.i53
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %key.val5, i64 8
   %37 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %37(ptr noundef nonnull %key.val5)
-          to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i55
   %38 = landingpad { ptr, i32 }
@@ -902,7 +902,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i55
   call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit:   ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit, %if.then.i.i.i53, %if.then.i.i.i.i55
+_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit, %if.then.i.i.i53, %if.then.i.i.i.i55
   ret void
 
 lpad2:                                            ; preds = %if.else.i.i, %invoke.cont3
@@ -937,13 +937,13 @@ lpad25:                                           ; preds = %invoke.cont21
 ehcleanup:                                        ; preds = %lpad25, %lpad16
   %emit.val8 = phi ptr [ null, %lpad25 ], [ %emit.val8.pre, %lpad16 ]
   %.pn = phi { ptr, i32 } [ %44, %lpad25 ], [ %43, %lpad16 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val8) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom(ptr %emit.val8) #22
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %ehcleanup, %lpad13, %lpad10, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %42, %lpad13 ], [ %41, %lpad10 ], [ %40, %lpad2 ]
   %key.val4 = load ptr, ptr %key, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val4) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom(ptr %key.val4) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup27, %lpad.i
@@ -1080,7 +1080,7 @@ lpad3:                                            ; preds = %if.then.i, %cond.en
   %9 = landingpad { ptr, i32 }
           cleanup
   %this.val = load ptr, ptr %this, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev(ptr %this.val) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.argprom(ptr %this.val) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad3, %lpad
@@ -1089,21 +1089,21 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i.i = icmp ugt ptr %this.0.val, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   %0 = atomicrmw sub ptr %this.0.val, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %0, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %1(ptr noundef nonnull %this.0.val)
-          to label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -1112,7 +1112,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   tail call void @__clang_call_terminate(ptr %3) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.exit:   ; preds = %entry, %if.then.i.i.i, %if.then.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.argprom.exit: ; preds = %entry, %if.then.i.i.i, %if.then.i.i.i.i
   ret void
 }
 
@@ -1354,18 +1354,18 @@ terminate.lpad.i52:                               ; preds = %if.then.i.i.i50
 _ZN9grpc_core5SliceD2Ev.exit53:                   ; preds = %invoke.cont32, %if.then.i.i48, %if.then.i.i.i50
   %emit.val8 = load ptr, ptr %emit, align 8
   %cmp.i.i.i.i = icmp ugt ptr %emit.val8, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5SliceD2Ev.exit53
   %36 = atomicrmw sub ptr %emit.val8, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %36, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val8, i64 8
   %37 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
   invoke void %37(ptr noundef nonnull %emit.val8)
-          to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %38 = landingpad { ptr, i32 }
@@ -1374,21 +1374,21 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit53, %if.then.i.i.i.i, %if.then.i.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit53, %if.then.i.i.i.i, %if.then.i.i.i.i.i
   %key.val5 = load ptr, ptr %key, align 8
   %cmp.i.i.i54 = icmp ugt ptr %key.val5, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i54, label %if.then.i.i.i55, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
+  br i1 %cmp.i.i.i54, label %if.then.i.i.i55, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit
 
-if.then.i.i.i55:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
+if.then.i.i.i55:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit
   %40 = atomicrmw sub ptr %key.val5, i64 1 acq_rel, align 8
   %cmp.i.i.i.i56 = icmp eq i64 %40, 1
-  br i1 %cmp.i.i.i.i56, label %if.then.i.i.i.i57, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
+  br i1 %cmp.i.i.i.i56, label %if.then.i.i.i.i57, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit
 
 if.then.i.i.i.i57:                                ; preds = %if.then.i.i.i55
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %key.val5, i64 8
   %41 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %41(ptr noundef nonnull %key.val5)
-          to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i57
   %42 = landingpad { ptr, i32 }
@@ -1397,7 +1397,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i57
   call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit:   ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit, %if.then.i.i.i55, %if.then.i.i.i.i57
+_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit, %if.then.i.i.i55, %if.then.i.i.i.i57
   ret i32 %call27
 
 lpad2:                                            ; preds = %if.else.i.i, %invoke.cont3
@@ -1432,13 +1432,13 @@ lpad31:                                           ; preds = %invoke.cont26
 ehcleanup:                                        ; preds = %lpad31, %lpad17
   %emit.val7 = phi ptr [ null, %lpad31 ], [ %emit.val7.pre, %lpad17 ]
   %.pn = phi { ptr, i32 } [ %48, %lpad31 ], [ %47, %lpad17 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val7) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom(ptr %emit.val7) #22
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup, %lpad14, %lpad11, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %46, %lpad14 ], [ %45, %lpad11 ], [ %44, %lpad2 ]
   %key.val4 = load ptr, ptr %key, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val4) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom(ptr %key.val4) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup33, %lpad.i
@@ -1591,18 +1591,18 @@ terminate.lpad.i24:                               ; preds = %if.then.i.i.i22
 _ZN9grpc_core5SliceD2Ev.exit25:                   ; preds = %invoke.cont17, %if.then.i.i20, %if.then.i.i.i22
   %emit.val6 = load ptr, ptr %emit, align 8
   %cmp.i.i.i.i = icmp ugt ptr %emit.val6, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5SliceD2Ev.exit25
   %22 = atomicrmw sub ptr %emit.val6, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %22, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val6, i64 8
   %23 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
   invoke void %23(ptr noundef nonnull %emit.val6)
-          to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %24 = landingpad { ptr, i32 }
@@ -1611,7 +1611,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   call void @__clang_call_terminate(ptr %25) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit25, %if.then.i.i.i.i, %if.then.i.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit25, %if.then.i.i.i.i, %if.then.i.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %entry
@@ -1635,7 +1635,7 @@ lpad16:                                           ; preds = %invoke.cont12
 ehcleanup:                                        ; preds = %lpad16, %lpad2
   %emit.val5 = phi ptr [ null, %lpad16 ], [ %emit.val5.pre, %lpad2 ]
   %.pn = phi { ptr, i32 } [ %28, %lpad16 ], [ %27, %lpad2 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val5) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.argprom(ptr %emit.val5) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
@@ -1855,18 +1855,18 @@ terminate.lpad.i66:                               ; preds = %if.then.i.i.i64
 _ZN9grpc_core5SliceD2Ev.exit67:                   ; preds = %invoke.cont26, %if.then.i.i62, %if.then.i.i.i64
   %emit.val5 = load ptr, ptr %emit, align 8
   %cmp.i.i.i68 = icmp ugt ptr %emit.val5, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i68, label %if.then.i.i.i69, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i68, label %if.then.i.i.i69, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i69:                                  ; preds = %_ZN9grpc_core5SliceD2Ev.exit67
   %22 = atomicrmw sub ptr %emit.val5, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %22, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i69
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %emit.val5, i64 8
   %23 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %23(ptr noundef nonnull %emit.val5)
-          to label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   %24 = landingpad { ptr, i32 }
@@ -1875,21 +1875,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   call void @__clang_call_terminate(ptr %25) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit67, %if.then.i.i.i69, %if.then.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit67, %if.then.i.i.i69, %if.then.i.i.i.i
   %key.val7 = load ptr, ptr %key, align 8
   %cmp.i.i.i70 = icmp ugt ptr %key.val7, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i70, label %if.then.i.i.i71, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
+  br i1 %cmp.i.i.i70, label %if.then.i.i.i71, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit
 
-if.then.i.i.i71:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit
+if.then.i.i.i71:                                  ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit
   %26 = atomicrmw sub ptr %key.val7, i64 1 acq_rel, align 8
   %cmp.i.i.i.i72 = icmp eq i64 %26, 1
-  br i1 %cmp.i.i.i.i72, label %if.then.i.i.i.i73, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
+  br i1 %cmp.i.i.i.i72, label %if.then.i.i.i.i73, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit
 
 if.then.i.i.i.i73:                                ; preds = %if.then.i.i.i71
   %destroyer_fn_.i.i.i.i74 = getelementptr inbounds i8, ptr %key.val7, i64 8
   %27 = load ptr, ptr %destroyer_fn_.i.i.i.i74, align 8
   invoke void %27(ptr noundef nonnull %key.val7)
-          to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i75
+          to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit unwind label %terminate.lpad.i.i75
 
 terminate.lpad.i.i75:                             ; preds = %if.then.i.i.i.i73
   %28 = landingpad { ptr, i32 }
@@ -1898,7 +1898,7 @@ terminate.lpad.i.i75:                             ; preds = %if.then.i.i.i.i73
   call void @__clang_call_terminate(ptr %29) #23
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit:   ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit, %if.then.i.i.i71, %if.then.i.i.i.i73
+_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom.exit, %if.then.i.i.i71, %if.then.i.i.i.i73
   ret void
 
 lpad2:                                            ; preds = %if.else.i.i, %invoke.cont3
@@ -1926,13 +1926,13 @@ lpad25:                                           ; preds = %invoke.cont21
 ehcleanup:                                        ; preds = %lpad25, %lpad16
   %emit.val4 = phi ptr [ null, %lpad25 ], [ %11, %lpad16 ]
   %.pn = phi { ptr, i32 } [ %33, %lpad25 ], [ %32, %lpad16 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev(ptr %emit.val4) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.argprom(ptr %emit.val4) #22
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %ehcleanup, %lpad.i35, %lpad10, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %13, %lpad.i35 ], [ %31, %lpad10 ], [ %30, %lpad2 ]
   %key.val6 = load ptr, ptr %key, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val6) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.argprom(ptr %key.val6) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup27, %lpad.i
@@ -3635,7 +3635,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.argprom(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp ugt ptr %this.0.val, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core5SliceD2Ev.exit

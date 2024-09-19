@@ -3854,7 +3854,7 @@ for.cond.preheader:                               ; preds = %lor.lhs.false28
   %3 = getelementptr inbounds i8, ptr %pkt, i64 8
   br label %for.cond
 
-for.cond:                                         ; preds = %for.cond.preheader, %tparam_handle.exit
+for.cond:                                         ; preds = %for.cond.preheader, %tparam_handle.argprom.exit
   %pkt.val = load i64, ptr %3, align 8
   %cmp37.not = icmp eq i64 %pkt.val, 0
   br i1 %cmp37.not, label %for.end, label %for.body
@@ -3877,7 +3877,7 @@ if.end46:                                         ; preds = %for.body
   %arg.val = load ptr, ptr %arg, align 8
   %op.i = getelementptr inbounds i8, ptr %arg.val, i64 8
   %6 = load i32, ptr %op.i, align 8
-  switch i32 %6, label %tparam_handle.exit [
+  switch i32 %6, label %tparam_handle.argprom.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb9.i
     i32 5, label %sw.bb9.i
@@ -3891,7 +3891,7 @@ sw.bb.i:                                          ; preds = %if.end46
   %call.i = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %wpkt, i64 noundef %4, ptr noundef %call39, i64 noundef %5) #9
   %call2.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1840, ptr noundef nonnull @.str.312, ptr noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %tparam_handle.exit, label %if.end.i34
+  br i1 %tobool.not.i, label %tparam_handle.argprom.exit, label %if.end.i34
 
 if.end.i34:                                       ; preds = %sw.bb.i
   %7 = load i64, ptr %arg.val, align 8
@@ -3902,10 +3902,10 @@ land.lhs.true.i:                                  ; preds = %if.end.i34
   %call4.i = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %wpkt, i64 noundef %4, ptr noundef %call39, i64 noundef %5) #9
   %call5.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1848, ptr noundef nonnull @.str.312, ptr noundef %call4.i) #9
   %tobool6.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i, label %tparam_handle.exit, label %if.end8.i
+  br i1 %tobool6.not.i, label %tparam_handle.argprom.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %land.lhs.true.i, %if.end.i34
-  br label %tparam_handle.exit
+  br label %tparam_handle.argprom.exit
 
 sw.bb9.i:                                         ; preds = %if.end46, %if.end46
   %8 = load i64, ptr %arg.val, align 8
@@ -3916,17 +3916,17 @@ land.lhs.true12.i:                                ; preds = %sw.bb9.i
   %call13.i = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %wpkt, i64 noundef %4, ptr noundef %call39, i64 noundef %5) #9
   %call14.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1858, ptr noundef nonnull @.str.312, ptr noundef %call13.i) #9
   %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %tparam_handle.exit, label %if.end17.i
+  br i1 %tobool15.not.i, label %tparam_handle.argprom.exit, label %if.end17.i
 
 if.end17.i:                                       ; preds = %land.lhs.true12.i, %sw.bb9.i
-  br label %tparam_handle.exit
+  br label %tparam_handle.argprom.exit
 
 sw.bb18.i:                                        ; preds = %if.end46, %if.end46, %if.end46
   %call19.i = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %wpkt, i64 noundef %4, ptr noundef %call39, i64 noundef %5) #9
   %call20.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1868, ptr noundef nonnull @.str.312, ptr noundef %call19.i) #9
   %tobool21.not.i = icmp ne i32 %call20.i, 0
   %..i = zext i1 %tobool21.not.i to i32
-  br label %tparam_handle.exit
+  br label %tparam_handle.argprom.exit
 
 sw.bb24.i:                                        ; preds = %if.end46
   %9 = load i64, ptr %arg.val, align 8
@@ -3936,7 +3936,7 @@ sw.bb24.i:                                        ; preds = %if.end46
 if.then27.i:                                      ; preds = %sw.bb24.i
   %call28.i = call i32 @test_size_t_gt(ptr noundef nonnull @.str.14, i32 noundef 1875, ptr noundef nonnull @.str.313, ptr noundef nonnull @.str.64, i64 noundef %5, i64 noundef 0) #9
   %tobool29.not.i = icmp eq i32 %call28.i, 0
-  br i1 %tobool29.not.i, label %tparam_handle.exit, label %if.end31.i
+  br i1 %tobool29.not.i, label %tparam_handle.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then27.i
   %10 = load i8, ptr %call39, align 1
@@ -3948,20 +3948,20 @@ if.end33.i:                                       ; preds = %if.end31.i, %sw.bb2
   %call34.i = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %wpkt, i64 noundef %4, ptr noundef %call39, i64 noundef %5) #9
   %call35.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1882, ptr noundef nonnull @.str.312, ptr noundef %call34.i) #9
   %tobool36.not.i = icmp eq i32 %call35.i, 0
-  br i1 %tobool36.not.i, label %tparam_handle.exit, label %if.end38.i
+  br i1 %tobool36.not.i, label %tparam_handle.argprom.exit, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end33.i
   %12 = load i64, ptr %arg.val, align 8
   %cmp40.i = icmp eq i64 %4, %12
-  br i1 %cmp40.i, label %if.then42.i, label %tparam_handle.exit
+  br i1 %cmp40.i, label %if.then42.i, label %tparam_handle.argprom.exit
 
 if.then42.i:                                      ; preds = %if.end38.i
   %13 = load i8, ptr %call39, align 1
   %14 = xor i8 %13, 1
   store i8 %14, ptr %call39, align 1
-  br label %tparam_handle.exit
+  br label %tparam_handle.argprom.exit
 
-tparam_handle.exit:                               ; preds = %if.end46, %sw.bb.i, %land.lhs.true.i, %if.end8.i, %land.lhs.true12.i, %if.end17.i, %sw.bb18.i, %if.then27.i, %if.end33.i, %if.end38.i, %if.then42.i
+tparam_handle.argprom.exit:                       ; preds = %if.end46, %sw.bb.i, %land.lhs.true.i, %if.end8.i, %land.lhs.true12.i, %if.end17.i, %sw.bb18.i, %if.then27.i, %if.end33.i, %if.end38.i, %if.then42.i
   %retval.0.i33 = phi i32 [ 1, %if.end17.i ], [ 1, %if.end8.i ], [ 0, %sw.bb.i ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true12.i ], [ %..i, %sw.bb18.i ], [ 0, %if.then27.i ], [ 0, %if.end33.i ], [ 1, %if.then42.i ], [ 1, %if.end38.i ], [ 0, %if.end46 ]
   %call50 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1949, ptr noundef nonnull @.str.307, i32 noundef %retval.0.i33) #9
   %tobool51.not = icmp eq i32 %call50, 0
@@ -4070,7 +4070,7 @@ if.end129:                                        ; preds = %if.end122
   store i8 %conv146, ptr %arrayidx148, align 1
   br label %if.end151
 
-if.then150:                                       ; preds = %tparam_handle.exit, %if.then42, %if.end115, %if.end108, %land.lhs.true, %if.then66, %if.then95, %lor.lhs.false28, %if.end22
+if.then150:                                       ; preds = %tparam_handle.argprom.exit, %if.then42, %if.end115, %if.end108, %land.lhs.true, %if.then66, %if.then95, %lor.lhs.false28, %if.end22
   call void @WPACKET_cleanup(ptr noundef nonnull %wpkt) #9
   br label %if.end151
 

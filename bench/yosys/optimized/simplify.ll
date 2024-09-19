@@ -29686,7 +29686,7 @@ define noundef nonnull ptr @_ZN5Yosys3AST7AstNode16make_index_rangeEPS1_b(ptr no
   %13 = getelementptr inbounds i8, ptr %1, i64 160
   %14 = load i32, ptr %13, align 8
   %15 = sub nsw i32 %12, %14
-  %16 = tail call fastcc noundef ptr @_ZN5YosysL10make_rangeEiib(i32 noundef %15)
+  %16 = tail call fastcc noundef ptr @_ZN5YosysL10make_rangeEiib.argelim(i32 noundef %15)
   br label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit52
 
 17:                                               ; preds = %3
@@ -30068,7 +30068,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit52: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN5YosysL10make_rangeEiib(i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN5YosysL10make_rangeEiib.argelim(i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #37
   invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %2, i32 noundef 14, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %3 unwind label %69
@@ -30527,7 +30527,7 @@ define noundef ptr @_ZN5Yosys3AST7AstNode18lookup_cell_moduleEv(ptr noundef nonn
   br i1 %.not55, label %272, label %33
 
 33:                                               ; preds = %30
-  call fastcc void @"_ZZN5Yosys3AST7AstNode18lookup_cell_moduleEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %23)
+  call fastcc void @"_ZZN5Yosys3AST7AstNode18lookup_cell_moduleEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %23)
   br label %272
 
 .thread:                                          ; preds = %22, %29
@@ -30963,7 +30963,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit86:              ; preds = %.thread113, %216, %
   br i1 %.not57, label %243, label %244
 
 243:                                              ; preds = %242
-  invoke fastcc void @"_ZZN5Yosys3AST7AstNode18lookup_cell_moduleEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @"_ZZN5Yosys3AST7AstNode18lookup_cell_moduleEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %244 unwind label %236
 
 244:                                              ; preds = %243, %242
@@ -31146,7 +31146,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys3AST7AstNode18lookup_cell_moduleEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys3AST7AstNode18lookup_cell_moduleEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::tuple.300", align 8
   %3 = alloca %"class.std::tuple.303", align 1
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -39983,7 +39983,7 @@ define internal fastcc noundef nonnull ptr @_ZN5YosysL18make_packed_structEPNS_3
   %8 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #37
   %9 = getelementptr inbounds i8, ptr %0, i64 156
   %10 = load i32, ptr %9, align 4
-  %11 = invoke fastcc noundef ptr @_ZN5YosysL10make_rangeEiib(i32 noundef %10)
+  %11 = invoke fastcc noundef ptr @_ZN5YosysL10make_rangeEiib.argelim(i32 noundef %10)
           to label %12 unwind label %74
 
 12:                                               ; preds = %3
@@ -41773,7 +41773,7 @@ define void @_ZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringI
 
 20:                                               ; preds = %17
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %.0.in84)
-  invoke fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias writable align 8 %5, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  invoke fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %21 unwind label %25
 
 21:                                               ; preds = %20
@@ -41820,7 +41820,7 @@ define void @_ZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringI
           to label %33 unwind label %.loopexit71
 
 33:                                               ; preds = %32
-  invoke fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias writable align 8 %6, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_.argprom"(ptr dead_on_unwind noalias writable align 8 %6, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
@@ -47027,7 +47027,7 @@ declare noundef ptr @_ZN5Yosys16VERILOG_FRONTEND9const2astENSt7__cxx1112basic_st
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys12AST_INTERNAL13current_scopeB5cxx11E, i64 16), align 8
@@ -63287,7 +63287,7 @@ _ZNKSt3setIPKN5Yosys3AST7AstNodeESt4lessIS4_ESaIS4_EE5countERKS4_.exit.i.i.i: ; 
 
 17:                                               ; preds = %_ZNKSt3setIPKN5Yosys3AST7AstNodeESt4lessIS4_ESaIS4_EE5countERKS4_.exit.i.i.i
   %18 = icmp eq ptr %.val2, %6
-  br label %"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.argprom.exit"
 
 .lr.ph.i.i.i5.i.i.i:                              ; preds = %.lr.ph.i.i.i5.i.i.i.preheader, %.lr.ph.i.i.i5.i.i.i
   %.02024.i.i.i.i.i.i = phi ptr [ %.020.i.i.i.i.i.i, %.lr.ph.i.i.i5.i.i.i ], [ %9, %.lr.ph.i.i.i5.i.i.i.preheader ]
@@ -63421,7 +63421,7 @@ _ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit.i.i.i: ; preds = %_ZNSt3ma
   %69 = load ptr, ptr %68, align 8
   %70 = call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %70, label %"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit", label %.critedge.i.i.i
+  br i1 %70, label %"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.argprom.exit", label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %_ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5Yosys3AST7AstNodeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i.i, %44, %_ZNSt3setIPKN5Yosys3AST7AstNodeESt4lessIS4_ESaIS4_EE6insertERKS4_.exit.i.i.i
   %71 = getelementptr inbounds i8, ptr %.val2, i64 8
@@ -63429,7 +63429,7 @@ _ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit.i.i.i: ; preds = %_ZNSt3ma
   %73 = getelementptr inbounds i8, ptr %.val2, i64 16
   %74 = load ptr, ptr %73, align 8
   %.not31.i.i.i = icmp eq ptr %72, %74
-  br i1 %.not31.i.i.i, label %"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit", label %.lr.ph.i.i.i
+  br i1 %.not31.i.i.i, label %"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.argprom.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge.i.i.i
   %75 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -63458,16 +63458,16 @@ _ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit16.i.i.i: ; preds = %76
   %85 = getelementptr inbounds i8, ptr %.sroa.017.032.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %85, %74
   %or.cond = select i1 %84, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond, label %"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit", label %76
+  br i1 %or.cond, label %"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.argprom.exit", label %76
 
-"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit16.i.i.i, %17, %_ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit.i.i.i, %.critedge.i.i.i
+"_ZSt10__invoke_rIbRZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0JPKS2_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit16.i.i.i, %17, %_ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit.i.i.i, %.critedge.i.i.i
   %.0.i.i.i = phi i1 [ %18, %17 ], [ true, %_ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit.i.i.i ], [ false, %.critedge.i.i.i ], [ %84, %_ZNKSt8functionIFbPKN5Yosys3AST7AstNodeEEEclES4_.exit16.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5Yosys3AST7AstNodeEEZNKS2_21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -63476,30 +63476,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5Yosys3AST7As
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #35
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

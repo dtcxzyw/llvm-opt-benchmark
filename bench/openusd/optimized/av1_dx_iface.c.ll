@@ -1945,7 +1945,7 @@ define internal range(i32 0, 9) i32 @ctrl_set_ext_ref_ptr(ptr nocapture noundef 
   %25 = getelementptr inbounds i8, ptr %24, i64 168
   store ptr %25, ptr %17, align 8
   %26 = getelementptr inbounds [128 x %struct.yv12_buffer_config], ptr %21, i64 0, i64 %indvars.iv
-  tail call fastcc void @image2yuvconfig(ptr noundef %24, ptr noundef nonnull %26)
+  tail call fastcc void @image2yuvconfig.retelim(ptr noundef %24, ptr noundef nonnull %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %22, align 8
   %28 = sext i32 %27 to i64
@@ -3626,7 +3626,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_s_frame_info(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @image2yuvconfig(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc void @image2yuvconfig.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40

@@ -320,7 +320,7 @@ panic_other_cpus_shutdown.exit:                   ; preds = %36, %40
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 24), align 8
   call void %41(i32 noundef 0) #18
   %42 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @panic_notifier_list, i64 noundef 0, ptr noundef nonnull @panic.buf) #18
-  call fastcc void @panic_print_sys_info()
+  call fastcc void @panic_print_sys_info.argelim()
   call void @kmsg_dump(i32 noundef 1) #18
   br label %49
 
@@ -337,7 +337,7 @@ panic_other_cpus_shutdown.exit:                   ; preds = %36, %40
 panic_other_cpus_shutdown.exit9:                  ; preds = %43, %47
   call void @crash_smp_send_stop()
   %48 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @panic_notifier_list, i64 noundef 0, ptr noundef nonnull @panic.buf) #18
-  call fastcc void @panic_print_sys_info()
+  call fastcc void @panic_print_sys_info.argelim()
   call void @kmsg_dump(i32 noundef 1) #18
   call void @__crash_kexec(ptr noundef null) #18
   br label %49
@@ -532,7 +532,7 @@ declare dso_local void @__crash_kexec(ptr noundef) local_unnamed_addr #6
 declare dso_local i32 @atomic_notifier_call_chain(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @panic_print_sys_info() unnamed_addr #2 align 16 {
+define internal fastcc void @panic_print_sys_info.argelim() unnamed_addr #2 align 16 {
   %1 = load i64, ptr @panic_print, align 8
   %2 = and i64 %1, 1
   %3 = icmp eq i64 %2, 0

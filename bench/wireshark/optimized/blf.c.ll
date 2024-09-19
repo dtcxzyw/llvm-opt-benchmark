@@ -1281,7 +1281,7 @@ switch.lookup:                                    ; preds = %230
   %264 = getelementptr inbounds i8, ptr %260, i64 16
   %265 = load i64, ptr %264, align 8
   %266 = sub i64 %263, %265
-  tail call fastcc void @blf_set_xml_channels(ptr noundef readonly %0, ptr noundef %261, i64 noundef %266)
+  tail call fastcc void @blf_set_xml_channels.retelim(ptr noundef readonly %0, ptr noundef %261, i64 noundef %266)
   br label %267
 
 267:                                              ; preds = %259, %257
@@ -4946,7 +4946,7 @@ declare void @wtap_buffer_append_epdu_string(ptr noundef, i16 noundef zeroext, p
 declare i32 @wtap_buffer_append_epdu_end(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @blf_set_xml_channels(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc void @blf_set_xml_channels.retelim(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8

@@ -628,9 +628,9 @@ define void @Gia_ObjSetPhase(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %26 = getelementptr i8, ptr %0, i64 40
   %.val41 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %.val41, null
-  br i1 %.not.i.i, label %Gia_ObjIsXor.exit, label %Gia_ObjIsMux.exit
+  br i1 %.not.i.i, label %Gia_ObjIsXor.argprom.exit, label %Gia_ObjIsMux.argprom.exit
 
-Gia_ObjIsMux.exit:                                ; preds = %6
+Gia_ObjIsMux.argprom.exit:                        ; preds = %6
   %27 = ptrtoint ptr %1 to i64
   %28 = ptrtoint ptr %.val40 to i64
   %29 = sub i64 %27, %28
@@ -640,9 +640,9 @@ Gia_ObjIsMux.exit:                                ; preds = %6
   %32 = getelementptr inbounds i8, ptr %.val41, i64 %31
   %33 = load i32, ptr %32, align 4
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %Gia_ObjIsXor.exit, label %Gia_ObjFaninC2.exit
+  br i1 %.not, label %Gia_ObjIsXor.argprom.exit, label %Gia_ObjFaninC2.exit
 
-Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjIsMux.exit
+Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjIsMux.argprom.exit
   %34 = ashr i32 %33, 1
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val40, i64 %35
@@ -661,22 +661,22 @@ Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjIsMux.exit
   %46 = or disjoint i64 %44, %45
   br label %71
 
-Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, %6
+Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMux.argprom.exit, %6
   %47 = and i32 %11, 536870911
   %48 = trunc nuw i64 %15 to i32
   %49 = and i32 %48, 536870911
   %.not53 = icmp ult i32 %47, %49
   %50 = and i64 %.val, 9223372034707292159
-  br i1 %.not53, label %51, label %Gia_ObjIsXor.exit.thread
+  br i1 %.not53, label %51, label %Gia_ObjIsXor.argprom.exit.thread
 
-51:                                               ; preds = %Gia_ObjIsXor.exit
+51:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %52 = xor i32 %24, %14
   %53 = zext nneg i32 %52 to i64
   %54 = shl nuw i64 %53, 63
   %55 = or disjoint i64 %54, %50
   br label %71
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Gia_ObjIsXor.argprom.exit
   %56 = and i32 %24, %14
   %57 = zext nneg i32 %56 to i64
   %58 = shl nuw i64 %57, 63
@@ -703,8 +703,8 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
   %70 = and i64 %.val, 9223372036854775807
   br label %71
 
-71:                                               ; preds = %61, %69, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.exit.thread, %51
-  %.sink = phi i64 [ %68, %61 ], [ %70, %69 ], [ %46, %Gia_ObjFaninC2.exit ], [ %59, %Gia_ObjIsXor.exit.thread ], [ %55, %51 ]
+71:                                               ; preds = %61, %69, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.argprom.exit.thread, %51
+  %.sink = phi i64 [ %68, %61 ], [ %70, %69 ], [ %46, %Gia_ObjFaninC2.exit ], [ %59, %Gia_ObjIsXor.argprom.exit.thread ], [ %55, %51 ]
   store i64 %.sink, ptr %1, align 4
   ret void
 }
@@ -1170,7 +1170,7 @@ define noundef i32 @Gia_ManLevelNum(ptr nocapture noundef %0) local_unnamed_addr
   %28 = sdiv exact i64 %27, 12
   %29 = trunc i64 %28 to i32
   %30 = add nsw i32 %29, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val4.i, i32 noundef %30)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val4.i, i32 noundef %30)
   %31 = getelementptr i8, ptr %.val4.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %31, align 8
   %sext.i.i = shl i64 %28, 32
@@ -1185,7 +1185,7 @@ define noundef i32 @Gia_ManLevelNum(ptr nocapture noundef %0) local_unnamed_addr
   %38 = sdiv exact i64 %37, 12
   %39 = trunc i64 %38 to i32
   %40 = add nsw i32 %39, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i, i32 noundef %40)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i, i32 noundef %40)
   %41 = getelementptr i8, ptr %.val6.i, i64 8
   %.val.i.i.i7.i = load ptr, ptr %41, align 8
   %sext.i8.i = shl i64 %38, 32
@@ -1221,7 +1221,7 @@ define noundef i32 @Gia_ManLevelNum(ptr nocapture noundef %0) local_unnamed_addr
   %55 = sdiv exact i64 %54, 12
   %56 = trunc i64 %55 to i32
   %57 = add nsw i32 %56, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val4.i42, i32 noundef %57)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val4.i42, i32 noundef %57)
   %58 = getelementptr i8, ptr %.val4.i42, i64 8
   %.val.i.i.i.i43 = load ptr, ptr %58, align 8
   %sext.i.i44 = shl i64 %55, 32
@@ -1236,7 +1236,7 @@ define noundef i32 @Gia_ManLevelNum(ptr nocapture noundef %0) local_unnamed_addr
   %65 = sdiv exact i64 %64, 12
   %66 = trunc i64 %65 to i32
   %67 = add nsw i32 %66, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i46, i32 noundef %67)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i46, i32 noundef %67)
   %68 = getelementptr i8, ptr %.val6.i46, i64 8
   %.val.i.i.i7.i47 = load ptr, ptr %68, align 8
   %sext.i8.i48 = shl i64 %65, 32
@@ -1249,7 +1249,7 @@ define noundef i32 @Gia_ManLevelNum(ptr nocapture noundef %0) local_unnamed_addr
   %.val36 = load ptr, ptr %8, align 8
   %72 = trunc i64 %indvars.iv58 to i32
   %73 = add i32 %72, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val36, i32 noundef %73)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val36, i32 noundef %73)
   %74 = getelementptr i8, ptr %.val36, i64 8
   %.val.i.i.i = load ptr, ptr %74, align 8
   %sext.i = shl nuw nsw i64 %indvars.iv58, 2
@@ -1267,7 +1267,7 @@ define noundef i32 @Gia_ManLevelNum(ptr nocapture noundef %0) local_unnamed_addr
   %81 = sdiv exact i64 %80, 12
   %82 = trunc i64 %81 to i32
   %83 = add nsw i32 %82, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val34, i32 noundef %83)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val34, i32 noundef %83)
   %84 = getelementptr i8, ptr %.val34, i64 8
   %.val.i.i.i49 = load ptr, ptr %84, align 8
   %sext.i50 = shl i64 %81, 32
@@ -1323,7 +1323,7 @@ define internal fastcc void @Gia_ObjSetGateLevel(ptr nocapture noundef readonly 
   %22 = sdiv exact i64 %21, 12
   %23 = trunc i64 %22 to i32
   %24 = add nsw i32 %23, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val4.i, i32 noundef %24)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val4.i, i32 noundef %24)
   %25 = getelementptr i8, ptr %.val4.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %25, align 8
   %sext.i.i = shl i64 %22, 32
@@ -1338,14 +1338,14 @@ define internal fastcc void @Gia_ObjSetGateLevel(ptr nocapture noundef readonly 
   %32 = sdiv exact i64 %31, 12
   %33 = trunc i64 %32 to i32
   %34 = add nsw i32 %33, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i, i32 noundef %34)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i, i32 noundef %34)
   %35 = getelementptr i8, ptr %.val6.i, i64 8
   %.val.i.i.i7.i = load ptr, ptr %35, align 8
   %sext.i8.i = shl i64 %32, 32
   %36 = ashr exact i64 %sext.i8.i, 30
   %37 = getelementptr inbounds i8, ptr %.val.i.i.i7.i, i64 %36
   store i32 %28, ptr %37, align 4
-  br label %Gia_ObjIsXor.exit.thread.thread
+  br label %Gia_ObjIsXor.argprom.exit.thread.thread
 
 38:                                               ; preds = %5, %2
   %39 = getelementptr i8, ptr %0, i64 32
@@ -1353,13 +1353,13 @@ define internal fastcc void @Gia_ObjSetGateLevel(ptr nocapture noundef readonly 
   %40 = getelementptr i8, ptr %0, i64 40
   %.val19 = load ptr, ptr %40, align 8
   %.not.i.i = icmp eq ptr %.val19, null
-  br i1 %.not.i.i, label %.Gia_ObjIsMux.exit.thread_crit_edge, label %Gia_ObjIsMux.exit
+  br i1 %.not.i.i, label %.Gia_ObjIsMux.argprom.exit.thread_crit_edge, label %Gia_ObjIsMux.argprom.exit
 
-.Gia_ObjIsMux.exit.thread_crit_edge:              ; preds = %38
+.Gia_ObjIsMux.argprom.exit.thread_crit_edge:      ; preds = %38
   %.val20.pre = load i64, ptr %1, align 4
-  br label %Gia_ObjIsMux.exit.thread
+  br label %Gia_ObjIsMux.argprom.exit.thread
 
-Gia_ObjIsMux.exit:                                ; preds = %38
+Gia_ObjIsMux.argprom.exit:                        ; preds = %38
   %41 = ptrtoint ptr %1 to i64
   %42 = ptrtoint ptr %.val18 to i64
   %43 = sub i64 %41, %42
@@ -1370,9 +1370,9 @@ Gia_ObjIsMux.exit:                                ; preds = %38
   %47 = load i32, ptr %46, align 4
   %.not50 = icmp eq i32 %47, 0
   %.val20.pre53 = load i64, ptr %1, align 4
-  br i1 %.not50, label %Gia_ObjIsMux.exit.thread, label %48
+  br i1 %.not50, label %Gia_ObjIsMux.argprom.exit.thread, label %48
 
-48:                                               ; preds = %Gia_ObjIsMux.exit
+48:                                               ; preds = %Gia_ObjIsMux.argprom.exit
   %49 = and i64 %.val20.pre53, 536870911
   %50 = sub nsw i64 0, %49
   %51 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %50
@@ -1383,7 +1383,7 @@ Gia_ObjIsMux.exit:                                ; preds = %38
   %55 = sdiv exact i64 %54, 12
   %56 = trunc i64 %55 to i32
   %57 = add nsw i32 %56, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val13.i, i32 noundef %57)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val13.i, i32 noundef %57)
   %58 = getelementptr i8, ptr %.val13.i, i64 8
   %.val.i.i.i.i22 = load ptr, ptr %58, align 8
   %sext.i.i23 = shl i64 %55, 32
@@ -1403,7 +1403,7 @@ Gia_ObjIsMux.exit:                                ; preds = %38
   %70 = sdiv exact i64 %69, 12
   %71 = trunc i64 %70 to i32
   %72 = add nsw i32 %71, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val11.i, i32 noundef %72)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val11.i, i32 noundef %72)
   %73 = getelementptr i8, ptr %.val11.i, i64 8
   %.val.i.i.i16.i = load ptr, ptr %73, align 8
   %sext.i17.i = shl i64 %70, 32
@@ -1437,7 +1437,7 @@ Gia_ObjSetMuxLevel.exit:                          ; preds = %48, %78
   %91 = sdiv exact i64 %90, 12
   %92 = trunc i64 %91 to i32
   %93 = add nsw i32 %92, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val9.i, i32 noundef %93)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val9.i, i32 noundef %93)
   %94 = getelementptr i8, ptr %.val9.i, i64 8
   %.val.i.i.i19.i = load ptr, ptr %94, align 8
   %sext.i20.i = shl i64 %91, 32
@@ -1453,25 +1453,25 @@ Gia_ObjSetMuxLevel.exit:                          ; preds = %48, %78
   %102 = sdiv exact i64 %101, 12
   %103 = trunc i64 %102 to i32
   %104 = add nsw i32 %103, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val15.i, i32 noundef %104)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val15.i, i32 noundef %104)
   %105 = getelementptr i8, ptr %.val15.i, i64 8
   %.val.i.i.i21.i = load ptr, ptr %105, align 8
   %sext.i22.i = shl i64 %102, 32
   %106 = ashr exact i64 %sext.i22.i, 30
   %107 = getelementptr inbounds i8, ptr %.val.i.i.i21.i, i64 %106
   store i32 %99, ptr %107, align 4
-  br label %Gia_ObjIsXor.exit.thread.thread
+  br label %Gia_ObjIsXor.argprom.exit.thread.thread
 
-Gia_ObjIsMux.exit.thread:                         ; preds = %.Gia_ObjIsMux.exit.thread_crit_edge, %Gia_ObjIsMux.exit
-  %.val20 = phi i64 [ %.val20.pre, %.Gia_ObjIsMux.exit.thread_crit_edge ], [ %.val20.pre53, %Gia_ObjIsMux.exit ]
+Gia_ObjIsMux.argprom.exit.thread:                 ; preds = %.Gia_ObjIsMux.argprom.exit.thread_crit_edge, %Gia_ObjIsMux.argprom.exit
+  %.val20 = phi i64 [ %.val20.pre, %.Gia_ObjIsMux.argprom.exit.thread_crit_edge ], [ %.val20.pre53, %Gia_ObjIsMux.argprom.exit ]
   %108 = and i64 %.val20, 2147483648
   %.not.i.i25 = icmp ne i64 %108, 0
   %109 = and i64 %.val20, 536870911
   %110 = icmp eq i64 %109, 536870911
   %narrow.i.not.i = or i1 %.not.i.i25, %110
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread.thread, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit.thread.thread, label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit.thread
+Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMux.argprom.exit.thread
   %111 = trunc i64 %.val20 to i32
   %112 = and i32 %111, 536870911
   %113 = lshr i64 %.val20, 32
@@ -1488,7 +1488,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit.t
   %122 = sdiv exact i64 %121, 12
   %123 = trunc i64 %122 to i32
   %124 = add nsw i32 %123, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i, i32 noundef %124)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i, i32 noundef %124)
   %125 = getelementptr i8, ptr %.val8.i, i64 8
   %.val.i.i.i.i26 = load ptr, ptr %125, align 8
   %sext.i.i27 = shl i64 %122, 32
@@ -1508,7 +1508,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit.t
   %137 = sdiv exact i64 %136, 12
   %138 = trunc i64 %137 to i32
   %139 = add nsw i32 %138, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i29, i32 noundef %139)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i29, i32 noundef %139)
   %140 = getelementptr i8, ptr %.val6.i29, i64 8
   %.val.i.i.i11.i = load ptr, ptr %140, align 8
   %sext.i12.i = shl i64 %137, 32
@@ -1524,25 +1524,25 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit.t
   %148 = sdiv exact i64 %147, 12
   %149 = trunc i64 %148 to i32
   %150 = add nsw i32 %149, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i31, i32 noundef %150)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i31, i32 noundef %150)
   %151 = getelementptr i8, ptr %.val10.i31, i64 8
   %.val.i.i.i13.i = load ptr, ptr %151, align 8
   %sext.i14.i = shl i64 %148, 32
   %152 = ashr exact i64 %sext.i14.i, 30
   %153 = getelementptr inbounds i8, ptr %.val.i.i.i13.i, i64 %152
-  br i1 %.not51, label %154, label %Gia_ObjIsXor.exit.thread
+  br i1 %.not51, label %154, label %Gia_ObjIsXor.argprom.exit.thread
 
-154:                                              ; preds = %Gia_ObjIsXor.exit
+154:                                              ; preds = %Gia_ObjIsXor.argprom.exit
   %155 = add nsw i32 %144, 2
   store i32 %155, ptr %153, align 4
-  br label %Gia_ObjIsXor.exit.thread.thread
+  br label %Gia_ObjIsXor.argprom.exit.thread.thread
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Gia_ObjIsXor.argprom.exit
   %156 = add nsw i32 %144, 1
   store i32 %156, ptr %153, align 4
-  br label %Gia_ObjIsXor.exit.thread.thread
+  br label %Gia_ObjIsXor.argprom.exit.thread.thread
 
-Gia_ObjIsXor.exit.thread.thread:                  ; preds = %Gia_ObjIsMux.exit.thread, %Gia_ObjSetMuxLevel.exit, %Gia_ObjIsXor.exit.thread, %154, %13
+Gia_ObjIsXor.argprom.exit.thread.thread:          ; preds = %Gia_ObjIsMux.argprom.exit.thread, %Gia_ObjSetMuxLevel.exit, %Gia_ObjIsXor.argprom.exit.thread, %154, %13
   ret void
 }
 
@@ -1601,7 +1601,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %24 = sub nsw i32 %23, %16
   %.val50 = load ptr, ptr %8, align 8
   %25 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val50, i32 noundef %25)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val50, i32 noundef %25)
   %26 = getelementptr i8, ptr %.val50, i64 8
   %.val.i.i.i = load ptr, ptr %26, align 8
   %sext.i = shl nuw nsw i64 %indvars.iv.next, 2
@@ -1615,7 +1615,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %32 = load i32, ptr %31, align 4
   %33 = tail call noundef i32 @llvm.smax.i32(i32 %32, i32 %28)
   %34 = add nsw i32 %24, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val54, i32 noundef %34)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val54, i32 noundef %34)
   %.val.i.i = load ptr, ptr %29, align 8
   %35 = getelementptr inbounds i32, ptr %.val.i.i, i64 %30
   store i32 %33, ptr %35, align 4
@@ -1637,7 +1637,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %.val48 = load ptr, ptr %8, align 8
   %44 = ptrtoint ptr %11 to i64
   %45 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val48, i32 noundef %45)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val48, i32 noundef %45)
   %46 = getelementptr i8, ptr %.val48, i64 8
   %.val.i.i.i61 = load ptr, ptr %46, align 8
   %sext.i62 = shl nuw nsw i64 %indvars.iv.next, 2
@@ -1652,7 +1652,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %53 = load i32, ptr %52, align 4
   %54 = tail call noundef i32 @llvm.smax.i32(i32 %53, i32 %49)
   %55 = add nsw i32 %43, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val55, i32 noundef %55)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val55, i32 noundef %55)
   %.val.i.i64 = load ptr, ptr %50, align 8
   %56 = getelementptr inbounds i32, ptr %.val.i.i64, i64 %51
   store i32 %54, ptr %56, align 4
@@ -1668,7 +1668,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %63 = sdiv exact i64 %62, 12
   %64 = trunc i64 %63 to i32
   %65 = add nsw i32 %64, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val46, i32 noundef %65)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val46, i32 noundef %65)
   %66 = getelementptr i8, ptr %.val46, i64 8
   %.val.i.i.i65 = load ptr, ptr %66, align 8
   %sext.i66 = shl i64 %63, 32
@@ -1684,7 +1684,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %74 = load i32, ptr %73, align 4
   %75 = tail call noundef i32 @llvm.smax.i32(i32 %74, i32 %70)
   %76 = add nsw i32 %60, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val56, i32 noundef %76)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val56, i32 noundef %76)
   %.val.i.i68 = load ptr, ptr %71, align 8
   %77 = getelementptr inbounds i32, ptr %.val.i.i68, i64 %72
   store i32 %75, ptr %77, align 4
@@ -1708,7 +1708,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %87 = load i32, ptr %86, align 4
   %88 = tail call noundef i32 @llvm.smax.i32(i32 %87, i32 1)
   %89 = add nsw i32 %83, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val57, i32 noundef %89)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val57, i32 noundef %89)
   %.val.i.i72 = load ptr, ptr %84, align 8
   %90 = getelementptr inbounds i32, ptr %.val.i.i72, i64 %85
   store i32 %88, ptr %90, align 4
@@ -1718,7 +1718,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %92 = load i32, ptr %3, align 8
   %.val44 = load ptr, ptr %8, align 8
   %93 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val44, i32 noundef %93)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val44, i32 noundef %93)
   %94 = getelementptr i8, ptr %.val44, i64 8
   %.val.i.i.i73 = load ptr, ptr %94, align 8
   %sext.i74 = shl nuw nsw i64 %indvars.iv.next, 2
@@ -1773,7 +1773,7 @@ define float @Gia_ManLevelAve(ptr nocapture noundef readonly %0) local_unnamed_a
   %13 = zext i32 %12 to i64
   %.val14 = load ptr, ptr %7, align 8
   %14 = add nsw i32 %12, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val14, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val14, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val14, i64 8
   %.val.i.i.i = load ptr, ptr %15, align 8
   %sext.i = shl nuw i64 %13, 32
@@ -1852,7 +1852,7 @@ Vec_IntAlloc.exit:                                ; preds = %5, %11
   %24 = zext i32 %23 to i64
   %.val16 = load ptr, ptr %2, align 8
   %25 = add nsw i32 %23, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val16, i32 noundef %25)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val16, i32 noundef %25)
   %26 = getelementptr i8, ptr %.val16, i64 8
   %.val.i.i.i = load ptr, ptr %26, align 8
   %sext.i = shl nuw i64 %24, 32
@@ -1984,7 +1984,7 @@ define i32 @Gia_ManSetLevels(ptr nocapture noundef %0, ptr noundef readonly %1) 
   %.val55 = load ptr, ptr %15, align 8
   %25 = ptrtoint ptr %22 to i64
   %26 = add nsw i32 %20, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val55, i32 noundef %26)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val55, i32 noundef %26)
   %27 = getelementptr i8, ptr %.val55, i64 8
   %.val.i.i.i = load ptr, ptr %27, align 8
   %28 = shl nsw i64 %21, 2
@@ -1998,7 +1998,7 @@ define i32 @Gia_ManSetLevels(ptr nocapture noundef %0, ptr noundef readonly %1) 
   %33 = sdiv exact i64 %32, 12
   %34 = trunc i64 %33 to i32
   %35 = add nsw i32 %34, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val53, i32 noundef %35)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val53, i32 noundef %35)
   %36 = getelementptr i8, ptr %.val53, i64 8
   %.val.i.i.i56 = load ptr, ptr %36, align 8
   %sext.i57 = shl i64 %33, 32
@@ -2063,7 +2063,7 @@ define i32 @Gia_ManSetLevels(ptr nocapture noundef %0, ptr noundef readonly %1) 
   %65 = sdiv exact i64 %64, 12
   %66 = trunc i64 %65 to i32
   %67 = add nsw i32 %66, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val4.i, i32 noundef %67)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val4.i, i32 noundef %67)
   %68 = getelementptr i8, ptr %.val4.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %68, align 8
   %sext.i.i = shl i64 %65, 32
@@ -2078,7 +2078,7 @@ define i32 @Gia_ManSetLevels(ptr nocapture noundef %0, ptr noundef readonly %1) 
   %75 = sdiv exact i64 %74, 12
   %76 = trunc i64 %75 to i32
   %77 = add nsw i32 %76, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i, i32 noundef %77)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i, i32 noundef %77)
   %78 = getelementptr i8, ptr %.val6.i, i64 8
   %.val.i.i.i7.i = load ptr, ptr %78, align 8
   %sext.i8.i = shl i64 %75, 32
@@ -2097,7 +2097,7 @@ define i32 @Gia_ManSetLevels(ptr nocapture noundef %0, ptr noundef readonly %1) 
   %85 = sdiv exact i64 %84, 12
   %86 = trunc i64 %85 to i32
   %87 = add nsw i32 %86, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val51, i32 noundef %87)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val51, i32 noundef %87)
   %88 = getelementptr i8, ptr %.val51, i64 8
   %.val.i.i.i60 = load ptr, ptr %88, align 8
   %sext.i61 = shl i64 %85, 32
@@ -2170,8 +2170,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.not = icmp eq ptr %.val50, null
   br label %18
 
-18:                                               ; preds = %.lr.ph, %Vec_IntUpdateEntry.exit77
-  %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %Vec_IntUpdateEntry.exit77 ]
+18:                                               ; preds = %.lr.ph, %Vec_IntUpdateEntry.argprom.exit77
+  %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %Vec_IntUpdateEntry.argprom.exit77 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val50, i64 %indvars.iv.next
   br i1 %.not, label %.critedge, label %20
@@ -2183,37 +2183,37 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %22 = and i64 %.val51, 536870911
   %23 = icmp ne i64 %22, 536870911
   %narrow.i = and i1 %.not.i73, %23
-  br i1 %narrow.i, label %24, label %Vec_IntUpdateEntry.exit77
+  br i1 %narrow.i, label %24, label %Vec_IntUpdateEntry.argprom.exit77
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv.next
   %26 = load i32, ptr %25, align 4
   %.val53 = load ptr, ptr %16, align 8
   %.not.i.i74 = icmp eq ptr %.val53, null
-  br i1 %.not.i.i74, label %Gia_ObjIsXor.exit, label %Gia_ObjIsMux.exit
+  br i1 %.not.i.i74, label %Gia_ObjIsXor.argprom.exit, label %Gia_ObjIsMux.argprom.exit
 
-Gia_ObjIsMux.exit:                                ; preds = %24
+Gia_ObjIsMux.argprom.exit:                        ; preds = %24
   %sext.i = shl nuw nsw i64 %indvars.iv.next, 2
   %27 = getelementptr inbounds i8, ptr %.val53, i64 %sext.i
   %28 = load i32, ptr %27, align 4
   %.not88 = icmp eq i32 %28, 0
-  br i1 %.not88, label %Gia_ObjIsXor.exit, label %29
+  br i1 %.not88, label %Gia_ObjIsXor.argprom.exit, label %29
 
-29:                                               ; preds = %Gia_ObjIsMux.exit
+29:                                               ; preds = %Gia_ObjIsMux.argprom.exit
   %30 = and i64 %.val51, 536870911
   %31 = sub nsw i64 %indvars.iv.next, %30
   %32 = add nsw i32 %26, 2
   %33 = getelementptr inbounds i32, ptr %.val55, i64 %31
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %34, %32
-  br i1 %35, label %36, label %Vec_IntUpdateEntry.exit
+  br i1 %35, label %36, label %Vec_IntUpdateEntry.argprom.exit
 
 36:                                               ; preds = %29
   store i32 %32, ptr %33, align 4
   %.val63.pre = load i64, ptr %19, align 4
-  br label %Vec_IntUpdateEntry.exit
+  br label %Vec_IntUpdateEntry.argprom.exit
 
-Vec_IntUpdateEntry.exit:                          ; preds = %29, %36
+Vec_IntUpdateEntry.argprom.exit:                  ; preds = %29, %36
   %.val63 = phi i64 [ %.val51, %29 ], [ %.val63.pre, %36 ]
   %37 = lshr i64 %.val63, 32
   %38 = and i64 %37, 536870911
@@ -2221,13 +2221,13 @@ Vec_IntUpdateEntry.exit:                          ; preds = %29, %36
   %40 = getelementptr inbounds i32, ptr %.val55, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp slt i32 %41, %32
-  br i1 %42, label %43, label %Gia_ObjFaninId2.exit
+  br i1 %42, label %43, label %Gia_ObjFaninId2.argprom.exit
 
-43:                                               ; preds = %Vec_IntUpdateEntry.exit
+43:                                               ; preds = %Vec_IntUpdateEntry.argprom.exit
   store i32 %32, ptr %40, align 4
-  br label %Gia_ObjFaninId2.exit
+  br label %Gia_ObjFaninId2.argprom.exit
 
-Gia_ObjFaninId2.exit:                             ; preds = %Vec_IntUpdateEntry.exit, %43
+Gia_ObjFaninId2.argprom.exit:                     ; preds = %Vec_IntUpdateEntry.argprom.exit, %43
   %44 = getelementptr inbounds i32, ptr %.val53, i64 %indvars.iv.next
   %45 = load i32, ptr %44, align 4
   %.not5.i = icmp eq i32 %45, 0
@@ -2237,29 +2237,29 @@ Gia_ObjFaninId2.exit:                             ; preds = %Vec_IntUpdateEntry.
   %48 = getelementptr inbounds i32, ptr %.val55, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp slt i32 %49, %32
-  br i1 %50, label %51, label %Vec_IntUpdateEntry.exit77
+  br i1 %50, label %51, label %Vec_IntUpdateEntry.argprom.exit77
 
-51:                                               ; preds = %Gia_ObjFaninId2.exit
+51:                                               ; preds = %Gia_ObjFaninId2.argprom.exit
   store i32 %32, ptr %48, align 4
-  br label %Vec_IntUpdateEntry.exit77
+  br label %Vec_IntUpdateEntry.argprom.exit77
 
-Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, %24
+Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMux.argprom.exit, %24
   %52 = trunc i64 %.val51 to i32
   %53 = and i32 %52, 536870911
   %54 = lshr i64 %.val51, 32
   %55 = trunc nuw i64 %54 to i32
   %56 = and i32 %55, 536870911
   %.not89 = icmp ult i32 %53, %56
-  br i1 %.not89, label %57, label %Gia_ObjIsXor.exit.thread
+  br i1 %.not89, label %57, label %Gia_ObjIsXor.argprom.exit.thread
 
-57:                                               ; preds = %Gia_ObjIsXor.exit
+57:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %58 = and i64 %.val51, 536870911
   %59 = sub nsw i64 %indvars.iv.next, %58
   %60 = add nsw i32 %26, 2
   %61 = getelementptr inbounds i32, ptr %.val55, i64 %59
   %62 = load i32, ptr %61, align 4
   %63 = icmp slt i32 %62, %60
-  br i1 %63, label %64, label %Vec_IntUpdateEntry.exit79
+  br i1 %63, label %64, label %Vec_IntUpdateEntry.argprom.exit79
 
 64:                                               ; preds = %57
   store i32 %60, ptr %61, align 4
@@ -2267,22 +2267,22 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, 
   %.pre114 = lshr i64 %.val62.pre, 32
   %.pre116 = trunc nuw i64 %.pre114 to i32
   %.pre118 = and i32 %.pre116, 536870911
-  br label %Vec_IntUpdateEntry.exit79
+  br label %Vec_IntUpdateEntry.argprom.exit79
 
-Vec_IntUpdateEntry.exit79:                        ; preds = %57, %64
+Vec_IntUpdateEntry.argprom.exit79:                ; preds = %57, %64
   %.pre-phi119 = phi i32 [ %56, %57 ], [ %.pre118, %64 ]
   %65 = zext nneg i32 %.pre-phi119 to i64
   %66 = sub nsw i64 %indvars.iv.next, %65
   %67 = getelementptr inbounds i32, ptr %.val55, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp slt i32 %68, %60
-  br i1 %69, label %70, label %Vec_IntUpdateEntry.exit77
+  br i1 %69, label %70, label %Vec_IntUpdateEntry.argprom.exit77
 
-70:                                               ; preds = %Vec_IntUpdateEntry.exit79
+70:                                               ; preds = %Vec_IntUpdateEntry.argprom.exit79
   store i32 %60, ptr %67, align 4
-  br label %Vec_IntUpdateEntry.exit77
+  br label %Vec_IntUpdateEntry.argprom.exit77
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Gia_ObjIsXor.argprom.exit
   %71 = icmp eq i32 %53, %56
   %.not.i81 = icmp ne i32 %53, 536870911
   %or.cond.not.i = and i1 %.not.i81, %71
@@ -2290,22 +2290,22 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
   %73 = sub nsw i64 %indvars.iv.next, %72
   br i1 %or.cond.not.i, label %74, label %79
 
-74:                                               ; preds = %Gia_ObjIsXor.exit.thread
+74:                                               ; preds = %Gia_ObjIsXor.argprom.exit.thread
   %75 = getelementptr inbounds i32, ptr %.val55, i64 %73
   %76 = load i32, ptr %75, align 4
   %77 = icmp slt i32 %76, %26
-  br i1 %77, label %78, label %Vec_IntUpdateEntry.exit77
+  br i1 %77, label %78, label %Vec_IntUpdateEntry.argprom.exit77
 
 78:                                               ; preds = %74
   store i32 %26, ptr %75, align 4
-  br label %Vec_IntUpdateEntry.exit77
+  br label %Vec_IntUpdateEntry.argprom.exit77
 
-79:                                               ; preds = %Gia_ObjIsXor.exit.thread
+79:                                               ; preds = %Gia_ObjIsXor.argprom.exit.thread
   %80 = add nsw i32 %26, 1
   %81 = getelementptr inbounds i32, ptr %.val55, i64 %73
   %82 = load i32, ptr %81, align 4
   %.not90 = icmp sgt i32 %82, %26
-  br i1 %.not90, label %Vec_IntUpdateEntry.exit84, label %83
+  br i1 %.not90, label %Vec_IntUpdateEntry.argprom.exit84, label %83
 
 83:                                               ; preds = %79
   store i32 %80, ptr %81, align 4
@@ -2313,26 +2313,26 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
   %.pre108 = lshr i64 %.val61.pre, 32
   %.pre110 = trunc nuw i64 %.pre108 to i32
   %.pre112 = and i32 %.pre110, 536870911
-  br label %Vec_IntUpdateEntry.exit84
+  br label %Vec_IntUpdateEntry.argprom.exit84
 
-Vec_IntUpdateEntry.exit84:                        ; preds = %79, %83
+Vec_IntUpdateEntry.argprom.exit84:                ; preds = %79, %83
   %.pre-phi113 = phi i32 [ %56, %79 ], [ %.pre112, %83 ]
   %84 = zext nneg i32 %.pre-phi113 to i64
   %85 = sub nsw i64 %indvars.iv.next, %84
   %86 = getelementptr inbounds i32, ptr %.val55, i64 %85
   %87 = load i32, ptr %86, align 4
   %.not91 = icmp sgt i32 %87, %26
-  br i1 %.not91, label %Vec_IntUpdateEntry.exit77, label %88
+  br i1 %.not91, label %Vec_IntUpdateEntry.argprom.exit77, label %88
 
-88:                                               ; preds = %Vec_IntUpdateEntry.exit84
+88:                                               ; preds = %Vec_IntUpdateEntry.argprom.exit84
   store i32 %80, ptr %86, align 4
-  br label %Vec_IntUpdateEntry.exit77
+  br label %Vec_IntUpdateEntry.argprom.exit77
 
-Vec_IntUpdateEntry.exit77:                        ; preds = %88, %Vec_IntUpdateEntry.exit84, %78, %74, %70, %Vec_IntUpdateEntry.exit79, %51, %Gia_ObjFaninId2.exit, %20
+Vec_IntUpdateEntry.argprom.exit77:                ; preds = %88, %Vec_IntUpdateEntry.argprom.exit84, %78, %74, %70, %Vec_IntUpdateEntry.argprom.exit79, %51, %Gia_ObjFaninId2.argprom.exit, %20
   %89 = icmp ugt i64 %indvars.iv, 2
   br i1 %89, label %18, label %.critedge, !llvm.loop !28
 
-.critedge:                                        ; preds = %18, %Vec_IntUpdateEntry.exit77, %Vec_IntStart.exit
+.critedge:                                        ; preds = %18, %Vec_IntUpdateEntry.argprom.exit77, %Vec_IntStart.exit
   ret ptr %3
 }
 
@@ -2452,7 +2452,7 @@ Vec_IntAlloc.exit:                                ; preds = %1, %8
   %.val17 = load ptr, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = trunc nuw nsw i64 %indvars.iv.next to i32
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val17, i32 noundef %20)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val17, i32 noundef %20)
   %21 = getelementptr i8, ptr %.val17, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %indvars.iv
@@ -2630,8 +2630,8 @@ define void @Gia_ManCreateRefs(ptr nocapture noundef %0) local_unnamed_addr #15 
   %8 = getelementptr i8, ptr %0, i64 40
   br label %9
 
-9:                                                ; preds = %.lr.ph, %Gia_ObjIsMuxId.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsMuxId.exit.thread ]
+9:                                                ; preds = %.lr.ph, %Gia_ObjIsMuxId.argprom.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsMuxId.argprom.exit.thread ]
   %.val24 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val24, i64 %indvars.iv
   %.not = icmp eq ptr %.val24, null
@@ -2695,15 +2695,15 @@ define void @Gia_ManCreateRefs(ptr nocapture noundef %0) local_unnamed_addr #15 
 45:                                               ; preds = %33, %15
   %.val26 = load ptr, ptr %8, align 8
   %.not.i38 = icmp eq ptr %.val26, null
-  br i1 %.not.i38, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
+  br i1 %.not.i38, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
 
-Gia_ObjIsMuxId.exit:                              ; preds = %45
+Gia_ObjIsMuxId.argprom.exit:                      ; preds = %45
   %46 = getelementptr inbounds i32, ptr %.val26, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %.not46 = icmp eq i32 %47, 0
-  br i1 %.not46, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjRefFanin2Inc.exit
+  br i1 %.not46, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjRefFanin2Inc.exit
 
-Gia_ObjRefFanin2Inc.exit:                         ; preds = %Gia_ObjIsMuxId.exit
+Gia_ObjRefFanin2Inc.exit:                         ; preds = %Gia_ObjIsMuxId.argprom.exit
   %.val.pre.i = load ptr, ptr %6, align 8
   %48 = ptrtoint ptr %10 to i64
   %49 = ptrtoint ptr %.val.pre.i to i64
@@ -2715,12 +2715,12 @@ Gia_ObjRefFanin2Inc.exit:                         ; preds = %Gia_ObjIsMuxId.exit
   %54 = load i32, ptr %53, align 4
   %55 = ashr i32 %54, 1
   %56 = zext i32 %55 to i64
-  br label %Gia_ObjIsMuxId.exit.thread.sink.split
+  br label %Gia_ObjIsMuxId.argprom.exit.thread.sink.split
 
 57:                                               ; preds = %11
   %.not.i40 = icmp ne i64 %12, 0
   %narrow.i41 = and i1 %.not.i40, %14
-  br i1 %narrow.i41, label %58, label %Gia_ObjIsMuxId.exit.thread
+  br i1 %narrow.i41, label %58, label %Gia_ObjIsMuxId.argprom.exit.thread
 
 58:                                               ; preds = %57
   %59 = sub nsw i64 0, %13
@@ -2729,9 +2729,9 @@ Gia_ObjRefFanin2Inc.exit:                         ; preds = %Gia_ObjIsMuxId.exit
   %62 = ptrtoint ptr %.val24 to i64
   %63 = sub i64 %61, %62
   %64 = sdiv exact i64 %63, 12
-  br label %Gia_ObjIsMuxId.exit.thread.sink.split
+  br label %Gia_ObjIsMuxId.argprom.exit.thread.sink.split
 
-Gia_ObjIsMuxId.exit.thread.sink.split:            ; preds = %58, %Gia_ObjRefFanin2Inc.exit
+Gia_ObjIsMuxId.argprom.exit.thread.sink.split:    ; preds = %58, %Gia_ObjRefFanin2Inc.exit
   %.sink = phi i64 [ %56, %Gia_ObjRefFanin2Inc.exit ], [ %64, %58 ]
   %.val3.i.sink = load ptr, ptr %5, align 8
   %sext.i4.i = shl i64 %.sink, 32
@@ -2740,16 +2740,16 @@ Gia_ObjIsMuxId.exit.thread.sink.split:            ; preds = %58, %Gia_ObjRefFani
   %67 = load i32, ptr %66, align 4
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %66, align 4
-  br label %Gia_ObjIsMuxId.exit.thread
+  br label %Gia_ObjIsMuxId.argprom.exit.thread
 
-Gia_ObjIsMuxId.exit.thread:                       ; preds = %Gia_ObjIsMuxId.exit.thread.sink.split, %45, %Gia_ObjIsMuxId.exit, %57
+Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %Gia_ObjIsMuxId.argprom.exit.thread.sink.split, %45, %Gia_ObjIsMuxId.argprom.exit, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %2, align 8
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
   br i1 %71, label %9, label %.critedge, !llvm.loop !33
 
-.critedge:                                        ; preds = %9, %Gia_ObjIsMuxId.exit.thread, %1
+.critedge:                                        ; preds = %9, %Gia_ObjIsMuxId.argprom.exit.thread, %1
   ret void
 }
 
@@ -5270,9 +5270,9 @@ define i32 @Gia_ManHasDangling(ptr nocapture noundef readonly %0) local_unnamed_
 18:                                               ; preds = %.lr.ph80
   %.val42 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %.val42, null
-  br i1 %.not.i.i, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjIsMux.exit
+  br i1 %.not.i.i, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjIsMux.argprom.exit
 
-Gia_ObjIsMux.exit:                                ; preds = %18
+Gia_ObjIsMux.argprom.exit:                        ; preds = %18
   %.val41 = load ptr, ptr %2, align 8
   %19 = ptrtoint ptr %9 to i64
   %20 = ptrtoint ptr %.val41 to i64
@@ -5283,9 +5283,9 @@ Gia_ObjIsMux.exit:                                ; preds = %18
   %24 = getelementptr inbounds i8, ptr %.val42, i64 %23
   %25 = load i32, ptr %24, align 4
   %.not52 = icmp eq i32 %25, 0
-  br i1 %.not52, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjFanin2.exit
+  br i1 %.not52, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjFanin2.exit
 
-Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.exit
+Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.argprom.exit
   %26 = sub nsw i64 0, %13
   %27 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %9, i64 %26
   %28 = load i64, ptr %27, align 4
@@ -5313,12 +5313,12 @@ Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.exit
   %46 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val5.i, i64 %45
   br label %.sink.split
 
-Gia_ObjIsMux.exit.thread:                         ; preds = %18, %Gia_ObjIsMux.exit
+Gia_ObjIsMux.argprom.exit.thread:                 ; preds = %18, %Gia_ObjIsMux.argprom.exit
   %.not.i46 = icmp eq i64 %12, 0
   %narrow.i47 = and i1 %.not.i46, %14
   br i1 %narrow.i47, label %47, label %59
 
-47:                                               ; preds = %Gia_ObjIsMux.exit.thread
+47:                                               ; preds = %Gia_ObjIsMux.argprom.exit.thread
   %48 = sub nsw i64 0, %13
   %49 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %9, i64 %48
   %50 = load i64, ptr %49, align 4
@@ -5338,7 +5338,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %18, %Gia_ObjIsMux.e
   store i64 %58, ptr %.sink, align 4
   br label %59
 
-59:                                               ; preds = %.sink.split, %Gia_ObjIsMux.exit.thread
+59:                                               ; preds = %.sink.split, %Gia_ObjIsMux.argprom.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv79, 1
   %60 = load i32, ptr %3, align 8
   %61 = sext i32 %60 to i64
@@ -5741,9 +5741,9 @@ define void @Gia_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
 23:                                               ; preds = %13
   %24 = and i64 %.0.val131, 2684354559
   %narrow.i.not.i.not = icmp eq i64 %24, 2684354559
-  br i1 %narrow.i.not.i.not, label %Gia_ObjIsPi.exit, label %Gia_ObjIsPi.exit.thread
+  br i1 %narrow.i.not.i.not, label %Gia_ObjIsPi.argprom.exit, label %Gia_ObjIsPi.argprom.exit.thread
 
-Gia_ObjIsPi.exit:                                 ; preds = %23
+Gia_ObjIsPi.argprom.exit:                         ; preds = %23
   %25 = lshr i64 %.0.val131, 32
   %26 = trunc nuw i64 %25 to i32
   %27 = and i32 %26, 536870911
@@ -5755,21 +5755,21 @@ Gia_ObjIsPi.exit:                                 ; preds = %23
   %.val5.val.i = load i32, ptr %30, align 4
   %31 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not191 = icmp slt i32 %27, %31
-  br i1 %.not191, label %32, label %Gia_ObjIsPi.exit.thread
+  br i1 %.not191, label %32, label %Gia_ObjIsPi.argprom.exit.thread
 
-32:                                               ; preds = %Gia_ObjIsPi.exit
+32:                                               ; preds = %Gia_ObjIsPi.argprom.exit
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   br label %143
 
-Gia_ObjIsPi.exit.thread:                          ; preds = %23, %Gia_ObjIsPi.exit
+Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %23, %Gia_ObjIsPi.argprom.exit
   %34 = and i64 %.0.val131, 2147483648
   %.not.i.i = icmp eq i64 %34, 0
   %35 = and i64 %.0.val131, 536870911
   %36 = icmp eq i64 %35, 536870911
   %narrow.i.not.i155 = or i1 %.not.i.i, %36
-  br i1 %narrow.i.not.i155, label %Gia_ObjIsPo.exit.thread, label %Gia_ObjIsPo.exit
+  br i1 %narrow.i.not.i155, label %Gia_ObjIsPo.argprom.exit.thread, label %Gia_ObjIsPo.argprom.exit
 
-Gia_ObjIsPo.exit:                                 ; preds = %Gia_ObjIsPi.exit.thread
+Gia_ObjIsPo.argprom.exit:                         ; preds = %Gia_ObjIsPi.argprom.exit.thread
   %37 = lshr i64 %.0.val131, 32
   %38 = trunc nuw i64 %37 to i32
   %39 = and i32 %38, 536870911
@@ -5781,9 +5781,9 @@ Gia_ObjIsPo.exit:                                 ; preds = %Gia_ObjIsPi.exit.th
   %.val5.val.i158 = load i32, ptr %42, align 4
   %43 = sub nsw i32 %.val5.val.i158, %.val4.i156
   %.not192 = icmp slt i32 %39, %43
-  br i1 %.not192, label %44, label %Gia_ObjIsPo.exit.thread
+  br i1 %.not192, label %44, label %Gia_ObjIsPo.argprom.exit.thread
 
-44:                                               ; preds = %Gia_ObjIsPo.exit
+44:                                               ; preds = %Gia_ObjIsPo.argprom.exit
   %.val139 = load ptr, ptr %14, align 8
   %45 = ptrtoint ptr %.val139 to i64
   %46 = sub i64 %.pre-phi, %45
@@ -5798,10 +5798,10 @@ Gia_ObjIsPo.exit:                                 ; preds = %Gia_ObjIsPi.exit.th
   %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %51, ptr noundef nonnull %53)
   br label %143
 
-Gia_ObjIsPo.exit.thread:                          ; preds = %Gia_ObjIsPi.exit.thread, %Gia_ObjIsPo.exit
+Gia_ObjIsPo.argprom.exit.thread:                  ; preds = %Gia_ObjIsPi.argprom.exit.thread, %Gia_ObjIsPo.argprom.exit
   br i1 %narrow.i.not.i.not, label %55, label %77
 
-55:                                               ; preds = %Gia_ObjIsPo.exit.thread
+55:                                               ; preds = %Gia_ObjIsPo.argprom.exit.thread
   %56 = getelementptr i8, ptr %0, i64 72
   %.val6.i = load ptr, ptr %56, align 8
   %57 = getelementptr i8, ptr %.val6.i, i64 4
@@ -5833,7 +5833,7 @@ Gia_ObjIsPo.exit.thread:                          ; preds = %Gia_ObjIsPi.exit.th
   %76 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %73, ptr noundef nonnull %75)
   br label %143
 
-77:                                               ; preds = %Gia_ObjIsPo.exit.thread
+77:                                               ; preds = %Gia_ObjIsPo.argprom.exit.thread
   %.not.i = icmp ne i64 %34, 0
   %78 = icmp ne i64 %35, 536870911
   %narrow.i169 = and i1 %.not.i, %78
@@ -5856,18 +5856,18 @@ Gia_ObjIsPo.exit.thread:                          ; preds = %Gia_ObjIsPi.exit.th
 
 90:                                               ; preds = %77
   %narrow.i.not.i172 = or i1 %.not.i, %36
-  br i1 %narrow.i.not.i172, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not.i172, label %Gia_ObjIsXor.argprom.exit.thread, label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %90
+Gia_ObjIsXor.argprom.exit:                        ; preds = %90
   %91 = trunc i64 %.0.val131 to i32
   %92 = and i32 %91, 536870911
   %93 = lshr i64 %.0.val131, 32
   %94 = trunc nuw i64 %93 to i32
   %95 = and i32 %94, 536870911
   %.not193 = icmp ult i32 %92, %95
-  br i1 %.not193, label %96, label %Gia_ObjIsXor.exit.thread
+  br i1 %.not193, label %96, label %Gia_ObjIsXor.argprom.exit.thread
 
-96:                                               ; preds = %Gia_ObjIsXor.exit
+96:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %.val136 = load ptr, ptr %14, align 8
   %97 = ptrtoint ptr %.val136 to i64
   %98 = sub i64 %.pre-phi, %97
@@ -5884,7 +5884,7 @@ Gia_ObjIsXor.exit:                                ; preds = %90
   %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %101, ptr noundef nonnull %103, i32 noundef %104, ptr noundef nonnull %106)
   br label %143
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %90, %Gia_ObjIsXor.exit
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %90, %Gia_ObjIsXor.argprom.exit
   %.val125 = load ptr, ptr %14, align 8
   %108 = ptrtoint ptr %.val125 to i64
   %109 = sub i64 %.pre-phi, %108
@@ -5893,17 +5893,17 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %90, %Gia_ObjIsXor.e
   %112 = getelementptr i8, ptr %0, i64 40
   %.val127 = load ptr, ptr %112, align 8
   %.not.i175 = icmp eq ptr %.val127, null
-  br i1 %.not.i175, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
+  br i1 %.not.i175, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
 
-Gia_ObjIsMuxId.exit:                              ; preds = %Gia_ObjIsXor.exit.thread
+Gia_ObjIsMuxId.argprom.exit:                      ; preds = %Gia_ObjIsXor.argprom.exit.thread
   %sext = shl i64 %110, 32
   %113 = ashr exact i64 %sext, 30
   %114 = getelementptr inbounds i8, ptr %.val127, i64 %113
   %115 = load i32, ptr %114, align 4
   %.not194 = icmp eq i32 %115, 0
-  br i1 %.not194, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFaninC2.exit
+  br i1 %.not194, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjFaninC2.exit
 
-Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjIsMuxId.exit
+Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjIsMuxId.argprom.exit
   %116 = ashr i32 %115, 1
   %117 = and i32 %115, 1
   %.not95 = icmp eq i32 %117, 0
@@ -5924,7 +5924,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjIsMuxId.exit
   %130 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %116, ptr noundef nonnull %118, i32 noundef %122, ptr noundef nonnull %124, i32 noundef %127, ptr noundef nonnull %129)
   br label %143
 
-Gia_ObjIsMuxId.exit.thread:                       ; preds = %Gia_ObjIsXor.exit.thread, %Gia_ObjIsMuxId.exit
+Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %Gia_ObjIsXor.argprom.exit.thread, %Gia_ObjIsMuxId.argprom.exit
   %131 = trunc i64 %.0.val131 to i32
   %132 = and i32 %131, 536870911
   %133 = sub nsw i32 %111, %132
@@ -5941,7 +5941,7 @@ Gia_ObjIsMuxId.exit.thread:                       ; preds = %Gia_ObjIsXor.exit.t
   %142 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %133, ptr noundef nonnull %135, i32 noundef %139, ptr noundef nonnull %141)
   br label %143
 
-143:                                              ; preds = %32, %55, %96, %Gia_ObjIsMuxId.exit.thread, %Gia_ObjFaninC2.exit, %79, %44, %21
+143:                                              ; preds = %32, %55, %96, %Gia_ObjIsMuxId.argprom.exit.thread, %Gia_ObjFaninC2.exit, %79, %44, %21
   %144 = getelementptr inbounds i8, ptr %0, i64 144
   %145 = load ptr, ptr %144, align 8
   %.not103 = icmp eq ptr %145, null
@@ -6179,7 +6179,7 @@ define void @Gia_ManPrintCo_rec(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %4 = and i64 %.val, 536870911
   %5 = icmp eq i64 %4, 536870911
   %narrow.i.not = or i1 %.not.i, %5
-  br i1 %narrow.i.not, label %Gia_ObjIsMux.exit.thread, label %6
+  br i1 %narrow.i.not, label %Gia_ObjIsMux.argprom.exit.thread, label %6
 
 6:                                                ; preds = %2
   %7 = sub nsw i64 0, %4
@@ -6196,9 +6196,9 @@ define void @Gia_ManPrintCo_rec(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %15 = getelementptr i8, ptr %0, i64 40
   %.val14 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %.val14, null
-  br i1 %.not.i.i, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjIsMux.exit
+  br i1 %.not.i.i, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjIsMux.argprom.exit
 
-Gia_ObjIsMux.exit:                                ; preds = %6
+Gia_ObjIsMux.argprom.exit:                        ; preds = %6
   %16 = ptrtoint ptr %1 to i64
   %17 = ptrtoint ptr %.val13 to i64
   %18 = sub i64 %16, %17
@@ -6208,16 +6208,16 @@ Gia_ObjIsMux.exit:                                ; preds = %6
   %21 = getelementptr inbounds i8, ptr %.val14, i64 %20
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjFanin2.exit
+  br i1 %.not, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjFanin2.exit
 
-Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.exit
+Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.argprom.exit
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val13, i64 %24
   tail call void @Gia_ManPrintCo_rec(ptr noundef nonnull %0, ptr noundef %25)
-  br label %Gia_ObjIsMux.exit.thread
+  br label %Gia_ObjIsMux.argprom.exit.thread
 
-Gia_ObjIsMux.exit.thread:                         ; preds = %6, %Gia_ObjIsMux.exit, %Gia_ObjFanin2.exit, %2
+Gia_ObjIsMux.argprom.exit.thread:                 ; preds = %6, %Gia_ObjIsMux.argprom.exit, %Gia_ObjFanin2.exit, %2
   tail call void @Gia_ObjPrint(ptr noundef %0, ptr noundef nonnull %1)
   ret void
 }
@@ -6286,9 +6286,9 @@ Vec_IntFind.exit.thread:                          ; preds = %19, %3
   %29 = getelementptr i8, ptr %0, i64 40
   %.val20 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %.val20, null
-  br i1 %.not.i.i, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjIsMux.exit
+  br i1 %.not.i.i, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjIsMux.argprom.exit
 
-Gia_ObjIsMux.exit:                                ; preds = %Vec_IntFind.exit.thread
+Gia_ObjIsMux.argprom.exit:                        ; preds = %Vec_IntFind.exit.thread
   %30 = ptrtoint ptr %.val19 to i64
   %31 = sub i64 %5, %30
   %32 = sdiv exact i64 %31, 12
@@ -6297,18 +6297,18 @@ Gia_ObjIsMux.exit:                                ; preds = %Vec_IntFind.exit.th
   %34 = getelementptr inbounds i8, ptr %.val20, i64 %33
   %35 = load i32, ptr %34, align 4
   %.not24 = icmp eq i32 %35, 0
-  br i1 %.not24, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjFanin2.exit
+  br i1 %.not24, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjFanin2.exit
 
-Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.exit
+Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.argprom.exit
   %36 = ashr i32 %35, 1
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val19, i64 %37
   tail call void @Gia_ManPrintCollect_rec(ptr noundef nonnull %0, ptr noundef %38, ptr noundef %2)
   %.val.pre = load ptr, ptr %4, align 8
-  br label %Gia_ObjIsMux.exit.thread
+  br label %Gia_ObjIsMux.argprom.exit.thread
 
-Gia_ObjIsMux.exit.thread:                         ; preds = %Vec_IntFind.exit.thread, %Gia_ObjFanin2.exit, %Gia_ObjIsMux.exit
-  %.val = phi ptr [ %.val19, %Vec_IntFind.exit.thread ], [ %.val.pre, %Gia_ObjFanin2.exit ], [ %.val19, %Gia_ObjIsMux.exit ]
+Gia_ObjIsMux.argprom.exit.thread:                 ; preds = %Vec_IntFind.exit.thread, %Gia_ObjFanin2.exit, %Gia_ObjIsMux.argprom.exit
+  %.val = phi ptr [ %.val19, %Vec_IntFind.exit.thread ], [ %.val.pre, %Gia_ObjFanin2.exit ], [ %.val19, %Gia_ObjIsMux.argprom.exit ]
   %39 = ptrtoint ptr %.val to i64
   %40 = sub i64 %5, %39
   %41 = sdiv exact i64 %40, 12
@@ -6318,12 +6318,12 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Vec_IntFind.exit.th
   %45 = icmp eq i32 %43, %44
   br i1 %45, label %46, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Gia_ObjIsMux.exit.thread
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Gia_ObjIsMux.argprom.exit.thread
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-46:                                               ; preds = %Gia_ObjIsMux.exit.thread
+46:                                               ; preds = %Gia_ObjIsMux.argprom.exit.thread
   %47 = icmp slt i32 %43, 16
   br i1 %47, label %48, label %56
 
@@ -6645,9 +6645,9 @@ Vec_IntFind.exit.thread:                          ; preds = %19, %3
   %31 = getelementptr i8, ptr %0, i64 40
   %.val28 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %.val28, null
-  br i1 %.not.i.i, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjIsMux.exit
+  br i1 %.not.i.i, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjIsMux.argprom.exit
 
-Gia_ObjIsMux.exit:                                ; preds = %.thread
+Gia_ObjIsMux.argprom.exit:                        ; preds = %.thread
   %32 = ptrtoint ptr %.val27 to i64
   %33 = sub i64 %5, %32
   %34 = sdiv exact i64 %33, 12
@@ -6656,18 +6656,18 @@ Gia_ObjIsMux.exit:                                ; preds = %.thread
   %36 = getelementptr inbounds i8, ptr %.val28, i64 %35
   %37 = load i32, ptr %36, align 4
   %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjFanin2.exit
+  br i1 %.not, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjFanin2.exit
 
-Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.exit
+Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMux.argprom.exit
   %38 = ashr i32 %37, 1
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val27, i64 %39
   tail call void @Gia_ManPrintCollect2_rec(ptr noundef nonnull %0, ptr noundef %40, ptr noundef %2)
   %.val25.pre = load ptr, ptr %4, align 8
-  br label %Gia_ObjIsMux.exit.thread
+  br label %Gia_ObjIsMux.argprom.exit.thread
 
-Gia_ObjIsMux.exit.thread:                         ; preds = %.thread, %Gia_ObjFanin2.exit, %Gia_ObjIsMux.exit
-  %.val25 = phi ptr [ %.val27, %.thread ], [ %.val25.pre, %Gia_ObjFanin2.exit ], [ %.val27, %Gia_ObjIsMux.exit ]
+Gia_ObjIsMux.argprom.exit.thread:                 ; preds = %.thread, %Gia_ObjFanin2.exit, %Gia_ObjIsMux.argprom.exit
+  %.val25 = phi ptr [ %.val27, %.thread ], [ %.val25.pre, %Gia_ObjFanin2.exit ], [ %.val27, %Gia_ObjIsMux.argprom.exit ]
   %41 = ptrtoint ptr %.val25 to i64
   %42 = sub i64 %5, %41
   %43 = sdiv exact i64 %42, 12
@@ -6677,12 +6677,12 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.thread, %Gia_ObjFa
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Gia_ObjIsMux.exit.thread
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Gia_ObjIsMux.argprom.exit.thread
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-48:                                               ; preds = %Gia_ObjIsMux.exit.thread
+48:                                               ; preds = %Gia_ObjIsMux.argprom.exit.thread
   %49 = icmp slt i32 %45, 16
   br i1 %49, label %50, label %58
 
@@ -7754,9 +7754,9 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.not = icmp eq ptr %.val42, null
   br label %17
 
-17:                                               ; preds = %.lr.ph, %Gia_ObjIsMuxId.exit.thread
-  %18 = phi i32 [ %.val, %.lr.ph ], [ %67, %Gia_ObjIsMuxId.exit.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsMuxId.exit.thread ]
+17:                                               ; preds = %.lr.ph, %Gia_ObjIsMuxId.argprom.exit.thread
+  %18 = phi i32 [ %.val, %.lr.ph ], [ %67, %Gia_ObjIsMuxId.argprom.exit.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsMuxId.argprom.exit.thread ]
   %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val42, i64 %indvars.iv
   br i1 %.not, label %.critedge, label %20
 
@@ -7805,15 +7805,15 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 43:                                               ; preds = %42, %34
   %.val44 = load ptr, ptr %16, align 8
   %.not.i64 = icmp eq ptr %.val44, null
-  br i1 %.not.i64, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
+  br i1 %.not.i64, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
 
-Gia_ObjIsMuxId.exit:                              ; preds = %43
+Gia_ObjIsMuxId.argprom.exit:                      ; preds = %43
   %44 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %.not77 = icmp eq i32 %45, 0
-  br i1 %.not77, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFaninId2p.exit
+  br i1 %.not77, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjFaninId2p.exit
 
-Gia_ObjFaninId2p.exit:                            ; preds = %Gia_ObjIsMuxId.exit
+Gia_ObjFaninId2p.exit:                            ; preds = %Gia_ObjIsMuxId.argprom.exit
   %.val8.i = load ptr, ptr %14, align 8
   %46 = ptrtoint ptr %.val8.i to i64
   %47 = sub i64 %25, %46
@@ -7829,16 +7829,16 @@ Gia_ObjFaninId2p.exit:                            ; preds = %Gia_ObjIsMuxId.exit
   %54 = getelementptr inbounds i32, ptr %.val49, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %Gia_ObjFaninId2p.exit71, label %Gia_ObjIsMuxId.exit.thread
+  br i1 %56, label %Gia_ObjFaninId2p.exit71, label %Gia_ObjIsMuxId.argprom.exit.thread
 
 Gia_ObjFaninId2p.exit71:                          ; preds = %Gia_ObjFaninId2p.exit
   store i32 %27, ptr %54, align 4
-  br label %Gia_ObjIsMuxId.exit.thread
+  br label %Gia_ObjIsMuxId.argprom.exit.thread
 
 57:                                               ; preds = %20
   %.not.i72 = icmp ne i64 %21, 0
   %narrow.i73 = and i1 %.not.i72, %23
-  br i1 %narrow.i73, label %58, label %Gia_ObjIsMuxId.exit.thread
+  br i1 %narrow.i73, label %58, label %Gia_ObjIsMuxId.argprom.exit.thread
 
 58:                                               ; preds = %57
   %59 = and i64 %.val43, 536870911
@@ -7848,22 +7848,22 @@ Gia_ObjFaninId2p.exit71:                          ; preds = %Gia_ObjFaninId2p.ex
   %62 = getelementptr inbounds i32, ptr %.val49, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %Gia_ObjIsMuxId.exit.thread
+  br i1 %64, label %65, label %Gia_ObjIsMuxId.argprom.exit.thread
 
 65:                                               ; preds = %58
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %66, ptr %62, align 4
   %.pre = load i32, ptr %2, align 8
-  br label %Gia_ObjIsMuxId.exit.thread
+  br label %Gia_ObjIsMuxId.argprom.exit.thread
 
-Gia_ObjIsMuxId.exit.thread:                       ; preds = %43, %Gia_ObjFaninId2p.exit71, %Gia_ObjFaninId2p.exit, %Gia_ObjIsMuxId.exit, %58, %65, %57
-  %67 = phi i32 [ %18, %43 ], [ %18, %Gia_ObjFaninId2p.exit71 ], [ %18, %Gia_ObjFaninId2p.exit ], [ %18, %Gia_ObjIsMuxId.exit ], [ %18, %58 ], [ %.pre, %65 ], [ %18, %57 ]
+Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %43, %Gia_ObjFaninId2p.exit71, %Gia_ObjFaninId2p.exit, %Gia_ObjIsMuxId.argprom.exit, %58, %65, %57
+  %67 = phi i32 [ %18, %43 ], [ %18, %Gia_ObjFaninId2p.exit71 ], [ %18, %Gia_ObjFaninId2p.exit ], [ %18, %Gia_ObjIsMuxId.argprom.exit ], [ %18, %58 ], [ %.pre, %65 ], [ %18, %57 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
   br i1 %69, label %17, label %.critedge, !llvm.loop !68
 
-.critedge:                                        ; preds = %17, %Gia_ObjIsMuxId.exit.thread, %Vec_IntStart.exit
+.critedge:                                        ; preds = %17, %Gia_ObjIsMuxId.argprom.exit.thread, %Vec_IntStart.exit
   ret ptr %3
 }
 
@@ -9156,10 +9156,10 @@ Gia_ObjTerSimCo.exit:                             ; preds = %Gia_ObjTerSimGet0Fa
   %160 = icmp sgt i32 %.val122.val187, %.val119192.pre234
   br i1 %160, label %.lr.ph190, label %.critedge10
 
-.lr.ph190:                                        ; preds = %.preheader, %Gia_ObjTerSimPrint.exit
-  %.val122232 = phi ptr [ %.val122, %Gia_ObjTerSimPrint.exit ], [ %.val122186, %.preheader ]
-  %.val121230 = phi i32 [ %.val121, %Gia_ObjTerSimPrint.exit ], [ %.val119192.pre234, %.preheader ]
-  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %Gia_ObjTerSimPrint.exit ], [ 0, %.preheader ]
+.lr.ph190:                                        ; preds = %.preheader, %Gia_ObjTerSimPrint.argprom.exit
+  %.val122232 = phi ptr [ %.val122, %Gia_ObjTerSimPrint.argprom.exit ], [ %.val122186, %.preheader ]
+  %.val121230 = phi i32 [ %.val121, %Gia_ObjTerSimPrint.argprom.exit ], [ %.val119192.pre234, %.preheader ]
+  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %Gia_ObjTerSimPrint.argprom.exit ], [ 0, %.preheader ]
   %.val112 = load ptr, ptr %36, align 8
   %.not98 = icmp eq ptr %.val112, null
   br i1 %.not98, label %.critedge10, label %161
@@ -9189,16 +9189,16 @@ Gia_ObjTerSimCo.exit:                             ; preds = %Gia_ObjTerSimGet0Fa
 173:                                              ; preds = %168
   %.not42.i = icmp ne i32 %172, 0
   %.not4.not.i = select i1 %.not.i.i145, i1 %.not42.i, i1 false
-  br i1 %.not4.not.i, label %.sink.split.i, label %Gia_ObjTerSimPrint.exit
+  br i1 %.not4.not.i, label %.sink.split.i, label %Gia_ObjTerSimPrint.argprom.exit
 
 .sink.split.i:                                    ; preds = %173, %168, %161
   %.sink.i146 = phi i32 [ 48, %161 ], [ 49, %168 ], [ 88, %173 ]
   %putchar5.i = tail call i32 @putchar(i32 %.sink.i146)
   %.val121.pre = load i32, ptr %4, align 8
   %.val122.pre = load ptr, ptr %5, align 8
-  br label %Gia_ObjTerSimPrint.exit
+  br label %Gia_ObjTerSimPrint.argprom.exit
 
-Gia_ObjTerSimPrint.exit:                          ; preds = %173, %.sink.split.i
+Gia_ObjTerSimPrint.argprom.exit:                  ; preds = %173, %.sink.split.i
   %.val122 = phi ptr [ %.val122232, %173 ], [ %.val122.pre, %.sink.split.i ]
   %.val121 = phi i32 [ %.val121230, %173 ], [ %.val121.pre, %.sink.split.i ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
@@ -9209,7 +9209,7 @@ Gia_ObjTerSimPrint.exit:                          ; preds = %173, %.sink.split.i
   %177 = icmp slt i64 %indvars.iv.next214, %176
   br i1 %177, label %.lr.ph190, label %.critedge10, !llvm.loop !82
 
-.critedge10:                                      ; preds = %.lr.ph190, %Gia_ObjTerSimPrint.exit, %.preheader
+.critedge10:                                      ; preds = %.lr.ph190, %Gia_ObjTerSimPrint.argprom.exit, %.preheader
   %putchar = tail call i32 @putchar(i32 10)
   %.val119192.pre = load i32, ptr %4, align 8
   %.val120193.pre = load ptr, ptr %5, align 8
@@ -10782,7 +10782,7 @@ Vec_IntUniqify.exit:                              ; preds = %346, %Gia_ManCleanM
   %349 = getelementptr inbounds i32, ptr %.pre224.pre, i64 %indvars.iv219
   %350 = load i32, ptr %349, align 4
   %351 = shl nsw i32 %350, 1
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef %33, i32 noundef %351)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %33, i32 noundef %351)
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count
   br i1 %exitcond222.not, label %.critedge4.thread, label %348, !llvm.loop !102
@@ -10967,7 +10967,7 @@ Vec_IntPush.exit9:                                ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -12207,7 +12207,7 @@ Vec_IntGrow.exit:                                 ; preds = %3, %17
 .preheader.i:                                     ; preds = %.lr.ph13.i, %.preheader5.i
   %.2.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader5.i ], [ %49, %.lr.ph13.i ]
   %46 = icmp ult ptr %.036.lcssa.i, %25
-  br i1 %46, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.exit
+  br i1 %46, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.argprom.exit
 
 .lr.ph13.i:                                       ; preds = %.preheader5.i, %.lr.ph13.i
   %.212.i = phi ptr [ %49, %.lr.ph13.i ], [ %.0.lcssa.i, %.preheader5.i ]
@@ -12227,9 +12227,9 @@ Vec_IntGrow.exit:                                 ; preds = %3, %17
   %53 = getelementptr inbounds i8, ptr %.316.i, i64 4
   store i32 %52, ptr %.316.i, align 4
   %54 = icmp ult ptr %51, %25
-  br i1 %54, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.exit, !llvm.loop !114
+  br i1 %54, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.argprom.exit, !llvm.loop !114
 
-Vec_IntTwoMerge2Int.exit:                         ; preds = %.lr.ph17.i, %.preheader.i
+Vec_IntTwoMerge2Int.argprom.exit:                 ; preds = %.lr.ph17.i, %.preheader.i
   %.3.lcssa.i = phi ptr [ %.2.lcssa.i, %.preheader.i ], [ %53, %.lr.ph17.i ]
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   %56 = load ptr, ptr %55, align 8
@@ -12630,7 +12630,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntPush.exit, %
   %92 = lshr i32 %91, 29
   %93 = and i32 %92, 1
   %94 = xor i32 %93, %90
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %20, i32 noundef %94)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %20, i32 noundef %94)
   %95 = add nuw nsw i32 %.04878, 1
   %exitcond84.not = icmp eq i32 %95, %44
   br i1 %exitcond84.not, label %._crit_edge, label %.preheader68, !llvm.loop !122
@@ -13570,10 +13570,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntPush.exit, %
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 4
   %92 = xor i32 %.sroa.0.0..sroa.0.0., 1
   %93 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %29, i32 noundef %.sroa.2.0..sroa.2.4., i32 noundef %92) #36
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %29, i32 noundef %93)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %29, i32 noundef %93)
   %94 = xor i32 %.sroa.2.0..sroa.2.4., 1
   %95 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %29, i32 noundef %.sroa.0.0..sroa.0.0., i32 noundef %94) #36
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %29, i32 noundef %95)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %29, i32 noundef %95)
   %96 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %29) #36
   tail call void @Gia_ManStop(ptr noundef nonnull %29) #36
   %97 = load ptr, ptr %20, align 8
@@ -14018,13 +14018,13 @@ Vec_WecStart.exit:                                ; preds = %1, %5
   %12 = getelementptr i8, ptr %0, i64 8
   br label %13
 
-13:                                               ; preds = %.lr.ph, %Vec_IntTwoFindCommon.exit
-  %.val1624 = phi i32 [ %.val15, %.lr.ph ], [ %.val16, %Vec_IntTwoFindCommon.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntTwoFindCommon.exit ]
+13:                                               ; preds = %.lr.ph, %Vec_IntTwoFindCommon.argprom.exit
+  %.val1624 = phi i32 [ %.val15, %.lr.ph ], [ %.val16, %Vec_IntTwoFindCommon.argprom.exit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntTwoFindCommon.argprom.exit ]
   %.val14 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val14, i64 %indvars.iv
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %Vec_IntTwoFindCommon.exit, label %15
+  br i1 %.not, label %Vec_IntTwoFindCommon.argprom.exit, label %15
 
 15:                                               ; preds = %13
   %.val13 = load ptr, ptr %12, align 8
@@ -14046,7 +14046,7 @@ Vec_WecStart.exit:                                ; preds = %1, %5
   %26 = icmp sgt i32 %.val17, 0
   %27 = icmp sgt i32 %.val19, 0
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph.i, label %Vec_IntTwoFindCommon.exit
+  br i1 %28, label %.lr.ph.i, label %Vec_IntTwoFindCommon.argprom.exit
 
 .lr.ph.i:                                         ; preds = %15
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %14, i64 8
@@ -14145,20 +14145,20 @@ Vec_IntPush.exit.i:                               ; preds = %55, %Vec_IntGrow.ex
   %71 = icmp ult ptr %.1.i, %22
   %72 = icmp ult ptr %.123.i, %24
   %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %29, label %Vec_IntTwoFindCommon.exit.loopexit, !llvm.loop !137
+  br i1 %73, label %29, label %Vec_IntTwoFindCommon.argprom.exit.loopexit, !llvm.loop !137
 
-Vec_IntTwoFindCommon.exit.loopexit:               ; preds = %70
+Vec_IntTwoFindCommon.argprom.exit.loopexit:       ; preds = %70
   %.val16.pre = load i32, ptr %9, align 4
-  br label %Vec_IntTwoFindCommon.exit
+  br label %Vec_IntTwoFindCommon.argprom.exit
 
-Vec_IntTwoFindCommon.exit:                        ; preds = %Vec_IntTwoFindCommon.exit.loopexit, %15, %13
-  %.val16 = phi i32 [ %.val16.pre, %Vec_IntTwoFindCommon.exit.loopexit ], [ %.val1624, %15 ], [ %.val1624, %13 ]
+Vec_IntTwoFindCommon.argprom.exit:                ; preds = %Vec_IntTwoFindCommon.argprom.exit.loopexit, %15, %13
+  %.val16 = phi i32 [ %.val16.pre, %Vec_IntTwoFindCommon.argprom.exit.loopexit ], [ %.val1624, %15 ], [ %.val1624, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = sext i32 %.val16 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
   br i1 %75, label %13, label %.critedge, !llvm.loop !138
 
-.critedge:                                        ; preds = %Vec_IntTwoFindCommon.exit, %Vec_WecStart.exit
+.critedge:                                        ; preds = %Vec_IntTwoFindCommon.argprom.exit, %Vec_WecStart.exit
   ret ptr %3
 }
 
@@ -15488,11 +15488,11 @@ Gia_ManIncrementTravId.exit:                      ; preds = %102, %.thread.i, %9
   %127 = xor i32 %.sroa.0.0..sroa.0.0., 1
   %128 = call i32 @Gia_ManHashAnd(ptr noundef nonnull %11, i32 noundef %.sroa.2.0..sroa.2.4., i32 noundef %127) #36
   %129 = xor i32 %128, 1
-  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %11, i32 noundef %129)
+  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %11, i32 noundef %129)
   %130 = xor i32 %.sroa.2.0..sroa.2.4., 1
   %131 = call i32 @Gia_ManHashAnd(ptr noundef nonnull %11, i32 noundef %.sroa.0.0..sroa.0.0., i32 noundef %130) #36
   %132 = xor i32 %131, 1
-  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %11, i32 noundef %132)
+  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %11, i32 noundef %132)
   %133 = add nuw nsw i32 %.178, 1
   %.val63 = load i32, ptr %56, align 8
   %134 = icmp slt i32 %133, %.val63
@@ -17101,7 +17101,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

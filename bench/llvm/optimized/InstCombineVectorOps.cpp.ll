@@ -2422,14 +2422,14 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %328, %331
   %spec.select.i.i.i = add nuw nsw i64 %.08.i.i.i, %342
   %343 = getelementptr inbounds i8, ptr %.057.i.i.i, i64 32
   %.not.i.i.i243 = icmp eq ptr %343, %337
-  br i1 %.not.i.i.i243, label %"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl23visitExtractElementInstERNS_18ExtractElementInstEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i243, label %"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl23visitExtractElementInstERNS_18ExtractElementInstEE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i, !llvm.loop !12
 
-"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl23visitExtractElementInstERNS_18ExtractElementInstEE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i
+"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl23visitExtractElementInstERNS_18ExtractElementInstEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i
   %344 = and i64 %spec.select.i.i.i, 4294967295
   %345 = icmp eq i64 %344, 1
   br i1 %345, label %346, label %.critedge10
 
-346:                                              ; preds = %"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl23visitExtractElementInstERNS_18ExtractElementInstEE3$_0EEDaOT_T0_.exit"
+346:                                              ; preds = %"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl23visitExtractElementInstERNS_18ExtractElementInstEE3$_0EEDaOT_T0_.argprom.exit"
   %347 = and i32 %326, 134217727
   %348 = zext nneg i32 %347 to i64
   %349 = sub nsw i64 0, %348
@@ -2624,7 +2624,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit251:              ; preds = %450
   %469 = call noundef ptr @_ZN4llvm8CastInst6CreateENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineENS_14InsertPositionE(i32 noundef %465, ptr noundef %462, ptr noundef %467, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr null, i64 0) #16
   br label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
-.critedge10:                                      ; preds = %450, %295, %400, %407, %_ZNK4llvm5Value9hasOneUseEv.exit251, %446, %"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl23visitExtractElementInstERNS_18ExtractElementInstEE3$_0EEDaOT_T0_.exit", %.critedge8
+.critedge10:                                      ; preds = %450, %295, %400, %407, %_ZNK4llvm5Value9hasOneUseEv.exit251, %446, %"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl23visitExtractElementInstERNS_18ExtractElementInstEE3$_0EEDaOT_T0_.argprom.exit", %.critedge8
   br i1 %89, label %.critedge10.thread, label %.critedge217
 
 .critedge10.thread:                               ; preds = %_ZN4llvm4User8operandsEv.exit, %318, %_ZNK4llvm5Value9hasOneUseEv.exit, %306, %.critedge10
@@ -3644,7 +3644,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %47 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i, i64 8
   %48 = load i8, ptr %47, align 8
   %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+  br i1 %49, label %50, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
 
 50:                                               ; preds = %.lr.ph.i.i.i.i.i
   %51 = getelementptr inbounds i8, ptr %.02940.i.i.i.i.i, i64 24
@@ -3687,7 +3687,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %68 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   %69 = load i8, ptr %68, align 8
   %70 = trunc i8 %69 to i1
-  br i1 %70, label %71, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+  br i1 %70, label %71, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
@@ -3698,7 +3698,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %74 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   %75 = load i8, ptr %74, align 8
   %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+  br i1 %76, label %77, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 16
@@ -3709,24 +3709,24 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %80 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i, i64 8
   %81 = load i8, ptr %80, align 8
   %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+  br i1 %82, label %83, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
 
 83:                                               ; preds = %79, %._crit_edge.i.i.i.i.i
-  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
 
 .loopexit.split.loop.exit31.i.i.i.i.i:            ; preds = %50
   %84 = getelementptr inbounds i8, ptr %.02940.i.i.i.i.i, i64 16
-  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
 
 .loopexit.split.loop.exit33.i.i.i.i.i:            ; preds = %54
   %85 = getelementptr inbounds i8, ptr %.02940.i.i.i.i.i, i64 32
-  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
 
 .loopexit.split.loop.exit35.i.i.i.i.i:            ; preds = %58
   %86 = getelementptr inbounds i8, ptr %.02940.i.i.i.i.i, i64 48
-  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
 
-"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit": ; preds = %.lr.ph.i.i.i.i.i, %67, %73, %79, %83, %.loopexit.split.loop.exit31.i.i.i.i.i, %.loopexit.split.loop.exit33.i.i.i.i.i, %.loopexit.split.loop.exit35.i.i.i.i.i
+"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %67, %73, %79, %83, %.loopexit.split.loop.exit31.i.i.i.i.i, %.loopexit.split.loop.exit33.i.i.i.i.i, %.loopexit.split.loop.exit35.i.i.i.i.i
   %.028.i.i.i.i.i = phi ptr [ %43, %83 ], [ %.029.lcssa.i.i.i.i.i, %67 ], [ %.1.i.i.i.i.i, %73 ], [ %.2.i.i.i.i.i, %79 ], [ %84, %.loopexit.split.loop.exit31.i.i.i.i.i ], [ %85, %.loopexit.split.loop.exit33.i.i.i.i.i ], [ %86, %.loopexit.split.loop.exit35.i.i.i.i.i ], [ %.02940.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %87 = load ptr, ptr %4, align 8
   %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
@@ -3734,7 +3734,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %.not.i = icmp eq ptr %.028.i.i.i.i.i, %89
   br i1 %.not.i, label %.critedge, label %90
 
-90:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit"
+90:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit"
   %91 = getelementptr inbounds i8, ptr %.062189, i64 -32
   %92 = load ptr, ptr %91, align 8
   %93 = load i8, ptr %92, align 8
@@ -3771,7 +3771,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %or.cond = and i1 %110, %113
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !29
 
-.critedge:                                        ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit", %99, %38
+.critedge:                                        ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit", %99, %38
   %114 = load ptr, ptr %4, align 8
   %115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %.idx4.i.i79 = shl nsw i64 %115, 4
@@ -3791,7 +3791,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %120 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i91, i64 8
   %121 = load i8, ptr %120, align 8
   %122 = trunc i8 %121 to i1
-  br i1 %122, label %123, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+  br i1 %122, label %123, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
 
 123:                                              ; preds = %.lr.ph.i.i.i.i.i89
   %124 = getelementptr inbounds i8, ptr %.02940.i.i.i.i.i91, i64 24
@@ -3834,7 +3834,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %141 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i82, i64 8
   %142 = load i8, ptr %141, align 8
   %143 = trunc i8 %142 to i1
-  br i1 %143, label %144, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+  br i1 %143, label %144, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i82, i64 16
@@ -3845,7 +3845,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %147 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i86, i64 8
   %148 = load i8, ptr %147, align 8
   %149 = trunc i8 %148 to i1
-  br i1 %149, label %150, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+  br i1 %149, label %150, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i86, i64 16
@@ -3856,24 +3856,24 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %153 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i83, i64 8
   %154 = load i8, ptr %153, align 8
   %155 = trunc i8 %154 to i1
-  br i1 %155, label %156, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+  br i1 %155, label %156, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
 
 156:                                              ; preds = %152, %._crit_edge.i.i.i.i.i80
-  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
 
 .loopexit.split.loop.exit31.i.i.i.i.i92:          ; preds = %123
   %157 = getelementptr inbounds i8, ptr %.02940.i.i.i.i.i91, i64 16
-  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
 
 .loopexit.split.loop.exit33.i.i.i.i.i93:          ; preds = %127
   %158 = getelementptr inbounds i8, ptr %.02940.i.i.i.i.i91, i64 32
-  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
 
 .loopexit.split.loop.exit35.i.i.i.i.i94:          ; preds = %131
   %159 = getelementptr inbounds i8, ptr %.02940.i.i.i.i.i91, i64 48
-  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+  br label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
 
-"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96": ; preds = %.lr.ph.i.i.i.i.i89, %140, %146, %152, %156, %.loopexit.split.loop.exit31.i.i.i.i.i92, %.loopexit.split.loop.exit33.i.i.i.i.i93, %.loopexit.split.loop.exit35.i.i.i.i.i94
+"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96": ; preds = %.lr.ph.i.i.i.i.i89, %140, %146, %152, %156, %.loopexit.split.loop.exit31.i.i.i.i.i92, %.loopexit.split.loop.exit33.i.i.i.i.i93, %.loopexit.split.loop.exit35.i.i.i.i.i94
   %.028.i.i.i.i.i84 = phi ptr [ %116, %156 ], [ %.029.lcssa.i.i.i.i.i82, %140 ], [ %.1.i.i.i.i.i86, %146 ], [ %.2.i.i.i.i.i83, %152 ], [ %157, %.loopexit.split.loop.exit31.i.i.i.i.i92 ], [ %158, %.loopexit.split.loop.exit33.i.i.i.i.i93 ], [ %159, %.loopexit.split.loop.exit35.i.i.i.i.i94 ], [ %.02940.i.i.i.i.i91, %.lr.ph.i.i.i.i.i89 ]
   %160 = load ptr, ptr %4, align 8
   %161 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
@@ -3881,7 +3881,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl43foldAggregateConstruction
   %.not.i85 = icmp eq ptr %.028.i.i.i.i.i84, %162
   br i1 %.not.i85, label %163, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
-163:                                              ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96"
+163:                                              ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96"
   store ptr %3, ptr %6, align 8
   store ptr %4, ptr %7, align 8
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4430,8 +4430,8 @@ _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEE
   call void @_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #16
   br label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
-_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit: ; preds = %95, %90, %209, %223, %202, %163, %212, %201, %171, %._crit_edge, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96", %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit
-  %.1 = phi ptr [ %.2, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ null, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.exit96" ], [ null, %._crit_edge ], [ %1, %201 ], [ null, %171 ], [ null, %212 ], [ null, %163 ], [ null, %202 ], [ null, %223 ], [ null, %209 ], [ null, %90 ], [ null, %95 ]
+_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit: ; preds = %95, %90, %209, %223, %202, %163, %212, %201, %171, %._crit_edge, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96", %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit
+  %.1 = phi ptr [ %.2, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ null, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_0clEv.argprom.exit96" ], [ null, %._crit_edge ], [ %1, %201 ], [ null, %171 ], [ null, %212 ], [ null, %163 ], [ null, %202 ], [ null, %223 ], [ null, %209 ], [ null, %90 ], [ null, %95 ]
   %438 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %439 = load ptr, ptr %4, align 8
   %440 = icmp eq ptr %439, %31
@@ -4459,7 +4459,7 @@ define internal fastcc { ptr, i8 } @"_ZZN4llvm16InstCombinerImpl43foldAggregateC
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16, !noalias !43
   %9 = getelementptr inbounds %"class.std::optional.81", ptr %7, i64 %8
   %.not4849 = icmp eq i64 %8, 0
-  br i1 %.not4849, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread", label %.lr.ph
+  br i1 %.not4849, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4480,7 +4480,7 @@ define internal fastcc { ptr, i8 } @"_ZZN4llvm16InstCombinerImpl43foldAggregateC
   %15 = tail call noundef ptr @_ZNK4llvm5Value16DoPHITranslationEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %1, ptr noundef %3) #16
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 93
-  br i1 %17, label %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %17, label %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us.us: ; preds = %.lr.ph.split.us.split.us
   %18 = getelementptr inbounds i8, ptr %15, i64 -32
@@ -4490,23 +4490,23 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.
   %22 = load ptr, ptr %13, align 8
   %23 = load ptr, ptr %22, align 8
   %.not8.i.us.us = icmp eq ptr %21, %23
-  br i1 %.not8.i.us.us, label %24, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not8.i.us.us, label %24, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 24:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us.us
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   %27 = and i64 %26, 4294967295
   %.not9.i.us.us = icmp eq i64 %27, 1
-  br i1 %.not9.i.us.us, label %28, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not9.i.us.us, label %28, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %25, align 8
   %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   %31 = load i32, ptr %29, align 4
   %.not10.i.us.us = icmp eq i32 %31, %.sroa.530.051.us.us
-  br i1 %.not10.i.us.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us.us", label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not10.i.us.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us.us", label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
-"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us.us": ; preds = %28
+"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us.us": ; preds = %28
   %32 = icmp eq ptr %.sroa.034.052.us.us, null
   %..i16.us.us = select i1 %32, i32 2, i32 1
   %.0.i17.us.us = select i1 %.sroa.436.053.us.us, i32 %..i16.us.us, i32 0
@@ -4515,20 +4515,20 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.
     i32 1, label %33
   ]
 
-33:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us.us"
+33:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us.us"
   %.not14.us.us = icmp eq ptr %19, %.sroa.034.052.us.us
-  br i1 %.not14.us.us, label %35, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not14.us.us, label %35, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
-34:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us.us"
+34:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us.us"
   br label %35
 
-35:                                               ; preds = %34, %33, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us.us"
-  %.sroa.034.1.us.us = phi ptr [ %.sroa.034.052.us.us, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us.us" ], [ %.sroa.034.052.us.us, %33 ], [ %19, %34 ]
-  %.sroa.436.1.us.us = phi i1 [ %.sroa.436.053.us.us, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us.us" ], [ %.sroa.436.053.us.us, %33 ], [ true, %34 ]
+35:                                               ; preds = %34, %33, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us.us"
+  %.sroa.034.1.us.us = phi ptr [ %.sroa.034.052.us.us, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us.us" ], [ %.sroa.034.052.us.us, %33 ], [ %19, %34 ]
+  %.sroa.436.1.us.us = phi i1 [ %.sroa.436.053.us.us, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us.us" ], [ %.sroa.436.053.us.us, %33 ], [ true, %34 ]
   %36 = add i32 %.sroa.530.051.us.us, 1
   %37 = getelementptr inbounds i8, ptr %.sroa.027.050.us.us, i64 16
   %.not48.us.us = icmp eq ptr %37, %9
-  br i1 %.not48.us.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread", label %.lr.ph.split.us.split.us
+  br i1 %.not48.us.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread", label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %58
   %.sroa.436.053.us = phi i1 [ %.sroa.436.1.us, %58 ], [ false, %.lr.ph.split.us ]
@@ -4538,12 +4538,12 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.
   %38 = load ptr, ptr %10, align 8
   %39 = load ptr, ptr %.sroa.027.050.us, align 8
   %.not.i.i.i.us = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread", label %.thread6thread-pre-split.i.us
+  br i1 %.not.i.i.i.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread", label %.thread6thread-pre-split.i.us
 
 .thread6thread-pre-split.i.us:                    ; preds = %.lr.ph.split.us.split
   %.pr.i.us = load i8, ptr %39, align 8
   %40 = icmp eq i8 %.pr.i.us, 93
-  br i1 %40, label %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %40, label %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us: ; preds = %.thread6thread-pre-split.i.us
   %41 = getelementptr inbounds i8, ptr %39, i64 -32
@@ -4553,23 +4553,23 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.
   %45 = load ptr, ptr %38, align 8
   %46 = load ptr, ptr %45, align 8
   %.not8.i.us = icmp eq ptr %44, %46
-  br i1 %.not8.i.us, label %47, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not8.i.us, label %47, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 47:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %49 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #16
   %50 = and i64 %49, 4294967295
   %.not9.i.us = icmp eq i64 %50, 1
-  br i1 %.not9.i.us, label %51, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not9.i.us, label %51, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %48, align 8
   %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #16
   %54 = load i32, ptr %52, align 4
   %.not10.i.us = icmp eq i32 %54, %.sroa.530.051.us
-  br i1 %.not10.i.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us", label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not10.i.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us", label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
-"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us": ; preds = %51
+"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us": ; preds = %51
   %55 = icmp eq ptr %.sroa.034.052.us, null
   %..i16.us = select i1 %55, i32 2, i32 1
   %.0.i17.us = select i1 %.sroa.436.053.us, i32 %..i16.us, i32 0
@@ -4578,20 +4578,20 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.
     i32 1, label %56
   ]
 
-56:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us"
+56:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us"
   %.not14.us = icmp eq ptr %42, %.sroa.034.052.us
-  br i1 %.not14.us, label %58, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not14.us, label %58, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
-57:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us"
+57:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us"
   br label %58
 
-58:                                               ; preds = %57, %56, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us"
-  %.sroa.034.1.us = phi ptr [ %.sroa.034.052.us, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us" ], [ %.sroa.034.052.us, %56 ], [ %42, %57 ]
-  %.sroa.436.1.us = phi i1 [ %.sroa.436.053.us, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.us" ], [ %.sroa.436.053.us, %56 ], [ true, %57 ]
+58:                                               ; preds = %57, %56, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us"
+  %.sroa.034.1.us = phi ptr [ %.sroa.034.052.us, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us" ], [ %.sroa.034.052.us, %56 ], [ %42, %57 ]
+  %.sroa.436.1.us = phi i1 [ %.sroa.436.053.us, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.us" ], [ %.sroa.436.053.us, %56 ], [ true, %57 ]
   %59 = add i32 %.sroa.530.051.us, 1
   %60 = getelementptr inbounds i8, ptr %.sroa.027.050.us, i64 16
   %.not48.us = icmp eq ptr %60, %9
-  br i1 %.not48.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread", label %.lr.ph.split.us.split
+  br i1 %.not48.us, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread", label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %81
   %.sroa.436.053 = phi i1 [ %.sroa.436.1, %81 ], [ false, %.lr.ph ]
@@ -4601,12 +4601,12 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.
   %61 = load ptr, ptr %10, align 8
   %62 = load ptr, ptr %.sroa.027.050, align 8
   %.not.i.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i.i, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread", label %.thread6thread-pre-split.i
+  br i1 %.not.i.i.i, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread", label %.thread6thread-pre-split.i
 
 .thread6thread-pre-split.i:                       ; preds = %.lr.ph.split
   %.pr.i = load i8, ptr %62, align 8
   %63 = icmp eq i8 %.pr.i, 93
-  br i1 %63, label %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %63, label %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i: ; preds = %.thread6thread-pre-split.i
   %64 = getelementptr inbounds i8, ptr %62, i64 -32
@@ -4616,23 +4616,23 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.
   %68 = load ptr, ptr %61, align 8
   %69 = load ptr, ptr %68, align 8
   %.not8.i = icmp eq ptr %67, %69
-  br i1 %.not8.i, label %70, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not8.i, label %70, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 70:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %72 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #16
   %73 = and i64 %72, 4294967295
   %.not9.i = icmp eq i64 %73, 1
-  br i1 %.not9.i, label %74, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not9.i, label %74, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %71, align 8
   %76 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #16
   %77 = load i32, ptr %75, align 4
   %.not10.i = icmp eq i32 %77, %.sroa.530.051
-  br i1 %.not10.i, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit", label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not10.i, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit", label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
-"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit": ; preds = %74
+"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit": ; preds = %74
   %78 = icmp eq ptr %.sroa.034.052, null
   %..i16 = select i1 %78, i32 2, i32 1
   %.0.i17 = select i1 %.sroa.436.053, i32 %..i16, i32 0
@@ -4641,22 +4641,22 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.
     i32 1, label %80
   ]
 
-79:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit"
+79:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit"
   br label %81
 
-80:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit"
+80:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit"
   %.not14 = icmp eq ptr %65, %.sroa.034.052
-  br i1 %.not14, label %81, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread"
+  br i1 %.not14, label %81, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread"
 
-81:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit", %80, %79
-  %.sroa.034.1 = phi ptr [ %.sroa.034.052, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit" ], [ %.sroa.034.052, %80 ], [ %65, %79 ]
-  %.sroa.436.1 = phi i1 [ %.sroa.436.053, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit" ], [ %.sroa.436.053, %80 ], [ true, %79 ]
+81:                                               ; preds = %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit", %80, %79
+  %.sroa.034.1 = phi ptr [ %.sroa.034.052, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit" ], [ %.sroa.034.052, %80 ], [ %65, %79 ]
+  %.sroa.436.1 = phi i1 [ %.sroa.436.053, %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit" ], [ %.sroa.436.053, %80 ], [ true, %79 ]
   %82 = add i32 %.sroa.530.051, 1
   %83 = getelementptr inbounds i8, ptr %.sroa.027.050, i64 16
   %.not48 = icmp eq ptr %83, %9
-  br i1 %.not48, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread", label %.lr.ph.split
+  br i1 %.not48, label %"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread", label %.lr.ph.split
 
-"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.exit.thread": ; preds = %74, %70, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i, %80, %81, %.lr.ph.split, %.thread6thread-pre-split.i, %51, %47, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us, %56, %58, %.lr.ph.split.us.split, %.thread6thread-pre-split.i.us, %28, %24, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us.us, %33, %35, %.lr.ph.split.us.split.us, %5
+"_ZZN4llvm16InstCombinerImpl43foldAggregateConstructionIntoAggregateReuseERNS_15InsertValueInstEENK3$_3clEPNS_11InstructionEjSt8optionalIPNS_10BasicBlockEES9_.argprom.exit.thread": ; preds = %74, %70, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i, %80, %81, %.lr.ph.split, %.thread6thread-pre-split.i, %51, %47, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us, %56, %58, %.lr.ph.split.us.split, %.thread6thread-pre-split.i.us, %28, %24, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us.us, %33, %35, %.lr.ph.split.us.split.us, %5
   %.sroa.037.0 = phi ptr [ undef, %5 ], [ null, %28 ], [ null, %24 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us.us ], [ undef, %.lr.ph.split.us.split.us ], [ %.sroa.034.1.us.us, %35 ], [ null, %33 ], [ null, %51 ], [ null, %47 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us ], [ undef, %.thread6thread-pre-split.i.us ], [ undef, %.lr.ph.split.us.split ], [ %.sroa.034.1.us, %58 ], [ null, %56 ], [ null, %74 ], [ null, %70 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i ], [ undef, %.thread6thread-pre-split.i ], [ undef, %.lr.ph.split ], [ %.sroa.034.1, %81 ], [ null, %80 ]
   %.sroa.438.0 = phi i8 [ 1, %5 ], [ 1, %28 ], [ 1, %24 ], [ 1, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us.us ], [ 0, %.lr.ph.split.us.split.us ], [ 1, %35 ], [ 1, %33 ], [ 1, %51 ], [ 1, %47 ], [ 1, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i.us ], [ 0, %.thread6thread-pre-split.i.us ], [ 0, %.lr.ph.split.us.split ], [ 1, %58 ], [ 1, %56 ], [ 1, %74 ], [ 1, %70 ], [ 1, %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_11InstructionEEEDaPT0_.exit.i ], [ 0, %.thread6thread-pre-split.i ], [ 0, %.lr.ph.split ], [ 1, %81 ], [ 1, %80 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.037.0, 0
@@ -5983,29 +5983,29 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i:  ; preds = %389
   %411 = getelementptr inbounds i8, ptr %1, i64 16
   %.val = load ptr, ptr %411, align 8
   %.not.i.i.i149 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i149, label %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit.thread", label %_ZNK4llvm5Value9hasOneUseEv.exit.i
+  br i1 %.not.i.i.i149, label %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit.thread", label %_ZNK4llvm5Value9hasOneUseEv.exit.i
 
 _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %410
   %412 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %413 = load ptr, ptr %412, align 8
   %414 = icmp eq ptr %413, null
-  br i1 %414, label %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit", label %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit.thread"
+  br i1 %414, label %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit", label %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit.thread"
 
-"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit": ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i
+"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit": ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i
   %415 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %416 = load ptr, ptr %415, align 8
   %417 = load i8, ptr %416, align 8
   %.not226 = icmp eq i8 %417, 91
-  br i1 %.not226, label %.critedge8, label %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit.thread"
+  br i1 %.not226, label %.critedge8, label %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit.thread"
 
-"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit.thread": ; preds = %410, %_ZNK4llvm5Value9hasOneUseEv.exit.i, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit"
+"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit.thread": ; preds = %410, %_ZNK4llvm5Value9hasOneUseEv.exit.i, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit"
   store i8 1, ptr %25, align 1
   %418 = getelementptr inbounds i8, ptr %26, i64 16
   %419 = getelementptr inbounds nuw i8, ptr %27, i64 32
   br label %420
 
-420:                                              ; preds = %_ZN4llvm11SmallVectorIiLj16EED2Ev.exit, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit.thread"
-  %.2 = phi ptr [ undef, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit.thread" ], [ %.3, %_ZN4llvm11SmallVectorIiLj16EED2Ev.exit ]
+420:                                              ; preds = %_ZN4llvm11SmallVectorIiLj16EED2Ev.exit, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit.thread"
+  %.2 = phi ptr [ undef, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit.thread" ], [ %.3, %_ZN4llvm11SmallVectorIiLj16EED2Ev.exit ]
   %421 = load i8, ptr %25, align 1
   %422 = trunc i8 %421 to i1
   br i1 %422, label %423, label %.critedge8
@@ -6055,8 +6055,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %410
 _ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %437, %441
   br i1 %or.cond.not.not, label %420, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
-.critedge8:                                       ; preds = %420, %_ZNK4llvm4User10getOperandEj.exit.i.i147.thread, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit7.i.i, %_ZNK4llvm4User10getOperandEj.exit.i.i147, %362, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i, %352, %397, %.critedge6, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit", %404
-  %.1 = phi ptr [ undef, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.exit" ], [ undef, %404 ], [ undef, %397 ], [ undef, %.critedge6 ], [ undef, %352 ], [ undef, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i ], [ undef, %362 ], [ undef, %_ZNK4llvm4User10getOperandEj.exit.i.i147 ], [ undef, %_ZNK4llvm4User10getOperandEj.exit7.i.i ], [ undef, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i ], [ undef, %_ZNK4llvm4User10getOperandEj.exit.i.i147.thread ], [ %.2, %420 ]
+.critedge8:                                       ; preds = %420, %_ZNK4llvm4User10getOperandEj.exit.i.i147.thread, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit7.i.i, %_ZNK4llvm4User10getOperandEj.exit.i.i147, %362, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i, %352, %397, %.critedge6, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit", %404
+  %.1 = phi ptr [ undef, %"_ZZN4llvm16InstCombinerImpl22visitInsertElementInstERNS_17InsertElementInstEENK3$_0clES2_.argprom.exit" ], [ undef, %404 ], [ undef, %397 ], [ undef, %.critedge6 ], [ undef, %352 ], [ undef, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i ], [ undef, %362 ], [ undef, %_ZNK4llvm4User10getOperandEj.exit.i.i147 ], [ undef, %_ZNK4llvm4User10getOperandEj.exit7.i.i ], [ undef, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i ], [ undef, %_ZNK4llvm4User10getOperandEj.exit.i.i147.thread ], [ %.2, %420 ]
   %442 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %443 = load ptr, ptr %442, align 8
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
@@ -10442,13 +10442,13 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERK
   %397 = icmp ule i32 %393, %396
   %.not.i397 = icmp ult i32 %396, %.val.val.val
   %or.cond.i = and i1 %397, %.not.i397
-  br i1 %or.cond.i, label %398, label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.thread
+  br i1 %or.cond.i, label %398, label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit.thread
 
 398:                                              ; preds = %.critedge8
   %399 = sub nuw i32 %396, %393
   %400 = add i32 %392, -1
   %.not17.i398 = icmp eq i32 %399, %400
-  br i1 %.not17.i398, label %.lr.ph.i.preheader, label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.thread
+  br i1 %.not17.i398, label %.lr.ph.i.preheader, label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit.thread
 
 .lr.ph.i.preheader:                               ; preds = %398
   %401 = and i64 %278, 4294967295
@@ -10457,7 +10457,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERK
 402:                                              ; preds = %.lr.ph.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not18.i = icmp eq i64 %indvars.iv.next, %401
-  br i1 %.not18.i, label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit, label %.lr.ph.i, !llvm.loop !93
+  br i1 %.not18.i, label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !93
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %402
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next, %402 ]
@@ -10466,9 +10466,9 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERK
   %404 = load i32, ptr %403, align 4
   %405 = add i32 %393, %indvars528
   %.not19.i = icmp eq i32 %404, %405
-  br i1 %.not19.i, label %402, label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.thread
+  br i1 %.not19.i, label %402, label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit.thread
 
-_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit: ; preds = %402
+_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit: ; preds = %402
   %406 = load ptr, ptr %175, align 8
   %407 = call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %406) #17
   %.fca.0.extract138 = extractvalue { i64, i8 } %407, 0
@@ -10494,8 +10494,8 @@ _ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit:
   %.not483500 = icmp eq ptr %.sroa.0421.0499, null
   br i1 %.not483500, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit, %427
-  %.sroa.0421.0501 = phi ptr [ %.sroa.0421.0, %427 ], [ %.sroa.0421.0499, %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit ]
+.lr.ph:                                           ; preds = %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit, %427
+  %.sroa.0421.0501 = phi ptr [ %.sroa.0421.0, %427 ], [ %.sroa.0421.0499, %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit ]
   %419 = getelementptr inbounds nuw i8, ptr %.sroa.0421.0501, i64 24
   %420 = load ptr, ptr %419, align 8
   %421 = load i8, ptr %420, align 8
@@ -10518,7 +10518,7 @@ _ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit:
   %.not483 = icmp eq ptr %.sroa.0421.0, null
   br i1 %.not483, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %427, %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit
+._crit_edge:                                      ; preds = %427, %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit
   %429 = load ptr, ptr %17, align 8
   %430 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
   %431 = getelementptr inbounds ptr, ptr %429, i64 %430
@@ -10677,9 +10677,9 @@ _ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit:
   %505 = shl nuw nsw i64 %504, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %501, i64 noundef %505, i64 noundef 8) #16
   call void @_ZN4llvm11SmallVectorIPNS_11BitCastInstELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %17) #16
-  br label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.thread
+  br label %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit.thread
 
-_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.thread: ; preds = %.lr.ph.i, %.critedge8, %398, %._crit_edge514
+_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit.thread: ; preds = %.lr.ph.i, %.critedge8, %398, %._crit_edge514
   %.0277 = phi ptr [ %.1278.lcssa, %._crit_edge514 ], [ null, %398 ], [ null, %.critedge8 ], [ null, %.lr.ph.i ]
   %506 = load i8, ptr %31, align 8
   %.not485 = icmp eq i8 %506, 92
@@ -10688,7 +10688,7 @@ _ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.
   %spec.select.i.i401 = select i1 %508, ptr %33, ptr null
   br i1 %.not485, label %509, label %.critedge10
 
-509:                                              ; preds = %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.thread
+509:                                              ; preds = %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit.thread
   %510 = getelementptr inbounds i8, ptr %31, i64 -32
   %511 = load ptr, ptr %510, align 8
   %512 = load i8, ptr %511, align 8
@@ -10700,8 +10700,8 @@ _ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.
   %spec.select = select i1 %515, ptr %31, ptr null
   br label %.critedge10
 
-.critedge10:                                      ; preds = %514, %509, %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.thread
-  %.0295 = phi ptr [ %31, %509 ], [ null, %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.exit.thread ], [ %spec.select, %514 ]
+.critedge10:                                      ; preds = %514, %509, %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit.thread
+  %.0295 = phi ptr [ %31, %509 ], [ null, %_ZL26isShuffleExtractingFromLHSRN4llvm17ShuffleVectorInstENS_8ArrayRefIiEE.argprom.argprom.argprom.exit.thread ], [ %spec.select, %514 ]
   %.not347 = icmp eq ptr %spec.select.i.i401, null
   br i1 %.not347, label %521, label %516
 

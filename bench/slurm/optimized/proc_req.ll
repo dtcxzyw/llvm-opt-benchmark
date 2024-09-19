@@ -341,121 +341,121 @@ define dso_local i32 @proc_req(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   %.val = load ptr, ptr %48, align 8
   %49 = getelementptr i8, ptr %.val, i64 192
   %.val.val = load ptr, ptr %49, align 8
-  %50 = tail call fastcc i32 @_unpack_persist_init(ptr noundef nonnull %0, ptr %.val.val, ptr noundef %2)
+  %50 = tail call fastcc i32 @_unpack_persist_init.argprom.argprom(ptr noundef nonnull %0, ptr %.val.val, ptr noundef %2)
   br label %317
 
 51:                                               ; preds = %44
   %52 = getelementptr i8, ptr %1, i64 8
   %.val271 = load ptr, ptr %52, align 8
-  %53 = tail call fastcc i32 @_add_accounts(ptr noundef nonnull %0, ptr %.val271, ptr noundef %2)
+  %53 = tail call fastcc i32 @_add_accounts.argprom(ptr noundef nonnull %0, ptr %.val271, ptr noundef %2)
   br label %317
 
 54:                                               ; preds = %44
   %55 = getelementptr i8, ptr %1, i64 8
   %.val272 = load ptr, ptr %55, align 8
-  %56 = tail call fastcc i32 @_add_accounts_cond(ptr noundef nonnull %0, ptr %.val272, ptr noundef %2)
+  %56 = tail call fastcc i32 @_add_accounts_cond.argprom(ptr noundef nonnull %0, ptr %.val272, ptr noundef %2)
   br label %317
 
 57:                                               ; preds = %44
   %58 = getelementptr i8, ptr %1, i64 8
   %.val273 = load ptr, ptr %58, align 8
-  %59 = tail call fastcc i32 @_add_account_coords(ptr noundef nonnull %0, ptr %.val273, ptr noundef %2)
+  %59 = tail call fastcc i32 @_add_account_coords.argprom(ptr noundef nonnull %0, ptr %.val273, ptr noundef %2)
   br label %317
 
 60:                                               ; preds = %44
   %61 = getelementptr i8, ptr %1, i64 8
   %.val274 = load ptr, ptr %61, align 8
-  %62 = tail call fastcc i32 @_add_tres(ptr noundef nonnull %0, ptr %.val274, ptr noundef %2)
+  %62 = tail call fastcc i32 @_add_tres.argprom(ptr noundef nonnull %0, ptr %.val274, ptr noundef %2)
   br label %317
 
 63:                                               ; preds = %44
   %64 = getelementptr i8, ptr %1, i64 8
   %.val275 = load ptr, ptr %64, align 8
-  %65 = tail call fastcc i32 @_add_assocs(ptr noundef nonnull %0, ptr %.val275, ptr noundef %2)
+  %65 = tail call fastcc i32 @_add_assocs.argprom(ptr noundef nonnull %0, ptr %.val275, ptr noundef %2)
   br label %317
 
 66:                                               ; preds = %44
   %67 = getelementptr i8, ptr %1, i64 8
   %.val276 = load ptr, ptr %67, align 8
-  %68 = tail call fastcc i32 @_add_clusters(ptr noundef nonnull %0, ptr %.val276, ptr noundef %2)
+  %68 = tail call fastcc i32 @_add_clusters.argprom(ptr noundef nonnull %0, ptr %.val276, ptr noundef %2)
   br label %317
 
 69:                                               ; preds = %44
   %70 = getelementptr i8, ptr %1, i64 8
   %.val277 = load ptr, ptr %70, align 8
-  %71 = tail call fastcc i32 @_add_federations(ptr noundef nonnull %0, ptr %.val277, ptr noundef %2)
+  %71 = tail call fastcc i32 @_add_federations.argprom(ptr noundef nonnull %0, ptr %.val277, ptr noundef %2)
   br label %317
 
 72:                                               ; preds = %44
   %73 = getelementptr i8, ptr %1, i64 8
   %.val278 = load ptr, ptr %73, align 8
-  %74 = tail call fastcc i32 @_add_qos(ptr noundef nonnull %0, ptr %.val278, ptr noundef %2)
+  %74 = tail call fastcc i32 @_add_qos.argprom(ptr noundef nonnull %0, ptr %.val278, ptr noundef %2)
   br label %317
 
 75:                                               ; preds = %44
   %76 = getelementptr i8, ptr %1, i64 8
   %.val279 = load ptr, ptr %76, align 8
-  %77 = tail call fastcc i32 @_add_res(ptr noundef nonnull %0, ptr %.val279, ptr noundef %2)
+  %77 = tail call fastcc i32 @_add_res.argprom(ptr noundef nonnull %0, ptr %.val279, ptr noundef %2)
   br label %317
 
 78:                                               ; preds = %44
   %79 = getelementptr i8, ptr %1, i64 8
   %.val280 = load ptr, ptr %79, align 8
-  %80 = tail call fastcc i32 @_add_users(ptr noundef nonnull %0, ptr %.val280, ptr noundef %2)
+  %80 = tail call fastcc i32 @_add_users.argprom(ptr noundef nonnull %0, ptr %.val280, ptr noundef %2)
   br label %317
 
 81:                                               ; preds = %44
   %82 = getelementptr i8, ptr %1, i64 8
   %.val281 = load ptr, ptr %82, align 8
-  %83 = tail call fastcc i32 @_add_users_cond(ptr noundef nonnull %0, ptr %.val281, ptr noundef %2)
+  %83 = tail call fastcc i32 @_add_users_cond.argprom(ptr noundef nonnull %0, ptr %.val281, ptr noundef %2)
   br label %317
 
 84:                                               ; preds = %44
   %85 = getelementptr i8, ptr %1, i64 8
   %.val282 = load ptr, ptr %85, align 8
-  %86 = tail call fastcc i32 @_add_wckeys(ptr noundef nonnull %0, ptr %.val282, ptr noundef %2)
+  %86 = tail call fastcc i32 @_add_wckeys.argprom(ptr noundef nonnull %0, ptr %.val282, ptr noundef %2)
   br label %317
 
 87:                                               ; preds = %44
   %88 = getelementptr i8, ptr %1, i64 8
   %.val283 = load ptr, ptr %88, align 8
-  %89 = tail call fastcc i32 @_add_reservation(ptr noundef nonnull %0, ptr %.val283, ptr noundef %2)
+  %89 = tail call fastcc i32 @_add_reservation.argprom(ptr noundef nonnull %0, ptr %.val283, ptr noundef %2)
   br label %317
 
 90:                                               ; preds = %44
   %91 = getelementptr i8, ptr %1, i64 8
   %.val284 = load ptr, ptr %91, align 8
-  %92 = tail call fastcc i32 @_archive_dump(ptr noundef nonnull %0, ptr %.val284, ptr noundef %2)
+  %92 = tail call fastcc i32 @_archive_dump.argprom(ptr noundef nonnull %0, ptr %.val284, ptr noundef %2)
   br label %317
 
 93:                                               ; preds = %44
   %94 = getelementptr i8, ptr %1, i64 8
   %.val285 = load ptr, ptr %94, align 8
-  %95 = tail call fastcc i32 @_archive_load(ptr noundef nonnull %0, ptr %.val285, ptr noundef %2)
+  %95 = tail call fastcc i32 @_archive_load.argprom(ptr noundef nonnull %0, ptr %.val285, ptr noundef %2)
   br label %317
 
 96:                                               ; preds = %44
   %97 = getelementptr i8, ptr %1, i64 8
   %.val286 = load ptr, ptr %97, align 8
-  %98 = tail call fastcc i32 @_cluster_tres(ptr noundef nonnull %0, ptr %.val286, ptr noundef %2)
+  %98 = tail call fastcc i32 @_cluster_tres.argprom(ptr noundef nonnull %0, ptr %.val286, ptr noundef %2)
   br label %317
 
 99:                                               ; preds = %44
   %100 = getelementptr i8, ptr %1, i64 8
   %.val287 = load ptr, ptr %100, align 8
-  %101 = tail call fastcc i32 @_get_accounts(ptr noundef nonnull %0, ptr %.val287, ptr noundef %2)
+  %101 = tail call fastcc i32 @_get_accounts.argprom(ptr noundef nonnull %0, ptr %.val287, ptr noundef %2)
   br label %.thread
 
 102:                                              ; preds = %44
   %103 = getelementptr i8, ptr %1, i64 8
   %.val288 = load ptr, ptr %103, align 8
-  %104 = tail call fastcc i32 @_get_tres(ptr noundef nonnull %0, ptr %.val288, ptr noundef %2)
+  %104 = tail call fastcc i32 @_get_tres.argprom(ptr noundef nonnull %0, ptr %.val288, ptr noundef %2)
   br label %.thread
 
 105:                                              ; preds = %44
   %106 = getelementptr i8, ptr %1, i64 8
   %.val289 = load ptr, ptr %106, align 8
-  %107 = tail call fastcc i32 @_get_assocs(ptr noundef nonnull %0, ptr %.val289, ptr noundef %2)
+  %107 = tail call fastcc i32 @_get_assocs.argprom(ptr noundef nonnull %0, ptr %.val289, ptr noundef %2)
   br label %.thread
 
 108:                                              ; preds = %44, %44, %44
@@ -552,192 +552,192 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
 160:                                              ; preds = %44
   %161 = getelementptr i8, ptr %1, i64 8
   %.val290 = load ptr, ptr %161, align 8
-  %162 = tail call fastcc i32 @_get_clusters(ptr noundef nonnull %0, ptr %.val290, ptr noundef %2)
+  %162 = tail call fastcc i32 @_get_clusters.argprom(ptr noundef nonnull %0, ptr %.val290, ptr noundef %2)
   br label %.thread
 
 163:                                              ; preds = %44
   %164 = getelementptr i8, ptr %1, i64 8
   %.val291 = load ptr, ptr %164, align 8
-  %165 = tail call fastcc i32 @_get_federations(ptr noundef nonnull %0, ptr %.val291, ptr noundef %2)
+  %165 = tail call fastcc i32 @_get_federations.argprom(ptr noundef nonnull %0, ptr %.val291, ptr noundef %2)
   br label %.thread
 
 166:                                              ; preds = %44
   %167 = getelementptr i8, ptr %1, i64 8
   %.val292 = load ptr, ptr %167, align 8
-  %168 = tail call fastcc i32 @_get_config(ptr noundef nonnull %0, ptr %.val292, ptr noundef %2)
+  %168 = tail call fastcc i32 @_get_config.argprom(ptr noundef nonnull %0, ptr %.val292, ptr noundef %2)
   br label %.thread
 
 169:                                              ; preds = %44
   %170 = getelementptr i8, ptr %1, i64 8
   %.val293 = load ptr, ptr %170, align 8
-  %171 = tail call fastcc i32 @_get_events(ptr noundef nonnull %0, ptr %.val293, ptr noundef %2)
+  %171 = tail call fastcc i32 @_get_events.argprom(ptr noundef nonnull %0, ptr %.val293, ptr noundef %2)
   br label %.thread
 
 172:                                              ; preds = %44
   %173 = getelementptr i8, ptr %1, i64 8
   %.val294 = load ptr, ptr %173, align 8
-  %174 = tail call fastcc i32 @_get_instances(ptr noundef nonnull %0, ptr %.val294, ptr noundef %2)
+  %174 = tail call fastcc i32 @_get_instances.argprom(ptr noundef nonnull %0, ptr %.val294, ptr noundef %2)
   br label %.thread
 
 175:                                              ; preds = %44
   %176 = getelementptr i8, ptr %1, i64 8
   %.val295 = load ptr, ptr %176, align 8
   %.val295.val = load ptr, ptr %.val295, align 8
-  %177 = tail call fastcc i32 @_get_jobs_cond(ptr noundef nonnull %0, ptr %.val295.val, ptr noundef %2)
+  %177 = tail call fastcc i32 @_get_jobs_cond.argprom.argprom(ptr noundef nonnull %0, ptr %.val295.val, ptr noundef %2)
   br label %.thread
 
 178:                                              ; preds = %44
   %179 = getelementptr i8, ptr %1, i64 8
   %.val296 = load ptr, ptr %179, align 8
-  %180 = tail call fastcc i32 @_get_probs(ptr noundef nonnull %0, ptr %.val296, ptr noundef %2)
+  %180 = tail call fastcc i32 @_get_probs.argprom(ptr noundef nonnull %0, ptr %.val296, ptr noundef %2)
   br label %.thread
 
 181:                                              ; preds = %44
   %182 = getelementptr i8, ptr %1, i64 8
   %.val297 = load ptr, ptr %182, align 8
-  %183 = tail call fastcc i32 @_get_qos(ptr noundef nonnull %0, ptr %.val297, ptr noundef %2)
+  %183 = tail call fastcc i32 @_get_qos.argprom(ptr noundef nonnull %0, ptr %.val297, ptr noundef %2)
   br label %.thread
 
 184:                                              ; preds = %44
   %185 = getelementptr i8, ptr %1, i64 8
   %.val298 = load ptr, ptr %185, align 8
-  %186 = tail call fastcc i32 @_get_res(ptr noundef nonnull %0, ptr %.val298, ptr noundef %2)
+  %186 = tail call fastcc i32 @_get_res.argprom(ptr noundef nonnull %0, ptr %.val298, ptr noundef %2)
   br label %.thread
 
 187:                                              ; preds = %44
   %188 = getelementptr i8, ptr %1, i64 8
   %.val299 = load ptr, ptr %188, align 8
-  %189 = tail call fastcc i32 @_get_txn(ptr noundef nonnull %0, ptr %.val299, ptr noundef %2)
+  %189 = tail call fastcc i32 @_get_txn.argprom(ptr noundef nonnull %0, ptr %.val299, ptr noundef %2)
   br label %.thread
 
 190:                                              ; preds = %44
   %191 = getelementptr i8, ptr %1, i64 8
   %.val300 = load ptr, ptr %191, align 8
-  %192 = tail call fastcc i32 @_get_wckeys(ptr noundef nonnull %0, ptr %.val300, ptr noundef %2)
+  %192 = tail call fastcc i32 @_get_wckeys.argprom(ptr noundef nonnull %0, ptr %.val300, ptr noundef %2)
   br label %317
 
 193:                                              ; preds = %44
   %194 = getelementptr i8, ptr %1, i64 8
   %.val301 = load ptr, ptr %194, align 8
-  %195 = tail call fastcc i32 @_get_reservations(ptr noundef nonnull %0, ptr %.val301, ptr noundef %2)
+  %195 = tail call fastcc i32 @_get_reservations.argprom(ptr noundef nonnull %0, ptr %.val301, ptr noundef %2)
   br label %.thread
 
 196:                                              ; preds = %44
   %197 = getelementptr i8, ptr %1, i64 8
   %.val302 = load ptr, ptr %197, align 8
-  %198 = tail call fastcc i32 @_get_users(ptr noundef nonnull %0, ptr %.val302, ptr noundef %2)
+  %198 = tail call fastcc i32 @_get_users.argprom(ptr noundef nonnull %0, ptr %.val302, ptr noundef %2)
   br label %.thread
 
 199:                                              ; preds = %44
   %200 = getelementptr i8, ptr %1, i64 8
   %.val303 = load ptr, ptr %200, align 8
-  %201 = tail call fastcc i32 @_flush_jobs(ptr noundef nonnull %0, ptr %.val303, ptr noundef %2)
+  %201 = tail call fastcc i32 @_flush_jobs.argprom(ptr noundef nonnull %0, ptr %.val303, ptr noundef %2)
   br label %317
 
 202:                                              ; preds = %44
   %203 = getelementptr i8, ptr %1, i64 8
   %.val304 = load ptr, ptr %203, align 8
-  %204 = tail call fastcc i32 @_fini_conn(ptr noundef nonnull %0, ptr %.val304, ptr noundef %2)
+  %204 = tail call fastcc i32 @_fini_conn.argprom(ptr noundef nonnull %0, ptr %.val304, ptr noundef %2)
   br label %317
 
 205:                                              ; preds = %44
   %206 = getelementptr i8, ptr %1, i64 8
   %.val305 = load ptr, ptr %206, align 8
-  tail call fastcc void @_job_complete(ptr noundef nonnull %0, ptr %.val305, ptr noundef %2)
+  tail call fastcc void @_job_complete.argprom.retelim(ptr noundef nonnull %0, ptr %.val305, ptr noundef %2)
   br label %.thread
 
 207:                                              ; preds = %44
   %208 = getelementptr i8, ptr %1, i64 8
   %.val306 = load ptr, ptr %208, align 8
-  %209 = tail call fastcc i32 @_job_start(ptr noundef nonnull %0, ptr %.val306, ptr noundef %2)
+  %209 = tail call fastcc i32 @_job_start.argprom(ptr noundef nonnull %0, ptr %.val306, ptr noundef %2)
   br label %.thread
 
 210:                                              ; preds = %44
   %211 = getelementptr i8, ptr %1, i64 8
   %.val307 = load ptr, ptr %211, align 8
-  %212 = tail call fastcc i32 @_job_heavy(ptr noundef nonnull %0, ptr %.val307, ptr noundef %2)
+  %212 = tail call fastcc i32 @_job_heavy.argprom(ptr noundef nonnull %0, ptr %.val307, ptr noundef %2)
   br label %.thread
 
 213:                                              ; preds = %44
   %214 = getelementptr i8, ptr %1, i64 8
   %.val308 = load ptr, ptr %214, align 8
-  tail call fastcc void @_job_suspend(ptr noundef nonnull %0, ptr %.val308, ptr noundef %2)
+  tail call fastcc void @_job_suspend.argprom.retelim(ptr noundef nonnull %0, ptr %.val308, ptr noundef %2)
   br label %.thread
 
 215:                                              ; preds = %44
   %216 = getelementptr i8, ptr %1, i64 8
   %.val309 = load ptr, ptr %216, align 8
-  %217 = tail call fastcc i32 @_modify_accounts(ptr noundef nonnull %0, ptr %.val309, ptr noundef %2)
+  %217 = tail call fastcc i32 @_modify_accounts.argprom(ptr noundef nonnull %0, ptr %.val309, ptr noundef %2)
   br label %317
 
 218:                                              ; preds = %44
   %219 = getelementptr i8, ptr %1, i64 8
   %.val310 = load ptr, ptr %219, align 8
-  %220 = tail call fastcc i32 @_modify_assocs(ptr noundef nonnull %0, ptr %.val310, ptr noundef %2)
+  %220 = tail call fastcc i32 @_modify_assocs.argprom(ptr noundef nonnull %0, ptr %.val310, ptr noundef %2)
   br label %317
 
 221:                                              ; preds = %44
   %222 = getelementptr i8, ptr %1, i64 8
   %.val311 = load ptr, ptr %222, align 8
-  %223 = tail call fastcc i32 @_modify_clusters(ptr noundef nonnull %0, ptr %.val311, ptr noundef %2)
+  %223 = tail call fastcc i32 @_modify_clusters.argprom(ptr noundef nonnull %0, ptr %.val311, ptr noundef %2)
   br label %317
 
 224:                                              ; preds = %44
   %225 = getelementptr i8, ptr %1, i64 8
   %.val312 = load ptr, ptr %225, align 8
-  %226 = tail call fastcc i32 @_modify_federations(ptr noundef nonnull %0, ptr %.val312, ptr noundef %2)
+  %226 = tail call fastcc i32 @_modify_federations.argprom(ptr noundef nonnull %0, ptr %.val312, ptr noundef %2)
   br label %317
 
 227:                                              ; preds = %44
   %228 = getelementptr i8, ptr %1, i64 8
   %.val313 = load ptr, ptr %228, align 8
-  %229 = tail call fastcc i32 @_modify_job(ptr noundef nonnull %0, ptr %.val313, ptr noundef %2)
+  %229 = tail call fastcc i32 @_modify_job.argprom(ptr noundef nonnull %0, ptr %.val313, ptr noundef %2)
   br label %317
 
 230:                                              ; preds = %44
   %231 = getelementptr i8, ptr %1, i64 8
   %.val314 = load ptr, ptr %231, align 8
-  %232 = tail call fastcc i32 @_modify_qos(ptr noundef nonnull %0, ptr %.val314, ptr noundef %2)
+  %232 = tail call fastcc i32 @_modify_qos.argprom(ptr noundef nonnull %0, ptr %.val314, ptr noundef %2)
   br label %317
 
 233:                                              ; preds = %44
   %234 = getelementptr i8, ptr %1, i64 8
   %.val315 = load ptr, ptr %234, align 8
-  %235 = tail call fastcc i32 @_modify_res(ptr noundef nonnull %0, ptr %.val315, ptr noundef %2)
+  %235 = tail call fastcc i32 @_modify_res.argprom(ptr noundef nonnull %0, ptr %.val315, ptr noundef %2)
   br label %317
 
 236:                                              ; preds = %44
   %237 = getelementptr i8, ptr %1, i64 8
   %.val316 = load ptr, ptr %237, align 8
-  %238 = tail call fastcc i32 @_modify_users(ptr noundef nonnull %0, ptr %.val316, ptr noundef %2)
+  %238 = tail call fastcc i32 @_modify_users.argprom(ptr noundef nonnull %0, ptr %.val316, ptr noundef %2)
   br label %317
 
 239:                                              ; preds = %44
   %240 = getelementptr i8, ptr %1, i64 8
   %.val317 = load ptr, ptr %240, align 8
-  %241 = tail call fastcc i32 @_modify_wckeys(ptr noundef nonnull %0, ptr %.val317, ptr noundef %2)
+  %241 = tail call fastcc i32 @_modify_wckeys.argprom(ptr noundef nonnull %0, ptr %.val317, ptr noundef %2)
   br label %317
 
 242:                                              ; preds = %44
   %243 = getelementptr i8, ptr %1, i64 8
   %.val318 = load ptr, ptr %243, align 8
-  %244 = tail call fastcc i32 @_modify_reservation(ptr noundef nonnull %0, ptr %.val318, ptr noundef %2)
+  %244 = tail call fastcc i32 @_modify_reservation.argprom(ptr noundef nonnull %0, ptr %.val318, ptr noundef %2)
   br label %317
 
 245:                                              ; preds = %44
   %246 = getelementptr i8, ptr %1, i64 8
   %.val319 = load ptr, ptr %246, align 8
-  tail call fastcc void @_node_state(ptr noundef nonnull %0, ptr %.val319, ptr noundef %2)
+  tail call fastcc void @_node_state.argprom.retelim(ptr noundef nonnull %0, ptr %.val319, ptr noundef %2)
   br label %.thread
 
 247:                                              ; preds = %44
-  %248 = tail call fastcc i32 @_reconfig(ptr noundef nonnull %0, ptr noundef %2)
+  %248 = tail call fastcc i32 @_reconfig.argprom(ptr noundef nonnull %0, ptr noundef %2)
   br label %317
 
 249:                                              ; preds = %44
   %250 = getelementptr i8, ptr %1, i64 8
   %.val320 = load ptr, ptr %250, align 8
-  %251 = tail call fastcc i32 @_register_ctld(ptr noundef nonnull %0, ptr %.val320, ptr noundef %2)
+  %251 = tail call fastcc i32 @_register_ctld.argprom(ptr noundef nonnull %0, ptr %.val320, ptr noundef %2)
   %252 = load ptr, ptr %0, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 64
   %254 = load i16, ptr %253, align 8
@@ -748,73 +748,73 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
 256:                                              ; preds = %44
   %257 = getelementptr i8, ptr %1, i64 8
   %.val321 = load ptr, ptr %257, align 8
-  %258 = tail call fastcc i32 @_remove_accounts(ptr noundef nonnull %0, ptr %.val321, ptr noundef %2)
+  %258 = tail call fastcc i32 @_remove_accounts.argprom(ptr noundef nonnull %0, ptr %.val321, ptr noundef %2)
   br label %317
 
 259:                                              ; preds = %44
   %260 = getelementptr i8, ptr %1, i64 8
   %.val322 = load ptr, ptr %260, align 8
-  %261 = tail call fastcc i32 @_remove_account_coords(ptr noundef nonnull %0, ptr %.val322, ptr noundef %2)
+  %261 = tail call fastcc i32 @_remove_account_coords.argprom(ptr noundef nonnull %0, ptr %.val322, ptr noundef %2)
   br label %317
 
 262:                                              ; preds = %44
   %263 = getelementptr i8, ptr %1, i64 8
   %.val323 = load ptr, ptr %263, align 8
-  %264 = tail call fastcc i32 @_remove_assocs(ptr noundef nonnull %0, ptr %.val323, ptr noundef %2)
+  %264 = tail call fastcc i32 @_remove_assocs.argprom(ptr noundef nonnull %0, ptr %.val323, ptr noundef %2)
   br label %317
 
 265:                                              ; preds = %44
   %266 = getelementptr i8, ptr %1, i64 8
   %.val324 = load ptr, ptr %266, align 8
-  %267 = tail call fastcc i32 @_remove_clusters(ptr noundef nonnull %0, ptr %.val324, ptr noundef %2)
+  %267 = tail call fastcc i32 @_remove_clusters.argprom(ptr noundef nonnull %0, ptr %.val324, ptr noundef %2)
   br label %317
 
 268:                                              ; preds = %44
   %269 = getelementptr i8, ptr %1, i64 8
   %.val325 = load ptr, ptr %269, align 8
-  %270 = tail call fastcc i32 @_remove_federations(ptr noundef nonnull %0, ptr %.val325, ptr noundef %2)
+  %270 = tail call fastcc i32 @_remove_federations.argprom(ptr noundef nonnull %0, ptr %.val325, ptr noundef %2)
   br label %317
 
 271:                                              ; preds = %44
   %272 = getelementptr i8, ptr %1, i64 8
   %.val326 = load ptr, ptr %272, align 8
-  %273 = tail call fastcc i32 @_remove_qos(ptr noundef nonnull %0, ptr %.val326, ptr noundef %2)
+  %273 = tail call fastcc i32 @_remove_qos.argprom(ptr noundef nonnull %0, ptr %.val326, ptr noundef %2)
   br label %317
 
 274:                                              ; preds = %44
   %275 = getelementptr i8, ptr %1, i64 8
   %.val327 = load ptr, ptr %275, align 8
-  %276 = tail call fastcc i32 @_remove_res(ptr noundef nonnull %0, ptr %.val327, ptr noundef %2)
+  %276 = tail call fastcc i32 @_remove_res.argprom(ptr noundef nonnull %0, ptr %.val327, ptr noundef %2)
   br label %317
 
 277:                                              ; preds = %44
   %278 = getelementptr i8, ptr %1, i64 8
   %.val328 = load ptr, ptr %278, align 8
-  %279 = tail call fastcc i32 @_remove_users(ptr noundef nonnull %0, ptr %.val328, ptr noundef %2)
+  %279 = tail call fastcc i32 @_remove_users.argprom(ptr noundef nonnull %0, ptr %.val328, ptr noundef %2)
   br label %317
 
 280:                                              ; preds = %44
   %281 = getelementptr i8, ptr %1, i64 8
   %.val329 = load ptr, ptr %281, align 8
-  %282 = tail call fastcc i32 @_remove_wckeys(ptr noundef nonnull %0, ptr %.val329, ptr noundef %2)
+  %282 = tail call fastcc i32 @_remove_wckeys.argprom(ptr noundef nonnull %0, ptr %.val329, ptr noundef %2)
   br label %317
 
 283:                                              ; preds = %44
   %284 = getelementptr i8, ptr %1, i64 8
   %.val330 = load ptr, ptr %284, align 8
-  %285 = tail call fastcc i32 @_remove_reservation(ptr noundef nonnull %0, ptr %.val330, ptr noundef %2)
+  %285 = tail call fastcc i32 @_remove_reservation.argprom(ptr noundef nonnull %0, ptr %.val330, ptr noundef %2)
   br label %317
 
 286:                                              ; preds = %44
   %287 = getelementptr i8, ptr %1, i64 8
   %.val331 = load ptr, ptr %287, align 8
-  %288 = tail call fastcc i32 @_roll_usage(ptr noundef nonnull %0, ptr %.val331, ptr noundef %2)
+  %288 = tail call fastcc i32 @_roll_usage.argprom(ptr noundef nonnull %0, ptr %.val331, ptr noundef %2)
   br label %317
 
 289:                                              ; preds = %44
   %290 = getelementptr i8, ptr %1, i64 8
   %.val332 = load ptr, ptr %290, align 8
-  %291 = tail call fastcc i32 @_send_mult_job_start(ptr noundef nonnull %0, ptr %.val332, ptr noundef %2)
+  %291 = tail call fastcc i32 @_send_mult_job_start.argprom(ptr noundef nonnull %0, ptr %.val332, ptr noundef %2)
   br label %.thread
 
 292:                                              ; preds = %44
@@ -824,31 +824,31 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
 294:                                              ; preds = %44
   %295 = getelementptr i8, ptr %1, i64 8
   %.val333 = load ptr, ptr %295, align 8
-  %296 = tail call fastcc i32 @_step_complete(ptr noundef nonnull %0, ptr %.val333, ptr noundef %2)
+  %296 = tail call fastcc i32 @_step_complete.argprom(ptr noundef nonnull %0, ptr %.val333, ptr noundef %2)
   br label %317
 
 297:                                              ; preds = %44
   %298 = getelementptr i8, ptr %1, i64 8
   %.val334 = load ptr, ptr %298, align 8
-  %299 = tail call fastcc i32 @_step_start(ptr noundef nonnull %0, ptr %.val334, ptr noundef %2)
+  %299 = tail call fastcc i32 @_step_start.argprom(ptr noundef nonnull %0, ptr %.val334, ptr noundef %2)
   br label %317
 
 300:                                              ; preds = %44
   %301 = getelementptr i8, ptr %1, i64 8
   %.val335 = load ptr, ptr %301, align 8
-  %302 = tail call fastcc i32 @_fix_runaway_jobs(ptr noundef nonnull %0, ptr %.val335, ptr noundef %2)
+  %302 = tail call fastcc i32 @_fix_runaway_jobs.argprom(ptr noundef nonnull %0, ptr %.val335, ptr noundef %2)
   br label %317
 
 303:                                              ; preds = %44
-  %304 = tail call fastcc i32 @_get_stats(ptr noundef nonnull %0, ptr noundef %2)
+  %304 = tail call fastcc i32 @_get_stats.argprom(ptr noundef nonnull %0, ptr noundef %2)
   br label %317
 
 305:                                              ; preds = %44
-  %306 = tail call fastcc i32 @_clear_stats(ptr noundef nonnull %0, ptr noundef %2)
+  %306 = tail call fastcc i32 @_clear_stats.argprom(ptr noundef nonnull %0, ptr noundef %2)
   br label %317
 
 307:                                              ; preds = %44
-  %308 = tail call fastcc i32 @_shutdown(ptr noundef nonnull %0, ptr noundef %2)
+  %308 = tail call fastcc i32 @_shutdown.argprom(ptr noundef nonnull %0, ptr noundef %2)
   br label %317
 
 309:                                              ; preds = %44
@@ -1006,7 +1006,7 @@ declare i32 @get_log_level() local_unnamed_addr #4
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_unpack_persist_init(ptr nocapture noundef %0, ptr nocapture %.8.val.192.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_unpack_persist_init.argprom.argprom(ptr nocapture noundef %0, ptr nocapture %.8.val.192.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1089,7 +1089,7 @@ _handle_init_msg.exit:                            ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_accounts(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_accounts.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1118,7 +1118,7 @@ define internal fastcc noundef i32 @_add_accounts(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_add_accounts_cond(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_add_accounts_cond.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @get_log_level() #10
   %5 = icmp sgt i32 %4, 5
@@ -1197,7 +1197,7 @@ define internal fastcc i32 @_add_accounts_cond(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_add_account_coords(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_add_account_coords.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1238,7 +1238,7 @@ define internal fastcc i32 @_add_account_coords(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_tres(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_tres.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1267,7 +1267,7 @@ define internal fastcc noundef i32 @_add_tres(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_assocs(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_assocs.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.slurmdb_user_rec, align 8
   %4 = tail call i32 @get_log_level() #10
   %5 = icmp sgt i32 %4, 5
@@ -1415,7 +1415,7 @@ _validate_operator.exit.thread:                   ; preds = %10, %.critedge, %_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_clusters(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_clusters.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1446,7 +1446,7 @@ define internal fastcc noundef i32 @_add_clusters(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_federations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_federations.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1477,7 +1477,7 @@ define internal fastcc noundef i32 @_add_federations(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_qos(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_qos.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1508,7 +1508,7 @@ define internal fastcc noundef i32 @_add_qos(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_res(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_res.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1539,7 +1539,7 @@ define internal fastcc noundef i32 @_add_res(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_users(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_users.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1568,7 +1568,7 @@ define internal fastcc noundef i32 @_add_users(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_add_users_cond(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_add_users_cond.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @get_log_level() #10
   %5 = icmp sgt i32 %4, 5
@@ -1647,7 +1647,7 @@ define internal fastcc i32 @_add_users_cond(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_wckeys(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_wckeys.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1674,7 +1674,7 @@ define internal fastcc noundef i32 @_add_wckeys(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_reservation(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_add_reservation.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
@@ -1717,7 +1717,7 @@ define internal fastcc noundef i32 @_add_reservation(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_archive_dump(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_archive_dump.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1893,7 +1893,7 @@ _validate_super_user.exit.thread:                 ; preds = %9, %_validate_super
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_archive_load(ptr noundef %0, ptr %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_archive_load.argprom(ptr noundef %0, ptr %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %9
@@ -1952,7 +1952,7 @@ _validate_super_user.exit.thread:                 ; preds = %9, %_validate_super
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_cluster_tres(ptr noundef %0, ptr nocapture %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_cluster_tres.argprom(ptr noundef %0, ptr nocapture %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
@@ -2051,7 +2051,7 @@ define internal fastcc noundef i32 @_cluster_tres(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_accounts(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_accounts.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2123,7 +2123,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_accounts(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_tres(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_tres.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2195,7 +2195,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_tres(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_assocs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_assocs.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2267,7 +2267,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_assocs(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_clusters(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_clusters.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2339,7 +2339,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_clusters(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_federations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_federations.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2411,7 +2411,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_federations(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_config(ptr nocapture noundef readonly %0, ptr %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_config.argprom(ptr nocapture noundef readonly %0, ptr %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.dbd_list_msg_t, align 8
   store ptr %.8.val, ptr %3, align 8
@@ -2486,7 +2486,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_config(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_events(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_events.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2558,7 +2558,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_events(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_instances(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_instances.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2630,7 +2630,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_instances(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_jobs_cond(ptr noundef %0, ptr %.8.val.0.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_jobs_cond.argprom.argprom(ptr noundef %0, ptr %.8.val.0.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2812,7 +2812,7 @@ _validate_operator.exit41.thread:                 ; preds = %36, %56, %45, %_val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_probs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_probs.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2884,7 +2884,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_probs(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_qos(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_qos.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -2970,7 +2970,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_qos(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_res(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_res.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3042,7 +3042,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_res(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_txn(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_txn.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3114,7 +3114,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_txn(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2003) i32 @_get_wckeys(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2003) i32 @_get_wckeys.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3215,7 +3215,7 @@ _validate_operator.exit.thread:                   ; preds = %_validate_operator.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_reservations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_reservations.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3287,7 +3287,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_reservations(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_users(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_users.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -3404,7 +3404,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_users(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_flush_jobs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_flush_jobs.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
@@ -3450,7 +3450,7 @@ define internal fastcc noundef i32 @_flush_jobs(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_fini_conn(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_fini_conn.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #10
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %11
@@ -3531,7 +3531,7 @@ define internal fastcc i32 @_fini_conn(ptr noundef %0, ptr nocapture readonly %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_job_complete(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @_job_complete.argprom.retelim(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.job_record, align 8
   %4 = alloca %struct.job_details_t, align 8
   %.val = load ptr, ptr %0, align 8
@@ -3710,7 +3710,7 @@ define internal fastcc void @_job_complete(ptr noundef %0, ptr nocapture readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_job_start(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_job_start.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_id_rc_msg, align 8
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %.val, i64 8
@@ -3748,7 +3748,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_start(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_job_heavy(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_job_heavy.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.job_record, align 8
   %4 = alloca %struct.job_details_t, align 8
   %.val = load ptr, ptr %0, align 8
@@ -3831,7 +3831,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_heavy(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_job_suspend(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @_job_suspend.argprom.retelim(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.job_record, align 8
   %4 = alloca %struct.job_details_t, align 8
   %.val = load ptr, ptr %0, align 8
@@ -3932,7 +3932,7 @@ define internal fastcc void @_job_suspend(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_modify_accounts(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_modify_accounts.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -4023,7 +4023,7 @@ define internal fastcc i32 @_modify_accounts(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_modify_assocs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_modify_assocs.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -4145,7 +4145,7 @@ define internal fastcc noundef i32 @_modify_assocs(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_modify_clusters(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_modify_clusters.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -4236,7 +4236,7 @@ define internal fastcc i32 @_modify_clusters(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_modify_federations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_modify_federations.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -4327,7 +4327,7 @@ define internal fastcc i32 @_modify_federations(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_modify_job(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_modify_job.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -4437,7 +4437,7 @@ define internal fastcc i32 @_modify_job(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_modify_qos(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_modify_qos.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -4532,7 +4532,7 @@ define internal fastcc i32 @_modify_qos(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_modify_res(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_modify_res.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -4623,7 +4623,7 @@ define internal fastcc i32 @_modify_res(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_modify_users(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_modify_users.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -4825,7 +4825,7 @@ _validate_super_user.exit:                        ; preds = %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_modify_wckeys(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_modify_wckeys.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -4916,7 +4916,7 @@ define internal fastcc i32 @_modify_wckeys(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_modify_reservation(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_modify_reservation.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
@@ -4961,7 +4961,7 @@ define internal fastcc noundef i32 @_modify_reservation(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_node_state(ptr nocapture noundef readonly %0, ptr nocapture %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @_node_state.argprom.retelim(ptr nocapture noundef readonly %0, ptr nocapture %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.node_record, align 8
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %.val, i64 8
@@ -5115,7 +5115,7 @@ define internal fastcc void @_node_state(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2003) i32 @_reconfig(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2003) i32 @_reconfig.argprom(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -5162,7 +5162,7 @@ _validate_super_user.exit.thread:                 ; preds = %2, %_validate_super
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_register_ctld.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.slurmdb_cluster_cond_t, align 8
   %4 = alloca %struct.slurmdb_cluster_rec, align 8
   %.val = load ptr, ptr %0, align 8
@@ -5440,7 +5440,7 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_accounts(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_accounts.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -5531,7 +5531,7 @@ define internal fastcc i32 @_remove_accounts(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_account_coords(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_account_coords.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -5624,7 +5624,7 @@ define internal fastcc i32 @_remove_account_coords(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_assocs(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_assocs.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -5715,7 +5715,7 @@ define internal fastcc i32 @_remove_assocs(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_clusters(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_clusters.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -5806,7 +5806,7 @@ define internal fastcc i32 @_remove_clusters(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_federations(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_federations.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -5897,7 +5897,7 @@ define internal fastcc i32 @_remove_federations(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_qos(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_qos.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -5988,7 +5988,7 @@ define internal fastcc i32 @_remove_qos(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_res(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_res.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -6079,7 +6079,7 @@ define internal fastcc i32 @_remove_res(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_users(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_users.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -6170,7 +6170,7 @@ define internal fastcc i32 @_remove_users(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_remove_wckeys(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_remove_wckeys.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -6261,7 +6261,7 @@ define internal fastcc i32 @_remove_wckeys(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_remove_reservation(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_remove_reservation.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %3, align 8
@@ -6304,7 +6304,7 @@ define internal fastcc noundef i32 @_remove_reservation(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_roll_usage(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_roll_usage.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
@@ -6382,7 +6382,7 @@ _validate_operator.exit.thread:                   ; preds = %14, %_validate_oper
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_send_mult_job_start(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_send_mult_job_start.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.dbd_list_msg_t, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
@@ -6535,7 +6535,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_msg(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_step_complete(ptr noundef %0, ptr %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_step_complete.argprom(ptr noundef %0, ptr %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.step_record_t, align 8
   %4 = alloca %struct.job_record, align 8
   %5 = alloca %struct.job_details_t, align 8
@@ -6689,7 +6689,7 @@ define internal fastcc noundef i32 @_step_complete(ptr noundef %0, ptr %.8.val, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_step_start(ptr noundef %0, ptr %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_step_start.argprom(ptr noundef %0, ptr %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.step_record_t, align 8
   %4 = alloca %struct.job_record, align 8
   %5 = alloca %struct.job_details_t, align 8
@@ -6891,7 +6891,7 @@ _replace_double_quotes.exit:                      ; preds = %.preheader.i, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_fix_runaway_jobs(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_fix_runaway_jobs.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -6938,7 +6938,7 @@ _validate_operator.exit.thread:                   ; preds = %_validate_operator.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2003) i32 @_get_stats(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2003) i32 @_get_stats.argprom(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -7011,7 +7011,7 @@ _validate_super_user.exit.thread:                 ; preds = %2, %_validate_super
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2003) i32 @_clear_stats(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2003) i32 @_clear_stats.argprom(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -7061,7 +7061,7 @@ _validate_super_user.exit.thread:                 ; preds = %2, %_validate_super
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2003) i32 @_shutdown(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2003) i32 @_shutdown.argprom(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8

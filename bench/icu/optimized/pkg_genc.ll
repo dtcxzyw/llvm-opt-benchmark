@@ -670,7 +670,7 @@ if.else:                                          ; preds = %if.end
 
 if.end14:                                         ; preds = %if.else, %if.end
   %newSuffix.0 = phi ptr [ @.str.6, %if.end ], [ %.str.8..str.9, %if.else ]
-  call fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_(ptr noundef %filename, ptr noundef %destdir, ptr noundef %buffer, ptr noundef %entry1, i32 noundef 96, ptr noundef nonnull %newSuffix.0, ptr noundef %optFilename)
+  call fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_.argelim(ptr noundef %filename, ptr noundef %destdir, ptr noundef %buffer, ptr noundef %entry1, i32 noundef 96, ptr noundef nonnull %newSuffix.0, ptr noundef %optFilename)
   %call17 = call ptr @T_FileStream_open(ptr noundef nonnull %buffer, ptr noundef nonnull @.str.10)
   %cmp18 = icmp eq ptr %call17, null
   br i1 %cmp18, label %if.then19, label %if.end22
@@ -956,7 +956,7 @@ declare ptr @T_FileStream_open(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_(ptr noundef %inFilename, ptr noundef %destdir, ptr noundef nonnull %outFilename, ptr noundef nonnull %entryName, i32 noundef %entryNameCapacity, ptr noundef %newSuffix, ptr noundef %optFilename) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_.argelim(ptr noundef %inFilename, ptr noundef %destdir, ptr noundef nonnull %outFilename, ptr noundef nonnull %entryName, i32 noundef %entryNameCapacity, ptr noundef %newSuffix, ptr noundef %optFilename) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %outFilenameBuilder = alloca %"class.icu_75::CharString", align 8
   %entryNameBuilder = alloca %"class.icu_75::CharString", align 8
@@ -1296,7 +1296,7 @@ if.end13:                                         ; preds = %if.else, %if.end9
   %add.ptr = getelementptr inbounds i8, ptr %entry1, i64 %call17
   %4 = trunc i64 %call17 to i32
   %conv = sub i32 96, %4
-  call fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_(ptr noundef %filename, ptr noundef %destdir, ptr noundef %buffer, ptr noundef %add.ptr, i32 noundef %conv, ptr noundef nonnull @.str.19, ptr noundef %optFilename)
+  call fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_.argelim(ptr noundef %filename, ptr noundef %destdir, ptr noundef %buffer, ptr noundef %add.ptr, i32 noundef %conv, ptr noundef nonnull @.str.19, ptr noundef %optFilename)
   %cmp20.not = icmp eq ptr %outFilePath, null
   br i1 %cmp20.not, label %if.end30, label %if.then21
 
@@ -1592,7 +1592,7 @@ if.then9:                                         ; preds = %if.end
 if.end11:                                         ; preds = %if.end
   %call12 = call i32 @T_FileStream_size(ptr noundef nonnull %call8)
   %add.ptr = getelementptr inbounds i8, ptr %entry1, i64 1
-  call fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_(ptr noundef %filename, ptr noundef %destdir, ptr noundef %buffer, ptr noundef %add.ptr, i32 noundef 95, ptr noundef nonnull @.str.22, ptr noundef %optFilename)
+  call fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_.argelim(ptr noundef %filename, ptr noundef %destdir, ptr noundef %buffer, ptr noundef %add.ptr, i32 noundef 95, ptr noundef nonnull @.str.22, ptr noundef %optFilename)
   %cmp16.not = icmp eq ptr %outFilePath, null
   br i1 %cmp16.not, label %if.end26, label %if.then17
 

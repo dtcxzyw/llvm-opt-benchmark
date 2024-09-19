@@ -2268,7 +2268,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 5
-  %36 = tail call fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEjRKT_(ptr %31, ptr %30) #19
+  %36 = tail call fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEjRKT_.argprom(ptr %31, ptr %30) #19
   %37 = lshr exact i64 %34, 3
   %38 = zext i32 %3 to i64
   %39 = and i64 %37, 4294967295
@@ -2376,7 +2376,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEjRKT_(ptr %.0.val, ptr %.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEjRKT_.argprom(ptr %.0.val, ptr %.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = ptrtoint ptr %.8.val to i64
   %2 = ptrtoint ptr %.0.val to i64
   %3 = sub i64 %1, %2
@@ -2631,7 +2631,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 5
-  %36 = tail call fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEjRKT_(ptr %31, ptr %30) #19
+  %36 = tail call fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEjRKT_.argprom(ptr %31, ptr %30) #19
   %37 = lshr exact i64 %34, 3
   %38 = zext i32 %3 to i64
   %39 = and i64 %37, 4294967295
@@ -11398,34 +11398,34 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 
 46:                                               ; preds = %41
   %47 = icmp eq i8 %42, 3
-  br i1 %47, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread
+  br i1 %47, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread
 
-_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit: ; preds = %46
+_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit: ; preds = %46
   %.val = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds i8, ptr %.val, i64 238
   %49 = load atomic i8, ptr %48 monotonic, align 1
   %50 = trunc i8 %49 to i1
-  br i1 %50, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread, label %51
+  br i1 %50, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread, label %51
 
-51:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit
+51:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit
   store i8 1, ptr %0, align 4
   %52 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 52, ptr %52, align 4
   br label %67
 
-_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread: ; preds = %46, %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit
+_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread: ; preds = %46, %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit
   %53 = trunc i32 %4 to i8
   %54 = add i8 %53, -3
   %switch.i16 = icmp ult i8 %54, -2
   br i1 %switch.i16, label %55, label %57
 
-55:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread
+55:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread
   store i8 1, ptr %0, align 4
   %56 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 28, ptr %56, align 4
   br label %67
 
-57:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread
+57:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread
   %58 = getelementptr inbounds i8, ptr %1, i64 160
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i64 @_ZN8WasmEdge4Host4WASI7Environ8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr noundef nonnull align 8 dereferenceable(344) %59, i8 noundef zeroext %42, i8 noundef zeroext %53) #19
@@ -15656,34 +15656,34 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 
 46:                                               ; preds = %41
   %47 = icmp eq i8 %42, 3
-  br i1 %47, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread
+  br i1 %47, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread
 
-_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit: ; preds = %46
+_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit: ; preds = %46
   %.val = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds i8, ptr %.val, i64 238
   %49 = load atomic i8, ptr %48 monotonic, align 1
   %50 = trunc i8 %49 to i1
-  br i1 %50, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread, label %51
+  br i1 %50, label %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread, label %51
 
-51:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit
+51:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit
   store i8 1, ptr %0, align 4
   %52 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 52, ptr %52, align 4
   br label %67
 
-_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread: ; preds = %46, %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit
+_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread: ; preds = %46, %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit
   %53 = trunc i32 %4 to i8
   %54 = add i8 %53, -3
   %switch.i16 = icmp ult i8 %54, -2
   br i1 %switch.i16, label %55, label %57
 
-55:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread
+55:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread
   store i8 1, ptr %0, align 4
   %56 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 28, ptr %56, align 4
   br label %67
 
-57:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.exit.thread
+57:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__wasi_address_family_t.argprom.exit.thread
   %58 = getelementptr inbounds i8, ptr %1, i64 160
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i64 @_ZN8WasmEdge4Host4WASI7Environ8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr noundef nonnull align 8 dereferenceable(344) %59, i8 noundef zeroext %42, i8 noundef zeroext %53) #19

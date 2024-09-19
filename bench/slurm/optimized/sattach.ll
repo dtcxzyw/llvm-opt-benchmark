@@ -1194,7 +1194,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
 
 10:                                               ; preds = %2
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, i32 noundef %6) #14
-  br label %_launch_handler.exit
+  br label %_launch_handler.argprom.exit
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %1, i64 204
@@ -1267,7 +1267,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
 42:                                               ; preds = %39, %._crit_edge.i
   %43 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #14
   %.not19.i = icmp eq i32 %43, 0
-  br i1 %.not19.i, label %_launch_handler.exit, label %44
+  br i1 %.not19.i, label %_launch_handler.argprom.exit, label %44
 
 44:                                               ; preds = %42
   %45 = tail call ptr @__errno_location() #17
@@ -1306,11 +1306,11 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
 62:                                               ; preds = %57, %50
   %63 = tail call i32 @get_log_level() #14
   %64 = icmp sgt i32 %63, 4
-  br i1 %64, label %65, label %_launch_handler.exit
+  br i1 %64, label %65, label %_launch_handler.argprom.exit
 
 65:                                               ; preds = %62
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.37, ptr noundef nonnull %52) #14
-  br label %_launch_handler.exit
+  br label %_launch_handler.argprom.exit
 
 66:                                               ; preds = %57
   %67 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #14
@@ -1463,7 +1463,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
 138:                                              ; preds = %135, %.loopexit.i
   %139 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #14
   %.not49.i = icmp eq i32 %139, 0
-  br i1 %.not49.i, label %_launch_handler.exit, label %140
+  br i1 %.not49.i, label %_launch_handler.argprom.exit, label %140
 
 140:                                              ; preds = %138
   %141 = tail call ptr @__errno_location() #17
@@ -1474,18 +1474,18 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
 142:                                              ; preds = %12
   %143 = tail call i32 @get_log_level() #14
   %144 = icmp sgt i32 %143, 5
-  br i1 %144, label %145, label %_launch_handler.exit
+  br i1 %144, label %145, label %_launch_handler.argprom.exit
 
 145:                                              ; preds = %142
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.32) #14
-  br label %_launch_handler.exit
+  br label %_launch_handler.argprom.exit
 
 146:                                              ; preds = %12
   %147 = tail call ptr @rpc_num2string(i16 noundef zeroext %14) #14
   %148 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, ptr noundef %147) #14
-  br label %_launch_handler.exit
+  br label %_launch_handler.argprom.exit
 
-_launch_handler.exit:                             ; preds = %138, %65, %62, %42, %146, %145, %142, %10
+_launch_handler.argprom.exit:                     ; preds = %138, %65, %62, %42, %146, %145, %142, %10
   ret void
 }
 

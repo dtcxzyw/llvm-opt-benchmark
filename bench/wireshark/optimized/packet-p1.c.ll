@@ -6669,7 +6669,7 @@ define internal i32 @dissect_p1_T_printable_type(i1 noundef zeroext %0, ptr noun
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 19, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  call fastcc void @do_address_str(ptr noundef %9, ptr noundef %3)
+  call fastcc void @do_address_str.argprom(ptr noundef %9, ptr noundef %3)
   ret i32 %8
 }
 
@@ -6679,12 +6679,12 @@ define internal i32 @dissect_p1_T_printable_value(i1 noundef zeroext %0, ptr nou
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 19, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 128, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  call fastcc void @do_address_str_tree(ptr noundef %9, ptr noundef %3, ptr noundef %4)
+  call fastcc void @do_address_str_tree.argprom(ptr noundef %9, ptr noundef %3, ptr noundef %4)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_address_str(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @do_address_str.argprom(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -6731,7 +6731,7 @@ get_do_address_ctx.exit:                          ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_address_str_tree(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @do_address_str_tree.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -8367,7 +8367,7 @@ define internal i32 @dissect_p1_T_type(i1 noundef zeroext %0, ptr noundef %1, i3
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 20, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  call fastcc void @do_address_str(ptr noundef %9, ptr noundef %3)
+  call fastcc void @do_address_str.argprom(ptr noundef %9, ptr noundef %3)
   ret i32 %8
 }
 
@@ -8377,7 +8377,7 @@ define internal i32 @dissect_p1_T_teletex_value(i1 noundef zeroext %0, ptr nound
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 20, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 128, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  call fastcc void @do_address_str_tree(ptr noundef %9, ptr noundef %3, ptr noundef %4)
+  call fastcc void @do_address_str_tree.argprom(ptr noundef %9, ptr noundef %3, ptr noundef %4)
   ret i32 %8
 }
 

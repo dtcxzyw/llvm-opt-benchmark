@@ -511,22 +511,22 @@ _ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.thread.i: ; preds = %_ZN3gmx
   %121 = load i32, ptr %120, align 8
   %122 = load i8, ptr %.sroa.7193.0..sroa_idx.i, align 1
   %123 = trunc i8 %122 to i1
-  br i1 %123, label %124, label %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit.i
+  br i1 %123, label %124, label %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit.i
 
 124:                                              ; preds = %_ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.thread.i
   %125 = getelementptr inbounds i8, ptr %1, i64 96
   %126 = load ptr, ptr %125, align 8
   %127 = tail call noundef i32 @_Z16dd_numAtomsZonesRK12gmx_domdec_t(ptr noundef nonnull align 8 dereferenceable(456) %126)
-  br label %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit.i
+  br label %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit.i
 
-_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit.i: ; preds = %124, %_ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.thread.i
+_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit.i: ; preds = %124, %_ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.thread.i
   %128 = phi i32 [ %127, %124 ], [ %121, %_ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.thread.i ]
   tail call void @_ZN3gmx22StatePropagatorDataGpu6reinitEii(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef %121, i32 noundef %128)
   %.pre.i = load i8, ptr %.sroa.2188.0..sroa_idx.i, align 1
   br label %129
 
-129:                                              ; preds = %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit.i, %_ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.i
-  %130 = phi i8 [ %.pre.i, %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit.i ], [ %.sroa.2188.0.copyload.i, %_ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.i ]
+129:                                              ; preds = %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit.i, %_ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.i
+  %130 = phi i8 [ %.pre.i, %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit.i ], [ %.sroa.2188.0.copyload.i, %_ZN3gmx12needStateGpuENS_18SimulationWorkloadE.exit.i ]
   %131 = trunc i8 %130 to i1
   br i1 %131, label %132, label %.critedge.i
 
@@ -1182,7 +1182,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit147.i: ; preds = %499, 
   %515 = getelementptr inbounds i8, ptr %22, i64 504
   %516 = load ptr, ptr %515, align 8
   %517 = load ptr, ptr %247, align 8
-  call fastcc void @_ZL27setupLocalGpuForceReductionRKN3gmx21MdrunScheduleWorkloadEP18nonbonded_verlet_tPNS_22StatePropagatorDataGpuEPNS_17GpuForceReductionEPNS_12PmePpCommGpuEPK9gmx_pme_tPK12gmx_domdec_t(ptr noundef nonnull readonly align 1 dereferenceable(52) %23, ptr noundef nonnull %95, ptr noundef %98, ptr noundef %514, ptr noundef %516, ptr noundef %517)
+  call fastcc void @_ZL27setupLocalGpuForceReductionRKN3gmx21MdrunScheduleWorkloadEP18nonbonded_verlet_tPNS_22StatePropagatorDataGpuEPNS_17GpuForceReductionEPNS_12PmePpCommGpuEPK9gmx_pme_tPK12gmx_domdec_t.argprom(ptr noundef nonnull readonly align 1 dereferenceable(52) %23, ptr noundef nonnull %95, ptr noundef %98, ptr noundef %514, ptr noundef %516, ptr noundef %517)
   br label %518
 
 518:                                              ; preds = %512, %508
@@ -1523,7 +1523,7 @@ _ZNK22DDBalanceRegionHandler29openBeforeForceComputationCpuE26DdAllowBalanceRegi
   %726 = getelementptr inbounds i8, ptr %23, i64 35
   %727 = load i8, ptr %726, align 1
   %728 = trunc i8 %727 to i1
-  br i1 %728, label %729, label %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.exit
+  br i1 %728, label %729, label %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.argprom.exit
 
 729:                                              ; preds = %725
   %spec.select.i = zext i1 %631 to i32
@@ -1532,15 +1532,15 @@ _ZNK22DDBalanceRegionHandler29openBeforeForceComputationCpuE26DdAllowBalanceRegi
   %731 = getelementptr inbounds i8, ptr %23, i64 40
   %732 = load i8, ptr %731, align 1
   %733 = trunc i8 %732 to i1
-  br i1 %733, label %734, label %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.exit
+  br i1 %733, label %734, label %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.argprom.exit
 
 734:                                              ; preds = %729
   %735 = and i8 %722, 1
   %736 = zext nneg i8 %735 to i32
   %spec.select14.i = add nuw nsw i32 %.2.i, %736
-  br label %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.exit
+  br label %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.argprom.exit
 
-_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.exit: ; preds = %725, %729, %734
+_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.argprom.exit: ; preds = %725, %729, %734
   %.0.i = phi i32 [ %.2.i, %729 ], [ 0, %725 ], [ %spec.select14.i, %734 ]
   %737 = getelementptr inbounds i8, ptr %23, i64 46
   %738 = load i8, ptr %737, align 1
@@ -1556,12 +1556,12 @@ _ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadER
   %745 = trunc i8 %.val775 to i1
   br i1 %745, label %746, label %749
 
-746:                                              ; preds = %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.exit
+746:                                              ; preds = %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.argprom.exit
   %747 = load i8, ptr %101, align 1
   %748 = trunc i8 %747 to i1
   br i1 %748, label %749, label %757
 
-749:                                              ; preds = %746, %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.exit
+749:                                              ; preds = %746, %_ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_12StepWorkloadEb.argprom.exit
   %750 = load ptr, ptr %14, align 8
   %751 = getelementptr inbounds i8, ptr %14, i64 8
   %752 = load ptr, ptr %751, align 8
@@ -1660,7 +1660,7 @@ _ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadER
   %817 = load ptr, ptr %816, align 8
   %818 = getelementptr inbounds i8, ptr %1, i64 96
   %819 = load ptr, ptr %818, align 8
-  call fastcc void @_ZL27setupLocalGpuForceReductionRKN3gmx21MdrunScheduleWorkloadEP18nonbonded_verlet_tPNS_22StatePropagatorDataGpuEPNS_17GpuForceReductionEPNS_12PmePpCommGpuEPK9gmx_pme_tPK12gmx_domdec_t(ptr noundef nonnull align 1 dereferenceable(52) %23, ptr noundef %813, ptr noundef %98, ptr noundef %815, ptr noundef %817, ptr noundef %819)
+  call fastcc void @_ZL27setupLocalGpuForceReductionRKN3gmx21MdrunScheduleWorkloadEP18nonbonded_verlet_tPNS_22StatePropagatorDataGpuEPNS_17GpuForceReductionEPNS_12PmePpCommGpuEPK9gmx_pme_tPK12gmx_domdec_t.argprom(ptr noundef nonnull align 1 dereferenceable(52) %23, ptr noundef %813, ptr noundef %98, ptr noundef %815, ptr noundef %817, ptr noundef %819)
   br label %820
 
 820:                                              ; preds = %809, %812, %806, %802
@@ -1668,7 +1668,7 @@ _ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadER
   %822 = trunc i8 %821 to i1
   %823 = icmp ne ptr %11, null
   %or.cond1191.not = and i1 %823, %822
-  br i1 %or.cond1191.not, label %824, label %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.exit
+  br i1 %or.cond1191.not, label %824, label %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.argprom.exit
 
 824:                                              ; preds = %820
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
@@ -1751,7 +1751,7 @@ _ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadER
   %879 = load ptr, ptr %833, align 8
   %880 = load ptr, ptr %835, align 8
   %881 = icmp eq ptr %879, %880
-  br i1 %881, label %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.exit, label %882
+  br i1 %881, label %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.argprom.exit, label %882
 
 882:                                              ; preds = %873
   %883 = getelementptr inbounds i8, ptr %11, i64 2272
@@ -1759,21 +1759,21 @@ _ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadER
   %885 = add nsw i32 %884, -1
   store i32 %885, ptr %883, align 8
   %886 = icmp eq i32 %885, 2
-  br i1 %886, label %887, label %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.exit
+  br i1 %886, label %887, label %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.argprom.exit
 
 887:                                              ; preds = %882
   %888 = getelementptr inbounds i8, ptr %11, i64 2276
   store i32 14, ptr %888, align 4
   %889 = getelementptr inbounds i8, ptr %11, i64 2280
   store i64 %866, ptr %889, align 8
-  br label %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.exit
+  br label %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.argprom.exit
 
-_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.exit: ; preds = %887, %882, %873, %820
+_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.argprom.exit: ; preds = %887, %882, %873, %820
   %890 = load i8, ptr %101, align 1
   %891 = trunc i8 %890 to i1
   br i1 %891, label %916, label %892
 
-892:                                              ; preds = %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.exit
+892:                                              ; preds = %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.argprom.exit
   %893 = getelementptr inbounds i8, ptr %3, i64 4
   %894 = load i32, ptr %893, align 4
   %.off = add i32 %894, -7
@@ -1816,7 +1816,7 @@ _ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchro
   call void @_ZN18nonbonded_verlet_t18convertCoordinatesEN3gmx12AtomLocalityENS0_8ArrayRefIKNS0_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(64) %95, i32 noundef 0, ptr %909, ptr %915)
   br label %916
 
-916:                                              ; preds = %892, %902, %908, %895, %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.exit
+916:                                              ; preds = %892, %902, %908, %895, %_ZL18launchPmeGpuSpreadP9gmx_pme_tPA3_KfRKN3gmx12StepWorkloadEP20GpuEventSynchronizerfbP13gmx_wallcycle.argprom.exit
   %917 = getelementptr inbounds i8, ptr %23, i64 4
   %918 = load i8, ptr %917, align 1
   %919 = trunc i8 %918 to i1
@@ -2019,7 +2019,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNK22DDBa
   %1048 = load i32, ptr %1047, align 8
   %1049 = add nsw i32 %1048, -1
   store i32 %1049, ptr %1047, align 8
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 0, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 0, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %1050 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
   %1051 = extractvalue { i32, i32 } %1050, 0
@@ -2074,11 +2074,11 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804: ; preds = %1076, %
   %1079 = load i8, ptr %632, align 1
   %1080 = trunc i8 %1079 to i1
   %or.cond1173.not = and i1 %823, %1080
-  br i1 %or.cond1173.not, label %1081, label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.exit
+  br i1 %or.cond1173.not, label %1081, label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.argprom.exit
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804.thread: ; preds = %1010
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 0, i64 noundef %9, ptr noundef %10)
-  br label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.exit
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 0, i64 noundef %9, ptr noundef %10)
+  br label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.argprom.exit
 
 1081:                                             ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
@@ -2164,7 +2164,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804.thread: ; preds = %
   %1138 = load ptr, ptr %1090, align 8
   %1139 = load ptr, ptr %1092, align 8
   %1140 = icmp eq ptr %1138, %1139
-  br i1 %1140, label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.exit, label %1141
+  br i1 %1140, label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.argprom.exit, label %1141
 
 1141:                                             ; preds = %1132
   %1142 = getelementptr inbounds i8, ptr %11, i64 2272
@@ -2172,22 +2172,22 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804.thread: ; preds = %
   %1144 = add nsw i32 %1143, -1
   store i32 %1144, ptr %1142, align 8
   %1145 = icmp eq i32 %1144, 2
-  br i1 %1145, label %1146, label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.exit
+  br i1 %1145, label %1146, label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.argprom.exit
 
 1146:                                             ; preds = %1141
   %1147 = getelementptr inbounds i8, ptr %11, i64 2276
   store i32 14, ptr %1147, align 4
   %1148 = getelementptr inbounds i8, ptr %11, i64 2280
   store i64 %1126, ptr %1148, align 8
-  br label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.exit
+  br label %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.argprom.exit
 
-_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.exit: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804.thread, %1146, %1141, %1132, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804
+_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.argprom.exit: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804.thread, %1146, %1141, %1132, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit804
   %1149 = getelementptr inbounds i8, ptr %23, i64 12
   %1150 = load i8, ptr %1149, align 1
   %1151 = trunc i8 %1150 to i1
   br i1 %1151, label %1152, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit826
 
-1152:                                             ; preds = %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.exit
+1152:                                             ; preds = %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.argprom.exit
   %1153 = load i8, ptr %101, align 1
   %1154 = trunc i8 %1153 to i1
   br i1 %1154, label %1213, label %1155
@@ -2412,7 +2412,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit820: ; preds = %1283, %
   br i1 %1219, label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit822.thread, label %1296
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit822.thread: ; preds = %1295
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 0, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 0, i64 noundef %9, ptr noundef %10)
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit826
 
 1296:                                             ; preds = %1295
@@ -2466,7 +2466,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit822.thread: ; 
   %1333 = load i32, ptr %1332, align 8
   %1334 = add nsw i32 %1333, -1
   store i32 %1334, ptr %1332, align 8
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 0, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 0, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %1335 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
   %1336 = extractvalue { i32, i32 } %1335, 0
@@ -2517,7 +2517,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit822.thread: ; 
   store i64 %1341, ptr %1363, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit826
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit826: ; preds = %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit822.thread, %1361, %1356, %1347, %1213, %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.exit
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit826: ; preds = %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit822.thread, %1361, %1356, %1347, %1213, %_ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.argprom.exit
   %1364 = load i8, ptr %917, align 1
   %1365 = trunc i8 %1364 to i1
   br i1 %1365, label %1366, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit832
@@ -3123,7 +3123,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit845: ; preds = %_Z15wa
   %1743 = trunc i8 %1742 to i1
   %1744 = getelementptr inbounds i8, ptr %23, i64 28
   %.val776 = load i8, ptr %1744, align 1
-  call fastcc void @_ZL17setupForceOutputsP18ForceHelperBuffersN3gmx19ArrayRefWithPaddingINS1_11BasicVectorIfEEEERKNS1_22DomainLifetimeWorkloadERKNS1_12StepWorkloadEbP13gmx_wallcycle(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef %1739, ptr noundef %61, i8 %.val776, ptr noundef nonnull align 1 dereferenceable(20) %100, i1 noundef zeroext %1743)
+  call fastcc void @_ZL17setupForceOutputsP18ForceHelperBuffersN3gmx19ArrayRefWithPaddingINS1_11BasicVectorIfEEEERKNS1_22DomainLifetimeWorkloadERKNS1_12StepWorkloadEbP13gmx_wallcycle.argprom(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef %1739, ptr noundef %61, i8 %.val776, ptr noundef nonnull align 1 dereferenceable(20) %100, i1 noundef zeroext %1743)
   %1745 = getelementptr inbounds i8, ptr %23, i64 21
   %1746 = load i8, ptr %1745, align 1
   %1747 = trunc i8 %1746 to i1
@@ -3153,7 +3153,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit845: ; preds = %_Z15wa
   %1763 = load i8, ptr %1149, align 1
   %1764 = trunc i8 %1763 to i1
   %.val777 = load i8, ptr %1744, align 1
-  call fastcc void @_ZL17setupForceOutputsP18ForceHelperBuffersN3gmx19ArrayRefWithPaddingINS1_11BasicVectorIfEEEERKNS1_22DomainLifetimeWorkloadERKNS1_12StepWorkloadEbP13gmx_wallcycle(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef %1754, ptr noundef %64, i8 %.val777, ptr noundef nonnull align 1 dereferenceable(20) %100, i1 noundef zeroext %1764)
+  call fastcc void @_ZL17setupForceOutputsP18ForceHelperBuffersN3gmx19ArrayRefWithPaddingINS1_11BasicVectorIfEEEERKNS1_22DomainLifetimeWorkloadERKNS1_12StepWorkloadEbP13gmx_wallcycle.argprom(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef %1754, ptr noundef %64, i8 %.val777, ptr noundef nonnull align 1 dereferenceable(20) %100, i1 noundef zeroext %1764)
   %1765 = load ptr, ptr %63, align 8
   store ptr %1765, ptr %62, align 8
   %1766 = getelementptr inbounds i8, ptr %63, i64 8
@@ -3299,7 +3299,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit849: ; preds = %1818, %
   br i1 %1737, label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit851.thread, label %1845
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit851.thread: ; preds = %1844
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 1, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 1, i64 noundef %9, ptr noundef %10)
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit855
 
 1845:                                             ; preds = %1844
@@ -3353,7 +3353,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit851.thread: ; 
   %1882 = load i32, ptr %1881, align 8
   %1883 = add nsw i32 %1882, -1
   store i32 %1883, ptr %1881, align 8
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 1, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 1, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %1884 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
   %1885 = extractvalue { i32, i32 } %1884, 0
@@ -3607,7 +3607,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit857: ; preds =
   br i1 %2055, label %2056, label %2057
 
 2056:                                             ; preds = %2053
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 0, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 0, i64 noundef %9, ptr noundef %10)
   br label %2057
 
 2057:                                             ; preds = %2056, %2053
@@ -4188,7 +4188,7 @@ _ZNK20DispersionCorrection10Correction13correctVirialEPA3_f.exit: ; preds = %239
   br i1 %2420, label %2421, label %2422
 
 2421:                                             ; preds = %2418
-  call fastcc void @_ZL19pmeGpuWaitAndReduceP9gmx_pme_tRKN3gmx12StepWorkloadEP13gmx_wallcyclePNS1_15ForceWithVirialEP14gmx_enerdata_tf(ptr noundef %11)
+  call fastcc void @_ZL19pmeGpuWaitAndReduceP9gmx_pme_tRKN3gmx12StepWorkloadEP13gmx_wallcyclePNS1_15ForceWithVirialEP14gmx_enerdata_tf.argprom.argelim(ptr noundef %11)
   br label %.thread1166
 
 2422:                                             ; preds = %2418
@@ -4847,21 +4847,21 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit98.i: ; preds = %_Z14wa
   %2808 = getelementptr inbounds i8, ptr %3, i64 632
   %2809 = load i8, ptr %2808, align 8
   %2810 = trunc i8 %2809 to i1
-  br i1 %2810, label %2811, label %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.exit
+  br i1 %2810, label %2811, label %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.argprom.exit
 
 2811:                                             ; preds = %2807
   %2812 = load i8, ptr %2448, align 1
   %2813 = trunc i8 %2812 to i1
-  br i1 %2813, label %2814, label %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.exit
+  br i1 %2813, label %2814, label %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.argprom.exit
 
 2814:                                             ; preds = %2811
   %.sroa.0.0.copyload.i885 = load ptr, ptr %.sroa.gep1049, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %60, i64 72
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @_ZN3gmx10ImdSession11applyForcesENS_8ArrayRefINS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %.sroa.0.0.copyload.i885, ptr %.sroa.2.0.copyload.i)
-  br label %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.exit
+  br label %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.argprom.exit
 
-_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.exit: ; preds = %2807, %2811, %2814
+_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.argprom.exit: ; preds = %2807, %2811, %2814
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
@@ -4869,7 +4869,7 @@ _ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_e
   %2816 = trunc i8 %2815 to i1
   br i1 %2816, label %2817, label %2834
 
-2817:                                             ; preds = %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.exit
+2817:                                             ; preds = %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.argprom.exit
   %2818 = load i8, ptr %2448, align 1
   %2819 = trunc i8 %2818 to i1
   br i1 %2819, label %2820, label %2834
@@ -4895,7 +4895,7 @@ _ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_e
   call void @_ZN3gmx22StatePropagatorDataGpu15copyForcesToGpuENS_8ArrayRefIKNS_11BasicVectorIfEEEENS_12AtomLocalityE(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr %2828, ptr %2833, i32 noundef 0)
   br label %2834
 
-2834:                                             ; preds = %2827, %2824, %2820, %2817, %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.exit
+2834:                                             ; preds = %2827, %2824, %2820, %2817, %_ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_enfrotPNS7_10ImdSessionEP6pull_tldP13gmx_wallcyclePNS7_14ForceProvidersEPA3_KfNS7_8ArrayRefIKNS7_11BasicVectorIfEEEEPK9t_mdatomsNSN_ISK_EERKNS7_12StepWorkloadEPNS7_15ForceWithVirialES10_P14gmx_enerdata_tP9gmx_edsamb.argprom.exit
   br i1 %.not1180, label %2956, label %2835
 
 2835:                                             ; preds = %2834
@@ -4917,7 +4917,7 @@ _ZL20computeSpecialForcesP8_IO_FILEPK9t_commrecRK10t_inputrecPN3gmx3AwhEP10gmx_e
   br i1 %1737, label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit895.thread, label %2845
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit895.thread: ; preds = %2844
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 1, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 1, i64 noundef %9, ptr noundef %10)
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit899
 
 2845:                                             ; preds = %2844
@@ -4971,7 +4971,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit895.thread: ; 
   %2882 = load i32, ptr %2881, align 8
   %2883 = add nsw i32 %2882, -1
   store i32 %2883, ptr %2881, align 8
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 1, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 1, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %2884 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
   %2885 = extractvalue { i32, i32 } %2884, 0
@@ -5161,14 +5161,14 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit909: ; preds =
   %3001 = trunc i8 %3000 to i1
   %3002 = getelementptr i8, ptr %19, i64 640
   %.val = load i32, ptr %3002, align 8
-  br i1 %3001, label %3003, label %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit
+  br i1 %3001, label %3003, label %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit
 
 3003:                                             ; preds = %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit909
   %3004 = load ptr, ptr %1577, align 8
   %3005 = call noundef i32 @_Z16dd_numAtomsZonesRK12gmx_domdec_t(ptr noundef nonnull align 8 dereferenceable(456) %3004)
-  br label %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit
+  br label %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit
 
-_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit: ; preds = %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit909, %3003
+_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit: ; preds = %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit909, %3003
   %3006 = phi i32 [ %3005, %3003 ], [ %.val, %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit909 ]
   %3007 = getelementptr inbounds i8, ptr %17, i64 24
   %3008 = load ptr, ptr %3007, align 8
@@ -5199,7 +5199,7 @@ _ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit: ; preds = %_Z23wallcyc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42)
   br i1 %1737, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit917, label %3018
 
-3018:                                             ; preds = %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit
+3018:                                             ; preds = %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %3019 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
   %3020 = extractvalue { i32, i32 } %3019, 0
@@ -5254,7 +5254,7 @@ _ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit: ; preds = %_Z23wallcyc
   store i64 %3025, ptr %3051, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit917
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit917: ; preds = %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit, %3049, %3044, %3033, %2956
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit917: ; preds = %_ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.argprom.exit, %3049, %3044, %3033, %2956
   %3052 = load i8, ptr @_ZL24c_disableAlternatingWait, align 1
   %3053 = trunc nuw i8 %3052 to i1
   br i1 %3053, label %3067, label %3054
@@ -5321,12 +5321,12 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit917: ; preds = %_ZL17ge
 .critedge.i920:                                   ; preds = %3082, %3078, %3077
   %.0.i921 = phi i32 [ 0, %3077 ], [ 0, %3078 ], [ %spec.select16.i923, %3082 ]
   %3085 = trunc i8 %.val782 to i1
-  br i1 %3085, label %3086, label %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.exit
+  br i1 %3085, label %3086, label %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.argprom.exit
 
 3086:                                             ; preds = %.critedge.i920
   %3087 = load i8, ptr %2448, align 1
   %3088 = trunc i8 %3087 to i1
-  br i1 %3088, label %3089, label %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.exit
+  br i1 %3088, label %3089, label %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.argprom.exit
 
 3089:                                             ; preds = %3086
   %3090 = getelementptr inbounds i8, ptr %23, i64 47
@@ -5335,20 +5335,20 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit917: ; preds = %_ZL17ge
   %3092 = and i8 %.fr.i, 1
   %3093 = zext nneg i8 %3092 to i32
   %spec.select2.i = add nuw nsw i32 %.0.i921, %3093
-  br label %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.exit
+  br label %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.argprom.exit
 
-_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.exit: ; preds = %.critedge.i920, %3086, %3089
+_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.argprom.exit: ; preds = %.critedge.i920, %3086, %3089
   %3094 = phi i32 [ %.0.i921, %3086 ], [ %.0.i921, %.critedge.i920 ], [ %spec.select2.i, %3089 ]
   %.not736 = icmp eq i32 %3094, 0
   br i1 %.not736, label %3096, label %3095
 
-3095:                                             ; preds = %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.exit
+3095:                                             ; preds = %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.argprom.exit
   call void @_ZN3gmx22StatePropagatorDataGpu46setFReadyOnDeviceEventExpectedConsumptionCountENS_12AtomLocalityEi(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef 0, i32 noundef %3094)
   %.pre1228 = load i8, ptr %1149, align 1
   br label %3096
 
-3096:                                             ; preds = %3095, %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.exit
-  %3097 = phi i8 [ %.pre1228, %3095 ], [ %.val782, %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.exit ]
+3096:                                             ; preds = %3095, %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.argprom.exit
+  %3097 = phi i8 [ %.pre1228, %3095 ], [ %.val782, %_ZL46getExpectedLocalFReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadERKNS_22DomainLifetimeWorkloadERKNS_12StepWorkloadEbb.argprom.exit ]
   %3098 = trunc i8 %3097 to i1
   br i1 %3098, label %3099, label %3149
 
@@ -5654,7 +5654,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit: ; preds = %3
   br i1 %brmerge749, label %3277, label %3276
 
 3276:                                             ; preds = %.critedge
-  call fastcc void @_ZL19pmeGpuWaitAndReduceP9gmx_pme_tRKN3gmx12StepWorkloadEP13gmx_wallcyclePNS1_15ForceWithVirialEP14gmx_enerdata_tf(ptr noundef %11)
+  call fastcc void @_ZL19pmeGpuWaitAndReduceP9gmx_pme_tRKN3gmx12StepWorkloadEP13gmx_wallcyclePNS1_15ForceWithVirialEP14gmx_enerdata_tf.argprom.argelim(ptr noundef %11)
   br label %3277
 
 3277:                                             ; preds = %3276, %.critedge
@@ -5744,7 +5744,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i928: ; preds = %3313
   %.val772 = load ptr, ptr %1577, align 8
   %.not1185 = icmp eq ptr %.val772, null
   %3332 = zext i1 %.not1185 to i32
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef %3332, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef %3332, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %3333 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
   %3334 = extractvalue { i32, i32 } %3333, 0
@@ -5799,7 +5799,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit933.critedge: ; preds =
   %.val772.c = load ptr, ptr %1577, align 8
   %.not1186 = icmp eq ptr %.val772.c, null
   %3362 = zext i1 %.not1186 to i32
-  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef %3362, i64 noundef %9, ptr noundef %10)
+  call fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef %3362, i64 noundef %9, ptr noundef %10)
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit933
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit933: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit933.critedge, %3359, %3354, %3345, %.critedge751
@@ -6159,28 +6159,28 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i938: ; preds = %3504,
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit27.i: ; preds = %3574, %3569, %3560, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i938, %3438
   %3577 = load i8, ptr %99, align 1
   %3578 = trunc i8 %3577 to i1
-  br i1 %3578, label %3579, label %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.exit
+  br i1 %3578, label %3579, label %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.argprom.exit
 
 3579:                                             ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit27.i
   %3580 = load i8, ptr %2353, align 1
   %3581 = trunc i8 %3580 to i1
-  br i1 %3581, label %3582, label %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.exit
+  br i1 %3581, label %3582, label %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.argprom.exit
 
 3582:                                             ; preds = %3579
   call void @_ZN3gmx15ListedForcesGpu25waitAccumulateEnergyTermsEP14gmx_enerdata_t(ptr noundef nonnull align 8 dereferenceable(8) %3429, ptr noundef %20)
   call void @_ZN3gmx15ListedForcesGpu13clearEnergiesEv(ptr noundef nonnull align 8 dereferenceable(8) %3429)
-  br label %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.exit
+  br label %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.argprom.exit
 
-_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.exit: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit27.i, %3579, %3582
+_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.argprom.exit: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit27.i, %3579, %3582
   %.val774 = load ptr, ptr %1577, align 8
   %.not1188 = icmp eq ptr %.val774, null
   br i1 %.not1188, label %3584, label %3583
 
-3583:                                             ; preds = %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.exit
+3583:                                             ; preds = %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.argprom.exit
   call void @_Z18dd_force_flop_stopP12gmx_domdec_tP6t_nrnb(ptr noundef nonnull %.val774, ptr noundef %10)
   br label %3584
 
-3584:                                             ; preds = %3583, %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.exit
+3584:                                             ; preds = %3583, %_ZL23launchGpuEndOfStepTasksP18nonbonded_verlet_tPN3gmx15ListedForcesGpuEP9gmx_pme_tP14gmx_enerdata_tRKNS1_21MdrunScheduleWorkloadElP13gmx_wallcycle.argprom.exit
   %3585 = load i8, ptr %2448, align 1
   %3586 = trunc i8 %3585 to i1
   br i1 %3586, label %3587, label %3615
@@ -6274,7 +6274,7 @@ _ZNRSt8optionalIN3gmx12ForceOutputsEE5valueEv.exit945: ; preds = %3628, %3627
   %3637 = ptrtoint ptr %3634 to i64
   %3638 = sub i64 %3636, %3637
   %3639 = getelementptr inbounds i8, ptr %3634, i64 %3638
-  call fastcc void @_ZL17postProcessForcesPK9t_commreclP6t_nrnbP13gmx_wallcyclePA3_KfN3gmx8ArrayRefIKNS9_11BasicVectorIfEEEEPNS9_12ForceOutputsEPA3_fPK9t_mdatomsPK10t_forcerecPNS9_19VirtualSitesHandlerERKNS9_12StepWorkloadE(ptr noundef nonnull %1, i64 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13, ptr %3634, ptr %3639, ptr noundef nonnull %3633, ptr noundef %18, ptr noundef %19, ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(20) %100)
+  call fastcc void @_ZL17postProcessForcesPK9t_commreclP6t_nrnbP13gmx_wallcyclePA3_KfN3gmx8ArrayRefIKNS9_11BasicVectorIfEEEEPNS9_12ForceOutputsEPA3_fPK9t_mdatomsPK10t_forcerecPNS9_19VirtualSitesHandlerERKNS9_12StepWorkloadE.argprom(ptr noundef nonnull %1, i64 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13, ptr %3634, ptr %3639, ptr noundef nonnull %3633, ptr noundef %18, ptr noundef %19, ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(20) %100)
   %3640 = load i8, ptr %1745, align 1
   %3641 = trunc i8 %3640 to i1
   br i1 %3641, label %3642, label %3665
@@ -6293,7 +6293,7 @@ _ZNRSt8optionalIN3gmx12ForceOutputsEE5valueEv.exit945: ; preds = %3628, %3627
   %3649 = ptrtoint ptr %3646 to i64
   %3650 = sub i64 %3648, %3649
   %3651 = getelementptr inbounds i8, ptr %3646, i64 %3650
-  call fastcc void @_ZL17postProcessForcesPK9t_commreclP6t_nrnbP13gmx_wallcyclePA3_KfN3gmx8ArrayRefIKNS9_11BasicVectorIfEEEEPNS9_12ForceOutputsEPA3_fPK9t_mdatomsPK10t_forcerecPNS9_19VirtualSitesHandlerERKNS9_12StepWorkloadE(ptr noundef nonnull %1, i64 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13, ptr %3646, ptr %3651, ptr noundef %1791, ptr noundef %18, ptr noundef %19, ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(20) %100)
+  call fastcc void @_ZL17postProcessForcesPK9t_commreclP6t_nrnbP13gmx_wallcyclePA3_KfN3gmx8ArrayRefIKNS9_11BasicVectorIfEEEEPNS9_12ForceOutputsEPA3_fPK9t_mdatomsPK10t_forcerecPNS9_19VirtualSitesHandlerERKNS9_12StepWorkloadE.argprom(ptr noundef nonnull %1, i64 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13, ptr %3646, ptr %3651, ptr noundef %1791, ptr noundef %18, ptr noundef %19, ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(20) %100)
   %3652 = getelementptr inbounds i8, ptr %19, i64 640
   %3653 = load i32, ptr %3652, align 8
   %3654 = getelementptr inbounds i8, ptr %17, i64 24
@@ -6565,7 +6565,7 @@ declare void @_ZN3gmx22StatePropagatorDataGpu26waitCoordinatesReadyOnHostENS_12A
 declare void @_Z24gmx_pme_send_coordinatesP10t_forcerecPK9t_commrecPA3_KfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEffblbbbbP20GpuEventSynchronizerbP13gmx_wallcycle(ptr noundef, ptr noundef, ptr noundef, ptr, ptr, float noundef, float noundef, i1 noundef zeroext, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL27setupLocalGpuForceReductionRKN3gmx21MdrunScheduleWorkloadEP18nonbonded_verlet_tPNS_22StatePropagatorDataGpuEPNS_17GpuForceReductionEPNS_12PmePpCommGpuEPK9gmx_pme_tPK12gmx_domdec_t(ptr nocapture noundef nonnull readonly align 1 dereferenceable(52) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #4 {
+define internal fastcc void @_ZL27setupLocalGpuForceReductionRKN3gmx21MdrunScheduleWorkloadEP18nonbonded_verlet_tPNS_22StatePropagatorDataGpuEPNS_17GpuForceReductionEPNS_12PmePpCommGpuEPK9gmx_pme_tPK12gmx_domdec_t.argprom(ptr nocapture noundef nonnull readonly align 1 dereferenceable(52) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 28
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
@@ -6664,7 +6664,7 @@ declare void @_ZN18nonbonded_verlet_t18convertCoordinatesEN3gmx12AtomLocalityENS
 declare void @_ZN3gmx15ListedForcesGpu21setPbcAndlaunchKernelE7PbcTypePA3_KfbRKNS_12StepWorkloadE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(20)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 1 dereferenceable(20) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i64 noundef %6, ptr noundef %7) unnamed_addr #4 {
+define internal fastcc void @_ZL12do_nb_verletP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKN3gmx12StepWorkloadENS6_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 1 dereferenceable(20) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i64 noundef %6, ptr noundef %7) unnamed_addr #4 {
   %9 = alloca %"class.gmx::ArrayRef.443", align 8
   %10 = alloca %"class.gmx::ArrayRef.344", align 8
   %11 = alloca %"class.gmx::ArrayRef.344", align 8
@@ -6762,7 +6762,7 @@ declare void @_Z19dd_force_flop_startP12gmx_domdec_tP6t_nrnb(ptr noundef, ptr no
 declare void @_Z11do_rotationPK9t_commrecP10gmx_enfrotPA3_KfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEflb(ptr noundef, ptr noundef, ptr noundef, ptr, ptr, float noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17setupForceOutputsP18ForceHelperBuffersN3gmx19ArrayRefWithPaddingINS1_11BasicVectorIfEEEERKNS1_22DomainLifetimeWorkloadERKNS1_12StepWorkloadEbP13gmx_wallcycle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i8 %.4.val, ptr nocapture noundef nonnull readonly align 1 dereferenceable(20) %3, i1 noundef zeroext %4) unnamed_addr #4 {
+define internal fastcc void @_ZL17setupForceOutputsP18ForceHelperBuffersN3gmx19ArrayRefWithPaddingINS1_11BasicVectorIfEEEERKNS1_22DomainLifetimeWorkloadERKNS1_12StepWorkloadEbP13gmx_wallcycle.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i8 %.4.val, ptr nocapture noundef nonnull readonly align 1 dereferenceable(20) %3, i1 noundef zeroext %4) unnamed_addr #4 {
 _ZN3gmx20ForceWithShiftForcesC2ERKNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEEbRKNS_8ArrayRefIS3_EE.exit:
   %5 = alloca %"class.gmx::ArrayRef", align 8
   %6 = alloca %"class.gmx::ArrayRef", align 8
@@ -6999,7 +6999,7 @@ declare { <2 x float>, <2 x float> } @_ZNK20DispersionCorrection9calculateEPA3_K
 declare noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19pmeGpuWaitAndReduceP9gmx_pme_tRKN3gmx12StepWorkloadEP13gmx_wallcyclePNS1_15ForceWithVirialEP14gmx_enerdata_tf(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @_ZL19pmeGpuWaitAndReduceP9gmx_pme_tRKN3gmx12StepWorkloadEP13gmx_wallcyclePNS1_15ForceWithVirialEP14gmx_enerdata_tf.argprom.argelim(ptr noundef %0) unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %3
 
@@ -7395,7 +7395,7 @@ define internal fastcc void @_ZL31postProcessForceWithShiftForcesP6t_nrnbP13gmx_
   %45 = getelementptr inbounds i8, ptr %10, i64 4
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %_ZL11calc_virialiiPA3_KfRKN3gmx20ForceWithShiftForcesEPA3_fS1_P6t_nrnbPK10t_forcerec7PbcType.exit
+  br i1 %47, label %48, label %_ZL11calc_virialiiPA3_KfRKN3gmx20ForceWithShiftForcesEPA3_fS1_P6t_nrnbPK10t_forcerec7PbcType.argprom.exit
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %7, i64 640
@@ -7420,18 +7420,18 @@ define internal fastcc void @_ZL31postProcessForceWithShiftForcesP6t_nrnbP13gmx_
   store double %63, ptr %57, align 8
   %64 = load ptr, ptr @debug, align 8
   %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %_ZL11calc_virialiiPA3_KfRKN3gmx20ForceWithShiftForcesEPA3_fS1_P6t_nrnbPK10t_forcerec7PbcType.exit, label %65
+  br i1 %.not.i, label %_ZL11calc_virialiiPA3_KfRKN3gmx20ForceWithShiftForcesEPA3_fS1_P6t_nrnbPK10t_forcerec7PbcType.argprom.exit, label %65
 
 65:                                               ; preds = %48
   tail call void @_Z8pr_rvecsP8_IO_FILEiPKcPA3_Kfi(ptr noundef nonnull %64, i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %6, i32 noundef 3)
-  br label %_ZL11calc_virialiiPA3_KfRKN3gmx20ForceWithShiftForcesEPA3_fS1_P6t_nrnbPK10t_forcerec7PbcType.exit
+  br label %_ZL11calc_virialiiPA3_KfRKN3gmx20ForceWithShiftForcesEPA3_fS1_P6t_nrnbPK10t_forcerec7PbcType.argprom.exit
 
-_ZL11calc_virialiiPA3_KfRKN3gmx20ForceWithShiftForcesEPA3_fS1_P6t_nrnbPK10t_forcerec7PbcType.exit: ; preds = %65, %48, %44
+_ZL11calc_virialiiPA3_KfRKN3gmx20ForceWithShiftForcesEPA3_fS1_P6t_nrnbPK10t_forcerec7PbcType.argprom.exit: ; preds = %65, %48, %44
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17postProcessForcesPK9t_commreclP6t_nrnbP13gmx_wallcyclePA3_KfN3gmx8ArrayRefIKNS9_11BasicVectorIfEEEEPNS9_12ForceOutputsEPA3_fPK9t_mdatomsPK10t_forcerecPNS9_19VirtualSitesHandlerERKNS9_12StepWorkloadE(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, ptr %.8.val, ptr nocapture noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr nocapture noundef nonnull readonly align 1 dereferenceable(20) %10) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17postProcessForcesPK9t_commreclP6t_nrnbP13gmx_wallcyclePA3_KfN3gmx8ArrayRefIKNS9_11BasicVectorIfEEEEPNS9_12ForceOutputsEPA3_fPK9t_mdatomsPK10t_forcerecPNS9_19VirtualSitesHandlerERKNS9_12StepWorkloadE.argprom(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, ptr %.8.val, ptr nocapture noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr nocapture noundef nonnull readonly align 1 dereferenceable(20) %10) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %13 = alloca %"class.gmx::ArrayRef", align 8
   %14 = alloca %"class.gmx::ArrayRef.443", align 8
@@ -7607,7 +7607,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %45, %26,
   %120 = getelementptr inbounds i8, ptr %7, i64 640
   %121 = load i32, ptr %120, align 8
   %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %.lr.ph.i, label %_ZL18print_large_forcesP8_IO_FILEPK9t_mdatomsPK9t_commreclfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEESC_.exit
+  br i1 %122, label %.lr.ph.i, label %_ZL18print_large_forcesP8_IO_FILEPK9t_mdatomsPK9t_commreclfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEESC_.argprom.exit
 
 .lr.ph.i:                                         ; preds = %117
   %123 = getelementptr inbounds i8, ptr %0, i64 96
@@ -7662,7 +7662,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %45, %26,
 
 ._crit_edge.i:                                    ; preds = %149
   %.not.i = icmp eq i64 %spec.select.i, 0
-  br i1 %.not.i, label %_ZL18print_large_forcesP8_IO_FILEPK9t_mdatomsPK9t_commreclfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEESC_.exit, label %154
+  br i1 %.not.i, label %_ZL18print_large_forcesP8_IO_FILEPK9t_mdatomsPK9t_commreclfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEESC_.argprom.exit, label %154
 
 154:                                              ; preds = %._crit_edge.i
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(124) @.str.71, i8 noundef zeroext 2)
@@ -7678,11 +7678,11 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %45, %26,
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #15
   resume { ptr, i32 } %157
 
-_ZL18print_large_forcesP8_IO_FILEPK9t_mdatomsPK9t_commreclfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEESC_.exit: ; preds = %117, %._crit_edge.i
+_ZL18print_large_forcesP8_IO_FILEPK9t_mdatomsPK9t_commreclfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEESC_.argprom.exit: ; preds = %117, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   br label %158
 
-158:                                              ; preds = %_ZL18print_large_forcesP8_IO_FILEPK9t_mdatomsPK9t_commreclfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEESC_.exit, %113
+158:                                              ; preds = %_ZL18print_large_forcesP8_IO_FILEPK9t_mdatomsPK9t_commreclfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEESC_.argprom.exit, %113
   ret void
 }
 

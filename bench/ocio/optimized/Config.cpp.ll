@@ -26053,7 +26053,7 @@ if.else106:                                       ; preds = %if.end95
 
 if.then108.invoke:                                ; preds = %if.end95, %if.else106
   %24 = phi ptr [ %transformFromReference, %if.else106 ], [ %transformToReference, %if.end95 ]
-  %25 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config18isColorSpaceLinearEPKcNS_18ReferenceSpaceTypeEENK3$_0clERKS0_RSt10shared_ptrIKNS_9TransformEE"(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %24)
+  %25 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config18isColorSpaceLinearEPKcNS_18ReferenceSpaceTypeEENK3$_0clERKS0_RSt10shared_ptrIKNS_9TransformEE.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %24)
           to label %cleanup unwind label %lpad103
 
 cleanup:                                          ; preds = %if.then108.invoke, %if.else106
@@ -26312,7 +26312,7 @@ declare noundef ptr @_ZNK19OpenColorIO_v2_4dev10ColorSpace11getEncodingEv(ptr no
 declare void @_ZNK19OpenColorIO_v2_4dev10ColorSpace12getTransformENS_19ColorSpaceDirectionE(ptr sret(%"class.std::shared_ptr.109") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config18isColorSpaceLinearEPKcNS_18ReferenceSpaceTypeEENK3$_0clERKS0_RSt10shared_ptrIKNS_9TransformEE"(ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config18isColorSpaceLinearEPKcNS_18ReferenceSpaceTypeEENK3$_0clERKS0_RSt10shared_ptrIKNS_9TransformEE.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %desc = alloca %"class.OpenColorIO_v2_4dev::PackedImageDesc", align 8
   %descDst = alloca %"class.OpenColorIO_v2_4dev::PackedImageDesc", align 8
@@ -51752,7 +51752,7 @@ invoke.cont21:                                    ; preds = %for.body
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #29
-  %call29 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config12isArchivableEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %currentPath)
+  %call29 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config12isArchivableEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %currentPath)
           to label %cleanup unwind label %lpad27
 
 lpad24:                                           ; preds = %invoke.cont21
@@ -51832,7 +51832,7 @@ for.end48:                                        ; preds = %for.inc46
 for.body58:                                       ; preds = %for.end48, %for.inc64
   %__begin150.sroa.0.039 = phi ptr [ %call.i, %for.inc64 ], [ %.pre, %for.end48 ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin150.sroa.0.039, i64 32
-  %call61 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config12isArchivableEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
+  %call61 = invoke fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config12isArchivableEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %invoke.cont60 unwind label %lpad44.loopexit
 
 invoke.cont60:                                    ; preds = %for.body58
@@ -52046,7 +52046,7 @@ ehcleanup72:                                      ; preds = %lpad.loopexit28, %l
 declare noundef zeroext i1 @_ZN8pystring2os4path5isabsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config12isArchivableEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %path) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev6Config12isArchivableEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %path) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %normPath = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -85377,14 +85377,14 @@ attributes #34 = { nounwind willreturn memory(read) }
 !256 = distinct !{!256, !34}
 !257 = distinct !{!257, !34}
 !258 = !{!259}
-!259 = distinct !{!259, !260, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE: %agg.result"}
-!260 = distinct !{!260, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE"}
+!259 = distinct !{!259, !260, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE.argprom: %agg.result"}
+!260 = distinct !{!260, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE.argprom"}
 !261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE: %agg.result"}
-!263 = distinct !{!263, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE"}
+!262 = distinct !{!262, !263, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE.argprom: %agg.result"}
+!263 = distinct !{!263, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE.argprom"}
 !264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE: %agg.result"}
-!266 = distinct !{!266, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE"}
+!265 = distinct !{!265, !266, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE.argprom: %agg.result"}
+!266 = distinct !{!266, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GetViewNamesB5cxx11ERKSt6vectorIPKNS_4ViewESaIS4_EE.argprom"}
 !267 = !{!268}
 !268 = distinct !{!268, !269, !"_ZN11StringUtils5LowerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}
 !269 = distinct !{!269, !"_ZN11StringUtils5LowerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
@@ -85410,11 +85410,11 @@ attributes #34 = { nounwind willreturn memory(read) }
 !289 = distinct !{!289, !290, !"_ZNK19OpenColorIO_v2_4dev6Config17getCurrentContextEv: %agg.result"}
 !290 = distinct !{!290, !"_ZNK19OpenColorIO_v2_4dev6Config17getCurrentContextEv"}
 !291 = !{!292}
-!292 = distinct !{!292, !293, !"_ZZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_7ContextEERKS1_IKNS_9TransformEENS_18TransformDirectionEENK3$_0clERKS0_S6_SB_SC_: %agg.result"}
-!293 = distinct !{!293, !"_ZZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_7ContextEERKS1_IKNS_9TransformEENS_18TransformDirectionEENK3$_0clERKS0_S6_SB_SC_"}
+!292 = distinct !{!292, !293, !"_ZZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_7ContextEERKS1_IKNS_9TransformEENS_18TransformDirectionEENK3$_0clERKS0_S6_SB_SC_.argprom: %agg.result"}
+!293 = distinct !{!293, !"_ZZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_7ContextEERKS1_IKNS_9TransformEENS_18TransformDirectionEENK3$_0clERKS0_S6_SB_SC_.argprom"}
 !294 = !{!295}
-!295 = distinct !{!295, !296, !"_ZZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_7ContextEERKS1_IKNS_9TransformEENS_18TransformDirectionEENK3$_0clERKS0_S6_SB_SC_: %agg.result"}
-!296 = distinct !{!296, !"_ZZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_7ContextEERKS1_IKNS_9TransformEENS_18TransformDirectionEENK3$_0clERKS0_S6_SB_SC_"}
+!295 = distinct !{!295, !296, !"_ZZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_7ContextEERKS1_IKNS_9TransformEENS_18TransformDirectionEENK3$_0clERKS0_S6_SB_SC_.argprom: %agg.result"}
+!296 = distinct !{!296, !"_ZZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_7ContextEERKS1_IKNS_9TransformEENS_18TransformDirectionEENK3$_0clERKS0_S6_SB_SC_.argprom"}
 !297 = !{!298}
 !298 = distinct !{!298, !299, !"_ZNK19OpenColorIO_v2_4dev6Config17getCurrentContextEv: %agg.result"}
 !299 = distinct !{!299, !"_ZNK19OpenColorIO_v2_4dev6Config17getCurrentContextEv"}

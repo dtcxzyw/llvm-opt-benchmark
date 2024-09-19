@@ -400,14 +400,14 @@ define hidden void @_Z7cie_labPd(ptr nocapture noundef %0) local_unnamed_addr #5
 
 23:                                               ; preds = %20
   %24 = tail call contract double @cbrt(double noundef %21) #27
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit"
 
 25:                                               ; preds = %20
   %26 = fdiv contract double %21, 0x3FC07004DED20922
   %27 = fadd contract double %26, 0x3FC1A7B9611A7B96
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit"
 
-"_ZZ7cie_labPdENK3$_0clEd.exit":                  ; preds = %23, %25
+"_ZZ7cie_labPdENK3$_0clEd.argprom.exit":          ; preds = %23, %25
   %.0.i = phi double [ %24, %23 ], [ %27, %25 ]
   %28 = fmul contract double %.0.i, 1.160000e+02
   %29 = fadd contract double %28, -1.600000e+01
@@ -416,29 +416,29 @@ define hidden void @_Z7cie_labPd(ptr nocapture noundef %0) local_unnamed_addr #5
   %31 = fcmp contract ogt double %30, 0x3F822354D28F7CD6
   br i1 %31, label %32, label %34
 
-32:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit"
+32:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit"
   %33 = tail call contract double @cbrt(double noundef %30) #27
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit30"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit30"
 
-34:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit"
+34:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit"
   %35 = fdiv contract double %30, 0x3FC07004DED20922
   %36 = fadd contract double %35, 0x3FC1A7B9611A7B96
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit30"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit30"
 
-"_ZZ7cie_labPdENK3$_0clEd.exit30":                ; preds = %32, %34
+"_ZZ7cie_labPdENK3$_0clEd.argprom.exit30":        ; preds = %32, %34
   %.0.i29 = phi double [ %33, %32 ], [ %36, %34 ]
   br i1 %22, label %37, label %39
 
-37:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit30"
+37:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit30"
   %38 = tail call contract double @cbrt(double noundef %21) #27
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit34"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit34"
 
-39:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit30"
+39:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit30"
   %40 = fdiv contract double %21, 0x3FC07004DED20922
   %41 = fadd contract double %40, 0x3FC1A7B9611A7B96
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit34"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit34"
 
-"_ZZ7cie_labPdENK3$_0clEd.exit34":                ; preds = %37, %39
+"_ZZ7cie_labPdENK3$_0clEd.argprom.exit34":        ; preds = %37, %39
   %.0.i33 = phi double [ %38, %37 ], [ %41, %39 ]
   %.sink.in = fsub contract double %.0.i29, %.0.i33
   %.sink = fmul contract double %.sink.in, 5.000000e+02
@@ -448,16 +448,16 @@ define hidden void @_Z7cie_labPd(ptr nocapture noundef %0) local_unnamed_addr #5
   %44 = fcmp contract ogt double %43, 0x3F822354D28F7CD6
   br i1 %44, label %45, label %47
 
-45:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit34"
+45:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit34"
   %46 = tail call contract double @cbrt(double noundef %43) #27
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit36"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit36"
 
-47:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit34"
+47:                                               ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit34"
   %48 = fdiv contract double %43, 0x3FC07004DED20922
   %49 = fadd contract double %48, 0x3FC1A7B9611A7B96
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit36"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit36"
 
-"_ZZ7cie_labPdENK3$_0clEd.exit36":                ; preds = %45, %47
+"_ZZ7cie_labPdENK3$_0clEd.argprom.exit36":        ; preds = %45, %47
   %.0.i35 = phi double [ %46, %45 ], [ %49, %47 ]
   %50 = fsub contract double %.0.i33, %.0.i35
   %51 = fmul contract double %50, 2.000000e+02

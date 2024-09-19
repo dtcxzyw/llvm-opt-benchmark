@@ -1714,7 +1714,7 @@ Vec_IntPush.exit652:                              ; preds = %.Vec_IntGrow.exit10
   %.0433.lcssa = phi i32 [ 0, %.preheader703 ], [ %695, %689 ]
   %698 = zext i1 %684 to i32
   %699 = xor i32 %.0433.lcssa, %698
-  tail call fastcc void @Vec_IntFill(ptr noundef nonnull %403, i32 noundef %699)
+  tail call fastcc void @Vec_IntFill.argelim(ptr noundef nonnull %403, i32 noundef %699)
   %700 = icmp sgt i32 %4, 1
   br i1 %700, label %.lr.ph745, label %.critedge
 
@@ -1833,7 +1833,7 @@ Vec_IntPush.exit659:                              ; preds = %.Vec_IntGrow.exit10
 748:                                              ; preds = %746, %744
   %.1434 = phi i32 [ %745, %744 ], [ %747, %746 ]
   %749 = xor i32 %.1434, %739
-  tail call fastcc void @Vec_IntFill(ptr noundef nonnull %403, i32 noundef %749)
+  tail call fastcc void @Vec_IntFill.argelim(ptr noundef nonnull %403, i32 noundef %749)
   %750 = icmp sgt i32 %4, 1
   br i1 %750, label %.lr.ph738, label %.critedge
 
@@ -2433,7 +2433,7 @@ declare void @Wlc_BlastMinus(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare i32 @Wlc_BlastReduction(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFill(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFill.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
 .critedge:
   %2 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %2, 1

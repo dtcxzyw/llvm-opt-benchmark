@@ -4558,9 +4558,9 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit163.i:          ; preds = %_ZNK2cv3MatclERKNS_
   store i32 33619968, ptr %80, align 8
   store ptr %93, ptr %1625, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %93, ptr noundef nonnull align 8 dereferenceable(24) %80, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.exit.i unwind label %1732
+          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit.i unwind label %1732
 
-_ZN2cvmLERNS_3MatERKd.exit.i:                     ; preds = %1715
+_ZN2cvmLERNS_3MatERKd.argprom.exit.i:             ; preds = %1715
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80)
   %.pre.i146 = load ptr, ptr %1623, align 8
   %.pre253.i = load double, ptr %.pre.i146, align 8
@@ -4616,9 +4616,9 @@ _ZN2cvmLERNS_3MatERKd.exit.i:                     ; preds = %1715
           cleanup
   br label %1826
 
-1734:                                             ; preds = %_ZN2cvmLERNS_3MatERKd.exit.i, %1711
-  %1735 = phi double [ %.pre253.i, %_ZN2cvmLERNS_3MatERKd.exit.i ], [ %1713, %1711 ]
-  %1736 = phi ptr [ %.pre.i146, %_ZN2cvmLERNS_3MatERKd.exit.i ], [ %1712, %1711 ]
+1734:                                             ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit.i, %1711
+  %1735 = phi double [ %.pre253.i, %_ZN2cvmLERNS_3MatERKd.argprom.exit.i ], [ %1713, %1711 ]
+  %1736 = phi ptr [ %.pre.i146, %_ZN2cvmLERNS_3MatERKd.argprom.exit.i ], [ %1712, %1711 ]
   %1737 = load ptr, ptr %1624, align 8
   %1738 = load i64, ptr %1737, align 8
   %1739 = getelementptr inbounds i8, ptr %1736, i64 %1738
@@ -4663,9 +4663,9 @@ _ZN2cvmLERNS_3MatERKd.exit.i:                     ; preds = %1715
   store i32 33619968, ptr %79, align 8
   store ptr %95, ptr %1644, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %95, ptr noundef nonnull align 8 dereferenceable(24) %79, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.exit164.i unwind label %1755
+          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit164.i unwind label %1755
 
-_ZN2cvmLERNS_3MatERKd.exit164.i:                  ; preds = %1754
+_ZN2cvmLERNS_3MatERKd.argprom.exit164.i:          ; preds = %1754
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %79)
   %.pre254.i = load ptr, ptr %1642, align 8
   %.pre255.i = load double, ptr %.pre254.i, align 8
@@ -4681,9 +4681,9 @@ _ZN2cvmLERNS_3MatERKd.exit164.i:                  ; preds = %1754
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %95) #19
   br label %1826
 
-1757:                                             ; preds = %_ZN2cvmLERNS_3MatERKd.exit164.i, %1750
-  %1758 = phi double [ %.pre255.i, %_ZN2cvmLERNS_3MatERKd.exit164.i ], [ %1752, %1750 ]
-  %1759 = phi ptr [ %.pre254.i, %_ZN2cvmLERNS_3MatERKd.exit164.i ], [ %1751, %1750 ]
+1757:                                             ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit164.i, %1750
+  %1758 = phi double [ %.pre255.i, %_ZN2cvmLERNS_3MatERKd.argprom.exit164.i ], [ %1752, %1750 ]
+  %1759 = phi ptr [ %.pre254.i, %_ZN2cvmLERNS_3MatERKd.argprom.exit164.i ], [ %1751, %1750 ]
   %1760 = load ptr, ptr %1643, align 8
   %1761 = load i64, ptr %1760, align 8
   %1762 = getelementptr inbounds i8, ptr %1759, i64 %1761
@@ -7239,9 +7239,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit228:              ; preds = %263
   store i32 33619968, ptr %25, align 8
   store ptr %34, ptr %171, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef nonnull align 8 dereferenceable(24) %25, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.exit unwind label %286
+          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit unwind label %286
 
-_ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %273
+_ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %273
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %288
 
@@ -7285,7 +7285,7 @@ _ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %273
           cleanup
   br label %411
 
-288:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.exit, %269
+288:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit, %269
   invoke fastcc void @_ZN2cvL26homogeneous2dualQuaternionERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(96) %31)
           to label %289 unwind label %286
 
@@ -7301,9 +7301,9 @@ _ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %273
   store i32 33619968, ptr %24, align 8
   store ptr %35, ptr %174, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %35, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.exit229 unwind label %294
+          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit229 unwind label %294
 
-_ZN2cvmLERNS_3MatERKd.exit229:                    ; preds = %293
+_ZN2cvmLERNS_3MatERKd.argprom.exit229:            ; preds = %293
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %296
 
@@ -7312,7 +7312,7 @@ _ZN2cvmLERNS_3MatERKd.exit229:                    ; preds = %293
           cleanup
   br label %410
 
-296:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.exit229, %289
+296:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit229, %289
   store i32 0, ptr %37, align 4
   store i32 1, ptr %176, align 4
   store i32 1, ptr %177, align 4

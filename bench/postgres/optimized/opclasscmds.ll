@@ -476,7 +476,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   store i32 %125, ptr %126, align 4
   %127 = getelementptr inbounds i8, ptr %123, i64 20
   store i32 %.0174, ptr %127, align 4
-  call fastcc void @assignOperTypes(ptr noundef nonnull %123, i32 noundef %35)
+  call fastcc void @assignOperTypes.argelim(ptr noundef nonnull %123, i32 noundef %35)
   call fastcc void @addFamilyMember(ptr noundef %4, ptr noundef nonnull %123)
   br label %166
 
@@ -761,7 +761,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   %277 = load ptr, ptr %58, align 8
   call fastcc void @storeOperators(ptr noundef %277, i32 noundef %35, i32 noundef %.0169, ptr noundef %245, i1 noundef zeroext false)
   %278 = load ptr, ptr %58, align 8
-  call fastcc void @storeProcedures(ptr noundef %278, i32 noundef %.0169, ptr noundef %259, i1 noundef zeroext false)
+  call fastcc void @storeProcedures.argelim(ptr noundef %278, i32 noundef %.0169, ptr noundef %259, i1 noundef zeroext false)
   call void @EventTriggerCollectCreateOpClass(ptr noundef %0, i32 noundef %222, ptr noundef %245, ptr noundef %259) #6
   store i32 2616, ptr %2, align 8
   %279 = getelementptr inbounds i8, ptr %2, i64 4
@@ -935,7 +935,7 @@ declare i32 @LookupOperName(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assignOperTypes(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @assignOperTypes.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -1772,7 +1772,7 @@ define internal fastcc void @storeOperators(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @storeProcedures(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @storeProcedures.argelim(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca [6 x i64], align 16
   %6 = alloca [6 x i8], align 1
   %7 = alloca %struct.ObjectAddress, align 4
@@ -2424,7 +2424,7 @@ AlterOpFamilyDrop.exit:                           ; preds = %198, %dropOperators
   store i8 1, ptr %247, align 1
   %248 = getelementptr inbounds i8, ptr %241, i64 28
   store i32 %37, ptr %248, align 4
-  tail call fastcc void @assignOperTypes(ptr noundef nonnull %241, i32 noundef %24)
+  tail call fastcc void @assignOperTypes.argelim(ptr noundef nonnull %241, i32 noundef %24)
   call fastcc void @addFamilyMember(ptr noundef %2, ptr noundef nonnull %241)
   br label %285
 
@@ -2523,7 +2523,7 @@ AlterOpFamilyAdd.exit:                            ; preds = %._crit_edge.i31, %2
   %292 = load ptr, ptr %35, align 8
   tail call fastcc void @storeOperators(ptr noundef %292, i32 noundef %24, i32 noundef %37, ptr noundef %.pre.i32, i1 noundef zeroext true)
   %293 = load ptr, ptr %35, align 8
-  tail call fastcc void @storeProcedures(ptr noundef %293, i32 noundef %37, ptr noundef %.pre98.i, i1 noundef zeroext true)
+  tail call fastcc void @storeProcedures.argelim(ptr noundef %293, i32 noundef %37, ptr noundef %.pre98.i, i1 noundef zeroext true)
   tail call void @EventTriggerCollectAlterOpFam(ptr noundef %0, i32 noundef %37, ptr noundef %.pre.i32, ptr noundef %.pre98.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)

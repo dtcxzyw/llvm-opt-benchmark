@@ -3953,7 +3953,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2963 = private unnamed_addr constant [14 x i8] c"Read Implicit\00", align 1
 @.str.2964 = private unnamed_addr constant [8 x i8] c"PNIO-CM\00", align 1
 @.str.2965 = private unnamed_addr constant [32 x i8] c": Max: %u, Offset: %u, Size: %u\00", align 1
-@switch.table.dissect_Diagnosis = private unnamed_addr constant [17 x ptr] [ptr @hf_pn_io_ext_channel_error_type0x8000, ptr @hf_pn_io_ext_channel_error_type0x8001, ptr @hf_pn_io_ext_channel_error_type0x8002, ptr @hf_pn_io_ext_channel_error_type0x8003, ptr @hf_pn_io_ext_channel_error_type0x8004, ptr @hf_pn_io_ext_channel_error_type0x8005, ptr @hf_pn_io_ext_channel_error_type, ptr @hf_pn_io_ext_channel_error_type0x8007, ptr @hf_pn_io_ext_channel_error_type0x8008, ptr @hf_pn_io_ext_channel_error_type0x8003, ptr @hf_pn_io_ext_channel_error_type0x800A, ptr @hf_pn_io_ext_channel_error_type0x800B, ptr @hf_pn_io_ext_channel_error_type0x800C, ptr @hf_pn_io_ext_channel_error_type, ptr @hf_pn_io_ext_channel_error_type, ptr @hf_pn_io_ext_channel_error_type, ptr @hf_pn_io_ext_channel_error_type0x8010], align 8
+@switch.table.dissect_Diagnosis.argprom = private unnamed_addr constant [17 x ptr] [ptr @hf_pn_io_ext_channel_error_type0x8000, ptr @hf_pn_io_ext_channel_error_type0x8001, ptr @hf_pn_io_ext_channel_error_type0x8002, ptr @hf_pn_io_ext_channel_error_type0x8003, ptr @hf_pn_io_ext_channel_error_type0x8004, ptr @hf_pn_io_ext_channel_error_type0x8005, ptr @hf_pn_io_ext_channel_error_type, ptr @hf_pn_io_ext_channel_error_type0x8007, ptr @hf_pn_io_ext_channel_error_type0x8008, ptr @hf_pn_io_ext_channel_error_type0x8003, ptr @hf_pn_io_ext_channel_error_type0x800A, ptr @hf_pn_io_ext_channel_error_type0x800B, ptr @hf_pn_io_ext_channel_error_type0x800C, ptr @hf_pn_io_ext_channel_error_type, ptr @hf_pn_io_ext_channel_error_type, ptr @hf_pn_io_ext_channel_error_type, ptr @hf_pn_io_ext_channel_error_type0x8010], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_blocks(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -4212,524 +4212,524 @@ define internal fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %1, ptr no
 58:                                               ; preds = %56, %56
   %59 = load i8, ptr %11, align 1
   %60 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AlarmNotification_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %59, i8 noundef zeroext %60, i16 noundef zeroext %.0)
+  call fastcc void @dissect_AlarmNotification_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %59, i8 noundef zeroext %60, i16 noundef zeroext %.0)
   br label %467
 
 61:                                               ; preds = %56
   %62 = load i8, ptr %11, align 1
   %63 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IODWriteReqHeader_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %62, i8 noundef zeroext %63, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  call fastcc void @dissect_IODWriteReqHeader_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %62, i8 noundef zeroext %63, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %467
 
 64:                                               ; preds = %56
   %65 = load i8, ptr %11, align 1
   %66 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IODReadReqHeader_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %65, i8 noundef zeroext %66, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  call fastcc void @dissect_IODReadReqHeader_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %65, i8 noundef zeroext %66, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %467
 
 67:                                               ; preds = %56
   %68 = load i8, ptr %11, align 1
   %69 = load i8, ptr %12, align 1
-  call fastcc void @dissect_DiagnosisData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %68, i8 noundef zeroext %69, i16 noundef zeroext %.0)
+  call fastcc void @dissect_DiagnosisData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %68, i8 noundef zeroext %69, i16 noundef zeroext %.0)
   br label %467
 
 70:                                               ; preds = %56, %56
   %71 = load i8, ptr %11, align 1
   %72 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IdentificationData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %71, i8 noundef zeroext %72)
+  call fastcc void @dissect_IdentificationData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %71, i8 noundef zeroext %72)
   br label %467
 
 73:                                               ; preds = %56
   %74 = load i8, ptr %11, align 1
   %75 = load i8, ptr %12, align 1
-  call fastcc void @dissect_SubstituteValue_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %74, i8 noundef zeroext %75, i16 noundef zeroext %.0)
+  call fastcc void @dissect_SubstituteValue_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %74, i8 noundef zeroext %75, i16 noundef zeroext %.0)
   br label %467
 
 76:                                               ; preds = %56
   %77 = load i8, ptr %11, align 1
   %78 = load i8, ptr %12, align 1
-  call fastcc void @dissect_RecordInputDataObjectElement_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %77, i8 noundef zeroext %78)
+  call fastcc void @dissect_RecordInputDataObjectElement_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %77, i8 noundef zeroext %78)
   br label %467
 
 79:                                               ; preds = %56
   %80 = load i8, ptr %11, align 1
   %81 = load i8, ptr %12, align 1
-  call fastcc void @dissect_RecordOutputDataObjectElement_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %80, i8 noundef zeroext %81)
+  call fastcc void @dissect_RecordOutputDataObjectElement_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %80, i8 noundef zeroext %81)
   br label %467
 
 82:                                               ; preds = %56
   %83 = load i8, ptr %11, align 1
   %84 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %83, i8 noundef zeroext %84, i16 noundef zeroext %.0)
+  call fastcc void @dissect_ARData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %83, i8 noundef zeroext %84, i16 noundef zeroext %.0)
   br label %467
 
 85:                                               ; preds = %56
   %86 = load i8, ptr %11, align 1
   %87 = load i8, ptr %12, align 1
-  call fastcc void @dissect_LogData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %86, i8 noundef zeroext %87)
+  call fastcc void @dissect_LogData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %86, i8 noundef zeroext %87)
   br label %467
 
 88:                                               ; preds = %56
   %89 = load i8, ptr %11, align 1
   %90 = load i8, ptr %12, align 1
-  call fastcc void @dissect_APIData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %89, i8 noundef zeroext %90)
+  call fastcc void @dissect_APIData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %89, i8 noundef zeroext %90)
   br label %467
 
 91:                                               ; preds = %56
   %92 = load i8, ptr %11, align 1
   %93 = load i8, ptr %12, align 1
-  call fastcc void @dissect_SRLData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %92, i8 noundef zeroext %93)
+  call fastcc void @dissect_SRLData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %92, i8 noundef zeroext %93)
   br label %467
 
 94:                                               ; preds = %56
   %95 = load i8, ptr %11, align 1
   %96 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IandM0_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %95, i8 noundef zeroext %96)
+  call fastcc void @dissect_IandM0_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %95, i8 noundef zeroext %96)
   br label %467
 
 97:                                               ; preds = %56
   %98 = load i8, ptr %11, align 1
   %99 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IandM1_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %98, i8 noundef zeroext %99)
+  call fastcc void @dissect_IandM1_block.argprom.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %98, i8 noundef zeroext %99)
   br label %467
 
 100:                                              ; preds = %56
   %101 = load i8, ptr %11, align 1
   %102 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IandM2_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %101, i8 noundef zeroext %102)
+  call fastcc void @dissect_IandM2_block.argprom.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %101, i8 noundef zeroext %102)
   br label %467
 
 103:                                              ; preds = %56
   %104 = load i8, ptr %11, align 1
   %105 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IandM3_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %104, i8 noundef zeroext %105)
+  call fastcc void @dissect_IandM3_block.argprom.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %104, i8 noundef zeroext %105)
   br label %467
 
 106:                                              ; preds = %56
   %107 = load i8, ptr %11, align 1
   %108 = load i8, ptr %12, align 1
-  %109 = call fastcc i32 @dissect_IandM4_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %107, i8 noundef zeroext %108)
+  %109 = call fastcc i32 @dissect_IandM4_block.argprom(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %107, i8 noundef zeroext %108)
   br label %467
 
 110:                                              ; preds = %56
   %111 = load i8, ptr %11, align 1
   %112 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IandM5_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %111, i8 noundef zeroext %112)
+  call fastcc void @dissect_IandM5_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %111, i8 noundef zeroext %112)
   br label %467
 
 113:                                              ; preds = %56
   %114 = load i8, ptr %11, align 1
   %115 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IandM0FilterData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %114, i8 noundef zeroext %115)
+  call fastcc void @dissect_IandM0FilterData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %114, i8 noundef zeroext %115)
   br label %467
 
 116:                                              ; preds = %56
   %117 = load i8, ptr %11, align 1
   %118 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IandM0FilterData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %117, i8 noundef zeroext %118)
+  call fastcc void @dissect_IandM0FilterData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %117, i8 noundef zeroext %118)
   br label %467
 
 119:                                              ; preds = %56
   %120 = load i8, ptr %11, align 1
   %121 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IandM0FilterData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %120, i8 noundef zeroext %121)
+  call fastcc void @dissect_IandM0FilterData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %120, i8 noundef zeroext %121)
   br label %467
 
 122:                                              ; preds = %56
-  call fastcc void @dissect_IandM5Data_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef nonnull %4)
+  call fastcc void @dissect_IandM5Data_block.argprom.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef nonnull %4)
   br label %467
 
 123:                                              ; preds = %56
   %124 = load i8, ptr %11, align 1
   %125 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AssetManagementData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %124, i8 noundef zeroext %125)
+  call fastcc void @dissect_AssetManagementData_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %124, i8 noundef zeroext %125)
   br label %467
 
 126:                                              ; preds = %56
   %127 = load i8, ptr %11, align 1
   %128 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AM_FullInformation_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %127, i8 noundef zeroext %128)
+  call fastcc void @dissect_AM_FullInformation_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %127, i8 noundef zeroext %128)
   br label %467
 
 129:                                              ; preds = %56
   %130 = load i8, ptr %11, align 1
   %131 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AM_HardwareOnlyInformation_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %130, i8 noundef zeroext %131)
+  call fastcc void @dissect_AM_HardwareOnlyInformation_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %130, i8 noundef zeroext %131)
   br label %467
 
 132:                                              ; preds = %56
   %133 = load i8, ptr %11, align 1
   %134 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AM_FirmwareOnlyInformation_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %133, i8 noundef zeroext %134)
+  call fastcc void @dissect_AM_FirmwareOnlyInformation_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %133, i8 noundef zeroext %134)
   br label %467
 
 135:                                              ; preds = %56
   %136 = load i8, ptr %11, align 1
   %137 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ARBlockReq_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %136, i8 noundef zeroext %137, ptr noundef %7)
+  call fastcc void @dissect_ARBlockReq_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %136, i8 noundef zeroext %137, ptr noundef %7)
   br label %467
 
 138:                                              ; preds = %56
   %139 = load i8, ptr %11, align 1
   %140 = load i8, ptr %12, align 1
   %141 = load ptr, ptr %7, align 8
-  call fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %139, i8 noundef zeroext %140, ptr noundef %141)
+  call fastcc void @dissect_IOCRBlockReq_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %139, i8 noundef zeroext %140, ptr noundef %141)
   br label %467
 
 142:                                              ; preds = %56
   %143 = load i8, ptr %11, align 1
   %144 = load i8, ptr %12, align 1
   %145 = load ptr, ptr %7, align 8
-  call fastcc void @dissect_AlarmCRBlockReq_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %143, i8 noundef zeroext %144, ptr noundef %145)
+  call fastcc void @dissect_AlarmCRBlockReq_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %143, i8 noundef zeroext %144, ptr noundef %145)
   br label %467
 
 146:                                              ; preds = %56
   %147 = load i8, ptr %11, align 1
   %148 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %147, i8 noundef zeroext %148)
+  call fastcc void @dissect_ExpectedSubmoduleBlockReq_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %147, i8 noundef zeroext %148)
   br label %467
 
 149:                                              ; preds = %56
   %150 = load i8, ptr %11, align 1
   %151 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MCRBlockReq_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %150, i8 noundef zeroext %151)
+  call fastcc void @dissect_MCRBlockReq_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %150, i8 noundef zeroext %151)
   br label %467
 
 152:                                              ; preds = %56
   %153 = load i8, ptr %11, align 1
   %154 = load i8, ptr %12, align 1
-  call fastcc void @dissect_SubFrameBlock_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %153, i8 noundef zeroext %154, i16 noundef zeroext %.0)
+  call fastcc void @dissect_SubFrameBlock_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %153, i8 noundef zeroext %154, i16 noundef zeroext %.0)
   br label %467
 
 155:                                              ; preds = %56, %56
   %156 = load i8, ptr %11, align 1
   %157 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ARVendorBlockReq_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %156, i8 noundef zeroext %157, i16 noundef zeroext %.0)
+  call fastcc void @dissect_ARVendorBlockReq_block.retelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %156, i8 noundef zeroext %157, i16 noundef zeroext %.0)
   br label %467
 
 158:                                              ; preds = %56
   %159 = load i8, ptr %11, align 1
   %160 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IRInfoBlock_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %159, i8 noundef zeroext %160)
+  call fastcc void @dissect_IRInfoBlock_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %159, i8 noundef zeroext %160)
   br label %467
 
 161:                                              ; preds = %56
   %162 = load i8, ptr %11, align 1
   %163 = load i8, ptr %12, align 1
-  call fastcc void @dissect_SRInfoBlock_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %162, i8 noundef zeroext %163)
+  call fastcc void @dissect_SRInfoBlock_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %162, i8 noundef zeroext %163)
   br label %467
 
 164:                                              ; preds = %56
   %165 = load i8, ptr %11, align 1
   %166 = load i8, ptr %12, align 1
-  call fastcc void @dissect_RSInfoBlock_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %165, i8 noundef zeroext %166)
+  call fastcc void @dissect_RSInfoBlock_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %165, i8 noundef zeroext %166)
   br label %467
 
 167:                                              ; preds = %56, %56, %56, %56, %56, %56, %56
   %168 = load i8, ptr %11, align 1
   %169 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ControlPlugOrConnect_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %168, i8 noundef zeroext %169, ptr noundef %7, i16 noundef zeroext %57)
+  call fastcc void @dissect_ControlPlugOrConnect_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %168, i8 noundef zeroext %169, ptr noundef %7, i16 noundef zeroext %57)
   br label %467
 
 170:                                              ; preds = %56
   %171 = load i8, ptr %11, align 1
   %172 = load i8, ptr %12, align 1
   %173 = zext i16 %.0 to i32
-  call fastcc void @dissect_ControlBlockPrmBegin(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %171, i8 noundef zeroext %172, i32 noundef %173, ptr noundef %7)
+  call fastcc void @dissect_ControlBlockPrmBegin.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %171, i8 noundef zeroext %172, i32 noundef %173, ptr noundef %7)
   br label %467
 
 174:                                              ; preds = %56
   %175 = load i8, ptr %11, align 1
   %176 = load i8, ptr %12, align 1
-  call fastcc void @dissect_SubmoduleListBlock(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %175, i8 noundef zeroext %176)
+  call fastcc void @dissect_SubmoduleListBlock.argprom.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %175, i8 noundef zeroext %176)
   br label %467
 
 177:                                              ; preds = %56
   %178 = load i8, ptr %11, align 1
   %179 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortData_Check_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %178, i8 noundef zeroext %179, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDPortData_Check_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %178, i8 noundef zeroext %179, i16 noundef zeroext %.0)
   br label %467
 
 180:                                              ; preds = %56
   %181 = load i8, ptr %11, align 1
   %182 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDevData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %181, i8 noundef zeroext %182)
+  call fastcc void @dissect_PDevData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %181, i8 noundef zeroext %182)
   br label %467
 
 183:                                              ; preds = %56
   %184 = load i8, ptr %11, align 1
   %185 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortData_Adjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %184, i8 noundef zeroext %185, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDPortData_Adjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %184, i8 noundef zeroext %185, i16 noundef zeroext %.0)
   br label %467
 
 186:                                              ; preds = %56
   %187 = load i8, ptr %11, align 1
   %188 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDSyncData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %187, i8 noundef zeroext %188)
+  call fastcc void @dissect_PDSyncData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %187, i8 noundef zeroext %188)
   br label %467
 
 189:                                              ; preds = %56
   %190 = load i8, ptr %11, align 1
   %191 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IsochronousModeData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %190, i8 noundef zeroext %191)
+  call fastcc void @dissect_IsochronousModeData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %190, i8 noundef zeroext %191)
   br label %467
 
 192:                                              ; preds = %56
   %193 = load i8, ptr %11, align 1
   %194 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDIRData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %193, i8 noundef zeroext %194)
+  call fastcc void @dissect_PDIRData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %193, i8 noundef zeroext %194)
   br label %467
 
 195:                                              ; preds = %56
   %196 = load i8, ptr %11, align 1
   %197 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDIRGlobalData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %196, i8 noundef zeroext %197)
+  call fastcc void @dissect_PDIRGlobalData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %196, i8 noundef zeroext %197)
   br label %467
 
 198:                                              ; preds = %56
   %199 = load i8, ptr %11, align 1
   %200 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDIRFrameData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %199, i8 noundef zeroext %200, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDIRFrameData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %199, i8 noundef zeroext %200, i16 noundef zeroext %.0)
   br label %467
 
 201:                                              ; preds = %56
   %202 = load i8, ptr %11, align 1
   %203 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %202, i8 noundef zeroext %203, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDIRBeginEndData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %202, i8 noundef zeroext %203, i16 noundef zeroext %.0)
   br label %467
 
 204:                                              ; preds = %56
   %205 = load i8, ptr %11, align 1
   %206 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AdjustDomainBoundary_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %205, i8 noundef zeroext %206)
+  call fastcc void @dissect_AdjustDomainBoundary_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %205, i8 noundef zeroext %206)
   br label %467
 
 207:                                              ; preds = %56
   %208 = load i8, ptr %11, align 1
   %209 = load i8, ptr %12, align 1
-  call fastcc void @dissect_CheckPeers_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %208, i8 noundef zeroext %209)
+  call fastcc void @dissect_CheckPeers_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %208, i8 noundef zeroext %209)
   br label %467
 
 210:                                              ; preds = %56
   %211 = load i8, ptr %11, align 1
   %212 = load i8, ptr %12, align 1
-  call fastcc void @dissect_CheckLineDelay_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %211, i8 noundef zeroext %212)
+  call fastcc void @dissect_CheckLineDelay_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %211, i8 noundef zeroext %212)
   br label %467
 
 213:                                              ; preds = %56
   %214 = load i8, ptr %11, align 1
   %215 = load i8, ptr %12, align 1
-  call fastcc void @dissect_CheckMAUType_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %214, i8 noundef zeroext %215)
+  call fastcc void @dissect_CheckMAUType_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %214, i8 noundef zeroext %215)
   br label %467
 
 216:                                              ; preds = %56
   %217 = load i8, ptr %11, align 1
   %218 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AdjustMAUType_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %217, i8 noundef zeroext %218)
+  call fastcc void @dissect_AdjustMAUType_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %217, i8 noundef zeroext %218)
   br label %467
 
 219:                                              ; preds = %56
   %220 = load i8, ptr %11, align 1
   %221 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortDataReal_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %220, i8 noundef zeroext %221)
+  call fastcc void @dissect_PDPortDataReal_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %220, i8 noundef zeroext %221)
   br label %467
 
 222:                                              ; preds = %56
   %223 = load i8, ptr %11, align 1
   %224 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AdjustMulticastBoundary_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %223, i8 noundef zeroext %224)
+  call fastcc void @dissect_AdjustMulticastBoundary_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %223, i8 noundef zeroext %224)
   br label %467
 
 225:                                              ; preds = %56
   %226 = load i8, ptr %11, align 1
   %227 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDInterfaceMrpDataAdjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %226, i8 noundef zeroext %227, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDInterfaceMrpDataAdjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %226, i8 noundef zeroext %227, i16 noundef zeroext %.0)
   br label %467
 
 228:                                              ; preds = %56
   %229 = load i8, ptr %11, align 1
   %230 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDInterfaceMrpDataReal_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %229, i8 noundef zeroext %230, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDInterfaceMrpDataReal_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %229, i8 noundef zeroext %230, i16 noundef zeroext %.0)
   br label %467
 
 231:                                              ; preds = %56
   %232 = load i8, ptr %11, align 1
   %233 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDInterfaceMrpDataCheck_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %232, i8 noundef zeroext %233)
+  call fastcc void @dissect_PDInterfaceMrpDataCheck_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %232, i8 noundef zeroext %233)
   br label %467
 
 234:                                              ; preds = %56, %56
   %235 = load i8, ptr %11, align 1
   %236 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortMrpData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %235, i8 noundef zeroext %236)
+  call fastcc void @dissect_PDPortMrpData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %235, i8 noundef zeroext %236)
   br label %467
 
 237:                                              ; preds = %56
   %238 = load i8, ptr %11, align 1
   %239 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpManagerParams_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %238, i8 noundef zeroext %239)
+  call fastcc void @dissect_MrpManagerParams_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %238, i8 noundef zeroext %239)
   br label %467
 
 240:                                              ; preds = %56
   %241 = load i8, ptr %11, align 1
   %242 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpClientParams_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %241, i8 noundef zeroext %242)
+  call fastcc void @dissect_MrpClientParams_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %241, i8 noundef zeroext %242)
   br label %467
 
 243:                                              ; preds = %56
   %244 = load i8, ptr %11, align 1
   %245 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpRTModeManagerData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %244, i8 noundef zeroext %245)
+  call fastcc void @dissect_MrpRTModeManagerData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %244, i8 noundef zeroext %245)
   br label %467
 
 246:                                              ; preds = %56
   %247 = load i8, ptr %11, align 1
   %248 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpRingStateData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %247, i8 noundef zeroext %248)
+  call fastcc void @dissect_MrpRingStateData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %247, i8 noundef zeroext %248)
   br label %467
 
 249:                                              ; preds = %56
   %250 = load i8, ptr %11, align 1
   %251 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpRTStateData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %250, i8 noundef zeroext %251)
+  call fastcc void @dissect_MrpRTStateData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %250, i8 noundef zeroext %251)
   br label %467
 
 252:                                              ; preds = %56
   %253 = load i8, ptr %11, align 1
   %254 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AdjustPortState_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %253, i8 noundef zeroext %254)
+  call fastcc void @dissect_AdjustPortState_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %253, i8 noundef zeroext %254)
   br label %467
 
 255:                                              ; preds = %56
   %256 = load i8, ptr %11, align 1
   %257 = load i8, ptr %12, align 1
-  call fastcc void @dissect_CheckPortState_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %256, i8 noundef zeroext %257)
+  call fastcc void @dissect_CheckPortState_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %256, i8 noundef zeroext %257)
   br label %467
 
 258:                                              ; preds = %56
   %259 = load i8, ptr %11, align 1
   %260 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpRTModeClientData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %259, i8 noundef zeroext %260)
+  call fastcc void @dissect_MrpRTModeClientData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %259, i8 noundef zeroext %260)
   br label %467
 
 261:                                              ; preds = %56
   %262 = load i8, ptr %11, align 1
   %263 = load i8, ptr %12, align 1
-  call fastcc void @dissect_CheckSyncDifference_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %262, i8 noundef zeroext %263)
+  call fastcc void @dissect_CheckSyncDifference_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %262, i8 noundef zeroext %263)
   br label %467
 
 264:                                              ; preds = %56
   %265 = load i8, ptr %11, align 1
   %266 = load i8, ptr %12, align 1
-  call fastcc void @dissect_CheckMAUTypeDifference_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %265, i8 noundef zeroext %266)
+  call fastcc void @dissect_CheckMAUTypeDifference_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %265, i8 noundef zeroext %266)
   br label %467
 
 267:                                              ; preds = %56
   %268 = load i8, ptr %11, align 1
   %269 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortFODataReal_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %268, i8 noundef zeroext %269, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDPortFODataReal_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %268, i8 noundef zeroext %269, i16 noundef zeroext %.0)
   br label %467
 
 270:                                              ; preds = %56
   %271 = load i8, ptr %11, align 1
   %272 = load i8, ptr %12, align 1
-  call fastcc void @dissect_FiberOpticManufacturerSpecific_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %271, i8 noundef zeroext %272, i16 noundef zeroext %.0)
+  call fastcc void @dissect_FiberOpticManufacturerSpecific_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %271, i8 noundef zeroext %272, i16 noundef zeroext %.0)
   br label %467
 
 273:                                              ; preds = %56
   %274 = load i8, ptr %11, align 1
   %275 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortFODataAdjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %274, i8 noundef zeroext %275)
+  call fastcc void @dissect_PDPortFODataAdjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %274, i8 noundef zeroext %275)
   br label %467
 
 276:                                              ; preds = %56
   %277 = load i8, ptr %11, align 1
   %278 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortFODataCheck_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %277, i8 noundef zeroext %278)
+  call fastcc void @dissect_PDPortFODataCheck_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %277, i8 noundef zeroext %278)
   br label %467
 
 279:                                              ; preds = %56
   %280 = load i8, ptr %11, align 1
   %281 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AdjustPeerToPeerBoundary_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %280, i8 noundef zeroext %281)
+  call fastcc void @dissect_AdjustPeerToPeerBoundary_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %280, i8 noundef zeroext %281)
   br label %467
 
 282:                                              ; preds = %56
   %283 = load i8, ptr %11, align 1
   %284 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AdjustDCPBoundary_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %283, i8 noundef zeroext %284)
+  call fastcc void @dissect_AdjustDCPBoundary_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %283, i8 noundef zeroext %284)
   br label %467
 
 285:                                              ; preds = %56
   %286 = load i8, ptr %11, align 1
   %287 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AdjustPreambleLength_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %286, i8 noundef zeroext %287)
+  call fastcc void @dissect_AdjustPreambleLength_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %286, i8 noundef zeroext %287)
   br label %467
 
 288:                                              ; preds = %56
   %289 = load i8, ptr %11, align 1
   %290 = load i8, ptr %12, align 1
-  call fastcc void @dissect_CheckMAUTypeExtension_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %289, i8 noundef zeroext %290)
+  call fastcc void @dissect_CheckMAUTypeExtension_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %289, i8 noundef zeroext %290)
   br label %467
 
 291:                                              ; preds = %56
   %292 = load i8, ptr %11, align 1
   %293 = load i8, ptr %12, align 1
-  call fastcc void @dissect_FiberOpticDiagnosisInfo_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %292, i8 noundef zeroext %293)
+  call fastcc void @dissect_FiberOpticDiagnosisInfo_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %292, i8 noundef zeroext %293)
   br label %467
 
 294:                                              ; preds = %56
   %295 = load i8, ptr %11, align 1
   %296 = load i8, ptr %12, align 1
-  call fastcc void @dissect_AdjustMAUTypeExtension_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %295, i8 noundef zeroext %296)
+  call fastcc void @dissect_AdjustMAUTypeExtension_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %295, i8 noundef zeroext %296)
   br label %467
 
 297:                                              ; preds = %56
   %298 = load i8, ptr %11, align 1
   %299 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDIRSubframeData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %298, i8 noundef zeroext %299)
+  call fastcc void @dissect_PDIRSubframeData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %298, i8 noundef zeroext %299)
   br label %467
 
 300:                                              ; preds = %56
   %301 = load i8, ptr %11, align 1
   %302 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDSubFrameBlock_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %301, i8 noundef zeroext %302, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDSubFrameBlock_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %301, i8 noundef zeroext %302, i16 noundef zeroext %.0)
   br label %467
 
 303:                                              ; preds = %56
   %304 = load i8, ptr %11, align 1
   %305 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortDataRealExtended_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %304, i8 noundef zeroext %305, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDPortDataRealExtended_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %304, i8 noundef zeroext %305, i16 noundef zeroext %.0)
   br label %467
 
 306:                                              ; preds = %56
   %307 = load i8, ptr %11, align 1
   %308 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortFODataCheck_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %307, i8 noundef zeroext %308)
+  call fastcc void @dissect_PDPortFODataCheck_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %307, i8 noundef zeroext %308)
   br label %467
 
 309:                                              ; preds = %56
   %310 = load i8, ptr %11, align 1
   %311 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpInstanceDataAdjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %310, i8 noundef zeroext %311, i16 noundef zeroext %.0)
+  call fastcc void @dissect_MrpInstanceDataAdjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %310, i8 noundef zeroext %311, i16 noundef zeroext %.0)
   br label %467
 
 312:                                              ; preds = %56
   %313 = load i8, ptr %11, align 1
   %314 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpInstanceDataReal_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %313, i8 noundef zeroext %314, i16 noundef zeroext %.0)
+  call fastcc void @dissect_MrpInstanceDataReal_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %313, i8 noundef zeroext %314, i16 noundef zeroext %.0)
   br label %467
 
 315:                                              ; preds = %56
   %316 = load i8, ptr %11, align 1
   %317 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MrpInstanceDataCheck_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %316, i8 noundef zeroext %317)
+  call fastcc void @dissect_MrpInstanceDataCheck_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %316, i8 noundef zeroext %317)
   br label %467
 
 318:                                              ; preds = %56
   %319 = load i8, ptr %11, align 1
   %320 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDInterfaceDataReal_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %319, i8 noundef zeroext %320)
+  call fastcc void @dissect_PDInterfaceDataReal_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %319, i8 noundef zeroext %320)
   br label %467
 
 321:                                              ; preds = %56
@@ -4741,275 +4741,275 @@ define internal fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %1, ptr no
 325:                                              ; preds = %56
   %326 = load i8, ptr %11, align 1
   %327 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDInterfaceAdjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %326, i8 noundef zeroext %327)
+  call fastcc void @dissect_PDInterfaceAdjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %326, i8 noundef zeroext %327)
   br label %467
 
 328:                                              ; preds = %56
   %329 = load i8, ptr %11, align 1
   %330 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDPortStatistic_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %329, i8 noundef zeroext %330)
+  call fastcc void @dissect_PDPortStatistic_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %329, i8 noundef zeroext %330)
   br label %467
 
 331:                                              ; preds = %56
   %332 = load i8, ptr %11, align 1
   %333 = load i8, ptr %12, align 1
-  call fastcc void @dissect_OwnPort_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %332, i8 noundef zeroext %333)
+  call fastcc void @dissect_OwnPort_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %332, i8 noundef zeroext %333)
   br label %467
 
 334:                                              ; preds = %56
   %335 = load i8, ptr %11, align 1
   %336 = load i8, ptr %12, align 1
-  call fastcc void @dissect_Neighbors_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %335, i8 noundef zeroext %336)
+  call fastcc void @dissect_Neighbors_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %335, i8 noundef zeroext %336)
   br label %467
 
 337:                                              ; preds = %56
   %338 = load i8, ptr %11, align 1
   %339 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNNetworkControlDataReal_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %338, i8 noundef zeroext %339)
+  call fastcc void @dissect_TSNNetworkControlDataReal_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %338, i8 noundef zeroext %339)
   br label %467
 
 340:                                              ; preds = %56
   %341 = load i8, ptr %11, align 1
   %342 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNNetworkControlDataAdjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %341, i8 noundef zeroext %342)
+  call fastcc void @dissect_TSNNetworkControlDataAdjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %341, i8 noundef zeroext %342)
   br label %467
 
 343:                                              ; preds = %56
   %344 = load i8, ptr %11, align 1
   %345 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNDomainPortConfig_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %344, i8 noundef zeroext %345)
+  call fastcc void @dissect_TSNDomainPortConfig_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %344, i8 noundef zeroext %345)
   br label %467
 
 346:                                              ; preds = %56
   %347 = load i8, ptr %11, align 1
   %348 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNDomainQueueConfig_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %347, i8 noundef zeroext %348)
+  call fastcc void @dissect_TSNDomainQueueConfig_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %347, i8 noundef zeroext %348)
   br label %467
 
 349:                                              ; preds = %56
   %350 = load i8, ptr %11, align 1
   %351 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNTimeData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %350, i8 noundef zeroext %351)
+  call fastcc void @dissect_TSNTimeData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %350, i8 noundef zeroext %351)
   br label %467
 
 352:                                              ; preds = %56
   %353 = load i8, ptr %11, align 1
   %354 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNStreamPathDataReal_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %353, i8 noundef zeroext %354, i32 noundef 0)
+  call fastcc void @dissect_TSNStreamPathDataReal_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %353, i8 noundef zeroext %354, i32 noundef 0)
   br label %467
 
 355:                                              ; preds = %56
   %356 = load i8, ptr %11, align 1
   %357 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNSyncTreeData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %356, i8 noundef zeroext %357)
+  call fastcc void @dissect_TSNSyncTreeData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %356, i8 noundef zeroext %357)
   br label %467
 
 358:                                              ; preds = %56
   %359 = load i8, ptr %11, align 1
   %360 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNUploadNetworkAttributes_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %359, i8 noundef zeroext %360)
+  call fastcc void @dissect_TSNUploadNetworkAttributes_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %359, i8 noundef zeroext %360)
   br label %467
 
 361:                                              ; preds = %56
   %362 = load i8, ptr %11, align 1
   %363 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNForwardingDelay_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %362, i8 noundef zeroext %363)
+  call fastcc void @dissect_TSNForwardingDelay_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %362, i8 noundef zeroext %363)
   br label %467
 
 364:                                              ; preds = %56
   %365 = load i8, ptr %11, align 1
   %366 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNExpectedNetworkAttributes_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %365, i8 noundef zeroext %366)
+  call fastcc void @dissect_TSNExpectedNetworkAttributes_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %365, i8 noundef zeroext %366)
   br label %467
 
 367:                                              ; preds = %56
   %368 = load i8, ptr %11, align 1
   %369 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNStreamPathDataReal_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %368, i8 noundef zeroext %369, i32 noundef 1)
+  call fastcc void @dissect_TSNStreamPathDataReal_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %368, i8 noundef zeroext %369, i32 noundef 1)
   br label %467
 
 370:                                              ; preds = %56
   %371 = load i8, ptr %11, align 1
   %372 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNDomainPortIngressRateLimiter_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %371, i8 noundef zeroext %372)
+  call fastcc void @dissect_TSNDomainPortIngressRateLimiter_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %371, i8 noundef zeroext %372)
   br label %467
 
 373:                                              ; preds = %56
   %374 = load i8, ptr %11, align 1
   %375 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNDomainQueueRateLimiter_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %374, i8 noundef zeroext %375)
+  call fastcc void @dissect_TSNDomainQueueRateLimiter_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %374, i8 noundef zeroext %375)
   br label %467
 
 376:                                              ; preds = %56
   %377 = load i8, ptr %11, align 1
   %378 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNPortID_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %377, i8 noundef zeroext %378)
+  call fastcc void @dissect_TSNPortID_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %377, i8 noundef zeroext %378)
   br label %467
 
 379:                                              ; preds = %56
   %380 = load i8, ptr %11, align 1
   %381 = load i8, ptr %12, align 1
-  call fastcc void @dissect_TSNExpectedNeighbor_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %380, i8 noundef zeroext %381)
+  call fastcc void @dissect_TSNExpectedNeighbor_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %380, i8 noundef zeroext %381)
   br label %467
 
 382:                                              ; preds = %56
   %383 = load i8, ptr %11, align 1
   %384 = load i8, ptr %12, align 1
-  call fastcc void @dissect_CIMSNMPAdjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %383, i8 noundef zeroext %384, i16 noundef zeroext %.0)
+  call fastcc void @dissect_CIMSNMPAdjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %383, i8 noundef zeroext %384, i16 noundef zeroext %.0)
   br label %467
 
 385:                                              ; preds = %56
   %386 = load i8, ptr %11, align 1
   %387 = load i8, ptr %12, align 1
-  call fastcc void @dissect_MultipleBlockHeader_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %386, i8 noundef zeroext %387, i16 noundef zeroext %.0)
+  call fastcc void @dissect_MultipleBlockHeader_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %386, i8 noundef zeroext %387, i16 noundef zeroext %.0)
   br label %467
 
 388:                                              ; preds = %56
   %389 = load i8, ptr %11, align 1
   %390 = load i8, ptr %12, align 1
   %391 = load i16, ptr %5, align 2
-  call fastcc void @dissect_COContainerContent_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %389, i8 noundef zeroext %390, i16 noundef zeroext %391, ptr noundef %6, ptr noundef %7)
+  call fastcc void @dissect_COContainerContent_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %389, i8 noundef zeroext %390, i16 noundef zeroext %391, ptr noundef %6, ptr noundef %7)
   br label %467
 
 392:                                              ; preds = %56
   %393 = load i8, ptr %11, align 1
   %394 = load i8, ptr %12, align 1
   %395 = load i16, ptr %5, align 2
-  call fastcc void @dissect_RecordDataReadQuery_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %393, i8 noundef zeroext %394, i16 noundef zeroext %395, i16 noundef zeroext %.0)
+  call fastcc void @dissect_RecordDataReadQuery_block.argprom.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, i8 noundef zeroext %393, i8 noundef zeroext %394, i16 noundef zeroext %395, i16 noundef zeroext %.0)
   br label %467
 
 396:                                              ; preds = %56
   %397 = load i8, ptr %11, align 1
   %398 = load i8, ptr %12, align 1
-  call fastcc void @dissect_FSHello_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %397, i8 noundef zeroext %398)
+  call fastcc void @dissect_FSHello_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %397, i8 noundef zeroext %398)
   br label %467
 
 399:                                              ; preds = %56
   %400 = load i8, ptr %11, align 1
   %401 = load i8, ptr %12, align 1
-  call fastcc void @dissect_FSParameter_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %400, i8 noundef zeroext %401)
+  call fastcc void @dissect_FSParameter_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %400, i8 noundef zeroext %401)
   br label %467
 
 402:                                              ; preds = %56
   %403 = load i8, ptr %11, align 1
   %404 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PDInterfaceFSUDataAdjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %403, i8 noundef zeroext %404, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PDInterfaceFSUDataAdjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %403, i8 noundef zeroext %404, i16 noundef zeroext %.0)
   br label %467
 
 405:                                              ; preds = %56, %56
   %406 = load i8, ptr %11, align 1
   %407 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ARFSUDataAdjust_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %406, i8 noundef zeroext %407, i16 noundef zeroext %.0)
+  call fastcc void @dissect_ARFSUDataAdjust_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %406, i8 noundef zeroext %407, i16 noundef zeroext %.0)
   br label %467
 
 408:                                              ; preds = %56
   %409 = load i8, ptr %11, align 1
   %410 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PE_ServiceRequest_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %409, i8 noundef zeroext %410, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PE_ServiceRequest_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %409, i8 noundef zeroext %410, i16 noundef zeroext %.0)
   br label %467
 
 411:                                              ; preds = %56
   %412 = load i8, ptr %11, align 1
   %413 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PE_ServiceResponse_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %412, i8 noundef zeroext %413, i16 noundef zeroext %.0)
+  call fastcc void @dissect_PE_ServiceResponse_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %412, i8 noundef zeroext %413, i16 noundef zeroext %.0)
   br label %467
 
 414:                                              ; preds = %56
   %415 = load i8, ptr %11, align 1
   %416 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PE_EntityFilterData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %415, i8 noundef zeroext %416)
+  call fastcc void @dissect_PE_EntityFilterData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %415, i8 noundef zeroext %416)
   br label %467
 
 417:                                              ; preds = %56
   %418 = load i8, ptr %11, align 1
   %419 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PE_EntityStatusData_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %418, i8 noundef zeroext %419)
+  call fastcc void @dissect_PE_EntityStatusData_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %418, i8 noundef zeroext %419)
   br label %467
 
 420:                                              ; preds = %56
   %421 = load i8, ptr %11, align 1
   %422 = load i8, ptr %12, align 1
-  call fastcc void @dissect_RS_AdjustObserver_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %421, i8 noundef zeroext %422)
+  call fastcc void @dissect_RS_AdjustObserver_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %421, i8 noundef zeroext %422)
   br label %467
 
 423:                                              ; preds = %56
   %424 = load i8, ptr %11, align 1
   %425 = load i8, ptr %12, align 1
-  call fastcc void @dissect_RS_GetEvent_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %424, i8 noundef zeroext %425)
+  call fastcc void @dissect_RS_GetEvent_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %424, i8 noundef zeroext %425)
   br label %467
 
 426:                                              ; preds = %56
   %427 = load i8, ptr %11, align 1
   %428 = load i8, ptr %12, align 1
-  call fastcc void @dissect_RS_AckEvent_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %427, i8 noundef zeroext %428)
+  call fastcc void @dissect_RS_AckEvent_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %427, i8 noundef zeroext %428)
   br label %467
 
 429:                                              ; preds = %56
   %430 = load i8, ptr %11, align 1
   %431 = load i8, ptr %12, align 1
-  call fastcc void @dissect_Maintenance_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %430, i8 noundef zeroext %431)
+  call fastcc void @dissect_Maintenance_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %430, i8 noundef zeroext %431)
   br label %467
 
 432:                                              ; preds = %56
   %433 = load i8, ptr %11, align 1
   %434 = load i8, ptr %12, align 1
-  call fastcc void @dissect_PE_Alarm_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %433, i8 noundef zeroext %434)
+  call fastcc void @dissect_PE_Alarm_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %433, i8 noundef zeroext %434)
   br label %467
 
 435:                                              ; preds = %56, %56
   %436 = load i8, ptr %11, align 1
   %437 = load i8, ptr %12, align 1
-  call fastcc void @dissect_Alarm_ack_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %436, i8 noundef zeroext %437)
+  call fastcc void @dissect_Alarm_ack_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %436, i8 noundef zeroext %437)
   br label %467
 
 438:                                              ; preds = %56
   %439 = load i8, ptr %11, align 1
   %440 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IODWriteResHeader_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %439, i8 noundef zeroext %440, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  call fastcc void @dissect_IODWriteResHeader_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %439, i8 noundef zeroext %440, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %467
 
 441:                                              ; preds = %56
   %442 = load i8, ptr %11, align 1
   %443 = load i8, ptr %12, align 1
-  call fastcc void @dissect_IODReadResHeader_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %442, i8 noundef zeroext %443, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  call fastcc void @dissect_IODReadResHeader_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %442, i8 noundef zeroext %443, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %467
 
 444:                                              ; preds = %56
   %445 = load i8, ptr %11, align 1
   %446 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ARBlockRes_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %445, i8 noundef zeroext %446, ptr noundef %7)
+  call fastcc void @dissect_ARBlockRes_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %445, i8 noundef zeroext %446, ptr noundef %7)
   br label %467
 
 447:                                              ; preds = %56
   %448 = load i8, ptr %11, align 1
   %449 = load i8, ptr %12, align 1
   %450 = load ptr, ptr %7, align 8
-  call fastcc void @dissect_IOCRBlockRes_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %448, i8 noundef zeroext %449, ptr noundef %450)
+  call fastcc void @dissect_IOCRBlockRes_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %448, i8 noundef zeroext %449, ptr noundef %450)
   br label %467
 
 451:                                              ; preds = %56
   %452 = load i8, ptr %11, align 1
   %453 = load i8, ptr %12, align 1
   %454 = load ptr, ptr %7, align 8
-  call fastcc void @dissect_AlarmCRBlockRes_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %452, i8 noundef zeroext %453, ptr noundef %454)
+  call fastcc void @dissect_AlarmCRBlockRes_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %452, i8 noundef zeroext %453, ptr noundef %454)
   br label %467
 
 455:                                              ; preds = %56
   %456 = load i8, ptr %11, align 1
   %457 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ModuleDiffBlock_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %456, i8 noundef zeroext %457)
+  call fastcc void @dissect_ModuleDiffBlock_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %456, i8 noundef zeroext %457)
   br label %467
 
 458:                                              ; preds = %56
   %459 = load i8, ptr %11, align 1
   %460 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ARServerBlock(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %459, i8 noundef zeroext %460, i16 noundef zeroext %.0)
+  call fastcc void @dissect_ARServerBlock.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %459, i8 noundef zeroext %460, i16 noundef zeroext %.0)
   br label %467
 
 461:                                              ; preds = %56, %56, %56, %56, %56, %56, %56, %56
   %462 = load i8, ptr %11, align 1
   %463 = load i8, ptr %12, align 1
-  call fastcc void @dissect_ControlPlugOrConnect_block(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %462, i8 noundef zeroext %463, ptr noundef %7, i16 noundef zeroext %57)
+  call fastcc void @dissect_ControlPlugOrConnect_block.argelim(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %16, ptr noundef nonnull %4, i8 noundef zeroext %462, i8 noundef zeroext %463, ptr noundef %7, i16 noundef zeroext %57)
   br label %467
 
 464:                                              ; preds = %56
@@ -5544,7 +5544,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %77
-  %82 = call fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %40, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %41, ptr noundef %.085121.i)
+  %82 = call fastcc i32 @dissect_ProfiSafeParameterRequest.argelim(ptr noundef %40, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %41, ptr noundef %.085121.i)
   br label %dissect_RecordDataWrite.exit
 
 83:                                               ; preds = %77, %74, %69
@@ -5574,7 +5574,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   br i1 %.not101.i, label %97, label %95
 
 95:                                               ; preds = %92
-  %96 = call fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %40, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %41, ptr noundef %.1115.i)
+  %96 = call fastcc i32 @dissect_ProfiSafeParameterRequest.argelim(ptr noundef %40, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %41, ptr noundef %.1115.i)
   br label %dissect_RecordDataWrite.exit
 
 97:                                               ; preds = %92, %87
@@ -5608,7 +5608,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   br i1 %.not100.i, label %113, label %111
 
 111:                                              ; preds = %108
-  %112 = call fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %40, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %41, ptr noundef %.2117.i)
+  %112 = call fastcc i32 @dissect_ProfiSafeParameterRequest.argelim(ptr noundef %40, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %41, ptr noundef %.2117.i)
   br label %dissect_RecordDataWrite.exit
 
 113:                                              ; preds = %108, %103
@@ -6010,7 +6010,7 @@ define internal range(i32 0, 2) i32 @dissect_PNIO_heur(ptr noundef %0, ptr nound
   %9 = load ptr, ptr @heur_pn_subdissector_list, align 8
   %10 = call i32 @dissector_try_heuristic(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef null) #11
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %dissect_PNIO_C_SDU.exit
+  br i1 %.not, label %11, label %dissect_PNIO_C_SDU.argprom.exit
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 20
@@ -6055,7 +6055,7 @@ define internal range(i32 0, 2) i32 @dissect_PNIO_heur(ptr noundef %0, ptr nound
 
 .thread106:                                       ; preds = %.thread, %28, %33
   %34 = call i32 @dissect_CSF_SDU_heur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #11
-  br label %dissect_PNIO_C_SDU.exit
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
 35:                                               ; preds = %28
   %or.cond11 = icmp ult i32 %31, 8192
@@ -6077,7 +6077,7 @@ define internal range(i32 0, 2) i32 @dissect_PNIO_heur(ptr noundef %0, ptr nound
 
 41:                                               ; preds = %.thread109, %40
   %42 = call i32 @dissect_CSF_SDU_heur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #11
-  br label %dissect_PNIO_C_SDU.exit
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
 43:                                               ; preds = %40, %.thread109
   %44 = phi i32 [ %30, %40 ], [ %36, %.thread109 ]
@@ -6110,12 +6110,12 @@ define internal range(i32 0, 2) i32 @dissect_PNIO_heur(ptr noundef %0, ptr nound
 
 59:                                               ; preds = %57
   %60 = call i32 @tvb_captured_length(ptr noundef %0) #11
-  br label %dissect_PNIO_C_SDU.exit
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
 61:                                               ; preds = %57
   %62 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #11
   %63 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %62, ptr noundef nonnull @.str.2947) #11
-  br label %dissect_PNIO_C_SDU.exit
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
 64:                                               ; preds = %43
   %65 = add nsw i32 %45, -32768
@@ -6124,7 +6124,7 @@ define internal range(i32 0, 2) i32 @dissect_PNIO_heur(ptr noundef %0, ptr nound
 
 66:                                               ; preds = %64
   %67 = call i32 @dissect_PNIO_C_SDU_RTC1(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i16 noundef zeroext %8) #11
-  br label %dissect_PNIO_C_SDU.exit
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
 68:                                               ; preds = %64
   %69 = add nsw i32 %45, -49152
@@ -6133,10 +6133,10 @@ define internal range(i32 0, 2) i32 @dissect_PNIO_heur(ptr noundef %0, ptr nound
 
 70:                                               ; preds = %68
   %71 = call i32 @dissect_PNIO_C_SDU_RTC1(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i16 noundef zeroext %8) #11
-  br label %dissect_PNIO_C_SDU.exit
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
 72:                                               ; preds = %68
-  switch i32 %45, label %dissect_PNIO_C_SDU.exit [
+  switch i32 %45, label %dissect_PNIO_C_SDU.argprom.exit [
     i32 64513, label %73
     i32 65025, label %76
     i32 65026, label %79
@@ -6146,21 +6146,21 @@ define internal range(i32 0, 2) i32 @dissect_PNIO_heur(ptr noundef %0, ptr nound
   %74 = getelementptr inbounds i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8
   call void @col_set_str(ptr noundef %75, i32 noundef 25, ptr noundef nonnull @.str.2944) #11
-  call fastcc void @dissect_PNIO_RTA(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
-  br label %dissect_PNIO_C_SDU.exit
+  call fastcc void @dissect_PNIO_RTA.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
   call void @col_set_str(ptr noundef %78, i32 noundef 25, ptr noundef nonnull @.str.2945) #11
-  call fastcc void @dissect_PNIO_RTA(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
-  br label %dissect_PNIO_C_SDU.exit
+  call fastcc void @dissect_PNIO_RTA.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
 79:                                               ; preds = %72
   %80 = call i32 @dissect_PNIO_RSI(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #11
-  br label %dissect_PNIO_C_SDU.exit
+  br label %dissect_PNIO_C_SDU.argprom.exit
 
-dissect_PNIO_C_SDU.exit:                          ; preds = %61, %59, %72, %4, %79, %76, %73, %70, %66, %41, %.thread106
+dissect_PNIO_C_SDU.argprom.exit:                  ; preds = %61, %59, %72, %4, %79, %76, %73, %70, %66, %41, %.thread106
   %.097 = phi i32 [ 1, %41 ], [ 1, %66 ], [ 1, %70 ], [ 1, %73 ], [ 1, %76 ], [ 1, %79 ], [ 1, %.thread106 ], [ 1, %4 ], [ 0, %72 ], [ 1, %59 ], [ 1, %61 ]
   ret i32 %.097
 }
@@ -6403,7 +6403,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AlarmNotification_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_AlarmNotification_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -6444,7 +6444,7 @@ define internal fastcc void @dissect_AlarmNotification_block(ptr noundef %0, i32
   %35 = add i16 %30, -2
   store i16 %35, ptr %10, align 2
   %36 = load i16, ptr %13, align 2
-  %37 = call fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %10, i16 noundef zeroext %36)
+  %37 = call fastcc i32 @dissect_AlarmUserStructure.argprom(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %10, i16 noundef zeroext %36)
   %.pr = load i16, ptr %10, align 2
   %.not = icmp eq i16 %.pr, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
@@ -6454,7 +6454,7 @@ define internal fastcc void @dissect_AlarmNotification_block(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IODWriteReqHeader_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull writeonly %10) unnamed_addr #0 {
+define internal fastcc void @dissect_IODWriteReqHeader_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull writeonly %10) unnamed_addr #0 {
   %12 = alloca %struct._e_guid_t, align 4
   %13 = alloca %struct._e_guid_t, align 4
   %14 = icmp ne i8 %6, 1
@@ -6472,22 +6472,22 @@ define internal fastcc void @dissect_IODWriteReqHeader_block(ptr noundef %0, i32
   %21 = call fastcc i32 @dissect_ReadWrite_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %8, ptr noundef %12)
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
   %23 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %20, %22
   %.083.i = phi ptr [ %.08.i, %22 ], [ %.081.i, %20 ]
   %24 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %25 = icmp eq i32 %bcmp.i, 0
-  br i1 %25, label %pnio_ar_find_by_aruuid.exit, label %22
+  br i1 %25, label %pnio_ar_find_by_aruuid.argprom.exit, label %22
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %22, %.lr.ph.i, %20
+pnio_ar_find_by_aruuid.argprom.exit:              ; preds = %22, %.lr.ph.i, %20
   %.0.i = phi ptr [ null, %20 ], [ %24, %.lr.ph.i ], [ null, %22 ]
   store ptr %.0.i, ptr %10, align 8
   %26 = load i32, ptr @hf_pn_io_record_data_length, align 4
@@ -6497,13 +6497,13 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %22, %.lr.ph.i, %20
   %28 = icmp eq i32 %bcmp, 0
   br i1 %28, label %29, label %32
 
-29:                                               ; preds = %pnio_ar_find_by_aruuid.exit
+29:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit
   %30 = load i32, ptr @hf_pn_io_target_ar_uuid, align 4
   %31 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %12) #11
   br label %32
 
-32:                                               ; preds = %29, %pnio_ar_find_by_aruuid.exit
-  %.039 = phi i32 [ %31, %29 ], [ %27, %pnio_ar_find_by_aruuid.exit ]
+32:                                               ; preds = %29, %pnio_ar_find_by_aruuid.argprom.exit
+  %.039 = phi i32 [ %31, %29 ], [ %27, %pnio_ar_find_by_aruuid.argprom.exit ]
   %33 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %.039, ptr noundef %2, ptr noundef %3, i32 noundef 24) #11
   %34 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1325, i32 noundef %34) #11
@@ -6522,7 +6522,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %22, %.lr.ph.i, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IODReadReqHeader_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull writeonly %10) unnamed_addr #0 {
+define internal fastcc void @dissect_IODReadReqHeader_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull writeonly %10) unnamed_addr #0 {
   %12 = alloca %struct._e_guid_t, align 4
   %13 = alloca %struct._e_guid_t, align 4
   %14 = icmp ne i8 %6, 1
@@ -6540,22 +6540,22 @@ define internal fastcc void @dissect_IODReadReqHeader_block(ptr noundef %0, i32 
   %21 = call fastcc i32 @dissect_ReadWrite_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %8, ptr noundef %12)
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
   %23 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %20, %22
   %.083.i = phi ptr [ %.08.i, %22 ], [ %.081.i, %20 ]
   %24 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %25 = icmp eq i32 %bcmp.i, 0
-  br i1 %25, label %pnio_ar_find_by_aruuid.exit, label %22
+  br i1 %25, label %pnio_ar_find_by_aruuid.argprom.exit, label %22
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %22, %.lr.ph.i, %20
+pnio_ar_find_by_aruuid.argprom.exit:              ; preds = %22, %.lr.ph.i, %20
   %.0.i = phi ptr [ null, %20 ], [ %24, %.lr.ph.i ], [ null, %22 ]
   store ptr %.0.i, ptr %10, align 8
   %26 = load i32, ptr @hf_pn_io_record_data_length, align 4
@@ -6565,13 +6565,13 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %22, %.lr.ph.i, %20
   %28 = icmp eq i32 %bcmp, 0
   br i1 %28, label %29, label %33
 
-29:                                               ; preds = %pnio_ar_find_by_aruuid.exit
+29:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit
   %30 = load i32, ptr @hf_pn_io_target_ar_uuid, align 4
   %31 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %12) #11
   %32 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, i32 noundef 8) #11
   br label %35
 
-33:                                               ; preds = %pnio_ar_find_by_aruuid.exit
+33:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit
   %34 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, i32 noundef 24) #11
   br label %35
 
@@ -6593,7 +6593,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %22, %.lr.ph.i, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_DiagnosisData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_DiagnosisData_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
@@ -6662,7 +6662,7 @@ define internal fastcc void @dissect_DiagnosisData_block(ptr noundef %0, i32 nou
 
 46:                                               ; preds = %.sink.split, %37
   %47 = add i32 %30, 2
-  %48 = call fastcc i32 @dissect_ChannelProperties(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %48 = call fastcc i32 @dissect_ChannelProperties.argprom(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %49 = load i8, ptr %5, align 1
   %50 = and i8 %49, 16
   %.not77 = icmp eq i8 %50, 0
@@ -6695,7 +6695,7 @@ define internal fastcc void @dissect_DiagnosisData_block(ptr noundef %0, i32 nou
 .lr.ph:                                           ; preds = %55, %.lr.ph
   %.282 = phi i32 [ %63, %.lr.ph ], [ %58, %55 ]
   %62 = load i16, ptr %14, align 2
-  %63 = call fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 noundef %.282, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5, ptr noundef %10, i16 noundef zeroext %62)
+  %63 = call fastcc i32 @dissect_AlarmUserStructure.argprom(ptr noundef %0, i32 noundef %.282, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5, ptr noundef %10, i16 noundef zeroext %62)
   %.pr = load i16, ptr %10, align 2
   %.not79 = icmp eq i16 %.pr, 0
   br i1 %.not79, label %.loopexit, label %.lr.ph, !llvm.loop !16
@@ -6705,7 +6705,7 @@ define internal fastcc void @dissect_DiagnosisData_block(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IdentificationData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_IdentificationData_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -6836,7 +6836,7 @@ define internal fastcc void @dissect_IdentificationData_block(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_SubstituteValue_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_SubstituteValue_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
   %12 = icmp ne i8 %7, 0
@@ -6853,7 +6853,7 @@ define internal fastcc void @dissect_SubstituteValue_block(ptr noundef %0, i32 n
   %18 = load i32, ptr @hf_pn_io_substitutionmode, align 4
   %19 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10) #11
   %20 = load i32, ptr @hf_pn_io_iocs, align 4
-  %21 = call fastcc i32 @dissect_PNIO_IOxS(ptr noundef %0, i32 noundef %19, ptr noundef %3, i32 noundef %20)
+  %21 = call fastcc i32 @dissect_PNIO_IOxS.argprom(ptr noundef %0, i32 noundef %19, ptr noundef %3, i32 noundef %20)
   %22 = add i16 %8, -3
   %23 = zext i16 %22 to i32
   %24 = call i32 @dissect_pn_user_data_bytes(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, i32 noundef %23, i32 noundef 1) #11
@@ -6864,7 +6864,7 @@ define internal fastcc void @dissect_SubstituteValue_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RecordInputDataObjectElement_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_RecordInputDataObjectElement_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i16, align 2
@@ -6883,11 +6883,11 @@ define internal fastcc void @dissect_RecordInputDataObjectElement_block(ptr noun
   %19 = load i32, ptr @hf_pn_io_length_iocs, align 4
   %20 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #11
   %21 = load i32, ptr @hf_pn_io_iocs, align 4
-  %22 = call fastcc i32 @dissect_PNIO_IOxS(ptr noundef %0, i32 noundef %20, ptr noundef %3, i32 noundef %21)
+  %22 = call fastcc i32 @dissect_PNIO_IOxS.argprom(ptr noundef %0, i32 noundef %20, ptr noundef %3, i32 noundef %21)
   %23 = load i32, ptr @hf_pn_io_length_iops, align 4
   %24 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %10) #11
   %25 = load i32, ptr @hf_pn_io_iops, align 4
-  %26 = call fastcc i32 @dissect_PNIO_IOxS(ptr noundef %0, i32 noundef %24, ptr noundef %3, i32 noundef %25)
+  %26 = call fastcc i32 @dissect_PNIO_IOxS.argprom(ptr noundef %0, i32 noundef %24, ptr noundef %3, i32 noundef %25)
   %27 = load i32, ptr @hf_pn_io_length_data, align 4
   %28 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %11) #11
   %29 = load i16, ptr %11, align 2
@@ -6900,7 +6900,7 @@ define internal fastcc void @dissect_RecordInputDataObjectElement_block(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RecordOutputDataObjectElement_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_RecordOutputDataObjectElement_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
@@ -6931,12 +6931,12 @@ define internal fastcc void @dissect_RecordOutputDataObjectElement_block(ptr nou
   %29 = load i32, ptr @hf_pn_io_length_data, align 4
   %30 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %12) #11
   %31 = load i32, ptr @hf_pn_io_iocs, align 4
-  %32 = call fastcc i32 @dissect_PNIO_IOxS(ptr noundef %0, i32 noundef %30, ptr noundef %3, i32 noundef %31)
+  %32 = call fastcc i32 @dissect_PNIO_IOxS.argprom(ptr noundef %0, i32 noundef %30, ptr noundef %3, i32 noundef %31)
   %33 = load i16, ptr %12, align 2
   %34 = zext i16 %33 to i32
   %35 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, i32 noundef %34, ptr noundef nonnull @.str.1341) #11
   %36 = load i32, ptr @hf_pn_io_iops, align 4
-  %37 = call fastcc i32 @dissect_PNIO_IOxS(ptr noundef %0, i32 noundef %35, ptr noundef %3, i32 noundef %36)
+  %37 = call fastcc i32 @dissect_PNIO_IOxS.argprom(ptr noundef %0, i32 noundef %35, ptr noundef %3, i32 noundef %36)
   %38 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   br label %39
 
@@ -6945,7 +6945,7 @@ define internal fastcc void @dissect_RecordOutputDataObjectElement_block(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ARData_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -7038,7 +7038,7 @@ define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %55, ptr noundef nonnull @.str.1342, ptr noundef %70) #11
   %71 = load i32, ptr @hf_pn_io_ar_type, align 4
   %72 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %59, ptr noundef nonnull %2, ptr noundef %57, ptr noundef %5, i32 noundef %71, ptr noundef nonnull %19) #11
-  %73 = call fastcc i32 @dissect_ARProperties(ptr noundef %0, i32 noundef %72, ptr noundef nonnull %2, ptr noundef %57, ptr noundef %5)
+  %73 = call fastcc i32 @dissect_ARProperties.argprom(ptr noundef %0, i32 noundef %72, ptr noundef nonnull %2, ptr noundef %57, ptr noundef %5)
   %74 = load i32, ptr @hf_pn_io_cminitiator_objectuuid, align 4
   %75 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %73, ptr noundef nonnull %2, ptr noundef %57, ptr noundef %5, i32 noundef %74, ptr noundef nonnull %18) #11
   %76 = load i32, ptr @hf_pn_io_station_name_length, align 4
@@ -7233,7 +7233,7 @@ define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1
   %213 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %200, ptr noundef nonnull %2, ptr noundef %198, ptr noundef %5, i32 noundef %212, ptr noundef nonnull %18) #11
   %214 = load i32, ptr @hf_pn_io_parameter_server_objectuuid, align 4
   %215 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %213, ptr noundef nonnull %2, ptr noundef %198, ptr noundef %5, i32 noundef %214, ptr noundef nonnull %18) #11
-  %216 = call fastcc i32 @dissect_ARProperties(ptr noundef %0, i32 noundef %215, ptr noundef nonnull %2, ptr noundef %198, ptr noundef %5)
+  %216 = call fastcc i32 @dissect_ARProperties.argprom(ptr noundef %0, i32 noundef %215, ptr noundef nonnull %2, ptr noundef %198, ptr noundef %5)
   %217 = load i32, ptr @hf_pn_io_ar_type, align 4
   %218 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %216, ptr noundef nonnull %2, ptr noundef %198, ptr noundef %5, i32 noundef %217, ptr noundef nonnull %19) #11
   %219 = load i32, ptr @hf_pn_io_alarmcr_type, align 4
@@ -7457,7 +7457,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph451, %350
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_LogData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_LogData_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca i16, align 2
   %11 = alloca i64, align 8
@@ -7536,7 +7536,7 @@ define internal fastcc void @dissect_LogData_block(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_APIData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_APIData_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = icmp ne i8 %6, 1
@@ -7574,7 +7574,7 @@ define internal fastcc void @dissect_APIData_block(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_SRLData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_SRLData_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -7600,7 +7600,7 @@ define internal fastcc void @dissect_SRLData_block(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IandM0_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_IandM0_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i16, align 2
@@ -7665,7 +7665,7 @@ define internal fastcc void @dissect_IandM0_block(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IandM1_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @dissect_IandM1_block.argprom.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = icmp ne i8 %5, 1
@@ -7698,7 +7698,7 @@ define internal fastcc void @dissect_IandM1_block(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IandM2_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @dissect_IandM2_block.argprom.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = icmp ne i8 %5, 1
   %10 = icmp ne i8 %6, 0
@@ -7725,7 +7725,7 @@ define internal fastcc void @dissect_IandM2_block(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IandM3_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @dissect_IandM3_block.argprom.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = icmp ne i8 %5, 1
   %10 = icmp ne i8 %6, 0
@@ -7752,7 +7752,7 @@ define internal fastcc void @dissect_IandM3_block(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_IandM4_block(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_IandM4_block.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = icmp ne i8 %5, 1
   %9 = icmp ne i8 %6, 0
   %or.cond = or i1 %8, %9
@@ -7773,7 +7773,7 @@ define internal fastcc noundef i32 @dissect_IandM4_block(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IandM5_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_IandM5_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -7827,7 +7827,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IandM0FilterData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_IandM0FilterData_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -7935,7 +7935,7 @@ define internal fastcc void @dissect_IandM0FilterData_block(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IandM5Data_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_IandM5Data_block.argprom.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i16, align 2
@@ -7970,7 +7970,7 @@ define internal fastcc void @dissect_IandM5Data_block(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AssetManagementData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AssetManagementData_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -8034,7 +8034,7 @@ dissect_AssetManagementInfo.exit:                 ; preds = %dissect_a_block.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AM_FullInformation_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AM_FullInformation_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
@@ -8101,7 +8101,7 @@ define internal fastcc void @dissect_AM_FullInformation_block(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AM_HardwareOnlyInformation_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AM_HardwareOnlyInformation_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %struct._e_guid_t, align 4
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -8145,7 +8145,7 @@ define internal fastcc void @dissect_AM_HardwareOnlyInformation_block(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AM_FirmwareOnlyInformation_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AM_FirmwareOnlyInformation_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
@@ -8209,7 +8209,7 @@ define internal fastcc void @dissect_AM_FirmwareOnlyInformation_block(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ARBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ARBlockReq_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
   %10 = alloca %struct._e_guid_t, align 8
   %11 = alloca %struct._e_guid_t, align 4
   %12 = alloca i16, align 2
@@ -8455,7 +8455,7 @@ decode_ARType_spezial.exit:                       ; preds = %44, %44, %47, %48, 
   %165 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %163, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %164, ptr noundef nonnull %13) #11
   %166 = load i32, ptr @hf_pn_io_cminitiator_objectuuid, align 4
   %167 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %165, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %166, ptr noundef nonnull %11) #11
-  %168 = call fastcc i32 @dissect_ARProperties(ptr noundef %0, i32 noundef %167, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5)
+  %168 = call fastcc i32 @dissect_ARProperties.argprom(ptr noundef %0, i32 noundef %167, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5)
   %169 = load i32, ptr @hf_pn_io_cminitiator_activitytimeoutfactor, align 4
   %170 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %168, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %169, ptr noundef nonnull %14) #11
   %171 = load i32, ptr @hf_pn_io_cminitiator_udprtport, align 4
@@ -8521,26 +8521,26 @@ decode_ARType_spezial.exit162:                    ; preds = %161, %161, %181, %1
 208:                                              ; preds = %decode_ARType_spezial.exit162
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i
+  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.argprom.exit.thread, label %.lr.ph.i
 
 209:                                              ; preds = %.lr.ph.i
   %210 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %210, align 8
   %.not.i163 = icmp eq ptr %.08.i, null
-  br i1 %.not.i163, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i163, label %pnio_ar_find_by_aruuid.argprom.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %208, %209
   %.083.i = phi ptr [ %.08.i, %209 ], [ %.081.i, %208 ]
   %211 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %211, ptr noundef nonnull readonly dereferenceable(16) %10, i64 16)
   %212 = icmp eq i32 %bcmp.i, 0
-  br i1 %212, label %pnio_ar_find_by_aruuid.exit, label %209
+  br i1 %212, label %pnio_ar_find_by_aruuid.argprom.exit, label %209
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i
+pnio_ar_find_by_aruuid.argprom.exit:              ; preds = %.lr.ph.i
   %213 = icmp eq ptr %211, null
-  br i1 %213, label %pnio_ar_find_by_aruuid.exit.thread, label %222
+  br i1 %213, label %pnio_ar_find_by_aruuid.argprom.exit.thread, label %222
 
-pnio_ar_find_by_aruuid.exit.thread:               ; preds = %209, %208, %pnio_ar_find_by_aruuid.exit
+pnio_ar_find_by_aruuid.argprom.exit.thread:       ; preds = %209, %208, %pnio_ar_find_by_aruuid.argprom.exit
   %214 = call ptr @wmem_file_scope() #11
   %215 = call noalias ptr @wmem_alloc0(ptr noundef %214, i64 noundef 40) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %215, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, i64 16, i1 false)
@@ -8557,8 +8557,8 @@ pnio_ar_find_by_aruuid.exit.thread:               ; preds = %209, %208, %pnio_ar
   store i16 %.in, ptr %221, align 4
   br label %222
 
-222:                                              ; preds = %decode_ARType_spezial.exit162, %pnio_ar_find_by_aruuid.exit.thread, %pnio_ar_find_by_aruuid.exit
-  %storemerge = phi ptr [ %215, %pnio_ar_find_by_aruuid.exit.thread ], [ %211, %pnio_ar_find_by_aruuid.exit ], [ null, %decode_ARType_spezial.exit162 ]
+222:                                              ; preds = %decode_ARType_spezial.exit162, %pnio_ar_find_by_aruuid.argprom.exit.thread, %pnio_ar_find_by_aruuid.argprom.exit
+  %storemerge = phi ptr [ %215, %pnio_ar_find_by_aruuid.argprom.exit.thread ], [ %211, %pnio_ar_find_by_aruuid.argprom.exit ], [ null, %decode_ARType_spezial.exit162 ]
   store ptr %storemerge, ptr %8, align 8
   br label %223
 
@@ -8567,7 +8567,7 @@ pnio_ar_find_by_aruuid.exit.thread:               ; preds = %209, %208, %pnio_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_IOCRBlockReq_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
@@ -9079,7 +9079,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AlarmCRBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_AlarmCRBlockReq_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i32, align 4
@@ -9180,7 +9180,7 @@ define internal fastcc void @dissect_AlarmCRBlockReq_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -9847,7 +9847,7 @@ resolve_pa_profile_submodule_name.exit:           ; preds = %.lr.ph401, %247, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MCRBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_MCRBlockReq_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -9893,7 +9893,7 @@ define internal fastcc void @dissect_MCRBlockReq_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_SubFrameBlock_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_SubFrameBlock_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca [6 x i8], align 1
   %12 = alloca i32, align 4
@@ -9954,7 +9954,7 @@ define internal fastcc void @dissect_SubFrameBlock_block(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ARVendorBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ARVendorBlockReq_block.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
   %or.cond = or i1 %10, %11
@@ -10047,7 +10047,7 @@ define internal fastcc void @dissect_ARVendorBlockReq_block(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IRInfoBlock_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_IRInfoBlock_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
@@ -10096,7 +10096,7 @@ define internal fastcc void @dissect_IRInfoBlock_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_SRInfoBlock_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_SRInfoBlock_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = icmp ne i8 %6, 1
@@ -10140,7 +10140,7 @@ define internal fastcc void @dissect_SRInfoBlock_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RSInfoBlock_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_RSInfoBlock_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -10170,7 +10170,7 @@ define internal fastcc void @dissect_RSInfoBlock_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ControlPlugOrConnect_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, i16 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @dissect_ControlPlugOrConnect_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, i16 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca %struct._e_guid_t, align 4
   %12 = alloca i16, align 2
   %13 = alloca i16, align 2
@@ -10193,22 +10193,22 @@ define internal fastcc void @dissect_ControlPlugOrConnect_block(ptr noundef %0, 
   %25 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %11) #11
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i
 
 26:                                               ; preds = %.lr.ph.i
   %27 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %21, %26
   %.083.i = phi ptr [ %.08.i, %26 ], [ %.081.i, %21 ]
   %28 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %28, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %29 = icmp eq i32 %bcmp.i, 0
-  br i1 %29, label %pnio_ar_find_by_aruuid.exit, label %26
+  br i1 %29, label %pnio_ar_find_by_aruuid.argprom.exit, label %26
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %26, %.lr.ph.i, %21
+pnio_ar_find_by_aruuid.argprom.exit:              ; preds = %26, %.lr.ph.i, %21
   %.0.i = phi ptr [ null, %21 ], [ %28, %.lr.ph.i ], [ null, %26 ]
   store ptr %.0.i, ptr %8, align 8
   %30 = load i32, ptr @hf_pn_io_sessionkey, align 4
@@ -10244,7 +10244,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %26, %.lr.ph.i, %21
   %.not = icmp eq i16 %55, 0
   br i1 %.not, label %65, label %56
 
-56:                                               ; preds = %pnio_ar_find_by_aruuid.exit
+56:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit
   %57 = load i32, ptr @hf_pn_io_control_block_properties_applready, align 4
   %58 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %57, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #11
   %59 = load i32, ptr @ett_pn_io_control_block_properties, align 4
@@ -10255,10 +10255,10 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %26, %.lr.ph.i, %21
   %64 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %60, ptr noundef %5, i32 noundef %63, ptr noundef nonnull %14) #11
   br label %65
 
-65:                                               ; preds = %pnio_ar_find_by_aruuid.exit, %56
-  %hf_pn_io_control_block_properties.sink = phi ptr [ @hf_pn_io_control_block_properties_applready_otherbits, %56 ], [ @hf_pn_io_control_block_properties, %pnio_ar_find_by_aruuid.exit ]
-  %.sink = phi ptr [ %60, %56 ], [ %3, %pnio_ar_find_by_aruuid.exit ]
-  %.0127 = phi ptr [ %58, %56 ], [ %37, %pnio_ar_find_by_aruuid.exit ]
+65:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit, %56
+  %hf_pn_io_control_block_properties.sink = phi ptr [ @hf_pn_io_control_block_properties_applready_otherbits, %56 ], [ @hf_pn_io_control_block_properties, %pnio_ar_find_by_aruuid.argprom.exit ]
+  %.sink = phi ptr [ %60, %56 ], [ %3, %pnio_ar_find_by_aruuid.argprom.exit ]
+  %.0127 = phi ptr [ %58, %56 ], [ %37, %pnio_ar_find_by_aruuid.argprom.exit ]
   %66 = load i32, ptr %hf_pn_io_control_block_properties.sink, align 4
   %67 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.sink, ptr noundef %5, i32 noundef %66, ptr noundef nonnull %14) #11
   %68 = load i16, ptr %12, align 2
@@ -10374,7 +10374,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %26, %.lr.ph.i, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ControlBlockPrmBegin(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef range(i32 0, 65536) %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
+define internal fastcc void @dissect_ControlBlockPrmBegin.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef range(i32 0, 65536) %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = alloca %struct._e_guid_t, align 8
   %12 = alloca i16, align 2
   %13 = alloca i16, align 2
@@ -10421,22 +10421,22 @@ define internal fastcc void @dissect_ControlBlockPrmBegin(ptr noundef %0, i32 no
 38:                                               ; preds = %32, %23
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i
 
 39:                                               ; preds = %.lr.ph.i
   %40 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %38, %39
   %.083.i = phi ptr [ %.08.i, %39 ], [ %.081.i, %38 ]
   %41 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %41, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %42 = icmp eq i32 %bcmp.i, 0
-  br i1 %42, label %pnio_ar_find_by_aruuid.exit, label %39
+  br i1 %42, label %pnio_ar_find_by_aruuid.argprom.exit, label %39
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %39, %.lr.ph.i, %38
+pnio_ar_find_by_aruuid.argprom.exit:              ; preds = %39, %.lr.ph.i, %38
   %.0.i = phi ptr [ null, %38 ], [ %41, %.lr.ph.i ], [ null, %39 ]
   store ptr %.0.i, ptr %9, align 8
   %43 = load i32, ptr @hf_pn_io_sessionkey, align 4
@@ -10466,12 +10466,12 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %39, %.lr.ph.i, %38
   %67 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %66, ptr noundef null) #11
   br label %68
 
-68:                                               ; preds = %pnio_ar_find_by_aruuid.exit, %21, %16
+68:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit, %21, %16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_SubmoduleListBlock(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_SubmoduleListBlock.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -10515,7 +10515,7 @@ define internal fastcc void @dissect_SubmoduleListBlock(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortData_Check_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortData_Check_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -10585,7 +10585,7 @@ dissect_blocks.exit:                              ; preds = %21, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDevData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDevData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -10641,7 +10641,7 @@ dissect_blocks.exit:                              ; preds = %18, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortData_Adjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortData_Adjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -10711,7 +10711,7 @@ dissect_blocks.exit:                              ; preds = %21, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDSyncData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDSyncData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca %struct._e_guid_t, align 4
@@ -10836,7 +10836,7 @@ define internal fastcc void @dissect_PDSyncData_block(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IsochronousModeData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_IsochronousModeData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -10881,7 +10881,7 @@ define internal fastcc void @dissect_IsochronousModeData_block(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDIRData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDIRData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -10931,7 +10931,7 @@ define internal fastcc void @dissect_PDIRData_block(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDIRGlobalData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDIRGlobalData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %struct._e_guid_t, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -11004,7 +11004,7 @@ define internal fastcc void @dissect_PDIRGlobalData_block(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDIRFrameData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDIRFrameData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
@@ -11170,7 +11170,7 @@ define internal fastcc void @dissect_PDIRFrameData_block(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDIRBeginEndData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i32, align 4
@@ -11376,7 +11376,7 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AdjustDomainBoundary_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AdjustDomainBoundary_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -11429,7 +11429,7 @@ define internal fastcc void @dissect_AdjustDomainBoundary_block(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_CheckPeers_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_CheckPeers_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
@@ -11491,7 +11491,7 @@ define internal fastcc void @dissect_CheckPeers_block(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_CheckLineDelay_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_CheckLineDelay_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = icmp ne i8 %6, 1
@@ -11530,7 +11530,7 @@ define internal fastcc void @dissect_CheckLineDelay_block(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_CheckMAUType_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_CheckMAUType_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -11557,7 +11557,7 @@ define internal fastcc void @dissect_CheckMAUType_block(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AdjustMAUType_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AdjustMAUType_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
@@ -11590,7 +11590,7 @@ define internal fastcc void @dissect_AdjustMAUType_block(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortDataReal_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortDataReal_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -11735,7 +11735,7 @@ define internal fastcc void @dissect_PDPortDataReal_block(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AdjustMulticastBoundary_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AdjustMulticastBoundary_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
@@ -11766,7 +11766,7 @@ define internal fastcc void @dissect_AdjustMulticastBoundary_block(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDInterfaceMrpDataAdjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDInterfaceMrpDataAdjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -11885,7 +11885,7 @@ dissect_a_block.exit73:                           ; preds = %.lr.ph, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDInterfaceMrpDataReal_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDInterfaceMrpDataReal_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -12024,7 +12024,7 @@ dissect_a_block.exit81:                           ; preds = %.lr.ph, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDInterfaceMrpDataCheck_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDInterfaceMrpDataCheck_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -12110,7 +12110,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortMrpData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortMrpData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %struct._e_guid_t, align 4
   %10 = alloca i8, align 1
   %11 = icmp ne i8 %6, 1
@@ -12149,7 +12149,7 @@ define internal fastcc void @dissect_PDPortMrpData_block(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpManagerParams_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpManagerParams_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -12188,7 +12188,7 @@ define internal fastcc void @dissect_MrpManagerParams_block(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpClientParams_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpClientParams_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -12217,7 +12217,7 @@ define internal fastcc void @dissect_MrpClientParams_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpRTModeManagerData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpRTModeManagerData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -12259,7 +12259,7 @@ define internal fastcc void @dissect_MrpRTModeManagerData_block(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpRingStateData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpRingStateData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -12282,7 +12282,7 @@ define internal fastcc void @dissect_MrpRingStateData_block(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpRTStateData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpRTStateData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -12305,7 +12305,7 @@ define internal fastcc void @dissect_MrpRTStateData_block(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AdjustPortState_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AdjustPortState_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
@@ -12338,7 +12338,7 @@ define internal fastcc void @dissect_AdjustPortState_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_CheckPortState_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_CheckPortState_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -12365,7 +12365,7 @@ define internal fastcc void @dissect_CheckPortState_block(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpRTModeClientData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpRTModeClientData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = tail call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #11
   %11 = icmp ne i8 %6, 1
@@ -12401,7 +12401,7 @@ define internal fastcc void @dissect_MrpRTModeClientData_block(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_CheckSyncDifference_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_CheckSyncDifference_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -12444,7 +12444,7 @@ define internal fastcc void @dissect_CheckSyncDifference_block(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_CheckMAUTypeDifference_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_CheckMAUTypeDifference_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -12471,7 +12471,7 @@ define internal fastcc void @dissect_CheckMAUTypeDifference_block(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortFODataReal_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortFODataReal_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
@@ -12508,7 +12508,7 @@ define internal fastcc void @dissect_PDPortFODataReal_block(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_FiberOpticManufacturerSpecific_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_FiberOpticManufacturerSpecific_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
   %12 = alloca i16, align 2
@@ -12540,7 +12540,7 @@ define internal fastcc void @dissect_FiberOpticManufacturerSpecific_block(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortFODataAdjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortFODataAdjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = icmp ne i8 %6, 1
@@ -12567,7 +12567,7 @@ define internal fastcc void @dissect_PDPortFODataAdjust_block(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortFODataCheck_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortFODataCheck_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -12595,7 +12595,7 @@ define internal fastcc void @dissect_PDPortFODataCheck_block(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AdjustPeerToPeerBoundary_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AdjustPeerToPeerBoundary_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
@@ -12632,7 +12632,7 @@ define internal fastcc void @dissect_AdjustPeerToPeerBoundary_block(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AdjustDCPBoundary_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AdjustDCPBoundary_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
@@ -12667,7 +12667,7 @@ define internal fastcc void @dissect_AdjustDCPBoundary_block(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AdjustPreambleLength_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AdjustPreambleLength_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
@@ -12694,7 +12694,7 @@ define internal fastcc void @dissect_AdjustPreambleLength_block(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_CheckMAUTypeExtension_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_CheckMAUTypeExtension_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -12717,7 +12717,7 @@ define internal fastcc void @dissect_CheckMAUTypeExtension_block(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_FiberOpticDiagnosisInfo_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_FiberOpticDiagnosisInfo_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -12741,7 +12741,7 @@ define internal fastcc void @dissect_FiberOpticDiagnosisInfo_block(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AdjustMAUTypeExtension_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_AdjustMAUTypeExtension_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
@@ -12768,7 +12768,7 @@ define internal fastcc void @dissect_AdjustMAUTypeExtension_block(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDIRSubframeData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDIRSubframeData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -12824,7 +12824,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDSubFrameBlock_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDSubFrameBlock_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
@@ -12895,7 +12895,7 @@ define internal fastcc void @dissect_PDSubFrameBlock_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortDataRealExtended_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortDataRealExtended_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
@@ -12944,7 +12944,7 @@ define internal fastcc void @dissect_PDPortDataRealExtended_block(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpInstanceDataAdjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpInstanceDataAdjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -13015,7 +13015,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpInstanceDataReal_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpInstanceDataReal_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -13088,7 +13088,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MrpInstanceDataCheck_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_MrpInstanceDataCheck_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
   %11 = alloca %struct._e_guid_t, align 4
@@ -13126,7 +13126,7 @@ define internal fastcc void @dissect_MrpInstanceDataCheck_block(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDInterfaceDataReal_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDInterfaceDataReal_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca [6 x i8], align 1
   %11 = alloca i32, align 4
@@ -13170,7 +13170,7 @@ define internal fastcc void @dissect_PDInterfaceDataReal_block(ptr noundef %0, i
 declare i32 @dissect_PDRsiInstances_block(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDInterfaceAdjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDInterfaceAdjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -13198,7 +13198,7 @@ define internal fastcc void @dissect_PDInterfaceAdjust_block(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDPortStatistic_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PDPortStatistic_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
   %.not = icmp ne i8 %6, 1
@@ -13262,7 +13262,7 @@ define internal fastcc void @dissect_PDPortStatistic_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_OwnPort_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_OwnPort_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
@@ -13347,7 +13347,7 @@ define internal fastcc void @dissect_OwnPort_block(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_Neighbors_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_Neighbors_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
   %11 = alloca [6 x i8], align 1
@@ -13442,7 +13442,7 @@ define internal fastcc void @dissect_Neighbors_block(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNNetworkControlDataReal_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNNetworkControlDataReal_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -13592,7 +13592,7 @@ dissect_a_block.exit120:                          ; preds = %.lr.ph, %79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNNetworkControlDataAdjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNNetworkControlDataAdjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -13728,7 +13728,7 @@ dissect_a_block.exit103:                          ; preds = %.lr.ph, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNDomainPortConfig_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNDomainPortConfig_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -13843,7 +13843,7 @@ dissect_a_block.exit67:                           ; preds = %dissect_a_block.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNDomainQueueConfig_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNDomainQueueConfig_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i64, align 8
   %11 = alloca %struct._dcerpc_info, align 8
@@ -13898,7 +13898,7 @@ define internal fastcc void @dissect_TSNDomainQueueConfig_block(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNTimeData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNTimeData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -13953,7 +13953,7 @@ define internal fastcc void @dissect_TSNTimeData_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNStreamPathDataReal_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNStreamPathDataReal_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i16, align 2
   %12 = alloca [6 x i8], align 1
@@ -14020,7 +14020,7 @@ define internal fastcc void @dissect_TSNStreamPathDataReal_block(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNSyncTreeData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNSyncTreeData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -14071,7 +14071,7 @@ define internal fastcc void @dissect_TSNSyncTreeData_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNUploadNetworkAttributes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNUploadNetworkAttributes_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -14143,7 +14143,7 @@ dissect_a_block.exit42:                           ; preds = %dissect_a_block.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNForwardingDelay_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNForwardingDelay_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i16, align 2
@@ -14192,7 +14192,7 @@ define internal fastcc void @dissect_TSNForwardingDelay_block(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNExpectedNetworkAttributes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNExpectedNetworkAttributes_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -14276,7 +14276,7 @@ dissect_a_block.exit34:                           ; preds = %dissect_a_block.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNDomainPortIngressRateLimiter_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNDomainPortIngressRateLimiter_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i64, align 8
   %11 = alloca %struct._dcerpc_info, align 8
@@ -14327,7 +14327,7 @@ define internal fastcc void @dissect_TSNDomainPortIngressRateLimiter_block(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNDomainQueueRateLimiter_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNDomainQueueRateLimiter_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i64, align 8
   %11 = alloca %struct._dcerpc_info, align 8
@@ -14382,7 +14382,7 @@ define internal fastcc void @dissect_TSNDomainQueueRateLimiter_block(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNPortID_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNPortID_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
@@ -14444,7 +14444,7 @@ define internal fastcc void @dissect_TSNPortID_block(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_TSNExpectedNeighbor_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_TSNExpectedNeighbor_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
@@ -14538,7 +14538,7 @@ define internal fastcc void @dissect_TSNExpectedNeighbor_block(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_CIMSNMPAdjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_CIMSNMPAdjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
   %or.cond = or i1 %10, %11
@@ -14615,7 +14615,7 @@ define internal fastcc void @dissect_CIMSNMPAdjust_block(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MultipleBlockHeader_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_MultipleBlockHeader_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -14689,7 +14689,7 @@ dissect_blocks.exit:                              ; preds = %22, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_COContainerContent_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull %10) unnamed_addr #0 {
+define internal fastcc void @dissect_COContainerContent_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull %10) unnamed_addr #0 {
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
   %14 = alloca i16, align 2
@@ -14738,7 +14738,7 @@ define internal fastcc void @dissect_COContainerContent_block(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RecordDataReadQuery_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_RecordDataReadQuery_block.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = icmp ne i8 %5, 1
   %11 = icmp ne i8 %6, 0
   %or.cond = or i1 %10, %11
@@ -14799,7 +14799,7 @@ indexReservedForProfiles.exit:                    ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_FSHello_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_FSHello_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -14838,7 +14838,7 @@ define internal fastcc void @dissect_FSHello_block(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_FSParameter_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_FSParameter_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct._e_guid_t, align 4
   %11 = icmp ne i8 %6, 1
@@ -14868,7 +14868,7 @@ define internal fastcc void @dissect_FSParameter_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PDInterfaceFSUDataAdjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PDInterfaceFSUDataAdjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -14927,7 +14927,7 @@ dissect_blocks.exit:                              ; preds = %19, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ARFSUDataAdjust_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ARFSUDataAdjust_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -14986,7 +14986,7 @@ dissect_blocks.exit:                              ; preds = %19, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PE_ServiceRequest_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PE_ServiceRequest_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
@@ -15033,7 +15033,7 @@ define internal fastcc void @dissect_PE_ServiceRequest_block(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PE_ServiceResponse_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_PE_ServiceResponse_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
@@ -15087,7 +15087,7 @@ define internal fastcc void @dissect_PE_ServiceResponse_block(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PE_EntityFilterData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PE_EntityFilterData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -15216,7 +15216,7 @@ define internal fastcc void @dissect_PE_EntityFilterData_block(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PE_EntityStatusData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PE_EntityStatusData_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -15341,7 +15341,7 @@ define internal fastcc void @dissect_PE_EntityStatusData_block(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RS_AdjustObserver_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_RS_AdjustObserver_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i8, align 1
@@ -15435,7 +15435,7 @@ dissect_RS_AdjustInfo.exit:                       ; preds = %dissect_RS_AdjustBl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RS_GetEvent_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_RS_GetEvent_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = icmp ne i8 %6, 1
   %10 = icmp ne i8 %7, 0
   %or.cond = or i1 %9, %10
@@ -15456,7 +15456,7 @@ define internal fastcc void @dissect_RS_GetEvent_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RS_AckEvent_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_RS_AckEvent_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -15481,7 +15481,7 @@ define internal fastcc void @dissect_RS_AckEvent_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_Maintenance_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_Maintenance_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -15531,7 +15531,7 @@ define internal fastcc void @dissect_Maintenance_block(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PE_Alarm_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_PE_Alarm_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = icmp ne i8 %6, 1
   %11 = icmp ne i8 %7, 0
@@ -15558,7 +15558,7 @@ define internal fastcc void @dissect_PE_Alarm_block(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_Alarm_ack_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_Alarm_ack_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = icmp ne i8 %6, 1
   %10 = icmp ne i8 %7, 0
   %or.cond = or i1 %9, %10
@@ -15584,7 +15584,7 @@ define internal fastcc void @dissect_Alarm_ack_block(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IODWriteResHeader_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull writeonly %10) unnamed_addr #0 {
+define internal fastcc void @dissect_IODWriteResHeader_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull writeonly %10) unnamed_addr #0 {
   %12 = alloca %struct._e_guid_t, align 4
   %13 = alloca i16, align 2
   %14 = alloca i16, align 2
@@ -15603,22 +15603,22 @@ define internal fastcc void @dissect_IODWriteResHeader_block(ptr noundef %0, i32
   %22 = call fastcc i32 @dissect_ReadWrite_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %8, ptr noundef %12)
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph.i
   %24 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %21, %23
   %.083.i = phi ptr [ %.08.i, %23 ], [ %.081.i, %21 ]
   %25 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %25, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %26 = icmp eq i32 %bcmp.i, 0
-  br i1 %26, label %pnio_ar_find_by_aruuid.exit, label %23
+  br i1 %26, label %pnio_ar_find_by_aruuid.argprom.exit, label %23
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %23, %.lr.ph.i, %21
+pnio_ar_find_by_aruuid.argprom.exit:              ; preds = %23, %.lr.ph.i, %21
   %.0.i = phi ptr [ null, %21 ], [ %25, %.lr.ph.i ], [ null, %23 ]
   store ptr %.0.i, ptr %10, align 8
   %27 = load i32, ptr @hf_pn_io_record_data_length, align 4
@@ -15632,11 +15632,11 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %23, %.lr.ph.i, %21
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %37, label %35
 
-35:                                               ; preds = %pnio_ar_find_by_aruuid.exit
+35:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit
   %36 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %32) #11
   br label %39
 
-37:                                               ; preds = %pnio_ar_find_by_aruuid.exit
+37:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit
   %38 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %32) #11
   br label %39
 
@@ -15667,7 +15667,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %23, %.lr.ph.i, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IODReadResHeader_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull writeonly %10) unnamed_addr #0 {
+define internal fastcc void @dissect_IODReadResHeader_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull writeonly %10) unnamed_addr #0 {
   %12 = alloca %struct._e_guid_t, align 4
   %13 = alloca i16, align 2
   %14 = alloca i16, align 2
@@ -15686,22 +15686,22 @@ define internal fastcc void @dissect_IODReadResHeader_block(ptr noundef %0, i32 
   %22 = call fastcc i32 @dissect_ReadWrite_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %8, ptr noundef %12)
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph.i
   %24 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.argprom.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %21, %23
   %.083.i = phi ptr [ %.08.i, %23 ], [ %.081.i, %21 ]
   %25 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %25, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %26 = icmp eq i32 %bcmp.i, 0
-  br i1 %26, label %pnio_ar_find_by_aruuid.exit, label %23
+  br i1 %26, label %pnio_ar_find_by_aruuid.argprom.exit, label %23
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %23, %.lr.ph.i, %21
+pnio_ar_find_by_aruuid.argprom.exit:              ; preds = %23, %.lr.ph.i, %21
   %.0.i = phi ptr [ null, %21 ], [ %25, %.lr.ph.i ], [ null, %23 ]
   store ptr %.0.i, ptr %10, align 8
   %27 = load i32, ptr @hf_pn_io_record_data_length, align 4
@@ -15721,18 +15721,18 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %23, %.lr.ph.i, %21
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %43, label %40
 
-40:                                               ; preds = %pnio_ar_find_by_aruuid.exit
+40:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit
   %41 = getelementptr inbounds i8, ptr %2, i64 8
   %42 = load ptr, ptr %41, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.1326, i32 noundef %39) #11
   br label %43
 
-43:                                               ; preds = %pnio_ar_find_by_aruuid.exit, %40, %17
+43:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit, %40, %17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ARBlockRes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ARBlockRes_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca %struct._e_guid_t, align 8
   %12 = alloca i16, align 2
@@ -15805,41 +15805,41 @@ define internal fastcc void @dissect_ARBlockRes_block(ptr noundef %0, i32 nounde
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1618, ptr noundef %46, i32 noundef %48, i32 noundef %50, i32 noundef %53, i32 noundef %56, i32 noundef %59, i32 noundef %62, i32 noundef %65, i32 noundef %67) #11
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i
+  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.argprom.exit.thread, label %.lr.ph.i
 
 68:                                               ; preds = %.lr.ph.i
   %69 = getelementptr inbounds i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %69, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.argprom.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %37, %68
   %.083.i = phi ptr [ %.08.i, %68 ], [ %.081.i, %37 ]
   %70 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %70, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %71 = icmp eq i32 %bcmp.i, 0
-  br i1 %71, label %pnio_ar_find_by_aruuid.exit, label %68
+  br i1 %71, label %pnio_ar_find_by_aruuid.argprom.exit, label %68
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i
+pnio_ar_find_by_aruuid.argprom.exit:              ; preds = %.lr.ph.i
   %.not43 = icmp eq ptr %70, null
-  br i1 %.not43, label %pnio_ar_find_by_aruuid.exit.thread, label %72
+  br i1 %.not43, label %pnio_ar_find_by_aruuid.argprom.exit.thread, label %72
 
-72:                                               ; preds = %pnio_ar_find_by_aruuid.exit
+72:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit
   %73 = getelementptr inbounds i8, ptr %70, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %73, ptr noundef nonnull align 1 dereferenceable(6) %13, i64 6, i1 false)
-  br label %pnio_ar_find_by_aruuid.exit.thread
+  br label %pnio_ar_find_by_aruuid.argprom.exit.thread
 
-pnio_ar_find_by_aruuid.exit.thread:               ; preds = %68, %37, %72, %pnio_ar_find_by_aruuid.exit
-  %.0.i46 = phi ptr [ %70, %72 ], [ null, %pnio_ar_find_by_aruuid.exit ], [ null, %37 ], [ null, %68 ]
+pnio_ar_find_by_aruuid.argprom.exit.thread:       ; preds = %68, %37, %72, %pnio_ar_find_by_aruuid.argprom.exit
+  %.0.i46 = phi ptr [ %70, %72 ], [ null, %pnio_ar_find_by_aruuid.argprom.exit ], [ null, %37 ], [ null, %68 ]
   store ptr %.0.i46, ptr %8, align 8
   br label %74
 
-74:                                               ; preds = %pnio_ar_find_by_aruuid.exit.thread, %17
+74:                                               ; preds = %pnio_ar_find_by_aruuid.argprom.exit.thread, %17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IOCRBlockRes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_IOCRBlockRes_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
@@ -15972,7 +15972,7 @@ define internal fastcc void @dissect_IOCRBlockRes_block(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AlarmCRBlockRes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_AlarmCRBlockRes_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
@@ -16037,7 +16037,7 @@ define internal fastcc void @dissect_AlarmCRBlockRes_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ModuleDiffBlock_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @dissect_ModuleDiffBlock_block.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -16283,7 +16283,7 @@ define internal fastcc void @dissect_ModuleDiffBlock_block(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ARServerBlock(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ARServerBlock.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = icmp ne i8 %6, 1
   %12 = icmp ne i8 %7, 0
@@ -16415,7 +16415,7 @@ define internal fastcc i32 @dissect_Alarm_specifier(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, i16 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_AlarmUserStructure.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, i16 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
@@ -16441,7 +16441,7 @@ define internal fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 nound
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
   %15 = load i32, ptr @hf_pn_io_channel_number, align 4
   %16 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %15, ptr noundef nonnull %8) #11
-  %17 = call fastcc i32 @dissect_ChannelProperties(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %17 = call fastcc i32 @dissect_ChannelProperties.argprom(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %18 = load i32, ptr @hf_pn_io_channel_error_type, align 4
   %19 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %18, ptr noundef nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
@@ -16451,13 +16451,13 @@ define internal fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 nound
   br label %55
 
 22:                                               ; preds = %7
-  %23 = tail call fastcc i32 @dissect_Diagnosis(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext -32766)
+  %23 = tail call fastcc i32 @dissect_Diagnosis.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext -32766)
   %24 = load i16, ptr %5, align 2
   %25 = add i16 %24, -12
   br label %55
 
 26:                                               ; preds = %7
-  %27 = tail call fastcc i32 @dissect_Diagnosis(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext -32765)
+  %27 = tail call fastcc i32 @dissect_Diagnosis.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext -32765)
   %28 = load i16, ptr %5, align 2
   %29 = add i16 %28, -16
   br label %55
@@ -16511,7 +16511,7 @@ define internal fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_Diagnosis(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_Diagnosis.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
@@ -16519,7 +16519,7 @@ define internal fastcc i32 @dissect_Diagnosis(ptr noundef %0, i32 noundef %1, pt
   %11 = alloca i32, align 4
   %12 = load i32, ptr @hf_pn_io_channel_number, align 4
   %13 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %12, ptr noundef nonnull %7) #11
-  %14 = call fastcc i32 @dissect_ChannelProperties(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %14 = call fastcc i32 @dissect_ChannelProperties.argprom(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %15 = load i32, ptr @hf_pn_io_channel_error_type, align 4
   %16 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %15, ptr noundef nonnull %8) #11
   %17 = icmp eq i16 %5, -32768
@@ -16537,7 +16537,7 @@ define internal fastcc i32 @dissect_Diagnosis(ptr noundef %0, i32 noundef %1, pt
 
 switch.lookup:                                    ; preds = %21
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.dissect_Diagnosis, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.dissect_Diagnosis.argprom, i64 0, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %24
 
@@ -16891,7 +16891,7 @@ dissect_RS_EventBlock.exit:                       ; preds = %dissect_RS_EventDat
 declare i32 @dissect_pn_user_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ChannelProperties(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ChannelProperties.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   %7 = load i32, ptr @hf_pn_io_channel_properties, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #11
@@ -17006,7 +17006,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_PNIO_IOxS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_PNIO_IOxS.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %22, label %5
 
@@ -17048,7 +17048,7 @@ declare void @pn_init_append_aruuid_frame_setup_list(i64, i64, i32 noundef) loca
 declare ptr @guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ARProperties(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ARProperties.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_pn_io_ar_properties, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #11
@@ -17589,7 +17589,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ProfiSafeParameterRequest.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
@@ -17857,7 +17857,7 @@ declare i32 @dissect_PNIO_C_SDU_RTC1(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PNIO_RTA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @dissect_PNIO_RTA.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = alloca i8, align 1

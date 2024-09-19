@@ -1796,7 +1796,7 @@ define hidden void @proto_tree_reset(ptr nocapture noundef %0) local_unnamed_add
   %.012.i = phi ptr [ %6, %.lr.ph.i ], [ %4, %1 ]
   %5 = getelementptr inbounds i8, ptr %.012.i, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @proto_tree_free_node(ptr noundef nonnull %.012.i) #33
+  tail call fastcc void @proto_tree_free_node.argelim(ptr noundef nonnull %.012.i) #33
   %.not10.i = icmp eq ptr %6, null
   br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -1819,7 +1819,7 @@ proto_tree_children_foreach.exit:                 ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_tree_free_node(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @proto_tree_free_node.argelim(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1830,7 +1830,7 @@ define internal fastcc void @proto_tree_free_node(ptr nocapture noundef readonly
   %.012.i = phi ptr [ %6, %.lr.ph.i ], [ %4, %1 ]
   %5 = getelementptr inbounds i8, ptr %.012.i, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @proto_tree_free_node(ptr noundef nonnull %.012.i) #33
+  tail call fastcc void @proto_tree_free_node.argelim(ptr noundef nonnull %.012.i) #33
   %.not10.i = icmp eq ptr %6, null
   br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -1966,7 +1966,7 @@ define void @proto_tree_free(ptr noundef %0) local_unnamed_addr #0 {
   %.012.i = phi ptr [ %6, %.lr.ph.i ], [ %4, %1 ]
   %5 = getelementptr inbounds i8, ptr %.012.i, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @proto_tree_free_node(ptr noundef nonnull %.012.i) #33
+  tail call fastcc void @proto_tree_free_node.argelim(ptr noundef nonnull %.012.i) #33
   %.not10.i = icmp eq ptr %6, null
   br i1 %.not10.i, label %proto_tree_children_foreach.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -4559,7 +4559,7 @@ hfinfo_bitoffset.exit:                            ; preds = %21, %21, %21, %26, 
   store i32 %42, ptr %22, align 4
   %.val = load i64, ptr %4, align 8
   %.not.i22 = icmp eq i64 %.val, 0
-  br i1 %.not.i22, label %hfinfo_mask_bitwidth.exit, label %43
+  br i1 %.not.i22, label %hfinfo_mask_bitwidth.argprom.exit, label %43
 
 43:                                               ; preds = %hfinfo_bitoffset.exit
   %44 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.val, i1 true)
@@ -4571,16 +4571,16 @@ hfinfo_bitoffset.exit:                            ; preds = %21, %21, %21, %26, 
   %49 = shl nsw i32 %reass.sub.i, 8
   %50 = add nsw i32 %49, 256
   %51 = and i32 %50, 16128
-  br label %hfinfo_mask_bitwidth.exit
+  br label %hfinfo_mask_bitwidth.argprom.exit
 
-hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.exit, %43
+hfinfo_mask_bitwidth.argprom.exit:                ; preds = %hfinfo_bitoffset.exit, %43
   %.0.i23 = phi i32 [ %51, %43 ], [ 0, %hfinfo_bitoffset.exit ]
   %52 = or i32 %.0.i23, %42
   store i32 %52, ptr %22, align 4
   br label %53
 
-53:                                               ; preds = %hfinfo_mask_bitwidth.exit, %2
-  %.0 = phi i32 [ %.0.i, %hfinfo_mask_bitwidth.exit ], [ %1, %2 ]
+53:                                               ; preds = %hfinfo_mask_bitwidth.argprom.exit, %2
+  %.0 = phi i32 [ %.0.i, %hfinfo_mask_bitwidth.argprom.exit ], [ %1, %2 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 48
   %55 = load ptr, ptr %54, align 8
   tail call void @fvalue_set_sinteger(ptr noundef %55, i32 noundef %.0) #33
@@ -5192,7 +5192,7 @@ hfinfo_bitoffset.exit:                            ; preds = %6, %6, %6, %16, %19
   store i32 %32, ptr %12, align 4
   %.val = load i64, ptr %4, align 8
   %.not.i17 = icmp eq i64 %.val, 0
-  br i1 %.not.i17, label %hfinfo_mask_bitwidth.exit, label %33
+  br i1 %.not.i17, label %hfinfo_mask_bitwidth.argprom.exit, label %33
 
 33:                                               ; preds = %hfinfo_bitoffset.exit
   %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.val, i1 true)
@@ -5204,16 +5204,16 @@ hfinfo_bitoffset.exit:                            ; preds = %6, %6, %6, %16, %19
   %39 = shl nsw i32 %reass.sub.i, 8
   %40 = add nsw i32 %39, 256
   %41 = and i32 %40, 16128
-  br label %hfinfo_mask_bitwidth.exit
+  br label %hfinfo_mask_bitwidth.argprom.exit
 
-hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.exit, %33
+hfinfo_mask_bitwidth.argprom.exit:                ; preds = %hfinfo_bitoffset.exit, %33
   %.0.i18 = phi i32 [ %41, %33 ], [ 0, %hfinfo_bitoffset.exit ]
   %42 = or i32 %.0.i18, %32
   store i32 %42, ptr %12, align 4
   br label %43
 
-43:                                               ; preds = %hfinfo_mask_bitwidth.exit, %2
-  %.0 = phi i32 [ %11, %hfinfo_mask_bitwidth.exit ], [ %1, %2 ]
+43:                                               ; preds = %hfinfo_mask_bitwidth.argprom.exit, %2
+  %.0 = phi i32 [ %11, %hfinfo_mask_bitwidth.argprom.exit ], [ %1, %2 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   tail call void @fvalue_set_uinteger(ptr noundef %45, i32 noundef %.0) #33
@@ -8034,7 +8034,7 @@ hfinfo_bitoffset.exit:                            ; preds = %6, %6, %6, %14, %17
   store i32 %30, ptr %10, align 4
   %.val = load i64, ptr %4, align 8
   %.not.i17 = icmp eq i64 %.val, 0
-  br i1 %.not.i17, label %hfinfo_mask_bitwidth.exit, label %31
+  br i1 %.not.i17, label %hfinfo_mask_bitwidth.argprom.exit, label %31
 
 31:                                               ; preds = %hfinfo_bitoffset.exit
   %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.val, i1 true)
@@ -8046,16 +8046,16 @@ hfinfo_bitoffset.exit:                            ; preds = %6, %6, %6, %14, %17
   %37 = shl nsw i32 %reass.sub.i, 8
   %38 = add nsw i32 %37, 256
   %39 = and i32 %38, 16128
-  br label %hfinfo_mask_bitwidth.exit
+  br label %hfinfo_mask_bitwidth.argprom.exit
 
-hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.exit, %31
+hfinfo_mask_bitwidth.argprom.exit:                ; preds = %hfinfo_bitoffset.exit, %31
   %.0.i18 = phi i32 [ %39, %31 ], [ 0, %hfinfo_bitoffset.exit ]
   %40 = or i32 %.0.i18, %30
   store i32 %40, ptr %10, align 4
   br label %41
 
-41:                                               ; preds = %hfinfo_mask_bitwidth.exit, %2
-  %.0 = phi i64 [ %9, %hfinfo_mask_bitwidth.exit ], [ %1, %2 ]
+41:                                               ; preds = %hfinfo_mask_bitwidth.argprom.exit, %2
+  %.0 = phi i64 [ %9, %hfinfo_mask_bitwidth.argprom.exit ], [ %1, %2 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
   tail call void @fvalue_set_uinteger64(ptr noundef %43, i64 noundef %.0) #33
@@ -8471,7 +8471,7 @@ hfinfo_bitoffset.exit:                            ; preds = %19, %19, %19, %24, 
   store i32 %40, ptr %20, align 4
   %.val = load i64, ptr %4, align 8
   %.not.i22 = icmp eq i64 %.val, 0
-  br i1 %.not.i22, label %hfinfo_mask_bitwidth.exit, label %41
+  br i1 %.not.i22, label %hfinfo_mask_bitwidth.argprom.exit, label %41
 
 41:                                               ; preds = %hfinfo_bitoffset.exit
   %42 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.val, i1 true)
@@ -8483,16 +8483,16 @@ hfinfo_bitoffset.exit:                            ; preds = %19, %19, %19, %24, 
   %47 = shl nsw i32 %reass.sub.i, 8
   %48 = add nsw i32 %47, 256
   %49 = and i32 %48, 16128
-  br label %hfinfo_mask_bitwidth.exit
+  br label %hfinfo_mask_bitwidth.argprom.exit
 
-hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.exit, %41
+hfinfo_mask_bitwidth.argprom.exit:                ; preds = %hfinfo_bitoffset.exit, %41
   %.0.i23 = phi i32 [ %49, %41 ], [ 0, %hfinfo_bitoffset.exit ]
   %50 = or i32 %.0.i23, %40
   store i32 %50, ptr %20, align 4
   br label %51
 
-51:                                               ; preds = %hfinfo_mask_bitwidth.exit, %2
-  %.0 = phi i64 [ %.0.i, %hfinfo_mask_bitwidth.exit ], [ %1, %2 ]
+51:                                               ; preds = %hfinfo_mask_bitwidth.argprom.exit, %2
+  %.0 = phi i64 [ %.0.i, %hfinfo_mask_bitwidth.argprom.exit ], [ %1, %2 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8
   tail call void @fvalue_set_sinteger64(ptr noundef %53, i64 noundef %.0) #33
@@ -20108,9 +20108,9 @@ define internal fastcc ptr @hfinfo_number_value_format_display(ptr nocapture nou
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %26, label %hfinfo_mask_bitwidth.exit.i
+  br i1 %.not.i, label %26, label %hfinfo_mask_bitwidth.argprom.exit.i
 
-hfinfo_mask_bitwidth.exit.i:                      ; preds = %14
+hfinfo_mask_bitwidth.argprom.exit.i:              ; preds = %14
   %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
   %19 = trunc nuw nsw i64 %18 to i8
   %20 = xor i8 %19, 63
@@ -20138,8 +20138,8 @@ switch.lookup:                                    ; preds = %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hfinfo_hex_digits.exit
 
-hfinfo_hex_digits.exit:                           ; preds = %switch.lookup, %hfinfo_mask_bitwidth.exit.i
-  %.0.i = phi i32 [ %25, %hfinfo_mask_bitwidth.exit.i ], [ %switch.load, %switch.lookup ]
+hfinfo_hex_digits.exit:                           ; preds = %switch.lookup, %hfinfo_mask_bitwidth.argprom.exit.i
+  %.0.i = phi i32 [ %25, %hfinfo_mask_bitwidth.argprom.exit.i ], [ %switch.load, %switch.lookup ]
   %31 = tail call ptr @hex_to_str_back_len(ptr noundef nonnull %15, i32 noundef %3, i32 noundef %.0.i) #33
   %32 = getelementptr i8, ptr %31, i64 -1
   store i8 40, ptr %32, align 1
@@ -20163,9 +20163,9 @@ hfinfo_hex_digits.exit:                           ; preds = %switch.lookup, %hfi
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   %42 = load i64, ptr %41, align 8
   %.not.i64 = icmp eq i64 %42, 0
-  br i1 %.not.i64, label %51, label %hfinfo_mask_bitwidth.exit.i65
+  br i1 %.not.i64, label %51, label %hfinfo_mask_bitwidth.argprom.exit.i65
 
-hfinfo_mask_bitwidth.exit.i65:                    ; preds = %40
+hfinfo_mask_bitwidth.argprom.exit.i65:            ; preds = %40
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 true)
   %44 = trunc nuw nsw i64 %43 to i8
   %45 = xor i8 %44, 63
@@ -20193,8 +20193,8 @@ switch.lookup79:                                  ; preds = %51
   %switch.load82 = load i32, ptr %switch.gep81, align 4
   br label %hfinfo_hex_digits.exit68
 
-hfinfo_hex_digits.exit68:                         ; preds = %switch.lookup79, %hfinfo_mask_bitwidth.exit.i65
-  %.0.i67 = phi i32 [ %50, %hfinfo_mask_bitwidth.exit.i65 ], [ %switch.load82, %switch.lookup79 ]
+hfinfo_hex_digits.exit68:                         ; preds = %switch.lookup79, %hfinfo_mask_bitwidth.argprom.exit.i65
+  %.0.i67 = phi i32 [ %50, %hfinfo_mask_bitwidth.argprom.exit.i65 ], [ %switch.load82, %switch.lookup79 ]
   %56 = tail call ptr @hex_to_str_back_len(ptr noundef nonnull %5, i32 noundef %3, i32 noundef %.0.i67) #33
   br label %101
 
@@ -20220,9 +20220,9 @@ hfinfo_hex_digits.exit68:                         ; preds = %switch.lookup79, %h
   %67 = getelementptr inbounds i8, ptr %0, i64 32
   %68 = load i64, ptr %67, align 8
   %.not.i69 = icmp eq i64 %68, 0
-  br i1 %.not.i69, label %77, label %hfinfo_mask_bitwidth.exit.i70
+  br i1 %.not.i69, label %77, label %hfinfo_mask_bitwidth.argprom.exit.i70
 
-hfinfo_mask_bitwidth.exit.i70:                    ; preds = %63
+hfinfo_mask_bitwidth.argprom.exit.i70:            ; preds = %63
   %69 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %68, i1 true)
   %70 = trunc nuw nsw i64 %69 to i8
   %71 = xor i8 %70, 63
@@ -20250,8 +20250,8 @@ switch.lookup83:                                  ; preds = %77
   %switch.load86 = load i32, ptr %switch.gep85, align 4
   br label %hfinfo_hex_digits.exit73
 
-hfinfo_hex_digits.exit73:                         ; preds = %switch.lookup83, %hfinfo_mask_bitwidth.exit.i70
-  %.0.i72 = phi i32 [ %76, %hfinfo_mask_bitwidth.exit.i70 ], [ %switch.load86, %switch.lookup83 ]
+hfinfo_hex_digits.exit73:                         ; preds = %switch.lookup83, %hfinfo_mask_bitwidth.argprom.exit.i70
+  %.0.i72 = phi i32 [ %76, %hfinfo_mask_bitwidth.argprom.exit.i70 ], [ %switch.load86, %switch.lookup83 ]
   %82 = tail call ptr @hex_to_str_back_len(ptr noundef nonnull %66, i32 noundef %3, i32 noundef %.0.i72) #33
   br label %101
 
@@ -20335,9 +20335,9 @@ define internal fastcc ptr @hfinfo_number_value_format_display64(ptr nocapture n
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %26, label %hfinfo_mask_bitwidth.exit.i
+  br i1 %.not.i, label %26, label %hfinfo_mask_bitwidth.argprom.exit.i
 
-hfinfo_mask_bitwidth.exit.i:                      ; preds = %14
+hfinfo_mask_bitwidth.argprom.exit.i:              ; preds = %14
   %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
   %19 = trunc nuw nsw i64 %18 to i8
   %20 = xor i8 %19, 63
@@ -20365,8 +20365,8 @@ switch.lookup:                                    ; preds = %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hfinfo_hex_digits.exit
 
-hfinfo_hex_digits.exit:                           ; preds = %switch.lookup, %hfinfo_mask_bitwidth.exit.i
-  %.0.i = phi i32 [ %25, %hfinfo_mask_bitwidth.exit.i ], [ %switch.load, %switch.lookup ]
+hfinfo_hex_digits.exit:                           ; preds = %switch.lookup, %hfinfo_mask_bitwidth.argprom.exit.i
+  %.0.i = phi i32 [ %25, %hfinfo_mask_bitwidth.argprom.exit.i ], [ %switch.load, %switch.lookup ]
   %31 = tail call ptr @hex64_to_str_back_len(ptr noundef nonnull %15, i64 noundef %3, i32 noundef %.0.i) #33
   %32 = getelementptr i8, ptr %31, i64 -1
   store i8 40, ptr %32, align 1
@@ -20390,9 +20390,9 @@ hfinfo_hex_digits.exit:                           ; preds = %switch.lookup, %hfi
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   %42 = load i64, ptr %41, align 8
   %.not.i47 = icmp eq i64 %42, 0
-  br i1 %.not.i47, label %51, label %hfinfo_mask_bitwidth.exit.i48
+  br i1 %.not.i47, label %51, label %hfinfo_mask_bitwidth.argprom.exit.i48
 
-hfinfo_mask_bitwidth.exit.i48:                    ; preds = %40
+hfinfo_mask_bitwidth.argprom.exit.i48:            ; preds = %40
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 true)
   %44 = trunc nuw nsw i64 %43 to i8
   %45 = xor i8 %44, 63
@@ -20420,8 +20420,8 @@ switch.lookup61:                                  ; preds = %51
   %switch.load64 = load i32, ptr %switch.gep63, align 4
   br label %hfinfo_hex_digits.exit51
 
-hfinfo_hex_digits.exit51:                         ; preds = %switch.lookup61, %hfinfo_mask_bitwidth.exit.i48
-  %.0.i50 = phi i32 [ %50, %hfinfo_mask_bitwidth.exit.i48 ], [ %switch.load64, %switch.lookup61 ]
+hfinfo_hex_digits.exit51:                         ; preds = %switch.lookup61, %hfinfo_mask_bitwidth.argprom.exit.i48
+  %.0.i50 = phi i32 [ %50, %hfinfo_mask_bitwidth.argprom.exit.i48 ], [ %switch.load64, %switch.lookup61 ]
   %56 = tail call ptr @hex64_to_str_back_len(ptr noundef nonnull %5, i64 noundef %3, i32 noundef %.0.i50) #33
   br label %85
 
@@ -20447,9 +20447,9 @@ hfinfo_hex_digits.exit51:                         ; preds = %switch.lookup61, %h
   %67 = getelementptr inbounds i8, ptr %0, i64 32
   %68 = load i64, ptr %67, align 8
   %.not.i52 = icmp eq i64 %68, 0
-  br i1 %.not.i52, label %77, label %hfinfo_mask_bitwidth.exit.i53
+  br i1 %.not.i52, label %77, label %hfinfo_mask_bitwidth.argprom.exit.i53
 
-hfinfo_mask_bitwidth.exit.i53:                    ; preds = %63
+hfinfo_mask_bitwidth.argprom.exit.i53:            ; preds = %63
   %69 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %68, i1 true)
   %70 = trunc nuw nsw i64 %69 to i8
   %71 = xor i8 %70, 63
@@ -20477,8 +20477,8 @@ switch.lookup65:                                  ; preds = %77
   %switch.load68 = load i32, ptr %switch.gep67, align 4
   br label %hfinfo_hex_digits.exit56
 
-hfinfo_hex_digits.exit56:                         ; preds = %switch.lookup65, %hfinfo_mask_bitwidth.exit.i53
-  %.0.i55 = phi i32 [ %76, %hfinfo_mask_bitwidth.exit.i53 ], [ %switch.load68, %switch.lookup65 ]
+hfinfo_hex_digits.exit56:                         ; preds = %switch.lookup65, %hfinfo_mask_bitwidth.argprom.exit.i53
+  %.0.i55 = phi i32 [ %76, %hfinfo_mask_bitwidth.argprom.exit.i53 ], [ %switch.load68, %switch.lookup65 ]
   %82 = tail call ptr @hex64_to_str_back_len(ptr noundef nonnull %66, i64 noundef %3, i32 noundef %.0.i55) #33
   br label %85
 
@@ -20658,10 +20658,10 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   br label %.lr.ph.lr.ph
 
-.loopexit:                                        ; preds = %471, %.outer, %proto_get_finfo_ptr_array.exit.thread.us609, %proto_get_finfo_ptr_array.exit.thread.us543, %249, %.lr.ph527.split.us.split, %.lr.ph527.split.us, %hfinfo_same_name_get_prev.exit336, %proto_get_finfo_ptr_array.exit.thread, %proto_get_finfo_ptr_array.exit.thread.us
-  %.6259.ph.lcssa465 = phi i32 [ %.6259.ph825, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.6259.ph825, %proto_get_finfo_ptr_array.exit.thread ], [ %.6259.ph825, %hfinfo_same_name_get_prev.exit336 ], [ %.6259.ph825, %.lr.ph527.split.us ], [ %.6259.ph825, %.lr.ph527.split.us.split ], [ %.6259.ph825, %249 ], [ %.6259.ph825, %proto_get_finfo_ptr_array.exit.thread.us543 ], [ %.6259.ph825, %proto_get_finfo_ptr_array.exit.thread.us609 ], [ %.7260.lcssa, %.outer ], [ %.7260.lcssa, %471 ]
-  %.5252.ph.lcssa456 = phi i32 [ %.5252.ph826, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.5252.ph826, %proto_get_finfo_ptr_array.exit.thread ], [ %.5252.ph826, %hfinfo_same_name_get_prev.exit336 ], [ %.5252.ph826, %.lr.ph527.split.us ], [ %.5252.ph826, %.lr.ph527.split.us.split ], [ %.5252.ph826, %249 ], [ %.5252.ph826, %proto_get_finfo_ptr_array.exit.thread.us543 ], [ %.5252.ph826, %proto_get_finfo_ptr_array.exit.thread.us609 ], [ %.6.lcssa, %.outer ], [ %.6.lcssa, %471 ]
-  %.1.ph.lcssa447 = phi ptr [ %.1.ph828, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.1.ph828, %proto_get_finfo_ptr_array.exit.thread ], [ %.1.ph828, %hfinfo_same_name_get_prev.exit336 ], [ %.1.ph828, %.lr.ph527.split.us ], [ %.1.ph828, %.lr.ph527.split.us.split ], [ %.1.ph828, %249 ], [ %.1.ph828, %proto_get_finfo_ptr_array.exit.thread.us543 ], [ %.1.ph828, %proto_get_finfo_ptr_array.exit.thread.us609 ], [ %.2, %.outer ], [ %.2, %471 ]
+.loopexit:                                        ; preds = %471, %.outer, %proto_get_finfo_ptr_array.exit.thread.us609, %proto_get_finfo_ptr_array.exit.thread.us543, %249, %.lr.ph527.split.us.split, %.lr.ph527.split.us, %hfinfo_same_name_get_prev.argprom.exit336, %proto_get_finfo_ptr_array.exit.thread, %proto_get_finfo_ptr_array.exit.thread.us
+  %.6259.ph.lcssa465 = phi i32 [ %.6259.ph825, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.6259.ph825, %proto_get_finfo_ptr_array.exit.thread ], [ %.6259.ph825, %hfinfo_same_name_get_prev.argprom.exit336 ], [ %.6259.ph825, %.lr.ph527.split.us ], [ %.6259.ph825, %.lr.ph527.split.us.split ], [ %.6259.ph825, %249 ], [ %.6259.ph825, %proto_get_finfo_ptr_array.exit.thread.us543 ], [ %.6259.ph825, %proto_get_finfo_ptr_array.exit.thread.us609 ], [ %.7260.lcssa, %.outer ], [ %.7260.lcssa, %471 ]
+  %.5252.ph.lcssa456 = phi i32 [ %.5252.ph826, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.5252.ph826, %proto_get_finfo_ptr_array.exit.thread ], [ %.5252.ph826, %hfinfo_same_name_get_prev.argprom.exit336 ], [ %.5252.ph826, %.lr.ph527.split.us ], [ %.5252.ph826, %.lr.ph527.split.us.split ], [ %.5252.ph826, %249 ], [ %.5252.ph826, %proto_get_finfo_ptr_array.exit.thread.us543 ], [ %.5252.ph826, %proto_get_finfo_ptr_array.exit.thread.us609 ], [ %.6.lcssa, %.outer ], [ %.6.lcssa, %471 ]
+  %.1.ph.lcssa447 = phi ptr [ %.1.ph828, %proto_get_finfo_ptr_array.exit.thread.us ], [ %.1.ph828, %proto_get_finfo_ptr_array.exit.thread ], [ %.1.ph828, %hfinfo_same_name_get_prev.argprom.exit336 ], [ %.1.ph828, %.lr.ph527.split.us ], [ %.1.ph828, %.lr.ph527.split.us.split ], [ %.1.ph828, %249 ], [ %.1.ph828, %proto_get_finfo_ptr_array.exit.thread.us543 ], [ %.1.ph828, %proto_get_finfo_ptr_array.exit.thread.us609 ], [ %.2, %.outer ], [ %.2, %471 ]
   %12 = add i32 %20, 1
   %13 = call ptr @g_slist_nth_data(ptr noundef %1, i32 noundef %20) #33
   %.not498512 = icmp eq ptr %13, null
@@ -21042,9 +21042,9 @@ protoo_strlcpy.exit325:                           ; preds = %115, %117
   %.6259.ph825 = phi i32 [ %.7260.lcssa, %.outer ], [ %.0253.ph513, %.lr.ph527.lr.ph.preheader ]
   br label %.lr.ph527
 
-.lr.ph527:                                        ; preds = %.lr.ph527.lr.ph, %hfinfo_same_name_get_prev.exit336
-  %.0239.ph364809 = phi i32 [ %.0239.ph829, %.lr.ph527.lr.ph ], [ %266, %hfinfo_same_name_get_prev.exit336 ]
-  %.2244.ph363808 = phi ptr [ %.2244.ph827, %.lr.ph527.lr.ph ], [ %.4, %hfinfo_same_name_get_prev.exit336 ]
+.lr.ph527:                                        ; preds = %.lr.ph527.lr.ph, %hfinfo_same_name_get_prev.argprom.exit336
+  %.0239.ph364809 = phi i32 [ %.0239.ph829, %.lr.ph527.lr.ph ], [ %266, %hfinfo_same_name_get_prev.argprom.exit336 ]
+  %.2244.ph363808 = phi ptr [ %.2244.ph827, %.lr.ph527.lr.ph ], [ %.4, %hfinfo_same_name_get_prev.argprom.exit336 ]
   br i1 %9, label %.lr.ph527.split.us, label %.lr.ph527.split
 
 .lr.ph527.split.us:                               ; preds = %.lr.ph527
@@ -21251,7 +21251,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph527.split.spl
 246:                                              ; preds = %245
   %247 = getelementptr inbounds i8, ptr %.us-phi536, i64 64
   %248 = load ptr, ptr %247, align 8
-  br label %hfinfo_same_name_get_prev.exit336
+  br label %hfinfo_same_name_get_prev.argprom.exit336
 
 249:                                              ; preds = %245
   %250 = getelementptr i8, ptr %.us-phi536, i64 60
@@ -21294,13 +21294,13 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph527.split.spl
   %263 = getelementptr ptr, ptr %261, i64 %262
   %264 = load ptr, ptr %263, align 8
   %.not.i335 = icmp eq ptr %264, null
-  br i1 %.not.i335, label %265, label %hfinfo_same_name_get_prev.exit336
+  br i1 %.not.i335, label %265, label %hfinfo_same_name_get_prev.argprom.exit336
 
 265:                                              ; preds = %260
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 6829, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.5) #36
   unreachable
 
-hfinfo_same_name_get_prev.exit336:                ; preds = %260, %246
+hfinfo_same_name_get_prev.argprom.exit336:        ; preds = %260, %246
   %.4 = phi ptr [ %248, %246 ], [ %264, %260 ]
   %266 = add i32 %.us-phi537, %.0239.ph364809
   %.not287525 = icmp eq ptr %.4, null
@@ -21595,11 +21595,11 @@ hf_try_val_to_str.exit352:                        ; preds = %368, %375, %379, %3
 
 404:                                              ; preds = %401
   %405 = call ptr @try_val64_to_str_ext(i64 noundef %398, ptr noundef %403) #33
-  br label %hf_try_val64_to_str_const.exit
+  br label %hf_try_val64_to_str_const.argprom.exit
 
 406:                                              ; preds = %401
   %407 = call ptr @try_val64_to_str(i64 noundef %398, ptr noundef %403) #33
-  br label %hf_try_val64_to_str_const.exit
+  br label %hf_try_val64_to_str_const.argprom.exit
 
 408:                                              ; preds = %395
   %409 = and i32 %399, 256
@@ -21609,7 +21609,7 @@ hf_try_val_to_str.exit352:                        ; preds = %368, %375, %379, %3
 410:                                              ; preds = %408
   %411 = load ptr, ptr %280, align 8
   %412 = call ptr @try_rval64_to_str(i64 noundef %398, ptr noundef %411) #33
-  br label %hf_try_val64_to_str_const.exit
+  br label %hf_try_val64_to_str_const.argprom.exit
 
 413:                                              ; preds = %408
   %414 = and i32 %399, 4096
@@ -21619,7 +21619,7 @@ hf_try_val_to_str.exit352:                        ; preds = %368, %375, %379, %3
 415:                                              ; preds = %413
   %416 = load ptr, ptr %280, align 8
   %417 = call ptr @unit_name_string_get_value64(i64 noundef %398, ptr noundef %416) #33
-  br label %hf_try_val64_to_str_const.exit
+  br label %hf_try_val64_to_str_const.argprom.exit
 
 418:                                              ; preds = %413
   %419 = getelementptr inbounds i8, ptr %.us-phi536, i64 8
@@ -21627,7 +21627,7 @@ hf_try_val_to_str.exit352:                        ; preds = %368, %375, %379, %3
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.373, ptr noundef %420) #36
   unreachable
 
-hf_try_val64_to_str_const.exit:                   ; preds = %404, %406, %410, %415
+hf_try_val64_to_str_const.argprom.exit:           ; preds = %404, %406, %410, %415
   %.0.i.i = phi ptr [ %405, %404 ], [ %407, %406 ], [ %412, %410 ], [ %417, %415 ]
   %.not.i339 = icmp eq ptr %.0.i.i, null
   %421 = select i1 %.not.i339, ptr @.str.80, ptr %.0.i.i
@@ -21637,11 +21637,11 @@ hf_try_val64_to_str_const.exit:                   ; preds = %404, %406, %410, %4
   %423 = getelementptr inbounds i8, ptr %286, i64 48
   %424 = load ptr, ptr %423, align 8
   %425 = call i64 @fvalue_get_uinteger64(ptr noundef %424) #33
-  %426 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %425, ptr noundef %.us-phi536)
+  %426 = call fastcc ptr @hf_try_val64_to_str_const.argprom(i64 noundef %425, ptr noundef %.us-phi536)
   br label %427
 
-427:                                              ; preds = %hf_try_val_to_str.exit352, %422, %hf_try_val64_to_str_const.exit, %hf_try_val_to_str.exit
-  %.0240 = phi ptr [ %361, %hf_try_val_to_str.exit ], [ %394, %hf_try_val_to_str.exit352 ], [ %421, %hf_try_val64_to_str_const.exit ], [ %426, %422 ]
+427:                                              ; preds = %hf_try_val_to_str.exit352, %422, %hf_try_val64_to_str_const.argprom.exit, %hf_try_val_to_str.exit
+  %.0240 = phi ptr [ %361, %hf_try_val_to_str.exit ], [ %394, %hf_try_val_to_str.exit352 ], [ %421, %hf_try_val64_to_str_const.argprom.exit ], [ %426, %422 ]
   %428 = sext i32 %.7 to i64
   %429 = getelementptr i8, ptr %4, i64 %428
   %430 = sub i32 %5, %.7
@@ -21728,7 +21728,7 @@ protoo_strlcpy.exit343:                           ; preds = %.thread356, %456
 .outer:                                           ; preds = %471
   %472 = getelementptr i8, ptr %.us-phi536, i64 60
   %.2244.val313 = load i32, ptr %472, align 4
-  %473 = call fastcc ptr @hfinfo_same_name_get_prev(i32 %.2244.val313)
+  %473 = call fastcc ptr @hfinfo_same_name_get_prev.argprom(i32 %.2244.val313)
   %.not287525807 = icmp eq ptr %473, null
   br i1 %.not287525807, label %.loopexit, label %.lr.ph527.lr.ph, !llvm.loop !19
 
@@ -21821,7 +21821,7 @@ define ptr @proto_get_finfo_ptr_array(ptr noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hfinfo_same_name_get_prev(i32 %.60.val) unnamed_addr #0 {
+define internal fastcc ptr @hfinfo_same_name_get_prev.argprom(i32 %.60.val) unnamed_addr #0 {
   switch i32 %.60.val, label %1 [
     i32 -1, label %17
     i32 0, label %6
@@ -21872,7 +21872,7 @@ define internal fastcc ptr @hfinfo_same_name_get_prev(i32 %.60.val) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @hf_try_val64_to_str_const(i64 noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @hf_try_val64_to_str_const.argprom(i64 noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1024
@@ -22420,7 +22420,7 @@ proto_construct_match_selected_string.exit:       ; preds = %.lr.ph255
 ._crit_edge.thread:                               ; preds = %167, %._crit_edge
   %180 = getelementptr i8, ptr %.us-phi239, i64 60
   %.2120.val = load i32, ptr %180, align 4
-  %181 = call fastcc ptr @hfinfo_same_name_get_prev(i32 %.2120.val)
+  %181 = call fastcc ptr @hfinfo_same_name_get_prev.argprom(i32 %.2120.val)
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %143, %._crit_edge, %.outer.backedge, %.lr.ph.split.us, %proto_get_finfo_ptr_array.exit.thread, %proto_get_finfo_ptr_array.exit.thread.us, %._crit_edge261, %46, %49, %42, %45, %26
@@ -22636,7 +22636,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
 14:                                               ; preds = %7
   %15 = getelementptr i8, ptr %0, i64 48
   %.val174 = load ptr, ptr %15, align 8
-  tail call fastcc void @fill_label_boolean(ptr nonnull %8, ptr %.val174, ptr noundef %1)
+  tail call fastcc void @fill_label_boolean.argprom(ptr nonnull %8, ptr %.val174, ptr noundef %1)
   br label %free_address.exit
 
 16:                                               ; preds = %7, %7
@@ -22647,7 +22647,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %21 = tail call i64 @fvalue_length2(ptr noundef %20) #33
   %22 = trunc i64 %21 to i32
   %23 = tail call fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef %19, i32 noundef %22, i64 noundef 240)
-  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %23)
+  tail call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %23)
   tail call void @wmem_free(ptr noundef null, ptr noundef %23) #33
   br label %free_address.exit
 
@@ -22664,7 +22664,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %0, i64 48
   %.val176 = load ptr, ptr %29, align 8
-  tail call fastcc void @fill_label_char(ptr nonnull %8, ptr %.val176, ptr noundef %1)
+  tail call fastcc void @fill_label_char.argprom(ptr nonnull %8, ptr %.val176, ptr noundef %1)
   br label %free_address.exit
 
 30:                                               ; preds = %7, %7, %7, %7
@@ -22738,7 +22738,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %56 = getelementptr inbounds i8, ptr %8, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = tail call ptr @abs_time_to_str_ex(ptr noundef null, ptr noundef %55, i32 noundef %57, i32 noundef 1) #33
-  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %58)
+  tail call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %58)
   tail call void @wmem_free(ptr noundef null, ptr noundef %58) #33
   br label %free_address.exit
 
@@ -22909,7 +22909,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %153 = load ptr, ptr %152, align 8
   %154 = tail call ptr @fvalue_get_guid(ptr noundef %153) #33
   %155 = tail call ptr @guid_to_str(ptr noundef null, ptr noundef %154) #33
-  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %155)
+  tail call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %155)
   tail call void @wmem_free(ptr noundef null, ptr noundef %155) #33
   br label %free_address.exit
 
@@ -22929,12 +22929,12 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not168, label %169, label %168
 
 168:                                              ; preds = %156
-  tail call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %167, ptr noundef nonnull %163)
+  tail call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %167, ptr noundef nonnull %163)
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %163) #33
   br label %170
 
 169:                                              ; preds = %156
-  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %167)
+  tail call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %167)
   br label %170
 
 170:                                              ; preds = %169, %168
@@ -22957,12 +22957,12 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not167, label %184, label %183
 
 183:                                              ; preds = %171
-  tail call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %182, ptr noundef nonnull %178)
+  tail call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %182, ptr noundef nonnull %178)
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %178) #33
   br label %185
 
 184:                                              ; preds = %171
-  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %182)
+  tail call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %182)
   br label %185
 
 185:                                              ; preds = %184, %183
@@ -22977,7 +22977,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %191 = tail call i64 @fvalue_length2(ptr noundef %190) #33
   %192 = trunc i64 %191 to i32
   %193 = tail call ptr @print_system_id(ptr noundef null, ptr noundef %189, i32 noundef %192) #33
-  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %193)
+  tail call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %193)
   tail call void @wmem_free(ptr noundef null, ptr noundef %193) #33
   br label %free_address.exit
 
@@ -22987,7 +22987,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %197 = tail call i64 @fvalue_get_uinteger64(ptr noundef %196) #33
   %198 = tail call ptr @eui64_to_str(ptr noundef null, i64 noundef %197) #33
   %199 = tail call ptr @eui64_to_display(ptr noundef null, i64 noundef %197) #33
-  tail call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %199, ptr noundef %198)
+  tail call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %199, ptr noundef %198)
   tail call void @wmem_free(ptr noundef null, ptr noundef %199) #33
   tail call void @wmem_free(ptr noundef null, ptr noundef %198) #33
   br label %free_address.exit
@@ -22996,7 +22996,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %201 = getelementptr inbounds i8, ptr %0, i64 48
   %202 = load ptr, ptr %201, align 8
   %203 = tail call ptr @fvalue_get_string(ptr noundef %202) #33
-  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %203)
+  tail call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %203)
   br label %free_address.exit
 
 204:                                              ; preds = %7, %7
@@ -24113,7 +24113,7 @@ proto_get_id_by_short_name.exit:                  ; preds = %3, %7
   br i1 %.not14.i, label %hfinfo_remove_from_gpa_name_map.exit, label %.thread.thread.i
 
 .thread.thread.i:                                 ; preds = %.thread.i, %35
-  %43 = tail call fastcc ptr @hfinfo_same_name_get_prev(i32 %34)
+  %43 = tail call fastcc ptr @hfinfo_same_name_get_prev.argprom(i32 %34)
   %44 = load ptr, ptr %31, align 8
   %45 = getelementptr inbounds i8, ptr %43, i64 64
   store ptr %44, ptr %45, align 8
@@ -25470,7 +25470,7 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_boolean(ptr nocapture readonly %.0.val, ptr %.48.val, ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @fill_label_boolean.argprom(ptr nocapture readonly %.0.val, ptr %.48.val, ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call i64 @fvalue_get_uinteger64(ptr noundef %.48.val) #33
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 32
   %4 = load i64, ptr %3, align 8
@@ -25607,12 +25607,12 @@ decode_bitfield_value.exit:                       ; preds = %35, %22
   %47 = getelementptr inbounds i8, ptr %.0.val, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @tfs_get_string(i32 noundef %46, ptr noundef %48) #33
-  tail call fastcc void @label_fill(ptr noundef %0, i64 noundef %.0, ptr noundef %.0.val, ptr noundef %49)
+  tail call fastcc void @label_fill.argelim(ptr noundef %0, i64 noundef %.0, ptr noundef %.0.val, ptr noundef %49)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @label_fill(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @label_fill.argelim(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %1, ptr noundef %5, i32 noundef 0) #33
   %7 = getelementptr inbounds i8, ptr %2, i64 20
@@ -25819,7 +25819,7 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
   call void %56(ptr noundef nonnull %4, i32 noundef %24) #33
   %sext47 = shl i64 %51, 32
   %60 = ashr exact i64 %sext47, 32
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %60, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %60, ptr noundef nonnull %5, ptr noundef nonnull %4)
   br label %75
 
 61:                                               ; preds = %decode_bitfield_value.exit
@@ -25838,11 +25838,11 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
   br i1 %67, label %69, label %70
 
 69:                                               ; preds = %62
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %64)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %64)
   br label %75
 
 70:                                               ; preds = %62
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %64, ptr noundef nonnull %66)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %64, ptr noundef nonnull %66)
   br label %75
 
 71:                                               ; preds = %61
@@ -25850,7 +25850,7 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
   %73 = call noundef ptr @hfinfo_char_value_format_display(i32 noundef %72, ptr noundef nonnull %3, i32 noundef %24)
   %sext = shl i64 %51, 32
   %74 = ashr exact i64 %sext, 32
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %74, ptr noundef nonnull %5, ptr noundef %73)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %74, ptr noundef nonnull %5, ptr noundef %73)
   br label %75
 
 75:                                               ; preds = %71, %70, %69, %59
@@ -25858,7 +25858,7 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_char(ptr nocapture readonly %.0.val, ptr %.48.val, ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @fill_label_char.argprom(ptr nocapture readonly %.0.val, ptr %.48.val, ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca [240 x i8], align 16
   %4 = tail call i32 @fvalue_get_uinteger(ptr noundef %.48.val) #33
@@ -25879,7 +25879,7 @@ define internal fastcc void @fill_label_char(ptr nocapture readonly %.0.val, ptr
 
 12:                                               ; preds = %10
   call void %9(ptr noundef nonnull %3, i32 noundef %4) #33
-  call fastcc void @label_fill(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %.0.val, ptr noundef nonnull %3)
+  call fastcc void @label_fill.argelim(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %.0.val, ptr noundef nonnull %3)
   br label %22
 
 13:                                               ; preds = %1
@@ -25892,13 +25892,13 @@ define internal fastcc void @fill_label_char(ptr nocapture readonly %.0.val, ptr
   %.val23 = load i32, ptr %5, align 4
   %17 = and i32 %.val23, 255
   %18 = call noundef ptr @hfinfo_char_value_format_display(i32 noundef %17, ptr noundef nonnull %2, i32 noundef %4)
-  call fastcc void @label_fill_descr(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %.0.val, ptr noundef nonnull %16, ptr noundef %18)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %.0.val, ptr noundef nonnull %16, ptr noundef %18)
   br label %22
 
 19:                                               ; preds = %13
   %20 = and i32 %6, 255
   %21 = call noundef ptr @hfinfo_char_value_format_display(i32 noundef %20, ptr noundef nonnull %2, i32 noundef %4)
-  call fastcc void @label_fill(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %.0.val, ptr noundef %21)
+  call fastcc void @label_fill.argelim(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %.0.val, ptr noundef %21)
   br label %22
 
 22:                                               ; preds = %14, %19, %12
@@ -26141,7 +26141,7 @@ decode_bitfield_varint_value.exit:                ; preds = %59, %78, %66, %49
   call void %90(ptr noundef nonnull %5, i32 noundef %.064) #33
   %sext79 = shl i64 %85, 32
   %94 = ashr exact i64 %sext79, 32
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %94, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %94, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br label %125
 
 95:                                               ; preds = %decode_bitfield_varint_value.exit
@@ -26183,11 +26183,11 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %96
   br i1 %.not75, label %111, label %110
 
 110:                                              ; preds = %108
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef %109, ptr noundef nonnull %6, ptr noundef nonnull %97, ptr noundef %.0.i8994)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef %109, ptr noundef nonnull %6, ptr noundef nonnull %97, ptr noundef %.0.i8994)
   br label %125
 
 111:                                              ; preds = %108
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %109, ptr noundef nonnull %6, ptr noundef %.0.i8994)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %109, ptr noundef nonnull %6, ptr noundef %.0.i8994)
   br label %125
 
 112:                                              ; preds = %hfinfo_number_vals_format.exit
@@ -26200,13 +26200,13 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %96
   %spec.store.select97 = phi ptr [ %spec.store.select96, %.thread ], [ %spec.store.select, %112 ]
   %sext74 = shl i64 %85, 32
   %116 = ashr exact i64 %sext74, 32
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %116, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select97)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %116, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select97)
   br label %125
 
 117:                                              ; preds = %112
   %sext73 = shl i64 %85, 32
   %118 = ashr exact i64 %sext73, 32
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef %118, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %103)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef %118, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %103)
   br label %125
 
 119:                                              ; preds = %95
@@ -26217,7 +26217,7 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %96
   %123 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i90, ptr noundef %4, i32 noundef %.064)
   %sext = shl i64 %85, 32
   %124 = ashr exact i64 %sext, 32
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef %123)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef %123)
   br label %125
 
 125:                                              ; preds = %119, %115, %117, %110, %111, %93
@@ -26262,7 +26262,7 @@ define internal fastcc void @fill_label_number(ptr nocapture noundef readonly %0
 
 22:                                               ; preds = %20
   call void %19(ptr noundef nonnull %5, i32 noundef %.0) #33
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %5)
   br label %55
 
 23:                                               ; preds = %14
@@ -26308,11 +26308,11 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %27
   br i1 %.not54, label %41, label %40
 
 40:                                               ; preds = %39
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %28, ptr noundef %.0.i61)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %28, ptr noundef %.0.i61)
   br label %55
 
 41:                                               ; preds = %39
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %.0.i61)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %.0.i61)
   br label %55
 
 42:                                               ; preds = %hfinfo_number_vals_format.exit
@@ -26323,11 +26323,11 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %27
 
 45:                                               ; preds = %.thread, %42
   %spec.store.select64 = phi ptr [ %spec.store.select63, %.thread ], [ %spec.store.select, %42 ]
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select64)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select64)
   br label %55
 
 46:                                               ; preds = %42
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %34)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %34)
   br label %55
 
 47:                                               ; preds = %24, %23
@@ -26341,7 +26341,7 @@ switch.lookup:                                    ; preds = %47
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = call i32 @port_with_resolution_to_str_buf(ptr noundef nonnull %6, i64 noundef 240, i32 noundef %switch.load, i32 noundef %.0) #33
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %6)
   br label %55
 
 50:                                               ; preds = %47
@@ -26350,7 +26350,7 @@ switch.lookup:                                    ; preds = %47
   %53 = icmp eq i32 %52, 35
   %spec.store.select.i57 = select i1 %53, i32 1, i32 %16
   %54 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select.i57, ptr noundef %4, i32 noundef %.0)
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %54)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %54)
   br label %55
 
 55:                                               ; preds = %45, %46, %40, %41, %50, %switch.lookup, %22
@@ -26591,7 +26591,7 @@ decode_bitfield_varint_value.exit:                ; preds = %57, %76, %64, %47
   call void %88(ptr noundef nonnull %5, i64 noundef %.064) #33
   %sext79 = shl i64 %83, 32
   %92 = ashr exact i64 %sext79, 32
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %92, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %92, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br label %140
 
 93:                                               ; preds = %decode_bitfield_varint_value.exit
@@ -26675,11 +26675,11 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   br i1 %.not75, label %126, label %125
 
 125:                                              ; preds = %123
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef nonnull %.0.i90, ptr noundef %.0.i9196)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef nonnull %.0.i90, ptr noundef %.0.i9196)
   br label %140
 
 126:                                              ; preds = %123
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef %.0.i9196)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef %.0.i9196)
   br label %140
 
 127:                                              ; preds = %hfinfo_number_vals_format64.exit
@@ -26692,13 +26692,13 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %spec.store.select99 = phi ptr [ %spec.store.select98, %.thread ], [ %spec.store.select, %127 ]
   %sext74 = shl i64 %83, 32
   %131 = ashr exact i64 %sext74, 32
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %131, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select99)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %131, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select99)
   br label %140
 
 132:                                              ; preds = %127
   %sext73 = shl i64 %83, 32
   %133 = ashr exact i64 %sext73, 32
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef %133, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %118)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef %133, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %118)
   br label %140
 
 134:                                              ; preds = %93
@@ -26709,7 +26709,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %138 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i92, ptr noundef %4, i64 noundef %.064)
   %sext = shl i64 %83, 32
   %139 = ashr exact i64 %sext, 32
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef %139, ptr noundef nonnull %6, ptr noundef %138)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef %139, ptr noundef nonnull %6, ptr noundef %138)
   br label %140
 
 140:                                              ; preds = %134, %130, %132, %125, %126, %91
@@ -26753,7 +26753,7 @@ define internal fastcc void @fill_label_number64(ptr nocapture noundef readonly 
 
 21:                                               ; preds = %19
   call void %18(ptr noundef nonnull %5, i64 noundef %.0) #33
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br label %65
 
 22:                                               ; preds = %13
@@ -26835,11 +26835,11 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   br i1 %.not43, label %54, label %53
 
 53:                                               ; preds = %52
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %.0.i, ptr noundef %.0.i4550)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %.0.i, ptr noundef %.0.i4550)
   br label %65
 
 54:                                               ; preds = %52
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef %.0.i4550)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef %.0.i4550)
   br label %65
 
 55:                                               ; preds = %hfinfo_number_vals_format64.exit
@@ -26850,11 +26850,11 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
 
 58:                                               ; preds = %.thread, %55
   %spec.store.select53 = phi ptr [ %spec.store.select52, %.thread ], [ %spec.store.select, %55 ]
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select53)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select53)
   br label %65
 
 59:                                               ; preds = %55
-  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %47)
+  call fastcc void @label_fill_descr.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %47)
   br label %65
 
 60:                                               ; preds = %22
@@ -26863,7 +26863,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %63 = icmp eq i32 %62, 35
   %spec.store.select.i46 = select i1 %63, i32 1, i32 %15
   %64 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i46, ptr noundef %4, i64 noundef %.0)
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef %64)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef %64)
   br label %65
 
 65:                                               ; preds = %60, %58, %59, %53, %54, %21
@@ -26875,7 +26875,7 @@ define internal fastcc void @fill_label_float(ptr nocapture noundef nonnull read
   %3 = alloca [240 x i8], align 16
   %4 = call fastcc i64 @fill_display_label_float(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %5 = load ptr, ptr %0, align 8
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %5, ptr noundef nonnull %3)
+  call fastcc void @label_fill.argelim(ptr noundef %1, i64 noundef 0, ptr noundef %5, ptr noundef nonnull %3)
   ret void
 }
 
@@ -26888,7 +26888,7 @@ declare ptr @address_with_resolution_to_str(ptr noundef, ptr noundef) local_unna
 declare ptr @oid_encoded2string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @label_fill_descr(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @label_fill_descr.argelim(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %1, ptr noundef %6, i32 noundef 0) #33
   %8 = getelementptr inbounds i8, ptr %2, i64 20
@@ -30071,7 +30071,7 @@ ws_sign_ext32.exit:                               ; preds = %180, %176, %174
   %.not336 = icmp eq i32 %.0268.ph489, 0
   %237 = select i1 %.not336, ptr @.str.402, ptr @.str.77
   %238 = load ptr, ptr %66, align 8
-  %239 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %101, ptr noundef %66)
+  %239 = call fastcc ptr @hf_try_val64_to_str_const.argprom(i64 noundef %101, ptr noundef %66)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.401, ptr noundef nonnull %237, ptr noundef %238, ptr noundef nonnull %239)
   br label %.outer
 
@@ -30232,7 +30232,7 @@ ws_sign_ext64.exit:                               ; preds = %282, %279, %278
   %.not325 = icmp eq i32 %.0268.ph489, 0
   %302 = select i1 %.not325, ptr @.str.402, ptr @.str.77
   %303 = load ptr, ptr %66, align 8
-  %304 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %.0279, ptr noundef %66)
+  %304 = call fastcc ptr @hf_try_val64_to_str_const.argprom(i64 noundef %.0279, ptr noundef %66)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.401, ptr noundef nonnull %302, ptr noundef %303, ptr noundef nonnull %304)
   br label %.outer
 
@@ -31271,7 +31271,7 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %127, %120, %proto_i
   %.val.i = load ptr, ptr %141, align 8
   %142 = getelementptr i8, ptr %141, i64 48
   %.val154.i = load ptr, ptr %142, align 8
-  call fastcc void @fill_label_char(ptr %.val.i, ptr %.val154.i, ptr noundef %8)
+  call fastcc void @fill_label_char.argprom(ptr %.val.i, ptr %.val154.i, ptr noundef %8)
   br label %178
 
 143:                                              ; preds = %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i
@@ -31767,7 +31767,7 @@ other_decode_bitfield_value.exit:                 ; preds = %169
   %.val = load ptr, ptr %190, align 8
   %191 = getelementptr i8, ptr %190, i64 48
   %.val180 = load ptr, ptr %191, align 8
-  call fastcc void @fill_label_char(ptr %.val, ptr %.val180, ptr noundef %8)
+  call fastcc void @fill_label_char.argprom(ptr %.val, ptr %.val180, ptr noundef %8)
   br label %214
 
 192:                                              ; preds = %175, %175, %175, %175

@@ -41,11 +41,11 @@ define i32 @cli_scanxdp(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %22 = call i32 @cli_gentempfd(ptr noundef %.val, ptr noundef nonnull %3, ptr noundef nonnull %2) #8
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %.preheader.i, label %dump_xdp.exit.thread
+  br i1 %.not.i, label %.preheader.i, label %dump_xdp.argprom.exit.thread
 
 .preheader.i:                                     ; preds = %17
   %.not3.i = icmp eq i64 %20, 0
-  br i1 %.not3.i, label %dump_xdp.exit, label %.outer.split.i
+  br i1 %.not3.i, label %dump_xdp.argprom.exit, label %.outer.split.i
 
 .outer.split.i:                                   ; preds = %.preheader.i, %.outer.i
   %23 = phi i64 [ %41, %.outer.i ], [ %20, %.preheader.i ]
@@ -72,20 +72,20 @@ define i32 @cli_scanxdp(ptr noundef %0) local_unnamed_addr #0 {
   %37 = call i32 @cli_unlink(ptr noundef %36) #8
   %38 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %38) #8
-  br label %dump_xdp.exit.thread
+  br label %dump_xdp.argprom.exit.thread
 
 .outer.i:                                         ; preds = %25
   %39 = add i64 %27, %.010.ph2.i
   %40 = icmp ult i64 %39, %20
   %41 = sub nuw i64 %20, %39
-  br i1 %40, label %.outer.split.i, label %dump_xdp.exit
+  br i1 %40, label %.outer.split.i, label %dump_xdp.argprom.exit
 
-dump_xdp.exit.thread:                             ; preds = %33, %17
+dump_xdp.argprom.exit.thread:                     ; preds = %33, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %47
 
-dump_xdp.exit:                                    ; preds = %.outer.i, %.preheader.i
+dump_xdp.argprom.exit:                            ; preds = %.outer.i, %.preheader.i
   %42 = load ptr, ptr %3, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef %42) #8
   %43 = load i32, ptr %2, align 4
@@ -96,11 +96,11 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   %.not65 = icmp eq ptr %45, null
   br i1 %.not65, label %47, label %46
 
-46:                                               ; preds = %dump_xdp.exit
+46:                                               ; preds = %dump_xdp.argprom.exit
   call void @free(ptr noundef nonnull %45) #8
   br label %47
 
-47:                                               ; preds = %dump_xdp.exit.thread, %dump_xdp.exit, %46, %12
+47:                                               ; preds = %dump_xdp.argprom.exit.thread, %dump_xdp.argprom.exit, %46, %12
   %48 = load ptr, ptr %5, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 88
   %50 = load i64, ptr %49, align 8

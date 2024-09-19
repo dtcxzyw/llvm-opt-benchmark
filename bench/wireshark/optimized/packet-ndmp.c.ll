@@ -2368,7 +2368,7 @@ define internal noundef i32 @dissect_scsi_set_state_request(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_execute_cdb_request_mc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %4) #0 {
-  %6 = tail call fastcc i32 @dissect_execute_cdb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 8)
+  %6 = tail call fastcc i32 @dissect_execute_cdb_request.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 8)
   ret i32 %6
 }
 
@@ -2708,7 +2708,7 @@ dissect_error.exit:                               ; preds = %5, %9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_execute_cdb_request_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %4) #0 {
-  %6 = tail call fastcc i32 @dissect_execute_cdb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
+  %6 = tail call fastcc i32 @dissect_execute_cdb_request.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   ret i32 %6
 }
 
@@ -3036,7 +3036,7 @@ define internal noundef i32 @dissect_connect_open_request(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_connect_client_auth_request(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
-  %6 = tail call fastcc i32 @dissect_auth_data(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  %6 = tail call fastcc i32 @dissect_auth_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   ret i32 %6
 }
 
@@ -3077,7 +3077,7 @@ define internal i32 @dissect_connect_server_auth_reply(ptr noundef %0, i32 nound
 
 dissect_error.exit:                               ; preds = %5, %9
   %13 = add i32 %1, 4
-  %14 = tail call fastcc i32 @dissect_auth_data(ptr noundef %0, i32 noundef %13, ptr noundef %3)
+  %14 = tail call fastcc i32 @dissect_auth_data.argprom(ptr noundef %0, i32 noundef %13, ptr noundef %3)
   ret i32 %14
 }
 
@@ -3369,7 +3369,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_execute_cdb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 9) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_execute_cdb_request.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 9) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_ndmp_execute_cdb_flags, align 4
   %7 = load i32, ptr @ett_ndmp_execute_cdb_flags, align 4
   %8 = tail call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @dissect_execute_cdb_flags.cdb_flags, i32 noundef 0) #7
@@ -3911,7 +3911,7 @@ define internal noundef i32 @dissect_node(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_auth_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_auth_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #7
   %5 = load i32, ptr @hf_ndmp_auth_type, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #7

@@ -884,14 +884,14 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i.i.i:                ; preds = %95, %90
   store ptr null, ptr %12, align 8, !noalias !72
   %.pr.i.i.i.i = load ptr, ptr %11, align 8, !noalias !58
   %107 = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %107, label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.i", label %108
+  br i1 %107, label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.i", label %108
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr %.pr.i.i.i.i, align 8, !noalias !58
   %110 = getelementptr inbounds i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8, !noalias !58
   call void %111(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i.i) #14, !noalias !58
-  br label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.i"
+  br label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.i"
 
 _ZN4llvm5ErrorD2Ev.exit5.i.i.i.i:                 ; preds = %88
   %112 = load i8, ptr %56, align 8, !noalias !58
@@ -1163,7 +1163,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE9push_backES2_.exi
   %224 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %214) #14, !noalias !57
   %225 = add i64 %224, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %214, i64 noundef %225) #14, !noalias !57
-  br label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.thread.i"
+  br label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.thread.i"
 
 226:                                              ; preds = %211
   %.sroa.0.0.copyload.i23.i.i.i = load i32, ptr %58, align 8, !noalias !57
@@ -1172,9 +1172,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE9push_backES2_.exi
   %229 = load ptr, ptr %214, align 8, !noalias !57
   %230 = getelementptr inbounds %"class.llvm::codeview::TypeIndex", ptr %229, i64 %228
   store i32 %.sroa.07.0.i.i.i, ptr %230, align 1, !noalias !57
-  br label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.thread.i"
+  br label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.thread.i"
 
-"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.thread.i": ; preds = %226, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE9push_backES2_.exit.i.i.i.i
+"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.thread.i": ; preds = %226, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE9push_backES2_.exit.i.i.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 1) ]
   %.0.copyload.i.i.i.i.i24.i.i.i = load i32, ptr %58, align 8, !noalias !57
   %231 = add i32 %.0.copyload.i.i.i.i.i24.i.i.i, 1
@@ -1185,7 +1185,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE9push_backES2_.exi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !56
   br label %.backedge.i
 
-"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.i": ; preds = %108, %105
+"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.i": ; preds = %108, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !57
@@ -1195,7 +1195,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE9push_backES2_.exi
   %232 = icmp eq ptr %106, null
   br i1 %232, label %.backedge.i, label %"_ZN4llvm8codeview21forEachCodeViewRecordINS0_8CVRecordINS0_12TypeLeafKindEEEZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKNS_14VarStreamArrayIS4_NS_23VarStreamArrayExtractorIS4_EEEEE3$_0EENS_5ErrorENS_8ArrayRefIhEET0_.exit"
 
-.backedge.i:                                      ; preds = %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.i", %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.thread.i"
+.backedge.i:                                      ; preds = %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.i", %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.thread.i"
   %233 = icmp eq i64 %83, 0
   br i1 %233, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i, label %66
 
@@ -1203,7 +1203,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit.i:                ; preds = %.backedge.i, %_ZN4l
   store ptr null, ptr %0, align 8, !alias.scope !33
   br label %"_ZN4llvm8codeview21forEachCodeViewRecordINS0_8CVRecordINS0_12TypeLeafKindEEEZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKNS_14VarStreamArrayIS4_NS_23VarStreamArrayExtractorIS4_EEEEE3$_0EENS_5ErrorENS_8ArrayRefIhEET0_.exit"
 
-"_ZN4llvm8codeview21forEachCodeViewRecordINS0_8CVRecordINS0_12TypeLeafKindEEEZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKNS_14VarStreamArrayIS4_NS_23VarStreamArrayExtractorIS4_EEEEE3$_0EENS_5ErrorENS_8ArrayRefIhEET0_.exit": ; preds = %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.i", %68, %77, %_ZN4llvm5ErrorD2Ev.exit.thread.i, %_ZN4llvm12ErrorSuccessD2Ev.exit.i
+"_ZN4llvm8codeview21forEachCodeViewRecordINS0_8CVRecordINS0_12TypeLeafKindEEEZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKNS_14VarStreamArrayIS4_NS_23VarStreamArrayExtractorIS4_EEEEE3$_0EENS_5ErrorENS_8ArrayRefIhEET0_.exit": ; preds = %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom.exit.i", %68, %77, %_ZN4llvm5ErrorD2Ev.exit.thread.i, %_ZN4llvm12ErrorSuccessD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %234 = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i = icmp eq ptr %234, null
@@ -2791,13 +2791,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116TypeStreamMerger10
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %1, align 1
   %10 = icmp ult i32 %.0.copyload.i.i.i.i.i, 4096
-  br i1 %10, label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit.thread, label %11
+  br i1 %10, label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit.thread, label %11
 
 11:                                               ; preds = %4
   %12 = add i32 %.0.copyload.i.i.i.i.i, -4096
   %13 = zext i32 %12 to i64
   %.not.i = icmp ugt i64 %3, %13
-  br i1 %.not.i, label %14, label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit
+  br i1 %.not.i, label %14, label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds %"class.llvm::codeview::TypeIndex", ptr %2, i64 %13
@@ -2806,13 +2806,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116TypeStreamMerger10
   call void @llvm.assume(i1 true) [ "align"(ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
   %16 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i
-  br i1 %16, label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit, label %17
+  br i1 %16, label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit, label %17
 
 17:                                               ; preds = %14
   store i32 %.0.copyload.i.i.i.i.i.i, ptr %1, align 1
-  br label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit.thread
+  br label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit: ; preds = %14, %11
+_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit: ; preds = %14, %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %19 = load i8, ptr %18, align 1
@@ -2821,7 +2821,7 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
   %or.cond.not.i = select i1 %20, i1 %.not.i8, i1 false
   br i1 %or.cond.not.i, label %21, label %_ZN12_GLOBAL__N_116TypeStreamMerger18remapIndexFallbackERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit
 
-21:                                               ; preds = %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit
+21:                                               ; preds = %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
@@ -2897,7 +2897,7 @@ _ZN4llvm5ErrorD2Ev.exit4.sink.split.i:            ; preds = %46, %_ZN4llvm10join
   store i8 1, ptr %22, align 8
   br label %_ZN12_GLOBAL__N_116TypeStreamMerger18remapIndexFallbackERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit
 
-_ZN12_GLOBAL__N_116TypeStreamMerger18remapIndexFallbackERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit: ; preds = %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit, %_ZN4llvm10joinErrorsENS_5ErrorES0_.exit.i, %46, %_ZN4llvm5ErrorD2Ev.exit4.sink.split.i
+_ZN12_GLOBAL__N_116TypeStreamMerger18remapIndexFallbackERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit: ; preds = %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit, %_ZN4llvm10joinErrorsENS_5ErrorES0_.exit.i, %46, %_ZN4llvm5ErrorD2Ev.exit4.sink.split.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
@@ -2905,9 +2905,9 @@ _ZN12_GLOBAL__N_116TypeStreamMerger18remapIndexFallbackERN4llvm8codeview9TypeInd
   %56 = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
   store i32 %56, ptr %1, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit.thread
+  br label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit.thread: ; preds = %4, %17, %_ZN12_GLOBAL__N_116TypeStreamMerger18remapIndexFallbackERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit
+_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.argprom.exit.thread: ; preds = %4, %17, %_ZN12_GLOBAL__N_116TypeStreamMerger18remapIndexFallbackERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit
   %.0.i10 = phi i1 [ false, %_ZN12_GLOBAL__N_116TypeStreamMerger18remapIndexFallbackERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit ], [ true, %17 ], [ true, %4 ]
   ret i1 %.0.i10
 }
@@ -3012,8 +3012,8 @@ attributes #17 = { noreturn nounwind }
 !48 = distinct !{!48, !49, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !49 = distinct !{!49, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_: argument 0"}
-!52 = distinct !{!52, !"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_"}
+!51 = distinct !{!51, !52, !"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom: argument 0"}
+!52 = distinct !{!52, !"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.argprom"}
 !53 = !{!54}
 !54 = distinct !{!54, !55, !"_ZN12_GLOBAL__N_116TypeStreamMerger9remapTypeERKN4llvm8codeview8CVRecordINS2_12TypeLeafKindEEE: argument 0"}
 !55 = distinct !{!55, !"_ZN12_GLOBAL__N_116TypeStreamMerger9remapTypeERKN4llvm8codeview8CVRecordINS2_12TypeLeafKindEEE"}
@@ -3025,8 +3025,8 @@ attributes #17 = { noreturn nounwind }
 !61 = !{!62, !64, !59, !54, !51, !34}
 !62 = distinct !{!62, !63, !"_ZN4llvm10make_errorINS_8codeview13CodeViewErrorEJNS1_13cv_error_codeEEEENS_5ErrorEDpOT0_: argument 0"}
 !63 = distinct !{!63, !"_ZN4llvm10make_errorINS_8codeview13CodeViewErrorEJNS1_13cv_error_codeEEEENS_5ErrorEDpOT0_"}
-!64 = distinct !{!64, !65, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv: argument 0"}
-!65 = distinct !{!65, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv"}
+!64 = distinct !{!64, !65, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv.argprom: argument 0"}
+!65 = distinct !{!65, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv.argprom"}
 !66 = !{!67, !62, !64, !59, !54, !51, !34}
 !67 = distinct !{!67, !68, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !68 = distinct !{!68, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -3039,8 +3039,8 @@ attributes #17 = { noreturn nounwind }
 !75 = !{!76, !78, !59, !54, !51, !34}
 !76 = distinct !{!76, !77, !"_ZN4llvm10make_errorINS_8codeview13CodeViewErrorEJNS1_13cv_error_codeEEEENS_5ErrorEDpOT0_: argument 0"}
 !77 = distinct !{!77, !"_ZN4llvm10make_errorINS_8codeview13CodeViewErrorEJNS1_13cv_error_codeEEEENS_5ErrorEDpOT0_"}
-!78 = distinct !{!78, !79, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv: argument 0"}
-!79 = distinct !{!79, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv"}
+!78 = distinct !{!78, !79, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv.argprom: argument 0"}
+!79 = distinct !{!79, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv.argprom"}
 !80 = !{!81, !76, !78, !59, !54, !51, !34}
 !81 = distinct !{!81, !82, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !82 = distinct !{!82, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -3089,8 +3089,8 @@ attributes #17 = { noreturn nounwind }
 !125 = !{!126, !128}
 !126 = distinct !{!126, !127, !"_ZN4llvm10make_errorINS_8codeview13CodeViewErrorEJNS1_13cv_error_codeEEEENS_5ErrorEDpOT0_: argument 0"}
 !127 = distinct !{!127, !"_ZN4llvm10make_errorINS_8codeview13CodeViewErrorEJNS1_13cv_error_codeEEEENS_5ErrorEDpOT0_"}
-!128 = distinct !{!128, !129, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv: argument 0"}
-!129 = distinct !{!129, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv"}
+!128 = distinct !{!128, !129, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv.argprom: argument 0"}
+!129 = distinct !{!129, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv.argprom"}
 !130 = !{!131, !126, !128}
 !131 = distinct !{!131, !132, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !132 = distinct !{!132, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -3100,8 +3100,8 @@ attributes #17 = { noreturn nounwind }
 !136 = !{!137, !139}
 !137 = distinct !{!137, !138, !"_ZN4llvm10make_errorINS_8codeview13CodeViewErrorEJNS1_13cv_error_codeEEEENS_5ErrorEDpOT0_: argument 0"}
 !138 = distinct !{!138, !"_ZN4llvm10make_errorINS_8codeview13CodeViewErrorEJNS1_13cv_error_codeEEEENS_5ErrorEDpOT0_"}
-!139 = distinct !{!139, !140, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv: argument 0"}
-!140 = distinct !{!140, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv"}
+!139 = distinct !{!139, !140, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv.argprom: argument 0"}
+!140 = distinct !{!140, !"_ZNK12_GLOBAL__N_116TypeStreamMerger18errorCorruptRecordEv.argprom"}
 !141 = !{!142, !137, !139}
 !142 = distinct !{!142, !143, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !143 = distinct !{!143, !"_ZSt11make_uniqueIN4llvm8codeview13CodeViewErrorEJNS1_13cv_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

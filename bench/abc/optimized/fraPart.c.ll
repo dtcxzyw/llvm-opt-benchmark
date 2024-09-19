@@ -468,12 +468,12 @@ Vec_IntDup.exit:                                  ; preds = %182
   %197 = icmp sgt i32 %.val125261, 0
   br i1 %197, label %.lr.ph266, label %.critedge8
 
-.lr.ph266:                                        ; preds = %Vec_IntDup.exit, %Vec_IntTwoCountCommon.exit.thread
-  %198 = phi ptr [ %285, %Vec_IntTwoCountCommon.exit.thread ], [ %183, %Vec_IntDup.exit ]
-  %indvars.iv288 = phi i64 [ %indvars.iv.next289, %Vec_IntTwoCountCommon.exit.thread ], [ 0, %Vec_IntDup.exit ]
-  %.0107265 = phi ptr [ %.1108, %Vec_IntTwoCountCommon.exit.thread ], [ %188, %Vec_IntDup.exit ]
-  %.0113264 = phi i32 [ %.1114, %Vec_IntTwoCountCommon.exit.thread ], [ 0, %Vec_IntDup.exit ]
-  %.0115263 = phi i32 [ %.1116, %Vec_IntTwoCountCommon.exit.thread ], [ 0, %Vec_IntDup.exit ]
+.lr.ph266:                                        ; preds = %Vec_IntDup.exit, %Vec_IntTwoCountCommon.argprom.exit.thread
+  %198 = phi ptr [ %285, %Vec_IntTwoCountCommon.argprom.exit.thread ], [ %183, %Vec_IntDup.exit ]
+  %indvars.iv288 = phi i64 [ %indvars.iv.next289, %Vec_IntTwoCountCommon.argprom.exit.thread ], [ 0, %Vec_IntDup.exit ]
+  %.0107265 = phi ptr [ %.1108, %Vec_IntTwoCountCommon.argprom.exit.thread ], [ %188, %Vec_IntDup.exit ]
+  %.0113264 = phi i32 [ %.1114, %Vec_IntTwoCountCommon.argprom.exit.thread ], [ 0, %Vec_IntDup.exit ]
+  %.0115263 = phi i32 [ %.1116, %Vec_IntTwoCountCommon.argprom.exit.thread ], [ 0, %Vec_IntDup.exit ]
   %.val133 = load ptr, ptr %181, align 8
   %199 = getelementptr inbounds ptr, ptr %.val133, i64 %indvars.iv288
   %200 = load ptr, ptr %199, align 8
@@ -490,7 +490,7 @@ Vec_IntDup.exit:                                  ; preds = %182
   %207 = icmp sgt i32 %.val154, 0
   %208 = icmp sgt i32 %.val156, 0
   %209 = select i1 %207, i1 %208, i1 false
-  br i1 %209, label %.lr.ph.i182, label %Vec_IntTwoCountCommon.exit.thread
+  br i1 %209, label %.lr.ph.i182, label %Vec_IntTwoCountCommon.argprom.exit.thread
 
 .lr.ph.i182:                                      ; preds = %.lr.ph266, %223
   %.07.i = phi i32 [ %.1.i, %223 ], [ 0, %.lr.ph266 ]
@@ -526,13 +526,13 @@ Vec_IntDup.exit:                                  ; preds = %182
   %224 = icmp ult ptr %.120.i, %204
   %225 = icmp ult ptr %.122.i, %206
   %226 = select i1 %224, i1 %225, i1 false
-  br i1 %226, label %.lr.ph.i182, label %Vec_IntTwoCountCommon.exit, !llvm.loop !10
+  br i1 %226, label %.lr.ph.i182, label %Vec_IntTwoCountCommon.argprom.exit, !llvm.loop !10
 
-Vec_IntTwoCountCommon.exit:                       ; preds = %223
+Vec_IntTwoCountCommon.argprom.exit:               ; preds = %223
   %227 = icmp slt i32 %.1.i, 2
-  br i1 %227, label %Vec_IntTwoCountCommon.exit.thread, label %228
+  br i1 %227, label %Vec_IntTwoCountCommon.argprom.exit.thread, label %228
 
-228:                                              ; preds = %Vec_IntTwoCountCommon.exit
+228:                                              ; preds = %Vec_IntTwoCountCommon.argprom.exit
   %229 = icmp sgt i32 %.1.i, %1
   br i1 %229, label %230, label %283
 
@@ -660,17 +660,17 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntTwoMerge.exi
   call void @free(ptr noundef nonnull %.0107265) #15
   %282 = add nsw i32 %.0115263, 1
   %.pre297 = load ptr, ptr %28, align 8
-  br label %Vec_IntTwoCountCommon.exit.thread
+  br label %Vec_IntTwoCountCommon.argprom.exit.thread
 
 283:                                              ; preds = %228
   %284 = add nsw i32 %.0113264, 1
-  br label %Vec_IntTwoCountCommon.exit.thread
+  br label %Vec_IntTwoCountCommon.argprom.exit.thread
 
-Vec_IntTwoCountCommon.exit.thread:                ; preds = %.lr.ph266, %Vec_IntFree.exit, %283, %Vec_IntTwoCountCommon.exit
-  %285 = phi ptr [ %198, %Vec_IntTwoCountCommon.exit ], [ %.pre297, %Vec_IntFree.exit ], [ %198, %283 ], [ %198, %.lr.ph266 ]
-  %.1116 = phi i32 [ %.0115263, %Vec_IntTwoCountCommon.exit ], [ %282, %Vec_IntFree.exit ], [ %.0115263, %283 ], [ %.0115263, %.lr.ph266 ]
-  %.1114 = phi i32 [ %.0113264, %Vec_IntTwoCountCommon.exit ], [ %.0113264, %Vec_IntFree.exit ], [ %284, %283 ], [ %.0113264, %.lr.ph266 ]
-  %.1108 = phi ptr [ %.0107265, %Vec_IntTwoCountCommon.exit ], [ %234, %Vec_IntFree.exit ], [ %.0107265, %283 ], [ %.0107265, %.lr.ph266 ]
+Vec_IntTwoCountCommon.argprom.exit.thread:        ; preds = %.lr.ph266, %Vec_IntFree.exit, %283, %Vec_IntTwoCountCommon.argprom.exit
+  %285 = phi ptr [ %198, %Vec_IntTwoCountCommon.argprom.exit ], [ %.pre297, %Vec_IntFree.exit ], [ %198, %283 ], [ %198, %.lr.ph266 ]
+  %.1116 = phi i32 [ %.0115263, %Vec_IntTwoCountCommon.argprom.exit ], [ %282, %Vec_IntFree.exit ], [ %.0115263, %283 ], [ %.0115263, %.lr.ph266 ]
+  %.1114 = phi i32 [ %.0113264, %Vec_IntTwoCountCommon.argprom.exit ], [ %.0113264, %Vec_IntFree.exit ], [ %284, %283 ], [ %.0113264, %.lr.ph266 ]
+  %.1108 = phi ptr [ %.0107265, %Vec_IntTwoCountCommon.argprom.exit ], [ %234, %Vec_IntFree.exit ], [ %.0107265, %283 ], [ %.0107265, %.lr.ph266 ]
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %286 = getelementptr i8, ptr %285, i64 4
   %.val125 = load i32, ptr %286, align 4
@@ -678,10 +678,10 @@ Vec_IntTwoCountCommon.exit.thread:                ; preds = %.lr.ph266, %Vec_Int
   %288 = icmp slt i64 %indvars.iv.next289, %287
   br i1 %288, label %.lr.ph266, label %.critedge8, !llvm.loop !14
 
-.critedge8:                                       ; preds = %Vec_IntTwoCountCommon.exit.thread, %Vec_IntDup.exit
-  %.0115.lcssa = phi i32 [ 0, %Vec_IntDup.exit ], [ %.1116, %Vec_IntTwoCountCommon.exit.thread ]
-  %.0113.lcssa = phi i32 [ 0, %Vec_IntDup.exit ], [ %.1114, %Vec_IntTwoCountCommon.exit.thread ]
-  %.0107.lcssa = phi ptr [ %188, %Vec_IntDup.exit ], [ %.1108, %Vec_IntTwoCountCommon.exit.thread ]
+.critedge8:                                       ; preds = %Vec_IntTwoCountCommon.argprom.exit.thread, %Vec_IntDup.exit
+  %.0115.lcssa = phi i32 [ 0, %Vec_IntDup.exit ], [ %.1116, %Vec_IntTwoCountCommon.argprom.exit.thread ]
+  %.0113.lcssa = phi i32 [ 0, %Vec_IntDup.exit ], [ %.1114, %Vec_IntTwoCountCommon.argprom.exit.thread ]
+  %.0107.lcssa = phi ptr [ %188, %Vec_IntDup.exit ], [ %.1108, %Vec_IntTwoCountCommon.argprom.exit.thread ]
   %289 = load i32, ptr %155, align 4
   %290 = load i32, ptr %153, align 8
   %291 = icmp eq i32 %289, %290

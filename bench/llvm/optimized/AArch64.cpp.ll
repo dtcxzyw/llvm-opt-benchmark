@@ -20892,7 +20892,7 @@ _ZNK4llvm9StringRef5splitES0_.exit71:             ; preds = %115, %116
 
 124:                                              ; preds = %_ZNK4llvm9StringRef5splitES0_.exit71
   call void @_ZN4llvm7AArch6412ExtensionSet15addArchDefaultsERKNS0_8ArchInfoE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(72) %123) #22
-  call fastcc void @"_ZZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefEENK3$_0clES3_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERNS2_7AArch6412ExtensionSetE"(ptr %.sroa.5.2, i64 %.sroa.8.2, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %15)
+  call fastcc void @"_ZZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefEENK3$_0clES3_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERNS2_7AArch6412ExtensionSetE.argprom"(ptr %.sroa.5.2, i64 %.sroa.8.2, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %15)
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit61.thread169: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit52.thread168
@@ -20996,7 +20996,7 @@ _ZNK4llvm9StringRef5splitES0_.exit88:             ; preds = %152, %153
 
 162:                                              ; preds = %_ZNK4llvm9StringRef5splitES0_.exit88
   call void @_ZN4llvm7AArch6412ExtensionSet14addCPUDefaultsERKNS0_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %21) #22
-  call fastcc void @"_ZZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefEENK3$_0clES3_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERNS2_7AArch6412ExtensionSetE"(ptr %.sroa.4.2, i64 %.sroa.7.2, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %15)
+  call fastcc void @"_ZZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefEENK3$_0clES3_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERNS2_7AArch6412ExtensionSetE.argprom"(ptr %.sroa.4.2, i64 %.sroa.7.2, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %15)
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit74.thread170: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit74
@@ -21071,7 +21071,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit104:     ; preds = %_ZNK4llvm9StringRef
   br i1 %188, label %_ZNK4llvm9StringRef11starts_withES0_.exit104.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit104.thread172
 
 _ZNK4llvm9StringRef11starts_withES0_.exit104.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit104
-  call fastcc void @"_ZZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefEENK3$_0clES3_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERNS2_7AArch6412ExtensionSetE"(ptr nonnull %67, i64 %.sroa.speculated.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %15)
+  call fastcc void @"_ZZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefEENK3$_0clES3_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERNS2_7AArch6412ExtensionSetE.argprom"(ptr nonnull %67, i64 %.sroa.speculated.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %15)
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit104.thread172: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit61.thread169, %_ZNK4llvm9StringRef11starts_withES0_.exit104
@@ -21188,7 +21188,7 @@ declare noundef ptr @_ZN4llvm7AArch649parseArchENS_9StringRefE(ptr, i64) local_u
 declare void @_ZN4llvm7AArch6412ExtensionSet15addArchDefaultsERKNS0_8ArchInfoE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefEENK3$_0clES3_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERNS2_7AArch6412ExtensionSetE"(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefEENK3$_0clES3_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERNS2_7AArch6412ExtensionSetE.argprom"(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::StringRef", align 8

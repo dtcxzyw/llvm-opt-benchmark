@@ -752,7 +752,7 @@ list_head.exit.i:                                 ; preds = %385, %380
   %.028.lcssa.i = phi ptr [ %388, %list_head.exit.i ], [ %.1.i, %427 ]
   %.026.lcssa.i = phi ptr [ null, %list_head.exit.i ], [ %430, %427 ]
   %.not.i = icmp eq ptr %.028.lcssa.i, null
-  br i1 %.not.i, label %build_index_tlist.exit, label %434
+  br i1 %.not.i, label %build_index_tlist.argprom.exit, label %434
 
 434:                                              ; preds = %._crit_edge.i
   %435 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -761,7 +761,7 @@ list_head.exit.i:                                 ; preds = %385, %380
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1906, ptr noundef nonnull @__func__.build_index_tlist) #10
   unreachable
 
-build_index_tlist.exit:                           ; preds = %._crit_edge.i
+build_index_tlist.argprom.exit:                   ; preds = %._crit_edge.i
   %437 = getelementptr inbounds i8, ptr %170, i64 152
   store ptr %.026.lcssa.i, ptr %437, align 8
   %438 = getelementptr inbounds i8, ptr %170, i64 160
@@ -786,7 +786,7 @@ build_index_tlist.exit:                           ; preds = %._crit_edge.i
   %.not312 = icmp eq i8 %451, 73
   br i1 %.not312, label %472, label %452
 
-452:                                              ; preds = %build_index_tlist.exit
+452:                                              ; preds = %build_index_tlist.argprom.exit
   %453 = load ptr, ptr %372, align 8
   %454 = icmp eq ptr %453, null
   br i1 %454, label %455, label %460
@@ -822,7 +822,7 @@ build_index_tlist.exit:                           ; preds = %._crit_edge.i
   %471 = call i32 @_bt_getrootheight(ptr noundef nonnull %140) #10
   br label %475
 
-472:                                              ; preds = %build_index_tlist.exit
+472:                                              ; preds = %build_index_tlist.argprom.exit
   %473 = getelementptr inbounds i8, ptr %170, i64 24
   store i32 0, ptr %473, align 8
   %474 = getelementptr inbounds i8, ptr %170, i64 32

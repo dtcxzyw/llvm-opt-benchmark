@@ -77,18 +77,18 @@ if.end:                                           ; preds = %entry
   %nr = getelementptr inbounds i8, ptr %array, i64 8
   %1 = load i64, ptr %nr, align 8
   %cmp.i = icmp ugt i64 %1, 1
-  br i1 %cmp.i, label %if.then.i, label %sane_qsort.exit
+  br i1 %cmp.i, label %if.then.i, label %sane_qsort.argprom.exit
 
 if.then.i:                                        ; preds = %if.end
   %2 = load ptr, ptr %array, align 8
   tail call void @qsort(ptr noundef %2, i64 noundef %1, i64 noundef 36, ptr noundef nonnull @void_hashcmp) #15
-  br label %sane_qsort.exit
+  br label %sane_qsort.argprom.exit
 
-sane_qsort.exit:                                  ; preds = %if.end, %if.then.i
+sane_qsort.argprom.exit:                          ; preds = %if.end, %if.then.i
   store i32 1, ptr %sorted, align 8
   br label %return
 
-return:                                           ; preds = %entry, %sane_qsort.exit
+return:                                           ; preds = %entry, %sane_qsort.argprom.exit
   ret void
 }
 
@@ -143,18 +143,18 @@ if.end.i:                                         ; preds = %entry
   %nr.i = getelementptr inbounds i8, ptr %array, i64 8
   %1 = load i64, ptr %nr.i, align 8
   %cmp.i.i = icmp ugt i64 %1, 1
-  br i1 %cmp.i.i, label %if.then.i.i, label %sane_qsort.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %sane_qsort.argprom.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %2 = load ptr, ptr %array, align 8
   tail call void @qsort(ptr noundef %2, i64 noundef %1, i64 noundef 36, ptr noundef nonnull @void_hashcmp) #15
-  br label %sane_qsort.exit.i
+  br label %sane_qsort.argprom.exit.i
 
-sane_qsort.exit.i:                                ; preds = %if.then.i.i, %if.end.i
+sane_qsort.argprom.exit.i:                        ; preds = %if.then.i.i, %if.end.i
   store i32 1, ptr %sorted.i, align 8
   br label %oid_array_sort.exit
 
-oid_array_sort.exit:                              ; preds = %entry, %sane_qsort.exit.i
+oid_array_sort.exit:                              ; preds = %entry, %sane_qsort.argprom.exit.i
   %3 = load ptr, ptr %array, align 8
   %nr = getelementptr inbounds i8, ptr %array, i64 8
   %4 = load i64, ptr %nr, align 8
@@ -222,18 +222,18 @@ if.end.i:                                         ; preds = %entry
   %nr.i = getelementptr inbounds i8, ptr %array, i64 8
   %1 = load i64, ptr %nr.i, align 8
   %cmp.i.i = icmp ugt i64 %1, 1
-  br i1 %cmp.i.i, label %if.then.i.i, label %sane_qsort.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %sane_qsort.argprom.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %2 = load ptr, ptr %array, align 8
   tail call void @qsort(ptr noundef %2, i64 noundef %1, i64 noundef 36, ptr noundef nonnull @void_hashcmp) #15
-  br label %sane_qsort.exit.i
+  br label %sane_qsort.argprom.exit.i
 
-sane_qsort.exit.i:                                ; preds = %if.then.i.i, %if.end.i
+sane_qsort.argprom.exit.i:                        ; preds = %if.then.i.i, %if.end.i
   store i32 1, ptr %sorted.i, align 8
   br label %oid_array_sort.exit
 
-oid_array_sort.exit:                              ; preds = %entry, %sane_qsort.exit.i
+oid_array_sort.exit:                              ; preds = %entry, %sane_qsort.argprom.exit.i
   %nr = getelementptr inbounds i8, ptr %array, i64 8
   %3 = load i64, ptr %nr, align 8
   %cmp9.not = icmp eq i64 %3, 0

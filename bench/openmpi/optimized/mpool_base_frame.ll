@@ -73,7 +73,7 @@ define internal range(i32 -1, 1) i32 @mca_mpool_base_open(i32 noundef %0) #0 {
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not1.i = icmp eq ptr %13, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %14 = phi ptr [ %16, %.lr.ph.i ], [ %13, %11 ]
@@ -82,14 +82,14 @@ define internal range(i32 -1, 1) i32 @mca_mpool_base_open(i32 noundef %0) #0 {
   %15 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %11
+opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %11
   %17 = tail call i32 @mca_mpool_base_tree_init() #3
   br label %18
 
-18:                                               ; preds = %1, %opal_obj_run_constructors.exit
-  %.0 = phi i32 [ 0, %opal_obj_run_constructors.exit ], [ -1, %1 ]
+18:                                               ; preds = %1, %opal_obj_run_constructors.argprom.exit
+  %.0 = phi i32 [ 0, %opal_obj_run_constructors.argprom.exit ], [ -1, %1 ]
   ret i32 %.0
 }
 

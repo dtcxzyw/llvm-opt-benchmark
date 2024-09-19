@@ -1887,7 +1887,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i38:            ; preds = %if.then15
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %24, i64 -4
   %25 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %shr.i30, %25
-  br i1 %cmp.not.i.i, label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit", label %while.cond.i.i.i.preheader
+  br i1 %cmp.not.i.i, label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit", label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i38, %if.then15
   %.ph = phi ptr [ null, %if.then15 ], [ %24, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i38 ]
@@ -1985,7 +1985,7 @@ while.end.i.i.i:                                  ; preds = %_ZNK6vectorIjLb0EjE
   store i32 %add10.i.i.ph, ptr %arrayidx.i4.i.i, align 4
   %cmp8.not19.i.i.i = icmp eq i32 %retval.0.i16.i.i.i.ph, %add10.i.i.ph
   %.pre13.i.i = load ptr, ptr %m_in_coi, align 8
-  br i1 %cmp8.not19.i.i.i, label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit", label %for.body.preheader.i.i.i
+  br i1 %cmp8.not19.i.i.i, label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit", label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %idx.ext6.i.i.i = zext nneg i32 %add10.i.i.ph to i64
@@ -1995,9 +1995,9 @@ for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %32 = shl nsw i64 %31, 2
   call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.i.i.i, i8 0, i64 %32, i1 false)
   %.pre.i.i = load ptr, ptr %m_in_coi, align 8
-  br label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit"
+  br label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit"
 
-"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit": ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i38, %while.end.i.i.i, %for.body.preheader.i.i.i
+"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit": ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i38, %while.end.i.i.i, %for.body.preheader.i.i.i
   %33 = phi ptr [ %.pre.i.i, %for.body.preheader.i.i.i ], [ %.pre13.i.i, %while.end.i.i.i ], [ %24, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i38 ]
   %xor.i.i = xor i32 %retval.sroa.0.0.copyload.i, 1
   %and.i.i = and i32 %xor.i.i, 31
@@ -2144,7 +2144,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i89:            ; preds = %if.end74, %land.rhs
   %58 = phi ptr [ %53, %land.rhs.i74 ], [ %44, %if.end74 ]
   %59 = phi i32 [ %54, %land.rhs.i74 ], [ %45, %if.end74 ]
   %cmp.not.i.i91 = icmp ult i32 %shr.i30, %59
-  br i1 %cmp.not.i.i91, label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit129", label %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i.i92
+  br i1 %cmp.not.i.i91, label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit129", label %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i.i92
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i.i92:   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i89
   %add.i.i93 = add nuw nsw i32 %shr.i30, 1
@@ -2220,7 +2220,7 @@ while.end.i.i.i105:                               ; preds = %_ZN6vectorIjLb0EjE1
   store i32 %add.i.i93, ptr %arrayidx.i4.i.i106, align 4
   %cmp8.not19.i.i.i107 = icmp eq i32 %59, %add.i.i93
   %.pre13.i.i108 = load ptr, ptr %m_in_coi, align 8
-  br i1 %cmp8.not19.i.i.i107, label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit129", label %for.body.preheader.i.i.i109
+  br i1 %cmp8.not19.i.i.i107, label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit129", label %for.body.preheader.i.i.i109
 
 for.body.preheader.i.i.i109:                      ; preds = %while.end.i.i.i105
   %idx.ext6.i.i.i110 = zext nneg i32 %add.i.i93 to i64
@@ -2230,9 +2230,9 @@ for.body.preheader.i.i.i109:                      ; preds = %while.end.i.i.i105
   %65 = shl nsw i64 %64, 2
   call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.i.i.i112, i8 0, i64 %65, i1 false)
   %.pre.i.i113 = load ptr, ptr %m_in_coi, align 8
-  br label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit129"
+  br label %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit129"
 
-"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit129": ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i89, %while.end.i.i.i105, %for.body.preheader.i.i.i109
+"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit129": ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i89, %while.end.i.i.i105, %for.body.preheader.i.i.i109
   %66 = phi ptr [ %.pre.i.i113, %for.body.preheader.i.i.i109 ], [ %.pre13.i.i108, %while.end.i.i.i105 ], [ %58, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i89 ]
   %xor.i.i114 = xor i32 %retval.sroa.0.0.copyload.i, 1
   %and.i.i115 = and i32 %xor.i.i114, 31
@@ -2262,9 +2262,9 @@ if.else79:                                        ; preds = %land.rhs.i74, %for.
   store i32 %71, ptr %arrayidx.i133, align 4
   br label %for.inc88
 
-for.inc88:                                        ; preds = %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit129", %if.else79, %if.then18, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit"
-  %j.1 = phi i32 [ %j.0240, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit" ], [ %j.0240, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit129" ], [ %inc85, %if.else79 ], [ %inc, %if.then18 ]
-  %on_trail.1 = phi i1 [ true, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit" ], [ true, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.exit129" ], [ true, %if.else79 ], [ false, %if.then18 ]
+for.inc88:                                        ; preds = %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit129", %if.else79, %if.then18, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit"
+  %j.1 = phi i32 [ %j.0240, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit" ], [ %j.0240, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit129" ], [ %inc85, %if.else79 ], [ %inc, %if.then18 ]
+  %on_trail.1 = phi i1 [ true, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit" ], [ true, %"_ZZN3sat10proof_trim11prune_trailERK7svectorINS_7literalEjEPNS_6clauseEENK3$_0clES2_.argprom.exit129" ], [ true, %if.else79 ], [ false, %if.then18 ]
   %72 = load ptr, ptr %m_trail.i, align 8
   %cmp.i.i23 = icmp eq ptr %72, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4659,7 +4659,7 @@ land.lhs.true115:                                 ; preds = %_ZNK6vectorIN3sat7l
   %arrayidx.i.i.i228 = getelementptr inbounds i32, ptr %p.val.val.i, i64 %idxprom.i.i.i227
   %133 = load i32, ptr %arrayidx.i.i.i228, align 4
   %cmp.i229 = icmp eq i32 %133, -1
-  br i1 %cmp.i229, label %if.then.i231, label %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.exit"
+  br i1 %cmp.i229, label %if.then.i231, label %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.argprom.exit"
 
 if.then.i231:                                     ; preds = %land.lhs.true115
   %arrayidx.i.i232 = getelementptr inbounds i8, ptr %m_clause.val.pre, i64 4
@@ -4668,9 +4668,9 @@ if.then.i231:                                     ; preds = %land.lhs.true115
   store i32 %agg.tmp.sroa.0.0.copyload.i226, ptr %arrayidx.i.i232, align 4
   %.pre.i233 = load ptr, ptr %m_clause, align 8
   %.pre1.i234 = load ptr, ptr %108, align 8
-  br label %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.exit"
+  br label %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.argprom.exit"
 
-"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.exit": ; preds = %land.lhs.true115, %if.then.i231
+"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.argprom.exit": ; preds = %land.lhs.true115, %if.then.i231
   %135 = phi ptr [ %.pre1.i234, %if.then.i231 ], [ %p.val.val.i, %land.lhs.true115 ]
   %136 = phi ptr [ %.pre.i233, %if.then.i231 ], [ %m_clause.val.pre, %land.lhs.true115 ]
   %arrayidx.i1.i = getelementptr inbounds i8, ptr %136, i64 4
@@ -4681,14 +4681,14 @@ if.then.i231:                                     ; preds = %land.lhs.true115
   %cmp13.i = icmp eq i32 %137, -1
   br i1 %cmp13.i, label %if.then117, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit241
 
-if.then117:                                       ; preds = %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.exit"
+if.then117:                                       ; preds = %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.argprom.exit"
   %agg.tmp119.sroa.0.0.copyload = load i32, ptr %136, align 4
   %call126 = call noundef zeroext i1 @_ZN3sat6solver20propagate_bin_clauseENS_7literalES1_(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp119.sroa.0.0.copyload, i32 %agg.tmp8.sroa.0.0.copyload.i)
   br label %if.end139
 
-_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit241:  ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit224, %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.exit"
-  %138 = phi ptr [ %136, %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.exit" ], [ %m_clause.val.pre, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit224 ]
-  %139 = phi ptr [ %135, %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.exit" ], [ %p.val.val.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit224 ]
+_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit241:  ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit224, %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.argprom.exit"
+  %138 = phi ptr [ %136, %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.argprom.exit" ], [ %m_clause.val.pre, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit224 ]
+  %139 = phi ptr [ %135, %"_ZZN3sat10proof_trim6assumeEjbENK3$_1clEv.argprom.exit" ], [ %p.val.val.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit224 ]
   %arrayidx.i239 = getelementptr inbounds i8, ptr %138, i64 -4
   %140 = load i32, ptr %arrayidx.i239, align 4
   %cmp130 = icmp ugt i32 %140, 2

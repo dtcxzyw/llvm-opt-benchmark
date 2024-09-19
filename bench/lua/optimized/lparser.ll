@@ -2413,7 +2413,7 @@ if.end13.i:                                       ; preds = %if.else32.i, %if.el
 
 if.then16.i:                                      ; preds = %if.end13.i, %if.end13.thread.i
   call void @luaK_reserveregs(ptr noundef %ls.val.i, i32 noundef %sub.i543) #11
-  br label %adjust_assign.exit
+  br label %adjust_assign.argprom.exit
 
 if.else17.i:                                      ; preds = %if.end13.i, %if.end9.i
   %freereg18.i = getelementptr inbounds i8, ptr %ls.val.i, i64 68
@@ -2421,13 +2421,13 @@ if.else17.i:                                      ; preds = %if.end13.i, %if.end
   %304 = trunc i32 %sub.i543 to i8
   %conv21.i = add i8 %303, %304
   store i8 %conv21.i, ptr %freereg18.i, align 4
-  br label %adjust_assign.exit
+  br label %adjust_assign.argprom.exit
 
-adjust_assign.exit:                               ; preds = %if.then16.i, %if.else17.i
+adjust_assign.argprom.exit:                       ; preds = %if.then16.i, %if.else17.i
   call fastcc void @adjustlocalvars(ptr noundef %ls, i32 noundef %inc.i)
   br label %localstat.exit
 
-localstat.exit:                                   ; preds = %if.then28.i, %adjust_assign.exit
+localstat.exit:                                   ; preds = %if.then28.i, %adjust_assign.argprom.exit
   %cmp.not.i515 = icmp eq i32 %toclose.1.i, -1
   br i1 %cmp.not.i515, label %checktoclose.exit, label %if.then.i516
 
@@ -2557,20 +2557,20 @@ if.then.i618:                                     ; preds = %for.body.i.i611
 
 checkrepeated.exit:                               ; preds = %for.cond.i.i615, %labelstat.exit
   switch i32 %312, label %sw.default.i602 [
-    i32 259, label %block_follow.exit
-    i32 260, label %block_follow.exit
-    i32 261, label %block_follow.exit
-    i32 288, label %block_follow.exit
+    i32 259, label %block_follow.argprom.exit
+    i32 260, label %block_follow.argprom.exit
+    i32 261, label %block_follow.argprom.exit
+    i32 288, label %block_follow.argprom.exit
     i32 276, label %sw.bb1.i
   ]
 
 sw.bb1.i:                                         ; preds = %checkrepeated.exit
-  br label %block_follow.exit
+  br label %block_follow.argprom.exit
 
 sw.default.i602:                                  ; preds = %checkrepeated.exit
-  br label %block_follow.exit
+  br label %block_follow.argprom.exit
 
-block_follow.exit:                                ; preds = %checkrepeated.exit, %checkrepeated.exit, %checkrepeated.exit, %checkrepeated.exit, %sw.bb1.i, %sw.default.i602
+block_follow.argprom.exit:                        ; preds = %checkrepeated.exit, %checkrepeated.exit, %checkrepeated.exit, %checkrepeated.exit, %sw.bb1.i, %sw.default.i602
   %retval.0.i601 = phi i32 [ 0, %sw.default.i602 ], [ 0, %sw.bb1.i ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ]
   %call4.i80 = tail call fastcc i32 @createlabel(ptr noundef nonnull %ls, ptr noundef %310, i32 noundef %0, i32 noundef %retval.0.i601)
   br label %sw.epilog
@@ -2934,7 +2934,7 @@ exprstat.exit:                                    ; preds = %if.then.i125, %if.e
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %v.i122)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end.i117, %if.then.i99, %new_localvar.exit, %checktoclose.exit, %exprstat.exit, %sw.bb11, %testnext.exit630, %block_follow.exit, %check_readonly.exit, %repeatstat.exit, %check_match.exit284, %check_match.exit, %check_match.exit197, %check_match.exit168, %sw.bb
+sw.epilog:                                        ; preds = %if.end.i117, %if.then.i99, %new_localvar.exit, %checktoclose.exit, %exprstat.exit, %sw.bb11, %testnext.exit630, %block_follow.argprom.exit, %check_readonly.exit, %repeatstat.exit, %check_match.exit284, %check_match.exit, %check_match.exit197, %check_match.exit168, %sw.bb
   %fs = getelementptr inbounds i8, ptr %ls, i64 48
   %390 = load ptr, ptr %fs, align 8
   %nactvar.i135 = getelementptr inbounds i8, ptr %390, i64 66
@@ -3819,20 +3819,20 @@ if.end.i:                                         ; preds = %while.body.i, %if.t
   %13 = load i8, ptr %marked.i, align 1
   %14 = and i8 %13, 32
   %tobool.not.i = icmp eq i8 %14, 0
-  br i1 %tobool.not.i, label %addprototype.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %addprototype.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %marked17.i = getelementptr inbounds i8, ptr %call11.i, i64 9
   %15 = load i8, ptr %marked17.i, align 1
   %16 = and i8 %15, 24
   %tobool20.not.i = icmp eq i8 %16, 0
-  br i1 %tobool20.not.i, label %addprototype.exit, label %cond.true.i
+  br i1 %tobool20.not.i, label %addprototype.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   tail call void @luaC_barrier_(ptr noundef %ls.val14, ptr noundef nonnull %2, ptr noundef nonnull %call11.i) #11
-  br label %addprototype.exit
+  br label %addprototype.argprom.exit
 
-addprototype.exit:                                ; preds = %if.end.i, %land.lhs.true.i, %cond.true.i
+addprototype.argprom.exit:                        ; preds = %if.end.i, %land.lhs.true.i, %cond.true.i
   store ptr %call11.i, ptr %new_fs, align 8
   %linedefined = getelementptr inbounds i8, ptr %call11.i, i64 44
   store i32 %line, ptr %linedefined, align 4
@@ -3880,7 +3880,7 @@ addprototype.exit:                                ; preds = %if.end.i, %land.lhs
   %tobool.not.i18 = icmp eq i8 %24, 0
   br i1 %tobool.not.i18, label %cond.end.i, label %land.lhs.true.i19
 
-land.lhs.true.i19:                                ; preds = %addprototype.exit
+land.lhs.true.i19:                                ; preds = %addprototype.argprom.exit
   %marked10.i = getelementptr inbounds i8, ptr %22, i64 9
   %25 = load i8, ptr %marked10.i, align 1
   %26 = and i8 %25, 24
@@ -3892,7 +3892,7 @@ cond.true.i20:                                    ; preds = %land.lhs.true.i19
   call void @luaC_barrier_(ptr noundef %27, ptr noundef nonnull %call11.i, ptr noundef nonnull %22) #11
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.true.i20, %land.lhs.true.i19, %addprototype.exit
+cond.end.i:                                       ; preds = %cond.true.i20, %land.lhs.true.i19, %addprototype.argprom.exit
   %maxstacksize.i = getelementptr inbounds i8, ptr %call11.i, i64 12
   store i8 2, ptr %maxstacksize.i, align 4
   %isloop1.i.i = getelementptr inbounds i8, ptr %bl, i64 18

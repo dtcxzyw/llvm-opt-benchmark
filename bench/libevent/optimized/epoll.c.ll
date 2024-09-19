@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [11 x i8] c"epoll_wait\00", align 1
 @.str.19 = private unnamed_addr constant [26 x i8] c"%s: epoll_wait reports %d\00", align 1
 @__func__.epoll_dispatch = private unnamed_addr constant [15 x i8] c"epoll_dispatch\00", align 1
-@switch.table.epoll_apply_one_change.6 = private unnamed_addr constant [4 x ptr] [ptr @.str.17, ptr @.str.15, ptr @.str.16, ptr @.str.14], align 8
+@switch.table.epoll_apply_one_change.argprom.6 = private unnamed_addr constant [4 x ptr] [ptr @.str.17, ptr @.str.15, ptr @.str.16, ptr @.str.14], align 8
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @epoll_init(ptr noundef %base) #0 {
@@ -177,7 +177,7 @@ if.then19:                                        ; preds = %if.end15
 if.end25:                                         ; preds = %if.then19, %if.end15
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %6 = load ptr, ptr %evbase, align 8
-  %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %6, ptr noundef nonnull %ch)
+  %call = call fastcc i32 @epoll_apply_one_change.argprom(ptr noundef %6, ptr noundef nonnull %ch)
   ret i32 %call
 }
 
@@ -232,7 +232,7 @@ if.then19:                                        ; preds = %if.end15
 if.end25:                                         ; preds = %if.then19, %if.end15
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %5 = load ptr, ptr %evbase, align 8
-  %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %5, ptr noundef nonnull %ch)
+  %call = call fastcc i32 @epoll_apply_one_change.argprom(ptr noundef %5, ptr noundef nonnull %ch)
   ret i32 %call
 }
 
@@ -268,7 +268,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end ]
   %5 = load ptr, ptr %changelist1.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.event_change, ptr %5, i64 %indvars.iv.i
-  %call.i = tail call fastcc i32 @epoll_apply_one_change(ptr noundef nonnull %0, ptr noundef %arrayidx.i)
+  %call.i = tail call fastcc i32 @epoll_apply_one_change.argprom(ptr noundef nonnull %0, ptr noundef %arrayidx.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = load i32, ptr %n_changes.i, align 8
   %7 = sext i32 %6 to i64
@@ -459,7 +459,7 @@ declare i32 @event_changelist_add_(ptr noundef, i32 noundef, i16 noundef signext
 declare i32 @event_changelist_del_(ptr noundef, i32 noundef, i16 noundef signext, i16 noundef signext, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @epoll_apply_one_change(ptr nocapture noundef readonly %epollop, ptr nocapture noundef readonly %ch) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @epoll_apply_one_change.argprom(ptr nocapture noundef readonly %epollop, ptr nocapture noundef readonly %ch) unnamed_addr #0 {
 entry:
   %epev = alloca %struct.epoll_event, align 4
   %close_change = getelementptr inbounds i8, ptr %ch, i64 8
@@ -533,19 +533,19 @@ if.then39:                                        ; preds = %do.body37
   %conv46 = zext i8 %14 to i32
   %and.i = and i32 %conv46, 3
   %15 = zext nneg i32 %and.i to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.argprom.6, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = load i8, ptr %write_change, align 1
   %conv51 = zext i8 %16 to i32
   %and.i42 = and i32 %conv51, 3
   %17 = zext nneg i32 %and.i42 to i64
-  %switch.gep7 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %17
+  %switch.gep7 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.argprom.6, i64 0, i64 %17
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %18 = load i8, ptr %close_change, align 4
   %conv56 = zext i8 %18 to i32
   %and.i49 = and i32 %conv56, 3
   %19 = zext nneg i32 %and.i49 to i64
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %19
+  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.argprom.6, i64 0, i64 %19
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull %cond7.i, i32 noundef %11, i32 noundef %12, i32 noundef %conv44, i32 noundef %conv46, ptr noundef nonnull %switch.load, i32 noundef %conv51, ptr noundef nonnull %switch.load8, i32 noundef %conv56, ptr noundef nonnull %switch.load2) #5
   br label %return
@@ -653,19 +653,19 @@ sw.epilog:                                        ; preds = %sw.bb105, %if.end62
   %conv133 = zext i8 %43 to i32
   %and.i62 = and i32 %conv133, 3
   %44 = zext nneg i32 %and.i62 to i64
-  %switch.gep3 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %44
+  %switch.gep3 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.argprom.6, i64 0, i64 %44
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   %45 = load i8, ptr %write_change, align 1
   %conv138 = zext i8 %45 to i32
   %and.i69 = and i32 %conv138, 3
   %46 = zext nneg i32 %and.i69 to i64
-  %switch.gep9 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %46
+  %switch.gep9 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.argprom.6, i64 0, i64 %46
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   %47 = load i8, ptr %close_change, align 4
   %conv143 = zext i8 %47 to i32
   %and.i76 = and i32 %conv143, 3
   %48 = zext nneg i32 %and.i76 to i64
-  %switch.gep5 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %48
+  %switch.gep5 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.argprom.6, i64 0, i64 %48
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.10, ptr noundef nonnull %cond7.i61, i32 noundef %40, i32 noundef %41, i32 noundef %conv131, i32 noundef %conv133, ptr noundef nonnull %switch.load4, i32 noundef %conv138, ptr noundef nonnull %switch.load10, i32 noundef %conv143, ptr noundef nonnull %switch.load6) #5
   br label %return

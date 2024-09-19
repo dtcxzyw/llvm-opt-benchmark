@@ -10088,26 +10088,26 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17VPReplicateRecipe10shouldPackEv(
   %.044.i.i.i.i.i.i = phi i64 [ %21, %19 ], [ %7, %1 ]
   %.02943.i.i.i.i.i.i = phi ptr [ %20, %19 ], [ %3, %1 ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02943.i.i.i.i.i.i, align 8
-  %9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_"(ptr %.029.val.i.i.i.i.i.i)
-  br i1 %9, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit", label %10
+  %9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_.argprom"(ptr %.029.val.i.i.i.i.i.i)
+  br i1 %9, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit", label %10
 
 10:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_"(ptr %.val.i.i.i.i.i.i)
-  br i1 %12, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %13
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_.argprom"(ptr %.val.i.i.i.i.i.i)
+  br i1 %12, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load ptr, ptr %14, align 8
-  %15 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_"(ptr %.val30.i.i.i.i.i.i)
-  br i1 %15, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14", label %16
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_.argprom"(ptr %.val30.i.i.i.i.i.i)
+  br i1 %15, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14", label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i.i = load ptr, ptr %17, align 8
-  %18 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_"(ptr %.val31.i.i.i.i.i.i)
-  br i1 %18, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16", label %19
+  %18 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_.argprom"(ptr %.val31.i.i.i.i.i.i)
+  br i1 %18, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16", label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 32
@@ -10132,8 +10132,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17VPReplicateRecipe10shouldPackEv(
 
 24:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val32.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_"(ptr %.029.val32.i.i.i.i.i.i)
-  br i1 %25, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit", label %26
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_.argprom"(ptr %.029.val32.i.i.i.i.i.i)
+  br i1 %25, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit", label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
@@ -10142,8 +10142,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17VPReplicateRecipe10shouldPackEv(
 28:                                               ; preds = %26, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %27, %26 ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_"(ptr %.1.val.i.i.i.i.i.i)
-  br i1 %29, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit", label %30
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_.argprom"(ptr %.1.val.i.i.i.i.i.i)
+  br i1 %29, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
@@ -10152,26 +10152,26 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17VPReplicateRecipe10shouldPackEv(
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %31, %30 ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
-  %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_"(ptr %.2.val.i.i.i.i.i.i)
-  br i1 %33, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit", label %34
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_.argprom"(ptr %.2.val.i.i.i.i.i.i)
+  br i1 %33, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit", label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i.i
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %10
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %10
   %35 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14": ; preds = %13
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14": ; preds = %13
   %36 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16": ; preds = %16
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16": ; preds = %16
   %37 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16", %24, %28, %32, %34
-  %.028.i.i.i.i.i.i = phi ptr [ %5, %34 ], [ %.029.lcssa.i.i.i.i.i.i, %24 ], [ %.1.i.i.i.i.i.i, %28 ], [ %.2.i.i.i.i.i.i, %32 ], [ %35, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %36, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14" ], [ %37, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16", %24, %28, %32, %34
+  %.028.i.i.i.i.i.i = phi ptr [ %5, %34 ], [ %.029.lcssa.i.i.i.i.i.i, %24 ], [ %.1.i.i.i.i.i.i, %28 ], [ %.2.i.i.i.i.i.i, %32 ], [ %35, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %36, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14" ], [ %37, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNKS_17VPReplicateRecipe10shouldPackEvE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %38 = icmp ne ptr %5, %.028.i.i.i.i.i.i
   ret i1 %38
 }
@@ -25820,17 +25820,17 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm6VPUserC2EN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_"(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17VPReplicateRecipe10shouldPackEvE3$_0EclIPKPNS2_6VPUserEEEbT_.argprom"(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
   %2 = load i32, ptr %1, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %2, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm14CastIsPossibleINS_19VPPredInstPHIRecipeEPKNS_6VPUserEvE10isPossibleERKS4_.exit.i.i.i, label %"_ZZNK4llvm17VPReplicateRecipe10shouldPackEvENK3$_0clEPKNS_6VPUserE.exit"
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm14CastIsPossibleINS_19VPPredInstPHIRecipeEPKNS_6VPUserEvE10isPossibleERKS4_.exit.i.i.i, label %"_ZZNK4llvm17VPReplicateRecipe10shouldPackEvENK3$_0clEPKNS_6VPUserE.argprom.exit"
 
 _ZN4llvm14CastIsPossibleINS_19VPPredInstPHIRecipeEPKNS_6VPUserEvE10isPossibleERKS4_.exit.i.i.i: ; preds = %0
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 -32
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 23
-  br i1 %5, label %_ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i, label %"_ZZNK4llvm17VPReplicateRecipe10shouldPackEvENK3$_0clEPKNS_6VPUserE.exit"
+  br i1 %5, label %_ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i, label %"_ZZNK4llvm17VPReplicateRecipe10shouldPackEvENK3$_0clEPKNS_6VPUserE.argprom.exit"
 
 _ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i: ; preds = %_ZN4llvm14CastIsPossibleINS_19VPPredInstPHIRecipeEPKNS_6VPUserEvE10isPossibleERKS4_.exit.i.i.i
   %6 = getelementptr inbounds i8, ptr %.0.val, i64 64
@@ -25851,7 +25851,7 @@ _ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i: ; preds 
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(44) %.029.val.i.i.i.i.i.i.i, ptr noundef nonnull %6) #19
-  br i1 %17, label %18, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
+  br i1 %17, label %18, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %19 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i.i, i64 8
@@ -25860,7 +25860,7 @@ _ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i: ; preds 
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(44) %.val31.i.i.i.i.i.i.i, ptr noundef nonnull %6) #19
-  br i1 %23, label %24, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit"
+  br i1 %23, label %24, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit"
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i.i, i64 16
@@ -25869,7 +25869,7 @@ _ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i: ; preds 
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(44) %.val33.i.i.i.i.i.i.i, ptr noundef nonnull %6) #19
-  br i1 %29, label %30, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit13"
+  br i1 %29, label %30, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit13"
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i.i, i64 24
@@ -25878,7 +25878,7 @@ _ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i: ; preds 
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(44) %.val35.i.i.i.i.i.i.i, ptr noundef nonnull %6) #19
-  br i1 %35, label %36, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit15"
+  br i1 %35, label %36, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit15"
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i.i, i64 32
@@ -25907,7 +25907,7 @@ _ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i: ; preds 
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(44) %.029.val37.i.i.i.i.i.i.i, ptr noundef nonnull %6) #19
-  br i1 %45, label %46, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
+  br i1 %45, label %46, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 8
@@ -25920,7 +25920,7 @@ _ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i: ; preds 
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(44) %.1.val.i.i.i.i.i.i.i, ptr noundef nonnull %6) #19
-  br i1 %51, label %52, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
+  br i1 %51, label %52, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
 
 52:                                               ; preds = %._crit_edge._crit_edge64.i.i.i.i.i.i.i
   %53 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 8
@@ -25933,30 +25933,30 @@ _ZN4llvm8dyn_castINS_19VPPredInstPHIRecipeEKNS_6VPUserEEEDcPT0_.exit.i: ; preds 
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(44) %.2.val.i.i.i.i.i.i.i, ptr noundef nonnull %6) #19
-  br i1 %57, label %58, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
+  br i1 %57, label %58, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
 
 58:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %18
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %18
   %59 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit13": ; preds = %24
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit13": ; preds = %24
   %60 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit15": ; preds = %30
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit15": ; preds = %30
   %61 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit13", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit15", %58, %._crit_edge._crit_edge.i.i.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i, %41
-  %.028.i.i.i.i.i.i.i = phi ptr [ %10, %58 ], [ %.029.lcssa.i.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %59, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %60, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit13" ], [ %61, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i.loopexit.split.loop.exit15" ], [ %.02956.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit13", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit15", %58, %._crit_edge._crit_edge.i.i.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i, %41
+  %.028.i.i.i.i.i.i.i = phi ptr [ %10, %58 ], [ %.029.lcssa.i.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %59, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit" ], [ %60, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit13" ], [ %61, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit15" ], [ %.02956.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %62 = icmp ne ptr %10, %.028.i.i.i.i.i.i.i
-  br label %"_ZZNK4llvm17VPReplicateRecipe10shouldPackEvENK3$_0clEPKNS_6VPUserE.exit"
+  br label %"_ZZNK4llvm17VPReplicateRecipe10shouldPackEvENK3$_0clEPKNS_6VPUserE.argprom.exit"
 
-"_ZZNK4llvm17VPReplicateRecipe10shouldPackEvENK3$_0clEPKNS_6VPUserE.exit": ; preds = %0, %_ZN4llvm14CastIsPossibleINS_19VPPredInstPHIRecipeEPKNS_6VPUserEvE10isPossibleERKS4_.exit.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i"
-  %.0.i = phi i1 [ %62, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.exit.i" ], [ false, %0 ], [ false, %_ZN4llvm14CastIsPossibleINS_19VPPredInstPHIRecipeEPKNS_6VPUserEvE10isPossibleERKS4_.exit.i.i.i ]
+"_ZZNK4llvm17VPReplicateRecipe10shouldPackEvENK3$_0clEPKNS_6VPUserE.argprom.exit": ; preds = %0, %_ZN4llvm14CastIsPossibleINS_19VPPredInstPHIRecipeEPKNS_6VPUserEvE10isPossibleERKS4_.exit.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i"
+  %.0.i = phi i1 [ %62, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZZNKS_17VPReplicateRecipe10shouldPackEvENK3$_0clEPKS2_EUlSA_E_EEbOT_T0_.argprom.exit.i" ], [ false, %0 ], [ false, %_ZN4llvm14CastIsPossibleINS_19VPPredInstPHIRecipeEPKNS_6VPUserEvE10isPossibleERKS4_.exit.i.i.i ]
   ret i1 %.0.i
 }
 

@@ -777,7 +777,7 @@ entry:
   %shutdown_requested.i33 = getelementptr inbounds i8, ptr %_worker_thread_data.val29, i64 172
   %1 = load i32, ptr %shutdown_requested.i33, align 4
   %tobool.not4.i34 = icmp eq i32 %1, 0
-  br i1 %tobool.not4.i34, label %if.end.lr.ph.i.lr.ph, label %worker_thread__wait_for_connection.exit.thread
+  br i1 %tobool.not4.i34, label %if.end.lr.ph.i.lr.ph, label %worker_thread__wait_for_connection.argprom.exit.thread
 
 if.end.lr.ph.i.lr.ph:                             ; preds = %entry
   %events.i = getelementptr inbounds i8, ptr %pollfd.i, i64 4
@@ -788,7 +788,7 @@ if.end.lr.ph.i.lr.ph:                             ; preds = %entry
   %len.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   br label %if.end.lr.ph.i
 
-worker_thread__wait_for_connection.exit.thread:   ; preds = %for.cond.backedge, %entry
+worker_thread__wait_for_connection.argprom.exit.thread: ; preds = %for.cond.backedge, %entry
   %work_available_mutex.i.lcssa = phi ptr [ %work_available_mutex.i30, %entry ], [ %work_available_mutex.i, %for.cond.backedge ]
   %call8.i18 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %work_available_mutex.i.lcssa) #12
   br label %for.end
@@ -823,9 +823,9 @@ fifo_dequeue.exit.i:                              ; preds = %if.end.i
   %spec.store.select.i.i = select i1 %cmp8.i.i, i32 0, i32 %inc.i.i
   store i32 %spec.store.select.i.i, ptr %front_pos.i.i, align 8
   %cmp.i = icmp sgt i32 %5, -1
-  br i1 %cmp.i, label %worker_thread__wait_for_connection.exit.thread20, label %if.end4.i
+  br i1 %cmp.i, label %worker_thread__wait_for_connection.argprom.exit.thread20, label %if.end4.i
 
-worker_thread__wait_for_connection.exit.thread20: ; preds = %fifo_dequeue.exit.i
+worker_thread__wait_for_connection.argprom.exit.thread20: ; preds = %fifo_dequeue.exit.i
   %call8.i22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %work_available_mutex.i36) #12
   br label %if.end
 
@@ -834,15 +834,15 @@ if.end4.i:                                        ; preds = %fifo_dequeue.exit.i
   %call6.i = call i32 @pthread_cond_wait(ptr noundef nonnull %work_available_cond.i, ptr noundef nonnull %work_available_mutex.i36) #12
   %8 = load i32, ptr %shutdown_requested.i38, align 4
   %tobool.not.i = icmp eq i32 %8, 0
-  br i1 %tobool.not.i, label %if.end.i, label %worker_thread__wait_for_connection.exit
+  br i1 %tobool.not.i, label %if.end.i, label %worker_thread__wait_for_connection.argprom.exit
 
-worker_thread__wait_for_connection.exit:          ; preds = %if.end4.i
+worker_thread__wait_for_connection.argprom.exit:  ; preds = %if.end4.i
   %call8.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %work_available_mutex.i36) #12
   %cmp = icmp eq i32 %retval.0.i3.i, -1
   br i1 %cmp, label %for.end, label %if.end
 
-if.end:                                           ; preds = %worker_thread__wait_for_connection.exit.thread20, %worker_thread__wait_for_connection.exit
-  %fd.1.i24 = phi i32 [ %5, %worker_thread__wait_for_connection.exit.thread20 ], [ %retval.0.i3.i, %worker_thread__wait_for_connection.exit ]
+if.end:                                           ; preds = %worker_thread__wait_for_connection.argprom.exit.thread20, %worker_thread__wait_for_connection.argprom.exit
+  %fd.1.i24 = phi i32 [ %5, %worker_thread__wait_for_connection.argprom.exit.thread20 ], [ %retval.0.i3.i, %worker_thread__wait_for_connection.argprom.exit ]
   %_worker_thread_data.val6 = load ptr, ptr %server_data1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfd.i)
   %work_available_mutex.i8 = getelementptr inbounds i8, ptr %_worker_thread_data.val6, i64 64
@@ -860,7 +860,7 @@ if.then.i:                                        ; preds = %for.cond.i
   %call4.i = tail call ptr @__errno_location() #13
   %9 = load i32, ptr %call4.i, align 4
   %cmp5.i = icmp eq i32 %9, 4
-  br i1 %cmp5.i, label %for.cond.i.backedge, label %worker_thread__wait_for_io_start.exit
+  br i1 %cmp5.i, label %for.cond.i.backedge, label %worker_thread__wait_for_io_start.argprom.exit
 
 if.end7.i:                                        ; preds = %for.cond.i
   %cmp8.i = icmp eq i32 %call.i10, 0
@@ -871,7 +871,7 @@ if.then9.i:                                       ; preds = %if.end7.i
   %10 = load i32, ptr %shutdown_requested.i9, align 4
   %call12.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %work_available_mutex.i8) #12
   %tobool.not.i12 = icmp eq i32 %10, 0
-  br i1 %tobool.not.i12, label %for.cond.i.backedge, label %worker_thread__wait_for_io_start.exit
+  br i1 %tobool.not.i12, label %for.cond.i.backedge, label %worker_thread__wait_for_io_start.argprom.exit
 
 for.cond.i.backedge:                              ; preds = %if.then9.i, %if.then.i
   br label %for.cond.i
@@ -880,9 +880,9 @@ if.end15.i:                                       ; preds = %if.end7.i
   %11 = load i16, ptr %revents.i, align 2
   %12 = and i16 %11, 17
   %or.cond.not.i = icmp eq i16 %12, 1
-  br i1 %or.cond.not.i, label %if.end5, label %worker_thread__wait_for_io_start.exit
+  br i1 %or.cond.not.i, label %if.end5, label %worker_thread__wait_for_io_start.argprom.exit
 
-worker_thread__wait_for_io_start.exit:            ; preds = %if.then.i, %if.then9.i, %if.end15.i
+worker_thread__wait_for_io_start.argprom.exit:    ; preds = %if.then.i, %if.then9.i, %if.end15.i
   %call27.i = call i32 @close(i32 noundef %fd.1.i24) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pollfd.i)
   br label %for.cond.backedge
@@ -923,21 +923,21 @@ worker_thread__do_io.exit:                        ; preds = %if.end5, %if.then.i
   %cmp7 = icmp eq i32 %ret.0.i, -2
   br i1 %cmp7, label %if.then8, label %for.cond.backedge
 
-for.cond.backedge:                                ; preds = %worker_thread__do_io.exit, %worker_thread__wait_for_io_start.exit
+for.cond.backedge:                                ; preds = %worker_thread__do_io.exit, %worker_thread__wait_for_io_start.argprom.exit
   %_worker_thread_data.val = load ptr, ptr %server_data1, align 8
   %work_available_mutex.i = getelementptr inbounds i8, ptr %_worker_thread_data.val, i64 64
   %call.i7 = call i32 @pthread_mutex_lock(ptr noundef nonnull %work_available_mutex.i) #12
   %shutdown_requested.i = getelementptr inbounds i8, ptr %_worker_thread_data.val, i64 172
   %20 = load i32, ptr %shutdown_requested.i, align 4
   %tobool.not4.i = icmp eq i32 %20, 0
-  br i1 %tobool.not4.i, label %if.end.lr.ph.i, label %worker_thread__wait_for_connection.exit.thread
+  br i1 %tobool.not4.i, label %if.end.lr.ph.i, label %worker_thread__wait_for_connection.argprom.exit.thread
 
 if.then8:                                         ; preds = %worker_thread__do_io.exit
   call void @trace2_data_string_fl(ptr noundef nonnull @.str, i32 noundef 609, ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.26) #12
   %call9 = call i32 @ipc_server_stop_async(ptr noundef %0)
   br label %for.end
 
-for.end:                                          ; preds = %worker_thread__wait_for_connection.exit, %worker_thread__wait_for_connection.exit.thread, %if.then8
+for.end:                                          ; preds = %worker_thread__wait_for_connection.argprom.exit, %worker_thread__wait_for_connection.argprom.exit.thread, %if.then8
   call void @trace2_thread_exit_fl(ptr noundef nonnull @.str, i32 noundef 628) #12
   ret ptr null
 }

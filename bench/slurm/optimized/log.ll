@@ -2105,7 +2105,7 @@ _print_data_json.exit:                            ; preds = %._crit_edge193, %10
 
 ._crit_edge177:                                   ; preds = %._crit_edge177.loopexit, %132
   %.089.lcssa = phi ptr [ null, %132 ], [ %149, %._crit_edge177.loopexit ]
-  %150 = call fastcc ptr @_jobid2fmt(ptr noundef %.089.lcssa, ptr noundef %8)
+  %150 = call fastcc ptr @_jobid2fmt.argelim(ptr noundef %.089.lcssa, ptr noundef %8)
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %150) #19
   call void @llvm.va_end.p0(ptr nonnull %12)
   br label %thread-pre-split
@@ -2214,7 +2214,7 @@ _print_data_json.exit:                            ; preds = %._crit_edge193, %10
 
 194:                                              ; preds = %191, %188
   %.083 = phi ptr [ %193, %191 ], [ null, %188 ]
-  %195 = call fastcc ptr @_jobid2fmt(ptr noundef %.083, ptr noundef %8)
+  %195 = call fastcc ptr @_jobid2fmt.argelim(ptr noundef %.083, ptr noundef %8)
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %195) #19
   %196 = load i32, ptr %187, align 8
   %.not.i142 = icmp eq i32 %196, -889271554
@@ -2226,7 +2226,7 @@ _print_data_json.exit:                            ; preds = %._crit_edge193, %10
   br label %_stepid2fmt.exit
 
 _stepid2fmt.exit.critedge:                        ; preds = %170, %._crit_edge
-  %200 = call fastcc ptr @_jobid2fmt(ptr noundef null, ptr noundef %8)
+  %200 = call fastcc ptr @_jobid2fmt.argelim(ptr noundef null, ptr noundef %8)
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %200) #19
   br label %_stepid2fmt.exit
 
@@ -2453,7 +2453,7 @@ declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @_xstrncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef nonnull ptr @_jobid2fmt(ptr noundef readonly %0, ptr noundef nonnull writeonly %1) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @_jobid2fmt.argelim(ptr noundef readonly %0, ptr noundef nonnull writeonly %1) unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 

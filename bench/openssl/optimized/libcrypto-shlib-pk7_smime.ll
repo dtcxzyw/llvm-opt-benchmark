@@ -190,17 +190,17 @@ add_cipher_smcap.exit:                            ; preds = %if.end25
   br i1 %tobool27.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end25, %add_cipher_smcap.exit
-  %call28 = tail call fastcc i32 @add_digest_smcap(ptr noundef %call22, i32 noundef 982)
+  %call28 = tail call fastcc i32 @add_digest_smcap.argelim(ptr noundef %call22, i32 noundef 982)
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false
-  %call31 = tail call fastcc i32 @add_digest_smcap(ptr noundef %call22, i32 noundef 983)
+  %call31 = tail call fastcc i32 @add_digest_smcap.argelim(ptr noundef %call22, i32 noundef 983)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false30
-  %call34 = tail call fastcc i32 @add_digest_smcap(ptr noundef %call22, i32 noundef 809)
+  %call34 = tail call fastcc i32 @add_digest_smcap.argelim(ptr noundef %call22, i32 noundef 809)
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %err, label %lor.lhs.false36
 
@@ -437,7 +437,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_digest_smcap(ptr noundef nonnull %sk, i32 noundef range(i32 809, 984) %nid) unnamed_addr #0 {
+define internal fastcc i32 @add_digest_smcap.argelim(ptr noundef nonnull %sk, i32 noundef range(i32 809, 984) %nid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #2
   %call1 = tail call ptr @EVP_get_digestbyname(ptr noundef %call) #2

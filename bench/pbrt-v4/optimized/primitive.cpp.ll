@@ -236,7 +236,7 @@ entry:
   %shr.i = lshr i64 %0, 57
   %conv.i = trunc nuw nsw i64 %shr.i to i32
   %sub.i = add nsw i32 %conv.i, -1
-  tail call fastcc void @"_ZN4pbrt6detail11DispatchCPUIRZNKS_9Primitive6BoundsEvE3$_0NS_7Bounds3IfEENS_15SimplePrimitiveENS_18GeometricPrimitiveENS_20TransformedPrimitiveENS_17AnimatedPrimitiveENS_12BVHAggregateENS_15KdTreeAggregateEEEDaOT_PKvi"(ptr noalias align 4 %agg.result, ptr noundef %1, i32 noundef %sub.i)
+  tail call fastcc void @"_ZN4pbrt6detail11DispatchCPUIRZNKS_9Primitive6BoundsEvE3$_0NS_7Bounds3IfEENS_15SimplePrimitiveENS_18GeometricPrimitiveENS_20TransformedPrimitiveENS_17AnimatedPrimitiveENS_12BVHAggregateENS_15KdTreeAggregateEEEDaOT_PKvi.argprom"(ptr noalias align 4 %agg.result, ptr noundef %1, i32 noundef %sub.i)
   ret void
 }
 
@@ -1710,7 +1710,7 @@ entry:
 declare void @_ZN4pbrt16StatsAccumulator16ReportPercentageEPKcll(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4pbrt6detail11DispatchCPUIRZNKS_9Primitive6BoundsEvE3$_0NS_7Bounds3IfEENS_15SimplePrimitiveENS_18GeometricPrimitiveENS_20TransformedPrimitiveENS_17AnimatedPrimitiveENS_12BVHAggregateENS_15KdTreeAggregateEEEDaOT_PKvi"(ptr noalias align 4 %agg.result, ptr noundef %ptr, i32 noundef %index) unnamed_addr #1 {
+define internal fastcc void @"_ZN4pbrt6detail11DispatchCPUIRZNKS_9Primitive6BoundsEvE3$_0NS_7Bounds3IfEENS_15SimplePrimitiveENS_18GeometricPrimitiveENS_20TransformedPrimitiveENS_17AnimatedPrimitiveENS_12BVHAggregateENS_15KdTreeAggregateEEEDaOT_PKvi.argprom"(ptr noalias align 4 %agg.result, ptr noundef %ptr, i32 noundef %index) unnamed_addr #1 {
 entry:
   %ref.tmp.i14 = alloca %"class.pbrt::Bounds3", align 4
   %ref.tmp.i = alloca %"class.pbrt::Bounds3", align 4
@@ -1746,7 +1746,7 @@ sw.bb4:                                           ; preds = %entry
   %shr.i = lshr i64 %1, 57
   %conv.i = trunc nuw nsw i64 %shr.i to i32
   %sub.i.i.i = add nsw i32 %conv.i, -1
-  call fastcc void @"_ZN4pbrt6detail11DispatchCPUIRZNKS_9Primitive6BoundsEvE3$_0NS_7Bounds3IfEENS_15SimplePrimitiveENS_18GeometricPrimitiveENS_20TransformedPrimitiveENS_17AnimatedPrimitiveENS_12BVHAggregateENS_15KdTreeAggregateEEEDaOT_PKvi"(ptr noalias nonnull align 4 %ref.tmp.i, ptr noundef %2, i32 noundef %sub.i.i.i)
+  call fastcc void @"_ZN4pbrt6detail11DispatchCPUIRZNKS_9Primitive6BoundsEvE3$_0NS_7Bounds3IfEENS_15SimplePrimitiveENS_18GeometricPrimitiveENS_20TransformedPrimitiveENS_17AnimatedPrimitiveENS_12BVHAggregateENS_15KdTreeAggregateEEEDaOT_PKvi.argprom"(ptr noalias nonnull align 4 %ref.tmp.i, ptr noundef %2, i32 noundef %sub.i.i.i)
   call void @_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE(ptr sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %0, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %return
@@ -1760,7 +1760,7 @@ sw.bb5:                                           ; preds = %entry
   %shr.i19 = lshr i64 %3, 57
   %conv.i20 = trunc nuw nsw i64 %shr.i19 to i32
   %sub.i.i.i18 = add nsw i32 %conv.i20, -1
-  call fastcc void @"_ZN4pbrt6detail11DispatchCPUIRZNKS_9Primitive6BoundsEvE3$_0NS_7Bounds3IfEENS_15SimplePrimitiveENS_18GeometricPrimitiveENS_20TransformedPrimitiveENS_17AnimatedPrimitiveENS_12BVHAggregateENS_15KdTreeAggregateEEEDaOT_PKvi"(ptr noalias nonnull align 4 %ref.tmp.i14, ptr noundef %4, i32 noundef %sub.i.i.i18)
+  call fastcc void @"_ZN4pbrt6detail11DispatchCPUIRZNKS_9Primitive6BoundsEvE3$_0NS_7Bounds3IfEENS_15SimplePrimitiveENS_18GeometricPrimitiveENS_20TransformedPrimitiveENS_17AnimatedPrimitiveENS_12BVHAggregateENS_15KdTreeAggregateEEEDaOT_PKvi.argprom"(ptr noalias nonnull align 4 %ref.tmp.i14, ptr noundef %4, i32 noundef %sub.i.i.i18)
   call void @_ZNK4pbrt17AnimatedTransform12MotionBoundsERKNS_7Bounds3IfEE(ptr sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %renderFromPrimitive.i15, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i14)
   br label %return
@@ -1887,7 +1887,7 @@ if.then.i.i:                                      ; preds = %sw.bb3
   %set.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 256
   %4 = load i8, ptr %set.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
-  br label %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit"
+  br label %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.argprom.argprom.exit"
 
 if.else.i.i:                                      ; preds = %sw.bb3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tMax.addr.i.i.i18)
@@ -1905,9 +1905,9 @@ if.else.i.i:                                      ; preds = %sw.bb3
   %call3.i.i.i.i24 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_5Shape10IntersectPERKNS_3RayEfEUlT_E_bNS_6SphereENS_8CylinderENS_4DiskENS_8TriangleENS_13BilinearPatchENS_5CurveEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(16) %intr.i.i.i19, ptr noundef %7, i32 noundef %sub.i.i.i.i23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tMax.addr.i.i.i18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %intr.i.i.i19)
-  br label %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit"
+  br label %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.argprom.argprom.exit"
 
-"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit": ; preds = %if.then.i.i, %if.else.i.i
+"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.argprom.argprom.exit": ; preds = %if.then.i.i, %if.else.i.i
   %retval.0.i.i = phi i1 [ %call3.i.i.i.i24, %if.else.i.i ], [ %tobool.i.i.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %ref.tmp.i.i)
   br label %return
@@ -1954,8 +1954,8 @@ sw.default:                                       ; preds = %entry
   %call.i27 = tail call noundef zeroext i1 @_ZNK4pbrt15KdTreeAggregate10IntersectPERKNS_3RayEf(ptr noundef nonnull align 8 dereferenceable(104) %ptr, ptr noundef nonnull align 8 dereferenceable(40) %func.val16, float noundef %func.val17.val)
   br label %return
 
-return:                                           ; preds = %sw.default, %sw.bb9, %sw.bb7, %sw.bb5, %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit", %sw.bb
-  %retval.0 = phi i1 [ %call.i27, %sw.default ], [ %call.i26, %sw.bb9 ], [ %call3.i.i.i, %sw.bb7 ], [ %call.i, %sw.bb5 ], [ %retval.0.i.i, %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit" ], [ %call3.i.i.i.i, %sw.bb ]
+return:                                           ; preds = %sw.default, %sw.bb9, %sw.bb7, %sw.bb5, %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.argprom.argprom.exit", %sw.bb
+  %retval.0 = phi i1 [ %call.i27, %sw.default ], [ %call.i26, %sw.bb9 ], [ %call3.i.i.i, %sw.bb7 ], [ %call.i, %sw.bb5 ], [ %retval.0.i.i, %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.argprom.argprom.exit" ], [ %call3.i.i.i.i, %sw.bb ]
   ret i1 %retval.0
 }
 
@@ -13410,13 +13410,13 @@ attributes #17 = { nounwind }
 !52 = !{!53, !55}
 !53 = distinct !{!53, !54, !"_ZNK4pbrt15SimplePrimitive6BoundsEv: %agg.result"}
 !54 = distinct !{!54, !"_ZNK4pbrt15SimplePrimitive6BoundsEv"}
-!55 = distinct !{!55, !56, !"_ZZNK4pbrt9Primitive6BoundsEvENK3$_0clIPKNS_15SimplePrimitiveEEEDaT_: %agg.result"}
-!56 = distinct !{!56, !"_ZZNK4pbrt9Primitive6BoundsEvENK3$_0clIPKNS_15SimplePrimitiveEEEDaT_"}
+!55 = distinct !{!55, !56, !"_ZZNK4pbrt9Primitive6BoundsEvENK3$_0clIPKNS_15SimplePrimitiveEEEDaT_.argprom: %agg.result"}
+!56 = distinct !{!56, !"_ZZNK4pbrt9Primitive6BoundsEvENK3$_0clIPKNS_15SimplePrimitiveEEEDaT_.argprom"}
 !57 = !{!58, !60}
 !58 = distinct !{!58, !59, !"_ZNK4pbrt18GeometricPrimitive6BoundsEv: %agg.result"}
 !59 = distinct !{!59, !"_ZNK4pbrt18GeometricPrimitive6BoundsEv"}
-!60 = distinct !{!60, !61, !"_ZZNK4pbrt9Primitive6BoundsEvENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_: %agg.result"}
-!61 = distinct !{!61, !"_ZZNK4pbrt9Primitive6BoundsEvENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_"}
+!60 = distinct !{!60, !61, !"_ZZNK4pbrt9Primitive6BoundsEvENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.argprom: %agg.result"}
+!61 = distinct !{!61, !"_ZZNK4pbrt9Primitive6BoundsEvENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.argprom"}
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZNK4pbrt20TransformedPrimitive6BoundsEv: %agg.result"}
 !64 = distinct !{!64, !"_ZNK4pbrt20TransformedPrimitive6BoundsEv"}

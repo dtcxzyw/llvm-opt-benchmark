@@ -5018,7 +5018,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit.thread: ; preds = %_Z
 _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit.thread27: ; preds = %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit.i.i, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit
   %.val = load ptr, ptr %2, align 8
   %.val20 = load ptr, ptr %9, align 8
-  call fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @_ZN4Luau11notFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE, ptr noundef %1, ptr %.val, ptr %.val20, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4)
+  call fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_.argprom(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @_ZN4Luau11notFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE, ptr noundef %1, ptr %.val, ptr %.val20, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4)
   %54 = getelementptr inbounds i8, ptr %8, i64 72
   %55 = load i8, ptr %54, align 8
   %56 = trunc i8 %55 to i1
@@ -5207,7 +5207,7 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EED2Ev.exit: ; preds = %17, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.36", align 8
   %7 = alloca %"class.std::vector.36", align 8
   %8 = alloca %"struct.Luau::TypeIterator", align 8
@@ -6523,7 +6523,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %136, %134
 146:                                              ; preds = %136, %135
   %.val = load ptr, ptr %2, align 8
   %.val75 = load ptr, ptr %19, align 8
-  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @_ZN4Luau11notFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE, ptr noundef %1, ptr %.val, ptr %.val75, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4)
+  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @_ZN4Luau11notFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE, ptr noundef %1, ptr %.val, ptr %.val75, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4)
           to label %147 unwind label %92
 
 147:                                              ; preds = %146
@@ -7673,7 +7673,7 @@ _ZN4Luau2isIJNS_9NeverTypeEERPKNS_4TypeEEEbOT0_.exit.thread: ; preds = %95, %_ZN
 117:                                              ; preds = %108
   %.val = load ptr, ptr %2, align 8
   %.val60 = load ptr, ptr %19, align 8
-  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @_ZN4Luau11notFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE, ptr noundef %1, ptr %.val, ptr %.val60, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4)
+  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @_ZN4Luau11notFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE, ptr noundef %1, ptr %.val, ptr %.val60, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4)
           to label %118 unwind label %93
 
 118:                                              ; preds = %117
@@ -8531,7 +8531,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ;
 180:                                              ; preds = %171, %167
   %.val = load ptr, ptr %2, align 8
   %.val70 = load ptr, ptr %26, align 8
-  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJRKSQ_EEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @_ZN4Luau20numericBinopFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef %1, ptr %.val, ptr %.val70, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJRKSQ_EEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_.argprom(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @_ZN4Luau20numericBinopFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef %1, ptr %.val, ptr %.val70, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %181 unwind label %162
 
 181:                                              ; preds = %180
@@ -8870,7 +8870,7 @@ _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97: ; preds = %284, %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJRKSQ_EEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJRKSQ_EEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::vector.36", align 8
   %8 = alloca %"class.std::vector.36", align 8
   %9 = alloca %"struct.Luau::TypeIterator", align 8
@@ -10919,7 +10919,7 @@ _ZN4Luau2isIJNS_9NeverTypeEERPKNS_4TypeEEEbOT0_.exit103.thread: ; preds = %_ZN4L
 187:                                              ; preds = %178, %170
   %.val = load ptr, ptr %2, align 8
   %.val80 = load ptr, ptr %27, align 8
-  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @_ZN4Luau14concatFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE, ptr noundef %1, ptr %.val, ptr %.val80, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4)
+  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEEEJEEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_.argprom(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @_ZN4Luau14concatFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE, ptr noundef %1, ptr %.val, ptr %.val80, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4)
           to label %188 unwind label %149
 
 188:                                              ; preds = %187
@@ -13480,7 +13480,7 @@ _ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24General
 304:                                              ; preds = %295, %291
   %.val = load ptr, ptr %2, align 8
   %.val124 = load ptr, ptr %25, align 8
-  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJRKSQ_EEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @_ZN4LuauL18comparisonFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef %1, ptr %.val, ptr %.val124, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN4LuauL26tryDistributeTypeFamilyAppIPFNS_25TypeFamilyReductionResultIPKNS_4TypeEEES4_RKSt6vectorIS4_SaIS4_EERKS6_IPKNS_11TypePackVarESaISD_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJRKSQ_EEESt8optionalIS5_ET_S4_SA_SH_SK_DpOT0_.argprom(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @_ZN4LuauL18comparisonFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef %1, ptr %.val, ptr %.val124, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %305 unwind label %244
 
 305:                                              ; preds = %304
@@ -20720,7 +20720,7 @@ _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %164
 .thread:                                          ; preds = %248, %244, %.loopexit166
   %.0.lcssa.i.i146 = phi i64 [ 0, %.loopexit166 ], [ %.0.lcssa.i.i153, %244 ], [ %.0.lcssa.i.i153, %248 ]
   %.0.lcssa.i.i78 = phi i64 [ 0, %.loopexit166 ], [ %235, %248 ], [ %.04.i.i77, %244 ]
-  invoke fastcc void @"_ZSt9transformIN4Luau6detail14DenseHashTableIPKNS0_4TypeES5_S5_NS1_16ItemInterfaceSetIS5_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorESC_ZNS0_13indexFamilyFnES5_RKSt6vectorIS5_SaIS5_EERKSD_IPKNS0_11TypePackVarESaISK_EENS0_7NotNullINS0_17TypeFamilyContextEEEE3$_0ET0_T_SU_ST_T1_"(ptr nonnull %13, i64 %.0.lcssa.i.i146, ptr nonnull %13, i64 %235, ptr nonnull %13, i64 %.0.lcssa.i.i78)
+  invoke fastcc void @"_ZSt9transformIN4Luau6detail14DenseHashTableIPKNS0_4TypeES5_S5_NS1_16ItemInterfaceSetIS5_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorESC_ZNS0_13indexFamilyFnES5_RKSt6vectorIS5_SaIS5_EERKSD_IPKNS0_11TypePackVarESaISK_EENS0_7NotNullINS0_17TypeFamilyContextEEEE3$_0ET0_T_SU_ST_T1_.retelim"(ptr nonnull %13, i64 %.0.lcssa.i.i146, ptr nonnull %13, i64 %235, ptr nonnull %13, i64 %.0.lcssa.i.i78)
           to label %250 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 250:                                              ; preds = %.thread
@@ -20994,7 +20994,7 @@ _ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %324, %343, %356
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt9transformIN4Luau6detail14DenseHashTableIPKNS0_4TypeES5_S5_NS1_16ItemInterfaceSetIS5_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorESC_ZNS0_13indexFamilyFnES5_RKSt6vectorIS5_SaIS5_EERKSD_IPKNS0_11TypePackVarESaISK_EENS0_7NotNullINS0_17TypeFamilyContextEEEE3$_0ET0_T_SU_ST_T1_"(ptr readonly %0, i64 %1, ptr readnone %2, i64 %3, ptr %4, i64 %5) unnamed_addr #3 {
+define internal fastcc void @"_ZSt9transformIN4Luau6detail14DenseHashTableIPKNS0_4TypeES5_S5_NS1_16ItemInterfaceSetIS5_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorESC_ZNS0_13indexFamilyFnES5_RKSt6vectorIS5_SaIS5_EERKSD_IPKNS0_11TypePackVarESaISK_EENS0_7NotNullINS0_17TypeFamilyContextEEEE3$_0ET0_T_SU_ST_T1_.retelim"(ptr readonly %0, i64 %1, ptr readnone %2, i64 %3, ptr %4, i64 %5) unnamed_addr #3 {
   %.not.i = icmp ne ptr %0, %2
   %.not.i.fr = freeze i1 %.not.i
   %7 = icmp ne i64 %1, %3

@@ -317,11 +317,11 @@ Abc_NtkIncrementTravId.exit.i:                    ; preds = %Vec_IntFill.exit.i.
 
 .lr.ph17.i:                                       ; preds = %Abc_NtkIncrementTravId.exit.i
   %.not.i90.i = icmp eq ptr %143, null
-  br i1 %.not.i90.i, label %Extra_ProgressBarUpdate.exit.us.i, label %.lr.ph17.split.i
+  br i1 %.not.i90.i, label %Extra_ProgressBarUpdate.argprom.exit.us.i, label %.lr.ph17.split.i
 
-Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph17.i, %Extra_ProgressBarUpdate.exit.us.i
-  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %Extra_ProgressBarUpdate.exit.us.i ], [ 0, %.lr.ph17.i ]
-  %.val8816.us.i = phi ptr [ %.val88.us.i, %Extra_ProgressBarUpdate.exit.us.i ], [ %.val8813.i, %.lr.ph17.i ]
+Extra_ProgressBarUpdate.argprom.exit.us.i:        ; preds = %.lr.ph17.i, %Extra_ProgressBarUpdate.argprom.exit.us.i
+  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %Extra_ProgressBarUpdate.argprom.exit.us.i ], [ 0, %.lr.ph17.i ]
+  %.val8816.us.i = phi ptr [ %.val88.us.i, %Extra_ProgressBarUpdate.argprom.exit.us.i ], [ %.val8813.i, %.lr.ph17.i ]
   %146 = getelementptr i8, ptr %.val8816.us.i, i64 8
   %.val89.val.us.i = load ptr, ptr %146, align 8
   %147 = getelementptr inbounds ptr, ptr %.val89.val.us.i, i64 %indvars.iv30.i
@@ -346,11 +346,11 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph17.i, %Extra_
   %.val88.val.us.i = load i32, ptr %156, align 4
   %157 = sext i32 %.val88.val.us.i to i64
   %158 = icmp slt i64 %indvars.iv.next31.i, %157
-  br i1 %158, label %Extra_ProgressBarUpdate.exit.us.i, label %.critedge6.i, !llvm.loop !9
+  br i1 %158, label %Extra_ProgressBarUpdate.argprom.exit.us.i, label %.critedge6.i, !llvm.loop !9
 
-.lr.ph17.split.i:                                 ; preds = %.lr.ph17.i, %Extra_ProgressBarUpdate.exit.i
-  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %Extra_ProgressBarUpdate.exit.i ], [ 0, %.lr.ph17.i ]
-  %.val8816.i = phi ptr [ %.val88.i, %Extra_ProgressBarUpdate.exit.i ], [ %.val8813.i, %.lr.ph17.i ]
+.lr.ph17.split.i:                                 ; preds = %.lr.ph17.i, %Extra_ProgressBarUpdate.argprom.exit.i
+  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %Extra_ProgressBarUpdate.argprom.exit.i ], [ 0, %.lr.ph17.i ]
+  %.val8816.i = phi ptr [ %.val88.i, %Extra_ProgressBarUpdate.argprom.exit.i ], [ %.val8813.i, %.lr.ph17.i ]
   %159 = getelementptr i8, ptr %.val8816.i, i64 8
   %.val89.val.i = load ptr, ptr %159, align 8
   %160 = getelementptr inbounds ptr, ptr %.val89.val.i, i64 %indvars.iv27.i
@@ -358,14 +358,14 @@ Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph17.i, %Extra_
   %162 = load i32, ptr %143, align 4
   %163 = sext i32 %162 to i64
   %164 = icmp slt i64 %indvars.iv27.i, %163
-  br i1 %164, label %Extra_ProgressBarUpdate.exit.i, label %165
+  br i1 %164, label %Extra_ProgressBarUpdate.argprom.exit.i, label %165
 
 165:                                              ; preds = %.lr.ph17.split.i
   %166 = trunc nuw nsw i64 %indvars.iv27.i to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %143, i32 noundef %166, ptr noundef null) #11
-  br label %Extra_ProgressBarUpdate.exit.i
+  br label %Extra_ProgressBarUpdate.argprom.exit.i
 
-Extra_ProgressBarUpdate.exit.i:                   ; preds = %165, %.lr.ph17.split.i
+Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %165, %.lr.ph17.split.i
   %.val79.i = load ptr, ptr %161, align 8
   %167 = getelementptr i8, ptr %161, i64 32
   %.val80.i = load ptr, ptr %167, align 8
@@ -386,17 +386,17 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %165, %.lr.ph17.spli
   %175 = icmp slt i64 %indvars.iv.next28.i, %174
   br i1 %175, label %.lr.ph17.split.i, label %.critedge6.i, !llvm.loop !9
 
-.critedge6.i:                                     ; preds = %Extra_ProgressBarUpdate.exit.i, %Extra_ProgressBarUpdate.exit.us.i, %Abc_NtkIncrementTravId.exit.i
+.critedge6.i:                                     ; preds = %Extra_ProgressBarUpdate.argprom.exit.i, %Extra_ProgressBarUpdate.argprom.exit.us.i, %Abc_NtkIncrementTravId.exit.i
   call void @Extra_ProgressBarStop(ptr noundef %143) #11
   %176 = load ptr, ptr %89, align 8
   %.not.i91.i = icmp eq ptr %176, null
-  br i1 %.not.i91.i, label %Abc_NtkFromFraig2.exit, label %177
+  br i1 %.not.i91.i, label %Abc_NtkFromFraig2.argprom.exit, label %177
 
 177:                                              ; preds = %.critedge6.i
   call void @free(ptr noundef nonnull %176) #11
-  br label %Abc_NtkFromFraig2.exit
+  br label %Abc_NtkFromFraig2.argprom.exit
 
-Abc_NtkFromFraig2.exit:                           ; preds = %.critedge6.i, %177
+Abc_NtkFromFraig2.argprom.exit:                   ; preds = %.critedge6.i, %177
   call void @free(ptr noundef nonnull %82) #11
   call void @Abc_NtkFinalize(ptr noundef nonnull %0, ptr noundef %120) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -407,8 +407,8 @@ Abc_NtkFromFraig2.exit:                           ; preds = %.critedge6.i, %177
   %179 = tail call ptr @Abc_NtkFromFraig(ptr noundef %13, ptr noundef %0)
   br label %180
 
-180:                                              ; preds = %178, %Abc_NtkFromFraig2.exit
-  %.021 = phi ptr [ %120, %Abc_NtkFromFraig2.exit ], [ %179, %178 ]
+180:                                              ; preds = %178, %Abc_NtkFromFraig2.argprom.exit
+  %.021 = phi ptr [ %120, %Abc_NtkFromFraig2.argprom.exit ], [ %179, %178 ]
   call void @Fraig_ManFree(ptr noundef %13) #11
   %181 = getelementptr inbounds i8, ptr %0, i64 328
   %182 = load ptr, ptr %181, align 8
@@ -514,20 +514,20 @@ define ptr @Abc_NtkToFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   br i1 %40, label %77, label %41
 
 41:                                               ; preds = %36
-  br i1 %.not53, label %Extra_ProgressBarUpdate.exit, label %42
+  br i1 %.not53, label %Extra_ProgressBarUpdate.argprom.exit, label %42
 
 42:                                               ; preds = %41
   %43 = load i32, ptr %.050, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv85, %44
-  br i1 %45, label %Extra_ProgressBarUpdate.exit, label %46
+  br i1 %45, label %Extra_ProgressBarUpdate.argprom.exit, label %46
 
 46:                                               ; preds = %42
   %47 = trunc nuw nsw i64 %indvars.iv85 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %.050, i32 noundef %47, ptr noundef null) #11
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %46, %42, %41
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %46, %42, %41
   %.val58 = load ptr, ptr %38, align 8
   %48 = getelementptr i8, ptr %38, i64 32
   %.val59 = load ptr, ptr %48, align 8
@@ -568,8 +568,8 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %46, %42, %41
   %.val.pre = load i32, ptr %33, align 4
   br label %77
 
-77:                                               ; preds = %36, %Extra_ProgressBarUpdate.exit
-  %.val = phi i32 [ %.val91, %36 ], [ %.val.pre, %Extra_ProgressBarUpdate.exit ]
+77:                                               ; preds = %36, %Extra_ProgressBarUpdate.argprom.exit
+  %.val = phi i32 [ %.val91, %36 ], [ %.val.pre, %Extra_ProgressBarUpdate.argprom.exit ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %78 = sext i32 %.val to i64
   %79 = icmp slt i64 %indvars.iv.next86, %78
@@ -958,11 +958,11 @@ define ptr @Abc_NtkFromFraig(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 .lr.ph40:                                         ; preds = %.critedge
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %Extra_ProgressBarUpdate.exit.us, label %.lr.ph40.split
+  br i1 %.not.i, label %Extra_ProgressBarUpdate.argprom.exit.us, label %.lr.ph40.split
 
-Extra_ProgressBarUpdate.exit.us:                  ; preds = %.lr.ph40, %Extra_ProgressBarUpdate.exit.us
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %Extra_ProgressBarUpdate.exit.us ], [ 0, %.lr.ph40 ]
-  %.val3039.us = phi ptr [ %.val30.us, %Extra_ProgressBarUpdate.exit.us ], [ %.val3036, %.lr.ph40 ]
+Extra_ProgressBarUpdate.argprom.exit.us:          ; preds = %.lr.ph40, %Extra_ProgressBarUpdate.argprom.exit.us
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %Extra_ProgressBarUpdate.argprom.exit.us ], [ 0, %.lr.ph40 ]
+  %.val3039.us = phi ptr [ %.val30.us, %Extra_ProgressBarUpdate.argprom.exit.us ], [ %.val3036, %.lr.ph40 ]
   %25 = getelementptr i8, ptr %.val3039.us, i64 8
   %.val31.val.us = load ptr, ptr %25, align 8
   %26 = getelementptr inbounds ptr, ptr %.val31.val.us, i64 %indvars.iv46
@@ -982,11 +982,11 @@ Extra_ProgressBarUpdate.exit.us:                  ; preds = %.lr.ph40, %Extra_Pr
   %.val30.val.us = load i32, ptr %35, align 4
   %36 = sext i32 %.val30.val.us to i64
   %37 = icmp slt i64 %indvars.iv.next47, %36
-  br i1 %37, label %Extra_ProgressBarUpdate.exit.us, label %.critedge2, !llvm.loop !20
+  br i1 %37, label %Extra_ProgressBarUpdate.argprom.exit.us, label %.critedge2, !llvm.loop !20
 
-.lr.ph40.split:                                   ; preds = %.lr.ph40, %Extra_ProgressBarUpdate.exit
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %Extra_ProgressBarUpdate.exit ], [ 0, %.lr.ph40 ]
-  %.val3039 = phi ptr [ %.val30, %Extra_ProgressBarUpdate.exit ], [ %.val3036, %.lr.ph40 ]
+.lr.ph40.split:                                   ; preds = %.lr.ph40, %Extra_ProgressBarUpdate.argprom.exit
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %Extra_ProgressBarUpdate.argprom.exit ], [ 0, %.lr.ph40 ]
+  %.val3039 = phi ptr [ %.val30, %Extra_ProgressBarUpdate.argprom.exit ], [ %.val3036, %.lr.ph40 ]
   %38 = getelementptr i8, ptr %.val3039, i64 8
   %.val31.val = load ptr, ptr %38, align 8
   %39 = getelementptr inbounds ptr, ptr %.val31.val, i64 %indvars.iv43
@@ -994,14 +994,14 @@ Extra_ProgressBarUpdate.exit.us:                  ; preds = %.lr.ph40, %Extra_Pr
   %41 = load i32, ptr %22, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv43, %42
-  br i1 %43, label %Extra_ProgressBarUpdate.exit, label %44
+  br i1 %43, label %Extra_ProgressBarUpdate.argprom.exit, label %44
 
 44:                                               ; preds = %.lr.ph40.split
   %45 = trunc nuw nsw i64 %indvars.iv43 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %22, i32 noundef %45, ptr noundef null) #11
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %.lr.ph40.split, %44
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %.lr.ph40.split, %44
   %46 = tail call ptr @Fraig_ManReadOutputs(ptr noundef %0) #11
   %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv43
   %48 = load ptr, ptr %47, align 8
@@ -1017,7 +1017,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %.lr.ph40.split, %44
   %54 = icmp slt i64 %indvars.iv.next44, %53
   br i1 %54, label %.lr.ph40.split, label %.critedge2, !llvm.loop !20
 
-.critedge2:                                       ; preds = %Extra_ProgressBarUpdate.exit, %Extra_ProgressBarUpdate.exit.us, %.critedge
+.critedge2:                                       ; preds = %Extra_ProgressBarUpdate.argprom.exit, %Extra_ProgressBarUpdate.argprom.exit.us, %.critedge
   tail call void @Extra_ProgressBarStop(ptr noundef %22) #11
   tail call void @Abc_NtkReassignIds(ptr noundef %3) #11
   ret ptr %3
@@ -1484,14 +1484,14 @@ Abc_NtkFraigTrustCheck.exit:                      ; preds = %28
   %50 = load i32, ptr %42, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.i18, %51
-  br i1 %52, label %Extra_ProgressBarUpdate.exit.i, label %53
+  br i1 %52, label %Extra_ProgressBarUpdate.argprom.exit.i, label %53
 
 53:                                               ; preds = %49, %46
   %54 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %42, i32 noundef %54, ptr noundef null) #11
-  br label %Extra_ProgressBarUpdate.exit.i
+  br label %Extra_ProgressBarUpdate.argprom.exit.i
 
-Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
+Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %53, %49
   %55 = getelementptr i8, ptr %48, i64 28
   %.val37.i.i = load i32, ptr %55, align 4
   switch i32 %.val37.i.i, label %118 [
@@ -1500,7 +1500,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
     i32 2, label %83
   ]
 
-56:                                               ; preds = %Extra_ProgressBarUpdate.exit.i
+56:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
   %57 = tail call ptr @Abc_AigConst1(ptr noundef %37) #11
   %58 = getelementptr inbounds i8, ptr %48, i64 56
   %59 = load ptr, ptr %58, align 8
@@ -1512,7 +1512,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %65 = inttoptr i64 %64 to ptr
   br label %Abc_NodeFraigTrust.exit.i
 
-66:                                               ; preds = %Extra_ProgressBarUpdate.exit.i
+66:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
   %.val42.i.i = load ptr, ptr %48, align 8
   %67 = getelementptr i8, ptr %48, i64 32
   %.val43.i.i = load ptr, ptr %67, align 8
@@ -1536,7 +1536,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %82 = inttoptr i64 %81 to ptr
   br label %Abc_NodeFraigTrust.exit.i
 
-83:                                               ; preds = %Extra_ProgressBarUpdate.exit.i
+83:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
   %84 = getelementptr inbounds i8, ptr %48, i64 56
   %85 = load ptr, ptr %84, align 8
   %86 = tail call i32 @Abc_SopIsAndType(ptr noundef %85) #11
@@ -1588,7 +1588,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %117 = tail call ptr @Abc_AigAnd(ptr noundef %88, ptr noundef %102, ptr noundef %116) #11
   br label %Abc_NodeFraigTrust.exit.i
 
-118:                                              ; preds = %83, %Extra_ProgressBarUpdate.exit.i
+118:                                              ; preds = %83, %Extra_ProgressBarUpdate.argprom.exit.i
   %119 = getelementptr inbounds i8, ptr %48, i64 56
   %120 = load ptr, ptr %119, align 8
   %121 = tail call i32 @Abc_SopGetIthCareLit(ptr noundef %120, i32 noundef 0) #11
@@ -2174,7 +2174,7 @@ define internal fastcc void @Abc_NtkFromFraig2_rec(ptr noundef %0, ptr nocapture
   %.val3.i = load i32, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %9 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %8, i32 noundef %9)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %8, i32 noundef %9)
   %10 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %10, align 8
   %11 = sext i32 %.val3.i to i64
@@ -2190,7 +2190,7 @@ define internal fastcc void @Abc_NtkFromFraig2_rec(ptr noundef %0, ptr nocapture
   %.val29 = load i32, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %18 = add nsw i32 %.val29, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %17, i32 noundef %18)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %17, i32 noundef %18)
   %19 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i30 = load ptr, ptr %19, align 8
   %20 = sext i32 %.val29 to i64
@@ -2299,7 +2299,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

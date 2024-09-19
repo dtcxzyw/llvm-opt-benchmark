@@ -57,7 +57,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 
 26:                                               ; preds = %16
   %27 = icmp ugt i64 %23, %18
-  br i1 %27, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.exit.i"
+  br i1 %27, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.argprom.exit.i"
 
 28:                                               ; preds = %16
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %20, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #7
@@ -73,7 +73,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 .noexc23:                                         ; preds = %29
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.exit.i": ; preds = %26
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.argprom.exit.i": ; preds = %26
   %30 = getelementptr inbounds i8, ptr %24, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %22, i64 %.0.sroa.speculated.i, i1 false)
   %31 = getelementptr inbounds i8, ptr %2, i64 24
@@ -81,11 +81,11 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
   %33 = icmp ult i64 %32, %23
   br i1 %33, label %34, label %35
 
-34:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.exit.i"
+34:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.argprom.exit.i"
   store i64 %23, ptr %31, align 8, !noalias !13
   br label %35
 
-35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.exit.i", %34
+35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.argprom.exit.i", %34
   store i64 %23, ptr %19, align 8, !noalias !13
   %36 = sub nuw i64 %8, %.0.sroa.speculated.i
   store i64 %36, ptr %7, align 8, !alias.scope !17
@@ -259,8 +259,8 @@ attributes #8 = { cold noreturn nounwind }
 !11 = !{!9, !6}
 !12 = !{i64 8}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN5hyper2rt2io13ReadBufCursor9put_slice17h301bdf8923d047b5E: argument 0"}
-!15 = distinct !{!15, !"_ZN5hyper2rt2io13ReadBufCursor9put_slice17h301bdf8923d047b5E"}
+!14 = distinct !{!14, !15, !"_ZN5hyper2rt2io13ReadBufCursor9put_slice17h301bdf8923d047b5E.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZN5hyper2rt2io13ReadBufCursor9put_slice17h301bdf8923d047b5E.argprom"}
 !16 = !{i64 1}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc21ea22725edad2cE: argument 0"}

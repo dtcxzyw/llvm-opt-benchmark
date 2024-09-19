@@ -642,7 +642,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %36, %40
 
 _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %46
   %.0.i.i27 = phi ptr [ %spec.select.i.i.i.i, %46 ], [ null, %_ZNK4llvm6MDNode10getOperandEj.exit ]
-  %49 = tail call fastcc noundef zeroext i1 @_ZL14isKeyValuePairPN4llvm7MDTupleEPKcS3_(ptr noundef %.0.i.i27, ptr noundef nonnull @.str.3)
+  %49 = tail call fastcc noundef zeroext i1 @_ZL14isKeyValuePairPN4llvm7MDTupleEPKcS3_.argprom(ptr noundef %.0.i.i27, ptr noundef nonnull @.str.3)
   br i1 %49, label %62, label %50
 
 50:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit
@@ -658,7 +658,7 @@ _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit: ; preds = %
 
 _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit31: ; preds = %50, %52
   %.0.i.i30 = phi ptr [ %spec.select.i.i.i.i29, %52 ], [ null, %50 ]
-  %55 = tail call fastcc noundef zeroext i1 @_ZL14isKeyValuePairPN4llvm7MDTupleEPKcS3_(ptr noundef %.0.i.i30, ptr noundef nonnull @.str.1)
+  %55 = tail call fastcc noundef zeroext i1 @_ZL14isKeyValuePairPN4llvm7MDTupleEPKcS3_.argprom(ptr noundef %.0.i.i30, ptr noundef nonnull @.str.1)
   br i1 %55, label %62, label %56
 
 56:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit31
@@ -674,7 +674,7 @@ _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit31: ; preds =
 
 _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit35: ; preds = %56, %58
   %.0.i.i34 = phi ptr [ %spec.select.i.i.i.i33, %58 ], [ null, %56 ]
-  %61 = tail call fastcc noundef zeroext i1 @_ZL14isKeyValuePairPN4llvm7MDTupleEPKcS3_(ptr noundef %.0.i.i34, ptr noundef nonnull @.str.2)
+  %61 = tail call fastcc noundef zeroext i1 @_ZL14isKeyValuePairPN4llvm7MDTupleEPKcS3_.argprom(ptr noundef %.0.i.i34, ptr noundef nonnull @.str.2)
   br i1 %61, label %62, label %_ZL6getValPN4llvm7MDTupleEPKcRm.exit
 
 62:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit35, %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit31, %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_9MDOperandEEEDaRKT0_.exit
@@ -916,12 +916,12 @@ _ZNK4llvm6MDNode10getOperandEj.exit74:            ; preds = %185, %189
   %.0.in.i.i.i77 = select i1 %205, ptr %202, ptr %206
   %.0.i.i.i78 = load i64, ptr %.0.in.i.i.i77, align 8
   store i64 0, ptr %3, align 8
-  %207 = call fastcc noundef zeroext i1 @_ZL14getOptionalValImEbPN4llvm7MDTupleERjPKcRT_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %207 = call fastcc noundef zeroext i1 @_ZL14getOptionalValImEbPN4llvm7MDTupleERjPKcRT_.argprom(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %207, label %208, label %_ZL6getValPN4llvm7MDTupleEPKcRm.exit
 
 208:                                              ; preds = %199
   store double 0.000000e+00, ptr %4, align 8
-  %209 = call fastcc noundef zeroext i1 @_ZL14getOptionalValIdEbPN4llvm7MDTupleERjPKcRT_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %209 = call fastcc noundef zeroext i1 @_ZL14getOptionalValIdEbPN4llvm7MDTupleERjPKcRT_.argprom(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %209, label %210, label %_ZL6getValPN4llvm7MDTupleEPKcRm.exit
 
 210:                                              ; preds = %208
@@ -987,7 +987,7 @@ _ZL6getValPN4llvm7MDTupleEPKcRm.exit:             ; preds = %1, %6, %238, %236, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14isKeyValuePairPN4llvm7MDTupleEPKcS3_(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14isKeyValuePairPN4llvm7MDTupleEPKcS3_.argprom(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %3
 
@@ -1113,7 +1113,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %54, %44, %_ZN4llvmn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14getOptionalValImEbPN4llvm7MDTupleERjPKcRT_(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14getOptionalValImEbPN4llvm7MDTupleERjPKcRT_.argprom(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = load i64, ptr %5, align 8
@@ -1188,7 +1188,7 @@ _ZL6getValPN4llvm7MDTupleEPKcRm.exit:             ; preds = %_ZNK4llvm6MDNode10g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14getOptionalValIdEbPN4llvm7MDTupleERjPKcRT_(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14getOptionalValIdEbPN4llvm7MDTupleERjPKcRT_.argprom(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = load i64, ptr %5, align 8
@@ -1219,7 +1219,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %8, %12
   %spec.select.i.i.i = select i1 %21, ptr %19, ptr null
   %22 = tail call fastcc noundef ptr @_ZL8getValMDPN4llvm7MDTupleEPKc(ptr noundef %spec.select.i.i.i, ptr noundef nonnull @.str.12)
   %.not.i.not = icmp eq ptr %22, null
-  br i1 %.not.i.not, label %_ZL6getValPN4llvm7MDTupleEPKcRd.exit, label %23
+  br i1 %.not.i.not, label %_ZL6getValPN4llvm7MDTupleEPKcRd.argprom.exit, label %23
 
 23:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 128
@@ -1250,9 +1250,9 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %8, %12
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %32, %36
   %.0.i.i = phi i32 [ %39, %36 ], [ %35, %32 ]
   %40 = icmp ult i32 %29, %.0.i.i
-  br label %_ZL6getValPN4llvm7MDTupleEPKcRd.exit
+  br label %_ZL6getValPN4llvm7MDTupleEPKcRd.argprom.exit
 
-_ZL6getValPN4llvm7MDTupleEPKcRd.exit:             ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit
+_ZL6getValPN4llvm7MDTupleEPKcRd.argprom.exit:     ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit
   %.0 = phi i1 [ %40, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit ]
   ret i1 %.0
 }

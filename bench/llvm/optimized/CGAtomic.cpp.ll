@@ -238,10 +238,10 @@ $_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup = comdat any
 @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup = linkonce_odr local_unnamed_addr constant [8 x i32] [i32 0, i32 0, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5], comdat, align 16
 @.str.41 = private unnamed_addr constant [12 x i8] c"atomic_cont\00", align 1
 @.str.42 = private unnamed_addr constant [12 x i8] c"atomic_exit\00", align 1
-@switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_ = private unnamed_addr constant [14 x i64] [i64 12, i64 12, i64 15, i64 15, i64 12, i64 16, i64 13, i64 13, i64 9, i64 10, i64 16, i64 13, i64 20, i64 15], align 8
-@switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18 = private unnamed_addr constant [14 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39], align 8
+@switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim = private unnamed_addr constant [14 x i64] [i64 12, i64 12, i64 15, i64 15, i64 12, i64 16, i64 13, i64 13, i64 9, i64 10, i64 16, i64 13, i64 20, i64 15], align 8
+@switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim.18 = private unnamed_addr constant [14 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39], align 8
 @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20 = private unnamed_addr constant [6 x i32] [i32 2, i32 2, i32 4, i32 2, i32 4, i32 7], align 4
-@switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh = private unnamed_addr constant [5 x i32] [i32 4, i32 4, i32 2, i32 2, i32 7], align 4
+@switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh.argelim = private unnamed_addr constant [5 x i32] [i32 4, i32 4, i32 2, i32 2, i32 7], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
@@ -1062,9 +1062,9 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
   call fastcc void @_ZN12_GLOBAL__N_110AtomicInfoC2ERN5clang7CodeGen15CodeGenFunctionERNS2_6LValueE(ptr noundef nonnull align 8 dereferenceable(232) %48, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(136) %47)
-  br i1 %.0142, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit, label %.thread
+  br i1 %.0142, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit, label %.thread
 
-_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit: ; preds = %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit263
+_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit: ; preds = %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit263
   %.sroa.0630.0.copyload = load i64, ptr %31, align 8
   %.sroa.2631.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
   %.sroa.3632.0.copyload = load i64, ptr %153, align 8
@@ -1096,12 +1096,12 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   %389 = icmp ugt i64 %.0.copyload.i.i.i.i, 7
   br i1 %389, label %390, label %391
 
-390:                                              ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
+390:                                              ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo25convertToAtomicIntPointerEN5clang7CodeGen7AddressE(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(232) %48, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false)
   br label %391
 
-391:                                              ; preds = %390, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
+391:                                              ; preds = %390, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit
   %.0.copyload.i.i.i.i265 = load i64, ptr %29, align 8
   %392 = icmp ugt i64 %.0.copyload.i.i.i.i265, 7
   br i1 %392, label %393, label %394
@@ -1114,14 +1114,14 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
 394:                                              ; preds = %391, %393
   %.0.copyload.i.i.i.i266 = load i64, ptr %30, align 8
   %395 = icmp ugt i64 %.0.copyload.i.i.i.i266, 7
-  br i1 %395, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit274, label %402
+  br i1 %395, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit274, label %402
 
 .thread:                                          ; preds = %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit263
   %.0.copyload.i.i.i.i266791 = load i64, ptr %30, align 8
   %396 = icmp ugt i64 %.0.copyload.i.i.i.i266791, 7
   br i1 %396, label %.thread793, label %402
 
-_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit274: ; preds = %394
+_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit274: ; preds = %394
   %.sroa.2643.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   %.sroa.3644.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
   %.sroa.3644.0.copyload = load i64, ptr %.sroa.3644.0..sroa_idx, align 8
@@ -1206,9 +1206,9 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %409
 _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %409, %_ZNK5clang4Type10isVoidTypeEv.exit
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(232) %48)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %53, i64 48, i1 false)
-  br i1 %.0142, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit291, label %.thread793
+  br i1 %.0142, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit291, label %.thread793
 
-_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit291: ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
+_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit291: ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
   %.sroa.0657.0.copyload = load i64, ptr %30, align 8
   %.sroa.2658.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   %.sroa.6662.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 40
@@ -1229,7 +1229,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   store ptr %426, ptr %.sroa.2658.0..sroa_idx, align 8
   br label %.thread793
 
-.thread793:                                       ; preds = %.thread, %404, %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit291, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit274
+.thread793:                                       ; preds = %.thread, %404, %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit291, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit274
   %428 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
   %429 = icmp ugt i64 %428, 1
   %430 = icmp ugt i64 %140, 16
@@ -1290,7 +1290,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %.sroa.0.0.copyload.i296 = load i64, ptr %458, align 8
   %.val156.val.val = load i32, ptr %106, align 4
-  %459 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE"(i32 %.val156.val.val, ptr nonnull %1, ptr noundef %.0.i294, i64 %.sroa.0.0.copyload.i296)
+  %459 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.argprom.argprom.argprom"(i32 %.val156.val.val, ptr nonnull %1, ptr noundef %.0.i294, i64 %.sroa.0.0.copyload.i296)
   %460 = load ptr, ptr %136, align 8
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 144
   %462 = load ptr, ptr %461, align 8
@@ -1379,7 +1379,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit302: ; pr
   %.0.i306 = load ptr, ptr %483, align 8
   %484 = getelementptr inbounds nuw i8, ptr %.0.i306, i64 8
   %.sroa.0.0.copyload.i307 = load i64, ptr %484, align 8
-  %485 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE"(i32 %481, ptr nonnull %1, ptr noundef %.0.i300, i64 %.sroa.0.0.copyload.i307)
+  %485 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.argprom.argprom.argprom"(i32 %481, ptr nonnull %1, ptr noundef %.0.i300, i64 %.sroa.0.0.copyload.i307)
   %486 = load ptr, ptr %136, align 8
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 144
   %488 = load ptr, ptr %487, align 8
@@ -1425,7 +1425,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit312: ; pr
   %.0.i316 = load ptr, ptr %502, align 8
   %503 = getelementptr inbounds nuw i8, ptr %.0.i316, i64 8
   %.sroa.0.0.copyload.i317 = load i64, ptr %503, align 8
-  %504 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE"(i32 %500, ptr nonnull %1, ptr noundef %.0.i310, i64 %.sroa.0.0.copyload.i317)
+  %504 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.argprom.argprom.argprom"(i32 %500, ptr nonnull %1, ptr noundef %.0.i310, i64 %.sroa.0.0.copyload.i317)
   %505 = load ptr, ptr %136, align 8
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 144
   %507 = load ptr, ptr %506, align 8
@@ -1494,7 +1494,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit323: ; pr
   %.0.i327 = load ptr, ptr %530, align 8
   %531 = getelementptr inbounds nuw i8, ptr %.0.i327, i64 8
   %.sroa.0.0.copyload.i328 = load i64, ptr %531, align 8
-  %532 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE"(i32 %528, ptr nonnull %1, ptr noundef %.0.i321, i64 %.sroa.0.0.copyload.i328)
+  %532 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.argprom.argprom.argprom"(i32 %528, ptr nonnull %1, ptr noundef %.0.i321, i64 %.sroa.0.0.copyload.i328)
   %533 = load ptr, ptr %136, align 8
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 144
   %535 = load ptr, ptr %534, align 8
@@ -1549,7 +1549,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit334: ; pr
   %.0.i338 = load ptr, ptr %555, align 8
   %556 = getelementptr inbounds nuw i8, ptr %.0.i338, i64 8
   %.sroa.0.0.copyload.i339 = load i64, ptr %556, align 8
-  %557 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE"(i32 %553, ptr nonnull %1, ptr noundef %.0.i332, i64 %.sroa.0.0.copyload.i339)
+  %557 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.argprom.argprom.argprom"(i32 %553, ptr nonnull %1, ptr noundef %.0.i332, i64 %.sroa.0.0.copyload.i339)
   %558 = load ptr, ptr %136, align 8
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 144
   %560 = load ptr, ptr %559, align 8
@@ -1668,7 +1668,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit348: ; preds = %599, %602
   %.0.i346 = phi ptr [ %603, %602 ], [ %601, %599 ]
   %.val166.val.val = load i32, ptr %106, align 4
-  %604 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE"(i32 %.val166.val.val, ptr nonnull %1, ptr noundef %.0.i346, i64 %.sroa.0.0.copyload.i344)
+  %604 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.argprom.argprom.argprom"(i32 %.val166.val.val, ptr nonnull %1, ptr noundef %.0.i346, i64 %.sroa.0.0.copyload.i344)
   %605 = load ptr, ptr %136, align 8
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 144
   %607 = load ptr, ptr %606, align 8
@@ -1923,7 +1923,7 @@ default.unreachable:                              ; preds = %697
 
 .sink.split:                                      ; preds = %701, %700, %699, %697, %702
   %.sink815 = phi i32 [ 7, %702 ], [ 2, %697 ], [ 4, %699 ], [ 5, %700 ], [ 6, %701 ]
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef %.sink815, ptr noundef %246)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef %.sink815, ptr noundef %246)
   br label %703
 
 703:                                              ; preds = %.sink.split, %701, %699, %700, %690
@@ -2132,7 +2132,7 @@ _ZN4llvm13IRBuilderBase12CreateSwitchEPNS_5ValueEPNS_10BasicBlockEjPNS_6MDNodeES
   %809 = getelementptr inbounds nuw i8, ptr %741, i64 48
   store ptr %809, ptr %797, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i387, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 2, ptr noundef %246)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 2, ptr noundef %246)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %810 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #14
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %810, ptr noundef nonnull %780, ptr null, i64 0) #14
@@ -2170,7 +2170,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   %824 = getelementptr inbounds nuw i8, ptr %.0146, i64 48
   store ptr %824, ptr %797, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i387, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 4, ptr noundef %246)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 4, ptr noundef %246)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %825 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #14
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %825, ptr noundef nonnull %780, ptr null, i64 0) #14
@@ -2219,7 +2219,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit405: ; preds = %.lr.ph.i.
   %846 = getelementptr inbounds nuw i8, ptr %.0145802, i64 48
   store ptr %846, ptr %797, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i387, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 5, ptr noundef %246)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 5, ptr noundef %246)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %847 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #14
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %847, ptr noundef nonnull %780, ptr null, i64 0) #14
@@ -2261,7 +2261,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit414: ; preds = %.lr.ph.i.
   %864 = getelementptr inbounds nuw i8, ptr %.0144, i64 48
   store ptr %864, ptr %797, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i387, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 6, ptr noundef %246)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 6, ptr noundef %246)
   %865 = call noundef ptr @_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(128) %781, ptr noundef nonnull %780)
   %866 = call noundef ptr @_ZN4llvm13IRBuilderBase8getInt32Ej(ptr noundef nonnull align 8 dereferenceable(128) %781, i32 noundef 4)
   call void @_ZN4llvm10SwitchInst7addCaseEPNS_11ConstantIntEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(76) %793, ptr noundef %866, ptr noundef %.0144) #14
@@ -2272,7 +2272,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit414: ; preds = %.lr.ph.i.
   %867 = getelementptr inbounds nuw i8, ptr %773, i64 48
   store ptr %867, ptr %797, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i387, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 7, ptr noundef %246)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 7, ptr noundef %246)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %868 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #14
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %868, ptr noundef nonnull %780, ptr null, i64 0) #14
@@ -3059,7 +3059,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo25convertToAtomicIntP
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %.not = icmp eq i64 %15, %17
-  br i1 %.not, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit, label %18
+  br i1 %.not, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit, label %18
 
 18:                                               ; preds = %3
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(232) %1)
@@ -3095,9 +3095,9 @@ define internal fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo25convertToAtomicIntP
   %37 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %20, i32 noundef 232, ptr noundef %24, i16 %.sroa.09.0.insert.insert.i, ptr noundef %26, i16 %.sroa.07.0.insert.insert.i, ptr noundef %36, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %.val2.pre = load i64, ptr %16, align 8
-  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
+  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit
 
-_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit: ; preds = %18, %3
+_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit: ; preds = %18, %3
   %.val2 = phi i64 [ %.val2.pre, %18 ], [ %15, %3 ]
   %.sroa.031.0.copyload = load i64, ptr %2, align 8
   %.sroa.333.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -3263,7 +3263,7 @@ declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef,
 declare i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE"(i32 %.0.val.0.val.84.val, ptr %.8.val, ptr noundef %0, i64 %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprEENK3$_0clEPN4llvm5ValueENS_8QualTypeE.argprom.argprom.argprom"(i32 %.0.val.0.val.84.val, ptr %.8.val, ptr noundef %0, i64 %1) unnamed_addr #0 align 2 {
   %3 = add i32 %.0.val.0.val.84.val, -50
   %spec.select.i = icmp ult i32 %3, 13
   br i1 %spec.select.i, label %4, label %38
@@ -3416,7 +3416,7 @@ declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction17ConvertTypeForMemENS_8Q
 declare i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 2, 8) %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 2, 8) %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::DenseMap.1018", align 8
@@ -3478,7 +3478,7 @@ define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionE
   %53 = getelementptr inbounds i8, ptr %52, i64 248
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef zeroext i8 %54(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(841) %38, i32 noundef %48, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %51) #14
-  tail call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %55)
+  tail call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %55)
   br label %_ZNKSt14default_deleteIN5clang16AtomicScopeModelEEclEPS1_.exit.i
 
 56:                                               ; preds = %28
@@ -3511,10 +3511,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %_ZN4llvm12
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %70) #14
   %75 = sext i32 %74 to i64
-  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim, i64 0, i64 %75
   %switch.load = load i64, ptr %switch.gep, align 8
   %76 = sext i32 %74 to i64
-  %switch.gep12 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18, i64 0, i64 %76
+  %switch.gep12 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.argelim.18, i64 0, i64 %76
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   store i8 5, ptr %64, align 8
   store i8 1, ptr %65, align 1
@@ -3810,7 +3810,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_10BasicBlockENS_12DenseMapInfoIjvEENS_6
   %237 = getelementptr inbounds i8, ptr %236, i64 248
   %238 = load ptr, ptr %237, align 8
   %239 = call noundef zeroext i8 %238(ptr noundef nonnull align 8 dereferenceable(24) %224, ptr noundef nonnull align 8 dereferenceable(841) %227, i32 noundef %232, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %235) #14
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %239)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %239)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %240 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #14
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %240, ptr noundef nonnull %120, ptr null, i64 0) #14
@@ -3863,7 +3863,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 232
   %263 = load ptr, ptr %262, align 8
   %264 = tail call noundef zeroext i8 @_ZN4llvm11LLVMContext22getOrInsertSyncScopeIDENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr nonnull @.str, i64 0) #14
-  tail call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %264)
+  tail call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %264)
   br label %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt14default_deleteIN5clang16AtomicScopeModelEEclEPS1_.exit.i: ; preds = %._crit_edge140, %32
@@ -4155,7 +4155,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicLoadENS0_6L
 
 _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit.i: ; preds = %27, %24
   %.0.i.i = phi ptr [ %29, %27 ], [ %26, %24 ]
-  call fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcallEPN4llvm5ValueENS1_14AtomicOrderingEb(ptr noundef nonnull align 8 dereferenceable(232) %11, ptr noundef %.0.i.i, i32 noundef %4)
+  call fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcallEPN4llvm5ValueENS1_14AtomicOrderingEb.argelim(ptr noundef nonnull align 8 dereferenceable(232) %11, ptr noundef %.0.i.i, i32 noundef %4)
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo25convertAtomicTempToRValueEN5clang7CodeGen7AddressENS2_12AggValueSlotENS1_14SourceLocationEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %11, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %8, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %6, i32 %3, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_110AtomicInfo14EmitAtomicLoadEN5clang7CodeGen12AggValueSlotENS1_14SourceLocationEbN4llvm14AtomicOrderingEb.exit
 
@@ -4443,7 +4443,7 @@ _ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i: ;
   %.sroa.255.0.copyload = load i8, ptr %.sroa.255.0..sroa_idx, align 8
   %124 = and i8 %.sroa.255.0.copyload, 6
   %125 = icmp eq i8 %124, 0
-  br i1 %125, label %126, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
+  br i1 %125, label %126, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread
 
 126:                                              ; preds = %119
   %127 = getelementptr inbounds i8, ptr %27, i64 24
@@ -4456,7 +4456,7 @@ _ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i: ;
   %or.cond.i = select i1 %129, i1 %131, i1 false
   %.not = icmp eq ptr %.sroa.054.0.copyload, null
   %or.cond = select i1 %or.cond.i, i1 true, i1 %.not
-  br i1 %or.cond, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread, label %132
+  br i1 %or.cond, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread, label %132
 
 132:                                              ; preds = %126
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.054.0.copyload, i64 8
@@ -4474,17 +4474,17 @@ _ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i: ;
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %132
   %trunc = and i8 %trunc.i.i.i, -3
-  switch i8 %trunc, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit [
+  switch i8 %trunc, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit [
     i8 4, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i
-    i8 12, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
+    i8 12, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %132, %132, %132, %132, %132
   %136 = and i32 %.val26, 255
   %137 = icmp eq i32 %136, 4
-  br i1 %137, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
+  br i1 %137, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i
+_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i
   %.val = load ptr, ptr %27, align 8
   %138 = getelementptr i8, ptr %.val, i64 144
   %.val.val = load ptr, ptr %138, align 8
@@ -4502,10 +4502,10 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   %148 = icmp ugt i32 %146, %147
   %149 = select i1 %148, i32 38, i32 39
   %150 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %142, i32 noundef %149, ptr noundef nonnull %120, ptr noundef nonnull %141, ptr noundef nonnull align 8 dereferenceable(34) %31)
-  br label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
+  br label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %126, %119, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
-  %.020 = phi ptr [ %150, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit ], [ %120, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i ], [ %120, %119 ], [ %120, %126 ], [ %120, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ]
+_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %126, %119, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit
+  %.020 = phi ptr [ %150, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit ], [ %120, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i ], [ %120, %119 ], [ %120, %126 ], [ %120, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %152 = and i64 %123, -8
   %153 = inttoptr i64 %152 to ptr
@@ -4530,12 +4530,12 @@ _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE
   store i8 1, ptr %168, align 8
   br i1 %4, label %169, label %171
 
-169:                                              ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
+169:                                              ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread
   %170 = or i16 %167, 1
   store i16 %170, ptr %162, align 2
   br label %171
 
-171:                                              ; preds = %169, %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
+171:                                              ; preds = %169, %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -4580,7 +4580,7 @@ switch.lookup:                                    ; preds = %175
 
 _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit.i.i: ; preds = %185, %182
   %.0.i13.i.i = phi ptr [ %187, %185 ], [ %184, %182 ]
-  call fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcallEPN4llvm5ValueENS1_14AtomicOrderingEb(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef %.0.i13.i.i, i32 noundef %3)
+  call fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcallEPN4llvm5ValueENS1_14AtomicOrderingEb.argelim(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef %.0.i13.i.i, i32 noundef %3)
   %188 = load ptr, ptr %27, align 8
   %189 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %18, i64 33
@@ -5575,7 +5575,7 @@ define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_110AtomicInfo18convertRValu
   %.sroa.232.0.copyload = load i8, ptr %.sroa.232.0..sroa_idx, align 8
   %7 = and i8 %.sroa.232.0.copyload, 6
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
+  br i1 %8, label %9, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5589,7 +5589,7 @@ define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_110AtomicInfo18convertRValu
   %or.cond.i = select i1 %12, i1 %15, i1 false
   %.not = icmp eq ptr %.sroa.031.0.copyload, null
   %or.cond = select i1 %or.cond.i, i1 true, i1 %.not
-  br i1 %or.cond, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread, label %16
+  br i1 %or.cond, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.copyload, i64 8
@@ -5636,7 +5636,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i: ; preds = %_ZNK4llvm4Type17is
   %35 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %34) #14
   %36 = load ptr, ptr %17, align 8
   %37 = tail call noundef zeroext i1 @_ZN4llvm8CastInst13isBitCastableEPNS_4TypeES2_(ptr noundef %36, ptr noundef %35) #14
-  br i1 %37, label %38, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
+  br i1 %37, label %38, label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread
 
 38:                                               ; preds = %27
   %39 = load ptr, ptr %0, align 8
@@ -5646,7 +5646,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i: ; preds = %_ZNK4llvm4Type17is
   %42 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %40, i32 noundef 49, ptr noundef nonnull %.sroa.031.0.copyload, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(34) %4)
   br label %57
 
-_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread: ; preds = %9, %3, %27
+_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread: ; preds = %9, %3, %27
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo17materializeRValueEN5clang7CodeGen6RValueE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %1)
   %.sroa.037.0.copyload = load i64, ptr %5, align 8
   %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -5674,8 +5674,8 @@ _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE
   %56 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr noundef %47, ptr noundef %52, i16 %.sroa.02.0.insert.insert.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %6)
   br label %57
 
-57:                                               ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread, %38, %23
-  %.0 = phi ptr [ %42, %38 ], [ %56, %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread ], [ %26, %23 ]
+57:                                               ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread, %38, %23
+  %.0 = phi ptr [ %42, %38 ], [ %56, %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.argprom.exit.thread ], [ %26, %23 ]
   ret ptr %.0
 }
 
@@ -5910,7 +5910,7 @@ switch.lookup:                                    ; preds = %5
 
 _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit.i.i: ; preds = %32, %29
   %.0.i14.i.i = phi ptr [ %34, %32 ], [ %31, %29 ]
-  call fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcallEPN4llvm5ValueENS1_14AtomicOrderingEb(ptr noundef nonnull align 8 dereferenceable(232) %22, ptr noundef %.0.i14.i.i, i32 noundef %2)
+  call fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcallEPN4llvm5ValueENS1_14AtomicOrderingEb.argelim(ptr noundef nonnull align 8 dereferenceable(232) %22, ptr noundef %.0.i14.i.i, i32 noundef %2)
   %35 = load ptr, ptr %22, align 8
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 33
@@ -6224,19 +6224,19 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i: ; preds = %
   %.val20.i.i = load i32, ptr %195, align 8
   %trunc.i.i.i.i.i = trunc i32 %.val20.i.i to i8
   switch i8 %trunc.i.i.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i [
-    i8 3, label %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i
-    i8 2, label %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i
-    i8 0, label %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i
-    i8 1, label %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i
-    i8 5, label %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i
+    i8 3, label %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i
+    i8 2, label %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i
+    i8 0, label %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i
+    i8 1, label %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i
+    i8 5, label %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i:   ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i
   %trunc109.i.i = and i32 %.val20.i.i, 253
   %cond.i.i = icmp eq i32 %trunc109.i.i, 12
-  br i1 %cond.i.i, label %201, label %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i
+  br i1 %cond.i.i, label %201, label %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i
 
-_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i
+_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i
   %.sroa.090.0.copyload.i.i = load i64, ptr %10, align 8
   %.sroa.392.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.392.0.copyload.i.i = load i64, ptr %.sroa.392.0..sroa_idx.i.i, align 8
@@ -6249,24 +6249,24 @@ _ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i: ; preds = %_ZNK4llvm4Type17i
   %.val.val.val.i.i = load ptr, ptr %198, align 8
   %199 = trunc i64 %.val19.i.i to i32
   %200 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %.val.val.val.i.i, i32 noundef %199) #14, !noalias !229
-  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit.i.i
+  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit.i.i
 
 201:                                              ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i
   %.sroa.040.0.copyload.i22.i = load i64, ptr %10, align 8
   %.sroa.650.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.650.0.copyload.i.i = load i64, ptr %.sroa.650.0..sroa_idx.i.i, align 8
-  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit.i.i
+  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit.i.i
 
-_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit.i.i: ; preds = %201, %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i
-  %.sroa.5.0.i.i = phi ptr [ %194, %201 ], [ %200, %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i ]
-  %.sroa.040.0.i.i = phi i64 [ %.sroa.040.0.copyload.i22.i, %201 ], [ %.sroa.090.0.copyload.i.i, %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i ]
-  %.sroa.650.0.i.i = phi i64 [ %.sroa.650.0.copyload.i.i, %201 ], [ %.sroa.392.0.copyload.i.i, %_ZL15shouldCastToIntPN4llvm4TypeEb.exit.thread.i.i ]
+_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit.i.i: ; preds = %201, %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i
+  %.sroa.5.0.i.i = phi ptr [ %194, %201 ], [ %200, %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i ]
+  %.sroa.040.0.i.i = phi i64 [ %.sroa.040.0.copyload.i22.i, %201 ], [ %.sroa.090.0.copyload.i.i, %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i ]
+  %.sroa.650.0.i.i = phi i64 [ %.sroa.650.0.copyload.i.i, %201 ], [ %.sroa.392.0.copyload.i.i, %_ZL15shouldCastToIntPN4llvm4TypeEb.argprom.exit.thread.i.i ]
   %202 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %203 = load i32, ptr %202, align 8
   %204 = icmp eq i32 %203, 2
   br i1 %204, label %205, label %213
 
-205:                                              ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit.i.i
+205:                                              ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit.i.i
   %206 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %207 = load i32, ptr %206, align 8
   %208 = lshr i32 %207, 16
@@ -6277,7 +6277,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   %.not.i21.i = icmp eq i64 %212, %210
   br i1 %.not.i21.i, label %213, label %.critedge.i18.i
 
-213:                                              ; preds = %205, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit.i.i
+213:                                              ; preds = %205, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit.i.i
   %.0.in.i.i9.i = getelementptr inbounds i8, ptr %22, i64 80
   %.0.i22.i.i = load ptr, ptr %.0.in.i.i9.i, align 8, !noalias !232
   %214 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicPointerEv(ptr noundef nonnull align 8 dereferenceable(232) %22), !noalias !232
@@ -7302,7 +7302,7 @@ declare { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule21CreateRuntimeFunctionEPN
 declare void @_ZN5clang7CodeGen15CodeGenFunction8EmitCallERKNS0_14CGFunctionInfoERKNS0_8CGCalleeENS0_15ReturnValueSlotERKNS0_11CallArgListEPPN4llvm8CallBaseEbNS_14SourceLocationEb(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::RValue") align 8, ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef byval(%"class.clang::CodeGen::ReturnValueSlot") align 8, ptr noundef nonnull align 8 dereferenceable(1496), ptr noundef, i1 noundef zeroext, i32, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 2, 8) %8, i8 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 2, 8) %8, i8 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.clang::CodeGen::Address", align 8
@@ -7405,11 +7405,11 @@ define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionE
   ]
 
 24:                                               ; preds = %10, %10, %10
-  tail call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  tail call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
   br label %288
 
 25:                                               ; preds = %10, %10, %10
-  tail call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  tail call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
   br label %288
 
 26:                                               ; preds = %10, %10, %10, %10
@@ -7426,7 +7426,7 @@ define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionE
   %.0.in.i.i = select i1 %32, ptr %29, ptr %33
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %34 = icmp ne i64 %.0.i.i, 0
-  tail call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext %34, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  tail call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext %34, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
   br label %288
 
 35:                                               ; preds = %26
@@ -7463,13 +7463,13 @@ define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionE
   store ptr %53, ptr %54, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 344
   store i16 0, ptr %.sroa.22.0..sroa_idx.i, align 8
-  call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
   %55 = call noundef ptr @_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr noundef %48)
   store ptr %44, ptr %52, align 8
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store ptr %56, ptr %54, align 8
   store i16 0, ptr %.sroa.22.0..sroa_idx.i, align 8
-  call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  call fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
   %57 = call noundef ptr @_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr noundef %48)
   store ptr %48, ptr %52, align 8
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 48
@@ -7898,7 +7898,7 @@ _ZL20EmitPostAtomicMinMaxRN5clang7CodeGen11CGBuilderTyENS_10AtomicExpr8AtomicOpE
 declare noundef zeroext i8 @_ZN4llvm11LLVMContext22getOrInsertSyncScopeIDENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %5, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %6, ptr noundef %7, i32 noundef range(i32 2, 8) %8, i8 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @_ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %5, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %6, ptr noundef %7, i32 noundef range(i32 2, 8) %8, i8 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::Twine", align 8
@@ -7945,13 +7945,13 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %25, %32
 
 switch.lookup:                                    ; preds = %36
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh.argelim, i64 0, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
 .thread:                                          ; preds = %switch.lookup, %36, %25, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
   %.0 = phi i32 [ 2, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 2, %36 ], [ 2, %25 ], [ %switch.load, %switch.lookup ]
-  tail call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef %.0, i8 noundef zeroext %9)
+  tail call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef %.0, i8 noundef zeroext %9)
   br label %141
 
 40:                                               ; preds = %10
@@ -8053,7 +8053,7 @@ _ZN4llvm13IRBuilderBase12CreateSwitchEPNS_5ValueEPNS_10BasicBlockEjPNS_6MDNodeES
   %98 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store ptr %98, ptr %76, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef 2, i8 noundef zeroext %9)
+  call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef 2, i8 noundef zeroext %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   %99 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #14
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull %70, ptr null, i64 0) #14
@@ -8088,7 +8088,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   %112 = getelementptr inbounds nuw i8, ptr %56, i64 48
   store ptr %112, ptr %76, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef 4, i8 noundef zeroext %9)
+  call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef 4, i8 noundef zeroext %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   %113 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #14
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %113, ptr noundef nonnull %70, ptr null, i64 0) #14
@@ -8123,7 +8123,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit79: ; preds = %.lr.ph.i.i
   %126 = getelementptr inbounds nuw i8, ptr %63, i64 48
   store ptr %126, ptr %76, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef 7, i8 noundef zeroext %9)
+  call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef 7, i8 noundef zeroext %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %127 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #14
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %127, ptr noundef nonnull %70, ptr null, i64 0) #14
@@ -8362,7 +8362,7 @@ _ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %.l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %5, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef range(i32 2, 8) %7, i32 noundef %8, i8 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %5, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef range(i32 2, 8) %7, i32 noundef %8, i8 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %12 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %13 = alloca %"class.llvm::Twine", align 8
@@ -9440,7 +9440,7 @@ declare noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueE
 declare noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcallEPN4llvm5ValueENS1_14AtomicOrderingEb(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110AtomicInfo21EmitAtomicLoadLibcallEPN4llvm5ValueENS1_14AtomicOrderingEb.argelim(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.clang::CodeGen::CallArg", align 8
   %5 = alloca %"struct.clang::CodeGen::CallArg", align 8
   %6 = alloca %"struct.clang::CodeGen::CallArg", align 8
@@ -9920,7 +9920,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoa
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %4
   %trunc = and i8 %trunc.i.i.i, -3
-  switch i8 %trunc, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit [
+  switch i8 %trunc, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit [
     i8 4, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i
     i8 12, label %18
   ]
@@ -9929,9 +9929,9 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i: ; preds = %_ZNK4llvm4Type17is
   %10 = and i32 %.val8, 255
   %11 = icmp eq i32 %10, 4
   %12 = or i1 %3, %11
-  br i1 %12, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit, label %18
+  br i1 %12, label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit, label %18
 
-_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i
+_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i
   %.val = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %.val7 = load i64, ptr %13, align 8
@@ -9943,8 +9943,8 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   %17 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %.val.val.val, i32 noundef %16) #14, !noalias !302
   br label %18
 
-18:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
-  %.sroa.424.0 = phi ptr [ %17, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit ], [ %.0.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i ], [ %.0.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ]
+18:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit
+  %.sroa.424.0 = phi ptr [ %17, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit ], [ %.0.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i ], [ %.0.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ]
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 280
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -10136,7 +10136,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i: ; preds = %_ZNK4llvm4Type17is
   %68 = trunc i64 %67 to i16
   %69 = lshr i16 %68, 2
   %70 = and i16 %69, 1
-  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
+  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit
 
 .critedge18:                                      ; preds = %27, %29, %63
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(232) %1)
@@ -10152,9 +10152,9 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i: ; preds = %_ZNK4llvm4Type17is
   %.sroa.10.sroa.4.0.copyload = load ptr, ptr %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx52.sroa_idx, align 8
   %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx52.sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
   %.sroa.10.sroa.7.0.copyload = load ptr, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx52.sroa_idx, align 8
-  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
+  br label %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit
 
-_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit: ; preds = %.critedge18, %65
+_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit: ; preds = %.critedge18, %65
   %.sroa.644.0 = phi i8 [ %.sroa.263.0.copyload, %65 ], [ %.sroa.644.0.copyload46, %.critedge18 ]
   %.sroa.10.sroa.0.0 = phi i56 [ %.sroa.364.sroa.0.0.copyload, %65 ], [ %.sroa.10.sroa.0.0.copyload, %.critedge18 ]
   %.sroa.10.sroa.7.0 = phi ptr [ %.sroa.364.sroa.3.0.copyload, %65 ], [ %.sroa.10.sroa.7.0.copyload, %.critedge18 ]
@@ -10204,7 +10204,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo25convertAtomicTempToRValueEN5clang7CodeGen7AddressENS2_12AggValueSlotENS1_14SourceLocationEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %10, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i32 %4, i1 noundef zeroext %5)
   br label %88
 
-88:                                               ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit, %54, %42
+88:                                               ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom.exit, %54, %42
   ret void
 }
 
@@ -11526,14 +11526,14 @@ attributes #17 = { builtin nounwind }
 !50 = distinct !{!50, !"_ZN5clang7CodeGen6LValue8MakeAddrENS0_7AddressENS_8QualTypeERNS_10ASTContextENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE"}
 !51 = !{!49, !45, !42}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!54 = distinct !{!54, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!53 = distinct !{!53, !54, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!54 = distinct !{!54, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!57 = distinct !{!57, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!56 = distinct !{!56, !57, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!57 = distinct !{!57, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!60 = distinct !{!60, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!59 = distinct !{!59, !60, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!60 = distinct !{!60, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZNK4llvm9StringRef3strB5cxx11Ev: argument 0"}
 !63 = distinct !{!63, !"_ZNK4llvm9StringRef3strB5cxx11Ev"}
@@ -11583,8 +11583,8 @@ attributes #17 = { builtin nounwind }
 !107 = distinct !{!107, !108, !"_ZN5clang7CodeGen6LValue12MakeBitfieldENS0_7AddressERKNS0_14CGBitFieldInfoENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE: argument 0"}
 !108 = distinct !{!108, !"_ZN5clang7CodeGen6LValue12MakeBitfieldENS0_7AddressERKNS0_14CGBitFieldInfoENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE"}
 !109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!111 = distinct !{!111, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!110 = distinct !{!110, !111, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!111 = distinct !{!111, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !112 = !{!113, !110}
 !113 = distinct !{!113, !114, !"_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE: argument 0"}
 !114 = distinct !{!114, !"_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE"}
@@ -11620,15 +11620,15 @@ attributes #17 = { builtin nounwind }
 !144 = distinct !{!144, !145, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv: argument 0"}
 !145 = distinct !{!145, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv"}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!148 = distinct !{!148, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!147 = distinct !{!147, !148, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!148 = distinct !{!148, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !149 = !{!150}
 !150 = distinct !{!150, !151, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv: argument 0"}
 !151 = distinct !{!151, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv"}
 !152 = !{}
 !153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!155 = distinct !{!155, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!154 = distinct !{!154, !155, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!155 = distinct !{!155, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !156 = !{!157}
 !157 = distinct !{!157, !158, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv: argument 0"}
 !158 = distinct !{!158, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv"}
@@ -11665,8 +11665,8 @@ attributes #17 = { builtin nounwind }
 !189 = distinct !{!189, !"_ZN5clang7CodeGen6LValue8MakeAddrENS0_7AddressENS_8QualTypeERNS_10ASTContextENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE"}
 !190 = !{!188, !184, !181}
 !191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!193 = distinct !{!193, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!192 = distinct !{!192, !193, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!193 = distinct !{!193, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !194 = !{!195}
 !195 = distinct !{!195, !196, !"_ZN12_GLOBAL__N_110AtomicInfo25EmitAtomicCompareExchangeEN5clang7CodeGen6RValueES3_N4llvm14AtomicOrderingES5_b: argument 0"}
 !196 = distinct !{!196, !"_ZN12_GLOBAL__N_110AtomicInfo25EmitAtomicCompareExchangeEN5clang7CodeGen6RValueES3_N4llvm14AtomicOrderingES5_b"}
@@ -11703,8 +11703,8 @@ attributes #17 = { builtin nounwind }
 !227 = distinct !{!227, !228, !"_ZN5clang7CodeGen12AggValueSlot7forAddrENS0_7AddressENS_10QualifiersENS1_14IsDestructed_tENS1_17NeedsGCBarriers_tENS1_11IsAliased_tENS1_9Overlap_tENS1_10IsZeroed_tENS1_20IsSanitizerChecked_tE: argument 0"}
 !228 = distinct !{!228, !"_ZN5clang7CodeGen12AggValueSlot7forAddrENS0_7AddressENS_10QualifiersENS1_14IsDestructed_tENS1_17NeedsGCBarriers_tENS1_11IsAliased_tENS1_9Overlap_tENS1_10IsZeroed_tENS1_20IsSanitizerChecked_tE"}
 !229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!231 = distinct !{!231, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!230 = distinct !{!230, !231, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!231 = distinct !{!231, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !232 = !{!233}
 !233 = distinct !{!233, !234, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv: argument 0"}
 !234 = distinct !{!234, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv"}
@@ -11776,8 +11776,8 @@ attributes #17 = { builtin nounwind }
 !300 = distinct !{!300, !301, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv: argument 0"}
 !301 = distinct !{!301, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv"}
 !302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!304 = distinct !{!304, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!303 = distinct !{!303, !304, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!304 = distinct !{!304, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !305 = !{!306}
 !306 = distinct !{!306, !307, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv: argument 0"}
 !307 = distinct !{!307, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv"}
@@ -11788,8 +11788,8 @@ attributes #17 = { builtin nounwind }
 !312 = distinct !{!312, !313, !"_ZN5clang7CodeGen6RValue3getEPN4llvm5ValueE: argument 0"}
 !313 = distinct !{!313, !"_ZN5clang7CodeGen6RValue3getEPN4llvm5ValueE"}
 !314 = !{!315}
-!315 = distinct !{!315, !316, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!316 = distinct !{!316, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!315 = distinct !{!315, !316, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!316 = distinct !{!316, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !317 = !{!318, !320}
 !318 = distinct !{!318, !319, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv: argument 0"}
 !319 = distinct !{!319, !"_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicAddressEv"}
@@ -11797,8 +11797,8 @@ attributes #17 = { builtin nounwind }
 !321 = distinct !{!321, !"_ZNK12_GLOBAL__N_110AtomicInfo34getAtomicAddressAsAtomicIntPointerEv"}
 !322 = !{!320}
 !323 = !{!324, !320}
-!324 = distinct !{!324, !325, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE: argument 0"}
-!325 = distinct !{!325, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE"}
+!324 = distinct !{!324, !325, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom: argument 0"}
+!325 = distinct !{!325, !"_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.argprom.argprom.argprom"}
 !326 = !{!327}
 !327 = distinct !{!327, !328, !"_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE: argument 0"}
 !328 = distinct !{!328, !"_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE"}

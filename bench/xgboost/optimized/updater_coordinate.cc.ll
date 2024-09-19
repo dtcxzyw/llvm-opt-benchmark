@@ -4993,7 +4993,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost13Line
   %3 = getelementptr inbounds i8, ptr %2, i64 56
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   invoke void @_ZN7xgboost6common7MonitorC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4)
-          to label %"_ZSt10__invoke_rIPN7xgboost13LinearUpdaterERNS0_6linear3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %5
+          to label %"_ZSt10__invoke_rIPN7xgboost13LinearUpdaterERNS0_6linear3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %5
 
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
@@ -5014,7 +5014,7 @@ _ZNSt10unique_ptrIN7xgboost6linear15FeatureSelectorESt14default_deleteIS2_EED2Ev
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 160) #32
   resume { ptr, i32 } %6
 
-"_ZSt10__invoke_rIPN7xgboost13LinearUpdaterERNS0_6linear3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost13LinearUpdaterERNS0_6linear3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
   ret ptr %2
 }
 

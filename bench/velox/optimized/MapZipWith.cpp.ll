@@ -10325,8 +10325,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i536
   %759 = sext i32 %757 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %759, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i ]
+for.body.i:                                       ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ %759, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i ]
   %func.val3.val.i = load ptr, ptr %rawNewOffsets.i, align 8
   %func.val3.val4.i = load ptr, ptr %rawNewSizes.i, align 8
   %arrayidx.i.i = getelementptr inbounds i32, ptr %func.val3.val.i, i64 %indvars.iv.i
@@ -10335,7 +10335,7 @@ for.body.i:                                       ; preds = %_ZZNK8facebook5velo
   %761 = load i32, ptr %arrayidx6.i.i, align 4
   %add.i.i = add nsw i32 %761, %760
   %cmp.i.i.i540 = icmp eq i32 %761, 0
-  br i1 %cmp.i.i.i540, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i, label %if.end.i.i.i541
+  br i1 %cmp.i.i.i540, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i, label %if.end.i.i.i541
 
 if.end.i.i.i541:                                  ; preds = %for.body.i
   %762 = load ptr, ptr %elementRows, align 8
@@ -10425,13 +10425,13 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.sink.split.i.i, %for.end.i.i.i547, %if.end.i.i.i541
   %767 = load i8, ptr %_M_engaged.i.i.i.i.i466, align 1
   %tobool.i.i.i.i.i.i = trunc i8 %767 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i543, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i
+  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i543, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i
 
 if.then.i.i.i.i.i.i543:                           ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i466, align 1
-  br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i
+  br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i
 
-_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i: ; preds = %if.then.i.i.i.i.i.i543, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i, %for.body.i
+_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i: ; preds = %if.then.i.i.i.i.i.i543, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i, %for.body.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %768 = load i32, ptr %end_.i.i456, align 8
   %769 = sext i32 %768 to i64
@@ -10524,8 +10524,8 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i49
   %conv.i.i.i.i.i = sext i32 %mul.i31.i.i.i.i to i64
   br label %for.body.i.i.i.i.i492
 
-for.body.i.i.i.i.i492:                            ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
-  %row.084.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i ]
+for.body.i.i.i.i.i492:                            ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.argprom.argprom.exit.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
+  %row.084.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.argprom.argprom.exit.i.i.i.i.i ]
   %.val14.val.i.i.i.i.i = load ptr, ptr %rawNewOffsets.i, align 8
   %.val14.val15.i.i.i.i.i = load ptr, ptr %rawNewSizes.i, align 8
   %arrayidx.i.i.i.i.i.i493 = getelementptr inbounds i32, ptr %.val14.val.i.i.i.i.i, i64 %row.084.i.i.i.i.i
@@ -10534,7 +10534,7 @@ for.body.i.i.i.i.i492:                            ; preds = %_ZZNK8facebook5velo
   %777 = load i32, ptr %arrayidx4.i.i.i.i.i.i, align 4
   %add.i.i.i.i.i.i494 = add nsw i32 %777, %776
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %777, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i495
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.argprom.argprom.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i495
 
 if.end.i.i.i.i.i.i.i495:                          ; preds = %for.body.i.i.i.i.i492
   %778 = load ptr, ptr %elementRows, align 8
@@ -10624,19 +10624,19 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.sink.split.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i511, %if.end.i.i.i.i.i.i.i495
   %783 = load i8, ptr %_M_engaged.i.i.i.i.i466, align 1
   %tobool.i.i.i.i.i.i.i.i.i.i = trunc i8 %783 to i1
-  br i1 %tobool.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i497, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i497, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.argprom.argprom.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i497:                   ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i466, align 1
-  br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i
+  br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.argprom.argprom.exit.i.i.i.i.i
 
-_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i497, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i492
+_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.argprom.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i497, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i492
   %inc.i.i.i.i.i = add nuw i64 %row.084.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i, %conv5.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %for.body.i.i.i.i.i492, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i, !llvm.loop !128
 
-while.body.i.i.i.i.i:                             ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i
-  %word.082.i.i.i.i.i = phi i64 [ %775, %while.body.lr.ph.i.i.i.i.i ], [ %and.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i ]
+while.body.i.i.i.i.i:                             ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i
+  %word.082.i.i.i.i.i = phi i64 [ %775, %while.body.lr.ph.i.i.i.i.i ], [ %and.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i.i.i.i.i ]
   %784 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.082.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %784 to i32
   %add9.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i, %cast.i.i.i.i.i
@@ -10649,7 +10649,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZZNK8facebook5velo
   %786 = load i32, ptr %arrayidx6.i.i.i.i.i.i, align 4
   %add.i17.i.i.i.i.i = add nsw i32 %786, %785
   %cmp.i.i18.i.i.i.i.i = icmp eq i32 %786, 0
-  br i1 %cmp.i.i18.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i, label %if.end.i.i19.i.i.i.i.i
+  br i1 %cmp.i.i18.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i.i.i.i.i, label %if.end.i.i19.i.i.i.i.i
 
 if.end.i.i19.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i
   %787 = load ptr, ptr %elementRows, align 8
@@ -10739,19 +10739,19 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i21.i.i.i.i.i: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.sink.split.i61.i.i.i.i.i, %for.end.i.i54.i.i.i.i.i, %if.end.i.i19.i.i.i.i.i
   %792 = load i8, ptr %_M_engaged.i.i.i.i.i466, align 1
   %tobool.i.i.i.i.i23.i.i.i.i.i = trunc i8 %792 to i1
-  br i1 %tobool.i.i.i.i.i23.i.i.i.i.i, label %if.then.i.i.i.i.i24.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i23.i.i.i.i.i, label %if.then.i.i.i.i.i24.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i24.i.i.i.i.i:                    ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i21.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i466, align 1
-  br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i
+  br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i.i.i.i.i
 
-_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i24.i.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i21.i.i.i.i.i, %while.body.i.i.i.i.i
+_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i24.i.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i21.i.i.i.i.i, %while.body.i.i.i.i.i
   %sub.i32.i.i.i.i = add i64 %word.082.i.i.i.i.i, -1
   %and.i.i.i.i.i = and i64 %sub.i32.i.i.i.i, %word.082.i.i.i.i.i
   %tobool7.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool7.not.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !129
 
-_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i, %if.then.i.i.i.i.i491, %for.body.i.i.i7.i
+_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.argprom.argprom.exit.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i491, %for.body.i.i.i7.i
   %add.i.i.i8.i = add nsw i32 %add40.i.i.i.i, 64
   %cmp15.not.i.i.i.i = icmp sgt i32 %add.i.i.i8.i, %774
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i9.i, label %for.body.i.i.i7.i, !llvm.loop !130
@@ -10773,7 +10773,7 @@ _ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_118MapZipWit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i)
   br label %invoke.cont146
 
-invoke.cont146:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i, %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiiSP_.exit.i, %if.then.i536
+invoke.cont146:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit.i, %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiiSP_.exit.i, %if.then.i536
   %793 = load ptr, ptr %elementRows, align 8
   %794 = load i32, ptr %size_.i480, align 8
   %cmp.not.i.i.i564 = icmp sgt i32 %794, 0
@@ -35292,7 +35292,7 @@ if.end32.i:                                       ; preds = %if.end32.i, %if.end
 
 for.cond42.preheader.i:                           ; preds = %for.body.i, %for.cond.preheader.i
   %cmp4417.i = icmp ugt i64 %sub.ptr.div.i49.i, %leftIndex.0.lcssa.i
-  br i1 %cmp4417.i, label %for.body45.preheader.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit
+  br i1 %cmp4417.i, label %for.body45.preheader.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.argprom.exit
 
 for.body45.preheader.i:                           ; preds = %for.cond42.preheader.i
   %.pre31.i = load i32, ptr %63, align 4
@@ -35350,9 +35350,9 @@ for.body45.i:                                     ; preds = %for.body45.i, %for.
   store i32 %inc50.i, ptr %63, align 4
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next27.i, %sub.ptr.div.i49.i
-  br i1 %exitcond29.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit, label %for.body45.i, !llvm.loop !325
+  br i1 %exitcond29.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.argprom.exit, label %for.body45.i, !llvm.loop !325
 
-_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit: ; preds = %for.body45.i, %for.cond42.preheader.i
+_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.argprom.exit: ; preds = %for.body45.i, %for.cond42.preheader.i
   %91 = load ptr, ptr %26, align 8
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %29, align 8
@@ -35367,7 +35367,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKe
   store i32 %sub, ptr %arrayidx11, align 4
   br label %return
 
-return:                                           ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.exit, %if.then
+return:                                           ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction18mergeSingleMapKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEvRKSt6vectorIiSaIiEESM_SF_PmSN_PiSO_Ri.argprom.exit, %if.then
   ret void
 }
 
@@ -46059,9 +46059,9 @@ while.body.i:                                     ; preds = %_ZNK8facebook5velox
   %78 = load float, ptr %arrayidx.i4.i.i.i, align 4
   %79 = fcmp uno float %77, 0.000000e+00
   %80 = fcmp ord float %78, 0.000000e+00
-  br i1 %79, label %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge, label %if.end.i.i.i.i
+  br i1 %79, label %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge, label %if.end.i.i.i.i
 
-while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge: ; preds = %while.body.i
+while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge: ; preds = %while.body.i
   %.pre = load i32, ptr %65, align 4
   br i1 %80, label %if.else26.i, label %if.then.i
 
@@ -46069,14 +46069,14 @@ if.end.i.i.i.i:                                   ; preds = %while.body.i
   %cmp.i.i.i.i = fcmp uge float %77, %78
   %or.cond.not = and i1 %cmp.i.i.i.i, %80
   %.pre71 = load i32, ptr %65, align 4
-  br i1 %or.cond.not, label %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i, label %if.then20.i
+  br i1 %or.cond.not, label %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i, label %if.then20.i
 
-_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i: ; preds = %if.end.i.i.i.i
+_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i: ; preds = %if.end.i.i.i.i
   %cmp7.i.i.i.i = fcmp une float %77, %78
   br i1 %cmp7.i.i.i.i, label %if.else26.i, label %if.then.i
 
-if.then.i:                                        ; preds = %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i
-  %81 = phi i32 [ %.pre, %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge ], [ %.pre71, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i ]
+if.then.i:                                        ; preds = %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i
+  %81 = phi i32 [ %.pre, %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge ], [ %.pre71, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i ]
   %idxprom.i66 = sext i32 %81 to i64
   %arrayidx.i67 = getelementptr inbounds i32, ptr %63, i64 %idxprom.i66
   store i32 %72, ptr %arrayidx.i67, align 4
@@ -46109,8 +46109,8 @@ if.then20.i:                                      ; preds = %if.end.i.i.i.i
   %inc25.i = add nsw i32 %leftIndex.086.i, 1
   br label %if.end32.i
 
-if.else26.i:                                      ; preds = %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i
-  %88 = phi i32 [ %.pre, %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge ], [ %.pre71, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i ]
+if.else26.i:                                      ; preds = %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i
+  %88 = phi i32 [ %.pre, %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge ], [ %.pre71, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i ]
   %rem.i.i58.i = and i32 %88, 7
   %idxprom.i.i59.i = zext nneg i32 %rem.i.i58.i to i64
   %arrayidx.i.i60.i = getelementptr inbounds [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i59.i
@@ -47467,9 +47467,9 @@ while.body.i:                                     ; preds = %_ZNK8facebook5velox
   %78 = load double, ptr %arrayidx.i4.i.i.i, align 8
   %79 = fcmp uno double %77, 0.000000e+00
   %80 = fcmp ord double %78, 0.000000e+00
-  br i1 %79, label %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge, label %if.end.i.i.i.i
+  br i1 %79, label %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge, label %if.end.i.i.i.i
 
-while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge: ; preds = %while.body.i
+while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge: ; preds = %while.body.i
   %.pre = load i32, ptr %65, align 4
   br i1 %80, label %if.else26.i, label %if.then.i
 
@@ -47477,14 +47477,14 @@ if.end.i.i.i.i:                                   ; preds = %while.body.i
   %cmp.i.i.i.i = fcmp uge double %77, %78
   %or.cond.not = and i1 %cmp.i.i.i.i, %80
   %.pre71 = load i32, ptr %65, align 4
-  br i1 %or.cond.not, label %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i, label %if.then20.i
+  br i1 %or.cond.not, label %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i, label %if.then20.i
 
-_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i: ; preds = %if.end.i.i.i.i
+_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i: ; preds = %if.end.i.i.i.i
   %cmp7.i.i.i.i = fcmp une double %77, %78
   br i1 %cmp7.i.i.i.i, label %if.else26.i, label %if.then.i
 
-if.then.i:                                        ; preds = %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i
-  %81 = phi i32 [ %.pre, %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge ], [ %.pre71, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i ]
+if.then.i:                                        ; preds = %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i
+  %81 = phi i32 [ %.pre, %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge ], [ %.pre71, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i ]
   %idxprom.i66 = sext i32 %81 to i64
   %arrayidx.i67 = getelementptr inbounds i32, ptr %63, i64 %idxprom.i66
   store i32 %72, ptr %arrayidx.i67, align 4
@@ -47517,8 +47517,8 @@ if.then20.i:                                      ; preds = %if.end.i.i.i.i
   %inc25.i = add nsw i32 %leftIndex.086.i, 1
   br label %if.end32.i
 
-if.else26.i:                                      ; preds = %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i
-  %88 = phi i32 [ %.pre, %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i_crit_edge ], [ %.pre71, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i ]
+if.else26.i:                                      ; preds = %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i
+  %88 = phi i32 [ %.pre, %while.body.i._ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i_crit_edge ], [ %.pre71, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i ]
   %rem.i.i58.i = and i32 %88, 7
   %idxprom.i.i59.i = zext nneg i32 %rem.i.i58.i to i64
   %arrayidx.i.i60.i = getelementptr inbounds [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i59.i
@@ -51879,14 +51879,14 @@ lor.rhs.i.i.i.i.i:                                ; preds = %while.body.i
   %cmp7.i.i.i.i.i = icmp ult i64 %retval.sroa.2.0.copyload.i.i.i.i, %retval.sroa.2.0.copyload.i7.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp5.i.i.i.i.i, i1 %cmp7.i.i.i.i.i, i1 false
   %.pre71 = load i32, ptr %65, align 4
-  br i1 %or.cond.i.i.i.i, label %if.then20.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i
+  br i1 %or.cond.i.i.i.i, label %if.then20.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i
 
-_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i: ; preds = %lor.rhs.i.i.i.i.i
+_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i: ; preds = %lor.rhs.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i64 %retval.sroa.2.0.copyload.i.i.i.i, %retval.sroa.2.0.copyload.i7.i.i.i
   %.not.i.i.i.not.i = select i1 %cmp5.i.i.i.i.i, i1 %cmp4.i.i.i.i.i, i1 false
   br i1 %.not.i.i.i.not.i, label %if.then.i, label %if.else26.i
 
-if.then.i:                                        ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i
+if.then.i:                                        ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i
   %idxprom.i64 = sext i32 %.pre71 to i64
   %arrayidx.i65 = getelementptr inbounds i32, ptr %63, i64 %idxprom.i64
   store i32 %72, ptr %arrayidx.i65, align 4
@@ -51920,7 +51920,7 @@ if.then20.i:                                      ; preds = %while.body.i.if.the
   %inc25.i = add nsw i32 %leftIndex.086.i, 1
   br label %if.end32.i
 
-if.else26.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.exit.i
+if.else26.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEENKUlT_T0_E0_clIiiEEDaSE_SF_.argprom.argprom.argprom.exit.i
   %rem.i.i58.i = and i32 %.pre71, 7
   %idxprom.i.i59.i = zext nneg i32 %rem.i.i58.i to i64
   %arrayidx.i.i60.i = getelementptr inbounds [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i59.i
@@ -52785,7 +52785,7 @@ while.body.i:                                     ; preds = %invoke.cont, %if.en
 call.i.i.i.noexc:                                 ; preds = %while.body.i
   %66 = and i64 %call.i.i.i69, 4294967296
   %tobool.i.i.not.i.i.i = icmp eq i64 %66, 0
-  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_T0_E_clIiiEEDaSN_SO_.exit.i
+  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_T0_E_clIiiEEDaSN_SO_.argprom.argprom.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %call.i.i.i.noexc
   invoke void @_ZSt27__throw_bad_optional_accessv() #29
@@ -52794,12 +52794,12 @@ if.end.i.i.i.i:                                   ; preds = %call.i.i.i.noexc
 .noexc:                                           ; preds = %if.end.i.i.i.i
   unreachable
 
-_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_T0_E_clIiiEEDaSN_SO_.exit.i: ; preds = %call.i.i.i.noexc
+_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_T0_E_clIiiEEDaSN_SO_.argprom.argprom.exit.i: ; preds = %call.i.i.i.noexc
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %call.i.i.i69 to i32
   %cmp9.i = icmp eq i32 %ref.tmp.sroa.0.0.extract.trunc.i.i.i, 0
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_T0_E_clIiiEEDaSN_SO_.exit.i
+if.then.i:                                        ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_T0_E_clIiiEEDaSN_SO_.argprom.argprom.exit.i
   %67 = load ptr, ptr %leftSorted, align 8
   %add.ptr.i53.i = getelementptr inbounds i32, ptr %67, i64 %conv86.i
   %68 = load i32, ptr %add.ptr.i53.i, align 4
@@ -52818,7 +52818,7 @@ if.then.i:                                        ; preds = %_ZZNK8facebook5velo
   %inc16.i = add nsw i32 %rightIndex.084.i, 1
   br label %if.end30.i
 
-if.else.i:                                        ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_T0_E_clIiiEEDaSN_SO_.exit.i
+if.else.i:                                        ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_T0_E_clIiiEEDaSN_SO_.argprom.argprom.exit.i
   %cmp17.i = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i.i.i, 0
   br i1 %cmp17.i, label %if.then18.i, label %if.else24.i
 
@@ -53842,8 +53842,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit
-  %word.0 = phi i64 [ %and6, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -53860,7 +53860,7 @@ while.body:                                       ; preds = %while.body.preheade
   %13 = load i32, ptr %arrayidx6.i, align 4
   %add.i = add nsw i32 %13, %12
   %cmp.i.i = icmp eq i32 %13, 0
-  br i1 %cmp.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body
   %14 = load ptr, ptr %.val, align 8
@@ -53951,19 +53951,19 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 37
   %19 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %19 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 1
-  br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit
+  br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit
 
-_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit: ; preds = %while.body, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i, %if.then.i.i.i.i.i
+_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit: ; preds = %while.body, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i, %if.then.i.i.i.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit, %entry
+while.end:                                        ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.argprom.argprom.exit, %entry
   ret void
 }
 

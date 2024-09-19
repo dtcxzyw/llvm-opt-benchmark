@@ -79,20 +79,20 @@ entry:
   %1 = getelementptr i8, ptr %vpdsactx, i64 360
   %vpdsactx.val = load ptr, ptr %1, align 8
   %cmp.not.i = icmp eq ptr %vpdsactx.val, null
-  br i1 %cmp.not.i, label %dsa_get_md_size.exit, label %if.then.i
+  br i1 %cmp.not.i, label %dsa_get_md_size.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %vpdsactx.val) #8
   %conv.i = sext i32 %call.i to i64
-  br label %dsa_get_md_size.exit
+  br label %dsa_get_md_size.argprom.exit
 
-dsa_get_md_size.exit:                             ; preds = %entry, %if.then.i
+dsa_get_md_size.argprom.exit:                     ; preds = %entry, %if.then.i
   %retval.0.i = phi i64 [ %conv.i, %if.then.i ], [ 0, %entry ]
   %call2 = tail call i32 @ossl_prov_is_running() #8
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %dsa_get_md_size.exit
+if.end:                                           ; preds = %dsa_get_md_size.argprom.exit
   %cmp = icmp eq ptr %sig, null
   br i1 %cmp, label %return.sink.split, label %if.end5
 
@@ -129,8 +129,8 @@ return.sink.split:                                ; preds = %if.end, %if.end22
   store i64 %conv23.sink, ptr %siglen, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end15, %if.end9, %if.end5, %dsa_get_md_size.exit
-  %retval.0 = phi i32 [ 0, %dsa_get_md_size.exit ], [ 0, %if.end5 ], [ 0, %if.end9 ], [ 0, %if.end15 ], [ 1, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end15, %if.end9, %if.end5, %dsa_get_md_size.argprom.exit
+  %retval.0 = phi i32 [ 0, %dsa_get_md_size.argprom.exit ], [ 0, %if.end5 ], [ 0, %if.end9 ], [ 0, %if.end15 ], [ 1, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -147,20 +147,20 @@ entry:
   %0 = getelementptr i8, ptr %vpdsactx, i64 360
   %vpdsactx.val = load ptr, ptr %0, align 8
   %cmp.not.i = icmp eq ptr %vpdsactx.val, null
-  br i1 %cmp.not.i, label %dsa_get_md_size.exit, label %if.then.i
+  br i1 %cmp.not.i, label %dsa_get_md_size.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %vpdsactx.val) #8
   %conv.i = sext i32 %call.i to i64
-  br label %dsa_get_md_size.exit
+  br label %dsa_get_md_size.argprom.exit
 
-dsa_get_md_size.exit:                             ; preds = %entry, %if.then.i
+dsa_get_md_size.argprom.exit:                     ; preds = %entry, %if.then.i
   %retval.0.i = phi i64 [ %conv.i, %if.then.i ], [ 0, %entry ]
   %call1 = tail call i32 @ossl_prov_is_running() #8
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %dsa_get_md_size.exit
+lor.lhs.false:                                    ; preds = %dsa_get_md_size.argprom.exit
   %cmp.not = icmp eq i64 %retval.0.i, 0
   %cmp2.not = icmp eq i64 %tbslen, %retval.0.i
   %or.cond = or i1 %cmp.not, %cmp2.not
@@ -174,8 +174,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %call4 = tail call i32 @DSA_verify(i32 noundef 0, ptr noundef %tbs, i32 noundef %conv, ptr noundef %sig, i32 noundef %conv3, ptr noundef %1) #8
   br label %return
 
-return:                                           ; preds = %dsa_get_md_size.exit, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ %call4, %if.end ], [ 0, %lor.lhs.false ], [ 0, %dsa_get_md_size.exit ]
+return:                                           ; preds = %dsa_get_md_size.argprom.exit, %lor.lhs.false, %if.end
+  %retval.0 = phi i32 [ %call4, %if.end ], [ 0, %lor.lhs.false ], [ 0, %dsa_get_md_size.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -254,20 +254,20 @@ if.end10:                                         ; preds = %if.then4.if.end10_c
   %3 = getelementptr i8, ptr %vpdsactx, i64 360
   %vpdsactx.val.i = load ptr, ptr %3, align 8
   %cmp.not.i.i = icmp eq ptr %vpdsactx.val.i, null
-  br i1 %cmp.not.i.i, label %dsa_get_md_size.exit.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %dsa_get_md_size.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end10
   %call.i.i = call i32 @EVP_MD_get_size(ptr noundef nonnull %vpdsactx.val.i) #8
   %conv.i.i = sext i32 %call.i.i to i64
-  br label %dsa_get_md_size.exit.i
+  br label %dsa_get_md_size.argprom.exit.i
 
-dsa_get_md_size.exit.i:                           ; preds = %if.then.i.i, %if.end10
+dsa_get_md_size.argprom.exit.i:                   ; preds = %if.then.i.i, %if.end10
   %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i ], [ 0, %if.end10 ]
   %call2.i = call i32 @ossl_prov_is_running() #8
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %dsa_sign.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %dsa_get_md_size.exit.i
+if.end.i:                                         ; preds = %dsa_get_md_size.argprom.exit.i
   br i1 %cmp3.not, label %return.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -302,8 +302,8 @@ return.sink.split.i:                              ; preds = %if.end22.i, %if.end
   store i64 %conv23.sink.i, ptr %siglen, align 8
   br label %dsa_sign.exit
 
-dsa_sign.exit:                                    ; preds = %dsa_get_md_size.exit.i, %if.end5.i, %if.end9.i, %if.end15.i, %return.sink.split.i
-  %retval.0.i = phi i32 [ 0, %dsa_get_md_size.exit.i ], [ 0, %if.end5.i ], [ 0, %if.end9.i ], [ 0, %if.end15.i ], [ 1, %return.sink.split.i ]
+dsa_sign.exit:                                    ; preds = %dsa_get_md_size.argprom.exit.i, %if.end5.i, %if.end9.i, %if.end15.i, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %dsa_get_md_size.argprom.exit.i ], [ 0, %if.end5.i ], [ 0, %if.end9.i ], [ 0, %if.end15.i ], [ 1, %return.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sltmp.i)
   br label %return
 
@@ -352,20 +352,20 @@ if.end7:                                          ; preds = %if.end
   %2 = getelementptr i8, ptr %vpdsactx, i64 360
   %vpdsactx.val.i = load ptr, ptr %2, align 8
   %cmp.not.i.i = icmp eq ptr %vpdsactx.val.i, null
-  br i1 %cmp.not.i.i, label %dsa_get_md_size.exit.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %dsa_get_md_size.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7
   %call.i.i = call i32 @EVP_MD_get_size(ptr noundef nonnull %vpdsactx.val.i) #8
   %conv.i.i = sext i32 %call.i.i to i64
-  br label %dsa_get_md_size.exit.i
+  br label %dsa_get_md_size.argprom.exit.i
 
-dsa_get_md_size.exit.i:                           ; preds = %if.then.i.i, %if.end7
+dsa_get_md_size.argprom.exit.i:                   ; preds = %if.then.i.i, %if.end7
   %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i ], [ 0, %if.end7 ]
   %call1.i = call i32 @ossl_prov_is_running() #8
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %dsa_get_md_size.exit.i
+lor.lhs.false.i:                                  ; preds = %dsa_get_md_size.argprom.exit.i
   %cmp.not.i = icmp eq i64 %retval.0.i.i, 0
   %cmp2.not.i = icmp eq i64 %retval.0.i.i, %conv
   %or.cond.i = or i1 %cmp.not.i, %cmp2.not.i
@@ -378,8 +378,8 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %call4.i = call i32 @DSA_verify(i32 noundef 0, ptr noundef nonnull %digest, i32 noundef %1, ptr noundef %sig, i32 noundef %conv3.i, ptr noundef %3) #8
   br label %return
 
-return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %dsa_get_md_size.exit.i, %if.end, %entry, %lor.lhs.false1
-  %retval.0 = phi i32 [ 0, %lor.lhs.false1 ], [ 0, %entry ], [ 0, %if.end ], [ %call4.i, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %dsa_get_md_size.exit.i ]
+return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %dsa_get_md_size.argprom.exit.i, %if.end, %entry, %lor.lhs.false1
+  %retval.0 = phi i32 [ 0, %lor.lhs.false1 ], [ 0, %entry ], [ 0, %if.end ], [ %call4.i, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %dsa_get_md_size.argprom.exit.i ]
   ret i32 %retval.0
 }
 

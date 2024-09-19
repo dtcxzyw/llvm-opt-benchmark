@@ -51,15 +51,15 @@ entry:
   %0 = getelementptr i8, ptr %spec.store.select, i64 8
   %spec.store.select.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %spec.store.select.val, @PyFloat_Type
-  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.exit, label %lor.rhs.i
+  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.argprom.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %spec.store.select.val, ptr noundef nonnull @PyFloat_Type) #3
   %tobool3.i = icmp ne i32 %call2.i, 0
   %1 = zext i1 %tobool3.i to i64
-  br label %PyObject_TypeCheck.exit
+  br label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry, %lor.rhs.i
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry, %lor.rhs.i
   %lor.ext.i = phi i64 [ 1, %entry ], [ %1, %lor.rhs.i ]
   %call1 = tail call ptr @PyLong_FromLong(i64 noundef %lor.ext.i) #3
   ret ptr %call1
@@ -211,7 +211,7 @@ land.lhs.true27:                                  ; preds = %if.end23
 
 exit.sink.split:                                  ; preds = %land.lhs.true27, %if.end23
   %call25.sink = phi i32 [ %call25, %if.end23 ], [ -1, %land.lhs.true27 ]
-  %call3210 = tail call fastcc ptr @_testcapi_float_pack_impl(i32 noundef %call2, double noundef %d.0, i32 noundef %call25.sink)
+  %call3210 = tail call fastcc ptr @_testcapi_float_pack_impl.argprom(i32 noundef %call2, double noundef %d.0, i32 noundef %call25.sink)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true27, %land.lhs.true18, %land.lhs.true4, %lor.lhs.false
@@ -309,7 +309,7 @@ declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_testcapi_float_pack_impl(i32 noundef %size, double noundef %d, i32 noundef %le) unnamed_addr #0 {
+define internal fastcc ptr @_testcapi_float_pack_impl.argprom(i32 noundef %size, double noundef %d, i32 noundef %le) unnamed_addr #0 {
 entry:
   %data = alloca [2 x i8], align 1
   %data4 = alloca [4 x i8], align 1

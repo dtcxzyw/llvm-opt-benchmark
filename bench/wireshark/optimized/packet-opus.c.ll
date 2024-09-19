@@ -249,32 +249,32 @@ define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .split194:                                        ; preds = %40
   %43 = zext i8 %41 to i16
   %44 = icmp ult i8 %41, -4
-  br i1 %44, label %parse_size_field.exit, label %parse_size_field.exit.thread
+  br i1 %44, label %parse_size_field.argprom.exit, label %parse_size_field.argprom.exit.thread
 
 .split:                                           ; preds = %40
   %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #4
   %46 = zext i8 %41 to i16
   %47 = icmp ult i8 %41, -4
-  br i1 %47, label %parse_size_field.exit, label %48
+  br i1 %47, label %parse_size_field.argprom.exit, label %48
 
 48:                                               ; preds = %.split
   %49 = zext i8 %45 to i16
   %50 = shl nuw nsw i16 %49, 2
   %51 = add nuw nsw i16 %50, %46
-  br label %parse_size_field.exit
+  br label %parse_size_field.argprom.exit
 
-parse_size_field.exit:                            ; preds = %48, %.split, %.split194
+parse_size_field.argprom.exit:                    ; preds = %48, %.split, %.split194
   %.0226 = phi i16 [ %43, %.split194 ], [ %51, %48 ], [ %46, %.split ]
   %phi.call = phi i32 [ 1, %.split194 ], [ 2, %48 ], [ 1, %.split ]
   %52 = zext nneg i16 %.0226 to i32
   %53 = icmp ult i32 %13, %52
-  br i1 %53, label %parse_size_field.exit.thread, label %55
+  br i1 %53, label %parse_size_field.argprom.exit.thread, label %55
 
-parse_size_field.exit.thread:                     ; preds = %.split194, %parse_size_field.exit
+parse_size_field.argprom.exit.thread:             ; preds = %.split194, %parse_size_field.argprom.exit
   %54 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull @ei_opus_err_r1) #4
   br label %.loopexit
 
-55:                                               ; preds = %parse_size_field.exit
+55:                                               ; preds = %parse_size_field.argprom.exit
   %56 = load i32, ptr @hf_opus_frame_size, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef %phi.call, i32 noundef 0) #4
   %58 = trunc nuw nsw i32 %phi.call to i16
@@ -314,7 +314,7 @@ default.unreachable285:                           ; preds = %17
   %75 = and i32 %74, 3
   %76 = shl nuw nsw i32 48000, %75
   %77 = udiv i32 %76, 400
-  br label %opus_packet_get_samples_per_frame.exit
+  br label %opus_packet_get_samples_per_frame.argprom.exit
 
 78:                                               ; preds = %68
   %79 = and i32 %72, 96
@@ -325,20 +325,20 @@ default.unreachable285:                           ; preds = %17
   %82 = and i32 %72, 8
   %.not14.i = icmp eq i32 %82, 0
   %..i = select i1 %.not14.i, i32 480, i32 960
-  br label %opus_packet_get_samples_per_frame.exit
+  br label %opus_packet_get_samples_per_frame.argprom.exit
 
 83:                                               ; preds = %78
   %84 = lshr i32 %72, 3
   %85 = and i32 %84, 3
   %86 = icmp eq i32 %85, 3
-  br i1 %86, label %opus_packet_get_samples_per_frame.exit, label %87
+  br i1 %86, label %opus_packet_get_samples_per_frame.argprom.exit, label %87
 
 87:                                               ; preds = %83
   %88 = shl nuw nsw i32 48000, %85
   %89 = udiv i32 %88, 100
-  br label %opus_packet_get_samples_per_frame.exit
+  br label %opus_packet_get_samples_per_frame.argprom.exit
 
-opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
+opus_packet_get_samples_per_frame.argprom.exit:   ; preds = %73, %81, %83, %87
   %.0.i220 = phi i32 [ %77, %73 ], [ %..i, %81 ], [ %89, %87 ], [ 2880, %83 ]
   %90 = icmp eq i32 %71, 0
   %91 = mul nuw nsw i32 %.0.i220, %71
@@ -346,11 +346,11 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
   %or.cond = select i1 %90, i1 true, i1 %92
   br i1 %or.cond, label %93, label %95
 
-93:                                               ; preds = %opus_packet_get_samples_per_frame.exit
+93:                                               ; preds = %opus_packet_get_samples_per_frame.argprom.exit
   %94 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull @ei_opus_err_r5) #4
   br label %.loopexit
 
-95:                                               ; preds = %opus_packet_get_samples_per_frame.exit
+95:                                               ; preds = %opus_packet_get_samples_per_frame.argprom.exit
   %96 = and i32 %70, 64
   %.not = icmp eq i32 %96, 0
   br i1 %.not, label %110, label %.preheader247
@@ -413,16 +413,16 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
   %118 = getelementptr [48 x %struct.FRAME_T], ptr %5, i64 0, i64 %indvars.iv, i32 1
   %119 = zext i8 %114 to i16
   %120 = icmp ult i8 %114, -4
-  br i1 %120, label %parse_size_field.exit223, label %parse_size_field.exit223.thread
+  br i1 %120, label %parse_size_field.argprom.exit223, label %parse_size_field.argprom.exit223.thread
 
 .thread:                                          ; preds = %.preheader245
   %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2186253) #4
   %122 = getelementptr [48 x %struct.FRAME_T], ptr %5, i64 0, i64 %indvars.iv, i32 1
   %123 = zext i8 %114 to i16
   %124 = icmp ult i8 %114, -4
-  br i1 %124, label %parse_size_field.exit223, label %125
+  br i1 %124, label %parse_size_field.argprom.exit223, label %125
 
-parse_size_field.exit223.thread:                  ; preds = %117
+parse_size_field.argprom.exit223.thread:          ; preds = %117
   store i16 -1, ptr %118, align 2
   br label %.loopexit246
 
@@ -430,9 +430,9 @@ parse_size_field.exit223.thread:                  ; preds = %117
   %126 = zext i8 %121 to i16
   %127 = shl nuw nsw i16 %126, 2
   %128 = add nuw nsw i16 %127, %123
-  br label %parse_size_field.exit223
+  br label %parse_size_field.argprom.exit223
 
-parse_size_field.exit223:                         ; preds = %.thread, %117, %125
+parse_size_field.argprom.exit223:                 ; preds = %.thread, %117, %125
   %129 = phi ptr [ %122, %125 ], [ %118, %117 ], [ %122, %.thread ]
   %.sink.i221 = phi i16 [ %128, %125 ], [ %119, %117 ], [ %123, %.thread ]
   %.0.i222 = phi i32 [ 2, %125 ], [ 1, %117 ], [ 1, %.thread ]
@@ -442,11 +442,11 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
   %132 = icmp slt i32 %131, %130
   br i1 %132, label %.loopexit246, label %134
 
-.loopexit246:                                     ; preds = %parse_size_field.exit223, %parse_size_field.exit223.thread
+.loopexit246:                                     ; preds = %parse_size_field.argprom.exit223, %parse_size_field.argprom.exit223.thread
   %133 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_opus_err_r1) #4
   br label %.loopexit
 
-134:                                              ; preds = %parse_size_field.exit223
+134:                                              ; preds = %parse_size_field.argprom.exit223
   %135 = load i32, ptr @hf_opus_frame_size, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %135, ptr noundef %0, i32 noundef %.2186253, i32 noundef %.0.i222, i32 noundef 0) #4
   %137 = add i32 %.0.i222, %.2186253
@@ -564,7 +564,7 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
   %187 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %180, ptr noundef nonnull @ei_opus_padding_nonzero) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %182, %176, %175, %186, %167, %153, %146, %.loopexit246, %111, %97, %93, %66, %parse_size_field.exit.thread, %38, %27, %15
+.loopexit:                                        ; preds = %182, %176, %175, %186, %167, %153, %146, %.loopexit246, %111, %97, %93, %66, %parse_size_field.argprom.exit.thread, %38, %27, %15
   ret i32 %12
 }
 

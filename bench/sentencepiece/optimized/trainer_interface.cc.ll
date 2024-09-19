@@ -5147,7 +5147,7 @@ _ZN4absl8internal8SplitterD2Ev.exit347:           ; preds = %386, %383, %573, %5
 612:                                              ; preds = %605
   %613 = getelementptr inbounds i8, ptr %.val281, i64 24
   %614 = load i64, ptr %613, align 8
-  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit
+  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit
 
 615:                                              ; preds = %605
   %616 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -5157,14 +5157,14 @@ _ZN4absl8internal8SplitterD2Ev.exit347:           ; preds = %386, %383, %573, %5
   %620 = ptrtoint ptr %618 to i64
   %621 = sub i64 %619, %620
   %622 = sdiv exact i64 %621, 40
-  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit
+  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit
 
-_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit: ; preds = %615, %612
+_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit: ; preds = %615, %612
   %623 = phi i64 [ %614, %612 ], [ %622, %615 ]
   %624 = icmp eq i64 %611, %623
   br i1 %624, label %625, label %657
 
-625:                                              ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit
+625:                                              ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit
   %626 = invoke noundef i32 @_ZN13sentencepiece7logging14GetMinLogLevelEv()
           to label %627 unwind label %.loopexit.split-lp796
 
@@ -5225,7 +5225,7 @@ _ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit: ; preds 
   call void @_ZN13sentencepiece5error3DieD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #24
   br label %1737
 
-657:                                              ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit
+657:                                              ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit
   %658 = invoke noundef i32 @_ZN13sentencepiece7logging14GetMinLogLevelEv()
           to label %659 unwind label %.loopexit.split-lp796
 
@@ -5286,7 +5286,7 @@ _ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit: ; preds 
 688:                                              ; preds = %687
   %689 = getelementptr inbounds i8, ptr %.val281, i64 24
   %690 = load i64, ptr %689, align 8
-  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit420
+  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit420
 
 691:                                              ; preds = %687
   %692 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -5296,18 +5296,18 @@ _ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit: ; preds 
   %696 = ptrtoint ptr %694 to i64
   %697 = sub i64 %695, %696
   %698 = sdiv exact i64 %697, 40
-  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit420
+  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit420
 
-_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit420: ; preds = %691, %688
+_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit420: ; preds = %691, %688
   %699 = phi i64 [ %690, %688 ], [ %698, %691 ]
   %700 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %686, i64 noundef %699)
           to label %701 unwind label %703
 
-701:                                              ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit420
+701:                                              ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit420
   %702 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %700, ptr noundef nonnull @.str.37)
           to label %.critedge242.sink.split unwind label %703
 
-703:                                              ; preds = %701, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit420, %685, %677, %675, %673, %671, %669, %667, %665, %663, %661
+703:                                              ; preds = %701, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit420, %685, %677, %675, %673, %671, %669, %667, %665, %663, %661
   %704 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13sentencepiece5error3DieD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #24
@@ -8230,9 +8230,9 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %.val10 = load ptr, ptr %53, align 8
   %.not.i18 = icmp eq ptr %.val10, null
-  br i1 %.not.i18, label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit, label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit.thread
+  br i1 %.not.i18, label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit, label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit.thread
 
-_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit
+_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit
   %.val = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %.val, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -8240,26 +8240,26 @@ _ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit: ; preds 
   %.not9 = icmp eq ptr %55, %56
   br i1 %.not9, label %.critedge, label %59
 
-_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit.thread: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit
+_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit.thread: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit
   %57 = getelementptr inbounds i8, ptr %.val10, i64 24
   %58 = load i64, ptr %57, align 8
   %.not923 = icmp eq i64 %58, 0
-  br i1 %.not923, label %.critedge, label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit20
+  br i1 %.not923, label %.critedge, label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit20
 
-59:                                               ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit
+59:                                               ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit
   %60 = ptrtoint ptr %55 to i64
   %61 = ptrtoint ptr %56 to i64
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 40
-  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit20
+  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit20
 
-_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit20: ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit.thread, %59
-  %64 = phi i64 [ %63, %59 ], [ %58, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit.thread ]
+_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit20: ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit.thread, %59
+  %64 = phi i64 [ %63, %59 ], [ %58, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit.thread ]
   %65 = urem i64 %64, 1000000
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %67, label %.critedge
 
-67:                                               ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit20
+67:                                               ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit20
   %68 = tail call noundef i32 @_ZN13sentencepiece7logging14GetMinLogLevelEv()
   %69 = icmp slt i32 %68, 1
   br i1 %69, label %70, label %.critedge
@@ -8305,7 +8305,7 @@ _ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit20: ; pred
 87:                                               ; preds = %86
   %88 = getelementptr inbounds i8, ptr %.val14, i64 24
   %89 = load i64, ptr %88, align 8
-  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit22
+  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit22
 
 90:                                               ; preds = %86
   %.val13 = load ptr, ptr %0, align 8
@@ -8316,14 +8316,14 @@ _ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit20: ; pred
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
   %97 = sdiv exact i64 %96, 40
-  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit22
+  br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit22
 
-_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit22: ; preds = %90, %87
+_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit22: ; preds = %90, %87
   %98 = phi i64 [ %89, %87 ], [ %97, %90 ]
   %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %85, i64 noundef %98)
           to label %100 unwind label %107
 
-100:                                              ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit22
+100:                                              ; preds = %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit22
   %101 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull @.str.128)
           to label %102 unwind label %107
 
@@ -8338,14 +8338,14 @@ _ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit22: ; pred
   tail call void @__clang_call_terminate(ptr %106) #27
   unreachable
 
-107:                                              ; preds = %100, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit22, %84, %82, %80, %78, %76, %74, %72, %70
+107:                                              ; preds = %100, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit22, %84, %82, %80, %78, %76, %74, %72, %70
   %108 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13sentencepiece5error3DieD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   resume { ptr, i32 } %108
 
-.critedge:                                        ; preds = %102, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit.thread, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit20, %67, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit17
-  %.0 = phi i1 [ false, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit17 ], [ true, %67 ], [ true, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit20 ], [ true, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit ], [ true, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit.thread ], [ true, %102 ]
+.critedge:                                        ; preds = %102, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit.thread, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit20, %67, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit17
+  %.0 = phi i1 [ false, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit17 ], [ true, %67 ], [ true, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit20 ], [ true, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit ], [ true, %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.argprom.exit.thread ], [ true, %102 ]
   ret i1 %.0
 }
 
@@ -15561,7 +15561,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN13sentencepiece16TrainerIn
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -15570,30 +15570,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13sentencepi
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
-  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -15804,7 +15804,7 @@ _ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engi
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -15813,30 +15813,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13sentencepi
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
-  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

@@ -903,13 +903,13 @@ define internal fastcc double @box_ar(ptr nocapture noundef readonly %0) unnamed
   %8 = tail call double @llvm.fabs.f64(double %.val2)
   %9 = fcmp oeq double %8, 0x7FF0000000000000
   %or.cond8.i.i = or i1 %9, %or.cond.i.i
-  br i1 %or.cond8.i.i, label %box_wd.exit, label %10
+  br i1 %or.cond8.i.i, label %box_wd.argprom.exit, label %10
 
 10:                                               ; preds = %1
   tail call void @float_overflow_error() #18
   unreachable
 
-box_wd.exit:                                      ; preds = %1
+box_wd.argprom.exit:                              ; preds = %1
   %11 = getelementptr i8, ptr %0, i64 8
   %.val3 = load double, ptr %11, align 8
   %12 = getelementptr i8, ptr %0, i64 24
@@ -923,13 +923,13 @@ box_wd.exit:                                      ; preds = %1
   %18 = tail call double @llvm.fabs.f64(double %.val4)
   %19 = fcmp oeq double %18, 0x7FF0000000000000
   %or.cond8.i.i6 = or i1 %19, %or.cond.i.i5
-  br i1 %or.cond8.i.i6, label %box_ht.exit, label %20
+  br i1 %or.cond8.i.i6, label %box_ht.argprom.exit, label %20
 
-20:                                               ; preds = %box_wd.exit
+20:                                               ; preds = %box_wd.argprom.exit
   tail call void @float_overflow_error() #18
   unreachable
 
-box_ht.exit:                                      ; preds = %box_wd.exit
+box_ht.argprom.exit:                              ; preds = %box_wd.argprom.exit
   %21 = fmul double %3, %13
   %22 = tail call double @llvm.fabs.f64(double %21)
   %23 = fcmp une double %22, 0x7FF0000000000000
@@ -939,11 +939,11 @@ box_ht.exit:                                      ; preds = %box_wd.exit
   %or.cond15.i = or i1 %25, %or.cond13.i
   br i1 %or.cond15.i, label %27, label %26
 
-26:                                               ; preds = %box_ht.exit
+26:                                               ; preds = %box_ht.argprom.exit
   tail call void @float_overflow_error() #18
   unreachable
 
-27:                                               ; preds = %box_ht.exit
+27:                                               ; preds = %box_ht.argprom.exit
   %28 = fcmp oeq double %21, 0.000000e+00
   %29 = fcmp une double %3, 0.000000e+00
   %or.cond.i = and i1 %29, %28
@@ -1053,13 +1053,13 @@ define dso_local i64 @box_width(ptr nocapture noundef readonly %0) local_unnamed
   %11 = tail call double @llvm.fabs.f64(double %.val2)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
   %or.cond8.i.i = or i1 %12, %or.cond.i.i
-  br i1 %or.cond8.i.i, label %box_wd.exit, label %13
+  br i1 %or.cond8.i.i, label %box_wd.argprom.exit, label %13
 
 13:                                               ; preds = %1
   tail call void @float_overflow_error() #18
   unreachable
 
-box_wd.exit:                                      ; preds = %1
+box_wd.argprom.exit:                              ; preds = %1
   %14 = bitcast double %6 to i64
   ret i64 %14
 }
@@ -1082,13 +1082,13 @@ define dso_local i64 @box_height(ptr nocapture noundef readonly %0) local_unname
   %12 = tail call double @llvm.fabs.f64(double %.val2)
   %13 = fcmp oeq double %12, 0x7FF0000000000000
   %or.cond8.i.i = or i1 %13, %or.cond.i.i
-  br i1 %or.cond8.i.i, label %box_ht.exit, label %14
+  br i1 %or.cond8.i.i, label %box_ht.argprom.exit, label %14
 
 14:                                               ; preds = %1
   tail call void @float_overflow_error() #18
   unreachable
 
-box_ht.exit:                                      ; preds = %1
+box_ht.argprom.exit:                              ; preds = %1
   %15 = bitcast double %7 to i64
   ret i64 %15
 }
@@ -18468,13 +18468,13 @@ float8_mul.exit.i:                                ; preds = %15
   %25 = fcmp oeq double %19, 0.000000e+00
   %26 = fcmp une double %9, 0.000000e+00
   %or.cond.i4.i = and i1 %26, %25
-  br i1 %or.cond.i4.i, label %27, label %circle_ar.exit
+  br i1 %or.cond.i4.i, label %27, label %circle_ar.argprom.exit
 
 27:                                               ; preds = %24
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit:                                   ; preds = %24
+circle_ar.argprom.exit:                           ; preds = %24
   %28 = getelementptr i8, ptr %7, i64 16
   %.val4 = load double, ptr %28, align 8
   %29 = fmul double %.val4, %.val4
@@ -18485,11 +18485,11 @@ circle_ar.exit:                                   ; preds = %24
   %or.cond13.i.i5 = or i1 %33, %31
   br i1 %or.cond13.i.i5, label %35, label %34
 
-34:                                               ; preds = %circle_ar.exit
+34:                                               ; preds = %circle_ar.argprom.exit
   tail call void @float_overflow_error() #18
   unreachable
 
-35:                                               ; preds = %circle_ar.exit
+35:                                               ; preds = %circle_ar.argprom.exit
   %36 = fcmp oeq double %29, 0.000000e+00
   %37 = fcmp une double %.val4, 0.000000e+00
   %or.cond.i.i6 = and i1 %37, %36
@@ -18515,13 +18515,13 @@ float8_mul.exit.i7:                               ; preds = %35
   %45 = fcmp oeq double %39, 0.000000e+00
   %46 = fcmp une double %29, 0.000000e+00
   %or.cond.i4.i9 = and i1 %46, %45
-  br i1 %or.cond.i4.i9, label %47, label %circle_ar.exit10
+  br i1 %or.cond.i4.i9, label %47, label %circle_ar.argprom.exit10
 
 47:                                               ; preds = %44
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit10:                                 ; preds = %44
+circle_ar.argprom.exit10:                         ; preds = %44
   %48 = fcmp oeq double %19, %39
   %49 = fsub double %19, %39
   %50 = tail call double @llvm.fabs.f64(double %49)
@@ -18579,13 +18579,13 @@ float8_mul.exit.i:                                ; preds = %15
   %25 = fcmp oeq double %19, 0.000000e+00
   %26 = fcmp une double %9, 0.000000e+00
   %or.cond.i4.i = and i1 %26, %25
-  br i1 %or.cond.i4.i, label %27, label %circle_ar.exit
+  br i1 %or.cond.i4.i, label %27, label %circle_ar.argprom.exit
 
 27:                                               ; preds = %24
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit:                                   ; preds = %24
+circle_ar.argprom.exit:                           ; preds = %24
   %28 = getelementptr i8, ptr %7, i64 16
   %.val = load double, ptr %28, align 8
   %29 = fmul double %.val, %.val
@@ -18596,11 +18596,11 @@ circle_ar.exit:                                   ; preds = %24
   %or.cond13.i.i5 = or i1 %33, %31
   br i1 %or.cond13.i.i5, label %35, label %34
 
-34:                                               ; preds = %circle_ar.exit
+34:                                               ; preds = %circle_ar.argprom.exit
   tail call void @float_overflow_error() #18
   unreachable
 
-35:                                               ; preds = %circle_ar.exit
+35:                                               ; preds = %circle_ar.argprom.exit
   %36 = fcmp oeq double %29, 0.000000e+00
   %37 = fcmp une double %.val, 0.000000e+00
   %or.cond.i.i6 = and i1 %37, %36
@@ -18626,13 +18626,13 @@ float8_mul.exit.i7:                               ; preds = %35
   %45 = fcmp oeq double %39, 0.000000e+00
   %46 = fcmp une double %29, 0.000000e+00
   %or.cond.i4.i9 = and i1 %46, %45
-  br i1 %or.cond.i4.i9, label %47, label %circle_ar.exit10
+  br i1 %or.cond.i4.i9, label %47, label %circle_ar.argprom.exit10
 
 47:                                               ; preds = %44
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit10:                                 ; preds = %44
+circle_ar.argprom.exit10:                         ; preds = %44
   %48 = fcmp une double %19, %39
   %49 = fsub double %19, %39
   %50 = tail call double @llvm.fabs.f64(double %49)
@@ -18690,13 +18690,13 @@ float8_mul.exit.i:                                ; preds = %15
   %25 = fcmp oeq double %19, 0.000000e+00
   %26 = fcmp une double %9, 0.000000e+00
   %or.cond.i4.i = and i1 %26, %25
-  br i1 %or.cond.i4.i, label %27, label %circle_ar.exit
+  br i1 %or.cond.i4.i, label %27, label %circle_ar.argprom.exit
 
 27:                                               ; preds = %24
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit:                                   ; preds = %24
+circle_ar.argprom.exit:                           ; preds = %24
   %28 = getelementptr i8, ptr %7, i64 16
   %.val = load double, ptr %28, align 8
   %29 = fmul double %.val, %.val
@@ -18707,11 +18707,11 @@ circle_ar.exit:                                   ; preds = %24
   %or.cond13.i.i5 = or i1 %33, %31
   br i1 %or.cond13.i.i5, label %35, label %34
 
-34:                                               ; preds = %circle_ar.exit
+34:                                               ; preds = %circle_ar.argprom.exit
   tail call void @float_overflow_error() #18
   unreachable
 
-35:                                               ; preds = %circle_ar.exit
+35:                                               ; preds = %circle_ar.argprom.exit
   %36 = fcmp oeq double %29, 0.000000e+00
   %37 = fcmp une double %.val, 0.000000e+00
   %or.cond.i.i6 = and i1 %37, %36
@@ -18737,13 +18737,13 @@ float8_mul.exit.i7:                               ; preds = %35
   %45 = fcmp oeq double %39, 0.000000e+00
   %46 = fcmp une double %29, 0.000000e+00
   %or.cond.i4.i9 = and i1 %46, %45
-  br i1 %or.cond.i4.i9, label %47, label %circle_ar.exit10
+  br i1 %or.cond.i4.i9, label %47, label %circle_ar.argprom.exit10
 
 47:                                               ; preds = %44
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit10:                                 ; preds = %44
+circle_ar.argprom.exit10:                         ; preds = %44
   %48 = fadd double %19, 0x3EB0C6F7A0B5ED8D
   %49 = fcmp olt double %48, %39
   %50 = zext i1 %49 to i64
@@ -18798,13 +18798,13 @@ float8_mul.exit.i:                                ; preds = %15
   %25 = fcmp oeq double %19, 0.000000e+00
   %26 = fcmp une double %9, 0.000000e+00
   %or.cond.i4.i = and i1 %26, %25
-  br i1 %or.cond.i4.i, label %27, label %circle_ar.exit
+  br i1 %or.cond.i4.i, label %27, label %circle_ar.argprom.exit
 
 27:                                               ; preds = %24
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit:                                   ; preds = %24
+circle_ar.argprom.exit:                           ; preds = %24
   %28 = getelementptr i8, ptr %7, i64 16
   %.val = load double, ptr %28, align 8
   %29 = fmul double %.val, %.val
@@ -18815,11 +18815,11 @@ circle_ar.exit:                                   ; preds = %24
   %or.cond13.i.i5 = or i1 %33, %31
   br i1 %or.cond13.i.i5, label %35, label %34
 
-34:                                               ; preds = %circle_ar.exit
+34:                                               ; preds = %circle_ar.argprom.exit
   tail call void @float_overflow_error() #18
   unreachable
 
-35:                                               ; preds = %circle_ar.exit
+35:                                               ; preds = %circle_ar.argprom.exit
   %36 = fcmp oeq double %29, 0.000000e+00
   %37 = fcmp une double %.val, 0.000000e+00
   %or.cond.i.i6 = and i1 %37, %36
@@ -18845,13 +18845,13 @@ float8_mul.exit.i7:                               ; preds = %35
   %45 = fcmp oeq double %39, 0.000000e+00
   %46 = fcmp une double %29, 0.000000e+00
   %or.cond.i4.i9 = and i1 %46, %45
-  br i1 %or.cond.i4.i9, label %47, label %circle_ar.exit10
+  br i1 %or.cond.i4.i9, label %47, label %circle_ar.argprom.exit10
 
 47:                                               ; preds = %44
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit10:                                 ; preds = %44
+circle_ar.argprom.exit10:                         ; preds = %44
   %48 = fadd double %39, 0x3EB0C6F7A0B5ED8D
   %49 = fcmp ogt double %19, %48
   %50 = zext i1 %49 to i64
@@ -18906,13 +18906,13 @@ float8_mul.exit.i:                                ; preds = %15
   %25 = fcmp oeq double %19, 0.000000e+00
   %26 = fcmp une double %9, 0.000000e+00
   %or.cond.i4.i = and i1 %26, %25
-  br i1 %or.cond.i4.i, label %27, label %circle_ar.exit
+  br i1 %or.cond.i4.i, label %27, label %circle_ar.argprom.exit
 
 27:                                               ; preds = %24
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit:                                   ; preds = %24
+circle_ar.argprom.exit:                           ; preds = %24
   %28 = getelementptr i8, ptr %7, i64 16
   %.val = load double, ptr %28, align 8
   %29 = fmul double %.val, %.val
@@ -18923,11 +18923,11 @@ circle_ar.exit:                                   ; preds = %24
   %or.cond13.i.i5 = or i1 %33, %31
   br i1 %or.cond13.i.i5, label %35, label %34
 
-34:                                               ; preds = %circle_ar.exit
+34:                                               ; preds = %circle_ar.argprom.exit
   tail call void @float_overflow_error() #18
   unreachable
 
-35:                                               ; preds = %circle_ar.exit
+35:                                               ; preds = %circle_ar.argprom.exit
   %36 = fcmp oeq double %29, 0.000000e+00
   %37 = fcmp une double %.val, 0.000000e+00
   %or.cond.i.i6 = and i1 %37, %36
@@ -18953,13 +18953,13 @@ float8_mul.exit.i7:                               ; preds = %35
   %45 = fcmp oeq double %39, 0.000000e+00
   %46 = fcmp une double %29, 0.000000e+00
   %or.cond.i4.i9 = and i1 %46, %45
-  br i1 %or.cond.i4.i9, label %47, label %circle_ar.exit10
+  br i1 %or.cond.i4.i9, label %47, label %circle_ar.argprom.exit10
 
 47:                                               ; preds = %44
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit10:                                 ; preds = %44
+circle_ar.argprom.exit10:                         ; preds = %44
   %48 = fadd double %39, 0x3EB0C6F7A0B5ED8D
   %49 = fcmp ole double %19, %48
   %50 = zext i1 %49 to i64
@@ -19014,13 +19014,13 @@ float8_mul.exit.i:                                ; preds = %15
   %25 = fcmp oeq double %19, 0.000000e+00
   %26 = fcmp une double %9, 0.000000e+00
   %or.cond.i4.i = and i1 %26, %25
-  br i1 %or.cond.i4.i, label %27, label %circle_ar.exit
+  br i1 %or.cond.i4.i, label %27, label %circle_ar.argprom.exit
 
 27:                                               ; preds = %24
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit:                                   ; preds = %24
+circle_ar.argprom.exit:                           ; preds = %24
   %28 = getelementptr i8, ptr %7, i64 16
   %.val = load double, ptr %28, align 8
   %29 = fmul double %.val, %.val
@@ -19031,11 +19031,11 @@ circle_ar.exit:                                   ; preds = %24
   %or.cond13.i.i5 = or i1 %33, %31
   br i1 %or.cond13.i.i5, label %35, label %34
 
-34:                                               ; preds = %circle_ar.exit
+34:                                               ; preds = %circle_ar.argprom.exit
   tail call void @float_overflow_error() #18
   unreachable
 
-35:                                               ; preds = %circle_ar.exit
+35:                                               ; preds = %circle_ar.argprom.exit
   %36 = fcmp oeq double %29, 0.000000e+00
   %37 = fcmp une double %.val, 0.000000e+00
   %or.cond.i.i6 = and i1 %37, %36
@@ -19061,13 +19061,13 @@ float8_mul.exit.i7:                               ; preds = %35
   %45 = fcmp oeq double %39, 0.000000e+00
   %46 = fcmp une double %29, 0.000000e+00
   %or.cond.i4.i9 = and i1 %46, %45
-  br i1 %or.cond.i4.i9, label %47, label %circle_ar.exit10
+  br i1 %or.cond.i4.i9, label %47, label %circle_ar.argprom.exit10
 
 47:                                               ; preds = %44
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit10:                                 ; preds = %44
+circle_ar.argprom.exit10:                         ; preds = %44
   %48 = fadd double %19, 0x3EB0C6F7A0B5ED8D
   %49 = fcmp oge double %48, %39
   %50 = zext i1 %49 to i64
@@ -19424,13 +19424,13 @@ float8_mul.exit.i:                                ; preds = %12
   %22 = fcmp oeq double %16, 0.000000e+00
   %23 = fcmp une double %6, 0.000000e+00
   %or.cond.i4.i = and i1 %23, %22
-  br i1 %or.cond.i4.i, label %24, label %circle_ar.exit
+  br i1 %or.cond.i4.i, label %24, label %circle_ar.argprom.exit
 
 24:                                               ; preds = %21
   tail call void @float_underflow_error() #18
   unreachable
 
-circle_ar.exit:                                   ; preds = %21
+circle_ar.argprom.exit:                           ; preds = %21
   %25 = bitcast double %16 to i64
   ret i64 %25
 }

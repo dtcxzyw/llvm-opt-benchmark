@@ -715,7 +715,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %156, %_ZN26PartialD
   store float %.sink.i, ptr %190, align 4
   %191 = getelementptr inbounds i8, ptr %29, i64 340
   %.val.i = load i32, ptr %191, align 4
-  switch i32 %.val.i, label %_ZL8usingPmeRK22CoulombInteractionType.exit.i [
+  switch i32 %.val.i, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i [
     i32 3, label %195
     i32 14, label %195
     i32 13, label %195
@@ -723,11 +723,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %156, %_ZN26PartialD
     i32 5, label %195
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %.noexc42
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i: ; preds = %.noexc42
   invoke void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(125) @.str.24, i8 noundef zeroext 2)
           to label %.noexc43 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc43:                                         ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.i
+.noexc43:                                         ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 880, ptr noundef nonnull @.str.40) #22
           to label %192 unwind label %193
 
@@ -791,7 +791,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %.noexc42
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %555, %514, %474, %.noexc61, %.thread167.i, %.noexc59, %_Z7snew_bcIfEvbRPT_m.exit.i.i, %351, %_Z7snew_bcIA3_fEvbRPT_m.exit.i.i, %.thread.i.i, %.noexc54, %._crit_edge.i, %.noexc48, %.noexc47, %.noexc46, %.noexc45, %298, %200, %_ZL8usingPmeRK22CoulombInteractionType.exit.i, %184, %147, %697, %689, %684, %678, %279, %209, %145
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %555, %514, %474, %.noexc61, %.thread167.i, %.noexc59, %_Z7snew_bcIfEvbRPT_m.exit.i.i, %351, %_Z7snew_bcIA3_fEvbRPT_m.exit.i.i, %.thread.i.i, %.noexc54, %._crit_edge.i, %.noexc48, %.noexc47, %.noexc46, %.noexc45, %298, %200, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i, %184, %147, %697, %689, %684, %678, %279, %209, %145
   %lpad.loopexit.split-lp69 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1266,7 +1266,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   %468 = fptrunc double %467 to float
   %469 = load ptr, ptr %126, align 8
   store float %468, ptr %469, align 4
-  %470 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
+  %470 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec.argprom(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc62:                                         ; preds = %.noexc61
@@ -1375,7 +1375,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   %549 = fptrunc double %548 to float
   %550 = load ptr, ptr %126, align 8
   store float %549, ptr %550, align 4
-  %551 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
+  %551 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec.argprom(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
           to label %.noexc64 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc64:                                         ; preds = %514
@@ -1443,7 +1443,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   %597 = fptrunc double %596 to float
   %598 = load ptr, ptr %126, align 8
   store float %597, ptr %598, align 4
-  %599 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
+  %599 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec.argprom(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
           to label %.noexc66 unwind label %.loopexit
 
 .noexc66:                                         ; preds = %.lr.ph162.i
@@ -2293,7 +2293,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec.argprom(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca float, align 4
   %10 = alloca float, align 4
   %11 = alloca float, align 4

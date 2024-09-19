@@ -3049,7 +3049,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, i64 noundef %0, i64 noundef %1) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 8:                                                ; preds = %4
@@ -3061,7 +3061,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef %13) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -3133,7 +3133,7 @@ define internal void @poly_init(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, i64 noundef 64) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
@@ -4158,7 +4158,7 @@ define internal void @record_init(ptr noundef %0) #0 {
 20:                                               ; preds = %17
   %21 = load ptr, ptr @stderr, align 8
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.4, i64 noundef %15) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %17
@@ -4240,7 +4240,7 @@ define internal void @point_init(ptr noundef %0) #0 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.4, i64 noundef 64) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
@@ -4513,7 +4513,7 @@ define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1
 28:                                               ; preds = %.loopexit.i
   %29 = load ptr, ptr @stderr, align 8
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.3, i64 noundef %26, i64 noundef 8) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 31:                                               ; preds = %.loopexit.i
@@ -4541,7 +4541,7 @@ define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1
   %42 = phi i64 [ 8, %.thread17 ], [ %33, %36 ]
   %43 = load ptr, ptr @stderr, align 8
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.4, i64 noundef %42) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 45:                                               ; preds = %36
@@ -4565,7 +4565,7 @@ gv_recalloc.exit.i:                               ; preds = %.thread18, %45, %35
 52:                                               ; preds = %gv_recalloc.exit.i
   %53 = load ptr, ptr @stderr, align 8
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.4, i64 noundef 32) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %gv_recalloc.exit.i
@@ -5927,7 +5927,7 @@ define internal zeroext i1 @star_inside(ptr noundef readonly %0, double %1, doub
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #12 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #12 {
   tail call void @exit(i32 noundef 1) #32
   unreachable
 }
@@ -5991,7 +5991,7 @@ define internal fastcc noalias noundef ptr @parse_reclbl(ptr noundef %0, i1 noun
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, i64 noundef 88) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_alloc.exit:                                    ; preds = %4
@@ -6189,7 +6189,7 @@ gv_alloc.exit:                                    ; preds = %4
   %77 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #30
   %78 = add i64 %77, 1
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.4, i64 noundef %78) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_strdup.exit:                                   ; preds = %72
@@ -6256,7 +6256,7 @@ gv_strdup.exit:                                   ; preds = %72
 103:                                              ; preds = %100
   %104 = load ptr, ptr @stderr, align 8
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.4, i64 noundef 88) #28
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_alloc.exit202:                                 ; preds = %100
@@ -7873,7 +7873,7 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
 38:                                               ; preds = %33
   %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(8) @.str.100) #30
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %isBox.exit.thread
+  br i1 %40, label %41, label %isBox.argprom.argprom.argprom.exit.thread
 
 41:                                               ; preds = %38
   %.val = load ptr, ptr %9, align 8
@@ -7882,13 +7882,13 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
   %43 = getelementptr i8, ptr %.val.val, i64 16
   %.val.val.val = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %.val.val.val, null
-  br i1 %.not.i, label %isBox.exit.thread, label %44
+  br i1 %.not.i, label %isBox.argprom.argprom.argprom.exit.thread, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %.val.val.val, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 4
-  br i1 %47, label %48, label %isBox.exit.thread
+  br i1 %47, label %48, label %isBox.argprom.argprom.argprom.exit.thread
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %.val.val.val, i64 24
@@ -7899,57 +7899,57 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
   %52 = fptosi double %.in.i to i32
   %53 = srem i32 %52, 90
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %isBox.exit.thread
+  br i1 %54, label %55, label %isBox.argprom.argprom.argprom.exit.thread
 
 55:                                               ; preds = %48
   %56 = getelementptr inbounds i8, ptr %.val.val.val, i64 32
   %57 = load double, ptr %56, align 8
   %58 = fcmp oeq double %57, 0.000000e+00
-  br i1 %58, label %isBox.exit, label %isBox.exit.thread
+  br i1 %58, label %isBox.argprom.argprom.argprom.exit, label %isBox.argprom.argprom.argprom.exit.thread
 
-isBox.exit:                                       ; preds = %55
+isBox.argprom.argprom.argprom.exit:               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %.val.val.val, i64 40
   %60 = load double, ptr %59, align 8
   %61 = fcmp une double %60, 0.000000e+00
-  br i1 %61, label %isBox.exit.thread, label %.preheader93
+  br i1 %61, label %isBox.argprom.argprom.argprom.exit.thread, label %.preheader93
 
-.preheader93:                                     ; preds = %isBox.exit, %.preheader93
-  %.3 = phi ptr [ %62, %.preheader93 ], [ %.05485, %isBox.exit ]
+.preheader93:                                     ; preds = %isBox.argprom.argprom.argprom.exit, %.preheader93
+  %.3 = phi ptr [ %62, %.preheader93 ], [ %.05485, %isBox.argprom.argprom.argprom.exit ]
   %62 = getelementptr inbounds i8, ptr %.3, i64 8
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %.3, align 8
   %.not67 = icmp eq ptr %63, null
   br i1 %.not67, label %.loopexit.loopexit89, label %.preheader93
 
-isBox.exit.thread:                                ; preds = %41, %44, %48, %55, %isBox.exit, %38
+isBox.argprom.argprom.argprom.exit.thread:        ; preds = %41, %44, %48, %55, %isBox.argprom.argprom.argprom.exit, %38
   %64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(7) @.str.101) #30
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %isEllipse.exit.thread
+  br i1 %65, label %66, label %isEllipse.argprom.argprom.argprom.exit.thread
 
-66:                                               ; preds = %isBox.exit.thread
+66:                                               ; preds = %isBox.argprom.argprom.argprom.exit.thread
   %.val71 = load ptr, ptr %9, align 8
   %67 = getelementptr i8, ptr %.val71, i64 16
   %.val71.val = load ptr, ptr %67, align 8
   %68 = getelementptr i8, ptr %.val71.val, i64 16
   %.val71.val.val = load ptr, ptr %68, align 8
   %.not.i72 = icmp eq ptr %.val71.val.val, null
-  br i1 %.not.i72, label %isEllipse.exit.thread, label %isEllipse.exit
+  br i1 %.not.i72, label %isEllipse.argprom.argprom.argprom.exit.thread, label %isEllipse.argprom.argprom.argprom.exit
 
-isEllipse.exit:                                   ; preds = %66
+isEllipse.argprom.argprom.argprom.exit:           ; preds = %66
   %69 = getelementptr inbounds i8, ptr %.val71.val.val, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = icmp ugt i64 %70, 2
-  br i1 %71, label %isEllipse.exit.thread, label %.preheader92
+  br i1 %71, label %isEllipse.argprom.argprom.argprom.exit.thread, label %.preheader92
 
-.preheader92:                                     ; preds = %isEllipse.exit, %.preheader92
-  %.4 = phi ptr [ %72, %.preheader92 ], [ %.05485, %isEllipse.exit ]
+.preheader92:                                     ; preds = %isEllipse.argprom.argprom.argprom.exit, %.preheader92
+  %.4 = phi ptr [ %72, %.preheader92 ], [ %.05485, %isEllipse.argprom.argprom.argprom.exit ]
   %72 = getelementptr inbounds i8, ptr %.4, i64 8
   %73 = load ptr, ptr %72, align 8
   store ptr %73, ptr %.4, align 8
   %.not66 = icmp eq ptr %73, null
   br i1 %.not66, label %.loopexit.loopexit88, label %.preheader92
 
-isEllipse.exit.thread:                            ; preds = %66, %isEllipse.exit, %isBox.exit.thread
+isEllipse.argprom.argprom.argprom.exit.thread:    ; preds = %66, %isEllipse.argprom.argprom.argprom.exit, %isBox.argprom.argprom.argprom.exit.thread
   %74 = getelementptr inbounds i8, ptr %.05485, i64 8
   br label %.loopexit
 
@@ -7973,9 +7973,9 @@ isEllipse.exit.thread:                            ; preds = %66, %isEllipse.exit
   %79 = or i32 %.15784, 64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit89, %.loopexit.loopexit88, %.loopexit.loopexit87, %.loopexit.loopexit86, %.loopexit.loopexit, %30, %isEllipse.exit.thread, %14
-  %.258 = phi i32 [ %15, %14 ], [ %31, %30 ], [ %.15784, %isEllipse.exit.thread ], [ %75, %.loopexit.loopexit ], [ %76, %.loopexit.loopexit86 ], [ %77, %.loopexit.loopexit87 ], [ %78, %.loopexit.loopexit88 ], [ %79, %.loopexit.loopexit89 ]
-  %.155 = phi ptr [ %16, %14 ], [ %32, %30 ], [ %74, %isEllipse.exit.thread ], [ %.05485, %.loopexit.loopexit ], [ %.05485, %.loopexit.loopexit86 ], [ %.05485, %.loopexit.loopexit87 ], [ %.05485, %.loopexit.loopexit88 ], [ %.05485, %.loopexit.loopexit89 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit89, %.loopexit.loopexit88, %.loopexit.loopexit87, %.loopexit.loopexit86, %.loopexit.loopexit, %30, %isEllipse.argprom.argprom.argprom.exit.thread, %14
+  %.258 = phi i32 [ %15, %14 ], [ %31, %30 ], [ %.15784, %isEllipse.argprom.argprom.argprom.exit.thread ], [ %75, %.loopexit.loopexit ], [ %76, %.loopexit.loopexit86 ], [ %77, %.loopexit.loopexit87 ], [ %78, %.loopexit.loopexit88 ], [ %79, %.loopexit.loopexit89 ]
+  %.155 = phi ptr [ %16, %14 ], [ %32, %30 ], [ %74, %isEllipse.argprom.argprom.argprom.exit.thread ], [ %.05485, %.loopexit.loopexit ], [ %.05485, %.loopexit.loopexit86 ], [ %.05485, %.loopexit.loopexit87 ], [ %.05485, %.loopexit.loopexit88 ], [ %.05485, %.loopexit.loopexit89 ]
   %80 = load ptr, ptr %.155, align 8
   %.not62 = icmp eq ptr %80, null
   br i1 %.not62, label %.loopexit82, label %10

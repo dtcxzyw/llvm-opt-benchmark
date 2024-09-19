@@ -652,7 +652,7 @@ Llb_NonlinRemoveVar.exit:                         ; preds = %110, %118
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds ptr, ptr %.val86, i64 %122
   %124 = load ptr, ptr %123, align 8
-  call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %calloc, ptr noundef %124)
+  call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %calloc, ptr noundef %124)
   br label %125
 
 125:                                              ; preds = %Vec_IntRemove.exit, %69, %119, %Llb_NonlinRemoveVar.exit
@@ -821,7 +821,7 @@ declare ptr @Cudd_bddExistAbstract(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @Extra_SupportArray(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1441,7 +1441,7 @@ Llb_NonlinRemoveVar.exit:                         ; preds = %257, %264
   %268 = sext i32 %267 to i64
   %269 = getelementptr inbounds ptr, ptr %.val158, i64 %268
   %270 = load ptr, ptr %269, align 8
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %calloc, ptr noundef %270)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %calloc, ptr noundef %270)
   br label %271
 
 271:                                              ; preds = %246, %Llb_NonlinRemoveVar.exit, %265
@@ -1505,7 +1505,7 @@ Llb_NonlinRemoveVar.exit187:                      ; preds = %289, %296
   %300 = sext i32 %299 to i64
   %301 = getelementptr inbounds ptr, ptr %.val157, i64 %300
   %302 = load ptr, ptr %301, align 8
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %calloc, ptr noundef %302)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %calloc, ptr noundef %302)
   br label %.critedge4
 
 .critedge4:                                       ; preds = %285, %Llb_NonlinRemoveVar.exit187, %297, %276

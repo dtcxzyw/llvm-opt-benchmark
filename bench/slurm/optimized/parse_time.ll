@@ -1432,7 +1432,7 @@ define void @slurm_make_time_str(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.val.i = load i32, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %4, i64 28
   %.val29.i = load i32, ptr %23, align 4
-  %24 = call fastcc ptr @_relative_date_fmt(i32 %.val.i, i32 %.val29.i)
+  %24 = call fastcc ptr @_relative_date_fmt.argprom(i32 %.val.i, i32 %.val29.i)
   store ptr %24, ptr @_make_time_str_internal.display_fmt, align 8
   br label %35
 
@@ -1496,7 +1496,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #10
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @_relative_date_fmt(i32 %.20.val, i32 %.28.val) unnamed_addr #0 {
+define internal fastcc nonnull ptr @_relative_date_fmt.argprom(i32 %.20.val, i32 %.28.val) unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca %struct.tm, align 8
   %3 = mul i32 %.20.val, 1000

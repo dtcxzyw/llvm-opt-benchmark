@@ -2681,7 +2681,7 @@ Check_Type.exit:                                  ; preds = %37
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ossl_ssl_connect(i64 noundef %0) #0 {
-  tail call fastcc void @ossl_ssl_setup(i64 noundef %0)
+  tail call fastcc void @ossl_ssl_setup.retelim(i64 noundef %0)
   %2 = tail call fastcc i64 @ossl_start_ssl(i64 noundef %0, ptr noundef nonnull @SSL_connect, ptr noundef nonnull @.str.266, i64 noundef 0)
   ret i64 %2
 }
@@ -2690,7 +2690,7 @@ define internal i64 @ossl_ssl_connect(i64 noundef %0) #0 {
 define internal i64 @ossl_ssl_connect_nonblock(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.283, ptr noundef nonnull %4) #10
-  call fastcc void @ossl_ssl_setup(i64 noundef %2)
+  call fastcc void @ossl_ssl_setup.retelim(i64 noundef %2)
   %6 = load i64, ptr %4, align 8
   %7 = call fastcc i64 @ossl_start_ssl(i64 noundef %2, ptr noundef nonnull @SSL_connect, ptr noundef nonnull @.str.266, i64 noundef %6)
   ret i64 %7
@@ -2698,7 +2698,7 @@ define internal i64 @ossl_ssl_connect_nonblock(i32 noundef %0, ptr noundef %1, i
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ossl_ssl_accept(i64 noundef %0) #0 {
-  tail call fastcc void @ossl_ssl_setup(i64 noundef %0)
+  tail call fastcc void @ossl_ssl_setup.retelim(i64 noundef %0)
   %2 = tail call fastcc i64 @ossl_start_ssl(i64 noundef %0, ptr noundef nonnull @SSL_accept, ptr noundef nonnull @.str.284, i64 noundef 0)
   ret i64 %2
 }
@@ -2707,7 +2707,7 @@ define internal i64 @ossl_ssl_accept(i64 noundef %0) #0 {
 define internal i64 @ossl_ssl_accept_nonblock(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.283, ptr noundef nonnull %4) #10
-  call fastcc void @ossl_ssl_setup(i64 noundef %2)
+  call fastcc void @ossl_ssl_setup.retelim(i64 noundef %2)
   %6 = load i64, ptr %4, align 8
   %7 = call fastcc i64 @ossl_start_ssl(i64 noundef %2, ptr noundef nonnull @SSL_accept, ptr noundef nonnull @.str.284, i64 noundef %6)
   ret i64 %7
@@ -4943,7 +4943,7 @@ ssl_renegotiation_cb.exit:                        ; preds = %7, %16
 declare i64 @rb_call_super(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ossl_ssl_setup(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc void @ossl_ssl_setup.retelim(i64 noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_type) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

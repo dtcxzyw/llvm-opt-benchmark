@@ -781,22 +781,22 @@ define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17h5339c734e5
 
 6:                                                ; preds = %2
   %7 = inttoptr i64 %1 to ptr
-  br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit
 
 8:                                                ; preds = %2
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %10 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef %1) #21
-  br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit: ; preds = %6, %8
+_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit: ; preds = %6, %8
   %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %10, %8 ]
   %11 = icmp eq ptr %.sroa.0.0.i, null
   br i1 %11, label %13, label %12
 
-12:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
+12:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit
   ret ptr %.sroa.0.0.i
 
-13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
+13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef %1, i64 noundef %0) #22
   unreachable
 }

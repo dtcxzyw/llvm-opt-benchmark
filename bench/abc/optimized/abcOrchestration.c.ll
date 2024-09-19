@@ -232,18 +232,18 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
   %77 = load i32, ptr %59, align 4
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv, %78
-  br i1 %79, label %Extra_ProgressBarUpdate.exit, label %80
+  br i1 %79, label %Extra_ProgressBarUpdate.argprom.exit, label %80
 
 80:                                               ; preds = %76, %75
   %81 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %59, i32 noundef %81, ptr noundef null) #20
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %76, %80
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %76, %80
   %.not93 = icmp slt i64 %indvars.iv, %65
   br i1 %.not93, label %82, label %.critedge
 
-82:                                               ; preds = %Extra_ProgressBarUpdate.exit
+82:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %.val107 = load i32, ptr %73, align 4
   %83 = and i32 %.val107, 512
   %.not94 = icmp eq i32 %83, 0
@@ -528,9 +528,9 @@ Abc_Clock.exit127:                                ; preds = %206
   %218 = icmp slt i64 %indvars.iv.next, %217
   br i1 %218, label %66, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %Extra_ProgressBarUpdate.exit, %214, %57
-  %.083.lcssa = phi i32 [ 0, %57 ], [ %.184, %214 ], [ %.083141, %Extra_ProgressBarUpdate.exit ]
-  %.082.lcssa = phi i32 [ 0, %57 ], [ %.1, %214 ], [ %.082142, %Extra_ProgressBarUpdate.exit ]
+.critedge:                                        ; preds = %Extra_ProgressBarUpdate.argprom.exit, %214, %57
+  %.083.lcssa = phi i32 [ 0, %57 ], [ %.184, %214 ], [ %.083141, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.082.lcssa = phi i32 [ 0, %57 ], [ %.1, %214 ], [ %.082142, %Extra_ProgressBarUpdate.argprom.exit ]
   %219 = call i32 @fclose(ptr noundef %60)
   %220 = load ptr, ptr %1, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 4
@@ -1997,21 +1997,21 @@ Abc_Clock.exit:                                   ; preds = %8, %19
   %70 = load i32, ptr %43, align 4
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv, %71
-  br i1 %72, label %Extra_ProgressBarUpdate.exit, label %73
+  br i1 %72, label %Extra_ProgressBarUpdate.argprom.exit, label %73
 
 73:                                               ; preds = %69, %68
   %74 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %43, i32 noundef %74, ptr noundef null) #20
   %.val87.pre = load i32, ptr %66, align 4
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %69, %73
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %69, %73
   %.val87 = phi i32 [ %.val86, %69 ], [ %.val87.pre, %73 ]
   %75 = and i32 %.val87, 512
   %.not77 = icmp eq i32 %75, 0
   br i1 %.not77, label %76, label %172
 
-76:                                               ; preds = %Extra_ProgressBarUpdate.exit
+76:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %77 = getelementptr i8, ptr %63, i64 44
   %.val82 = load i32, ptr %77, align 4
   %78 = icmp sgt i32 %.val82, 1000
@@ -2220,7 +2220,7 @@ Dec_GraphFree.exit:                               ; preds = %Abc_Clock.exit99, %
   call void @free(ptr noundef nonnull %103) #20
   br label %172
 
-172:                                              ; preds = %Dec_GraphFree.exit, %65, %59, %Vec_IntPush.exit, %76, %Extra_ProgressBarUpdate.exit
+172:                                              ; preds = %Dec_GraphFree.exit, %65, %59, %Vec_IntPush.exit, %76, %Extra_ProgressBarUpdate.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %173 = load ptr, ptr %34, align 8
   %174 = getelementptr i8, ptr %173, i64 4
@@ -2336,7 +2336,7 @@ Abc_Clock.exit:                                   ; preds = %8, %22
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @Abc_AigCleanup(ptr noundef %27) #20
   %29 = call ptr @Abc_NtkManCutStart(i32 noundef %2, i32 noundef 100000, i32 noundef 100000, i32 noundef 100000) #20
-  %30 = call fastcc ptr @Abc_ManResubStart(i32 noundef %2)
+  %30 = call fastcc ptr @Abc_ManResubStart.argelim(i32 noundef %2)
   %31 = icmp sgt i32 %4, 0
   br i1 %31, label %32, label %34
 
@@ -2475,21 +2475,21 @@ Abc_Clock.exit:                                   ; preds = %8, %22
   %100 = load i32, ptr %68, align 4
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv220, %101
-  br i1 %102, label %Extra_ProgressBarUpdate.exit, label %103
+  br i1 %102, label %Extra_ProgressBarUpdate.argprom.exit, label %103
 
 103:                                              ; preds = %99, %98
   %104 = trunc nuw nsw i64 %indvars.iv220 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %68, i32 noundef %104, ptr noundef null) #20
   %.val146.pre = load i32, ptr %96, align 4
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %99, %103
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %99, %103
   %.val146 = phi i32 [ %.val145, %99 ], [ %.val146.pre, %103 ]
   %105 = and i32 %.val146, 512
   %.not127 = icmp eq i32 %105, 0
   br i1 %.not127, label %142, label %106
 
-106:                                              ; preds = %Extra_ProgressBarUpdate.exit
+106:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %107 = getelementptr inbounds i8, ptr %93, i64 16
   %108 = load i32, ptr %107, align 8
   %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.2, i32 noundef %108, i32 noundef -99) #20
@@ -2562,7 +2562,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 -99, ptr %141, align 4
   br label %298
 
-142:                                              ; preds = %Extra_ProgressBarUpdate.exit
+142:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %143 = getelementptr i8, ptr %93, i64 44
   %.val140 = load i32, ptr %143, align 4
   %144 = icmp sgt i32 %.val140, 1000
@@ -2744,7 +2744,7 @@ Abc_Clock.exit167:                                ; preds = %Abc_Clock.exit165, 
 Abc_Clock.exit169:                                ; preds = %219, %222
   %.0.i168.neg = phi i64 [ %.neg201, %222 ], [ 1, %219 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %225 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %30, ptr noundef %93, ptr noundef %188, i32 noundef %3, i32 noundef %5)
+  %225 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %30, ptr noundef %93, ptr noundef %188, i32 noundef %3, i32 noundef %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %226 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #20
   %227 = icmp slt i32 %226, 0
@@ -3059,7 +3059,7 @@ Abc_Clock.exit187:                                ; preds = %361
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubStart(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @Abc_ManResubStart.argelim(i32 noundef %0) unnamed_addr #0 {
 .lr.ph.preheader:
   %calloc = tail call dereferenceable_or_null(296) ptr @calloc(i64 1, i64 296)
   store i32 %0, ptr %calloc, align 8
@@ -3404,7 +3404,7 @@ declare void @Abc_NtkDontCareClear(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_NtkDontCareCompute(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubEval(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @Abc_ManResubEval.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -3654,7 +3654,7 @@ Vec_PtrPush.exit.i:                               ; preds = %118, %Vec_PtrGrow.e
   %127 = load i32, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %.val124.i, i64 224
   %129 = add nsw i32 %.val125.i, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %128, i32 noundef %129)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %128, i32 noundef %129)
   %130 = getelementptr i8, ptr %.val124.i, i64 232
   %.val.i.i.i.i = load ptr, ptr %130, align 8
   %131 = sext i32 %.val125.i to i64
@@ -3903,7 +3903,7 @@ Vec_IntFillExtra.exit.i:                          ; preds = %._crit_edge.i.i, %1
   %.val3.i132.i = load i32, ptr %246, align 8
   %247 = getelementptr inbounds i8, ptr %.val2.i131.i, i64 224
   %248 = add nsw i32 %.val3.i132.i, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %247, i32 noundef %248)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %247, i32 noundef %248)
   %249 = getelementptr i8, ptr %.val2.i131.i, i64 232
   %.val.i.i.i133.i = load ptr, ptr %249, align 8
   %250 = sext i32 %.val3.i132.i to i64
@@ -3932,7 +3932,7 @@ Vec_IntFillExtra.exit.i:                          ; preds = %._crit_edge.i.i, %1
   %.val3.i136.i = load i32, ptr %262, align 8
   %263 = getelementptr inbounds i8, ptr %.val2.i135.i, i64 224
   %264 = add nsw i32 %.val3.i136.i, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %263, i32 noundef %264)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %263, i32 noundef %264)
   %265 = getelementptr i8, ptr %.val2.i135.i, i64 232
   %.val.i.i.i137.i = load ptr, ptr %265, align 8
   %266 = sext i32 %.val3.i136.i to i64
@@ -4041,7 +4041,7 @@ Vec_PtrPush.exit145.i:                            ; preds = %310, %Vec_PtrGrow.e
   %318 = load i32, ptr %317, align 8
   %319 = getelementptr inbounds i8, ptr %.val122.i, i64 224
   %320 = add nsw i32 %.val123.i, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %319, i32 noundef %320)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %319, i32 noundef %320)
   %321 = getelementptr i8, ptr %.val122.i, i64 232
   %.val.i.i.i146.i = load ptr, ptr %321, align 8
   %322 = sext i32 %.val123.i to i64
@@ -5669,7 +5669,7 @@ Abc_ManResubDivs1.exit:                           ; preds = %.loopexit.thread.i,
 
 1105:                                             ; preds = %1102
   %1106 = call fastcc i64 @Abc_Clock()
-  %1107 = call fastcc ptr @Abc_ManResubDivs12(ptr noundef nonnull %0)
+  %1107 = call fastcc ptr @Abc_ManResubDivs12.argelim(ptr noundef nonnull %0)
   %.not105 = icmp eq ptr %1107, null
   %1108 = call fastcc i64 @Abc_Clock()
   %1109 = sub i64 %1108, %1106
@@ -5695,7 +5695,7 @@ Abc_ManResubDivs1.exit:                           ; preds = %.loopexit.thread.i,
   %1122 = add nsw i64 %1119, %1121
   store i64 %1122, ptr %1120, align 8
   %1123 = call fastcc i64 @Abc_Clock()
-  %1124 = call fastcc ptr @Abc_ManResubDivs2(ptr noundef nonnull %0)
+  %1124 = call fastcc ptr @Abc_ManResubDivs2.argelim(ptr noundef nonnull %0)
   %.not106 = icmp eq ptr %1124, null
   %1125 = call fastcc i64 @Abc_Clock()
   %1126 = sub i64 %1125, %1123
@@ -5721,7 +5721,7 @@ Abc_ManResubDivs1.exit:                           ; preds = %.loopexit.thread.i,
 
 1137:                                             ; preds = %1134
   %1138 = call fastcc i64 @Abc_Clock()
-  %1139 = call fastcc ptr @Abc_ManResubDivs3(ptr noundef nonnull %0)
+  %1139 = call fastcc ptr @Abc_ManResubDivs3.argelim(ptr noundef nonnull %0)
   %.not107 = icmp eq ptr %1139, null
   %1140 = call fastcc i64 @Abc_Clock()
   %1141 = sub i64 %1140, %1138
@@ -6034,7 +6034,7 @@ define void @Abc_ManResubCollectDivs_rec1(ptr noundef %0, ptr noundef %1) local_
   %.val3.i = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %5 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %6, align 8
   %7 = sext i32 %.val3.i to i64
@@ -6050,7 +6050,7 @@ define void @Abc_ManResubCollectDivs_rec1(ptr noundef %0, ptr noundef %1) local_
   %.val13 = load i32, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %14 = add nsw i32 %.val13, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i14 = load ptr, ptr %15, align 8
   %16 = sext i32 %.val13 to i64
@@ -6807,7 +6807,7 @@ define i32 @Abc_CutVolumeCheck_rec_1(ptr nocapture noundef readonly %0) local_un
   %.val3.i16 = load i32, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %.val2.i15, i64 224
   %4 = add nsw i32 %.val3.i16, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %4)
   %5 = getelementptr i8, ptr %.val2.i15, i64 232
   %.val.i.i.i17 = load ptr, ptr %5, align 8
   %6 = sext i32 %.val3.i16 to i64
@@ -6828,7 +6828,7 @@ define i32 @Abc_CutVolumeCheck_rec_1(ptr nocapture noundef readonly %0) local_un
   %.val10 = load i32, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i22, i64 224
   %14 = add nsw i32 %.val10, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val.i22, i64 232
   %.val.i.i.i12 = load ptr, ptr %15, align 8
   %16 = sext i32 %.val10 to i64
@@ -6877,7 +6877,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %20
   %.val3.i = load i32, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %38 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %37, i32 noundef %38)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %37, i32 noundef %38)
   %39 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %39, align 8
   %40 = sext i32 %.val3.i to i64
@@ -7157,7 +7157,7 @@ Abc_Clock.exit:                                   ; preds = %18, %63
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 @Abc_AigCleanup(ptr noundef %71) #20
   %73 = call ptr @Abc_NtkManCutStart(i32 noundef %9, i32 noundef 100000, i32 noundef 100000, i32 noundef 100000) #20
-  %74 = call fastcc ptr @Abc_ManResubStart(i32 noundef %9)
+  %74 = call fastcc ptr @Abc_ManResubStart.argelim(i32 noundef %9)
   %75 = icmp sgt i32 %11, 0
   br i1 %75, label %76, label %78
 
@@ -7491,21 +7491,21 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %245 = load i32, ptr %182, align 4
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv940, %246
-  br i1 %247, label %Extra_ProgressBarUpdate.exit, label %248
+  br i1 %247, label %Extra_ProgressBarUpdate.argprom.exit, label %248
 
 248:                                              ; preds = %244, %241
   %249 = trunc nuw nsw i64 %indvars.iv940 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %182, i32 noundef %249, ptr noundef null) #20
   %.val680.pre = load i32, ptr %239, align 4
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %244, %248
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %244, %248
   %.val680 = phi i32 [ %.val679, %244 ], [ %.val680.pre, %248 ]
   %250 = and i32 %.val680, 512
   %.not627 = icmp eq i32 %250, 0
   br i1 %.not627, label %348, label %251
 
-251:                                              ; preds = %Extra_ProgressBarUpdate.exit
+251:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %252 = load ptr, ptr %2, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 4
   %254 = load i32, ptr %253, align 4
@@ -7709,7 +7709,7 @@ Vec_IntPush.exit711:                              ; preds = %.Vec_IntGrow.exit10
   store i32 -99, ptr %347, align 4
   br label %1130
 
-348:                                              ; preds = %Extra_ProgressBarUpdate.exit
+348:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %349 = getelementptr i8, ptr %236, i64 44
   %.val670 = load i32, ptr %349, align 4
   %350 = icmp sgt i32 %.val670, 1000
@@ -8148,7 +8148,7 @@ Abc_Clock.exit753:                                ; preds = %Abc_Clock.exit751, 
 Abc_Clock.exit755:                                ; preds = %548, %551
   %.0.i754.neg = phi i64 [ %.neg845, %551 ], [ 1, %548 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
-  %554 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %74, ptr noundef %236, ptr noundef %517, i32 noundef %10, i32 noundef %12)
+  %554 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %74, ptr noundef %236, ptr noundef %517, i32 noundef %10, i32 noundef %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   %555 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %45) #20
   %556 = icmp slt i32 %555, 0
@@ -9641,7 +9641,7 @@ Abc_Clock.exit:                                   ; preds = %13, %40
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 @Abc_AigCleanup(ptr noundef %48) #20
   %50 = call ptr @Abc_NtkManCutStart(i32 noundef %4, i32 noundef 100000, i32 noundef 100000, i32 noundef 100000) #20
-  %51 = call fastcc ptr @Abc_ManResubStart(i32 noundef %4)
+  %51 = call fastcc ptr @Abc_ManResubStart.argelim(i32 noundef %4)
   %52 = icmp sgt i32 %6, 0
   br i1 %52, label %53, label %55
 
@@ -9839,21 +9839,21 @@ Abc_Clock.exit265:                                ; preds = %Abc_Clock.exit263, 
   %156 = load i32, ptr %112, align 4
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv361, %157
-  br i1 %158, label %Extra_ProgressBarUpdate.exit, label %159
+  br i1 %158, label %Extra_ProgressBarUpdate.argprom.exit, label %159
 
 159:                                              ; preds = %155, %154
   %160 = trunc nuw nsw i64 %indvars.iv361 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %112, i32 noundef %160, ptr noundef null) #20
   %.val255.pre = load i32, ptr %152, align 4
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %155, %159
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %155, %159
   %.val255 = phi i32 [ %.val254, %155 ], [ %.val255.pre, %159 ]
   %161 = and i32 %.val255, 512
   %.not226 = icmp eq i32 %161, 0
   br i1 %.not226, label %162, label %355
 
-162:                                              ; preds = %Extra_ProgressBarUpdate.exit
+162:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %163 = getelementptr i8, ptr %149, i64 44
   %.val245 = load i32, ptr %163, align 4
   %164 = icmp sgt i32 %.val245, 1000
@@ -10020,7 +10020,7 @@ Abc_Clock.exit279:                                ; preds = %Abc_Clock.exit277, 
 Abc_Clock.exit281:                                ; preds = %232, %235
   %.0.i280.neg = phi i64 [ %.neg324, %235 ], [ 1, %232 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
-  %238 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %51, ptr noundef %149, ptr noundef %201, i32 noundef %5, i32 noundef %7)
+  %238 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %51, ptr noundef %149, ptr noundef %201, i32 noundef %5, i32 noundef %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   %239 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %26) #20
   %240 = icmp slt i32 %239, 0
@@ -10291,7 +10291,7 @@ Dec_GraphFree.exit302:                            ; preds = %Abc_Clock.exit300, 
   call void @free(ptr noundef nonnull %189) #20
   br label %355
 
-355:                                              ; preds = %327, %Abc_Clock.exit287, %Abc_Clock.exit291, %151, %145, %301, %162, %Extra_ProgressBarUpdate.exit, %Dec_GraphFree.exit302, %Dec_GraphFree.exit
+355:                                              ; preds = %327, %Abc_Clock.exit287, %Abc_Clock.exit291, %151, %145, %301, %162, %Extra_ProgressBarUpdate.argprom.exit, %Dec_GraphFree.exit302, %Dec_GraphFree.exit
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %356 = load ptr, ptr %109, align 8
   %357 = getelementptr i8, ptr %356, i64 4
@@ -10601,7 +10601,7 @@ Abc_Clock.exit:                                   ; preds = %17, %90
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @Abc_AigCleanup(ptr noundef %98) #20
   %100 = call ptr @Abc_NtkManCutStart(i32 noundef %8, i32 noundef 100000, i32 noundef 100000, i32 noundef 100000) #20
-  %101 = call fastcc ptr @Abc_ManResubStart(i32 noundef %8)
+  %101 = call fastcc ptr @Abc_ManResubStart.argelim(i32 noundef %8)
   %102 = icmp sgt i32 %10, 0
   br i1 %102, label %103, label %105
 
@@ -10892,18 +10892,18 @@ Abc_Clock.exit843:                                ; preds = %Abc_Clock.exit841, 
   %271 = load i32, ptr %180, align 4
   %272 = sext i32 %271 to i64
   %273 = icmp slt i64 %indvars.iv1266, %272
-  br i1 %273, label %Extra_ProgressBarUpdate.exit, label %274
+  br i1 %273, label %Extra_ProgressBarUpdate.argprom.exit, label %274
 
 274:                                              ; preds = %270, %269
   %275 = trunc nuw nsw i64 %indvars.iv1266 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %180, i32 noundef %275, ptr noundef null) #20
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %270, %274
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %270, %274
   %.not765 = icmp slt i64 %indvars.iv1266, %259
   br i1 %.not765, label %276, label %.critedge2
 
-276:                                              ; preds = %Extra_ProgressBarUpdate.exit
+276:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %.val833 = load i32, ptr %267, align 4
   %277 = and i32 %.val833, 512
   %.not766 = icmp eq i32 %277, 0
@@ -11607,7 +11607,7 @@ Abc_Clock.exit901:                                ; preds = %Abc_Clock.exit899, 
 Abc_Clock.exit903:                                ; preds = %596, %599
   %.0.i902.neg1260 = phi i64 [ %.neg1259, %599 ], [ 1, %596 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76)
-  %602 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %565, i32 noundef %9, i32 noundef %11)
+  %602 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %565, i32 noundef %9, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75)
   %603 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %75) #20
   %604 = icmp slt i32 %603, 0
@@ -12385,7 +12385,7 @@ Abc_Clock.exit976:                                ; preds = %Abc_Clock.exit974, 
 Abc_Clock.exit978:                                ; preds = %957, %960
   %.0.i977.neg = phi i64 [ %.neg1170, %960 ], [ 1, %957 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
-  %963 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %926, i32 noundef %9, i32 noundef %11)
+  %963 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %926, i32 noundef %9, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
   %964 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %54) #20
   %965 = icmp slt i32 %964, 0
@@ -12624,7 +12624,7 @@ Abc_Clock.exit999:                                ; preds = %Abc_Clock.exit997, 
 Abc_Clock.exit1001:                               ; preds = %1068, %1071
   %.0.i1000.neg1252 = phi i64 [ %.neg1251, %1071 ], [ 1, %1068 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
-  %1074 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1037, i32 noundef %9, i32 noundef %11)
+  %1074 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1037, i32 noundef %9, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
   %1075 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %47) #20
   %1076 = icmp slt i32 %1075, 0
@@ -13146,7 +13146,7 @@ Abc_Clock.exit1046:                               ; preds = %Abc_Clock.exit1044,
 Abc_Clock.exit1048:                               ; preds = %1317, %1320
   %.0.i1047.neg1248 = phi i64 [ %.neg1247, %1320 ], [ 1, %1317 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  %1323 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1286, i32 noundef %9, i32 noundef %11)
+  %1323 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1286, i32 noundef %9, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
   %1324 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %35) #20
   %1325 = icmp slt i32 %1324, 0
@@ -13814,7 +13814,7 @@ Vec_IntPush.exit1102:                             ; preds = %.Vec_IntGrow.exit10
 
 1650:                                             ; preds = %1642, %1636
   %1651 = call fastcc i64 @Abc_Clock()
-  %1652 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1637, i32 noundef %9, i32 noundef %11)
+  %1652 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1637, i32 noundef %9, i32 noundef %11)
   %1653 = call fastcc i64 @Abc_Clock()
   %1654 = sub i64 %1653, %1651
   %1655 = load i64, ptr %195, align 8
@@ -14019,7 +14019,7 @@ Vec_IntPush.exit1115:                             ; preds = %.Vec_IntGrow.exit10
 
 1760:                                             ; preds = %1752, %1746
   %1761 = call fastcc i64 @Abc_Clock()
-  %1762 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1747, i32 noundef %9, i32 noundef %11)
+  %1762 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1747, i32 noundef %9, i32 noundef %11)
   %1763 = call fastcc i64 @Abc_Clock()
   %1764 = sub i64 %1763, %1761
   %1765 = load i64, ptr %195, align 8
@@ -14110,7 +14110,7 @@ Vec_IntPush.exit1115:                             ; preds = %.Vec_IntGrow.exit10
   call fastcc void @Dec_GraphFree(ptr noundef nonnull %.lcssa.sink)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %Extra_ProgressBarUpdate.exit, %.thread1134, %.critedge2.sink.split, %178
+.critedge2:                                       ; preds = %Extra_ProgressBarUpdate.argprom.exit, %.thread1134, %.critedge2.sink.split, %178
   %1810 = call i32 @fclose(ptr noundef %181)
   call void @Extra_ProgressBarStop(ptr noundef %180) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
@@ -14373,7 +14373,7 @@ Abc_Clock.exit:                                   ; preds = %18, %51
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @Abc_AigCleanup(ptr noundef %59) #20
   %61 = call ptr @Abc_NtkManCutStart(i32 noundef %9, i32 noundef 100000, i32 noundef 100000, i32 noundef 100000) #20
-  %62 = call fastcc ptr @Abc_ManResubStart(i32 noundef %9)
+  %62 = call fastcc ptr @Abc_ManResubStart.argelim(i32 noundef %9)
   %63 = icmp sgt i32 %11, 0
   br i1 %63, label %64, label %66
 
@@ -14638,20 +14638,20 @@ Abc_Clock.exit355:                                ; preds = %Abc_Clock.exit353, 
   %198 = load i32, ptr %141, align 4
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv572, %199
-  br i1 %200, label %Extra_ProgressBarUpdate.exit, label %201
+  br i1 %200, label %Extra_ProgressBarUpdate.argprom.exit, label %201
 
 201:                                              ; preds = %197, %196
   %202 = trunc nuw nsw i64 %indvars.iv572 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %141, i32 noundef %202, ptr noundef null) #20
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %197, %201
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %197, %201
   %.val345 = load i32, ptr %188, align 4
   %203 = and i32 %.val345, 512
   %.not312 = icmp eq i32 %203, 0
   br i1 %.not312, label %304, label %204
 
-204:                                              ; preds = %Extra_ProgressBarUpdate.exit
+204:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %205 = getelementptr inbounds i8, ptr %185, i64 16
   %206 = load i32, ptr %205, align 8
   %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.37, i32 noundef %206, ptr noundef nonnull @.str.38, i32 noundef -99) #20
@@ -14858,7 +14858,7 @@ Vec_IntPush.exit369:                              ; preds = %.Vec_IntGrow.exit10
   store i32 -99, ptr %303, align 4
   br label %946
 
-304:                                              ; preds = %Extra_ProgressBarUpdate.exit
+304:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %305 = getelementptr i8, ptr %185, i64 44
   %.val335 = load i32, ptr %305, align 4
   %306 = icmp sgt i32 %.val335, 1000
@@ -15301,7 +15301,7 @@ Abc_Clock.exit411:                                ; preds = %Abc_Clock.exit409, 
 Abc_Clock.exit413:                                ; preds = %508, %511
   %.0.i412.neg = phi i64 [ %.neg518, %511 ], [ 1, %508 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
-  %514 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %62, ptr noundef %185, ptr noundef %477, i32 noundef %10, i32 noundef %12)
+  %514 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %62, ptr noundef %185, ptr noundef %477, i32 noundef %10, i32 noundef %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   %515 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %37) #20
   %516 = icmp slt i32 %515, 0
@@ -16500,7 +16500,7 @@ Abc_Clock.exit:                                   ; preds = %18, %45
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 @Abc_AigCleanup(ptr noundef %53) #20
   %55 = call ptr @Abc_NtkManCutStart(i32 noundef %9, i32 noundef 100000, i32 noundef 100000, i32 noundef 100000) #20
-  %56 = call fastcc ptr @Abc_ManResubStart(i32 noundef %9)
+  %56 = call fastcc ptr @Abc_ManResubStart.argelim(i32 noundef %9)
   %57 = icmp sgt i32 %11, 0
   br i1 %57, label %58, label %60
 
@@ -16759,20 +16759,20 @@ Abc_Clock.exit338:                                ; preds = %Abc_Clock.exit336, 
   %186 = load i32, ptr %135, align 4
   %187 = sext i32 %186 to i64
   %188 = icmp slt i64 %indvars.iv510, %187
-  br i1 %188, label %Extra_ProgressBarUpdate.exit, label %189
+  br i1 %188, label %Extra_ProgressBarUpdate.argprom.exit, label %189
 
 189:                                              ; preds = %185, %184
   %190 = trunc nuw nsw i64 %indvars.iv510 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %135, i32 noundef %190, ptr noundef null) #20
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %185, %189
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %185, %189
   %.val328 = load i32, ptr %176, align 4
   %191 = and i32 %.val328, 512
   %.not300 = icmp eq i32 %191, 0
   br i1 %.not300, label %292, label %192
 
-192:                                              ; preds = %Extra_ProgressBarUpdate.exit
+192:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %193 = getelementptr inbounds i8, ptr %173, i64 16
   %194 = load i32, ptr %193, align 8
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.44, i32 noundef %194, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
@@ -16979,7 +16979,7 @@ Vec_IntPush.exit352:                              ; preds = %.Vec_IntGrow.exit10
   store i32 -99, ptr %291, align 4
   br label %811
 
-292:                                              ; preds = %Extra_ProgressBarUpdate.exit
+292:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %293 = getelementptr i8, ptr %173, i64 44
   %.val318 = load i32, ptr %293, align 4
   %294 = icmp sgt i32 %.val318, 1000
@@ -17422,7 +17422,7 @@ Abc_Clock.exit394:                                ; preds = %Abc_Clock.exit392, 
 Abc_Clock.exit396:                                ; preds = %496, %499
   %.0.i395.neg = phi i64 [ %.neg473, %499 ], [ 1, %496 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  %502 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %56, ptr noundef %173, ptr noundef %465, i32 noundef %10, i32 noundef %12)
+  %502 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %56, ptr noundef %173, ptr noundef %465, i32 noundef %10, i32 noundef %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   %503 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %31) #20
   %504 = icmp slt i32 %503, 0
@@ -18327,7 +18327,7 @@ Abc_Clock.exit:                                   ; preds = %16, %35
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 @Abc_AigCleanup(ptr noundef %43) #20
   %45 = call ptr @Abc_NtkManCutStart(i32 noundef %7, i32 noundef 100000, i32 noundef 100000, i32 noundef 100000) #20
-  %46 = call fastcc ptr @Abc_ManResubStart(i32 noundef %7)
+  %46 = call fastcc ptr @Abc_ManResubStart.argelim(i32 noundef %7)
   %47 = icmp sgt i32 %9, 0
   br i1 %47, label %48, label %50
 
@@ -18549,20 +18549,20 @@ Abc_Clock.exit256:                                ; preds = %Abc_Clock.exit254, 
   %159 = load i32, ptr %107, align 4
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv322, %160
-  br i1 %161, label %Extra_ProgressBarUpdate.exit, label %162
+  br i1 %161, label %Extra_ProgressBarUpdate.argprom.exit, label %162
 
 162:                                              ; preds = %158, %.critedge4
   %163 = trunc nuw nsw i64 %indvars.iv322 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %107, i32 noundef %163, ptr noundef null) #20
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %158, %162
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %158, %162
   %.val236 = load i32, ptr %138, align 4
   %164 = and i32 %.val236, 512
   %.not212 = icmp eq i32 %164, 0
   br i1 %.not212, label %171, label %165
 
-165:                                              ; preds = %Extra_ProgressBarUpdate.exit
+165:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %166 = lshr i32 %.val236, 10
   %167 = and i32 %166, 1
   %168 = lshr i32 %.val236, 11
@@ -18570,7 +18570,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %158, %162
   %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.46, i32 noundef %167, i32 noundef %169, i32 noundef -1, i32 noundef -1, i32 noundef -1, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
   br label %279
 
-171:                                              ; preds = %Extra_ProgressBarUpdate.exit
+171:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %172 = getelementptr i8, ptr %135, i64 44
   %.val226 = load i32, ptr %172, align 4
   %173 = icmp sgt i32 %.val226, 1000
@@ -18749,7 +18749,7 @@ Abc_Clock.exit270:                                ; preds = %Abc_Clock.exit268, 
 Abc_Clock.exit272:                                ; preds = %250, %253
   %.0.i271.neg = phi i64 [ %.neg296, %253 ], [ 1, %250 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  %256 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %46, ptr noundef %135, ptr noundef %219, i32 noundef %8, i32 noundef %10)
+  %256 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %46, ptr noundef %135, ptr noundef %219, i32 noundef %8, i32 noundef %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
   %257 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %21) #20
   %258 = icmp slt i32 %257, 0
@@ -19052,7 +19052,7 @@ Abc_Clock.exit:                                   ; preds = %19, %45
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 @Abc_AigCleanup(ptr noundef %53) #20
   %55 = call ptr @Abc_NtkManCutStart(i32 noundef %10, i32 noundef 100000, i32 noundef 100000, i32 noundef 100000) #20
-  %56 = call fastcc ptr @Abc_ManResubStart(i32 noundef %10)
+  %56 = call fastcc ptr @Abc_ManResubStart.argelim(i32 noundef %10)
   %57 = icmp sgt i32 %12, 0
   br i1 %57, label %58, label %60
 
@@ -19308,18 +19308,18 @@ Abc_Clock.exit326:                                ; preds = %Abc_Clock.exit324, 
   %189 = load i32, ptr %139, align 4
   %190 = sext i32 %189 to i64
   %191 = icmp slt i64 %indvars.iv506, %190
-  br i1 %191, label %Extra_ProgressBarUpdate.exit, label %192
+  br i1 %191, label %Extra_ProgressBarUpdate.argprom.exit, label %192
 
 192:                                              ; preds = %188, %185
   %193 = trunc nuw nsw i64 %indvars.iv506 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %139, i32 noundef %193, ptr noundef null) #20
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %188, %192
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %188, %192
   %.not287 = icmp slt i64 %indvars.iv506, %175
   br i1 %.not287, label %194, label %.critedge2
 
-194:                                              ; preds = %Extra_ProgressBarUpdate.exit
+194:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %.val316 = load i32, ptr %183, align 4
   %195 = and i32 %.val316, 512
   %.not288 = icmp eq i32 %195, 0
@@ -20038,7 +20038,7 @@ Abc_Clock.exit390:                                ; preds = %Abc_Clock.exit388, 
 Abc_Clock.exit392:                                ; preds = %521, %524
   %.0.i391.neg504 = phi i64 [ %.neg503, %524 ], [ 1, %521 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
-  %527 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %56, ptr noundef %180, ptr noundef %490, i32 noundef %11, i32 noundef %13)
+  %527 = call fastcc ptr @Abc_ManResubEval.argelim(ptr noundef nonnull %56, ptr noundef %180, ptr noundef %490, i32 noundef %11, i32 noundef %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   %528 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %34) #20
   %529 = icmp slt i32 %528, 0
@@ -20684,7 +20684,7 @@ Dec_GraphFree.exit447:                            ; preds = %Abc_Clock.exit445, 
   %829 = icmp slt i64 %indvars.iv.next507, %828
   br i1 %829, label %176, label %.critedge2, !llvm.loop !93
 
-.critedge2:                                       ; preds = %Extra_ProgressBarUpdate.exit, %825, %133, %804
+.critedge2:                                       ; preds = %Extra_ProgressBarUpdate.argprom.exit, %825, %133, %804
   %830 = icmp sgt i32 %.val305.val, 0
   br i1 %830, label %.lr.ph492.preheader, label %._crit_edge
 
@@ -20964,7 +20964,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -21061,7 +21061,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 declare i32 @Abc_NodeMffcInside(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture noundef %0) unnamed_addr #14 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs12.argelim(ptr nocapture noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -23876,7 +23876,7 @@ Vec_PtrPush.exit282:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noundef %0) unnamed_addr #14 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs2.argelim(ptr nocapture noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -24766,7 +24766,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs3(ptr nocapture noundef %0) unnamed_addr #14 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs3.argelim(ptr nocapture noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56

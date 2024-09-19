@@ -620,7 +620,7 @@ define internal range(i32 0, 2) i32 @dissect_rgoose_heur(ptr noundef %0, ptr nou
   %93 = add i32 %.0128.i, 4
   %94 = load i32, ptr %6, align 4
   %.not134.i = icmp eq i32 %94, 129
-  br i1 %.not134.i, label %95, label %dissect_rgoose.exit
+  br i1 %.not134.i, label %95, label %dissect_rgoose.argprom.exit
 
 95:                                               ; preds = %84
   br i1 %.not135.i, label %97, label %.sink.split.i
@@ -684,16 +684,16 @@ define internal range(i32 0, 2) i32 @dissect_rgoose_heur(ptr noundef %0, ptr nou
   %.2.i = phi i32 [ %131, %114 ], [ %.1.i, %111 ], [ %.1.i, %.loopexit.i ]
   %133 = call i32 @tvb_captured_length(ptr noundef %0) #3
   %134 = icmp ugt i32 %133, %.2.i
-  br i1 %134, label %135, label %dissect_rgoose.exit
+  br i1 %134, label %135, label %dissect_rgoose.argprom.exit
 
 135:                                              ; preds = %132
   %136 = load i32, ptr @hf_goose_hmac, align 4
   %137 = call i32 @tvb_captured_length(ptr noundef %0) #3
   %138 = sub i32 %137, %.2.i
   %139 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %136, ptr noundef %0, i32 noundef %.2.i, i32 noundef %138, i32 noundef 0) #3
-  br label %dissect_rgoose.exit
+  br label %dissect_rgoose.argprom.exit
 
-dissect_rgoose.exit:                              ; preds = %84, %132, %135
+dissect_rgoose.argprom.exit:                      ; preds = %84, %132, %135
   %140 = call i32 @tvb_captured_length(ptr noundef %0) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -705,8 +705,8 @@ dissect_rgoose.exit:                              ; preds = %84, %132, %135
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12)
   br label %141
 
-141:                                              ; preds = %15, %4, %dissect_rgoose.exit
-  %.0 = phi i32 [ 1, %dissect_rgoose.exit ], [ 0, %4 ], [ 0, %15 ]
+141:                                              ; preds = %15, %4, %dissect_rgoose.argprom.exit
+  %.0 = phi i32 [ 1, %dissect_rgoose.argprom.exit ], [ 0, %4 ], [ 0, %15 ]
   ret i32 %.0
 }
 

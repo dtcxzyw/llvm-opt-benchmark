@@ -411,7 +411,7 @@ define void @Java_sun_java2d_loops_DrawGlyphList_DrawGlyphList(ptr noundef %0, p
   %15 = tail call i32 @GrPrim_Sg2dGetEaRGB(ptr noundef %0, ptr noundef %2) #10
   %16 = getelementptr inbounds i8, ptr %8, i64 32
   %17 = load ptr, ptr %16, align 8
-  tail call fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef %14, i32 noundef %15, ptr noundef %8, ptr noundef %17)
+  tail call fastcc void @drawGlyphList.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef %14, i32 noundef %15, ptr noundef %8, ptr noundef %17)
   tail call void @free(ptr noundef nonnull %11) #10
   br label %18
 
@@ -426,7 +426,7 @@ declare i32 @GrPrim_Sg2dGetPixel(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @GrPrim_Sg2dGetEaRGB(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc void @drawGlyphList.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca %struct.SurfaceDataBounds, align 4
   %10 = alloca %struct.SurfaceDataRasInfo, align 8
   %11 = alloca %struct._CompositeInfo, align 4
@@ -642,7 +642,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListAA_DrawGlyphListAA(ptr noundef %
   %15 = tail call i32 @GrPrim_Sg2dGetEaRGB(ptr noundef %0, ptr noundef %2) #10
   %16 = getelementptr inbounds i8, ptr %8, i64 32
   %17 = load ptr, ptr %16, align 8
-  tail call fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef %14, i32 noundef %15, ptr noundef %8, ptr noundef %17)
+  tail call fastcc void @drawGlyphList.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef %14, i32 noundef %15, ptr noundef %8, ptr noundef %17)
   tail call void @free(ptr noundef nonnull %11) #10
   br label %18
 
@@ -679,7 +679,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   %27 = tail call ptr @SurfaceData_GetOps(ptr noundef nonnull %0, ptr noundef %3) #10
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %drawGlyphListLCD.exit, label %29
+  br i1 %28, label %drawGlyphListLCD.argprom.exit, label %29
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds i8, ptr %11, i64 16
@@ -700,21 +700,21 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   %38 = getelementptr inbounds i8, ptr %9, i64 4
   %39 = load i32, ptr %38, align 4
   %.not60.i = icmp sgt i32 %37, %39
-  br i1 %.not60.i, label %40, label %drawGlyphListLCD.exit
+  br i1 %.not60.i, label %40, label %drawGlyphListLCD.argprom.exit
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %9, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = load i32, ptr %9, align 8
   %.not61.i = icmp sgt i32 %42, %43
-  br i1 %.not61.i, label %44, label %drawGlyphListLCD.exit
+  br i1 %.not61.i, label %44, label %drawGlyphListLCD.argprom.exit
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %27, align 8
   %46 = getelementptr inbounds i8, ptr %11, i64 52
   %47 = load i32, ptr %46, align 4
   %48 = call i32 %45(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %9, i32 noundef %47) #10
-  switch i32 %48, label %drawGlyphListLCD.exit [
+  switch i32 %48, label %drawGlyphListLCD.argprom.exit [
     i32 0, label %87
     i32 1, label %49
   ]
@@ -817,7 +817,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %85 = getelementptr inbounds i8, ptr %27, i64 24
   %86 = load ptr, ptr %85, align 8
   %.not64.i = icmp eq ptr %86, null
-  br i1 %.not64.i, label %drawGlyphListLCD.exit, label %.sink.split.i
+  br i1 %.not64.i, label %drawGlyphListLCD.argprom.exit, label %.sink.split.i
 
 87:                                               ; preds = %RefineBounds.exit.i, %44
   %88 = getelementptr inbounds i8, ptr %27, i64 8
@@ -832,7 +832,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %93 = getelementptr inbounds i8, ptr %27, i64 24
   %94 = load ptr, ptr %93, align 8
   %.not66.i = icmp eq ptr %94, null
-  br i1 %.not66.i, label %drawGlyphListLCD.exit, label %.sink.split.i
+  br i1 %.not66.i, label %drawGlyphListLCD.argprom.exit, label %.sink.split.i
 
 95:                                               ; preds = %87
   %96 = load i32, ptr %9, align 8
@@ -991,20 +991,20 @@ getInvLCDGammaLUT.exit.i:                         ; preds = %161, %.preheader.i.
   %180 = getelementptr inbounds i8, ptr %27, i64 24
   %181 = load ptr, ptr %180, align 8
   %.not68.i = icmp eq ptr %181, null
-  br i1 %.not68.i, label %drawGlyphListLCD.exit, label %.sink.split.i
+  br i1 %.not68.i, label %drawGlyphListLCD.argprom.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %179, %92, %84
   %.sink.i = phi ptr [ %86, %84 ], [ %94, %92 ], [ %181, %179 ]
   call void %.sink.i(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %9) #10
-  br label %drawGlyphListLCD.exit
+  br label %drawGlyphListLCD.argprom.exit
 
-drawGlyphListLCD.exit:                            ; preds = %16, %35, %40, %44, %84, %92, %179, %.sink.split.i
+drawGlyphListLCD.argprom.exit:                    ; preds = %16, %35, %40, %44, %84, %92, %179, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @free(ptr noundef %14) #10
   br label %182
 
-182:                                              ; preds = %13, %7, %drawGlyphListLCD.exit
+182:                                              ; preds = %13, %7, %drawGlyphListLCD.argprom.exit
   ret void
 }
 

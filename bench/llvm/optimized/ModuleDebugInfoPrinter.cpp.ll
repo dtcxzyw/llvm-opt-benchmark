@@ -1100,7 +1100,7 @@ _ZN4llvm11raw_ostreamlsEc.exit287.i:              ; preds = %539, %537
   %544 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %542) #3
   %545 = getelementptr inbounds ptr, ptr %543, i64 %544
   %.not12598.i = icmp eq i64 %544, 0
-  br i1 %.not12598.i, label %_ZL20printModuleDebugInfoRN4llvm11raw_ostreamEPKNS_6ModuleERKNS_15DebugInfoFinderE.exit, label %.lr.ph101.i
+  br i1 %.not12598.i, label %_ZL20printModuleDebugInfoRN4llvm11raw_ostreamEPKNS_6ModuleERKNS_15DebugInfoFinderE.argprom.exit, label %.lr.ph101.i
 
 .lr.ph101.i:                                      ; preds = %._crit_edge97.i
   %546 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1664,9 +1664,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit379.i:            ; preds = %828, %826, %_ZNK4ll
 _ZN4llvm11raw_ostreamlsEc.exit382.i:              ; preds = %836, %834
   %838 = getelementptr inbounds i8, ptr %.011999.i, i64 8
   %.not125.i = icmp eq ptr %838, %545
-  br i1 %.not125.i, label %_ZL20printModuleDebugInfoRN4llvm11raw_ostreamEPKNS_6ModuleERKNS_15DebugInfoFinderE.exit, label %548
+  br i1 %.not125.i, label %_ZL20printModuleDebugInfoRN4llvm11raw_ostreamEPKNS_6ModuleERKNS_15DebugInfoFinderE.argprom.exit, label %548
 
-_ZL20printModuleDebugInfoRN4llvm11raw_ostreamEPKNS_6ModuleERKNS_15DebugInfoFinderE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit382.i, %._crit_edge97.i
+_ZL20printModuleDebugInfoRN4llvm11raw_ostreamEPKNS_6ModuleERKNS_15DebugInfoFinderE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit382.i, %._crit_edge97.i
   %839 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %839, ptr %0, align 8, !alias.scope !4
   %840 = getelementptr inbounds nuw i8, ptr %0, i64 8

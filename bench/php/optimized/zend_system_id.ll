@@ -147,9 +147,9 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
   store i8 %40, ptr %42, align 1
   %43 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %43, 16
-  br i1 %exitcond.not.i, label %php_hash_bin2hex.exit, label %28
+  br i1 %exitcond.not.i, label %php_hash_bin2hex.argprom.exit, label %28
 
-php_hash_bin2hex.exit:                            ; preds = %28
+php_hash_bin2hex.argprom.exit:                    ; preds = %28
   store i1 true, ptr @finalized, align 4
   ret void
 }

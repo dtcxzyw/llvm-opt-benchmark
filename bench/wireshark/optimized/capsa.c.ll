@@ -213,7 +213,7 @@ define internal range(i32 0, 2) i32 @capsa_read(ptr nocapture noundef readonly %
   %43 = load ptr, ptr %0, align 8
   %.val = load ptr, ptr %7, align 8
   %.val.val = load i16, ptr %.val, align 8
-  %44 = tail call fastcc i32 @capsa_read_packet(i16 %.val.val, ptr noundef %43, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %44 = tail call fastcc i32 @capsa_read_packet.argprom.argprom(i16 %.val.val, ptr noundef %43, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   switch i32 %44, label %45 [
     i32 -1, label %51
     i32 0, label %48
@@ -249,7 +249,7 @@ define internal range(i32 0, 2) i32 @capsa_seek_read(ptr nocapture noundef reado
   %13 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %13, align 8
   %.val.val = load i16, ptr %.val, align 8
-  %14 = tail call fastcc i32 @capsa_read_packet(i16 %.val.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %14 = tail call fastcc i32 @capsa_read_packet.argprom.argprom(i16 %.val.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %20
 
@@ -289,7 +289,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.0.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet.argprom.argprom(i16 %.96.val.0.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.capsarec_hdr, align 4
   %7 = alloca %struct.pbrec_hdr, align 4
   switch i16 %.96.val.0.val, label %46 [

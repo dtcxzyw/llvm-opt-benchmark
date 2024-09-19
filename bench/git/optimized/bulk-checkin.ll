@@ -86,18 +86,18 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.then3:                                         ; preds = %if.then
   %2 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %2, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
+  br i1 %tobool1.not.i, label %_.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then3
   %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.1) #13
-  br label %_.exit
+  br label %_.argprom.exit
 
-_.exit:                                           ; preds = %if.then3, %if.end3.i
+_.argprom.exit:                                   ; preds = %if.then3, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.1, %if.then3 ]
   tail call void (ptr, ...) @warning(ptr noundef %retval.0.i) #13
   br label %if.end
 
-if.end:                                           ; preds = %_.exit, %if.then
+if.end:                                           ; preds = %_.argprom.exit, %if.then
   tail call void @fsync_or_die(i32 noundef %fd, ptr noundef %filename) #13
   br label %if.end5
 
@@ -133,7 +133,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #13
-  br label %deflate_blob_to_pack.exit
+  br label %deflate_blob_to_pack.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call3.i = call i32 @format_object_header(ptr noundef nonnull %obuf.i, i64 noundef 16384, i32 noundef 3, i64 noundef %size) #13
@@ -182,7 +182,7 @@ while.body.i:                                     ; preds = %if.end24.i, %if.end
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %tobool1.not.i.i = icmp eq ptr %9, null
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 %tobool1.not.i.i, i1 false
-  br i1 %or.cond.i.i, label %if.end.i.i, label %prepare_to_stream.exit.i
+  br i1 %or.cond.i.i, label %if.end.i.i, label %prepare_to_stream.argprom.exit.i
 
 if.end.i.i:                                       ; preds = %while.body.i
   %call.i.i = call ptr @create_tmp_packfile(ptr noundef nonnull @bulk_checkin_packfile) #13
@@ -192,16 +192,16 @@ if.end.i.i:                                       ; preds = %while.body.i
   %call4.i.i = call i64 @write_pack_header(ptr noundef %10, i32 noundef 1) #13
   store i64 %call4.i.i, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   %tobool6.not.i.i = icmp eq i64 %call4.i.i, 0
-  br i1 %tobool6.not.i.i, label %if.then7.i.i, label %prepare_to_stream.exit.i
+  br i1 %tobool6.not.i.i, label %if.then7.i.i, label %prepare_to_stream.argprom.exit.i
 
 if.then7.i.i:                                     ; preds = %if.end.i.i
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.8) #15
   unreachable
 
-prepare_to_stream.exit.i:                         ; preds = %if.end.i.i, %while.body.i
+prepare_to_stream.argprom.exit.i:                 ; preds = %if.end.i.i, %while.body.i
   br i1 %tobool.not.i, label %if.end17.i, label %if.then14.i
 
-if.then14.i:                                      ; preds = %prepare_to_stream.exit.i
+if.then14.i:                                      ; preds = %prepare_to_stream.argprom.exit.i
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   call void @hashfile_checkpoint(ptr noundef %11, ptr noundef nonnull %checkpoint.i) #13
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
@@ -210,7 +210,7 @@ if.then14.i:                                      ; preds = %prepare_to_stream.e
   call void @crc32_begin(ptr noundef %13) #13
   br label %if.end17.i
 
-if.end17.i:                                       ; preds = %if.then14.i, %prepare_to_stream.exit.i
+if.end17.i:                                       ; preds = %if.then14.i, %prepare_to_stream.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %s.i.i)
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %ibuf.i.i)
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %obuf.i.i)
@@ -357,14 +357,14 @@ if.end24.i:                                       ; preds = %if.end21.i
   %call26.i = call i32 @hashfile_truncate(ptr noundef %26, ptr noundef nonnull %checkpoint.i) #13
   %27 = load i64, ptr %checkpoint.i, align 8
   store i64 %27, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
-  call fastcc void @flush_bulk_checkin_packfile()
+  call fastcc void @flush_bulk_checkin_packfile.argprom()
   %call29.i = call i64 @lseek64(i32 noundef %fd, i64 noundef %call.i, i32 noundef 0) #13
   %cmp30.i = icmp eq i64 %call29.i, -1
   br i1 %cmp30.i, label %if.then32.i, label %while.body.i
 
 if.then32.i:                                      ; preds = %if.end24.i
   %call33.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #13
-  br label %deflate_blob_to_pack.exit
+  br label %deflate_blob_to_pack.argprom.exit
 
 while.end.i:                                      ; preds = %if.end64.i.i
   call void @git_deflate_end(ptr noundef nonnull %s.i.i) #13
@@ -377,7 +377,7 @@ while.end.i:                                      ; preds = %if.end64.i.i
   %final_oid_fn.i = getelementptr inbounds i8, ptr %29, i64 72
   %30 = load ptr, ptr %final_oid_fn.i, align 8
   call void %30(ptr noundef %oid, ptr noundef nonnull %ctx.i) #13
-  br i1 %tobool.not.i, label %deflate_blob_to_pack.exit, label %if.end39.i
+  br i1 %tobool.not.i, label %deflate_blob_to_pack.argprom.exit, label %if.end39.i
 
 if.end39.i:                                       ; preds = %while.end.i
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
@@ -450,7 +450,7 @@ if.then44.i:                                      ; preds = %oideq.exit.i.i, %if
   %41 = load i64, ptr %checkpoint.i, align 8
   store i64 %41, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 16), align 8
   call void @free(ptr noundef %idx.0.i) #13
-  br label %deflate_blob_to_pack.exit
+  br label %deflate_blob_to_pack.argprom.exit
 
 if.else.i:                                        ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %idx.0.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
@@ -487,9 +487,9 @@ do.end.i:                                         ; preds = %if.then51.i, %if.el
   %idxprom.i = zext i32 %46 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %47, i64 %idxprom.i
   store ptr %idx.0.i, ptr %arrayidx.i, align 8
-  br label %deflate_blob_to_pack.exit
+  br label %deflate_blob_to_pack.argprom.exit
 
-deflate_blob_to_pack.exit:                        ; preds = %if.then.i, %if.then32.i, %while.end.i, %if.then44.i, %do.end.i
+deflate_blob_to_pack.argprom.exit:                ; preds = %if.then.i, %if.then32.i, %while.end.i, %if.then44.i, %do.end.i
   %retval.0.i = phi i32 [ -1, %if.then.i ], [ -1, %if.then32.i ], [ 0, %while.end.i ], [ 0, %do.end.i ], [ 0, %if.then44.i ]
   call void @llvm.lifetime.end.p0(i64 2400, ptr nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %obuf.i)
@@ -498,16 +498,16 @@ deflate_blob_to_pack.exit:                        ; preds = %if.then.i, %if.then
   %tobool.not = icmp eq i32 %48, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %deflate_blob_to_pack.exit
-  call fastcc void @flush_bulk_checkin_packfile()
+if.then:                                          ; preds = %deflate_blob_to_pack.argprom.exit
+  call fastcc void @flush_bulk_checkin_packfile.argprom()
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %deflate_blob_to_pack.exit
+if.end:                                           ; preds = %if.then, %deflate_blob_to_pack.argprom.exit
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flush_bulk_checkin_packfile() unnamed_addr #0 {
+define internal fastcc void @flush_bulk_checkin_packfile.argprom() unnamed_addr #0 {
 entry:
   %idx_tmp_name.i = alloca ptr, align 8
   %hash = alloca [32 x i8], align 16
@@ -628,7 +628,7 @@ if.end.i:                                         ; preds = %entry
 flush_batch_fsync.exit:                           ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp_path.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i)
-  call fastcc void @flush_bulk_checkin_packfile()
+  call fastcc void @flush_bulk_checkin_packfile.argprom()
   ret void
 }
 

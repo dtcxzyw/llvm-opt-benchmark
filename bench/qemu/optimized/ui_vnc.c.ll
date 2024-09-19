@@ -5465,14 +5465,14 @@ vnc_display_find.exit:                            ; preds = %entry
 
 if.then:                                          ; preds = %vnc_display_find.exit.thread, %vnc_display_find.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 4028, ptr noundef nonnull @__func__.vnc_display_open, ptr noundef nonnull @.str.13) #25
-  br label %glib_autoptr_cleanup_SocketAddressList.exit117
+  br label %glib_autoptr_cleanup_SocketAddressList.argprom.exit117
 
 if.end:                                           ; preds = %vnc_display_find.exit.thread122, %vnc_display_find.exit
   %call1127 = phi ptr [ %call1124, %vnc_display_find.exit.thread122 ], [ %call1, %vnc_display_find.exit ]
   %retval.0.i126 = phi ptr [ %vd.07.i, %vnc_display_find.exit.thread122 ], [ %0, %vnc_display_find.exit ]
   tail call fastcc void @vnc_display_close(ptr noundef %retval.0.i126)
   %tobool2.not = icmp eq ptr %call1127, null
-  br i1 %tobool2.not, label %glib_autoptr_cleanup_SocketAddressList.exit117, label %if.end4
+  br i1 %tobool2.not, label %glib_autoptr_cleanup_SocketAddressList.argprom.exit117, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.14, i1 noundef zeroext false) #25
@@ -5653,22 +5653,22 @@ cleanup.i:                                        ; preds = %while.body.i, %whil
   %cmp = phi i1 [ false, %if.end4 ], [ false, %lor.lhs.false.i ], [ true, %if.then18.i ], [ true, %while.body49.us.i ], [ true, %while.body49.i ], [ true, %while.body.i ]
   %wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.0.wsaddr_list.0.wsaddr_list.val.pr.i = load ptr, ptr %wsaddr_list.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.0.wsaddr_list.0.wsaddr_list.val.pr.i, null
-  br i1 %tobool.not.i.i.i, label %glib_autoptr_cleanup_SocketAddressList.exit.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %glib_autoptr_cleanup_SocketAddressList.argprom.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup.i
   call void @qapi_free_SocketAddressList(ptr noundef nonnull %wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.0.wsaddr_list.0.wsaddr_list.val.pr.i) #25
-  br label %glib_autoptr_cleanup_SocketAddressList.exit.i
+  br label %glib_autoptr_cleanup_SocketAddressList.argprom.exit.i
 
-glib_autoptr_cleanup_SocketAddressList.exit.i:    ; preds = %if.then.i.i.i, %cleanup.i
+glib_autoptr_cleanup_SocketAddressList.argprom.exit.i: ; preds = %if.then.i.i.i, %cleanup.i
   %saddr_list.i.0.saddr_list.i.0.saddr_list.i.0.saddr_list.0.saddr_list.0.saddr_list.val.pr.i = load ptr, ptr %saddr_list.i, align 8
   %tobool.not.i.i29.i = icmp eq ptr %saddr_list.i.0.saddr_list.i.0.saddr_list.i.0.saddr_list.0.saddr_list.0.saddr_list.val.pr.i, null
   br i1 %tobool.not.i.i29.i, label %vnc_display_get_addresses.exit, label %if.then.i.i30.i
 
-if.then.i.i30.i:                                  ; preds = %glib_autoptr_cleanup_SocketAddressList.exit.i
+if.then.i.i30.i:                                  ; preds = %glib_autoptr_cleanup_SocketAddressList.argprom.exit.i
   call void @qapi_free_SocketAddressList(ptr noundef nonnull %saddr_list.i.0.saddr_list.i.0.saddr_list.i.0.saddr_list.0.saddr_list.0.saddr_list.val.pr.i) #25
   br label %vnc_display_get_addresses.exit
 
-vnc_display_get_addresses.exit:                   ; preds = %glib_autoptr_cleanup_SocketAddressList.exit.i, %if.then.i.i30.i
+vnc_display_get_addresses.exit:                   ; preds = %glib_autoptr_cleanup_SocketAddressList.argprom.exit.i, %if.then.i.i30.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %saddr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %wsaddr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %saddr_list.i)
@@ -5841,7 +5841,7 @@ if.end114:                                        ; preds = %if.then112, %if.end
   %subauth = getelementptr inbounds i8, ptr %retval.0.i126, i64 284988
   %tlscreds115 = getelementptr inbounds i8, ptr %retval.0.i126, i64 285008
   %19 = load ptr, ptr %tlscreds115, align 8
-  %call118 = call fastcc i32 @vnc_display_setup_auth(ptr noundef %auth, ptr noundef %subauth, ptr noundef %19, i1 noundef zeroext %password.0137, i1 noundef zeroext false, ptr noundef %errp)
+  %call118 = call fastcc i32 @vnc_display_setup_auth.argelim(ptr noundef %auth, ptr noundef %subauth, ptr noundef %19, i1 noundef zeroext %password.0137, i1 noundef zeroext false, ptr noundef %errp)
   %cmp119 = icmp slt i32 %call118, 0
   br i1 %cmp119, label %fail, label %if.end132
 
@@ -5954,7 +5954,7 @@ if.end194:                                        ; preds = %if.else188, %if.the
 if.then197:                                       ; preds = %if.end194
   %27 = getelementptr i8, ptr %retval.0.i126, i64 40
   %call.val = load ptr, ptr %27, align 8
-  call fastcc void @vnc_display_print_local_addr(ptr %call.val)
+  call fastcc void @vnc_display_print_local_addr.argprom(ptr %call.val)
   br label %cleanup
 
 fail:                                             ; preds = %if.else188, %if.then182, %if.then142, %if.end114, %if.end52, %if.end16, %vnc_display_get_addresses.exit, %if.then159, %if.else91, %if.then70, %if.then64, %if.then51, %if.then46, %if.then38, %if.then29, %if.then15
@@ -5967,21 +5967,21 @@ cleanup:                                          ; preds = %if.end194, %if.then
   %saddr_list.0 = phi ptr [ %saddr_list.1133, %fail ], [ null, %if.end175 ], [ %saddr_list.1132, %if.end194 ], [ %saddr_list.1132, %if.then197 ]
   %wsaddr_list.0 = phi ptr [ %wsaddr_list.1135, %fail ], [ %wsaddr_list.1134, %if.end175 ], [ %wsaddr_list.1134, %if.end194 ], [ %wsaddr_list.1134, %if.then197 ]
   %tobool.not.i.i = icmp eq ptr %wsaddr_list.0, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_SocketAddressList.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_SocketAddressList.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @qapi_free_SocketAddressList(ptr noundef nonnull %wsaddr_list.0) #25
-  br label %glib_autoptr_cleanup_SocketAddressList.exit
+  br label %glib_autoptr_cleanup_SocketAddressList.argprom.exit
 
-glib_autoptr_cleanup_SocketAddressList.exit:      ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_SocketAddressList.argprom.exit: ; preds = %cleanup, %if.then.i.i
   %tobool.not.i.i115 = icmp eq ptr %saddr_list.0, null
-  br i1 %tobool.not.i.i115, label %glib_autoptr_cleanup_SocketAddressList.exit117, label %if.then.i.i116
+  br i1 %tobool.not.i.i115, label %glib_autoptr_cleanup_SocketAddressList.argprom.exit117, label %if.then.i.i116
 
-if.then.i.i116:                                   ; preds = %glib_autoptr_cleanup_SocketAddressList.exit
+if.then.i.i116:                                   ; preds = %glib_autoptr_cleanup_SocketAddressList.argprom.exit
   call void @qapi_free_SocketAddressList(ptr noundef nonnull %saddr_list.0) #25
-  br label %glib_autoptr_cleanup_SocketAddressList.exit117
+  br label %glib_autoptr_cleanup_SocketAddressList.argprom.exit117
 
-glib_autoptr_cleanup_SocketAddressList.exit117:   ; preds = %if.then, %if.end, %glib_autoptr_cleanup_SocketAddressList.exit, %if.then.i.i116
+glib_autoptr_cleanup_SocketAddressList.argprom.exit117: ; preds = %if.then, %if.end, %glib_autoptr_cleanup_SocketAddressList.argprom.exit, %if.then.i.i116
   ret void
 }
 
@@ -6088,7 +6088,7 @@ declare zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef, i32 noundef, p
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @vnc_display_setup_auth(ptr nocapture noundef nonnull writeonly %auth, ptr nocapture noundef nonnull writeonly %subauth, ptr noundef %tlscreds, i1 noundef zeroext %password, i1 noundef zeroext %websocket, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @vnc_display_setup_auth.argelim(ptr nocapture noundef nonnull writeonly %auth, ptr nocapture noundef nonnull writeonly %subauth, ptr noundef %tlscreds, i1 noundef zeroext %password, i1 noundef zeroext %websocket, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool3 = icmp eq ptr %tlscreds, null
   %or.cond.not = or i1 %tobool3, %websocket
@@ -6319,7 +6319,7 @@ return:                                           ; preds = %if.end10, %if.then9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_display_print_local_addr(ptr readonly %vd.40.val) unnamed_addr #0 {
+define internal fastcc void @vnc_display_print_local_addr.argprom(ptr readonly %vd.40.val) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %vd.40.val, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -7864,7 +7864,7 @@ set_encodings.exit:                               ; preds = %for.inc.i, %for.end
   %mouse_mode_notifier.i = getelementptr inbounds i8, ptr %vs, i64 66208
   call void @check_pointer_type_change(ptr noundef nonnull %mouse_mode_notifier.i, ptr poison)
   call fastcc void @vnc_led_state_change(ptr noundef %vs)
-  call fastcc void @vnc_cursor_define(ptr noundef %vs)
+  call fastcc void @vnc_cursor_define.argelim(ptr noundef %vs)
   br label %sw.epilog276
 
 sw.bb54:                                          ; preds = %if.end
@@ -9789,7 +9789,7 @@ return:                                           ; preds = %entry, %vnc_flush.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_cursor_define(ptr noundef %vs) unnamed_addr #0 {
+define internal fastcc void @vnc_cursor_define.argelim(ptr noundef %vs) unnamed_addr #0 {
 entry:
   %buf.i.i.i46 = alloca [4 x i8], align 1
   %buf.i15.i47 = alloca [2 x i8], align 1
@@ -12391,7 +12391,7 @@ if.else.i:                                        ; preds = %for.body
 
 vnc_colordepth.exit:                              ; preds = %vnc_flush.exit.i, %if.else.i
   call fastcc void @vnc_desktop_resize(ptr noundef nonnull %vs.0117)
-  call fastcc void @vnc_cursor_define(ptr noundef nonnull %vs.0117)
+  call fastcc void @vnc_cursor_define.argelim(ptr noundef nonnull %vs.0117)
   %dirty18 = getelementptr inbounds i8, ptr %vs.0117, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %dirty18, i8 0, i64 49152, i1 false)
   %add.ptr.val = load ptr, ptr %ds, align 8
@@ -12486,7 +12486,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %vs.012 = phi ptr [ %vs.0, %for.body ], [ %vs.010, %entry ]
-  tail call fastcc void @vnc_cursor_define(ptr noundef nonnull %vs.012)
+  tail call fastcc void @vnc_cursor_define.argelim(ptr noundef nonnull %vs.012)
   %next = getelementptr inbounds i8, ptr %vs.012, i64 66288
   %vs.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %vs.0, null

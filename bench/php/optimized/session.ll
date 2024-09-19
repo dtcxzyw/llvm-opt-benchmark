@@ -9225,7 +9225,7 @@ define internal noundef i32 @zm_shutdown_session(i32 noundef %0, i32 noundef %1)
 define internal noundef i32 @zm_activate_session(i32 %0, i32 %1) #0 {
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 346), align 2
   %4 = trunc i8 %3 to i1
-  tail call fastcc void @php_rinit_session(i1 noundef zeroext %4)
+  tail call fastcc void @php_rinit_session.retelim(i1 noundef zeroext %4)
   ret i32 0
 }
 
@@ -10352,7 +10352,7 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   %150 = tail call ptr @zend_hash_str_find(ptr noundef %149, ptr noundef nonnull @.str.250, i64 noundef 15) #23
   %151 = getelementptr inbounds i8, ptr %11, i64 112
   store ptr %150, ptr %151, align 8
-  tail call fastcc void @php_rinit_session(i1 noundef zeroext false)
+  tail call fastcc void @php_rinit_session.retelim(i1 noundef zeroext false)
   %152 = load ptr, ptr %117, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 24
   %154 = getelementptr inbounds i8, ptr %152, i64 16
@@ -11361,7 +11361,7 @@ declare double @sapi_get_request_time() local_unnamed_addr #1
 declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_rinit_session(i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc void @php_rinit_session.retelim(i1 noundef zeroext %0) unnamed_addr #0 {
   store ptr null, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 16), align 16
   store i32 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
@@ -11601,28 +11601,28 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
 80:                                               ; preds = %.critedge.i, %76
   %.023.i = phi ptr [ %78, %76 ], [ %79, %.critedge.i ]
   %81 = icmp eq ptr %.023.i, null
-  br i1 %81, label %php_check_cancel_upload.exit, label %82
+  br i1 %81, label %php_check_cancel_upload.argprom.exit, label %82
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds i8, ptr %.023.i, i64 8
   %84 = load i8, ptr %83, align 8
   %.not28.i = icmp eq i8 %84, 7
-  br i1 %.not28.i, label %85, label %php_check_cancel_upload.exit
+  br i1 %.not28.i, label %85, label %php_check_cancel_upload.argprom.exit
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr %.023.i, align 8
   %87 = call ptr @zend_hash_str_find(ptr noundef %86, ptr noundef nonnull @.str.255, i64 noundef 13) #23
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %php_check_cancel_upload.exit, label %89
+  br i1 %88, label %php_check_cancel_upload.argprom.exit, label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %87, i64 8
   %91 = load i8, ptr %90, align 8
   %92 = icmp eq i8 %91, 3
   %93 = zext i1 %92 to i8
-  br label %php_check_cancel_upload.exit
+  br label %php_check_cancel_upload.argprom.exit
 
-php_check_cancel_upload.exit:                     ; preds = %80, %82, %85, %89
+php_check_cancel_upload.argprom.exit:             ; preds = %80, %82, %85, %89
   %.024.i = phi i8 [ %93, %89 ], [ 0, %80 ], [ 0, %82 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %94 = getelementptr inbounds i8, ptr %0, i64 64
@@ -11636,14 +11636,14 @@ php_check_cancel_upload.exit:                     ; preds = %80, %82, %85, %89
   %.not34 = icmp eq i8 %100, 0
   br i1 %.not34, label %105, label %101
 
-101:                                              ; preds = %php_check_cancel_upload.exit
+101:                                              ; preds = %php_check_cancel_upload.argprom.exit
   %102 = load ptr, ptr %98, align 8
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 4
   br label %105
 
-105:                                              ; preds = %php_check_cancel_upload.exit, %101
+105:                                              ; preds = %php_check_cancel_upload.argprom.exit, %101
   %106 = load ptr, ptr %41, align 8
   %107 = load ptr, ptr %58, align 8
   %108 = call ptr @zend_hash_update(ptr noundef %106, ptr noundef %107, ptr noundef nonnull %98) #23

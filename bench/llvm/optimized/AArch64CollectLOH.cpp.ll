@@ -398,7 +398,7 @@ _ZN4llvm24instructionsWithoutDebugINS_14ilist_iteratorINS_12ilist_detail12node_o
   %.sroa.0101.0143 = phi ptr [ %.sroa.0101.3, %_ZN4llvm20filter_iterator_baseINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb1ELb1EEEZNS_24instructionsWithoutDebugIS6_EEDaT_S8_bEUlRKS4_E_St26bidirectional_iterator_tagEppEv.exit ], [ %.sroa.028.2.i.i, %_ZN4llvm24instructionsWithoutDebugINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb1ELb1EEEEEDaT_S7_b.exit ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0143, i64 68
   %77 = load i16, ptr %76, align 4
-  switch i16 %77, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread [
+  switch i16 %77, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread [
     i16 1465, label %78
     i16 4451, label %78
     i16 4445, label %78
@@ -408,8 +408,8 @@ _ZN4llvm24instructionsWithoutDebugINS_14ilist_iteratorINS_12ilist_detail12node_o
 78:                                               ; preds = %.lr.ph144, %.lr.ph144, %.lr.ph144
   %79 = getelementptr i8, ptr %.sroa.0101.0143, i64 32
   %.val = load ptr, ptr %79, align 8
-  switch i16 %77, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread [
-    i16 1512, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123
+  switch i16 %77, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread [
+    i16 1512, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123
     i16 1465, label %80
     i16 4451, label %83
     i16 4445, label %83
@@ -419,11 +419,11 @@ _ZN4llvm24instructionsWithoutDebugINS_14ilist_iteratorINS_12ilist_detail12node_o
   %81 = getelementptr i8, ptr %.val, i64 64
   %.val.val.i = load i32, ptr %81, align 8
   %82 = trunc i32 %.val.val.i to i8
-  switch i8 %82, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread [
-    i8 10, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123
-    i8 8, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123
-    i8 6, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123
-    i8 11, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123
+  switch i8 %82, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread [
+    i8 10, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123
+    i8 8, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123
+    i8 6, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123
+    i8 11, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123
   ]
 
 83:                                               ; preds = %78, %78
@@ -431,9 +431,9 @@ _ZN4llvm24instructionsWithoutDebugINS_14ilist_iteratorINS_12ilist_detail12node_o
   %85 = load i32, ptr %84, align 8
   %86 = and i32 %85, 4351
   %or.cond130 = icmp eq i32 %86, 4106
-  br i1 %or.cond130, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread
+  br i1 %or.cond130, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread
 
-_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123: ; preds = %83, %80, %80, %80, %80, %78
+_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123: ; preds = %83, %80, %80, %80, %80, %78
   %87 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = trunc i32 %88 to i16
@@ -442,11 +442,11 @@ _ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123: ; preds = %83, %80
   %or.cond.i53 = icmp ult i16 %91, 29
   br i1 %or.cond.i53, label %92, label %94
 
-92:                                               ; preds = %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123
+92:                                               ; preds = %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123
   %93 = add nsw i32 %90, -237
   br label %_ZL16mapRegToGPRIndext.exit60
 
-94:                                               ; preds = %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread123
+94:                                               ; preds = %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread123
   %95 = add i16 %89, -206
   %or.cond5.i54 = icmp ult i16 %95, 31
   br i1 %or.cond5.i54, label %96, label %98
@@ -496,7 +496,7 @@ _ZL16mapRegToGPRIndext.exit68:                    ; preds = %104, %108, %110
   %.0.i67 = phi i32 [ %105, %104 ], [ %109, %108 ], [ %switch.select16.i66, %110 ]
   %111 = or i32 %.0.i67, %.0.i59
   %or.cond = icmp sgt i32 %111, -1
-  br i1 %or.cond, label %112, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread
+  br i1 %or.cond, label %112, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread
 
 112:                                              ; preds = %_ZL16mapRegToGPRIndext.exit68
   %113 = zext nneg i32 %.0.i59 to i64
@@ -506,7 +506,7 @@ _ZL16mapRegToGPRIndext.exit68:                    ; preds = %104, %108, %110
   %117 = load i16, ptr %114, align 16
   %118 = and i16 %117, 256
   %.not.i = icmp eq i16 %118, 0
-  br i1 %.not.i, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread, label %119
+  br i1 %.not.i, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread, label %119
 
 119:                                              ; preds = %112
   %.not39.i = icmp eq i32 %.0.i59, %.0.i67
@@ -516,7 +516,7 @@ _ZL16mapRegToGPRIndext.exit68:                    ; preds = %104, %108, %110
   %121 = load i16, ptr %116, align 16
   %122 = and i16 %121, 512
   %.not40.i = icmp eq i16 %122, 0
-  br i1 %.not40.i, label %123, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread
+  br i1 %.not40.i, label %123, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread
 
 123:                                              ; preds = %120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %116, ptr noundef nonnull align 16 dereferenceable(32) %114, i64 32, i1 false)
@@ -530,14 +530,14 @@ _ZL16mapRegToGPRIndext.exit68:                    ; preds = %104, %108, %110
   store ptr null, ptr %126, align 8
   %127 = load i16, ptr %76, align 4
   %128 = icmp eq i16 %127, 1465
-  br i1 %128, label %129, label %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.exit.i
+  br i1 %128, label %129, label %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.argprom.argprom.exit.i
 
 129:                                              ; preds = %.critedge.i
   %.val.i = load ptr, ptr %79, align 8
   %130 = getelementptr i8, ptr %.val.i, i64 64
   %.val.val.i70 = load i32, ptr %130, align 8
   %131 = trunc i32 %.val.val.i70 to i8
-  switch i8 %131, label %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.exit.i [
+  switch i8 %131, label %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.argprom.argprom.exit.i [
     i8 10, label %132
     i8 8, label %132
     i8 6, label %132
@@ -547,7 +547,7 @@ _ZL16mapRegToGPRIndext.exit68:                    ; preds = %104, %108, %110
 132:                                              ; preds = %129, %129, %129, %129
   %133 = load i16, ptr %116, align 16
   %trunc.i = trunc i16 %133 to i8
-  switch i8 %trunc.i, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread [
+  switch i8 %trunc.i, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread [
     i8 2, label %134
     i8 5, label %137
   ]
@@ -562,26 +562,26 @@ _ZL16mapRegToGPRIndext.exit68:                    ; preds = %104, %108, %110
   %138 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %139 = load ptr, ptr %138, align 16
   %140 = icmp eq ptr %139, null
-  br i1 %140, label %141, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread
+  br i1 %140, label %141, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread
 
 141:                                              ; preds = %137
   %142 = or i16 %133, 256
   store i16 %142, ptr %116, align 16
   br label %_ZL16handleMiddleInstRKN4llvm12MachineInstrER7LOHInfoS4_.exit
 
-_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.exit.i: ; preds = %129, %.critedge.i
+_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.argprom.argprom.exit.i: ; preds = %129, %.critedge.i
   %143 = load i16, ptr %116, align 16
   %trunc42.i = trunc i16 %143 to i8
-  switch i8 %trunc42.i, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread [
+  switch i8 %trunc42.i, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread [
     i8 5, label %144
     i8 2, label %151
   ]
 
-144:                                              ; preds = %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.exit.i
+144:                                              ; preds = %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.argprom.argprom.exit.i
   %145 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %146 = load ptr, ptr %145, align 16
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread
+  br i1 %147, label %148, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread
 
 148:                                              ; preds = %144
   %149 = and i16 %143, -512
@@ -589,7 +589,7 @@ _ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.exit.i: ; preds = %129, %.critedge
   store i16 %150, ptr %116, align 16
   br label %_ZL16handleMiddleInstRKN4llvm12MachineInstrER7LOHInfoS4_.exit
 
-151:                                              ; preds = %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.exit.i
+151:                                              ; preds = %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.argprom.argprom.exit.i
   %152 = and i16 %143, -512
   %153 = or disjoint i16 %152, 260
   store i16 %153, ptr %116, align 16
@@ -634,7 +634,7 @@ _ZL16handleMiddleInstRKN4llvm12MachineInstrER7LOHInfoS4_.exit: ; preds = %134, %
 _ZL16mapRegToGPRIndext.exit78:                    ; preds = %169, %163, %167
   %.0.i77 = phi i32 [ %164, %163 ], [ %168, %167 ], [ %switch.select.i74, %169 ]
   %170 = icmp sgt i32 %.0.i77, -1
-  br i1 %170, label %_ZL16mapRegToGPRIndext.exit78.thread, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread
+  br i1 %170, label %_ZL16mapRegToGPRIndext.exit78.thread, label %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread
 
 _ZL16mapRegToGPRIndext.exit78.thread:             ; preds = %169, %_ZL16mapRegToGPRIndext.exit78
   %.0.i77128 = phi i32 [ %.0.i77, %_ZL16mapRegToGPRIndext.exit78 ], [ 29, %169 ]
@@ -935,7 +935,7 @@ _ZL10handleADRPRKN4llvm12MachineInstrERNS_19AArch64FunctionInfoER7LOHInfoPS5_.ex
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %451
 
-_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread: ; preds = %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.exit.i, %144, %137, %132, %112, %120, %80, %83, %78, %_ZL16mapRegToGPRIndext.exit78, %_ZL16mapRegToGPRIndext.exit68, %.lr.ph144
+_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread: ; preds = %_ZL17canAddBePartOfLOHRKN4llvm12MachineInstrE.argprom.argprom.exit.i, %144, %137, %132, %112, %120, %80, %83, %78, %_ZL16mapRegToGPRIndext.exit78, %_ZL16mapRegToGPRIndext.exit68, %.lr.ph144
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -948,7 +948,7 @@ _ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread: ; preds = %_ZL17canAd
   %.not91.i = icmp eq i24 %278, 0
   br i1 %.not91.i, label %._crit_edge95.i, label %.lr.ph94.i.preheader
 
-.lr.ph94.i.preheader:                             ; preds = %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread
+.lr.ph94.i.preheader:                             ; preds = %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread
   %281 = load ptr, ptr @_ZN4llvm7AArch6413GPR32RegClassE, align 8
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 20
   %283 = load ptr, ptr @_ZN4llvm7AArch6413GPR64RegClassE, align 8
@@ -1154,7 +1154,7 @@ _ZL16mapRegToGPRIndext.exit.thread.i:             ; preds = %_ZL16mapRegToGPRInd
   %.not.i93 = icmp eq ptr %368, %280
   br i1 %.not.i93, label %._crit_edge95.i, label %.lr.ph94.i
 
-._crit_edge95.i:                                  ; preds = %.loopexit.i, %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.exit.thread
+._crit_edge95.i:                                  ; preds = %.loopexit.i, %_ZL17canDefBePartOfLOHRKN4llvm12MachineInstrE.argprom.exit.thread
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %34, i64 noundef 4) #13
   store i32 0, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -1246,18 +1246,18 @@ _ZL16mapRegToGPRIndext.exit69.i:                  ; preds = %391, %389, %385
   store i16 %406, ptr %399, align 16
   %.val31.i.i = load i16, ptr %76, align 4
   switch i16 %.val31.i.i, label %_ZL16isCandidateStoreRKN4llvm12MachineInstrERKNS_14MachineOperandE.exit.thread.i.i [
-    i16 4412, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4417, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4422, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4427, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4433, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4385, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4401, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4445, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4451, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4439, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4391, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
-    i16 4407, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
+    i16 4412, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4417, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4422, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4427, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4433, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4385, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4401, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4445, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4451, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4439, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4391, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 4407, label %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
     i16 6756, label %416
     i16 6771, label %416
     i16 6761, label %416
@@ -1269,7 +1269,7 @@ _ZL16mapRegToGPRIndext.exit69.i:                  ; preds = %391, %389, %385
     i16 6781, label %416
   ]
 
-_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i: ; preds = %405, %405, %405, %405, %405, %405, %405, %405, %405, %405, %405, %405
+_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i: ; preds = %405, %405, %405, %405, %405, %405, %405, %405, %405, %405, %405, %405
   %.val.i.i = load ptr, ptr %275, align 8
   %407 = getelementptr inbounds i8, ptr %.val.i.i, i64 64
   %408 = load i32, ptr %407, align 8
@@ -1280,7 +1280,7 @@ _ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i: ; preds = %405, %405, %405
   %.not.i.i71.i = or i1 %410, %.not1.i.i.i
   br i1 %.not.i.i71.i, label %412, label %_ZL16isCandidateStoreRKN4llvm12MachineInstrERKNS_14MachineOperandE.exit.threadthread-pre-split.i.i
 
-412:                                              ; preds = %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
+412:                                              ; preds = %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
   %413 = and i16 %406, -1536
   %414 = or disjoint i16 %413, 258
   store i16 %414, ptr %399, align 16
@@ -1312,7 +1312,7 @@ _ZL16isCandidateStoreRKN4llvm12MachineInstrERKNS_14MachineOperandE.exit.i.i: ; p
   store ptr null, ptr %428, align 16
   br label %_ZL9handleUseRKN4llvm12MachineInstrERKNS_14MachineOperandER7LOHInfo.exit.i
 
-_ZL16isCandidateStoreRKN4llvm12MachineInstrERKNS_14MachineOperandE.exit.threadthread-pre-split.i.i: ; preds = %_ZL16isCandidateStoreRKN4llvm12MachineInstrERKNS_14MachineOperandE.exit.i.i, %416, %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.exit.i.i
+_ZL16isCandidateStoreRKN4llvm12MachineInstrERKNS_14MachineOperandE.exit.threadthread-pre-split.i.i: ; preds = %_ZL16isCandidateStoreRKN4llvm12MachineInstrERKNS_14MachineOperandE.exit.i.i, %416, %_ZL15isCandidateLoadRKN4llvm12MachineInstrE.argprom.exit.i.i
   %.pr.i.i = load i16, ptr %76, align 4
   br label %_ZL16isCandidateStoreRKN4llvm12MachineInstrERKNS_14MachineOperandE.exit.thread.i.i
 

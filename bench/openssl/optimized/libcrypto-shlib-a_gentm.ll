@@ -24,13 +24,13 @@ entry:
   %type.i = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load i32, ptr %type.i, align 4
   %cmp.not.i = icmp eq i32 %0, 24
-  br i1 %cmp.not.i, label %if.end.i, label %asn1_generalizedtime_to_tm.exit
+  br i1 %cmp.not.i, label %if.end.i, label %asn1_generalizedtime_to_tm.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @ossl_asn1_time_to_tm(ptr noundef null, ptr noundef nonnull %d) #4
-  br label %asn1_generalizedtime_to_tm.exit
+  br label %asn1_generalizedtime_to_tm.argprom.exit
 
-asn1_generalizedtime_to_tm.exit:                  ; preds = %entry, %if.end.i
+asn1_generalizedtime_to_tm.argprom.exit:          ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %call.i, %if.end.i ], [ 0, %entry ]
   ret i32 %retval.0.i
 }

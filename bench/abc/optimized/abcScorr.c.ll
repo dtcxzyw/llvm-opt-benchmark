@@ -534,9 +534,9 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
   %28 = getelementptr inbounds i8, ptr %2, i64 24
   br label %29
 
-29:                                               ; preds = %.lr.ph, %Gia_ObjIsRo.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsRo.exit.thread ]
-  %.0111 = phi i32 [ 0, %.lr.ph ], [ %.1, %Gia_ObjIsRo.exit.thread ]
+29:                                               ; preds = %.lr.ph, %Gia_ObjIsRo.argprom.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsRo.argprom.exit.thread ]
+  %.0111 = phi i32 [ 0, %.lr.ph ], [ %.1, %Gia_ObjIsRo.argprom.exit.thread ]
   %.val = load ptr, ptr %18, align 8
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.not54 = icmp eq ptr %.val, null
@@ -548,7 +548,7 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 268435455
   %.not103 = icmp eq i32 %34, 268435455
-  br i1 %.not103, label %Gia_ObjIsRo.exit.thread, label %35
+  br i1 %.not103, label %Gia_ObjIsRo.argprom.exit.thread, label %35
 
 35:                                               ; preds = %31
   %36 = zext nneg i32 %34 to i64
@@ -561,9 +561,9 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
   %.val69 = load i64, ptr %30, align 4
   %40 = and i64 %.val69, 2684354559
   %narrow.i.not.i = icmp eq i64 %40, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjIsRo.argprom.exit.thread
 
-Gia_ObjIsRo.exit:                                 ; preds = %39
+Gia_ObjIsRo.argprom.exit:                         ; preds = %39
   %41 = lshr i64 %.val69, 32
   %42 = trunc nuw i64 %41 to i32
   %43 = and i32 %42, 536870911
@@ -573,15 +573,15 @@ Gia_ObjIsRo.exit:                                 ; preds = %39
   %.val5.val.i = load i32, ptr %44, align 4
   %45 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not104 = icmp slt i32 %43, %45
-  br i1 %.not104, label %Gia_ObjIsRo.exit.thread, label %46
+  br i1 %.not104, label %Gia_ObjIsRo.argprom.exit.thread, label %46
 
-46:                                               ; preds = %Gia_ObjIsRo.exit
+46:                                               ; preds = %Gia_ObjIsRo.argprom.exit
   %.val70 = load i64, ptr %37, align 4
   %47 = and i64 %.val70, 2684354559
   %narrow.i.not.i78 = icmp eq i64 %47, 2684354559
-  br i1 %narrow.i.not.i78, label %Gia_ObjIsRo.exit82, label %Gia_ObjIsRo.exit82.thread
+  br i1 %narrow.i.not.i78, label %Gia_ObjIsRo.argprom.exit82, label %Gia_ObjIsRo.argprom.exit82.thread
 
-Gia_ObjIsRo.exit82:                               ; preds = %46
+Gia_ObjIsRo.argprom.exit82:                       ; preds = %46
   %48 = lshr i64 %.val70, 32
   %49 = trunc nuw i64 %48 to i32
   %50 = and i32 %49, 536870911
@@ -589,12 +589,12 @@ Gia_ObjIsRo.exit82:                               ; preds = %46
   %51 = and i64 %.val70, 2305843005455597567
   %narrow.i.not = icmp eq i64 %51, 2305843005455597567
   %or.cond = or i1 %narrow.i.not, %.not105
-  br i1 %or.cond, label %68, label %Gia_ObjIsRo.exit.thread
+  br i1 %or.cond, label %68, label %Gia_ObjIsRo.argprom.exit.thread
 
-Gia_ObjIsRo.exit82.thread:                        ; preds = %46
+Gia_ObjIsRo.argprom.exit82.thread:                ; preds = %46
   %.old = and i64 %.val70, 2305843005455597567
   %narrow.i.not.old = icmp eq i64 %.old, 2305843005455597567
-  br i1 %narrow.i.not.old, label %68, label %Gia_ObjIsRo.exit.thread
+  br i1 %narrow.i.not.old, label %68, label %Gia_ObjIsRo.argprom.exit.thread
 
 52:                                               ; preds = %35
   %53 = load i32, ptr %26, align 4
@@ -605,9 +605,9 @@ Gia_ObjIsRo.exit82.thread:                        ; preds = %46
   %.val71 = load i64, ptr %30, align 4
   %55 = and i64 %.val71, 2684354559
   %narrow.i.not.i83 = icmp eq i64 %55, 2684354559
-  br i1 %narrow.i.not.i83, label %Gia_ObjIsRo.exit87, label %Gia_ObjIsRo.exit87.thread
+  br i1 %narrow.i.not.i83, label %Gia_ObjIsRo.argprom.exit87, label %Gia_ObjIsRo.argprom.exit87.thread
 
-Gia_ObjIsRo.exit87:                               ; preds = %54
+Gia_ObjIsRo.argprom.exit87:                       ; preds = %54
   %56 = lshr i64 %.val71, 32
   %57 = trunc nuw i64 %56 to i32
   %58 = and i32 %57, 536870911
@@ -617,15 +617,15 @@ Gia_ObjIsRo.exit87:                               ; preds = %54
   %.val5.val.i86 = load i32, ptr %59, align 4
   %60 = sub nsw i32 %.val5.val.i86, %.val4.i84
   %.not106 = icmp slt i32 %58, %60
-  br i1 %.not106, label %Gia_ObjIsRo.exit87.thread, label %68
+  br i1 %.not106, label %Gia_ObjIsRo.argprom.exit87.thread, label %68
 
-Gia_ObjIsRo.exit87.thread:                        ; preds = %54, %Gia_ObjIsRo.exit87
+Gia_ObjIsRo.argprom.exit87.thread:                ; preds = %54, %Gia_ObjIsRo.argprom.exit87
   %.val72 = load i64, ptr %37, align 4
   %61 = and i64 %.val72, 2684354559
   %narrow.i.not.i88 = icmp eq i64 %61, 2684354559
-  br i1 %narrow.i.not.i88, label %Gia_ObjIsRo.exit92, label %Gia_ObjIsRo.exit92.thread
+  br i1 %narrow.i.not.i88, label %Gia_ObjIsRo.argprom.exit92, label %Gia_ObjIsRo.argprom.exit92.thread
 
-Gia_ObjIsRo.exit92:                               ; preds = %Gia_ObjIsRo.exit87.thread
+Gia_ObjIsRo.argprom.exit92:                       ; preds = %Gia_ObjIsRo.argprom.exit87.thread
   %62 = lshr i64 %.val72, 32
   %63 = trunc nuw i64 %62 to i32
   %64 = and i32 %63, 536870911
@@ -638,14 +638,14 @@ Gia_ObjIsRo.exit92:                               ; preds = %Gia_ObjIsRo.exit87.
   %67 = and i64 %.val72, 2305843005455597567
   %narrow.i93.not = icmp eq i64 %67, 2305843005455597567
   %or.cond109 = or i1 %narrow.i93.not, %.not107
-  br i1 %or.cond109, label %68, label %Gia_ObjIsRo.exit.thread
+  br i1 %or.cond109, label %68, label %Gia_ObjIsRo.argprom.exit.thread
 
-Gia_ObjIsRo.exit92.thread:                        ; preds = %Gia_ObjIsRo.exit87.thread
+Gia_ObjIsRo.argprom.exit92.thread:                ; preds = %Gia_ObjIsRo.argprom.exit87.thread
   %.old108 = and i64 %.val72, 2305843005455597567
   %narrow.i93.not.old = icmp eq i64 %.old108, 2305843005455597567
-  br i1 %narrow.i93.not.old, label %68, label %Gia_ObjIsRo.exit.thread
+  br i1 %narrow.i93.not.old, label %68, label %Gia_ObjIsRo.argprom.exit.thread
 
-68:                                               ; preds = %52, %Gia_ObjIsRo.exit92.thread, %Gia_ObjIsRo.exit92, %Gia_ObjIsRo.exit87, %Gia_ObjIsRo.exit82, %Gia_ObjIsRo.exit82.thread
+68:                                               ; preds = %52, %Gia_ObjIsRo.argprom.exit92.thread, %Gia_ObjIsRo.argprom.exit92, %Gia_ObjIsRo.argprom.exit87, %Gia_ObjIsRo.argprom.exit82, %Gia_ObjIsRo.argprom.exit82.thread
   %69 = icmp eq i32 %34, 0
   br i1 %69, label %70, label %81
 
@@ -672,7 +672,7 @@ Abc_NtkTestScorrGetName.exit.i:                   ; preds = %70
 Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %70, %Abc_NtkTestScorrGetName.exit.i, %77
   %.0.i = phi i32 [ 1, %77 ], [ 0, %Abc_NtkTestScorrGetName.exit.i ], [ 0, %70 ]
   %80 = add nsw i32 %.0.i, %.0111
-  br label %Gia_ObjIsRo.exit.thread
+  br label %Gia_ObjIsRo.argprom.exit.thread
 
 81:                                               ; preds = %68
   %.val76 = load i64, ptr %37, align 4
@@ -715,18 +715,18 @@ Abc_NtkTestScorrGetName.exit17.i:                 ; preds = %Abc_NtkTestScorrGet
 Abc_NtkTestScorrWriteEquivPair.exit:              ; preds = %Abc_NtkTestScorrGetName.exit.i96, %Abc_NtkTestScorrGetName.exit17.i, %96
   %.0.i98 = phi i32 [ 1, %96 ], [ 0, %Abc_NtkTestScorrGetName.exit17.i ], [ 0, %Abc_NtkTestScorrGetName.exit.i96 ]
   %99 = add nsw i32 %.0.i98, %.0111
-  br label %Gia_ObjIsRo.exit.thread
+  br label %Gia_ObjIsRo.argprom.exit.thread
 
-Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit92, %Gia_ObjIsRo.exit82, %39, %Abc_NtkTestScorrWriteEquivConst.exit, %Abc_NtkTestScorrWriteEquivPair.exit, %Gia_ObjIsRo.exit92.thread, %Gia_ObjIsRo.exit, %Gia_ObjIsRo.exit82.thread, %31
-  %.1 = phi i32 [ %80, %Abc_NtkTestScorrWriteEquivConst.exit ], [ %99, %Abc_NtkTestScorrWriteEquivPair.exit ], [ %.0111, %Gia_ObjIsRo.exit82.thread ], [ %.0111, %Gia_ObjIsRo.exit ], [ %.0111, %Gia_ObjIsRo.exit92.thread ], [ %.0111, %31 ], [ %.0111, %39 ], [ %.0111, %Gia_ObjIsRo.exit82 ], [ %.0111, %Gia_ObjIsRo.exit92 ]
+Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %Gia_ObjIsRo.argprom.exit92, %Gia_ObjIsRo.argprom.exit82, %39, %Abc_NtkTestScorrWriteEquivConst.exit, %Abc_NtkTestScorrWriteEquivPair.exit, %Gia_ObjIsRo.argprom.exit92.thread, %Gia_ObjIsRo.argprom.exit, %Gia_ObjIsRo.argprom.exit82.thread, %31
+  %.1 = phi i32 [ %80, %Abc_NtkTestScorrWriteEquivConst.exit ], [ %99, %Abc_NtkTestScorrWriteEquivPair.exit ], [ %.0111, %Gia_ObjIsRo.argprom.exit82.thread ], [ %.0111, %Gia_ObjIsRo.argprom.exit ], [ %.0111, %Gia_ObjIsRo.argprom.exit92.thread ], [ %.0111, %31 ], [ %.0111, %39 ], [ %.0111, %Gia_ObjIsRo.argprom.exit82 ], [ %.0111, %Gia_ObjIsRo.argprom.exit92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = load i32, ptr %19, align 8
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
   br i1 %102, label %29, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %29, %Gia_ObjIsRo.exit.thread, %Abc_NtkBmcFileName.exit
-  %.0.lcssa = phi i32 [ 0, %Abc_NtkBmcFileName.exit ], [ %.1, %Gia_ObjIsRo.exit.thread ], [ %.0111, %29 ]
+.critedge:                                        ; preds = %29, %Gia_ObjIsRo.argprom.exit.thread, %Abc_NtkBmcFileName.exit
+  %.0.lcssa = phi i32 [ 0, %Abc_NtkBmcFileName.exit ], [ %.1, %Gia_ObjIsRo.argprom.exit.thread ], [ %.0111, %29 ]
   %103 = tail call i32 @fclose(ptr noundef %17)
   %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0.lcssa, ptr noundef %.052)
   ret i32 %.0.lcssa
@@ -790,32 +790,32 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
   %28 = getelementptr inbounds i8, ptr %2, i64 24
   br label %29
 
-29:                                               ; preds = %.lr.ph, %Aig_ObjRepr.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjRepr.exit.thread ]
-  %30 = phi ptr [ %19, %.lr.ph ], [ %98, %Aig_ObjRepr.exit.thread ]
-  %.0102 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjRepr.exit.thread ]
+29:                                               ; preds = %.lr.ph, %Aig_ObjRepr.argprom.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjRepr.argprom.exit.thread ]
+  %30 = phi ptr [ %19, %.lr.ph ], [ %98, %Aig_ObjRepr.argprom.exit.thread ]
+  %.0102 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjRepr.argprom.exit.thread ]
   %31 = getelementptr i8, ptr %30, i64 8
   %.val59 = load ptr, ptr %31, align 8
   %32 = getelementptr inbounds ptr, ptr %.val59, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %Aig_ObjRepr.exit.thread, label %35
+  br i1 %34, label %Aig_ObjRepr.argprom.exit.thread, label %35
 
 35:                                               ; preds = %29
   %.val63 = load ptr, ptr %22, align 8
   %.not.i70 = icmp eq ptr %.val63, null
-  br i1 %.not.i70, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i70, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %35
+Aig_ObjRepr.argprom.exit:                         ; preds = %35
   %36 = getelementptr i8, ptr %33, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %.val63, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %Aig_ObjRepr.exit.thread, label %42
+  br i1 %41, label %Aig_ObjRepr.argprom.exit.thread, label %42
 
-42:                                               ; preds = %Aig_ObjRepr.exit
+42:                                               ; preds = %Aig_ObjRepr.argprom.exit
   %43 = load i32, ptr %23, align 8
   %.not53 = icmp eq i32 %43, 0
   br i1 %.not53, label %51, label %44
@@ -825,13 +825,13 @@ Aig_ObjRepr.exit:                                 ; preds = %35
   %.val.i = load i64, ptr %45, align 8
   %46 = and i64 %.val.i, 7
   %.not.i71 = icmp eq i64 %46, 2
-  br i1 %.not.i71, label %Saig_ObjIsLo.exit, label %Aig_ObjRepr.exit.thread
+  br i1 %.not.i71, label %Saig_ObjIsLo.exit, label %Aig_ObjRepr.argprom.exit.thread
 
 Saig_ObjIsLo.exit:                                ; preds = %44
   %.val3.i = load i32, ptr %33, align 8
   %.val4.i = load i32, ptr %24, align 4
   %.not96 = icmp slt i32 %.val3.i, %.val4.i
-  br i1 %.not96, label %Aig_ObjRepr.exit.thread, label %47
+  br i1 %.not96, label %Aig_ObjRepr.argprom.exit.thread, label %47
 
 47:                                               ; preds = %Saig_ObjIsLo.exit
   %48 = getelementptr i8, ptr %40, i64 24
@@ -848,7 +848,7 @@ Saig_ObjIsLo.exit76:                              ; preds = %47
 Saig_ObjIsLo.exit76.thread:                       ; preds = %47, %Saig_ObjIsLo.exit76
   %.val64 = load ptr, ptr %25, align 8
   %50 = icmp eq ptr %40, %.val64
-  br i1 %50, label %59, label %Aig_ObjRepr.exit.thread
+  br i1 %50, label %59, label %Aig_ObjRepr.argprom.exit.thread
 
 51:                                               ; preds = %42
   %52 = load i32, ptr %26, align 4
@@ -884,7 +884,7 @@ Saig_ObjIsLo.exit86:                              ; preds = %Saig_ObjIsLo.exit81
 Saig_ObjIsLo.exit86.thread:                       ; preds = %Saig_ObjIsLo.exit81.thread, %Saig_ObjIsLo.exit86
   %.val65 = load ptr, ptr %25, align 8
   %58 = icmp eq ptr %40, %.val65
-  br i1 %58, label %59, label %Aig_ObjRepr.exit.thread
+  br i1 %58, label %59, label %Aig_ObjRepr.argprom.exit.thread
 
 59:                                               ; preds = %51, %Saig_ObjIsLo.exit86.thread, %Saig_ObjIsLo.exit86, %Saig_ObjIsLo.exit81, %Saig_ObjIsLo.exit76, %Saig_ObjIsLo.exit76.thread
   %.val66 = load ptr, ptr %25, align 8
@@ -916,7 +916,7 @@ Abc_NtkTestScorrGetName.exit.i:                   ; preds = %61
 Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %61, %Abc_NtkTestScorrGetName.exit.i, %69
   %.0.i = phi i32 [ 1, %69 ], [ 0, %Abc_NtkTestScorrGetName.exit.i ], [ 0, %61 ]
   %73 = add nsw i32 %.0.i, %.0102
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
 74:                                               ; preds = %59
   %75 = getelementptr i8, ptr %40, i64 36
@@ -965,10 +965,10 @@ Abc_NtkTestScorrGetName.exit17.i:                 ; preds = %Abc_NtkTestScorrGet
 Abc_NtkTestScorrWriteEquivPair.exit:              ; preds = %Abc_NtkTestScorrGetName.exit.i89, %Abc_NtkTestScorrGetName.exit17.i, %93
   %.0.i91 = phi i32 [ 1, %93 ], [ 0, %Abc_NtkTestScorrGetName.exit17.i ], [ 0, %Abc_NtkTestScorrGetName.exit.i89 ]
   %97 = add nsw i32 %.0.i91, %.0102
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %44, %35, %29, %Abc_NtkTestScorrWriteEquivPair.exit, %Abc_NtkTestScorrWriteEquivConst.exit, %Saig_ObjIsLo.exit86.thread, %Saig_ObjIsLo.exit, %Saig_ObjIsLo.exit76.thread, %Aig_ObjRepr.exit
-  %.1 = phi i32 [ %.0102, %29 ], [ %.0102, %Aig_ObjRepr.exit ], [ %73, %Abc_NtkTestScorrWriteEquivConst.exit ], [ %97, %Abc_NtkTestScorrWriteEquivPair.exit ], [ %.0102, %Saig_ObjIsLo.exit76.thread ], [ %.0102, %Saig_ObjIsLo.exit ], [ %.0102, %Saig_ObjIsLo.exit86.thread ], [ %.0102, %35 ], [ %.0102, %44 ]
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %44, %35, %29, %Abc_NtkTestScorrWriteEquivPair.exit, %Abc_NtkTestScorrWriteEquivConst.exit, %Saig_ObjIsLo.exit86.thread, %Saig_ObjIsLo.exit, %Saig_ObjIsLo.exit76.thread, %Aig_ObjRepr.argprom.exit
+  %.1 = phi i32 [ %.0102, %29 ], [ %.0102, %Aig_ObjRepr.argprom.exit ], [ %73, %Abc_NtkTestScorrWriteEquivConst.exit ], [ %97, %Abc_NtkTestScorrWriteEquivPair.exit ], [ %.0102, %Saig_ObjIsLo.exit76.thread ], [ %.0102, %Saig_ObjIsLo.exit ], [ %.0102, %Saig_ObjIsLo.exit86.thread ], [ %.0102, %35 ], [ %.0102, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load ptr, ptr %18, align 8
   %99 = getelementptr i8, ptr %98, i64 4
@@ -977,8 +977,8 @@ Aig_ObjRepr.exit.thread:                          ; preds = %44, %35, %29, %Abc_
   %101 = icmp slt i64 %indvars.iv.next, %100
   br i1 %101, label %29, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %Aig_ObjRepr.exit.thread, %Abc_NtkBmcFileName.exit
-  %.0.lcssa = phi i32 [ 0, %Abc_NtkBmcFileName.exit ], [ %.1, %Aig_ObjRepr.exit.thread ]
+.critedge:                                        ; preds = %Aig_ObjRepr.argprom.exit.thread, %Abc_NtkBmcFileName.exit
+  %.0.lcssa = phi i32 [ 0, %Abc_NtkBmcFileName.exit ], [ %.1, %Aig_ObjRepr.argprom.exit.thread ]
   %102 = tail call i32 @fclose(ptr noundef %17)
   %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0.lcssa, ptr noundef %.050)
   ret i32 %.0.lcssa

@@ -1120,21 +1120,21 @@ if.end:                                           ; preds = %entry, %cond.end
   %4 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %4, align 8
   %cmp.i.not.i = icmp eq ptr %.val, @PyFrame_Type
-  br i1 %cmp.i.not.i, label %if.end17, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end17, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFrame_Type) #10
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   %.pre = load ptr, ptr %arrayidx12, align 8
   br i1 %tobool3.i.not, label %if.then15, label %if.end17
 
-if.then15:                                        ; preds = %PyObject_TypeCheck.exit
+if.then15:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrame_Type, i64 24), align 8
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %5, ptr noundef %.pre) #10
   br label %exit
 
-if.end17:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
-  %6 = phi ptr [ %3, %if.end ], [ %.pre, %PyObject_TypeCheck.exit ]
+if.end17:                                         ; preds = %if.end, %PyObject_TypeCheck.argprom.exit
+  %6 = phi ptr [ %3, %if.end ], [ %.pre, %PyObject_TypeCheck.argprom.exit ]
   %arrayidx19 = getelementptr i8, ptr %cond21, i64 16
   %7 = load ptr, ptr %arrayidx19, align 8
   %call20 = call i32 @PyLong_AsInt(ptr noundef %7) #10
@@ -1154,7 +1154,7 @@ if.end26:                                         ; preds = %land.lhs.true22, %i
   br i1 %cmp29, label %land.lhs.true30, label %if.end26.split
 
 if.end26.split:                                   ; preds = %if.end26
-  %call3517 = call fastcc ptr @tb_new_impl(ptr noundef %2, ptr noundef %6, i32 noundef %call20, i32 noundef %call28)
+  %call3517 = call fastcc ptr @tb_new_impl.argprom(ptr noundef %2, ptr noundef %6, i32 noundef %call20, i32 noundef %call28)
   br label %exit
 
 land.lhs.true30:                                  ; preds = %if.end26
@@ -1163,7 +1163,7 @@ land.lhs.true30:                                  ; preds = %if.end26
   br i1 %tobool32.not, label %land.lhs.true30.split, label %exit
 
 land.lhs.true30.split:                            ; preds = %land.lhs.true30
-  %call3518 = call fastcc ptr @tb_new_impl(ptr noundef %2, ptr noundef %6, i32 noundef %call20, i32 noundef -1)
+  %call3518 = call fastcc ptr @tb_new_impl.argprom(ptr noundef %2, ptr noundef %6, i32 noundef %call20, i32 noundef -1)
   br label %exit
 
 exit:                                             ; preds = %if.end26.split, %land.lhs.true30.split, %land.lhs.true30, %land.lhs.true22, %cond.end, %if.then15
@@ -2629,12 +2629,12 @@ if.then36.i:                                      ; preds = %if.end33.i, %if.end
   %cmp.i41.i = icmp eq ptr %19, null
   %cmp1.i42.i = icmp eq ptr %18, null
   %or.cond.i.i = or i1 %cmp1.i42.i, %cmp.i41.i
-  br i1 %or.cond.i.i, label %tb_displayline.exit.thread.i, label %if.end.i43.i
+  br i1 %or.cond.i.i, label %tb_displayline.argprom.exit.thread.i, label %if.end.i43.i
 
 if.end.i43.i:                                     ; preds = %if.then36.i
   %call.i44.i = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.34, ptr noundef nonnull %19, i32 noundef %tb_lineno.0.i, ptr noundef nonnull %18) #10
   %cmp2.i.i = icmp eq ptr %call.i44.i, null
-  br i1 %cmp2.i.i, label %tb_displayline.exit.thread.i, label %if.end4.i.i
+  br i1 %cmp2.i.i, label %tb_displayline.argprom.exit.thread.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i43.i
   %call5.i.i = call i32 @PyFile_WriteObject(ptr noundef nonnull %call.i44.i, ptr noundef %f, i32 noundef 1) #10
@@ -2655,7 +2655,7 @@ if.then1.i.i49.i:                                 ; preds = %if.end.i.i46.i
 
 Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i49.i, %if.end.i.i46.i, %if.end4.i.i
   %cmp6.i.i = icmp slt i32 %call5.i.i, 0
-  br i1 %cmp6.i.i, label %tb_displayline.exit.thread.i, label %if.end8.i.i
+  br i1 %cmp6.i.i, label %tb_displayline.argprom.exit.thread.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %Py_DECREF.exit.i.i
   store i32 4, ptr %truncation.i.i, align 4
@@ -2686,7 +2686,7 @@ if.end14.i.i:                                     ; preds = %if.end.i11.i.i, %if
   %err.0.ph.i.i = phi i32 [ 0, %if.then12.i.i ], [ 0, %if.end.i11.i.i ], [ -1, %if.then.i.i.i ]
   %.pr.i.i = load ptr, ptr %source_line.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %cmp.not.i.i.i, label %tb_displayline.exit.i, label %if.then.i12.i.i
+  br i1 %cmp.not.i.i.i, label %tb_displayline.argprom.exit.i, label %if.then.i12.i.i
 
 if.then.i12.i.i:                                  ; preds = %if.end14.i.i, %if.end8.i.i
   %err.03.i.i = phi i32 [ %err.0.ph.i.i, %if.end14.i.i ], [ 0, %if.end8.i.i ]
@@ -2694,31 +2694,31 @@ if.then.i12.i.i:                                  ; preds = %if.end14.i.i, %if.e
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i2.not.i.i.i = icmp eq i64 %26, 0
-  br i1 %cmp.i2.not.i.i.i, label %if.end.i.i.i.i, label %tb_displayline.exit.i
+  br i1 %cmp.i2.not.i.i.i, label %if.end.i.i.i.i, label %tb_displayline.argprom.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i12.i.i
   %dec.i.i.i.i = add i64 %25, -1
   store i64 %dec.i.i.i.i, ptr %24, align 8
   %cmp.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %if.then1.i.i.i.i, label %tb_displayline.exit.i
+  br i1 %cmp.i.i.i.i, label %if.then1.i.i.i.i, label %tb_displayline.argprom.exit.i
 
 if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %24) #10
-  br label %tb_displayline.exit.i
+  br label %tb_displayline.argprom.exit.i
 
-tb_displayline.exit.thread.i:                     ; preds = %Py_DECREF.exit.i.i, %if.end.i43.i, %if.then36.i
+tb_displayline.argprom.exit.thread.i:             ; preds = %Py_DECREF.exit.i.i, %if.end.i43.i, %if.then36.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %truncation.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %source_line.i.i)
   br label %if.then.i.i
 
-tb_displayline.exit.i:                            ; preds = %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.then.i12.i.i, %if.end14.i.i
+tb_displayline.argprom.exit.i:                    ; preds = %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.then.i12.i.i, %if.end14.i.i
   %retval.0.i45.i = phi i32 [ %err.0.ph.i.i, %if.end14.i.i ], [ %err.03.i.i, %if.then.i12.i.i ], [ %err.03.i.i, %if.end.i.i.i.i ], [ %err.03.i.i, %if.then1.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %truncation.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %source_line.i.i)
   %cmp41.i = icmp slt i32 %retval.0.i45.i, 0
   br i1 %cmp41.i, label %if.then.i.i, label %if.end43.i
 
-if.end43.i:                                       ; preds = %tb_displayline.exit.i
+if.end43.i:                                       ; preds = %tb_displayline.argprom.exit.i
   %call44.i = call i32 @PyErr_CheckSignals() #10
   %cmp45.i = icmp slt i32 %call44.i, 0
   br i1 %cmp45.i, label %if.then.i.i, label %if.then50.i
@@ -2789,7 +2789,7 @@ error.i:                                          ; preds = %tb_print_line_repea
   %cmp.not.i.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end43.i, %tb_displayline.exit.i, %error.i, %tb_displayline.exit.thread.i
+if.then.i.i:                                      ; preds = %if.end43.i, %tb_displayline.argprom.exit.i, %error.i, %tb_displayline.argprom.exit.thread.i
   %32 = load i64, ptr %call.i, align 8
   %33 = and i64 %32, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %33, 0
@@ -3656,7 +3656,7 @@ declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tb_new_impl(ptr noundef %tb_next, ptr noundef %tb_frame, i32 noundef %tb_lasti, i32 noundef %tb_lineno) unnamed_addr #0 {
+define internal fastcc ptr @tb_new_impl.argprom(ptr noundef %tb_next, ptr noundef %tb_frame, i32 noundef %tb_lasti, i32 noundef %tb_lineno) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %tb_next, @_Py_NoneStruct
   br i1 %cmp, label %lor.lhs.false.i, label %if.else

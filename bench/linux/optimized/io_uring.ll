@@ -13114,7 +13114,7 @@ define internal i32 @io_uring_mmap(ptr nocapture noundef readonly %0, ptr nounde
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %9, align 8
-  %10 = tail call fastcc ptr @io_uring_validate_mmap_request(ptr %.val, i64 noundef %8, i64 noundef %6)
+  %10 = tail call fastcc ptr @io_uring_validate_mmap_request.argprom(ptr %.val, i64 noundef %8, i64 noundef %6)
   %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
   %12 = ptrtoint ptr %10 to i64
   br i1 %11, label %13, label %15
@@ -13160,7 +13160,7 @@ define internal i64 @io_uring_mmu_get_unmapped_area(ptr nocapture noundef readon
 7:                                                ; preds = %5
   %8 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %8, align 8
-  %9 = tail call fastcc ptr @io_uring_validate_mmap_request(ptr %.val, i64 noundef %3, i64 noundef %2)
+  %9 = tail call fastcc ptr @io_uring_validate_mmap_request.argprom(ptr %.val, i64 noundef %3, i64 noundef %2)
   %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
   br i1 %10, label %20, label %11
 
@@ -13184,7 +13184,7 @@ define internal i64 @io_uring_mmu_get_unmapped_area(ptr nocapture noundef readon
 declare dso_local void @io_uring_show_fdinfo(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @io_uring_validate_mmap_request(ptr %.200.val, i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @io_uring_validate_mmap_request.argprom(ptr %.200.val, i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = shl i64 %0, 12
   %4 = trunc i64 %3 to i32
   %5 = and i32 %4, -134217728

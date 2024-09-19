@@ -296,7 +296,7 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   %62 = load i32, ptr @hf_ssh_sftp_pflags, align 4
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef 0) #2
   %64 = add i32 %54, 17
-  %65 = tail call fastcc i32 @dissect_sftp_attrs(ptr noundef %0, i32 noundef %64, ptr noundef %32)
+  %65 = tail call fastcc i32 @dissect_sftp_attrs.argprom(ptr noundef %0, i32 noundef %64, ptr noundef %32)
   %66 = add i32 %65, %64
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %28, ptr noundef nonnull @.str.98, i32 noundef 3, i32 noundef %51, ptr noundef %58) #2
   br label %.loopexit
@@ -404,7 +404,7 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   %152 = load i32, ptr @hf_ssh_sftp_path, align 4
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %152, ptr noundef %0, i32 noundef 13, i32 noundef %147, i32 noundef 2) #2
   %154 = add i32 %147, 13
-  %155 = tail call fastcc i32 @dissect_sftp_attrs(ptr noundef %0, i32 noundef %154, ptr noundef %32)
+  %155 = tail call fastcc i32 @dissect_sftp_attrs.argprom(ptr noundef %0, i32 noundef %154, ptr noundef %32)
   tail call void @proto_item_set_len(ptr noundef %32, i32 noundef %155) #2
   %156 = add i32 %155, %154
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %28, ptr noundef nonnull @.str.104, i32 noundef 9, i32 noundef %144, ptr noundef %151) #2
@@ -589,7 +589,7 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   %299 = load i32, ptr @hf_ssh_sftp_name_ln, align 4
   %300 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %299, ptr noundef %0, i32 noundef %298, i32 noundef %295, i32 noundef 2) #2
   %301 = add i32 %295, %298
-  %302 = tail call fastcc i32 @dissect_sftp_attrs(ptr noundef %0, i32 noundef %301, ptr noundef %32)
+  %302 = tail call fastcc i32 @dissect_sftp_attrs.argprom(ptr noundef %0, i32 noundef %301, ptr noundef %32)
   %303 = add i32 %302, %301
   %304 = add nuw i32 %.0602610, 1
   %exitcond.not = icmp eq i32 %304, %285
@@ -600,7 +600,7 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %28, ptr noundef nonnull @.str.115, i32 noundef 105, i32 noundef %306) #2
   %307 = load i32, ptr @hf_ssh_sftp_id, align 4
   %308 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %307, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef 0) #2
-  %309 = tail call fastcc i32 @dissect_sftp_attrs(ptr noundef %0, i32 noundef 9, ptr noundef %32)
+  %309 = tail call fastcc i32 @dissect_sftp_attrs.argprom(ptr noundef %0, i32 noundef 9, ptr noundef %32)
   tail call void @proto_item_set_len(ptr noundef %32, i32 noundef %309) #2
   %310 = add i32 %309, 9
   br label %.loopexit
@@ -648,7 +648,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_sftp_attrs(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_sftp_attrs.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @wmem_packet_scope() #2
   %5 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %4, ptr noundef nonnull @.str.118) #2
   %6 = load i32, ptr @ett_sftp_attrs, align 4

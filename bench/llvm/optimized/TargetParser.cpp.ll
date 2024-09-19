@@ -181,13 +181,13 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPU
   %.112.i.i.i.i.i = select i1 %6, i64 %9, i64 %3
   %.1.i.i.i.i.i = select i1 %6, ptr %7, ptr %.04.i.i.i.i.i
   %10 = icmp sgt i64 %.112.i.i.i.i.i, 0
-  br i1 %10, label %.lr.ph.i.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i", !llvm.loop !4
+  br i1 %10, label %.lr.ph.i.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i", !llvm.loop !4
 
-"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i
+"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %11 = icmp eq ptr %.1.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 2720)
   br i1 %11, label %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread, label %12
 
-12:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i"
+12:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i"
   %13 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 32
   %14 = load i32, ptr %13, align 8
   %.not.i.i = icmp ne i32 %14, %0
@@ -217,9 +217,9 @@ switch.lookup:                                    ; preds = %1
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   br label %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread
 
-_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread: ; preds = %switch.lookup, %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit, %12, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i", %16
-  %.sroa.03.0 = phi ptr [ %.sroa.02.0.copyload.i, %16 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i" ], [ @.str.4, %12 ], [ @.str.4, %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit ], [ %switch.load, %switch.lookup ]
-  %.sroa.7.0 = phi i64 [ %.sroa.speculated.i.i, %16 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i" ], [ 0, %12 ], [ 0, %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit ], [ %switch.load9, %switch.lookup ]
+_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread: ; preds = %switch.lookup, %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit, %12, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i", %16
+  %.sroa.03.0 = phi ptr [ %.sroa.02.0.copyload.i, %16 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i" ], [ @.str.4, %12 ], [ @.str.4, %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit ], [ %switch.load, %switch.lookup ]
+  %.sroa.7.0 = phi i64 [ %.sroa.speculated.i.i, %16 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i" ], [ 0, %12 ], [ 0, %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit ], [ %switch.load9, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -243,13 +243,13 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE(
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
   %.1.i.i.i.i = select i1 %5, ptr %6, ptr %.04.i.i.i.i
   %9 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %9, label %.lr.ph.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i", !llvm.loop !4
+  br i1 %9, label %.lr.ph.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i", !llvm.loop !4
 
-"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 2720)
   br i1 %10, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread, label %11
 
-11:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i"
+11:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i"
   %12 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 32
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp ne i32 %13, %0
@@ -264,9 +264,9 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE(
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread
 
-_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread: ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i", %11, %14
-  %.sroa.02.0 = phi ptr [ %.sroa.02.0.copyload, %14 ], [ @.str.4, %11 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i" ]
-  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %14 ], [ 0, %11 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i" ]
+_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread: ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i", %11, %14
+  %.sroa.02.0 = phi ptr [ %.sroa.02.0.copyload, %14 ], [ @.str.4, %11 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i" ]
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %14 ], [ 0, %11 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i" ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -293,13 +293,13 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU15getArchNameR600ENS0_7GPUKindE(i3
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
   %.1.i.i.i.i = select i1 %5, ptr %6, ptr %.04.i.i.i.i
   %9 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %9, label %.lr.ph.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i", !llvm.loop !4
+  br i1 %9, label %.lr.ph.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i", !llvm.loop !4
 
-"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
   br i1 %10, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread, label %11
 
-11:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i"
+11:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i"
   %12 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 32
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp ne i32 %13, %0
@@ -314,9 +314,9 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU15getArchNameR600ENS0_7GPUKindE(i3
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread
 
-_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread: ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i", %11, %14
-  %.sroa.02.0 = phi ptr [ %.sroa.02.0.copyload, %14 ], [ @.str.4, %11 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i" ]
-  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %14 ], [ 0, %11 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i" ]
+_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread: ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i", %11, %14
+  %.sroa.02.0 = phi ptr [ %.sroa.02.0.copyload, %14 ], [ @.str.4, %11 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i" ]
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %14 ], [ 0, %11 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i" ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -438,13 +438,13 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU17getArchAttrAMDGCNENS0_7GPUKindE(i
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
   %.1.i.i.i.i = select i1 %5, ptr %6, ptr %.04.i.i.i.i
   %9 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %9, label %.lr.ph.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i", !llvm.loop !4
+  br i1 %9, label %.lr.ph.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i", !llvm.loop !4
 
-"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 2720)
   br i1 %10, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread, label %11
 
-11:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i"
+11:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i"
   %12 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 32
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp ne i32 %13, %0
@@ -457,8 +457,8 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU17getArchAttrAMDGCNENS0_7GPUKindE(i
   %16 = load i32, ptr %15, align 4
   br label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread
 
-_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread: ; preds = %11, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i", %14
-  %.0 = phi i32 [ %16, %14 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i" ], [ 0, %11 ]
+_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread: ; preds = %11, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i", %14
+  %.0 = phi i32 [ %16, %14 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i" ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -480,13 +480,13 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU15getArchAttrR600ENS0_7GPUKindE(i32
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
   %.1.i.i.i.i = select i1 %5, ptr %6, ptr %.04.i.i.i.i
   %9 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %9, label %.lr.ph.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i", !llvm.loop !4
+  br i1 %9, label %.lr.ph.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i", !llvm.loop !4
 
-"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
   br i1 %10, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread, label %11
 
-11:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i"
+11:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i"
   %12 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 32
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp ne i32 %13, %0
@@ -499,8 +499,8 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU15getArchAttrR600ENS0_7GPUKindE(i32
   %16 = load i32, ptr %15, align 4
   br label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread
 
-_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread: ; preds = %11, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i", %14
-  %.0 = phi i32 [ %16, %14 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i" ], [ 0, %11 ]
+_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread: ; preds = %11, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i", %14
+  %.0 = phi i32 [ %16, %14 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i" ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -968,13 +968,13 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   %.112.i.i.i.i.i = select i1 %22, i64 %25, i64 %19
   %.1.i.i.i.i.i = select i1 %22, ptr %23, ptr %.04.i.i.i.i.i
   %26 = icmp sgt i64 %.112.i.i.i.i.i, 0
-  br i1 %26, label %.lr.ph.i.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i", !llvm.loop !4
+  br i1 %26, label %.lr.ph.i.i.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i", !llvm.loop !4
 
-"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i
+"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %27 = icmp eq ptr %.1.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 2720)
   br i1 %27, label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread, label %28
 
-28:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i"
+28:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i"
   %29 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 32
   %30 = load i32, ptr %29, align 8
   %.not.i.i31 = icmp ne i32 %30, %16
@@ -996,13 +996,13 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   %.112.i.i.i.i.i39 = select i1 %34, i64 %37, i64 %31
   %.1.i.i.i.i.i40 = select i1 %34, ptr %35, ptr %.04.i.i.i.i.i34
   %38 = icmp sgt i64 %.112.i.i.i.i.i39, 0
-  br i1 %38, label %.lr.ph.i.i.i.i.i33, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i41", !llvm.loop !4
+  br i1 %38, label %.lr.ph.i.i.i.i.i33, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i41", !llvm.loop !4
 
-"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i41": ; preds = %.lr.ph.i.i.i.i.i33
+"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i41": ; preds = %.lr.ph.i.i.i.i.i33
   %39 = icmp eq ptr %.1.i.i.i.i.i40, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
   br i1 %39, label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread, label %40
 
-40:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i41"
+40:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i41"
   %41 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i40, i64 32
   %42 = load i32, ptr %41, align 8
   %.not.i.i42 = icmp ne i32 %42, %16
@@ -1018,9 +1018,9 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split: ; preds 
   %.sroa.3.0.copyload.i47 = load i64, ptr %.sroa.3.0..sroa_idx.i46, align 8
   br label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread
 
-_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split, %40, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i41", %28, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i", %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
-  %.sroa.0.0 = phi ptr [ null, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ @.str.4, %28 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i" ], [ @.str.4, %40 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i41" ], [ %.sroa.02.0.copyload.i45, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15 ]
-  %.sroa.5.0 = phi i64 [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ 0, %28 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i" ], [ 0, %40 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.exit.i.i41" ], [ %.sroa.3.0.copyload.i47, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15 ]
+_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split, %40, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i41", %28, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i", %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
+  %.sroa.0.0 = phi ptr [ null, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ @.str.4, %28 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i" ], [ @.str.4, %40 ], [ @.str.4, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i41" ], [ %.sroa.02.0.copyload.i45, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15 ]
+  %.sroa.5.0 = phi i64 [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ 0, %28 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i" ], [ 0, %40 ], [ 0, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_17GPUInfoEEERS3_ZNS2_12getArchEntryENS_6AMDGPU7GPUKindES4_E3$_0EEDaOT_OT0_T1_.argprom.exit.i.i41" ], [ %.sroa.3.0.copyload.i47, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2098,7 +2098,7 @@ define dso_local void @_ZN4llvm6AMDGPU21insertWaveSizeFeatureENS_9StringRefERKNS
   %7 = getelementptr inbounds i8, ptr %3, i64 32
   %.val = load i32, ptr %7, align 8
   %8 = icmp eq i32 %.val, 26
-  br i1 %8, label %9, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
+  br i1 %8, label %9, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.argprom.exit
 
 9:                                                ; preds = %5
   %10 = icmp eq i64 %.fr18.i.i, 0
@@ -2114,7 +2114,7 @@ define dso_local void @_ZN4llvm6AMDGPU21insertWaveSizeFeatureENS_9StringRefERKNS
 _ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i.i: ; preds = %.split.us.i.i
   %.010.add.us.i.i = add nuw nsw i64 %.010.idx15.us.i.i, 40
   %.not.us.i.i = icmp eq i64 %.010.add.us.i.i, 2720
-  br i1 %.not.us.i.i, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit, label %.split.us.i.i
+  br i1 %.not.us.i.i, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.argprom.exit, label %.split.us.i.i
 
 .split.i.i:                                       ; preds = %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i
   %.010.idx15.i.i = phi i64 [ %.010.add.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i ], [ 0, %9 ]
@@ -2133,14 +2133,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %.split.i.i
 _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.split.i.i
   %.010.add.i.i = add nuw nsw i64 %.010.idx15.i.i, 40
   %.not.i.i = icmp eq i64 %.010.add.i.i, 2720
-  br i1 %.not.i.i, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit, label %.split.i.i
+  br i1 %.not.i.i, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.argprom.exit, label %.split.i.i
 
 _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.split.us.i.i
   %12 = phi i64 [ %.010.idx15.us.i.i, %.split.us.i.i ], [ %.010.idx15.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %13 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 8
-  switch i32 %15, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit [
+  switch i32 %15, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.argprom.exit [
     i32 101, label %16
     i32 100, label %16
     i32 96, label %16
@@ -2168,9 +2168,9 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i: ; preds = %_ZN4llvmeqENS
   ]
 
 16:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i
-  br label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
+  br label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.argprom.exit
 
-_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i.i, %5, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %16
+_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.argprom.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i.i, %5, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, %16
   %.0.i = phi i1 [ false, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i ], [ true, %16 ], [ false, %5 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i ]
   %17 = icmp eq i64 %.fr18.i.i, 0
   %18 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.41, i64 15) #9
@@ -2193,7 +2193,7 @@ _ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit: ; preds = %_ZN4llvmeqEN
   %brmerge = or i1 %.not29, %.not31
   br i1 %brmerge, label %36, label %33
 
-33:                                               ; preds = %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
+33:                                               ; preds = %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.argprom.exit
   store i32 1, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.45, ptr %34, align 8
@@ -2201,7 +2201,7 @@ _ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit: ; preds = %_ZN4llvmeqEN
   store i64 62, ptr %35, align 8
   br label %48
 
-36:                                               ; preds = %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
+36:                                               ; preds = %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.argprom.exit
   %brmerge14 = or i1 %17, %.not29
   %brmerge15 = or i1 %.0.i, %brmerge14
   br i1 %brmerge15, label %40, label %37

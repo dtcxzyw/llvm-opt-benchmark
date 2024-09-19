@@ -3082,16 +3082,16 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN3$_68__invo
 8:                                                ; preds = %3
   %9 = fmul double %6, 2.000000e+00
   %10 = fmul double %6, %9
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.argprom.exit"
 
 11:                                               ; preds = %3
   %12 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+00, double 2.000000e+00)
   %square.i.i = fmul double %12, %12
   %13 = fmul double %square.i.i, 5.000000e-01
   %14 = fsub double 1.000000e+00, %13
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.exit": ; preds = %8, %11
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.argprom.exit": ; preds = %8, %11
   %.0.i.i = phi double [ %10, %8 ], [ %14, %11 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3147,16 +3147,16 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN3$_98__invo
   %9 = fmul double %6, 4.000000e+00
   %10 = fmul double %6, %9
   %11 = fmul double %6, %10
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_9clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_9clES1_NS_8ArgsViewE.argprom.exit"
 
 12:                                               ; preds = %3
   %13 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+00, double 2.000000e+00)
   %14 = tail call noundef double @pow(double noundef %13, double noundef 3.000000e+00) #20
   %15 = fmul double %14, 5.000000e-01
   %16 = fsub double 1.000000e+00, %15
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_9clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_9clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_9clES1_NS_8ArgsViewE.exit": ; preds = %8, %12
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_9clES1_NS_8ArgsViewE.argprom.exit": ; preds = %8, %12
   %.0.i.i = phi double [ %11, %8 ], [ %16, %12 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3207,16 +3207,16 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_128__inv
 8:                                                ; preds = %3
   %9 = tail call noundef double @pow(double noundef %6, double noundef 4.000000e+00) #20
   %10 = fmul double %9, 8.000000e+00
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_12clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_12clES1_NS_8ArgsViewE.argprom.exit"
 
 11:                                               ; preds = %3
   %12 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+00, double 2.000000e+00)
   %13 = tail call noundef double @pow(double noundef %12, double noundef 4.000000e+00) #20
   %14 = fmul double %13, 5.000000e-01
   %15 = fsub double 1.000000e+00, %14
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_12clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_12clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_12clES1_NS_8ArgsViewE.exit": ; preds = %8, %11
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_12clES1_NS_8ArgsViewE.argprom.exit": ; preds = %8, %11
   %.0.i.i = phi double [ %10, %8 ], [ %15, %11 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3267,16 +3267,16 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_158__inv
 8:                                                ; preds = %3
   %9 = tail call noundef double @pow(double noundef %6, double noundef 5.000000e+00) #20
   %10 = fmul double %9, 1.600000e+01
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_15clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_15clES1_NS_8ArgsViewE.argprom.exit"
 
 11:                                               ; preds = %3
   %12 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+00, double 2.000000e+00)
   %13 = tail call noundef double @pow(double noundef %12, double noundef 5.000000e+00) #20
   %14 = fmul double %13, 5.000000e-01
   %15 = fsub double 1.000000e+00, %14
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_15clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_15clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_15clES1_NS_8ArgsViewE.exit": ; preds = %8, %11
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_15clES1_NS_8ArgsViewE.argprom.exit": ; preds = %8, %11
   %.0.i.i = phi double [ %10, %8 ], [ %15, %11 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3292,14 +3292,14 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_168__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fcmp oeq double %6, 0.000000e+00
-  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_16clES1_NS_8ArgsViewE.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_16clES1_NS_8ArgsViewE.argprom.exit", label %8
 
 8:                                                ; preds = %3
   %9 = tail call double @llvm.fmuladd.f64(double %6, double 1.000000e+01, double -1.000000e+01)
   %exp2.i.i = tail call double @exp2(double %9)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_16clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_16clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_16clES1_NS_8ArgsViewE.exit": ; preds = %3, %8
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_16clES1_NS_8ArgsViewE.argprom.exit": ; preds = %3, %8
   %10 = phi double [ %exp2.i.i, %8 ], [ 0.000000e+00, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %10, ptr %4, align 8
@@ -3315,15 +3315,15 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_178__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fcmp oeq double %6, 1.000000e+00
-  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_17clES1_NS_8ArgsViewE.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_17clES1_NS_8ArgsViewE.argprom.exit", label %8
 
 8:                                                ; preds = %3
   %9 = fmul double %6, -1.000000e+01
   %exp2.i.i = tail call double @exp2(double %9) #20
   %10 = fsub double 1.000000e+00, %exp2.i.i
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_17clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_17clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_17clES1_NS_8ArgsViewE.exit": ; preds = %3, %8
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_17clES1_NS_8ArgsViewE.argprom.exit": ; preds = %3, %8
   %11 = phi double [ %10, %8 ], [ 1.000000e+00, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %11, ptr %4, align 8
@@ -3339,11 +3339,11 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_188__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fcmp oeq double %6, 0.000000e+00
-  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.argprom.exit", label %8
 
 8:                                                ; preds = %3
   %9 = fcmp oeq double %6, 1.000000e+00
-  br i1 %9, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.argprom.exit", label %10
 
 10:                                               ; preds = %8
   %11 = fcmp olt double %6, 5.000000e-01
@@ -3353,16 +3353,16 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_188__inv
   %13 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+01, double -1.000000e+01)
   %exp27.i.i = tail call double @exp2(double %13) #20
   %14 = fmul double %exp27.i.i, 5.000000e-01
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.argprom.exit"
 
 15:                                               ; preds = %10
   %16 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+01, double 1.000000e+01)
   %exp2.i.i = tail call double @exp2(double %16) #20
   %17 = fsub double 2.000000e+00, %exp2.i.i
   %18 = fmul double %17, 5.000000e-01
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.exit": ; preds = %3, %8, %12, %15
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_18clES1_NS_8ArgsViewE.argprom.exit": ; preds = %3, %8, %12, %15
   %.0.i.i = phi double [ %14, %12 ], [ %18, %15 ], [ 0.000000e+00, %3 ], [ 1.000000e+00, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3423,7 +3423,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_218__inv
   %10 = fsub double 1.000000e+00, %square5.i.i
   %11 = tail call double @sqrt(double noundef %10) #20
   %12 = fsub double 1.000000e+00, %11
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.argprom.exit"
 
 13:                                               ; preds = %3
   %14 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+00, double 2.000000e+00)
@@ -3431,9 +3431,9 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_218__inv
   %15 = fsub double 1.000000e+00, %square.i.i
   %16 = tail call double @sqrt(double noundef %15) #20
   %17 = fadd double %16, 1.000000e+00
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.exit": ; preds = %8, %13
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.argprom.exit": ; preds = %8, %13
   %.0.in.i.i = phi double [ %12, %8 ], [ %17, %13 ]
   %.0.i.i = fmul double %.0.in.i.i, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -3494,16 +3494,16 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_248__inv
   %square7.i.i = fmul double %9, %9
   %10 = tail call double @llvm.fmuladd.f64(double %6, double 0x401CC25FE974A340, double 0xC004C25FE974A340)
   %11 = fmul double %10, %square7.i.i
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.argprom.exit"
 
 12:                                               ; preds = %3
   %13 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double -2.000000e+00)
   %square.i.i = fmul double %13, %13
   %14 = tail call double @llvm.fmuladd.f64(double %13, double 0x400CC25FE974A340, double 0x4004C25FE974A340)
   %15 = tail call double @llvm.fmuladd.f64(double %square.i.i, double %14, double 2.000000e+00)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit": ; preds = %8, %12
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.argprom.exit": ; preds = %8, %12
   %.0.in.i.i = phi double [ %11, %8 ], [ %15, %12 ]
   %.0.i.i = fmul double %.0.in.i.i, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -3520,11 +3520,11 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_258__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fcmp oeq double %6, 0.000000e+00
-  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_25clES1_NS_8ArgsViewE.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_25clES1_NS_8ArgsViewE.argprom.exit", label %8
 
 8:                                                ; preds = %3
   %9 = fcmp oeq double %6, 1.000000e+00
-  br i1 %9, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_25clES1_NS_8ArgsViewE.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_25clES1_NS_8ArgsViewE.argprom.exit", label %10
 
 10:                                               ; preds = %8
   %11 = tail call double @llvm.fmuladd.f64(double %6, double 1.000000e+01, double -1.000000e+01)
@@ -3534,9 +3534,9 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_258__inv
   %14 = fmul double %13, 0x4000C15238424CE8
   %15 = tail call double @sin(double noundef %14) #20
   %16 = fmul double %15, %12
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_25clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_25clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_25clES1_NS_8ArgsViewE.exit": ; preds = %3, %8, %10
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_25clES1_NS_8ArgsViewE.argprom.exit": ; preds = %3, %8, %10
   %.0.i.i = phi double [ %16, %10 ], [ 0.000000e+00, %3 ], [ 1.000000e+00, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3552,11 +3552,11 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_268__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fcmp oeq double %6, 0.000000e+00
-  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_26clES1_NS_8ArgsViewE.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_26clES1_NS_8ArgsViewE.argprom.exit", label %8
 
 8:                                                ; preds = %3
   %9 = fcmp oeq double %6, 1.000000e+00
-  br i1 %9, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_26clES1_NS_8ArgsViewE.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_26clES1_NS_8ArgsViewE.argprom.exit", label %10
 
 10:                                               ; preds = %8
   %11 = fmul double %6, -1.000000e+01
@@ -3565,9 +3565,9 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_268__inv
   %13 = fmul double %12, 0x4000C15238424CE8
   %14 = tail call double @sin(double noundef %13) #20
   %15 = tail call double @llvm.fmuladd.f64(double %exp2.i.i, double %14, double 1.000000e+00)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_26clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_26clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_26clES1_NS_8ArgsViewE.exit": ; preds = %3, %8, %10
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_26clES1_NS_8ArgsViewE.argprom.exit": ; preds = %3, %8, %10
   %.0.i.i = phi double [ %15, %10 ], [ 0.000000e+00, %3 ], [ 1.000000e+00, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3583,11 +3583,11 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_278__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fcmp oeq double %6, 0.000000e+00
-  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.argprom.exit", label %8
 
 8:                                                ; preds = %3
   %9 = fcmp oeq double %6, 1.000000e+00
-  br i1 %9, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.argprom.exit", label %10
 
 10:                                               ; preds = %8
   %11 = fcmp olt double %6, 5.000000e-01
@@ -3602,7 +3602,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_278__inv
   %17 = fneg double %16
   %18 = fmul double %exp29.i.i, %17
   %19 = fmul double %18, 5.000000e-01
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.argprom.exit"
 
 20:                                               ; preds = %10
   %21 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+01, double 1.000000e+01)
@@ -3611,9 +3611,9 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_278__inv
   %23 = fmul double %exp2.i.i, %22
   %24 = fmul double %23, 5.000000e-01
   %25 = fadd double %24, 1.000000e+00
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.exit": ; preds = %3, %8, %14, %20
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_27clES1_NS_8ArgsViewE.argprom.exit": ; preds = %3, %8, %14, %20
   %.0.i.i = phi double [ %19, %14 ], [ %25, %20 ], [ 0.000000e+00, %3 ], [ 1.000000e+00, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3635,7 +3635,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_288__inv
 9:                                                ; preds = %3
   %10 = fmul double %7, 7.562500e+00
   %11 = fmul double %7, %10
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.argprom.exit"
 
 12:                                               ; preds = %3
   %13 = fcmp olt double %7, 0x3FE745D1745D1746
@@ -3645,7 +3645,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_288__inv
   %15 = fadd double %7, 0xBFE1745D1745D174
   %16 = fmul double %15, 7.562500e+00
   %17 = tail call double @llvm.fmuladd.f64(double %16, double %15, double 7.500000e-01)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.argprom.exit"
 
 18:                                               ; preds = %12
   %19 = fcmp olt double %7, 0x3FED1745D1745D17
@@ -3655,15 +3655,15 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_288__inv
   %21 = fadd double %7, 0xBFEA2E8BA2E8BA2F
   %22 = fmul double %21, 7.562500e+00
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %21, double 9.375000e-01)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.argprom.exit"
 
 24:                                               ; preds = %18
   %25 = fadd double %7, 0xBFEE8BA2E8BA2E8C
   %26 = fmul double %25, 7.562500e+00
   %27 = tail call double @llvm.fmuladd.f64(double %26, double %25, double 9.843750e-01)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.exit": ; preds = %9, %14, %20, %24
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.argprom.exit": ; preds = %9, %14, %20, %24
   %.0.i.i.i = phi double [ %11, %9 ], [ %17, %14 ], [ %23, %20 ], [ %27, %24 ]
   %28 = fsub double 1.000000e+00, %.0.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -3685,7 +3685,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_298__inv
 8:                                                ; preds = %3
   %9 = fmul double %6, 7.562500e+00
   %10 = fmul double %6, %9
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.argprom.exit"
 
 11:                                               ; preds = %3
   %12 = fcmp olt double %6, 0x3FE745D1745D1746
@@ -3695,7 +3695,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_298__inv
   %14 = fadd double %6, 0xBFE1745D1745D174
   %15 = fmul double %14, 7.562500e+00
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %14, double 7.500000e-01)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.argprom.exit"
 
 17:                                               ; preds = %11
   %18 = fcmp olt double %6, 0x3FED1745D1745D17
@@ -3705,15 +3705,15 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_298__inv
   %20 = fadd double %6, 0xBFEA2E8BA2E8BA2F
   %21 = fmul double %20, 7.562500e+00
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %20, double 9.375000e-01)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.argprom.exit"
 
 23:                                               ; preds = %17
   %24 = fadd double %6, 0xBFEE8BA2E8BA2E8C
   %25 = fmul double %24, 7.562500e+00
   %26 = tail call double @llvm.fmuladd.f64(double %25, double %24, double 9.843750e-01)
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.exit": ; preds = %8, %13, %19, %23
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.argprom.exit": ; preds = %8, %13, %19, %23
   %.0.i.i = phi double [ %10, %8 ], [ %16, %13 ], [ %22, %19 ], [ %26, %23 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
@@ -3770,7 +3770,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_308__inv
 _ZN4pkpyL13easeOutBounceEd.exit.i.i:              ; preds = %26, %22, %16, %11
   %.0.i.i.i = phi double [ %13, %11 ], [ %19, %16 ], [ %25, %22 ], [ %29, %26 ]
   %30 = fsub double 1.000000e+00, %.0.i.i.i
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_30clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_30clES1_NS_8ArgsViewE.argprom.exit"
 
 31:                                               ; preds = %3
   %32 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double -1.000000e+00)
@@ -3811,9 +3811,9 @@ _ZN4pkpyL13easeOutBounceEd.exit.i.i:              ; preds = %26, %22, %16, %11
 _ZN4pkpyL13easeOutBounceEd.exit4.i.i:             ; preds = %49, %45, %39, %34
   %.0.i3.i.i = phi double [ %36, %34 ], [ %42, %39 ], [ %48, %45 ], [ %52, %49 ]
   %53 = fadd double %.0.i3.i.i, 1.000000e+00
-  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_30clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_30clES1_NS_8ArgsViewE.argprom.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_30clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpyL13easeOutBounceEd.exit.i.i, %_ZN4pkpyL13easeOutBounceEd.exit4.i.i
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_30clES1_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpyL13easeOutBounceEd.exit.i.i, %_ZN4pkpyL13easeOutBounceEd.exit4.i.i
   %.in.i.i = phi double [ %30, %_ZN4pkpyL13easeOutBounceEd.exit.i.i ], [ %53, %_ZN4pkpyL13easeOutBounceEd.exit4.i.i ]
   %54 = fmul double %.in.i.i, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

@@ -18663,13 +18663,13 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.exit", label %14
+  br i1 %13, label %"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.argprom.exit", label %14
 
 14:                                               ; preds = %.body
   %15 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %16 = mul nuw i64 %12, 20
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %16, i64 noundef 4) #17, !noalias !7497
-  br label %"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.exit"
+  br label %"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.argprom.exit"
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr169drop_in_place$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$GT$17hbd14e643b3b111acE.exit.i"
   %.09.i = phi i64 [ %18, %"_ZN4core3ptr169drop_in_place$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$GT$17hbd14e643b3b111acE.exit.i" ], [ 0, %1 ]
@@ -18733,18 +18733,18 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8, !noundef !4
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.exit2", label %47
+  br i1 %46, label %"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.argprom.exit2", label %47
 
 47:                                               ; preds = %"_ZN4core3ptr179drop_in_place$LT$$u5b$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$u5d$$GT$17h85333a62a6317a64E.llvm.8351105841907204142.exit"
   %48 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %49 = mul nuw i64 %45, 20
   tail call void @__rust_dealloc(ptr noundef nonnull %48, i64 noundef %49, i64 noundef 4) #17, !noalias !7520
-  br label %"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.exit2"
+  br label %"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.argprom.exit2"
 
-"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.exit2": ; preds = %"_ZN4core3ptr179drop_in_place$LT$$u5b$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$u5d$$GT$17h85333a62a6317a64E.llvm.8351105841907204142.exit", %47
+"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.argprom.exit2": ; preds = %"_ZN4core3ptr179drop_in_place$LT$$u5b$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$u5d$$GT$17h85333a62a6317a64E.llvm.8351105841907204142.exit", %47
   ret void
 
-"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.exit": ; preds = %14, %.body
+"_ZN4core3ptr302drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro..bridge..TokenTree$LT$proc_macro..bridge..client..TokenStream$C$proc_macro..bridge..client..Span$C$proc_macro..bridge..symbol..Symbol$GT$$C$alloc..alloc..Global$GT$$GT$17h5e0aac640a161b21E.argprom.exit": ; preds = %14, %.body
   resume { ptr, i32 } %29
 }
 

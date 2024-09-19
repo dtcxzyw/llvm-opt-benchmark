@@ -364,7 +364,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr nonnull %.0.val, i8 noundef range(i8 -64, -31) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr nonnull %.0.val, i8 noundef range(i8 -64, -31) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [2 x i8], align 2
   %5 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
@@ -1874,13 +1874,13 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %34, ptr noundef nonnull align 1 dereferenceable(64) @_ZN5image6codecs4jpeg7encoder17STD_CHROMA_QTABLE17h86a8e3fe432cc660E, i64 64, i1 false)
   br label %36
 
-"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.exit.loopexit.i": ; preds = %37
+"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.argprom.exit.loopexit.i": ; preds = %37
   %.sroa.0.06.i.add = add nuw nsw i64 %.sroa.0.06.i.idx, 64
   %35 = icmp eq i64 %.sroa.0.06.i.add, 128
   br i1 %35, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf2989809eb3b9072E.exit", label %36
 
-36:                                               ; preds = %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.exit.loopexit.i", %.lr.ph.i
-  %.sroa.0.06.i.idx = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.06.i.add, %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.exit.loopexit.i" ]
+36:                                               ; preds = %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.argprom.exit.loopexit.i", %.lr.ph.i
+  %.sroa.0.06.i.idx = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.06.i.add, %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.argprom.exit.loopexit.i" ]
   %.sroa.0.06.i.ptr = getelementptr inbounds i8, ptr %27, i64 %.sroa.0.06.i.idx
   br label %37
 
@@ -1899,9 +1899,9 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
   %45 = select i1 %43, i8 1, i8 %44
   store i8 %45, ptr %.sroa.0.06.i.ptr.i.i, align 1, !alias.scope !193, !noalias !198
   %46 = icmp eq i64 %.sroa.0.06.i.add.i.i, 64
-  br i1 %46, label %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.exit.loopexit.i", label %37
+  br i1 %46, label %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.argprom.exit.loopexit.i", label %37
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf2989809eb3b9072E.exit": ; preds = %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.exit.loopexit.i"
+"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf2989809eb3b9072E.exit": ; preds = %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.argprom.exit.loopexit.i"
   %47 = getelementptr inbounds i8, ptr %0, i64 4176
   store ptr %1, ptr %47, align 8
   %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4184
@@ -2204,7 +2204,7 @@ switch.lookup:
 .noexc.i:                                         ; preds = %121
   %126 = icmp eq ptr %125, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %50), !noalias !228
-  br i1 %126, label %127, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i"
+  br i1 %126, label %127, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i"
 
 127:                                              ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %49), !noalias !228
@@ -2218,22 +2218,22 @@ switch.lookup:
 .noexc271.i:                                      ; preds = %127
   %132 = icmp eq ptr %131, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %49), !noalias !228
-  br i1 %132, label %133, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i"
+  br i1 %132, label %133, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i"
 
 133:                                              ; preds = %.noexc271.i
   %134 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val264.i, ptr noalias noundef nonnull readonly align 1 %122, i64 noundef %123)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i" unwind label %.loopexit.split-lp.i, !noalias !224
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i" unwind label %.loopexit.split-lp.i, !noalias !224
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i": ; preds = %133
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i": ; preds = %133
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %136, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i"
+  br i1 %135, label %136, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i", %.noexc271.i, %.noexc.i
-  %.0.i309.i = phi ptr [ %134, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i" ], [ %131, %.noexc271.i ], [ %125, %.noexc.i ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i", %.noexc271.i, %.noexc.i
+  %.0.i309.i = phi ptr [ %134, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i" ], [ %131, %.noexc271.i ], [ %125, %.noexc.i ]
   store i8 9, ptr %0, align 8, !alias.scope !219, !noalias !227
   br label %196
 
-136:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i"
+136:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i"
   %137 = icmp ugt i32 %4, 65535
   %138 = trunc nuw i32 %4 to i16
   br i1 %137, label %139, label %140
@@ -2287,7 +2287,7 @@ switch.lookup:
 .noexc279.i:                                      ; preds = %152
   %157 = icmp eq ptr %156, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %48), !noalias !231
-  br i1 %157, label %158, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i"
+  br i1 %157, label %158, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i"
 
 158:                                              ; preds = %.noexc279.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %47), !noalias !231
@@ -2301,17 +2301,17 @@ switch.lookup:
 .noexc280.i:                                      ; preds = %158
   %163 = icmp eq ptr %162, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %47), !noalias !231
-  br i1 %163, label %164, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i"
+  br i1 %163, label %164, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i"
 
 164:                                              ; preds = %.noexc280.i
   %165 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val264.i, ptr noalias noundef nonnull readonly align 1 %153, i64 noundef %154)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i" unwind label %.loopexit.split-lp.i, !noalias !224
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i" unwind label %.loopexit.split-lp.i, !noalias !224
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i": ; preds = %164
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i": ; preds = %164
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %167, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i"
+  br i1 %166, label %167, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i"
 
-167:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i"
+167:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54), !noalias !224
   %168 = getelementptr inbounds i8, ptr %1, i64 40
   %169 = load i64, ptr %168, align 8, !alias.scope !222, !noalias !226, !noundef !4
@@ -2319,8 +2319,8 @@ switch.lookup:
   %170 = icmp eq i64 %169, 2
   br i1 %170, label %172, label %171
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i", %.noexc280.i, %.noexc279.i
-  %.0.i278316.i = phi ptr [ %165, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i" ], [ %162, %.noexc280.i ], [ %156, %.noexc279.i ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i", %.noexc280.i, %.noexc279.i
+  %.0.i278316.i = phi ptr [ %165, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i" ], [ %162, %.noexc280.i ], [ %156, %.noexc279.i ]
   store i8 9, ptr %0, align 8, !alias.scope !219, !noalias !227
   br label %196
 
@@ -2337,9 +2337,9 @@ switch.lookup:
   %175 = getelementptr inbounds i8, ptr %45, i64 1
   br label %176
 
-176:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i", %172
-  %.sroa.0305.0.idx.i = phi i64 [ 0, %172 ], [ %.sroa.0305.0.add.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i" ]
-  %.sroa.8306.0.i = phi i8 [ 0, %172 ], [ %180, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i" ]
+176:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i", %172
+  %.sroa.0305.0.idx.i = phi i64 [ 0, %172 ], [ %.sroa.0305.0.add.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i" ]
+  %.sroa.8306.0.i = phi i8 [ 0, %172 ], [ %180, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i" ]
   %177 = icmp eq i64 %.sroa.0305.0.idx.i, 64
   br i1 %177, label %178, label %179
 
@@ -2357,7 +2357,7 @@ switch.lookup:
 181:                                              ; preds = %178
   %182 = load ptr, ptr %116, align 8, !noalias !224, !nonnull !4, !noundef !4
   %183 = load i64, ptr %117, align 8, !noalias !224, !noundef !4
-  %184 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val264.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %182, i64 noundef %183)
+  %184 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val264.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %182, i64 noundef %183)
           to label %185 unwind label %.loopexit.split-lp.i, !noalias !224
 
 185:                                              ; preds = %181
@@ -2375,7 +2375,7 @@ switch.lookup:
 189:                                              ; preds = %187
   %190 = load ptr, ptr %116, align 8, !noalias !224, !nonnull !4, !noundef !4
   %191 = load i64, ptr %117, align 8, !noalias !224, !noundef !4
-  %192 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val264.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %190, i64 noundef %191)
+  %192 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val264.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %190, i64 noundef %191)
           to label %193 unwind label %.loopexit.split-lp.i, !noalias !224
 
 193:                                              ; preds = %189
@@ -2386,9 +2386,9 @@ switch.lookup:
   store i8 9, ptr %0, align 8, !alias.scope !219, !noalias !227
   br label %196
 
-196:                                              ; preds = %139, %150, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i", %228, %225, %219, %212, %195, %188, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i"
-  %.sink186 = phi i64 [ 32, %139 ], [ 32, %150 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i" ], [ 8, %228 ], [ 8, %225 ], [ 8, %219 ], [ 8, %212 ], [ 8, %195 ], [ 8, %188 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i" ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i" ]
-  %.sink = phi ptr [ null, %139 ], [ null, %150 ], [ %.0.i287322.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i" ], [ %224, %228 ], [ %218, %225 ], [ %214, %219 ], [ %209, %212 ], [ %192, %195 ], [ %184, %188 ], [ %.0.i278316.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i" ], [ %.0.i309.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i" ]
+196:                                              ; preds = %139, %150, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i", %228, %225, %219, %212, %195, %188, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i"
+  %.sink186 = phi i64 [ 32, %139 ], [ 32, %150 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i" ], [ 8, %228 ], [ 8, %225 ], [ 8, %219 ], [ 8, %212 ], [ 8, %195 ], [ 8, %188 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i" ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i" ]
+  %.sink = phi ptr [ null, %139 ], [ null, %150 ], [ %.0.i287322.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i" ], [ %224, %228 ], [ %218, %225 ], [ %214, %219 ], [ %209, %212 ], [ %192, %195 ], [ %184, %188 ], [ %.0.i278316.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i" ], [ %.0.i309.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i" ]
   %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 %.sink186
   store ptr %.sink, ptr %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !219, !noalias !227
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !234
@@ -2421,7 +2421,7 @@ switch.lookup:
 206:                                              ; preds = %205
   %207 = load ptr, ptr %116, align 8, !noalias !224, !nonnull !4, !noundef !4
   %208 = load i64, ptr %117, align 8, !noalias !224, !noundef !4
-  %209 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val264.i, i8 noundef -38, ptr noalias noundef nonnull readonly align 1 %207, i64 noundef %208)
+  %209 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val264.i, i8 noundef -38, ptr noalias noundef nonnull readonly align 1 %207, i64 noundef %208)
           to label %210 unwind label %.loopexit.split-lp.i, !noalias !224
 
 210:                                              ; preds = %206
@@ -2459,24 +2459,24 @@ switch.lookup:
   store i8 -39, ptr %223, align 1, !noalias !224
   %.val.i = load ptr, ptr %111, align 8, !alias.scope !222, !noalias !226, !nonnull !4, !align !5, !noundef !4
   %224 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef 2)
-          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i" unwind label %.loopexit.split-lp.i, !noalias !224
+          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i" unwind label %.loopexit.split-lp.i, !noalias !224
 
 225:                                              ; preds = %220
   store i8 9, ptr %0, align 8, !alias.scope !219, !noalias !227
   br label %196
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i": ; preds = %222
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i": ; preds = %222
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %51), !noalias !224
   %226 = icmp eq ptr %224, null
   br i1 %226, label %227, label %228
 
-227:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i"
+227:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i"
   store i8 10, ptr %0, align 8, !alias.scope !219, !noalias !227
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55), !noalias !224
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55), !noalias !224
   br label %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17hc0f5722732a7abcdE.exit"
 
-228:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i"
+228:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i"
   store i8 9, ptr %0, align 8, !alias.scope !219, !noalias !227
   br label %196
 
@@ -2492,7 +2492,7 @@ switch.lookup:
 .noexc288.i:                                      ; preds = %229
   %233 = icmp eq ptr %232, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %45), !noalias !242
-  br i1 %233, label %234, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i"
+  br i1 %233, label %234, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i"
 
 234:                                              ; preds = %.noexc288.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %44), !noalias !242
@@ -2506,18 +2506,18 @@ switch.lookup:
 .noexc289.i:                                      ; preds = %234
   %239 = icmp eq ptr %238, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %44), !noalias !242
-  br i1 %239, label %240, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i"
+  br i1 %239, label %240, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i"
 
 240:                                              ; preds = %.noexc289.i
   %241 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val264.i, ptr noalias noundef nonnull readonly align 1 %230, i64 noundef %231)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i" unwind label %.loopexit.i, !noalias !224
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i" unwind label %.loopexit.i, !noalias !224
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i": ; preds = %240
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i": ; preds = %240
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %176, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i"
+  br i1 %242, label %176, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i", %.noexc289.i, %.noexc288.i
-  %.0.i287322.i = phi ptr [ %241, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i" ], [ %238, %.noexc289.i ], [ %232, %.noexc288.i ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i", %.noexc289.i, %.noexc288.i
+  %.0.i287322.i = phi ptr [ %241, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i" ], [ %238, %.noexc289.i ], [ %232, %.noexc288.i ]
   store i8 9, ptr %0, align 8, !alias.scope !219, !noalias !227
   br label %196
 
@@ -2613,7 +2613,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc.i51:                                       ; preds = %258
   %263 = icmp eq ptr %262, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %38), !noalias !254
-  br i1 %263, label %264, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i52"
+  br i1 %263, label %264, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i52"
 
 264:                                              ; preds = %.noexc.i51
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %37), !noalias !254
@@ -2627,22 +2627,22 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc271.i57:                                    ; preds = %264
   %269 = icmp eq ptr %268, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %37), !noalias !254
-  br i1 %269, label %270, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i52"
+  br i1 %269, label %270, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i52"
 
 270:                                              ; preds = %.noexc271.i57
   %271 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val264.i45, ptr noalias noundef nonnull readonly align 1 %259, i64 noundef %260)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i58" unwind label %.loopexit.split-lp.i48, !noalias !250
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i58" unwind label %.loopexit.split-lp.i48, !noalias !250
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i58": ; preds = %270
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i58": ; preds = %270
   %272 = icmp eq ptr %271, null
-  br i1 %272, label %273, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i52"
+  br i1 %272, label %273, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i52"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i52": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i58", %.noexc271.i57, %.noexc.i51
-  %.0.i309.i53 = phi ptr [ %271, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i58" ], [ %268, %.noexc271.i57 ], [ %262, %.noexc.i51 ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i52": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i58", %.noexc271.i57, %.noexc.i51
+  %.0.i309.i53 = phi ptr [ %271, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i58" ], [ %268, %.noexc271.i57 ], [ %262, %.noexc.i51 ]
   store i8 9, ptr %0, align 8, !alias.scope !245, !noalias !253
   br label %333
 
-273:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i58"
+273:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i58"
   %274 = icmp ugt i32 %4, 65535
   %275 = trunc nuw i32 %4 to i16
   br i1 %274, label %276, label %277
@@ -2696,7 +2696,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc279.i59:                                    ; preds = %289
   %294 = icmp eq ptr %293, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %36), !noalias !257
-  br i1 %294, label %295, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i60"
+  br i1 %294, label %295, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i60"
 
 295:                                              ; preds = %.noexc279.i59
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %35), !noalias !257
@@ -2710,17 +2710,17 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc280.i63:                                    ; preds = %295
   %300 = icmp eq ptr %299, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %35), !noalias !257
-  br i1 %300, label %301, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i60"
+  br i1 %300, label %301, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i60"
 
 301:                                              ; preds = %.noexc280.i63
   %302 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val264.i45, ptr noalias noundef nonnull readonly align 1 %290, i64 noundef %291)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i64" unwind label %.loopexit.split-lp.i48, !noalias !250
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i64" unwind label %.loopexit.split-lp.i48, !noalias !250
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i64": ; preds = %301
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i64": ; preds = %301
   %303 = icmp eq ptr %302, null
-  br i1 %303, label %304, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i60"
+  br i1 %303, label %304, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i60"
 
-304:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i64"
+304:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i64"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42), !noalias !250
   %305 = getelementptr inbounds i8, ptr %1, i64 40
   %306 = load i64, ptr %305, align 8, !alias.scope !248, !noalias !252, !noundef !4
@@ -2728,8 +2728,8 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %307 = icmp eq i64 %306, 2
   br i1 %307, label %309, label %308
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i60": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i64", %.noexc280.i63, %.noexc279.i59
-  %.0.i278316.i61 = phi ptr [ %302, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.i64" ], [ %299, %.noexc280.i63 ], [ %293, %.noexc279.i59 ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i60": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i64", %.noexc280.i63, %.noexc279.i59
+  %.0.i278316.i61 = phi ptr [ %302, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.i64" ], [ %299, %.noexc280.i63 ], [ %293, %.noexc279.i59 ]
   store i8 9, ptr %0, align 8, !alias.scope !245, !noalias !253
   br label %333
 
@@ -2746,9 +2746,9 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %312 = getelementptr inbounds i8, ptr %33, i64 1
   br label %313
 
-313:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i76", %309
-  %.sroa.0305.0.idx.i65 = phi i64 [ 0, %309 ], [ %.sroa.0305.0.add.i68, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i76" ]
-  %.sroa.8306.0.i66 = phi i8 [ 0, %309 ], [ %317, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i76" ]
+313:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i76", %309
+  %.sroa.0305.0.idx.i65 = phi i64 [ 0, %309 ], [ %.sroa.0305.0.add.i68, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i76" ]
+  %.sroa.8306.0.i66 = phi i8 [ 0, %309 ], [ %317, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i76" ]
   %314 = icmp eq i64 %.sroa.0305.0.idx.i65, 64
   br i1 %314, label %315, label %316
 
@@ -2766,7 +2766,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 318:                                              ; preds = %315
   %319 = load ptr, ptr %253, align 8, !noalias !250, !nonnull !4, !noundef !4
   %320 = load i64, ptr %254, align 8, !noalias !250, !noundef !4
-  %321 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val264.i45, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %319, i64 noundef %320)
+  %321 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val264.i45, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %319, i64 noundef %320)
           to label %322 unwind label %.loopexit.split-lp.i48, !noalias !250
 
 322:                                              ; preds = %318
@@ -2784,7 +2784,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 326:                                              ; preds = %324
   %327 = load ptr, ptr %253, align 8, !noalias !250, !nonnull !4, !noundef !4
   %328 = load i64, ptr %254, align 8, !noalias !250, !noundef !4
-  %329 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val264.i45, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %327, i64 noundef %328)
+  %329 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val264.i45, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %327, i64 noundef %328)
           to label %330 unwind label %.loopexit.split-lp.i48, !noalias !250
 
 330:                                              ; preds = %326
@@ -2795,9 +2795,9 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   store i8 9, ptr %0, align 8, !alias.scope !245, !noalias !253
   br label %333
 
-333:                                              ; preds = %276, %287, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i72", %365, %362, %356, %349, %332, %325, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i60", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i52"
-  %.sink188 = phi i64 [ 32, %276 ], [ 32, %287 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i72" ], [ 8, %365 ], [ 8, %362 ], [ 8, %356 ], [ 8, %349 ], [ 8, %332 ], [ 8, %325 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i60" ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i52" ]
-  %.sink187 = phi ptr [ null, %276 ], [ null, %287 ], [ %.0.i287322.i73, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i72" ], [ %361, %365 ], [ %355, %362 ], [ %351, %356 ], [ %346, %349 ], [ %329, %332 ], [ %321, %325 ], [ %.0.i278316.i61, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit282.thread.i60" ], [ %.0.i309.i53, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i52" ]
+333:                                              ; preds = %276, %287, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i72", %365, %362, %356, %349, %332, %325, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i60", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i52"
+  %.sink188 = phi i64 [ 32, %276 ], [ 32, %287 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i72" ], [ 8, %365 ], [ 8, %362 ], [ 8, %356 ], [ 8, %349 ], [ 8, %332 ], [ 8, %325 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i60" ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i52" ]
+  %.sink187 = phi ptr [ null, %276 ], [ null, %287 ], [ %.0.i287322.i73, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i72" ], [ %361, %365 ], [ %355, %362 ], [ %351, %356 ], [ %346, %349 ], [ %329, %332 ], [ %321, %325 ], [ %.0.i278316.i61, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit282.thread.i60" ], [ %.0.i309.i53, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i52" ]
   %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i89 = getelementptr inbounds i8, ptr %0, i64 %.sink188
   store ptr %.sink187, ptr %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i89, align 8, !alias.scope !245, !noalias !253
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !260
@@ -2830,7 +2830,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 343:                                              ; preds = %342
   %344 = load ptr, ptr %253, align 8, !noalias !250, !nonnull !4, !noundef !4
   %345 = load i64, ptr %254, align 8, !noalias !250, !noundef !4
-  %346 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val264.i45, i8 noundef -38, ptr noalias noundef nonnull readonly align 1 %344, i64 noundef %345)
+  %346 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val264.i45, i8 noundef -38, ptr noalias noundef nonnull readonly align 1 %344, i64 noundef %345)
           to label %347 unwind label %.loopexit.split-lp.i48, !noalias !250
 
 347:                                              ; preds = %343
@@ -2868,24 +2868,24 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   store i8 -39, ptr %360, align 1, !noalias !250
   %.val.i82 = load ptr, ptr %248, align 8, !alias.scope !248, !noalias !252, !nonnull !4, !align !5, !noundef !4
   %361 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i82, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef 2)
-          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i83" unwind label %.loopexit.split-lp.i48, !noalias !250
+          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i83" unwind label %.loopexit.split-lp.i48, !noalias !250
 
 362:                                              ; preds = %357
   store i8 9, ptr %0, align 8, !alias.scope !245, !noalias !253
   br label %333
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i83": ; preds = %359
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i83": ; preds = %359
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %39), !noalias !250
   %363 = icmp eq ptr %361, null
   br i1 %363, label %364, label %365
 
-364:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i83"
+364:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i83"
   store i8 10, ptr %0, align 8, !alias.scope !245, !noalias !253
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %43), !noalias !250
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !250
   br label %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17haf1fde1ebeba54b5E.exit"
 
-365:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i83"
+365:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i83"
   store i8 9, ptr %0, align 8, !alias.scope !245, !noalias !253
   br label %333
 
@@ -2901,7 +2901,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc288.i71:                                    ; preds = %366
   %370 = icmp eq ptr %369, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33), !noalias !267
-  br i1 %370, label %371, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i72"
+  br i1 %370, label %371, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i72"
 
 371:                                              ; preds = %.noexc288.i71
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %32), !noalias !267
@@ -2915,18 +2915,18 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc289.i75:                                    ; preds = %371
   %376 = icmp eq ptr %375, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %32), !noalias !267
-  br i1 %376, label %377, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i72"
+  br i1 %376, label %377, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i72"
 
 377:                                              ; preds = %.noexc289.i75
   %378 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val264.i45, ptr noalias noundef nonnull readonly align 1 %367, i64 noundef %368)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i76" unwind label %.loopexit.i69, !noalias !250
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i76" unwind label %.loopexit.i69, !noalias !250
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i76": ; preds = %377
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i76": ; preds = %377
   %379 = icmp eq ptr %378, null
-  br i1 %379, label %313, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i72"
+  br i1 %379, label %313, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i72"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.thread.i72": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i76", %.noexc289.i75, %.noexc288.i71
-  %.0.i287322.i73 = phi ptr [ %378, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit291.i76" ], [ %375, %.noexc289.i75 ], [ %369, %.noexc288.i71 ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.thread.i72": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i76", %.noexc289.i75, %.noexc288.i71
+  %.0.i287322.i73 = phi ptr [ %378, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit291.i76" ], [ %375, %.noexc289.i75 ], [ %369, %.noexc288.i71 ]
   store i8 9, ptr %0, align 8, !alias.scope !245, !noalias !253
   br label %333
 
@@ -3014,7 +3014,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc.i95:                                       ; preds = %394
   %399 = icmp eq ptr %398, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %26), !noalias !279
-  br i1 %399, label %400, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i96"
+  br i1 %399, label %400, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i96"
 
 400:                                              ; preds = %.noexc.i95
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25), !noalias !279
@@ -3028,22 +3028,22 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc275.i:                                      ; preds = %400
   %405 = icmp eq ptr %404, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25), !noalias !279
-  br i1 %405, label %406, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i96"
+  br i1 %405, label %406, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i96"
 
 406:                                              ; preds = %.noexc275.i
   %407 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val266.i, ptr noalias noundef nonnull readonly align 1 %395, i64 noundef %396)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i100" unwind label %.loopexit.split-lp.i92, !noalias !275
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i100" unwind label %.loopexit.split-lp.i92, !noalias !275
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i100": ; preds = %406
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i100": ; preds = %406
   %408 = icmp eq ptr %407, null
-  br i1 %408, label %409, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i96"
+  br i1 %408, label %409, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i96"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i96": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i100", %.noexc275.i, %.noexc.i95
-  %.0.i313.i = phi ptr [ %407, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i100" ], [ %404, %.noexc275.i ], [ %398, %.noexc.i95 ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i96": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i100", %.noexc275.i, %.noexc.i95
+  %.0.i313.i = phi ptr [ %407, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i100" ], [ %404, %.noexc275.i ], [ %398, %.noexc.i95 ]
   store i8 9, ptr %0, align 8, !alias.scope !270, !noalias !278
   br label %485
 
-409:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i100"
+409:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i100"
   %410 = icmp ugt i32 %4, 65535
   %411 = trunc nuw i32 %4 to i16
   br i1 %410, label %412, label %413
@@ -3097,7 +3097,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc283.i:                                      ; preds = %425
   %430 = icmp eq ptr %429, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24), !noalias !282
-  br i1 %430, label %431, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i"
+  br i1 %430, label %431, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i"
 
 431:                                              ; preds = %.noexc283.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %23), !noalias !282
@@ -3111,17 +3111,17 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc284.i:                                      ; preds = %431
   %436 = icmp eq ptr %435, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23), !noalias !282
-  br i1 %436, label %437, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i"
+  br i1 %436, label %437, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i"
 
 437:                                              ; preds = %.noexc284.i
   %438 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val266.i, ptr noalias noundef nonnull readonly align 1 %426, i64 noundef %427)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i" unwind label %.loopexit.split-lp.i92, !noalias !275
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i" unwind label %.loopexit.split-lp.i92, !noalias !275
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i": ; preds = %437
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i": ; preds = %437
   %439 = icmp eq ptr %438, null
-  br i1 %439, label %440, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i"
+  br i1 %439, label %440, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i"
 
-440:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i"
+440:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30), !noalias !275
   %441 = getelementptr inbounds i8, ptr %1, i64 40
   %442 = load i64, ptr %441, align 8, !alias.scope !273, !noalias !277, !noundef !4
@@ -3129,8 +3129,8 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %443 = icmp eq i64 %442, 2
   br i1 %443, label %445, label %444
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i", %.noexc284.i, %.noexc283.i
-  %.0.i282320.i = phi ptr [ %438, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i" ], [ %435, %.noexc284.i ], [ %429, %.noexc283.i ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i", %.noexc284.i, %.noexc283.i
+  %.0.i282320.i = phi ptr [ %438, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i" ], [ %435, %.noexc284.i ], [ %429, %.noexc283.i ]
   store i8 9, ptr %0, align 8, !alias.scope !270, !noalias !278
   br label %485
 
@@ -3147,9 +3147,9 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %448 = getelementptr inbounds i8, ptr %21, i64 1
   br label %449
 
-449:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i", %445
-  %.sroa.0309.0.idx.i = phi i64 [ 0, %445 ], [ %.sroa.0309.0.add.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i" ]
-  %.sroa.8310.0.i = phi i8 [ 0, %445 ], [ %453, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i" ]
+449:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i", %445
+  %.sroa.0309.0.idx.i = phi i64 [ 0, %445 ], [ %.sroa.0309.0.add.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i" ]
+  %.sroa.8310.0.i = phi i8 [ 0, %445 ], [ %453, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i" ]
   %450 = icmp eq i64 %.sroa.0309.0.idx.i, 128
   br i1 %450, label %451, label %452
 
@@ -3167,7 +3167,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 454:                                              ; preds = %451
   %455 = load ptr, ptr %389, align 8, !noalias !275, !nonnull !4, !noundef !4
   %456 = load i64, ptr %390, align 8, !noalias !275, !noundef !4
-  %457 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %455, i64 noundef %456)
+  %457 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %455, i64 noundef %456)
           to label %458 unwind label %.loopexit.split-lp.i92, !noalias !275
 
 458:                                              ; preds = %454
@@ -3185,7 +3185,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 462:                                              ; preds = %460
   %463 = load ptr, ptr %389, align 8, !noalias !275, !nonnull !4, !noundef !4
   %464 = load i64, ptr %390, align 8, !noalias !275, !noundef !4
-  %465 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %463, i64 noundef %464)
+  %465 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %463, i64 noundef %464)
           to label %466 unwind label %.loopexit.split-lp.i92, !noalias !275
 
 466:                                              ; preds = %462
@@ -3203,7 +3203,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 470:                                              ; preds = %469
   %471 = load ptr, ptr %389, align 8, !noalias !275, !nonnull !4, !noundef !4
   %472 = load i64, ptr %390, align 8, !noalias !275, !noundef !4
-  %473 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %471, i64 noundef %472)
+  %473 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %471, i64 noundef %472)
           to label %474 unwind label %.loopexit.split-lp.i92, !noalias !275
 
 474:                                              ; preds = %470
@@ -3221,7 +3221,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 478:                                              ; preds = %476
   %479 = load ptr, ptr %389, align 8, !noalias !275, !nonnull !4, !noundef !4
   %480 = load i64, ptr %390, align 8, !noalias !275, !noundef !4
-  %481 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %479, i64 noundef %480)
+  %481 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %479, i64 noundef %480)
           to label %482 unwind label %.loopexit.split-lp.i92, !noalias !275
 
 482:                                              ; preds = %478
@@ -3232,9 +3232,9 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   store i8 9, ptr %0, align 8, !alias.scope !270, !noalias !278
   br label %485
 
-485:                                              ; preds = %412, %423, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i", %517, %514, %508, %501, %484, %477, %468, %461, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i96"
-  %.sink190 = phi i64 [ 32, %412 ], [ 32, %423 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i" ], [ 8, %517 ], [ 8, %514 ], [ 8, %508 ], [ 8, %501 ], [ 8, %484 ], [ 8, %477 ], [ 8, %468 ], [ 8, %461 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i" ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i96" ]
-  %.sink189 = phi ptr [ null, %412 ], [ null, %423 ], [ %.0.i291326.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i" ], [ %513, %517 ], [ %507, %514 ], [ %503, %508 ], [ %498, %501 ], [ %481, %484 ], [ %473, %477 ], [ %465, %468 ], [ %457, %461 ], [ %.0.i282320.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i" ], [ %.0.i313.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i96" ]
+485:                                              ; preds = %412, %423, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i", %517, %514, %508, %501, %484, %477, %468, %461, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i96"
+  %.sink190 = phi i64 [ 32, %412 ], [ 32, %423 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i" ], [ 8, %517 ], [ 8, %514 ], [ 8, %508 ], [ 8, %501 ], [ 8, %484 ], [ 8, %477 ], [ 8, %468 ], [ 8, %461 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i" ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i96" ]
+  %.sink189 = phi ptr [ null, %412 ], [ null, %423 ], [ %.0.i291326.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i" ], [ %513, %517 ], [ %507, %514 ], [ %503, %508 ], [ %498, %501 ], [ %481, %484 ], [ %473, %477 ], [ %465, %468 ], [ %457, %461 ], [ %.0.i282320.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i" ], [ %.0.i313.i, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i96" ]
   %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i116 = getelementptr inbounds i8, ptr %0, i64 %.sink190
   store ptr %.sink189, ptr %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i116, align 8, !alias.scope !270, !noalias !278
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !285
@@ -3267,7 +3267,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 495:                                              ; preds = %494
   %496 = load ptr, ptr %389, align 8, !noalias !275, !nonnull !4, !noundef !4
   %497 = load i64, ptr %390, align 8, !noalias !275, !noundef !4
-  %498 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i, i8 noundef -38, ptr noalias noundef nonnull readonly align 1 %496, i64 noundef %497)
+  %498 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i, i8 noundef -38, ptr noalias noundef nonnull readonly align 1 %496, i64 noundef %497)
           to label %499 unwind label %.loopexit.split-lp.i92, !noalias !275
 
 499:                                              ; preds = %495
@@ -3305,24 +3305,24 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   store i8 -39, ptr %512, align 1, !noalias !275
   %.val.i110 = load ptr, ptr %384, align 8, !alias.scope !273, !noalias !277, !nonnull !4, !align !5, !noundef !4
   %513 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i110, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef 2)
-          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i111" unwind label %.loopexit.split-lp.i92, !noalias !275
+          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i111" unwind label %.loopexit.split-lp.i92, !noalias !275
 
 514:                                              ; preds = %509
   store i8 9, ptr %0, align 8, !alias.scope !270, !noalias !278
   br label %485
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i111": ; preds = %511
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i111": ; preds = %511
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %27), !noalias !275
   %515 = icmp eq ptr %513, null
   br i1 %515, label %516, label %517
 
-516:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i111"
+516:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i111"
   store i8 10, ptr %0, align 8, !alias.scope !270, !noalias !278
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31), !noalias !275
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31), !noalias !275
   br label %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17h976f9ead84e54fccE.exit"
 
-517:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i111"
+517:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i111"
   store i8 9, ptr %0, align 8, !alias.scope !270, !noalias !278
   br label %485
 
@@ -3338,7 +3338,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc292.i:                                      ; preds = %518
   %522 = icmp eq ptr %521, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21), !noalias !292
-  br i1 %522, label %523, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i"
+  br i1 %522, label %523, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i"
 
 523:                                              ; preds = %.noexc292.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20), !noalias !292
@@ -3352,18 +3352,18 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc293.i:                                      ; preds = %523
   %528 = icmp eq ptr %527, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20), !noalias !292
-  br i1 %528, label %529, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i"
+  br i1 %528, label %529, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i"
 
 529:                                              ; preds = %.noexc293.i
   %530 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val266.i, ptr noalias noundef nonnull readonly align 1 %519, i64 noundef %520)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i" unwind label %.loopexit.i102, !noalias !275
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i" unwind label %.loopexit.i102, !noalias !275
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i": ; preds = %529
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i": ; preds = %529
   %531 = icmp eq ptr %530, null
-  br i1 %531, label %449, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i"
+  br i1 %531, label %449, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i", %.noexc293.i, %.noexc292.i
-  %.0.i291326.i = phi ptr [ %530, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i" ], [ %527, %.noexc293.i ], [ %521, %.noexc292.i ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i", %.noexc293.i, %.noexc292.i
+  %.0.i291326.i = phi ptr [ %530, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i" ], [ %527, %.noexc293.i ], [ %521, %.noexc292.i ]
   store i8 9, ptr %0, align 8, !alias.scope !270, !noalias !278
   br label %485
 
@@ -3451,7 +3451,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc.i123:                                      ; preds = %546
   %551 = icmp eq ptr %550, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14), !noalias !304
-  br i1 %551, label %552, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i124"
+  br i1 %551, label %552, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i124"
 
 552:                                              ; preds = %.noexc.i123
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13), !noalias !304
@@ -3465,22 +3465,22 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc275.i129:                                   ; preds = %552
   %557 = icmp eq ptr %556, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13), !noalias !304
-  br i1 %557, label %558, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i124"
+  br i1 %557, label %558, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i124"
 
 558:                                              ; preds = %.noexc275.i129
   %559 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val266.i117, ptr noalias noundef nonnull readonly align 1 %547, i64 noundef %548)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i130" unwind label %.loopexit.split-lp.i120, !noalias !300
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i130" unwind label %.loopexit.split-lp.i120, !noalias !300
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i130": ; preds = %558
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i130": ; preds = %558
   %560 = icmp eq ptr %559, null
-  br i1 %560, label %561, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i124"
+  br i1 %560, label %561, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i124"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i124": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i130", %.noexc275.i129, %.noexc.i123
-  %.0.i313.i125 = phi ptr [ %559, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i130" ], [ %556, %.noexc275.i129 ], [ %550, %.noexc.i123 ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i124": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i130", %.noexc275.i129, %.noexc.i123
+  %.0.i313.i125 = phi ptr [ %559, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i130" ], [ %556, %.noexc275.i129 ], [ %550, %.noexc.i123 ]
   store i8 9, ptr %0, align 8, !alias.scope !295, !noalias !303
   br label %637
 
-561:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.i130"
+561:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.i130"
   %562 = icmp ugt i32 %4, 65535
   %563 = trunc nuw i32 %4 to i16
   br i1 %562, label %564, label %565
@@ -3534,7 +3534,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc283.i131:                                   ; preds = %577
   %582 = icmp eq ptr %581, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12), !noalias !307
-  br i1 %582, label %583, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i132"
+  br i1 %582, label %583, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i132"
 
 583:                                              ; preds = %.noexc283.i131
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11), !noalias !307
@@ -3548,17 +3548,17 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc284.i135:                                   ; preds = %583
   %588 = icmp eq ptr %587, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11), !noalias !307
-  br i1 %588, label %589, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i132"
+  br i1 %588, label %589, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i132"
 
 589:                                              ; preds = %.noexc284.i135
   %590 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val266.i117, ptr noalias noundef nonnull readonly align 1 %578, i64 noundef %579)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i136" unwind label %.loopexit.split-lp.i120, !noalias !300
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i136" unwind label %.loopexit.split-lp.i120, !noalias !300
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i136": ; preds = %589
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i136": ; preds = %589
   %591 = icmp eq ptr %590, null
-  br i1 %591, label %592, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i132"
+  br i1 %591, label %592, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i132"
 
-592:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i136"
+592:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i136"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !300
   %593 = getelementptr inbounds i8, ptr %1, i64 40
   %594 = load i64, ptr %593, align 8, !alias.scope !298, !noalias !302, !noundef !4
@@ -3566,8 +3566,8 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %595 = icmp eq i64 %594, 2
   br i1 %595, label %597, label %596
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i132": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i136", %.noexc284.i135, %.noexc283.i131
-  %.0.i282320.i133 = phi ptr [ %590, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.i136" ], [ %587, %.noexc284.i135 ], [ %581, %.noexc283.i131 ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i132": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i136", %.noexc284.i135, %.noexc283.i131
+  %.0.i282320.i133 = phi ptr [ %590, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.i136" ], [ %587, %.noexc284.i135 ], [ %581, %.noexc283.i131 ]
   store i8 9, ptr %0, align 8, !alias.scope !295, !noalias !303
   br label %637
 
@@ -3584,9 +3584,9 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %600 = getelementptr inbounds i8, ptr %9, i64 1
   br label %601
 
-601:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i148", %597
-  %.sroa.0309.0.idx.i137 = phi i64 [ 0, %597 ], [ %.sroa.0309.0.add.i140, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i148" ]
-  %.sroa.8310.0.i138 = phi i8 [ 0, %597 ], [ %605, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i148" ]
+601:                                              ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i148", %597
+  %.sroa.0309.0.idx.i137 = phi i64 [ 0, %597 ], [ %.sroa.0309.0.add.i140, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i148" ]
+  %.sroa.8310.0.i138 = phi i8 [ 0, %597 ], [ %605, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i148" ]
   %602 = icmp eq i64 %.sroa.0309.0.idx.i137, 128
   br i1 %602, label %603, label %604
 
@@ -3604,7 +3604,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 606:                                              ; preds = %603
   %607 = load ptr, ptr %541, align 8, !noalias !300, !nonnull !4, !noundef !4
   %608 = load i64, ptr %542, align 8, !noalias !300, !noundef !4
-  %609 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i117, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %607, i64 noundef %608)
+  %609 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i117, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %607, i64 noundef %608)
           to label %610 unwind label %.loopexit.split-lp.i120, !noalias !300
 
 610:                                              ; preds = %606
@@ -3622,7 +3622,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 614:                                              ; preds = %612
   %615 = load ptr, ptr %541, align 8, !noalias !300, !nonnull !4, !noundef !4
   %616 = load i64, ptr %542, align 8, !noalias !300, !noundef !4
-  %617 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i117, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %615, i64 noundef %616)
+  %617 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i117, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %615, i64 noundef %616)
           to label %618 unwind label %.loopexit.split-lp.i120, !noalias !300
 
 618:                                              ; preds = %614
@@ -3640,7 +3640,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 622:                                              ; preds = %621
   %623 = load ptr, ptr %541, align 8, !noalias !300, !nonnull !4, !noundef !4
   %624 = load i64, ptr %542, align 8, !noalias !300, !noundef !4
-  %625 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i117, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %623, i64 noundef %624)
+  %625 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i117, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %623, i64 noundef %624)
           to label %626 unwind label %.loopexit.split-lp.i120, !noalias !300
 
 626:                                              ; preds = %622
@@ -3658,7 +3658,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 630:                                              ; preds = %628
   %631 = load ptr, ptr %541, align 8, !noalias !300, !nonnull !4, !noundef !4
   %632 = load i64, ptr %542, align 8, !noalias !300, !noundef !4
-  %633 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i117, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %631, i64 noundef %632)
+  %633 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i117, i8 noundef -60, ptr noalias noundef nonnull readonly align 1 %631, i64 noundef %632)
           to label %634 unwind label %.loopexit.split-lp.i120, !noalias !300
 
 634:                                              ; preds = %630
@@ -3669,9 +3669,9 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   store i8 9, ptr %0, align 8, !alias.scope !295, !noalias !303
   br label %637
 
-637:                                              ; preds = %564, %575, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i144", %669, %666, %660, %653, %636, %629, %620, %613, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i132", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i124"
-  %.sink192 = phi i64 [ 32, %564 ], [ 32, %575 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i144" ], [ 8, %669 ], [ 8, %666 ], [ 8, %660 ], [ 8, %653 ], [ 8, %636 ], [ 8, %629 ], [ 8, %620 ], [ 8, %613 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i132" ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i124" ]
-  %.sink191 = phi ptr [ null, %564 ], [ null, %575 ], [ %.0.i291326.i145, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i144" ], [ %665, %669 ], [ %659, %666 ], [ %655, %660 ], [ %650, %653 ], [ %633, %636 ], [ %625, %629 ], [ %617, %620 ], [ %609, %613 ], [ %.0.i282320.i133, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit286.thread.i132" ], [ %.0.i313.i125, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit.thread.i124" ]
+637:                                              ; preds = %564, %575, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i144", %669, %666, %660, %653, %636, %629, %620, %613, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i132", %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i124"
+  %.sink192 = phi i64 [ 32, %564 ], [ 32, %575 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i144" ], [ 8, %669 ], [ 8, %666 ], [ 8, %660 ], [ 8, %653 ], [ 8, %636 ], [ 8, %629 ], [ 8, %620 ], [ 8, %613 ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i132" ], [ 8, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i124" ]
+  %.sink191 = phi ptr [ null, %564 ], [ null, %575 ], [ %.0.i291326.i145, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i144" ], [ %665, %669 ], [ %659, %666 ], [ %655, %660 ], [ %650, %653 ], [ %633, %636 ], [ %625, %629 ], [ %617, %620 ], [ %609, %613 ], [ %.0.i282320.i133, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit286.thread.i132" ], [ %.0.i313.i125, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit.thread.i124" ]
   %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i163 = getelementptr inbounds i8, ptr %0, i64 %.sink192
   store ptr %.sink191, ptr %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i163, align 8, !alias.scope !295, !noalias !303
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !310
@@ -3704,7 +3704,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 647:                                              ; preds = %646
   %648 = load ptr, ptr %541, align 8, !noalias !300, !nonnull !4, !noundef !4
   %649 = load i64, ptr %542, align 8, !noalias !300, !noundef !4
-  %650 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"(ptr %.val266.i117, i8 noundef -38, ptr noalias noundef nonnull readonly align 1 %648, i64 noundef %649)
+  %650 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"(ptr %.val266.i117, i8 noundef -38, ptr noalias noundef nonnull readonly align 1 %648, i64 noundef %649)
           to label %651 unwind label %.loopexit.split-lp.i120, !noalias !300
 
 651:                                              ; preds = %647
@@ -3742,24 +3742,24 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   store i8 -39, ptr %664, align 1, !noalias !300
   %.val.i156 = load ptr, ptr %536, align 8, !alias.scope !298, !noalias !302, !nonnull !4, !align !5, !noundef !4
   %665 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i156, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef 2)
-          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i157" unwind label %.loopexit.split-lp.i120, !noalias !300
+          to label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i157" unwind label %.loopexit.split-lp.i120, !noalias !300
 
 666:                                              ; preds = %661
   store i8 9, ptr %0, align 8, !alias.scope !295, !noalias !303
   br label %637
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i157": ; preds = %663
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i157": ; preds = %663
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15), !noalias !300
   %667 = icmp eq ptr %665, null
   br i1 %667, label %668, label %669
 
-668:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i157"
+668:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i157"
   store i8 10, ptr %0, align 8, !alias.scope !295, !noalias !303
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19), !noalias !300
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !300
   br label %"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17hed3144eb6b3638eaE.exit"
 
-669:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.exit.i157"
+669:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.argprom.exit.i157"
   store i8 9, ptr %0, align 8, !alias.scope !295, !noalias !303
   br label %637
 
@@ -3775,7 +3775,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc292.i143:                                   ; preds = %670
   %674 = icmp eq ptr %673, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9), !noalias !317
-  br i1 %674, label %675, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i144"
+  br i1 %674, label %675, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i144"
 
 675:                                              ; preds = %.noexc292.i143
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8), !noalias !317
@@ -3789,18 +3789,18 @@ common.resume:                                    ; preds = %545, %393, %257, %1
 .noexc293.i147:                                   ; preds = %675
   %680 = icmp eq ptr %679, null
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8), !noalias !317
-  br i1 %680, label %681, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i144"
+  br i1 %680, label %681, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i144"
 
 681:                                              ; preds = %.noexc293.i147
   %682 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val266.i117, ptr noalias noundef nonnull readonly align 1 %671, i64 noundef %672)
-          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i148" unwind label %.loopexit.i141, !noalias !300
+          to label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i148" unwind label %.loopexit.i141, !noalias !300
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i148": ; preds = %681
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i148": ; preds = %681
   %683 = icmp eq ptr %682, null
-  br i1 %683, label %601, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i144"
+  br i1 %683, label %601, label %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i144"
 
-"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.thread.i144": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i148", %.noexc293.i147, %.noexc292.i143
-  %.0.i291326.i145 = phi ptr [ %682, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.exit295.i148" ], [ %679, %.noexc293.i147 ], [ %673, %.noexc292.i143 ]
+"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.thread.i144": ; preds = %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i148", %.noexc293.i147, %.noexc292.i143
+  %.0.i291326.i145 = phi ptr [ %682, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom.exit295.i148" ], [ %679, %.noexc293.i147 ], [ %673, %.noexc292.i143 ]
   store i8 9, ptr %0, align 8, !alias.scope !295, !noalias !303
   br label %637
 
@@ -4205,10 +4205,10 @@ attributes #14 = { cold noreturn nounwind }
 !191 = !{!192}
 !192 = distinct !{!192, !190, !"_ZN5alloc5slice4hack8into_vec17h1d7b2a5c7237db82E: argument 1"}
 !193 = !{!194, !196}
-!194 = distinct !{!194, !195, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he00010fa45734d05E: argument 0"}
-!195 = distinct !{!195, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he00010fa45734d05E"}
-!196 = distinct !{!196, !197, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E: argument 0"}
-!197 = distinct !{!197, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E"}
+!194 = distinct !{!194, !195, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he00010fa45734d05E.argprom: argument 0"}
+!195 = distinct !{!195, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he00010fa45734d05E.argprom"}
+!196 = distinct !{!196, !197, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.argprom: argument 0"}
+!197 = distinct !{!197, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_with_quality28_$u7b$$u7b$closure$u7d$$u7d$17h6561500e558e7043E.argprom"}
 !198 = !{!199, !201}
 !199 = distinct !{!199, !200, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h50b4e7d76d6dd3e4E: argument 0"}
 !200 = distinct !{!200, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h50b4e7d76d6dd3e4E"}
@@ -4240,11 +4240,11 @@ attributes #14 = { cold noreturn nounwind }
 !226 = !{!220, !225}
 !227 = !{!223, !225}
 !228 = !{!229, !220, !223, !225}
-!229 = distinct !{!229, !230, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!230 = distinct !{!230, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!229 = distinct !{!229, !230, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!230 = distinct !{!230, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !231 = !{!232, !220, !223, !225}
-!232 = distinct !{!232, !233, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!233 = distinct !{!233, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!232 = distinct !{!232, !233, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!233 = distinct !{!233, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !234 = !{!235, !237, !239, !220, !223, !225}
 !235 = distinct !{!235, !236, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc117ec7de21c3101E.llvm.17057414408856058071: argument 0"}
 !236 = distinct !{!236, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc117ec7de21c3101E.llvm.17057414408856058071"}
@@ -4254,8 +4254,8 @@ attributes #14 = { cold noreturn nounwind }
 !240 = distinct !{!240, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"}
 !241 = !{i64 0, i64 -9223372036854775807}
 !242 = !{!243, !220, !223, !225}
-!243 = distinct !{!243, !244, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!244 = distinct !{!244, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!243 = distinct !{!243, !244, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!244 = distinct !{!244, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !245 = !{!246}
 !246 = distinct !{!246, !247, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17haf1fde1ebeba54b5E: argument 0"}
 !247 = distinct !{!247, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17haf1fde1ebeba54b5E"}
@@ -4266,11 +4266,11 @@ attributes #14 = { cold noreturn nounwind }
 !252 = !{!246, !251}
 !253 = !{!249, !251}
 !254 = !{!255, !246, !249, !251}
-!255 = distinct !{!255, !256, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!256 = distinct !{!256, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!255 = distinct !{!255, !256, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!256 = distinct !{!256, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !257 = !{!258, !246, !249, !251}
-!258 = distinct !{!258, !259, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!259 = distinct !{!259, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!258 = distinct !{!258, !259, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!259 = distinct !{!259, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !260 = !{!261, !263, !265, !246, !249, !251}
 !261 = distinct !{!261, !262, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc117ec7de21c3101E.llvm.17057414408856058071: argument 0"}
 !262 = distinct !{!262, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc117ec7de21c3101E.llvm.17057414408856058071"}
@@ -4279,8 +4279,8 @@ attributes #14 = { cold noreturn nounwind }
 !265 = distinct !{!265, !266, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE: argument 0"}
 !266 = distinct !{!266, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"}
 !267 = !{!268, !246, !249, !251}
-!268 = distinct !{!268, !269, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!269 = distinct !{!269, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!268 = distinct !{!268, !269, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!269 = distinct !{!269, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !270 = !{!271}
 !271 = distinct !{!271, !272, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17h976f9ead84e54fccE: argument 0"}
 !272 = distinct !{!272, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17h976f9ead84e54fccE"}
@@ -4291,11 +4291,11 @@ attributes #14 = { cold noreturn nounwind }
 !277 = !{!271, !276}
 !278 = !{!274, !276}
 !279 = !{!280, !271, !274, !276}
-!280 = distinct !{!280, !281, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!281 = distinct !{!281, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!280 = distinct !{!280, !281, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!281 = distinct !{!281, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !282 = !{!283, !271, !274, !276}
-!283 = distinct !{!283, !284, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!284 = distinct !{!284, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!283 = distinct !{!283, !284, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!284 = distinct !{!284, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !285 = !{!286, !288, !290, !271, !274, !276}
 !286 = distinct !{!286, !287, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc117ec7de21c3101E.llvm.17057414408856058071: argument 0"}
 !287 = distinct !{!287, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc117ec7de21c3101E.llvm.17057414408856058071"}
@@ -4304,8 +4304,8 @@ attributes #14 = { cold noreturn nounwind }
 !290 = distinct !{!290, !291, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE: argument 0"}
 !291 = distinct !{!291, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"}
 !292 = !{!293, !271, !274, !276}
-!293 = distinct !{!293, !294, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!294 = distinct !{!294, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!293 = distinct !{!293, !294, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!294 = distinct !{!294, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !295 = !{!296}
 !296 = distinct !{!296, !297, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17hed3144eb6b3638eaE: argument 0"}
 !297 = distinct !{!297, !"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$12encode_image17hed3144eb6b3638eaE"}
@@ -4316,11 +4316,11 @@ attributes #14 = { cold noreturn nounwind }
 !302 = !{!296, !301}
 !303 = !{!299, !301}
 !304 = !{!305, !296, !299, !301}
-!305 = distinct !{!305, !306, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!306 = distinct !{!306, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!305 = distinct !{!305, !306, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!306 = distinct !{!306, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !307 = !{!308, !296, !299, !301}
-!308 = distinct !{!308, !309, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!309 = distinct !{!309, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!308 = distinct !{!308, !309, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!309 = distinct !{!309, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}
 !310 = !{!311, !313, !315, !296, !299, !301}
 !311 = distinct !{!311, !312, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc117ec7de21c3101E.llvm.17057414408856058071: argument 0"}
 !312 = distinct !{!312, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc117ec7de21c3101E.llvm.17057414408856058071"}
@@ -4329,5 +4329,5 @@ attributes #14 = { cold noreturn nounwind }
 !315 = distinct !{!315, !316, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE: argument 0"}
 !316 = distinct !{!316, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"}
 !317 = !{!318, !296, !299, !301}
-!318 = distinct !{!318, !319, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E: argument 0"}
-!319 = distinct !{!319, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E"}
+!318 = distinct !{!318, !319, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom: argument 0"}
+!319 = distinct !{!319, !"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$13write_segment17h2a3018e1124a9f01E.argprom"}

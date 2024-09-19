@@ -580,9 +580,9 @@ opal_obj_run_destructors.exit139.i:               ; preds = %.lr.ph.i136.i, %216
 
 226:                                              ; preds = %225, %224
   %.not112.i = icmp eq ptr %.091.i, null
-  br i1 %.not112.i, label %check_components.exit.thread, label %.sink.split.i
+  br i1 %.not112.i, label %check_components.argprom.exit.thread, label %.sink.split.i
 
-check_components.exit.thread:                     ; preds = %226
+check_components.argprom.exit.thread:             ; preds = %226
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %265
@@ -666,26 +666,26 @@ check_components.exit.thread:                     ; preds = %226
 
 263:                                              ; preds = %262, %._crit_edge31.i
   %.not109.i = icmp eq ptr %.091.i, null
-  br i1 %.not109.i, label %check_components.exit, label %.sink.split.i
+  br i1 %.not109.i, label %check_components.argprom.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %263, %226
   %.094.ph.i = phi ptr [ null, %226 ], [ %90, %263 ]
   call void @free(ptr noundef nonnull %.091.i) #9
-  br label %check_components.exit
+  br label %check_components.argprom.exit
 
-check_components.exit:                            ; preds = %263, %.sink.split.i
+check_components.argprom.exit:                    ; preds = %263, %.sink.split.i
   %.094.i = phi ptr [ %90, %263 ], [ %.094.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %264 = icmp eq ptr %.094.i, null
   br i1 %264, label %265, label %268
 
-265:                                              ; preds = %check_components.exit.thread, %check_components.exit
+265:                                              ; preds = %check_components.argprom.exit.thread, %check_components.argprom.exit
   %266 = load ptr, ptr @opal_show_help, align 8
   %267 = call i32 (ptr, ptr, i32, ...) %266(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1) #9
   br label %4024
 
-268:                                              ; preds = %check_components.exit
+268:                                              ; preds = %check_components.argprom.exit
   %269 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
   %270 = call noalias ptr @malloc(i64 noundef %269) #11
   %271 = load i32, ptr @opal_class_init_epoch, align 4

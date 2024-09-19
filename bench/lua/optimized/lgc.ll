@@ -515,7 +515,7 @@ if.else:                                          ; preds = %if.then
   %g.val.i = load i8, ptr %3, align 4
   %4 = and i8 %g.val.i, 24
   %cmp.not1.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not1.i.i, label %whitelist.exit.i, label %for.body.i.i
+  br i1 %cmp.not1.i.i, label %whitelist.argprom.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.else, %for.body.i.i
   %p.addr.02.i.i = phi ptr [ %7, %for.body.i.i ], [ %2, %if.else ]
@@ -526,24 +526,24 @@ for.body.i.i:                                     ; preds = %if.else, %for.body.
   store i8 %or4.i.i, ptr %marked.i.i, align 1
   %7 = load ptr, ptr %p.addr.02.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i, label %whitelist.exit.loopexit.i, label %for.body.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i, label %whitelist.argprom.exit.loopexit.i, label %for.body.i.i, !llvm.loop !9
 
-whitelist.exit.loopexit.i:                        ; preds = %for.body.i.i
+whitelist.argprom.exit.loopexit.i:                ; preds = %for.body.i.i
   %g.val15.pre.i = load i8, ptr %3, align 4
   %.pre.i = and i8 %g.val15.pre.i, 24
-  br label %whitelist.exit.i
+  br label %whitelist.argprom.exit.i
 
-whitelist.exit.i:                                 ; preds = %whitelist.exit.loopexit.i, %if.else
-  %.pre-phi.i = phi i8 [ %.pre.i, %whitelist.exit.loopexit.i ], [ %4, %if.else ]
+whitelist.argprom.exit.i:                         ; preds = %whitelist.argprom.exit.loopexit.i, %if.else
+  %.pre-phi.i = phi i8 [ %.pre.i, %whitelist.argprom.exit.loopexit.i ], [ %4, %if.else ]
   %survival.i = getelementptr inbounds i8, ptr %0, i64 192
   %finobj.i = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %survival.i, i8 0, i64 24, i1 false)
   %8 = load ptr, ptr %finobj.i, align 8
   %cmp.not1.i17.i = icmp eq ptr %8, null
-  br i1 %cmp.not1.i17.i, label %whitelist.exit23.i, label %for.body.i18.i
+  br i1 %cmp.not1.i17.i, label %whitelist.argprom.exit23.i, label %for.body.i18.i
 
-for.body.i18.i:                                   ; preds = %whitelist.exit.i, %for.body.i18.i
-  %p.addr.02.i19.i = phi ptr [ %11, %for.body.i18.i ], [ %8, %whitelist.exit.i ]
+for.body.i18.i:                                   ; preds = %whitelist.argprom.exit.i, %for.body.i18.i
+  %p.addr.02.i19.i = phi ptr [ %11, %for.body.i18.i ], [ %8, %whitelist.argprom.exit.i ]
   %marked.i20.i = getelementptr inbounds i8, ptr %p.addr.02.i19.i, i64 9
   %9 = load i8, ptr %marked.i20.i, align 1
   %10 = and i8 %9, -64
@@ -551,22 +551,22 @@ for.body.i18.i:                                   ; preds = %whitelist.exit.i, %
   store i8 %or4.i21.i, ptr %marked.i20.i, align 1
   %11 = load ptr, ptr %p.addr.02.i19.i, align 8
   %cmp.not.i22.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i22.i, label %whitelist.exit23.loopexit.i, label %for.body.i18.i, !llvm.loop !9
+  br i1 %cmp.not.i22.i, label %whitelist.argprom.exit23.loopexit.i, label %for.body.i18.i, !llvm.loop !9
 
-whitelist.exit23.loopexit.i:                      ; preds = %for.body.i18.i
+whitelist.argprom.exit23.loopexit.i:              ; preds = %for.body.i18.i
   %g.val16.pre.i = load i8, ptr %3, align 4
   %.pre33.i = and i8 %g.val16.pre.i, 24
-  br label %whitelist.exit23.i
+  br label %whitelist.argprom.exit23.i
 
-whitelist.exit23.i:                               ; preds = %whitelist.exit23.loopexit.i, %whitelist.exit.i
-  %.pre-phi34.i = phi i8 [ %.pre33.i, %whitelist.exit23.loopexit.i ], [ %.pre-phi.i, %whitelist.exit.i ]
+whitelist.argprom.exit23.i:                       ; preds = %whitelist.argprom.exit23.loopexit.i, %whitelist.argprom.exit.i
+  %.pre-phi34.i = phi i8 [ %.pre33.i, %whitelist.argprom.exit23.loopexit.i ], [ %.pre-phi.i, %whitelist.argprom.exit.i ]
   %tobefnz.i = getelementptr inbounds i8, ptr %0, i64 176
   %12 = load ptr, ptr %tobefnz.i, align 8
   %cmp.not1.i24.i = icmp eq ptr %12, null
   br i1 %cmp.not1.i24.i, label %enterinc.exit, label %for.body.i25.i
 
-for.body.i25.i:                                   ; preds = %whitelist.exit23.i, %for.body.i25.i
-  %p.addr.02.i26.i = phi ptr [ %15, %for.body.i25.i ], [ %12, %whitelist.exit23.i ]
+for.body.i25.i:                                   ; preds = %whitelist.argprom.exit23.i, %for.body.i25.i
+  %p.addr.02.i26.i = phi ptr [ %15, %for.body.i25.i ], [ %12, %whitelist.argprom.exit23.i ]
   %marked.i27.i = getelementptr inbounds i8, ptr %p.addr.02.i26.i, i64 9
   %13 = load i8, ptr %marked.i27.i, align 1
   %14 = and i8 %13, -64
@@ -576,7 +576,7 @@ for.body.i25.i:                                   ; preds = %whitelist.exit23.i,
   %cmp.not.i29.i = icmp eq ptr %15, null
   br i1 %cmp.not.i29.i, label %enterinc.exit, label %for.body.i25.i, !llvm.loop !9
 
-enterinc.exit:                                    ; preds = %for.body.i25.i, %whitelist.exit23.i
+enterinc.exit:                                    ; preds = %for.body.i25.i, %whitelist.argprom.exit23.i
   %finobjsur.i = getelementptr inbounds i8, ptr %0, i64 224
   %gcstate.i = getelementptr inbounds i8, ptr %0, i64 101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finobjsur.i, i8 0, i64 24, i1 false)
@@ -662,7 +662,7 @@ if.then.i:                                        ; preds = %entry
   %g.val.i.i = load i8, ptr %4, align 4
   %5 = and i8 %g.val.i.i, 24
   %cmp.not1.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not1.i.i.i, label %whitelist.exit.i.i, label %for.body.i.i.i
+  br i1 %cmp.not1.i.i.i, label %whitelist.argprom.exit.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then.i, %for.body.i.i.i
   %p.addr.02.i.i.i = phi ptr [ %8, %for.body.i.i.i ], [ %3, %if.then.i ]
@@ -673,24 +673,24 @@ for.body.i.i.i:                                   ; preds = %if.then.i, %for.bod
   store i8 %or4.i.i.i, ptr %marked.i.i.i, align 1
   %8 = load ptr, ptr %p.addr.02.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i.i, label %whitelist.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %whitelist.argprom.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !9
 
-whitelist.exit.loopexit.i.i:                      ; preds = %for.body.i.i.i
+whitelist.argprom.exit.loopexit.i.i:              ; preds = %for.body.i.i.i
   %g.val15.pre.i.i = load i8, ptr %4, align 4
   %.pre.i.i = and i8 %g.val15.pre.i.i, 24
-  br label %whitelist.exit.i.i
+  br label %whitelist.argprom.exit.i.i
 
-whitelist.exit.i.i:                               ; preds = %whitelist.exit.loopexit.i.i, %if.then.i
-  %.pre-phi.i.i = phi i8 [ %.pre.i.i, %whitelist.exit.loopexit.i.i ], [ %5, %if.then.i ]
+whitelist.argprom.exit.i.i:                       ; preds = %whitelist.argprom.exit.loopexit.i.i, %if.then.i
+  %.pre-phi.i.i = phi i8 [ %.pre.i.i, %whitelist.argprom.exit.loopexit.i.i ], [ %5, %if.then.i ]
   %survival.i.i = getelementptr inbounds i8, ptr %1, i64 192
   %finobj.i.i = getelementptr inbounds i8, ptr %1, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %survival.i.i, i8 0, i64 24, i1 false)
   %9 = load ptr, ptr %finobj.i.i, align 8
   %cmp.not1.i17.i.i = icmp eq ptr %9, null
-  br i1 %cmp.not1.i17.i.i, label %whitelist.exit23.i.i, label %for.body.i18.i.i
+  br i1 %cmp.not1.i17.i.i, label %whitelist.argprom.exit23.i.i, label %for.body.i18.i.i
 
-for.body.i18.i.i:                                 ; preds = %whitelist.exit.i.i, %for.body.i18.i.i
-  %p.addr.02.i19.i.i = phi ptr [ %12, %for.body.i18.i.i ], [ %9, %whitelist.exit.i.i ]
+for.body.i18.i.i:                                 ; preds = %whitelist.argprom.exit.i.i, %for.body.i18.i.i
+  %p.addr.02.i19.i.i = phi ptr [ %12, %for.body.i18.i.i ], [ %9, %whitelist.argprom.exit.i.i ]
   %marked.i20.i.i = getelementptr inbounds i8, ptr %p.addr.02.i19.i.i, i64 9
   %10 = load i8, ptr %marked.i20.i.i, align 1
   %11 = and i8 %10, -64
@@ -698,22 +698,22 @@ for.body.i18.i.i:                                 ; preds = %whitelist.exit.i.i,
   store i8 %or4.i21.i.i, ptr %marked.i20.i.i, align 1
   %12 = load ptr, ptr %p.addr.02.i19.i.i, align 8
   %cmp.not.i22.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i22.i.i, label %whitelist.exit23.loopexit.i.i, label %for.body.i18.i.i, !llvm.loop !9
+  br i1 %cmp.not.i22.i.i, label %whitelist.argprom.exit23.loopexit.i.i, label %for.body.i18.i.i, !llvm.loop !9
 
-whitelist.exit23.loopexit.i.i:                    ; preds = %for.body.i18.i.i
+whitelist.argprom.exit23.loopexit.i.i:            ; preds = %for.body.i18.i.i
   %g.val16.pre.i.i = load i8, ptr %4, align 4
   %.pre33.i.i = and i8 %g.val16.pre.i.i, 24
-  br label %whitelist.exit23.i.i
+  br label %whitelist.argprom.exit23.i.i
 
-whitelist.exit23.i.i:                             ; preds = %whitelist.exit23.loopexit.i.i, %whitelist.exit.i.i
-  %.pre-phi34.i.i = phi i8 [ %.pre33.i.i, %whitelist.exit23.loopexit.i.i ], [ %.pre-phi.i.i, %whitelist.exit.i.i ]
+whitelist.argprom.exit23.i.i:                     ; preds = %whitelist.argprom.exit23.loopexit.i.i, %whitelist.argprom.exit.i.i
+  %.pre-phi34.i.i = phi i8 [ %.pre33.i.i, %whitelist.argprom.exit23.loopexit.i.i ], [ %.pre-phi.i.i, %whitelist.argprom.exit.i.i ]
   %tobefnz.i.i = getelementptr inbounds i8, ptr %1, i64 176
   %13 = load ptr, ptr %tobefnz.i.i, align 8
   %cmp.not1.i24.i.i = icmp eq ptr %13, null
   br i1 %cmp.not1.i24.i.i, label %enterinc.exit.i, label %for.body.i25.i.i
 
-for.body.i25.i.i:                                 ; preds = %whitelist.exit23.i.i, %for.body.i25.i.i
-  %p.addr.02.i26.i.i = phi ptr [ %16, %for.body.i25.i.i ], [ %13, %whitelist.exit23.i.i ]
+for.body.i25.i.i:                                 ; preds = %whitelist.argprom.exit23.i.i, %for.body.i25.i.i
+  %p.addr.02.i26.i.i = phi ptr [ %16, %for.body.i25.i.i ], [ %13, %whitelist.argprom.exit23.i.i ]
   %marked.i27.i.i = getelementptr inbounds i8, ptr %p.addr.02.i26.i.i, i64 9
   %14 = load i8, ptr %marked.i27.i.i, align 1
   %15 = and i8 %14, -64
@@ -723,7 +723,7 @@ for.body.i25.i.i:                                 ; preds = %whitelist.exit23.i.
   %cmp.not.i29.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i29.i.i, label %enterinc.exit.i, label %for.body.i25.i.i, !llvm.loop !9
 
-enterinc.exit.i:                                  ; preds = %for.body.i25.i.i, %whitelist.exit23.i.i
+enterinc.exit.i:                                  ; preds = %for.body.i25.i.i, %whitelist.argprom.exit23.i.i
   %finobjsur.i.i = getelementptr inbounds i8, ptr %1, i64 224
   %gcstate.i.i = getelementptr inbounds i8, ptr %1, i64 101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finobjsur.i.i, i8 0, i64 24, i1 false)
@@ -1368,7 +1368,7 @@ if.then.i.i:                                      ; preds = %if.then7
   %g.val.i.i.i = load i8, ptr %5, align 4
   %6 = and i8 %g.val.i.i.i, 24
   %cmp.not1.i.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not1.i.i.i.i, label %whitelist.exit.i.i.i, label %for.body.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i, label %whitelist.argprom.exit.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i, %for.body.i.i.i.i
   %p.addr.02.i.i.i.i = phi ptr [ %9, %for.body.i.i.i.i ], [ %4, %if.then.i.i ]
@@ -1379,24 +1379,24 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i, %for.b
   store i8 %or4.i.i.i.i, ptr %marked.i.i.i.i, align 1
   %9 = load ptr, ptr %p.addr.02.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %9, null
-  br i1 %cmp.not.i.i.i.i, label %whitelist.exit.loopexit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i, label %whitelist.argprom.exit.loopexit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !9
 
-whitelist.exit.loopexit.i.i.i:                    ; preds = %for.body.i.i.i.i
+whitelist.argprom.exit.loopexit.i.i.i:            ; preds = %for.body.i.i.i.i
   %g.val15.pre.i.i.i = load i8, ptr %5, align 4
   %.pre.i.i.i = and i8 %g.val15.pre.i.i.i, 24
-  br label %whitelist.exit.i.i.i
+  br label %whitelist.argprom.exit.i.i.i
 
-whitelist.exit.i.i.i:                             ; preds = %whitelist.exit.loopexit.i.i.i, %if.then.i.i
-  %.pre-phi.i.i.i = phi i8 [ %.pre.i.i.i, %whitelist.exit.loopexit.i.i.i ], [ %6, %if.then.i.i ]
+whitelist.argprom.exit.i.i.i:                     ; preds = %whitelist.argprom.exit.loopexit.i.i.i, %if.then.i.i
+  %.pre-phi.i.i.i = phi i8 [ %.pre.i.i.i, %whitelist.argprom.exit.loopexit.i.i.i ], [ %6, %if.then.i.i ]
   %survival.i.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %finobj.i.i.i = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %survival.i.i.i, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %finobj.i.i.i, align 8
   %cmp.not1.i17.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not1.i17.i.i.i, label %whitelist.exit23.i.i.i, label %for.body.i18.i.i.i
+  br i1 %cmp.not1.i17.i.i.i, label %whitelist.argprom.exit23.i.i.i, label %for.body.i18.i.i.i
 
-for.body.i18.i.i.i:                               ; preds = %whitelist.exit.i.i.i, %for.body.i18.i.i.i
-  %p.addr.02.i19.i.i.i = phi ptr [ %13, %for.body.i18.i.i.i ], [ %10, %whitelist.exit.i.i.i ]
+for.body.i18.i.i.i:                               ; preds = %whitelist.argprom.exit.i.i.i, %for.body.i18.i.i.i
+  %p.addr.02.i19.i.i.i = phi ptr [ %13, %for.body.i18.i.i.i ], [ %10, %whitelist.argprom.exit.i.i.i ]
   %marked.i20.i.i.i = getelementptr inbounds i8, ptr %p.addr.02.i19.i.i.i, i64 9
   %11 = load i8, ptr %marked.i20.i.i.i, align 1
   %12 = and i8 %11, -64
@@ -1404,22 +1404,22 @@ for.body.i18.i.i.i:                               ; preds = %whitelist.exit.i.i.
   store i8 %or4.i21.i.i.i, ptr %marked.i20.i.i.i, align 1
   %13 = load ptr, ptr %p.addr.02.i19.i.i.i, align 8
   %cmp.not.i22.i.i.i = icmp eq ptr %13, null
-  br i1 %cmp.not.i22.i.i.i, label %whitelist.exit23.loopexit.i.i.i, label %for.body.i18.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i22.i.i.i, label %whitelist.argprom.exit23.loopexit.i.i.i, label %for.body.i18.i.i.i, !llvm.loop !9
 
-whitelist.exit23.loopexit.i.i.i:                  ; preds = %for.body.i18.i.i.i
+whitelist.argprom.exit23.loopexit.i.i.i:          ; preds = %for.body.i18.i.i.i
   %g.val16.pre.i.i.i = load i8, ptr %5, align 4
   %.pre33.i.i.i = and i8 %g.val16.pre.i.i.i, 24
-  br label %whitelist.exit23.i.i.i
+  br label %whitelist.argprom.exit23.i.i.i
 
-whitelist.exit23.i.i.i:                           ; preds = %whitelist.exit23.loopexit.i.i.i, %whitelist.exit.i.i.i
-  %.pre-phi34.i.i.i = phi i8 [ %.pre33.i.i.i, %whitelist.exit23.loopexit.i.i.i ], [ %.pre-phi.i.i.i, %whitelist.exit.i.i.i ]
+whitelist.argprom.exit23.i.i.i:                   ; preds = %whitelist.argprom.exit23.loopexit.i.i.i, %whitelist.argprom.exit.i.i.i
+  %.pre-phi34.i.i.i = phi i8 [ %.pre33.i.i.i, %whitelist.argprom.exit23.loopexit.i.i.i ], [ %.pre-phi.i.i.i, %whitelist.argprom.exit.i.i.i ]
   %tobefnz.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %14 = load ptr, ptr %tobefnz.i.i.i, align 8
   %cmp.not1.i24.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not1.i24.i.i.i, label %enterinc.exit.i.i, label %for.body.i25.i.i.i
 
-for.body.i25.i.i.i:                               ; preds = %whitelist.exit23.i.i.i, %for.body.i25.i.i.i
-  %p.addr.02.i26.i.i.i = phi ptr [ %17, %for.body.i25.i.i.i ], [ %14, %whitelist.exit23.i.i.i ]
+for.body.i25.i.i.i:                               ; preds = %whitelist.argprom.exit23.i.i.i, %for.body.i25.i.i.i
+  %p.addr.02.i26.i.i.i = phi ptr [ %17, %for.body.i25.i.i.i ], [ %14, %whitelist.argprom.exit23.i.i.i ]
   %marked.i27.i.i.i = getelementptr inbounds i8, ptr %p.addr.02.i26.i.i.i, i64 9
   %15 = load i8, ptr %marked.i27.i.i.i, align 1
   %16 = and i8 %15, -64
@@ -1429,7 +1429,7 @@ for.body.i25.i.i.i:                               ; preds = %whitelist.exit23.i.
   %cmp.not.i29.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i29.i.i.i, label %enterinc.exit.i.i, label %for.body.i25.i.i.i, !llvm.loop !9
 
-enterinc.exit.i.i:                                ; preds = %for.body.i25.i.i.i, %whitelist.exit23.i.i.i
+enterinc.exit.i.i:                                ; preds = %for.body.i25.i.i.i, %whitelist.argprom.exit23.i.i.i
   %finobjsur.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
   %gcstate.i.i.i = getelementptr inbounds i8, ptr %0, i64 101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finobjsur.i.i.i, i8 0, i64 24, i1 false)
@@ -1592,7 +1592,7 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
   %g.val.i.i23.i = load i8, ptr %50, align 4
   %51 = and i8 %g.val.i.i23.i, 24
   %cmp.not1.i.i.i24.i = icmp eq ptr %49, null
-  br i1 %cmp.not1.i.i.i24.i, label %whitelist.exit.i.i33.i, label %for.body.i.i.i25.i
+  br i1 %cmp.not1.i.i.i24.i, label %whitelist.argprom.exit.i.i33.i, label %for.body.i.i.i25.i
 
 for.body.i.i.i25.i:                               ; preds = %if.then9.i, %for.body.i.i.i25.i
   %p.addr.02.i.i.i26.i = phi ptr [ %54, %for.body.i.i.i25.i ], [ %49, %if.then9.i ]
@@ -1603,24 +1603,24 @@ for.body.i.i.i25.i:                               ; preds = %if.then9.i, %for.bo
   store i8 %or4.i.i.i28.i, ptr %marked.i.i.i27.i, align 1
   %54 = load ptr, ptr %p.addr.02.i.i.i26.i, align 8
   %cmp.not.i.i.i29.i = icmp eq ptr %54, null
-  br i1 %cmp.not.i.i.i29.i, label %whitelist.exit.loopexit.i.i30.i, label %for.body.i.i.i25.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i29.i, label %whitelist.argprom.exit.loopexit.i.i30.i, label %for.body.i.i.i25.i, !llvm.loop !9
 
-whitelist.exit.loopexit.i.i30.i:                  ; preds = %for.body.i.i.i25.i
+whitelist.argprom.exit.loopexit.i.i30.i:          ; preds = %for.body.i.i.i25.i
   %g.val15.pre.i.i31.i = load i8, ptr %50, align 4
   %.pre.i.i32.i = and i8 %g.val15.pre.i.i31.i, 24
-  br label %whitelist.exit.i.i33.i
+  br label %whitelist.argprom.exit.i.i33.i
 
-whitelist.exit.i.i33.i:                           ; preds = %whitelist.exit.loopexit.i.i30.i, %if.then9.i
-  %.pre-phi.i.i34.i = phi i8 [ %.pre.i.i32.i, %whitelist.exit.loopexit.i.i30.i ], [ %51, %if.then9.i ]
+whitelist.argprom.exit.i.i33.i:                   ; preds = %whitelist.argprom.exit.loopexit.i.i30.i, %if.then9.i
+  %.pre-phi.i.i34.i = phi i8 [ %.pre.i.i32.i, %whitelist.argprom.exit.loopexit.i.i30.i ], [ %51, %if.then9.i ]
   %survival.i.i35.i = getelementptr inbounds i8, ptr %0, i64 192
   %finobj.i.i36.i = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %survival.i.i35.i, i8 0, i64 24, i1 false)
   %55 = load ptr, ptr %finobj.i.i36.i, align 8
   %cmp.not1.i17.i.i37.i = icmp eq ptr %55, null
-  br i1 %cmp.not1.i17.i.i37.i, label %whitelist.exit23.i.i46.i, label %for.body.i18.i.i38.i
+  br i1 %cmp.not1.i17.i.i37.i, label %whitelist.argprom.exit23.i.i46.i, label %for.body.i18.i.i38.i
 
-for.body.i18.i.i38.i:                             ; preds = %whitelist.exit.i.i33.i, %for.body.i18.i.i38.i
-  %p.addr.02.i19.i.i39.i = phi ptr [ %58, %for.body.i18.i.i38.i ], [ %55, %whitelist.exit.i.i33.i ]
+for.body.i18.i.i38.i:                             ; preds = %whitelist.argprom.exit.i.i33.i, %for.body.i18.i.i38.i
+  %p.addr.02.i19.i.i39.i = phi ptr [ %58, %for.body.i18.i.i38.i ], [ %55, %whitelist.argprom.exit.i.i33.i ]
   %marked.i20.i.i40.i = getelementptr inbounds i8, ptr %p.addr.02.i19.i.i39.i, i64 9
   %56 = load i8, ptr %marked.i20.i.i40.i, align 1
   %57 = and i8 %56, -64
@@ -1628,22 +1628,22 @@ for.body.i18.i.i38.i:                             ; preds = %whitelist.exit.i.i3
   store i8 %or4.i21.i.i41.i, ptr %marked.i20.i.i40.i, align 1
   %58 = load ptr, ptr %p.addr.02.i19.i.i39.i, align 8
   %cmp.not.i22.i.i42.i = icmp eq ptr %58, null
-  br i1 %cmp.not.i22.i.i42.i, label %whitelist.exit23.loopexit.i.i43.i, label %for.body.i18.i.i38.i, !llvm.loop !9
+  br i1 %cmp.not.i22.i.i42.i, label %whitelist.argprom.exit23.loopexit.i.i43.i, label %for.body.i18.i.i38.i, !llvm.loop !9
 
-whitelist.exit23.loopexit.i.i43.i:                ; preds = %for.body.i18.i.i38.i
+whitelist.argprom.exit23.loopexit.i.i43.i:        ; preds = %for.body.i18.i.i38.i
   %g.val16.pre.i.i44.i = load i8, ptr %50, align 4
   %.pre33.i.i45.i = and i8 %g.val16.pre.i.i44.i, 24
-  br label %whitelist.exit23.i.i46.i
+  br label %whitelist.argprom.exit23.i.i46.i
 
-whitelist.exit23.i.i46.i:                         ; preds = %whitelist.exit23.loopexit.i.i43.i, %whitelist.exit.i.i33.i
-  %.pre-phi34.i.i47.i = phi i8 [ %.pre33.i.i45.i, %whitelist.exit23.loopexit.i.i43.i ], [ %.pre-phi.i.i34.i, %whitelist.exit.i.i33.i ]
+whitelist.argprom.exit23.i.i46.i:                 ; preds = %whitelist.argprom.exit23.loopexit.i.i43.i, %whitelist.argprom.exit.i.i33.i
+  %.pre-phi34.i.i47.i = phi i8 [ %.pre33.i.i45.i, %whitelist.argprom.exit23.loopexit.i.i43.i ], [ %.pre-phi.i.i34.i, %whitelist.argprom.exit.i.i33.i ]
   %tobefnz.i.i48.i = getelementptr inbounds i8, ptr %0, i64 176
   %59 = load ptr, ptr %tobefnz.i.i48.i, align 8
   %cmp.not1.i24.i.i49.i = icmp eq ptr %59, null
   br i1 %cmp.not1.i24.i.i49.i, label %fullgen.exit.i, label %for.body.i25.i.i50.i
 
-for.body.i25.i.i50.i:                             ; preds = %whitelist.exit23.i.i46.i, %for.body.i25.i.i50.i
-  %p.addr.02.i26.i.i51.i = phi ptr [ %62, %for.body.i25.i.i50.i ], [ %59, %whitelist.exit23.i.i46.i ]
+for.body.i25.i.i50.i:                             ; preds = %whitelist.argprom.exit23.i.i46.i, %for.body.i25.i.i50.i
+  %p.addr.02.i26.i.i51.i = phi ptr [ %62, %for.body.i25.i.i50.i ], [ %59, %whitelist.argprom.exit23.i.i46.i ]
   %marked.i27.i.i52.i = getelementptr inbounds i8, ptr %p.addr.02.i26.i.i51.i, i64 9
   %60 = load i8, ptr %marked.i27.i.i52.i, align 1
   %61 = and i8 %60, -64
@@ -1653,7 +1653,7 @@ for.body.i25.i.i50.i:                             ; preds = %whitelist.exit23.i.
   %cmp.not.i29.i.i54.i = icmp eq ptr %62, null
   br i1 %cmp.not.i29.i.i54.i, label %fullgen.exit.i, label %for.body.i25.i.i50.i, !llvm.loop !9
 
-fullgen.exit.i:                                   ; preds = %for.body.i25.i.i50.i, %whitelist.exit23.i.i46.i
+fullgen.exit.i:                                   ; preds = %for.body.i25.i.i50.i, %whitelist.argprom.exit23.i.i46.i
   %finobjsur.i.i56.i = getelementptr inbounds i8, ptr %0, i64 224
   %gcstate.i.i57.i = getelementptr inbounds i8, ptr %0, i64 101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finobjsur.i.i56.i, i8 0, i64 24, i1 false)
@@ -1798,7 +1798,7 @@ markold.exit72.i.i:                               ; preds = %for.inc.i66.i.i, %m
   %85 = getelementptr i8, ptr %0, i64 100
   %86 = load ptr, ptr %allgc.i.i, align 8
   %cmp.not1.i.i.i = icmp eq ptr %86, %84
-  br i1 %cmp.not1.i.i.i, label %sweepgen.exit.i.i, label %while.body.lr.ph.i.i.i
+  br i1 %cmp.not1.i.i.i, label %sweepgen.argprom.exit.i.i, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %markold.exit72.i.i
   %g.val.i.i = load i8, ptr %85, align 4
@@ -1856,17 +1856,17 @@ if.end40.i.i.i:                                   ; preds = %if.then37.i.i.i, %l
   %p.addr.1.i.i.i = phi ptr [ %p.addr.02.i.i.i, %if.then.i75.i.i ], [ %88, %if.else19.i.i.i ], [ %88, %land.lhs.true.i.i.i ], [ %88, %if.then37.i.i.i ], [ %88, %if.then11.i.i.i ]
   %93 = load ptr, ptr %p.addr.1.i.i.i, align 8
   %cmp.not.i76.i.i = icmp eq ptr %93, %84
-  br i1 %cmp.not.i76.i.i, label %sweepgen.exit.i.i, label %while.body.i.i67.i, !llvm.loop !19
+  br i1 %cmp.not.i76.i.i, label %sweepgen.argprom.exit.i.i, label %while.body.i.i67.i, !llvm.loop !19
 
-sweepgen.exit.i.i:                                ; preds = %if.end40.i.i.i, %markold.exit72.i.i
+sweepgen.argprom.exit.i.i:                        ; preds = %if.end40.i.i.i, %markold.exit72.i.i
   %94 = phi ptr [ %86, %markold.exit72.i.i ], [ %93, %if.end40.i.i.i ]
   %p.addr.0.lcssa.i.i.i = phi ptr [ %allgc.i.i, %markold.exit72.i.i ], [ %p.addr.1.i.i.i, %if.end40.i.i.i ]
   %old1.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %95 = load ptr, ptr %old1.i.i, align 8
   %cmp.not1.i77.i.i = icmp eq ptr %94, %95
-  br i1 %cmp.not1.i77.i.i, label %sweepgen.exit106.i.i, label %while.body.lr.ph.i78.i.i
+  br i1 %cmp.not1.i77.i.i, label %sweepgen.argprom.exit106.i.i, label %while.body.lr.ph.i78.i.i
 
-while.body.lr.ph.i78.i.i:                         ; preds = %sweepgen.exit.i.i
+while.body.lr.ph.i78.i.i:                         ; preds = %sweepgen.argprom.exit.i.i
   %g.val45.i.i = load i8, ptr %85, align 4
   %96 = and i8 %g.val45.i.i, 24
   br label %while.body.i79.i.i
@@ -1922,14 +1922,14 @@ if.end40.i86.i.i:                                 ; preds = %if.then37.i101.i.i,
   %p.addr.1.i87.i.i = phi ptr [ %p.addr.02.i80.i.i, %if.then.i85.i.i ], [ %97, %if.else19.i93.i.i ], [ %97, %land.lhs.true.i99.i.i ], [ %97, %if.then37.i101.i.i ], [ %97, %if.then11.i102.i.i ]
   %102 = load ptr, ptr %p.addr.1.i87.i.i, align 8
   %cmp.not.i88.i.i = icmp eq ptr %102, %95
-  br i1 %cmp.not.i88.i.i, label %sweepgen.exit106.loopexit.i.i, label %while.body.i79.i.i, !llvm.loop !19
+  br i1 %cmp.not.i88.i.i, label %sweepgen.argprom.exit106.loopexit.i.i, label %while.body.i79.i.i, !llvm.loop !19
 
-sweepgen.exit106.loopexit.i.i:                    ; preds = %if.end40.i86.i.i
+sweepgen.argprom.exit106.loopexit.i.i:            ; preds = %if.end40.i86.i.i
   %.pre.i.i = load ptr, ptr %old1.i.i, align 8
-  br label %sweepgen.exit106.i.i
+  br label %sweepgen.argprom.exit106.i.i
 
-sweepgen.exit106.i.i:                             ; preds = %sweepgen.exit106.loopexit.i.i, %sweepgen.exit.i.i
-  %103 = phi ptr [ %.pre.i.i, %sweepgen.exit106.loopexit.i.i ], [ %95, %sweepgen.exit.i.i ]
+sweepgen.argprom.exit106.i.i:                     ; preds = %sweepgen.argprom.exit106.loopexit.i.i, %sweepgen.argprom.exit.i.i
+  %103 = phi ptr [ %.pre.i.i, %sweepgen.argprom.exit106.loopexit.i.i ], [ %95, %sweepgen.argprom.exit.i.i ]
   %reallyold8.i.i = getelementptr inbounds i8, ptr %0, i64 208
   store ptr %103, ptr %reallyold8.i.i, align 8
   %104 = load ptr, ptr %p.addr.0.lcssa.i.i.i, align 8
@@ -1940,9 +1940,9 @@ sweepgen.exit106.i.i:                             ; preds = %sweepgen.exit106.lo
   %106 = load ptr, ptr %finobjsur.i.i, align 8
   %107 = load ptr, ptr %finobj.i.i, align 8
   %cmp.not1.i107.i.i = icmp eq ptr %107, %106
-  br i1 %cmp.not1.i107.i.i, label %sweepgen.exit136.i.i, label %while.body.lr.ph.i108.i.i
+  br i1 %cmp.not1.i107.i.i, label %sweepgen.argprom.exit136.i.i, label %while.body.lr.ph.i108.i.i
 
-while.body.lr.ph.i108.i.i:                        ; preds = %sweepgen.exit106.i.i
+while.body.lr.ph.i108.i.i:                        ; preds = %sweepgen.argprom.exit106.i.i
   %g.val46.i.i = load i8, ptr %85, align 4
   %108 = and i8 %g.val46.i.i, 24
   br label %while.body.i109.i.i
@@ -1988,17 +1988,17 @@ if.end40.i116.i.i:                                ; preds = %if.else19.i123.i.i,
   %p.addr.1.i117.i.i = phi ptr [ %109, %if.then11.i132.i.i ], [ %p.addr.02.i110.i.i, %if.then.i115.i.i ], [ %109, %if.else19.i123.i.i ]
   %113 = load ptr, ptr %p.addr.1.i117.i.i, align 8
   %cmp.not.i118.i.i = icmp eq ptr %113, %106
-  br i1 %cmp.not.i118.i.i, label %sweepgen.exit136.i.i, label %while.body.i109.i.i, !llvm.loop !19
+  br i1 %cmp.not.i118.i.i, label %sweepgen.argprom.exit136.i.i, label %while.body.i109.i.i, !llvm.loop !19
 
-sweepgen.exit136.i.i:                             ; preds = %if.end40.i116.i.i, %sweepgen.exit106.i.i
-  %114 = phi ptr [ %107, %sweepgen.exit106.i.i ], [ %113, %if.end40.i116.i.i ]
-  %p.addr.0.lcssa.i119.i.i = phi ptr [ %finobj.i.i, %sweepgen.exit106.i.i ], [ %p.addr.1.i117.i.i, %if.end40.i116.i.i ]
+sweepgen.argprom.exit136.i.i:                     ; preds = %if.end40.i116.i.i, %sweepgen.argprom.exit106.i.i
+  %114 = phi ptr [ %107, %sweepgen.argprom.exit106.i.i ], [ %113, %if.end40.i116.i.i ]
+  %p.addr.0.lcssa.i119.i.i = phi ptr [ %finobj.i.i, %sweepgen.argprom.exit106.i.i ], [ %p.addr.1.i117.i.i, %if.end40.i116.i.i ]
   %finobjold1.i.i = getelementptr inbounds i8, ptr %0, i64 232
   %115 = load ptr, ptr %finobjold1.i.i, align 8
   %cmp.not1.i137.i.i = icmp eq ptr %114, %115
-  br i1 %cmp.not1.i137.i.i, label %sweepgen.exit166.i.i, label %while.body.lr.ph.i138.i.i
+  br i1 %cmp.not1.i137.i.i, label %sweepgen.argprom.exit166.i.i, label %while.body.lr.ph.i138.i.i
 
-while.body.lr.ph.i138.i.i:                        ; preds = %sweepgen.exit136.i.i
+while.body.lr.ph.i138.i.i:                        ; preds = %sweepgen.argprom.exit136.i.i
   %g.val47.i.i = load i8, ptr %85, align 4
   %116 = and i8 %g.val47.i.i, 24
   br label %while.body.i139.i.i
@@ -2044,14 +2044,14 @@ if.end40.i146.i.i:                                ; preds = %if.else19.i153.i.i,
   %p.addr.1.i147.i.i = phi ptr [ %117, %if.then11.i162.i.i ], [ %p.addr.02.i140.i.i, %if.then.i145.i.i ], [ %117, %if.else19.i153.i.i ]
   %121 = load ptr, ptr %p.addr.1.i147.i.i, align 8
   %cmp.not.i148.i.i = icmp eq ptr %121, %115
-  br i1 %cmp.not.i148.i.i, label %sweepgen.exit166.loopexit.i.i, label %while.body.i139.i.i, !llvm.loop !19
+  br i1 %cmp.not.i148.i.i, label %sweepgen.argprom.exit166.loopexit.i.i, label %while.body.i139.i.i, !llvm.loop !19
 
-sweepgen.exit166.loopexit.i.i:                    ; preds = %if.end40.i146.i.i
+sweepgen.argprom.exit166.loopexit.i.i:            ; preds = %if.end40.i146.i.i
   %.pre203.i.i = load ptr, ptr %finobjold1.i.i, align 8
-  br label %sweepgen.exit166.i.i
+  br label %sweepgen.argprom.exit166.i.i
 
-sweepgen.exit166.i.i:                             ; preds = %sweepgen.exit166.loopexit.i.i, %sweepgen.exit136.i.i
-  %122 = phi ptr [ %115, %sweepgen.exit136.i.i ], [ %.pre203.i.i, %sweepgen.exit166.loopexit.i.i ]
+sweepgen.argprom.exit166.i.i:                     ; preds = %sweepgen.argprom.exit166.loopexit.i.i, %sweepgen.argprom.exit136.i.i
+  %122 = phi ptr [ %115, %sweepgen.argprom.exit136.i.i ], [ %.pre203.i.i, %sweepgen.argprom.exit166.loopexit.i.i ]
   store ptr %122, ptr %finobjrold.i.i, align 8
   %123 = load ptr, ptr %p.addr.0.lcssa.i119.i.i, align 8
   store ptr %123, ptr %finobjold1.i.i, align 8
@@ -2061,7 +2061,7 @@ sweepgen.exit166.i.i:                             ; preds = %sweepgen.exit166.lo
   %cmp.not1.i167.i.i = icmp eq ptr %125, null
   br i1 %cmp.not1.i167.i.i, label %youngcollection.exit.i, label %while.body.lr.ph.i168.i.i
 
-while.body.lr.ph.i168.i.i:                        ; preds = %sweepgen.exit166.i.i
+while.body.lr.ph.i168.i.i:                        ; preds = %sweepgen.argprom.exit166.i.i
   %g.val48.i.i = load i8, ptr %85, align 4
   %126 = and i8 %g.val48.i.i, 24
   br label %while.body.i169.i.i
@@ -2109,7 +2109,7 @@ if.end40.i176.i.i:                                ; preds = %if.else19.i183.i.i,
   %cmp.not.i178.i.i = icmp eq ptr %131, null
   br i1 %cmp.not.i178.i.i, label %youngcollection.exit.i, label %while.body.i169.i.i, !llvm.loop !19
 
-youngcollection.exit.i:                           ; preds = %if.end40.i176.i.i, %sweepgen.exit166.i.i
+youngcollection.exit.i:                           ; preds = %if.end40.i176.i.i, %sweepgen.argprom.exit166.i.i
   tail call fastcc void @finishgencycle(ptr noundef %L, ptr noundef %0)
   %totalbytes.i68.i = getelementptr inbounds i8, ptr %0, i64 16
   %132 = load i64, ptr %totalbytes.i68.i, align 8
@@ -2360,7 +2360,7 @@ if.else:                                          ; preds = %entry
   %g.val.i.i = load i8, ptr %29, align 4
   %30 = and i8 %g.val.i.i, 24
   %cmp.not1.i.i.i = icmp eq ptr %28, null
-  br i1 %cmp.not1.i.i.i, label %whitelist.exit.i.i, label %for.body.i.i.i
+  br i1 %cmp.not1.i.i.i, label %whitelist.argprom.exit.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.else, %for.body.i.i.i
   %p.addr.02.i.i.i = phi ptr [ %33, %for.body.i.i.i ], [ %28, %if.else ]
@@ -2371,24 +2371,24 @@ for.body.i.i.i:                                   ; preds = %if.else, %for.body.
   store i8 %or4.i.i.i, ptr %marked.i.i.i, align 1
   %33 = load ptr, ptr %p.addr.02.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %33, null
-  br i1 %cmp.not.i.i.i, label %whitelist.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %whitelist.argprom.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !9
 
-whitelist.exit.loopexit.i.i:                      ; preds = %for.body.i.i.i
+whitelist.argprom.exit.loopexit.i.i:              ; preds = %for.body.i.i.i
   %g.val15.pre.i.i = load i8, ptr %29, align 4
   %.pre.i.i = and i8 %g.val15.pre.i.i, 24
-  br label %whitelist.exit.i.i
+  br label %whitelist.argprom.exit.i.i
 
-whitelist.exit.i.i:                               ; preds = %whitelist.exit.loopexit.i.i, %if.else
-  %.pre-phi.i.i = phi i8 [ %.pre.i.i, %whitelist.exit.loopexit.i.i ], [ %30, %if.else ]
+whitelist.argprom.exit.i.i:                       ; preds = %whitelist.argprom.exit.loopexit.i.i, %if.else
+  %.pre-phi.i.i = phi i8 [ %.pre.i.i, %whitelist.argprom.exit.loopexit.i.i ], [ %30, %if.else ]
   %survival.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %finobj.i.i = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %survival.i.i, i8 0, i64 24, i1 false)
   %34 = load ptr, ptr %finobj.i.i, align 8
   %cmp.not1.i17.i.i = icmp eq ptr %34, null
-  br i1 %cmp.not1.i17.i.i, label %whitelist.exit23.i.i, label %for.body.i18.i.i
+  br i1 %cmp.not1.i17.i.i, label %whitelist.argprom.exit23.i.i, label %for.body.i18.i.i
 
-for.body.i18.i.i:                                 ; preds = %whitelist.exit.i.i, %for.body.i18.i.i
-  %p.addr.02.i19.i.i = phi ptr [ %37, %for.body.i18.i.i ], [ %34, %whitelist.exit.i.i ]
+for.body.i18.i.i:                                 ; preds = %whitelist.argprom.exit.i.i, %for.body.i18.i.i
+  %p.addr.02.i19.i.i = phi ptr [ %37, %for.body.i18.i.i ], [ %34, %whitelist.argprom.exit.i.i ]
   %marked.i20.i.i = getelementptr inbounds i8, ptr %p.addr.02.i19.i.i, i64 9
   %35 = load i8, ptr %marked.i20.i.i, align 1
   %36 = and i8 %35, -64
@@ -2396,22 +2396,22 @@ for.body.i18.i.i:                                 ; preds = %whitelist.exit.i.i,
   store i8 %or4.i21.i.i, ptr %marked.i20.i.i, align 1
   %37 = load ptr, ptr %p.addr.02.i19.i.i, align 8
   %cmp.not.i22.i.i = icmp eq ptr %37, null
-  br i1 %cmp.not.i22.i.i, label %whitelist.exit23.loopexit.i.i, label %for.body.i18.i.i, !llvm.loop !9
+  br i1 %cmp.not.i22.i.i, label %whitelist.argprom.exit23.loopexit.i.i, label %for.body.i18.i.i, !llvm.loop !9
 
-whitelist.exit23.loopexit.i.i:                    ; preds = %for.body.i18.i.i
+whitelist.argprom.exit23.loopexit.i.i:            ; preds = %for.body.i18.i.i
   %g.val16.pre.i.i = load i8, ptr %29, align 4
   %.pre33.i.i = and i8 %g.val16.pre.i.i, 24
-  br label %whitelist.exit23.i.i
+  br label %whitelist.argprom.exit23.i.i
 
-whitelist.exit23.i.i:                             ; preds = %whitelist.exit23.loopexit.i.i, %whitelist.exit.i.i
-  %.pre-phi34.i.i = phi i8 [ %.pre33.i.i, %whitelist.exit23.loopexit.i.i ], [ %.pre-phi.i.i, %whitelist.exit.i.i ]
+whitelist.argprom.exit23.i.i:                     ; preds = %whitelist.argprom.exit23.loopexit.i.i, %whitelist.argprom.exit.i.i
+  %.pre-phi34.i.i = phi i8 [ %.pre33.i.i, %whitelist.argprom.exit23.loopexit.i.i ], [ %.pre-phi.i.i, %whitelist.argprom.exit.i.i ]
   %tobefnz.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %38 = load ptr, ptr %tobefnz.i.i, align 8
   %cmp.not1.i24.i.i = icmp eq ptr %38, null
   br i1 %cmp.not1.i24.i.i, label %fullgen.exit, label %for.body.i25.i.i
 
-for.body.i25.i.i:                                 ; preds = %whitelist.exit23.i.i, %for.body.i25.i.i
-  %p.addr.02.i26.i.i = phi ptr [ %41, %for.body.i25.i.i ], [ %38, %whitelist.exit23.i.i ]
+for.body.i25.i.i:                                 ; preds = %whitelist.argprom.exit23.i.i, %for.body.i25.i.i
+  %p.addr.02.i26.i.i = phi ptr [ %41, %for.body.i25.i.i ], [ %38, %whitelist.argprom.exit23.i.i ]
   %marked.i27.i.i = getelementptr inbounds i8, ptr %p.addr.02.i26.i.i, i64 9
   %39 = load i8, ptr %marked.i27.i.i, align 1
   %40 = and i8 %39, -64
@@ -2421,7 +2421,7 @@ for.body.i25.i.i:                                 ; preds = %whitelist.exit23.i.
   %cmp.not.i29.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i29.i.i, label %fullgen.exit, label %for.body.i25.i.i, !llvm.loop !9
 
-fullgen.exit:                                     ; preds = %for.body.i25.i.i, %whitelist.exit23.i.i
+fullgen.exit:                                     ; preds = %for.body.i25.i.i, %whitelist.argprom.exit23.i.i
   %finobjsur.i.i = getelementptr inbounds i8, ptr %0, i64 224
   %gcstate.i.i8 = getelementptr inbounds i8, ptr %0, i64 101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finobjsur.i.i, i8 0, i64 24, i1 false)

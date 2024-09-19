@@ -3606,7 +3606,7 @@ add_process_objects.exit:                         ; preds = %1151, %1144, %lstop
   br i1 %or.cond.i.i, label %1173, label %1174
 
 1173:                                             ; preds = %1169
-  call fastcc void @insert_misc(ptr noundef %1157, ptr noundef nonnull %1158, ptr noundef nonnull %.0.ph.i.ph, ptr noundef %.022.ph.i.ph)
+  call fastcc void @insert_misc.retelim(ptr noundef %1157, ptr noundef nonnull %1158, ptr noundef nonnull %.0.ph.i.ph, ptr noundef %.022.ph.i.ph)
   br label %add_one_misc_object_from.exit.i
 
 1174:                                             ; preds = %1169
@@ -3669,7 +3669,7 @@ add_one_misc_object_from.exit.i:                  ; preds = %1174, %1173
   br i1 %or.cond.i34.i, label %1196, label %1197
 
 1196:                                             ; preds = %1192
-  call fastcc void @insert_misc(ptr noundef %1157, ptr noundef nonnull %1158, ptr noundef nonnull %.0.ph.i.ph, ptr noundef %.022.ph.i.ph)
+  call fastcc void @insert_misc.retelim(ptr noundef %1157, ptr noundef nonnull %1158, ptr noundef nonnull %.0.ph.i.ph, ptr noundef %.022.ph.i.ph)
   br label %add_one_misc_object_from.exit35.i
 
 1197:                                             ; preds = %1192
@@ -3999,7 +3999,7 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1327, %._crit_edge.
   store i32 -1, ptr %966, align 8
   %1334 = icmp ugt i64 %1333, 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %968, i8 -1, i64 16, i1 false)
-  br i1 %1334, label %hwloc_calc_parse_level.exit.thread1470, label %1335
+  br i1 %1334, label %hwloc_calc_parse_level.argprom.exit.thread1470, label %1335
 
 1335:                                             ; preds = %1331
   %1336 = add nuw nsw i64 %1333, 1
@@ -4013,7 +4013,7 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1327, %._crit_edge.
   %1341 = call i32 @hwloc_get_type_depth_with_attr(ptr noundef %1332, i32 noundef %1340, ptr noundef nonnull %973, i64 noundef 48) #26
   store i32 %1341, ptr %966, align 8
   %switch.i = icmp ugt i32 %1341, -3
-  br i1 %switch.i, label %hwloc_calc_parse_level.exit, label %1342
+  br i1 %switch.i, label %hwloc_calc_parse_level.argprom.exit, label %1342
 
 1342:                                             ; preds = %1339
   %1343 = load i32, ptr %972, align 4
@@ -4026,12 +4026,12 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1327, %._crit_edge.
   %1346 = load i64, ptr %973, align 8
   %.not42.i = icmp eq i64 %1346, 0
   %or.cond852 = select i1 %.not41.i, i1 true, i1 %.not42.i
-  br i1 %or.cond852, label %1347, label %hwloc_calc_parse_level.exit.thread
+  br i1 %or.cond852, label %1347, label %hwloc_calc_parse_level.argprom.exit.thread
 
 1347:                                             ; preds = %1344, %1342
   %1348 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 91) #28
   %.not43.i = icmp eq ptr %1348, null
-  br i1 %.not43.i, label %hwloc_calc_parse_level.exit.thread, label %1349
+  br i1 %.not43.i, label %hwloc_calc_parse_level.argprom.exit.thread, label %1349
 
 1349:                                             ; preds = %1347
   %1350 = getelementptr inbounds i8, ptr %1348, i64 1
@@ -4045,7 +4045,7 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1327, %._crit_edge.
   %1353 = getelementptr inbounds i8, ptr %1348, i64 6
   %1354 = call i32 @atoi(ptr nocapture noundef nonnull %1353) #28
   store i32 %1354, ptr %968, align 8
-  br label %hwloc_calc_parse_level_filter.exit.thread.i
+  br label %hwloc_calc_parse_level_filter.argprom.exit.thread.i
 
 1355:                                             ; preds = %1349
   %1356 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1350, ptr noundef nonnull dereferenceable(9) @.str.428, i64 noundef 8) #28
@@ -4070,7 +4070,7 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1327, %._crit_edge.
   store i32 %1365, ptr %969, align 4
   %1366 = load i32, ptr %4, align 4
   store i32 %1366, ptr %970, align 8
-  br label %hwloc_calc_parse_level_filter.exit.thread.i
+  br label %hwloc_calc_parse_level_filter.argprom.exit.thread.i
 
 1367:                                             ; preds = %1361
   %1368 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %1350, ptr noundef nonnull @.str.436, ptr noundef nonnull %4) #26
@@ -4080,7 +4080,7 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1327, %._crit_edge.
 1370:                                             ; preds = %1367
   %1371 = load i32, ptr %4, align 4
   store i32 %1371, ptr %970, align 8
-  br label %hwloc_calc_parse_level_filter.exit.thread.i
+  br label %hwloc_calc_parse_level_filter.argprom.exit.thread.i
 
 1372:                                             ; preds = %1367
   %1373 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %1350, ptr noundef nonnull @.str.437, ptr noundef nonnull %3) #26
@@ -4090,7 +4090,7 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1327, %._crit_edge.
 1375:                                             ; preds = %1372
   %1376 = load i32, ptr %3, align 4
   store i32 %1376, ptr %969, align 4
-  br label %hwloc_calc_parse_level_filter.exit.thread.i
+  br label %hwloc_calc_parse_level_filter.argprom.exit.thread.i
 
 sub_0.i.i:                                        ; preds = %1372
   %1377 = load i8, ptr %1350, align 1
@@ -4101,12 +4101,12 @@ sub_0.i.i:                                        ; preds = %1372
   %1378 = getelementptr inbounds i8, ptr %1348, i64 2
   %1379 = load i8, ptr %1378, align 1
   %1380 = icmp eq i8 %1379, 93
-  br i1 %1380, label %hwloc_calc_parse_level_filter.exit.thread.i, label %.tail.thread.i.i
+  br i1 %1380, label %hwloc_calc_parse_level_filter.argprom.exit.thread.i, label %.tail.thread.i.i
 
 .tail.thread.i.i:                                 ; preds = %.tail.i.i, %sub_0.i.i
   %1381 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1350, i32 noundef 58) #28
   %.not27.i.i = icmp eq ptr %1381, null
-  br i1 %.not27.i.i, label %1382, label %hwloc_calc_parse_level_filter.exit.i
+  br i1 %.not27.i.i, label %1382, label %hwloc_calc_parse_level_filter.argprom.exit.i
 
 1382:                                             ; preds = %.tail.thread.i.i, %1359, %1357
   %.024.i.i = phi ptr [ %1350, %.tail.thread.i.i ], [ %1350, %1359 ], [ %1358, %1357 ]
@@ -4120,20 +4120,20 @@ sub_0.i.i:                                        ; preds = %1372
   %1389 = and i64 %1388, 4294967295
   %1390 = select i1 %.not28.i.i, i64 %1389, i64 32
   %1391 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %967, i64 noundef %1390, ptr noundef nonnull @.str.305, ptr noundef nonnull %.024.i.i) #26
-  br label %hwloc_calc_parse_level_filter.exit.thread.i
+  br label %hwloc_calc_parse_level_filter.argprom.exit.thread.i
 
-hwloc_calc_parse_level_filter.exit.thread.i:      ; preds = %1382, %.tail.i.i, %1375, %1370, %1364, %1352
+hwloc_calc_parse_level_filter.argprom.exit.thread.i: ; preds = %1382, %.tail.i.i, %1375, %1370, %1364, %1352
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %hwloc_calc_parse_level.exit.thread
+  br label %hwloc_calc_parse_level.argprom.exit.thread
 
-hwloc_calc_parse_level_filter.exit.i:             ; preds = %.tail.thread.i.i
+hwloc_calc_parse_level_filter.argprom.exit.i:     ; preds = %.tail.thread.i.i
   %1392 = load ptr, ptr @stderr, align 8
   %1393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1392, ptr noundef nonnull @.str.439, ptr noundef nonnull %1350) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.pre = load i32, ptr %966, align 8
-  br label %hwloc_calc_parse_level.exit
+  br label %hwloc_calc_parse_level.argprom.exit
 
 1394:                                             ; preds = %1335
   %1395 = call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.432) #28
@@ -4149,7 +4149,7 @@ hwloc_calc_parse_level_filter.exit.i:             ; preds = %.tail.thread.i.i
   store i32 1, ptr %971, align 4
   store i32 13, ptr %972, align 4
   store i32 -3, ptr %966, align 8
-  br label %hwloc_calc_parse_level.exit.thread
+  br label %hwloc_calc_parse_level.argprom.exit.thread
 
 1399:                                             ; preds = %1396
   %1400 = call i64 @strtoul(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #26
@@ -4172,35 +4172,35 @@ hwloc_calc_parse_level_filter.exit.i:             ; preds = %.tail.thread.i.i
 
 1409:                                             ; preds = %1407, %1404, %1399
   store i32 -1, ptr %966, align 8
-  br label %hwloc_calc_parse_level.exit.thread1470
+  br label %hwloc_calc_parse_level.argprom.exit.thread1470
 
 1410:                                             ; preds = %1407
   store i32 -1, ptr %972, align 4
-  br label %hwloc_calc_parse_level.exit.thread
+  br label %hwloc_calc_parse_level.argprom.exit.thread
 
-hwloc_calc_parse_level.exit.thread:               ; preds = %1344, %1410, %1398, %hwloc_calc_parse_level_filter.exit.thread.i, %1347
+hwloc_calc_parse_level.argprom.exit.thread:       ; preds = %1344, %1410, %1398, %hwloc_calc_parse_level_filter.argprom.exit.thread.i, %1347
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %1415
 
-hwloc_calc_parse_level.exit.thread1470:           ; preds = %1331, %1409
+hwloc_calc_parse_level.argprom.exit.thread1470:   ; preds = %1331, %1409
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit1487
 
-hwloc_calc_parse_level.exit:                      ; preds = %1339, %hwloc_calc_parse_level_filter.exit.i
-  %1411 = phi i32 [ %1341, %1339 ], [ %.pre, %hwloc_calc_parse_level_filter.exit.i ]
+hwloc_calc_parse_level.argprom.exit:              ; preds = %1339, %hwloc_calc_parse_level_filter.argprom.exit.i
+  %1411 = phi i32 [ %1341, %1339 ], [ %.pre, %hwloc_calc_parse_level_filter.argprom.exit.i ]
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %1412 = icmp eq i32 %1411, -1
   br i1 %1412, label %.loopexit1487, label %1415
 
-.loopexit1487:                                    ; preds = %hwloc_calc_parse_level.exit, %hwloc_calc_parse_level.exit.thread1470
+.loopexit1487:                                    ; preds = %hwloc_calc_parse_level.argprom.exit, %hwloc_calc_parse_level.argprom.exit.thread1470
   %1413 = load ptr, ptr @stderr, align 8
   %1414 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1413, ptr noundef nonnull @.str.265, ptr noundef nonnull %.0554.lcssa) #29
   br label %.loopexit912
 
-1415:                                             ; preds = %hwloc_calc_parse_level.exit.thread, %hwloc_calc_parse_level.exit, %lstopo_add_collapse_attributes.exit
+1415:                                             ; preds = %hwloc_calc_parse_level.argprom.exit.thread, %hwloc_calc_parse_level.argprom.exit, %lstopo_add_collapse_attributes.exit
   %1416 = call i32 %.05701457(ptr noundef nonnull %14, ptr noundef %.38408491454) #26
   br i1 %954, label %1420, label %1417
 
@@ -6173,7 +6173,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr noc
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %1, i64 1096
   %18 = load ptr, ptr %17, align 8
-  call fastcc void @insert_misc(ptr noundef %0, ptr noundef %18, ptr noundef nonnull @.str.420, ptr noundef %4)
+  call fastcc void @insert_misc.retelim(ptr noundef %0, ptr noundef %18, ptr noundef nonnull @.str.420, ptr noundef %4)
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -6222,7 +6222,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr noc
   %42 = load ptr, ptr %22, align 8
   %43 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %42, i64 %indvars.iv, i32 1
   %44 = load ptr, ptr %43, align 8
-  call fastcc void @insert_misc(ptr noundef %0, ptr noundef %44, ptr noundef nonnull @.str.423, ptr noundef %5)
+  call fastcc void @insert_misc.retelim(ptr noundef %0, ptr noundef %44, ptr noundef nonnull @.str.423, ptr noundef %5)
   %.pre = load i32, ptr %20, align 4
   br label %45
 
@@ -6238,7 +6238,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert_misc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc void @insert_misc.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call ptr @hwloc_topology_get_topology_cpuset(ptr noundef %0) #28
@@ -6328,7 +6328,7 @@ declare i32 @hwloc_bitmap_asprintf(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal fastcc ptr @hwloc_get_obj_covering_cpuset(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #21 {
   %3 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %1) #28
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %hwloc_get_child_covering_cpuset.exit.thread
+  br i1 %.not, label %4, label %hwloc_get_child_covering_cpuset.argprom.exit.thread
 
 4:                                                ; preds = %2
   %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #28
@@ -6336,18 +6336,18 @@ define internal fastcc ptr @hwloc_get_obj_covering_cpuset(ptr noundef readonly %
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %1, ptr noundef %7) #28
   %.not13 = icmp eq i32 %8, 0
-  br i1 %.not13, label %hwloc_get_child_covering_cpuset.exit.thread, label %hwloc_get_child_covering_cpuset.exit.preheader
+  br i1 %.not13, label %hwloc_get_child_covering_cpuset.argprom.exit.thread, label %hwloc_get_child_covering_cpuset.argprom.exit.preheader
 
-hwloc_get_child_covering_cpuset.exit.preheader:   ; preds = %4
+hwloc_get_child_covering_cpuset.argprom.exit.preheader: ; preds = %4
   %9 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %1) #28
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.lr.ph.split.us, label %hwloc_get_child_covering_cpuset.exit.thread
+  br i1 %.not.i, label %.lr.ph.split.us, label %hwloc_get_child_covering_cpuset.argprom.exit.thread
 
-.lr.ph.split.us:                                  ; preds = %hwloc_get_child_covering_cpuset.exit.preheader
+.lr.ph.split.us:                                  ; preds = %hwloc_get_child_covering_cpuset.argprom.exit.preheader
   %10 = getelementptr inbounds i8, ptr %5, i64 120
   %.01.i.us23 = load ptr, ptr %10, align 8
   %.not112.i.us24 = icmp eq ptr %.01.i.us23, null
-  br i1 %.not112.i.us24, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader.us
+  br i1 %.not112.i.us24, label %hwloc_get_child_covering_cpuset.argprom.exit.thread, label %.lr.ph.i.preheader.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %15
   %.03.i.us = phi ptr [ %.0.i.us, %15 ], [ %.01.i.us26, %.lr.ph.i.preheader.us ]
@@ -6359,27 +6359,27 @@ hwloc_get_child_covering_cpuset.exit.preheader:   ; preds = %4
 13:                                               ; preds = %.lr.ph.i.us
   %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %1, ptr noundef nonnull %12) #28
   %.not13.i.us = icmp eq i32 %14, 0
-  br i1 %.not13.i.us, label %15, label %hwloc_get_child_covering_cpuset.exit.loopexit.us
+  br i1 %.not13.i.us, label %15, label %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us
 
 15:                                               ; preds = %13, %.lr.ph.i.us
   %16 = getelementptr inbounds i8, ptr %.03.i.us, i64 88
   %.0.i.us = load ptr, ptr %16, align 8
   %.not11.i.us = icmp eq ptr %.0.i.us, null
-  br i1 %.not11.i.us, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.us, !llvm.loop !66
+  br i1 %.not11.i.us, label %hwloc_get_child_covering_cpuset.argprom.exit.thread, label %.lr.ph.i.us, !llvm.loop !66
 
-.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us
-  %.01.i.us26 = phi ptr [ %.01.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %.01.i.us23, %.lr.ph.split.us ]
-  %.01120.us25 = phi ptr [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %5, %.lr.ph.split.us ]
+.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us
+  %.01.i.us26 = phi ptr [ %.01.i.us, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us ], [ %.01.i.us23, %.lr.ph.split.us ]
+  %.01120.us25 = phi ptr [ %.03.i.us, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us ], [ %5, %.lr.ph.split.us ]
   br label %.lr.ph.i.us
 
-hwloc_get_child_covering_cpuset.exit.loopexit.us: ; preds = %13
+hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us: ; preds = %13
   %17 = getelementptr inbounds i8, ptr %.03.i.us, i64 120
   %.01.i.us = load ptr, ptr %17, align 8
   %.not112.i.us = icmp eq ptr %.01.i.us, null
-  br i1 %.not112.i.us, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader.us
+  br i1 %.not112.i.us, label %hwloc_get_child_covering_cpuset.argprom.exit.thread, label %.lr.ph.i.preheader.us
 
-hwloc_get_child_covering_cpuset.exit.thread:      ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.us, %15, %hwloc_get_child_covering_cpuset.exit.preheader, %.lr.ph.split.us, %2, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.exit.preheader ], [ %5, %.lr.ph.split.us ], [ %.01120.us25, %15 ], [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ]
+hwloc_get_child_covering_cpuset.argprom.exit.thread: ; preds = %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us, %15, %hwloc_get_child_covering_cpuset.argprom.exit.preheader, %.lr.ph.split.us, %2, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.argprom.exit.preheader ], [ %5, %.lr.ph.split.us ], [ %.01120.us25, %15 ], [ %.03.i.us, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us ]
   ret ptr %.0
 }
 

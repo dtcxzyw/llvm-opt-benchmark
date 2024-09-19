@@ -178,21 +178,21 @@ do.body.i:                                        ; preds = %do.cond.i, %for.bod
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.14, i64 %prefix.addr.0.idx.i
   %4 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %5 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i56 = icmp eq i8 %5, %4
-  br i1 %cmp.i56, label %do.body.i, label %skip_prefix.exit, !llvm.loop !5
+  br i1 %cmp.i56, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !5
 
-skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
+skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
   %shortname.1 = phi ptr [ %shortname.0108, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %land.lhs.true13, label %for.inc
 
-land.lhs.true13:                                  ; preds = %skip_prefix.exit
+land.lhs.true13:                                  ; preds = %skip_prefix.argprom.exit
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %local, ptr noundef nonnull dereferenceable(1) %shortname.1) #15
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.then16, label %for.inc
@@ -211,7 +211,7 @@ _.exit:                                           ; preds = %if.then16, %if.end3
   tail call void (ptr, ...) @warning(ptr noundef %retval.0.i57, ptr noundef %local) #13
   br label %return
 
-for.inc:                                          ; preds = %skip_prefix.exit, %land.lhs.true13
+for.inc:                                          ; preds = %skip_prefix.argprom.exit, %land.lhs.true13
   %incdec.ptr = getelementptr inbounds i8, ptr %item.0109, i64 16
   %cmp11 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp11, label %for.body, label %if.end19, !llvm.loop !7
@@ -314,8 +314,8 @@ land.rhs62.lr.ph:                                 ; preds = %if.then58
 land.rhs62.lr.ph.split.us.split:                  ; preds = %land.rhs62.lr.ph
   br i1 %cmp66.us118, label %for.body68.us, label %if.else93
 
-for.body68.us:                                    ; preds = %land.rhs62.lr.ph.split.us.split, %skip_prefix.exit75.us
-  %item.2113.us119 = phi ptr [ %incdec.ptr78.us, %skip_prefix.exit75.us ], [ %20, %land.rhs62.lr.ph.split.us.split ]
+for.body68.us:                                    ; preds = %land.rhs62.lr.ph.split.us.split, %skip_prefix.argprom.exit75.us
+  %item.2113.us119 = phi ptr [ %incdec.ptr78.us, %skip_prefix.argprom.exit75.us ], [ %20, %land.rhs62.lr.ph.split.us.split ]
   %21 = load ptr, ptr %item.2113.us119, align 8
   %scevgep.i63.us = getelementptr i8, ptr %21, i64 11
   br label %do.body.i64.us
@@ -324,7 +324,7 @@ do.body.i64.us:                                   ; preds = %do.cond.i69.us, %fo
   %str.addr.0.i65.us = phi ptr [ %21, %for.body68.us ], [ %incdec.ptr.i70.us, %do.cond.i69.us ]
   %prefix.addr.0.idx.i66.us = phi i64 [ 0, %for.body68.us ], [ %prefix.addr.0.add.i71.us, %do.cond.i69.us ]
   %exitcond.i68.us = icmp eq i64 %prefix.addr.0.idx.i66.us, 11
-  br i1 %exitcond.i68.us, label %skip_prefix.exit75.us, label %do.cond.i69.us
+  br i1 %exitcond.i68.us, label %skip_prefix.argprom.exit75.us, label %do.cond.i69.us
 
 do.cond.i69.us:                                   ; preds = %do.body.i64.us
   %prefix.addr.0.ptr.i67.us = getelementptr inbounds i8, ptr @.str.14, i64 %prefix.addr.0.idx.i66.us
@@ -333,9 +333,9 @@ do.cond.i69.us:                                   ; preds = %do.body.i64.us
   %23 = load i8, ptr %str.addr.0.i65.us, align 1
   %prefix.addr.0.add.i71.us = add nuw nsw i64 %prefix.addr.0.idx.i66.us, 1
   %cmp.i72.us = icmp eq i8 %23, %22
-  br i1 %cmp.i72.us, label %do.body.i64.us, label %skip_prefix.exit75.us, !llvm.loop !5
+  br i1 %cmp.i72.us, label %do.body.i64.us, label %skip_prefix.argprom.exit75.us, !llvm.loop !5
 
-skip_prefix.exit75.us:                            ; preds = %do.cond.i69.us, %do.body.i64.us
+skip_prefix.argprom.exit75.us:                    ; preds = %do.cond.i69.us, %do.body.i64.us
   %shortname.2.us = phi ptr [ %21, %do.cond.i69.us ], [ %scevgep.i63.us, %do.body.i64.us ]
   %call75.us = call ptr @string_list_append(ptr noundef nonnull %friendly_ref_names, ptr noundef %shortname.2.us) #13
   %incdec.ptr78.us = getelementptr inbounds i8, ptr %item.2113.us119, i64 16
@@ -348,8 +348,8 @@ skip_prefix.exit75.us:                            ; preds = %do.cond.i69.us, %do
 land.rhs62.lr.ph.split.split:                     ; preds = %land.rhs62.lr.ph
   br i1 %cmp66.us118, label %for.body68, label %if.else93
 
-for.body68:                                       ; preds = %land.rhs62.lr.ph.split.split, %skip_prefix.exit75
-  %item.2113116 = phi ptr [ %incdec.ptr78, %skip_prefix.exit75 ], [ %20, %land.rhs62.lr.ph.split.split ]
+for.body68:                                       ; preds = %land.rhs62.lr.ph.split.split, %skip_prefix.argprom.exit75
+  %item.2113116 = phi ptr [ %incdec.ptr78, %skip_prefix.argprom.exit75 ], [ %20, %land.rhs62.lr.ph.split.split ]
   %26 = load ptr, ptr %item.2113116, align 8
   %scevgep.i63 = getelementptr i8, ptr %26, i64 11
   br label %do.body.i64
@@ -358,7 +358,7 @@ do.body.i64:                                      ; preds = %do.cond.i69, %for.b
   %str.addr.0.i65 = phi ptr [ %26, %for.body68 ], [ %incdec.ptr.i70, %do.cond.i69 ]
   %prefix.addr.0.idx.i66 = phi i64 [ 0, %for.body68 ], [ %prefix.addr.0.add.i71, %do.cond.i69 ]
   %exitcond.i68 = icmp eq i64 %prefix.addr.0.idx.i66, 11
-  br i1 %exitcond.i68, label %skip_prefix.exit75, label %do.cond.i69
+  br i1 %exitcond.i68, label %skip_prefix.argprom.exit75, label %do.cond.i69
 
 do.cond.i69:                                      ; preds = %do.body.i64
   %prefix.addr.0.ptr.i67 = getelementptr inbounds i8, ptr @.str.14, i64 %prefix.addr.0.idx.i66
@@ -367,9 +367,9 @@ do.cond.i69:                                      ; preds = %do.body.i64
   %28 = load i8, ptr %str.addr.0.i65, align 1
   %prefix.addr.0.add.i71 = add nuw nsw i64 %prefix.addr.0.idx.i66, 1
   %cmp.i72 = icmp eq i8 %28, %27
-  br i1 %cmp.i72, label %do.body.i64, label %skip_prefix.exit75, !llvm.loop !5
+  br i1 %cmp.i72, label %do.body.i64, label %skip_prefix.argprom.exit75, !llvm.loop !5
 
-skip_prefix.exit75:                               ; preds = %do.body.i64, %do.cond.i69
+skip_prefix.argprom.exit75:                       ; preds = %do.body.i64, %do.cond.i69
   %shortname.2 = phi ptr [ %26, %do.cond.i69 ], [ %scevgep.i63, %do.body.i64 ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %tmp_ref_name, ptr noundef nonnull @.str.24, ptr noundef nonnull %origin, ptr noundef %shortname.2) #13
   %call73 = call ptr @strbuf_detach(ptr noundef nonnull %tmp_ref_name, ptr noundef null) #13
@@ -381,8 +381,8 @@ skip_prefix.exit75:                               ; preds = %do.body.i64, %do.co
   %cmp66 = icmp ult ptr %incdec.ptr78, %add.ptr65
   br i1 %cmp66, label %for.body68, label %for.end79
 
-for.end79:                                        ; preds = %skip_prefix.exit75, %skip_prefix.exit75.us, %if.then58
-  %31 = phi i64 [ %.pr, %if.then58 ], [ %25, %skip_prefix.exit75.us ], [ %30, %skip_prefix.exit75 ]
+for.end79:                                        ; preds = %skip_prefix.argprom.exit75, %skip_prefix.argprom.exit75.us, %if.then58
+  %31 = phi i64 [ %.pr, %if.then58 ], [ %25, %skip_prefix.argprom.exit75.us ], [ %30, %skip_prefix.argprom.exit75 ]
   %cmp81 = icmp eq i64 %31, 1
   br i1 %cmp81, label %if.then82, label %if.else93
 
@@ -1111,7 +1111,7 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %if.el
   %str.addr.0.i.i = phi ptr [ %orig_ref, %if.else ], [ %incdec.ptr.i.i, %do.cond.i.i ]
   %prefix.addr.0.idx.i.i = phi i64 [ 0, %if.else ], [ %prefix.addr.0.add.i.i, %do.cond.i.i ]
   %exitcond.i.i = icmp eq i64 %prefix.addr.0.idx.i.i, 11
-  br i1 %exitcond.i.i, label %skip_prefix.exit.i, label %do.cond.i.i
+  br i1 %exitcond.i.i, label %skip_prefix.argprom.exit.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %prefix.addr.0.ptr.i.i = getelementptr inbounds i8, ptr @.str.14, i64 %prefix.addr.0.idx.i.i
@@ -1120,9 +1120,9 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %3 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.add.i.i = add nuw nsw i64 %prefix.addr.0.idx.i.i, 1
   %cmp.i.i = icmp eq i8 %3, %2
-  br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !5
+  br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.argprom.exit.i, !llvm.loop !5
 
-skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
+skip_prefix.argprom.exit.i:                       ; preds = %do.cond.i.i, %do.body.i.i
   %bare_ref.0.i = phi ptr [ %orig_ref, %do.cond.i.i ], [ %scevgep.i.i, %do.body.i.i ]
   %call1.i = call ptr @branch_get(ptr noundef %bare_ref.0.i) #13
   %remote_name.i = getelementptr inbounds i8, ptr %call1.i, i64 32
@@ -1130,12 +1130,12 @@ skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.bo
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %skip_prefix.exit.i
+if.then.i:                                        ; preds = %skip_prefix.argprom.exit.i
   %5 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i.i, label %inherit_tracking.exit, label %return.sink.split.sink.split.i
 
-if.end.i:                                         ; preds = %skip_prefix.exit.i
+if.end.i:                                         ; preds = %skip_prefix.argprom.exit.i
   %merge_nr.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   %6 = load i32, ptr %merge_nr.i, align 8
   %cmp.i = icmp slt i32 %6, 1
@@ -1288,20 +1288,20 @@ do.body.i:                                        ; preds = %do.cond.i, %if.then
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.14, i64 %prefix.addr.0.idx.i
   %28 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %29 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i26 = icmp eq i8 %29, %28
-  br i1 %cmp.i26, label %do.body.i, label %skip_prefix.exit, !llvm.loop !5
+  br i1 %cmp.i26, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !5
 
-skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
+skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
   %tobool.not.i27 = icmp eq i8 %28, 0
   br i1 %tobool.not.i27, label %lor.lhs.false, label %cleanup
 
-lor.lhs.false:                                    ; preds = %skip_prefix.exit
+lor.lhs.false:                                    ; preds = %skip_prefix.argprom.exit
   %call37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(1) %new_ref) #15
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end41, label %cleanup
@@ -1330,7 +1330,7 @@ if.then52:                                        ; preds = %if.end48
   call void @exit(i32 noundef %call53) #14
   unreachable
 
-cleanup:                                          ; preds = %inherit_tracking.exit, %if.end8, %if.end48, %skip_prefix.exit, %lor.lhs.false
+cleanup:                                          ; preds = %inherit_tracking.exit, %if.end8, %if.end48, %skip_prefix.argprom.exit, %lor.lhs.false
   call void @string_list_clear(ptr noundef nonnull %tracking_srcs, i32 noundef 0) #13
   call void @string_list_clear(ptr noundef nonnull %ambiguous_remotes, i32 noundef 0) #13
   ret void
@@ -1429,7 +1429,7 @@ if.end14:                                         ; preds = %for.body
   %call26 = call ptr @oid_to_hex(ptr noundef %12) #13
   %13 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %13, align 8
-  %call27 = call fastcc i32 @submodule_create_branch(ptr noundef nonnull %5, ptr %.val, ptr noundef %name, ptr noundef %call26, ptr noundef %spec.select, i32 noundef %force, i32 noundef %reflog, i32 noundef %quiet, i32 noundef %track, i32 noundef 1)
+  %call27 = call fastcc i32 @submodule_create_branch.argprom(ptr noundef nonnull %5, ptr %.val, ptr noundef %name, ptr noundef %call26, ptr noundef %spec.select, i32 noundef %force, i32 noundef %reflog, i32 noundef %quiet, i32 noundef %track, i32 noundef 1)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %for.cond, label %if.then29
 
@@ -1473,7 +1473,7 @@ for.body46:                                       ; preds = %if.end42, %if.end70
   %call60 = call ptr @oid_to_hex(ptr noundef %21) #13
   %22 = getelementptr i8, ptr %20, i64 8
   %.val38 = load ptr, ptr %22, align 8
-  %call61 = call fastcc i32 @submodule_create_branch(ptr noundef %19, ptr %.val38, ptr noundef %name, ptr noundef %call60, ptr noundef %spec.select, i32 noundef %force, i32 noundef %reflog, i32 noundef %quiet, i32 noundef %track, i32 noundef 0)
+  %call61 = call fastcc i32 @submodule_create_branch.argprom(ptr noundef %19, ptr %.val38, ptr noundef %name, ptr noundef %call60, ptr noundef %spec.select, i32 noundef %force, i32 noundef %reflog, i32 noundef %quiet, i32 noundef %track, i32 noundef 0)
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %if.end70, label %if.then63
 
@@ -1516,7 +1516,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @submodule_create_branch(ptr nocapture noundef readonly %r, ptr %submodule.8.val, ptr noundef %name, ptr noundef %start_oid, ptr noundef %tracking_name, i32 noundef %force, i32 noundef %reflog, i32 noundef %quiet, i32 noundef %track, i32 noundef range(i32 0, 2) %dry_run) unnamed_addr #0 {
+define internal fastcc i32 @submodule_create_branch.argprom(ptr nocapture noundef readonly %r, ptr %submodule.8.val, ptr noundef %name, ptr noundef %start_oid, ptr noundef %tracking_name, i32 noundef %force, i32 noundef %reflog, i32 noundef %quiet, i32 noundef %track, i32 noundef range(i32 0, 2) %dry_run) unnamed_addr #0 {
 entry:
   %child = alloca %struct.child_process, align 8
   %child_err = alloca %struct.strbuf, align 8
@@ -1730,7 +1730,7 @@ if.end:                                           ; preds = %for.body
 if.then9:                                         ; preds = %if.end, %for.body.us, %for.body.lr.ph.split.us
   %.us-phi = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %indvars.iv.next22, %for.body.us ], [ %indvars.iv, %if.end ]
   %arrayidx.le = getelementptr inbounds ptr, ptr %call, i64 %.us-phi
-  call fastcc void @skip_prefix(ptr noundef %branch, ptr noundef %branch.addr)
+  call fastcc void @skip_prefix.argprom.retelim(ptr noundef %branch, ptr noundef %branch.addr)
   %call11 = tail call fastcc ptr @_(ptr noundef nonnull @.str.15)
   %4 = load ptr, ptr %branch.addr, align 8
   %5 = load ptr, ptr %arrayidx.le, align 8
@@ -1755,7 +1755,7 @@ declare ptr @get_worktrees() local_unnamed_addr #2
 declare i32 @is_shared_symref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @skip_prefix(ptr noundef %str, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #8 {
+define internal fastcc void @skip_prefix.argprom.retelim(ptr noundef %str, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #8 {
 entry:
   %scevgep = getelementptr i8, ptr %str, i64 11
   br label %do.body

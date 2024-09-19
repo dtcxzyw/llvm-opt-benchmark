@@ -2015,14 +2015,14 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i61:  ; preds = %_ZNK5clang6interp7P
 
 _ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i57: ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i61, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i64, %142
   %170 = call noundef zeroext i1 @_ZNK5clang6interp7Pointer12isOnePastEndEv(ptr noundef nonnull align 8 dereferenceable(52) %.0.i55)
-  br i1 %170, label %.critedge, label %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.exit65"
+  br i1 %170, label %.critedge, label %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.argprom.exit65"
 
-"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.exit65": ; preds = %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i57
+"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.argprom.exit65": ; preds = %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i57
   %171 = load i32, ptr %134, align 8
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %.critedge
 
-173:                                              ; preds = %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.exit65"
+173:                                              ; preds = %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.argprom.exit65"
   %174 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 24
   %175 = load ptr, ptr %174, align 8
   store ptr %175, ptr %5, align 8
@@ -2199,14 +2199,14 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i84:  ; preds = %_ZNK5clang6interp7P
 
 _ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i80: ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i84, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i87, %237
   %265 = call noundef zeroext i1 @_ZNK5clang6interp7Pointer12isOnePastEndEv(ptr noundef nonnull align 8 dereferenceable(52) %.0.i70)
-  br i1 %265, label %.critedge2, label %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.exit88"
+  br i1 %265, label %.critedge2, label %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.argprom.exit88"
 
-"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.exit88": ; preds = %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i80
+"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.argprom.exit88": ; preds = %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i80
   %266 = load i32, ptr %229, align 8
   %267 = icmp eq i32 %266, 0
   br i1 %267, label %268, label %.critedge2
 
-268:                                              ; preds = %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.exit88"
+268:                                              ; preds = %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.argprom.exit88"
   %269 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 24
   %270 = load ptr, ptr %269, align 8
   %271 = load ptr, ptr %1, align 8
@@ -2255,7 +2255,7 @@ _ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSe
   call fastcc void @_ZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEE(ptr noundef nonnull align 8 dereferenceable(52) %.0.i70, ptr noundef nonnull align 8 dereferenceable(40) %1)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %231, %237, %_ZNK5clang6interp7Pointer6isLiveEv.exit.i82, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i87, %_ZNK5clang6interp7Pointer7isDummyEv.exit.i83, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i84, %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i80, %_ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit, %_ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit.thread, %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.exit88"
+.critedge2:                                       ; preds = %231, %237, %_ZNK5clang6interp7Pointer6isLiveEv.exit.i82, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i87, %_ZNK5clang6interp7Pointer7isDummyEv.exit.i83, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i84, %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i80, %_ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit, %_ZNK4llvm9SetVectorIPKN5clang6interp5BlockENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE8containsERKS5_.exit.thread, %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.argprom.exit88"
   %295 = add i32 %.048, 1
   br label %191, !llvm.loop !22
 
@@ -2290,7 +2290,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit89: ; preds = %298, %301
   %307 = add i32 %.047, 1
   br label %298, !llvm.loop !23
 
-.critedge:                                        ; preds = %.lr.ph, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit89, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, %101, %84, %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.i, %181, %136, %142, %_ZNK5clang6interp7Pointer6isLiveEv.exit.i59, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i64, %_ZNK5clang6interp7Pointer7isDummyEv.exit.i60, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i61, %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i57, %56, %11, %17, %_ZNK5clang6interp7Pointer6isLiveEv.exit.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i, %_ZNK5clang6interp7Pointer7isDummyEv.exit.i, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i, %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i, %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.exit65", %177, %173, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit
+.critedge:                                        ; preds = %.lr.ph, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit89, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, %101, %84, %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.i, %181, %136, %142, %_ZNK5clang6interp7Pointer6isLiveEv.exit.i59, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i64, %_ZNK5clang6interp7Pointer7isDummyEv.exit.i60, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i61, %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i57, %56, %11, %17, %_ZNK5clang6interp7Pointer6isLiveEv.exit.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i, %_ZNK5clang6interp7Pointer7isDummyEv.exit.i, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i, %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i, %"_ZZN5clang6interpL13collectBlocksERKNS0_7PointerERN4llvm9SetVectorIPKNS0_5BlockENS4_11SmallVectorIS8_Lj0EEENS4_8DenseSetIS8_NS4_12DenseMapInfoIS8_vEEEELj0EEEENK3$_0clES3_.argprom.exit65", %177, %173, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit
   ret void
 }
 

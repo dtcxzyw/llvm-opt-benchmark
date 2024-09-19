@@ -2555,51 +2555,51 @@ entry:
   %1 = getelementptr i8, ptr %exc, i64 8
   %exc.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %exc.val, %0
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val, ptr noundef %0) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %call1 = call i32 @PyUnicodeEncodeError_GetEnd(ptr noundef nonnull %exc, ptr noundef nonnull %end) #9
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end22, label %return
 
-if.else:                                          ; preds = %PyObject_TypeCheck.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
   %2 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8
   %exc.val7 = load ptr, ptr %1, align 8
   %cmp.i.not.i10 = icmp eq ptr %exc.val7, %2
-  br i1 %cmp.i.not.i10, label %if.then6, label %PyObject_TypeCheck.exit15
+  br i1 %cmp.i.not.i10, label %if.then6, label %PyObject_TypeCheck.argprom.exit15
 
-PyObject_TypeCheck.exit15:                        ; preds = %if.else
+PyObject_TypeCheck.argprom.exit15:                ; preds = %if.else
   %call2.i12 = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val7, ptr noundef %2) #9
   %tobool3.i13.not = icmp eq i32 %call2.i12, 0
   br i1 %tobool3.i13.not, label %if.else11, label %if.then6
 
-if.then6:                                         ; preds = %if.else, %PyObject_TypeCheck.exit15
+if.then6:                                         ; preds = %if.else, %PyObject_TypeCheck.argprom.exit15
   %call7 = call i32 @PyUnicodeDecodeError_GetEnd(ptr noundef nonnull %exc, ptr noundef nonnull %end) #9
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end22, label %return
 
-if.else11:                                        ; preds = %PyObject_TypeCheck.exit15
+if.else11:                                        ; preds = %PyObject_TypeCheck.argprom.exit15
   %3 = load ptr, ptr @PyExc_UnicodeTranslateError, align 8
   %exc.val8 = load ptr, ptr %1, align 8
   %cmp.i.not.i16 = icmp eq ptr %exc.val8, %3
-  br i1 %cmp.i.not.i16, label %if.then14, label %PyObject_TypeCheck.exit21
+  br i1 %cmp.i.not.i16, label %if.then14, label %PyObject_TypeCheck.argprom.exit21
 
-PyObject_TypeCheck.exit21:                        ; preds = %if.else11
+PyObject_TypeCheck.argprom.exit21:                ; preds = %if.else11
   %call2.i18 = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val8, ptr noundef %3) #9
   %tobool3.i19.not = icmp eq i32 %call2.i18, 0
   br i1 %tobool3.i19.not, label %if.else19, label %if.then14
 
-if.then14:                                        ; preds = %if.else11, %PyObject_TypeCheck.exit21
+if.then14:                                        ; preds = %if.else11, %PyObject_TypeCheck.argprom.exit21
   %call15 = call i32 @PyUnicodeTranslateError_GetEnd(ptr noundef nonnull %exc, ptr noundef nonnull %end) #9
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end22, label %return
 
-if.else19:                                        ; preds = %PyObject_TypeCheck.exit21
+if.else19:                                        ; preds = %PyObject_TypeCheck.argprom.exit21
   %exc.val9 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %exc.val9, i64 24
   %exc.val9.val = load ptr, ptr %4, align 8
@@ -2637,14 +2637,14 @@ entry:
   %1 = getelementptr i8, ptr %exc, i64 8
   %exc.val22 = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %exc.val22, %0
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val22, ptr noundef %0) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %call1 = call i32 @PyUnicodeEncodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start) #9
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end, label %return
@@ -2695,18 +2695,18 @@ for.end:                                          ; preds = %for.body.preheader,
   %call13 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.12, ptr noundef nonnull %call8, i64 noundef %8) #9
   br label %return
 
-if.else:                                          ; preds = %PyObject_TypeCheck.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
   %9 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8
   %exc.val21 = load ptr, ptr %1, align 8
   %cmp.i.not.i24 = icmp eq ptr %exc.val21, %9
-  br i1 %cmp.i.not.i24, label %if.then16, label %PyObject_TypeCheck.exit29
+  br i1 %cmp.i.not.i24, label %if.then16, label %PyObject_TypeCheck.argprom.exit29
 
-PyObject_TypeCheck.exit29:                        ; preds = %if.else
+PyObject_TypeCheck.argprom.exit29:                ; preds = %if.else
   %call2.i26 = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val21, ptr noundef %9) #9
   %tobool3.i27.not = icmp eq i32 %call2.i26, 0
   br i1 %tobool3.i27.not, label %if.else22, label %if.then16
 
-if.then16:                                        ; preds = %if.else, %PyObject_TypeCheck.exit29
+if.then16:                                        ; preds = %if.else, %PyObject_TypeCheck.argprom.exit29
   %call17 = call i32 @PyUnicodeDecodeError_GetEnd(ptr noundef nonnull %exc, ptr noundef nonnull %end) #9
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.end20, label %return
@@ -2716,18 +2716,18 @@ if.end20:                                         ; preds = %if.then16
   %call21 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.13, i32 noundef 65533, i64 noundef %10) #9
   br label %return
 
-if.else22:                                        ; preds = %PyObject_TypeCheck.exit29
+if.else22:                                        ; preds = %PyObject_TypeCheck.argprom.exit29
   %11 = load ptr, ptr @PyExc_UnicodeTranslateError, align 8
   %exc.val = load ptr, ptr %1, align 8
   %cmp.i.not.i30 = icmp eq ptr %exc.val, %11
-  br i1 %cmp.i.not.i30, label %if.then25, label %PyObject_TypeCheck.exit35
+  br i1 %cmp.i.not.i30, label %if.then25, label %PyObject_TypeCheck.argprom.exit35
 
-PyObject_TypeCheck.exit35:                        ; preds = %if.else22
+PyObject_TypeCheck.argprom.exit35:                ; preds = %if.else22
   %call2.i32 = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val, ptr noundef %11) #9
   %tobool3.i33.not = icmp eq i32 %call2.i32, 0
   br i1 %tobool3.i33.not, label %if.else50, label %if.then25
 
-if.then25:                                        ; preds = %if.else22, %PyObject_TypeCheck.exit35
+if.then25:                                        ; preds = %if.else22, %PyObject_TypeCheck.argprom.exit35
   %call28 = call i32 @PyUnicodeTranslateError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start) #9
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %if.end31, label %return
@@ -2782,7 +2782,7 @@ for.end48:                                        ; preds = %for.body44, %PyUnic
   %call49 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.12, ptr noundef nonnull %call37, i64 noundef %18) #9
   br label %return
 
-if.else50:                                        ; preds = %PyObject_TypeCheck.exit35
+if.else50:                                        ; preds = %PyObject_TypeCheck.argprom.exit35
   %exc.val23 = load ptr, ptr %1, align 8
   %19 = getelementptr i8, ptr %exc.val23, i64 24
   %exc.val23.val = load ptr, ptr %19, align 8
@@ -2808,14 +2808,14 @@ entry:
   %1 = getelementptr i8, ptr %exc, i64 8
   %exc.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %exc.val, %0
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val, ptr noundef %0) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else89, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %call1 = call i32 @PyUnicodeEncodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start) #9
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end, label %return
@@ -3188,7 +3188,7 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call8) #9
   br label %return
 
-if.else89:                                        ; preds = %PyObject_TypeCheck.exit
+if.else89:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %exc.val45 = load ptr, ptr %1, align 8
   %34 = getelementptr i8, ptr %exc.val45, i64 24
   %exc.val45.val = load ptr, ptr %34, align 8
@@ -3212,14 +3212,14 @@ entry:
   %1 = getelementptr i8, ptr %exc, i64 8
   %exc.val76 = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %exc.val76, %0
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val76, ptr noundef %0) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end29, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %call1 = call i32 @PyUnicodeDecodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start) #9
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end, label %return
@@ -3336,18 +3336,18 @@ Py_DECREF.exit184:                                ; preds = %for.end, %if.then1.
   %call28 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.12, ptr noundef nonnull %call13, i64 noundef %20) #9
   br label %return
 
-if.end29:                                         ; preds = %PyObject_TypeCheck.exit
+if.end29:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %21 = load ptr, ptr @PyExc_UnicodeEncodeError, align 8
   %exc.val75 = load ptr, ptr %1, align 8
   %cmp.i.not.i79 = icmp eq ptr %exc.val75, %21
-  br i1 %cmp.i.not.i79, label %if.then32, label %PyObject_TypeCheck.exit84
+  br i1 %cmp.i.not.i79, label %if.then32, label %PyObject_TypeCheck.argprom.exit84
 
-PyObject_TypeCheck.exit84:                        ; preds = %if.end29
+PyObject_TypeCheck.argprom.exit84:                ; preds = %if.end29
   %call2.i81 = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val75, ptr noundef %21) #9
   %tobool3.i82.not = icmp eq i32 %call2.i81, 0
   br i1 %tobool3.i82.not, label %if.else, label %if.then32
 
-if.then32:                                        ; preds = %if.end29, %PyObject_TypeCheck.exit84
+if.then32:                                        ; preds = %if.end29, %PyObject_TypeCheck.argprom.exit84
   %call33 = call i32 @PyUnicodeEncodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start) #9
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end36, label %return
@@ -3362,18 +3362,18 @@ if.end40:                                         ; preds = %if.end36
   %tobool42.not = icmp eq ptr %call41, null
   br i1 %tobool42.not, label %return, label %if.end62
 
-if.else:                                          ; preds = %PyObject_TypeCheck.exit84
+if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit84
   %22 = load ptr, ptr @PyExc_UnicodeTranslateError, align 8
   %exc.val = load ptr, ptr %1, align 8
   %cmp.i.not.i85 = icmp eq ptr %exc.val, %22
-  br i1 %cmp.i.not.i85, label %if.then47, label %PyObject_TypeCheck.exit90
+  br i1 %cmp.i.not.i85, label %if.then47, label %PyObject_TypeCheck.argprom.exit90
 
-PyObject_TypeCheck.exit90:                        ; preds = %if.else
+PyObject_TypeCheck.argprom.exit90:                ; preds = %if.else
   %call2.i87 = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val, ptr noundef %22) #9
   %tobool3.i88.not = icmp eq i32 %call2.i87, 0
   br i1 %tobool3.i88.not, label %if.else60, label %if.then47
 
-if.then47:                                        ; preds = %if.else, %PyObject_TypeCheck.exit90
+if.then47:                                        ; preds = %if.else, %PyObject_TypeCheck.argprom.exit90
   %call48 = call i32 @PyUnicodeTranslateError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start) #9
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.end51, label %return
@@ -3388,7 +3388,7 @@ if.end55:                                         ; preds = %if.end51
   %tobool57.not = icmp eq ptr %call56, null
   br i1 %tobool57.not, label %return, label %if.end62
 
-if.else60:                                        ; preds = %PyObject_TypeCheck.exit90
+if.else60:                                        ; preds = %PyObject_TypeCheck.argprom.exit90
   %exc.val77 = load ptr, ptr %1, align 8
   %23 = getelementptr i8, ptr %exc.val77, i64 24
   %exc.val77.val = load ptr, ptr %23, align 8
@@ -3789,14 +3789,14 @@ entry:
   %1 = getelementptr i8, ptr %exc, i64 8
   %exc.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %exc.val, %0
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val, ptr noundef %0) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else127, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %call1 = call i32 @PyUnicodeEncodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start) #9
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end, label %return
@@ -4201,7 +4201,7 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call8) #9
   br label %return
 
-if.else127:                                       ; preds = %PyObject_TypeCheck.exit
+if.else127:                                       ; preds = %PyObject_TypeCheck.argprom.exit
   %exc.val55 = load ptr, ptr %1, align 8
   %53 = getelementptr i8, ptr %exc.val55, i64 24
   %exc.val55.val = load ptr, ptr %53, align 8
@@ -4325,14 +4325,14 @@ entry:
   %1 = getelementptr i8, ptr %exc, i64 8
   %exc.val132.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %exc.val132.i, %0
-  br i1 %cmp.i.not.i.i, label %if.then.i, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then.i, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %entry
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %entry
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val132.i, ptr noundef %0) #9
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %PyObject_TypeCheck.exit.i, %entry
+if.then.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i, %entry
   %call1.i = call i32 @PyUnicodeEncodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start.i) #9
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end.i, label %PyCodec_SurrogatePassErrors.exit
@@ -4726,18 +4726,18 @@ if.then1.i269.i:                                  ; preds = %if.end.i266.i
   call void @_Py_Dealloc(ptr noundef nonnull %call8.i) #9
   br label %PyCodec_SurrogatePassErrors.exit
 
-if.else.i:                                        ; preds = %PyObject_TypeCheck.exit.i
+if.else.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i
   %41 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8
   %exc.val131.i = load ptr, ptr %1, align 8
   %cmp.i.not.i134.i = icmp eq ptr %exc.val131.i, %41
-  br i1 %cmp.i.not.i134.i, label %if.then93.i, label %PyObject_TypeCheck.exit139.i
+  br i1 %cmp.i.not.i134.i, label %if.then93.i, label %PyObject_TypeCheck.argprom.exit139.i
 
-PyObject_TypeCheck.exit139.i:                     ; preds = %if.else.i
+PyObject_TypeCheck.argprom.exit139.i:             ; preds = %if.else.i
   %call2.i136.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val131.i, ptr noundef %41) #9
   %tobool3.i137.not.i = icmp eq i32 %call2.i136.i, 0
   br i1 %tobool3.i137.not.i, label %if.else217.i, label %if.then93.i
 
-if.then93.i:                                      ; preds = %PyObject_TypeCheck.exit139.i, %if.else.i
+if.then93.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit139.i, %if.else.i
   %call95.i = call i32 @PyUnicodeDecodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start.i) #9
   %tobool96.not.i = icmp eq i32 %call95.i, 0
   br i1 %tobool96.not.i, label %if.end98.i, label %PyCodec_SurrogatePassErrors.exit
@@ -4983,7 +4983,7 @@ if.end213.i:                                      ; preds = %if.end208.i
   %call216.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.12, ptr noundef nonnull %call209.i, i64 noundef %add215.i) #9
   br label %PyCodec_SurrogatePassErrors.exit
 
-if.else217.i:                                     ; preds = %PyObject_TypeCheck.exit139.i
+if.else217.i:                                     ; preds = %PyObject_TypeCheck.argprom.exit139.i
   %exc.val133.i = load ptr, ptr %1, align 8
   %71 = getelementptr i8, ptr %exc.val133.i, i64 24
   %exc.val133.val.i = load ptr, ptr %71, align 8
@@ -5012,14 +5012,14 @@ entry:
   %1 = getelementptr i8, ptr %exc, i64 8
   %exc.val50.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %exc.val50.i, %0
-  br i1 %cmp.i.not.i.i, label %if.then.i, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then.i, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %entry
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %entry
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val50.i, ptr noundef %0) #9
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %PyObject_TypeCheck.exit.i, %entry
+if.then.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i, %entry
   %call1.i = call i32 @PyUnicodeEncodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start.i) #9
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end.i, label %PyCodec_SurrogateEscapeErrors.exit
@@ -5228,18 +5228,18 @@ if.then1.i82.i:                                   ; preds = %if.end.i79.i
   call void @_Py_Dealloc(ptr noundef nonnull %call8.i) #9
   br label %PyCodec_SurrogateEscapeErrors.exit
 
-if.else.i:                                        ; preds = %PyObject_TypeCheck.exit.i
+if.else.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i
   %26 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8
   %exc.val49.i = load ptr, ptr %1, align 8
   %cmp.i.not.i52.i = icmp eq ptr %exc.val49.i, %26
-  br i1 %cmp.i.not.i52.i, label %if.then27.i, label %PyObject_TypeCheck.exit57.i
+  br i1 %cmp.i.not.i52.i, label %if.then27.i, label %PyObject_TypeCheck.argprom.exit57.i
 
-PyObject_TypeCheck.exit57.i:                      ; preds = %if.else.i
+PyObject_TypeCheck.argprom.exit57.i:              ; preds = %if.else.i
   %call2.i54.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val49.i, ptr noundef %26) #9
   %tobool3.i55.not.i = icmp eq i32 %call2.i54.i, 0
   br i1 %tobool3.i55.not.i, label %if.else75.i, label %if.then27.i
 
-if.then27.i:                                      ; preds = %PyObject_TypeCheck.exit57.i, %if.else.i
+if.then27.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit57.i, %if.else.i
   %call29.i = call i32 @PyUnicodeDecodeError_GetStart(ptr noundef nonnull %exc, ptr noundef nonnull %start.i) #9
   %tobool30.not.i = icmp eq i32 %call29.i, 0
   br i1 %tobool30.not.i, label %if.end32.i, label %PyCodec_SurrogateEscapeErrors.exit
@@ -5326,7 +5326,7 @@ if.end71.i:                                       ; preds = %if.end65.i
   %call74.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.12, ptr noundef nonnull %call67.i, i64 noundef %add73.i) #9
   br label %PyCodec_SurrogateEscapeErrors.exit
 
-if.else75.i:                                      ; preds = %PyObject_TypeCheck.exit57.i
+if.else75.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit57.i
   %exc.val51.i = load ptr, ptr %1, align 8
   %36 = getelementptr i8, ptr %exc.val51.i, i64 24
   %exc.val51.val.i = load ptr, ptr %36, align 8

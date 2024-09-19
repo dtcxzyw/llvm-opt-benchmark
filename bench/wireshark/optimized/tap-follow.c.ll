@@ -129,38 +129,38 @@ define internal void @follow_stream(ptr nocapture noundef readonly %0, ptr nound
   store ptr %1, ptr %18, align 8
   %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(5) @.str.3, i64 noundef 4) #13
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %follow_arg_mode.exit, label %21
+  br i1 %20, label %follow_arg_mode.argprom.exit, label %21
 
 21:                                               ; preds = %2
   %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(7) @.str.4, i64 noundef 6) #13
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %follow_arg_mode.exit, label %24
+  br i1 %23, label %follow_arg_mode.argprom.exit, label %24
 
 24:                                               ; preds = %21
   %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(8) @.str.5, i64 noundef 7) #13
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %follow_arg_mode.exit, label %27
+  br i1 %26, label %follow_arg_mode.argprom.exit, label %27
 
 27:                                               ; preds = %24
   %28 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(5) @.str.6, i64 noundef 4) #13
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %follow_arg_mode.exit, label %30
+  br i1 %29, label %follow_arg_mode.argprom.exit, label %30
 
 30:                                               ; preds = %27
   %31 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(7) @.str.7, i64 noundef 6) #13
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %follow_arg_mode.exit, label %33
+  br i1 %32, label %follow_arg_mode.argprom.exit, label %33
 
 33:                                               ; preds = %30
   %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(6) @.str.8, i64 noundef 5) #13
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %follow_arg_mode.exit, label %36
+  br i1 %35, label %follow_arg_mode.argprom.exit, label %36
 
 36:                                               ; preds = %33
   tail call fastcc void @follow_exit(ptr noundef nonnull @.str.9) #15
   unreachable
 
-follow_arg_mode.exit:                             ; preds = %2, %21, %24, %27, %33, %30
+follow_arg_mode.argprom.exit:                     ; preds = %2, %21, %24, %27, %33, %30
   %.sink = phi i64 [ 6, %30 ], [ 5, %33 ], [ 4, %2 ], [ 6, %21 ], [ 7, %24 ], [ 4, %27 ]
   %.sink.i = phi i32 [ 5, %30 ], [ 6, %33 ], [ 3, %2 ], [ 0, %21 ], [ 2, %24 ], [ 4, %27 ]
   %37 = getelementptr i8, ptr %10, i64 %.sink
@@ -171,7 +171,7 @@ follow_arg_mode.exit:                             ; preds = %2, %21, %24, %27, %
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %40, label %59
 
-40:                                               ; preds = %follow_arg_mode.exit
+40:                                               ; preds = %follow_arg_mode.argprom.exit
   %41 = load i32, ptr %4, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %37, i64 %42
@@ -207,7 +207,7 @@ follow_arg_mode.exit:                             ; preds = %2, %21, %24, %27, %
   store i64 %58, ptr %17, align 8
   br label %follow_arg_filter.exit
 
-59:                                               ; preds = %40, %follow_arg_mode.exit
+59:                                               ; preds = %40, %follow_arg_mode.argprom.exit
   %60 = getelementptr inbounds i8, ptr %11, i64 32
   %61 = getelementptr inbounds i8, ptr %11, i64 88
   %62 = getelementptr inbounds i8, ptr %11, i64 40
@@ -361,18 +361,18 @@ follow_arg_range.exit:                            ; preds = %102, %117
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %.val39 = load i8, ptr %.3, align 1
   %.not.i41 = icmp eq i8 %.val39, 0
-  br i1 %.not.i41, label %follow_arg_done.exit, label %124
+  br i1 %.not.i41, label %follow_arg_done.argprom.exit, label %124
 
 124:                                              ; preds = %follow_arg_range.exit
   call fastcc void @follow_exit(ptr noundef nonnull @.str.22) #15
   unreachable
 
-follow_arg_done.exit:                             ; preds = %follow_arg_range.exit
+follow_arg_done.argprom.exit:                     ; preds = %follow_arg_range.exit
   %125 = load i32, ptr %12, align 8
   %126 = icmp sgt i32 %125, -1
   br i1 %126, label %127, label %138
 
-127:                                              ; preds = %follow_arg_done.exit
+127:                                              ; preds = %follow_arg_done.argprom.exit
   %128 = call ptr @get_follow_index_func(ptr noundef %1) #12
   %129 = load i32, ptr %12, align 8
   %130 = load i32, ptr %14, align 4
@@ -391,7 +391,7 @@ follow_arg_done.exit:                             ; preds = %follow_arg_range.ex
   call fastcc void @follow_exit(ptr noundef nonnull @.str) #15
   unreachable
 
-138:                                              ; preds = %follow_arg_done.exit
+138:                                              ; preds = %follow_arg_done.argprom.exit
   %139 = call ptr @get_follow_address_func(ptr noundef %1) #12
   %140 = getelementptr inbounds i8, ptr %11, i64 40
   %141 = getelementptr i8, ptr %11, i64 64

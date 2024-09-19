@@ -2268,7 +2268,7 @@ define hidden noundef i32 @ir_remove_unreachable_blocks(ptr noundef %0) local_un
   %31 = getelementptr inbounds i8, ptr %27, i64 24
   %32 = load i32, ptr %31, align 4
   %.not5.i = icmp eq i32 %32, 0
-  br i1 %.not5.i, label %ir_remove_predecessor.exit, label %.lr.ph.preheader.i
+  br i1 %.not5.i, label %ir_remove_predecessor.argprom.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %30
   %.val = load ptr, ptr %6, align 8
@@ -2312,9 +2312,9 @@ define hidden noundef i32 @ir_remove_unreachable_blocks(ptr noundef %0) local_un
   %46 = add nuw i32 %.0181.i, 1
   %47 = getelementptr inbounds i8, ptr %.0172.i, i64 4
   %48 = icmp ult i32 %46, %45
-  br i1 %48, label %.lr.ph.i, label %ir_remove_predecessor.exit
+  br i1 %48, label %.lr.ph.i, label %ir_remove_predecessor.argprom.exit
 
-ir_remove_predecessor.exit:                       ; preds = %44, %30
+ir_remove_predecessor.argprom.exit:               ; preds = %44, %30
   %.0.lcssa.i = phi i32 [ 0, %30 ], [ %.1.i, %44 ]
   store i32 %.0.lcssa.i, ptr %31, align 4
   %49 = getelementptr inbounds i8, ptr %27, i64 4
@@ -2334,7 +2334,7 @@ ir_remove_predecessor.exit:                       ; preds = %44, %30
   %.not145.i = icmp eq i16 %.fr.i, 0
   br i1 %.not145.i, label %.thread.i, label %.lr.ph.preheader.i139
 
-.lr.ph.preheader.i139:                            ; preds = %ir_remove_predecessor.exit
+.lr.ph.preheader.i139:                            ; preds = %ir_remove_predecessor.argprom.exit
   %62 = add nuw nsw i32 %57, 1
   %wide.trip.count.i = zext nneg i32 %62 to i64
   br label %.lr.ph.i140
@@ -2505,7 +2505,7 @@ ir_remove_predecessor.exit:                       ; preds = %44, %30
   %145 = icmp slt i32 %144, 2
   br i1 %145, label %ir_remove_merge_input.exit, label %.lr.ph155.split.preheader.i
 
-.thread.i:                                        ; preds = %ir_remove_predecessor.exit
+.thread.i:                                        ; preds = %ir_remove_predecessor.argprom.exit
   store i16 0, ptr %55, align 2
   br label %ir_remove_merge_input.exit
 

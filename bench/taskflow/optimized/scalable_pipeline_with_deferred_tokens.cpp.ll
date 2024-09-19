@@ -1257,7 +1257,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 for.body:                                         ; preds = %invoke.cont5, %for.inc
   %i.0346 = phi i64 [ 0, %invoke.cont5 ], [ %inc, %for.inc ]
-  invoke fastcc void @"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE12emplace_backIJNS0_8PipeTypeERZ4mainE3$_2EEERS7_DpOT_"(ptr noundef nonnull align 8 dereferenceable(24) %pipes, i32 2)
+  invoke fastcc void @"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE12emplace_backIJNS0_8PipeTypeERZ4mainE3$_2EEERS7_DpOT_.argprom.retelim"(ptr noundef nonnull align 8 dereferenceable(24) %pipes, i32 2)
           to label %for.inc unwind label %lpad7.loopexit
 
 for.inc:                                          ; preds = %for.body
@@ -1540,7 +1540,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i), !noalias !11
   %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i" unwind label %lpad80.i.i.i, !noalias !11
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad80.i.i.i, !noalias !11
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %if.end76.i.i.i
   %36 = landingpad { ptr, i32 }
@@ -1558,7 +1558,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i) #29, !noalias !11
   br label %ehcleanup90
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i": ; preds = %invoke.cont.i.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %invoke.cont.i.i.i
   %_priority.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store i32 0, ptr %_priority.i.i.i.i, align 8, !noalias !11
   %_topology.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 48
@@ -1601,14 +1601,14 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   %cmp.not.i.i.i.i = icmp eq ptr %38, %39
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i2.i.i, label %if.then.i.i1.i.i
 
-if.then.i.i1.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i"
+if.then.i.i1.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i"
   store ptr %retval.0.i.i.i.i, ptr %38, align 8, !noalias !11
   %40 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !11
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !11
   br label %invoke.cont20
 
-if.else.i.i2.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i"
+if.else.i.i2.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i"
   %41 = load ptr, ptr %taskflow.val, align 8, !noalias !11
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %41 to i64
@@ -1963,7 +1963,7 @@ invoke.cont.i.i.i114:                             ; preds = %invoke.cont.i8.i.i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i52), !noalias !18
   %_name.i.i.i.i115 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i86, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i115, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i54)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.exit.i.i" unwind label %lpad80.i.i.i116, !noalias !18
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad80.i.i.i116, !noalias !18
 
 lpad.i.i.i103:                                    ; preds = %call.i.noexc.i.i.i106, %if.end76.i.i.i100
   %76 = landingpad { ptr, i32 }
@@ -1981,7 +1981,7 @@ ehcleanup.i.i.i104:                               ; preds = %lpad80.i.i.i116, %l
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i55) #29, !noalias !18
   br label %ehcleanup90
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.exit.i.i": ; preds = %invoke.cont.i.i.i114
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %invoke.cont.i.i.i114
   %_priority.i.i.i.i117 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i86, i64 40
   store i32 0, ptr %_priority.i.i.i.i117, align 8, !noalias !18
   %_topology.i.i.i.i118 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i86, i64 48
@@ -2024,14 +2024,14 @@ ehcleanup.i.i.i104:                               ; preds = %lpad80.i.i.i116, %l
   %cmp.not.i.i.i.i135 = icmp eq ptr %78, %79
   br i1 %cmp.not.i.i.i.i135, label %if.else.i.i2.i.i138, label %if.then.i.i1.i.i136
 
-if.then.i.i1.i.i136:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.exit.i.i"
+if.then.i.i1.i.i136:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.argprom.exit.i.i"
   store ptr %retval.0.i.i.i.i86, ptr %78, align 8, !noalias !18
   %80 = load ptr, ptr %_M_finish.i.i.i.i133, align 8, !noalias !18
   %incdec.ptr.i.i.i.i137 = getelementptr inbounds i8, ptr %80, i64 8
   store ptr %incdec.ptr.i.i.i.i137, ptr %_M_finish.i.i.i.i133, align 8, !noalias !18
   br label %invoke.cont45
 
-if.else.i.i2.i.i138:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.exit.i.i"
+if.else.i.i2.i.i138:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.argprom.exit.i.i"
   %81 = load ptr, ptr %taskflow.val16, align 8, !noalias !18
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i139 = ptrtoint ptr %78 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i140 = ptrtoint ptr %81 to i64
@@ -2292,7 +2292,7 @@ for.body69.preheader:                             ; preds = %_ZNSt8weak_ptrIN2tf
 
 for.body69:                                       ; preds = %for.body69.preheader, %for.inc73
   %cmp68 = phi i1 [ false, %for.inc73 ], [ true, %for.body69.preheader ]
-  invoke fastcc void @"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE12emplace_backIJNS0_8PipeTypeERZ4mainE3$_2EEERS7_DpOT_"(ptr noundef nonnull align 8 dereferenceable(24) %pipes, i32 2)
+  invoke fastcc void @"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE12emplace_backIJNS0_8PipeTypeERZ4mainE3$_2EEERS7_DpOT_.argprom.retelim"(ptr noundef nonnull align 8 dereferenceable(24) %pipes, i32 2)
           to label %for.inc73 unwind label %lpad19.loopexit
 
 for.inc73:                                        ; preds = %for.body69
@@ -3143,7 +3143,7 @@ ehcleanup32:                                      ; preds = %ehcleanup31, %lpad
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE12emplace_backIJNS0_8PipeTypeERZ4mainE3$_2EEERS7_DpOT_"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 %__args.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE12emplace_backIJNS0_8PipeTypeERZ4mainE3$_2EEERS7_DpOT_.argprom.retelim"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 %__args.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8
@@ -3241,20 +3241,20 @@ _ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE11_S_relocateEPS
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
   %tobool.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i, label %"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE17_M_realloc_insertIJNS0_8PipeTypeERZ4mainE3$_2EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit", label %if.then.i36.i
+  br i1 %tobool.not.i.i, label %"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE17_M_realloc_insertIJNS0_8PipeTypeERZ4mainE3$_2EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit", label %if.then.i36.i
 
 if.then.i36.i:                                    ; preds = %_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit35.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #31
-  br label %"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE17_M_realloc_insertIJNS0_8PipeTypeERZ4mainE3$_2EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit"
+  br label %"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE17_M_realloc_insertIJNS0_8PipeTypeERZ4mainE3$_2EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit"
 
-"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE17_M_realloc_insertIJNS0_8PipeTypeERZ4mainE3$_2EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit": ; preds = %_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit35.i, %if.then.i36.i
+"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE17_M_realloc_insertIJNS0_8PipeTypeERZ4mainE3$_2EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit": ; preds = %_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit35.i, %if.then.i36.i
   store ptr %cond.i17.i, ptr %this, align 8
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr28.i = getelementptr inbounds %"class.tf::Pipe", ptr %cond.i17.i, i64 %cond.i.i
   store ptr %add.ptr28.i, ptr %_M_end_of_storage, align 8
   br label %if.end
 
-if.end:                                           ; preds = %"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE17_M_realloc_insertIJNS0_8PipeTypeERZ4mainE3$_2EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit", %if.then
+if.end:                                           ; preds = %"_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE17_M_realloc_insertIJNS0_8PipeTypeERZ4mainE3$_2EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit", %if.then
   ret void
 }
 
@@ -23759,12 +23759,12 @@ sw.bb.i.i.i:                                      ; preds = %entry
 _ZN2tf8Pipeflow4stopEv.exit.i.i.i:                ; preds = %sw.bb.i.i.i
   %_stop.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   store i8 1, ptr %_stop.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i
   %_num_deferrals.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %2 = load i64, ptr %_num_deferrals.i.i.i.i, align 8
-  switch i64 %2, label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
+  switch i64 %2, label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
     i64 0, label %_ZN2tf8Pipeflow5deferEm.exit.i.i.i
     i64 1, label %_ZN2tf8Pipeflow5deferEm.exit43.i.i.i
     i64 2, label %sw.bb15.i.i.i
@@ -23799,7 +23799,7 @@ _ZN2tf8Pipeflow5deferEm.exit34.i.i.i:             ; preds = %if.then.i31.i.i.i, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %token.addr.i28.i.i.i)
   %5 = load i64, ptr %_token.i.i.i.i, align 8
   %call11.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.82, i64 noundef %5)
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 _ZN2tf8Pipeflow5deferEm.exit43.i.i.i:             ; preds = %if.then5.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %token.addr.i37.i.i.i)
@@ -23812,16 +23812,16 @@ _ZN2tf8Pipeflow5deferEm.exit43.i.i.i:             ; preds = %if.then5.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %token.addr.i37.i.i.i)
   %6 = load i64, ptr %_token.i.i.i.i, align 8
   %call14.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.83, i64 noundef %6)
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 sw.bb15.i.i.i:                                    ; preds = %if.then5.i.i.i
   %call17.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.84, i64 noundef 5)
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 if.then21.i.i.i:                                  ; preds = %sw.bb.i.i.i
   %_num_deferrals.i47.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %7 = load i64, ptr %_num_deferrals.i47.i.i.i, align 8
-  switch i64 %7, label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" [
+  switch i64 %7, label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" [
     i64 0, label %_ZN2tf8Pipeflow5deferEm.exit.i.i
     i64 1, label %sw.bb26.i.i.i
   ]
@@ -23837,15 +23837,15 @@ _ZN2tf8Pipeflow5deferEm.exit.i.i:                 ; preds = %if.then21.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %token.addr.i.i.i)
   %8 = load i64, ptr %_token.i.i.i.i, align 8
   %call25.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i64 noundef %8)
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 sw.bb26.i.i.i:                                    ; preds = %if.then21.i.i.i
   %call28.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.86, i64 noundef 2)
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 if.else30.i.i.i:                                  ; preds = %sw.bb.i.i.i
   %call32.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.87, i64 noundef %1)
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 sw.default.i.i.i:                                 ; preds = %entry
   %add.i.i.i = add i64 %0, 1
@@ -23854,9 +23854,9 @@ sw.default.i.i.i:                                 ; preds = %entry
   %_num_deferrals.i53.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %10 = load i64, ptr %_num_deferrals.i53.i.i.i, align 8
   %call38.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.88, i64 noundef %add.i.i.i, i64 noundef %9, i64 noundef %10)
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %_ZN2tf8Pipeflow4stopEv.exit.i.i.i, %if.then5.i.i.i, %_ZN2tf8Pipeflow5deferEm.exit34.i.i.i, %_ZN2tf8Pipeflow5deferEm.exit43.i.i.i, %sw.bb15.i.i.i, %if.then21.i.i.i, %_ZN2tf8Pipeflow5deferEm.exit.i.i, %sw.bb26.i.i.i, %if.else30.i.i.i, %sw.default.i.i.i
+"_ZSt10__invoke_rIvRZ4mainE3$_2JRN2tf8PipeflowEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %_ZN2tf8Pipeflow4stopEv.exit.i.i.i, %if.then5.i.i.i, %_ZN2tf8Pipeflow5deferEm.exit34.i.i.i, %_ZN2tf8Pipeflow5deferEm.exit43.i.i.i, %sw.bb15.i.i.i, %if.then21.i.i.i, %_ZN2tf8Pipeflow5deferEm.exit.i.i, %sw.bb26.i.i.i, %if.else30.i.i.i, %sw.default.i.i.i
   ret void
 }
 
@@ -28802,15 +28802,15 @@ attributes #37 = { cold }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_: %agg.result"}
-!13 = distinct !{!13, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_"}
+!12 = distinct !{!12, !13, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom: %agg.result"}
+!13 = distinct !{!13, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom"}
 !14 = distinct !{!14, !6}
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZN2tf11FlowBuilder11composed_ofINS_16ScalablePipelineIN9__gnu_cxx17__normal_iteratorIPNS_4PipeISt8functionIFvRNS_8PipeflowEEEEESt6vectorISB_SaISB_EEEEEEEENS_4TaskERT_: %agg.result"}
 !17 = distinct !{!17, !"_ZN2tf11FlowBuilder11composed_ofINS_16ScalablePipelineIN9__gnu_cxx17__normal_iteratorIPNS_4PipeISt8functionIFvRNS_8PipeflowEEEEESt6vectorISB_SaISB_EEEEEEEENS_4TaskERT_"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_: %agg.result"}
-!20 = distinct !{!20, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_"}
+!19 = distinct !{!19, !20, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom: %agg.result"}
+!20 = distinct !{!20, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom"}
 !21 = distinct !{!21, !6}
 !22 = !{!23}
 !23 = distinct !{!23, !24, !"_ZN2tf8Executor3runERNS_8TaskflowE: %agg.result"}

@@ -2276,7 +2276,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i1.invoke.i
 invoke.cont25.i:                                  ; preds = %invoke.cont.i.i.i
   %27 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !20
   %cmp.not.i.i.i97.i = icmp eq ptr %27, null
-  br i1 %cmp.not.i.i.i97.i, label %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.exit", label %if.then.i.i.i98.i
+  br i1 %cmp.not.i.i.i97.i, label %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom.exit", label %if.then.i.i.i98.i
 
 if.then.i.i.i98.i:                                ; preds = %invoke.cont25.i
   %_M_use_count.i.i.i.i99.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -2312,7 +2312,7 @@ if.else.i.i.i.i.i122.i:                           ; preds = %if.end.i.i.i.i101.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105.i: ; preds = %if.else.i.i.i.i.i122.i, %if.then.i.i.i.i.i103.i
   %retval.i.0.i.i.i.i106.i = phi i32 [ %29, %if.then.i.i.i.i.i103.i ], [ %32, %if.else.i.i.i.i.i122.i ]
   %cmp6.i.i.i.i107.i = icmp eq i32 %retval.i.0.i.i.i.i106.i, 1
-  br i1 %cmp6.i.i.i.i107.i, label %if.then7.i.i.i.i108.i, label %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.exit"
+  br i1 %cmp6.i.i.i.i107.i, label %if.then7.i.i.i.i108.i, label %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom.exit"
 
 if.then7.i.i.i.i108.i:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105.i
   %vtable.i.i.i.i.i.i109.i = load ptr, ptr %27, align 8, !noalias !20
@@ -2337,14 +2337,14 @@ if.else.i.i.i.i.i.i.i121.i:                       ; preds = %if.then7.i.i.i.i108
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115.i: ; preds = %if.else.i.i.i.i.i.i.i121.i, %if.then.i.i.i.i.i.i.i113.i
   %retval.i.0.i.i.i.i.i.i116.i = phi i32 [ %35, %if.then.i.i.i.i.i.i.i113.i ], [ %36, %if.else.i.i.i.i.i.i.i121.i ]
   %cmp.i.i.i.i.i.i117.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i116.i, 1
-  br i1 %cmp.i.i.i.i.i.i117.i, label %if.end8.sink.split.i.i.i.i118.i, label %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.exit"
+  br i1 %cmp.i.i.i.i.i.i117.i, label %if.end8.sink.split.i.i.i.i118.i, label %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom.exit"
 
 if.end8.sink.split.i.i.i.i118.i:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115.i, %if.then.i.i.i.i123.i
   %vtable2.i.i.i.i.i.i119.i = load ptr, ptr %27, align 8, !noalias !20
   %vfn3.i.i.i.i.i.i120.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i119.i, i64 24
   %37 = load ptr, ptr %vfn3.i.i.i.i.i.i120.i, align 8, !noalias !20
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %27) #31, !noalias !20
-  br label %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.exit"
+  br label %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom.exit"
 
 common.resume:                                    ; preds = %ehcleanup80, %ehcleanup.i
   %common.resume.op = phi { ptr, i32 } [ %lpad.val28.merged.i, %ehcleanup.i ], [ %.pn.pn, %ehcleanup80 ]
@@ -2365,14 +2365,14 @@ terminate.lpad.i:                                 ; preds = %lpad14.i
 unreachable.i:                                    ; preds = %catch.i
   unreachable
 
-"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.exit": ; preds = %invoke.cont25.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115.i, %if.end8.sink.split.i.i.i.i118.i
+"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom.exit": ; preds = %invoke.cont25.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115.i, %if.end8.sink.split.i.i.i.i118.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__state.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp9.i)
   %40 = load i8, ptr %performance_, align 8
   %tobool = trunc i8 %40 to i1
   br i1 %tobool, label %if.then, label %if.else
 
-if.then:                                          ; preds = %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.exit"
+if.then:                                          ; preds = %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom.exit"
   store i64 5, ptr %ref.tmp2, align 8
   %call = invoke noundef i32 @_ZNKSt14__basic_futureIlE8wait_forIlSt5ratioILl1ELl1EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE(ptr noundef nonnull align 8 dereferenceable(16) %future, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp29.loopexit
@@ -2522,7 +2522,7 @@ ehcleanup:                                        ; preds = %lpad17.loopexit, %l
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %err) #31
   br label %ehcleanup80
 
-if.else:                                          ; preds = %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.exit"
+if.else:                                          ; preds = %"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom.exit"
   %52 = load ptr, ptr %future, align 8
   %cmp.i.not.i.i = icmp eq ptr %52, null
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
@@ -5684,7 +5684,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS9_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS9_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
@@ -7077,11 +7077,11 @@ attributes #37 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
 !19 = distinct !{!19, !6}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_: %agg.result"}
-!22 = distinct !{!22, !"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_"}
+!21 = distinct !{!21, !22, !"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom: %agg.result"}
+!22 = distinct !{!22, !"_ZSt5asyncIZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0JRiRS3_RmS7_EESt6futureINSt15__invoke_resultINSt5decayIT_E4typeEJDpNSA_IT0_E4typeEEE4typeEESt6launchOSB_DpOSE_.argprom"}
 !23 = !{!24, !21}
-!24 = distinct !{!24, !25, !"_ZSt11make_sharedINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEEJS9_RiRS8_RmSF_EESt10shared_ptrIT_EDpOT0_: %agg.result"}
-!25 = distinct !{!25, !"_ZSt11make_sharedINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEEJS9_RiRS8_RmSF_EESt10shared_ptrIT_EDpOT0_"}
+!24 = distinct !{!24, !25, !"_ZSt11make_sharedINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEEJS9_RiRS8_RmSF_EESt10shared_ptrIT_EDpOT0_.argprom: %agg.result"}
+!25 = distinct !{!25, !"_ZSt11make_sharedINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEEJS9_RiRS8_RmSF_EESt10shared_ptrIT_EDpOT0_.argprom"}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}

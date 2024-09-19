@@ -5291,22 +5291,22 @@ _ZL17getTopLevelOrNullPN5clang6ModuleE.exit58:    ; preds = %_ZL17getTopLevelOrN
   br i1 %.not.i.i, label %52, label %45
 
 45:                                               ; preds = %.preheader.preheader
-  br i1 %.not.i, label %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread, label %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit
+  br i1 %.not.i, label %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread, label %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit
 
-_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit: ; preds = %45
+_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit: ; preds = %45
   %46 = tail call noundef ptr @_ZNK5clang6Module17getTopLevelModuleEv(ptr noundef nonnull align 8 dereferenceable(2392) %1) #21
   %47 = and i64 %.0.copyload.i.i.i.i, -8
   %48 = inttoptr i64 %47 to ptr
   %49 = tail call noundef ptr @_ZNK5clang6Module17getTopLevelModuleEv(ptr noundef nonnull align 8 dereferenceable(2392) %48) #21
   %.not108 = icmp eq ptr %46, %49
-  br i1 %.not108, label %.thread, label %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit._ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread_crit_edge
+  br i1 %.not108, label %.thread, label %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit._ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread_crit_edge
 
-_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit._ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread_crit_edge: ; preds = %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit
+_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit._ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread_crit_edge: ; preds = %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit
   %.0.copyload.i.i.i.i59.pre = load i64, ptr %.044113, align 8
-  br label %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread
+  br label %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread
 
-_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread: ; preds = %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit._ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread_crit_edge, %45
-  %.0.copyload.i.i.i.i59 = phi i64 [ %.0.copyload.i.i.i.i59.pre, %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit._ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread_crit_edge ], [ %.0.copyload.i.i.i.i, %45 ]
+_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread: ; preds = %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit._ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread_crit_edge, %45
+  %.0.copyload.i.i.i.i59 = phi i64 [ %.0.copyload.i.i.i.i59.pre, %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit._ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread_crit_edge ], [ %.0.copyload.i.i.i.i, %45 ]
   %50 = and i64 %.0.copyload.i.i.i.i59, -8
   %51 = inttoptr i64 %50 to ptr
   br label %64
@@ -5314,7 +5314,7 @@ _ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownH
 52:                                               ; preds = %.preheader.preheader
   br i1 %.not.i, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit, %52
+.thread:                                          ; preds = %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit, %52
   %53 = load ptr, ptr %40, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i64, ptr %54, align 8
@@ -5335,9 +5335,9 @@ _ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownH
   %63 = inttoptr i64 %62 to ptr
   br label %64
 
-64:                                               ; preds = %41, %61, %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread
-  %.243 = phi ptr [ %.142114, %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread ], [ %63, %61 ], [ %.142114, %41 ]
-  %.2 = phi ptr [ %51, %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.exit.thread ], [ %.1115, %61 ], [ %.1115, %41 ]
+64:                                               ; preds = %41, %61, %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread
+  %.243 = phi ptr [ %.142114, %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread ], [ %63, %61 ], [ %.142114, %41 ]
+  %.2 = phi ptr [ %51, %_ZL22violatesPrivateIncludePN5clang6ModuleEPKNS_9FileEntryENS_9ModuleMap11KnownHeaderE.argprom.exit.thread ], [ %.1115, %61 ], [ %.1115, %41 ]
   %65 = getelementptr inbounds i8, ptr %.044113, i64 8
   %.not49 = icmp eq ptr %65, %39
   br i1 %.not49, label %._crit_edge, label %41
@@ -5944,7 +5944,7 @@ define dso_local i64 @_ZN5clang9ModuleMap19findModuleForHeaderENS_12FileEntryRef
 24:                                               ; preds = %.lr.ph.split.us
   %25 = icmp ugt i64 %.sroa.0.043.us, 7
   %.pre51 = load i64, ptr %.044.us, align 8
-  br i1 %25, label %26, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us
+  br i1 %25, label %26, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread.us
 
 26:                                               ; preds = %24
   %27 = and i64 %.pre51, -8
@@ -5962,7 +5962,7 @@ define dso_local i64 @_ZN5clang9ModuleMap19findModuleForHeaderENS_12FileEntryRef
   %36 = load i16, ptr %35, align 8
   %37 = and i16 %36, 4
   %.not4.i.us = icmp eq i16 %37, 0
-  br i1 %.not4.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us, label %38
+  br i1 %.not4.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread.us, label %38
 
 38:                                               ; preds = %32, %26
   %39 = trunc i64 %.pre51 to i32
@@ -5977,29 +5977,29 @@ define dso_local i64 @_ZN5clang9ModuleMap19findModuleForHeaderENS_12FileEntryRef
 45:                                               ; preds = %38
   %46 = and i32 %39, 1
   %.not15.i.us = icmp eq i32 %46, 0
-  br i1 %.not15.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us, label %53
+  br i1 %.not15.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread.us, label %53
 
 47:                                               ; preds = %38
   %48 = and i32 %43, 2
   %.not12.i.us = icmp eq i32 %48, 0
-  br i1 %.not12.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.us, label %49
+  br i1 %.not12.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.us, label %49
 
 49:                                               ; preds = %47
   %50 = and i32 %39, 2
   %.not14.i.us = icmp eq i32 %50, 0
-  br i1 %.not14.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us, label %53
+  br i1 %.not14.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread.us, label %53
 
-_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.us: ; preds = %47
+_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.us: ; preds = %47
   %51 = icmp ne i32 %40, 4
   %52 = icmp eq i32 %42, 4
   %spec.select.i.us = and i1 %52, %51
-  br i1 %spec.select.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us, label %53
+  br i1 %spec.select.i.us, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread.us, label %53
 
-_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us: ; preds = %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.us, %49, %45, %32, %24
+_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread.us: ; preds = %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.us, %49, %45, %32, %24
   br label %53
 
-53:                                               ; preds = %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.us, %49, %45
-  %.sroa.0.1.us = phi i64 [ %.pre51, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us ], [ %.sroa.0.043.us, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.us ], [ %.sroa.0.043.us, %45 ], [ %.sroa.0.043.us, %49 ]
+53:                                               ; preds = %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread.us, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.us, %49, %45
+  %.sroa.0.1.us = phi i64 [ %.pre51, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread.us ], [ %.sroa.0.043.us, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.us ], [ %.sroa.0.043.us, %45 ], [ %.sroa.0.043.us, %49 ]
   %54 = getelementptr inbounds i8, ptr %.044.us, i64 8
   %.not.us = icmp eq ptr %54, %17
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
@@ -6028,7 +6028,7 @@ _ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us: ; p
 63:                                               ; preds = %57
   %64 = icmp ugt i64 %.sroa.0.043, 7
   %.pre = load i64, ptr %.044, align 8
-  br i1 %64, label %65, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread
+  br i1 %64, label %65, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread
 
 65:                                               ; preds = %63
   %66 = and i64 %.pre, -8
@@ -6046,7 +6046,7 @@ _ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us: ; p
   %75 = load i16, ptr %74, align 8
   %76 = and i16 %75, 4
   %.not4.i = icmp eq i16 %76, 0
-  br i1 %.not4.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread, label %77
+  br i1 %.not4.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread, label %77
 
 77:                                               ; preds = %71, %65
   %78 = trunc i64 %.pre to i32
@@ -6061,29 +6061,29 @@ _ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread.us: ; p
 84:                                               ; preds = %77
   %85 = and i32 %78, 1
   %.not15.i = icmp eq i32 %85, 0
-  br i1 %.not15.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread, label %92
+  br i1 %.not15.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread, label %92
 
 86:                                               ; preds = %77
   %87 = and i32 %82, 2
   %.not12.i = icmp eq i32 %87, 0
-  br i1 %.not12.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit, label %88
+  br i1 %.not12.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit, label %88
 
 88:                                               ; preds = %86
   %89 = and i32 %78, 2
   %.not14.i = icmp eq i32 %89, 0
-  br i1 %.not14.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread, label %92
+  br i1 %.not14.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread, label %92
 
-_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit: ; preds = %86
+_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit: ; preds = %86
   %90 = icmp ne i32 %79, 4
   %91 = icmp eq i32 %81, 4
   %spec.select.i = and i1 %91, %90
-  br i1 %spec.select.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread, label %92
+  br i1 %spec.select.i, label %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread, label %92
 
-_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread: ; preds = %71, %88, %84, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit, %63
+_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread: ; preds = %71, %88, %84, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit, %63
   br label %92
 
-92:                                               ; preds = %88, %84, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread, %.lr.ph.split
-  %.sroa.0.1 = phi i64 [ %.pre, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit.thread ], [ %.sroa.0.043, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.exit ], [ %.sroa.0.043, %.lr.ph.split ], [ %.sroa.0.043, %84 ], [ %.sroa.0.043, %88 ]
+92:                                               ; preds = %88, %84, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread, %.lr.ph.split
+  %.sroa.0.1 = phi i64 [ %.pre, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit.thread ], [ %.sroa.0.043, %_ZL19isBetterKnownHeaderRKN5clang9ModuleMap11KnownHeaderES3_.argprom.exit ], [ %.sroa.0.043, %.lr.ph.split ], [ %.sroa.0.043, %84 ], [ %.sroa.0.043, %88 ]
   %93 = getelementptr inbounds i8, ptr %.044, i64 8
   %.not = icmp eq ptr %93, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
@@ -9430,32 +9430,32 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryEPNS2_6ModuleENS_1
   %89 = load i16, ptr %88, align 8
   %90 = and i16 %89, 4
   %.not1.i = icmp eq i16 %90, 0
-  br i1 %.not1.i, label %91, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit.preheader"
+  br i1 %.not1.i, label %91, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit.preheader"
 
 91:                                               ; preds = %85
   %.not.i74 = icmp eq ptr %2, null
-  br i1 %.not.i74, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93", label %92
+  br i1 %.not.i74, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93", label %92
 
 92:                                               ; preds = %91
   %93 = call noundef zeroext i1 @_ZNK5clang6Module13isSubModuleOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(2392) %87, ptr noundef nonnull %2) #21
-  br i1 %93, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93", label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit.preheader"
+  br i1 %93, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93", label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit.preheader"
 
-"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit.preheader": ; preds = %92, %85
-  br label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit"
+"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit.preheader": ; preds = %92, %85
+  br label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit"
 
-"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit": ; preds = %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit.preheader", %95
-  %.052 = phi ptr [ %97, %95 ], [ %87, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit.preheader" ]
+"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit": ; preds = %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit.preheader", %95
+  %.052 = phi ptr [ %97, %95 ], [ %87, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit.preheader" ]
   %94 = call ptr @_ZNK5clang6Module23getEffectiveUmbrellaDirEv(ptr noundef nonnull align 8 dereferenceable(2392) %.052) #21
   %.not134 = icmp eq ptr %94, null
   br i1 %.not134, label %95, label %.critedge
 
-95:                                               ; preds = %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit"
+95:                                               ; preds = %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit"
   %96 = getelementptr inbounds nuw i8, ptr %.052, i64 40
   %97 = load ptr, ptr %96, align 8
   %.not = icmp eq ptr %97, null
-  br i1 %.not, label %.critedge, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit", !llvm.loop !115
+  br i1 %.not, label %.critedge, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit", !llvm.loop !115
 
-.critedge:                                        ; preds = %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit", %95
+.critedge:                                        ; preds = %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit", %95
   %98 = getelementptr inbounds nuw i8, ptr %.052, i64 1520
   %99 = load i16, ptr %98, align 8
   %100 = and i16 %99, 512
@@ -9532,18 +9532,18 @@ _ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit: 
   %brmerge = or i1 %.not1.i78, %.not.i79
   %not..not1.i78 = xor i1 %.not1.i78, true
   %.2.mux = select i1 %not..not1.i78, i1 true, i1 %.2
-  br i1 %brmerge, label %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit.thread, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit80"
+  br i1 %brmerge, label %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit.thread, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit80"
 
-"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit80": ; preds = %136
+"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit80": ; preds = %136
   %140 = call noundef zeroext i1 @_ZNK5clang6Module13isSubModuleOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(2392) %.0.i, ptr noundef nonnull %2) #21
   %not. = xor i1 %140, true
   %141 = select i1 %140, i1 true, i1 %.2
   br label %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit.thread
 
-_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit.thread: ; preds = %136, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit80", %122, %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit
-  %.0.i127 = phi ptr [ null, %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit ], [ null, %122 ], [ %.0.i, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit80" ], [ %.0.i, %136 ]
-  %cond1 = phi i1 [ false, %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit ], [ false, %122 ], [ %not., %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit80" ], [ %.not1.i78, %136 ]
-  %.3 = phi i1 [ false, %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit ], [ false, %122 ], [ %141, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit80" ], [ %.2.mux, %136 ]
+_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit.thread: ; preds = %136, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit80", %122, %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit
+  %.0.i127 = phi ptr [ null, %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit ], [ null, %122 ], [ %.0.i, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit80" ], [ %.0.i, %136 ]
+  %cond1 = phi i1 [ false, %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit ], [ false, %122 ], [ %not., %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit80" ], [ %.not1.i78, %136 ]
+  %.3 = phi i1 [ false, %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit ], [ false, %122 ], [ %141, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit80" ], [ %.2.mux, %136 ]
   %142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #21
   %143 = load ptr, ptr %10, align 8
   %144 = icmp eq ptr %143, %106
@@ -9554,7 +9554,7 @@ _ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit.t
   br label %_ZN4llvm11SmallStringILj32EED2Ev.exit
 
 _ZN4llvm11SmallStringILj32EED2Ev.exit:            ; preds = %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit.thread, %145
-  br i1 %cond1, label %109, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93"
+  br i1 %cond1, label %109, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93"
 
 146:                                              ; preds = %109
   %147 = getelementptr inbounds i8, ptr %11, i64 24
@@ -9622,7 +9622,7 @@ _ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit89
   br label %_ZN4llvm11SmallStringILj32EED2Ev.exit90
 
 _ZN4llvm11SmallStringILj32EED2Ev.exit90:          ; preds = %_ZNK5clang9ModuleMap21lookupModuleQualifiedEN4llvm9StringRefEPNS_6ModuleE.exit89, %179
-  br i1 %.not56.not, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93", label %180
+  br i1 %.not56.not, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93", label %180
 
 180:                                              ; preds = %_ZN4llvm11SmallStringILj32EED2Ev.exit90, %.critedge
   %.048 = phi ptr [ %.0.i85, %_ZN4llvm11SmallStringILj32EED2Ev.exit90 ], [ %87, %.critedge ]
@@ -9630,15 +9630,15 @@ _ZN4llvm11SmallStringILj32EED2Ev.exit90:          ; preds = %_ZNK5clang9ModuleMa
   %182 = load i16, ptr %181, align 8
   %183 = and i16 %182, 4
   %.not1.i91 = icmp eq i16 %183, 0
-  br i1 %.not1.i91, label %184, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93"
+  br i1 %.not1.i91, label %184, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93"
 
 184:                                              ; preds = %180
   %.not.i92 = icmp eq ptr %2, null
-  br i1 %.not.i92, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93", label %185
+  br i1 %.not.i92, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93", label %185
 
 185:                                              ; preds = %184
   %186 = call noundef zeroext i1 @_ZNK5clang6Module13isSubModuleOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(2392) %.048, ptr noundef nonnull %2) #21
-  br label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93"
+  br label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93"
 
 187:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryEPNS2_6ModuleENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit
   %188 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
@@ -9664,7 +9664,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang17DirectoryEntryRefELb1EE9push_backES2_
   %199 = extractvalue { ptr, i64 } %198, 0
   %200 = extractvalue { ptr, i64 } %198, 1
   %201 = icmp eq i64 %200, 0
-  br i1 %201, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93", label %202
+  br i1 %201, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93", label %202
 
 202:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang17DirectoryEntryRefELb1EE9push_backES2_.exit
   %203 = load ptr, ptr %0, align 8
@@ -9728,21 +9728,21 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %225 = inttoptr i64 %218 to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.not133 = icmp eq i64 %218, 0
-  br i1 %.not133, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93", label %55, !llvm.loop !139
+  br i1 %.not133, label %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93", label %55, !llvm.loop !139
 
-"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93": ; preds = %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang17DirectoryEntryRefELb1EE9push_backES2_.exit, %_ZN4llvm11SmallStringILj32EED2Ev.exit, %91, %185, %184, %180, %92, %_ZN4llvm11SmallStringILj32EED2Ev.exit90
+"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93": ; preds = %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang17DirectoryEntryRefELb1EE9push_backES2_.exit, %_ZN4llvm11SmallStringILj32EED2Ev.exit, %91, %185, %184, %180, %92, %_ZN4llvm11SmallStringILj32EED2Ev.exit90
   %.1 = phi i1 [ false, %_ZN4llvm11SmallStringILj32EED2Ev.exit90 ], [ true, %92 ], [ false, %180 ], [ true, %184 ], [ %186, %185 ], [ true, %91 ], [ %.3, %_ZN4llvm11SmallStringILj32EED2Ev.exit ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIN5clang17DirectoryEntryRefELb1EE9push_backES2_.exit ], [ false, %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit ]
   %226 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   %227 = load ptr, ptr %9, align 8
   %228 = icmp eq ptr %227, %49
   br i1 %228, label %_ZN4llvm11SmallVectorIN5clang17DirectoryEntryRefELj2EED2Ev.exit, label %229
 
-229:                                              ; preds = %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93"
+229:                                              ; preds = %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93"
   call void @free(ptr noundef %227) #21
   br label %_ZN4llvm11SmallVectorIN5clang17DirectoryEntryRefELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang17DirectoryEntryRefELj2EED2Ev.exit: ; preds = %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.thread, %43, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.thread.us, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.us, %24, %229, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93"
-  %.0 = phi i1 [ %.1, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.exit93" ], [ %.1, %229 ], [ true, %24 ], [ true, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.thread.us ], [ false, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.us ], [ true, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.thread ], [ false, %43 ]
+_ZN4llvm11SmallVectorIN5clang17DirectoryEntryRefELj2EED2Ev.exit: ; preds = %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.thread, %43, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.thread.us, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.us, %24, %229, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93"
+  %.0 = phi i1 [ %.1, %"_ZZNK5clang9ModuleMap27isHeaderUnavailableInModuleENS_12FileEntryRefEPKNS_6ModuleEENK3$_0clES4_.argprom.exit93" ], [ %.1, %229 ], [ true, %24 ], [ true, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.thread.us ], [ false, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.us ], [ true, %_ZNK5clang9ModuleMap11KnownHeader11isAvailableEv.exit.thread ], [ false, %43 ]
   ret i1 %.0
 }
 
@@ -15143,7 +15143,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   %.sroa.063.0.insert.ext = zext i32 %.sroa.011.1 to i64
   %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.264.0.insert.shift, %.sroa.063.0.insert.ext
   %.val.val = load ptr, ptr %25, align 8
-  call fastcc void @"_ZZN5clang15ModuleMapParser22diagnosePrivateModulesENS_14SourceLocationES1_ENK3$_0clEN4llvm9StringRefES4_PKNS_6ModuleENS_11SourceRangeE"(ptr %.val.val, i32 %.sroa.05.0.copyload, ptr %152, i64 %153, ptr %154, i64 %155, ptr noundef nonnull %45, i64 %.sroa.063.0.insert.insert)
+  call fastcc void @"_ZZN5clang15ModuleMapParser22diagnosePrivateModulesENS_14SourceLocationES1_ENK3$_0clEN4llvm9StringRefES4_PKNS_6ModuleENS_11SourceRangeE.argprom.argprom.argprom"(ptr %.val.val, i32 %.sroa.05.0.copyload, ptr %152, i64 %153, ptr %154, i64 %155, ptr noundef nonnull %45, i64 %.sroa.063.0.insert.insert)
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread93
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread92: ; preds = %87, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %84, %81, %_ZNK4llvm11SmallStringILj128EE11starts_withENS_9StringRefE.exit.thread
@@ -15306,7 +15306,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit54:          ; preds = %_ZN5clang17Diagnost
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.2.0.insert.ext
   %.val28.val = load ptr, ptr %25, align 8
-  call fastcc void @"_ZZN5clang15ModuleMapParser22diagnosePrivateModulesENS_14SourceLocationES1_ENK3$_0clEN4llvm9StringRefES4_PKNS_6ModuleENS_11SourceRangeE"(ptr %.val28.val, i32 %.sroa.0.0.copyload, ptr %222, i64 %223, ptr %224, i64 %225, ptr noundef nonnull %45, i64 %.sroa.0.0.insert.insert)
+  call fastcc void @"_ZZN5clang15ModuleMapParser22diagnosePrivateModulesENS_14SourceLocationES1_ENK3$_0clEN4llvm9StringRefES4_PKNS_6ModuleENS_11SourceRangeE.argprom.argprom.argprom"(ptr %.val28.val, i32 %.sroa.0.0.copyload, ptr %222, i64 %223, ptr %224, i64 %225, ptr noundef nonnull %45, i64 %.sroa.0.0.insert.insert)
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread93
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread93: ; preds = %178, %168, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread92, %161, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN5clang17DiagnosticBuilderD2Ev.exit54, %148
@@ -15360,7 +15360,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang6ModuleEEEKNS_14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang15ModuleMapParser22diagnosePrivateModulesENS_14SourceLocationES1_ENK3$_0clEN4llvm9StringRefES4_PKNS_6ModuleENS_11SourceRangeE"(ptr %.0.val.24.val, i32 %.0.val.184.val.32.val, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, i64 %5) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN5clang15ModuleMapParser22diagnosePrivateModulesENS_14SourceLocationES1_ENK3$_0clEN4llvm9StringRefES4_PKNS_6ModuleENS_11SourceRangeE.argprom.argprom.argprom"(ptr %.0.val.24.val, i32 %.0.val.184.val.32.val, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, i64 %5) unnamed_addr #1 align 2 {
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.0", align 1

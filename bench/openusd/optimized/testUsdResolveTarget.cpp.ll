@@ -26631,7 +26631,7 @@ define internal fastcc void @_ZL20_VerifyResolveTargetRKN32pxrInternal_v0_24__px
   %.val = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %.val16 = load ptr, ptr %16, align 8
-  invoke fastcc void @_ZL26_VerifyResolverTargetLayerRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, ptr %.val16, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  invoke fastcc void @_ZL26_VerifyResolverTargetLayerRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %.val, ptr %.val16, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %17 unwind label %38
 
 17:                                               ; preds = %3
@@ -26669,7 +26669,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
   %.val17 = load ptr, ptr %7, align 8
   %32 = getelementptr inbounds i8, ptr %7, i64 8
   %.val18 = load ptr, ptr %32, align 8
-  invoke fastcc void @_ZL26_VerifyResolverTargetLayerRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val17, ptr %.val18, ptr noundef nonnull align 8 dereferenceable(32) %31)
+  invoke fastcc void @_ZL26_VerifyResolverTargetLayerRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %.val17, ptr %.val18, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %33 unwind label %44
 
 33:                                               ; preds = %28
@@ -31952,7 +31952,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %.critedge16, 
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL26_VerifyResolverTargetLayerRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.0.val, ptr readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26_VerifyResolverTargetLayerRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %.0.val, ptr readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

@@ -458,7 +458,7 @@ entry:
   %cmp.i.i = icmp slt i32 %2, 1
   %cmp.i5.not4.i = icmp eq ptr %.val, %.val1
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.i5.not4.i
-  br i1 %or.cond.i, label %_ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.exit, label %for.body.lr.ph.i
+  br i1 %or.cond.i, label %_ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.argprom.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
@@ -483,9 +483,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05.i, i64 16
   %cmp.i5.not.i = icmp eq ptr %incdec.ptr.i.i, %.val1
   %or.cond = select i1 %call8.i, i1 true, i1 %cmp.i5.not.i
-  br i1 %or.cond, label %_ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.exit, label %for.body.i
+  br i1 %or.cond, label %_ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.argprom.exit, label %for.body.i
 
-_ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.exit: ; preds = %for.body.i, %entry
+_ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.argprom.exit: ; preds = %for.body.i, %entry
   %retval.0.i = phi i1 [ false, %entry ], [ %call8.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp6.i)
@@ -575,7 +575,7 @@ if.end9.i:                                        ; preds = %if.then8.i, %if.end
 if.then.i.i:                                      ; preds = %if.end9.i
   %8 = load i8, ptr %compare, align 1
   %cmp.i.i = icmp eq i8 %8, 0
-  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i
+  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i
 
 if.end.i.i:                                       ; preds = %if.end9.i
   %idxprom.i.i = sext i32 %our_scheme.val.i to i64
@@ -596,16 +596,16 @@ if.end.i.i:                                       ; preds = %if.end9.i
   %13 = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 8
   %14 = load i64, ptr %13, align 8
   %call4.i9.i = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %9, i64 %11, ptr %12, i64 %14)
-          to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i unwind label %lpad.i
+          to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i unwind label %lpad.i
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i: ; preds = %.noexc8.i, %if.then.i.i
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i: ; preds = %.noexc8.i, %if.then.i.i
   %retval.0.i.i = phi i1 [ %cmp.i.i, %if.then.i.i ], [ %call4.i9.i, %.noexc8.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i.i)
   br label %cleanup.i
 
-cleanup.i:                                        ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i, %if.then4.i, %if.then.i
-  %retval.0.i = phi i1 [ false, %if.then4.i ], [ false, %if.then.i ], [ %retval.0.i.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i ]
+cleanup.i:                                        ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i, %if.then4.i, %if.then.i
+  %retval.0.i = phi i1 [ false, %if.then4.i ], [ false, %if.then.i ], [ %retval.0.i.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %whitespace_buffer.i, align 8
   %15 = load ptr, ptr %buffer_.i.i.i, align 8
   %cmp.not.i12.i = icmp eq ptr %15, %fixed_buffer_.i.i
@@ -707,7 +707,7 @@ if.end9.i:                                        ; preds = %if.then8.i, %if.end
 if.then.i.i:                                      ; preds = %if.end9.i
   %8 = load i8, ptr %compare, align 1
   %cmp.i.i = icmp eq i8 %8, 0
-  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit.i
+  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i
 
 if.end.i.i:                                       ; preds = %if.end9.i
   %idxprom.i.i = sext i32 %our_scheme.val.i to i64
@@ -728,16 +728,16 @@ if.end.i.i:                                       ; preds = %if.end9.i
   %13 = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 8
   %14 = load i64, ptr %13, align 8
   %call4.i9.i = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEENS0_INS2_IcSt11char_traitsIcESaIcEEEEE(ptr %9, i64 %11, ptr %12, i64 %14)
-          to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit.i unwind label %lpad.i
+          to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i unwind label %lpad.i
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit.i: ; preds = %.noexc8.i, %if.then.i.i
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i: ; preds = %.noexc8.i, %if.then.i.i
   %retval.0.i.i = phi i1 [ %cmp.i.i, %if.then.i.i ], [ %call4.i9.i, %.noexc8.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i.i)
   br label %cleanup.i
 
-cleanup.i:                                        ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit.i, %if.then4.i, %if.then.i
-  %retval.0.i = phi i1 [ false, %if.then4.i ], [ false, %if.then.i ], [ %retval.0.i.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit.i ]
+cleanup.i:                                        ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i, %if.then4.i, %if.then.i
+  %retval.0.i = phi i1 [ false, %if.then4.i ], [ false, %if.then.i ], [ %retval.0.i.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %whitespace_buffer.i, align 8
   %15 = load ptr, ptr %buffer_.i.i.i, align 8
   %cmp.not.i12.i = icmp eq ptr %15, %fixed_buffer_.i.i
@@ -1805,15 +1805,15 @@ if.end.i.i:                                       ; preds = %if.then47.i
   %36 = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 8
   %37 = load i64, ptr %36, align 8
   %call4.i60.i = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %32, i64 %34, ptr %35, i64 %37)
-          to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i unwind label %lpad.loopexit.split-lp.i
+          to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i unwind label %lpad.loopexit.split-lp.i
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i: ; preds = %.noexc59.i
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i: ; preds = %.noexc59.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i.i)
   br label %land.end54.i
 
-land.end54.i:                                     ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i, %if.then47.i
-  %38 = phi i1 [ false, %if.then47.i ], [ %call4.i60.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i ]
+land.end54.i:                                     ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i, %if.then47.i
+  %38 = phi i1 [ false, %if.then47.i ], [ %call4.i60.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i ]
   %call58.i = invoke noundef zeroext i1 @_ZN3url18ResolveRelativeURLEPKcRKNS_6ParsedEbS1_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %base_spec, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed, i1 noundef zeroext %38, ptr noundef %call.i, ptr noundef nonnull align 4 dereferenceable(8) %relative_component.i, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %output_parsed)
           to label %cleanup63.i unwind label %lpad.loopexit.split-lp.i
 
@@ -2137,15 +2137,15 @@ if.end.i.i:                                       ; preds = %if.then46.i
   %36 = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 8
   %37 = load i64, ptr %36, align 8
   %call4.i60.i = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %32, i64 %34, ptr %35, i64 %37)
-          to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i unwind label %lpad.loopexit.split-lp.i
+          to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i unwind label %lpad.loopexit.split-lp.i
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i: ; preds = %.noexc59.i
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i: ; preds = %.noexc59.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i.i)
   br label %land.end53.i
 
-land.end53.i:                                     ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i, %if.then46.i
-  %38 = phi i1 [ false, %if.then46.i ], [ %call4.i60.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i ]
+land.end53.i:                                     ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i, %if.then46.i
+  %38 = phi i1 [ false, %if.then46.i ], [ %call4.i60.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit.i ]
   %call57.i = invoke noundef zeroext i1 @_ZN3url18ResolveRelativeURLEPKcRKNS_6ParsedEbPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %base_spec, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed, i1 noundef zeroext %38, ptr noundef %call.i, ptr noundef nonnull align 4 dereferenceable(8) %relative_component.i, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %output_parsed)
           to label %cleanup62.i unwind label %lpad.loopexit.split-lp.i
 
@@ -2423,7 +2423,7 @@ if.end38:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
   %cmp.i.i92 = icmp sgt i32 %parsed.val48, 0
-  br i1 %cmp.i.i92, label %if.end.i, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
+  br i1 %cmp.i.i92, label %if.end.i, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit
 
 if.end.i:                                         ; preds = %if.end38
   %idxprom.i = sext i32 %parsed.val to i64
@@ -2442,19 +2442,19 @@ if.end.i:                                         ; preds = %if.end38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
   br i1 %call4.i, label %if.then41, label %if.end43
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit: ; preds = %if.end38
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit: ; preds = %if.end38
   %32 = load i8, ptr @_ZN3url11kFileSchemeE, align 1
   %cmp.i94 = icmp eq i8 %32, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
   br i1 %cmp.i94, label %if.then41, label %if.end43.thread
 
-if.end43.thread:                                  ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
+if.end43.thread:                                  ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i95)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i96)
-  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106
+  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106
 
-if.then41:                                        ; preds = %if.end.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
+if.then41:                                        ; preds = %if.end.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit
   %call42 = call noundef zeroext i1 @_ZN3url14ReplaceFileURLEPKcRKNS_6ParsedERKNS_12ReplacementsIcEEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %out_parsed)
   br label %return
 
@@ -2464,7 +2464,7 @@ if.end43:                                         ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i95)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i96)
   %cmp.i.i97 = icmp sgt i32 %parsed.val50.pre, 0
-  br i1 %cmp.i.i97, label %if.end.i101, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106
+  br i1 %cmp.i.i97, label %if.end.i101, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106
 
 if.end.i101:                                      ; preds = %if.end43
   %idxprom.i102 = sext i32 %parsed.val49.pre to i64
@@ -2483,18 +2483,18 @@ if.end.i101:                                      ; preds = %if.end43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i96)
   br i1 %call4.i105, label %if.then46, label %if.end48
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106: ; preds = %if.end43.thread, %if.end43
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106: ; preds = %if.end43.thread, %if.end43
   %39 = load i8, ptr @_ZN3url17kFileSystemSchemeE, align 1
   %cmp.i99 = icmp eq i8 %39, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i95)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i96)
   br i1 %cmp.i99, label %if.then46, label %if.end48
 
-if.then46:                                        ; preds = %if.end.i101, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106
+if.then46:                                        ; preds = %if.end.i101, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106
   %call47 = call noundef zeroext i1 @_ZN3url20ReplaceFileSystemURLEPKcRKNS_6ParsedERKNS_12ReplacementsIcEEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %out_parsed)
   br label %return
 
-if.end48:                                         ; preds = %if.end.i101, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106
+if.end48:                                         ; preds = %if.end.i101, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106
   call fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_14SchemeWithTypeESaIS2_EEPKS2_m(ptr noundef nonnull @_ZN3url12_GLOBAL__N_116standard_schemesE, ptr noundef nonnull @_ZN3url12_GLOBAL__N_119kStandardURLSchemesE, i64 noundef 8)
   %40 = load ptr, ptr @_ZN3url12_GLOBAL__N_116standard_schemesE, align 8
   %.val.i = load ptr, ptr %40, align 8
@@ -2553,7 +2553,7 @@ if.end53:                                         ; preds = %if.end53thread-pre-
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i108)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i109)
   %cmp.i.i110 = icmp sgt i32 %parsed.val52, 0
-  br i1 %cmp.i.i110, label %if.end.i114, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit119
+  br i1 %cmp.i.i110, label %if.end.i114, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit119
 
 if.end.i114:                                      ; preds = %if.end53
   %idxprom.i115 = sext i32 %parsed.val51 to i64
@@ -2572,18 +2572,18 @@ if.end.i114:                                      ; preds = %if.end53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i109)
   br i1 %call4.i118, label %if.then56, label %if.end58
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit119: ; preds = %if.end53
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit119: ; preds = %if.end53
   %58 = load i8, ptr @_ZN3url13kMailToSchemeE, align 1
   %cmp.i112 = icmp eq i8 %58, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i108)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i109)
   br i1 %cmp.i112, label %if.then56, label %if.end58
 
-if.then56:                                        ; preds = %if.end.i114, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit119
+if.then56:                                        ; preds = %if.end.i114, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit119
   %call57 = call noundef zeroext i1 @_ZN3url16ReplaceMailtoURLEPKcRKNS_6ParsedERKNS_12ReplacementsIcEEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef %output, ptr noundef %out_parsed)
   br label %return
 
-if.end58:                                         ; preds = %if.end.i114, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit119
+if.end58:                                         ; preds = %if.end.i114, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit119
   %call59 = call noundef zeroext i1 @_ZN3url14ReplacePathURLEPKcRKNS_6ParsedERKNS_12ReplacementsIcEEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef %output, ptr noundef %out_parsed)
   br label %return
 
@@ -2822,7 +2822,7 @@ if.end37:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
   %cmp.i.i92 = icmp sgt i32 %parsed.val48, 0
-  br i1 %cmp.i.i92, label %if.end.i, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
+  br i1 %cmp.i.i92, label %if.end.i, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit
 
 if.end.i:                                         ; preds = %if.end37
   %idxprom.i = sext i32 %parsed.val to i64
@@ -2841,19 +2841,19 @@ if.end.i:                                         ; preds = %if.end37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
   br i1 %call4.i, label %if.then40, label %if.end42
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit: ; preds = %if.end37
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit: ; preds = %if.end37
   %32 = load i8, ptr @_ZN3url11kFileSchemeE, align 1
   %cmp.i94 = icmp eq i8 %32, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
   br i1 %cmp.i94, label %if.then40, label %if.end42.thread
 
-if.end42.thread:                                  ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
+if.end42.thread:                                  ; preds = %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i95)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i96)
-  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106
+  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106
 
-if.then40:                                        ; preds = %if.end.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
+if.then40:                                        ; preds = %if.end.i, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit
   %call41 = call noundef zeroext i1 @_ZN3url14ReplaceFileURLEPKcRKNS_6ParsedERKNS_12ReplacementsItEEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %out_parsed)
   br label %return
 
@@ -2863,7 +2863,7 @@ if.end42:                                         ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i95)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i96)
   %cmp.i.i97 = icmp sgt i32 %parsed.val50.pre, 0
-  br i1 %cmp.i.i97, label %if.end.i101, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106
+  br i1 %cmp.i.i97, label %if.end.i101, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106
 
 if.end.i101:                                      ; preds = %if.end42
   %idxprom.i102 = sext i32 %parsed.val49.pre to i64
@@ -2882,18 +2882,18 @@ if.end.i101:                                      ; preds = %if.end42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i96)
   br i1 %call4.i105, label %if.then45, label %if.end47
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106: ; preds = %if.end42.thread, %if.end42
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106: ; preds = %if.end42.thread, %if.end42
   %39 = load i8, ptr @_ZN3url17kFileSystemSchemeE, align 1
   %cmp.i99 = icmp eq i8 %39, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i95)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i96)
   br i1 %cmp.i99, label %if.then45, label %if.end47
 
-if.then45:                                        ; preds = %if.end.i101, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106
+if.then45:                                        ; preds = %if.end.i101, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106
   %call46 = call noundef zeroext i1 @_ZN3url20ReplaceFileSystemURLEPKcRKNS_6ParsedERKNS_12ReplacementsItEEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %out_parsed)
   br label %return
 
-if.end47:                                         ; preds = %if.end.i101, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit106
+if.end47:                                         ; preds = %if.end.i101, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit106
   call fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_14SchemeWithTypeESaIS2_EEPKS2_m(ptr noundef nonnull @_ZN3url12_GLOBAL__N_116standard_schemesE, ptr noundef nonnull @_ZN3url12_GLOBAL__N_119kStandardURLSchemesE, i64 noundef 8)
   %40 = load ptr, ptr @_ZN3url12_GLOBAL__N_116standard_schemesE, align 8
   %.val.i = load ptr, ptr %40, align 8
@@ -2952,7 +2952,7 @@ if.end52:                                         ; preds = %if.end52thread-pre-
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i108)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i109)
   %cmp.i.i110 = icmp sgt i32 %parsed.val52, 0
-  br i1 %cmp.i.i110, label %if.end.i114, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit119
+  br i1 %cmp.i.i110, label %if.end.i114, label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit119
 
 if.end.i114:                                      ; preds = %if.end52
   %idxprom.i115 = sext i32 %parsed.val51 to i64
@@ -2971,18 +2971,18 @@ if.end.i114:                                      ; preds = %if.end52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i109)
   br i1 %call4.i118, label %if.then55, label %if.end57
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit119: ; preds = %if.end52
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit119: ; preds = %if.end52
   %58 = load i8, ptr @_ZN3url13kMailToSchemeE, align 1
   %cmp.i112 = icmp eq i8 %58, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i108)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i109)
   br i1 %cmp.i112, label %if.then55, label %if.end57
 
-if.then55:                                        ; preds = %if.end.i114, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit119
+if.then55:                                        ; preds = %if.end.i114, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit119
   %call56 = call noundef zeroext i1 @_ZN3url16ReplaceMailtoURLEPKcRKNS_6ParsedERKNS_12ReplacementsItEEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef %output, ptr noundef %out_parsed)
   br label %return
 
-if.end57:                                         ; preds = %if.end.i114, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit119
+if.end57:                                         ; preds = %if.end.i114, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit119
   %call58 = call noundef zeroext i1 @_ZN3url14ReplacePathURLEPKcRKNS_6ParsedERKNS_12ReplacementsItEEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef %output, ptr noundef %out_parsed)
   br label %return
 
@@ -3818,7 +3818,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load i8, ptr %compare_to, align 1
   %cmp.i = icmp eq i8 %1, 0
-  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
+  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %idxprom.i = sext i32 %component.val to i64
@@ -3833,9 +3833,9 @@ if.end.i:                                         ; preds = %entry
   %6 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   %7 = load i64, ptr %6, align 8
   %call4.i = call noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %2, i64 %4, ptr %5, i64 %7)
-  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
+  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit: ; preds = %if.then.i, %if.end.i
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.argprom.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i1 [ %call4.i, %if.end.i ], [ %cmp.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
@@ -3858,7 +3858,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load i8, ptr %compare_to, align 1
   %cmp.i = icmp eq i8 %1, 0
-  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit
+  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %idxprom.i = sext i32 %component.val to i64
@@ -3873,9 +3873,9 @@ if.end.i:                                         ; preds = %entry
   %6 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   %7 = load i64, ptr %6, align 8
   %call4.i = call noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEENS0_INS2_IcSt11char_traitsIcESaIcEEEEE(ptr %2, i64 %4, ptr %5, i64 %7)
-  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit
+  br label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.argprom.exit
 
-_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit: ; preds = %if.then.i, %if.end.i
+_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.argprom.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i1 [ %call4.i, %if.end.i ], [ %cmp.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)

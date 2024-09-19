@@ -189,7 +189,7 @@ define range(i32 0, 2) i32 @Abc_RealMain(i32 noundef %0, ptr noundef %1) local_u
 
 63:                                               ; preds = %62, %60
   %64 = load ptr, ptr @globalUtilOptarg, align 8
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %8, ptr noundef nonnull @.str.6, ptr noundef %64)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.retelim(ptr noundef nonnull %8, ptr noundef nonnull @.str.6, ptr noundef %64)
   br label %.backedge
 
 65:                                               ; preds = %17
@@ -203,7 +203,7 @@ define range(i32 0, 2) i32 @Abc_RealMain(i32 noundef %0, ptr noundef %1) local_u
 
 68:                                               ; preds = %67, %65
   %69 = load ptr, ptr @globalUtilOptarg, align 8
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %8, ptr noundef nonnull @.str.7, ptr noundef %69)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.retelim(ptr noundef nonnull %8, ptr noundef nonnull @.str.7, ptr noundef %69)
   br label %.backedge
 
 70:                                               ; preds = %17
@@ -634,7 +634,7 @@ Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPrintF(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @Vec_StrPrintF.retelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 4

@@ -475,7 +475,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPcPmEZN32pxrInte
 8:                                                ; preds = %3
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12Arch_WarningEPKcS1_mS1_(ptr noundef nonnull @.str.5, ptr noundef nonnull @"__func__._ZZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvENK3$_0clEPcPm", i64 noundef 109, ptr noundef nonnull @.str.1)
   store i64 -1, ptr %.val3, align 8
-  br label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %.val3, align 8
@@ -501,14 +501,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPcPmEZN32pxrInte
 21:                                               ; preds = %18, %14
   %storemerge.i.i.i = phi i64 [ %20, %18 ], [ %17, %14 ]
   store i64 %storemerge.i.i.i, ptr %.val3, align 8
-  br label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds i8, ptr %.val, i64 %6
   store i8 0, ptr %23, align 1
-  br label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %8, %21, %22
+"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %8, %21, %22
   %.0.i.i.i = phi i1 [ false, %8 ], [ false, %21 ], [ true, %22 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   ret i1 %.0.i.i.i

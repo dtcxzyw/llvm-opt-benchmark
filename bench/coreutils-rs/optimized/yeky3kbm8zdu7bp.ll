@@ -865,7 +865,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d541fa7ff09d58bE
   %14 = getelementptr i8, ptr %13, i64 16
   %.val15.i = load i64, ptr %14, align 8, !noalias !127, !noundef !4
   %.not.i.i.i = icmp eq i64 %.val15.i, 7
-  br i1 %.not.i.i.i, label %15, label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i"
+  br i1 %.not.i.i.i, label %15, label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.i"
 
 15:                                               ; preds = %10
   %16 = getelementptr i8, ptr %13, i64 8
@@ -873,9 +873,9 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d541fa7ff09d58bE
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.val.i, ptr noundef nonnull readonly dereferenceable(7) @anon.865415f247106a6f3df58a88cfaa18b4.78, i64 7), !alias.scope !131, !noalias !127
   %17 = icmp eq i32 %bcmp.i.i.i, 0
   %18 = zext i1 %17 to i64
-  br label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i"
+  br label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.i"
 
-"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i": ; preds = %15, %10
+"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.i": ; preds = %15, %10
   %.0.i.i.i = phi i64 [ %18, %15 ], [ 0, %10 ]
   %19 = add nuw nsw i64 %.0.i.i.i, %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !127
@@ -889,7 +889,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d541fa7ff09d58bE
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %5, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.865415f247106a6f3df58a88cfaa18b4.77) #32, !noalias !127
   unreachable
 
-25:                                               ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i"
+25:                                               ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.i"
   %26 = getelementptr inbounds i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8, !noalias !127, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } } }], ptr %27, i64 0, i64 %19
@@ -921,17 +921,17 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d541fa7ff09d58bE
   store ptr %42, ptr %.sroa.42.0..sroa_idx.i.i.i, align 8, !alias.scope !147, !noalias !148
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %39, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !147, !noalias !148
-  br label %"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE.exit"
+  br label %"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE.argprom.exit"
 
 44:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !149
-  br label %"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE.exit"
+  br label %"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE.argprom.exit"
 
-45:                                               ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i"
+45:                                               ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.i"
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %19, i64 noundef %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.865415f247106a6f3df58a88cfaa18b4.79) #32, !noalias !127
   unreachable
 
-"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE.exit": ; preds = %35, %44
+"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE.argprom.exit": ; preds = %35, %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !127
   ret void
 }
@@ -1027,7 +1027,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hab5d3e5b2fce1c50E
 
 "_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h28eb8698c1eb188bE.exit.i": ; preds = %40, %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !155
-  br label %"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE.exit"
+  br label %"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE.argprom.exit"
 
 41:                                               ; preds = %7
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.865415f247106a6f3df58a88cfaa18b4.80) #32, !noalias !155
@@ -1044,7 +1044,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hab5d3e5b2fce1c50E
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !155
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17he23b0a84ec79eecdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5), !noalias !155
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !155
-  br label %"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE.exit"
+  br label %"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE.argprom.exit"
 
 45:                                               ; preds = %42
   %46 = landingpad { ptr, i32 }
@@ -1055,7 +1055,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hab5d3e5b2fce1c50E
 47:                                               ; preds = %42
   resume { ptr, i32 } %43
 
-"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE.exit": ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h28eb8698c1eb188bE.exit.i", %44
+"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE.argprom.exit": ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h28eb8698c1eb188bE.exit.i", %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -1071,7 +1071,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hb432ec1a769b113aE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE"(i64 %.0.val, ptr %.8.val) unnamed_addr #3 {
+define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE.argprom"(i64 %.0.val, ptr %.8.val) unnamed_addr #3 {
   %1 = alloca { i8, [15 x i8] }, align 8
   %2 = icmp eq i64 %.0.val, 0
   br i1 %2, label %3, label %4
@@ -1760,9 +1760,9 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 31:                                               ; preds = %24
   %32 = trunc nuw i32 %0 to i8
   store i8 %32, ptr %1, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.argprom.exit"
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.exit": ; preds = %31, %36, %44, %57
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.argprom.exit": ; preds = %31, %36, %44, %57
   %33 = phi i64 [ 4, %57 ], [ 3, %44 ], [ 2, %36 ], [ 1, %31 ]
   %34 = insertvalue { ptr, i64 } poison, ptr %1, 0
   %35 = insertvalue { ptr, i64 } %34, i64 %33, 1
@@ -1779,7 +1779,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %42 = getelementptr inbounds i8, ptr %1, i64 1
   %43 = or disjoint i8 %41, -128
   store i8 %43, ptr %42, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.argprom.exit"
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
@@ -1797,7 +1797,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %55 = getelementptr inbounds i8, ptr %1, i64 2
   %56 = or disjoint i8 %54, -128
   store i8 %56, ptr %55, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.argprom.exit"
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
@@ -1822,7 +1822,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %74 = getelementptr inbounds i8, ptr %1, i64 3
   %75 = or disjoint i8 %73, -128
   store i8 %75, ptr %74, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.argprom.exit"
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3045,7 +3045,7 @@ define i64 @_ZN6uucore8features6format6escape17parse_escape_code17haa841ba326ebe
   %6 = load i8, ptr %5, align 1, !noundef !4
   %7 = add i8 %6, -49
   %or.cond = icmp ult i8 %7, 7
-  br i1 %or.cond, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i, label %9
+  br i1 %or.cond, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i, label %9
 
 8:                                                ; preds = %111, %81, %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit87.thread, %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread, %_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51, %57, %58, %56, %32, %38, %9, %1, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %20
   %.sroa.361.0 = phi i32 [ undef, %20 ], [ undef, %31 ], [ undef, %30 ], [ undef, %29 ], [ undef, %28 ], [ undef, %27 ], [ undef, %26 ], [ undef, %25 ], [ undef, %24 ], [ undef, %23 ], [ undef, %22 ], [ undef, %21 ], [ undef, %1 ], [ undef, %9 ], [ undef, %38 ], [ undef, %32 ], [ undef, %56 ], [ undef, %58 ], [ undef, %57 ], [ undef, %_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51 ], [ 0, %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread ], [ 0, %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit87.thread ], [ %.fr104, %81 ], [ %.fr, %111 ]
@@ -3082,42 +3082,42 @@ define i64 @_ZN6uucore8features6format6escape17parse_escape_code17haa841ba326ebe
     i8 85, label %99
   ]
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i: ; preds = %4
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i: ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
   %12 = add nsw i8 %6, -48
   %scevgep57.i = getelementptr i8, ptr %5, i64 3
   %scevgep58.i = getelementptr i8, ptr %5, i64 %3
   %13 = add i64 %3, -3
-  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i
+  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i
-  %storemerge49.us.i.in = phi i64 [ %storemerge49.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i ], [ %3, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i ]
-  %storemerge4348.us.pn.i = phi ptr [ %storemerge4348.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i ], [ %5, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i ]
-  %.047.us.i = phi i8 [ %19, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i ], [ %12, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i ]
-  %.sroa.05.046.us.i = phi i8 [ %14, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i ], [ 1, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i ]
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i
+  %storemerge49.us.i.in = phi i64 [ %storemerge49.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i ], [ %3, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i ]
+  %storemerge4348.us.pn.i = phi ptr [ %storemerge4348.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i ], [ %5, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i ]
+  %.047.us.i = phi i8 [ %19, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i ], [ %12, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i ]
+  %.sroa.05.046.us.i = phi i8 [ %14, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i ], [ 1, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i ]
   %storemerge49.us.i = add i64 %storemerge49.us.i.in, -1
   %storemerge4348.us.i = getelementptr inbounds i8, ptr %storemerge4348.us.pn.i, i64 1
   %14 = add nuw nsw i8 %.sroa.05.046.us.i, 1
   %.not15.us.i = icmp eq i64 %storemerge49.us.i, 0
-  br i1 %.not15.us.i, label %20, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i
+  br i1 %.not15.us.i, label %20, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i
   %15 = load i8, ptr %storemerge4348.us.i, align 1, !noalias !320, !noundef !4
   %16 = and i8 %15, -8
   %.0.i28.us.i = icmp eq i8 %16, 48
-  br i1 %.0.i28.us.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i, label %20
+  br i1 %.0.i28.us.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i, label %20
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i
   %17 = add nsw i8 %15, -48
   %18 = shl i8 %.047.us.i, 3
   %19 = or disjoint i8 %17, %18
   %exitcond59.not.i = icmp eq i8 %14, 3
-  br i1 %exitcond59.not.i, label %20, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i
+  br i1 %exitcond59.not.i, label %20, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i
 
-20:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i
-  %.us-phi.i = phi i64 [ 0, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i ], [ %storemerge49.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i ], [ %13, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i ]
-  %.us-phi50.i = phi ptr [ %scevgep58.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i ], [ %storemerge4348.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i ], [ %scevgep57.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i ]
-  %.us-phi51.i = phi i8 [ %.047.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i ], [ %.047.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i ], [ %19, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i ]
+20:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i
+  %.us-phi.i = phi i64 [ 0, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i ], [ %storemerge49.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i ], [ %13, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i ]
+  %.us-phi50.i = phi ptr [ %scevgep58.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i ], [ %storemerge4348.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i ], [ %scevgep57.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i ]
+  %.us-phi51.i = phi i8 [ %.047.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i ], [ %.047.us.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i ], [ %19, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i ]
   store ptr %.us-phi50.i, ptr %0, align 8, !alias.scope !320
   store i64 %.us-phi.i, ptr %2, align 8, !alias.scope !320
   br label %8
@@ -3164,7 +3164,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29
   %34 = load i8, ptr %10, align 1, !noalias !323, !noundef !4
   %35 = add i8 %34, -48
   %or.cond.i.i = icmp ult i8 %35, 10
-  br i1 %or.cond.i.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i, label %36
+  br i1 %or.cond.i.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i, label %36
 
 36:                                               ; preds = %33
   %37 = add i8 %34, -65
@@ -3175,13 +3175,13 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29
   %39 = add i8 %34, -97
   %or.cond2.i.i = icmp ult i8 %39, 6
   %40 = add nsw i8 %34, -87
-  br i1 %or.cond2.i.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i, label %8
+  br i1 %or.cond2.i.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i, label %8
 
 41:                                               ; preds = %36
   %42 = add nsw i8 %34, -55
-  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i
+  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i: ; preds = %41, %38, %33
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i: ; preds = %41, %38, %33
   %.sroa.7.0.i36.ph.i = phi i8 [ %42, %41 ], [ %35, %33 ], [ %40, %38 ]
   %storemerge4563.i = add i64 %3, -2
   %scevgep.i = getelementptr i8, ptr %5, i64 3
@@ -3191,11 +3191,11 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.t
   %.not15.i = icmp eq i64 %storemerge4563.i, 0
   br i1 %.not15.i, label %56, label %44
 
-44:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i
+44:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i
   %45 = load i8, ptr %storemerge4348.i, align 1, !noalias !323, !noundef !4
   %46 = add i8 %45, -48
   %or.cond.i22.i = icmp ult i8 %46, 10
-  br i1 %or.cond.i22.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.i, label %47
+  br i1 %or.cond.i22.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.i, label %47
 
 47:                                               ; preds = %44
   %48 = add i8 %45, -65
@@ -3206,22 +3206,22 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.t
   %50 = add i8 %45, -97
   %or.cond2.i24.i = icmp ult i8 %50, 6
   %51 = add nsw i8 %45, -87
-  br i1 %or.cond2.i24.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.i, label %56
+  br i1 %or.cond2.i24.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.i, label %56
 
 52:                                               ; preds = %47
   %53 = add nsw i8 %45, -55
-  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.i
+  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.i
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.i: ; preds = %52, %49, %44
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.i: ; preds = %52, %49, %44
   %.sroa.7.0.i2642.i = phi i8 [ %51, %49 ], [ %46, %44 ], [ %53, %52 ]
   %54 = shl i8 %.sroa.7.0.i36.ph.i, 4
   %55 = add i8 %.sroa.7.0.i2642.i, %54
   br label %56
 
-56:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i, %49
-  %.us-phi.i23 = phi i64 [ 0, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i ], [ %storemerge4563.i, %49 ], [ %43, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.i ]
-  %.us-phi50.i24 = phi ptr [ %scevgep56.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i ], [ %storemerge4348.i, %49 ], [ %scevgep.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.i ]
-  %.us-phi51.i25 = phi i8 [ %.sroa.7.0.i36.ph.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.preheader.i ], [ %.sroa.7.0.i36.ph.i, %49 ], [ %55, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.i ]
+56:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i, %49
+  %.us-phi.i23 = phi i64 [ 0, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i ], [ %storemerge4563.i, %49 ], [ %43, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.i ]
+  %.us-phi50.i24 = phi ptr [ %scevgep56.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i ], [ %storemerge4348.i, %49 ], [ %scevgep.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.i ]
+  %.us-phi51.i25 = phi i8 [ %.sroa.7.0.i36.ph.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.preheader.i ], [ %.sroa.7.0.i36.ph.i, %49 ], [ %55, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.i ]
   store ptr %.us-phi50.i24, ptr %0, align 8, !alias.scope !323
   store i64 %.us-phi.i23, ptr %2, align 8, !alias.scope !323
   br label %8
@@ -3235,44 +3235,44 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29
   %59 = load i8, ptr %10, align 1, !noalias !326, !noundef !4
   %60 = and i8 %59, -8
   %.0.i.i28 = icmp eq i8 %60, 48
-  br i1 %.0.i.i28, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i31, label %8
+  br i1 %.0.i.i28, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i31, label %8
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i31: ; preds = %58
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i31: ; preds = %58
   %61 = add nsw i8 %59, -48
   %storemerge45.i32 = add i64 %3, -2
   %scevgep57.i33 = getelementptr i8, ptr %5, i64 4
   %scevgep58.i34 = getelementptr i8, ptr %5, i64 %3
   %62 = add i64 %3, -4
-  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i35
+  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i35
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i35: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i31
-  %storemerge49.us.i36 = phi i64 [ %storemerge.us.i49, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48 ], [ %storemerge45.i32, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i31 ]
-  %storemerge4348.us.pn.i37 = phi ptr [ %storemerge4348.us.i40, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48 ], [ %10, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i31 ]
-  %.047.us.i38 = phi i8 [ %68, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48 ], [ %61, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i31 ]
-  %.sroa.05.046.us.i39 = phi i8 [ %63, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48 ], [ 1, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.preheader.i31 ]
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i35: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i31
+  %storemerge49.us.i36 = phi i64 [ %storemerge.us.i49, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48 ], [ %storemerge45.i32, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i31 ]
+  %storemerge4348.us.pn.i37 = phi ptr [ %storemerge4348.us.i40, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48 ], [ %10, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i31 ]
+  %.047.us.i38 = phi i8 [ %68, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48 ], [ %61, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i31 ]
+  %.sroa.05.046.us.i39 = phi i8 [ %63, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48 ], [ 1, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.preheader.i31 ]
   %storemerge4348.us.i40 = getelementptr inbounds i8, ptr %storemerge4348.us.pn.i37, i64 1
   %63 = add nuw nsw i8 %.sroa.05.046.us.i39, 1
   %.not15.us.i41 = icmp eq i64 %storemerge49.us.i36, 0
-  br i1 %.not15.us.i41, label %_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i42
+  br i1 %.not15.us.i41, label %_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i42
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i42: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i35
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i42: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i35
   %64 = load i8, ptr %storemerge4348.us.i40, align 1, !noalias !326, !noundef !4
   %65 = and i8 %64, -8
   %.0.i28.us.i43 = icmp eq i8 %65, 48
-  br i1 %.0.i28.us.i43, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48, label %_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51
+  br i1 %.0.i28.us.i43, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48, label %_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i42
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i42
   %66 = add nsw i8 %64, -48
   %67 = shl i8 %.047.us.i38, 3
   %68 = or disjoint i8 %66, %67
   %storemerge.us.i49 = add i64 %storemerge49.us.i36, -1
   %exitcond59.not.i50 = icmp eq i8 %63, 3
-  br i1 %exitcond59.not.i50, label %_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i35
+  br i1 %exitcond59.not.i50, label %_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i35
 
-_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i35, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i42, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48
-  %.us-phi.i45 = phi i64 [ 0, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i35 ], [ %storemerge49.us.i36, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i42 ], [ %62, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48 ]
-  %.us-phi50.i46 = phi ptr [ %scevgep58.i34, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i35 ], [ %storemerge4348.us.i40, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i42 ], [ %scevgep57.i33, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48 ]
-  %.us-phi51.i47 = phi i8 [ %.047.us.i38, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.split.us.i35 ], [ %.047.us.i38, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.us.i42 ], [ %68, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit29.thread.us.i48 ]
+_ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i35, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i42, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48
+  %.us-phi.i45 = phi i64 [ 0, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i35 ], [ %storemerge49.us.i36, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i42 ], [ %62, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48 ]
+  %.us-phi50.i46 = phi ptr [ %scevgep58.i34, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i35 ], [ %storemerge4348.us.i40, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i42 ], [ %scevgep57.i33, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48 ]
+  %.us-phi51.i47 = phi i8 [ %.047.us.i38, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.split.us.i35 ], [ %.047.us.i38, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.us.i42 ], [ %68, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit29.thread.us.i48 ]
   store ptr %.us-phi50.i46, ptr %0, align 8, !alias.scope !326
   store i64 %.us-phi.i45, ptr %2, align 8, !alias.scope !326
   br label %8
@@ -3286,25 +3286,25 @@ _ZN6uucore8features6format6escape10parse_code17h1e495203a182331dE.exit51: ; pred
   %71 = load i8, ptr %10, align 1, !noalias !329, !noundef !4
   %72 = add i8 %71, -48
   %or.cond.i.i53 = icmp ult i8 %72, 10
-  br i1 %or.cond.i.i53, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i, label %73
+  br i1 %or.cond.i.i53, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i, label %73
 
 73:                                               ; preds = %70
   %74 = add i8 %71, -65
   %or.cond1.i.i54 = icmp ult i8 %74, 6
-  br i1 %or.cond1.i.i54, label %75, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i
+  br i1 %or.cond1.i.i54, label %75, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i
 
 75:                                               ; preds = %73
   %76 = add nsw i8 %71, -55
-  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i
+  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i: ; preds = %73
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i: ; preds = %73
   %77 = add i8 %71, -97
   %or.cond2.i.i55 = icmp ult i8 %77, 6
   %78 = add nsw i8 %71, -87
-  br i1 %or.cond2.i.i55, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i, label %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread
+  br i1 %or.cond2.i.i55, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i, label %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i, %75, %70
-  %.sroa.7.0.i67.i = phi i8 [ %78, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i ], [ %72, %70 ], [ %76, %75 ]
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i, %75, %70
+  %.sroa.7.0.i67.i = phi i8 [ %78, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i ], [ %72, %70 ], [ %76, %75 ]
   %79 = zext i8 %.sroa.7.0.i67.i to i32
   %storemerge78.i = add i64 %3, -2
   %scevgep.i56 = getelementptr i8, ptr %5, i64 %3
@@ -3312,7 +3312,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.t
   %80 = add i64 %3, -5
   br label %85
 
-81:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i
+81:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i
   store ptr %scevgep85.i, ptr %0, align 8, !alias.scope !329
   store i64 %80, ptr %2, align 8, !alias.scope !329
   %82 = xor i32 %.fr104, 55296
@@ -3320,18 +3320,18 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.t
   %84 = icmp ult i32 %83, -1112064
   br i1 %84, label %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread, label %8
 
-85:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i
-  %storemerge82.i = phi i64 [ %storemerge78.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i ], [ %storemerge.i57, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i ]
-  %.pn.i = phi ptr [ %10, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i ], [ %storemerge4681.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i ]
-  %.sroa.09.080.i = phi i8 [ 1, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i ], [ %86, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i ]
-  %.04379.i = phi i32 [ %79, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i ], [ %.fr104, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i ]
+85:                                               ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i
+  %storemerge82.i = phi i64 [ %storemerge78.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i ], [ %storemerge.i57, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i ]
+  %.pn.i = phi ptr [ %10, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i ], [ %storemerge4681.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i ]
+  %.sroa.09.080.i = phi i8 [ 1, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i ], [ %86, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i ]
+  %.04379.i = phi i32 [ %79, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i ], [ %.fr104, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i ]
   %storemerge4681.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
   %86 = add nuw nsw i8 %.sroa.09.080.i, 1
   %.not47.i = icmp eq i64 %storemerge82.i, 0
   br i1 %.not47.i, label %.loopexit.i, label %87
 
-.loopexit.i:                                      ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i, %85
-  %storemerge4681.lcssa.i = phi ptr [ %storemerge4681.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i ], [ %scevgep.i56, %85 ]
+.loopexit.i:                                      ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i, %85
+  %storemerge4681.lcssa.i = phi ptr [ %storemerge4681.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i ], [ %scevgep.i56, %85 ]
   store ptr %storemerge4681.lcssa.i, ptr %0, align 8, !alias.scope !329
   store i64 %storemerge82.i, ptr %2, align 8, !alias.scope !329
   br label %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread
@@ -3340,25 +3340,25 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.t
   %88 = load i8, ptr %storemerge4681.i, align 1, !noalias !329, !noundef !4
   %89 = add i8 %88, -48
   %or.cond.i56.i = icmp ult i8 %89, 10
-  br i1 %or.cond.i56.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i, label %90
+  br i1 %or.cond.i56.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i, label %90
 
 90:                                               ; preds = %87
   %91 = add i8 %88, -65
   %or.cond1.i57.i = icmp ult i8 %91, 6
-  br i1 %or.cond1.i57.i, label %92, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i
+  br i1 %or.cond1.i57.i, label %92, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i
 
 92:                                               ; preds = %90
   %93 = add nsw i8 %88, -55
-  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i
+  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i: ; preds = %90
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i: ; preds = %90
   %94 = add i8 %88, -97
   %or.cond2.i58.i = icmp ult i8 %94, 6
   %95 = add nsw i8 %88, -87
-  br i1 %or.cond2.i58.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i, label %.loopexit.i
+  br i1 %or.cond2.i58.i, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i, label %.loopexit.i
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i, %92, %87
-  %.sroa.7.0.i6073.i = phi i8 [ %95, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i ], [ %89, %87 ], [ %93, %92 ]
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i, %92, %87
+  %.sroa.7.0.i6073.i = phi i8 [ %95, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i ], [ %89, %87 ], [ %93, %92 ]
   %96 = shl i32 %.04379.i, 4
   %97 = zext i8 %.sroa.7.0.i6073.i to i32
   %98 = add i32 %96, %97
@@ -3367,7 +3367,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63
   %exitcond.not.i58 = icmp eq i8 %86, 4
   br i1 %exitcond.not.i58, label %81, label %85
 
-_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread: ; preds = %81, %.loopexit.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i, %69
+_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread: ; preds = %81, %.loopexit.i, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i, %69
   br label %8
 
 99:                                               ; preds = %9
@@ -3379,25 +3379,25 @@ _ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit.thread
   %101 = load i8, ptr %10, align 1, !noalias !332, !noundef !4
   %102 = add i8 %101, -48
   %or.cond.i.i60 = icmp ult i8 %102, 10
-  br i1 %or.cond.i.i60, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65, label %103
+  br i1 %or.cond.i.i60, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65, label %103
 
 103:                                              ; preds = %100
   %104 = add i8 %101, -65
   %or.cond1.i.i61 = icmp ult i8 %104, 6
-  br i1 %or.cond1.i.i61, label %105, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i62
+  br i1 %or.cond1.i.i61, label %105, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i62
 
 105:                                              ; preds = %103
   %106 = add nsw i8 %101, -55
-  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65
+  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i62: ; preds = %103
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i62: ; preds = %103
   %107 = add i8 %101, -97
   %or.cond2.i.i63 = icmp ult i8 %107, 6
   %108 = add nsw i8 %101, -87
-  br i1 %or.cond2.i.i63, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65, label %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit87.thread
+  br i1 %or.cond2.i.i63, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65, label %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit87.thread
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i62, %105, %100
-  %.sroa.7.0.i67.i66 = phi i8 [ %108, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i62 ], [ %102, %100 ], [ %106, %105 ]
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i62, %105, %100
+  %.sroa.7.0.i67.i66 = phi i8 [ %108, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i62 ], [ %102, %100 ], [ %106, %105 ]
   %109 = zext i8 %.sroa.7.0.i67.i66 to i32
   %storemerge78.i67 = add i64 %3, -2
   %scevgep.i68 = getelementptr i8, ptr %5, i64 %3
@@ -3405,7 +3405,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.t
   %110 = add i64 %3, -9
   br label %115
 
-111:                                              ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82
+111:                                              ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82
   store ptr %scevgep85.i69, ptr %0, align 8, !alias.scope !332
   store i64 %110, ptr %2, align 8, !alias.scope !332
   %112 = xor i32 %.fr, 55296
@@ -3413,18 +3413,18 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.t
   %114 = icmp ult i32 %113, -1112064
   br i1 %114, label %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit87.thread, label %8
 
-115:                                              ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65
-  %storemerge82.i70 = phi i64 [ %storemerge78.i67, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65 ], [ %storemerge.i84, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82 ]
-  %.pn.i71 = phi ptr [ %10, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65 ], [ %storemerge4681.i74, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82 ]
-  %.sroa.09.080.i72 = phi i8 [ 1, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65 ], [ %116, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82 ]
-  %.04379.i73 = phi i32 [ %109, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i65 ], [ %.fr, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82 ]
+115:                                              ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65
+  %storemerge82.i70 = phi i64 [ %storemerge78.i67, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65 ], [ %storemerge.i84, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82 ]
+  %.pn.i71 = phi ptr [ %10, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65 ], [ %storemerge4681.i74, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82 ]
+  %.sroa.09.080.i72 = phi i8 [ 1, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65 ], [ %116, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82 ]
+  %.04379.i73 = phi i32 [ %109, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.thread.i65 ], [ %.fr, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82 ]
   %storemerge4681.i74 = getelementptr inbounds i8, ptr %.pn.i71, i64 1
   %116 = add nuw nsw i8 %.sroa.09.080.i72, 1
   %.not47.i75 = icmp eq i64 %storemerge82.i70, 0
   br i1 %.not47.i75, label %.loopexit.i80, label %117
 
-.loopexit.i80:                                    ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i78, %115
-  %storemerge4681.lcssa.i81 = phi ptr [ %storemerge4681.i74, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i78 ], [ %scevgep.i68, %115 ]
+.loopexit.i80:                                    ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i78, %115
+  %storemerge4681.lcssa.i81 = phi ptr [ %storemerge4681.i74, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i78 ], [ %scevgep.i68, %115 ]
   store ptr %storemerge4681.lcssa.i81, ptr %0, align 8, !alias.scope !332
   store i64 %storemerge82.i70, ptr %2, align 8, !alias.scope !332
   br label %_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit87.thread
@@ -3433,25 +3433,25 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.t
   %118 = load i8, ptr %storemerge4681.i74, align 1, !noalias !332, !noundef !4
   %119 = add i8 %118, -48
   %or.cond.i56.i76 = icmp ult i8 %119, 10
-  br i1 %or.cond.i56.i76, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82, label %120
+  br i1 %or.cond.i56.i76, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82, label %120
 
 120:                                              ; preds = %117
   %121 = add i8 %118, -65
   %or.cond1.i57.i77 = icmp ult i8 %121, 6
-  br i1 %or.cond1.i57.i77, label %122, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i78
+  br i1 %or.cond1.i57.i77, label %122, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i78
 
 122:                                              ; preds = %120
   %123 = add nsw i8 %118, -55
-  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82
+  br label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i78: ; preds = %120
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i78: ; preds = %120
   %124 = add i8 %118, -97
   %or.cond2.i58.i79 = icmp ult i8 %124, 6
   %125 = add nsw i8 %118, -87
-  br i1 %or.cond2.i58.i79, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82, label %.loopexit.i80
+  br i1 %or.cond2.i58.i79, label %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82, label %.loopexit.i80
 
-_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.thread.i82: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i78, %122, %117
-  %.sroa.7.0.i6073.i83 = phi i8 [ %125, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63.i78 ], [ %119, %117 ], [ %123, %122 ]
+_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.thread.i82: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i78, %122, %117
+  %.sroa.7.0.i6073.i83 = phi i8 [ %125, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit63.i78 ], [ %119, %117 ], [ %123, %122 ]
   %126 = shl i32 %.04379.i73, 4
   %127 = zext i8 %.sroa.7.0.i6073.i83 to i32
   %128 = add i32 %126, %127
@@ -3460,7 +3460,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit63
   %exitcond.not.i85 = icmp eq i8 %116, 8
   br i1 %exitcond.not.i85, label %111, label %115
 
-_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit87.thread: ; preds = %111, %.loopexit.i80, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i62, %99
+_ZN6uucore8features6format6escape13parse_unicode17h7eb834905d1b5fe0E.exit87.thread: ; preds = %111, %.loopexit.i80, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.argprom.exit.i62, %99
   br label %8
 }
 
@@ -5905,13 +5905,13 @@ define noundef zeroext i1 @_ZN6uucore8read_yes17he006b57170fb0c86E() unnamed_add
           cleanup
   %67 = getelementptr inbounds i8, ptr %4, i64 8
   %.val17 = load ptr, ptr %67, align 8
-  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE"(i64 %11, ptr %.val17) #33
+  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE.argprom"(i64 %11, ptr %.val17) #33
           to label %74 unwind label %63
 
 68:                                               ; preds = %61, %57, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !702
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br i1 %12, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE.exit", label %69
+  br i1 %12, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE.argprom.exit", label %69
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds i8, ptr %4, i64 8
@@ -5929,9 +5929,9 @@ define noundef zeroext i1 @_ZN6uucore8read_yes17he006b57170fb0c86E() unnamed_add
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h48e08796a9cf5b7eE.exit.i": ; preds = %72, %69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1), !noalias !711
-  br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE.exit"
+  br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE.argprom.exit"
 
-"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE.exit": ; preds = %68, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h48e08796a9cf5b7eE.exit.i"
+"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hf45a27d038982f4eE.argprom.exit": ; preds = %68, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h48e08796a9cf5b7eE.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret i1 %.0
@@ -6269,16 +6269,16 @@ attributes #35 = { nounwind }
 !117 = !{i64 8}
 !118 = !{i64 1}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h71c4cbe22600f550E: argument 0"}
-!121 = distinct !{!121, !"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h71c4cbe22600f550E"}
+!120 = distinct !{!120, !121, !"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h71c4cbe22600f550E.argprom: argument 0"}
+!121 = distinct !{!121, !"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h71c4cbe22600f550E.argprom"}
 !122 = !{!123, !125}
 !123 = distinct !{!123, !124, !"_ZN95_$LT$core..str..IsNotEmpty$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$$RF$str$C$$RP$$GT$$GT$4call17hbebcb10e948d3a1eE.llvm.6156886373160849111: argument 0"}
 !124 = distinct !{!124, !"_ZN95_$LT$core..str..IsNotEmpty$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$$RF$str$C$$RP$$GT$$GT$4call17hbebcb10e948d3a1eE.llvm.6156886373160849111"}
 !125 = distinct !{!125, !126, !"_ZN98_$LT$core..str..IsNotEmpty$u20$as$u20$core..ops..function..FnMut$LT$$LP$$RF$$RF$str$C$$RP$$GT$$GT$8call_mut17h8dd3a31eb70834d7E.llvm.6156886373160849111: argument 0"}
 !126 = distinct !{!126, !"_ZN98_$LT$core..str..IsNotEmpty$u20$as$u20$core..ops..function..FnMut$LT$$LP$$RF$$RF$str$C$$RP$$GT$$GT$8call_mut17h8dd3a31eb70834d7E.llvm.6156886373160849111"}
 !127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE: argument 0"}
-!129 = distinct !{!129, !"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE"}
+!128 = distinct !{!128, !129, !"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE.argprom: argument 0"}
+!129 = distinct !{!129, !"_ZN6uucore9UTIL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h3956d9b925033dbeE.argprom"}
 !130 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !131 = !{!132, !134}
 !132 = distinct !{!132, !133, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E: argument 0"}
@@ -6305,8 +6305,8 @@ attributes #35 = { nounwind }
 !153 = !{!154}
 !154 = distinct !{!154, !152, !"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.6156886373160849111: argument 1"}
 !155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE: argument 0"}
-!157 = distinct !{!157, !"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE"}
+!156 = distinct !{!156, !157, !"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE.argprom: argument 0"}
+!157 = distinct !{!157, !"_ZN6uucore16EXECUTION_PHRASE28_$u7b$$u7b$closure$u7d$$u7d$17h1a156c17d847d91eE.argprom"}
 !158 = !{!159}
 !159 = distinct !{!159, !160, !"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h28eb8698c1eb188bE: argument 0"}
 !160 = distinct !{!160, !"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h28eb8698c1eb188bE"}
@@ -6322,8 +6322,8 @@ attributes #35 = { nounwind }
 !170 = !{!168, !162}
 !171 = !{!159, !162}
 !172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN6uucore4ARGV28_$u7b$$u7b$closure$u7d$$u7d$17h1427846c5acaf718E: argument 0"}
-!174 = distinct !{!174, !"_ZN6uucore4ARGV28_$u7b$$u7b$closure$u7d$$u7d$17h1427846c5acaf718E"}
+!173 = distinct !{!173, !174, !"_ZN6uucore4ARGV28_$u7b$$u7b$closure$u7d$$u7d$17h1427846c5acaf718E.argprom: argument 0"}
+!174 = distinct !{!174, !"_ZN6uucore4ARGV28_$u7b$$u7b$closure$u7d$$u7d$17h1427846c5acaf718E.argprom"}
 !175 = !{!176, !178, !180}
 !176 = distinct !{!176, !177, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.3307611119196902081: argument 0"}
 !177 = distinct !{!177, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.3307611119196902081"}
@@ -6760,10 +6760,10 @@ attributes #35 = { nounwind }
 !608 = distinct !{!608, !609, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h117d672ecc4c51a2E: argument 0"}
 !609 = distinct !{!609, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h117d672ecc4c51a2E"}
 !610 = !{!611, !613, !614}
-!611 = distinct !{!611, !612, !"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h4460b330cefac686E: argument 0"}
-!612 = distinct !{!612, !"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h4460b330cefac686E"}
-!613 = distinct !{!613, !612, !"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h4460b330cefac686E: argument 1"}
-!614 = distinct !{!614, !612, !"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h4460b330cefac686E: argument 2"}
+!611 = distinct !{!611, !612, !"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h4460b330cefac686E.argprom: argument 0"}
+!612 = distinct !{!612, !"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h4460b330cefac686E.argprom"}
+!613 = distinct !{!613, !612, !"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h4460b330cefac686E.argprom: argument 1"}
+!614 = distinct !{!614, !612, !"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h4460b330cefac686E.argprom: argument 2"}
 !615 = !{!611, !614}
 !616 = !{!617, !619, !621, !623, !611, !614}
 !617 = distinct !{!617, !618, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8309910008a03fdfE.llvm.3307611119196902081: argument 0"}

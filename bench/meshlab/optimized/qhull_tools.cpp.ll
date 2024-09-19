@@ -545,12 +545,12 @@ define noundef ptr @_Z19compute_convex_hullP3qhTiiR9MeshModel(ptr noundef %0, i3
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not8.i = icmp eq ptr %12, %14
-  br i1 %.not8.i, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, label %.lr.ph14.i.preheader
+  br i1 %.not8.i, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, label %.lr.ph14.i.preheader
 
 .lr.ph14.i.preheader:                             ; preds = %4
   %15 = icmp sgt i32 %1, 0
   %16 = zext i32 %1 to i64
-  br i1 %15, label %.lr.ph14.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+  br i1 %15, label %.lr.ph14.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
 
 .lr.ph14.i.us:                                    ; preds = %.lr.ph14.i.preheader, %._crit_edge.i.us
   %17 = phi ptr [ %27, %._crit_edge.i.us ], [ %14, %.lr.ph14.i.preheader ]
@@ -587,21 +587,21 @@ define noundef ptr @_Z19compute_convex_hullP3qhTiiR9MeshModel(ptr noundef %0, i3
   %.2.i.us = phi ptr [ %.01012.i.us, %.lr.ph14.i.us ], [ %26, %._crit_edge.loopexit.i.us ]
   %28 = getelementptr inbounds i8, ptr %.sroa.01.09.i.us, i64 48
   %.not.i.us = icmp eq ptr %28, %27
-  br i1 %.not.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, label %.lr.ph14.i.us, !llvm.loop !11
+  br i1 %.not.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, label %.lr.ph14.i.us, !llvm.loop !11
 
-_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit:   ; preds = %._crit_edge.i.us, %.lr.ph14.i.preheader, %4
+_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit: ; preds = %._crit_edge.i.us, %.lr.ph14.i.preheader, %4
   %29 = call i32 @qh_new_qhull(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %10, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null, ptr noundef %6)
   call void @qh_triangulate(ptr noundef %0)
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %33
 
-30:                                               ; preds = %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+30:                                               ; preds = %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
   %31 = getelementptr inbounds i8, ptr %0, i64 2456
   %32 = load ptr, ptr %31, align 8
   br label %33
 
-33:                                               ; preds = %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, %30
-  %.0 = phi ptr [ %32, %30 ], [ null, %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit ]
+33:                                               ; preds = %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, %30
+  %.0 = phi ptr [ %32, %30 ], [ null, %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit ]
   ret ptr %.0
 }
 
@@ -626,12 +626,12 @@ define noundef zeroext i1 @_Z16compute_delaunayP3qhTiiR9MeshModel(ptr noundef %0
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not8.i = icmp eq ptr %12, %14
-  br i1 %.not8.i, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, label %.lr.ph14.i.preheader
+  br i1 %.not8.i, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, label %.lr.ph14.i.preheader
 
 .lr.ph14.i.preheader:                             ; preds = %4
   %15 = icmp sgt i32 %1, 0
   %16 = zext i32 %1 to i64
-  br i1 %15, label %.lr.ph14.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+  br i1 %15, label %.lr.ph14.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
 
 .lr.ph14.i.us:                                    ; preds = %.lr.ph14.i.preheader, %._crit_edge.i.us
   %17 = phi ptr [ %27, %._crit_edge.i.us ], [ %14, %.lr.ph14.i.preheader ]
@@ -668,9 +668,9 @@ define noundef zeroext i1 @_Z16compute_delaunayP3qhTiiR9MeshModel(ptr noundef %0
   %.2.i.us = phi ptr [ %.01012.i.us, %.lr.ph14.i.us ], [ %26, %._crit_edge.loopexit.i.us ]
   %28 = getelementptr inbounds i8, ptr %.sroa.01.09.i.us, i64 48
   %.not.i.us = icmp eq ptr %28, %27
-  br i1 %.not.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, label %.lr.ph14.i.us, !llvm.loop !11
+  br i1 %.not.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, label %.lr.ph14.i.us, !llvm.loop !11
 
-_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit:   ; preds = %._crit_edge.i.us, %.lr.ph14.i.preheader, %4
+_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit: ; preds = %._crit_edge.i.us, %.lr.ph14.i.preheader, %4
   %29 = call i32 @qh_new_qhull(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %10, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null, ptr noundef %6)
   %.not = icmp eq i32 %29, 0
   ret i1 %.not
@@ -700,12 +700,12 @@ define noundef zeroext i1 @_Z15compute_voronoiP3qhTiiR9MeshModelS2_f(ptr noundef
   %25 = getelementptr inbounds i8, ptr %3, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not8.i = icmp eq ptr %24, %26
-  br i1 %.not8.i, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, label %.lr.ph14.i.preheader
+  br i1 %.not8.i, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, label %.lr.ph14.i.preheader
 
 .lr.ph14.i.preheader:                             ; preds = %6
   %27 = icmp sgt i32 %1, 0
   %28 = zext i32 %1 to i64
-  br i1 %27, label %.lr.ph14.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+  br i1 %27, label %.lr.ph14.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
 
 .lr.ph14.i.us:                                    ; preds = %.lr.ph14.i.preheader, %._crit_edge.i.us
   %29 = phi ptr [ %39, %._crit_edge.i.us ], [ %26, %.lr.ph14.i.preheader ]
@@ -742,20 +742,20 @@ define noundef zeroext i1 @_Z15compute_voronoiP3qhTiiR9MeshModelS2_f(ptr noundef
   %.2.i.us = phi ptr [ %.01012.i.us, %.lr.ph14.i.us ], [ %38, %._crit_edge.loopexit.i.us ]
   %40 = getelementptr inbounds i8, ptr %.sroa.01.09.i.us, i64 48
   %.not.i.us = icmp eq ptr %40, %39
-  br i1 %.not.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, label %.lr.ph14.i.us, !llvm.loop !11
+  br i1 %.not.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, label %.lr.ph14.i.us, !llvm.loop !11
 
-_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit:   ; preds = %._crit_edge.i.us, %.lr.ph14.i.preheader, %6
+_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit: ; preds = %._crit_edge.i.us, %.lr.ph14.i.preheader, %6
   %41 = tail call noalias ptr @malloc(i64 noundef %21) #29
   %42 = icmp sgt i32 %19, 0
   br i1 %42, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+.lr.ph.preheader:                                 ; preds = %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
   %43 = zext nneg i32 %19 to i64
   %44 = shl nuw nsw i64 %43, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %22, i64 %44, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
   %45 = call i32 @qh_new_qhull(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %22, i32 noundef 1, ptr noundef nonnull %9, ptr noundef null, ptr noundef %18)
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %46, label %_ZNSt6vectorIPdSaIS0_EED2Ev.exit340
@@ -5219,12 +5219,12 @@ define noundef zeroext i1 @_Z20compute_alpha_shapesP3qhTiiR9MeshModelS2_db(ptr n
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not8.i = icmp eq ptr %22, %24
-  br i1 %.not8.i, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, label %.lr.ph14.i.preheader
+  br i1 %.not8.i, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, label %.lr.ph14.i.preheader
 
 .lr.ph14.i.preheader:                             ; preds = %7
   %25 = icmp sgt i32 %1, 0
   %26 = zext i32 %1 to i64
-  br i1 %25, label %.lr.ph14.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+  br i1 %25, label %.lr.ph14.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
 
 .lr.ph14.i.us:                                    ; preds = %.lr.ph14.i.preheader, %._crit_edge.i.us
   %27 = phi ptr [ %37, %._crit_edge.i.us ], [ %24, %.lr.ph14.i.preheader ]
@@ -5261,14 +5261,14 @@ define noundef zeroext i1 @_Z20compute_alpha_shapesP3qhTiiR9MeshModelS2_db(ptr n
   %.2.i.us = phi ptr [ %.01012.i.us, %.lr.ph14.i.us ], [ %36, %._crit_edge.loopexit.i.us ]
   %38 = getelementptr inbounds i8, ptr %.sroa.01.09.i.us, i64 48
   %.not.i.us = icmp eq ptr %38, %37
-  br i1 %.not.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit, label %.lr.ph14.i.us, !llvm.loop !11
+  br i1 %.not.i.us, label %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit, label %.lr.ph14.i.us, !llvm.loop !11
 
-_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit:   ; preds = %._crit_edge.i.us, %.lr.ph14.i.preheader, %7
+_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit: ; preds = %._crit_edge.i.us, %.lr.ph14.i.preheader, %7
   %39 = call i32 @qh_new_qhull(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %20, i32 noundef 1, ptr noundef nonnull %12, ptr noundef null, ptr noundef %16)
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %40, label %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit246
 
-40:                                               ; preds = %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+40:                                               ; preds = %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
   call void @qh_setvoronoi_all(ptr noundef %0)
   %41 = getelementptr inbounds i8, ptr %0, i64 2456
   %42 = load ptr, ptr %41, align 8
@@ -6051,7 +6051,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0251.0) #23
   br label %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit246
 
-_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit246:      ; preds = %394, %.loopexit272, %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit
+_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit246:      ; preds = %394, %.loopexit272, %_ZL21qh_readpointsFromMeshPiS_R9MeshModel.argprom.exit
   call void @qh_freeqhull(ptr noundef %0, i32 noundef 0)
   call void @qh_memfreeshort(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
   %395 = load i32, ptr %14, align 4

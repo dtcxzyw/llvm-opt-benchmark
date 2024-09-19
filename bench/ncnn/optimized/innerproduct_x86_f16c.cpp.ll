@@ -19,7 +19,7 @@ define hidden void @_ZN4ncnn27innerproduct_fp16s_sse_f16cERKNS_3MatERS0_S2_S2_iS
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 8
-  switch i32 %16, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit [
+  switch i32 %16, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom.exit [
     i32 8, label %.preheader33.i
     i32 4, label %360
     i32 1, label %658
@@ -27,7 +27,7 @@ define hidden void @_ZN4ncnn27innerproduct_fp16s_sse_f16cERKNS_3MatERS0_S2_S2_iS
 
 .preheader33.i:                                   ; preds = %7
   %17 = icmp sgt i32 %14, 0
-  br i1 %17, label %.lr.ph77.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit
+  br i1 %17, label %.lr.ph77.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom.exit
 
 .lr.ph77.i:                                       ; preds = %.preheader33.i
   %.not4779.i = icmp eq ptr %.val, null
@@ -474,11 +474,11 @@ define hidden void @_ZN4ncnn27innerproduct_fp16s_sse_f16cERKNS_3MatERS0_S2_S2_iS
   store <8 x float> %.03939.i, ptr %359, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond339.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond339.not.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit, label %22, !llvm.loop !8
+  br i1 %exitcond339.not.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom.exit, label %22, !llvm.loop !8
 
 360:                                              ; preds = %7
   %361 = icmp sgt i32 %14, 0
-  br i1 %361, label %.lr.ph115.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit
+  br i1 %361, label %.lr.ph115.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom.exit
 
 .lr.ph115.i:                                      ; preds = %360
   %.not4777.i = icmp eq ptr %.val, null
@@ -866,7 +866,7 @@ define hidden void @_ZN4ncnn27innerproduct_fp16s_sse_f16cERKNS_3MatERS0_S2_S2_iS
   store <4 x float> %.03937.i, ptr %657, align 1
   %indvars.iv.next342.i = add nuw nsw i64 %indvars.iv341.i, 1
   %exitcond345.not.i = icmp eq i64 %indvars.iv.next342.i, %wide.trip.count344.i
-  br i1 %exitcond345.not.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit, label %366, !llvm.loop !12
+  br i1 %exitcond345.not.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom.exit, label %366, !llvm.loop !12
 
 658:                                              ; preds = %7
   %659 = ashr i32 %14, 3
@@ -1807,7 +1807,7 @@ define hidden void @_ZN4ncnn27innerproduct_fp16s_sse_f16cERKNS_3MatERS0_S2_S2_iS
   %1317 = shl nuw nsw i32 %1008, 2
   %1318 = or disjoint i32 %1317, %1006
   %1319 = icmp slt i32 %1318, %14
-  br i1 %1319, label %.lr.ph258.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit
+  br i1 %1319, label %.lr.ph258.i, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom.exit
 
 .lr.ph258.i:                                      ; preds = %._crit_edge229.i
   %.not.i = icmp eq ptr %.val, null
@@ -2002,9 +2002,9 @@ define hidden void @_ZN4ncnn27innerproduct_fp16s_sse_f16cERKNS_3MatERS0_S2_S2_iS
   store float %.19.i, ptr %1427, align 4
   %indvars.iv.next358.i = add nsw i64 %indvars.iv357.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next358.i, %1325
-  br i1 %exitcond.not, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit, label %1326, !llvm.loop !22
+  br i1 %exitcond.not, label %_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom.exit, label %1326, !llvm.loop !22
 
-_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit: ; preds = %1425, %655, %357, %7, %.preheader33.i, %360, %._crit_edge229.i
+_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom.exit: ; preds = %1425, %655, %357, %7, %.preheader33.i, %360, %._crit_edge229.i
   ret void
 }
 
@@ -2013,12 +2013,12 @@ define hidden void @_ZN4ncnn32innerproduct_gemm_fp16s_sse_f16cERKNS_3MatERS0_S2_
   %.val = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 39
   %.val6 = load i8, ptr %8, align 1
-  tail call fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(72) %5, i8 %.val6)
+  tail call fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(72) %5, i8 %.val6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr readonly %.0.val, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4, i8 %.39.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr readonly %.0.val, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4, i8 %.39.val) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24

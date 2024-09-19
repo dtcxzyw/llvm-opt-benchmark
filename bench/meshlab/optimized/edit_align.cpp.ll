@@ -46159,7 +46159,7 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
 .loopexit1644.i.i:                                ; preds = %._crit_edge1933.i.i.thread, %.lr.ph1975.i.i, %342
   %.8.i.i = phi double [ %.7.i.i, %342 ], [ 0.000000e+00, %.lr.ph1975.i.i ], [ 0.000000e+00, %._crit_edge1933.i.i.thread ]
   %481 = icmp sgt i32 %.41552.i.i, 0
-  br i1 %481, label %483, label %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
+  br i1 %481, label %483, label %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i
 
 .loopexit1644.i.i.thread:                         ; preds = %345
   %.not427 = icmp eq i32 %.41552.i.i, 0
@@ -46419,7 +46419,7 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
   %586 = fmul double %.1.lcssa.i.i.i, 1.000000e-08
   %587 = fmul double %.0405.lcssa.i.i.i, %586
   %588 = fcmp ugt double %585, %587
-  br i1 %588, label %589, label %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
+  br i1 %588, label %589, label %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i
 
 589:                                              ; preds = %._crit_edge58.i.i.i
   %590 = call double @sqrt(double noundef %585) #25
@@ -46627,18 +46627,18 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
   %691 = add nuw nsw i32 %.0410105.i.i.i, 1
   %.not432.i.i.i = icmp eq i32 %691, %0
   %or.cond.i.i.i = select i1 %690, i1 true, i1 %.not432.i.i.i
-  br i1 %or.cond.i.i.i, label %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i, label %.preheader3.i.i.i, !llvm.loop !1041
+  br i1 %or.cond.i.i.i, label %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i, label %.preheader3.i.i.i, !llvm.loop !1041
 
-_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i: ; preds = %._crit_edge103.i.i.i, %._crit_edge58.i.i.i, %.loopexit1644.i.i
+_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i: ; preds = %._crit_edge103.i.i.i, %._crit_edge58.i.i.i, %.loopexit1644.i.i
   %692 = phi i1 [ false, %.loopexit1644.i.i ], [ true, %._crit_edge58.i.i.i ], [ true, %._crit_edge103.i.i.i ]
   %.8.i.i299 = phi double [ %.8.i.i, %.loopexit1644.i.i ], [ %.8.i.i300303, %._crit_edge58.i.i.i ], [ %.8.i.i300303, %._crit_edge103.i.i.i ]
   %.21488.i.i = phi double [ %.114872066.i.i, %.loopexit1644.i.i ], [ %546, %._crit_edge58.i.i.i ], [ %546, %._crit_edge103.i.i.i ]
   br i1 %.not12541791.i.i, label %._crit_edge2022.i.i, label %.preheader1632.i.i.preheader
 
-.preheader1632.i.i.preheader:                     ; preds = %.preheader4.i.i.i, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
-  %693 = phi i1 [ %692, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ true, %.preheader4.i.i.i ]
-  %.8.i.i298 = phi double [ %.8.i.i299, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ %.8.i.i300303, %.preheader4.i.i.i ]
-  %.21488.i.i253 = phi double [ %.21488.i.i, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ %546, %.preheader4.i.i.i ]
+.preheader1632.i.i.preheader:                     ; preds = %.preheader4.i.i.i, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i
+  %693 = phi i1 [ %692, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ true, %.preheader4.i.i.i ]
+  %.8.i.i298 = phi double [ %.8.i.i299, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ %.8.i.i300303, %.preheader4.i.i.i ]
+  %.21488.i.i253 = phi double [ %.21488.i.i, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ %546, %.preheader4.i.i.i ]
   br label %.preheader1632.i.i
 
 .preheader1642.i.i:                               ; preds = %._crit_edge1984.i.i
@@ -46780,13 +46780,13 @@ _ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
   %exitcond2579.not.i.i = icmp eq i64 %indvars.iv.next2576.i.i, %wide.trip.count82.i.i.i
   br i1 %exitcond2579.not.i.i, label %._crit_edge2022.i.i, label %.preheader1630.i.i, !llvm.loop !1049
 
-._crit_edge2022.i.i:                              ; preds = %._crit_edge2016.i.i, %.loopexit1644.i.i.thread, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i, %.preheader1642.i.i
-  %743 = phi i1 [ %693, %.preheader1642.i.i ], [ %692, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ false, %.loopexit1644.i.i.thread ], [ %693, %._crit_edge2016.i.i ]
-  %.8.i.i296 = phi double [ %.8.i.i298, %.preheader1642.i.i ], [ %.8.i.i299, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ 0.000000e+00, %.loopexit1644.i.i.thread ], [ %.8.i.i298, %._crit_edge2016.i.i ]
-  %.21516.lcssa.i.i260 = phi double [ 0.000000e+00, %.preheader1642.i.i ], [ 0.000000e+00, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ 0.000000e+00, %.loopexit1644.i.i.thread ], [ %720, %._crit_edge2016.i.i ]
-  %.21488.i.i254256259 = phi double [ %.21488.i.i253, %.preheader1642.i.i ], [ %.21488.i.i, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ %.114872066.i.i, %.loopexit1644.i.i.thread ], [ %.21488.i.i253, %._crit_edge2016.i.i ]
-  %.01132.lcssa.i.i = phi double [ 0.000000e+00, %.preheader1642.i.i ], [ 0.000000e+00, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ 0.000000e+00, %.loopexit1644.i.i.thread ], [ %742, %._crit_edge2016.i.i ]
-  %.01092.lcssa.i.i = phi double [ 0.000000e+00, %.preheader1642.i.i ], [ 0.000000e+00, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i ], [ 0.000000e+00, %.loopexit1644.i.i.thread ], [ %739, %._crit_edge2016.i.i ]
+._crit_edge2022.i.i:                              ; preds = %._crit_edge2016.i.i, %.loopexit1644.i.i.thread, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i, %.preheader1642.i.i
+  %743 = phi i1 [ %693, %.preheader1642.i.i ], [ %692, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ false, %.loopexit1644.i.i.thread ], [ %693, %._crit_edge2016.i.i ]
+  %.8.i.i296 = phi double [ %.8.i.i298, %.preheader1642.i.i ], [ %.8.i.i299, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ 0.000000e+00, %.loopexit1644.i.i.thread ], [ %.8.i.i298, %._crit_edge2016.i.i ]
+  %.21516.lcssa.i.i260 = phi double [ 0.000000e+00, %.preheader1642.i.i ], [ 0.000000e+00, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ 0.000000e+00, %.loopexit1644.i.i.thread ], [ %720, %._crit_edge2016.i.i ]
+  %.21488.i.i254256259 = phi double [ %.21488.i.i253, %.preheader1642.i.i ], [ %.21488.i.i, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ %.114872066.i.i, %.loopexit1644.i.i.thread ], [ %.21488.i.i253, %._crit_edge2016.i.i ]
+  %.01132.lcssa.i.i = phi double [ 0.000000e+00, %.preheader1642.i.i ], [ 0.000000e+00, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ 0.000000e+00, %.loopexit1644.i.i.thread ], [ %742, %._crit_edge2016.i.i ]
+  %.01092.lcssa.i.i = phi double [ 0.000000e+00, %.preheader1642.i.i ], [ 0.000000e+00, %_ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.argprom.exit.i.i ], [ 0.000000e+00, %.loopexit1644.i.i.thread ], [ %739, %._crit_edge2016.i.i ]
   %744 = fadd double %.8.i.i296, %.01132.lcssa.i.i
   %745 = fadd double %.01132.lcssa.i.i, %744
   %746 = call double @llvm.fmuladd.f64(double %.11131.i.i, double 5.000000e-01, double %745)
@@ -48396,19 +48396,19 @@ _ZL7bigden_IdEiiiPT_S1_S1_S1_PiS2_S2_S2_S1_S1_S1_S1_S1_S1_S1_.exit.i.i: ; preds 
   %indvars.iv.next80.i.i.i = add nuw nsw i64 %indvars.iv79.i.i.i, 1
   %indvars.iv.next76.i.i.i = add i32 %indvars.iv75.i.i.i, 1
   %exitcond83.not.i.i.i = icmp eq i64 %indvars.iv.next80.i.i.i, %wide.trip.count82.i.i.i
-  br i1 %exitcond83.not.i.i.i, label %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.i.i, label %.lr.ph38.i.i.i, !llvm.loop !1099
+  br i1 %exitcond83.not.i.i.i, label %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.argprom.exit.i.i, label %.lr.ph38.i.i.i, !llvm.loop !1099
 
-_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.i.i: ; preds = %._crit_edge35.i1342.i.i
+_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.argprom.exit.i.i: ; preds = %._crit_edge35.i1342.i.i
   %1460 = getelementptr inbounds double, ptr %83, i64 %1412
   store double %1283, ptr %1460, align 8
   %1461 = getelementptr inbounds double, ptr %86, i64 %1412
   %invariant.gep2754.i.i = getelementptr double, ptr %79, i64 %1412
   br label %1462
 
-1462:                                             ; preds = %1474, %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.i.i
-  %indvars.iv2362.i.i = phi i64 [ 1, %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.i.i ], [ %indvars.iv.next2363.i.i, %1474 ]
-  %indvars.iv2360.i.i = phi i64 [ 2, %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.i.i ], [ %indvars.iv.next2361.i.i, %1474 ]
-  %.511881847.i.i = phi i64 [ 0, %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.i.i ], [ %indvars.iv.next2350.i.i, %1474 ]
+1462:                                             ; preds = %1474, %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.argprom.exit.i.i
+  %indvars.iv2362.i.i = phi i64 [ 1, %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.argprom.exit.i.i ], [ %indvars.iv.next2363.i.i, %1474 ]
+  %indvars.iv2360.i.i = phi i64 [ 2, %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.argprom.exit.i.i ], [ %indvars.iv.next2361.i.i, %1474 ]
+  %.511881847.i.i = phi i64 [ 0, %_ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.argprom.exit.i.i ], [ %indvars.iv.next2350.i.i, %1474 ]
   %1463 = load double, ptr %1461, align 8
   %1464 = mul nuw nsw i64 %indvars.iv2362.i.i, %135
   %gep2755.i.i = getelementptr double, ptr %invariant.gep2754.i.i, i64 %1464

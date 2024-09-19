@@ -5539,7 +5539,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit: ; preds
   br label %1466
 
 1384:                                             ; preds = %1377
-  invoke fastcc void @"_ZZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11InstructionERSt6vectorIhSaIhEEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %589, ptr nonnull %3, i32 noundef %1380)
+  invoke fastcc void @"_ZZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11InstructionERSt6vectorIhSaIhEEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %589, ptr nonnull %3, i32 noundef %1380)
           to label %1385 unwind label %.loopexit.split-lp
 
 1385:                                             ; preds = %1384
@@ -5744,7 +5744,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit:          ; preds = %_ZNSt6vectorIhSaIhE
 
 .invoke1110:                                      ; preds = %1372, %1392, %1461
   %1463 = phi i32 [ %1462, %1461 ], [ %1393, %1392 ], [ %1375, %1372 ]
-  invoke fastcc void @"_ZZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11InstructionERSt6vectorIhSaIhEEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %3, i32 noundef %1463)
+  invoke fastcc void @"_ZZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11InstructionERSt6vectorIhSaIhEEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %3, i32 noundef %1463)
           to label %1466 unwind label %.loopexit.split-lp
 
 1464:                                             ; preds = %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258
@@ -6569,7 +6569,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit21: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11InstructionERSt6vectorIhSaIhEEENK3$_1clEj"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture %.8.val, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11InstructionERSt6vectorIhSaIhEEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture %.8.val, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1

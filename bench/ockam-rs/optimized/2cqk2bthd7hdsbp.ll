@@ -240,13 +240,13 @@ default.unreachable7:                             ; preds = %2
   %.val = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
   %7 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %8 = icmp slt i64 %7, 0
-  br i1 %8, label %9, label %"_ZN92_$LT$mitm_node..tcp_interceptor..registry..TcpMitmRegistry$u20$as$u20$core..clone..Clone$GT$5clone17h5490b3843bd612d2E.exit"
+  br i1 %8, label %9, label %"_ZN92_$LT$mitm_node..tcp_interceptor..registry..TcpMitmRegistry$u20$as$u20$core..clone..Clone$GT$5clone17h5490b3843bd612d2E.argprom.exit"
 
 9:                                                ; preds = %5
   tail call void @llvm.trap()
   unreachable
 
-"_ZN92_$LT$mitm_node..tcp_interceptor..registry..TcpMitmRegistry$u20$as$u20$core..clone..Clone$GT$5clone17h5490b3843bd612d2E.exit": ; preds = %5
+"_ZN92_$LT$mitm_node..tcp_interceptor..registry..TcpMitmRegistry$u20$as$u20$core..clone..Clone$GT$5clone17h5490b3843bd612d2E.argprom.exit": ; preds = %5
   store i8 1, ptr %3, align 8
   %10 = insertvalue { i64, ptr } { i64 0, ptr undef }, ptr %.val, 1
   ret { i64, ptr } %10
@@ -4050,11 +4050,11 @@ attributes #22 = { noinline noreturn nounwind }
 !34 = distinct !{!34, !"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758"}
 !35 = !{i64 1, i64 0}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h645928490d5de53dE: argument 0"}
-!38 = distinct !{!38, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h645928490d5de53dE"}
+!37 = distinct !{!37, !38, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h645928490d5de53dE.argprom: argument 0"}
+!38 = distinct !{!38, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h645928490d5de53dE.argprom"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb6eab2e59ea08e96E: argument 0"}
-!41 = distinct !{!41, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb6eab2e59ea08e96E"}
+!40 = distinct !{!40, !41, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb6eab2e59ea08e96E.argprom: argument 0"}
+!41 = distinct !{!41, !"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb6eab2e59ea08e96E.argprom"}
 !42 = !{!43}
 !43 = distinct !{!43, !44, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h204caef27a14754dE.llvm.10658646520225780758: argument 0"}
 !44 = distinct !{!44, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h204caef27a14754dE.llvm.10658646520225780758"}

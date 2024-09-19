@@ -2509,14 +2509,14 @@ for.body.i:                                       ; preds = %_ZNK3euf13enode_par
   %49 = load i32, ptr %_lo.i.i, align 4
   %cmp.i.i38 = icmp eq i32 %49, 0
   %or.cond.not.i.i = select i1 %call2.i.i.i, i1 %cmp.i.i38, i1 false
-  br i1 %or.cond.not.i.i, label %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i", label %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i"
+  br i1 %or.cond.not.i.i, label %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.argprom.exit.i", label %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.argprom.exit.thread.i"
 
-"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i": ; preds = %for.body.i
+"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.argprom.exit.thread.i": ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %_lo.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %_hi.i.i)
   br label %for.inc.i
 
-"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i": ; preds = %for.body.i
+"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.argprom.exit.i": ; preds = %for.body.i
   %50 = load i32, ptr %_hi.i.i, align 4
   %add.i.i = add i32 %50, 1
   %cmp2.i.not.i = icmp eq i32 %add.i.i, %44
@@ -2524,7 +2524,7 @@ for.body.i:                                       ; preds = %_ZNK3euf13enode_par
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %_hi.i.i)
   br i1 %cmp2.i.not.i, label %if.end17, label %for.inc.i
 
-for.inc.i:                                        ; preds = %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i", %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i"
+for.inc.i:                                        ; preds = %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.argprom.exit.i", %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.argprom.exit.thread.i"
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.02.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i37
   br i1 %cmp.not.i, label %if.then15, label %for.body.i
@@ -2535,7 +2535,7 @@ if.then15:                                        ; preds = %for.inc.i, %_ZNK3eu
   call void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call16, ptr noundef nonnull %39)
   br label %if.end17
 
-if.end17:                                         ; preds = %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i", %if.then15
+if.end17:                                         ; preds = %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.argprom.exit.i", %if.then15
   %51 = load i32, ptr %lo4, align 4
   %52 = load i32, ptr %hi5, align 4
   call void @_ZN3euf9bv_plugin12ensure_sliceEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %39, i32 noundef %51, i32 noundef %52)

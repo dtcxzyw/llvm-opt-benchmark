@@ -2558,13 +2558,13 @@ cleanup_additional_headers.exit.i.i:              ; preds = %do.end.sink.split.i
   %remerge_objdir.i.i = getelementptr inbounds i8, ptr %opt, i64 2976
   %39 = load ptr, ptr %remerge_objdir.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %39, null
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %do_remerge_diff.exit.i
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %do_remerge_diff.argprom.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %cleanup_additional_headers.exit.i.i
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.59, i32 noundef 1059, ptr noundef nonnull @.str.60) #14
   unreachable
 
-do_remerge_diff.exit.i:                           ; preds = %cleanup_additional_headers.exit.i.i
+do_remerge_diff.argprom.argprom.exit.i:           ; preds = %cleanup_additional_headers.exit.i.i
   call void @tmp_objdir_discard_objects(ptr noundef nonnull %39) #12
   %40 = load ptr, ptr %loginfo, align 8
   %tobool8.not.i.i = icmp eq ptr %40, null
@@ -2635,8 +2635,8 @@ if.end87.i:                                       ; preds = %lor.lhs.false.i
   store ptr %log, ptr %loginfo, align 8
   br label %for.cond.i
 
-log_tree_diff.exit:                               ; preds = %for.cond.i, %lor.lhs.false.i, %if.end26.i, %do_remerge_diff.exit.i, %if.then51.i
-  %retval.0.i = phi i32 [ %lnot.ext.i.i, %do_remerge_diff.exit.i ], [ %lnot.ext.i52.i, %if.then51.i ], [ %lnot.ext.i, %if.end26.i ], [ %or.i, %lor.lhs.false.i ], [ %or.i, %for.cond.i ]
+log_tree_diff.exit:                               ; preds = %for.cond.i, %lor.lhs.false.i, %if.end26.i, %do_remerge_diff.argprom.argprom.exit.i, %if.then51.i
+  %retval.0.i = phi i32 [ %lnot.ext.i.i, %do_remerge_diff.argprom.argprom.exit.i ], [ %lnot.ext.i52.i, %if.then51.i ], [ %lnot.ext.i, %if.end26.i ], [ %or.i, %lor.lhs.false.i ], [ %or.i, %for.cond.i ]
   %tobool24.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool24.not, label %land.lhs.true25, label %if.end36
 
@@ -2845,15 +2845,15 @@ land.lhs.true.i:                                  ; preds = %if.else
   %next.i = getelementptr inbounds i8, ptr %commit.val, i64 8
   %10 = load ptr, ptr %next.i, align 8
   %tobool2.not.i = icmp eq ptr %10, null
-  br i1 %tobool2.not.i, label %for.body.lr.ph.i, label %is_common_merge.exit
+  br i1 %tobool2.not.i, label %for.body.lr.ph.i, label %is_common_merge.argprom.exit
 
-is_common_merge.exit:                             ; preds = %land.lhs.true.i
+is_common_merge.argprom.exit:                     ; preds = %land.lhs.true.i
   %next5.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %next5.i, align 8
   %tobool6.not.i.not = icmp eq ptr %11, null
   br i1 %tobool6.not.i.not, label %land.lhs.true, label %for.body.lr.ph.i
 
-land.lhs.true:                                    ; preds = %is_common_merge.exit
+land.lhs.true:                                    ; preds = %is_common_merge.argprom.exit
   %tagged = getelementptr inbounds i8, ptr %call, i64 40
   %12 = load ptr, ptr %tagged, align 8
   %oid8 = getelementptr inbounds i8, ptr %12, i64 4
@@ -2901,7 +2901,7 @@ if.then12:                                        ; preds = %oideq.exit
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %verify_message, ptr noundef nonnull @.str.52, ptr noundef %18) #12
   br label %if.end27
 
-for.body.lr.ph.i:                                 ; preds = %land.lhs.true.i, %is_common_merge.exit, %oideq.exit
+for.body.lr.ph.i:                                 ; preds = %land.lhs.true.i, %is_common_merge.argprom.exit, %oideq.exit
   %.pn.in = getelementptr inbounds i8, ptr %call, i64 40
   %.pn = load ptr, ptr %.pn.in, align 8
   %oid1627 = getelementptr inbounds i8, ptr %.pn, i64 4

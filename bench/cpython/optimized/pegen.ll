@@ -886,7 +886,7 @@ if.then11:                                        ; preds = %if.end7
   %end_col_offset = getelementptr inbounds i8, ptr %5, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
   %conv14 = sext i32 %11 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv, i64 noundef %conv12, i64 noundef %conv13, i64 noundef %conv14, ptr noundef nonnull @.str.2, ptr noundef %expected)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv, i64 noundef %conv12, i64 noundef %conv13, i64 noundef %conv14, ptr noundef nonnull @.str.2, ptr noundef %expected)
   br label %return
 
 if.end16:                                         ; preds = %if.end7
@@ -900,7 +900,7 @@ return:                                           ; preds = %entry, %if.end16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #1 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -1584,7 +1584,7 @@ if.then22:                                        ; preds = %land.lhs.true18
   %end_lineno = getelementptr inbounds i8, ptr %4, i64 28
   %17 = load i32, ptr %end_lineno, align 4
   %conv24 = sext i32 %17 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %15, i64 noundef %conv, i64 noundef -1, i64 noundef %conv24, i64 noundef -1, ptr noundef nonnull @.str.6, ptr noundef %call23)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %15, i64 noundef %conv, i64 noundef -1, i64 noundef %conv24, i64 noundef -1, ptr noundef nonnull @.str.6, ptr noundef %call23)
   %18 = load i64, ptr %call23, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i48.not = icmp eq i64 %19, 0

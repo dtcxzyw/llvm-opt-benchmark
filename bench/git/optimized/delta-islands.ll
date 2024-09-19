@@ -626,7 +626,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @xmalloc(i64 noundef %mul.i) #16
   %3 = load i32, ptr %nr_objects, align 8
   %cmp62.not = icmp eq i32 %3, 0
-  br i1 %cmp62.not, label %sane_qsort.exit, label %for.body.lr.ph
+  br i1 %cmp62.not, label %sane_qsort.argprom.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %objects = getelementptr inbounds i8, ptr %to_pack, i64 8
@@ -678,19 +678,19 @@ for.inc:                                          ; preds = %for.body, %oe_tree_
 for.end:                                          ; preds = %for.inc
   %conv22 = sext i32 %nr.1 to i64
   %cmp.i = icmp ugt i32 %nr.1, 1
-  br i1 %cmp.i, label %if.then.i34, label %sane_qsort.exit
+  br i1 %cmp.i, label %if.then.i34, label %sane_qsort.argprom.exit
 
 if.then.i34:                                      ; preds = %for.end
   tail call void @qsort(ptr noundef %call1, i64 noundef %conv22, i64 noundef 16, ptr noundef nonnull @tree_depth_compare) #16
-  br label %sane_qsort.exit
+  br label %sane_qsort.argprom.exit
 
-sane_qsort.exit:                                  ; preds = %if.end, %for.end, %if.then.i34
+sane_qsort.argprom.exit:                          ; preds = %if.end, %for.end, %if.then.i34
   %conv2285 = phi i64 [ %conv22, %for.end ], [ %conv22, %if.then.i34 ], [ 0, %if.end ]
   %nr.0.lcssa84 = phi i32 [ %nr.1, %for.end ], [ %nr.1, %if.then.i34 ], [ 0, %if.end ]
   %tobool23.not = icmp eq i32 %progress, 0
   br i1 %tobool23.not, label %if.end28, label %if.then24
 
-if.then24:                                        ; preds = %sane_qsort.exit
+if.then24:                                        ; preds = %sane_qsort.argprom.exit
   %13 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %13, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
@@ -705,8 +705,8 @@ _.exit:                                           ; preds = %if.then24, %if.end3
   store ptr %call27, ptr %progress_state, align 8
   br label %if.end28
 
-if.end28:                                         ; preds = %_.exit, %sane_qsort.exit
-  %14 = phi ptr [ %call27, %_.exit ], [ null, %sane_qsort.exit ]
+if.end28:                                         ; preds = %_.exit, %sane_qsort.argprom.exit
+  %14 = phi ptr [ %call27, %_.exit ], [ null, %sane_qsort.argprom.exit ]
   %cmp3067 = icmp sgt i32 %nr.0.lcssa84, 0
   br i1 %cmp3067, label %for.body32.lr.ph, label %for.end71
 

@@ -1464,7 +1464,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %.val = load float, ptr %54, align 8, !tbaa !50
   %665 = getelementptr i8, ptr %1, i64 144
   %.val83 = load <2 x i32>, ptr %665, align 8, !tbaa !22
-  %666 = call fastcc i32 @reconstruct_highlights(ptr noundef nonnull %363, ptr noundef nonnull %53, ptr noundef nonnull %351, i32 noundef 0, ptr noundef %39, float %.val, <2 x i32> %.val83, float %664, ptr noundef %5)
+  %666 = call fastcc i32 @reconstruct_highlights.argprom(ptr noundef nonnull %363, ptr noundef nonnull %53, ptr noundef nonnull %351, i32 noundef 0, ptr noundef %39, float %.val, <2 x i32> %.val83, float %664, ptr noundef %5)
   call void @free(ptr noundef nonnull %363) #21
   %667 = getelementptr inbounds i8, ptr %39, i64 80
   %668 = load i32, ptr %667, align 16, !tbaa !74
@@ -1614,7 +1614,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %771 = load float, ptr %56, align 4, !tbaa !48
   %.val84 = load float, ptr %54, align 8, !tbaa !50
   %.val85 = load <2 x i32>, ptr %665, align 8, !tbaa !22
-  %772 = call fastcc i32 @reconstruct_highlights(ptr noundef nonnull %686, ptr noundef nonnull %53, ptr noundef nonnull %351, i32 noundef 1, ptr noundef %39, float %.val84, <2 x i32> %.val85, float %771, ptr noundef %5)
+  %772 = call fastcc i32 @reconstruct_highlights.argprom(ptr noundef nonnull %686, ptr noundef nonnull %53, ptr noundef nonnull %351, i32 noundef 1, ptr noundef %39, float %.val84, <2 x i32> %.val85, float %771, ptr noundef %5)
   %773 = icmp ne i32 %772, 0
   br label %774
 
@@ -2204,16 +2204,16 @@ filmic_spline.exit:                               ; preds = %1086, %1095, %1102,
   %1160 = phi reassoc nsz arcp contract afn float [ %1142, %1158 ], [ 0.000000e+00, %1156 ], [ %887, %1153 ]
   %1161 = extractelement <4 x float> %956, i64 3
   %1162 = fcmp reassoc nsz arcp contract afn ogt float %1161, %887
-  br i1 %1162, label %RGB_tone_mapping_v4.exit, label %1163
+  br i1 %1162, label %RGB_tone_mapping_v4.argprom.exit, label %1163
 
 1163:                                             ; preds = %1159
   %1164 = fcmp reassoc nsz arcp contract afn olt float %1161, 0.000000e+00
-  br i1 %1164, label %RGB_tone_mapping_v4.exit, label %1165
+  br i1 %1164, label %RGB_tone_mapping_v4.argprom.exit, label %1165
 
 1165:                                             ; preds = %1163
-  br label %RGB_tone_mapping_v4.exit
+  br label %RGB_tone_mapping_v4.argprom.exit
 
-RGB_tone_mapping_v4.exit:                         ; preds = %1159, %1163, %1165
+RGB_tone_mapping_v4.argprom.exit:                 ; preds = %1159, %1163, %1165
   %1166 = phi reassoc nsz arcp contract afn float [ %1161, %1165 ], [ 0.000000e+00, %1163 ], [ %887, %1159 ]
   %1167 = load float, ptr %885, align 16, !tbaa !159
   %1168 = insertelement <4 x float> poison, float %1148, i64 0
@@ -2268,15 +2268,15 @@ RGB_tone_mapping_v4.exit:                         ; preds = %1159, %1163, %1165
   %1217 = fcmp reassoc nsz arcp contract afn ult float %1216, %908
   br i1 %1217, label %1221, label %1218
 
-1218:                                             ; preds = %RGB_tone_mapping_v4.exit
+1218:                                             ; preds = %RGB_tone_mapping_v4.argprom.exit
   %1219 = fcmp reassoc nsz arcp contract afn ugt float %1216, %911
   br i1 %1219, label %1221, label %1220
 
 1220:                                             ; preds = %1218
   br label %1221
 
-1221:                                             ; preds = %1220, %1218, %RGB_tone_mapping_v4.exit
-  %1222 = phi reassoc nsz arcp contract afn float [ %1216, %1220 ], [ %911, %1218 ], [ %908, %RGB_tone_mapping_v4.exit ]
+1221:                                             ; preds = %1220, %1218, %RGB_tone_mapping_v4.argprom.exit
+  %1222 = phi reassoc nsz arcp contract afn float [ %1216, %1220 ], [ %911, %1218 ], [ %908, %RGB_tone_mapping_v4.argprom.exit ]
   %1223 = fmul reassoc nsz arcp contract afn float %1222, %937
   %1224 = call reassoc nsz arcp contract afn float @llvm.log2.f32(float %1223)
   %1225 = fsub reassoc nsz arcp contract afn float %1224, %902
@@ -4407,7 +4407,7 @@ declare float @llvm.maxnum.f32(float, float) #10
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @reconstruct_highlights(ptr noalias nocapture noundef nonnull readonly %0, ptr noalias nocapture noundef nonnull readonly %1, ptr noalias nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef readonly %4, float %.104.val, <2 x i32> %.144.val, float %5, ptr nocapture noundef readonly %6) unnamed_addr #12 {
+define internal fastcc noundef range(i32 0, 2) i32 @reconstruct_highlights.argprom(ptr noalias nocapture noundef nonnull readonly %0, ptr noalias nocapture noundef nonnull readonly %1, ptr noalias nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef readonly %4, float %.104.val, <2 x i32> %.144.val, float %5, ptr nocapture noundef readonly %6) unnamed_addr #12 {
   %8 = sitofp <2 x i32> %.144.val to <2 x float>
   %9 = insertelement <2 x float> poison, float %.104.val, i64 0
   %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
@@ -6080,7 +6080,7 @@ define internal fastcc void @filmic_split_v4(ptr noalias nocapture noundef reado
   %63 = shufflevector <4 x float> %62, <4 x float> poison, <4 x i32> zeroinitializer
   br label %64
 
-.loopexit:                                        ; preds = %RGB_tone_mapping_v4.exit, %10
+.loopexit:                                        ; preds = %RGB_tone_mapping_v4.argprom.exit, %10
   tail call void @llvm.x86.sse.sfence()
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #21
@@ -6090,8 +6090,8 @@ define internal fastcc void @filmic_split_v4(ptr noalias nocapture noundef reado
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #21
   ret void
 
-64:                                               ; preds = %RGB_tone_mapping_v4.exit, %24
-  %65 = phi i64 [ 0, %24 ], [ %436, %RGB_tone_mapping_v4.exit ]
+64:                                               ; preds = %RGB_tone_mapping_v4.argprom.exit, %24
+  %65 = phi i64 [ 0, %24 ], [ %436, %RGB_tone_mapping_v4.argprom.exit ]
   %66 = getelementptr inbounds float, ptr %0, i64 %65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #21
   %.val = load <4 x float>, ptr %66, align 4
@@ -6409,16 +6409,16 @@ filmic_spline.exit:                               ; preds = %199, %208, %215, %2
   %273 = phi reassoc nsz arcp contract afn float [ %255, %271 ], [ 0.000000e+00, %269 ], [ %9, %266 ]
   %274 = extractelement <4 x float> %72, i64 3
   %275 = fcmp reassoc nsz arcp contract afn ogt float %274, %9
-  br i1 %275, label %RGB_tone_mapping_v4.exit, label %276
+  br i1 %275, label %RGB_tone_mapping_v4.argprom.exit, label %276
 
 276:                                              ; preds = %272
   %277 = fcmp reassoc nsz arcp contract afn olt float %274, 0.000000e+00
-  br i1 %277, label %RGB_tone_mapping_v4.exit, label %278
+  br i1 %277, label %RGB_tone_mapping_v4.argprom.exit, label %278
 
 278:                                              ; preds = %276
-  br label %RGB_tone_mapping_v4.exit
+  br label %RGB_tone_mapping_v4.argprom.exit
 
-RGB_tone_mapping_v4.exit:                         ; preds = %272, %276, %278
+RGB_tone_mapping_v4.argprom.exit:                 ; preds = %272, %276, %278
   %279 = phi reassoc nsz arcp contract afn float [ %274, %278 ], [ 0.000000e+00, %276 ], [ %9, %272 ]
   %280 = insertelement <4 x float> poison, float %261, i64 0
   %281 = insertelement <4 x float> %280, float %267, i64 1

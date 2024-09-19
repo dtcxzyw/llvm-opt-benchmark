@@ -198,7 +198,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %6 = load ptr, ptr %requestList, align 8
   %call24 = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.034) #3
   %7 = load ptr, ptr %call24, align 8
-  tail call fastcc void @ocsp_certid_print(ptr noundef %bp, ptr noundef %7, i32 noundef 8)
+  tail call fastcc void @ocsp_certid_print.retelim(ptr noundef %bp, ptr noundef %7, i32 noundef 8)
   %singleRequestExtensions = getelementptr inbounds i8, ptr %call24, i64 8
   %8 = load ptr, ptr %singleRequestExtensions, align 8
   %call26 = tail call i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef nonnull @.str.23, ptr noundef %8, i64 noundef %flags, i32 noundef 8) #3
@@ -258,7 +258,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ocsp_certid_print(ptr noundef %bp, ptr noundef %a, i32 noundef range(i32 4, 9) %indent) unnamed_addr #1 {
+define internal fastcc void @ocsp_certid_print.retelim(ptr noundef %bp, ptr noundef %a, i32 noundef range(i32 4, 9) %indent) unnamed_addr #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.42, i32 noundef %indent, ptr noundef nonnull @.str.43) #3
   %add = add nuw nsw i32 %indent, 2
@@ -422,7 +422,7 @@ if.end60:                                         ; preds = %for.body
   %13 = load ptr, ptr %responses, align 8
   %call63 = tail call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef %i.097) #3
   %14 = load ptr, ptr %call63, align 8
-  tail call fastcc void @ocsp_certid_print(ptr noundef %bp, ptr noundef %14, i32 noundef 4)
+  tail call fastcc void @ocsp_certid_print.retelim(ptr noundef %bp, ptr noundef %14, i32 noundef 4)
   %certStatus = getelementptr inbounds i8, ptr %call63, i64 8
   %15 = load ptr, ptr %certStatus, align 8
   %16 = load i32, ptr %15, align 8

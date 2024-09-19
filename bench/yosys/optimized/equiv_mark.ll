@@ -669,9 +669,9 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit.i: ; preds = %._crit_edge1080
 120:                                              ; preds = %118, %114, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit.i
   %121 = load i32, ptr @_ZZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEvE2id, align 4, !noalias !11
   %.not.i.i.i.i15 = icmp eq i32 %121, 0
-  br i1 %.not.i.i.i.i15, label %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.thread.i, label %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.i
+  br i1 %.not.i.i.i.i15, label %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom.exit.thread.i, label %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom.exit.i
 
-_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.thread.i: ; preds = %120
+_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom.exit.thread.i: ; preds = %120
   %122 = getelementptr inbounds i8, ptr %111, i64 76
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %123, 0
@@ -683,7 +683,7 @@ _ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.th
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEvE2id) #19, !noalias !11
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit181.i
 
-_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.i: ; preds = %120
+_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom.exit.i: ; preds = %120
   %127 = sext i32 %121 to i64
   %128 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !11
   %129 = getelementptr inbounds i32, ptr %128, i64 %127
@@ -697,7 +697,7 @@ _ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.i:
   %136 = trunc i8 %135 to i1
   br i1 %136, label %137, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i
 
-137:                                              ; preds = %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.i
+137:                                              ; preds = %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom.exit.i
   %138 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %139 = getelementptr inbounds i32, ptr %138, i64 %127
   %140 = load i32, ptr %139, align 4
@@ -717,10 +717,10 @@ _ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.i:
   call void @__clang_call_terminate(ptr %146) #21
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %143, %137, %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.i
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %143, %137, %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom.exit.i
   br i1 %134, label %147, label %_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE6insertERKS3_.exit.i
 
-147:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.thread.i
+147:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom.exit.thread.i
   %148 = getelementptr inbounds i8, ptr %111, i64 72
   %149 = load ptr, ptr %41, align 8
   %150 = load ptr, ptr %48, align 8
@@ -1050,7 +1050,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_insertERKS3_Ri
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE6insertERKS3_.exit.i
 
-_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE6insertERKS3_.exit.i: ; preds = %261, %_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_insertERKS3_Ri.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.exit.thread.i
+_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE6insertERKS3_.exit.i: ; preds = %261, %_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_insertERKS3_Ri.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom.exit.thread.i
   %314 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZNK5Yosys5RTLIL4Cell11connectionsEv(ptr noundef nonnull align 8 dereferenceable(192) %111)
           to label %315 unwind label %.loopexit.split-lp738.loopexit.i.loopexit
 
@@ -27977,8 +27977,8 @@ attributes #23 = { builtin allocsize(0) }
 !9 = distinct !{!9, !10, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !10 = distinct !{!10, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv: argument 0"}
-!13 = distinct !{!13, !"_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv"}
+!12 = distinct !{!12, !13, !"_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZZN12_GLOBAL__N_115EquivMarkWorkerC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom"}
 !14 = !{!"branch_weights", i32 1, i32 1048575}
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE6insertERKS3_: argument 0"}
@@ -28032,8 +28032,8 @@ attributes #23 = { builtin allocsize(0) }
 !64 = distinct !{!64, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !65 = distinct !{!65, !7}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZZN12_GLOBAL__N_115EquivMarkWorker3runEvENKUlvE_clEv: argument 0"}
-!68 = distinct !{!68, !"_ZZN12_GLOBAL__N_115EquivMarkWorker3runEvENKUlvE_clEv"}
+!67 = distinct !{!67, !68, !"_ZZN12_GLOBAL__N_115EquivMarkWorker3runEvENKUlvE_clEv.argprom: argument 0"}
+!68 = distinct !{!68, !"_ZZN12_GLOBAL__N_115EquivMarkWorker3runEvENKUlvE_clEv.argprom"}
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !71 = distinct !{!71, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}

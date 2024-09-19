@@ -1924,9 +1924,9 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %404, %402, %400, %3
   %604 = mul nsw i32 %603, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit, label %.lr.ph.i, !llvm.loop !11
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.i
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit: ; preds = %.lr.ph.i
   %605 = load ptr, ptr %388, align 8
   %606 = sext i32 %598 to i64
   %607 = getelementptr i32, ptr %605, i64 %606
@@ -1934,7 +1934,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.
   store i32 %604, ptr %608, align 4
   br label %609
 
-609:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, %599, %597
+609:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit, %599, %597
   store i32 %570, ptr %384, align 4
   store i32 1, ptr %386, align 4
   store i32 1, ptr %387, align 4
@@ -11443,7 +11443,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn7darknet28ReadDarknetFromWeightsStre
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #20
   br label %423
 
-.loopexit:                                        ; preds = %201, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156, %261
+.loopexit:                                        ; preds = %201, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156, %261
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %366
@@ -11713,7 +11713,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn7darknet28ReadDarknetFromWeightsStre
 
 233:                                              ; preds = %213
   %234 = icmp eq ptr %.sroa.0221.0306, %.sroa.17.0303
-  br i1 %234, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split, label %235
+  br i1 %234, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156.sink.split, label %235
 
 235:                                              ; preds = %233
   %236 = ptrtoint ptr %.sroa.17.0303 to i64
@@ -11726,7 +11726,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn7darknet28ReadDarknetFromWeightsStre
 
 .preheader.i:                                     ; preds = %235
   %.not.i = icmp eq i32 %240, 0
-  br i1 %.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156.sink.split, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = and i64 %239, 2147483647
@@ -11762,25 +11762,25 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn7darknet28ReadDarknetFromWeightsStre
   %248 = mul nsw i32 %247, %.0231.i151
   %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i150, 1
   %exitcond.not.i153 = icmp eq i64 %indvars.iv.next.i152, %wide.trip.count.i148
-  br i1 %exitcond.not.i153, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156, label %.lr.ph.i149, !llvm.loop !11
+  br i1 %exitcond.not.i153, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156, label %.lr.ph.i149, !llvm.loop !11
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split: ; preds = %.preheader.i, %233
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156.sink.split: ; preds = %.preheader.i, %233
   %.024.i235.ph = phi i32 [ 0, %233 ], [ 1, %.preheader.i ]
   store i32 %209, ptr %36, align 4
-  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156
+  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156: ; preds = %.lr.ph.i149, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split
-  %.024.i235 = phi i32 [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split ], [ %245, %.lr.ph.i149 ]
-  %.024.i154 = phi i32 [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split ], [ %248, %.lr.ph.i149 ]
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156: ; preds = %.lr.ph.i149, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156.sink.split
+  %.024.i235 = phi i32 [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156.sink.split ], [ %245, %.lr.ph.i149 ]
+  %.024.i154 = phi i32 [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156.sink.split ], [ %248, %.lr.ph.i149 ]
   %249 = mul nsw i32 %.024.i235, %209
   store i32 %.024.i154, ptr %97, align 4
   invoke void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 2, ptr noundef nonnull %36, i32 noundef 5)
           to label %250 unwind label %.loopexit
 
-250:                                              ; preds = %201, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156
-  %.091.in = phi i32 [ %204, %201 ], [ %249, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156 ]
-  %.090 = phi i32 [ %133, %201 ], [ %209, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156 ]
-  %.089.in.in = phi i32 [ %139, %201 ], [ %212, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156 ]
+250:                                              ; preds = %201, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156
+  %.091.in = phi i32 [ %204, %201 ], [ %249, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156 ]
+  %.090 = phi i32 [ %133, %201 ], [ %209, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156 ]
+  %.089.in.in = phi i32 [ %139, %201 ], [ %212, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit156 ]
   %.089.in = icmp eq i32 %.089.in.in, 1
   %.091 = sext i32 %.091.in to i64
   %251 = load i32, ptr %14, align 8

@@ -712,7 +712,7 @@ define internal ptr @_opcode_get_nb_ops(ptr nocapture readnone %module, ptr noca
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 26) #3
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_opcode_get_nb_ops_impl.exit, label %do.body.i
+  br i1 %cmp.i, label %_opcode_get_nb_ops_impl.argprom.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
   %call1.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #3
@@ -723,17 +723,17 @@ if.then3.i:                                       ; preds = %do.body.i
   %0 = load i64, ptr %call.i, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i420.not.i = icmp eq i64 %1, 0
-  br i1 %cmp.i420.not.i, label %if.end.i413.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i420.not.i, label %if.end.i413.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i413.i:                                    ; preds = %if.then3.i
   %dec.i414.i = add i64 %0, -1
   store i64 %dec.i414.i, ptr %call.i, align 8
   %cmp.i415.i = icmp eq i64 %dec.i414.i, 0
-  br i1 %cmp.i415.i, label %if.then1.i416.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i415.i, label %if.then1.i416.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i416.i:                                  ; preds = %if.end.i413.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end4.i:                                        ; preds = %do.body.i
   %2 = getelementptr i8, ptr %call.i, i64 24
@@ -747,17 +747,17 @@ if.then9.i:                                       ; preds = %if.end4.i
   %3 = load i64, ptr %call.i, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i423.not.i = icmp eq i64 %4, 0
-  br i1 %cmp.i423.not.i, label %if.end.i404.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i423.not.i, label %if.end.i404.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i404.i:                                    ; preds = %if.then9.i
   %dec.i405.i = add i64 %3, -1
   store i64 %dec.i405.i, ptr %call.i, align 8
   %cmp.i406.i = icmp eq i64 %dec.i405.i, 0
-  br i1 %cmp.i406.i, label %if.then1.i407.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i406.i, label %if.then1.i407.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i407.i:                                  ; preds = %if.end.i404.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end10.i:                                       ; preds = %if.end4.i
   %call.val139.i = load ptr, ptr %2, align 8
@@ -771,17 +771,17 @@ if.then16.i:                                      ; preds = %if.end10.i
   %5 = load i64, ptr %call.i, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i427.not.i = icmp eq i64 %6, 0
-  br i1 %cmp.i427.not.i, label %if.end.i395.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i427.not.i, label %if.end.i395.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i395.i:                                    ; preds = %if.then16.i
   %dec.i396.i = add i64 %5, -1
   store i64 %dec.i396.i, ptr %call.i, align 8
   %cmp.i397.i = icmp eq i64 %dec.i396.i, 0
-  br i1 %cmp.i397.i, label %if.then1.i398.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i397.i, label %if.then1.i398.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i398.i:                                  ; preds = %if.end.i395.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end17.i:                                       ; preds = %if.end10.i
   %call.val140.i = load ptr, ptr %2, align 8
@@ -795,17 +795,17 @@ if.then23.i:                                      ; preds = %if.end17.i
   %7 = load i64, ptr %call.i, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i431.not.i = icmp eq i64 %8, 0
-  br i1 %cmp.i431.not.i, label %if.end.i386.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i431.not.i, label %if.end.i386.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i386.i:                                    ; preds = %if.then23.i
   %dec.i387.i = add i64 %7, -1
   store i64 %dec.i387.i, ptr %call.i, align 8
   %cmp.i388.i = icmp eq i64 %dec.i387.i, 0
-  br i1 %cmp.i388.i, label %if.then1.i389.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i388.i, label %if.then1.i389.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i389.i:                                  ; preds = %if.end.i386.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end24.i:                                       ; preds = %if.end17.i
   %call.val141.i = load ptr, ptr %2, align 8
@@ -819,17 +819,17 @@ if.then30.i:                                      ; preds = %if.end24.i
   %9 = load i64, ptr %call.i, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i435.not.i = icmp eq i64 %10, 0
-  br i1 %cmp.i435.not.i, label %if.end.i377.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i435.not.i, label %if.end.i377.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i377.i:                                    ; preds = %if.then30.i
   %dec.i378.i = add i64 %9, -1
   store i64 %dec.i378.i, ptr %call.i, align 8
   %cmp.i379.i = icmp eq i64 %dec.i378.i, 0
-  br i1 %cmp.i379.i, label %if.then1.i380.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i379.i, label %if.then1.i380.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i380.i:                                  ; preds = %if.end.i377.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end24.i
   %call.val142.i = load ptr, ptr %2, align 8
@@ -843,17 +843,17 @@ if.then37.i:                                      ; preds = %if.end31.i
   %11 = load i64, ptr %call.i, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i439.not.i = icmp eq i64 %12, 0
-  br i1 %cmp.i439.not.i, label %if.end.i368.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i439.not.i, label %if.end.i368.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i368.i:                                    ; preds = %if.then37.i
   %dec.i369.i = add i64 %11, -1
   store i64 %dec.i369.i, ptr %call.i, align 8
   %cmp.i370.i = icmp eq i64 %dec.i369.i, 0
-  br i1 %cmp.i370.i, label %if.then1.i371.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i370.i, label %if.then1.i371.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i371.i:                                  ; preds = %if.end.i368.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end38.i:                                       ; preds = %if.end31.i
   %call.val143.i = load ptr, ptr %2, align 8
@@ -867,17 +867,17 @@ if.then44.i:                                      ; preds = %if.end38.i
   %13 = load i64, ptr %call.i, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i443.not.i = icmp eq i64 %14, 0
-  br i1 %cmp.i443.not.i, label %if.end.i359.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i443.not.i, label %if.end.i359.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i359.i:                                    ; preds = %if.then44.i
   %dec.i360.i = add i64 %13, -1
   store i64 %dec.i360.i, ptr %call.i, align 8
   %cmp.i361.i = icmp eq i64 %dec.i360.i, 0
-  br i1 %cmp.i361.i, label %if.then1.i362.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i361.i, label %if.then1.i362.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i362.i:                                  ; preds = %if.end.i359.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end45.i:                                       ; preds = %if.end38.i
   %call.val144.i = load ptr, ptr %2, align 8
@@ -891,17 +891,17 @@ if.then51.i:                                      ; preds = %if.end45.i
   %15 = load i64, ptr %call.i, align 8
   %16 = and i64 %15, 2147483648
   %cmp.i447.not.i = icmp eq i64 %16, 0
-  br i1 %cmp.i447.not.i, label %if.end.i350.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i447.not.i, label %if.end.i350.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i350.i:                                    ; preds = %if.then51.i
   %dec.i351.i = add i64 %15, -1
   store i64 %dec.i351.i, ptr %call.i, align 8
   %cmp.i352.i = icmp eq i64 %dec.i351.i, 0
-  br i1 %cmp.i352.i, label %if.then1.i353.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i352.i, label %if.then1.i353.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i353.i:                                  ; preds = %if.end.i350.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end52.i:                                       ; preds = %if.end45.i
   %call.val145.i = load ptr, ptr %2, align 8
@@ -915,17 +915,17 @@ if.then58.i:                                      ; preds = %if.end52.i
   %17 = load i64, ptr %call.i, align 8
   %18 = and i64 %17, 2147483648
   %cmp.i451.not.i = icmp eq i64 %18, 0
-  br i1 %cmp.i451.not.i, label %if.end.i341.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i451.not.i, label %if.end.i341.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i341.i:                                    ; preds = %if.then58.i
   %dec.i342.i = add i64 %17, -1
   store i64 %dec.i342.i, ptr %call.i, align 8
   %cmp.i343.i = icmp eq i64 %dec.i342.i, 0
-  br i1 %cmp.i343.i, label %if.then1.i344.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i343.i, label %if.then1.i344.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i344.i:                                  ; preds = %if.end.i341.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end59.i:                                       ; preds = %if.end52.i
   %call.val146.i = load ptr, ptr %2, align 8
@@ -939,17 +939,17 @@ if.then65.i:                                      ; preds = %if.end59.i
   %19 = load i64, ptr %call.i, align 8
   %20 = and i64 %19, 2147483648
   %cmp.i455.not.i = icmp eq i64 %20, 0
-  br i1 %cmp.i455.not.i, label %if.end.i332.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i455.not.i, label %if.end.i332.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i332.i:                                    ; preds = %if.then65.i
   %dec.i333.i = add i64 %19, -1
   store i64 %dec.i333.i, ptr %call.i, align 8
   %cmp.i334.i = icmp eq i64 %dec.i333.i, 0
-  br i1 %cmp.i334.i, label %if.then1.i335.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i334.i, label %if.then1.i335.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i335.i:                                  ; preds = %if.end.i332.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end66.i:                                       ; preds = %if.end59.i
   %call.val147.i = load ptr, ptr %2, align 8
@@ -963,17 +963,17 @@ if.then72.i:                                      ; preds = %if.end66.i
   %21 = load i64, ptr %call.i, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i459.not.i = icmp eq i64 %22, 0
-  br i1 %cmp.i459.not.i, label %if.end.i323.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i459.not.i, label %if.end.i323.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i323.i:                                    ; preds = %if.then72.i
   %dec.i324.i = add i64 %21, -1
   store i64 %dec.i324.i, ptr %call.i, align 8
   %cmp.i325.i = icmp eq i64 %dec.i324.i, 0
-  br i1 %cmp.i325.i, label %if.then1.i326.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i325.i, label %if.then1.i326.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i326.i:                                  ; preds = %if.end.i323.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end73.i:                                       ; preds = %if.end66.i
   %call.val148.i = load ptr, ptr %2, align 8
@@ -987,17 +987,17 @@ if.then79.i:                                      ; preds = %if.end73.i
   %23 = load i64, ptr %call.i, align 8
   %24 = and i64 %23, 2147483648
   %cmp.i463.not.i = icmp eq i64 %24, 0
-  br i1 %cmp.i463.not.i, label %if.end.i314.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i463.not.i, label %if.end.i314.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i314.i:                                    ; preds = %if.then79.i
   %dec.i315.i = add i64 %23, -1
   store i64 %dec.i315.i, ptr %call.i, align 8
   %cmp.i316.i = icmp eq i64 %dec.i315.i, 0
-  br i1 %cmp.i316.i, label %if.then1.i317.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i316.i, label %if.then1.i317.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i317.i:                                  ; preds = %if.end.i314.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end80.i:                                       ; preds = %if.end73.i
   %call.val149.i = load ptr, ptr %2, align 8
@@ -1011,17 +1011,17 @@ if.then86.i:                                      ; preds = %if.end80.i
   %25 = load i64, ptr %call.i, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i467.not.i = icmp eq i64 %26, 0
-  br i1 %cmp.i467.not.i, label %if.end.i305.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i467.not.i, label %if.end.i305.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i305.i:                                    ; preds = %if.then86.i
   %dec.i306.i = add i64 %25, -1
   store i64 %dec.i306.i, ptr %call.i, align 8
   %cmp.i307.i = icmp eq i64 %dec.i306.i, 0
-  br i1 %cmp.i307.i, label %if.then1.i308.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i307.i, label %if.then1.i308.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i308.i:                                  ; preds = %if.end.i305.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end87.i:                                       ; preds = %if.end80.i
   %call.val150.i = load ptr, ptr %2, align 8
@@ -1035,17 +1035,17 @@ if.then93.i:                                      ; preds = %if.end87.i
   %27 = load i64, ptr %call.i, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i471.not.i = icmp eq i64 %28, 0
-  br i1 %cmp.i471.not.i, label %if.end.i296.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i471.not.i, label %if.end.i296.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i296.i:                                    ; preds = %if.then93.i
   %dec.i297.i = add i64 %27, -1
   store i64 %dec.i297.i, ptr %call.i, align 8
   %cmp.i298.i = icmp eq i64 %dec.i297.i, 0
-  br i1 %cmp.i298.i, label %if.then1.i299.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i298.i, label %if.then1.i299.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i299.i:                                  ; preds = %if.end.i296.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end94.i:                                       ; preds = %if.end87.i
   %call.val151.i = load ptr, ptr %2, align 8
@@ -1059,17 +1059,17 @@ if.then100.i:                                     ; preds = %if.end94.i
   %29 = load i64, ptr %call.i, align 8
   %30 = and i64 %29, 2147483648
   %cmp.i475.not.i = icmp eq i64 %30, 0
-  br i1 %cmp.i475.not.i, label %if.end.i287.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i475.not.i, label %if.end.i287.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i287.i:                                    ; preds = %if.then100.i
   %dec.i288.i = add i64 %29, -1
   store i64 %dec.i288.i, ptr %call.i, align 8
   %cmp.i289.i = icmp eq i64 %dec.i288.i, 0
-  br i1 %cmp.i289.i, label %if.then1.i290.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i289.i, label %if.then1.i290.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i290.i:                                  ; preds = %if.end.i287.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end101.i:                                      ; preds = %if.end94.i
   %call.val152.i = load ptr, ptr %2, align 8
@@ -1083,17 +1083,17 @@ if.then107.i:                                     ; preds = %if.end101.i
   %31 = load i64, ptr %call.i, align 8
   %32 = and i64 %31, 2147483648
   %cmp.i479.not.i = icmp eq i64 %32, 0
-  br i1 %cmp.i479.not.i, label %if.end.i278.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i479.not.i, label %if.end.i278.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i278.i:                                    ; preds = %if.then107.i
   %dec.i279.i = add i64 %31, -1
   store i64 %dec.i279.i, ptr %call.i, align 8
   %cmp.i280.i = icmp eq i64 %dec.i279.i, 0
-  br i1 %cmp.i280.i, label %if.then1.i281.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i280.i, label %if.then1.i281.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i281.i:                                  ; preds = %if.end.i278.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end108.i:                                      ; preds = %if.end101.i
   %call.val153.i = load ptr, ptr %2, align 8
@@ -1107,17 +1107,17 @@ if.then114.i:                                     ; preds = %if.end108.i
   %33 = load i64, ptr %call.i, align 8
   %34 = and i64 %33, 2147483648
   %cmp.i483.not.i = icmp eq i64 %34, 0
-  br i1 %cmp.i483.not.i, label %if.end.i269.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i483.not.i, label %if.end.i269.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i269.i:                                    ; preds = %if.then114.i
   %dec.i270.i = add i64 %33, -1
   store i64 %dec.i270.i, ptr %call.i, align 8
   %cmp.i271.i = icmp eq i64 %dec.i270.i, 0
-  br i1 %cmp.i271.i, label %if.then1.i272.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i271.i, label %if.then1.i272.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i272.i:                                  ; preds = %if.end.i269.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end115.i:                                      ; preds = %if.end108.i
   %call.val154.i = load ptr, ptr %2, align 8
@@ -1131,17 +1131,17 @@ if.then121.i:                                     ; preds = %if.end115.i
   %35 = load i64, ptr %call.i, align 8
   %36 = and i64 %35, 2147483648
   %cmp.i487.not.i = icmp eq i64 %36, 0
-  br i1 %cmp.i487.not.i, label %if.end.i260.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i487.not.i, label %if.end.i260.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i260.i:                                    ; preds = %if.then121.i
   %dec.i261.i = add i64 %35, -1
   store i64 %dec.i261.i, ptr %call.i, align 8
   %cmp.i262.i = icmp eq i64 %dec.i261.i, 0
-  br i1 %cmp.i262.i, label %if.then1.i263.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i262.i, label %if.then1.i263.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i263.i:                                  ; preds = %if.end.i260.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end122.i:                                      ; preds = %if.end115.i
   %call.val155.i = load ptr, ptr %2, align 8
@@ -1155,17 +1155,17 @@ if.then128.i:                                     ; preds = %if.end122.i
   %37 = load i64, ptr %call.i, align 8
   %38 = and i64 %37, 2147483648
   %cmp.i491.not.i = icmp eq i64 %38, 0
-  br i1 %cmp.i491.not.i, label %if.end.i251.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i491.not.i, label %if.end.i251.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i251.i:                                    ; preds = %if.then128.i
   %dec.i252.i = add i64 %37, -1
   store i64 %dec.i252.i, ptr %call.i, align 8
   %cmp.i253.i = icmp eq i64 %dec.i252.i, 0
-  br i1 %cmp.i253.i, label %if.then1.i254.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i253.i, label %if.then1.i254.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i254.i:                                  ; preds = %if.end.i251.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end129.i:                                      ; preds = %if.end122.i
   %call.val156.i = load ptr, ptr %2, align 8
@@ -1179,17 +1179,17 @@ if.then135.i:                                     ; preds = %if.end129.i
   %39 = load i64, ptr %call.i, align 8
   %40 = and i64 %39, 2147483648
   %cmp.i495.not.i = icmp eq i64 %40, 0
-  br i1 %cmp.i495.not.i, label %if.end.i242.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i495.not.i, label %if.end.i242.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i242.i:                                    ; preds = %if.then135.i
   %dec.i243.i = add i64 %39, -1
   store i64 %dec.i243.i, ptr %call.i, align 8
   %cmp.i244.i = icmp eq i64 %dec.i243.i, 0
-  br i1 %cmp.i244.i, label %if.then1.i245.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i244.i, label %if.then1.i245.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i245.i:                                  ; preds = %if.end.i242.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end136.i:                                      ; preds = %if.end129.i
   %call.val157.i = load ptr, ptr %2, align 8
@@ -1203,17 +1203,17 @@ if.then142.i:                                     ; preds = %if.end136.i
   %41 = load i64, ptr %call.i, align 8
   %42 = and i64 %41, 2147483648
   %cmp.i499.not.i = icmp eq i64 %42, 0
-  br i1 %cmp.i499.not.i, label %if.end.i233.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i499.not.i, label %if.end.i233.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i233.i:                                    ; preds = %if.then142.i
   %dec.i234.i = add i64 %41, -1
   store i64 %dec.i234.i, ptr %call.i, align 8
   %cmp.i235.i = icmp eq i64 %dec.i234.i, 0
-  br i1 %cmp.i235.i, label %if.then1.i236.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i235.i, label %if.then1.i236.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i236.i:                                  ; preds = %if.end.i233.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end143.i:                                      ; preds = %if.end136.i
   %call.val158.i = load ptr, ptr %2, align 8
@@ -1227,17 +1227,17 @@ if.then149.i:                                     ; preds = %if.end143.i
   %43 = load i64, ptr %call.i, align 8
   %44 = and i64 %43, 2147483648
   %cmp.i503.not.i = icmp eq i64 %44, 0
-  br i1 %cmp.i503.not.i, label %if.end.i224.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i503.not.i, label %if.end.i224.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i224.i:                                    ; preds = %if.then149.i
   %dec.i225.i = add i64 %43, -1
   store i64 %dec.i225.i, ptr %call.i, align 8
   %cmp.i226.i = icmp eq i64 %dec.i225.i, 0
-  br i1 %cmp.i226.i, label %if.then1.i227.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i226.i, label %if.then1.i227.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i227.i:                                  ; preds = %if.end.i224.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end150.i:                                      ; preds = %if.end143.i
   %call.val159.i = load ptr, ptr %2, align 8
@@ -1251,17 +1251,17 @@ if.then156.i:                                     ; preds = %if.end150.i
   %45 = load i64, ptr %call.i, align 8
   %46 = and i64 %45, 2147483648
   %cmp.i507.not.i = icmp eq i64 %46, 0
-  br i1 %cmp.i507.not.i, label %if.end.i215.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i507.not.i, label %if.end.i215.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i215.i:                                    ; preds = %if.then156.i
   %dec.i216.i = add i64 %45, -1
   store i64 %dec.i216.i, ptr %call.i, align 8
   %cmp.i217.i = icmp eq i64 %dec.i216.i, 0
-  br i1 %cmp.i217.i, label %if.then1.i218.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i217.i, label %if.then1.i218.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i218.i:                                  ; preds = %if.end.i215.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end157.i:                                      ; preds = %if.end150.i
   %call.val160.i = load ptr, ptr %2, align 8
@@ -1275,17 +1275,17 @@ if.then163.i:                                     ; preds = %if.end157.i
   %47 = load i64, ptr %call.i, align 8
   %48 = and i64 %47, 2147483648
   %cmp.i511.not.i = icmp eq i64 %48, 0
-  br i1 %cmp.i511.not.i, label %if.end.i206.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i511.not.i, label %if.end.i206.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i206.i:                                    ; preds = %if.then163.i
   %dec.i207.i = add i64 %47, -1
   store i64 %dec.i207.i, ptr %call.i, align 8
   %cmp.i208.i = icmp eq i64 %dec.i207.i, 0
-  br i1 %cmp.i208.i, label %if.then1.i209.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i208.i, label %if.then1.i209.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i209.i:                                  ; preds = %if.end.i206.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end164.i:                                      ; preds = %if.end157.i
   %call.val161.i = load ptr, ptr %2, align 8
@@ -1299,17 +1299,17 @@ if.then170.i:                                     ; preds = %if.end164.i
   %49 = load i64, ptr %call.i, align 8
   %50 = and i64 %49, 2147483648
   %cmp.i515.not.i = icmp eq i64 %50, 0
-  br i1 %cmp.i515.not.i, label %if.end.i197.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i515.not.i, label %if.end.i197.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i197.i:                                    ; preds = %if.then170.i
   %dec.i198.i = add i64 %49, -1
   store i64 %dec.i198.i, ptr %call.i, align 8
   %cmp.i199.i = icmp eq i64 %dec.i198.i, 0
-  br i1 %cmp.i199.i, label %if.then1.i200.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i199.i, label %if.then1.i200.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i200.i:                                  ; preds = %if.end.i197.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end171.i:                                      ; preds = %if.end164.i
   %call.val162.i = load ptr, ptr %2, align 8
@@ -1323,17 +1323,17 @@ if.then177.i:                                     ; preds = %if.end171.i
   %51 = load i64, ptr %call.i, align 8
   %52 = and i64 %51, 2147483648
   %cmp.i519.not.i = icmp eq i64 %52, 0
-  br i1 %cmp.i519.not.i, label %if.end.i188.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i519.not.i, label %if.end.i188.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end.i188.i:                                    ; preds = %if.then177.i
   %dec.i189.i = add i64 %51, -1
   store i64 %dec.i189.i, ptr %call.i, align 8
   %cmp.i190.i = icmp eq i64 %dec.i189.i, 0
-  br i1 %cmp.i190.i, label %if.then1.i191.i, label %_opcode_get_nb_ops_impl.exit
+  br i1 %cmp.i190.i, label %if.then1.i191.i, label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.then1.i191.i:                                  ; preds = %if.end.i188.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 if.end178.i:                                      ; preds = %if.end171.i
   %call.val163.i = load ptr, ptr %2, align 8
@@ -1369,14 +1369,14 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then182.i
   %58 = load ptr, ptr @PyExc_ValueError, align 8
   %call183.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %58, ptr noundef nonnull @.str.74, i32 noundef %55) #3
-  br label %_opcode_get_nb_ops_impl.exit
+  br label %_opcode_get_nb_ops_impl.argprom.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 26
-  br i1 %exitcond.not.i, label %_opcode_get_nb_ops_impl.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %_opcode_get_nb_ops_impl.argprom.exit, label %for.body.i, !llvm.loop !4
 
-_opcode_get_nb_ops_impl.exit:                     ; preds = %for.inc.i, %entry, %if.then3.i, %if.end.i413.i, %if.then1.i416.i, %if.then9.i, %if.end.i404.i, %if.then1.i407.i, %if.then16.i, %if.end.i395.i, %if.then1.i398.i, %if.then23.i, %if.end.i386.i, %if.then1.i389.i, %if.then30.i, %if.end.i377.i, %if.then1.i380.i, %if.then37.i, %if.end.i368.i, %if.then1.i371.i, %if.then44.i, %if.end.i359.i, %if.then1.i362.i, %if.then51.i, %if.end.i350.i, %if.then1.i353.i, %if.then58.i, %if.end.i341.i, %if.then1.i344.i, %if.then65.i, %if.end.i332.i, %if.then1.i335.i, %if.then72.i, %if.end.i323.i, %if.then1.i326.i, %if.then79.i, %if.end.i314.i, %if.then1.i317.i, %if.then86.i, %if.end.i305.i, %if.then1.i308.i, %if.then93.i, %if.end.i296.i, %if.then1.i299.i, %if.then100.i, %if.end.i287.i, %if.then1.i290.i, %if.then107.i, %if.end.i278.i, %if.then1.i281.i, %if.then114.i, %if.end.i269.i, %if.then1.i272.i, %if.then121.i, %if.end.i260.i, %if.then1.i263.i, %if.then128.i, %if.end.i251.i, %if.then1.i254.i, %if.then135.i, %if.end.i242.i, %if.then1.i245.i, %if.then142.i, %if.end.i233.i, %if.then1.i236.i, %if.then149.i, %if.end.i224.i, %if.then1.i227.i, %if.then156.i, %if.end.i215.i, %if.then1.i218.i, %if.then163.i, %if.end.i206.i, %if.then1.i209.i, %if.then170.i, %if.end.i197.i, %if.then1.i200.i, %if.then177.i, %if.end.i188.i, %if.then1.i191.i, %Py_DECREF.exit.i
+_opcode_get_nb_ops_impl.argprom.exit:             ; preds = %for.inc.i, %entry, %if.then3.i, %if.end.i413.i, %if.then1.i416.i, %if.then9.i, %if.end.i404.i, %if.then1.i407.i, %if.then16.i, %if.end.i395.i, %if.then1.i398.i, %if.then23.i, %if.end.i386.i, %if.then1.i389.i, %if.then30.i, %if.end.i377.i, %if.then1.i380.i, %if.then37.i, %if.end.i368.i, %if.then1.i371.i, %if.then44.i, %if.end.i359.i, %if.then1.i362.i, %if.then51.i, %if.end.i350.i, %if.then1.i353.i, %if.then58.i, %if.end.i341.i, %if.then1.i344.i, %if.then65.i, %if.end.i332.i, %if.then1.i335.i, %if.then72.i, %if.end.i323.i, %if.then1.i326.i, %if.then79.i, %if.end.i314.i, %if.then1.i317.i, %if.then86.i, %if.end.i305.i, %if.then1.i308.i, %if.then93.i, %if.end.i296.i, %if.then1.i299.i, %if.then100.i, %if.end.i287.i, %if.then1.i290.i, %if.then107.i, %if.end.i278.i, %if.then1.i281.i, %if.then114.i, %if.end.i269.i, %if.then1.i272.i, %if.then121.i, %if.end.i260.i, %if.then1.i263.i, %if.then128.i, %if.end.i251.i, %if.then1.i254.i, %if.then135.i, %if.end.i242.i, %if.then1.i245.i, %if.then142.i, %if.end.i233.i, %if.then1.i236.i, %if.then149.i, %if.end.i224.i, %if.then1.i227.i, %if.then156.i, %if.end.i215.i, %if.then1.i218.i, %if.then163.i, %if.end.i206.i, %if.then1.i209.i, %if.then170.i, %if.end.i197.i, %if.then1.i200.i, %if.then177.i, %if.end.i188.i, %if.then1.i191.i, %Py_DECREF.exit.i
   %retval.0.i = phi ptr [ null, %Py_DECREF.exit.i ], [ null, %entry ], [ null, %if.then3.i ], [ null, %if.then1.i416.i ], [ null, %if.end.i413.i ], [ null, %if.then9.i ], [ null, %if.then1.i407.i ], [ null, %if.end.i404.i ], [ null, %if.then16.i ], [ null, %if.then1.i398.i ], [ null, %if.end.i395.i ], [ null, %if.then23.i ], [ null, %if.then1.i389.i ], [ null, %if.end.i386.i ], [ null, %if.then30.i ], [ null, %if.then1.i380.i ], [ null, %if.end.i377.i ], [ null, %if.then37.i ], [ null, %if.then1.i371.i ], [ null, %if.end.i368.i ], [ null, %if.then44.i ], [ null, %if.then1.i362.i ], [ null, %if.end.i359.i ], [ null, %if.then51.i ], [ null, %if.then1.i353.i ], [ null, %if.end.i350.i ], [ null, %if.then58.i ], [ null, %if.then1.i344.i ], [ null, %if.end.i341.i ], [ null, %if.then65.i ], [ null, %if.then1.i335.i ], [ null, %if.end.i332.i ], [ null, %if.then72.i ], [ null, %if.then1.i326.i ], [ null, %if.end.i323.i ], [ null, %if.then79.i ], [ null, %if.then1.i317.i ], [ null, %if.end.i314.i ], [ null, %if.then86.i ], [ null, %if.then1.i308.i ], [ null, %if.end.i305.i ], [ null, %if.then93.i ], [ null, %if.then1.i299.i ], [ null, %if.end.i296.i ], [ null, %if.then100.i ], [ null, %if.then1.i290.i ], [ null, %if.end.i287.i ], [ null, %if.then107.i ], [ null, %if.then1.i281.i ], [ null, %if.end.i278.i ], [ null, %if.then114.i ], [ null, %if.then1.i272.i ], [ null, %if.end.i269.i ], [ null, %if.then121.i ], [ null, %if.then1.i263.i ], [ null, %if.end.i260.i ], [ null, %if.then128.i ], [ null, %if.then1.i254.i ], [ null, %if.end.i251.i ], [ null, %if.then135.i ], [ null, %if.then1.i245.i ], [ null, %if.end.i242.i ], [ null, %if.then142.i ], [ null, %if.then1.i236.i ], [ null, %if.end.i233.i ], [ null, %if.then149.i ], [ null, %if.then1.i227.i ], [ null, %if.end.i224.i ], [ null, %if.then156.i ], [ null, %if.then1.i218.i ], [ null, %if.end.i215.i ], [ null, %if.then163.i ], [ null, %if.then1.i209.i ], [ null, %if.end.i206.i ], [ null, %if.then170.i ], [ null, %if.then1.i200.i ], [ null, %if.end.i197.i ], [ null, %if.then177.i ], [ null, %if.then1.i191.i ], [ null, %if.end.i188.i ], [ %call.i, %for.inc.i ]
   ret ptr %retval.0.i
 }
@@ -1386,7 +1386,7 @@ define internal ptr @_opcode_get_intrinsic1_descs(ptr nocapture readnone %module
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 12) #3
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_opcode_get_intrinsic1_descs_impl.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %_opcode_get_intrinsic1_descs_impl.argprom.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
   %0 = getelementptr i8, ptr %call.i, i64 24
@@ -1403,17 +1403,17 @@ if.then4.i:                                       ; preds = %for.body.i
   %2 = load i64, ptr %call.i, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i7.not.i = icmp eq i64 %3, 0
-  br i1 %cmp.i7.not.i, label %if.end.i.i, label %_opcode_get_intrinsic1_descs_impl.exit
+  br i1 %cmp.i7.not.i, label %if.end.i.i, label %_opcode_get_intrinsic1_descs_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.then4.i
   %dec.i.i = add i64 %2, -1
   store i64 %dec.i.i, ptr %call.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %_opcode_get_intrinsic1_descs_impl.exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %_opcode_get_intrinsic1_descs_impl.argprom.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_intrinsic1_descs_impl.exit
+  br label %_opcode_get_intrinsic1_descs_impl.argprom.exit
 
 if.end5.i:                                        ; preds = %for.body.i
   %call.val.i = load ptr, ptr %0, align 8
@@ -1421,9 +1421,9 @@ if.end5.i:                                        ; preds = %for.body.i
   store ptr %call2.i, ptr %arrayidx.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %_opcode_get_intrinsic1_descs_impl.exit, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_opcode_get_intrinsic1_descs_impl.argprom.exit, label %for.body.i, !llvm.loop !6
 
-_opcode_get_intrinsic1_descs_impl.exit:           ; preds = %if.end5.i, %entry, %if.then4.i, %if.end.i.i, %if.then1.i.i
+_opcode_get_intrinsic1_descs_impl.argprom.exit:   ; preds = %if.end5.i, %entry, %if.then4.i, %if.end.i.i, %if.then1.i.i
   %retval.0.i = phi ptr [ null, %entry ], [ null, %if.then4.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %call.i, %if.end5.i ]
   ret ptr %retval.0.i
 }
@@ -1433,7 +1433,7 @@ define internal ptr @_opcode_get_intrinsic2_descs(ptr nocapture readnone %module
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 5) #3
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_opcode_get_intrinsic2_descs_impl.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %_opcode_get_intrinsic2_descs_impl.argprom.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
   %0 = getelementptr i8, ptr %call.i, i64 24
@@ -1450,17 +1450,17 @@ if.then4.i:                                       ; preds = %for.body.i
   %2 = load i64, ptr %call.i, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i7.not.i = icmp eq i64 %3, 0
-  br i1 %cmp.i7.not.i, label %if.end.i.i, label %_opcode_get_intrinsic2_descs_impl.exit
+  br i1 %cmp.i7.not.i, label %if.end.i.i, label %_opcode_get_intrinsic2_descs_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.then4.i
   %dec.i.i = add i64 %2, -1
   store i64 %dec.i.i, ptr %call.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %_opcode_get_intrinsic2_descs_impl.exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %_opcode_get_intrinsic2_descs_impl.argprom.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #3
-  br label %_opcode_get_intrinsic2_descs_impl.exit
+  br label %_opcode_get_intrinsic2_descs_impl.argprom.exit
 
 if.end5.i:                                        ; preds = %for.body.i
   %call.val.i = load ptr, ptr %0, align 8
@@ -1468,9 +1468,9 @@ if.end5.i:                                        ; preds = %for.body.i
   store ptr %call2.i, ptr %arrayidx.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %_opcode_get_intrinsic2_descs_impl.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %_opcode_get_intrinsic2_descs_impl.argprom.exit, label %for.body.i, !llvm.loop !7
 
-_opcode_get_intrinsic2_descs_impl.exit:           ; preds = %if.end5.i, %entry, %if.then4.i, %if.end.i.i, %if.then1.i.i
+_opcode_get_intrinsic2_descs_impl.argprom.exit:   ; preds = %if.end5.i, %entry, %if.then4.i, %if.end.i.i, %if.then1.i.i
   %retval.0.i = phi ptr [ null, %entry ], [ null, %if.then4.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %call.i, %if.end5.i ]
   ret ptr %retval.0.i
 }

@@ -25,14 +25,14 @@ define i32 @pcre2_pattern_convert_8(ptr noundef %0, i64 noundef %1, i32 noundef 
   %12 = icmp eq ptr %0, null
   %13 = icmp eq ptr %4, null
   %or.cond = or i1 %12, %13
-  br i1 %or.cond, label %convert_posix.exit.thread, label %14
+  br i1 %or.cond, label %convert_posix.argprom.exit.thread, label %14
 
 14:                                               ; preds = %6
   %.not79 = icmp ult i32 %2, 128
   %15 = tail call range(i32 0, 4) i32 @llvm.ctpop.i32(i32 %11)
   %or.cond3.not = icmp eq i32 %15, 1
   %or.cond84 = select i1 %.not79, i1 %or.cond3.not, i1 false
-  br i1 %or.cond84, label %16, label %convert_posix.exit.thread.sink.split
+  br i1 %or.cond84, label %16, label %convert_posix.argprom.exit.thread.sink.split
 
 16:                                               ; preds = %14
   %17 = icmp eq i64 %1, -1
@@ -57,7 +57,7 @@ define i32 @pcre2_pattern_convert_8(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 25:                                               ; preds = %23
   %26 = load i64, ptr %9, align 8
-  br label %convert_posix.exit.thread.sink.split
+  br label %convert_posix.argprom.exit.thread.sink.split
 
 27:                                               ; preds = %23, %20
   %.not81 = icmp eq ptr %3, null
@@ -115,7 +115,7 @@ define i32 @pcre2_pattern_convert_8(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 57:                                               ; preds = %54, %52
   %.not130.i = phi i1 [ false, %52 ], [ %56, %54 ]
-  switch i32 %11, label %convert_posix.exit.thread.sink.split [
+  switch i32 %11, label %convert_posix.argprom.exit.thread.sink.split [
     i32 16, label %58
     i32 4, label %1110
     i32 8, label %1110
@@ -135,7 +135,7 @@ define i32 @pcre2_pattern_convert_8(ptr noundef %0, i64 noundef %1, i32 noundef 
   %64 = and i32 %spec.store.select.val87, 128
   %65 = icmp ne i32 %64, 0
   %or.cond.i = select i1 %63, i1 true, i1 %65
-  br i1 %or.cond.i, label %convert_glob.exit, label %66
+  br i1 %or.cond.i, label %convert_glob.argprom.exit, label %66
 
 66:                                               ; preds = %61, %58
   %67 = and i32 %spec.store.select.val, 255
@@ -2306,18 +2306,18 @@ convert_glob_parse_range.exit.thread.i:           ; preds = %1051, %429, %382, %
   %.2.ph.i = phi i32 [ -48, %1102 ], [ 106, %.backedge.i.i ], [ 106, %569 ], [ 106, %817 ], [ 106, %1023 ], [ -64, %921 ], [ -64, %918 ], [ -64, %1051 ], [ 106, %429 ], [ 106, %382 ], [ 106, %379 ]
   %1107 = ptrtoint ptr %.729.ph.i to i64
   %1108 = sub i64 %1107, %51
-  br label %convert_glob.exit
+  br label %convert_glob.argprom.exit
 
 .critedge.i:                                      ; preds = %1102, %convert_glob_write.exit260.i
   %1109 = add i64 %.pre127.i, -1
-  br label %convert_glob.exit
+  br label %convert_glob.argprom.exit
 
-convert_glob.exit:                                ; preds = %61, %convert_glob_parse_range.exit.thread.i, %.critedge.i
+convert_glob.argprom.exit:                        ; preds = %61, %convert_glob_parse_range.exit.thread.i, %.critedge.i
   %.sink.i = phi i64 [ %1109, %.critedge.i ], [ %1108, %convert_glob_parse_range.exit.thread.i ], [ 0, %61 ]
   %.088.i = phi i32 [ 0, %.critedge.i ], [ %.2.ph.i, %convert_glob_parse_range.exit.thread.i ], [ -64, %61 ]
   store i64 %.sink.i, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %convert_posix.exit
+  br label %convert_posix.argprom.exit
 
 1110:                                             ; preds = %57, %57
   %1111 = getelementptr inbounds i8, ptr %.168290, i64 %.1291
@@ -2333,7 +2333,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.0208113.idx.i = phi i64 [ 0, %1110 ], [ %.0208113.add.i, %1115 ]
   %.0216112.i = phi ptr [ %.168290, %1110 ], [ %1116, %1115 ]
   %.not266.i = icmp ult ptr %.0216112.i, %1112
-  br i1 %.not266.i, label %1115, label %convert_posix.exit.thread
+  br i1 %.not266.i, label %1115, label %convert_posix.argprom.exit.thread
 
 1115:                                             ; preds = %1113
   %1116 = getelementptr inbounds i8, ptr %.0216112.i, i64 1
@@ -2484,7 +2484,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.us-phi239 = phi i64 [ %1319, %.lr.ph.preheader ], [ %1121, %1213 ], [ %1330, %.lr.ph ]
   %.us-phi240 = phi ptr [ %spec.select.i90.us274, %.lr.ph.preheader ], [ %spec.select.i90, %1213 ], [ %spec.select.i90.us, %.lr.ph ]
   %.not265.i = icmp ult ptr %.us-phi240, %1112
-  br i1 %.not265.i, label %.outer.loopexit.i, label %convert_posix.exit.thread
+  br i1 %.not265.i, label %.outer.loopexit.i, label %convert_posix.argprom.exit.thread
 
 .outer.loopexit.i:                                ; preds = %.preheader.i96
   %spec.select.i90.sroa.sel114.v.sroa.sel.v.sroa.sel.v = select i1 %.not130.i, ptr %.us-phi238, ptr %.168290
@@ -2529,7 +2529,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.2210115.idx.i = phi i64 [ %.2210115.add.i, %1232 ], [ 0, %1228 ]
   %.4220114.i = phi ptr [ %1233, %1232 ], [ %spec.select.i90, %1228 ]
   %.not261.i = icmp ult ptr %.4220114.i, %1112
-  br i1 %.not261.i, label %1232, label %convert_posix.exit.thread
+  br i1 %.not261.i, label %1232, label %convert_posix.argprom.exit.thread
 
 1232:                                             ; preds = %.preheader14.i
   %1233 = getelementptr inbounds i8, ptr %.4220114.i, i64 1
@@ -2544,7 +2544,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %1236 = add i64 %1211, -1
   %1237 = getelementptr inbounds i8, ptr %1210, i64 1
   %.not239.i = icmp eq i64 %1236, 0
-  br i1 %.not239.i, label %convert_posix.exit.thread, label %.lr.ph.i89.split
+  br i1 %.not239.i, label %convert_posix.argprom.exit.thread, label %.lr.ph.i89.split
 
 .thread.i:                                        ; preds = %.lr.ph775, %1348, %1215, %1225
   %.us-phi250 = phi i64 [ %.0.i, %1225 ], [ %.0.i, %1215 ], [ 1, %1348 ], [ 1, %.lr.ph775 ]
@@ -2587,7 +2587,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
 
 .preheader11.preheader.i:                         ; preds = %.loopexit28.i
   %.not263.i = icmp ult ptr %spec.select.i90137, %1112
-  br i1 %.not263.i, label %.loopexit12.loopexit.i, label %convert_posix.exit.thread
+  br i1 %.not263.i, label %.loopexit12.loopexit.i, label %convert_posix.argprom.exit.thread
 
 .loopexit12.loopexit.i:                           ; preds = %.preheader11.preheader.i
   %spec.select.i90.sroa.sel111.v.sroa.sel.v.sroa.sel.v = select i1 %.not130.i, ptr %.1217118.i163, ptr %.168290
@@ -2606,7 +2606,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.5221.i = phi ptr [ %spec.select.i90137, %.loopexit28.i ], [ %spec.select.i90.sroa.sel111.v.sroa.sel.v.sroa.sel, %.loopexit12.loopexit.i ], [ %spec.select.i90, %1228 ], [ %spec.select.i90, %1216 ], [ %spec.select.i90.us279771, %1351 ], [ %spec.select.i90.us279771, %1339 ]
   %1247 = getelementptr inbounds i8, ptr %.5221.i, i64 %.0.i209
   %1248 = icmp ugt ptr %1247, %1112
-  br i1 %1248, label %convert_posix.exit.thread, label %1249
+  br i1 %1248, label %convert_posix.argprom.exit.thread, label %1249
 
 1249:                                             ; preds = %.loopexit12.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.5221.i, ptr noundef nonnull align 1 dereferenceable(1) %.0225117.i154, i64 %.0.i209, i1 false)
@@ -2642,14 +2642,14 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
 
 .preheader21.preheader.i:                         ; preds = %.split
   %.not254.i = icmp ult ptr %.us-phi235, %1112
-  br i1 %.not254.i, label %1251, label %convert_posix.exit.thread
+  br i1 %.not254.i, label %1251, label %convert_posix.argprom.exit.thread
 
 1251:                                             ; preds = %.preheader21.preheader.i
   %spec.select.i90.sroa.sel105.v.sroa.sel.v.sroa.sel.v = select i1 %.not130.i, ptr %.us-phi232, ptr %.168290
   %spec.select.i90.sroa.sel105.v.sroa.sel.v.sroa.sel = getelementptr i8, ptr %spec.select.i90.sroa.sel105.v.sroa.sel.v.sroa.sel.v, i64 1
   store i8 91, ptr %.us-phi235, align 1
   %.not248.i = icmp eq i64 %.us-phi229, 0
-  br i1 %.not248.i, label %convert_posix.exit.thread, label %1252
+  br i1 %.not248.i, label %convert_posix.argprom.exit.thread, label %1252
 
 1252:                                             ; preds = %1251
   %1253 = load i8, ptr %.us-phi228, align 1
@@ -2660,12 +2660,12 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %1256 = getelementptr inbounds i8, ptr %.us-phi228, i64 1
   %1257 = add i64 %.us-phi229, -1
   %.not253.i = icmp ult ptr %spec.select.i90.sroa.sel105.v.sroa.sel.v.sroa.sel, %1112
-  br i1 %.not253.i, label %1258, label %convert_posix.exit.thread
+  br i1 %.not253.i, label %1258, label %convert_posix.argprom.exit.thread
 
 1258:                                             ; preds = %1255
   store i8 94, ptr %spec.select.i90.sroa.sel105.v.sroa.sel.v.sroa.sel, align 1
   %.not250.i = icmp eq i64 %1257, 0
-  br i1 %.not250.i, label %convert_posix.exit.thread, label %thread-pre-split.i
+  br i1 %.not250.i, label %convert_posix.argprom.exit.thread, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %1258
   %spec.select.i90.sroa.sel108.v.sroa.sel.v.sroa.sel.v = select i1 %.not130.i, ptr %.us-phi232, ptr %.168290
@@ -2683,7 +2683,7 @@ thread-pre-split.i:                               ; preds = %1258
 
 1261:                                             ; preds = %.thread2.i
   %.not252.i = icmp ult ptr %.98.i, %1112
-  br i1 %.not252.i, label %.outer.loopexit165.i, label %convert_posix.exit.thread
+  br i1 %.not252.i, label %.outer.loopexit165.i, label %convert_posix.argprom.exit.thread
 
 .outer.loopexit165.i:                             ; preds = %1261
   %1262 = add i64 %.29.i, -1
@@ -2694,7 +2694,7 @@ thread-pre-split.i:                               ; preds = %1258
 
 1265:                                             ; preds = %.split
   %1266 = icmp eq i64 %.us-phi229, 0
-  br i1 %1266, label %convert_posix.exit.thread, label %1267
+  br i1 %1266, label %convert_posix.argprom.exit.thread, label %1267
 
 1267:                                             ; preds = %1265
   br i1 %.not.i88, label %1268, label %.outer.i
@@ -2722,7 +2722,7 @@ thread-pre-split.i:                               ; preds = %1258
 
 .preheader23.preheader.i:                         ; preds = %1273
   %.not246.i = icmp ult ptr %.us-phi235, %1112
-  br i1 %.not246.i, label %.loopexit24.loopexit.i, label %convert_posix.exit.thread
+  br i1 %.not246.i, label %.loopexit24.loopexit.i, label %convert_posix.argprom.exit.thread
 
 .loopexit24.loopexit.i:                           ; preds = %.preheader23.preheader.i
   %spec.select.i90.sroa.sel102.v.sroa.sel.v.sroa.sel.v = select i1 %.not130.i, ptr %.us-phi232, ptr %.168290
@@ -2734,7 +2734,7 @@ thread-pre-split.i:                               ; preds = %1258
   %.12.i = phi ptr [ %.us-phi235, %1273 ], [ %spec.select.i90.sroa.sel102.v.sroa.sel.v.sroa.sel, %.loopexit24.loopexit.i ]
   %1280 = getelementptr inbounds i8, ptr %.12.i, i64 1
   %1281 = icmp ugt ptr %1280, %1112
-  br i1 %1281, label %convert_posix.exit.thread, label %1282
+  br i1 %1281, label %convert_posix.argprom.exit.thread, label %1282
 
 1282:                                             ; preds = %.loopexit24.i
   %1283 = getelementptr inbounds i8, ptr %.us-phi228, i64 1
@@ -2767,7 +2767,7 @@ thread-pre-split.i:                               ; preds = %1258
   %spec.select.i90.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not130.i, ptr %.us-phi232, ptr %.168290
   %spec.select.i90.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.i90.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
   %1295 = icmp ugt ptr %spec.select.i90.sroa.sel.v.sroa.sel.v.sroa.sel, %1112
-  br i1 %1295, label %convert_posix.exit.thread, label %1296
+  br i1 %1295, label %convert_posix.argprom.exit.thread, label %1296
 
 1296:                                             ; preds = %1294
   %1297 = trunc i32 %.us-phi227 to i8
@@ -2808,7 +2808,7 @@ thread-pre-split.i:                               ; preds = %1258
 1310:                                             ; preds = %1309, %1300, %1293, %1287
   %.4206.i = phi i32 [ %.0202.ph150.i, %1309 ], [ %.0202.ph150.i, %1300 ], [ %.2204.i, %1293 ], [ %.0202.ph150.i, %1287 ]
   %.not258.i = icmp ult ptr %.us-phi235, %1112
-  br i1 %.not258.i, label %.loopexit16.loopexit.i, label %convert_posix.exit.thread
+  br i1 %.not258.i, label %.loopexit16.loopexit.i, label %convert_posix.argprom.exit.thread
 
 .loopexit16.loopexit.i:                           ; preds = %1310
   %spec.select.i90.sroa.sel99.v.sroa.sel.v.sroa.sel.v = select i1 %.not130.i, ptr %.us-phi232, ptr %.168290
@@ -2821,7 +2821,7 @@ thread-pre-split.i:                               ; preds = %1258
   %.6.i94 = phi i32 [ %.0202.ph150.i, %1309 ], [ %.0202.ph150.i, %1307 ], [ %.4206.i, %.loopexit16.loopexit.i ]
   %1311 = getelementptr inbounds i8, ptr %.14.i, i64 %.us-phi
   %1312 = icmp ugt ptr %1311, %1112
-  br i1 %1312, label %convert_posix.exit.thread, label %1313
+  br i1 %1312, label %convert_posix.argprom.exit.thread, label %1313
 
 1313:                                             ; preds = %.loopexit16.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.14.i, ptr noundef nonnull align 1 dereferenceable(1) %.us-phi233, i64 %.us-phi, i1 false)
@@ -2931,7 +2931,7 @@ thread-pre-split.i:                               ; preds = %1258
   %.2210115.idx.i.us = phi i64 [ %.2210115.add.i.us, %1355 ], [ 0, %1351 ]
   %.4220114.i.us = phi ptr [ %1356, %1355 ], [ %spec.select.i90.us279771, %1351 ]
   %.not261.i.us = icmp ult ptr %.4220114.i.us, %1112
-  br i1 %.not261.i.us, label %1355, label %convert_posix.exit.thread
+  br i1 %.not261.i.us, label %1355, label %convert_posix.argprom.exit.thread
 
 1355:                                             ; preds = %.preheader14.i.us
   %1356 = getelementptr inbounds i8, ptr %.4220114.i.us, i64 1
@@ -2944,11 +2944,11 @@ thread-pre-split.i:                               ; preds = %1258
 
 1358:                                             ; preds = %1355
   %.not239.i.us = icmp eq i64 %1338, 1
-  br i1 %.not239.i.us, label %convert_posix.exit.thread, label %.lr.ph
+  br i1 %.not239.i.us, label %convert_posix.argprom.exit.thread, label %.lr.ph
 
 .outer._crit_edge.i:                              ; preds = %.outer.i
   %1359 = icmp ugt i32 %.3.i93, 2
-  br i1 %1359, label %convert_posix.exit.thread, label %.outer._crit_edge.thread262.i
+  br i1 %1359, label %convert_posix.argprom.exit.thread, label %.outer._crit_edge.thread262.i
 
 .outer._crit_edge.thread262.i:                    ; preds = %.outer._crit_edge.i, %.preheader26.i
   %.0207.lcssa269.i = phi i64 [ %1314, %.outer._crit_edge.i ], [ 0, %.preheader26.i ]
@@ -2960,18 +2960,18 @@ thread-pre-split.i:                               ; preds = %1258
   %1363 = add i64 %1362, %1360
   store i64 %1363, ptr %4, align 8
   store i8 0, ptr %.1217.lcssa267.i, align 1
-  br label %convert_posix.exit
+  br label %convert_posix.argprom.exit
 
-convert_posix.exit:                               ; preds = %.outer._crit_edge.thread262.i, %convert_glob.exit
-  %.069 = phi i32 [ %.088.i, %convert_glob.exit ], [ 0, %.outer._crit_edge.thread262.i ]
+convert_posix.argprom.exit:                       ; preds = %.outer._crit_edge.thread262.i, %convert_glob.argprom.exit
+  %.069 = phi i32 [ %.088.i, %convert_glob.argprom.exit ], [ 0, %.outer._crit_edge.thread262.i ]
   %1364 = icmp ne i32 %.069, 0
   %or.cond5 = or i1 %.not81, %1364
-  br i1 %or.cond5, label %convert_posix.exit.thread, label %1365
+  br i1 %or.cond5, label %convert_posix.argprom.exit.thread, label %1365
 
-1365:                                             ; preds = %convert_posix.exit
+1365:                                             ; preds = %convert_posix.argprom.exit
   %1366 = load ptr, ptr %3, align 8
   %.not83 = icmp eq ptr %1366, null
-  br i1 %.not83, label %1367, label %convert_posix.exit.thread
+  br i1 %.not83, label %1367, label %convert_posix.argprom.exit.thread
 
 1367:                                             ; preds = %1365
   %1368 = load i64, ptr %4, align 8
@@ -2979,23 +2979,23 @@ convert_posix.exit:                               ; preds = %.outer._crit_edge.t
   %1370 = add i64 %1369, 32
   %1371 = call ptr @_pcre2_memctl_malloc_8(i64 noundef %1370, ptr noundef nonnull %spec.store.select) #7
   %1372 = icmp eq ptr %1371, null
-  br i1 %1372, label %convert_posix.exit.thread, label %1373
+  br i1 %1372, label %convert_posix.argprom.exit.thread, label %1373
 
 1373:                                             ; preds = %1367
   %1374 = getelementptr inbounds i8, ptr %1371, i64 24
   store ptr %1374, ptr %3, align 8
   %1375 = load i64, ptr %4, align 8
   %1376 = add i64 %1375, 1
-  br i1 %53, label %52, label %convert_posix.exit.thread
+  br i1 %53, label %52, label %convert_posix.argprom.exit.thread
 
-convert_posix.exit.thread.sink.split:             ; preds = %57, %14, %25
+convert_posix.argprom.exit.thread.sink.split:     ; preds = %57, %14, %25
   %.sink = phi i64 [ %26, %25 ], [ 0, %14 ], [ 0, %57 ]
   %.0.ph = phi i32 [ %24, %25 ], [ -34, %14 ], [ -44, %57 ]
   store i64 %.sink, ptr %4, align 8
-  br label %convert_posix.exit.thread
+  br label %convert_posix.argprom.exit.thread
 
-convert_posix.exit.thread:                        ; preds = %.outer._crit_edge.i, %1373, %1367, %convert_posix.exit, %1365, %1113, %.preheader.i96, %.preheader11.preheader.i, %1310, %1261, %1255, %.preheader21.preheader.i, %.preheader23.preheader.i, %.loopexit12.i, %1265, %.loopexit24.i, %1294, %.loopexit16.i, %1251, %1258, %1358, %1235, %.preheader14.i.us, %.preheader14.i, %convert_posix.exit.thread.sink.split, %6
-  %.0 = phi i32 [ -51, %6 ], [ %.0.ph, %convert_posix.exit.thread.sink.split ], [ -48, %.preheader14.i ], [ -48, %.preheader14.i.us ], [ 106, %1235 ], [ 106, %1358 ], [ 106, %1258 ], [ 106, %1251 ], [ -48, %.loopexit16.i ], [ -48, %1294 ], [ -48, %.loopexit24.i ], [ 101, %1265 ], [ -48, %.loopexit12.i ], [ -48, %.preheader23.preheader.i ], [ -48, %.preheader21.preheader.i ], [ -48, %1255 ], [ -48, %1261 ], [ -48, %1310 ], [ -48, %.preheader11.preheader.i ], [ -48, %.preheader.i96 ], [ -48, %1113 ], [ 106, %.outer._crit_edge.i ], [ -44, %1373 ], [ -48, %1367 ], [ %.069, %convert_posix.exit ], [ 0, %1365 ]
+convert_posix.argprom.exit.thread:                ; preds = %.outer._crit_edge.i, %1373, %1367, %convert_posix.argprom.exit, %1365, %1113, %.preheader.i96, %.preheader11.preheader.i, %1310, %1261, %1255, %.preheader21.preheader.i, %.preheader23.preheader.i, %.loopexit12.i, %1265, %.loopexit24.i, %1294, %.loopexit16.i, %1251, %1258, %1358, %1235, %.preheader14.i.us, %.preheader14.i, %convert_posix.argprom.exit.thread.sink.split, %6
+  %.0 = phi i32 [ -51, %6 ], [ %.0.ph, %convert_posix.argprom.exit.thread.sink.split ], [ -48, %.preheader14.i ], [ -48, %.preheader14.i.us ], [ 106, %1235 ], [ 106, %1358 ], [ 106, %1258 ], [ 106, %1251 ], [ -48, %.loopexit16.i ], [ -48, %1294 ], [ -48, %.loopexit24.i ], [ 101, %1265 ], [ -48, %.loopexit12.i ], [ -48, %.preheader23.preheader.i ], [ -48, %.preheader21.preheader.i ], [ -48, %1255 ], [ -48, %1261 ], [ -48, %1310 ], [ -48, %.preheader11.preheader.i ], [ -48, %.preheader.i96 ], [ -48, %1113 ], [ 106, %.outer._crit_edge.i ], [ -44, %1373 ], [ -48, %1367 ], [ %.069, %convert_posix.argprom.exit ], [ 0, %1365 ]
   ret i32 %.0
 }
 

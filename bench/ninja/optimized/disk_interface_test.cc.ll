@@ -385,7 +385,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 52, 253) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 52, 253) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
   %3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %3, label %17, label %4
@@ -426,7 +426,7 @@ define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 52, 253) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 52, 253) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
   %3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %3, label %17, label %4
@@ -479,7 +479,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 296, 349) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 296, 349) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
   %3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %3, label %17, label %4
@@ -520,7 +520,7 @@ define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 296, 349) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 296, 349) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
   %3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %3, label %17, label %4
@@ -1257,15 +1257,15 @@ _ZN7testing15AssertionResultD2Ev.exit108:         ; preds = %192, %_ZNKSt14defau
   store ptr null, ptr %193, align 8
   %195 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.38, ptr noundef nonnull @.str.45)
   %.not.i = icmp eq ptr %195, null
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
 
-_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread: ; preds = %_ZN7testing15AssertionResultD2Ev.exit108
+_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread: ; preds = %_ZN7testing15AssertionResultD2Ev.exit108
   store i8 0, ptr %23, align 8
   %196 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr null, ptr %196, align 8
   br label %204
 
-_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit108
+_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit108
   %197 = call i32 @fclose(ptr noundef nonnull %195)
   %198 = icmp eq i32 %197, 0
   %199 = zext i1 %198 to i8
@@ -1284,8 +1284,8 @@ _ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit: ; preds = %_ZN7testing15Ass
           cleanup
   br label %241
 
-204:                                              ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
-  %205 = phi ptr [ %196, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread ], [ %200, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit ]
+204:                                              ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
+  %205 = phi ptr [ %196, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread ], [ %200, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %206 unwind label %202
 
@@ -1360,7 +1360,7 @@ _ZN7testing7MessageD2Ev.exit117:                  ; preds = %223, %_ZNKSt14defau
   store ptr null, ptr %24, align 8
   br label %241
 
-228:                                              ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
+228:                                              ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
   store i32 0, ptr %28, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #22
   %229 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
@@ -2060,15 +2060,15 @@ define internal void @_ZN12_GLOBAL__N_147DiskInterfaceTest_StatMissingFileWithCa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %18 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.38, ptr noundef nonnull @.str.45)
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
 
-_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread: ; preds = %1
+_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread: ; preds = %1
   store i8 0, ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %19, align 8
   br label %26
 
-_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit: ; preds = %1
+_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit: ; preds = %1
   %20 = call i32 @fclose(ptr noundef nonnull %18)
   %21 = icmp eq i32 %20, 0
   %22 = zext i1 %21 to i8
@@ -2082,8 +2082,8 @@ _ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit: ; preds = %1
           cleanup
   br label %132
 
-26:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
-  %27 = phi ptr [ %19, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread ], [ %23, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit ]
+26:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
+  %27 = phi ptr [ %19, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread ], [ %23, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %28 unwind label %38
 
@@ -2163,7 +2163,7 @@ _ZN7testing7MessageD2Ev.exit28:                   ; preds = %47, %_ZNKSt14defaul
   store ptr null, ptr %4, align 8
   br label %65
 
-52:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
+52:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
   store i32 0, ptr %8, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
   %53 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -3494,15 +3494,15 @@ define internal void @_ZN12_GLOBAL__N_139DiskInterfaceTest_StatExistingFile_Test
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %17 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.55, ptr noundef nonnull @.str.45)
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
 
-_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread: ; preds = %1
+_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread: ; preds = %1
   store i8 0, ptr %3, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %18, align 8
   br label %25
 
-_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit: ; preds = %1
+_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit: ; preds = %1
   %19 = call i32 @fclose(ptr noundef nonnull %17)
   %20 = icmp eq i32 %19, 0
   %21 = zext i1 %20 to i8
@@ -3516,8 +3516,8 @@ _ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit: ; preds = %1
           cleanup
   br label %130
 
-25:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
-  %26 = phi ptr [ %18, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread ], [ %22, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit ]
+25:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
+  %26 = phi ptr [ %18, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread ], [ %22, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %27 unwind label %37
 
@@ -3597,7 +3597,7 @@ _ZN7testing7MessageD2Ev.exit28:                   ; preds = %46, %_ZNKSt14defaul
   store ptr null, ptr %4, align 8
   br label %63
 
-51:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
+51:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
   %52 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc unwind label %64
@@ -8449,15 +8449,15 @@ define internal void @_ZN12_GLOBAL__N_133DiskInterfaceTest_RemoveFile_Test8TestB
   %26 = alloca %"class.testing::internal::AssertHelper", align 8
   %27 = tail call noalias ptr @fopen(ptr noundef nonnull readonly @.str.92, ptr noundef nonnull @.str.45)
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
 
-_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread: ; preds = %1
+_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread: ; preds = %1
   store i8 0, ptr %2, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %28, align 8
   br label %33
 
-_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit: ; preds = %1
+_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit: ; preds = %1
   %29 = tail call i32 @fclose(ptr noundef nonnull %27)
   %30 = icmp eq i32 %29, 0
   %31 = zext i1 %30 to i8
@@ -8466,8 +8466,8 @@ _ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit: ; preds = %1
   store ptr null, ptr %32, align 8
   br i1 %30, label %59, label %33
 
-33:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
-  %34 = phi ptr [ %28, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread ], [ %32, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit ]
+33:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
+  %34 = phi ptr [ %28, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit.thread ], [ %32, %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %35 unwind label %44
 
@@ -8556,7 +8556,7 @@ _ZN7testing15AssertionResultD2Ev.exit.thread:     ; preds = %58, %_ZNKSt14defaul
   store ptr null, ptr %34, align 8
   br label %_ZN7testing15AssertionResultD2Ev.exit93
 
-59:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
+59:                                               ; preds = %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.argprom.exit
   store i32 0, ptr %7, align 4
   %60 = getelementptr inbounds i8, ptr %0, i64 80
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
@@ -15735,11 +15735,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 44:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   %45 = getelementptr inbounds i8, ptr %37, i64 32
   store i32 52, ptr %45, align 8
-  %46 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 52)
+  %46 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 52)
           to label %47 unwind label %57
 
 47:                                               ; preds = %44
-  %48 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 52)
+  %48 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 52)
           to label %49 unwind label %57
 
 49:                                               ; preds = %47
@@ -15814,11 +15814,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4: ;
 63:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4
   %64 = getelementptr inbounds i8, ptr %34, i64 32
   store i32 69, ptr %64, align 8
-  %65 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 69)
+  %65 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 69)
           to label %66 unwind label %76
 
 66:                                               ; preds = %63
-  %67 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 69)
+  %67 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 69)
           to label %68 unwind label %76
 
 68:                                               ; preds = %66
@@ -15887,11 +15887,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9: ;
 82:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9
   %83 = getelementptr inbounds i8, ptr %31, i64 32
   store i32 80, ptr %83, align 8
-  %84 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 80)
+  %84 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 80)
           to label %85 unwind label %95
 
 85:                                               ; preds = %82
-  %86 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 80)
+  %86 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 80)
           to label %87 unwind label %95
 
 87:                                               ; preds = %85
@@ -15960,11 +15960,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15: 
 101:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15
   %102 = getelementptr inbounds i8, ptr %28, i64 32
   store i32 93, ptr %102, align 8
-  %103 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 93)
+  %103 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 93)
           to label %104 unwind label %114
 
 104:                                              ; preds = %101
-  %105 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 93)
+  %105 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 93)
           to label %106 unwind label %114
 
 106:                                              ; preds = %104
@@ -16033,11 +16033,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21: 
 120:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21
   %121 = getelementptr inbounds i8, ptr %25, i64 32
   store i32 118, ptr %121, align 8
-  %122 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 118)
+  %122 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 118)
           to label %123 unwind label %133
 
 123:                                              ; preds = %120
-  %124 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 118)
+  %124 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 118)
           to label %125 unwind label %133
 
 125:                                              ; preds = %123
@@ -16106,11 +16106,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27: 
 139:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27
   %140 = getelementptr inbounds i8, ptr %22, i64 32
   store i32 201, ptr %140, align 8
-  %141 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 201)
+  %141 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 201)
           to label %142 unwind label %152
 
 142:                                              ; preds = %139
-  %143 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 201)
+  %143 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 201)
           to label %144 unwind label %152
 
 144:                                              ; preds = %142
@@ -16179,11 +16179,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33: 
 158:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33
   %159 = getelementptr inbounds i8, ptr %19, i64 32
   store i32 223, ptr %159, align 8
-  %160 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 223)
+  %160 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 223)
           to label %161 unwind label %171
 
 161:                                              ; preds = %158
-  %162 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 223)
+  %162 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 223)
           to label %163 unwind label %171
 
 163:                                              ; preds = %161
@@ -16252,11 +16252,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39: 
 177:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39
   %178 = getelementptr inbounds i8, ptr %16, i64 32
   store i32 238, ptr %178, align 8
-  %179 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 238)
+  %179 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 238)
           to label %180 unwind label %190
 
 180:                                              ; preds = %177
-  %181 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 238)
+  %181 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 238)
           to label %182 unwind label %190
 
 182:                                              ; preds = %180
@@ -16325,11 +16325,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45: 
 196:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45
   %197 = getelementptr inbounds i8, ptr %13, i64 32
   store i32 252, ptr %197, align 8
-  %198 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 252)
+  %198 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 252)
           to label %199 unwind label %209
 
 199:                                              ; preds = %196
-  %200 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 252)
+  %200 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_117DiskInterfaceTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 252)
           to label %201 unwind label %209
 
 201:                                              ; preds = %199
@@ -16398,11 +16398,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51: 
 215:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51
   %216 = getelementptr inbounds i8, ptr %10, i64 32
   store i32 296, ptr %216, align 8
-  %217 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 296)
+  %217 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 296)
           to label %218 unwind label %228
 
 218:                                              ; preds = %215
-  %219 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 296)
+  %219 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 296)
           to label %220 unwind label %228
 
 220:                                              ; preds = %218
@@ -16471,11 +16471,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i57: 
 234:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i57
   %235 = getelementptr inbounds i8, ptr %7, i64 32
   store i32 311, ptr %235, align 8
-  %236 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 311)
+  %236 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 311)
           to label %237 unwind label %247
 
 237:                                              ; preds = %234
-  %238 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 311)
+  %238 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 311)
           to label %239 unwind label %247
 
 239:                                              ; preds = %237
@@ -16544,11 +16544,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i63: 
 253:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i63
   %254 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 330, ptr %254, align 8
-  %255 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 330)
+  %255 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 330)
           to label %256 unwind label %266
 
 256:                                              ; preds = %253
-  %257 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 330)
+  %257 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 330)
           to label %258 unwind label %266
 
 258:                                              ; preds = %256
@@ -16617,11 +16617,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 272:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69
   %273 = getelementptr inbounds i8, ptr %1, i64 32
   store i32 348, ptr %273, align 8
-  %274 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 348)
+  %274 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 348)
           to label %275 unwind label %285
 
 275:                                              ; preds = %272
-  %276 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 348)
+  %276 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_18StatTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 348)
           to label %277 unwind label %285
 
 277:                                              ; preds = %275

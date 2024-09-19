@@ -2224,8 +2224,8 @@ hwloc__xml_v2export_support.exit:                 ; preds = %616, %632
   %670 = getelementptr inbounds i8, ptr %655, i64 24
   br label %671
 
-671:                                              ; preds = %hwloc__xml_export_memattr_target.exit.i, %.lr.ph.i20
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i, %hwloc__xml_export_memattr_target.exit.i ]
+671:                                              ; preds = %hwloc__xml_export_memattr_target.argprom.exit.i, %.lr.ph.i20
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i, %hwloc__xml_export_memattr_target.argprom.exit.i ]
   %672 = load ptr, ptr %670, align 8
   %673 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %672, i64 %indvars.iv.i
   %.val.i = load i64, ptr %664, align 8
@@ -2240,7 +2240,7 @@ hwloc__xml_v2export_support.exit:                 ; preds = %616, %632
   %675 = getelementptr inbounds i8, ptr %673, i64 32
   %676 = load i32, ptr %675, align 8
   %.not2.i.i = icmp eq i32 %676, 0
-  br i1 %.not2.i.i, label %hwloc__xml_export_memattr_target.exit.i, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %hwloc__xml_export_memattr_target.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %677 = getelementptr inbounds i8, ptr %673, i64 40
@@ -2312,7 +2312,7 @@ hwloc__xml_v2export_support.exit:                 ; preds = %616, %632
   %715 = load i32, ptr %675, align 8
   %716 = zext i32 %715 to i64
   %717 = icmp ult i64 %indvars.iv.next.i.i, %716
-  br i1 %717, label %680, label %hwloc__xml_export_memattr_target.exit.i, !llvm.loop !7
+  br i1 %717, label %680, label %hwloc__xml_export_memattr_target.argprom.exit.i, !llvm.loop !7
 
 718:                                              ; preds = %671
   %719 = load ptr, ptr %647, align 8
@@ -2334,9 +2334,9 @@ hwloc__xml_v2export_support.exit:                 ; preds = %616, %632
   call void %731(ptr noundef nonnull %8, ptr noundef nonnull @.str.78, ptr noundef nonnull %9) #21
   %732 = load ptr, ptr %649, align 8
   call void %732(ptr noundef nonnull %8, ptr noundef nonnull @.str.126) #21
-  br label %hwloc__xml_export_memattr_target.exit.i
+  br label %hwloc__xml_export_memattr_target.argprom.exit.i
 
-hwloc__xml_export_memattr_target.exit.i:          ; preds = %713, %718, %.preheader.i.i
+hwloc__xml_export_memattr_target.argprom.exit.i:  ; preds = %713, %718, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -2346,7 +2346,7 @@ hwloc__xml_export_memattr_target.exit.i:          ; preds = %713, %718, %.prehea
   %735 = icmp ult i64 %indvars.iv.next.i, %734
   br i1 %735, label %671, label %._crit_edge.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %hwloc__xml_export_memattr_target.exit.i, %660
+._crit_edge.i:                                    ; preds = %hwloc__xml_export_memattr_target.argprom.exit.i, %660
   %736 = load ptr, ptr %650, align 8
   call void %736(ptr noundef nonnull %11, ptr noundef nonnull @.str.124) #21
   %.pre.i21 = load i32, ptr %642, align 4

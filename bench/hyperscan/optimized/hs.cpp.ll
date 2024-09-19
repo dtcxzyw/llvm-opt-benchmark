@@ -2243,12 +2243,12 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 -11, 1) i32 @hs_expression_info(ptr noundef %expression, i32 noundef %flags, ptr noundef %info, ptr noundef %error) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %expression, i32 noundef %flags, ptr noundef null, ptr noundef %info, ptr noundef %error)
+  %call = tail call fastcc noundef i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error.argelim(ptr noundef %expression, i32 noundef %flags, ptr noundef null, ptr noundef %info, ptr noundef %error)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -11, 1) i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef writeonly %info, ptr noundef writeonly %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -11, 1) i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error.argelim(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef writeonly %info, ptr noundef writeonly %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -2821,7 +2821,7 @@ unreachable:                                      ; preds = %invoke.cont108, %in
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 -11, 1) i32 @hs_expression_ext_info(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef %info, ptr noundef %error) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef %info, ptr noundef %error)
+  %call = tail call fastcc noundef i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error.argelim(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef %info, ptr noundef %error)
   ret i32 %call
 }
 

@@ -427,14 +427,14 @@ if.then:                                          ; preds = %entry
   %conv = select i1 %has_head, i32 %0, i32 0
   %call = tail call ptr @qemu_console_lookup_by_device_name(ptr noundef nonnull %device, i32 noundef %conv, ptr noundef %errp) #9
   %tobool3.not = icmp eq ptr %call, null
-  br i1 %tobool3.not, label %glib_autoptr_cleanup_pixman_image_t.exit, label %if.end12
+  br i1 %tobool3.not, label %glib_autoptr_cleanup_pixman_image_t.argprom.exit, label %if.end12
 
 if.else:                                          ; preds = %entry
   br i1 %has_head, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.else
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.15) #9
-  br label %glib_autoptr_cleanup_pixman_image_t.exit
+  br label %glib_autoptr_cleanup_pixman_image_t.argprom.exit
 
 if.end7:                                          ; preds = %if.else
   %call8 = tail call ptr @qemu_console_lookup_by_index(i32 noundef 0) #9
@@ -443,7 +443,7 @@ if.end7:                                          ; preds = %if.else
 
 if.then10:                                        ; preds = %if.end7
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.16) #9
-  br label %glib_autoptr_cleanup_pixman_image_t.exit
+  br label %glib_autoptr_cleanup_pixman_image_t.argprom.exit
 
 if.end12:                                         ; preds = %if.end7, %if.then
   %con.0 = phi ptr [ %call, %if.then ], [ %call8, %if.end7 ]
@@ -454,7 +454,7 @@ if.end12:                                         ; preds = %if.end7, %if.then
 
 if.then15:                                        ; preds = %if.end12
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 367, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.17) #9
-  br label %glib_autoptr_cleanup_pixman_image_t.exit
+  br label %glib_autoptr_cleanup_pixman_image_t.argprom.exit
 
 if.end16:                                         ; preds = %if.end12
   %1 = load ptr, ptr %call13, align 8
@@ -604,7 +604,7 @@ trace_ppm_save.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %call5.i22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.i21) #11
   %call6.i23 = tail call i32 @qio_channel_write_all(ptr noundef %call.i.i, ptr noundef %call3.i21, i64 noundef %call5.i22, ptr noundef %errp) #9
   %cmp.i = icmp slt i32 %call6.i23, 0
-  br i1 %cmp.i, label %glib_autoptr_cleanup_pixman_image_t.exit.i, label %if.end.i24
+  br i1 %cmp.i, label %glib_autoptr_cleanup_pixman_image_t.argprom.exit.i, label %if.end.i24
 
 if.end.i24:                                       ; preds = %trace_ppm_save.exit.i
   %call7.i = tail call ptr @qemu_pixman_linebuf_create(i32 noundef 402851976, i32 noundef %call.i18) #9
@@ -628,23 +628,23 @@ for.body.i25:                                     ; preds = %if.end.i24, %for.bo
 cleanup.i27:                                      ; preds = %for.body.i25, %if.end.i24
   %cmp8.lcssa.i = phi i1 [ true, %if.end.i24 ], [ %cmp13.i, %for.body.i25 ]
   %tobool.not.i.i.i28 = icmp eq ptr %call7.i, null
-  br i1 %tobool.not.i.i.i28, label %glib_autoptr_cleanup_pixman_image_t.exit.i, label %if.then.i.i12.i
+  br i1 %tobool.not.i.i.i28, label %glib_autoptr_cleanup_pixman_image_t.argprom.exit.i, label %if.then.i.i12.i
 
 if.then.i.i12.i:                                  ; preds = %cleanup.i27
   tail call void @qemu_pixman_image_unref(ptr noundef nonnull %call7.i) #9
-  br label %glib_autoptr_cleanup_pixman_image_t.exit.i
+  br label %glib_autoptr_cleanup_pixman_image_t.argprom.exit.i
 
-glib_autoptr_cleanup_pixman_image_t.exit.i:       ; preds = %if.then.i.i12.i, %cleanup.i27, %trace_ppm_save.exit.i
+glib_autoptr_cleanup_pixman_image_t.argprom.exit.i: ; preds = %if.then.i.i12.i, %cleanup.i27, %trace_ppm_save.exit.i
   %retval.021.i = phi i1 [ %cmp8.lcssa.i, %cleanup.i27 ], [ %cmp8.lcssa.i, %if.then.i.i12.i ], [ false, %trace_ppm_save.exit.i ]
   tail call void @g_free(ptr noundef %call3.i21) #9
   %tobool.not.i.i13.i = icmp eq ptr %call2.i20, null
   br i1 %tobool.not.i.i13.i, label %ppm_save.exit, label %if.then.i.i14.i
 
-if.then.i.i14.i:                                  ; preds = %glib_autoptr_cleanup_pixman_image_t.exit.i
+if.then.i.i14.i:                                  ; preds = %glib_autoptr_cleanup_pixman_image_t.argprom.exit.i
   tail call void @object_unref(ptr noundef nonnull %call2.i20) #9
   br label %ppm_save.exit
 
-ppm_save.exit:                                    ; preds = %glib_autoptr_cleanup_pixman_image_t.exit.i, %if.then.i.i14.i
+ppm_save.exit:                                    ; preds = %glib_autoptr_cleanup_pixman_image_t.argprom.exit.i, %if.then.i.i14.i
   br i1 %retval.021.i, label %cleanup, label %if.then36
 
 if.then36:                                        ; preds = %ppm_save.exit
@@ -653,13 +653,13 @@ if.then36:                                        ; preds = %ppm_save.exit
 
 cleanup:                                          ; preds = %if.then31, %png_save.exit, %if.then36, %ppm_save.exit, %if.then21
   %tobool.not.i.i = icmp eq ptr %call18, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_pixman_image_t.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_pixman_image_t.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @qemu_pixman_image_unref(ptr noundef nonnull %call18) #9
-  br label %glib_autoptr_cleanup_pixman_image_t.exit
+  br label %glib_autoptr_cleanup_pixman_image_t.argprom.exit
 
-glib_autoptr_cleanup_pixman_image_t.exit:         ; preds = %if.then, %if.then15, %if.then10, %if.then6, %cleanup, %if.then.i.i
+glib_autoptr_cleanup_pixman_image_t.argprom.exit: ; preds = %if.then, %if.then15, %if.then10, %if.then6, %cleanup, %if.then.i.i
   ret void
 }
 

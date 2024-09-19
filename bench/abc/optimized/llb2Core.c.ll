@@ -1148,7 +1148,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 279:                                              ; preds = %278, %272
   %280 = call fastcc i64 @Abc_Clock()
   %281 = sub nsw i64 %280, %.0.i
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %281)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.6, i64 noundef %281)
   %.pre460 = load ptr, ptr %9, align 8
   br label %282
 
@@ -1539,7 +1539,7 @@ Abc_Clock.exit323:                                ; preds = %407, %429
   %508 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.0266366)
   %509 = call fastcc i64 @Abc_Clock()
   %510 = sub nsw i64 %509, %.0.i
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %510)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.6, i64 noundef %510)
   %.pre451 = load ptr, ptr %9, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre451, i64 4
   %.pre452 = load i32, ptr %.phi.trans.insert, align 4
@@ -1559,7 +1559,7 @@ Abc_Clock.exit323:                                ; preds = %407, %429
   %517 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0266366)
   %518 = call fastcc i64 @Abc_Clock()
   %519 = sub nsw i64 %518, %.0.i
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %519)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.6, i64 noundef %519)
   %.pre453 = load ptr, ptr %9, align 8
   br label %520
 
@@ -1622,7 +1622,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_PrintTime(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Abc_PrintTime.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.27, ptr noundef %0)
   %3 = sitofp i64 %1 to double
   %4 = fdiv double %3, 1.000000e+06

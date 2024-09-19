@@ -521,7 +521,7 @@ sub_1:                                            ; preds = %sub_0
   br label %61
 
 42:                                               ; preds = %37
-  %43 = tail call fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef nonnull %40, i64 noundef 0, ptr noundef nonnull @.str.31, ptr noundef nonnull @hwp5_cb)
+  %43 = tail call fastcc i32 @decompress_and_callback.argprom.argelim(ptr noundef %0, ptr noundef nonnull %40, i64 noundef 0, ptr noundef nonnull @.str.31, ptr noundef nonnull @hwp5_cb)
   %44 = getelementptr inbounds i8, ptr %40, i64 96
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %40) #9
@@ -572,7 +572,7 @@ declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare ptr @fmap(i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @decompress_and_callback.argprom.argelim(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.z_stream_s, align 8
   %8 = alloca ptr, align 8
@@ -877,13 +877,13 @@ define i32 @cli_scanhwp3(ptr noundef %0) local_unnamed_addr #0 {
 44:                                               ; preds = %42, %41
   %45 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef 41) #9
   %.not.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i, label %convert_hstr_to_utf8.exit.thread.i, label %convert_hstr_to_utf8.exit.i
+  br i1 %.not.i.i, label %convert_hstr_to_utf8.argprom.exit.thread.i, label %convert_hstr_to_utf8.argprom.exit.i
 
-convert_hstr_to_utf8.exit.thread.i:               ; preds = %44
+convert_hstr_to_utf8.argprom.exit.thread.i:       ; preds = %44
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.45) #9
   br label %parsehwp3_docinfo.exit.thread
 
-convert_hstr_to_utf8.exit.i:                      ; preds = %44
+convert_hstr_to_utf8.argprom.exit.i:              ; preds = %44
   %46 = getelementptr inbounds i8, ptr %7, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %45, ptr noundef nonnull readonly align 1 dereferenceable(40) %46, i64 40, i1 false)
   %47 = tail call ptr @cl_base64_encode(ptr noundef nonnull %45, i64 noundef 40) #9
@@ -891,19 +891,19 @@ convert_hstr_to_utf8.exit.i:                      ; preds = %44
   %.not57.i = icmp eq ptr %47, null
   br i1 %.not57.i, label %parsehwp3_docinfo.exit.thread, label %48
 
-48:                                               ; preds = %convert_hstr_to_utf8.exit.i
+48:                                               ; preds = %convert_hstr_to_utf8.argprom.exit.i
   %49 = tail call i32 @cli_jsonbool(ptr noundef nonnull %27, ptr noundef nonnull @.str.68, i32 noundef 1) #9
   %50 = tail call i32 @cli_jsonstr(ptr noundef nonnull %27, ptr noundef nonnull @.str.69, ptr noundef nonnull %47) #9
   tail call void @free(ptr noundef nonnull %47) #9
   %51 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef 25) #9
   %.not.i59.i = icmp eq ptr %51, null
-  br i1 %.not.i59.i, label %convert_hstr_to_utf8.exit64.thread.i, label %convert_hstr_to_utf8.exit64.i
+  br i1 %.not.i59.i, label %convert_hstr_to_utf8.argprom.exit64.thread.i, label %convert_hstr_to_utf8.argprom.exit64.i
 
-convert_hstr_to_utf8.exit64.thread.i:             ; preds = %48
+convert_hstr_to_utf8.argprom.exit64.thread.i:     ; preds = %48
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.45) #9
   br label %parsehwp3_docinfo.exit.thread
 
-convert_hstr_to_utf8.exit64.i:                    ; preds = %48
+convert_hstr_to_utf8.argprom.exit64.i:            ; preds = %48
   %52 = getelementptr inbounds i8, ptr %7, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %51, ptr noundef nonnull readonly align 1 dereferenceable(24) %52, i64 24, i1 false)
   %53 = tail call ptr @cl_base64_encode(ptr noundef nonnull %51, i64 noundef 24) #9
@@ -911,7 +911,7 @@ convert_hstr_to_utf8.exit64.i:                    ; preds = %48
   %.not58.i = icmp eq ptr %53, null
   br i1 %.not58.i, label %parsehwp3_docinfo.exit.thread, label %parsehwp3_docinfo.exit
 
-parsehwp3_docinfo.exit:                           ; preds = %convert_hstr_to_utf8.exit64.i
+parsehwp3_docinfo.exit:                           ; preds = %convert_hstr_to_utf8.argprom.exit64.i
   %54 = tail call i32 @cli_jsonbool(ptr noundef nonnull %27, ptr noundef nonnull @.str.70, i32 noundef 1) #9
   %55 = tail call i32 @cli_jsonstr(ptr noundef nonnull %27, ptr noundef nonnull @.str.71, ptr noundef nonnull %53) #9
   tail call void @free(ptr noundef nonnull %53) #9
@@ -955,13 +955,13 @@ parsehwp3_docinfo.exit:                           ; preds = %convert_hstr_to_utf
   %71 = load i64, ptr %70, align 16
   %72 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef 113) #9
   %.not.i.i29 = icmp eq ptr %72, null
-  br i1 %.not.i.i29, label %convert_hstr_to_utf8.exit.thread.i32, label %convert_hstr_to_utf8.exit.i30
+  br i1 %.not.i.i29, label %convert_hstr_to_utf8.argprom.exit.thread.i32, label %convert_hstr_to_utf8.argprom.exit.i30
 
-convert_hstr_to_utf8.exit.thread.i32:             ; preds = %.preheader.i
+convert_hstr_to_utf8.argprom.exit.thread.i32:     ; preds = %.preheader.i
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.45) #9
   br label %parsehwp3_docinfo.exit.thread
 
-convert_hstr_to_utf8.exit.i30:                    ; preds = %.preheader.i
+convert_hstr_to_utf8.argprom.exit.i30:            ; preds = %.preheader.i
   %73 = getelementptr inbounds i8, ptr %61, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %72, ptr noundef nonnull readonly align 1 dereferenceable(112) %73, i64 112, i1 false)
   %74 = tail call ptr @cl_base64_encode(ptr noundef nonnull %72, i64 noundef 112) #9
@@ -969,7 +969,7 @@ convert_hstr_to_utf8.exit.i30:                    ; preds = %.preheader.i
   %.not34.i = icmp eq ptr %74, null
   br i1 %.not34.i, label %parsehwp3_docinfo.exit.thread, label %75
 
-75:                                               ; preds = %convert_hstr_to_utf8.exit.i30
+75:                                               ; preds = %convert_hstr_to_utf8.argprom.exit.i30
   %76 = getelementptr inbounds i8, ptr %70, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #10
@@ -1031,15 +1031,15 @@ parsehwp3_docsummary.exit:                        ; preds = %68, %9, %parsehwp3_
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr %3, align 8
-  %102 = tail call fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef %101, i64 noundef %99, ptr noundef nonnull @.str.45, ptr noundef nonnull @hwp3_cb)
+  %102 = tail call fastcc i32 @decompress_and_callback.argprom.argelim(ptr noundef %0, ptr noundef %101, i64 noundef %99, ptr noundef nonnull @.str.45, ptr noundef nonnull @hwp3_cb)
   br label %parsehwp3_docinfo.exit.thread
 
 103:                                              ; preds = %98
   %104 = call i32 @hwp3_cb(ptr noundef nonnull %2, i32 noundef 0, ptr poison, ptr noundef %0)
   br label %parsehwp3_docinfo.exit.thread
 
-parsehwp3_docinfo.exit.thread:                    ; preds = %convert_hstr_to_utf8.exit.i30, %82, %100, %103, %convert_hstr_to_utf8.exit.thread.i32, %62, %67, %81, %convert_hstr_to_utf8.exit64.thread.i, %convert_hstr_to_utf8.exit.thread.i, %convert_hstr_to_utf8.exit64.i, %convert_hstr_to_utf8.exit.i, %8, %28, %31, %95, %88
-  %.0 = phi i32 [ 0, %88 ], [ 27, %95 ], [ 20, %convert_hstr_to_utf8.exit64.thread.i ], [ 20, %convert_hstr_to_utf8.exit.thread.i ], [ 20, %convert_hstr_to_utf8.exit64.i ], [ 20, %convert_hstr_to_utf8.exit.i ], [ 19, %8 ], [ 20, %28 ], [ 20, %31 ], [ 20, %convert_hstr_to_utf8.exit.thread.i32 ], [ 19, %62 ], [ 20, %67 ], [ 20, %81 ], [ %102, %100 ], [ %104, %103 ], [ %87, %82 ], [ 20, %convert_hstr_to_utf8.exit.i30 ]
+parsehwp3_docinfo.exit.thread:                    ; preds = %convert_hstr_to_utf8.argprom.exit.i30, %82, %100, %103, %convert_hstr_to_utf8.argprom.exit.thread.i32, %62, %67, %81, %convert_hstr_to_utf8.argprom.exit64.thread.i, %convert_hstr_to_utf8.argprom.exit.thread.i, %convert_hstr_to_utf8.argprom.exit64.i, %convert_hstr_to_utf8.argprom.exit.i, %8, %28, %31, %95, %88
+  %.0 = phi i32 [ 0, %88 ], [ 27, %95 ], [ 20, %convert_hstr_to_utf8.argprom.exit64.thread.i ], [ 20, %convert_hstr_to_utf8.argprom.exit.thread.i ], [ 20, %convert_hstr_to_utf8.argprom.exit64.i ], [ 20, %convert_hstr_to_utf8.argprom.exit.i ], [ 19, %8 ], [ 20, %28 ], [ 20, %31 ], [ 20, %convert_hstr_to_utf8.argprom.exit.thread.i32 ], [ 19, %62 ], [ 20, %67 ], [ 20, %81 ], [ %102, %100 ], [ %104, %103 ], [ %87, %82 ], [ 20, %convert_hstr_to_utf8.argprom.exit.i30 ]
   ret i32 %.0
 }
 
@@ -1947,7 +1947,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %hwpml_scan_cb.exit
 
 83:                                               ; preds = %78
-  %84 = call fastcc i32 @decompress_and_callback(ptr noundef %2, ptr noundef nonnull %81, i64 noundef 0, ptr noundef nonnull @.str.130, ptr noundef nonnull @hwpml_scan_cb)
+  %84 = call fastcc i32 @decompress_and_callback.argprom.argelim(ptr noundef %2, ptr noundef nonnull %81, i64 noundef 0, ptr noundef nonnull @.str.130, ptr noundef nonnull @hwpml_scan_cb)
   %85 = getelementptr inbounds i8, ptr %81, i64 96
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull %81) #9

@@ -2889,7 +2889,7 @@ invoke.cont:                                      ; preds = %if.then26
   %apcOutMeshes.val192 = load ptr, ptr %86, align 8
   %cmp.i.i.i = icmp eq ptr %apcOutMeshes.val, %apcOutMeshes.val192
   %.pre787 = load i32, ptr %mNumMeshes, align 8
-  br i1 %cmp.i.i.i, label %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit, label %if.end.i
+  br i1 %cmp.i.i.i, label %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont
   %conv.i = zext i32 %.pre787 to i64
@@ -2924,15 +2924,15 @@ delete.notnull.i194:                              ; preds = %call2.i.noexc
 delete.end.i:                                     ; preds = %delete.notnull.i194, %call2.i.noexc
   %.pre786 = phi i32 [ %.pre786.pre, %delete.notnull.i194 ], [ %add12.i, %call2.i.noexc ]
   store ptr %call2.i195, ptr %mMeshes27, align 8
-  br label %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit
+  br label %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.argprom.exit
 
-_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit: ; preds = %invoke.cont, %delete.end.i
+_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.argprom.exit: ; preds = %invoke.cont, %delete.end.i
   %91 = phi i32 [ %.pre787, %invoke.cont ], [ %.pre786, %delete.end.i ]
   %cmp34660.not = icmp eq i32 %91, 0
   br i1 %cmp34660.not, label %if.end266, label %for.body35
 
-for.body35:                                       ; preds = %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit, %invoke.cont43
-  %indvars.iv739 = phi i64 [ %indvars.iv.next740, %invoke.cont43 ], [ 0, %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit ]
+for.body35:                                       ; preds = %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.argprom.exit, %invoke.cont43
+  %indvars.iv739 = phi i64 [ %indvars.iv.next740, %invoke.cont43 ], [ 0, %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.argprom.exit ]
   %92 = load ptr, ptr %mMeshes27, align 8
   %arrayidx38 = getelementptr inbounds ptr, ptr %92, i64 %indvars.iv739
   %93 = load ptr, ptr %arrayidx38, align 8
@@ -3641,7 +3641,7 @@ while.body.i.i.i254:                              ; preds = %ehcleanup265, %whil
   %cmp.not.i.i.i256 = icmp eq ptr %178, %aiVFormats
   br i1 %cmp.not.i.i.i256, label %ehcleanup603, label %while.body.i.i.i254, !llvm.loop !31
 
-if.end266:                                        ; preds = %while.body.i.i.i, %invoke.cont43, %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit, %if.then.i.i.i
+if.end266:                                        ; preds = %while.body.i.i.i, %invoke.cont43, %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.argprom.exit, %if.then.i.i.i
   %179 = load i32, ptr %mNumAnimations, align 8
   %cmp270662.not = icmp eq i32 %179, 0
   br i1 %cmp270662.not, label %for.end279, label %for.body271.lr.ph

@@ -2727,9 +2727,9 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12H
   %23 = shl nuw i64 1, %22
   %24 = and i64 %23, %21
   %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit
+  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit: ; preds = %6
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit: ; preds = %6
   %25 = lshr i64 %16, 16
   %26 = lshr i64 %16, 22
   %27 = and i64 %26, 1023
@@ -2739,9 +2739,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightCon
   %31 = shl nuw i64 1, %30
   %32 = and i64 %29, %31
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread, label %33
+  br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread, label %33
 
-33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit
+33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -2798,7 +2798,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightCon
   %.pre-phi73.i.i.i.i = phi i64 [ %.pre72.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %39, %33 ]
   %.sroa.044.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %34, %33 ]
   %58 = ashr exact i64 %.pre-phi73.i.i.i.i, 3
-  switch i64 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread [
+  switch i64 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread [
     i64 3, label %59
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge70.i.i.i.i
@@ -2856,9 +2856,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vect
 _ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit: ; preds = %43, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit27, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit29, %59, %63, %67
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %59 ], [ %.sroa.044.1.i.i.i.i, %63 ], [ %spec.select.i.i.i.i, %67 ], [ %69, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit ], [ %70, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit27 ], [ %71, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit29 ], [ %.sroa.044.063.i.i.i.i, %43 ]
   %.not14 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %36
-  br i1 %.not14, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread, label %120
+  br i1 %.not14, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread, label %120
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread: ; preds = %._crit_edge.i.i.i.i, %6, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread: ; preds = %._crit_edge.i.i.i.i, %6, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2866,7 +2866,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightCon
   %.not.i12 = icmp eq ptr %73, %75
   br i1 %.not.i12, label %92, label %76
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread
+76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread
   store i32 %.val8, ptr %73, align 4
   %.not.i.i.i.i.i = icmp eq i32 %.val8, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, label %77
@@ -2893,7 +2893,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constr
   store ptr %91, ptr %72, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit
 
-92:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread
+92:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %73, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit
 
@@ -3047,9 +3047,9 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12H
   %23 = shl nuw i64 1, %22
   %24 = and i64 %23, %21
   %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit
+  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit: ; preds = %6
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit: ; preds = %6
   %25 = lshr i64 %16, 16
   %26 = lshr i64 %16, 22
   %27 = and i64 %26, 1023
@@ -3059,9 +3059,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightCon
   %31 = shl nuw i64 1, %30
   %32 = and i64 %29, %31
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread, label %33
+  br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread, label %33
 
-33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit
+33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit
   %34 = load ptr, ptr %1, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -3118,7 +3118,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightCon
   %.pre-phi73.i.i.i.i = phi i64 [ %.pre72.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %39, %33 ]
   %.sroa.044.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %34, %33 ]
   %58 = ashr exact i64 %.pre-phi73.i.i.i.i, 3
-  switch i64 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread [
+  switch i64 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread [
     i64 3, label %59
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge70.i.i.i.i
@@ -3176,9 +3176,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vect
 _ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit: ; preds = %43, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit27, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit29, %59, %63, %67
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %59 ], [ %.sroa.044.1.i.i.i.i, %63 ], [ %spec.select.i.i.i.i, %67 ], [ %69, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit ], [ %70, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit27 ], [ %71, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit.loopexit.split.loop.exit29 ], [ %.sroa.044.063.i.i.i.i, %43 ]
   %.not14 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %36
-  br i1 %.not14, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread, label %120
+  br i1 %.not14, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread, label %120
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread: ; preds = %._crit_edge.i.i.i.i, %6, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread: ; preds = %._crit_edge.i.i.i.i, %6, %_ZNK32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds11_UpdateImpl5_FindERSt6vectorINS_7SdfPathESaIS3_EERKS3_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3186,7 +3186,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightCon
   %.not.i12 = icmp eq ptr %73, %75
   br i1 %.not.i12, label %92, label %76
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread
+76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread
   store i32 %.val8, ptr %73, align 4
   %.not.i.i.i.i.i = icmp eq i32 %.val8, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, label %77
@@ -3213,7 +3213,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constr
   store ptr %91, ptr %72, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit
 
-92:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.exit.thread
+92:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_PathBloomFilter12MightContainERKNS_7SdfPathE.argprom.exit.thread
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %73, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit
 

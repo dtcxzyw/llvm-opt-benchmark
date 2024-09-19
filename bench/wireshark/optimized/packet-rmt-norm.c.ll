@@ -326,7 +326,7 @@ define internal i32 @dissect_norm(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 44:                                               ; preds = %41
-  tail call fastcc void @dissect_grrtetc(ptr noundef %20, ptr noundef %0)
+  tail call fastcc void @dissect_grrtetc.argelim(ptr noundef %20, ptr noundef %0)
   %45 = load i32, ptr @hf_flags, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %45, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #6
   %47 = load i32, ptr @ett_flags, align 4
@@ -396,7 +396,7 @@ dissect_norm_hdrext.exit.i:                       ; preds = %77, %73
   br label %dissect_norm_info.exit
 
 92:                                               ; preds = %41
-  tail call fastcc void @dissect_grrtetc(ptr noundef %20, ptr noundef %0)
+  tail call fastcc void @dissect_grrtetc.argelim(ptr noundef %20, ptr noundef %0)
   %93 = load i32, ptr @hf_flags, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %93, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #6
   %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #6
@@ -477,7 +477,7 @@ dissect_norm_hdrext.exit.i74:                     ; preds = %120, %116
   br label %dissect_norm_info.exit
 
 147:                                              ; preds = %41
-  tail call fastcc void @dissect_grrtetc(ptr noundef %20, ptr noundef %0)
+  tail call fastcc void @dissect_grrtetc.argelim(ptr noundef %20, ptr noundef %0)
   %148 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #6
   %149 = load ptr, ptr %12, align 8
   %150 = zext i8 %148 to i32
@@ -919,7 +919,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_grrtetc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_grrtetc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_instance_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 8, i32 noundef 2, i32 noundef 0) #6
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 10) #6

@@ -281,19 +281,19 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
   invoke void @"_ZN4core3ptr76drop_in_place$LT$ropey..tree..node_children..inner..NodeChildrenInternal$GT$17haf21cb8a7decc8feE"(ptr noalias noundef nonnull align 8 dereferenceable(968) %3) #16
           to label %25 unwind label %23
 
-.lr.ph:                                           ; preds = %.preheader, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
-  %.sroa.8.061 = phi i64 [ %22, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit" ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.argprom.exit"
+  %.sroa.8.061 = phi i64 [ %22, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.argprom.exit" ], [ 0, %.preheader ]
   %13 = getelementptr inbounds ptr, ptr %1, i64 %.sroa.8.061
   %.val = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
   %14 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %15 = icmp slt i64 %14, 0
-  br i1 %15, label %16, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
+  br i1 %15, label %16, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.argprom.exit"
 
 16:                                               ; preds = %.lr.ph
   tail call void @llvm.trap()
   unreachable
 
-._crit_edge:                                      ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
+._crit_edge:                                      ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.argprom.exit"
   %17 = getelementptr inbounds i8, ptr %1, i64 192
   br label %.lr.ph64
 
@@ -312,7 +312,7 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
   %exitcond67.not = icmp eq i64 %18, %8
   br i1 %exitcond67.not, label %._crit_edge65, label %.lr.ph64
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit": ; preds = %.lr.ph
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.argprom.exit": ; preds = %.lr.ph
   %21 = getelementptr inbounds ptr, ptr %3, i64 %.sroa.8.061
   %22 = add nuw nsw i64 %.sroa.8.061, 1
   store ptr %.val, ptr %21, align 8

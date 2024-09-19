@@ -1072,14 +1072,14 @@ Of_ManPrepareCuts.exit204:                        ; preds = %._crit_edge.i180, %
   %167 = getelementptr i8, ptr %166, i64 208
   %.val170 = load ptr, ptr %167, align 8
   %.not.i = icmp ne ptr %.val170, null
-  br i1 %.not.i, label %168, label %Gia_ObjSibl.exit
+  br i1 %.not.i, label %168, label %Gia_ObjSibl.argprom.exit
 
 168:                                              ; preds = %Of_ManPrepareCuts.exit204
   %169 = getelementptr inbounds i32, ptr %.val170, i64 %13
   %170 = load i32, ptr %169, align 4
-  br label %Gia_ObjSibl.exit
+  br label %Gia_ObjSibl.argprom.exit
 
-Gia_ObjSibl.exit:                                 ; preds = %Of_ManPrepareCuts.exit204, %168
+Gia_ObjSibl.argprom.exit:                         ; preds = %Of_ManPrepareCuts.exit204, %168
   %171 = phi i32 [ %170, %168 ], [ 0, %Of_ManPrepareCuts.exit204 ]
   %172 = sext i32 %.0.i to i64
   %173 = getelementptr inbounds %struct.Of_Cut_t_, ptr %5, i64 %172
@@ -1088,7 +1088,7 @@ Gia_ObjSibl.exit:                                 ; preds = %Of_ManPrepareCuts.e
   %176 = icmp sgt i32 %23, 0
   br i1 %176, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %Gia_ObjSibl.exit
+.lr.ph.preheader:                                 ; preds = %Gia_ObjSibl.argprom.exit
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %.lr.ph
 
@@ -1101,7 +1101,7 @@ Gia_ObjSibl.exit:                                 ; preds = %Of_ManPrepareCuts.e
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %Gia_ObjSibl.exit
+._crit_edge:                                      ; preds = %.lr.ph, %Gia_ObjSibl.argprom.exit
   %.not = icmp eq i32 %171, 0
   br i1 %.not, label %.loopexit503, label %Gia_ObjSiblObj.exit
 
@@ -1331,15 +1331,15 @@ Of_CutParams.exit:                                ; preds = %._crit_edge677, %._
   %293 = getelementptr i8, ptr %292, i64 40
   %.val173 = load ptr, ptr %293, align 8
   %.not.i238 = icmp eq ptr %.val173, null
-  br i1 %.not.i238, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
+  br i1 %.not.i238, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
 
-Gia_ObjIsMuxId.exit:                              ; preds = %.loopexit503
+Gia_ObjIsMuxId.argprom.exit:                      ; preds = %.loopexit503
   %294 = getelementptr inbounds i32, ptr %.val173, i64 %13
   %295 = load i32, ptr %294, align 4
   %.not479 = icmp eq i32 %295, 0
-  br i1 %.not479, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFaninId2.exit
+  br i1 %.not479, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjFaninId2.argprom.exit
 
-Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
+Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argprom.exit
   %296 = ashr i32 %295, 1
   %.val.i240 = load ptr, ptr %27, align 8
   %297 = sext i32 %296 to i64
@@ -1348,7 +1348,7 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %300 = icmp slt i32 %299, 1
   br i1 %300, label %349, label %301
 
-301:                                              ; preds = %Gia_ObjFaninId2.exit
+301:                                              ; preds = %Gia_ObjFaninId2.argprom.exit
   %302 = getelementptr i8, ptr %0, i64 32
   %.val37.i241 = load ptr, ptr %302, align 8
   %303 = lshr i32 %299, 16
@@ -1446,7 +1446,7 @@ Of_CutGetSign.exit.i262:                          ; preds = %.lr.ph.i.i257, %.lr
   %.pre681 = load ptr, ptr %0, align 8
   br label %Of_ManPrepareCuts.exit266
 
-349:                                              ; preds = %Gia_ObjFaninId2.exit
+349:                                              ; preds = %Gia_ObjFaninId2.argprom.exit
   %350 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 0, ptr %350, align 8
   %351 = getelementptr inbounds i8, ptr %10, i64 12
@@ -2423,26 +2423,26 @@ Of_SetAddCut.exit.us.us.us:                       ; preds = %443, %476, %508, %4
   %874 = icmp ult ptr %873, %173
   br i1 %874, label %.preheader501.us.us, label %.loopexit491, !llvm.loop !26
 
-Gia_ObjIsMuxId.exit.thread:                       ; preds = %.loopexit503, %Gia_ObjIsMuxId.exit
+Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %.loopexit503, %Gia_ObjIsMuxId.argprom.exit
   %.val175 = load i64, ptr %14, align 4
   %875 = and i64 %.val175, 2147483648
   %.not.i.i322 = icmp ne i64 %875, 0
   %876 = and i64 %.val175, 536870911
   %877 = icmp eq i64 %876, 536870911
   %narrow.i.not.i = or i1 %.not.i.i322, %877
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit, label %878
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit, label %878
 
-878:                                              ; preds = %Gia_ObjIsMuxId.exit.thread
+878:                                              ; preds = %Gia_ObjIsMuxId.argprom.exit.thread
   %879 = trunc i64 %.val175 to i32
   %880 = and i32 %879, 536870911
   %881 = lshr i64 %.val175, 32
   %882 = trunc nuw i64 %881 to i32
   %883 = and i32 %882, 536870911
   %884 = icmp uge i32 %880, %883
-  br label %Gia_ObjIsXor.exit
+  br label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit.thread, %878
-  %.not36.i = phi i1 [ true, %Gia_ObjIsMuxId.exit.thread ], [ %884, %878 ]
+Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMuxId.argprom.exit.thread, %878
+  %.not36.i = phi i1 [ true, %Gia_ObjIsMuxId.argprom.exit.thread ], [ %884, %878 ]
   %885 = mul nsw i32 %.0.i183, %.0.i
   %886 = sitofp i32 %885 to double
   %887 = getelementptr inbounds i8, ptr %0, i64 128
@@ -2452,7 +2452,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %890 = icmp sgt i32 %.0.i, 0
   br i1 %890, label %.preheader.lr.ph, label %.loopexit491
 
-.preheader.lr.ph:                                 ; preds = %Gia_ObjIsXor.exit
+.preheader.lr.ph:                                 ; preds = %Gia_ObjIsXor.argprom.exit
   %891 = icmp sgt i32 %.0.i183, 0
   %892 = getelementptr inbounds i8, ptr %0, i64 136
   %893 = icmp eq i32 %21, 0
@@ -3382,8 +3382,8 @@ Of_SetAddCut.exit461.us:                          ; preds = %948, %.lr.ph134.i.u
   %1342 = icmp ult ptr %1341, %173
   br i1 %1342, label %.preheader.us, label %.loopexit491, !llvm.loop !31
 
-.loopexit491:                                     ; preds = %._crit_edge564.split.us.us.us, %._crit_edge581.us, %.preheader.lr.ph, %.preheader501.lr.ph, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.exit
-  %.6 = phi i32 [ %.0147, %Gia_ObjIsXor.exit ], [ %.0147, %Gia_ObjFaninC2.exit ], [ %.0147, %.preheader501.lr.ph ], [ %.0147, %.preheader.lr.ph ], [ %.9.us, %._crit_edge581.us ], [ %.5.us.us.us, %._crit_edge564.split.us.us.us ]
+.loopexit491:                                     ; preds = %._crit_edge564.split.us.us.us, %._crit_edge581.us, %.preheader.lr.ph, %.preheader501.lr.ph, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.argprom.exit
+  %.6 = phi i32 [ %.0147, %Gia_ObjIsXor.argprom.exit ], [ %.0147, %Gia_ObjFaninC2.exit ], [ %.0147, %.preheader501.lr.ph ], [ %.0147, %.preheader.lr.ph ], [ %.9.us, %._crit_edge581.us ], [ %.5.us.us.us, %._crit_edge564.split.us.us.us ]
   %1343 = load ptr, ptr %8, align 16
   %1344 = getelementptr inbounds i8, ptr %1343, i64 12
   %1345 = load i32, ptr %1344, align 4
@@ -3887,9 +3887,9 @@ define void @Of_ManComputeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %42 = getelementptr i8, ptr %0, i64 48
   br label %43
 
-43:                                               ; preds = %.lr.ph59, %Of_ManLiftCuts.exit
-  %44 = phi ptr [ %40, %.lr.ph59 ], [ %83, %Of_ManLiftCuts.exit ]
-  %indvars.iv62 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next63, %Of_ManLiftCuts.exit ]
+43:                                               ; preds = %.lr.ph59, %Of_ManLiftCuts.argprom.exit
+  %44 = phi ptr [ %40, %.lr.ph59 ], [ %83, %Of_ManLiftCuts.argprom.exit ]
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next63, %Of_ManLiftCuts.argprom.exit ]
   %45 = getelementptr i8, ptr %44, i64 32
   %.val = load ptr, ptr %45, align 8
   %.not31 = icmp eq ptr %.val, null
@@ -3903,7 +3903,7 @@ define void @Of_ManComputeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %49 = and i64 %.val37, 536870911
   %50 = icmp ne i64 %49, 536870911
   %narrow.i51 = and i1 %.not.i50, %50
-  br i1 %narrow.i51, label %51, label %Of_ManLiftCuts.exit
+  br i1 %narrow.i51, label %51, label %Of_ManLiftCuts.argprom.exit
 
 51:                                               ; preds = %46
   %52 = trunc i64 %.val37 to i32
@@ -3914,7 +3914,7 @@ define void @Of_ManComputeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %57 = icmp eq i32 %53, %56
   %.not.i52 = icmp ne i32 %53, 536870911
   %or.cond.not.i53 = and i1 %.not.i52, %57
-  br i1 %or.cond.not.i53, label %Of_ManLiftCuts.exit, label %58
+  br i1 %or.cond.not.i53, label %Of_ManLiftCuts.argprom.exit, label %58
 
 58:                                               ; preds = %51
   %.val46 = load ptr, ptr %41, align 8
@@ -3930,7 +3930,7 @@ define void @Of_ManComputeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %67 = getelementptr inbounds i32, ptr %64, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %.preheader.preheader.i, label %Of_ManLiftCuts.exit
+  br i1 %69, label %.preheader.preheader.i, label %Of_ManLiftCuts.argprom.exit
 
 .preheader.preheader.i:                           ; preds = %58
   %70 = getelementptr inbounds i8, ptr %67, i64 4
@@ -3972,14 +3972,14 @@ define void @Of_ManComputeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %80 = add nuw nsw i32 %.05.i, 1
   %81 = getelementptr inbounds i32, ptr %.0144.i, i64 %.lcssa.i
   %82 = icmp slt i32 %80, %79
-  br i1 %82, label %.preheader.i, label %Of_ManLiftCuts.exit.loopexit, !llvm.loop !36
+  br i1 %82, label %.preheader.i, label %Of_ManLiftCuts.argprom.exit.loopexit, !llvm.loop !36
 
-Of_ManLiftCuts.exit.loopexit:                     ; preds = %._crit_edge.i
+Of_ManLiftCuts.argprom.exit.loopexit:             ; preds = %._crit_edge.i
   %.pre65 = load ptr, ptr %0, align 8
-  br label %Of_ManLiftCuts.exit
+  br label %Of_ManLiftCuts.argprom.exit
 
-Of_ManLiftCuts.exit:                              ; preds = %Of_ManLiftCuts.exit.loopexit, %58, %46, %51
-  %83 = phi ptr [ %.pre65, %Of_ManLiftCuts.exit.loopexit ], [ %44, %58 ], [ %44, %46 ], [ %44, %51 ]
+Of_ManLiftCuts.argprom.exit:                      ; preds = %Of_ManLiftCuts.argprom.exit.loopexit, %58, %46, %51
+  %83 = phi ptr [ %.pre65, %Of_ManLiftCuts.argprom.exit.loopexit ], [ %44, %58 ], [ %44, %46 ], [ %44, %51 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %84 = getelementptr inbounds i8, ptr %83, i64 24
   %85 = load i32, ptr %84, align 8
@@ -3987,7 +3987,7 @@ Of_ManLiftCuts.exit:                              ; preds = %Of_ManLiftCuts.exit
   %87 = icmp slt i64 %indvars.iv.next63, %86
   br i1 %87, label %43, label %.critedge2, !llvm.loop !37
 
-.critedge2:                                       ; preds = %43, %Of_ManLiftCuts.exit, %1, %.critedge
+.critedge2:                                       ; preds = %43, %Of_ManLiftCuts.argprom.exit, %1, %.critedge
   ret void
 }
 
@@ -5160,7 +5160,7 @@ define void @Of_ManComputeBackward1(ptr nocapture noundef readonly %0) local_unn
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
-  tail call fastcc void @Of_ManComputeOutputRequired(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @Of_ManComputeOutputRequired.retelim(ptr noundef %0, i32 noundef 1)
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 176
   store i64 0, ptr %7, align 8
@@ -5219,14 +5219,14 @@ define void @Of_ManComputeBackward1(ptr nocapture noundef readonly %0) local_unn
   %38 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val82, i64 %37, i32 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, %28
-  br i1 %40, label %41, label %Of_ObjUpdateRequired.exit
+  br i1 %40, label %41, label %Of_ObjUpdateRequired.argprom.exit
 
 41:                                               ; preds = %35
   store i32 %28, ptr %38, align 4
   %.val81.pre = load ptr, ptr %14, align 8
-  br label %Of_ObjUpdateRequired.exit
+  br label %Of_ObjUpdateRequired.argprom.exit
 
-Of_ObjUpdateRequired.exit:                        ; preds = %35, %41
+Of_ObjUpdateRequired.argprom.exit:                ; preds = %35, %41
   %.val81 = phi ptr [ %.val82, %35 ], [ %.val81.pre, %41 ]
   %42 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val81, i64 %37, i32 5
   %43 = load i32, ptr %42, align 4
@@ -5343,7 +5343,7 @@ Of_ManComputeBackwardCut.exit:                    ; preds = %.lr.ph.i, %80, %67
   %.not69113 = icmp ult i32 %97, 2
   br i1 %.not69113, label %.critedge2.loopexit, label %.lr.ph115
 
-98:                                               ; preds = %Of_ObjUpdateRequired.exit89
+98:                                               ; preds = %Of_ObjUpdateRequired.argprom.exit89
   %99 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv.next
   %100 = load i32, ptr %99, align 4
   %.not69 = icmp ult i32 %100, 2
@@ -5358,14 +5358,14 @@ Of_ManComputeBackwardCut.exit:                    ; preds = %.lr.ph.i, %80, %67
   %104 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val84, i64 %103, i32 4
   %105 = load i32, ptr %104, align 4
   %106 = icmp sgt i32 %105, %96
-  br i1 %106, label %107, label %Of_ObjUpdateRequired.exit89
+  br i1 %106, label %107, label %Of_ObjUpdateRequired.argprom.exit89
 
 107:                                              ; preds = %.lr.ph115
   store i32 %96, ptr %104, align 4
   %.val80.pre = load ptr, ptr %14, align 8
-  br label %Of_ObjUpdateRequired.exit89
+  br label %Of_ObjUpdateRequired.argprom.exit89
 
-Of_ObjUpdateRequired.exit89:                      ; preds = %.lr.ph115, %107
+Of_ObjUpdateRequired.argprom.exit89:              ; preds = %.lr.ph115, %107
   %.val80 = phi ptr [ %.val84, %.lr.ph115 ], [ %.val80.pre, %107 ]
   %108 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val80, i64 %103, i32 5
   %109 = load i32, ptr %108, align 4
@@ -5378,8 +5378,8 @@ Of_ObjUpdateRequired.exit89:                      ; preds = %.lr.ph115, %107
   %113 = icmp ult i64 %indvars.iv.next, %112
   br i1 %113, label %98, label %.critedge2.loopexit, !llvm.loop !51
 
-.critedge2.loopexit:                              ; preds = %98, %Of_ObjUpdateRequired.exit89, %.lr.ph97
-  %.lcssa.ph = phi i32 [ %95, %.lr.ph97 ], [ %111, %Of_ObjUpdateRequired.exit89 ], [ %111, %98 ]
+.critedge2.loopexit:                              ; preds = %98, %Of_ObjUpdateRequired.argprom.exit89, %.lr.ph97
+  %.lcssa.ph = phi i32 [ %95, %.lr.ph97 ], [ %111, %Of_ObjUpdateRequired.argprom.exit89 ], [ %111, %98 ]
   %114 = zext nneg i32 %.lcssa.ph to i64
   br label %.critedge2
 
@@ -5397,7 +5397,7 @@ Of_ObjUpdateRequired.exit89:                      ; preds = %.lr.ph115, %107
   store i64 %122, ptr %120, align 8
   br label %123
 
-123:                                              ; preds = %.critedge2, %21, %45, %Of_ObjUpdateRequired.exit
+123:                                              ; preds = %.critedge2, %21, %45, %Of_ObjUpdateRequired.argprom.exit
   %124 = icmp sgt i64 %indvars.iv108, 2
   br i1 %124, label %18, label %.critedge, !llvm.loop !52
 
@@ -5406,7 +5406,7 @@ Of_ObjUpdateRequired.exit89:                      ; preds = %.lr.ph115, %107
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Of_ManComputeOutputRequired(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
+define internal fastcc void @Of_ManComputeOutputRequired.retelim(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 24
   %.val4655 = load i32, ptr %4, align 8
@@ -5471,10 +5471,10 @@ define internal fastcc void @Of_ManComputeOutputRequired(ptr nocapture noundef r
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %.lr.ph63.split.us, label %.lr.ph63.split
 
-.lr.ph63.split.us:                                ; preds = %.lr.ph63, %Of_ObjUpdateRequired.exit.us
-  %27 = phi ptr [ %43, %Of_ObjUpdateRequired.exit.us ], [ %12, %.lr.ph63 ]
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %Of_ObjUpdateRequired.exit.us ], [ 0, %.lr.ph63 ]
-  %28 = phi ptr [ %45, %Of_ObjUpdateRequired.exit.us ], [ %14, %.lr.ph63 ]
+.lr.ph63.split.us:                                ; preds = %.lr.ph63, %Of_ObjUpdateRequired.argprom.exit.us
+  %27 = phi ptr [ %43, %Of_ObjUpdateRequired.argprom.exit.us ], [ %12, %.lr.ph63 ]
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %Of_ObjUpdateRequired.argprom.exit.us ], [ 0, %.lr.ph63 ]
+  %28 = phi ptr [ %45, %Of_ObjUpdateRequired.argprom.exit.us ], [ %14, %.lr.ph63 ]
   %29 = getelementptr i8, ptr %27, i64 32
   %.val42.us = load ptr, ptr %29, align 8
   %30 = getelementptr i8, ptr %28, i64 8
@@ -5492,14 +5492,14 @@ define internal fastcc void @Of_ManComputeOutputRequired(ptr nocapture noundef r
   %39 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val53.us, i64 %38, i32 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, %60
-  br i1 %41, label %42, label %Of_ObjUpdateRequired.exit.us
+  br i1 %41, label %42, label %Of_ObjUpdateRequired.argprom.exit.us
 
 42:                                               ; preds = %.lr.ph63.split.us
   store i32 %60, ptr %39, align 4
   %.pre = load ptr, ptr %0, align 8
-  br label %Of_ObjUpdateRequired.exit.us
+  br label %Of_ObjUpdateRequired.argprom.exit.us
 
-Of_ObjUpdateRequired.exit.us:                     ; preds = %42, %.lr.ph63.split.us
+Of_ObjUpdateRequired.argprom.exit.us:             ; preds = %42, %.lr.ph63.split.us
   %43 = phi ptr [ %.pre, %42 ], [ %27, %.lr.ph63.split.us ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %44 = getelementptr inbounds i8, ptr %43, i64 72
@@ -5529,10 +5529,10 @@ Of_ObjUpdateRequired.exit.us:                     ; preds = %42, %.lr.ph63.split
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph63, label %49, !llvm.loop !55
 
-.lr.ph63.split:                                   ; preds = %.lr.ph63, %Of_ObjUpdateRequired.exit
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %Of_ObjUpdateRequired.exit ], [ 0, %.lr.ph63 ]
-  %61 = phi ptr [ %82, %Of_ObjUpdateRequired.exit ], [ %14, %.lr.ph63 ]
-  %62 = phi ptr [ %80, %Of_ObjUpdateRequired.exit ], [ %12, %.lr.ph63 ]
+.lr.ph63.split:                                   ; preds = %.lr.ph63, %Of_ObjUpdateRequired.argprom.exit
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %Of_ObjUpdateRequired.argprom.exit ], [ 0, %.lr.ph63 ]
+  %61 = phi ptr [ %82, %Of_ObjUpdateRequired.argprom.exit ], [ %14, %.lr.ph63 ]
+  %62 = phi ptr [ %80, %Of_ObjUpdateRequired.argprom.exit ], [ %12, %.lr.ph63 ]
   %63 = getelementptr i8, ptr %62, i64 32
   %.val42 = load ptr, ptr %63, align 8
   %64 = getelementptr i8, ptr %61, i64 8
@@ -5550,14 +5550,14 @@ Of_ObjUpdateRequired.exit.us:                     ; preds = %42, %.lr.ph63.split
   %73 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val53, i64 %72, i32 4
   %74 = load i32, ptr %73, align 4
   %75 = icmp sgt i32 %74, %60
-  br i1 %75, label %76, label %Of_ObjUpdateRequired.exit
+  br i1 %75, label %76, label %Of_ObjUpdateRequired.argprom.exit
 
 76:                                               ; preds = %.lr.ph63.split
   store i32 %60, ptr %73, align 4
   %.val48.pre = load ptr, ptr %26, align 8
-  br label %Of_ObjUpdateRequired.exit
+  br label %Of_ObjUpdateRequired.argprom.exit
 
-Of_ObjUpdateRequired.exit:                        ; preds = %.lr.ph63.split, %76
+Of_ObjUpdateRequired.argprom.exit:                ; preds = %.lr.ph63.split, %76
   %.val48 = phi ptr [ %.val53, %.lr.ph63.split ], [ %.val48.pre, %76 ]
   %77 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val48, i64 %72, i32 5
   %78 = load i32, ptr %77, align 4
@@ -5573,8 +5573,8 @@ Of_ObjUpdateRequired.exit:                        ; preds = %.lr.ph63.split, %76
   %85 = icmp slt i64 %indvars.iv.next77, %84
   br i1 %85, label %.lr.ph63.split, label %.critedge2, !llvm.loop !54
 
-.critedge2:                                       ; preds = %Of_ObjUpdateRequired.exit, %Of_ObjUpdateRequired.exit.us, %.preheader
-  %.0.lcssa85 = phi i32 [ 0, %.preheader ], [ %60, %Of_ObjUpdateRequired.exit.us ], [ %60, %Of_ObjUpdateRequired.exit ]
+.critedge2:                                       ; preds = %Of_ObjUpdateRequired.argprom.exit, %Of_ObjUpdateRequired.argprom.exit.us, %.preheader
+  %.0.lcssa85 = phi i32 [ 0, %.preheader ], [ %60, %Of_ObjUpdateRequired.argprom.exit.us ], [ %60, %Of_ObjUpdateRequired.argprom.exit ]
   %86 = getelementptr inbounds i8, ptr %0, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 160
@@ -5603,7 +5603,7 @@ define void @Of_ManComputeBackward2(ptr nocapture noundef readonly %0) local_unn
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
-  tail call fastcc void @Of_ManComputeOutputRequired(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @Of_ManComputeOutputRequired.retelim(ptr noundef %0, i32 noundef 0)
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 176
   store i64 0, ptr %7, align 8
@@ -5622,8 +5622,8 @@ define void @Of_ManComputeBackward2(ptr nocapture noundef readonly %0) local_unn
   %16 = zext nneg i32 %12 to i64
   br label %17
 
-17:                                               ; preds = %.lr.ph62, %Of_ObjUpdateRequired.exit
-  %indvars.iv66 = phi i64 [ %16, %.lr.ph62 ], [ %indvars.iv.next67, %Of_ObjUpdateRequired.exit ]
+17:                                               ; preds = %.lr.ph62, %Of_ObjUpdateRequired.argprom.exit
+  %indvars.iv66 = phi i64 [ %16, %.lr.ph62 ], [ %indvars.iv.next67, %Of_ObjUpdateRequired.argprom.exit ]
   %indvars.iv.next67 = add nsw i64 %indvars.iv66, -1
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr i8, ptr %18, i64 32
@@ -5639,7 +5639,7 @@ define void @Of_ManComputeBackward2(ptr nocapture noundef readonly %0) local_unn
   %23 = and i64 %.val42, 536870911
   %24 = icmp ne i64 %23, 536870911
   %narrow.i = and i1 %.not.i, %24
-  br i1 %narrow.i, label %25, label %Of_ObjUpdateRequired.exit
+  br i1 %narrow.i, label %25, label %Of_ObjUpdateRequired.argprom.exit
 
 25:                                               ; preds = %20
   %.val50 = load ptr, ptr %14, align 8
@@ -5661,17 +5661,17 @@ define void @Of_ManComputeBackward2(ptr nocapture noundef readonly %0) local_unn
   %37 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val50, i64 %36, i32 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, %27
-  br i1 %39, label %40, label %Of_ObjUpdateRequired.exit
+  br i1 %39, label %40, label %Of_ObjUpdateRequired.argprom.exit
 
 40:                                               ; preds = %34
   store i32 %27, ptr %37, align 4
-  br label %Of_ObjUpdateRequired.exit
+  br label %Of_ObjUpdateRequired.argprom.exit
 
 41:                                               ; preds = %25
   %42 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val50, i64 %indvars.iv.next67, i32 5
   %43 = load i32, ptr %42, align 4
   %.not40 = icmp eq i32 %43, 0
-  br i1 %.not40, label %Of_ObjUpdateRequired.exit, label %44
+  br i1 %.not40, label %Of_ObjUpdateRequired.argprom.exit, label %44
 
 44:                                               ; preds = %41
   %.val48 = load ptr, ptr %15, align 8
@@ -5696,7 +5696,7 @@ define void @Of_ManComputeBackward2(ptr nocapture noundef readonly %0) local_unn
   %.not4171 = icmp ult i32 %57, 2
   br i1 %.not4171, label %.critedge2.loopexit, label %.lr.ph74
 
-58:                                               ; preds = %Of_ObjUpdateRequired.exit55
+58:                                               ; preds = %Of_ObjUpdateRequired.argprom.exit55
   %59 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.next
   %60 = load i32, ptr %59, align 4
   %.not41 = icmp ult i32 %60, 2
@@ -5712,14 +5712,14 @@ define void @Of_ManComputeBackward2(ptr nocapture noundef readonly %0) local_unn
   %64 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val51, i64 %63, i32 4
   %65 = load i32, ptr %64, align 4
   %66 = icmp sgt i32 %65, %56
-  br i1 %66, label %67, label %Of_ObjUpdateRequired.exit55
+  br i1 %66, label %67, label %Of_ObjUpdateRequired.argprom.exit55
 
 67:                                               ; preds = %.lr.ph74
   store i32 %56, ptr %64, align 4
   %.val45.pre = load i32, ptr %53, align 4
-  br label %Of_ObjUpdateRequired.exit55
+  br label %Of_ObjUpdateRequired.argprom.exit55
 
-Of_ObjUpdateRequired.exit55:                      ; preds = %.lr.ph74, %67
+Of_ObjUpdateRequired.argprom.exit55:              ; preds = %.lr.ph74, %67
   %.val45 = phi i32 [ %.val456972, %.lr.ph74 ], [ %.val45.pre, %67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv73, 1
   %68 = and i32 %.val45, 31
@@ -5727,8 +5727,8 @@ Of_ObjUpdateRequired.exit55:                      ; preds = %.lr.ph74, %67
   %70 = icmp ult i64 %indvars.iv.next, %69
   br i1 %70, label %58, label %.critedge2.loopexit, !llvm.loop !56
 
-.critedge2.loopexit:                              ; preds = %58, %Of_ObjUpdateRequired.exit55, %.lr.ph
-  %.lcssa.ph = phi i32 [ %55, %.lr.ph ], [ %68, %Of_ObjUpdateRequired.exit55 ], [ %68, %58 ]
+.critedge2.loopexit:                              ; preds = %58, %Of_ObjUpdateRequired.argprom.exit55, %.lr.ph
+  %.lcssa.ph = phi i32 [ %55, %.lr.ph ], [ %68, %Of_ObjUpdateRequired.argprom.exit55 ], [ %68, %58 ]
   %71 = zext nneg i32 %.lcssa.ph to i64
   br label %.critedge2
 
@@ -5744,13 +5744,13 @@ Of_ObjUpdateRequired.exit55:                      ; preds = %.lr.ph74, %67
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, 1
   store i64 %79, ptr %77, align 8
-  br label %Of_ObjUpdateRequired.exit
+  br label %Of_ObjUpdateRequired.argprom.exit
 
-Of_ObjUpdateRequired.exit:                        ; preds = %40, %34, %.critedge2, %20, %41
+Of_ObjUpdateRequired.argprom.exit:                ; preds = %40, %34, %.critedge2, %20, %41
   %80 = icmp sgt i64 %indvars.iv66, 2
   br i1 %80, label %17, label %.critedge, !llvm.loop !57
 
-.critedge:                                        ; preds = %17, %Of_ObjUpdateRequired.exit, %1
+.critedge:                                        ; preds = %17, %Of_ObjUpdateRequired.argprom.exit, %1
   ret void
 }
 
@@ -5760,7 +5760,7 @@ define void @Of_ManComputeBackward3(ptr nocapture noundef %0) local_unnamed_addr
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
-  tail call fastcc void @Of_ManComputeOutputRequired(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @Of_ManComputeOutputRequired.retelim(ptr noundef %0, i32 noundef 0)
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 176
   store i64 0, ptr %7, align 8
@@ -5782,8 +5782,8 @@ define void @Of_ManComputeBackward3(ptr nocapture noundef %0) local_unnamed_addr
   %19 = zext nneg i32 %12 to i64
   br label %20
 
-20:                                               ; preds = %.lr.ph102, %Of_ObjUpdateRequired.exit
-  %indvars.iv106 = phi i64 [ %19, %.lr.ph102 ], [ %indvars.iv.next107, %Of_ObjUpdateRequired.exit ]
+20:                                               ; preds = %.lr.ph102, %Of_ObjUpdateRequired.argprom.exit
+  %indvars.iv106 = phi i64 [ %19, %.lr.ph102 ], [ %indvars.iv.next107, %Of_ObjUpdateRequired.argprom.exit ]
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, -1
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr i8, ptr %21, i64 32
@@ -5799,7 +5799,7 @@ define void @Of_ManComputeBackward3(ptr nocapture noundef %0) local_unnamed_addr
   %26 = and i64 %.val72, 536870911
   %27 = icmp ne i64 %26, 536870911
   %narrow.i = and i1 %.not.i, %27
-  br i1 %narrow.i, label %28, label %Of_ObjUpdateRequired.exit
+  br i1 %narrow.i, label %28, label %Of_ObjUpdateRequired.argprom.exit
 
 28:                                               ; preds = %23
   %.val83 = load ptr, ptr %14, align 8
@@ -5821,17 +5821,17 @@ define void @Of_ManComputeBackward3(ptr nocapture noundef %0) local_unnamed_addr
   %40 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val83, i64 %39, i32 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, %30
-  br i1 %42, label %43, label %Of_ObjUpdateRequired.exit
+  br i1 %42, label %43, label %Of_ObjUpdateRequired.argprom.exit
 
 43:                                               ; preds = %37
   store i32 %30, ptr %40, align 4
-  br label %Of_ObjUpdateRequired.exit
+  br label %Of_ObjUpdateRequired.argprom.exit
 
 44:                                               ; preds = %28
   %45 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val83, i64 %indvars.iv.next107, i32 5
   %46 = load i32, ptr %45, align 4
   %.not69 = icmp eq i32 %46, 0
-  br i1 %.not69, label %Of_ObjUpdateRequired.exit, label %47
+  br i1 %.not69, label %Of_ObjUpdateRequired.argprom.exit, label %47
 
 47:                                               ; preds = %44
   %.val79 = load ptr, ptr %15, align 8
@@ -5945,9 +5945,9 @@ Of_CutAreaDerefed2.exit:                          ; preds = %.lr.ph.i, %77
   %107 = sub nsw i32 %30, %5
   br label %108
 
-108:                                              ; preds = %.lr.ph97, %Of_ObjUpdateRequired.exit89
-  %.062.val76110 = phi i32 [ %.062.val7694, %.lr.ph97 ], [ %.062.val76, %Of_ObjUpdateRequired.exit89 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next, %Of_ObjUpdateRequired.exit89 ]
+108:                                              ; preds = %.lr.ph97, %Of_ObjUpdateRequired.argprom.exit89
+  %.062.val76110 = phi i32 [ %.062.val7694, %.lr.ph97 ], [ %.062.val76, %Of_ObjUpdateRequired.argprom.exit89 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next, %Of_ObjUpdateRequired.argprom.exit89 ]
   %109 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv
   %110 = load i32, ptr %109, align 4
   %.not70 = icmp ult i32 %110, 2
@@ -5960,14 +5960,14 @@ Of_CutAreaDerefed2.exit:                          ; preds = %.lr.ph.i, %77
   %114 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val84, i64 %113, i32 4
   %115 = load i32, ptr %114, align 4
   %116 = icmp sgt i32 %115, %107
-  br i1 %116, label %117, label %Of_ObjUpdateRequired.exit89
+  br i1 %116, label %117, label %Of_ObjUpdateRequired.argprom.exit89
 
 117:                                              ; preds = %111
   store i32 %107, ptr %114, align 4
   %.062.val76.pre = load i32, ptr %.163, align 4
-  br label %Of_ObjUpdateRequired.exit89
+  br label %Of_ObjUpdateRequired.argprom.exit89
 
-Of_ObjUpdateRequired.exit89:                      ; preds = %111, %117
+Of_ObjUpdateRequired.argprom.exit89:              ; preds = %111, %117
   %.062.val76 = phi i32 [ %.062.val76110, %111 ], [ %.062.val76.pre, %117 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %118 = and i32 %.062.val76, 31
@@ -5975,7 +5975,7 @@ Of_ObjUpdateRequired.exit89:                      ; preds = %111, %117
   %120 = icmp ult i64 %indvars.iv.next, %119
   br i1 %120, label %108, label %.critedge2, !llvm.loop !59
 
-.critedge2:                                       ; preds = %108, %Of_ObjUpdateRequired.exit89, %._crit_edge
+.critedge2:                                       ; preds = %108, %Of_ObjUpdateRequired.argprom.exit89, %._crit_edge
   %121 = tail call i32 @Of_CutRef_rec(ptr noundef nonnull %0, ptr noundef nonnull %.163)
   %.062.val = load i32, ptr %.163, align 4
   %122 = and i32 %.062.val, 31
@@ -5990,13 +5990,13 @@ Of_ObjUpdateRequired.exit89:                      ; preds = %111, %117
   %130 = load i64, ptr %129, align 8
   %131 = add i64 %130, 1
   store i64 %131, ptr %129, align 8
-  br label %Of_ObjUpdateRequired.exit
+  br label %Of_ObjUpdateRequired.argprom.exit
 
-Of_ObjUpdateRequired.exit:                        ; preds = %43, %37, %.critedge2, %23, %44
+Of_ObjUpdateRequired.argprom.exit:                ; preds = %43, %37, %.critedge2, %23, %44
   %132 = icmp sgt i64 %indvars.iv106, 2
   br i1 %132, label %20, label %.critedge, !llvm.loop !60
 
-.critedge:                                        ; preds = %20, %Of_ObjUpdateRequired.exit, %1
+.critedge:                                        ; preds = %20, %Of_ObjUpdateRequired.argprom.exit, %1
   ret void
 }
 
@@ -6162,13 +6162,13 @@ Vec_IntSelectSortCost2Reverse.exit:               ; preds = %._crit_edge.i, %._c
   %79 = load i32, ptr %78, align 4
   %80 = icmp sgt i32 %79, %60
   %or.cond140 = select i1 %77, i1 %80, i1 false
-  br i1 %or.cond140, label %81, label %Gia_ObjIsAndNotBuf.exit.thread
+  br i1 %or.cond140, label %81, label %Gia_ObjIsAndNotBuf.argprom.exit.thread
 
 81:                                               ; preds = %62
   %82 = icmp slt i32 %72, %79
   %83 = icmp ne i32 %.099, 0
   %or.cond = and i1 %83, %82
-  br i1 %or.cond, label %84, label %Gia_ObjIsAndNotBuf.exit.thread
+  br i1 %or.cond, label %84, label %Gia_ObjIsAndNotBuf.argprom.exit.thread
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %0, align 8
@@ -6181,27 +6181,27 @@ Vec_IntSelectSortCost2Reverse.exit:               ; preds = %._crit_edge.i, %._c
   %89 = and i64 %.val89, 536870911
   %90 = icmp eq i64 %89, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %90
-  br i1 %narrow.i.not.i, label %Gia_ObjIsAndNotBuf.exit.thread, label %Gia_ObjIsAndNotBuf.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsAndNotBuf.argprom.exit.thread, label %Gia_ObjIsAndNotBuf.argprom.exit
 
-Gia_ObjIsAndNotBuf.exit:                          ; preds = %84
+Gia_ObjIsAndNotBuf.argprom.exit:                  ; preds = %84
   %91 = lshr i64 %.val89, 32
   %92 = xor i64 %91, %.val89
   %93 = and i64 %92, 536870911
   %.not92 = icmp eq i64 %93, 0
-  br i1 %.not92, label %Gia_ObjIsAndNotBuf.exit.thread, label %94
+  br i1 %.not92, label %Gia_ObjIsAndNotBuf.argprom.exit.thread, label %94
 
-94:                                               ; preds = %Gia_ObjIsAndNotBuf.exit
+94:                                               ; preds = %Gia_ObjIsAndNotBuf.argprom.exit
   %95 = or i32 %67, 1
   br label %97
 
-Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %62, %84, %Gia_ObjIsAndNotBuf.exit, %81
+Gia_ObjIsAndNotBuf.argprom.exit.thread:           ; preds = %62, %84, %Gia_ObjIsAndNotBuf.argprom.exit, %81
   %96 = and i32 %67, -2
   br label %97
 
-97:                                               ; preds = %Gia_ObjIsAndNotBuf.exit.thread, %94
-  %storemerge = phi i32 [ %95, %94 ], [ %96, %Gia_ObjIsAndNotBuf.exit.thread ]
-  %.076 = phi i32 [ %72, %94 ], [ %79, %Gia_ObjIsAndNotBuf.exit.thread ]
-  %.1 = phi i32 [ 1, %94 ], [ 0, %Gia_ObjIsAndNotBuf.exit.thread ]
+97:                                               ; preds = %Gia_ObjIsAndNotBuf.argprom.exit.thread, %94
+  %storemerge = phi i32 [ %95, %94 ], [ %96, %Gia_ObjIsAndNotBuf.argprom.exit.thread ]
+  %.076 = phi i32 [ %72, %94 ], [ %79, %Gia_ObjIsAndNotBuf.argprom.exit.thread ]
+  %.1 = phi i32 [ 1, %94 ], [ 0, %Gia_ObjIsAndNotBuf.argprom.exit.thread ]
   store i32 %storemerge, ptr %66, align 4
   %98 = load i32, ptr %3, align 4
   %99 = tail call noundef i32 @llvm.smax.i32(i32 %98, i32 %.076)
@@ -6440,7 +6440,7 @@ define void @Of_ManComputeBackwardDircon1(ptr nocapture noundef readonly %0) loc
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 44
   %7 = load i32, ptr %6, align 4
-  tail call fastcc void @Of_ManComputeOutputRequired(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @Of_ManComputeOutputRequired.retelim(ptr noundef %0, i32 noundef 1)
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 160
   %10 = load i64, ptr %9, align 8
@@ -6529,14 +6529,14 @@ Vec_BitStart.exit:                                ; preds = %1, %24
   %61 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val96, i64 %60, i32 4
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, %51
-  br i1 %63, label %64, label %Of_ObjUpdateRequired.exit
+  br i1 %63, label %64, label %Of_ObjUpdateRequired.argprom.exit
 
 64:                                               ; preds = %58
   store i32 %51, ptr %61, align 4
   %.val95.pre = load ptr, ptr %37, align 8
-  br label %Of_ObjUpdateRequired.exit
+  br label %Of_ObjUpdateRequired.argprom.exit
 
-Of_ObjUpdateRequired.exit:                        ; preds = %58, %64
+Of_ObjUpdateRequired.argprom.exit:                ; preds = %58, %64
   %.val95 = phi ptr [ %.val96, %58 ], [ %.val95.pre, %64 ]
   %65 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val95, i64 %60, i32 5
   %66 = load i32, ptr %65, align 4
@@ -6608,7 +6608,7 @@ Of_ObjUpdateRequired.exit:                        ; preds = %58, %64
   %109 = sub nsw i32 %51, %5
   br label %113
 
-110:                                              ; preds = %Of_ObjUpdateRequired.exit106.us
+110:                                              ; preds = %Of_ObjUpdateRequired.argprom.exit106.us
   %111 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv.next
   %112 = load i32, ptr %111, align 4
   %.not81.us = icmp ult i32 %112, 2
@@ -6623,14 +6623,14 @@ Of_ObjUpdateRequired.exit:                        ; preds = %58, %64
   %116 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val97.us, i64 %115, i32 4
   %117 = load i32, ptr %116, align 4
   %118 = icmp sgt i32 %117, %109
-  br i1 %118, label %119, label %Of_ObjUpdateRequired.exit106.us
+  br i1 %118, label %119, label %Of_ObjUpdateRequired.argprom.exit106.us
 
 119:                                              ; preds = %113
   store i32 %109, ptr %116, align 4
   %.val94.us.pre = load ptr, ptr %37, align 8
-  br label %Of_ObjUpdateRequired.exit106.us
+  br label %Of_ObjUpdateRequired.argprom.exit106.us
 
-Of_ObjUpdateRequired.exit106.us:                  ; preds = %119, %113
+Of_ObjUpdateRequired.argprom.exit106.us:          ; preds = %119, %113
   %.val94.us = phi ptr [ %.val94.us.pre, %119 ], [ %.val97.us, %113 ]
   %120 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val94.us, i64 %115, i32 5
   %121 = load i32, ptr %120, align 4
@@ -6665,14 +6665,14 @@ Of_ObjUpdateRequired.exit106.us:                  ; preds = %119, %113
   %136 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val97, i64 %135, i32 4
   %137 = load i32, ptr %136, align 4
   %138 = icmp sgt i32 %137, %134
-  br i1 %138, label %139, label %Of_ObjUpdateRequired.exit106
+  br i1 %138, label %139, label %Of_ObjUpdateRequired.argprom.exit106
 
 139:                                              ; preds = %.lr.ph121
   store i32 %134, ptr %136, align 4
   %.val94.pre = load ptr, ptr %37, align 8
-  br label %Of_ObjUpdateRequired.exit106
+  br label %Of_ObjUpdateRequired.argprom.exit106
 
-Of_ObjUpdateRequired.exit106:                     ; preds = %.lr.ph121, %139
+Of_ObjUpdateRequired.argprom.exit106:             ; preds = %.lr.ph121, %139
   %.val94 = phi ptr [ %.val97, %.lr.ph121 ], [ %.val94.pre, %139 ]
   %140 = getelementptr inbounds %struct.Of_Obj_t_, ptr %.val94, i64 %135, i32 5
   %141 = load i32, ptr %140, align 4
@@ -6680,7 +6680,7 @@ Of_ObjUpdateRequired.exit106:                     ; preds = %.lr.ph121, %139
   store i32 %142, ptr %140, align 4
   br i1 %132, label %151, label %143
 
-143:                                              ; preds = %Of_ObjUpdateRequired.exit106
+143:                                              ; preds = %Of_ObjUpdateRequired.argprom.exit106
   %144 = and i32 %130, 31
   %145 = shl nuw i32 1, %144
   %146 = ashr i32 %129, 6
@@ -6691,7 +6691,7 @@ Of_ObjUpdateRequired.exit106:                     ; preds = %.lr.ph121, %139
   store i32 %150, ptr %148, align 4
   br label %151
 
-151:                                              ; preds = %Of_ObjUpdateRequired.exit106, %143
+151:                                              ; preds = %Of_ObjUpdateRequired.argprom.exit106, %143
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %.072.val87 = load i32, ptr %89, align 4
   %152 = and i32 %.072.val87, 31
@@ -6699,8 +6699,8 @@ Of_ObjUpdateRequired.exit106:                     ; preds = %.lr.ph121, %139
   %154 = icmp ult i64 %indvars.iv.next142, %153
   br i1 %154, label %126, label %.critedge2, !llvm.loop !69
 
-.critedge2:                                       ; preds = %Of_ObjUpdateRequired.exit106.us, %110, %151, %126, %.lr.ph.split.us, %.lr.ph.split, %71
-  %.lcssa = phi i32 [ 0, %71 ], [ %107, %.lr.ph.split.us ], [ %107, %.lr.ph.split ], [ %152, %126 ], [ %152, %151 ], [ %123, %110 ], [ %123, %Of_ObjUpdateRequired.exit106.us ]
+.critedge2:                                       ; preds = %Of_ObjUpdateRequired.argprom.exit106.us, %110, %151, %126, %.lr.ph.split.us, %.lr.ph.split, %71
+  %.lcssa = phi i32 [ 0, %71 ], [ %107, %.lr.ph.split.us ], [ %107, %.lr.ph.split ], [ %152, %126 ], [ %152, %151 ], [ %123, %110 ], [ %123, %Of_ObjUpdateRequired.argprom.exit106.us ]
   %155 = zext nneg i32 %.lcssa to i64
   %156 = load ptr, ptr %2, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 176
@@ -6714,7 +6714,7 @@ Of_ObjUpdateRequired.exit106:                     ; preds = %.lr.ph121, %139
   store i64 %163, ptr %161, align 8
   br label %164
 
-164:                                              ; preds = %.critedge2, %44, %68, %Of_ObjUpdateRequired.exit
+164:                                              ; preds = %.critedge2, %44, %68, %Of_ObjUpdateRequired.argprom.exit
   %165 = icmp sgt i64 %indvars.iv144, 2
   br i1 %165, label %41, label %.critedge, !llvm.loop !70
 

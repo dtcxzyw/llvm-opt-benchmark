@@ -3205,29 +3205,29 @@ define internal noundef zeroext i1 @"_ZNK7testing18PolymorphicMatcherINS_8intern
 entry:
   %x.val = load i64, ptr %x, align 8
   %cmp.not.i.i.i = icmp ult i64 %x.val, 42
-  br i1 %cmp.not.i.i.i, label %if.end.i, label %"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i"
+  br i1 %cmp.not.i.i.i, label %if.end.i, label %"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i": ; preds = %entry
+"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i": ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %x, i64 8
   %x.val1 = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %x.val1, i64 %x.val
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 -42
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(42) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(42) @.str.38, i64 42)
   %cmp9.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %cmp9.i.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit", label %if.end.i
+  br i1 %cmp9.i.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.argprom.exit", label %if.end.i
 
-if.end.i:                                         ; preds = %"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i", %entry
+if.end.i:                                         ; preds = %"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i", %entry
   %stream_.i.i = getelementptr inbounds i8, ptr %listener, i64 8
   %2 = load ptr, ptr %stream_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.37)
-  br label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit"
+  br label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.argprom.exit"
 
-"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit": ; preds = %"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i", %if.end.i, %if.then.i.i
-  %3 = phi i1 [ true, %"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i" ], [ false, %if.end.i ], [ false, %if.then.i.i ]
+"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.argprom.exit": ; preds = %"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i", %if.end.i, %if.then.i.i
+  %3 = phi i1 [ true, %"_ZZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i" ], [ false, %if.end.i ], [ false, %if.then.i.i ]
   ret i1 %3
 }
 
@@ -19021,8 +19021,8 @@ attributes #37 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0EEEcvNS_7MatcherIT_EEISt17basic_string_viewIcSt11char_traitsIcEEEEv: %agg.result"}
-!7 = distinct !{!7, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0EEEcvNS_7MatcherIT_EEISt17basic_string_viewIcSt11char_traitsIcEEEEv"}
+!6 = distinct !{!6, !7, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0EEEcvNS_7MatcherIT_EEISt17basic_string_viewIcSt11char_traitsIcEEEEv.argprom: %agg.result"}
+!7 = distinct !{!7, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN12_GLOBAL__N_145TailCallsModifiesTest_AtLocationFileLine_Test8TestBodyEvE3$_0EEEcvNS_7MatcherIT_EEISt17basic_string_viewIcSt11char_traitsIcEEEEv.argprom"}
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZN7testing5AllOfIJNS_7MatcherIRKN4absl8LogEntryEEES6_S6_S6_EEENS_8internal15VariadicMatcherINS7_16AllOfMatcherImplEJDpNSt5decayIRKT_E4typeEEEEDpSD_: %agg.result"}
 !10 = distinct !{!10, !"_ZN7testing5AllOfIJNS_7MatcherIRKN4absl8LogEntryEEES6_S6_S6_EEENS_8internal15VariadicMatcherINS7_16AllOfMatcherImplEJDpNSt5decayIRKT_E4typeEEEEDpSD_"}

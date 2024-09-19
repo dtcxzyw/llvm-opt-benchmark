@@ -11756,7 +11756,7 @@ invoke.cont.i.i:                                  ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sst_file_number.addr.i.i.i)
   invoke void @_ZN7rocksdb4port7RWMutex11WriteUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %mutex_.i.i)
-          to label %"_ZZN7rocksdb7blob_db10BlobDBImpl17LinkSstToBlobFileEmmENK3$_0clEPNS0_8BlobFileEm.exit.i" unwind label %terminate.lpad.i.i.i
+          to label %"_ZZN7rocksdb7blob_db10BlobDBImpl17LinkSstToBlobFileEmmENK3$_0clEPNS0_8BlobFileEm.argprom.exit.i" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont.i.i
   %4 = landingpad { ptr, i32 }
@@ -11781,12 +11781,12 @@ terminate.lpad.i3.i.i:                            ; preds = %lpad.i.i
 _ZN7rocksdb9WriteLockD2Ev.exit4.i.i:              ; preds = %lpad.i.i
   resume { ptr, i32 } %6
 
-"_ZZN7rocksdb7blob_db10BlobDBImpl17LinkSstToBlobFileEmmENK3$_0clEPNS0_8BlobFileEm.exit.i": ; preds = %invoke.cont.i.i
+"_ZZN7rocksdb7blob_db10BlobDBImpl17LinkSstToBlobFileEmmENK3$_0clEPNS0_8BlobFileEm.argprom.exit.i": ; preds = %invoke.cont.i.i
   %info_log10.i = getelementptr inbounds i8, ptr %this, i64 240
   call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log10.i, ptr noundef nonnull @.str.112, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 93), i64 noundef %blob_file_number, i64 noundef %sst_file_number)
   br label %"_ZN7rocksdb7blob_db10BlobDBImpl21LinkSstToBlobFileImplIZNS1_17LinkSstToBlobFileEmmE3$_0EEvmmT_.exit"
 
-"_ZN7rocksdb7blob_db10BlobDBImpl21LinkSstToBlobFileImplIZNS1_17LinkSstToBlobFileEmmE3$_0EEvmmT_.exit": ; preds = %if.then.i, %"_ZZN7rocksdb7blob_db10BlobDBImpl17LinkSstToBlobFileEmmENK3$_0clEPNS0_8BlobFileEm.exit.i"
+"_ZN7rocksdb7blob_db10BlobDBImpl21LinkSstToBlobFileImplIZNS1_17LinkSstToBlobFileEmmE3$_0EEvmmT_.exit": ; preds = %if.then.i, %"_ZZN7rocksdb7blob_db10BlobDBImpl17LinkSstToBlobFileEmmENK3$_0clEPNS0_8BlobFileEm.argprom.exit.i"
   ret void
 }
 
@@ -42760,8 +42760,8 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp9.i.i.i, label %while.body.i.i, label %while.body.i.i.i, !llvm.loop !230
 
-while.body.i.i:                                   ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i" ], [ %storemerge16, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.argprom.exit.i.i"
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.argprom.exit.i.i" ], [ %storemerge16, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -24
   %__value.sroa.0.0.copyload.i.i2.i = load i64, ptr %incdec.ptr.i.i1.i, align 8
   %__value.sroa.2.0.__result.sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -16
@@ -42817,7 +42817,7 @@ if.then20.i.i.i33.i:                              ; preds = %land.lhs.true.i.i.i
 if.end33.i.i.i16.i:                               ; preds = %if.then20.i.i.i33.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i12.i
   %__holeIndex.addr.1.i.i.i17.i = phi i64 [ %sub24.i.i.i34.i, %if.then20.i.i.i33.i ], [ %__holeIndex.addr.0.lcssa.i.i.i13.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i13.i, %while.end.i.i.i12.i ]
   %cmp6.i.i.i.i18.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i17.i, 0
-  br i1 %cmp6.i.i.i.i18.i, label %land.rhs.i.i.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
+  br i1 %cmp6.i.i.i.i18.i, label %land.rhs.i.i.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.argprom.exit.i.i"
 
 land.rhs.i.i.i.i23.i:                             ; preds = %if.end33.i.i.i16.i, %while.body.i.i.i.i29.i
   %__holeIndex.addr.07.i.i.i.i24.i = phi i64 [ %__parent.08.i.i34.i.i.i, %while.body.i.i.i.i29.i ], [ %__holeIndex.addr.1.i.i.i17.i, %if.end33.i.i.i16.i ]
@@ -42827,15 +42827,15 @@ land.rhs.i.i.i.i23.i:                             ; preds = %if.end33.i.i.i16.i,
   %7 = getelementptr i8, ptr %add.ptr.i.i.i.i.i26.i, i64 8
   %call.val.i.i.i.i.i27.i = load i64, ptr %7, align 8
   %cmp.i.i.i.i.i.i28.i = icmp ult i64 %call.val.i.i.i.i.i27.i, %__value.sroa.2.0.copyload.i.i3.i
-  br i1 %cmp.i.i.i.i.i.i28.i, label %while.body.i.i.i.i29.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i28.i, label %while.body.i.i.i.i29.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.argprom.exit.i.i"
 
 while.body.i.i.i.i29.i:                           ; preds = %land.rhs.i.i.i.i23.i
   %add.ptr.i8.i.i.i.i30.i = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i24.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8.i.i.i.i30.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i26.i, i64 24, i1 false)
   %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.08.in.i.i.i.i25.i, 2
-  br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", label %land.rhs.i.i.i.i23.i, !llvm.loop !229
+  br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.argprom.exit.i.i", label %land.rhs.i.i.i.i23.i, !llvm.loop !229
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i": ; preds = %while.body.i.i.i.i29.i, %land.rhs.i.i.i.i23.i, %if.end33.i.i.i16.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.argprom.exit.i.i": ; preds = %while.body.i.i.i.i29.i, %land.rhs.i.i.i.i23.i, %if.end33.i.i.i16.i
   %__holeIndex.addr.0.lcssa.i.i.i.i19.i = phi i64 [ %__holeIndex.addr.1.i.i.i17.i, %if.end33.i.i.i16.i ], [ %__holeIndex.addr.07.i.i.i.i24.i, %land.rhs.i.i.i.i23.i ], [ 0, %while.body.i.i.i.i29.i ]
   %add.ptr.i9.i.i.i.i20.i = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i19.i
   store i64 %__value.sroa.0.0.copyload.i.i2.i, ptr %add.ptr.i9.i.i.i.i20.i, align 8
@@ -42968,7 +42968,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i.i.fr.i.i, 384
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !235
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", %entry
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.argprom.exit.i.i", %entry
   ret void
 }
 

@@ -199,10 +199,10 @@ sw.bb:                                            ; preds = %if.end19
   %m_queue.i.i = getelementptr inbounds i8, ptr %call21, i64 24
   %m_activity.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 9424
   %3 = ptrtoint ptr %m_activity.i.i.i to i64
-  tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_queue.i.i, i64 %3)
+  tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %m_queue.i.i, i64 %3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i64 16), ptr %call21, align 8
   %m_delayed_queue.i = getelementptr inbounds i8, ptr %call21, i64 48
-  invoke fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue.i, i64 %3)
+  invoke fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue.i, i64 %3)
           to label %return unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup16.i, %lpad3.i.i, %lpad3.i, %lpad.i31, %lpad.i
@@ -225,7 +225,7 @@ sw.bb22:                                          ; preds = %if.end19
   %m_queue.i.i29 = getelementptr inbounds i8, ptr %call23, i64 24
   %m_activity.i.i.i30 = getelementptr inbounds i8, ptr %ctx, i64 9424
   %5 = ptrtoint ptr %m_activity.i.i.i30 to i64
-  tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_queue.i.i29, i64 %5)
+  tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %m_queue.i.i29, i64 %5)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i64 16), ptr %call23, align 8
   %call.i.i.i.i3.i = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
           to label %_ZN12_GLOBAL__N_121cact_case_split_queueC2ERN3smt7contextER10smt_params.exit unwind label %lpad.i31
@@ -300,7 +300,7 @@ sw.bb26:                                          ; preds = %if.end19
   %m_delayed_queue.i40 = getelementptr inbounds i8, ptr %call27, i64 48
   %m_activity.i.i = getelementptr inbounds i8, ptr %ctx, i64 9424
   %11 = ptrtoint ptr %m_activity.i.i to i64
-  invoke fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue.i40, i64 %11)
+  invoke fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue.i40, i64 %11)
           to label %_ZN12_GLOBAL__N_124rel_act_case_split_queueC2ERN3smt7contextER10smt_params.exit unwind label %lpad3.i
 
 lpad3.i:                                          ; preds = %sw.bb26
@@ -370,9 +370,9 @@ lpad3.i.i:                                        ; preds = %sw.bb28
   tail call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_value2indices.i.i) #24
   tail call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_values.i.i) #24
   %m_scopes.val.i = load ptr, ptr %m_scopes.i50, align 8
-  tail call fastcc void @_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev(ptr %m_scopes.val.i) #24
+  tail call fastcc void @_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.argprom(ptr %m_scopes.val.i) #24
   %m_queue2.val.i = load ptr, ptr %m_queue2.i49, align 8
-  tail call fastcc void @_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev(ptr %m_queue2.val.i) #24
+  tail call fastcc void @_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.argprom(ptr %m_queue2.val.i) #24
   tail call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_queue.i46) #24
   br label %common.resume
 
@@ -559,7 +559,7 @@ sw.default:                                       ; preds = %if.end19.thread, %i
   %m_queue.i74 = getelementptr inbounds i8, ptr %call32, i64 24
   %m_activity.i.i75 = getelementptr inbounds i8, ptr %ctx, i64 9424
   %31 = ptrtoint ptr %m_activity.i.i75 to i64
-  tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_queue.i74, i64 %31)
+  tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %m_queue.i74, i64 %31)
   br label %return
 
 return:                                           ; preds = %sw.bb, %sw.default, %_ZN12_GLOBAL__N_128theory_aware_branching_queueC2ERN3smt7contextER10smt_params.exit, %_ZN12_GLOBAL__N_125rel_goal_case_split_queueC2ERN3smt7contextER10smt_params.exit, %_ZN12_GLOBAL__N_124rel_act_case_split_queueC2ERN3smt7contextER10smt_params.exit, %sw.bb24, %_ZN12_GLOBAL__N_121cact_case_split_queueC2ERN3smt7contextER10smt_params.exit
@@ -576,7 +576,7 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %lt.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %lt.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store i64 %lt.0.val, ptr %this, align 8
   %m_values = getelementptr inbounds i8, ptr %this, i64 8
@@ -683,16 +683,16 @@ if.end.i.i.i:                                     ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i.i:              ; preds = %if.end.i.i.i, %entry
   %retval.0.i.i.i = phi i32 [ %1, %if.end.i.i.i ], [ 0, %entry ]
   %cmp.i.i = icmp slt i32 %v, %retval.0.i.i.i
-  br i1 %cmp.i.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i, label %_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit
+  br i1 %cmp.i.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i, label %_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i
   %idxprom.i.i.i = zext i32 %v to i64
   %arrayidx.i2.i.i = getelementptr inbounds i32, ptr %m_queue.val.i, i64 %idxprom.i.i.i
   %2 = load i32, ptr %arrayidx.i2.i.i, align 4
   %cmp4.i.not.i = icmp eq i32 %2, 0
   br i1 %cmp4.i.not.i, label %if.end.i.i, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i
+if.then.i:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i
   %m_values.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_values.i.i.i, align 8
   %idxprom.i.i.i.i = zext i32 %2 to i64
@@ -754,8 +754,8 @@ _ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit: ; preds =
   %cmp.i.i5 = icmp eq ptr %m_queue.val, null
   br i1 %cmp.i.i5, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit
-  %m_queue.val89 = phi ptr [ %m_queue.val, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit ], [ %m_queue.val.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i ]
+if.end.i.i:                                       ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit
+  %m_queue.val89 = phi ptr [ %m_queue.val, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit ], [ %m_queue.val.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_queue.val89, i64 -4
   %14 = load i32, ptr %arrayidx.i.i, align 4
   br label %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
@@ -764,16 +764,16 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %_ZN12_
   %m_queue.val90 = phi ptr [ %m_queue.val89, %if.end.i.i ], [ null, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit ]
   %retval.0.i.i = phi i32 [ %14, %if.end.i.i ], [ 0, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj.exit ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val90, i64 %idxprom.i.i
   %15 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %15, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   %m_values.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %m_values.i.i, align 8
   %idxprom.i.i.i8 = zext i32 %15 to i64
@@ -829,7 +829,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit: ; preds = %lor.lhs
   store i32 %idx.addr.0.lcssa.i.i, ptr %arrayidx.i25.i.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   %m_delayed_queue = getelementptr inbounds i8, ptr %this, i64 48
   %27 = getelementptr inbounds i8, ptr %this, i64 64
   %m_delayed_queue.val = load ptr, ptr %27, align 8
@@ -844,16 +844,16 @@ if.end.i.i13:                                     ; preds = %if.end
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i15:              ; preds = %if.end.i.i13, %if.end
   %retval.0.i.i16 = phi i32 [ %28, %if.end.i.i13 ], [ 0, %if.end ]
   %cmp.i17 = icmp slt i32 %v, %retval.0.i.i16
-  br i1 %cmp.i17, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit22, label %if.end6
+  br i1 %cmp.i17, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit22, label %if.end6
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit22: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i15
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit22: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i15
   %idxprom.i.i19 = zext i32 %v to i64
   %arrayidx.i2.i20 = getelementptr inbounds i32, ptr %m_delayed_queue.val, i64 %idxprom.i.i19
   %29 = load i32, ptr %arrayidx.i2.i20, align 4
   %cmp4.i21.not = icmp eq i32 %29, 0
   br i1 %cmp4.i21.not, label %if.end6, label %if.then4
 
-if.then4:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit22
+if.then4:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit22
   %m_values.i.i26 = getelementptr inbounds i8, ptr %this, i64 56
   %30 = load ptr, ptr %m_values.i.i26, align 8
   %idxprom.i.i.i27 = zext i32 %29 to i64
@@ -909,7 +909,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit57: ; preds = %lor.l
   store i32 %idx.addr.0.lcssa.i.i45, ptr %arrayidx.i25.i.i47, align 4
   br label %if.end6
 
-if.end6:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i15, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit57, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit22
+if.end6:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i15, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit57, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit22
   ret void
 }
 
@@ -930,16 +930,16 @@ if.end.i.i.i:                                     ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i.i:              ; preds = %if.end.i.i.i, %entry
   %retval.0.i.i.i = phi i32 [ %1, %if.end.i.i.i ], [ 0, %entry ]
   %cmp.i.i = icmp slt i32 %v, %retval.0.i.i.i
-  br i1 %cmp.i.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i, label %_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit
+  br i1 %cmp.i.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i, label %_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i
   %idxprom.i.i.i = zext i32 %v to i64
   %arrayidx.i2.i.i = getelementptr inbounds i32, ptr %m_queue.val.i, i64 %idxprom.i.i.i
   %2 = load i32, ptr %arrayidx.i2.i.i, align 4
   %cmp4.i.not.i = icmp eq i32 %2, 0
   br i1 %cmp4.i.not.i, label %if.end.i.i, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i
+if.then.i:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i
   %m_values.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_values.i.i.i, align 8
   %idxprom.i.i.i.i = zext i32 %2 to i64
@@ -1041,8 +1041,8 @@ _ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit: ; preds =
   %cmp.i.i5 = icmp eq ptr %m_queue.val, null
   br i1 %cmp.i.i5, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit
-  %m_queue.val104 = phi ptr [ %m_queue.val, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit ], [ %m_queue.val.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i ]
+if.end.i.i:                                       ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit
+  %m_queue.val104 = phi ptr [ %m_queue.val, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit ], [ %m_queue.val.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_queue.val104, i64 -4
   %16 = load i32, ptr %arrayidx.i.i, align 4
   br label %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
@@ -1051,16 +1051,16 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %_ZN12_
   %m_queue.val105 = phi ptr [ %m_queue.val104, %if.end.i.i ], [ null, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit ]
   %retval.0.i.i = phi i32 [ %16, %if.end.i.i ], [ 0, %_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj.exit ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val105, i64 %idxprom.i.i
   %17 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %17, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   %m_values.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %m_values.i.i, align 8
   %idxprom.i.i.i8 = zext i32 %17 to i64
@@ -1156,7 +1156,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit: ; preds = %if.then
   store i32 %idx.addr.0.lcssa.i.i, ptr %arrayidx.i38.i.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   %m_delayed_queue = getelementptr inbounds i8, ptr %this, i64 48
   %31 = getelementptr inbounds i8, ptr %this, i64 64
   %m_delayed_queue.val = load ptr, ptr %31, align 8
@@ -1171,16 +1171,16 @@ if.end.i.i12:                                     ; preds = %if.end
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i14:              ; preds = %if.end.i.i12, %if.end
   %retval.0.i.i15 = phi i32 [ %32, %if.end.i.i12 ], [ 0, %if.end ]
   %cmp.i16 = icmp slt i32 %v, %retval.0.i.i15
-  br i1 %cmp.i16, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit21, label %if.end6
+  br i1 %cmp.i16, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit21, label %if.end6
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit21: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i14
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit21: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i14
   %idxprom.i.i18 = zext i32 %v to i64
   %arrayidx.i2.i19 = getelementptr inbounds i32, ptr %m_delayed_queue.val, i64 %idxprom.i.i18
   %33 = load i32, ptr %arrayidx.i2.i19, align 4
   %cmp4.i20.not = icmp eq i32 %33, 0
   br i1 %cmp4.i20.not, label %if.end6, label %if.then4
 
-if.then4:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit21
+if.then4:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit21
   %m_values.i.i25 = getelementptr inbounds i8, ptr %this, i64 56
   %34 = load ptr, ptr %m_values.i.i25, align 8
   %idxprom.i.i.i26 = zext i32 %33 to i64
@@ -1276,7 +1276,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit82: ; preds = %if.th
   store i32 %idx.addr.0.lcssa.i.i33, ptr %arrayidx.i38.i.i35, align 4
   br label %if.end6
 
-if.end6:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i14, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit82, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit21
+if.end6:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i14, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit82, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit21
   ret void
 }
 
@@ -1638,20 +1638,20 @@ if.end.i.i.i:                                     ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i.i:              ; preds = %if.end.i.i.i, %entry
   %retval.0.i.i.i = phi i32 [ %1, %if.end.i.i.i ], [ 0, %entry ]
   %cmp.i.i = icmp slt i32 %v, %retval.0.i.i.i
-  br i1 %cmp.i.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i, label %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit
+  br i1 %cmp.i.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i, label %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i
   %idxprom.i.i.i = zext i32 %v to i64
   %arrayidx.i2.i.i = getelementptr inbounds i32, ptr %m_queue.val.i, i64 %idxprom.i.i.i
   %2 = load i32, ptr %arrayidx.i2.i.i, align 4
   %cmp4.i.not.i = icmp eq i32 %2, 0
   br i1 %cmp4.i.not.i, label %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i
+if.then.i:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i
   tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5eraseEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %m_queue.i, i32 noundef %v)
   br label %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit
 
-_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i, %if.then.i
+_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i, %if.then.i
   %m_delayed_queue = getelementptr inbounds i8, ptr %this, i64 48
   %3 = getelementptr inbounds i8, ptr %this, i64 64
   %m_delayed_queue.val = load ptr, ptr %3, align 8
@@ -1666,20 +1666,20 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_120
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit
   %retval.0.i.i = phi i32 [ %4, %if.end.i.i ], [ 0, %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_delayed_queue.val, i64 %idxprom.i.i
   %5 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %5, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5eraseEi(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue, i32 noundef %v)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %if.then, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %if.then, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -1706,16 +1706,16 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.then
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.then
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   %m_values.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_values.i, align 8
   %cmp.i.i2 = icmp eq ptr %3, null
@@ -1815,7 +1815,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE6insertEi.exit: ; preds = %lor.lhs.fa
   store i32 %idx.addr.0.lcssa.i.i, ptr %arrayidx.i25.i.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE6insertEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE6insertEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -1849,15 +1849,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %this.val.i.i = load ptr, ptr %0, align 8
   %cmp.i.i.i.i = icmp eq ptr %this.val.i.i, null
-  br i1 %cmp.i.i.i.i, label %if.end.i.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i.i
+  br i1 %cmp.i.i.i.i, label %if.end.i.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i.i
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i.i: ; preds = %entry
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i.i: ; preds = %entry
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %_ZN12_GLOBAL__N_120act_case_split_queue5resetEv.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i.i, %entry
+if.end.i.i:                                       ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i.i, %entry
   %m_value2indices.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %m_value2indices.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
@@ -1912,19 +1912,19 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i.i:         ; preds = %if.then.i6.i.i, %lo
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
   br label %_ZN12_GLOBAL__N_120act_case_split_queue5resetEv.exit
 
-_ZN12_GLOBAL__N_120act_case_split_queue5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i.i
+_ZN12_GLOBAL__N_120act_case_split_queue5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i.i
   %14 = getelementptr inbounds i8, ptr %this, i64 56
   %this.val.i = load ptr, ptr %14, align 8
   %cmp.i.i.i1 = icmp eq ptr %this.val.i, null
-  br i1 %cmp.i.i.i1, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i
+  br i1 %cmp.i.i.i1, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i: ; preds = %_ZN12_GLOBAL__N_120act_case_split_queue5resetEv.exit
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i: ; preds = %_ZN12_GLOBAL__N_120act_case_split_queue5resetEv.exit
   %arrayidx.i.i.i2 = getelementptr inbounds i8, ptr %this.val.i, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i2, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i, %_ZN12_GLOBAL__N_120act_case_split_queue5resetEv.exit
+if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i, %_ZN12_GLOBAL__N_120act_case_split_queue5resetEv.exit
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 64
   %17 = load ptr, ptr %m_value2indices.i, align 8
   %cmp.i.i = icmp eq ptr %17, null
@@ -1979,7 +1979,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i:           ; preds = %if.then.i6.i, %lor.
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit
 
-_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
+_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
   ret void
 }
 
@@ -2023,20 +2023,20 @@ if.end:                                           ; preds = %entry
 while.cond:                                       ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9erase_minEv.exit, %if.end
   %m_queue.val = load ptr, ptr %m_values.i, align 8
   %cmp.i.i = icmp eq ptr %m_queue.val, null
-  br i1 %cmp.i.i, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
+  br i1 %cmp.i.i, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
 
 while.cond.while.body_crit_edge:                  ; preds = %while.cond
   %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4
   br label %while.body
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit: ; preds = %while.cond
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit: ; preds = %while.cond
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_queue.val, i64 -4
   %5 = load i32, ptr %arrayidx.i.i, align 4
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %while.end, label %while.body
 
-while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
-  %7 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %5, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit ]
+while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
+  %7 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %5, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit ]
   %arrayidx.i.i6 = getelementptr inbounds i8, ptr %m_queue.val, i64 4
   %8 = load i32, ptr %arrayidx.i.i6, align 4
   %cmp.i = icmp eq i32 %7, 2
@@ -2177,7 +2177,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9erase_minEv.exit: ; preds = %if.then
   %cmp6 = icmp eq i8 %34, 0
   br i1 %cmp6, label %return, label %while.cond, !llvm.loop !9
 
-while.end:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
+while.end:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
   store i32 2147483647, ptr %next, align 4
   br label %return
 
@@ -2191,9 +2191,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %m_queue.val = load ptr, ptr %0, align 8
   %cmp.i.i = icmp eq ptr %m_queue.val, null
-  br i1 %cmp.i.i, label %for.body.lr.ph, label %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.exit
+  br i1 %cmp.i.i, label %for.body.lr.ph, label %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.argprom.exit
 
-_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.exit: ; preds = %entry
+_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.argprom.exit: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_queue.val, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
@@ -2202,8 +2202,8 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.exit: ; preds = %entry
   %cmp.not12 = icmp eq i32 %1, 1
   br i1 %cmp.not12, label %if.end17, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.exit
-  %add.ptr.i918 = phi ptr [ %add.ptr.i9, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.exit ], [ null, %entry ]
+for.body.lr.ph:                                   ; preds = %entry, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.argprom.exit
+  %add.ptr.i918 = phi ptr [ %add.ptr.i9, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.argprom.exit ], [ null, %entry ]
   %__begin2.011 = getelementptr inbounds i8, ptr %m_queue.val, i64 4
   %m_context = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
@@ -2258,7 +2258,7 @@ if.then15:                                        ; preds = %for.end
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.13)
   br label %if.end17
 
-if.end17:                                         ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.exit, %if.then15, %for.end
+if.end17:                                         ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE3endEv.argprom.exit, %if.then15, %for.end
   ret void
 }
 
@@ -2373,16 +2373,16 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   %m_values.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_values.i.i, align 8
   %idxprom.i.i.i = zext i32 %2 to i64
@@ -2438,7 +2438,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit: ; preds = %lor.lhs
   store i32 %idx.addr.0.lcssa.i.i, ptr %arrayidx.i25.i.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9decreasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -2459,16 +2459,16 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   %m_values.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_values.i.i, align 8
   %idxprom.i.i.i = zext i32 %2 to i64
@@ -2564,7 +2564,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit: ; preds = %if.then
   store i32 %idx.addr.0.lcssa.i.i, ptr %arrayidx.i38.i.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9increasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -2752,20 +2752,20 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5eraseEi(ptr noundef nonnull align 8 dereferenceable(24) %m_queue, i32 noundef %v)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %if.then, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %if.then, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -2793,15 +2793,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %this.val.i = load ptr, ptr %0, align 8
   %cmp.i.i.i = icmp eq ptr %this.val.i, null
-  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i
+  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i: ; preds = %entry
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i: ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i, align 4
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i, %entry
+if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i, %entry
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %m_value2indices.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
@@ -2856,7 +2856,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i:           ; preds = %if.then.i6.i, %lor.
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit
 
-_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
+_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
   ret void
 }
 
@@ -2929,20 +2929,20 @@ if.end12:                                         ; preds = %if.then, %entry
 while.cond:                                       ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9erase_minEv.exit, %if.end12
   %m_queue.val = load ptr, ptr %12, align 8
   %cmp.i.i = icmp eq ptr %m_queue.val, null
-  br i1 %cmp.i.i, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
+  br i1 %cmp.i.i, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
 
 while.cond.while.body_crit_edge:                  ; preds = %while.cond
   %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4
   br label %while.body
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit: ; preds = %while.cond
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit: ; preds = %while.cond
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_queue.val, i64 -4
   %13 = load i32, ptr %arrayidx.i.i, align 4
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %while.end, label %while.body
 
-while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
-  %15 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %13, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit ]
+while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
+  %15 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %13, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit ]
   %arrayidx.i.i10 = getelementptr inbounds i8, ptr %m_queue.val, i64 4
   %16 = load i32, ptr %arrayidx.i.i10, align 4
   %cmp.i = icmp eq i32 %15, 2
@@ -3083,7 +3083,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9erase_minEv.exit: ; preds = %if.then
   %cmp18 = icmp eq i8 %42, 0
   br i1 %cmp18, label %return, label %while.cond, !llvm.loop !11
 
-while.end:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
+while.end:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
   store i32 2147483647, ptr %next, align 4
   br label %return
 
@@ -3876,20 +3876,20 @@ if.end.i.i.i:                                     ; preds = %if.end10
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i.i:              ; preds = %if.end.i.i.i, %if.end10
   %retval.0.i.i.i = phi i32 [ %15, %if.end.i.i.i ], [ 0, %if.end10 ]
   %cmp.i.i8 = icmp slt i32 %v, %retval.0.i.i.i
-  br i1 %cmp.i.i8, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i, label %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit
+  br i1 %cmp.i.i8, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i, label %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i
   %idxprom.i.i.i = zext i32 %v to i64
   %arrayidx.i2.i.i = getelementptr inbounds i32, ptr %m_queue.val.i, i64 %idxprom.i.i.i
   %16 = load i32, ptr %arrayidx.i2.i.i, align 4
   %cmp4.i.not.i = icmp eq i32 %16, 0
   br i1 %cmp4.i.not.i, label %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i
+if.then.i:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i
   call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5eraseEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %m_queue.i, i32 noundef %v)
   br label %_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit
 
-_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit.i, %if.then.i
+_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit.i, %if.then.i
   ret void
 }
 
@@ -4810,14 +4810,14 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit4:            ; preds = %_ZN6vectorIP4exprLb
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 64
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %tobool.not.i5 = icmp eq ptr %m_scopes.val, null
-  br i1 %tobool.not.i5, label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE5resetEv.exit, label %if.then.i6
+  br i1 %tobool.not.i5, label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE5resetEv.argprom.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit4
   %arrayidx.i7 = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   store i32 0, ptr %arrayidx.i7, align 4
-  br label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE5resetEv.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE5resetEv.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE5resetEv.exit: ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit4, %if.then.i6
+_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE5resetEv.argprom.exit: ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit4, %if.then.i6
   ret void
 }
 
@@ -4927,16 +4927,16 @@ _ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE9push_backEOS2_.exi
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %cmp.i.i = icmp eq ptr %m_scopes.val, null
-  br i1 %cmp.i.i, label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.exit, label %if.end.i.i4
+  br i1 %cmp.i.i, label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.argprom.exit, label %if.end.i.i4
 
 if.end.i.i4:                                      ; preds = %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE9push_backEOS2_.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   %10 = load i32, ptr %arrayidx.i.i, align 4
   %11 = add i32 %10, -1
   %12 = zext i32 %11 to i64
-  br label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE9push_backEOS2_.exit, %if.end.i.i4
+_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.argprom.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE9push_backEOS2_.exit, %if.end.i.i4
   %retval.0.i.i = phi i64 [ %12, %if.end.i.i4 ], [ 4294967295, %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE9push_backEOS2_.exit ]
   %arrayidx.i2.i = getelementptr inbounds %"struct.(anonymous namespace)::rel_case_split_queue::scope", ptr %m_scopes.val, i64 %retval.0.i.i
   %m_queue = getelementptr inbounds i8, ptr %this, i64 32
@@ -4944,13 +4944,13 @@ _ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.exit: ; pre
   %cmp.i5 = icmp eq ptr %13, null
   br i1 %cmp.i5, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.exit
+if.end.i:                                         ; preds = %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.argprom.exit
   %arrayidx.i6 = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i6, align 4
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
 
-_ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.exit, %if.end.i
-  %retval.0.i = phi i32 [ %14, %if.end.i ], [ 0, %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.exit ]
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.argprom.exit, %if.end.i
+  %retval.0.i = phi i32 [ %14, %if.end.i ], [ 0, %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4backEv.argprom.exit ]
   store i32 %retval.0.i, ptr %arrayidx.i2.i, align 4
   %m_head = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load i32, ptr %m_head, align 8
@@ -4983,14 +4983,14 @@ entry:
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 64
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %cmp.i = icmp eq ptr %m_scopes.val, null
-  br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   %0 = load i32, ptr %arrayidx.i, align 4
-  br label %_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.exit
+  br label %_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
 
-_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.exit: ; preds = %entry, %if.end.i
+_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %0, %if.end.i ], [ 0, %entry ]
   %sub = sub i32 %retval.0.i, %num_scopes
   %idxprom.i = zext i32 %sub to i64
@@ -5000,13 +5000,13 @@ _ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.exit: ; pr
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.exit
+if.then.i:                                        ; preds = %_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
   %2 = load i32, ptr %arrayidx.i7, align 4
   %arrayidx.i8 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %2, ptr %arrayidx.i8, align 4
   br label %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit
 
-_ZN6vectorIP4exprLb0EjE6shrinkEj.exit:            ; preds = %_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.exit, %if.then.i
+_ZN6vectorIP4exprLb0EjE6shrinkEj.exit:            ; preds = %_ZNK6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit, %if.then.i
   %m_head_old = getelementptr inbounds i8, ptr %arrayidx.i7, i64 4
   %3 = load i32, ptr %m_head_old, align 4
   %m_head = getelementptr inbounds i8, ptr %this, i64 40
@@ -5030,14 +5030,14 @@ _ZN6vectorIP4exprLb0EjE6shrinkEj.exit14:          ; preds = %_ZN6vectorIP4exprLb
   store i32 %6, ptr %m_head2, align 8
   %m_scopes.val6 = load ptr, ptr %m_scopes, align 8
   %tobool.not.i15 = icmp eq ptr %m_scopes.val6, null
-  br i1 %tobool.not.i15, label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE6shrinkEj.exit, label %if.then.i16
+  br i1 %tobool.not.i15, label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit, label %if.then.i16
 
 if.then.i16:                                      ; preds = %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit14
   %arrayidx.i17 = getelementptr inbounds i8, ptr %m_scopes.val6, i64 -4
   store i32 %sub, ptr %arrayidx.i17, align 4
-  br label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE6shrinkEj.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE6shrinkEj.exit: ; preds = %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit14, %if.then.i16
+_ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit: ; preds = %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit14, %if.then.i16
   ret void
 }
 
@@ -5148,11 +5148,11 @@ if.end:                                           ; preds = %_ZNK6vectorIP4exprL
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.18)
   %m_head = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %m_head, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %m_queue, i32 noundef %4, i32 noundef 1)
+  tail call fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj.argprom(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %m_queue, i32 noundef %4, i32 noundef 1)
   %m_queue25 = getelementptr inbounds i8, ptr %this, i64 48
   %m_head2 = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %m_head2, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %m_queue25, i32 noundef %5, i32 noundef 2)
+  tail call fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj.argprom(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %m_queue25, i32 noundef %5, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit7, %if.end
@@ -5166,12 +5166,12 @@ entry:
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 64
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %tobool.not.i.i.i = icmp eq ptr %m_scopes.val, null
-  br i1 %tobool.not.i.i.i, label %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
-          to label %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -5180,13 +5180,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   tail call void @__clang_call_terminate(ptr %1) #25
   unreachable
 
-_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit: ; preds = %entry, %if.then.i.i.i
+_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit: ; preds = %entry, %if.then.i.i.i
   %m_queue2 = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %m_queue2, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1, label %_ZN10ptr_vectorI4exprED2Ev.exit, label %if.then.i.i.i2
 
-if.then.i.i.i2:                                   ; preds = %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit
+if.then.i.i.i2:                                   ; preds = %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit
   %add.ptr.i.i.i.i3 = getelementptr inbounds i8, ptr %2, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3)
           to label %_ZN10ptr_vectorI4exprED2Ev.exit unwind label %terminate.lpad.i.i4
@@ -5198,7 +5198,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   tail call void @__clang_call_terminate(ptr %4) #25
   unreachable
 
-_ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit, %if.then.i.i.i2
+_ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit, %if.then.i.i.i2
   %m_queue = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %m_queue, align 8
   %tobool.not.i.i.i5 = icmp eq ptr %5, null
@@ -5227,12 +5227,12 @@ entry:
   %m_scopes.i = getelementptr inbounds i8, ptr %this, i64 64
   %m_scopes.val.i = load ptr, ptr %m_scopes.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %m_scopes.val.i, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit.i, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %m_scopes.val.i, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
-          to label %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit.i unwind label %terminate.lpad.i.i.i
+          to label %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -5241,13 +5241,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   tail call void @__clang_call_terminate(ptr %1) #25
   unreachable
 
-_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
+_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit.i: ; preds = %if.then.i.i.i.i, %entry
   %m_queue2.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %m_queue2.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN10ptr_vectorI4exprED2Ev.exit.i, label %if.then.i.i.i2.i
 
-if.then.i.i.i2.i:                                 ; preds = %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit.i
+if.then.i.i.i2.i:                                 ; preds = %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit.i
   %add.ptr.i.i.i.i3.i = getelementptr inbounds i8, ptr %2, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i)
           to label %_ZN10ptr_vectorI4exprED2Ev.exit.i unwind label %terminate.lpad.i.i4.i
@@ -5259,7 +5259,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
   tail call void @__clang_call_terminate(ptr %4) #25
   unreachable
 
-_ZN10ptr_vectorI4exprED2Ev.exit.i:                ; preds = %if.then.i.i.i2.i, %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.exit.i
+_ZN10ptr_vectorI4exprED2Ev.exit.i:                ; preds = %if.then.i.i.i2.i, %_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev.argprom.exit.i
   %m_queue.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %m_queue.i, align 8
   %tobool.not.i.i.i5.i = icmp eq ptr %5, null
@@ -5639,7 +5639,7 @@ declare i32 @_ZNK3smt7context11get_literalEP4expr(ptr noundef nonnull align 8 de
 declare noundef i32 @_ZNK3smt7context14get_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %queue, i32 noundef %head, i32 noundef range(i32 1, 3) %idx) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj.argprom(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %queue, i32 noundef %head, i32 noundef range(i32 1, 3) %idx) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -5900,20 +5900,20 @@ if.end.i.i:                                       ; preds = %land.lhs.true
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %land.lhs.true
   %retval.0.i.i = phi i32 [ %2, %if.end.i.i ], [ 0, %land.lhs.true ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_delayed_queue.val, i64 %idxprom.i.i
   %3 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %3, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5eraseEi(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue, i32 noundef %v)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %if.then, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, %entry
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %if.then, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, %entry
   ret void
 }
 
@@ -5940,16 +5940,16 @@ if.end.i.i:                                       ; preds = %if.end
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %if.end
   %retval.0.i.i = phi i32 [ %2, %if.end.i.i ], [ 0, %if.end ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit, label %if.then2
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit, label %if.then2
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_delayed_queue.val, i64 %idxprom.i.i
   %3 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %3, 0
   br i1 %cmp4.i.not, label %if.then2, label %if.end4
 
-if.then2:                                         ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.then2:                                         ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   %m_values.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %m_values.i, align 8
   %cmp.i.i3 = icmp eq ptr %4, null
@@ -6049,7 +6049,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE6insertEi.exit: ; preds = %lor.lhs.fa
   store i32 %idx.addr.0.lcssa.i.i, ptr %arrayidx.i25.i.i, align 4
   br label %if.end4
 
-if.end4:                                          ; preds = %entry, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE6insertEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.exit
+if.end4:                                          ; preds = %entry, %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE6insertEi.exit, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -6265,15 +6265,15 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %entry, %if.then.i
   %1 = getelementptr inbounds i8, ptr %this, i64 56
   %this.val.i = load ptr, ptr %1, align 8
   %cmp.i.i.i = icmp eq ptr %this.val.i, null
-  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i
+  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i: ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i: ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i, %_ZN6vectorIP4exprLb0EjE5resetEv.exit
+if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i, %_ZN6vectorIP4exprLb0EjE5resetEv.exit
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %m_value2indices.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
@@ -6328,18 +6328,18 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i:           ; preds = %if.then.i6.i, %lor.
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit
 
-_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
+_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 72
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %tobool.not.i1 = icmp eq ptr %m_scopes.val, null
-  br i1 %tobool.not.i1, label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE5resetEv.exit, label %if.then.i2
+  br i1 %tobool.not.i1, label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE5resetEv.argprom.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit
   %arrayidx.i3 = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   store i32 0, ptr %arrayidx.i3, align 4
-  br label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE5resetEv.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE5resetEv.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE5resetEv.exit: ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit, %if.then.i2
+_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE5resetEv.argprom.exit: ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit, %if.then.i2
   ret void
 }
 
@@ -6452,29 +6452,29 @@ _ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE9push_backEOS2_
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %cmp.i.i = icmp eq ptr %m_scopes.val, null
-  br i1 %cmp.i.i, label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.exit, label %if.end.i.i2
+  br i1 %cmp.i.i, label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.argprom.exit, label %if.end.i.i2
 
 if.end.i.i2:                                      ; preds = %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE9push_backEOS2_.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   %10 = load i32, ptr %arrayidx.i.i, align 4
   %11 = add i32 %10, -1
   %12 = zext i32 %11 to i64
-  br label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE9push_backEOS2_.exit, %if.end.i.i2
+_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.argprom.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE9push_backEOS2_.exit, %if.end.i.i2
   %retval.0.i.i = phi i64 [ %12, %if.end.i.i2 ], [ 4294967295, %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE9push_backEOS2_.exit ]
   %m_queue = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load ptr, ptr %m_queue, align 8
   %cmp.i3 = icmp eq ptr %13, null
   br i1 %cmp.i3, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.exit
+if.end.i:                                         ; preds = %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.argprom.exit
   %arrayidx.i4 = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i4, align 4
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
 
-_ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.exit, %if.end.i
-  %retval.0.i = phi i32 [ %14, %if.end.i ], [ 0, %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.exit ]
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.argprom.exit, %if.end.i
+  %retval.0.i = phi i32 [ %14, %if.end.i ], [ 0, %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4backEv.argprom.exit ]
   %arrayidx.i2.i = getelementptr inbounds %"struct.(anonymous namespace)::rel_act_case_split_queue::scope", ptr %m_scopes.val, i64 %retval.0.i.i
   store i32 %retval.0.i, ptr %arrayidx.i2.i, align 4
   %m_head = getelementptr inbounds i8, ptr %this, i64 40
@@ -6490,14 +6490,14 @@ entry:
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 72
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %cmp.i = icmp eq ptr %m_scopes.val, null
-  br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   %0 = load i32, ptr %arrayidx.i, align 4
-  br label %_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.exit
+  br label %_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
 
-_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.exit: ; preds = %entry, %if.end.i
+_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %0, %if.end.i ], [ 0, %entry ]
   %sub = sub i32 %retval.0.i, %num_scopes
   %idxprom.i = zext i32 %sub to i64
@@ -6507,14 +6507,14 @@ _ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.exit: 
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit.thread, label %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit
 
-_ZN6vectorIP4exprLb0EjE6shrinkEj.exit.thread:     ; preds = %_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.exit
+_ZN6vectorIP4exprLb0EjE6shrinkEj.exit.thread:     ; preds = %_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
   %m_head_old14 = getelementptr inbounds i8, ptr %arrayidx.i5, i64 4
   %2 = load i32, ptr %m_head_old14, align 4
   %m_head15 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %2, ptr %m_head15, align 8
   br label %if.then.i9
 
-_ZN6vectorIP4exprLb0EjE6shrinkEj.exit:            ; preds = %_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.exit
+_ZN6vectorIP4exprLb0EjE6shrinkEj.exit:            ; preds = %_ZNK6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
   %3 = load i32, ptr %arrayidx.i5, align 4
   %arrayidx.i6 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %3, ptr %arrayidx.i6, align 4
@@ -6524,15 +6524,15 @@ _ZN6vectorIP4exprLb0EjE6shrinkEj.exit:            ; preds = %_ZNK6vectorIN12_GLO
   %m_head = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %4, ptr %m_head, align 8
   %tobool.not.i8 = icmp eq ptr %m_scopes.val4.pre, null
-  br i1 %tobool.not.i8, label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE6shrinkEj.exit, label %if.then.i9
+  br i1 %tobool.not.i8, label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit.thread, %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit
   %m_scopes.val417 = phi ptr [ %m_scopes.val, %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit.thread ], [ %m_scopes.val4.pre, %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit ]
   %arrayidx.i10 = getelementptr inbounds i8, ptr %m_scopes.val417, i64 -4
   store i32 %sub, ptr %arrayidx.i10, align 4
-  br label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE6shrinkEj.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE6shrinkEj.exit: ; preds = %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit, %if.then.i9
+_ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit: ; preds = %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit, %if.then.i9
   ret void
 }
 
@@ -6729,20 +6729,20 @@ if.end15:                                         ; preds = %_ZN12_GLOBAL__N_124
 while.cond:                                       ; preds = %_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9erase_minEv.exit, %if.end15
   %m_delayed_queue.val = load ptr, ptr %41, align 8
   %cmp.i.i17 = icmp eq ptr %m_delayed_queue.val, null
-  br i1 %cmp.i.i17, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
+  br i1 %cmp.i.i17, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
 
 while.cond.while.body_crit_edge:                  ; preds = %while.cond
   %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4
   br label %while.body
 
-_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit: ; preds = %while.cond
+_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit: ; preds = %while.cond
   %arrayidx.i.i18 = getelementptr inbounds i8, ptr %m_delayed_queue.val, i64 -4
   %42 = load i32, ptr %arrayidx.i.i18, align 4
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %while.end, label %while.body
 
-while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
-  %44 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %42, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit ]
+while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
+  %44 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %42, %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit ]
   %arrayidx.i.i19 = getelementptr inbounds i8, ptr %m_delayed_queue.val, i64 4
   %45 = load i32, ptr %arrayidx.i.i19, align 4
   %cmp.i20 = icmp eq i32 %44, 2
@@ -6883,7 +6883,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE9erase_minEv.exit: ; preds = %if.then
   %cmp21 = icmp eq i8 %71, 0
   br i1 %cmp21, label %return, label %while.cond, !llvm.loop !25
 
-while.end:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.exit
+while.end:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_115bool_var_act_ltEE5emptyEv.argprom.exit
   store i32 2147483647, ptr %next, align 4
   br label %return
 
@@ -6960,12 +6960,12 @@ entry:
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 72
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %tobool.not.i.i.i = icmp eq ptr %m_scopes.val, null
-  br i1 %tobool.not.i.i.i, label %_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
-          to label %_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -6974,13 +6974,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   tail call void @__clang_call_terminate(ptr %1) #25
   unreachable
 
-_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.exit: ; preds = %entry, %if.then.i.i.i
+_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.argprom.exit: ; preds = %entry, %if.then.i.i.i
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %m_value2indices.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIijED2Ev.exit.i, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.exit
+if.then.i.i.i.i:                                  ; preds = %_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.argprom.exit
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %_ZN7svectorIijED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -6992,7 +6992,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   tail call void @__clang_call_terminate(ptr %4) #25
   unreachable
 
-_ZN7svectorIijED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.exit
+_ZN7svectorIijED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev.argprom.exit
   %m_values.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %m_values.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %5, null
@@ -7041,15 +7041,15 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev(ptr %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.argprom(ptr %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i.i = icmp eq ptr %this.0.val, null
-  br i1 %tobool.not.i.i, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjED2Ev.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i)
-          to label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjED2Ev.exit unwind label %terminate.lpad.i
+          to label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjED2Ev.argprom.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
   %0 = landingpad { ptr, i32 }
@@ -7058,20 +7058,20 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   tail call void @__clang_call_terminate(ptr %1) #25
   unreachable
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.i
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjED2Ev.argprom.exit: ; preds = %entry, %if.then.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev(ptr %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.argprom(ptr %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i.i = icmp eq ptr %this.0.val, null
-  br i1 %tobool.not.i.i, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjED2Ev.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i)
-          to label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjED2Ev.exit unwind label %terminate.lpad.i
+          to label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjED2Ev.argprom.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
   %0 = landingpad { ptr, i32 }
@@ -7080,7 +7080,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   tail call void @__clang_call_terminate(ptr %1) #25
   unreachable
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.i
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjED2Ev.argprom.exit: ; preds = %entry, %if.then.i.i
   ret void
 }
 
@@ -7242,7 +7242,7 @@ do.end.i:                                         ; preds = %_ZNK11ast_manager12
 
 if.then4.i:                                       ; preds = %do.end.i
   %sub.i = add i32 %26, -100
-  tail call fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue18set_generation_recEP4exprj(ptr nonnull %0, ptr noundef nonnull %2, i32 noundef %sub.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue18set_generation_recEP4exprj.argprom(ptr nonnull %0, ptr noundef nonnull %2, i32 noundef %sub.i)
   br label %if.end31
 
 if.end31:                                         ; preds = %land.rhs.i.i, %land.rhs.i.i42, %if.end26, %if.end, %if.then4.i, %do.end.i, %_ZNK11ast_manager6is_notEPK4expr.exit.thread, %if.then18, %_ZNK11ast_manager5is_orEPK4expr.exit, %_ZNK11ast_manager12is_label_litEPK4expr.exit, %if.end23, %entry, %land.lhs.true9
@@ -7271,7 +7271,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue18set_generation_recEP4exprj(ptr %this.val, ptr noundef %n, i32 noundef %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue18set_generation_recEP4exprj.argprom(ptr %this.val, ptr noundef %n, i32 noundef %0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -7489,37 +7489,37 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %entry, %if.then.i
   %m_queue2 = getelementptr inbounds i8, ptr %this, i64 48
   %m_queue2.val = load ptr, ptr %m_queue2, align 8
   %tobool.not.i1 = icmp eq ptr %m_queue2.val, null
-  br i1 %tobool.not.i1, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.exit, label %if.then.i2
+  br i1 %tobool.not.i1, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.argprom.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit
   %arrayidx.i3 = getelementptr inbounds i8, ptr %m_queue2.val, i64 -4
   store i32 0, ptr %arrayidx.i3, align 4
-  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.exit: ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit, %if.then.i2
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.argprom.exit: ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit, %if.then.i2
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 56
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %tobool.not.i4 = icmp eq ptr %m_scopes.val, null
-  br i1 %tobool.not.i4, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.exit, label %if.then.i5
+  br i1 %tobool.not.i4, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.argprom.exit, label %if.then.i5
 
-if.then.i5:                                       ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.exit
+if.then.i5:                                       ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.argprom.exit
   %arrayidx.i6 = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   store i32 0, ptr %arrayidx.i6, align 4
-  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.exit, %if.then.i5
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.argprom.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE5resetEv.argprom.exit, %if.then.i5
   %1 = getelementptr inbounds i8, ptr %this, i64 80
   %this.val.i = load ptr, ptr %1, align 8
   %cmp.i.i.i = icmp eq ptr %this.val.i, null
-  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit.i
+  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit.i
 
-_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit.i: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.exit
+_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit.i: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.argprom.exit
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5resetEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit.i, %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.exit
+if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit.i, %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE5resetEv.argprom.exit
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load ptr, ptr %m_value2indices.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
@@ -7574,7 +7574,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i:           ; preds = %if.then.i6.i, %lor.
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5resetEv.exit
 
-_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
+_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
   %m_current_generation.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %m_current_generation.i, align 8
   %m_context.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -7693,16 +7693,16 @@ _ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE9push_backEOS2
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %cmp.i.i = icmp eq ptr %m_scopes.val, null
-  br i1 %cmp.i.i, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.exit, label %if.end.i.i5
+  br i1 %cmp.i.i, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.argprom.exit, label %if.end.i.i5
 
 if.end.i.i5:                                      ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE9push_backEOS2_.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   %10 = load i32, ptr %arrayidx.i.i, align 4
   %11 = add i32 %10, -1
   %12 = zext i32 %11 to i64
-  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE9push_backEOS2_.exit, %if.end.i.i5
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.argprom.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE9push_backEOS2_.exit, %if.end.i.i5
   %retval.0.i.i = phi i64 [ %12, %if.end.i.i5 ], [ 4294967295, %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE9push_backEOS2_.exit ]
   %arrayidx.i2.i = getelementptr inbounds %"struct.(anonymous namespace)::rel_goal_case_split_queue::scope", ptr %m_scopes.val, i64 %retval.0.i.i
   %m_queue = getelementptr inbounds i8, ptr %this, i64 32
@@ -7710,13 +7710,13 @@ _ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.exit: 
   %cmp.i6 = icmp eq ptr %13, null
   br i1 %cmp.i6, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.exit
+if.end.i:                                         ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.argprom.exit
   %arrayidx.i7 = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i7, align 4
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
 
-_ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.exit, %if.end.i
-  %retval.0.i = phi i32 [ %14, %if.end.i ], [ 0, %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.exit ]
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.argprom.exit, %if.end.i
+  %retval.0.i = phi i32 [ %14, %if.end.i ], [ 0, %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4backEv.argprom.exit ]
   store i32 %retval.0.i, ptr %arrayidx.i2.i, align 8
   %m_head = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load i32, ptr %m_head, align 8
@@ -7725,14 +7725,14 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIN12_GLOB
   %m_queue2 = getelementptr inbounds i8, ptr %this, i64 48
   %m_queue2.val = load ptr, ptr %m_queue2, align 8
   %cmp.i8 = icmp eq ptr %m_queue2.val, null
-  br i1 %cmp.i8, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit, label %if.end.i9
+  br i1 %cmp.i8, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit, label %if.end.i9
 
 if.end.i9:                                        ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
   %arrayidx.i10 = getelementptr inbounds i8, ptr %m_queue2.val, i64 -4
   %16 = load i32, ptr %arrayidx.i10, align 4
-  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit
+  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit
 
-_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, %if.end.i9
+_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, %if.end.i9
   %retval.0.i11 = phi i32 [ %16, %if.end.i9 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
   %m_queue2_trail = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 8
   store i32 %retval.0.i11, ptr %m_queue2_trail, align 8
@@ -7753,14 +7753,14 @@ entry:
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 56
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %cmp.i = icmp eq ptr %m_scopes.val, null
-  br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   %0 = load i32, ptr %arrayidx.i, align 4
-  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit
+  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
 
-_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit: ; preds = %entry, %if.end.i
+_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %0, %if.end.i ], [ 0, %entry ]
   %sub = sub i32 %retval.0.i, %num_scopes
   %idxprom.i = zext i32 %sub to i64
@@ -7770,13 +7770,13 @@ _ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit:
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit
+if.then.i:                                        ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
   %2 = load i32, ptr %arrayidx.i20, align 8
   %arrayidx.i21 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %2, ptr %arrayidx.i21, align 4
   br label %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit
 
-_ZN6vectorIP4exprLb0EjE6shrinkEj.exit:            ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit, %if.then.i
+_ZN6vectorIP4exprLb0EjE6shrinkEj.exit:            ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit, %if.then.i
   %m_head_old = getelementptr inbounds i8, ptr %arrayidx.i20, i64 4
   %3 = load i32, ptr %m_head_old, align 4
   %m_head = getelementptr inbounds i8, ptr %this, i64 40
@@ -7802,25 +7802,25 @@ for.cond:                                         ; preds = %for.inc, %_ZN6vecto
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %8, %_ZN6vectorIP4exprLb0EjE6shrinkEj.exit ]
   %m_queue2.val17 = load ptr, ptr %m_queue2, align 8
   %cmp.i23 = icmp eq ptr %m_queue2.val17, null
-  br i1 %cmp.i23, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit, label %if.end.i24
+  br i1 %cmp.i23, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit, label %if.end.i24
 
 if.end.i24:                                       ; preds = %for.cond
   %arrayidx.i25 = getelementptr inbounds i8, ptr %m_queue2.val17, i64 -4
   %9 = load i32, ptr %arrayidx.i25, align 4
   %10 = zext i32 %9 to i64
-  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit
+  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit
 
-_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i24
+_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit: ; preds = %for.cond, %if.end.i24
   %retval.0.i26 = phi i64 [ %10, %if.end.i24 ], [ 0, %for.cond ]
   %cmp = icmp ult i64 %indvars.iv, %retval.0.i26
   br i1 %cmp, label %for.body, label %for.cond8.preheader
 
-for.cond8.preheader:                              ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit
+for.cond8.preheader:                              ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit
   %11 = load i32, ptr %m_queue2_trail, align 8
   %cmp1096.not = icmp eq i32 %11, 0
   br i1 %cmp1096.not, label %for.end21, label %for.body11
 
-for.body:                                         ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit
+for.body:                                         ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit
   %m_priority_queue2.val = load ptr, ptr %7, align 8
   %cmp.i.i = icmp eq ptr %m_priority_queue2.val, null
   br i1 %cmp.i.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, label %if.end.i.i
@@ -7834,15 +7834,15 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %for.bo
   %retval.0.i.i = phi i32 [ %12, %if.end.i.i ], [ 0, %for.body ]
   %13 = trunc nuw i64 %indvars.iv to i32
   %cmp.i27 = icmp sgt i32 %retval.0.i.i, %13
-  br i1 %cmp.i27, label %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.exit, label %for.inc
+  br i1 %cmp.i27, label %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.argprom.exit, label %for.inc
 
-_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_priority_queue2.val, i64 %indvars.iv
   %14 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %14, 0
   br i1 %cmp4.i.not, label %for.inc, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.argprom.exit
   %15 = load ptr, ptr %m_values.i, align 8
   %cmp.i.i30 = icmp eq ptr %15, null
   br i1 %cmp.i.i30, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.i32, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i
@@ -8070,7 +8070,7 @@ _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi
   store i32 %idx.addr.0.lcssa.i34.i, ptr %arrayidx.i41.i.i, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i, %if.then.i31, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.exit
+for.inc:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i, %if.then.i31, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !29
 
@@ -8204,24 +8204,24 @@ for.end21:                                        ; preds = %for.end21.loopexit,
   %m_queue2.val18 = phi ptr [ %m_queue2.val17, %for.cond8.preheader ], [ %m_queue2.val18.pre, %for.end21.loopexit ]
   %.lcssa87 = phi i32 [ 0, %for.cond8.preheader ], [ %78, %for.end21.loopexit ]
   %tobool.not.i75 = icmp eq ptr %m_queue2.val18, null
-  br i1 %tobool.not.i75, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit, label %if.then.i76
+  br i1 %tobool.not.i75, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.argprom.exit, label %if.then.i76
 
 if.then.i76:                                      ; preds = %for.end21
   %arrayidx.i77 = getelementptr inbounds i8, ptr %m_queue2.val18, i64 -4
   store i32 %.lcssa87, ptr %arrayidx.i77, align 4
-  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit: ; preds = %for.end21, %if.then.i76
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.argprom.exit: ; preds = %for.end21, %if.then.i76
   %m_scopes.val19 = load ptr, ptr %m_scopes, align 8
   %tobool.not.i79 = icmp eq ptr %m_scopes.val19, null
-  br i1 %tobool.not.i79, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit, label %if.then.i80
+  br i1 %tobool.not.i79, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit, label %if.then.i80
 
-if.then.i80:                                      ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit
+if.then.i80:                                      ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.argprom.exit
   %arrayidx.i81 = getelementptr inbounds i8, ptr %m_scopes.val19, i64 -4
   store i32 %sub, ptr %arrayidx.i81, align 4
-  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit
+  br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit, %if.then.i80
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.argprom.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.argprom.exit, %if.then.i80
   ret void
 }
 
@@ -8269,23 +8269,23 @@ for.inc:                                          ; preds = %for.body
   %cmp = icmp ult i32 %inc, %1
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !31
 
-while.cond:                                       ; preds = %while.cond.preheader, %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit
+while.cond:                                       ; preds = %while.cond.preheader, %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
   %m_priority_queue2.val = load ptr, ptr %3, align 8
   %cmp.i.i = icmp eq ptr %m_priority_queue2.val, null
-  br i1 %cmp.i.i, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit
+  br i1 %cmp.i.i, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit
 
 while.cond.while.body_crit_edge:                  ; preds = %while.cond
   %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4
   br label %while.body
 
-_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit: ; preds = %while.cond
+_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit: ; preds = %while.cond
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_priority_queue2.val, i64 -4
   %9 = load i32, ptr %arrayidx.i.i, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %while.end, label %while.body
 
-while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit
-  %11 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %9, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit ]
+while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit
+  %11 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %9, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit ]
   %arrayidx.i.i11 = getelementptr inbounds i8, ptr %m_priority_queue2.val, i64 4
   %12 = load i32, ptr %arrayidx.i.i11, align 4
   %cmp.i12 = icmp eq i32 %11, 2
@@ -8428,14 +8428,14 @@ _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv
   %arrayidx.i15 = getelementptr inbounds %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %m_queue210.val, i64 %idxprom.i14.pre-phi
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %cmp.i16 = icmp eq ptr %m_scopes.val, null
-  br i1 %cmp.i16, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit, label %if.end.i17
+  br i1 %cmp.i16, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit, label %if.end.i17
 
 if.end.i17:                                       ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit
   %arrayidx.i18 = getelementptr inbounds i8, ptr %m_scopes.val, i64 -4
   %37 = load i32, ptr %arrayidx.i18, align 4
-  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit
+  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
 
-_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit: ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit, %if.end.i17
+_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit: ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit, %if.end.i17
   %retval.0.i19 = phi i32 [ %37, %if.end.i17 ], [ 0, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit ]
   %m_last_decided = getelementptr inbounds i8, ptr %arrayidx.i15, i64 12
   store i32 %retval.0.i19, ptr %m_last_decided, align 4
@@ -8445,7 +8445,7 @@ _ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit:
   %cmp13.not = icmp eq i32 %39, 2147483647
   br i1 %cmp13.not, label %while.cond, label %if.then14, !llvm.loop !32
 
-if.then14:                                        ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit
+if.then14:                                        ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.argprom.exit
   %m_last_decided.le = getelementptr inbounds i8, ptr %arrayidx.i15, i64 12
   %40 = load ptr, ptr %3, align 8
   %cmp.i.i21 = icmp eq ptr %40, null
@@ -8550,7 +8550,7 @@ _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.ex
   store i32 -1, ptr %m_last_decided.le, align 4
   br label %while.end
 
-while.end:                                        ; preds = %for.body, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
+while.end:                                        ; preds = %for.body, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.argprom.exit, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
   ret void
 }
 
@@ -8661,12 +8661,12 @@ _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEED2Ev.exit: ;
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 56
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
   %tobool.not.i.i.i = icmp eq ptr %m_scopes.val, null
-  br i1 %tobool.not.i.i.i, label %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEED2Ev.exit
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %m_scopes.val, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
-          to label %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -8675,16 +8675,16 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   tail call void @__clang_call_terminate(ptr %7) #25
   unreachable
 
-_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.exit: ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEED2Ev.exit, %if.then.i.i.i
+_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.argprom.exit: ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEED2Ev.exit, %if.then.i.i.i
   %m_queue2 = getelementptr inbounds i8, ptr %this, i64 48
   %m_queue2.val = load ptr, ptr %m_queue2, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %m_queue2.val, null
-  br i1 %tobool.not.i.i.i1, label %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.exit, label %if.then.i.i.i2
+  br i1 %tobool.not.i.i.i1, label %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.argprom.exit, label %if.then.i.i.i2
 
-if.then.i.i.i2:                                   ; preds = %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.exit
+if.then.i.i.i2:                                   ; preds = %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.argprom.exit
   %add.ptr.i.i.i.i3 = getelementptr inbounds i8, ptr %m_queue2.val, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3)
-          to label %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.exit unwind label %terminate.lpad.i.i4
+          to label %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.argprom.exit unwind label %terminate.lpad.i.i4
 
 terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %8 = landingpad { ptr, i32 }
@@ -8693,13 +8693,13 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   tail call void @__clang_call_terminate(ptr %9) #25
   unreachable
 
-_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.exit: ; preds = %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.exit, %if.then.i.i.i2
+_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.argprom.exit: ; preds = %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeEjED2Ev.argprom.exit, %if.then.i.i.i2
   %m_queue = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load ptr, ptr %m_queue, align 8
   %tobool.not.i.i.i5 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i5, label %_ZN10ptr_vectorI4exprED2Ev.exit, label %if.then.i.i.i6
 
-if.then.i.i.i6:                                   ; preds = %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.exit
+if.then.i.i.i6:                                   ; preds = %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.argprom.exit
   %add.ptr.i.i.i.i7 = getelementptr inbounds i8, ptr %10, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i7)
           to label %_ZN10ptr_vectorI4exprED2Ev.exit unwind label %terminate.lpad.i.i8
@@ -8711,7 +8711,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i.i6
   tail call void @__clang_call_terminate(ptr %12) #25
   unreachable
 
-_ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.exit, %if.then.i.i.i6
+_ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7svectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryEjED2Ev.argprom.exit, %if.then.i.i.i6
   ret void
 }
 
@@ -8724,7 +8724,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue18set_generation_recEP4exprj(ptr %this.8.val, ptr noundef %e, i32 noundef %gen) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue18set_generation_recEP4exprj.argprom(ptr %this.8.val, ptr noundef %e, i32 noundef %gen) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i = alloca %class.sbuffer, align 8
   %visited.i = alloca %class.obj_mark, align 8
@@ -9678,21 +9678,21 @@ entry:
   %m_queue2 = getelementptr inbounds i8, ptr %this, i64 48
   %m_queue2.val = load ptr, ptr %m_queue2, align 8
   %cmp.i = icmp eq ptr %m_queue2.val, null
-  br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %m_queue2.val, i64 -4
   %0 = load i32, ptr %arrayidx.i, align 4
-  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit
+  br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit
 
-_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit: ; preds = %entry, %if.end.i
+_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %0, %if.end.i ], [ 0, %entry ]
   %call3 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_125rel_goal_case_split_queue14get_generationEP4expr(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %e)
   %1 = load ptr, ptr %m_queue2, align 8
   %cmp.i3 = icmp eq ptr %1, null
   br i1 %cmp.i3, label %if.then.i.i, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit
+lor.lhs.false.i:                                  ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit
   %arrayidx.i4 = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i4, align 4
   %arrayidx4.i = getelementptr inbounds i8, ptr %1, i64 -8
@@ -9700,7 +9700,7 @@ lor.lhs.false.i:                                  ; preds = %_ZNK6vectorIN12_GLO
   %cmp5.i = icmp eq i32 %2, %3
   br i1 %cmp5.i, label %if.else.i.i, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE9push_backEOS2_.exit
 
-if.then.i.i:                                      ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit
+if.then.i.i:                                      ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.argprom.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i.i)
   %call.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
@@ -10203,16 +10203,16 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   %m_values.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %m_values.i.i, align 8
   %idxprom.i.i.i = zext i32 %2 to i64
@@ -10237,7 +10237,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i4, %lor.l
   %this.val12.val.i.i = load ptr, ptr %this.val12.i.i, align 8
   %8 = getelementptr i8, ptr %this.val12.i.i, i64 8
   %this.val12.val13.i.i = load i32, ptr %8, align 8
-  %call5.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val.i.i, ptr %this.val12.val.i.i, i32 %this.val12.val13.i.i, i32 noundef %4, i32 noundef %7)
+  %call5.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val.i.i, ptr %this.val12.val.i.i, i32 %this.val12.val13.i.i, i32 noundef %4, i32 noundef %7)
   %idxprom.i18.i.i = zext i32 %idx.addr.030.i.i to i64
   br i1 %call5.i.i, label %if.end.i.i4, label %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9decreasedEi.exit
 
@@ -10270,7 +10270,7 @@ _ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9decreasedEi.exit: ; preds = %lor
   store i32 %idx.addr.0.lcssa.i.i, ptr %arrayidx.i27.i.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9decreasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9decreasedEi.exit, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -10291,20 +10291,20 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   tail call fastcc void @_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9increasedEi(ptr noundef nonnull align 8 dereferenceable(32) %m_queue, i32 noundef %v)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %if.then, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %if.then, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -10395,16 +10395,16 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit, label %if.end
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit, label %if.end
 
-_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   %m_values.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %m_values.i, align 8
   %cmp.i.i4 = icmp eq ptr %3, null
@@ -10468,7 +10468,7 @@ land.lhs.true.i:                                  ; preds = %_ZN6vectorIiLb0EjE4
   %this.val11.val.i = load ptr, ptr %this.val11.i, align 8
   %15 = getelementptr i8, ptr %this.val11.i, i64 8
   %this.val11.val12.i = load i32, ptr %15, align 8
-  %call20.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val.i, ptr %this.val11.val.i, i32 %this.val11.val12.i, i32 noundef %8, i32 noundef %13)
+  %call20.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val.i, ptr %this.val11.val.i, i32 %this.val11.val12.i, i32 noundef %8, i32 noundef %13)
   br i1 %call20.i, label %if.then21.i, label %if.else22.i
 
 if.then21.i:                                      ; preds = %land.lhs.true.i
@@ -10488,7 +10488,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i29.i, %if.t
   %this.val12.val.i.i = load ptr, ptr %this.val12.i.i, align 8
   %19 = getelementptr i8, ptr %this.val12.i.i, i64 8
   %this.val12.val13.i.i = load i32, ptr %19, align 8
-  %call5.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val.i.i, ptr %this.val12.val.i.i, i32 %this.val12.val13.i.i, i32 noundef %16, i32 noundef %18)
+  %call5.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val.i.i, ptr %this.val12.val.i.i, i32 %this.val12.val13.i.i, i32 noundef %16, i32 noundef %18)
   %idxprom.i18.i.i = zext i32 %idx.addr.030.i.i to i64
   br i1 %call5.i.i, label %if.end.i29.i, label %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE7move_upEi.exit.i
 
@@ -10565,7 +10565,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i36.i
   %this.val19.val.i.i = load ptr, ptr %this.val19.i.i, align 8
   %30 = getelementptr i8, ptr %this.val19.i.i, i64 8
   %this.val19.val20.i.i = load i32, ptr %30, align 8
-  %call11.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val18.i.i, ptr %this.val19.val.i.i, i32 %this.val19.val20.i.i, i32 noundef %28, i32 noundef %29)
+  %call11.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val18.i.i, ptr %this.val19.val.i.i, i32 %this.val19.val20.i.i, i32 noundef %28, i32 noundef %29)
   %spec.select.i.i = select i1 %call11.i.i, i32 %28, i32 %29
   %spec.select59.i.i = select i1 %call11.i.i, i32 %add.i.i.i, i32 %shl.i41.i.i
   br label %cond.end.i.i
@@ -10576,7 +10576,7 @@ cond.end.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %this.val.i38.i = phi ptr [ %this.val.pre.pre.i.i, %if.end.cond.false_crit_edge.i.i ], [ %this.val18.i.i, %land.lhs.true.i.i ]
   %31 = phi i32 [ %.pre44.pre.i.i, %if.end.cond.false_crit_edge.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %cond.i.i = phi i32 [ %shl.i41.i.i, %if.end.cond.false_crit_edge.i.i ], [ %spec.select59.i.i, %land.lhs.true.i.i ]
-  %call14.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val.i38.i, ptr %this.val17.val.i.i, i32 %this.val17.val21.i.i, i32 noundef %31, i32 noundef %25)
+  %call14.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val.i38.i, ptr %this.val17.val.i.i, i32 %this.val17.val21.i.i, i32 noundef %31, i32 noundef %25)
   br i1 %call14.i.i, label %if.end16.i.i, label %while.end.loopexit.i.i
 
 if.end16.i.i:                                     ; preds = %cond.end.i.i
@@ -10613,7 +10613,7 @@ _ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9move_downEi.exit.i: ; preds = %w
   store i32 %idx.addr.0.lcssa.i34.i, ptr %arrayidx.i37.i.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9move_downEi.exit.i, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE7move_upEi.exit.i, %if.then.i, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9move_downEi.exit.i, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE7move_upEi.exit.i, %if.then.i, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -10634,20 +10634,20 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit, label %if.then
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit, label %if.then
 
-_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   tail call fastcc void @_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE6insertEi(ptr noundef nonnull align 8 dereferenceable(32) %m_queue, i32 noundef %v)
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.end:                                           ; preds = %if.then, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
@@ -10675,15 +10675,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 64
   %this.val.i = load ptr, ptr %0, align 8
   %cmp.i.i.i = icmp eq ptr %this.val.i, null
-  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit.i
+  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit.i
 
-_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit.i: ; preds = %entry
+_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit.i: ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i, align 4
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5resetEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit.i, %entry
+if.end.i:                                         ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit.i, %entry
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %m_value2indices.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
@@ -10738,7 +10738,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit.i:           ; preds = %if.then.i6.i, %lor.
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5resetEv.exit
 
-_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
+_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit.i, %_ZN6vectorIiLb0EjE9push_backEOi.exit.i
   ret void
 }
 
@@ -10811,20 +10811,20 @@ if.end12:                                         ; preds = %if.then, %entry
 while.cond:                                       ; preds = %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9erase_minEv.exit, %if.end12
   %m_queue.val = load ptr, ptr %12, align 8
   %cmp.i.i = icmp eq ptr %m_queue.val, null
-  br i1 %cmp.i.i, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit
+  br i1 %cmp.i.i, label %while.cond.while.body_crit_edge, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit
 
 while.cond.while.body_crit_edge:                  ; preds = %while.cond
   %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4
   br label %while.body
 
-_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit: ; preds = %while.cond
+_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit: ; preds = %while.cond
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_queue.val, i64 -4
   %14 = load i32, ptr %arrayidx.i.i, align 4
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %while.end, label %while.body
 
-while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit
-  %16 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %14, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit ]
+while.body:                                       ; preds = %while.cond.while.body_crit_edge, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit
+  %16 = phi i32 [ %.pre, %while.cond.while.body_crit_edge ], [ %14, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit ]
   %arrayidx.i.i13 = getelementptr inbounds i8, ptr %m_queue.val, i64 4
   %17 = load i32, ptr %arrayidx.i.i13, align 4
   %cmp.i = icmp eq i32 %16, 2
@@ -10900,7 +10900,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i15.i
   %this.val19.val.i.i = load ptr, ptr %this.val19.i.i, align 8
   %33 = getelementptr i8, ptr %this.val19.i.i, i64 8
   %this.val19.val20.i.i = load i32, ptr %33, align 8
-  %call11.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val18.i.i, ptr %this.val19.val.i.i, i32 %this.val19.val20.i.i, i32 noundef %31, i32 noundef %32)
+  %call11.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val18.i.i, ptr %this.val19.val.i.i, i32 %this.val19.val20.i.i, i32 noundef %31, i32 noundef %32)
   %spec.select.i.i = select i1 %call11.i.i, i32 %31, i32 %32
   %spec.select59.i.i = select i1 %call11.i.i, i32 %add.i.i.i, i32 %shl.i41.i.i
   br label %cond.end.i.i
@@ -10911,7 +10911,7 @@ cond.end.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %this.val.i.i = phi ptr [ %this.val.pre.pre.i.i, %if.end.cond.false_crit_edge.i.i ], [ %this.val18.i.i, %land.lhs.true.i.i ]
   %34 = phi i32 [ %.pre44.pre.i.i, %if.end.cond.false_crit_edge.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %cond.i.i = phi i32 [ %shl.i41.i.i, %if.end.cond.false_crit_edge.i.i ], [ %spec.select59.i.i, %land.lhs.true.i.i ]
-  %call14.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val.i.i, ptr %this.val17.val.i.i, i32 %this.val17.val21.i.i, i32 noundef %34, i32 noundef %29)
+  %call14.i.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val.i.i, ptr %this.val17.val.i.i, i32 %this.val17.val21.i.i, i32 noundef %34, i32 noundef %29)
   br i1 %call14.i.i, label %if.end16.i.i, label %while.end.loopexit.i.i
 
 if.end16.i.i:                                     ; preds = %cond.end.i.i
@@ -10960,7 +10960,7 @@ _ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9erase_minEv.exit: ; preds = %if.
   %cmp18 = icmp eq i8 %40, 0
   br i1 %cmp18, label %if.end26, label %while.cond, !llvm.loop !42
 
-while.end:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.exit
+while.end:                                        ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5emptyEv.argprom.exit
   store i32 2147483647, ptr %next, align 4
   %m_theory_vars = getelementptr inbounds i8, ptr %this, i64 80
   %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -11121,9 +11121,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 64
   %m_queue.val = load ptr, ptr %0, align 8
   %cmp.i.i = icmp eq ptr %m_queue.val, null
-  br i1 %cmp.i.i, label %for.body.lr.ph, label %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.exit
+  br i1 %cmp.i.i, label %for.body.lr.ph, label %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.argprom.exit
 
-_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.exit: ; preds = %entry
+_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.argprom.exit: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m_queue.val, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
@@ -11132,8 +11132,8 @@ _ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.exit: ; preds = %entry
   %cmp.not11 = icmp eq i32 %1, 1
   br i1 %cmp.not11, label %if.end18, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.exit
-  %add.ptr.i817 = phi ptr [ %add.ptr.i8, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.exit ], [ null, %entry ]
+for.body.lr.ph:                                   ; preds = %entry, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.argprom.exit
+  %add.ptr.i817 = phi ptr [ %add.ptr.i8, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.argprom.exit ], [ null, %entry ]
   %it.010 = getelementptr inbounds i8, ptr %m_queue.val, i64 4
   %m_context = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
@@ -11188,7 +11188,7 @@ if.then16:                                        ; preds = %for.end
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.13)
   br label %if.end18
 
-if.end18:                                         ; preds = %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.exit, %if.then16, %for.end
+if.end18:                                         ; preds = %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE3endEv.argprom.exit, %if.then16, %for.end
   ret void
 }
 
@@ -11334,16 +11334,16 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %entry ]
   %cmp.i = icmp slt i32 %v, %retval.0.i.i
-  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit, label %if.end5
+  br i1 %cmp.i, label %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit, label %if.end5
 
-_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
+_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i
   %idxprom.i.i = zext i32 %v to i64
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %m_queue.val, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i2.i, align 4
   %cmp4.i.not = icmp eq i32 %2, 0
   br i1 %cmp4.i.not, label %if.end5, label %if.then
 
-if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.then:                                          ; preds = %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   %cmp = fcmp ogt double %priority, 0.000000e+00
   br i1 %cmp, label %if.then2, label %if.else
 
@@ -11372,7 +11372,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i5, %lor.l
   %this.val12.val.i.i = load ptr, ptr %this.val12.i.i, align 8
   %8 = getelementptr i8, ptr %this.val12.i.i, i64 8
   %this.val12.val13.i.i = load i32, ptr %8, align 8
-  %call5.i.i = call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val.i.i, ptr %this.val12.val.i.i, i32 %this.val12.val13.i.i, i32 noundef %4, i32 noundef %7)
+  %call5.i.i = call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val.i.i, ptr %this.val12.val.i.i, i32 %this.val12.val13.i.i, i32 noundef %4, i32 noundef %7)
   %idxprom.i18.i.i = zext i32 %idx.addr.030.i.i to i64
   br i1 %call5.i.i, label %if.end.i.i5, label %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9decreasedEi.exit
 
@@ -11409,12 +11409,12 @@ if.else:                                          ; preds = %if.then
   call fastcc void @_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9increasedEi(ptr noundef nonnull align 8 dereferenceable(32) %m_queue, i32 noundef %v)
   br label %if.end5
 
-if.end5:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9decreasedEi.exit, %if.else, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.exit
+if.end5:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9decreasedEi.exit, %if.else, %_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE8containsEi.argprom.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr nocapture readonly %this.0.val, ptr readonly %this.8.val.0.val, i32 %this.8.val.8.val, i32 noundef %v1, i32 noundef %v2) unnamed_addr #20 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr nocapture readonly %this.0.val, ptr readonly %this.8.val.0.val, i32 %this.8.val.8.val, i32 noundef %v1, i32 noundef %v2) unnamed_addr #20 align 2 {
 entry:
   %sub.i.i.i.i = add i32 %this.8.val.8.val, -1
   %and.i.i.i.i = and i32 %sub.i.i.i.i, %v1
@@ -11495,7 +11495,7 @@ if.end.i:                                         ; preds = %for.body.i.i.i.i, %
 
 for.cond18.preheader.i.i.i18.i:                   ; preds = %for.inc.i.i.i15.i, %if.end.i
   %cmp19.not31.i.i.i19.i = icmp eq i32 %and.i.i.i3.i, 0
-  br i1 %cmp19.not31.i.i.i19.i, label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.exit, label %for.body20.i.i.i20.i
+  br i1 %cmp19.not31.i.i.i19.i, label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.argprom.argprom.exit, label %for.body20.i.i.i20.i
 
 for.body.i.i.i9.i:                                ; preds = %if.end.i, %for.inc.i.i.i15.i
   %curr.030.i.i.i10.i = phi ptr [ %incdec.ptr.i.i.i16.i, %for.inc.i.i.i15.i ], [ %add.ptr.i.i.i5.i, %if.end.i ]
@@ -11503,7 +11503,7 @@ for.body.i.i.i9.i:                                ; preds = %if.end.i, %for.inc.
   %7 = load i32, ptr %m_state.i.i.i.i11.i, align 4
   switch i32 %7, label %for.inc.i.i.i15.i [
     i32 2, label %if.then.i.i.i13.i
-    i32 0, label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.exit
+    i32 0, label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.argprom.argprom.exit
   ]
 
 if.then.i.i.i13.i:                                ; preds = %for.body.i.i.i9.i
@@ -11528,7 +11528,7 @@ for.body20.i.i.i20.i:                             ; preds = %for.cond18.preheade
   %10 = load i32, ptr %m_state.i21.i.i.i22.i, align 4
   switch i32 %10, label %for.inc36.i.i.i25.i [
     i32 2, label %if.then22.i.i.i23.i
-    i32 0, label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.exit
+    i32 0, label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.argprom.argprom.exit
   ]
 
 if.then22.i.i.i23.i:                              ; preds = %for.body20.i.i.i20.i
@@ -11545,15 +11545,15 @@ land.lhs.true25.i.i.i28.i:                        ; preds = %if.then22.i.i.i23.i
 for.inc36.i.i.i25.i:                              ; preds = %land.lhs.true25.i.i.i28.i, %if.then22.i.i.i23.i, %for.body20.i.i.i20.i
   %incdec.ptr37.i.i.i26.i = getelementptr inbounds i8, ptr %curr.132.i.i.i21.i, i64 24
   %cmp19.not.i.i.i27.i = icmp eq ptr %incdec.ptr37.i.i.i26.i, %add.ptr.i.i.i5.i
-  br i1 %cmp19.not.i.i.i27.i, label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.exit, label %for.body20.i.i.i20.i, !llvm.loop !49
+  br i1 %cmp19.not.i.i.i27.i, label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.argprom.argprom.exit, label %for.body20.i.i.i20.i, !llvm.loop !49
 
 _ZNK9table2mapI17default_map_entryIjdE8int_hash10default_eqIjEE4findERKjRd.exit37.i: ; preds = %land.lhs.true.i.i.i34.i, %land.lhs.true25.i.i.i28.i
   %retval.0.i.i.i32.i = phi ptr [ %curr.132.i.i.i21.i, %land.lhs.true25.i.i.i28.i ], [ %curr.030.i.i.i10.i, %land.lhs.true.i.i.i34.i ]
   %m_value.i33.i = getelementptr inbounds i8, ptr %retval.0.i.i.i32.i, i64 16
   %13 = load double, ptr %m_value.i33.i, align 8
-  br label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.exit
+  br label %_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.argprom.argprom.exit
 
-_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.exit: ; preds = %for.body.i.i.i9.i, %for.body20.i.i.i20.i, %for.inc36.i.i.i25.i, %for.cond18.preheader.i.i.i18.i, %_ZNK9table2mapI17default_map_entryIjdE8int_hash10default_eqIjEE4findERKjRd.exit37.i
+_ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.argprom.argprom.exit: ; preds = %for.body.i.i.i9.i, %for.body20.i.i.i20.i, %for.inc36.i.i.i25.i, %for.cond18.preheader.i.i.i18.i, %_ZNK9table2mapI17default_map_entryIjdE8int_hash10default_eqIjEE4findERKjRd.exit37.i
   %p_v2.1.i = phi double [ %13, %_ZNK9table2mapI17default_map_entryIjdE8int_hash10default_eqIjEE4findERKjRd.exit37.i ], [ 0.000000e+00, %for.cond18.preheader.i.i.i18.i ], [ 0.000000e+00, %for.inc36.i.i.i25.i ], [ 0.000000e+00, %for.body20.i.i.i20.i ], [ 0.000000e+00, %for.body.i.i.i9.i ]
   %14 = load ptr, ptr %this.0.val, align 8
   %idxprom.i.i = zext i32 %v1 to i64
@@ -11622,7 +11622,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %this.val19.val.i = load ptr, ptr %this.val19.i, align 8
   %8 = getelementptr i8, ptr %this.val19.i, i64 8
   %this.val19.val20.i = load i32, ptr %8, align 8
-  %call11.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val18.i, ptr %this.val19.val.i, i32 %this.val19.val20.i, i32 noundef %6, i32 noundef %7)
+  %call11.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val18.i, ptr %this.val19.val.i, i32 %this.val19.val20.i, i32 noundef %6, i32 noundef %7)
   %spec.select.i = select i1 %call11.i, i32 %6, i32 %7
   %spec.select59.i = select i1 %call11.i, i32 %add.i.i, i32 %shl.i41.i
   br label %cond.end.i
@@ -11633,7 +11633,7 @@ cond.end.i:                                       ; preds = %land.lhs.true.i, %i
   %this.val.i = phi ptr [ %this.val.pre.pre.i, %if.end.cond.false_crit_edge.i ], [ %this.val18.i, %land.lhs.true.i ]
   %9 = phi i32 [ %.pre44.pre.i, %if.end.cond.false_crit_edge.i ], [ %spec.select.i, %land.lhs.true.i ]
   %cond.i = phi i32 [ %shl.i41.i, %if.end.cond.false_crit_edge.i ], [ %spec.select59.i, %land.lhs.true.i ]
-  %call14.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val.i, ptr %this.val17.val.i, i32 %this.val17.val21.i, i32 noundef %9, i32 noundef %3)
+  %call14.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val.i, ptr %this.val17.val.i, i32 %this.val17.val21.i, i32 noundef %9, i32 noundef %3)
   br i1 %call14.i, label %if.end16.i, label %while.end.loopexit.i
 
 if.end16.i:                                       ; preds = %cond.end.i
@@ -11744,7 +11744,7 @@ lor.lhs.false.i6:                                 ; preds = %if.end.i7, %lor.lhs
   %this.val12.val.i = load ptr, ptr %this.val12.i, align 8
   %15 = getelementptr i8, ptr %this.val12.i, i64 8
   %this.val12.val13.i = load i32, ptr %15, align 8
-  %call5.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr %this.val.i, ptr %this.val12.val.i, i32 %this.val12.val13.i, i32 noundef %11, i32 noundef %14)
+  %call5.i = tail call fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii.argprom.argprom(ptr %this.val.i, ptr %this.val12.val.i, i32 %this.val12.val13.i, i32 noundef %11, i32 noundef %14)
   %idxprom.i18.i = zext i32 %idx.addr.030.i to i64
   br i1 %call5.i, label %if.end.i7, label %_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE7move_upEi.exit
 

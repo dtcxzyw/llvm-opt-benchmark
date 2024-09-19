@@ -1090,12 +1090,12 @@ define internal range(i32 0, 2) i32 @dissect_mqpcf_heur(ptr noundef %0, ptr noun
   %23 = select i1 %22, i32 -2147483648, i32 0
   %24 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %25 = icmp ugt i32 %24, 35
-  br i1 %25, label %26, label %dissect_mqpcf.exit
+  br i1 %25, label %26, label %dissect_mqpcf.argprom.exit
 
 26:                                               ; preds = %19
   %27 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 12, i32 noundef %23) #8
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %dissect_mqpcf.exit, label %28
+  br i1 %.not.i, label %dissect_mqpcf.argprom.exit, label %28
 
 28:                                               ; preds = %26
   %29 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef %23) #8
@@ -1148,9 +1148,9 @@ define internal range(i32 0, 2) i32 @dissect_mqpcf_heur(ptr noundef %0, ptr noun
   %68 = load i32, ptr @hf_mqpcf_cfh_ParmCount, align 4
   %69 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %68, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef %23) #8
   %70 = call i32 @dissect_mqpcf_parm(ptr noundef %0, ptr noundef %1, ptr noundef %49, i32 noundef 36, i32 noundef %33, i32 noundef %23, i32 noundef 1)
-  br label %dissect_mqpcf.exit
+  br label %dissect_mqpcf.argprom.exit
 
-dissect_mqpcf.exit:                               ; preds = %19, %26, %44
+dissect_mqpcf.argprom.exit:                       ; preds = %19, %26, %44
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   br label %81
 
@@ -1168,8 +1168,8 @@ dissect_mqpcf.exit:                               ; preds = %19, %26, %44
   %80 = tail call i32 @dissect_mqpcf_parm(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef %79, i32 noundef 0)
   br label %81
 
-81:                                               ; preds = %4, %6, %71, %74, %dissect_mqpcf.exit
-  %.0 = phi i32 [ 1, %dissect_mqpcf.exit ], [ 1, %74 ], [ 0, %71 ], [ 0, %6 ], [ 0, %4 ]
+81:                                               ; preds = %4, %6, %71, %74, %dissect_mqpcf.argprom.exit
+  %.0 = phi i32 [ 1, %dissect_mqpcf.argprom.exit ], [ 1, %74 ], [ 0, %71 ], [ 0, %6 ], [ 0, %4 ]
   ret i32 %.0
 }
 

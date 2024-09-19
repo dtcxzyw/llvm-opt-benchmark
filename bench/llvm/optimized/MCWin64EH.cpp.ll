@@ -103,7 +103,7 @@ $_ZN4llvm8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPa
 @.str.15 = private unnamed_addr constant [26 x i8] c" not correctly terminated\00", align 1
 @.str.16 = private unnamed_addr constant [13 x i8] c"Epilogue in \00", align 1
 @.str.17 = private unnamed_addr constant [46 x i8] c"SEH unwind data splitting not yet implemented\00", align 1
-@switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_ = private unnamed_addr constant [45 x i32] [i32 4, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 1, i32 2, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3], align 4
+@switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_.argprom = private unnamed_addr constant [45 x i32] [i32 4, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 1, i32 2, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm7Win64EH13UnwindEmitter4EmitERNS_10MCStreamerE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
@@ -229,7 +229,7 @@ define internal fastcc void @_ZL14EmitUnwindInfoRN4llvm10MCStreamerEPNS_5WinEH9F
   %44 = getelementptr i8, ptr %1, i64 96
   %.val59 = load ptr, ptr %44, align 8
   %.not5.i = icmp eq ptr %.val, %.val59
-  br i1 %.not5.i, label %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %42, %60
   %.07.i = phi i8 [ %.1.i, %60 ], [ 0, %42 ]
@@ -275,9 +275,9 @@ define internal fastcc void @_ZL14EmitUnwindInfoRN4llvm10MCStreamerEPNS_5WinEH9F
   %.1.i = phi i8 [ %59, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ]
   %61 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 24
   %.not.i = icmp eq ptr %61, %.val59
-  br i1 %.not.i, label %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.argprom.exit, label %.lr.ph.i
 
-_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit: ; preds = %60, %42
+_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.argprom.exit: ; preds = %60, %42
   %.0.lcssa.i = phi i8 [ 0, %42 ], [ %.1.i, %60 ]
   %62 = zext i8 %.0.lcssa.i to i64
   %63 = load ptr, ptr %0, align 8
@@ -289,7 +289,7 @@ _ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit: ; pre
   %68 = icmp sgt i32 %67, -1
   br i1 %68, label %69, label %81
 
-69:                                               ; preds = %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit
+69:                                               ; preds = %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.argprom.exit
   %70 = zext nneg i32 %67 to i64
   %71 = load ptr, ptr %43, align 8
   %72 = getelementptr inbounds %"struct.llvm::WinEH::Instruction", ptr %71, i64 %70
@@ -303,8 +303,8 @@ _ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit: ; pre
   %80 = zext nneg i32 %79 to i64
   br label %81
 
-81:                                               ; preds = %69, %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit
-  %.050 = phi i64 [ %80, %69 ], [ 0, %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit ]
+81:                                               ; preds = %69, %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.argprom.exit
+  %.050 = phi i64 [ %80, %69 ], [ 0, %_ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.argprom.exit ]
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 520
   %84 = load ptr, ptr %83, align 8
@@ -1004,7 +1004,7 @@ _ZL16GetAbsDifferenceRN4llvm10MCStreamerEPKNS_8MCSymbolES4_.exit: ; preds = %91
 _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %118, %105
   %.sroa.0.0.i.i = phi ptr [ %121, %118 ], [ null, %105 ]
   %.sroa.4.0.i.i = phi i64 [ %122, %118 ], [ 0, %105 ]
-  call fastcc void @_ZL22checkARM64InstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_(ptr noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %106, i64 %111, ptr noundef %112, ptr noundef nonnull %104, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr nonnull @.str.4, i64 8)
+  call fastcc void @_ZL22checkARM64InstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_.argprom(ptr noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %106, i64 %111, ptr noundef %112, ptr noundef nonnull %104, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr nonnull @.str.4, i64 8)
   br label %123
 
 123:                                              ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i, %_ZL16GetAbsDifferenceRN4llvm10MCStreamerEPKNS_8MCSymbolES4_.exit
@@ -1070,7 +1070,7 @@ _ZL16GetAbsDifferenceRN4llvm10MCStreamerEPKNS_8MCSymbolES4_.exit.i: ; preds = %1
 _ZNK4llvm8MCSymbol7getNameEv.exit94.i:            ; preds = %157, %_ZL16GetAbsDifferenceRN4llvm10MCStreamerEPKNS_8MCSymbolES4_.exit.i
   %.sroa.0.0.i90.i = phi ptr [ %160, %157 ], [ null, %_ZL16GetAbsDifferenceRN4llvm10MCStreamerEPKNS_8MCSymbolES4_.exit.i ]
   %.sroa.4.0.i91.i = phi i64 [ %161, %157 ], [ 0, %_ZL16GetAbsDifferenceRN4llvm10MCStreamerEPKNS_8MCSymbolES4_.exit.i ]
-  call fastcc void @_ZL22checkARM64InstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_(ptr noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %144, i64 %150, ptr noundef %133, ptr noundef %152, ptr %.sroa.0.0.i90.i, i64 %.sroa.4.0.i91.i, ptr nonnull @.str.5, i64 8)
+  call fastcc void @_ZL22checkARM64InstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_.argprom(ptr noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %144, i64 %150, ptr noundef %133, ptr noundef %152, ptr %.sroa.0.0.i90.i, i64 %.sroa.4.0.i91.i, ptr nonnull @.str.5, i64 8)
   store ptr %133, ptr %12, align 8
   store i64 %142, ptr %129, align 8
   %162 = load ptr, ptr %145, align 8
@@ -1366,7 +1366,7 @@ _ZL27ARM64FindSegmentsInFunctionRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEl.exit:
   %305 = load i32, ptr %304, align 8
   %switch.tableidx = add nsw i32 %305, -1
   %306 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [45 x i32], ptr @switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_, i64 0, i64 %306
+  %switch.gep = getelementptr inbounds [45 x i32], ptr @switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_.argprom, i64 0, i64 %306
   %switch.load = load i32, ptr %switch.gep, align 4
   %307 = add i32 %switch.load, %.039.i
   %308 = getelementptr inbounds i8, ptr %.03438.i, i64 24
@@ -1438,7 +1438,7 @@ _ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %346 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %338) #18
   %.not.i.i43 = icmp eq i64 %346, 1
-  br i1 %.not.i.i43, label %347, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i
+  br i1 %.not.i.i43, label %347, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i
 
 347:                                              ; preds = %345
   %348 = load ptr, ptr %338, align 8
@@ -1462,7 +1462,7 @@ _ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit: ; pr
   %365 = sub i64 %363, %364
   %366 = sdiv exact i64 %365, 24
   %.not25.i.i = icmp eq i64 %359, %366
-  br i1 %.not25.i.i, label %367, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i
+  br i1 %.not25.i.i, label %367, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i
 
 367:                                              ; preds = %347
   %368 = icmp slt i32 %344, 32
@@ -1479,7 +1479,7 @@ _ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit: ; pr
   %371 = load i32, ptr %370, align 8
   %switch.tableidx93 = add nsw i32 %371, -1
   %372 = sext i32 %switch.tableidx93 to i64
-  %switch.gep94 = getelementptr inbounds [45 x i32], ptr @switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_, i64 0, i64 %372
+  %switch.gep94 = getelementptr inbounds [45 x i32], ptr @switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_.argprom, i64 0, i64 %372
   %switch.load95 = load i32, ptr %switch.gep94, align 4
   %373 = add i32 %switch.load95, %.039.i.i.i
   %374 = getelementptr inbounds i8, ptr %.03438.i.i.i, i64 24
@@ -1497,15 +1497,15 @@ _ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit.i.i: 
   %.022.i.i = phi i32 [ -1, %367 ], [ %spec.select.i.i, %_ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit.i.i ]
   %.val.i.i = load ptr, ptr %28, align 8
   %.val26.i.i = load ptr, ptr %30, align 8
-  %378 = call fastcc noundef i32 @_ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_(ptr %.val.i.i, ptr %.val26.i.i, ptr %362, ptr %361)
+  %378 = call fastcc noundef i32 @_ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_.argprom(ptr %.val.i.i, ptr %.val26.i.i, ptr %362, ptr %361)
   %379 = icmp slt i32 %378, 0
-  br i1 %379, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i, label %380
+  br i1 %379, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i, label %380
 
 380:                                              ; preds = %377
   %381 = icmp ugt i32 %378, 31
   %382 = icmp sgt i32 %344, 124
   %or.cond.i.i = or i1 %382, %381
-  br i1 %or.cond.i.i, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i, label %383
+  br i1 %or.cond.i.i, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i, label %383
 
 383:                                              ; preds = %380
   %384 = load ptr, ptr %6, align 8
@@ -1576,19 +1576,19 @@ _ZN4llvm9MapVectorIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogENS_8DenseMapIS2_jNS_
   %422 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #18
   %423 = getelementptr inbounds %"struct.std::pair", ptr %420, i64 %422
   %424 = icmp eq ptr %421, %423
-  br i1 %424, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i, label %425
+  br i1 %424, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i, label %425
 
 425:                                              ; preds = %_ZN4llvm9MapVectorIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S5_ELj0EEEE4findERKS2_.exit.i.i.i
   %426 = call noundef ptr @_ZN4llvm9MapVectorIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S5_ELj0EEEE5eraseEPSF_(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef %421)
-  br label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i
+  br label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i
 
-_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i: ; preds = %425, %_ZN4llvm9MapVectorIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S5_ELj0EEEE4findERKS2_.exit.i.i.i, %380, %377, %347, %345
+_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i: ; preds = %425, %_ZN4llvm9MapVectorIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S5_ELj0EEEE4findERKS2_.exit.i.i.i, %380, %377, %347, %345
   %.0.i.i44 = phi i32 [ -1, %345 ], [ -1, %347 ], [ %.022.i.i, %377 ], [ %.022.i.i, %380 ], [ %378, %_ZN4llvm9MapVectorIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S5_ELj0EEEE4findERKS2_.exit.i.i.i ], [ %378, %425 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %427
 
-427:                                              ; preds = %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i, %333
-  %428 = phi i32 [ %.0.i.i44, %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i ], [ -1, %333 ]
+427:                                              ; preds = %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i, %333
+  %428 = phi i32 [ %.0.i.i44, %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.argprom.exit.i ], [ -1, %333 ]
   %429 = load ptr, ptr %277, align 8
   %430 = load ptr, ptr %310, align 8
   %431 = ptrtoint ptr %429 to i64
@@ -2149,7 +2149,7 @@ _ZNSt6vectorIPN4llvm8MCSymbolESaIS2_EE9push_backERKS2_.exit.i.i: ; preds = %_ZNS
   %649 = load i32, ptr %648, align 8
   %switch.tableidx96 = add nsw i32 %649, -1
   %650 = sext i32 %switch.tableidx96 to i64
-  %switch.gep97 = getelementptr inbounds [45 x i32], ptr @switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_, i64 0, i64 %650
+  %switch.gep97 = getelementptr inbounds [45 x i32], ptr @switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_.argprom, i64 0, i64 %650
   %switch.load98 = load i32, ptr %switch.gep97, align 4
   %651 = add i32 %switch.load98, %.039.i.i150.i
   %652 = getelementptr inbounds i8, ptr %.03438.i.i151.i, i64 24
@@ -2158,7 +2158,7 @@ _ZNSt6vectorIPN4llvm8MCSymbolESaIS2_EE9push_backERKS2_.exit.i.i: ; preds = %_ZNS
 
 _ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit.i153.i: ; preds = %.lr.ph.i.i149.i, %.lr.ph86.i.i
   %.0.lcssa.i.i154.i = phi i32 [ 0, %.lr.ph86.i.i ], [ %651, %.lr.ph.i.i149.i ]
-  %653 = call fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EERKS_IPNS0_8MCSymbolESaIS8_EEPKNS1_9FrameInfoE(ptr noundef nonnull align 8 dereferenceable(24) %644, ptr %.sroa.053.085.i.i, ptr %.sroa.5.082.i.i, ptr noundef %1)
+  %653 = call fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EERKS_IPNS0_8MCSymbolESaIS8_EEPKNS1_9FrameInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %644, ptr %.sroa.053.085.i.i, ptr %.sroa.5.082.i.i, ptr noundef %1)
   %.not28.i.i = icmp eq ptr %653, null
   br i1 %.not28.i.i, label %695, label %654
 
@@ -2238,7 +2238,7 @@ _ZNK4llvm9MapVectorIPNS_8MCSymbolEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6
   %.val29.i.i = load ptr, ptr %30, align 8
   %.val30.i.i = load ptr, ptr %644, align 8
   %.val31.i.i = load ptr, ptr %646, align 8
-  %696 = call fastcc noundef i32 @_ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_(ptr %.val.i161.i, ptr %.val29.i.i, ptr %.val30.i.i, ptr %.val31.i.i)
+  %696 = call fastcc noundef i32 @_ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_.argprom(ptr %.val.i161.i, ptr %.val29.i.i, ptr %.val30.i.i, ptr %.val31.i.i)
   %697 = icmp sgt i32 %696, -1
   %698 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9MapVectorIPNS_8MCSymbolEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %697, label %699, label %710
@@ -2939,7 +2939,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %54, %48
 _ZNK4llvm8MCSymbol7getNameEv.exit254:             ; preds = %100, %113
   %.sroa.0.0.i250 = phi ptr [ %116, %113 ], [ null, %100 ]
   %.sroa.4.0.i251 = phi i64 [ %117, %113 ], [ 0, %100 ]
-  call fastcc void @_ZL20checkARMInstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %101, i64 %106, ptr noundef %107, ptr noundef nonnull %96, ptr %.sroa.0.0.i250, i64 %.sroa.4.0.i251, ptr nonnull @.str.4, i64 8)
+  call fastcc void @_ZL20checkARMInstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_.argprom(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %101, i64 %106, ptr noundef %107, ptr noundef nonnull %96, ptr %.sroa.0.0.i250, i64 %.sroa.4.0.i251, ptr nonnull @.str.4, i64 8)
   br label %118
 
 118:                                              ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit254, %.thread, %88
@@ -2962,8 +2962,8 @@ _ZNK4llvm8MCSymbol7getNameEv.exit254:             ; preds = %100, %113
   %131 = getelementptr inbounds nuw i8, ptr %16, i64 33
   br label %132
 
-132:                                              ; preds = %.lr.ph, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit.thread
-  %.0180434 = phi ptr [ %121, %.lr.ph ], [ %168, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit.thread ]
+132:                                              ; preds = %.lr.ph, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit.thread
+  %.0180434 = phi ptr [ %121, %.lr.ph ], [ %168, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit.thread ]
   %133 = load ptr, ptr %.0180434, align 8
   %134 = getelementptr inbounds nuw i8, ptr %.0180434, i64 8
   %135 = load ptr, ptr %134, align 8
@@ -2992,22 +2992,22 @@ _ZNK4llvm8MCSymbol7getNameEv.exit254:             ; preds = %100, %113
 _ZNK4llvm8MCSymbol7getNameEv.exit260:             ; preds = %132, %148
   %.sroa.0.0.i256 = phi ptr [ %151, %148 ], [ null, %132 ]
   %.sroa.4.0.i257 = phi i64 [ %152, %148 ], [ 0, %132 ]
-  call fastcc void @_ZL20checkARMInstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %135, i64 %141, ptr noundef %133, ptr noundef %143, ptr %.sroa.0.0.i256, i64 %.sroa.4.0.i257, ptr nonnull @.str.5, i64 8)
+  call fastcc void @_ZL20checkARMInstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_.argprom(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %135, i64 %141, ptr noundef %133, ptr noundef %143, ptr %.sroa.0.0.i256, i64 %.sroa.4.0.i257, ptr nonnull @.str.5, i64 8)
   %153 = load ptr, ptr %134, align 8
   %154 = load ptr, ptr %136, align 8
   %155 = icmp eq ptr %153, %154
-  br i1 %155, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit, label %156
+  br i1 %155, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit, label %156
 
 156:                                              ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit260
   %157 = getelementptr i8, ptr %154, i64 -8
   %.val220 = load i32, ptr %157, align 8
-  switch i32 %.val220, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit [
-    i32 27, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit.thread
-    i32 60, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit.thread
-    i32 61, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit.thread
+  switch i32 %.val220, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit [
+    i32 27, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit.thread
+    i32 60, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit.thread
+    i32 61, label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit.thread
   ]
 
-_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit: ; preds = %156, %_ZNK4llvm8MCSymbol7getNameEv.exit260
+_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit: ; preds = %156, %_ZNK4llvm8MCSymbol7getNameEv.exit260
   %158 = load ptr, ptr %46, align 8
   %159 = load ptr, ptr %124, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -3016,16 +3016,16 @@ _ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit: ; preds = %156, %_ZNK4llv
   %.not.i262 = icmp eq i64 %162, 0
   br i1 %.not.i262, label %_ZN4llvmplERKNS_5TwineES2_.exit282, label %163
 
-163:                                              ; preds = %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit
+163:                                              ; preds = %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit
   %164 = getelementptr inbounds i8, ptr %159, i64 -8
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 24
   %167 = load i64, ptr %165, align 8
   br label %_ZN4llvmplERKNS_5TwineES2_.exit282
 
-_ZN4llvmplERKNS_5TwineES2_.exit282:               ; preds = %163, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit
-  %.sroa.0.0.i263 = phi ptr [ %166, %163 ], [ null, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit ]
-  %.sroa.4.0.i264 = phi i64 [ %167, %163 ], [ 0, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit ]
+_ZN4llvmplERKNS_5TwineES2_.exit282:               ; preds = %163, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit
+  %.sroa.0.0.i263 = phi ptr [ %166, %163 ], [ null, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit ]
+  %.sroa.4.0.i264 = phi i64 [ %167, %163 ], [ 0, %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit ]
   store i8 3, ptr %125, align 8, !alias.scope !62
   store i8 5, ptr %126, align 1, !alias.scope !62
   store ptr @.str.16, ptr %17, align 8, !alias.scope !62
@@ -3036,14 +3036,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit282:               ; preds = %163, %_ZL15isARMTer
   store i8 2, ptr %130, align 8, !alias.scope !65
   store i8 3, ptr %131, align 1, !alias.scope !65
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %158, ptr null, ptr noundef nonnull align 8 dereferenceable(34) %16) #18
-  br label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit.thread
+  br label %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit.thread
 
-_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit.thread: ; preds = %156, %156, %156, %_ZN4llvmplERKNS_5TwineES2_.exit282
+_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit.thread: ; preds = %156, %156, %156, %_ZN4llvmplERKNS_5TwineES2_.exit282
   %168 = getelementptr inbounds i8, ptr %.0180434, i64 48
   %.not203 = icmp eq ptr %168, %123
   br i1 %.not203, label %._crit_edge, label %132
 
-._crit_edge:                                      ; preds = %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.exit.thread, %118
+._crit_edge:                                      ; preds = %_ZL15isARMTerminatorRKN4llvm5WinEH11InstructionE.argprom.exit.thread, %118
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %170 = load ptr, ptr %169, align 8
   %.not204 = icmp eq ptr %170, null
@@ -3834,7 +3834,7 @@ _ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit: ; preds 
   %.028.i = phi i32 [ -1, %494 ], [ %spec.select.i293, %496 ]
   %.val.i = load ptr, ptr %25, align 8
   %.val33.i = load ptr, ptr %27, align 8
-  %501 = call fastcc noundef i32 @_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b(ptr %.val.i, ptr %.val33.i, ptr %487, ptr %488, i1 noundef zeroext true)
+  %501 = call fastcc noundef i32 @_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom(ptr %.val.i, ptr %.val33.i, ptr %487, ptr %488, i1 noundef zeroext true)
   %502 = icmp slt i32 %501, 0
   br i1 %502, label %_ZL20checkARMPackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEi.exit, label %503
 
@@ -3884,7 +3884,7 @@ _ZL20checkARMPackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEi.exit: ; pred
   %522 = sub i64 %520, %521
   %523 = sdiv exact i64 %522, 24
   %524 = call fastcc noundef i32 @_ZL21ARMCountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE(ptr %517, i64 %523)
-  %525 = call fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EERKS_IPNS0_8MCSymbolESaIS8_EEPKNS1_9FrameInfoE(ptr noundef nonnull align 8 dereferenceable(24) %516, ptr %.sroa.0316.0443, ptr %.sroa.5.0441, ptr noundef nonnull %1)
+  %525 = call fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EERKS_IPNS0_8MCSymbolESaIS8_EEPKNS1_9FrameInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %516, ptr %.sroa.0316.0443, ptr %.sroa.5.0441, ptr noundef nonnull %1)
   %.not209 = icmp eq ptr %525, null
   br i1 %.not209, label %567, label %526
 
@@ -3974,7 +3974,7 @@ _ZNK4llvm9MapVectorIPNS_8MCSymbolEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6
   %575 = sub i64 %573, %574
   %576 = sdiv exact i64 %575, 24
   %577 = icmp ugt i64 %572, %576
-  br i1 %577, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread, label %578
+  br i1 %577, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread, label %578
 
 578:                                              ; preds = %567
   %.mask = and i8 %.0184445, 1
@@ -3999,7 +3999,7 @@ _ZNK4llvm9MapVectorIPNS_8MCSymbolEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6
   %590 = getelementptr inbounds nuw i8, ptr %587, i64 8
   %591 = load i32, ptr %590, align 8
   %592 = icmp eq i32 %589, %591
-  br i1 %592, label %593, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread
+  br i1 %592, label %593, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread
 
 593:                                              ; preds = %583
   %594 = getelementptr inbounds nuw i8, ptr %585, i64 12
@@ -4007,7 +4007,7 @@ _ZNK4llvm9MapVectorIPNS_8MCSymbolEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6
   %596 = getelementptr inbounds nuw i8, ptr %587, i64 12
   %597 = load i32, ptr %596, align 4
   %598 = icmp eq i32 %595, %597
-  br i1 %598, label %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.i, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread
+  br i1 %598, label %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.i, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread
 
 _ZNK4llvm5WinEH11InstructionneERKS1_.exit.i:      ; preds = %593
   %599 = getelementptr inbounds nuw i8, ptr %585, i64 16
@@ -4015,7 +4015,7 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit.i:      ; preds = %593
   %601 = getelementptr inbounds nuw i8, ptr %587, i64 16
   %602 = load i32, ptr %601, align 8
   %.not5.i = icmp eq i32 %600, %602
-  br i1 %.not5.i, label %582, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread, !llvm.loop !72
+  br i1 %.not5.i, label %582, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread, !llvm.loop !72
 
 603:                                              ; preds = %582
   br i1 %568, label %604, label %610
@@ -4024,12 +4024,12 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit.i:      ; preds = %593
   %605 = getelementptr inbounds nuw i8, ptr %.val223, i64 16
   %606 = load i32, ptr %605, align 8
   %.not24.i = icmp eq i32 %606, 27
-  br i1 %.not24.i, label %607, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread
+  br i1 %.not24.i, label %607, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread
 
 607:                                              ; preds = %604
   %608 = getelementptr inbounds i8, ptr %.val226, i64 -8
   %609 = load i32, ptr %608, align 8
-  switch i32 %609, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread [
+  switch i32 %609, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread [
     i32 27, label %610
     i32 60, label %610
     i32 61, label %610
@@ -4037,26 +4037,26 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit.i:      ; preds = %593
 
 610:                                              ; preds = %607, %607, %607, %603
   %611 = icmp eq i64 %572, %576
-  br i1 %611, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread364, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit
+  br i1 %611, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread364, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit
 
-_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit: ; preds = %610
+_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit: ; preds = %610
   %612 = getelementptr inbounds i8, ptr %.val223, i64 %571
   %613 = sub nsw i64 %576, %572
   %614 = call fastcc noundef i32 @_ZL21ARMCountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE(ptr %612, i64 %613)
   %615 = icmp sgt i32 %614, -1
-  br i1 %615, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread364, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread
+  br i1 %615, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread364, label %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread
 
-_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread364: ; preds = %610, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit
-  %.023.i366 = phi i32 [ %614, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit ], [ 0, %610 ]
+_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread364: ; preds = %610, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit
+  %.023.i366 = phi i32 [ %614, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit ], [ 0, %610 ]
   br i1 %568, label %616, label %618
 
-616:                                              ; preds = %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread364
+616:                                              ; preds = %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread364
   %617 = getelementptr inbounds i8, ptr %.val226, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.val223, ptr noundef nonnull align 8 dereferenceable(20) %617, i64 20, i1 false)
   br label %618
 
-618:                                              ; preds = %616, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread364
-  %.1185 = phi i8 [ 0, %616 ], [ %.0184445, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread364 ]
+618:                                              ; preds = %616, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread364
+  %.1185 = phi i8 [ 0, %616 ], [ %.0184445, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread364 ]
   %619 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9MapVectorIPNS_8MCSymbolEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
   store i32 %.023.i366, ptr %619, align 4
   %620 = load ptr, ptr %516, align 8
@@ -4068,20 +4068,20 @@ _ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit
   store ptr %620, ptr %518, align 8
   br label %_ZNSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE5clearEv.exit
 
-_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread: ; preds = %583, %593, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.i, %607, %604, %567, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit
+_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread: ; preds = %583, %593, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.i, %607, %604, %567, %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit
   %623 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9MapVectorIPNS_8MCSymbolEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
   store i32 %.0183446, ptr %623, align 4
   %624 = add i32 %524, %.0183446
   %.not.i299 = icmp eq ptr %.sroa.5.0441, %.sroa.10.0440
   br i1 %.not.i299, label %628, label %625
 
-625:                                              ; preds = %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread
+625:                                              ; preds = %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread
   %626 = load ptr, ptr %19, align 8
   store ptr %626, ptr %.sroa.5.0441, align 8
   %627 = getelementptr inbounds i8, ptr %.sroa.5.0441, i64 8
   br label %_ZNSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE5clearEv.exit
 
-628:                                              ; preds = %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.exit.thread
+628:                                              ; preds = %_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom.exit.thread
   %629 = ptrtoint ptr %.sroa.5.0441 to i64
   %630 = ptrtoint ptr %.sroa.0316.0443 to i64
   %631 = sub i64 %629, %630
@@ -4648,7 +4648,7 @@ define internal fastcc void @"_ZZL20simplifyARM64OpcodesRSt6vectorIN4llvm5WinEH1
 declare noundef zeroext i1 @_ZNK4llvm6MCExpr18evaluateAsAbsoluteERlRKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 1) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22checkARM64InstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr readonly %1, i64 %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 {
+define internal fastcc void @_ZL22checkARM64InstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr readonly %1, i64 %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -6074,7 +6074,7 @@ _ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit:         ; preds = %48, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_(ptr %.0.val, ptr %.8.val, ptr %.0.val1, ptr %.8.val3) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_.argprom(ptr %.0.val, ptr %.8.val, ptr %.0.val1, ptr %.8.val3) unnamed_addr #9 {
   %1 = ptrtoint ptr %.8.val3 to i64
   %2 = ptrtoint ptr %.0.val1 to i64
   %3 = sub i64 %1, %2
@@ -6143,7 +6143,7 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit:        ; preds = %26
   %43 = load i32, ptr %42, align 8
   %switch.tableidx = add nsw i32 %43, -1
   %44 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [45 x i32], ptr @switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds [45 x i32], ptr @switch.table._ZL22getARM64OffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_.argprom, i64 0, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   %45 = add i32 %switch.load, %.039.i
   %46 = getelementptr inbounds i8, ptr %.03438.i, i64 24
@@ -6379,7 +6379,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6Epil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EERKS_IPNS0_8MCSymbolESaIS8_EEPKNS1_9FrameInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EERKS_IPNS0_8MCSymbolESaIS8_EEPKNS1_9FrameInfoE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef %1) unnamed_addr #0 {
   %.not512 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not512, label %.critedge, label %.lr.ph14
 
@@ -6779,7 +6779,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef
 declare noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef, ptr noundef nonnull align 8 dereferenceable(2432), i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20checkARMInstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %1, i64 %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 {
+define internal fastcc void @_ZL20checkARMInstructionsRN4llvm10MCStreamerENS_8ArrayRefINS_5WinEH11InstructionEEEPKNS_8MCSymbolES8_NS_9StringRefES9_.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %1, i64 %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
   %8 = alloca %"class.llvm::Twine", align 8
@@ -6994,7 +6994,7 @@ define internal fastcc noundef i32 @_ZL21ARMCountOfUnwindCodesN4llvm8ArrayRefINS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b(ptr %.0.val, ptr %.8.val, ptr %.0.val1, ptr %.8.val3, i1 noundef zeroext %0) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZL20getARMOffsetInPrologRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EES6_b.argprom(ptr %.0.val, ptr %.8.val, ptr %.0.val1, ptr %.8.val3, i1 noundef zeroext %0) unnamed_addr #9 {
   %2 = ptrtoint ptr %.8.val3 to i64
   %3 = ptrtoint ptr %.0.val1 to i64
   %4 = sub i64 %2, %3

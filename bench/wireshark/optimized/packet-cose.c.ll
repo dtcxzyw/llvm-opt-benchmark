@@ -655,7 +655,7 @@ define internal i32 @dissect_cose_sign(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = load i32, ptr @ett_msg, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %dissect_msg_tag.exit, label %17
+  br i1 %.not.i, label %dissect_msg_tag.argprom.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
@@ -665,9 +665,9 @@ define internal i32 @dissect_cose_sign(ptr noundef %0, ptr noundef %1, ptr nound
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
-  br label %dissect_msg_tag.exit
+  br label %dissect_msg_tag.argprom.exit
 
-dissect_msg_tag.exit:                             ; preds = %14, %17
+dissect_msg_tag.argprom.exit:                     ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
@@ -676,12 +676,12 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %dissect_msg_tag.exit
+30:                                               ; preds = %dissect_msg_tag.argprom.exit
   %31 = load i32, ptr @hf_payload_null, align 4
   %32 = call ptr @proto_tree_add_cbor_ctrl(ptr noundef %16, i32 noundef %31, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %26) #7
   br label %dissect_payload.exit
 
-33:                                               ; preds = %dissect_msg_tag.exit
+33:                                               ; preds = %dissect_msg_tag.argprom.exit
   %34 = load ptr, ptr %6, align 8
   %35 = call ptr @wscbor_require_bstr(ptr noundef %34, ptr noundef nonnull %26) #7
   %36 = load i32, ptr @hf_payload_bstr, align 4
@@ -781,7 +781,7 @@ define internal i32 @dissect_cose_sign1(ptr noundef %0, ptr noundef %1, ptr noun
   %15 = load i32, ptr @ett_msg, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %dissect_msg_tag.exit, label %17
+  br i1 %.not.i, label %dissect_msg_tag.argprom.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
@@ -791,9 +791,9 @@ define internal i32 @dissect_cose_sign1(ptr noundef %0, ptr noundef %1, ptr noun
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
-  br label %dissect_msg_tag.exit
+  br label %dissect_msg_tag.argprom.exit
 
-dissect_msg_tag.exit:                             ; preds = %14, %17
+dissect_msg_tag.argprom.exit:                     ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
@@ -802,12 +802,12 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %dissect_msg_tag.exit
+30:                                               ; preds = %dissect_msg_tag.argprom.exit
   %31 = load i32, ptr @hf_payload_null, align 4
   %32 = call ptr @proto_tree_add_cbor_ctrl(ptr noundef %16, i32 noundef %31, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %26) #7
   br label %dissect_payload.exit
 
-33:                                               ; preds = %dissect_msg_tag.exit
+33:                                               ; preds = %dissect_msg_tag.argprom.exit
   %34 = load ptr, ptr %6, align 8
   %35 = call ptr @wscbor_require_bstr(ptr noundef %34, ptr noundef nonnull %26) #7
   %36 = load i32, ptr @hf_payload_bstr, align 4
@@ -854,7 +854,7 @@ define internal i32 @dissect_cose_encrypt(ptr noundef %0, ptr noundef %1, ptr no
   %15 = load i32, ptr @ett_msg, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %dissect_msg_tag.exit, label %17
+  br i1 %.not.i, label %dissect_msg_tag.argprom.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
@@ -864,9 +864,9 @@ define internal i32 @dissect_cose_encrypt(ptr noundef %0, ptr noundef %1, ptr no
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
-  br label %dissect_msg_tag.exit
+  br label %dissect_msg_tag.argprom.exit
 
-dissect_msg_tag.exit:                             ; preds = %14, %17
+dissect_msg_tag.argprom.exit:                     ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
@@ -875,12 +875,12 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %dissect_msg_tag.exit
+30:                                               ; preds = %dissect_msg_tag.argprom.exit
   %31 = load i32, ptr @hf_ciphertext_null, align 4
   %32 = call ptr @proto_tree_add_cbor_ctrl(ptr noundef %16, i32 noundef %31, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %26) #7
   br label %dissect_ciphertext.exit
 
-33:                                               ; preds = %dissect_msg_tag.exit
+33:                                               ; preds = %dissect_msg_tag.argprom.exit
   %34 = load ptr, ptr %6, align 8
   %35 = call ptr @wscbor_require_bstr(ptr noundef %34, ptr noundef nonnull %26) #7
   %36 = load i32, ptr @hf_ciphertext_bstr, align 4
@@ -922,7 +922,7 @@ define internal i32 @dissect_cose_encrypt0(ptr noundef %0, ptr noundef %1, ptr n
   %15 = load i32, ptr @ett_msg, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %dissect_msg_tag.exit, label %17
+  br i1 %.not.i, label %dissect_msg_tag.argprom.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
@@ -932,9 +932,9 @@ define internal i32 @dissect_cose_encrypt0(ptr noundef %0, ptr noundef %1, ptr n
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
-  br label %dissect_msg_tag.exit
+  br label %dissect_msg_tag.argprom.exit
 
-dissect_msg_tag.exit:                             ; preds = %14, %17
+dissect_msg_tag.argprom.exit:                     ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
@@ -943,12 +943,12 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %dissect_msg_tag.exit
+30:                                               ; preds = %dissect_msg_tag.argprom.exit
   %31 = load i32, ptr @hf_ciphertext_null, align 4
   %32 = call ptr @proto_tree_add_cbor_ctrl(ptr noundef %16, i32 noundef %31, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %26) #7
   br label %dissect_ciphertext.exit
 
-33:                                               ; preds = %dissect_msg_tag.exit
+33:                                               ; preds = %dissect_msg_tag.argprom.exit
   %34 = load ptr, ptr %6, align 8
   %35 = call ptr @wscbor_require_bstr(ptr noundef %34, ptr noundef nonnull %26) #7
   %36 = load i32, ptr @hf_ciphertext_bstr, align 4
@@ -986,7 +986,7 @@ define internal i32 @dissect_cose_mac(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = load i32, ptr @ett_msg, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %dissect_msg_tag.exit, label %17
+  br i1 %.not.i, label %dissect_msg_tag.argprom.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
@@ -996,9 +996,9 @@ define internal i32 @dissect_cose_mac(ptr noundef %0, ptr noundef %1, ptr nounde
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
-  br label %dissect_msg_tag.exit
+  br label %dissect_msg_tag.argprom.exit
 
-dissect_msg_tag.exit:                             ; preds = %14, %17
+dissect_msg_tag.argprom.exit:                     ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
@@ -1007,12 +1007,12 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %dissect_msg_tag.exit
+30:                                               ; preds = %dissect_msg_tag.argprom.exit
   %31 = load i32, ptr @hf_payload_null, align 4
   %32 = call ptr @proto_tree_add_cbor_ctrl(ptr noundef %16, i32 noundef %31, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %26) #7
   br label %dissect_payload.exit
 
-33:                                               ; preds = %dissect_msg_tag.exit
+33:                                               ; preds = %dissect_msg_tag.argprom.exit
   %34 = load ptr, ptr %6, align 8
   %35 = call ptr @wscbor_require_bstr(ptr noundef %34, ptr noundef nonnull %26) #7
   %36 = load i32, ptr @hf_payload_bstr, align 4
@@ -1060,7 +1060,7 @@ define internal i32 @dissect_cose_mac0(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = load i32, ptr @ett_msg, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %dissect_msg_tag.exit, label %17
+  br i1 %.not.i, label %dissect_msg_tag.argprom.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
@@ -1070,9 +1070,9 @@ define internal i32 @dissect_cose_mac0(ptr noundef %0, ptr noundef %1, ptr nound
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
-  br label %dissect_msg_tag.exit
+  br label %dissect_msg_tag.argprom.exit
 
-dissect_msg_tag.exit:                             ; preds = %14, %17
+dissect_msg_tag.argprom.exit:                     ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
@@ -1081,12 +1081,12 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %dissect_msg_tag.exit
+30:                                               ; preds = %dissect_msg_tag.argprom.exit
   %31 = load i32, ptr @hf_payload_null, align 4
   %32 = call ptr @proto_tree_add_cbor_ctrl(ptr noundef %16, i32 noundef %31, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %26) #7
   br label %dissect_payload.exit
 
-33:                                               ; preds = %dissect_msg_tag.exit
+33:                                               ; preds = %dissect_msg_tag.argprom.exit
   %34 = load ptr, ptr %6, align 8
   %35 = call ptr @wscbor_require_bstr(ptr noundef %34, ptr noundef nonnull %26) #7
   %36 = load i32, ptr @hf_payload_bstr, align 4

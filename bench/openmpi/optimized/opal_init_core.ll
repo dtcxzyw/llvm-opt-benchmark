@@ -251,7 +251,7 @@ define i32 @opal_init_util(ptr nocapture noundef readnone %0, ptr nocapture noun
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_finalize_domain_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not1.i = icmp eq ptr %15, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %16 = phi ptr [ %18, %.lr.ph.i ], [ %15, %13 ]
@@ -260,9 +260,9 @@ define i32 @opal_init_util(ptr nocapture noundef readnone %0, ptr nocapture noun
   %17 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !6
 
-opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
+opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %13
   tail call void @opal_finalize_domain_init(ptr noundef nonnull @opal_init_util_domain, ptr noundef nonnull @.str.2) #10
   tail call void @opal_finalize_set_domain(ptr noundef nonnull @opal_init_util_domain) #10
   tail call void @opal_thread_set_main() #10
@@ -270,12 +270,12 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   %.not26 = icmp eq i32 %19, 0
   br i1 %.not26, label %23, label %20
 
-20:                                               ; preds = %opal_obj_run_constructors.exit
+20:                                               ; preds = %opal_obj_run_constructors.argprom.exit
   %21 = load ptr, ptr @stderr, align 8
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 459, i32 noundef %19) #15
   br label %opal_init_error.exit
 
-23:                                               ; preds = %opal_obj_run_constructors.exit
+23:                                               ; preds = %opal_obj_run_constructors.argprom.exit
   tail call void @opal_malloc_init() #10
   %24 = tail call zeroext i1 @opal_output_init() #10
   %25 = tail call i32 @mca_base_framework_open(ptr noundef nonnull @opal_installdirs_base_framework, i32 noundef 0) #10

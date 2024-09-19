@@ -59,7 +59,7 @@ define void @Fxu_Update(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2)
   %.val = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %13, i64 24
   %.val61 = load ptr, ptr %31, align 8
-  tail call fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.val, ptr %.val61, ptr noundef %18)
+  tail call fastcc void @Fxu_UpdateMatrixSingleClean.argprom(ptr noundef %0, ptr %.val, ptr %.val61, ptr noundef %18)
   tail call fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %16)
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %20, ptr noundef %11) #7
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %20, ptr noundef %13) #7
@@ -238,7 +238,7 @@ define void @Fxu_UpdateDouble(ptr noundef %0) local_unnamed_addr #0 {
 
 50:                                               ; preds = %43
   %or.cond5.i = select i1 %44, i1 %19, i1 false
-  br i1 %or.cond5.i, label %51, label %Fxu_UpdateMatrixDoubleCreateCubes.exit
+  br i1 %or.cond5.i, label %51, label %Fxu_UpdateMatrixDoubleCreateCubes.argprom.argprom.argprom.exit
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds i8, ptr %.046.i.ph, i64 16
@@ -248,7 +248,7 @@ define void @Fxu_UpdateDouble(ptr noundef %0) local_unnamed_addr #0 {
   %55 = load ptr, ptr %54, align 8
   br label %.outer.backedge
 
-Fxu_UpdateMatrixDoubleCreateCubes.exit:           ; preds = %50
+Fxu_UpdateMatrixDoubleCreateCubes.argprom.argprom.argprom.exit: ; preds = %50
   %56 = getelementptr inbounds i8, ptr %0, i64 144
   %57 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %56, ptr %57, align 8
@@ -262,8 +262,8 @@ Fxu_UpdateMatrixDoubleCreateCubes.exit:           ; preds = %50
   %switch = icmp ult ptr %60, inttoptr (i64 2 to ptr)
   br i1 %switch, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %Fxu_UpdateMatrixDoubleCreateCubes.exit, %Fxu_UpdateAddNewDoubles.exit
-  %.049 = phi ptr [ %89, %Fxu_UpdateAddNewDoubles.exit ], [ %60, %Fxu_UpdateMatrixDoubleCreateCubes.exit ]
+.lr.ph:                                           ; preds = %Fxu_UpdateMatrixDoubleCreateCubes.argprom.argprom.argprom.exit, %Fxu_UpdateAddNewDoubles.exit
+  %.049 = phi ptr [ %89, %Fxu_UpdateAddNewDoubles.exit ], [ %60, %Fxu_UpdateMatrixDoubleCreateCubes.argprom.argprom.argprom.exit ]
   %61 = getelementptr inbounds i8, ptr %.049, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 16
@@ -319,7 +319,7 @@ Fxu_UpdateAddNewDoubles.exit:                     ; preds = %82, %.lr.ph, %66
   %.not40 = icmp eq ptr %89, inttoptr (i64 1 to ptr)
   br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-.loopexit:                                        ; preds = %Fxu_UpdateAddNewDoubles.exit, %Fxu_UpdateMatrixDoubleCreateCubes.exit
+.loopexit:                                        ; preds = %Fxu_UpdateAddNewDoubles.exit, %Fxu_UpdateMatrixDoubleCreateCubes.argprom.argprom.argprom.exit
   tail call fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0)
   tail call void @Fxu_MatrixRingCubesUnmark(ptr noundef %0) #7
   tail call void @Fxu_MatrixRingVarsUnmark(ptr noundef %0) #7
@@ -379,7 +379,7 @@ define void @Fxu_UpdateSingle(ptr noundef %0) local_unnamed_addr #0 {
   %.val = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %8, i64 24
   %.val47 = load ptr, ptr %24, align 8
-  tail call fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.val, ptr %.val47, ptr noundef %11)
+  tail call fastcc void @Fxu_UpdateMatrixSingleClean.argprom(ptr noundef %0, ptr %.val, ptr %.val47, ptr noundef %11)
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %13, ptr noundef %6) #7
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %13, ptr noundef %8) #7
   %25 = load ptr, ptr %16, align 8
@@ -463,7 +463,7 @@ declare void @Fxu_ListTableDelDivisor(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @Fxu_MatrixAddCube(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.24.val, ptr %.24.val1, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Fxu_UpdateMatrixSingleClean.argprom(ptr noundef %0, ptr %.24.val, ptr %.24.val1, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %.24.val, null
   br i1 %.not, label %6, label %3
 
@@ -950,7 +950,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %45
 
 162:                                              ; preds = %144
   %or.cond5.i = select i1 %145, i1 %84, i1 false
-  br i1 %or.cond5.i, label %163, label %Fxu_UpdateMatrixDoubleClean.exit
+  br i1 %or.cond5.i, label %163, label %Fxu_UpdateMatrixDoubleClean.argprom.exit
 
 163:                                              ; preds = %162
   %164 = getelementptr inbounds i8, ptr %.079.i, i64 16
@@ -988,18 +988,18 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %45
   %.0.i39.be = phi ptr [ null, %105 ], [ %109, %107 ], [ %.0.i39, %124 ], [ %.0.i39, %125 ], [ null, %140 ], [ %143, %141 ], [ %.0.i39, %158 ], [ %.0.i39, %159 ], [ null, %175 ], [ %178, %176 ]
   br label %82
 
-Fxu_UpdateMatrixDoubleClean.exit:                 ; preds = %162
+Fxu_UpdateMatrixDoubleClean.argprom.exit:         ; preds = %162
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %67, ptr noundef %2) #7
   tail call fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr noundef %1, ptr noundef %67)
   tail call fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr noundef %1, ptr noundef %69)
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %180, label %179
 
-179:                                              ; preds = %Fxu_UpdateMatrixDoubleClean.exit
+179:                                              ; preds = %Fxu_UpdateMatrixDoubleClean.argprom.exit
   tail call void @Fxu_MemRecycle(ptr noundef %0, ptr noundef nonnull %59, i32 noundef 64) #7
   br label %180
 
-180:                                              ; preds = %Fxu_UpdateMatrixDoubleClean.exit, %179
+180:                                              ; preds = %Fxu_UpdateMatrixDoubleClean.argprom.exit, %179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %181 = load ptr, ptr %4, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 4

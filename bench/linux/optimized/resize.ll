@@ -1623,7 +1623,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %.val = load i64, ptr %578, align 8
   %579 = getelementptr i8, ptr %569, i64 40
   %.val95 = load ptr, ptr %579, align 8
-  %580 = call fastcc i32 @verify_reserved_gdb(ptr noundef %510, i32 noundef %481, i64 %.val, ptr %.val95)
+  %580 = call fastcc i32 @verify_reserved_gdb.argprom(ptr noundef %510, i32 noundef %481, i64 %.val, ptr %.val95)
   %581 = icmp slt i32 %580, 0
   br i1 %581, label %582, label %588
 
@@ -1897,7 +1897,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %.val96 = load i64, ptr %745, align 8
   %746 = getelementptr i8, ptr %739, i64 40
   %.val97 = load ptr, ptr %746, align 8
-  %747 = call fastcc i32 @verify_reserved_gdb(ptr noundef %718, i32 noundef %481, i64 %.val96, ptr %.val97)
+  %747 = call fastcc i32 @verify_reserved_gdb.argprom(ptr noundef %718, i32 noundef %481, i64 %.val96, ptr %.val97)
   %748 = icmp slt i32 %747, 0
   br i1 %748, label %862, label %749
 
@@ -5088,7 +5088,7 @@ declare dso_local ptr @bdev_getblk(ptr noundef, i64 noundef, i32 noundef, i32 no
 declare dso_local i32 @blkdev_issue_zeroout(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, i64 %.24.val, ptr nocapture readonly %.40.val) unnamed_addr #0 align 16 {
+define internal fastcc i32 @verify_reserved_gdb.argprom(ptr noundef %0, i32 noundef %1, i64 %.24.val, ptr nocapture readonly %.40.val) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104

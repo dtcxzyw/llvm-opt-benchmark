@@ -625,7 +625,7 @@ Fra_FramesConstrainNode.exit:                     ; preds = %.lr.ph195, %140, %A
   %214 = ptrtoint ptr %.val144 to i64
   %215 = and i64 %214, -2
   %.not.i150 = icmp eq i64 %215, 0
-  br i1 %.not.i150, label %Fra_ObjChild0Fra.exit, label %216
+  br i1 %.not.i150, label %Fra_ObjChild0Fra.argprom.exit, label %216
 
 216:                                              ; preds = %212
   %217 = inttoptr i64 %215 to ptr
@@ -646,18 +646,18 @@ Fra_FramesConstrainNode.exit:                     ; preds = %.lr.ph195, %140, %A
   %228 = ptrtoint ptr %226 to i64
   %229 = xor i64 %227, %228
   %230 = inttoptr i64 %229 to ptr
-  br label %Fra_ObjChild0Fra.exit
+  br label %Fra_ObjChild0Fra.argprom.exit
 
-Fra_ObjChild0Fra.exit:                            ; preds = %212, %216
+Fra_ObjChild0Fra.argprom.exit:                    ; preds = %212, %216
   %231 = phi ptr [ %230, %216 ], [ null, %212 ]
   %232 = getelementptr i8, ptr %205, i64 16
   %.val146 = load ptr, ptr %232, align 8
   %233 = ptrtoint ptr %.val146 to i64
   %234 = and i64 %233, -2
   %.not.i151 = icmp eq i64 %234, 0
-  br i1 %.not.i151, label %Fra_ObjChild1Fra.exit, label %235
+  br i1 %.not.i151, label %Fra_ObjChild1Fra.argprom.exit, label %235
 
-235:                                              ; preds = %Fra_ObjChild0Fra.exit
+235:                                              ; preds = %Fra_ObjChild0Fra.argprom.exit
   %236 = inttoptr i64 %234 to ptr
   %237 = getelementptr i8, ptr %236, i64 36
   %.val.i152 = load i32, ptr %237, align 4
@@ -676,10 +676,10 @@ Fra_ObjChild0Fra.exit:                            ; preds = %212, %216
   %247 = ptrtoint ptr %245 to i64
   %248 = xor i64 %246, %247
   %249 = inttoptr i64 %248 to ptr
-  br label %Fra_ObjChild1Fra.exit
+  br label %Fra_ObjChild1Fra.argprom.exit
 
-Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.exit, %235
-  %250 = phi ptr [ %249, %235 ], [ null, %Fra_ObjChild0Fra.exit ]
+Fra_ObjChild1Fra.argprom.exit:                    ; preds = %Fra_ObjChild0Fra.argprom.exit, %235
+  %250 = phi ptr [ %249, %235 ], [ null, %Fra_ObjChild0Fra.argprom.exit ]
   %251 = tail call ptr @Aig_And(ptr noundef nonnull %9, ptr noundef %231, ptr noundef %250) #15
   %252 = getelementptr i8, ptr %205, i64 36
   %.val117 = load i32, ptr %252, align 4
@@ -706,7 +706,7 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
   %265 = icmp eq ptr %264, null
   br i1 %265, label %Fra_FramesConstrainNode.exit169, label %266
 
-266:                                              ; preds = %Fra_ObjChild1Fra.exit
+266:                                              ; preds = %Fra_ObjChild1Fra.argprom.exit
   %267 = getelementptr i8, ptr %.val22.i157, i64 24
   %.val24.val.i160 = load i32, ptr %267, align 8
   %268 = getelementptr i8, ptr %.val22.i157, i64 32
@@ -774,7 +774,7 @@ Aig_ObjPhaseReal.exit.i168:                       ; preds = %300, %290
   %315 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %9, ptr noundef %314) #15
   br label %Fra_FramesConstrainNode.exit169
 
-Fra_FramesConstrainNode.exit169:                  ; preds = %Aig_ObjPhaseReal.exit.i168, %266, %Fra_ObjChild1Fra.exit, %207, %.lr.ph198
+Fra_FramesConstrainNode.exit169:                  ; preds = %Aig_ObjPhaseReal.exit.i168, %266, %Fra_ObjChild1Fra.argprom.exit, %207, %.lr.ph198
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %316 = load ptr, ptr %2, align 8
   %317 = getelementptr inbounds i8, ptr %316, i64 32
@@ -785,10 +785,10 @@ Fra_FramesConstrainNode.exit169:                  ; preds = %Aig_ObjPhaseReal.ex
   %321 = icmp slt i64 %indvars.iv.next218, %320
   br i1 %321, label %.lr.ph198, label %.critedge6.preheader, !llvm.loop !12
 
-.lr.ph203:                                        ; preds = %.critedge6.preheader, %Fra_ObjChild0Fra.exit180
-  %.val109199.pn = phi i32 [ %.val109, %Fra_ObjChild0Fra.exit180 ], [ %.val109199, %.critedge6.preheader ]
-  %322 = phi ptr [ %368, %Fra_ObjChild0Fra.exit180 ], [ %198, %.critedge6.preheader ]
-  %.0100201 = phi i32 [ %367, %Fra_ObjChild0Fra.exit180 ], [ 0, %.critedge6.preheader ]
+.lr.ph203:                                        ; preds = %.critedge6.preheader, %Fra_ObjChild0Fra.argprom.exit180
+  %.val109199.pn = phi i32 [ %.val109, %Fra_ObjChild0Fra.argprom.exit180 ], [ %.val109199, %.critedge6.preheader ]
+  %322 = phi ptr [ %368, %Fra_ObjChild0Fra.argprom.exit180 ], [ %198, %.critedge6.preheader ]
+  %.0100201 = phi i32 [ %367, %Fra_ObjChild0Fra.argprom.exit180 ], [ 0, %.critedge6.preheader ]
   %323 = getelementptr inbounds i8, ptr %322, i64 24
   %324 = load ptr, ptr %323, align 8
   %325 = getelementptr i8, ptr %322, i64 140
@@ -815,7 +815,7 @@ Fra_FramesConstrainNode.exit169:                  ; preds = %Aig_ObjPhaseReal.ex
   %341 = ptrtoint ptr %.val145 to i64
   %342 = and i64 %341, -2
   %.not.i175 = icmp eq i64 %342, 0
-  br i1 %.not.i175, label %Fra_ObjChild0Fra.exit180, label %343
+  br i1 %.not.i175, label %Fra_ObjChild0Fra.argprom.exit180, label %343
 
 343:                                              ; preds = %.lr.ph203
   %344 = inttoptr i64 %342 to ptr
@@ -836,9 +836,9 @@ Fra_FramesConstrainNode.exit169:                  ; preds = %Aig_ObjPhaseReal.ex
   %355 = ptrtoint ptr %353 to i64
   %356 = xor i64 %354, %355
   %357 = inttoptr i64 %356 to ptr
-  br label %Fra_ObjChild0Fra.exit180
+  br label %Fra_ObjChild0Fra.argprom.exit180
 
-Fra_ObjChild0Fra.exit180:                         ; preds = %.lr.ph203, %343
+Fra_ObjChild0Fra.argprom.exit180:                 ; preds = %.lr.ph203, %343
   %358 = phi ptr [ %357, %343 ], [ null, %.lr.ph203 ]
   %359 = getelementptr i8, ptr %339, i64 36
   %.val115 = load i32, ptr %359, align 4
@@ -860,8 +860,8 @@ Fra_ObjChild0Fra.exit180:                         ; preds = %.lr.ph203, %343
   %370 = icmp slt i32 %367, %.val109
   br i1 %370, label %.lr.ph203, label %.critedge8, !llvm.loop !13
 
-.critedge8:                                       ; preds = %Fra_ObjChild0Fra.exit180, %.critedge6.preheader
-  %371 = phi ptr [ %198, %.critedge6.preheader ], [ %368, %Fra_ObjChild0Fra.exit180 ]
+.critedge8:                                       ; preds = %Fra_ObjChild0Fra.argprom.exit180, %.critedge6.preheader
+  %371 = phi ptr [ %198, %.critedge6.preheader ], [ %368, %Fra_ObjChild0Fra.argprom.exit180 ]
   %372 = load i32, ptr %6, align 8
   %373 = add nsw i32 %372, -1
   %374 = icmp slt i32 %201, %373
@@ -1191,9 +1191,9 @@ define void @Fra_FramesAddMore(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %124 = getelementptr inbounds i8, ptr %123, i64 40
   %125 = load ptr, ptr %124, align 8
   %.not88 = icmp eq ptr %125, null
-  br i1 %.not88, label %.critedge8.sink.split, label %Aig_ObjChild0Copy.exit119
+  br i1 %.not88, label %.critedge8.sink.split, label %Aig_ObjChild0Copy.argprom.exit119
 
-Aig_ObjChild0Copy.exit119:                        ; preds = %119
+Aig_ObjChild0Copy.argprom.exit119:                ; preds = %119
   %.not.i118 = icmp eq i64 %115, 0
   %126 = and i64 %114, 1
   %127 = ptrtoint ptr %118 to i64
@@ -1209,8 +1209,8 @@ Aig_ObjChild0Copy.exit119:                        ; preds = %119
   %136 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %130, ptr noundef %135) #15
   br label %.critedge8.sink.split
 
-.critedge8.sink.split:                            ; preds = %112, %119, %Aig_ObjChild0Copy.exit119
-  %.sink175 = phi ptr [ %136, %Aig_ObjChild0Copy.exit119 ], [ null, %119 ], [ null, %112 ]
+.critedge8.sink.split:                            ; preds = %112, %119, %Aig_ObjChild0Copy.argprom.exit119
+  %.sink175 = phi ptr [ %136, %Aig_ObjChild0Copy.argprom.exit119 ], [ null, %119 ], [ null, %112 ]
   %137 = getelementptr inbounds i8, ptr %103, i64 40
   store ptr %.sink175, ptr %137, align 8
   br label %.critedge8

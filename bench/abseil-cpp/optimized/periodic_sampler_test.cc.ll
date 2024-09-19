@@ -20807,14 +20807,14 @@ _ZN7testing15AssertionResultD2Ev.exit41:          ; preds = %if.end50, %_ZNKSt14
 invoke.cont3.i:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit41
   %22 = load ptr, ptr %agg.tmp.i, align 8
   %cmp.not.i.i42 = icmp eq ptr %22, null
-  br i1 %cmp.not.i.i42, label %"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.exit", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
+  br i1 %cmp.not.i.i42, label %"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.argprom.exit", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i43 = load ptr, ptr %22, align 8
   %vfn.i.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i.i43, i64 8
   %23 = load ptr, ptr %vfn.i.i.i44, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22) #22
-  br label %"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.exit"
+  br label %"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.argprom.exit"
 
 lpad2.i:                                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit41
   %24 = landingpad { ptr, i32 }
@@ -20834,12 +20834,12 @@ common.resume:                                    ; preds = %ehcleanup20, %ehcle
   %common.resume.op = phi { ptr, i32 } [ %24, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i ], [ %24, %lpad2.i ], [ %.pn3.pn, %ehcleanup51 ], [ %.pn.pn, %ehcleanup20 ], [ %.pn9.pn.pn, %ehcleanup123 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.exit": ; preds = %invoke.cont3.i, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
+"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.argprom.exit": ; preds = %invoke.cont3.i, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %thread)
           to label %invoke.cont64 unwind label %lpad53
 
-invoke.cont64:                                    ; preds = %"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.exit"
+invoke.cont64:                                    ; preds = %"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.argprom.exit"
   store i32 10, ptr %ref.tmp56, align 4
   %27 = load atomic i32, ptr @_ZN4absl18profiling_internal15PeriodicSamplerIZNS0_12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE4Tag1Li25EE7period_E.0 monotonic, align 4
   store i32 %27, ptr %ref.tmp69, align 4
@@ -20856,7 +20856,7 @@ ehcleanup51:                                      ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar21) #22
   br label %common.resume
 
-lpad53:                                           ; preds = %invoke.cont98, %invoke.cont64, %"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.exit"
+lpad53:                                           ; preds = %invoke.cont98, %invoke.cont64, %"_ZNSt6threadC2IZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.argprom.exit"
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup123
@@ -21300,12 +21300,12 @@ if.end50.i.i.i.i.i:                               ; preds = %_ZN7testing7Message
   %message_.i31.i.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar21.i.i.i.i.i, i64 8
   %21 = load ptr, ptr %message_.i31.i.i.i.i.i, align 8
   %cmp.not.i.i32.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %cmp.not.i.i32.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0EEEclEv.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i33.i.i.i.i.i
+  br i1 %cmp.not.i.i32.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0EEEclEv.argprom.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i33.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i33.i.i.i.i.i: ; preds = %if.end50.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #22
   call void @_ZdlPv(ptr noundef nonnull %21) #23
-  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0EEEclEv.exit"
+  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0EEEclEv.argprom.exit"
 
 eh.resume.i.i.i.i.i:                              ; preds = %_ZN7testing7MessageD2Ev.exit30.i.i.i.i.i, %lpad39.i.i.i.i.i, %_ZN7testing7MessageD2Ev.exit12.i.i.i.i.i, %lpad.i.i.i.i.i
   %gtest_ar21.sink.i.i.i.i.i = phi ptr [ %gtest_ar.i.i.i.i.i, %_ZN7testing7MessageD2Ev.exit12.i.i.i.i.i ], [ %gtest_ar.i.i.i.i.i, %lpad.i.i.i.i.i ], [ %gtest_ar21.i.i.i.i.i, %_ZN7testing7MessageD2Ev.exit30.i.i.i.i.i ], [ %gtest_ar21.i.i.i.i.i, %lpad39.i.i.i.i.i ]
@@ -21313,7 +21313,7 @@ eh.resume.i.i.i.i.i:                              ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar21.sink.i.i.i.i.i) #22
   resume { ptr, i32 } %.pn3.pn.pn.i.i.i.i.i
 
-"_ZNSt6thread8_InvokerISt5tupleIJZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0EEEclEv.exit": ; preds = %if.end50.i.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i33.i.i.i.i.i
+"_ZNSt6thread8_InvokerISt5tupleIJZN4absl18profiling_internal12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE3$_0EEEclEv.argprom.exit": ; preds = %if.end50.i.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i33.i.i.i.i.i
   store atomic i32 10, ptr @_ZN4absl18profiling_internal15PeriodicSamplerIZNS0_12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE4Tag1Li25EE7period_E.0 monotonic, align 4
   store atomic i32 20, ptr @_ZN4absl18profiling_internal15PeriodicSamplerIZNS0_12_GLOBAL__N_140PeriodicSamplerTest_SetGlobalPeriod_Test8TestBodyEvE4Tag2Li50EE7period_E.0 monotonic, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i.i.i.i.i)

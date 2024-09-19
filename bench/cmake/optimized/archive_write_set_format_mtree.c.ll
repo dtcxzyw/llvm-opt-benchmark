@@ -238,7 +238,7 @@ define internal noundef i32 @archive_write_mtree_free(ptr nocapture noundef %0) 
   %6 = getelementptr i8, ptr %3, i64 48
   %.val = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %mtree_entry_register_free.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %mtree_entry_register_free.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %.02.i = phi ptr [ %8, %.lr.ph.i ], [ %.val, %5 ]
@@ -266,9 +266,9 @@ define internal noundef i32 @archive_write_mtree_free(ptr nocapture noundef %0) 
   tail call void @free(ptr noundef %19) #14
   tail call void @free(ptr noundef nonnull %.02.i) #14
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %mtree_entry_register_free.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %mtree_entry_register_free.argprom.exit, label %.lr.ph.i, !llvm.loop !5
 
-mtree_entry_register_free.exit:                   ; preds = %.lr.ph.i, %5
+mtree_entry_register_free.argprom.exit:           ; preds = %.lr.ph.i, %5
   %20 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @archive_string_free(ptr noundef nonnull %20) #14
   %21 = getelementptr inbounds i8, ptr %3, i64 64
@@ -280,8 +280,8 @@ mtree_entry_register_free.exit:                   ; preds = %.lr.ph.i, %5
   %25 = icmp eq ptr %24, null
   br i1 %25, label %attr_counter_free.exit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %mtree_entry_register_free.exit, %.preheader.i.i
-  %.08.i.i = phi ptr [ %27, %.preheader.i.i ], [ %24, %mtree_entry_register_free.exit ]
+.preheader.i.i:                                   ; preds = %mtree_entry_register_free.argprom.exit, %.preheader.i.i
+  %.08.i.i = phi ptr [ %27, %.preheader.i.i ], [ %24, %mtree_entry_register_free.argprom.exit ]
   %26 = getelementptr inbounds i8, ptr %.08.i.i, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @free(ptr noundef nonnull %.08.i.i) #14
@@ -292,7 +292,7 @@ mtree_entry_register_free.exit:                   ; preds = %.lr.ph.i, %5
   store ptr null, ptr %23, align 8
   br label %attr_counter_free.exit.i
 
-attr_counter_free.exit.i:                         ; preds = %28, %mtree_entry_register_free.exit
+attr_counter_free.exit.i:                         ; preds = %28, %mtree_entry_register_free.argprom.exit
   %29 = getelementptr inbounds i8, ptr %3, i64 192
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
@@ -2577,7 +2577,7 @@ sub_0.i:                                          ; preds = %13, %8
   %25 = getelementptr inbounds i8, ptr %5, i64 88
   store i64 0, ptr %25, align 8
   %26 = tail call ptr @archive_strncat(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, i64 noundef 1) #14
-  br label %mtree_entry_setup_filenames.exit
+  br label %mtree_entry_setup_filenames.argprom.exit
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
   %27 = getelementptr inbounds i8, ptr %5, i64 56
@@ -2841,7 +2841,7 @@ sub_04.i:                                         ; preds = %.loopexit.i
   store i64 0, ptr %28, align 8
   %130 = load ptr, ptr %27, align 8
   store i8 0, ptr %130, align 1
-  br label %mtree_entry_setup_filenames.exit
+  br label %mtree_entry_setup_filenames.argprom.exit
 
 131:                                              ; preds = %125
   store i8 0, ptr %.0132.i, align 1
@@ -2856,15 +2856,15 @@ sub_04.i:                                         ; preds = %.loopexit.i
   %138 = getelementptr inbounds i8, ptr %.0132.i, i64 1
   %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138) #16
   %140 = call ptr @archive_strncat(ptr noundef nonnull %136, ptr noundef nonnull %138, i64 noundef %139) #14
-  br label %mtree_entry_setup_filenames.exit
+  br label %mtree_entry_setup_filenames.argprom.exit
 
-mtree_entry_setup_filenames.exit:                 ; preds = %23, %127, %131
+mtree_entry_setup_filenames.argprom.exit:         ; preds = %23, %127, %131
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %141 = call ptr @archive_entry_symlink(ptr noundef %1) #14
   %.not = icmp eq ptr %141, null
   br i1 %.not, label %147, label %142
 
-142:                                              ; preds = %mtree_entry_setup_filenames.exit
+142:                                              ; preds = %mtree_entry_setup_filenames.argprom.exit
   %143 = getelementptr inbounds i8, ptr %5, i64 128
   %144 = getelementptr inbounds i8, ptr %5, i64 136
   store i64 0, ptr %144, align 8
@@ -2872,7 +2872,7 @@ mtree_entry_setup_filenames.exit:                 ; preds = %23, %127, %131
   %146 = call ptr @archive_strncat(ptr noundef nonnull %143, ptr noundef nonnull %141, i64 noundef %145) #14
   br label %147
 
-147:                                              ; preds = %142, %mtree_entry_setup_filenames.exit
+147:                                              ; preds = %142, %mtree_entry_setup_filenames.argprom.exit
   %148 = call i32 @archive_entry_nlink(ptr noundef %1) #14
   %149 = getelementptr inbounds i8, ptr %5, i64 224
   store i32 %148, ptr %149, align 8

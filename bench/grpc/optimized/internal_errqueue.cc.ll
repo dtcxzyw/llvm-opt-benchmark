@@ -43,7 +43,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental22KernelSupportsErrqueueEvENK3$_0clEv"()
+  %call = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental22KernelSupportsErrqueueEvENK3$_0clEv.argprom"()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -68,7 +68,7 @@ lpad:                                             ; preds = %init
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental22KernelSupportsErrqueueEvENK3$_0clEv"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental22KernelSupportsErrqueueEvENK3$_0clEv.argprom"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %struct.utsname, align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

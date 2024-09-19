@@ -5296,7 +5296,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %146 = getelementptr inbounds i32, ptr %.sroa.051.0, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = xor i32 %144, %147
-  invoke fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef %44, i32 noundef %148)
+  invoke fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i.retelim(ptr noundef %44, i32 noundef %148)
           to label %149 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit
 
 149:                                              ; preds = %133
@@ -10676,7 +10676,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %146 = getelementptr inbounds i32, ptr %.sroa.051.0, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = xor i32 %144, %147
-  invoke fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef %44, i32 noundef %148)
+  invoke fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i.retelim(ptr noundef %44, i32 noundef %148)
           to label %149 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit
 
 149:                                              ; preds = %133
@@ -36728,7 +36728,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = tail call fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

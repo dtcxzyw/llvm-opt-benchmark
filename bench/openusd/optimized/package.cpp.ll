@@ -53,7 +53,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__35UsdSkelImagingPackageSkinnin
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetShaderPathEPKc()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetShaderPathEPKc.argprom()
           to label %7 unwind label %18
 
 7:                                                ; preds = %6
@@ -94,7 +94,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %9, %12, %
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetShaderPathEPKc() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetShaderPathEPKc.argprom() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator.2", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

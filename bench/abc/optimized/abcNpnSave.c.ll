@@ -677,21 +677,21 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ._crit_edge38:                                    ; preds = %._crit_edge
   %.pre45 = load i32, ptr %11, align 4
   %62 = icmp slt i32 %.pre45, 2
-  br i1 %62, label %Vec_PtrSort.exit, label %Vec_PtrSort.exit.thread
+  br i1 %62, label %Vec_PtrSort.argprom.exit, label %Vec_PtrSort.argprom.exit.thread
 
-Vec_PtrSort.exit.thread:                          ; preds = %._crit_edge38
+Vec_PtrSort.argprom.exit.thread:                  ; preds = %._crit_edge38
   %63 = load ptr, ptr %17, align 8
   %64 = zext nneg i32 %.pre45 to i64
   tail call void @qsort(ptr noundef %63, i64 noundef %64, i64 noundef 8, ptr noundef nonnull @Npn_ManCompareEntries) #22
   %65 = zext nneg i32 %.pre45 to i64
   br label %.lr.ph40
 
-Vec_PtrSort.exit:                                 ; preds = %._crit_edge38
+Vec_PtrSort.argprom.exit:                         ; preds = %._crit_edge38
   %66 = icmp eq i32 %.pre45, 1
   br i1 %66, label %.lr.ph40, label %.critedge
 
-.lr.ph40:                                         ; preds = %Vec_PtrSort.exit.thread, %Vec_PtrSort.exit
-  %wide.trip.count = phi i64 [ %65, %Vec_PtrSort.exit.thread ], [ 1, %Vec_PtrSort.exit ]
+.lr.ph40:                                         ; preds = %Vec_PtrSort.argprom.exit.thread, %Vec_PtrSort.argprom.exit
+  %wide.trip.count = phi i64 [ %65, %Vec_PtrSort.argprom.exit.thread ], [ 1, %Vec_PtrSort.argprom.exit ]
   %.val29 = load ptr, ptr %17, align 8
   br label %67
 
@@ -730,7 +730,7 @@ Npn_TruthSuppSize.exit:                           ; preds = %73
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %67, !llvm.loop !15
 
-.critedge:                                        ; preds = %Npn_TruthSuppSize.exit, %Vec_PtrAlloc.exit, %Vec_PtrSort.exit
+.critedge:                                        ; preds = %Npn_TruthSuppSize.exit, %Vec_PtrAlloc.exit, %Vec_PtrSort.argprom.exit
   %85 = tail call i32 @fclose(ptr noundef nonnull %3)
   %86 = load ptr, ptr %17, align 8
   %.not.i33 = icmp eq ptr %86, null

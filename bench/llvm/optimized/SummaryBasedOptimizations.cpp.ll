@@ -2474,37 +2474,37 @@ define internal void @"_ZN4llvm12function_refIFSt8optionalINS_12ScaledNumberImEE
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, %11
-  br i1 %.not.i.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.thread.i", label %14
+  br i1 %.not.i.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.thread.i", label %14
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %.not.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not.i.i.i, label %18, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.i"
+  br i1 %.not.i.i.i, label %18, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.i"
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %20 = load ptr, ptr %19, align 8
-  br label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.i"
+  br label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.i"
 
-"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.i": ; preds = %18, %14
+"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.i": ; preds = %18, %14
   %.0.i.i.i = phi ptr [ %20, %18 ], [ %15, %14 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %22 = load i64, ptr %21, align 8
   %.not.i.i.i.i = icmp ult i32 %.val, 16
-  br i1 %.not.i.i.i.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit", label %23
+  br i1 %.not.i.i.i.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.argprom.exit", label %23
 
-"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.thread.i": ; preds = %4
+"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.thread.i": ; preds = %4
   %.not.i.i.i4.i = icmp ult i32 %.val, 16
-  br i1 %.not.i.i.i4.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit", label %.thread.i
+  br i1 %.not.i.i.i4.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.argprom.exit", label %.thread.i
 
-23:                                               ; preds = %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.i"
+23:                                               ; preds = %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.i"
   %.not.i8.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i8.i.i.i, label %.thread.i, label %24
 
-.thread.i:                                        ; preds = %23, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.thread.i"
-  br label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit"
+.thread.i:                                        ; preds = %23, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.thread.i"
+  br label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.argprom.exit"
 
 24:                                               ; preds = %23
   %or.cond.i.i.i.i.i = icmp ult i64 %22, 4294967296
@@ -2525,28 +2525,28 @@ _ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i: ; preds = %27, %25
   %.fca.0.extract.i.i.i = extractvalue { i64, i16 } %.pn.i.i.i.i.i, 0
   %.fca.1.extract.i.i.i = extractvalue { i64, i16 } %.pn.i.i.i.i.i, 1
   %.not.i.i3 = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %.not.i.i3, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit", label %29
+  br i1 %.not.i.i3, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.argprom.exit", label %29
 
 29:                                               ; preds = %_ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i
   %30 = tail call i16 @llvm.smin.i16(i16 %.fca.1.extract.i.i.i, i16 -16374)
   %narrow.neg = add i16 %.fca.1.extract.i.i.i, -16382
   %31 = sub i16 %narrow.neg, %30
   %.not13.i = icmp slt i16 %.fca.1.extract.i.i.i, -16374
-  br i1 %.not13.i, label %32, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit"
+  br i1 %.not13.i, label %32, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.argprom.exit"
 
 32:                                               ; preds = %29
   %33 = icmp ult i16 %30, -16437
-  br i1 %33, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit", label %34
+  br i1 %33, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.argprom.exit", label %34
 
 34:                                               ; preds = %32
   %narrow10 = sub nuw nsw i16 -16374, %30
   %35 = zext nneg i16 %narrow10 to i64
   %36 = lshr i64 %.fca.0.extract.i.i.i, %35
-  br label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit"
+  br label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.argprom.exit"
 
-"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit": ; preds = %_ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i, %32, %29, %34, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.i", %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.thread.i", %.thread.i
-  %.sroa.2.0.copyload.i.i = phi i16 [ -8, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.thread.i" ], [ -8, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.i" ], [ 0, %.thread.i ], [ %.fca.1.extract.i.i.i, %_ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i ], [ %31, %34 ], [ %31, %29 ], [ 0, %32 ]
-  %.sroa.0.0.copyload.i.i = phi i64 [ %7, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.thread.i" ], [ %7, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.exit.i" ], [ 0, %.thread.i ], [ 0, %_ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i ], [ %36, %34 ], [ %.fca.0.extract.i.i.i, %29 ], [ 0, %32 ]
+"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.argprom.exit": ; preds = %_ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i, %32, %29, %34, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.i", %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.thread.i", %.thread.i
+  %.sroa.2.0.copyload.i.i = phi i16 [ -8, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.thread.i" ], [ -8, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.i" ], [ 0, %.thread.i ], [ %.fca.1.extract.i.i.i, %_ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i ], [ %31, %34 ], [ %31, %29 ], [ 0, %32 ]
+  %.sroa.0.0.copyload.i.i = phi i64 [ %7, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.thread.i" ], [ %7, %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_3clENS_9ValueInfoE.argprom.exit.i" ], [ 0, %.thread.i ], [ 0, %_ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i ], [ %36, %34 ], [ %.fca.0.extract.i.i.i, %29 ], [ 0, %32 ]
   store i64 %.sroa.0.0.copyload.i.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx5 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %.sroa.2.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx5, align 8
@@ -2576,7 +2576,7 @@ define internal void @"_ZN4llvm12function_refIFvNS_9ValueInfoENS_12ScaledNumberI
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, %10
-  br i1 %.not.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_1clENS_9ValueInfoENS_12ScaledNumberImEE.exit", label %.preheader.i
+  br i1 %.not.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_1clENS_9ValueInfoENS_12ScaledNumberImEE.argprom.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %4, %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i
   %.05.i = phi ptr [ %22, %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i ], [ %10, %4 ]
@@ -2600,9 +2600,9 @@ _ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i: ; preds = %16, %.preheader
   store i64 %spec.select.i.i, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %.05.i, i64 8
   %.not10.i = icmp eq ptr %22, %12
-  br i1 %.not10.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_1clENS_9ValueInfoENS_12ScaledNumberImEE.exit", label %.preheader.i
+  br i1 %.not10.i, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_1clENS_9ValueInfoENS_12ScaledNumberImEE.argprom.exit", label %.preheader.i
 
-"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_1clENS_9ValueInfoENS_12ScaledNumberImEE.exit": ; preds = %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i, %4
+"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_1clENS_9ValueInfoENS_12ScaledNumberImEE.argprom.exit": ; preds = %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i, %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }

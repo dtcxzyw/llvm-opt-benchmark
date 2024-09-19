@@ -531,7 +531,7 @@ if.end15:                                         ; preds = %if.end
   br i1 %cmp17.not, label %if.else, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.5, i32 noundef %call16)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.5, i32 noundef %call16)
   br label %return
 
 if.else:                                          ; preds = %if.end15
@@ -543,7 +543,7 @@ if.else:                                          ; preds = %if.end15
   br i1 %cmp32.not, label %if.else36, label %if.then34
 
 if.then34:                                        ; preds = %if.else
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.8, i32 noundef %call31)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.8, i32 noundef %call31)
   br label %return
 
 if.else36:                                        ; preds = %if.else
@@ -555,7 +555,7 @@ if.else36:                                        ; preds = %if.else
   br i1 %cmp48.not, label %if.else52, label %if.then50
 
 if.then50:                                        ; preds = %if.else36
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.10, i32 noundef %call47)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.10, i32 noundef %call47)
   br label %return
 
 if.else52:                                        ; preds = %if.else36
@@ -567,7 +567,7 @@ if.else52:                                        ; preds = %if.else36
   br i1 %cmp64.not, label %if.else68, label %if.then66
 
 if.then66:                                        ; preds = %if.else52
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.12, i32 noundef %call63)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.12, i32 noundef %call63)
   br label %return
 
 if.else68:                                        ; preds = %if.else52
@@ -579,7 +579,7 @@ if.else68:                                        ; preds = %if.else52
   br i1 %cmp80.not, label %if.else84, label %if.then82
 
 if.then82:                                        ; preds = %if.else68
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.14, i32 noundef %call79)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.14, i32 noundef %call79)
   br label %return
 
 if.else84:                                        ; preds = %if.else68
@@ -591,7 +591,7 @@ if.else84:                                        ; preds = %if.else68
   br i1 %cmp96.not, label %if.else100, label %if.then98
 
 if.then98:                                        ; preds = %if.else84
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.16, i32 noundef %call95)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.16, i32 noundef %call95)
   br label %return
 
 if.else100:                                       ; preds = %if.else84
@@ -603,7 +603,7 @@ if.else100:                                       ; preds = %if.else84
   br i1 %cmp112.not, label %if.else116, label %if.then114
 
 if.then114:                                       ; preds = %if.else100
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.18, i32 noundef %call111)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.18, i32 noundef %call111)
   br label %return
 
 if.else116:                                       ; preds = %if.else100
@@ -615,7 +615,7 @@ if.else116:                                       ; preds = %if.else100
   br i1 %cmp128.not, label %if.else132, label %if.then130
 
 if.then130:                                       ; preds = %if.else116
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.20, i32 noundef %call127)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.20, i32 noundef %call127)
   br label %return
 
 if.else132:                                       ; preds = %if.else116
@@ -627,7 +627,7 @@ if.else132:                                       ; preds = %if.else116
   br i1 %cmp144.not, label %if.else148, label %if.then146
 
 if.then146:                                       ; preds = %if.else132
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.22, i32 noundef %call143)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.22, i32 noundef %call143)
   br label %return
 
 if.else148:                                       ; preds = %if.else132
@@ -639,7 +639,7 @@ if.else148:                                       ; preds = %if.else132
   br i1 %cmp160.not, label %if.else164, label %if.then162
 
 if.then162:                                       ; preds = %if.else148
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.24, i32 noundef %call159)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.24, i32 noundef %call159)
   br label %return
 
 if.else164:                                       ; preds = %if.else148
@@ -651,7 +651,7 @@ if.else164:                                       ; preds = %if.else148
   br i1 %cmp176.not, label %if.else180, label %if.then178
 
 if.then178:                                       ; preds = %if.else164
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.26, i32 noundef %call175)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.26, i32 noundef %call175)
   br label %return
 
 if.else180:                                       ; preds = %if.else164
@@ -663,7 +663,7 @@ if.else180:                                       ; preds = %if.else164
   br i1 %cmp192.not, label %if.else196, label %if.then194
 
 if.then194:                                       ; preds = %if.else180
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.28, i32 noundef %call191)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.28, i32 noundef %call191)
   br label %return
 
 if.else196:                                       ; preds = %if.else180
@@ -675,7 +675,7 @@ if.else196:                                       ; preds = %if.else180
   br i1 %cmp208.not, label %if.else212, label %if.then210
 
 if.then210:                                       ; preds = %if.else196
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.30, i32 noundef %call207)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.30, i32 noundef %call207)
   br label %return
 
 if.else212:                                       ; preds = %if.else196
@@ -687,7 +687,7 @@ if.else212:                                       ; preds = %if.else196
   br i1 %cmp224.not, label %if.else228, label %if.then226
 
 if.then226:                                       ; preds = %if.else212
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.32, i32 noundef %call223)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.32, i32 noundef %call223)
   br label %return
 
 if.else228:                                       ; preds = %if.else212
@@ -699,7 +699,7 @@ if.else228:                                       ; preds = %if.else212
   br i1 %cmp240.not, label %if.else244, label %if.then242
 
 if.then242:                                       ; preds = %if.else228
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.34, i32 noundef %call239)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.34, i32 noundef %call239)
   br label %return
 
 if.else244:                                       ; preds = %if.else228
@@ -711,7 +711,7 @@ if.else244:                                       ; preds = %if.else228
   br i1 %cmp256.not, label %if.else260, label %if.then258
 
 if.then258:                                       ; preds = %if.else244
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.36, i32 noundef %call255)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.36, i32 noundef %call255)
   br label %return
 
 if.else260:                                       ; preds = %if.else244
@@ -723,7 +723,7 @@ if.else260:                                       ; preds = %if.else244
   br i1 %cmp272.not, label %if.else276, label %if.then274
 
 if.then274:                                       ; preds = %if.else260
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.38, i32 noundef %call271)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.38, i32 noundef %call271)
   br label %return
 
 if.else276:                                       ; preds = %if.else260
@@ -735,7 +735,7 @@ if.else276:                                       ; preds = %if.else260
   br i1 %cmp288.not, label %if.else292, label %if.then290
 
 if.then290:                                       ; preds = %if.else276
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.40, i32 noundef %call287)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.40, i32 noundef %call287)
   br label %return
 
 if.else292:                                       ; preds = %if.else276
@@ -747,7 +747,7 @@ if.else292:                                       ; preds = %if.else276
   br i1 %cmp304.not, label %if.else308, label %if.then306
 
 if.then306:                                       ; preds = %if.else292
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.42, i32 noundef %call303)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.42, i32 noundef %call303)
   br label %return
 
 if.else308:                                       ; preds = %if.else292
@@ -759,7 +759,7 @@ if.else308:                                       ; preds = %if.else292
   br i1 %cmp320.not, label %if.else324, label %if.then322
 
 if.then322:                                       ; preds = %if.else308
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.44, i32 noundef %call319)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.44, i32 noundef %call319)
   br label %return
 
 if.else324:                                       ; preds = %if.else308
@@ -771,7 +771,7 @@ if.else324:                                       ; preds = %if.else308
   br i1 %cmp336.not, label %if.else340, label %if.then338
 
 if.then338:                                       ; preds = %if.else324
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.46, i32 noundef %call335)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.46, i32 noundef %call335)
   br label %return
 
 if.else340:                                       ; preds = %if.else324
@@ -783,7 +783,7 @@ if.else340:                                       ; preds = %if.else324
   br i1 %cmp352.not, label %if.else356, label %if.then354
 
 if.then354:                                       ; preds = %if.else340
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.48, i32 noundef %call351)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.48, i32 noundef %call351)
   br label %return
 
 if.else356:                                       ; preds = %if.else340
@@ -795,7 +795,7 @@ if.else356:                                       ; preds = %if.else340
   br i1 %cmp370.not, label %if.else374, label %if.then372
 
 if.then372:                                       ; preds = %if.else356
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.50, i32 noundef %call369)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.50, i32 noundef %call369)
   br label %return
 
 if.else374:                                       ; preds = %if.else356
@@ -807,7 +807,7 @@ if.else374:                                       ; preds = %if.else356
   br i1 %cmp390.not, label %if.else394, label %if.then392
 
 if.then392:                                       ; preds = %if.else374
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.52, i32 noundef %call389)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.52, i32 noundef %call389)
   br label %return
 
 if.else394:                                       ; preds = %if.else374
@@ -819,7 +819,7 @@ if.else394:                                       ; preds = %if.else374
   br i1 %cmp408.not, label %if.else412, label %if.then410
 
 if.then410:                                       ; preds = %if.else394
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.54, i32 noundef %call407)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.54, i32 noundef %call407)
   br label %return
 
 if.else412:                                       ; preds = %if.else394
@@ -831,7 +831,7 @@ if.else412:                                       ; preds = %if.else394
   br i1 %cmp424.not, label %if.else428, label %if.then426
 
 if.then426:                                       ; preds = %if.else412
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.56, i32 noundef %call423)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.56, i32 noundef %call423)
   br label %return
 
 if.else428:                                       ; preds = %if.else412
@@ -843,7 +843,7 @@ if.else428:                                       ; preds = %if.else412
   br i1 %cmp440.not, label %if.else444, label %if.then442
 
 if.then442:                                       ; preds = %if.else428
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.58, i32 noundef %call439)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.58, i32 noundef %call439)
   br label %return
 
 if.else444:                                       ; preds = %if.else428
@@ -855,7 +855,7 @@ if.else444:                                       ; preds = %if.else428
   br i1 %cmp456.not, label %if.else460, label %if.then458
 
 if.then458:                                       ; preds = %if.else444
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.60, i32 noundef %call455)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.60, i32 noundef %call455)
   br label %return
 
 if.else460:                                       ; preds = %if.else444
@@ -867,7 +867,7 @@ if.else460:                                       ; preds = %if.else444
   br i1 %cmp472.not, label %if.else476, label %if.then474
 
 if.then474:                                       ; preds = %if.else460
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.62, i32 noundef %call471)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.62, i32 noundef %call471)
   br label %return
 
 if.else476:                                       ; preds = %if.else460
@@ -879,7 +879,7 @@ if.else476:                                       ; preds = %if.else460
   br i1 %cmp488.not, label %if.else492, label %if.then490
 
 if.then490:                                       ; preds = %if.else476
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.64, i32 noundef %call487)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.64, i32 noundef %call487)
   br label %return
 
 if.else492:                                       ; preds = %if.else476
@@ -891,7 +891,7 @@ if.else492:                                       ; preds = %if.else476
   br i1 %cmp504.not, label %if.else508, label %if.then506
 
 if.then506:                                       ; preds = %if.else492
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.66, i32 noundef %call503)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.66, i32 noundef %call503)
   br label %return
 
 if.else508:                                       ; preds = %if.else492
@@ -903,7 +903,7 @@ if.else508:                                       ; preds = %if.else492
   br i1 %cmp520.not, label %if.end524, label %if.then522
 
 if.then522:                                       ; preds = %if.else508
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.68, i32 noundef %call519)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.68, i32 noundef %call519)
   br label %return
 
 if.end524:                                        ; preds = %if.else508
@@ -912,7 +912,7 @@ if.end524:                                        ; preds = %if.else508
   br i1 %cmp526.not, label %if.then533, label %if.then528
 
 if.then528:                                       ; preds = %if.end524
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.68, i32 noundef %call525)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.68, i32 noundef %call525)
   br label %return
 
 if.then533:                                       ; preds = %if.end524
@@ -924,7 +924,7 @@ if.then533:                                       ; preds = %if.end524
   br i1 %cmp545.not, label %if.else549, label %if.then547
 
 if.then547:                                       ; preds = %if.then533
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.70, i32 noundef %call544)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.70, i32 noundef %call544)
   br label %return
 
 if.else549:                                       ; preds = %if.then533
@@ -936,7 +936,7 @@ if.else549:                                       ; preds = %if.then533
   br i1 %cmp563.not, label %if.else567, label %if.then565
 
 if.then565:                                       ; preds = %if.else549
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.72, i32 noundef %call562)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.72, i32 noundef %call562)
   br label %return
 
 if.else567:                                       ; preds = %if.else549
@@ -948,7 +948,7 @@ if.else567:                                       ; preds = %if.else549
   br i1 %cmp581.not, label %if.else585, label %if.then583
 
 if.then583:                                       ; preds = %if.else567
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.74, i32 noundef %call580)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.74, i32 noundef %call580)
   br label %return
 
 if.else585:                                       ; preds = %if.else567
@@ -960,7 +960,7 @@ if.else585:                                       ; preds = %if.else567
   br i1 %cmp599.not, label %if.else603, label %if.then601
 
 if.then601:                                       ; preds = %if.else585
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.76, i32 noundef %call598)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.76, i32 noundef %call598)
   br label %return
 
 if.else603:                                       ; preds = %if.else585
@@ -972,7 +972,7 @@ if.else603:                                       ; preds = %if.else585
   br i1 %cmp617.not, label %if.else621, label %if.then619
 
 if.then619:                                       ; preds = %if.else603
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.78, i32 noundef %call616)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.78, i32 noundef %call616)
   br label %return
 
 if.else621:                                       ; preds = %if.else603
@@ -984,7 +984,7 @@ if.else621:                                       ; preds = %if.else603
   br i1 %cmp633.not, label %if.else637, label %if.then635
 
 if.then635:                                       ; preds = %if.else621
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.80, i32 noundef %call632)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.80, i32 noundef %call632)
   br label %return
 
 if.else637:                                       ; preds = %if.else621
@@ -996,7 +996,7 @@ if.else637:                                       ; preds = %if.else621
   br i1 %cmp649.not, label %if.else653, label %if.then651
 
 if.then651:                                       ; preds = %if.else637
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.82, i32 noundef %call648)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.82, i32 noundef %call648)
   br label %return
 
 if.else653:                                       ; preds = %if.else637
@@ -1008,7 +1008,7 @@ if.else653:                                       ; preds = %if.else637
   br i1 %cmp665.not, label %if.else669, label %if.then667
 
 if.then667:                                       ; preds = %if.else653
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.84, i32 noundef %call664)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.84, i32 noundef %call664)
   br label %return
 
 if.else669:                                       ; preds = %if.else653
@@ -1042,7 +1042,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 declare i32 @CheckRunTimeSettings() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @err_sys(ptr noundef %msg, i32 noundef range(i32 1, 0) %es) unnamed_addr #0 {
+define internal fastcc void @err_sys.retelim(ptr noundef %msg, i32 noundef range(i32 1, 0) %es) unnamed_addr #0 {
 entry:
   %errno_buf.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %errno_buf.i)
@@ -1235,7 +1235,7 @@ if.end13:                                         ; preds = %if.then2
   store volatile i32 0, ptr %j.i, align 4
   %j.i.0.j.i.0.j.i.0.j.0.j.0.j.0..i = load volatile i32, ptr %j.i, align 4
   %cmp.i15 = icmp eq i32 %j.i.0.j.i.0.j.i.0.j.0.j.0.j.0..i, 0
-  br i1 %cmp.i15, label %const_byte_ptr_test.exit, label %const_byte_ptr_test.exit.thread
+  br i1 %cmp.i15, label %const_byte_ptr_test.argprom.exit, label %const_byte_ptr_test.argprom.exit.thread
 
 if.then16:                                        ; preds = %if.end, %if.end13.thread34
   %call17 = tail call ptr @__errno_location() #21
@@ -1245,11 +1245,11 @@ if.then16:                                        ; preds = %if.end, %if.end13.t
   %sub = add nsw i32 %narrow.neg, -1073757405
   br label %return
 
-const_byte_ptr_test.exit.thread:                  ; preds = %if.end13
+const_byte_ptr_test.argprom.exit.thread:          ; preds = %if.end13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %j.i)
   br label %return
 
-const_byte_ptr_test.exit:                         ; preds = %if.end13
+const_byte_ptr_test.argprom.exit:                 ; preds = %if.end13
   %j.i.0.j.i.0.j.i.0.j.0.j.0.j.0.1.i = load volatile i32, ptr %j.i, align 4
   %idxprom.i = zext i32 %j.i.0.j.i.0.j.i.0.j.0.j.0.j.0.1.i to i64
   %arrayidx.i17 = getelementptr inbounds i8, ptr @const_byte_array, i64 %idxprom.i
@@ -1260,8 +1260,8 @@ const_byte_ptr_test.exit:                         ; preds = %if.end13
   %spec.select = zext i1 %cmp27.not to i32
   br label %return
 
-return:                                           ; preds = %const_byte_ptr_test.exit, %entry, %const_byte_ptr_test.exit.thread, %simple_mem_test.exit, %if.then16
-  %retval.0 = phi i32 [ %sub, %if.then16 ], [ -15396, %simple_mem_test.exit ], [ 1, %const_byte_ptr_test.exit.thread ], [ -15387, %entry ], [ %spec.select, %const_byte_ptr_test.exit ]
+return:                                           ; preds = %const_byte_ptr_test.argprom.exit, %entry, %const_byte_ptr_test.argprom.exit.thread, %simple_mem_test.exit, %if.then16
+  %retval.0 = phi i32 [ %sub, %if.then16 ], [ -15396, %simple_mem_test.exit ], [ 1, %const_byte_ptr_test.argprom.exit.thread ], [ -15387, %entry ], [ %spec.select, %const_byte_ptr_test.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -8208,17 +8208,17 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %cipher2, ptr noundef nonnull align 64 dereferenceable(16) @__const.aesgcm_default_test.cipher2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key3, ptr noundef nonnull align 16 dereferenceable(16) @__const.aesgcm_default_test.key3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %iv3, ptr noundef nonnull align 1 dereferenceable(12) @__const.aesgcm_default_test.iv3, i64 12, i1 false)
-  %call = call fastcc i32 @aesgcm_default_test_helper(ptr noundef %key1, ptr noundef %iv1, ptr noundef nonnull %plain1, i32 noundef 32, ptr noundef nonnull %cipher1, i32 noundef 32, ptr noundef nonnull %aad1, i32 noundef 16, ptr noundef @__const.aesgcm_default_test.tag1, i32 noundef 16)
+  %call = call fastcc i32 @aesgcm_default_test_helper.argelim(ptr noundef %key1, ptr noundef %iv1, ptr noundef nonnull %plain1, i32 noundef 32, ptr noundef nonnull %cipher1, i32 noundef 32, ptr noundef nonnull %aad1, i32 noundef 16, ptr noundef @__const.aesgcm_default_test.tag1, i32 noundef 16)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call11 = call fastcc i32 @aesgcm_default_test_helper(ptr noundef %key2, ptr noundef %iv2, ptr noundef nonnull %plain2, i32 noundef 16, ptr noundef nonnull %cipher2, i32 noundef 16, ptr noundef null, i32 noundef 0, ptr noundef @__const.aesgcm_default_test.tag2, i32 noundef 16)
+  %call11 = call fastcc i32 @aesgcm_default_test_helper.argelim(ptr noundef %key2, ptr noundef %iv2, ptr noundef nonnull %plain2, i32 noundef 16, ptr noundef nonnull %cipher2, i32 noundef 16, ptr noundef null, i32 noundef 0, ptr noundef @__const.aesgcm_default_test.tag2, i32 noundef 16)
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end
-  %call18 = call fastcc i32 @aesgcm_default_test_helper(ptr noundef %key3, ptr noundef %iv3, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef @__const.aesgcm_default_test.tag3, i32 noundef 12)
+  %call18 = call fastcc i32 @aesgcm_default_test_helper.argelim(ptr noundef %key3, ptr noundef %iv3, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef @__const.aesgcm_default_test.tag3, i32 noundef 12)
   br label %return
 
 return:                                           ; preds = %if.end14, %if.end, %entry
@@ -8728,7 +8728,7 @@ if.then5:                                         ; preds = %if.end
   %30 = and i32 %29, 2047
   %narrow.neg = mul nsw i32 %30, -100000
   %sub = add nsw i32 %narrow.neg, -1073760765
-  call fastcc void @err_sys(ptr noundef nonnull @.str.190, i32 noundef %sub)
+  call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.190, i32 noundef %sub)
   %31 = load i32, ptr %call6, align 4
   %32 = and i32 %31, 2047
   %narrow.neg51 = mul nsw i32 %32, -100000
@@ -8788,7 +8788,7 @@ do.body88:                                        ; preds = %if.end81
   br label %exit_rsa
 
 if.end100:                                        ; preds = %if.end81
-  %call102 = call fastcc i32 @rsa_sig_test(ptr noundef %key, i32 noundef %call83, ptr noundef %rng)
+  %call102 = call fastcc i32 @rsa_sig_test.argelim(ptr noundef %key, i32 noundef %call83, ptr noundef %rng)
   %cmp103.not = icmp eq i32 %call102, 0
   br i1 %cmp103.not, label %do.body107, label %exit_rsa
 
@@ -9160,7 +9160,7 @@ lor.lhs.false:                                    ; preds = %if.end217
   br i1 %tobool224.not, label %if.end228, label %if.end296.thread111
 
 if.end228:                                        ; preds = %lor.lhs.false
-  %call229 = call fastcc i32 @dh_generate_test()
+  %call229 = call fastcc i32 @dh_generate_test.argprom()
   %cmp230.not = icmp eq i32 %call229, 0
   br i1 %cmp230.not, label %if.end235, label %if.end296.thread111
 
@@ -9335,7 +9335,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call6 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 28)
+  %call6 = call fastcc i32 @ecc_test_curve.argelim(ptr noundef %rng, i32 noundef 28)
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %if.then9, label %if.end12
 
@@ -9346,7 +9346,7 @@ if.then9:                                         ; preds = %if.end
   br label %done
 
 if.end12:                                         ; preds = %if.end
-  %call13 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 30)
+  %call13 = call fastcc i32 @ecc_test_curve.argelim(ptr noundef %rng, i32 noundef 30)
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %if.then16, label %if.end19
 
@@ -9357,7 +9357,7 @@ if.then16:                                        ; preds = %if.end12
   br label %done
 
 if.end19:                                         ; preds = %if.end12
-  %call20 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 32)
+  %call20 = call fastcc i32 @ecc_test_curve.argelim(ptr noundef %rng, i32 noundef 32)
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %if.then23, label %if.end26
 
@@ -9921,7 +9921,7 @@ if.then35:                                        ; preds = %ecc_def_curve_test.
   br label %done
 
 if.end38:                                         ; preds = %ecc_def_curve_test.exit
-  %call39 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 40)
+  %call39 = call fastcc i32 @ecc_test_curve.argelim(ptr noundef %rng, i32 noundef 40)
   %cmp40 = icmp slt i32 %call39, 0
   br i1 %cmp40, label %if.then42, label %if.end45
 
@@ -9932,7 +9932,7 @@ if.then42:                                        ; preds = %if.end38
   br label %done
 
 if.end45:                                         ; preds = %if.end38
-  %call46 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 48)
+  %call46 = call fastcc i32 @ecc_test_curve.argelim(ptr noundef %rng, i32 noundef 48)
   %cmp47 = icmp slt i32 %call46, 0
   br i1 %cmp47, label %if.then49, label %if.end52
 
@@ -9943,7 +9943,7 @@ if.then49:                                        ; preds = %if.end45
   br label %done
 
 if.end52:                                         ; preds = %if.end45
-  %call53 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 64)
+  %call53 = call fastcc i32 @ecc_test_curve.argelim(ptr noundef %rng, i32 noundef 64)
   %cmp54 = icmp slt i32 %call53, 0
   br i1 %cmp54, label %if.then56, label %if.end59
 
@@ -9954,7 +9954,7 @@ if.then56:                                        ; preds = %if.end52
   br label %done
 
 if.end59:                                         ; preds = %if.end52
-  %call60 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 66)
+  %call60 = call fastcc i32 @ecc_test_curve.argelim(ptr noundef %rng, i32 noundef 66)
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %if.then63, label %if.end66
 
@@ -10273,7 +10273,7 @@ if.then:                                          ; preds = %entry
   %1 = and i32 %sub, 2047
   %narrow.neg = mul nsw i32 %1, -100000
   %sub8 = add nsw i32 %narrow.neg, -536872906
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.88, i32 noundef %sub8)
+  tail call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.88, i32 noundef %sub8)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -10290,7 +10290,7 @@ if.then15:                                        ; preds = %if.end
   %3 = and i32 %sub18, 2047
   %narrow.neg8 = mul nsw i32 %3, -100000
   %sub26 = add nsw i32 %narrow.neg8, -536872925
-  call fastcc void @err_sys(ptr noundef nonnull @.str.90, i32 noundef %sub26)
+  call fastcc void @err_sys.retelim(ptr noundef nonnull @.str.90, i32 noundef %sub26)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then15, %if.end
@@ -10790,7 +10790,7 @@ return:                                           ; preds = %if.end65, %if.then5
 declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741583105, 1) i32 @aesgcm_default_test_helper(ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef %plain, i32 noundef range(i32 0, 33) %plainSz, ptr noundef readonly %cipher, i32 noundef range(i32 0, 33) %cipherSz, ptr noundef %aad, i32 noundef range(i32 0, 17) %aadSz, ptr nocapture noundef nonnull readonly %tag, i32 noundef range(i32 12, 17) %tagSz) unnamed_addr #0 {
+define internal fastcc range(i32 -741583105, 1) i32 @aesgcm_default_test_helper.argelim(ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef %plain, i32 noundef range(i32 0, 33) %plainSz, ptr noundef readonly %cipher, i32 noundef range(i32 0, 33) %cipherSz, ptr noundef %aad, i32 noundef range(i32 0, 17) %aadSz, ptr nocapture noundef nonnull readonly %tag, i32 noundef range(i32 12, 17) %tagSz) unnamed_addr #0 {
 entry:
   %enc = alloca [1 x %struct.Aes], align 16
   %dec = alloca [1 x %struct.Aes], align 16
@@ -11009,7 +11009,7 @@ declare i32 @wc_RsaPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @wc_RsaEncryptSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741587615, 1) i32 @rsa_sig_test(ptr noundef nonnull %key, i32 noundef %modLen, ptr noundef nonnull %rng) unnamed_addr #0 {
+define internal fastcc range(i32 -741587615, 1) i32 @rsa_sig_test.argelim(ptr noundef nonnull %key, i32 noundef %modLen, ptr noundef nonnull %rng) unnamed_addr #0 {
 entry:
   %sigSz = alloca i32, align 4
   %in = alloca [26 x i8], align 16
@@ -12458,7 +12458,7 @@ declare i32 @wc_DhGenerateKeyPair(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @wc_DhAgree(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741590688, 1) i32 @dh_generate_test() unnamed_addr #0 {
+define internal fastcc range(i32 -741590688, 1) i32 @dh_generate_test.argprom() unnamed_addr #0 {
 entry:
   %smallKey = alloca [1 x %struct.DhKey], align 16
   %p = alloca [2 x i8], align 2
@@ -13246,7 +13246,7 @@ declare i32 @wc_Tls13_HKDF_Extract(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef range(i32 28, 67) %keySize) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve.argelim(ptr noundef nonnull %rng, i32 noundef range(i32 28, 67) %keySize) unnamed_addr #0 {
 entry:
   %pkcs8Sz.i = alloca i32, align 4
   %der.i = alloca [257 x i8], align 16
@@ -13299,7 +13299,7 @@ do.body.i:                                        ; preds = %entry
   %0 = and i32 %sub.i, 2047
   %narrow.neg127.i = mul nsw i32 %0, -100000
   %sub7.i = add nsw i32 %narrow.neg127.i, -536898186
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call10.i = call i32 @wc_ecc_init_ex(ptr noundef nonnull %userB.i, ptr noundef null, i32 noundef -2) #19
@@ -13311,7 +13311,7 @@ do.body14.i:                                      ; preds = %if.end.i
   %1 = and i32 %sub15.i, 2047
   %narrow.neg124.i = mul nsw i32 %1, -100000
   %sub23.i = add nsw i32 %narrow.neg124.i, -536898189
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end26.i:                                       ; preds = %if.end.i
   %call28.i = call i32 @wc_ecc_init_ex(ptr noundef nonnull %pubKey.i, ptr noundef null, i32 noundef -2) #19
@@ -13323,12 +13323,12 @@ do.body32.i:                                      ; preds = %if.end26.i
   %2 = and i32 %sub33.i, 2047
   %narrow.neg121.i = mul nsw i32 %2, -100000
   %sub41.i = add nsw i32 %narrow.neg121.i, -536898192
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end44.i:                                       ; preds = %if.end26.i
   %call46.i = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %userA.i, i32 noundef 0) #19
   switch i32 %call46.i, label %do.body54.i [
-    i32 -172, label %ecc_test_curve_size.exit
+    i32 -172, label %ecc_test_curve_size.argprom.exit
     i32 0, label %do.end68.i
   ]
 
@@ -13337,7 +13337,7 @@ do.body54.i:                                      ; preds = %if.end44.i
   %3 = and i32 %sub55.i, 2047
   %narrow.neg118.i = mul nsw i32 %3, -100000
   %sub63.i = add nsw i32 %narrow.neg118.i, -536898219
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 do.end68.i:                                       ; preds = %if.end44.i
   %call69.i = call i32 @wc_ecc_get_curve_idx(i32 noundef 0) #19
@@ -13353,7 +13353,7 @@ if.then72.i:                                      ; preds = %do.end68.i
   %6 = load ptr, ptr %dp74.i, align 16
   %7 = load i32, ptr %6, align 8
   %cmp78.not.i = icmp eq i32 %call75.i, %7
-  br i1 %cmp78.not.i, label %if.end84.i, label %ecc_test_curve_size.exit
+  br i1 %cmp78.not.i, label %if.end84.i, label %ecc_test_curve_size.argprom.exit
 
 if.end84.i:                                       ; preds = %if.then72.i, %do.end68.i
   %call86.i = call i32 @wc_ecc_check_key(ptr noundef nonnull %userA.i) #19
@@ -13365,7 +13365,7 @@ do.body90.i:                                      ; preds = %if.end84.i
   %8 = and i32 %sub91.i, 2047
   %narrow.neg115.i = mul nsw i32 %8, -100000
   %sub99.i = add nsw i32 %narrow.neg115.i, -536898230
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 do.end104.i:                                      ; preds = %if.end84.i
   %call106.i = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %userB.i, i32 noundef 0) #19
@@ -13377,12 +13377,12 @@ do.body110.i:                                     ; preds = %do.end104.i
   %9 = and i32 %sub111.i, 2047
   %narrow.neg112.i = mul nsw i32 %9, -100000
   %sub119.i = add nsw i32 %narrow.neg112.i, -536898241
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 land.lhs.true129.i:                               ; preds = %do.end104.i
   %call131.i = call i32 @wc_ecc_size(ptr noundef nonnull %userA.i) #19
   %cmp132.not.i = icmp eq i32 %call131.i, %keySize
-  br i1 %cmp132.not.i, label %if.end137.i, label %ecc_test_curve_size.exit
+  br i1 %cmp132.not.i, label %if.end137.i, label %ecc_test_curve_size.argprom.exit
 
 if.end137.i:                                      ; preds = %land.lhs.true129.i
   %call139.i = call i32 @wc_ecc_set_rng(ptr noundef nonnull %userA.i, ptr noundef nonnull %rng) #19
@@ -13394,7 +13394,7 @@ do.body143.i:                                     ; preds = %if.end137.i
   %10 = and i32 %sub144.i, 2047
   %narrow.neg109.i = mul nsw i32 %10, -100000
   %sub152.i = add nsw i32 %narrow.neg109.i, -536898255
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end155.i:                                      ; preds = %if.end137.i
   %call157.i = call i32 @wc_ecc_set_rng(ptr noundef nonnull %userB.i, ptr noundef nonnull %rng) #19
@@ -13406,7 +13406,7 @@ do.body161.i:                                     ; preds = %if.end155.i
   %11 = and i32 %sub162.i, 2047
   %narrow.neg106.i = mul nsw i32 %11, -100000
   %sub170.i = add nsw i32 %narrow.neg106.i, -536898258
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end173.i:                                      ; preds = %if.end155.i
   store i32 66, ptr %x.i, align 4
@@ -13433,7 +13433,7 @@ do.body189.i:                                     ; preds = %do.cond.i
   %12 = and i32 %sub190.i, 2047
   %narrow.neg103.i = mul nsw i32 %12, -100000
   %sub198.i = add nsw i32 %narrow.neg103.i, -536898270
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 do.end205.i:                                      ; preds = %do.cond.i
   store i32 66, ptr %y.i, align 4
@@ -13460,19 +13460,19 @@ do.body222.i:                                     ; preds = %do.cond215.i
   %13 = and i32 %sub223.i, 2047
   %narrow.neg100.i = mul nsw i32 %13, -100000
   %sub231.i = add nsw i32 %narrow.neg100.i, -536898282
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end235.i:                                      ; preds = %do.cond215.i
   %14 = load i32, ptr %y.i, align 4
   %15 = load i32, ptr %x.i, align 4
   %cmp236.not.i = icmp eq i32 %14, %15
-  br i1 %cmp236.not.i, label %if.end242.i, label %ecc_test_curve_size.exit
+  br i1 %cmp236.not.i, label %if.end242.i, label %ecc_test_curve_size.argprom.exit
 
 if.end242.i:                                      ; preds = %if.end235.i
   %conv245.i = zext i32 %14 to i64
   %bcmp.i = call i32 @bcmp(ptr nonnull %sharedA.i, ptr nonnull %sharedB.i, i64 %conv245.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %tobool.not.i, label %do.end254.i, label %ecc_test_curve_size.exit
+  br i1 %tobool.not.i, label %do.end254.i, label %ecc_test_curve_size.argprom.exit
 
 do.end254.i:                                      ; preds = %if.end242.i
   store i32 164, ptr %x.i, align 4
@@ -13485,7 +13485,7 @@ do.body261.i:                                     ; preds = %do.end254.i
   %16 = and i32 %sub262.i, 2047
   %narrow.neg97.i = mul nsw i32 %16, -100000
   %sub270.i = add nsw i32 %narrow.neg97.i, -536898337
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end274.i:                                      ; preds = %do.end254.i
   %17 = load i32, ptr %x.i, align 4
@@ -13498,7 +13498,7 @@ do.body281.i:                                     ; preds = %if.end274.i
   %18 = and i32 %sub282.i, 2047
   %narrow.neg94.i = mul nsw i32 %18, -100000
   %sub290.i = add nsw i32 %narrow.neg94.i, -536898349
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end294.i:                                      ; preds = %if.end274.i
   store i32 66, ptr %y.i, align 4
@@ -13525,14 +13525,14 @@ do.body311.i:                                     ; preds = %do.cond304.i
   %19 = and i32 %sub312.i, 2047
   %narrow.neg91.i = mul nsw i32 %19, -100000
   %sub320.i = add nsw i32 %narrow.neg91.i, -536898362
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end324.i:                                      ; preds = %do.cond304.i
   %20 = load i32, ptr %y.i, align 4
   %conv327.i = zext i32 %20 to i64
   %bcmp74.i = call i32 @bcmp(ptr nonnull %sharedA.i, ptr nonnull %sharedB.i, i64 %conv327.i)
   %tobool329.not.i = icmp eq i32 %bcmp74.i, 0
-  br i1 %tobool329.not.i, label %for.body.preheader.i, label %ecc_test_curve_size.exit
+  br i1 %tobool329.not.i, label %for.body.preheader.i, label %ecc_test_curve_size.argprom.exit
 
 for.body.preheader.i:                             ; preds = %if.end324.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %digest.i, i8 0, i64 66, i1 false)
@@ -13560,7 +13560,7 @@ do.body356.i:                                     ; preds = %do.cond349.i
   %21 = and i32 %sub357.i, 2047
   %narrow.neg88.i = mul nsw i32 %21, -100000
   %sub365.i = add nsw i32 %narrow.neg88.i, -536898439
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 for.cond373.i:                                    ; preds = %if.end406.i
   br i1 %cmp374.i, label %for.body376.i, label %for.body423.i, !llvm.loop !109
@@ -13592,12 +13592,12 @@ do.body393.i:                                     ; preds = %do.cond386.i
   %23 = and i32 %sub394.i, 2047
   %narrow.neg85.i = mul nsw i32 %23, -100000
   %sub402.i = add nsw i32 %narrow.neg85.i, -536898454
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end406.i:                                      ; preds = %do.cond386.i
   %24 = load i32, ptr %verify.i, align 4
   %cmp407.not.i = icmp eq i32 %24, 1
-  br i1 %cmp407.not.i, label %for.cond373.i, label %ecc_test_curve_size.exit
+  br i1 %cmp407.not.i, label %for.cond373.i, label %ecc_test_curve_size.argprom.exit
 
 for.body423.i:                                    ; preds = %for.cond373.i, %for.body423.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body423.i ], [ 0, %for.cond373.i ]
@@ -13633,7 +13633,7 @@ do.body446.i:                                     ; preds = %do.cond439.i
   %25 = and i32 %sub447.i, 2047
   %narrow.neg82.i = mul nsw i32 %25, -100000
   %sub455.i = add nsw i32 %narrow.neg82.i, -536898476
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 for.cond463.i:                                    ; preds = %if.end496.i
   br i1 %cmp464.i, label %for.body466.i, label %for.end509.i, !llvm.loop !111
@@ -13665,27 +13665,27 @@ do.body483.i:                                     ; preds = %do.cond476.i
   %27 = and i32 %sub484.i, 2047
   %narrow.neg79.i = mul nsw i32 %27, -100000
   %sub492.i = add nsw i32 %narrow.neg79.i, -536898490
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
 if.end496.i:                                      ; preds = %do.cond476.i
   %28 = load i32, ptr %verify.i, align 4
   %cmp497.not.i = icmp eq i32 %28, 1
-  br i1 %cmp497.not.i, label %for.cond463.i, label %ecc_test_curve_size.exit
+  br i1 %cmp497.not.i, label %for.cond463.i, label %ecc_test_curve_size.argprom.exit
 
 for.end509.i:                                     ; preds = %for.cond463.i
   store i32 164, ptr %x.i, align 4
   %call512.i = call i32 @wc_ecc_export_private_only(ptr noundef nonnull %userA.i, ptr noundef nonnull %exportBuf.i, ptr noundef nonnull %x.i) #19
   %cmp513.not.i = icmp eq i32 %call512.i, 0
-  br i1 %cmp513.not.i, label %ecc_test_curve_size.exit, label %do.body516.i
+  br i1 %cmp513.not.i, label %ecc_test_curve_size.argprom.exit, label %do.body516.i
 
 do.body516.i:                                     ; preds = %for.end509.i
   %sub517.i = sub nsw i32 0, %call512.i
   %29 = and i32 %sub517.i, 2047
   %narrow.neg.i = mul nsw i32 %29, -100000
   %sub525.i = add nsw i32 %narrow.neg.i, -536898506
-  br label %ecc_test_curve_size.exit
+  br label %ecc_test_curve_size.argprom.exit
 
-ecc_test_curve_size.exit:                         ; preds = %if.end406.i, %if.end496.i, %do.body.i, %do.body14.i, %do.body32.i, %if.end44.i, %do.body54.i, %if.then72.i, %do.body90.i, %do.body110.i, %land.lhs.true129.i, %do.body143.i, %do.body161.i, %do.body189.i, %do.body222.i, %if.end235.i, %if.end242.i, %do.body261.i, %do.body281.i, %do.body311.i, %if.end324.i, %do.body356.i, %do.body393.i, %do.body446.i, %do.body483.i, %for.end509.i, %do.body516.i
+ecc_test_curve_size.argprom.exit:                 ; preds = %if.end406.i, %if.end496.i, %do.body.i, %do.body14.i, %do.body32.i, %if.end44.i, %do.body54.i, %if.then72.i, %do.body90.i, %do.body110.i, %land.lhs.true129.i, %do.body143.i, %do.body161.i, %do.body189.i, %do.body222.i, %if.end235.i, %if.end242.i, %do.body261.i, %do.body281.i, %do.body311.i, %if.end324.i, %do.body356.i, %do.body393.i, %do.body446.i, %do.body483.i, %for.end509.i, %do.body516.i
   %ret.0.i = phi i32 [ %sub7.i, %do.body.i ], [ %sub23.i, %do.body14.i ], [ %sub41.i, %do.body32.i ], [ %call46.i, %if.end44.i ], [ %sub63.i, %do.body54.i ], [ %sub99.i, %do.body90.i ], [ %sub119.i, %do.body110.i ], [ %sub152.i, %do.body143.i ], [ %sub170.i, %do.body161.i ], [ %sub198.i, %do.body189.i ], [ %sub231.i, %do.body222.i ], [ %sub270.i, %do.body261.i ], [ %sub290.i, %do.body281.i ], [ %sub320.i, %do.body311.i ], [ %sub365.i, %do.body356.i ], [ %sub402.i, %do.body393.i ], [ %sub455.i, %do.body446.i ], [ %sub492.i, %do.body483.i ], [ %sub525.i, %do.body516.i ], [ 0, %for.end509.i ], [ -27313, %if.then72.i ], [ -172, %land.lhs.true129.i ], [ -27373, %if.end235.i ], [ -27376, %if.end242.i ], [ -27453, %if.end324.i ], [ -27580, %if.end496.i ], [ -27544, %if.end406.i ]
   %call531.i = call i32 @wc_ecc_free(ptr noundef nonnull %pubKey.i) #19
   %call533.i = call i32 @wc_ecc_free(ptr noundef nonnull %userB.i) #19
@@ -13706,7 +13706,7 @@ ecc_test_curve_size.exit:                         ; preds = %if.end406.i, %if.en
   %or.cond = or i1 %cmp, %cmp1
   br i1 %or.cond, label %if.end5, label %return.sink.split
 
-if.end5:                                          ; preds = %ecc_test_curve_size.exit
+if.end5:                                          ; preds = %ecc_test_curve_size.argprom.exit
   %30 = add nsw i32 %keySize, -14
   %31 = call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
   switch i32 %31, label %return.sink.split [
@@ -14003,7 +14003,7 @@ if.end99.i:                                       ; preds = %if.end81.i
   br i1 %cmp100.i, label %ecc_test_key_gen.exit, label %if.end105.i
 
 if.end105.i:                                      ; preds = %if.end99.i
-  %call107.i = call fastcc i32 @_SaveDerAndPem(ptr noundef %der.i, i32 noundef %call84.i, ptr noundef nonnull @.str.280, i32 noundef 27160)
+  %call107.i = call fastcc i32 @_SaveDerAndPem.argprom.argelim(ptr noundef %der.i, i32 noundef %call84.i, ptr noundef nonnull @.str.280, i32 noundef 27160)
   %cmp108.not.i = icmp eq i32 %call107.i, 0
   br i1 %cmp108.not.i, label %if.end123.i, label %do.body111.i
 
@@ -14031,7 +14031,7 @@ if.end141.i:                                      ; preds = %if.end123.i
   br i1 %cmp142.i, label %ecc_test_key_gen.exit, label %if.end147.i
 
 if.end147.i:                                      ; preds = %if.end141.i
-  %call149.i = call fastcc i32 @_SaveDerAndPem(ptr noundef %der.i, i32 noundef %call126.i, ptr noundef nonnull @.str.281, i32 noundef 27176)
+  %call149.i = call fastcc i32 @_SaveDerAndPem.argprom.argelim(ptr noundef %der.i, i32 noundef %call126.i, ptr noundef nonnull @.str.281, i32 noundef 27176)
   br label %ecc_test_key_gen.exit
 
 ecc_test_key_gen.exit:                            ; preds = %do.body.i32, %do.body11.i, %do.body31.i, %do.body52.i, %if.end63.i, %if.end.i.i37, %do.body88.i, %if.end99.i, %do.body111.i, %do.body130.i, %if.end141.i, %if.end147.i
@@ -14045,9 +14045,9 @@ ecc_test_key_gen.exit:                            ; preds = %do.body.i32, %do.bo
   %or.cond2 = or i1 %cmp23, %cmp25
   br i1 %or.cond2, label %return, label %return.sink.split
 
-return.sink.split:                                ; preds = %ecc_test_key_gen.exit, %ecc_test_key_decode.exit, %ecc_test_vector.exit, %ecc_test_vector_item.exit.thread.i, %if.end5, %ecc_test_curve_size.exit
-  %.str.231.sink = phi ptr [ @.str.228, %ecc_test_curve_size.exit ], [ @.str.229, %if.end5 ], [ @.str.229, %ecc_test_vector_item.exit.thread.i ], [ @.str.229, %ecc_test_vector.exit ], [ @.str.230, %ecc_test_key_decode.exit ], [ @.str.231, %ecc_test_key_gen.exit ]
-  %retval.0.ph = phi i32 [ %ret.0.i, %ecc_test_curve_size.exit ], [ -174, %if.end5 ], [ %ret.0.i.ph.i, %ecc_test_vector_item.exit.thread.i ], [ %ret.0.i.fr.i, %ecc_test_vector.exit ], [ %ret.0.i24, %ecc_test_key_decode.exit ], [ %ret.0.i34, %ecc_test_key_gen.exit ]
+return.sink.split:                                ; preds = %ecc_test_key_gen.exit, %ecc_test_key_decode.exit, %ecc_test_vector.exit, %ecc_test_vector_item.exit.thread.i, %if.end5, %ecc_test_curve_size.argprom.exit
+  %.str.231.sink = phi ptr [ @.str.228, %ecc_test_curve_size.argprom.exit ], [ @.str.229, %if.end5 ], [ @.str.229, %ecc_test_vector_item.exit.thread.i ], [ @.str.229, %ecc_test_vector.exit ], [ @.str.230, %ecc_test_key_decode.exit ], [ @.str.231, %ecc_test_key_gen.exit ]
+  %retval.0.ph = phi i32 [ %ret.0.i, %ecc_test_curve_size.argprom.exit ], [ -174, %if.end5 ], [ %ret.0.i.ph.i, %ecc_test_vector_item.exit.thread.i ], [ %ret.0.i.fr.i, %ecc_test_vector.exit ], [ %ret.0.i24, %ecc_test_key_decode.exit ], [ %ret.0.i34, %ecc_test_key_gen.exit ]
   %call28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.231.sink, i32 noundef %keySize)
   %45 = load ptr, ptr @stdout, align 8
   %call29 = call i32 @fflush(ptr noundef %45)
@@ -14775,7 +14775,7 @@ declare i32 @wc_EccPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @wc_EccPublicKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1610739912, 1) i32 @_SaveDerAndPem(ptr nocapture noundef nonnull %der, i32 noundef range(i32 0, -2147483648) %derSz, ptr nocapture noundef readonly %fileDer, i32 noundef range(i32 27136, 27177) %calling_line) unnamed_addr #11 {
+define internal fastcc range(i32 -1610739912, 1) i32 @_SaveDerAndPem.argprom.argelim(ptr nocapture noundef nonnull %der, i32 noundef range(i32 0, -2147483648) %derSz, ptr nocapture noundef readonly %fileDer, i32 noundef range(i32 27136, 27177) %calling_line) unnamed_addr #11 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %fileDer, ptr noundef nonnull @.str.277)
   %tobool.not = icmp eq ptr %call, null

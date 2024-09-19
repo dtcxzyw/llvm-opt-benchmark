@@ -514,7 +514,7 @@ define noundef i32 @PMIx_Compute_distances_nb(ptr noundef %0, ptr noundef %1, pt
 
 20:                                               ; preds = %19, %._crit_edge
   %.not22.i = icmp eq ptr %16, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %21
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %21
 
 21:                                               ; preds = %20
   %22 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %16, ptr noundef null) #10
@@ -529,7 +529,7 @@ define noundef i32 @PMIx_Compute_distances_nb(ptr noundef %0, ptr noundef %1, pt
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cb_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i = icmp eq ptr %28, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
   %29 = phi ptr [ %31, %.lr.ph.i.i ], [ %28, %21 ]
@@ -538,9 +538,9 @@ define noundef i32 @PMIx_Compute_distances_nb(ptr noundef %0, ptr noundef %1, pt
   %30 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !6
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %21
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %20, %21
   %32 = getelementptr inbounds i8, ptr %16, i64 680
   store ptr %4, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %16, i64 696
@@ -548,7 +548,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %2
   %34 = icmp eq ptr %0, null
   br i1 %34, label %35, label %40
 
-35:                                               ; preds = %pmix_obj_new_tma.exit
+35:                                               ; preds = %pmix_obj_new_tma.argprom.exit
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2864), align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %40
@@ -558,8 +558,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %2
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %40, label %60
 
-40:                                               ; preds = %pmix_obj_new_tma.exit, %35, %38
-  %.1284 = phi ptr [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2856), %38 ], [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2856), %35 ], [ %0, %pmix_obj_new_tma.exit ]
+40:                                               ; preds = %pmix_obj_new_tma.argprom.exit, %35, %38
+  %.1284 = phi ptr [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2856), %38 ], [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2856), %35 ], [ %0, %pmix_obj_new_tma.argprom.exit ]
   %41 = icmp eq ptr %1, null
   br i1 %41, label %42, label %47
 
@@ -689,7 +689,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
 
 104:                                              ; preds = %103, %95
   %.not22.i345 = icmp eq ptr %100, null
-  br i1 %.not22.i345, label %pmix_obj_new_tma.exit350, label %105
+  br i1 %.not22.i345, label %pmix_obj_new_tma.argprom.exit350, label %105
 
 105:                                              ; preds = %104
   %106 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %100, ptr noundef null) #10
@@ -704,7 +704,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   %111 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %112 = load ptr, ptr %111, align 8
   %.not6.i.i346 = icmp eq ptr %112, null
-  br i1 %.not6.i.i346, label %pmix_obj_new_tma.exit350, label %.lr.ph.i.i347
+  br i1 %.not6.i.i346, label %pmix_obj_new_tma.argprom.exit350, label %.lr.ph.i.i347
 
 .lr.ph.i.i347:                                    ; preds = %105, %.lr.ph.i.i347
   %113 = phi ptr [ %115, %.lr.ph.i.i347 ], [ %112, %105 ]
@@ -713,14 +713,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   %114 = getelementptr inbounds i8, ptr %.07.i.i348, i64 8
   %115 = load ptr, ptr %114, align 8
   %.not.i.i349 = icmp eq ptr %115, null
-  br i1 %.not.i.i349, label %pmix_obj_new_tma.exit350, label %.lr.ph.i.i347, !llvm.loop !6
+  br i1 %.not.i.i349, label %pmix_obj_new_tma.argprom.exit350, label %.lr.ph.i.i347, !llvm.loop !6
 
-pmix_obj_new_tma.exit350:                         ; preds = %.lr.ph.i.i347, %104, %105
+pmix_obj_new_tma.argprom.exit350:                 ; preds = %.lr.ph.i.i347, %104, %105
   %116 = load i32, ptr @pmix_bfrops_base_output, align 4
   %or.cond = icmp ult i32 %116, 64
   br i1 %or.cond, label %117, label %130
 
-117:                                              ; preds = %pmix_obj_new_tma.exit350
+117:                                              ; preds = %pmix_obj_new_tma.argprom.exit350
   %118 = zext nneg i32 %116 to i64
   %119 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %118, i32 2
   %120 = load i32, ptr %119, align 4
@@ -738,7 +738,7 @@ pmix_obj_new_tma.exit350:                         ; preds = %.lr.ph.i.i347, %104
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %116, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 333, ptr noundef %128, ptr noundef %129) #10
   br label %130
 
-130:                                              ; preds = %122, %117, %pmix_obj_new_tma.exit350
+130:                                              ; preds = %122, %117, %pmix_obj_new_tma.argprom.exit350
   %131 = getelementptr inbounds i8, ptr %100, i64 120
   %132 = load i8, ptr %131, align 8
   %133 = icmp eq i8 %132, 0
@@ -1576,7 +1576,7 @@ pmix_obj_run_destructors.exit409:                 ; preds = %.lr.ph.i406, %526
   br i1 %544, label %563, label %545
 
 545:                                              ; preds = %540
-  %546 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @pmix_ptl_sr_t_class)
+  %546 = call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @pmix_ptl_sr_t_class)
   %547 = call i32 @pthread_mutex_lock(ptr noundef nonnull %541) #10
   %548 = icmp eq i32 %547, 35
   br i1 %548, label %549, label %551
@@ -1812,7 +1812,7 @@ define internal void @distcb(i32 noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #11

@@ -818,7 +818,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ma_device_init__pulse.60 = private unnamed_addr constant [10 x i32] [i32 1, i32 2, i32 2, i32 2, i32 2, i32 5, i32 2, i32 4, i32 2, i32 3], align 4
 @switch.table.ma_device_init__pulse.61 = private unnamed_addr constant [6 x ptr] [ptr @.str.9, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167], align 8
 @switch.table.ma_context_get_device_info_source_callback__pulse = private unnamed_addr constant [10 x i32] [i32 1, i32 0, i32 0, i32 2, i32 0, i32 5, i32 0, i32 4, i32 0, i32 3], align 4
-@switch.table.ma_device__pa_buffer_attr_new = private unnamed_addr constant [10 x i64] [i64 1, i64 0, i64 0, i64 2, i64 0, i64 5, i64 0, i64 4, i64 0, i64 3], align 8
+@switch.table.ma_device__pa_buffer_attr_new.argprom = private unnamed_addr constant [10 x i64] [i64 1, i64 0, i64 0, i64 2, i64 0, i64 5, i64 0, i64 4, i64 0, i64 3], align 8
 @switch.table.ma_channel_position_from_pulse = private unnamed_addr constant [51 x i8] c"\01\02\03\04\0A\06\07\05\08\09\0B\0C\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123\0D\0E\10\0F\11\13\12", align 1
 @switch.table.ma_convert_alsa_channel_position_to_ma_channel = private unnamed_addr constant [26 x i8] c"\01\02\03\06\07\04\05\0B\0C\0A\08\09\00\00\00\00\00\00\00\0D\0E\10\0F\11\13\12", align 1
 
@@ -1803,7 +1803,7 @@ return:                                           ; preds = %if.then2.i.i, %ma_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ma_allocation_callbacks_init_copy(ptr noundef writeonly %pDst, ptr noundef readonly %pSrc) unnamed_addr #11 {
+define internal fastcc void @ma_allocation_callbacks_init_copy.retelim(ptr noundef writeonly %pDst, ptr noundef readonly %pSrc) unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pDst, null
   br i1 %cmp, label %return, label %if.end
@@ -6038,21 +6038,21 @@ if.then50.i:                                      ; preds = %if.end43.i, %if.the
 if.end52.i:                                       ; preds = %if.then50.i, %if.end47.i
   %call486.i = phi i32 [ %call482.i, %if.then50.i ], [ %call48.i, %if.end47.i ]
   %cmp53.not.i = icmp eq i32 %call486.i, 0
-  br i1 %cmp53.not.i, label %ma_thread_create__posix.exit.thread, label %ma_thread_create__posix.exit
+  br i1 %cmp53.not.i, label %ma_thread_create__posix.argprom.exit.thread, label %ma_thread_create__posix.argprom.exit
 
-ma_thread_create__posix.exit.thread:              ; preds = %if.end52.i
+ma_thread_create__posix.argprom.exit.thread:      ; preds = %if.end52.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sched.i)
   br label %return
 
-ma_thread_create__posix.exit:                     ; preds = %if.end52.i
+ma_thread_create__posix.argprom.exit:             ; preds = %if.end52.i
   %call55.i = call fastcc i32 @ma_result_from_errno(i32 noundef %call486.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sched.i)
   %cmp9.not = icmp eq i32 %call55.i, 0
   br i1 %cmp9.not, label %return, label %if.end.i
 
-if.end.i:                                         ; preds = %ma_thread_create__posix.exit
+if.end.i:                                         ; preds = %ma_thread_create__posix.argprom.exit
   br i1 %cmp.not.i, label %if.else7.i, label %if.then2.i23
 
 if.then2.i23:                                     ; preds = %if.end.i
@@ -6070,8 +6070,8 @@ if.else7.i:                                       ; preds = %if.end.i
   call void @free(ptr noundef nonnull %retval.0.i3135) #64
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.else7.i, %if.then4.i25, %if.then2.i23, %ma_thread_create__posix.exit.thread, %ma_malloc.exit.thread28, %ma_thread_create__posix.exit, %ma_malloc.exit, %entry
-  %retval.0 = phi i32 [ -2, %entry ], [ -4, %ma_malloc.exit ], [ 0, %ma_thread_create__posix.exit ], [ -4, %ma_malloc.exit.thread28 ], [ 0, %ma_thread_create__posix.exit.thread ], [ %call55.i, %if.then2.i23 ], [ %call55.i, %if.then4.i25 ], [ %call55.i, %if.else7.i ], [ -4, %if.then.i ]
+return:                                           ; preds = %if.then.i, %if.else7.i, %if.then4.i25, %if.then2.i23, %ma_thread_create__posix.argprom.exit.thread, %ma_malloc.exit.thread28, %ma_thread_create__posix.argprom.exit, %ma_malloc.exit, %entry
+  %retval.0 = phi i32 [ -2, %entry ], [ -4, %ma_malloc.exit ], [ 0, %ma_thread_create__posix.argprom.exit ], [ -4, %ma_malloc.exit.thread28 ], [ 0, %ma_thread_create__posix.argprom.exit.thread ], [ %call55.i, %if.then2.i23 ], [ %call55.i, %if.then4.i25 ], [ %call55.i, %if.else7.i ], [ -4, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -50920,21 +50920,21 @@ if.then.i:                                        ; preds = %if.end3
   %call2.i = tail call ptr @__errno_location() #79
   %0 = load i32, ptr %call2.i, align 4
   %call3.i = tail call fastcc i32 @ma_result_from_errno(i32 noundef %0)
-  br label %ma_default_vfs_info__stdio.exit
+  br label %ma_default_vfs_info__stdio.argprom.exit
 
 if.end.i:                                         ; preds = %if.end3
   %st_size.i = getelementptr inbounds i8, ptr %info.i, i64 48
   %1 = load i64, ptr %st_size.i, align 8
   store i64 %1, ptr %pInfo, align 8
-  br label %ma_default_vfs_info__stdio.exit
+  br label %ma_default_vfs_info__stdio.argprom.exit
 
-ma_default_vfs_info__stdio.exit:                  ; preds = %if.then.i, %if.end.i
+ma_default_vfs_info__stdio.argprom.exit:          ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %info.i)
   br label %return
 
-return:                                           ; preds = %if.then2.i, %entry, %ma_default_vfs_info__stdio.exit
-  %retval.0 = phi i32 [ %retval.0.i, %ma_default_vfs_info__stdio.exit ], [ -2, %entry ], [ -2, %if.then2.i ]
+return:                                           ; preds = %if.then2.i, %entry, %ma_default_vfs_info__stdio.argprom.exit
+  %retval.0 = phi i32 [ %retval.0.i, %ma_default_vfs_info__stdio.argprom.exit ], [ -2, %entry ], [ -2, %if.then2.i ]
   ret i32 %retval.0
 }
 
@@ -51386,21 +51386,21 @@ if.then.i.i:                                      ; preds = %if.end3.i
   %call2.i.i = tail call ptr @__errno_location() #79
   %1 = load i32, ptr %call2.i.i, align 4
   %call3.i.i = tail call fastcc i32 @ma_result_from_errno(i32 noundef %1)
-  br label %ma_default_vfs_info__stdio.exit.i
+  br label %ma_default_vfs_info__stdio.argprom.exit.i
 
 if.end.i.i:                                       ; preds = %if.end3.i
   %st_size.i.i = getelementptr inbounds i8, ptr %info.i.i, i64 48
   %2 = load i64, ptr %st_size.i.i, align 8
   store i64 %2, ptr %pInfo, align 8
-  br label %ma_default_vfs_info__stdio.exit.i
+  br label %ma_default_vfs_info__stdio.argprom.exit.i
 
-ma_default_vfs_info__stdio.exit.i:                ; preds = %if.end.i.i, %if.then.i.i
+ma_default_vfs_info__stdio.argprom.exit.i:        ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ %call3.i.i, %if.then.i.i ], [ 0, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %info.i.i)
   br label %return
 
-return:                                           ; preds = %ma_default_vfs_info__stdio.exit.i, %if.then2.i.i6, %if.else, %if.end7.i, %if.end4.i, %if.then2.i.i, %if.then
-  %retval.0 = phi i32 [ %call.i, %if.end7.i ], [ -2, %if.then ], [ -2, %if.then2.i.i ], [ -29, %if.end4.i ], [ %retval.0.i.i, %ma_default_vfs_info__stdio.exit.i ], [ -2, %if.else ], [ -2, %if.then2.i.i6 ]
+return:                                           ; preds = %ma_default_vfs_info__stdio.argprom.exit.i, %if.then2.i.i6, %if.else, %if.end7.i, %if.end4.i, %if.then2.i.i, %if.then
+  %retval.0 = phi i32 [ %call.i, %if.end7.i ], [ -2, %if.then ], [ -2, %if.then2.i.i ], [ -29, %if.end4.i ], [ %retval.0.i.i, %ma_default_vfs_info__stdio.argprom.exit.i ], [ -2, %if.else ], [ -2, %if.then2.i.i6 ]
   ret i32 %retval.0
 }
 
@@ -60490,7 +60490,7 @@ if.end12:                                         ; preds = %if.end.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   store i32 %pConfig.val, ptr %seekPointCount.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %pConfig.val, 0
-  br i1 %cmp.not.i.i, label %ma_mp3_post_init.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end12
   %conv.i.i = zext i32 %pConfig.val to i64
@@ -60501,7 +60501,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %onMalloc.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
   %8 = load ptr, ptr %onMalloc.i.i.i, align 8
   %cmp1.not.i.i.i = icmp eq ptr %8, null
-  br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then2.i.i.i
+  br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %9 = load ptr, ptr %pAllocationCallbacks, align 8
@@ -60515,7 +60515,7 @@ if.else4.i.i.i:                                   ; preds = %if.then.i.i
 ma_malloc.exit.i.i:                               ; preds = %if.else4.i.i.i, %if.then2.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i16, %if.then2.i.i.i ], [ %call.i.i.i.i, %if.else4.i.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.0.i.i.i, null
-  br i1 %cmp2.i.i, label %ma_mp3_post_init.exit, label %if.end5.i.i
+  br i1 %cmp2.i.i, label %ma_mp3_post_init.argprom.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %ma_malloc.exit.i.i
   %call6.i.i = call i32 @ma_dr_mp3_calculate_seek_points(ptr noundef nonnull %dr, ptr noundef nonnull %seekPointCount.i.i, ptr noundef nonnull %retval.0.i.i.i)
@@ -60529,16 +60529,16 @@ if.then2.i13.i.i:                                 ; preds = %if.end.i.i.i17
   %onFree.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %10 = load ptr, ptr %onFree.i.i.i, align 8
   %cmp3.not.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then4.i.i.i
+  br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i13.i.i
   %11 = load ptr, ptr %pAllocationCallbacks, align 8
   call void %10(ptr noundef nonnull %retval.0.i.i.i, ptr noundef %11) #64
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
 if.else7.i.i.i:                                   ; preds = %if.end.i.i.i17
   call void @free(ptr noundef nonnull %retval.0.i.i.i) #64
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
   %12 = load i32, ptr %seekPointCount.i.i, align 4
@@ -60552,14 +60552,14 @@ if.end16.i.i:                                     ; preds = %if.end5.i.i
   store i32 %12, ptr %seekPointCount17.i.i, align 8
   %pSeekPoints18.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16184
   store ptr %retval.0.i.i.i, ptr %pSeekPoints18.i.i, align 8
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
-ma_mp3_post_init.exit:                            ; preds = %if.end12, %if.then.i.i.i, %ma_malloc.exit.i.i, %if.then2.i13.i.i, %if.then4.i.i.i, %if.else7.i.i.i, %if.end16.i.i
+ma_mp3_post_init.argprom.exit:                    ; preds = %if.end12, %if.then.i.i.i, %ma_malloc.exit.i.i, %if.then2.i13.i.i, %if.then4.i.i.i, %if.else7.i.i.i, %if.end16.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   br label %return
 
-return:                                           ; preds = %lor.lhs.false.i.i, %if.then3.i.i.i, %if.end.i.i.i, %if.then10.i.i, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %entry, %if.end, %ma_mp3_post_init.exit
-  %retval.0 = phi i32 [ 0, %ma_mp3_post_init.exit ], [ -2, %if.end ], [ -2, %entry ], [ -10, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ -10, %if.then10.i.i ], [ -10, %if.end.i.i.i ], [ -10, %if.then3.i.i.i ], [ -10, %lor.lhs.false.i.i ]
+return:                                           ; preds = %lor.lhs.false.i.i, %if.then3.i.i.i, %if.end.i.i.i, %if.then10.i.i, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %entry, %if.end, %ma_mp3_post_init.argprom.exit
+  %retval.0 = phi i32 [ 0, %ma_mp3_post_init.argprom.exit ], [ -2, %if.end ], [ -2, %entry ], [ -10, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ -10, %if.then10.i.i ], [ -10, %if.end.i.i.i ], [ -10, %if.then3.i.i.i ], [ -10, %lor.lhs.false.i.i ]
   ret i32 %retval.0
 }
 
@@ -60736,7 +60736,7 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   store i32 %pConfig.val, ptr %seekPointCount.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %pConfig.val, 0
-  br i1 %cmp.not.i.i, label %ma_mp3_post_init.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4
   %conv.i.i = zext i32 %pConfig.val to i64
@@ -60748,7 +60748,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %onMalloc.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
   %3 = load ptr, ptr %onMalloc.i.i.i, align 8
   %cmp1.not.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then2.i.i.i
+  br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %4 = load ptr, ptr %pAllocationCallbacks, align 8
@@ -60762,7 +60762,7 @@ if.else4.i.i.i:                                   ; preds = %if.then.i.i
 ma_malloc.exit.i.i:                               ; preds = %if.else4.i.i.i, %if.then2.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.then2.i.i.i ], [ %call.i.i.i.i, %if.else4.i.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.0.i.i.i, null
-  br i1 %cmp2.i.i, label %ma_mp3_post_init.exit, label %if.end5.i.i
+  br i1 %cmp2.i.i, label %ma_mp3_post_init.argprom.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %ma_malloc.exit.i.i
   %call6.i.i = call i32 @ma_dr_mp3_calculate_seek_points(ptr noundef nonnull %dr, ptr noundef nonnull %seekPointCount.i.i, ptr noundef nonnull %retval.0.i.i.i)
@@ -60776,16 +60776,16 @@ if.then2.i13.i.i:                                 ; preds = %if.end.i.i.i
   %onFree.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %5 = load ptr, ptr %onFree.i.i.i, align 8
   %cmp3.not.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then4.i.i.i
+  br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i13.i.i
   %6 = load ptr, ptr %pAllocationCallbacks, align 8
   call void %5(ptr noundef nonnull %retval.0.i.i.i, ptr noundef %6) #64
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
 if.else7.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @free(ptr noundef nonnull %retval.0.i.i.i) #64
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
   %7 = load i32, ptr %seekPointCount.i.i, align 4
@@ -60799,14 +60799,14 @@ if.end16.i.i:                                     ; preds = %if.end5.i.i
   store i32 %7, ptr %seekPointCount17.i.i, align 8
   %pSeekPoints18.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16184
   store ptr %retval.0.i.i.i, ptr %pSeekPoints18.i.i, align 8
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
-ma_mp3_post_init.exit:                            ; preds = %if.end4, %if.then.i.i.i, %ma_malloc.exit.i.i, %if.then2.i13.i.i, %if.then4.i.i.i, %if.else7.i.i.i, %if.end16.i.i
+ma_mp3_post_init.argprom.exit:                    ; preds = %if.end4, %if.then.i.i.i, %ma_malloc.exit.i.i, %if.then2.i13.i.i, %if.then4.i.i.i, %if.else7.i.i.i, %if.end16.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   br label %return
 
-return:                                           ; preds = %entry, %if.end, %ma_mp3_post_init.exit
-  %retval.0 = phi i32 [ 0, %ma_mp3_post_init.exit ], [ -10, %if.end ], [ -2, %entry ]
+return:                                           ; preds = %entry, %if.end, %ma_mp3_post_init.argprom.exit
+  %retval.0 = phi i32 [ 0, %ma_mp3_post_init.argprom.exit ], [ -10, %if.end ], [ -2, %entry ]
   ret i32 %retval.0
 }
 
@@ -60965,7 +60965,7 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   store i32 %pConfig.val, ptr %seekPointCount.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %pConfig.val, 0
-  br i1 %cmp.not.i.i, label %ma_mp3_post_init.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4
   %conv.i.i = zext i32 %pConfig.val to i64
@@ -60977,7 +60977,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %onMalloc.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
   %3 = load ptr, ptr %onMalloc.i.i.i, align 8
   %cmp1.not.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then2.i.i.i
+  br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %4 = load ptr, ptr %pAllocationCallbacks, align 8
@@ -60991,7 +60991,7 @@ if.else4.i.i.i:                                   ; preds = %if.then.i.i
 ma_malloc.exit.i.i:                               ; preds = %if.else4.i.i.i, %if.then2.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.then2.i.i.i ], [ %call.i.i.i.i, %if.else4.i.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.0.i.i.i, null
-  br i1 %cmp2.i.i, label %ma_mp3_post_init.exit, label %if.end5.i.i
+  br i1 %cmp2.i.i, label %ma_mp3_post_init.argprom.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %ma_malloc.exit.i.i
   %call6.i.i = call i32 @ma_dr_mp3_calculate_seek_points(ptr noundef nonnull %dr, ptr noundef nonnull %seekPointCount.i.i, ptr noundef nonnull %retval.0.i.i.i)
@@ -61005,16 +61005,16 @@ if.then2.i13.i.i:                                 ; preds = %if.end.i.i.i
   %onFree.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %5 = load ptr, ptr %onFree.i.i.i, align 8
   %cmp3.not.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then4.i.i.i
+  br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i13.i.i
   %6 = load ptr, ptr %pAllocationCallbacks, align 8
   call void %5(ptr noundef nonnull %retval.0.i.i.i, ptr noundef %6) #64
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
 if.else7.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @free(ptr noundef nonnull %retval.0.i.i.i) #64
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
   %7 = load i32, ptr %seekPointCount.i.i, align 4
@@ -61028,14 +61028,14 @@ if.end16.i.i:                                     ; preds = %if.end5.i.i
   store i32 %7, ptr %seekPointCount17.i.i, align 8
   %pSeekPoints18.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16184
   store ptr %retval.0.i.i.i, ptr %pSeekPoints18.i.i, align 8
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
-ma_mp3_post_init.exit:                            ; preds = %if.end4, %if.then.i.i.i, %ma_malloc.exit.i.i, %if.then2.i13.i.i, %if.then4.i.i.i, %if.else7.i.i.i, %if.end16.i.i
+ma_mp3_post_init.argprom.exit:                    ; preds = %if.end4, %if.then.i.i.i, %ma_malloc.exit.i.i, %if.then2.i13.i.i, %if.then4.i.i.i, %if.else7.i.i.i, %if.end16.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   br label %return
 
-return:                                           ; preds = %entry, %if.end, %ma_mp3_post_init.exit
-  %retval.0 = phi i32 [ 0, %ma_mp3_post_init.exit ], [ -10, %if.end ], [ -2, %entry ]
+return:                                           ; preds = %entry, %if.end, %ma_mp3_post_init.argprom.exit
+  %retval.0 = phi i32 [ 0, %ma_mp3_post_init.argprom.exit ], [ -10, %if.end ], [ -2, %entry ]
   ret i32 %retval.0
 }
 
@@ -61274,7 +61274,7 @@ if.end4:                                          ; preds = %if.end.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   store i32 %pConfig.val, ptr %seekPointCount.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %pConfig.val, 0
-  br i1 %cmp.not.i.i, label %ma_mp3_post_init.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4
   %conv.i.i = zext i32 %pConfig.val to i64
@@ -61285,7 +61285,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %onMalloc.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
   %8 = load ptr, ptr %onMalloc.i.i.i, align 8
   %cmp1.not.i.i.i = icmp eq ptr %8, null
-  br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then2.i.i.i
+  br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %9 = load ptr, ptr %pAllocationCallbacks, align 8
@@ -61299,7 +61299,7 @@ if.else4.i.i.i:                                   ; preds = %if.then.i.i
 ma_malloc.exit.i.i:                               ; preds = %if.else4.i.i.i, %if.then2.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i9, %if.then2.i.i.i ], [ %call.i.i.i.i, %if.else4.i.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.0.i.i.i, null
-  br i1 %cmp2.i.i, label %ma_mp3_post_init.exit, label %if.end5.i.i
+  br i1 %cmp2.i.i, label %ma_mp3_post_init.argprom.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %ma_malloc.exit.i.i
   %call6.i.i = call i32 @ma_dr_mp3_calculate_seek_points(ptr noundef nonnull %dr, ptr noundef nonnull %seekPointCount.i.i, ptr noundef nonnull %retval.0.i.i.i)
@@ -61313,16 +61313,16 @@ if.then2.i13.i.i:                                 ; preds = %if.end.i.i.i10
   %onFree.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %10 = load ptr, ptr %onFree.i.i.i, align 8
   %cmp3.not.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then4.i.i.i
+  br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.argprom.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i13.i.i
   %11 = load ptr, ptr %pAllocationCallbacks, align 8
   call void %10(ptr noundef nonnull %retval.0.i.i.i, ptr noundef %11) #64
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
 if.else7.i.i.i:                                   ; preds = %if.end.i.i.i10
   call void @free(ptr noundef nonnull %retval.0.i.i.i) #64
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
   %12 = load i32, ptr %seekPointCount.i.i, align 4
@@ -61336,14 +61336,14 @@ if.end16.i.i:                                     ; preds = %if.end5.i.i
   store i32 %12, ptr %seekPointCount17.i.i, align 8
   %pSeekPoints18.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16184
   store ptr %retval.0.i.i.i, ptr %pSeekPoints18.i.i, align 8
-  br label %ma_mp3_post_init.exit
+  br label %ma_mp3_post_init.argprom.exit
 
-ma_mp3_post_init.exit:                            ; preds = %if.end4, %if.then.i.i.i, %ma_malloc.exit.i.i, %if.then2.i13.i.i, %if.then4.i.i.i, %if.else7.i.i.i, %if.end16.i.i
+ma_mp3_post_init.argprom.exit:                    ; preds = %if.end4, %if.then.i.i.i, %ma_malloc.exit.i.i, %if.then2.i13.i.i, %if.then4.i.i.i, %if.else7.i.i.i, %if.end16.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   br label %return
 
-return:                                           ; preds = %lor.lhs.false.i.i, %if.then3.i.i.i, %if.end.i.i.i, %if.then10.i.i, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %if.end, %entry, %ma_mp3_post_init.exit
-  %retval.0 = phi i32 [ 0, %ma_mp3_post_init.exit ], [ -2, %entry ], [ -10, %if.end ], [ -10, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ -10, %if.then10.i.i ], [ -10, %if.end.i.i.i ], [ -10, %if.then3.i.i.i ], [ -10, %lor.lhs.false.i.i ]
+return:                                           ; preds = %lor.lhs.false.i.i, %if.then3.i.i.i, %if.end.i.i.i, %if.then10.i.i, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %if.end, %entry, %ma_mp3_post_init.argprom.exit
+  %retval.0 = phi i32 [ 0, %ma_mp3_post_init.argprom.exit ], [ -2, %entry ], [ -10, %if.end ], [ -10, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ -10, %if.then10.i.i ], [ -10, %if.end.i.i.i ], [ -10, %if.then3.i.i.i ], [ -10, %lor.lhs.false.i.i ]
   ret i32 %retval.0
 }
 
@@ -62348,7 +62348,7 @@ if.else20.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else20.i.i.i, %if.then9.i.i.i
-  %call1 = call fastcc i32 @ma_decoder_init__internal(ptr noundef %onSeek, ptr noundef %tmp, ptr noundef nonnull %pDecoder)
+  %call1 = call fastcc i32 @ma_decoder_init__internal.argprom(ptr noundef %onSeek, ptr noundef %tmp, ptr noundef nonnull %pDecoder)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i.i, %land.lhs.true5.i.i.i, %if.else11.i.i.i, %ma_decoder_config_init_copy.exit, %if.end
@@ -62357,7 +62357,7 @@ return:                                           ; preds = %lor.lhs.false.i.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_decoder_init__internal(ptr nocapture noundef readonly %onSeek, ptr nocapture noundef nonnull readonly %pConfig, ptr noundef %pDecoder) unnamed_addr #4 {
+define internal fastcc i32 @ma_decoder_init__internal.argprom(ptr nocapture noundef readonly %onSeek, ptr nocapture noundef nonnull readonly %pConfig, ptr noundef %pDecoder) unnamed_addr #4 {
 entry:
   %backendConfig.i.i131 = alloca %struct.ma_decoding_backend_config, align 8
   %pBackend.i.i132 = alloca ptr, align 8
@@ -63148,7 +63148,7 @@ if.else:                                          ; preds = %if.then42
   br i1 %cmp62.not, label %if.end64, label %return
 
 if.end64:                                         ; preds = %if.else
-  %call65 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_memory, ptr noundef %tmp, ptr noundef %pDecoder)
+  %call65 = call fastcc i32 @ma_decoder_init__internal.argprom(ptr noundef nonnull @ma_decoder__on_seek_memory, ptr noundef %tmp, ptr noundef %pDecoder)
   %cmp66.not = icmp eq i32 %call65, 0
   br i1 %cmp66.not, label %if.end69, label %return
 
@@ -64501,7 +64501,7 @@ if.then64:                                        ; preds = %if.then61, %if.end.
   br label %if.then70.critedge
 
 if.then70.critedge:                               ; preds = %ma_path_extension_equal.exit234, %if.then64
-  %call71 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef %config, ptr noundef %pDecoder)
+  %call71 = call fastcc i32 @ma_decoder_init__internal.argprom(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef %config, ptr noundef %pDecoder)
   br label %if.end73
 
 if.else:                                          ; preds = %if.end32.thread, %ma_decoder_init_mp3__internal.exit254, %ma_decoder_init_flac__internal.exit204, %ma_decoder_init_wav__internal.exit137, %if.end17
@@ -65186,7 +65186,7 @@ if.then64:                                        ; preds = %if.then61, %if.end.
   br label %if.then70.critedge
 
 if.then70.critedge:                               ; preds = %land.lhs.true58.critedge, %if.then64
-  %call71 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef %config, ptr noundef nonnull %pDecoder)
+  %call71 = call fastcc i32 @ma_decoder_init__internal.argprom(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef %config, ptr noundef nonnull %pDecoder)
   br label %if.end73
 
 if.else:                                          ; preds = %if.end32.thread, %ma_decoder_init_mp3__internal.exit189, %ma_decoder_init_flac__internal.exit169, %ma_decoder_init_wav__internal.exit132, %if.end17
@@ -72691,7 +72691,7 @@ while.body.lr.ph.i:                               ; preds = %if.end4
 
 while.body.i:                                     ; preds = %ma_resource_manager_data_buffer_node_free.exit.i, %while.body.lr.ph.i
   %6 = phi ptr [ %5, %while.body.lr.ph.i ], [ %23, %ma_resource_manager_data_buffer_node_free.exit.i ]
-  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %6)
+  call fastcc void @ma_resource_manager_data_buffer_node_remove.argelim(ptr noundef %pResourceManager, ptr noundef nonnull %6)
   %isDataOwnedByResourceManager.i.i = getelementptr inbounds i8, ptr %6, i64 20
   %7 = load i32, ptr %isDataOwnedByResourceManager.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %7, 0
@@ -73200,7 +73200,7 @@ if.else44:                                        ; preds = %lor.lhs.false
   br i1 %cmp46.not, label %if.end50, label %if.then48
 
 if.then48:                                        ; preds = %if.else44
-  call fastcc void @ma_resource_manager_inline_notification_init(ptr noundef %pResourceManager, ptr noundef %initNotification)
+  call fastcc void @ma_resource_manager_inline_notification_init.retelim(ptr noundef %pResourceManager, ptr noundef %initNotification)
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %if.else44
@@ -73685,7 +73685,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ma_resource_manager_inline_notification_init(ptr noundef %pResourceManager, ptr noundef nonnull %pNotification) unnamed_addr #4 {
+define internal fastcc void @ma_resource_manager_inline_notification_init.retelim(ptr noundef %pResourceManager, ptr noundef nonnull %pNotification) unnamed_addr #4 {
 entry:
   %pResourceManager1 = getelementptr inbounds i8, ptr %pNotification, i64 104
   store ptr %pResourceManager, ptr %pResourceManager1, align 8
@@ -74884,7 +74884,7 @@ if.end38.thread.i:                                ; preds = %return.sink.split.i
   br i1 %cmp48.not.i, label %if.end51.i, label %if.then49.i
 
 if.end.i104.i:                                    ; preds = %if.then2.i.i88.i, %if.else34.i, %if.then2.i.i.i, %if.end.i.i
-  tail call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %call.i.i)
+  tail call fastcc void @ma_resource_manager_data_buffer_node_remove.argelim(ptr noundef %pResourceManager, ptr noundef nonnull %call.i.i)
   %onFree.i.i = getelementptr inbounds i8, ptr %pResourceManager, i64 24
   %23 = load ptr, ptr %onFree.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %23, null
@@ -75155,7 +75155,7 @@ if.then4.i186.i:                                  ; preds = %if.end.i181.i
   br label %if.end.i189.i
 
 if.end.i189.i:                                    ; preds = %if.then4.i186.i, %if.end.i181.i, %ma_free.exit179.i, %if.then.i167.i, %if.then102.i
-  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %call.i.i)
+  call fastcc void @ma_resource_manager_data_buffer_node_remove.argelim(ptr noundef %pResourceManager, ptr noundef nonnull %call.i.i)
   %onFree.i192.i = getelementptr inbounds i8, ptr %pResourceManager, i64 24
   %55 = load ptr, ptr %onFree.i192.i, align 8
   %cmp3.not.i193.i = icmp eq ptr %55, null
@@ -75267,12 +75267,12 @@ done:                                             ; preds = %for.end, %if.then2.
 
 if.then79.thread:                                 ; preds = %if.else52, %if.then47
   %result.1109.ph = phi i32 [ %call48, %if.then47 ], [ %call53, %if.else52 ]
-  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %pDataBufferNode.0)
+  call fastcc void @ma_resource_manager_data_buffer_node_remove.argelim(ptr noundef %pResourceManager, ptr noundef nonnull %pDataBufferNode.0)
   br label %if.then2.i70
 
 if.then79:                                        ; preds = %ma_resource_manager_get_log.exit, %done
   %result.1109 = phi i32 [ %spec.store.select, %done ], [ -3, %ma_resource_manager_get_log.exit ]
-  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef %pDataBufferNode.0)
+  call fastcc void @ma_resource_manager_data_buffer_node_remove.argelim(ptr noundef %pResourceManager, ptr noundef %pDataBufferNode.0)
   %cmp.i67 = icmp eq ptr %pDataBufferNode.0, null
   br i1 %cmp.i67, label %land.lhs.true86, label %if.then2.i70
 
@@ -75551,7 +75551,7 @@ if.end18:                                         ; preds = %while.body.i, %ma_r
   br i1 %cmp23, label %if.then24, label %if.end29
 
 if.then24:                                        ; preds = %if.end18
-  tail call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %pDataBufferNode.addr.0)
+  tail call fastcc void @ma_resource_manager_data_buffer_node_remove.argelim(ptr noundef %pResourceManager, ptr noundef nonnull %pDataBufferNode.addr.0)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then24, %if.end18
@@ -76109,7 +76109,7 @@ if.end3.i9.i145:                                  ; preds = %if.end.i7.i143
   br label %return
 
 if.then52:                                        ; preds = %if.end40.thread
-  call fastcc void @ma_resource_manager_inline_notification_init(ptr noundef nonnull %pResourceManager, ptr noundef %waitNotification)
+  call fastcc void @ma_resource_manager_inline_notification_init.retelim(ptr noundef nonnull %pResourceManager, ptr noundef %waitNotification)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end40.thread, %if.then52
@@ -79216,7 +79216,7 @@ if.then58:                                        ; preds = %if.else
   store ptr %pFramesOut.addr.0, ptr %ppFramesIn, align 16
   %pInputBuses = getelementptr inbounds i8, ptr %pNode, i64 72
   %24 = load ptr, ptr %pInputBuses, align 8
-  %call64 = call fastcc i32 @ma_node_input_bus_read_pcm_frames(ptr noundef %24, ptr noundef %pFramesOut.addr.0, i32 noundef %sub38, ptr noundef %totalFramesRead, i64 noundef %globalTime)
+  %call64 = call fastcc i32 @ma_node_input_bus_read_pcm_frames.argprom(ptr noundef %24, ptr noundef %pFramesOut.addr.0, i32 noundef %sub38, ptr noundef %totalFramesRead, i64 noundef %globalTime)
   %cmp65 = icmp eq i32 %call64, 0
   %.pre387 = load i32, ptr %totalFramesRead, align 4
   br i1 %cmp65, label %if.then67, label %ma_node_get_output_bus_count.exit.i336
@@ -79405,7 +79405,7 @@ ma_node_get_cached_input_ptr.exit:                ; preds = %for.body.i212, %for
   store ptr %pBasePtr.0.lcssa.i220, ptr %arrayidx121, align 8
   %arrayidx124 = getelementptr inbounds %struct.ma_node_input_bus, ptr %.pre379, i64 %indvars.iv371
   %50 = load i32, ptr %framesToProcessIn, align 4
-  %call127 = call fastcc i32 @ma_node_input_bus_read_pcm_frames(ptr noundef %arrayidx124, ptr noundef %pBasePtr.0.lcssa.i220, i32 noundef %50, ptr noundef %framesRead, i64 noundef %globalTime)
+  %call127 = call fastcc i32 @ma_node_input_bus_read_pcm_frames.argprom(ptr noundef %arrayidx124, ptr noundef %pBasePtr.0.lcssa.i220, i32 noundef %50, ptr noundef %framesRead, i64 noundef %globalTime)
   %cmp128.not = icmp eq i32 %call127, 0
   br i1 %cmp128.not, label %ma_node_get_cached_input_ptr.exit.if.end131_crit_edge, label %if.then130
 
@@ -84322,7 +84322,7 @@ ma_engine_get_sample_rate.exit128:                ; preds = %ma_malloc.exit122
   store i32 0, ptr %tmp163.sroa.3.0.resourceManagerConfig.sroa_idx, align 4
   %26 = load i32, ptr %sampleRate80, align 8
   store i32 %26, ptr %tmp163.sroa.4.0.resourceManagerConfig.sroa_idx, align 8
-  call fastcc void @ma_allocation_callbacks_init_copy(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %allocationCallbacks275)
+  call fastcc void @ma_allocation_callbacks_init_copy.retelim(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %allocationCallbacks275)
   store ptr %engineConfig.sroa.42.0272, ptr %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, align 8
   %call171 = call i32 @ma_resource_manager_init(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %call.i119)
   %cmp172.not = icmp eq i32 %call171, 0
@@ -92982,7 +92982,7 @@ if.end850:                                        ; preds = %land.lhs.true808, %
   br i1 %isProcessingMetadata.0.shrunk1165, label %if.then852, label %if.end861
 
 if.then852:                                       ; preds = %if.end850
-  %255 = call fastcc i64 @ma_dr_wav__metadata_process_chunk(ptr noundef %metadataParser, ptr noundef %header269)
+  %255 = call fastcc i64 @ma_dr_wav__metadata_process_chunk.argelim(ptr noundef %metadataParser, ptr noundef %header269)
   %256 = load ptr, ptr %onSeek285, align 8
   %257 = load ptr, ptr %pUserData, align 8
   %call856 = call fastcc i32 @ma_dr_wav__seek_from_start(ptr noundef %256, i64 noundef %add41.i590, ptr noundef %257)
@@ -93150,7 +93150,7 @@ if.end964.lr.ph:                                  ; preds = %if.end952
   br label %if.end964
 
 if.end964:                                        ; preds = %if.end964.lr.ph, %for.cond954.backedge
-  %call965 = call fastcc i64 @ma_dr_wav__metadata_process_chunk(ptr noundef %metadataParser, ptr noundef %header955)
+  %call965 = call fastcc i64 @ma_dr_wav__metadata_process_chunk.argelim(ptr noundef %metadataParser, ptr noundef %header955)
   %285 = load ptr, ptr %onSeek285, align 8
   %286 = load i64, ptr %sizeInBytes967, align 8
   %287 = load i32, ptr %paddingSize968, align 8
@@ -99248,7 +99248,7 @@ for.end.i:                                        ; preds = %if.end20.i
   br i1 %or.cond6.i, label %if.then77.i, label %if.end79.i
 
 if.then77.i:                                      ; preds = %for.end.i
-  %call78.i = call fastcc i32 @ma_dr_flac__init_private__native(ptr noundef %init, ptr noundef %onRead, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef %conv.i)
+  %call78.i = call fastcc i32 @ma_dr_flac__init_private__native.argprom(ptr noundef %init, ptr noundef %onRead, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef %conv.i)
   br label %ma_dr_flac__init_private.exit
 
 if.end79.i:                                       ; preds = %for.end.i
@@ -99262,7 +99262,7 @@ if.end79.i:                                       ; preds = %for.end.i
   br i1 %or.cond9.i, label %if.then99.i, label %if.end101.i
 
 if.then99.i:                                      ; preds = %if.end79.i
-  %call100.i = call fastcc i32 @ma_dr_flac__init_private__ogg(ptr noundef %init, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD)
+  %call100.i = call fastcc i32 @ma_dr_flac__init_private__ogg.argelim(ptr noundef %init, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD)
   br label %ma_dr_flac__init_private.exit
 
 if.end101.i:                                      ; preds = %if.end79.i
@@ -99275,11 +99275,11 @@ if.then103.i:                                     ; preds = %if.end101.i
   ]
 
 if.then106.i:                                     ; preds = %if.then103.i
-  %call107.i = call fastcc i32 @ma_dr_flac__init_private__native(ptr noundef %init, ptr noundef %onRead, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef %conv.i)
+  %call107.i = call fastcc i32 @ma_dr_flac__init_private__native.argprom(ptr noundef %init, ptr noundef %onRead, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef %conv.i)
   br label %ma_dr_flac__init_private.exit
 
 if.then111.i:                                     ; preds = %if.then103.i
-  %call112.i = call fastcc i32 @ma_dr_flac__init_private__ogg(ptr noundef %init, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD)
+  %call112.i = call fastcc i32 @ma_dr_flac__init_private__ogg.argelim(ptr noundef %init, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD)
   br label %ma_dr_flac__init_private.exit
 
 ma_dr_flac__init_private.exit.thread:             ; preds = %if.end39.i, %if.then33.i, %if.end53.i, %ma_dr_flac__init_cpu_caps.exit, %if.then103.i, %if.end101.i, %if.end.i
@@ -113309,7 +113309,7 @@ ma_calculate_period_size_in_frames_from_descriptor__pulse.exit: ; preds = %if.en
 
 switch.lookup:                                    ; preds = %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit
   %63 = zext nneg i32 %ss.val to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table.ma_device__pa_buffer_attr_new, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table.ma_device__pa_buffer_attr_new.argprom, i64 0, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %ma_device_get_context.exit.i330
 
@@ -113937,7 +113937,7 @@ ma_device_get_context.exit.i489:                  ; preds = %if.end338, %ma_devi
   %periodCount357 = getelementptr inbounds i8, ptr %pDescriptorPlayback, i64 288
   %166 = load i32, ptr %periodCount357, align 8
   %ss.val269 = load i32, ptr %ss, align 4
-  call fastcc void @ma_device__pa_buffer_attr_new(ptr noalias align 4 %attr, i32 noundef %call353, i32 noundef %166, i32 %ss.val269, i8 %ss.val270)
+  call fastcc void @ma_device__pa_buffer_attr_new.argprom(ptr noalias align 4 %attr, i32 noundef %call353, i32 noundef %166, i32 %ss.val269, i8 %ss.val270)
   %167 = load ptr, ptr %pDevice, align 8
   %cmp.i1.i490 = icmp eq ptr %167, null
   br i1 %cmp.i1.i490, label %ma_device_get_log.exit494, label %if.end.i2.i491
@@ -115203,14 +115203,14 @@ return:                                           ; preds = %if.end.i14, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @ma_device__pa_buffer_attr_new(ptr noalias nocapture nonnull writeonly align 4 %agg.result, i32 noundef %periodSizeInFrames, i32 noundef %periods, i32 %ss.0.val, i8 %ss.8.val) unnamed_addr #0 {
+define internal fastcc void @ma_device__pa_buffer_attr_new.argprom(ptr noalias nocapture nonnull writeonly align 4 %agg.result, i32 noundef %periodSizeInFrames, i32 noundef %periods, i32 %ss.0.val, i8 %ss.8.val) unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %ss.0.val, 10
   br i1 %0, label %switch.lookup, label %ma_format_from_pulse.exit
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %ss.0.val to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table.ma_device__pa_buffer_attr_new, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table.ma_device__pa_buffer_attr_new.argprom, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %ma_format_from_pulse.exit
 
@@ -117430,7 +117430,7 @@ for.cond89.preheader:                             ; preds = %if.end51
   br i1 %cmp90.not84, label %for.inc108, label %for.body92
 
 if.then88:                                        ; preds = %if.end51
-  call fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa(ptr noundef nonnull %pContext, ptr noundef %13, ptr noundef %call.i.i, i32 noundef %18, i32 noundef 0, ptr noundef %pDeviceInfo)
+  call fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa.argelim(ptr noundef nonnull %pContext, ptr noundef %13, ptr noundef %call.i.i, i32 noundef %18, i32 noundef 0, ptr noundef %pDeviceInfo)
   br label %for.inc108
 
 for.body92:                                       ; preds = %for.cond89.preheader, %for.inc
@@ -117447,7 +117447,7 @@ for.body92:                                       ; preds = %for.cond89.preheade
 if.then101:                                       ; preds = %for.body92
   %30 = load ptr, ptr %snd_pcm_hw_params_set_channels, align 8
   %call102 = call i32 %30(ptr noundef %13, ptr noundef nonnull %call.i.i, i32 noundef %iChannel.085) #64
-  call fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa(ptr noundef nonnull %pContext, ptr noundef %13, ptr noundef %call.i.i, i32 noundef %18, i32 noundef %iChannel.085, ptr noundef %pDeviceInfo)
+  call fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa.argelim(ptr noundef nonnull %pContext, ptr noundef %13, ptr noundef %call.i.i, i32 noundef %18, i32 noundef %iChannel.085, ptr noundef %pDeviceInfo)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then101, %for.body92
@@ -118808,7 +118808,7 @@ return:                                           ; preds = %if.end100, %ma_cont
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa(ptr nocapture noundef readonly %pContext, ptr noundef %pPCM, ptr noundef nonnull %pHWParams, i32 noundef %format, i32 noundef %channels, ptr nocapture noundef %pDeviceInfo) unnamed_addr #4 {
+define internal fastcc void @ma_context_iterate_rates_and_add_native_data_format__alsa.argelim(ptr nocapture noundef readonly %pContext, ptr noundef %pPCM, ptr noundef nonnull %pHWParams, i32 noundef %format, i32 noundef %channels, ptr nocapture noundef %pDeviceInfo) unnamed_addr #4 {
 entry:
   %minSampleRate = alloca i32, align 4
   %maxSampleRate = alloca i32, align 4
@@ -123254,7 +123254,7 @@ return:                                           ; preds = %if.end95, %ma_semap
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ma_device_uninit__null(ptr noundef %pDevice) #4 {
 entry:
-  tail call fastcc void @ma_device_do_operation__null(ptr noundef %pDevice, i32 noundef 3)
+  tail call fastcc void @ma_device_do_operation__null.argelim(ptr noundef %pDevice, i32 noundef 3)
   %0 = getelementptr inbounds i8, ptr %pDevice, i64 3424
   %pThread.val.i = load i64, ptr %0, align 8
   %call.i.i = tail call i32 @pthread_join(i64 noundef %pThread.val.i, ptr noundef null) #64
@@ -123276,7 +123276,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ma_device_start__null(ptr noundef %pDevice) #4 {
 entry:
-  tail call fastcc void @ma_device_do_operation__null(ptr noundef %pDevice, i32 noundef 1)
+  tail call fastcc void @ma_device_do_operation__null.argelim(ptr noundef %pDevice, i32 noundef 1)
   %isStarted = getelementptr inbounds i8, ptr %pDevice, i64 3768
   store atomic i32 1, ptr %isStarted seq_cst, align 4
   ret i32 0
@@ -123285,7 +123285,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ma_device_stop__null(ptr noundef %pDevice) #4 {
 entry:
-  tail call fastcc void @ma_device_do_operation__null(ptr noundef %pDevice, i32 noundef 2)
+  tail call fastcc void @ma_device_do_operation__null.argelim(ptr noundef %pDevice, i32 noundef 2)
   %isStarted = getelementptr inbounds i8, ptr %pDevice, i64 3768
   store atomic i32 0, ptr %isStarted seq_cst, align 4
   ret i32 0
@@ -123487,7 +123487,7 @@ if.then13:                                        ; preds = %while.body, %if.end
   br i1 %or.cond, label %if.end23, label %if.then17
 
 if.then17:                                        ; preds = %if.then13
-  call fastcc void @ma_device_do_operation__null(ptr noundef nonnull %pDevice, i32 noundef 1)
+  call fastcc void @ma_device_do_operation__null.argelim(ptr noundef nonnull %pDevice, i32 noundef 1)
   store atomic i32 1, ptr %isStarted.i seq_cst, align 4
   br label %if.end23
 
@@ -123680,7 +123680,7 @@ if.then16:                                        ; preds = %ma_event_wait.exit
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ma_device_do_operation__null(ptr noundef %pDevice, i32 noundef range(i32 1, 4) %operation) unnamed_addr #4 {
+define internal fastcc void @ma_device_do_operation__null.argelim(ptr noundef %pDevice, i32 noundef range(i32 1, 4) %operation) unnamed_addr #4 {
 entry:
   %operationSemaphore = getelementptr inbounds i8, ptr %pDevice, i64 3624
   %lock.i.i = getelementptr inbounds i8, ptr %pDevice, i64 3632
@@ -127874,7 +127874,7 @@ ma_channel_map_init_standard.exit:                ; preds = %if.end7.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ma_resource_manager_data_buffer_node_remove(ptr nocapture noundef nonnull %pResourceManager, ptr noundef readonly %pDataBufferNode) unnamed_addr #27 {
+define internal fastcc void @ma_resource_manager_data_buffer_node_remove.argelim(ptr nocapture noundef nonnull %pResourceManager, ptr noundef readonly %pDataBufferNode) unnamed_addr #27 {
 entry:
   %pChildLo = getelementptr inbounds i8, ptr %pDataBufferNode, i64 96
   %0 = load ptr, ptr %pChildLo, align 8
@@ -128918,7 +128918,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_node_input_bus_read_pcm_frames(ptr noundef %pInputBus, ptr noundef %pFramesOut, i32 noundef %frameCount, ptr nocapture noundef nonnull writeonly %pFramesRead, i64 noundef %globalTime) unnamed_addr #4 {
+define internal fastcc i32 @ma_node_input_bus_read_pcm_frames.argprom(ptr noundef %pInputBus, ptr noundef %pFramesOut, i32 noundef %frameCount, ptr nocapture noundef nonnull writeonly %pFramesRead, i64 noundef %globalTime) unnamed_addr #4 {
 if.end.i.i:
   %framesProcessed = alloca i32, align 4
   %temp = alloca [1024 x float], align 16
@@ -130588,7 +130588,7 @@ return:                                           ; preds = %if.end52, %if.else4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ma_dr_wav__metadata_process_chunk(ptr noundef nonnull %pParser, ptr nocapture noundef nonnull readonly %pChunkHeader) unnamed_addr #4 {
+define internal fastcc i64 @ma_dr_wav__metadata_process_chunk.argelim(ptr noundef nonnull %pParser, ptr nocapture noundef nonnull readonly %pChunkHeader) unnamed_addr #4 {
 entry:
   %acidData.i = alloca [24 x i8], align 16
   %instData.i = alloca [7 x i8], align 1
@@ -134681,7 +134681,7 @@ if.end.i54.i:                                     ; preds = %for.body.i50.i
 for.end.i.i:                                      ; preds = %if.end.i54.i, %sw.bb46.i
   %idxprom3.i.pre-phi.i = phi i64 [ 0, %sw.bb46.i ], [ %wide.trip.count.i49.i, %if.end.i54.i ]
   %arrayidx4.i.i = getelementptr inbounds [5 x [4 x i32]], ptr @ma_dr_flac__decode_samples__fixed.lpcCoefficientsTable, i64 0, i64 %idxprom3.i.pre-phi.i
-  call fastcc void @ma_dr_flac__decode_samples_with_residual(ptr noundef %bs, i32 noundef %sub.i112, i32 noundef %conv49.i, i32 noundef %conv.i.i, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %arrayidx4.i.i, ptr noundef %add.ptr)
+  call fastcc void @ma_dr_flac__decode_samples_with_residual.argelim(ptr noundef %bs, i32 noundef %sub.i112, i32 noundef %conv49.i, i32 noundef %conv.i.i, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %arrayidx4.i.i, ptr noundef %add.ptr)
   br label %ma_dr_flac__decode_samples__fixed.exit.i
 
 ma_dr_flac__decode_samples__fixed.exit.i:         ; preds = %for.body.i50.i, %for.end.i.i
@@ -134832,7 +134832,7 @@ for.body28.i.i:                                   ; preds = %for.cond23.i.i, %fo
 
 for.end38.i.i:                                    ; preds = %for.cond23.i.i, %if.end22.i.i
   %conv40.i.i = and i32 %31, 127
-  call fastcc void @ma_dr_flac__decode_samples_with_residual(ptr noundef %bs, i32 noundef %sub.i112, i32 noundef %conv55.i, i32 noundef %conv1.le.i.i, i32 noundef %conv40.i.i, i32 noundef %.pre.i.i, ptr noundef nonnull %coefficients.i.i, ptr noundef %add.ptr)
+  call fastcc void @ma_dr_flac__decode_samples_with_residual.argelim(ptr noundef %bs, i32 noundef %sub.i112, i32 noundef %conv55.i, i32 noundef %conv1.le.i.i, i32 noundef %conv40.i.i, i32 noundef %.pre.i.i, ptr noundef nonnull %coefficients.i.i, ptr noundef %add.ptr)
   br label %ma_dr_flac__decode_samples__lpc.exit.i
 
 ma_dr_flac__decode_samples__lpc.exit.i:           ; preds = %for.body.i62.i, %for.body28.i.i, %for.end38.i.i, %ma_dr_flac__read_int8.exit.i.i, %ma_dr_flac__read_int8.exit.thread.i.i, %if.end6.i.i, %if.end34.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -136440,7 +136440,7 @@ return:                                           ; preds = %if.then73, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__init_private__native(ptr noundef nonnull %pInit, ptr nocapture noundef nonnull readonly %onRead, ptr noundef readonly %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef range(i32 0, 2) %relaxed) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__init_private__native.argprom(ptr noundef nonnull %pInit, ptr nocapture noundef nonnull readonly %onRead, ptr noundef readonly %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef range(i32 0, 2) %relaxed) unnamed_addr #4 {
 entry:
   %blockSizes.i = alloca i32, align 4
   %frameSizes.i = alloca i64, align 8
@@ -136616,7 +136616,7 @@ return:                                           ; preds = %ma_dr_flac__read_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__init_private__ogg(ptr nocapture noundef nonnull %pInit, ptr nocapture noundef nonnull readonly %onRead, ptr nocapture noundef nonnull readonly %onSeek, ptr noundef readonly %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__init_private__ogg.argelim(ptr nocapture noundef nonnull %pInit, ptr nocapture noundef nonnull readonly %onRead, ptr nocapture noundef nonnull readonly %onSeek, ptr noundef readonly %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD) unnamed_addr #4 {
 entry:
   %data.i73 = alloca [23 x i8], align 16
   %id.i = alloca [4 x i8], align 1
@@ -138134,7 +138134,7 @@ return:                                           ; preds = %if.end34.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ma_dr_flac__decode_samples_with_residual(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %bitsPerSample, i32 noundef range(i32 0, 65536) %blockSize, i32 noundef range(i32 0, 256) %lpcOrder, i32 noundef range(i32 -128, 128) %lpcShift, i32 noundef range(i32 0, 256) %lpcPrecision, ptr noundef %coefficients, ptr noundef %pDecodedSamples) unnamed_addr #4 {
+define internal fastcc void @ma_dr_flac__decode_samples_with_residual.argelim(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %bitsPerSample, i32 noundef range(i32 0, 65536) %blockSize, i32 noundef range(i32 0, 256) %lpcOrder, i32 noundef range(i32 -128, 128) %lpcShift, i32 noundef range(i32 0, 256) %lpcPrecision, ptr noundef %coefficients, ptr noundef %pDecodedSamples) unnamed_addr #4 {
 entry:
   %consumedBits.i.i = getelementptr inbounds i8, ptr %bs, i64 44
   %0 = load i32, ptr %consumedBits.i.i, align 4
@@ -153303,8 +153303,8 @@ attributes #80 = { nounwind allocsize(1) }
 !890 = distinct !{!890, !891, !"ma_resource_manager__init_decoder_config: %agg.result"}
 !891 = distinct !{!891, !"ma_resource_manager__init_decoder_config"}
 !892 = !{!893}
-!893 = distinct !{!893, !894, !"ma_device__pa_buffer_attr_new: %agg.result"}
-!894 = distinct !{!894, !"ma_device__pa_buffer_attr_new"}
+!893 = distinct !{!893, !894, !"ma_device__pa_buffer_attr_new.argprom: %agg.result"}
+!894 = distinct !{!894, !"ma_device__pa_buffer_attr_new.argprom"}
 !895 = distinct !{!895, !5}
 !896 = distinct !{!896, !5}
 !897 = distinct !{!897, !5}

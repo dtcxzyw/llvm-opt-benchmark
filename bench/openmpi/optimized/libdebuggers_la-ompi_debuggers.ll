@@ -57,9 +57,9 @@ define void @ompi_debugger_setup_dlls() local_unnamed_addr #0 {
   %.not1315 = icmp eq ptr %12, null
   br i1 %.not1315, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %check.exit14
-  %indvars.iv = phi i64 [ %indvars.iv.next, %check.exit14 ], [ 0, %10 ]
-  %13 = phi ptr [ %31, %check.exit14 ], [ %12, %10 ]
+.lr.ph:                                           ; preds = %10, %check.argprom.exit14
+  %indvars.iv = phi i64 [ %indvars.iv.next, %check.argprom.exit14 ], [ 0, %10 ]
+  %13 = phi ptr [ %31, %check.argprom.exit14 ], [ %12, %10 ]
   %14 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -69,13 +69,13 @@ define void @ompi_debugger_setup_dlls() local_unnamed_addr #0 {
   %16 = load ptr, ptr %5, align 8
   %17 = call i32 @stat(ptr noundef %16, ptr noundef nonnull %6) #5
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %check.exit
+  br i1 %18, label %19, label %check.argprom.exit
 
 19:                                               ; preds = %.lr.ph
   %20 = call i32 @opal_argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #5
-  br label %check.exit
+  br label %check.argprom.exit
 
-check.exit:                                       ; preds = %.lr.ph, %19
+check.argprom.exit:                               ; preds = %.lr.ph, %19
   %21 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %21) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -90,13 +90,13 @@ check.exit:                                       ; preds = %.lr.ph, %19
   %24 = load ptr, ptr %2, align 8
   %25 = call i32 @stat(ptr noundef %24, ptr noundef nonnull %3) #5
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %check.exit14
+  br i1 %26, label %27, label %check.argprom.exit14
 
-27:                                               ; preds = %check.exit
+27:                                               ; preds = %check.argprom.exit
   %28 = call i32 @opal_argv_append_nosize(ptr noundef nonnull %1, ptr noundef nonnull @.str.5) #5
-  br label %check.exit14
+  br label %check.argprom.exit14
 
-check.exit14:                                     ; preds = %check.exit, %27
+check.argprom.exit14:                             ; preds = %check.argprom.exit, %27
   %29 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %29) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -108,7 +108,7 @@ check.exit14:                                     ; preds = %check.exit, %27
   %.not13 = icmp eq ptr %31, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %check.exit14, %10
+._crit_edge:                                      ; preds = %check.argprom.exit14, %10
   call void @opal_argv_free(ptr noundef nonnull %11) #5
   br label %32
 

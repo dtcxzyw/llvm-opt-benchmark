@@ -380,7 +380,7 @@ _ZN8rationalD2Ev.exit.i:                          ; preds = %.noexc.i.i
 
 .noexc.i25.i:                                     ; preds = %_ZN8rationalD2Ev.exit.i
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i)
-          to label %_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.exit unwind label %terminate.lpad.i24.i
+          to label %_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.argprom.exit unwind label %terminate.lpad.i24.i
 
 terminate.lpad.i24.i:                             ; preds = %.noexc.i25.i, %_ZN8rationalD2Ev.exit.i
   %19 = landingpad { ptr, i32 }
@@ -394,7 +394,7 @@ ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %curr.i) #16
   br label %lpad1.body
 
-_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.exit: ; preds = %.noexc.i25.i
+_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.argprom.exit: ; preds = %.noexc.i25.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %curr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %two.i)
   %.pre22 = load ptr, ptr @_ZN8rational15m_powers_of_twoE, align 8
@@ -415,8 +415,8 @@ lpad1.body:                                       ; preds = %ehcleanup.i, %lpad1
   %call1.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
   br label %ehcleanup
 
-if.end:                                           ; preds = %_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.exit, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
-  %23 = phi ptr [ %.pre22, %_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.exit ], [ %1, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ]
+if.end:                                           ; preds = %_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.argprom.exit, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
+  %23 = phi ptr [ %.pre22, %_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.argprom.exit ], [ %1, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ]
   %idxprom.i = zext i32 %k to i64
   %arrayidx.i9 = getelementptr inbounds %class.rational, ptr %23, i64 %idxprom.i
   %24 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8

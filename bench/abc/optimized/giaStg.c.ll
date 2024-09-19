@@ -740,7 +740,7 @@ Gia_ManPrintStateEncoding.exit:                   ; preds = %.critedge.thread.i,
 
 .lr.ph:                                           ; preds = %Gia_ManPrintStateEncoding.exit, %.lr.ph
   %.0264 = phi i32 [ %36, %.lr.ph ], [ 0, %Gia_ManPrintStateEncoding.exit ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %32)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %32)
   %36 = add nuw nsw i32 %.0264, 1
   %exitcond298.not = icmp eq i32 %36, %34
   br i1 %exitcond298.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -1545,7 +1545,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i200, %.c
 
 Gia_ManCreateOrGate.exit:                         ; preds = %325, %._crit_edge.i207
   %.0.i = phi i32 [ %355, %._crit_edge.i207 ], [ 0, %325 ]
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %32, i32 noundef %.0.i)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %32, i32 noundef %.0.i)
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %exitcond320.not = icmp eq i64 %indvars.iv.next317, %wide.trip.count319
   br i1 %exitcond320.not, label %.lr.ph.i219.preheader, label %325, !llvm.loop !38
@@ -1678,7 +1678,7 @@ Gia_ManCreateOrGate.exit249:                      ; preds = %366, %._crit_edge.i
   %397 = icmp slt i64 %indvars.iv322, %365
   %398 = zext i1 %397 to i32
   %399 = xor i32 %.0.i234, %398
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %32, i32 noundef %399)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %32, i32 noundef %399)
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next323, %wide.trip.count325
   br i1 %exitcond326.not, label %.lr.ph.i253.preheader, label %366, !llvm.loop !39
@@ -1734,7 +1734,7 @@ Vec_VecFree.exit263:                              ; preds = %.critedge.i251, %.c
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCi.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -1831,7 +1831,7 @@ declare void @Gia_ManHashAlloc(ptr noundef) local_unnamed_addr #5
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1973,7 +1973,7 @@ define ptr @Gia_ManStgOneHot(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.0180 = phi i32 [ %9, %.lr.ph ], [ 0, %4 ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %5)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %5)
   %9 = add nuw nsw i32 %.0180, 1
   %exitcond.not = icmp eq i32 %9, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
@@ -2552,7 +2552,7 @@ Vec_IntFree.exit132:                              ; preds = %Vec_IntFree.exit, %
 
 Gia_ManCreateOrGate.exit:                         ; preds = %208, %._crit_edge.i133
   %.0.i = phi i32 [ %238, %._crit_edge.i133 ], [ 0, %208 ]
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %5, i32 noundef %.0.i)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %5, i32 noundef %.0.i)
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
   br i1 %exitcond216.not, label %.lr.ph.i140.preheader, label %208, !llvm.loop !46
@@ -2684,7 +2684,7 @@ Gia_ManCreateOrGate.exit165:                      ; preds = %248, %._crit_edge.i
   %.not = icmp eq i64 %indvars.iv218, 0
   %279 = zext i1 %.not to i32
   %280 = xor i32 %.0.i150, %279
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %5, i32 noundef %280)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %5, i32 noundef %280)
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
   br i1 %exitcond222.not, label %.lr.ph.i169.preheader, label %248, !llvm.loop !47

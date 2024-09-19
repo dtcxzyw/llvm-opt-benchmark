@@ -183,13 +183,13 @@ Vec_AttGrow.exit.i.i.i.i:                         ; preds = %64, %50, %41
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %Abc_ObjGlobalBdd.exit.i.i
+  br i1 %77, label %78, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i.i
 
 78:                                               ; preds = %Vec_AttGrow.exit.i.i.i.i
   %79 = getelementptr inbounds i8, ptr %.val29.val.val.val.i.i, i64 32
   %80 = load ptr, ptr %79, align 8
   %.not18.i.i.i.i = icmp eq ptr %80, null
-  br i1 %.not18.i.i.i.i, label %Abc_ObjGlobalBdd.exit.i.i, label %81
+  br i1 %.not18.i.i.i.i, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i.i, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds i8, ptr %.val29.val.val.val.i.i, i64 16
@@ -201,9 +201,9 @@ Vec_AttGrow.exit.i.i.i.i:                         ; preds = %64, %50, %41
   %.pre.i.i.i.i = load ptr, ptr %72, align 8
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i.i, i64 %74
   %.pre19.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8
-  br label %Abc_ObjGlobalBdd.exit.i.i
+  br label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i.i
 
-Abc_ObjGlobalBdd.exit.i.i:                        ; preds = %81, %78, %Vec_AttGrow.exit.i.i.i.i
+Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i.i: ; preds = %81, %78, %Vec_AttGrow.exit.i.i.i.i
   %87 = phi ptr [ %.pre19.i.i.i.i, %81 ], [ null, %78 ], [ %76, %Vec_AttGrow.exit.i.i.i.i ]
   %88 = call i32 @Cudd_SupportSize(ptr noundef %18, ptr noundef %87) #16
   %89 = add nsw i32 %88, %.02436.i.i
@@ -214,7 +214,7 @@ Abc_ObjGlobalBdd.exit.i.i:                        ; preds = %81, %78, %Vec_AttGr
   %94 = icmp eq i32 %93, 2147483647
   br i1 %94, label %151, label %95
 
-95:                                               ; preds = %Abc_ObjGlobalBdd.exit.i.i
+95:                                               ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i.i
   br i1 %.not.i.i, label %98, label %96
 
 96:                                               ; preds = %95
@@ -346,8 +346,8 @@ Ntk_NetworkSymmsPrint.exit.i.i:                   ; preds = %150, %149, %100
   call void @Extra_SymmPairsDissolve(ptr noundef %.026.i.i) #16
   br label %151
 
-151:                                              ; preds = %Ntk_NetworkSymmsPrint.exit.i.i, %Abc_ObjGlobalBdd.exit.i.i
-  %.1.i.i = phi i32 [ %.02535.i.i, %Abc_ObjGlobalBdd.exit.i.i ], [ %103, %Ntk_NetworkSymmsPrint.exit.i.i ]
+151:                                              ; preds = %Ntk_NetworkSymmsPrint.exit.i.i, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i.i
+  %.1.i.i = phi i32 [ %.02535.i.i, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i.i ], [ %103, %Ntk_NetworkSymmsPrint.exit.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.val.i.i = load ptr, ptr %37, align 8
   %152 = getelementptr i8, ptr %.val.i.i, i64 4

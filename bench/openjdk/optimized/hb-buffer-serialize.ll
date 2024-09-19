@@ -1046,16 +1046,16 @@ define hidden i32 @hb_buffer_serialize(ptr noundef %0, i32 noundef %1, i32 nound
 
 12:                                               ; preds = %9
   %13 = tail call i32 @hb_buffer_serialize_glyphs(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8)
-  br label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.exit
+  br label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.argprom.exit
 
 14:                                               ; preds = %9
   %15 = tail call i32 @hb_buffer_serialize_unicode(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %7, i32 noundef %8)
-  br label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.exit
+  br label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.argprom.exit
 
 16:                                               ; preds = %9
   %.not.i = icmp eq ptr %5, null
   %17 = icmp ult i32 %4, 3
-  br i1 %17, label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.exit, label %18
+  br i1 %17, label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.argprom.exit, label %18
 
 18:                                               ; preds = %16
   switch i32 %7, label %22 [
@@ -1077,13 +1077,13 @@ define hidden i32 @hb_buffer_serialize(ptr noundef %0, i32 noundef %1, i32 nound
   br label %22
 
 22:                                               ; preds = %.sink.split.i, %18
-  br i1 %.not.i, label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.exit, label %.else.i
+  br i1 %.not.i, label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.argprom.exit, label %.else.i
 
 .else.i:                                          ; preds = %22
   store i32 2, ptr %5, align 4
-  br label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.exit
+  br label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.argprom.exit
 
-_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.exit: ; preds = %.else.i, %22, %16, %14, %12
+_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.argprom.exit: ; preds = %.else.i, %22, %16, %14, %12
   %.0 = phi i32 [ %15, %14 ], [ %13, %12 ], [ 0, %16 ], [ 0, %22 ], [ 0, %.else.i ]
   ret i32 %.0
 }
@@ -2941,7 +2941,7 @@ _ZL9parse_hexPKcS0_Pj.exit.thread.i:              ; preds = %92
 _ZL9parse_hexPKcS0_Pj.exit.i:                     ; preds = %92
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 95:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
@@ -2953,7 +2953,7 @@ _ZL9parse_hexPKcS0_Pj.exit.i:                     ; preds = %92
 _ZL9parse_hexPKcS0_Pj.exit123.i:                  ; preds = %95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 97:                                               ; preds = %95
   %98 = load i32, ptr %12, align 4
@@ -2963,7 +2963,7 @@ _ZL9parse_hexPKcS0_Pj.exit123.i:                  ; preds = %95
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %16)
   %99 = load i8, ptr %51, align 8
   %100 = trunc i8 %99 to i1
-  br i1 %100, label %101, label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br i1 %100, label %101, label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 101:                                              ; preds = %97
   %102 = load i8, ptr %52, align 1
@@ -2993,7 +2993,7 @@ _ZL9parse_hexPKcS0_Pj.exit123.i:                  ; preds = %95
 _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %10, align 4
@@ -3003,7 +3003,7 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %16)
   %115 = load i8, ptr %51, align 8
   %116 = trunc i8 %115 to i1
-  br i1 %116, label %117, label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br i1 %116, label %117, label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 117:                                              ; preds = %113
   %118 = load i8, ptr %52, align 1
@@ -3062,7 +3062,7 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
 _ZL9parse_hexPKcS0_Pj.exit124.i:                  ; preds = %136
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 138:                                              ; preds = %136
   %139 = load i32, ptr %8, align 4
@@ -3073,7 +3073,7 @@ _ZL9parse_hexPKcS0_Pj.exit124.i:                  ; preds = %136
   %140 = getelementptr inbounds i8, ptr %0, i64 80
   %141 = load i8, ptr %140, align 8
   %142 = trunc i8 %141 to i1
-  br i1 %142, label %143, label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br i1 %142, label %143, label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 143:                                              ; preds = %138
   %144 = getelementptr inbounds i8, ptr %0, i64 83
@@ -3091,7 +3091,7 @@ _ZL9parse_hexPKcS0_Pj.exit124.i:                  ; preds = %136
 _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 149:                                              ; preds = %147
   %150 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3103,7 +3103,7 @@ _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
   %152 = getelementptr inbounds i8, ptr %0, i64 80
   %153 = load i8, ptr %152, align 8
   %154 = trunc i8 %153 to i1
-  br i1 %154, label %155, label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br i1 %154, label %155, label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
 155:                                              ; preds = %149
   %156 = getelementptr inbounds i8, ptr %0, i64 83
@@ -3149,9 +3149,9 @@ _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
   store ptr %.5.i, ptr %spec.select, align 8
   %174 = icmp eq ptr %.5.i, %.198.i
   %175 = zext i1 %174 to i32
-  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
+  br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit
 
-_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: ; preds = %97, %113, %_ZL9parse_hexPKcS0_Pj.exit.i, %_ZL9parse_hexPKcS0_Pj.exit123.i, %_ZL10parse_uintPKcS0_Pj.exit.i, %_ZL9parse_hexPKcS0_Pj.exit124.i, %138, %_ZL10parse_uintPKcS0_Pj.exit125.i, %149, %173
+_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit: ; preds = %97, %113, %_ZL9parse_hexPKcS0_Pj.exit.i, %_ZL9parse_hexPKcS0_Pj.exit123.i, %_ZL10parse_uintPKcS0_Pj.exit.i, %_ZL9parse_hexPKcS0_Pj.exit124.i, %138, %_ZL10parse_uintPKcS0_Pj.exit125.i, %149, %173
   %.0.i = phi i32 [ %175, %173 ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit123.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit124.i ], [ 0, %138 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit125.i ], [ 0, %149 ], [ 0, %113 ], [ 0, %97 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17)
@@ -3161,8 +3161,8 @@ _ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: 
   %177 = call fastcc noundef i32 @_ZL27_hb_buffer_deserialize_jsonP11hb_buffer_tPKcjPS2_P9hb_font_t(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.025, ptr noundef %spec.select, ptr noundef %30)
   br label %178
 
-178:                                              ; preds = %29, %176, %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, %28, %21
-  %.0 = phi i32 [ 0, %21 ], [ %177, %176 ], [ %.0.i, %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit ], [ 0, %28 ], [ 0, %29 ]
+178:                                              ; preds = %29, %176, %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit, %28, %21
+  %.0 = phi i32 [ 0, %21 ], [ %177, %176 ], [ %.0.i, %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.argprom.exit ], [ 0, %28 ], [ 0, %29 ]
   ret i32 %.0
 }
 

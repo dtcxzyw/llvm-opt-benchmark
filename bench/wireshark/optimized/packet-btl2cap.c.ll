@@ -632,7 +632,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.446 = private unnamed_addr constant [35 x i8] c"Control / FCS length too short: %u\00", align 1
 @.str.447 = private unnamed_addr constant [23 x i8] c"[Continuation to #%u] \00", align 1
 @.str.448 = private unnamed_addr constant [18 x i8] c"Reassembled L2CAP\00", align 1
-@switch.table.dissect_i_frame = private unnamed_addr constant [4 x ptr] [ptr @.str.439, ptr @.str.440, ptr @.str.441, ptr @.str.442], align 8
+@switch.table.dissect_i_frame.argelim = private unnamed_addr constant [4 x ptr] [ptr @.str.439, ptr @.str.440, ptr @.str.441, ptr @.str.442], align 8
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
@@ -1107,8 +1107,8 @@ define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef
   %269 = getelementptr inbounds i8, ptr %61, i64 88
   br label %270
 
-270:                                              ; preds = %.lr.ph, %dissect_comrej.exit
-  %.0500583 = phi i32 [ 4, %.lr.ph ], [ %.1, %dissect_comrej.exit ]
+270:                                              ; preds = %.lr.ph, %dissect_comrej.argprom.exit
+  %.0500583 = phi i32 [ 4, %.lr.ph ], [ %.1, %dissect_comrej.argprom.exit ]
   %271 = load i32, ptr @hf_btl2cap_command, align 4
   %272 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %81, i32 noundef %271, ptr noundef %0, i32 noundef %.0500583, i32 noundef %159, ptr noundef nonnull @.str.387) #8
   %273 = load i32, ptr @ett_btl2cap_cmd, align 4
@@ -1165,7 +1165,7 @@ define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef
   %294 = load i32, ptr @hf_btl2cap_rej_reason, align 4
   %295 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %294, ptr noundef %0, i32 noundef %288, i32 noundef 2, i32 noundef -2147483648) #8
   %296 = add nsw i32 %.0500583, 6
-  switch i16 %293, label %dissect_comrej.exit [
+  switch i16 %293, label %dissect_comrej.argprom.exit [
     i16 2, label %297
     i16 1, label %.sink.split.i
   ]
@@ -1183,15 +1183,15 @@ define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef
   %301 = load i32, ptr %hf_btl2cap_dcid.sink.i, align 4
   %302 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %301, ptr noundef %0, i32 noundef %.sink2.i, i32 noundef 2, i32 noundef -2147483648) #8
   %303 = add nsw i32 %.sink.i, %288
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 304:                                              ; preds = %270
   %305 = call fastcc i32 @dissect_connrequest(ptr noundef %0, i32 noundef %288, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %274, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %121)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 306:                                              ; preds = %270
   %307 = call fastcc i32 @dissect_connresponse(ptr noundef %0, i32 noundef %288, ptr noundef nonnull %1, ptr noundef %274, ptr noundef %3)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 308:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %61)
@@ -1330,7 +1330,7 @@ define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef
 
 376:                                              ; preds = %.thread67.i
   %377 = add nsw i32 %286, -4
-  %378 = call fastcc i32 @dissect_options(ptr noundef %0, i32 noundef %319, ptr noundef %274, i32 noundef %377, ptr noundef %.05770.i)
+  %378 = call fastcc i32 @dissect_options.argprom(ptr noundef %0, i32 noundef %319, ptr noundef %274, i32 noundef %377, ptr noundef %.05770.i)
   br label %dissect_configrequest.exit
 
 dissect_configrequest.exit:                       ; preds = %.thread67.i, %376
@@ -1341,7 +1341,7 @@ dissect_configrequest.exit:                       ; preds = %.thread67.i, %376
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 379:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %55)
@@ -1474,7 +1474,7 @@ dissect_configrequest.exit:                       ; preds = %.thread67.i, %376
 .thread67.i542:                                   ; preds = %.thread67.sink.split.i, %438, %434, %432, %428, %424, %421, %.thread.i541
   %.061.i = phi ptr [ null, %438 ], [ null, %428 ], [ null, %424 ], [ null, %421 ], [ null, %.thread.i541 ], [ null, %434 ], [ null, %432 ], [ %spec.select70.i, %.thread67.sink.split.i ]
   %447 = add nsw i32 %286, -6
-  %448 = call fastcc i32 @dissect_options(ptr noundef %0, i32 noundef %392, ptr noundef %274, i32 noundef %447, ptr noundef %.061.i)
+  %448 = call fastcc i32 @dissect_options.argprom(ptr noundef %0, i32 noundef %392, ptr noundef %274, i32 noundef %447, ptr noundef %.061.i)
   br label %dissect_configresponse.exit
 
 dissect_configresponse.exit:                      ; preds = %379, %.thread67.i542
@@ -1485,27 +1485,27 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 449:                                              ; preds = %270
   %450 = call fastcc i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %288, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %274, ptr noundef %3, ptr noundef nonnull %121, i32 noundef 1)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 451:                                              ; preds = %270
   %452 = call fastcc i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %288, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %274, ptr noundef %3, ptr noundef nonnull %121, i32 noundef 0)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 453:                                              ; preds = %270
   %454 = load i32, ptr @hf_btl2cap_data, align 4
   %455 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %454, ptr noundef %0, i32 noundef %288, i32 noundef -1, i32 noundef 0) #8
   %456 = call i32 @tvb_reported_length(ptr noundef %0) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 457:                                              ; preds = %270
   %458 = load i32, ptr @hf_btl2cap_data, align 4
   %459 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %458, ptr noundef %0, i32 noundef %288, i32 noundef -1, i32 noundef 0) #8
   %460 = call i32 @tvb_reported_length(ptr noundef %0) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 461:                                              ; preds = %270
   %462 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %288) #8
@@ -1516,7 +1516,7 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   %467 = zext i16 %462 to i32
   %468 = call ptr @val_to_str_const(i32 noundef %467, ptr noundef nonnull @info_type_vals, ptr noundef nonnull @.str.407) #8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %466, i32 noundef 25, ptr noundef nonnull @.str.397, ptr noundef %468) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 469:                                              ; preds = %270
   %470 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %288) #8
@@ -1535,7 +1535,7 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %478, i32 noundef 25, ptr noundef nonnull @.str.408, ptr noundef %480, ptr noundef %482) #8
   %483 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %477) #8
   %484 = icmp sgt i32 %483, 0
-  br i1 %484, label %485, label %dissect_comrej.exit
+  br i1 %484, label %485, label %dissect_comrej.argprom.exit
 
 485:                                              ; preds = %469
   switch i16 %470, label %568 [
@@ -1548,7 +1548,7 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   %487 = load i32, ptr @hf_btl2cap_info_mtu, align 4
   %488 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %487, ptr noundef %0, i32 noundef %477, i32 noundef 2, i32 noundef -2147483648) #8
   %489 = add nsw i32 %.0500583, 10
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 490:                                              ; preds = %485
   %491 = load i32, ptr @hf_btl2cap_info_extfeatures, align 4
@@ -1667,7 +1667,7 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   %544 = load i32, ptr @hf_btl2cap_info_unicast, align 4
   %545 = call ptr @proto_tree_add_item(ptr noundef %494, i32 noundef %544, ptr noundef %0, i32 noundef %477, i32 noundef 4, i32 noundef -2147483648) #8
   %546 = add nsw i32 %.0500583, 12
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 547:                                              ; preds = %485
   %548 = load i32, ptr @hf_btl2cap_info_fixedchans, align 4
@@ -1690,22 +1690,22 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   %565 = load i32, ptr @hf_btl2cap_info_fixedchans_amp_test, align 4
   %566 = call ptr @proto_tree_add_item(ptr noundef %551, i32 noundef %565, ptr noundef %0, i32 noundef %564, i32 noundef 4, i32 noundef -2147483648) #8
   %567 = add nsw i32 %.0500583, 16
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 568:                                              ; preds = %485
   %569 = load i32, ptr @hf_btl2cap_cmd_data, align 4
   %570 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %569, ptr noundef %0, i32 noundef %477, i32 noundef -1, i32 noundef 0) #8
   %571 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %477) #8
   %572 = add i32 %571, %477
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 573:                                              ; preds = %270
   %574 = call fastcc i32 @dissect_connrequest(ptr noundef %0, i32 noundef %288, ptr noundef nonnull %1, ptr noundef %81, ptr noundef %274, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %121)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 575:                                              ; preds = %270
   %576 = call fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef %288, ptr noundef nonnull readonly %1, ptr noundef %274, ptr noundef %3)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 577:                                              ; preds = %270
   %578 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %288) #8
@@ -1721,7 +1721,7 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   %588 = zext i8 %582 to i32
   %589 = call ptr @val_to_str_const(i32 noundef %588, ptr noundef nonnull @ctrl_id_code_vals, ptr noundef nonnull @.str.423) #8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %586, i32 noundef 25, ptr noundef nonnull @.str.422, i32 noundef %587, ptr noundef %589) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 590:                                              ; preds = %270
   %591 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %288) #8
@@ -1737,7 +1737,7 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   %601 = zext i16 %595 to i32
   %602 = call ptr @val_to_str_const(i32 noundef %601, ptr noundef nonnull @move_result_vals, ptr noundef nonnull @.str.409) #8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %599, i32 noundef 25, ptr noundef nonnull @.str.424, i32 noundef %600, ptr noundef %602) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 603:                                              ; preds = %270
   %604 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %288) #8
@@ -1753,7 +1753,7 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   %614 = zext i16 %608 to i32
   %615 = call ptr @val_to_str_const(i32 noundef %614, ptr noundef nonnull @move_result_confirmation_vals, ptr noundef nonnull @.str.409) #8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %612, i32 noundef 25, ptr noundef nonnull @.str.424, i32 noundef %613, ptr noundef %615) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 616:                                              ; preds = %270
   %617 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %288) #8
@@ -1763,7 +1763,7 @@ dissect_configresponse.exit:                      ; preds = %379, %.thread67.i54
   %621 = load ptr, ptr %82, align 8
   %622 = zext i16 %617 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %621, i32 noundef 25, ptr noundef nonnull @.str.425, i32 noundef %622) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 623:                                              ; preds = %270
   %624 = load i32, ptr @hf_btl2cap_min_interval, align 4
@@ -1819,7 +1819,7 @@ dissect_connparamrequest.exit:                    ; preds = %642, %652
   %658 = fmul double %657, 1.000000e-02
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %655, ptr noundef nonnull @.str.427, double noundef %658) #8
   %659 = add nsw i32 %.0500583, 12
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 660:                                              ; preds = %270
   %661 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %288) #8
@@ -1830,7 +1830,7 @@ dissect_connparamrequest.exit:                    ; preds = %642, %652
   %666 = zext i16 %661 to i32
   %667 = call ptr @val_to_str_const(i32 noundef %666, ptr noundef nonnull @conn_param_result_vals, ptr noundef nonnull @.str.409) #8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %665, i32 noundef 25, ptr noundef nonnull @.str.397, ptr noundef %667) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 668:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
@@ -2153,7 +2153,7 @@ dissect_le_credit_based_connrequest.exit:         ; preds = %proto_item_set_gene
   %816 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %692) #8
   %817 = zext i16 %816 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %813, i32 noundef 25, ptr noundef nonnull @.str.390, i32 noundef %815, i32 noundef %817) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 818:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
@@ -2323,7 +2323,7 @@ dissect_le_credit_based_connresponse.exit:        ; preds = %818, %.thread.i550,
   %888 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %827) #8
   %889 = zext i16 %888 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %885, i32 noundef 25, ptr noundef nonnull @.str.390, i32 noundef %887, i32 noundef %889) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 890:                                              ; preds = %270
   %891 = load i32, ptr @hf_btl2cap_cid, align 4
@@ -2338,7 +2338,7 @@ dissect_le_credit_based_connresponse.exit:        ; preds = %818, %.thread.i550,
   %900 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %893) #8
   %901 = zext i16 %900 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %897, i32 noundef 25, ptr noundef nonnull @.str.391, i32 noundef %899, i32 noundef %901) #8
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 902:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
@@ -2675,7 +2675,7 @@ dissect_l2cap_credit_based_connrequest.exit:      ; preds = %proto_item_set_gene
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 1055:                                             ; preds = %270
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2856,15 +2856,15 @@ dissect_l2cap_credit_based_connresponse.exit:     ; preds = %1125, %1055
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
 1129:                                             ; preds = %270
   %1130 = call ptr @proto_tree_add_expert(ptr noundef %274, ptr noundef nonnull %1, ptr noundef nonnull @ei_btl2cap_unknown_command_code, ptr noundef %0, i32 noundef %288, i32 noundef -1) #8
   %1131 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %288) #8
   %1132 = add i32 %1131, %288
-  br label %dissect_comrej.exit
+  br label %dissect_comrej.argprom.exit
 
-dissect_comrej.exit:                              ; preds = %568, %547, %525, %486, %469, %.sink.split.i, %292, %1129, %dissect_l2cap_credit_based_connresponse.exit, %dissect_l2cap_credit_based_connrequest.exit, %890, %dissect_le_credit_based_connresponse.exit, %dissect_le_credit_based_connrequest.exit, %660, %dissect_connparamrequest.exit, %616, %603, %590, %577, %575, %573, %461, %457, %453, %451, %449, %dissect_configresponse.exit, %dissect_configrequest.exit, %306, %304
+dissect_comrej.argprom.exit:                      ; preds = %568, %547, %525, %486, %469, %.sink.split.i, %292, %1129, %dissect_l2cap_credit_based_connresponse.exit, %dissect_l2cap_credit_based_connrequest.exit, %890, %dissect_le_credit_based_connresponse.exit, %dissect_le_credit_based_connrequest.exit, %660, %dissect_connparamrequest.exit, %616, %603, %590, %577, %575, %573, %461, %457, %453, %451, %449, %dissect_configresponse.exit, %dissect_configrequest.exit, %306, %304
   %.1 = phi i32 [ %1132, %1129 ], [ %.0.lcssa.i565, %dissect_l2cap_credit_based_connresponse.exit ], [ %.0.lcssa.i, %dissect_l2cap_credit_based_connrequest.exit ], [ %896, %890 ], [ %884, %dissect_le_credit_based_connresponse.exit ], [ %812, %dissect_le_credit_based_connrequest.exit ], [ %664, %660 ], [ %659, %dissect_connparamrequest.exit ], [ %620, %616 ], [ %611, %603 ], [ %598, %590 ], [ %585, %577 ], [ %576, %575 ], [ %574, %573 ], [ %465, %461 ], [ %460, %457 ], [ %456, %453 ], [ %452, %451 ], [ %450, %449 ], [ %.0.i539, %dissect_configresponse.exit ], [ %.0.i537, %dissect_configrequest.exit ], [ %307, %306 ], [ %305, %304 ], [ %296, %292 ], [ %303, %.sink.split.i ], [ %572, %568 ], [ %567, %547 ], [ %546, %525 ], [ %489, %486 ], [ %477, %469 ]
   %1133 = icmp slt i32 %.1, %160
   br i1 %1133, label %270, label %.loopexit, !llvm.loop !7
@@ -2981,7 +2981,7 @@ dissect_comrej.exit:                              ; preds = %568, %547, %525, %4
   br i1 %.not528, label %1201, label %.thread
 
 .thread:                                          ; preds = %1197
-  tail call fastcc void @dissect_s_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %81)
+  tail call fastcc void @dissect_s_frame.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %81)
   br label %1244
 
 1201:                                             ; preds = %1197
@@ -3251,7 +3251,7 @@ proto_item_set_generated.exit577:                 ; preds = %1347, %1344, %1340,
 
 1352:                                             ; preds = %proto_item_set_generated.exit577
   %1353 = load i32, ptr %1310, align 8
-  %1354 = call fastcc i32 @dissect_b_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, i16 noundef zeroext %106, i16 noundef zeroext %1307, i32 noundef %1353, i16 noundef zeroext %.0502, ptr noundef nonnull %121)
+  %1354 = call fastcc i32 @dissect_b_frame.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, i16 noundef zeroext %106, i16 noundef zeroext %1307, i32 noundef %1353, i16 noundef zeroext %.0502, ptr noundef nonnull %121)
   br label %.loopexit
 
 1355:                                             ; preds = %proto_item_set_generated.exit577
@@ -3265,7 +3265,7 @@ proto_item_set_generated.exit577:                 ; preds = %1347, %1344, %1340,
 1359:                                             ; preds = %1356, %1355
   %.0 = phi i32 [ %1358, %1356 ], [ 0, %1355 ]
   %1360 = load i32, ptr %1310, align 8
-  %1361 = call fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, i16 noundef zeroext %106, i16 noundef zeroext %1307, i32 noundef %1360, i16 noundef zeroext %.0502, ptr noundef %.0501, ptr noundef nonnull %121, i32 noundef %.0)
+  %1361 = call fastcc i32 @dissect_le_frame.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, i16 noundef zeroext %106, i16 noundef zeroext %1307, i32 noundef %1360, i16 noundef zeroext %.0502, ptr noundef %.0501, ptr noundef nonnull %121, i32 noundef %.0)
   br label %.loopexit
 
 1362:                                             ; preds = %proto_item_set_generated.exit577
@@ -3275,19 +3275,19 @@ proto_item_set_generated.exit577:                 ; preds = %1347, %1344, %1340,
   br i1 %.not527, label %1366, label %1365
 
 1365:                                             ; preds = %1362
-  call fastcc void @dissect_s_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %81)
+  call fastcc void @dissect_s_frame.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %81)
   br label %.loopexit
 
 1366:                                             ; preds = %1362
-  %1367 = call fastcc i32 @dissect_i_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, ptr noundef %1280, i16 noundef zeroext %.0502, ptr noundef %.0501, ptr noundef nonnull %121)
+  %1367 = call fastcc i32 @dissect_i_frame.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, ptr noundef %1280, i16 noundef zeroext %.0502, ptr noundef %.0501, ptr noundef nonnull %121)
   br label %.loopexit
 
 1368:                                             ; preds = %1300, %1296, %1288, %1284, %1281, %.thread581
-  %1369 = call fastcc i32 @dissect_b_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, i16 noundef zeroext %106, i16 noundef zeroext 0, i32 noundef 0, i16 noundef zeroext %.0502, ptr noundef nonnull %121)
+  %1369 = call fastcc i32 @dissect_b_frame.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, i16 noundef zeroext %106, i16 noundef zeroext 0, i32 noundef 0, i16 noundef zeroext %.0502, ptr noundef nonnull %121)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %dissect_comrej.exit, %.preheader, %1191, %1151, %1368, %1359, %1366, %1365, %1352, %1244
-  %.2 = phi i32 [ 6, %1151 ], [ %1192, %1191 ], [ %1245, %1244 ], [ %1354, %1352 ], [ %1361, %1359 ], [ 8, %1365 ], [ %1367, %1366 ], [ %1369, %1368 ], [ 4, %.preheader ], [ %.1, %dissect_comrej.exit ]
+.loopexit:                                        ; preds = %dissect_comrej.argprom.exit, %.preheader, %1191, %1151, %1368, %1359, %1366, %1365, %1352, %1244
+  %.2 = phi i32 [ 6, %1151 ], [ %1192, %1191 ], [ %1245, %1244 ], [ %1354, %1352 ], [ %1361, %1359 ], [ 8, %1365 ], [ %1367, %1366 ], [ %1369, %1368 ], [ 4, %.preheader ], [ %.1, %dissect_comrej.argprom.exit ]
   ret i32 %.2
 }
 
@@ -4530,7 +4530,7 @@ declare i32 @dissector_try_string(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_s_frame(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_s_frame.argprom.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4) #8
   %5 = zext i16 %4 to i32
   %6 = lshr i32 %5, 2
@@ -4569,7 +4569,7 @@ declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_b_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, ptr noundef %8) unnamed_addr #1 {
+define internal fastcc i32 @dissect_b_frame.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, ptr noundef %8) unnamed_addr #1 {
   %10 = alloca %struct._uuid_t, align 2
   %11 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #8
   %12 = zext i16 %7 to i32
@@ -4722,7 +4722,7 @@ proto_item_set_generated.exit:                    ; preds = %60, %61, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull %8, ptr noundef %9, i32 noundef %10) unnamed_addr #1 {
+define internal fastcc i32 @dissect_le_frame.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull %8, ptr noundef %9, i32 noundef %10) unnamed_addr #1 {
   %12 = alloca %struct._uuid_t, align 2
   %13 = getelementptr inbounds i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8
@@ -5002,7 +5002,7 @@ proto_item_set_generated.exit:                    ; preds = %125, %122, %121, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_i_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i16 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc i32 @dissect_i_frame.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i16 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6, ptr noundef %7) unnamed_addr #1 {
 switch.lookup:
   %8 = alloca %struct._uuid_t, align 2
   %9 = getelementptr inbounds i8, ptr %4, i64 20
@@ -5013,7 +5013,7 @@ switch.lookup:
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_i_frame, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_i_frame.argelim, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @col_append_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull %switch.load) #8
   %17 = load i32, ptr @hf_btl2cap_control, align 4
@@ -5420,7 +5420,7 @@ declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #0
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_options(ptr noundef %0, i32 noundef range(i32 -2147483640, 65549) %1, ptr noundef %2, i32 noundef range(i32 -6, 65532) %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_options.argprom(ptr noundef %0, i32 noundef range(i32 -2147483640, 65549) %1, ptr noundef %2, i32 noundef range(i32 -6, 65532) %3, ptr noundef writeonly %4) unnamed_addr #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %6
 

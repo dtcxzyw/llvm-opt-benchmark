@@ -1466,7 +1466,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit267:        ; preds = %_ZNSt6vectorIiSaIiE
   %599 = getelementptr inbounds i8, ptr %6, i64 8
   %.val129 = load ptr, ptr %599, align 8
   %600 = icmp eq ptr %.val128, %.val129
-  br i1 %600, label %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit, label %601
+  br i1 %600, label %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit, label %601
 
 601:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit267
   %602 = getelementptr inbounds i8, ptr %.val129, i64 -8
@@ -1474,32 +1474,32 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit267:        ; preds = %_ZNSt6vectorIiSaIiE
   %604 = getelementptr inbounds i8, ptr %.val129, i64 -4
   %605 = load i32, ptr %604, align 4
   %606 = add nsw i32 %605, %603
-  br label %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit
+  br label %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit
 
-_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit: ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit267, %601
+_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit: ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit267, %601
   %.0.i = phi i32 [ %606, %601 ], [ 0, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit267 ]
   store i32 %.0.i, ptr %0, align 8
   %.val = load ptr, ptr %1, align 8
   %.val127 = load ptr, ptr %36, align 8
   %607 = icmp eq ptr %.val, %.val127
-  br i1 %607, label %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit269, label %608
+  br i1 %607, label %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit269, label %608
 
-608:                                              ; preds = %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit
+608:                                              ; preds = %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit
   %609 = getelementptr inbounds i8, ptr %.val127, i64 -8
   %610 = load i32, ptr %609, align 4
   %611 = getelementptr inbounds i8, ptr %.val127, i64 -4
   %612 = load i32, ptr %611, align 4
   %613 = add nsw i32 %612, %610
-  br label %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit269
+  br label %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit269
 
-_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit269: ; preds = %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit, %608
-  %.0.i268 = phi i32 [ %613, %608 ], [ 0, %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit ]
+_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit269: ; preds = %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit, %608
+  %.0.i268 = phi i32 [ %613, %608 ], [ 0, %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit ]
   %614 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.0.i268, ptr %614, align 4
   %615 = trunc nuw i8 %.3108.lcssa to i1
   br i1 %615, label %.critedge, label %616
 
-616:                                              ; preds = %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit269
+616:                                              ; preds = %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit269
   invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull @.str, i32 noundef 196)
           to label %617 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1521,7 +1521,7 @@ _ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit2
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #18
   unreachable
 
-.critedge:                                        ; preds = %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.exit269
+.critedge:                                        ; preds = %_ZN5ceres8internal12_GLOBAL__N_19DimensionERKSt6vectorINS0_5BlockESaIS3_EE.argprom.exit269
   %624 = load ptr, ptr @_ZZN5ceres8internal24CudaBlockSparseStructureC1ERKNS0_27CompressedRowBlockStructureEiPNS0_11ContextImplEE8vlocal__, align 8
   %625 = icmp eq ptr %624, null
   br i1 %625, label %626, label %628

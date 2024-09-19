@@ -359,14 +359,14 @@ if.end4:                                          ; preds = %if.end
 if.end10.thread.i:                                ; preds = %if.end4
   %or9.i = or disjoint i32 %and3.i, 4
   store i32 %or9.i, ptr %ee.i, align 4
-  br label %aeApiDelEvent.exit
+  br label %aeApiDelEvent.argprom.exit
 
 if.end10.i:                                       ; preds = %if.end4
   %cmp.not.i = icmp eq i32 %and.i, 0
   %spec.select.i = select i1 %cmp.not.i, i32 2, i32 3
-  br label %aeApiDelEvent.exit
+  br label %aeApiDelEvent.argprom.exit
 
-aeApiDelEvent.exit:                               ; preds = %if.end10.thread.i, %if.end10.i
+aeApiDelEvent.argprom.exit:                       ; preds = %if.end10.thread.i, %if.end10.i
   %.sink3.i = phi i32 [ 3, %if.end10.thread.i ], [ %spec.select.i, %if.end10.i ]
   store i32 %fd, ptr %5, align 4
   %6 = load i32, ptr %eventLoop.val19, align 8
@@ -381,7 +381,7 @@ aeApiDelEvent.exit:                               ; preds = %if.end10.thread.i, 
   %or.cond = select i1 %cmp10, i1 %cmp12, i1 false
   br i1 %or.cond, label %for.cond.preheader, label %if.end24
 
-for.cond.preheader:                               ; preds = %aeApiDelEvent.exit
+for.cond.preheader:                               ; preds = %aeApiDelEvent.argprom.exit
   %9 = zext i32 %fd to i64
   %smin = call i32 @llvm.smin.i32(i32 %fd, i32 0)
   %10 = add i32 %smin, -1
@@ -411,7 +411,7 @@ for.end:                                          ; preds = %for.cond, %for.end.
   store i32 %j.0.lcssa, ptr %eventLoop, align 8
   br label %if.end24
 
-if.end24:                                         ; preds = %if.end, %entry, %for.end, %aeApiDelEvent.exit
+if.end24:                                         ; preds = %if.end, %entry, %for.end, %aeApiDelEvent.argprom.exit
   ret void
 }
 
@@ -619,9 +619,9 @@ if.end6.i:                                        ; preds = %land.lhs.true.i, %l
   %next.i = getelementptr inbounds i8, ptr %te.01.i, i64 48
   %9 = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %usUntilEarliestTimer.exit, label %while.body.i, !llvm.loop !11
+  br i1 %tobool.not.i, label %usUntilEarliestTimer.argprom.exit, label %while.body.i, !llvm.loop !11
 
-usUntilEarliestTimer.exit:                        ; preds = %if.end6.i
+usUntilEarliestTimer.argprom.exit:                ; preds = %if.end6.i
   %10 = load ptr, ptr @getMonotonicUs, align 8
   %call.i = tail call i64 %10() #16
   %when7.i = getelementptr inbounds i8, ptr %earliest.1.i, i64 8
@@ -630,7 +630,7 @@ usUntilEarliestTimer.exit:                        ; preds = %if.end6.i
   %cmp26 = icmp sgt i64 %spec.select11.i, -1
   br i1 %cmp26, label %if.then27, label %cond.end.i
 
-if.then27:                                        ; preds = %usUntilEarliestTimer.exit
+if.then27:                                        ; preds = %usUntilEarliestTimer.argprom.exit
   %div = udiv i64 %spec.select11.i, 1000000
   %rem = urem i64 %spec.select11.i, 1000000
   %12 = trunc nuw nsw i64 %rem to i32
@@ -641,8 +641,8 @@ if.then27:                                        ; preds = %usUntilEarliestTime
   %16 = add i32 %15, %13
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %lor.lhs.false18, %if.then27, %if.end15, %if.then25, %usUntilEarliestTimer.exit
-  %cond.i = phi i32 [ -1, %usUntilEarliestTimer.exit ], [ -1, %if.then25 ], [ %16, %if.then27 ], [ %.mux, %lor.lhs.false18 ], [ 0, %if.end15 ]
+cond.end.i:                                       ; preds = %lor.lhs.false18, %if.then27, %if.end15, %if.then25, %usUntilEarliestTimer.argprom.exit
+  %cond.i = phi i32 [ -1, %usUntilEarliestTimer.argprom.exit ], [ -1, %if.then25 ], [ %16, %if.then27 ], [ %.mux, %lor.lhs.false18 ], [ 0, %if.end15 ]
   %.pn.in = getelementptr inbounds i8, ptr %eventLoop, i64 48
   %.pn = load ptr, ptr %.pn.in, align 8
   %17 = load i32, ptr %.pn, align 8

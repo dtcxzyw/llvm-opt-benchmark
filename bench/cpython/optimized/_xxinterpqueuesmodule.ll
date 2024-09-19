@@ -179,7 +179,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call fastcc void @clear_module_state(ptr noundef nonnull %call.i)
+  tail call fastcc void @clear_module_state.retelim(ptr noundef nonnull %call.i)
   ret i32 0
 }
 
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @module_free(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #4
-  tail call fastcc void @clear_module_state(ptr noundef %call.i)
+  tail call fastcc void @clear_module_state.retelim(ptr noundef %call.i)
   %0 = load i32, ptr @_globals, align 8
   %dec.i = add i32 %0, -1
   store i32 %dec.i, ptr @_globals, align 8
@@ -318,7 +318,7 @@ if.end4:                                          ; preds = %if.end.i9.i
 
 if.then8:                                         ; preds = %if.end4
   %call9 = call ptr @PyErr_GetRaisedException() #4
-  %call10 = call fastcc i32 @queue_destroy(i64 noundef %2)
+  %call10 = call fastcc i32 @queue_destroy.argprom(i64 noundef %2)
   %call11 = call fastcc i32 @handle_queue_error(i32 noundef %call10, ptr noundef %self, i64 noundef %2)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end14, label %if.then13
@@ -347,7 +347,7 @@ entry:
 if.end:                                           ; preds = %entry
   %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
-  %call1 = call fastcc i32 @queue_destroy(i64 noundef %0)
+  %call1 = call fastcc i32 @queue_destroy.argprom(i64 noundef %0)
   %call2 = call fastcc i32 @handle_queue_error(i32 noundef %call1, ptr noundef %self, i64 noundef %0)
   %tobool3.not = icmp eq i32 %call2, 0
   %_Py_NoneStruct. = select i1 %tobool3.not, ptr @_Py_NoneStruct, ptr null
@@ -472,7 +472,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %2, i32 noundef 1) #4
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not6.i.i.i, label %_queues_lookup.exit.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_queues_lookup.argprom.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %5, %if.end.i.i.i ], [ %3, %if.end ]
@@ -484,12 +484,12 @@ while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %ref.08.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i.i, label %_queues_lookup.exit.i, label %while.body.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i, label %_queues_lookup.argprom.exit.i, label %while.body.i.i.i, !llvm.loop !8
 
-_queues_lookup.exit.i:                            ; preds = %if.end.i.i.i, %if.end
+_queues_lookup.argprom.exit.i:                    ; preds = %if.end.i.i.i, %if.end
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %6) #4
-  br label %queue_put.exit
+  br label %queue_put.argprom.exit
 
 if.end.i:                                         ; preds = %while.body.i.i.i
   %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
@@ -514,13 +514,13 @@ if.then.i11.i:                                    ; preds = %if.then3.i
   %sub.i.i = add i64 %11, -1
   store i64 %sub.i.i, ptr %7, align 8
   call void @PyThread_release_lock(ptr noundef nonnull %10) #4
-  br label %queue_put.exit
+  br label %queue_put.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.then3.i
   %12 = load i64, ptr %7, align 8
   %sub2.i.i = add i64 %12, -1
   store i64 %sub2.i.i, ptr %7, align 8
-  br label %queue_put.exit
+  br label %queue_put.argprom.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = call i32 @_PyObject_GetCrossInterpreterData(ptr noundef %1, ptr noundef nonnull %call1.i) #4
@@ -548,7 +548,7 @@ if.else.i19.i:                                    ; preds = %if.then7.i
 
 _queue_unmark_waiter.exit21.i:                    ; preds = %if.else.i19.i, %if.then.i15.i
   call void @PyMem_RawFree(ptr noundef nonnull %call1.i) #4
-  br label %queue_put.exit
+  br label %queue_put.argprom.exit
 
 if.end9.i:                                        ; preds = %if.end4.i
   %mutex.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
@@ -627,22 +627,22 @@ if.else.i30.i:                                    ; preds = %_queue_add.exit.i
   br label %_queue_unmark_waiter.exit32.i
 
 _queue_unmark_waiter.exit32.i:                    ; preds = %if.else.i30.i, %if.then.i26.i
-  br i1 %cmp12.not.i, label %queue_put.exit, label %if.then13.i
+  br i1 %cmp12.not.i, label %queue_put.argprom.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %_queue_unmark_waiter.exit32.i
   %call5.i.i = call i32 @_PyCrossInterpreterData_Release(ptr noundef nonnull %call1.i) #4
   call void @PyMem_RawFree(ptr noundef nonnull %call1.i) #4
-  br label %queue_put.exit
+  br label %queue_put.argprom.exit
 
-queue_put.exit:                                   ; preds = %_queues_lookup.exit.i, %if.then.i11.i, %if.else.i.i, %_queue_unmark_waiter.exit21.i, %_queue_unmark_waiter.exit32.i, %if.then13.i
-  %retval.0.i = phi i32 [ -1, %_queue_unmark_waiter.exit21.i ], [ %retval.0.i23.i, %if.then13.i ], [ -14, %_queues_lookup.exit.i ], [ 0, %_queue_unmark_waiter.exit32.i ], [ -1, %if.then.i11.i ], [ -1, %if.else.i.i ]
+queue_put.argprom.exit:                           ; preds = %_queues_lookup.argprom.exit.i, %if.then.i11.i, %if.else.i.i, %_queue_unmark_waiter.exit21.i, %_queue_unmark_waiter.exit32.i, %if.then13.i
+  %retval.0.i = phi i32 [ -1, %_queue_unmark_waiter.exit21.i ], [ %retval.0.i23.i, %if.then13.i ], [ -14, %_queues_lookup.argprom.exit.i ], [ 0, %_queue_unmark_waiter.exit32.i ], [ -1, %if.then.i11.i ], [ -1, %if.else.i.i ]
   %call2 = call fastcc i32 @handle_queue_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   %tobool3.not = icmp eq i32 %call2, 0
   %_Py_NoneStruct. = select i1 %tobool3.not, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-return:                                           ; preds = %queue_put.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %_Py_NoneStruct., %queue_put.exit ]
+return:                                           ; preds = %queue_put.argprom.exit, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %_Py_NoneStruct., %queue_put.argprom.exit ]
   ret ptr %retval.0
 }
 
@@ -663,7 +663,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not6.i.i.i, label %_queues_lookup.exit.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_queues_lookup.argprom.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end ]
@@ -675,9 +675,9 @@ while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %4 = load ptr, ptr %ref.08.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i, label %_queues_lookup.exit.i, label %while.body.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i, label %_queues_lookup.argprom.exit.i, label %while.body.i.i.i, !llvm.loop !8
 
-_queues_lookup.exit.i:                            ; preds = %if.end.i.i.i, %if.end
+_queues_lookup.argprom.exit.i:                    ; preds = %if.end.i.i.i, %if.end
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %5) #4
   br label %if.else
@@ -753,7 +753,7 @@ if.else.i.i:                                      ; preds = %_queue_next.exit.i
   br label %_queue_unmark_waiter.exit.i
 
 _queue_unmark_waiter.exit.i:                      ; preds = %if.else.i.i, %if.then.i13.i
-  br i1 %cmp2.not.i, label %if.else.i, label %queue_get.exit
+  br i1 %cmp2.not.i, label %if.else.i, label %queue_get.argprom.exit
 
 if.else.i:                                        ; preds = %_queue_unmark_waiter.exit.i
   %cmp4.i = icmp eq ptr %data.0.i, null
@@ -799,13 +799,13 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call8.i) #4
   br label %if.else
 
-queue_get.exit:                                   ; preds = %_queue_unmark_waiter.exit.i
+queue_get.argprom.exit:                           ; preds = %_queue_unmark_waiter.exit.i
   %22 = load ptr, ptr %dflt, align 8
   %cmp2 = icmp ne ptr %22, null
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then3, label %if.else
 
-if.then3:                                         ; preds = %queue_get.exit
+if.then3:                                         ; preds = %queue_get.argprom.exit
   %23 = load i32, ptr %22, align 8
   %add.i.i = add i32 %23, 1
   %cmp.i.i3 = icmp eq i32 %add.i.i, 0
@@ -815,9 +815,9 @@ if.end.i.i4:                                      ; preds = %if.then3
   store i32 %add.i.i, ptr %22, align 8
   br label %return
 
-if.else:                                          ; preds = %if.end12.i, %if.end.i.i, %if.then1.i.i, %if.then15.i, %if.else.i, %_queues_lookup.exit.i, %_release_xid_data.exit.i, %queue_get.exit
-  %retval.0.i11 = phi i32 [ %retval.0.i12.i, %queue_get.exit ], [ 0, %if.end12.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ], [ -1, %if.then15.i ], [ 0, %if.else.i ], [ -14, %_queues_lookup.exit.i ], [ -1, %_release_xid_data.exit.i ]
-  %obj.110 = phi ptr [ null, %queue_get.exit ], [ %call8.i, %if.end12.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then15.i ], [ null, %if.else.i ], [ null, %_queues_lookup.exit.i ], [ null, %_release_xid_data.exit.i ]
+if.else:                                          ; preds = %if.end12.i, %if.end.i.i, %if.then1.i.i, %if.then15.i, %if.else.i, %_queues_lookup.argprom.exit.i, %_release_xid_data.exit.i, %queue_get.argprom.exit
+  %retval.0.i11 = phi i32 [ %retval.0.i12.i, %queue_get.argprom.exit ], [ 0, %if.end12.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ], [ -1, %if.then15.i ], [ 0, %if.else.i ], [ -14, %_queues_lookup.argprom.exit.i ], [ -1, %_release_xid_data.exit.i ]
+  %obj.110 = phi ptr [ null, %queue_get.argprom.exit ], [ %call8.i, %if.end12.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then15.i ], [ null, %if.else.i ], [ null, %_queues_lookup.argprom.exit.i ], [ null, %_release_xid_data.exit.i ]
   %call5 = call fastcc i32 @handle_queue_error(i32 noundef %retval.0.i11, ptr noundef %self, i64 noundef %0)
   %tobool6.not = icmp eq i32 %call5, 0
   %spec.select = select i1 %tobool6.not, ptr %obj.110, ptr null
@@ -843,7 +843,7 @@ if.end:                                           ; preds = %entry
   %call.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not6.i.i, label %_queues_incref.exit, label %while.body.i.i
+  br i1 %cmp.not6.i.i, label %_queues_incref.argprom.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end, %if.end.i.i
   %ref.08.i.i = phi ptr [ %4, %if.end.i.i ], [ %2, %if.end ]
@@ -855,16 +855,16 @@ while.body.i.i:                                   ; preds = %if.end, %if.end.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i
   %4 = load ptr, ptr %ref.08.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i, label %_queues_incref.exit, label %while.body.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i, label %_queues_incref.argprom.exit, label %while.body.i.i, !llvm.loop !8
 
 if.end.i:                                         ; preds = %while.body.i.i
   %refcount.i = getelementptr inbounds i8, ptr %ref.08.i.i, i64 16
   %5 = load i64, ptr %refcount.i, align 8
   %add.i = add i64 %5, 1
   store i64 %add.i, ptr %refcount.i, align 8
-  br label %_queues_incref.exit
+  br label %_queues_incref.argprom.exit
 
-_queues_incref.exit:                              ; preds = %if.end.i.i, %if.end, %if.end.i
+_queues_incref.argprom.exit:                      ; preds = %if.end.i.i, %if.end, %if.end.i
   %res.0.i = phi i32 [ 0, %if.end.i ], [ -14, %if.end ], [ -14, %if.end.i.i ]
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %6) #4
@@ -873,8 +873,8 @@ _queues_incref.exit:                              ; preds = %if.end.i.i, %if.end
   %_Py_NoneStruct. = select i1 %tobool3.not, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-return:                                           ; preds = %_queues_incref.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %_Py_NoneStruct., %_queues_incref.exit ]
+return:                                           ; preds = %_queues_incref.argprom.exit, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %_Py_NoneStruct., %_queues_incref.argprom.exit ]
   ret ptr %retval.0
 }
 
@@ -889,7 +889,7 @@ entry:
 if.end:                                           ; preds = %entry
   %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
-  call fastcc void @_queues_decref(i64 noundef %0)
+  call fastcc void @_queues_decref.argprom(i64 noundef %0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -912,7 +912,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not6.i.i.i, label %_queues_lookup.exit.thread.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_queues_lookup.argprom.exit.thread.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end ]
@@ -924,12 +924,12 @@ while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %4 = load ptr, ptr %ref.08.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i, label %_queues_lookup.exit.thread.i, label %while.body.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i, label %_queues_lookup.argprom.exit.thread.i, label %while.body.i.i.i, !llvm.loop !8
 
-_queues_lookup.exit.thread.i:                     ; preds = %if.end.i.i.i, %if.end
+_queues_lookup.argprom.exit.thread.i:             ; preds = %if.end.i.i.i, %if.end
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %5) #4
-  br label %queue_get_maxsize.exit
+  br label %queue_get_maxsize.argprom.exit
 
 if.end.i:                                         ; preds = %while.body.i.i.i
   %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
@@ -967,27 +967,27 @@ if.then.i6.i:                                     ; preds = %_queue_get_maxsize.
   %sub.i.i = add i64 %14, -1
   store i64 %sub.i.i, ptr %6, align 8
   call void @PyThread_release_lock(ptr noundef nonnull %13) #4
-  br label %queue_get_maxsize.exit
+  br label %queue_get_maxsize.argprom.exit
 
 if.else.i.i:                                      ; preds = %_queue_get_maxsize.exit.i
   %15 = load i64, ptr %6, align 8
   %sub2.i.i = add i64 %15, -1
   store i64 %sub2.i.i, ptr %6, align 8
-  br label %queue_get_maxsize.exit
+  br label %queue_get_maxsize.argprom.exit
 
-queue_get_maxsize.exit:                           ; preds = %_queues_lookup.exit.thread.i, %if.then.i6.i, %if.else.i.i
-  %maxsize.1 = phi i64 [ -1, %_queues_lookup.exit.thread.i ], [ %maxsize.0, %if.else.i.i ], [ %maxsize.0, %if.then.i6.i ]
-  %retval.0.i = phi i32 [ -14, %_queues_lookup.exit.thread.i ], [ %retval.0.i5.i, %if.else.i.i ], [ %retval.0.i5.i, %if.then.i6.i ]
+queue_get_maxsize.argprom.exit:                   ; preds = %_queues_lookup.argprom.exit.thread.i, %if.then.i6.i, %if.else.i.i
+  %maxsize.1 = phi i64 [ -1, %_queues_lookup.argprom.exit.thread.i ], [ %maxsize.0, %if.else.i.i ], [ %maxsize.0, %if.then.i6.i ]
+  %retval.0.i = phi i32 [ -14, %_queues_lookup.argprom.exit.thread.i ], [ %retval.0.i5.i, %if.else.i.i ], [ %retval.0.i5.i, %if.then.i6.i ]
   %call2 = call fastcc i32 @handle_queue_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %return
 
-if.end5:                                          ; preds = %queue_get_maxsize.exit
+if.end5:                                          ; preds = %queue_get_maxsize.argprom.exit
   %call6 = call ptr @PyLong_FromLongLong(i64 noundef %maxsize.1) #4
   br label %return
 
-return:                                           ; preds = %queue_get_maxsize.exit, %entry, %if.end5
-  %retval.0 = phi ptr [ %call6, %if.end5 ], [ null, %entry ], [ null, %queue_get_maxsize.exit ]
+return:                                           ; preds = %queue_get_maxsize.argprom.exit, %entry, %if.end5
+  %retval.0 = phi ptr [ %call6, %if.end5 ], [ null, %entry ], [ null, %queue_get_maxsize.argprom.exit ]
   ret ptr %retval.0
 }
 
@@ -1006,7 +1006,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not6.i.i.i, label %_queues_lookup.exit.thread.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_queues_lookup.argprom.exit.thread.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end ]
@@ -1018,12 +1018,12 @@ while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %4 = load ptr, ptr %ref.08.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i, label %_queues_lookup.exit.thread.i, label %while.body.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i, label %_queues_lookup.argprom.exit.thread.i, label %while.body.i.i.i, !llvm.loop !8
 
-_queues_lookup.exit.thread.i:                     ; preds = %if.end.i.i.i, %if.end
+_queues_lookup.argprom.exit.thread.i:             ; preds = %if.end.i.i.i, %if.end
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %5) #4
-  br label %queue_is_full.exit
+  br label %queue_is_full.argprom.exit
 
 if.end.i:                                         ; preds = %while.body.i.i.i
   %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
@@ -1065,28 +1065,28 @@ if.then.i6.i:                                     ; preds = %_queue_is_full.exit
   %sub.i.i = add i64 %15, -1
   store i64 %sub.i.i, ptr %6, align 8
   call void @PyThread_release_lock(ptr noundef nonnull %14) #4
-  br label %queue_is_full.exit
+  br label %queue_is_full.argprom.exit
 
 if.else.i.i:                                      ; preds = %_queue_is_full.exit.i
   %16 = load i64, ptr %6, align 8
   %sub2.i.i = add i64 %16, -1
   store i64 %sub2.i.i, ptr %6, align 8
-  br label %queue_is_full.exit
+  br label %queue_is_full.argprom.exit
 
-queue_is_full.exit:                               ; preds = %_queues_lookup.exit.thread.i, %if.then.i6.i, %if.else.i.i
-  %is_full.1 = phi i32 [ 0, %_queues_lookup.exit.thread.i ], [ %is_full.0, %if.else.i.i ], [ %is_full.0, %if.then.i6.i ]
-  %retval.0.i = phi i32 [ -14, %_queues_lookup.exit.thread.i ], [ %retval.0.i5.i, %if.else.i.i ], [ %retval.0.i5.i, %if.then.i6.i ]
+queue_is_full.argprom.exit:                       ; preds = %_queues_lookup.argprom.exit.thread.i, %if.then.i6.i, %if.else.i.i
+  %is_full.1 = phi i32 [ 0, %_queues_lookup.argprom.exit.thread.i ], [ %is_full.0, %if.else.i.i ], [ %is_full.0, %if.then.i6.i ]
+  %retval.0.i = phi i32 [ -14, %_queues_lookup.argprom.exit.thread.i ], [ %retval.0.i5.i, %if.else.i.i ], [ %retval.0.i5.i, %if.then.i6.i ]
   %call2 = call fastcc i32 @handle_queue_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %return
 
-if.end5:                                          ; preds = %queue_is_full.exit
+if.end5:                                          ; preds = %queue_is_full.argprom.exit
   %tobool6.not = icmp eq i32 %is_full.1, 0
   %_Py_FalseStruct._Py_TrueStruct = select i1 %tobool6.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %return
 
-return:                                           ; preds = %if.end5, %queue_is_full.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %queue_is_full.exit ], [ %_Py_FalseStruct._Py_TrueStruct, %if.end5 ]
+return:                                           ; preds = %if.end5, %queue_is_full.argprom.exit, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %queue_is_full.argprom.exit ], [ %_Py_FalseStruct._Py_TrueStruct, %if.end5 ]
   ret ptr %retval.0
 }
 
@@ -1105,7 +1105,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not6.i.i.i, label %_queues_lookup.exit.thread.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_queues_lookup.argprom.exit.thread.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end ]
@@ -1117,12 +1117,12 @@ while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %4 = load ptr, ptr %ref.08.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i, label %_queues_lookup.exit.thread.i, label %while.body.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i, label %_queues_lookup.argprom.exit.thread.i, label %while.body.i.i.i, !llvm.loop !8
 
-_queues_lookup.exit.thread.i:                     ; preds = %if.end.i.i.i, %if.end
+_queues_lookup.argprom.exit.thread.i:             ; preds = %if.end.i.i.i, %if.end
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %5) #4
-  br label %queue_get_count.exit
+  br label %queue_get_count.argprom.exit
 
 if.end.i:                                         ; preds = %while.body.i.i.i
   %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
@@ -1160,27 +1160,27 @@ if.then.i6.i:                                     ; preds = %_queue_get_count.ex
   %sub.i.i = add i64 %14, -1
   store i64 %sub.i.i, ptr %6, align 8
   call void @PyThread_release_lock(ptr noundef nonnull %13) #4
-  br label %queue_get_count.exit
+  br label %queue_get_count.argprom.exit
 
 if.else.i.i:                                      ; preds = %_queue_get_count.exit.i
   %15 = load i64, ptr %6, align 8
   %sub2.i.i = add i64 %15, -1
   store i64 %sub2.i.i, ptr %6, align 8
-  br label %queue_get_count.exit
+  br label %queue_get_count.argprom.exit
 
-queue_get_count.exit:                             ; preds = %_queues_lookup.exit.thread.i, %if.then.i6.i, %if.else.i.i
-  %count.1 = phi i64 [ -1, %_queues_lookup.exit.thread.i ], [ %count.0, %if.else.i.i ], [ %count.0, %if.then.i6.i ]
-  %retval.0.i = phi i32 [ -14, %_queues_lookup.exit.thread.i ], [ %retval.0.i5.i, %if.else.i.i ], [ %retval.0.i5.i, %if.then.i6.i ]
+queue_get_count.argprom.exit:                     ; preds = %_queues_lookup.argprom.exit.thread.i, %if.then.i6.i, %if.else.i.i
+  %count.1 = phi i64 [ -1, %_queues_lookup.argprom.exit.thread.i ], [ %count.0, %if.else.i.i ], [ %count.0, %if.then.i6.i ]
+  %retval.0.i = phi i32 [ -14, %_queues_lookup.argprom.exit.thread.i ], [ %retval.0.i5.i, %if.else.i.i ], [ %retval.0.i5.i, %if.then.i6.i ]
   %call2 = call fastcc i32 @handle_queue_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %return
 
-if.end5:                                          ; preds = %queue_get_count.exit
+if.end5:                                          ; preds = %queue_get_count.argprom.exit
   %call6 = call ptr @PyLong_FromSsize_t(i64 noundef %count.1) #4
   br label %return
 
-return:                                           ; preds = %queue_get_count.exit, %entry, %if.end5
-  %retval.0 = phi ptr [ %call6, %if.end5 ], [ null, %entry ], [ null, %queue_get_count.exit ]
+return:                                           ; preds = %queue_get_count.argprom.exit, %entry, %if.end5
+  %retval.0 = phi ptr [ %call6, %if.end5 ], [ null, %entry ], [ null, %queue_get_count.argprom.exit ]
   ret ptr %retval.0
 }
 
@@ -1350,13 +1350,13 @@ declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -14, 1) i32 @queue_destroy(i64 noundef %qid) unnamed_addr #0 {
+define internal fastcc range(i32 -14, 1) i32 @queue_destroy.argprom(i64 noundef %qid) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #4
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not6.i.i, label %_queues_remove.exit.thread, label %while.body.i.preheader.i
+  br i1 %cmp.not6.i.i, label %_queues_remove.argprom.exit.thread, label %while.body.i.preheader.i
 
 while.body.i.preheader.i:                         ; preds = %entry
   %qid1.i6.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -1374,9 +1374,9 @@ if.end.i.i:                                       ; preds = %while.body.i.prehea
   %ref.08.i8.i = phi ptr [ %4, %while.body.i.i ], [ %1, %while.body.i.preheader.i ]
   %4 = load ptr, ptr %ref.08.i8.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i, label %_queues_remove.exit.thread, label %while.body.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i, label %_queues_remove.argprom.exit.thread, label %while.body.i.i, !llvm.loop !8
 
-_queues_remove.exit.thread:                       ; preds = %if.end.i.i, %entry
+_queues_remove.argprom.exit.thread:               ; preds = %if.end.i.i, %entry
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %5) #4
   br label %return
@@ -1450,8 +1450,8 @@ _queue_free.exit:                                 ; preds = %_queueitem_free.exi
   tail call void @PyMem_RawFree(ptr noundef nonnull %8) #4
   br label %return
 
-return:                                           ; preds = %_queues_remove.exit.thread, %_queue_free.exit
-  %retval.0 = phi i32 [ 0, %_queue_free.exit ], [ -14, %_queues_remove.exit.thread ]
+return:                                           ; preds = %_queues_remove.argprom.exit.thread, %_queue_free.exit
+  %retval.0 = phi i32 [ 0, %_queue_free.exit ], [ -14, %_queues_remove.argprom.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1590,7 +1590,7 @@ declare i32 @_PyObject_GetCrossInterpreterData(ptr noundef, ptr noundef) local_u
 declare ptr @_PyCrossInterpreterData_NewObject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_queues_decref(i64 noundef %qid) unnamed_addr #0 {
+define internal fastcc void @_queues_decref.argprom(i64 noundef %qid) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %call = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #4
@@ -1991,7 +1991,7 @@ define internal void @_queueid_xid_free(ptr noundef %data) #0 {
 entry:
   %0 = load i64, ptr %data, align 8
   tail call void @PyMem_RawFree(ptr noundef nonnull %data) #4
-  tail call fastcc void @_queues_decref(i64 noundef %0)
+  tail call fastcc void @_queues_decref.argprom(i64 noundef %0)
   ret void
 }
 
@@ -2166,7 +2166,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
   %ref.01.i = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not2.i = icmp eq ptr %ref.01.i, null
-  br i1 %cmp.not2.i, label %_queues_clear_interpreter.exit, label %for.body.i
+  br i1 %cmp.not2.i, label %_queues_clear_interpreter.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %_queue_clear_interpreter.exit.i
   %ref.03.i = phi ptr [ %ref.0.i, %_queue_clear_interpreter.exit.i ], [ %ref.01.i, %if.end ]
@@ -2233,14 +2233,14 @@ _queue_clear_interpreter.exit.i:                  ; preds = %if.end16.i.i, %if.e
   tail call void @PyThread_release_lock(ptr noundef %11) #4
   %ref.0.i = load ptr, ptr %ref.03.i, align 8
   %cmp.not.i = icmp eq ptr %ref.0.i, null
-  br i1 %cmp.not.i, label %_queues_clear_interpreter.exit, label %for.body.i, !llvm.loop !11
+  br i1 %cmp.not.i, label %_queues_clear_interpreter.argprom.exit, label %for.body.i, !llvm.loop !11
 
-_queues_clear_interpreter.exit:                   ; preds = %_queue_clear_interpreter.exit.i, %if.end
+_queues_clear_interpreter.argprom.exit:           ; preds = %_queue_clear_interpreter.exit.i, %if.end
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %12) #4
   br label %return
 
-return:                                           ; preds = %entry, %_queues_clear_interpreter.exit
+return:                                           ; preds = %entry, %_queues_clear_interpreter.argprom.exit
   ret void
 }
 
@@ -2255,7 +2255,7 @@ declare i64 @PyInterpreterState_GetID(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyCrossInterpreterData_UnregisterClass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clear_module_state(ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc void @clear_module_state.retelim(ptr nocapture noundef %state) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %cmp.not = icmp eq ptr %0, null

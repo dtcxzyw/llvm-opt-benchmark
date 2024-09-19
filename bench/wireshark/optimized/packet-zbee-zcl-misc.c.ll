@@ -319,7 +319,7 @@ define internal i32 @dissect_zbee_zcl_thermostat(ptr noundef %0, ptr nocapture n
   br label %45
 
 37:                                               ; preds = %16
-  tail call fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %2, ptr noundef %0)
+  tail call fastcc void @dissect_zcl_thermostat_schedule.argelim(ptr noundef %2, ptr noundef %0)
   br label %45
 
 38:                                               ; preds = %6
@@ -333,7 +333,7 @@ define internal i32 @dissect_zbee_zcl_thermostat(ptr noundef %0, ptr nocapture n
   br i1 %cond, label %44, label %45
 
 44:                                               ; preds = %38
-  tail call fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %2, ptr noundef %0)
+  tail call fastcc void @dissect_zcl_thermostat_schedule.argelim(ptr noundef %2, ptr noundef %0)
   br label %45
 
 45:                                               ; preds = %38, %44, %22, %30, %37, %16
@@ -517,7 +517,7 @@ declare signext i8 @tvb_get_gint8(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_thermostat_schedule.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.nstime_t, align 8
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %5 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_num_trans, align 4

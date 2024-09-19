@@ -368,7 +368,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
 
 78:                                               ; preds = %76
   %79 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 5, i64 1, ptr nonnull %0)
-  tail call fastcc void @Io_WriteVerilogRegs(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @Io_WriteVerilogRegs.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %80 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr nonnull %0)
   br label %81
 
@@ -379,7 +379,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
 
 84:                                               ; preds = %81
   %85 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr nonnull %0)
-  tail call fastcc void @Io_WriteVerilogWires(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @Io_WriteVerilogWires.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %86 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr nonnull %0)
   br label %87
 
@@ -3785,7 +3785,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %18, %._crit_edge.i,
 
 79:                                               ; preds = %77
   %80 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 5, i64 1, ptr %0)
-  tail call fastcc void @Io_WriteVerilogRegs(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @Io_WriteVerilogRegs.argelim(ptr noundef %0, ptr noundef nonnull %1)
   %81 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 3, i64 1, ptr %0)
   br label %82
 
@@ -3796,7 +3796,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %18, %._crit_edge.i,
 
 85:                                               ; preds = %82
   %86 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %0)
-  tail call fastcc void @Io_WriteVerilogWires(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @Io_WriteVerilogWires.argelim(ptr noundef %0, ptr noundef nonnull %1)
   %87 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 3, i64 1, ptr %0)
   br label %88
 
@@ -4314,7 +4314,7 @@ Io_WriteVerilogGetName.exit65:                    ; preds = %75, %._crit_edge.i5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogRegs(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogRegs.argelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 128
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 80
@@ -4755,7 +4755,7 @@ define internal fastcc i32 @Io_WriteVerilogWiresCount(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogWires.argelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @Io_WriteVerilogWiresCount(ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8

@@ -964,7 +964,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_12MachineInst
   %13 = load i24, ptr %12, align 8
   %14 = icmp eq i24 %13, 1
   %or.cond.i.i = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond.i.i, label %"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.exit", label %15
+  br i1 %or.cond.i.i, label %"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.argprom.argprom.exit", label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -973,16 +973,16 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_12MachineInst
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 536870912
   %.not.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i, label %"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.exit", label %21
+  br i1 %.not.i.i, label %"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.argprom.argprom.exit", label %21
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %8, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(70) %1) #14
-  br label %"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.exit"
+  br label %"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.argprom.argprom.exit"
 
-"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.exit": ; preds = %2, %15, %21
+"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.argprom.argprom.exit": ; preds = %2, %15, %21
   %26 = phi i1 [ false, %15 ], [ %25, %21 ], [ true, %2 ]
   ret i1 %26
 }

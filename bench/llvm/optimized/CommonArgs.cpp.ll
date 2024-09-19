@@ -675,7 +675,7 @@ _ZL33useFramePointerForTargetByDefaultRKN4llvm3opt7ArgListERKNS_6TripleE.exit: ;
   %.val = load i32, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 44
   %.val18 = load i32, ptr %38, align 4
-  switch i32 %.val, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit [
+  switch i32 %.val, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit [
     i32 1, label %39
     i32 35, label %39
   ]
@@ -683,30 +683,30 @@ _ZL33useFramePointerForTargetByDefaultRKN4llvm3opt7ArgListERKNS_6TripleE.exit: ;
 39:                                               ; preds = %_ZL33useFramePointerForTargetByDefaultRKN4llvm3opt7ArgListERKNS_6TripleE.exit, %_ZL33useFramePointerForTargetByDefaultRKN4llvm3opt7ArgListERKNS_6TripleE.exit
   %40 = and i32 %.val18, -9
   %spec.select.i.i.i = icmp eq i32 %40, 1
-  br i1 %spec.select.i.i.i, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread, label %41
+  br i1 %spec.select.i.i.i, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread, label %41
 
 41:                                               ; preds = %39
-  switch i32 %.val18, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit [
-    i32 26, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread
-    i32 5, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread
-    i32 27, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread
-    i32 29, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread
-    i32 30, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread
+  switch i32 %.val18, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit [
+    i32 26, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread
+    i32 5, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread
+    i32 27, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread
+    i32 29, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread
+    i32 30, label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread
   ]
 
-_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit: ; preds = %41, %_ZL33useFramePointerForTargetByDefaultRKN4llvm3opt7ArgListERKNS_6TripleE.exit
+_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit: ; preds = %41, %_ZL33useFramePointerForTargetByDefaultRKN4llvm3opt7ArgListERKNS_6TripleE.exit
   %42 = tail call noundef zeroext i1 @_ZNK4llvm3opt7ArgList7hasFlagENS0_12OptSpecifierES2_b(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 1219, i32 1484, i1 noundef zeroext %.0.i) #20
   %.pre = load i32, ptr %37, align 8
-  br label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread
+  br label %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread
 
-_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread: ; preds = %39, %41, %41, %41, %41, %41, %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit
-  %43 = phi i32 [ %.pre, %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit ], [ %.val, %41 ], [ %.val, %41 ], [ %.val, %41 ], [ %.val, %41 ], [ %.val, %41 ], [ %.val, %39 ]
-  %44 = phi i1 [ %42, %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit ], [ true, %41 ], [ true, %41 ], [ true, %41 ], [ true, %41 ], [ true, %41 ], [ true, %39 ]
+_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread: ; preds = %39, %41, %41, %41, %41, %41, %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit
+  %43 = phi i32 [ %.pre, %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit ], [ %.val, %41 ], [ %.val, %41 ], [ %.val, %41 ], [ %.val, %41 ], [ %.val, %41 ], [ %.val, %39 ]
+  %44 = phi i1 [ %42, %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit ], [ true, %41 ], [ true, %41 ], [ true, %41 ], [ true, %41 ], [ true, %41 ], [ true, %39 ]
   %.off.i.i = add i32 %43, -3
   %switch.i.i = icmp ult i32 %.off.i.i, 3
   br i1 %switch.i.i, label %_ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit, label %45
 
-45:                                               ; preds = %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread
+45:                                               ; preds = %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread
   %46 = icmp eq i32 %43, 38
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load i32, ptr %47, align 8
@@ -733,14 +733,14 @@ _ZNK4llvm6Triple4isPSEv.exit.i:                   ; preds = %45
   %or.cond.i22 = or i1 %spec.select.i6.i, %56
   br label %_ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit
 
-_ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit: ; preds = %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread, %_ZNK4llvm6Triple4isPSEv.exit.i, %52, %.thread.i
-  %.0.i23 = phi i1 [ false, %52 ], [ false, %_ZNK4llvm6Triple4isPSEv.exit.i ], [ false, %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.exit.thread ], [ %or.cond.i22, %.thread.i ]
+_ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit: ; preds = %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread, %_ZNK4llvm6Triple4isPSEv.exit.i, %52, %.thread.i
+  %.0.i23 = phi i1 [ false, %52 ], [ false, %_ZNK4llvm6Triple4isPSEv.exit.i ], [ false, %_ZL35mustUseNonLeafFramePointerForTargetRKN4llvm6TripleE.argprom.exit.thread ], [ %or.cond.i22, %.thread.i ]
   %.not = xor i1 %44, true
   %brmerge = or i1 %.0.i23, %.not
-  br i1 %brmerge, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit, label %58
+  br i1 %brmerge, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit, label %58
 
 58:                                               ; preds = %_ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit
-  switch i32 %43, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit [
+  switch i32 %43, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit [
     i32 36, label %59
     i32 35, label %59
     i32 2, label %59
@@ -750,33 +750,33 @@ _ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit: ; preds = %_ZL3
 59:                                               ; preds = %58, %58, %58, %58
   %60 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef 2283)
   %.not.i24 = icmp eq ptr %60, null
-  br i1 %.not.i24, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit, label %61
+  br i1 %.not.i24, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit, label %61
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
   %.not.i.i25 = icmp eq ptr %64, null
-  br i1 %.not.i.i25, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i
+  br i1 %.not.i.i25, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %61
   %65 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #20
   %.not.i8.i = icmp eq i64 %65, 10
-  br i1 %.not.i8.i, label %66, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit
+  br i1 %.not.i8.i, label %66, label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit
 
 66:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %64, ptr noundef nonnull dereferenceable(10) @.str.213, i64 10)
   %67 = icmp eq i32 %bcmp.i.i, 0
-  br label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit
+  br label %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit
 
-_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit: ; preds = %66, %_ZN4llvm9StringRefC2EPKc.exit.i, %61, %59, %58, %_ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit
+_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit: ; preds = %66, %_ZN4llvm9StringRefC2EPKc.exit.i, %61, %59, %58, %_ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit
   %68 = phi i1 [ %.0.i23, %_ZL37useLeafFramePointerForTargetByDefaultRKN4llvm6TripleE.exit ], [ false, %59 ], [ %67, %66 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i ], [ false, %58 ], [ false, %61 ]
   %69 = tail call noundef zeroext i1 @_ZNK4llvm3opt7ArgList7hasFlagENS0_12OptSpecifierES2_b(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 2549, i32 2670, i1 noundef zeroext %68) #20
-  br i1 %44, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread, label %70
+  br i1 %44, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread, label %70
 
-70:                                               ; preds = %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit
+70:                                               ; preds = %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit
   %.val20 = load i32, ptr %37, align 8
-  switch i32 %.val20, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread40 [
+  switch i32 %.val20, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread40 [
     i32 36, label %71
     i32 35, label %71
     i32 2, label %71
@@ -786,29 +786,29 @@ _ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit:
 71:                                               ; preds = %70, %70, %70, %70
   %72 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef 2283)
   %.not.i27 = icmp eq ptr %72, null
-  br i1 %.not.i27, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread40, label %73
+  br i1 %.not.i27, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread40, label %73
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %75, align 8
   %.not.i.i28 = icmp eq ptr %76, null
-  br i1 %.not.i.i28, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i29
+  br i1 %.not.i.i28, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i29
 
 _ZN4llvm9StringRefC2EPKc.exit.i29:                ; preds = %73
   %77 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #20
   %.not.i.i.i = icmp eq i64 %77, 4
-  br i1 %.not.i.i.i, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread
+  br i1 %.not.i.i.i, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit, label %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread
 
-_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread: ; preds = %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.exit, %_ZN4llvm9StringRefC2EPKc.exit.i29, %73
+_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread: ; preds = %_ZL35framePointerImpliesLeafFramePointerRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit, %_ZN4llvm9StringRefC2EPKc.exit.i29, %73
   %.35 = select i1 %69, i32 3, i32 2
   br label %78
 
-_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread40: ; preds = %71, %70
+_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread40: ; preds = %71, %70
   %.41 = select i1 %69, i32 3, i32 2
   br label %78
 
-_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i29
+_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i29
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %76, ptr noundef nonnull dereferenceable(4) @.str.7, i64 4)
   %bcmp.i.i.i.fr = freeze i32 %bcmp.i.i.i
   %.not43 = icmp ne i32 %bcmp.i.i.i.fr, 0
@@ -816,9 +816,9 @@ _ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit: ; preds
   %spec.select = zext i1 %.not43 to i32
   br label %78
 
-78:                                               ; preds = %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread40
-  %.37 = phi i32 [ %.41, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread40 ], [ %.35, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread ], [ %., %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit ]
-  %79 = phi i32 [ 0, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread40 ], [ 1, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit.thread ], [ %spec.select, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.exit ]
+78:                                               ; preds = %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread40
+  %.37 = phi i32 [ %.41, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread40 ], [ %.35, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread ], [ %., %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit ]
+  %79 = phi i32 [ 0, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread40 ], [ 1, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit.thread ], [ %spec.select, %_ZL27mustMaintainValidFrameChainRKN4llvm3opt7ArgListERKNS_6TripleE.argprom.exit ]
   %.0 = select i1 %44, i32 %.37, i32 %79
   ret i32 %.0
 }
@@ -9633,13 +9633,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit140.i: ; preds = %2
   %2053 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #20
   %2054 = load ptr, ptr %37, align 8
   %2055 = icmp eq ptr %2054, %1892
-  br i1 %2055, label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoESG_NS_9StringRefE.exit, label %2056
+  br i1 %2055, label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoESG_NS_9StringRefE.argprom.exit, label %2056
 
 2056:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit140.i
   call void @free(ptr noundef %2054) #20
-  br label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoESG_NS_9StringRefE.exit
+  br label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoESG_NS_9StringRefE.argprom.exit
 
-_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoESG_NS_9StringRefE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit140.i, %2056
+_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoESG_NS_9StringRefE.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit140.i, %2056
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
@@ -9652,7 +9652,7 @@ _ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46)
   br label %2057
 
-2057:                                             ; preds = %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoESG_NS_9StringRefE.exit, %_ZL18renderRpassOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEENS_9StringRefE.exit
+2057:                                             ; preds = %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoESG_NS_9StringRefE.argprom.exit, %_ZL18renderRpassOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEENS_9StringRefE.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
@@ -15839,7 +15839,7 @@ _ZN4llvm9StringRefC2EPKc.exit34:                  ; preds = %_ZN4llvm9StringRefC
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %102 = icmp eq i32 %.val, 8
-  br i1 %102, label %103, label %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit"
+  br i1 %102, label %103, label %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit"
 
 103:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit34
   %104 = load i8, ptr %.val24, align 1
@@ -15864,9 +15864,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %105, %103
   %109 = getelementptr inbounds i8, ptr %107, i64 %108
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %107, ptr noundef %109)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
-  br label %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit"
+  br label %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit"
 
-"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit": ; preds = %_ZN4llvm9StringRefC2EPKc.exit34, %_ZN4llvmplERKNS_5TwineES2_.exit.i
+"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit": ; preds = %_ZN4llvm9StringRefC2EPKc.exit34, %_ZN4llvmplERKNS_5TwineES2_.exit.i
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull @.str.278, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.278, i64 4))
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -15894,11 +15894,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %105, %103
   %125 = icmp eq ptr %124, %115
   br i1 %125, label %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit38, label %126
 
-126:                                              ; preds = %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit"
+126:                                              ; preds = %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit"
   call void @free(ptr noundef %124) #20
   br label %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit38
 
-_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit38: ; preds = %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit", %126
+_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit38: ; preds = %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit", %126
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %8)
   br label %164
 
@@ -15926,7 +15926,7 @@ _ZN4llvm9StringRefC2EPKc.exit40:                  ; preds = %127, %130
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %139 = icmp eq i32 %.val25, 8
-  br i1 %139, label %140, label %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit46"
+  br i1 %139, label %140, label %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit46"
 
 140:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit40
   %141 = load i8, ptr %.val26, align 1
@@ -15951,9 +15951,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i42:              ; preds = %142, %140
   %146 = getelementptr inbounds i8, ptr %144, i64 %145
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %144, ptr noundef %146)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
-  br label %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit46"
+  br label %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit46"
 
-"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit46": ; preds = %_ZN4llvm9StringRefC2EPKc.exit40, %_ZN4llvmplERKNS_5TwineES2_.exit.i42
+"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit46": ; preds = %_ZN4llvm9StringRefC2EPKc.exit40, %_ZN4llvmplERKNS_5TwineES2_.exit.i42
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull @.str.278, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.278, i64 4))
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -15981,11 +15981,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i42:              ; preds = %142, %140
   %162 = icmp eq ptr %161, %152
   br i1 %162, label %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit47, label %163
 
-163:                                              ; preds = %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit46"
+163:                                              ; preds = %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit46"
   call void @free(ptr noundef %161) #20
   br label %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit47
 
-_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit47: ; preds = %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.exit46", %163
+_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit47: ; preds = %"_ZZN5clang6driver5tools14SplitDebugNameERKNS0_9JobActionERKN4llvm3opt7ArgListERKNS0_9InputInfoESC_ENK3$_0clINS5_11SmallStringILj128EEEEEDaRT_.argprom.exit46", %163
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5)
   br label %164
 
@@ -18757,12 +18757,12 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i.i,
 69:                                               ; preds = %22
   %70 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %3, i32 noundef 3170)
   %.not.i.i27 = icmp eq ptr %70, null
-  br i1 %.not.i.i27, label %71, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.thread.i
+  br i1 %.not.i.i27, label %71, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.thread.i
 
 71:                                               ; preds = %69
   %72 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %3, i32 noundef 3176)
   %.not4.i.i = icmp eq ptr %72, null
-  br i1 %.not4.i.i, label %73, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.thread.i
+  br i1 %.not4.i.i, label %73, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.thread.i
 
 73:                                               ; preds = %71
   %74 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %3, i32 noundef 3175)
@@ -18770,43 +18770,43 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i.i,
   %76 = load i32, ptr %26, align 8
   %77 = icmp eq i32 %76, 14
   %or.cond.i.i = select i1 %75, i1 true, i1 %77
-  br i1 %or.cond.i.i, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.thread.i, label %78
+  br i1 %or.cond.i.i, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.thread.i, label %78
 
 78:                                               ; preds = %73
   %79 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %3, i32 noundef 3142)
   %.not5.i.i = icmp eq ptr %79, null
-  br i1 %.not5.i.i, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.i, label %.thread.i
+  br i1 %.not5.i.i, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.i, label %.thread.i
 
 .thread.i:                                        ; preds = %78
   tail call fastcc void @_ZL16AddUnwindLibraryRKN5clang6driver9ToolChainERKNS0_6DriverERN4llvm11SmallVectorIPKcLj16EEERKNS7_3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(2168) %0, ptr noundef nonnull readonly align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(176) %3)
   br label %97
 
-_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.i: ; preds = %78
+_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.i: ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 1
-  br i1 %82, label %.thread22.i, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.thread.i
+  br i1 %82, label %.thread22.i, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.thread.i
 
-.thread22.i:                                      ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.i
+.thread22.i:                                      ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.i
   tail call fastcc void @_ZL16AddUnwindLibraryRKN5clang6driver9ToolChainERKNS0_6DriverERN4llvm11SmallVectorIPKcLj16EEERKNS7_3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(2168) %0, ptr noundef nonnull readonly align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(176) %3)
   %.old24.i = load i32, ptr %80, align 8
   %.old25.i = icmp eq i32 %.old24.i, 1
   br i1 %.old25.i, label %97, label %_ZL9AddLibgccRKN5clang6driver9ToolChainERKNS0_6DriverERN4llvm11SmallVectorIPKcLj16EEERKNS7_3opt7ArgListE.exit
 
-_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.thread.i: ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.i, %73, %71, %69
-  %cond.i = phi i1 [ true, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.i ], [ false, %73 ], [ false, %71 ], [ false, %69 ]
+_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.thread.i: ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.i, %73, %71, %69
+  %cond.i = phi i1 [ true, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.i ], [ false, %73 ], [ false, %71 ], [ false, %69 ]
   %83 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %84 = add i64 %83, 1
   %85 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %.not.i.i.i.i28 = icmp ugt i64 %84, %85
   br i1 %.not.i.i.i.i28, label %86, label %88
 
-86:                                               ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.thread.i
+86:                                               ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.thread.i
   %87 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %87, i64 noundef %84, i64 noundef 8) #20
   br label %88
 
-88:                                               ; preds = %86, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit.thread.i
+88:                                               ; preds = %86, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit.thread.i
   %89 = load ptr, ptr %2, align 8
   %90 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %91 = getelementptr inbounds ptr, ptr %89, i64 %90
@@ -18970,16 +18970,16 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit: ; preds = %35
 50:                                               ; preds = %45
   %51 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %3, i32 noundef 3142)
   %.not5.i = icmp eq ptr %51, null
-  br i1 %.not5.i, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit, label %.thread
+  br i1 %.not5.i, label %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit, label %.thread
 
-_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit: ; preds = %50
+_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit: ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = icmp ne i32 %53, 1
   %or.cond60.not = select i1 %16, i1 true, i1 %54
   br i1 %or.cond60.not, label %55, label %.thread
 
-55:                                               ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit
+55:                                               ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit
   %56 = load i32, ptr %9, align 8
   %57 = icmp eq i32 %56, 14
   br i1 %57, label %.thread, label %58
@@ -18999,10 +18999,10 @@ _ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE
   tail call void @_ZN5clang6driver5tools17addAsNeededOptionERKNS0_9ToolChainERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEEb(ptr noundef nonnull align 8 dereferenceable(2168) %0, ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(144) %2, i1 noundef zeroext true)
   br label %.thread
 
-.thread:                                          ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit, %58, %50, %41, %43, %45, %55, %64
-  %65 = phi i1 [ true, %64 ], [ false, %55 ], [ false, %45 ], [ false, %43 ], [ false, %41 ], [ false, %50 ], [ false, %58 ], [ false, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit ]
-  %66 = phi i1 [ false, %64 ], [ false, %55 ], [ true, %45 ], [ true, %43 ], [ true, %41 ], [ false, %50 ], [ false, %58 ], [ false, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit ]
-  %.0.i5052 = phi i32 [ 0, %64 ], [ 0, %55 ], [ 1, %45 ], [ 1, %43 ], [ 1, %41 ], [ 2, %50 ], [ 0, %58 ], [ 0, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.exit ]
+.thread:                                          ; preds = %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit, %58, %50, %41, %43, %45, %55, %64
+  %65 = phi i1 [ true, %64 ], [ false, %55 ], [ false, %45 ], [ false, %43 ], [ false, %41 ], [ false, %50 ], [ false, %58 ], [ false, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit ]
+  %66 = phi i1 [ false, %64 ], [ false, %55 ], [ true, %45 ], [ true, %43 ], [ true, %41 ], [ false, %50 ], [ false, %58 ], [ false, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit ]
+  %.0.i5052 = phi i32 [ 0, %64 ], [ 0, %55 ], [ 1, %45 ], [ 1, %43 ], [ 1, %41 ], [ 2, %50 ], [ 0, %58 ], [ 0, %_ZL13getLibGccTypeRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm3opt7ArgListE.argprom.exit ]
   switch i32 %8, label %80 [
     i32 1, label %68
     i32 2, label %67
@@ -21062,13 +21062,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i: ; preds = %766,
 _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i73: ; preds = %.lr.ph.i.i.i70, %._crit_edge39.i
   %780 = load ptr, ptr %96, align 8
   %781 = icmp eq ptr %780, %275
-  br i1 %781, label %_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.exit, label %782
+  br i1 %781, label %_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.argprom.exit, label %782
 
 782:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i73
   call void @free(ptr noundef %780) #20
-  br label %_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.exit
+  br label %_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.argprom.exit
 
-_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i73, %782
+_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i73, %782
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %96)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %98)
@@ -21120,7 +21120,7 @@ _ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKc
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %144)
   br i1 %.148.i, label %1149, label %783
 
-783:                                              ; preds = %_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.exit
+783:                                              ; preds = %_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.argprom.exit
   %784 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %171) #20
   %785 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %171) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90)
@@ -21186,7 +21186,7 @@ _ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKc
 786:                                              ; preds = %783
   %787 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr nonnull @.str.190, i64 5, i64 noundef 0) #20
   %.not54.i = icmp eq i64 %787, -1
-  br i1 %.not54.i, label %788, label %_ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4ToolERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNSC_3opt7ArgListERNSD_IPKcLj16EEERKNSC_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSC_9StringRefES10_S10_b.exit
+  br i1 %.not54.i, label %788, label %_ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4ToolERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNSC_3opt7ArgListERNSD_IPKcLj16EEERKNSC_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSC_9StringRefES10_S10_b.argprom.exit
 
 788:                                              ; preds = %786, %783
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #20
@@ -22129,9 +22129,9 @@ _ZN4llvm11SmallVectorIPKcLj16EED2Ev.exit174.i:    ; preds = %1148, %_ZN4llvm11Sm
 .thread48.i:                                      ; preds = %_ZN4llvm11SmallVectorIPKcLj16EED2Ev.exit174.i, %827, %_ZN4llvm9StringRef13consume_frontES0_.exit._crit_edge.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit59.thread34.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #20
-  br label %_ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4ToolERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNSC_3opt7ArgListERNSD_IPKcLj16EEERKNSC_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSC_9StringRefES10_S10_b.exit
+  br label %_ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4ToolERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNSC_3opt7ArgListERNSD_IPKcLj16EEERKNSC_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSC_9StringRefES10_S10_b.argprom.exit
 
-_ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4ToolERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNSC_3opt7ArgListERNSD_IPKcLj16EEERKNSC_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSC_9StringRefES10_S10_b.exit: ; preds = %786, %.thread48.i
+_ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4ToolERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNSC_3opt7ArgListERNSD_IPKcLj16EEERKNSC_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSC_9StringRefES10_S10_b.argprom.exit: ; preds = %786, %.thread48.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37)
@@ -22189,7 +22189,7 @@ _ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4T
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %89)
   br label %1149
 
-1149:                                             ; preds = %_ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4ToolERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNSC_3opt7ArgListERNSD_IPKcLj16EEERKNSC_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSC_9StringRefES10_S10_b.exit, %_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.exit
+1149:                                             ; preds = %_ZL24GetSDLFromOffloadArchiveRN5clang6driver11CompilationERKNS0_6DriverERKNS0_4ToolERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNSC_3opt7ArgListERNSD_IPKcLj16EEERKNSC_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSC_9StringRefES10_S10_b.argprom.exit, %_ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKcLj16EEERKNS4_15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS4_9StringRefESO_SO_b.argprom.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %171) #20
   br i1 %270, label %1150, label %1152
 

@@ -2589,7 +2589,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %789
   %.val = load ptr, ptr %799, align 8
   %800 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %800, align 8
-  %801 = call fastcc noundef zeroext i1 @_ZL22check_compare_clippingbP6IfNodeP7ConNodeRP4Node(i1 noundef zeroext true, ptr %.val.val, ptr noundef %798, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %801 = call fastcc noundef zeroext i1 @_ZL22check_compare_clippingbP6IfNodeP7ConNodeRP4Node.argprom.argprom(i1 noundef zeroext true, ptr %.val.val, ptr noundef %798, ptr noundef nonnull align 8 dereferenceable(8) %13)
   br i1 %801, label %802, label %.critedge235.thread
 
 802:                                              ; preds = %796
@@ -2599,7 +2599,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %789
   %.val239 = load ptr, ptr %805, align 8
   %806 = getelementptr i8, ptr %.val239, i64 8
   %.val239.val = load ptr, ptr %806, align 8
-  %807 = call fastcc noundef zeroext i1 @_ZL22check_compare_clippingbP6IfNodeP7ConNodeRP4Node(i1 noundef zeroext false, ptr %.val239.val, ptr noundef %804, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %807 = call fastcc noundef zeroext i1 @_ZL22check_compare_clippingbP6IfNodeP7ConNodeRP4Node.argprom.argprom(i1 noundef zeroext false, ptr %.val239.val, ptr noundef %804, ptr noundef nonnull align 8 dereferenceable(8) %12)
   br i1 %807, label %808, label %.critedge235.thread
 
 808:                                              ; preds = %802
@@ -3848,7 +3848,7 @@ define internal fastcc noundef zeroext i1 @_ZL17check_if_clippingPK10RegionNodeR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL22check_compare_clippingbP6IfNodeP7ConNodeRP4Node(i1 noundef zeroext %0, ptr nocapture readonly %.8.val.8.val, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL22check_compare_clippingbP6IfNodeP7ConNodeRP4Node.argprom.argprom(i1 noundef zeroext %0, ptr nocapture readonly %.8.val.8.val, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %.8.val.8.val, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 511

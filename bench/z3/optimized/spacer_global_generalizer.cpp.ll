@@ -2497,7 +2497,7 @@ invoke.cont41:                                    ; preds = %for.end40
   %50 = load ptr, ptr %m, align 8
   %51 = load ptr, ptr %m_lemma_vec.i, align 8
   %m_sub.i89 = getelementptr inbounds i8, ptr %51, i64 8
-  %call49 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111contains_bvER11ast_managerRK12substitutionRj(ptr noundef nonnull align 8 dereferenceable(976) %50, ptr noundef nonnull align 8 dereferenceable(124) %m_sub.i89)
+  %call49 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111contains_bvER11ast_managerRK12substitutionRj.argprom(ptr noundef nonnull align 8 dereferenceable(976) %50, ptr noundef nonnull align 8 dereferenceable(124) %m_sub.i89)
           to label %invoke.cont48 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont48:                                    ; preds = %invoke.cont41
@@ -3123,7 +3123,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 declare void @_ZN6spacer14convex_closure5resetEj(ptr noundef nonnull align 8 dereferenceable(240), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111contains_bvER11ast_managerRK12substitutionRj(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %sub) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111contains_bvER11ast_managerRK12substitutionRj.argprom(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %sub) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %m_bv = alloca %class.bv_util, align 8
   %num = alloca %class.rational, align 8
@@ -5133,7 +5133,7 @@ entry:
   %m_lemma_vec.i = getelementptr inbounds i8, ptr %lc, i64 80
   %1 = load ptr, ptr %m_lemma_vec.i, align 8
   %m_sub.i = getelementptr inbounds i8, ptr %1, i64 8
-  %call4 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111contains_bvER11ast_managerRK12substitutionRj(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(124) %m_sub.i)
+  %call4 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111contains_bvER11ast_managerRK12substitutionRj.argprom(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(124) %m_sub.i)
   br i1 %call4, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

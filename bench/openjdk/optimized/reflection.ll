@@ -3517,7 +3517,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %38, %46
   %59 = getelementptr inbounds ptr, ptr %57, i64 %58
   store ptr %34, ptr %59, align 8
   %60 = ptrtoint ptr %2 to i64
-  %61 = call fastcc noundef ptr @_ZL6invokeP13InstanceKlassRK12methodHandle6Handleb14objArrayHandle9BasicTypeS5_bP10JavaThread(ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %1, ptr %storemerge.i.i, i8 noundef zeroext %.023, i64 %60, ptr noundef nonnull %3)
+  %61 = call fastcc noundef ptr @_ZL6invokeP13InstanceKlassRK12methodHandle6Handleb14objArrayHandle9BasicTypeS5_bP10JavaThread.argelim(ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %1, ptr %storemerge.i.i, i8 noundef zeroext %.023, i64 %60, ptr noundef nonnull %3)
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   br label %62
 
@@ -3585,7 +3585,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL6invokeP13InstanceKlassRK12methodHandle6Handleb14objArrayHandle9BasicTypeS5_bP10JavaThread(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, ptr nocapture readonly %3, i8 noundef zeroext %4, i64 %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL6invokeP13InstanceKlassRK12methodHandle6Handleb14objArrayHandle9BasicTypeS5_bP10JavaThread.argelim(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, ptr nocapture readonly %3, i8 noundef zeroext %4, i64 %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %class.methodHandle, align 8
   %9 = alloca %class.methodHandle, align 8
   %10 = alloca %class.JavaCallArguments, align 8
@@ -3746,7 +3746,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %76, %86
   br i1 %.not150, label %126, label %110
 
 110:                                              ; preds = %104
-  call fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %0, ptr nonnull %93, ptr noundef %.0.i, ptr nonnull %2, ptr noundef nonnull %6)
+  call fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %0, ptr nonnull %93, ptr noundef %.0.i, ptr nonnull %2, ptr noundef nonnull %6)
   %111 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9) #13
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
   %112 = load ptr, ptr %36, align 8
@@ -4559,7 +4559,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %30, %38
 
 65:                                               ; preds = %62
   %66 = ptrtoint ptr %1 to i64
-  %67 = call fastcc noundef ptr @_ZL6invokeP13InstanceKlassRK12methodHandle6Handleb14objArrayHandle9BasicTypeS5_bP10JavaThread(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %63, ptr %storemerge.i.i, i8 noundef zeroext 14, i64 %66, ptr noundef nonnull %2)
+  %67 = call fastcc noundef ptr @_ZL6invokeP13InstanceKlassRK12methodHandle6Handleb14objArrayHandle9BasicTypeS5_bP10JavaThread.argelim(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %63, ptr %storemerge.i.i, i8 noundef zeroext 14, i64 %66, ptr noundef nonnull %2)
   %68 = load ptr, ptr %55, align 8
   %69 = icmp ne ptr %68, null
   %70 = icmp eq ptr %63, null
@@ -8197,7 +8197,7 @@ declare void @_ZN24ResolvingSignatureStreamC1EP6SymbolP5Klassb(ptr noundef nonnu
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr nocapture readonly %.0.val.8.val, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread.argprom.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr nocapture readonly %.0.val.8.val, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %class.CallInfo, align 8
   %7 = alloca %class.LinkInfo, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8

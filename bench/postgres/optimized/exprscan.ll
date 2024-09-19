@@ -102,7 +102,7 @@ define dso_local range(i32 0, 281) i32 @expr_yylex(ptr noundef %0, ptr noundef %
   br i1 %.not28.i, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #29
   unreachable
 
 32:                                               ; preds = %29
@@ -129,7 +129,7 @@ define dso_local range(i32 0, 281) i32 @expr_yylex(ptr noundef %0, ptr noundef %
   br i1 %.not30.i, label %43, label %44
 
 43:                                               ; preds = %39
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #29
   unreachable
 
 44:                                               ; preds = %39
@@ -569,7 +569,7 @@ expr_yyensure_buffer_stack.exit:                  ; preds = %32, %35, %44
   br label %.loopexit
 
 229:                                              ; preds = %142
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #29
   unreachable
 
 230:                                              ; preds = %142
@@ -767,7 +767,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i170, %314
   br i1 %344, label %345, label %346
 
 345:                                              ; preds = %339
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.11) #29
   unreachable
 
 346:                                              ; preds = %339
@@ -875,7 +875,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i170, %314
   br i1 %.not149.i, label %.loopexit.i, label %396
 
 .loopexit.i:                                      ; preds = %392, %.thread.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #29
   unreachable
 
 396:                                              ; preds = %392
@@ -964,7 +964,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i170, %314
   br i1 %.not145.i, label %437, label %436
 
 436:                                              ; preds = %433
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #29
   unreachable
 
 437:                                              ; preds = %433, %.thread154.i, %.critedge.i
@@ -1004,7 +1004,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i170, %314
   br i1 %.not143.i, label %458, label %457
 
 457:                                              ; preds = %455
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #29
   unreachable
 
 458:                                              ; preds = %455
@@ -1096,7 +1096,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i170, %314
   br i1 %.not151.i, label %518, label %519
 
 518:                                              ; preds = %500
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.14) #29
   unreachable
 
 519:                                              ; preds = %500
@@ -1345,7 +1345,7 @@ yy_get_next_buffer.exit.thread208:                ; preds = %352, %yy_get_next_b
   br i1 %exitcond.not.i205, label %.outer.backedge, label %.lr.ph31.i193, !llvm.loop !9
 
 647:                                              ; preds = %142
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.4) #29
   unreachable
 
 default.unreachable505:                           ; preds = %yy_get_next_buffer.exit
@@ -1378,7 +1378,7 @@ define dso_local nonnull ptr @expr_yy_create_buffer(ptr noundef %0, i32 noundef 
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.5) #29
   unreachable
 
 6:                                                ; preds = %3
@@ -1393,7 +1393,7 @@ define dso_local nonnull ptr @expr_yy_create_buffer(ptr noundef %0, i32 noundef 
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.5) #29
   unreachable
 
 13:                                               ; preds = %6
@@ -1523,7 +1523,7 @@ declare void @psqlscan_pop_buffer_stack(ptr noundef) local_unnamed_addr #1
 declare void @psqlscan_select_top_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @yy_fatal_error.argprom(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %0) #31
   tail call void @exit(i32 noundef 2) #35
@@ -1552,7 +1552,7 @@ define dso_local void @expr_yyrestart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not28.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #29
   unreachable
 
 13:                                               ; preds = %10
@@ -1579,7 +1579,7 @@ define dso_local void @expr_yyrestart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #29
   unreachable
 
 25:                                               ; preds = %20
@@ -1736,7 +1736,7 @@ define dso_local void @expr_yy_switch_to_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #29
   unreachable
 
 8:                                                ; preds = %5
@@ -1765,7 +1765,7 @@ define dso_local void @expr_yy_switch_to_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #29
   unreachable
 
 22:                                               ; preds = %17
@@ -1980,7 +1980,7 @@ define dso_local void @expr_yypush_buffer_state(ptr noundef %0, ptr nocapture no
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #29
   unreachable
 
 10:                                               ; preds = %7
@@ -2009,7 +2009,7 @@ define dso_local void @expr_yypush_buffer_state(ptr noundef %0, ptr nocapture no
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #29
   unreachable
 
 24:                                               ; preds = %19
@@ -2204,7 +2204,7 @@ define dso_local noundef ptr @expr_yy_scan_buffer(ptr noundef %0, i64 noundef %1
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.6) #29
   unreachable
 
 16:                                               ; preds = %13
@@ -2269,7 +2269,7 @@ define dso_local nonnull ptr @expr_yy_scan_bytes(ptr nocapture noundef readonly 
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.7) #29
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -2303,11 +2303,11 @@ define dso_local nonnull ptr @expr_yy_scan_bytes(ptr nocapture noundef readonly 
   br i1 %.not27.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.6) #29
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.8) #29
   unreachable
 
 33:                                               ; preds = %29
@@ -2445,7 +2445,7 @@ define dso_local void @expr_yyset_lineno(i32 noundef %0, ptr nocapture noundef r
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #29
   unreachable
 
 11:                                               ; preds = %5
@@ -2470,7 +2470,7 @@ define dso_local void @expr_yyset_column(i32 noundef %0, ptr nocapture noundef r
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #29
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.10) #29
   unreachable
 
 11:                                               ; preds = %5

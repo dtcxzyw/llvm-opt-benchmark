@@ -1666,27 +1666,27 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetC
 if.then.i.i.i:                                    ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESJ_T0_SK_.exit.i.i"
   store ptr %retval.0.i.i.i.i.i, ptr %.val, align 8
   %last_map_.i.i.i = getelementptr inbounds i8, ptr %.val, i64 8
-  br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit"
 
 if.else.i.i.i:                                    ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESJ_T0_SK_.exit.i.i"
   %last_map_3.i.i.i = getelementptr inbounds i8, ptr %.val, i64 8
   %15 = load ptr, ptr %last_map_3.i.i.i, align 8
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %retval.0.i.i.i.i.i, ptr %next_.i.i.i.i, align 8
-  br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit"
 
-"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
+"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
   %last_map_3.sink.i.i.i = phi ptr [ %last_map_3.i.i.i, %if.else.i.i.i ], [ %last_map_.i.i.i, %if.then.i.i.i ]
   store ptr %retval.0.i.i.i.i.i, ptr %last_map_3.sink.i.i.i, align 8
   %16 = load ptr, ptr %10, align 8
   %cmp.not.i7 = icmp eq ptr %16, null
   br i1 %cmp.not.i7, label %if.then.i8, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
 
-if.then.i8:                                       ; preds = %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
+if.then.i8:                                       ; preds = %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit"
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit"
   %17 = atomicrmw add ptr %16, i64 16 monotonic, align 8
   %add2.i.i = add i64 %17, 16
   %initial_zone_size_.i.i = getelementptr inbounds i8, ptr %16, i64 16
@@ -1766,13 +1766,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i26: ; preds = %_ZN9grpc_cor
 if.then.i.i.i.i.i30:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i26
   %add.ptr.i.i.i.i.i31 = getelementptr inbounds i8, ptr %26, i64 48
   %add.ptr3.i.i.i.i.i32 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i31, i64 %27
-  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit"
 
 if.else.i.i.i.i.i38:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i26
   %call4.i.i.i.i.i39 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %26, i64 noundef 32)
-  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit"
 
-"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit": ; preds = %if.then.i.i.i.i.i30, %if.else.i.i.i.i.i38
+"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit": ; preds = %if.then.i.i.i.i.i30, %if.else.i.i.i.i.i38
   %retval.0.i.i.i.i.i33 = phi ptr [ %add.ptr3.i.i.i.i.i32, %if.then.i.i.i.i.i30 ], [ %call4.i.i.i.i.i39, %if.else.i.i.i.i.i38 ]
   %next_.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i33, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i34, align 8
@@ -1799,11 +1799,11 @@ if.else.i.i.i.i.i38:                              ; preds = %_ZN9grpc_core10GetC
   %cmp.not.i.i.i.i44 = icmp eq ptr %32, null
   br i1 %cmp.not.i.i.i.i44, label %if.then.i.i.i.i61, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i45
 
-if.then.i.i.i.i61:                                ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit"
+if.then.i.i.i.i61:                                ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit"
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i45: ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit"
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i45: ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit"
   %33 = atomicrmw add ptr %32, i64 48 monotonic, align 8
   %add2.i.i.i.i.i46 = add i64 %33, 48
   %initial_zone_size_.i.i.i.i.i47 = getelementptr inbounds i8, ptr %32, i64 16
@@ -1814,13 +1814,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i45: ; preds = %"_ZN9grpc_co
 if.then.i.i.i.i.i49:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i45
   %add.ptr.i.i.i.i.i50 = getelementptr inbounds i8, ptr %32, i64 48
   %add.ptr3.i.i.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i50, i64 %33
-  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit"
 
 if.else.i.i.i.i.i59:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i45
   %call4.i.i.i.i.i60 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %32, i64 noundef 48)
-  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit"
 
-"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit": ; preds = %if.then.i.i.i.i.i49, %if.else.i.i.i.i.i59
+"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit": ; preds = %if.then.i.i.i.i.i49, %if.else.i.i.i.i.i59
   %retval.0.i.i.i.i.i52 = phi ptr [ %add.ptr3.i.i.i.i.i51, %if.then.i.i.i.i.i49 ], [ %call4.i.i.i.i.i60, %if.else.i.i.i.i.i59 ]
   %next_.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i52, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i53, align 8
@@ -1857,14 +1857,14 @@ if.else.i.i.i.i.i59:                              ; preds = %_ZN9grpc_core10GetC
   %tobool.not.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i, label %if.then.i63, label %if.end.i
 
-if.then.i63:                                      ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit"
+if.then.i63:                                      ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit"
   invoke void @_ZSt25__throw_bad_function_callv() #26
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i63
   unreachable
 
-if.end.i:                                         ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit"
+if.end.i:                                         ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyClientCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit"
   %_M_invoker.i = getelementptr inbounds i8, ptr %next_promise_factory, i64 24
   %41 = load ptr, ptr %_M_invoker.i, align 8, !noalias !7
   invoke void %41(ptr nonnull sret(%"class.grpc_core::ArenaPromise") align 16 %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(16) %next_promise_factory, ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp17)
@@ -2246,27 +2246,27 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetC
 if.then.i.i.i:                                    ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESJ_T0_SK_.exit.i.i"
   store ptr %retval.0.i.i.i.i.i, ptr %.val, align 8
   %last_map_.i.i.i = getelementptr inbounds i8, ptr %.val, i64 8
-  br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit"
 
 if.else.i.i.i:                                    ; preds = %"_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0ZNS6_9AppendMapISH_EEvT_NS_13DebugLocationEEUlvE_EEPNS6_3MapESJ_T0_SK_.exit.i.i"
   %last_map_3.i.i.i = getelementptr inbounds i8, ptr %.val, i64 8
   %22 = load ptr, ptr %last_map_3.i.i.i, align 8
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %retval.0.i.i.i.i.i, ptr %next_.i.i.i.i, align 8
-  br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit"
 
-"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
+"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
   %last_map_3.sink.i.i.i = phi ptr [ %last_map_3.i.i.i, %if.else.i.i.i ], [ %last_map_.i.i.i, %if.then.i.i.i ]
   store ptr %retval.0.i.i.i.i.i, ptr %last_map_3.sink.i.i.i, align 8
   %23 = load ptr, ptr %10, align 8
   %cmp.not.i11 = icmp eq ptr %23, null
   br i1 %cmp.not.i11, label %if.then.i12, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit13
 
-if.then.i12:                                      ; preds = %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
+if.then.i12:                                      ; preds = %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit"
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit13: ; preds = %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.exit"
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit13: ; preds = %"_ZN9grpc_core12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_0EEvT_NS_13DebugLocationE.argprom.exit"
   %24 = atomicrmw add ptr %23, i64 16 monotonic, align 8
   %add2.i.i14 = add i64 %24, 16
   %initial_zone_size_.i.i15 = getelementptr inbounds i8, ptr %23, i64 16
@@ -2312,13 +2312,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i26: ; preds = %_ZN9grpc_cor
 if.then.i.i.i.i.i30:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i26
   %add.ptr.i.i.i.i.i31 = getelementptr inbounds i8, ptr %28, i64 48
   %add.ptr3.i.i.i.i.i32 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i31, i64 %29
-  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit"
 
 if.else.i.i.i.i.i38:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i26
   %call4.i.i.i.i.i39 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %28, i64 noundef 32)
-  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit"
 
-"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit": ; preds = %if.then.i.i.i.i.i30, %if.else.i.i.i.i.i38
+"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit": ; preds = %if.then.i.i.i.i.i30, %if.else.i.i.i.i.i38
   %retval.0.i.i.i.i.i33 = phi ptr [ %add.ptr3.i.i.i.i.i32, %if.then.i.i.i.i.i30 ], [ %call4.i.i.i.i.i39, %if.else.i.i.i.i.i38 ]
   %next_.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i33, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i34, align 8
@@ -2345,11 +2345,11 @@ if.else.i.i.i.i.i38:                              ; preds = %_ZN9grpc_core10GetC
   %cmp.not.i.i.i.i43 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i43, label %if.then.i.i.i.i61, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i44
 
-if.then.i.i.i.i61:                                ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit"
+if.then.i.i.i.i61:                                ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit"
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.17, i32 noundef 80, ptr noundef nonnull @.str.18) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i44: ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.exit"
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i44: ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_1EEvT_NS_13DebugLocationE.argprom.exit"
   %35 = atomicrmw add ptr %34, i64 32 monotonic, align 8
   %add2.i.i.i.i.i45 = add i64 %35, 32
   %initial_zone_size_.i.i.i.i.i46 = getelementptr inbounds i8, ptr %34, i64 16
@@ -2360,13 +2360,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i44: ; preds = %"_ZN9grpc_co
 if.then.i.i.i.i.i48:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i44
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i8, ptr %34, i64 48
   %add.ptr3.i.i.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i49, i64 %35
-  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit"
 
 if.else.i.i.i.i.i59:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i44
   %call4.i.i.i.i.i60 = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef 32)
-  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit"
+  br label %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit"
 
-"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit": ; preds = %if.then.i.i.i.i.i48, %if.else.i.i.i.i.i59
+"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit": ; preds = %if.then.i.i.i.i.i48, %if.else.i.i.i.i.i59
   %retval.0.i.i.i.i.i51 = phi ptr [ %add.ptr3.i.i.i.i.i50, %if.then.i.i.i.i.i48 ], [ %call4.i.i.i.i.i60, %if.else.i.i.i.i.i59 ]
   %next_.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i51, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i52, align 8
@@ -2401,14 +2401,14 @@ if.else.i.i.i.i.i59:                              ; preds = %_ZN9grpc_core10GetC
   %tobool.not.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i, label %if.then.i63, label %if.end.i
 
-if.then.i63:                                      ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit"
+if.then.i63:                                      ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit"
   invoke void @_ZSt25__throw_bad_function_callv() #26
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i63
   unreachable
 
-if.end.i:                                         ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.exit"
+if.end.i:                                         ; preds = %"_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE15InterceptAndMapIZNS_29LegacyServerCompressionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS1_I19grpc_metadata_batchS4_EEES9_EEE3$_2EEvT_NS_13DebugLocationE.argprom.exit"
   %_M_invoker.i = getelementptr inbounds i8, ptr %next_promise_factory, i64 24
   %43 = load ptr, ptr %_M_invoker.i, align 8, !noalias !13
   invoke void %43(ptr nonnull sret(%"class.grpc_core::ArenaPromise") align 16 %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %next_promise_factory, ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp15)

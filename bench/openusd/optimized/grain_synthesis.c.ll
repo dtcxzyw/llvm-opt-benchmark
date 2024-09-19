@@ -2790,7 +2790,7 @@ copy_area.exit896:                                ; preds = %1333, %copy_area.ex
 ._crit_edge.i898:                                 ; preds = %.lr.ph.i901, %._crit_edge1019
   tail call void @aom_free(ptr noundef %48) #8
   %1347 = icmp sgt i32 %spec.select.i897, 0
-  br i1 %1347, label %.lr.ph4.preheader.i, label %dealloc_arrays.exit
+  br i1 %1347, label %.lr.ph4.preheader.i, label %dealloc_arrays.argprom.exit
 
 .lr.ph4.preheader.i:                              ; preds = %._crit_edge.i898
   %wide.trip.count10.i = zext nneg i32 %spec.select.i897 to i64
@@ -2803,9 +2803,9 @@ copy_area.exit896:                                ; preds = %1333, %copy_area.ex
   tail call void @aom_free(ptr noundef %1349) #8
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %dealloc_arrays.exit, label %.lr.ph4.i, !llvm.loop !37
+  br i1 %exitcond11.not.i, label %dealloc_arrays.argprom.exit, label %.lr.ph4.i, !llvm.loop !37
 
-dealloc_arrays.exit:                              ; preds = %.lr.ph4.i, %._crit_edge.i898
+dealloc_arrays.argprom.exit:                      ; preds = %.lr.ph4.i, %._crit_edge.i898
   tail call void @aom_free(ptr noundef %54) #8
   tail call void @aom_free(ptr noundef %109) #8
   tail call void @aom_free(ptr noundef %114) #8
@@ -2818,8 +2818,8 @@ dealloc_arrays.exit:                              ; preds = %.lr.ph4.i, %._crit_
   tail call void @aom_free(ptr noundef %134) #8
   br label %1350
 
-1350:                                             ; preds = %generate_chroma_grain_blocks.exit, %dealloc_arrays.exit
-  %.0 = phi i32 [ 0, %dealloc_arrays.exit ], [ -1, %generate_chroma_grain_blocks.exit ]
+1350:                                             ; preds = %generate_chroma_grain_blocks.exit, %dealloc_arrays.argprom.exit
+  %.0 = phi i32 [ 0, %dealloc_arrays.argprom.exit ], [ -1, %generate_chroma_grain_blocks.exit ]
   ret i32 %.0
 }
 

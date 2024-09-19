@@ -1535,7 +1535,7 @@ define internal fastcc i32 @dissect_ma_wfp_capture_v4_common(ptr noundef %0, ptr
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %8 = load i32, ptr @ett_ma_wfp_capture_v4, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
-  tail call fastcc void @add_ipv4_src_address(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %7)
+  tail call fastcc void @add_ipv4_src_address.argelim(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %7)
   tail call fastcc void @add_ipv4_dst_address(ptr noundef %9, ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef %7)
   %10 = load i32, ptr @hf_ip_proto, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #4
@@ -1581,7 +1581,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv4_src_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_ipv4_src_address.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 160
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 0, i32 noundef 4) #4
   store i32 2, ptr %5, align 8
@@ -1833,7 +1833,7 @@ define internal fastcc i32 @dissect_ma_wfp_capture_v6_common(ptr noundef %0, ptr
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %8 = load i32, ptr @ett_ma_wfp_capture_v4, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
-  tail call fastcc void @add_ipv6_src_address(ptr noundef %9, ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @add_ipv6_src_address.argelim(ptr noundef %9, ptr noundef %0, ptr noundef %1)
   tail call fastcc void @add_ipv6_dst_address(ptr noundef %9, ptr noundef %0, ptr noundef %1, i32 noundef 16)
   %10 = load i32, ptr @hf_ip_proto, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #4
@@ -1875,7 +1875,7 @@ define internal fastcc i32 @dissect_ma_wfp_capture_v6_common(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_src_address(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_src_address.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 160
   %5 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 0, i32 noundef 16) #4
   store i32 3, ptr %4, align 8
@@ -2100,11 +2100,11 @@ define internal fastcc i32 @dissect_ma_wfp_capture_auth_common(ptr noundef %0, p
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %4
-  tail call fastcc void @add_ipv4_src_address(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %7)
+  tail call fastcc void @add_ipv4_src_address.argelim(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %7)
   br label %14
 
 13:                                               ; preds = %4
-  tail call fastcc void @add_ipv6_src_address(ptr noundef %9, ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @add_ipv6_src_address.argelim(ptr noundef %9, ptr noundef %0, ptr noundef %1)
   br label %14
 
 14:                                               ; preds = %13, %12

@@ -33,9 +33,9 @@ define void @_Z22count_bonded_distancesRK10gmx_mtop_tRK10t_inputrecPdS5_(ptr noc
 
 8:                                                ; preds = %4
   %9 = tail call noundef zeroext i1 @_Z18inputrecExclForcesPK10t_inputrec(ptr noundef nonnull %1)
-  br i1 %9, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit, label %14
+  br i1 %9, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit, label %14
 
-_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
+_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit: ; preds = %8
   %10 = getelementptr inbounds i8, ptr %1, i64 340
   %.val = load i32, ptr %10, align 4
   %11 = icmp ugt i32 %.val, 15
@@ -48,8 +48,8 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %.not68 = and i1 %13, %.not67
   br label %14
 
-14:                                               ; preds = %4, %8, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
-  %15 = phi i1 [ false, %8 ], [ false, %4 ], [ %.not68, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit ]
+14:                                               ; preds = %4, %8, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit
+  %15 = phi i1 [ false, %8 ], [ false, %4 ], [ %.not68, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit ]
   %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
@@ -317,7 +317,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress uwtable
 define noundef float @_Z17pme_load_estimateRK10gmx_mtop_tRK10t_inputrecPA3_Kf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-_ZL7usingRFRK22CoulombInteractionType.exit.i:
+_ZL7usingRFRK22CoulombInteractionType.argprom.exit.i:
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   call void @_Z22count_bonded_distancesRK10gmx_mtop_tRK10t_inputrecPdS5_(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -341,7 +341,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %.not103108.i = icmp eq ptr %15, %17
   br i1 %.not103108.i, label %._crit_edge113.i, label %.lr.ph112.i
 
-.lr.ph112.i:                                      ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit.i
+.lr.ph112.i:                                      ; preds = %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.i
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 112
@@ -449,11 +449,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %.not103.i = icmp eq ptr %68, %17
   br i1 %.not103.i, label %._crit_edge113.i, label %23
 
-._crit_edge113.i:                                 ; preds = %._crit_edge.i, %_ZL7usingRFRK22CoulombInteractionType.exit.i
-  %.269 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.168, %._crit_edge.i ]
-  %.2 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.166, %._crit_edge.i ]
-  %.082.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.183.lcssa.i, %._crit_edge.i ]
-  %.081.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.1.lcssa.i, %._crit_edge.i ]
+._crit_edge113.i:                                 ; preds = %._crit_edge.i, %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.i
+  %.269 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.i ], [ %.168, %._crit_edge.i ]
+  %.2 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.i ], [ %.166, %._crit_edge.i ]
+  %.082.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.i ], [ %.183.lcssa.i, %._crit_edge.i ]
+  %.081.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %69 = getelementptr inbounds i8, ptr %0, i64 176
   %70 = load i32, ptr %69, align 8
   %71 = add i32 %.081.lcssa.i, %.082.lcssa.i
@@ -571,7 +571,7 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %169 = add nsw i32 %168, 1
   %170 = sdiv i32 %169, 2
   %.val = load i32, ptr %9, align 4
-  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
+  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit [
     i32 3, label %171
     i32 14, label %171
     i32 13, label %171
@@ -612,9 +612,9 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %201 = fmul double %200, %178
   %202 = fadd double %201, 0.000000e+00
   %.val61.pre = load i32, ptr %151, align 8
-  br label %_ZL8usingPmeRK22CoulombInteractionType.exit
+  br label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %171
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %171
   %.val61 = phi i32 [ %.val61.pre, %171 ], [ %.val94.i, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit ]
   %.058 = phi double [ %202, %171 ], [ 0.000000e+00, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit ]
   %.056 = phi double [ %199, %171 ], [ 0.000000e+00, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit ]
@@ -623,7 +623,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_load
   %203 = icmp eq i32 %.val61, 5
   br i1 %203, label %204, label %243
 
-204:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit
+204:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
   %205 = getelementptr inbounds i8, ptr %1, i64 140
   %206 = load i32, ptr %205, align 4
   %207 = getelementptr inbounds i8, ptr %1, i64 144
@@ -665,11 +665,11 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_load
   %242 = fadd double %.058, %241
   br label %243
 
-243:                                              ; preds = %204, %_ZL8usingPmeRK22CoulombInteractionType.exit
-  %.159 = phi double [ %242, %204 ], [ %.058, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
-  %.157 = phi double [ %238, %204 ], [ %.056, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
-  %.155 = phi double [ %231, %204 ], [ %.054, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
-  %.1 = phi double [ %222, %204 ], [ %.053, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
+243:                                              ; preds = %204, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+  %.159 = phi double [ %242, %204 ], [ %.058, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit ]
+  %.157 = phi double [ %238, %204 ], [ %.056, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit ]
+  %.155 = phi double [ %231, %204 ], [ %.054, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit ]
+  %.1 = phi double [ %222, %204 ], [ %.053, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit ]
   %244 = fadd double %.155, %.1
   %245 = fadd double %.157, %244
   %246 = fadd double %.159, %245

@@ -466,20 +466,20 @@ peel_committish.exit.i:                           ; preds = %if.end.i.i, %if.the
   %positive_refs.val16.i = load i8, ptr %35, align 8
   %bf.clear.i.i.i.i = and i8 %positive_refs.val16.i, 1
   %tobool.not.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i, label %if.end.i.i.i.i, label %strset_get_size.exit.i
+  br i1 %tobool.not.i.i.i.i, label %if.end.i.i.i.i, label %strset_get_size.argprom.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %peel_committish.exit.i
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.35, i32 noundef 308, ptr noundef nonnull @.str.36) #15
   unreachable
 
-strset_get_size.exit.i:                           ; preds = %peel_committish.exit.i
+strset_get_size.argprom.exit.i:                   ; preds = %peel_committish.exit.i
   %36 = getelementptr inbounds i8, ptr %rinfo.i, i64 32
   %positive_refs.val.i = load i32, ptr %36, align 8
   %37 = load i32, ptr %positive_refexprs.i.i, align 8
   %cmp.i = icmp ult i32 %37, %positive_refs.val.i
   br i1 %cmp.i, label %if.then10.i, label %if.end95thread-pre-split.i
 
-if.then10.i:                                      ; preds = %strset_get_size.exit.i
+if.then10.i:                                      ; preds = %strset_get_size.argprom.exit.i
   %call11.i = call fastcc ptr @_(ptr noundef nonnull @.str.29)
   call void (ptr, ...) @die(ptr noundef %call11.i) #15
   unreachable
@@ -537,25 +537,25 @@ if.else31.i:                                      ; preds = %if.else13.i
   %positive_refs33.val17.i = load i8, ptr %46, align 8
   %bf.clear.i.i.i30.i = and i8 %positive_refs33.val17.i, 1
   %tobool.not.i.i.i31.i = icmp eq i8 %bf.clear.i.i.i30.i, 0
-  br i1 %tobool.not.i.i.i31.i, label %if.end.i.i.i32.i, label %strset_get_size.exit33.i
+  br i1 %tobool.not.i.i.i31.i, label %if.end.i.i.i32.i, label %strset_get_size.argprom.exit33.i
 
 if.end.i.i.i32.i:                                 ; preds = %if.else31.i
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.35, i32 noundef 308, ptr noundef nonnull @.str.36) #15
   unreachable
 
-strset_get_size.exit33.i:                         ; preds = %if.else31.i
+strset_get_size.argprom.exit33.i:                 ; preds = %if.else31.i
   %47 = load i32, ptr %negative_refexprs.i.i, align 4
   %48 = getelementptr inbounds i8, ptr %rinfo.i, i64 112
   %negative_refs.val18.i = load i8, ptr %48, align 8
   %bf.clear.i.i.i34.i = and i8 %negative_refs.val18.i, 1
   %tobool.not.i.i.i35.i = icmp eq i8 %bf.clear.i.i.i34.i, 0
-  br i1 %tobool.not.i.i.i35.i, label %if.end.i.i.i36.i, label %strset_get_size.exit37.i
+  br i1 %tobool.not.i.i.i35.i, label %if.end.i.i.i36.i, label %strset_get_size.argprom.exit37.i
 
-if.end.i.i.i36.i:                                 ; preds = %strset_get_size.exit33.i
+if.end.i.i.i36.i:                                 ; preds = %strset_get_size.argprom.exit33.i
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.35, i32 noundef 308, ptr noundef nonnull @.str.36) #15
   unreachable
 
-strset_get_size.exit37.i:                         ; preds = %strset_get_size.exit33.i
+strset_get_size.argprom.exit37.i:                 ; preds = %strset_get_size.argprom.exit33.i
   %49 = getelementptr inbounds i8, ptr %rinfo.i, i64 96
   %negative_refs.val.i = load i32, ptr %49, align 8
   %cmp38.i = icmp eq i32 %47, %negative_refs.val.i
@@ -565,12 +565,12 @@ strset_get_size.exit37.i:                         ; preds = %strset_get_size.exi
   %or.cond.i = select i1 %cmp41.i, i1 %cmp44.i, i1 false
   br i1 %or.cond.i, label %if.then46.i, label %if.end48.i
 
-if.then46.i:                                      ; preds = %strset_get_size.exit37.i
+if.then46.i:                                      ; preds = %strset_get_size.argprom.exit37.i
   %call47.i = call fastcc ptr @_(ptr noundef nonnull @.str.32)
   call void (ptr, ...) @die(ptr noundef %call47.i) #15
   unreachable
 
-if.end48.i:                                       ; preds = %strset_get_size.exit37.i
+if.end48.i:                                       ; preds = %strset_get_size.argprom.exit37.i
   br i1 %cmp38.i, label %if.then50.i, label %if.else79.i
 
 if.then50.i:                                      ; preds = %if.end48.i
@@ -630,8 +630,8 @@ if.end85.i:                                       ; preds = %if.else79.i
   %spec.select = select i1 %cmp87.i, ptr %52, ptr null
   br label %if.end95thread-pre-split.i
 
-if.end95thread-pre-split.i:                       ; preds = %for.body.i, %if.end85.i, %if.end71.i, %strset_get_size.exit.i
-  %onto.0 = phi ptr [ null, %if.end71.i ], [ %retval.0.i.i, %strset_get_size.exit.i ], [ %spec.select, %if.end85.i ], [ null, %for.body.i ]
+if.end95thread-pre-split.i:                       ; preds = %for.body.i, %if.end85.i, %if.end71.i, %strset_get_size.argprom.exit.i
+  %onto.0 = phi ptr [ null, %if.end71.i ], [ %retval.0.i.i, %strset_get_size.argprom.exit.i ], [ %spec.select, %if.end85.i ], [ null, %for.body.i ]
   %.pr40.i = load ptr, ptr %advance_name, align 8
   br label %if.end95.i
 

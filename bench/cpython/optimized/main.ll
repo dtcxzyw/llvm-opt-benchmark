@@ -1249,19 +1249,19 @@ if.then.i.i:                                      ; preds = %if.end37.i
 land.lhs.true.i58.i:                              ; preds = %if.then.i.i
   %call3.i.i = call ptr @PyErr_Occurred() #14
   %tobool.not.i59.i = icmp eq ptr %call3.i.i, null
-  br i1 %tobool.not.i59.i, label %if.then7.i60.i, label %pymain_sys_path_add_path0.exit.i
+  br i1 %tobool.not.i59.i, label %if.then7.i60.i, label %pymain_sys_path_add_path0.argprom.exit.i
 
 if.then7.i60.i:                                   ; preds = %land.lhs.true.i58.i, %if.end37.i
   %38 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.4) #14
-  br label %pymain_sys_path_add_path0.exit.i
+  br label %pymain_sys_path_add_path0.argprom.exit.i
 
 if.end8.i56.i:                                    ; preds = %if.then.i.i
   %call9.i.i = call i32 @PyList_Insert(ptr noundef nonnull %call.i55.i, i64 noundef 0, ptr noundef %34) #14
   %tobool10.not.i.i = icmp ne i32 %call9.i.i, 0
-  br label %pymain_sys_path_add_path0.exit.i
+  br label %pymain_sys_path_add_path0.argprom.exit.i
 
-pymain_sys_path_add_path0.exit.i:                 ; preds = %if.end8.i56.i, %if.then7.i60.i, %land.lhs.true.i58.i
+pymain_sys_path_add_path0.argprom.exit.i:         ; preds = %if.end8.i56.i, %if.then7.i60.i, %land.lhs.true.i58.i
   %retval.0.i57.i = phi i1 [ true, %if.then7.i60.i ], [ true, %land.lhs.true.i58.i ], [ %tobool10.not.i.i, %if.end8.i56.i ]
   %39 = load ptr, ptr %path0.i, align 8
   %40 = load i64, ptr %39, align 8
@@ -1269,7 +1269,7 @@ pymain_sys_path_add_path0.exit.i:                 ; preds = %if.end8.i56.i, %if.
   %cmp.i109.not.i = icmp eq i64 %41, 0
   br i1 %cmp.i109.not.i, label %if.end.i.i, label %Py_DECREF.exit.i
 
-if.end.i.i:                                       ; preds = %pymain_sys_path_add_path0.exit.i
+if.end.i.i:                                       ; preds = %pymain_sys_path_add_path0.argprom.exit.i
   %dec.i.i = add i64 %40, -1
   store i64 %dec.i.i, ptr %39, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
@@ -1279,7 +1279,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %Py_DECREF.exit.i
 
-Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %pymain_sys_path_add_path0.exit.i
+Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %pymain_sys_path_add_path0.argprom.exit.i
   br i1 %retval.0.i57.i, label %error.i, label %if.end43.i
 
 if.end43.i:                                       ; preds = %Py_DECREF.exit.i, %if.end26.i, %if.then21.i, %do.body.i
@@ -2379,12 +2379,12 @@ if.then:                                          ; preds = %entry, %stdin_is_in
   %config.val = load i32, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cf.i)
   %tobool.not.i3 = icmp eq i32 %config.val, 0
-  br i1 %tobool.not.i3, label %pymain_run_startup.exit.thread, label %if.end.i
+  br i1 %tobool.not.i3, label %pymain_run_startup.argprom.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
   %call.i4 = tail call ptr @_Py_GetEnv(i32 noundef %config.val, ptr noundef nonnull @.str.26) #14
   %cmp.i = icmp eq ptr %call.i4, null
-  br i1 %cmp.i, label %pymain_run_startup.exit.thread, label %if.end3.i
+  br i1 %cmp.i, label %pymain_run_startup.argprom.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %call.i4) #14
@@ -2419,13 +2419,13 @@ if.then.i.i:                                      ; preds = %if.end11.i
   %5 = load i64, ptr %call4.i, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %6, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %pymain_run_startup.exit.thread
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %pymain_run_startup.argprom.exit.thread
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %dec.i.i.i = add i64 %5, -1
   store i64 %dec.i.i.i, ptr %call4.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %return.sink.split.i, label %pymain_run_startup.exit.thread
+  br i1 %cmp.i.i.i, label %return.sink.split.i, label %pymain_run_startup.argprom.exit.thread
 
 error.i:                                          ; preds = %if.then14.i, %if.end7.i, %if.end3.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exitcode.i.i)
@@ -2446,38 +2446,38 @@ pymain_err_print.exit.i:                          ; preds = %if.end.i.i, %if.the
   %8 = phi i32 [ %7, %if.then.i10.i ], [ undef, %if.end.i.i ]
   %retval.0.i.i = phi i32 [ 1, %if.then.i10.i ], [ 0, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %exitcode.i.i)
-  br i1 %cmp5.i, label %pymain_run_startup.exit, label %if.then.i12.i
+  br i1 %cmp5.i, label %pymain_run_startup.argprom.exit, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %pymain_err_print.exit.i
   %9 = load i64, ptr %call4.i, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i2.not.i13.i = icmp eq i64 %10, 0
-  br i1 %cmp.i2.not.i13.i, label %if.end.i.i15.i, label %pymain_run_startup.exit
+  br i1 %cmp.i2.not.i13.i, label %if.end.i.i15.i, label %pymain_run_startup.argprom.exit
 
 if.end.i.i15.i:                                   ; preds = %if.then.i12.i
   %dec.i.i16.i = add i64 %9, -1
   store i64 %dec.i.i16.i, ptr %call4.i, align 8
   %cmp.i.i17.i = icmp eq i64 %dec.i.i16.i, 0
-  br i1 %cmp.i.i17.i, label %return.sink.split.i, label %pymain_run_startup.exit
+  br i1 %cmp.i.i17.i, label %return.sink.split.i, label %pymain_run_startup.argprom.exit
 
 return.sink.split.i:                              ; preds = %if.end.i.i15.i, %if.end.i.i.i
   %11 = phi i32 [ undef, %if.end.i.i.i ], [ %8, %if.end.i.i15.i ]
   %retval.0.ph.i = phi i32 [ 0, %if.end.i.i.i ], [ %retval.0.i.i, %if.end.i.i15.i ]
   call void @_Py_Dealloc(ptr noundef nonnull %call4.i) #14
-  br label %pymain_run_startup.exit
+  br label %pymain_run_startup.argprom.exit
 
-pymain_run_startup.exit.thread:                   ; preds = %if.then, %if.end.i, %if.then.i.i, %if.end.i.i.i
+pymain_run_startup.argprom.exit.thread:           ; preds = %if.then, %if.end.i, %if.then.i.i, %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   br label %if.end
 
-pymain_run_startup.exit:                          ; preds = %pymain_err_print.exit.i, %if.then.i12.i, %if.end.i.i15.i, %return.sink.split.i
+pymain_run_startup.argprom.exit:                  ; preds = %pymain_err_print.exit.i, %if.then.i12.i, %if.end.i.i15.i, %return.sink.split.i
   %12 = phi i32 [ %8, %pymain_err_print.exit.i ], [ %8, %if.then.i12.i ], [ %8, %if.end.i.i15.i ], [ %11, %return.sink.split.i ]
   %retval.0.i = phi i32 [ %retval.0.i.i, %pymain_err_print.exit.i ], [ %retval.0.i.i, %if.then.i12.i ], [ %retval.0.i.i, %if.end.i.i15.i ], [ %retval.0.ph.i, %return.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   %tobool2.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool2.not, label %if.end, label %return
 
-if.end:                                           ; preds = %pymain_run_startup.exit.thread, %pymain_run_startup.exit
+if.end:                                           ; preds = %pymain_run_startup.argprom.exit.thread, %pymain_run_startup.argprom.exit
   %call4 = call fastcc i32 @pymain_run_interactive_hook(ptr noundef %exitcode)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end8, label %if.then6
@@ -2542,8 +2542,8 @@ if.end17:                                         ; preds = %if.end12
   %conv = zext i1 %cmp19 to i32
   br label %return
 
-return:                                           ; preds = %pymain_run_startup.exit, %if.end17, %pymain_exit_err_print.exit18, %pymain_exit_err_print.exit, %if.then6
-  %retval.0 = phi i32 [ %13, %if.then6 ], [ %exitcode.0.i, %pymain_exit_err_print.exit ], [ %exitcode.0.i16, %pymain_exit_err_print.exit18 ], [ %conv, %if.end17 ], [ %12, %pymain_run_startup.exit ]
+return:                                           ; preds = %pymain_run_startup.argprom.exit, %if.end17, %pymain_exit_err_print.exit18, %pymain_exit_err_print.exit, %if.then6
+  %retval.0 = phi i32 [ %13, %if.then6 ], [ %exitcode.0.i, %pymain_exit_err_print.exit ], [ %exitcode.0.i16, %pymain_exit_err_print.exit18 ], [ %conv, %if.end17 ], [ %12, %pymain_run_startup.argprom.exit ]
   ret i32 %retval.0
 }
 

@@ -433,24 +433,24 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   ]
 
 29:                                               ; preds = %28
-  tail call fastcc void @test1()
+  tail call fastcc void @test1.argprom.argelim()
   br label %158
 
 30:                                               ; preds = %28
-  tail call fastcc void @test2()
+  tail call fastcc void @test2.argprom.argelim()
   br label %158
 
 31:                                               ; preds = %28
-  tail call fastcc void @test3()
+  tail call fastcc void @test3.argprom.argelim()
   br label %158
 
 32:                                               ; preds = %28
-  tail call fastcc void @test4()
+  tail call fastcc void @test4.argprom.argelim()
   br label %158
 
 33:                                               ; preds = %28
   %.val = load ptr, ptr %1, align 8
-  %34 = tail call fastcc i32 @test5(ptr %.val)
+  %34 = tail call fastcc i32 @test5.argprom.argelim(ptr %.val)
   br label %158
 
 35:                                               ; preds = %28
@@ -468,26 +468,26 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   br label %37
 
 42:                                               ; preds = %28
-  tail call fastcc void @test7()
+  tail call fastcc void @test7.argprom.argelim()
   br label %158
 
 43:                                               ; preds = %28
   %.val91 = load ptr, ptr %1, align 8
-  %44 = tail call fastcc i32 @test8(ptr %.val91)
+  %44 = tail call fastcc i32 @test8.argprom.argelim(ptr %.val91)
   br label %158
 
 45:                                               ; preds = %28
   %.val92 = load ptr, ptr %1, align 8
-  %46 = tail call fastcc i32 @test9(ptr %.val92)
+  %46 = tail call fastcc i32 @test9.argprom.argelim(ptr %.val92)
   br label %158
 
 47:                                               ; preds = %28
   %.val93 = load ptr, ptr %1, align 8
-  %48 = tail call fastcc i32 @test10(ptr %.val93)
+  %48 = tail call fastcc i32 @test10.argprom.argelim(ptr %.val93)
   br label %158
 
 49:                                               ; preds = %28
-  tail call fastcc void @test8_grandchild()
+  tail call fastcc void @test8_grandchild.argprom.argelim()
   br label %158
 
 50:                                               ; preds = %28
@@ -498,7 +498,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   %52 = call i32 @sigemptyset(ptr noundef nonnull %51) #14
   %53 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #14
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %test9_grandchild.exit, label %55
+  br i1 %54, label %test9_grandchild.argprom.exit, label %55
 
 55:                                               ; preds = %50
   %56 = load ptr, ptr @stdout, align 8
@@ -518,15 +518,15 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   %70 = call i32 @fflush(ptr noundef %69)
   %71 = load ptr, ptr @stderr, align 8
   %72 = call i32 @fflush(ptr noundef %71)
-  br label %test9_grandchild.exit
+  br label %test9_grandchild.argprom.exit
 
-test9_grandchild.exit:                            ; preds = %50, %55
+test9_grandchild.argprom.exit:                    ; preds = %50, %55
   %.0.i = phi i32 [ 0, %55 ], [ 1, %50 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
   br label %158
 
 73:                                               ; preds = %28
-  tail call fastcc void @test10_grandchild()
+  tail call fastcc void @test10_grandchild.argprom.argelim()
   br label %158
 
 74:                                               ; preds = %28
@@ -667,8 +667,8 @@ sub_0:                                            ; preds = %144
   %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.9, ptr noundef %156) #14
   br label %158
 
-158:                                              ; preds = %.tail.thread, %152, %99, %74, %73, %test9_grandchild.exit, %49, %47, %45, %43, %42, %33, %32, %31, %30, %29
-  %.0 = phi i32 [ 1, %74 ], [ 0, %73 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ 0, %42 ], [ %34, %33 ], [ 0, %32 ], [ 0, %31 ], [ 123, %30 ], [ 0, %29 ], [ %135, %99 ], [ %154, %152 ], [ 1, %.tail.thread ]
+158:                                              ; preds = %.tail.thread, %152, %99, %74, %73, %test9_grandchild.argprom.exit, %49, %47, %45, %43, %42, %33, %32, %31, %30, %29
+  %.0 = phi i32 [ 1, %74 ], [ 0, %73 ], [ %.0.i, %test9_grandchild.argprom.exit ], [ 0, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ 0, %42 ], [ %34, %33 ], [ 0, %32 ], [ 0, %31 ], [ 123, %30 ], [ 0, %29 ], [ %135, %99 ], [ %154, %152 ], [ 1, %.tail.thread ]
   ret i32 %.0
 }
 
@@ -679,7 +679,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @test1() unnamed_addr #5 {
+define internal fastcc void @test1.argprom.argelim() unnamed_addr #5 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 40, i64 1, ptr %1)
   %3 = load ptr, ptr @stderr, align 8
@@ -688,7 +688,7 @@ define internal fastcc void @test1() unnamed_addr #5 {
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @test2() unnamed_addr #5 {
+define internal fastcc void @test2.argprom.argelim() unnamed_addr #5 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 42, i64 1, ptr %1)
   %3 = load ptr, ptr @stderr, align 8
@@ -697,7 +697,7 @@ define internal fastcc void @test2() unnamed_addr #5 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @test3() unnamed_addr #6 {
+define internal fastcc void @test3.argprom.argelim() unnamed_addr #6 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 49, i64 1, ptr %1)
   %3 = load ptr, ptr @stderr, align 8
@@ -715,7 +715,7 @@ define internal fastcc void @test3() unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @test4() unnamed_addr #5 {
+define internal fastcc void @test4.argprom.argelim() unnamed_addr #5 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 47, i64 1, ptr %1)
   %3 = load ptr, ptr @stderr, align 8
@@ -733,7 +733,7 @@ define internal fastcc void @test4() unnamed_addr #5 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test5(ptr %.0.val) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @test5.argprom.argelim(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -763,7 +763,7 @@ define internal fastcc range(i32 0, 2) i32 @test5(ptr %.0.val) unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @test7() unnamed_addr #6 {
+define internal fastcc void @test7.argprom.argelim() unnamed_addr #6 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 31, i64 1, ptr %1)
   %3 = load ptr, ptr @stderr, align 8
@@ -785,7 +785,7 @@ define internal fastcc void @test7() unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test8(ptr %.0.val) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @test8.argprom.argelim(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -815,7 +815,7 @@ define internal fastcc range(i32 0, 2) i32 @test8(ptr %.0.val) unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test9(ptr %.0.val) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @test9.argprom.argelim(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -846,7 +846,7 @@ define internal fastcc range(i32 0, 2) i32 @test9(ptr %.0.val) unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test10(ptr %.0.val) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @test10.argprom.argelim(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -876,7 +876,7 @@ define internal fastcc range(i32 0, 2) i32 @test10(ptr %.0.val) unnamed_addr #6 
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @test8_grandchild() unnamed_addr #6 {
+define internal fastcc void @test8_grandchild.argprom.argelim() unnamed_addr #6 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 47, i64 1, ptr %1)
   %3 = load ptr, ptr @stderr, align 8
@@ -894,7 +894,7 @@ define internal fastcc void @test8_grandchild() unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @test10_grandchild() unnamed_addr #6 {
+define internal fastcc void @test10_grandchild.argprom.argelim() unnamed_addr #6 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 47, i64 1, ptr %1)
   %3 = load ptr, ptr @stderr, align 8

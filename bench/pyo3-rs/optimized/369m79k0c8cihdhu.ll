@@ -186,7 +186,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 23:                                               ; preds = %19
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %4)
-          to label %"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h512963770871e1c4E.exit" unwind label %8, !noalias !3
+          to label %"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h512963770871e1c4E.argprom.exit" unwind label %8, !noalias !3
 
 24:                                               ; preds = %8
   %25 = landingpad { ptr, i32 }
@@ -197,7 +197,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 26:                                               ; preds = %8
   resume { ptr, i32 } %9
 
-"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h512963770871e1c4E.exit": ; preds = %23
+"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h512963770871e1c4E.argprom.exit": ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
@@ -403,7 +403,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 8:                                                ; preds = %7
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %4, ptr nonnull align 1 @anon.0a3de5dc611eb9e73e124dc0c16747ee.32, i64 3)
-          to label %"_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args28_$u7b$$u7b$closure$u7d$$u7d$17hf6d01d6a0d67ac4aE.exit" unwind label %5, !noalias !9
+          to label %"_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args28_$u7b$$u7b$closure$u7d$$u7d$17hf6d01d6a0d67ac4aE.argprom.exit" unwind label %5, !noalias !9
 
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
@@ -414,7 +414,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 11:                                               ; preds = %5
   resume { ptr, i32 } %6
 
-"_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args28_$u7b$$u7b$closure$u7d$$u7d$17hf6d01d6a0d67ac4aE.exit": ; preds = %8
+"_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args28_$u7b$$u7b$closure$u7d$$u7d$17hf6d01d6a0d67ac4aE.argprom.exit": ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
@@ -428,13 +428,13 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %5 = getelementptr inbounds i8, ptr %2, i64 304
   %6 = load i8, ptr %5, align 8, !noalias !12
   %7 = icmp eq i8 %6, 3
-  br i1 %7, label %8, label %"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71ff67c6632764deE.exit"
+  br i1 %7, label %8, label %"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71ff67c6632764deE.argprom.exit"
 
 8:                                                ; preds = %3
   tail call void @_ZN4core6option13expect_failed17h7f842a57ad883afaE(ptr nonnull align 1 @anon.0a3de5dc611eb9e73e124dc0c16747ee.10, i64 29, ptr nonnull align 8 @anon.0a3de5dc611eb9e73e124dc0c16747ee.12) #13, !noalias !12
   unreachable
 
-"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71ff67c6632764deE.exit": ; preds = %3
+"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71ff67c6632764deE.argprom.exit": ; preds = %3
   %9 = getelementptr inbounds i8, ptr %2, i64 288
   call void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h94b2881e7bee1e3eE(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %2), !noalias !12
   %10 = call i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %4), !noalias !12
@@ -5348,17 +5348,17 @@ attributes #13 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
 !3 = !{!4}
-!4 = distinct !{!4, !5, !"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h512963770871e1c4E: argument 0"}
-!5 = distinct !{!5, !"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h512963770871e1c4E"}
+!4 = distinct !{!4, !5, !"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h512963770871e1c4E.argprom: argument 0"}
+!5 = distinct !{!5, !"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h512963770871e1c4E.argprom"}
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h367d9ac6a5085af7E: argument 0"}
 !8 = distinct !{!8, !"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h367d9ac6a5085af7E"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args28_$u7b$$u7b$closure$u7d$$u7d$17hf6d01d6a0d67ac4aE: argument 0"}
-!11 = distinct !{!11, !"_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args28_$u7b$$u7b$closure$u7d$$u7d$17hf6d01d6a0d67ac4aE"}
+!10 = distinct !{!10, !11, !"_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args28_$u7b$$u7b$closure$u7d$$u7d$17hf6d01d6a0d67ac4aE.argprom: argument 0"}
+!11 = distinct !{!11, !"_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args28_$u7b$$u7b$closure$u7d$$u7d$17hf6d01d6a0d67ac4aE.argprom"}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71ff67c6632764deE: argument 0"}
-!14 = distinct !{!14, !"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71ff67c6632764deE"}
+!13 = distinct !{!13, !14, !"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71ff67c6632764deE.argprom: argument 0"}
+!14 = distinct !{!14, !"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71ff67c6632764deE.argprom"}
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZN19pyo3_macros_backend7pyclass27simple_enum_default_methods28_$u7b$$u7b$closure$u7d$$u7d$17h1229fc038a9bbe33E: argument 0"}
 !17 = distinct !{!17, !"_ZN19pyo3_macros_backend7pyclass27simple_enum_default_methods28_$u7b$$u7b$closure$u7d$$u7d$17h1229fc038a9bbe33E"}

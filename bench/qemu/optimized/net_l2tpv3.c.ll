@@ -398,7 +398,7 @@ if.end199:                                        ; preds = %lor.lhs.false187, %
   %add196.sink = phi i32 [ %.pre, %if.end183.if.then191_crit_edge ], [ %spec.select128, %lor.lhs.false187 ]
   %header_size198 = getelementptr inbounds i8, ptr %call, i64 448
   store i32 %add196.sink, ptr %header_size198, align 8
-  %call200 = call fastcc ptr @build_l2tpv3_vector(ptr noundef nonnull %call)
+  %call200 = call fastcc ptr @build_l2tpv3_vector.argelim(ptr noundef nonnull %call)
   %msgvec = getelementptr inbounds i8, ptr %call, i64 400
   store ptr %call200, ptr %msgvec, align 8
   %call201 = call noalias dereferenceable_or_null(2048) ptr @g_malloc_n(i64 noundef 128, i64 noundef 16) #14
@@ -481,7 +481,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef ptr @build_l2tpv3_vector(ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @build_l2tpv3_vector.argelim(ptr nocapture noundef readonly %s) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc_n(i64 noundef 64, i64 noundef 64) #14
   %header_size = getelementptr inbounds i8, ptr %s, i64 448

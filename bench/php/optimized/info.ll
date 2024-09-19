@@ -211,7 +211,7 @@ define void @php_info_print_module(ptr noundef %0) local_unnamed_addr #0 {
   %16 = load i64, ptr %15, align 8
   tail call void @zend_str_tolower(ptr noundef nonnull %14, i64 noundef %16) #14
   %17 = load ptr, ptr %10, align 8
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef %17)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef %17)
   tail call void @_efree(ptr noundef %13) #14
   br label %php_info_print_table_end.exit
 
@@ -274,11 +274,11 @@ php_info_print_table_end.exit26:                  ; preds = %php_info_print_tabl
   br i1 %.not19, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.2, ptr noundef %40)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.2, ptr noundef %40)
   br label %43
 
 42:                                               ; preds = %37
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.3, ptr noundef %40)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.3, ptr noundef %40)
   br label %43
 
 43:                                               ; preds = %41, %42, %25, %php_info_print_table_end.exit26
@@ -293,7 +293,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare void @zend_str_tolower(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_info_printf(ptr noundef %0, ...) unnamed_addr #0 {
+define internal void @php_info_printf.retelim(ptr noundef %0, ...) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -455,9 +455,9 @@ declare void @display_ini_entries(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @php_info_print_style() local_unnamed_addr #0 {
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.4)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.4)
   tail call void @php_info_print_css() #14
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.5)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.5)
   ret void
 }
 
@@ -543,10 +543,10 @@ define void @php_print_info_htmlhead() local_unnamed_addr #0 {
   %1 = tail call i64 @php_output_write(ptr noundef nonnull @.str.8, i64 noundef 94) #14
   %2 = tail call i64 @php_output_write(ptr noundef nonnull @.str.9, i64 noundef 43) #14
   %3 = tail call i64 @php_output_write(ptr noundef nonnull @.str.10, i64 noundef 7) #14
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.4)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.4)
   tail call void @php_info_print_css() #14
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.5)
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.5)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   %4 = tail call i64 @php_output_write(ptr noundef nonnull @.str.13, i64 noundef 59) #14
   %5 = tail call i64 @php_output_write(ptr noundef nonnull @.str.14, i64 noundef 8) #14
   %6 = tail call i64 @php_output_write(ptr noundef nonnull @.str.15, i64 noundef 27) #14
@@ -570,10 +570,10 @@ define void @php_print_info(i32 noundef %0) local_unnamed_addr #0 {
   %11 = tail call i64 @php_output_write(ptr noundef nonnull @.str.8, i64 noundef 94) #14
   %12 = tail call i64 @php_output_write(ptr noundef nonnull @.str.9, i64 noundef 43) #14
   %13 = tail call i64 @php_output_write(ptr noundef nonnull @.str.10, i64 noundef 7) #14
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.4)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.4)
   tail call void @php_info_print_css() #14
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.5)
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.5)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   %14 = tail call i64 @php_output_write(ptr noundef nonnull @.str.13, i64 noundef 59) #14
   %15 = tail call i64 @php_output_write(ptr noundef nonnull @.str.14, i64 noundef 8) #14
   %16 = tail call i64 @php_output_write(ptr noundef nonnull @.str.15, i64 noundef 27) #14
@@ -673,7 +673,7 @@ php_info_print_box_start.exit.thread:             ; preds = %56, %58
   br i1 %.not177, label %60, label %.thread
 
 60:                                               ; preds = %php_info_print_box_start.exit.thread
-  call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.12)
+  call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.12)
   br label %61
 
 .thread:                                          ; preds = %php_info_print_table_start.exit.i, %php_get_uname.exit, %php_info_print_box_start.exit, %php_info_print_box_start.exit.thread
@@ -1493,7 +1493,7 @@ define internal fastcc void @php_info_print_stream_hash(ptr noundef %0, ptr noun
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
   %.not34 = icmp eq i32 %8, 0
   %.str.129..str.130 = select i1 %.not34, ptr @.str.129, ptr @.str.130
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull %.str.129..str.130, ptr noundef %0)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull %.str.129..str.130, ptr noundef %0)
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 4
@@ -1797,7 +1797,7 @@ define internal fastcc void @php_print_gpcse_array(ptr noundef %0, i32 noundef r
   br label %php_info_print_html_esc.exit
 
 78:                                               ; preds = %52
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.139, i64 noundef %.0169)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.139, i64 noundef %.0169)
   br label %php_info_print_html_esc.exit
 
 php_info_print_html_esc.exit:                     ; preds = %74, %73, %60, %75, %78
@@ -2007,7 +2007,7 @@ define void @php_info_print_table_colspan_header(i32 noundef %0, ptr noundef %1)
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.119, i32 noundef %0, ptr noundef %1)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.119, i32 noundef %0, ptr noundef %1)
   br label %10
 
 5:                                                ; preds = %2
@@ -2015,7 +2015,7 @@ define void @php_info_print_table_colspan_header(i32 noundef %0, ptr noundef %1)
   %7 = trunc i64 %6 to i32
   %8 = sub i32 74, %7
   %9 = sdiv i32 %8, 2
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.120, i32 noundef %9, ptr noundef nonnull @.str.121, ptr noundef %1, i32 noundef %9, ptr noundef nonnull @.str.121)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.120, i32 noundef %9, ptr noundef nonnull @.str.121, ptr noundef %1, i32 noundef %9, ptr noundef nonnull @.str.121)
   br label %10
 
 10:                                               ; preds = %5, %4
@@ -2051,7 +2051,7 @@ define internal fastcc void @php_info_print_table_row_internal(i32 noundef %0, p
 14:                                               ; preds = %12
   %15 = icmp eq i32 %.040, 0
   %16 = select i1 %15, ptr @.str.146, ptr %1
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.145, ptr noundef %16)
+  tail call void (ptr, ...) @php_info_printf.retelim(ptr noundef nonnull @.str.145, ptr noundef %16)
   br label %17
 
 17:                                               ; preds = %14, %12

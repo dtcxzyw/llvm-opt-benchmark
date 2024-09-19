@@ -125,7 +125,7 @@ define dso_local i32 @pcmcia_loop_config(ptr noundef %0, ptr noundef %1, ptr nou
 19:                                               ; preds = %8
   %20 = getelementptr inbounds i8, ptr %11, i64 560
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %20, ptr noundef nonnull @.str) #10
-  br label %pccard_loop_tuple.exit
+  br label %pccard_loop_tuple.argprom.exit
 
 21:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false), !annotation !5
@@ -150,7 +150,7 @@ define dso_local i32 @pcmcia_loop_config(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = call fastcc i32 @pcmcia_do_loop_config(ptr noundef nonnull %15, ptr noundef nonnull %6) #8
+  %33 = call fastcc i32 @pcmcia_do_loop_config.argelim(ptr noundef nonnull %15, ptr noundef nonnull %6) #8
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.loopexit.i, label %35
 
@@ -162,21 +162,21 @@ define dso_local i32 @pcmcia_loop_config(ptr noundef %0, ptr noundef %1, ptr nou
 .loopexit.i:                                      ; preds = %35, %32, %21
   %38 = phi i32 [ %25, %21 ], [ %36, %35 ], [ 0, %32 ]
   call void @kfree(ptr noundef nonnull %17) #8
-  br label %pccard_loop_tuple.exit
+  br label %pccard_loop_tuple.argprom.exit
 
-pccard_loop_tuple.exit:                           ; preds = %19, %.loopexit.i
+pccard_loop_tuple.argprom.exit:                   ; preds = %19, %.loopexit.i
   %39 = phi i32 [ -12, %19 ], [ %38, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
   tail call void @kfree(ptr noundef nonnull %6) #8
   br label %40
 
-40:                                               ; preds = %pccard_loop_tuple.exit, %3
-  %41 = phi i32 [ %39, %pccard_loop_tuple.exit ], [ -12, %3 ]
+40:                                               ; preds = %pccard_loop_tuple.argprom.exit, %3
+  %41 = phi i32 [ %39, %pccard_loop_tuple.argprom.exit ], [ -12, %3 ]
   ret i32 %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pcmcia_do_loop_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @pcmcia_do_loop_config.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 116
   %5 = load i32, ptr %4, align 4

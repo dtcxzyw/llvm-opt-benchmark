@@ -620,7 +620,7 @@ while.end:                                        ; preds = %while.body
 if.then226:                                       ; preds = %while.end
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 40), align 8
   store i32 5, ptr getelementptr inbounds (i8, ptr @rdbstate, i64 48), align 8
-  %call227 = call fastcc i64 @rioRead(ptr noundef %cksum, i64 noundef 8)
+  %call227 = call fastcc i64 @rioRead.argprom(ptr noundef %cksum, i64 noundef 8)
   %cmp228 = icmp eq i64 %call227, 0
   br i1 %cmp228, label %eoferr, label %if.end231
 
@@ -696,7 +696,7 @@ declare void @rioInitWithFile(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @rdbLoadProgressCallback(ptr noundef, ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef nonnull %buf, i64 noundef range(i64 1, 10) %len) unnamed_addr #5 {
+define internal fastcc range(i64 0, 2) i64 @rioRead.argprom(ptr noundef nonnull %buf, i64 noundef range(i64 1, 10) %len) unnamed_addr #5 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
   %and = and i64 %0, 1

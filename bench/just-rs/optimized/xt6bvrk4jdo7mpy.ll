@@ -2050,7 +2050,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   store i64 -9223372036854775808, ptr %1, align 8, !alias.scope !257, !noalias !260
   br label %.loopexit20
 
-24:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread, %.loopexit20, %.loopexit
+24:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread, %.loopexit20, %.loopexit
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
   ret void
 
@@ -2074,16 +2074,16 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.val9 = load i64, ptr %8, align 8, !noundef !4
   %..val10 = load i64, ptr %9, align 8, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %.val9, %..val10
-  br i1 %.not.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread
+  br i1 %.not.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit: ; preds = %29
+_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit: ; preds = %29
   %..val = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.val = load ptr, ptr %.sroa.415.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %..val, i64 %.val9), !alias.scope !273
   %.not = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not, label %30, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread
+  br i1 %.not, label %30, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread
 
-30:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit
+30:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !277
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2fe6f6f3762db27E.llvm.1798434116971987782"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc.i unwind label %37
@@ -2124,7 +2124,7 @@ _ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit: ; preds = %29
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
   br label %13
 
-_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread: ; preds = %29, %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit
+_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread: ; preds = %29, %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(400) %4, i64 400, i1 false)
   br label %24
 }
@@ -2397,7 +2397,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   store i64 -9223372036854775808, ptr %1, align 8, !alias.scope !369, !noalias !372
   br label %.loopexit20
 
-24:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread, %.loopexit20, %.loopexit
+24:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread, %.loopexit20, %.loopexit
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   ret void
 
@@ -2421,16 +2421,16 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.val9 = load i64, ptr %8, align 8, !noundef !4
   %..val10 = load i64, ptr %9, align 8, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %.val9, %..val10
-  br i1 %.not.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread
+  br i1 %.not.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit: ; preds = %29
+_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit: ; preds = %29
   %..val = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.val = load ptr, ptr %.sroa.415.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %..val, i64 %.val9), !alias.scope !385
   %.not = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not, label %30, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread
+  br i1 %.not, label %30, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread
 
-30:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit
+30:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !389
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2fe6f6f3762db27E.llvm.1798434116971987782"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc.i unwind label %37
@@ -2471,7 +2471,7 @@ _ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit: ; preds = %29
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   br label %13
 
-_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread: ; preds = %29, %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit
+_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread: ; preds = %29, %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
   br label %24
 }
@@ -2544,7 +2544,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   store i64 -9223372036854775808, ptr %1, align 8, !alias.scope !405, !noalias !408
   br label %.loopexit20
 
-24:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread, %.loopexit20, %.loopexit
+24:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread, %.loopexit20, %.loopexit
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void
 
@@ -2568,16 +2568,16 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.val9 = load i64, ptr %8, align 8, !noundef !4
   %..val10 = load i64, ptr %9, align 8, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %.val9, %..val10
-  br i1 %.not.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread
+  br i1 %.not.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit: ; preds = %29
+_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit: ; preds = %29
   %..val = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.val = load ptr, ptr %.sroa.415.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %..val, i64 %.val9), !alias.scope !421
   %.not = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not, label %30, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread
+  br i1 %.not, label %30, label %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread
 
-30:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit
+30:                                               ; preds = %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !425
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2fe6f6f3762db27E.llvm.1798434116971987782"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc.i unwind label %37
@@ -2618,7 +2618,7 @@ _ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit: ; preds = %29
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   br label %13
 
-_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit.thread: ; preds = %29, %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.exit
+_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit.thread: ; preds = %29, %_ZN4core3cmp9PartialEq2ne17h4b8e7dd234e882a7E.argprom.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   br label %24
 }
@@ -2681,7 +2681,7 @@ define hidden void @"_ZN151_$LT$alloc..collections..btree..navigate..LazyLeafRan
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr %.0.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = ptrtoint ptr %.0.val to i64
@@ -26125,7 +26125,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   %.val747 = load ptr, ptr %298, align 8, !nonnull !4, !noundef !4
   %299 = getelementptr inbounds i8, ptr %0, i64 56
   %.val748 = load i64, ptr %299, align 8, !noundef !4
-  invoke fastcc void @_ZN4just5error10format_cmd17h45fe286a54811a51E(ptr noalias nocapture noundef align 8 dereferenceable(24) %157, ptr noalias noundef readonly align 8 dereferenceable(24) %297, ptr nonnull %.val747, i64 %.val748)
+  invoke fastcc void @_ZN4just5error10format_cmd17h45fe286a54811a51E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(24) %157, ptr noalias noundef readonly align 8 dereferenceable(24) %297, ptr nonnull %.val747, i64 %.val748)
           to label %644 unwind label %.loopexit.split-lp
 
 300:                                              ; preds = %246
@@ -26138,7 +26138,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   %.val749 = load ptr, ptr %303, align 8, !nonnull !4, !noundef !4
   %304 = getelementptr inbounds i8, ptr %0, i64 48
   %.val750 = load i64, ptr %304, align 8, !noundef !4
-  invoke fastcc void @_ZN4just5error10format_cmd17h45fe286a54811a51E(ptr noalias nocapture noundef align 8 dereferenceable(24) %153, ptr noalias noundef readonly align 8 dereferenceable(24) %302, ptr nonnull %.val749, i64 %.val750)
+  invoke fastcc void @_ZN4just5error10format_cmd17h45fe286a54811a51E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(24) %153, ptr noalias noundef readonly align 8 dereferenceable(24) %302, ptr nonnull %.val749, i64 %.val750)
           to label %660 unwind label %.loopexit.split-lp
 
 305:                                              ; preds = %246
@@ -26228,7 +26228,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   %343 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %343, ptr %90, align 8
   %.val753 = load ptr, ptr %343, align 8, !nonnull !4, !noundef !4
-  %344 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val753)
+  %344 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %.val753)
   switch i8 %344, label %907 [
     i8 0, label %887
     i8 1, label %897
@@ -26555,7 +26555,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %197)
   store ptr %260, ptr %197, align 8
   %.val752 = load ptr, ptr %260, align 8, !nonnull !4, !noundef !4
-  %469 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val752)
+  %469 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %.val752)
   switch i8 %469, label %500 [
     i8 0, label %484
     i8 1, label %492
@@ -27185,7 +27185,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %141)
   store ptr %313, ptr %141, align 8
   %.val751 = load ptr, ptr %313, align 8, !nonnull !4, !noundef !4
-  %677 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val751)
+  %677 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %.val751)
   switch i8 %677, label %710 [
     i8 0, label %690
     i8 1, label %700
@@ -28836,7 +28836,7 @@ _ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread: ; preds = %1148, %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4just5error10format_cmd17h45fe286a54811a51E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4just5error10format_cmd17h45fe286a54811a51E.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { { { i64, [1 x i64] }, { ptr, [1 x i64] } }, {} }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8

@@ -7641,7 +7641,7 @@ set_mode.exit:                                    ; preds = %set_mode.exit.sink.
 
 73:                                               ; preds = %._crit_edge.thread.i
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.374) #25
-  br label %run_builtin_or_loaded.exit.thread
+  br label %run_builtin_or_loaded.argprom.exit.thread
 
 74:                                               ; preds = %._crit_edge.thread.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
@@ -7660,7 +7660,7 @@ set_mode.exit:                                    ; preds = %set_mode.exit.sink.
 80:                                               ; preds = %74
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.376, ptr noundef nonnull @.str.48) #25
   call void @free(ptr noundef nonnull %72) #25
-  br label %run_builtin_or_loaded.exit.thread
+  br label %run_builtin_or_loaded.argprom.exit.thread
 
 81:                                               ; preds = %74, %._crit_edge.i
   %.not.not.not.not.not.not22.i = phi i1 [ false, %._crit_edge.i ], [ true, %74 ]
@@ -7710,28 +7710,28 @@ set_mode.exit:                                    ; preds = %set_mode.exit.sink.
 
 95:                                               ; preds = %.thread3.i, %90
   %.not79 = phi i1 [ false, %.thread3.i ], [ true, %90 ]
-  br i1 %.not.not.not.not.not.not22.i, label %96, label %run_builtin_or_loaded.exit
+  br i1 %.not.not.not.not.not.not22.i, label %96, label %run_builtin_or_loaded.argprom.exit
 
 96:                                               ; preds = %95
   call void @cli_bytecode_destroy(ptr noundef nonnull %.3.i)
   call void @free(ptr noundef nonnull %.3.i) #25
-  br label %run_builtin_or_loaded.exit
+  br label %run_builtin_or_loaded.argprom.exit
 
-run_builtin_or_loaded.exit.thread:                ; preds = %80, %73
+run_builtin_or_loaded.argprom.exit.thread:        ; preds = %80, %73
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   br label %97
 
-run_builtin_or_loaded.exit:                       ; preds = %95, %96
+run_builtin_or_loaded.argprom.exit:               ; preds = %95, %96
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   br i1 %.not79, label %99, label %97
 
-97:                                               ; preds = %run_builtin_or_loaded.exit.thread, %run_builtin_or_loaded.exit
+97:                                               ; preds = %run_builtin_or_loaded.argprom.exit.thread, %run_builtin_or_loaded.argprom.exit
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.49) #25
   %98 = getelementptr inbounds i8, ptr %57, i64 1304
   store i32 2, ptr %98, align 8
   br label %109
 
-99:                                               ; preds = %run_builtin_or_loaded.exit
+99:                                               ; preds = %run_builtin_or_loaded.argprom.exit
   %100 = getelementptr inbounds i8, ptr %57, i64 1304
   %101 = load i32, ptr %100, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.50, i32 noundef %101) #25

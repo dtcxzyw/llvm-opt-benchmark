@@ -1185,7 +1185,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.967 = private unnamed_addr constant [79 x i8] c"Invalid length; RDBNAM, RDBCOLID, and PKGID should all be length 18 or larger.\00", align 1
 @dissect_drda_rslsetflg.rslsetflg_fields = internal constant [5 x ptr] [ptr @hf_drda_rslsetflg_unused, ptr @hf_drda_rslsetflg_dsconly, ptr @hf_drda_rslsetflg_extended, ptr @hf_drda_rslsetflg_reserved, ptr null], align 16
 @.str.968 = private unnamed_addr constant [6 x i8] c"00000\00", align 1
-@switch.table.dissect_drda_sqludtgrp = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 -2147483648, i32 0], align 4
+@switch.table.dissect_drda_sqludtgrp.argprom = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 -2147483648, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_drda() local_unnamed_addr #0 {
@@ -2262,15 +2262,15 @@ define internal noundef i32 @dissect_drda_sqlcard(ptr noundef %0, ptr noundef %1
   %.val = load i32, ptr %19, align 4
   %switch.tableidx = add i32 %.val, -1
   %20 = icmp ult i32 %switch.tableidx, 4
-  br i1 %20, label %switch.lookup, label %dissect_fdoca_integer.exit
+  br i1 %20, label %switch.lookup, label %dissect_fdoca_integer.argprom.exit
 
 switch.lookup:                                    ; preds = %18
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %dissect_fdoca_integer.exit
+  br label %dissect_fdoca_integer.argprom.exit
 
-dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
+dissect_fdoca_integer.argprom.exit:               ; preds = %18, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -2147483648, %18 ]
   %22 = call ptr @proto_tree_add_item_ret_int(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef %.0.i, ptr noundef null) #6
   %23 = load i32, ptr @hf_drda_sqlstate, align 4
@@ -2287,7 +2287,7 @@ dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
   %31 = icmp eq i32 %sext.mask190, 0
   br i1 %31, label %32, label %162
 
-32:                                               ; preds = %dissect_fdoca_integer.exit
+32:                                               ; preds = %dissect_fdoca_integer.argprom.exit
   %33 = load i32, ptr @hf_drda_sqlcaxgrp, align 4
   %34 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %33, ptr noundef %0, i32 noundef 19, i32 noundef 35, i32 noundef 0) #6
   %35 = load i32, ptr @ett_drda_sqlcaxgrp, align 4
@@ -2308,15 +2308,15 @@ dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
   %.val193 = load i32, ptr %19, align 4
   %switch.tableidx242 = add i32 %.val193, -1
   %44 = icmp ult i32 %switch.tableidx242, 4
-  br i1 %44, label %switch.lookup241, label %dissect_fdoca_integer.exit214
+  br i1 %44, label %switch.lookup241, label %dissect_fdoca_integer.argprom.exit214
 
 switch.lookup241:                                 ; preds = %42
   %45 = zext nneg i32 %switch.tableidx242 to i64
-  %switch.gep243 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %45
+  %switch.gep243 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %45
   %switch.load244 = load i32, ptr %switch.gep243, align 4
-  br label %dissect_fdoca_integer.exit214
+  br label %dissect_fdoca_integer.argprom.exit214
 
-dissect_fdoca_integer.exit214:                    ; preds = %42, %switch.lookup241
+dissect_fdoca_integer.argprom.exit214:            ; preds = %42, %switch.lookup241
   %.0.i213 = phi i32 [ %switch.load244, %switch.lookup241 ], [ -2147483648, %42 ]
   %46 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef %.0.i213, ptr noundef null) #6
   %47 = add nuw nsw i32 %.1, 4
@@ -2324,80 +2324,80 @@ dissect_fdoca_integer.exit214:                    ; preds = %42, %switch.lookup2
   %.val194 = load i32, ptr %19, align 4
   %switch.tableidx246 = add i32 %.val194, -1
   %49 = icmp ult i32 %switch.tableidx246, 4
-  br i1 %49, label %switch.lookup245, label %dissect_fdoca_integer.exit216
+  br i1 %49, label %switch.lookup245, label %dissect_fdoca_integer.argprom.exit216
 
-switch.lookup245:                                 ; preds = %dissect_fdoca_integer.exit214
+switch.lookup245:                                 ; preds = %dissect_fdoca_integer.argprom.exit214
   %50 = zext nneg i32 %switch.tableidx246 to i64
-  %switch.gep247 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %50
+  %switch.gep247 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %50
   %switch.load248 = load i32, ptr %switch.gep247, align 4
-  br label %dissect_fdoca_integer.exit216
+  br label %dissect_fdoca_integer.argprom.exit216
 
-dissect_fdoca_integer.exit216:                    ; preds = %dissect_fdoca_integer.exit214, %switch.lookup245
-  %.0.i215 = phi i32 [ %switch.load248, %switch.lookup245 ], [ -2147483648, %dissect_fdoca_integer.exit214 ]
+dissect_fdoca_integer.argprom.exit216:            ; preds = %dissect_fdoca_integer.argprom.exit214, %switch.lookup245
+  %.0.i215 = phi i32 [ %switch.load248, %switch.lookup245 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit214 ]
   %51 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef %.0.i215, ptr noundef null) #6
   %52 = or disjoint i32 %.1, 8
   %53 = load i32, ptr @hf_drda_sqlerrd3, align 4
   %.val195 = load i32, ptr %19, align 4
   %switch.tableidx250 = add i32 %.val195, -1
   %54 = icmp ult i32 %switch.tableidx250, 4
-  br i1 %54, label %switch.lookup249, label %dissect_fdoca_integer.exit218
+  br i1 %54, label %switch.lookup249, label %dissect_fdoca_integer.argprom.exit218
 
-switch.lookup249:                                 ; preds = %dissect_fdoca_integer.exit216
+switch.lookup249:                                 ; preds = %dissect_fdoca_integer.argprom.exit216
   %55 = zext nneg i32 %switch.tableidx250 to i64
-  %switch.gep251 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %55
+  %switch.gep251 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %55
   %switch.load252 = load i32, ptr %switch.gep251, align 4
-  br label %dissect_fdoca_integer.exit218
+  br label %dissect_fdoca_integer.argprom.exit218
 
-dissect_fdoca_integer.exit218:                    ; preds = %dissect_fdoca_integer.exit216, %switch.lookup249
-  %.0.i217 = phi i32 [ %switch.load252, %switch.lookup249 ], [ -2147483648, %dissect_fdoca_integer.exit216 ]
+dissect_fdoca_integer.argprom.exit218:            ; preds = %dissect_fdoca_integer.argprom.exit216, %switch.lookup249
+  %.0.i217 = phi i32 [ %switch.load252, %switch.lookup249 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit216 ]
   %56 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %.0.i217, ptr noundef null) #6
   %57 = add nuw nsw i32 %.1, 12
   %58 = load i32, ptr @hf_drda_sqlerrd4, align 4
   %.val196 = load i32, ptr %19, align 4
   %switch.tableidx254 = add i32 %.val196, -1
   %59 = icmp ult i32 %switch.tableidx254, 4
-  br i1 %59, label %switch.lookup253, label %dissect_fdoca_integer.exit220
+  br i1 %59, label %switch.lookup253, label %dissect_fdoca_integer.argprom.exit220
 
-switch.lookup253:                                 ; preds = %dissect_fdoca_integer.exit218
+switch.lookup253:                                 ; preds = %dissect_fdoca_integer.argprom.exit218
   %60 = zext nneg i32 %switch.tableidx254 to i64
-  %switch.gep255 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %60
+  %switch.gep255 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %60
   %switch.load256 = load i32, ptr %switch.gep255, align 4
-  br label %dissect_fdoca_integer.exit220
+  br label %dissect_fdoca_integer.argprom.exit220
 
-dissect_fdoca_integer.exit220:                    ; preds = %dissect_fdoca_integer.exit218, %switch.lookup253
-  %.0.i219 = phi i32 [ %switch.load256, %switch.lookup253 ], [ -2147483648, %dissect_fdoca_integer.exit218 ]
+dissect_fdoca_integer.argprom.exit220:            ; preds = %dissect_fdoca_integer.argprom.exit218, %switch.lookup253
+  %.0.i219 = phi i32 [ %switch.load256, %switch.lookup253 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit218 ]
   %61 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef %.0.i219, ptr noundef null) #6
   %62 = add nuw nsw i32 %.1, 16
   %63 = load i32, ptr @hf_drda_sqlerrd5, align 4
   %.val197 = load i32, ptr %19, align 4
   %switch.tableidx258 = add i32 %.val197, -1
   %64 = icmp ult i32 %switch.tableidx258, 4
-  br i1 %64, label %switch.lookup257, label %dissect_fdoca_integer.exit222
+  br i1 %64, label %switch.lookup257, label %dissect_fdoca_integer.argprom.exit222
 
-switch.lookup257:                                 ; preds = %dissect_fdoca_integer.exit220
+switch.lookup257:                                 ; preds = %dissect_fdoca_integer.argprom.exit220
   %65 = zext nneg i32 %switch.tableidx258 to i64
-  %switch.gep259 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %65
+  %switch.gep259 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %65
   %switch.load260 = load i32, ptr %switch.gep259, align 4
-  br label %dissect_fdoca_integer.exit222
+  br label %dissect_fdoca_integer.argprom.exit222
 
-dissect_fdoca_integer.exit222:                    ; preds = %dissect_fdoca_integer.exit220, %switch.lookup257
-  %.0.i221 = phi i32 [ %switch.load260, %switch.lookup257 ], [ -2147483648, %dissect_fdoca_integer.exit220 ]
+dissect_fdoca_integer.argprom.exit222:            ; preds = %dissect_fdoca_integer.argprom.exit220, %switch.lookup257
+  %.0.i221 = phi i32 [ %switch.load260, %switch.lookup257 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit220 ]
   %66 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef %.0.i221, ptr noundef null) #6
   %67 = add nuw nsw i32 %.1, 20
   %68 = load i32, ptr @hf_drda_sqlerrd6, align 4
   %.val198 = load i32, ptr %19, align 4
   %switch.tableidx262 = add i32 %.val198, -1
   %69 = icmp ult i32 %switch.tableidx262, 4
-  br i1 %69, label %switch.lookup261, label %dissect_fdoca_integer.exit224
+  br i1 %69, label %switch.lookup261, label %dissect_fdoca_integer.argprom.exit224
 
-switch.lookup261:                                 ; preds = %dissect_fdoca_integer.exit222
+switch.lookup261:                                 ; preds = %dissect_fdoca_integer.argprom.exit222
   %70 = zext nneg i32 %switch.tableidx262 to i64
-  %switch.gep263 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %70
+  %switch.gep263 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %70
   %switch.load264 = load i32, ptr %switch.gep263, align 4
-  br label %dissect_fdoca_integer.exit224
+  br label %dissect_fdoca_integer.argprom.exit224
 
-dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integer.exit222, %switch.lookup261
-  %.0.i223 = phi i32 [ %switch.load264, %switch.lookup261 ], [ -2147483648, %dissect_fdoca_integer.exit222 ]
+dissect_fdoca_integer.argprom.exit224:            ; preds = %dissect_fdoca_integer.argprom.exit222, %switch.lookup261
+  %.0.i223 = phi i32 [ %switch.load264, %switch.lookup261 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit222 ]
   %71 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef %.0.i223, ptr noundef null) #6
   %72 = add nuw nsw i32 %.1, 24
   %73 = load i32, ptr @hf_drda_sqlwarn0, align 4
@@ -2448,7 +2448,7 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   %107 = icmp ugt i32 %106, 6
   br i1 %107, label %108, label %118
 
-108:                                              ; preds = %dissect_fdoca_integer.exit224
+108:                                              ; preds = %dissect_fdoca_integer.argprom.exit224
   %109 = load i32, ptr @hf_drda_rdbnam, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %110 = load i32, ptr @hf_drda_param_length, align 4
@@ -2462,8 +2462,8 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %118
 
-118:                                              ; preds = %108, %dissect_fdoca_integer.exit224
-  %.2 = phi i32 [ %117, %108 ], [ %105, %dissect_fdoca_integer.exit224 ]
+118:                                              ; preds = %108, %dissect_fdoca_integer.argprom.exit224
+  %.2 = phi i32 [ %117, %108 ], [ %105, %dissect_fdoca_integer.argprom.exit224 ]
   %119 = load i32, ptr @hf_drda_param_length, align 4
   %120 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %119, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
   %121 = add i32 %.2, 2
@@ -2538,8 +2538,8 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   call void @proto_item_set_end(ptr noundef %34, ptr noundef %0, i32 noundef %161) #6
   br label %162
 
-162:                                              ; preds = %._crit_edge236, %dissect_fdoca_integer.exit
-  %.0 = phi i32 [ %161, %._crit_edge236 ], [ 19, %dissect_fdoca_integer.exit ]
+162:                                              ; preds = %._crit_edge236, %dissect_fdoca_integer.argprom.exit
+  %.0 = phi i32 [ %161, %._crit_edge236 ], [ 19, %dissect_fdoca_integer.argprom.exit ]
   %163 = load i32, ptr %3, align 4
   %164 = icmp ugt i32 %163, 6
   br i1 %164, label %165, label %proto_item_set_generated.exit227
@@ -2556,13 +2556,13 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   %173 = load i32, ptr %5, align 4
   %sext.mask.i = and i32 %173, 128
   %174 = icmp eq i32 %sext.mask.i, 0
-  br i1 %174, label %175, label %dissect_drda_sqldiaggrp.exit
+  br i1 %174, label %175, label %dissect_drda_sqldiaggrp.argprom.exit
 
 175:                                              ; preds = %165
   %176 = call ptr @proto_tree_add_expert(ptr noundef %170, ptr noundef %1, ptr noundef nonnull @ei_drda_undecoded, ptr noundef %166, i32 noundef 1, i32 noundef 2) #6
-  br label %dissect_drda_sqldiaggrp.exit
+  br label %dissect_drda_sqldiaggrp.argprom.exit
 
-dissect_drda_sqldiaggrp.exit:                     ; preds = %165, %175
+dissect_drda_sqldiaggrp.argprom.exit:             ; preds = %165, %175
   call void @proto_item_set_end(ptr noundef %168, ptr noundef %166, i32 noundef 1) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %177 = add i32 %.0, 1
@@ -2605,8 +2605,8 @@ proto_item_set_generated.exit:                    ; preds = %178, %180, %183
   store i32 %195, ptr %193, align 4
   br label %proto_item_set_generated.exit227
 
-proto_item_set_generated.exit227:                 ; preds = %192, %189, %proto_item_set_generated.exit, %162, %dissect_drda_sqldiaggrp.exit
-  %.5 = phi i32 [ %177, %dissect_drda_sqldiaggrp.exit ], [ %.0, %162 ], [ 1, %proto_item_set_generated.exit ], [ 1, %189 ], [ 1, %192 ]
+proto_item_set_generated.exit227:                 ; preds = %192, %189, %proto_item_set_generated.exit, %162, %dissect_drda_sqldiaggrp.argprom.exit
+  %.5 = phi i32 [ %177, %dissect_drda_sqldiaggrp.argprom.exit ], [ %.0, %162 ], [ 1, %proto_item_set_generated.exit ], [ 1, %189 ], [ 1, %192 ]
   call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.5) #6
   ret i32 %.5
 }
@@ -2662,7 +2662,7 @@ define internal noundef i32 @dissect_drda_sqldard(ptr noundef %0, ptr noundef %1
   %48 = load i32, ptr %35, align 4
   %sext.mask.i = and i32 %48, 128
   %49 = icmp eq i32 %sext.mask.i, 0
-  br i1 %49, label %50, label %dissect_drda_sqldhgrp.exit
+  br i1 %49, label %50, label %dissect_drda_sqldhgrp.argprom.exit
 
 50:                                               ; preds = %40
   %51 = load i32, ptr @hf_drda_sqldhold, align 4
@@ -2670,116 +2670,116 @@ define internal noundef i32 @dissect_drda_sqldard(ptr noundef %0, ptr noundef %1
   %.val74.i = load i32, ptr %52, align 4
   %switch.tableidx = add i32 %.val74.i, -1
   %53 = icmp ult i32 %switch.tableidx, 4
-  br i1 %53, label %switch.lookup, label %dissect_fdoca_integer.exit.i
+  br i1 %53, label %switch.lookup, label %dissect_fdoca_integer.argprom.exit.i
 
 switch.lookup:                                    ; preds = %50
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %dissect_fdoca_integer.exit.i
+  br label %dissect_fdoca_integer.argprom.exit.i
 
-dissect_fdoca_integer.exit.i:                     ; preds = %50, %switch.lookup
+dissect_fdoca_integer.argprom.exit.i:             ; preds = %50, %switch.lookup
   %.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ -2147483648, %50 ]
   %55 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %51, ptr noundef %41, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i, ptr noundef null) #6
   %56 = load i32, ptr @hf_drda_sqldreturn, align 4
   %.val73.i = load i32, ptr %52, align 4
   %switch.tableidx34 = add i32 %.val73.i, -1
   %57 = icmp ult i32 %switch.tableidx34, 4
-  br i1 %57, label %switch.lookup33, label %dissect_fdoca_integer.exit76.i
+  br i1 %57, label %switch.lookup33, label %dissect_fdoca_integer.argprom.exit76.i
 
-switch.lookup33:                                  ; preds = %dissect_fdoca_integer.exit.i
+switch.lookup33:                                  ; preds = %dissect_fdoca_integer.argprom.exit.i
   %58 = zext nneg i32 %switch.tableidx34 to i64
-  %switch.gep35 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %58
+  %switch.gep35 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %58
   %switch.load36 = load i32, ptr %switch.gep35, align 4
-  br label %dissect_fdoca_integer.exit76.i
+  br label %dissect_fdoca_integer.argprom.exit76.i
 
-dissect_fdoca_integer.exit76.i:                   ; preds = %dissect_fdoca_integer.exit.i, %switch.lookup33
-  %.0.i75.i = phi i32 [ %switch.load36, %switch.lookup33 ], [ -2147483648, %dissect_fdoca_integer.exit.i ]
+dissect_fdoca_integer.argprom.exit76.i:           ; preds = %dissect_fdoca_integer.argprom.exit.i, %switch.lookup33
+  %.0.i75.i = phi i32 [ %switch.load36, %switch.lookup33 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit.i ]
   %59 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %56, ptr noundef %41, i32 noundef 3, i32 noundef 2, i32 noundef %.0.i75.i, ptr noundef null) #6
   %60 = load i32, ptr @hf_drda_sqldscroll, align 4
   %.val72.i = load i32, ptr %52, align 4
   %switch.tableidx38 = add i32 %.val72.i, -1
   %61 = icmp ult i32 %switch.tableidx38, 4
-  br i1 %61, label %switch.lookup37, label %dissect_fdoca_integer.exit78.i
+  br i1 %61, label %switch.lookup37, label %dissect_fdoca_integer.argprom.exit78.i
 
-switch.lookup37:                                  ; preds = %dissect_fdoca_integer.exit76.i
+switch.lookup37:                                  ; preds = %dissect_fdoca_integer.argprom.exit76.i
   %62 = zext nneg i32 %switch.tableidx38 to i64
-  %switch.gep39 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %62
+  %switch.gep39 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %62
   %switch.load40 = load i32, ptr %switch.gep39, align 4
-  br label %dissect_fdoca_integer.exit78.i
+  br label %dissect_fdoca_integer.argprom.exit78.i
 
-dissect_fdoca_integer.exit78.i:                   ; preds = %dissect_fdoca_integer.exit76.i, %switch.lookup37
-  %.0.i77.i = phi i32 [ %switch.load40, %switch.lookup37 ], [ -2147483648, %dissect_fdoca_integer.exit76.i ]
+dissect_fdoca_integer.argprom.exit78.i:           ; preds = %dissect_fdoca_integer.argprom.exit76.i, %switch.lookup37
+  %.0.i77.i = phi i32 [ %switch.load40, %switch.lookup37 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit76.i ]
   %63 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %60, ptr noundef %41, i32 noundef 5, i32 noundef 2, i32 noundef %.0.i77.i, ptr noundef null) #6
   %64 = load i32, ptr @hf_drda_sqldsensitive, align 4
   %.val71.i = load i32, ptr %52, align 4
   %switch.tableidx42 = add i32 %.val71.i, -1
   %65 = icmp ult i32 %switch.tableidx42, 4
-  br i1 %65, label %switch.lookup41, label %dissect_fdoca_integer.exit80.i
+  br i1 %65, label %switch.lookup41, label %dissect_fdoca_integer.argprom.exit80.i
 
-switch.lookup41:                                  ; preds = %dissect_fdoca_integer.exit78.i
+switch.lookup41:                                  ; preds = %dissect_fdoca_integer.argprom.exit78.i
   %66 = zext nneg i32 %switch.tableidx42 to i64
-  %switch.gep43 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %66
+  %switch.gep43 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %66
   %switch.load44 = load i32, ptr %switch.gep43, align 4
-  br label %dissect_fdoca_integer.exit80.i
+  br label %dissect_fdoca_integer.argprom.exit80.i
 
-dissect_fdoca_integer.exit80.i:                   ; preds = %dissect_fdoca_integer.exit78.i, %switch.lookup41
-  %.0.i79.i = phi i32 [ %switch.load44, %switch.lookup41 ], [ -2147483648, %dissect_fdoca_integer.exit78.i ]
+dissect_fdoca_integer.argprom.exit80.i:           ; preds = %dissect_fdoca_integer.argprom.exit78.i, %switch.lookup41
+  %.0.i79.i = phi i32 [ %switch.load44, %switch.lookup41 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit78.i ]
   %67 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %64, ptr noundef %41, i32 noundef 7, i32 noundef 2, i32 noundef %.0.i79.i, ptr noundef null) #6
   %68 = load i32, ptr @hf_drda_sqldfcode, align 4
   %.val70.i = load i32, ptr %52, align 4
   %switch.tableidx46 = add i32 %.val70.i, -1
   %69 = icmp ult i32 %switch.tableidx46, 4
-  br i1 %69, label %switch.lookup45, label %dissect_fdoca_integer.exit82.i
+  br i1 %69, label %switch.lookup45, label %dissect_fdoca_integer.argprom.exit82.i
 
-switch.lookup45:                                  ; preds = %dissect_fdoca_integer.exit80.i
+switch.lookup45:                                  ; preds = %dissect_fdoca_integer.argprom.exit80.i
   %70 = zext nneg i32 %switch.tableidx46 to i64
-  %switch.gep47 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %70
+  %switch.gep47 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %70
   %switch.load48 = load i32, ptr %switch.gep47, align 4
-  br label %dissect_fdoca_integer.exit82.i
+  br label %dissect_fdoca_integer.argprom.exit82.i
 
-dissect_fdoca_integer.exit82.i:                   ; preds = %dissect_fdoca_integer.exit80.i, %switch.lookup45
-  %.0.i81.i = phi i32 [ %switch.load48, %switch.lookup45 ], [ -2147483648, %dissect_fdoca_integer.exit80.i ]
+dissect_fdoca_integer.argprom.exit82.i:           ; preds = %dissect_fdoca_integer.argprom.exit80.i, %switch.lookup45
+  %.0.i81.i = phi i32 [ %switch.load48, %switch.lookup45 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit80.i ]
   %71 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %68, ptr noundef %41, i32 noundef 9, i32 noundef 2, i32 noundef %.0.i81.i, ptr noundef null) #6
   %72 = load i32, ptr @hf_drda_sqldkeytype, align 4
   %.val69.i = load i32, ptr %52, align 4
   %switch.tableidx50 = add i32 %.val69.i, -1
   %73 = icmp ult i32 %switch.tableidx50, 4
-  br i1 %73, label %switch.lookup49, label %dissect_fdoca_integer.exit84.i
+  br i1 %73, label %switch.lookup49, label %dissect_fdoca_integer.argprom.exit84.i
 
-switch.lookup49:                                  ; preds = %dissect_fdoca_integer.exit82.i
+switch.lookup49:                                  ; preds = %dissect_fdoca_integer.argprom.exit82.i
   %74 = zext nneg i32 %switch.tableidx50 to i64
-  %switch.gep51 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %74
+  %switch.gep51 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %74
   %switch.load52 = load i32, ptr %switch.gep51, align 4
-  br label %dissect_fdoca_integer.exit84.i
+  br label %dissect_fdoca_integer.argprom.exit84.i
 
-dissect_fdoca_integer.exit84.i:                   ; preds = %dissect_fdoca_integer.exit82.i, %switch.lookup49
-  %.0.i83.i = phi i32 [ %switch.load52, %switch.lookup49 ], [ -2147483648, %dissect_fdoca_integer.exit82.i ]
+dissect_fdoca_integer.argprom.exit84.i:           ; preds = %dissect_fdoca_integer.argprom.exit82.i, %switch.lookup49
+  %.0.i83.i = phi i32 [ %switch.load52, %switch.lookup49 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit82.i ]
   %75 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %72, ptr noundef %41, i32 noundef 11, i32 noundef 2, i32 noundef %.0.i83.i, ptr noundef null) #6
   %76 = load i32, ptr %3, align 4
   %77 = icmp ugt i32 %76, 8
   br i1 %77, label %78, label %83
 
-78:                                               ; preds = %dissect_fdoca_integer.exit84.i
+78:                                               ; preds = %dissect_fdoca_integer.argprom.exit84.i
   %79 = load i32, ptr @hf_drda_sqldoptlck, align 4
   %.val.i = load i32, ptr %52, align 4
   %switch.tableidx54 = add i32 %.val.i, -1
   %80 = icmp ult i32 %switch.tableidx54, 4
-  br i1 %80, label %switch.lookup53, label %dissect_fdoca_integer.exit86.i
+  br i1 %80, label %switch.lookup53, label %dissect_fdoca_integer.argprom.exit86.i
 
 switch.lookup53:                                  ; preds = %78
   %81 = zext nneg i32 %switch.tableidx54 to i64
-  %switch.gep55 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %81
+  %switch.gep55 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %81
   %switch.load56 = load i32, ptr %switch.gep55, align 4
-  br label %dissect_fdoca_integer.exit86.i
+  br label %dissect_fdoca_integer.argprom.exit86.i
 
-dissect_fdoca_integer.exit86.i:                   ; preds = %78, %switch.lookup53
+dissect_fdoca_integer.argprom.exit86.i:           ; preds = %78, %switch.lookup53
   %.0.i85.i = phi i32 [ %switch.load56, %switch.lookup53 ], [ -2147483648, %78 ]
   %82 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %79, ptr noundef %41, i32 noundef 13, i32 noundef 2, i32 noundef %.0.i85.i, ptr noundef null) #6
   br label %83
 
-83:                                               ; preds = %dissect_fdoca_integer.exit86.i, %dissect_fdoca_integer.exit84.i
-  %.1.i = phi i32 [ 15, %dissect_fdoca_integer.exit86.i ], [ 13, %dissect_fdoca_integer.exit84.i ]
+83:                                               ; preds = %dissect_fdoca_integer.argprom.exit86.i, %dissect_fdoca_integer.argprom.exit84.i
+  %.1.i = phi i32 [ 15, %dissect_fdoca_integer.argprom.exit86.i ], [ 13, %dissect_fdoca_integer.argprom.exit84.i ]
   %84 = load i32, ptr @hf_drda_rdbnam, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
   %85 = load i32, ptr @hf_drda_param_length, align 4
@@ -2817,7 +2817,7 @@ dissect_fdoca_integer.exit86.i:                   ; preds = %78, %switch.lookup5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
   %113 = load i32, ptr %3, align 4
   %114 = icmp ugt i32 %113, 9
-  br i1 %114, label %115, label %dissect_drda_sqldhgrp.exit
+  br i1 %114, label %115, label %dissect_drda_sqldhgrp.argprom.exit
 
 115:                                              ; preds = %83
   %116 = load i32, ptr @hf_drda_sqldmodule, align 4
@@ -2842,31 +2842,31 @@ dissect_fdoca_integer.exit86.i:                   ; preds = %78, %switch.lookup5
   %132 = load i32, ptr %30, align 4
   %133 = add i32 %132, %128
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  br label %dissect_drda_sqldhgrp.exit
+  br label %dissect_drda_sqldhgrp.argprom.exit
 
-dissect_drda_sqldhgrp.exit:                       ; preds = %40, %83, %115
+dissect_drda_sqldhgrp.argprom.exit:               ; preds = %40, %83, %115
   %.0.i = phi i32 [ %133, %115 ], [ %112, %83 ], [ 1, %40 ]
   call void @proto_item_set_end(ptr noundef %43, ptr noundef %41, i32 noundef %.0.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
   %134 = add i32 %.0.i, %37
   br label %135
 
-135:                                              ; preds = %dissect_drda_sqldhgrp.exit, %4
-  %.024 = phi i32 [ %134, %dissect_drda_sqldhgrp.exit ], [ %37, %4 ]
+135:                                              ; preds = %dissect_drda_sqldhgrp.argprom.exit, %4
+  %.024 = phi i32 [ %134, %dissect_drda_sqldhgrp.argprom.exit ], [ %37, %4 ]
   %136 = load i32, ptr @hf_drda_sqlnum, align 4
   %137 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %137, align 4
   %switch.tableidx58 = add i32 %.val, -1
   %138 = icmp ult i32 %switch.tableidx58, 4
-  br i1 %138, label %switch.lookup57, label %dissect_fdoca_integer.exit
+  br i1 %138, label %switch.lookup57, label %dissect_fdoca_integer.argprom.exit
 
 switch.lookup57:                                  ; preds = %135
   %139 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep59 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %139
+  %switch.gep59 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %139
   %switch.load60 = load i32, ptr %switch.gep59, align 4
-  br label %dissect_fdoca_integer.exit
+  br label %dissect_fdoca_integer.argprom.exit
 
-dissect_fdoca_integer.exit:                       ; preds = %135, %switch.lookup57
+dissect_fdoca_integer.argprom.exit:               ; preds = %135, %switch.lookup57
   %.0.i25 = phi i32 [ %switch.load60, %switch.lookup57 ], [ -2147483648, %135 ]
   %140 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef %.024, i32 noundef 2, i32 noundef %.0.i25, ptr noundef nonnull %36) #6
   %141 = add i32 %.024, 2
@@ -2874,7 +2874,7 @@ dissect_fdoca_integer.exit:                       ; preds = %135, %switch.lookup
   %.not = icmp eq i32 %142, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %dissect_fdoca_integer.exit
+.lr.ph:                                           ; preds = %dissect_fdoca_integer.argprom.exit
   %143 = getelementptr inbounds i8, ptr %3, i64 12
   %144 = getelementptr inbounds i8, ptr %3, i64 8
   br label %145
@@ -2891,31 +2891,31 @@ dissect_fdoca_integer.exit:                       ; preds = %135, %switch.lookup
   %.val84.i = load i32, ptr %137, align 4
   %switch.tableidx62 = add i32 %.val84.i, -1
   %152 = icmp ult i32 %switch.tableidx62, 4
-  br i1 %152, label %switch.lookup61, label %dissect_fdoca_integer.exit.i26
+  br i1 %152, label %switch.lookup61, label %dissect_fdoca_integer.argprom.exit.i26
 
 switch.lookup61:                                  ; preds = %145
   %153 = zext nneg i32 %switch.tableidx62 to i64
-  %switch.gep63 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %153
+  %switch.gep63 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %153
   %switch.load64 = load i32, ptr %switch.gep63, align 4
-  br label %dissect_fdoca_integer.exit.i26
+  br label %dissect_fdoca_integer.argprom.exit.i26
 
-dissect_fdoca_integer.exit.i26:                   ; preds = %145, %switch.lookup61
+dissect_fdoca_integer.argprom.exit.i26:           ; preds = %145, %switch.lookup61
   %.0.i.i27 = phi i32 [ %switch.load64, %switch.lookup61 ], [ -2147483648, %145 ]
   %154 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %151, ptr noundef %146, i32 noundef 0, i32 noundef 2, i32 noundef %.0.i.i27, ptr noundef null) #6
   %155 = load i32, ptr @hf_drda_sqlscale, align 4
   %.val83.i = load i32, ptr %137, align 4
   %switch.tableidx66 = add i32 %.val83.i, -1
   %156 = icmp ult i32 %switch.tableidx66, 4
-  br i1 %156, label %switch.lookup65, label %dissect_fdoca_integer.exit88.i
+  br i1 %156, label %switch.lookup65, label %dissect_fdoca_integer.argprom.exit88.i
 
-switch.lookup65:                                  ; preds = %dissect_fdoca_integer.exit.i26
+switch.lookup65:                                  ; preds = %dissect_fdoca_integer.argprom.exit.i26
   %157 = zext nneg i32 %switch.tableidx66 to i64
-  %switch.gep67 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %157
+  %switch.gep67 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %157
   %switch.load68 = load i32, ptr %switch.gep67, align 4
-  br label %dissect_fdoca_integer.exit88.i
+  br label %dissect_fdoca_integer.argprom.exit88.i
 
-dissect_fdoca_integer.exit88.i:                   ; preds = %dissect_fdoca_integer.exit.i26, %switch.lookup65
-  %.0.i87.i = phi i32 [ %switch.load68, %switch.lookup65 ], [ -2147483648, %dissect_fdoca_integer.exit.i26 ]
+dissect_fdoca_integer.argprom.exit88.i:           ; preds = %dissect_fdoca_integer.argprom.exit.i26, %switch.lookup65
+  %.0.i87.i = phi i32 [ %switch.load68, %switch.lookup65 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit.i26 ]
   %158 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %155, ptr noundef %146, i32 noundef 2, i32 noundef 2, i32 noundef %.0.i87.i, ptr noundef null) #6
   %159 = load i32, ptr %3, align 4
   %160 = icmp ugt i32 %159, 5
@@ -2924,51 +2924,51 @@ dissect_fdoca_integer.exit88.i:                   ; preds = %dissect_fdoca_integ
   %161 = icmp ult i32 %switch.tableidx70, 4
   br i1 %160, label %162, label %166
 
-162:                                              ; preds = %dissect_fdoca_integer.exit88.i
+162:                                              ; preds = %dissect_fdoca_integer.argprom.exit88.i
   %163 = load i32, ptr @hf_drda_sqllength, align 4
-  br i1 %161, label %switch.lookup69, label %dissect_fdoca_integer64.exit.i
+  br i1 %161, label %switch.lookup69, label %dissect_fdoca_integer64.argprom.exit.i
 
 switch.lookup69:                                  ; preds = %162
   %164 = zext nneg i32 %switch.tableidx70 to i64
-  %switch.gep71 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %164
+  %switch.gep71 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %164
   %switch.load72 = load i32, ptr %switch.gep71, align 4
-  br label %dissect_fdoca_integer64.exit.i
+  br label %dissect_fdoca_integer64.argprom.exit.i
 
-dissect_fdoca_integer64.exit.i:                   ; preds = %162, %switch.lookup69
+dissect_fdoca_integer64.argprom.exit.i:           ; preds = %162, %switch.lookup69
   %.0.i89.i = phi i32 [ %switch.load72, %switch.lookup69 ], [ -2147483648, %162 ]
   %165 = call ptr @proto_tree_add_item_ret_int64(ptr noundef %150, i32 noundef %163, ptr noundef %146, i32 noundef 4, i32 noundef 8, i32 noundef %.0.i89.i, ptr noundef null) #6
   br label %170
 
-166:                                              ; preds = %dissect_fdoca_integer.exit88.i
+166:                                              ; preds = %dissect_fdoca_integer.argprom.exit88.i
   %167 = load i32, ptr @hf_drda_sqllength32, align 4
-  br i1 %161, label %switch.lookup73, label %dissect_fdoca_integer.exit91.i
+  br i1 %161, label %switch.lookup73, label %dissect_fdoca_integer.argprom.exit91.i
 
 switch.lookup73:                                  ; preds = %166
   %168 = zext nneg i32 %switch.tableidx70 to i64
-  %switch.gep75 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %168
+  %switch.gep75 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %168
   %switch.load76 = load i32, ptr %switch.gep75, align 4
-  br label %dissect_fdoca_integer.exit91.i
+  br label %dissect_fdoca_integer.argprom.exit91.i
 
-dissect_fdoca_integer.exit91.i:                   ; preds = %166, %switch.lookup73
+dissect_fdoca_integer.argprom.exit91.i:           ; preds = %166, %switch.lookup73
   %.0.i90.i = phi i32 [ %switch.load76, %switch.lookup73 ], [ -2147483648, %166 ]
   %169 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %167, ptr noundef %146, i32 noundef 4, i32 noundef 4, i32 noundef %.0.i90.i, ptr noundef null) #6
   br label %170
 
-170:                                              ; preds = %dissect_fdoca_integer.exit91.i, %dissect_fdoca_integer64.exit.i
-  %.0.i28 = phi i32 [ 12, %dissect_fdoca_integer64.exit.i ], [ 8, %dissect_fdoca_integer.exit91.i ]
+170:                                              ; preds = %dissect_fdoca_integer.argprom.exit91.i, %dissect_fdoca_integer64.argprom.exit.i
+  %.0.i28 = phi i32 [ 12, %dissect_fdoca_integer64.argprom.exit.i ], [ 8, %dissect_fdoca_integer.argprom.exit91.i ]
   %171 = load i32, ptr @hf_drda_sqltype, align 4
   %.val.i29 = load i32, ptr %137, align 4
   %switch.tableidx78 = add i32 %.val.i29, -1
   %172 = icmp ult i32 %switch.tableidx78, 4
-  br i1 %172, label %switch.lookup77, label %dissect_fdoca_integer.exit93.i
+  br i1 %172, label %switch.lookup77, label %dissect_fdoca_integer.argprom.exit93.i
 
 switch.lookup77:                                  ; preds = %170
   %173 = zext nneg i32 %switch.tableidx78 to i64
-  %switch.gep79 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %173
+  %switch.gep79 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %173
   %switch.load80 = load i32, ptr %switch.gep79, align 4
-  br label %dissect_fdoca_integer.exit93.i
+  br label %dissect_fdoca_integer.argprom.exit93.i
 
-dissect_fdoca_integer.exit93.i:                   ; preds = %170, %switch.lookup77
+dissect_fdoca_integer.argprom.exit93.i:           ; preds = %170, %switch.lookup77
   %.0.i92.i = phi i32 [ %switch.load80, %switch.lookup77 ], [ -2147483648, %170 ]
   %174 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %171, ptr noundef %146, i32 noundef %.0.i28, i32 noundef 2, i32 noundef %.0.i92.i, ptr noundef null) #6
   %175 = or disjoint i32 %.0.i28, 2
@@ -2979,20 +2979,20 @@ dissect_fdoca_integer.exit93.i:                   ; preds = %170, %switch.lookup
   %180 = icmp ugt i32 %179, 8
   br i1 %180, label %181, label %192
 
-181:                                              ; preds = %dissect_fdoca_integer.exit93.i
+181:                                              ; preds = %dissect_fdoca_integer.argprom.exit93.i
   %182 = load i32, ptr @hf_drda_sqlarrextent, align 4
   %.val86.i = load i32, ptr %137, align 4
   %switch.tableidx82 = add i32 %.val86.i, -1
   %183 = icmp ult i32 %switch.tableidx82, 4
-  br i1 %183, label %switch.lookup81, label %dissect_fdoca_integer64.exit95.i
+  br i1 %183, label %switch.lookup81, label %dissect_fdoca_integer64.argprom.exit95.i
 
 switch.lookup81:                                  ; preds = %181
   %184 = zext nneg i32 %switch.tableidx82 to i64
-  %switch.gep83 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %184
+  %switch.gep83 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %184
   %switch.load84 = load i32, ptr %switch.gep83, align 4
-  br label %dissect_fdoca_integer64.exit95.i
+  br label %dissect_fdoca_integer64.argprom.exit95.i
 
-dissect_fdoca_integer64.exit95.i:                 ; preds = %181, %switch.lookup81
+dissect_fdoca_integer64.argprom.exit95.i:         ; preds = %181, %switch.lookup81
   %.0.i94.i = phi i32 [ %switch.load84, %switch.lookup81 ], [ -2147483648, %181 ]
   %185 = call ptr @proto_tree_add_item_ret_int64(ptr noundef %150, i32 noundef %182, ptr noundef %146, i32 noundef %178, i32 noundef 8, i32 noundef %.0.i94.i, ptr noundef null) #6
   %186 = add nuw nsw i32 %.0.i28, 12
@@ -3000,15 +3000,15 @@ dissect_fdoca_integer64.exit95.i:                 ; preds = %181, %switch.lookup
   %188 = icmp ugt i32 %187, 9
   br i1 %188, label %189, label %192
 
-189:                                              ; preds = %dissect_fdoca_integer64.exit95.i
+189:                                              ; preds = %dissect_fdoca_integer64.argprom.exit95.i
   %190 = call ptr @proto_tree_add_expert(ptr noundef %150, ptr noundef %1, ptr noundef nonnull @ei_drda_undecoded, ptr noundef %146, i32 noundef %186, i32 noundef 2) #6
   %191 = add nuw nsw i32 %.0.i28, 14
   %.pr.i = load i32, ptr %3, align 4
   br label %192
 
-192:                                              ; preds = %189, %dissect_fdoca_integer64.exit95.i, %dissect_fdoca_integer.exit93.i
-  %193 = phi i32 [ %187, %dissect_fdoca_integer64.exit95.i ], [ %.pr.i, %189 ], [ %179, %dissect_fdoca_integer.exit93.i ]
-  %.1.i30 = phi i32 [ %186, %dissect_fdoca_integer64.exit95.i ], [ %191, %189 ], [ %178, %dissect_fdoca_integer.exit93.i ]
+192:                                              ; preds = %189, %dissect_fdoca_integer64.argprom.exit95.i, %dissect_fdoca_integer.argprom.exit93.i
+  %193 = phi i32 [ %187, %dissect_fdoca_integer64.argprom.exit95.i ], [ %.pr.i, %189 ], [ %179, %dissect_fdoca_integer.argprom.exit93.i ]
+  %.1.i30 = phi i32 [ %186, %dissect_fdoca_integer64.argprom.exit95.i ], [ %191, %189 ], [ %178, %dissect_fdoca_integer.argprom.exit93.i ]
   %194 = icmp ugt i32 %193, 6
   br i1 %194, label %195, label %418
 
@@ -3031,15 +3031,15 @@ dissect_fdoca_integer64.exit95.i:                 ; preds = %181, %switch.lookup
   %.val.i.i = load i32, ptr %137, align 4
   %switch.tableidx86 = add i32 %.val.i.i, -1
   %207 = icmp ult i32 %switch.tableidx86, 4
-  br i1 %207, label %switch.lookup85, label %dissect_fdoca_integer.exit.i.i
+  br i1 %207, label %switch.lookup85, label %dissect_fdoca_integer.argprom.exit.i.i
 
 switch.lookup85:                                  ; preds = %205
   %208 = zext nneg i32 %switch.tableidx86 to i64
-  %switch.gep87 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %208
+  %switch.gep87 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %208
   %switch.load88 = load i32, ptr %switch.gep87, align 4
-  br label %dissect_fdoca_integer.exit.i.i
+  br label %dissect_fdoca_integer.argprom.exit.i.i
 
-dissect_fdoca_integer.exit.i.i:                   ; preds = %205, %switch.lookup85
+dissect_fdoca_integer.argprom.exit.i.i:           ; preds = %205, %switch.lookup85
   %.0.i.i.i = phi i32 [ %switch.load88, %switch.lookup85 ], [ -2147483648, %205 ]
   %209 = call ptr @proto_tree_add_item_ret_int(ptr noundef %200, i32 noundef %206, ptr noundef %196, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i.i, ptr noundef null) #6
   %210 = load i32, ptr @hf_drda_sqlname, align 4
@@ -3108,7 +3108,7 @@ dissect_fdoca_integer.exit.i.i:                   ; preds = %205, %switch.lookup
   %262 = add i32 %261, %257
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   %263 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %262) #6
-  %264 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %263, ptr noundef %200, ptr noundef nonnull readonly %3)
+  %264 = call fastcc i32 @dissect_drda_sqludtgrp.argprom(ptr noundef %263, ptr noundef %200, ptr noundef nonnull readonly %3)
   %265 = add i32 %264, %262
   %266 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %265) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
@@ -3121,108 +3121,108 @@ dissect_fdoca_integer.exit.i.i:                   ; preds = %205, %switch.lookup
   %273 = load i32, ptr %22, align 4
   %sext.mask.i.i.i = and i32 %273, 128
   %274 = icmp eq i32 %sext.mask.i.i.i, 0
-  br i1 %274, label %275, label %dissect_drda_sqldxgrp.exit.i.i
+  br i1 %274, label %275, label %dissect_drda_sqldxgrp.argprom.exit.i.i
 
-275:                                              ; preds = %dissect_fdoca_integer.exit.i.i
+275:                                              ; preds = %dissect_fdoca_integer.argprom.exit.i.i
   %276 = load i32, ptr @hf_drda_sqlxkeymem, align 4
   %.val86.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx90 = add i32 %.val86.i.i.i, -1
   %277 = icmp ult i32 %switch.tableidx90, 4
-  br i1 %277, label %switch.lookup89, label %dissect_fdoca_integer.exit.i.i.i
+  br i1 %277, label %switch.lookup89, label %dissect_fdoca_integer.argprom.exit.i.i.i
 
 switch.lookup89:                                  ; preds = %275
   %278 = zext nneg i32 %switch.tableidx90 to i64
-  %switch.gep91 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %278
+  %switch.gep91 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %278
   %switch.load92 = load i32, ptr %switch.gep91, align 4
-  br label %dissect_fdoca_integer.exit.i.i.i
+  br label %dissect_fdoca_integer.argprom.exit.i.i.i
 
-dissect_fdoca_integer.exit.i.i.i:                 ; preds = %275, %switch.lookup89
+dissect_fdoca_integer.argprom.exit.i.i.i:         ; preds = %275, %switch.lookup89
   %.0.i.i.i.i = phi i32 [ %switch.load92, %switch.lookup89 ], [ -2147483648, %275 ]
   %279 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %276, ptr noundef %266, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i.i.i, ptr noundef null) #6
   %280 = load i32, ptr @hf_drda_sqlxupdateable, align 4
   %.val85.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx94 = add i32 %.val85.i.i.i, -1
   %281 = icmp ult i32 %switch.tableidx94, 4
-  br i1 %281, label %switch.lookup93, label %dissect_fdoca_integer.exit88.i.i.i
+  br i1 %281, label %switch.lookup93, label %dissect_fdoca_integer.argprom.exit88.i.i.i
 
-switch.lookup93:                                  ; preds = %dissect_fdoca_integer.exit.i.i.i
+switch.lookup93:                                  ; preds = %dissect_fdoca_integer.argprom.exit.i.i.i
   %282 = zext nneg i32 %switch.tableidx94 to i64
-  %switch.gep95 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %282
+  %switch.gep95 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %282
   %switch.load96 = load i32, ptr %switch.gep95, align 4
-  br label %dissect_fdoca_integer.exit88.i.i.i
+  br label %dissect_fdoca_integer.argprom.exit88.i.i.i
 
-dissect_fdoca_integer.exit88.i.i.i:               ; preds = %dissect_fdoca_integer.exit.i.i.i, %switch.lookup93
-  %.0.i87.i.i.i = phi i32 [ %switch.load96, %switch.lookup93 ], [ -2147483648, %dissect_fdoca_integer.exit.i.i.i ]
+dissect_fdoca_integer.argprom.exit88.i.i.i:       ; preds = %dissect_fdoca_integer.argprom.exit.i.i.i, %switch.lookup93
+  %.0.i87.i.i.i = phi i32 [ %switch.load96, %switch.lookup93 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit.i.i.i ]
   %283 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %280, ptr noundef %266, i32 noundef 3, i32 noundef 2, i32 noundef %.0.i87.i.i.i, ptr noundef null) #6
   %284 = load i32, ptr @hf_drda_sqlxgenerated, align 4
   %.val84.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx98 = add i32 %.val84.i.i.i, -1
   %285 = icmp ult i32 %switch.tableidx98, 4
-  br i1 %285, label %switch.lookup97, label %dissect_fdoca_integer.exit90.i.i.i
+  br i1 %285, label %switch.lookup97, label %dissect_fdoca_integer.argprom.exit90.i.i.i
 
-switch.lookup97:                                  ; preds = %dissect_fdoca_integer.exit88.i.i.i
+switch.lookup97:                                  ; preds = %dissect_fdoca_integer.argprom.exit88.i.i.i
   %286 = zext nneg i32 %switch.tableidx98 to i64
-  %switch.gep99 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %286
+  %switch.gep99 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %286
   %switch.load100 = load i32, ptr %switch.gep99, align 4
-  br label %dissect_fdoca_integer.exit90.i.i.i
+  br label %dissect_fdoca_integer.argprom.exit90.i.i.i
 
-dissect_fdoca_integer.exit90.i.i.i:               ; preds = %dissect_fdoca_integer.exit88.i.i.i, %switch.lookup97
-  %.0.i89.i.i.i = phi i32 [ %switch.load100, %switch.lookup97 ], [ -2147483648, %dissect_fdoca_integer.exit88.i.i.i ]
+dissect_fdoca_integer.argprom.exit90.i.i.i:       ; preds = %dissect_fdoca_integer.argprom.exit88.i.i.i, %switch.lookup97
+  %.0.i89.i.i.i = phi i32 [ %switch.load100, %switch.lookup97 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit88.i.i.i ]
   %287 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %284, ptr noundef %266, i32 noundef 5, i32 noundef 2, i32 noundef %.0.i89.i.i.i, ptr noundef null) #6
   %288 = load i32, ptr @hf_drda_sqlxparmmode, align 4
   %.val83.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx102 = add i32 %.val83.i.i.i, -1
   %289 = icmp ult i32 %switch.tableidx102, 4
-  br i1 %289, label %switch.lookup101, label %dissect_fdoca_integer.exit92.i.i.i
+  br i1 %289, label %switch.lookup101, label %dissect_fdoca_integer.argprom.exit92.i.i.i
 
-switch.lookup101:                                 ; preds = %dissect_fdoca_integer.exit90.i.i.i
+switch.lookup101:                                 ; preds = %dissect_fdoca_integer.argprom.exit90.i.i.i
   %290 = zext nneg i32 %switch.tableidx102 to i64
-  %switch.gep103 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %290
+  %switch.gep103 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %290
   %switch.load104 = load i32, ptr %switch.gep103, align 4
-  br label %dissect_fdoca_integer.exit92.i.i.i
+  br label %dissect_fdoca_integer.argprom.exit92.i.i.i
 
-dissect_fdoca_integer.exit92.i.i.i:               ; preds = %dissect_fdoca_integer.exit90.i.i.i, %switch.lookup101
-  %.0.i91.i.i.i = phi i32 [ %switch.load104, %switch.lookup101 ], [ -2147483648, %dissect_fdoca_integer.exit90.i.i.i ]
+dissect_fdoca_integer.argprom.exit92.i.i.i:       ; preds = %dissect_fdoca_integer.argprom.exit90.i.i.i, %switch.lookup101
+  %.0.i91.i.i.i = phi i32 [ %switch.load104, %switch.lookup101 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit90.i.i.i ]
   %291 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %288, ptr noundef %266, i32 noundef 7, i32 noundef 2, i32 noundef %.0.i91.i.i.i, ptr noundef null) #6
   %292 = load i32, ptr %3, align 4
   %293 = icmp ugt i32 %292, 8
   br i1 %293, label %294, label %303
 
-294:                                              ; preds = %dissect_fdoca_integer.exit92.i.i.i
+294:                                              ; preds = %dissect_fdoca_integer.argprom.exit92.i.i.i
   %295 = load i32, ptr @hf_drda_sqlxoptlck, align 4
   %.val82.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx106 = add i32 %.val82.i.i.i, -1
   %296 = icmp ult i32 %switch.tableidx106, 4
-  br i1 %296, label %switch.lookup105, label %dissect_fdoca_integer.exit94.i.i.i
+  br i1 %296, label %switch.lookup105, label %dissect_fdoca_integer.argprom.exit94.i.i.i
 
 switch.lookup105:                                 ; preds = %294
   %297 = zext nneg i32 %switch.tableidx106 to i64
-  %switch.gep107 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %297
+  %switch.gep107 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %297
   %switch.load108 = load i32, ptr %switch.gep107, align 4
-  br label %dissect_fdoca_integer.exit94.i.i.i
+  br label %dissect_fdoca_integer.argprom.exit94.i.i.i
 
-dissect_fdoca_integer.exit94.i.i.i:               ; preds = %294, %switch.lookup105
+dissect_fdoca_integer.argprom.exit94.i.i.i:       ; preds = %294, %switch.lookup105
   %.0.i93.i.i.i = phi i32 [ %switch.load108, %switch.lookup105 ], [ -2147483648, %294 ]
   %298 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %295, ptr noundef %266, i32 noundef 9, i32 noundef 2, i32 noundef %.0.i93.i.i.i, ptr noundef null) #6
   %299 = load i32, ptr @hf_drda_sqlxhidden, align 4
   %.val.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx110 = add i32 %.val.i.i.i, -1
   %300 = icmp ult i32 %switch.tableidx110, 4
-  br i1 %300, label %switch.lookup109, label %dissect_fdoca_integer.exit96.i.i.i
+  br i1 %300, label %switch.lookup109, label %dissect_fdoca_integer.argprom.exit96.i.i.i
 
-switch.lookup109:                                 ; preds = %dissect_fdoca_integer.exit94.i.i.i
+switch.lookup109:                                 ; preds = %dissect_fdoca_integer.argprom.exit94.i.i.i
   %301 = zext nneg i32 %switch.tableidx110 to i64
-  %switch.gep111 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %301
+  %switch.gep111 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %301
   %switch.load112 = load i32, ptr %switch.gep111, align 4
-  br label %dissect_fdoca_integer.exit96.i.i.i
+  br label %dissect_fdoca_integer.argprom.exit96.i.i.i
 
-dissect_fdoca_integer.exit96.i.i.i:               ; preds = %dissect_fdoca_integer.exit94.i.i.i, %switch.lookup109
-  %.0.i95.i.i.i = phi i32 [ %switch.load112, %switch.lookup109 ], [ -2147483648, %dissect_fdoca_integer.exit94.i.i.i ]
+dissect_fdoca_integer.argprom.exit96.i.i.i:       ; preds = %dissect_fdoca_integer.argprom.exit94.i.i.i, %switch.lookup109
+  %.0.i95.i.i.i = phi i32 [ %switch.load112, %switch.lookup109 ], [ -2147483648, %dissect_fdoca_integer.argprom.exit94.i.i.i ]
   %302 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %299, ptr noundef %266, i32 noundef 11, i32 noundef 2, i32 noundef %.0.i95.i.i.i, ptr noundef null) #6
   br label %303
 
-303:                                              ; preds = %dissect_fdoca_integer.exit96.i.i.i, %dissect_fdoca_integer.exit92.i.i.i
-  %.1.i.i.i = phi i32 [ 13, %dissect_fdoca_integer.exit96.i.i.i ], [ 9, %dissect_fdoca_integer.exit92.i.i.i ]
+303:                                              ; preds = %dissect_fdoca_integer.argprom.exit96.i.i.i, %dissect_fdoca_integer.argprom.exit92.i.i.i
+  %.1.i.i.i = phi i32 [ 13, %dissect_fdoca_integer.argprom.exit96.i.i.i ], [ 9, %dissect_fdoca_integer.argprom.exit92.i.i.i ]
   %304 = load i32, ptr @hf_drda_rdbnam, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   %305 = load i32, ptr @hf_drda_param_length, align 4
@@ -3324,7 +3324,7 @@ dissect_fdoca_integer.exit96.i.i.i:               ; preds = %dissect_fdoca_integ
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %385 = load i32, ptr %3, align 4
   %386 = icmp ugt i32 %385, 9
-  br i1 %386, label %387, label %dissect_drda_sqldxgrp.exit.i.i
+  br i1 %386, label %387, label %dissect_drda_sqldxgrp.argprom.exit.i.i
 
 387:                                              ; preds = %303
   %388 = load i32, ptr @hf_drda_sqlxmodule, align 4
@@ -3349,10 +3349,10 @@ dissect_fdoca_integer.exit96.i.i.i:               ; preds = %dissect_fdoca_integ
   %404 = load i32, ptr %11, align 4
   %405 = add i32 %404, %400
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %dissect_drda_sqldxgrp.exit.i.i
+  br label %dissect_drda_sqldxgrp.argprom.exit.i.i
 
-dissect_drda_sqldxgrp.exit.i.i:                   ; preds = %387, %303, %dissect_fdoca_integer.exit.i.i
-  %.0.i60.i.i = phi i32 [ %405, %387 ], [ %384, %303 ], [ 1, %dissect_fdoca_integer.exit.i.i ]
+dissect_drda_sqldxgrp.argprom.exit.i.i:           ; preds = %387, %303, %dissect_fdoca_integer.argprom.exit.i.i
+  %.0.i60.i.i = phi i32 [ %405, %387 ], [ %384, %303 ], [ 1, %dissect_fdoca_integer.argprom.exit.i.i ]
   call void @proto_item_set_end(ptr noundef %268, ptr noundef %266, i32 noundef %.0.i60.i.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   %406 = add i32 %.0.i60.i.i, %265
@@ -3360,7 +3360,7 @@ dissect_drda_sqldxgrp.exit.i.i:                   ; preds = %387, %303, %dissect
   %408 = icmp ugt i32 %407, 9
   br i1 %408, label %409, label %dissect_drda_sqldoptgrp.exit.i
 
-409:                                              ; preds = %dissect_drda_sqldxgrp.exit.i.i
+409:                                              ; preds = %dissect_drda_sqldxgrp.argprom.exit.i.i
   %410 = load i32, ptr @hf_drda_null_ind, align 4
   %411 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %410, ptr noundef %196, i32 noundef %406, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %29) #6
   %412 = add i32 %406, 1
@@ -3373,8 +3373,8 @@ dissect_drda_sqldxgrp.exit.i.i:                   ; preds = %387, %303, %dissect
   %416 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %411, ptr noundef nonnull @ei_drda_undecoded) #6
   br label %dissect_drda_sqldoptgrp.exit.i
 
-dissect_drda_sqldoptgrp.exit.i:                   ; preds = %415, %409, %dissect_drda_sqldxgrp.exit.i.i, %195
-  %.0.i96.i = phi i32 [ %412, %415 ], [ %412, %409 ], [ %406, %dissect_drda_sqldxgrp.exit.i.i ], [ 1, %195 ]
+dissect_drda_sqldoptgrp.exit.i:                   ; preds = %415, %409, %dissect_drda_sqldxgrp.argprom.exit.i.i, %195
+  %.0.i96.i = phi i32 [ %412, %415 ], [ %412, %409 ], [ %406, %dissect_drda_sqldxgrp.argprom.exit.i.i ], [ 1, %195 ]
   call void @proto_item_set_end(ptr noundef %198, ptr noundef %196, i32 noundef %.0.i96.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
   %417 = add i32 %.0.i96.i, %.1.i30
@@ -3453,7 +3453,7 @@ dissect_drda_sqldoptgrp.exit.i:                   ; preds = %415, %409, %dissect
 
 475:                                              ; preds = %418
   %476 = call ptr @tvb_new_subset_remaining(ptr noundef %146, i32 noundef %472) #6
-  %477 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %476, ptr noundef %150, ptr noundef nonnull readonly %3)
+  %477 = call fastcc i32 @dissect_drda_sqludtgrp.argprom(ptr noundef %476, ptr noundef %150, ptr noundef nonnull readonly %3)
   %478 = add i32 %477, %472
   br label %dissect_drda_sqldagrp.exit
 
@@ -3466,8 +3466,8 @@ dissect_drda_sqldagrp.exit:                       ; preds = %dissect_drda_sqldop
   %482 = icmp ult i32 %480, %481
   br i1 %482, label %145, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %dissect_drda_sqldagrp.exit, %dissect_fdoca_integer.exit
-  %.1.lcssa = phi i32 [ %141, %dissect_fdoca_integer.exit ], [ %479, %dissect_drda_sqldagrp.exit ]
+._crit_edge:                                      ; preds = %dissect_drda_sqldagrp.exit, %dissect_fdoca_integer.argprom.exit
+  %.1.lcssa = phi i32 [ %141, %dissect_fdoca_integer.argprom.exit ], [ %479, %dissect_drda_sqldagrp.exit ]
   ret i32 %.1.lcssa
 }
 
@@ -4129,7 +4129,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_drda_sqludtgrp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_drda_sqludtgrp.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -4160,15 +4160,15 @@ define internal fastcc noundef i32 @dissect_drda_sqludtgrp(ptr noundef %0, ptr n
   %.val = load i32, ptr %25, align 4
   %switch.tableidx = add i32 %.val, -1
   %26 = icmp ult i32 %switch.tableidx, 4
-  br i1 %26, label %switch.lookup, label %dissect_fdoca_integer.exit
+  br i1 %26, label %switch.lookup, label %dissect_fdoca_integer.argprom.exit
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp.argprom, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %dissect_fdoca_integer.exit
+  br label %dissect_fdoca_integer.argprom.exit
 
-dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
+dissect_fdoca_integer.argprom.exit:               ; preds = %23, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -2147483648, %23 ]
   %28 = call ptr @proto_tree_add_item_ret_int(ptr noundef %15, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef %.0.i, ptr noundef null) #6
   %29 = load i32, ptr @hf_drda_rdbnam, align 4
@@ -4207,8 +4207,8 @@ dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %57
 
-57:                                               ; preds = %dissect_fdoca_integer.exit, %20
-  %.1 = phi i32 [ %56, %dissect_fdoca_integer.exit ], [ 1, %20 ]
+57:                                               ; preds = %dissect_fdoca_integer.argprom.exit, %20
+  %.1 = phi i32 [ %56, %dissect_fdoca_integer.argprom.exit ], [ 1, %20 ]
   %58 = load i32, ptr @hf_drda_sqludtname, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %59 = load i32, ptr @hf_drda_param_length, align 4

@@ -588,37 +588,37 @@ _ZN4llvh11raw_ostreamlsEPKc.exit139:              ; preds = %if.then.i.i137, %if
   ]
 
 sw.bb:                                            ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit139
-  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE(i8 0, ptr noundef nonnull align 8 dereferenceable(36) %OS)
+  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE.argprom(i8 0, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   %add = add i32 %cursor.0516, 1
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit139
-  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE(i8 1, ptr noundef nonnull align 8 dereferenceable(36) %OS)
+  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE.argprom(i8 1, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   %add24 = add i32 %cursor.0516, 1
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit139
-  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE(i8 2, ptr noundef nonnull align 8 dereferenceable(36) %OS)
+  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE.argprom(i8 2, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   %add29 = add i32 %cursor.0516, 1
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit139
-  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE(i8 3, ptr noundef nonnull align 8 dereferenceable(36) %OS)
+  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE.argprom(i8 3, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   %add34 = add i32 %cursor.0516, 1
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit139
-  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE(i8 4, ptr noundef nonnull align 8 dereferenceable(36) %OS)
+  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE.argprom(i8 4, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   %add39 = add i32 %cursor.0516, 1
   br label %sw.epilog
 
 sw.bb40:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit139
-  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE(i8 5, ptr noundef nonnull align 8 dereferenceable(36) %OS)
+  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE.argprom(i8 5, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   %add44 = add i32 %cursor.0516, 1
   br label %sw.epilog
 
 sw.bb45:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit139
-  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE(i8 6, ptr noundef nonnull align 8 dereferenceable(36) %OS)
+  call fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE.argprom(i8 6, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   %add49 = add i32 %cursor.0516, 1
   br label %sw.epilog
 
@@ -1728,7 +1728,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(23)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE(i8 %insn.0.val, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex4InsnERN4llvh11raw_ostreamE.argprom(i8 %insn.0.val, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #0 {
 entry:
   switch i8 %insn.0.val, label %sw.epilog [
     i8 0, label %sw.bb
@@ -2680,13 +2680,13 @@ if.then.i133:                                     ; preds = %land.lhs.true.i
 
 if.then.i.i134:                                   ; preds = %if.then.i133
   %call.i.i135 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS, i8 noundef zeroext %conv.i) #20
-  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit"
+  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit"
 
 if.end.i.i136:                                    ; preds = %if.then.i133
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %35, i64 1
   store ptr %incdec.ptr.i.i, ptr %OutBufCur.i6.i, align 8
   store i8 %conv.i, ptr %35, align 1
-  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit"
+  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit"
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %for.body
   %conv3.i = zext i32 %34 to i64
@@ -2697,9 +2697,9 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %f
   store i8 0, ptr %Upper.i.i.i, align 1, !alias.scope !77
   store i8 1, ptr %HexPrefix.i.i.i, align 2, !alias.scope !77
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp.i) #20
-  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit"
+  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit"
 
-"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit": ; preds = %if.then.i.i134, %if.end.i.i136, %if.else.i
+"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit": ; preds = %if.then.i.i134, %if.end.i.i136, %if.else.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %end = getelementptr inbounds i8, ptr %range.0180, i64 4
   %37 = load i32, ptr %end, align 1
@@ -2707,7 +2707,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %f
   %cmp60 = icmp ugt i32 %37, %38
   br i1 %cmp60, label %if.then61, label %if.end64
 
-if.then61:                                        ; preds = %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit"
+if.then61:                                        ; preds = %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit"
   %39 = load ptr, ptr %OutBufCur.i6.i, align 8
   %40 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %cmp.not.i139 = icmp ult ptr %39, %40
@@ -2743,13 +2743,13 @@ if.then.i160:                                     ; preds = %land.lhs.true.i157
 
 if.then.i.i165:                                   ; preds = %if.then.i160
   %call.i.i166 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS, i8 noundef zeroext %conv.i161) #20
-  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit169"
+  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit169"
 
 if.end.i.i167:                                    ; preds = %if.then.i160
   %incdec.ptr.i.i168 = getelementptr inbounds i8, ptr %42, i64 1
   store ptr %incdec.ptr.i.i168, ptr %OutBufCur.i6.i, align 8
   store i8 %conv.i161, ptr %42, align 1
-  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit169"
+  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit169"
 
 if.else.i148:                                     ; preds = %land.lhs.true.i157, %_ZN4llvh11raw_ostreamlsEc.exit145
   %conv3.i149 = zext i32 %41 to i64
@@ -2760,13 +2760,13 @@ if.else.i148:                                     ; preds = %land.lhs.true.i157,
   store i8 0, ptr %Upper.i.i.i153, align 1, !alias.scope !80
   store i8 1, ptr %HexPrefix.i.i.i154, align 2, !alias.scope !80
   %call4.i155 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp.i146) #20
-  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit169"
+  br label %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit169"
 
-"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit169": ; preds = %if.then.i.i165, %if.end.i.i167, %if.else.i148
+"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit169": ; preds = %if.then.i.i165, %if.end.i.i167, %if.else.i148
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i146)
   br label %if.end64
 
-if.end64:                                         ; preds = %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit169", %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.exit"
+if.end64:                                         ; preds = %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit169", %"_ZZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex11BracketInsnERN4llvh11raw_ostreamEENK3$_0clEj.argprom.exit"
   %incdec.ptr = getelementptr inbounds i8, ptr %range.0180, i64 8
   %inc = add nuw i32 %i.0181, 1
   %44 = load i32, ptr %rangeCount, align 1

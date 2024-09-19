@@ -17999,14 +17999,14 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %626, %616, %607
 
 630:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !24
-  br label %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit
+  br label %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit
 
 631:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i
   %632 = call noundef ptr @_ZNK8CallInfo15selected_methodEv(ptr noundef nonnull align 8 dereferenceable(64) %8) #16, !noalias !24
   store ptr %632, ptr %21, align 8, !alias.scope !24
   store ptr %23, ptr %141, align 8, !alias.scope !24
   %.not.i.i = icmp eq ptr %632, null
-  br i1 %.not.i.i, label %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit, label %633
+  br i1 %.not.i.i, label %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit, label %633
 
 633:                                              ; preds = %631
   %634 = load ptr, ptr %121, align 8, !noalias !24
@@ -18039,9 +18039,9 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %651 = sext i32 %647 to i64
   %652 = getelementptr inbounds ptr, ptr %650, i64 %651
   store ptr %632, ptr %652, align 8, !noalias !24
-  br label %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit
+  br label %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit
 
-_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit: ; preds = %630, %631, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i.i
+_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit: ; preds = %630, %631, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i.i
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %142) #16, !noalias !24
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %143) #16, !noalias !24
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %135) #16, !noalias !24
@@ -18051,17 +18051,17 @@ _ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.e
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #16
   %654 = load ptr, ptr %106, align 8
   %.not261 = icmp eq ptr %654, null
-  br i1 %.not261, label %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit._crit_edge, label %.loopexit264
+  br i1 %.not261, label %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit._crit_edge, label %.loopexit264
 
-_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit._crit_edge: ; preds = %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit
+_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit._crit_edge: ; preds = %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit
   %.pre311 = load ptr, ptr %130, align 8
   %.pre312 = load i32, ptr %132, align 8
   %655 = sext i32 %.pre312 to i64
   br label %656
 
-656:                                              ; preds = %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit._crit_edge, %_ZNK6HandleclEv.exit199
-  %657 = phi i64 [ %655, %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit._crit_edge ], [ 1, %_ZNK6HandleclEv.exit199 ]
-  %658 = phi ptr [ %.pre311, %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit._crit_edge ], [ %129, %_ZNK6HandleclEv.exit199 ]
+656:                                              ; preds = %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit._crit_edge, %_ZNK6HandleclEv.exit199
+  %657 = phi i64 [ %655, %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit._crit_edge ], [ 1, %_ZNK6HandleclEv.exit199 ]
+  %658 = phi ptr [ %.pre311, %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit._crit_edge ], [ %129, %_ZNK6HandleclEv.exit199 ]
   %659 = getelementptr inbounds i8, ptr %658, i64 %657
   store i8 2, ptr %659, align 1
   %660 = load ptr, ptr %128, align 8
@@ -18282,8 +18282,8 @@ _ZL7matchesP13_jobjectArrayP6MethodPP13GrowableArrayIS2_EP6HandleP6ThreadP8JVMCI
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #16
   br label %.loopexit264
 
-.loopexit264:                                     ; preds = %_ZL7matchesP13_jobjectArrayP6MethodPP13GrowableArrayIS2_EP6HandleP6ThreadP8JVMCIEnv.exit.thread, %_ZL37resync_vframestream_to_compiled_frameR12vframeStreamPliP10JavaThreadS3_.exit, %656, %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit, %_ZNK6HandleclEv.exit191, %452, %391, %411, %108, %.critedge159, %669
-  %.6 = phi ptr [ %670, %669 ], [ null, %.critedge159 ], [ null, %108 ], [ null, %411 ], [ null, %391 ], [ null, %452 ], [ null, %_ZNK6HandleclEv.exit191 ], [ null, %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.exit ], [ null, %656 ], [ null, %_ZL37resync_vframestream_to_compiled_frameR12vframeStreamPliP10JavaThreadS3_.exit ], [ null, %_ZL7matchesP13_jobjectArrayP6MethodPP13GrowableArrayIS2_EP6HandleP6ThreadP8JVMCIEnv.exit.thread ]
+.loopexit264:                                     ; preds = %_ZL7matchesP13_jobjectArrayP6MethodPP13GrowableArrayIS2_EP6HandleP6ThreadP8JVMCIEnv.exit.thread, %_ZL37resync_vframestream_to_compiled_frameR12vframeStreamPliP10JavaThreadS3_.exit, %656, %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit, %_ZNK6HandleclEv.exit191, %452, %391, %411, %108, %.critedge159, %669
+  %.6 = phi ptr [ %670, %669 ], [ null, %.critedge159 ], [ null, %108 ], [ null, %411 ], [ null, %391 ], [ null, %452 ], [ null, %_ZNK6HandleclEv.exit191 ], [ null, %_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom.exit ], [ null, %656 ], [ null, %_ZL37resync_vframestream_to_compiled_frameR12vframeStreamPliP10JavaThreadS3_.exit ], [ null, %_ZL7matchesP13_jobjectArrayP6MethodPP13GrowableArrayIS2_EP6HandleP6ThreadP8JVMCIEnv.exit.thread ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #16
   br label %745
 
@@ -25188,7 +25188,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %72, %70
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN14JVMCITraceMarkC2EPKc.exit, %_ZNK5Klass11java_mirrorEv.exit, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZN14JVMCITraceMarkC2EPKc.exit ]
-  %74 = call fastcc noundef ptr @_ZL16read_field_value6HandleltbP6ThreadP8JVMCIEnv(ptr %storemerge.i, i64 noundef %4, i16 noundef zeroext %5, i1 noundef zeroext true, ptr noundef %9)
+  %74 = call fastcc noundef ptr @_ZL16read_field_value6HandleltbP6ThreadP8JVMCIEnv.argprom(ptr %storemerge.i, i64 noundef %4, i16 noundef zeroext %5, i1 noundef zeroext true, ptr noundef %9)
   %75 = load i64, ptr @JVMCITraceLevel, align 8
   %76 = icmp slt i64 %75, 2
   %77 = load i64, ptr @JVMCIEventLogLevel, align 8
@@ -25265,7 +25265,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL16read_field_value6HandleltbP6ThreadP8JVMCIEnv(ptr nocapture readonly %0, i64 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL16read_field_value6HandleltbP6ThreadP8JVMCIEnv.argprom(ptr nocapture readonly %0, i64 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %class.fieldDescriptor, align 8
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.FormatBuffer, align 8
@@ -26079,7 +26079,7 @@ _ZN15java_lang_Class11is_instanceEP7oopDesc.exit: ; preds = %96, %106
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %89, %_ZNK6HandleclEv.exit, %_ZNK7oopDesc5klassEv.exit.i, %_ZNK7oopDesc4is_aEP5Klass.exit, %110, %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit
   %114 = phi i1 [ false, %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit ], [ %113, %110 ], [ false, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ false, %_ZNK7oopDesc5klassEv.exit.i ], [ false, %_ZNK6HandleclEv.exit ], [ false, %89 ]
-  %115 = call fastcc noundef ptr @_ZL16read_field_value6HandleltbP6ThreadP8JVMCIEnv(ptr %60, i64 noundef %5, i16 noundef zeroext %6, i1 noundef zeroext %114, ptr noundef %10)
+  %115 = call fastcc noundef ptr @_ZL16read_field_value6HandleltbP6ThreadP8JVMCIEnv.argprom(ptr %60, i64 noundef %5, i16 noundef zeroext %6, i1 noundef zeroext %114, ptr noundef %10)
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread48
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread48:          ; preds = %87, %_ZNK7oopDesc4is_aEP5Klass.exit, %56, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %55
@@ -43109,8 +43109,8 @@ attributes #18 = { noreturn nounwind }
 !22 = distinct !{!22, !10}
 !23 = distinct !{!23, !10}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread: argument 0"}
-!26 = distinct !{!26, !"_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread"}
+!25 = distinct !{!25, !26, !"_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom: argument 0"}
+!26 = distinct !{!26, !"_ZL22resolve_interface_callP5KlassP6SymbolS2_P17JavaCallArgumentsP10JavaThread.argprom.argprom"}
 !27 = distinct !{!27, !10}
 !28 = distinct !{!28, !10}
 !29 = distinct !{!29, !10}

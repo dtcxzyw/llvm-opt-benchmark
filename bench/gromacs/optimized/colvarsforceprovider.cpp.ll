@@ -2927,9 +2927,9 @@ _ZNK3gmx17KeyValueTreeValue7asArrayEv.exit:       ; preds = %30, %_ZNK3gmx3Any6i
   %65 = getelementptr inbounds i8, ptr %0, i64 16
   %66 = load i64, ptr %10, align 8
   %67 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, i32 noundef 120, i64 noundef %66, i64 noundef 12)
-          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp90
+          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp90
 
-_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %64
+_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit: ; preds = %64
   store ptr %67, ptr %65, align 8
   %68 = load ptr, ptr %45, align 8
   %69 = load ptr, ptr %4, align 8
@@ -2939,8 +2939,8 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %64
   %.not101 = icmp ult i64 %72, 17
   br i1 %.not101, label %._crit_edge, label %.preheader
 
-.preheader:                                       ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit, %101
-  %.02895 = phi i64 [ %102, %101 ], [ 0, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit ]
+.preheader:                                       ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit, %101
+  %.02895 = phi i64 [ %102, %101 ], [ 0, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit ]
   %.idx = mul i64 %.02895, 24
   br label %73
 
@@ -3022,7 +3022,7 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.i.i.i:             ; preds = %87
   %110 = icmp ult i64 %102, %109
   br i1 %110, label %.preheader, label %._crit_edge, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %101, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit
+._crit_edge:                                      ; preds = %101, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit
   store i64 0, ptr %8, align 8
   invoke void @_ZN3gmx22readKvtCheckpointValueIlEEvNS_6compat8not_nullIPT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKNS_18KeyValueTreeObjectE(ptr nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZN3gmx25ColvarsForceProviderState27sc_colvarStateFileSizeName_B5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %111 unwind label %.loopexit.split-lp90
@@ -4203,17 +4203,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit114: ;
   %263 = getelementptr inbounds i8, ptr %0, i64 1816
   store i64 %262, ptr %263, align 8
   %264 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.17, i32 noundef 254, i64 noundef %262, i64 noundef 12)
-          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit116 unwind label %215
+          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit116 unwind label %215
 
-_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit116:    ; preds = %260
+_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit116: ; preds = %260
   %265 = getelementptr inbounds i8, ptr %0, i64 1824
   store ptr %264, ptr %265, align 8
   %266 = load i32, ptr %42, align 8
   %267 = icmp sgt i32 %266, 0
   br i1 %267, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit116, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit116 ]
+.lr.ph:                                           ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit116, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit116 ]
   %268 = load ptr, ptr %11, align 8
   %269 = getelementptr inbounds %"class.gmx::BasicVector", ptr %268, i64 %indvars.iv
   %270 = load ptr, ptr %46, align 8
@@ -4234,7 +4234,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit116:    ; preds = %260
   %281 = icmp slt i64 %indvars.iv.next, %280
   br i1 %281, label %.lr.ph, label %.loopexit, !llvm.loop !89
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit116, %255, %248
+.loopexit:                                        ; preds = %.lr.ph, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit116, %255, %248
   %.pr = load i32, ptr %146, align 8
   %282 = icmp sgt i32 %.pr, 1
   br i1 %282, label %.loopexit..thread_crit_edge, label %_Z9nblock_bcIA3_fEvP10tmpi_comm_mPT_.exit
@@ -4628,7 +4628,7 @@ define void @_ZN3gmx20ColvarsForceProviderD2Ev(ptr noundef nonnull align 8 deref
   %2 = getelementptr inbounds i8, ptr %0, i64 1640
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+  br i1 %4, label %5, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
 
 5:                                                ; preds = %1
   %6 = invoke noundef i32 @_ZN11colvarproxy8post_runEv(ptr noundef nonnull align 8 dereferenceable(1168) %0)
@@ -4638,49 +4638,49 @@ define void @_ZN3gmx20ColvarsForceProviderD2Ev(ptr noundef nonnull align 8 deref
   %8 = getelementptr inbounds i8, ptr %0, i64 1824
   %9 = load ptr, ptr %8, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.17, i32 noundef 295, ptr noundef %9)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit unwind label %25
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit unwind label %25
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %7, %1
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit: ; preds = %7, %1
   %10 = getelementptr inbounds i8, ptr %0, i64 1768
   %11 = load ptr, ptr %10, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.17, i32 noundef 297, ptr noundef %11)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit1 unwind label %25
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit1 unwind label %25
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit1:       ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit1: ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
   %12 = getelementptr inbounds i8, ptr %0, i64 1776
   %13 = load ptr, ptr %12, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.17, i32 noundef 298, ptr noundef %13)
-          to label %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.exit unwind label %25
+          to label %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.argprom.exit unwind label %25
 
-_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.exit:        ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit1
+_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.argprom.exit: ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit1
   %14 = getelementptr inbounds i8, ptr %0, i64 1784
   %15 = load ptr, ptr %14, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.17, i32 noundef 299, ptr noundef %15)
-          to label %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.exit2 unwind label %25
+          to label %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.argprom.exit2 unwind label %25
 
-_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.exit2:       ; preds = %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.exit
+_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.argprom.exit2: ; preds = %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.argprom.exit
   %16 = getelementptr inbounds i8, ptr %0, i64 1800
   %17 = load ptr, ptr %16, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.17, i32 noundef 300, ptr noundef %17)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit3 unwind label %25
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit3 unwind label %25
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit3:       ; preds = %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.exit2
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit3: ; preds = %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.argprom.exit2
   %18 = getelementptr inbounds i8, ptr %0, i64 1792
   %19 = load ptr, ptr %18, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.17, i32 noundef 301, ptr noundef %19)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit4 unwind label %25
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit4 unwind label %25
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit4:       ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit3
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit4: ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit3
   %20 = getelementptr inbounds i8, ptr %0, i64 1832
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZN3gmx25ColvarsForceProviderStateD2Ev.exit, label %22
 
-22:                                               ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit4
+22:                                               ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit4
   tail call void @_ZdlPv(ptr noundef nonnull %21) #26
   br label %_ZN3gmx25ColvarsForceProviderStateD2Ev.exit
 
-_ZN3gmx25ColvarsForceProviderStateD2Ev.exit:      ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit4, %22
+_ZN3gmx25ColvarsForceProviderStateD2Ev.exit:      ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit4, %22
   %23 = getelementptr inbounds i8, ptr %0, i64 1752
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
@@ -4695,7 +4695,7 @@ _ZNSt10unique_ptrIN3gmx12LocalAtomSetESt14default_deleteIS1_EED2Ev.exit: ; preds
   tail call void @_ZN3gmx18ColvarProxyGromacsD2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) #25
   ret void
 
-25:                                               ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit3, %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.exit2, %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.exit, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit1, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, %7, %5
+25:                                               ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit3, %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.argprom.exit2, %_ZL14gmx_sfree_implIA3_iEvPKcS2_iPT_.argprom.exit, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit1, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit, %7, %5
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0

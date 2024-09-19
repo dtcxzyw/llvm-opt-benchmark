@@ -1785,8 +1785,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit126:              ; preds = %414, %416
   %445 = ptrtoint ptr %442 to i64
   br label %446
 
-446:                                              ; preds = %.lr.ph418, %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.exit
-  %.sroa.0323.0417 = phi ptr [ %421, %.lr.ph418 ], [ %1025, %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.exit ]
+446:                                              ; preds = %.lr.ph418, %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.argprom.exit
+  %.sroa.0323.0417 = phi ptr [ %421, %.lr.ph418 ], [ %1025, %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.argprom.exit ]
   %447 = getelementptr inbounds nuw i8, ptr %.sroa.0323.0417, i64 32
   %448 = load i32, ptr %447, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
@@ -2933,16 +2933,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit164.i:            ; preds = %1002, %1000
 
 1014:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit164.i
   %1015 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1005, ptr noundef nonnull @.str.74, i64 noundef 17) #16
-  br label %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.exit
+  br label %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.argprom.exit
 
 1016:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit164.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %1009, ptr noundef nonnull align 1 dereferenceable(17) @.str.74, i64 17, i1 false)
   %1017 = load ptr, ptr %1008, align 8
   %1018 = getelementptr inbounds i8, ptr %1017, i64 17
   store ptr %1018, ptr %1008, align 8
-  br label %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.exit
+  br label %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.argprom.exit
 
-_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.exit: ; preds = %1014, %1016
+_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.argprom.exit: ; preds = %1014, %1016
   %1019 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
   %1020 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
   %1021 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %1019, i64 noundef %1020) #16
@@ -2964,7 +2964,7 @@ _ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_
   %.not374 = icmp eq ptr %1025, %422
   br i1 %.not374, label %._crit_edge419, label %446
 
-._crit_edge419:                                   ; preds = %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit126
+._crit_edge419:                                   ; preds = %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen25emitInstructionBaseValuesERN4llvm11raw_ostreamENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEERNS1_13CodeGenTargetEi.argprom.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit126
   %1026 = load i64, ptr %315, align 8
   %1027 = icmp ugt i64 %1026, 1
   br i1 %1027, label %1028, label %_ZN4llvm11raw_ostreamlsEPKc.exit137

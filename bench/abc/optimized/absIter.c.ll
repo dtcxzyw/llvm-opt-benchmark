@@ -215,9 +215,9 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
 98:                                               ; preds = %78, %87, %74
   %99 = and i64 %57, 2684354559
   %narrow.i.not.i = icmp eq i64 %99, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjIsRo.argprom.exit.thread
 
-Gia_ObjIsRo.exit:                                 ; preds = %98
+Gia_ObjIsRo.argprom.exit:                         ; preds = %98
   %100 = lshr i64 %57, 32
   %101 = trunc nuw i64 %100 to i32
   %102 = and i32 %101, 536870911
@@ -227,9 +227,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %98
   %.val5.val.i = load i32, ptr %103, align 4
   %104 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not = icmp slt i32 %102, %104
-  br i1 %.not, label %Gia_ObjIsRo.exit.thread, label %105
+  br i1 %.not, label %Gia_ObjIsRo.argprom.exit.thread, label %105
 
-105:                                              ; preds = %Gia_ObjIsRo.exit
+105:                                              ; preds = %Gia_ObjIsRo.argprom.exit
   %106 = getelementptr i8, ptr %.val81, i64 4
   %.val6.val.i = load i32, ptr %106, align 4
   %107 = add i32 %.val6.val.i, %102
@@ -251,15 +251,15 @@ Gia_ObjIsRo.exit:                                 ; preds = %98
   %122 = getelementptr inbounds i8, ptr %.val73.val, i64 %121
   %123 = load i32, ptr %122, align 4
   %.not70 = icmp eq i32 %123, 0
-  br i1 %.not70, label %Gia_ObjIsRo.exit.thread, label %191
+  br i1 %.not70, label %Gia_ObjIsRo.argprom.exit.thread, label %191
 
-Gia_ObjIsRo.exit.thread:                          ; preds = %98, %105, %Gia_ObjIsRo.exit
+Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %98, %105, %Gia_ObjIsRo.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %124 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #10
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %Abc_Clock.exit95, label %126
 
-126:                                              ; preds = %Gia_ObjIsRo.exit.thread
+126:                                              ; preds = %Gia_ObjIsRo.argprom.exit.thread
   %127 = load i64, ptr %11, align 8
   %.neg112 = mul i64 %127, -1000000
   %128 = load i64, ptr %45, align 8
@@ -267,8 +267,8 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %98, %105, %Gia_ObjI
   %.neg113 = add i64 %.neg111, %.neg112
   br label %Abc_Clock.exit95
 
-Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.exit.thread, %126
-  %.0.i94.neg = phi i64 [ %.neg113, %126 ], [ 1, %Gia_ObjIsRo.exit.thread ]
+Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.argprom.exit.thread, %126
+  %.0.i94.neg = phi i64 [ %.neg113, %126 ], [ 1, %Gia_ObjIsRo.argprom.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.156115)
   %130 = trunc nuw nsw i64 %indvars.iv to i32

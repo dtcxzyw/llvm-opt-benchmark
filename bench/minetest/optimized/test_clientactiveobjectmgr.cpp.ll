@@ -3146,7 +3146,7 @@ invoke.cont89:                                    ; preds = %invoke.cont83
           to label %invoke.cont95 unwind label %lpad28
 
 invoke.cont95:                                    ; preds = %invoke.cont89
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, <2 x float> <float 9.000000e+00, float 3.000000e+00>, float 6.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_.argelim"(ptr %caomgr, <2 x float> <float 9.000000e+00, float 3.000000e+00>, float 6.000000e+00)
           to label %invoke.cont101 unwind label %lpad28
 
 invoke.cont101:                                   ; preds = %invoke.cont95
@@ -3158,7 +3158,7 @@ invoke.cont107:                                   ; preds = %invoke.cont101
           to label %invoke.cont113 unwind label %lpad28
 
 invoke.cont113:                                   ; preds = %invoke.cont107
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, <2 x float> <float 1.200000e+01, float 6.000000e+00>, float 6.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_.argelim"(ptr %caomgr, <2 x float> <float 1.200000e+01, float 6.000000e+00>, float 6.000000e+00)
           to label %invoke.cont119 unwind label %lpad28
 
 invoke.cont119:                                   ; preds = %invoke.cont113
@@ -3170,7 +3170,7 @@ invoke.cont125:                                   ; preds = %invoke.cont119
           to label %invoke.cont131 unwind label %lpad28
 
 invoke.cont131:                                   ; preds = %invoke.cont125
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, <2 x float> <float 1.200000e+01, float 3.000000e+00>, float 3.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_.argelim"(ptr %caomgr, <2 x float> <float 1.200000e+01, float 3.000000e+00>, float 3.000000e+00)
           to label %invoke.cont137 unwind label %lpad28
 
 invoke.cont137:                                   ; preds = %invoke.cont131
@@ -3463,7 +3463,7 @@ unreachable:                                      ; preds = %invoke.cont57, %inv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_"(ptr nonnull %this.0.val, <2 x float> %b.coerce0, float %b.coerce1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_.argelim"(ptr nonnull %this.0.val, <2 x float> %b.coerce0, float %b.coerce1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %actual = alloca %"class.std::vector.35", align 8
   %ref.tmp = alloca %"class.irr::core::line3d", align 8

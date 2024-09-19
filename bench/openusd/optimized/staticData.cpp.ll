@@ -482,7 +482,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %133 = load atomic i64, ptr @_ZL8_initStrB5cxx11 seq_cst, align 8
   %134 = inttoptr i64 %133 to ptr
   %.not.i.i18 = icmp eq i64 %133, 0
-  br i1 %.not.i.i18, label %135, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.exit
+  br i1 %.not.i.i18, label %135, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.argprom.exit
 
 135:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17
   %136 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
@@ -491,23 +491,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %138 = ptrtoint ptr %136 to i64
   %139 = cmpxchg ptr @_ZL8_initStrB5cxx11, i64 0, i64 %138 seq_cst seq_cst, align 8
   %140 = extractvalue { i64, i1 } %139, 1
-  br i1 %140, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.exit, label %141
+  br i1 %140, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.argprom.exit, label %141
 
 141:                                              ; preds = %135
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 32) #14
   %142 = load atomic i64, ptr @_ZL8_initStrB5cxx11 seq_cst, align 8
   %143 = inttoptr i64 %142 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17, %135, %141
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17, %135, %141
   %144 = phi ptr [ %134, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17 ], [ %143, %141 ], [ %136, %135 ]
   %145 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull @.str.11) #13
   %146 = icmp eq i32 %145, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   br i1 %146, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit19, label %147
 
-147:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.exit
+147:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.argprom.exit
   store ptr @.str.1, ptr %10, align 8
   %.sroa.296.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.296.0..sroa_idx, align 8
@@ -522,7 +522,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIc
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %10, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.12) #11
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit19: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.exit
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit19: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.argprom.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   %149 = load atomic i64, ptr @_ZL8_initMap seq_cst, align 8
   %.not175 = icmp eq i64 %149, 0
@@ -546,7 +546,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  %152 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv()
+  %152 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv.argprom()
   %153 = getelementptr inbounds i8, ptr %152, i64 40
   %154 = load i64, ptr %153, align 8
   %155 = icmp eq i64 %154, 2
@@ -570,7 +570,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit21: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
-  %158 = tail call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv()
+  %158 = tail call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv.argprom()
   store i32 1, ptr %20, align 4
   %159 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %158, ptr noundef nonnull align 4 dereferenceable(4) %20)
   %160 = load i32, ptr %159, align 4
@@ -595,7 +595,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit22: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  %164 = call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv()
+  %164 = call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv.argprom()
   store i32 2, ptr %21, align 4
   %165 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %164, ptr noundef nonnull align 4 dereferenceable(4) %21)
   %166 = load i32, ptr %165, align 4
@@ -645,7 +645,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %173 = load atomic i64, ptr @_ZL12_constVector seq_cst, align 8
   %174 = inttoptr i64 %173 to ptr
   %.not.i.i25 = icmp eq i64 %173, 0
-  br i1 %.not.i.i25, label %175, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.exit
+  br i1 %.not.i.i25, label %175, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.argprom.exit
 
 175:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit24
   %176 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #12
@@ -664,7 +664,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %181 = ptrtoint ptr %176 to i64
   %182 = cmpxchg ptr @_ZL12_constVector, i64 0, i64 %181 seq_cst seq_cst, align 8
   %183 = extractvalue { i64, i1 } %182, 1
-  br i1 %183, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.exit, label %184
+  br i1 %183, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.argprom.exit, label %184
 
 184:                                              ; preds = %175
   %185 = load ptr, ptr %176, align 8
@@ -683,9 +683,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i:              ; preds = %186, %184
   call void @_ZdlPvm(ptr noundef nonnull %176, i64 noundef 24) #14
   %191 = load atomic i64, ptr @_ZL12_constVector seq_cst, align 8
   %192 = inttoptr i64 %191 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit24, %175, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit24, %175, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i
   %193 = phi ptr [ %174, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit24 ], [ %192, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i ], [ %176, %175 ]
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8
@@ -697,7 +697,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   br i1 %200, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit26, label %201
 
-201:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.exit
+201:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.argprom.exit
   store ptr @.str.1, ptr %4, align 8
   %.sroa.260.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.260.0..sroa_idx, align 8
@@ -712,12 +712,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.18) #11
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit26: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.exit
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit26: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.argprom.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %203 = load atomic i64, ptr @_ZL12_constVector seq_cst, align 8
   %204 = inttoptr i64 %203 to ptr
   %.not.i.i27 = icmp eq i64 %203, 0
-  br i1 %.not.i.i27, label %205, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit
+  br i1 %.not.i.i27, label %205, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit
 
 205:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit26
   %206 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #12
@@ -736,7 +736,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %211 = ptrtoint ptr %206 to i64
   %212 = cmpxchg ptr @_ZL12_constVector, i64 0, i64 %211 seq_cst seq_cst, align 8
   %213 = extractvalue { i64, i1 } %212, 1
-  br i1 %213, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit, label %214
+  br i1 %213, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit, label %214
 
 214:                                              ; preds = %205
   %215 = load ptr, ptr %206, align 8
@@ -755,9 +755,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i31:            ; preds = %216, %214
   call void @_ZdlPvm(ptr noundef nonnull %206, i64 noundef 24) #14
   %221 = load atomic i64, ptr @_ZL12_constVector seq_cst, align 8
   %222 = inttoptr i64 %221 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit26, %205, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i31
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit26, %205, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i31
   %223 = phi ptr [ %204, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit26 ], [ %222, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i31 ], [ %206, %205 ]
   %224 = load ptr, ptr %223, align 8
   %225 = load i32, ptr %224, align 4
@@ -765,7 +765,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   br i1 %226, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32, label %227
 
-227:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit
+227:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit
   store ptr @.str.1, ptr %3, align 8
   %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.254.0..sroa_idx, align 8
@@ -780,12 +780,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.19) #11
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %229 = load atomic i64, ptr @_ZL12_constVector seq_cst, align 8
   %230 = inttoptr i64 %229 to ptr
   %.not.i.i33 = icmp eq i64 %229, 0
-  br i1 %.not.i.i33, label %231, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit38
+  br i1 %.not.i.i33, label %231, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit38
 
 231:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32
   %232 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #12
@@ -804,7 +804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %237 = ptrtoint ptr %232 to i64
   %238 = cmpxchg ptr @_ZL12_constVector, i64 0, i64 %237 seq_cst seq_cst, align 8
   %239 = extractvalue { i64, i1 } %238, 1
-  br i1 %239, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit38, label %240
+  br i1 %239, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit38, label %240
 
 240:                                              ; preds = %231
   %241 = load ptr, ptr %232, align 8
@@ -823,9 +823,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i37:            ; preds = %242, %240
   call void @_ZdlPvm(ptr noundef nonnull %232, i64 noundef 24) #14
   %247 = load atomic i64, ptr @_ZL12_constVector seq_cst, align 8
   %248 = inttoptr i64 %247 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit38
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit38
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit38: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32, %231, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i37
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit38: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32, %231, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i37
   %249 = phi ptr [ %230, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32 ], [ %248, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i37 ], [ %232, %231 ]
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 4
@@ -834,7 +834,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   br i1 %253, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39, label %254
 
-254:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit38
+254:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit38
   store ptr @.str.1, ptr %2, align 8
   %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.248.0..sroa_idx, align 8
@@ -849,12 +849,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.20) #11
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit38
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit38
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %256 = load atomic i64, ptr @_ZL12_constVector seq_cst, align 8
   %257 = inttoptr i64 %256 to ptr
   %.not.i.i40 = icmp eq i64 %256, 0
-  br i1 %.not.i.i40, label %258, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit45
+  br i1 %.not.i.i40, label %258, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit45
 
 258:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39
   %259 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #12
@@ -873,7 +873,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %264 = ptrtoint ptr %259 to i64
   %265 = cmpxchg ptr @_ZL12_constVector, i64 0, i64 %264 seq_cst seq_cst, align 8
   %266 = extractvalue { i64, i1 } %265, 1
-  br i1 %266, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit45, label %267
+  br i1 %266, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit45, label %267
 
 267:                                              ; preds = %258
   %268 = load ptr, ptr %259, align 8
@@ -892,9 +892,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i44:            ; preds = %269, %267
   call void @_ZdlPvm(ptr noundef nonnull %259, i64 noundef 24) #14
   %274 = load atomic i64, ptr @_ZL12_constVector seq_cst, align 8
   %275 = inttoptr i64 %274 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit45
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit45
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit45: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39, %258, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i44
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit45: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39, %258, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i44
   %276 = phi ptr [ %257, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39 ], [ %275, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i44 ], [ %259, %258 ]
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 8
@@ -903,7 +903,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
   br i1 %280, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46, label %281
 
-281:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit45
+281:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit45
   store ptr @.str.1, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2.0..sroa_idx, align 8
@@ -918,7 +918,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21) #11
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit45
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.argprom.exit45
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1)
   ret i1 true
 }
@@ -1047,13 +1047,13 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv.argprom() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = load atomic i64, ptr @_ZL8_initMap seq_cst, align 8
   %4 = inttoptr i64 %3 to ptr
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %5, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit
+  br i1 %.not, label %5, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit
 
 5:                                                ; preds = %0
   %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
@@ -1080,7 +1080,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
   %14 = ptrtoint ptr %6 to i64
   %15 = cmpxchg ptr @_ZL8_initMap, i64 0, i64 %14 seq_cst seq_cst, align 8
   %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit, label %17
+  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit, label %17
 
 17:                                               ; preds = %5
   %18 = load ptr, ptr %8, align 8
@@ -1098,9 +1098,9 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit.i: ; preds = %17
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 48) #14
   %22 = load atomic i64, ptr @_ZL8_initMap seq_cst, align 8
   %23 = inttoptr i64 %22 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit: ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit.i, %5, %0
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit: ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit.i, %5, %0
   %24 = phi ptr [ %4, %0 ], [ %23, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit.i ], [ %6, %5 ]
   ret ptr %24
 }

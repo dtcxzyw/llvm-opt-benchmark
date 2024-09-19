@@ -2341,13 +2341,13 @@ define internal fastcc i64 @cab_minimum_consume_cfdata(ptr noundef %0, i64 nound
   %.val.val.val = load ptr, ptr %45, align 8
   %46 = load i32, ptr %.val.val.val, align 8
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %cab_checksum_update.exit, label %48
+  br i1 %47, label %cab_checksum_update.argprom.argprom.argprom.exit, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %.val.val.val, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %cab_checksum_update.exit, label %52
+  br i1 %51, label %cab_checksum_update.argprom.argprom.argprom.exit, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %.val.val.val, i64 48
@@ -2456,9 +2456,9 @@ cab_checksum_cfdata_4.exit46.i:                   ; preds = %.lr.ph.i41.i, %80
 
 95:                                               ; preds = %94, %74
   store ptr null, ptr %49, align 8
-  br label %cab_checksum_update.exit
+  br label %cab_checksum_update.argprom.argprom.argprom.exit
 
-cab_checksum_update.exit:                         ; preds = %44, %48, %95
+cab_checksum_update.argprom.argprom.argprom.exit: ; preds = %44, %48, %95
   %96 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.14764) #18
   %97 = getelementptr inbounds i8, ptr %5, i64 64
   %98 = load i64, ptr %97, align 8
@@ -2472,7 +2472,7 @@ cab_checksum_update.exit:                         ; preds = %44, %48, %95
   %104 = icmp eq i16 %102, %100
   br i1 %104, label %105, label %.thread
 
-105:                                              ; preds = %cab_checksum_update.exit
+105:                                              ; preds = %cab_checksum_update.argprom.argprom.argprom.exit
   %106 = load ptr, ptr %3, align 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 56
@@ -2648,8 +2648,8 @@ cab_checksum_cfdata.exit44.i:                     ; preds = %179, %cab_checksum_
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %189, i32 noundef %110, i32 noundef %183, i32 noundef %192) #18
   br label %.thread
 
-.thread:                                          ; preds = %cab_checksum_cfdata.exit44.i, %105, %29, %184, %32, %cab_checksum_update.exit
-  %.0 = phi i64 [ %.04565, %cab_checksum_update.exit ], [ %35, %32 ], [ -25, %184 ], [ %.1, %29 ], [ %.04565, %105 ], [ %.04565, %cab_checksum_cfdata.exit44.i ]
+.thread:                                          ; preds = %cab_checksum_cfdata.exit44.i, %105, %29, %184, %32, %cab_checksum_update.argprom.argprom.argprom.exit
+  %.0 = phi i64 [ %.04565, %cab_checksum_update.argprom.argprom.argprom.exit ], [ %35, %32 ], [ -25, %184 ], [ %.1, %29 ], [ %.04565, %105 ], [ %.04565, %cab_checksum_cfdata.exit44.i ]
   ret i64 %.0
 }
 
@@ -5307,7 +5307,7 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %427
   %1280 = icmp ult i16 %1276, 11
   %or.cond.i94.i = or i1 %1280, %1279
   %.pre877.i = load ptr, ptr %225, align 8
-  br i1 %or.cond.i94.i, label %lzx_translation.exit.i, label %.lr.ph.i95.i
+  br i1 %or.cond.i94.i, label %lzx_translation.argprom.exit.i, label %.lr.ph.i95.i
 
 .lr.ph.i95.i:                                     ; preds = %1275
   %1281 = load ptr, ptr %248, align 8
@@ -5328,7 +5328,7 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %427
   %1293 = sub i64 %1287, %1292
   %1294 = call ptr @memchr(ptr noundef %.01.i.i, i32 noundef 232, i64 noundef %1293) #20
   %.not.i96.i = icmp eq ptr %1294, null
-  br i1 %.not.i96.i, label %lzx_translation.exit.loopexit.i, label %1295
+  br i1 %.not.i96.i, label %lzx_translation.argprom.exit.loopexit.i, label %1295
 
 1295:                                             ; preds = %1291
   %1296 = ptrtoint ptr %1294 to i64
@@ -5369,14 +5369,14 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %427
 1314:                                             ; preds = %1302, %1299, %1295
   %1315 = getelementptr inbounds i8, ptr %1294, i64 5
   %1316 = icmp ult ptr %1315, %1286
-  br i1 %1316, label %1291, label %lzx_translation.exit.loopexit.i, !llvm.loop !33
+  br i1 %1316, label %1291, label %lzx_translation.argprom.exit.loopexit.i, !llvm.loop !33
 
-lzx_translation.exit.loopexit.i:                  ; preds = %1314, %1291
+lzx_translation.argprom.exit.loopexit.i:          ; preds = %1314, %1291
   %.pre876.i = load ptr, ptr %225, align 8
-  br label %lzx_translation.exit.i
+  br label %lzx_translation.argprom.exit.i
 
-lzx_translation.exit.i:                           ; preds = %lzx_translation.exit.loopexit.i, %1275
-  %1317 = phi ptr [ %.pre876.i, %lzx_translation.exit.loopexit.i ], [ %.pre877.i, %1275 ]
+lzx_translation.argprom.exit.i:                   ; preds = %lzx_translation.argprom.exit.loopexit.i, %1275
+  %1317 = phi ptr [ %.pre876.i, %lzx_translation.argprom.exit.loopexit.i ], [ %.pre877.i, %1275 ]
   %1318 = getelementptr inbounds i8, ptr %224, i64 14
   %1319 = load i16, ptr %1318, align 2
   %1320 = zext i16 %1319 to i64
@@ -5387,8 +5387,8 @@ lzx_translation.exit.i:                           ; preds = %lzx_translation.exi
   store i16 %1261, ptr %235, align 4
   br label %cab_read_ahead_cfdata_lzx.exit
 
-cab_read_ahead_cfdata_lzx.exit:                   ; preds = %232, %240, %386, %421, %1255, %1259, %1268, %1274, %lzx_translation.exit.i
-  %.0.i18 = phi ptr [ null, %232 ], [ %245, %240 ], [ null, %421 ], [ null, %1255 ], [ null, %1259 ], [ null, %1268 ], [ null, %1274 ], [ %1321, %lzx_translation.exit.i ], [ null, %386 ]
+cab_read_ahead_cfdata_lzx.exit:                   ; preds = %232, %240, %386, %421, %1255, %1259, %1268, %1274, %lzx_translation.argprom.exit.i
+  %.0.i18 = phi ptr [ null, %232 ], [ %245, %240 ], [ null, %421 ], [ null, %1255 ], [ null, %1259 ], [ null, %1268 ], [ null, %1274 ], [ %1321, %lzx_translation.argprom.exit.i ], [ null, %386 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %cab_read_ahead_cfdata_none.exit

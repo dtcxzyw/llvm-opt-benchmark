@@ -14445,7 +14445,7 @@ define dso_local void @ata_qc_complete(ptr noundef %0) #1 align 16 {
   %.val = load ptr, ptr %3, align 8
   %125 = getelementptr i8, ptr %0, i64 40
   %.val1 = load i8, ptr %125, align 8
-  tail call fastcc void @ata_verify_xfer(ptr %.val, i8 %.val1)
+  tail call fastcc void @ata_verify_xfer.argprom(ptr %.val, i8 %.val1)
   br label %126
 
 126:                                              ; preds = %124, %119
@@ -14553,7 +14553,7 @@ declare dso_local void @ata_qc_schedule_eh(ptr noundef) local_unnamed_addr #0
 declare dso_local void @ata_port_schedule_eh(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @ata_verify_xfer(ptr nocapture %.8.val, i8 %.40.val) unnamed_addr #17 align 16 {
+define internal fastcc void @ata_verify_xfer.argprom(ptr nocapture %.8.val, i8 %.40.val) unnamed_addr #17 align 16 {
   %1 = and i8 %.40.val, 3
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %21, label %3

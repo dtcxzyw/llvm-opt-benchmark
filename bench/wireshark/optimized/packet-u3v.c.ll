@@ -845,10 +845,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.682 = private unnamed_addr constant [17 x i8] c" (U3V INTERFACE)\00", align 1
 @.str.683 = private unnamed_addr constant [8 x i8] c": %u.%u\00", align 1
 @speed_support_fields = internal constant [6 x ptr] [ptr @hf_u3v_device_info_descriptor_bmSpeedSupport_low_speed, ptr @hf_u3v_device_info_descriptor_bmSpeedSupport_full_speed, ptr @hf_u3v_device_info_descriptor_bmSpeedSupport_high_speed, ptr @hf_u3v_device_info_descriptor_bmSpeedSupport_super_speed, ptr @hf_u3v_device_info_descriptor_bmSpeedSupport_reserved, ptr null], align 16
-@switch.table.dissect_u3v_register = private unnamed_addr constant [17 x ptr] [ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_U3VCP_Capability_Register, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_U3VCP_Configuration_Register, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_Maximum_Command_Transfer_Length, ptr @hf_u3v_bootstrap_Maximum_Acknowledge_Transfer_Length, ptr @hf_u3v_bootstrap_Number_of_Stream_Channels, ptr @hf_u3v_bootstrap_SIRM_Address, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_SIRM_Length, ptr @hf_u3v_bootstrap_EIRM_Address, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_EIRM_Length, ptr @hf_u3v_bootstrap_IIDC2_Address, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_Current_Speed], align 8
-@switch.table.dissect_u3v_register.7 = private unnamed_addr constant [17 x i32] [i32 4, i32 8, i32 4, i32 8, i32 4, i32 4, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4], align 4
-@switch.table.dissect_u3v_register.8 = private unnamed_addr constant [12 x ptr] [ptr @hf_u3v_bootstrap_SI_Info, ptr @hf_u3v_bootstrap_SI_Control, ptr @hf_u3v_bootstrap_SI_Required_Payload_Size, ptr @hf_u3v_bootstrap_SI_Info, ptr @hf_u3v_bootstrap_SI_Required_Leader_Size, ptr @hf_u3v_bootstrap_SI_Required_Trailer_Size, ptr @hf_u3v_bootstrap_SI_Maximum_Leader_Size, ptr @hf_u3v_bootstrap_SI_Payload_Transfer_Size, ptr @hf_u3v_bootstrap_SI_Payload_Transfer_Count, ptr @hf_u3v_bootstrap_SI_Payload_Final_Transfer1_Size, ptr @hf_u3v_bootstrap_SI_Payload_Final_Transfer2_Size, ptr @hf_u3v_bootstrap_SI_Maximum_Trailer_Size], align 8
-@switch.table.dissect_u3v_register.9 = private unnamed_addr constant [12 x i32] [i32 4, i32 4, i32 8, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4], align 4
+@switch.table.dissect_u3v_register.argelim = private unnamed_addr constant [17 x ptr] [ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_U3VCP_Capability_Register, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_U3VCP_Configuration_Register, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_Maximum_Command_Transfer_Length, ptr @hf_u3v_bootstrap_Maximum_Acknowledge_Transfer_Length, ptr @hf_u3v_bootstrap_Number_of_Stream_Channels, ptr @hf_u3v_bootstrap_SIRM_Address, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_SIRM_Length, ptr @hf_u3v_bootstrap_EIRM_Address, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_EIRM_Length, ptr @hf_u3v_bootstrap_IIDC2_Address, ptr @hf_u3v_bootstrap_U3V_Version, ptr @hf_u3v_bootstrap_Current_Speed], align 8
+@switch.table.dissect_u3v_register.argelim.7 = private unnamed_addr constant [17 x i32] [i32 4, i32 8, i32 4, i32 8, i32 4, i32 4, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4], align 4
+@switch.table.dissect_u3v_register.argelim.8 = private unnamed_addr constant [12 x ptr] [ptr @hf_u3v_bootstrap_SI_Info, ptr @hf_u3v_bootstrap_SI_Control, ptr @hf_u3v_bootstrap_SI_Required_Payload_Size, ptr @hf_u3v_bootstrap_SI_Info, ptr @hf_u3v_bootstrap_SI_Required_Leader_Size, ptr @hf_u3v_bootstrap_SI_Required_Trailer_Size, ptr @hf_u3v_bootstrap_SI_Maximum_Leader_Size, ptr @hf_u3v_bootstrap_SI_Payload_Transfer_Size, ptr @hf_u3v_bootstrap_SI_Payload_Transfer_Count, ptr @hf_u3v_bootstrap_SI_Payload_Final_Transfer1_Size, ptr @hf_u3v_bootstrap_SI_Payload_Final_Transfer2_Size, ptr @hf_u3v_bootstrap_SI_Maximum_Trailer_Size], align 8
+@switch.table.dissect_u3v_register.argelim.9 = private unnamed_addr constant [12 x i32] [i32 4, i32 4, i32 8, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_u3v() local_unnamed_addr #0 {
@@ -1276,7 +1276,7 @@ is_known_bootstrap_register.exit.i227:            ; preds = %224, %220
   %229 = load i32, ptr @hf_u3v_address, align 4
   %230 = tail call ptr @proto_tree_add_uint64(ptr noundef %199, i32 noundef %229, ptr noundef %0, i32 noundef 12, i32 noundef 8, i64 noundef %190) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef nonnull @.str.626, ptr noundef %192) #5
-  tail call fastcc void @dissect_u3v_register(i64 noundef %190, ptr noundef %199, ptr noundef %0, i32 noundef 20, i32 noundef %191, ptr noundef nonnull %.0203)
+  tail call fastcc void @dissect_u3v_register.argelim(i64 noundef %190, ptr noundef %199, ptr noundef %0, i32 noundef 20, i32 noundef %191, ptr noundef nonnull %.0203)
   br label %dissect_u3v_write_mem_cmd.exit
 
 231:                                              ; preds = %is_known_bootstrap_register.exit.i227
@@ -1325,7 +1325,7 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   %.1.val = load i32, ptr %.1, align 8
   %257 = getelementptr i8, ptr %.1, i64 32
   %.1.val218 = load i64, ptr %257, align 8
-  tail call fastcc void @dissect_u3v_read_mem_ack(ptr noundef %100, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %94, ptr noundef %.0203, i32 %.1.val, i64 %.1.val218)
+  tail call fastcc void @dissect_u3v_read_mem_ack.argprom.argelim(ptr noundef %100, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %94, ptr noundef %.0203, i32 %.1.val, i64 %.1.val218)
   br label %dissect_u3v_event_cmd.exit
 
 258:                                              ; preds = %.thread232
@@ -1370,16 +1370,16 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
 
 proto_item_set_generated.exit.i:                  ; preds = %274, %271, %268, %263
   %278 = icmp eq i16 %93, 4
-  br i1 %278, label %279, label %dissect_u3v_write_mem_ack.exit
+  br i1 %278, label %279, label %dissect_u3v_write_mem_ack.argprom.exit
 
 279:                                              ; preds = %proto_item_set_generated.exit.i
   %280 = load i32, ptr @hf_u3v_reserved, align 4
   %281 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %280, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #5
   %282 = load i32, ptr @hf_u3v_count, align 4
   %283 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %282, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_u3v_write_mem_ack.exit
+  br label %dissect_u3v_write_mem_ack.argprom.exit
 
-dissect_u3v_write_mem_ack.exit:                   ; preds = %proto_item_set_generated.exit.i, %279
+dissect_u3v_write_mem_ack.argprom.exit:           ; preds = %proto_item_set_generated.exit.i, %279
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %dissect_u3v_event_cmd.exit
 
@@ -1403,7 +1403,7 @@ dissect_u3v_write_mem_ack.exit:                   ; preds = %proto_item_set_gene
   %297 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %296, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
   br label %dissect_u3v_event_cmd.exit
 
-dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %256, %295, %284, %dissect_u3v_write_mem_ack.exit, %dissect_u3v_write_mem_cmd.exit, %dissect_u3v_read_mem_cmd.exit
+dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %256, %295, %284, %dissect_u3v_write_mem_ack.argprom.exit, %dissect_u3v_write_mem_cmd.exit, %dissect_u3v_read_mem_cmd.exit
   %298 = add nuw nsw i32 %94, 12
   br label %.thread240
 
@@ -1428,7 +1428,7 @@ dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %2
   %312 = tail call ptr @proto_item_add_subtree(ptr noundef %310, i32 noundef %311) #5
   %313 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %314 = icmp ugt i32 %313, 3
-  br i1 %314, label %315, label %dissect_u3v_stream_leader.exit
+  br i1 %314, label %315, label %dissect_u3v_stream_leader.argprom.exit
 
 315:                                              ; preds = %300
   %316 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #5
@@ -1475,7 +1475,7 @@ dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %2
 
 343:                                              ; preds = %340, %317
   %.0.i = phi i32 [ 28, %340 ], [ 20, %317 ]
-  br i1 %or.cond.i, label %344, label %dissect_u3v_stream_leader.exit
+  br i1 %or.cond.i, label %344, label %dissect_u3v_stream_leader.argprom.exit
 
 344:                                              ; preds = %343
   %345 = load i32, ptr @hf_u3v_stream_pixel_format, align 4
@@ -1497,7 +1497,7 @@ dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %2
   %361 = tail call ptr @proto_tree_add_item(ptr noundef %321, i32 noundef %360, ptr noundef %0, i32 noundef %359, i32 noundef 2, i32 noundef -2147483648) #5
   %362 = load i32, ptr @hf_u3v_stream_reserved, align 4
   %363 = tail call ptr @proto_tree_add_item(ptr noundef %321, i32 noundef %362, ptr noundef %0, i32 noundef %359, i32 noundef 2, i32 noundef 0) #5
-  br label %dissect_u3v_stream_leader.exit
+  br label %dissect_u3v_stream_leader.argprom.exit
 
 364:                                              ; preds = %315
   %365 = load i32, ptr @hf_u3v_stream_trailer, align 4
@@ -1534,12 +1534,12 @@ dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %2
   %.0.i230 = phi i32 [ 32, %387 ], [ 28, %364 ]
   %391 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0.i230) #5
   %392 = icmp sgt i32 %391, 3
-  br i1 %392, label %393, label %dissect_u3v_stream_leader.exit
+  br i1 %392, label %393, label %dissect_u3v_stream_leader.argprom.exit
 
 393:                                              ; preds = %390
   %394 = load i32, ptr @hf_u3v_stream_chunk_layout_id, align 4
   %395 = tail call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %394, ptr noundef %0, i32 noundef %.0.i230, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_u3v_stream_leader.exit
+  br label %dissect_u3v_stream_leader.argprom.exit
 
 396:                                              ; preds = %315
   %397 = load i32, ptr @hf_u3v_stream_payload, align 4
@@ -1550,14 +1550,14 @@ dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %2
   %402 = tail call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %401, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %403 = load ptr, ptr %306, align 8
   tail call void @col_append_str(ptr noundef %403, i32 noundef 25, ptr noundef nonnull @.str.681) #5
-  br label %dissect_u3v_stream_leader.exit
+  br label %dissect_u3v_stream_leader.argprom.exit
 
-dissect_u3v_stream_leader.exit:                   ; preds = %393, %390, %344, %343, %396, %300
+dissect_u3v_stream_leader.argprom.exit:           ; preds = %393, %390, %344, %343, %396, %300
   %404 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %.thread240
 
-.thread240:                                       ; preds = %.thread239, %299, %72, %43, %14, %dissect_u3v_stream_leader.exit, %dissect_u3v_event_cmd.exit
-  %.0206 = phi i32 [ %298, %dissect_u3v_event_cmd.exit ], [ %404, %dissect_u3v_stream_leader.exit ], [ 0, %14 ], [ 0, %43 ], [ 0, %72 ], [ 0, %299 ], [ 0, %.thread239 ]
+.thread240:                                       ; preds = %.thread239, %299, %72, %43, %14, %dissect_u3v_stream_leader.argprom.exit, %dissect_u3v_event_cmd.exit
+  %.0206 = phi i32 [ %298, %dissect_u3v_event_cmd.exit ], [ %404, %dissect_u3v_stream_leader.argprom.exit ], [ 0, %14 ], [ 0, %43 ], [ 0, %72 ], [ 0, %299 ], [ 0, %.thread239 ]
   ret i32 %.0206
 }
 
@@ -1738,7 +1738,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr noundef %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
+define internal fastcc void @dissect_u3v_read_mem_ack.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr noundef %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %.not = icmp eq i32 %.0.val, 0
   %7 = icmp ult i64 %.32.val, 65536
@@ -1880,7 +1880,7 @@ is_known_bootstrap_register.exit:                 ; preds = %59, %63
   br i1 %.not1, label %68, label %67
 
 67:                                               ; preds = %is_known_bootstrap_register.exit
-  tail call fastcc void @dissect_u3v_register(i64 noundef %.32.val, ptr noundef %30, ptr noundef %1, i32 noundef 12, i32 noundef %3, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_u3v_register.argelim(i64 noundef %.32.val, ptr noundef %30, ptr noundef %1, i32 noundef 12, i32 noundef %3, ptr noundef nonnull %4)
   br label %71
 
 68:                                               ; preds = %is_known_bootstrap_register.exit
@@ -1976,7 +1976,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 12, 21) %3, i32 noundef range(i32 -8, 65536) %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_u3v_register.argelim(i64 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 12, 21) %3, i32 noundef range(i32 -8, 65536) %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = icmp ult i64 %0, 65536
   br i1 %7, label %8, label %86
 
@@ -2159,9 +2159,9 @@ switch.hole_check:                                ; preds = %90
   br i1 %switch.lobit, label %switch.lookup, label %96
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.dissect_u3v_register, i64 0, i64 %92
+  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.dissect_u3v_register.argelim, i64 0, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [17 x i32], ptr @switch.table.dissect_u3v_register.7, i64 0, i64 %92
+  %switch.gep1 = getelementptr inbounds [17 x i32], ptr @switch.table.dissect_u3v_register.argelim.7, i64 0, i64 %92
   %switch.load2 = load i32, ptr %switch.gep1, align 4
   %94 = load i32, ptr %switch.load, align 4
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %94, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load2, i32 noundef -2147483648) #5
@@ -2187,9 +2187,9 @@ switch.hole_check4:                               ; preds = %100
   br i1 %switch.lobit8, label %switch.lookup5, label %106
 
 switch.lookup5:                                   ; preds = %switch.hole_check4
-  %switch.gep9 = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_u3v_register.8, i64 0, i64 %102
+  %switch.gep9 = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_u3v_register.argelim.8, i64 0, i64 %102
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
-  %switch.gep11 = getelementptr inbounds [12 x i32], ptr @switch.table.dissect_u3v_register.9, i64 0, i64 %102
+  %switch.gep11 = getelementptr inbounds [12 x i32], ptr @switch.table.dissect_u3v_register.argelim.9, i64 0, i64 %102
   %switch.load12 = load i32, ptr %switch.gep11, align 4
   %104 = load i32, ptr %switch.load10, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load12, i32 noundef -2147483648) #5

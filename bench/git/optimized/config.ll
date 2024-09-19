@@ -1505,16 +1505,16 @@ strbuf_avail.exit.i.i:                            ; preds = %if.then4
   %6 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %6, 1
   %tobool.not.i.i = icmp eq i64 %5, %.neg.i.i
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %show_config_scope.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %show_config_scope.argprom.exit
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then4
   call void @strbuf_grow(ptr noundef nonnull %buf, i64 noundef 1) #16
   %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
-  br label %show_config_scope.exit
+  br label %show_config_scope.argprom.exit
 
-show_config_scope.exit:                           ; preds = %strbuf_avail.exit.i.i, %if.then.i.i
+show_config_scope.argprom.exit:                   ; preds = %strbuf_avail.exit.i.i, %if.then.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %7 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %6, %strbuf_avail.exit.i.i ]
   %tobool.not.i = icmp eq i32 %4, 0
@@ -1532,8 +1532,8 @@ show_config_scope.exit:                           ; preds = %strbuf_avail.exit.i
   %.pre = load i32, ptr @show_origin, align 4
   br label %if.end
 
-if.end:                                           ; preds = %show_config_scope.exit, %if.then
-  %11 = phi i32 [ %.pre, %show_config_scope.exit ], [ %1, %if.then ]
+if.end:                                           ; preds = %show_config_scope.argprom.exit, %if.then
+  %11 = phi i32 [ %.pre, %show_config_scope.argprom.exit ], [ %1, %if.then ]
   %tobool5.not = icmp eq i32 %11, 0
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
@@ -2391,16 +2391,16 @@ strbuf_avail.exit.i.i:                            ; preds = %if.then
   %4 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %4, 1
   %tobool.not.i.i = icmp eq i64 %3, %.neg.i.i
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %show_config_scope.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %show_config_scope.argprom.exit
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then
   tail call void @strbuf_grow(ptr noundef nonnull %buf, i64 noundef 1) #16
   %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
-  br label %show_config_scope.exit
+  br label %show_config_scope.argprom.exit
 
-show_config_scope.exit:                           ; preds = %strbuf_avail.exit.i.i, %if.then.i.i
+show_config_scope.argprom.exit:                   ; preds = %strbuf_avail.exit.i.i, %if.then.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %5 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %4, %strbuf_avail.exit.i.i ]
   %tobool.not.i = icmp eq i32 %2, 0
@@ -2417,7 +2417,7 @@ show_config_scope.exit:                           ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %show_config_scope.exit, %entry
+if.end:                                           ; preds = %show_config_scope.argprom.exit, %entry
   %9 = load i32, ptr @show_origin, align 4
   %tobool1.not = icmp eq i32 %9, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2

@@ -410,7 +410,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21JfrDeprecationManager7on_linkEPK6MethodPS0_ihP10JavaThread(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = tail call noundef zeroext i1 @_ZN13JfrMethodData25mark_deprecated_call_siteEP6MethodiP10JavaThread(ptr noundef %1, i32 noundef %2, ptr noundef %4) #11
-  br i1 %6, label %7, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit
+  br i1 %6, label %7, label %_ZL13should_recordPK6MethodS1_P10JavaThread.argprom.argprom.argprom.exit
 
 7:                                                ; preds = %5
   %8 = getelementptr i8, ptr %0, i64 8
@@ -424,7 +424,7 @@ define hidden void @_ZN21JfrDeprecationManager7on_linkEPK6MethodPS0_ihP10JavaThr
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(464) %.val.val.val) #11
   %15 = tail call fastcc noundef zeroext i1 @_ZL17is_not_jdk_modulePK11ModuleEntryP10JavaThread(ptr noundef %14, ptr noundef readonly %4)
-  br i1 %15, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit, label %16
+  br i1 %15, label %_ZL13should_recordPK6MethodS1_P10JavaThread.argprom.argprom.argprom.exit, label %16
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %1, i64 8
@@ -438,12 +438,12 @@ define hidden void @_ZN21JfrDeprecationManager7on_linkEPK6MethodPS0_ihP10JavaThr
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(464) %22) #11
   %27 = tail call fastcc noundef zeroext i1 @_ZL17is_not_jdk_modulePK11ModuleEntryP10JavaThread(ptr noundef %26, ptr noundef readonly %4)
-  br i1 %27, label %.preheader.i, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit
+  br i1 %27, label %.preheader.i, label %_ZL13should_recordPK6MethodS1_P10JavaThread.argprom.argprom.argprom.exit
 
 .preheader.i:                                     ; preds = %16, %29
   %28 = load volatile i64, ptr @_ZZL21max_limit_not_reachedvE9num_edges, align 8
   %.not8.not.not.i.not.i = icmp eq i64 %28, 10000
-  br i1 %.not8.not.not.i.not.i, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit, label %29
+  br i1 %.not8.not.not.i.not.i, label %_ZL13should_recordPK6MethodS1_P10JavaThread.argprom.argprom.argprom.exit, label %29
 
 29:                                               ; preds = %.preheader.i
   %30 = add i64 %28, 1
@@ -548,9 +548,9 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %58, %_ZN18Safepoint
   store ptr %66, ptr %64, align 8
   %67 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.0.i10, ptr %66, ptr nonnull @_ZL5_list) #11, !srcloc !8
   %.not.i.i11 = icmp eq ptr %67, %66
-  br i1 %.not.i.i11, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit, label %65, !llvm.loop !12
+  br i1 %.not.i.i11, label %_ZL13should_recordPK6MethodS1_P10JavaThread.argprom.argprom.argprom.exit, label %65, !llvm.loop !12
 
-_ZL13should_recordPK6MethodS1_P10JavaThread.exit: ; preds = %.preheader.i, %65, %16, %7, %5
+_ZL13should_recordPK6MethodS1_P10JavaThread.argprom.argprom.argprom.exit: ; preds = %.preheader.i, %65, %16, %7, %5
   ret void
 }
 

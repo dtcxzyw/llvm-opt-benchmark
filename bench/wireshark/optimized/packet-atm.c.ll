@@ -659,7 +659,7 @@ define internal i32 @dissect_atm_oam_cell(ptr noundef %0, ptr noundef %1, ptr no
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   %9 = load i32, ptr @ett_atm, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #10
-  tail call fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, i32 noundef 7, i32 noundef 0, ptr noundef null)
+  tail call fastcc void @dissect_atm_cell.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, i32 noundef 7, i32 noundef 0, ptr noundef null)
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
   ret i32 %11
 }
@@ -834,7 +834,7 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
 44:                                               ; preds = %35, %35
   %45 = load i32, ptr @hf_atm_le_control_flag_v2_capable, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %45, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #10
-  tail call fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr noundef %.0111.i)
+  tail call fastcc void @dissect_le_configure_join_frame.argelim(ptr noundef %0, ptr noundef %.0111.i)
   br label %dissect_le_control.exit
 
 47:                                               ; preds = %35, %35
@@ -849,7 +849,7 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %53, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #10
   %55 = load i32, ptr @hf_atm_le_control_flag_exclude_explorer_frames, align 4
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %55, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #10
-  tail call fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr noundef %.0111.i)
+  tail call fastcc void @dissect_le_configure_join_frame.argelim(ptr noundef %0, ptr noundef %.0111.i)
   br label %dissect_le_control.exit
 
 57:                                               ; preds = %35, %35, %35, %35
@@ -865,7 +865,7 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %65 = load i32, ptr @hf_atm_reserved, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %.0111.i, i32 noundef %65, ptr noundef %0, i32 noundef 55, i32 noundef 53, i32 noundef 0) #10
   %67 = zext i8 %62 to i32
-  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %67, ptr noundef %.0111.i)
+  tail call fastcc void @dissect_le_control_tlvs.argelim(ptr noundef %0, i32 noundef %67, ptr noundef %.0111.i)
   br label %dissect_le_control.exit
 
 68:                                               ; preds = %35, %35
@@ -890,7 +890,7 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %83 = load i32, ptr @hf_atm_reserved, align 4
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %.0111.i, i32 noundef %83, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0) #10
   %85 = zext i8 %76 to i32
-  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %85, ptr noundef %.0111.i)
+  tail call fastcc void @dissect_le_control_tlvs.argelim(ptr noundef %0, i32 noundef %85, ptr noundef %.0111.i)
   br label %dissect_le_control.exit
 
 86:                                               ; preds = %35
@@ -913,7 +913,7 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %101 = load i32, ptr @hf_atm_reserved, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %.0111.i, i32 noundef %101, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0) #10
   %103 = zext i8 %94 to i32
-  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %103, ptr noundef %.0111.i)
+  tail call fastcc void @dissect_le_control_tlvs.argelim(ptr noundef %0, i32 noundef %103, ptr noundef %.0111.i)
   br label %dissect_le_control.exit
 
 104:                                              ; preds = %35, %35
@@ -1146,7 +1146,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %68 = zext i8 %67 to i32
   %69 = load i32, ptr %4, align 4
   %70 = and i32 %69, 2
-  tail call fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.050, i32 noundef %68, i32 noundef %70, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_atm_cell.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.050, i32 noundef %68, i32 noundef %70, ptr noundef nonnull %4)
   br label %300
 
 71:                                               ; preds = %62
@@ -1562,7 +1562,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4, i32 noundef range(i32 0, 3) %5, ptr noundef readonly %6) unnamed_addr #1 {
+define internal fastcc void @dissect_atm_cell.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4, i32 noundef range(i32 0, 3) %5, ptr noundef readonly %6) unnamed_addr #1 {
   %8 = alloca %struct.atm_phdr, align 4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_atm_gfc, align 4
@@ -1948,7 +1948,7 @@ declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_le_configure_join_frame.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.333, ptr noundef %1)
   tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.334, ptr noundef %1)
   %3 = load i32, ptr @hf_atm_source_atm, align 4
@@ -1977,7 +1977,7 @@ define internal fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr
 
 21:                                               ; preds = %17, %2
   %22 = zext i8 %9 to i32
-  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %22, ptr noundef %1)
+  tail call fastcc void @dissect_le_control_tlvs.argelim(ptr noundef %0, i32 noundef %22, ptr noundef %1)
   ret void
 }
 
@@ -2016,7 +2016,7 @@ define internal fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_le_control_tlvs.argelim(ptr noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2) unnamed_addr #1 {
   %.not19 = icmp eq i32 %1, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 

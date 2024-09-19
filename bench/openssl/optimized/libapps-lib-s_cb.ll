@@ -738,8 +738,8 @@ ssl_print_client_cert_types.exit:                 ; preds = %if.then, %for.end.i
   br label %if.end
 
 if.end:                                           ; preds = %ssl_print_client_cert_types.exit, %entry
-  call fastcc void @do_print_sigalgs(ptr noundef %out, ptr noundef %s, i32 noundef 0)
-  call fastcc void @do_print_sigalgs(ptr noundef %out, ptr noundef %s, i32 noundef 1)
+  call fastcc void @do_print_sigalgs.retelim(ptr noundef %out, ptr noundef %s, i32 noundef 0)
+  call fastcc void @do_print_sigalgs.retelim(ptr noundef %out, ptr noundef %s, i32 noundef 1)
   %call3 = call i64 @SSL_ctrl(ptr noundef %s, i32 noundef 108, i64 noundef 0, ptr noundef nonnull %nid) #6
   %tobool4 = icmp ne i64 %call3, 0
   %4 = load i32, ptr %nid, align 4
@@ -811,7 +811,7 @@ if.end14:                                         ; preds = %get_sigtype.exit, %
 declare i32 @SSL_is_server(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_print_sigalgs(ptr noundef %out, ptr noundef %s, i32 noundef range(i32 0, 2) %shared) unnamed_addr #0 {
+define internal fastcc void @do_print_sigalgs.retelim(ptr noundef %out, ptr noundef %s, i32 noundef range(i32 0, 2) %shared) unnamed_addr #0 {
 entry:
   %hash_nid = alloca i32, align 4
   %sign_nid = alloca i32, align 4
@@ -2560,7 +2560,7 @@ print_raw_cipherlist.exit:                        ; preds = %entry, %for.end27.i
   %call5 = call ptr @SSL_CIPHER_get_name(ptr noundef %call4) #6
   %call6 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %15, ptr noundef nonnull @.str.101, ptr noundef %call5) #6
   %16 = load ptr, ptr @bio_err, align 8
-  call fastcc void @do_print_sigalgs(ptr noundef %16, ptr noundef %s, i32 noundef 0)
+  call fastcc void @do_print_sigalgs.retelim(ptr noundef %16, ptr noundef %s, i32 noundef 0)
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.else, label %if.then
 

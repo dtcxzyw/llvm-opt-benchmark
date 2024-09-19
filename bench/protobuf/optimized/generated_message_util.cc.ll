@@ -81,7 +81,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv()
+  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv.retelim()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -102,7 +102,7 @@ lpad:                                             ; preds = %init
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv.retelim() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E) #12
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal13DestroyStringEPKv, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E)
@@ -407,7 +407,7 @@ init.check.i.i.i:                                 ; preds = %if.then.i.i
   br i1 %tobool.not.i.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
-  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv()
+  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv.retelim()
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %init.i.i.i
@@ -618,7 +618,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %__cxx_global_var_init.1.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv()
+  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv.retelim()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i

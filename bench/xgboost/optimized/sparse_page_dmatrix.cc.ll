@@ -6107,14 +6107,14 @@ _ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE
   br i1 %switch.i.i, label %47, label %74
 
 47:                                               ; preds = %_ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit", label %48
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit", label %48
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds i8, ptr %46, i64 8
   %50 = load atomic i64, ptr %49 acquire, align 8
   %51 = icmp eq i64 %50, 4294967297
   %52 = trunc i64 %50 to i32
-  br i1 %51, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.sink.split.i.i", label %53
+  br i1 %51, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.sink.split.i.i", label %53
 
 53:                                               ; preds = %48
   %54 = load i8, ptr @__libc_single_threaded, align 1
@@ -6133,7 +6133,7 @@ _ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE
 59:                                               ; preds = %57, %55
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %52, %55 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %61, label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit"
+  br i1 %60, label %61, label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit"
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr %46, align 8
@@ -6158,17 +6158,17 @@ _ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE
 72:                                               ; preds = %70, %67
   %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %68, %67 ], [ %71, %70 ]
   %73 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %73, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.i.i", label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit"
+  br i1 %73, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.i.i", label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit"
 
 74:                                               ; preds = %_ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit", label %75
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit", label %75
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds i8, ptr %46, i64 8
   %77 = load atomic i64, ptr %76 acquire, align 8
   %78 = icmp eq i64 %77, 4294967297
   %79 = trunc i64 %77 to i32
-  br i1 %78, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.sink.split.i.i", label %80
+  br i1 %78, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.sink.split.i.i", label %80
 
 80:                                               ; preds = %75
   %81 = load i8, ptr @__libc_single_threaded, align 1
@@ -6187,7 +6187,7 @@ _ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE
 86:                                               ; preds = %84, %82
   %.0.i.i.i.i.i.i.i.i8.i.i = phi i32 [ %79, %82 ], [ %85, %84 ]
   %87 = icmp eq i32 %.0.i.i.i.i.i.i.i.i8.i.i, 1
-  br i1 %87, label %88, label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit"
+  br i1 %87, label %88, label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit"
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr %46, align 8
@@ -6212,9 +6212,9 @@ _ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE
 99:                                               ; preds = %97, %94
   %.0.i.i.i.i.i.i.i.i.i.i10.i.i = phi i32 [ %95, %94 ], [ %98, %97 ]
   %100 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i10.i.i, 1
-  br i1 %100, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.i.i", label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit"
+  br i1 %100, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.i.i", label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit"
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.sink.split.i.i": ; preds = %75, %48
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.sink.split.i.i": ; preds = %75, %48
   %.sink.i.i = phi ptr [ %49, %48 ], [ %76, %75 ]
   store i32 0, ptr %.sink.i.i, align 8
   %101 = getelementptr inbounds i8, ptr %46, i64 12
@@ -6223,16 +6223,16 @@ _ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE
   %103 = getelementptr inbounds i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %46) #15
-  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.i.i"
+  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.i.i"
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.i.i": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.sink.split.i.i", %99, %72
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.i.i": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.sink.split.i.i", %99, %72
   %105 = load ptr, ptr %46, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 24
   %107 = load ptr, ptr %106, align 8
   tail call void %107(ptr noundef nonnull align 8 dereferenceable(16) %46) #15
-  br label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit"
+  br label %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit"
 
-"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.exit.sink.split.i.i", %99, %86, %74, %72, %59, %47
+"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7xgboost4data17SparsePageDMatrixD1EvE3$_0RSt7variantIJSt10shared_ptrINS6_21EllpackPageSourceImplINS6_25DefaultFormatStreamPolicyINS5_11EllpackPageENS6_19EllpackFormatPolicyEEEEEESB_INSC_INS6_25EllpackFormatStreamPolicyISE_SF_EEEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SO_.argprom.exit.sink.split.i.i", %99, %86, %74, %72, %59, %47
   %108 = getelementptr inbounds i8, ptr %0, i64 544
   store ptr null, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 552
@@ -6241,7 +6241,7 @@ _ZNSt12__shared_ptrIN7xgboost4data16SparsePageSourceELN9__gnu_cxx12_Lock_policyE
   %.not.i.i.i6 = icmp eq ptr %110, null
   br i1 %.not.i.i.i6, label %_ZNSt12__shared_ptrIN7xgboost4data13CSCPageSourceELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, label %111
 
-111:                                              ; preds = %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit"
+111:                                              ; preds = %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit"
   %112 = getelementptr inbounds i8, ptr %110, i64 8
   %113 = load atomic i64, ptr %112 acquire, align 8
   %114 = icmp eq i64 %113, 4294967297
@@ -6309,7 +6309,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %144(ptr noundef nonnull align 8 dereferenceable(16) %110) #15
   br label %_ZNSt12__shared_ptrIN7xgboost4data13CSCPageSourceELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
 
-_ZNSt12__shared_ptrIN7xgboost4data13CSCPageSourceELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit: ; preds = %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.exit", %127, %140, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11
+_ZNSt12__shared_ptrIN7xgboost4data13CSCPageSourceELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit: ; preds = %"_ZSt5visitIZN7xgboost4data17SparsePageDMatrixD1EvE3$_0JRSt7variantIJSt10shared_ptrINS1_21EllpackPageSourceImplINS1_25DefaultFormatStreamPolicyINS0_11EllpackPageENS1_19EllpackFormatPolicyEEEEEES5_INS6_INS1_25EllpackFormatStreamPolicyIS8_S9_EEEEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISM_EEEEE4typeEE4typeEOSV_EEEE4typeEOSK_DpOSM_.argprom.exit", %127, %140, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11
   %145 = getelementptr inbounds i8, ptr %0, i64 560
   store ptr null, ptr %145, align 8
   %146 = getelementptr inbounds i8, ptr %0, i64 568
@@ -23588,13 +23588,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #31
           to label %18 unwind label %19
 
@@ -23608,7 +23608,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

@@ -5568,7 +5568,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
 
 116:                                              ; preds = %110
   %.val = load ptr, ptr %5, align 8
-  %117 = call fastcc i32 @netlink_autobind(ptr %.val)
+  %117 = call fastcc i32 @netlink_autobind.argprom(ptr %.val)
   br label %118
 
 118:                                              ; preds = %116, %114
@@ -5837,7 +5837,7 @@ define internal range(i32 -97, -98) i32 @netlink_connect(ptr nocapture noundef r
 
 42:                                               ; preds = %38
   %.val = load ptr, ptr %5, align 8
-  %43 = tail call fastcc i32 @netlink_autobind(ptr %.val)
+  %43 = tail call fastcc i32 @netlink_autobind.argprom(ptr %.val)
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %55
 
@@ -6441,7 +6441,7 @@ define internal i32 @netlink_sendmsg(ptr noundef %0, ptr noundef %1, i64 noundef
 
 73:                                               ; preds = %63
   %.val = load ptr, ptr %5, align 8
-  %74 = call fastcc i32 @netlink_allowed(ptr %.val)
+  %74 = call fastcc i32 @netlink_allowed.argprom.argelim(ptr %.val)
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %.thread16, label %81
 
@@ -6463,7 +6463,7 @@ define internal i32 @netlink_sendmsg(ptr noundef %0, ptr noundef %1, i64 noundef
 
 88:                                               ; preds = %81
   %.val15 = load ptr, ptr %5, align 8
-  %89 = call fastcc i32 @netlink_autobind(ptr %.val15)
+  %89 = call fastcc i32 @netlink_autobind.argprom(ptr %.val15)
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %92, label %.thread16
 
@@ -7052,7 +7052,7 @@ define internal void @netlink_sock_destruct_work(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @netlink_allowed(ptr nocapture readonly %.24.val) unnamed_addr #7 align 16 {
+define internal fastcc range(i32 0, 2) i32 @netlink_allowed.argprom.argelim(ptr nocapture readonly %.24.val) unnamed_addr #7 align 16 {
   %1 = load ptr, ptr @nl_table, align 8
   %2 = getelementptr inbounds i8, ptr %.24.val, i64 516
   %3 = load i16, ptr %2, align 4
@@ -7119,7 +7119,7 @@ define internal fastcc void @netlink_undo_bind(i32 noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -97, -98) i32 @netlink_autobind(ptr %.24.val) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -97, -98) i32 @netlink_autobind.argprom(ptr %.24.val) unnamed_addr #1 align 16 {
   %1 = getelementptr inbounds i8, ptr %.24.val, i64 48
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr @nl_table, align 8

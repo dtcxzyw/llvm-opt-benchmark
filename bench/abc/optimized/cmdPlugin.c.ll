@@ -1526,7 +1526,7 @@ Abc_ManReadInteger.exit:                          ; preds = %184, %Vec_StrFree.e
 222:                                              ; preds = %218
   %223 = add nsw i32 %220, -1
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.27, i32 noundef %223)
-  call fastcc void @Abc_PrintTime(i64 noundef %172)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %172)
   %224 = getelementptr inbounds i8, ptr %0, i64 352
   %225 = load ptr, ptr %224, align 8
   %.not98 = icmp eq ptr %225, null
@@ -1809,7 +1809,7 @@ define internal fastcc void @Vec_IntFree(ptr nocapture noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_PrintTime(i64 noundef %0) unnamed_addr #2 {
+define internal fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %0) unnamed_addr #2 {
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.28)
   %2 = sitofp i64 %0 to double
   %3 = fdiv double %2, 1.000000e+06
@@ -1903,7 +1903,7 @@ define i32 @Cmd_CommandAbcLoadPlugIn(ptr noundef %0, i32 noundef %1, ptr noundef
   %36 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %33, ptr nonnull poison, ptr noundef %19, ptr noundef %37)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %33, ptr nonnull poison, ptr noundef %19, ptr noundef %37)
   %38 = load i32, ptr %34, align 4
   %39 = load i32, ptr %33, align 8
   %40 = icmp eq i32 %38, %39
@@ -2225,7 +2225,7 @@ declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #6
 declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPrintF(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #2 {
+define internal void @Vec_StrPrintF.argelim(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 4

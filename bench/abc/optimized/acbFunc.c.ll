@@ -1534,7 +1534,7 @@ Acb_WireIsTarget.exit.thread:                     ; preds = %.lr.ph235, %Acb_Wir
   %283 = getelementptr inbounds i32, ptr %.val152, i64 %indvars.iv276
   %284 = load i32, ptr %283, align 4
   store i32 %284, ptr %3, align 4
-  call fastcc void @Ndr_AddObject(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef %3)
+  call fastcc void @Ndr_AddObject.argprom.argelim(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef %3)
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %.val143 = load i32, ptr %6, align 4
   %285 = sext i32 %.val143 to i64
@@ -1548,7 +1548,7 @@ Acb_WireIsTarget.exit.thread:                     ; preds = %.lr.ph235, %Acb_Wir
   br i1 %.not, label %289, label %288
 
 288:                                              ; preds = %.critedge11
-  call fastcc void @Ndr_AddObject(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 7, i32 noundef 0, ptr noundef null, ptr noundef %3)
+  call fastcc void @Ndr_AddObject.argprom.argelim(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 7, i32 noundef 0, ptr noundef null, ptr noundef %3)
   br label %289
 
 289:                                              ; preds = %288, %.critedge11
@@ -1558,7 +1558,7 @@ Acb_WireIsTarget.exit.thread:                     ; preds = %.lr.ph235, %Acb_Wir
   br i1 %.not128, label %292, label %291
 
 291:                                              ; preds = %289
-  call fastcc void @Ndr_AddObject(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef %3)
+  call fastcc void @Ndr_AddObject.argprom.argelim(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef %3)
   br label %292
 
 292:                                              ; preds = %291, %289
@@ -1568,7 +1568,7 @@ Acb_WireIsTarget.exit.thread:                     ; preds = %.lr.ph235, %Acb_Wir
   br i1 %.not129, label %295, label %294
 
 294:                                              ; preds = %292
-  call fastcc void @Ndr_AddObject(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 9, i32 noundef 0, ptr noundef null, ptr noundef %3)
+  call fastcc void @Ndr_AddObject.argprom.argelim(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 9, i32 noundef 0, ptr noundef null, ptr noundef %3)
   br label %295
 
 295:                                              ; preds = %294, %292
@@ -1620,7 +1620,7 @@ switch.lookup:                                    ; preds = %302
 
 Acb_Type2Oper.exit:                               ; preds = %302, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %302 ]
-  call fastcc void @Ndr_AddObject(ptr noundef nonnull %185, i32 noundef 258, i32 noundef %.0.i, i32 noundef %311, ptr noundef nonnull %312, ptr noundef %4)
+  call fastcc void @Ndr_AddObject.argprom.argelim(ptr noundef nonnull %185, i32 noundef 258, i32 noundef %.0.i, i32 noundef %311, ptr noundef nonnull %312, ptr noundef %4)
   br label %315
 
 315:                                              ; preds = %298, %Acb_Type2Oper.exit
@@ -1635,7 +1635,7 @@ Acb_Type2Oper.exit:                               ; preds = %302, %switch.lookup
   %318 = getelementptr inbounds i32, ptr %.val157, i64 %indvars.iv282
   %319 = load i32, ptr %318, align 4
   store i32 %319, ptr %3, align 4
-  call fastcc void @Ndr_AddObject(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef %3)
+  call fastcc void @Ndr_AddObject.argprom.argelim(ptr noundef nonnull %185, i32 noundef 258, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef %3)
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %.val145 = load i32, ptr %10, align 4
   %320 = sext i32 %.val145 to i64
@@ -1697,7 +1697,7 @@ Vec_IntFree.exit208:                              ; preds = %Vec_IntFree.exit206
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Ndr_AddObject(ptr nocapture noundef %0, i32 noundef range(i32 -2147483392, -2147483648) %1, i32 noundef range(i32 -1, 79) %2, i32 noundef range(i32 -2147483648, 2147483647) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #8 {
+define internal fastcc void @Ndr_AddObject.argprom.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483392, -2147483648) %1, i32 noundef range(i32 -1, 79) %2, i32 noundef range(i32 -2147483648, 2147483647) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #8 {
   %7 = load i32, ptr %0, align 8
   %8 = add nsw i32 %7, 6
   %9 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3033,7 +3033,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge5, %267
   %338 = sext i32 %337 to i64
   %339 = getelementptr inbounds i32, ptr %.val234, i64 %338
   %340 = load i32, ptr %339, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %262, i32 noundef %340)
+  tail call fastcc void @Gia_ManAppendCo.argelim(ptr noundef nonnull %262, i32 noundef %340)
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
   %.val220 = load i32, ptr %11, align 4
   %341 = sext i32 %.val220 to i64
@@ -3701,7 +3701,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -7310,7 +7310,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %90
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i32, ptr %.val87, i64 %111
   %113 = load i32, ptr %112, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %10, i32 noundef %113)
+  tail call fastcc void @Gia_ManAppendCo.argelim(ptr noundef nonnull %10, i32 noundef %113)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %.val70 = load i32, ptr %91, align 4
   %114 = sext i32 %.val70 to i64
@@ -7341,7 +7341,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %90
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds i32, ptr %.val86, i64 %123
   %125 = load i32, ptr %124, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %10, i32 noundef %125)
+  tail call fastcc void @Gia_ManAppendCo.argelim(ptr noundef nonnull %10, i32 noundef %125)
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %.val = load i32, ptr %116, align 4
   %126 = sext i32 %.val to i64
@@ -8140,7 +8140,7 @@ define ptr @Acb_CreateMiter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .critedge8:                                       ; preds = %116, %118, %.critedge6
   %.0.lcssa = phi i32 [ 0, %.critedge6 ], [ %148, %118 ], [ %.0137, %116 ]
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef %6, i32 noundef %.0.lcssa)
+  tail call fastcc void @Gia_ManAppendCo.argelim(ptr noundef %6, i32 noundef %.0.lcssa)
   %153 = getelementptr inbounds i8, ptr %0, i64 72
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr i8, ptr %154, i64 4
@@ -8179,7 +8179,7 @@ define ptr @Acb_CreateMiter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %173 = lshr i32 %172, 29
   %174 = and i32 %173, 1
   %175 = xor i32 %174, %171
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef %6, i32 noundef %175)
+  tail call fastcc void @Gia_ManAppendCo.argelim(ptr noundef %6, i32 noundef %175)
   %.pre162 = load ptr, ptr %153, align 8
   br label %176
 
@@ -10393,7 +10393,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %171 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56)
   %172 = call fastcc i64 @Abc_Clock()
   %173 = add i64 %172, %.0.i.neg
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.57, i64 noundef %173)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.57, i64 noundef %173)
   %174 = call fastcc i64 @Abc_Clock()
   %175 = call i32 @sat_solver_minimize_assumptions(ptr noundef %20, ptr noundef %.val185, i32 noundef %.val174, i32 noundef 0) #31
   store i32 %175, ptr %14, align 4
@@ -10402,7 +10402,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %177 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, i32 noundef %175)
   %178 = call fastcc i64 @Abc_Clock()
   %179 = sub nsw i64 %178, %174
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.57, i64 noundef %179)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.57, i64 noundef %179)
   %180 = icmp sgt i32 %175, 0
   br i1 %180, label %182, label %.thread234
 
@@ -10435,7 +10435,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.1 = phi ptr [ %184, %188 ], [ %186, %190 ]
   %194 = call fastcc i64 @Abc_Clock()
   %195 = sub nsw i64 %194, %183
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.57, i64 noundef %195)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.57, i64 noundef %195)
   %.phi.trans.insert = getelementptr i8, ptr %.1, i64 4
   %.2.val210.pre = load i32, ptr %.phi.trans.insert, align 4
   %196 = getelementptr i8, ptr %.1, i64 4
@@ -10507,7 +10507,7 @@ declare void @Cnf_DataLift(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_PrintTime(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Abc_PrintTime.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.161, ptr noundef %0)
   %3 = sitofp i64 %1 to double
   %4 = fdiv double %3, 1.000000e+06
@@ -10809,14 +10809,14 @@ Vec_IntFree.exit:                                 ; preds = %Abc_Clock.exit125, 
   %159 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56)
   %160 = call fastcc i64 @Abc_Clock()
   %161 = sub nsw i64 %160, %.0.i
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.57, i64 noundef %161)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.57, i64 noundef %161)
   %162 = call fastcc i64 @Abc_Clock()
   %163 = call i32 @satoko_minimize_assumptions(ptr noundef %19, ptr noundef %.val123.pre, i32 noundef %.val115.pre, i32 noundef 0) #31
   store i32 %163, ptr %13, align 4
   %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %163)
   %165 = call fastcc i64 @Abc_Clock()
   %166 = sub nsw i64 %165, %162
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.57, i64 noundef %166)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.57, i64 noundef %166)
   %167 = icmp sgt i32 %163, 0
   br i1 %167, label %.lr.ph131.preheader, label %.critedge
 
@@ -13045,7 +13045,7 @@ Vec_IntAlloc.exit171:                             ; preds = %Vec_IntAlloc.exit, 
   %263 = lshr i32 %262, 29
   %264 = and i32 %263, 1
   %265 = xor i32 %264, %261
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef %37, i32 noundef %265)
+  tail call fastcc void @Gia_ManAppendCo.argelim(ptr noundef %37, i32 noundef %265)
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %266 = load ptr, ptr %12, align 8
   %267 = getelementptr i8, ptr %266, i64 4
@@ -13135,7 +13135,7 @@ define noalias noundef ptr @Acb_GenerateInstance(ptr nocapture noundef readonly 
   %28 = getelementptr inbounds i32, ptr %.val36, i64 %23
   %29 = load i32, ptr %28, align 4
   %30 = tail call ptr @Abc_NamStr(ptr noundef %.val35.val, i32 noundef %29) #31
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %5, ptr noundef nonnull @.str.70, ptr noundef nonnull %21, ptr noundef %26, ptr noundef %30)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %5, ptr noundef nonnull @.str.70, ptr noundef nonnull %21, ptr noundef %26, ptr noundef %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val27 = load i32, ptr %9, align 4
   %31 = sext i32 %.val27 to i64
@@ -13166,7 +13166,7 @@ define noalias noundef ptr @Acb_GenerateInstance(ptr nocapture noundef readonly 
   %44 = getelementptr inbounds i32, ptr %.val32, i64 %39
   %45 = load i32, ptr %44, align 4
   %46 = tail call ptr @Abc_NamStr(ptr noundef %.val31.val, i32 noundef %45) #31
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %5, ptr noundef nonnull @.str.72, ptr noundef %42, ptr noundef %46)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %5, ptr noundef nonnull @.str.72, ptr noundef %42, ptr noundef %46)
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %.val = load i32, ptr %13, align 4
   %47 = sext i32 %.val to i64
@@ -13239,7 +13239,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPrintF(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @Vec_StrPrintF.argelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 4
@@ -13493,7 +13493,7 @@ Abc_UtilStrsav.exit62:                            ; preds = %52, %67
 
 83:                                               ; preds = %.lr.ph72
   %84 = add nsw i32 %.04170, 1
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %19, ptr noundef nonnull @.str.74, i32 noundef %.04170)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %19, ptr noundef nonnull @.str.74, i32 noundef %.04170)
   %85 = load i32, ptr %20, align 4
   %86 = load i32, ptr %19, align 8
   %87 = icmp eq i32 %85, %86
@@ -13976,12 +13976,12 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %
   %.val199 = load i32, ptr %89, align 4
   %90 = getelementptr i8, ptr %28, i64 4
   %.val198 = load i32, ptr %90, align 4
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.77, i32 noundef %.val204, i32 noundef %15, i32 noundef %29, i32 noundef %30, i32 noundef %.val199, i32 noundef %.val198)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.77, i32 noundef %.val204, i32 noundef %15, i32 noundef %29, i32 noundef %30, i32 noundef %.val199, i32 noundef %.val198)
   %91 = getelementptr inbounds i8, ptr %8, i64 4
   %92 = getelementptr inbounds i8, ptr %8, i64 8
   %93 = getelementptr inbounds i8, ptr %8, i64 12
   %94 = getelementptr inbounds i8, ptr %8, i64 16
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.78, i32 noundef %19, i32 noundef %88, i32 noundef %87, i32 noundef %86, i32 noundef %85, i32 noundef %84)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.78, i32 noundef %19, i32 noundef %88, i32 noundef %87, i32 noundef %86, i32 noundef %85, i32 noundef %84)
   %95 = call ptr (...) @Abc_FrameReadSpecName() #31
   %.not175 = icmp eq ptr %95, null
   br i1 %.not175, label %106, label %96
@@ -13996,7 +13996,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %
   %103 = load i32, ptr %102, align 4
   %104 = getelementptr inbounds i8, ptr %7, i64 16
   %105 = load i32, ptr %104, align 16
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.79, i32 noundef %37, i32 noundef %97, i32 noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %105)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.79, i32 noundef %37, i32 noundef %97, i32 noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %105)
   br label %106
 
 106:                                              ; preds = %96, %.critedge
@@ -14020,11 +14020,11 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %
   %121 = getelementptr inbounds i8, ptr %7, i64 16
   %122 = load i32, ptr %121, align 16
   %123 = sub nsw i32 %84, %122
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.80, i32 noundef %109, i32 noundef %111, i32 noundef %114, i32 noundef %117, i32 noundef %120, i32 noundef %123)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.80, i32 noundef %109, i32 noundef %111, i32 noundef %114, i32 noundef %117, i32 noundef %120, i32 noundef %123)
   br label %124
 
 124:                                              ; preds = %108, %106
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.27)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.27)
   call fastcc void @Vec_StrAppend(ptr noundef %21, ptr noundef nonnull @.str.81)
   %125 = getelementptr i8, ptr %5, i64 4
   %.val197246 = load i32, ptr %125, align 4
@@ -14062,7 +14062,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %
   %139 = getelementptr inbounds i32, ptr %.val225, i64 %138
   %140 = load i32, ptr %139, align 4
   %141 = call ptr @Abc_NamStr(ptr noundef %.val224.val, i32 noundef %140) #31
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %136, ptr noundef %141)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %136, ptr noundef %141)
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %.val197 = load i32, ptr %125, align 4
   %142 = sext i32 %.val197 to i64
@@ -14086,7 +14086,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %
   %151 = getelementptr inbounds i32, ptr %.val223, i64 %150
   %152 = load i32, ptr %151, align 4
   %153 = call ptr @Abc_NamStr(ptr noundef %.val222.val, i32 noundef %152) #31
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.32, ptr noundef %153)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.32, ptr noundef %153)
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %.val196 = load i32, ptr %17, align 4
   %154 = sext i32 %.val196 to i64
@@ -14120,7 +14120,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %
   %165 = getelementptr inbounds i32, ptr %.val221, i64 %164
   %166 = load i32, ptr %165, align 4
   %167 = call ptr @Abc_NamStr(ptr noundef %.val220.val, i32 noundef %166) #31
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %162, ptr noundef %167)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %162, ptr noundef %167)
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %.val195 = load i32, ptr %125, align 4
   %168 = sext i32 %.val195 to i64
@@ -14159,7 +14159,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %
   %183 = getelementptr inbounds i32, ptr %.val219, i64 %182
   %184 = load i32, ptr %183, align 4
   %185 = call ptr @Abc_NamStr(ptr noundef %.val218.val, i32 noundef %184) #31
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %180, ptr noundef %185)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %180, ptr noundef %185)
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %.val194 = load i32, ptr %17, align 4
   %186 = sext i32 %.val194 to i64
@@ -14201,7 +14201,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
 199:                                              ; preds = %.tail
   %.not181 = icmp eq i32 %.0169258, 0
   %200 = select i1 %.not181, ptr @.str.71, ptr @.str.23
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %200, ptr noundef nonnull %194)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %200, ptr noundef nonnull %194)
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail, %199
@@ -14238,7 +14238,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   %.val209 = load ptr, ptr %211, align 8
   %212 = load i32, ptr %.val209, align 4
   %213 = call fastcc ptr @Acb_Oper2Name(i32 noundef %212)
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.30, ptr noundef %213)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.30, ptr noundef %213)
   %.val189260 = load i32, ptr %208, align 4
   %214 = icmp sgt i32 %.val189260, 1
   br i1 %214, label %.lr.ph263, label %.critedge12
@@ -14257,7 +14257,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   %220 = sext i32 %217 to i64
   %221 = getelementptr inbounds ptr, ptr %.val229, i64 %220
   %222 = load ptr, ptr %221, align 8
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %219, ptr noundef %222)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull %219, ptr noundef %222)
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %.val189 = load i32, ptr %208, align 4
   %223 = sext i32 %.val189 to i64
@@ -14269,7 +14269,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   br label %235
 
 225:                                              ; preds = %206
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.75)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.75)
   %226 = getelementptr i8, ptr %207, i64 8
   %.val207 = load ptr, ptr %226, align 8
   %227 = getelementptr inbounds i8, ptr %.val207, i64 4
@@ -14278,13 +14278,13 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   %229 = sext i32 %228 to i64
   %230 = getelementptr inbounds ptr, ptr %.val228, i64 %229
   %231 = load ptr, ptr %230, align 8
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.89, ptr noundef %231)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.89, ptr noundef %231)
   %.val206 = load ptr, ptr %226, align 8
   %232 = load i32, ptr %.val206, align 4
   %233 = icmp eq i32 %232, 8
   %234 = zext i1 %233 to i32
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.36, i32 noundef %234)
-  call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %21, ptr noundef nonnull @.str.37)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.36, i32 noundef %234)
+  call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %21, ptr noundef nonnull @.str.37)
   br label %235
 
 235:                                              ; preds = %.critedge12, %225
@@ -14560,7 +14560,7 @@ define noalias noundef ptr @Acb_GenerateInstance2(ptr nocapture noundef readonly
   %.not = icmp eq i64 %indvars.iv, 0
   %16 = select i1 %.not, ptr @.str.23, ptr @.str.71
   %17 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %3, ptr noundef nonnull @.str.94, ptr noundef nonnull %16, ptr noundef %15, i32 noundef %17, ptr noundef %15)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %3, ptr noundef nonnull @.str.94, ptr noundef nonnull %16, ptr noundef %15, i32 noundef %17, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val25 = load i32, ptr %7, align 4
   %18 = sext i32 %.val25 to i64
@@ -14572,7 +14572,7 @@ define noalias noundef ptr @Acb_GenerateInstance2(ptr nocapture noundef readonly
   %.val = load ptr, ptr %12, align 8
   %20 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv32
   %21 = load ptr, ptr %20, align 8
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %3, ptr noundef nonnull @.str.72, ptr noundef %21, ptr noundef %21)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %3, ptr noundef nonnull @.str.72, ptr noundef %21, ptr noundef %21)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %.val24 = load i32, ptr %10, align 4
   %22 = sext i32 %.val24 to i64
@@ -14783,7 +14783,7 @@ Abc_UtilStrsav.exit58:                            ; preds = %46, %53
 
 66:                                               ; preds = %.lr.ph67
   %67 = add nsw i32 %.066, 1
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %19, ptr noundef nonnull @.str.74, i32 noundef %.066)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %19, ptr noundef nonnull @.str.74, i32 noundef %.066)
   %68 = load i32, ptr %20, align 4
   %69 = load i32, ptr %19, align 8
   %70 = icmp eq i32 %68, %69
@@ -14913,7 +14913,7 @@ define noalias noundef ptr @Acb_GeneratePatch2(ptr noundef %0, ptr nocapture nou
   %21 = load ptr, ptr %20, align 8
   %.not119 = icmp eq i64 %indvars.iv, 0
   %22 = select i1 %.not119, ptr @.str.23, ptr @.str.71
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %22, ptr noundef %21)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %22, ptr noundef %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val137 = load i32, ptr %6, align 4
   %23 = sext i32 %.val137 to i64
@@ -14927,7 +14927,7 @@ define noalias noundef ptr @Acb_GeneratePatch2(ptr noundef %0, ptr nocapture nou
   %26 = load ptr, ptr %25, align 8
   %.not118 = icmp eq i64 %indvars.iv168, 0
   %27 = select i1 %.not118, ptr @.str.96, ptr @.str.23
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.95, ptr noundef nonnull %27, ptr noundef %26)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.95, ptr noundef nonnull %27, ptr noundef %26)
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %.val136 = load i32, ptr %5, align 4
   %28 = sext i32 %.val136 to i64
@@ -14952,7 +14952,7 @@ define noalias noundef ptr @Acb_GeneratePatch2(ptr noundef %0, ptr nocapture nou
   %34 = load ptr, ptr %33, align 8
   %.not117 = icmp eq i64 %indvars.iv171, 0
   %35 = select i1 %.not117, ptr @.str.23, ptr @.str.71
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %35, ptr noundef %34)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %35, ptr noundef %34)
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %.val135 = load i32, ptr %6, align 4
   %36 = sext i32 %.val135 to i64
@@ -14977,7 +14977,7 @@ define noalias noundef ptr @Acb_GeneratePatch2(ptr noundef %0, ptr nocapture nou
   %42 = load ptr, ptr %41, align 8
   %.not116 = icmp eq i64 %indvars.iv174, 0
   %43 = select i1 %.not116, ptr @.str.23, ptr @.str.71
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %43, ptr noundef %42)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %43, ptr noundef %42)
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %.val134 = load i32, ptr %5, align 4
   %44 = sext i32 %.val134 to i64
@@ -15020,7 +15020,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
 56:                                               ; preds = %.tail
   %.not115 = icmp eq i32 %.0110156, 0
   %57 = select i1 %.not115, ptr @.str.71, ptr @.str.23
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %57, ptr noundef nonnull %51)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %57, ptr noundef nonnull %51)
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail, %56
@@ -15061,7 +15061,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   %.val125 = load ptr, ptr %70, align 8
   %71 = load i32, ptr %.val125, align 4
   %72 = tail call fastcc ptr @Acb_Oper2Name(i32 noundef %71)
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.30, ptr noundef %72)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.30, ptr noundef %72)
   %.val120158 = load i32, ptr %67, align 4
   %73 = icmp sgt i32 %.val120158, 1
   br i1 %73, label %.lr.ph161, label %.critedge10
@@ -15080,7 +15080,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   %79 = sext i32 %76 to i64
   %80 = getelementptr inbounds ptr, ptr %.val128, i64 %79
   %81 = load ptr, ptr %80, align 8
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %78, ptr noundef %81)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.82, ptr noundef nonnull %78, ptr noundef %81)
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %.val120 = load i32, ptr %67, align 4
   %82 = sext i32 %.val120 to i64
@@ -15095,7 +15095,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   br label %96
 
 86:                                               ; preds = %65
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.75)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.75)
   %87 = getelementptr i8, ptr %66, i64 8
   %.val123 = load ptr, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %.val123, i64 4
@@ -15104,13 +15104,13 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds ptr, ptr %.val127, i64 %90
   %92 = load ptr, ptr %91, align 8
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.89, ptr noundef %92)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.89, ptr noundef %92)
   %.val122 = load ptr, ptr %87, align 8
   %93 = load i32, ptr %.val122, align 4
   %94 = icmp eq i32 %93, 8
   %95 = zext i1 %94 to i32
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.36, i32 noundef %95)
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %11, ptr noundef nonnull @.str.37)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.36, i32 noundef %95)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %11, ptr noundef nonnull @.str.37)
   br label %96
 
 96:                                               ; preds = %.critedge10, %86
@@ -16094,7 +16094,7 @@ define ptr @Acb_RemapOneFunction(ptr noundef %0, ptr nocapture noundef readonly 
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i32
   %21 = add nsw i32 %20, -48
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %5, ptr noundef nonnull @.str.121, i32 noundef %21)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %5, ptr noundef nonnull @.str.121, i32 noundef %21)
   %22 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.27) #31
   %.not.us = icmp eq ptr %22, null
   br i1 %.not.us, label %._crit_edge, label %.preheader41.us, !llvm.loop !182
@@ -16227,7 +16227,7 @@ Vec_StrPush.exit.us:                              ; preds = %Vec_StrGrow.exit.i.
   %80 = load i8, ptr %79, align 1
   %81 = sext i8 %80 to i32
   %82 = add nsw i32 %81, -48
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %5, ptr noundef nonnull @.str.121, i32 noundef %82)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef nonnull %5, ptr noundef nonnull @.str.121, i32 noundef %82)
   %83 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.27) #31
   %.not = icmp eq ptr %83, null
   br i1 %.not, label %._crit_edge, label %.preheader41, !llvm.loop !182

@@ -2295,7 +2295,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   %90 = select i1 %54, i16 31, i16 15
   %91 = getelementptr inbounds i8, ptr %6, i64 6
   store i16 %90, ptr %91, align 2
-  call fastcc void @ilk_wm_merge(ptr noundef %0, i32 %.sroa.0.041, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  call fastcc void @ilk_wm_merge.argprom(ptr noundef %0, i32 %.sroa.0.041, ptr noundef nonnull %6, ptr noundef nonnull %2)
   %92 = load i16, ptr %56, align 8
   %93 = icmp ult i16 %92, 7
   %94 = icmp ne i32 %.sroa.0.041, 1
@@ -2326,7 +2326,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   store i16 255, ptr %89, align 4
   %111 = select i1 %98, i16 31, i16 15
   store i16 %111, ptr %91, align 2
-  call fastcc void @ilk_wm_merge(ptr noundef %0, i32 1, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @ilk_wm_merge.argprom(ptr noundef %0, i32 1, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %112 = getelementptr inbounds i8, ptr %0, i64 7024
   %113 = load i8, ptr %112, align 8
   %114 = icmp ugt i8 %113, 1
@@ -2935,7 +2935,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_wm_merge(ptr noundef readonly %0, i32 %.0.val, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_wm_merge.argprom(ptr noundef readonly %0, i32 %.0.val, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 7024
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i32

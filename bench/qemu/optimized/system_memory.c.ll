@@ -545,7 +545,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -554,14 +554,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %8 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret ptr %3
 }
 
@@ -1118,9 +1118,9 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %arrayidx41.sroa.6.0.copyload = load i128, ptr %arrayidx41.sroa.6.0.arrayidx.sroa_idx, align 1
   %add.i.i = add i128 %a.sroa.0.0.insert.insert.i, %arrayidx41.sroa.0.0.copyload
   %cmp.i.not.i.i = icmp slt i128 %add.i.i, %11
-  br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.exit.i
+  br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.argprom.exit.i
 
-addrrange_contains.exit.i:                        ; preds = %for.body9
+addrrange_contains.argprom.exit.i:                ; preds = %for.body9
   %addr13.val36 = load i128, ptr %8, align 16
   %coerce1.sroa.2.0.extract.shift.i.i.i = lshr i128 %addr13.val36, 64
   %coerce1.sroa.2.0.extract.trunc.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i to i64
@@ -1136,11 +1136,11 @@ addrrange_contains.exit.i:                        ; preds = %for.body9
   %cmp.i11.i.i = icmp slt i128 %add.i.i, %b.sroa.0.0.insert.insert.i10.i.i
   br i1 %cmp.i11.i.i, label %if.then22, label %lor.rhs.i
 
-lor.rhs.i:                                        ; preds = %addrrange_contains.exit.i, %for.body9
+lor.rhs.i:                                        ; preds = %addrrange_contains.argprom.exit.i, %for.body9
   %cmp.i.not.i7.i = icmp slt i128 %11, %add.i.i
-  br i1 %cmp.i.not.i7.i, label %for.inc, label %addrrange_intersects.exit
+  br i1 %cmp.i.not.i7.i, label %for.inc, label %addrrange_intersects.argprom.exit
 
-addrrange_intersects.exit:                        ; preds = %lor.rhs.i
+addrrange_intersects.argprom.exit:                ; preds = %lor.rhs.i
   %coerce1.sroa.2.0.extract.shift.i.i9.i = lshr i128 %arrayidx41.sroa.6.0.copyload, 64
   %coerce1.sroa.2.0.extract.trunc.i.i10.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i9.i to i64
   %b.sroa.0.0.insert.ext.i.i.i11.i = and i128 %arrayidx41.sroa.6.0.copyload, 18446744073709551615
@@ -1155,7 +1155,7 @@ addrrange_intersects.exit:                        ; preds = %lor.rhs.i
   %cmp.i11.i19.i = icmp slt i128 %11, %b.sroa.0.0.insert.insert.i10.i18.i
   br i1 %cmp.i11.i19.i, label %if.then22, label %for.inc
 
-if.then22:                                        ; preds = %addrrange_contains.exit.i, %addrrange_intersects.exit
+if.then22:                                        ; preds = %addrrange_contains.argprom.exit.i, %addrrange_intersects.argprom.exit
   %inc = add i32 %ioeventfd_nb.150, 1
   %cmp23 = icmp ugt i32 %inc, %ioeventfd_max.149
   br i1 %cmp23, label %if.then25, label %if.end33
@@ -1185,11 +1185,11 @@ if.end33:                                         ; preds = %if.then25, %if.then
   %.pre64 = load ptr, ptr %fr.059, align 16
   br label %for.inc
 
-for.inc:                                          ; preds = %lor.rhs.i, %addrrange_intersects.exit, %if.end33
-  %16 = phi ptr [ %.pre64, %if.end33 ], [ %9, %addrrange_intersects.exit ], [ %9, %lor.rhs.i ]
-  %ioeventfds.3 = phi ptr [ %ioeventfds.2, %if.end33 ], [ %ioeventfds.148, %addrrange_intersects.exit ], [ %ioeventfds.148, %lor.rhs.i ]
-  %ioeventfd_max.3 = phi i32 [ %ioeventfd_max.2, %if.end33 ], [ %ioeventfd_max.149, %addrrange_intersects.exit ], [ %ioeventfd_max.149, %lor.rhs.i ]
-  %ioeventfd_nb.2 = phi i32 [ %inc, %if.end33 ], [ %ioeventfd_nb.150, %addrrange_intersects.exit ], [ %ioeventfd_nb.150, %lor.rhs.i ]
+for.inc:                                          ; preds = %lor.rhs.i, %addrrange_intersects.argprom.exit, %if.end33
+  %16 = phi ptr [ %.pre64, %if.end33 ], [ %9, %addrrange_intersects.argprom.exit ], [ %9, %lor.rhs.i ]
+  %ioeventfds.3 = phi ptr [ %ioeventfds.2, %if.end33 ], [ %ioeventfds.148, %addrrange_intersects.argprom.exit ], [ %ioeventfds.148, %lor.rhs.i ]
+  %ioeventfd_max.3 = phi i32 [ %ioeventfd_max.2, %if.end33 ], [ %ioeventfd_max.149, %addrrange_intersects.argprom.exit ], [ %ioeventfd_max.149, %lor.rhs.i ]
+  %ioeventfd_nb.2 = phi i32 [ %inc, %if.end33 ], [ %ioeventfd_nb.150, %addrrange_intersects.argprom.exit ], [ %ioeventfd_nb.150, %lor.rhs.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %ioeventfd_nb6 = getelementptr inbounds i8, ptr %16, i64 240
   %17 = load i32, ptr %ioeventfd_nb6, align 16
@@ -1967,11 +1967,11 @@ if.end7:                                          ; preds = %if.end
   %cmp.i.i = icmp eq i32 %mr.val.val, 1
   %cond.i.i = select i1 %cmp.i.i, i32 16, i32 0
   %cmp.not.i = icmp eq i32 %and.i29, %cond.i.i
-  br i1 %cmp.not.i, label %adjust_endianness.exit, label %if.then.i
+  br i1 %cmp.not.i, label %adjust_endianness.argprom.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
   switch i32 %and.i.le, label %do.body.i [
-    i32 0, label %adjust_endianness.exit
+    i32 0, label %adjust_endianness.argprom.argprom.exit
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb4.i
     i32 3, label %sw.bb7.i
@@ -2000,9 +2000,9 @@ do.body.i:                                        ; preds = %if.then.i
 if.end.sink.split.i:                              ; preds = %sw.bb7.i, %sw.bb4.i, %sw.bb2.i
   %conv3.sink.i = phi i64 [ %conv3.i, %sw.bb2.i ], [ %conv6.i, %sw.bb4.i ], [ %8, %sw.bb7.i ]
   store i64 %conv3.sink.i, ptr %data.addr, align 8
-  br label %adjust_endianness.exit
+  br label %adjust_endianness.argprom.argprom.exit
 
-adjust_endianness.exit:                           ; preds = %if.end7, %if.then.i, %if.end.sink.split.i
+adjust_endianness.argprom.argprom.exit:           ; preds = %if.end7, %if.then.i, %if.end.sink.split.i
   %9 = phi i64 [ %data, %if.end7 ], [ %data, %if.then.i ], [ %conv3.sink.i, %if.end.sink.split.i ]
   %start.sroa.0.0.insert.ext.i.i = zext i64 %addr.tr.lcssa to i128
   %size.sroa.0.0.insert.ext.i.i = zext nneg i32 %shl.i.le to i128
@@ -2011,7 +2011,7 @@ adjust_endianness.exit:                           ; preds = %if.end7, %if.then.i
   %cmp14.not.i = icmp eq i32 %10, 0
   br i1 %cmp14.not.i, label %if.end11, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %adjust_endianness.exit
+for.body.lr.ph.i:                                 ; preds = %adjust_endianness.argprom.argprom.exit
   %ioeventfds.i = getelementptr inbounds i8, ptr %mr.tr.lcssa, i64 248
   %11 = load ptr, ptr %ioeventfds.i, align 8
   %wide.trip.count.i = zext i32 %10 to i64
@@ -2057,7 +2057,7 @@ memory_region_dispatch_write_eventfds.exit:       ; preds = %lor.lhs.false.i.i, 
   %call20.i = tail call i32 @event_notifier_set(ptr noundef %16) #19
   br label %return
 
-if.end11:                                         ; preds = %for.inc.i, %adjust_endianness.exit
+if.end11:                                         ; preds = %for.inc.i, %adjust_endianness.argprom.argprom.exit
   %17 = load ptr, ptr %4, align 16
   %write = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %write, align 8
@@ -4101,7 +4101,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -4110,14 +4110,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %8 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret ptr %call4
 }
 
@@ -5200,7 +5200,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -5209,14 +5209,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %6 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i32 %4
 }
 
@@ -6562,7 +6562,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %4, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -6571,14 +6571,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %5 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret void
 }
 
@@ -6671,9 +6671,9 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %addr16 = getelementptr i8, ptr %fr.046, i64 -48
   %addr16.val = load i128, ptr %addr16, align 16
   %cmp.i.not.i.i = icmp sgt i128 %addr16.val, %start.sroa.0.0.insert.ext.i
-  br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.exit.i
+  br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.argprom.exit.i
 
-addrrange_contains.exit.i:                        ; preds = %land.rhs
+addrrange_contains.argprom.exit.i:                ; preds = %land.rhs
   %12 = getelementptr i8, ptr %fr.046, i64 -32
   %addr16.val19 = load i128, ptr %12, align 16
   %coerce1.sroa.2.0.extract.shift.i.i.i = lshr i128 %addr16.val19, 64
@@ -6690,13 +6690,13 @@ addrrange_contains.exit.i:                        ; preds = %land.rhs
   %cmp.i11.i.i = icmp sgt i128 %b.sroa.0.0.insert.insert.i10.i.i, %start.sroa.0.0.insert.ext.i
   br i1 %cmp.i11.i.i, label %while.body, label %lor.rhs.i
 
-lor.rhs.i:                                        ; preds = %addrrange_contains.exit.i, %land.rhs
+lor.rhs.i:                                        ; preds = %addrrange_contains.argprom.exit.i, %land.rhs
   %cmp.i.not.i7.i = icmp sge i128 %addr16.val, %start.sroa.0.0.insert.ext.i
   %cmp.i11.i19.i = icmp slt i128 %addr16.val, %a.sroa.0.0.insert.insert.i.i.i12.i
   %or.cond = select i1 %cmp.i.not.i7.i, i1 %cmp.i11.i19.i, i1 false
   br i1 %or.cond, label %while.body, label %while.end
 
-while.body:                                       ; preds = %lor.rhs.i, %addrrange_contains.exit.i
+while.body:                                       ; preds = %lor.rhs.i, %addrrange_contains.argprom.exit.i
   %arrayidx = getelementptr i8, ptr %fr.046, i64 -64
   %cmp = icmp ugt ptr %arrayidx, %11
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !62
@@ -6911,7 +6911,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %3, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -6920,14 +6920,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %4 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   %tobool = icmp ne ptr %2, null
   %cmp = icmp ne ptr %2, %container
   %5 = and i1 %tobool, %cmp
@@ -8732,9 +8732,9 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
   %coerce29.sroa.2.0.extract.trunc = trunc nuw i128 %coerce29.sroa.2.0.extract.shift to i64
   %size.sroa.0.0.insert.ext.i = and i128 %15, 18446744073709551615
   %cmp.i.not.i.i = icmp slt i128 %cond.i.i373, %add.i
-  br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.exit.i
+  br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.argprom.exit.i
 
-addrrange_contains.exit.i:                        ; preds = %if.end
+addrrange_contains.argprom.exit.i:                ; preds = %if.end
   %a.sroa.0.0.insert.insert.i.i.i.i = add i128 %size.sroa.0.0.insert.ext.i, %add.i
   %16 = lshr i128 %a.sroa.0.0.insert.insert.i.i.i.i, 64
   %.tr.i.i.i.i = trunc nuw i128 %16 to i64
@@ -8744,9 +8744,9 @@ addrrange_contains.exit.i:                        ; preds = %if.end
   %b.sroa.0.0.insert.ext.i9.i.i = and i128 %a.sroa.0.0.insert.insert.i.i.i.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i.i, %b.sroa.0.0.insert.ext.i9.i.i
   %cmp.i11.i.i = icmp slt i128 %cond.i.i373, %b.sroa.0.0.insert.insert.i10.i.i
-  br i1 %cmp.i11.i.i, label %addrrange_contains.exit.i.if.end32_crit_edge, label %lor.rhs.i
+  br i1 %cmp.i11.i.i, label %addrrange_contains.argprom.exit.i.if.end32_crit_edge, label %lor.rhs.i
 
-addrrange_contains.exit.i.if.end32_crit_edge:     ; preds = %addrrange_contains.exit.i
+addrrange_contains.argprom.exit.i.if.end32_crit_edge: ; preds = %addrrange_contains.argprom.exit.i
   %.pre345 = lshr i128 %clip.val54374, 64
   %.pre346 = trunc nuw i128 %.pre345 to i64
   %.pre347 = and i128 %clip.val54374, 18446744073709551615
@@ -8760,11 +8760,11 @@ addrrange_contains.exit.i.if.end32_crit_edge:     ; preds = %addrrange_contains.
   %.pre360 = or disjoint i128 %.pre358, %.pre359
   br label %if.end32
 
-lor.rhs.i:                                        ; preds = %addrrange_contains.exit.i, %if.end
+lor.rhs.i:                                        ; preds = %addrrange_contains.argprom.exit.i, %if.end
   %cmp.i.not.i7.i = icmp slt i128 %add.i, %cond.i.i373
-  br i1 %cmp.i.not.i7.i, label %if.end160.loopexit, label %addrrange_intersects.exit
+  br i1 %cmp.i.not.i7.i, label %if.end160.loopexit, label %addrrange_intersects.argprom.exit
 
-addrrange_intersects.exit:                        ; preds = %lor.rhs.i
+addrrange_intersects.argprom.exit:                ; preds = %lor.rhs.i
   %coerce1.sroa.2.0.extract.shift.i.i9.i = lshr i128 %clip.val54374, 64
   %coerce1.sroa.2.0.extract.trunc.i.i10.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i9.i to i64
   %b.sroa.0.0.insert.ext.i.i.i11.i = and i128 %clip.val54374, 18446744073709551615
@@ -8777,9 +8777,9 @@ addrrange_intersects.exit:                        ; preds = %lor.rhs.i
   %b.sroa.0.0.insert.ext.i9.i17.i = and i128 %a.sroa.0.0.insert.insert.i.i.i12.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i18.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i16.i, %b.sroa.0.0.insert.ext.i9.i17.i
   %cmp.i11.i19.i = icmp slt i128 %add.i, %b.sroa.0.0.insert.insert.i10.i18.i
-  br i1 %cmp.i11.i19.i, label %addrrange_intersects.exit.if.end32_crit_edge, label %if.end160.loopexit
+  br i1 %cmp.i11.i19.i, label %addrrange_intersects.argprom.exit.if.end32_crit_edge, label %if.end160.loopexit
 
-addrrange_intersects.exit.if.end32_crit_edge:     ; preds = %addrrange_intersects.exit
+addrrange_intersects.argprom.exit.if.end32_crit_edge: ; preds = %addrrange_intersects.argprom.exit
   %.pre341 = add i128 %size.sroa.0.0.insert.ext.i, %add.i
   %.pre342 = lshr i128 %.pre341, 64
   %.pre343 = trunc nuw i128 %.pre342 to i64
@@ -8790,9 +8790,9 @@ addrrange_intersects.exit.if.end32_crit_edge:     ; preds = %addrrange_intersect
   %.pre356 = or disjoint i128 %.pre354, %.pre355
   br label %if.end32
 
-if.end32:                                         ; preds = %addrrange_intersects.exit.if.end32_crit_edge, %addrrange_contains.exit.i.if.end32_crit_edge
-  %b.sroa.0.0.insert.insert.i20.i.pre-phi = phi i128 [ %b.sroa.0.0.insert.insert.i10.i18.i, %addrrange_intersects.exit.if.end32_crit_edge ], [ %.pre360, %addrrange_contains.exit.i.if.end32_crit_edge ]
-  %a.sroa.0.0.insert.insert.i16.i.pre-phi = phi i128 [ %.pre356, %addrrange_intersects.exit.if.end32_crit_edge ], [ %b.sroa.0.0.insert.insert.i10.i.i, %addrrange_contains.exit.i.if.end32_crit_edge ]
+if.end32:                                         ; preds = %addrrange_intersects.argprom.exit.if.end32_crit_edge, %addrrange_contains.argprom.exit.i.if.end32_crit_edge
+  %b.sroa.0.0.insert.insert.i20.i.pre-phi = phi i128 [ %b.sroa.0.0.insert.insert.i10.i18.i, %addrrange_intersects.argprom.exit.if.end32_crit_edge ], [ %.pre360, %addrrange_contains.argprom.exit.i.if.end32_crit_edge ]
+  %a.sroa.0.0.insert.insert.i16.i.pre-phi = phi i128 [ %.pre356, %addrrange_intersects.argprom.exit.if.end32_crit_edge ], [ %b.sroa.0.0.insert.insert.i10.i.i, %addrrange_contains.argprom.exit.i.if.end32_crit_edge ]
   %cond.i.i = tail call i128 @llvm.smax.i128(i128 %add.i, i128 %cond.i.i373)
   %retval.sroa.2.0.extract.shift.i.i = lshr i128 %cond.i.i, 64
   %retval.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i to i64
@@ -9201,9 +9201,9 @@ flatview_insert.exit246:                          ; preds = %if.end.i222, %land.
   store i32 %inc.i237, ptr %nr, align 8
   br label %if.end160
 
-if.end160.loopexit:                               ; preds = %lor.rhs.i, %addrrange_intersects.exit, %if.then35
-  %size.sroa.0.0.insert.insert.i.i416 = phi i128 [ %size.sroa.0.0.insert.insert.i.i417, %lor.rhs.i ], [ %size.sroa.0.0.insert.insert.i.i417, %addrrange_intersects.exit ], [ %size.sroa.0.0.insert.insert.i.i, %if.then35 ]
-  %cond.i.i413 = phi i128 [ %cond.i.i414, %lor.rhs.i ], [ %cond.i.i414, %addrrange_intersects.exit ], [ %cond.i.i, %if.then35 ]
+if.end160.loopexit:                               ; preds = %lor.rhs.i, %addrrange_intersects.argprom.exit, %if.then35
+  %size.sroa.0.0.insert.insert.i.i416 = phi i128 [ %size.sroa.0.0.insert.insert.i.i417, %lor.rhs.i ], [ %size.sroa.0.0.insert.insert.i.i417, %addrrange_intersects.argprom.exit ], [ %size.sroa.0.0.insert.insert.i.i, %if.then35 ]
+  %cond.i.i413 = phi i128 [ %cond.i.i414, %lor.rhs.i ], [ %cond.i.i414, %addrrange_intersects.argprom.exit ], [ %cond.i.i, %if.then35 ]
   store i128 %cond.i.i413, ptr %clip, align 1
   store i128 %size.sroa.0.0.insert.insert.i.i416, ptr %1, align 1
   br label %if.end160
@@ -9851,9 +9851,9 @@ entry:
   %2 = getelementptr i8, ptr %fr, i64 32
   %addr2.val19 = load i128, ptr %2, align 16
   %cmp.i.not.i.i = icmp slt i128 %0, %add.i.i
-  br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.exit.i
+  br i1 %cmp.i.not.i.i, label %lor.rhs.i, label %addrrange_contains.argprom.exit.i
 
-addrrange_contains.exit.i:                        ; preds = %entry
+addrrange_contains.argprom.exit.i:                ; preds = %entry
   %coerce1.sroa.2.0.extract.shift.i.i.i = lshr i128 %cmr26.sroa.6.0.copyload, 64
   %coerce1.sroa.2.0.extract.trunc.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i to i64
   %b.sroa.0.0.insert.ext.i.i.i.i = and i128 %cmr26.sroa.6.0.copyload, 18446744073709551615
@@ -9866,9 +9866,9 @@ addrrange_contains.exit.i:                        ; preds = %entry
   %b.sroa.0.0.insert.ext.i9.i.i = and i128 %a.sroa.0.0.insert.insert.i.i.i.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i.i, %b.sroa.0.0.insert.ext.i9.i.i
   %cmp.i11.i.i = icmp slt i128 %0, %b.sroa.0.0.insert.insert.i10.i.i
-  br i1 %cmp.i11.i.i, label %addrrange_contains.exit.i.if.end_crit_edge, label %lor.rhs.i
+  br i1 %cmp.i11.i.i, label %addrrange_contains.argprom.exit.i.if.end_crit_edge, label %lor.rhs.i
 
-addrrange_contains.exit.i.if.end_crit_edge:       ; preds = %addrrange_contains.exit.i
+addrrange_contains.argprom.exit.i.if.end_crit_edge: ; preds = %addrrange_contains.argprom.exit.i
   %.pre83 = lshr i128 %addr2.val19, 64
   %.pre84 = trunc nuw i128 %.pre83 to i64
   %.pre85 = and i128 %addr2.val19, 18446744073709551615
@@ -9882,11 +9882,11 @@ addrrange_contains.exit.i.if.end_crit_edge:       ; preds = %addrrange_contains.
   %.pre98 = or disjoint i128 %.pre96, %.pre97
   br label %if.end
 
-lor.rhs.i:                                        ; preds = %addrrange_contains.exit.i, %entry
+lor.rhs.i:                                        ; preds = %addrrange_contains.argprom.exit.i, %entry
   %cmp.i.not.i7.i = icmp slt i128 %add.i.i, %0
-  br i1 %cmp.i.not.i7.i, label %if.end54, label %addrrange_intersects.exit
+  br i1 %cmp.i.not.i7.i, label %if.end54, label %addrrange_intersects.argprom.exit
 
-addrrange_intersects.exit:                        ; preds = %lor.rhs.i
+addrrange_intersects.argprom.exit:                ; preds = %lor.rhs.i
   %coerce1.sroa.2.0.extract.shift.i.i9.i = lshr i128 %addr2.val19, 64
   %coerce1.sroa.2.0.extract.trunc.i.i10.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i9.i to i64
   %b.sroa.0.0.insert.ext.i.i.i11.i = and i128 %addr2.val19, 18446744073709551615
@@ -9899,9 +9899,9 @@ addrrange_intersects.exit:                        ; preds = %lor.rhs.i
   %b.sroa.0.0.insert.ext.i9.i17.i = and i128 %a.sroa.0.0.insert.insert.i.i.i12.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i18.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i16.i, %b.sroa.0.0.insert.ext.i9.i17.i
   %cmp.i11.i19.i = icmp slt i128 %add.i.i, %b.sroa.0.0.insert.insert.i10.i18.i
-  br i1 %cmp.i11.i19.i, label %addrrange_intersects.exit.if.end_crit_edge, label %if.end54
+  br i1 %cmp.i11.i19.i, label %addrrange_intersects.argprom.exit.if.end_crit_edge, label %if.end54
 
-addrrange_intersects.exit.if.end_crit_edge:       ; preds = %addrrange_intersects.exit
+addrrange_intersects.argprom.exit.if.end_crit_edge: ; preds = %addrrange_intersects.argprom.exit
   %.pre = lshr i128 %cmr26.sroa.6.0.copyload, 64
   %.pre77 = trunc nuw i128 %.pre to i64
   %.pre78 = and i128 %cmr26.sroa.6.0.copyload, 18446744073709551615
@@ -9915,9 +9915,9 @@ addrrange_intersects.exit.if.end_crit_edge:       ; preds = %addrrange_intersect
   %.pre94 = or disjoint i128 %.pre92, %.pre93
   br label %if.end
 
-if.end:                                           ; preds = %addrrange_intersects.exit.if.end_crit_edge, %addrrange_contains.exit.i.if.end_crit_edge
-  %b.sroa.0.0.insert.insert.i20.i.pre-phi = phi i128 [ %b.sroa.0.0.insert.insert.i10.i18.i, %addrrange_intersects.exit.if.end_crit_edge ], [ %.pre98, %addrrange_contains.exit.i.if.end_crit_edge ]
-  %a.sroa.0.0.insert.insert.i16.i.pre-phi = phi i128 [ %.pre94, %addrrange_intersects.exit.if.end_crit_edge ], [ %b.sroa.0.0.insert.insert.i10.i.i, %addrrange_contains.exit.i.if.end_crit_edge ]
+if.end:                                           ; preds = %addrrange_intersects.argprom.exit.if.end_crit_edge, %addrrange_contains.argprom.exit.i.if.end_crit_edge
+  %b.sroa.0.0.insert.insert.i20.i.pre-phi = phi i128 [ %b.sroa.0.0.insert.insert.i10.i18.i, %addrrange_intersects.argprom.exit.if.end_crit_edge ], [ %.pre98, %addrrange_contains.argprom.exit.i.if.end_crit_edge ]
+  %a.sroa.0.0.insert.insert.i16.i.pre-phi = phi i128 [ %.pre94, %addrrange_intersects.argprom.exit.if.end_crit_edge ], [ %b.sroa.0.0.insert.insert.i10.i.i, %addrrange_contains.argprom.exit.i.if.end_crit_edge ]
   %cond.i.i = tail call i128 @llvm.smax.i128(i128 %add.i.i, i128 %0)
   %cond.i.i.fr = freeze i128 %cond.i.i
   %retval.sroa.2.0.extract.shift.i.i = lshr i128 %cond.i.i.fr, 64
@@ -10156,7 +10156,7 @@ for.inc46:                                        ; preds = %for.body35
   %tobool34.not = icmp eq ptr %_listener30.0, null
   br i1 %tobool34.not, label %if.end54, label %for.body35, !llvm.loop !122
 
-if.end54:                                         ; preds = %for.inc46, %for.inc46.us, %for.inc46.us.us, %for.inc, %for.inc.us, %for.inc.us.us, %section_from_flat_range.exit50, %section_from_flat_range.exit, %lor.rhs.i, %addrrange_intersects.exit
+if.end54:                                         ; preds = %for.inc46, %for.inc46.us, %for.inc46.us.us, %for.inc, %for.inc.us, %for.inc.us.us, %section_from_flat_range.exit50, %section_from_flat_range.exit, %lor.rhs.i, %addrrange_intersects.argprom.exit
   ret void
 }
 

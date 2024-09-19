@@ -3734,13 +3734,13 @@ entry:
   store i64 0, ptr getelementptr inbounds (i8, ptr @dump_quoted_path.buf, i64 8), align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_quoted_path.buf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
+  br i1 %cmp3.not.i, label %strbuf_setlen.argprom.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
   store i8 0, ptr %0, align 1
-  br label %strbuf_setlen.exit
+  br label %strbuf_setlen.argprom.exit
 
-strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
+strbuf_setlen.argprom.exit:                       ; preds = %entry, %if.then4.i
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line_prefix) #16
   tail call void @strbuf_add(ptr noundef nonnull @dump_quoted_path.buf, ptr noundef %line_prefix, i64 noundef %call.i) #14
   %call.i1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %c_meta) #16

@@ -672,7 +672,7 @@ CopyMultiInsertInfoInit.exit.thread:              ; preds = %CopyMultiInsertInfo
   br label %225
 
 225:                                              ; preds = %220, %222
-  br i1 %or.cond3, label %CopyMultiInsertInfoNextFreeSlot.exit, label %226
+  br i1 %or.cond3, label %CopyMultiInsertInfoNextFreeSlot.argprom.exit, label %226
 
 226:                                              ; preds = %225
   %227 = getelementptr inbounds i8, ptr %.0255, i64 344
@@ -683,27 +683,27 @@ CopyMultiInsertInfoInit.exit.thread:              ; preds = %CopyMultiInsertInfo
   %232 = getelementptr [1000 x ptr], ptr %228, i64 0, i64 %231
   %233 = load ptr, ptr %232, align 8
   %234 = icmp eq ptr %233, null
-  br i1 %234, label %235, label %CopyMultiInsertInfoNextFreeSlot.exit
+  br i1 %234, label %235, label %CopyMultiInsertInfoNextFreeSlot.argprom.exit
 
 235:                                              ; preds = %226
   %236 = getelementptr inbounds i8, ptr %.0255, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = call ptr @table_slot_create(ptr noundef %237, ptr noundef null) #11
   store ptr %238, ptr %232, align 8
-  br label %CopyMultiInsertInfoNextFreeSlot.exit
+  br label %CopyMultiInsertInfoNextFreeSlot.argprom.exit
 
-CopyMultiInsertInfoNextFreeSlot.exit:             ; preds = %235, %226, %225
+CopyMultiInsertInfoNextFreeSlot.argprom.exit:     ; preds = %235, %226, %225
   %.0260 = phi ptr [ %.0258, %225 ], [ %238, %235 ], [ %233, %226 ]
   %239 = load ptr, ptr %198, align 8
   %.not330 = icmp eq ptr %239, null
   br i1 %.not330, label %240, label %242
 
-240:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit
+240:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.argprom.exit
   %241 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %6) #11
   br label %242
 
-242:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit, %240
-  %243 = phi ptr [ %241, %240 ], [ %239, %CopyMultiInsertInfoNextFreeSlot.exit ]
+242:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.argprom.exit, %240
+  %243 = phi ptr [ %241, %240 ], [ %239, %CopyMultiInsertInfoNextFreeSlot.argprom.exit ]
   %244 = getelementptr inbounds i8, ptr %243, i64 40
   %245 = load ptr, ptr %244, align 8
   store ptr %245, ptr @CurrentMemoryContext, align 8
@@ -922,27 +922,27 @@ CopyMultiInsertInfoSetupBuffer.exit:              ; preds = %312, %317
   %352 = getelementptr [1000 x ptr], ptr %348, i64 0, i64 %351
   %353 = load ptr, ptr %352, align 8
   %354 = icmp eq ptr %353, null
-  br i1 %354, label %355, label %CopyMultiInsertInfoNextFreeSlot.exit354
+  br i1 %354, label %355, label %CopyMultiInsertInfoNextFreeSlot.argprom.exit354
 
 355:                                              ; preds = %346
   %356 = getelementptr inbounds i8, ptr %286, i64 8
   %357 = load ptr, ptr %356, align 8
   %358 = call ptr @table_slot_create(ptr noundef %357, ptr noundef null) #11
   store ptr %358, ptr %352, align 8
-  br label %CopyMultiInsertInfoNextFreeSlot.exit354
+  br label %CopyMultiInsertInfoNextFreeSlot.argprom.exit354
 
-CopyMultiInsertInfoNextFreeSlot.exit354:          ; preds = %346, %355
+CopyMultiInsertInfoNextFreeSlot.argprom.exit354:  ; preds = %346, %355
   %359 = phi ptr [ %358, %355 ], [ %353, %346 ]
   %.not344 = icmp eq ptr %336, null
   br i1 %.not344, label %364, label %360
 
-360:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit354
+360:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.argprom.exit354
   %361 = getelementptr inbounds i8, ptr %336, i64 16
   %362 = load ptr, ptr %361, align 8
   %363 = call ptr @execute_attr_map_slot(ptr noundef %362, ptr noundef nonnull %.0260, ptr noundef %359) #11
   br label %369
 
-364:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit354
+364:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.argprom.exit354
   %365 = getelementptr inbounds i8, ptr %359, i64 8
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds i8, ptr %366, i64 56

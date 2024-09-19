@@ -72,10 +72,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @init_tar_archiver() local_unnamed_addr #0 {
 entry:
   tail call void @register_archiver(ptr noundef nonnull @tar_archiver) #10
-  %0 = tail call fastcc i32 @tar_filter_config(ptr noundef nonnull @.str, ptr noundef nonnull @internal_gzip_command)
-  %1 = tail call fastcc i32 @tar_filter_config(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
-  %2 = tail call fastcc i32 @tar_filter_config(ptr noundef nonnull @.str.3, ptr noundef nonnull @internal_gzip_command)
-  %3 = tail call fastcc i32 @tar_filter_config(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2)
+  %0 = tail call fastcc i32 @tar_filter_config.argprom(ptr noundef nonnull @.str, ptr noundef nonnull @internal_gzip_command)
+  %1 = tail call fastcc i32 @tar_filter_config.argprom(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
+  %2 = tail call fastcc i32 @tar_filter_config.argprom(ptr noundef nonnull @.str.3, ptr noundef nonnull @internal_gzip_command)
+  %3 = tail call fastcc i32 @tar_filter_config.argprom(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2)
   tail call void @git_config(ptr noundef nonnull @git_tar_config, ptr noundef null) #10
   %4 = load i32, ptr @nr_tar_filters, align 4
   %cmp4 = icmp sgt i32 %4, 0
@@ -117,7 +117,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @register_archiver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @tar_filter_config(ptr noundef %var, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tar_filter_config.argprom(ptr noundef %var, ptr noundef %value) unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   %type = alloca ptr, align 8
@@ -294,7 +294,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %return
 
 if.end8:                                          ; preds = %entry
-  %call9 = tail call fastcc i32 @tar_filter_config(ptr noundef %var, ptr noundef %value)
+  %call9 = tail call fastcc i32 @tar_filter_config.argprom(ptr noundef %var, ptr noundef %value)
   br label %return
 
 return:                                           ; preds = %if.then4, %if.else, %if.end8

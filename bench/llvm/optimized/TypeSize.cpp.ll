@@ -36,13 +36,13 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 define dso_local void @_ZN4llvm19initTypeSizeOptionsEv() local_unnamed_addr #0 {
   %1 = load atomic i64, ptr @_ZL22ScalableErrorAsWarning acquire, align 8
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %2, label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.exit
+  br i1 %.not.i, label %2, label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.argprom.exit
 
 2:                                                ; preds = %0
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL22ScalableErrorAsWarning, ptr noundef nonnull @_ZN12_GLOBAL__N_128CreateScalableErrorAsWarning4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl3optIbLb0ENS1_6parserIbEEEEE4callEPv) #7
-  br label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.exit
+  br label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.argprom.exit
 
-_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.exit: ; preds = %0, %2
+_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.argprom.exit: ; preds = %0, %2
   %3 = load atomic i64, ptr @_ZL22ScalableErrorAsWarning monotonic, align 8
   ret void
 }
@@ -51,13 +51,13 @@ _ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128Create
 define dso_local void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load atomic i64, ptr @_ZL22ScalableErrorAsWarning acquire, align 8
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %3, label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.exit
+  br i1 %.not.i, label %3, label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.argprom.exit
 
 3:                                                ; preds = %1
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL22ScalableErrorAsWarning, ptr noundef nonnull @_ZN12_GLOBAL__N_128CreateScalableErrorAsWarning4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl3optIbLb0ENS1_6parserIbEEEEE4callEPv) #7
-  br label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.exit
+  br label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.argprom.exit
 
-_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.exit: ; preds = %1, %3
+_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.argprom.exit: ; preds = %1, %3
   %4 = load atomic i64, ptr @_ZL22ScalableErrorAsWarning monotonic, align 8
   %.0.i2.i = inttoptr i64 %4 to ptr
   %5 = getelementptr inbounds i8, ptr %.0.i2.i, i64 128
@@ -65,7 +65,7 @@ _ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128Create
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %48
 
-8:                                                ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.exit
+8:                                                ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.argprom.exit
   %9 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm9WithColor7warningEv() #7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -143,7 +143,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit3:                ; preds = %_ZN4llvm11raw_ostre
 _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %43, %45
   ret void
 
-48:                                               ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.exit
+48:                                               ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_128CreateScalableErrorAsWarningENS_14object_deleterIS5_EEEdeEv.argprom.exit
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.2, i1 noundef zeroext true) #8
   unreachable
 }

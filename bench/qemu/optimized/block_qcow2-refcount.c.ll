@@ -3684,7 +3684,7 @@ if.end18.i:                                       ; preds = %if.then10.i, %for.e
   %cluster.0.lcssa14.i = phi i64 [ %cluster.0.lcssa15.i, %for.end.if.end18_crit_edge.i ], [ %cluster.0.lcssa16.i, %if.then10.i ]
   %conv22.pre-phi.i = phi i64 [ %.pre13.i, %for.end.if.end18_crit_edge.i ], [ %conv.i61, %if.then10.i ]
   %sub20.i = sub i64 %cluster.0.lcssa14.i, %contiguous_free_clusters.0.lcssa18.i
-  br i1 %cmp14.i, label %for.body25.lr.ph.i, label %alloc_clusters_imrt.exit
+  br i1 %cmp14.i, label %for.body25.lr.ph.i, label %alloc_clusters_imrt.argprom.exit
 
 for.body25.lr.ph.i:                               ; preds = %if.end18.i
   %set_refcount.i = getelementptr inbounds i8, ptr %bs.val, i64 336
@@ -3698,16 +3698,16 @@ for.body25.i:                                     ; preds = %for.body25.i, %for.
   tail call void %13(ptr noundef %14, i64 noundef %add26.i, i64 noundef 1) #17
   %inc28.i = add nuw nsw i64 %i.011.i, 1
   %exitcond.not.i = icmp eq i64 %inc28.i, %conv22.pre-phi.i
-  br i1 %exitcond.not.i, label %alloc_clusters_imrt.exit, label %for.body25.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %alloc_clusters_imrt.argprom.exit, label %for.body25.i, !llvm.loop !30
 
-alloc_clusters_imrt.exit:                         ; preds = %for.body25.i, %if.end18.i
+alloc_clusters_imrt.argprom.exit:                 ; preds = %for.body25.i, %if.end18.i
   %15 = load i32, ptr %bs.val, align 8
   %sh_prom.i60 = zext nneg i32 %15 to i64
   %shl.i = shl i64 %sub20.i, %sh_prom.i60
   %cmp7 = icmp slt i64 %shl.i, 0
   br i1 %cmp7, label %if.then9.loopexit, label %if.end14
 
-if.then9.loopexit:                                ; preds = %alloc_clusters_imrt.exit
+if.then9.loopexit:                                ; preds = %alloc_clusters_imrt.argprom.exit
   %16 = trunc i64 %shl.i to i32
   br label %if.then9
 
@@ -3721,7 +3721,7 @@ if.then9:                                         ; preds = %if.then10.i, %if.th
   store i32 %inc12, ptr %check_errors11, align 8
   br label %fail
 
-if.end14:                                         ; preds = %alloc_clusters_imrt.exit
+if.end14:                                         ; preds = %alloc_clusters_imrt.argprom.exit
   %.val = load i32, ptr %4, align 4
   %sub.i64 = add i32 %.val, -1
   %conv.i65 = sext i32 %sub.i64 to i64
@@ -6873,7 +6873,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %16 = call noundef i64 @llvm.bswap.i64(i64 %15)
   %and.i.i83 = and i64 %.val81, 16
   %tobool.i.not.i84 = icmp eq i64 %and.i.i83, 0
-  br i1 %tobool.i.not.i84, label %get_l2_bitmap.exit, label %if.then.i
+  br i1 %tobool.i.not.i84, label %get_l2_bitmap.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -6883,16 +6883,16 @@ if.then.i:                                        ; preds = %for.body
   %arrayidx.i86 = getelementptr i64, ptr %call1, i64 %idxprom.i85
   %19 = load i64, ptr %arrayidx.i86, align 8
   %20 = call noundef i64 @llvm.bswap.i64(i64 %19)
-  br label %get_l2_bitmap.exit
+  br label %get_l2_bitmap.argprom.exit
 
-get_l2_bitmap.exit:                               ; preds = %for.body, %if.then.i
+get_l2_bitmap.argprom.exit:                       ; preds = %for.body, %if.then.i
   %retval.0.i = phi i64 [ %20, %if.then.i ], [ 0, %for.body ]
   %21 = load ptr, ptr %opaque, align 8
   %and.i = and i64 %16, 4611686018427387904
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %sw.bb
 
-if.else.i:                                        ; preds = %get_l2_bitmap.exit
+if.else.i:                                        ; preds = %get_l2_bitmap.argprom.exit
   %and1.i = and i64 %16, 1
   %tobool2.not.i = icmp eq i64 %and1.i, 0
   br i1 %tobool2.not.i, label %if.else7.i, label %land.lhs.true.i
@@ -6947,7 +6947,7 @@ if.end18:                                         ; preds = %if.then14, %qcow2_g
     i32 1, label %sw.bb126
   ]
 
-sw.bb:                                            ; preds = %get_l2_bitmap.exit
+sw.bb:                                            ; preds = %get_l2_bitmap.argprom.exit
   %tobool20.not = icmp sgt i64 %16, -1
   br i1 %tobool20.not, label %if.end27, label %if.then21
 
@@ -7172,9 +7172,9 @@ entry:
   %mul4 = shl nsw i64 %conv, %3
   %add = add i64 %mul4, %l2_offset
   %cond = select i1 %active, i32 4, i32 128
-  br i1 %tobool.i.not.i.not, label %if.end, label %set_l2_bitmap.exit
+  br i1 %tobool.i.not.i.not, label %if.end, label %set_l2_bitmap.argprom.exit
 
-set_l2_bitmap.exit:                               ; preds = %entry
+set_l2_bitmap.argprom.exit:                       ; preds = %entry
   %conv2.i = shl i32 %l2_index, 1
   %add.i = or disjoint i32 %conv2.i, 1
   %idxprom.i = sext i32 %add.i to i64
@@ -7194,9 +7194,9 @@ set_l2_bitmap.exit:                               ; preds = %entry
   %idxprom.i52 = sext i32 %conv2.i51 to i64
   br label %if.end
 
-if.end:                                           ; preds = %entry, %set_l2_bitmap.exit
-  %conv.sink = phi i64 [ %idxprom.i52, %set_l2_bitmap.exit ], [ %conv, %entry ]
-  %.sink = phi i64 [ 0, %set_l2_bitmap.exit ], [ 72057594037927936, %entry ]
+if.end:                                           ; preds = %entry, %set_l2_bitmap.argprom.exit
+  %conv.sink = phi i64 [ %idxprom.i52, %set_l2_bitmap.argprom.exit ], [ %conv, %entry ]
+  %.sink = phi i64 [ 0, %set_l2_bitmap.argprom.exit ], [ 72057594037927936, %entry ]
   %arrayidx.i56 = getelementptr i64, ptr %l2_table, i64 %conv.sink
   store i64 %.sink, ptr %arrayidx.i56, align 8
   %.val33 = load i64, ptr %1, align 8

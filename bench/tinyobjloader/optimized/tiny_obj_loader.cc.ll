@@ -4598,7 +4598,7 @@ land.lhs.true:                                    ; preds = %if.end34
 if.then55:                                        ; preds = %land.lhs.true, %land.lhs.true
   %add.ptr56 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store ptr %add.ptr56, ptr %token, align 8
-  %call58 = call fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %r, ptr noundef %g, ptr noundef %b, ptr noundef %token)
+  %call58 = call fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd.argelim(ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %r, ptr noundef %g, ptr noundef %b, ptr noundef %token)
   %tobool61136 = icmp ne i8 %found_all_colors.0, 0
   %tobool61 = select i1 %call58, i1 %tobool61136, i1 false
   %frombool62 = zext i1 %tobool61 to i8
@@ -6833,7 +6833,7 @@ if.end.i:                                         ; preds = %call.i886.noexc
           to label %invoke.cont472 unwind label %lpad.i890
 
 invoke.cont472:                                   ; preds = %if.end.i
-  invoke fastcc void @_ZN7tinyobjL11SplitStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccRSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp469, ptr noundef nonnull align 8 dereferenceable(24) %filenames)
+  invoke fastcc void @_ZN7tinyobjL11SplitStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccRSt6vectorIS5_SaIS5_EE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp469, ptr noundef nonnull align 8 dereferenceable(24) %filenames)
           to label %invoke.cont474 unwind label %lpad473
 
 invoke.cont474:                                   ; preds = %invoke.cont472
@@ -8686,7 +8686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr nocapture noundef nonnull writeonly %x, ptr nocapture noundef nonnull writeonly %y, ptr nocapture noundef nonnull writeonly %z, ptr nocapture noundef nonnull writeonly %r, ptr nocapture noundef nonnull writeonly %g, ptr nocapture noundef nonnull writeonly %b, ptr nocapture noundef nonnull %token) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd.argelim(ptr nocapture noundef nonnull writeonly %x, ptr nocapture noundef nonnull writeonly %y, ptr nocapture noundef nonnull writeonly %z, ptr nocapture noundef nonnull writeonly %r, ptr nocapture noundef nonnull writeonly %g, ptr nocapture noundef nonnull writeonly %b, ptr nocapture noundef nonnull %token) unnamed_addr #6 {
 entry:
   %val.i40 = alloca double, align 8
   %val.i31 = alloca double, align 8
@@ -12387,7 +12387,7 @@ return:                                           ; preds = %for.inc649, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7tinyobjL11SplitStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccRSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(24) %elems) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7tinyobjL11SplitStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccRSt6vectorIS5_SaIS5_EE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(24) %elems) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %token = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #26
@@ -13198,7 +13198,7 @@ land.lhs.true:                                    ; preds = %if.end35
 if.then56:                                        ; preds = %land.lhs.true, %land.lhs.true
   %add.ptr57 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store ptr %add.ptr57, ptr %token, align 8
-  %call59 = call fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %r, ptr noundef %g, ptr noundef %b, ptr noundef %token)
+  %call59 = call fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd.argelim(ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %r, ptr noundef %g, ptr noundef %b, ptr noundef %token)
   %7 = load ptr, ptr %callback, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end63, label %if.then60
@@ -13701,7 +13701,7 @@ if.end.i125:                                      ; preds = %call.i123.noexc
           to label %invoke.cont242 unwind label %lpad.i
 
 invoke.cont242:                                   ; preds = %if.end.i125
-  invoke fastcc void @_ZN7tinyobjL11SplitStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccRSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp239, ptr noundef nonnull align 8 dereferenceable(24) %filenames)
+  invoke fastcc void @_ZN7tinyobjL11SplitStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccRSt6vectorIS5_SaIS5_EE.argelim(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp239, ptr noundef nonnull align 8 dereferenceable(24) %filenames)
           to label %invoke.cont244 unwind label %lpad243
 
 invoke.cont244:                                   ; preds = %invoke.cont242

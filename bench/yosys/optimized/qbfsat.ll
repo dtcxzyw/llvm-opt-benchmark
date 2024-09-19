@@ -3926,21 +3926,21 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %3
 332:                                              ; preds = %.lr.ph
   %333 = getelementptr inbounds i8, ptr %.022114, i64 304
   %334 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %333)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %338
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %338
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %332
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %332
   %335 = getelementptr inbounds i8, ptr %331, i64 304
   %336 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %335)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit28 unwind label %338
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit28 unwind label %338
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit28: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit28: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit
   invoke void (ptr, ...) @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef nonnull @.str.74, ptr noundef %334, ptr noundef %336) #30
           to label %337 unwind label %338
 
-337:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit28
+337:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit28
   unreachable
 
-338:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %332, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit28
+338:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %332, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit28
   %339 = landingpad { ptr, i32 }
           cleanup
   %340 = load ptr, ptr %35, align 8
@@ -6949,7 +6949,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit32.i:            ; preds = %401, %394, %_ZN5Yos
 413:                                              ; preds = %411, %407, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit32.i
   %414 = load i32, ptr @"_ZZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEvE2id", align 4, !noalias !44
   %.not.i.i.i.i365 = icmp eq i32 %414, 0
-  br i1 %.not.i.i.i.i365, label %"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.exit.i", label %415
+  br i1 %.not.i.i.i.i365, label %"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.argprom.exit.i", label %415
 
 415:                                              ; preds = %413
   %416 = sext i32 %414 to i64
@@ -6958,7 +6958,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit32.i:            ; preds = %401, %394, %_ZN5Yos
   %419 = load i32, ptr %418, align 4, !noalias !44
   %420 = add nsw i32 %419, 1
   store i32 %420, ptr %418, align 4, !noalias !44
-  br label %"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.argprom.exit.i"
 
 421:                                              ; preds = %409
   %422 = landingpad { ptr, i32 }
@@ -6966,14 +6966,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit32.i:            ; preds = %401, %394, %_ZN5Yos
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEvE2id") #28, !noalias !44
   br label %.body372
 
-"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.exit.i": ; preds = %415, %413
+"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.argprom.exit.i": ; preds = %415, %413
   store i32 %414, ptr %36, align 4, !alias.scope !44
   %423 = getelementptr inbounds i8, ptr %353, i64 76
   %424 = load i32, ptr %423, align 4
   invoke void @_ZN5Yosys5RTLIL5ConstC1Eii(ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef %424, i32 noundef 32)
           to label %425 unwind label %470
 
-425:                                              ; preds = %"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.exit.i"
+425:                                              ; preds = %"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.argprom.exit.i"
   invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %373, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull %37)
           to label %426 unwind label %472
 
@@ -7132,7 +7132,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit.i:               ; preds = %454, %_ZSt8_Destroy
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #28
   br label %.body372
 
-470:                                              ; preds = %"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.exit.i"
+470:                                              ; preds = %"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.argprom.exit.i"
   %471 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit40.i
@@ -9112,7 +9112,7 @@ thread-pre-split:                                 ; preds = %1127, %1105
   br i1 %1172, label %1173, label %1198
 
 1173:                                             ; preds = %1169, %1156, %1152
-  invoke fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi.argelim(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 0)
           to label %1174 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 1174:                                             ; preds = %1173
@@ -10255,7 +10255,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit575:                ; preds = %1601, %1599, %1590
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit569:              ; preds = %1533, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i567, %1255
   %1604 = phi i32 [ %1512, %1533 ], [ %1512, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i567 ], [ %1245, %1255 ]
   %1605 = phi i32 [ %1512, %1533 ], [ %1512, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i567 ], [ %1246, %1255 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias writable align 8 %97, ptr noundef %.0266, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef %.0210)
+  invoke fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi.argelim(ptr dead_on_unwind noalias writable align 8 %97, ptr noundef %.0266, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef %.0210)
           to label %1606 unwind label %.loopexit755
 
 1606:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit569
@@ -15741,7 +15741,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKN
 declare void @_ZN5Yosys5RTLIL10AttrObject18set_bool_attributeERKNS0_8IdStringEb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.rusage, align 8
   %7 = alloca [2 x i32], align 4
   %8 = alloca %struct.rusage, align 8
@@ -22884,7 +22884,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNSA_15QbfSolveOptionsES7_biE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -22893,30 +22893,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112b
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #29
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS2_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbiE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -104760,8 +104760,8 @@ attributes #33 = { builtin allocsize(0) }
 !42 = distinct !{!42, !43, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !43 = distinct !{!43, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv: argument 0"}
-!46 = distinct !{!46, !"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv"}
+!45 = distinct !{!45, !46, !"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.argprom: argument 0"}
+!46 = distinct !{!46, !"_ZZN12_GLOBAL__N_118allconstify_inputsEPN5Yosys5RTLIL6ModuleERKNS0_7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8hash_opsISB_EEEEENK3$_0clEv.argprom"}
 !47 = !{!"branch_weights", i32 1, i32 1048575}
 !48 = !{}
 !49 = !{!50}

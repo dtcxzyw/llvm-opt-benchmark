@@ -161,19 +161,19 @@ list_length.exit.i.i:                             ; preds = %37
   %41 = getelementptr inbounds i8, ptr %.val49.i, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, 1
-  br i1 %43, label %44, label %get_rightop.exit.i
+  br i1 %43, label %44, label %get_rightop.argprom.exit.i
 
 44:                                               ; preds = %list_length.exit.i.i
   %45 = getelementptr i8, ptr %.val.i.i, i64 8
   %46 = load ptr, ptr %45, align 8
-  br label %get_rightop.exit.i
+  br label %get_rightop.argprom.exit.i
 
-get_rightop.exit.i:                               ; preds = %44, %list_length.exit.i.i
+get_rightop.argprom.exit.i:                       ; preds = %44, %list_length.exit.i.i
   %.0.i52.i = phi ptr [ %46, %44 ], [ null, %list_length.exit.i.i ]
   %.not47.i = icmp eq ptr %40, null
   br i1 %.not47.i, label %54, label %47
 
-47:                                               ; preds = %get_rightop.exit.i
+47:                                               ; preds = %get_rightop.argprom.exit.i
   %48 = load i32, ptr %40, align 4
   %49 = icmp eq i32 %48, 6
   br i1 %49, label %50, label %54
@@ -184,7 +184,7 @@ get_rightop.exit.i:                               ; preds = %44, %list_length.ex
   %53 = icmp eq i16 %52, -1
   br i1 %53, label %64, label %54
 
-54:                                               ; preds = %50, %47, %get_rightop.exit.i
+54:                                               ; preds = %50, %47, %get_rightop.argprom.exit.i
   %.not48.i = icmp eq ptr %.0.i52.i, null
   br i1 %.not48.i, label %.thread63.i, label %55
 
@@ -583,16 +583,16 @@ itemptr_comparator.exit.thread.i.i:               ; preds = %148
   %.1.i.i = phi i64 [ %166, %167 ], [ %.0235.i.i, %itemptr_comparator.exit.thread.i.i ], [ %.06.i.i, %148 ]
   %171 = add nuw nsw i64 %.0235.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %171, %147
-  br i1 %exitcond.not.i.i, label %qunique.exit.i, label %148, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %qunique.argprom.exit.i, label %148, !llvm.loop !7
 
-qunique.exit.i:                                   ; preds = %170
+qunique.argprom.exit.i:                           ; preds = %170
   %172 = trunc i64 %.1.i.i to i32
   %173 = add i32 %172, 1
   br label %TidListEval.exit
 
-TidListEval.exit:                                 ; preds = %.lr.ph97.i, %list_length.exit.i, %._crit_edge98.i, %qunique.exit.i
-  %.067.lcssa111.i = phi ptr [ %.1.i, %qunique.exit.i ], [ %.1.i, %._crit_edge98.i ], [ %43, %list_length.exit.i ], [ %43, %.lr.ph97.i ]
-  %.477.i = phi i32 [ %173, %qunique.exit.i ], [ %.174.i, %._crit_edge98.i ], [ 0, %list_length.exit.i ], [ 0, %.lr.ph97.i ]
+TidListEval.exit:                                 ; preds = %.lr.ph97.i, %list_length.exit.i, %._crit_edge98.i, %qunique.argprom.exit.i
+  %.067.lcssa111.i = phi ptr [ %.1.i, %qunique.argprom.exit.i ], [ %.1.i, %._crit_edge98.i ], [ %43, %list_length.exit.i ], [ %43, %.lr.ph97.i ]
+  %.477.i = phi i32 [ %173, %qunique.argprom.exit.i ], [ %.174.i, %._crit_edge98.i ], [ 0, %list_length.exit.i ], [ 0, %.lr.ph97.i ]
   store ptr %.067.lcssa111.i, ptr %18, align 8
   %174 = getelementptr inbounds i8, ptr %0, i64 236
   store i32 %.477.i, ptr %174, align 4

@@ -276,14 +276,14 @@ _Z17GetNumpyAllocatorv.exit:                      ; preds = %23, %26, %30
 
 58:                                               ; preds = %34
   %.not.i266 = icmp eq ptr %36, @PyFloat_Type
-  br i1 %.not.i266, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i266, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %58
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %58
   %59 = tail call i32 @PyType_IsSubtype(ptr noundef %36, ptr noundef nonnull @PyFloat_Type)
   %.not294 = icmp eq i32 %59, 0
-  br i1 %.not294, label %77, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not294, label %77, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %58, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %58, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %60 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0)
   store double %60, ptr %7, align 16
@@ -292,7 +292,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %58, %_ZL
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %68
 
-64:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+64:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %65 = getelementptr inbounds i8, ptr %7, i64 8
   store double %60, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %7, i64 16
@@ -301,7 +301,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %58, %_ZL
   store double %60, ptr %67, align 8
   br label %68
 
-68:                                               ; preds = %64, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+68:                                               ; preds = %64, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef 4, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %7, i64 noundef 0)
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %69 unwind label %72
@@ -331,7 +331,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %58, %_ZL
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #13
   br label %common.resume
 
-77:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+77:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %78 = load ptr, ptr %35, align 8
   %79 = getelementptr i8, ptr %78, i64 168
   %.val251 = load i64, ptr %79, align 8
@@ -446,27 +446,27 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %115, %122, %128
 
 143:                                              ; preds = %100
   %.not.i268 = icmp eq ptr %103, @PyFloat_Type
-  br i1 %.not.i268, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269
+  br i1 %.not.i268, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269: ; preds = %143
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269: ; preds = %143
   %144 = call i32 @PyType_IsSubtype(ptr noundef %103, ptr noundef nonnull @PyFloat_Type)
   %.not295 = icmp eq i32 %144, 0
-  br i1 %.not295, label %178, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269.thread
+  br i1 %.not295, label %178, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269.thread: ; preds = %143, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269.thread: ; preds = %143, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269
   %145 = call double @PyFloat_AsDouble(ptr noundef nonnull %101)
   %146 = load i32, ptr %1, align 8
   %147 = and i32 %146, 16384
   %.not.i270 = icmp eq i32 %147, 0
   br i1 %.not.i270, label %148, label %152
 
-148:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269.thread
+148:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269.thread
   %149 = load ptr, ptr %96, align 8
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, 1
   br i1 %151, label %152, label %155
 
-152:                                              ; preds = %148, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269.thread
+152:                                              ; preds = %148, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269.thread
   %153 = load ptr, ptr %98, align 8
   %154 = getelementptr inbounds double, ptr %153, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIdEERT_i.exit272
@@ -506,7 +506,7 @@ _ZN2cv3Mat2atIdEERT_i.exit272:                    ; preds = %152, %159, %165
   store double %145, ptr %.0.i271, align 8
   br label %181
 
-178:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269
+178:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit269
   %179 = load ptr, ptr %2, align 8
   %180 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str, ptr noundef %179)
   call void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
@@ -522,25 +522,25 @@ _ZN2cv3Mat2atIdEERT_i.exit272:                    ; preds = %152, %159, %165
   %184 = getelementptr inbounds i8, ptr %183, i64 16
   %185 = load ptr, ptr %184, align 8
   %.not.i273 = icmp eq ptr %78, %185
-  br i1 %.not.i273, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274
+  br i1 %.not.i273, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274: ; preds = %182
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274: ; preds = %182
   %186 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %78, ptr noundef %185)
   %.not296 = icmp eq i32 %186, 0
-  br i1 %.not296, label %187, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread
+  br i1 %.not296, label %187, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274.thread
 
-187:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274
+187:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274
   %188 = load ptr, ptr %2, align 8
   %189 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.1, ptr noundef %188)
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread: ; preds = %182, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274.thread: ; preds = %182, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274
   %190 = getelementptr inbounds i8, ptr %2, i64 8
   %191 = load i8, ptr %190, align 8
   %192 = trunc i8 %191 to i1
   br i1 %192, label %193, label %199
 
-193:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread
+193:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274.thread
   %194 = getelementptr i8, ptr %0, i64 64
   %.val259 = load i32, ptr %194, align 8
   %195 = and i32 %.val259, 1024
@@ -552,7 +552,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread: ; preds = %182, 
   %198 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.2, ptr noundef %197)
   br label %_ZL10_Py_DECREFP7_object.exit
 
-199:                                              ; preds = %193, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread
+199:                                              ; preds = %193, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit274.thread
   %200 = getelementptr i8, ptr %0, i64 56
   %.val261 = load ptr, ptr %200, align 8
   %201 = getelementptr i8, ptr %.val261, i64 28
@@ -658,20 +658,20 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread: ; preds = %182, 
 235:                                              ; preds = %232
   %.val257 = load ptr, ptr %35, align 8
   %.not.i275 = icmp eq ptr %.val257, %234
-  br i1 %.not.i275, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276
+  br i1 %.not.i275, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276: ; preds = %235
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276: ; preds = %235
   %236 = tail call i32 @PyType_IsSubtype(ptr noundef %.val257, ptr noundef nonnull %234)
   %.not298 = icmp eq i32 %236, 0
-  br i1 %.not298, label %252, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread
+  br i1 %.not298, label %252, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread: ; preds = %235, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276.thread: ; preds = %235, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276
   store i8 0, ptr %12, align 1
   %237 = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %0, ptr noundef nonnull @.str.5)
   %.not232 = icmp eq ptr %237, null
   br i1 %.not232, label %_ZL10_Py_DECREFP7_object.exit279, label %238
 
-238:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread
+238:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276.thread
   store ptr @.str.6, ptr %13, align 8
   %239 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 0, ptr %239, align 8
@@ -696,7 +696,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread: ; preds = %235, 
   tail call void @_Py_Dealloc(ptr noundef nonnull %237)
   br label %_ZL10_Py_DECREFP7_object.exit279
 
-_ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread
+_ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276.thread
   %247 = load i8, ptr %12, align 1
   %248 = trunc i8 %247 to i1
   %249 = icmp sgt i32 %.val262, 0
@@ -704,8 +704,8 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
   %251 = zext i1 %250 to i8
   br label %252
 
-252:                                              ; preds = %_ZL10_Py_DECREFP7_object.exit279, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276, %232
-  %.0203 = phi i8 [ %251, %_ZL10_Py_DECREFP7_object.exit279 ], [ %233, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276 ], [ %233, %232 ]
+252:                                              ; preds = %_ZL10_Py_DECREFP7_object.exit279, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276, %232
+  %.0203 = phi i8 [ %251, %_ZL10_Py_DECREFP7_object.exit279 ], [ %233, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit276 ], [ %233, %232 ]
   %253 = add i32 %.val262, -1
   %254 = icmp slt i32 %.val262, 1
   %255 = trunc nuw i8 %.0205 to i1
@@ -974,25 +974,25 @@ _ZN2cv3MataSERKNS_7MatExprE.exit280:              ; preds = %363
 
 390:                                              ; preds = %371
   %.not.i281 = icmp eq ptr %382, @PyFloat_Type
-  br i1 %.not.i281, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282
+  br i1 %.not.i281, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282: ; preds = %390
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282: ; preds = %390
   %391 = call i32 @PyType_IsSubtype(ptr noundef %382, ptr noundef nonnull @PyFloat_Type)
   %.not300 = icmp eq i32 %391, 0
-  br i1 %.not300, label %393, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread
+  br i1 %.not300, label %393, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread: ; preds = %390, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282.thread: ; preds = %390, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282
   %392 = call double @PyFloat_AsDouble(ptr noundef nonnull %380)
   br label %396
 
-393:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282
+393:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282
   %394 = load ptr, ptr %2, align 8
   %395 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.9, ptr noundef %394)
   call void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
   br label %_ZL10_Py_DECREFP7_object.exit
 
-396:                                              ; preds = %385, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread
-  %.sink = phi double [ %387, %385 ], [ %392, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread ]
+396:                                              ; preds = %385, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282.thread
+  %.sink = phi double [ %387, %385 ], [ %392, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit282.thread ]
   %397 = trunc nuw nsw i64 %indvars.iv324 to i32
   %398 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3Mat2atIdEERT_i(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %397)
   store double %.sink, ptr %398, align 8
@@ -1636,9 +1636,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIbEbP7_objectRT_RK7ArgInfo(ptr 
 
 12:                                               ; preds = %7
   %13 = invoke i32 @PyType_IsSubtype(ptr noundef %.val2.i, ptr noundef %10)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i unwind label %14
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i unwind label %14
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %12
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i: ; preds = %12
   %.not4.i = icmp eq i32 %13, 0
   br i1 %.not4.i, label %_Z6isBoolP7_object.exit, label %_Z6isBoolP7_object.exit.thread
 
@@ -1649,7 +1649,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %12
   tail call void @__clang_call_terminate(ptr %16) #14
   unreachable
 
-_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i
   %.val.i = load ptr, ptr %11, align 8
   %17 = icmp eq ptr %.val.i, @PyBool_Type
   br i1 %17, label %_Z6isBoolP7_object.exit.thread, label %18
@@ -1666,14 +1666,14 @@ _Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_Type
   %23 = getelementptr inbounds i8, ptr %22, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.val.i, %24
-  br i1 %.not.i, label %_Z6isBoolP7_object.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_Z6isBoolP7_object.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %21
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %21
   %25 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %.val.i, ptr noundef %24)
   %.not14 = icmp eq i32 %25, 0
   br i1 %.not14, label %35, label %_Z6isBoolP7_object.exit.thread
 
-_Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %18, %_Z6isBoolP7_object.exit
+_Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %18, %_Z6isBoolP7_object.exit
   store i8 0, ptr %4, align 1
   %26 = load ptr, ptr @opencv_ARRAY_API, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 1432
@@ -1689,7 +1689,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyOb
   store i8 %34, ptr %1, align 1
   br label %38
 
-35:                                               ; preds = %_Z6isBoolP7_object.exit.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+35:                                               ; preds = %_Z6isBoolP7_object.exit.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %36 = load ptr, ptr %2, align 8
   %37 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.11, ptr noundef %36)
   br label %38
@@ -1782,7 +1782,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Scalar_IdEEEbP7_objectRT_
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.12, ptr noundef %14)
   br label %.loopexit
 
-16:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+16:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
   %17 = add nuw nsw i64 %.02645, 1
   %18 = tail call i64 @PySequence_Size(ptr noundef %0)
   %19 = icmp slt i64 %17, %18
@@ -1794,39 +1794,39 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Scalar_IdEEEbP7_objectRT_
   %21 = getelementptr i8, ptr %20, i64 8
   %.val34 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.val34, @PyFloat_Type
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %22
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %22
 
 22:                                               ; preds = %.lr.ph
   %23 = invoke i32 @PyType_IsSubtype(ptr noundef %.val34, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %32
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %32
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %22
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %22
   %.not42 = icmp eq i32 %23, 0
-  br i1 %.not42, label %24, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not42, label %24, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-24:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+24:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %25 = load ptr, ptr %21, align 8
   %26 = getelementptr i8, ptr %25, i64 168
   %.val = load i64, ptr %26, align 8
   %27 = and i64 %.val, 16777216
   %.not31 = icmp eq i64 %27, 0
-  br i1 %.not31, label %34, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not31, label %34, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %.lr.ph, %24, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %.lr.ph, %24, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %28 = invoke double @PyFloat_AsDouble(ptr noundef nonnull %20)
           to label %29 unwind label %32
 
-29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %sext = shl i64 %.02645, 32
   %30 = ashr exact i64 %sext, 32
   %31 = getelementptr inbounds [4 x double], ptr %1, i64 0, i64 %30
   store double %28, ptr %31, align 8
   br label %37
 
-32:                                               ; preds = %22, %34, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+32:                                               ; preds = %22, %34, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr nonnull %20) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr nonnull %20) #13
   resume { ptr, i32 } %33
 
 34:                                               ; preds = %24
@@ -1840,11 +1840,11 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %.lr.ph, 
   %39 = add nsw i64 %38, -1
   store i64 %39, ptr %20, align 8
   %.not.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i, label %40, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %40, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 40:                                               ; preds = %37
   invoke void @_Py_Dealloc(ptr noundef nonnull %20)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %41
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %41
 
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
@@ -1853,29 +1853,29 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %.lr.ph, 
   tail call void @__clang_call_terminate(ptr %43) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %37, %40
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %37, %40
   br i1 %switch, label %16, label %.loopexit
 
 44:                                               ; preds = %6
   %45 = getelementptr i8, ptr %0, i64 8
   %.val33 = load ptr, ptr %45, align 8
   %.not.i37 = icmp eq ptr %.val33, @PyFloat_Type
-  br i1 %.not.i37, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38
+  br i1 %.not.i37, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38: ; preds = %44
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38: ; preds = %44
   %46 = tail call i32 @PyType_IsSubtype(ptr noundef %.val33, ptr noundef nonnull @PyFloat_Type)
   %.not43 = icmp eq i32 %46, 0
-  br i1 %.not43, label %47, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread
+  br i1 %.not43, label %47, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38.thread
 
-47:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38
+47:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38
   %48 = load ptr, ptr %45, align 8
   %49 = getelementptr i8, ptr %48, i64 168
   %.val32 = load i64, ptr %49, align 8
   %50 = and i64 %.val32, 16777216
   %.not29 = icmp eq i64 %50, 0
-  br i1 %.not29, label %53, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread
+  br i1 %.not29, label %53, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread: ; preds = %44, %47, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38.thread: ; preds = %44, %47, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38
   %51 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0)
   store double %51, ptr %1, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1887,8 +1887,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread: ; preds = %44, %4
   %55 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.13, ptr noundef %54)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %16, %.preheader, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread, %3, %53, %13
-  %.025 = phi i1 [ false, %13 ], [ false, %53 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread ], [ true, %.preheader ], [ %switch, %16 ], [ %switch, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %16, %.preheader, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38.thread, %3, %53, %13
+  %.025 = phi i1 [ false, %13 ], [ false, %53 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38.thread ], [ true, %.preheader ], [ %switch, %16 ], [ %switch, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.025
 }
 
@@ -1897,7 +1897,7 @@ declare i32 @PySequence_Check(ptr noundef) local_unnamed_addr #0
 declare i64 @PySequence_Size(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %.0.val, null
   br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %1
 
@@ -1958,9 +1958,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toImEbP7_objectRT_RK7ArgInfo(ptr 
 
 13:                                               ; preds = %8
   %14 = invoke i32 @PyType_IsSubtype(ptr noundef %.val2.i, ptr noundef %11)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i unwind label %15
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i unwind label %15
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %13
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i: ; preds = %13
   %.not4.i = icmp eq i32 %14, 0
   br i1 %.not4.i, label %_Z6isBoolP7_object.exit, label %_Z6isBoolP7_object.exit.thread
 
@@ -1971,12 +1971,12 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %13
   tail call void @__clang_call_terminate(ptr %17) #14
   unreachable
 
-_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i
   %.val.i = load ptr, ptr %12, align 8
   %18 = icmp eq ptr %.val.i, @PyBool_Type
   br i1 %18, label %_Z6isBoolP7_object.exit.thread, label %21
 
-_Z6isBoolP7_object.exit.thread:                   ; preds = %8, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_Z6isBoolP7_object.exit
+_Z6isBoolP7_object.exit.thread:                   ; preds = %8, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i, %_Z6isBoolP7_object.exit
   %19 = load ptr, ptr %2, align 8
   %20 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.15, ptr noundef %19)
   br label %88
@@ -1986,75 +1986,75 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %8, %_ZL19_PyObject_
   %.val19 = load i64, ptr %22, align 8
   %23 = and i64 %.val19, 16777216
   %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %24, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not, label %24, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @opencv_ARRAY_API, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %.val.i, %27
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %24
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %24
   %28 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %.val.i, ptr noundef %27)
   %.not27 = icmp eq i32 %28, 0
-  br i1 %.not27, label %83, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge
+  br i1 %.not27, label %83, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %.pre = load ptr, ptr %12, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 168
   %.val.pre = load i64, ptr %.phi.trans.insert, align 8
-  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %24, %21
-  %.val = phi i64 [ %.val.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %.val19, %24 ], [ %.val19, %21 ]
-  %29 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %.val.i, %24 ], [ %.val.i, %21 ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge, %24, %21
+  %.val = phi i64 [ %.val.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge ], [ %.val19, %24 ], [ %.val19, %21 ]
+  %29 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge ], [ %.val.i, %24 ], [ %.val.i, %21 ]
   %30 = and i64 %.val, 16777216
   %.not17 = icmp eq i64 %30, 0
   br i1 %.not17, label %33, label %31
 
-31:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+31:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %32 = tail call i64 @PyLong_AsSize_t(ptr noundef nonnull %0)
   store i64 %32, ptr %1, align 8
   br label %86
 
-33:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+33:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %34 = load ptr, ptr @opencv_ARRAY_API, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i.i21 = icmp eq ptr %29, %36
-  br i1 %.not.i.i21, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22
+  br i1 %.not.i.i21, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i22
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22: ; preds = %33
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i22: ; preds = %33
   %37 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %29, ptr noundef %36)
   %.not18.i = icmp eq i32 %37, 0
   %.pre19.i = load ptr, ptr @opencv_ARRAY_API, align 8
-  br i1 %.not18.i, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
+  br i1 %.not18.i, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i
 
-38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22
+38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i22
   %39 = getelementptr inbounds i8, ptr %.pre19.i, i64 16
   %40 = load ptr, ptr %39, align 8
   %.val.i23 = load ptr, ptr %12, align 8
   %.not.i12.i = icmp eq ptr %.val.i23, %40
-  br i1 %.not.i12.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.i
+  br i1 %.not.i12.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.i
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.i: ; preds = %38
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.i: ; preds = %38
   %41 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i23, ptr noundef %40)
   %.not.i24 = icmp eq i32 %41, 0
-  br i1 %.not.i24, label %80, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread.i
+  br i1 %.not.i24, label %80, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread.i
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.i, %38
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.i, %38
   %42 = getelementptr i8, ptr %0, i64 24
   %.val11.i = load i32, ptr %42, align 8
   %43 = icmp eq i32 %.val11.i, 0
-  br i1 %43, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i, label %80
+  br i1 %43, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge.i, label %80
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread.i
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread.i
   %.pre.i = load ptr, ptr @opencv_ARRAY_API, align 8
-  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
+  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22, %33
-  %44 = phi ptr [ %.pre.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i ], [ %34, %33 ], [ %.pre19.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22 ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i22, %33
+  %44 = phi ptr [ %.pre.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge.i ], [ %34, %33 ], [ %.pre19.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i22 ]
   %45 = getelementptr inbounds i8, ptr %44, i64 360
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef ptr %46(i32 noundef 8)
@@ -2071,7 +2071,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_
   %.not.i14.i = icmp eq i8 %55, 0
   br i1 %.not.i14.i, label %56, label %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.thread.i
 
-56:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
+56:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i
   %57 = getelementptr inbounds i8, ptr %51, i64 28
   %58 = load i32, ptr %57, align 4
   switch i32 %58, label %59 [
@@ -2093,7 +2093,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_
   %66 = call noundef i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %65)
   br label %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.thread.i
 
-_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.thread.i: ; preds = %59, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
+_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.thread.i: ; preds = %59, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_ZN12_GLOBAL__N_116parseNumpyScalarImEEbP7_objectRT_.exit
@@ -2120,12 +2120,12 @@ _ZN12_GLOBAL__N_116parseNumpyScalarImEEbP7_objectRT_.exit: ; preds = %_ZN12_GLOB
   %79 = call noundef i32 %78(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %47)
   br label %86
 
-80:                                               ; preds = %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.i
+80:                                               ; preds = %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.i
   %81 = load ptr, ptr %2, align 8
   %82 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.16, ptr noundef %81)
   br label %88
 
-83:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+83:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %84 = load ptr, ptr %2, align 8
   %85 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.17, ptr noundef %84)
   br label %88
@@ -2169,9 +2169,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr 
 
 11:                                               ; preds = %6
   %12 = invoke i32 @PyType_IsSubtype(ptr noundef %.val2.i, ptr noundef %9)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i unwind label %13
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i unwind label %13
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i: ; preds = %11
   %.not4.i = icmp eq i32 %12, 0
   br i1 %.not4.i, label %_Z6isBoolP7_object.exit, label %_Z6isBoolP7_object.exit.thread
 
@@ -2182,12 +2182,12 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
   tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 
-_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i
   %.val.i = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %.val.i, @PyBool_Type
   br i1 %16, label %_Z6isBoolP7_object.exit.thread, label %19
 
-_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_Z6isBoolP7_object.exit
+_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i, %_Z6isBoolP7_object.exit
   %17 = load ptr, ptr %2, align 8
   %18 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.18, ptr noundef %17)
   br label %37
@@ -2198,25 +2198,25 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
   %21 = and i64 %.val, 16777216
   %.not = icmp eq i64 %21, 0
   %.pre17 = load ptr, ptr @opencv_ARRAY_API, align 8
-  br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %.pre17, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.val.i, %24
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %22
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %22
   %25 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %.val.i, ptr noundef %24)
   %.not16 = icmp eq i32 %25, 0
-  br i1 %.not16, label %31, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge
+  br i1 %.not16, label %31, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %.pre = load ptr, ptr @opencv_ARRAY_API, align 8
-  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %22, %19
-  %26 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %.pre17, %22 ], [ %.pre17, %19 ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge, %22, %19
+  %26 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge ], [ %.pre17, %22 ], [ %.pre17, %19 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 800
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0)
@@ -2224,18 +2224,18 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %34, label %37
 
-31:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+31:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %32 = load ptr, ptr %2, align 8
   %33 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.17, ptr noundef %32)
   br label %37
 
-34:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+34:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %35 = tail call ptr @PyErr_Occurred()
   %36 = icmp eq ptr %35, null
   br label %37
 
-37:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %34, %3, %31, %_Z6isBoolP7_object.exit.thread
-  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %31 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %36, %34 ]
+37:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, %34, %3, %31, %_Z6isBoolP7_object.exit.thread
+  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %31 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread ], [ %36, %34 ]
   ret i1 %.0
 }
 
@@ -2267,9 +2267,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIlEbP7_objectRT_RK7ArgInfo(ptr 
 
 11:                                               ; preds = %6
   %12 = invoke i32 @PyType_IsSubtype(ptr noundef %.val2.i, ptr noundef %9)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i unwind label %13
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i unwind label %13
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i: ; preds = %11
   %.not4.i = icmp eq i32 %12, 0
   br i1 %.not4.i, label %_Z6isBoolP7_object.exit, label %_Z6isBoolP7_object.exit.thread
 
@@ -2280,12 +2280,12 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
   tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 
-_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i
   %.val.i = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %.val.i, @PyBool_Type
   br i1 %16, label %_Z6isBoolP7_object.exit.thread, label %19
 
-_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_Z6isBoolP7_object.exit
+_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i, %_Z6isBoolP7_object.exit
   %17 = load ptr, ptr %2, align 8
   %18 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.18, ptr noundef %17)
   br label %35
@@ -2295,38 +2295,38 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
   %.val = load i64, ptr %20, align 8
   %21 = and i64 %.val, 16777216
   %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr @opencv_ARRAY_API, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.val.i, %25
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %22
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %22
   %26 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %.val.i, ptr noundef %25)
   %.not16 = icmp eq i32 %26, 0
-  br i1 %.not16, label %29, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not16, label %29, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %22, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %19
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %22, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %19
   %27 = tail call i64 @PyLong_AsLongLong(ptr noundef nonnull %0)
   store i64 %27, ptr %1, align 8
   %28 = icmp eq i64 %27, -1
   br i1 %28, label %32, label %35
 
-29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %30 = load ptr, ptr %2, align 8
   %31 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.17, ptr noundef %30)
   br label %35
 
-32:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+32:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %33 = tail call ptr @PyErr_Occurred()
   %34 = icmp eq ptr %33, null
   br label %35
 
-35:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %32, %3, %29, %_Z6isBoolP7_object.exit.thread
-  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %29 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %34, %32 ]
+35:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, %32, %3, %29, %_Z6isBoolP7_object.exit.thread
+  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %29 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread ], [ %34, %32 ]
   ret i1 %.0
 }
 
@@ -2394,9 +2394,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIcEbP7_objectRT_RK7ArgInfo(ptr 
 
 11:                                               ; preds = %6
   %12 = invoke i32 @PyType_IsSubtype(ptr noundef %.val2.i, ptr noundef %9)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i unwind label %13
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i unwind label %13
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i: ; preds = %11
   %.not4.i = icmp eq i32 %12, 0
   br i1 %.not4.i, label %_Z6isBoolP7_object.exit, label %_Z6isBoolP7_object.exit.thread
 
@@ -2407,12 +2407,12 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
   tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 
-_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i
   %.val.i = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %.val.i, @PyBool_Type
   br i1 %16, label %_Z6isBoolP7_object.exit.thread, label %19
 
-_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_Z6isBoolP7_object.exit
+_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i, %_Z6isBoolP7_object.exit
   %17 = load ptr, ptr %2, align 8
   %18 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.19, ptr noundef %17)
   br label %38
@@ -2423,25 +2423,25 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
   %21 = and i64 %.val, 16777216
   %.not = icmp eq i64 %21, 0
   %.pre17 = load ptr, ptr @opencv_ARRAY_API, align 8
-  br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %.pre17, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.val.i, %24
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %22
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %22
   %25 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %.val.i, ptr noundef %24)
   %.not16 = icmp eq i32 %25, 0
-  br i1 %.not16, label %32, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge
+  br i1 %.not16, label %32, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %.pre = load ptr, ptr @opencv_ARRAY_API, align 8
-  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %22, %19
-  %26 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %.pre17, %22 ], [ %.pre17, %19 ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge, %22, %19
+  %26 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge ], [ %.pre17, %22 ], [ %.pre17, %19 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 800
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0)
@@ -2450,18 +2450,18 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   %31 = icmp eq i8 %30, -1
   br i1 %31, label %35, label %38
 
-32:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+32:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %33 = load ptr, ptr %2, align 8
   %34 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.17, ptr noundef %33)
   br label %38
 
-35:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+35:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %36 = tail call ptr @PyErr_Occurred()
   %37 = icmp eq ptr %36, null
   br label %38
 
-38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %35, %3, %32, %_Z6isBoolP7_object.exit.thread
-  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %32 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %37, %35 ]
+38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, %35, %3, %32, %_Z6isBoolP7_object.exit.thread
+  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %32 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread ], [ %37, %35 ]
   ret i1 %.0
 }
 
@@ -2483,9 +2483,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr 
 
 11:                                               ; preds = %6
   %12 = invoke i32 @PyType_IsSubtype(ptr noundef %.val2.i, ptr noundef %9)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i unwind label %13
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i unwind label %13
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i: ; preds = %11
   %.not4.i = icmp eq i32 %12, 0
   br i1 %.not4.i, label %_Z6isBoolP7_object.exit, label %_Z6isBoolP7_object.exit.thread
 
@@ -2496,58 +2496,58 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
   tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 
-_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i
   %.val.i = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %.val.i, @PyBool_Type
   br i1 %16, label %_Z6isBoolP7_object.exit.thread, label %19
 
-_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_Z6isBoolP7_object.exit
+_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i, %_Z6isBoolP7_object.exit
   %17 = load ptr, ptr %2, align 8
   %18 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.20, ptr noundef %17)
   br label %54
 
 19:                                               ; preds = %_Z6isBoolP7_object.exit
   %.not.i = icmp eq ptr %.val.i, @PyFloat_Type
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %19
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %19
   %20 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type)
   %.not47 = icmp eq i32 %20, 0
   %.pre52 = load ptr, ptr %10, align 8
-  br i1 %.not47, label %21, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not47, label %21, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-21:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+21:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %.not.i37 = icmp eq ptr %.pre52, @PyComplex_Type
-  br i1 %.not.i37, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38
+  br i1 %.not.i37, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38: ; preds = %21
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38: ; preds = %21
   %22 = tail call i32 @PyType_IsSubtype(ptr noundef %.pre52, ptr noundef nonnull @PyComplex_Type)
   %.not = icmp eq i32 %22, 0
   %.pre = load ptr, ptr %10, align 8
-  br i1 %.not, label %23, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not, label %23, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-23:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38
+23:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38
   %24 = getelementptr i8, ptr %.pre, i64 168
   %.val30 = load i64, ptr %24, align 8
   %25 = and i64 %.val30, 16777216
   %.not24 = icmp ne i64 %25, 0
   %.not48 = icmp eq ptr %.pre, @PyBool_Type
   %or.cond51 = or i1 %.not48, %.not24
-  br i1 %or.cond51, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %33
+  br i1 %or.cond51, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %33
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %21, %19, %23, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %26 = phi ptr [ @PyComplex_Type, %21 ], [ @PyFloat_Type, %19 ], [ %.pre, %23 ], [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38 ], [ %.pre52, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %21, %19, %23, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %26 = phi ptr [ @PyComplex_Type, %21 ], [ @PyFloat_Type, %19 ], [ %.pre, %23 ], [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit38 ], [ %.pre52, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ]
   %27 = getelementptr i8, ptr %26, i64 168
   %.val = load i64, ptr %27, align 8
   %28 = and i64 %.val, 16777216
   %.not28 = icmp eq i64 %28, 0
   br i1 %.not28, label %31, label %29
 
-29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %30 = tail call double @PyLong_AsDouble(ptr noundef nonnull %0)
   br label %.sink.split
 
-31:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+31:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %32 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0)
   br label %.sink.split
 
@@ -2556,42 +2556,42 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %21, %19,
   %35 = getelementptr inbounds i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i39 = icmp eq ptr %.pre, %36
-  br i1 %.not.i39, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40
+  br i1 %.not.i39, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40: ; preds = %33
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40: ; preds = %33
   %37 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %.pre, ptr noundef %36)
   %.not49 = icmp eq i32 %37, 0
-  br i1 %.not49, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40.thread
+  br i1 %.not49, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40.thread
 
-38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40
+38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40
   %39 = load ptr, ptr @opencv_ARRAY_API, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %.val32 = load ptr, ptr %10, align 8
   %.not.i41 = icmp eq ptr %.val32, %41
-  br i1 %.not.i41, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
+  br i1 %.not.i41, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42: ; preds = %38
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42: ; preds = %38
   %42 = tail call i32 @PyType_IsSubtype(ptr noundef %.val32, ptr noundef %41)
   %.not50 = icmp eq i32 %42, 0
-  br i1 %.not50, label %49, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread
+  br i1 %.not50, label %49, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread: ; preds = %38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread: ; preds = %38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42
   %43 = getelementptr i8, ptr %0, i64 24
   %.val36 = load i32, ptr %43, align 8
   %44 = icmp eq i32 %.val36, 0
-  br i1 %44, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40.thread, label %49
+  br i1 %44, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40.thread, label %49
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40.thread: ; preds = %33, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40.thread: ; preds = %33, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40
   %45 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIdEEbP7_objectRT_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %45, label %52, label %46
 
-46:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40.thread
+46:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40.thread
   %47 = load ptr, ptr %2, align 8
   %48 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.21, ptr noundef %47)
   br label %54
 
-49:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
+49:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42
   %50 = load ptr, ptr %2, align 8
   %51 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.22, ptr noundef %50)
   br label %54
@@ -2601,7 +2601,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40.thread: ; preds = %33, %_
   store double %.sink, ptr %1, align 8
   br label %52
 
-52:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40.thread
+52:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40.thread
   %53 = tail call ptr @PyErr_Occurred()
   %.not29 = icmp eq ptr %53, null
   br label %54
@@ -2621,38 +2621,38 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarId
   %6 = getelementptr i8, ptr %0, i64 8
   %.val10 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %.val10, %5
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %2
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %2
   %7 = tail call i32 @PyType_IsSubtype(ptr noundef %.val10, ptr noundef %5)
   %.not16 = icmp eq i32 %7, 0
   %.pre18 = load ptr, ptr @opencv_ARRAY_API, align 8
-  br i1 %.not16, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not16, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %9 = getelementptr inbounds i8, ptr %.pre18, i64 16
   %10 = load ptr, ptr %9, align 8
   %.val = load ptr, ptr %6, align 8
   %.not.i12 = icmp eq ptr %.val, %10
-  br i1 %.not.i12, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13
+  br i1 %.not.i12, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13: ; preds = %8
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13: ; preds = %8
   %11 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef %10)
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %30, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread
+  br i1 %.not, label %30, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread: ; preds = %8, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread: ; preds = %8, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13
   %12 = getelementptr i8, ptr %0, i64 24
   %.val11 = load i32, ptr %12, align 8
   %13 = icmp eq i32 %.val11, 0
-  br i1 %13, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, label %30
+  br i1 %13, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge, label %30
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread
   %.pre = load ptr, ptr @opencv_ARRAY_API, align 8
-  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ]
   %15 = getelementptr inbounds i8, ptr %14, i64 360
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(i32 noundef 12)
@@ -2666,15 +2666,15 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   %.not17 = icmp eq i8 %24, 0
   br i1 %.not17, label %30, label %25
 
-25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %26 = load ptr, ptr @opencv_ARRAY_API, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 504
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17)
   br label %30
 
-30:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %25
-  %.0 = phi i1 [ true, %25 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13 ]
+30:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, %25
+  %.0 = phi i1 [ true, %25 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13 ]
   ret i1 %.0
 }
 
@@ -2705,9 +2705,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr 
 
 11:                                               ; preds = %6
   %12 = invoke i32 @PyType_IsSubtype(ptr noundef %.val2.i, ptr noundef %9)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i unwind label %13
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i unwind label %13
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i: ; preds = %11
   %.not4.i = icmp eq i32 %12, 0
   br i1 %.not4.i, label %_Z6isBoolP7_object.exit, label %_Z6isBoolP7_object.exit.thread
 
@@ -2718,58 +2718,58 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
   tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 
-_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+_Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i
   %.val.i = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %.val.i, @PyBool_Type
   br i1 %16, label %_Z6isBoolP7_object.exit.thread, label %19
 
-_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_Z6isBoolP7_object.exit
+_Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i, %_Z6isBoolP7_object.exit
   %17 = load ptr, ptr %2, align 8
   %18 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.23, ptr noundef %17)
   br label %55
 
 19:                                               ; preds = %_Z6isBoolP7_object.exit
   %.not.i = icmp eq ptr %.val.i, @PyFloat_Type
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %19
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %19
   %20 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type)
   %.not49 = icmp eq i32 %20, 0
   %.pre54 = load ptr, ptr %10, align 8
-  br i1 %.not49, label %21, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not49, label %21, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-21:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+21:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %.not.i39 = icmp eq ptr %.pre54, @PyComplex_Type
-  br i1 %.not.i39, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40
+  br i1 %.not.i39, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40: ; preds = %21
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40: ; preds = %21
   %22 = tail call i32 @PyType_IsSubtype(ptr noundef %.pre54, ptr noundef nonnull @PyComplex_Type)
   %.not = icmp eq i32 %22, 0
   %.pre = load ptr, ptr %10, align 8
-  br i1 %.not, label %23, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not, label %23, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-23:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40
+23:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40
   %24 = getelementptr i8, ptr %.pre, i64 168
   %.val32 = load i64, ptr %24, align 8
   %25 = and i64 %.val32, 16777216
   %.not26 = icmp ne i64 %25, 0
   %.not50 = icmp eq ptr %.pre, @PyBool_Type
   %or.cond53 = or i1 %.not50, %.not26
-  br i1 %or.cond53, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %33
+  br i1 %or.cond53, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %33
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %21, %19, %23, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %26 = phi ptr [ @PyComplex_Type, %21 ], [ @PyFloat_Type, %19 ], [ %.pre, %23 ], [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40 ], [ %.pre54, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %21, %19, %23, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %26 = phi ptr [ @PyComplex_Type, %21 ], [ @PyFloat_Type, %19 ], [ %.pre, %23 ], [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit40 ], [ %.pre54, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ]
   %27 = getelementptr i8, ptr %26, i64 168
   %.val = load i64, ptr %27, align 8
   %28 = and i64 %.val, 16777216
   %.not30 = icmp eq i64 %28, 0
   br i1 %.not30, label %31, label %29
 
-29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %30 = tail call double @PyLong_AsDouble(ptr noundef nonnull %0)
   br label %.sink.split
 
-31:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+31:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %32 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0)
   br label %.sink.split
 
@@ -2778,42 +2778,42 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %21, %19,
   %35 = getelementptr inbounds i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i41 = icmp eq ptr %.pre, %36
-  br i1 %.not.i41, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
+  br i1 %.not.i41, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42: ; preds = %33
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42: ; preds = %33
   %37 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %.pre, ptr noundef %36)
   %.not51 = icmp eq i32 %37, 0
-  br i1 %.not51, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread
+  br i1 %.not51, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread
 
-38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
+38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42
   %39 = load ptr, ptr @opencv_ARRAY_API, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %.val34 = load ptr, ptr %10, align 8
   %.not.i43 = icmp eq ptr %.val34, %41
-  br i1 %.not.i43, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44
+  br i1 %.not.i43, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44: ; preds = %38
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44: ; preds = %38
   %42 = tail call i32 @PyType_IsSubtype(ptr noundef %.val34, ptr noundef %41)
   %.not52 = icmp eq i32 %42, 0
-  br i1 %.not52, label %49, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread
+  br i1 %.not52, label %49, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread: ; preds = %38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44.thread: ; preds = %38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44
   %43 = getelementptr i8, ptr %0, i64 24
   %.val38 = load i32, ptr %43, align 8
   %44 = icmp eq i32 %.val38, 0
-  br i1 %44, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread, label %49
+  br i1 %44, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread, label %49
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread: ; preds = %33, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread: ; preds = %33, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42
   %45 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIfEEbP7_objectRT_(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
   br i1 %45, label %53, label %46
 
-46:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread
+46:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread
   %47 = load ptr, ptr %2, align 8
   %48 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.24, ptr noundef %47)
   br label %55
 
-49:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44
+49:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit44
   %50 = load ptr, ptr %2, align 8
   %51 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.25, ptr noundef %50)
   br label %55
@@ -2824,7 +2824,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread: ; preds = %33, %_
   store float %52, ptr %1, align 4
   br label %53
 
-53:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread
+53:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit42.thread
   %54 = tail call ptr @PyErr_Occurred()
   %.not31 = icmp eq ptr %54, null
   br label %55
@@ -2842,38 +2842,38 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIf
   %6 = getelementptr i8, ptr %0, i64 8
   %.val10 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %.val10, %5
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %2
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %2
   %7 = tail call i32 @PyType_IsSubtype(ptr noundef %.val10, ptr noundef %5)
   %.not16 = icmp eq i32 %7, 0
   %.pre18 = load ptr, ptr @opencv_ARRAY_API, align 8
-  br i1 %.not16, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not16, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %9 = getelementptr inbounds i8, ptr %.pre18, i64 16
   %10 = load ptr, ptr %9, align 8
   %.val = load ptr, ptr %6, align 8
   %.not.i12 = icmp eq ptr %.val, %10
-  br i1 %.not.i12, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13
+  br i1 %.not.i12, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13: ; preds = %8
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13: ; preds = %8
   %11 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef %10)
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %30, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread
+  br i1 %.not, label %30, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread: ; preds = %8, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread: ; preds = %8, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13
   %12 = getelementptr i8, ptr %0, i64 24
   %.val11 = load i32, ptr %12, align 8
   %13 = icmp eq i32 %.val11, 0
-  br i1 %13, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, label %30
+  br i1 %13, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge, label %30
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread
   %.pre = load ptr, ptr @opencv_ARRAY_API, align 8
-  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ]
   %15 = getelementptr inbounds i8, ptr %14, i64 360
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(i32 noundef 11)
@@ -2887,15 +2887,15 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   %.not17 = icmp eq i8 %24, 0
   br i1 %.not17, label %30, label %25
 
-25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %26 = load ptr, ptr @opencv_ARRAY_API, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 504
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17)
   br label %30
 
-30:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %25
-  %.0 = phi i1 [ true, %25 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13 ]
+30:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, %25
+  %.0 = phi i1 [ true, %25 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit13 ]
   ret i1 %.0
 }
 
@@ -3110,9 +3110,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 2, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
-  %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ true, %11 ]
+  %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [2 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -3130,23 +3130,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -3155,12 +3155,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %brmerge.not = and i1 %.not37.not, %18
   br i1 %brmerge.not, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -3211,9 +3211,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 2, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
-  %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ true, %11 ]
+  %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [2 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -3231,23 +3231,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -3256,12 +3256,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %brmerge.not = and i1 %.not37.not, %18
   br i1 %brmerge.not, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -3320,8 +3320,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 4, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [4 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -3339,23 +3339,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -3364,14 +3364,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %33 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp ne i64 %33, 4
   %or.cond37.not = select i1 %18, i1 %exitcond.not, i1 false
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -3432,8 +3432,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 4, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [4 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -3451,23 +3451,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -3476,14 +3476,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %33 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp ne i64 %33, 4
   %or.cond37.not = select i1 %18, i1 %exitcond.not, i1 false
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -3548,8 +3548,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 4, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [4 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -3567,23 +3567,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -3592,14 +3592,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %33 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp ne i64 %33, 4
   %or.cond37.not = select i1 %18, i1 %exitcond.not, i1 false
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -3747,24 +3747,24 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %42
 51:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %45) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %45) #13
   br label %common.resume
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.not.i.i54 = icmp eq ptr %45, null
-  br i1 %.not.i.i54, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %54
+  br i1 %.not.i.i54, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %54
 
 54:                                               ; preds = %53
   %55 = load i64, ptr %45, align 8
   %56 = add nsw i64 %55, -1
   store i64 %56, ptr %45, align 8
   %.not.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not.i.i.i, label %57, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %57, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 57:                                               ; preds = %54
   invoke void @_Py_Dealloc(ptr noundef nonnull %45)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %58
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %58
 
 58:                                               ; preds = %57
   %59 = landingpad { ptr, i32 }
@@ -3773,11 +3773,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %42
   call void @__clang_call_terminate(ptr %60) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %53, %54, %57
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %53, %54, %57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   br i1 %48, label %61, label %94
 
-61:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+61:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
   %62 = load ptr, ptr %2, align 8
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.36, ptr noundef %62)
   %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
@@ -3805,24 +3805,24 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55: ; preds = %61
 72:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55
   %73 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %65) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %65) #13
   br label %common.resume
 
 74:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not.i.i56 = icmp eq ptr %65, null
-  br i1 %.not.i.i56, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58, label %75
+  br i1 %.not.i.i56, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit58, label %75
 
 75:                                               ; preds = %74
   %76 = load i64, ptr %65, align 8
   %77 = add nsw i64 %76, -1
   store i64 %77, ptr %65, align 8
   %.not.i.i.i57 = icmp eq i64 %77, 0
-  br i1 %.not.i.i.i57, label %78, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58
+  br i1 %.not.i.i.i57, label %78, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit58
 
 78:                                               ; preds = %75
   invoke void @_Py_Dealloc(ptr noundef nonnull %65)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58 unwind label %79
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit58 unwind label %79
 
 79:                                               ; preds = %78
   %80 = landingpad { ptr, i32 }
@@ -3831,11 +3831,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55: ; preds = %61
   call void @__clang_call_terminate(ptr %81) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58:        ; preds = %74, %75, %78
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit58: ; preds = %74, %75, %78
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   br i1 %69, label %82, label %94
 
-82:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58
+82:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit58
   %83 = load ptr, ptr %2, align 8
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.37, ptr noundef %83)
   %84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
@@ -3858,16 +3858,16 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59: ; preds = %82
 91:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59
   %92 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %86) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %86) #13
   br label %common.resume
 
 93:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %86) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %86) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
   br label %94
 
-94:                                               ; preds = %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread, %93, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %40, %34
-  %.032 = phi i1 [ false, %40 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58 ], [ false, %34 ], [ true, %3 ], [ %88, %93 ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63 ]
+94:                                               ; preds = %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread, %93, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit58, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %40, %34
+  %.032 = phi i1 [ false, %40 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit58 ], [ false, %34 ], [ true, %3 ], [ %88, %93 ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63 ]
   ret i1 %.032
 }
 
@@ -4017,9 +4017,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 2, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
-  %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ true, %11 ]
+  %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [2 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -4037,23 +4037,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -4062,12 +4062,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %brmerge.not = and i1 %.not37.not, %18
   br i1 %brmerge.not, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -4121,8 +4121,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 3, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [3 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -4140,23 +4140,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -4165,14 +4165,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %33 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp ne i64 %33, 3
   %or.cond37.not = select i1 %18, i1 %exitcond.not, i1 false
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -4228,8 +4228,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 3, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [3 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -4247,23 +4247,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -4272,14 +4272,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %33 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp ne i64 %33, 3
   %or.cond37.not = select i1 %18, i1 %exitcond.not, i1 false
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -4338,8 +4338,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.84, ptr noundef %14, i64 noundef 3, i64 noundef %12)
   br label %.loopexit
 
-.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
+.preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
+  %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
   %17 = getelementptr inbounds [3 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
@@ -4357,23 +4357,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
 23:                                               ; preds = %20, %.preheader
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %16) #13
+  tail call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %16) #13
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %20
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %26
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %16, align 8
   %28 = add nsw i64 %27, -1
   store i64 %28, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %29, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 29:                                               ; preds = %26
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %30
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %30
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -4382,14 +4382,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
   tail call void @__clang_call_terminate(ptr %32) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %25, %26, %29
   %33 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp ne i64 %33, 3
   %or.cond37.not = select i1 %18, i1 %exitcond.not, i1 false
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %13, %8
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ]
   ret i1 %.021
 }
 
@@ -4692,23 +4692,23 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %22
 29:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit
   %30 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %25) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %25) #13
   br label %78
 
 31:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %32
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, label %32
 
 32:                                               ; preds = %31
   %33 = load i64, ptr %25, align 8
   %34 = add nsw i64 %33, -1
   store i64 %34, ptr %25, align 8
   %.not.i.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  br i1 %.not.i.i.i, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
 
 35:                                               ; preds = %32
   invoke void @_Py_Dealloc(ptr noundef nonnull %25)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %36
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit unwind label %36
 
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
@@ -4717,11 +4717,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %22
   call void @__clang_call_terminate(ptr %38) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %31, %32, %35
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit:  ; preds = %31, %32, %35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   br i1 %26, label %39, label %77
 
-39:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+39:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit
   %40 = load ptr, ptr %2, align 8
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.46, ptr noundef %40)
   %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
@@ -4744,23 +4744,23 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit52: ; preds = %39
 48:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit52
   %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %43) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %43) #13
   br label %78
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit52
   %.not.i.i53 = icmp eq ptr %43, null
-  br i1 %.not.i.i53, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55, label %51
+  br i1 %.not.i.i53, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit55, label %51
 
 51:                                               ; preds = %50
   %52 = load i64, ptr %43, align 8
   %53 = add nsw i64 %52, -1
   store i64 %53, ptr %43, align 8
   %.not.i.i.i54 = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i54, label %54, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55
+  br i1 %.not.i.i.i54, label %54, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit55
 
 54:                                               ; preds = %51
   invoke void @_Py_Dealloc(ptr noundef nonnull %43)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55 unwind label %55
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit55 unwind label %55
 
 55:                                               ; preds = %54
   %56 = landingpad { ptr, i32 }
@@ -4769,11 +4769,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit52: ; preds = %39
   call void @__clang_call_terminate(ptr %57) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55:        ; preds = %50, %51, %54
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit55: ; preds = %50, %51, %54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   br i1 %45, label %58, label %77
 
-58:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55
+58:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit55
   %59 = load ptr, ptr %2, align 8
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.47, ptr noundef %59)
   %60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
@@ -4796,23 +4796,23 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit56: ; preds = %58
 67:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit56
   %68 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %62) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom(ptr %62) #13
   br label %78
 
 69:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit56
   %.not.i.i57 = icmp eq ptr %62, null
-  br i1 %.not.i.i57, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59, label %70
+  br i1 %.not.i.i57, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit59, label %70
 
 70:                                               ; preds = %69
   %71 = load i64, ptr %62, align 8
   %72 = add nsw i64 %71, -1
   store i64 %72, ptr %62, align 8
   %.not.i.i.i58 = icmp eq i64 %72, 0
-  br i1 %.not.i.i.i58, label %73, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59
+  br i1 %.not.i.i.i58, label %73, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit59
 
 73:                                               ; preds = %70
   invoke void @_Py_Dealloc(ptr noundef nonnull %62)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59 unwind label %74
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit59 unwind label %74
 
 74:                                               ; preds = %73
   %75 = landingpad { ptr, i32 }
@@ -4821,12 +4821,12 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit56: ; preds = %58
   call void @__clang_call_terminate(ptr %76) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59:        ; preds = %69, %70, %73
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit59: ; preds = %69, %70, %73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   br label %77
 
-77:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %20, %14
-  %.030 = phi i1 [ false, %20 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55 ], [ false, %14 ], [ true, %3 ], [ %64, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59 ]
+77:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit59, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit55, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit, %3, %20, %14
+  %.030 = phi i1 [ false, %20 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit55 ], [ false, %14 ], [ true, %3 ], [ %64, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.argprom.exit59 ]
   ret i1 %.030
 
 78:                                               ; preds = %65, %67, %46, %48, %27, %29

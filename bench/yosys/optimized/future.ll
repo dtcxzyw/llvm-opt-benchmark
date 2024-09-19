@@ -1654,9 +1654,9 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit54.thread.i: ; preds = %93
 110:                                              ; preds = %108, %104, %.lr.ph.i
   %111 = load i32, ptr @_ZZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEvE2id, align 4, !noalias !8
   %.not.i.i.i25.i = icmp eq i32 %111, 0
-  br i1 %.not.i.i.i25.i, label %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i, label %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.i
+  br i1 %.not.i.i.i25.i, label %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.thread.i, label %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.i
 
-_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i: ; preds = %110
+_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.thread.i: ; preds = %110
   %112 = getelementptr inbounds i8, ptr %101, i64 76
   %113 = load i32, ptr %112, align 4
   %.not183.i = icmp eq i32 %113, 0
@@ -1668,7 +1668,7 @@ _ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKU
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEvE2id) #22, !noalias !8
   br label %.body.i
 
-_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.i: ; preds = %110
+_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.i: ; preds = %110
   %116 = sext i32 %111 to i64
   %117 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !8
   %118 = getelementptr inbounds i32, ptr %117, i64 %116
@@ -1682,7 +1682,7 @@ _ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKU
   %124 = trunc i8 %123 to i1
   br i1 %124, label %125, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i
 
-125:                                              ; preds = %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.i
+125:                                              ; preds = %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.i
   %126 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %127 = getelementptr inbounds i32, ptr %126, i64 %116
   %128 = load i32, ptr %127, align 4
@@ -1702,7 +1702,7 @@ _ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKU
   call void @__clang_call_terminate(ptr %134) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %131, %125, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.i
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %131, %125, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.i
   br i1 %.not182.i, label %135, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
 
 .loopexit212.i.loopexit:                          ; preds = %135, %137, %1381, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i
@@ -1720,7 +1720,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %131, %125, %_ZZN12_
           cleanup
   br label %.body.i
 
-135:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i
+135:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.thread.i
   %136 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %101, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1YE)
           to label %137 unwind label %.loopexit212.i.loopexit
 
@@ -4522,10 +4522,10 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_c
   %1391 = getelementptr inbounds ptr, ptr %1384, i64 %1380
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
 
-_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %1368, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i
-  %.sroa.11.1.i = phi ptr [ %.sroa.11.0373.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.11.0373.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i ], [ %1391, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.11.0373.i, %1368 ]
-  %.sroa.6.1.i = phi ptr [ %.sroa.6.0374.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.6.0374.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i ], [ %1389, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %1369, %1368 ]
-  %.sroa.0164.3.i = phi ptr [ %.sroa.0164.1375.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.0164.1375.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i ], [ %1384, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0164.1375.i, %1368 ]
+_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %1368, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.thread.i
+  %.sroa.11.1.i = phi ptr [ %.sroa.11.0373.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.11.0373.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.thread.i ], [ %1391, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.11.0373.i, %1368 ]
+  %.sroa.6.1.i = phi ptr [ %.sroa.6.0374.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.6.0374.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.thread.i ], [ %1389, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %1369, %1368 ]
+  %.sroa.0164.3.i = phi ptr [ %.sroa.0164.1375.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.0164.1375.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom.exit.thread.i ], [ %1384, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0164.1375.i, %1368 ]
   %1392 = getelementptr inbounds i8, ptr %.sroa.0161.0372.i, i64 8
   %.not.i = icmp eq ptr %1392, %96
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
@@ -74134,8 +74134,8 @@ attributes #26 = { builtin allocsize(0) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv: argument 0"}
-!10 = distinct !{!10, !"_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv"}
+!9 = distinct !{!9, !10, !"_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.argprom"}
 !11 = !{!"branch_weights", i32 1, i32 1048575}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
@@ -74150,8 +74150,8 @@ attributes #26 = { builtin allocsize(0) }
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = !{!25, !16}
-!25 = distinct !{!25, !26, !"_ZZN12_GLOBAL__N_112FutureWorker9future_ffEN5Yosys5RTLIL6SigBitEENKUlvE_clEv: argument 0"}
-!26 = distinct !{!26, !"_ZZN12_GLOBAL__N_112FutureWorker9future_ffEN5Yosys5RTLIL6SigBitEENKUlvE_clEv"}
+!25 = distinct !{!25, !26, !"_ZZN12_GLOBAL__N_112FutureWorker9future_ffEN5Yosys5RTLIL6SigBitEENKUlvE_clEv.argprom: argument 0"}
+!26 = distinct !{!26, !"_ZZN12_GLOBAL__N_112FutureWorker9future_ffEN5Yosys5RTLIL6SigBitEENKUlvE_clEv.argprom"}
 !27 = !{!28, !16}
 !28 = distinct !{!28, !29, !"_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_: argument 0"}
 !29 = distinct !{!29, !"_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_"}

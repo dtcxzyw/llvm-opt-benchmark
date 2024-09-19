@@ -4809,11 +4809,11 @@ _ZSt16__insertion_sortIP5t_nnbN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEE
 _ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit:     ; preds = %_ZSt25__unguarded_linear_insertIP5t_nnbN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS0_S6_EEEEvT_T0_.exit.i11.i, %_ZSt16__insertion_sortIP5t_nnbN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_T0_.exit31.i, %._crit_edge166
   %90 = load ptr, ptr @debug, align 8
   %.not = icmp eq ptr %90, null
-  br i1 %.not, label %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.exit, label %91
+  br i1 %.not, label %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.argprom.exit, label %91
 
 91:                                               ; preds = %_ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit
   %92 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 33, i64 1, ptr nonnull %90)
-  br i1 %13, label %.lr.ph4.preheader.i, label %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.exit
+  br i1 %13, label %.lr.ph4.preheader.i, label %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.argprom.exit
 
 .lr.ph4.preheader.i:                              ; preds = %91
   %wide.trip.count.i = zext nneg i32 %0 to i64
@@ -4849,16 +4849,16 @@ _ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit:     ; preds = %_ZSt25__unguarded_l
   %fputc.i = tail call i32 @fputc(i32 10, ptr nonnull %90)
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.exit, label %.lr.ph4.i, !llvm.loop !69
+  br i1 %exitcond.not.i, label %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.argprom.exit, label %.lr.ph4.i, !llvm.loop !69
 
-_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.exit:           ; preds = %._crit_edge.i, %91, %_ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit
+_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.argprom.exit:   ; preds = %._crit_edge.i, %91, %_ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit
   %108 = load ptr, ptr @stderr, align 8
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.47, i32 noundef 0) #28
   %110 = load i32, ptr %12, align 8
   %.not75181 = icmp eq i32 %110, 0
   br i1 %.not75181, label %._crit_edge183, label %.preheader160.lr.ph
 
-.preheader160.lr.ph:                              ; preds = %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.exit
+.preheader160.lr.ph:                              ; preds = %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.argprom.exit
   %111 = getelementptr inbounds i8, ptr %3, i64 8
   %112 = getelementptr inbounds i8, ptr %12, i64 8
   %113 = icmp sgt i32 %0, 1
@@ -5113,8 +5113,8 @@ _ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit81:   ; preds = %_ZSt25__unguarded_l
   %.not75 = icmp eq i32 %193, 0
   br i1 %.not75, label %._crit_edge183, label %.preheader160, !llvm.loop !73
 
-._crit_edge183:                                   ; preds = %_ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit81, %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.exit
-  %.264.lcssa = phi i32 [ 1, %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.exit ], [ %192, %_ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit81 ]
+._crit_edge183:                                   ; preds = %_ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit81, %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.argprom.exit
+  %.264.lcssa = phi i32 [ 1, %_ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.argprom.exit ], [ %192, %_ZSt4sortIP5t_nnbPFbRKS0_S3_EEvT_S6_T0_.exit81 ]
   %194 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %194)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.27, i32 noundef 592, ptr noundef nonnull %12)

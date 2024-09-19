@@ -1847,9 +1847,9 @@ define void @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr nounde
 37:                                               ; preds = %35, %31, %27
   %38 = load i32, ptr @"_ZZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEvE2id", align 4, !noalias !15
   %.not.i.i.i = icmp eq i32 %38, 0
-  br i1 %.not.i.i.i, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit"
+  br i1 %.not.i.i.i, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit"
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread": ; preds = %37
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread": ; preds = %37
   %39 = load i32, ptr %28, align 4
   %.not235 = icmp eq i32 %39, 0
   br i1 %.not235, label %79, label %60
@@ -1860,7 +1860,7 @@ define void @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr nounde
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEvE2id") #19, !noalias !15
   br label %.body
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit": ; preds = %37
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit": ; preds = %37
   %42 = sext i32 %38 to i64
   %43 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !15
   %44 = getelementptr inbounds i32, ptr %43, i64 %42
@@ -1873,7 +1873,7 @@ define void @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr nounde
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-50:                                               ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit"
+50:                                               ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit"
   %51 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %52 = getelementptr inbounds i32, ptr %51, i64 %42
   %53 = load i32, ptr %52, align 4
@@ -1893,10 +1893,10 @@ define void @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr nounde
   call void @__clang_call_terminate(ptr %59) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit", %50, %56
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit", %50, %56
   br i1 %.not, label %79, label %60
 
-60:                                               ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+60:                                               ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %61 = load i32, ptr %5, align 8
   %62 = getelementptr inbounds i8, ptr %1, i64 136
   %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %62, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID8A_SIGNEDE)
@@ -1938,7 +1938,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys15simple
           cleanup
   br label %.body
 
-79:                                               ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", %72, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+79:                                               ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", %72, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   store i32 0, ptr %6, align 4
   %80 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEvE2id" acquire, align 8, !noalias !18
   %81 = icmp eq i8 %80, 0
@@ -1962,9 +1962,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys15simple
 88:                                               ; preds = %86, %82, %79
   %89 = load i32, ptr @"_ZZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEvE2id", align 4, !noalias !18
   %.not.i.i.i39 = icmp eq i32 %89, 0
-  br i1 %.not.i.i.i39, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit"
+  br i1 %.not.i.i.i39, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit"
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit.thread": ; preds = %88
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit.thread": ; preds = %88
   %90 = load i32, ptr %28, align 4
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %113, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit52
@@ -1975,7 +1975,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys15simple
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEvE2id") #19, !noalias !18
   br label %.body41
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit": ; preds = %88
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit": ; preds = %88
   %94 = sext i32 %89 to i64
   %95 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !18
   %96 = getelementptr inbounds i32, ptr %95, i64 %94
@@ -1988,7 +1988,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys15simple
   %102 = trunc i8 %101 to i1
   br i1 %102, label %103, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit44
 
-103:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit"
+103:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit"
   %104 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %105 = getelementptr inbounds i32, ptr %104, i64 %94
   %106 = load i32, ptr %105, align 4
@@ -2008,10 +2008,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys15simple
   call void @__clang_call_terminate(ptr %112) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit44:              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit", %103, %109
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit44:              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit", %103, %109
   br i1 %100, label %113, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit52
 
-113:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit44
+113:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit44
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %114 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEvE2id" acquire, align 8, !noalias !21
   %115 = icmp eq i8 %114, 0
@@ -2131,7 +2131,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i: ; preds = %144, %137, %132
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #19
   br label %.body41
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit52:              ; preds = %.thread, %160, %153, %145, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit44
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit52:              ; preds = %.thread, %160, %153, %145, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit44
   %166 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEvE2id" acquire, align 8, !noalias !24
   %167 = icmp eq i8 %166, 0
   br i1 %167, label %168, label %174, !prof !9
@@ -2154,9 +2154,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit52:              ; preds = %.thread, %160, %153
 174:                                              ; preds = %172, %168, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit52
   %175 = load i32, ptr @"_ZZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEvE2id", align 4, !noalias !24
   %.not.i.i.i53 = icmp eq i32 %175, 0
-  br i1 %.not.i.i.i53, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit"
+  br i1 %.not.i.i.i53, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit"
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit.thread": ; preds = %174
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit.thread": ; preds = %174
   %176 = load i32, ptr %28, align 4
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %199, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit71
@@ -2167,7 +2167,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit52:              ; preds = %.thread, %160, %153
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEvE2id") #19, !noalias !24
   br label %.body41
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit": ; preds = %174
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit": ; preds = %174
   %180 = sext i32 %175 to i64
   %181 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !24
   %182 = getelementptr inbounds i32, ptr %181, i64 %180
@@ -2180,7 +2180,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit52:              ; preds = %.thread, %160, %153
   %188 = trunc i8 %187 to i1
   br i1 %188, label %189, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit59
 
-189:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit"
+189:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit"
   %190 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %191 = getelementptr inbounds i32, ptr %190, i64 %180
   %192 = load i32, ptr %191, align 4
@@ -2200,10 +2200,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit52:              ; preds = %.thread, %160, %153
   call void @__clang_call_terminate(ptr %198) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit59:              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit", %189, %195
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit59:              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit", %189, %195
   br i1 %186, label %199, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit71
 
-199:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit59
+199:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit59
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %200 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEvE2id" acquire, align 8, !noalias !27
   %201 = icmp eq i8 %200, 0
@@ -2313,7 +2313,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i65: ; preds = %230, %223, %218
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #19
   br label %.body41
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit71:              ; preds = %.thread277, %246, %239, %231, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit59
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit71:              ; preds = %.thread277, %246, %239, %231, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit59
   %252 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEvE2id" acquire, align 8, !noalias !30
   %253 = icmp eq i8 %252, 0
   br i1 %253, label %254, label %260, !prof !9
@@ -2336,9 +2336,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit71:              ; preds = %.thread277, %246, %
 260:                                              ; preds = %258, %254, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit71
   %261 = load i32, ptr @"_ZZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEvE2id", align 4, !noalias !30
   %.not.i.i.i72 = icmp eq i32 %261, 0
-  br i1 %.not.i.i.i72, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit"
+  br i1 %.not.i.i.i72, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit"
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit.thread": ; preds = %260
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit.thread": ; preds = %260
   %262 = load i32, ptr %28, align 4
   %263 = icmp eq i32 %262, 0
   br i1 %263, label %285, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit90
@@ -2349,7 +2349,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit71:              ; preds = %.thread277, %246, %
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEvE2id") #19, !noalias !30
   br label %.body41
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit": ; preds = %260
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit": ; preds = %260
   %266 = sext i32 %261 to i64
   %267 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !30
   %268 = getelementptr inbounds i32, ptr %267, i64 %266
@@ -2362,7 +2362,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit71:              ; preds = %.thread277, %246, %
   %274 = trunc i8 %273 to i1
   br i1 %274, label %275, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit78
 
-275:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit"
+275:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit"
   %276 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %277 = getelementptr inbounds i32, ptr %276, i64 %266
   %278 = load i32, ptr %277, align 4
@@ -2382,10 +2382,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit71:              ; preds = %.thread277, %246, %
   call void @__clang_call_terminate(ptr %284) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit78:              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit", %275, %281
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit78:              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit", %275, %281
   br i1 %272, label %285, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit90
 
-285:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit78
+285:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit78
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %286 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEvE2id" acquire, align 8, !noalias !33
   %287 = icmp eq i8 %286, 0
@@ -2495,7 +2495,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i84: ; preds = %316, %309, %304
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #19
   br label %.body41
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit90:              ; preds = %.thread279, %332, %325, %317, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit78
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit90:              ; preds = %.thread279, %332, %325, %317, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit78
   %338 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEvE2id" acquire, align 8, !noalias !36
   %339 = icmp eq i8 %338, 0
   br i1 %339, label %340, label %346, !prof !9
@@ -2518,9 +2518,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit90:              ; preds = %.thread279, %332, %
 346:                                              ; preds = %344, %340, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit90
   %347 = load i32, ptr @"_ZZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEvE2id", align 4, !noalias !36
   %.not.i.i.i91 = icmp eq i32 %347, 0
-  br i1 %.not.i.i.i91, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit"
+  br i1 %.not.i.i.i91, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit"
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit.thread": ; preds = %346
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit.thread": ; preds = %346
   %348 = load i32, ptr %28, align 4
   %349 = icmp eq i32 %348, 0
   br i1 %349, label %371, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit109
@@ -2531,7 +2531,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit90:              ; preds = %.thread279, %332, %
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEvE2id") #19, !noalias !36
   br label %.body41
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit": ; preds = %346
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit": ; preds = %346
   %352 = sext i32 %347 to i64
   %353 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !36
   %354 = getelementptr inbounds i32, ptr %353, i64 %352
@@ -2544,7 +2544,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit90:              ; preds = %.thread279, %332, %
   %360 = trunc i8 %359 to i1
   br i1 %360, label %361, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit97
 
-361:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit"
+361:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit"
   %362 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %363 = getelementptr inbounds i32, ptr %362, i64 %352
   %364 = load i32, ptr %363, align 4
@@ -2564,10 +2564,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit90:              ; preds = %.thread279, %332, %
   call void @__clang_call_terminate(ptr %370) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit97:              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit", %361, %367
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit97:              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit", %361, %367
   br i1 %358, label %371, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit109
 
-371:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit97
+371:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit97
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %372 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEvE2id" acquire, align 8, !noalias !39
   %373 = icmp eq i8 %372, 0
@@ -2677,7 +2677,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i103: ; preds = %402, %395, %390
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #19
   br label %.body41
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %.thread281, %418, %411, %403, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit97
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %.thread281, %418, %411, %403, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit97
   %424 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEvE2id" acquire, align 8, !noalias !42
   %425 = icmp eq i8 %424, 0
   br i1 %425, label %426, label %432, !prof !9
@@ -2700,9 +2700,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %.thread281, %418, %
 432:                                              ; preds = %430, %426, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit109
   %433 = load i32, ptr @"_ZZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEvE2id", align 4, !noalias !42
   %.not.i.i.i110 = icmp eq i32 %433, 0
-  br i1 %.not.i.i.i110, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit"
+  br i1 %.not.i.i.i110, label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit.thread", label %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit"
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit.thread": ; preds = %432
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit.thread": ; preds = %432
   %434 = load i32, ptr %28, align 4
   %435 = icmp eq i32 %434, 0
   br i1 %435, label %457, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit128
@@ -2713,7 +2713,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %.thread281, %418, %
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEvE2id") #19, !noalias !42
   br label %.body41
 
-"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit": ; preds = %432
+"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit": ; preds = %432
   %438 = sext i32 %433 to i64
   %439 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !42
   %440 = getelementptr inbounds i32, ptr %439, i64 %438
@@ -2726,7 +2726,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %.thread281, %418, %
   %446 = trunc i8 %445 to i1
   br i1 %446, label %447, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit116
 
-447:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit"
+447:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit"
   %448 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %449 = getelementptr inbounds i32, ptr %448, i64 %438
   %450 = load i32, ptr %449, align 4
@@ -2746,10 +2746,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %.thread281, %418, %
   call void @__clang_call_terminate(ptr %456) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit116:             ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit", %447, %453
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit116:             ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit", %447, %453
   br i1 %444, label %457, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit128
 
-457:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit116
+457:                                              ; preds = %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit116
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %458 = load atomic i8, ptr @"_ZGVZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEvE2id" acquire, align 8, !noalias !45
   %459 = icmp eq i8 %458, 0
@@ -2859,7 +2859,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i122: ; preds = %488, %481, %476
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #19
   br label %.body41
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit128:             ; preds = %.thread283, %504, %497, %489, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit116
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit128:             ; preds = %.thread283, %504, %497, %489, %"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit116
   %510 = load i32, ptr %5, align 8
   %511 = icmp sgt i32 %510, 0
   br i1 %511, label %.lr.ph, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit128.._crit_edge_crit_edge
@@ -3596,9 +3596,9 @@ define void @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr nound
 79:                                               ; preds = %77, %73, %69
   %80 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEvE2id", align 4, !noalias !49
   %.not.i.i.i = icmp eq i32 %80, 0
-  br i1 %.not.i.i.i, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit"
+  br i1 %.not.i.i.i, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread": ; preds = %79
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread": ; preds = %79
   %81 = load i32, ptr %70, align 4
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %104, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
@@ -3609,7 +3609,7 @@ define void @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr nound
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEvE2id") #19, !noalias !49
   br label %.body
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit": ; preds = %79
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit": ; preds = %79
   %85 = sext i32 %80 to i64
   %86 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !49
   %87 = getelementptr inbounds i32, ptr %86, i64 %85
@@ -3622,7 +3622,7 @@ define void @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr nound
   %93 = trunc i8 %92 to i1
   br i1 %93, label %94, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-94:                                               ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit"
+94:                                               ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit"
   %95 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %96 = getelementptr inbounds i32, ptr %95, i64 %85
   %97 = load i32, ptr %96, align 4
@@ -3642,10 +3642,10 @@ define void @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr nound
   call void @__clang_call_terminate(ptr %103) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit", %94, %100
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit", %94, %100
   br i1 %91, label %104, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
 
-104:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+104:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %105 = load i32, ptr %4, align 8
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1Eii(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef 1, i32 noundef %105)
           to label %106 unwind label %64
@@ -3747,7 +3747,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_Z
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
   br label %.body
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %137, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %137, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %143 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEvE2id" acquire, align 8, !noalias !52
   %144 = icmp eq i8 %143, 0
   br i1 %144, label %145, label %151, !prof !9
@@ -3770,9 +3770,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %137, %_ZSt8_Destroy
 151:                                              ; preds = %149, %145, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
   %152 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEvE2id", align 4, !noalias !52
   %.not.i.i.i110 = icmp eq i32 %152, 0
-  br i1 %.not.i.i.i110, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit"
+  br i1 %.not.i.i.i110, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit.thread": ; preds = %151
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit.thread": ; preds = %151
   %153 = load i32, ptr %70, align 4
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %176, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit129
@@ -3783,7 +3783,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %137, %_ZSt8_Destroy
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEvE2id") #19, !noalias !52
   br label %.body
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit": ; preds = %151
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit": ; preds = %151
   %157 = sext i32 %152 to i64
   %158 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !52
   %159 = getelementptr inbounds i32, ptr %158, i64 %157
@@ -3796,7 +3796,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %137, %_ZSt8_Destroy
   %165 = trunc i8 %164 to i1
   br i1 %165, label %166, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit115
 
-166:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit"
+166:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit"
   %167 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %168 = getelementptr inbounds i32, ptr %167, i64 %157
   %169 = load i32, ptr %168, align 4
@@ -3816,10 +3816,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %137, %_ZSt8_Destroy
   call void @__clang_call_terminate(ptr %175) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit115:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit", %166, %172
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit115:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit", %166, %172
   br i1 %163, label %176, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit129
 
-176:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit115
+176:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit115
   %177 = load i32, ptr %4, align 8
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1Eii(ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 0, i32 noundef %177)
           to label %178 unwind label %64
@@ -3921,7 +3921,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i127: ; preds = 
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #19
   br label %.body
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit129:              ; preds = %209, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i127, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit115
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit129:              ; preds = %209, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i127, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit115
   %215 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEvE2id" acquire, align 8, !noalias !55
   %216 = icmp eq i8 %215, 0
   br i1 %216, label %217, label %223, !prof !9
@@ -3944,9 +3944,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit129:              ; preds = %209, %_ZSt8_Destroy
 223:                                              ; preds = %221, %217, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit129
   %224 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEvE2id", align 4, !noalias !55
   %.not.i.i.i130 = icmp eq i32 %224, 0
-  br i1 %.not.i.i.i130, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit"
+  br i1 %.not.i.i.i130, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit.thread": ; preds = %223
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit.thread": ; preds = %223
   %225 = load i32, ptr %70, align 4
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %248, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit149
@@ -3957,7 +3957,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit129:              ; preds = %209, %_ZSt8_Destroy
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEvE2id") #19, !noalias !55
   br label %.body
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit": ; preds = %223
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit": ; preds = %223
   %229 = sext i32 %224 to i64
   %230 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !55
   %231 = getelementptr inbounds i32, ptr %230, i64 %229
@@ -3970,7 +3970,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit129:              ; preds = %209, %_ZSt8_Destroy
   %237 = trunc i8 %236 to i1
   br i1 %237, label %238, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit135
 
-238:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit"
+238:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit"
   %239 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %240 = getelementptr inbounds i32, ptr %239, i64 %229
   %241 = load i32, ptr %240, align 4
@@ -3990,10 +3990,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit129:              ; preds = %209, %_ZSt8_Destroy
   call void @__clang_call_terminate(ptr %247) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit135:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit", %238, %244
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit135:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit", %238, %244
   br i1 %235, label %248, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit149
 
-248:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit135
+248:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit135
   %249 = load i32, ptr %4, align 8
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1Eii(ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef %249)
           to label %250 unwind label %64
@@ -4095,7 +4095,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i147: ; preds = 
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #19
   br label %.body
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit149:              ; preds = %281, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i147, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit135
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit149:              ; preds = %281, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i147, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit135
   %287 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEvE2id" acquire, align 8, !noalias !58
   %288 = icmp eq i8 %287, 0
   br i1 %288, label %289, label %295, !prof !9
@@ -4118,9 +4118,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit149:              ; preds = %281, %_ZSt8_Destroy
 295:                                              ; preds = %293, %289, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit149
   %296 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEvE2id", align 4, !noalias !58
   %.not.i.i.i150 = icmp eq i32 %296, 0
-  br i1 %.not.i.i.i150, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit"
+  br i1 %.not.i.i.i150, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit.thread": ; preds = %295
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit.thread": ; preds = %295
   %297 = load i32, ptr %70, align 4
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %320, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit169
@@ -4131,7 +4131,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit149:              ; preds = %281, %_ZSt8_Destroy
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEvE2id") #19, !noalias !58
   br label %.body
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit": ; preds = %295
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit": ; preds = %295
   %301 = sext i32 %296 to i64
   %302 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !58
   %303 = getelementptr inbounds i32, ptr %302, i64 %301
@@ -4144,7 +4144,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit149:              ; preds = %281, %_ZSt8_Destroy
   %309 = trunc i8 %308 to i1
   br i1 %309, label %310, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit155
 
-310:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit"
+310:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit"
   %311 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %312 = getelementptr inbounds i32, ptr %311, i64 %301
   %313 = load i32, ptr %312, align 4
@@ -4164,10 +4164,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit149:              ; preds = %281, %_ZSt8_Destroy
   call void @__clang_call_terminate(ptr %319) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit155:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit", %310, %316
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit155:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit", %310, %316
   br i1 %307, label %320, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit169
 
-320:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit155
+320:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit155
   %321 = load i32, ptr %4, align 8
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1Eii(ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef 1, i32 noundef %321)
           to label %322 unwind label %64
@@ -4269,7 +4269,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i167: ; preds = 
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #19
   br label %.body
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit169:              ; preds = %353, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i167, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit155
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit169:              ; preds = %353, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i167, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit155
   %359 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEvE2id" acquire, align 8, !noalias !61
   %360 = icmp eq i8 %359, 0
   br i1 %360, label %361, label %367, !prof !9
@@ -4292,9 +4292,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit169:              ; preds = %353, %_ZSt8_Destroy
 367:                                              ; preds = %365, %361, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit169
   %368 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEvE2id", align 4, !noalias !61
   %.not.i.i.i170 = icmp eq i32 %368, 0
-  br i1 %.not.i.i.i170, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.exit"
+  br i1 %.not.i.i.i170, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.exit.thread": ; preds = %367
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom.exit.thread": ; preds = %367
   %369 = load i32, ptr %70, align 4
   %370 = icmp eq i32 %369, 0
   br i1 %370, label %392, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189
@@ -4305,7 +4305,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit169:              ; preds = %353, %_ZSt8_Destroy
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEvE2id") #19, !noalias !61
   br label %.body
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.exit": ; preds = %367
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom.exit": ; preds = %367
   %373 = sext i32 %368 to i64
   %374 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !61
   %375 = getelementptr inbounds i32, ptr %374, i64 %373
@@ -4318,7 +4318,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit169:              ; preds = %353, %_ZSt8_Destroy
   %381 = trunc i8 %380 to i1
   br i1 %381, label %382, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit175
 
-382:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.exit"
+382:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom.exit"
   %383 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %384 = getelementptr inbounds i32, ptr %383, i64 %373
   %385 = load i32, ptr %384, align 4
@@ -4338,10 +4338,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit169:              ; preds = %353, %_ZSt8_Destroy
   call void @__clang_call_terminate(ptr %391) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit175:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.exit", %382, %388
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit175:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom.exit", %382, %388
   br i1 %379, label %392, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189
 
-392:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit175
+392:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit175
   %393 = load i32, ptr %4, align 8
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1Eii(ptr noundef nonnull align 8 dereferenceable(64) %14, i32 noundef 0, i32 noundef %393)
           to label %394 unwind label %64
@@ -4759,9 +4759,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit228:              ; preds = %532, %_ZSt8_Destroy
 547:                                              ; preds = %545, %541, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit228
   %548 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEvE2id", align 4, !noalias !64
   %.not.i.i.i229 = icmp eq i32 %548, 0
-  br i1 %.not.i.i.i229, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit"
+  br i1 %.not.i.i.i229, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit.thread": ; preds = %547
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit.thread": ; preds = %547
   %549 = load i32, ptr %538, align 4
   %550 = icmp eq i32 %549, 0
   br i1 %550, label %572, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit242
@@ -4772,7 +4772,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit228:              ; preds = %532, %_ZSt8_Destroy
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEvE2id") #19, !noalias !64
   br label %.body231
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit": ; preds = %547
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit": ; preds = %547
   %553 = sext i32 %548 to i64
   %554 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !64
   %555 = getelementptr inbounds i32, ptr %554, i64 %553
@@ -4785,7 +4785,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit228:              ; preds = %532, %_ZSt8_Destroy
   %561 = trunc i8 %560 to i1
   br i1 %561, label %562, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234
 
-562:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit"
+562:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit"
   %563 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %564 = getelementptr inbounds i32, ptr %563, i64 %553
   %565 = load i32, ptr %564, align 4
@@ -4805,10 +4805,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit228:              ; preds = %532, %_ZSt8_Destroy
   call void @__clang_call_terminate(ptr %571) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit234:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit", %562, %568
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit234:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit", %562, %568
   br i1 %559, label %572, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit242
 
-572:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234
+572:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %573 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEvE2id" acquire, align 8, !noalias !67
   %574 = icmp eq i8 %573, 0
@@ -4923,7 +4923,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i: ; preds = %603, %596, %591
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %20) #19
   br label %.body231
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit242:             ; preds = %.thread, %619, %612, %604, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit242:             ; preds = %.thread, %619, %612, %604, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234
   %627 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEvE2id" acquire, align 8, !noalias !70
   %628 = icmp eq i8 %627, 0
   br i1 %628, label %629, label %635, !prof !9
@@ -4946,9 +4946,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit242:             ; preds = %.thread, %619, %612
 635:                                              ; preds = %633, %629, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit242
   %636 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEvE2id", align 4, !noalias !70
   %.not.i.i.i243 = icmp eq i32 %636, 0
-  br i1 %.not.i.i.i243, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit"
+  br i1 %.not.i.i.i243, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit.thread": ; preds = %635
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit.thread": ; preds = %635
   %637 = load i32, ptr %538, align 4
   %638 = icmp eq i32 %637, 0
   br i1 %638, label %660, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit261
@@ -4959,7 +4959,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit242:             ; preds = %.thread, %619, %612
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEvE2id") #19, !noalias !70
   br label %.body231
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit": ; preds = %635
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit": ; preds = %635
   %641 = sext i32 %636 to i64
   %642 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !70
   %643 = getelementptr inbounds i32, ptr %642, i64 %641
@@ -4972,7 +4972,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit242:             ; preds = %.thread, %619, %612
   %649 = trunc i8 %648 to i1
   br i1 %649, label %650, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit249
 
-650:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit"
+650:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit"
   %651 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %652 = getelementptr inbounds i32, ptr %651, i64 %641
   %653 = load i32, ptr %652, align 4
@@ -4992,10 +4992,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit242:             ; preds = %.thread, %619, %612
   call void @__clang_call_terminate(ptr %659) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit249:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit", %650, %656
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit249:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit", %650, %656
   br i1 %647, label %660, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit261
 
-660:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit249
+660:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit249
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %661 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEvE2id" acquire, align 8, !noalias !73
   %662 = icmp eq i8 %661, 0
@@ -5105,7 +5105,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i255: ; preds = %691, %684, %679
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #19
   br label %.body231
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit261:             ; preds = %.thread648, %707, %700, %692, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit249
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit261:             ; preds = %.thread648, %707, %700, %692, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit249
   %713 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEvE2id" acquire, align 8, !noalias !76
   %714 = icmp eq i8 %713, 0
   br i1 %714, label %715, label %721, !prof !9
@@ -5128,9 +5128,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit261:             ; preds = %.thread648, %707, %
 721:                                              ; preds = %719, %715, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit261
   %722 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEvE2id", align 4, !noalias !76
   %.not.i.i.i262 = icmp eq i32 %722, 0
-  br i1 %.not.i.i.i262, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit"
+  br i1 %.not.i.i.i262, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit.thread": ; preds = %721
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit.thread": ; preds = %721
   %723 = load i32, ptr %538, align 4
   %724 = icmp eq i32 %723, 0
   br i1 %724, label %746, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit280
@@ -5141,7 +5141,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit261:             ; preds = %.thread648, %707, %
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEvE2id") #19, !noalias !76
   br label %.body231
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit": ; preds = %721
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit": ; preds = %721
   %727 = sext i32 %722 to i64
   %728 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !76
   %729 = getelementptr inbounds i32, ptr %728, i64 %727
@@ -5154,7 +5154,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit261:             ; preds = %.thread648, %707, %
   %735 = trunc i8 %734 to i1
   br i1 %735, label %736, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit268
 
-736:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit"
+736:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit"
   %737 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %738 = getelementptr inbounds i32, ptr %737, i64 %727
   %739 = load i32, ptr %738, align 4
@@ -5174,10 +5174,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit261:             ; preds = %.thread648, %707, %
   call void @__clang_call_terminate(ptr %745) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit268:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit", %736, %742
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit268:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit", %736, %742
   br i1 %733, label %746, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit280
 
-746:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit268
+746:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit268
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %747 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEvE2id" acquire, align 8, !noalias !79
   %748 = icmp eq i8 %747, 0
@@ -5287,7 +5287,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i274: ; preds = %777, %770, %765
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #19
   br label %.body231
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit280:             ; preds = %.thread650, %793, %786, %778, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit268
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit280:             ; preds = %.thread650, %793, %786, %778, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit268
   %799 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEvE2id" acquire, align 8, !noalias !82
   %800 = icmp eq i8 %799, 0
   br i1 %800, label %801, label %807, !prof !9
@@ -5310,9 +5310,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit280:             ; preds = %.thread650, %793, %
 807:                                              ; preds = %805, %801, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit280
   %808 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEvE2id", align 4, !noalias !82
   %.not.i.i.i281 = icmp eq i32 %808, 0
-  br i1 %.not.i.i.i281, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.exit"
+  br i1 %.not.i.i.i281, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.exit.thread": ; preds = %807
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom.exit.thread": ; preds = %807
   %809 = load i32, ptr %538, align 4
   %810 = icmp eq i32 %809, 0
   br i1 %810, label %832, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit299
@@ -5323,7 +5323,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit280:             ; preds = %.thread650, %793, %
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEvE2id") #19, !noalias !82
   br label %.body231
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.exit": ; preds = %807
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom.exit": ; preds = %807
   %813 = sext i32 %808 to i64
   %814 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !82
   %815 = getelementptr inbounds i32, ptr %814, i64 %813
@@ -5336,7 +5336,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit280:             ; preds = %.thread650, %793, %
   %821 = trunc i8 %820 to i1
   br i1 %821, label %822, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit287
 
-822:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.exit"
+822:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom.exit"
   %823 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %824 = getelementptr inbounds i32, ptr %823, i64 %813
   %825 = load i32, ptr %824, align 4
@@ -5356,10 +5356,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit280:             ; preds = %.thread650, %793, %
   call void @__clang_call_terminate(ptr %831) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit287:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.exit", %822, %828
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit287:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom.exit", %822, %828
   br i1 %819, label %832, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit299
 
-832:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit287
+832:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit287
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %833 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_12clEvE2id" acquire, align 8, !noalias !85
   %834 = icmp eq i8 %833, 0
@@ -5469,7 +5469,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i293: ; preds = %863, %856, %851
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #19
   br label %.body231
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit299:             ; preds = %.thread652, %879, %872, %864, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit287
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit299:             ; preds = %.thread652, %879, %872, %864, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit287
   %885 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEvE2id" acquire, align 8, !noalias !88
   %886 = icmp eq i8 %885, 0
   br i1 %886, label %887, label %893, !prof !9
@@ -5492,9 +5492,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit299:             ; preds = %.thread652, %879, %
 893:                                              ; preds = %891, %887, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit299
   %894 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEvE2id", align 4, !noalias !88
   %.not.i.i.i300 = icmp eq i32 %894, 0
-  br i1 %.not.i.i.i300, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.exit"
+  br i1 %.not.i.i.i300, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.exit.thread": ; preds = %893
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom.exit.thread": ; preds = %893
   %895 = load i32, ptr %538, align 4
   %896 = icmp eq i32 %895, 0
   br i1 %896, label %918, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit318
@@ -5505,7 +5505,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit299:             ; preds = %.thread652, %879, %
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEvE2id") #19, !noalias !88
   br label %.body231
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.exit": ; preds = %893
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom.exit": ; preds = %893
   %899 = sext i32 %894 to i64
   %900 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !88
   %901 = getelementptr inbounds i32, ptr %900, i64 %899
@@ -5518,7 +5518,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit299:             ; preds = %.thread652, %879, %
   %907 = trunc i8 %906 to i1
   br i1 %907, label %908, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit306
 
-908:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.exit"
+908:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom.exit"
   %909 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %910 = getelementptr inbounds i32, ptr %909, i64 %899
   %911 = load i32, ptr %910, align 4
@@ -5538,10 +5538,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit299:             ; preds = %.thread652, %879, %
   call void @__clang_call_terminate(ptr %917) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit306:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.exit", %908, %914
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit306:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom.exit", %908, %914
   br i1 %905, label %918, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit318
 
-918:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit306
+918:                                              ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit306
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %919 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_14clEvE2id" acquire, align 8, !noalias !91
   %920 = icmp eq i8 %919, 0
@@ -5651,7 +5651,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i312: ; preds = %949, %942, %937
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #19
   br label %.body231
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit318:             ; preds = %.thread654, %965, %958, %950, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit306
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit318:             ; preds = %.thread654, %965, %958, %950, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit306
   %971 = load i32, ptr %3, align 8
   %972 = icmp sgt i32 %971, 1
   br i1 %972, label %.lr.ph616, label %._crit_edge617
@@ -6424,9 +6424,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit401:              ; preds = %_ZSt8_DestroyIPN5Yo
 1252:                                             ; preds = %1250, %1246, %._crit_edge617
   %1253 = load i32, ptr @"_ZZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEvE2id", align 4, !noalias !96
   %.not.i.i.i402 = icmp eq i32 %1253, 0
-  br i1 %.not.i.i.i402, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit"
+  br i1 %.not.i.i.i402, label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit.thread": ; preds = %1252
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit.thread": ; preds = %1252
   %1254 = load i32, ptr %538, align 4
   %1255 = icmp eq i32 %1254, 0
   br i1 %1255, label %1277, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit465
@@ -6437,7 +6437,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit401:              ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEvE2id") #19, !noalias !96
   br label %.body231
 
-"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit": ; preds = %1252
+"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit": ; preds = %1252
   %1258 = sext i32 %1253 to i64
   %1259 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !96
   %1260 = getelementptr inbounds i32, ptr %1259, i64 %1258
@@ -6450,7 +6450,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit401:              ; preds = %_ZSt8_DestroyIPN5Yo
   %1266 = trunc i8 %1265 to i1
   br i1 %1266, label %1267, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit408
 
-1267:                                             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit"
+1267:                                             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit"
   %1268 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1269 = getelementptr inbounds i32, ptr %1268, i64 %1258
   %1270 = load i32, ptr %1269, align 4
@@ -6470,10 +6470,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit401:              ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__clang_call_terminate(ptr %1276) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit408:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit", %1267, %1273
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit408:             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit", %1267, %1273
   br i1 %1264, label %1277, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit465
 
-1277:                                             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit408
+1277:                                             ; preds = %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit408
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %43)
           to label %1278 unwind label %1408
@@ -6935,8 +6935,8 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i463: ; preds = 
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %40) #19
   br label %.body231
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit465:              ; preds = %1407, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i463, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit408
-  %.373 = phi ptr [ %.070.lcssa, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit408 ], [ %.070.lcssa, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.exit.thread" ], [ %1321, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i463 ], [ %1321, %1407 ]
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit465:              ; preds = %1407, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i463, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit408
+  %.373 = phi ptr [ %.070.lcssa, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit408 ], [ %.070.lcssa, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom.exit.thread" ], [ %1321, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i463 ], [ %1321, %1407 ]
   %1437 = icmp eq ptr %.373, null
   br i1 %1437, label %1438, label %1445
 
@@ -7059,7 +7059,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit481:              ; preds = %1460, %_ZSt8_Destro
   call void @__clang_call_terminate(ptr %1477) #20
   unreachable
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189:              ; preds = %1474, %1467, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit481, %425, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i187, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit175, %59
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189:              ; preds = %1474, %1467, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit481, %425, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i187, %"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit175, %59
   %1478 = getelementptr inbounds i8, ptr %4, i64 40
   %1479 = load ptr, ptr %1478, align 8
   %.not.i.i.i.i485 = icmp eq ptr %1479, null
@@ -9223,9 +9223,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit60:               ; preds = %140, %_ZSt8_Destroy
 155:                                              ; preds = %153, %149, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit60
   %156 = load i32, ptr @"_ZZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEvE2id", align 4, !noalias !110
   %.not.i.i.i = icmp eq i32 %156, 0
-  br i1 %.not.i.i.i, label %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", label %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit"
+  br i1 %.not.i.i.i, label %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread": ; preds = %155
+"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread": ; preds = %155
   %157 = load i32, ptr %146, align 4
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %180, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit68
@@ -9236,7 +9236,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit60:               ; preds = %140, %_ZSt8_Destroy
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEvE2id") #19, !noalias !110
   br label %.body
 
-"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit": ; preds = %155
+"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit": ; preds = %155
   %161 = sext i32 %156 to i64
   %162 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !110
   %163 = getelementptr inbounds i32, ptr %162, i64 %161
@@ -9249,7 +9249,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit60:               ; preds = %140, %_ZSt8_Destroy
   %169 = trunc i8 %168 to i1
   br i1 %169, label %170, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-170:                                              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit"
+170:                                              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit"
   %171 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %172 = getelementptr inbounds i32, ptr %171, i64 %161
   %173 = load i32, ptr %172, align 4
@@ -9269,10 +9269,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit60:               ; preds = %140, %_ZSt8_Destroy
   call void @__clang_call_terminate(ptr %179) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit", %170, %176
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit", %170, %176
   br i1 %167, label %180, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit68
 
-180:                                              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+180:                                              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
   %181 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEvE2id" acquire, align 8, !noalias !113
   %182 = icmp eq i8 %181, 0
@@ -9387,7 +9387,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i: ; preds = %211, %204, %199
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #19
   br label %.body
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit68:              ; preds = %.thread, %227, %220, %212, %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit68:              ; preds = %.thread, %227, %220, %212, %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %235 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEvE2id" acquire, align 8, !noalias !116
   %236 = icmp eq i8 %235, 0
   br i1 %236, label %237, label %243, !prof !9
@@ -9410,9 +9410,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit68:              ; preds = %.thread, %227, %220
 243:                                              ; preds = %241, %237, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit68
   %244 = load i32, ptr @"_ZZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEvE2id", align 4, !noalias !116
   %.not.i.i.i69 = icmp eq i32 %244, 0
-  br i1 %.not.i.i.i69, label %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit.thread", label %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit"
+  br i1 %.not.i.i.i69, label %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit.thread", label %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit"
 
-"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit.thread": ; preds = %243
+"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit.thread": ; preds = %243
   %245 = load i32, ptr %146, align 4
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %268, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit87
@@ -9423,7 +9423,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit68:              ; preds = %.thread, %227, %220
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEvE2id") #19, !noalias !116
   br label %.body
 
-"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit": ; preds = %243
+"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit": ; preds = %243
   %249 = sext i32 %244 to i64
   %250 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !116
   %251 = getelementptr inbounds i32, ptr %250, i64 %249
@@ -9436,7 +9436,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit68:              ; preds = %.thread, %227, %220
   %257 = trunc i8 %256 to i1
   br i1 %257, label %258, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit75
 
-258:                                              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit"
+258:                                              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit"
   %259 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %260 = getelementptr inbounds i32, ptr %259, i64 %249
   %261 = load i32, ptr %260, align 4
@@ -9456,10 +9456,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit68:              ; preds = %.thread, %227, %220
   call void @__clang_call_terminate(ptr %267) #20
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit75:              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit", %258, %264
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit75:              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit", %258, %264
   br i1 %255, label %268, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit87
 
-268:                                              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit75
+268:                                              ; preds = %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit75
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %269 = load atomic i8, ptr @"_ZGVZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEvE2id" acquire, align 8, !noalias !119
   %270 = icmp eq i8 %269, 0
@@ -9569,7 +9569,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i81: ; preds = %299, %292, %287
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #19
   br label %.body
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit87:              ; preds = %.thread184, %315, %308, %300, %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit75
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit87:              ; preds = %.thread184, %315, %308, %300, %"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit75
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %321 unwind label %469
@@ -17654,7 +17654,7 @@ define void @_ZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStri
 53:                                               ; preds = %51, %47, %1
   %54 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEvE2id", align 4, !noalias !154
   %.not.i.i.i = icmp eq i32 %54, 0
-  br i1 %.not.i.i.i, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.exit", label %55
+  br i1 %.not.i.i.i, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.argprom.exit", label %55
 
 55:                                               ; preds = %53
   %56 = sext i32 %54 to i64
@@ -17663,7 +17663,7 @@ define void @_ZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStri
   %59 = load i32, ptr %58, align 4, !noalias !154
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4, !noalias !154
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.argprom.exit"
 
 common.resume:                                    ; preds = %1550, %1552, %1554, %1556, %1558, %1560, %1562, %1564, %1566, %1568, %1570, %1572, %1574, %1576, %1578, %1580, %1582, %1584, %1586, %1588, %1590, %1592, %1594, %1596, %1598, %1600, %1602, %1604, %1606, %1608, %1610, %1612, %1614, %1616, %1618, %1620, %1622, %1624, %1626, %1628, %1630, %1632, %1634, %1531, %1496, %1461, %1426, %1391, %1356, %1321, %1286, %1251, %1216, %1181, %1146, %1111, %1076, %1041, %1006, %971, %936, %901, %866, %831, %796, %761, %726, %691, %656, %621, %586, %551, %516, %481, %446, %411, %376, %341, %306, %271, %236, %201, %166, %131, %96, %61
   %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %97, %96 ], [ %132, %131 ], [ %167, %166 ], [ %202, %201 ], [ %237, %236 ], [ %272, %271 ], [ %307, %306 ], [ %342, %341 ], [ %377, %376 ], [ %412, %411 ], [ %447, %446 ], [ %482, %481 ], [ %517, %516 ], [ %552, %551 ], [ %587, %586 ], [ %622, %621 ], [ %657, %656 ], [ %692, %691 ], [ %727, %726 ], [ %762, %761 ], [ %797, %796 ], [ %832, %831 ], [ %867, %866 ], [ %902, %901 ], [ %937, %936 ], [ %972, %971 ], [ %1007, %1006 ], [ %1042, %1041 ], [ %1077, %1076 ], [ %1112, %1111 ], [ %1147, %1146 ], [ %1182, %1181 ], [ %1217, %1216 ], [ %1252, %1251 ], [ %1287, %1286 ], [ %1322, %1321 ], [ %1357, %1356 ], [ %1392, %1391 ], [ %1427, %1426 ], [ %1462, %1461 ], [ %1497, %1496 ], [ %1532, %1531 ], [ %1635, %1634 ], [ %1633, %1632 ], [ %1631, %1630 ], [ %1629, %1628 ], [ %1627, %1626 ], [ %1625, %1624 ], [ %1623, %1622 ], [ %1621, %1620 ], [ %1619, %1618 ], [ %1617, %1616 ], [ %1615, %1614 ], [ %1613, %1612 ], [ %1611, %1610 ], [ %1609, %1608 ], [ %1607, %1606 ], [ %1605, %1604 ], [ %1603, %1602 ], [ %1601, %1600 ], [ %1599, %1598 ], [ %1597, %1596 ], [ %1595, %1594 ], [ %1593, %1592 ], [ %1591, %1590 ], [ %1589, %1588 ], [ %1587, %1586 ], [ %1585, %1584 ], [ %1583, %1582 ], [ %1581, %1580 ], [ %1579, %1578 ], [ %1577, %1576 ], [ %1575, %1574 ], [ %1573, %1572 ], [ %1571, %1570 ], [ %1569, %1568 ], [ %1567, %1566 ], [ %1565, %1564 ], [ %1563, %1562 ], [ %1561, %1560 ], [ %1559, %1558 ], [ %1557, %1556 ], [ %1555, %1554 ], [ %1553, %1552 ], [ %1551, %1550 ]
@@ -17675,12 +17675,12 @@ common.resume:                                    ; preds = %1550, %1552, %1554,
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEvE2id") #19, !noalias !154
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.exit": ; preds = %53, %55
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.argprom.exit": ; preds = %53, %55
   store i32 %54, ptr %2, align 4, !alias.scope !154
   %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %64 unwind label %1550
 
-64:                                               ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.exit"
+64:                                               ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.argprom.exit"
   store ptr @_ZN5Yosys13simplemap_notEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %63, align 8
   %65 = load i32, ptr %2, align 4
   %66 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -17734,7 +17734,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %64, %69, %76
 88:                                               ; preds = %86, %82, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %89 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEvE2id", align 4, !noalias !157
   %.not.i.i.i46 = icmp eq i32 %89, 0
-  br i1 %.not.i.i.i46, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.exit", label %90
+  br i1 %.not.i.i.i46, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.argprom.exit", label %90
 
 90:                                               ; preds = %88
   %91 = sext i32 %89 to i64
@@ -17743,7 +17743,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %64, %69, %76
   %94 = load i32, ptr %93, align 4, !noalias !157
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %93, align 4, !noalias !157
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.argprom.exit"
 
 96:                                               ; preds = %84
   %97 = landingpad { ptr, i32 }
@@ -17751,12 +17751,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %64, %69, %76
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEvE2id") #19, !noalias !157
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.exit": ; preds = %88, %90
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.argprom.exit": ; preds = %88, %90
   store i32 %89, ptr %3, align 4, !alias.scope !157
   %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %99 unwind label %1552
 
-99:                                               ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.exit"
+99:                                               ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.argprom.exit"
   store ptr @_ZN5Yosys13simplemap_posEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %98, align 8
   %100 = load i32, ptr %3, align 4
   %101 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -17810,7 +17810,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit49:              ; preds = %99, %104, %111
 123:                                              ; preds = %121, %117, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit49
   %124 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEvE2id", align 4, !noalias !160
   %.not.i.i.i50 = icmp eq i32 %124, 0
-  br i1 %.not.i.i.i50, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.exit", label %125
+  br i1 %.not.i.i.i50, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.argprom.exit", label %125
 
 125:                                              ; preds = %123
   %126 = sext i32 %124 to i64
@@ -17819,7 +17819,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit49:              ; preds = %99, %104, %111
   %129 = load i32, ptr %128, align 4, !noalias !160
   %130 = add nsw i32 %129, 1
   store i32 %130, ptr %128, align 4, !noalias !160
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.argprom.exit"
 
 131:                                              ; preds = %119
   %132 = landingpad { ptr, i32 }
@@ -17827,12 +17827,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit49:              ; preds = %99, %104, %111
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEvE2id") #19, !noalias !160
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.exit": ; preds = %123, %125
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.argprom.exit": ; preds = %123, %125
   store i32 %124, ptr %4, align 4, !alias.scope !160
   %133 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %134 unwind label %1554
 
-134:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.exit"
+134:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.argprom.exit"
   store ptr @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %133, align 8
   %135 = load i32, ptr %4, align 4
   %136 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -17886,7 +17886,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit53:              ; preds = %134, %139, %146
 158:                                              ; preds = %156, %152, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit53
   %159 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEvE2id", align 4, !noalias !163
   %.not.i.i.i54 = icmp eq i32 %159, 0
-  br i1 %.not.i.i.i54, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.exit", label %160
+  br i1 %.not.i.i.i54, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.argprom.exit", label %160
 
 160:                                              ; preds = %158
   %161 = sext i32 %159 to i64
@@ -17895,7 +17895,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit53:              ; preds = %134, %139, %146
   %164 = load i32, ptr %163, align 4, !noalias !163
   %165 = add nsw i32 %164, 1
   store i32 %165, ptr %163, align 4, !noalias !163
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.argprom.exit"
 
 166:                                              ; preds = %154
   %167 = landingpad { ptr, i32 }
@@ -17903,12 +17903,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit53:              ; preds = %134, %139, %146
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEvE2id") #19, !noalias !163
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.exit": ; preds = %158, %160
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.argprom.exit": ; preds = %158, %160
   store i32 %159, ptr %5, align 4, !alias.scope !163
   %168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %169 unwind label %1556
 
-169:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.exit"
+169:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.argprom.exit"
   store ptr @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %168, align 8
   %170 = load i32, ptr %5, align 4
   %171 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -17962,7 +17962,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit57:              ; preds = %169, %174, %181
 193:                                              ; preds = %191, %187, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit57
   %194 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEvE2id", align 4, !noalias !166
   %.not.i.i.i58 = icmp eq i32 %194, 0
-  br i1 %.not.i.i.i58, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.exit", label %195
+  br i1 %.not.i.i.i58, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.argprom.exit", label %195
 
 195:                                              ; preds = %193
   %196 = sext i32 %194 to i64
@@ -17971,7 +17971,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit57:              ; preds = %169, %174, %181
   %199 = load i32, ptr %198, align 4, !noalias !166
   %200 = add nsw i32 %199, 1
   store i32 %200, ptr %198, align 4, !noalias !166
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.argprom.exit"
 
 201:                                              ; preds = %189
   %202 = landingpad { ptr, i32 }
@@ -17979,12 +17979,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit57:              ; preds = %169, %174, %181
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEvE2id") #19, !noalias !166
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.exit": ; preds = %193, %195
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.argprom.exit": ; preds = %193, %195
   store i32 %194, ptr %6, align 4, !alias.scope !166
   %203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %204 unwind label %1558
 
-204:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.exit"
+204:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.argprom.exit"
   store ptr @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %203, align 8
   %205 = load i32, ptr %6, align 4
   %206 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18038,7 +18038,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit61:              ; preds = %204, %209, %216
 228:                                              ; preds = %226, %222, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit61
   %229 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEvE2id", align 4, !noalias !169
   %.not.i.i.i62 = icmp eq i32 %229, 0
-  br i1 %.not.i.i.i62, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.exit", label %230
+  br i1 %.not.i.i.i62, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.argprom.exit", label %230
 
 230:                                              ; preds = %228
   %231 = sext i32 %229 to i64
@@ -18047,7 +18047,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit61:              ; preds = %204, %209, %216
   %234 = load i32, ptr %233, align 4, !noalias !169
   %235 = add nsw i32 %234, 1
   store i32 %235, ptr %233, align 4, !noalias !169
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.argprom.exit"
 
 236:                                              ; preds = %224
   %237 = landingpad { ptr, i32 }
@@ -18055,12 +18055,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit61:              ; preds = %204, %209, %216
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEvE2id") #19, !noalias !169
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.exit": ; preds = %228, %230
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.argprom.exit": ; preds = %228, %230
   store i32 %229, ptr %7, align 4, !alias.scope !169
   %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %239 unwind label %1560
 
-239:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.exit"
+239:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.argprom.exit"
   store ptr @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %238, align 8
   %240 = load i32, ptr %7, align 4
   %241 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18114,7 +18114,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit65:              ; preds = %239, %244, %251
 263:                                              ; preds = %261, %257, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit65
   %264 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEvE2id", align 4, !noalias !172
   %.not.i.i.i66 = icmp eq i32 %264, 0
-  br i1 %.not.i.i.i66, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.exit", label %265
+  br i1 %.not.i.i.i66, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.argprom.exit", label %265
 
 265:                                              ; preds = %263
   %266 = sext i32 %264 to i64
@@ -18123,7 +18123,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit65:              ; preds = %239, %244, %251
   %269 = load i32, ptr %268, align 4, !noalias !172
   %270 = add nsw i32 %269, 1
   store i32 %270, ptr %268, align 4, !noalias !172
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.argprom.exit"
 
 271:                                              ; preds = %259
   %272 = landingpad { ptr, i32 }
@@ -18131,12 +18131,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit65:              ; preds = %239, %244, %251
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEvE2id") #19, !noalias !172
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.exit": ; preds = %263, %265
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.argprom.exit": ; preds = %263, %265
   store i32 %264, ptr %8, align 4, !alias.scope !172
   %273 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %274 unwind label %1562
 
-274:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.exit"
+274:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.argprom.exit"
   store ptr @_ZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %273, align 8
   %275 = load i32, ptr %8, align 4
   %276 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18190,7 +18190,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit69:              ; preds = %274, %279, %286
 298:                                              ; preds = %296, %292, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit69
   %299 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEvE2id", align 4, !noalias !175
   %.not.i.i.i70 = icmp eq i32 %299, 0
-  br i1 %.not.i.i.i70, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.exit", label %300
+  br i1 %.not.i.i.i70, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.argprom.exit", label %300
 
 300:                                              ; preds = %298
   %301 = sext i32 %299 to i64
@@ -18199,7 +18199,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit69:              ; preds = %274, %279, %286
   %304 = load i32, ptr %303, align 4, !noalias !175
   %305 = add nsw i32 %304, 1
   store i32 %305, ptr %303, align 4, !noalias !175
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.argprom.exit"
 
 306:                                              ; preds = %294
   %307 = landingpad { ptr, i32 }
@@ -18207,12 +18207,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit69:              ; preds = %274, %279, %286
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEvE2id") #19, !noalias !175
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.exit": ; preds = %298, %300
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.argprom.exit": ; preds = %298, %300
   store i32 %299, ptr %9, align 4, !alias.scope !175
   %308 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %309 unwind label %1564
 
-309:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.exit"
+309:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %308, align 8
   %310 = load i32, ptr %9, align 4
   %311 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18266,7 +18266,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit73:              ; preds = %309, %314, %321
 333:                                              ; preds = %331, %327, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit73
   %334 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEvE2id", align 4, !noalias !178
   %.not.i.i.i74 = icmp eq i32 %334, 0
-  br i1 %.not.i.i.i74, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.exit", label %335
+  br i1 %.not.i.i.i74, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.argprom.exit", label %335
 
 335:                                              ; preds = %333
   %336 = sext i32 %334 to i64
@@ -18275,7 +18275,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit73:              ; preds = %309, %314, %321
   %339 = load i32, ptr %338, align 4, !noalias !178
   %340 = add nsw i32 %339, 1
   store i32 %340, ptr %338, align 4, !noalias !178
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.argprom.exit"
 
 341:                                              ; preds = %329
   %342 = landingpad { ptr, i32 }
@@ -18283,12 +18283,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit73:              ; preds = %309, %314, %321
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEvE2id") #19, !noalias !178
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.exit": ; preds = %333, %335
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.argprom.exit": ; preds = %333, %335
   store i32 %334, ptr %10, align 4, !alias.scope !178
   %343 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %344 unwind label %1566
 
-344:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.exit"
+344:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %343, align 8
   %345 = load i32, ptr %10, align 4
   %346 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18342,7 +18342,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit77:              ; preds = %344, %349, %356
 368:                                              ; preds = %366, %362, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit77
   %369 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEvE2id", align 4, !noalias !181
   %.not.i.i.i78 = icmp eq i32 %369, 0
-  br i1 %.not.i.i.i78, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.exit", label %370
+  br i1 %.not.i.i.i78, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.argprom.exit", label %370
 
 370:                                              ; preds = %368
   %371 = sext i32 %369 to i64
@@ -18351,7 +18351,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit77:              ; preds = %344, %349, %356
   %374 = load i32, ptr %373, align 4, !noalias !181
   %375 = add nsw i32 %374, 1
   store i32 %375, ptr %373, align 4, !noalias !181
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.argprom.exit"
 
 376:                                              ; preds = %364
   %377 = landingpad { ptr, i32 }
@@ -18359,12 +18359,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit77:              ; preds = %344, %349, %356
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEvE2id") #19, !noalias !181
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.exit": ; preds = %368, %370
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.argprom.exit": ; preds = %368, %370
   store i32 %369, ptr %11, align 4, !alias.scope !181
   %378 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %379 unwind label %1568
 
-379:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.exit"
+379:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %378, align 8
   %380 = load i32, ptr %11, align 4
   %381 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18418,7 +18418,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit81:              ; preds = %379, %384, %391
 403:                                              ; preds = %401, %397, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit81
   %404 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEvE2id", align 4, !noalias !184
   %.not.i.i.i82 = icmp eq i32 %404, 0
-  br i1 %.not.i.i.i82, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.exit", label %405
+  br i1 %.not.i.i.i82, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.argprom.exit", label %405
 
 405:                                              ; preds = %403
   %406 = sext i32 %404 to i64
@@ -18427,7 +18427,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit81:              ; preds = %379, %384, %391
   %409 = load i32, ptr %408, align 4, !noalias !184
   %410 = add nsw i32 %409, 1
   store i32 %410, ptr %408, align 4, !noalias !184
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.argprom.exit"
 
 411:                                              ; preds = %399
   %412 = landingpad { ptr, i32 }
@@ -18435,12 +18435,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit81:              ; preds = %379, %384, %391
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEvE2id") #19, !noalias !184
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.exit": ; preds = %403, %405
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.argprom.exit": ; preds = %403, %405
   store i32 %404, ptr %12, align 4, !alias.scope !184
   %413 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %414 unwind label %1570
 
-414:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.exit"
+414:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %413, align 8
   %415 = load i32, ptr %12, align 4
   %416 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18494,7 +18494,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit85:              ; preds = %414, %419, %426
 438:                                              ; preds = %436, %432, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit85
   %439 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEvE2id", align 4, !noalias !187
   %.not.i.i.i86 = icmp eq i32 %439, 0
-  br i1 %.not.i.i.i86, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.exit", label %440
+  br i1 %.not.i.i.i86, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.argprom.exit", label %440
 
 440:                                              ; preds = %438
   %441 = sext i32 %439 to i64
@@ -18503,7 +18503,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit85:              ; preds = %414, %419, %426
   %444 = load i32, ptr %443, align 4, !noalias !187
   %445 = add nsw i32 %444, 1
   store i32 %445, ptr %443, align 4, !noalias !187
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.argprom.exit"
 
 446:                                              ; preds = %434
   %447 = landingpad { ptr, i32 }
@@ -18511,12 +18511,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit85:              ; preds = %414, %419, %426
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEvE2id") #19, !noalias !187
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.exit": ; preds = %438, %440
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.argprom.exit": ; preds = %438, %440
   store i32 %439, ptr %13, align 4, !alias.scope !187
   %448 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %449 unwind label %1572
 
-449:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.exit"
+449:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %448, align 8
   %450 = load i32, ptr %13, align 4
   %451 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18570,7 +18570,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit89:              ; preds = %449, %454, %461
 473:                                              ; preds = %471, %467, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit89
   %474 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEvE2id", align 4, !noalias !190
   %.not.i.i.i90 = icmp eq i32 %474, 0
-  br i1 %.not.i.i.i90, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.exit", label %475
+  br i1 %.not.i.i.i90, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.argprom.exit", label %475
 
 475:                                              ; preds = %473
   %476 = sext i32 %474 to i64
@@ -18579,7 +18579,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit89:              ; preds = %449, %454, %461
   %479 = load i32, ptr %478, align 4, !noalias !190
   %480 = add nsw i32 %479, 1
   store i32 %480, ptr %478, align 4, !noalias !190
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.argprom.exit"
 
 481:                                              ; preds = %469
   %482 = landingpad { ptr, i32 }
@@ -18587,12 +18587,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit89:              ; preds = %449, %454, %461
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEvE2id") #19, !noalias !190
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.exit": ; preds = %473, %475
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.argprom.exit": ; preds = %473, %475
   store i32 %474, ptr %14, align 4, !alias.scope !190
   %483 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %14)
           to label %484 unwind label %1574
 
-484:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.exit"
+484:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_lognotEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %483, align 8
   %485 = load i32, ptr %14, align 4
   %486 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18646,7 +18646,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit93:              ; preds = %484, %489, %496
 508:                                              ; preds = %506, %502, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit93
   %509 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEvE2id", align 4, !noalias !193
   %.not.i.i.i94 = icmp eq i32 %509, 0
-  br i1 %.not.i.i.i94, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.exit", label %510
+  br i1 %.not.i.i.i94, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.argprom.exit", label %510
 
 510:                                              ; preds = %508
   %511 = sext i32 %509 to i64
@@ -18655,7 +18655,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit93:              ; preds = %484, %489, %496
   %514 = load i32, ptr %513, align 4, !noalias !193
   %515 = add nsw i32 %514, 1
   store i32 %515, ptr %513, align 4, !noalias !193
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.argprom.exit"
 
 516:                                              ; preds = %504
   %517 = landingpad { ptr, i32 }
@@ -18663,12 +18663,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit93:              ; preds = %484, %489, %496
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEvE2id") #19, !noalias !193
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.exit": ; preds = %508, %510
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.argprom.exit": ; preds = %508, %510
   store i32 %509, ptr %15, align 4, !alias.scope !193
   %518 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %519 unwind label %1576
 
-519:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.exit"
+519:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %518, align 8
   %520 = load i32, ptr %15, align 4
   %521 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18722,7 +18722,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit97:              ; preds = %519, %524, %531
 543:                                              ; preds = %541, %537, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit97
   %544 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEvE2id", align 4, !noalias !196
   %.not.i.i.i98 = icmp eq i32 %544, 0
-  br i1 %.not.i.i.i98, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.exit", label %545
+  br i1 %.not.i.i.i98, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.argprom.exit", label %545
 
 545:                                              ; preds = %543
   %546 = sext i32 %544 to i64
@@ -18731,7 +18731,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit97:              ; preds = %519, %524, %531
   %549 = load i32, ptr %548, align 4, !noalias !196
   %550 = add nsw i32 %549, 1
   store i32 %550, ptr %548, align 4, !noalias !196
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.argprom.exit"
 
 551:                                              ; preds = %539
   %552 = landingpad { ptr, i32 }
@@ -18739,12 +18739,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit97:              ; preds = %519, %524, %531
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEvE2id") #19, !noalias !196
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.exit": ; preds = %543, %545
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.argprom.exit": ; preds = %543, %545
   store i32 %544, ptr %16, align 4, !alias.scope !196
   %553 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
           to label %554 unwind label %1578
 
-554:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.exit"
+554:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %553, align 8
   %555 = load i32, ptr %16, align 4
   %556 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18798,7 +18798,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit101:             ; preds = %554, %559, %566
 578:                                              ; preds = %576, %572, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit101
   %579 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEvE2id", align 4, !noalias !199
   %.not.i.i.i102 = icmp eq i32 %579, 0
-  br i1 %.not.i.i.i102, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.exit", label %580
+  br i1 %.not.i.i.i102, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.argprom.exit", label %580
 
 580:                                              ; preds = %578
   %581 = sext i32 %579 to i64
@@ -18807,7 +18807,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit101:             ; preds = %554, %559, %566
   %584 = load i32, ptr %583, align 4, !noalias !199
   %585 = add nsw i32 %584, 1
   store i32 %585, ptr %583, align 4, !noalias !199
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.argprom.exit"
 
 586:                                              ; preds = %574
   %587 = landingpad { ptr, i32 }
@@ -18815,12 +18815,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit101:             ; preds = %554, %559, %566
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEvE2id") #19, !noalias !199
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.exit": ; preds = %578, %580
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.argprom.exit": ; preds = %578, %580
   store i32 %579, ptr %17, align 4, !alias.scope !199
   %588 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %589 unwind label %1580
 
-589:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.exit"
+589:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.argprom.exit"
   store ptr @_ZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %588, align 8
   %590 = load i32, ptr %17, align 4
   %591 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18874,7 +18874,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit105:             ; preds = %589, %594, %601
 613:                                              ; preds = %611, %607, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit105
   %614 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEvE2id", align 4, !noalias !202
   %.not.i.i.i106 = icmp eq i32 %614, 0
-  br i1 %.not.i.i.i106, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.exit", label %615
+  br i1 %.not.i.i.i106, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.argprom.exit", label %615
 
 615:                                              ; preds = %613
   %616 = sext i32 %614 to i64
@@ -18883,7 +18883,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit105:             ; preds = %589, %594, %601
   %619 = load i32, ptr %618, align 4, !noalias !202
   %620 = add nsw i32 %619, 1
   store i32 %620, ptr %618, align 4, !noalias !202
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.argprom.exit"
 
 621:                                              ; preds = %609
   %622 = landingpad { ptr, i32 }
@@ -18891,12 +18891,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit105:             ; preds = %589, %594, %601
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEvE2id") #19, !noalias !202
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.exit": ; preds = %613, %615
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.argprom.exit": ; preds = %613, %615
   store i32 %614, ptr %18, align 4, !alias.scope !202
   %623 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %18)
           to label %624 unwind label %1582
 
-624:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.exit"
+624:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.argprom.exit"
   store ptr @_ZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %623, align 8
   %625 = load i32, ptr %18, align 4
   %626 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -18950,7 +18950,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %624, %629, %636
 648:                                              ; preds = %646, %642, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit109
   %649 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEvE2id", align 4, !noalias !205
   %.not.i.i.i110 = icmp eq i32 %649, 0
-  br i1 %.not.i.i.i110, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.exit", label %650
+  br i1 %.not.i.i.i110, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.argprom.exit", label %650
 
 650:                                              ; preds = %648
   %651 = sext i32 %649 to i64
@@ -18959,7 +18959,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %624, %629, %636
   %654 = load i32, ptr %653, align 4, !noalias !205
   %655 = add nsw i32 %654, 1
   store i32 %655, ptr %653, align 4, !noalias !205
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.argprom.exit"
 
 656:                                              ; preds = %644
   %657 = landingpad { ptr, i32 }
@@ -18967,12 +18967,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit109:             ; preds = %624, %629, %636
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEvE2id") #19, !noalias !205
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.exit": ; preds = %648, %650
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.argprom.exit": ; preds = %648, %650
   store i32 %649, ptr %19, align 4, !alias.scope !205
   %658 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %659 unwind label %1584
 
-659:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.exit"
+659:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.argprom.exit"
   store ptr @_ZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %658, align 8
   %660 = load i32, ptr %19, align 4
   %661 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19026,7 +19026,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit113:             ; preds = %659, %664, %671
 683:                                              ; preds = %681, %677, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit113
   %684 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEvE2id", align 4, !noalias !208
   %.not.i.i.i114 = icmp eq i32 %684, 0
-  br i1 %.not.i.i.i114, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.exit", label %685
+  br i1 %.not.i.i.i114, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.argprom.exit", label %685
 
 685:                                              ; preds = %683
   %686 = sext i32 %684 to i64
@@ -19035,7 +19035,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit113:             ; preds = %659, %664, %671
   %689 = load i32, ptr %688, align 4, !noalias !208
   %690 = add nsw i32 %689, 1
   store i32 %690, ptr %688, align 4, !noalias !208
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.argprom.exit"
 
 691:                                              ; preds = %679
   %692 = landingpad { ptr, i32 }
@@ -19043,12 +19043,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit113:             ; preds = %659, %664, %671
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEvE2id") #19, !noalias !208
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.exit": ; preds = %683, %685
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.argprom.exit": ; preds = %683, %685
   store i32 %684, ptr %20, align 4, !alias.scope !208
   %693 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %20)
           to label %694 unwind label %1586
 
-694:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.exit"
+694:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.argprom.exit"
   store ptr @_ZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %693, align 8
   %695 = load i32, ptr %20, align 4
   %696 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19102,7 +19102,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit117:             ; preds = %694, %699, %706
 718:                                              ; preds = %716, %712, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit117
   %719 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEvE2id", align 4, !noalias !211
   %.not.i.i.i118 = icmp eq i32 %719, 0
-  br i1 %.not.i.i.i118, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.exit", label %720
+  br i1 %.not.i.i.i118, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.argprom.exit", label %720
 
 720:                                              ; preds = %718
   %721 = sext i32 %719 to i64
@@ -19111,7 +19111,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit117:             ; preds = %694, %699, %706
   %724 = load i32, ptr %723, align 4, !noalias !211
   %725 = add nsw i32 %724, 1
   store i32 %725, ptr %723, align 4, !noalias !211
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.argprom.exit"
 
 726:                                              ; preds = %714
   %727 = landingpad { ptr, i32 }
@@ -19119,12 +19119,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit117:             ; preds = %694, %699, %706
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEvE2id") #19, !noalias !211
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.exit": ; preds = %718, %720
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.argprom.exit": ; preds = %718, %720
   store i32 %719, ptr %21, align 4, !alias.scope !211
   %728 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %21)
           to label %729 unwind label %1588
 
-729:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.exit"
+729:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.argprom.exit"
   store ptr @_ZN5Yosys13simplemap_muxEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %728, align 8
   %730 = load i32, ptr %21, align 4
   %731 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19178,7 +19178,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit121:             ; preds = %729, %734, %741
 753:                                              ; preds = %751, %747, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit121
   %754 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEvE2id", align 4, !noalias !214
   %.not.i.i.i122 = icmp eq i32 %754, 0
-  br i1 %.not.i.i.i122, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.exit", label %755
+  br i1 %.not.i.i.i122, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.argprom.exit", label %755
 
 755:                                              ; preds = %753
   %756 = sext i32 %754 to i64
@@ -19187,7 +19187,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit121:             ; preds = %729, %734, %741
   %759 = load i32, ptr %758, align 4, !noalias !214
   %760 = add nsw i32 %759, 1
   store i32 %760, ptr %758, align 4, !noalias !214
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.argprom.exit"
 
 761:                                              ; preds = %749
   %762 = landingpad { ptr, i32 }
@@ -19195,12 +19195,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit121:             ; preds = %729, %734, %741
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEvE2id") #19, !noalias !214
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.exit": ; preds = %753, %755
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.argprom.exit": ; preds = %753, %755
   store i32 %754, ptr %22, align 4, !alias.scope !214
   %763 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %22)
           to label %764 unwind label %1590
 
-764:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.exit"
+764:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.argprom.exit"
   store ptr @_ZN5Yosys15simplemap_bwmuxEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %763, align 8
   %765 = load i32, ptr %22, align 4
   %766 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19254,7 +19254,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit125:             ; preds = %764, %769, %776
 788:                                              ; preds = %786, %782, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit125
   %789 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEvE2id", align 4, !noalias !217
   %.not.i.i.i126 = icmp eq i32 %789, 0
-  br i1 %.not.i.i.i126, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.exit", label %790
+  br i1 %.not.i.i.i126, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.argprom.exit", label %790
 
 790:                                              ; preds = %788
   %791 = sext i32 %789 to i64
@@ -19263,7 +19263,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit125:             ; preds = %764, %769, %776
   %794 = load i32, ptr %793, align 4, !noalias !217
   %795 = add nsw i32 %794, 1
   store i32 %795, ptr %793, align 4, !noalias !217
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.argprom.exit"
 
 796:                                              ; preds = %784
   %797 = landingpad { ptr, i32 }
@@ -19271,12 +19271,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit125:             ; preds = %764, %769, %776
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEvE2id") #19, !noalias !217
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.exit": ; preds = %788, %790
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.argprom.exit": ; preds = %788, %790
   store i32 %789, ptr %23, align 4, !alias.scope !217
   %798 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %23)
           to label %799 unwind label %1592
 
-799:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.exit"
+799:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_tribufEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %798, align 8
   %800 = load i32, ptr %23, align 4
   %801 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19330,7 +19330,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit129:             ; preds = %799, %804, %811
 823:                                              ; preds = %821, %817, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit129
   %824 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEvE2id", align 4, !noalias !220
   %.not.i.i.i130 = icmp eq i32 %824, 0
-  br i1 %.not.i.i.i130, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.exit", label %825
+  br i1 %.not.i.i.i130, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.argprom.exit", label %825
 
 825:                                              ; preds = %823
   %826 = sext i32 %824 to i64
@@ -19339,7 +19339,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit129:             ; preds = %799, %804, %811
   %829 = load i32, ptr %828, align 4, !noalias !220
   %830 = add nsw i32 %829, 1
   store i32 %830, ptr %828, align 4, !noalias !220
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.argprom.exit"
 
 831:                                              ; preds = %819
   %832 = landingpad { ptr, i32 }
@@ -19347,12 +19347,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit129:             ; preds = %799, %804, %811
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEvE2id") #19, !noalias !220
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.exit": ; preds = %823, %825
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.argprom.exit": ; preds = %823, %825
   store i32 %824, ptr %24, align 4, !alias.scope !220
   %833 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %24)
           to label %834 unwind label %1594
 
-834:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.exit"
+834:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.argprom.exit"
   store ptr @_ZN5Yosys14simplemap_bmuxEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %833, align 8
   %835 = load i32, ptr %24, align 4
   %836 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19406,7 +19406,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit133:             ; preds = %834, %839, %846
 858:                                              ; preds = %856, %852, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit133
   %859 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEvE2id", align 4, !noalias !223
   %.not.i.i.i134 = icmp eq i32 %859, 0
-  br i1 %.not.i.i.i134, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.exit", label %860
+  br i1 %.not.i.i.i134, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.argprom.exit", label %860
 
 860:                                              ; preds = %858
   %861 = sext i32 %859 to i64
@@ -19415,7 +19415,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit133:             ; preds = %834, %839, %846
   %864 = load i32, ptr %863, align 4, !noalias !223
   %865 = add nsw i32 %864, 1
   store i32 %865, ptr %863, align 4, !noalias !223
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.argprom.exit"
 
 866:                                              ; preds = %854
   %867 = landingpad { ptr, i32 }
@@ -19423,12 +19423,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit133:             ; preds = %834, %839, %846
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEvE2id") #19, !noalias !223
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.exit": ; preds = %858, %860
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.argprom.exit": ; preds = %858, %860
   store i32 %859, ptr %25, align 4, !alias.scope !223
   %868 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %25)
           to label %869 unwind label %1596
 
-869:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.exit"
+869:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.argprom.exit"
   store ptr @_ZN5Yosys13simplemap_lutEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %868, align 8
   %870 = load i32, ptr %25, align 4
   %871 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19482,7 +19482,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit137:             ; preds = %869, %874, %881
 893:                                              ; preds = %891, %887, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit137
   %894 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEvE2id", align 4, !noalias !226
   %.not.i.i.i138 = icmp eq i32 %894, 0
-  br i1 %.not.i.i.i138, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.exit", label %895
+  br i1 %.not.i.i.i138, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.argprom.exit", label %895
 
 895:                                              ; preds = %893
   %896 = sext i32 %894 to i64
@@ -19491,7 +19491,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit137:             ; preds = %869, %874, %881
   %899 = load i32, ptr %898, align 4, !noalias !226
   %900 = add nsw i32 %899, 1
   store i32 %900, ptr %898, align 4, !noalias !226
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.argprom.exit"
 
 901:                                              ; preds = %889
   %902 = landingpad { ptr, i32 }
@@ -19499,12 +19499,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit137:             ; preds = %869, %874, %881
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEvE2id") #19, !noalias !226
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.exit": ; preds = %893, %895
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.argprom.exit": ; preds = %893, %895
   store i32 %894, ptr %26, align 4, !alias.scope !226
   %903 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %904 unwind label %1598
 
-904:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.exit"
+904:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.argprom.exit"
   store ptr @_ZN5Yosys13simplemap_sopEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %903, align 8
   %905 = load i32, ptr %26, align 4
   %906 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19558,7 +19558,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit141:             ; preds = %904, %909, %916
 928:                                              ; preds = %926, %922, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit141
   %929 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEvE2id", align 4, !noalias !229
   %.not.i.i.i142 = icmp eq i32 %929, 0
-  br i1 %.not.i.i.i142, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.exit", label %930
+  br i1 %.not.i.i.i142, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.argprom.exit", label %930
 
 930:                                              ; preds = %928
   %931 = sext i32 %929 to i64
@@ -19567,7 +19567,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit141:             ; preds = %904, %909, %916
   %934 = load i32, ptr %933, align 4, !noalias !229
   %935 = add nsw i32 %934, 1
   store i32 %935, ptr %933, align 4, !noalias !229
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.argprom.exit"
 
 936:                                              ; preds = %924
   %937 = landingpad { ptr, i32 }
@@ -19575,12 +19575,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit141:             ; preds = %904, %909, %916
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEvE2id") #19, !noalias !229
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.exit": ; preds = %928, %930
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.argprom.exit": ; preds = %928, %930
   store i32 %929, ptr %27, align 4, !alias.scope !229
   %938 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %27)
           to label %939 unwind label %1600
 
-939:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.exit"
+939:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.argprom.exit"
   store ptr @_ZN5Yosys15simplemap_sliceEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %938, align 8
   %940 = load i32, ptr %27, align 4
   %941 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19634,7 +19634,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit145:             ; preds = %939, %944, %951
 963:                                              ; preds = %961, %957, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit145
   %964 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEvE2id", align 4, !noalias !232
   %.not.i.i.i146 = icmp eq i32 %964, 0
-  br i1 %.not.i.i.i146, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.exit", label %965
+  br i1 %.not.i.i.i146, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.argprom.exit", label %965
 
 965:                                              ; preds = %963
   %966 = sext i32 %964 to i64
@@ -19643,7 +19643,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit145:             ; preds = %939, %944, %951
   %969 = load i32, ptr %968, align 4, !noalias !232
   %970 = add nsw i32 %969, 1
   store i32 %970, ptr %968, align 4, !noalias !232
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.argprom.exit"
 
 971:                                              ; preds = %959
   %972 = landingpad { ptr, i32 }
@@ -19651,12 +19651,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit145:             ; preds = %939, %944, %951
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEvE2id") #19, !noalias !232
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.exit": ; preds = %963, %965
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.argprom.exit": ; preds = %963, %965
   store i32 %964, ptr %28, align 4, !alias.scope !232
   %973 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %28)
           to label %974 unwind label %1602
 
-974:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.exit"
+974:                                              ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.argprom.exit"
   store ptr @_ZN5Yosys16simplemap_concatEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %973, align 8
   %975 = load i32, ptr %28, align 4
   %976 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19710,7 +19710,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %974, %979, %986
 998:                                              ; preds = %996, %992, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit149
   %999 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEvE2id", align 4, !noalias !235
   %.not.i.i.i150 = icmp eq i32 %999, 0
-  br i1 %.not.i.i.i150, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.exit", label %1000
+  br i1 %.not.i.i.i150, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.argprom.exit", label %1000
 
 1000:                                             ; preds = %998
   %1001 = sext i32 %999 to i64
@@ -19719,7 +19719,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %974, %979, %986
   %1004 = load i32, ptr %1003, align 4, !noalias !235
   %1005 = add nsw i32 %1004, 1
   store i32 %1005, ptr %1003, align 4, !noalias !235
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.argprom.exit"
 
 1006:                                             ; preds = %994
   %1007 = landingpad { ptr, i32 }
@@ -19727,12 +19727,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %974, %979, %986
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEvE2id") #19, !noalias !235
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.exit": ; preds = %998, %1000
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.argprom.exit": ; preds = %998, %1000
   store i32 %999, ptr %29, align 4, !alias.scope !235
   %1008 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %29)
           to label %1009 unwind label %1604
 
-1009:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.exit"
+1009:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1008, align 8
   %1010 = load i32, ptr %29, align 4
   %1011 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19786,7 +19786,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit153:             ; preds = %1009, %1014, %1021
 1033:                                             ; preds = %1031, %1027, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit153
   %1034 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEvE2id", align 4, !noalias !238
   %.not.i.i.i154 = icmp eq i32 %1034, 0
-  br i1 %.not.i.i.i154, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.exit", label %1035
+  br i1 %.not.i.i.i154, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.argprom.exit", label %1035
 
 1035:                                             ; preds = %1033
   %1036 = sext i32 %1034 to i64
@@ -19795,7 +19795,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit153:             ; preds = %1009, %1014, %1021
   %1039 = load i32, ptr %1038, align 4, !noalias !238
   %1040 = add nsw i32 %1039, 1
   store i32 %1040, ptr %1038, align 4, !noalias !238
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.argprom.exit"
 
 1041:                                             ; preds = %1029
   %1042 = landingpad { ptr, i32 }
@@ -19803,12 +19803,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit153:             ; preds = %1009, %1014, %1021
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEvE2id") #19, !noalias !238
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.exit": ; preds = %1033, %1035
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.argprom.exit": ; preds = %1033, %1035
   store i32 %1034, ptr %30, align 4, !alias.scope !238
   %1043 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %30)
           to label %1044 unwind label %1606
 
-1044:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.exit"
+1044:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1043, align 8
   %1045 = load i32, ptr %30, align 4
   %1046 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19862,7 +19862,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit157:             ; preds = %1044, %1049, %1056
 1068:                                             ; preds = %1066, %1062, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit157
   %1069 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEvE2id", align 4, !noalias !241
   %.not.i.i.i158 = icmp eq i32 %1069, 0
-  br i1 %.not.i.i.i158, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.exit", label %1070
+  br i1 %.not.i.i.i158, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.argprom.exit", label %1070
 
 1070:                                             ; preds = %1068
   %1071 = sext i32 %1069 to i64
@@ -19871,7 +19871,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit157:             ; preds = %1044, %1049, %1056
   %1074 = load i32, ptr %1073, align 4, !noalias !241
   %1075 = add nsw i32 %1074, 1
   store i32 %1075, ptr %1073, align 4, !noalias !241
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.argprom.exit"
 
 1076:                                             ; preds = %1064
   %1077 = landingpad { ptr, i32 }
@@ -19879,12 +19879,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit157:             ; preds = %1044, %1049, %1056
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEvE2id") #19, !noalias !241
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.exit": ; preds = %1068, %1070
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.argprom.exit": ; preds = %1068, %1070
   store i32 %1069, ptr %31, align 4, !alias.scope !241
   %1078 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %31)
           to label %1079 unwind label %1608
 
-1079:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.exit"
+1079:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1078, align 8
   %1080 = load i32, ptr %31, align 4
   %1081 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -19938,7 +19938,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit161:             ; preds = %1079, %1084, %1091
 1103:                                             ; preds = %1101, %1097, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit161
   %1104 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEvE2id", align 4, !noalias !244
   %.not.i.i.i162 = icmp eq i32 %1104, 0
-  br i1 %.not.i.i.i162, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.exit", label %1105
+  br i1 %.not.i.i.i162, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.argprom.exit", label %1105
 
 1105:                                             ; preds = %1103
   %1106 = sext i32 %1104 to i64
@@ -19947,7 +19947,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit161:             ; preds = %1079, %1084, %1091
   %1109 = load i32, ptr %1108, align 4, !noalias !244
   %1110 = add nsw i32 %1109, 1
   store i32 %1110, ptr %1108, align 4, !noalias !244
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.argprom.exit"
 
 1111:                                             ; preds = %1099
   %1112 = landingpad { ptr, i32 }
@@ -19955,12 +19955,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit161:             ; preds = %1079, %1084, %1091
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEvE2id") #19, !noalias !244
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.exit": ; preds = %1103, %1105
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.argprom.exit": ; preds = %1103, %1105
   store i32 %1104, ptr %32, align 4, !alias.scope !244
   %1113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %32)
           to label %1114 unwind label %1610
 
-1114:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.exit"
+1114:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1113, align 8
   %1115 = load i32, ptr %32, align 4
   %1116 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20014,7 +20014,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit165:             ; preds = %1114, %1119, %1126
 1138:                                             ; preds = %1136, %1132, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit165
   %1139 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEvE2id", align 4, !noalias !247
   %.not.i.i.i166 = icmp eq i32 %1139, 0
-  br i1 %.not.i.i.i166, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.exit", label %1140
+  br i1 %.not.i.i.i166, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.argprom.exit", label %1140
 
 1140:                                             ; preds = %1138
   %1141 = sext i32 %1139 to i64
@@ -20023,7 +20023,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit165:             ; preds = %1114, %1119, %1126
   %1144 = load i32, ptr %1143, align 4, !noalias !247
   %1145 = add nsw i32 %1144, 1
   store i32 %1145, ptr %1143, align 4, !noalias !247
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.argprom.exit"
 
 1146:                                             ; preds = %1134
   %1147 = landingpad { ptr, i32 }
@@ -20031,12 +20031,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit165:             ; preds = %1114, %1119, %1126
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEvE2id") #19, !noalias !247
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.exit": ; preds = %1138, %1140
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.argprom.exit": ; preds = %1138, %1140
   store i32 %1139, ptr %33, align 4, !alias.scope !247
   %1148 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %33)
           to label %1149 unwind label %1612
 
-1149:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.exit"
+1149:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1148, align 8
   %1150 = load i32, ptr %33, align 4
   %1151 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20090,7 +20090,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit169:             ; preds = %1149, %1154, %1161
 1173:                                             ; preds = %1171, %1167, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit169
   %1174 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEvE2id", align 4, !noalias !250
   %.not.i.i.i170 = icmp eq i32 %1174, 0
-  br i1 %.not.i.i.i170, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.exit", label %1175
+  br i1 %.not.i.i.i170, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.argprom.exit", label %1175
 
 1175:                                             ; preds = %1173
   %1176 = sext i32 %1174 to i64
@@ -20099,7 +20099,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit169:             ; preds = %1149, %1154, %1161
   %1179 = load i32, ptr %1178, align 4, !noalias !250
   %1180 = add nsw i32 %1179, 1
   store i32 %1180, ptr %1178, align 4, !noalias !250
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.argprom.exit"
 
 1181:                                             ; preds = %1169
   %1182 = landingpad { ptr, i32 }
@@ -20107,12 +20107,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit169:             ; preds = %1149, %1154, %1161
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEvE2id") #19, !noalias !250
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.exit": ; preds = %1173, %1175
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.argprom.exit": ; preds = %1173, %1175
   store i32 %1174, ptr %34, align 4, !alias.scope !250
   %1183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %34)
           to label %1184 unwind label %1614
 
-1184:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.exit"
+1184:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1183, align 8
   %1185 = load i32, ptr %34, align 4
   %1186 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20166,7 +20166,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit173:             ; preds = %1184, %1189, %1196
 1208:                                             ; preds = %1206, %1202, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit173
   %1209 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEvE2id", align 4, !noalias !253
   %.not.i.i.i174 = icmp eq i32 %1209, 0
-  br i1 %.not.i.i.i174, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.exit", label %1210
+  br i1 %.not.i.i.i174, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.argprom.exit", label %1210
 
 1210:                                             ; preds = %1208
   %1211 = sext i32 %1209 to i64
@@ -20175,7 +20175,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit173:             ; preds = %1184, %1189, %1196
   %1214 = load i32, ptr %1213, align 4, !noalias !253
   %1215 = add nsw i32 %1214, 1
   store i32 %1215, ptr %1213, align 4, !noalias !253
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.argprom.exit"
 
 1216:                                             ; preds = %1204
   %1217 = landingpad { ptr, i32 }
@@ -20183,12 +20183,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit173:             ; preds = %1184, %1189, %1196
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEvE2id") #19, !noalias !253
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.exit": ; preds = %1208, %1210
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.argprom.exit": ; preds = %1208, %1210
   store i32 %1209, ptr %35, align 4, !alias.scope !253
   %1218 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %35)
           to label %1219 unwind label %1616
 
-1219:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.exit"
+1219:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1218, align 8
   %1220 = load i32, ptr %35, align 4
   %1221 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20242,7 +20242,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit177:             ; preds = %1219, %1224, %1231
 1243:                                             ; preds = %1241, %1237, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit177
   %1244 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEvE2id", align 4, !noalias !256
   %.not.i.i.i178 = icmp eq i32 %1244, 0
-  br i1 %.not.i.i.i178, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.exit", label %1245
+  br i1 %.not.i.i.i178, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.argprom.exit", label %1245
 
 1245:                                             ; preds = %1243
   %1246 = sext i32 %1244 to i64
@@ -20251,7 +20251,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit177:             ; preds = %1219, %1224, %1231
   %1249 = load i32, ptr %1248, align 4, !noalias !256
   %1250 = add nsw i32 %1249, 1
   store i32 %1250, ptr %1248, align 4, !noalias !256
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.argprom.exit"
 
 1251:                                             ; preds = %1239
   %1252 = landingpad { ptr, i32 }
@@ -20259,12 +20259,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit177:             ; preds = %1219, %1224, %1231
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEvE2id") #19, !noalias !256
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.exit": ; preds = %1243, %1245
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.argprom.exit": ; preds = %1243, %1245
   store i32 %1244, ptr %36, align 4, !alias.scope !256
   %1253 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %36)
           to label %1254 unwind label %1618
 
-1254:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.exit"
+1254:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1253, align 8
   %1255 = load i32, ptr %36, align 4
   %1256 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20318,7 +20318,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit181:             ; preds = %1254, %1259, %1266
 1278:                                             ; preds = %1276, %1272, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit181
   %1279 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEvE2id", align 4, !noalias !259
   %.not.i.i.i182 = icmp eq i32 %1279, 0
-  br i1 %.not.i.i.i182, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.exit", label %1280
+  br i1 %.not.i.i.i182, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.argprom.exit", label %1280
 
 1280:                                             ; preds = %1278
   %1281 = sext i32 %1279 to i64
@@ -20327,7 +20327,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit181:             ; preds = %1254, %1259, %1266
   %1284 = load i32, ptr %1283, align 4, !noalias !259
   %1285 = add nsw i32 %1284, 1
   store i32 %1285, ptr %1283, align 4, !noalias !259
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.argprom.exit"
 
 1286:                                             ; preds = %1274
   %1287 = landingpad { ptr, i32 }
@@ -20335,12 +20335,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit181:             ; preds = %1254, %1259, %1266
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEvE2id") #19, !noalias !259
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.exit": ; preds = %1278, %1280
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.argprom.exit": ; preds = %1278, %1280
   store i32 %1279, ptr %37, align 4, !alias.scope !259
   %1288 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %37)
           to label %1289 unwind label %1620
 
-1289:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.exit"
+1289:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1288, align 8
   %1290 = load i32, ptr %37, align 4
   %1291 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20394,7 +20394,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit185:             ; preds = %1289, %1294, %1301
 1313:                                             ; preds = %1311, %1307, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit185
   %1314 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEvE2id", align 4, !noalias !262
   %.not.i.i.i186 = icmp eq i32 %1314, 0
-  br i1 %.not.i.i.i186, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.exit", label %1315
+  br i1 %.not.i.i.i186, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.argprom.exit", label %1315
 
 1315:                                             ; preds = %1313
   %1316 = sext i32 %1314 to i64
@@ -20403,7 +20403,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit185:             ; preds = %1289, %1294, %1301
   %1319 = load i32, ptr %1318, align 4, !noalias !262
   %1320 = add nsw i32 %1319, 1
   store i32 %1320, ptr %1318, align 4, !noalias !262
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.argprom.exit"
 
 1321:                                             ; preds = %1309
   %1322 = landingpad { ptr, i32 }
@@ -20411,12 +20411,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit185:             ; preds = %1289, %1294, %1301
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEvE2id") #19, !noalias !262
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.exit": ; preds = %1313, %1315
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.argprom.exit": ; preds = %1313, %1315
   store i32 %1314, ptr %38, align 4, !alias.scope !262
   %1323 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %38)
           to label %1324 unwind label %1622
 
-1324:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.exit"
+1324:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1323, align 8
   %1325 = load i32, ptr %38, align 4
   %1326 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20470,7 +20470,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit189:             ; preds = %1324, %1329, %1336
 1348:                                             ; preds = %1346, %1342, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit189
   %1349 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEvE2id", align 4, !noalias !265
   %.not.i.i.i190 = icmp eq i32 %1349, 0
-  br i1 %.not.i.i.i190, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.exit", label %1350
+  br i1 %.not.i.i.i190, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.argprom.exit", label %1350
 
 1350:                                             ; preds = %1348
   %1351 = sext i32 %1349 to i64
@@ -20479,7 +20479,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit189:             ; preds = %1324, %1329, %1336
   %1354 = load i32, ptr %1353, align 4, !noalias !265
   %1355 = add nsw i32 %1354, 1
   store i32 %1355, ptr %1353, align 4, !noalias !265
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.argprom.exit"
 
 1356:                                             ; preds = %1344
   %1357 = landingpad { ptr, i32 }
@@ -20487,12 +20487,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit189:             ; preds = %1324, %1329, %1336
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEvE2id") #19, !noalias !265
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.exit": ; preds = %1348, %1350
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.argprom.exit": ; preds = %1348, %1350
   store i32 %1349, ptr %39, align 4, !alias.scope !265
   %1358 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %39)
           to label %1359 unwind label %1624
 
-1359:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.exit"
+1359:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1358, align 8
   %1360 = load i32, ptr %39, align 4
   %1361 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20546,7 +20546,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit193:             ; preds = %1359, %1364, %1371
 1383:                                             ; preds = %1381, %1377, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit193
   %1384 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEvE2id", align 4, !noalias !268
   %.not.i.i.i194 = icmp eq i32 %1384, 0
-  br i1 %.not.i.i.i194, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.exit", label %1385
+  br i1 %.not.i.i.i194, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.argprom.exit", label %1385
 
 1385:                                             ; preds = %1383
   %1386 = sext i32 %1384 to i64
@@ -20555,7 +20555,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit193:             ; preds = %1359, %1364, %1371
   %1389 = load i32, ptr %1388, align 4, !noalias !268
   %1390 = add nsw i32 %1389, 1
   store i32 %1390, ptr %1388, align 4, !noalias !268
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.argprom.exit"
 
 1391:                                             ; preds = %1379
   %1392 = landingpad { ptr, i32 }
@@ -20563,12 +20563,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit193:             ; preds = %1359, %1364, %1371
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEvE2id") #19, !noalias !268
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.exit": ; preds = %1383, %1385
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.argprom.exit": ; preds = %1383, %1385
   store i32 %1384, ptr %40, align 4, !alias.scope !268
   %1393 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %40)
           to label %1394 unwind label %1626
 
-1394:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.exit"
+1394:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1393, align 8
   %1395 = load i32, ptr %40, align 4
   %1396 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20622,7 +20622,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit197:             ; preds = %1394, %1399, %1406
 1418:                                             ; preds = %1416, %1412, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit197
   %1419 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEvE2id", align 4, !noalias !271
   %.not.i.i.i198 = icmp eq i32 %1419, 0
-  br i1 %.not.i.i.i198, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.exit", label %1420
+  br i1 %.not.i.i.i198, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.argprom.exit", label %1420
 
 1420:                                             ; preds = %1418
   %1421 = sext i32 %1419 to i64
@@ -20631,7 +20631,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit197:             ; preds = %1394, %1399, %1406
   %1424 = load i32, ptr %1423, align 4, !noalias !271
   %1425 = add nsw i32 %1424, 1
   store i32 %1425, ptr %1423, align 4, !noalias !271
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.argprom.exit"
 
 1426:                                             ; preds = %1414
   %1427 = landingpad { ptr, i32 }
@@ -20639,12 +20639,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit197:             ; preds = %1394, %1399, %1406
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEvE2id") #19, !noalias !271
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.exit": ; preds = %1418, %1420
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.argprom.exit": ; preds = %1418, %1420
   store i32 %1419, ptr %41, align 4, !alias.scope !271
   %1428 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %41)
           to label %1429 unwind label %1628
 
-1429:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.exit"
+1429:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1428, align 8
   %1430 = load i32, ptr %41, align 4
   %1431 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20698,7 +20698,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit201:             ; preds = %1429, %1434, %1441
 1453:                                             ; preds = %1451, %1447, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit201
   %1454 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEvE2id", align 4, !noalias !274
   %.not.i.i.i202 = icmp eq i32 %1454, 0
-  br i1 %.not.i.i.i202, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.exit", label %1455
+  br i1 %.not.i.i.i202, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.argprom.exit", label %1455
 
 1455:                                             ; preds = %1453
   %1456 = sext i32 %1454 to i64
@@ -20707,7 +20707,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit201:             ; preds = %1429, %1434, %1441
   %1459 = load i32, ptr %1458, align 4, !noalias !274
   %1460 = add nsw i32 %1459, 1
   store i32 %1460, ptr %1458, align 4, !noalias !274
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.argprom.exit"
 
 1461:                                             ; preds = %1449
   %1462 = landingpad { ptr, i32 }
@@ -20715,12 +20715,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit201:             ; preds = %1429, %1434, %1441
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEvE2id") #19, !noalias !274
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.exit": ; preds = %1453, %1455
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.argprom.exit": ; preds = %1453, %1455
   store i32 %1454, ptr %42, align 4, !alias.scope !274
   %1463 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %42)
           to label %1464 unwind label %1630
 
-1464:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.exit"
+1464:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1463, align 8
   %1465 = load i32, ptr %42, align 4
   %1466 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20774,7 +20774,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %1464, %1469, %1476
 1488:                                             ; preds = %1486, %1482, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit205
   %1489 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEvE2id", align 4, !noalias !277
   %.not.i.i.i206 = icmp eq i32 %1489, 0
-  br i1 %.not.i.i.i206, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.exit", label %1490
+  br i1 %.not.i.i.i206, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.argprom.exit", label %1490
 
 1490:                                             ; preds = %1488
   %1491 = sext i32 %1489 to i64
@@ -20783,7 +20783,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %1464, %1469, %1476
   %1494 = load i32, ptr %1493, align 4, !noalias !277
   %1495 = add nsw i32 %1494, 1
   store i32 %1495, ptr %1493, align 4, !noalias !277
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.argprom.exit"
 
 1496:                                             ; preds = %1484
   %1497 = landingpad { ptr, i32 }
@@ -20791,12 +20791,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %1464, %1469, %1476
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEvE2id") #19, !noalias !277
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.exit": ; preds = %1488, %1490
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.argprom.exit": ; preds = %1488, %1490
   store i32 %1489, ptr %43, align 4, !alias.scope !277
   %1498 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %43)
           to label %1499 unwind label %1632
 
-1499:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.exit"
+1499:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1498, align 8
   %1500 = load i32, ptr %43, align 4
   %1501 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20850,7 +20850,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit209:             ; preds = %1499, %1504, %1511
 1523:                                             ; preds = %1521, %1517, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit209
   %1524 = load i32, ptr @"_ZZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEvE2id", align 4, !noalias !280
   %.not.i.i.i210 = icmp eq i32 %1524, 0
-  br i1 %.not.i.i.i210, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.exit", label %1525
+  br i1 %.not.i.i.i210, label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.argprom.exit", label %1525
 
 1525:                                             ; preds = %1523
   %1526 = sext i32 %1524 to i64
@@ -20859,7 +20859,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit209:             ; preds = %1499, %1504, %1511
   %1529 = load i32, ptr %1528, align 4, !noalias !280
   %1530 = add nsw i32 %1529, 1
   store i32 %1530, ptr %1528, align 4, !noalias !280
-  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.exit"
+  br label %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.argprom.exit"
 
 1531:                                             ; preds = %1519
   %1532 = landingpad { ptr, i32 }
@@ -20867,12 +20867,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit209:             ; preds = %1499, %1504, %1511
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEvE2id") #19, !noalias !280
   br label %common.resume
 
-"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.exit": ; preds = %1523, %1525
+"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.argprom.exit": ; preds = %1523, %1525
   store i32 %1524, ptr %44, align 4, !alias.scope !280
   %1533 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %44)
           to label %1534 unwind label %1634
 
-1534:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.exit"
+1534:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.argprom.exit"
   store ptr @_ZN5Yosys12simplemap_ffEPNS_5RTLIL6ModuleEPNS0_4CellE, ptr %1533, align 8
   %1535 = load i32, ptr %44, align 4
   %1536 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -20905,259 +20905,259 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit209:             ; preds = %1499, %1504, %1511
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit213:             ; preds = %1534, %1539, %1546
   ret void
 
-1550:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.exit"
+1550:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.argprom.exit"
   %1551 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #19
   br label %common.resume
 
-1552:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.exit"
+1552:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.argprom.exit"
   %1553 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
   br label %common.resume
 
-1554:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.exit"
+1554:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.argprom.exit"
   %1555 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #19
   br label %common.resume
 
-1556:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.exit"
+1556:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.argprom.exit"
   %1557 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #19
   br label %common.resume
 
-1558:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.exit"
+1558:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.argprom.exit"
   %1559 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #19
   br label %common.resume
 
-1560:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.exit"
+1560:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.argprom.exit"
   %1561 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #19
   br label %common.resume
 
-1562:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.exit"
+1562:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.argprom.exit"
   %1563 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #19
   br label %common.resume
 
-1564:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.exit"
+1564:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.argprom.exit"
   %1565 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #19
   br label %common.resume
 
-1566:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.exit"
+1566:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.argprom.exit"
   %1567 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #19
   br label %common.resume
 
-1568:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.exit"
+1568:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.argprom.exit"
   %1569 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #19
   br label %common.resume
 
-1570:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.exit"
+1570:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.argprom.exit"
   %1571 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #19
   br label %common.resume
 
-1572:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.exit"
+1572:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.argprom.exit"
   %1573 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #19
   br label %common.resume
 
-1574:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.exit"
+1574:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.argprom.exit"
   %1575 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %14) #19
   br label %common.resume
 
-1576:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.exit"
+1576:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.argprom.exit"
   %1577 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %15) #19
   br label %common.resume
 
-1578:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.exit"
+1578:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.argprom.exit"
   %1579 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %16) #19
   br label %common.resume
 
-1580:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.exit"
+1580:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.argprom.exit"
   %1581 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17) #19
   br label %common.resume
 
-1582:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.exit"
+1582:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.argprom.exit"
   %1583 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %18) #19
   br label %common.resume
 
-1584:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.exit"
+1584:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.argprom.exit"
   %1585 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %19) #19
   br label %common.resume
 
-1586:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.exit"
+1586:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.argprom.exit"
   %1587 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %20) #19
   br label %common.resume
 
-1588:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.exit"
+1588:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.argprom.exit"
   %1589 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #19
   br label %common.resume
 
-1590:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.exit"
+1590:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.argprom.exit"
   %1591 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #19
   br label %common.resume
 
-1592:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.exit"
+1592:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.argprom.exit"
   %1593 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #19
   br label %common.resume
 
-1594:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.exit"
+1594:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.argprom.exit"
   %1595 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #19
   br label %common.resume
 
-1596:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.exit"
+1596:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.argprom.exit"
   %1597 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %25) #19
   br label %common.resume
 
-1598:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.exit"
+1598:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.argprom.exit"
   %1599 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %26) #19
   br label %common.resume
 
-1600:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.exit"
+1600:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.argprom.exit"
   %1601 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %27) #19
   br label %common.resume
 
-1602:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.exit"
+1602:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.argprom.exit"
   %1603 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %28) #19
   br label %common.resume
 
-1604:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.exit"
+1604:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.argprom.exit"
   %1605 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %29) #19
   br label %common.resume
 
-1606:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.exit"
+1606:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.argprom.exit"
   %1607 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %30) #19
   br label %common.resume
 
-1608:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.exit"
+1608:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.argprom.exit"
   %1609 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %31) #19
   br label %common.resume
 
-1610:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.exit"
+1610:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.argprom.exit"
   %1611 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %32) #19
   br label %common.resume
 
-1612:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.exit"
+1612:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.argprom.exit"
   %1613 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %33) #19
   br label %common.resume
 
-1614:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.exit"
+1614:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.argprom.exit"
   %1615 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %34) #19
   br label %common.resume
 
-1616:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.exit"
+1616:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.argprom.exit"
   %1617 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %35) #19
   br label %common.resume
 
-1618:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.exit"
+1618:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.argprom.exit"
   %1619 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %36) #19
   br label %common.resume
 
-1620:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.exit"
+1620:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.argprom.exit"
   %1621 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %37) #19
   br label %common.resume
 
-1622:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.exit"
+1622:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.argprom.exit"
   %1623 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %38) #19
   br label %common.resume
 
-1624:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.exit"
+1624:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.argprom.exit"
   %1625 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %39) #19
   br label %common.resume
 
-1626:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.exit"
+1626:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.argprom.exit"
   %1627 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %40) #19
   br label %common.resume
 
-1628:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.exit"
+1628:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.argprom.exit"
   %1629 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %41) #19
   br label %common.resume
 
-1630:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.exit"
+1630:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.argprom.exit"
   %1631 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %42) #19
   br label %common.resume
 
-1632:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.exit"
+1632:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.argprom.exit"
   %1633 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %43) #19
   br label %common.resume
 
-1634:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.exit"
+1634:                                             ; preds = %"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.argprom.exit"
   %1635 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %44) #19
@@ -24974,7 +24974,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash
   %219 = icmp sgt i32 %218, -1
   br i1 %219, label %211, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread76, !llvm.loop !283
 
-.loopexit:                                        ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit, %229, %286, %289, %222, %225, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %251, %148
+.loopexit:                                        ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit, %229, %286, %289, %222, %225, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %251, %148
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -25004,17 +25004,17 @@ _ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleENS0_4CellEEEbPT_PT0_.exit: ; preds 
 
 225:                                              ; preds = %_ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleENS0_4CellEEEbPT_PT0_.exit
   %226 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %78)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %225
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %225
   %227 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %223)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit unwind label %.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit
   %228 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %95)
           to label %229 unwind label %.loopexit
 
-229:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
+229:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.73, ptr noundef %226, ptr noundef %227, ptr noundef %228)
           to label %230 unwind label %.loopexit
 
@@ -27286,8 +27286,8 @@ attributes #23 = { builtin allocsize(0) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZZN5Yosys13simplemap_notEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!8 = distinct !{!8, !"_ZZN5Yosys13simplemap_notEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!7 = distinct !{!7, !8, !"_ZZN5Yosys13simplemap_notEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!8 = distinct !{!8, !"_ZZN5Yosys13simplemap_notEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !9 = !{!"branch_weights", i32 1, i32 1048575}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
@@ -27295,273 +27295,273 @@ attributes #23 = { builtin allocsize(0) }
 !13 = distinct !{!13, !11}
 !14 = distinct !{!14, !11}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!17 = distinct !{!17, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!16 = distinct !{!16, !17, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!17 = distinct !{!17, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv: argument 0"}
-!20 = distinct !{!20, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv"}
+!19 = distinct !{!19, !20, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv: argument 0"}
-!23 = distinct !{!23, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv"}
+!22 = distinct !{!22, !23, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom: argument 0"}
+!23 = distinct !{!23, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom"}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv: argument 0"}
-!26 = distinct !{!26, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv"}
+!25 = distinct !{!25, !26, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom: argument 0"}
+!26 = distinct !{!26, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv: argument 0"}
-!29 = distinct !{!29, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv"}
+!28 = distinct !{!28, !29, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom: argument 0"}
+!29 = distinct !{!29, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv: argument 0"}
-!32 = distinct !{!32, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv"}
+!31 = distinct !{!31, !32, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom: argument 0"}
+!32 = distinct !{!32, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom"}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEv: argument 0"}
-!35 = distinct !{!35, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEv"}
+!34 = distinct !{!34, !35, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEv.argprom: argument 0"}
+!35 = distinct !{!35, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEv.argprom"}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv: argument 0"}
-!38 = distinct !{!38, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv"}
+!37 = distinct !{!37, !38, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom: argument 0"}
+!38 = distinct !{!38, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEv: argument 0"}
-!41 = distinct !{!41, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEv"}
+!40 = distinct !{!40, !41, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEv.argprom: argument 0"}
+!41 = distinct !{!41, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEv.argprom"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv: argument 0"}
-!44 = distinct !{!44, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv"}
+!43 = distinct !{!43, !44, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom: argument 0"}
+!44 = distinct !{!44, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEv: argument 0"}
-!47 = distinct !{!47, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEv"}
+!46 = distinct !{!46, !47, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEv.argprom: argument 0"}
+!47 = distinct !{!47, !"_ZZN5Yosys15simplemap_bitopEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEv.argprom"}
 !48 = distinct !{!48, !11}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!51 = distinct !{!51, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!50 = distinct !{!50, !51, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!51 = distinct !{!51, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv: argument 0"}
-!54 = distinct !{!54, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv"}
+!53 = distinct !{!53, !54, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom: argument 0"}
+!54 = distinct !{!54, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom"}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv: argument 0"}
-!57 = distinct !{!57, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv"}
+!56 = distinct !{!56, !57, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom: argument 0"}
+!57 = distinct !{!57, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv: argument 0"}
-!60 = distinct !{!60, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv"}
+!59 = distinct !{!59, !60, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom: argument 0"}
+!60 = distinct !{!60, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv: argument 0"}
-!63 = distinct !{!63, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv"}
+!62 = distinct !{!62, !63, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom: argument 0"}
+!63 = distinct !{!63, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_4clEv.argprom"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv: argument 0"}
-!66 = distinct !{!66, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv"}
+!65 = distinct !{!65, !66, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom: argument 0"}
+!66 = distinct !{!66, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_5clEv.argprom"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEv: argument 0"}
-!69 = distinct !{!69, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEv"}
+!68 = distinct !{!68, !69, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEv.argprom: argument 0"}
+!69 = distinct !{!69, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_6clEv.argprom"}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv: argument 0"}
-!72 = distinct !{!72, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv"}
+!71 = distinct !{!71, !72, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom: argument 0"}
+!72 = distinct !{!72, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_7clEv.argprom"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEv: argument 0"}
-!75 = distinct !{!75, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEv"}
+!74 = distinct !{!74, !75, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEv.argprom: argument 0"}
+!75 = distinct !{!75, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_8clEv.argprom"}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv: argument 0"}
-!78 = distinct !{!78, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv"}
+!77 = distinct !{!77, !78, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom: argument 0"}
+!78 = distinct !{!78, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_9clEv.argprom"}
 !79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEv: argument 0"}
-!81 = distinct !{!81, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEv"}
+!80 = distinct !{!80, !81, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEv.argprom: argument 0"}
+!81 = distinct !{!81, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_10clEv.argprom"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv: argument 0"}
-!84 = distinct !{!84, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv"}
+!83 = distinct !{!83, !84, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom: argument 0"}
+!84 = distinct !{!84, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_11clEv.argprom"}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_12clEv: argument 0"}
-!87 = distinct !{!87, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_12clEv"}
+!86 = distinct !{!86, !87, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_12clEv.argprom: argument 0"}
+!87 = distinct !{!87, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_12clEv.argprom"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv: argument 0"}
-!90 = distinct !{!90, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv"}
+!89 = distinct !{!89, !90, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom: argument 0"}
+!90 = distinct !{!90, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_13clEv.argprom"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_14clEv: argument 0"}
-!93 = distinct !{!93, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_14clEv"}
+!92 = distinct !{!92, !93, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_14clEv.argprom: argument 0"}
+!93 = distinct !{!93, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_14clEv.argprom"}
 !94 = distinct !{!94, !11}
 !95 = distinct !{!95, !11}
 !96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv: argument 0"}
-!98 = distinct !{!98, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv"}
+!97 = distinct !{!97, !98, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom: argument 0"}
+!98 = distinct !{!98, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_15clEv.argprom"}
 !99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_16clEv: argument 0"}
-!101 = distinct !{!101, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_16clEv"}
+!100 = distinct !{!100, !101, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_16clEv.argprom: argument 0"}
+!101 = distinct !{!101, !"_ZZN5Yosys16simplemap_reduceEPNS_5RTLIL6ModuleEPNS0_4CellEENK4$_16clEv.argprom"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZZN5Yosys16simplemap_lognotEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!104 = distinct !{!104, !"_ZZN5Yosys16simplemap_lognotEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!103 = distinct !{!103, !104, !"_ZZN5Yosys16simplemap_lognotEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!104 = distinct !{!104, !"_ZZN5Yosys16simplemap_lognotEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZZN5YosysL12logic_reduceEPNS_5RTLIL6ModuleERNS0_7SigSpecEPNS0_4CellEENK3$_0clEv: argument 0"}
-!107 = distinct !{!107, !"_ZZN5YosysL12logic_reduceEPNS_5RTLIL6ModuleERNS0_7SigSpecEPNS0_4CellEENK3$_0clEv"}
+!106 = distinct !{!106, !107, !"_ZZN5YosysL12logic_reduceEPNS_5RTLIL6ModuleERNS0_7SigSpecEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!107 = distinct !{!107, !"_ZZN5YosysL12logic_reduceEPNS_5RTLIL6ModuleERNS0_7SigSpecEPNS0_4CellEENK3$_0clEv.argprom"}
 !108 = distinct !{!108, !11}
 !109 = distinct !{!109, !11}
 !110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!112 = distinct !{!112, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!111 = distinct !{!111, !112, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!112 = distinct !{!112, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv: argument 0"}
-!115 = distinct !{!115, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv"}
+!114 = distinct !{!114, !115, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom: argument 0"}
+!115 = distinct !{!115, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv: argument 0"}
-!118 = distinct !{!118, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv"}
+!117 = distinct !{!117, !118, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom: argument 0"}
+!118 = distinct !{!118, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_2clEv.argprom"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv: argument 0"}
-!121 = distinct !{!121, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv"}
+!120 = distinct !{!120, !121, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom: argument 0"}
+!121 = distinct !{!121, !"_ZZN5Yosys16simplemap_logbinEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_3clEv.argprom"}
 !122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!124 = distinct !{!124, !"_ZZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!123 = distinct !{!123, !124, !"_ZZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!124 = distinct !{!124, !"_ZZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv: argument 0"}
-!127 = distinct !{!127, !"_ZZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv"}
+!126 = distinct !{!126, !127, !"_ZZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom: argument 0"}
+!127 = distinct !{!127, !"_ZZN5Yosys14simplemap_eqneEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_1clEv.argprom"}
 !128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZZN5Yosys13simplemap_muxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!130 = distinct !{!130, !"_ZZN5Yosys13simplemap_muxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!129 = distinct !{!129, !130, !"_ZZN5Yosys13simplemap_muxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!130 = distinct !{!130, !"_ZZN5Yosys13simplemap_muxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !131 = distinct !{!131, !11}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZZN5Yosys15simplemap_bwmuxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!134 = distinct !{!134, !"_ZZN5Yosys15simplemap_bwmuxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!133 = distinct !{!133, !134, !"_ZZN5Yosys15simplemap_bwmuxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!134 = distinct !{!134, !"_ZZN5Yosys15simplemap_bwmuxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !135 = distinct !{!135, !11}
 !136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZZN5Yosys16simplemap_tribufEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!138 = distinct !{!138, !"_ZZN5Yosys16simplemap_tribufEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!137 = distinct !{!137, !138, !"_ZZN5Yosys16simplemap_tribufEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!138 = distinct !{!138, !"_ZZN5Yosys16simplemap_tribufEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !139 = distinct !{!139, !11}
 !140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZZN5Yosys14simplemap_bmuxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!142 = distinct !{!142, !"_ZZN5Yosys14simplemap_bmuxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!141 = distinct !{!141, !142, !"_ZZN5Yosys14simplemap_bmuxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!142 = distinct !{!142, !"_ZZN5Yosys14simplemap_bmuxEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !143 = distinct !{!143, !11}
 !144 = distinct !{!144, !11}
 !145 = distinct !{!145, !11}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZZN5Yosys13simplemap_lutEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv: argument 0"}
-!148 = distinct !{!148, !"_ZZN5Yosys13simplemap_lutEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv"}
+!147 = distinct !{!147, !148, !"_ZZN5Yosys13simplemap_lutEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom: argument 0"}
+!148 = distinct !{!148, !"_ZZN5Yosys13simplemap_lutEPNS_5RTLIL6ModuleEPNS0_4CellEENK3$_0clEv.argprom"}
 !149 = distinct !{!149, !11}
 !150 = distinct !{!150, !11}
 !151 = distinct !{!151, !11}
 !152 = distinct !{!152, !11}
 !153 = distinct !{!153, !11}
 !154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv: argument 0"}
-!156 = distinct !{!156, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv"}
+!155 = distinct !{!155, !156, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.argprom: argument 0"}
+!156 = distinct !{!156, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_0clEv.argprom"}
 !157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv: argument 0"}
-!159 = distinct !{!159, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv"}
+!158 = distinct !{!158, !159, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.argprom: argument 0"}
+!159 = distinct !{!159, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_1clEv.argprom"}
 !160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv: argument 0"}
-!162 = distinct !{!162, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv"}
+!161 = distinct !{!161, !162, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.argprom: argument 0"}
+!162 = distinct !{!162, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_2clEv.argprom"}
 !163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv: argument 0"}
-!165 = distinct !{!165, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv"}
+!164 = distinct !{!164, !165, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.argprom: argument 0"}
+!165 = distinct !{!165, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_3clEv.argprom"}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv: argument 0"}
-!168 = distinct !{!168, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv"}
+!167 = distinct !{!167, !168, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.argprom: argument 0"}
+!168 = distinct !{!168, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_4clEv.argprom"}
 !169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv: argument 0"}
-!171 = distinct !{!171, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv"}
+!170 = distinct !{!170, !171, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.argprom: argument 0"}
+!171 = distinct !{!171, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_5clEv.argprom"}
 !172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv: argument 0"}
-!174 = distinct !{!174, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv"}
+!173 = distinct !{!173, !174, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.argprom: argument 0"}
+!174 = distinct !{!174, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_6clEv.argprom"}
 !175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv: argument 0"}
-!177 = distinct !{!177, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv"}
+!176 = distinct !{!176, !177, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.argprom: argument 0"}
+!177 = distinct !{!177, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_7clEv.argprom"}
 !178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv: argument 0"}
-!180 = distinct !{!180, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv"}
+!179 = distinct !{!179, !180, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.argprom: argument 0"}
+!180 = distinct !{!180, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_8clEv.argprom"}
 !181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv: argument 0"}
-!183 = distinct !{!183, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv"}
+!182 = distinct !{!182, !183, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.argprom: argument 0"}
+!183 = distinct !{!183, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK3$_9clEv.argprom"}
 !184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv: argument 0"}
-!186 = distinct !{!186, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv"}
+!185 = distinct !{!185, !186, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.argprom: argument 0"}
+!186 = distinct !{!186, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_10clEv.argprom"}
 !187 = !{!188}
-!188 = distinct !{!188, !189, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv: argument 0"}
-!189 = distinct !{!189, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv"}
+!188 = distinct !{!188, !189, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.argprom: argument 0"}
+!189 = distinct !{!189, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_11clEv.argprom"}
 !190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv: argument 0"}
-!192 = distinct !{!192, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv"}
+!191 = distinct !{!191, !192, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.argprom: argument 0"}
+!192 = distinct !{!192, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_12clEv.argprom"}
 !193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv: argument 0"}
-!195 = distinct !{!195, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv"}
+!194 = distinct !{!194, !195, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.argprom: argument 0"}
+!195 = distinct !{!195, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_13clEv.argprom"}
 !196 = !{!197}
-!197 = distinct !{!197, !198, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv: argument 0"}
-!198 = distinct !{!198, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv"}
+!197 = distinct !{!197, !198, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.argprom: argument 0"}
+!198 = distinct !{!198, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_14clEv.argprom"}
 !199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv: argument 0"}
-!201 = distinct !{!201, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv"}
+!200 = distinct !{!200, !201, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.argprom: argument 0"}
+!201 = distinct !{!201, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_15clEv.argprom"}
 !202 = !{!203}
-!203 = distinct !{!203, !204, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv: argument 0"}
-!204 = distinct !{!204, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv"}
+!203 = distinct !{!203, !204, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.argprom: argument 0"}
+!204 = distinct !{!204, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_16clEv.argprom"}
 !205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv: argument 0"}
-!207 = distinct !{!207, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv"}
+!206 = distinct !{!206, !207, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.argprom: argument 0"}
+!207 = distinct !{!207, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_17clEv.argprom"}
 !208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv: argument 0"}
-!210 = distinct !{!210, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv"}
+!209 = distinct !{!209, !210, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.argprom: argument 0"}
+!210 = distinct !{!210, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_18clEv.argprom"}
 !211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv: argument 0"}
-!213 = distinct !{!213, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv"}
+!212 = distinct !{!212, !213, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.argprom: argument 0"}
+!213 = distinct !{!213, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_19clEv.argprom"}
 !214 = !{!215}
-!215 = distinct !{!215, !216, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv: argument 0"}
-!216 = distinct !{!216, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv"}
+!215 = distinct !{!215, !216, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.argprom: argument 0"}
+!216 = distinct !{!216, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_20clEv.argprom"}
 !217 = !{!218}
-!218 = distinct !{!218, !219, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv: argument 0"}
-!219 = distinct !{!219, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv"}
+!218 = distinct !{!218, !219, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.argprom: argument 0"}
+!219 = distinct !{!219, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_21clEv.argprom"}
 !220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv: argument 0"}
-!222 = distinct !{!222, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv"}
+!221 = distinct !{!221, !222, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.argprom: argument 0"}
+!222 = distinct !{!222, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_22clEv.argprom"}
 !223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv: argument 0"}
-!225 = distinct !{!225, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv"}
+!224 = distinct !{!224, !225, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.argprom: argument 0"}
+!225 = distinct !{!225, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_23clEv.argprom"}
 !226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv: argument 0"}
-!228 = distinct !{!228, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv"}
+!227 = distinct !{!227, !228, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.argprom: argument 0"}
+!228 = distinct !{!228, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_24clEv.argprom"}
 !229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv: argument 0"}
-!231 = distinct !{!231, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv"}
+!230 = distinct !{!230, !231, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.argprom: argument 0"}
+!231 = distinct !{!231, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_25clEv.argprom"}
 !232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv: argument 0"}
-!234 = distinct !{!234, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv"}
+!233 = distinct !{!233, !234, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.argprom: argument 0"}
+!234 = distinct !{!234, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_26clEv.argprom"}
 !235 = !{!236}
-!236 = distinct !{!236, !237, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv: argument 0"}
-!237 = distinct !{!237, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv"}
+!236 = distinct !{!236, !237, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.argprom: argument 0"}
+!237 = distinct !{!237, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_27clEv.argprom"}
 !238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv: argument 0"}
-!240 = distinct !{!240, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv"}
+!239 = distinct !{!239, !240, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.argprom: argument 0"}
+!240 = distinct !{!240, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_28clEv.argprom"}
 !241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv: argument 0"}
-!243 = distinct !{!243, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv"}
+!242 = distinct !{!242, !243, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.argprom: argument 0"}
+!243 = distinct !{!243, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_29clEv.argprom"}
 !244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv: argument 0"}
-!246 = distinct !{!246, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv"}
+!245 = distinct !{!245, !246, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.argprom: argument 0"}
+!246 = distinct !{!246, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_30clEv.argprom"}
 !247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv: argument 0"}
-!249 = distinct !{!249, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv"}
+!248 = distinct !{!248, !249, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.argprom: argument 0"}
+!249 = distinct !{!249, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_31clEv.argprom"}
 !250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv: argument 0"}
-!252 = distinct !{!252, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv"}
+!251 = distinct !{!251, !252, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.argprom: argument 0"}
+!252 = distinct !{!252, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_32clEv.argprom"}
 !253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv: argument 0"}
-!255 = distinct !{!255, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv"}
+!254 = distinct !{!254, !255, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.argprom: argument 0"}
+!255 = distinct !{!255, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_33clEv.argprom"}
 !256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv: argument 0"}
-!258 = distinct !{!258, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv"}
+!257 = distinct !{!257, !258, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.argprom: argument 0"}
+!258 = distinct !{!258, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_34clEv.argprom"}
 !259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv: argument 0"}
-!261 = distinct !{!261, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv"}
+!260 = distinct !{!260, !261, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.argprom: argument 0"}
+!261 = distinct !{!261, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_35clEv.argprom"}
 !262 = !{!263}
-!263 = distinct !{!263, !264, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv: argument 0"}
-!264 = distinct !{!264, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv"}
+!263 = distinct !{!263, !264, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.argprom: argument 0"}
+!264 = distinct !{!264, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_36clEv.argprom"}
 !265 = !{!266}
-!266 = distinct !{!266, !267, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv: argument 0"}
-!267 = distinct !{!267, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv"}
+!266 = distinct !{!266, !267, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.argprom: argument 0"}
+!267 = distinct !{!267, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_37clEv.argprom"}
 !268 = !{!269}
-!269 = distinct !{!269, !270, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv: argument 0"}
-!270 = distinct !{!270, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv"}
+!269 = distinct !{!269, !270, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.argprom: argument 0"}
+!270 = distinct !{!270, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_38clEv.argprom"}
 !271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv: argument 0"}
-!273 = distinct !{!273, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv"}
+!272 = distinct !{!272, !273, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.argprom: argument 0"}
+!273 = distinct !{!273, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_39clEv.argprom"}
 !274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv: argument 0"}
-!276 = distinct !{!276, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv"}
+!275 = distinct !{!275, !276, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.argprom: argument 0"}
+!276 = distinct !{!276, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_40clEv.argprom"}
 !277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv: argument 0"}
-!279 = distinct !{!279, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv"}
+!278 = distinct !{!278, !279, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.argprom: argument 0"}
+!279 = distinct !{!279, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_41clEv.argprom"}
 !280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv: argument 0"}
-!282 = distinct !{!282, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv"}
+!281 = distinct !{!281, !282, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.argprom: argument 0"}
+!282 = distinct !{!282, !"_ZZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEEENK4$_42clEv.argprom"}
 !283 = distinct !{!283, !11}
 !284 = distinct !{!284, !11}
 !285 = distinct !{!285, !11}

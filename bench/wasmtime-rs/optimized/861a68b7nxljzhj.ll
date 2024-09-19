@@ -60,7 +60,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %.sroa.2.248..sroa_idx = getelementptr inbounds i8, ptr %.sroa.2, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.2.248..sroa_idx, i64 96, i1 false)
   invoke void @"_ZN4core3ptr53drop_in_place$LT$cranelift_isle..trie_again..Rule$GT$17hedc76a28840a8d2aE"(ptr nonnull align 8 %4)
-          to label %"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.exit" unwind label %6, !noalias !7
+          to label %"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.argprom.exit" unwind label %6, !noalias !7
 
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
@@ -78,7 +78,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 11:                                               ; preds = %6
   resume { ptr, i32 } %7
 
-"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.exit": ; preds = %3
+"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.argprom.exit": ; preds = %3
   %12 = getelementptr inbounds i8, ptr %4, i64 216
   call void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..UnreachableError$GT$$GT$17h7ee8afb1a2703abfE"(ptr nonnull align 8 %12), !noalias !7
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4)
@@ -752,8 +752,8 @@ attributes #15 = { noreturn }
 !5 = !{i64 1}
 !6 = !{i8 -1, i8 3}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E: argument 0"}
-!9 = distinct !{!9, !"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E"}
+!8 = distinct !{!8, !9, !"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.argprom: argument 0"}
+!9 = distinct !{!9, !"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.argprom"}
 !10 = !{i64 16}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{i64 8}

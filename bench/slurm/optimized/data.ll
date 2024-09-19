@@ -949,12 +949,12 @@ _new_data_list_node.exit.i:                       ; preds = %23, %20, %data_new.
   %36 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %37 = and i64 %36, 256
   %.not20.i = icmp eq i64 %37, 0
-  br i1 %.not20.i, label %_data_list_prepend.exit, label %38
+  br i1 %.not20.i, label %_data_list_prepend.argprom.exit, label %38
 
 38:                                               ; preds = %32
   %39 = tail call i32 @get_log_level() #16
   %40 = icmp sgt i32 %39, 3
-  br i1 %40, label %41, label %_data_list_prepend.exit
+  br i1 %40, label %41, label %_data_list_prepend.argprom.exit
 
 41:                                               ; preds = %38
   %42 = ptrtoint ptr %16 to i64
@@ -962,15 +962,15 @@ _new_data_list_node.exit.i:                       ; preds = %23, %20, %data_new.
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %17, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef nonnull @__func__._data_list_prepend, ptr noundef nonnull %6, ptr noundef null, i64 noundef %42, ptr noundef %44, ptr noundef %45) #16
-  br label %_data_list_prepend.exit
+  br label %_data_list_prepend.argprom.exit
 
-_data_list_prepend.exit:                          ; preds = %32, %38, %41
+_data_list_prepend.argprom.exit:                  ; preds = %32, %38, %41
   %46 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %47 = and i64 %46, 256
   %.not12 = icmp eq i64 %47, 0
   br i1 %.not12, label %55, label %48
 
-48:                                               ; preds = %_data_list_prepend.exit
+48:                                               ; preds = %_data_list_prepend.argprom.exit
   %49 = tail call i32 @get_log_level() #16
   %50 = icmp sgt i32 %49, 3
   br i1 %50, label %51, label %55
@@ -982,8 +982,8 @@ _data_list_prepend.exit:                          ; preds = %32, %38, %41
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.data_list_prepend, ptr noundef nonnull %0, i64 noundef %54, ptr noundef nonnull %6) #16
   br label %55
 
-55:                                               ; preds = %51, %48, %_data_list_prepend.exit, %1, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ %6, %_data_list_prepend.exit ], [ %6, %48 ], [ %6, %51 ]
+55:                                               ; preds = %51, %48, %_data_list_prepend.argprom.exit, %1, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ %6, %_data_list_prepend.argprom.exit ], [ %6, %48 ], [ %6, %51 ]
   ret ptr %.0
 }
 

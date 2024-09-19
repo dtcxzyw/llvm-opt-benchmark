@@ -746,16 +746,16 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 4
   %20 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i = icmp eq i32 %20, 0
-  br i1 %cmp.i, label %if.then4.i, label %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
+  br i1 %cmp.i, label %if.then4.i, label %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit"
 
 if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   call void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %retval.0.i.i, i1 noundef zeroext true) #21
   %.pre.i = load ptr, ptr %buffer_.i.i.i.i, align 8
   %arrayidx.i.i.i5.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 4
   %.pre2.i = load i32, ptr %arrayidx.i.i.i5.phi.trans.insert.i, align 4
-  br label %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
+  br label %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit"
 
-"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then4.i
+"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then4.i
   %21 = phi i32 [ %20, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre2.i, %if.then4.i ]
   %22 = phi ptr [ %19, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre.i, %if.then4.i ]
   %arrayidx.i.i.i5.i = getelementptr inbounds i8, ptr %22, i64 4
@@ -763,7 +763,7 @@ if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN
   store i32 %add.i.i.i, ptr %arrayidx.i.i.i5.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit", %land.lhs.true, %entry
+if.end:                                           ; preds = %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit", %land.lhs.true, %entry
   ret void
 }
 
@@ -1136,7 +1136,7 @@ do.end18.i:                                       ; preds = %do.body8.i
   %last_exception.i = getelementptr inbounds i8, ptr %retval.0.i11, i64 24
   %51 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i15 = icmp eq ptr %51, null
-  br i1 %cmp.i.i15, label %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.exit", label %if.end.i49.i
+  br i1 %cmp.i.i15, label %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.argprom.exit", label %if.end.i49.i
 
 if.end.i49.i:                                     ; preds = %do.end18.i
   %isolate.i = getelementptr inbounds i8, ptr %retval.0.i11, i64 8
@@ -1161,24 +1161,24 @@ if.end.i3.i:                                      ; preds = %_ZN10napi_env__23te
 _ZN10napi_env__11HandleThrowEPS_N2v85LocalINS1_5ValueEEE.exit.i: ; preds = %if.end.i3.i, %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i, %if.end.i49.i
   %57 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i18 = icmp eq ptr %57, null
-  br i1 %cmp.i.i.i18, label %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.exit", label %if.end.i.i19
+  br i1 %cmp.i.i.i18, label %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.argprom.exit", label %if.end.i.i19
 
 if.end.i.i19:                                     ; preds = %_ZN10napi_env__11HandleThrowEPS_N2v85LocalINS1_5ValueEEE.exit.i
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %57) #21
   store ptr null, ptr %last_exception.i, align 8
-  br label %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.exit"
+  br label %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.argprom.exit"
 
-"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.exit": ; preds = %do.end18.i, %_ZN10napi_env__11HandleThrowEPS_N2v85LocalINS1_5ValueEEE.exit.i, %if.end.i.i19
+"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.argprom.exit": ; preds = %do.end18.i, %_ZN10napi_env__11HandleThrowEPS_N2v85LocalINS1_5ValueEEE.exit.i, %if.end.i.i19
   %cmp75.not = icmp eq ptr %call8.i.i, null
   %cmp86.not = icmp eq ptr %call8.i.i, %exports.coerce
   %or.cond = select i1 %cmp75.not, i1 true, i1 %cmp86.not
   br i1 %or.cond, label %cleanup, label %if.then87
 
-if.then87:                                        ; preds = %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.exit"
+if.then87:                                        ; preds = %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.argprom.exit"
   %call93 = call i32 @napi_set_named_property(ptr noundef nonnull %retval.0.i11, ptr noundef nonnull %module.coerce, ptr noundef nonnull @.str.8, ptr noundef nonnull %call8.i.i) #21
   br label %cleanup
 
-cleanup:                                          ; preds = %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.exit", %if.then87, %_ZN4node11Environment10ThrowErrorEPKc.exit
+cleanup:                                          ; preds = %"_ZN10napi_env__14CallIntoModuleIZ30napi_module_register_by_symbolN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPFP12napi_value__PS_SA_EiE3$_0FvSB_S6_EEEvOT_OT0_.argprom.exit", %if.then87, %_ZN4node11Environment10ThrowErrorEPKc.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %module_filename) #21
   ret void
 }
@@ -1786,17 +1786,17 @@ do.end5:                                          ; preds = %do.body1
   %1 = getelementptr i8, ptr %async_context.val.i.i, i64 16
   %async_context.val.val.i.i = load ptr, ptr %1, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %async_context.val.val.i.i, null
-  br i1 %cmp.i.i.i.i.i.i.i, label %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge.i.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge.i.i, label %if.end.i.i.i.i.i.i
 
-entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge.i.i: ; preds = %do.end5
+entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge.i.i: ; preds = %do.end5
   %.pre.i.i = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i
+  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %do.end5
   %call5.i.i.i.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %async_context.val.val.i.i) #21
   %cmp.i.i.i.i.i.i = icmp ult i32 %call5.i.i.i.i.i.i, 40
   %.pre20.i.i = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i.i, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i
 
 _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i
   %2 = load i64, ptr %async_context.val.val.i.i, align 8
@@ -1808,18 +1808,18 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %cmp12.not.i.i.i.i.i.i = icmp eq ptr %.pre20.i.i, %7
-  br i1 %cmp12.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i
+  br i1 %cmp12.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i
   %sub.i.i.i.i.i.i = add i64 %4, 271
   %8 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i
+  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i.i
 
-_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i: ; preds = %if.end.i.i.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i, %if.end.i.i.i.i.i.i, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge.i.i
-  %11 = phi ptr [ %.pre20.i.i, %if.end.i.i.i.i.i ], [ %.pre20.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i ], [ %.pre.i.i, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge.i.i ], [ %.pre20.i.i, %if.end.i.i.i.i.i.i ]
-  %retval.0.i.i.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i ], [ null, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge.i.i ], [ null, %if.end.i.i.i.i.i.i ]
+_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i.i: ; preds = %if.end.i.i.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i, %if.end.i.i.i.i.i.i, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge.i.i
+  %11 = phi ptr [ %.pre20.i.i, %if.end.i.i.i.i.i ], [ %.pre20.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i ], [ %.pre.i.i, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge.i.i ], [ %.pre20.i.i, %if.end.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i.i ], [ null, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge.i.i ], [ null, %if.end.i.i.i.i.i.i ]
   %resource_.i.i = getelementptr inbounds i8, ptr %async_context_handle, i64 24
   %async_context.val5.i.i = load ptr, ptr %async_context_handle, align 8
   %12 = getelementptr i8, ptr %async_context.val5.i.i, i64 16
@@ -1841,7 +1841,7 @@ _ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i: ; preds = %if.end.i.
   %cmp.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext17OpenCallbackScopeEv.exit, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i
+if.end.i.i.i:                                     ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i.i
   %sub.i.i.i.i18.i.i = add i64 %15, 271
   %20 = inttoptr i64 %sub.i.i.i.i18.i.i to ptr
   %21 = load i64, ptr %20, align 8
@@ -1852,8 +1852,8 @@ if.end.i.i.i:                                     ; preds = %_ZN6v8impl12_GLOBAL
   %call.i.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %23, i64 noundef %24) #21
   br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext17OpenCallbackScopeEv.exit
 
-_ZN6v8impl12_GLOBAL__N_112AsyncContext17OpenCallbackScopeEv.exit: ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i, %if.end.i.i.i
-  %retval.i20.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.end.i.i.i ], [ null, %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i.i ]
+_ZN6v8impl12_GLOBAL__N_112AsyncContext17OpenCallbackScopeEv.exit: ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i.i, %if.end.i.i.i
+  %retval.i20.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.end.i.i.i ], [ null, %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i.i ]
   %25 = getelementptr inbounds i8, ptr %async_context_handle, i64 8
   %async_context.val6.i.i = load double, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %async_context_handle, i64 16
@@ -2214,12 +2214,12 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i: ; preds = %if.end.i.i, %dele
   %3 = getelementptr i8, ptr %this.val.i, i64 16
   %this.val.val.i = load ptr, ptr %3, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %this.val.val.i, null
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i, label %if.end.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i
   %call5.i.i.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %this.val.val.i) #21
   %cmp.i.i.i.i.i = icmp ult i32 %call5.i.i.i.i.i, 40
-  br i1 %cmp.i.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i
 
 _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
   %4 = load i64, ptr %this.val.val.i, align 8
@@ -2232,16 +2232,16 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.
   %9 = inttoptr i64 %8 to ptr
   %10 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
   %cmp12.not.i.i.i.i.i = icmp eq ptr %10, %9
-  br i1 %cmp12.not.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i
+  br i1 %cmp12.not.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i
   %sub.i.i.i.i.i = add i64 %6, 271
   %11 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
-  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i
+  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i
 
-_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i: ; preds = %if.end.i.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i, %if.end.i.i.i.i.i, %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i
+_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i: ; preds = %if.end.i.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i, %if.end.i.i.i.i.i, %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i
   %retval.0.i.i.i.i = phi ptr [ %13, %if.end.i.i.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i.i ], [ null, %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i ], [ null, %if.end.i.i.i.i.i ]
   %async_id_.i = getelementptr inbounds i8, ptr %async_context, i64 8
   %14 = load double, ptr %async_id_.i, align 8
@@ -2250,11 +2250,11 @@ _ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i: ; preds = %if.end.i.i.
   %cmp.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContextD2Ev.exit, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i
+if.end.i.i.i:                                     ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i
   tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %15) #21
   br label %_ZN6v8impl12_GLOBAL__N_112AsyncContextD2Ev.exit
 
-_ZN6v8impl12_GLOBAL__N_112AsyncContextD2Ev.exit:  ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit.i, %if.end.i.i.i
+_ZN6v8impl12_GLOBAL__N_112AsyncContextD2Ev.exit:  ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit.i, %if.end.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %async_context) #24
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -2450,17 +2450,17 @@ entry:
   %0 = getelementptr i8, ptr %this.val, i64 16
   %this.val.val = load ptr, ptr %0, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %this.val.val, null
-  br i1 %cmp.i.i.i.i.i, label %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge, label %if.end.i.i.i.i
 
-entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge: ; preds = %entry
+entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge: ; preds = %entry
   %.pre = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit
+  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %call5.i.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %this.val.val) #21
   %cmp.i.i.i.i = icmp ult i32 %call5.i.i.i.i, 40
   %.pre3 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  br i1 %cmp.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i
 
 _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i: ; preds = %if.end.i.i.i.i
   %1 = load i64, ptr %this.val.val, align 8
@@ -2472,18 +2472,18 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %cmp12.not.i.i.i.i = icmp eq ptr %.pre3, %6
-  br i1 %cmp12.not.i.i.i.i, label %if.end.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit
+  br i1 %cmp12.not.i.i.i.i, label %if.end.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i
   %sub.i.i.i.i = add i64 %3, 271
   %7 = inttoptr i64 %sub.i.i.i.i to ptr
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit
+  br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit
 
-_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit: ; preds = %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge, %if.end.i.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i, %if.end.i.i.i
-  %10 = phi ptr [ %.pre3, %if.end.i.i.i ], [ %.pre3, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i ], [ %.pre, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge ], [ %.pre3, %if.end.i.i.i.i ]
-  %retval.0.i.i.i = phi ptr [ %9, %if.end.i.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i ], [ null, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit_crit_edge ], [ null, %if.end.i.i.i.i ]
+_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit: ; preds = %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge, %if.end.i.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i, %if.end.i.i.i
+  %10 = phi ptr [ %.pre3, %if.end.i.i.i ], [ %.pre3, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i ], [ %.pre, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge ], [ %.pre3, %if.end.i.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %9, %if.end.i.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i ], [ null, %entry._ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit_crit_edge ], [ null, %if.end.i.i.i.i ]
   %resource_.i = getelementptr inbounds i8, ptr %this, i64 24
   %this.val.i = load ptr, ptr %this, align 8
   %11 = getelementptr i8, ptr %this.val.i, i64 16
@@ -2505,7 +2505,7 @@ _ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit: ; preds = %entry._ZN6v8i
   %cmp.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.i.i.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8resourceEv.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit
+if.end.i.i:                                       ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit
   %sub.i.i.i.i.i2 = add i64 %14, 271
   %19 = inttoptr i64 %sub.i.i.i.i.i2 to ptr
   %20 = load i64, ptr %19, align 8
@@ -2516,8 +2516,8 @@ if.end.i.i:                                       ; preds = %_ZN6v8impl12_GLOBAL
   %call.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %22, i64 noundef %23) #21
   br label %_ZN6v8impl12_GLOBAL__N_112AsyncContext8resourceEv.exit
 
-_ZN6v8impl12_GLOBAL__N_112AsyncContext8resourceEv.exit: ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit, %if.end.i.i
-  %retval.i17.sroa.0.0.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.exit ]
+_ZN6v8impl12_GLOBAL__N_112AsyncContext8resourceEv.exit: ; preds = %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit, %if.end.i.i
+  %retval.i17.sroa.0.0.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %_ZN6v8impl12_GLOBAL__N_112AsyncContext8node_envEv.argprom.argprom.exit ]
   %async_id_ = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load double, ptr %async_id_, align 8
   %trigger_async_id_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -5277,16 +5277,16 @@ entry:
   %dec.i.i = add nsw i32 %0, -1
   store i32 %dec.i.i, ptr %refs.i.i, align 8
   %cmp.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZZN6v8impl12_GLOBAL__N_16NewEnvEN2v85LocalINS1_7ContextEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiENKUlPvE_clESD_.exit
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZZN6v8impl12_GLOBAL__N_16NewEnvEN2v85LocalINS1_7ContextEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiENKUlPvE_clESD_.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %vtable.i.i = load ptr, ptr %arg, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(189) %arg) #21
-  br label %_ZZN6v8impl12_GLOBAL__N_16NewEnvEN2v85LocalINS1_7ContextEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiENKUlPvE_clESD_.exit
+  br label %_ZZN6v8impl12_GLOBAL__N_16NewEnvEN2v85LocalINS1_7ContextEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiENKUlPvE_clESD_.argprom.exit
 
-_ZZN6v8impl12_GLOBAL__N_16NewEnvEN2v85LocalINS1_7ContextEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiENKUlPvE_clESD_.exit: ; preds = %entry, %if.then.i.i
+_ZZN6v8impl12_GLOBAL__N_16NewEnvEN2v85LocalINS1_7ContextEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiENKUlPvE_clESD_.argprom.exit: ; preds = %entry, %if.then.i.i
   ret void
 }
 
@@ -5679,21 +5679,21 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %_complete, align 8
   switch i32 %status, label %sw.default.i.i.i.i [
-    i32 0, label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i
+    i32 0, label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.argprom.argprom.exit.i.i
     i32 -22, label %sw.bb1.i.i.i.i
     i32 -125, label %sw.bb2.i.i.i.i
   ]
 
 sw.bb1.i.i.i.i:                                   ; preds = %if.end
-  br label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i
+  br label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.argprom.argprom.exit.i.i
 
 sw.bb2.i.i.i.i:                                   ; preds = %if.end
-  br label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i
+  br label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.argprom.argprom.exit.i.i
 
 sw.default.i.i.i.i:                               ; preds = %if.end
-  br label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i
+  br label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.argprom.argprom.exit.i.i
 
-_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i: ; preds = %sw.default.i.i.i.i, %sw.bb2.i.i.i.i, %sw.bb1.i.i.i.i, %if.end
+_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.argprom.argprom.exit.i.i: ; preds = %sw.default.i.i.i.i, %sw.bb2.i.i.i.i, %sw.bb1.i.i.i.i, %if.end
   %retval.0.i.i.i.i = phi i32 [ 9, %sw.default.i.i.i.i ], [ 11, %sw.bb2.i.i.i.i ], [ 1, %sw.bb1.i.i.i.i ], [ %status, %if.end ]
   %_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %_data.i.i.i, align 8
@@ -5702,12 +5702,12 @@ _ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.
   %cmp.not.i.i = icmp eq i32 %8, %4
   br i1 %cmp.not.i.i, label %do.body8.i.i, label %do.body6.i.i
 
-do.body6.i.i:                                     ; preds = %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i
+do.body6.i.i:                                     ; preds = %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.argprom.argprom.exit.i.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN10napi_env__14CallIntoModuleIRZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlPS_E_ZN15node_napi_env__18CallbackIntoModuleILb1ES5_EEvOT0_EUlS4_N2v85LocalINSB_5ValueEEEE_EEvOT_SA_E4args) #21
   call void @abort() #22
   unreachable
 
-do.body8.i.i:                                     ; preds = %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i
+do.body8.i.i:                                     ; preds = %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.argprom.argprom.exit.i.i
   %9 = load i32, ptr %open_callback_scopes.i.i, align 4
   %cmp10.not.i.i = icmp eq i32 %9, %5
   br i1 %cmp10.not.i.i, label %do.end18.i.i, label %do.body15.i.i
@@ -5730,13 +5730,13 @@ if.end.i49.i.i:                                   ; preds = %do.end18.i.i
   %call.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %12) #21
   %13 = load ptr, ptr %isolate.i.i, align 8
   %call.i.i.i.i = call noundef zeroext i1 @_ZN2v87Isolate22IsExecutionTerminatingEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #21
-  br i1 %call.i.i.i.i, label %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i, label %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i
+  br i1 %call.i.i.i.i, label %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i, label %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i
 
 _ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i: ; preds = %if.end.i49.i.i
   %vtable.i.i.i.i = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %vtable.i.i.i.i, align 8
   %call2.i.i.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(189) %3) #21
-  br i1 %call2.i.i.i.i, label %if.end.i4.i.i, label %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i
+  br i1 %call2.i.i.i.i, label %if.end.i4.i.i, label %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i
 
 if.end.i4.i.i:                                    ; preds = %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i
   %context_persistent.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -5870,19 +5870,19 @@ if.end8.i.i.i:                                    ; preds = %if.end8.sink.split.
   %call.i7.i.i.i = call ptr @_ZN2v89Exception13CreateMessageEPNS_7IsolateENS_5LocalINS_5ValueEEE(ptr noundef %40, ptr %call.i.i.i) #21
   %41 = load ptr, ptr %isolate.i.i, align 8
   call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateENS1_5LocalINS1_5ValueEEENS4_INS1_7MessageEEEb(ptr noundef %41, ptr %call.i.i.i, ptr %call.i7.i.i.i, i1 noundef zeroext false) #21
-  br label %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i
+  br label %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i
 
-_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i: ; preds = %if.end8.i.i.i, %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i, %if.end.i49.i.i
+_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i: ; preds = %if.end8.i.i.i, %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i, %if.end.i49.i.i
   %42 = load ptr, ptr %last_exception.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %42, null
   br i1 %cmp.i.i.i.i, label %_ZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_.exit, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i
+if.end.i.i.i:                                     ; preds = %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %42) #21
   store ptr null, ptr %last_exception.i.i, align 8
   br label %_ZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_.exit
 
-_ZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_.exit: ; preds = %do.end18.i.i, %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i, %if.end.i.i.i
+_ZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_.exit: ; preds = %do.end18.i.i, %_ZZN15node_napi_env__18CallbackIntoModuleILb1EZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i, %if.end.i.i.i
   call void @_ZN4node13CallbackScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %callback_scope) #21
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #21
   br label %return
@@ -6231,16 +6231,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i)
   br label %do.end
 
-do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit
+do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %14 = load ptr, ptr %vfn, align 8
@@ -6573,7 +6573,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %ent
   %16 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %17 = load ptr, ptr %_M_start.i.i.i.i.i.i, align 8
   %cmp.i.i.i2.i.i.i.i = icmp eq ptr %16, %17
-  br i1 %cmp.i.i.i2.i.i.i.i, label %_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction26CloseHandlesAndMaybeDeleteEbEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.exit, label %for.body.lr.ph.i.i.i.i
+  br i1 %cmp.i.i.i2.i.i.i.i, label %_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction26CloseHandlesAndMaybeDeleteEbEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.argprom.exit, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i
   %call_js_cb.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 360
@@ -6616,9 +6616,9 @@ _ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE3popEv.exit.i.i.i.i: ; preds = %if.else.i.i.i
   store ptr %storemerge.i.i.i.i.i.i, ptr %_M_start.i.i.i.i.i.i, align 8
   %27 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %27, %storemerge.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction26CloseHandlesAndMaybeDeleteEbEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.exit, label %for.body.i.i.i.i, !llvm.loop !42
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction26CloseHandlesAndMaybeDeleteEbEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.argprom.exit, label %for.body.i.i.i.i, !llvm.loop !42
 
-_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction26CloseHandlesAndMaybeDeleteEbEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.exit: ; preds = %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE3popEv.exit.i.i.i.i, %if.end.i.i.i
+_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction26CloseHandlesAndMaybeDeleteEbEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.argprom.exit: ; preds = %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE3popEv.exit.i.i.i.i, %if.end.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -7079,13 +7079,13 @@ if.end.i49.i.i.i.i:                               ; preds = %do.end18.i.i.i.i
   %call.i.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %34, i64 noundef %35) #21
   %36 = load ptr, ptr %isolate.i.i.i.i, align 8
   %call.i.i.i.i.i.i = call noundef zeroext i1 @_ZN2v87Isolate22IsExecutionTerminatingEv(ptr noundef nonnull align 1 dereferenceable(1) %36) #21
-  br i1 %call.i.i.i.i.i.i, label %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i.i.i, label %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i.i.i
+  br i1 %call.i.i.i.i.i.i, label %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i.i.i, label %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i.i.i
 
 _ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i.i.i: ; preds = %if.end.i49.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %26, align 8
   %37 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
   %call2.i.i.i.i.i.i = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(189) %26) #21
-  br i1 %call2.i.i.i.i.i.i, label %if.end.i3.i.i.i.i, label %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i.i.i
+  br i1 %call2.i.i.i.i.i.i, label %if.end.i3.i.i.i.i, label %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i.i.i
 
 if.end.i3.i.i.i.i:                                ; preds = %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i.i.i
   %context_persistent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 16
@@ -7229,26 +7229,26 @@ cleanup.done.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__ex
 
 if.then6.i.i.i.i.i:                               ; preds = %cleanup.done.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %cleanup.action.i.i.i.i.i
   %call7.i.i.i.i.i = call i16 @_ZN4node29ProcessEmitDeprecationWarningEPNS_11EnvironmentEPKcS3_(ptr noundef nonnull %retval.0.i.i.i.i.i.i.i, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #21
-  br label %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i.i.i
+  br label %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i.i.i
 
 if.end8.i.i.i.i.i:                                ; preds = %cleanup.done.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %cleanup.action.i.i.i.i.i, %_ZNK15node_napi_env__8node_envEv.exit.i.i.i.i.i
   %65 = load ptr, ptr %isolate.i.i.i.i, align 8
   %call.i8.i.i.i.i.i = call ptr @_ZN2v89Exception13CreateMessageEPNS_7IsolateENS_5LocalINS_5ValueEEE(ptr noundef %65, ptr %call.i.i.i.i.i) #21
   %66 = load ptr, ptr %isolate.i.i.i.i, align 8
   call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateENS1_5LocalINS1_5ValueEEENS4_INS1_7MessageEEEb(ptr noundef %66, ptr %call.i.i.i.i.i, ptr %call.i8.i.i.i.i.i, i1 noundef zeroext false) #21
-  br label %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i.i.i
+  br label %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i.i.i
 
-_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i.i.i: ; preds = %if.end8.i.i.i.i.i, %if.then6.i.i.i.i.i, %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i.i.i, %if.end.i49.i.i.i.i
+_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i.i.i: ; preds = %if.end8.i.i.i.i.i, %if.then6.i.i.i.i.i, %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i.i.i, %if.end.i49.i.i.i.i
   %67 = load ptr, ptr %last_exception.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %67, null
   br i1 %cmp.i.i.i.i.i.i, label %_ZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_.exit.i.i, label %if.end.i.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i.i.i
+if.end.i.i.i.i.i:                                 ; preds = %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i.i.i
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %67) #21
   store ptr null, ptr %last_exception.i.i.i.i, align 8
   br label %_ZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_.exit.i.i
 
-_ZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_.exit.i.i: ; preds = %if.end.i.i.i.i.i, %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.exit.i.i.i.i, %do.end18.i.i.i.i
+_ZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_.exit.i.i: ; preds = %if.end.i.i.i.i.i, %_ZZN15node_napi_env__18CallbackIntoModuleILb0EZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEvEUlP10napi_env__E_EEvOT0_ENKUlS5_N2v85LocalINS9_5ValueEEEE_clES5_SC_.argprom.exit.i.i.i.i, %do.end18.i.i.i.i
   call void @_ZN4node13CallbackScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %cb_scope.i.i) #21
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i.i) #21
   br label %_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction11DispatchOneEv.exit.i
@@ -7302,7 +7302,7 @@ entry:
   %4 = ptrtoint ptr %handle to i64
   %sub.i.i.i.i = add i64 %4, -168
   %isnull.i.i = icmp eq i64 %sub.i.i.i.i, 0
-  br i1 %isnull.i.i, label %_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4InitEvEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.exit, label %delete.notnull.i.i
+  br i1 %isnull.i.i, label %_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4InitEvEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.argprom.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %entry
   %5 = inttoptr i64 %sub.i.i.i.i to ptr
@@ -7310,9 +7310,9 @@ delete.notnull.i.i:                               ; preds = %entry
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(369) %5) #21
-  br label %_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4InitEvEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.exit
+  br label %_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4InitEvEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.argprom.exit
 
-_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4InitEvEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.exit: ; preds = %entry, %delete.notnull.i.i
+_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4InitEvEUlPS2_E_EEvPT_T0_ENKUlS6_E_clES6_.argprom.exit: ; preds = %entry, %delete.notnull.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8028,7 +8028,7 @@ _ZN10napi_env__5UnrefEv.exit.i:                   ; preds = %if.then.i.i, %entry
   %_M_element_count.i.i.i.i.i = getelementptr inbounds i8, ptr %callback_.val, i64 104
   %2 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8
   %cmp.i.i1.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.i1.i.i, label %"_ZZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEENK3$_0clEPN4node11EnvironmentE.exit", label %while.body.lr.ph.i.i
+  br i1 %cmp.i.i1.i.i, label %"_ZZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEENK3$_0clEPN4node11EnvironmentE.argprom.exit", label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %_ZN10napi_env__5UnrefEv.exit.i
   %pending_finalizers.i.i = getelementptr inbounds i8, ptr %callback_.val, i64 80
@@ -8048,9 +8048,9 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   call void %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   %7 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %cmp.i.i.i.i, label %"_ZZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEENK3$_0clEPN4node11EnvironmentE.exit", label %while.body.i.i, !llvm.loop !5
+  br i1 %cmp.i.i.i.i, label %"_ZZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEENK3$_0clEPN4node11EnvironmentE.argprom.exit", label %while.body.i.i, !llvm.loop !5
 
-"_ZZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEENK3$_0clEPN4node11EnvironmentE.exit": ; preds = %while.body.i.i, %_ZN10napi_env__5UnrefEv.exit.i
+"_ZZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEENK3$_0clEPN4node11EnvironmentE.argprom.exit": ; preds = %while.body.i.i, %_ZN10napi_env__5UnrefEv.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref_tracker.i.i)
   ret void
 }
@@ -8120,10 +8120,10 @@ attributes #26 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!10 = distinct !{!10, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!11 = distinct !{!11, !12, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!12 = distinct !{!12, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE"}
+!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!10 = distinct !{!10, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!11 = distinct !{!11, !12, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !13 = !{}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN4node26napi_module_to_node_moduleEPK11napi_module: %agg.result"}

@@ -173,7 +173,7 @@ define internal i32 @dissect_ippusb(ptr noundef %0, ptr noundef %1, ptr noundef 
   %25 = load i32, ptr @proto_ippusb, align 4
   %26 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0230, i32 noundef %25) #5
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %27, label %get_ippusb_conversation_data.exit
+  br i1 %.not.i, label %27, label %get_ippusb_conversation_data.argprom.exit
 
 27:                                               ; preds = %24
   %28 = tail call ptr @wmem_file_scope() #5
@@ -183,9 +183,9 @@ define internal i32 @dissect_ippusb(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %31, ptr %29, align 8
   %32 = load i32, ptr @proto_ippusb, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %.0230, i32 noundef %32, ptr noundef nonnull %29) #5
-  br label %get_ippusb_conversation_data.exit
+  br label %get_ippusb_conversation_data.argprom.exit
 
-get_ippusb_conversation_data.exit:                ; preds = %24, %27
+get_ippusb_conversation_data.argprom.exit:        ; preds = %24, %27
   %.0.i = phi ptr [ %26, %24 ], [ %29, %27 ]
   %33 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %34 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef %33, ptr noundef nonnull %5, i32 noundef 1) #5
@@ -196,12 +196,12 @@ get_ippusb_conversation_data.exit:                ; preds = %24, %27
   %39 = icmp eq i32 %7, 5
   br i1 %39, label %40, label %42
 
-40:                                               ; preds = %get_ippusb_conversation_data.exit
+40:                                               ; preds = %get_ippusb_conversation_data.argprom.exit
   %41 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 5) #5
   br label %42
 
-42:                                               ; preds = %40, %get_ippusb_conversation_data.exit
-  %.0227 = phi ptr [ %41, %40 ], [ null, %get_ippusb_conversation_data.exit ]
+42:                                               ; preds = %40, %get_ippusb_conversation_data.argprom.exit
+  %.0227 = phi ptr [ %41, %40 ], [ null, %get_ippusb_conversation_data.argprom.exit ]
   %43 = icmp ugt i32 %34, 4
   br i1 %43, label %44, label %is_http_header.exit.thread
 

@@ -165,34 +165,34 @@ define internal noundef i32 @acpi_reserve_resources() #0 section ".init.text" al
   %2 = zext i8 %1 to i32
   %.val = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 148), align 1
   %.val1 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 152), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val, i64 %.val1, i32 noundef %2, ptr noundef nonnull @.str.22) #19
+  tail call fastcc void @acpi_request_region.argprom(i8 %.val, i64 %.val1, i32 noundef %2, ptr noundef nonnull @.str.22) #19
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 88), align 1
   %4 = zext i8 %3 to i32
   %.val2 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 160), align 1
   %.val3 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 164), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val2, i64 %.val3, i32 noundef %4, ptr noundef nonnull @.str.23) #19
+  tail call fastcc void @acpi_request_region.argprom(i8 %.val2, i64 %.val3, i32 noundef %4, ptr noundef nonnull @.str.23) #19
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 89), align 1
   %6 = zext i8 %5 to i32
   %.val4 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 172), align 1
   %.val5 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 176), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val4, i64 %.val5, i32 noundef %6, ptr noundef nonnull @.str.24) #19
+  tail call fastcc void @acpi_request_region.argprom(i8 %.val4, i64 %.val5, i32 noundef %6, ptr noundef nonnull @.str.24) #19
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 89), align 1
   %8 = zext i8 %7 to i32
   %.val6 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 184), align 1
   %.val7 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 188), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val6, i64 %.val7, i32 noundef %8, ptr noundef nonnull @.str.25) #19
+  tail call fastcc void @acpi_request_region.argprom(i8 %.val6, i64 %.val7, i32 noundef %8, ptr noundef nonnull @.str.25) #19
   %9 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 91), align 1
   %10 = icmp eq i8 %9, 4
-  br i1 %10, label %11, label %acpi_request_region.exit
+  br i1 %10, label %11, label %acpi_request_region.argprom.exit
 
 11:                                               ; preds = %0
   %.val9 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 212), align 1
   %.not = icmp eq i64 %.val9, 0
-  br i1 %.not, label %acpi_request_region.exit, label %12
+  br i1 %.not, label %acpi_request_region.argprom.exit, label %12
 
 12:                                               ; preds = %11
   %.val8 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 208), align 1
-  switch i8 %.val8, label %acpi_request_region.exit [
+  switch i8 %.val8, label %acpi_request_region.argprom.exit [
     i8 1, label %14
     i8 0, label %13
   ]
@@ -203,27 +203,27 @@ define internal noundef i32 @acpi_reserve_resources() #0 section ".init.text" al
 14:                                               ; preds = %13, %12
   %15 = phi ptr [ @iomem_resource, %13 ], [ @ioport_resource, %12 ]
   %16 = tail call ptr @__request_region(ptr noundef nonnull %15, i64 noundef %.val9, i64 noundef 4, ptr noundef nonnull @.str.26, i32 noundef 0) #20
-  br label %acpi_request_region.exit
+  br label %acpi_request_region.argprom.exit
 
-acpi_request_region.exit:                         ; preds = %14, %12, %11, %0
+acpi_request_region.argprom.exit:                 ; preds = %14, %12, %11, %0
   %17 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 90), align 1
   %18 = zext i8 %17 to i32
   %.val10 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 196), align 1
   %.val11 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 200), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val10, i64 %.val11, i32 noundef %18, ptr noundef nonnull @.str.27) #19
+  tail call fastcc void @acpi_request_region.argprom(i8 %.val10, i64 %.val11, i32 noundef %18, ptr noundef nonnull @.str.27) #19
   %19 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 92), align 1
   %20 = zext i8 %19 to i32
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %24
 
-23:                                               ; preds = %acpi_request_region.exit
+23:                                               ; preds = %acpi_request_region.argprom.exit
   %.val12 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 220), align 1
   %.val13 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 224), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val12, i64 %.val13, i32 noundef %20, ptr noundef nonnull @.str.28) #19
+  tail call fastcc void @acpi_request_region.argprom(i8 %.val12, i64 %.val13, i32 noundef %20, ptr noundef nonnull @.str.28) #19
   br label %24
 
-24:                                               ; preds = %23, %acpi_request_region.exit
+24:                                               ; preds = %23, %acpi_request_region.argprom.exit
   %25 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 93), align 1
   %26 = zext i8 %25 to i32
   %27 = and i32 %26, 1
@@ -233,7 +233,7 @@ acpi_request_region.exit:                         ; preds = %14, %12, %11, %0
 29:                                               ; preds = %24
   %.val14 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 232), align 1
   %.val15 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 236), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val14, i64 %.val15, i32 noundef %26, ptr noundef nonnull @.str.29) #19
+  tail call fastcc void @acpi_request_region.argprom(i8 %.val14, i64 %.val15, i32 noundef %26, ptr noundef nonnull @.str.29) #19
   br label %30
 
 30:                                               ; preds = %29, %24
@@ -2204,7 +2204,7 @@ define dso_local range(i32 0, 16388) i32 @acpi_os_enter_sleep(i8 noundef zeroext
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @acpi_request_region(i8 %.0.val, i64 %.4.val, i32 noundef range(i32 0, 256) %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @acpi_request_region.argprom(i8 %.0.val, i64 %.4.val, i32 noundef range(i32 0, 256) %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = icmp ne i64 %.4.val, 0
   %4 = icmp ne i32 %0, 0
   %5 = and i1 %3, %4

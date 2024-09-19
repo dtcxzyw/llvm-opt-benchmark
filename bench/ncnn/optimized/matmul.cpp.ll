@@ -246,7 +246,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6MatMul7forwardERKSt6vect
   unreachable
 
 137:                                              ; preds = %114
-  call fastcc void @_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr nonnull %112)
+  call fastcc void @_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr nonnull %112)
   %.val3022.pre = load ptr, ptr %5, align 8
   %.val3023.pre = load i32, ptr %100, align 8
   br label %174
@@ -530,13 +530,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6MatMul7forwardERKSt6vect
   %274 = icmp eq i64 %273, 0
   br i1 %274, label %.critedge16, label %277
 
-275:                                              ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068, %291, %261
+275:                                              ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3068, %291, %261
   %276 = landingpad { ptr, i32 }
           cleanup
   br label %494
 
 277:                                              ; preds = %269
-  call fastcc void @_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr nonnull %267)
+  call fastcc void @_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr nonnull %267)
   %.val3025.pre = load ptr, ptr %8, align 8
   %.val3026.pre = load i32, ptr %255, align 8
   br label %314
@@ -626,7 +626,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6MatMul7forwardERKSt6vect
   %320 = icmp sgt i32 %316, 0
   %321 = icmp sgt i32 %.val3026, 0
   %or.cond.i3043 = select i1 %320, i1 %321, i1 false
-  br i1 %or.cond.i3043, label %.lr.ph.split.us.i3044, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068
+  br i1 %or.cond.i3043, label %.lr.ph.split.us.i3044, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3068
 
 .lr.ph.split.us.i3044:                            ; preds = %314
   %322 = icmp sgt i32 %318, 0
@@ -681,7 +681,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6MatMul7forwardERKSt6vect
 ._crit_edge9.split.us.us.us.i3065:                ; preds = %._crit_edge.us.us.us.i3062
   %indvars.iv.next29.i3066 = add nuw nsw i64 %indvars.iv28.i3054, 1
   %exitcond32.not.i3067 = icmp eq i64 %indvars.iv.next29.i3066, %wide.trip.count31.i3045
-  br i1 %exitcond32.not.i3067, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068, label %.lr.ph8.us.us.i3053, !llvm.loop !8
+  br i1 %exitcond32.not.i3067, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3068, label %.lr.ph8.us.us.i3053, !llvm.loop !8
 
 .lr.ph8.us.i3047:                                 ; preds = %.lr.ph8.us.i3047, %.lr.ph8.us.preheader.i3046
   %indvars.iv.i3048 = phi i64 [ 0, %.lr.ph8.us.preheader.i3046 ], [ %indvars.iv.next.i3050, %.lr.ph8.us.i3047 ]
@@ -693,13 +693,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6MatMul7forwardERKSt6vect
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i3049, i8 0, i64 %324, i1 false)
   %indvars.iv.next.i3050 = add nuw nsw i64 %indvars.iv.i3048, 1
   %exitcond.not.i3051 = icmp eq i64 %indvars.iv.next.i3050, %wide.trip.count31.i3045
-  br i1 %exitcond.not.i3051, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068, label %.lr.ph8.us.i3047, !llvm.loop !8
+  br i1 %exitcond.not.i3051, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3068, label %.lr.ph8.us.i3047, !llvm.loop !8
 
-_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068: ; preds = %.lr.ph8.us.i3047, %._crit_edge9.split.us.us.us.i3065, %314
+_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3068: ; preds = %.lr.ph8.us.i3047, %._crit_edge9.split.us.us.us.i3065, %314
   invoke void @_ZNK4ncnn3Mat7reshapeEiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %9, ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %228, ptr noundef null)
           to label %345 unwind label %275
 
-345:                                              ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068
+345:                                              ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3068
   %346 = icmp eq ptr %35, %9
   %.phi.trans.insert3919 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre3920 = load ptr, ptr %.phi.trans.insert3919, align 8
@@ -1194,7 +1194,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068: ; preds = %.lr
   %578 = icmp sgt i32 %574, 0
   %579 = icmp sgt i32 %.val3029, 0
   %or.cond.i3069 = select i1 %578, i1 %579, i1 false
-  br i1 %or.cond.i3069, label %.lr.ph.split.us.i3070, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094
+  br i1 %or.cond.i3069, label %.lr.ph.split.us.i3070, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3094
 
 .lr.ph.split.us.i3070:                            ; preds = %572
   %580 = icmp sgt i32 %576, 0
@@ -1249,7 +1249,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068: ; preds = %.lr
 ._crit_edge9.split.us.us.us.i3091:                ; preds = %._crit_edge.us.us.us.i3088
   %indvars.iv.next29.i3092 = add nuw nsw i64 %indvars.iv28.i3080, 1
   %exitcond32.not.i3093 = icmp eq i64 %indvars.iv.next29.i3092, %wide.trip.count31.i3071
-  br i1 %exitcond32.not.i3093, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094, label %.lr.ph8.us.us.i3079, !llvm.loop !8
+  br i1 %exitcond32.not.i3093, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3094, label %.lr.ph8.us.us.i3079, !llvm.loop !8
 
 .lr.ph8.us.i3073:                                 ; preds = %.lr.ph8.us.i3073, %.lr.ph8.us.preheader.i3072
   %indvars.iv.i3074 = phi i64 [ 0, %.lr.ph8.us.preheader.i3072 ], [ %indvars.iv.next.i3076, %.lr.ph8.us.i3073 ]
@@ -1261,13 +1261,13 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3068: ; preds = %.lr
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i3075, i8 0, i64 %582, i1 false)
   %indvars.iv.next.i3076 = add nuw nsw i64 %indvars.iv.i3074, 1
   %exitcond.not.i3077 = icmp eq i64 %indvars.iv.next.i3076, %wide.trip.count31.i3071
-  br i1 %exitcond.not.i3077, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094, label %.lr.ph8.us.i3073, !llvm.loop !8
+  br i1 %exitcond.not.i3077, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3094, label %.lr.ph8.us.i3073, !llvm.loop !8
 
-_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094: ; preds = %.lr.ph8.us.i3073, %._crit_edge9.split.us.us.us.i3091, %572
+_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3094: ; preds = %.lr.ph8.us.i3073, %._crit_edge9.split.us.us.us.i3091, %572
   invoke void @_ZNK4ncnn3Mat7reshapeEiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %12, ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef %552, ptr noundef null)
           to label %603 unwind label %712
 
-603:                                              ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094
+603:                                              ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3094
   %604 = icmp eq ptr %35, %12
   %.phi.trans.insert3913 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.pre3914 = load ptr, ptr %.phi.trans.insert3913, align 8
@@ -1491,7 +1491,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094: ; preds = %.lr
   call void @__clang_call_terminate(ptr %711) #13
   unreachable
 
-712:                                              ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094
+712:                                              ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3094
   %713 = landingpad { ptr, i32 }
           cleanup
   br label %736
@@ -1772,7 +1772,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094: ; preds = %.lr
   %863 = icmp sgt i32 %855, 0
   %864 = icmp sgt i32 %856, 0
   %or.cond.i3095 = select i1 %863, i1 %864, i1 false
-  br i1 %or.cond.i3095, label %.lr.ph.us.preheader.i, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %or.cond.i3095, label %.lr.ph.us.preheader.i, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %854
   %865 = zext nneg i32 %855 to i64
@@ -1800,7 +1800,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094: ; preds = %.lr
 ._crit_edge.us.i:                                 ; preds = %869
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %exitcond12.not.i = icmp eq i64 %indvars.iv.next9.i, %865
-  br i1 %exitcond12.not.i, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit.loopexit, label %.lr.ph.us.i, !llvm.loop !11
+  br i1 %exitcond12.not.i, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit.loopexit, label %.lr.ph.us.i, !llvm.loop !11
 
 873:                                              ; preds = %834
   %874 = load i32, ptr %829, align 8
@@ -1836,14 +1836,14 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3094: ; preds = %.lr
   store i32 1, ptr %819, align 4
   store i32 %894, ptr %820, align 8
   store i64 %spec.select, ptr %821, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit.loopexit: ; preds = %._crit_edge.us.i
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit.loopexit: ; preds = %._crit_edge.us.i
   %.val3031.pre = load ptr, ptr %16, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit.loopexit, %854, %873
-  %.val3031 = phi ptr [ %.val3031.pre, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit.loopexit ], [ %842, %854 ], [ %893, %873 ]
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit: ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit.loopexit, %854, %873
+  %.val3031 = phi ptr [ %.val3031.pre, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit.loopexit ], [ %842, %854 ], [ %893, %873 ]
   %895 = load ptr, ptr %13, align 8
   %896 = load i64, ptr %793, align 8
   %897 = mul i64 %896, %indvars.iv3865
@@ -1859,7 +1859,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL9trans
   %or.cond.i3099 = select i1 %904, i1 %905, i1 false
   br i1 %or.cond.i3099, label %.lr.ph.split.us.i3100, label %.critedge26
 
-.lr.ph.split.us.i3100:                            ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit
+.lr.ph.split.us.i3100:                            ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
   %906 = icmp sgt i32 %902, 0
   %wide.trip.count31.i3101 = zext nneg i32 %901 to i64
   br i1 %906, label %.lr.ph8.us.us.preheader.i3108, label %.lr.ph8.us.preheader.i3102
@@ -1926,8 +1926,8 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL9trans
   %exitcond.not.i3107 = icmp eq i64 %indvars.iv.next.i3106, %wide.trip.count31.i3101
   br i1 %exitcond.not.i3107, label %.critedge26, label %.lr.ph8.us.i3103, !llvm.loop !8
 
-.critedge26:                                      ; preds = %.lr.ph8.us.i3103, %._crit_edge9.split.us.us.us.i3121, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit, %844, %841
-  %cond3 = phi i1 [ false, %841 ], [ false, %844 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit ], [ true, %._crit_edge9.split.us.us.us.i3121 ], [ true, %.lr.ph8.us.i3103 ]
+.critedge26:                                      ; preds = %.lr.ph8.us.i3103, %._crit_edge9.split.us.us.us.i3121, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, %844, %841
+  %cond3 = phi i1 [ false, %841 ], [ false, %844 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit ], [ true, %._crit_edge9.split.us.us.us.i3121 ], [ true, %.lr.ph8.us.i3103 ]
   %929 = load ptr, ptr %812, align 8
   %.not2917 = icmp eq ptr %929, null
   br i1 %.not2917, label %942, label %930
@@ -2731,8 +2731,8 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL9trans
   %wide.trip.count3863 = zext nneg i32 %1279 to i64
   br label %1310
 
-1310:                                             ; preds = %.lr.ph3822, %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150
-  %indvars.iv3860 = phi i64 [ 0, %.lr.ph3822 ], [ %indvars.iv.next3861, %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150 ]
+1310:                                             ; preds = %.lr.ph3822, %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3150
+  %indvars.iv3860 = phi i64 [ 0, %.lr.ph3822 ], [ %indvars.iv.next3861, %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3150 ]
   %1311 = load ptr, ptr %19, align 8
   %1312 = load i64, ptr %1285, align 8
   %1313 = mul i64 %1312, %indvars.iv3860
@@ -2752,7 +2752,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL9trans
   %1325 = icmp sgt i32 %1318, 0
   %1326 = icmp sgt i32 %.val3035, 0
   %or.cond.i3125 = select i1 %1325, i1 %1326, i1 false
-  br i1 %or.cond.i3125, label %.lr.ph.split.us.i3126, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150
+  br i1 %or.cond.i3125, label %.lr.ph.split.us.i3126, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3150
 
 .lr.ph.split.us.i3126:                            ; preds = %1310
   %1327 = icmp sgt i32 %1317, 0
@@ -2807,7 +2807,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL9trans
 ._crit_edge9.split.us.us.us.i3147:                ; preds = %._crit_edge.us.us.us.i3144
   %indvars.iv.next29.i3148 = add nuw nsw i64 %indvars.iv28.i3136, 1
   %exitcond32.not.i3149 = icmp eq i64 %indvars.iv.next29.i3148, %wide.trip.count31.i3127
-  br i1 %exitcond32.not.i3149, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150, label %.lr.ph8.us.us.i3135, !llvm.loop !8
+  br i1 %exitcond32.not.i3149, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3150, label %.lr.ph8.us.us.i3135, !llvm.loop !8
 
 .lr.ph8.us.i3129:                                 ; preds = %.lr.ph8.us.i3129, %.lr.ph8.us.preheader.i3128
   %indvars.iv.i3130 = phi i64 [ 0, %.lr.ph8.us.preheader.i3128 ], [ %indvars.iv.next.i3132, %.lr.ph8.us.i3129 ]
@@ -2819,9 +2819,9 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL9trans
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i3131, i8 0, i64 %1329, i1 false)
   %indvars.iv.next.i3132 = add nuw nsw i64 %indvars.iv.i3130, 1
   %exitcond.not.i3133 = icmp eq i64 %indvars.iv.next.i3132, %wide.trip.count31.i3127
-  br i1 %exitcond.not.i3133, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150, label %.lr.ph8.us.i3129, !llvm.loop !8
+  br i1 %exitcond.not.i3133, label %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3150, label %.lr.ph8.us.i3129, !llvm.loop !8
 
-_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150: ; preds = %.lr.ph8.us.i3129, %._crit_edge9.split.us.us.us.i3147, %1310
+_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3150: ; preds = %.lr.ph8.us.i3129, %._crit_edge9.split.us.us.us.i3147, %1310
   %indvars.iv.next3861 = add nuw nsw i64 %indvars.iv3860, 1
   %exitcond3864.not = icmp eq i64 %indvars.iv.next3861, %wide.trip.count3863
   br i1 %exitcond3864.not, label %._crit_edge, label %1310, !llvm.loop !12
@@ -2836,7 +2836,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150: ; preds = %.lr
           cleanup
   br label %1600
 
-._crit_edge:                                      ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150, %.preheader3633
+._crit_edge:                                      ; preds = %_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.argprom.exit3150, %.preheader3633
   %1354 = icmp eq i32 %37, 3
   %1355 = load i32, ptr %1275, align 4
   %1356 = load i32, ptr %1277, align 8
@@ -3664,7 +3664,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150: ; preds = %.lr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1773, i8 0, i64 28, i1 false)
   %1780 = load i32, ptr %1748, align 8
   %1781 = icmp eq i32 %1780, 1
-  br i1 %1781, label %1782, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164
+  br i1 %1781, label %1782, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3164
 
 1782:                                             ; preds = %1769
   %1783 = load i32, ptr %1739, align 8
@@ -3704,7 +3704,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150: ; preds = %.lr
   %1805 = icmp sgt i32 %1802, 0
   %1806 = icmp sgt i32 %1803, 0
   %or.cond.i3152 = select i1 %1805, i1 %1806, i1 false
-  br i1 %or.cond.i3152, label %.lr.ph.us.preheader.i3153, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164
+  br i1 %or.cond.i3152, label %.lr.ph.us.preheader.i3153, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3164
 
 .lr.ph.us.preheader.i3153:                        ; preds = %1801
   %1807 = zext nneg i32 %1802 to i64
@@ -3732,7 +3732,7 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150: ; preds = %.lr
 ._crit_edge.us.i3161:                             ; preds = %1811
   %indvars.iv.next9.i3162 = add nuw nsw i64 %indvars.iv8.i3155, 1
   %exitcond12.not.i3163 = icmp eq i64 %indvars.iv.next9.i3162, %1807
-  br i1 %exitcond12.not.i3163, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164, label %.lr.ph.us.i3154, !llvm.loop !11
+  br i1 %exitcond12.not.i3163, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3164, label %.lr.ph.us.i3154, !llvm.loop !11
 
 1815:                                             ; preds = %1782
   %1816 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -3769,13 +3769,13 @@ _ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.exit3150: ; preds = %.lr
   store i32 1, ptr %1777, align 4
   store i32 %1837, ptr %1778, align 8
   store i64 %spec.select3623, ptr %1779, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3164
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164: ; preds = %._crit_edge.us.i3161, %1801, %1815, %1769
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3164: ; preds = %._crit_edge.us.i3161, %1801, %1815, %1769
   %1838 = icmp sgt i32 %1751, 0
   br i1 %1838, label %.lr.ph3817, label %.critedge34
 
-.lr.ph3817:                                       ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164
+.lr.ph3817:                                       ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3164
   %1839 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %1840 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %1841 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -3872,7 +3872,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164: ; preds = %._crit_edge
   store i32 %1891, ptr %1847, align 8
   %1892 = load i64, ptr %1779, align 8
   store i64 %1892, ptr %1848, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177
 
 1893:                                             ; preds = %1860
   %1894 = load i32, ptr %1739, align 8
@@ -3911,7 +3911,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164: ; preds = %._crit_edge
   %1918 = icmp sgt i32 %1910, 0
   %1919 = icmp sgt i32 %1911, 0
   %or.cond.i3165 = select i1 %1918, i1 %1919, i1 false
-  br i1 %or.cond.i3165, label %.lr.ph.us.preheader.i3166, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177
+  br i1 %or.cond.i3165, label %.lr.ph.us.preheader.i3166, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177
 
 .lr.ph.us.preheader.i3166:                        ; preds = %1909
   %1920 = zext nneg i32 %1910 to i64
@@ -3939,7 +3939,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164: ; preds = %._crit_edge
 ._crit_edge.us.i3174:                             ; preds = %1924
   %indvars.iv.next9.i3175 = add nuw nsw i64 %indvars.iv8.i3168, 1
   %exitcond12.not.i3176 = icmp eq i64 %indvars.iv.next9.i3175, %1920
-  br i1 %exitcond12.not.i3176, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177.loopexit, label %.lr.ph.us.i3167, !llvm.loop !11
+  br i1 %exitcond12.not.i3176, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177.loopexit, label %.lr.ph.us.i3167, !llvm.loop !11
 
 1928:                                             ; preds = %1893
   %1929 = load i32, ptr %1854, align 8
@@ -3975,14 +3975,14 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164: ; preds = %._crit_edge
   store i32 1, ptr %1846, align 4
   store i32 %1949, ptr %1847, align 8
   store i64 %spec.select3624, ptr %1848, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177.loopexit: ; preds = %._crit_edge.us.i3174
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177.loopexit: ; preds = %._crit_edge.us.i3174
   %.val3037.pre = load ptr, ptr %27, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177: ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177.loopexit, %1909, %1928, %.thread3927
-  %.val3037 = phi ptr [ %.val3037.pre, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177.loopexit ], [ %1901, %1909 ], [ %1948, %1928 ], [ %1882, %.thread3927 ]
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177: ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177.loopexit, %1909, %1928, %.thread3927
+  %.val3037 = phi ptr [ %.val3037.pre, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177.loopexit ], [ %1901, %1909 ], [ %1948, %1928 ], [ %1882, %.thread3927 ]
   %1950 = load ptr, ptr %35, align 8
   %1951 = load i64, ptr %1758, align 8
   %1952 = mul i64 %1951, %indvars.iv3855
@@ -4004,7 +4004,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177: ; preds = %_ZN4ncnnL9t
   %or.cond.i3178 = select i1 %1965, i1 %1966, i1 false
   br i1 %or.cond.i3178, label %.lr.ph.split.us.i3179, label %.critedge36
 
-.lr.ph.split.us.i3179:                            ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177
+.lr.ph.split.us.i3179:                            ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177
   %1967 = icmp sgt i32 %1956, 0
   %wide.trip.count31.i3180 = zext nneg i32 %1957 to i64
   br i1 %1967, label %.lr.ph8.us.us.preheader.i3187, label %.lr.ph8.us.preheader.i3181
@@ -4071,8 +4071,8 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177: ; preds = %_ZN4ncnnL9t
   %exitcond.not.i3186 = icmp eq i64 %indvars.iv.next.i3185, %wide.trip.count31.i3180
   br i1 %exitcond.not.i3186, label %.critedge36, label %.lr.ph8.us.i3182, !llvm.loop !8
 
-.critedge36:                                      ; preds = %.lr.ph8.us.i3182, %._crit_edge9.split.us.us.us.i3200, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177, %1903, %1900
-  %cond2 = phi i1 [ false, %1900 ], [ false, %1903 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177 ], [ true, %._crit_edge9.split.us.us.us.i3200 ], [ true, %.lr.ph8.us.i3182 ]
+.critedge36:                                      ; preds = %.lr.ph8.us.i3182, %._crit_edge9.split.us.us.us.i3200, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177, %1903, %1900
+  %cond2 = phi i1 [ false, %1900 ], [ false, %1903 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3177 ], [ true, %._crit_edge9.split.us.us.us.i3200 ], [ true, %.lr.ph8.us.i3182 ]
   %1990 = load ptr, ptr %1839, align 8
   %.not2792 = icmp eq ptr %1990, null
   br i1 %.not2792, label %2003, label %1991
@@ -4165,8 +4165,8 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177: ; preds = %_ZN4ncnnL9t
   call void @__clang_call_terminate(ptr %2024) #13
   unreachable
 
-.critedge34:                                      ; preds = %2003, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164, %1793, %1790
-  %2025 = phi i1 [ false, %1790 ], [ false, %1793 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3164 ], [ %cond2, %2003 ]
+.critedge34:                                      ; preds = %2003, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3164, %1793, %1790
+  %2025 = phi i1 [ false, %1790 ], [ false, %1793 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3164 ], [ %cond2, %2003 ]
   %2026 = load ptr, ptr %1770, align 8
   %.not2795 = icmp eq ptr %2026, null
   br i1 %.not2795, label %2039, label %2027
@@ -4623,7 +4623,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177: ; preds = %_ZN4ncnnL9t
   %2273 = load i32, ptr %2239, align 8
   %2274 = icmp eq i32 %2273, 1
   %or.cond41 = select i1 %2272, i1 %2274, i1 false
-  br i1 %or.cond41, label %2275, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218
+  br i1 %or.cond41, label %2275, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3218
 
 2275:                                             ; preds = %2260
   %2276 = load i32, ptr %2225, align 8
@@ -4663,7 +4663,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177: ; preds = %_ZN4ncnnL9t
   %2298 = icmp sgt i32 %2295, 0
   %2299 = icmp sgt i32 %2296, 0
   %or.cond.i3206 = select i1 %2298, i1 %2299, i1 false
-  br i1 %or.cond.i3206, label %.lr.ph.us.preheader.i3207, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218
+  br i1 %or.cond.i3206, label %.lr.ph.us.preheader.i3207, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3218
 
 .lr.ph.us.preheader.i3207:                        ; preds = %2294
   %2300 = zext nneg i32 %2295 to i64
@@ -4691,7 +4691,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177: ; preds = %_ZN4ncnnL9t
 ._crit_edge.us.i3215:                             ; preds = %2304
   %indvars.iv.next9.i3216 = add nuw nsw i64 %indvars.iv8.i3209, 1
   %exitcond12.not.i3217 = icmp eq i64 %indvars.iv.next9.i3216, %2300
-  br i1 %exitcond12.not.i3217, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218, label %.lr.ph.us.i3208, !llvm.loop !11
+  br i1 %exitcond12.not.i3217, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3218, label %.lr.ph.us.i3208, !llvm.loop !11
 
 2308:                                             ; preds = %2275
   %2309 = sext i32 %2278 to i64
@@ -4716,13 +4716,13 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3177: ; preds = %_ZN4ncnnL9t
   store i32 1, ptr %2268, align 4
   store i32 1, ptr %2269, align 8
   store i64 %2312, ptr %2270, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3218
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218: ; preds = %._crit_edge.us.i3215, %2294, %2308, %2260
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3218: ; preds = %._crit_edge.us.i3215, %2294, %2308, %2260
   %2320 = icmp sgt i32 %2242, 0
   br i1 %2320, label %.lr.ph3813, label %.critedge43
 
-.lr.ph3813:                                       ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218
+.lr.ph3813:                                       ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3218
   %2321 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %2322 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %2323 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -4774,7 +4774,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218: ; preds = %._crit_edge
   %2361 = icmp eq i32 %2360, 1
   %2362 = icmp ne i32 %2357, 1
   %or.cond46 = select i1 %2361, i1 %2362, i1 false
-  br i1 %or.cond46, label %2363, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231
+  br i1 %or.cond46, label %2363, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3231
 
 2363:                                             ; preds = %2353
   %2364 = load i32, ptr %2225, align 8
@@ -4818,7 +4818,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218: ; preds = %._crit_edge
   %2390 = icmp sgt i32 %2382, 0
   %2391 = icmp sgt i32 %2383, 0
   %or.cond.i3219 = select i1 %2390, i1 %2391, i1 false
-  br i1 %or.cond.i3219, label %.lr.ph.us.preheader.i3220, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231
+  br i1 %or.cond.i3219, label %.lr.ph.us.preheader.i3220, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3231
 
 .lr.ph.us.preheader.i3220:                        ; preds = %2381
   %2392 = zext nneg i32 %2382 to i64
@@ -4846,7 +4846,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218: ; preds = %._crit_edge
 ._crit_edge.us.i3228:                             ; preds = %2396
   %indvars.iv.next9.i3229 = add nuw nsw i64 %indvars.iv8.i3222, 1
   %exitcond12.not.i3230 = icmp eq i64 %indvars.iv.next9.i3229, %2392
-  br i1 %exitcond12.not.i3230, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231, label %.lr.ph.us.i3221, !llvm.loop !11
+  br i1 %exitcond12.not.i3230, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3231, label %.lr.ph.us.i3221, !llvm.loop !11
 
 2400:                                             ; preds = %2363
   %2401 = sext i32 %2366 to i64
@@ -4872,12 +4872,12 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218: ; preds = %._crit_edge
   store i32 1, ptr %2328, align 4
   store i32 1, ptr %2329, align 8
   store i64 %2404, ptr %2330, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3231
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231: ; preds = %._crit_edge.us.i3228, %2381, %2400, %2353
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3231: ; preds = %._crit_edge.us.i3228, %2381, %2400, %2353
   br i1 %2336, label %.lr.ph, label %.critedge48
 
-.lr.ph:                                           ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231
+.lr.ph:                                           ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3231
   %2413 = select i1 %2358, i64 0, i64 %2359
   %2414 = select i1 %2355, i64 0, i64 %2356
   br label %2415
@@ -4959,7 +4959,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231: ; preds = %._crit_edge
   store i32 %2450, ptr %2345, align 8
   %2451 = load i64, ptr %2270, align 8
   store i64 %2451, ptr %2346, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244
 
 2452:                                             ; preds = %2415
   %2453 = icmp ne i32 %2423, 1
@@ -5026,7 +5026,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231: ; preds = %._crit_edge
   store i32 %2479, ptr %2345, align 8
   %2480 = load i64, ptr %2330, align 8
   store i64 %2480, ptr %2346, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244
 
 2481:                                             ; preds = %2452
   %2482 = load i32, ptr %2225, align 8
@@ -5072,7 +5072,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231: ; preds = %._crit_edge
   %2513 = icmp sgt i32 %2498, 0
   %2514 = icmp sgt i32 %2499, 0
   %or.cond.i3232 = select i1 %2513, i1 %2514, i1 false
-  br i1 %or.cond.i3232, label %.lr.ph.us.preheader.i3233, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244
+  br i1 %or.cond.i3232, label %.lr.ph.us.preheader.i3233, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244
 
 .lr.ph.us.preheader.i3233:                        ; preds = %2497
   %2515 = zext nneg i32 %2498 to i64
@@ -5100,7 +5100,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231: ; preds = %._crit_edge
 ._crit_edge.us.i3241:                             ; preds = %2519
   %indvars.iv.next9.i3242 = add nuw nsw i64 %indvars.iv8.i3235, 1
   %exitcond12.not.i3243 = icmp eq i64 %indvars.iv.next9.i3242, %2515
-  br i1 %exitcond12.not.i3243, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244.loopexit, label %.lr.ph.us.i3234, !llvm.loop !11
+  br i1 %exitcond12.not.i3243, label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244.loopexit, label %.lr.ph.us.i3234, !llvm.loop !11
 
 2523:                                             ; preds = %2481
   %2524 = load ptr, ptr %29, align 8
@@ -5131,14 +5131,14 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231: ; preds = %._crit_edge
   store i32 1, ptr %2344, align 4
   store i32 1, ptr %2345, align 8
   store i64 %2534, ptr %2346, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244.loopexit: ; preds = %._crit_edge.us.i3241
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244.loopexit: ; preds = %._crit_edge.us.i3241
   %.val3040.pre = load ptr, ptr %32, align 8
-  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244
+  br label %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244
 
-_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244: ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244.loopexit, %2497, %.thread3931, %2523, %.thread3929
-  %.val3040 = phi ptr [ %.val3040.pre, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244.loopexit ], [ %2489, %2497 ], [ %2470, %.thread3931 ], [ %2538, %2523 ], [ %2441, %.thread3929 ]
+_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244: ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244.loopexit, %2497, %.thread3931, %2523, %.thread3929
+  %.val3040 = phi ptr [ %.val3040.pre, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244.loopexit ], [ %2489, %2497 ], [ %2470, %.thread3931 ], [ %2538, %2523 ], [ %2441, %.thread3929 ]
   %2541 = load i32, ptr %2347, align 4
   %2542 = load i32, ptr %2348, align 8
   %2543 = load ptr, ptr %35, align 8
@@ -5174,7 +5174,7 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244: ; preds = %_ZN4ncnnL9t
   %or.cond.i3245 = select i1 %2570, i1 %2571, i1 false
   br i1 %or.cond.i3245, label %.lr.ph.split.us.i3246, label %.critedge56
 
-.lr.ph.split.us.i3246:                            ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244
+.lr.ph.split.us.i3246:                            ; preds = %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244
   %2572 = icmp sgt i32 %2555, 0
   %wide.trip.count31.i3247 = zext nneg i32 %2556 to i64
   br i1 %2572, label %.lr.ph8.us.us.preheader.i3254, label %.lr.ph8.us.preheader.i3248
@@ -5241,8 +5241,8 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244: ; preds = %_ZN4ncnnL9t
   %exitcond.not.i3253 = icmp eq i64 %indvars.iv.next.i3252, %wide.trip.count31.i3247
   br i1 %exitcond.not.i3253, label %.critedge56, label %.lr.ph8.us.i3249, !llvm.loop !8
 
-.critedge56:                                      ; preds = %.lr.ph8.us.i3249, %._crit_edge9.split.us.us.us.i3267, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244, %2491, %2488
-  %cond1 = phi i1 [ false, %2488 ], [ false, %2491 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244 ], [ true, %._crit_edge9.split.us.us.us.i3267 ], [ true, %.lr.ph8.us.i3249 ]
+.critedge56:                                      ; preds = %.lr.ph8.us.i3249, %._crit_edge9.split.us.us.us.i3267, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244, %2491, %2488
+  %cond1 = phi i1 [ false, %2488 ], [ false, %2491 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3244 ], [ true, %._crit_edge9.split.us.us.us.i3267 ], [ true, %.lr.ph8.us.i3249 ]
   %2595 = load ptr, ptr %2337, align 8
   %.not2710 = icmp eq ptr %2595, null
   br i1 %.not2710, label %2608, label %2596
@@ -5335,8 +5335,8 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244: ; preds = %_ZN4ncnnL9t
   call void @__clang_call_terminate(ptr %2629) #13
   unreachable
 
-.critedge48:                                      ; preds = %2608, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231, %2373, %2370
-  %cond = phi i1 [ false, %2370 ], [ false, %2373 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3231 ], [ %cond1, %2608 ]
+.critedge48:                                      ; preds = %2608, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3231, %2373, %2370
+  %cond = phi i1 [ false, %2370 ], [ false, %2373 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3231 ], [ %cond1, %2608 ]
   %2630 = load ptr, ptr %2321, align 8
   %.not2713 = icmp eq ptr %2630, null
   br i1 %.not2713, label %2643, label %2631
@@ -5428,8 +5428,8 @@ _ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3244: ; preds = %_ZN4ncnnL9t
   call void @__clang_call_terminate(ptr %2664) #13
   unreachable
 
-.critedge43:                                      ; preds = %2643, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218, %2286, %2283
-  %2665 = phi i1 [ false, %2283 ], [ false, %2286 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.exit3218 ], [ %cond, %2643 ]
+.critedge43:                                      ; preds = %2643, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3218, %2286, %2283
+  %2665 = phi i1 [ false, %2283 ], [ false, %2286 ], [ true, %_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom.exit3218 ], [ %cond, %2643 ]
   %2666 = load ptr, ptr %2261, align 8
   %.not2716 = icmp eq ptr %2666, null
   br i1 %.not2716, label %2679, label %2667
@@ -5725,7 +5725,7 @@ declare void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val) unnamed_addr #2 {
+define internal fastcc void @_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48

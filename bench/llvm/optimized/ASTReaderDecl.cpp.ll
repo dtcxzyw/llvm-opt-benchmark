@@ -6771,13 +6771,13 @@ _ZN4llvm11SmallVectorIN5clang14DeclAccessPairELj8EED2Ev.exit: ; preds = %693, %7
 788:                                              ; preds = %786
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %.not.i116 = icmp eq ptr %.0.i, null
-  br i1 %.not.i116, label %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_1EEDaOT_.exit", label %789
+  br i1 %.not.i116, label %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_1EEDaOT_.argprom.exit", label %789
 
 789:                                              ; preds = %788
   %790 = call noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i) #26
-  br label %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_1EEDaOT_.exit"
+  br label %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_1EEDaOT_.argprom.exit"
 
-"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_1EEDaOT_.exit": ; preds = %788, %789
+"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_1EEDaOT_.argprom.exit": ; preds = %788, %789
   %791 = phi ptr [ %790, %789 ], [ null, %788 ]
   store ptr %791, ptr %5, align 8
   %792 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6792,7 +6792,7 @@ _ZN4llvm11SmallVectorIN5clang14DeclAccessPairELj8EED2Ev.exit: ; preds = %693, %7
 795:                                              ; preds = %786
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %.not.i118 = icmp eq ptr %.0.i, null
-  br i1 %.not.i118, label %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_2EEDaOT_.exit", label %796
+  br i1 %.not.i118, label %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_2EEDaOT_.argprom.exit", label %796
 
 796:                                              ; preds = %795
   %797 = call noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationInfoEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i) #26
@@ -6800,9 +6800,9 @@ _ZN4llvm11SmallVectorIN5clang14DeclAccessPairELj8EED2Ev.exit: ; preds = %693, %7
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %798, align 8
   %799 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %800 = inttoptr i64 %799 to ptr
-  br label %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_2EEDaOT_.exit"
+  br label %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_2EEDaOT_.argprom.exit"
 
-"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_2EEDaOT_.exit": ; preds = %795, %796
+"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_2EEDaOT_.argprom.exit": ; preds = %795, %796
   %801 = phi ptr [ %800, %796 ], [ null, %795 ]
   store ptr %801, ptr %4, align 8
   %802 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6876,7 +6876,7 @@ _ZN5clang13ASTDeclReader17mergeRedeclarableINS_12FunctionDeclEEEvPNS_12Redeclara
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %833
 
-833:                                              ; preds = %_ZN5clang13ASTDeclReader17mergeRedeclarableINS_12FunctionDeclEEEvPNS_12RedeclarableIT_EERN12_GLOBAL__N_118RedeclarableResultE.exit, %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_2EEDaOT_.exit", %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_1EEDaOT_.exit", %784
+833:                                              ; preds = %_ZN5clang13ASTDeclReader17mergeRedeclarableINS_12FunctionDeclEEEvPNS_12RedeclarableIT_EERN12_GLOBAL__N_118RedeclarableResultE.exit, %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_2EEDaOT_.argprom.exit", %"_ZZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12FunctionDeclEENK3$_0clIZNS0_17VisitFunctionDeclES2_E3$_1EEDaOT_.argprom.exit", %784
   call void @_ZN5clang12FunctionDecl16setIsPureVirtualEb(ptr noundef nonnull align 8 dereferenceable(168) %1, i1 noundef zeroext %574) #26
   %834 = load ptr, ptr %16, align 8
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 32
@@ -23833,7 +23833,7 @@ define dso_local noundef ptr @_ZN5clang15ASTRecordReader8readAttrEv(ptr noundef 
 
 171:                                              ; preds = %170, %132
   %.not.i.i.i.i.i.i = icmp ult i64 %166, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit, label %172
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit, label %172
 
 172:                                              ; preds = %171
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %166, 32
@@ -23843,9 +23843,9 @@ define dso_local noundef ptr @_ZN5clang15ASTRecordReader8readAttrEv(ptr noundef 
   %176 = load ptr, ptr %173, align 8
   %177 = getelementptr inbounds ptr, ptr %176, i64 %175
   %178 = load ptr, ptr %177, align 8
-  br label %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+  br label %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
 
-_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
+_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit: ; preds = %171, %172
   %179 = phi ptr [ %178, %172 ], [ %160, %171 ]
   %180 = trunc i64 %166 to i32
   %181 = tail call noundef i32 @llvm.fshl.i32(i32 %180, i32 %180, i32 31)
@@ -24331,7 +24331,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
     i32 386, label %12652
   ]
 
-230:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+230:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %231 = add i32 %187, 5
   store i32 %231, ptr %125, align 8
   %232 = zext i32 %207 to i64
@@ -24371,7 +24371,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %256, ptr %248, align 2
   br label %12684
 
-257:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+257:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %258 = add i32 %187, 5
   store i32 %258, ptr %125, align 8
   %259 = zext i32 %207 to i64
@@ -24411,7 +24411,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %283, ptr %275, align 2
   br label %12684
 
-284:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+284:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %285 = add i32 %187, 5
   store i32 %285, ptr %125, align 8
   %286 = zext i32 %207 to i64
@@ -24457,7 +24457,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %312, ptr %304, align 2
   br label %12684
 
-313:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+313:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %314 = add i32 %187, 5
   store i32 %314, ptr %125, align 8
   %315 = zext i32 %207 to i64
@@ -24497,7 +24497,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %339, ptr %331, align 2
   br label %12684
 
-340:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+340:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %341 = add i32 %187, 5
   store i32 %341, ptr %125, align 8
   %342 = zext i32 %207 to i64
@@ -24546,7 +24546,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %369, ptr %361, align 2
   br label %12684
 
-370:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+370:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %371 = add i32 %187, 5
   store i32 %371, ptr %125, align 8
   %372 = zext i32 %207 to i64
@@ -24592,7 +24592,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %401, ptr %393, align 2
   br label %12684
 
-402:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+402:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %403 = add i32 %187, 5
   store i32 %403, ptr %125, align 8
   %404 = zext i32 %207 to i64
@@ -24638,7 +24638,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %433, ptr %425, align 2
   br label %12684
 
-434:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+434:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %435 = add i32 %187, 5
   store i32 %435, ptr %125, align 8
   %436 = zext i32 %207 to i64
@@ -24684,7 +24684,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %462, ptr %454, align 2
   br label %12684
 
-463:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+463:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %464 = add i32 %187, 5
   store i32 %464, ptr %125, align 8
   %465 = zext i32 %207 to i64
@@ -24730,7 +24730,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %494, ptr %486, align 2
   br label %12684
 
-495:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+495:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %496 = add i32 %187, 5
   store i32 %496, ptr %125, align 8
   %497 = zext i32 %207 to i64
@@ -24770,7 +24770,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %521, ptr %513, align 2
   br label %12684
 
-522:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+522:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %523 = add i32 %187, 5
   store i32 %523, ptr %125, align 8
   %524 = zext i32 %207 to i64
@@ -24810,7 +24810,7 @@ _ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %171, %172
   store i8 %548, ptr %540, align 2
   br label %12684
 
-549:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+549:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %550 = add i32 %187, 5
   store i32 %550, ptr %125, align 8
   %551 = zext i32 %207 to i64
@@ -24905,7 +24905,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #26
   br label %12684
 
-593:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+593:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %594 = add i32 %187, 5
   store i32 %594, ptr %125, align 8
   %595 = zext i32 %207 to i64
@@ -24989,7 +24989,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #26
   br label %12684
 
-640:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+640:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %641 = add i32 %187, 5
   store i32 %641, ptr %125, align 8
   %642 = zext i32 %207 to i64
@@ -25033,7 +25033,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
   br label %12684
 
-669:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+669:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %670 = add i32 %187, 5
   store i32 %670, ptr %125, align 8
   %671 = zext i32 %207 to i64
@@ -25117,7 +25117,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5792: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #26
   br label %12684
 
-716:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+716:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %717 = add i32 %187, 5
   store i32 %717, ptr %125, align 8
   %718 = zext i32 %207 to i64
@@ -25201,7 +25201,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #26
   br label %12684
 
-763:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+763:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %764 = add i32 %187, 5
   store i32 %764, ptr %125, align 8
   %765 = zext i32 %207 to i64
@@ -25239,7 +25239,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %787, ptr %781, align 2
   br label %12684
 
-788:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+788:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %789 = add i32 %187, 5
   store i32 %789, ptr %125, align 8
   %790 = zext i32 %207 to i64
@@ -25275,7 +25275,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #26
   br label %12684
 
-810:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+810:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %811 = add i32 %187, 5
   store i32 %811, ptr %125, align 8
   %812 = zext i32 %207 to i64
@@ -25315,7 +25315,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %836, ptr %828, align 2
   br label %12684
 
-837:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+837:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %838 = add i32 %187, 5
   store i32 %838, ptr %125, align 8
   %839 = zext i32 %207 to i64
@@ -25355,7 +25355,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %863, ptr %855, align 2
   br label %12684
 
-864:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+864:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %865 = add i32 %187, 5
   store i32 %865, ptr %125, align 8
   %866 = zext i32 %207 to i64
@@ -25390,7 +25390,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %884, ptr %878, align 2
   br label %12684
 
-885:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+885:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %886 = add i32 %187, 5
   store i32 %886, ptr %125, align 8
   %887 = zext i32 %207 to i64
@@ -25450,7 +25450,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %921, ptr %913, align 2
   br label %12684
 
-922:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+922:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %923 = add i32 %187, 5
   store i32 %923, ptr %125, align 8
   %924 = zext i32 %207 to i64
@@ -25496,7 +25496,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %953, ptr %945, align 2
   br label %12684
 
-954:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+954:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %955 = add i32 %187, 5
   store i32 %955, ptr %125, align 8
   %956 = zext i32 %207 to i64
@@ -25548,7 +25548,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %990, ptr %982, align 2
   br label %12684
 
-991:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+991:                                              ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %992 = add i32 %187, 5
   store i32 %992, ptr %125, align 8
   %993 = zext i32 %207 to i64
@@ -25580,7 +25580,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %1010, ptr %1004, align 2
   br label %12684
 
-1011:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1011:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1012 = add i32 %187, 5
   store i32 %1012, ptr %125, align 8
   %1013 = zext i32 %207 to i64
@@ -25620,7 +25620,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %1037, ptr %1029, align 2
   br label %12684
 
-1038:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1038:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1039 = add i32 %187, 5
   store i32 %1039, ptr %125, align 8
   %1040 = zext i32 %207 to i64
@@ -25660,7 +25660,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %1064, ptr %1056, align 2
   br label %12684
 
-1065:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1065:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1066 = add i32 %187, 5
   store i32 %1066, ptr %125, align 8
   %1067 = zext i32 %207 to i64
@@ -25700,7 +25700,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5794: ; 
   store i8 %1091, ptr %1083, align 2
   br label %12684
 
-1092:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1092:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1093 = add i32 %187, 5
   store i32 %1093, ptr %125, align 8
   %1094 = zext i32 %207 to i64
@@ -25835,7 +25835,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5798: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #26
   br label %12684
 
-1163:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1163:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1164 = add i32 %187, 5
   store i32 %1164, ptr %125, align 8
   %1165 = zext i32 %207 to i64
@@ -25962,7 +25962,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #26
   br label %12684
 
-1227:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1227:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1228 = add i32 %187, 5
   store i32 %1228, ptr %125, align 8
   %1229 = zext i32 %207 to i64
@@ -26002,7 +26002,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   store i8 %1253, ptr %1245, align 2
   br label %12684
 
-1254:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1254:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1255 = add i32 %187, 5
   store i32 %1255, ptr %125, align 8
   %1256 = zext i32 %207 to i64
@@ -26042,7 +26042,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   store i8 %1280, ptr %1272, align 2
   br label %12684
 
-1281:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1281:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1282 = add i32 %187, 5
   store i32 %1282, ptr %125, align 8
   %1283 = zext i32 %207 to i64
@@ -26082,7 +26082,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   store i8 %1307, ptr %1299, align 2
   br label %12684
 
-1308:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1308:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1309 = add i32 %187, 5
   store i32 %1309, ptr %125, align 8
   %1310 = zext i32 %207 to i64
@@ -26122,7 +26122,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   store i8 %1334, ptr %1326, align 2
   br label %12684
 
-1335:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1335:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1336 = add i32 %187, 5
   store i32 %1336, ptr %125, align 8
   %1337 = zext i32 %207 to i64
@@ -26141,7 +26141,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   %1347 = getelementptr inbounds i64, ptr %190, i64 %1346
   %1348 = load i64, ptr %1347, align 8
   %.not6746 = icmp eq i64 %1348, 0
-  %1349 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %1349 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %1350 = load i32, ptr %125, align 8
   %1351 = add i32 %1350, 1
   store i32 %1351, ptr %125, align 8
@@ -26183,7 +26183,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   store i8 %1379, ptr %1371, align 2
   br label %12684
 
-1380:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1380:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1381 = add i32 %187, 5
   store i32 %1381, ptr %125, align 8
   %1382 = zext i32 %207 to i64
@@ -26202,7 +26202,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   %1392 = getelementptr inbounds i64, ptr %190, i64 %1391
   %1393 = load i64, ptr %1392, align 8
   %.not6744 = icmp eq i64 %1393, 0
-  %1394 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %1394 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %1395 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %1396 = icmp eq ptr %1395, null
   br i1 %1396, label %1398, label %1397
@@ -26224,7 +26224,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5802: ; 
   store i8 %1407, ptr %1399, align 2
   br label %12684
 
-1408:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1408:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1409 = add i32 %187, 5
   store i32 %1409, ptr %125, align 8
   %1410 = zext i32 %207 to i64
@@ -26319,7 +26319,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5805: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %17) #26
   br label %12684
 
-1452:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1452:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1453 = add i32 %187, 5
   store i32 %1453, ptr %125, align 8
   %1454 = zext i32 %207 to i64
@@ -26414,7 +26414,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5808: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %20) #26
   br label %12684
 
-1496:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1496:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1497 = add i32 %187, 5
   store i32 %1497, ptr %125, align 8
   %1498 = zext i32 %207 to i64
@@ -26454,7 +26454,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5808: ; 
   store i8 %1522, ptr %1514, align 2
   br label %12684
 
-1523:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1523:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1524 = add i32 %187, 5
   store i32 %1524, ptr %125, align 8
   %1525 = zext i32 %207 to i64
@@ -26486,7 +26486,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5808: ; 
   store i8 %1542, ptr %1536, align 2
   br label %12684
 
-1543:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1543:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1544 = add i32 %187, 5
   store i32 %1544, ptr %125, align 8
   %1545 = zext i32 %207 to i64
@@ -26589,7 +26589,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5811: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %23) #26
   br label %12684
 
-1594:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1594:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1595 = add i32 %187, 5
   store i32 %1595, ptr %125, align 8
   %1596 = zext i32 %207 to i64
@@ -26684,7 +26684,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5814: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %26) #26
   br label %12684
 
-1638:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1638:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1639 = add i32 %187, 5
   store i32 %1639, ptr %125, align 8
   %1640 = zext i32 %207 to i64
@@ -26779,7 +26779,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5817: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %29) #26
   br label %12684
 
-1682:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1682:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1683 = add i32 %187, 5
   store i32 %1683, ptr %125, align 8
   %1684 = zext i32 %207 to i64
@@ -26811,7 +26811,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5817: ; 
   store i8 %1701, ptr %1695, align 2
   br label %12684
 
-1702:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1702:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1703 = add i32 %187, 5
   store i32 %1703, ptr %125, align 8
   %1704 = zext i32 %207 to i64
@@ -26843,7 +26843,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5817: ; 
   store i8 %1721, ptr %1715, align 2
   br label %12684
 
-1722:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1722:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1723 = add i32 %187, 5
   store i32 %1723, ptr %125, align 8
   %1724 = zext i32 %207 to i64
@@ -26883,7 +26883,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5817: ; 
   store i8 %1748, ptr %1740, align 2
   br label %12684
 
-1749:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1749:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1750 = add i32 %187, 5
   store i32 %1750, ptr %125, align 8
   %1751 = zext i32 %207 to i64
@@ -26935,7 +26935,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5817: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #26
   br label %12684
 
-1785:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1785:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1786 = add i32 %187, 5
   store i32 %1786, ptr %125, align 8
   %1787 = zext i32 %207 to i64
@@ -27019,7 +27019,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5819: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %33) #26
   br label %12684
 
-1832:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1832:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1833 = add i32 %187, 5
   store i32 %1833, ptr %125, align 8
   %1834 = zext i32 %207 to i64
@@ -27103,7 +27103,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5821: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %34) #26
   br label %12684
 
-1879:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1879:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1880 = add i32 %187, 5
   store i32 %1880, ptr %125, align 8
   %1881 = zext i32 %207 to i64
@@ -27187,7 +27187,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #26
   br label %12684
 
-1926:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1926:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1927 = add i32 %187, 5
   store i32 %1927, ptr %125, align 8
   %1928 = zext i32 %207 to i64
@@ -27233,7 +27233,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %1954, ptr %1946, align 2
   br label %12684
 
-1955:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+1955:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %1956 = add i32 %187, 5
   store i32 %1956, ptr %125, align 8
   %1957 = zext i32 %207 to i64
@@ -27252,7 +27252,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   %1967 = getelementptr inbounds i64, ptr %190, i64 %1966
   %1968 = load i64, ptr %1967, align 8
   %.not6712 = icmp eq i64 %1968, 0
-  %1969 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %1969 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %1970 = tail call { i64, i64 } @_ZN5clang9ASTReader16ReadVersionTupleERKN4llvm11SmallVectorImLj64EEERj(ptr noundef nonnull align 8 dereferenceable(528) %124, ptr noundef nonnull align 4 dereferenceable(4) %125) #26
   %1971 = tail call { i64, i64 } @_ZN5clang9ASTReader16ReadVersionTupleERKN4llvm11SmallVectorImLj64EEERj(ptr noundef nonnull align 8 dereferenceable(528) %124, ptr noundef nonnull align 4 dereferenceable(4) %125) #26
   %1972 = tail call { i64, i64 } @_ZN5clang9ASTReader16ReadVersionTupleERKN4llvm11SmallVectorImLj64EEERj(ptr noundef nonnull align 8 dereferenceable(528) %124, ptr noundef nonnull align 4 dereferenceable(4) %125) #26
@@ -27279,7 +27279,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   %1988 = load ptr, ptr %124, align 8
   %1989 = getelementptr inbounds i64, ptr %1988, i64 %1987
   %1990 = load i64, ptr %1989, align 8
-  %1991 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %1991 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %1992 = call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 144, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %1993 = icmp eq ptr %1992, null
   br i1 %1993, label %2010, label %1994
@@ -27328,7 +27328,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #26
   br label %12684
 
-2020:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2020:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2021 = add i32 %187, 5
   store i32 %2021, ptr %125, align 8
   %2022 = zext i32 %207 to i64
@@ -27368,7 +27368,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2046, ptr %2038, align 2
   br label %12684
 
-2047:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2047:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2048 = add i32 %187, 5
   store i32 %2048, ptr %125, align 8
   %2049 = zext i32 %207 to i64
@@ -27408,7 +27408,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2073, ptr %2065, align 2
   br label %12684
 
-2074:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2074:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2075 = add i32 %187, 5
   store i32 %2075, ptr %125, align 8
   %2076 = zext i32 %207 to i64
@@ -27448,7 +27448,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2100, ptr %2092, align 2
   br label %12684
 
-2101:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2101:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2102 = add i32 %187, 5
   store i32 %2102, ptr %125, align 8
   %2103 = zext i32 %207 to i64
@@ -27488,7 +27488,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2127, ptr %2119, align 2
   br label %12684
 
-2128:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2128:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2129 = add i32 %187, 5
   store i32 %2129, ptr %125, align 8
   %2130 = zext i32 %207 to i64
@@ -27532,7 +27532,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #26
   br label %12684
 
-2157:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2157:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2158 = add i32 %187, 5
   store i32 %2158, ptr %125, align 8
   %2159 = zext i32 %207 to i64
@@ -27568,7 +27568,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #26
   br label %12684
 
-2179:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2179:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2180 = add i32 %187, 5
   store i32 %2180, ptr %125, align 8
   %2181 = zext i32 %207 to i64
@@ -27600,7 +27600,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2198, ptr %2192, align 2
   br label %12684
 
-2199:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2199:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2200 = add i32 %187, 5
   store i32 %2200, ptr %125, align 8
   %2201 = zext i32 %207 to i64
@@ -27646,7 +27646,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2230, ptr %2222, align 2
   br label %12684
 
-2231:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2231:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2232 = add i32 %187, 5
   store i32 %2232, ptr %125, align 8
   %2233 = zext i32 %207 to i64
@@ -27692,7 +27692,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2262, ptr %2254, align 2
   br label %12684
 
-2263:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2263:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2264 = add i32 %187, 5
   store i32 %2264, ptr %125, align 8
   %2265 = zext i32 %207 to i64
@@ -27705,7 +27705,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   %2270 = getelementptr inbounds i64, ptr %190, i64 %2269
   %2271 = load i64, ptr %2270, align 8
   %.not6692 = icmp eq i64 %2271, 0
-  %2272 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %2272 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %2273 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %2274 = icmp eq ptr %2273, null
   br i1 %2274, label %2276, label %2275
@@ -27725,7 +27725,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2283, ptr %2277, align 2
   br label %12684
 
-2284:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2284:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2285 = add i32 %187, 5
   store i32 %2285, ptr %125, align 8
   %2286 = zext i32 %207 to i64
@@ -27765,7 +27765,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2310, ptr %2302, align 2
   br label %12684
 
-2311:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2311:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2312 = add i32 %187, 5
   store i32 %2312, ptr %125, align 8
   %2313 = zext i32 %207 to i64
@@ -27805,7 +27805,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2337, ptr %2329, align 2
   br label %12684
 
-2338:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2338:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2339 = add i32 %187, 5
   store i32 %2339, ptr %125, align 8
   %2340 = zext i32 %207 to i64
@@ -27845,7 +27845,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2364, ptr %2356, align 2
   br label %12684
 
-2365:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2365:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2366 = add i32 %187, 5
   store i32 %2366, ptr %125, align 8
   %2367 = zext i32 %207 to i64
@@ -27885,7 +27885,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2391, ptr %2383, align 2
   br label %12684
 
-2392:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2392:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2393 = add i32 %187, 5
   store i32 %2393, ptr %125, align 8
   %2394 = zext i32 %207 to i64
@@ -27931,7 +27931,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2423, ptr %2415, align 2
   br label %12684
 
-2424:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2424:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2425 = add i32 %187, 5
   store i32 %2425, ptr %125, align 8
   %2426 = zext i32 %207 to i64
@@ -27971,7 +27971,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2450, ptr %2442, align 2
   br label %12684
 
-2451:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2451:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2452 = add i32 %187, 5
   store i32 %2452, ptr %125, align 8
   %2453 = zext i32 %207 to i64
@@ -28011,7 +28011,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2477, ptr %2469, align 2
   br label %12684
 
-2478:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2478:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2479 = add i32 %187, 5
   store i32 %2479, ptr %125, align 8
   %2480 = zext i32 %207 to i64
@@ -28051,7 +28051,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2504, ptr %2496, align 2
   br label %12684
 
-2505:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2505:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2506 = add i32 %187, 5
   store i32 %2506, ptr %125, align 8
   %2507 = zext i32 %207 to i64
@@ -28091,7 +28091,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5823: ; 
   store i8 %2531, ptr %2523, align 2
   br label %12684
 
-2532:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2532:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2533 = add i32 %187, 5
   store i32 %2533, ptr %125, align 8
   %2534 = zext i32 %207 to i64
@@ -28183,7 +28183,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   call void @_ZN4llvm11SmallVectorIPN5clang14IdentifierInfoELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %44) #26
   br label %12684
 
-2588:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2588:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2589 = add i32 %187, 5
   store i32 %2589, ptr %125, align 8
   %2590 = zext i32 %207 to i64
@@ -28275,7 +28275,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   call void @_ZN4llvm11SmallVectorIPN5clang14IdentifierInfoELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %45) #26
   br label %12684
 
-2644:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2644:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2645 = add i32 %187, 5
   store i32 %2645, ptr %125, align 8
   %2646 = zext i32 %207 to i64
@@ -28315,7 +28315,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2670, ptr %2662, align 2
   br label %12684
 
-2671:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2671:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2672 = add i32 %187, 5
   store i32 %2672, ptr %125, align 8
   %2673 = zext i32 %207 to i64
@@ -28355,7 +28355,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2697, ptr %2689, align 2
   br label %12684
 
-2698:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2698:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2699 = add i32 %187, 5
   store i32 %2699, ptr %125, align 8
   %2700 = zext i32 %207 to i64
@@ -28395,7 +28395,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2724, ptr %2716, align 2
   br label %12684
 
-2725:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2725:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2726 = add i32 %187, 5
   store i32 %2726, ptr %125, align 8
   %2727 = zext i32 %207 to i64
@@ -28435,7 +28435,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2751, ptr %2743, align 2
   br label %12684
 
-2752:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2752:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2753 = add i32 %187, 5
   store i32 %2753, ptr %125, align 8
   %2754 = zext i32 %207 to i64
@@ -28475,7 +28475,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2778, ptr %2770, align 2
   br label %12684
 
-2779:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2779:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2780 = add i32 %187, 5
   store i32 %2780, ptr %125, align 8
   %2781 = zext i32 %207 to i64
@@ -28515,7 +28515,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2805, ptr %2797, align 2
   br label %12684
 
-2806:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2806:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2807 = add i32 %187, 5
   store i32 %2807, ptr %125, align 8
   %2808 = zext i32 %207 to i64
@@ -28555,7 +28555,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2832, ptr %2824, align 2
   br label %12684
 
-2833:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2833:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2834 = add i32 %187, 5
   store i32 %2834, ptr %125, align 8
   %2835 = zext i32 %207 to i64
@@ -28604,7 +28604,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2862, ptr %2854, align 2
   br label %12684
 
-2863:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2863:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2864 = add i32 %187, 5
   store i32 %2864, ptr %125, align 8
   %2865 = zext i32 %207 to i64
@@ -28644,7 +28644,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2889, ptr %2881, align 2
   br label %12684
 
-2890:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2890:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2891 = add i32 %187, 5
   store i32 %2891, ptr %125, align 8
   %2892 = zext i32 %207 to i64
@@ -28684,7 +28684,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2916, ptr %2908, align 2
   br label %12684
 
-2917:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2917:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2918 = add i32 %187, 5
   store i32 %2918, ptr %125, align 8
   %2919 = zext i32 %207 to i64
@@ -28719,7 +28719,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   store i8 %2937, ptr %2931, align 2
   br label %12684
 
-2938:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2938:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2939 = add i32 %187, 5
   store i32 %2939, ptr %125, align 8
   %2940 = zext i32 %207 to i64
@@ -28807,7 +28807,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16CallableWhenAttr13ConsumedStateELb1EE
   call void @_ZN4llvm11SmallVectorIN5clang16CallableWhenAttr13ConsumedStateELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #26
   br label %12684
 
-2990:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+2990:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %2991 = add i32 %187, 5
   store i32 %2991, ptr %125, align 8
   %2992 = zext i32 %207 to i64
@@ -28895,7 +28895,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   call void @_ZN4llvm11SmallVectorIiLj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #26
   br label %12684
 
-3042:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3042:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3043 = add i32 %187, 5
   store i32 %3043, ptr %125, align 8
   %3044 = zext i32 %207 to i64
@@ -28927,7 +28927,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3061, ptr %3055, align 2
   br label %12684
 
-3062:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3062:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3063 = add i32 %187, 5
   store i32 %3063, ptr %125, align 8
   %3064 = zext i32 %207 to i64
@@ -28971,7 +28971,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #26
   br label %12684
 
-3091:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3091:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3092 = add i32 %187, 5
   store i32 %3092, ptr %125, align 8
   %3093 = zext i32 %207 to i64
@@ -29011,7 +29011,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3117, ptr %3109, align 2
   br label %12684
 
-3118:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3118:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3119 = add i32 %187, 5
   store i32 %3119, ptr %125, align 8
   %3120 = zext i32 %207 to i64
@@ -29051,7 +29051,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3144, ptr %3136, align 2
   br label %12684
 
-3145:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3145:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3146 = add i32 %187, 5
   store i32 %3146, ptr %125, align 8
   %3147 = zext i32 %207 to i64
@@ -29070,7 +29070,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   %3157 = getelementptr inbounds i64, ptr %190, i64 %3156
   %3158 = load i64, ptr %3157, align 8
   %.not6634 = icmp eq i64 %3158, 0
-  %3159 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang12FunctionDeclEEEPT_v(ptr nonnull %0)
+  %3159 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang12FunctionDeclEEEPT_v.argprom(ptr nonnull %0)
   %3160 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %3161 = icmp eq ptr %3160, null
   br i1 %3161, label %3163, label %3162
@@ -29092,7 +29092,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3172, ptr %3164, align 2
   br label %12684
 
-3173:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3173:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3174 = add i32 %187, 5
   store i32 %3174, ptr %125, align 8
   %3175 = zext i32 %207 to i64
@@ -29132,7 +29132,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3199, ptr %3191, align 2
   br label %12684
 
-3200:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3200:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3201 = add i32 %187, 5
   store i32 %3201, ptr %125, align 8
   %3202 = zext i32 %207 to i64
@@ -29164,7 +29164,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3219, ptr %3213, align 2
   br label %12684
 
-3220:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3220:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3221 = add i32 %187, 5
   store i32 %3221, ptr %125, align 8
   %3222 = zext i32 %207 to i64
@@ -29204,7 +29204,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3246, ptr %3238, align 2
   br label %12684
 
-3247:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3247:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3248 = add i32 %187, 5
   store i32 %3248, ptr %125, align 8
   %3249 = zext i32 %207 to i64
@@ -29239,7 +29239,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3267, ptr %3261, align 2
   br label %12684
 
-3268:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3268:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3269 = add i32 %187, 5
   store i32 %3269, ptr %125, align 8
   %3270 = zext i32 %207 to i64
@@ -29285,7 +29285,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3299, ptr %3291, align 2
   br label %12684
 
-3300:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3300:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3301 = add i32 %187, 5
   store i32 %3301, ptr %125, align 8
   %3302 = zext i32 %207 to i64
@@ -29329,7 +29329,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #26
   br label %12684
 
-3329:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3329:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3330 = add i32 %187, 5
   store i32 %3330, ptr %125, align 8
   %3331 = zext i32 %207 to i64
@@ -29369,7 +29369,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3355, ptr %3347, align 2
   br label %12684
 
-3356:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3356:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3357 = add i32 %187, 5
   store i32 %3357, ptr %125, align 8
   %3358 = zext i32 %207 to i64
@@ -29409,7 +29409,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3382, ptr %3374, align 2
   br label %12684
 
-3383:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3383:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3384 = add i32 %187, 5
   store i32 %3384, ptr %125, align 8
   %3385 = zext i32 %207 to i64
@@ -29449,7 +29449,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3409, ptr %3401, align 2
   br label %12684
 
-3410:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3410:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3411 = add i32 %187, 5
   store i32 %3411, ptr %125, align 8
   %3412 = zext i32 %207 to i64
@@ -29489,7 +29489,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3436, ptr %3428, align 2
   br label %12684
 
-3437:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3437:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3438 = add i32 %187, 5
   store i32 %3438, ptr %125, align 8
   %3439 = zext i32 %207 to i64
@@ -29535,7 +29535,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3468, ptr %3460, align 2
   br label %12684
 
-3469:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3469:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3470 = add i32 %187, 5
   store i32 %3470, ptr %125, align 8
   %3471 = zext i32 %207 to i64
@@ -29581,7 +29581,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3500, ptr %3492, align 2
   br label %12684
 
-3501:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3501:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3502 = add i32 %187, 5
   store i32 %3502, ptr %125, align 8
   %3503 = zext i32 %207 to i64
@@ -29621,7 +29621,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3527, ptr %3519, align 2
   br label %12684
 
-3528:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3528:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3529 = add i32 %187, 5
   store i32 %3529, ptr %125, align 8
   %3530 = zext i32 %207 to i64
@@ -29661,7 +29661,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3554, ptr %3546, align 2
   br label %12684
 
-3555:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3555:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3556 = add i32 %187, 5
   store i32 %3556, ptr %125, align 8
   %3557 = zext i32 %207 to i64
@@ -29701,7 +29701,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3581, ptr %3573, align 2
   br label %12684
 
-3582:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3582:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3583 = add i32 %187, 5
   store i32 %3583, ptr %125, align 8
   %3584 = zext i32 %207 to i64
@@ -29741,7 +29741,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3608, ptr %3600, align 2
   br label %12684
 
-3609:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3609:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3610 = add i32 %187, 5
   store i32 %3610, ptr %125, align 8
   %3611 = zext i32 %207 to i64
@@ -29781,7 +29781,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3635, ptr %3627, align 2
   br label %12684
 
-3636:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3636:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3637 = add i32 %187, 5
   store i32 %3637, ptr %125, align 8
   %3638 = zext i32 %207 to i64
@@ -29821,7 +29821,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3662, ptr %3654, align 2
   br label %12684
 
-3663:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3663:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3664 = add i32 %187, 5
   store i32 %3664, ptr %125, align 8
   %3665 = zext i32 %207 to i64
@@ -29861,7 +29861,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3689, ptr %3681, align 2
   br label %12684
 
-3690:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3690:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3691 = add i32 %187, 5
   store i32 %3691, ptr %125, align 8
   %3692 = zext i32 %207 to i64
@@ -29901,7 +29901,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3716, ptr %3708, align 2
   br label %12684
 
-3717:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3717:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3718 = add i32 %187, 5
   store i32 %3718, ptr %125, align 8
   %3719 = zext i32 %207 to i64
@@ -29952,7 +29952,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3751, ptr %3743, align 2
   br label %12684
 
-3752:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3752:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3753 = add i32 %187, 5
   store i32 %3753, ptr %125, align 8
   %3754 = zext i32 %207 to i64
@@ -30003,7 +30003,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3786, ptr %3778, align 2
   br label %12684
 
-3787:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3787:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3788 = add i32 %187, 5
   store i32 %3788, ptr %125, align 8
   %3789 = zext i32 %207 to i64
@@ -30043,7 +30043,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3813, ptr %3805, align 2
   br label %12684
 
-3814:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3814:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3815 = add i32 %187, 5
   store i32 %3815, ptr %125, align 8
   %3816 = zext i32 %207 to i64
@@ -30083,7 +30083,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3840, ptr %3832, align 2
   br label %12684
 
-3841:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3841:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3842 = add i32 %187, 5
   store i32 %3842, ptr %125, align 8
   %3843 = zext i32 %207 to i64
@@ -30123,7 +30123,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3867, ptr %3859, align 2
   br label %12684
 
-3868:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3868:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3869 = add i32 %187, 5
   store i32 %3869, ptr %125, align 8
   %3870 = zext i32 %207 to i64
@@ -30163,7 +30163,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3894, ptr %3886, align 2
   br label %12684
 
-3895:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3895:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3896 = add i32 %187, 5
   store i32 %3896, ptr %125, align 8
   %3897 = zext i32 %207 to i64
@@ -30214,7 +30214,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #26
   br label %12684
 
-3927:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3927:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3928 = add i32 %187, 5
   store i32 %3928, ptr %125, align 8
   %3929 = zext i32 %207 to i64
@@ -30260,7 +30260,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   store i8 %3958, ptr %3950, align 2
   br label %12684
 
-3959:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+3959:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %3960 = add i32 %187, 5
   store i32 %3960, ptr %125, align 8
   %3961 = zext i32 %207 to i64
@@ -30279,7 +30279,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph6946
   %3971 = getelementptr inbounds i64, ptr %190, i64 %3970
   %3972 = load i64, ptr %3971, align 8
   %.not6576 = icmp eq i64 %3972, 0
-  %3973 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang12FunctionDeclEEEPT_v(ptr nonnull %0)
+  %3973 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang12FunctionDeclEEEPT_v.argprom(ptr nonnull %0)
   %3974 = load i32, ptr %125, align 8
   %3975 = add i32 %3974, 1
   store i32 %3975, ptr %125, align 8
@@ -30351,7 +30351,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   call void @_ZN4llvm11SmallVectorIjLj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #26
   br label %12684
 
-4014:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4014:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4015 = add i32 %187, 5
   store i32 %4015, ptr %125, align 8
   %4016 = zext i32 %207 to i64
@@ -30386,7 +30386,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   %4036 = zext i32 %4030 to i64
   %4037 = getelementptr inbounds i64, ptr %4032, i64 %4036
   %4038 = load i64, ptr %4037, align 8
-  %4039 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang9NamedDeclEEEPT_v(ptr nonnull %0)
+  %4039 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang9NamedDeclEEEPT_v.argprom(ptr nonnull %0)
   %4040 = call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %4041 = icmp eq ptr %4040, null
   br i1 %4041, label %4047, label %4042
@@ -30413,7 +30413,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #26
   br label %12684
 
-4057:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4057:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4058 = add i32 %187, 5
   store i32 %4058, ptr %125, align 8
   %4059 = zext i32 %207 to i64
@@ -30453,7 +30453,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   store i8 %4083, ptr %4075, align 2
   br label %12684
 
-4084:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4084:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4085 = add i32 %187, 5
   store i32 %4085, ptr %125, align 8
   %4086 = zext i32 %207 to i64
@@ -30493,7 +30493,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   store i8 %4110, ptr %4102, align 2
   br label %12684
 
-4111:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4111:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4112 = add i32 %187, 5
   store i32 %4112, ptr %125, align 8
   %4113 = zext i32 %207 to i64
@@ -30533,7 +30533,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   store i8 %4137, ptr %4129, align 2
   br label %12684
 
-4138:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4138:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4139 = add i32 %187, 5
   store i32 %4139, ptr %125, align 8
   %4140 = zext i32 %207 to i64
@@ -30580,7 +30580,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #26
   br label %12684
 
-4168:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4168:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4169 = add i32 %187, 5
   store i32 %4169, ptr %125, align 8
   %4170 = zext i32 %207 to i64
@@ -30624,7 +30624,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #26
   br label %12684
 
-4197:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4197:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4198 = add i32 %187, 5
   store i32 %4198, ptr %125, align 8
   %4199 = zext i32 %207 to i64
@@ -30668,7 +30668,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #26
   br label %12684
 
-4226:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4226:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4227 = add i32 %187, 5
   store i32 %4227, ptr %125, align 8
   %4228 = zext i32 %207 to i64
@@ -30714,7 +30714,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   store i8 %4257, ptr %4249, align 2
   br label %12684
 
-4258:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4258:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4259 = add i32 %187, 5
   store i32 %4259, ptr %125, align 8
   %4260 = zext i32 %207 to i64
@@ -30758,7 +30758,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #26
   br label %12684
 
-4287:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4287:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4288 = add i32 %187, 5
   store i32 %4288, ptr %125, align 8
   %4289 = zext i32 %207 to i64
@@ -30798,7 +30798,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph6941
   store i8 %4313, ptr %4305, align 2
   br label %12684
 
-4314:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4314:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4315 = add i32 %187, 5
   store i32 %4315, ptr %125, align 8
   %4316 = zext i32 %207 to i64
@@ -30887,7 +30887,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %59) #26
   br label %12684
 
-4364:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4364:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4365 = add i32 %187, 5
   store i32 %4365, ptr %125, align 8
   %4366 = zext i32 %207 to i64
@@ -30953,7 +30953,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #26
   br label %12684
 
-4406:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4406:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4407 = add i32 %187, 5
   store i32 %4407, ptr %125, align 8
   %4408 = zext i32 %207 to i64
@@ -30985,7 +30985,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4425, ptr %4419, align 2
   br label %12684
 
-4426:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4426:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4427 = add i32 %187, 5
   store i32 %4427, ptr %125, align 8
   %4428 = zext i32 %207 to i64
@@ -31025,7 +31025,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4452, ptr %4444, align 2
   br label %12684
 
-4453:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4453:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4454 = add i32 %187, 5
   store i32 %4454, ptr %125, align 8
   %4455 = zext i32 %207 to i64
@@ -31065,7 +31065,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4479, ptr %4471, align 2
   br label %12684
 
-4480:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4480:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4481 = add i32 %187, 5
   store i32 %4481, ptr %125, align 8
   %4482 = zext i32 %207 to i64
@@ -31105,7 +31105,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4506, ptr %4498, align 2
   br label %12684
 
-4507:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4507:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4508 = add i32 %187, 5
   store i32 %4508, ptr %125, align 8
   %4509 = zext i32 %207 to i64
@@ -31145,7 +31145,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4533, ptr %4525, align 2
   br label %12684
 
-4534:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4534:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4535 = add i32 %187, 5
   store i32 %4535, ptr %125, align 8
   %4536 = zext i32 %207 to i64
@@ -31164,7 +31164,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   %4546 = getelementptr inbounds i64, ptr %190, i64 %4545
   %4547 = load i64, ptr %4546, align 8
   %.not6540 = icmp eq i64 %4547, 0
-  %4548 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %4548 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %4549 = load i32, ptr %125, align 8
   %4550 = add i32 %4549, 1
   store i32 %4550, ptr %125, align 8
@@ -31200,7 +31200,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4573, ptr %4565, align 2
   br label %12684
 
-4574:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4574:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4575 = add i32 %187, 5
   store i32 %4575, ptr %125, align 8
   %4576 = zext i32 %207 to i64
@@ -31246,7 +31246,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4605, ptr %4597, align 2
   br label %12684
 
-4606:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4606:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4607 = add i32 %187, 5
   store i32 %4607, ptr %125, align 8
   %4608 = zext i32 %207 to i64
@@ -31292,7 +31292,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4637, ptr %4629, align 2
   br label %12684
 
-4638:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4638:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4639 = add i32 %187, 5
   store i32 %4639, ptr %125, align 8
   %4640 = zext i32 %207 to i64
@@ -31332,7 +31332,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4664, ptr %4656, align 2
   br label %12684
 
-4665:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4665:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4666 = add i32 %187, 5
   store i32 %4666, ptr %125, align 8
   %4667 = zext i32 %207 to i64
@@ -31375,7 +31375,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4692, ptr %4684, align 2
   br label %12684
 
-4693:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4693:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4694 = add i32 %187, 5
   store i32 %4694, ptr %125, align 8
   %4695 = zext i32 %207 to i64
@@ -31415,7 +31415,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4719, ptr %4711, align 2
   br label %12684
 
-4720:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4720:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4721 = add i32 %187, 5
   store i32 %4721, ptr %125, align 8
   %4722 = zext i32 %207 to i64
@@ -31455,7 +31455,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4746, ptr %4738, align 2
   br label %12684
 
-4747:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4747:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4748 = add i32 %187, 5
   store i32 %4748, ptr %125, align 8
   %4749 = zext i32 %207 to i64
@@ -31487,7 +31487,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4766, ptr %4760, align 2
   br label %12684
 
-4767:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4767:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4768 = add i32 %187, 5
   store i32 %4768, ptr %125, align 8
   %4769 = zext i32 %207 to i64
@@ -31525,7 +31525,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4791, ptr %4785, align 2
   br label %12684
 
-4792:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4792:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4793 = add i32 %187, 5
   store i32 %4793, ptr %125, align 8
   %4794 = zext i32 %207 to i64
@@ -31583,7 +31583,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4833, ptr %4825, align 2
   br label %12684
 
-4834:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4834:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4835 = add i32 %187, 5
   store i32 %4835, ptr %125, align 8
   %4836 = zext i32 %207 to i64
@@ -31635,7 +31635,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4870, ptr %4862, align 2
   br label %12684
 
-4871:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4871:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4872 = add i32 %187, 5
   store i32 %4872, ptr %125, align 8
   %4873 = zext i32 %207 to i64
@@ -31681,7 +31681,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4902, ptr %4894, align 2
   br label %12684
 
-4903:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4903:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4904 = add i32 %187, 5
   store i32 %4904, ptr %125, align 8
   %4905 = zext i32 %207 to i64
@@ -31721,7 +31721,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4929, ptr %4921, align 2
   br label %12684
 
-4930:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4930:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4931 = add i32 %187, 5
   store i32 %4931, ptr %125, align 8
   %4932 = zext i32 %207 to i64
@@ -31767,7 +31767,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %4961, ptr %4953, align 2
   br label %12684
 
-4962:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4962:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4963 = add i32 %187, 5
   store i32 %4963, ptr %125, align 8
   %4964 = zext i32 %207 to i64
@@ -31818,7 +31818,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #26
   br label %12684
 
-4994:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+4994:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %4995 = add i32 %187, 5
   store i32 %4995, ptr %125, align 8
   %4996 = zext i32 %207 to i64
@@ -31864,7 +31864,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5025, ptr %5017, align 2
   br label %12684
 
-5026:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5026:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5027 = add i32 %187, 5
   store i32 %5027, ptr %125, align 8
   %5028 = zext i32 %207 to i64
@@ -31904,7 +31904,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5052, ptr %5044, align 2
   br label %12684
 
-5053:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5053:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5054 = add i32 %187, 5
   store i32 %5054, ptr %125, align 8
   %5055 = zext i32 %207 to i64
@@ -31944,7 +31944,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5079, ptr %5071, align 2
   br label %12684
 
-5080:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5080:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5081 = add i32 %187, 5
   store i32 %5081, ptr %125, align 8
   %5082 = zext i32 %207 to i64
@@ -31990,7 +31990,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5111, ptr %5103, align 2
   br label %12684
 
-5112:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5112:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5113 = add i32 %187, 5
   store i32 %5113, ptr %125, align 8
   %5114 = zext i32 %207 to i64
@@ -32048,7 +32048,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5153, ptr %5145, align 2
   br label %12684
 
-5154:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5154:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5155 = add i32 %187, 5
   store i32 %5155, ptr %125, align 8
   %5156 = zext i32 %207 to i64
@@ -32088,7 +32088,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5180, ptr %5172, align 2
   br label %12684
 
-5181:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5181:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5182 = add i32 %187, 5
   store i32 %5182, ptr %125, align 8
   %5183 = zext i32 %207 to i64
@@ -32128,7 +32128,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5207, ptr %5199, align 2
   br label %12684
 
-5208:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5208:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5209 = add i32 %187, 5
   store i32 %5209, ptr %125, align 8
   %5210 = zext i32 %207 to i64
@@ -32168,7 +32168,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5234, ptr %5226, align 2
   br label %12684
 
-5235:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5235:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5236 = add i32 %187, 5
   store i32 %5236, ptr %125, align 8
   %5237 = zext i32 %207 to i64
@@ -32208,7 +32208,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5261, ptr %5253, align 2
   br label %12684
 
-5262:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5262:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5263 = add i32 %187, 5
   store i32 %5263, ptr %125, align 8
   %5264 = zext i32 %207 to i64
@@ -32249,7 +32249,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5289, ptr %5281, align 2
   br label %12684
 
-5290:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5290:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5291 = add i32 %187, 5
   store i32 %5291, ptr %125, align 8
   %5292 = zext i32 %207 to i64
@@ -32285,7 +32285,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
   br label %12684
 
-5312:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5312:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5313 = add i32 %187, 5
   store i32 %5313, ptr %125, align 8
   %5314 = zext i32 %207 to i64
@@ -32331,7 +32331,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5343, ptr %5335, align 2
   br label %12684
 
-5344:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5344:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5345 = add i32 %187, 5
   store i32 %5345, ptr %125, align 8
   %5346 = zext i32 %207 to i64
@@ -32367,7 +32367,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
   br label %12684
 
-5366:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5366:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5367 = add i32 %187, 5
   store i32 %5367, ptr %125, align 8
   %5368 = zext i32 %207 to i64
@@ -32407,7 +32407,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5392, ptr %5384, align 2
   br label %12684
 
-5393:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5393:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5394 = add i32 %187, 5
   store i32 %5394, ptr %125, align 8
   %5395 = zext i32 %207 to i64
@@ -32447,7 +32447,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5419, ptr %5411, align 2
   br label %12684
 
-5420:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5420:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5421 = add i32 %187, 5
   store i32 %5421, ptr %125, align 8
   %5422 = zext i32 %207 to i64
@@ -32487,7 +32487,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5446, ptr %5438, align 2
   br label %12684
 
-5447:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5447:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5448 = add i32 %187, 5
   store i32 %5448, ptr %125, align 8
   %5449 = zext i32 %207 to i64
@@ -32533,7 +32533,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5478, ptr %5470, align 2
   br label %12684
 
-5479:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5479:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5480 = add i32 %187, 5
   store i32 %5480, ptr %125, align 8
   %5481 = zext i32 %207 to i64
@@ -32573,7 +32573,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5505, ptr %5497, align 2
   br label %12684
 
-5506:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5506:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5507 = add i32 %187, 5
   store i32 %5507, ptr %125, align 8
   %5508 = zext i32 %207 to i64
@@ -32613,7 +32613,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5532, ptr %5524, align 2
   br label %12684
 
-5533:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5533:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5534 = add i32 %187, 5
   store i32 %5534, ptr %125, align 8
   %5535 = zext i32 %207 to i64
@@ -32645,7 +32645,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5552, ptr %5546, align 2
   br label %12684
 
-5553:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5553:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5554 = add i32 %187, 5
   store i32 %5554, ptr %125, align 8
   %5555 = zext i32 %207 to i64
@@ -32677,7 +32677,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5572, ptr %5566, align 2
   br label %12684
 
-5573:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5573:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5574 = add i32 %187, 5
   store i32 %5574, ptr %125, align 8
   %5575 = zext i32 %207 to i64
@@ -32720,7 +32720,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5831: ; 
   store i8 %5600, ptr %5592, align 2
   br label %12684
 
-5601:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5601:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5602 = add i32 %187, 5
   store i32 %5602, ptr %125, align 8
   %5603 = zext i32 %207 to i64
@@ -32804,7 +32804,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %70) #26
   br label %12684
 
-5648:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5648:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5649 = add i32 %187, 5
   store i32 %5649, ptr %125, align 8
   %5650 = zext i32 %207 to i64
@@ -32851,7 +32851,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5678, ptr %5672, align 2
   br label %12684
 
-5679:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5679:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5680 = add i32 %187, 5
   store i32 %5680, ptr %125, align 8
   %5681 = zext i32 %207 to i64
@@ -32897,7 +32897,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5710, ptr %5702, align 2
   br label %12684
 
-5711:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5711:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5712 = add i32 %187, 5
   store i32 %5712, ptr %125, align 8
   %5713 = zext i32 %207 to i64
@@ -32937,7 +32937,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5737, ptr %5729, align 2
   br label %12684
 
-5738:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5738:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5739 = add i32 %187, 5
   store i32 %5739, ptr %125, align 8
   %5740 = zext i32 %207 to i64
@@ -32977,7 +32977,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5764, ptr %5756, align 2
   br label %12684
 
-5765:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5765:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5766 = add i32 %187, 5
   store i32 %5766, ptr %125, align 8
   %5767 = zext i32 %207 to i64
@@ -33017,7 +33017,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5791, ptr %5783, align 2
   br label %12684
 
-5792:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5792:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5793 = add i32 %187, 5
   store i32 %5793, ptr %125, align 8
   %5794 = zext i32 %207 to i64
@@ -33057,7 +33057,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5818, ptr %5810, align 2
   br label %12684
 
-5819:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5819:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5820 = add i32 %187, 5
   store i32 %5820, ptr %125, align 8
   %5821 = zext i32 %207 to i64
@@ -33097,7 +33097,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5845, ptr %5837, align 2
   br label %12684
 
-5846:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5846:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5847 = add i32 %187, 5
   store i32 %5847, ptr %125, align 8
   %5848 = zext i32 %207 to i64
@@ -33143,7 +33143,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5877, ptr %5869, align 2
   br label %12684
 
-5878:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5878:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5879 = add i32 %187, 5
   store i32 %5879, ptr %125, align 8
   %5880 = zext i32 %207 to i64
@@ -33183,7 +33183,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5904, ptr %5896, align 2
   br label %12684
 
-5905:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5905:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5906 = add i32 %187, 5
   store i32 %5906, ptr %125, align 8
   %5907 = zext i32 %207 to i64
@@ -33229,7 +33229,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5936, ptr %5928, align 2
   br label %12684
 
-5937:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5937:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5938 = add i32 %187, 5
   store i32 %5938, ptr %125, align 8
   %5939 = zext i32 %207 to i64
@@ -33269,7 +33269,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5963, ptr %5955, align 2
   br label %12684
 
-5964:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5964:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5965 = add i32 %187, 5
   store i32 %5965, ptr %125, align 8
   %5966 = zext i32 %207 to i64
@@ -33315,7 +33315,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %5995, ptr %5987, align 2
   br label %12684
 
-5996:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+5996:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %5997 = add i32 %187, 5
   store i32 %5997, ptr %125, align 8
   %5998 = zext i32 %207 to i64
@@ -33361,7 +33361,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6027, ptr %6019, align 2
   br label %12684
 
-6028:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6028:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6029 = add i32 %187, 5
   store i32 %6029, ptr %125, align 8
   %6030 = zext i32 %207 to i64
@@ -33401,7 +33401,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6054, ptr %6046, align 2
   br label %12684
 
-6055:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6055:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6056 = add i32 %187, 5
   store i32 %6056, ptr %125, align 8
   %6057 = zext i32 %207 to i64
@@ -33441,7 +33441,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6081, ptr %6073, align 2
   br label %12684
 
-6082:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6082:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6083 = add i32 %187, 5
   store i32 %6083, ptr %125, align 8
   %6084 = zext i32 %207 to i64
@@ -33481,7 +33481,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6108, ptr %6100, align 2
   br label %12684
 
-6109:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6109:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6110 = add i32 %187, 5
   store i32 %6110, ptr %125, align 8
   %6111 = zext i32 %207 to i64
@@ -33521,7 +33521,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6135, ptr %6127, align 2
   br label %12684
 
-6136:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6136:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6137 = add i32 %187, 5
   store i32 %6137, ptr %125, align 8
   %6138 = zext i32 %207 to i64
@@ -33567,7 +33567,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6167, ptr %6159, align 2
   br label %12684
 
-6168:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6168:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6169 = add i32 %187, 5
   store i32 %6169, ptr %125, align 8
   %6170 = zext i32 %207 to i64
@@ -33607,7 +33607,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6194, ptr %6186, align 2
   br label %12684
 
-6195:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6195:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6196 = add i32 %187, 5
   store i32 %6196, ptr %125, align 8
   %6197 = zext i32 %207 to i64
@@ -33653,7 +33653,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6226, ptr %6218, align 2
   br label %12684
 
-6227:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6227:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6228 = add i32 %187, 5
   store i32 %6228, ptr %125, align 8
   %6229 = zext i32 %207 to i64
@@ -33693,7 +33693,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6253, ptr %6245, align 2
   br label %12684
 
-6254:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6254:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6255 = add i32 %187, 5
   store i32 %6255, ptr %125, align 8
   %6256 = zext i32 %207 to i64
@@ -33733,7 +33733,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6280, ptr %6272, align 2
   br label %12684
 
-6281:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6281:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6282 = add i32 %187, 5
   store i32 %6282, ptr %125, align 8
   %6283 = zext i32 %207 to i64
@@ -33746,7 +33746,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   %6288 = getelementptr inbounds i64, ptr %190, i64 %6287
   %6289 = load i64, ptr %6288, align 8
   %.not6420 = icmp eq i64 %6289, 0
-  %6290 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %6290 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %6291 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %6292 = icmp eq ptr %6291, null
   br i1 %6292, label %6294, label %6293
@@ -33766,7 +33766,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6301, ptr %6295, align 2
   br label %12684
 
-6302:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6302:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6303 = add i32 %187, 5
   store i32 %6303, ptr %125, align 8
   %6304 = zext i32 %207 to i64
@@ -33798,7 +33798,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6321, ptr %6315, align 2
   br label %12684
 
-6322:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6322:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6323 = add i32 %187, 5
   store i32 %6323, ptr %125, align 8
   %6324 = zext i32 %207 to i64
@@ -33838,7 +33838,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6348, ptr %6340, align 2
   br label %12684
 
-6349:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6349:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6350 = add i32 %187, 5
   store i32 %6350, ptr %125, align 8
   %6351 = zext i32 %207 to i64
@@ -33878,7 +33878,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6375, ptr %6367, align 2
   br label %12684
 
-6376:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6376:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6377 = add i32 %187, 5
   store i32 %6377, ptr %125, align 8
   %6378 = zext i32 %207 to i64
@@ -33897,7 +33897,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   %6388 = getelementptr inbounds i64, ptr %190, i64 %6387
   %6389 = load i64, ptr %6388, align 8
   %.not6412 = icmp eq i64 %6389, 0
-  %6390 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %6390 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %6391 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %6392 = icmp eq ptr %6391, null
   br i1 %6392, label %6394, label %6393
@@ -33919,7 +33919,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6403, ptr %6395, align 2
   br label %12684
 
-6404:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6404:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6405 = add i32 %187, 5
   store i32 %6405, ptr %125, align 8
   %6406 = zext i32 %207 to i64
@@ -33959,7 +33959,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6430, ptr %6422, align 2
   br label %12684
 
-6431:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6431:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6432 = add i32 %187, 5
   store i32 %6432, ptr %125, align 8
   %6433 = zext i32 %207 to i64
@@ -33999,7 +33999,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6457, ptr %6449, align 2
   br label %12684
 
-6458:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6458:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6459 = add i32 %187, 5
   store i32 %6459, ptr %125, align 8
   %6460 = zext i32 %207 to i64
@@ -34039,7 +34039,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6484, ptr %6476, align 2
   br label %12684
 
-6485:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6485:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6486 = add i32 %187, 5
   store i32 %6486, ptr %125, align 8
   %6487 = zext i32 %207 to i64
@@ -34079,7 +34079,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6511, ptr %6503, align 2
   br label %12684
 
-6512:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6512:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6513 = add i32 %187, 5
   store i32 %6513, ptr %125, align 8
   %6514 = zext i32 %207 to i64
@@ -34119,7 +34119,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6538, ptr %6530, align 2
   br label %12684
 
-6539:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6539:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6540 = add i32 %187, 5
   store i32 %6540, ptr %125, align 8
   %6541 = zext i32 %207 to i64
@@ -34159,7 +34159,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5833: ; 
   store i8 %6565, ptr %6557, align 2
   br label %12684
 
-6566:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6566:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6567 = add i32 %187, 5
   store i32 %6567, ptr %125, align 8
   %6568 = zext i32 %207 to i64
@@ -34254,7 +34254,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %71) #26
   br label %12684
 
-6610:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6610:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6611 = add i32 %187, 5
   store i32 %6611, ptr %125, align 8
   %6612 = zext i32 %207 to i64
@@ -34294,7 +34294,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6636, ptr %6628, align 2
   br label %12684
 
-6637:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6637:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6638 = add i32 %187, 5
   store i32 %6638, ptr %125, align 8
   %6639 = zext i32 %207 to i64
@@ -34334,7 +34334,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6663, ptr %6655, align 2
   br label %12684
 
-6664:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6664:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6665 = add i32 %187, 5
   store i32 %6665, ptr %125, align 8
   %6666 = zext i32 %207 to i64
@@ -34374,7 +34374,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6690, ptr %6682, align 2
   br label %12684
 
-6691:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6691:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6692 = add i32 %187, 5
   store i32 %6692, ptr %125, align 8
   %6693 = zext i32 %207 to i64
@@ -34406,7 +34406,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6710, ptr %6704, align 2
   br label %12684
 
-6711:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6711:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6712 = add i32 %187, 5
   store i32 %6712, ptr %125, align 8
   %6713 = zext i32 %207 to i64
@@ -34446,7 +34446,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6737, ptr %6729, align 2
   br label %12684
 
-6738:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6738:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6739 = add i32 %187, 5
   store i32 %6739, ptr %125, align 8
   %6740 = zext i32 %207 to i64
@@ -34486,7 +34486,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6764, ptr %6756, align 2
   br label %12684
 
-6765:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6765:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6766 = add i32 %187, 5
   store i32 %6766, ptr %125, align 8
   %6767 = zext i32 %207 to i64
@@ -34518,7 +34518,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6784, ptr %6778, align 2
   br label %12684
 
-6785:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6785:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6786 = add i32 %187, 5
   store i32 %6786, ptr %125, align 8
   %6787 = zext i32 %207 to i64
@@ -34558,7 +34558,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6811, ptr %6803, align 2
   br label %12684
 
-6812:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6812:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6813 = add i32 %187, 5
   store i32 %6813, ptr %125, align 8
   %6814 = zext i32 %207 to i64
@@ -34598,7 +34598,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6838, ptr %6830, align 2
   br label %12684
 
-6839:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6839:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6840 = add i32 %187, 5
   store i32 %6840, ptr %125, align 8
   %6841 = zext i32 %207 to i64
@@ -34638,7 +34638,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6865, ptr %6857, align 2
   br label %12684
 
-6866:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6866:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6867 = add i32 %187, 5
   store i32 %6867, ptr %125, align 8
   %6868 = zext i32 %207 to i64
@@ -34678,7 +34678,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6892, ptr %6884, align 2
   br label %12684
 
-6893:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6893:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6894 = add i32 %187, 5
   store i32 %6894, ptr %125, align 8
   %6895 = zext i32 %207 to i64
@@ -34718,7 +34718,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6919, ptr %6911, align 2
   br label %12684
 
-6920:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6920:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6921 = add i32 %187, 5
   store i32 %6921, ptr %125, align 8
   %6922 = zext i32 %207 to i64
@@ -34758,7 +34758,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6946, ptr %6938, align 2
   br label %12684
 
-6947:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6947:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6948 = add i32 %187, 5
   store i32 %6948, ptr %125, align 8
   %6949 = zext i32 %207 to i64
@@ -34798,7 +34798,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %6973, ptr %6965, align 2
   br label %12684
 
-6974:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+6974:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %6975 = add i32 %187, 5
   store i32 %6975, ptr %125, align 8
   %6976 = zext i32 %207 to i64
@@ -34838,7 +34838,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5836: ; 
   store i8 %7000, ptr %6992, align 2
   br label %12684
 
-7001:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7001:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7002 = add i32 %187, 5
   store i32 %7002, ptr %125, align 8
   %7003 = zext i32 %207 to i64
@@ -34941,7 +34941,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %74) #26
   br label %12684
 
-7052:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7052:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7053 = add i32 %187, 5
   store i32 %7053, ptr %125, align 8
   %7054 = zext i32 %207 to i64
@@ -34981,7 +34981,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7078, ptr %7070, align 2
   br label %12684
 
-7079:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7079:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7080 = add i32 %187, 5
   store i32 %7080, ptr %125, align 8
   %7081 = zext i32 %207 to i64
@@ -35021,7 +35021,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7105, ptr %7097, align 2
   br label %12684
 
-7106:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7106:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7107 = add i32 %187, 5
   store i32 %7107, ptr %125, align 8
   %7108 = zext i32 %207 to i64
@@ -35061,7 +35061,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7132, ptr %7124, align 2
   br label %12684
 
-7133:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7133:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7134 = add i32 %187, 5
   store i32 %7134, ptr %125, align 8
   %7135 = zext i32 %207 to i64
@@ -35101,7 +35101,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7159, ptr %7151, align 2
   br label %12684
 
-7160:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7160:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7161 = add i32 %187, 5
   store i32 %7161, ptr %125, align 8
   %7162 = zext i32 %207 to i64
@@ -35141,7 +35141,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7186, ptr %7178, align 2
   br label %12684
 
-7187:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7187:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7188 = add i32 %187, 5
   store i32 %7188, ptr %125, align 8
   %7189 = zext i32 %207 to i64
@@ -35181,7 +35181,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7213, ptr %7205, align 2
   br label %12684
 
-7214:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7214:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7215 = add i32 %187, 5
   store i32 %7215, ptr %125, align 8
   %7216 = zext i32 %207 to i64
@@ -35221,7 +35221,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7240, ptr %7232, align 2
   br label %12684
 
-7241:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7241:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7242 = add i32 %187, 5
   store i32 %7242, ptr %125, align 8
   %7243 = zext i32 %207 to i64
@@ -35256,7 +35256,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7261, ptr %7255, align 2
   br label %12684
 
-7262:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7262:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7263 = add i32 %187, 5
   store i32 %7263, ptr %125, align 8
   %7264 = zext i32 %207 to i64
@@ -35291,7 +35291,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5839: ; 
   store i8 %7282, ptr %7276, align 2
   br label %12684
 
-7283:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7283:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7284 = add i32 %187, 5
   store i32 %7284, ptr %125, align 8
   %7285 = zext i32 %207 to i64
@@ -35379,7 +35379,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit: ; p
   call void @_ZN4llvm11SmallVectorIN5clang8ParamIdxELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #26
   br label %12684
 
-7335:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7335:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7336 = add i32 %187, 5
   store i32 %7336, ptr %125, align 8
   %7337 = zext i32 %207 to i64
@@ -35419,7 +35419,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit: ; p
   store i8 %7361, ptr %7353, align 2
   br label %12684
 
-7362:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7362:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7363 = add i32 %187, 5
   store i32 %7363, ptr %125, align 8
   %7364 = zext i32 %207 to i64
@@ -35471,7 +35471,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit: ; p
   store i8 %7395, ptr %7387, align 2
   br label %12684
 
-7396:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7396:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7397 = add i32 %187, 5
   store i32 %7397, ptr %125, align 8
   %7398 = zext i32 %207 to i64
@@ -35515,7 +35515,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit: ; p
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #26
   br label %12684
 
-7425:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7425:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7426 = add i32 %187, 5
   store i32 %7426, ptr %125, align 8
   %7427 = zext i32 %207 to i64
@@ -35553,7 +35553,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit: ; p
   store i8 %7449, ptr %7443, align 2
   br label %12684
 
-7450:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7450:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7451 = add i32 %187, 5
   store i32 %7451, ptr %125, align 8
   %7452 = zext i32 %207 to i64
@@ -35593,7 +35593,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit: ; p
   store i8 %7476, ptr %7468, align 2
   br label %12684
 
-7477:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7477:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7478 = add i32 %187, 5
   store i32 %7478, ptr %125, align 8
   %7479 = zext i32 %207 to i64
@@ -35914,7 +35914,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5852: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %79) #26
   br label %12684
 
-7640:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7640:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7641 = add i32 %187, 5
   store i32 %7641, ptr %125, align 8
   %7642 = zext i32 %207 to i64
@@ -35983,7 +35983,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5852: ; 
   store i8 %7689, ptr %7681, align 2
   br label %12684
 
-7690:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7690:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7691 = add i32 %187, 5
   store i32 %7691, ptr %125, align 8
   %7692 = zext i32 %207 to i64
@@ -36162,7 +36162,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %85) #26
   br label %12684
 
-7789:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7789:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7790 = add i32 %187, 5
   store i32 %7790, ptr %125, align 8
   %7791 = zext i32 %207 to i64
@@ -36197,7 +36197,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %7809, ptr %7803, align 2
   br label %12684
 
-7810:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7810:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7811 = add i32 %187, 5
   store i32 %7811, ptr %125, align 8
   %7812 = zext i32 %207 to i64
@@ -36237,7 +36237,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %7836, ptr %7828, align 2
   br label %12684
 
-7837:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7837:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7838 = add i32 %187, 5
   store i32 %7838, ptr %125, align 8
   %7839 = zext i32 %207 to i64
@@ -36277,7 +36277,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %7863, ptr %7855, align 2
   br label %12684
 
-7864:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7864:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7865 = add i32 %187, 5
   store i32 %7865, ptr %125, align 8
   %7866 = zext i32 %207 to i64
@@ -36317,7 +36317,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %7890, ptr %7882, align 2
   br label %12684
 
-7891:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7891:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7892 = add i32 %187, 5
   store i32 %7892, ptr %125, align 8
   %7893 = zext i32 %207 to i64
@@ -36357,7 +36357,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %7917, ptr %7909, align 2
   br label %12684
 
-7918:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7918:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7919 = add i32 %187, 5
   store i32 %7919, ptr %125, align 8
   %7920 = zext i32 %207 to i64
@@ -36397,7 +36397,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %7944, ptr %7936, align 2
   br label %12684
 
-7945:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7945:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7946 = add i32 %187, 5
   store i32 %7946, ptr %125, align 8
   %7947 = zext i32 %207 to i64
@@ -36437,7 +36437,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %7971, ptr %7963, align 2
   br label %12684
 
-7972:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7972:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %7973 = add i32 %187, 5
   store i32 %7973, ptr %125, align 8
   %7974 = zext i32 %207 to i64
@@ -36477,7 +36477,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %7998, ptr %7990, align 2
   br label %12684
 
-7999:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+7999:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8000 = add i32 %187, 5
   store i32 %8000, ptr %125, align 8
   %8001 = zext i32 %207 to i64
@@ -36509,7 +36509,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8018, ptr %8012, align 2
   br label %12684
 
-8019:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8019:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8020 = add i32 %187, 5
   store i32 %8020, ptr %125, align 8
   %8021 = zext i32 %207 to i64
@@ -36528,7 +36528,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   %8031 = getelementptr inbounds i64, ptr %190, i64 %8030
   %8032 = load i64, ptr %8031, align 8
   %.not6310 = icmp eq i64 %8032, 0
-  %8033 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %8033 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %8034 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %8035 = icmp eq ptr %8034, null
   br i1 %8035, label %8037, label %8036
@@ -36550,7 +36550,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8046, ptr %8038, align 2
   br label %12684
 
-8047:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8047:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8048 = add i32 %187, 5
   store i32 %8048, ptr %125, align 8
   %8049 = zext i32 %207 to i64
@@ -36569,7 +36569,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   %8059 = getelementptr inbounds i64, ptr %190, i64 %8058
   %8060 = load i64, ptr %8059, align 8
   %.not6308 = icmp eq i64 %8060, 0
-  %8061 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %8061 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %8062 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %8063 = icmp eq ptr %8062, null
   br i1 %8063, label %8065, label %8064
@@ -36591,7 +36591,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8074, ptr %8066, align 2
   br label %12684
 
-8075:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8075:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8076 = add i32 %187, 5
   store i32 %8076, ptr %125, align 8
   %8077 = zext i32 %207 to i64
@@ -36610,9 +36610,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   %8087 = getelementptr inbounds i64, ptr %190, i64 %8086
   %8088 = load i64, ptr %8087, align 8
   %.not6306 = icmp eq i64 %8088, 0
-  %8089 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
-  %8090 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
-  %8091 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %8089 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
+  %8090 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
+  %8091 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %8092 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %8093 = icmp eq ptr %8092, null
   br i1 %8093, label %8095, label %8094
@@ -36634,7 +36634,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8104, ptr %8096, align 2
   br label %12684
 
-8105:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8105:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8106 = add i32 %187, 5
   store i32 %8106, ptr %125, align 8
   %8107 = zext i32 %207 to i64
@@ -36666,7 +36666,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8124, ptr %8118, align 2
   br label %12684
 
-8125:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8125:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8126 = add i32 %187, 5
   store i32 %8126, ptr %125, align 8
   %8127 = zext i32 %207 to i64
@@ -36698,7 +36698,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8144, ptr %8138, align 2
   br label %12684
 
-8145:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8145:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8146 = add i32 %187, 5
   store i32 %8146, ptr %125, align 8
   %8147 = zext i32 %207 to i64
@@ -36730,7 +36730,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8164, ptr %8158, align 2
   br label %12684
 
-8165:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8165:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8166 = add i32 %187, 5
   store i32 %8166, ptr %125, align 8
   %8167 = zext i32 %207 to i64
@@ -36762,7 +36762,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8184, ptr %8178, align 2
   br label %12684
 
-8185:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8185:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8186 = add i32 %187, 5
   store i32 %8186, ptr %125, align 8
   %8187 = zext i32 %207 to i64
@@ -36802,7 +36802,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8211, ptr %8203, align 2
   br label %12684
 
-8212:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8212:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8213 = add i32 %187, 5
   store i32 %8213, ptr %125, align 8
   %8214 = zext i32 %207 to i64
@@ -36842,7 +36842,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8238, ptr %8230, align 2
   br label %12684
 
-8239:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8239:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8240 = add i32 %187, 5
   store i32 %8240, ptr %125, align 8
   %8241 = zext i32 %207 to i64
@@ -36882,7 +36882,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8265, ptr %8257, align 2
   br label %12684
 
-8266:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8266:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8267 = add i32 %187, 5
   store i32 %8267, ptr %125, align 8
   %8268 = zext i32 %207 to i64
@@ -36895,7 +36895,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   %8273 = getelementptr inbounds i64, ptr %190, i64 %8272
   %8274 = load i64, ptr %8273, align 8
   %.not6290 = icmp eq i64 %8274, 0
-  %8275 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %8275 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %8276 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %8277 = icmp eq ptr %8276, null
   br i1 %8277, label %8279, label %8278
@@ -36915,7 +36915,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8286, ptr %8280, align 2
   br label %12684
 
-8287:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8287:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8288 = add i32 %187, 5
   store i32 %8288, ptr %125, align 8
   %8289 = zext i32 %207 to i64
@@ -36955,7 +36955,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8313, ptr %8305, align 2
   br label %12684
 
-8314:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8314:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8315 = add i32 %187, 5
   store i32 %8315, ptr %125, align 8
   %8316 = zext i32 %207 to i64
@@ -36987,7 +36987,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8333, ptr %8327, align 2
   br label %12684
 
-8334:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8334:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8335 = add i32 %187, 5
   store i32 %8335, ptr %125, align 8
   %8336 = zext i32 %207 to i64
@@ -37019,7 +37019,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8353, ptr %8347, align 2
   br label %12684
 
-8354:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8354:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8355 = add i32 %187, 5
   store i32 %8355, ptr %125, align 8
   %8356 = zext i32 %207 to i64
@@ -37065,7 +37065,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8385, ptr %8377, align 2
   br label %12684
 
-8386:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8386:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8387 = add i32 %187, 5
   store i32 %8387, ptr %125, align 8
   %8388 = zext i32 %207 to i64
@@ -37105,7 +37105,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8412, ptr %8404, align 2
   br label %12684
 
-8413:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8413:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8414 = add i32 %187, 5
   store i32 %8414, ptr %125, align 8
   %8415 = zext i32 %207 to i64
@@ -37137,7 +37137,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8432, ptr %8426, align 2
   br label %12684
 
-8433:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8433:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8434 = add i32 %187, 5
   store i32 %8434, ptr %125, align 8
   %8435 = zext i32 %207 to i64
@@ -37169,7 +37169,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8452, ptr %8446, align 2
   br label %12684
 
-8453:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8453:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8454 = add i32 %187, 5
   store i32 %8454, ptr %125, align 8
   %8455 = zext i32 %207 to i64
@@ -37188,7 +37188,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   %8465 = getelementptr inbounds i64, ptr %190, i64 %8464
   %8466 = load i64, ptr %8465, align 8
   %.not6274 = icmp eq i64 %8466, 0
-  %8467 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %8467 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %8468 = tail call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %8469 = icmp eq ptr %8468, null
   br i1 %8469, label %8471, label %8470
@@ -37210,7 +37210,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8480, ptr %8472, align 2
   br label %12684
 
-8481:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8481:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8482 = add i32 %187, 5
   store i32 %8482, ptr %125, align 8
   %8483 = zext i32 %207 to i64
@@ -37250,7 +37250,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8507, ptr %8499, align 2
   br label %12684
 
-8508:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8508:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8509 = add i32 %187, 5
   store i32 %8509, ptr %125, align 8
   %8510 = zext i32 %207 to i64
@@ -37290,7 +37290,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8534, ptr %8526, align 2
   br label %12684
 
-8535:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8535:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8536 = add i32 %187, 5
   store i32 %8536, ptr %125, align 8
   %8537 = zext i32 %207 to i64
@@ -37330,7 +37330,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8561, ptr %8553, align 2
   br label %12684
 
-8562:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8562:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8563 = add i32 %187, 5
   store i32 %8563, ptr %125, align 8
   %8564 = zext i32 %207 to i64
@@ -37370,7 +37370,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8588, ptr %8580, align 2
   br label %12684
 
-8589:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8589:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8590 = add i32 %187, 5
   store i32 %8590, ptr %125, align 8
   %8591 = zext i32 %207 to i64
@@ -37410,7 +37410,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8615, ptr %8607, align 2
   br label %12684
 
-8616:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8616:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8617 = add i32 %187, 5
   store i32 %8617, ptr %125, align 8
   %8618 = zext i32 %207 to i64
@@ -37446,7 +37446,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #26
   br label %12684
 
-8638:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8638:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8639 = add i32 %187, 5
   store i32 %8639, ptr %125, align 8
   %8640 = zext i32 %207 to i64
@@ -37478,7 +37478,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8657, ptr %8651, align 2
   br label %12684
 
-8658:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8658:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8659 = add i32 %187, 5
   store i32 %8659, ptr %125, align 8
   %8660 = zext i32 %207 to i64
@@ -37518,7 +37518,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8684, ptr %8676, align 2
   br label %12684
 
-8685:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8685:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8686 = add i32 %187, 5
   store i32 %8686, ptr %125, align 8
   %8687 = zext i32 %207 to i64
@@ -37550,7 +37550,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8704, ptr %8698, align 2
   br label %12684
 
-8705:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8705:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8706 = add i32 %187, 5
   store i32 %8706, ptr %125, align 8
   %8707 = zext i32 %207 to i64
@@ -37582,7 +37582,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8724, ptr %8718, align 2
   br label %12684
 
-8725:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8725:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8726 = add i32 %187, 5
   store i32 %8726, ptr %125, align 8
   %8727 = zext i32 %207 to i64
@@ -37614,7 +37614,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8744, ptr %8738, align 2
   br label %12684
 
-8745:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8745:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8746 = add i32 %187, 5
   store i32 %8746, ptr %125, align 8
   %8747 = zext i32 %207 to i64
@@ -37646,7 +37646,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8764, ptr %8758, align 2
   br label %12684
 
-8765:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8765:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8766 = add i32 %187, 5
   store i32 %8766, ptr %125, align 8
   %8767 = zext i32 %207 to i64
@@ -37678,7 +37678,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8784, ptr %8778, align 2
   br label %12684
 
-8785:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8785:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8786 = add i32 %187, 5
   store i32 %8786, ptr %125, align 8
   %8787 = zext i32 %207 to i64
@@ -37710,7 +37710,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8804, ptr %8798, align 2
   br label %12684
 
-8805:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8805:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8806 = add i32 %187, 5
   store i32 %8806, ptr %125, align 8
   %8807 = zext i32 %207 to i64
@@ -37756,7 +37756,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8836, ptr %8828, align 2
   br label %12684
 
-8837:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8837:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8838 = add i32 %187, 5
   store i32 %8838, ptr %125, align 8
   %8839 = zext i32 %207 to i64
@@ -37796,7 +37796,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8863, ptr %8855, align 2
   br label %12684
 
-8864:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8864:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8865 = add i32 %187, 5
   store i32 %8865, ptr %125, align 8
   %8866 = zext i32 %207 to i64
@@ -37828,7 +37828,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8883, ptr %8877, align 2
   br label %12684
 
-8884:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8884:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8885 = add i32 %187, 5
   store i32 %8885, ptr %125, align 8
   %8886 = zext i32 %207 to i64
@@ -37860,7 +37860,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8903, ptr %8897, align 2
   br label %12684
 
-8904:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8904:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8905 = add i32 %187, 5
   store i32 %8905, ptr %125, align 8
   %8906 = zext i32 %207 to i64
@@ -37898,7 +37898,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8928, ptr %8922, align 2
   br label %12684
 
-8929:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8929:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8930 = add i32 %187, 5
   store i32 %8930, ptr %125, align 8
   %8931 = zext i32 %207 to i64
@@ -37938,7 +37938,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8955, ptr %8947, align 2
   br label %12684
 
-8956:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8956:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8957 = add i32 %187, 5
   store i32 %8957, ptr %125, align 8
   %8958 = zext i32 %207 to i64
@@ -37970,7 +37970,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %8975, ptr %8969, align 2
   br label %12684
 
-8976:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+8976:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %8977 = add i32 %187, 5
   store i32 %8977, ptr %125, align 8
   %8978 = zext i32 %207 to i64
@@ -38010,7 +38010,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %9002, ptr %8994, align 2
   br label %12684
 
-9003:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9003:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9004 = add i32 %187, 5
   store i32 %9004, ptr %125, align 8
   %9005 = zext i32 %207 to i64
@@ -38051,7 +38051,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   store i8 %9030, ptr %9022, align 2
   br label %12684
 
-9031:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9031:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9032 = add i32 %187, 5
   store i32 %9032, ptr %125, align 8
   %9033 = zext i32 %207 to i64
@@ -38070,7 +38070,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5856: ; 
   %9043 = getelementptr inbounds i64, ptr %190, i64 %9042
   %9044 = load i64, ptr %9043, align 8
   %.not6226 = icmp eq i64 %9044, 0
-  %9045 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %9045 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %9046 = load i32, ptr %125, align 8
   %9047 = add i32 %9046, 1
   store i32 %9047, ptr %125, align 8
@@ -38142,7 +38142,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   call void @_ZN4llvm11SmallVectorIN5clang8ParamIdxELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #26
   br label %12684
 
-9086:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9086:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9087 = add i32 %187, 5
   store i32 %9087, ptr %125, align 8
   %9088 = zext i32 %207 to i64
@@ -38182,7 +38182,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9112, ptr %9104, align 2
   br label %12684
 
-9113:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9113:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9114 = add i32 %187, 5
   store i32 %9114, ptr %125, align 8
   %9115 = zext i32 %207 to i64
@@ -38228,7 +38228,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9144, ptr %9136, align 2
   br label %12684
 
-9145:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9145:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9146 = add i32 %187, 5
   store i32 %9146, ptr %125, align 8
   %9147 = zext i32 %207 to i64
@@ -38268,7 +38268,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9171, ptr %9163, align 2
   br label %12684
 
-9172:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9172:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9173 = add i32 %187, 5
   store i32 %9173, ptr %125, align 8
   %9174 = zext i32 %207 to i64
@@ -38314,7 +38314,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9203, ptr %9195, align 2
   br label %12684
 
-9204:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9204:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9205 = add i32 %187, 5
   store i32 %9205, ptr %125, align 8
   %9206 = zext i32 %207 to i64
@@ -38366,7 +38366,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9240, ptr %9232, align 2
   br label %12684
 
-9241:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9241:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9242 = add i32 %187, 5
   store i32 %9242, ptr %125, align 8
   %9243 = zext i32 %207 to i64
@@ -38412,7 +38412,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9272, ptr %9264, align 2
   br label %12684
 
-9273:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9273:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9274 = add i32 %187, 5
   store i32 %9274, ptr %125, align 8
   %9275 = zext i32 %207 to i64
@@ -38453,7 +38453,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9300, ptr %9292, align 2
   br label %12684
 
-9301:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9301:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9302 = add i32 %187, 5
   store i32 %9302, ptr %125, align 8
   %9303 = zext i32 %207 to i64
@@ -38497,7 +38497,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #26
   br label %12684
 
-9330:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9330:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9331 = add i32 %187, 5
   store i32 %9331, ptr %125, align 8
   %9332 = zext i32 %207 to i64
@@ -38541,7 +38541,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #26
   br label %12684
 
-9359:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9359:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9360 = add i32 %187, 5
   store i32 %9360, ptr %125, align 8
   %9361 = zext i32 %207 to i64
@@ -38585,7 +38585,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #26
   br label %12684
 
-9388:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9388:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9389 = add i32 %187, 5
   store i32 %9389, ptr %125, align 8
   %9390 = zext i32 %207 to i64
@@ -38629,7 +38629,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %95) #26
   br label %12684
 
-9417:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9417:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9418 = add i32 %187, 5
   store i32 %9418, ptr %125, align 8
   %9419 = zext i32 %207 to i64
@@ -38673,7 +38673,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #26
   br label %12684
 
-9446:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9446:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9447 = add i32 %187, 5
   store i32 %9447, ptr %125, align 8
   %9448 = zext i32 %207 to i64
@@ -38714,7 +38714,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9473, ptr %9465, align 2
   br label %12684
 
-9474:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9474:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9475 = add i32 %187, 5
   store i32 %9475, ptr %125, align 8
   %9476 = zext i32 %207 to i64
@@ -38755,7 +38755,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9501, ptr %9493, align 2
   br label %12684
 
-9502:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9502:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9503 = add i32 %187, 5
   store i32 %9503, ptr %125, align 8
   %9504 = zext i32 %207 to i64
@@ -38795,7 +38795,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9528, ptr %9520, align 2
   br label %12684
 
-9529:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9529:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9530 = add i32 %187, 5
   store i32 %9530, ptr %125, align 8
   %9531 = zext i32 %207 to i64
@@ -38835,7 +38835,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9555, ptr %9547, align 2
   br label %12684
 
-9556:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9556:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9557 = add i32 %187, 5
   store i32 %9557, ptr %125, align 8
   %9558 = zext i32 %207 to i64
@@ -38875,7 +38875,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9582, ptr %9574, align 2
   br label %12684
 
-9583:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9583:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9584 = add i32 %187, 5
   store i32 %9584, ptr %125, align 8
   %9585 = zext i32 %207 to i64
@@ -38918,7 +38918,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9610, ptr %9602, align 2
   br label %12684
 
-9611:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9611:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9612 = add i32 %187, 5
   store i32 %9612, ptr %125, align 8
   %9613 = zext i32 %207 to i64
@@ -38958,7 +38958,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9637, ptr %9629, align 2
   br label %12684
 
-9638:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9638:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9639 = add i32 %187, 5
   store i32 %9639, ptr %125, align 8
   %9640 = zext i32 %207 to i64
@@ -38990,7 +38990,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9657, ptr %9651, align 2
   br label %12684
 
-9658:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9658:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9659 = add i32 %187, 5
   store i32 %9659, ptr %125, align 8
   %9660 = zext i32 %207 to i64
@@ -39022,7 +39022,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9677, ptr %9671, align 2
   br label %12684
 
-9678:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9678:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9679 = add i32 %187, 5
   store i32 %9679, ptr %125, align 8
   %9680 = zext i32 %207 to i64
@@ -39062,7 +39062,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9704, ptr %9696, align 2
   br label %12684
 
-9705:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9705:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9706 = add i32 %187, 5
   store i32 %9706, ptr %125, align 8
   %9707 = zext i32 %207 to i64
@@ -39108,7 +39108,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9736, ptr %9728, align 2
   br label %12684
 
-9737:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9737:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9738 = add i32 %187, 5
   store i32 %9738, ptr %125, align 8
   %9739 = zext i32 %207 to i64
@@ -39148,7 +39148,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9763, ptr %9755, align 2
   br label %12684
 
-9764:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9764:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9765 = add i32 %187, 5
   store i32 %9765, ptr %125, align 8
   %9766 = zext i32 %207 to i64
@@ -39188,7 +39188,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9790, ptr %9782, align 2
   br label %12684
 
-9791:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9791:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9792 = add i32 %187, 5
   store i32 %9792, ptr %125, align 8
   %9793 = zext i32 %207 to i64
@@ -39228,7 +39228,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9817, ptr %9809, align 2
   br label %12684
 
-9818:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9818:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9819 = add i32 %187, 5
   store i32 %9819, ptr %125, align 8
   %9820 = zext i32 %207 to i64
@@ -39268,7 +39268,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9844, ptr %9836, align 2
   br label %12684
 
-9845:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9845:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9846 = add i32 %187, 5
   store i32 %9846, ptr %125, align 8
   %9847 = zext i32 %207 to i64
@@ -39308,7 +39308,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8ParamIdxELb1EE9push_backES2_.exit5858:
   store i8 %9871, ptr %9863, align 2
   br label %12684
 
-9872:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9872:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9873 = add i32 %187, 5
   store i32 %9873, ptr %125, align 8
   %9874 = zext i32 %207 to i64
@@ -39392,7 +39392,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5860: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %97) #26
   br label %12684
 
-9919:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9919:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9920 = add i32 %187, 5
   store i32 %9920, ptr %125, align 8
   %9921 = zext i32 %207 to i64
@@ -39436,7 +39436,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5860: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #26
   br label %12684
 
-9948:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9948:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9949 = add i32 %187, 5
   store i32 %9949, ptr %125, align 8
   %9950 = zext i32 %207 to i64
@@ -39468,7 +39468,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5860: ; 
   store i8 %9967, ptr %9961, align 2
   br label %12684
 
-9968:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+9968:                                             ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %9969 = add i32 %187, 5
   store i32 %9969, ptr %125, align 8
   %9970 = zext i32 %207 to i64
@@ -39526,7 +39526,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5860: ; 
   store i8 %10009, ptr %10001, align 2
   br label %12684
 
-10010:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10010:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10011 = add i32 %187, 5
   store i32 %10011, ptr %125, align 8
   %10012 = zext i32 %207 to i64
@@ -39610,7 +39610,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %99) #26
   br label %12684
 
-10057:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10057:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10058 = add i32 %187, 5
   store i32 %10058, ptr %125, align 8
   %10059 = zext i32 %207 to i64
@@ -39650,7 +39650,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10083, ptr %10075, align 2
   br label %12684
 
-10084:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10084:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10085 = add i32 %187, 5
   store i32 %10085, ptr %125, align 8
   %10086 = zext i32 %207 to i64
@@ -39690,7 +39690,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10110, ptr %10102, align 2
   br label %12684
 
-10111:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10111:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10112 = add i32 %187, 5
   store i32 %10112, ptr %125, align 8
   %10113 = zext i32 %207 to i64
@@ -39736,7 +39736,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10142, ptr %10134, align 2
   br label %12684
 
-10143:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10143:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10144 = add i32 %187, 5
   store i32 %10144, ptr %125, align 8
   %10145 = zext i32 %207 to i64
@@ -39776,7 +39776,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10169, ptr %10161, align 2
   br label %12684
 
-10170:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10170:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10171 = add i32 %187, 5
   store i32 %10171, ptr %125, align 8
   %10172 = zext i32 %207 to i64
@@ -39816,7 +39816,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10196, ptr %10188, align 2
   br label %12684
 
-10197:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10197:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10198 = add i32 %187, 5
   store i32 %10198, ptr %125, align 8
   %10199 = zext i32 %207 to i64
@@ -39848,7 +39848,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10216, ptr %10210, align 2
   br label %12684
 
-10217:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10217:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10218 = add i32 %187, 5
   store i32 %10218, ptr %125, align 8
   %10219 = zext i32 %207 to i64
@@ -39888,7 +39888,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10243, ptr %10235, align 2
   br label %12684
 
-10244:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10244:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10245 = add i32 %187, 5
   store i32 %10245, ptr %125, align 8
   %10246 = zext i32 %207 to i64
@@ -39928,7 +39928,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10270, ptr %10262, align 2
   br label %12684
 
-10271:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10271:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10272 = add i32 %187, 5
   store i32 %10272, ptr %125, align 8
   %10273 = zext i32 %207 to i64
@@ -39968,7 +39968,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10297, ptr %10289, align 2
   br label %12684
 
-10298:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10298:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10299 = add i32 %187, 5
   store i32 %10299, ptr %125, align 8
   %10300 = zext i32 %207 to i64
@@ -40012,7 +40012,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #26
   br label %12684
 
-10327:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10327:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10328 = add i32 %187, 5
   store i32 %10328, ptr %125, align 8
   %10329 = zext i32 %207 to i64
@@ -40052,7 +40052,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10353, ptr %10345, align 2
   br label %12684
 
-10354:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10354:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10355 = add i32 %187, 5
   store i32 %10355, ptr %125, align 8
   %10356 = zext i32 %207 to i64
@@ -40104,7 +40104,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10390, ptr %10382, align 2
   br label %12684
 
-10391:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10391:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10392 = add i32 %187, 5
   store i32 %10392, ptr %125, align 8
   %10393 = zext i32 %207 to i64
@@ -40150,7 +40150,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5862: ; 
   store i8 %10422, ptr %10414, align 2
   br label %12684
 
-10423:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10423:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10424 = add i32 %187, 5
   store i32 %10424, ptr %125, align 8
   %10425 = zext i32 %207 to i64
@@ -40239,7 +40239,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5864: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %101) #26
   br label %12684
 
-10473:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10473:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10474 = add i32 %187, 5
   store i32 %10474, ptr %125, align 8
   %10475 = zext i32 %207 to i64
@@ -40290,7 +40290,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5864: ; 
   store i8 %10507, ptr %10499, align 2
   br label %12684
 
-10508:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10508:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10509 = add i32 %187, 5
   store i32 %10509, ptr %125, align 8
   %10510 = zext i32 %207 to i64
@@ -40341,7 +40341,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5864: ; 
   store i8 %10542, ptr %10534, align 2
   br label %12684
 
-10543:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10543:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10544 = add i32 %187, 5
   store i32 %10544, ptr %125, align 8
   %10545 = zext i32 %207 to i64
@@ -40381,7 +40381,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5864: ; 
   store i8 %10569, ptr %10561, align 2
   br label %12684
 
-10570:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10570:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10571 = add i32 %187, 5
   store i32 %10571, ptr %125, align 8
   %10572 = zext i32 %207 to i64
@@ -40421,7 +40421,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5864: ; 
   store i8 %10596, ptr %10588, align 2
   br label %12684
 
-10597:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10597:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10598 = add i32 %187, 5
   store i32 %10598, ptr %125, align 8
   %10599 = zext i32 %207 to i64
@@ -40461,7 +40461,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5864: ; 
   store i8 %10623, ptr %10615, align 2
   br label %12684
 
-10624:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10624:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10625 = add i32 %187, 5
   store i32 %10625, ptr %125, align 8
   %10626 = zext i32 %207 to i64
@@ -40501,7 +40501,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5864: ; 
   store i8 %10650, ptr %10642, align 2
   br label %12684
 
-10651:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10651:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10652 = add i32 %187, 5
   store i32 %10652, ptr %125, align 8
   %10653 = zext i32 %207 to i64
@@ -40541,7 +40541,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5864: ; 
   store i8 %10677, ptr %10669, align 2
   br label %12684
 
-10678:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10678:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10679 = add i32 %187, 5
   store i32 %10679, ptr %125, align 8
   %10680 = zext i32 %207 to i64
@@ -40644,7 +40644,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %102) #26
   br label %12684
 
-10729:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10729:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10730 = add i32 %187, 5
   store i32 %10730, ptr %125, align 8
   %10731 = zext i32 %207 to i64
@@ -40696,7 +40696,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %10765, ptr %10757, align 2
   br label %12684
 
-10766:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10766:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10767 = add i32 %187, 5
   store i32 %10767, ptr %125, align 8
   %10768 = zext i32 %207 to i64
@@ -40736,7 +40736,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %10792, ptr %10784, align 2
   br label %12684
 
-10793:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10793:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10794 = add i32 %187, 5
   store i32 %10794, ptr %125, align 8
   %10795 = zext i32 %207 to i64
@@ -40776,7 +40776,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %10819, ptr %10811, align 2
   br label %12684
 
-10820:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10820:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10821 = add i32 %187, 5
   store i32 %10821, ptr %125, align 8
   %10822 = zext i32 %207 to i64
@@ -40828,7 +40828,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %10856, ptr %10848, align 2
   br label %12684
 
-10857:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10857:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10858 = add i32 %187, 5
   store i32 %10858, ptr %125, align 8
   %10859 = zext i32 %207 to i64
@@ -40872,7 +40872,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %105) #26
   br label %12684
 
-10886:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10886:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10887 = add i32 %187, 5
   store i32 %10887, ptr %125, align 8
   %10888 = zext i32 %207 to i64
@@ -40916,7 +40916,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #26
   br label %12684
 
-10915:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10915:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10916 = add i32 %187, 5
   store i32 %10916, ptr %125, align 8
   %10917 = zext i32 %207 to i64
@@ -40960,7 +40960,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #26
   br label %12684
 
-10944:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10944:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10945 = add i32 %187, 5
   store i32 %10945, ptr %125, align 8
   %10946 = zext i32 %207 to i64
@@ -41000,7 +41000,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %10970, ptr %10962, align 2
   br label %12684
 
-10971:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10971:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10972 = add i32 %187, 5
   store i32 %10972, ptr %125, align 8
   %10973 = zext i32 %207 to i64
@@ -41040,7 +41040,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %10997, ptr %10989, align 2
   br label %12684
 
-10998:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+10998:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %10999 = add i32 %187, 5
   store i32 %10999, ptr %125, align 8
   %11000 = zext i32 %207 to i64
@@ -41080,7 +41080,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11024, ptr %11016, align 2
   br label %12684
 
-11025:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11025:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11026 = add i32 %187, 5
   store i32 %11026, ptr %125, align 8
   %11027 = zext i32 %207 to i64
@@ -41126,7 +41126,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11056, ptr %11048, align 2
   br label %12684
 
-11057:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11057:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11058 = add i32 %187, 5
   store i32 %11058, ptr %125, align 8
   %11059 = zext i32 %207 to i64
@@ -41166,7 +41166,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11083, ptr %11075, align 2
   br label %12684
 
-11084:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11084:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11085 = add i32 %187, 5
   store i32 %11085, ptr %125, align 8
   %11086 = zext i32 %207 to i64
@@ -41206,7 +41206,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11110, ptr %11102, align 2
   br label %12684
 
-11111:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11111:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11112 = add i32 %187, 5
   store i32 %11112, ptr %125, align 8
   %11113 = zext i32 %207 to i64
@@ -41246,7 +41246,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11137, ptr %11129, align 2
   br label %12684
 
-11138:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11138:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11139 = add i32 %187, 5
   store i32 %11139, ptr %125, align 8
   %11140 = zext i32 %207 to i64
@@ -41286,7 +41286,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11164, ptr %11156, align 2
   br label %12684
 
-11165:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11165:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11166 = add i32 %187, 5
   store i32 %11166, ptr %125, align 8
   %11167 = zext i32 %207 to i64
@@ -41330,7 +41330,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #26
   br label %12684
 
-11194:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11194:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11195 = add i32 %187, 5
   store i32 %11195, ptr %125, align 8
   %11196 = zext i32 %207 to i64
@@ -41376,7 +41376,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11225, ptr %11217, align 2
   br label %12684
 
-11226:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11226:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11227 = add i32 %187, 5
   store i32 %11227, ptr %125, align 8
   %11228 = zext i32 %207 to i64
@@ -41408,7 +41408,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11245, ptr %11239, align 2
   br label %12684
 
-11246:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11246:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11247 = add i32 %187, 5
   store i32 %11247, ptr %125, align 8
   %11248 = zext i32 %207 to i64
@@ -41448,7 +41448,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11272, ptr %11264, align 2
   br label %12684
 
-11273:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11273:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11274 = add i32 %187, 5
   store i32 %11274, ptr %125, align 8
   %11275 = zext i32 %207 to i64
@@ -41492,7 +41492,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11303, ptr %11297, align 2
   br label %12684
 
-11304:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11304:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11305 = add i32 %187, 5
   store i32 %11305, ptr %125, align 8
   %11306 = zext i32 %207 to i64
@@ -41541,7 +41541,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11338, ptr %11332, align 2
   br label %12684
 
-11339:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11339:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11340 = add i32 %187, 5
   store i32 %11340, ptr %125, align 8
   %11341 = zext i32 %207 to i64
@@ -41581,7 +41581,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   store i8 %11365, ptr %11357, align 2
   br label %12684
 
-11366:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11366:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11367 = add i32 %187, 5
   store i32 %11367, ptr %125, align 8
   %11368 = zext i32 %207 to i64
@@ -41625,7 +41625,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #26
   br label %12684
 
-11395:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11395:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11396 = add i32 %187, 5
   store i32 %11396, ptr %125, align 8
   %11397 = zext i32 %207 to i64
@@ -41669,7 +41669,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5867: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #26
   br label %12684
 
-11424:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11424:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11425 = add i32 %187, 5
   store i32 %11425, ptr %125, align 8
   %11426 = zext i32 %207 to i64
@@ -41772,7 +41772,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5870: ; 
   call void @_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %111) #26
   br label %12684
 
-11475:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11475:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11476 = add i32 %187, 5
   store i32 %11476, ptr %125, align 8
   %11477 = zext i32 %207 to i64
@@ -41816,7 +41816,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5870: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #26
   br label %12684
 
-11504:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11504:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11505 = add i32 %187, 5
   store i32 %11505, ptr %125, align 8
   %11506 = zext i32 %207 to i64
@@ -41862,7 +41862,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5870: ; 
   store i8 %11535, ptr %11527, align 2
   br label %12684
 
-11536:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11536:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11537 = add i32 %187, 5
   store i32 %11537, ptr %125, align 8
   %11538 = zext i32 %207 to i64
@@ -41902,7 +41902,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5870: ; 
   store i8 %11562, ptr %11554, align 2
   br label %12684
 
-11563:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11563:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11564 = add i32 %187, 5
   store i32 %11564, ptr %125, align 8
   %11565 = zext i32 %207 to i64
@@ -41934,7 +41934,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5870: ; 
   store i8 %11582, ptr %11576, align 2
   br label %12684
 
-11583:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11583:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11584 = add i32 %187, 5
   store i32 %11584, ptr %125, align 8
   %11585 = zext i32 %207 to i64
@@ -41974,7 +41974,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5870: ; 
   store i8 %11609, ptr %11601, align 2
   br label %12684
 
-11610:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11610:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11611 = add i32 %187, 5
   store i32 %11611, ptr %125, align 8
   %11612 = zext i32 %207 to i64
@@ -42014,7 +42014,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit5870: ; 
   store i8 %11636, ptr %11628, align 2
   br label %12684
 
-11637:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11637:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11638 = add i32 %187, 5
   store i32 %11638, ptr %125, align 8
   %11639 = zext i32 %207 to i64
@@ -42103,7 +42103,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %115) #26
   br label %12684
 
-11687:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11687:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11688 = add i32 %187, 5
   store i32 %11688, ptr %125, align 8
   %11689 = zext i32 %207 to i64
@@ -42135,7 +42135,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11706, ptr %11700, align 2
   br label %12684
 
-11707:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11707:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11708 = add i32 %187, 5
   store i32 %11708, ptr %125, align 8
   %11709 = zext i32 %207 to i64
@@ -42167,7 +42167,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11726, ptr %11720, align 2
   br label %12684
 
-11727:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11727:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11728 = add i32 %187, 5
   store i32 %11728, ptr %125, align 8
   %11729 = zext i32 %207 to i64
@@ -42207,7 +42207,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11753, ptr %11745, align 2
   br label %12684
 
-11754:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11754:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11755 = add i32 %187, 5
   store i32 %11755, ptr %125, align 8
   %11756 = zext i32 %207 to i64
@@ -42239,7 +42239,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11773, ptr %11767, align 2
   br label %12684
 
-11774:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11774:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11775 = add i32 %187, 5
   store i32 %11775, ptr %125, align 8
   %11776 = zext i32 %207 to i64
@@ -42258,7 +42258,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   %11786 = getelementptr inbounds i64, ptr %190, i64 %11785
   %11787 = load i64, ptr %11786, align 8
   %.not6042 = icmp eq i64 %11787, 0
-  %11788 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nonnull %0)
+  %11788 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nonnull %0)
   %11789 = tail call noundef ptr @_ZN5clang15ASTRecordReader18readTypeSourceInfoEv(ptr noundef nonnull align 8 dereferenceable(560) %0) #26
   %11790 = load i32, ptr %125, align 8
   %11791 = add i32 %11790, 1
@@ -42295,7 +42295,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11814, ptr %11806, align 2
   br label %12684
 
-11815:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11815:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11816 = add i32 %187, 5
   store i32 %11816, ptr %125, align 8
   %11817 = zext i32 %207 to i64
@@ -42341,7 +42341,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11846, ptr %11838, align 2
   br label %12684
 
-11847:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11847:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11848 = add i32 %187, 5
   store i32 %11848, ptr %125, align 8
   %11849 = zext i32 %207 to i64
@@ -42373,7 +42373,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11866, ptr %11860, align 2
   br label %12684
 
-11867:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11867:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11868 = add i32 %187, 5
   store i32 %11868, ptr %125, align 8
   %11869 = zext i32 %207 to i64
@@ -42425,7 +42425,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #26
   br label %12684
 
-11903:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11903:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11904 = add i32 %187, 5
   store i32 %11904, ptr %125, align 8
   %11905 = zext i32 %207 to i64
@@ -42465,7 +42465,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11929, ptr %11921, align 2
   br label %12684
 
-11930:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11930:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11931 = add i32 %187, 5
   store i32 %11931, ptr %125, align 8
   %11932 = zext i32 %207 to i64
@@ -42497,7 +42497,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11949, ptr %11943, align 2
   br label %12684
 
-11950:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11950:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11951 = add i32 %187, 5
   store i32 %11951, ptr %125, align 8
   %11952 = zext i32 %207 to i64
@@ -42537,7 +42537,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %11976, ptr %11968, align 2
   br label %12684
 
-11977:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+11977:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %11978 = add i32 %187, 5
   store i32 %11978, ptr %125, align 8
   %11979 = zext i32 %207 to i64
@@ -42577,7 +42577,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12003, ptr %11995, align 2
   br label %12684
 
-12004:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12004:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12005 = add i32 %187, 5
   store i32 %12005, ptr %125, align 8
   %12006 = zext i32 %207 to i64
@@ -42621,7 +42621,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #26
   br label %12684
 
-12033:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12033:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12034 = add i32 %187, 5
   store i32 %12034, ptr %125, align 8
   %12035 = zext i32 %207 to i64
@@ -42661,7 +42661,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12059, ptr %12051, align 2
   br label %12684
 
-12060:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12060:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12061 = add i32 %187, 5
   store i32 %12061, ptr %125, align 8
   %12062 = zext i32 %207 to i64
@@ -42701,7 +42701,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12086, ptr %12078, align 2
   br label %12684
 
-12087:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12087:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12088 = add i32 %187, 5
   store i32 %12088, ptr %125, align 8
   %12089 = zext i32 %207 to i64
@@ -42721,7 +42721,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   %12100 = load i64, ptr %12099, align 8
   %.not6020 = icmp eq i64 %12100, 0
   call void @_ZN5clang9ASTReader10ReadStringB5cxx11ERKN4llvm15SmallVectorImplImEERj(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %118, ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 4 dereferenceable(4) %125) #26
-  %12101 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang10MSGuidDeclEEEPT_v(ptr nonnull %0)
+  %12101 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang10MSGuidDeclEEEPT_v.argprom(ptr nonnull %0)
   %12102 = call noundef ptr @_ZN5clang4AttrnwEmRNS_10ASTContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(23096) %137, i64 noundef 8) #26
   %12103 = icmp eq ptr %12102, null
   br i1 %12103, label %12107, label %12104
@@ -42746,7 +42746,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #26
   br label %12684
 
-12117:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12117:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12118 = add i32 %187, 5
   store i32 %12118, ptr %125, align 8
   %12119 = zext i32 %207 to i64
@@ -42810,7 +42810,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12163, ptr %12155, align 2
   br label %12684
 
-12164:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12164:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12165 = add i32 %187, 5
   store i32 %12165, ptr %125, align 8
   %12166 = zext i32 %207 to i64
@@ -42850,7 +42850,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12190, ptr %12182, align 2
   br label %12684
 
-12191:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12191:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12192 = add i32 %187, 5
   store i32 %12192, ptr %125, align 8
   %12193 = zext i32 %207 to i64
@@ -42891,7 +42891,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12218, ptr %12210, align 2
   br label %12684
 
-12219:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12219:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12220 = add i32 %187, 5
   store i32 %12220, ptr %125, align 8
   %12221 = zext i32 %207 to i64
@@ -42931,7 +42931,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12245, ptr %12237, align 2
   br label %12684
 
-12246:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12246:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12247 = add i32 %187, 5
   store i32 %12247, ptr %125, align 8
   %12248 = zext i32 %207 to i64
@@ -42977,7 +42977,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12277, ptr %12269, align 2
   br label %12684
 
-12278:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12278:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12279 = add i32 %187, 5
   store i32 %12279, ptr %125, align 8
   %12280 = zext i32 %207 to i64
@@ -43017,7 +43017,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12304, ptr %12296, align 2
   br label %12684
 
-12305:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12305:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12306 = add i32 %187, 5
   store i32 %12306, ptr %125, align 8
   %12307 = zext i32 %207 to i64
@@ -43061,7 +43061,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #26
   br label %12684
 
-12334:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12334:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12335 = add i32 %187, 5
   store i32 %12335, ptr %125, align 8
   %12336 = zext i32 %207 to i64
@@ -43101,7 +43101,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12360, ptr %12352, align 2
   br label %12684
 
-12361:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12361:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12362 = add i32 %187, 5
   store i32 %12362, ptr %125, align 8
   %12363 = zext i32 %207 to i64
@@ -43141,7 +43141,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12387, ptr %12379, align 2
   br label %12684
 
-12388:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12388:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12389 = add i32 %187, 5
   store i32 %12389, ptr %125, align 8
   %12390 = zext i32 %207 to i64
@@ -43185,7 +43185,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #26
   br label %12684
 
-12417:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12417:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12418 = add i32 %187, 5
   store i32 %12418, ptr %125, align 8
   %12419 = zext i32 %207 to i64
@@ -43229,7 +43229,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #26
   br label %12684
 
-12446:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12446:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12447 = add i32 %187, 5
   store i32 %12447, ptr %125, align 8
   %12448 = zext i32 %207 to i64
@@ -43261,7 +43261,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12465, ptr %12459, align 2
   br label %12684
 
-12466:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12466:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12467 = add i32 %187, 5
   store i32 %12467, ptr %125, align 8
   %12468 = zext i32 %207 to i64
@@ -43305,7 +43305,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %122) #26
   br label %12684
 
-12495:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12495:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12496 = add i32 %187, 5
   store i32 %12496, ptr %125, align 8
   %12497 = zext i32 %207 to i64
@@ -43349,7 +43349,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #26
   br label %12684
 
-12524:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12524:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12525 = add i32 %187, 5
   store i32 %12525, ptr %125, align 8
   %12526 = zext i32 %207 to i64
@@ -43407,7 +43407,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12565, ptr %12557, align 2
   br label %12684
 
-12566:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12566:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12567 = add i32 %187, 5
   store i32 %12567, ptr %125, align 8
   %12568 = zext i32 %207 to i64
@@ -43447,7 +43447,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12592, ptr %12584, align 2
   br label %12684
 
-12593:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12593:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12594 = add i32 %187, 5
   store i32 %12594, ptr %125, align 8
   %12595 = zext i32 %207 to i64
@@ -43487,7 +43487,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12619, ptr %12611, align 2
   br label %12684
 
-12620:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12620:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12621 = add i32 %187, 5
   store i32 %12621, ptr %125, align 8
   %12622 = zext i32 %207 to i64
@@ -43533,7 +43533,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12651, ptr %12643, align 2
   br label %12684
 
-12652:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
+12652:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit
   %12653 = add i32 %187, 5
   store i32 %12653, ptr %125, align 8
   %12654 = zext i32 %207 to i64
@@ -43579,13 +43579,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit5872: ; 
   store i8 %12683, ptr %12675, align 2
   br label %12684
 
-12684:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit, %247, %274, %303, %330, %360, %392, %424, %453, %485, %512, %539, %585, %630, %659, %706, %753, %780, %802, %827, %854, %877, %912, %944, %981, %1003, %1028, %1055, %1082, %1152, %1218, %1244, %1271, %1298, %1325, %1370, %1398, %1444, %1488, %1513, %1535, %1584, %1630, %1674, %1694, %1714, %1739, %1775, %1822, %1869, %1916, %1945, %2010, %2037, %2064, %2091, %2118, %2147, %2171, %2191, %2221, %2253, %2276, %2301, %2328, %2355, %2382, %2414, %2441, %2468, %2495, %2522, %2578, %2634, %2661, %2688, %2715, %2742, %2769, %2796, %2823, %2853, %2880, %2907, %2930, %2980, %3032, %3054, %3081, %3108, %3135, %3163, %3190, %3212, %3237, %3260, %3290, %3319, %3346, %3373, %3400, %3427, %3459, %3491, %3518, %3545, %3572, %3599, %3626, %3653, %3680, %3707, %3742, %3777, %3804, %3831, %3858, %3885, %3917, %3949, %4004, %4047, %4074, %4101, %4128, %4158, %4187, %4216, %4248, %4277, %4304, %4354, %4396, %4418, %4443, %4470, %4497, %4524, %4564, %4596, %4628, %4655, %4683, %4710, %4737, %4759, %4784, %4824, %4861, %4893, %4920, %4952, %4984, %5016, %5043, %5070, %5102, %5144, %5171, %5198, %5225, %5252, %5280, %5304, %5334, %5358, %5383, %5410, %5437, %5469, %5496, %5523, %5545, %5565, %5591, %5638, %5671, %5701, %5728, %5755, %5782, %5809, %5836, %5868, %5895, %5927, %5954, %5986, %6018, %6045, %6072, %6099, %6126, %6158, %6185, %6217, %6244, %6271, %6294, %6314, %6339, %6366, %6394, %6421, %6448, %6475, %6502, %6529, %6556, %6602, %6627, %6654, %6681, %6703, %6728, %6755, %6777, %6802, %6829, %6856, %6883, %6910, %6937, %6964, %6991, %7042, %7069, %7096, %7123, %7150, %7177, %7204, %7231, %7254, %7275, %7325, %7352, %7386, %7415, %7442, %7467, %7632, %7680, %7779, %7802, %7827, %7854, %7881, %7908, %7935, %7962, %7989, %8011, %8037, %8065, %8095, %8117, %8137, %8157, %8177, %8202, %8229, %8256, %8279, %8304, %8326, %8346, %8376, %8403, %8425, %8445, %8471, %8498, %8525, %8552, %8579, %8606, %8630, %8650, %8675, %8697, %8717, %8737, %8757, %8777, %8797, %8827, %8854, %8876, %8896, %8921, %8946, %8968, %8993, %9021, %9076, %9103, %9135, %9162, %9194, %9231, %9263, %9291, %9320, %9349, %9378, %9407, %9436, %9464, %9492, %9519, %9546, %9573, %9601, %9628, %9650, %9670, %9695, %9727, %9754, %9781, %9808, %9835, %9862, %9909, %9938, %9960, %10000, %10047, %10074, %10101, %10133, %10160, %10187, %10209, %10234, %10261, %10288, %10317, %10344, %10381, %10413, %10463, %10498, %10533, %10560, %10587, %10614, %10641, %10668, %10719, %10756, %10783, %10810, %10847, %10876, %10905, %10934, %10961, %10988, %11015, %11047, %11074, %11101, %11128, %11155, %11184, %11216, %11238, %11263, %11296, %11331, %11356, %11385, %11414, %11465, %11494, %11526, %11553, %11575, %11600, %11627, %11677, %11699, %11719, %11744, %11766, %11805, %11837, %11859, %11893, %11920, %11942, %11967, %11994, %12023, %12050, %12077, %12107, %12154, %12181, %12209, %12236, %12268, %12295, %12324, %12351, %12378, %12407, %12436, %12458, %12485, %12514, %12556, %12583, %12610, %12642, %12674, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit ], [ %12670, %12674 ], [ %12638, %12642 ], [ %12607, %12610 ], [ %12580, %12583 ], [ %12550, %12556 ], [ %12509, %12514 ], [ %12480, %12485 ], [ %12455, %12458 ], [ %12431, %12436 ], [ %12402, %12407 ], [ %12375, %12378 ], [ %12348, %12351 ], [ %12319, %12324 ], [ %12292, %12295 ], [ %12264, %12268 ], [ %12233, %12236 ], [ %12206, %12209 ], [ %12178, %12181 ], [ %12147, %12154 ], [ %12102, %12107 ], [ %12074, %12077 ], [ %12047, %12050 ], [ %12018, %12023 ], [ %11991, %11994 ], [ %11964, %11967 ], [ %11939, %11942 ], [ %11917, %11920 ], [ %11887, %11893 ], [ %11856, %11859 ], [ %11833, %11837 ], [ %11800, %11805 ], [ %11763, %11766 ], [ %11741, %11744 ], [ %11716, %11719 ], [ %11696, %11699 ], [ %11673, %11677 ], [ %11624, %11627 ], [ %11597, %11600 ], [ %11572, %11575 ], [ %11550, %11553 ], [ %11522, %11526 ], [ %11489, %11494 ], [ %11461, %11465 ], [ %11409, %11414 ], [ %11380, %11385 ], [ %11353, %11356 ], [ %11324, %11331 ], [ %11290, %11296 ], [ %11260, %11263 ], [ %11235, %11238 ], [ %11212, %11216 ], [ %11179, %11184 ], [ %11152, %11155 ], [ %11125, %11128 ], [ %11098, %11101 ], [ %11071, %11074 ], [ %11043, %11047 ], [ %11012, %11015 ], [ %10985, %10988 ], [ %10958, %10961 ], [ %10929, %10934 ], [ %10900, %10905 ], [ %10871, %10876 ], [ %10842, %10847 ], [ %10807, %10810 ], [ %10780, %10783 ], [ %10751, %10756 ], [ %10715, %10719 ], [ %10665, %10668 ], [ %10638, %10641 ], [ %10611, %10614 ], [ %10584, %10587 ], [ %10557, %10560 ], [ %10529, %10533 ], [ %10494, %10498 ], [ %10459, %10463 ], [ %10409, %10413 ], [ %10376, %10381 ], [ %10341, %10344 ], [ %10312, %10317 ], [ %10285, %10288 ], [ %10258, %10261 ], [ %10231, %10234 ], [ %10206, %10209 ], [ %10184, %10187 ], [ %10157, %10160 ], [ %10129, %10133 ], [ %10098, %10101 ], [ %10071, %10074 ], [ %10043, %10047 ], [ %9994, %10000 ], [ %9957, %9960 ], [ %9933, %9938 ], [ %9905, %9909 ], [ %9859, %9862 ], [ %9832, %9835 ], [ %9805, %9808 ], [ %9778, %9781 ], [ %9751, %9754 ], [ %9723, %9727 ], [ %9692, %9695 ], [ %9667, %9670 ], [ %9647, %9650 ], [ %9625, %9628 ], [ %9598, %9601 ], [ %9570, %9573 ], [ %9543, %9546 ], [ %9516, %9519 ], [ %9489, %9492 ], [ %9461, %9464 ], [ %9431, %9436 ], [ %9402, %9407 ], [ %9373, %9378 ], [ %9344, %9349 ], [ %9315, %9320 ], [ %9288, %9291 ], [ %9259, %9263 ], [ %9226, %9231 ], [ %9190, %9194 ], [ %9159, %9162 ], [ %9131, %9135 ], [ %9100, %9103 ], [ %9072, %9076 ], [ %9018, %9021 ], [ %8990, %8993 ], [ %8965, %8968 ], [ %8943, %8946 ], [ %8917, %8921 ], [ %8893, %8896 ], [ %8873, %8876 ], [ %8851, %8854 ], [ %8823, %8827 ], [ %8794, %8797 ], [ %8774, %8777 ], [ %8754, %8757 ], [ %8734, %8737 ], [ %8714, %8717 ], [ %8694, %8697 ], [ %8672, %8675 ], [ %8647, %8650 ], [ %8625, %8630 ], [ %8603, %8606 ], [ %8576, %8579 ], [ %8549, %8552 ], [ %8522, %8525 ], [ %8495, %8498 ], [ %8468, %8471 ], [ %8442, %8445 ], [ %8422, %8425 ], [ %8400, %8403 ], [ %8372, %8376 ], [ %8343, %8346 ], [ %8323, %8326 ], [ %8301, %8304 ], [ %8276, %8279 ], [ %8253, %8256 ], [ %8226, %8229 ], [ %8199, %8202 ], [ %8174, %8177 ], [ %8154, %8157 ], [ %8134, %8137 ], [ %8114, %8117 ], [ %8092, %8095 ], [ %8062, %8065 ], [ %8034, %8037 ], [ %8008, %8011 ], [ %7986, %7989 ], [ %7959, %7962 ], [ %7932, %7935 ], [ %7905, %7908 ], [ %7878, %7881 ], [ %7851, %7854 ], [ %7824, %7827 ], [ %7799, %7802 ], [ %7773, %7779 ], [ %7673, %7680 ], [ %7623, %7632 ], [ %7464, %7467 ], [ %7438, %7442 ], [ %7410, %7415 ], [ %7382, %7386 ], [ %7349, %7352 ], [ %7321, %7325 ], [ %7272, %7275 ], [ %7251, %7254 ], [ %7228, %7231 ], [ %7201, %7204 ], [ %7174, %7177 ], [ %7147, %7150 ], [ %7120, %7123 ], [ %7093, %7096 ], [ %7066, %7069 ], [ %7038, %7042 ], [ %6988, %6991 ], [ %6961, %6964 ], [ %6934, %6937 ], [ %6907, %6910 ], [ %6880, %6883 ], [ %6853, %6856 ], [ %6826, %6829 ], [ %6799, %6802 ], [ %6774, %6777 ], [ %6752, %6755 ], [ %6725, %6728 ], [ %6700, %6703 ], [ %6678, %6681 ], [ %6651, %6654 ], [ %6624, %6627 ], [ %6598, %6602 ], [ %6553, %6556 ], [ %6526, %6529 ], [ %6499, %6502 ], [ %6472, %6475 ], [ %6445, %6448 ], [ %6418, %6421 ], [ %6391, %6394 ], [ %6363, %6366 ], [ %6336, %6339 ], [ %6311, %6314 ], [ %6291, %6294 ], [ %6268, %6271 ], [ %6241, %6244 ], [ %6213, %6217 ], [ %6182, %6185 ], [ %6154, %6158 ], [ %6123, %6126 ], [ %6096, %6099 ], [ %6069, %6072 ], [ %6042, %6045 ], [ %6014, %6018 ], [ %5982, %5986 ], [ %5951, %5954 ], [ %5923, %5927 ], [ %5892, %5895 ], [ %5864, %5868 ], [ %5833, %5836 ], [ %5806, %5809 ], [ %5779, %5782 ], [ %5752, %5755 ], [ %5725, %5728 ], [ %5697, %5701 ], [ %5666, %5671 ], [ %5634, %5638 ], [ %5588, %5591 ], [ %5562, %5565 ], [ %5542, %5545 ], [ %5520, %5523 ], [ %5493, %5496 ], [ %5465, %5469 ], [ %5434, %5437 ], [ %5407, %5410 ], [ %5380, %5383 ], [ %5353, %5358 ], [ %5330, %5334 ], [ %5299, %5304 ], [ %5277, %5280 ], [ %5249, %5252 ], [ %5222, %5225 ], [ %5195, %5198 ], [ %5168, %5171 ], [ %5138, %5144 ], [ %5098, %5102 ], [ %5067, %5070 ], [ %5040, %5043 ], [ %5012, %5016 ], [ %4976, %4984 ], [ %4948, %4952 ], [ %4917, %4920 ], [ %4889, %4893 ], [ %4856, %4861 ], [ %4818, %4824 ], [ %4780, %4784 ], [ %4756, %4759 ], [ %4734, %4737 ], [ %4707, %4710 ], [ %4680, %4683 ], [ %4652, %4655 ], [ %4624, %4628 ], [ %4592, %4596 ], [ %4559, %4564 ], [ %4521, %4524 ], [ %4494, %4497 ], [ %4467, %4470 ], [ %4440, %4443 ], [ %4415, %4418 ], [ %4384, %4396 ], [ %4350, %4354 ], [ %4301, %4304 ], [ %4272, %4277 ], [ %4244, %4248 ], [ %4211, %4216 ], [ %4182, %4187 ], [ %4153, %4158 ], [ %4125, %4128 ], [ %4098, %4101 ], [ %4071, %4074 ], [ %4040, %4047 ], [ %4000, %4004 ], [ %3945, %3949 ], [ %3909, %3917 ], [ %3882, %3885 ], [ %3855, %3858 ], [ %3828, %3831 ], [ %3801, %3804 ], [ %3773, %3777 ], [ %3738, %3742 ], [ %3704, %3707 ], [ %3677, %3680 ], [ %3650, %3653 ], [ %3623, %3626 ], [ %3596, %3599 ], [ %3569, %3572 ], [ %3542, %3545 ], [ %3515, %3518 ], [ %3487, %3491 ], [ %3455, %3459 ], [ %3424, %3427 ], [ %3397, %3400 ], [ %3370, %3373 ], [ %3343, %3346 ], [ %3314, %3319 ], [ %3286, %3290 ], [ %3257, %3260 ], [ %3234, %3237 ], [ %3209, %3212 ], [ %3187, %3190 ], [ %3160, %3163 ], [ %3132, %3135 ], [ %3105, %3108 ], [ %3076, %3081 ], [ %3051, %3054 ], [ %3028, %3032 ], [ %2976, %2980 ], [ %2927, %2930 ], [ %2904, %2907 ], [ %2877, %2880 ], [ %2850, %2853 ], [ %2820, %2823 ], [ %2793, %2796 ], [ %2766, %2769 ], [ %2739, %2742 ], [ %2712, %2715 ], [ %2685, %2688 ], [ %2658, %2661 ], [ %2630, %2634 ], [ %2574, %2578 ], [ %2519, %2522 ], [ %2492, %2495 ], [ %2465, %2468 ], [ %2438, %2441 ], [ %2410, %2414 ], [ %2379, %2382 ], [ %2352, %2355 ], [ %2325, %2328 ], [ %2298, %2301 ], [ %2273, %2276 ], [ %2249, %2253 ], [ %2217, %2221 ], [ %2188, %2191 ], [ %2166, %2171 ], [ %2142, %2147 ], [ %2115, %2118 ], [ %2088, %2091 ], [ %2061, %2064 ], [ %2034, %2037 ], [ %1992, %2010 ], [ %1942, %1945 ], [ %1912, %1916 ], [ %1865, %1869 ], [ %1818, %1822 ], [ %1769, %1775 ], [ %1736, %1739 ], [ %1711, %1714 ], [ %1691, %1694 ], [ %1670, %1674 ], [ %1626, %1630 ], [ %1580, %1584 ], [ %1532, %1535 ], [ %1510, %1513 ], [ %1484, %1488 ], [ %1440, %1444 ], [ %1395, %1398 ], [ %1364, %1370 ], [ %1322, %1325 ], [ %1295, %1298 ], [ %1268, %1271 ], [ %1241, %1244 ], [ %1212, %1218 ], [ %1146, %1152 ], [ %1079, %1082 ], [ %1052, %1055 ], [ %1025, %1028 ], [ %1000, %1003 ], [ %976, %981 ], [ %940, %944 ], [ %909, %912 ], [ %874, %877 ], [ %851, %854 ], [ %824, %827 ], [ %797, %802 ], [ %776, %780 ], [ %749, %753 ], [ %702, %706 ], [ %654, %659 ], [ %626, %630 ], [ %581, %585 ], [ %536, %539 ], [ %509, %512 ], [ %481, %485 ], [ %450, %453 ], [ %420, %424 ], [ %388, %392 ], [ %357, %360 ], [ %327, %330 ], [ %300, %303 ], [ %271, %274 ], [ %244, %247 ]
+12684:                                            ; preds = %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit, %247, %274, %303, %330, %360, %392, %424, %453, %485, %512, %539, %585, %630, %659, %706, %753, %780, %802, %827, %854, %877, %912, %944, %981, %1003, %1028, %1055, %1082, %1152, %1218, %1244, %1271, %1298, %1325, %1370, %1398, %1444, %1488, %1513, %1535, %1584, %1630, %1674, %1694, %1714, %1739, %1775, %1822, %1869, %1916, %1945, %2010, %2037, %2064, %2091, %2118, %2147, %2171, %2191, %2221, %2253, %2276, %2301, %2328, %2355, %2382, %2414, %2441, %2468, %2495, %2522, %2578, %2634, %2661, %2688, %2715, %2742, %2769, %2796, %2823, %2853, %2880, %2907, %2930, %2980, %3032, %3054, %3081, %3108, %3135, %3163, %3190, %3212, %3237, %3260, %3290, %3319, %3346, %3373, %3400, %3427, %3459, %3491, %3518, %3545, %3572, %3599, %3626, %3653, %3680, %3707, %3742, %3777, %3804, %3831, %3858, %3885, %3917, %3949, %4004, %4047, %4074, %4101, %4128, %4158, %4187, %4216, %4248, %4277, %4304, %4354, %4396, %4418, %4443, %4470, %4497, %4524, %4564, %4596, %4628, %4655, %4683, %4710, %4737, %4759, %4784, %4824, %4861, %4893, %4920, %4952, %4984, %5016, %5043, %5070, %5102, %5144, %5171, %5198, %5225, %5252, %5280, %5304, %5334, %5358, %5383, %5410, %5437, %5469, %5496, %5523, %5545, %5565, %5591, %5638, %5671, %5701, %5728, %5755, %5782, %5809, %5836, %5868, %5895, %5927, %5954, %5986, %6018, %6045, %6072, %6099, %6126, %6158, %6185, %6217, %6244, %6271, %6294, %6314, %6339, %6366, %6394, %6421, %6448, %6475, %6502, %6529, %6556, %6602, %6627, %6654, %6681, %6703, %6728, %6755, %6777, %6802, %6829, %6856, %6883, %6910, %6937, %6964, %6991, %7042, %7069, %7096, %7123, %7150, %7177, %7204, %7231, %7254, %7275, %7325, %7352, %7386, %7415, %7442, %7467, %7632, %7680, %7779, %7802, %7827, %7854, %7881, %7908, %7935, %7962, %7989, %8011, %8037, %8065, %8095, %8117, %8137, %8157, %8177, %8202, %8229, %8256, %8279, %8304, %8326, %8346, %8376, %8403, %8425, %8445, %8471, %8498, %8525, %8552, %8579, %8606, %8630, %8650, %8675, %8697, %8717, %8737, %8757, %8777, %8797, %8827, %8854, %8876, %8896, %8921, %8946, %8968, %8993, %9021, %9076, %9103, %9135, %9162, %9194, %9231, %9263, %9291, %9320, %9349, %9378, %9407, %9436, %9464, %9492, %9519, %9546, %9573, %9601, %9628, %9650, %9670, %9695, %9727, %9754, %9781, %9808, %9835, %9862, %9909, %9938, %9960, %10000, %10047, %10074, %10101, %10133, %10160, %10187, %10209, %10234, %10261, %10288, %10317, %10344, %10381, %10413, %10463, %10498, %10533, %10560, %10587, %10614, %10641, %10668, %10719, %10756, %10783, %10810, %10847, %10876, %10905, %10934, %10961, %10988, %11015, %11047, %11074, %11101, %11128, %11155, %11184, %11216, %11238, %11263, %11296, %11331, %11356, %11385, %11414, %11465, %11494, %11526, %11553, %11575, %11600, %11627, %11677, %11699, %11719, %11744, %11766, %11805, %11837, %11859, %11893, %11920, %11942, %11967, %11994, %12023, %12050, %12077, %12107, %12154, %12181, %12209, %12236, %12268, %12295, %12324, %12351, %12378, %12407, %12436, %12458, %12485, %12514, %12556, %12583, %12610, %12642, %12674, %1
+  %.0 = phi ptr [ null, %1 ], [ null, %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.argprom.exit ], [ %12670, %12674 ], [ %12638, %12642 ], [ %12607, %12610 ], [ %12580, %12583 ], [ %12550, %12556 ], [ %12509, %12514 ], [ %12480, %12485 ], [ %12455, %12458 ], [ %12431, %12436 ], [ %12402, %12407 ], [ %12375, %12378 ], [ %12348, %12351 ], [ %12319, %12324 ], [ %12292, %12295 ], [ %12264, %12268 ], [ %12233, %12236 ], [ %12206, %12209 ], [ %12178, %12181 ], [ %12147, %12154 ], [ %12102, %12107 ], [ %12074, %12077 ], [ %12047, %12050 ], [ %12018, %12023 ], [ %11991, %11994 ], [ %11964, %11967 ], [ %11939, %11942 ], [ %11917, %11920 ], [ %11887, %11893 ], [ %11856, %11859 ], [ %11833, %11837 ], [ %11800, %11805 ], [ %11763, %11766 ], [ %11741, %11744 ], [ %11716, %11719 ], [ %11696, %11699 ], [ %11673, %11677 ], [ %11624, %11627 ], [ %11597, %11600 ], [ %11572, %11575 ], [ %11550, %11553 ], [ %11522, %11526 ], [ %11489, %11494 ], [ %11461, %11465 ], [ %11409, %11414 ], [ %11380, %11385 ], [ %11353, %11356 ], [ %11324, %11331 ], [ %11290, %11296 ], [ %11260, %11263 ], [ %11235, %11238 ], [ %11212, %11216 ], [ %11179, %11184 ], [ %11152, %11155 ], [ %11125, %11128 ], [ %11098, %11101 ], [ %11071, %11074 ], [ %11043, %11047 ], [ %11012, %11015 ], [ %10985, %10988 ], [ %10958, %10961 ], [ %10929, %10934 ], [ %10900, %10905 ], [ %10871, %10876 ], [ %10842, %10847 ], [ %10807, %10810 ], [ %10780, %10783 ], [ %10751, %10756 ], [ %10715, %10719 ], [ %10665, %10668 ], [ %10638, %10641 ], [ %10611, %10614 ], [ %10584, %10587 ], [ %10557, %10560 ], [ %10529, %10533 ], [ %10494, %10498 ], [ %10459, %10463 ], [ %10409, %10413 ], [ %10376, %10381 ], [ %10341, %10344 ], [ %10312, %10317 ], [ %10285, %10288 ], [ %10258, %10261 ], [ %10231, %10234 ], [ %10206, %10209 ], [ %10184, %10187 ], [ %10157, %10160 ], [ %10129, %10133 ], [ %10098, %10101 ], [ %10071, %10074 ], [ %10043, %10047 ], [ %9994, %10000 ], [ %9957, %9960 ], [ %9933, %9938 ], [ %9905, %9909 ], [ %9859, %9862 ], [ %9832, %9835 ], [ %9805, %9808 ], [ %9778, %9781 ], [ %9751, %9754 ], [ %9723, %9727 ], [ %9692, %9695 ], [ %9667, %9670 ], [ %9647, %9650 ], [ %9625, %9628 ], [ %9598, %9601 ], [ %9570, %9573 ], [ %9543, %9546 ], [ %9516, %9519 ], [ %9489, %9492 ], [ %9461, %9464 ], [ %9431, %9436 ], [ %9402, %9407 ], [ %9373, %9378 ], [ %9344, %9349 ], [ %9315, %9320 ], [ %9288, %9291 ], [ %9259, %9263 ], [ %9226, %9231 ], [ %9190, %9194 ], [ %9159, %9162 ], [ %9131, %9135 ], [ %9100, %9103 ], [ %9072, %9076 ], [ %9018, %9021 ], [ %8990, %8993 ], [ %8965, %8968 ], [ %8943, %8946 ], [ %8917, %8921 ], [ %8893, %8896 ], [ %8873, %8876 ], [ %8851, %8854 ], [ %8823, %8827 ], [ %8794, %8797 ], [ %8774, %8777 ], [ %8754, %8757 ], [ %8734, %8737 ], [ %8714, %8717 ], [ %8694, %8697 ], [ %8672, %8675 ], [ %8647, %8650 ], [ %8625, %8630 ], [ %8603, %8606 ], [ %8576, %8579 ], [ %8549, %8552 ], [ %8522, %8525 ], [ %8495, %8498 ], [ %8468, %8471 ], [ %8442, %8445 ], [ %8422, %8425 ], [ %8400, %8403 ], [ %8372, %8376 ], [ %8343, %8346 ], [ %8323, %8326 ], [ %8301, %8304 ], [ %8276, %8279 ], [ %8253, %8256 ], [ %8226, %8229 ], [ %8199, %8202 ], [ %8174, %8177 ], [ %8154, %8157 ], [ %8134, %8137 ], [ %8114, %8117 ], [ %8092, %8095 ], [ %8062, %8065 ], [ %8034, %8037 ], [ %8008, %8011 ], [ %7986, %7989 ], [ %7959, %7962 ], [ %7932, %7935 ], [ %7905, %7908 ], [ %7878, %7881 ], [ %7851, %7854 ], [ %7824, %7827 ], [ %7799, %7802 ], [ %7773, %7779 ], [ %7673, %7680 ], [ %7623, %7632 ], [ %7464, %7467 ], [ %7438, %7442 ], [ %7410, %7415 ], [ %7382, %7386 ], [ %7349, %7352 ], [ %7321, %7325 ], [ %7272, %7275 ], [ %7251, %7254 ], [ %7228, %7231 ], [ %7201, %7204 ], [ %7174, %7177 ], [ %7147, %7150 ], [ %7120, %7123 ], [ %7093, %7096 ], [ %7066, %7069 ], [ %7038, %7042 ], [ %6988, %6991 ], [ %6961, %6964 ], [ %6934, %6937 ], [ %6907, %6910 ], [ %6880, %6883 ], [ %6853, %6856 ], [ %6826, %6829 ], [ %6799, %6802 ], [ %6774, %6777 ], [ %6752, %6755 ], [ %6725, %6728 ], [ %6700, %6703 ], [ %6678, %6681 ], [ %6651, %6654 ], [ %6624, %6627 ], [ %6598, %6602 ], [ %6553, %6556 ], [ %6526, %6529 ], [ %6499, %6502 ], [ %6472, %6475 ], [ %6445, %6448 ], [ %6418, %6421 ], [ %6391, %6394 ], [ %6363, %6366 ], [ %6336, %6339 ], [ %6311, %6314 ], [ %6291, %6294 ], [ %6268, %6271 ], [ %6241, %6244 ], [ %6213, %6217 ], [ %6182, %6185 ], [ %6154, %6158 ], [ %6123, %6126 ], [ %6096, %6099 ], [ %6069, %6072 ], [ %6042, %6045 ], [ %6014, %6018 ], [ %5982, %5986 ], [ %5951, %5954 ], [ %5923, %5927 ], [ %5892, %5895 ], [ %5864, %5868 ], [ %5833, %5836 ], [ %5806, %5809 ], [ %5779, %5782 ], [ %5752, %5755 ], [ %5725, %5728 ], [ %5697, %5701 ], [ %5666, %5671 ], [ %5634, %5638 ], [ %5588, %5591 ], [ %5562, %5565 ], [ %5542, %5545 ], [ %5520, %5523 ], [ %5493, %5496 ], [ %5465, %5469 ], [ %5434, %5437 ], [ %5407, %5410 ], [ %5380, %5383 ], [ %5353, %5358 ], [ %5330, %5334 ], [ %5299, %5304 ], [ %5277, %5280 ], [ %5249, %5252 ], [ %5222, %5225 ], [ %5195, %5198 ], [ %5168, %5171 ], [ %5138, %5144 ], [ %5098, %5102 ], [ %5067, %5070 ], [ %5040, %5043 ], [ %5012, %5016 ], [ %4976, %4984 ], [ %4948, %4952 ], [ %4917, %4920 ], [ %4889, %4893 ], [ %4856, %4861 ], [ %4818, %4824 ], [ %4780, %4784 ], [ %4756, %4759 ], [ %4734, %4737 ], [ %4707, %4710 ], [ %4680, %4683 ], [ %4652, %4655 ], [ %4624, %4628 ], [ %4592, %4596 ], [ %4559, %4564 ], [ %4521, %4524 ], [ %4494, %4497 ], [ %4467, %4470 ], [ %4440, %4443 ], [ %4415, %4418 ], [ %4384, %4396 ], [ %4350, %4354 ], [ %4301, %4304 ], [ %4272, %4277 ], [ %4244, %4248 ], [ %4211, %4216 ], [ %4182, %4187 ], [ %4153, %4158 ], [ %4125, %4128 ], [ %4098, %4101 ], [ %4071, %4074 ], [ %4040, %4047 ], [ %4000, %4004 ], [ %3945, %3949 ], [ %3909, %3917 ], [ %3882, %3885 ], [ %3855, %3858 ], [ %3828, %3831 ], [ %3801, %3804 ], [ %3773, %3777 ], [ %3738, %3742 ], [ %3704, %3707 ], [ %3677, %3680 ], [ %3650, %3653 ], [ %3623, %3626 ], [ %3596, %3599 ], [ %3569, %3572 ], [ %3542, %3545 ], [ %3515, %3518 ], [ %3487, %3491 ], [ %3455, %3459 ], [ %3424, %3427 ], [ %3397, %3400 ], [ %3370, %3373 ], [ %3343, %3346 ], [ %3314, %3319 ], [ %3286, %3290 ], [ %3257, %3260 ], [ %3234, %3237 ], [ %3209, %3212 ], [ %3187, %3190 ], [ %3160, %3163 ], [ %3132, %3135 ], [ %3105, %3108 ], [ %3076, %3081 ], [ %3051, %3054 ], [ %3028, %3032 ], [ %2976, %2980 ], [ %2927, %2930 ], [ %2904, %2907 ], [ %2877, %2880 ], [ %2850, %2853 ], [ %2820, %2823 ], [ %2793, %2796 ], [ %2766, %2769 ], [ %2739, %2742 ], [ %2712, %2715 ], [ %2685, %2688 ], [ %2658, %2661 ], [ %2630, %2634 ], [ %2574, %2578 ], [ %2519, %2522 ], [ %2492, %2495 ], [ %2465, %2468 ], [ %2438, %2441 ], [ %2410, %2414 ], [ %2379, %2382 ], [ %2352, %2355 ], [ %2325, %2328 ], [ %2298, %2301 ], [ %2273, %2276 ], [ %2249, %2253 ], [ %2217, %2221 ], [ %2188, %2191 ], [ %2166, %2171 ], [ %2142, %2147 ], [ %2115, %2118 ], [ %2088, %2091 ], [ %2061, %2064 ], [ %2034, %2037 ], [ %1992, %2010 ], [ %1942, %1945 ], [ %1912, %1916 ], [ %1865, %1869 ], [ %1818, %1822 ], [ %1769, %1775 ], [ %1736, %1739 ], [ %1711, %1714 ], [ %1691, %1694 ], [ %1670, %1674 ], [ %1626, %1630 ], [ %1580, %1584 ], [ %1532, %1535 ], [ %1510, %1513 ], [ %1484, %1488 ], [ %1440, %1444 ], [ %1395, %1398 ], [ %1364, %1370 ], [ %1322, %1325 ], [ %1295, %1298 ], [ %1268, %1271 ], [ %1241, %1244 ], [ %1212, %1218 ], [ %1146, %1152 ], [ %1079, %1082 ], [ %1052, %1055 ], [ %1025, %1028 ], [ %1000, %1003 ], [ %976, %981 ], [ %940, %944 ], [ %909, %912 ], [ %874, %877 ], [ %851, %854 ], [ %824, %827 ], [ %797, %802 ], [ %776, %780 ], [ %749, %753 ], [ %702, %706 ], [ %654, %659 ], [ %626, %630 ], [ %581, %585 ], [ %536, %539 ], [ %509, %512 ], [ %481, %485 ], [ %450, %453 ], [ %420, %424 ], [ %388, %392 ], [ %357, %360 ], [ %327, %330 ], [ %300, %303 ], [ %271, %274 ], [ %244, %247 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv(ptr nocapture %.0.val) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader14readIdentifierEv.argprom(ptr nocapture %.0.val) unnamed_addr #1 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -44177,7 +44177,7 @@ declare void @_ZN5clang18CapturedRecordAttrC1ERNS_10ASTContextERKNS_19AttributeC
 declare void @_ZN5clang21CarriesDependencyAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang12FunctionDeclEEEPT_v(ptr %.0.val) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang12FunctionDeclEEEPT_v.argprom(ptr %.0.val) unnamed_addr #1 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -44281,7 +44281,7 @@ _ZN4llvm15SmallVectorImplIjED2Ev.exit:            ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang9NamedDeclEEEPT_v(ptr %.0.val) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang9NamedDeclEEEPT_v.argprom(ptr %.0.val) unnamed_addr #1 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -44991,7 +44991,7 @@ declare void @_ZN5clang8UsedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(
 declare void @_ZN5clang17UsingIfExistsAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang10MSGuidDeclEEEPT_v(ptr %.0.val) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110AttrReader10readDeclAsIN5clang10MSGuidDeclEEEPT_v.argprom(ptr %.0.val) unnamed_addr #1 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -46712,15 +46712,15 @@ _ZN5clang18IdentifierResolver8iteratorppEv.exit:  ; preds = %_ZL17getDeclForMerg
 
 .loopexit:                                        ; preds = %_ZN5clang18IdentifierResolver8iteratorppEv.exit, %_ZN5clang18IdentifierResolver8iteratorppEv.exit.thread, %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIIC2EPNS_14IdentifierInfoE.exit, %183
   %.not124128 = phi i1 [ false, %183 ], [ true, %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIIC2EPNS_14IdentifierInfoE.exit ], [ true, %_ZN5clang18IdentifierResolver8iteratorppEv.exit.thread ], [ true, %_ZN5clang18IdentifierResolver8iteratorppEv.exit ]
-  br i1 %.sroa.2100.0, label %195, label %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.exit
+  br i1 %.sroa.2100.0, label %195, label %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.argprom.exit
 
 195:                                              ; preds = %.loopexit
   %196 = load i64, ptr %.0.i54, align 8
   %197 = or i64 %196, 70866960384
   store i64 %197, ptr %.0.i54, align 8
-  br label %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.exit
+  br label %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.argprom.exit
 
-_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.exit: ; preds = %.loopexit, %195
+_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.argprom.exit: ; preds = %.loopexit, %195
   br i1 %.not124128, label %.loopexit126, label %308
 
 198:                                              ; preds = %137, %132
@@ -46817,7 +46817,7 @@ _ZN5clang12DeclListNode8iteratorppEv.exit:        ; preds = %_ZL17getDeclForMerg
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %234, i8 0, i64 17, i1 false)
   br label %308
 
-.loopexit126:                                     ; preds = %_ZL17getDeclForMergingPN5clang9NamedDeclEb.exit66.thread, %_ZN5clang12DeclListNode8iteratorppEv.exit, %200, %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.exit, %_ZN5clang4Decl21getLexicalDeclContextEv.exit, %121
+.loopexit126:                                     ; preds = %_ZL17getDeclForMergingPN5clang9NamedDeclEb.exit66.thread, %_ZN5clang12DeclListNode8iteratorppEv.exit, %200, %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.argprom.exit, %_ZN5clang4Decl21getLexicalDeclContextEv.exit, %121
   %237 = load ptr, ptr %1, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 12712
   %.0.copyload.i.i.i.i.i.i.i.i.i.i70 = load i64, ptr %28, align 8
@@ -46961,7 +46961,7 @@ _ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit90.thread: ; preds = %_ZN5clang
   store ptr %302, ptr %307, align 8
   br label %308
 
-308:                                              ; preds = %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.exit, %14, %.critedge, %232, %220, %123, %96
+308:                                              ; preds = %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.argprom.exit, %14, %.critedge, %232, %220, %123, %96
   ret void
 }
 
@@ -48339,7 +48339,7 @@ define dso_local void @_ZN5clang13ASTDeclReader18attachPreviousDeclERNS_9ASTRead
   %173 = and i32 %171, 127
   %174 = add nsw i32 %173, -72
   %175 = icmp ult i32 %174, -7
-  br i1 %175, label %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.exit, label %176
+  br i1 %175, label %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.argprom.exit, label %176
 
 176:                                              ; preds = %167
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -48350,7 +48350,7 @@ define dso_local void @_ZN5clang13ASTDeclReader18attachPreviousDeclERNS_9ASTRead
   %181 = load i32, ptr %180, align 4
   %182 = and i32 %181, 536870911
   %.not5.i = icmp eq i32 %182, 0
-  br i1 %.not5.i, label %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.exit, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %176
   %183 = getelementptr i8, ptr %1, i64 56
@@ -48412,9 +48412,9 @@ define dso_local void @_ZN5clang13ASTDeclReader18attachPreviousDeclERNS_9ASTRead
 _ZL30inheritDefaultTemplateArgumentIN5clang20TemplateTypeParmDeclEEbRNS0_10ASTContextEPT_PNS0_4DeclE.exit.i: ; preds = %207, %206, %204, %203, %198, %196
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, %186
-  br i1 %.not.i, label %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.exit, label %187, !llvm.loop !257
+  br i1 %.not.i, label %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.argprom.exit, label %187, !llvm.loop !257
 
-_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.exit: ; preds = %_ZL30inheritDefaultTemplateArgumentIN5clang20TemplateTypeParmDeclEEbRNS0_10ASTContextEPT_PNS0_4DeclE.exit.i, %176, %167
+_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.argprom.exit: ; preds = %_ZL30inheritDefaultTemplateArgumentIN5clang20TemplateTypeParmDeclEEbRNS0_10ASTContextEPT_PNS0_4DeclE.exit.i, %176, %167
   %209 = getelementptr inbounds i8, ptr %0, i64 136
   %.val390 = load ptr, ptr %209, align 8
   %210 = load i32, ptr %168, align 4
@@ -48422,7 +48422,7 @@ _ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.
   %.not.i.i = icmp eq i32 %211, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i, label %212
 
-212:                                              ; preds = %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.exit
+212:                                              ; preds = %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.argprom.exit
   %213 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #26
   %214 = load ptr, ptr %213, align 8
   %215 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %213) #26
@@ -48542,11 +48542,11 @@ _ZNK5clang4Decl7hasAttrINS_17MSInheritanceAttrEEEbv.exit.thread.i: ; preds = %26
   tail call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull %264) #26
   br label %_ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i
 
-_ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i: ; preds = %229, %222, %_ZNK5clang4Decl7hasAttrINS_17MSInheritanceAttrEEEbv.exit.thread.i, %_ZNK5clang4Decl7hasAttrINS_17MSInheritanceAttrEEEbv.exit.i, %_ZN5clangneENS_22specific_attr_iteratorINS_17MSInheritanceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %224, %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.exit
+_ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i: ; preds = %229, %222, %_ZNK5clang4Decl7hasAttrINS_17MSInheritanceAttrEEEbv.exit.thread.i, %_ZNK5clang4Decl7hasAttrINS_17MSInheritanceAttrEEEbv.exit.i, %_ZN5clangneENS_22specific_attr_iteratorINS_17MSInheritanceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %224, %_ZL31inheritDefaultTemplateArgumentsRN5clang10ASTContextEPNS_12TemplateDeclES3_.argprom.exit
   %268 = load i32, ptr %168, align 4
   %269 = and i32 %268, 256
   %.not.i29.i = icmp eq i32 %269, 0
-  br i1 %.not.i29.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.exit, label %270
+  br i1 %.not.i29.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.argprom.exit, label %270
 
 270:                                              ; preds = %_ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i
   %271 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #26
@@ -48567,11 +48567,11 @@ _ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i: ; preds = %
 280:                                              ; preds = %.lr.ph.i.i.i.i.i38.i
   %281 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i39.i, i64 8
   %.not.i.i.i.i.i40.i = icmp eq ptr %281, %274
-  br i1 %.not.i.i.i.i.i40.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.exit, label %.lr.ph.i.i.i.i.i38.i, !llvm.loop !260
+  br i1 %.not.i.i.i.i.i40.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.argprom.exit, label %.lr.ph.i.i.i.i.i38.i, !llvm.loop !260
 
 282:                                              ; preds = %270
   %.not2.i3.i.i.i.i30.i = icmp eq i64 %273, 0
-  br i1 %.not2.i3.i.i.i.i30.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.exit, label %.lr.ph.i4.i.i.i.i31.i
+  br i1 %.not2.i3.i.i.i.i30.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.argprom.exit, label %.lr.ph.i4.i.i.i.i31.i
 
 .lr.ph.i4.i.i.i.i31.i:                            ; preds = %282, %287
   %.sroa.0.1.i.i.i.i32.i = phi ptr [ %288, %287 ], [ %274, %282 ]
@@ -48584,13 +48584,13 @@ _ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i: ; preds = %
 287:                                              ; preds = %.lr.ph.i4.i.i.i.i31.i
   %288 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i32.i, i64 8
   %.not.i5.i.i.i.i33.i = icmp eq ptr %288, %272
-  br i1 %.not.i5.i.i.i.i33.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.exit, label %.lr.ph.i4.i.i.i.i31.i, !llvm.loop !260
+  br i1 %.not.i5.i.i.i.i33.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.argprom.exit, label %.lr.ph.i4.i.i.i.i31.i, !llvm.loop !260
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i: ; preds = %.lr.ph.i4.i.i.i.i31.i, %.lr.ph.i.i.i.i.i38.i
   %.sroa.07.0.i.i.i.i34.i = phi ptr [ %.sroa.07.1.i.i.i.i39.i, %.lr.ph.i.i.i.i.i38.i ], [ %272, %.lr.ph.i4.i.i.i.i31.i ]
   %.sroa.0.0.i.i.i.i35.i = phi ptr [ %274, %.lr.ph.i.i.i.i.i38.i ], [ %.sroa.0.1.i.i.i.i32.i, %.lr.ph.i4.i.i.i.i31.i ]
   %.not.i.i36.i = icmp eq ptr %.sroa.07.0.i.i.i.i34.i, %.sroa.0.0.i.i.i.i35.i
-  br i1 %.not.i.i36.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.exit, label %289
+  br i1 %.not.i.i36.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.argprom.exit, label %289
 
 289:                                              ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i
   %290 = load ptr, ptr %272, align 8
@@ -48657,7 +48657,7 @@ _ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.i: ; preds = %.lr.ph.i4.
   %.sroa.07.0.i.i.i.i46.i = phi ptr [ %.sroa.07.1.i.i.i.i49.i, %.lr.ph.i.i.i.i.i48.i ], [ %305, %.lr.ph.i4.i.i.i.i43.i ]
   %.sroa.0.0.i.i.i.i47.i = phi ptr [ %307, %.lr.ph.i.i.i.i.i48.i ], [ %.sroa.0.1.i.i.i.i44.i, %.lr.ph.i4.i.i.i.i43.i ]
   %.not9.i = icmp eq ptr %.sroa.07.0.i.i.i.i46.i, %.sroa.0.0.i.i.i.i47.i
-  br i1 %.not9.i, label %_ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.thread.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.exit
+  br i1 %.not9.i, label %_ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.thread.i, label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.argprom.exit
 
 _ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.thread.i: ; preds = %320, %313, %_ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.i, %315, %_ZNK5clang4Decl7getAttrINS_16AvailabilityAttrEEEPT_v.exit.i
   %322 = tail call noundef ptr @_ZNK5clang16AvailabilityAttr5cloneERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %300, ptr noundef nonnull align 8 dereferenceable(23096) %.val390) #26
@@ -48666,9 +48666,9 @@ _ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.thread.i: ; preds = %320
   %325 = or i8 %324, 1
   store i8 %325, ptr %323, align 2
   tail call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull %322) #26
-  br label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.exit
+  br label %_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.argprom.exit
 
-_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.exit: ; preds = %287, %280, %_ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i, %282, %_ZN5clangneENS_22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %_ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.i, %_ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.thread.i
+_ZN12_GLOBAL__N_126mergeInheritableAttributesERN5clang9ASTReaderEPNS0_4DeclES4_.argprom.exit: ; preds = %287, %280, %_ZNK5clang4Decl7getAttrINS_17MSInheritanceAttrEEEPT_v.exit.thread.i, %282, %_ZN5clangneENS_22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %_ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.i, %_ZNK5clang4Decl7hasAttrINS_16AvailabilityAttrEEEbv.exit.thread.i
   ret void
 }
 
@@ -50157,7 +50157,7 @@ _ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit: ; preds = %73
   br i1 %.not362, label %_ZN4llvm5ErrorD2Ev.exit, label %79
 
 79:                                               ; preds = %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit
-  call fastcc void @"_ZZN5clang9ASTReader14ReadDeclRecordENS_12GlobalDeclIDEENK3$_0clEPKcON4llvm5ErrorE"(ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call fastcc void @"_ZZN5clang9ASTReader14ReadDeclRecordENS_12GlobalDeclIDEENK3$_0clEPKcON4llvm5ErrorE.argprom"(ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %8)
   unreachable
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit
@@ -50207,7 +50207,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm21SimpleBit
 _ZN4llvm8ExpectedIjE9takeErrorEv.exit:            ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %101 = inttoptr i64 %100 to ptr
   store ptr %101, ptr %11, align 8, !alias.scope !271
-  call fastcc void @"_ZZN5clang9ASTReader14ReadDeclRecordENS_12GlobalDeclIDEENK3$_0clEPKcON4llvm5ErrorE"(ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call fastcc void @"_ZZN5clang9ASTReader14ReadDeclRecordENS_12GlobalDeclIDEENK3$_0clEPKcON4llvm5ErrorE.argprom"(ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %11)
   unreachable
 
 _ZN4llvm5ErrorD2Ev.exit217:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit
@@ -51244,7 +51244,7 @@ _ZN5clang15ASTRecordReaderD2Ev.exit:              ; preds = %_ZN4llvm8ExpectedIj
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @"_ZZN5clang9ASTReader14ReadDeclRecordENS_12GlobalDeclIDEENK3$_0clEPKcON4llvm5ErrorE"(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #13 align 2 {
+define internal fastcc void @"_ZZN5clang9ASTReader14ReadDeclRecordENS_12GlobalDeclIDEENK3$_0clEPKcON4llvm5ErrorE.argprom"(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #13 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -52068,7 +52068,7 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread:  ; preds = %64, %79, %_ZNK5clan
   %81 = load ptr, ptr %35, align 8
   %82 = load ptr, ptr %30, align 8
   %83 = icmp eq ptr %81, %82
-  br i1 %83, label %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit", label %.lr.ph.i
+  br i1 %83, label %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread, %98
   %84 = phi ptr [ %100, %98 ], [ %82, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread ]
@@ -52108,17 +52108,17 @@ _ZNSt5dequeIPN5clang4DeclESaIS2_EE9pop_frontEv.exit.i: ; preds = %90, %88
   %99 = load ptr, ptr %35, align 8
   %100 = load ptr, ptr %30, align 8
   %101 = icmp eq ptr %99, %100
-  br i1 %101, label %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit", label %.lr.ph.i, !llvm.loop !293
+  br i1 %101, label %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit", label %.lr.ph.i, !llvm.loop !293
 
-"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit": ; preds = %98, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread
+"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit": ; preds = %98, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread
   %102 = tail call noundef zeroext i1 @_ZN5clang9ASTReader22isConsumerInterestedInEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(15968) %0, ptr noundef %37)
   br i1 %102, label %103, label %104
 
-103:                                              ; preds = %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit"
+103:                                              ; preds = %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit"
   tail call void @_ZN5clang9ASTReader29PassInterestingDeclToConsumerEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(15968) %0, ptr noundef %37) #26
   br label %104
 
-104:                                              ; preds = %103, %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit"
+104:                                              ; preds = %103, %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit"
   %105 = icmp eq ptr %.sroa.23.0.copyload, %storemerge.i
   br i1 %105, label %._crit_edge59.loopexit, label %.lr.ph58, !llvm.loop !294
 
@@ -52139,7 +52139,7 @@ _ZNSt5dequeIPN5clang4DeclESaIS2_EE9pop_frontEv.exit.i: ; preds = %90, %88
   %.sroa.19.0.lcssa = phi ptr [ %.sroa.19.0.copyload, %_ZNSt5dequeIPN5clang4DeclESaIS2_EE5clearEv.exit ], [ %.sroa.19.2, %._crit_edge59.loopexit ], [ %.06.i.i.ptr.i.i, %_ZNSt5dequeIPN5clang4DeclESaIS2_EE5clearEv.exit.thread ]
   %112 = load ptr, ptr %107, align 8
   %113 = icmp eq ptr %111, %112
-  br i1 %113, label %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit35", label %.lr.ph.i31
+  br i1 %113, label %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit35", label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %._crit_edge59, %128
   %114 = phi ptr [ %130, %128 ], [ %112, %._crit_edge59 ]
@@ -52179,9 +52179,9 @@ _ZNSt5dequeIPN5clang4DeclESaIS2_EE9pop_frontEv.exit.i33: ; preds = %120, %118
   %129 = load ptr, ptr %106, align 8
   %130 = load ptr, ptr %107, align 8
   %131 = icmp eq ptr %129, %130
-  br i1 %131, label %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit35", label %.lr.ph.i31, !llvm.loop !293
+  br i1 %131, label %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit35", label %.lr.ph.i31, !llvm.loop !293
 
-"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit35": ; preds = %128, %._crit_edge59
+"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit35": ; preds = %128, %._crit_edge59
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %133 = load ptr, ptr %132, align 8
   %134 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %132) #26
@@ -52189,8 +52189,8 @@ _ZNSt5dequeIPN5clang4DeclESaIS2_EE9pop_frontEv.exit.i33: ; preds = %120, %118
   %.not2660 = icmp eq i64 %134, 0
   br i1 %.not2660, label %._crit_edge63, label %.lr.ph62
 
-.lr.ph62:                                         ; preds = %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit35", %.lr.ph62
-  %.02461 = phi ptr [ %137, %.lr.ph62 ], [ %133, %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit35" ]
+.lr.ph62:                                         ; preds = %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit35", %.lr.ph62
+  %.02461 = phi ptr [ %137, %.lr.ph62 ], [ %133, %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit35" ]
   %.sroa.01.0.copyload = load i64, ptr %.02461, align 8
   %136 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(15968) %0, i64 %.sroa.01.0.copyload) #26
   tail call void @_ZN5clang9ASTReader20PassVTableToConsumerEPNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(15968) %0, ptr noundef %136) #26
@@ -52198,7 +52198,7 @@ _ZNSt5dequeIPN5clang4DeclESaIS2_EE9pop_frontEv.exit.i33: ; preds = %120, %118
   %.not26 = icmp eq ptr %137, %135
   br i1 %.not26, label %._crit_edge63, label %.lr.ph62
 
-._crit_edge63:                                    ; preds = %.lr.ph62, %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit35"
+._crit_edge63:                                    ; preds = %.lr.ph62, %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.argprom.exit35"
   %138 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %132) #26
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 5128
   store i32 0, ptr %139, align 8

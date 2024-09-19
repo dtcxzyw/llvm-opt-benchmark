@@ -4663,7 +4663,7 @@ define internal i32 @uncore_pmu_event_init(ptr noundef %0) #0 align 16 {
 98:                                               ; preds = %90
   store i32 9, ptr %48, align 4
   %.val = load ptr, ptr %83, align 8
-  %99 = tail call fastcc i32 @uncore_freerunning_counter(ptr %.val, i64 %53)
+  %99 = tail call fastcc i32 @uncore_freerunning_counter.argprom(ptr %.val, i64 %53)
   %100 = zext i32 %99 to i64
   %101 = getelementptr inbounds i8, ptr %0, i64 384
   store i64 %100, ptr %101, align 8
@@ -4708,7 +4708,7 @@ define internal i32 @uncore_pmu_event_init(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @perf_pmu_register(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc i32 @uncore_freerunning_counter(ptr nocapture readonly %.368.val, i64 %.360.val) unnamed_addr #17 align 16 {
+define internal fastcc i32 @uncore_freerunning_counter.argprom(ptr nocapture readonly %.368.val, i64 %.360.val) unnamed_addr #17 align 16 {
   %1 = trunc i64 %.360.val to i32
   %2 = lshr i32 %1, 8
   %3 = add nuw nsw i32 %2, 240

@@ -9067,13 +9067,13 @@ _ZN5clang6driver15MultilibBuilderD2Ev.exit32.i:   ; preds = %455, %_ZSt8_Destroy
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #22
   %463 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %464 = call noundef zeroext i1 @_ZNK5clang6driver11MultilibSet6selectERKNS0_6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERN4llvm15SmallVectorImplINS0_8MultilibEEE(ptr noundef nonnull align 8 dereferenceable(112) %90, ptr noundef nonnull align 8 dereferenceable(1192) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(16) %463) #22
-  br i1 %464, label %465, label %_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit
+  br i1 %464, label %465, label %_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.argprom.exit
 
 465:                                              ; preds = %_ZN5clang6driver15MultilibBuilderD2Ev.exit32.i
   %466 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN5clang6driver11MultilibSetaSERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %90)
-  br label %_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit
+  br label %_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.argprom.exit
 
-_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit: ; preds = %_ZN5clang6driver15MultilibBuilderD2Ev.exit32.i, %465
+_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.argprom.exit: ; preds = %_ZN5clang6driver15MultilibBuilderD2Ev.exit32.i, %465
   call void @_ZN5clang6driver11MultilibSetD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %90) #22
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %90)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %91)
@@ -11900,8 +11900,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZN5clang6driver8MultilibD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %128) #22
   br label %1490
 
-1490:                                             ; preds = %_ZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit195, %_ZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit, %469, %_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit, %_ZL24findMipsAndroidMultilibsRKN5clang6driver6DriverERN4llvm3vfs10FileSystemENS4_9StringRefERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit
-  %.0 = phi i1 [ %381, %_ZL24findMipsAndroidMultilibsRKN5clang6driver6DriverERN4llvm3vfs10FileSystemENS4_9StringRefERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit ], [ %464, %_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit ], [ %470, %469 ], [ %990, %_ZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit ], [ %1474, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit195 ], [ true, %_ZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit ]
+1490:                                             ; preds = %_ZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit195, %_ZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit, %469, %_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.argprom.exit, %_ZL24findMipsAndroidMultilibsRKN5clang6driver6DriverERN4llvm3vfs10FileSystemENS4_9StringRefERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit
+  %.0 = phi i1 [ %381, %_ZL24findMipsAndroidMultilibsRKN5clang6driver6DriverERN4llvm3vfs10FileSystemENS4_9StringRefERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit ], [ %464, %_ZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.argprom.exit ], [ %470, %469 ], [ %990, %_ZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit ], [ %1474, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit195 ], [ true, %_ZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsE.exit ]
   %1491 = load ptr, ptr %127, align 8
   %1492 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %1493 = load ptr, ptr %1492, align 8
@@ -14905,26 +14905,26 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i: ; preds = %85
 106:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %107 = call noundef zeroext i1 @_ZN4llvm18getAsSignedIntegerENS_9StringRefEjRx(ptr %.sroa.047.0.copyload, i64 %.sroa.448.0.copyload, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %9) #22
-  br i1 %107, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit.thread", label %108
+  br i1 %107, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit.thread", label %108
 
 108:                                              ; preds = %106
   %109 = load i64, ptr %9, align 8
   %110 = add i64 %109, 2147483648
   %.not.i.i16 = icmp ult i64 %110, 4294967296
-  br i1 %.not.i.i16, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit", label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit.thread"
+  br i1 %.not.i.i16, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit", label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit.thread"
 
-"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit.thread": ; preds = %108, %106
+"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit.thread": ; preds = %108, %106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %113
 
-"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit": ; preds = %108
+"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit": ; preds = %108
   %111 = trunc i64 %109 to i32
   store i32 %111, ptr %67, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %112 = icmp sgt i32 %111, -1
   br i1 %112, label %118, label %113
 
-113:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit.thread", %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit"
+113:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit.thread", %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %17) #22
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %114, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
@@ -14936,7 +14936,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i: ; preds = %85
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %37) #22
   br label %187
 
-118:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit"
+118:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit"
   %119 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef %.sroa.047.0.copyload, i64 noundef %.sroa.448.0.copyload) #22
   %120 = icmp eq i64 %.sroa.8.0, 0
   br i1 %120, label %121, label %150
@@ -15011,26 +15011,26 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i22: ; preds = %129
 150:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %151 = call noundef zeroext i1 @_ZN4llvm18getAsSignedIntegerENS_9StringRefEjRx(ptr %.sroa.051.0, i64 %.sroa.3.0, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %6) #22
-  br i1 %151, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit29.thread", label %152
+  br i1 %151, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit29.thread", label %152
 
 152:                                              ; preds = %150
   %153 = load i64, ptr %6, align 8
   %154 = add i64 %153, 2147483648
   %.not.i.i25 = icmp ult i64 %154, 4294967296
-  br i1 %.not.i.i25, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit29", label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit29.thread"
+  br i1 %.not.i.i25, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit29", label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit29.thread"
 
-"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit29.thread": ; preds = %152, %150
+"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit29.thread": ; preds = %152, %150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %157
 
-"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit29": ; preds = %152
+"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit29": ; preds = %152
   %155 = trunc i64 %153 to i32
   store i32 %155, ptr %68, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %156 = icmp sgt i32 %155, -1
   br i1 %156, label %162, label %157
 
-157:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit29.thread", %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit29"
+157:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit29.thread", %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit29"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %17) #22
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %158, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
@@ -15042,7 +15042,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i22: ; preds = %129
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(32) %37) #22
   br label %187
 
-162:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit29"
+162:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.argprom.exit29"
   %163 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef %.sroa.051.0, i64 noundef %.sroa.3.0) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -20632,7 +20632,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i36.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i34.i, %_ZN5clang6driver15MultilibBuilderD2Ev.exit29.i
   %1564 = phi ptr [ %.pr.i.i35.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i34.i ], [ %1560, %_ZN5clang6driver15MultilibBuilderD2Ev.exit29.i ]
   %.not.i.i.i.i37.i = icmp eq ptr %1564, null
-  br i1 %.not.i.i.i.i37.i, label %_ZL19findMSP430MultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit, label %1565
+  br i1 %.not.i.i.i.i37.i, label %_ZL19findMSP430MultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.argprom.exit, label %1565
 
 1565:                                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i36.i
   %1566 = getelementptr inbounds nuw i8, ptr %30, i64 112
@@ -20641,9 +20641,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %1569 = ptrtoint ptr %1564 to i64
   %1570 = sub i64 %1568, %1569
   call void @_ZdlPvm(ptr noundef nonnull %1564, i64 noundef %1570) #23
-  br label %_ZL19findMSP430MultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit
+  br label %_ZL19findMSP430MultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.argprom.exit
 
-_ZL19findMSP430MultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i36.i, %1565
+_ZL19findMSP430MultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.argprom.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i36.i, %1565
   %1571 = getelementptr inbounds nuw i8, ptr %30, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1571) #22
   %1572 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -21224,7 +21224,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i91.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i89.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i131
   %1802 = phi ptr [ %.pr.i.i90.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i89.i ], [ %1798, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i131 ]
   %.not.i.i.i.i92.i = icmp eq ptr %1802, null
-  br i1 %.not.i.i.i.i92.i, label %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.exit, label %1803
+  br i1 %.not.i.i.i.i92.i, label %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.argprom.exit, label %1803
 
 1803:                                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i91.i
   %1804 = getelementptr inbounds nuw i8, ptr %17, i64 112
@@ -21233,9 +21233,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %1807 = ptrtoint ptr %1802 to i64
   %1808 = sub i64 %1806, %1807
   call void @_ZdlPvm(ptr noundef nonnull %1802, i64 noundef %1808) #23
-  br label %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.exit
+  br label %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.argprom.exit
 
-_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i91.i, %1803
+_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.argprom.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i91.i, %1803
   %1809 = getelementptr inbounds nuw i8, ptr %17, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1809) #22
   %1810 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -21255,7 +21255,7 @@ _ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefER
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   br i1 %1754, label %1811, label %_ZNSt8optionalIN5clang6driver8MultilibEEaSERKS3_.exit
 
-1811:                                             ; preds = %1492, %_ZL17findCSKYMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit, %_ZL18findRISCVMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit, %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.exit, %_ZL19findMSP430MultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit, %821, %_ZL23findAndroidArmMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit
+1811:                                             ; preds = %1492, %_ZL17findCSKYMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit, %_ZL18findRISCVMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit, %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.argprom.exit, %_ZL19findMSP430MultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.argprom.exit, %821, %_ZL23findAndroidArmMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsE.exit
   %1812 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %1813 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN5clang6driver11MultilibSetaSERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %1812, ptr noundef nonnull align 8 dereferenceable(112) %147)
   %1814 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %155) #22
@@ -21346,8 +21346,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZN5clang6driver8MultilibD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %1838) #22
   br label %_ZNSt8optionalIN5clang6driver8MultilibEEaSERKS3_.exit
 
-_ZNSt8optionalIN5clang6driver8MultilibEEaSERKS3_.exit: ; preds = %1848, %1847, %.thread.i.i.i.i.i, %1845, %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.exit, %821
-  %.039 = phi i1 [ false, %821 ], [ false, %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.exit ], [ true, %1845 ], [ true, %.thread.i.i.i.i.i ], [ true, %1847 ], [ true, %1848 ]
+_ZNSt8optionalIN5clang6driver8MultilibEEaSERKS3_.exit: ; preds = %1848, %1847, %.thread.i.i.i.i.i, %1845, %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.argprom.exit, %821
+  %.039 = phi i1 [ false, %821 ], [ false, %_ZL19findBiarchMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListEbRNS0_17DetectedMultilibsE.argprom.exit ], [ true, %1845 ], [ true, %.thread.i.i.i.i.i ], [ true, %1847 ], [ true, %1848 ]
   %1849 = load i8, ptr %157, align 8
   %1850 = trunc i8 %1849 to i1
   br i1 %1850, label %1851, label %_ZNSt8optionalIN5clang6driver8MultilibEED2Ev.exit.i
@@ -27896,20 +27896,20 @@ define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL21findMipsMuslMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -27984,7 +27984,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %3
   %28 = load i64, ptr %4, align 8, !noalias !680
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %28) #22, !noalias !680
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !679
-  br label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 29:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22, !noalias !680
@@ -28001,9 +28001,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %3
   %34 = load i64, ptr %5, align 8, !noalias !680
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %34) #22, !noalias !680
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !679
-  br label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %23, %29
+"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %23, %29
   %.sink.i.i = phi ptr [ %8, %23 ], [ %10, %29 ]
   %.sink.i.i.i = phi ptr [ %9, %23 ], [ %11, %29 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i)
@@ -28020,20 +28020,20 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -28172,20 +28172,20 @@ define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -28227,20 +28227,20 @@ define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -28306,9 +28306,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   %25 = getelementptr inbounds i8, ptr %24, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22, !noalias !723
   %26 = icmp eq ptr %25, %5
-  br i1 %26, label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit", label %23
+  br i1 %26, label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit", label %23
 
-"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %23
+"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22, !noalias !723
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22, !noalias !723
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !722
@@ -28319,20 +28319,20 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -28381,20 +28381,20 @@ define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -28436,20 +28436,20 @@ define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -28519,7 +28519,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %3
   %28 = load i64, ptr %4, align 8, !noalias !766
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %28) #22, !noalias !766
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !765
-  br label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 29:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22, !noalias !766
@@ -28536,9 +28536,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %3
   %34 = load i64, ptr %5, align 8, !noalias !766
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %34) #22, !noalias !766
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !765
-  br label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %23, %29
+"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %23, %29
   %.sink.i.i = phi ptr [ %8, %23 ], [ %10, %29 ]
   %.sink.i.i.i = phi ptr [ %9, %23 ], [ %11, %29 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i)
@@ -28555,20 +28555,20 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL19findMipsCsMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EERN12_GLOBAL__N_117FilterNonExistentERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -28987,29 +28987,29 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #22, !noalias !792
   %28 = icmp eq ptr %27, %8
-  br i1 %28, label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESV_E4typeEOSW_DpOSX_.exit", label %25
+  br i1 %28, label %"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESV_E4typeEOSW_DpOSX_.argprom.exit", label %25
 
-"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESV_E4typeEOSW_DpOSX_.exit": ; preds = %25
+"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESV_E4typeEOSW_DpOSX_.argprom.exit": ; preds = %25
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8), !noalias !791
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL27findRISCVBareMetalMultilibsRKNSA_6DriverERKN4llvm6TripleENSI_9StringRefERKNSI_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS6_9StringRefERKNS6_3opt7ArgListERNS2_17DetectedMultilibsEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -33348,14 +33348,14 @@ attributes #27 = { noreturn nounwind }
 !651 = distinct !{!651, !8}
 !652 = distinct !{!652, !8}
 !653 = !{!654}
-!654 = distinct !{!654, !655, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_: argument 0"}
-!655 = distinct !{!655, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_"}
+!654 = distinct !{!654, !655, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom: argument 0"}
+!655 = distinct !{!655, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom"}
 !656 = !{!657}
-!657 = distinct !{!657, !658, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!658 = distinct !{!658, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!657 = distinct !{!657, !658, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!658 = distinct !{!658, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !659 = !{!660}
-!660 = distinct !{!660, !661, !"_ZZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!661 = distinct !{!661, !"_ZZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE"}
+!660 = distinct !{!660, !661, !"_ZZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!661 = distinct !{!661, !"_ZZL21findMipsMuslMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom"}
 !662 = !{!657, !654}
 !663 = !{!660, !657, !654}
 !664 = !{!665, !660, !657, !654}
@@ -33365,26 +33365,26 @@ attributes #27 = { noreturn nounwind }
 !668 = distinct !{!668, !669, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !669 = distinct !{!669, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !670 = !{!671}
-!671 = distinct !{!671, !672, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_: argument 0"}
-!672 = distinct !{!672, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_"}
+!671 = distinct !{!671, !672, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom: argument 0"}
+!672 = distinct !{!672, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom"}
 !673 = !{!674}
-!674 = distinct !{!674, !675, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!675 = distinct !{!675, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!674 = distinct !{!674, !675, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!675 = distinct !{!675, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !676 = !{!677}
-!677 = distinct !{!677, !678, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!678 = distinct !{!678, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE"}
+!677 = distinct !{!677, !678, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!678 = distinct !{!678, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom"}
 !679 = !{!674, !671}
 !680 = !{!677, !674, !671}
 !681 = distinct !{!681, !8}
 !682 = !{!683}
-!683 = distinct !{!683, !684, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_: argument 0"}
-!684 = distinct !{!684, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_"}
+!683 = distinct !{!683, !684, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom: argument 0"}
+!684 = distinct !{!684, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom"}
 !685 = !{!686}
-!686 = distinct !{!686, !687, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!687 = distinct !{!687, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!686 = distinct !{!686, !687, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!687 = distinct !{!687, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !688 = !{!689}
-!689 = distinct !{!689, !690, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_1clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!690 = distinct !{!690, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_1clB5cxx11ERKNS0_8MultilibE"}
+!689 = distinct !{!689, !690, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_1clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!690 = distinct !{!690, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_1clB5cxx11ERKNS0_8MultilibE.argprom"}
 !691 = !{!686, !683}
 !692 = !{!689, !686, !683}
 !693 = !{!694, !689, !686, !683}
@@ -33394,40 +33394,40 @@ attributes #27 = { noreturn nounwind }
 !697 = distinct !{!697, !698, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !698 = distinct !{!698, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !699 = !{!700}
-!700 = distinct !{!700, !701, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_: argument 0"}
-!701 = distinct !{!701, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_"}
+!700 = distinct !{!700, !701, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom: argument 0"}
+!701 = distinct !{!701, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom"}
 !702 = !{!703}
-!703 = distinct !{!703, !704, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!704 = distinct !{!704, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!703 = distinct !{!703, !704, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!704 = distinct !{!704, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !705 = !{!706}
-!706 = distinct !{!706, !707, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_2clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!707 = distinct !{!707, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_2clB5cxx11ERKNS0_8MultilibE"}
+!706 = distinct !{!706, !707, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_2clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!707 = distinct !{!707, !"_ZZL20findMipsMtiMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_2clB5cxx11ERKNS0_8MultilibE.argprom"}
 !708 = !{!703, !700}
 !709 = !{!706, !703, !700}
 !710 = !{!711, !706, !703, !700}
 !711 = distinct !{!711, !712, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_: argument 0"}
 !712 = distinct !{!712, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_"}
 !713 = !{!714}
-!714 = distinct !{!714, !715, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_: argument 0"}
-!715 = distinct !{!715, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_"}
+!714 = distinct !{!714, !715, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom: argument 0"}
+!715 = distinct !{!715, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom"}
 !716 = !{!717}
-!717 = distinct !{!717, !718, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!718 = distinct !{!718, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!717 = distinct !{!717, !718, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!718 = distinct !{!718, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !719 = !{!720}
-!720 = distinct !{!720, !721, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!721 = distinct !{!721, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE"}
+!720 = distinct !{!720, !721, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!721 = distinct !{!721, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom"}
 !722 = !{!717, !714}
 !723 = !{!720, !717, !714}
 !724 = distinct !{!724, !8}
 !725 = !{!726}
-!726 = distinct !{!726, !727, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_: argument 0"}
-!727 = distinct !{!727, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_"}
+!726 = distinct !{!726, !727, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom: argument 0"}
+!727 = distinct !{!727, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom"}
 !728 = !{!729}
-!729 = distinct !{!729, !730, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!730 = distinct !{!730, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!729 = distinct !{!729, !730, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!730 = distinct !{!730, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !731 = !{!732}
-!732 = distinct !{!732, !733, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_1clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!733 = distinct !{!733, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_1clB5cxx11ERKNS0_8MultilibE"}
+!732 = distinct !{!732, !733, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_1clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!733 = distinct !{!733, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_1clB5cxx11ERKNS0_8MultilibE.argprom"}
 !734 = !{!729, !726}
 !735 = !{!732, !729, !726}
 !736 = !{!737, !732, !729, !726}
@@ -33437,28 +33437,28 @@ attributes #27 = { noreturn nounwind }
 !740 = distinct !{!740, !741, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !741 = distinct !{!741, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !742 = !{!743}
-!743 = distinct !{!743, !744, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_: argument 0"}
-!744 = distinct !{!744, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_"}
+!743 = distinct !{!743, !744, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom: argument 0"}
+!744 = distinct !{!744, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom"}
 !745 = !{!746}
-!746 = distinct !{!746, !747, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!747 = distinct !{!747, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!746 = distinct !{!746, !747, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!747 = distinct !{!747, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL20findMipsImgMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !748 = !{!749}
-!749 = distinct !{!749, !750, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_2clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!750 = distinct !{!750, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_2clB5cxx11ERKNS0_8MultilibE"}
+!749 = distinct !{!749, !750, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_2clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!750 = distinct !{!750, !"_ZZL20findMipsImgMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_2clB5cxx11ERKNS0_8MultilibE.argprom"}
 !751 = !{!746, !743}
 !752 = !{!749, !746, !743}
 !753 = !{!754, !749, !746, !743}
 !754 = distinct !{!754, !755, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_: argument 0"}
 !755 = distinct !{!755, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_"}
 !756 = !{!757}
-!757 = distinct !{!757, !758, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_: argument 0"}
-!758 = distinct !{!758, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_"}
+!757 = distinct !{!757, !758, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom: argument 0"}
+!758 = distinct !{!758, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom"}
 !759 = !{!760}
-!760 = distinct !{!760, !761, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!761 = distinct !{!761, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!760 = distinct !{!760, !761, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!761 = distinct !{!761, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL19findMipsCsMultilibsRKN5clang6driver6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !762 = !{!763}
-!763 = distinct !{!763, !764, !"_ZZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!764 = distinct !{!764, !"_ZZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE"}
+!763 = distinct !{!763, !764, !"_ZZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!764 = distinct !{!764, !"_ZZL19findMipsCsMultilibsRKN5clang6driver6DriverERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERN12_GLOBAL__N_117FilterNonExistentERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom"}
 !765 = !{!760, !757}
 !766 = !{!763, !760, !757}
 !767 = distinct !{!767, !8}
@@ -33477,14 +33477,14 @@ attributes #27 = { noreturn nounwind }
 !780 = !{!781}
 !781 = distinct !{!781, !779, !"_ZSt19__relocate_object_aIN5clang6driver15MultilibBuilderES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
 !782 = !{!783}
-!783 = distinct !{!783, !784, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESV_E4typeEOSW_DpOSX_: argument 0"}
-!784 = distinct !{!784, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESV_E4typeEOSW_DpOSX_"}
+!783 = distinct !{!783, !784, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESV_E4typeEOSW_DpOSX_.argprom: argument 0"}
+!784 = distinct !{!784, !"_ZSt10__invoke_rISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESV_E4typeEOSW_DpOSX_.argprom"}
 !785 = !{!786}
-!786 = distinct !{!786, !787, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!787 = distinct !{!787, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_"}
+!786 = distinct !{!786, !787, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!787 = distinct !{!787, !"_ZSt13__invoke_implISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENSE_9StringRefERKNSE_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0JRKNSA_8MultilibEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !788 = !{!789}
-!789 = distinct !{!789, !790, !"_ZZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE: argument 0"}
-!790 = distinct !{!790, !"_ZZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE"}
+!789 = distinct !{!789, !790, !"_ZZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom: argument 0"}
+!790 = distinct !{!790, !"_ZZL27findRISCVBareMetalMultilibsRKN5clang6driver6DriverERKN4llvm6TripleENS4_9StringRefERKNS4_3opt7ArgListERNS0_17DetectedMultilibsEENK3$_0clB5cxx11ERKNS0_8MultilibE.argprom"}
 !791 = !{!786, !783}
 !792 = !{!789, !786, !783}
 !793 = !{!794, !789, !786, !783}

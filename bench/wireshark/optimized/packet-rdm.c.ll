@@ -1632,7 +1632,7 @@ define internal i32 @dissect_rdm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 64:                                               ; preds = %63
-  %65 = tail call fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %62, i8 noundef zeroext %34, i16 noundef zeroext %48, i8 noundef zeroext %53, i16 noundef zeroext %.0.i)
+  %65 = tail call fastcc i32 @dissect_rdm_mdb_param_data.argelim(ptr noundef %0, ptr noundef %62, i8 noundef zeroext %34, i16 noundef zeroext %48, i8 noundef zeroext %53, i16 noundef zeroext %.0.i)
   br label %dissect_rdm_mdb.exit
 
 66:                                               ; preds = %63
@@ -1678,7 +1678,7 @@ define internal i32 @dissect_rdm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_rdm_mdb.exit
 
 83:                                               ; preds = %58
-  %84 = tail call fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %62, i8 noundef zeroext %34, i16 noundef zeroext %48, i8 noundef zeroext %53, i16 noundef zeroext %.0.i)
+  %84 = tail call fastcc i32 @dissect_rdm_mdb_param_data.argelim(ptr noundef %0, ptr noundef %62, i8 noundef zeroext %34, i16 noundef zeroext %48, i8 noundef zeroext %53, i16 noundef zeroext %.0.i)
   br label %dissect_rdm_mdb.exit
 
 dissect_rdm_mdb.exit:                             ; preds = %8, %63, %64, %66, %68, %69, %72, %74, %75, %78, %79, %83
@@ -1771,7 +1771,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i8 noundef zeroext %4, i16 noundef zeroext %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_mdb_param_data.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i8 noundef zeroext %4, i16 noundef zeroext %5) unnamed_addr #1 {
   %7 = icmp slt i16 %3, 0
   br i1 %7, label %8, label %154
 
@@ -1852,7 +1852,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 14:                                               ; preds = %9
-  %15 = tail call fastcc i32 @dissect_etc_pd_led_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %15 = tail call fastcc i32 @dissect_etc_pd_led_curve_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 16:                                               ; preds = %9
@@ -1878,7 +1878,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 24:                                               ; preds = %9
-  %25 = tail call fastcc i32 @dissect_etc_pd_led_output_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %25 = tail call fastcc i32 @dissect_etc_pd_led_output_mode_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 26:                                               ; preds = %9
@@ -1904,7 +1904,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 34:                                               ; preds = %9
-  %35 = tail call fastcc i32 @dissect_etc_pd_led_white_point_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %35 = tail call fastcc i32 @dissect_etc_pd_led_white_point_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 36:                                               ; preds = %9
@@ -1930,7 +1930,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 44:                                               ; preds = %9
-  %45 = tail call fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %45 = tail call fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 46:                                               ; preds = %9
@@ -2000,51 +2000,51 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 70:                                               ; preds = %9
-  %71 = tail call fastcc i32 @dissect_etc_pd_led_strobe_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %71 = tail call fastcc i32 @dissect_etc_pd_led_strobe_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 72:                                               ; preds = %9
-  %73 = tail call fastcc i32 @dissect_etc_pd_red_shift_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %73 = tail call fastcc i32 @dissect_etc_pd_red_shift_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 74:                                               ; preds = %9
-  %75 = tail call fastcc i32 @dissect_etc_pd_plus_seven_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %75 = tail call fastcc i32 @dissect_etc_pd_plus_seven_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 76:                                               ; preds = %9
-  %77 = tail call fastcc i32 @dissect_etc_pd_backlight_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %77 = tail call fastcc i32 @dissect_etc_pd_backlight_timeout_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 78:                                               ; preds = %9
-  %79 = tail call fastcc i32 @dissect_etc_pd_simple_setup_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %79 = tail call fastcc i32 @dissect_etc_pd_simple_setup_mode_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 80:                                               ; preds = %9
-  %81 = tail call fastcc i32 @dissect_etc_pd_overtemp_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %81 = tail call fastcc i32 @dissect_etc_pd_overtemp_mode_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 82:                                               ; preds = %9
-  %83 = tail call fastcc i32 @dissect_etc_pd_led_requested_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %83 = tail call fastcc i32 @dissect_etc_pd_led_requested_xy.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 84:                                               ; preds = %9
-  %85 = tail call fastcc i32 @dissect_etc_pd_led_current_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %85 = tail call fastcc i32 @dissect_etc_pd_led_current_xy.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 86:                                               ; preds = %9
-  %87 = tail call fastcc i32 @dissect_etc_pd_current_pwm(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %87 = tail call fastcc i32 @dissect_etc_pd_current_pwm.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 88:                                               ; preds = %9
-  %89 = tail call fastcc i32 @dissect_etc_pd_tristimulus(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %89 = tail call fastcc i32 @dissect_etc_pd_tristimulus.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 90:                                               ; preds = %9
-  %91 = tail call fastcc i32 @dissect_etc_pd_led_information(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %91 = tail call fastcc i32 @dissect_etc_pd_led_information.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 92:                                               ; preds = %9
-  %93 = tail call fastcc i32 @dissect_etc_pd_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %93 = tail call fastcc i32 @dissect_etc_pd_preset_config.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 94:                                               ; preds = %9
@@ -2059,7 +2059,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 98:                                               ; preds = %9
-  %99 = tail call fastcc i32 @dissect_etc_pd_sequence_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %99 = tail call fastcc i32 @dissect_etc_pd_sequence_config.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 100:                                              ; preds = %9
@@ -2074,7 +2074,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 104:                                              ; preds = %9
-  %105 = tail call fastcc i32 @dissect_etc_pd_low_power_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %105 = tail call fastcc i32 @dissect_etc_pd_low_power_timeout_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 106:                                              ; preds = %9
@@ -2089,19 +2089,19 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 110:                                              ; preds = %9
-  %111 = tail call fastcc i32 @dissect_etc_pd_led_enum_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %111 = tail call fastcc i32 @dissect_etc_pd_led_enum_frequency_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 112:                                              ; preds = %9
-  %113 = tail call fastcc i32 @dissect_etc_pd_rgbi_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %113 = tail call fastcc i32 @dissect_etc_pd_rgbi_preset_config.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 114:                                              ; preds = %9
-  %115 = tail call fastcc i32 @dissect_etc_pd_cct_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %115 = tail call fastcc i32 @dissect_etc_pd_cct_preset_config.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 116:                                              ; preds = %9
-  %117 = tail call fastcc i32 @dissect_etc_pd_supplementary_device_version(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %117 = tail call fastcc i32 @dissect_etc_pd_supplementary_device_version.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 118:                                              ; preds = %9
@@ -2116,7 +2116,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 122:                                              ; preds = %9
-  %123 = tail call fastcc i32 @dissect_etc_pd_power_command_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %123 = tail call fastcc i32 @dissect_etc_pd_power_command_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 124:                                              ; preds = %9
@@ -2164,11 +2164,11 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 140:                                              ; preds = %9
-  %141 = tail call fastcc i32 @dissect_etc_pd_has_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %141 = tail call fastcc i32 @dissect_etc_pd_has_enum_text.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 142:                                              ; preds = %9
-  %143 = tail call fastcc i32 @dissect_etc_pd_get_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %143 = tail call fastcc i32 @dissect_etc_pd_get_enum_text.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 144:                                              ; preds = %9
@@ -2297,7 +2297,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   ]
 
 155:                                              ; preds = %154
-  %156 = tail call fastcc i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %156 = tail call fastcc i32 @dissect_rdm_pd_sensor_value.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 157:                                              ; preds = %154
@@ -2321,7 +2321,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 165:                                              ; preds = %154
-  %166 = tail call fastcc i32 @dissect_rdm_pd_device_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %5)
+  %166 = tail call fastcc i32 @dissect_rdm_pd_device_info.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %5)
   br label %dissect_manufacturer_specific_pid.exit
 
 167:                                              ; preds = %154
@@ -2336,7 +2336,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 173:                                              ; preds = %154
-  %174 = tail call fastcc i32 @dissect_rdm_pd_device_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %174 = tail call fastcc i32 @dissect_rdm_pd_device_label.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 175:                                              ; preds = %154
@@ -2373,7 +2373,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 187:                                              ; preds = %154
-  %188 = tail call fastcc i32 @dissect_rdm_pd_sensor_definition(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %188 = tail call fastcc i32 @dissect_rdm_pd_sensor_definition.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 189:                                              ; preds = %154
@@ -2388,35 +2388,35 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 195:                                              ; preds = %154
-  %196 = tail call fastcc i32 @dissect_rdm_pd_disc_unique_branch(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %196 = tail call fastcc i32 @dissect_rdm_pd_disc_unique_branch.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 197:                                              ; preds = %154
-  %198 = tail call fastcc i32 @dissect_rdm_pd_disc_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %198 = tail call fastcc i32 @dissect_rdm_pd_disc_mute.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 199:                                              ; preds = %154
-  %200 = tail call fastcc i32 @dissect_rdm_pd_disc_un_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %200 = tail call fastcc i32 @dissect_rdm_pd_disc_un_mute.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 201:                                              ; preds = %154
-  %202 = tail call fastcc i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %202 = tail call fastcc i32 @dissect_rdm_pd_proxied_devices.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 203:                                              ; preds = %154
-  %204 = tail call fastcc i32 @dissect_rdm_pd_proxied_device_count(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %204 = tail call fastcc i32 @dissect_rdm_pd_proxied_device_count.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 205:                                              ; preds = %154
-  %206 = tail call fastcc i32 @dissect_rdm_pd_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %206 = tail call fastcc i32 @dissect_rdm_pd_comms_status.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 207:                                              ; preds = %154
-  %208 = tail call fastcc i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %208 = tail call fastcc i32 @dissect_rdm_pd_status_messages.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 209:                                              ; preds = %154
-  %210 = tail call fastcc i32 @dissect_rdm_pd_status_id_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %210 = tail call fastcc i32 @dissect_rdm_pd_status_id_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 211:                                              ; preds = %154
@@ -2431,15 +2431,15 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 215:                                              ; preds = %154
-  %216 = tail call fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4, i16 noundef zeroext %5)
+  %216 = tail call fastcc i32 @dissect_rdm_pd_supported_parameters.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4, i16 noundef zeroext %5)
   br label %dissect_manufacturer_specific_pid.exit
 
 217:                                              ; preds = %154
-  %218 = tail call fastcc i32 @dissect_rdm_pd_parameter_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4, i16 noundef zeroext %5)
+  %218 = tail call fastcc i32 @dissect_rdm_pd_parameter_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4, i16 noundef zeroext %5)
   br label %dissect_manufacturer_specific_pid.exit
 
 219:                                              ; preds = %154
-  %220 = tail call fastcc i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %220 = tail call fastcc i32 @dissect_rdm_pd_product_detail_id_list.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 221:                                              ; preds = %154
@@ -2452,7 +2452,7 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 225:                                              ; preds = %154
-  %226 = tail call fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %226 = tail call fastcc i32 @dissect_rdm_pd_language_capabilities.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 227:                                              ; preds = %154
@@ -2498,47 +2498,47 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 247:                                              ; preds = %154
-  %248 = tail call fastcc i32 @dissect_rdm_pd_dmx_personality(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %248 = tail call fastcc i32 @dissect_rdm_pd_dmx_personality.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 249:                                              ; preds = %154
-  %250 = tail call fastcc i32 @dissect_rdm_pd_dmx_personality_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %250 = tail call fastcc i32 @dissect_rdm_pd_dmx_personality_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 251:                                              ; preds = %154
-  %252 = tail call fastcc i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %252 = tail call fastcc i32 @dissect_rdm_pd_slot_info.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 253:                                              ; preds = %154
-  %254 = tail call fastcc i32 @dissect_rdm_pd_slot_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %254 = tail call fastcc i32 @dissect_rdm_pd_slot_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 255:                                              ; preds = %154
-  %256 = tail call fastcc i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %256 = tail call fastcc i32 @dissect_rdm_pd_slot_value.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 257:                                              ; preds = %154
-  %258 = tail call fastcc i32 @dissect_rdm_pd_dmx_block_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %258 = tail call fastcc i32 @dissect_rdm_pd_dmx_block_address.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 259:                                              ; preds = %154
-  %260 = tail call fastcc i32 @dissect_rdm_pd_dmx_fail_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %260 = tail call fastcc i32 @dissect_rdm_pd_dmx_fail_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 261:                                              ; preds = %154
-  %262 = tail call fastcc i32 @dissect_rdm_pd_dmx_startup_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %262 = tail call fastcc i32 @dissect_rdm_pd_dmx_startup_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 263:                                              ; preds = %154
-  %264 = tail call fastcc i32 @dissect_rdm_pd_record_sensors(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %264 = tail call fastcc i32 @dissect_rdm_pd_record_sensors.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 265:                                              ; preds = %154
-  %266 = tail call fastcc i32 @dissect_rdm_pd_dimmer_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %266 = tail call fastcc i32 @dissect_rdm_pd_dimmer_info.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 267:                                              ; preds = %154
-  %268 = tail call fastcc i32 @dissect_rdm_pd_minimum_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %268 = tail call fastcc i32 @dissect_rdm_pd_minimum_level.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 269:                                              ; preds = %154
@@ -2553,27 +2553,27 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 273:                                              ; preds = %154
-  %274 = tail call fastcc i32 @dissect_rdm_pd_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %274 = tail call fastcc i32 @dissect_rdm_pd_curve.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 275:                                              ; preds = %154
-  %276 = tail call fastcc i32 @dissect_rdm_pd_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %276 = tail call fastcc i32 @dissect_rdm_pd_curve_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 277:                                              ; preds = %154
-  %278 = tail call fastcc i32 @dissect_rdm_pd_output_response_time(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %278 = tail call fastcc i32 @dissect_rdm_pd_output_response_time.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 279:                                              ; preds = %154
-  %280 = tail call fastcc i32 @dissect_rdm_pd_output_response_time_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %280 = tail call fastcc i32 @dissect_rdm_pd_output_response_time_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 281:                                              ; preds = %154
-  %282 = tail call fastcc i32 @dissect_rdm_pd_modulation_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %282 = tail call fastcc i32 @dissect_rdm_pd_modulation_frequency.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 283:                                              ; preds = %154
-  %284 = tail call fastcc i32 @dissect_rdm_pd_modulation_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %284 = tail call fastcc i32 @dissect_rdm_pd_modulation_frequency_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 285:                                              ; preds = %154
@@ -2676,47 +2676,47 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 321:                                              ; preds = %154
-  %322 = tail call fastcc i32 @dissect_rdm_pd_real_time_clock(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %322 = tail call fastcc i32 @dissect_rdm_pd_real_time_clock.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 323:                                              ; preds = %154
-  %324 = tail call fastcc i32 @dissect_rdm_pd_lock_pin(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %324 = tail call fastcc i32 @dissect_rdm_pd_lock_pin.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 325:                                              ; preds = %154
-  %326 = tail call fastcc i32 @dissect_rdm_pd_lock_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %326 = tail call fastcc i32 @dissect_rdm_pd_lock_state.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 327:                                              ; preds = %154
-  %328 = tail call fastcc i32 @dissect_rdm_pd_lock_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %328 = tail call fastcc i32 @dissect_rdm_pd_lock_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 329:                                              ; preds = %154
-  %330 = tail call fastcc i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %330 = tail call fastcc i32 @dissect_rdm_pd_list_interfaces.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 331:                                              ; preds = %154
-  %332 = tail call fastcc i32 @dissect_rdm_pd_interface_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %332 = tail call fastcc i32 @dissect_rdm_pd_interface_label.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 333:                                              ; preds = %154
-  %334 = tail call fastcc i32 @dissect_rdm_pd_hardware_address_type1(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %334 = tail call fastcc i32 @dissect_rdm_pd_hardware_address_type1.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 335:                                              ; preds = %154
-  %336 = tail call fastcc i32 @dissect_rdm_pd_dhcp_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %336 = tail call fastcc i32 @dissect_rdm_pd_dhcp_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 337:                                              ; preds = %154
-  %338 = tail call fastcc i32 @dissect_rdm_pd_zeroconf_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %338 = tail call fastcc i32 @dissect_rdm_pd_zeroconf_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 339:                                              ; preds = %154
-  %340 = tail call fastcc i32 @dissect_rdm_pd_current_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %340 = tail call fastcc i32 @dissect_rdm_pd_current_address.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 341:                                              ; preds = %154
-  %342 = tail call fastcc i32 @dissect_rdm_pd_static_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %342 = tail call fastcc i32 @dissect_rdm_pd_static_address.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 343:                                              ; preds = %154
@@ -2747,19 +2747,19 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 355:                                              ; preds = %154
-  %356 = tail call fastcc i32 @dissect_rdm_pd_ipv4_default_route(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %356 = tail call fastcc i32 @dissect_rdm_pd_ipv4_default_route.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 357:                                              ; preds = %154
-  %358 = tail call fastcc i32 @dissect_rdm_pd_dns_ipv4_name_server(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %358 = tail call fastcc i32 @dissect_rdm_pd_dns_ipv4_name_server.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 359:                                              ; preds = %154
-  %360 = tail call fastcc i32 @dissect_rdm_pd_dns_hostname(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %360 = tail call fastcc i32 @dissect_rdm_pd_dns_hostname.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 361:                                              ; preds = %154
-  %362 = tail call fastcc i32 @dissect_rdm_pd_dns_domain_name(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %362 = tail call fastcc i32 @dissect_rdm_pd_dns_domain_name.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 363:                                              ; preds = %154
@@ -2813,15 +2813,15 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 379:                                              ; preds = %154
-  %380 = tail call fastcc i32 @dissect_rdm_pd_self_test_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %380 = tail call fastcc i32 @dissect_rdm_pd_self_test_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 381:                                              ; preds = %154
-  %382 = tail call fastcc i32 @dissect_rdm_pd_capture_preset(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %382 = tail call fastcc i32 @dissect_rdm_pd_capture_preset.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 383:                                              ; preds = %154
-  %384 = tail call fastcc i32 @dissect_rdm_pd_preset_playback(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %384 = tail call fastcc i32 @dissect_rdm_pd_preset_playback.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 385:                                              ; preds = %154
@@ -2836,11 +2836,11 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 389:                                              ; preds = %154
-  %390 = tail call fastcc i32 @dissect_rdm_pd_preset_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %390 = tail call fastcc i32 @dissect_rdm_pd_preset_info.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 391:                                              ; preds = %154
-  %392 = tail call fastcc i32 @dissect_rdm_pd_preset_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %392 = tail call fastcc i32 @dissect_rdm_pd_preset_status.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 393:                                              ; preds = %154
@@ -2866,71 +2866,71 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 401:                                              ; preds = %154
-  %402 = tail call fastcc i32 @dissect_rdm_pd_background_queued_status_policy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %402 = tail call fastcc i32 @dissect_rdm_pd_background_queued_status_policy.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 403:                                              ; preds = %154
-  %404 = tail call fastcc i32 @dissect_rdm_pd_background_queued_status_policy_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %404 = tail call fastcc i32 @dissect_rdm_pd_background_queued_status_policy_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 405:                                              ; preds = %154
-  %406 = tail call fastcc i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %406 = tail call fastcc i32 @dissect_rdm_pd_endpoint_list.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 407:                                              ; preds = %154
-  %408 = tail call fastcc i32 @dissect_rdm_pd_search_domain(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %408 = tail call fastcc i32 @dissect_rdm_pd_search_domain.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 409:                                              ; preds = %154
-  %410 = tail call fastcc i32 @dissect_rdm_pd_endpoint_to_universe(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %410 = tail call fastcc i32 @dissect_rdm_pd_endpoint_to_universe.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 411:                                              ; preds = %154
-  %412 = tail call fastcc i32 @dissect_rdm_pd_rdm_traffic_enable(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %412 = tail call fastcc i32 @dissect_rdm_pd_rdm_traffic_enable.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 413:                                              ; preds = %154
-  %414 = tail call fastcc i32 @dissect_rdm_pd_endpoint_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %414 = tail call fastcc i32 @dissect_rdm_pd_endpoint_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 415:                                              ; preds = %154
-  %416 = tail call fastcc i32 @dissect_rdm_pd_endpoint_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %416 = tail call fastcc i32 @dissect_rdm_pd_endpoint_label.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 417:                                              ; preds = %154
-  %418 = tail call fastcc i32 @dissect_rdm_pd_discovery_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %418 = tail call fastcc i32 @dissect_rdm_pd_discovery_state.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 419:                                              ; preds = %154
-  %420 = tail call fastcc i32 @dissect_rdm_pd_endpoint_timing(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %420 = tail call fastcc i32 @dissect_rdm_pd_endpoint_timing.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 421:                                              ; preds = %154
-  %422 = tail call fastcc i32 @dissect_rdm_pd_endpoint_timing_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %422 = tail call fastcc i32 @dissect_rdm_pd_endpoint_timing_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 423:                                              ; preds = %154
-  %424 = tail call fastcc i32 @dissect_rdm_pd_binding_control_fields(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %424 = tail call fastcc i32 @dissect_rdm_pd_binding_control_fields.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 425:                                              ; preds = %154
-  %426 = tail call fastcc i32 @dissect_rdm_pd_identify_endpoint(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %426 = tail call fastcc i32 @dissect_rdm_pd_identify_endpoint.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 427:                                              ; preds = %154
-  %428 = tail call fastcc i32 @dissect_rdm_pd_background_discovery(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %428 = tail call fastcc i32 @dissect_rdm_pd_background_discovery.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 429:                                              ; preds = %154
-  %430 = tail call fastcc i32 @dissect_rdm_pd_endpoint_responder_list_change(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %430 = tail call fastcc i32 @dissect_rdm_pd_endpoint_responder_list_change.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 431:                                              ; preds = %154
-  %432 = tail call fastcc i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %432 = tail call fastcc i32 @dissect_rdm_pd_endpoint_responders.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 433:                                              ; preds = %154
-  %434 = tail call fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %434 = tail call fastcc i32 @dissect_rdm_pd_tcp_comms_status.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 435:                                              ; preds = %154
@@ -2943,11 +2943,11 @@ define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr nound
   br label %dissect_manufacturer_specific_pid.exit
 
 439:                                              ; preds = %154
-  %440 = tail call fastcc i32 @dissect_rdm_pd_component_scope(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %440 = tail call fastcc i32 @dissect_rdm_pd_component_scope.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 441:                                              ; preds = %154
-  %442 = tail call fastcc i32 @dissect_rdm_pd_broker_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %442 = tail call fastcc i32 @dissect_rdm_pd_broker_status.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 443:                                              ; preds = %154
@@ -2963,7 +2963,7 @@ dissect_manufacturer_specific_pid.exit:           ; preds = %436, %435, %398, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_sensor_value.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %22 [
     i8 32, label %5
     i8 48, label %5
@@ -3008,7 +3008,7 @@ define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_sensor_value(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 43) i32 @dissect_rdm_pd_device_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 43) i32 @dissect_rdm_pd_device_info.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %5, label %26
 
@@ -3044,7 +3044,7 @@ define internal fastcc range(i32 23, 43) i32 @dissect_rdm_pd_device_info(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_device_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_device_label.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %10 [
     i8 48, label %5
     i8 33, label %5
@@ -3063,7 +3063,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_device_label(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_sensor_definition(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_sensor_definition.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %32 [
     i8 32, label %5
     i8 33, label %8
@@ -3106,7 +3106,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_sensor_definition(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 36) i32 @dissect_rdm_pd_disc_unique_branch(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 36) i32 @dissect_rdm_pd_disc_unique_branch.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 16
   br i1 %cond, label %4, label %9
 
@@ -3123,7 +3123,7 @@ define internal fastcc range(i32 23, 36) i32 @dissect_rdm_pd_disc_unique_branch(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_mute.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 17
   br i1 %cond, label %5, label %12
 
@@ -3144,7 +3144,7 @@ define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_mute(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_un_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_un_mute.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 17
   br i1 %cond, label %5, label %12
 
@@ -3165,7 +3165,7 @@ define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_un_mute(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_proxied_devices.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 5
   %or.cond = and i1 %cond, %5
@@ -3187,7 +3187,7 @@ define internal fastcc i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_proxied_device_count(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_proxied_device_count.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %9
 
@@ -3204,7 +3204,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_proxied_device_coun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_comms_status.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %11
 
@@ -3223,7 +3223,7 @@ define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_comms_status(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_status_messages.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %.loopexit [
     i8 32, label %6
     i8 33, label %.preheader
@@ -3266,7 +3266,7 @@ define internal fastcc i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_status_id_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_status_id_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %13 [
     i8 32, label %5
     i8 33, label %8
@@ -3290,7 +3290,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_status_id_descript
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_supported_parameters.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %6 = icmp ugt i8 %3, 1
   %or.cond = and i1 %cond, %6
@@ -3331,7 +3331,7 @@ define internal fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_parameter_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_parameter_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
   switch i8 %2, label %41 [
     i8 32, label %6
     i8 33, label %12
@@ -3388,7 +3388,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_parameter_descript
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_product_detail_id_list.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 1
   %or.cond = and i1 %cond, %5
@@ -3410,7 +3410,7 @@ define internal fastcc i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_language_capabilities.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 1
   %or.cond = and i1 %cond, %5
@@ -3432,7 +3432,7 @@ define internal fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_dmx_personality(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_dmx_personality.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 48, label %.sink.split
     i8 33, label %4
@@ -3457,7 +3457,7 @@ define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_dmx_personality(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dmx_personality_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dmx_personality_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %18 [
     i8 32, label %5
     i8 33, label %8
@@ -3486,7 +3486,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dmx_personality_de
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_slot_info.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 4
   %or.cond = and i1 %cond, %5
@@ -3514,7 +3514,7 @@ define internal fastcc i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_slot_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_slot_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3541,7 +3541,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_slot_description(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_slot_value.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 2
   %or.cond = and i1 %cond, %5
@@ -3566,7 +3566,7 @@ define internal fastcc i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_dmx_block_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_dmx_block_address.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -3590,7 +3590,7 @@ define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_dmx_block_address(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_dmx_fail_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_dmx_fail_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %13 [
     i8 33, label %4
     i8 48, label %4
@@ -3613,7 +3613,7 @@ define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_dmx_fail_mode(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_dmx_startup_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_dmx_startup_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %13 [
     i8 33, label %4
     i8 48, label %4
@@ -3636,7 +3636,7 @@ define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_dmx_startup_mode(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_record_sensors(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_record_sensors.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %32 [
     i8 32, label %5
     i8 33, label %8
@@ -3679,7 +3679,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_record_sensors(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 35) i32 @dissect_rdm_pd_dimmer_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 35) i32 @dissect_rdm_pd_dimmer_info.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %19
 
@@ -3706,7 +3706,7 @@ define internal fastcc range(i32 23, 35) i32 @dissect_rdm_pd_dimmer_info(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_minimum_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_minimum_level.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %11 [
     i8 33, label %4
     i8 48, label %4
@@ -3727,7 +3727,7 @@ define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_minimum_level(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_curve.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -3752,7 +3752,7 @@ define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_curve(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_curve_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3779,7 +3779,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_curve_description(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_output_response_time(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_output_response_time.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -3804,7 +3804,7 @@ define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_output_response_tim
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_output_response_time_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_output_response_time_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3831,7 +3831,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_output_response_ti
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_modulation_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_modulation_frequency.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -3856,7 +3856,7 @@ define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_modulation_frequenc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_modulation_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_modulation_frequency_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3883,7 +3883,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_modulation_frequen
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_real_time_clock(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_real_time_clock.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %17 [
     i8 48, label %4
     i8 33, label %4
@@ -3910,7 +3910,7 @@ define internal fastcc range(i32 23, 31) i32 @dissect_rdm_pd_real_time_clock(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_lock_pin(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_lock_pin.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %.sink.split
     i8 48, label %4
@@ -3934,7 +3934,7 @@ define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_lock_pin(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_lock_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_lock_state.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %.sink.split
     i8 48, label %4
@@ -3961,7 +3961,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_lock_state(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_lock_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_lock_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -3988,7 +3988,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_lock_description(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_list_interfaces.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 5
   %or.cond = and i1 %cond, %5
@@ -4013,7 +4013,7 @@ define internal fastcc i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_interface_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_interface_label.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4040,7 +4040,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_interface_label(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 34) i32 @dissect_rdm_pd_hardware_address_type1(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 34) i32 @dissect_rdm_pd_hardware_address_type1.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4064,7 +4064,7 @@ define internal fastcc range(i32 23, 34) i32 @dissect_rdm_pd_hardware_address_ty
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_dhcp_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_dhcp_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4089,7 +4089,7 @@ define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_dhcp_mode(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_zeroconf_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_zeroconf_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4114,7 +4114,7 @@ define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_zeroconf_mode(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 34) i32 @dissect_rdm_pd_current_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 34) i32 @dissect_rdm_pd_current_address.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %4
     i8 33, label %7
@@ -4142,7 +4142,7 @@ define internal fastcc range(i32 23, 34) i32 @dissect_rdm_pd_current_address(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_static_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_static_address.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %14 [
     i8 32, label %4
     i8 33, label %7
@@ -4169,7 +4169,7 @@ define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_static_address(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_ipv4_default_route(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_ipv4_default_route.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %4
@@ -4188,7 +4188,7 @@ define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_ipv4_default_route(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_dns_ipv4_name_server(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_dns_ipv4_name_server.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4213,7 +4213,7 @@ define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_dns_ipv4_name_serve
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_hostname(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_hostname.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %10 [
     i8 33, label %5
     i8 48, label %5
@@ -4232,7 +4232,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_hostname(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_domain_name(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_domain_name.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %10 [
     i8 33, label %5
     i8 48, label %5
@@ -4251,7 +4251,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_domain_name(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_self_test_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_self_test_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4278,7 +4278,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_self_test_descript
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_capture_preset(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_capture_preset.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 48
   br i1 %cond, label %4, label %13
 
@@ -4299,7 +4299,7 @@ define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_capture_preset(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_preset_playback(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_preset_playback.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 48, label %4
     i8 33, label %4
@@ -4318,7 +4318,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_preset_playback(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 56) i32 @dissect_rdm_pd_preset_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 56) i32 @dissect_rdm_pd_preset_info.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %43
 
@@ -4369,7 +4369,7 @@ define internal fastcc range(i32 23, 56) i32 @dissect_rdm_pd_preset_info(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_preset_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_preset_status.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %29 [
     i8 32, label %4
     i8 33, label %7
@@ -4413,7 +4413,7 @@ define internal fastcc range(i32 23, 33) i32 @dissect_rdm_pd_preset_status(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_background_queued_status_policy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_background_queued_status_policy.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -4438,7 +4438,7 @@ define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_background_queued_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_background_queued_status_policy_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_background_queued_status_policy_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4465,7 +4465,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_background_queued_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_endpoint_list.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %5, label %.loopexit
 
@@ -4495,7 +4495,7 @@ define internal fastcc i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_search_domain(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_search_domain.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %10 [
     i8 33, label %5
     i8 48, label %5
@@ -4514,7 +4514,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_search_domain(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_endpoint_to_universe(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_endpoint_to_universe.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 32, label %.sink.split
     i8 49, label %.sink.split
@@ -4541,7 +4541,7 @@ define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_endpoint_to_univers
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_rdm_traffic_enable(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_rdm_traffic_enable.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4566,7 +4566,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_rdm_traffic_enable(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_endpoint_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_endpoint_mode.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 49, label %4
@@ -4592,7 +4592,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_endpoint_mode(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_label.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 49, label %5
@@ -4621,7 +4621,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_label(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_discovery_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_discovery_state.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %19 [
     i8 32, label %4
     i8 49, label %4
@@ -4656,7 +4656,7 @@ define internal fastcc range(i32 23, 29) i32 @dissect_rdm_pd_discovery_state(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_endpoint_timing(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_endpoint_timing.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %19 [
     i8 32, label %4
     i8 49, label %4
@@ -4691,7 +4691,7 @@ define internal fastcc range(i32 23, 28) i32 @dissect_rdm_pd_endpoint_timing(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_timing_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_timing_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4718,7 +4718,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_timing_de
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 40) i32 @dissect_rdm_pd_binding_control_fields(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 40) i32 @dissect_rdm_pd_binding_control_fields.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %13 [
     i8 32, label %.sink.split
     i8 33, label %4
@@ -4749,7 +4749,7 @@ define internal fastcc range(i32 23, 40) i32 @dissect_rdm_pd_binding_control_fie
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_identify_endpoint(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_identify_endpoint.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 49, label %4
@@ -4775,7 +4775,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_identify_endpoint(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_background_discovery(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_background_discovery.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 49, label %4
@@ -4801,7 +4801,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_rdm_pd_background_discover
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_endpoint_responder_list_change(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_endpoint_responder_list_change.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -4825,7 +4825,7 @@ define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_endpoint_responder_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_endpoint_responders.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %.loopexit [
     i8 32, label %5
     i8 33, label %8
@@ -4861,7 +4861,7 @@ define internal fastcc i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rdm_pd_tcp_comms_status.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %.loopexit [
     i8 33, label %.preheader
     i8 48, label %23
@@ -4904,7 +4904,7 @@ define internal fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 112) i32 @dissect_rdm_pd_component_scope(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 112) i32 @dissect_rdm_pd_component_scope.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %17 [
     i8 32, label %.sink.split
     i8 33, label %4
@@ -4938,7 +4938,7 @@ define internal fastcc range(i32 23, 112) i32 @dissect_rdm_pd_component_scope(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_broker_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_broker_status.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
     i8 48, label %.sink.split
@@ -4962,7 +4962,7 @@ define internal fastcc range(i32 23, 26) i32 @dissect_rdm_pd_broker_status(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_curve_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -4989,7 +4989,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_curve_descript
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_output_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_output_mode_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5016,7 +5016,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_output_mode_de
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_white_point_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_white_point_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5043,7 +5043,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_white_point_de
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_dmx_data_loss_behavior_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_dmx_data_loss_behavior_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5070,7 +5070,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_dmx_data_loss_beha
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_strobe_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_strobe_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5097,7 +5097,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_strobe_descrip
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_red_shift_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_red_shift_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5124,7 +5124,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_red_shift_descript
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_plus_seven_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_plus_seven_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5151,7 +5151,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_plus_seven_descrip
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_backlight_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_backlight_timeout_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5178,7 +5178,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_backlight_timeout_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_simple_setup_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_simple_setup_mode_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5205,7 +5205,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_simple_setup_mode_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_overtemp_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_overtemp_mode_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5232,7 +5232,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_overtemp_mode_desc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 28) i32 @dissect_etc_pd_led_requested_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_etc_pd_led_requested_xy.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %9
 
@@ -5249,7 +5249,7 @@ define internal fastcc range(i32 23, 28) i32 @dissect_etc_pd_led_requested_xy(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 28) i32 @dissect_etc_pd_led_current_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 28) i32 @dissect_etc_pd_led_current_xy.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %4, label %9
 
@@ -5266,7 +5266,7 @@ define internal fastcc range(i32 23, 28) i32 @dissect_etc_pd_led_current_xy(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_etc_pd_current_pwm(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_etc_pd_current_pwm.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -5290,7 +5290,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_etc_pd_current_pwm(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 37) i32 @dissect_etc_pd_tristimulus(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 37) i32 @dissect_etc_pd_tristimulus.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %4
     i8 33, label %7
@@ -5318,7 +5318,7 @@ define internal fastcc range(i32 23, 37) i32 @dissect_etc_pd_tristimulus(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 31) i32 @dissect_etc_pd_led_information(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 31) i32 @dissect_etc_pd_led_information.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %17 [
     i8 32, label %.sink.split
     i8 33, label %4
@@ -5351,7 +5351,7 @@ define internal fastcc range(i32 23, 31) i32 @dissect_etc_pd_led_information(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 35) i32 @dissect_etc_pd_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 35) i32 @dissect_etc_pd_preset_config.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %22 [
     i8 32, label %4
     i8 33, label %7
@@ -5386,7 +5386,7 @@ define internal fastcc range(i32 23, 35) i32 @dissect_etc_pd_preset_config(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 101) i32 @dissect_etc_pd_sequence_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 101) i32 @dissect_etc_pd_sequence_config.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %33 [
     i8 32, label %4
     i8 33, label %7
@@ -5445,7 +5445,7 @@ define internal fastcc range(i32 23, 101) i32 @dissect_etc_pd_sequence_config(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_low_power_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_low_power_timeout_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5472,7 +5472,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_low_power_timeout_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_enum_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_enum_frequency_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5499,7 +5499,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_enum_frequency
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 35) i32 @dissect_etc_pd_rgbi_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 35) i32 @dissect_etc_pd_rgbi_preset_config.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %24 [
     i8 32, label %4
     i8 33, label %7
@@ -5536,7 +5536,7 @@ define internal fastcc range(i32 23, 35) i32 @dissect_etc_pd_rgbi_preset_config(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 42) i32 @dissect_etc_pd_cct_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 42) i32 @dissect_etc_pd_cct_preset_config.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %26 [
     i8 32, label %4
     i8 33, label %7
@@ -5575,7 +5575,7 @@ define internal fastcc range(i32 23, 42) i32 @dissect_etc_pd_cct_preset_config(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_supplementary_device_version(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_supplementary_device_version.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5602,7 +5602,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_supplementary_devi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_power_command_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_power_command_description.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
     i8 33, label %8
@@ -5629,7 +5629,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_power_command_desc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 27) i32 @dissect_etc_pd_has_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc range(i32 23, 27) i32 @dissect_etc_pd_has_enum_text.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %12 [
     i8 32, label %4
     i8 33, label %7
@@ -5653,7 +5653,7 @@ define internal fastcc range(i32 23, 27) i32 @dissect_etc_pd_has_enum_text(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_get_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_get_enum_text.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %20 [
     i8 32, label %5
     i8 33, label %10

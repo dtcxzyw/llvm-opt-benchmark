@@ -328,7 +328,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_119ColorMome
 89:                                               ; preds = %87, %85
   %.0.i.i.i.i.i6 = phi i32 [ %78, %85 ], [ %88, %87 ]
   %90 = icmp eq i32 %.0.i.i.i.i.i6, 1
-  br i1 %90, label %91, label %_ZN2cv3PtrIN12_GLOBAL__N_119ColorMomentHashImplEED2Ev.exit
+  br i1 %90, label %91, label %_ZN2cv3PtrIN12_GLOBAL__N_119ColorMomentHashImplEED2Ev.argprom.exit
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %22, align 8
@@ -352,16 +352,16 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_119ColorMome
 101:                                              ; preds = %99, %96
   %.0.i.i.i.i.i.i.i8 = phi i32 [ %97, %96 ], [ %100, %99 ]
   %102 = icmp eq i32 %.0.i.i.i.i.i.i.i8, 1
-  br i1 %102, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9, label %_ZN2cv3PtrIN12_GLOBAL__N_119ColorMomentHashImplEED2Ev.exit
+  br i1 %102, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9, label %_ZN2cv3PtrIN12_GLOBAL__N_119ColorMomentHashImplEED2Ev.argprom.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9: ; preds = %101, %79
   %103 = load ptr, ptr %22, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 24
   %105 = load ptr, ptr %104, align 8
   tail call void %105(ptr noundef nonnull align 8 dereferenceable(16) %22) #17
-  br label %_ZN2cv3PtrIN12_GLOBAL__N_119ColorMomentHashImplEED2Ev.exit
+  br label %_ZN2cv3PtrIN12_GLOBAL__N_119ColorMomentHashImplEED2Ev.argprom.exit
 
-_ZN2cv3PtrIN12_GLOBAL__N_119ColorMomentHashImplEED2Ev.exit: ; preds = %89, %101, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9
+_ZN2cv3PtrIN12_GLOBAL__N_119ColorMomentHashImplEED2Ev.argprom.exit: ; preds = %89, %101, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9
   ret void
 
 106:                                              ; preds = %1
@@ -1226,13 +1226,13 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i, %1
   %9 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %5, %1 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_119ColorMomentHashImplEEEvRS0_PT_.exit, label %10
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_119ColorMomentHashImplEEEvRS0_PT_.argprom.exit, label %10
 
 10:                                               ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %9) #20
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_119ColorMomentHashImplEEEvRS0_PT_.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_119ColorMomentHashImplEEEvRS0_PT_.argprom.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_119ColorMomentHashImplEEEvRS0_PT_.exit: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %10
+_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_119ColorMomentHashImplEEEvRS0_PT_.argprom.exit: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %10
   %11 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #17
   %12 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1242,7 +1242,7 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_119ColorMomentHashImplEEEvR
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119ColorMomentHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119ColorMomentHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119ColorMomentHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

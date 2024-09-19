@@ -3436,7 +3436,7 @@ if.then13:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i)
   %conv.i = zext i8 %.fr.i451 to i32
   %cmp63.not.i = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i
+  br i1 %cmp63.not.i, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %if.then13
   %m_nonlocal.i.i48 = getelementptr inbounds i8, ptr %this, i64 38
@@ -3478,7 +3478,7 @@ invoke.cont.us.i:                                 ; preds = %.noexc
   %inc.us.i = add nuw nsw i32 %c.04.us.i, 1
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %f.15.us.i, i64 4
   %exitcond.not.i = icmp eq i32 %inc.us.i, %conv.i
-  br i1 %exitcond.not.i, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i, !llvm.loop !115
+  br i1 %exitcond.not.i, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i, !llvm.loop !115
 
 lpad.split.us.i:                                  ; preds = %.noexc
   %11 = landingpad { ptr, i32 }
@@ -3486,7 +3486,7 @@ lpad.split.us.i:                                  ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i, %if.then13
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i, %if.then13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i)
   br label %cleanup.sink.split
 
@@ -3494,7 +3494,7 @@ if.then19:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i56)
   %conv.i59 = zext i8 %.fr.i451 to i32
   %cmp63.not.i60 = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i60, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIdEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i73
+  br i1 %cmp63.not.i60, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIdEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i73
 
 if.end.us.i73:                                    ; preds = %if.then19
   %m_nonlocal.i.i62 = getelementptr inbounds i8, ptr %this, i64 38
@@ -3535,7 +3535,7 @@ invoke.cont.us.i82:                               ; preds = %.noexc101
   %inc.us.i83 = add nuw nsw i32 %c.04.us.i76, 1
   %incdec.ptr.us.i84 = getelementptr inbounds i8, ptr %f.15.us.i75, i64 8
   %exitcond.not.i85 = icmp eq i32 %inc.us.i83, %conv.i59
-  br i1 %exitcond.not.i85, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIdEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i74, !llvm.loop !119
+  br i1 %exitcond.not.i85, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIdEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i74, !llvm.loop !119
 
 lpad.split.us.i81:                                ; preds = %.noexc101
   %15 = landingpad { ptr, i32 }
@@ -3543,7 +3543,7 @@ lpad.split.us.i81:                                ; preds = %.noexc101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i56) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIdEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i82, %if.then19
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIdEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i82, %if.then19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i56)
   br label %cleanup.sink.split
 
@@ -3551,7 +3551,7 @@ if.then26:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i107)
   %conv.i110 = zext i8 %.fr.i451 to i32
   %cmp63.not.i111 = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i111, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeI4halfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i124
+  br i1 %cmp63.not.i111, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeI4halfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i124
 
 if.end.us.i124:                                   ; preds = %if.then26
   %m_nonlocal.i.i113 = getelementptr inbounds i8, ptr %this, i64 38
@@ -3596,7 +3596,7 @@ invoke.cont.us.i133:                              ; preds = %.noexc149
   %inc.us.i134 = add nuw nsw i32 %c.04.us.i127, 1
   %incdec.ptr.us.i135 = getelementptr inbounds i8, ptr %f.15.us.i126, i64 2
   %exitcond.not.i136 = icmp eq i32 %inc.us.i134, %conv.i110
-  br i1 %exitcond.not.i136, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeI4halfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i125, !llvm.loop !123
+  br i1 %exitcond.not.i136, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeI4halfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i125, !llvm.loop !123
 
 lpad.split.us.i132:                               ; preds = %.noexc149
   %20 = landingpad { ptr, i32 }
@@ -3604,7 +3604,7 @@ lpad.split.us.i132:                               ; preds = %.noexc149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i107) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeI4halfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i133, %if.then26
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeI4halfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i133, %if.then26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i107)
   br label %cleanup.sink.split
 
@@ -3635,7 +3635,7 @@ invoke.cont40:                                    ; preds = %if.then35
 
 if.else42:                                        ; preds = %land.lhs.true.i
   %add43 = add nuw nsw i32 %index, 1
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIiEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(39) %this, i32 noundef %index, i32 noundef %add43, ptr noundef nonnull align 8 dereferenceable(32) %out)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIiEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr noundef nonnull align 8 dereferenceable(39) %this, i32 noundef %index, i32 noundef %add43, ptr noundef nonnull align 8 dereferenceable(32) %out)
           to label %cleanup.sink.split unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.then50:                                        ; preds = %if.end
@@ -3737,14 +3737,14 @@ lpad74:                                           ; preds = %invoke.cont73
 
 if.else77:                                        ; preds = %land.lhs.true.i168
   %add78 = add nuw nsw i32 %index, 1
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIjEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(39) %this, i32 noundef %index, i32 noundef %add78, ptr noundef nonnull align 8 dereferenceable(32) %out)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIjEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr noundef nonnull align 8 dereferenceable(39) %this, i32 noundef %index, i32 noundef %add78, ptr noundef nonnull align 8 dereferenceable(32) %out)
           to label %cleanup.sink.split unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.then86:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i186)
   %conv.i189 = zext i8 %.fr.i451 to i32
   %cmp63.not.i191 = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i191, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeItEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i204
+  br i1 %cmp63.not.i191, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeItEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i204
 
 if.end.us.i204:                                   ; preds = %if.then86
   %m_nonlocal.i.i193 = getelementptr inbounds i8, ptr %this, i64 38
@@ -3786,7 +3786,7 @@ invoke.cont.us.i214:                              ; preds = %.noexc233
   %inc.us.i215 = add nuw nsw i32 %c.04.us.i207, 1
   %incdec.ptr.us.i216 = getelementptr inbounds i8, ptr %f.15.us.i206, i64 2
   %exitcond.not.i217 = icmp eq i32 %inc.us.i215, %conv.i189
-  br i1 %exitcond.not.i217, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeItEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i205, !llvm.loop !127
+  br i1 %exitcond.not.i217, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeItEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i205, !llvm.loop !127
 
 lpad.split.us.i213:                               ; preds = %.noexc233
   %32 = landingpad { ptr, i32 }
@@ -3794,7 +3794,7 @@ lpad.split.us.i213:                               ; preds = %.noexc233
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i186) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeItEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i214, %if.then86
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeItEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i214, %if.then86
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i186)
   br label %cleanup.sink.split
 
@@ -3802,7 +3802,7 @@ if.then93:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i239)
   %conv.i242 = zext i8 %.fr.i451 to i32
   %cmp63.not.i244 = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i244, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIsEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i257
+  br i1 %cmp63.not.i244, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIsEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i257
 
 if.end.us.i257:                                   ; preds = %if.then93
   %m_nonlocal.i.i246 = getelementptr inbounds i8, ptr %this, i64 38
@@ -3845,7 +3845,7 @@ invoke.cont.us.i267:                              ; preds = %.noexc286
   %inc.us.i268 = add nuw nsw i32 %c.04.us.i260, 1
   %incdec.ptr.us.i269 = getelementptr inbounds i8, ptr %f.15.us.i259, i64 2
   %exitcond.not.i270 = icmp eq i32 %inc.us.i268, %conv.i242
-  br i1 %exitcond.not.i270, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIsEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i258, !llvm.loop !131
+  br i1 %exitcond.not.i270, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIsEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i258, !llvm.loop !131
 
 lpad.split.us.i266:                               ; preds = %.noexc286
   %36 = landingpad { ptr, i32 }
@@ -3853,7 +3853,7 @@ lpad.split.us.i266:                               ; preds = %.noexc286
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i239) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIsEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i267, %if.then93
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIsEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i267, %if.then93
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i239)
   br label %cleanup.sink.split
 
@@ -3861,7 +3861,7 @@ if.then100:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i292)
   %conv.i295 = zext i8 %.fr.i451 to i32
   %cmp63.not.i297 = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i297, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIyEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i310
+  br i1 %cmp63.not.i297, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIyEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i310
 
 if.end.us.i310:                                   ; preds = %if.then100
   %m_nonlocal.i.i299 = getelementptr inbounds i8, ptr %this, i64 38
@@ -3902,7 +3902,7 @@ invoke.cont.us.i319:                              ; preds = %.noexc338
   %inc.us.i320 = add nuw nsw i32 %c.04.us.i313, 1
   %incdec.ptr.us.i321 = getelementptr inbounds i8, ptr %f.15.us.i312, i64 8
   %exitcond.not.i322 = icmp eq i32 %inc.us.i320, %conv.i295
-  br i1 %exitcond.not.i322, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIyEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i311, !llvm.loop !135
+  br i1 %exitcond.not.i322, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIyEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i311, !llvm.loop !135
 
 lpad.split.us.i318:                               ; preds = %.noexc338
   %40 = landingpad { ptr, i32 }
@@ -3910,7 +3910,7 @@ lpad.split.us.i318:                               ; preds = %.noexc338
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i292) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIyEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i319, %if.then100
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIyEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i319, %if.then100
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i292)
   br label %cleanup.sink.split
 
@@ -3918,7 +3918,7 @@ if.then107:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i344)
   %conv.i347 = zext i8 %.fr.i451 to i32
   %cmp63.not.i349 = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i349, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIxEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i362
+  br i1 %cmp63.not.i349, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIxEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i362
 
 if.end.us.i362:                                   ; preds = %if.then107
   %m_nonlocal.i.i351 = getelementptr inbounds i8, ptr %this, i64 38
@@ -3959,7 +3959,7 @@ invoke.cont.us.i371:                              ; preds = %.noexc390
   %inc.us.i372 = add nuw nsw i32 %c.04.us.i365, 1
   %incdec.ptr.us.i373 = getelementptr inbounds i8, ptr %f.15.us.i364, i64 8
   %exitcond.not.i374 = icmp eq i32 %inc.us.i372, %conv.i347
-  br i1 %exitcond.not.i374, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIxEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i363, !llvm.loop !139
+  br i1 %exitcond.not.i374, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIxEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i363, !llvm.loop !139
 
 lpad.split.us.i370:                               ; preds = %.noexc390
   %44 = landingpad { ptr, i32 }
@@ -3967,7 +3967,7 @@ lpad.split.us.i370:                               ; preds = %.noexc390
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i344) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIxEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i371, %if.then107
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIxEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i371, %if.then107
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i344)
   br label %cleanup.sink.split
 
@@ -3975,7 +3975,7 @@ if.then114:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i396)
   %conv.i399 = zext i8 %.fr.i451 to i32
   %cmp63.not.i401 = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i401, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIhEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i414
+  br i1 %cmp63.not.i401, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIhEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i414
 
 if.end.us.i414:                                   ; preds = %if.then114
   %m_nonlocal.i.i403 = getelementptr inbounds i8, ptr %this, i64 38
@@ -4017,7 +4017,7 @@ invoke.cont.us.i424:                              ; preds = %.noexc443
   %inc.us.i425 = add nuw nsw i32 %c.04.us.i417, 1
   %incdec.ptr.us.i426 = getelementptr inbounds i8, ptr %f.15.us.i416, i64 1
   %exitcond.not.i427 = icmp eq i32 %inc.us.i425, %conv.i399
-  br i1 %exitcond.not.i427, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIhEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i415, !llvm.loop !143
+  br i1 %exitcond.not.i427, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIhEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i415, !llvm.loop !143
 
 lpad.split.us.i423:                               ; preds = %.noexc443
   %48 = landingpad { ptr, i32 }
@@ -4025,7 +4025,7 @@ lpad.split.us.i423:                               ; preds = %.noexc443
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i396) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIhEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i424, %if.then114
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIhEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i424, %if.then114
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i396)
   br label %cleanup.sink.split
 
@@ -4033,7 +4033,7 @@ if.then121:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i449)
   %conv.i452 = zext i8 %.fr.i451 to i32
   %cmp63.not.i454 = icmp eq i8 %.fr.i451, 0
-  br i1 %cmp63.not.i454, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIcEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i467
+  br i1 %cmp63.not.i454, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIcEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i467
 
 if.end.us.i467:                                   ; preds = %if.then121
   %m_nonlocal.i.i456 = getelementptr inbounds i8, ptr %this, i64 38
@@ -4075,7 +4075,7 @@ invoke.cont.us.i477:                              ; preds = %.noexc496
   %inc.us.i478 = add nuw nsw i32 %c.04.us.i470, 1
   %incdec.ptr.us.i479 = getelementptr inbounds i8, ptr %f.15.us.i469, i64 1
   %exitcond.not.i480 = icmp eq i32 %inc.us.i478, %conv.i452
-  br i1 %exitcond.not.i480, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIcEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i468, !llvm.loop !147
+  br i1 %exitcond.not.i480, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIcEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i468, !llvm.loop !147
 
 lpad.split.us.i476:                               ; preds = %.noexc496
   %52 = landingpad { ptr, i32 }
@@ -4083,7 +4083,7 @@ lpad.split.us.i476:                               ; preds = %.noexc496
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i449) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIcEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i477, %if.then121
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIcEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i477, %if.then121
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i449)
   br label %cleanup.sink.split
 
@@ -4097,7 +4097,7 @@ invoke.cont129:                                   ; preds = %if.then128
   %.fr.i504 = freeze i8 %53
   %conv.i505 = zext i8 %.fr.i504 to i32
   %cmp63.not.i507 = icmp eq i8 %.fr.i504, 0
-  br i1 %cmp63.not.i507, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIPvEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.us.i520
+  br i1 %cmp63.not.i507, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIPvEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.end.us.i520
 
 if.end.us.i520:                                   ; preds = %invoke.cont129
   %m_nonlocal.i.i509 = getelementptr inbounds i8, ptr %this, i64 38
@@ -4139,7 +4139,7 @@ invoke.cont.us.i529:                              ; preds = %.noexc548
   %inc.us.i530 = add nuw nsw i32 %c.04.us.i523, 1
   %incdec.ptr.us.i531 = getelementptr inbounds i8, ptr %f.15.us.i522, i64 8
   %exitcond.not.i532 = icmp eq i32 %inc.us.i530, %conv.i505
-  br i1 %exitcond.not.i532, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIPvEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body7.us.i521, !llvm.loop !154
+  br i1 %exitcond.not.i532, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIPvEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %for.body7.us.i521, !llvm.loop !154
 
 lpad.split.us.i528:                               ; preds = %.noexc548
   %58 = landingpad { ptr, i32 }
@@ -4147,7 +4147,7 @@ lpad.split.us.i528:                               ; preds = %.noexc548
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i502) #26
   br label %ehcleanup
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIPvEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.us.i529, %invoke.cont129
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIPvEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %invoke.cont.us.i529, %invoke.cont129
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i502)
   br label %cleanup.sink.split
 
@@ -4213,7 +4213,7 @@ lpad150:                                          ; preds = %invoke.cont149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp142) #26
   br label %ehcleanup
 
-cleanup.sink.split:                               ; preds = %invoke.cont40, %invoke.cont151, %invoke.cont64, %invoke.cont75, %if.else42, %if.else77, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIdEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeI4halfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeItEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIsEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIyEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIxEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIhEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIcEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIPvEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %entry
+cleanup.sink.split:                               ; preds = %invoke.cont40, %invoke.cont151, %invoke.cont64, %invoke.cont75, %if.else42, %if.else77, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIdEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeI4halfEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeItEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIsEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIyEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIxEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIhEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIcEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIPvEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %out) #26
   br label %cleanup
 
@@ -4256,7 +4256,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIiEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39) %p, i32 noundef range(i32 0, -2147483648) %beginindex, i32 noundef range(i32 1, -2147483648) %endindex, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIiEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39) %p, i32 noundef range(i32 0, -2147483648) %beginindex, i32 noundef range(i32 1, -2147483648) %endindex, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.117", align 16
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4370,7 +4370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIjEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39) %p, i32 noundef range(i32 0, -2147483648) %beginindex, i32 noundef range(i32 1, -2147483648) %endindex, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIjEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39) %p, i32 noundef range(i32 0, -2147483648) %beginindex, i32 noundef range(i32 1, -2147483648) %endindex, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.118", align 16
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -39224,9 +39224,9 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit51.i.i.i: ; preds = %if.then.i.i50.i
   store ptr null, ptr %m_data49.i.i.i.i, align 8
   store i8 0, ptr %m_copy.i.i.i.i, align 1
   store i8 0, ptr %m_nonlocal.i.i.i.i, align 2
-  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_RT0_.exit.i.i", label %while.body.i.i.i
+  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_RT0_.argprom.exit.i.i", label %while.body.i.i.i
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_RT0_.exit.i.i": ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit51.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_RT0_.argprom.exit.i.i": ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit51.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp6.i.i.i)
   %m_type.i.i = getelementptr inbounds i8, ptr %__value.i, i64 8
@@ -39246,8 +39246,8 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit51.i.i.i: ; preds = %if.then.i.i50.i
   %m_data49.i83.i = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 16
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.exit"
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.exit" ], [ %storemerge151, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_RT0_.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.argprom.exit" ], [ %storemerge151, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_RT0_.argprom.exit.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__value.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i)
@@ -39409,23 +39409,23 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i:   ; preds = %if.then.i.i.i, %lan
   store i8 0, ptr %m_nonlocal.i10.i, align 2
   %56 = load i8, ptr %m_copy.i.i, align 1
   %tobool.i.i33.i = trunc i8 %56 to i1
-  br i1 %tobool.i.i33.i, label %land.lhs.true.i.i36.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.exit"
+  br i1 %tobool.i.i33.i, label %land.lhs.true.i.i36.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
 
 land.lhs.true.i.i36.i:                            ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i
   %57 = load i8, ptr %m_nonlocal.i.i, align 2
   %tobool2.i.i38.i = trunc i8 %57 to i1
-  br i1 %tobool2.i.i38.i, label %land.lhs.true3.i.i39.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.exit"
+  br i1 %tobool2.i.i38.i, label %land.lhs.true3.i.i39.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
 
 land.lhs.true3.i.i39.i:                           ; preds = %land.lhs.true.i.i36.i
   %58 = load ptr, ptr %m_data49.i.i, align 8
   %tobool4.not.i.i41.i = icmp eq ptr %58, null
-  br i1 %tobool4.not.i.i41.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.exit", label %if.then.i.i42.i
+  br i1 %tobool4.not.i.i41.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.argprom.exit", label %if.then.i.i42.i
 
 if.then.i.i42.i:                                  ; preds = %land.lhs.true3.i.i39.i
   call void @free(ptr noundef nonnull %58) #26
-  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.exit"
+  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.exit": ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i, %land.lhs.true.i.i36.i, %land.lhs.true3.i.i39.i, %if.then.i.i42.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.argprom.exit": ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i, %land.lhs.true.i.i36.i, %land.lhs.true3.i.i39.i, %if.then.i.i42.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__value.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i10, 40
@@ -39449,7 +39449,7 @@ if.end:                                           ; preds = %while.body
   %cmp5.i.i.i.i = icmp ne i64 %call2.i7.i.i.i.i, -1
   %61 = icmp eq i64 %call2.i.i.i.i.i, -1
   %cmp9.not.i.i.i.i = xor i1 %61, %cmp5.i.i.i.i
-  br i1 %cmp9.not.i.i.i.i, label %cond.false.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i"
+  br i1 %cmp9.not.i.i.i.i, label %cond.false.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i"
 
 cond.false.i.i.i.i:                               ; preds = %if.end
   %62 = load ptr, ptr %add.ptr.i.i, align 8
@@ -39494,19 +39494,19 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i: ; preds = %cond.false.i.i
   %cmp.i.i.i.i.i = icmp slt i32 %cond.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i, label %if.else33.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i": ; preds = %if.end
-  br i1 %cmp5.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.then_crit_edge.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.else33_crit_edge.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i": ; preds = %if.end
+  br i1 %cmp5.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.then_crit_edge.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.else33_crit_edge.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.then_crit_edge.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.then_crit_edge.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i"
   %.pre137.i.i = load ptr, ptr %add.ptr.i.i, align 8
   br label %if.then.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.else33_crit_edge.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.else33_crit_edge.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i"
   %.pre.i.i = load ptr, ptr %add.ptr.i2.i, align 8
   br label %if.else33.i.i
 
-if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.then_crit_edge.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i
-  %67 = phi ptr [ %.pre137.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.then_crit_edge.i.i" ], [ %62, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i ]
+if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.then_crit_edge.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i
+  %67 = phi ptr [ %.pre137.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.then_crit_edge.i.i" ], [ %62, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i ]
   %tobool.not.i.i.i.i1.i.i = icmp eq ptr %67, null
   %str.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %67, i64 -56
   %retval.0.i.i.i.i3.i.i = select i1 %tobool.not.i.i.i.i1.i.i, ptr @_ZN18OpenImageIO_v2_6_07ustring16empty_std_stringB5cxx11E, ptr %str.i.i.i.i2.i.i
@@ -39519,7 +39519,7 @@ if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %cmp5.i.i9.i.i = icmp ne i64 %call2.i7.i.i8.i.i, -1
   %69 = icmp eq i64 %call2.i.i.i4.i.i, -1
   %cmp9.not.i.i10.i.i = xor i1 %69, %cmp5.i.i9.i.i
-  br i1 %cmp9.not.i.i10.i.i, label %cond.false.i.i12.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34.i.i"
+  br i1 %cmp9.not.i.i10.i.i, label %cond.false.i.i12.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit34.i.i"
 
 cond.false.i.i12.i.i:                             ; preds = %if.then.i.i
   %70 = load ptr, ptr %add.ptr.i3.i, align 8, !noalias !532
@@ -39564,10 +39564,10 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i27.i.i: ; preds = %cond.false.i
   %cmp.i.i.i29.i.i = icmp slt i32 %cond.i.i.i.i.i28.i.i, 0
   br i1 %cmp.i.i.i29.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i", label %if.else.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34.i.i": ; preds = %if.then.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit34.i.i": ; preds = %if.then.i.i
   br i1 %cmp5.i.i9.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i", label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i27.i.i
+if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit34.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i27.i.i
   %75 = load ptr, ptr %add.ptr.i2.i, align 8
   %tobool.not.i.i.i.i35.i.i = icmp eq ptr %75, null
   %str.i.i.i.i36.i.i = getelementptr inbounds i8, ptr %75, i64 -56
@@ -39581,7 +39581,7 @@ if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %cmp5.i.i43.i.i = icmp ne i64 %call2.i7.i.i42.i.i, -1
   %77 = icmp eq i64 %call2.i.i.i38.i.i, -1
   %cmp9.not.i.i44.i.i = xor i1 %77, %cmp5.i.i43.i.i
-  br i1 %cmp9.not.i.i44.i.i, label %cond.false.i.i46.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit68.i.i"
+  br i1 %cmp9.not.i.i44.i.i, label %cond.false.i.i46.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit68.i.i"
 
 cond.false.i.i46.i.i:                             ; preds = %if.else.i.i
   %78 = load ptr, ptr %add.ptr.i3.i, align 8, !noalias !538
@@ -39626,14 +39626,14 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i61.i.i: ; preds = %cond.false.i
   %cmp.i.i.i63.i.i = icmp slt i32 %cond.i.i.i.i.i62.i.i, 0
   br i1 %cmp.i.i.i63.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i", label %if.else27.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit68.i.i": ; preds = %if.else.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit68.i.i": ; preds = %if.else.i.i
   br i1 %cmp5.i.i43.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i", label %if.else27.i.i
 
-if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit68.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i61.i.i
+if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit68.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i61.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
 
-if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.else33_crit_edge.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i
-  %83 = phi ptr [ %.pre.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.else33_crit_edge.i.i" ], [ %64, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i ]
+if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.else33_crit_edge.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i
+  %83 = phi ptr [ %.pre.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.else33_crit_edge.i.i" ], [ %64, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i.i ]
   %tobool.not.i.i.i.i69.i.i = icmp eq ptr %83, null
   %str.i.i.i.i70.i.i = getelementptr inbounds i8, ptr %83, i64 -56
   %retval.0.i.i.i.i71.i.i = select i1 %tobool.not.i.i.i.i69.i.i, ptr @_ZN18OpenImageIO_v2_6_07ustring16empty_std_stringB5cxx11E, ptr %str.i.i.i.i70.i.i
@@ -39646,7 +39646,7 @@ if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %cmp5.i.i77.i.i = icmp ne i64 %call2.i7.i.i76.i.i, -1
   %85 = icmp eq i64 %call2.i.i.i72.i.i, -1
   %cmp9.not.i.i78.i.i = xor i1 %85, %cmp5.i.i77.i.i
-  br i1 %cmp9.not.i.i78.i.i, label %cond.false.i.i80.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit102.i.i"
+  br i1 %cmp9.not.i.i78.i.i, label %cond.false.i.i80.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit102.i.i"
 
 cond.false.i.i80.i.i:                             ; preds = %if.else33.i.i
   %86 = load ptr, ptr %add.ptr.i3.i, align 8, !noalias !544
@@ -39691,10 +39691,10 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i95.i.i: ; preds = %cond.false.i
   %cmp.i.i.i97.i.i = icmp slt i32 %cond.i.i.i.i.i96.i.i, 0
   br i1 %cmp.i.i.i97.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i", label %if.else44.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit102.i.i": ; preds = %if.else33.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit102.i.i": ; preds = %if.else33.i.i
   br i1 %cmp5.i.i77.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i", label %if.else44.i.i
 
-if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit102.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i95.i.i
+if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit102.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i95.i.i
   %91 = load ptr, ptr %add.ptr.i.i, align 8
   %tobool.not.i.i.i.i103.i.i = icmp eq ptr %91, null
   %str.i.i.i.i104.i.i = getelementptr inbounds i8, ptr %91, i64 -56
@@ -39708,7 +39708,7 @@ if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %cmp5.i.i111.i.i = icmp ne i64 %call2.i7.i.i110.i.i, -1
   %93 = icmp eq i64 %call2.i.i.i106.i.i, -1
   %cmp9.not.i.i112.i.i = xor i1 %93, %cmp5.i.i111.i.i
-  br i1 %cmp9.not.i.i112.i.i, label %cond.false.i.i114.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit136.i.i"
+  br i1 %cmp9.not.i.i112.i.i, label %cond.false.i.i114.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit136.i.i"
 
 cond.false.i.i114.i.i:                            ; preds = %if.else44.i.i
   %94 = load ptr, ptr %add.ptr.i3.i, align 8, !noalias !550
@@ -39753,14 +39753,14 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i129.i.i: ; preds = %cond.false.
   %cmp.i.i.i131.i.i = icmp slt i32 %cond.i.i.i.i.i130.i.i, 0
   br i1 %cmp.i.i.i131.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i", label %if.else55.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit136.i.i": ; preds = %if.else44.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit136.i.i": ; preds = %if.else44.i.i
   br i1 %cmp5.i.i111.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i", label %if.else55.i.i
 
-if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit136.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i129.i.i
+if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit136.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i129.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %if.else55.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit136.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i129.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit102.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i95.i.i, %if.else27.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit68.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i61.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i27.i.i
-  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.else55.i.i ], [ %add.ptr.i2.i, %if.else27.i.i ], [ %add.ptr.i.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i27.i.i ], [ %add.ptr.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34.i.i" ], [ %add.ptr.i3.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i61.i.i ], [ %add.ptr.i3.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit68.i.i" ], [ %add.ptr.i2.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i95.i.i ], [ %add.ptr.i2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit102.i.i" ], [ %add.ptr.i3.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i129.i.i ], [ %add.ptr.i3.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit136.i.i" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %if.else55.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit136.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i129.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit102.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i95.i.i, %if.else27.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit68.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i61.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit34.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i27.i.i
+  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.else55.i.i ], [ %add.ptr.i2.i, %if.else27.i.i ], [ %add.ptr.i.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i27.i.i ], [ %add.ptr.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit34.i.i" ], [ %add.ptr.i3.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i61.i.i ], [ %add.ptr.i3.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit68.i.i" ], [ %add.ptr.i2.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i95.i.i ], [ %add.ptr.i2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit102.i.i" ], [ %add.ptr.i3.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i129.i.i ], [ %add.ptr.i3.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit136.i.i" ]
   call void @_ZN18OpenImageIO_v2_6_04swapERNS_10ParamValueES1_(ptr noundef nonnull align 8 dereferenceable(39) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(39) %__a.coerce.sink.i.i) #26
   br label %while.body.i.i5
 
@@ -39784,7 +39784,7 @@ while.cond3.i.i:                                  ; preds = %while.body7.i.i, %w
   %cmp5.i.i.i13.i = icmp ne i64 %call2.i7.i.i.i12.i, -1
   %101 = icmp eq i64 %call2.i.i.i.i8.i, -1
   %cmp9.not.i.i.i14.i = xor i1 %101, %cmp5.i.i.i13.i
-  br i1 %cmp9.not.i.i.i14.i, label %cond.false.i.i.i17.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i15.i"
+  br i1 %cmp9.not.i.i.i14.i, label %cond.false.i.i.i17.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i15.i"
 
 cond.false.i.i.i17.i:                             ; preds = %while.cond3.i.i
   %102 = load ptr, ptr %__first.coerce, align 8, !noalias !556
@@ -39829,13 +39829,13 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i32.i: ; preds = %cond.false.i
   %cmp.i.i.i.i34.i = icmp slt i32 %cond.i.i.i.i.i.i33.i, 0
   br i1 %cmp.i.i.i.i34.i, label %while.body7.i.i, label %while.cond10.i.i.preheader
 
-while.cond10.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i15.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i32.i
+while.cond10.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i15.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i32.i
   br label %while.cond10.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i15.i": ; preds = %while.cond3.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i15.i": ; preds = %while.cond3.i.i
   br i1 %cmp5.i.i.i13.i, label %while.body7.i.i, label %while.cond10.i.i.preheader
 
-while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i15.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i32.i
+while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i15.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i32.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 40
   br label %while.cond3.i.i, !llvm.loop !562
 
@@ -39855,7 +39855,7 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i.ba
   %cmp5.i.i10.i.i = icmp ne i64 %call2.i7.i.i9.i.i, -1
   %109 = icmp eq i64 %call2.i.i.i5.i.i, -1
   %cmp9.not.i.i11.i.i = xor i1 %109, %cmp5.i.i10.i.i
-  br i1 %cmp9.not.i.i11.i.i, label %cond.false.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit35.i.i"
+  br i1 %cmp9.not.i.i11.i.i, label %cond.false.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit35.i.i"
 
 cond.false.i.i13.i.i:                             ; preds = %while.cond10.i.i
   %110 = load ptr, ptr %__last.sroa.0.1.i.i, align 8, !noalias !563
@@ -39900,13 +39900,13 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i28.i.i: ; preds = %cond.false.i
   %cmp.i.i.i30.i.i = icmp slt i32 %cond.i.i.i.i.i29.i.i, 0
   br i1 %cmp.i.i.i30.i.i, label %while.cond10.i.i.backedge, label %while.end18.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit35.i.i": ; preds = %while.cond10.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit35.i.i": ; preds = %while.cond10.i.i
   br i1 %cmp5.i.i10.i.i, label %while.cond10.i.i.backedge, label %while.end18.i.i
 
-while.cond10.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit35.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i28.i.i
+while.cond10.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit35.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i28.i.i
   br label %while.cond10.i.i, !llvm.loop !569
 
-while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit35.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i28.i.i
+while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit35.i.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i28.i.i
   %cmp.i.i.i6 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
   br i1 %cmp.i.i.i6, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEET_SE_SE_T0_.exit"
 
@@ -40155,7 +40155,7 @@ _ZN18OpenImageIO_v2_6_04swapERNS_10ParamValueES1_.exit: ; preds = %_ZN18OpenImag
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 640
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !580
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.exit", %entry
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_SE_RT0_.argprom.exit", %entry
   ret void
 }
 
@@ -40168,8 +40168,8 @@ entry:
   %cmp53 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp53, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
-  %__holeIndex.addr.054 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
+  %__holeIndex.addr.054 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.054, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.coerce, i64 %mul
@@ -40188,7 +40188,7 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %cmp5.i.i = icmp ne i64 %call2.i7.i.i, -1
   %2 = icmp eq i64 %call2.i.i.i, -1
   %cmp9.not.i.i = xor i1 %2, %cmp5.i.i
-  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
 
 cond.false.i.i:                                   ; preds = %while.body
   %3 = load ptr, ptr %add.ptr.i17, align 8, !noalias !581
@@ -40231,9 +40231,9 @@ cond.false.i.i.i.i.i:                             ; preds = %_ZNSt11char_traitsI
 _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i: ; preds = %cond.false.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
   %cond.i.i.i.i.i = phi i32 [ %sub.i.i.i.i.i, %cond.false.i.i.i.i.i ], [ %call.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ]
   %cmp.i.i.i = icmp slt i32 %cond.i.i.i.i.i, 0
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit": ; preds = %while.body, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit": ; preds = %while.body, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i
   %cond.i.i = phi i1 [ %cmp.i.i.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i ], [ %cmp5.i.i, %while.body ]
   %spec.select = select i1 %cond.i.i, i64 %sub3, i64 %mul
   %add.ptr.i18 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.coerce, i64 %spec.select
@@ -40242,8 +40242,8 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i: ; preds = %cond.false.i.i.i.i
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !587
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit", %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit", %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit" ]
   %and = and i64 %__len, 1
   %cmp17 = icmp eq i64 %and, 0
   br i1 %cmp17, label %land.lhs.true, label %if.end35
@@ -40361,7 +40361,7 @@ land.rhs.i:                                       ; preds = %_ZN18OpenImageIO_v2
   %cmp5.i.i.i = icmp ne i64 %call2.i7.i.i.i, -1
   %22 = icmp eq i64 %call2.i.i.i.i, -1
   %cmp9.not.i.i.i = xor i1 %22, %cmp5.i.i.i
-  br i1 %cmp9.not.i.i.i, label %cond.false.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i"
+  br i1 %cmp9.not.i.i.i, label %cond.false.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i"
 
 cond.false.i.i.i:                                 ; preds = %land.rhs.i
   %23 = load ptr, ptr %agg.tmp37, align 8, !noalias !591
@@ -40406,17 +40406,17 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i: ; preds = %cond.false.i.i.i
   %cmp.i.i.i.i = icmp slt i32 %cond.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %while.body.i, label %invoke.cont
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i": ; preds = %land.rhs.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i": ; preds = %land.rhs.i
   br i1 %cmp5.i.i.i, label %while.body.i, label %invoke.cont
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i
   %add.ptr.i8.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.coerce, i64 %__holeIndex.addr.07.i
   %call11.i = call noundef nonnull align 8 dereferenceable(39) ptr @_ZN18OpenImageIO_v2_6_010ParamValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(39) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(39) %add.ptr.i.i) #26
   %cmp.i = icmp sgt i64 %__parent.08.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont, !llvm.loop !597
 
-invoke.cont:                                      ; preds = %while.body.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i, %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit ], [ %__holeIndex.addr.07.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i" ], [ %__parent.08.i, %while.body.i ], [ %__holeIndex.addr.07.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i ]
+invoke.cont:                                      ; preds = %while.body.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i, %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit ], [ %__holeIndex.addr.07.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i" ], [ %__parent.08.i, %while.body.i ], [ %__holeIndex.addr.07.i, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i.i ]
   %add.ptr.i9.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %call18.i = call noundef nonnull align 8 dereferenceable(39) ptr @_ZN18OpenImageIO_v2_6_010ParamValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(39) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(39) %agg.tmp37) #26
   %28 = load i8, ptr %m_copy.i, align 1
@@ -40588,7 +40588,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp5.i.i = icmp ne i64 %call2.i7.i.i, -1
   %2 = icmp eq i64 %call2.i.i.i, -1
   %cmp9.not.i.i = xor i1 %2, %cmp5.i.i
-  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
 
 cond.false.i.i:                                   ; preds = %for.body
   %3 = load ptr, ptr %__first.coerce, align 8, !noalias !601
@@ -40633,15 +40633,15 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i: ; preds = %cond.false.i.i.i.i
   %cmp.i.i.i = icmp slt i32 %cond.i.i.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then9, label %if.else
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit": ; preds = %for.body
-  br i1 %cmp5.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.then9_crit_edge", label %if.else
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit": ; preds = %for.body
+  br i1 %cmp5.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.then9_crit_edge", label %if.else
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.then9_crit_edge": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.then9_crit_edge": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
   %.pre = load ptr, ptr %__i.sroa.0.096, align 8
   br label %if.then9
 
-if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.then9_crit_edge", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i
-  %8 = phi ptr [ %.pre, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.if.then9_crit_edge" ], [ %5, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i ]
+if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.then9_crit_edge", %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i
+  %8 = phi ptr [ %.pre, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.if.then9_crit_edge" ], [ %5, %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %m_nvalues.i, i8 0, i64 7, i1 false)
   %m_type.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn95, i64 48
   %9 = load i8, ptr %m_type.i.i, align 4, !noalias !607
@@ -40857,7 +40857,7 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit:     ; preds = %invoke.cont, %land.
   store i8 0, ptr %m_nonlocal.i, align 2
   br label %for.inc
 
-if.else:                                          ; preds = %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+if.else:                                          ; preds = %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
   call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_T0_"(ptr nonnull %__i.sroa.0.096)
   br label %for.inc
 
@@ -40968,7 +40968,7 @@ while.cond:                                       ; preds = %while.body, %_ZN18O
   %cmp5.i.i = icmp ne i64 %call2.i7.i.i, -1
   %14 = icmp eq i64 %call2.i.i.i, -1
   %cmp9.not.i.i = xor i1 %14, %cmp5.i.i
-  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS2_10ParamValueENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit"
+  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS2_10ParamValueENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit"
 
 cond.false.i.i:                                   ; preds = %while.cond
   %15 = load ptr, ptr %__next.sroa.0.0, align 8, !noalias !618
@@ -41013,14 +41013,14 @@ _ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i: ; preds = %cond.false.i.i.i.i
   %cmp.i.i.i = icmp slt i32 %cond.i.i.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body, label %while.end
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS2_10ParamValueENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit": ; preds = %while.cond
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS2_10ParamValueENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit": ; preds = %while.cond
   br i1 %cmp5.i.i, label %while.body, label %while.end
 
-while.body:                                       ; preds = %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS2_10ParamValueENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit"
+while.body:                                       ; preds = %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS2_10ParamValueENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit"
   %call6 = call noundef nonnull align 8 dereferenceable(39) ptr @_ZN18OpenImageIO_v2_6_010ParamValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(39) %__last.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(39) %__next.sroa.0.0) #26
   br label %while.cond, !llvm.loop !624
 
-while.end:                                        ; preds = %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS2_10ParamValueENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit"
+while.end:                                        ; preds = %_ZNK18OpenImageIO_v2_6_07ustringltERKS0_.exit.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_0EclINS2_10ParamValueENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit"
   %call9 = call noundef nonnull align 8 dereferenceable(39) ptr @_ZN18OpenImageIO_v2_6_010ParamValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(39) %__last.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(39) %__val) #26
   %20 = load i8, ptr %m_copy.i, align 1
   %tobool.i.i3 = trunc i8 %20 to i1
@@ -41312,7 +41312,7 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit51.i.i.i: ; preds = %if.then.i.i50.i
   store ptr null, ptr %m_data49.i.i.i.i, align 8
   store i8 0, ptr %m_copy.i.i.i.i, align 1
   store i8 0, ptr %m_nonlocal.i.i.i.i, align 2
-  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_RT0_.exit.i.i", label %while.body.i.i.i
+  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_RT0_.argprom.exit.i.i", label %while.body.i.i.i
 
 lpad.i.i.i:                                       ; preds = %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit113.i.i.i
   %29 = landingpad { ptr, i32 }
@@ -41361,7 +41361,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %29, %land.lhs.true.i.i68.i.i.i ], [ %29, %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit63.i.i.i ], [ %66, %land.lhs.true.i.i60.i ], [ %66, %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit55.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_RT0_.exit.i.i": ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit51.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_RT0_.argprom.exit.i.i": ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit51.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp6.i.i.i)
   %m_type.i.i = getelementptr inbounds i8, ptr %__value.i, i64 8
@@ -41381,8 +41381,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   %m_data49.i83.i = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 16
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.exit"
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.exit" ], [ %storemerge158, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_RT0_.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.argprom.exit"
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.argprom.exit" ], [ %storemerge158, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_RT0_.argprom.exit.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__value.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i)
@@ -41547,21 +41547,21 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i:   ; preds = %if.then.i.i.i, %lan
   store i8 0, ptr %m_nonlocal.i10.i, align 2
   %63 = load i8, ptr %m_copy.i.i, align 1
   %tobool.i.i33.i = trunc i8 %63 to i1
-  br i1 %tobool.i.i33.i, label %land.lhs.true.i.i36.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.exit"
+  br i1 %tobool.i.i33.i, label %land.lhs.true.i.i36.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.argprom.exit"
 
 land.lhs.true.i.i36.i:                            ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i
   %64 = load i8, ptr %m_nonlocal.i.i, align 2
   %tobool2.i.i38.i = trunc i8 %64 to i1
-  br i1 %tobool2.i.i38.i, label %land.lhs.true3.i.i39.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.exit"
+  br i1 %tobool2.i.i38.i, label %land.lhs.true3.i.i39.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.argprom.exit"
 
 land.lhs.true3.i.i39.i:                           ; preds = %land.lhs.true.i.i36.i
   %65 = load ptr, ptr %m_data49.i.i, align 8
   %tobool4.not.i.i41.i = icmp eq ptr %65, null
-  br i1 %tobool4.not.i.i41.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.exit", label %if.then.i.i42.i
+  br i1 %tobool4.not.i.i41.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.argprom.exit", label %if.then.i.i42.i
 
 if.then.i.i42.i:                                  ; preds = %land.lhs.true3.i.i39.i
   call void @free(ptr noundef nonnull %65) #26
-  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.exit"
+  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.argprom.exit"
 
 lpad.i:                                           ; preds = %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit105.i
   %66 = landingpad { ptr, i32 }
@@ -41600,7 +41600,7 @@ land.lhs.true.i.i60.i:                            ; preds = %_ZN18OpenImageIO_v2
   %or.cond.not = select i1 %tobool2.i.i62.i, i1 %tobool4.not.i.i65.i, i1 false
   br i1 %or.cond.not, label %common.resume.sink.split, label %common.resume
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.exit": ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i, %land.lhs.true.i.i36.i, %land.lhs.true3.i.i39.i, %if.then.i.i42.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.argprom.exit": ; preds = %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i, %land.lhs.true.i.i36.i, %land.lhs.true3.i.i39.i, %if.then.i.i42.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__value.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i10, 40
@@ -41626,7 +41626,7 @@ if.end:                                           ; preds = %while.body
   %cmp5.i.i.i.i = icmp ne i64 %call2.i7.i.i.i.i, -1
   %75 = icmp eq i64 %call2.i.i.i.i.i, -1
   %cmp9.not.i.i.i.i = xor i1 %75, %cmp5.i.i.i.i
-  br i1 %cmp9.not.i.i.i.i, label %cond.false.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i"
+  br i1 %cmp9.not.i.i.i.i, label %cond.false.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i"
 
 cond.false.i.i.i.i:                               ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !638)
@@ -41662,12 +41662,12 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i.i.i)
   br i1 %call14.i.i.i.i, label %if.then.i.i, label %if.else33.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i": ; preds = %if.end
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i": ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i.i.i)
   br i1 %cmp5.i.i.i.i, label %if.then.i.i, label %if.else33.i.i
 
-if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i.i.i
+if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i1.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp12.i.i2.i.i)
   %80 = load ptr, ptr %add.ptr.i.i, align 8
@@ -41683,7 +41683,7 @@ if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %cmp5.i.i11.i.i = icmp ne i64 %call2.i7.i.i10.i.i, -1
   %82 = icmp eq i64 %call2.i.i.i6.i.i, -1
   %cmp9.not.i.i12.i.i = xor i1 %82, %cmp5.i.i11.i.i
-  br i1 %cmp9.not.i.i12.i.i, label %cond.false.i.i14.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit28.i.i"
+  br i1 %cmp9.not.i.i12.i.i, label %cond.false.i.i14.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit28.i.i"
 
 cond.false.i.i14.i.i:                             ; preds = %if.then.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !644)
@@ -41719,12 +41719,12 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i2.i.i)
   br i1 %call14.i.i27.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i", label %if.else.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit28.i.i": ; preds = %if.then.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit28.i.i": ; preds = %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i1.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i2.i.i)
   br i1 %cmp5.i.i11.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i", label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit28.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i24.i.i
+if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit28.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i24.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i29.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp12.i.i30.i.i)
   %87 = load ptr, ptr %add.ptr.i2.i, align 8
@@ -41740,7 +41740,7 @@ if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %cmp5.i.i39.i.i = icmp ne i64 %call2.i7.i.i38.i.i, -1
   %89 = icmp eq i64 %call2.i.i.i34.i.i, -1
   %cmp9.not.i.i40.i.i = xor i1 %89, %cmp5.i.i39.i.i
-  br i1 %cmp9.not.i.i40.i.i, label %cond.false.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit56.i.i"
+  br i1 %cmp9.not.i.i40.i.i, label %cond.false.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit56.i.i"
 
 cond.false.i.i42.i.i:                             ; preds = %if.else.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !650)
@@ -41776,15 +41776,15 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i30.i.i)
   br i1 %call14.i.i55.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i", label %if.else27.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit56.i.i": ; preds = %if.else.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit56.i.i": ; preds = %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i29.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i30.i.i)
   br i1 %cmp5.i.i39.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i", label %if.else27.i.i
 
-if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit56.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i52.i.i
+if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit56.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i52.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i"
 
-if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i.i.i
+if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i57.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp12.i.i58.i.i)
   %94 = load ptr, ptr %add.ptr.i2.i, align 8
@@ -41800,7 +41800,7 @@ if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %cmp5.i.i67.i.i = icmp ne i64 %call2.i7.i.i66.i.i, -1
   %96 = icmp eq i64 %call2.i.i.i62.i.i, -1
   %cmp9.not.i.i68.i.i = xor i1 %96, %cmp5.i.i67.i.i
-  br i1 %cmp9.not.i.i68.i.i, label %cond.false.i.i70.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit84.i.i"
+  br i1 %cmp9.not.i.i68.i.i, label %cond.false.i.i70.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit84.i.i"
 
 cond.false.i.i70.i.i:                             ; preds = %if.else33.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !656)
@@ -41836,12 +41836,12 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i58.i.i)
   br i1 %call14.i.i83.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i", label %if.else44.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit84.i.i": ; preds = %if.else33.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit84.i.i": ; preds = %if.else33.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i57.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i58.i.i)
   br i1 %cmp5.i.i67.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i", label %if.else44.i.i
 
-if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit84.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i80.i.i
+if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit84.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i80.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i85.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp12.i.i86.i.i)
   %101 = load ptr, ptr %add.ptr.i.i, align 8
@@ -41857,7 +41857,7 @@ if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %cmp5.i.i95.i.i = icmp ne i64 %call2.i7.i.i94.i.i, -1
   %103 = icmp eq i64 %call2.i.i.i90.i.i, -1
   %cmp9.not.i.i96.i.i = xor i1 %103, %cmp5.i.i95.i.i
-  br i1 %cmp9.not.i.i96.i.i, label %cond.false.i.i98.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit112.i.i"
+  br i1 %cmp9.not.i.i96.i.i, label %cond.false.i.i98.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit112.i.i"
 
 cond.false.i.i98.i.i:                             ; preds = %if.else44.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !662)
@@ -41893,16 +41893,16 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i86.i.i)
   br i1 %call14.i.i111.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i", label %if.else55.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit112.i.i": ; preds = %if.else44.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit112.i.i": ; preds = %if.else44.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i85.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i86.i.i)
   br i1 %cmp5.i.i95.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i", label %if.else55.i.i
 
-if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit112.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i108.i.i
+if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit112.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i108.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %if.else55.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit112.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i108.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit84.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i80.i.i, %if.else27.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit56.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i52.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit28.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i24.i.i
-  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.else55.i.i ], [ %add.ptr.i2.i, %if.else27.i.i ], [ %add.ptr.i.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i24.i.i ], [ %add.ptr.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit28.i.i" ], [ %add.ptr.i3.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i52.i.i ], [ %add.ptr.i3.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit56.i.i" ], [ %add.ptr.i2.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i80.i.i ], [ %add.ptr.i2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit84.i.i" ], [ %add.ptr.i3.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i108.i.i ], [ %add.ptr.i3.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit112.i.i" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %if.else55.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit112.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i108.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit84.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i80.i.i, %if.else27.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit56.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i52.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit28.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i24.i.i
+  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.else55.i.i ], [ %add.ptr.i2.i, %if.else27.i.i ], [ %add.ptr.i.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i24.i.i ], [ %add.ptr.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit28.i.i" ], [ %add.ptr.i3.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i52.i.i ], [ %add.ptr.i3.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit56.i.i" ], [ %add.ptr.i2.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i80.i.i ], [ %add.ptr.i2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit84.i.i" ], [ %add.ptr.i3.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i108.i.i ], [ %add.ptr.i3.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit112.i.i" ]
   call void @_ZN18OpenImageIO_v2_6_04swapERNS_10ParamValueES1_(ptr noundef nonnull align 8 dereferenceable(39) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(39) %__a.coerce.sink.i.i) #26
   br label %while.body.i.i5
 
@@ -41928,7 +41928,7 @@ while.cond3.i.i:                                  ; preds = %while.body7.i.i, %w
   %cmp5.i.i.i17.i = icmp ne i64 %call2.i7.i.i.i16.i, -1
   %110 = icmp eq i64 %call2.i.i.i.i12.i, -1
   %cmp9.not.i.i.i18.i = xor i1 %110, %cmp5.i.i.i17.i
-  br i1 %cmp9.not.i.i.i18.i, label %cond.false.i.i.i21.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i19.i"
+  br i1 %cmp9.not.i.i.i18.i, label %cond.false.i.i.i21.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i19.i"
 
 cond.false.i.i.i21.i:                             ; preds = %while.cond3.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !668)
@@ -41964,15 +41964,15 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i.i6.i)
   br i1 %call14.i.i.i32.i, label %while.body7.i.i, label %while.cond10.i.i.preheader
 
-while.cond10.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i19.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i.i30.i
+while.cond10.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i19.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i.i30.i
   br label %while.cond10.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i19.i": ; preds = %while.cond3.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i19.i": ; preds = %while.cond3.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i.i6.i)
   br i1 %cmp5.i.i.i17.i, label %while.body7.i.i, label %while.cond10.i.i.preheader
 
-while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i19.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i.i30.i
+while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i19.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i.i30.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 40
   br label %while.cond3.i.i, !llvm.loop !674
 
@@ -41994,7 +41994,7 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i.ba
   %cmp5.i.i12.i.i = icmp ne i64 %call2.i7.i.i11.i.i, -1
   %117 = icmp eq i64 %call2.i.i.i7.i.i, -1
   %cmp9.not.i.i13.i.i = xor i1 %117, %cmp5.i.i12.i.i
-  br i1 %cmp9.not.i.i13.i.i, label %cond.false.i.i15.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit29.i.i"
+  br i1 %cmp9.not.i.i13.i.i, label %cond.false.i.i15.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit29.i.i"
 
 cond.false.i.i15.i.i:                             ; preds = %while.cond10.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !675)
@@ -42030,15 +42030,15 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i3.i.i)
   br i1 %call14.i.i28.i.i, label %while.cond10.i.i.backedge, label %while.end18.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit29.i.i": ; preds = %while.cond10.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit29.i.i": ; preds = %while.cond10.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i2.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i3.i.i)
   br i1 %cmp5.i.i12.i.i, label %while.cond10.i.i.backedge, label %while.end18.i.i
 
-while.cond10.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit29.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i25.i.i
+while.cond10.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit29.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i25.i.i
   br label %while.cond10.i.i, !llvm.loop !681
 
-while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit29.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i25.i.i
+while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit29.i.i", %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i25.i.i
   %cmp.i.i.i6 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
   br i1 %cmp.i.i.i6, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEET_SE_SE_T0_.exit"
 
@@ -42287,7 +42287,7 @@ _ZN18OpenImageIO_v2_6_04swapERNS_10ParamValueES1_.exit: ; preds = %_ZN18OpenImag
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 640
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !692
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.exit", %entry
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_SE_RT0_.argprom.exit", %entry
   ret void
 }
 
@@ -42309,8 +42309,8 @@ while.body.lr.ph:                                 ; preds = %entry
   %m_len.i.i14.i.i = getelementptr inbounds i8, ptr %agg.tmp12.i.i, i64 8
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
-  %__holeIndex.addr.049 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit" ]
+while.body:                                       ; preds = %while.body.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
+  %__holeIndex.addr.049 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit" ]
   %add = shl i64 %__holeIndex.addr.049, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.coerce, i64 %mul
@@ -42331,7 +42331,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp5.i.i = icmp ne i64 %call2.i7.i.i, -1
   %2 = icmp eq i64 %call2.i.i.i, -1
   %cmp9.not.i.i = xor i1 %2, %cmp5.i.i
-  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
 
 cond.false.i.i:                                   ; preds = %while.body
   call void @llvm.experimental.noalias.scope.decl(metadata !693)
@@ -42363,9 +42363,9 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   store ptr %5, ptr %agg.tmp12.i.i, align 8, !alias.scope !696
   store i64 %retval.0.i.i13.i.i, ptr %m_len.i.i14.i.i, align 8, !alias.scope !696
   %call14.i.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil5ilessENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp12.i.i)
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit": ; preds = %while.body, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit": ; preds = %while.body, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i
   %cond.i.i = phi i1 [ %call14.i.i, %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i ], [ %cmp5.i.i, %while.body ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i)
@@ -42376,8 +42376,8 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !699
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit", %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit", %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit" ]
   %and = and i64 %__len, 1
   %cmp17 = icmp eq i64 %and, 0
   br i1 %cmp17, label %land.lhs.true, label %if.end35
@@ -42502,7 +42502,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %cmp5.i.i.i = icmp ne i64 %call2.i7.i.i.i, -1
   %21 = icmp eq i64 %call2.i.i.i.i, -1
   %cmp9.not.i.i.i = xor i1 %21, %cmp5.i.i.i
-  br i1 %cmp9.not.i.i.i, label %cond.false.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i"
+  br i1 %cmp9.not.i.i.i, label %cond.false.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i"
 
 cond.false.i.i.i:                                 ; preds = %land.rhs.i
   call void @llvm.experimental.noalias.scope.decl(metadata !703)
@@ -42541,19 +42541,19 @@ call14.i.i.i.noexc:                               ; preds = %_ZNK18OpenImageIO_v
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i.i)
   br i1 %call14.i.i.i23, label %while.body.i, label %invoke.cont
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i": ; preds = %land.rhs.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i": ; preds = %land.rhs.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i.i)
   br i1 %cmp5.i.i.i, label %while.body.i, label %invoke.cont
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i", %call14.i.i.i.noexc
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i", %call14.i.i.i.noexc
   %add.ptr.i8.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.coerce, i64 %__holeIndex.addr.07.i
   %call11.i = call noundef nonnull align 8 dereferenceable(39) ptr @_ZN18OpenImageIO_v2_6_010ParamValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(39) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(39) %add.ptr.i.i) #26
   %cmp.i = icmp sgt i64 %__parent.08.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont, !llvm.loop !709
 
-invoke.cont:                                      ; preds = %while.body.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i", %call14.i.i.i.noexc, %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit ], [ %__holeIndex.addr.07.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i" ], [ %__parent.08.i, %while.body.i ], [ %__holeIndex.addr.07.i, %call14.i.i.i.noexc ]
+invoke.cont:                                      ; preds = %while.body.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i", %call14.i.i.i.noexc, %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit ], [ %__holeIndex.addr.07.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i" ], [ %__parent.08.i, %while.body.i ], [ %__holeIndex.addr.07.i, %call14.i.i.i.noexc ]
   %add.ptr.i9.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %call18.i = call noundef nonnull align 8 dereferenceable(39) ptr @_ZN18OpenImageIO_v2_6_010ParamValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(39) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(39) %agg.tmp37) #26
   %26 = load i8, ptr %m_copy.i, align 1
@@ -42650,7 +42650,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp5.i.i = icmp ne i64 %call2.i7.i.i, -1
   %2 = icmp eq i64 %call2.i.i.i, -1
   %cmp9.not.i.i = xor i1 %2, %cmp5.i.i
-  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+  br i1 %cmp9.not.i.i, label %cond.false.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
 
 cond.false.i.i:                                   ; preds = %for.body
   call void @llvm.experimental.noalias.scope.decl(metadata !710)
@@ -42686,12 +42686,12 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i)
   br i1 %call14.i.i, label %if.then9, label %if.else
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit": ; preds = %for.body
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit": ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i.i)
   br i1 %cmp5.i.i, label %if.then9, label %if.else
 
-if.then9:                                         ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+if.then9:                                         ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %m_nvalues.i, i8 0, i64 7, i1 false)
   %7 = load ptr, ptr %__i.sroa.0.098, align 8
   %m_type.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn97, i64 48
@@ -42908,7 +42908,7 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit:     ; preds = %invoke.cont, %land.
   store i8 0, ptr %m_nonlocal.i, align 2
   br label %for.inc
 
-if.else:                                          ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+if.else:                                          ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit15.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_014ParamValueList4sortEbE3$_1EclINS_17__normal_iteratorIPNS2_10ParamValueESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
   call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_T0_"(ptr nonnull %__i.sroa.0.098)
   br label %for.inc
 

@@ -2342,7 +2342,7 @@ dynamic_cast.end.i.i.i:                           ; preds = %if.then.i
   %tobool.not.i.i.i = icmp eq ptr %7, null
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %dataIterator.val5.i, null
   %or.cond.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i, label %if.then.i.i.i.i.i.i166
+  br i1 %or.cond.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i, label %if.then.i.i.i.i.i.i166
 
 if.then.i.i.i.i.i.i166:                           ; preds = %dynamic_cast.end.i.i.i
   %_M_use_count.i.i.i.i.i.i.i167 = getelementptr inbounds i8, ptr %dataIterator.val5.i, i64 8
@@ -2354,13 +2354,13 @@ if.then.i.i.i.i.i.i.i.i168:                       ; preds = %if.then.i.i.i.i.i.i
   %9 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i167, align 4, !noalias !35
   %add.i.i.i.i.i.i.i.i169 = add nsw i32 %9, 1
   store i32 %add.i.i.i.i.i.i.i.i169, ptr %_M_use_count.i.i.i.i.i.i.i167, align 4, !noalias !35
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i227:                       ; preds = %if.then.i.i.i.i.i.i166
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i167, i32 1 acq_rel, align 4, !noalias !35
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i227, %if.then.i.i.i.i.i.i.i.i168, %dynamic_cast.end.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i227, %if.then.i.i.i.i.i.i.i.i168, %dynamic_cast.end.i.i.i
   %iterator.sroa.4.0.i.i = phi ptr [ %dataIterator.val5.i, %if.else.i.i.i.i.i.i.i.i227 ], [ %dataIterator.val5.i, %if.then.i.i.i.i.i.i.i.i168 ], [ null, %dynamic_cast.end.i.i.i ]
   %11 = getelementptr i8, ptr %7, i64 16
   %call.val.i.i = load i64, ptr %11, align 8, !noalias !31
@@ -2374,8 +2374,8 @@ for.cond.i.i:                                     ; preds = %invoke.cont4.i.i
   %cmp.i6.i = icmp ugt i64 %12, %indvars.iv.next.i.i176
   br i1 %cmp.i6.i, label %for.body.i.i170, label %for.end.loopexit.i.i, !llvm.loop !39
 
-for.body.i.i170:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i, %for.cond.i.i
-  %indvars.iv.i.i171 = phi i64 [ %indvars.iv.next.i.i176, %for.cond.i.i ], [ 0, %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i ]
+for.body.i.i170:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i, %for.cond.i.i
+  %indvars.iv.i.i171 = phi i64 [ %indvars.iv.next.i.i176, %for.cond.i.i ], [ 0, %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i ]
   %vtable.i.i172 = load ptr, ptr %7, align 8, !noalias !31
   %vfn.i.i173 = getelementptr inbounds i8, ptr %vtable.i.i172, i64 16
   %13 = load ptr, ptr %vfn.i.i173, align 8, !noalias !31
@@ -2403,8 +2403,8 @@ for.end.loopexit.i.i:                             ; preds = %for.cond.i.i
   %14 = trunc i64 %12 to i32
   br label %for.end.i.i177
 
-for.end.i.i177:                                   ; preds = %for.end.loopexit.i.i, %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i
-  %.lcssa.i.i = phi i32 [ 0, %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i ], [ %14, %for.end.loopexit.i.i ]
+for.end.i.i177:                                   ; preds = %for.end.loopexit.i.i, %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i
+  %.lcssa.i.i = phi i32 [ 0, %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i ], [ %14, %for.end.loopexit.i.i ]
   %15 = load ptr, ptr %pool.addr.i.i, align 8, !noalias !34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
@@ -2712,7 +2712,7 @@ terminate.lpad.i.i.i206:                          ; preds = %if.then2.i.i.i.i.i2
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i212, %if.then2.i.i.i.i.i210, %if.then.i55.i.i, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i.i
   %cmp.not.i.i.i61.i.i = icmp eq ptr %iterator.sroa.4.0.i.i, null
-  br i1 %cmp.not.i.i.i61.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.exit.i, label %if.then.i.i.i62.i.i
+  br i1 %cmp.not.i.i.i61.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.argprom.exit.i, label %if.then.i.i.i62.i.i
 
 if.then.i.i.i62.i.i:                              ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i.i
   %_M_use_count.i.i.i.i63.i.i = getelementptr inbounds i8, ptr %iterator.sroa.4.0.i.i, i64 8
@@ -2748,7 +2748,7 @@ if.else.i.i.i.i.i86.i.i:                          ; preds = %if.end.i.i.i.i65.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69.i.i: ; preds = %if.else.i.i.i.i.i86.i.i, %if.then.i.i.i.i.i67.i.i
   %retval.i.0.i.i.i.i70.i.i = phi i32 [ %59, %if.then.i.i.i.i.i67.i.i ], [ %62, %if.else.i.i.i.i.i86.i.i ]
   %cmp6.i.i.i.i71.i.i = icmp eq i32 %retval.i.0.i.i.i.i70.i.i, 1
-  br i1 %cmp6.i.i.i.i71.i.i, label %if.then7.i.i.i.i72.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.exit.i
+  br i1 %cmp6.i.i.i.i71.i.i, label %if.then7.i.i.i.i72.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.argprom.exit.i
 
 if.then7.i.i.i.i72.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69.i.i
   %vtable.i.i.i.i.i.i73.i.i = load ptr, ptr %iterator.sroa.4.0.i.i, align 8, !noalias !31
@@ -2773,14 +2773,14 @@ if.else.i.i.i.i.i.i.i85.i.i:                      ; preds = %if.then7.i.i.i.i72.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i79.i.i: ; preds = %if.else.i.i.i.i.i.i.i85.i.i, %if.then.i.i.i.i.i.i.i77.i.i
   %retval.i.0.i.i.i.i.i.i80.i.i = phi i32 [ %65, %if.then.i.i.i.i.i.i.i77.i.i ], [ %66, %if.else.i.i.i.i.i.i.i85.i.i ]
   %cmp.i.i.i.i.i.i81.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i80.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i81.i.i, label %if.end8.sink.split.i.i.i.i82.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.exit.i
+  br i1 %cmp.i.i.i.i.i.i81.i.i, label %if.end8.sink.split.i.i.i.i82.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.argprom.exit.i
 
 if.end8.sink.split.i.i.i.i82.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i79.i.i, %if.then.i.i.i.i87.i.i
   %vtable2.i.i.i.i.i.i83.i.i = load ptr, ptr %iterator.sroa.4.0.i.i, align 8, !noalias !31
   %vfn3.i.i.i.i.i.i84.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i83.i.i, i64 24
   %67 = load ptr, ptr %vfn3.i.i.i.i.i.i84.i.i, align 8, !noalias !31
   call void %67(ptr noundef nonnull align 8 dereferenceable(16) %iterator.sroa.4.0.i.i) #36, !noalias !31
-  br label %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.exit.i
+  br label %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.argprom.exit.i
 
 lpad10.i.i:                                       ; preds = %invoke.cont8.i.i
   %68 = landingpad { ptr, i32 }
@@ -2805,10 +2805,10 @@ ehcleanup.i.i:                                    ; preds = %lpad14.body.i.i, %l
 
 ehcleanup16.i.i:                                  ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i221, %lpad.loopexit.split-lp.i.i184, %lpad.loopexit.i.i174
   %.pn4.i.i = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i ], [ %26, %lpad.i.i.i.i.i221 ], [ %lpad.loopexit2.i.i, %lpad.loopexit.i.i174 ], [ %lpad.loopexit.split-lp3.i.i, %lpad.loopexit.split-lp.i.i184 ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev(ptr %iterator.sroa.4.0.i.i) #36, !noalias !31
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom(ptr %iterator.sroa.4.0.i.i) #36, !noalias !31
   br label %lpad.body
 
-_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i82.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i79.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69.i.i, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i.i
+_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.argprom.exit.i: ; preds = %if.end8.sink.split.i.i.i.i82.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i79.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69.i.i, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i.i), !noalias !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i.i), !noalias !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nulls.i.i144), !noalias !28
@@ -2832,7 +2832,7 @@ dynamic_cast.end.i.i5.i.i:                        ; preds = %if.end.i148
   %tobool.not.i.i6.i.i = icmp eq ptr %71, null
   %cmp.not.i.i.i.i.i8.i.i = icmp eq ptr %.val3.i.i, null
   %or.cond52.i = select i1 %tobool.not.i.i6.i.i, i1 true, i1 %cmp.not.i.i.i.i.i8.i.i
-  br i1 %or.cond52.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i14.i.i, label %if.then.i.i.i.i.i9.i.i
+  br i1 %or.cond52.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i14.i.i, label %if.then.i.i.i.i.i9.i.i
 
 if.then.i.i.i.i.i9.i.i:                           ; preds = %dynamic_cast.end.i.i5.i.i
   %_M_use_count.i.i.i.i.i.i10.i.i = getelementptr inbounds i8, ptr %.val3.i.i, i64 8
@@ -2844,13 +2844,13 @@ if.then.i.i.i.i.i.i.i12.i.i:                      ; preds = %if.then.i.i.i.i.i9.
   %73 = load i32, ptr %_M_use_count.i.i.i.i.i.i10.i.i, align 4, !noalias !66
   %add.i.i.i.i.i.i.i13.i.i = add nsw i32 %73, 1
   store i32 %add.i.i.i.i.i.i.i13.i.i, ptr %_M_use_count.i.i.i.i.i.i10.i.i, align 4, !noalias !66
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i14.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i14.i.i
 
 if.else.i.i.i.i.i.i.i83.i.i:                      ; preds = %if.then.i.i.i.i.i9.i.i
   %74 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i10.i.i, i32 1 acq_rel, align 4, !noalias !66
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i14.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i14.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i14.i.i: ; preds = %if.else.i.i.i.i.i.i.i83.i.i, %if.then.i.i.i.i.i.i.i12.i.i, %dynamic_cast.end.i.i5.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i14.i.i: ; preds = %if.else.i.i.i.i.i.i.i83.i.i, %if.then.i.i.i.i.i.i.i12.i.i, %dynamic_cast.end.i.i5.i.i
   %iterator.sroa.6.0.i16.i.i = phi ptr [ %.val3.i.i, %if.else.i.i.i.i.i.i.i83.i.i ], [ %.val3.i.i, %if.then.i.i.i.i.i.i.i12.i.i ], [ null, %dynamic_cast.end.i.i5.i.i ]
   %75 = getelementptr i8, ptr %71, i64 16
   %call.val.i17.i.i = load i64, ptr %75, align 8
@@ -2858,7 +2858,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i18.i.i, ptr noundef %pool)
           to label %invoke.cont.i20.i.i unwind label %lpad.i19.i.i
 
-invoke.cont.i20.i.i:                              ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i14.i.i
+invoke.cont.i20.i.i:                              ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i14.i.i
   %76 = load ptr, ptr %agg.result, align 8, !alias.scope !67
   %77 = tail call noundef ptr @__dynamic_cast(ptr nonnull %76, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorISt10shared_ptrIvEEE, i64 0) #36
   %cmp4.not.i.i.i = icmp eq i64 %call.val.i17.i.i, 0
@@ -2906,7 +2906,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i81.i.i
   store i64 %inc.i.i82.i.i, ptr %78, align 8
   br label %for.inc.i53.i.i
 
-lpad.i19.i.i:                                     ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i14.i.i
+lpad.i19.i.i:                                     ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i14.i.i
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup31.i.i.i
@@ -3174,7 +3174,7 @@ for.inc.i53.i.i:                                  ; preds = %if.end8.sink.split.
 
 nrvo.skipdtor.i56.i.i:                            ; preds = %for.inc.i53.i.i, %invoke.cont.i20.i.i
   %cmp.not.i.i.i76.i.i.i = icmp eq ptr %iterator.sroa.6.0.i16.i.i, null
-  br i1 %cmp.not.i.i.i76.i.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.exit.i.i, label %if.then.i.i.i77.i.i.i
+  br i1 %cmp.not.i.i.i76.i.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom.exit.i.i, label %if.then.i.i.i77.i.i.i
 
 if.then.i.i.i77.i.i.i:                            ; preds = %nrvo.skipdtor.i56.i.i
   %_M_use_count.i.i.i.i78.i.i.i = getelementptr inbounds i8, ptr %iterator.sroa.6.0.i16.i.i, i64 8
@@ -3210,7 +3210,7 @@ if.else.i.i.i.i.i101.i.i.i:                       ; preds = %if.end.i.i.i.i80.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84.i.i.i: ; preds = %if.else.i.i.i.i.i101.i.i.i, %if.then.i.i.i.i.i82.i.i.i
   %retval.i.0.i.i.i.i85.i.i.i = phi i32 [ %119, %if.then.i.i.i.i.i82.i.i.i ], [ %122, %if.else.i.i.i.i.i101.i.i.i ]
   %cmp6.i.i.i.i86.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i85.i.i.i, 1
-  br i1 %cmp6.i.i.i.i86.i.i.i, label %if.then7.i.i.i.i87.i.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.exit.i.i
+  br i1 %cmp6.i.i.i.i86.i.i.i, label %if.then7.i.i.i.i87.i.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom.exit.i.i
 
 if.then7.i.i.i.i87.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84.i.i.i
   %vtable.i.i.i.i.i.i88.i.i.i = load ptr, ptr %iterator.sroa.6.0.i16.i.i, align 8, !noalias !58
@@ -3235,14 +3235,14 @@ if.else.i.i.i.i.i.i.i100.i.i.i:                   ; preds = %if.then7.i.i.i.i87.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i94.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i100.i.i.i, %if.then.i.i.i.i.i.i.i92.i.i.i
   %retval.i.0.i.i.i.i.i.i95.i.i.i = phi i32 [ %125, %if.then.i.i.i.i.i.i.i92.i.i.i ], [ %126, %if.else.i.i.i.i.i.i.i100.i.i.i ]
   %cmp.i.i.i.i.i.i96.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i95.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i96.i.i.i, label %if.end8.sink.split.i.i.i.i97.i.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i96.i.i.i, label %if.end8.sink.split.i.i.i.i97.i.i.i, label %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom.exit.i.i
 
 if.end8.sink.split.i.i.i.i97.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i94.i.i.i, %if.then.i.i.i.i102.i.i.i
   %vtable2.i.i.i.i.i.i98.i.i.i = load ptr, ptr %iterator.sroa.6.0.i16.i.i, align 8, !noalias !58
   %vfn3.i.i.i.i.i.i99.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i98.i.i.i, i64 24
   %127 = load ptr, ptr %vfn3.i.i.i.i.i.i99.i.i.i, align 8
   call void %127(ptr noundef nonnull align 8 dereferenceable(16) %iterator.sroa.6.0.i16.i.i) #36
-  br label %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.exit.i.i
+  br label %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom.exit.i.i
 
 ehcleanup.i29.i.i:                                ; preds = %lpad29.i.i.i, %lpad3.loopexit.split-lp.i39.i.i, %lpad3.loopexit.i27.i.i
   %.pn.i30.i.i = phi { ptr, i32 } [ %117, %lpad29.i.i.i ], [ %lpad.loopexit.i28.i.i, %lpad3.loopexit.i27.i.i ], [ %lpad.loopexit.split-lp.i40.i.i, %lpad3.loopexit.split-lp.i39.i.i ]
@@ -3251,10 +3251,10 @@ ehcleanup.i29.i.i:                                ; preds = %lpad29.i.i.i, %lpad
 
 ehcleanup31.i.i.i:                                ; preds = %ehcleanup.i29.i.i, %lpad.i19.i.i
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i30.i.i, %ehcleanup.i29.i.i ], [ %83, %lpad.i19.i.i ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev(ptr %iterator.sroa.6.0.i16.i.i) #36
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom(ptr %iterator.sroa.6.0.i16.i.i) #36
   br label %lpad.body
 
-_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i97.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i94.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84.i.i.i, %nrvo.skipdtor.i56.i.i
+_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i97.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i94.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84.i.i.i, %nrvo.skipdtor.i56.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %val.i.i.i), !noalias !61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp28.i.i.i), !noalias !61
   br label %invoke.cont
@@ -3283,7 +3283,7 @@ dynamic_cast.end.i.i.i.i.i:                       ; preds = %if.else7.i.i
   %tobool.not.i.i.i.i28.i = icmp eq ptr %129, null
   %cmp.not.i.i.i.i.i.i.i29.i = icmp eq ptr %.val1.i.i.i, null
   %or.cond53.i = select i1 %tobool.not.i.i.i.i28.i, i1 true, i1 %cmp.not.i.i.i.i.i.i.i29.i
-  br i1 %or.cond53.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i.i.i, label %if.then.i.i.i.i.i.i90.i.i
+  br i1 %or.cond53.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i.i.i, label %if.then.i.i.i.i.i.i90.i.i
 
 if.then.i.i.i.i.i.i90.i.i:                        ; preds = %dynamic_cast.end.i.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i, i64 8
@@ -3295,13 +3295,13 @@ if.then.i.i.i.i.i.i.i.i91.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %131 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 4, !noalias !82
   %add.i.i.i.i.i.i.i.i92.i.i = add nsw i32 %131, 1
   store i32 %add.i.i.i.i.i.i.i.i92.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 4, !noalias !82
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i102.i.i:                   ; preds = %if.then.i.i.i.i.i.i90.i.i
   %132 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !82
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i102.i.i, %if.then.i.i.i.i.i.i.i.i91.i.i, %dynamic_cast.end.i.i.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i102.i.i, %if.then.i.i.i.i.i.i.i.i91.i.i, %dynamic_cast.end.i.i.i.i.i
   %iterator.sroa.6.0.i.i.i.i = phi ptr [ %.val1.i.i.i, %if.else.i.i.i.i.i.i.i.i102.i.i ], [ %.val1.i.i.i, %if.then.i.i.i.i.i.i.i.i91.i.i ], [ null, %dynamic_cast.end.i.i.i.i.i ]
   %133 = getelementptr i8, ptr %129, i64 16
   %call.val.i.i.i.i = load i64, ptr %133, align 8
@@ -3309,7 +3309,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i.i.i.i150, ptr noundef %pool)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
-invoke.cont.i.i.i.i:                              ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i.i.i
+invoke.cont.i.i.i.i:                              ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i.i.i
   %134 = load ptr, ptr %agg.result, align 8, !alias.scope !83
   %135 = tail call noundef ptr @__dynamic_cast(ptr nonnull %134, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIbEE, i64 0) #36
   %cmp1.not.i.i.i.i = icmp eq i64 %call.val.i.i.i.i, 0
@@ -3355,7 +3355,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i.i.i.i
   store i64 %inc.i.i.i.i.i, ptr %136, align 8
   br label %for.inc.i.i.i.i
 
-lpad.i.i.i.i:                                     ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i.i.i
+lpad.i.i.i.i:                                     ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i.i.i.i
   %141 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -3478,7 +3478,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i161: ; pr
 common.resume.i.i.i:                              ; preds = %lpad3.i1053.i.i.i, %lpad.i1036.i.i.i, %lpad7.i.i.i.i, %lpad.i937.i.i.i, %lpad3.i855.i.i.i, %lpad.i842.i.i.i, %lpad3.i740.i.i.i, %lpad.i723.i.i.i, %lpad3.i621.i.i.i, %lpad.i604.i.i.i, %lpad3.i503.i.i.i, %lpad.i486.i.i.i, %lpad3.i384.i.i.i, %lpad.i367.i.i.i, %lpad3.i265.i.i.i, %lpad.i248.i.i.i, %lpad3.i146.i.i.i, %lpad.i129.i.i.i, %lpad3.i50.i.i.i, %lpad.i36.i.i.i, %lpad3.i.i.i.i, %lpad.i.i.i.i
   %iterator.sroa.6.0.i1033.sink.i.i.i = phi ptr [ %iterator.sroa.6.0.i.i.i.i, %lpad3.i.i.i.i ], [ %iterator.sroa.6.0.i.i.i.i, %lpad.i.i.i.i ], [ %iterator.sroa.6.0.i33.i.i.i, %lpad3.i50.i.i.i ], [ %iterator.sroa.6.0.i33.i.i.i, %lpad.i36.i.i.i ], [ %iterator.sroa.6.0.i126.i.i.i, %lpad3.i146.i.i.i ], [ %iterator.sroa.6.0.i126.i.i.i, %lpad.i129.i.i.i ], [ %iterator.sroa.6.0.i245.i.i.i, %lpad3.i265.i.i.i ], [ %iterator.sroa.6.0.i245.i.i.i, %lpad.i248.i.i.i ], [ %iterator.sroa.6.0.i364.i.i.i, %lpad3.i384.i.i.i ], [ %iterator.sroa.6.0.i364.i.i.i, %lpad.i367.i.i.i ], [ %iterator.sroa.6.0.i483.i.i.i, %lpad3.i503.i.i.i ], [ %iterator.sroa.6.0.i483.i.i.i, %lpad.i486.i.i.i ], [ %iterator.sroa.6.0.i601.i.i.i, %lpad3.i621.i.i.i ], [ %iterator.sroa.6.0.i601.i.i.i, %lpad.i604.i.i.i ], [ %iterator.sroa.6.0.i720.i.i.i, %lpad3.i740.i.i.i ], [ %iterator.sroa.6.0.i720.i.i.i, %lpad.i723.i.i.i ], [ %iterator.sroa.6.0.i838.i.i.i, %lpad3.i855.i.i.i ], [ %iterator.sroa.6.0.i838.i.i.i, %lpad.i842.i.i.i ], [ %iterator.sroa.6.0.i933.i.i.i, %lpad7.i.i.i.i ], [ %iterator.sroa.6.0.i933.i.i.i, %lpad.i937.i.i.i ], [ %iterator.sroa.6.0.i1033.i.i.i, %lpad3.i1053.i.i.i ], [ %iterator.sroa.6.0.i1033.i.i.i, %lpad.i1036.i.i.i ]
   %common.resume.op.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i, %lpad3.i.i.i.i ], [ %141, %lpad.i.i.i.i ], [ %lpad.phi.i51.i.i.i, %lpad3.i50.i.i.i ], [ %167, %lpad.i36.i.i.i ], [ %lpad.phi.i147.i.i.i, %lpad3.i146.i.i.i ], [ %202, %lpad.i129.i.i.i ], [ %lpad.phi.i266.i.i.i, %lpad3.i265.i.i.i ], [ %237, %lpad.i248.i.i.i ], [ %lpad.phi.i385.i.i.i, %lpad3.i384.i.i.i ], [ %272, %lpad.i367.i.i.i ], [ %lpad.phi.i504.i.i.i, %lpad3.i503.i.i.i ], [ %307, %lpad.i486.i.i.i ], [ %lpad.phi.i622.i.i.i, %lpad3.i621.i.i.i ], [ %343, %lpad.i604.i.i.i ], [ %lpad.phi.i741.i.i.i, %lpad3.i740.i.i.i ], [ %378, %lpad.i723.i.i.i ], [ %lpad.phi.i856.i.i.i, %lpad3.i855.i.i.i ], [ %413, %lpad.i842.i.i.i ], [ %lpad.phi.i952.i.i.i, %lpad7.i.i.i.i ], [ %439, %lpad.i937.i.i.i ], [ %lpad.phi.i1054.i.i.i, %lpad3.i1053.i.i.i ], [ %465, %lpad.i1036.i.i.i ]
-  tail call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev(ptr %iterator.sroa.6.0.i1033.sink.i.i.i) #36
+  tail call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom(ptr %iterator.sroa.6.0.i1033.sink.i.i.i) #36
   br label %lpad.body
 
 dynamic_cast.end.i.i22.i.i.i:                     ; preds = %if.else7.i.i
@@ -3489,7 +3489,7 @@ dynamic_cast.end.i.i22.i.i.i:                     ; preds = %if.else7.i.i
   %tobool.not.i.i23.i.i.i = icmp eq ptr %155, null
   %cmp.not.i.i.i.i.i25.i.i.i = icmp eq ptr %.val3.i.i.i, null
   %or.cond54.i = select i1 %tobool.not.i.i23.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i25.i.i.i
-  br i1 %or.cond54.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i31.i.i.i, label %if.then.i.i.i.i.i26.i.i.i
+  br i1 %or.cond54.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i31.i.i.i, label %if.then.i.i.i.i.i26.i.i.i
 
 if.then.i.i.i.i.i26.i.i.i:                        ; preds = %dynamic_cast.end.i.i22.i.i.i
   %_M_use_count.i.i.i.i.i.i27.i.i.i = getelementptr inbounds i8, ptr %.val3.i.i.i, i64 8
@@ -3501,13 +3501,13 @@ if.then.i.i.i.i.i.i.i29.i.i.i:                    ; preds = %if.then.i.i.i.i.i26
   %157 = load i32, ptr %_M_use_count.i.i.i.i.i.i27.i.i.i, align 4, !noalias !92
   %add.i.i.i.i.i.i.i30.i.i.i = add nsw i32 %157, 1
   store i32 %add.i.i.i.i.i.i.i30.i.i.i, ptr %_M_use_count.i.i.i.i.i.i27.i.i.i, align 4, !noalias !92
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i31.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i31.i.i.i
 
 if.else.i.i.i.i.i.i.i114.i.i.i:                   ; preds = %if.then.i.i.i.i.i26.i.i.i
   %158 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i27.i.i.i, i32 1 acq_rel, align 4, !noalias !92
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i31.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i31.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i31.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i114.i.i.i, %if.then.i.i.i.i.i.i.i29.i.i.i, %dynamic_cast.end.i.i22.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i31.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i114.i.i.i, %if.then.i.i.i.i.i.i.i29.i.i.i, %dynamic_cast.end.i.i22.i.i.i
   %iterator.sroa.6.0.i33.i.i.i = phi ptr [ %.val3.i.i.i, %if.else.i.i.i.i.i.i.i114.i.i.i ], [ %.val3.i.i.i, %if.then.i.i.i.i.i.i.i29.i.i.i ], [ null, %dynamic_cast.end.i.i22.i.i.i ]
   %159 = getelementptr i8, ptr %155, i64 16
   %call.val.i34.i.i.i = load i64, ptr %159, align 8
@@ -3515,7 +3515,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i35.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i39.i.i.i unwind label %lpad.i36.i.i.i
 
-invoke.cont.i39.i.i.i:                            ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i31.i.i.i
+invoke.cont.i39.i.i.i:                            ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i31.i.i.i
   %160 = load ptr, ptr %agg.result, align 8, !alias.scope !93
   %161 = tail call noundef ptr @__dynamic_cast(ptr nonnull %160, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIiEE, i64 0) #36
   %cmp1.not.i40.i.i.i = icmp eq i64 %call.val.i34.i.i.i, 0
@@ -3564,7 +3564,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i112.i.
   store i64 %inc.i.i113.i.i.i, ptr %162, align 8
   br label %for.inc.i73.i.i.i
 
-lpad.i36.i.i.i:                                   ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i31.i.i.i
+lpad.i36.i.i.i:                                   ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i31.i.i.i
   %167 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -3742,7 +3742,7 @@ dynamic_cast.end.i.i115.i.i.i:                    ; preds = %if.else7.i.i
   %tobool.not.i.i116.i.i.i = icmp eq ptr %190, null
   %cmp.not.i.i.i.i.i118.i.i.i = icmp eq ptr %.val5.i.i.i, null
   %or.cond55.i = select i1 %tobool.not.i.i116.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i118.i.i.i
-  br i1 %or.cond55.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i124.i.i.i, label %if.then.i.i.i.i.i119.i.i.i
+  br i1 %or.cond55.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i124.i.i.i, label %if.then.i.i.i.i.i119.i.i.i
 
 if.then.i.i.i.i.i119.i.i.i:                       ; preds = %dynamic_cast.end.i.i115.i.i.i
   %_M_use_count.i.i.i.i.i.i120.i.i.i = getelementptr inbounds i8, ptr %.val5.i.i.i, i64 8
@@ -3754,13 +3754,13 @@ if.then.i.i.i.i.i.i.i122.i.i.i:                   ; preds = %if.then.i.i.i.i.i11
   %192 = load i32, ptr %_M_use_count.i.i.i.i.i.i120.i.i.i, align 4, !noalias !102
   %add.i.i.i.i.i.i.i123.i.i.i = add nsw i32 %192, 1
   store i32 %add.i.i.i.i.i.i.i123.i.i.i, ptr %_M_use_count.i.i.i.i.i.i120.i.i.i, align 4, !noalias !102
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i124.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i124.i.i.i
 
 if.else.i.i.i.i.i.i.i233.i.i.i:                   ; preds = %if.then.i.i.i.i.i119.i.i.i
   %193 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i120.i.i.i, i32 1 acq_rel, align 4, !noalias !102
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i124.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i124.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i124.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i233.i.i.i, %if.then.i.i.i.i.i.i.i122.i.i.i, %dynamic_cast.end.i.i115.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i124.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i233.i.i.i, %if.then.i.i.i.i.i.i.i122.i.i.i, %dynamic_cast.end.i.i115.i.i.i
   %iterator.sroa.6.0.i126.i.i.i = phi ptr [ %.val5.i.i.i, %if.else.i.i.i.i.i.i.i233.i.i.i ], [ %.val5.i.i.i, %if.then.i.i.i.i.i.i.i122.i.i.i ], [ null, %dynamic_cast.end.i.i115.i.i.i ]
   %194 = getelementptr i8, ptr %190, i64 16
   %call.val.i127.i.i.i = load i64, ptr %194, align 8
@@ -3768,7 +3768,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i128.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i132.i.i.i unwind label %lpad.i129.i.i.i
 
-invoke.cont.i132.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i124.i.i.i
+invoke.cont.i132.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i124.i.i.i
   %195 = load ptr, ptr %agg.result, align 8, !alias.scope !103
   %196 = tail call noundef ptr @__dynamic_cast(ptr nonnull %195, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIaEE, i64 0) #36
   %cmp1.not.i133.i.i.i = icmp eq i64 %call.val.i127.i.i.i, 0
@@ -3817,7 +3817,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i231.i.
   store i64 %inc.i.i232.i.i.i, ptr %197, align 8
   br label %for.inc.i186.i.i.i
 
-lpad.i129.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i124.i.i.i
+lpad.i129.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i124.i.i.i
   %202 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -3995,7 +3995,7 @@ dynamic_cast.end.i.i234.i.i.i:                    ; preds = %if.else7.i.i
   %tobool.not.i.i235.i.i.i = icmp eq ptr %225, null
   %cmp.not.i.i.i.i.i237.i.i.i = icmp eq ptr %.val7.i.i.i, null
   %or.cond56.i = select i1 %tobool.not.i.i235.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i237.i.i.i
-  br i1 %or.cond56.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i243.i.i.i, label %if.then.i.i.i.i.i238.i.i.i
+  br i1 %or.cond56.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i243.i.i.i, label %if.then.i.i.i.i.i238.i.i.i
 
 if.then.i.i.i.i.i238.i.i.i:                       ; preds = %dynamic_cast.end.i.i234.i.i.i
   %_M_use_count.i.i.i.i.i.i239.i.i.i = getelementptr inbounds i8, ptr %.val7.i.i.i, i64 8
@@ -4007,13 +4007,13 @@ if.then.i.i.i.i.i.i.i241.i.i.i:                   ; preds = %if.then.i.i.i.i.i23
   %227 = load i32, ptr %_M_use_count.i.i.i.i.i.i239.i.i.i, align 4, !noalias !112
   %add.i.i.i.i.i.i.i242.i.i.i = add nsw i32 %227, 1
   store i32 %add.i.i.i.i.i.i.i242.i.i.i, ptr %_M_use_count.i.i.i.i.i.i239.i.i.i, align 4, !noalias !112
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i243.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i243.i.i.i
 
 if.else.i.i.i.i.i.i.i352.i.i.i:                   ; preds = %if.then.i.i.i.i.i238.i.i.i
   %228 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i239.i.i.i, i32 1 acq_rel, align 4, !noalias !112
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i243.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i243.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i243.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i352.i.i.i, %if.then.i.i.i.i.i.i.i241.i.i.i, %dynamic_cast.end.i.i234.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i243.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i352.i.i.i, %if.then.i.i.i.i.i.i.i241.i.i.i, %dynamic_cast.end.i.i234.i.i.i
   %iterator.sroa.6.0.i245.i.i.i = phi ptr [ %.val7.i.i.i, %if.else.i.i.i.i.i.i.i352.i.i.i ], [ %.val7.i.i.i, %if.then.i.i.i.i.i.i.i241.i.i.i ], [ null, %dynamic_cast.end.i.i234.i.i.i ]
   %229 = getelementptr i8, ptr %225, i64 16
   %call.val.i246.i.i.i = load i64, ptr %229, align 8
@@ -4021,7 +4021,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i247.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i251.i.i.i unwind label %lpad.i248.i.i.i
 
-invoke.cont.i251.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i243.i.i.i
+invoke.cont.i251.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i243.i.i.i
   %230 = load ptr, ptr %agg.result, align 8, !alias.scope !113
   %231 = tail call noundef ptr @__dynamic_cast(ptr nonnull %230, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIsEE, i64 0) #36
   %cmp1.not.i252.i.i.i = icmp eq i64 %call.val.i246.i.i.i, 0
@@ -4070,7 +4070,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i350.i.
   store i64 %inc.i.i351.i.i.i, ptr %232, align 8
   br label %for.inc.i305.i.i.i
 
-lpad.i248.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i243.i.i.i
+lpad.i248.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i243.i.i.i
   %237 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -4248,7 +4248,7 @@ dynamic_cast.end.i.i353.i.i.i:                    ; preds = %if.else7.i.i
   %tobool.not.i.i354.i.i.i = icmp eq ptr %260, null
   %cmp.not.i.i.i.i.i356.i.i.i = icmp eq ptr %.val9.i.i.i, null
   %or.cond57.i = select i1 %tobool.not.i.i354.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i356.i.i.i
-  br i1 %or.cond57.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i362.i.i.i, label %if.then.i.i.i.i.i357.i.i.i
+  br i1 %or.cond57.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i362.i.i.i, label %if.then.i.i.i.i.i357.i.i.i
 
 if.then.i.i.i.i.i357.i.i.i:                       ; preds = %dynamic_cast.end.i.i353.i.i.i
   %_M_use_count.i.i.i.i.i.i358.i.i.i = getelementptr inbounds i8, ptr %.val9.i.i.i, i64 8
@@ -4260,13 +4260,13 @@ if.then.i.i.i.i.i.i.i360.i.i.i:                   ; preds = %if.then.i.i.i.i.i35
   %262 = load i32, ptr %_M_use_count.i.i.i.i.i.i358.i.i.i, align 4, !noalias !122
   %add.i.i.i.i.i.i.i361.i.i.i = add nsw i32 %262, 1
   store i32 %add.i.i.i.i.i.i.i361.i.i.i, ptr %_M_use_count.i.i.i.i.i.i358.i.i.i, align 4, !noalias !122
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i362.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i362.i.i.i
 
 if.else.i.i.i.i.i.i.i471.i.i.i:                   ; preds = %if.then.i.i.i.i.i357.i.i.i
   %263 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i358.i.i.i, i32 1 acq_rel, align 4, !noalias !122
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i362.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i362.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i362.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i471.i.i.i, %if.then.i.i.i.i.i.i.i360.i.i.i, %dynamic_cast.end.i.i353.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i362.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i471.i.i.i, %if.then.i.i.i.i.i.i.i360.i.i.i, %dynamic_cast.end.i.i353.i.i.i
   %iterator.sroa.6.0.i364.i.i.i = phi ptr [ %.val9.i.i.i, %if.else.i.i.i.i.i.i.i471.i.i.i ], [ %.val9.i.i.i, %if.then.i.i.i.i.i.i.i360.i.i.i ], [ null, %dynamic_cast.end.i.i353.i.i.i ]
   %264 = getelementptr i8, ptr %260, i64 16
   %call.val.i365.i.i.i = load i64, ptr %264, align 8
@@ -4274,7 +4274,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i366.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i370.i.i.i unwind label %lpad.i367.i.i.i
 
-invoke.cont.i370.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i362.i.i.i
+invoke.cont.i370.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i362.i.i.i
   %265 = load ptr, ptr %agg.result, align 8, !alias.scope !123
   %266 = tail call noundef ptr @__dynamic_cast(ptr nonnull %265, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIlEE, i64 0) #36
   %cmp1.not.i371.i.i.i = icmp eq i64 %call.val.i365.i.i.i, 0
@@ -4323,7 +4323,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i469.i.
   store i64 %inc.i.i470.i.i.i, ptr %267, align 8
   br label %for.inc.i424.i.i.i
 
-lpad.i367.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i362.i.i.i
+lpad.i367.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i362.i.i.i
   %272 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -4501,7 +4501,7 @@ dynamic_cast.end.i.i472.i.i.i:                    ; preds = %if.else7.i.i
   %tobool.not.i.i473.i.i.i = icmp eq ptr %295, null
   %cmp.not.i.i.i.i.i475.i.i.i = icmp eq ptr %.val11.i.i.i, null
   %or.cond58.i = select i1 %tobool.not.i.i473.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i475.i.i.i
-  br i1 %or.cond58.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i481.i.i.i, label %if.then.i.i.i.i.i476.i.i.i
+  br i1 %or.cond58.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i481.i.i.i, label %if.then.i.i.i.i.i476.i.i.i
 
 if.then.i.i.i.i.i476.i.i.i:                       ; preds = %dynamic_cast.end.i.i472.i.i.i
   %_M_use_count.i.i.i.i.i.i477.i.i.i = getelementptr inbounds i8, ptr %.val11.i.i.i, i64 8
@@ -4513,13 +4513,13 @@ if.then.i.i.i.i.i.i.i479.i.i.i:                   ; preds = %if.then.i.i.i.i.i47
   %297 = load i32, ptr %_M_use_count.i.i.i.i.i.i477.i.i.i, align 4, !noalias !132
   %add.i.i.i.i.i.i.i480.i.i.i = add nsw i32 %297, 1
   store i32 %add.i.i.i.i.i.i.i480.i.i.i, ptr %_M_use_count.i.i.i.i.i.i477.i.i.i, align 4, !noalias !132
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i481.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i481.i.i.i
 
 if.else.i.i.i.i.i.i.i589.i.i.i:                   ; preds = %if.then.i.i.i.i.i476.i.i.i
   %298 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i477.i.i.i, i32 1 acq_rel, align 4, !noalias !132
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i481.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i481.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i481.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i589.i.i.i, %if.then.i.i.i.i.i.i.i479.i.i.i, %dynamic_cast.end.i.i472.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i481.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i589.i.i.i, %if.then.i.i.i.i.i.i.i479.i.i.i, %dynamic_cast.end.i.i472.i.i.i
   %iterator.sroa.6.0.i483.i.i.i = phi ptr [ %.val11.i.i.i, %if.else.i.i.i.i.i.i.i589.i.i.i ], [ %.val11.i.i.i, %if.then.i.i.i.i.i.i.i479.i.i.i ], [ null, %dynamic_cast.end.i.i472.i.i.i ]
   %299 = getelementptr i8, ptr %295, i64 16
   %call.val.i484.i.i.i = load i64, ptr %299, align 8
@@ -4527,7 +4527,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i485.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i489.i.i.i unwind label %lpad.i486.i.i.i
 
-invoke.cont.i489.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i481.i.i.i
+invoke.cont.i489.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i481.i.i.i
   %300 = load ptr, ptr %agg.result, align 8, !alias.scope !133
   %301 = tail call noundef ptr @__dynamic_cast(ptr nonnull %300, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorInEE, i64 0) #36
   %cmp1.not.i490.i.i.i = icmp eq i64 %call.val.i484.i.i.i, 0
@@ -4577,7 +4577,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i587.i.
   store i64 %inc.i.i588.i.i.i, ptr %302, align 8
   br label %for.inc.i542.i.i.i
 
-lpad.i486.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i481.i.i.i
+lpad.i486.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i481.i.i.i
   %307 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -4768,7 +4768,7 @@ dynamic_cast.end.i.i590.i.i.i:                    ; preds = %if.else7.i.i
   %tobool.not.i.i591.i.i.i = icmp eq ptr %331, null
   %cmp.not.i.i.i.i.i593.i.i.i = icmp eq ptr %.val13.i.i.i, null
   %or.cond59.i = select i1 %tobool.not.i.i591.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i593.i.i.i
-  br i1 %or.cond59.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i599.i.i.i, label %if.then.i.i.i.i.i594.i.i.i
+  br i1 %or.cond59.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i599.i.i.i, label %if.then.i.i.i.i.i594.i.i.i
 
 if.then.i.i.i.i.i594.i.i.i:                       ; preds = %dynamic_cast.end.i.i590.i.i.i
   %_M_use_count.i.i.i.i.i.i595.i.i.i = getelementptr inbounds i8, ptr %.val13.i.i.i, i64 8
@@ -4780,13 +4780,13 @@ if.then.i.i.i.i.i.i.i597.i.i.i:                   ; preds = %if.then.i.i.i.i.i59
   %333 = load i32, ptr %_M_use_count.i.i.i.i.i.i595.i.i.i, align 4, !noalias !142
   %add.i.i.i.i.i.i.i598.i.i.i = add nsw i32 %333, 1
   store i32 %add.i.i.i.i.i.i.i598.i.i.i, ptr %_M_use_count.i.i.i.i.i.i595.i.i.i, align 4, !noalias !142
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i599.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i599.i.i.i
 
 if.else.i.i.i.i.i.i.i708.i.i.i:                   ; preds = %if.then.i.i.i.i.i594.i.i.i
   %334 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i595.i.i.i, i32 1 acq_rel, align 4, !noalias !142
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i599.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i599.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i599.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i708.i.i.i, %if.then.i.i.i.i.i.i.i597.i.i.i, %dynamic_cast.end.i.i590.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i599.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i708.i.i.i, %if.then.i.i.i.i.i.i.i597.i.i.i, %dynamic_cast.end.i.i590.i.i.i
   %iterator.sroa.6.0.i601.i.i.i = phi ptr [ %.val13.i.i.i, %if.else.i.i.i.i.i.i.i708.i.i.i ], [ %.val13.i.i.i, %if.then.i.i.i.i.i.i.i597.i.i.i ], [ null, %dynamic_cast.end.i.i590.i.i.i ]
   %335 = getelementptr i8, ptr %331, i64 16
   %call.val.i602.i.i.i = load i64, ptr %335, align 8
@@ -4794,7 +4794,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i603.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i607.i.i.i unwind label %lpad.i604.i.i.i
 
-invoke.cont.i607.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i599.i.i.i
+invoke.cont.i607.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i599.i.i.i
   %336 = load ptr, ptr %agg.result, align 8, !alias.scope !143
   %337 = tail call noundef ptr @__dynamic_cast(ptr nonnull %336, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIfEE, i64 0) #36
   %cmp1.not.i608.i.i.i = icmp eq i64 %call.val.i602.i.i.i, 0
@@ -4843,7 +4843,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i706.i.
   store i64 %inc.i.i707.i.i.i, ptr %338, align 8
   br label %for.inc.i661.i.i.i
 
-lpad.i604.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i599.i.i.i
+lpad.i604.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i599.i.i.i
   %343 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -5021,7 +5021,7 @@ dynamic_cast.end.i.i709.i.i.i:                    ; preds = %if.else7.i.i
   %tobool.not.i.i710.i.i.i = icmp eq ptr %366, null
   %cmp.not.i.i.i.i.i712.i.i.i = icmp eq ptr %.val15.i.i.i, null
   %or.cond60.i = select i1 %tobool.not.i.i710.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i712.i.i.i
-  br i1 %or.cond60.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i718.i.i.i, label %if.then.i.i.i.i.i713.i.i.i
+  br i1 %or.cond60.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i718.i.i.i, label %if.then.i.i.i.i.i713.i.i.i
 
 if.then.i.i.i.i.i713.i.i.i:                       ; preds = %dynamic_cast.end.i.i709.i.i.i
   %_M_use_count.i.i.i.i.i.i714.i.i.i = getelementptr inbounds i8, ptr %.val15.i.i.i, i64 8
@@ -5033,13 +5033,13 @@ if.then.i.i.i.i.i.i.i716.i.i.i:                   ; preds = %if.then.i.i.i.i.i71
   %368 = load i32, ptr %_M_use_count.i.i.i.i.i.i714.i.i.i, align 4, !noalias !152
   %add.i.i.i.i.i.i.i717.i.i.i = add nsw i32 %368, 1
   store i32 %add.i.i.i.i.i.i.i717.i.i.i, ptr %_M_use_count.i.i.i.i.i.i714.i.i.i, align 4, !noalias !152
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i718.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i718.i.i.i
 
 if.else.i.i.i.i.i.i.i827.i.i.i:                   ; preds = %if.then.i.i.i.i.i713.i.i.i
   %369 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i714.i.i.i, i32 1 acq_rel, align 4, !noalias !152
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i718.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i718.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i718.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i827.i.i.i, %if.then.i.i.i.i.i.i.i716.i.i.i, %dynamic_cast.end.i.i709.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i718.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i827.i.i.i, %if.then.i.i.i.i.i.i.i716.i.i.i, %dynamic_cast.end.i.i709.i.i.i
   %iterator.sroa.6.0.i720.i.i.i = phi ptr [ %.val15.i.i.i, %if.else.i.i.i.i.i.i.i827.i.i.i ], [ %.val15.i.i.i, %if.then.i.i.i.i.i.i.i716.i.i.i ], [ null, %dynamic_cast.end.i.i709.i.i.i ]
   %370 = getelementptr i8, ptr %366, i64 16
   %call.val.i721.i.i.i = load i64, ptr %370, align 8
@@ -5047,7 +5047,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i722.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i726.i.i.i unwind label %lpad.i723.i.i.i
 
-invoke.cont.i726.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i718.i.i.i
+invoke.cont.i726.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i718.i.i.i
   %371 = load ptr, ptr %agg.result, align 8, !alias.scope !153
   %372 = tail call noundef ptr @__dynamic_cast(ptr nonnull %371, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIdEE, i64 0) #36
   %cmp1.not.i727.i.i.i = icmp eq i64 %call.val.i721.i.i.i, 0
@@ -5096,7 +5096,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i825.i.
   store i64 %inc.i.i826.i.i.i, ptr %373, align 8
   br label %for.inc.i780.i.i.i
 
-lpad.i723.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i718.i.i.i
+lpad.i723.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i718.i.i.i
   %378 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -5274,7 +5274,7 @@ dynamic_cast.end.i.i828.i.i.i:                    ; preds = %if.else7.i.i
   %tobool.not.i.i829.i.i.i = icmp eq ptr %401, null
   %cmp.not.i.i.i.i.i831.i.i.i = icmp eq ptr %.val17.i.i.i, null
   %or.cond61.i = select i1 %tobool.not.i.i829.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i831.i.i.i
-  br i1 %or.cond61.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i837.i.i.i, label %if.then.i.i.i.i.i832.i.i.i
+  br i1 %or.cond61.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i837.i.i.i, label %if.then.i.i.i.i.i832.i.i.i
 
 if.then.i.i.i.i.i832.i.i.i:                       ; preds = %dynamic_cast.end.i.i828.i.i.i
   %_M_use_count.i.i.i.i.i.i833.i.i.i = getelementptr inbounds i8, ptr %.val17.i.i.i, i64 8
@@ -5286,13 +5286,13 @@ if.then.i.i.i.i.i.i.i835.i.i.i:                   ; preds = %if.then.i.i.i.i.i83
   %403 = load i32, ptr %_M_use_count.i.i.i.i.i.i833.i.i.i, align 4, !noalias !162
   %add.i.i.i.i.i.i.i836.i.i.i = add nsw i32 %403, 1
   store i32 %add.i.i.i.i.i.i.i836.i.i.i, ptr %_M_use_count.i.i.i.i.i.i833.i.i.i, align 4, !noalias !162
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i837.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i837.i.i.i
 
 if.else.i.i.i.i.i.i.i921.i.i.i:                   ; preds = %if.then.i.i.i.i.i832.i.i.i
   %404 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i833.i.i.i, i32 1 acq_rel, align 4, !noalias !162
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i837.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i837.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i837.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i921.i.i.i, %if.then.i.i.i.i.i.i.i835.i.i.i, %dynamic_cast.end.i.i828.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i837.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i921.i.i.i, %if.then.i.i.i.i.i.i.i835.i.i.i, %dynamic_cast.end.i.i828.i.i.i
   %iterator.sroa.6.0.i838.i.i.i = phi ptr [ %.val17.i.i.i, %if.else.i.i.i.i.i.i.i921.i.i.i ], [ %.val17.i.i.i, %if.then.i.i.i.i.i.i.i835.i.i.i ], [ null, %dynamic_cast.end.i.i828.i.i.i ]
   %405 = getelementptr i8, ptr %401, i64 16
   %call.val.i840.i.i.i = load i64, ptr %405, align 8
@@ -5300,7 +5300,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i841.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i845.i.i.i unwind label %lpad.i842.i.i.i
 
-invoke.cont.i845.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i837.i.i.i
+invoke.cont.i845.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i837.i.i.i
   %406 = load ptr, ptr %agg.result, align 8, !alias.scope !163
   %407 = tail call noundef ptr @__dynamic_cast(ptr nonnull %406, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #36
   %cmp4.not.i.i.i.i = icmp eq i64 %call.val.i840.i.i.i, 0
@@ -5351,7 +5351,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i919.i.
   store i64 %inc.i.i920.i.i.i, ptr %408, align 8
   br label %for.inc.i881.i.i.i
 
-lpad.i842.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i837.i.i.i
+lpad.i842.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i837.i.i.i
   %413 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -5513,7 +5513,7 @@ dynamic_cast.end.i.i923.i.i.i:                    ; preds = %if.else7.i.i
   %tobool.not.i.i924.i.i.i = icmp eq ptr %427, null
   %cmp.not.i.i.i.i.i926.i.i.i = icmp eq ptr %.val19.i.i.i, null
   %or.cond62.i = select i1 %tobool.not.i.i924.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i926.i.i.i
-  br i1 %or.cond62.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i932.i.i.i, label %if.then.i.i.i.i.i927.i.i.i
+  br i1 %or.cond62.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i932.i.i.i, label %if.then.i.i.i.i.i927.i.i.i
 
 if.then.i.i.i.i.i927.i.i.i:                       ; preds = %dynamic_cast.end.i.i923.i.i.i
   %_M_use_count.i.i.i.i.i.i928.i.i.i = getelementptr inbounds i8, ptr %.val19.i.i.i, i64 8
@@ -5525,13 +5525,13 @@ if.then.i.i.i.i.i.i.i930.i.i.i:                   ; preds = %if.then.i.i.i.i.i92
   %429 = load i32, ptr %_M_use_count.i.i.i.i.i.i928.i.i.i, align 4, !noalias !172
   %add.i.i.i.i.i.i.i931.i.i.i = add nsw i32 %429, 1
   store i32 %add.i.i.i.i.i.i.i931.i.i.i, ptr %_M_use_count.i.i.i.i.i.i928.i.i.i, align 4, !noalias !172
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i932.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i932.i.i.i
 
 if.else.i.i.i.i.i.i.i1021.i.i.i:                  ; preds = %if.then.i.i.i.i.i927.i.i.i
   %430 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i928.i.i.i, i32 1 acq_rel, align 4, !noalias !172
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i932.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i932.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i932.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i1021.i.i.i, %if.then.i.i.i.i.i.i.i930.i.i.i, %dynamic_cast.end.i.i923.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i932.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i1021.i.i.i, %if.then.i.i.i.i.i.i.i930.i.i.i, %dynamic_cast.end.i.i923.i.i.i
   %iterator.sroa.6.0.i933.i.i.i = phi ptr [ %.val19.i.i.i, %if.else.i.i.i.i.i.i.i1021.i.i.i ], [ %.val19.i.i.i, %if.then.i.i.i.i.i.i.i930.i.i.i ], [ null, %dynamic_cast.end.i.i923.i.i.i ]
   %431 = getelementptr i8, ptr %427, i64 16
   %call.val.i935.i.i.i = load i64, ptr %431, align 8
@@ -5539,7 +5539,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i936.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i940.i.i.i unwind label %lpad.i937.i.i.i
 
-invoke.cont.i940.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i932.i.i.i
+invoke.cont.i940.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i932.i.i.i
   %432 = load ptr, ptr %agg.result, align 8, !alias.scope !173
   %433 = tail call noundef ptr @__dynamic_cast(ptr nonnull %432, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #36
   %cmp4.not.i941.i.i.i = icmp eq i64 %call.val.i935.i.i.i, 0
@@ -5590,7 +5590,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i1019.i
   store i64 %inc.i.i1020.i.i.i, ptr %434, align 8
   br label %for.inc.i974.i.i.i
 
-lpad.i937.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i932.i.i.i
+lpad.i937.i.i.i:                                  ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i932.i.i.i
   %439 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -5752,7 +5752,7 @@ dynamic_cast.end.i.i1022.i.i.i:                   ; preds = %if.else7.i.i
   %tobool.not.i.i1023.i.i.i = icmp eq ptr %453, null
   %cmp.not.i.i.i.i.i1025.i.i.i = icmp eq ptr %.val21.i.i.i, null
   %or.cond63.i = select i1 %tobool.not.i.i1023.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i1025.i.i.i
-  br i1 %or.cond63.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i1031.i.i.i, label %if.then.i.i.i.i.i1026.i.i.i
+  br i1 %or.cond63.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i1031.i.i.i, label %if.then.i.i.i.i.i1026.i.i.i
 
 if.then.i.i.i.i.i1026.i.i.i:                      ; preds = %dynamic_cast.end.i.i1022.i.i.i
   %_M_use_count.i.i.i.i.i.i1027.i.i.i = getelementptr inbounds i8, ptr %.val21.i.i.i, i64 8
@@ -5764,13 +5764,13 @@ if.then.i.i.i.i.i.i.i1029.i.i.i:                  ; preds = %if.then.i.i.i.i.i10
   %455 = load i32, ptr %_M_use_count.i.i.i.i.i.i1027.i.i.i, align 4, !noalias !182
   %add.i.i.i.i.i.i.i1030.i.i.i = add nsw i32 %455, 1
   store i32 %add.i.i.i.i.i.i.i1030.i.i.i, ptr %_M_use_count.i.i.i.i.i.i1027.i.i.i, align 4, !noalias !182
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i1031.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i1031.i.i.i
 
 if.else.i.i.i.i.i.i.i1138.i.i.i:                  ; preds = %if.then.i.i.i.i.i1026.i.i.i
   %456 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i1027.i.i.i, i32 1 acq_rel, align 4, !noalias !182
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i1031.i.i.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i1031.i.i.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i1031.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i1138.i.i.i, %if.then.i.i.i.i.i.i.i1029.i.i.i, %dynamic_cast.end.i.i1022.i.i.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i1031.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i1138.i.i.i, %if.then.i.i.i.i.i.i.i1029.i.i.i, %dynamic_cast.end.i.i1022.i.i.i
   %iterator.sroa.6.0.i1033.i.i.i = phi ptr [ %.val21.i.i.i, %if.else.i.i.i.i.i.i.i1138.i.i.i ], [ %.val21.i.i.i, %if.then.i.i.i.i.i.i.i1029.i.i.i ], [ null, %dynamic_cast.end.i.i1022.i.i.i ]
   %457 = getelementptr i8, ptr %453, i64 16
   %call.val.i1034.i.i.i = load i64, ptr %457, align 8
@@ -5778,7 +5778,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   invoke void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, i32 noundef %conv.i1035.i.i.i, ptr noundef %pool)
           to label %invoke.cont.i1039.i.i.i unwind label %lpad.i1036.i.i.i
 
-invoke.cont.i1039.i.i.i:                          ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i1031.i.i.i
+invoke.cont.i1039.i.i.i:                          ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i1031.i.i.i
   %458 = load ptr, ptr %agg.result, align 8, !alias.scope !183
   %459 = tail call noundef ptr @__dynamic_cast(ptr nonnull %458, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_9TimestampEEE, i64 0) #36
   %cmp1.not.i1040.i.i.i = icmp eq i64 %call.val.i1034.i.i.i, 0
@@ -5827,7 +5827,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIterator4nextEv.exit.i1136.i
   store i64 %inc.i.i1137.i.i.i, ptr %460, align 8
   br label %for.inc.i1093.i.i.i
 
-lpad.i1036.i.i.i:                                 ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i1031.i.i.i
+lpad.i1036.i.i.i:                                 ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i1031.i.i.i
   %465 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
@@ -7387,11 +7387,11 @@ if.else15.i:                                      ; preds = %if.else.i
   tail call void @llvm.trap()
   unreachable
 
-invoke.cont:                                      ; preds = %.noexc5, %.noexc4, %.noexc3, %return.sink.split.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1114.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1104.i.i.i, %nrvo.skipdtor.i1096.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i996.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i986.i.i.i, %nrvo.skipdtor.i977.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i902.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i892.i.i.i, %nrvo.skipdtor.i884.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i802.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i792.i.i.i, %nrvo.skipdtor.i783.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i683.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i673.i.i.i, %nrvo.skipdtor.i664.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i564.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i554.i.i.i, %nrvo.skipdtor.i545.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i446.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i436.i.i.i, %nrvo.skipdtor.i427.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i327.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i317.i.i.i, %nrvo.skipdtor.i308.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i208.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i198.i.i.i, %nrvo.skipdtor.i189.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i94.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i84.i.i.i, %nrvo.skipdtor.i76.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i155, %nrvo.skipdtor.i.i.i.i, %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.exit.i.i, %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.exit.i
+invoke.cont:                                      ; preds = %.noexc5, %.noexc4, %.noexc3, %return.sink.split.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1114.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1104.i.i.i, %nrvo.skipdtor.i1096.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i996.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i986.i.i.i, %nrvo.skipdtor.i977.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i902.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i892.i.i.i, %nrvo.skipdtor.i884.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i802.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i792.i.i.i, %nrvo.skipdtor.i783.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i683.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i673.i.i.i, %nrvo.skipdtor.i664.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i564.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i554.i.i.i, %nrvo.skipdtor.i545.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i446.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i436.i.i.i, %nrvo.skipdtor.i427.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i327.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i317.i.i.i, %nrvo.skipdtor.i308.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i208.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i198.i.i.i, %nrvo.skipdtor.i189.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i94.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i84.i.i.i, %nrvo.skipdtor.i76.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i155, %nrvo.skipdtor.i.i.i.i, %_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom.exit.i.i, %_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.argprom.exit.i
   %661 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val = load ptr, ptr %661, align 8
   %cmp.not.i.i.i = icmp eq ptr %ref.tmp.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.val, i64 8
@@ -7427,7 +7427,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %663, %if.then.i.i.i.i.i ], [ %666, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %ref.tmp.val, align 8
@@ -7452,16 +7452,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %669, %if.then.i.i.i.i.i.i.i ], [ %670, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %ref.tmp.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %671 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %671(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.val) #36
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %call3.i.i.i.i.i.noexc, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i.i.i.i, %_ZNK8facebook5velox4Type5asRowEv.exit.i, %dynamic_cast.bad_cast.i.i.i, %if.then10.i, %if.then14.i, %entry
@@ -7473,7 +7473,7 @@ lpad.body:                                        ; preds = %ehcleanup.i22, %lpa
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup32.i ], [ %.pn.i23, %ehcleanup.i22 ], [ %common.resume.op.i.i, %common.resume.i.i ], [ %.pn.i81, %ehcleanup.i80 ], [ %672, %lpad ], [ %.pn4.i.i, %ehcleanup16.i.i ], [ %.pn.pn.i.i.i, %ehcleanup31.i.i.i ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ]
   %673 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val1 = load ptr, ptr %673, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev(ptr %ref.tmp.val1) #36
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom(ptr %ref.tmp.val1) #36
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8051,7 +8051,7 @@ if.then:                                          ; preds = %entry
   %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 48
   store ptr %type.val11, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !229
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %type.val11, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then
   %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %type.val11, i64 8
@@ -8063,13 +8063,13 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   %6 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !229
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !229
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom.exit
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !229
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.exit: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom.exit: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !229
   %currentRow_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 56
   store i64 0, ptr %currentRow_.i.i.i.i.i.i.i.i, align 8, !noalias !229
@@ -8768,16 +8768,16 @@ invoke.cont47.i:                                  ; preds = %invoke.cont45.i
   %98 = getelementptr inbounds i8, ptr %ref.tmp37.i, i64 8
   %ref.tmp37.val21.i = load ptr, ptr %98, align 8
   %99 = icmp eq ptr %ref.tmp37.val.i, null
-  br i1 %99, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i, label %dynamic_cast.end.i.i
+  br i1 %99, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i, label %dynamic_cast.end.i.i
 
 dynamic_cast.end.i.i:                             ; preds = %invoke.cont47.i
   %100 = call ptr @__dynamic_cast(ptr nonnull %ref.tmp37.val.i, ptr nonnull @_ZTIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorE, ptr nonnull @_ZTIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorE, i64 0) #36, !noalias !245
   %tobool.not.i.i = icmp eq ptr %100, null
-  br i1 %tobool.not.i.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i, label %if.then.i64.i
+  br i1 %tobool.not.i.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i, label %if.then.i64.i
 
 if.then.i64.i:                                    ; preds = %dynamic_cast.end.i.i
   %cmp.not.i.i.i.i66.i = icmp eq ptr %ref.tmp37.val21.i, null
-  br i1 %cmp.not.i.i.i.i66.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i, label %if.then.i.i.i.i67.i
+  br i1 %cmp.not.i.i.i.i66.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i, label %if.then.i.i.i.i67.i
 
 if.then.i.i.i.i67.i:                              ; preds = %if.then.i64.i
   %_M_use_count.i.i.i.i.i68.i = getelementptr inbounds i8, ptr %ref.tmp37.val21.i, i64 8
@@ -8789,13 +8789,13 @@ if.then.i.i.i.i.i.i70.i:                          ; preds = %if.then.i.i.i.i67.i
   %102 = load i32, ptr %_M_use_count.i.i.i.i.i68.i, align 4, !noalias !245
   %add.i.i.i.i.i.i71.i = add nsw i32 %102, 1
   store i32 %add.i.i.i.i.i.i71.i, ptr %_M_use_count.i.i.i.i.i68.i, align 4, !noalias !245
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i
 
 if.else.i.i.i.i.i.i72.i:                          ; preds = %if.then.i.i.i.i67.i
   %103 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i68.i, i32 1 acq_rel, align 4, !noalias !245
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i: ; preds = %invoke.cont47.i, %dynamic_cast.end.i.i, %if.else.i.i.i.i.i.i72.i, %if.then.i.i.i.i.i.i70.i, %if.then.i64.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i: ; preds = %invoke.cont47.i, %dynamic_cast.end.i.i, %if.else.i.i.i.i.i.i72.i, %if.then.i.i.i.i.i.i70.i, %if.then.i64.i
   %ref.tmp36.i.sroa.6.0 = phi ptr [ null, %if.then.i64.i ], [ %ref.tmp37.val21.i, %if.else.i.i.i.i.i.i72.i ], [ %ref.tmp37.val21.i, %if.then.i.i.i.i.i.i70.i ], [ null, %dynamic_cast.end.i.i ], [ null, %invoke.cont47.i ]
   %ref.tmp36.i.sroa.0.0 = phi ptr [ %100, %if.then.i64.i ], [ %100, %if.else.i.i.i.i.i.i72.i ], [ %100, %if.then.i.i.i.i.i.i70.i ], [ null, %dynamic_cast.end.i.i ], [ null, %invoke.cont47.i ]
   store ptr %ref.tmp36.i.sroa.0.0, ptr %keysIteratorWrapper_.i, align 8
@@ -8803,9 +8803,9 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIterato
   %104 = load ptr, ptr %_M_refcount3.i.i.i73.i, align 8
   store ptr %ref.tmp36.i.sroa.6.0, ptr %_M_refcount3.i.i.i73.i, align 8
   %cmp.not.i.i.i.i74.i = icmp eq ptr %104, null
-  br i1 %cmp.not.i.i.i.i74.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit.i, label %if.then.i.i.i.i75.i
+  br i1 %cmp.not.i.i.i.i74.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit.i, label %if.then.i.i.i.i75.i
 
-if.then.i.i.i.i75.i:                              ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
+if.then.i.i.i.i75.i:                              ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i
   %_M_use_count.i.i.i.i.i76.i = getelementptr inbounds i8, ptr %104, i64 8
   %105 = load atomic i64, ptr %_M_use_count.i.i.i.i.i76.i acquire, align 8
   %cmp.i.i.i.i.i.i175 = icmp eq i64 %105, 4294967297
@@ -8839,7 +8839,7 @@ if.else.i.i.i.i.i.i79.i:                          ; preds = %if.end.i.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i177: ; preds = %if.else.i.i.i.i.i.i79.i, %if.then.i.i.i.i.i.i77.i
   %retval.i.0.i.i.i.i.i.i178 = phi i32 [ %106, %if.then.i.i.i.i.i.i77.i ], [ %109, %if.else.i.i.i.i.i.i79.i ]
   %cmp6.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i178, 1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit.i
+  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit.i
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i177
   %vtable.i.i.i.i.i.i.i.i181 = load ptr, ptr %104, align 8
@@ -8864,21 +8864,21 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i183
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %112, %if.then.i.i.i.i.i.i.i.i.i183 ], [ %113, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit.i
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i80.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %104, align 8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %114 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(16) %104) #36
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit.i
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit.i
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit.i: ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i177, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit.i: ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i177, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
   %ref.tmp37.val24.i = load ptr, ptr %98, align 8
   %cmp.not.i.i.i88.i = icmp eq ptr %ref.tmp37.val24.i, null
-  br i1 %cmp.not.i.i.i88.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit.i, label %if.then.i.i.i89.i
+  br i1 %cmp.not.i.i.i88.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit.i, label %if.then.i.i.i89.i
 
-if.then.i.i.i89.i:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit.i
+if.then.i.i.i89.i:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit.i
   %_M_use_count.i.i.i.i90.i = getelementptr inbounds i8, ptr %ref.tmp37.val24.i, i64 8
   %115 = load atomic i64, ptr %_M_use_count.i.i.i.i90.i acquire, align 8
   %cmp.i.i.i.i91.i = icmp eq i64 %115, 4294967297
@@ -8912,7 +8912,7 @@ if.else.i.i.i.i.i113.i:                           ; preds = %if.end.i.i.i.i92.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i96.i: ; preds = %if.else.i.i.i.i.i113.i, %if.then.i.i.i.i.i94.i
   %retval.i.0.i.i.i.i97.i = phi i32 [ %116, %if.then.i.i.i.i.i94.i ], [ %119, %if.else.i.i.i.i.i113.i ]
   %cmp6.i.i.i.i98.i = icmp eq i32 %retval.i.0.i.i.i.i97.i, 1
-  br i1 %cmp6.i.i.i.i98.i, label %if.then7.i.i.i.i99.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit.i
+  br i1 %cmp6.i.i.i.i98.i, label %if.then7.i.i.i.i99.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit.i
 
 if.then7.i.i.i.i99.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i96.i
   %vtable.i.i.i.i.i.i100.i = load ptr, ptr %ref.tmp37.val24.i, align 8
@@ -8937,21 +8937,21 @@ if.else.i.i.i.i.i.i.i112.i:                       ; preds = %if.then7.i.i.i.i99.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i106.i: ; preds = %if.else.i.i.i.i.i.i.i112.i, %if.then.i.i.i.i.i.i.i104.i
   %retval.i.0.i.i.i.i.i.i107.i = phi i32 [ %122, %if.then.i.i.i.i.i.i.i104.i ], [ %123, %if.else.i.i.i.i.i.i.i112.i ]
   %cmp.i.i.i.i.i.i108.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i107.i, 1
-  br i1 %cmp.i.i.i.i.i.i108.i, label %if.end8.sink.split.i.i.i.i109.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit.i
+  br i1 %cmp.i.i.i.i.i.i108.i, label %if.end8.sink.split.i.i.i.i109.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit.i
 
 if.end8.sink.split.i.i.i.i109.i:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i106.i, %if.then.i.i.i.i114.i
   %vtable2.i.i.i.i.i.i110.i = load ptr, ptr %ref.tmp37.val24.i, align 8
   %vfn3.i.i.i.i.i.i111.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i110.i, i64 24
   %124 = load ptr, ptr %vfn3.i.i.i.i.i.i111.i, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37.val24.i) #36
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit.i
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit.i
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i109.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i106.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i96.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit.i
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit.i: ; preds = %if.end8.sink.split.i.i.i.i109.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i106.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i96.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit.i
   %125 = load ptr, ptr %_M_refcount.i.i63.i, align 8
   %cmp.not.i.i.i119.i = icmp eq ptr %125, null
   br i1 %cmp.not.i.i.i119.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i, label %if.then.i.i.i120.i
 
-if.then.i.i.i120.i:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit.i
+if.then.i.i.i120.i:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit.i
   %_M_use_count.i.i.i.i121.i = getelementptr inbounds i8, ptr %125, i64 8
   %126 = load atomic i64, ptr %_M_use_count.i.i.i.i121.i acquire, align 8
   %cmp.i.i.i.i122.i = icmp eq i64 %126, 4294967297
@@ -9019,7 +9019,7 @@ if.end8.sink.split.i.i.i.i140.i:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %135(ptr noundef nonnull align 8 dereferenceable(16) %125) #36
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i
 
-_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i140.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i137.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i127.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit.i
+_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i140.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i137.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i127.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit.i
   %136 = load ptr, ptr %_M_refcount4.i.i.i, align 8
   %cmp.not.i.i.i150.i = icmp eq ptr %136, null
   br i1 %cmp.not.i.i.i150.i, label %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i, label %if.then.i.i.i151.i
@@ -9220,16 +9220,16 @@ invoke.cont64.i:                                  ; preds = %invoke.cont62.i
   %167 = getelementptr inbounds i8, ptr %ref.tmp51.i, i64 8
   %ref.tmp51.val22.i = load ptr, ptr %167, align 8
   %168 = icmp eq ptr %ref.tmp51.val.i, null
-  br i1 %168, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit236.i, label %dynamic_cast.end.i224.i
+  br i1 %168, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit236.i, label %dynamic_cast.end.i224.i
 
 dynamic_cast.end.i224.i:                          ; preds = %invoke.cont64.i
   %169 = call ptr @__dynamic_cast(ptr nonnull %ref.tmp51.val.i, ptr nonnull @_ZTIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorE, ptr nonnull @_ZTIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorE, i64 0) #36, !noalias !248
   %tobool.not.i225.i = icmp eq ptr %169, null
-  br i1 %tobool.not.i225.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit236.i, label %if.then.i226.i
+  br i1 %tobool.not.i225.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit236.i, label %if.then.i226.i
 
 if.then.i226.i:                                   ; preds = %dynamic_cast.end.i224.i
   %cmp.not.i.i.i.i228.i = icmp eq ptr %ref.tmp51.val22.i, null
-  br i1 %cmp.not.i.i.i.i228.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit236.i, label %if.then.i.i.i.i229.i
+  br i1 %cmp.not.i.i.i.i228.i, label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit236.i, label %if.then.i.i.i.i229.i
 
 if.then.i.i.i.i229.i:                             ; preds = %if.then.i226.i
   %_M_use_count.i.i.i.i.i230.i = getelementptr inbounds i8, ptr %ref.tmp51.val22.i, i64 8
@@ -9241,13 +9241,13 @@ if.then.i.i.i.i.i.i232.i:                         ; preds = %if.then.i.i.i.i229.
   %171 = load i32, ptr %_M_use_count.i.i.i.i.i230.i, align 4, !noalias !248
   %add.i.i.i.i.i.i233.i = add nsw i32 %171, 1
   store i32 %add.i.i.i.i.i.i233.i, ptr %_M_use_count.i.i.i.i.i230.i, align 4, !noalias !248
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit236.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit236.i
 
 if.else.i.i.i.i.i.i234.i:                         ; preds = %if.then.i.i.i.i229.i
   %172 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i230.i, i32 1 acq_rel, align 4, !noalias !248
-  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit236.i
+  br label %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit236.i
 
-_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit236.i: ; preds = %invoke.cont64.i, %dynamic_cast.end.i224.i, %if.else.i.i.i.i.i.i234.i, %if.then.i.i.i.i.i.i232.i, %if.then.i226.i
+_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit236.i: ; preds = %invoke.cont64.i, %dynamic_cast.end.i224.i, %if.else.i.i.i.i.i.i234.i, %if.then.i.i.i.i.i.i232.i, %if.then.i226.i
   %ref.tmp50.i.sroa.6.0 = phi ptr [ null, %if.then.i226.i ], [ %ref.tmp51.val22.i, %if.else.i.i.i.i.i.i234.i ], [ %ref.tmp51.val22.i, %if.then.i.i.i.i.i.i232.i ], [ null, %dynamic_cast.end.i224.i ], [ null, %invoke.cont64.i ]
   %ref.tmp50.i.sroa.0.0 = phi ptr [ %169, %if.then.i226.i ], [ %169, %if.else.i.i.i.i.i.i234.i ], [ %169, %if.then.i.i.i.i.i.i232.i ], [ null, %dynamic_cast.end.i224.i ], [ null, %invoke.cont64.i ]
   store ptr %ref.tmp50.i.sroa.0.0, ptr %valuesIteratorWrapper_.i, align 8
@@ -9255,9 +9255,9 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIterato
   %173 = load ptr, ptr %_M_refcount3.i.i.i238.i, align 8
   store ptr %ref.tmp50.i.sroa.6.0, ptr %_M_refcount3.i.i.i238.i, align 8
   %cmp.not.i.i.i.i239.i = icmp eq ptr %173, null
-  br i1 %cmp.not.i.i.i.i239.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit300.i, label %if.then.i.i.i.i240.i
+  br i1 %cmp.not.i.i.i.i239.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit300.i, label %if.then.i.i.i.i240.i
 
-if.then.i.i.i.i240.i:                             ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit236.i
+if.then.i.i.i.i240.i:                             ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit236.i
   %_M_use_count.i.i.i.i.i241.i = getelementptr inbounds i8, ptr %173, i64 8
   %174 = load atomic i64, ptr %_M_use_count.i.i.i.i.i241.i acquire, align 8
   %cmp.i.i.i.i.i242.i = icmp eq i64 %174, 4294967297
@@ -9291,7 +9291,7 @@ if.else.i.i.i.i.i.i264.i:                         ; preds = %if.end.i.i.i.i.i243
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i247.i: ; preds = %if.else.i.i.i.i.i.i264.i, %if.then.i.i.i.i.i.i245.i
   %retval.i.0.i.i.i.i.i248.i = phi i32 [ %175, %if.then.i.i.i.i.i.i245.i ], [ %178, %if.else.i.i.i.i.i.i264.i ]
   %cmp6.i.i.i.i.i249.i = icmp eq i32 %retval.i.0.i.i.i.i.i248.i, 1
-  br i1 %cmp6.i.i.i.i.i249.i, label %if.then7.i.i.i.i.i250.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit300.i
+  br i1 %cmp6.i.i.i.i.i249.i, label %if.then7.i.i.i.i.i250.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit300.i
 
 if.then7.i.i.i.i.i250.i:                          ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i247.i
   %vtable.i.i.i.i.i.i.i251.i = load ptr, ptr %173, align 8
@@ -9316,21 +9316,21 @@ if.else.i.i.i.i.i.i.i.i263.i:                     ; preds = %if.then7.i.i.i.i.i2
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i257.i: ; preds = %if.else.i.i.i.i.i.i.i.i263.i, %if.then.i.i.i.i.i.i.i.i255.i
   %retval.i.0.i.i.i.i.i.i.i258.i = phi i32 [ %181, %if.then.i.i.i.i.i.i.i.i255.i ], [ %182, %if.else.i.i.i.i.i.i.i.i263.i ]
   %cmp.i.i.i.i.i.i.i259.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i258.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i259.i, label %if.end8.sink.split.i.i.i.i.i260.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit300.i
+  br i1 %cmp.i.i.i.i.i.i.i259.i, label %if.end8.sink.split.i.i.i.i.i260.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit300.i
 
 if.end8.sink.split.i.i.i.i.i260.i:                ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i257.i, %if.then.i.i.i.i.i265.i
   %vtable2.i.i.i.i.i.i.i261.i = load ptr, ptr %173, align 8
   %vfn3.i.i.i.i.i.i.i262.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i261.i, i64 24
   %183 = load ptr, ptr %vfn3.i.i.i.i.i.i.i262.i, align 8
   call void %183(ptr noundef nonnull align 8 dereferenceable(16) %173) #36
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit300.i
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit300.i
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit300.i: ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit236.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i247.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i257.i, %if.end8.sink.split.i.i.i.i.i260.i
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit300.i: ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom.exit236.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i247.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i257.i, %if.end8.sink.split.i.i.i.i.i260.i
   %ref.tmp51.val23.i = load ptr, ptr %167, align 8
   %cmp.not.i.i.i301.i = icmp eq ptr %ref.tmp51.val23.i, null
-  br i1 %cmp.not.i.i.i301.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit331.i, label %if.then.i.i.i302.i
+  br i1 %cmp.not.i.i.i301.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit331.i, label %if.then.i.i.i302.i
 
-if.then.i.i.i302.i:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit300.i
+if.then.i.i.i302.i:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit300.i
   %_M_use_count.i.i.i.i303.i = getelementptr inbounds i8, ptr %ref.tmp51.val23.i, i64 8
   %184 = load atomic i64, ptr %_M_use_count.i.i.i.i303.i acquire, align 8
   %cmp.i.i.i.i304.i = icmp eq i64 %184, 4294967297
@@ -9364,7 +9364,7 @@ if.else.i.i.i.i.i326.i:                           ; preds = %if.end.i.i.i.i305.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i309.i: ; preds = %if.else.i.i.i.i.i326.i, %if.then.i.i.i.i.i307.i
   %retval.i.0.i.i.i.i310.i = phi i32 [ %185, %if.then.i.i.i.i.i307.i ], [ %188, %if.else.i.i.i.i.i326.i ]
   %cmp6.i.i.i.i311.i = icmp eq i32 %retval.i.0.i.i.i.i310.i, 1
-  br i1 %cmp6.i.i.i.i311.i, label %if.then7.i.i.i.i312.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit331.i
+  br i1 %cmp6.i.i.i.i311.i, label %if.then7.i.i.i.i312.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit331.i
 
 if.then7.i.i.i.i312.i:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i309.i
   %vtable.i.i.i.i.i.i313.i = load ptr, ptr %ref.tmp51.val23.i, align 8
@@ -9389,21 +9389,21 @@ if.else.i.i.i.i.i.i.i325.i:                       ; preds = %if.then7.i.i.i.i312
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319.i: ; preds = %if.else.i.i.i.i.i.i.i325.i, %if.then.i.i.i.i.i.i.i317.i
   %retval.i.0.i.i.i.i.i.i320.i = phi i32 [ %191, %if.then.i.i.i.i.i.i.i317.i ], [ %192, %if.else.i.i.i.i.i.i.i325.i ]
   %cmp.i.i.i.i.i.i321.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i320.i, 1
-  br i1 %cmp.i.i.i.i.i.i321.i, label %if.end8.sink.split.i.i.i.i322.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit331.i
+  br i1 %cmp.i.i.i.i.i.i321.i, label %if.end8.sink.split.i.i.i.i322.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit331.i
 
 if.end8.sink.split.i.i.i.i322.i:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319.i, %if.then.i.i.i.i327.i
   %vtable2.i.i.i.i.i.i323.i = load ptr, ptr %ref.tmp51.val23.i, align 8
   %vfn3.i.i.i.i.i.i324.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i323.i, i64 24
   %193 = load ptr, ptr %vfn3.i.i.i.i.i.i324.i, align 8
   call void %193(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51.val23.i) #36
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit331.i
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit331.i
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit331.i: ; preds = %if.end8.sink.split.i.i.i.i322.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i309.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit300.i
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit331.i: ; preds = %if.end8.sink.split.i.i.i.i322.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i319.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i309.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit300.i
   %194 = load ptr, ptr %_M_refcount.i.i222.i, align 8
   %cmp.not.i.i.i333.i = icmp eq ptr %194, null
   br i1 %cmp.not.i.i.i333.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit363.i, label %if.then.i.i.i334.i
 
-if.then.i.i.i334.i:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit331.i
+if.then.i.i.i334.i:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit331.i
   %_M_use_count.i.i.i.i335.i = getelementptr inbounds i8, ptr %194, i64 8
   %195 = load atomic i64, ptr %_M_use_count.i.i.i.i335.i acquire, align 8
   %cmp.i.i.i.i336.i = icmp eq i64 %195, 4294967297
@@ -9471,7 +9471,7 @@ if.end8.sink.split.i.i.i.i354.i:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %204(ptr noundef nonnull align 8 dereferenceable(16) %194) #36
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit363.i
 
-_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit363.i: ; preds = %if.end8.sink.split.i.i.i.i354.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i351.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i341.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.exit331.i
+_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit363.i: ; preds = %if.end8.sink.split.i.i.i.i354.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i351.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i341.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom.exit331.i
   %205 = load ptr, ptr %_M_refcount4.i.i223.i, align 8
   %cmp.not.i.i.i365.i = icmp eq ptr %205, null
   br i1 %cmp.not.i.i.i365.i, label %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit395.i, label %if.then.i.i.i366.i
@@ -9654,7 +9654,7 @@ invoke.cont.i.i439.i:                             ; preds = %if.then5.i436.i
 _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %if.then.i440.i._ZNSt6vectorImSaImEE6resizeEm.exit.i_crit_edge, %invoke.cont.i.i439.i, %if.then5.i436.i, %if.else.i434.i
   %230 = phi i64 [ %.pre206, %if.then.i440.i._ZNSt6vectorImSaImEE6resizeEm.exit.i_crit_edge ], [ %227, %invoke.cont.i.i439.i ], [ %227, %if.then5.i436.i ], [ %227, %if.else.i434.i ]
   %cmp77.i196.not = icmp eq i64 %230, 0
-  br i1 %cmp77.i196.not, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.exit, label %for.body78.i
+  br i1 %cmp77.i196.not, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.argprom.exit, label %for.body78.i
 
 for.body78.i:                                     ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i, %invoke.cont84.i
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %invoke.cont84.i ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit.i ]
@@ -9672,7 +9672,7 @@ invoke.cont84.i:                                  ; preds = %for.body78.i
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %233 = load i64, ptr %numRows_.i.i, align 8
   %cmp77.i = icmp ugt i64 %233, %indvars.iv.next201
-  br i1 %cmp77.i, label %for.body78.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.exit, !llvm.loop !251
+  br i1 %cmp77.i, label %for.body78.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.argprom.exit, !llvm.loop !251
 
 lpad44.i:                                         ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit.i
   %234 = landingpad { ptr, i32 }
@@ -9739,15 +9739,15 @@ if.then.i.i.i448.i:                               ; preds = %_ZNSt6vectorISt8opt
 _ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EED2Ev.exit449.i: ; preds = %if.then.i.i.i448.i, %_ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EED2Ev.exit.i
   %241 = getelementptr inbounds i8, ptr %call5.i.i.i5.i, i64 80
   %valuesIteratorWrapper_.val.i = load ptr, ptr %241, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev(ptr %valuesIteratorWrapper_.val.i) #36
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom(ptr %valuesIteratorWrapper_.val.i) #36
   %242 = getelementptr inbounds i8, ptr %call5.i.i.i5.i, i64 64
   %keysIteratorWrapper_.val.i = load ptr, ptr %242, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev(ptr %keysIteratorWrapper_.val.i) #36
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom(ptr %keysIteratorWrapper_.val.i) #36
   call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i9.i) #36
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i) #38
   br label %common.resume
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.exit: ; preds = %invoke.cont84.i, %_ZNSt6vectorImSaImEE6resizeEm.exit.i
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.argprom.exit: ; preds = %invoke.cont84.i, %_ZNSt6vectorImSaImEE6resizeEm.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp37.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp39.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp40.i)
@@ -9762,9 +9762,9 @@ if.end18:                                         ; preds = %if.else
   tail call void @llvm.trap()
   unreachable
 
-return:                                           ; preds = %cond.end.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i93, %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.exit
-  %_M_impl.i9.i.sink = phi ptr [ %_M_impl.i9.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i16, %if.then.i.i.i.i.i.i.i.i.i ], [ %_M_impl.i.i.i.i.i.i16, %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit.i.i.i.i.i.i.i.i ], [ %_M_impl.i.i.i.i.i.i71, %if.then.i.i.i.i.i.i.i.i.i93 ], [ %_M_impl.i.i.i.i.i.i71, %for.end.i.i.i.i.i.i.i.i ], [ %_M_impl.i.i.i.i.i.i71, %cond.end.i.i.i.i.i.i.i.i ]
-  %call5.i.i.i5.i.sink = phi ptr [ %call5.i.i.i5.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i13, %if.then.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i5.i.i.i.i13, %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit.i.i.i.i.i.i.i.i ], [ %call5.i.i.i5.i.i.i.i68, %if.then.i.i.i.i.i.i.i.i.i93 ], [ %call5.i.i.i5.i.i.i.i68, %for.end.i.i.i.i.i.i.i.i ], [ %call5.i.i.i5.i.i.i.i68, %cond.end.i.i.i.i.i.i.i.i ]
+return:                                           ; preds = %cond.end.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i93, %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom.exit
+  %_M_impl.i9.i.sink = phi ptr [ %_M_impl.i9.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.argprom.exit ], [ %_M_impl.i.i.i.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom.exit ], [ %_M_impl.i.i.i.i.i.i16, %if.then.i.i.i.i.i.i.i.i.i ], [ %_M_impl.i.i.i.i.i.i16, %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit.i.i.i.i.i.i.i.i ], [ %_M_impl.i.i.i.i.i.i71, %if.then.i.i.i.i.i.i.i.i.i93 ], [ %_M_impl.i.i.i.i.i.i71, %for.end.i.i.i.i.i.i.i.i ], [ %_M_impl.i.i.i.i.i.i71, %cond.end.i.i.i.i.i.i.i.i ]
+  %call5.i.i.i5.i.sink = phi ptr [ %call5.i.i.i5.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom.exit ], [ %call5.i.i.i5.i.i.i.i13, %if.then.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i5.i.i.i.i13, %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit.i.i.i.i.i.i.i.i ], [ %call5.i.i.i5.i.i.i.i68, %if.then.i.i.i.i.i.i.i.i.i93 ], [ %call5.i.i.i5.i.i.i.i68, %for.end.i.i.i.i.i.i.i.i ], [ %call5.i.i.i5.i.i.i.i68, %cond.end.i.i.i.i.i.i.i.i ]
   store ptr %_M_impl.i9.i.sink, ptr %agg.result, align 8
   %_M_refcount.i.i132 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i5.i.sink, ptr %_M_refcount.i.i132, align 8
@@ -9772,10 +9772,10 @@ return:                                           ; preds = %cond.end.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev(ptr %this.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorEED2Ev.argprom(ptr %this.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -9811,7 +9811,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -9836,16 +9836,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #36
-  br label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -9981,10 +9981,10 @@ terminate.lpad:                                   ; preds = %if.then2.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev(ptr %this.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEED2Ev.argprom(ptr %this.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -10020,7 +10020,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -10045,16 +10045,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #36
-  br label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -46274,10 +46274,10 @@ eh.resume:                                        ; preds = %ehcleanup54, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev(ptr %this.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom(ptr %this.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -46313,7 +46313,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -46338,16 +46338,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #36
-  br label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -46376,7 +46376,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #38
   ret void
 }
@@ -46865,7 +46865,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_119StructBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_119StructBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_119StructBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #38
   ret void
 }
@@ -47385,7 +47385,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #38
   ret void
 }
@@ -47719,7 +47719,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #38
   ret void
 }
@@ -47875,7 +47875,7 @@ _ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EED2Ev
   %3 = getelementptr inbounds i8, ptr %this, i64 64
   %valuesIteratorWrapper_.val = load ptr, ptr %3, align 8
   %cmp.not.i.i.i = icmp eq ptr %valuesIteratorWrapper_.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit, label %if.then.i.i.i6
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EED2Ev.exit5
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %valuesIteratorWrapper_.val, i64 8
@@ -47911,7 +47911,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %5, %if.then.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %valuesIteratorWrapper_.val, align 8
@@ -47936,22 +47936,22 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %11, %if.then.i.i.i.i.i.i.i ], [ %12, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %valuesIteratorWrapper_.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %valuesIteratorWrapper_.val) #36
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit: ; preds = %_ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EED2Ev.exit5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit: ; preds = %_ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EED2Ev.exit5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %this, i64 48
   %keysIteratorWrapper_.val = load ptr, ptr %14, align 8
   %cmp.not.i.i.i7 = icmp eq ptr %keysIteratorWrapper_.val, null
-  br i1 %cmp.not.i.i.i7, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit37, label %if.then.i.i.i8
+  br i1 %cmp.not.i.i.i7, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit37, label %if.then.i.i.i8
 
-if.then.i.i.i8:                                   ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit
+if.then.i.i.i8:                                   ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit
   %_M_use_count.i.i.i.i9 = getelementptr inbounds i8, ptr %keysIteratorWrapper_.val, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i10 = icmp eq i64 %15, 4294967297
@@ -47985,7 +47985,7 @@ if.else.i.i.i.i.i32:                              ; preds = %if.end.i.i.i.i11
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15: ; preds = %if.else.i.i.i.i.i32, %if.then.i.i.i.i.i13
   %retval.i.0.i.i.i.i16 = phi i32 [ %16, %if.then.i.i.i.i.i13 ], [ %19, %if.else.i.i.i.i.i32 ]
   %cmp6.i.i.i.i17 = icmp eq i32 %retval.i.0.i.i.i.i16, 1
-  br i1 %cmp6.i.i.i.i17, label %if.then7.i.i.i.i18, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit37
+  br i1 %cmp6.i.i.i.i17, label %if.then7.i.i.i.i18, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit37
 
 if.then7.i.i.i.i18:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15
   %vtable.i.i.i.i.i.i19 = load ptr, ptr %keysIteratorWrapper_.val, align 8
@@ -48010,23 +48010,23 @@ if.else.i.i.i.i.i.i.i31:                          ; preds = %if.then7.i.i.i.i18
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i25: ; preds = %if.else.i.i.i.i.i.i.i31, %if.then.i.i.i.i.i.i.i23
   %retval.i.0.i.i.i.i.i.i26 = phi i32 [ %22, %if.then.i.i.i.i.i.i.i23 ], [ %23, %if.else.i.i.i.i.i.i.i31 ]
   %cmp.i.i.i.i.i.i27 = icmp eq i32 %retval.i.0.i.i.i.i.i.i26, 1
-  br i1 %cmp.i.i.i.i.i.i27, label %if.end8.sink.split.i.i.i.i28, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit37
+  br i1 %cmp.i.i.i.i.i.i27, label %if.end8.sink.split.i.i.i.i28, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit37
 
 if.end8.sink.split.i.i.i.i28:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i25, %if.then.i.i.i.i33
   %vtable2.i.i.i.i.i.i29 = load ptr, ptr %keysIteratorWrapper_.val, align 8
   %vfn3.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %keysIteratorWrapper_.val) #36
-  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit37
+  br label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit37
 
-_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit37: ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i28
+_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit37: ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %25 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev.exit, label %if.then.i.i.i.i38
 
-if.then.i.i.i.i38:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit37
+if.then.i.i.i.i38:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit37
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %26, 4294967297
@@ -48094,7 +48094,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #36
   br label %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev.exit
 
-_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev.argprom.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -49492,8 +49492,8 @@ attributes #41 = { cold noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN8facebook5velox10serializer5spark12_GLOBAL__N_125UnsafeRowVectorSerializerEJRPNS1_11StreamArenaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN8facebook5velox10serializer5spark12_GLOBAL__N_125UnsafeRowVectorSerializerEJRPNS1_11StreamArenaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN8facebook5velox10serializer5spark12_GLOBAL__N_125UnsafeRowVectorSerializerEJRPNS1_11StreamArenaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN8facebook5velox10serializer5spark12_GLOBAL__N_125UnsafeRowVectorSerializerEJRPNS1_11StreamArenaEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!10, !12}
@@ -49519,12 +49519,12 @@ attributes #41 = { cold noreturn nounwind }
 !29 = distinct !{!29, !30, !"_ZN8facebook5velox3row21UnsafeRowDeserializer34convertPrimitiveIteratorsToVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE: %agg.result"}
 !30 = distinct !{!30, !"_ZN8facebook5velox3row21UnsafeRowDeserializer34convertPrimitiveIteratorsToVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!33 = distinct !{!33, !"_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE"}
+!32 = distinct !{!32, !33, !"_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!33 = distinct !{!33, !"_ZN8facebook5velox3row21UnsafeRowDeserializer23createFlatUnknownVectorERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolE.argprom"}
 !34 = !{!32, !29}
 !35 = !{!36, !32}
-!36 = distinct !{!36, !37, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!37 = distinct !{!37, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!36 = distinct !{!36, !37, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!37 = distinct !{!37, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !38 = !{!36, !32, !29}
 !39 = distinct !{!39, !8}
 !40 = !{!41}
@@ -49546,12 +49546,12 @@ attributes #41 = { cold noreturn nounwind }
 !56 = distinct !{!56, !57, !"_ZZN8facebook5velox3row21UnsafeRowDeserializer34convertPrimitiveIteratorsToVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEENKUlvE_clEv: %agg.result"}
 !57 = distinct !{!57, !"_ZZN8facebook5velox3row21UnsafeRowDeserializer34convertPrimitiveIteratorsToVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEENKUlvE_clEv"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!60 = distinct !{!60, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!59 = distinct !{!59, !60, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!60 = distinct !{!60, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE35EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !61 = !{!56, !29}
 !62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!64 = distinct !{!64, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!63 = distinct !{!63, !64, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!64 = distinct !{!64, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !65 = !{!63, !59, !56, !29}
 !66 = !{!63, !59}
 !67 = !{!59, !56, !29}
@@ -49563,111 +49563,111 @@ attributes #41 = { cold noreturn nounwind }
 !73 = distinct !{!73, !74, !"_ZZZN8facebook5velox3row21UnsafeRowDeserializer34convertPrimitiveIteratorsToVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEENKUlvE_clEvENKUlvE_clEv: %agg.result"}
 !74 = distinct !{!74, !"_ZZZN8facebook5velox3row21UnsafeRowDeserializer34convertPrimitiveIteratorsToVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEENKUlvE_clEvENKUlvE_clEv"}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!77 = distinct !{!77, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!76 = distinct !{!76, !77, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!77 = distinct !{!77, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!80 = distinct !{!80, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!79 = distinct !{!79, !80, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!80 = distinct !{!80, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !81 = !{!79, !76, !73, !56, !29}
 !82 = !{!79, !76}
 !83 = !{!76, !73, !56, !29}
 !84 = distinct !{!84, !8}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!87 = distinct !{!87, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!86 = distinct !{!86, !87, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!87 = distinct !{!87, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!90 = distinct !{!90, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!89 = distinct !{!89, !90, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!90 = distinct !{!90, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !91 = !{!89, !86, !73, !56, !29}
 !92 = !{!89, !86}
 !93 = !{!86, !73, !56, !29}
 !94 = distinct !{!94, !8}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!97 = distinct !{!97, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!96 = distinct !{!96, !97, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!97 = distinct !{!97, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!100 = distinct !{!100, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!99 = distinct !{!99, !100, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!100 = distinct !{!100, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !101 = !{!99, !96, !73, !56, !29}
 !102 = !{!99, !96}
 !103 = !{!96, !73, !56, !29}
 !104 = distinct !{!104, !8}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!107 = distinct !{!107, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!106 = distinct !{!106, !107, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!107 = distinct !{!107, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!110 = distinct !{!110, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!109 = distinct !{!109, !110, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!110 = distinct !{!110, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !111 = !{!109, !106, !73, !56, !29}
 !112 = !{!109, !106}
 !113 = !{!106, !73, !56, !29}
 !114 = distinct !{!114, !8}
 !115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!117 = distinct !{!117, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!116 = distinct !{!116, !117, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!117 = distinct !{!117, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!120 = distinct !{!120, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!119 = distinct !{!119, !120, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!120 = distinct !{!120, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !121 = !{!119, !116, !73, !56, !29}
 !122 = !{!119, !116}
 !123 = !{!116, !73, !56, !29}
 !124 = distinct !{!124, !8}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!127 = distinct !{!127, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!126 = distinct !{!126, !127, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!127 = distinct !{!127, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!130 = distinct !{!130, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!129 = distinct !{!129, !130, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!130 = distinct !{!130, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !131 = !{!129, !126, !73, !56, !29}
 !132 = !{!129, !126}
 !133 = !{!126, !73, !56, !29}
 !134 = distinct !{!134, !8}
 !135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!137 = distinct !{!137, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!136 = distinct !{!136, !137, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!137 = distinct !{!137, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!140 = distinct !{!140, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!139 = distinct !{!139, !140, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!140 = distinct !{!140, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !141 = !{!139, !136, !73, !56, !29}
 !142 = !{!139, !136}
 !143 = !{!136, !73, !56, !29}
 !144 = distinct !{!144, !8}
 !145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!147 = distinct !{!147, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!146 = distinct !{!146, !147, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!147 = distinct !{!147, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!150 = distinct !{!150, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!149 = distinct !{!149, !150, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!150 = distinct !{!150, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !151 = !{!149, !146, !73, !56, !29}
 !152 = !{!149, !146}
 !153 = !{!146, !73, !56, !29}
 !154 = distinct !{!154, !8}
 !155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!157 = distinct !{!157, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!156 = distinct !{!156, !157, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!157 = distinct !{!157, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!160 = distinct !{!160, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!159 = distinct !{!159, !160, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!160 = distinct !{!160, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !161 = !{!159, !156, !73, !56, !29}
 !162 = !{!159, !156}
 !163 = !{!156, !73, !56, !29}
 !164 = distinct !{!164, !8}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!167 = distinct !{!167, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!166 = distinct !{!166, !167, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!167 = distinct !{!167, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!170 = distinct !{!170, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!169 = distinct !{!169, !170, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!170 = distinct !{!170, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !171 = !{!169, !166, !73, !56, !29}
 !172 = !{!169, !166}
 !173 = !{!166, !73, !56, !29}
 !174 = distinct !{!174, !8}
 !175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE: %agg.result"}
-!177 = distinct !{!177, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE"}
+!176 = distinct !{!176, !177, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom: %agg.result"}
+!177 = distinct !{!177, !"_ZN8facebook5velox3row21UnsafeRowDeserializer16createFlatVectorILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEERKS5_INS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEERKS5_IKNS0_4TypeEEPNS0_6memory10MemoryPoolE.argprom"}
 !178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!180 = distinct !{!180, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!179 = distinct !{!179, !180, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!180 = distinct !{!180, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !181 = !{!179, !176, !73, !56, !29}
 !182 = !{!179, !176}
 !183 = !{!176, !73, !56, !29}
@@ -49717,8 +49717,8 @@ attributes #41 = { cold noreturn nounwind }
 !227 = distinct !{!227, !"_ZSt11make_uniqueIN8facebook5velox10serializer5spark20UnsafeRowVectorSerdeEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !228 = distinct !{!228, !8}
 !229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZSt11make_sharedIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEJRKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaISB_EERKSt10shared_ptrIKNS1_4TypeEEEESG_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_: %agg.result"}
-!231 = distinct !{!231, !"_ZSt11make_sharedIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEJRKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaISB_EERKSt10shared_ptrIKNS1_4TypeEEEESG_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_"}
+!230 = distinct !{!230, !231, !"_ZSt11make_sharedIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEJRKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaISB_EERKSt10shared_ptrIKNS1_4TypeEEEESG_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_.argprom: %agg.result"}
+!231 = distinct !{!231, !"_ZSt11make_sharedIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorEJRKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaISB_EERKSt10shared_ptrIKNS1_4TypeEEEESG_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_.argprom"}
 !232 = !{!233}
 !233 = distinct !{!233, !234, !"_ZSt11make_sharedIN8facebook5velox3row12_GLOBAL__N_119StructBatchIteratorEJRKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaISB_EERKSt10shared_ptrIKNS1_4TypeEEEESG_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_: %agg.result"}
 !234 = distinct !{!234, !"_ZSt11make_sharedIN8facebook5velox3row12_GLOBAL__N_119StructBatchIteratorEJRKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaISB_EERKSt10shared_ptrIKNS1_4TypeEEEESG_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_"}
@@ -49733,11 +49733,11 @@ attributes #41 = { cold noreturn nounwind }
 !243 = distinct !{!243, !8}
 !244 = distinct !{!244, !8}
 !245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!247 = distinct !{!247, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!246 = distinct !{!246, !247, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!247 = distinct !{!247, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !248 = !{!249}
-!249 = distinct !{!249, !250, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
-!250 = distinct !{!250, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E"}
+!249 = distinct !{!249, !250, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
+!250 = distinct !{!250, !"_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
 !251 = distinct !{!251, !8}
 !252 = distinct !{!252, !8}
 !253 = distinct !{!253, !8}

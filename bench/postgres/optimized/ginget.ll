@@ -50,7 +50,7 @@ define dso_local i64 @gingetbitmap(ptr noundef %0, ptr noundef %1) local_unnamed
   %17 = getelementptr inbounds i8, ptr %16, i64 9704
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %scanGetItem.exit, label %20
+  br i1 %19, label %scanGetItem.argprom.exit, label %20
 
 20:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -1566,8 +1566,8 @@ startScanEntry.exit.i:                            ; preds = %.critedge.i.i, %Buf
   %.pre.i = load ptr, ptr @CurrentMemoryContext, align 8
   br label %861
 
-861:                                              ; preds = %startScanKey.exit.i, %.lr.ph68.i
-  %indvars.iv100.i = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next101.i, %startScanKey.exit.i ]
+861:                                              ; preds = %startScanKey.argprom.exit.i, %.lr.ph68.i
+  %indvars.iv100.i = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next101.i, %startScanKey.argprom.exit.i ]
   %862 = load ptr, ptr %859, align 8
   %863 = getelementptr %struct.GinScanKeyData, ptr %862, i64 %indvars.iv100.i
   %864 = getelementptr inbounds i8, ptr %863, i64 140
@@ -1592,7 +1592,7 @@ startScanEntry.exit.i:                            ; preds = %.critedge.i.i, %Buf
   store ptr %875, ptr %876, align 8
   %877 = load i32, ptr %872, align 8
   %878 = icmp sgt i32 %877, 0
-  br i1 %878, label %.lr.ph19.i.i, label %startScanKey.exit.i
+  br i1 %878, label %.lr.ph19.i.i, label %startScanKey.argprom.exit.i
 
 .lr.ph19.i.i:                                     ; preds = %868
   %879 = getelementptr inbounds i8, ptr %863, i64 8
@@ -1610,7 +1610,7 @@ startScanEntry.exit.i:                            ; preds = %.critedge.i.i, %Buf
   %886 = load i32, ptr %872, align 8
   %887 = sext i32 %886 to i64
   %888 = icmp slt i64 %indvars.iv.next35.i.i, %887
-  br i1 %888, label %880, label %startScanKey.exit.i, !llvm.loop !18
+  br i1 %888, label %880, label %startScanKey.argprom.exit.i, !llvm.loop !18
 
 889:                                              ; preds = %861
   %890 = load i32, ptr %863, align 8
@@ -1788,7 +1788,7 @@ split.i.i:                                        ; preds = %._crit_edge7.i.i, %
 ._crit_edge16.i.i:                                ; preds = %965, %.preheader.i.i26
   %979 = load ptr, ptr %408, align 8
   call void @MemoryContextReset(ptr noundef %979) #9
-  br label %startScanKey.exit.i
+  br label %startScanKey.argprom.exit.i
 
 980:                                              ; preds = %889
   %981 = load ptr, ptr %860, align 8
@@ -1804,9 +1804,9 @@ split.i.i:                                        ; preds = %._crit_edge7.i.i, %
   %987 = load ptr, ptr %986, align 8
   %988 = load ptr, ptr %987, align 8
   store ptr %988, ptr %984, align 8
-  br label %startScanKey.exit.i
+  br label %startScanKey.argprom.exit.i
 
-startScanKey.exit.i:                              ; preds = %880, %980, %._crit_edge16.i.i, %868
+startScanKey.argprom.exit.i:                      ; preds = %880, %980, %._crit_edge16.i.i, %868
   store ptr %.pre.i, ptr @CurrentMemoryContext, align 8
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %989 = load i32, ptr %857, align 8
@@ -1814,7 +1814,7 @@ startScanKey.exit.i:                              ; preds = %880, %980, %._crit_
   %991 = icmp ult i64 %indvars.iv.next101.i, %990
   br i1 %991, label %861, label %startScan.exit, !llvm.loop !25
 
-startScan.exit:                                   ; preds = %startScanKey.exit.i, %.loopexit.i22
+startScan.exit:                                   ; preds = %startScanKey.argprom.exit.i, %.loopexit.i22
   store i16 0, ptr %13, align 8
   %992 = getelementptr inbounds i8, ptr %13, i64 2
   store i16 0, ptr %992, align 2
@@ -2404,7 +2404,7 @@ keyGetItem.exit.i:                                ; preds = %1259, %1197, %1075,
   %1260 = getelementptr inbounds i8, ptr %1003, i64 148
   %1261 = load i8, ptr %1260, align 4
   %1262 = trunc i8 %1261 to i1
-  br i1 %1262, label %scanGetItem.exit, label %1263
+  br i1 %1262, label %scanGetItem.argprom.exit, label %1263
 
 1263:                                             ; preds = %keyGetItem.exit.i
   %1264 = getelementptr inbounds i8, ptr %1003, i64 146
@@ -2611,7 +2611,7 @@ keyGetItem.exit.i:                                ; preds = %1259, %1197, %1075,
   %1337 = add i64 %.056, 1
   br label %994
 
-scanGetItem.exit:                                 ; preds = %keyGetItem.exit.i, %2
+scanGetItem.argprom.exit:                         ; preds = %keyGetItem.exit.i, %2
   %.0 = phi i64 [ 0, %2 ], [ %.056, %keyGetItem.exit.i ]
   ret i64 %.0
 }

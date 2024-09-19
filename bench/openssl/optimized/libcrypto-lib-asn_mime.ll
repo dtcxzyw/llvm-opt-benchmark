@@ -994,7 +994,7 @@ if.then33:                                        ; preds = %if.end28
   br label %return
 
 if.end36:                                         ; preds = %if.end28
-  %call37 = call fastcc ptr @mime_hdr_find(ptr noundef %call31)
+  %call37 = call fastcc ptr @mime_hdr_find.argprom(ptr noundef %call31)
   %cmp38 = icmp eq ptr %call37, null
   br i1 %cmp38, label %if.then42, label %lor.lhs.false39
 
@@ -1490,7 +1490,7 @@ if.then14.i.i147:                                 ; preds = %if.end10.i.i142
 
 strip_ends.exit165:                               ; preds = %for.cond.i.i129, %if.end10.i.i142, %if.then14.i.i147, %if.then.i.i131, %if.end.i.i134, %if.then4.i.i152, %if.end9.i.i157
   %retval.0.i4.i158 = phi ptr [ %retval.0.i.i135, %if.end9.i.i157 ], [ null, %if.then4.i.i152 ], [ null, %if.end.i.i134 ], [ null, %if.then.i.i131 ], [ %retval.0.i.i135, %if.end10.i.i142 ], [ null, %if.then14.i.i147 ], [ null, %for.cond.i.i129 ]
-  call fastcc void @mime_hdr_addparam(ptr noundef %mhdr.1, ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i158)
+  call fastcc void @mime_hdr_addparam.retelim(ptr noundef %mhdr.1, ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i158)
   %add.ptr68 = getelementptr inbounds i8, ptr %p.0, i64 1
   br label %for.inc
 
@@ -1667,7 +1667,7 @@ if.then14.i.i222:                                 ; preds = %if.end10.i.i217
 
 strip_ends.exit240:                               ; preds = %for.cond.i.i204, %if.end10.i.i217, %if.then14.i.i222, %if.then.i.i206, %if.end.i.i209, %if.then4.i.i227, %if.end9.i.i232
   %retval.0.i4.i233 = phi ptr [ %retval.0.i.i210, %if.end9.i.i232 ], [ null, %if.then4.i.i227 ], [ null, %if.end.i.i209 ], [ null, %if.then.i.i206 ], [ %retval.0.i.i210, %if.end10.i.i217 ], [ null, %if.then14.i.i222 ], [ null, %for.cond.i.i204 ]
-  call fastcc void @mime_hdr_addparam(ptr noundef %mhdr.1, ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i233)
+  call fastcc void @mime_hdr_addparam.retelim(ptr noundef %mhdr.1, ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i233)
   br label %if.end108
 
 if.end108:                                        ; preds = %for.end, %if.end96, %strip_ends.exit240
@@ -1733,7 +1733,7 @@ return:                                           ; preds = %for.inc128, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mime_hdr_find(ptr noundef nonnull %hdrs) unnamed_addr #0 {
+define internal fastcc ptr @mime_hdr_find.argprom(ptr noundef nonnull %hdrs) unnamed_addr #0 {
 entry:
   %htmp = alloca %struct.mime_header_st, align 8
   store ptr @.str.34, ptr %htmp, align 8
@@ -2058,7 +2058,7 @@ return:                                           ; preds = %if.end27, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mime_hdr_addparam(ptr nocapture noundef readonly %mhdr, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc void @mime_hdr_addparam.retelim(ptr nocapture noundef readonly %mhdr, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.end6, label %if.then

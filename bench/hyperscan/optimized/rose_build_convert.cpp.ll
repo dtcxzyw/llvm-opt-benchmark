@@ -1557,7 +1557,7 @@ invoke.cont65:                                    ; preds = %for.body28.i.i.i, %
   br i1 %tobool.not, label %if.then67, label %if.else
 
 if.then67:                                        ; preds = %invoke.cont65
-  %call71 = invoke fastcc noundef zeroext i1 @_ZN3ue2L23handleStartPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EE(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(56) %g1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr %ar.sroa.0.0.copyload, i64 %ar.sroa.9.0.copyload, ptr noundef nonnull %to_delete)
+  %call71 = invoke fastcc noundef zeroext i1 @_ZN3ue2L23handleStartPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(56) %g1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr %ar.sroa.0.0.copyload, i64 %ar.sroa.9.0.copyload, ptr noundef nonnull %to_delete)
           to label %invoke.cont70 unwind label %lpad32
 
 invoke.cont70:                                    ; preds = %if.then67
@@ -1572,7 +1572,7 @@ invoke.cont75:                                    ; preds = %if.else
 
 if.end79:                                         ; preds = %invoke.cont75, %invoke.cont70
   %19 = load ptr, ptr %cc, align 8
-  invoke fastcc void @_ZN3ue2L23handleMixedPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(56) %g1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr %ar.sroa.0.0.copyload, i64 %ar.sroa.9.0.copyload, ptr noundef nonnull %to_delete, ptr noundef nonnull align 8 dereferenceable(320) %19)
+  invoke fastcc void @_ZN3ue2L23handleMixedPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EERKNS_14CompileContextE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(56) %g1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr %ar.sroa.0.0.copyload, i64 %ar.sroa.9.0.copyload, ptr noundef nonnull %to_delete, ptr noundef nonnull align 8 dereferenceable(320) %19)
           to label %cleanup84 unwind label %lpad32
 
 cleanup84:                                        ; preds = %if.end79, %invoke.cont75, %invoke.cont70, %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit, %invoke.cont53, %invoke.cont43, %if.end22, %if.end, %invoke.cont15
@@ -1748,7 +1748,7 @@ invoke.cont192:                                   ; preds = %for.body28.i.i.i397
   br i1 %tobool194.not, label %if.then195, label %if.else202
 
 if.then195:                                       ; preds = %invoke.cont192
-  %call199 = invoke fastcc noundef zeroext i1 @_ZN3ue2L23handleStartPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EE(ptr noundef nonnull align 8 dereferenceable(136) %32, ptr noundef nonnull align 8 dereferenceable(56) %g1, ptr %24, i64 %25, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp118, ptr %ar.sroa.0.0.copyload, i64 %ar.sroa.9.0.copyload, ptr noundef nonnull %to_delete)
+  %call199 = invoke fastcc noundef zeroext i1 @_ZN3ue2L23handleStartPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %32, ptr noundef nonnull align 8 dereferenceable(56) %g1, ptr %24, i64 %25, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp118, ptr %ar.sroa.0.0.copyload, i64 %ar.sroa.9.0.copyload, ptr noundef nonnull %to_delete)
           to label %invoke.cont198 unwind label %lpad174
 
 invoke.cont198:                                   ; preds = %if.then195
@@ -1763,7 +1763,7 @@ invoke.cont204:                                   ; preds = %if.else202
 
 if.end208:                                        ; preds = %invoke.cont204, %invoke.cont198
   %43 = load ptr, ptr %cc211, align 8
-  invoke fastcc void @_ZN3ue2L23handleMixedPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136) %32, ptr noundef nonnull align 8 dereferenceable(56) %g1, ptr %24, i64 %25, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp118, ptr %ar.sroa.0.0.copyload, i64 %ar.sroa.9.0.copyload, ptr noundef nonnull %to_delete, ptr noundef nonnull align 8 dereferenceable(320) %43)
+  invoke fastcc void @_ZN3ue2L23handleMixedPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EERKNS_14CompileContextE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %32, ptr noundef nonnull align 8 dereferenceable(56) %g1, ptr %24, i64 %25, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp118, ptr %ar.sroa.0.0.copyload, i64 %ar.sroa.9.0.copyload, ptr noundef nonnull %to_delete, ptr noundef nonnull align 8 dereferenceable(320) %43)
           to label %cleanup216 unwind label %lpad174
 
 cleanup216:                                       ; preds = %if.end208, %invoke.cont204, %invoke.cont198, %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit386, %invoke.cont167, %invoke.cont156, %if.end140, %if.end132, %invoke.cont128
@@ -1854,7 +1854,7 @@ declare noundef i64 @_ZNK3ue213RoseBuildImpl13maxLiteralLenENS_12graph_detail17v
 declare void @_ZN3ue211all_reportsERKNS_8NGHolderE(ptr sret(%"class.std::set") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L23handleStartPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %v.coerce0, i64 %v.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e_old, ptr %ar.0.val, i64 %ar.8.val, ptr nocapture noundef nonnull %to_delete) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L23handleStartPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %v.coerce0, i64 %v.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e_old, ptr %ar.0.val, i64 %ar.8.val, ptr nocapture noundef nonnull %to_delete) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %repeat = alloca %"struct.ue2::PureRepeat", align 8
   %ref.tmp31 = alloca %"struct.std::pair.273", align 8
@@ -2709,7 +2709,7 @@ ehcleanup47:                                      ; preds = %ehcleanup, %lpad.i7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L23handleMixedPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %v.coerce0, i64 %v.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %e_old, ptr %ar.0.val, i64 %ar.8.val, ptr noundef nonnull %to_delete, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L23handleMixedPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EERKNS_14CompileContextE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %v.coerce0, i64 %v.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %e_old, ptr %ar.0.val, i64 %ar.8.val, ptr noundef nonnull %to_delete, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %start_succ = alloca %"class.std::set.307", align 8
   %startds_succ = alloca %"class.std::set.307", align 8

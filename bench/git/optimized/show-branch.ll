@@ -583,7 +583,7 @@ if.end249:                                        ; preds = %if.then238.if.end24
   br i1 %cmp250, label %if.then252, label %if.end254
 
 if.then252:                                       ; preds = %if.end249
-  %call253 = call fastcc ptr @Q_(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42)
+  %call253 = call fastcc ptr @Q_.argelim(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42)
   call void (ptr, ...) @die(ptr noundef %call253, i32 noundef 26) #17
   unreachable
 
@@ -929,7 +929,7 @@ for.body335:                                      ; preds = %for.cond331.prehead
   br i1 %exitcond349, label %if.then339, label %if.end341
 
 if.then339:                                       ; preds = %for.body335
-  %call340 = call fastcc ptr @Q_(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51)
+  %call340 = call fastcc ptr @Q_.argelim(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51)
   call void (ptr, ...) @die(ptr noundef %call340, i32 noundef 26) #17
   unreachable
 
@@ -1502,7 +1502,7 @@ if.end483:                                        ; preds = %if.end402, %if.end4
 if.then487:                                       ; preds = %if.end483
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %newname.i)
   %cond.i = icmp eq ptr %.pre367, null
-  br i1 %cond.i, label %name_commits.exit, label %for.body.lr.ph.i
+  br i1 %cond.i, label %name_commits.argprom.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then487
   %.pre3.i.i.i.pre24.i = load ptr, ptr @name_slab.3, align 8
@@ -1558,16 +1558,16 @@ if.end12.i.i.i.i:                                 ; preds = %for.end.i.i.i.i, %f
   %arrayidx15.i.i.i.i = getelementptr inbounds ptr, ptr %.pre3.i.i.i27.i, i64 %idxprom14.i.i.i.i
   %139 = load ptr, ptr %arrayidx15.i.i.i.i, align 8
   %tobool16.not.i.i.i.i = icmp eq ptr %139, null
-  br i1 %tobool16.not.i.i.i.i, label %if.end20.i.i.i.i, label %commit_to_name.exit.i
+  br i1 %tobool16.not.i.i.i.i, label %if.end20.i.i.i.i, label %commit_to_name.argprom.exit.i
 
 if.end20.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i
   %call24.i.i.i.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #16
   %140 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i.i = getelementptr inbounds ptr, ptr %140, i64 %idxprom14.i.i.i.i
   store ptr %call24.i.i.i.i, ptr %arrayidx27.i.i.i.i, align 8
-  br label %commit_to_name.exit.i
+  br label %commit_to_name.argprom.exit.i
 
-commit_to_name.exit.i:                            ; preds = %if.end20.i.i.i.i, %if.end12.i.i.i.i
+commit_to_name.argprom.exit.i:                    ; preds = %if.end20.i.i.i.i, %if.end12.i.i.i.i
   %.pre3.i.i.i26.i = phi ptr [ %.pre3.i.i.i27.i, %if.end12.i.i.i.i ], [ %140, %if.end20.i.i.i.i ]
   %141 = phi ptr [ %139, %if.end12.i.i.i.i ], [ %call24.i.i.i.i, %if.end20.i.i.i.i ]
   %idxprom34.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
@@ -1582,8 +1582,8 @@ for.cond2.i:                                      ; preds = %for.body3.i
   %exitcond.not.i216 = icmp eq i64 %indvars.iv.next.i215, %idxprom332.lcssa374
   br i1 %exitcond.not.i216, label %for.inc9.i, label %for.body3.i, !llvm.loop !24
 
-for.body3.i:                                      ; preds = %commit_to_name.exit.i, %for.cond2.i
-  %indvars.iv.i213 = phi i64 [ %indvars.iv.next.i215, %for.cond2.i ], [ 0, %commit_to_name.exit.i ]
+for.body3.i:                                      ; preds = %commit_to_name.argprom.exit.i, %for.cond2.i
+  %indvars.iv.i213 = phi i64 [ %indvars.iv.next.i215, %for.cond2.i ], [ 0, %commit_to_name.argprom.exit.i ]
   %arrayidx.i214 = getelementptr inbounds ptr, ptr %rev, i64 %indvars.iv.i213
   %143 = load ptr, ptr %arrayidx.i214, align 8
   %cmp4.i = icmp eq ptr %143, %133
@@ -1596,8 +1596,8 @@ if.then5.i:                                       ; preds = %for.body3.i
   %.pre3.i.i.i.pre.i = load ptr, ptr @name_slab.3, align 8
   br label %for.inc9.i
 
-for.inc9.i:                                       ; preds = %for.cond2.i, %if.then5.i, %commit_to_name.exit.i
-  %.pre3.i.i.i25.i = phi ptr [ %.pre3.i.i.i26.i, %commit_to_name.exit.i ], [ %.pre3.i.i.i.pre.i, %if.then5.i ], [ %.pre3.i.i.i26.i, %for.cond2.i ]
+for.inc9.i:                                       ; preds = %for.cond2.i, %if.then5.i, %commit_to_name.argprom.exit.i
+  %.pre3.i.i.i25.i = phi ptr [ %.pre3.i.i.i26.i, %commit_to_name.argprom.exit.i ], [ %.pre3.i.i.i.pre.i, %if.then5.i ], [ %.pre3.i.i.i26.i, %for.cond2.i ]
   %next.i217 = getelementptr inbounds i8, ptr %cl.08.i, i64 8
   %145 = load ptr, ptr %next.i217, align 8
   %tobool.not.i218 = icmp eq ptr %145, null
@@ -1679,16 +1679,16 @@ if.end12.i.i.i55.i:                               ; preds = %for.end.i.i.i53.i, 
   %arrayidx15.i.i.i57.i = getelementptr inbounds ptr, ptr %154, i64 %idxprom14.i.i.i56.i
   %155 = load ptr, ptr %arrayidx15.i.i.i57.i, align 8
   %tobool16.not.i.i.i58.i = icmp eq ptr %155, null
-  br i1 %tobool16.not.i.i.i58.i, label %if.end20.i.i.i63.i, label %commit_to_name.exit72.i
+  br i1 %tobool16.not.i.i.i58.i, label %if.end20.i.i.i63.i, label %commit_to_name.argprom.exit72.i
 
 if.end20.i.i.i63.i:                               ; preds = %if.end12.i.i.i55.i
   %call24.i.i.i67.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #16
   %156 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i68.i = getelementptr inbounds ptr, ptr %156, i64 %idxprom14.i.i.i56.i
   store ptr %call24.i.i.i67.i, ptr %arrayidx27.i.i.i68.i, align 8
-  br label %commit_to_name.exit72.i
+  br label %commit_to_name.argprom.exit72.i
 
-commit_to_name.exit72.i:                          ; preds = %if.end20.i.i.i63.i, %if.end12.i.i.i55.i
+commit_to_name.argprom.exit72.i:                  ; preds = %if.end20.i.i.i63.i, %if.end12.i.i.i55.i
   %.pre3.i.i.i75.i = phi ptr [ %154, %if.end12.i.i.i55.i ], [ %156, %if.end20.i.i.i63.i ]
   %157 = phi ptr [ %155, %if.end12.i.i.i55.i ], [ %call24.i.i.i67.i, %if.end20.i.i.i63.i ]
   %idxprom34.i.i.i61.i = zext nneg i32 %rem.i.i.i59.i to i64
@@ -1697,7 +1697,7 @@ commit_to_name.exit72.i:                          ; preds = %if.end20.i.i.i63.i,
   %tobool26.not.i = icmp eq ptr %158, null
   br i1 %tobool26.not.i, label %for.inc49.i, label %if.end28.i
 
-if.end28.i:                                       ; preds = %commit_to_name.exit72.i
+if.end28.i:                                       ; preds = %commit_to_name.argprom.exit72.i
   %.val34.i = load i32, ptr %149, align 8
   %div.i.i.i73.i = udiv i32 %.val34.i, 65532
   %rem.i.i.i96.i = urem i32 %.val34.i, 65532
@@ -1743,16 +1743,16 @@ if.end12.i.i.i92.i:                               ; preds = %for.end.i.i.i90.i, 
   %arrayidx15.i.i.i94.i = getelementptr inbounds ptr, ptr %163, i64 %idxprom14.i.i.i93.i
   %164 = load ptr, ptr %arrayidx15.i.i.i94.i, align 8
   %tobool16.not.i.i.i95.i = icmp eq ptr %164, null
-  br i1 %tobool16.not.i.i.i95.i, label %if.end20.i.i.i100.i, label %commit_to_name.exit109.i
+  br i1 %tobool16.not.i.i.i95.i, label %if.end20.i.i.i100.i, label %commit_to_name.argprom.exit109.i
 
 if.end20.i.i.i100.i:                              ; preds = %if.end12.i.i.i92.i
   %call24.i.i.i104.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #16
   %165 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i105.i = getelementptr inbounds ptr, ptr %165, i64 %idxprom14.i.i.i93.i
   store ptr %call24.i.i.i104.i, ptr %arrayidx27.i.i.i105.i, align 8
-  br label %commit_to_name.exit109.i
+  br label %commit_to_name.argprom.exit109.i
 
-commit_to_name.exit109.i:                         ; preds = %if.end20.i.i.i100.i, %if.end12.i.i.i92.i
+commit_to_name.argprom.exit109.i:                 ; preds = %if.end20.i.i.i100.i, %if.end12.i.i.i92.i
   %166 = phi ptr [ %164, %if.end12.i.i.i92.i ], [ %call24.i.i.i104.i, %if.end20.i.i.i100.i ]
   %idxprom34.i.i.i98.i = zext nneg i32 %rem.i.i.i96.i to i64
   %arrayidx35.i.i.i99.i = getelementptr inbounds ptr, ptr %166, i64 %idxprom34.i.i.i98.i
@@ -1762,15 +1762,15 @@ commit_to_name.exit109.i:                         ; preds = %if.end20.i.i.i100.i
   %generation.i = getelementptr inbounds i8, ptr %167, i64 8
   br label %while.cond.outer.i
 
-while.cond.outer.i:                               ; preds = %name_commit.exit.i, %commit_to_name.exit109.i
-  %i.4.ph.i = phi i32 [ %inc47.i, %name_commit.exit.i ], [ %i.214.i, %commit_to_name.exit109.i ]
-  %parents.0.ph.i221 = phi ptr [ %170, %name_commit.exit.i ], [ %168, %commit_to_name.exit109.i ]
-  %nth.0.ph.i = phi i32 [ %inc34.i, %name_commit.exit.i ], [ 0, %commit_to_name.exit109.i ]
+while.cond.outer.i:                               ; preds = %name_commit.exit.i, %commit_to_name.argprom.exit109.i
+  %i.4.ph.i = phi i32 [ %inc47.i, %name_commit.exit.i ], [ %i.214.i, %commit_to_name.argprom.exit109.i ]
+  %parents.0.ph.i221 = phi ptr [ %170, %name_commit.exit.i ], [ %168, %commit_to_name.argprom.exit109.i ]
+  %nth.0.ph.i = phi i32 [ %inc34.i, %name_commit.exit.i ], [ 0, %commit_to_name.argprom.exit109.i ]
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %commit_to_name.exit146.i, %while.cond.outer.i
-  %parents.0.i222 = phi ptr [ %170, %commit_to_name.exit146.i ], [ %parents.0.ph.i221, %while.cond.outer.i ]
-  %nth.0.i = phi i32 [ %inc34.i, %commit_to_name.exit146.i ], [ %nth.0.ph.i, %while.cond.outer.i ]
+while.cond.i:                                     ; preds = %commit_to_name.argprom.exit146.i, %while.cond.outer.i
+  %parents.0.i222 = phi ptr [ %170, %commit_to_name.argprom.exit146.i ], [ %parents.0.ph.i221, %while.cond.outer.i ]
+  %nth.0.i = phi i32 [ %inc34.i, %commit_to_name.argprom.exit146.i ], [ %nth.0.ph.i, %while.cond.outer.i ]
   %tobool31.not.i = icmp eq ptr %parents.0.i222, null
   br i1 %tobool31.not.i, label %for.inc49.i, label %while.body.i223
 
@@ -1827,16 +1827,16 @@ if.end12.i.i.i129.i:                              ; preds = %for.end.i.i.i127.i,
   %arrayidx15.i.i.i131.i = getelementptr inbounds ptr, ptr %176, i64 %idxprom14.i.i.i130.i
   %177 = load ptr, ptr %arrayidx15.i.i.i131.i, align 8
   %tobool16.not.i.i.i132.i = icmp eq ptr %177, null
-  br i1 %tobool16.not.i.i.i132.i, label %if.end20.i.i.i137.i, label %commit_to_name.exit146.i
+  br i1 %tobool16.not.i.i.i132.i, label %if.end20.i.i.i137.i, label %commit_to_name.argprom.exit146.i
 
 if.end20.i.i.i137.i:                              ; preds = %if.end12.i.i.i129.i
   %call24.i.i.i141.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #16
   %178 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i142.i = getelementptr inbounds ptr, ptr %178, i64 %idxprom14.i.i.i130.i
   store ptr %call24.i.i.i141.i, ptr %arrayidx27.i.i.i142.i, align 8
-  br label %commit_to_name.exit146.i
+  br label %commit_to_name.argprom.exit146.i
 
-commit_to_name.exit146.i:                         ; preds = %if.end20.i.i.i137.i, %if.end12.i.i.i129.i
+commit_to_name.argprom.exit146.i:                 ; preds = %if.end20.i.i.i137.i, %if.end12.i.i.i129.i
   %179 = phi ptr [ %177, %if.end12.i.i.i129.i ], [ %call24.i.i.i141.i, %if.end20.i.i.i137.i ]
   %idxprom34.i.i.i135.i = zext nneg i32 %rem.i.i.i133.i to i64
   %arrayidx35.i.i.i136.i = getelementptr inbounds ptr, ptr %179, i64 %idxprom34.i.i.i135.i
@@ -1844,7 +1844,7 @@ commit_to_name.exit146.i:                         ; preds = %if.end20.i.i.i137.i
   %tobool36.not.i = icmp eq ptr %180, null
   br i1 %tobool36.not.i, label %if.end38.i, label %while.cond.i, !llvm.loop !27
 
-if.end38.i:                                       ; preds = %commit_to_name.exit146.i
+if.end38.i:                                       ; preds = %commit_to_name.argprom.exit146.i
   %181 = getelementptr i8, ptr %169, i64 64
   %182 = load i32, ptr %generation.i, align 8
   %183 = load ptr, ptr %167, align 8
@@ -1952,16 +1952,16 @@ if.end12.i.i.i166.i:                              ; preds = %for.end.i.i.i164.i,
   %arrayidx15.i.i.i168.i = getelementptr inbounds ptr, ptr %194, i64 %idxprom14.i.i.i167.i
   %195 = load ptr, ptr %arrayidx15.i.i.i168.i, align 8
   %tobool16.not.i.i.i169.i = icmp eq ptr %195, null
-  br i1 %tobool16.not.i.i.i169.i, label %if.end20.i.i.i176.i, label %commit_name_slab_at.exit.i.i
+  br i1 %tobool16.not.i.i.i169.i, label %if.end20.i.i.i176.i, label %commit_name_slab_at.argprom.exit.i.i
 
 if.end20.i.i.i176.i:                              ; preds = %if.end12.i.i.i166.i
   %call24.i.i.i180.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #16
   %196 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i181.i = getelementptr inbounds ptr, ptr %196, i64 %idxprom14.i.i.i167.i
   store ptr %call24.i.i.i180.i, ptr %arrayidx27.i.i.i181.i, align 8
-  br label %commit_name_slab_at.exit.i.i
+  br label %commit_name_slab_at.argprom.exit.i.i
 
-commit_name_slab_at.exit.i.i:                     ; preds = %if.end20.i.i.i176.i, %if.end12.i.i.i166.i
+commit_name_slab_at.argprom.exit.i.i:             ; preds = %if.end20.i.i.i176.i, %if.end12.i.i.i166.i
   %197 = phi ptr [ %195, %if.end12.i.i.i166.i ], [ %call24.i.i.i180.i, %if.end20.i.i.i176.i ]
   %idxprom34.i.i.i172.i = zext nneg i32 %rem.i.i.i170.i to i64
   %arrayidx35.i.i.i173.i = getelementptr inbounds ptr, ptr %197, i64 %idxprom34.i.i.i172.i
@@ -1969,7 +1969,7 @@ commit_name_slab_at.exit.i.i:                     ; preds = %if.end20.i.i.i176.i
   %tobool.not.i174.i = icmp eq ptr %198, null
   br i1 %tobool.not.i174.i, label %if.then.i175.i, label %name_commit.exit.i
 
-if.then.i175.i:                                   ; preds = %commit_name_slab_at.exit.i.i
+if.then.i175.i:                                   ; preds = %commit_name_slab_at.argprom.exit.i.i
   %call1.i.i = call ptr @xmalloc(i64 noundef 16) #16
   %commit.val.i.i = load i32, ptr %181, align 8
   %div.i.i6.i.i = udiv i32 %commit.val.i.i, 65532
@@ -2017,24 +2017,24 @@ if.end12.i.i25.i.i:                               ; preds = %for.end.i.i23.i.i, 
   %arrayidx15.i.i27.i.i = getelementptr inbounds ptr, ptr %203, i64 %idxprom14.i.i26.i.i
   %204 = load ptr, ptr %arrayidx15.i.i27.i.i, align 8
   %tobool16.not.i.i28.i.i = icmp eq ptr %204, null
-  br i1 %tobool16.not.i.i28.i.i, label %if.end20.i.i33.i.i, label %commit_name_slab_at.exit42.i.i
+  br i1 %tobool16.not.i.i28.i.i, label %if.end20.i.i33.i.i, label %commit_name_slab_at.argprom.exit42.i.i
 
 if.end20.i.i33.i.i:                               ; preds = %if.end12.i.i25.i.i
   %call24.i.i37.i.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #16
   %205 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i38.i.i = getelementptr inbounds ptr, ptr %205, i64 %idxprom14.i.i26.i.i
   store ptr %call24.i.i37.i.i, ptr %arrayidx27.i.i38.i.i, align 8
-  br label %commit_name_slab_at.exit42.i.i
+  br label %commit_name_slab_at.argprom.exit42.i.i
 
-commit_name_slab_at.exit42.i.i:                   ; preds = %if.end20.i.i33.i.i, %if.end12.i.i25.i.i
+commit_name_slab_at.argprom.exit42.i.i:           ; preds = %if.end20.i.i33.i.i, %if.end12.i.i25.i.i
   %206 = phi ptr [ %204, %if.end12.i.i25.i.i ], [ %call24.i.i37.i.i, %if.end20.i.i33.i.i ]
   %idxprom34.i.i31.i.i = zext nneg i32 %rem.i.i29.i.i to i64
   %arrayidx35.i.i32.i.i = getelementptr inbounds ptr, ptr %206, i64 %idxprom34.i.i31.i.i
   store ptr %call1.i.i, ptr %arrayidx35.i.i32.i.i, align 8
   br label %name_commit.exit.i
 
-name_commit.exit.i:                               ; preds = %commit_name_slab_at.exit42.i.i, %commit_name_slab_at.exit.i.i
-  %name.0.i.i = phi ptr [ %198, %commit_name_slab_at.exit.i.i ], [ %call1.i.i, %commit_name_slab_at.exit42.i.i ]
+name_commit.exit.i:                               ; preds = %commit_name_slab_at.argprom.exit42.i.i, %commit_name_slab_at.argprom.exit.i.i
+  %name.0.i.i = phi ptr [ %198, %commit_name_slab_at.argprom.exit.i.i ], [ %call1.i.i, %commit_name_slab_at.argprom.exit42.i.i ]
   store ptr %call46.i, ptr %name.0.i.i, align 8
   %generation.i.i = getelementptr inbounds i8, ptr %name.0.i.i, i64 8
   store i32 0, ptr %generation.i.i, align 8
@@ -2042,8 +2042,8 @@ name_commit.exit.i:                               ; preds = %commit_name_slab_at
   %call48.i = call fastcc i32 @name_first_parent_chain(ptr noundef %169)
   br label %while.cond.outer.i, !llvm.loop !27
 
-for.inc49.i:                                      ; preds = %while.cond.i, %commit_to_name.exit72.i
-  %i.3.i = phi i32 [ %i.214.i, %commit_to_name.exit72.i ], [ %i.4.ph.i, %while.cond.i ]
+for.inc49.i:                                      ; preds = %while.cond.i, %commit_to_name.argprom.exit72.i
+  %i.3.i = phi i32 [ %i.214.i, %commit_to_name.argprom.exit72.i ], [ %i.4.ph.i, %while.cond.i ]
   %next50.i = getelementptr inbounds i8, ptr %cl.215.i, i64 8
   %207 = load ptr, ptr %next50.i, align 8
   %tobool22.not.i = icmp eq ptr %207, null
@@ -2056,19 +2056,19 @@ for.body23.i.backedge:                            ; preds = %for.inc49.i, %for.c
 
 for.cond21.do.cond52_crit_edge.i:                 ; preds = %for.inc49.i
   %tobool53.not.i = icmp eq i32 %i.3.i, 0
-  br i1 %tobool53.not.i, label %name_commits.exit.loopexit, label %for.body23.i.backedge
+  br i1 %tobool53.not.i, label %name_commits.argprom.exit.loopexit, label %for.body23.i.backedge
 
-name_commits.exit.loopexit:                       ; preds = %for.cond21.do.cond52_crit_edge.i
+name_commits.argprom.exit.loopexit:               ; preds = %for.cond21.do.cond52_crit_edge.i
   %.pre366.pre = load ptr, ptr %seen, align 8
-  br label %name_commits.exit
+  br label %name_commits.argprom.exit
 
-name_commits.exit:                                ; preds = %name_commits.exit.loopexit, %if.then487
-  %.pre366 = phi ptr [ %.pre366.pre, %name_commits.exit.loopexit ], [ null, %if.then487 ]
+name_commits.argprom.exit:                        ; preds = %name_commits.argprom.exit.loopexit, %if.then487
+  %.pre366 = phi ptr [ %.pre366.pre, %name_commits.argprom.exit.loopexit ], [ null, %if.then487 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %newname.i)
   br label %if.end489
 
-if.end489:                                        ; preds = %name_commits.exit, %if.end483
-  %208 = phi ptr [ %.pre366, %name_commits.exit ], [ %.pre367, %if.end483 ]
+if.end489:                                        ; preds = %name_commits.argprom.exit, %if.end483
+  %208 = phi ptr [ %.pre366, %name_commits.argprom.exit ], [ %.pre367, %if.end483 ]
   %tobool493.not325 = icmp eq ptr %208, null
   br i1 %tobool493.not325, label %while.end572, label %while.body494.lr.ph
 
@@ -2366,7 +2366,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @resolve_refdup(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Q_(ptr noundef %msgid, ptr noundef %plu) unnamed_addr #0 {
+define internal fastcc ptr @Q_.argelim(ptr noundef %msgid, ptr noundef %plu) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -2408,7 +2408,7 @@ declare ptr @date_mode_from_type(i32 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_ref(ptr noundef %refname, ptr noundef %oid, i32 noundef range(i32 0, 2) %allow_dups) unnamed_addr #0 {
+define internal fastcc void @append_ref.argelim(ptr noundef %refname, ptr noundef %oid, i32 noundef range(i32 0, 2) %allow_dups) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @lookup_commit_reference_gently(ptr noundef %0, ptr noundef %oid, i32 noundef 1) #16
@@ -2486,7 +2486,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call fastcc void @append_ref(ptr noundef %av, ptr noundef nonnull %revkey, i32 noundef 0)
+  call fastcc void @append_ref.argelim(ptr noundef %av, ptr noundef nonnull %revkey, i32 noundef 0)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2615,7 +2615,7 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i, %ent
   %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom14.i.i.i
   %6 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %commit_to_name.exit
+  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %commit_to_name.argprom.exit
 
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %.b = load i1, ptr @name_slab.0, align 8
@@ -2626,9 +2626,9 @@ if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %7 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom14.i.i.i
   store ptr %call24.i.i.i, ptr %arrayidx27.i.i.i, align 8
-  br label %commit_to_name.exit
+  br label %commit_to_name.argprom.exit
 
-commit_to_name.exit:                              ; preds = %if.end12.i.i.i, %if.end20.i.i.i
+commit_to_name.argprom.exit:                      ; preds = %if.end12.i.i.i, %if.end20.i.i.i
   %8 = phi ptr [ %6, %if.end12.i.i.i ], [ %call24.i.i.i, %if.end20.i.i.i ]
   %.b13 = load i1, ptr @name_slab.1, align 8
   %9 = zext nneg i32 %rem.i.i.i to i64
@@ -2640,14 +2640,14 @@ commit_to_name.exit:                              ; preds = %if.end12.i.i.i, %if
   %tobool.not = icmp eq i32 %bf.clear, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %commit_to_name.exit
+if.then:                                          ; preds = %commit_to_name.argprom.exit
   call void @pp_commit_easy(i32 noundef 5, ptr noundef nonnull %commit, ptr noundef nonnull %pretty) #16
   %buf = getelementptr inbounds i8, ptr %pretty, i64 16
   %11 = load ptr, ptr %buf, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %commit_to_name.exit
-  %pretty_str.0 = phi ptr [ @.str.74, %commit_to_name.exit ], [ %11, %if.then ]
+if.end:                                           ; preds = %if.then, %commit_to_name.argprom.exit
+  %pretty_str.0 = phi ptr [ @.str.74, %commit_to_name.argprom.exit ], [ %11, %if.then ]
   %scevgep = getelementptr i8, ptr %pretty_str.0, i64 8
   br label %do.body.i
 
@@ -2817,11 +2817,11 @@ if.then19:                                        ; preds = %if.end16
 
 if.end.i:                                         ; preds = %if.then19
   %add.ptr.i = getelementptr inbounds i8, ptr %refname, i64 5
-  tail call fastcc void @append_ref(ptr noundef nonnull %add.ptr.i, ptr noundef %oid, i32 noundef 0)
+  tail call fastcc void @append_ref.argelim(ptr noundef nonnull %add.ptr.i, ptr noundef %oid, i32 noundef 0)
   br label %return
 
 if.end21:                                         ; preds = %if.end16
-  tail call fastcc void @append_ref(ptr noundef nonnull %refname, ptr noundef %oid, i32 noundef 0)
+  tail call fastcc void @append_ref.argelim(ptr noundef nonnull %refname, ptr noundef %oid, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then19, %if.end7, %for.end, %if.end21, %if.then14
@@ -2890,7 +2890,7 @@ if.then5:                                         ; preds = %oideq.exit, %if.end
 if.end6:                                          ; preds = %if.then5, %oideq.exit
   %ofs.0 = phi i64 [ 5, %if.then5 ], [ 11, %oideq.exit ]
   %add.ptr8 = getelementptr inbounds i8, ptr %refname, i64 %ofs.0
-  call fastcc void @append_ref(ptr noundef nonnull %add.ptr8, ptr noundef %oid, i32 noundef 0)
+  call fastcc void @append_ref.argelim(ptr noundef nonnull %add.ptr8, ptr noundef %oid, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end6
@@ -3075,7 +3075,7 @@ if.then5:                                         ; preds = %oideq.exit, %if.end
 if.end6:                                          ; preds = %if.then5, %oideq.exit
   %ofs.0 = phi i64 [ 5, %if.then5 ], [ 13, %oideq.exit ]
   %add.ptr8 = getelementptr inbounds i8, ptr %refname, i64 %ofs.0
-  call fastcc void @append_ref(ptr noundef nonnull %add.ptr8, ptr noundef %oid, i32 noundef 0)
+  call fastcc void @append_ref.argelim(ptr noundef nonnull %add.ptr8, ptr noundef %oid, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end6
@@ -3151,7 +3151,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom14.i.i
   %6 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %6, null
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %commit_name_slab_at.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %commit_name_slab_at.argprom.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %.b44 = load i1, ptr @name_slab.0, align 8
@@ -3162,9 +3162,9 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   %7 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom14.i.i
   store ptr %call24.i.i, ptr %arrayidx27.i.i, align 8
-  br label %commit_name_slab_at.exit
+  br label %commit_name_slab_at.argprom.exit
 
-commit_name_slab_at.exit:                         ; preds = %if.end12.i.i, %if.end20.i.i
+commit_name_slab_at.argprom.exit:                 ; preds = %if.end12.i.i, %if.end20.i.i
   %8 = phi ptr [ %6, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %.b49 = load i1, ptr @name_slab.1, align 8
   %9 = zext nneg i32 %rem.i.i to i64
@@ -3174,7 +3174,7 @@ commit_name_slab_at.exit:                         ; preds = %if.end12.i.i, %if.e
   %tobool.not = icmp eq ptr %10, null
   br i1 %tobool.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %commit_name_slab_at.exit
+if.then:                                          ; preds = %commit_name_slab_at.argprom.exit
   %call1 = tail call ptr @xmalloc(i64 noundef 16) #16
   %commit.val = load i32, ptr %0, align 8
   %div.i.i6 = udiv i32 %commit.val, 65532
@@ -3222,7 +3222,7 @@ if.end12.i.i25:                                   ; preds = %for.end.i.i23, %if.
   %arrayidx15.i.i27 = getelementptr inbounds ptr, ptr %15, i64 %idxprom14.i.i26
   %16 = load ptr, ptr %arrayidx15.i.i27, align 8
   %tobool16.not.i.i28 = icmp eq ptr %16, null
-  br i1 %tobool16.not.i.i28, label %if.end20.i.i33, label %commit_name_slab_at.exit42
+  br i1 %tobool16.not.i.i28, label %if.end20.i.i33, label %commit_name_slab_at.argprom.exit42
 
 if.end20.i.i33:                                   ; preds = %if.end12.i.i25
   %.b = load i1, ptr @name_slab.0, align 8
@@ -3233,9 +3233,9 @@ if.end20.i.i33:                                   ; preds = %if.end12.i.i25
   %17 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i38 = getelementptr inbounds ptr, ptr %17, i64 %idxprom14.i.i26
   store ptr %call24.i.i37, ptr %arrayidx27.i.i38, align 8
-  br label %commit_name_slab_at.exit42
+  br label %commit_name_slab_at.argprom.exit42
 
-commit_name_slab_at.exit42:                       ; preds = %if.end12.i.i25, %if.end20.i.i33
+commit_name_slab_at.argprom.exit42:               ; preds = %if.end12.i.i25, %if.end20.i.i33
   %18 = phi ptr [ %16, %if.end12.i.i25 ], [ %call24.i.i37, %if.end20.i.i33 ]
   %.b47 = load i1, ptr @name_slab.1, align 8
   %19 = zext nneg i32 %rem.i.i29 to i64
@@ -3244,8 +3244,8 @@ commit_name_slab_at.exit42:                       ; preds = %if.end12.i.i25, %if
   store ptr %call1, ptr %arrayidx35.i.i32, align 8
   br label %if.end
 
-if.end:                                           ; preds = %commit_name_slab_at.exit42, %commit_name_slab_at.exit
-  %name.0 = phi ptr [ %10, %commit_name_slab_at.exit ], [ %call1, %commit_name_slab_at.exit42 ]
+if.end:                                           ; preds = %commit_name_slab_at.argprom.exit42, %commit_name_slab_at.argprom.exit
+  %name.0 = phi ptr [ %10, %commit_name_slab_at.argprom.exit ], [ %call1, %commit_name_slab_at.argprom.exit42 ]
   store ptr %head_name, ptr %name.0, align 8
   %generation = getelementptr inbounds i8, ptr %name.0, i64 8
   store i32 %nth, ptr %generation, align 8
@@ -3262,10 +3262,10 @@ while.body.preheader:                             ; preds = %entry
   %.pre3.i.i.i.pre53 = load ptr, ptr @name_slab.3, align 8
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %name_parent.exit
-  %.pre3.i.i.i.i64 = phi ptr [ %.pre3.i.i.i.i65, %name_parent.exit ], [ %.pre3.i.i.i.pre53, %while.body.preheader ]
-  %c.addr.049 = phi ptr [ %11, %name_parent.exit ], [ %c, %while.body.preheader ]
-  %i.048 = phi i32 [ %inc, %name_parent.exit ], [ 0, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %name_parent.argprom.exit
+  %.pre3.i.i.i.i64 = phi ptr [ %.pre3.i.i.i.i65, %name_parent.argprom.exit ], [ %.pre3.i.i.i.pre53, %while.body.preheader ]
+  %c.addr.049 = phi ptr [ %11, %name_parent.argprom.exit ], [ %c, %while.body.preheader ]
+  %i.048 = phi i32 [ %inc, %name_parent.argprom.exit ], [ 0, %while.body.preheader ]
   %0 = getelementptr i8, ptr %c.addr.049, i64 64
   %c.addr.0.val = load i32, ptr %0, align 8
   %div.i.i.i = udiv i32 %c.addr.0.val, 65532
@@ -3313,7 +3313,7 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i, %whi
   %5 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %5, null
   %.pre57.b = load i1, ptr @name_slab.1, align 8
-  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %commit_to_name.exit
+  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %commit_to_name.argprom.exit
 
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %.b78 = load i1, ptr @name_slab.0, align 8
@@ -3324,9 +3324,9 @@ if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %arrayidx27.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom14.i.i.i
   store ptr %call24.i.i.i, ptr %arrayidx27.i.i.i, align 8
   %.pre.b = load i1, ptr @name_slab.1, align 8
-  br label %commit_to_name.exit
+  br label %commit_to_name.argprom.exit
 
-commit_to_name.exit:                              ; preds = %if.end12.i.i.i, %if.end20.i.i.i
+commit_to_name.argprom.exit:                      ; preds = %if.end12.i.i.i, %if.end20.i.i.i
   %.pre3.i.i.i.i62 = phi ptr [ %.pre3.i.i.i.i63, %if.end12.i.i.i ], [ %6, %if.end20.i.i.i ]
   %.in = phi i1 [ %.pre57.b, %if.end12.i.i.i ], [ %.pre.b, %if.end20.i.i.i ]
   %7 = phi ptr [ %5, %if.end12.i.i.i ], [ %call24.i.i.i, %if.end20.i.i.i ]
@@ -3337,7 +3337,7 @@ commit_to_name.exit:                              ; preds = %if.end12.i.i.i, %if
   %tobool1.not = icmp eq ptr %9, null
   br i1 %tobool1.not, label %while.end, label %if.end
 
-if.end:                                           ; preds = %commit_to_name.exit
+if.end:                                           ; preds = %commit_to_name.argprom.exit
   %parents = getelementptr inbounds i8, ptr %c.addr.049, i64 48
   %10 = load ptr, ptr %parents, align 8
   %tobool2.not = icmp eq ptr %10, null
@@ -3393,7 +3393,7 @@ if.end12.i.i.i28:                                 ; preds = %for.end.i.i.i26, %i
   %arrayidx15.i.i.i30 = getelementptr inbounds ptr, ptr %.pre3.i.i.i.i61, i64 %idxprom14.i.i.i29
   %17 = load ptr, ptr %arrayidx15.i.i.i30, align 8
   %tobool16.not.i.i.i31 = icmp eq ptr %17, null
-  br i1 %tobool16.not.i.i.i31, label %if.end20.i.i.i36, label %commit_to_name.exit45
+  br i1 %tobool16.not.i.i.i31, label %if.end20.i.i.i36, label %commit_to_name.argprom.exit45
 
 if.end20.i.i.i36:                                 ; preds = %if.end12.i.i.i28
   %.b76 = load i1, ptr @name_slab.0, align 8
@@ -3404,9 +3404,9 @@ if.end20.i.i.i36:                                 ; preds = %if.end12.i.i.i28
   %arrayidx27.i.i.i41 = getelementptr inbounds ptr, ptr %18, i64 %idxprom14.i.i.i29
   store ptr %call24.i.i.i40, ptr %arrayidx27.i.i.i41, align 8
   %.pre59.b = load i1, ptr @name_slab.1, align 8
-  br label %commit_to_name.exit45
+  br label %commit_to_name.argprom.exit45
 
-commit_to_name.exit45:                            ; preds = %if.end12.i.i.i28, %if.end20.i.i.i36
+commit_to_name.argprom.exit45:                    ; preds = %if.end12.i.i.i28, %if.end20.i.i.i36
   %.pre3.i.i.i.i = phi ptr [ %.pre3.i.i.i.i61, %if.end12.i.i.i28 ], [ %18, %if.end20.i.i.i36 ]
   %.in80 = phi i1 [ %.pre60.in, %if.end12.i.i.i28 ], [ %.pre59.b, %if.end20.i.i.i36 ]
   %19 = phi ptr [ %17, %if.end12.i.i.i28 ], [ %call24.i.i.i40, %if.end20.i.i.i36 ]
@@ -3417,7 +3417,7 @@ commit_to_name.exit45:                            ; preds = %if.end12.i.i.i28, %
   %tobool7.not = icmp eq ptr %21, null
   br i1 %tobool7.not, label %if.then8, label %while.end
 
-if.then8:                                         ; preds = %commit_to_name.exit45
+if.then8:                                         ; preds = %commit_to_name.argprom.exit45
   %c.addr.0.val8 = load i32, ptr %0, align 8
   %div.i.i.i.i = udiv i32 %c.addr.0.val8, 65532
   %rem.i.i.i.i = urem i32 %c.addr.0.val8, 65532
@@ -3469,7 +3469,7 @@ if.end12.i.i.i.i:                                 ; preds = %for.end.i.i.i.i, %i
   %arrayidx15.i.i.i.i = getelementptr inbounds ptr, ptr %.pre3.i.i.i.i69, i64 %idxprom14.i.i.i.i
   %27 = load ptr, ptr %arrayidx15.i.i.i.i, align 8
   %tobool16.not.i.i.i.i = icmp eq ptr %27, null
-  br i1 %tobool16.not.i.i.i.i, label %if.end20.i.i.i.i, label %commit_to_name.exit.i
+  br i1 %tobool16.not.i.i.i.i, label %if.end20.i.i.i.i, label %commit_to_name.argprom.exit.i
 
 if.end20.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i
   %conv22.i.i.i.i = zext nneg i32 %.pre1.i to i64
@@ -3482,9 +3482,9 @@ if.end20.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i
   %.pre.i = select i1 %.pre.i.b, i32 65532, i32 0
   %.pre2.i = load i32, ptr @name_slab.2, align 8
   %.pre71.b = load i1, ptr @name_slab.1, align 8
-  br label %commit_to_name.exit.i
+  br label %commit_to_name.argprom.exit.i
 
-commit_to_name.exit.i:                            ; preds = %if.end20.i.i.i.i, %if.end12.i.i.i.i
+commit_to_name.argprom.exit.i:                    ; preds = %if.end20.i.i.i.i, %if.end12.i.i.i.i
   %.in81 = phi i1 [ %.pre72.in, %if.end12.i.i.i.i ], [ %.pre71.b, %if.end20.i.i.i.i ]
   %.pre3.i.i.i.i68 = phi ptr [ %.pre3.i.i.i.i69, %if.end12.i.i.i.i ], [ %28, %if.end20.i.i.i.i ]
   %29 = phi i32 [ %26, %if.end12.i.i.i.i ], [ %.pre2.i, %if.end20.i.i.i.i ]
@@ -3500,7 +3500,7 @@ commit_to_name.exit.i:                            ; preds = %if.end20.i.i.i.i, %
   %cmp.not.i.i.i7.i = icmp ugt i32 %29, %div.i.i.i6.i
   br i1 %cmp.not.i.i.i7.i, label %if.end12.i.i.i25.i, label %if.end.i.i.i9.i
 
-if.end.i.i.i9.i:                                  ; preds = %commit_to_name.exit.i
+if.end.i.i.i9.i:                                  ; preds = %commit_to_name.argprom.exit.i
   %add.i.i.i10.i = add i32 %div.i.i.i6.i, 1
   %conv.i.i.i11.i = zext i32 %add.i.i.i10.i to i64
   %mul.i.i.i.i12.i = shl nuw nsw i64 %conv.i.i.i11.i, 3
@@ -3533,14 +3533,14 @@ for.end.i.i.i23.i:                                ; preds = %for.end.loopexit.i.
   %.pre5.pre.i.b = load i1, ptr @name_slab.1, align 8
   br label %if.end12.i.i.i25.i
 
-if.end12.i.i.i25.i:                               ; preds = %for.end.i.i.i23.i, %commit_to_name.exit.i
-  %.pre3.i.i.i.i67 = phi ptr [ %.pre.i.i.i24.i, %for.end.i.i.i23.i ], [ %.pre3.i.i.i.i68, %commit_to_name.exit.i ]
-  %.pre5.i.in = phi i1 [ %.pre5.pre.i.b, %for.end.i.i.i23.i ], [ %.in81, %commit_to_name.exit.i ]
+if.end12.i.i.i25.i:                               ; preds = %for.end.i.i.i23.i, %commit_to_name.argprom.exit.i
+  %.pre3.i.i.i.i67 = phi ptr [ %.pre.i.i.i24.i, %for.end.i.i.i23.i ], [ %.pre3.i.i.i.i68, %commit_to_name.argprom.exit.i ]
+  %.pre5.i.in = phi i1 [ %.pre5.pre.i.b, %for.end.i.i.i23.i ], [ %.in81, %commit_to_name.argprom.exit.i ]
   %idxprom14.i.i.i26.i = zext i32 %div.i.i.i6.i to i64
   %arrayidx15.i.i.i27.i = getelementptr inbounds ptr, ptr %.pre3.i.i.i.i67, i64 %idxprom14.i.i.i26.i
   %36 = load ptr, ptr %arrayidx15.i.i.i27.i, align 8
   %tobool16.not.i.i.i28.i = icmp eq ptr %36, null
-  br i1 %tobool16.not.i.i.i28.i, label %if.end20.i.i.i33.i, label %commit_to_name.exit42.i
+  br i1 %tobool16.not.i.i.i28.i, label %if.end20.i.i.i33.i, label %commit_to_name.argprom.exit42.i
 
 if.end20.i.i.i33.i:                               ; preds = %if.end12.i.i.i25.i
   %.b = load i1, ptr @name_slab.0, align 8
@@ -3551,9 +3551,9 @@ if.end20.i.i.i33.i:                               ; preds = %if.end12.i.i.i25.i
   %arrayidx27.i.i.i38.i = getelementptr inbounds ptr, ptr %37, i64 %idxprom14.i.i.i26.i
   store ptr %call24.i.i.i37.i, ptr %arrayidx27.i.i.i38.i, align 8
   %.pre4.i.b = load i1, ptr @name_slab.1, align 8
-  br label %commit_to_name.exit42.i
+  br label %commit_to_name.argprom.exit42.i
 
-commit_to_name.exit42.i:                          ; preds = %if.end20.i.i.i33.i, %if.end12.i.i.i25.i
+commit_to_name.argprom.exit42.i:                  ; preds = %if.end20.i.i.i33.i, %if.end12.i.i.i25.i
   %.pre3.i.i.i.i66 = phi ptr [ %.pre3.i.i.i.i67, %if.end12.i.i.i25.i ], [ %37, %if.end20.i.i.i33.i ]
   %.in82 = phi i1 [ %.pre5.i.in, %if.end12.i.i.i25.i ], [ %.pre4.i.b, %if.end20.i.i.i33.i ]
   %38 = phi ptr [ %36, %if.end12.i.i.i25.i ], [ %call24.i.i.i37.i, %if.end20.i.i.i33.i ]
@@ -3562,9 +3562,9 @@ commit_to_name.exit42.i:                          ; preds = %if.end20.i.i.i33.i,
   %arrayidx35.i.i.i32.i = getelementptr inbounds ptr, ptr %38, i64 %idxprom34.i.i.i31.i
   %40 = load ptr, ptr %arrayidx35.i.i.i32.i, align 8
   %tobool.not.i = icmp eq ptr %33, null
-  br i1 %tobool.not.i, label %name_parent.exit, label %if.end.i
+  br i1 %tobool.not.i, label %name_parent.argprom.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %commit_to_name.exit42.i
+if.end.i:                                         ; preds = %commit_to_name.argprom.exit42.i
   %tobool2.not.i = icmp eq ptr %40, null
   %generation5.phi.trans.insert.i = getelementptr inbounds i8, ptr %33, i64 8
   %.pre6.i = load i32, ptr %generation5.phi.trans.insert.i, align 8
@@ -3575,22 +3575,22 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %generation3.i = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load i32, ptr %generation3.i, align 8
   %cmp.i = icmp slt i32 %.pre9.i, %41
-  br i1 %cmp.i, label %if.then4.i, label %name_parent.exit
+  br i1 %cmp.i, label %if.then4.i, label %name_parent.argprom.exit
 
 if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
   %42 = load ptr, ptr %33, align 8
   tail call fastcc void @name_commit(ptr noundef readonly %11, ptr noundef %42, i32 noundef %.pre9.i)
   %.pre3.i.i.i.pre = load ptr, ptr @name_slab.3, align 8
-  br label %name_parent.exit
+  br label %name_parent.argprom.exit
 
-name_parent.exit:                                 ; preds = %commit_to_name.exit42.i, %lor.lhs.false.i, %if.then4.i
-  %.pre3.i.i.i.i65 = phi ptr [ %.pre3.i.i.i.i66, %commit_to_name.exit42.i ], [ %.pre3.i.i.i.i66, %lor.lhs.false.i ], [ %.pre3.i.i.i.pre, %if.then4.i ]
+name_parent.argprom.exit:                         ; preds = %commit_to_name.argprom.exit42.i, %lor.lhs.false.i, %if.then4.i
+  %.pre3.i.i.i.i65 = phi ptr [ %.pre3.i.i.i.i66, %commit_to_name.argprom.exit42.i ], [ %.pre3.i.i.i.i66, %lor.lhs.false.i ], [ %.pre3.i.i.i.pre, %if.then4.i ]
   %inc = add nuw nsw i32 %i.048, 1
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !36
 
-while.end:                                        ; preds = %name_parent.exit, %commit_to_name.exit, %if.end, %commit_to_name.exit45, %entry
-  %i.0.lcssa = phi i32 [ 0, %entry ], [ %i.048, %commit_to_name.exit45 ], [ %i.048, %if.end ], [ %i.048, %commit_to_name.exit ], [ %inc, %name_parent.exit ]
+while.end:                                        ; preds = %name_parent.argprom.exit, %commit_to_name.argprom.exit, %if.end, %commit_to_name.argprom.exit45, %entry
+  %i.0.lcssa = phi i32 [ 0, %entry ], [ %i.048, %commit_to_name.argprom.exit45 ], [ %i.048, %if.end ], [ %i.048, %commit_to_name.argprom.exit ], [ %inc, %name_parent.argprom.exit ]
   ret i32 %i.0.lcssa
 }
 

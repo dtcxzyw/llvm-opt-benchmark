@@ -2282,9 +2282,9 @@ if.then22.i:                                      ; preds = %if.end18.i
   %mdmax.i.i = getelementptr inbounds i8, ptr %dane.val.i, i64 16
   %4 = load i8, ptr %mdmax.i.i, align 8
   %cmp.i.i = icmp ugt i8 %mtype, %4
-  br i1 %cmp.i.i, label %if.then25.i, label %tlsa_md_get.exit.i
+  br i1 %cmp.i.i, label %if.then25.i, label %tlsa_md_get.argprom.exit.i
 
-tlsa_md_get.exit.i:                               ; preds = %if.then22.i
+tlsa_md_get.argprom.exit.i:                       ; preds = %if.then22.i
   %5 = load ptr, ptr %dane.val.i, align 8
   %idxprom.i.i = zext i8 %mtype to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i.i
@@ -2292,13 +2292,13 @@ tlsa_md_get.exit.i:                               ; preds = %if.then22.i
   %cmp23.i = icmp eq ptr %6, null
   br i1 %cmp23.i, label %if.then25.i, label %land.lhs.true.i
 
-if.then25.i:                                      ; preds = %tlsa_md_get.exit.i, %if.then22.i
+if.then25.i:                                      ; preds = %tlsa_md_get.argprom.exit.i, %if.then22.i
   tail call void @ERR_new() #24
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 292, ptr noundef nonnull @__func__.dane_tlsa_add) #24
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 200, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
-land.lhs.true.i:                                  ; preds = %tlsa_md_get.exit.i
+land.lhs.true.i:                                  ; preds = %tlsa_md_get.argprom.exit.i
   %call30.i = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %6) #24
   %conv31.i = sext i32 %call30.i to i64
   %cmp32.not.i = icmp eq i64 %dlen, %conv31.i

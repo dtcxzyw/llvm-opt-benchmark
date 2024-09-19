@@ -48718,7 +48718,7 @@ _ZN8nlohmann6detail21iteration_proxy_valueINS0_9iter_implIKNS_10basic_jsonISt3ma
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix5flake4NodeERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS4_14adl_serializerES7_IhSaIhEEEEEZNS1_8LockFileC1ESt17basic_string_viewIcSB_ESN_E3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -48727,30 +48727,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix5flake4Nod
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES5_E3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #34
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -53473,7 +53473,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_N3nix3refIKNS8_5flake4NodeEEEEZNKSA_8LockFile6toJSONEvE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -53482,30 +53482,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basi
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #34
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55803,7 +55803,7 @@ _ZN3nix3refIKNS_5flake4NodeEED2Ev.exit.i.i.i:     ; preds = %_ZNSt16_Sp_counted_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %77 = load ptr, ptr %6, align 8
   %.not.i.i.i.i5.i.i = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i5.i.i, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %78
+  br i1 %.not.i.i.i.i5.i.i, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %78
 
 78:                                               ; preds = %.loopexit1.i.i
   %79 = getelementptr inbounds i8, ptr %77, i64 8
@@ -55839,7 +55839,7 @@ _ZN3nix3refIKNS_5flake4NodeEED2Ev.exit.i.i.i:     ; preds = %_ZNSt16_Sp_counted_
 94:                                               ; preds = %92, %90
   %.0.i.i.i.i.i.i.i = phi i32 [ %82, %90 ], [ %93, %92 ]
   %95 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %95, label %96, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %95, label %96, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr %77, align 8
@@ -55864,14 +55864,14 @@ _ZN3nix3refIKNS_5flake4NodeEED2Ev.exit.i.i.i:     ; preds = %_ZNSt16_Sp_counted_
 107:                                              ; preds = %105, %102
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %103, %102 ], [ %106, %105 ]
   %108 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %108, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %108, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %107, %83
   %109 = load ptr, ptr %77, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(16) %77) #31
-  br label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 .loopexit.i.i:                                    ; preds = %30
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -55888,7 +55888,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZN3nix3refIKNS_5flake4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #31
   resume { ptr, i32 } %eh.lpad-body.i.i
 
-"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %.loopexit1.i.i, %94, %107, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile10isUnlockedEvE3$_0JNS0_3refIKNS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %.loopexit1.i.i, %94, %107, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 }
@@ -60352,7 +60352,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %107 = load ptr, ptr %8, align 8
   %.not.i.i.i.i7.i.i = icmp eq ptr %107, null
-  br i1 %.not.i.i.i.i7.i.i, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %108
+  br i1 %.not.i.i.i.i7.i.i, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit", label %108
 
 108:                                              ; preds = %.loopexit1.i.i
   %109 = getelementptr inbounds i8, ptr %107, i64 8
@@ -60388,7 +60388,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 124:                                              ; preds = %122, %120
   %.0.i.i.i.i.i.i.i = phi i32 [ %112, %120 ], [ %123, %122 ]
   %125 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %125, label %126, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  br i1 %125, label %126, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr %107, align 8
@@ -60413,14 +60413,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 137:                                              ; preds = %135, %132
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %133, %132 ], [ %136, %135 ]
   %138 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %138, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  br i1 %138, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %137, %113
   %139 = load ptr, ptr %107, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 24
   %141 = load ptr, ptr %140, align 8
   call void %141(ptr noundef nonnull align 8 dereferenceable(16) %107) #31
-  br label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
 
 .loopexit.i.i:                                    ; preds = %32
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -60437,14 +60437,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZN3nix3refINS_5flake4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #31
   resume { ptr, i32 } %eh.lpad-body.i.i
 
-"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %.loopexit1.i.i, %124, %137, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0JRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_3refINS1_4NodeEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit": ; preds = %.loopexit1.i.i, %124, %137, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEN3nix3refINSB_5flake4NodeEEEEZNKSD_8LockFile12getAllInputsEvE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -60453,30 +60453,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt6vectorINSt7
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #34
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

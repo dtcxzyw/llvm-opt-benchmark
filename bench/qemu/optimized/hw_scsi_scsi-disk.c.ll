@@ -3135,9 +3135,9 @@ sw.bb181:                                         ; preds = %if.end28
   %66 = getelementptr i8, ptr %0, i64 564
   %.val = load i32, ptr %66, align 4
   %cmp.not.i = icmp eq i32 %.val, 5
-  br i1 %cmp.not.i, label %scsi_emulate_mechanism_status.exit, label %illegal_request
+  br i1 %cmp.not.i, label %scsi_emulate_mechanism_status.argprom.exit, label %illegal_request
 
-scsi_emulate_mechanism_status.exit:               ; preds = %sw.bb181
+scsi_emulate_mechanism_status.argprom.exit:       ; preds = %sw.bb181
   store i64 1099511627776, ptr %7, align 1
   br label %sw.epilog374
 
@@ -3154,7 +3154,7 @@ sw.bb193:                                         ; preds = %if.end28
 sw.bb199:                                         ; preds = %if.end28
   %67 = getelementptr i8, ptr %0, i64 564
   %.val136 = load i32, ptr %67, align 4
-  %call200 = tail call fastcc i32 @scsi_read_disc_information(i32 %.val136, ptr noundef nonnull %req, ptr noundef %7)
+  %call200 = tail call fastcc i32 @scsi_read_disc_information.argprom(i32 %.val136, ptr noundef nonnull %req, ptr noundef %7)
   %cmp201 = icmp slt i32 %call200, 0
   br i1 %cmp201, label %illegal_request, label %sw.epilog374
 
@@ -3429,7 +3429,7 @@ sw.default369:                                    ; preds = %if.end28
   tail call fastcc void @scsi_check_condition(ptr noundef nonnull %req, i24 %sense_code_INVALID_OPCODE.coerce.0.copyload)
   br label %return
 
-sw.epilog374:                                     ; preds = %scsi_emulate_mechanism_status.exit, %trace_scsi_disk_emulate_command_VERIFY.exit, %sw.bb314, %get_physical_block_exp.exit, %if.then298, %sw.bb205, %sw.bb199, %sw.bb193, %sw.bb187, %sw.bb167, %sw.bb97, %sw.bb88, %sw.bb79, %sw.bb70, %sw.bb62, %sw.bb56, %scsi_disk_emulate_mode_sense.exit, %sw.bb44, %sw.bb37, %sw.bb365, %trace_scsi_disk_emulate_command_WRITE_SAME.exit, %sw.bb335, %sw.bb331, %sw.bb327, %if.end144, %sw.bb103
+sw.epilog374:                                     ; preds = %scsi_emulate_mechanism_status.argprom.exit, %trace_scsi_disk_emulate_command_VERIFY.exit, %sw.bb314, %get_physical_block_exp.exit, %if.then298, %sw.bb205, %sw.bb199, %sw.bb193, %sw.bb187, %sw.bb167, %sw.bb97, %sw.bb88, %sw.bb79, %sw.bb70, %sw.bb62, %sw.bb56, %scsi_disk_emulate_mode_sense.exit, %sw.bb44, %sw.bb37, %sw.bb365, %trace_scsi_disk_emulate_command_WRITE_SAME.exit, %sw.bb335, %sw.bb331, %sw.bb327, %if.end144, %sw.bb103
   %aiocb376 = getelementptr inbounds i8, ptr %req, i64 376
   %116 = load ptr, ptr %aiocb376, align 8
   %tobool377.not = icmp eq ptr %116, null
@@ -4023,7 +4023,7 @@ if.end33.i:                                       ; preds = %if.end26.i
   %count.i = getelementptr inbounds i8, ptr %call34.i, i64 16
   store i32 %shr.i, ptr %count.i, align 8
   %call41.i = tail call ptr @scsi_req_ref(ptr noundef nonnull %req) #18
-  tail call fastcc void @scsi_unmap_complete_noio(ptr noundef nonnull %call34.i)
+  tail call fastcc void @scsi_unmap_complete_noio.argelim(ptr noundef nonnull %call34.i)
   br label %sw.epilog
 
 invalid_param_len.i23:                            ; preds = %if.end13.i, %if.end8.i, %if.end.i
@@ -5151,7 +5151,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 35) i32 @scsi_read_disc_information(i32 %s.564.val, ptr noundef %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 35) i32 @scsi_read_disc_information.argprom(i32 %s.564.val, ptr noundef %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %s.564.val, 5
   br i1 %cmp.not, label %if.end, label %return
@@ -6068,7 +6068,7 @@ declare void @block_acct_invalid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @scsi_unmap_complete_noio(ptr noundef %data) unnamed_addr #0 {
+define internal fastcc void @scsi_unmap_complete_noio.argelim(ptr noundef %data) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %dev = getelementptr inbounds i8, ptr %0, i64 8
@@ -6217,7 +6217,7 @@ if.else9:                                         ; preds = %if.end.i, %scsi_dis
   %call13 = tail call ptr @blk_get_stats(ptr noundef %5) #18
   %acct = getelementptr inbounds i8, ptr %0, i64 488
   tail call void @block_acct_done(ptr noundef %call13, ptr noundef nonnull %acct) #18
-  tail call fastcc void @scsi_unmap_complete_noio(ptr noundef nonnull %opaque)
+  tail call fastcc void @scsi_unmap_complete_noio.argelim(ptr noundef nonnull %opaque)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else9, %if.then7

@@ -735,7 +735,7 @@ define dso_local void @llvm_emit_builtin_call(ptr noundef %0, ptr noundef %1, pt
 44:                                               ; preds = %3
   %45 = getelementptr i8, ptr %2, i64 40
   %.val = load ptr, ptr %45, align 8
-  tail call fastcc void @llvm_emit_any_make(ptr noundef %0, ptr noundef %1, ptr %.val)
+  tail call fastcc void @llvm_emit_any_make.argprom(ptr noundef %0, ptr noundef %1, ptr %.val)
   br label %896
 
 46:                                               ; preds = %3
@@ -1489,7 +1489,7 @@ default.unreachable825:                           ; preds = %381
 456:                                              ; preds = %3
   %457 = getelementptr i8, ptr %2, i64 40
   %.val805 = load ptr, ptr %457, align 8
-  tail call fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, ptr %.val805)
+  tail call fastcc void @llvm_emit_syscall.argprom(ptr noundef %0, ptr noundef %1, ptr %.val805)
   br label %896
 
 458:                                              ; preds = %3
@@ -2023,7 +2023,7 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %687, %691, %695, %6
   %734 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 280), align 4
   %735 = getelementptr i8, ptr %2, i64 40
   %.val806 = load ptr, ptr %735, align 8
-  tail call fastcc void @llvm_emit_overflow_builtin(ptr noundef %0, ptr noundef %1, ptr %.val806, i32 noundef %733, i32 noundef %734)
+  tail call fastcc void @llvm_emit_overflow_builtin.argprom(ptr noundef %0, ptr noundef %1, ptr %.val806, i32 noundef %733, i32 noundef %734)
   br label %896
 
 736:                                              ; preds = %3
@@ -2031,7 +2031,7 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %687, %691, %695, %6
   %738 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 304), align 4
   %739 = getelementptr i8, ptr %2, i64 40
   %.val807 = load ptr, ptr %739, align 8
-  tail call fastcc void @llvm_emit_overflow_builtin(ptr noundef %0, ptr noundef %1, ptr %.val807, i32 noundef %737, i32 noundef %738)
+  tail call fastcc void @llvm_emit_overflow_builtin.argprom(ptr noundef %0, ptr noundef %1, ptr %.val807, i32 noundef %737, i32 noundef %738)
   br label %896
 
 740:                                              ; preds = %3
@@ -2039,7 +2039,7 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %687, %691, %695, %6
   %742 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 296), align 4
   %743 = getelementptr i8, ptr %2, i64 40
   %.val808 = load ptr, ptr %743, align 8
-  tail call fastcc void @llvm_emit_overflow_builtin(ptr noundef %0, ptr noundef %1, ptr %.val808, i32 noundef %741, i32 noundef %742)
+  tail call fastcc void @llvm_emit_overflow_builtin.argprom(ptr noundef %0, ptr noundef %1, ptr %.val808, i32 noundef %741, i32 noundef %742)
   br label %896
 
 744:                                              ; preds = %3
@@ -2376,7 +2376,7 @@ llvm_emit_wrap_builtin.exit:                      ; preds = %687, %691, %695, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_any_make(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.40.val) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_any_make.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.40.val) unnamed_addr #0 {
   %3 = alloca %struct.BEValue, align 8
   %4 = alloca %struct.BEValue, align 8
   %5 = getelementptr inbounds i8, ptr %.40.val, i64 8
@@ -2504,7 +2504,7 @@ declare void @llvm_emit_expr(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @llvm_value_rvalue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, ptr readonly %.40.val) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_syscall.argprom(ptr noundef %0, ptr noundef %1, ptr readonly %.40.val) unnamed_addr #0 {
   %3 = alloca [10 x ptr], align 16
   %4 = alloca [10 x ptr], align 16
   %.not = icmp eq ptr %.40.val, null
@@ -2688,7 +2688,7 @@ llvm_syscall_write_regs_to_scratch.exit68:        ; preds = %.lr.ph.i64, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_overflow_builtin(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.40.val, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_overflow_builtin.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.40.val, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
 .critedge:
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca [2 x ptr], align 16

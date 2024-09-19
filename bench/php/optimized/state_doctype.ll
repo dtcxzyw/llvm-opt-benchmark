@@ -233,7 +233,7 @@ define internal ptr @lxb_html_tokenizer_state_doctype_before_name(ptr noundef %0
   %70 = tail call ptr @lexbor_realloc(ptr noundef %66, i64 noundef %69) #4
   store ptr %70, ptr %54, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i
+  br i1 %71, label %lxb_html_tokenizer_temp_append.argprom.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i
 
 lxb_html_tokenizer_temp_realloc.exit.thread.i:    ; preds = %65
   %72 = ptrtoint ptr %60 to i64
@@ -243,7 +243,7 @@ lxb_html_tokenizer_temp_realloc.exit.thread.i:    ; preds = %65
   store ptr %75, ptr %62, align 8
   br label %77
 
-lxb_html_tokenizer_temp_append.exit:              ; preds = %65
+lxb_html_tokenizer_temp_append.argprom.exit:      ; preds = %65
   %76 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 2, ptr %76, align 8
   br label %.loopexit
@@ -346,8 +346,8 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %65
   %.not = icmp eq ptr %138, %2
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %137, %3, %lxb_html_tokenizer_temp_append.exit, %110, %114, %34, %38, %130, %128, %115, %77, %51, %39
-  %.0 = phi ptr [ %2, %128 ], [ %.07182, %130 ], [ %120, %115 ], [ %2, %39 ], [ %2, %51 ], [ %89, %77 ], [ %2, %38 ], [ %2, %34 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %2, %114 ], [ %2, %110 ], [ %1, %3 ], [ %scevgep, %137 ]
+.loopexit:                                        ; preds = %137, %3, %lxb_html_tokenizer_temp_append.argprom.exit, %110, %114, %34, %38, %130, %128, %115, %77, %51, %39
+  %.0 = phi ptr [ %2, %128 ], [ %.07182, %130 ], [ %120, %115 ], [ %2, %39 ], [ %2, %51 ], [ %89, %77 ], [ %2, %38 ], [ %2, %34 ], [ %2, %lxb_html_tokenizer_temp_append.argprom.exit ], [ %2, %114 ], [ %2, %110 ], [ %1, %3 ], [ %scevgep, %137 ]
   ret ptr %.0
 }
 
@@ -706,7 +706,7 @@ lxb_html_tokenizer_temp_append_data.exit116:      ; preds = %135
   %218 = tail call ptr @lexbor_realloc(ptr noundef %214, i64 noundef %217) #4
   store ptr %218, ptr %7, align 8
   %219 = icmp eq ptr %218, null
-  br i1 %219, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i118
+  br i1 %219, label %lxb_html_tokenizer_temp_append.argprom.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i118
 
 lxb_html_tokenizer_temp_realloc.exit.thread.i118: ; preds = %213
   %220 = ptrtoint ptr %152 to i64
@@ -716,7 +716,7 @@ lxb_html_tokenizer_temp_realloc.exit.thread.i118: ; preds = %213
   store ptr %223, ptr %6, align 8
   br label %225
 
-lxb_html_tokenizer_temp_append.exit:              ; preds = %213
+lxb_html_tokenizer_temp_append.argprom.exit:      ; preds = %213
   %224 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 2, ptr %224, align 8
   br label %267
@@ -796,8 +796,8 @@ lxb_html_tokenizer_temp_append_data.exit122:      ; preds = %248
   store ptr %266, ptr %242, align 8
   br label %267
 
-267:                                              ; preds = %263, %lxb_html_tokenizer_temp_append_data.exit122, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit116, %lxb_html_tokenizer_temp_append_data.exit112, %lxb_html_tokenizer_temp_append_data.exit, %200, %204, %117, %121, %205, %182, %122, %95, %50, %48
-  %.0 = phi ptr [ %2, %182 ], [ %2, %205 ], [ %2, %95 ], [ %125, %122 ], [ %2, %48 ], [ %59, %50 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit112 ], [ %2, %121 ], [ %2, %117 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ], [ %2, %204 ], [ %2, %200 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.097.lcssa, %263 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit122 ]
+267:                                              ; preds = %263, %lxb_html_tokenizer_temp_append_data.exit122, %lxb_html_tokenizer_temp_append.argprom.exit, %lxb_html_tokenizer_temp_append_data.exit116, %lxb_html_tokenizer_temp_append_data.exit112, %lxb_html_tokenizer_temp_append_data.exit, %200, %204, %117, %121, %205, %182, %122, %95, %50, %48
+  %.0 = phi ptr [ %2, %182 ], [ %2, %205 ], [ %2, %95 ], [ %125, %122 ], [ %2, %48 ], [ %59, %50 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit112 ], [ %2, %121 ], [ %2, %117 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ], [ %2, %204 ], [ %2, %200 ], [ %2, %lxb_html_tokenizer_temp_append.argprom.exit ], [ %.097.lcssa, %263 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit122 ]
   ret ptr %.0
 }
 
@@ -2318,7 +2318,7 @@ lxb_html_tokenizer_temp_append_data.exit179:      ; preds = %225
   %326 = tail call ptr @lexbor_realloc(ptr noundef %322, i64 noundef %325) #4
   store ptr %326, ptr %26, align 8
   %327 = icmp eq ptr %326, null
-  br i1 %327, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i181
+  br i1 %327, label %lxb_html_tokenizer_temp_append.argprom.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i181
 
 lxb_html_tokenizer_temp_realloc.exit.thread.i181: ; preds = %321
   %328 = ptrtoint ptr %242 to i64
@@ -2328,7 +2328,7 @@ lxb_html_tokenizer_temp_realloc.exit.thread.i181: ; preds = %321
   store ptr %331, ptr %25, align 8
   br label %333
 
-lxb_html_tokenizer_temp_append.exit:              ; preds = %321
+lxb_html_tokenizer_temp_append.argprom.exit:      ; preds = %321
   %332 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 2, ptr %332, align 8
   br label %375
@@ -2409,8 +2409,8 @@ lxb_html_tokenizer_temp_append_data.exit185:      ; preds = %356
   store ptr %374, ptr %350, align 8
   br label %375
 
-375:                                              ; preds = %371, %lxb_html_tokenizer_temp_append_data.exit185, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit179, %lxb_html_tokenizer_temp_append_data.exit175, %lxb_html_tokenizer_temp_append_data.exit171, %lxb_html_tokenizer_temp_append_data.exit167, %lxb_html_tokenizer_temp_append_data.exit, %308, %312, %151, %155, %313, %289, %185, %156, %128, %74, %72
-  %.0 = phi ptr [ %2, %289 ], [ %2, %313 ], [ %161, %185 ], [ %2, %128 ], [ %159, %156 ], [ %2, %72 ], [ %84, %74 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit167 ], [ %2, %155 ], [ %2, %151 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit171 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit179 ], [ %2, %312 ], [ %2, %308 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.0146.lcssa, %371 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit185 ]
+375:                                              ; preds = %371, %lxb_html_tokenizer_temp_append_data.exit185, %lxb_html_tokenizer_temp_append.argprom.exit, %lxb_html_tokenizer_temp_append_data.exit179, %lxb_html_tokenizer_temp_append_data.exit175, %lxb_html_tokenizer_temp_append_data.exit171, %lxb_html_tokenizer_temp_append_data.exit167, %lxb_html_tokenizer_temp_append_data.exit, %308, %312, %151, %155, %313, %289, %185, %156, %128, %74, %72
+  %.0 = phi ptr [ %2, %289 ], [ %2, %313 ], [ %161, %185 ], [ %2, %128 ], [ %159, %156 ], [ %2, %72 ], [ %84, %74 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit167 ], [ %2, %155 ], [ %2, %151 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit171 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit179 ], [ %2, %312 ], [ %2, %308 ], [ %2, %lxb_html_tokenizer_temp_append.argprom.exit ], [ %.0146.lcssa, %371 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit185 ]
   ret ptr %.0
 }
 
@@ -2944,7 +2944,7 @@ lxb_html_tokenizer_temp_append_data.exit179:      ; preds = %225
   %326 = tail call ptr @lexbor_realloc(ptr noundef %322, i64 noundef %325) #4
   store ptr %326, ptr %26, align 8
   %327 = icmp eq ptr %326, null
-  br i1 %327, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i181
+  br i1 %327, label %lxb_html_tokenizer_temp_append.argprom.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i181
 
 lxb_html_tokenizer_temp_realloc.exit.thread.i181: ; preds = %321
   %328 = ptrtoint ptr %242 to i64
@@ -2954,7 +2954,7 @@ lxb_html_tokenizer_temp_realloc.exit.thread.i181: ; preds = %321
   store ptr %331, ptr %25, align 8
   br label %333
 
-lxb_html_tokenizer_temp_append.exit:              ; preds = %321
+lxb_html_tokenizer_temp_append.argprom.exit:      ; preds = %321
   %332 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 2, ptr %332, align 8
   br label %375
@@ -3035,8 +3035,8 @@ lxb_html_tokenizer_temp_append_data.exit185:      ; preds = %356
   store ptr %374, ptr %350, align 8
   br label %375
 
-375:                                              ; preds = %371, %lxb_html_tokenizer_temp_append_data.exit185, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit179, %lxb_html_tokenizer_temp_append_data.exit175, %lxb_html_tokenizer_temp_append_data.exit171, %lxb_html_tokenizer_temp_append_data.exit167, %lxb_html_tokenizer_temp_append_data.exit, %308, %312, %151, %155, %313, %289, %185, %156, %128, %74, %72
-  %.0 = phi ptr [ %2, %289 ], [ %2, %313 ], [ %161, %185 ], [ %2, %128 ], [ %159, %156 ], [ %2, %72 ], [ %84, %74 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit167 ], [ %2, %155 ], [ %2, %151 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit171 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit179 ], [ %2, %312 ], [ %2, %308 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.0146.lcssa, %371 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit185 ]
+375:                                              ; preds = %371, %lxb_html_tokenizer_temp_append_data.exit185, %lxb_html_tokenizer_temp_append.argprom.exit, %lxb_html_tokenizer_temp_append_data.exit179, %lxb_html_tokenizer_temp_append_data.exit175, %lxb_html_tokenizer_temp_append_data.exit171, %lxb_html_tokenizer_temp_append_data.exit167, %lxb_html_tokenizer_temp_append_data.exit, %308, %312, %151, %155, %313, %289, %185, %156, %128, %74, %72
+  %.0 = phi ptr [ %2, %289 ], [ %2, %313 ], [ %161, %185 ], [ %2, %128 ], [ %159, %156 ], [ %2, %72 ], [ %84, %74 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit167 ], [ %2, %155 ], [ %2, %151 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit171 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit179 ], [ %2, %312 ], [ %2, %308 ], [ %2, %lxb_html_tokenizer_temp_append.argprom.exit ], [ %.0146.lcssa, %371 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit185 ]
   ret ptr %.0
 }
 
@@ -3919,7 +3919,7 @@ lxb_html_tokenizer_temp_append_data.exit179:      ; preds = %225
   %326 = tail call ptr @lexbor_realloc(ptr noundef %322, i64 noundef %325) #4
   store ptr %326, ptr %26, align 8
   %327 = icmp eq ptr %326, null
-  br i1 %327, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i181
+  br i1 %327, label %lxb_html_tokenizer_temp_append.argprom.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i181
 
 lxb_html_tokenizer_temp_realloc.exit.thread.i181: ; preds = %321
   %328 = ptrtoint ptr %242 to i64
@@ -3929,7 +3929,7 @@ lxb_html_tokenizer_temp_realloc.exit.thread.i181: ; preds = %321
   store ptr %331, ptr %25, align 8
   br label %333
 
-lxb_html_tokenizer_temp_append.exit:              ; preds = %321
+lxb_html_tokenizer_temp_append.argprom.exit:      ; preds = %321
   %332 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 2, ptr %332, align 8
   br label %375
@@ -4010,8 +4010,8 @@ lxb_html_tokenizer_temp_append_data.exit185:      ; preds = %356
   store ptr %374, ptr %350, align 8
   br label %375
 
-375:                                              ; preds = %371, %lxb_html_tokenizer_temp_append_data.exit185, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit179, %lxb_html_tokenizer_temp_append_data.exit175, %lxb_html_tokenizer_temp_append_data.exit171, %lxb_html_tokenizer_temp_append_data.exit167, %lxb_html_tokenizer_temp_append_data.exit, %308, %312, %151, %155, %313, %289, %185, %156, %128, %74, %72
-  %.0 = phi ptr [ %2, %289 ], [ %2, %313 ], [ %161, %185 ], [ %2, %128 ], [ %159, %156 ], [ %2, %72 ], [ %84, %74 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit167 ], [ %2, %155 ], [ %2, %151 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit171 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit179 ], [ %2, %312 ], [ %2, %308 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.0146.lcssa, %371 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit185 ]
+375:                                              ; preds = %371, %lxb_html_tokenizer_temp_append_data.exit185, %lxb_html_tokenizer_temp_append.argprom.exit, %lxb_html_tokenizer_temp_append_data.exit179, %lxb_html_tokenizer_temp_append_data.exit175, %lxb_html_tokenizer_temp_append_data.exit171, %lxb_html_tokenizer_temp_append_data.exit167, %lxb_html_tokenizer_temp_append_data.exit, %308, %312, %151, %155, %313, %289, %185, %156, %128, %74, %72
+  %.0 = phi ptr [ %2, %289 ], [ %2, %313 ], [ %161, %185 ], [ %2, %128 ], [ %159, %156 ], [ %2, %72 ], [ %84, %74 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit167 ], [ %2, %155 ], [ %2, %151 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit171 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit179 ], [ %2, %312 ], [ %2, %308 ], [ %2, %lxb_html_tokenizer_temp_append.argprom.exit ], [ %.0146.lcssa, %371 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit185 ]
   ret ptr %.0
 }
 
@@ -4545,7 +4545,7 @@ lxb_html_tokenizer_temp_append_data.exit179:      ; preds = %225
   %326 = tail call ptr @lexbor_realloc(ptr noundef %322, i64 noundef %325) #4
   store ptr %326, ptr %26, align 8
   %327 = icmp eq ptr %326, null
-  br i1 %327, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i181
+  br i1 %327, label %lxb_html_tokenizer_temp_append.argprom.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i181
 
 lxb_html_tokenizer_temp_realloc.exit.thread.i181: ; preds = %321
   %328 = ptrtoint ptr %242 to i64
@@ -4555,7 +4555,7 @@ lxb_html_tokenizer_temp_realloc.exit.thread.i181: ; preds = %321
   store ptr %331, ptr %25, align 8
   br label %333
 
-lxb_html_tokenizer_temp_append.exit:              ; preds = %321
+lxb_html_tokenizer_temp_append.argprom.exit:      ; preds = %321
   %332 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 2, ptr %332, align 8
   br label %375
@@ -4636,8 +4636,8 @@ lxb_html_tokenizer_temp_append_data.exit185:      ; preds = %356
   store ptr %374, ptr %350, align 8
   br label %375
 
-375:                                              ; preds = %371, %lxb_html_tokenizer_temp_append_data.exit185, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit179, %lxb_html_tokenizer_temp_append_data.exit175, %lxb_html_tokenizer_temp_append_data.exit171, %lxb_html_tokenizer_temp_append_data.exit167, %lxb_html_tokenizer_temp_append_data.exit, %308, %312, %151, %155, %313, %289, %185, %156, %128, %74, %72
-  %.0 = phi ptr [ %2, %289 ], [ %2, %313 ], [ %161, %185 ], [ %2, %128 ], [ %159, %156 ], [ %2, %72 ], [ %84, %74 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit167 ], [ %2, %155 ], [ %2, %151 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit171 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit179 ], [ %2, %312 ], [ %2, %308 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.0146.lcssa, %371 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit185 ]
+375:                                              ; preds = %371, %lxb_html_tokenizer_temp_append_data.exit185, %lxb_html_tokenizer_temp_append.argprom.exit, %lxb_html_tokenizer_temp_append_data.exit179, %lxb_html_tokenizer_temp_append_data.exit175, %lxb_html_tokenizer_temp_append_data.exit171, %lxb_html_tokenizer_temp_append_data.exit167, %lxb_html_tokenizer_temp_append_data.exit, %308, %312, %151, %155, %313, %289, %185, %156, %128, %74, %72
+  %.0 = phi ptr [ %2, %289 ], [ %2, %313 ], [ %161, %185 ], [ %2, %128 ], [ %159, %156 ], [ %2, %72 ], [ %84, %74 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit167 ], [ %2, %155 ], [ %2, %151 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit171 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit175 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit179 ], [ %2, %312 ], [ %2, %308 ], [ %2, %lxb_html_tokenizer_temp_append.argprom.exit ], [ %.0146.lcssa, %371 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit185 ]
   ret ptr %.0
 }
 

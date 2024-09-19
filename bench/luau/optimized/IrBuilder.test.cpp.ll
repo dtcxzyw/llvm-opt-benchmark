@@ -7392,7 +7392,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc1 unwind label %87
 
 .noexc1:                                          ; preds = %.noexc
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %3, i32 %4, i8 noundef zeroext 0, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %3, i32 %4, i8 noundef zeroext 0, i1 noundef zeroext true)
           to label %.noexc2 unwind label %87
 
 .noexc2:                                          ; preds = %.noexc1
@@ -7404,11 +7404,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc4 unwind label %87
 
 .noexc4:                                          ; preds = %.noexc3
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %5, i32 %6, i8 noundef zeroext 0, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %5, i32 %6, i8 noundef zeroext 0, i1 noundef zeroext false)
           to label %.noexc5 unwind label %87
 
 .noexc5:                                          ; preds = %.noexc4
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 0, i32 0, i8 noundef zeroext 0, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 0, i32 0, i8 noundef zeroext 0, i1 noundef zeroext false)
           to label %.noexc6 unwind label %87
 
 .noexc6:                                          ; preds = %.noexc5
@@ -7420,7 +7420,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc8 unwind label %87
 
 .noexc8:                                          ; preds = %.noexc7
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %7, i32 %8, i8 noundef zeroext 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %7, i32 %8, i8 noundef zeroext 1, i1 noundef zeroext false)
           to label %.noexc9 unwind label %87
 
 .noexc9:                                          ; preds = %.noexc8
@@ -7432,11 +7432,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc11 unwind label %87
 
 .noexc11:                                         ; preds = %.noexc10
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %9, i32 %10, i8 noundef zeroext 1, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %9, i32 %10, i8 noundef zeroext 1, i1 noundef zeroext true)
           to label %.noexc12 unwind label %87
 
 .noexc12:                                         ; preds = %.noexc11
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 0, i32 0, i8 noundef zeroext 1, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 0, i32 0, i8 noundef zeroext 1, i1 noundef zeroext true)
           to label %.noexc13 unwind label %87
 
 .noexc13:                                         ; preds = %.noexc12
@@ -7448,7 +7448,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc15 unwind label %87
 
 .noexc15:                                         ; preds = %.noexc14
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %11, i32 %12, i8 noundef zeroext 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %11, i32 %12, i8 noundef zeroext 2, i1 noundef zeroext false)
           to label %.noexc16 unwind label %87
 
 .noexc16:                                         ; preds = %.noexc15
@@ -7460,7 +7460,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc18 unwind label %87
 
 .noexc18:                                         ; preds = %.noexc17
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %13, i32 %14, i8 noundef zeroext 2, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %13, i32 %14, i8 noundef zeroext 2, i1 noundef zeroext true)
           to label %.noexc19 unwind label %87
 
 .noexc19:                                         ; preds = %.noexc18
@@ -7472,7 +7472,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc21 unwind label %87
 
 .noexc21:                                         ; preds = %.noexc20
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %15, i32 %16, i8 noundef zeroext 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %15, i32 %16, i8 noundef zeroext 2, i1 noundef zeroext false)
           to label %.noexc22 unwind label %87
 
 .noexc22:                                         ; preds = %.noexc21
@@ -7480,7 +7480,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc23 unwind label %87
 
 .noexc23:                                         ; preds = %.noexc22
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %17, i32 0, i8 noundef zeroext 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %17, i32 0, i8 noundef zeroext 2, i1 noundef zeroext false)
           to label %.noexc24 unwind label %87
 
 .noexc24:                                         ; preds = %.noexc23
@@ -7492,7 +7492,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc26 unwind label %87
 
 .noexc26:                                         ; preds = %.noexc25
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %18, i32 %19, i8 noundef zeroext 3, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %18, i32 %19, i8 noundef zeroext 3, i1 noundef zeroext true)
           to label %.noexc27 unwind label %87
 
 .noexc27:                                         ; preds = %.noexc26
@@ -7504,7 +7504,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc29 unwind label %87
 
 .noexc29:                                         ; preds = %.noexc28
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %20, i32 %21, i8 noundef zeroext 3, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %20, i32 %21, i8 noundef zeroext 3, i1 noundef zeroext false)
           to label %.noexc30 unwind label %87
 
 .noexc30:                                         ; preds = %.noexc29
@@ -7516,7 +7516,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc32 unwind label %87
 
 .noexc32:                                         ; preds = %.noexc31
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %22, i32 %23, i8 noundef zeroext 3, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %22, i32 %23, i8 noundef zeroext 3, i1 noundef zeroext true)
           to label %.noexc33 unwind label %87
 
 .noexc33:                                         ; preds = %.noexc32
@@ -7524,7 +7524,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc34 unwind label %87
 
 .noexc34:                                         ; preds = %.noexc33
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %24, i32 0, i8 noundef zeroext 3, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %24, i32 0, i8 noundef zeroext 3, i1 noundef zeroext true)
           to label %.noexc35 unwind label %87
 
 .noexc35:                                         ; preds = %.noexc34
@@ -7536,7 +7536,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc37 unwind label %87
 
 .noexc37:                                         ; preds = %.noexc36
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %25, i32 %26, i8 noundef zeroext 4, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %25, i32 %26, i8 noundef zeroext 4, i1 noundef zeroext true)
           to label %.noexc38 unwind label %87
 
 .noexc38:                                         ; preds = %.noexc37
@@ -7548,7 +7548,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc40 unwind label %87
 
 .noexc40:                                         ; preds = %.noexc39
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %27, i32 %28, i8 noundef zeroext 4, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %27, i32 %28, i8 noundef zeroext 4, i1 noundef zeroext true)
           to label %.noexc41 unwind label %87
 
 .noexc41:                                         ; preds = %.noexc40
@@ -7560,7 +7560,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc43 unwind label %87
 
 .noexc43:                                         ; preds = %.noexc42
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %29, i32 %30, i8 noundef zeroext 4, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %29, i32 %30, i8 noundef zeroext 4, i1 noundef zeroext false)
           to label %.noexc44 unwind label %87
 
 .noexc44:                                         ; preds = %.noexc43
@@ -7568,7 +7568,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc45 unwind label %87
 
 .noexc45:                                         ; preds = %.noexc44
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %31, i32 0, i8 noundef zeroext 4, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %31, i32 0, i8 noundef zeroext 4, i1 noundef zeroext false)
           to label %.noexc46 unwind label %87
 
 .noexc46:                                         ; preds = %.noexc45
@@ -7580,7 +7580,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc48 unwind label %87
 
 .noexc48:                                         ; preds = %.noexc47
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %32, i32 %33, i8 noundef zeroext 5, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %32, i32 %33, i8 noundef zeroext 5, i1 noundef zeroext false)
           to label %.noexc49 unwind label %87
 
 .noexc49:                                         ; preds = %.noexc48
@@ -7592,7 +7592,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc51 unwind label %87
 
 .noexc51:                                         ; preds = %.noexc50
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %34, i32 %35, i8 noundef zeroext 5, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %34, i32 %35, i8 noundef zeroext 5, i1 noundef zeroext false)
           to label %.noexc52 unwind label %87
 
 .noexc52:                                         ; preds = %.noexc51
@@ -7604,7 +7604,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc54 unwind label %87
 
 .noexc54:                                         ; preds = %.noexc53
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %36, i32 %37, i8 noundef zeroext 5, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %36, i32 %37, i8 noundef zeroext 5, i1 noundef zeroext true)
           to label %.noexc55 unwind label %87
 
 .noexc55:                                         ; preds = %.noexc54
@@ -7612,7 +7612,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc56 unwind label %87
 
 .noexc56:                                         ; preds = %.noexc55
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %38, i32 0, i8 noundef zeroext 5, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %38, i32 0, i8 noundef zeroext 5, i1 noundef zeroext true)
           to label %.noexc57 unwind label %87
 
 .noexc57:                                         ; preds = %.noexc56
@@ -7624,7 +7624,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc59 unwind label %87
 
 .noexc59:                                         ; preds = %.noexc58
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %39, i32 %40, i8 noundef zeroext 6, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %39, i32 %40, i8 noundef zeroext 6, i1 noundef zeroext false)
           to label %.noexc60 unwind label %87
 
 .noexc60:                                         ; preds = %.noexc59
@@ -7636,7 +7636,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc62 unwind label %87
 
 .noexc62:                                         ; preds = %.noexc61
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %41, i32 %42, i8 noundef zeroext 6, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %41, i32 %42, i8 noundef zeroext 6, i1 noundef zeroext false)
           to label %.noexc63 unwind label %87
 
 .noexc63:                                         ; preds = %.noexc62
@@ -7648,7 +7648,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc65 unwind label %87
 
 .noexc65:                                         ; preds = %.noexc64
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %43, i32 %44, i8 noundef zeroext 6, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %43, i32 %44, i8 noundef zeroext 6, i1 noundef zeroext true)
           to label %.noexc66 unwind label %87
 
 .noexc66:                                         ; preds = %.noexc65
@@ -7656,7 +7656,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc67 unwind label %87
 
 .noexc67:                                         ; preds = %.noexc66
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %45, i32 0, i8 noundef zeroext 6, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %45, i32 0, i8 noundef zeroext 6, i1 noundef zeroext false)
           to label %.noexc68 unwind label %87
 
 .noexc68:                                         ; preds = %.noexc67
@@ -7668,7 +7668,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc70 unwind label %87
 
 .noexc70:                                         ; preds = %.noexc69
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %46, i32 %47, i8 noundef zeroext 7, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %46, i32 %47, i8 noundef zeroext 7, i1 noundef zeroext true)
           to label %.noexc71 unwind label %87
 
 .noexc71:                                         ; preds = %.noexc70
@@ -7680,7 +7680,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc73 unwind label %87
 
 .noexc73:                                         ; preds = %.noexc72
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %48, i32 %49, i8 noundef zeroext 7, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %48, i32 %49, i8 noundef zeroext 7, i1 noundef zeroext true)
           to label %.noexc74 unwind label %87
 
 .noexc74:                                         ; preds = %.noexc73
@@ -7692,7 +7692,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc76 unwind label %87
 
 .noexc76:                                         ; preds = %.noexc75
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %50, i32 %51, i8 noundef zeroext 7, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %50, i32 %51, i8 noundef zeroext 7, i1 noundef zeroext false)
           to label %.noexc77 unwind label %87
 
 .noexc77:                                         ; preds = %.noexc76
@@ -7700,7 +7700,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc78 unwind label %87
 
 .noexc78:                                         ; preds = %.noexc77
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %52, i32 0, i8 noundef zeroext 7, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %52, i32 0, i8 noundef zeroext 7, i1 noundef zeroext true)
           to label %.noexc79 unwind label %87
 
 .noexc79:                                         ; preds = %.noexc78
@@ -7712,7 +7712,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc81 unwind label %87
 
 .noexc81:                                         ; preds = %.noexc80
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %53, i32 %54, i8 noundef zeroext 8, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %53, i32 %54, i8 noundef zeroext 8, i1 noundef zeroext true)
           to label %.noexc82 unwind label %87
 
 .noexc82:                                         ; preds = %.noexc81
@@ -7724,7 +7724,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc84 unwind label %87
 
 .noexc84:                                         ; preds = %.noexc83
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %55, i32 %56, i8 noundef zeroext 8, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %55, i32 %56, i8 noundef zeroext 8, i1 noundef zeroext false)
           to label %.noexc85 unwind label %87
 
 .noexc85:                                         ; preds = %.noexc84
@@ -7736,7 +7736,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc87 unwind label %87
 
 .noexc87:                                         ; preds = %.noexc86
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %57, i32 %58, i8 noundef zeroext 8, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %57, i32 %58, i8 noundef zeroext 8, i1 noundef zeroext true)
           to label %.noexc88 unwind label %87
 
 .noexc88:                                         ; preds = %.noexc87
@@ -7744,7 +7744,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc89 unwind label %87
 
 .noexc89:                                         ; preds = %.noexc88
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %59, i32 0, i8 noundef zeroext 8, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %59, i32 0, i8 noundef zeroext 8, i1 noundef zeroext false)
           to label %.noexc90 unwind label %87
 
 .noexc90:                                         ; preds = %.noexc89
@@ -7756,7 +7756,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc92 unwind label %87
 
 .noexc92:                                         ; preds = %.noexc91
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %60, i32 %61, i8 noundef zeroext 9, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %60, i32 %61, i8 noundef zeroext 9, i1 noundef zeroext false)
           to label %.noexc93 unwind label %87
 
 .noexc93:                                         ; preds = %.noexc92
@@ -7768,7 +7768,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc95 unwind label %87
 
 .noexc95:                                         ; preds = %.noexc94
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %62, i32 %63, i8 noundef zeroext 9, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %62, i32 %63, i8 noundef zeroext 9, i1 noundef zeroext true)
           to label %.noexc96 unwind label %87
 
 .noexc96:                                         ; preds = %.noexc95
@@ -7780,7 +7780,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc98 unwind label %87
 
 .noexc98:                                         ; preds = %.noexc97
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %64, i32 %65, i8 noundef zeroext 9, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %64, i32 %65, i8 noundef zeroext 9, i1 noundef zeroext false)
           to label %.noexc99 unwind label %87
 
 .noexc99:                                         ; preds = %.noexc98
@@ -7788,7 +7788,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc100 unwind label %87
 
 .noexc100:                                        ; preds = %.noexc99
-  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr nonnull %1, i32 %66, i32 0, i8 noundef zeroext 9, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr nonnull %1, i32 %66, i32 0, i8 noundef zeroext 9, i1 noundef zeroext true)
           to label %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEv.exit unwind label %87
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEv.exit: ; preds = %.noexc100
@@ -44505,7 +44505,7 @@ _ZN16IrBuilderFixtureD2Ev.exit:                   ; preds = %_ZNSt6vectorIN4Luau
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr %.0.val, i32 %0, i32 %1, i8 noundef zeroext range(i8 0, 10) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b.argprom(ptr %.0.val, i32 %0, i32 %1, i8 noundef zeroext range(i8 0, 10) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   %5 = alloca %"struct.Luau::CodeGen::IrInst", align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   %7 = getelementptr inbounds i8, ptr %5, i64 38

@@ -102,7 +102,7 @@ define dso_local void @_ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationE
   %14 = zext nneg i16 %13 to i32
   %15 = add nsw i32 %14, -37
   %16 = icmp ult i32 %15, -6
-  br i1 %16, label %"_ZZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEjENK3$_0clEv.exit", label %17
+  br i1 %16, label %"_ZZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEjENK3$_0clEv.argprom.exit", label %17
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds i8, ptr %10, i64 -72
@@ -110,9 +110,9 @@ define dso_local void @_ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationE
   %20 = icmp eq i32 %19, 0
   %..i = select i1 %20, i32 2, i32 3
   %.pre = load ptr, ptr %1, align 8
-  br label %"_ZZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEjENK3$_0clEv.exit"
+  br label %"_ZZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEjENK3$_0clEv.argprom.exit"
 
-"_ZZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEjENK3$_0clEv.exit": ; preds = %4, %17
+"_ZZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEjENK3$_0clEv.argprom.exit": ; preds = %4, %17
   %spec.select.i.i = phi ptr [ null, %4 ], [ %18, %17 ]
   %21 = phi ptr [ %5, %4 ], [ %.pre, %17 ]
   %.0.i = phi i32 [ 0, %4 ], [ %..i, %17 ]

@@ -51,7 +51,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call5 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.3, ptr noundef %call) #5
-  br label %glib_autoptr_cleanup_StatsResultList.exit.thread
+  br label %glib_autoptr_cleanup_StatsResultList.argprom.exit.thread
 
 if.end:                                           ; preds = %entry
   %tobool6 = icmp ne ptr %call1, null
@@ -65,7 +65,7 @@ if.then7:                                         ; preds = %if.end
 
 if.then10:                                        ; preds = %if.then7
   %call11 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.4, ptr noundef nonnull %call1) #5
-  br label %glib_autoptr_cleanup_StatsResultList.exit.thread
+  br label %glib_autoptr_cleanup_StatsResultList.argprom.exit.thread
 
 if.end13:                                         ; preds = %if.then7, %if.end
   %provider.0 = phi i32 [ %call8, %if.then7 ], [ 2, %if.end ]
@@ -410,10 +410,10 @@ if.then32:                                        ; preds = %if.end13, %sw.epilo
   %.pre = load ptr, ptr %err, align 8
   br label %exit_no_print
 
-glib_autoptr_cleanup_StatsResultList.exit.thread: ; preds = %if.then10, %if.then
+glib_autoptr_cleanup_StatsResultList.argprom.exit.thread: ; preds = %if.then10, %if.then
   %46 = load ptr, ptr %err, align 8
   call void @error_free(ptr noundef %46) #5
-  br label %glib_autoptr_cleanup_StatsSchemaList.exit
+  br label %glib_autoptr_cleanup_StatsSchemaList.argprom.exit
 
 exit_no_print:                                    ; preds = %for.cond.preheader, %exit, %if.then32
   %47 = phi ptr [ null, %exit ], [ %.pre, %if.then32 ], [ null, %for.cond.preheader ]
@@ -421,29 +421,29 @@ exit_no_print:                                    ; preds = %for.cond.preheader,
   %filter.0 = phi ptr [ %filter.2, %exit ], [ %filter.132, %if.then32 ], [ %filter.2, %for.cond.preheader ]
   call void @error_free(ptr noundef %47) #5
   %tobool.not.i.i23 = icmp eq ptr %filter.0, null
-  br i1 %tobool.not.i.i23, label %glib_autoptr_cleanup_StatsFilter.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i23, label %glib_autoptr_cleanup_StatsFilter.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %exit_no_print
   call void @qapi_free_StatsFilter(ptr noundef nonnull %filter.0) #5
-  br label %glib_autoptr_cleanup_StatsFilter.exit
+  br label %glib_autoptr_cleanup_StatsFilter.argprom.exit
 
-glib_autoptr_cleanup_StatsFilter.exit:            ; preds = %exit_no_print, %if.then.i.i
+glib_autoptr_cleanup_StatsFilter.argprom.exit:    ; preds = %exit_no_print, %if.then.i.i
   %tobool.not.i.i24 = icmp eq ptr %stats.0, null
-  br i1 %tobool.not.i.i24, label %glib_autoptr_cleanup_StatsResultList.exit, label %if.then.i.i25
+  br i1 %tobool.not.i.i24, label %glib_autoptr_cleanup_StatsResultList.argprom.exit, label %if.then.i.i25
 
-if.then.i.i25:                                    ; preds = %glib_autoptr_cleanup_StatsFilter.exit
+if.then.i.i25:                                    ; preds = %glib_autoptr_cleanup_StatsFilter.argprom.exit
   call void @qapi_free_StatsResultList(ptr noundef nonnull %stats.0) #5
-  br label %glib_autoptr_cleanup_StatsResultList.exit
+  br label %glib_autoptr_cleanup_StatsResultList.argprom.exit
 
-glib_autoptr_cleanup_StatsResultList.exit:        ; preds = %glib_autoptr_cleanup_StatsFilter.exit, %if.then.i.i25
+glib_autoptr_cleanup_StatsResultList.argprom.exit: ; preds = %glib_autoptr_cleanup_StatsFilter.argprom.exit, %if.then.i.i25
   %tobool.not.i.i26 = icmp eq ptr %call16, null
-  br i1 %tobool.not.i.i26, label %glib_autoptr_cleanup_StatsSchemaList.exit, label %if.then.i.i27
+  br i1 %tobool.not.i.i26, label %glib_autoptr_cleanup_StatsSchemaList.argprom.exit, label %if.then.i.i27
 
-if.then.i.i27:                                    ; preds = %glib_autoptr_cleanup_StatsResultList.exit
+if.then.i.i27:                                    ; preds = %glib_autoptr_cleanup_StatsResultList.argprom.exit
   call void @qapi_free_StatsSchemaList(ptr noundef nonnull %call16) #5
-  br label %glib_autoptr_cleanup_StatsSchemaList.exit
+  br label %glib_autoptr_cleanup_StatsSchemaList.argprom.exit
 
-glib_autoptr_cleanup_StatsSchemaList.exit:        ; preds = %glib_autoptr_cleanup_StatsResultList.exit.thread, %glib_autoptr_cleanup_StatsResultList.exit, %if.then.i.i27
+glib_autoptr_cleanup_StatsSchemaList.argprom.exit: ; preds = %glib_autoptr_cleanup_StatsResultList.argprom.exit.thread, %glib_autoptr_cleanup_StatsResultList.argprom.exit, %if.then.i.i27
   ret void
 }
 

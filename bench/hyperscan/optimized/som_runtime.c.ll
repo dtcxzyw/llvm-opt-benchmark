@@ -1046,26 +1046,26 @@ mmbit_set_i.exit732:                              ; preds = %if.end.i1360, %whil
   %hbuf6.i = getelementptr inbounds i8, ptr %scratch, i64 304
   %207 = load ptr, ptr %hbuf6.i, align 8
   %tobool.not.i = icmp eq i64 %205, 0
-  br i1 %tobool.not.i, label %runRevNfa.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %runRevNfa.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %mmbit_set_i.exit732
   %maxWidth.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 32
   %208 = load i32, ptr %maxWidth.i, align 32
   %conv7.i1027 = zext i32 %208 to i64
   %cmp.i1028 = icmp ult i64 %sub.i1026, %conv7.i1027
-  br i1 %cmp.i1028, label %if.then.i1029, label %runRevNfa.exit
+  br i1 %cmp.i1028, label %if.then.i1029, label %runRevNfa.argprom.exit
 
 if.then.i1029:                                    ; preds = %land.lhs.true.i
   %sub11.i = sub nuw nsw i64 %conv7.i1027, %sub.i1026
   %cmp12.i = icmp ult i64 %sub11.i, %205
-  br i1 %cmp12.i, label %if.then14.i, label %runRevNfa.exit
+  br i1 %cmp12.i, label %if.then14.i, label %runRevNfa.argprom.exit
 
 if.then14.i:                                      ; preds = %if.then.i1029
   %sub15.i = sub nuw i64 %205, %sub11.i
   %add.ptr.i1030 = getelementptr inbounds i8, ptr %207, i64 %sub15.i
-  br label %runRevNfa.exit
+  br label %runRevNfa.argprom.exit
 
-runRevNfa.exit:                                   ; preds = %mmbit_set_i.exit732, %land.lhs.true.i, %if.then.i1029, %if.then14.i
+runRevNfa.argprom.exit:                           ; preds = %mmbit_set_i.exit732, %land.lhs.true.i, %if.then.i1029, %if.then14.i
   %hbuf.0.i = phi ptr [ %add.ptr.i1030, %if.then14.i ], [ %207, %if.then.i1029 ], [ %207, %land.lhs.true.i ], [ %207, %mmbit_set_i.exit732 ]
   %history_bytes.0.i = phi i64 [ %sub11.i, %if.then14.i ], [ %205, %if.then.i1029 ], [ %205, %land.lhs.true.i ], [ 0, %mmbit_set_i.exit732 ]
   store i64 %to_offset, ptr %from_offset.i479, align 8
@@ -1073,7 +1073,7 @@ runRevNfa.exit:                                   ; preds = %mmbit_set_i.exit732
   %209 = load i32, ptr %onmatch49, align 4
   br i1 %cmp.i762, label %mmbit_set_i.exit, label %if.else.i533
 
-if.else.i533:                                     ; preds = %runRevNfa.exit
+if.else.i533:                                     ; preds = %runRevNfa.argprom.exit
   %sub.i2216 = add i32 %1, -1
   %210 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i2216, i1 true)
   %idxprom.i2217 = zext nneg i32 %210 to i64
@@ -1144,7 +1144,7 @@ if.end.i2134:                                     ; preds = %do.body.i2121
   %cmp17.i2136.not = icmp eq i64 %indvars.iv1811, %212
   br i1 %cmp17.i2136.not, label %if.else.i487, label %do.body.i2121, !llvm.loop !7
 
-mmbit_set_i.exit:                                 ; preds = %runRevNfa.exit
+mmbit_set_i.exit:                                 ; preds = %runRevNfa.argprom.exit
   %div.i1001 = lshr i32 %209, 3
   %idx.ext.i1258 = zext nneg i32 %div.i1001 to i64
   %add.ptr.i1259 = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i1258
@@ -1327,26 +1327,26 @@ if.then57:                                        ; preds = %if.end.i4639, %whil
   %hbuf6.i1043 = getelementptr inbounds i8, ptr %scratch, i64 304
   %264 = load ptr, ptr %hbuf6.i1043, align 8
   %tobool.not.i1044 = icmp eq i64 %262, 0
-  br i1 %tobool.not.i1044, label %runRevNfa.exit1058, label %land.lhs.true.i1045
+  br i1 %tobool.not.i1044, label %runRevNfa.argprom.exit1058, label %land.lhs.true.i1045
 
 land.lhs.true.i1045:                              ; preds = %if.then57
   %maxWidth.i1046 = getelementptr inbounds i8, ptr %add.ptr2.i.i1038, i64 32
   %265 = load i32, ptr %maxWidth.i1046, align 32
   %conv7.i1047 = zext i32 %265 to i64
   %cmp.i1048 = icmp ult i64 %sub.i1040, %conv7.i1047
-  br i1 %cmp.i1048, label %if.then.i1052, label %runRevNfa.exit1058
+  br i1 %cmp.i1048, label %if.then.i1052, label %runRevNfa.argprom.exit1058
 
 if.then.i1052:                                    ; preds = %land.lhs.true.i1045
   %sub11.i1053 = sub nuw nsw i64 %conv7.i1047, %sub.i1040
   %cmp12.i1054 = icmp ult i64 %sub11.i1053, %262
-  br i1 %cmp12.i1054, label %if.then14.i1055, label %runRevNfa.exit1058
+  br i1 %cmp12.i1054, label %if.then14.i1055, label %runRevNfa.argprom.exit1058
 
 if.then14.i1055:                                  ; preds = %if.then.i1052
   %sub15.i1056 = sub nuw i64 %262, %sub11.i1053
   %add.ptr.i1057 = getelementptr inbounds i8, ptr %264, i64 %sub15.i1056
-  br label %runRevNfa.exit1058
+  br label %runRevNfa.argprom.exit1058
 
-runRevNfa.exit1058:                               ; preds = %if.then57, %land.lhs.true.i1045, %if.then.i1052, %if.then14.i1055
+runRevNfa.argprom.exit1058:                       ; preds = %if.then57, %land.lhs.true.i1045, %if.then.i1052, %if.then14.i1055
   %hbuf.0.i1049 = phi ptr [ %add.ptr.i1057, %if.then14.i1055 ], [ %264, %if.then.i1052 ], [ %264, %land.lhs.true.i1045 ], [ %264, %if.then57 ]
   %history_bytes.0.i1050 = phi i64 [ %sub11.i1053, %if.then14.i1055 ], [ %262, %if.then.i1052 ], [ %262, %land.lhs.true.i1045 ], [ 0, %if.then57 ]
   store i64 %to_offset, ptr %from_offset.i445, align 8
@@ -1354,7 +1354,7 @@ runRevNfa.exit1058:                               ; preds = %if.then57, %land.lh
   %266 = load i32, ptr %onmatch54, align 4
   br i1 %cmp.i768, label %mmbit_set_i.exit545, label %if.else.i541
 
-if.else.i541:                                     ; preds = %runRevNfa.exit1058
+if.else.i541:                                     ; preds = %runRevNfa.argprom.exit1058
   %sub.i2223 = add i32 %1, -1
   %267 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i2223, i1 true)
   %idxprom.i2225 = zext nneg i32 %267 to i64
@@ -1425,7 +1425,7 @@ if.end.i2091:                                     ; preds = %do.body.i2078
   %cmp17.i2093.not = icmp eq i64 %indvars.iv1799, %269
   br i1 %cmp17.i2093.not, label %if.else.i453, label %do.body.i2078, !llvm.loop !7
 
-mmbit_set_i.exit545:                              ; preds = %runRevNfa.exit1058
+mmbit_set_i.exit545:                              ; preds = %runRevNfa.argprom.exit1058
   %div.i2156999 = lshr i32 %266, 3
   %idx.ext.i1236 = zext nneg i32 %div.i2156999 to i64
   %add.ptr.i1237 = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i1236
@@ -1625,7 +1625,7 @@ do.end69.thread:                                  ; preds = %mmbit_isset.exit418
   store i64 0, ptr %from_offset, align 8
   %325 = getelementptr i8, ptr %ri, i64 8
   %ri.val10221207 = load i64, ptr %325, align 8
-  call fastcc void @runRevNfa(ptr noundef nonnull %scratch, i64 %ri.val10221207, i64 noundef %to_offset, ptr noundef %from_offset)
+  call fastcc void @runRevNfa.argprom(ptr noundef nonnull %scratch, i64 %ri.val10221207, i64 noundef %to_offset, ptr noundef %from_offset)
   %add.ptr.i1171 = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i972
   %326 = load i8, ptr %add.ptr.i1171, align 1
   %conv1.i1175 = zext i8 %326 to i32
@@ -1659,26 +1659,26 @@ if.then66:                                        ; preds = %if.end.i4525, %if.e
   %hbuf6.i1071 = getelementptr inbounds i8, ptr %scratch, i64 304
   %335 = load ptr, ptr %hbuf6.i1071, align 8
   %tobool.not.i1072 = icmp eq i64 %333, 0
-  br i1 %tobool.not.i1072, label %runRevNfa.exit1087, label %land.lhs.true.i1073
+  br i1 %tobool.not.i1072, label %runRevNfa.argprom.exit1087, label %land.lhs.true.i1073
 
 land.lhs.true.i1073:                              ; preds = %if.then66
   %maxWidth.i1074 = getelementptr inbounds i8, ptr %add.ptr2.i.i1066, i64 32
   %336 = load i32, ptr %maxWidth.i1074, align 32
   %conv7.i1076 = zext i32 %336 to i64
   %cmp.i1077 = icmp ult i64 %sub.i1068, %conv7.i1076
-  br i1 %cmp.i1077, label %if.then.i1081, label %runRevNfa.exit1087
+  br i1 %cmp.i1077, label %if.then.i1081, label %runRevNfa.argprom.exit1087
 
 if.then.i1081:                                    ; preds = %land.lhs.true.i1073
   %sub11.i1082 = sub nuw nsw i64 %conv7.i1076, %sub.i1068
   %cmp12.i1083 = icmp ult i64 %sub11.i1082, %333
-  br i1 %cmp12.i1083, label %if.then14.i1084, label %runRevNfa.exit1087
+  br i1 %cmp12.i1083, label %if.then14.i1084, label %runRevNfa.argprom.exit1087
 
 if.then14.i1084:                                  ; preds = %if.then.i1081
   %sub15.i1085 = sub nuw i64 %333, %sub11.i1082
   %add.ptr.i1086 = getelementptr inbounds i8, ptr %335, i64 %sub15.i1085
-  br label %runRevNfa.exit1087
+  br label %runRevNfa.argprom.exit1087
 
-runRevNfa.exit1087:                               ; preds = %if.then66, %land.lhs.true.i1073, %if.then.i1081, %if.then14.i1084
+runRevNfa.argprom.exit1087:                       ; preds = %if.then66, %land.lhs.true.i1073, %if.then.i1081, %if.then14.i1084
   %hbuf.0.i1078 = phi ptr [ %add.ptr.i1086, %if.then14.i1084 ], [ %335, %if.then.i1081 ], [ %335, %land.lhs.true.i1073 ], [ %335, %if.then66 ]
   %history_bytes.0.i1079 = phi i64 [ %sub11.i1082, %if.then14.i1084 ], [ %333, %if.then.i1081 ], [ %333, %land.lhs.true.i1073 ], [ 0, %if.then66 ]
   store i64 %to_offset, ptr %from_offset.i, align 8
@@ -1686,7 +1686,7 @@ runRevNfa.exit1087:                               ; preds = %if.then66, %land.lh
   %337 = load i32, ptr %onmatch61, align 4
   br i1 %cmp.i777, label %mmbit_set_i.exit556, label %if.else.i552
 
-if.else.i552:                                     ; preds = %runRevNfa.exit1087
+if.else.i552:                                     ; preds = %runRevNfa.argprom.exit1087
   %sub.i2231 = add i32 %1, -1
   %338 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i2231, i1 true)
   %idxprom.i2233 = zext nneg i32 %338 to i64
@@ -1757,7 +1757,7 @@ if.end.i2048:                                     ; preds = %do.body.i2035
   %cmp17.i2050.not = icmp eq i64 %indvars.iv1775, %340
   br i1 %cmp17.i2050.not, label %if.else.i420, label %do.body.i2035, !llvm.loop !7
 
-mmbit_set_i.exit556:                              ; preds = %runRevNfa.exit1087
+mmbit_set_i.exit556:                              ; preds = %runRevNfa.argprom.exit1087
   %div.i2159993 = lshr i32 %337, 3
   %idx.ext.i1214 = zext nneg i32 %div.i2159993 to i64
   %add.ptr.i1215 = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i1214
@@ -1881,7 +1881,7 @@ do.end69:                                         ; preds = %do.body.i4399
   store i64 0, ptr %from_offset, align 8
   %378 = getelementptr i8, ptr %ri, i64 8
   %ri.val1022 = load i64, ptr %378, align 8
-  call fastcc void @runRevNfa(ptr noundef %scratch, i64 %ri.val1022, i64 noundef %to_offset, ptr noundef %from_offset)
+  call fastcc void @runRevNfa.argprom(ptr noundef %scratch, i64 %ri.val1022, i64 noundef %to_offset, ptr noundef %from_offset)
   br label %do.body.i1949
 
 do.body.i1949:                                    ; preds = %if.end.i1962, %do.end69
@@ -2766,7 +2766,7 @@ return:                                           ; preds = %if.end.i4715, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @runRevNfa(ptr nocapture noundef readonly %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef nonnull %from_offset) unnamed_addr #0 {
+define internal fastcc void @runRevNfa.argprom(ptr nocapture noundef readonly %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef nonnull %from_offset) unnamed_addr #0 {
 entry:
   %rose = getelementptr inbounds i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose, align 8
@@ -2873,26 +2873,26 @@ do.end14:                                         ; preds = %entry
   %hbuf6.i = getelementptr inbounds i8, ptr %scratch, i64 304
   %13 = load ptr, ptr %hbuf6.i, align 8
   %tobool.not.i = icmp eq i64 %11, 0
-  br i1 %tobool.not.i, label %runRevNfa.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %runRevNfa.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.end14
   %maxWidth.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 32
   %14 = load i32, ptr %maxWidth.i, align 32
   %conv7.i = zext i32 %14 to i64
   %cmp.i = icmp ult i64 %sub.i, %conv7.i
-  br i1 %cmp.i, label %if.then.i, label %runRevNfa.exit
+  br i1 %cmp.i, label %if.then.i, label %runRevNfa.argprom.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %sub11.i = sub nuw nsw i64 %conv7.i, %sub.i
   %cmp12.i = icmp ult i64 %sub11.i, %11
-  br i1 %cmp12.i, label %if.then14.i, label %runRevNfa.exit
+  br i1 %cmp12.i, label %if.then14.i, label %runRevNfa.argprom.exit
 
 if.then14.i:                                      ; preds = %if.then.i
   %sub15.i = sub nuw i64 %11, %sub11.i
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %sub15.i
-  br label %runRevNfa.exit
+  br label %runRevNfa.argprom.exit
 
-runRevNfa.exit:                                   ; preds = %do.end14, %land.lhs.true.i, %if.then.i, %if.then14.i
+runRevNfa.argprom.exit:                           ; preds = %do.end14, %land.lhs.true.i, %if.then.i, %if.then14.i
   %hbuf.0.i = phi ptr [ %add.ptr.i, %if.then14.i ], [ %13, %if.then.i ], [ %13, %land.lhs.true.i ], [ %13, %do.end14 ]
   %history_bytes.0.i = phi i64 [ %sub11.i, %if.then14.i ], [ %11, %if.then.i ], [ %11, %land.lhs.true.i ], [ 0, %do.end14 ]
   store i64 %to_offset, ptr %from_offset, align 8
@@ -2900,8 +2900,8 @@ runRevNfa.exit:                                   ; preds = %do.end14, %land.lhs
   %15 = load i64, ptr %from_offset, align 8
   br label %return
 
-return:                                           ; preds = %entry, %runRevNfa.exit, %sw.bb6, %do.end4, %do.end
-  %retval.0 = phi i64 [ %15, %runRevNfa.exit ], [ %5, %sw.bb6 ], [ %2, %do.end4 ], [ %sub, %do.end ], [ 0, %entry ]
+return:                                           ; preds = %entry, %runRevNfa.argprom.exit, %sw.bb6, %do.end4, %do.end
+  %retval.0 = phi i64 [ %15, %runRevNfa.argprom.exit ], [ %5, %sw.bb6 ], [ %2, %do.end4 ], [ %sub, %do.end ], [ 0, %entry ]
   ret i64 %retval.0
 }
 

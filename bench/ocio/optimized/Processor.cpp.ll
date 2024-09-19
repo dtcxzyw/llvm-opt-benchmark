@@ -1681,7 +1681,7 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit: 
   br i1 %cmp.i.not, label %if.then18, label %if.end
 
 if.then18:                                        ; preds = %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl21getOptimizedProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKS1_S2_S2_S3_"(ptr noalias align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %call)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl21getOptimizedProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKS1_S2_S2_S3_.argprom"(ptr noalias align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %call)
           to label %invoke.cont20 unwind label %lpad5
 
 invoke.cont20:                                    ; preds = %if.then18
@@ -1885,7 +1885,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
   resume { ptr, i32 } %.pn
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9ProcessorEED2Ev.exit54: ; preds = %entry
-  call fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl21getOptimizedProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKS1_S2_S2_S3_"(ptr noalias align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %call)
+  call fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl21getOptimizedProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKS1_S2_S2_S3_.argprom"(ptr noalias align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %call)
   %37 = load ptr, ptr %ref.tmp22, align 8
   store ptr %37, ptr %agg.result, align 8
   %_M_refcount.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2288,7 +2288,7 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit: 
   br i1 %cmp.i.not, label %if.then21, label %if.end
 
 if.then21:                                        ; preds = %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_"(ptr noalias align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(144) %m_ops, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %call)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_.argprom"(ptr noalias align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(144) %m_ops, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %call)
           to label %invoke.cont24 unwind label %lpad8
 
 invoke.cont24:                                    ; preds = %if.then21
@@ -2492,7 +2492,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
   resume { ptr, i32 } %.pn
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit54: ; preds = %entry, %land.lhs.true
-  call fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_"(ptr noalias align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(144) %m_ops, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %call)
+  call fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_.argprom"(ptr noalias align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(144) %m_ops, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %call)
   %38 = load ptr, ptr %ref.tmp26, align 8
   store ptr %38, ptr %agg.result, align 8
   %_M_refcount.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3700,7 +3700,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl21getOptimizedProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKS1_S2_S2_S3_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %procImpl, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %oFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl21getOptimizedProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKS1_S2_S2_S3_.argprom"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %procImpl, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %oFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inBitDepth.addr = alloca i32, align 4
   %outBitDepth.addr = alloca i32, align 4
@@ -3865,7 +3865,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.then
   br i1 %cmp.i.not, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsEENK3$_0clES4_S5_"(ptr noalias align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(144) %gpuOps, i64 noundef %call)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsEENK3$_0clES4_S5_.argprom"(ptr noalias align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(144) %gpuOps, i64 noundef %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then8
@@ -4058,7 +4058,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12GPUProcessorEEC2IS1_vEERKS_IT_E.exit:
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12GPUProcessorEED2Ev.exit50: ; preds = %entry
-  call fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsEENK3$_0clES4_S5_"(ptr noalias align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(144) %gpuOps, i64 noundef %call)
+  call fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsEENK3$_0clES4_S5_.argprom"(ptr noalias align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(144) %gpuOps, i64 noundef %call)
   %34 = load ptr, ptr %ref.tmp11, align 8
   store ptr %34, ptr %agg.result, align 8
   %_M_refcount.i.i18 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4176,7 +4176,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsEENK3$_0clES4_S5_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %ops, i64 noundef %oFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsEENK3$_0clES4_S5_.argprom"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %ops, i64 noundef %oFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   invoke void @_ZN19OpenColorIO_v2_4dev12GPUProcessorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -4425,7 +4425,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %ops, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %oFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_.argprom"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %ops, i32 noundef %inBitDepth, i32 noundef %outBitDepth, i64 noundef %oFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   invoke void @_ZN19OpenColorIO_v2_4dev12CPUProcessorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)

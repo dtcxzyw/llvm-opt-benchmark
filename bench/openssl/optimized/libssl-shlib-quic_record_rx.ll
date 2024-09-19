@@ -964,22 +964,22 @@ ossl_list_rxe_insert_tail.exit.i.i.i.i:           ; preds = %if.then8.i.i.i.i.i,
 
 if.end52.i.i.i.i:                                 ; preds = %if.end26.i.i.i.i
   %trunc.i.i.i.i.i = trunc i32 %bf.load.i.i.i.i.i to i8
-  switch i8 %trunc.i.i.i.i.i, label %qrx_determine_enc_level.exit.i.i.i.i [
+  switch i8 %trunc.i.i.i.i.i, label %qrx_determine_enc_level.argprom.exit.i.i.i.i [
     i8 5, label %sw.bb3.i.i.i.i.i
     i8 3, label %sw.bb1.i.i.i.i.i
     i8 2, label %sw.bb2.i.i.i.i.i
   ]
 
 sw.bb1.i.i.i.i.i:                                 ; preds = %if.end52.i.i.i.i
-  br label %qrx_determine_enc_level.exit.i.i.i.i
+  br label %qrx_determine_enc_level.argprom.exit.i.i.i.i
 
 sw.bb2.i.i.i.i.i:                                 ; preds = %if.end52.i.i.i.i
-  br label %qrx_determine_enc_level.exit.i.i.i.i
+  br label %qrx_determine_enc_level.argprom.exit.i.i.i.i
 
 sw.bb3.i.i.i.i.i:                                 ; preds = %if.end52.i.i.i.i
-  br label %qrx_determine_enc_level.exit.i.i.i.i
+  br label %qrx_determine_enc_level.argprom.exit.i.i.i.i
 
-qrx_determine_enc_level.exit.i.i.i.i:             ; preds = %sw.bb3.i.i.i.i.i, %sw.bb2.i.i.i.i.i, %sw.bb1.i.i.i.i.i, %if.end52.i.i.i.i
+qrx_determine_enc_level.argprom.exit.i.i.i.i:     ; preds = %sw.bb3.i.i.i.i.i, %sw.bb2.i.i.i.i.i, %sw.bb1.i.i.i.i.i, %if.end52.i.i.i.i
   %cmp56.i.i.i.i = phi i1 [ true, %sw.bb3.i.i.i.i.i ], [ false, %sw.bb2.i.i.i.i.i ], [ false, %sw.bb1.i.i.i.i.i ], [ false, %if.end52.i.i.i.i ]
   %retval.0.i90.i.i.i.i = phi i32 [ 3, %sw.bb3.i.i.i.i.i ], [ 2, %sw.bb2.i.i.i.i.i ], [ 1, %sw.bb1.i.i.i.i.i ], [ 0, %if.end52.i.i.i.i ]
   %call55.i.i.i.i = call i32 @ossl_qrl_enc_level_set_have_el(ptr noundef nonnull %el_set.i.i.i.i, i32 noundef %retval.0.i90.i.i.i.i) #12
@@ -988,7 +988,7 @@ qrx_determine_enc_level.exit.i.i.i.i:             ; preds = %sw.bb3.i.i.i.i.i, %
     i32 0, label %cannot_decrypt.i.i.i.i
   ]
 
-sw.bb.i.i.i.i:                                    ; preds = %qrx_determine_enc_level.exit.i.i.i.i
+sw.bb.i.i.i.i:                                    ; preds = %qrx_determine_enc_level.argprom.exit.i.i.i.i
   br i1 %cmp56.i.i.i.i, label %land.lhs.true.i.i.i.i, label %sw.epilog.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %sw.bb.i.i.i.i
@@ -1161,7 +1161,7 @@ if.end8.i.i:                                      ; preds = %if.end18.i
   switch i8 %55, label %if.end36.i [
     i8 3, label %cond.end.thread.i.i
     i8 1, label %sw.bb.i.i
-    i8 2, label %qrx_get_cipher_ctx_idx.exit.i
+    i8 2, label %qrx_get_cipher_ctx_idx.argprom.exit.i
   ]
 
 cond.end.thread.i.i:                              ; preds = %if.end8.i.i
@@ -1178,7 +1178,7 @@ sw.bb.i.i:                                        ; preds = %if.end8.i.i
   %add.i.i = add i64 %xor.i.i, %57
   br label %if.end36.i
 
-qrx_get_cipher_ctx_idx.exit.i:                    ; preds = %if.end8.i.i
+qrx_get_cipher_ctx_idx.argprom.exit.i:            ; preds = %if.end8.i.i
   %key_epoch20.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   %58 = load i64, ptr %key_epoch20.i.i, align 8
   %and21.i.i = and i64 %58, 1
@@ -1187,14 +1187,14 @@ qrx_get_cipher_ctx_idx.exit.i:                    ; preds = %if.end8.i.i
   %tobool32.not.i = icmp eq i64 %and21.i.i, %conv128.i.i.i.i
   br i1 %tobool32.not.i, label %if.end36.i, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %qrx_get_cipher_ctx_idx.exit.i
+land.lhs.true.i:                                  ; preds = %qrx_get_cipher_ctx_idx.argprom.exit.i
   %59 = load i64, ptr %cur_epoch_start_pn.i, align 8
   %cmp33.not.i = icmp ult i64 %49, %59
   br i1 %cmp33.not.i, label %if.end36.i, label %qrx_decrypt_pkt_body.exit.thread
 
-if.end36.i:                                       ; preds = %if.end8.i.i, %if.end18.i, %cond.end.thread.i.i, %sw.bb.i.i, %land.lhs.true.i, %qrx_get_cipher_ctx_idx.exit.i
-  %rx_key_epoch.i.i.i.i.0 = phi i64 [ %sub.i.i, %qrx_get_cipher_ctx_idx.exit.i ], [ %sub.i.i, %land.lhs.true.i ], [ 0, %if.end18.i ], [ %56, %cond.end.thread.i.i ], [ %add.i.i, %sw.bb.i.i ], [ -1, %if.end8.i.i ]
-  %retval.0.i35.i = phi i64 [ %conv128.i.i.i.i, %qrx_get_cipher_ctx_idx.exit.i ], [ %conv128.i.i.i.i, %land.lhs.true.i ], [ 0, %if.end18.i ], [ %and.i.i, %cond.end.thread.i.i ], [ %conv128.i.i.i.i, %sw.bb.i.i ], [ %conv128.i.i.i.i, %if.end8.i.i ]
+if.end36.i:                                       ; preds = %if.end8.i.i, %if.end18.i, %cond.end.thread.i.i, %sw.bb.i.i, %land.lhs.true.i, %qrx_get_cipher_ctx_idx.argprom.exit.i
+  %rx_key_epoch.i.i.i.i.0 = phi i64 [ %sub.i.i, %qrx_get_cipher_ctx_idx.argprom.exit.i ], [ %sub.i.i, %land.lhs.true.i ], [ 0, %if.end18.i ], [ %56, %cond.end.thread.i.i ], [ %add.i.i, %sw.bb.i.i ], [ -1, %if.end8.i.i ]
+  %retval.0.i35.i = phi i64 [ %conv128.i.i.i.i, %qrx_get_cipher_ctx_idx.argprom.exit.i ], [ %conv128.i.i.i.i, %land.lhs.true.i ], [ 0, %if.end18.i ], [ %and.i.i, %cond.end.thread.i.i ], [ %conv128.i.i.i.i, %sw.bb.i.i ], [ %conv128.i.i.i.i, %if.end8.i.i ]
   %cctx37.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %cctx37.i, i64 0, i64 %retval.0.i35.i
   %60 = load ptr, ptr %arrayidx.i, align 8
@@ -1317,15 +1317,15 @@ if.end153.i.i.i.i:                                ; preds = %if.then151.i.i.i.i,
   %trunc.i.i.i.i.i.i = trunc i32 %.val.i.i.i.i to i8
   %switch.tableidx38 = add i8 %trunc.i.i.i.i.i.i, -2
   %71 = icmp ult i8 %switch.tableidx38, 4
-  br i1 %71, label %switch.lookup37, label %rxe_determine_pn_space.exit.i.i.i.i
+  br i1 %71, label %switch.lookup37, label %rxe_determine_pn_space.argprom.exit.i.i.i.i
 
 switch.lookup37:                                  ; preds = %if.end153.i.i.i.i
   %72 = zext nneg i8 %switch.tableidx38 to i64
   %switch.gep39 = getelementptr inbounds [4 x i64], ptr @switch.table.ossl_qrx_read_pkt.15, i64 0, i64 %72
   %switch.load40 = load i64, ptr %switch.gep39, align 8
-  br label %rxe_determine_pn_space.exit.i.i.i.i
+  br label %rxe_determine_pn_space.argprom.exit.i.i.i.i
 
-rxe_determine_pn_space.exit.i.i.i.i:              ; preds = %if.end153.i.i.i.i, %switch.lookup37
+rxe_determine_pn_space.argprom.exit.i.i.i.i:      ; preds = %if.end153.i.i.i.i, %switch.lookup37
   %retval.0.i2.i.i.i.i.i = phi i64 [ %switch.load40, %switch.lookup37 ], [ 0, %if.end153.i.i.i.i ]
   %73 = load i64, ptr %pn124.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds [3 x i64], ptr %largest_pn.i.i.i.i, i64 0, i64 %retval.0.i2.i.i.i.i.i
@@ -1333,11 +1333,11 @@ rxe_determine_pn_space.exit.i.i.i.i:              ; preds = %if.end153.i.i.i.i, 
   %cmp164.i.i.i.i = icmp ugt i64 %73, %74
   br i1 %cmp164.i.i.i.i, label %if.then166.i.i.i.i, label %if.end171.i.i.i.i
 
-if.then166.i.i.i.i:                               ; preds = %rxe_determine_pn_space.exit.i.i.i.i
+if.then166.i.i.i.i:                               ; preds = %rxe_determine_pn_space.argprom.exit.i.i.i.i
   store i64 %73, ptr %arrayidx.i.i.i.i, align 8
   br label %if.end171.i.i.i.i
 
-if.end171.i.i.i.i:                                ; preds = %if.then166.i.i.i.i, %rxe_determine_pn_space.exit.i.i.i.i
+if.end171.i.i.i.i:                                ; preds = %if.then166.i.i.i.i, %rxe_determine_pn_space.argprom.exit.i.i.i.i
   %peer172.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %peer172.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %peer173.i.i.i.i, i64 112, i1 false)
   %local174.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 312
@@ -1377,7 +1377,7 @@ ossl_list_rxe_insert_tail.exit113.i.i.i.i:        ; preds = %if.then8.i112.i.i.i
   store i64 %inc.i111.i.i.i.i, ptr %0, align 8
   br label %83
 
-cannot_decrypt.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i.i, %qrx_determine_enc_level.exit.i.i.i.i
+cannot_decrypt.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i.i, %qrx_determine_enc_level.argprom.exit.i.i.i.i
   %pkt.val75.i.i.i.i = load ptr, ptr %pkt.i.i.i, align 8
   %sub.ptr.lhs.cast181.i.i.i.i = ptrtoint ptr %.pre23.i.i.i to i64
   %sub.ptr.rhs.cast182.i.i.i.i = ptrtoint ptr %pkt.val75.i.i.i.i to i64
@@ -1393,7 +1393,7 @@ if.end.i115.i.i.i.i:                              ; preds = %cannot_decrypt.i.i.
   store i64 %sub.i.i.i.i.i.i, ptr %remaining.i.i.i.i, align 8
   br label %qrx_process_pkt.exit.i.i.i
 
-malformed.i.i.i.i:                                ; preds = %qrx_decrypt_pkt_body.exit.thread, %if.end132.i.i.i.i, %qrx_validate_hdr.exit.i, %if.end85.i.i.i.i, %if.then81.i.i.i.i, %if.end.i91.i.i.i.i, %qrx_determine_enc_level.exit.i.i.i.i, %if.then30.i.i.i.i, %ossl_quic_conn_id_eq.exit.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.then16.i.i.i.i.i, %land.lhs.true9.i.i.i.i.i, %if.end.i79.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end18.i.i.i.i
+malformed.i.i.i.i:                                ; preds = %qrx_decrypt_pkt_body.exit.thread, %if.end132.i.i.i.i, %qrx_validate_hdr.exit.i, %if.end85.i.i.i.i, %if.then81.i.i.i.i, %if.end.i91.i.i.i.i, %qrx_determine_enc_level.argprom.exit.i.i.i.i, %if.then30.i.i.i.i, %ossl_quic_conn_id_eq.exit.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.then16.i.i.i.i.i, %land.lhs.true9.i.i.i.i.i, %if.end.i79.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end18.i.i.i.i
   %cmp185.not.i.i.i.i = icmp eq ptr %.pre23.i.i.i, null
   %.pre22.i.i.i = load ptr, ptr %pkt.i.i.i, align 8
   br i1 %cmp185.not.i.i.i.i, label %PACKET_forward.exit135.i.i.i.i, label %if.then187.i.i.i.i
@@ -2259,22 +2259,22 @@ entry:
   %trunc.i.i = trunc i32 %rxe.val to i8
   %switch.tableidx = add i8 %trunc.i.i, -2
   %1 = icmp ult i8 %switch.tableidx, 4
-  br i1 %1, label %switch.lookup, label %rxe_determine_pn_space.exit
+  br i1 %1, label %switch.lookup, label %rxe_determine_pn_space.argprom.exit
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.qrx_validate_hdr_late, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %rxe_determine_pn_space.exit
+  br label %rxe_determine_pn_space.argprom.exit
 
-rxe_determine_pn_space.exit:                      ; preds = %entry, %switch.lookup
+rxe_determine_pn_space.argprom.exit:              ; preds = %entry, %switch.lookup
   %retval.0.i2.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %entry ]
   %validation_cb = getelementptr inbounds i8, ptr %qrx, i64 1024
   %3 = load ptr, ptr %validation_cb, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %rxe_determine_pn_space.exit
+land.lhs.true:                                    ; preds = %rxe_determine_pn_space.argprom.exit
   %pn = getelementptr inbounds i8, ptr %rxe, i64 192
   %4 = load i64, ptr %pn, align 8
   %validation_cb_arg = getelementptr inbounds i8, ptr %qrx, i64 1032
@@ -2283,7 +2283,7 @@ land.lhs.true:                                    ; preds = %rxe_determine_pn_sp
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %rxe_determine_pn_space.exit
+if.end:                                           ; preds = %land.lhs.true, %rxe_determine_pn_space.argprom.exit
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end

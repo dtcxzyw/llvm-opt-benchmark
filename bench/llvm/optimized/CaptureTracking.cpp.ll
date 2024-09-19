@@ -236,7 +236,7 @@ _ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit: ; preds = %13, %19
   store ptr %6, ptr %27, align 8
   %28 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %28, align 8
-  %29 = call fastcc noundef zeroext i1 @"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr %.val)
+  %29 = call fastcc noundef zeroext i1 @"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr %.val)
   br i1 %29, label %30, label %.loopexit
 
 30:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit
@@ -282,7 +282,7 @@ _ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit: ; preds = %13, %19
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr i8, ptr %52, i64 16
   %.val4 = load ptr, ptr %53, align 8
-  %54 = call fastcc noundef zeroext i1 @"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr %.val4)
+  %54 = call fastcc noundef zeroext i1 @"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr %.val4)
   br i1 %54, label %.backedge, label %.loopexit
 
 default.unreachable7:                             ; preds = %34
@@ -807,7 +807,7 @@ declare noundef zeroext i1 @_ZNK4llvm8Function20nullPointerIsDefinedEv(ptr nound
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %.16.val) unnamed_addr #0 align 2 {
   %.not711 = icmp eq ptr %.16.val, null
   br i1 %.not711, label %.loopexit, label %.lr.ph
 

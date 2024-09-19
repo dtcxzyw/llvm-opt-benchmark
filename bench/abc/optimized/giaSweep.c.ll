@@ -3241,23 +3241,23 @@ Gia_ObjReprObj.exit:                              ; preds = %104
   %.val184 = load i64, ptr %111, align 4
   %117 = and i64 %.val184, 2684354559
   %narrow.i.not.i = icmp eq i64 %117, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjReprObj.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjReprObj.exit.thread
 
-Gia_ObjIsRo.exit:                                 ; preds = %116
+Gia_ObjIsRo.argprom.exit:                         ; preds = %116
   %118 = lshr i64 %.val184, 32
   %119 = trunc nuw i64 %118 to i32
   %120 = and i32 %119, 536870911
   %.not = icmp slt i32 %120, %97
   br i1 %.not, label %Gia_ObjReprObj.exit.thread, label %121
 
-121:                                              ; preds = %Gia_ObjIsRo.exit
+121:                                              ; preds = %Gia_ObjIsRo.argprom.exit
   %122 = add nsw i32 %95, 1
   store i32 %122, ptr %87, align 4
   br label %Gia_ObjReprObj.exit.thread
 
-Gia_ObjReprObj.exit.thread:                       ; preds = %116, %104, %Gia_ObjReprObj.exit, %Gia_ObjIsRo.exit, %121, %114
-  %123 = phi i32 [ %94, %116 ], [ %94, %104 ], [ %94, %Gia_ObjReprObj.exit ], [ %94, %Gia_ObjIsRo.exit ], [ %94, %121 ], [ %115, %114 ]
-  %124 = phi i32 [ %95, %116 ], [ %95, %104 ], [ %95, %Gia_ObjReprObj.exit ], [ %95, %Gia_ObjIsRo.exit ], [ %122, %121 ], [ %95, %114 ]
+Gia_ObjReprObj.exit.thread:                       ; preds = %116, %104, %Gia_ObjReprObj.exit, %Gia_ObjIsRo.argprom.exit, %121, %114
+  %123 = phi i32 [ %94, %116 ], [ %94, %104 ], [ %94, %Gia_ObjReprObj.exit ], [ %94, %Gia_ObjIsRo.argprom.exit ], [ %94, %121 ], [ %115, %114 ]
+  %124 = phi i32 [ %95, %116 ], [ %95, %104 ], [ %95, %Gia_ObjReprObj.exit ], [ %95, %Gia_ObjIsRo.argprom.exit ], [ %122, %121 ], [ %95, %114 ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %.val181 = load i32, ptr %89, align 8
   %125 = sext i32 %.val181 to i64

@@ -386,7 +386,7 @@ Vec_IntPush.exit:                                 ; preds = %158, %Vec_IntGrow.e
   %190 = getelementptr i8, ptr %189, i64 32
   %.val51 = load ptr, ptr %190, align 8
   %.not.i = icmp eq ptr %.val51, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %191
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %191
 
 191:                                              ; preds = %.lr.ph
   %192 = load i32, ptr %.04467, align 4
@@ -396,9 +396,9 @@ Vec_IntPush.exit:                                 ; preds = %158, %Vec_IntGrow.e
   %195 = sext i32 %193 to i64
   %196 = getelementptr inbounds ptr, ptr %.val.i58, i64 %195
   %197 = load ptr, ptr %196, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %.lr.ph, %191
+Aig_ManObj.argprom.exit:                          ; preds = %.lr.ph, %191
   %198 = phi ptr [ %197, %191 ], [ null, %.lr.ph ]
   %199 = call i32 @Pdr_ObjSatVar2(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %198, i32 noundef %155, i32 noundef %4)
   %200 = load i32, ptr %.04467, align 4
@@ -410,11 +410,11 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph, %191
   %206 = icmp eq i32 %204, %205
   br i1 %206, label %207, label %.Vec_IntGrow.exit10_crit_edge.i59
 
-.Vec_IntGrow.exit10_crit_edge.i59:                ; preds = %Aig_ManObj.exit
+.Vec_IntGrow.exit10_crit_edge.i59:                ; preds = %Aig_ManObj.argprom.exit
   %.pre.i61 = load ptr, ptr %.phi.trans.insert.i54, align 8
   br label %Vec_IntPush.exit65
 
-207:                                              ; preds = %Aig_ManObj.exit
+207:                                              ; preds = %Aig_ManObj.argprom.exit
   %208 = icmp slt i32 %204, 16
   br i1 %208, label %209, label %216
 
@@ -567,7 +567,7 @@ define i32 @Pdr_ObjRegNum(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   %32 = getelementptr i8, ptr %31, i64 32
   %.val14.i = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %.val14.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.exit.i, label %33
+  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.i, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr i8, ptr %.val14.i, i64 8
@@ -575,9 +575,9 @@ define i32 @Pdr_ObjRegNum(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   %35 = sext i32 %27 to i64
   %36 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %35
   %37 = load ptr, ptr %36, align 8
-  br label %Aig_ManObj.exit.i
+  br label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %33, %29
+Aig_ManObj.argprom.exit.i:                        ; preds = %33, %29
   %38 = phi ptr [ %37, %33 ], [ null, %29 ]
   %39 = getelementptr i8, ptr %38, i64 24
   %.val3.i.i = load i64, ptr %39, align 8
@@ -585,7 +585,7 @@ Aig_ManObj.exit.i:                                ; preds = %33, %29
   %.not.i16.i = icmp eq i64 %40, 3
   br i1 %.not.i16.i, label %Saig_ObjIsLi.exit.i, label %Pdr_ObjRegNum1.exit
 
-Saig_ObjIsLi.exit.i:                              ; preds = %Aig_ManObj.exit.i
+Saig_ObjIsLi.exit.i:                              ; preds = %Aig_ManObj.argprom.exit.i
   %.val.i17.i = load i32, ptr %38, align 8
   %41 = getelementptr i8, ptr %31, i64 112
   %.val4.i.i = load i32, ptr %41, align 8
@@ -594,8 +594,8 @@ Saig_ObjIsLi.exit.i:                              ; preds = %Aig_ManObj.exit.i
   %spec.select.i = select i1 %.not19.i, i32 -1, i32 %42
   br label %Pdr_ObjRegNum1.exit
 
-Pdr_ObjRegNum1.exit:                              ; preds = %Saig_ObjIsLi.exit.i, %Aig_ManObj.exit.i, %19, %12, %7
-  %.0 = phi i32 [ %18, %12 ], [ -1, %7 ], [ -1, %19 ], [ -1, %Aig_ManObj.exit.i ], [ %spec.select.i, %Saig_ObjIsLi.exit.i ]
+Pdr_ObjRegNum1.exit:                              ; preds = %Saig_ObjIsLi.exit.i, %Aig_ManObj.argprom.exit.i, %19, %12, %7
+  %.0 = phi i32 [ %18, %12 ], [ -1, %7 ], [ -1, %19 ], [ -1, %Aig_ManObj.argprom.exit.i ], [ %spec.select.i, %Saig_ObjIsLi.exit.i ]
   ret i32 %.0
 }
 

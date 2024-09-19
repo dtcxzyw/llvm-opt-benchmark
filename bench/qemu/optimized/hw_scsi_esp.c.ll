@@ -505,13 +505,13 @@ if.then17:                                        ; preds = %if.end10
   %30 = load i16, ptr @_TRACE_ESP_LOWER_DRQ_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %30, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_lower_drq.exit
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_lower_drq.argprom.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then17
   %31 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %31, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %esp_lower_drq.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %esp_lower_drq.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %32 = load i8, ptr @message_with_timestamp, align 1
@@ -525,17 +525,17 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %34 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i, i64 noundef %33, i64 noundef %34) #10
-  br label %esp_lower_drq.exit
+  br label %esp_lower_drq.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36) #10
-  br label %esp_lower_drq.exit
+  br label %esp_lower_drq.argprom.exit
 
-esp_lower_drq.exit:                               ; preds = %if.then17, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+esp_lower_drq.argprom.exit:                       ; preds = %if.then17, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   br label %if.end20
 
-if.end20:                                         ; preds = %esp_lower_drq.exit, %if.end10
+if.end20:                                         ; preds = %esp_lower_drq.argprom.exit, %if.end10
   %current_req = getelementptr inbounds i8, ptr %0, i64 400
   %35 = load ptr, ptr %current_req, align 8
   %tobool21.not = icmp eq ptr %35, null
@@ -686,13 +686,13 @@ if.then33:                                        ; preds = %if.else29
   %27 = load i16, ptr @_TRACE_ESP_LOWER_DRQ_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %27, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_lower_drq.exit
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_lower_drq.argprom.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then33
   %28 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %28, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %esp_lower_drq.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %esp_lower_drq.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %29 = load i8, ptr @message_with_timestamp, align 1
@@ -706,13 +706,13 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %31 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i, i64 noundef %30, i64 noundef %31) #10
-  br label %esp_lower_drq.exit
+  br label %esp_lower_drq.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36) #10
-  br label %esp_lower_drq.exit
+  br label %esp_lower_drq.argprom.exit
 
-esp_lower_drq.exit:                               ; preds = %if.then33, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+esp_lower_drq.argprom.exit:                       ; preds = %if.then33, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   br label %if.end43
 
@@ -720,7 +720,7 @@ if.then41:                                        ; preds = %if.end16
   tail call fastcc void @esp_do_nodma(ptr noundef nonnull %0)
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end16, %if.then41, %if.then28, %esp_lower_drq.exit, %if.else29
+if.end43:                                         ; preds = %if.end16, %if.then41, %if.then28, %esp_lower_drq.argprom.exit, %if.else29
   ret void
 }
 
@@ -914,13 +914,13 @@ if.else:                                          ; preds = %trace_esp_do_dma.ex
   %25 = load i16, ptr @_TRACE_ESP_RAISE_DRQ_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %25, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_raise_drq.exit
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_raise_drq.argprom.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.else
   %26 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %26, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %esp_raise_drq.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %esp_raise_drq.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %27 = load i8, ptr @message_with_timestamp, align 1
@@ -934,13 +934,13 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29) #10
-  br label %esp_raise_drq.exit
+  br label %esp_raise_drq.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44) #10
-  br label %esp_raise_drq.exit
+  br label %esp_raise_drq.argprom.exit
 
-esp_raise_drq.exit:                               ; preds = %if.else, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+esp_raise_drq.argprom.exit:                       ; preds = %if.else, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   br label %return
 
@@ -1006,13 +1006,13 @@ if.else62:                                        ; preds = %if.then56
   %38 = load i16, ptr @_TRACE_ESP_RAISE_DRQ_DSTATE, align 2
   %tobool4.i.i.i116 = icmp ne i16 %38, 0
   %or.cond.i.i.i117 = select i1 %tobool.i.i.i115, i1 %tobool4.i.i.i116, i1 false
-  br i1 %or.cond.i.i.i117, label %land.lhs.true5.i.i.i118, label %esp_raise_drq.exit128
+  br i1 %or.cond.i.i.i117, label %land.lhs.true5.i.i.i118, label %esp_raise_drq.argprom.exit128
 
 land.lhs.true5.i.i.i118:                          ; preds = %if.else62
   %39 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i119 = and i32 %39, 32768
   %cmp.i.not.i.i.i120 = icmp eq i32 %and.i.i.i.i119, 0
-  br i1 %cmp.i.not.i.i.i120, label %esp_raise_drq.exit128, label %if.then.i.i.i121
+  br i1 %cmp.i.not.i.i.i120, label %esp_raise_drq.argprom.exit128, label %if.then.i.i.i121
 
 if.then.i.i.i121:                                 ; preds = %land.lhs.true5.i.i.i118
   %40 = load i8, ptr @message_with_timestamp, align 1
@@ -1026,13 +1026,13 @@ if.then8.i.i.i124:                                ; preds = %if.then.i.i.i121
   %tv_usec.i.i.i127 = getelementptr inbounds i8, ptr %_now.i.i.i114, i64 8
   %42 = load i64, ptr %tv_usec.i.i.i127, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i126, i64 noundef %41, i64 noundef %42) #10
-  br label %esp_raise_drq.exit128
+  br label %esp_raise_drq.argprom.exit128
 
 if.else.i.i.i123:                                 ; preds = %if.then.i.i.i121
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44) #10
-  br label %esp_raise_drq.exit128
+  br label %esp_raise_drq.argprom.exit128
 
-esp_raise_drq.exit128:                            ; preds = %if.else62, %land.lhs.true5.i.i.i118, %if.then8.i.i.i124, %if.else.i.i.i123
+esp_raise_drq.argprom.exit128:                    ; preds = %if.else62, %land.lhs.true5.i.i.i118, %if.then8.i.i.i124, %if.else.i.i.i123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i114)
   br label %return
 
@@ -1137,13 +1137,13 @@ if.end105:                                        ; preds = %while.body, %while.
   %59 = load i16, ptr @_TRACE_ESP_RAISE_DRQ_DSTATE, align 2
   %tobool4.i.i.i161 = icmp ne i16 %59, 0
   %or.cond.i.i.i162 = select i1 %tobool.i.i.i160, i1 %tobool4.i.i.i161, i1 false
-  br i1 %or.cond.i.i.i162, label %land.lhs.true5.i.i.i163, label %esp_raise_drq.exit173
+  br i1 %or.cond.i.i.i162, label %land.lhs.true5.i.i.i163, label %esp_raise_drq.argprom.exit173
 
 land.lhs.true5.i.i.i163:                          ; preds = %if.end105
   %60 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i164 = and i32 %60, 32768
   %cmp.i.not.i.i.i165 = icmp eq i32 %and.i.i.i.i164, 0
-  br i1 %cmp.i.not.i.i.i165, label %esp_raise_drq.exit173, label %if.then.i.i.i166
+  br i1 %cmp.i.not.i.i.i165, label %esp_raise_drq.argprom.exit173, label %if.then.i.i.i166
 
 if.then.i.i.i166:                                 ; preds = %land.lhs.true5.i.i.i163
   %61 = load i8, ptr @message_with_timestamp, align 1
@@ -1157,13 +1157,13 @@ if.then8.i.i.i169:                                ; preds = %if.then.i.i.i166
   %tv_usec.i.i.i172 = getelementptr inbounds i8, ptr %_now.i.i.i159, i64 8
   %63 = load i64, ptr %tv_usec.i.i.i172, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i171, i64 noundef %62, i64 noundef %63) #10
-  br label %esp_raise_drq.exit173
+  br label %esp_raise_drq.argprom.exit173
 
 if.else.i.i.i168:                                 ; preds = %if.then.i.i.i166
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44) #10
-  br label %esp_raise_drq.exit173
+  br label %esp_raise_drq.argprom.exit173
 
-esp_raise_drq.exit173:                            ; preds = %if.end105, %land.lhs.true5.i.i.i163, %if.then8.i.i.i169, %if.else.i.i.i168
+esp_raise_drq.argprom.exit173:                    ; preds = %if.end105, %land.lhs.true5.i.i.i163, %if.then8.i.i.i169, %if.else.i.i.i168
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i159)
   %64 = load i8, ptr %arrayidx, align 4
   %65 = or i8 %64, 16
@@ -1261,13 +1261,13 @@ if.end144:                                        ; preds = %if.end128.thread, %
   %86 = load i16, ptr @_TRACE_ESP_LOWER_DRQ_DSTATE, align 2
   %tobool4.i.i.i195 = icmp ne i16 %86, 0
   %or.cond.i.i.i196 = select i1 %tobool.i.i.i194, i1 %tobool4.i.i.i195, i1 false
-  br i1 %or.cond.i.i.i196, label %land.lhs.true5.i.i.i197, label %esp_lower_drq.exit
+  br i1 %or.cond.i.i.i196, label %land.lhs.true5.i.i.i197, label %esp_lower_drq.argprom.exit
 
 land.lhs.true5.i.i.i197:                          ; preds = %if.end144
   %87 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i198 = and i32 %87, 32768
   %cmp.i.not.i.i.i199 = icmp eq i32 %and.i.i.i.i198, 0
-  br i1 %cmp.i.not.i.i.i199, label %esp_lower_drq.exit, label %if.then.i.i.i200
+  br i1 %cmp.i.not.i.i.i199, label %esp_lower_drq.argprom.exit, label %if.then.i.i.i200
 
 if.then.i.i.i200:                                 ; preds = %land.lhs.true5.i.i.i197
   %88 = load i8, ptr @message_with_timestamp, align 1
@@ -1281,17 +1281,17 @@ if.then8.i.i.i203:                                ; preds = %if.then.i.i.i200
   %tv_usec.i.i.i206 = getelementptr inbounds i8, ptr %_now.i.i.i193, i64 8
   %90 = load i64, ptr %tv_usec.i.i.i206, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i205, i64 noundef %89, i64 noundef %90) #10
-  br label %esp_lower_drq.exit
+  br label %esp_lower_drq.argprom.exit
 
 if.else.i.i.i202:                                 ; preds = %if.then.i.i.i200
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36) #10
-  br label %esp_lower_drq.exit
+  br label %esp_lower_drq.argprom.exit
 
-esp_lower_drq.exit:                               ; preds = %if.end144, %land.lhs.true5.i.i.i197, %if.then8.i.i.i203, %if.else.i.i.i202
+esp_lower_drq.argprom.exit:                       ; preds = %if.end144, %land.lhs.true5.i.i.i197, %if.then8.i.i.i203, %if.else.i.i.i202
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i193)
   br label %return
 
-return:                                           ; preds = %if.then132, %lor.lhs.false, %lor.lhs.false138, %if.end44, %if.end41, %if.end25, %if.else27, %if.then18, %esp_lower_drq.exit, %esp_raise_drq.exit173, %esp_raise_drq.exit128, %esp_raise_drq.exit
+return:                                           ; preds = %if.then132, %lor.lhs.false, %lor.lhs.false138, %if.end44, %if.end41, %if.end25, %if.else27, %if.then18, %esp_lower_drq.argprom.exit, %esp_raise_drq.argprom.exit173, %esp_raise_drq.argprom.exit128, %esp_raise_drq.argprom.exit
   ret void
 }
 
@@ -2612,13 +2612,13 @@ if.else:                                          ; preds = %if.then
   %15 = load i16, ptr @_TRACE_ESP_RAISE_DRQ_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %15, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_raise_drq.exit
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_raise_drq.argprom.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.else
   %16 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %16, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %esp_raise_drq.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %esp_raise_drq.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %17 = load i8, ptr @message_with_timestamp, align 1
@@ -2632,13 +2632,13 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19) #10
-  br label %esp_raise_drq.exit
+  br label %esp_raise_drq.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44) #10
-  br label %esp_raise_drq.exit
+  br label %esp_raise_drq.argprom.exit
 
-esp_raise_drq.exit:                               ; preds = %if.else, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+esp_raise_drq.argprom.exit:                       ; preds = %if.else, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   br label %return
 
@@ -2654,7 +2654,7 @@ if.end18:                                         ; preds = %if.else13, %if.then
   call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end18, %esp_raise_drq.exit
+return:                                           ; preds = %if.end18, %esp_raise_drq.argprom.exit
   ret void
 }
 
@@ -3619,13 +3619,13 @@ if.else.i:                                        ; preds = %if.then16.i
   %25 = load i16, ptr @_TRACE_ESP_LOWER_DRQ_DSTATE, align 2
   %tobool4.i.i.i.i = icmp ne i16 %25, 0
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %esp_lower_drq.exit.i
+  br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %esp_lower_drq.argprom.exit.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %if.else.i
   %26 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i.i = and i32 %26, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i.i, label %esp_lower_drq.exit.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %esp_lower_drq.argprom.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.i.i
   %27 = load i8, ptr @message_with_timestamp, align 1
@@ -3639,17 +3639,17 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i.i, i64 noundef %28, i64 noundef %29) #10
-  br label %esp_lower_drq.exit.i
+  br label %esp_lower_drq.argprom.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36) #10
-  br label %esp_lower_drq.exit.i
+  br label %esp_lower_drq.argprom.exit.i
 
-esp_lower_drq.exit.i:                             ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.else.i
+esp_lower_drq.argprom.exit.i:                     ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   br label %if.end36.i
 
-if.end36.i:                                       ; preds = %esp_lower_drq.exit.i, %if.then21.i
+if.end36.i:                                       ; preds = %esp_lower_drq.argprom.exit.i, %if.then21.i
   %30 = load ptr, ptr %current_req.i, align 8
   call void @scsi_req_continue(ptr noundef %30) #10
   br label %do_command_phase.exit
@@ -3776,13 +3776,13 @@ if.end27:                                         ; preds = %if.else
   %13 = load i16, ptr @_TRACE_ESP_RAISE_DRQ_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %13, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_raise_drq.exit
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %esp_raise_drq.argprom.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end27
   %14 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %14, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %esp_raise_drq.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %esp_raise_drq.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %15 = load i8, ptr @message_with_timestamp, align 1
@@ -3796,13 +3796,13 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %16, i64 noundef %17) #10
-  br label %esp_raise_drq.exit
+  br label %esp_raise_drq.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44) #10
-  br label %esp_raise_drq.exit
+  br label %esp_raise_drq.argprom.exit
 
-esp_raise_drq.exit:                               ; preds = %if.end27, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+esp_raise_drq.argprom.exit:                       ; preds = %if.end27, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %cmdfifo28 = getelementptr inbounds i8, ptr %s, i64 408
   tail call void @fifo8_reset(ptr noundef nonnull %cmdfifo28) #10
@@ -3898,8 +3898,8 @@ if.then61:                                        ; preds = %trace_esp_get_cmd.e
   call void @fifo8_reset(ptr noundef nonnull %cmdfifo62) #10
   br label %return
 
-return:                                           ; preds = %esp_select.exit57, %if.else30, %if.then3, %if.then61, %esp_raise_drq.exit, %if.then25
-  %retval.0 = phi i32 [ -1, %if.then61 ], [ -1, %if.then25 ], [ 0, %esp_raise_drq.exit ], [ 0, %if.then3 ], [ 0, %if.else30 ], [ %dmalen.0, %esp_select.exit57 ]
+return:                                           ; preds = %esp_select.exit57, %if.else30, %if.then3, %if.then61, %esp_raise_drq.argprom.exit, %if.then25
+  %retval.0 = phi i32 [ -1, %if.then61 ], [ -1, %if.then25 ], [ 0, %esp_raise_drq.argprom.exit ], [ 0, %if.then3 ], [ 0, %if.else30 ], [ %dmalen.0, %esp_select.exit57 ]
   ret i32 %retval.0
 }
 
@@ -4718,13 +4718,13 @@ if.then79.i:                                      ; preds = %if.end75.i
   %47 = load i16, ptr @_TRACE_ESP_LOWER_DRQ_DSTATE, align 2
   %tobool4.i.i.i.i = icmp ne i16 %47, 0
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %esp_lower_drq.exit.i
+  br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %esp_lower_drq.argprom.exit.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %if.then79.i
   %48 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i.i = and i32 %48, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i.i, label %esp_lower_drq.exit.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %esp_lower_drq.argprom.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.i.i
   %49 = load i8, ptr @message_with_timestamp, align 1
@@ -4738,13 +4738,13 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %51 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i.i, i64 noundef %50, i64 noundef %51) #10
-  br label %esp_lower_drq.exit.i
+  br label %esp_lower_drq.argprom.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36) #10
-  br label %esp_lower_drq.exit.i
+  br label %esp_lower_drq.argprom.exit.i
 
-esp_lower_drq.exit.i:                             ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.then79.i
+esp_lower_drq.argprom.exit.i:                     ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.then79.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %52 = load i8, ptr %arrayidx.i32, align 4
   %53 = or i8 %52, 16
@@ -4842,13 +4842,13 @@ if.end131.i:                                      ; preds = %if.end87.i
   %72 = load i16, ptr @_TRACE_ESP_LOWER_DRQ_DSTATE, align 2
   %tobool4.i.i.i118.i = icmp ne i16 %72, 0
   %or.cond.i.i.i119.i = select i1 %tobool.i.i.i117.i, i1 %tobool4.i.i.i118.i, i1 false
-  br i1 %or.cond.i.i.i119.i, label %land.lhs.true5.i.i.i120.i, label %esp_lower_drq.exit130.i
+  br i1 %or.cond.i.i.i119.i, label %land.lhs.true5.i.i.i120.i, label %esp_lower_drq.argprom.exit130.i
 
 land.lhs.true5.i.i.i120.i:                        ; preds = %if.end131.i
   %73 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i121.i = and i32 %73, 32768
   %cmp.i.not.i.i.i122.i = icmp eq i32 %and.i.i.i.i121.i, 0
-  br i1 %cmp.i.not.i.i.i122.i, label %esp_lower_drq.exit130.i, label %if.then.i.i.i123.i
+  br i1 %cmp.i.not.i.i.i122.i, label %esp_lower_drq.argprom.exit130.i, label %if.then.i.i.i123.i
 
 if.then.i.i.i123.i:                               ; preds = %land.lhs.true5.i.i.i120.i
   %74 = load i8, ptr @message_with_timestamp, align 1
@@ -4862,13 +4862,13 @@ if.then8.i.i.i126.i:                              ; preds = %if.then.i.i.i123.i
   %tv_usec.i.i.i129.i = getelementptr inbounds i8, ptr %_now.i.i.i116.i, i64 8
   %76 = load i64, ptr %tv_usec.i.i.i129.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i128.i, i64 noundef %75, i64 noundef %76) #10
-  br label %esp_lower_drq.exit130.i
+  br label %esp_lower_drq.argprom.exit130.i
 
 if.else.i.i.i125.i:                               ; preds = %if.then.i.i.i123.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36) #10
-  br label %esp_lower_drq.exit130.i
+  br label %esp_lower_drq.argprom.exit130.i
 
-esp_lower_drq.exit130.i:                          ; preds = %if.else.i.i.i125.i, %if.then8.i.i.i126.i, %land.lhs.true5.i.i.i120.i, %if.end131.i
+esp_lower_drq.argprom.exit130.i:                  ; preds = %if.else.i.i.i125.i, %if.then8.i.i.i126.i, %land.lhs.true5.i.i.i120.i, %if.end131.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i116.i)
   %77 = load i8, ptr %arrayidx.i32, align 4
   %78 = or i8 %77, 16
@@ -4890,7 +4890,7 @@ do.body:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 805, ptr noundef nonnull @__func__.esp_pdma_cb, ptr noundef null) #11
   unreachable
 
-sw.epilog:                                        ; preds = %esp_lower_drq.exit130.i, %if.then124.i, %if.then91.i, %if.then85.i, %esp_lower_drq.exit.i, %if.end75.i, %if.then73.i, %if.end34.i, %if.else.i, %if.end19.i, %if.then12.i, %lor.lhs.false.i, %if.then.i35, %trace_esp_handle_satn_stop.exit.i, %land.lhs.true.i24, %sw.bb2, %if.then.i15, %land.lhs.true.i12, %sw.bb1, %if.then.i, %land.lhs.true.i, %sw.bb, %sw.bb3
+sw.epilog:                                        ; preds = %esp_lower_drq.argprom.exit130.i, %if.then124.i, %if.then91.i, %if.then85.i, %esp_lower_drq.argprom.exit.i, %if.end75.i, %if.then73.i, %if.end34.i, %if.else.i, %if.end19.i, %if.then12.i, %lor.lhs.false.i, %if.then.i35, %trace_esp_handle_satn_stop.exit.i, %land.lhs.true.i24, %sw.bb2, %if.then.i15, %land.lhs.true.i12, %sw.bb1, %if.then.i, %land.lhs.true.i, %sw.bb, %sw.bb3
   ret void
 }
 

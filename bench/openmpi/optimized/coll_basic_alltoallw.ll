@@ -48,7 +48,7 @@ define i32 @mca_coll_basic_alltoallw_intra(ptr noundef %0, ptr nocapture noundef
   %19 = getelementptr i8, ptr %.val.i, i64 16
   %.val.val.i = load i32, ptr %19, align 8
   %20 = icmp eq i32 %.val.val.i, 1
-  br i1 %20, label %mca_coll_basic_alltoallw_intra_inplace.exit, label %21
+  br i1 %20, label %mca_coll_basic_alltoallw_intra_inplace.argprom.exit, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %8, i64 220
@@ -80,12 +80,12 @@ define i32 @mca_coll_basic_alltoallw_intra(ptr noundef %0, ptr nocapture noundef
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %36 = tail call noalias ptr @calloc(i64 noundef %34, i64 noundef 1) #6
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %mca_coll_basic_alltoallw_intra_inplace.exit, label %.preheader.i
+  br i1 %37, label %mca_coll_basic_alltoallw_intra_inplace.argprom.exit, label %.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %21
   %38 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 1) #6
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %mca_coll_basic_alltoallw_intra_inplace.exit, label %._crit_edge12.i
+  br i1 %39, label %mca_coll_basic_alltoallw_intra_inplace.argprom.exit, label %._crit_edge12.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %40 = getelementptr inbounds i8, ptr %14, i64 8
@@ -137,7 +137,7 @@ define i32 @mca_coll_basic_alltoallw_intra(ptr noundef %0, ptr nocapture noundef
   %71 = ptrtoint ptr %70 to i64
   %72 = and i64 %71, 1
   %.not.i.i.i.i.i = icmp eq i64 %72, 0
-  br i1 %.not.i.i.i.i.i, label %ompi_comm_peer_lookup.exit.i, label %73
+  br i1 %.not.i.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit.i, label %73
 
 73:                                               ; preds = %66
   %74 = lshr i64 %71, 1
@@ -150,7 +150,7 @@ define i32 @mca_coll_basic_alltoallw_intra(ptr noundef %0, ptr nocapture noundef
   %80 = ptrtoint ptr %77 to i64
   %81 = cmpxchg volatile ptr %79, i64 %71, i64 %80 acquire monotonic, align 8
   %82 = extractvalue { i64, i1 } %81, 1
-  br i1 %82, label %83, label %ompi_comm_peer_lookup.exit.i
+  br i1 %82, label %83, label %ompi_comm_peer_lookup.argprom.exit.i
 
 83:                                               ; preds = %73
   %84 = getelementptr inbounds i8, ptr %77, i64 8
@@ -160,16 +160,16 @@ define i32 @mca_coll_basic_alltoallw_intra(ptr noundef %0, ptr nocapture noundef
 
 87:                                               ; preds = %83
   %88 = atomicrmw volatile add ptr %84, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.exit.i
+  br label %ompi_comm_peer_lookup.argprom.exit.i
 
 89:                                               ; preds = %83
   %90 = load volatile i32, ptr %84, align 4
   %91 = add nsw i32 %90, 1
   store volatile i32 %91, ptr %84, align 4
   %92 = load volatile i32, ptr %84, align 4
-  br label %ompi_comm_peer_lookup.exit.i
+  br label %ompi_comm_peer_lookup.argprom.exit.i
 
-ompi_comm_peer_lookup.exit.i:                     ; preds = %89, %87, %73, %66
+ompi_comm_peer_lookup.argprom.exit.i:             ; preds = %89, %87, %73, %66
   %.0.i.i.i.i.i = phi ptr [ %70, %66 ], [ %77, %89 ], [ %77, %87 ], [ %77, %73 ]
   %93 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 56
   %94 = load ptr, ptr %93, align 8
@@ -187,7 +187,7 @@ ompi_comm_peer_lookup.exit.i:                     ; preds = %89, %87, %73, %66
   %.not108.i = icmp eq i32 %104, 1
   br i1 %.not108.i, label %105, label %._crit_edge12.i
 
-105:                                              ; preds = %ompi_comm_peer_lookup.exit.i
+105:                                              ; preds = %ompi_comm_peer_lookup.argprom.exit.i
   %106 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %107 = load i32, ptr %99, align 4
   %108 = sext i32 %107 to i64
@@ -252,13 +252,13 @@ ompi_comm_peer_lookup.exit.i:                     ; preds = %89, %87, %73, %66
   %.not115.i = icmp eq i32 %146, 0
   br i1 %.not115.i, label %43, label %._crit_edge12.i
 
-._crit_edge12.i:                                  ; preds = %144, %140, %130, %127, %117, %105, %ompi_comm_peer_lookup.exit.i, %43, %._crit_edge.thread.i
-  %147 = phi ptr [ %38, %._crit_edge.thread.i ], [ %36, %43 ], [ %36, %ompi_comm_peer_lookup.exit.i ], [ %36, %105 ], [ %36, %117 ], [ %36, %127 ], [ %36, %130 ], [ %36, %140 ], [ %36, %144 ]
-  %.1.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %146, %144 ], [ %143, %140 ], [ %138, %130 ], [ %129, %127 ], [ %126, %117 ], [ %113, %105 ], [ %104, %ompi_comm_peer_lookup.exit.i ], [ 0, %43 ]
+._crit_edge12.i:                                  ; preds = %144, %140, %130, %127, %117, %105, %ompi_comm_peer_lookup.argprom.exit.i, %43, %._crit_edge.thread.i
+  %147 = phi ptr [ %38, %._crit_edge.thread.i ], [ %36, %43 ], [ %36, %ompi_comm_peer_lookup.argprom.exit.i ], [ %36, %105 ], [ %36, %117 ], [ %36, %127 ], [ %36, %130 ], [ %36, %140 ], [ %36, %144 ]
+  %.1.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %146, %144 ], [ %143, %140 ], [ %138, %130 ], [ %129, %127 ], [ %126, %117 ], [ %113, %105 ], [ %104, %ompi_comm_peer_lookup.argprom.exit.i ], [ 0, %43 ]
   call void @free(ptr noundef nonnull %147) #7
-  br label %mca_coll_basic_alltoallw_intra_inplace.exit
+  br label %mca_coll_basic_alltoallw_intra_inplace.argprom.exit
 
-mca_coll_basic_alltoallw_intra_inplace.exit:      ; preds = %17, %._crit_edge.i, %._crit_edge.thread.i, %._crit_edge12.i
+mca_coll_basic_alltoallw_intra_inplace.argprom.exit: ; preds = %17, %._crit_edge.i, %._crit_edge.thread.i, %._crit_edge12.i
   %.0.i = phi i32 [ %.1.i, %._crit_edge12.i ], [ 0, %17 ], [ -2, %._crit_edge.i ], [ -2, %._crit_edge.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -501,8 +501,8 @@ ompi_request_cancel.exit.i123:                    ; preds = %255, %252
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i114
   br i1 %exitcond.not.i121, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i115, !llvm.loop !7
 
-ompi_coll_base_free_reqs.exit:                    ; preds = %218, %263, %._crit_edge, %200, %172, %170, %148, %239, %mca_coll_basic_alltoallw_intra_inplace.exit
-  %.0 = phi i32 [ %.0.i, %mca_coll_basic_alltoallw_intra_inplace.exit ], [ %237, %239 ], [ %169, %148 ], [ 0, %170 ], [ -2, %172 ], [ %198, %200 ], [ %245, %._crit_edge ], [ %245, %263 ], [ %198, %218 ]
+ompi_coll_base_free_reqs.exit:                    ; preds = %218, %263, %._crit_edge, %200, %172, %170, %148, %239, %mca_coll_basic_alltoallw_intra_inplace.argprom.exit
+  %.0 = phi i32 [ %.0.i, %mca_coll_basic_alltoallw_intra_inplace.argprom.exit ], [ %237, %239 ], [ %169, %148 ], [ 0, %170 ], [ -2, %172 ], [ %198, %200 ], [ %245, %._crit_edge ], [ %245, %263 ], [ %198, %218 ]
   ret i32 %.0
 }
 

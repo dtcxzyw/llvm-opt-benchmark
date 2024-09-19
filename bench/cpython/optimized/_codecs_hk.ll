@@ -398,7 +398,7 @@ entry:
   %big5_decmap = getelementptr inbounds i8, ptr %0, i64 32
   %call.i = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.12) #7
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %importmap.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %importmap.argprom.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13) #7
@@ -442,33 +442,33 @@ if.end17.i:                                       ; preds = %if.then1.i33.i, %if
   %6 = load i64, ptr %call.i, align 8
   %7 = and i64 %6, 2147483648
   %cmp.i40.not.i = icmp eq i64 %7, 0
-  br i1 %cmp.i40.not.i, label %if.end.i21.i, label %importmap.exit.thread
+  br i1 %cmp.i40.not.i, label %if.end.i21.i, label %importmap.argprom.exit.thread
 
 if.end.i21.i:                                     ; preds = %if.end17.i
   %dec.i22.i = add i64 %6, -1
   store i64 %dec.i22.i, ptr %call.i, align 8
   %cmp.i23.i = icmp eq i64 %dec.i22.i, 0
-  br i1 %cmp.i23.i, label %importmap.exit.thread.sink.split, label %importmap.exit.thread
+  br i1 %cmp.i23.i, label %importmap.argprom.exit.thread.sink.split, label %importmap.argprom.exit.thread
 
 errorexit.i:                                      ; preds = %if.then5.i, %if.end.i
   %8 = load i64, ptr %call.i, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i44.not.i = icmp eq i64 %9, 0
-  br i1 %cmp.i44.not.i, label %if.end.i.i, label %importmap.exit.thread
+  br i1 %cmp.i44.not.i, label %if.end.i.i, label %importmap.argprom.exit.thread
 
 if.end.i.i:                                       ; preds = %errorexit.i
   %dec.i.i = add i64 %8, -1
   store i64 %dec.i.i, ptr %call.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %importmap.exit.thread.sink.split, label %importmap.exit.thread
+  br i1 %cmp.i.i, label %importmap.argprom.exit.thread.sink.split, label %importmap.argprom.exit.thread
 
-importmap.exit.thread.sink.split:                 ; preds = %if.end.i.i, %if.end.i21.i
+importmap.argprom.exit.thread.sink.split:         ; preds = %if.end.i.i, %if.end.i21.i
   %.ph = phi i32 [ 0, %if.end.i21.i ], [ -1, %if.end.i.i ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #7
-  br label %importmap.exit.thread
+  br label %importmap.argprom.exit.thread
 
-importmap.exit.thread:                            ; preds = %importmap.exit.thread.sink.split, %if.end.i21.i, %if.end17.i, %if.end.i.i, %errorexit.i, %entry
-  %10 = phi i32 [ -1, %entry ], [ -1, %errorexit.i ], [ -1, %if.end.i.i ], [ 0, %if.end17.i ], [ 0, %if.end.i21.i ], [ %.ph, %importmap.exit.thread.sink.split ]
+importmap.argprom.exit.thread:                    ; preds = %importmap.argprom.exit.thread.sink.split, %if.end.i21.i, %if.end17.i, %if.end.i.i, %errorexit.i, %entry
+  %10 = phi i32 [ -1, %entry ], [ -1, %errorexit.i ], [ -1, %if.end.i.i ], [ 0, %if.end17.i ], [ 0, %if.end.i21.i ], [ %.ph, %importmap.argprom.exit.thread.sink.split ]
   ret i32 %10
 }
 

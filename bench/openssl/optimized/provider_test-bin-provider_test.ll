@@ -222,7 +222,7 @@ land.rhs:                                         ; preds = %if.end
   %call.i = tail call ptr @OSSL_PARAM_BLD_new() #5
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 172, ptr noundef nonnull @.str.52, ptr noundef %call.i) #5
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %test_provider_ex.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %test_provider_ex.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs
   %call2.i = call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef %call.i, ptr noundef nonnull @.str.38, ptr noundef nonnull %custom_buf.i, i64 noundef 15) #5
@@ -230,19 +230,19 @@ lor.lhs.false.i:                                  ; preds = %land.rhs
   %conv.i = zext i1 %cmp.i to i32
   %call3.i = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 174, ptr noundef nonnull @.str.53, i32 noundef %conv.i) #5
   %tobool4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.not.i, label %test_provider_ex.exit, label %lor.lhs.false5.i
+  br i1 %tobool4.not.i, label %test_provider_ex.argprom.exit, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
   %call6.i = call ptr @OSSL_PARAM_BLD_to_param(ptr noundef %call.i) #5
   %call7.i = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 175, ptr noundef nonnull @.str.54, ptr noundef %call6.i) #5
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %test_provider_ex.exit, label %if.end.i
+  br i1 %tobool8.not.i, label %test_provider_ex.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false5.i
   %call9.i = call ptr @OSSL_PROVIDER_load_ex(ptr noundef %call3, ptr noundef nonnull @.str.51, ptr noundef %call6.i) #5
   %call10.i = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 179, ptr noundef nonnull @.str.55, ptr noundef %call9.i) #5
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %test_provider_ex.exit, label %if.end13.i
+  br i1 %tobool11.not.i, label %test_provider_ex.argprom.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end.i
   %call14.i = call i32 @OSSL_PROVIDER_get_params(ptr noundef %call9.i, ptr noundef nonnull @greeting_request) #5
@@ -250,31 +250,31 @@ if.end13.i:                                       ; preds = %if.end.i
   %conv16.i = zext i1 %cmp15.i to i32
   %call17.i = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 182, ptr noundef nonnull @.str.34, i32 noundef %conv16.i) #5
   %tobool18.not.i = icmp eq i32 %call17.i, 0
-  br i1 %tobool18.not.i, label %test_provider_ex.exit, label %lor.lhs.false19.i
+  br i1 %tobool18.not.i, label %test_provider_ex.argprom.exit, label %lor.lhs.false19.i
 
 lor.lhs.false19.i:                                ; preds = %if.end13.i
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @greeting_request, i64 16), align 16
   %call20.i = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 183, ptr noundef nonnull @.str.35, ptr noundef %0) #5
   %tobool21.not.i = icmp eq i32 %call20.i, 0
-  br i1 %tobool21.not.i, label %test_provider_ex.exit, label %lor.lhs.false22.i
+  br i1 %tobool21.not.i, label %test_provider_ex.argprom.exit, label %lor.lhs.false22.i
 
 lor.lhs.false22.i:                                ; preds = %lor.lhs.false19.i
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @greeting_request, i64 24), align 8
   %call23.i = call i32 @test_size_t_gt(ptr noundef nonnull @.str.20, i32 noundef 184, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %1, i64 noundef 0) #5
   %tobool24.not.i = icmp eq i32 %call23.i, 0
-  br i1 %tobool24.not.i, label %test_provider_ex.exit, label %lor.lhs.false25.i
+  br i1 %tobool24.not.i, label %test_provider_ex.argprom.exit, label %lor.lhs.false25.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false22.i
   %call27.i = call i32 @test_str_eq(ptr noundef nonnull @.str.20, i32 noundef 185, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.56, ptr noundef %0, ptr noundef nonnull %custom_buf.i) #5
   %tobool28.not.i = icmp eq i32 %call27.i, 0
-  br i1 %tobool28.not.i, label %test_provider_ex.exit, label %if.end30.i
+  br i1 %tobool28.not.i, label %test_provider_ex.argprom.exit, label %if.end30.i
 
 if.end30.i:                                       ; preds = %lor.lhs.false25.i
   %call31.i = call i64 @ERR_peek_last_error() #5
   %conv32.i = trunc i64 %call31.i to i32
   %call33.i = call i32 @test_int_gt(ptr noundef nonnull @.str.20, i32 noundef 190, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.37, i32 noundef %conv32.i, i32 noundef 0) #5
   %tobool34.not.i = icmp eq i32 %call33.i, 0
-  br i1 %tobool34.not.i, label %test_provider_ex.exit, label %lor.lhs.false35.i
+  br i1 %tobool34.not.i, label %test_provider_ex.argprom.exit, label %lor.lhs.false35.i
 
 lor.lhs.false35.i:                                ; preds = %if.end30.i
   %and.i.i = and i64 %call31.i, 2147483648
@@ -283,7 +283,7 @@ lor.lhs.false35.i:                                ; preds = %if.end30.i
   %retval.0.i.i = and i32 %retval.0.v.i.i, %conv32.i
   %call37.i = call i32 @test_int_eq(ptr noundef nonnull @.str.20, i32 noundef 191, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i32 noundef %retval.0.i.i, i32 noundef 1) #5
   %tobool38.not.i = icmp eq i32 %call37.i, 0
-  br i1 %tobool38.not.i, label %test_provider_ex.exit, label %if.end40.i
+  br i1 %tobool38.not.i, label %test_provider_ex.argprom.exit, label %if.end40.i
 
 if.end40.i:                                       ; preds = %lor.lhs.false35.i
   %call41.i = call i32 @OSSL_PROVIDER_unload(ptr noundef %call9.i) #5
@@ -291,15 +291,15 @@ if.end40.i:                                       ; preds = %lor.lhs.false35.i
   %conv43.i = zext i1 %cmp42.i to i32
   %call44.i = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 194, ptr noundef nonnull @.str.48, i32 noundef %conv43.i) #5
   %tobool45.not.i = icmp eq i32 %call44.i, 0
-  br i1 %tobool45.not.i, label %test_provider_ex.exit, label %if.end47.i
+  br i1 %tobool45.not.i, label %test_provider_ex.argprom.exit, label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.end40.i
   call void @OSSL_LIB_CTX_free(ptr noundef %call3) #5
   %2 = load ptr, ptr @stderr, align 8
   call void @ERR_print_errors_fp(ptr noundef %2) #5
-  br label %test_provider_ex.exit
+  br label %test_provider_ex.argprom.exit
 
-test_provider_ex.exit:                            ; preds = %land.rhs, %lor.lhs.false.i, %lor.lhs.false5.i, %if.end.i, %if.end13.i, %lor.lhs.false19.i, %lor.lhs.false22.i, %lor.lhs.false25.i, %if.end30.i, %lor.lhs.false35.i, %if.end40.i, %if.end47.i
+test_provider_ex.argprom.exit:                    ; preds = %land.rhs, %lor.lhs.false.i, %lor.lhs.false5.i, %if.end.i, %if.end13.i, %lor.lhs.false19.i, %lor.lhs.false22.i, %lor.lhs.false25.i, %if.end30.i, %lor.lhs.false35.i, %if.end40.i, %if.end47.i
   %3 = phi ptr [ null, %if.end47.i ], [ %call3, %if.end40.i ], [ %call3, %lor.lhs.false35.i ], [ %call3, %if.end30.i ], [ %call3, %lor.lhs.false25.i ], [ %call3, %lor.lhs.false22.i ], [ %call3, %lor.lhs.false19.i ], [ %call3, %if.end13.i ], [ %call3, %if.end.i ], [ %call3, %lor.lhs.false5.i ], [ %call3, %lor.lhs.false.i ], [ %call3, %land.rhs ]
   %ok.0.i = phi i32 [ 1, %if.end47.i ], [ 0, %if.end40.i ], [ 0, %lor.lhs.false35.i ], [ 0, %if.end30.i ], [ 0, %lor.lhs.false25.i ], [ 0, %lor.lhs.false22.i ], [ 0, %lor.lhs.false19.i ], [ 0, %if.end13.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false5.i ], [ 0, %lor.lhs.false.i ], [ 0, %land.rhs ]
   %prov.0.i = phi ptr [ null, %if.end47.i ], [ %call9.i, %if.end40.i ], [ %call9.i, %lor.lhs.false35.i ], [ %call9.i, %if.end30.i ], [ %call9.i, %lor.lhs.false25.i ], [ %call9.i, %lor.lhs.false22.i ], [ %call9.i, %lor.lhs.false19.i ], [ %call9.i, %if.end13.i ], [ %call9.i, %if.end.i ], [ null, %lor.lhs.false5.i ], [ null, %lor.lhs.false.i ], [ null, %land.rhs ]
@@ -311,8 +311,8 @@ test_provider_ex.exit:                            ; preds = %land.rhs, %lor.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %custom_buf.i)
   br label %return
 
-return:                                           ; preds = %test_provider_ex.exit, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %ok.0.i, %test_provider_ex.exit ]
+return:                                           ; preds = %test_provider_ex.argprom.exit, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %ok.0.i, %test_provider_ex.argprom.exit ]
   ret i32 %retval.0
 }
 

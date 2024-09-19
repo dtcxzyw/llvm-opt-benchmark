@@ -480,7 +480,7 @@ define dso_local void @force_page_cache_ra(ptr noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_page_cache_ra(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @do_page_cache_ra.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -815,7 +815,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 103:                                              ; preds = %90
-  tail call fastcc void @do_page_cache_ra(ptr noundef %0, i64 noundef %2)
+  tail call fastcc void @do_page_cache_ra.argelim(ptr noundef %0, i64 noundef %2)
   br label %183
 
 104:                                              ; preds = %84, %82, %33

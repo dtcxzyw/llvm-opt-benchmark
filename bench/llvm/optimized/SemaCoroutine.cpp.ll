@@ -401,18 +401,18 @@ define dso_local noundef ptr @_ZN5clang4Sema21buildCoroutinePromiseENS_14SourceL
   %22 = icmp eq ptr %21, null
   %23 = getelementptr inbounds i8, ptr %21, i64 -72
   %24 = select i1 %22, ptr null, ptr %23
-  br i1 %22, label %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.exit", label %25
+  br i1 %22, label %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.argprom.argprom.exit", label %25
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %21, i64 -44
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 124
   %29 = icmp eq i32 %28, 32
-  br i1 %29, label %_ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_.exit.i, label %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.exit"
+  br i1 %29, label %_ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_.exit.i, label %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.argprom.argprom.exit"
 
 _ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_.exit.i: ; preds = %25
   %30 = tail call noundef zeroext i1 @_ZNK5clang13CXXMethodDecl30isImplicitObjectMemberFunctionEv(ptr noundef nonnull align 8 dereferenceable(168) %23) #17
-  br i1 %30, label %31, label %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.exit"
+  br i1 %30, label %31, label %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.argprom.argprom.exit"
 
 31:                                               ; preds = %_ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_.exit.i
   %32 = tail call i64 @_ZNK5clang13CXXMethodDecl11getThisTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %23) #17
@@ -423,9 +423,9 @@ _ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_
   %37 = load i16, ptr %36, align 1
   %38 = and i16 %37, 4
   %39 = icmp ne i16 %38, 0
-  br label %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.exit"
+  br label %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.argprom.argprom.exit"
 
-"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.exit": ; preds = %2, %25, %_ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_.exit.i, %31
+"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.argprom.argprom.exit": ; preds = %2, %25, %_ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_.exit.i, %31
   %.0.i = phi i1 [ false, %_ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_.exit.i ], [ %39, %31 ], [ false, %25 ], [ false, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %40, align 8
@@ -439,14 +439,14 @@ _ZN4llvm19dyn_cast_if_presentIN5clang13CXXMethodDeclENS1_12FunctionDeclEEEDaPT0_
   %brmerge = or i1 %.0.i, %47
   br i1 %brmerge, label %48, label %52
 
-48:                                               ; preds = %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.exit"
+48:                                               ; preds = %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.argprom.argprom.exit"
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 18864
   %.sroa.0.0.copyload.i51 = load i64, ptr %51, align 8
   br label %223
 
-52:                                               ; preds = %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.exit"
+52:                                               ; preds = %"_ZZN5clang4Sema21buildCoroutinePromiseENS_14SourceLocationEENK3$_0clEv.argprom.argprom.exit"
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -2077,11 +2077,11 @@ define internal fastcc noundef ptr @_ZL21checkCoroutineContextRN5clang4SemaENS_1
   ]
 
 35:                                               ; preds = %33
-  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 0)
+  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag.retelim"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 0)
   br label %_ZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefE.exit.thread
 
 36:                                               ; preds = %33
-  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 1)
+  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag.retelim"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 1)
   br label %_ZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefE.exit.thread
 
 .thread.i:                                        ; preds = %33, %26
@@ -2089,7 +2089,7 @@ define internal fastcc noundef ptr @_ZL21checkCoroutineContextRN5clang4SemaENS_1
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %.thread.i
-  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
+  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag.retelim"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
   br label %_ZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefE.exit.thread
 
 39:                                               ; preds = %.thread.i
@@ -2102,7 +2102,7 @@ define internal fastcc noundef ptr @_ZL21checkCoroutineContextRN5clang4SemaENS_1
 43:                                               ; preds = %39
   %44 = icmp eq i32 %42, 65536
   %45 = select i1 %44, i32 6, i32 3
-  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %45)
+  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag.retelim"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %45)
   br label %46
 
 46:                                               ; preds = %43, %39
@@ -2144,7 +2144,7 @@ _ZNK5clang4Type15isUndeducedTypeEv.exit.i:        ; preds = %_ZNK5clang12Functio
   br i1 %.not4.i.i, label %66, label %_ZNK5clang4Type15isUndeducedTypeEv.exit.thread.i
 
 66:                                               ; preds = %_ZNK5clang4Type15isUndeducedTypeEv.exit.i
-  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 4)
+  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag.retelim"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 4)
   br label %_ZNK5clang4Type15isUndeducedTypeEv.exit.thread.i
 
 _ZNK5clang4Type15isUndeducedTypeEv.exit.thread.i: ; preds = %66, %_ZNK5clang4Type15isUndeducedTypeEv.exit.i, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
@@ -2152,7 +2152,7 @@ _ZNK5clang4Type15isUndeducedTypeEv.exit.thread.i: ; preds = %66, %_ZNK5clang4Typ
   br i1 %67, label %68, label %_ZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefE.exit
 
 68:                                               ; preds = %_ZNK5clang4Type15isUndeducedTypeEv.exit.thread.i
-  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 5)
+  call fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag.retelim"(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 5)
   br label %_ZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefE.exit
 
 _ZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefE.exit.thread: ; preds = %35, %36, %38, %21
@@ -2907,7 +2907,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %14, %_ZNK5clang4Typ
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %45 = tail call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %44, i32 %2, ptr %3, i64 %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  %45 = tail call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %44, i32 %2, ptr %3, i64 %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   br label %46
 
 46:                                               ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %41
@@ -3291,7 +3291,7 @@ _ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKind
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = tail call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %30, i32 %3, ptr nonnull @.str.17, i64 11, ptr null, i64 0)
+  %57 = tail call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %30, i32 %3, ptr nonnull @.str.17, i64 11, ptr null, i64 0)
   %58 = icmp eq i64 %57, 1
   br i1 %58, label %"_ZZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprEENK3$_0clEN24ReadySuspendResumeResult13AwaitCallTypeEN4llvm9StringRefENSA_15MutableArrayRefIS6_EE.exit.thread", label %"_ZZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprEENK3$_0clEN24ReadySuspendResumeResult13AwaitCallTypeEN4llvm9StringRefENSA_15MutableArrayRefIS6_EE.exit"
 
@@ -3659,7 +3659,7 @@ _ZL20buildCoroutineHandleRN5clang4SemaENS_8QualTypeENS_14SourceLocationE.exit: ;
   %209 = and i64 %.sroa.024.2.i, -2
   %210 = inttoptr i64 %209 to ptr
   store ptr %210, ptr %23, align 8
-  %211 = call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %30, i32 %3, ptr nonnull @.str.18, i64 13, ptr nonnull %23, i64 1)
+  %211 = call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %30, i32 %3, ptr nonnull @.str.18, i64 13, ptr nonnull %23, i64 1)
   %212 = icmp eq i64 %211, 1
   br i1 %212, label %"_ZZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprEENK3$_0clEN24ReadySuspendResumeResult13AwaitCallTypeEN4llvm9StringRefENSA_15MutableArrayRefIS6_EE.exit54.thread", label %"_ZZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprEENK3$_0clEN24ReadySuspendResumeResult13AwaitCallTypeEN4llvm9StringRefENSA_15MutableArrayRefIS6_EE.exit54"
 
@@ -3716,7 +3716,7 @@ _ZL20buildCoroutineHandleRN5clang4SemaENS_8QualTypeENS_14SourceLocationE.exit: ;
   br i1 %240, label %241, label %_ZL13maybeTailCallRN5clang4SemaENS_8QualTypeEPNS_4ExprENS_14SourceLocationE.exit.thread
 
 241:                                              ; preds = %239, %237
-  %242 = call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %214, i32 %3, ptr nonnull @.str.23, i64 7, ptr null, i64 0)
+  %242 = call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %214, i32 %3, ptr nonnull @.str.23, i64 7, ptr null, i64 0)
   %243 = icmp eq i64 %242, 1
   br i1 %243, label %_ZL13maybeTailCallRN5clang4SemaENS_8QualTypeEPNS_4ExprENS_14SourceLocationE.exit.thread, label %244
 
@@ -3830,7 +3830,7 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit67:     ; preds = %_ZNK5clang4Type10is
   br label %298
 
 298:                                              ; preds = %263, %296, %_ZN5clang8CallExpr15getDirectCalleeEv.exit67, %216
-  %299 = call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %30, i32 %3, ptr nonnull @.str.19, i64 12, ptr null, i64 0)
+  %299 = call fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %30, i32 %3, ptr nonnull @.str.19, i64 12, ptr null, i64 0)
   %300 = icmp eq i64 %299, 1
   br i1 %300, label %301, label %302
 
@@ -10025,7 +10025,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 7) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag.retelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 7) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = load ptr, ptr %0, align 8
@@ -10418,7 +10418,7 @@ declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_20DependentCoawaitE
 declare void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i32 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc i64 @_ZL15buildMemberCallRN5clang4SemaEPNS_4ExprENS_14SourceLocationEN4llvm9StringRefENS5_15MutableArrayRefIS3_EE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i32 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"struct.clang::DeclarationNameInfo", align 8
   %7 = alloca %"class.clang::CXXScopeSpec", align 8
   %8 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -11320,8 +11320,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit34.i.i.i", %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
 
-.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit"
-  %.01.i.i = phi ptr [ %107, %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit" ], [ %.028, %.lr.ph.i5.i.preheader ]
+.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
+  %.01.i.i = phi ptr [ %107, %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.argprom.exit" ], [ %.028, %.lr.ph.i5.i.preheader ]
   %107 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %0, align 8
@@ -11386,7 +11386,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
 146:                                              ; preds = %140, %136, %._crit_edge.i.i
   %.128.i.i = phi i64 [ %142, %140 ], [ %.0.lcssa.i.i, %136 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
   %147 = icmp sgt i64 %.128.i.i, 0
-  br i1 %147, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit"
+  br i1 %147, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %146, %158
   %.0133.i.i.i = phi i64 [ %.04.i.i12.i, %158 ], [ %.128.i.i, %146 ]
@@ -11405,15 +11405,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %156 = tail call i64 %155(ptr noundef nonnull align 8 dereferenceable(33) %108) #18
   %.sroa.1.0.extract.shift.i2.i.i.i.i.i = lshr i64 %156, 32
   %157 = icmp ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i
-  br i1 %157, label %158, label %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit"
+  br i1 %157, label %158, label %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
 
 158:                                              ; preds = %.lr.ph.i.i.i
   %159 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i
   store ptr %.val.i.i.i, ptr %159, align 8
   %.not.i = icmp ult i64 %.04.in.i.i.i, 2
-  br i1 %.not.i, label %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit", label %.lr.ph.i.i.i, !llvm.loop !50
+  br i1 %.not.i, label %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.argprom.exit", label %.lr.ph.i.i.i, !llvm.loop !50
 
-"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit": ; preds = %.lr.ph.i.i.i, %158, %146
+"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.argprom.exit": ; preds = %.lr.ph.i.i.i, %158, %146
   %.013.lcssa.i.i.i = phi i64 [ %.128.i.i, %146 ], [ %.0133.i.i.i, %.lr.ph.i.i.i ], [ 0, %158 ]
   %160 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i
   store ptr %108, ptr %160, align 8
@@ -11550,7 +11550,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %219 = icmp sgt i64 %218, 128
   br i1 %219, label %9, label %"_ZSt14__partial_sortIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !56
 
-"_ZSt14__partial_sortIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit", %3
+"_ZSt14__partial_sortIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.argprom.exit", %3
   ret void
 }
 

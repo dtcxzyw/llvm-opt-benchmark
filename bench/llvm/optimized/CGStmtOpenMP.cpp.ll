@@ -3622,13 +3622,13 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %356
 365:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
   %366 = and i64 %.sroa.0478.sroa.0.1, -8
   %367 = inttoptr i64 %366 to ptr
-  br label %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit
+  br label %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit
 
 368:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
   %369 = call noundef ptr @_ZNK5clang7CodeGen7Address18emitRawPointerSlowERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(6488) %0) #19, !noalias !61
-  br label %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit
+  br label %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit
 
-_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit: ; preds = %365, %368
+_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit: ; preds = %365, %368
   %.0.i.i257 = phi ptr [ %369, %368 ], [ %367, %365 ]
   %370 = call i64 @_ZNK5clang10ASTContext14getUIntPtrTypeEv(ptr noundef nonnull align 8 dereferenceable(23096) %363) #19, !noalias !61
   %371 = call i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %363, i64 %.sroa.0.0.copyload.i253) #19, !noalias !61
@@ -3659,7 +3659,7 @@ _ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationEN
   %.not.i.i.i.i.i.i261 = icmp eq i64 %380, 0
   br i1 %.not.i.i.i.i.i.i261, label %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit264, label %381
 
-381:                                              ; preds = %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit
+381:                                              ; preds = %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit
   %382 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i260, -16
   %383 = inttoptr i64 %382 to ptr
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 24
@@ -3667,8 +3667,8 @@ _ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationEN
   %385 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i262, -49
   br label %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit264
 
-_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit264: ; preds = %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit, %381
-  %.sroa.0.0.i.i.i.i.i.i263 = phi i64 [ %385, %381 ], [ 0, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit ]
+_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit264: ; preds = %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit, %381
+  %.sroa.0.0.i.i.i.i.i.i263 = phi i64 [ %385, %381 ], [ 0, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit ]
   %386 = or i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i260, %.sroa.0.0.copyload.i259
   %387 = and i64 %386, 7
   %388 = call noundef i32 @_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %376, i64 %.sroa.0.0.copyload.i259) #19, !noalias !70
@@ -3926,13 +3926,13 @@ _ZNK5clang9NamedDecl7getNameEv.exit285:           ; preds = %491
 504:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit285
   %505 = and i64 %.sroa.0478.sroa.0.1, -8
   %506 = inttoptr i64 %505 to ptr
-  br label %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit289
+  br label %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit289
 
 507:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit285
   %508 = call noundef ptr @_ZNK5clang7CodeGen7Address18emitRawPointerSlowERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(6488) %0) #19, !noalias !80
-  br label %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit289
+  br label %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit289
 
-_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit289: ; preds = %504, %507
+_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit289: ; preds = %504, %507
   %.0.i.i287 = phi ptr [ %508, %507 ], [ %506, %504 ]
   %509 = call i64 @_ZNK5clang10ASTContext14getUIntPtrTypeEv(ptr noundef nonnull align 8 dereferenceable(23096) %502) #19, !noalias !80
   %510 = call i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %502, i64 %.sroa.0.0.copyload.i278) #19, !noalias !80
@@ -3951,11 +3951,11 @@ _ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationEN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4448.sroa.4, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7485, i64 23, i1 false)
   br label %513
 
-513:                                              ; preds = %512, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit289
-  %.sroa.0444.0 = phi i64 [ %.sroa.0444.0.copyload, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit289 ], [ %.sroa.0478.sroa.0.1, %512 ]
-  %.sroa.3446.0 = phi ptr [ %.sroa.3446.0.copyload, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit289 ], [ %.sroa.0478.sroa.5.1, %512 ]
-  %.sroa.4448.sroa.0.0 = phi i64 [ %.sroa.4448.sroa.0.0.copyload, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit289 ], [ %.sroa.0478.sroa.6.1, %512 ]
-  %.sroa.4448.sroa.3.0 = phi i8 [ %.sroa.4448.sroa.3.0.copyload, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.exit289 ], [ %.sroa.5479.1, %512 ]
+513:                                              ; preds = %512, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit289
+  %.sroa.0444.0 = phi i64 [ %.sroa.0444.0.copyload, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit289 ], [ %.sroa.0478.sroa.0.1, %512 ]
+  %.sroa.3446.0 = phi ptr [ %.sroa.3446.0.copyload, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit289 ], [ %.sroa.0478.sroa.5.1, %512 ]
+  %.sroa.4448.sroa.0.0 = phi i64 [ %.sroa.4448.sroa.0.0.copyload, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit289 ], [ %.sroa.0478.sroa.6.1, %512 ]
+  %.sroa.4448.sroa.3.0 = phi i8 [ %.sroa.4448.sroa.3.0.copyload, %_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom.exit289 ], [ %.sroa.5479.1, %512 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.2298.sroa.3.sroa.3.0..sroa.2298.sroa.3.0..sroa.2298.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4448.sroa.4, i64 23, i1 false)
   store ptr %495, ptr %29, align 8
   store ptr %492, ptr %257, align 8
@@ -5275,11 +5275,11 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction25EmitOMP
   %38 = getelementptr inbounds i8, ptr %1, i64 24
   %.val119 = load ptr, ptr %38, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %39, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %39, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 39:                                               ; preds = %36
   %.not.i.i.i = icmp eq ptr %.val119, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %39
   %40 = getelementptr inbounds i8, ptr %.val119, i64 16
@@ -5300,31 +5300,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %39
 48:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %49 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %49, %43
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %40, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %43
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %50 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %50, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %51
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %51
 
 51:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %53 = load i32, ptr %52, align 4
   %54 = icmp ult i32 %53, 3
-  br i1 %54, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %54, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %51
   %55 = zext nneg i32 %53 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %48, %39, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %51, %switch.lookup, %36
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %48, %39, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %51, %switch.lookup, %36
   %.0.i = phi i32 [ %.val, %36 ], [ %switch.load, %switch.lookup ], [ 105, %51 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %39 ], [ 105, %48 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %57 = load ptr, ptr %56, align 8
@@ -5336,14 +5336,14 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   %.not114 = icmp eq i64 %62, 0
   br i1 %.not114, label %65, label %63
 
-63:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+63:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %64 = tail call noundef zeroext i1 @_ZN5clang32isOpenMPTargetExecutionDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   %.pre = load ptr, ptr %38, align 8, !noalias !106
   br label %65
 
-65:                                               ; preds = %63, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
-  %66 = phi ptr [ %.val119, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit ], [ %.pre, %63 ]
-  %67 = phi i1 [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit ], [ %64, %63 ]
+65:                                               ; preds = %63, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
+  %66 = phi ptr [ %.val119, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit ], [ %.pre, %63 ]
+  %67 = phi i1 [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit ], [ %64, %63 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false)
   %.not.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i, label %._crit_edge610, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
@@ -9223,11 +9223,11 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction28EmitOMP
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %.val58 = load ptr, ptr %17, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %18, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %18, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 18:                                               ; preds = %15
   %.not.i.i.i = icmp eq ptr %.val58, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %18
   %19 = getelementptr inbounds i8, ptr %.val58, i64 16
@@ -9248,37 +9248,37 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %18
 27:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %28 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %28, %22
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %19, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %22
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %29 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %29, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %30
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %30
 
 30:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = load i32, ptr %31, align 4
   %33 = icmp ult i32 %32, 3
-  br i1 %33, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %33, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %30
   %34 = zext nneg i32 %32 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %27, %18, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %30, %switch.lookup, %15
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %27, %18, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %30, %switch.lookup, %15
   %.0.i = phi i32 [ %.val, %15 ], [ %switch.load, %switch.lookup ], [ 105, %30 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %18 ], [ 105, %27 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %35 = tail call noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   br i1 %35, label %36, label %.loopexit163
 
-36:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+36:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %37 = load ptr, ptr %17, align 8
   %38 = tail call { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #19
   %39 = load i32, ptr %16, align 8
@@ -9386,7 +9386,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEm
   %.not = icmp eq ptr %96, %55
   br i1 %.not, label %.loopexit163, label %57
 
-.loopexit163:                                     ; preds = %_ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit, %_ZNK5clang16OMPLoopDirective8countersEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+.loopexit163:                                     ; preds = %_ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit, %_ZNK5clang16OMPLoopDirective8countersEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   %97 = load ptr, ptr %17, align 8, !noalias !236
   %.not.i.i = icmp eq ptr %97, null
@@ -12199,11 +12199,11 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit197: ; preds = %_Z
   %.val = load i32, ptr %352, align 8
   %.val112 = load ptr, ptr %37, align 8
   %.not.i206 = icmp eq i32 %.val, 105
-  br i1 %.not.i206, label %353, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i206, label %353, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 353:                                              ; preds = %351
   %.not.i.i.i = icmp eq ptr %.val112, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %353
   %354 = getelementptr inbounds i8, ptr %.val112, i64 16
@@ -12224,31 +12224,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %353
 362:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %363 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %363, %357
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %354, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %357
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %364 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %364, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %365
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %365
 
 365:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %366 = getelementptr inbounds nuw i8, ptr %364, i64 16
   %367 = load i32, ptr %366, align 4
   %368 = icmp ult i32 %367, 3
-  br i1 %368, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %368, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %365
   %369 = zext nneg i32 %367 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %369
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %362, %353, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %365, %switch.lookup, %351
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %362, %353, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %365, %switch.lookup, %351
   %.0.i207 = phi i32 [ %.val, %351 ], [ %switch.load, %switch.lookup ], [ 105, %365 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %353 ], [ 105, %362 ]
   %370 = getelementptr inbounds nuw i8, ptr %17, i64 886
   store i8 1, ptr %370, align 2
@@ -12289,11 +12289,11 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
     i32 81, label %485
   ]
 
-390:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+390:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %391 = extractvalue { ptr, i64 } %389, 0
   br label %503
 
-392:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+392:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %393 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %394 = load i32, ptr %393, align 8
   %395 = call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 36) #19
@@ -12325,11 +12325,11 @@ _ZNK5clang15OMPForDirective23getTaskReductionRefExprEv.exit: ; preds = %392, %39
   %408 = getelementptr inbounds ptr, ptr %404, i64 %407
   br label %503
 
-409:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+409:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %410 = extractvalue { ptr, i64 } %389, 0
   br label %503
 
-411:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+411:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %412 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %413 = load i32, ptr %412, align 8
   %414 = call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 50) #19
@@ -12361,19 +12361,19 @@ _ZNK5clang23OMPParallelForDirective23getTaskReductionRefExprEv.exit: ; preds = %
   %427 = getelementptr inbounds ptr, ptr %423, i64 %426
   br label %503
 
-428:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+428:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %429 = extractvalue { ptr, i64 } %389, 0
   br label %503
 
-430:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+430:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %431 = extractvalue { ptr, i64 } %389, 0
   br label %503
 
-432:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+432:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %433 = extractvalue { ptr, i64 } %389, 0
   br label %503
 
-434:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+434:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %435 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %436 = load i32, ptr %435, align 8
   %437 = call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 74) #19
@@ -12405,7 +12405,7 @@ _ZNK5clang29OMPTargetParallelForDirective23getTaskReductionRefExprEv.exit: ; pre
   %450 = getelementptr inbounds ptr, ptr %446, i64 %449
   br label %503
 
-451:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+451:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %452 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %453 = load i32, ptr %452, align 8
   %454 = call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 21) #19
@@ -12437,7 +12437,7 @@ _ZNK5clang33OMPDistributeParallelForDirective23getTaskReductionRefExprEv.exit: ;
   %467 = getelementptr inbounds ptr, ptr %463, i64 %466
   br label %503
 
-468:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+468:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %469 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %470 = load i32, ptr %469, align 8
   %471 = call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 95) #19
@@ -12469,7 +12469,7 @@ _ZNK5clang38OMPTeamsDistributeParallelForDirective23getTaskReductionRefExprEv.ex
   %484 = getelementptr inbounds ptr, ptr %480, i64 %483
   br label %503
 
-485:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+485:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %486 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %487 = load i32, ptr %486, align 8
   %488 = call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 81) #19
@@ -12501,7 +12501,7 @@ _ZNK5clang44OMPTargetTeamsDistributeParallelForDirective23getTaskReductionRefExp
   %501 = getelementptr inbounds ptr, ptr %497, i64 %500
   br label %503
 
-502:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+502:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   unreachable
 
 503:                                              ; preds = %_ZNK5clang44OMPTargetTeamsDistributeParallelForDirective23getTaskReductionRefExprEv.exit, %_ZNK5clang38OMPTeamsDistributeParallelForDirective23getTaskReductionRefExprEv.exit, %_ZNK5clang33OMPDistributeParallelForDirective23getTaskReductionRefExprEv.exit, %_ZNK5clang29OMPTargetParallelForDirective23getTaskReductionRefExprEv.exit, %432, %430, %428, %_ZNK5clang23OMPParallelForDirective23getTaskReductionRefExprEv.exit, %409, %_ZNK5clang15OMPForDirective23getTaskReductionRefExprEv.exit, %390
@@ -13146,11 +13146,11 @@ _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionCla
   %.val = load i32, ptr %74, align 8
   %.val39 = load ptr, ptr %18, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %75, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %75, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 75:                                               ; preds = %73
   %.not.i.i.i = icmp eq ptr %.val39, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %75
   %76 = getelementptr inbounds i8, ptr %.val39, i64 16
@@ -13171,35 +13171,35 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %75
 84:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %85 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %85, %79
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %76, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %79
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %86 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %86, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %87
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %87
 
 87:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %89 = load i32, ptr %88, align 4
   %90 = icmp ult i32 %89, 3
-  br i1 %90, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %90, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %87
   %91 = zext nneg i32 %89 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %84, %75, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %87, %switch.lookup, %73
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %84, %75, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %87, %switch.lookup, %73
   %.0.i = phi i32 [ %.val, %73 ], [ %switch.load, %switch.lookup ], [ 105, %87 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %75 ], [ 105, %84 ]
   br i1 %72, label %92, label %102
 
-92:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+92:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 400
@@ -13213,7 +13213,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   call void %101(ptr noundef nonnull align 8 dereferenceable(4808) %96, ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 %.sroa.0.0.copyload.i62, i1 noundef zeroext %98) #19
   br label %102
 
-102:                                              ; preds = %92, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+102:                                              ; preds = %92, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %103 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %103, -71
   br i1 %.not, label %104, label %108
@@ -15091,7 +15091,7 @@ _ZN4llvm15OpenMPIRBuilder19LocationDescriptionD2Ev.exit: ; preds = %_ZNSt8functi
   %148 = ptrtoint ptr %17 to i64
   %149 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %149, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_24EmitOMPParallelDirectiveERKNS3_20OMPParallelDirectiveEE3$_4EES2_lS6_", i64 %148)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_24EmitOMPParallelDirectiveERKNS3_20OMPParallelDirectiveEE3$_4EES2_lS6_", i64 %148)
   call void @_ZN5clang7CodeGen15CGOpenMPRuntime26LastprivateConditionalRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(12) %14) #19
   call fastcc void @_ZL36checkForLastprivateConditionalUpdateRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %150
@@ -15675,12 +15675,12 @@ _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEpp
   %.val.i = load i32, ptr %12, align 8
   %.not.i.i.i = icmp ne i32 %.val.i, 105
   %brmerge = or i1 %.not.i.i.i, %.not.i.i5890108
-  br i1 %brmerge, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i
+  br i1 %brmerge, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i
 
 .loopexit.thread:                                 ; preds = %154
   %.val.i113 = load i32, ptr %12, align 8
   %.not.i.i.i114 = icmp eq i32 %.val.i113, 105
-  br i1 %.not.i.i.i114, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+  br i1 %.not.i.i.i114, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i: ; preds = %.loopexit, %.loopexit.thread
   %171 = phi ptr [ %.pr86, %.loopexit.thread ], [ %170, %.loopexit ]
@@ -15704,44 +15704,44 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i: ; preds = %.loopexit,
 180:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %181 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %181, %175
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i
   %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %172, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i ], [ %.sroa.06.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   %.not.i1.i.i.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i.i.i, %175
-  br i1 %.not.i1.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i
+  br i1 %.not.i1.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i
   %182 = load ptr, ptr %.sroa.06.1.i.i.i.i.i.i, align 8
   %.not10.i.i.i = icmp eq ptr %182, null
-  br i1 %.not10.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, label %183
+  br i1 %.not10.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, label %183
 
 183:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %185 = load i32, ptr %184, align 4
   switch i32 %185, label %.thread.i.i.i [
-    i32 1, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+    i32 1, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
     i32 0, label %186
     i32 2, label %187
   ]
 
 186:                                              ; preds = %183
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
 
 187:                                              ; preds = %183
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
 
 .thread.i.i.i:                                    ; preds = %183
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i: ; preds = %180, %.loopexit, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i, %.loopexit.thread, %.thread.i.i.i, %187, %186, %183
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i: ; preds = %180, %.loopexit, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i, %.loopexit.thread, %.thread.i.i.i, %187, %186, %183
   %.043118 = phi ptr [ %.043119123, %187 ], [ %.043119123, %186 ], [ %.043, %.loopexit ], [ %.043119123, %183 ], [ null, %.loopexit.thread ], [ %.043119123, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i ], [ %.043119123, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i ], [ %.043119123, %.thread.i.i.i ], [ %.043119123, %180 ]
   %.08489109115 = phi ptr [ %.08489109116125, %187 ], [ %.08489109116125, %186 ], [ %.08489109, %.loopexit ], [ %.08489109116125, %183 ], [ %.0.ph, %.loopexit.thread ], [ %.08489109116125, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i ], [ %.08489109116125, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i ], [ %.08489109116125, %.thread.i.i.i ], [ %.08489109116125, %180 ]
   %.0.i.i.i = phi i32 [ 65, %187 ], [ 18, %186 ], [ %.val.i, %.loopexit ], [ 36, %183 ], [ %.val.i113, %.loopexit.thread ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i ], [ 105, %.thread.i.i.i ], [ 105, %180 ]
   %188 = call noundef zeroext i1 @_ZN5clang32isOpenMPTargetExecutionDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i.i.i) #19
   br i1 %188, label %_ZN12_GLOBAL__N_116OMPParallelScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit, label %189
 
-189:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+189:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
   %190 = call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i.i.i) #19
   br i1 %190, label %_ZN12_GLOBAL__N_116OMPParallelScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit, label %191
 
@@ -15749,8 +15749,8 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i: ; pre
   %192 = call noundef zeroext i1 @_ZN5clang25isOpenMPParallelDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i.i.i) #19
   br label %_ZN12_GLOBAL__N_116OMPParallelScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit
 
-_ZN12_GLOBAL__N_116OMPParallelScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit: ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, %189, %191
-  %193 = phi i1 [ false, %189 ], [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i ], [ %192, %191 ]
+_ZN12_GLOBAL__N_116OMPParallelScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit: ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, %189, %191
+  %193 = phi i1 [ false, %189 ], [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i ], [ %192, %191 ]
   call fastcc void @_ZN12_GLOBAL__N_115OMPLexicalScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveESt8optionalIN4llvm3omp9DirectiveEEb(ptr noundef nonnull align 8 dereferenceable(240) %9, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 0, i1 noundef zeroext %193)
   %194 = getelementptr inbounds i8, ptr %10, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %194, i64 noundef 16) #19
@@ -15792,7 +15792,7 @@ define internal void @_ZL24emitEmptyBoundParametersRN5clang7CodeGen15CodeGenFunc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr readonly %.24.val, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr readonly %.24.val, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -17501,11 +17501,11 @@ _ZNK5clang16OMPLoopDirective7updatesEv.exit:      ; preds = %3, %45, %47, %49, %
   %.val = load i32, ptr %42, align 8
   %.val49 = load ptr, ptr %39, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %64, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %64, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 64:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %.val49, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %64
   %65 = getelementptr inbounds i8, ptr %.val49, i64 16
@@ -17526,36 +17526,36 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %64
 73:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %74 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %74, %68
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %65, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %68
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %75 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %75, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %76
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %76
 
 76:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = load i32, ptr %77, align 4
   %79 = icmp ult i32 %78, 3
-  br i1 %79, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %79, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %76
   %80 = zext nneg i32 %78 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %80
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %73, %64, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %76, %switch.lookup, %._crit_edge
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %73, %64, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %76, %switch.lookup, %._crit_edge
   %.0.i = phi i32 [ %.val, %._crit_edge ], [ %switch.load, %switch.lookup ], [ 105, %76 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %64 ], [ 105, %73 ]
   %81 = tail call noundef zeroext i1 @_ZN5clang27isOpenMPDistributeDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   br i1 %81, label %.loopexit, label %82
 
-82:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+82:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %83 = load ptr, ptr %39, align 8, !noalias !497
   %.not.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i, label %.loopexit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
@@ -17632,7 +17632,7 @@ _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_15OMPLinearClause
   %.not101 = icmp eq ptr %.sroa.086.2, %87
   br i1 %.not101, label %.loopexit, label %.lr.ph113
 
-.loopexit:                                        ; preds = %92, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_15OMPLinearClauseEEppEv.exit, %82, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPLinearClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+.loopexit:                                        ; preds = %92, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_15OMPLinearClauseEEppEv.exit, %82, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPLinearClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 5, ptr %111, align 8, !noalias !503
@@ -18556,7 +18556,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %85, %_ZNK5clang4Typ
   %112 = and i64 %.0.copyload.i.i.i.i, -8
   %113 = inttoptr i64 %112 to ptr
   store ptr %113, ptr %14, align 8
-  call fastcc void @_ZL20emitCapturedStmtCallRN5clang7CodeGen15CodeGenFunctionESt4pairIPN4llvm8FunctionEPNS4_5ValueEENS4_8ArrayRefIS8_EE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %58, ptr %59, ptr nonnull %14, i64 1)
+  call fastcc void @_ZL20emitCapturedStmtCallRN5clang7CodeGen15CodeGenFunctionESt4pairIPN4llvm8FunctionEPNS4_5ValueEENS4_8ArrayRefIS8_EE.retelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %58, ptr %59, ptr nonnull %14, i64 1)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %.sroa.082.0.copyload = load i64, ptr %12, align 8
   %.sroa.283.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
@@ -18794,7 +18794,7 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen15CodeGenFunction12LexicalScop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20emitCapturedStmtCallRN5clang7CodeGen15CodeGenFunctionESt4pairIPN4llvm8FunctionEPNS4_5ValueEENS4_8ArrayRefIS8_EE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %1, ptr %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20emitCapturedStmtCallRN5clang7CodeGen15CodeGenFunctionESt4pairIPN4llvm8FunctionEPNS4_5ValueEENS4_8ArrayRefIS8_EE.retelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %1, ptr %2, ptr %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.2037", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -20769,11 +20769,11 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19EmitOMPLinearClauseER
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %.val35 = load ptr, ptr %10, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %11, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %11, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 11:                                               ; preds = %8
   %.not.i.i.i = icmp eq ptr %.val35, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %11
   %12 = getelementptr inbounds i8, ptr %.val35, i64 16
@@ -20794,36 +20794,36 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %11
 20:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %21 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %21, %15
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %12, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %15
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %22 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %22, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %23
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %23
 
 23:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %24, align 4
   %26 = icmp ult i32 %25, 3
-  br i1 %26, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %26, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %25 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %20, %11, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %23, %switch.lookup, %8
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %20, %11, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %23, %switch.lookup, %8
   %.0.i = phi i32 [ %.val, %8 ], [ %switch.load, %switch.lookup ], [ 105, %23 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %11 ], [ 105, %20 ]
   %28 = tail call noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   br i1 %28, label %29, label %.loopexit67
 
-29:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+29:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %30 = load ptr, ptr %10, align 8
   %31 = tail call { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #19
   %32 = load i32, ptr %9, align 8
@@ -20931,7 +20931,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEm
   %.not = icmp eq ptr %89, %48
   br i1 %.not, label %.loopexit67, label %50
 
-.loopexit67:                                      ; preds = %_ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit, %_ZNK5clang16OMPLoopDirective8countersEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+.loopexit67:                                      ; preds = %_ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit, %_ZNK5clang16OMPLoopDirective8countersEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %90 = load ptr, ptr %10, align 8, !noalias !576
   %.not.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i, label %._crit_edge81, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
@@ -21376,7 +21376,7 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.
   %.pr54 = phi ptr [ null, %_ZL24emitSimdlenSafelenClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE.exit ], [ %74, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit ], [ %.val10.pr.pre, %90 ], [ %74, %86 ], [ %74, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i ], [ %74, %83 ]
   %91 = getelementptr inbounds i8, ptr %1, i64 8
   %.val = load i32, ptr %91, align 8
-  switch i32 %.val, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.thread [
+  switch i32 %.val, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.thread [
     i32 105, label %92
     i32 65, label %thread-pre-split
   ]
@@ -21420,18 +21420,18 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.e
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %106 = load i32, ptr %105, align 4
   switch i32 %106, label %.thread.i [
-    i32 1, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.thread
+    i32 1, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.thread
     i32 0, label %107
     i32 2, label %thread-pre-split
   ]
 
 107:                                              ; preds = %104
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.thread
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.thread
 
 .thread.i:                                        ; preds = %101, %104, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %92
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.thread
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.thread
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.thread: ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.thread, %104, %107, %.thread.i
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.thread: ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.thread, %104, %107, %.thread.i
   %.0.i27 = phi i32 [ 36, %104 ], [ 18, %107 ], [ 105, %.thread.i ], [ %.val, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.thread ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %109 = load ptr, ptr %108, align 8
@@ -21443,7 +21443,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.thread: ; 
   %.not9 = icmp eq i64 %114, 0
   br i1 %.not9, label %.critedge, label %115
 
-115:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.thread
+115:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.thread
   %116 = call noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i27) #19
   br i1 %116, label %.thread-pre-split_crit_edge, label %.critedge
 
@@ -21521,7 +21521,7 @@ _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionCla
   store i8 0, ptr %7, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %126, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %thread-pre-split, %115, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.thread, %139, %"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZNS2_7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS2_16OMPLoopDirectiveEE3$_0EEbOT_T0_.exit"
+.critedge:                                        ; preds = %126, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %thread-pre-split, %115, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.thread, %139, %"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZNS2_7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS2_16OMPLoopDirectiveEE3$_0EEbOT_T0_.exit"
   ret void
 }
 
@@ -21978,7 +21978,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %3
   %24 = load ptr, ptr %.02125.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 4
-  switch i32 %26, label %_ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.exit [
+  switch i32 %26, label %_ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.argprom.exit [
     i32 91, label %27
     i32 85, label %27
     i32 74, label %27
@@ -22102,7 +22102,7 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit34.i: ;
 77:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit34.i
   %78 = load i8, ptr %76, align 8
   %79 = icmp eq i8 %78, -86
-  br i1 %79, label %_ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.exit, label %80
+  br i1 %79, label %_ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.argprom.exit, label %80
 
 80:                                               ; preds = %77, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit34.i
   %81 = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
@@ -22168,7 +22168,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit37.i: ; 
   %.not3.i.i = select i1 %104, i1 true, i1 %106
   br i1 %.not3.i.i, label %55, label %.loopexit
 
-_ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.exit: ; preds = %.lr.ph.i, %77
+_ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.argprom.exit: ; preds = %.lr.ph.i, %77
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %.critedge
@@ -22201,7 +22201,7 @@ _ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.exit: ; preds 
   call void @_ZN5clang7CodeGen15CGOpenMPRuntime26LastprivateConditionalRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(12) %8) #19
   br label %130
 
-.critedge:                                        ; preds = %_ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.exit, %3
+.critedge:                                        ; preds = %_ZL32isSimdSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveE.argprom.exit, %3
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 3048
   %119 = load ptr, ptr %118, align 8
   store ptr %0, ptr %118, align 8
@@ -22293,7 +22293,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115OMPLexicalScopeC2ERN5clang7CodeG
   %.val = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7)
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %40
   %42 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -22301,7 +22301,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %40
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds ptr, ptr %42, i64 %44
   %.not13.i = icmp eq i32 %43, 0
-  br i1 %.not13.i, label %_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit, label %.lr.ph15.i
+  br i1 %.not13.i, label %_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph15.i
 
 .lr.ph15.i:                                       ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i, %.loopexit.i
   %.014.i = phi ptr [ %93, %.loopexit.i ], [ %42, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i ]
@@ -22415,13 +22415,13 @@ _ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread.i: ; preds = 
 .loopexit.i:                                      ; preds = %91, %_ZNK5clang8DeclStmt5declsEv.exit.i, %48, %.lr.ph15.i
   %93 = getelementptr inbounds i8, ptr %.014.i, i64 8
   %.not.i = icmp eq ptr %93, %45
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit, label %.lr.ph15.i
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph15.i
 
-_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit: ; preds = %.loopexit.i, %40, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
+_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.argprom.exit: ; preds = %.loopexit.i, %40, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7)
   br label %94
 
-94:                                               ; preds = %_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit, %5
+94:                                               ; preds = %_ZN12_GLOBAL__N_115OMPLexicalScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.argprom.exit, %5
   %95 = and i64 %3, 4294967296
   %.not44 = icmp eq i64 %95, 0
   br i1 %.not44, label %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit, label %96
@@ -23662,11 +23662,11 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %.val = load i32, ptr %149, align 8
   %.val52 = load ptr, ptr %29, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %150, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %150, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 150:                                              ; preds = %137
   %.not.i.i.i61 = icmp eq ptr %.val52, null
-  br i1 %.not.i.i.i61, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i61, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %150
   %151 = getelementptr inbounds i8, ptr %.val52, i64 16
@@ -23687,31 +23687,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %150
 159:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %160 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %160, %154
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %151, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %154
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %161 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %161, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %162
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %162
 
 162:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %164 = load i32, ptr %163, align 4
   %165 = icmp ult i32 %164, 3
-  br i1 %165, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %165, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %162
   %166 = zext nneg i32 %164 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %166
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %159, %150, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %162, %switch.lookup, %137
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %159, %150, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %162, %switch.lookup, %137
   %.0.i = phi i32 [ %.val, %137 ], [ %switch.load, %switch.lookup ], [ 105, %162 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %150 ], [ 105, %159 ]
   store ptr %3, ptr %20, align 8
   %167 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -23756,7 +23756,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %147, i64 noundef %183) #19
   br i1 %1, label %189, label %184
 
-184:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+184:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %185 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %186 = load ptr, ptr %185, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction15EmitIgnoredExprEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %186) #19
@@ -23765,7 +23765,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   call void @_ZN5clang7CodeGen15CodeGenFunction15EmitIgnoredExprEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %188) #19
   br label %189
 
-189:                                              ; preds = %184, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+189:                                              ; preds = %184, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %190 = zext i1 %1 to i8
   call void @_ZN5clang7CodeGen15CodeGenFunction10EmitBranchEPN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %65) #19
   %191 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #19
@@ -23805,11 +23805,11 @@ define internal fastcc void @_ZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFun
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %.val20 = load ptr, ptr %13, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %14, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %14, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 14:                                               ; preds = %4
   %.not.i.i.i = icmp eq ptr %.val20, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %14
   %15 = getelementptr inbounds i8, ptr %.val20, i64 16
@@ -23830,36 +23830,36 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %14
 23:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %18
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %15, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %18
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %25 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %25, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %26
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %26
 
 26:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load i32, ptr %27, align 4
   %29 = icmp ult i32 %28, 3
-  br i1 %29, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %29, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %26
   %30 = zext nneg i32 %28 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %23, %14, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %26, %switch.lookup, %4
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %23, %14, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %26, %switch.lookup, %4
   %.0.i = phi i32 [ %.val, %4 ], [ %switch.load, %switch.lookup ], [ 105, %26 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %14 ], [ 105, %23 ]
   %31 = tail call noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   br i1 %31, label %32, label %.thread
 
-32:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+32:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %33 = load ptr, ptr %13, align 8, !noalias !675
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
@@ -23958,7 +23958,7 @@ _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEpp
   call void @_ZN5clang7CodeGen15CGOpenMPRuntime12emitIfClauseERNS0_15CodeGenFunctionEPKNS_4ExprERKNS0_15RegionCodeGenTyES9_(ptr noundef nonnull align 8 dereferenceable(4808) %67, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #19
   br label %77
 
-.thread:                                          ; preds = %42, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit.us, %32, %.lr.ph, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, %.split.us
+.thread:                                          ; preds = %42, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit.us, %32, %.lr.ph, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, %.split.us
   %74 = ptrtoint ptr %5 to i64
   store i64 %74, ptr %9, align 8
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -24135,11 +24135,11 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19EmitOMPForOuterLoopER
   %.val = load i32, ptr %77, align 8
   %.val58 = load ptr, ptr %28, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %78, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %78, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 78:                                               ; preds = %63
   %.not.i.i.i = icmp eq ptr %.val58, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %78
   %79 = getelementptr inbounds i8, ptr %.val58, i64 16
@@ -24160,31 +24160,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %78
 87:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %88 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %88, %82
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %79, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %82
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %89 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %89, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %90
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %90
 
 90:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = icmp ult i32 %92, 3
-  br i1 %93, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %93, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %90
   %94 = zext nneg i32 %92 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %94
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %87, %78, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %90, %switch.lookup, %63
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %87, %78, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %90, %switch.lookup, %63
   %.0.i = phi i32 [ %.val, %63 ], [ %switch.load, %switch.lookup ], [ 105, %90 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %78 ], [ 105, %87 ]
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.sroa.0.0.copyload.i61 = load i32, ptr %95, align 4
@@ -24194,7 +24194,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   call void %98(ptr noundef nonnull align 8 dereferenceable(4808) %19, ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 %.sroa.0.0.copyload.i61, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(208) %10) #19
   br label %99
 
-99:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, %47
+99:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, %47
   store i8 %15, ptr %11, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -24317,11 +24317,11 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction26EmitOMPDistributeOute
   %.val = load i32, ptr %31, align 8
   %.val42 = load ptr, ptr %14, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %32, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %32, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 32:                                               ; preds = %6
   %.not.i.i.i = icmp eq ptr %.val42, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %32
   %33 = getelementptr inbounds i8, ptr %.val42, i64 16
@@ -24342,31 +24342,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %32
 41:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %42, %36
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %33, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %36
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %43 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %43, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %44
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %44
 
 44:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %46 = load i32, ptr %45, align 4
   %47 = icmp ult i32 %46, 3
-  br i1 %47, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %47, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %44
   %48 = zext nneg i32 %46 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %41, %32, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %44, %switch.lookup, %6
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %41, %32, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %44, %switch.lookup, %6
   %.0.i = phi i32 [ %.val, %6 ], [ %switch.load, %switch.lookup ], [ 105, %44 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %32 ], [ 105, %41 ]
   %49 = extractvalue { i64, i64 } %26, 0
   %50 = trunc i64 %49 to i32
@@ -25224,7 +25224,7 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_v.exit.thread: ; preds = %156, %122, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPOrderedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, %159, %162, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_v.exit
   %.val141 = phi ptr [ %.val141.pre, %162 ], [ %147, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_v.exit ], [ %147, %159 ], [ %147, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPOrderedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i ], [ null, %122 ], [ %147, %156 ]
   %.0117 = phi i1 [ false, %162 ], [ false, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_v.exit ], [ true, %159 ], [ false, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPOrderedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i ], [ false, %122 ], [ false, %156 ]
-  call fastcc void @_ZL17emitAlignedClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val141)
+  call fastcc void @_ZL17emitAlignedClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val141)
   %169 = call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction23EmitOMPLinearClauseInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
   %170 = load ptr, ptr %3, align 8, !noalias !713
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25255,11 +25255,11 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_
   %.val = load i32, ptr %188, align 8
   %.val139 = load ptr, ptr %34, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %189, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %189, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 189:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_v.exit.thread
   %.not.i.i.i = icmp eq ptr %.val139, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %189
   %190 = getelementptr inbounds i8, ptr %.val139, i64 16
@@ -25280,31 +25280,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %189
 198:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %199 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %199, %193
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %190, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %193
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %200 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %200, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %201
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %201
 
 201:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %203 = load i32, ptr %202, align 4
   %204 = icmp ult i32 %203, 3
-  br i1 %204, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %204, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %201
   %205 = zext nneg i32 %203 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %205
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %198, %189, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %201, %switch.lookup, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_v.exit.thread
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %198, %189, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %201, %switch.lookup, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_v.exit.thread
   %.0.i = phi i32 [ %.val, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_16OMPOrderedClauseEEEPKT_v.exit.thread ], [ %switch.load, %switch.lookup ], [ 105, %201 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %189 ], [ 105, %198 ]
   %206 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %207 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -25345,7 +25345,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   %brmerge = or i1 %169, %227
   br i1 %brmerge, label %228, label %236
 
-228:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+228:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %229 = load ptr, ptr %56, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 400
   %231 = load ptr, ptr %230, align 8
@@ -25357,7 +25357,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   call void %235(ptr noundef nonnull align 8 dereferenceable(4808) %231, ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 %.sroa.0.0.copyload.i, i32 noundef 100, i1 noundef zeroext false, i1 noundef zeroext true) #19
   br label %236
 
-236:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, %228
+236:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, %228
   call void @_ZN5clang7CodeGen15CodeGenFunction20EmitOMPPrivateClauseERKNS_22OMPExecutableDirectiveERNS1_15OMPPrivateScopeE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(112) %16)
   %237 = load ptr, ptr %34, align 8
   %238 = call { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(16) %237) #19
@@ -25776,7 +25776,7 @@ _ZN5clang4Expr10EvalResultD2Ev.exit:              ; preds = %346, %_ZN4llvm6APSI
   store ptr %1, ptr %440, align 8
   %441 = ptrtoint ptr %31 to i64
   %.val140 = load ptr, ptr %34, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val140, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_22EmitOMPWorksharingLoopERKNS3_16OMPLoopDirectiveEPNS3_4ExprERKNS0_IFSt4pairINS4_6LValueESG_ES6_RKNS3_22OMPExecutableDirectiveEEEERKNS0_IFSF_IS2_S2_ES6_SK_NS4_7AddressESQ_EEEE3$_4EES2_lS6_", i64 %441)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val140, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_22EmitOMPWorksharingLoopERKNS3_16OMPLoopDirectiveEPNS3_4ExprERKNS0_IFSt4pairINS4_6LValueESG_ES6_RKNS3_22OMPExecutableDirectiveEEEERKNS0_IFSF_IS2_S2_ES6_SK_NS4_7AddressESQ_EEEE3$_4EES2_lS6_", i64 %441)
   br i1 %241, label %442, label %452
 
 442:                                              ; preds = %437
@@ -27143,7 +27143,7 @@ _ZN4llvm11SmallVectorIPKN5clang4StmtELj6EED2Ev.exit.i: ; preds = %609, %._crit_e
   %610 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %611 = load i32, ptr %610, align 8
   %612 = icmp eq i32 %611, 0
-  br i1 %612, label %_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.exit, label %613
+  br i1 %612, label %_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.argprom.exit, label %613
 
 613:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang4StmtELj6EED2Ev.exit.i
   %614 = getelementptr inbounds nuw i8, ptr %1, i64 3208
@@ -27154,7 +27154,7 @@ _ZN4llvm11SmallVectorIPKN5clang4StmtELj6EED2Ev.exit.i: ; preds = %609, %._crit_e
   %618 = load i32, ptr %617, align 4
   %619 = icmp eq i32 %618, 0
   %or.cond.i170.i = select i1 %616, i1 %619, i1 false
-  br i1 %or.cond.i170.i, label %_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.exit, label %620
+  br i1 %or.cond.i170.i, label %_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.argprom.exit, label %620
 
 620:                                              ; preds = %613
   %621 = shl i32 %615, 2
@@ -27167,7 +27167,7 @@ _ZN4llvm11SmallVectorIPKN5clang4StmtELj6EED2Ev.exit.i: ; preds = %609, %._crit_e
 
 626:                                              ; preds = %620
   call void @_ZN4llvm8DenseMapIPKN5clang4DeclENS1_7CodeGen7AddressENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %8)
-  br label %_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.exit
+  br label %_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.argprom.exit
 
 627:                                              ; preds = %620
   %628 = load ptr, ptr %8, align 8
@@ -27186,9 +27186,9 @@ _ZN4llvm11SmallVectorIPKN5clang4StmtELj6EED2Ev.exit.i: ; preds = %609, %._crit_e
 ._crit_edge.i.i176.i:                             ; preds = %.lr.ph.i.i173.i, %627
   store i32 0, ptr %610, align 8
   store i32 0, ptr %617, align 4
-  br label %_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.exit
+  br label %_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.argprom.exit
 
-_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.exit: ; preds = %_ZN4llvm11SmallVectorIPKN5clang4StmtELj6EED2Ev.exit.i, %613, %626, %._crit_edge.i.i176.i
+_ZN12_GLOBAL__N_112OMPLoopScope15emitPreInitStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE.argprom.exit: ; preds = %_ZN4llvm11SmallVectorIPKN5clang4StmtELj6EED2Ev.exit.i, %613, %626, %._crit_edge.i.i176.i
   %632 = load ptr, ptr %42, align 8
   %633 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %634 = load i32, ptr %633, align 8
@@ -27687,7 +27687,7 @@ _ZN5clang7CodeGen15CodeGenFunction10OMPMapVars7restoreERS1_.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17emitAlignedClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr readonly %.24.val) unnamed_addr #0 {
+define internal fastcc void @_ZL17emitAlignedClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr readonly %.24.val) unnamed_addr #0 {
   %2 = alloca %"class.llvm::APInt", align 8
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -28029,16 +28029,16 @@ define dso_local void @_Z19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7C
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 137438953472
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit, label %16
+  br i1 %.not, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %.val = load ptr, ptr %17, align 8
-  br i1 %3, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit, label %18
+  br i1 %3, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit, label %18
 
 18:                                               ; preds = %16
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
+  br i1 %.not.i.i, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %18
   %19 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -28046,14 +28046,14 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %18
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %19, i64 %21
   %.not4.i = icmp eq i32 %20, 0
-  br i1 %.not4.i, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i, %35
   %.0125.i = phi ptr [ %36, %35 ], [ %19, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i ]
   %23 = load ptr, ptr %.0125.i, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 4
-  switch i32 %25, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit [
+  switch i32 %25, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit [
     i32 63, label %35
     i32 12, label %35
     i32 86, label %26
@@ -28063,26 +28063,26 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %28 = load i32, ptr %27, align 4
   %.not15.i = icmp eq i32 %28, 5
-  br i1 %.not15.i, label %29, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit
+  br i1 %.not15.i, label %29, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %23, i64 40
   %31 = load i32, ptr %30, align 4
   %.not16.i = icmp eq i32 %31, 5
-  br i1 %.not16.i, label %32, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit
+  br i1 %.not16.i, label %32, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %34 = load i32, ptr %33, align 8
   %switch.i = icmp ult i32 %34, 5
-  br i1 %switch.i, label %35, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit
+  br i1 %switch.i, label %35, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit
 
 35:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %32
   %36 = getelementptr inbounds i8, ptr %.0125.i, i64 8
   %.not.i = icmp eq ptr %36, %22
-  br i1 %.not.i, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit, label %.lr.ph.i
 
-_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit: ; preds = %.lr.ph.i, %35, %32, %29, %26, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i, %18, %16, %4
+_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit: ; preds = %.lr.ph.i, %35, %32, %29, %26, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i, %18, %16, %4
   %37 = phi i1 [ false, %4 ], [ false, %16 ], [ true, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i ], [ true, %18 ], [ false, %.lr.ph.i ], [ false, %32 ], [ true, %35 ], [ false, %29 ], [ false, %26 ]
   %38 = zext i1 %37 to i8
   store ptr %0, ptr %6, align 8
@@ -28114,7 +28114,7 @@ _ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit: ; preds 
   call void @_ZN5clang7CodeGen15CGOpenMPRuntime26LastprivateConditionalRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #19
   br i1 %37, label %74, label %52
 
-52:                                               ; preds = %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit
+52:                                               ; preds = %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8
   %.not.i.i22 = icmp eq ptr %54, null
@@ -28166,7 +28166,7 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_15OMPNowaitClauseEEEPKT_v
   call void %73(ptr noundef nonnull align 8 dereferenceable(4808) %69, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %.sroa.0.0.copyload.i, i32 noundef 36, i1 noundef zeroext true, i1 noundef zeroext false) #19
   br label %74
 
-74:                                               ; preds = %66, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_15OMPNowaitClauseEEEPKT_v.exit.thread, %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.exit
+74:                                               ; preds = %66, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_15OMPNowaitClauseEEEPKT_v.exit.thread, %_ZL31isForSupportedByOpenMPIRBuilderRKN5clang16OMPLoopDirectiveEb.argprom.exit
   call fastcc void @_ZL36checkForLastprivateConditionalUpdateRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
@@ -28338,11 +28338,11 @@ _ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit: ; preds = %
   %.val = load i32, ptr %8, align 8
   %.val23 = load ptr, ptr %10, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %42, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %42, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 42:                                               ; preds = %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit
   %.not.i.i.i = icmp eq ptr %.val23, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %42
   %43 = getelementptr inbounds i8, ptr %.val23, i64 16
@@ -28363,31 +28363,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %42
 51:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %52 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %52, %46
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %43, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %46
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %53 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %53, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %54
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %54
 
 54:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load i32, ptr %55, align 4
   %57 = icmp ult i32 %56, 3
-  br i1 %57, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %57, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %54
   %58 = zext nneg i32 %56 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %58
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %51, %42, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %54, %switch.lookup, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %51, %42, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %54, %switch.lookup, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit
   %.0.i = phi i32 [ %.val, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit ], [ %switch.load, %switch.lookup ], [ 105, %54 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %42 ], [ 105, %51 ]
   store ptr %1, ptr %5, align 8
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -28404,14 +28404,14 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
     i8 -90, label %.sink.split
   ]
 
-.sink.split:                                      ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+.sink.split:                                      ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %65 = load i8, ptr %64, align 8
   %66 = trunc i8 %65 to i1
   br label %67
 
-67:                                               ; preds = %.sink.split, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
-  %.0.shrunk = phi i1 [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit ], [ %66, %.sink.split ]
+67:                                               ; preds = %.sink.split, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
+  %.0.shrunk = phi i1 [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit ], [ %66, %.sink.split ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 3744
   call void @_ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack5enterERS1_N4llvm3omp9DirectiveEb(ptr noundef nonnull align 8 dereferenceable(464) %68, ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 noundef %.0.i, i1 noundef zeroext %.0.shrunk)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -31026,7 +31026,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction30EmitOMPParallelMaster
   %12 = ptrtoint ptr %7 to i64
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %13, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_30EmitOMPParallelMasterDirectiveERKNS3_26OMPParallelMasterDirectiveEE3$_1EES2_lS6_", i64 %12)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_30EmitOMPParallelMasterDirectiveERKNS3_26OMPParallelMasterDirectiveEE3$_1EES2_lS6_", i64 %12)
   call void @_ZN5clang7CodeGen15CGOpenMPRuntime26LastprivateConditionalRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #19
   call fastcc void @_ZL36checkForLastprivateConditionalUpdateRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
@@ -31054,7 +31054,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction30EmitOMPParallelMasked
   %12 = ptrtoint ptr %7 to i64
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %13, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_30EmitOMPParallelMaskedDirectiveERKNS3_26OMPParallelMaskedDirectiveEE3$_1EES2_lS6_", i64 %12)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_30EmitOMPParallelMaskedDirectiveERKNS3_26OMPParallelMaskedDirectiveEE3$_1EES2_lS6_", i64 %12)
   call void @_ZN5clang7CodeGen15CGOpenMPRuntime26LastprivateConditionalRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #19
   call fastcc void @_ZL36checkForLastprivateConditionalUpdateRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
@@ -33838,11 +33838,11 @@ _ZN12_GLOBAL__N_138CheckVarsEscapingUntiedTaskDeclContextD2Ev.exit: ; preds = %1
   %.val = load i32, ptr %19, align 8
   %.val147 = load ptr, ptr %21, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %1328, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %1328, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 1328:                                             ; preds = %_ZN12_GLOBAL__N_138CheckVarsEscapingUntiedTaskDeclContextD2Ev.exit
   %.not.i.i.i320 = icmp eq ptr %.val147, null
-  br i1 %.not.i.i.i320, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i320, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %1328
   %1329 = getelementptr inbounds i8, ptr %.val147, i64 16
@@ -33863,31 +33863,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %1328
 1337:                                             ; preds = %.lr.ph.i.i.i.i.i.i
   %1338 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %1338, %1332
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %1329, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %1332
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %1339 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %1339, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %1340
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %1340
 
 1340:                                             ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %1341 = getelementptr inbounds nuw i8, ptr %1339, i64 16
   %1342 = load i32, ptr %1341, align 4
   %1343 = icmp ult i32 %1342, 3
-  br i1 %1343, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %1343, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %1340
   %1344 = zext nneg i32 %1342 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %1344
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %1337, %1328, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %1340, %switch.lookup, %_ZN12_GLOBAL__N_138CheckVarsEscapingUntiedTaskDeclContextD2Ev.exit
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %1337, %1328, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %1340, %switch.lookup, %_ZN12_GLOBAL__N_138CheckVarsEscapingUntiedTaskDeclContextD2Ev.exit
   %.0.i = phi i32 [ %.val, %_ZN12_GLOBAL__N_138CheckVarsEscapingUntiedTaskDeclContextD2Ev.exit ], [ %switch.load, %switch.lookup ], [ 105, %1340 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %1328 ], [ 105, %1337 ]
   %1345 = load ptr, ptr %1261, align 8
   %1346 = getelementptr inbounds nuw i8, ptr %1345, i64 400
@@ -33911,13 +33911,13 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   %1361 = call noundef zeroext i1 @_ZN5clang25isOpenMPParallelDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   br i1 %1361, label %1365, label %1362
 
-1362:                                             ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+1362:                                             ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %1363 = call noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   %1364 = xor i1 %1363, true
   br label %1365
 
-1365:                                             ; preds = %1362, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
-  %1366 = phi i1 [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit ], [ %1364, %1362 ]
+1365:                                             ; preds = %1362, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
+  %1366 = phi i1 [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit ], [ %1364, %1362 ]
   call fastcc void @_ZN12_GLOBAL__N_115OMPLexicalScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveESt8optionalIN4llvm3omp9DirectiveEEb(ptr noundef nonnull align 8 dereferenceable(240) %17, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 0, i1 noundef zeroext %1366)
   %1367 = load ptr, ptr %4, align 8
   %1368 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -35951,11 +35951,11 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit: ; preds = 
   %.val = load i32, ptr %17, align 8
   %.val102 = load ptr, ptr %19, align 8
   %.not.i164 = icmp eq i32 %.val, 105
-  br i1 %.not.i164, label %304, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i164, label %304, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 304:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit
   %.not.i.i.i166 = icmp eq ptr %.val102, null
-  br i1 %.not.i.i.i166, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i166, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %304
   %305 = getelementptr inbounds i8, ptr %.val102, i64 16
@@ -35976,31 +35976,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %304
 313:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %314 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %314, %308
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %305, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %308
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %315 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %315, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %316
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %316
 
 316:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %317 = getelementptr inbounds nuw i8, ptr %315, i64 16
   %318 = load i32, ptr %317, align 4
   %319 = icmp ult i32 %318, 3
-  br i1 %319, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %319, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %316
   %320 = zext nneg i32 %318 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %320
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %313, %304, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %316, %switch.lookup, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %313, %304, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %316, %switch.lookup, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit
   %.0.i165 = phi i32 [ %.val, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit ], [ %switch.load, %switch.lookup ], [ 105, %316 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %304 ], [ 105, %313 ]
   store ptr %7, ptr %12, align 8
   %321 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -36042,7 +36042,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   %.not.i.i.i167 = icmp eq ptr %344, null
   br i1 %.not.i.i.i167, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_15OMPNowaitClauseEEEbv.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168
 
-_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168: ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168: ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %345 = getelementptr inbounds i8, ptr %344, i64 16
   %346 = load i32, ptr %344, align 8, !noalias !959
   %347 = zext i32 %346 to i64
@@ -36063,9 +36063,9 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168: ; preds = %_ZL25getEff
   %.not.i.i.i.i.i = icmp eq ptr %354, %348
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_15OMPNowaitClauseEEEbv.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !349
 
-_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_15OMPNowaitClauseEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i, %353, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168
-  %355 = phi ptr [ %348, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168 ], [ null, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit ], [ %348, %353 ], [ %348, %.lr.ph.i.i.i.i.i ]
-  %.sroa.06.1.i.i.i = phi ptr [ %345, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168 ], [ null, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit ], [ %.sroa.06.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %348, %353 ]
+_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_15OMPNowaitClauseEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i, %353, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168
+  %355 = phi ptr [ %348, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168 ], [ null, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit ], [ %348, %353 ], [ %348, %.lr.ph.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i = phi ptr [ %345, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i168 ], [ null, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit ], [ %.sroa.06.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %348, %353 ]
   %356 = icmp ne ptr %.sroa.06.1.i.i.i, %355
   %357 = zext i1 %356 to i64
   %358 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -36194,11 +36194,11 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18processInReductionERK
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   %.val114 = load ptr, ptr %26, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %27, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %27, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 27:                                               ; preds = %6
   %.not.i.i.i = icmp eq ptr %.val114, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %27
   %28 = getelementptr inbounds i8, ptr %.val114, i64 16
@@ -36219,38 +36219,38 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %27
 36:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %37 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %37, %31
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %28, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %31
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %38 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %38, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %39
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %39
 
 39:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load i32, ptr %40, align 4
   %42 = icmp ult i32 %41, 3
-  br i1 %42, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %42, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %39
   %43 = zext nneg i32 %41 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %36, %27, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %39, %switch.lookup, %6
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %36, %27, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %39, %switch.lookup, %6
   %.0.i = phi i32 [ %.val, %6 ], [ %switch.load, %switch.lookup ], [ 105, %39 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %27 ], [ 105, %36 ]
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 872
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %158, label %46
 
-46:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+46:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %.sroa.0214.0.insert.ext = zext i32 %.0.i to i64
   %.sroa.0214.0.insert.insert = or disjoint i64 %.sroa.0214.0.insert.ext, 4294967296
   call fastcc void @_ZN12_GLOBAL__N_115OMPLexicalScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveESt8optionalIN4llvm3omp9DirectiveEEb(ptr noundef nonnull align 8 dereferenceable(240) %7, ptr noundef nonnull align 8 dereferenceable(6488) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.sroa.0214.0.insert.insert, i1 noundef zeroext true)
@@ -36443,7 +36443,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
   call void @_ZN5clang7CodeGen15CodeGenFunction12LexicalScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #19
   br label %158
 
-158:                                              ; preds = %._crit_edge, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+158:                                              ; preds = %._crit_edge, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -37574,7 +37574,7 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 400
   %8 = load ptr, ptr %7, align 8
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.argprom.argprom.exit"
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %9 = getelementptr inbounds i8, ptr %4, i64 16
@@ -37627,26 +37627,26 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.
 31:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %32 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %32, %12
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1015
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.argprom.argprom.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1015
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit
   %.sroa.06.1.i.i.i.i = phi ptr [ %9, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %12
-  br i1 %.not.i1.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.exit", label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.argprom.argprom.exit", label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %33 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.exit", label %34
+  br i1 %.not.i, label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.argprom.argprom.exit", label %34
 
 34:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i
   %35 = getelementptr inbounds i8, ptr %33, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = zext i32 %37 to i64
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.argprom.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.exit": ; preds = %31, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.thread, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i, %34
+"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPFlushDirectiveERKNS_17OMPFlushDirectiveEENK3$_0clEv.argprom.argprom.exit": ; preds = %31, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.thread, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i, %34
   %39 = phi ptr [ %26, %34 ], [ %26, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i ], [ %26, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ %8, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.thread ], [ %26, %31 ]
   %40 = phi i32 [ %.0.i.i, %34 ], [ %.0.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i ], [ %.0.i.i, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 6, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.thread ], [ %.0.i.i, %31 ]
   %.sroa.0.0.i = phi ptr [ %35, %34 ], [ null, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.i ], [ null, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ null, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFlushClauseEEEPKT_v.exit.thread ], [ null, %31 ]
@@ -39244,7 +39244,7 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit: ; preds = 
 114:                                              ; preds = %58, %_ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit
   %.0 = phi ptr [ null, %58 ], [ %73, %_ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit ]
   %.val108 = load ptr, ptr %26, align 8
-  call fastcc void @_ZL17emitAlignedClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val108)
+  call fastcc void @_ZL17emitAlignedClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val108)
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %116 = load i32, ptr %115, align 8
   %117 = call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef %116) #19
@@ -39725,7 +39725,7 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_21OMPDistScheduleClauseEE
   store ptr %1, ptr %395, align 8
   %396 = ptrtoint ptr %24 to i64
   %.val = load ptr, ptr %26, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_21EmitOMPDistributeLoopERKNS3_16OMPLoopDirectiveERKNS0_IFvS6_SC_NS5_8JumpDestEEEEPNS3_4ExprEE3$_3EES2_lS6_", i64 %396)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_21EmitOMPDistributeLoopERKNS3_16OMPLoopDirectiveERKNS0_IFvS6_SC_NS5_8JumpDestEEEEPNS3_4ExprEE3$_3EES2_lS6_", i64 %396)
   br label %397
 
 397:                                              ; preds = %394, %391, %388, %385
@@ -40842,9 +40842,9 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction29EmitOMPAtomicSimpleUp
   %52 = load i32, ptr %51, align 8, !noalias !1154
   %53 = and i32 %52, 255
   %54 = icmp eq i32 %53, 12
-  br i1 %54, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.thread45.i", label %55
+  br i1 %54, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.thread45.i", label %55
 
-"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.thread45.i": ; preds = %48
+"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.thread45.i": ; preds = %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1154
   br label %72
 
@@ -40868,7 +40868,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %switch.hole_check, 
   %59 = add i32 %4, -5
   %or.cond.i.i = icmp ult i32 %59, 2
   %or.cond7.i.i = and i1 %or.cond.i.i, %58
-  br i1 %or.cond7.i.i, label %60, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.thread.i"
+  br i1 %or.cond7.i.i, label %60, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.thread.i"
 
 60:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i
   %61 = load ptr, ptr %17, align 8, !noalias !1154
@@ -40886,19 +40886,19 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %switch.hole_check, 
   store i8 %68, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1154
   %69 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #19, !noalias !1154
   %.not.i.i.i.i = icmp eq i64 %69, 0
-  br i1 %.not.i.i.i.i, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.thread.i", label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.i"
+  br i1 %.not.i.i.i.i, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.thread.i", label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.i"
 
-"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.thread.i": ; preds = %60, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i
+"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.thread.i": ; preds = %60, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1154
   br label %.critedge2.i
 
-"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.i": ; preds = %60
+"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.i": ; preds = %60
   %70 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %69)
   %71 = icmp ult i64 %70, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1154
   br i1 %71, label %72, label %.critedge2.i
 
-72:                                               ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.thread45.i"
+72:                                               ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.thread45.i"
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.132.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
   %.sroa.132.0.copyload.i = load ptr, ptr %.sroa.132.0..sroa_idx.i, align 8, !noalias !1154
@@ -40907,9 +40907,9 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %switch.hole_check, 
   %75 = load i32, ptr %74, align 8, !noalias !1154
   %76 = and i32 %75, 255
   %77 = icmp eq i32 %76, 12
-  br i1 %77, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.thread48.i", label %78
+  br i1 %77, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.thread48.i", label %78
 
-"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.thread48.i": ; preds = %72
+"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.thread48.i": ; preds = %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1154
   br label %96
 
@@ -40933,7 +40933,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %switch.hole_check9,
   %82 = add i32 %4, -5
   %or.cond.i43.i = icmp ult i32 %82, 2
   %or.cond7.i44.i = and i1 %or.cond.i43.i, %81
-  br i1 %or.cond7.i44.i, label %83, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.thread.i"
+  br i1 %or.cond7.i44.i, label %83, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.thread.i"
 
 83:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i
   %84 = load ptr, ptr %17, align 8, !noalias !1154
@@ -40951,23 +40951,23 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %switch.hole_check9,
   store i8 %91, ptr %.sroa.2.0..sroa_idx.i48.i, align 8, !noalias !1154
   %92 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #19, !noalias !1154
   %.not.i.i.i49.i = icmp eq i64 %92, 0
-  br i1 %.not.i.i.i49.i, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.thread.i", label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.i"
+  br i1 %.not.i.i.i49.i, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.thread.i", label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.i"
 
-"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.thread.i": ; preds = %83, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i
+"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.thread.i": ; preds = %83, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1154
   br label %.critedge2.i
 
-"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.i": ; preds = %83
+"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.i": ; preds = %83
   %93 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %92)
   %94 = icmp ult i64 %93, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1154
-  br i1 %94, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52._crit_edge.i", label %.critedge2.i
+  br i1 %94, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52._crit_edge.i", label %.critedge2.i
 
-"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52._crit_edge.i": ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.i"
+"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52._crit_edge.i": ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.i"
   %.pre.i = load i32, ptr %74, align 8, !noalias !1154
   br label %96
 
-.critedge2.i:                                     ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.thread.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.thread.i"
+.critedge2.i:                                     ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.thread.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit.thread.i"
   store i8 0, ptr %0, align 8, !alias.scope !1160
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.328.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
@@ -40975,8 +40975,8 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %switch.hole_check9,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false), !alias.scope !1154
   br label %144
 
-96:                                               ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52._crit_edge.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.thread48.i"
-  %97 = phi i32 [ %.pre.i, %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52._crit_edge.i" ], [ %75, %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.thread48.i" ]
+96:                                               ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52._crit_edge.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.thread48.i"
+  %97 = phi i32 [ %.pre.i, %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52._crit_edge.i" ], [ %75, %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.argprom.exit52.thread48.i" ]
   %98 = and i32 %97, 255
   %99 = icmp eq i32 %98, 12
   switch i32 %4, label %130 [
@@ -41066,7 +41066,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %switch.hole_check9,
   %.0.i = phi i32 [ 0, %127 ], [ %124, %119 ], [ %126, %125 ], [ %115, %110 ], [ %117, %116 ], [ 6, %108 ], [ 5, %107 ], [ %106, %105 ], [ %101, %100 ], [ 3, %96 ]
   %131 = load i8, ptr %.sroa.07.0.copyload, align 8, !noalias !1154
   %.not54.i = icmp eq i8 %131, 17
-  br i1 %.not54.i, label %132, label %_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.exit
+  br i1 %.not54.i, label %132, label %_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.argprom.exit
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -41078,15 +41078,15 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %switch.hole_check9,
   %137 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i16 257, ptr %137, align 8, !noalias !1154
   %138 = call noundef ptr @_ZN4llvm13IRBuilderBase13CreateIntCastEPNS_5ValueEPNS_4TypeEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %133, ptr noundef nonnull %.sroa.07.0.copyload, ptr noundef nonnull %.sroa.132.0.copyload.i, i1 noundef zeroext %136, ptr noundef nonnull align 8 dereferenceable(34) %12), !noalias !1154
-  br label %_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.exit
+  br label %_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.argprom.exit
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i16 257, ptr %140, align 8, !noalias !1154
   %141 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %133, i32 noundef 43, ptr noundef nonnull %.sroa.07.0.copyload, ptr noundef nonnull %.sroa.132.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %13), !noalias !1154
-  br label %_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.exit
+  br label %_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.argprom.exit
 
-_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.exit: ; preds = %130, %134, %139
+_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.argprom.exit: ; preds = %130, %134, %139
   %.036.i = phi ptr [ %138, %134 ], [ %141, %139 ], [ %.sroa.07.0.copyload, %130 ]
   %142 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction17emitAtomicRMWInstEN4llvm13AtomicRMWInst5BinOpENS0_7AddressEPNS2_5ValueENS2_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 noundef %.0.i, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %73, ptr noundef %.036.i, i32 noundef %6, i8 noundef zeroext 1) #19, !noalias !1154
   store i8 1, ptr %0, align 8, !alias.scope !1169
@@ -41139,7 +41139,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %151, %154
   call void @_ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %2, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %8, i1 noundef zeroext %160) #19
   br label %161
 
-161:                                              ; preds = %_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.exit, %147, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
+161:                                              ; preds = %_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.argprom.exit, %147, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   ret void
 }
 
@@ -43154,11 +43154,11 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit114.i.i: ; preds = %821, %_ZNK5cl
 _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.i.i: ; preds = %838, %837
   %839 = load ptr, ptr %836, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %839, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.exit.i, label %840
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.argprom.exit.i, label %840
 
 840:                                              ; preds = %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %836, ptr noundef nonnull align 4 dereferenceable(8) %839) #19
-  br label %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.exit.i
+  br label %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.argprom.exit.i
 
 841:                                              ; preds = %829
   call void @llvm.experimental.noalias.scope.decl(metadata !1284)
@@ -43194,13 +43194,13 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.i.i: ; preds = %838, %
 _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit127.i.i: ; preds = %846, %845
   %847 = load ptr, ptr %844, align 8
   %.not.i.i.i.i.i128.i.i = icmp eq ptr %847, null
-  br i1 %.not.i.i.i.i.i128.i.i, label %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.exit.i, label %848
+  br i1 %.not.i.i.i.i.i128.i.i, label %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.argprom.exit.i, label %848
 
 848:                                              ; preds = %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit127.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %844, ptr noundef nonnull align 4 dereferenceable(8) %847) #19
-  br label %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.exit.i
+  br label %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.argprom.exit.i
 
-_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.exit.i: ; preds = %848, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit127.i.i, %840, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.i.i
+_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.argprom.exit.i: ; preds = %848, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit127.i.i, %840, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -43221,7 +43221,7 @@ _ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrd
 849:                                              ; preds = %_ZNK4llvm8SmallSetINS_3omp6ClauseELj2ESt4lessIS2_EE8containsERKS2_.exit164.thread
   unreachable
 
-_ZL17emitOMPAtomicExprRN5clang7CodeGen15CodeGenFunctionEN4llvm3omp6ClauseENS3_14AtomicOrderingES6_bPKNS_4ExprES9_S9_S9_S9_S9_S9_bbNS_14SourceLocationE.exit: ; preds = %_ZL21emitOMPAtomicReadExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingEPKNS_4ExprES7_NS_14SourceLocationE.exit.i, %_ZL22emitOMPAtomicWriteExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingEPKNS_4ExprES7_NS_14SourceLocationE.exit.i, %_ZL23emitOMPAtomicUpdateExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingEPKNS_4ExprES7_S7_bNS_14SourceLocationE.exit.i, %_ZL24emitOMPAtomicCaptureExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingEbPKNS_4ExprES7_S7_S7_bNS_14SourceLocationE.exit.i, %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.exit.i
+_ZL17emitOMPAtomicExprRN5clang7CodeGen15CodeGenFunctionEN4llvm3omp6ClauseENS3_14AtomicOrderingES6_bPKNS_4ExprES9_S9_S9_S9_S9_S9_bbNS_14SourceLocationE.exit: ; preds = %_ZL21emitOMPAtomicReadExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingEPKNS_4ExprES7_NS_14SourceLocationE.exit.i, %_ZL22emitOMPAtomicWriteExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingEPKNS_4ExprES7_NS_14SourceLocationE.exit.i, %_ZL23emitOMPAtomicUpdateExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingEPKNS_4ExprES7_S7_bNS_14SourceLocationE.exit.i, %_ZL24emitOMPAtomicCaptureExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingEbPKNS_4ExprES7_S7_S7_bNS_14SourceLocationE.exit.i, %_ZL24emitOMPAtomicCompareExprRN5clang7CodeGen15CodeGenFunctionEN4llvm14AtomicOrderingES4_PKNS_4ExprES7_S7_S7_S7_S7_bbbNS_14SourceLocationE.argprom.exit.i
   call void @_ZN5clang7CodeGen15CodeGenFunction12LexicalScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %61) #19
   br label %.loopexit
 
@@ -43594,7 +43594,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21EmitOMPTeamsDirective
   %9 = ptrtoint ptr %5 to i64
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_21EmitOMPTeamsDirectiveERKNS3_17OMPTeamsDirectiveEE3$_1EES2_lS6_", i64 %9)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_21EmitOMPTeamsDirectiveERKNS3_17OMPTeamsDirectiveEE3$_1EES2_lS6_", i64 %9)
   ret void
 }
 
@@ -43773,11 +43773,11 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_20OMPThreadLimitClauseEEE
   %.val4.i = phi ptr [ %52, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_20OMPThreadLimitClauseEEEPKT_v.exit ], [ %.val4.i.pre, %84 ]
   %.val.i = load i32, ptr %10, align 8
   %.not.i.i.i = icmp eq i32 %.val.i, 105
-  br i1 %.not.i.i.i, label %94, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+  br i1 %.not.i.i.i, label %94, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
 
 94:                                               ; preds = %93
   %.not.i.i.i.i.i43 = icmp eq ptr %.val4.i, null
-  br i1 %.not.i.i.i.i.i43, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i43, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i: ; preds = %94
   %95 = getelementptr inbounds i8, ptr %.val4.i, i64 16
@@ -43798,41 +43798,41 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i: ; preds = %94
 103:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %104 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %104, %98
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i
   %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %95, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i ], [ %.sroa.06.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   %.not.i1.i.i.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i.i.i, %98
-  br i1 %.not.i1.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i
+  br i1 %.not.i1.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i
   %105 = load ptr, ptr %.sroa.06.1.i.i.i.i.i.i, align 8
   %.not10.i.i.i = icmp eq ptr %105, null
-  br i1 %.not10.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, label %106
+  br i1 %.not10.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, label %106
 
 106:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %108 = load i32, ptr %107, align 4
   %109 = icmp ult i32 %108, 3
-  br i1 %109, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+  br i1 %109, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
 
 switch.lookup:                                    ; preds = %106
   %110 = zext nneg i32 %108 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %110
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i: ; preds = %103, %94, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i, %106, %switch.lookup, %93
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i: ; preds = %103, %94, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i, %106, %switch.lookup, %93
   %.0.i.i.i = phi i32 [ %.val.i, %93 ], [ %switch.load, %switch.lookup ], [ 105, %106 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i ], [ 105, %94 ], [ 105, %103 ]
   %111 = call noundef zeroext i1 @_ZN5clang32isOpenMPTargetExecutionDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i.i.i) #19
   br i1 %111, label %_ZN12_GLOBAL__N_113OMPTeamsScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit, label %112
 
-112:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i
+112:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i
   %113 = call noundef zeroext i1 @_ZN5clang22isOpenMPTeamsDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i.i.i) #19
   br label %_ZN12_GLOBAL__N_113OMPTeamsScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit
 
-_ZN12_GLOBAL__N_113OMPTeamsScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit: ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i, %112
-  %114 = phi i1 [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i.i ], [ %113, %112 ]
+_ZN12_GLOBAL__N_113OMPTeamsScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveE.exit: ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i, %112
+  %114 = phi i1 [ false, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i.i ], [ %113, %112 ]
   call fastcc void @_ZN12_GLOBAL__N_115OMPLexicalScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_22OMPExecutableDirectiveESt8optionalIN4llvm3omp9DirectiveEEb(ptr noundef nonnull align 8 dereferenceable(240) %6, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 0, i1 noundef zeroext %114)
   %115 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %115, i64 noundef 16) #19
@@ -43998,7 +43998,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31EmitOMPTeamsDistribut
   %11 = ptrtoint ptr %6 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %12, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_31EmitOMPTeamsDistributeDirectiveERKNS3_27OMPTeamsDistributeDirectiveEE3$_1EES2_lS6_", i64 %11)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_31EmitOMPTeamsDistributeDirectiveERKNS3_27OMPTeamsDistributeDirectiveEE3$_1EES2_lS6_", i64 %11)
   ret void
 }
 
@@ -44022,7 +44022,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction35EmitOMPTeamsDistribut
   %11 = ptrtoint ptr %6 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %12, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_35EmitOMPTeamsDistributeSimdDirectiveERKNS3_31OMPTeamsDistributeSimdDirectiveEE3$_1EES2_lS6_", i64 %11)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_35EmitOMPTeamsDistributeSimdDirectiveERKNS3_31OMPTeamsDistributeSimdDirectiveEE3$_1EES2_lS6_", i64 %11)
   ret void
 }
 
@@ -44046,7 +44046,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction42EmitOMPTeamsDistribut
   %11 = ptrtoint ptr %6 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %12, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_42EmitOMPTeamsDistributeParallelForDirectiveERKNS3_38OMPTeamsDistributeParallelForDirectiveEE3$_1EES2_lS6_", i64 %11)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_42EmitOMPTeamsDistributeParallelForDirectiveERKNS3_38OMPTeamsDistributeParallelForDirectiveEE3$_1EES2_lS6_", i64 %11)
   ret void
 }
 
@@ -44070,7 +44070,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction46EmitOMPTeamsDistribut
   %11 = ptrtoint ptr %6 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %12, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_46EmitOMPTeamsDistributeParallelForSimdDirectiveERKNS3_42OMPTeamsDistributeParallelForSimdDirectiveEE3$_1EES2_lS6_", i64 %11)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_46EmitOMPTeamsDistributeParallelForSimdDirectiveERKNS3_42OMPTeamsDistributeParallelForSimdDirectiveEE3$_1EES2_lS6_", i64 %11)
   ret void
 }
 
@@ -46956,7 +46956,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction32EmitOMPTeamsGenericLo
   %11 = ptrtoint ptr %6 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load ptr, ptr %12, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_32EmitOMPTeamsGenericLoopDirectiveERKNS3_28OMPTeamsGenericLoopDirectiveEE3$_1EES2_lS6_", i64 %11)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZNS5_32EmitOMPTeamsGenericLoopDirectiveERKNS3_28OMPTeamsGenericLoopDirectiveEE3$_1EES2_lS6_", i64 %11)
   ret void
 }
 
@@ -47488,11 +47488,11 @@ _ZL11getBaseDeclPKN5clang4ExprE.exit:             ; preds = %_ZNK5clang18ArraySu
   %173 = getelementptr inbounds i8, ptr %2, i64 8
   %.val = load i32, ptr %173, align 8
   %.not.i145 = icmp eq i32 %.val, 105
-  br i1 %.not.i145, label %174, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i145, label %174, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 174:                                              ; preds = %._crit_edge
   %.not.i.i.i146 = icmp eq ptr %.val133, null
-  br i1 %.not.i.i.i146, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i146, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %174
   %175 = getelementptr inbounds i8, ptr %.val133, i64 16
@@ -47513,40 +47513,40 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %174
 183:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %184 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %184, %178
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %175, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %178
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %185 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %185, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %186
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %186
 
 186:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %188 = load i32, ptr %187, align 4
   %189 = icmp ult i32 %188, 3
-  br i1 %189, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %189, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %186
   %190 = zext nneg i32 %188 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %190
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %183, %174, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %186, %switch.lookup, %._crit_edge
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %183, %174, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %186, %switch.lookup, %._crit_edge
   %.0.i = phi i32 [ %.val, %._crit_edge ], [ %switch.load, %switch.lookup ], [ 105, %186 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %174 ], [ 105, %183 ]
   %191 = call noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   br i1 %191, label %193, label %192
 
-192:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+192:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   call void @_ZN5clang7CodeGen15CodeGenFunction20EmitOMPPrivateClauseERKNS_22OMPExecutableDirectiveERNS1_15OMPPrivateScopeE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(112) %9)
   br label %193
 
-193:                                              ; preds = %192, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+193:                                              ; preds = %192, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %194 = load i8, ptr %2, align 8
   %.not305 = icmp eq i8 %194, -105
   br i1 %.not305, label %195, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
@@ -53444,7 +53444,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL18emitCo
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 3224
   %10 = load i32, ptr %9, align 8
   %.not.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i.i.i, label %"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_0clES2_RNS0_15PrePostActionTyE.exit", label %11
+  br i1 %.not.i.i.i.i, label %"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_0clES2_RNS0_15PrePostActionTyE.argprom.exit", label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 3208
@@ -53457,9 +53457,9 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL18emitCo
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 8 %20, i64 %14, i1 false)
-  br label %"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_0clES2_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_0clES2_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_0clES2_RNS0_15PrePostActionTyE.exit": ; preds = %3, %11
+"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_0clES2_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %3, %11
   %.sroa.8.0.i = phi i32 [ %17, %11 ], [ 0, %3 ]
   %.sroa.11.0.i = phi i32 [ %19, %11 ], [ 0, %3 ]
   %.sroa.2.0.i = phi ptr [ %15, %11 ], [ null, %3 ]
@@ -53497,7 +53497,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL18emitCo
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3224
   %5 = load i32, ptr %4, align 8
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_1clES2_RNS0_15PrePostActionTyE.exit", label %6
+  br i1 %.not.i.i.i.i, label %"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_1clES2_RNS0_15PrePostActionTyE.argprom.exit", label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 3208
@@ -53510,9 +53510,9 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL18emitCo
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr %7, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 8 %15, i64 %9, i1 false)
-  br label %"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_1clES2_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_1clES2_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_1clES2_RNS0_15PrePostActionTyE.exit": ; preds = %3, %6
+"_ZZL18emitCommonSimdLoopRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveERKNS0_15RegionCodeGenTyES8_ENK3$_1clES2_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %3, %6
   %.sroa.8.0.i = phi i32 [ %12, %6 ], [ 0, %3 ]
   %.sroa.11.0.i = phi i32 [ %14, %6 ], [ 0, %3 ]
   %.sroa.2.0.i = phi ptr [ %10, %6 ], [ null, %3 ]
@@ -55825,13 +55825,13 @@ _ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9Direct
   %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   %30 = load ptr, ptr %4, align 8
   %31 = icmp eq ptr %30, %6
-  br i1 %31, label %"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_0clES2_RNS0_15PrePostActionTyE.exit", label %32
+  br i1 %31, label %"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_0clES2_RNS0_15PrePostActionTyE.argprom.exit", label %32
 
 32:                                               ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i
   call void @free(ptr noundef %30) #19
-  br label %"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_0clES2_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_0clES2_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_0clES2_RNS0_15PrePostActionTyE.exit": ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i, %32
+"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_0clES2_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i, %32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %33 = getelementptr inbounds i8, ptr %.04.lcssa.i.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.04.lcssa.i.i.i.i, i64 8
@@ -55862,7 +55862,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGe
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %7 = trunc i8 %.val to i1
-  br i1 %7, label %8, label %"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_1clES2_RKNS_16OMPLoopDirectiveE.exit"
+  br i1 %7, label %8, label %"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_1clES2_RKNS_16OMPLoopDirectiveE.argprom.exit"
 
 8:                                                ; preds = %3
   call fastcc void @_ZN12_GLOBAL__N_112OMPLoopScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull readonly align 8 dereferenceable(36) %2)
@@ -55886,9 +55886,9 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGe
   %24 = icmp ugt i32 %22, %23
   %25 = select i1 %24, i32 38, i32 39
   %26 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %16, i32 noundef %25, ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(34) %5)
-  br label %"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_1clES2_RKNS_16OMPLoopDirectiveE.exit"
+  br label %"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_1clES2_RKNS_16OMPLoopDirectiveE.argprom.exit"
 
-"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_1clES2_RKNS_16OMPLoopDirectiveE.exit": ; preds = %3, %8
+"_ZZL28emitCommonOMPTargetDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveERKNS0_15RegionCodeGenTyEENK3$_1clES2_RKNS_16OMPLoopDirectiveE.argprom.exit": ; preds = %3, %8
   %.0.i = phi ptr [ %26, %8 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -57619,7 +57619,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertPointEEZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS4_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -57627,18 +57627,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilde
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS1_20OMPParallelDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -58012,7 +58012,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.i: ; preds = %12, %10
   store ptr %.0.i.i, ptr %6, align 8
   %30 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %2, ptr %30, align 8
-  call fastcc void @_ZL20emitCapturedStmtCallRN5clang7CodeGen15CodeGenFunctionESt4pairIPN4llvm8FunctionEPNS4_5ValueEENS4_8ArrayRefIS8_EE(ptr noundef nonnull align 8 dereferenceable(6488) %9, ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i, ptr nonnull %6, i64 2)
+  call fastcc void @_ZL20emitCapturedStmtCallRN5clang7CodeGen15CodeGenFunctionESt4pairIPN4llvm8FunctionEPNS4_5ValueEENS4_8ArrayRefIS8_EE.retelim(ptr noundef nonnull align 8 dereferenceable(6488) %9, ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i, ptr nonnull %6, i64 2)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %9, ptr %32, align 8
@@ -58088,7 +58088,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZ20emitOMP
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %"_ZZ20emitOMPSimdDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEENK3$_0clES5_RNS3_15PrePostActionTyE.exit"
+  br i1 %15, label %16, label %"_ZZ20emitOMPSimdDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEENK3$_0clES5_RNS3_15PrePostActionTyE.argprom.exit"
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %12, align 8
@@ -59118,9 +59118,9 @@ _ZN4llvm9MapVectorIPNS_5ValueES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6de
   %499 = zext i32 %498 to i64
   %500 = shl nuw nsw i64 %499, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %496, i64 noundef %500, i64 noundef 8) #19
-  br label %"_ZZ20emitOMPSimdDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEENK3$_0clES5_RNS3_15PrePostActionTyE.exit"
+  br label %"_ZZ20emitOMPSimdDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEENK3$_0clES5_RNS3_15PrePostActionTyE.argprom.exit"
 
-"_ZZ20emitOMPSimdDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEENK3$_0clES5_RNS3_15PrePostActionTyE.exit": ; preds = %3, %_ZN4llvm9MapVectorIPNS_5ValueES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S2_ELj0EEEED2Ev.exit58.i
+"_ZZ20emitOMPSimdDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEENK3$_0clES5_RNS3_15PrePostActionTyE.argprom.exit": ; preds = %3, %_ZN4llvm9MapVectorIPNS_5ValueES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S2_ELj0EEEED2Ev.exit58.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -59366,11 +59366,11 @@ define internal fastcc void @_ZL17emitOMPSimdRegionRN5clang7CodeGen15CodeGenFunc
   %48 = getelementptr inbounds i8, ptr %1, i64 24
   %.val85 = load ptr, ptr %48, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %49, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %49, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 49:                                               ; preds = %47
   %.not.i.i.i = icmp eq ptr %.val85, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %49
   %50 = getelementptr inbounds i8, ptr %.val85, i64 16
@@ -59391,31 +59391,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %49
 58:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %59 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %53
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %50, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %53
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %60 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %60, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %61
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %61
 
 61:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i32, ptr %62, align 4
   %64 = icmp ult i32 %63, 3
-  br i1 %64, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %64, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %61
   %65 = zext nneg i32 %63 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %65
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %58, %49, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %61, %switch.lookup, %47
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %58, %49, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %61, %switch.lookup, %47
   %.0.i = phi i32 [ %.val, %47 ], [ %switch.load, %switch.lookup ], [ 105, %61 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %49 ], [ 105, %58 ]
   %66 = call { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(16) %.val85) #19
   %67 = extractvalue { ptr, i64 } %66, 0
@@ -59424,12 +59424,12 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   %70 = call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %69, ptr noundef nonnull align 1 dereferenceable(1) %7, i1 noundef zeroext false) #19
   br i1 %70, label %71, label %74
 
-71:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+71:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %72 = load i8, ptr %7, align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %128, label %253
 
-74:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+74:                                               ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %76, align 1
@@ -59561,7 +59561,7 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit: ; preds = 
 
 154:                                              ; preds = %146, %128
   %.val87 = load ptr, ptr %48, align 8
-  call fastcc void @_ZL17emitAlignedClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val87)
+  call fastcc void @_ZL17emitAlignedClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val87)
   %155 = call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction23EmitOMPLinearClauseInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
   %156 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -59703,7 +59703,7 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit: ; preds = 
   call void @_ZN5clang7CodeGen15CodeGenFunction27EmitOMPReductionClauseFinalERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 65)
   %228 = ptrtoint ptr %18 to i64
   %.val86 = load ptr, ptr %48, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val86, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL17emitOMPSimdRegionS6_RKNS3_16OMPLoopDirectiveERNS4_15PrePostActionTyEE3$_3EES2_lS6_", i64 %228)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val86, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL17emitOMPSimdRegionS6_RKNS3_16OMPLoopDirectiveERNS4_15PrePostActionTyEE3$_3EES2_lS6_", i64 %228)
   %229 = load i32, ptr %207, align 8
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope10restoreMapEv.exit, label %231
@@ -59890,7 +59890,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit", label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit", label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
@@ -59911,34 +59911,34 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %8
 25:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %26 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %20
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !617
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !617
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %17, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %20
-  br i1 %.not.i1.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit", label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit", label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %27 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit", label %28
+  br i1 %.not.i, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit", label %28
 
 28:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit"
+  br i1 %31, label %32, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit"
 
 32:                                               ; preds = %28
   store i8 1, ptr %9, align 8
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit"
 
 33:                                               ; preds = %3
   %34 = load ptr, ptr %4, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(36) %34)
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit": ; preds = %25, %8, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i, %28, %32, %33
+"_ZZN5clang7CodeGen15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeERKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEERKNSB_IFvSC_NS_14SourceLocationEjbEEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %25, %8, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i, %28, %32, %33
   ret void
 }
 
@@ -60087,7 +60087,7 @@ define internal void @"_ZN4llvm12function_refIFvRN5clang7CodeGen15CodeGenFunctio
   %6 = inttoptr i64 %0 to ptr
   %.val = load i8, ptr %6, align 1
   %7 = trunc i8 %.val to i1
-  br i1 %7, label %8, label %"_ZZN5clang7CodeGen15CodeGenFunction19EmitOMPForOuterLoopERKNS_16OpenMPScheduleTyEbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeEbRKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFSt4pairIPNSD_5ValueESH_ERS1_RKNS_22OMPExecutableDirectiveENS0_7AddressESN_EEEENK3$_0clESJ_NS_14SourceLocationEjb.exit"
+  br i1 %7, label %8, label %"_ZZN5clang7CodeGen15CodeGenFunction19EmitOMPForOuterLoopERKNS_16OpenMPScheduleTyEbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeEbRKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFSt4pairIPNSD_5ValueESH_ERS1_RKNS_22OMPExecutableDirectiveENS0_7AddressESN_EEEENK3$_0clESJ_NS_14SourceLocationEjb.argprom.exit"
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -60098,9 +60098,9 @@ define internal void @"_ZN4llvm12function_refIFvRN5clang7CodeGen15CodeGenFunctio
   %14 = getelementptr inbounds i8, ptr %13, i64 288
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(4808) %12, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %2, i32 noundef %3, i1 noundef zeroext %4) #19
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction19EmitOMPForOuterLoopERKNS_16OpenMPScheduleTyEbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeEbRKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFSt4pairIPNSD_5ValueESH_ERS1_RKNS_22OMPExecutableDirectiveENS0_7AddressESN_EEEENK3$_0clESJ_NS_14SourceLocationEjb.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction19EmitOMPForOuterLoopERKNS_16OpenMPScheduleTyEbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeEbRKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFSt4pairIPNSD_5ValueESH_ERS1_RKNS_22OMPExecutableDirectiveENS0_7AddressESN_EEEENK3$_0clESJ_NS_14SourceLocationEjb.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction19EmitOMPForOuterLoopERKNS_16OpenMPScheduleTyEbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeEbRKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFSt4pairIPNSD_5ValueESH_ERS1_RKNS_22OMPExecutableDirectiveENS0_7AddressESN_EEEENK3$_0clESJ_NS_14SourceLocationEjb.exit": ; preds = %5, %8
+"_ZZN5clang7CodeGen15CodeGenFunction19EmitOMPForOuterLoopERKNS_16OpenMPScheduleTyEbRKNS_16OMPLoopDirectiveERNS1_15OMPPrivateScopeEbRKNS1_16OMPLoopArgumentsERKN4llvm12function_refIFSt4pairIPNSD_5ValueESH_ERS1_RKNS_22OMPExecutableDirectiveENS0_7AddressESN_EEEENK3$_0clESJ_NS_14SourceLocationEjb.argprom.exit": ; preds = %5, %8
   ret void
 }
 
@@ -60141,11 +60141,11 @@ define internal void @_ZL32emitInnerParallelForWhenCombinedRN5clang7CodeGen15Cod
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %.val6 = load ptr, ptr %8, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %9, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %9, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 9:                                                ; preds = %3
   %.not.i.i.i = icmp eq ptr %.val6, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %9
   %10 = getelementptr inbounds i8, ptr %.val6, i64 16
@@ -60166,31 +60166,31 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %9
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %19, %13
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %10, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %13
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %20 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %20, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %21
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %21
 
 21:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = icmp ult i32 %23, 3
-  br i1 %24, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %24, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %21
   %25 = zext nneg i32 %23 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %18, %9, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %21, %switch.lookup, %3
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %18, %9, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %21, %switch.lookup, %3
   %.0.i = phi i32 [ %.val, %3 ], [ %switch.load, %switch.lookup ], [ 105, %21 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %9 ], [ 105, %18 ]
   store ptr %1, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -60607,13 +60607,13 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
 
 9:                                                ; preds = %3
   tail call void @_ZN5clang7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(36) %8)
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit"
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit", label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit", label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %10
   %13 = getelementptr inbounds i8, ptr %12, i64 16
@@ -60634,30 +60634,30 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %10
 21:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %22 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %22, %16
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !617
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !617
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %13, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %16
-  br i1 %.not.i1.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit", label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit", label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %23 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit", label %24
+  br i1 %.not.i, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit", label %24
 
 24:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit"
+  br i1 %27, label %28, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit"
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i8 1, ptr %29, align 8
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.exit": ; preds = %21, %9, %10, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i, %24, %28
+"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_0clESC_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %21, %9, %10, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPOrderClauseEEEPKT_v.exit.i, %24, %28
   ret void
 }
 
@@ -60723,7 +60723,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   call void %46(ptr noundef nonnull align 8 dereferenceable(4808) %37, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %.sroa.0.0.copyload.i.i, i32 noundef %42, ptr noundef nonnull align 4 dereferenceable(12) %43, ptr noundef nonnull align 8 dereferenceable(208) %4) #19
   %47 = load i8, ptr %23, align 8
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_1clESC_RNS0_15PrePostActionTyE.exit", label %49
+  br i1 %48, label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_1clESC_RNS0_15PrePostActionTyE.argprom.exit", label %49
 
 49:                                               ; preds = %3
   %50 = load ptr, ptr %38, align 8
@@ -60734,9 +60734,9 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %55 = getelementptr inbounds i8, ptr %54, i64 96
   %56 = load ptr, ptr %55, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction15EmitIgnoredExprEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %56) #19
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_1clESC_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_1clESC_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_1clESC_RNS0_15PrePostActionTyE.exit": ; preds = %3, %49
+"_ZZN5clang7CodeGen15CodeGenFunction22EmitOMPWorksharingLoopERKNS_16OMPLoopDirectiveEPNS_4ExprERKN4llvm12function_refIFSt4pairINS0_6LValueESA_ERS1_RKNS_22OMPExecutableDirectiveEEEERKNS8_IFS9_IPNS7_5ValueESL_ESC_SF_NS0_7AddressESN_EEEENK3$_1clESC_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %3, %49
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
@@ -61053,11 +61053,11 @@ _ZNK5clang22OMPExecutableDirective10getRawStmtEv.exit.i: ; preds = %.preheader.i
   call void @_ZN4llvm15OpenMPIRBuilder18applyWorkshareLoopENS_8DebugLocEPNS_17CanonicalLoopInfoENS_13IRBuilderBase11InsertPointEbNS_3omp12ScheduleKindEPNS_5ValueEbbbbNS6_19WorksharingLoopTypeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %6, ptr noundef nonnull align 8 dereferenceable(3104) %71, ptr noundef nonnull %4, ptr noundef %63, ptr noundef nonnull byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %5, i1 noundef zeroext %.0.i.i.i, i32 noundef %.0.i, ptr noundef %.019.i, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0) #19
   %78 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %78, null
-  br i1 %.not.i.i.i.i.i, label %"_ZZ19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEbENK3$_0clES5_RNS3_15PrePostActionTyE.exit", label %79
+  br i1 %.not.i.i.i.i.i, label %"_ZZ19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEbENK3$_0clES5_RNS3_15PrePostActionTyE.argprom.exit", label %79
 
 79:                                               ; preds = %_ZNK5clang22OMPExecutableDirective10getRawStmtEv.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(8) %78) #19
-  br label %"_ZZ19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEbENK3$_0clES5_RNS3_15PrePostActionTyE.exit"
+  br label %"_ZZ19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEbENK3$_0clES5_RNS3_15PrePostActionTyE.argprom.exit"
 
 80:                                               ; preds = %3
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -61068,9 +61068,9 @@ _ZNK5clang22OMPExecutableDirective10getRawStmtEv.exit.i: ; preds = %.preheader.i
   %86 = load ptr, ptr %85, align 8
   %87 = zext i1 %84 to i8
   store i8 %87, ptr %86, align 1
-  br label %"_ZZ19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEbENK3$_0clES5_RNS3_15PrePostActionTyE.exit"
+  br label %"_ZZ19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEbENK3$_0clES5_RNS3_15PrePostActionTyE.argprom.exit"
 
-"_ZZ19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEbENK3$_0clES5_RNS3_15PrePostActionTyE.exit": ; preds = %_ZNK5clang22OMPExecutableDirective10getRawStmtEv.exit.i, %79, %80
+"_ZZ19emitOMPForDirectiveRKN5clang16OMPLoopDirectiveERNS_7CodeGen15CodeGenFunctionERNS3_13CodeGenModuleEbENK3$_0clES5_RNS3_15PrePostActionTyE.argprom.exit": ; preds = %_ZNK5clang22OMPExecutableDirective10getRawStmtEv.exit.i, %79, %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -61101,11 +61101,11 @@ define internal fastcc noundef zeroext i1 @_ZL24emitWorksharingDirectiveRN5clang
   %20 = getelementptr inbounds i8, ptr %1, i64 24
   %.val27 = load ptr, ptr %20, align 8
   %.not.i = icmp eq i32 %.val, 105
-  br i1 %.not.i, label %21, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %.not.i, label %21, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 21:                                               ; preds = %3
   %.not.i.i.i = icmp eq ptr %.val27, null
-  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %21
   %22 = getelementptr inbounds i8, ptr %.val27, i64 16
@@ -61126,36 +61126,36 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %21
 30:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %31, %25
-  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i.i = phi ptr [ %22, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i1.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %25
-  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
+  br i1 %.not.i1.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i
   %32 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %.not10.i = icmp eq ptr %32, null
-  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, label %33
+  br i1 %.not10.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, label %33
 
 33:                                               ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load i32, ptr %34, align 4
   %36 = icmp ult i32 %35, 3
-  br i1 %36, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br i1 %36, label %switch.lookup, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
 switch.lookup:                                    ; preds = %33
   %37 = zext nneg i32 %35 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds = %30, %21, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %33, %switch.lookup, %3
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit: ; preds = %30, %21, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i, %33, %switch.lookup, %3
   %.0.i = phi i32 [ %.val, %3 ], [ %switch.load, %switch.lookup ], [ 105, %33 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i ], [ 105, %21 ], [ 105, %30 ]
   %.not.i.i = icmp eq ptr %.val27, null
   br i1 %.not.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZL24emitWorksharingDirectiveRNS2_7CodeGen15CodeGenFunctionERKNS2_16OMPLoopDirectiveEbE3$_0EEbOT_T0_.exit.thread", label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i
 
-_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit
+_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit
   %38 = getelementptr inbounds i8, ptr %.val27, i64 16
   %39 = load i32, ptr %.val27, align 8, !noalias !1673
   %40 = zext i32 %39 to i64
@@ -61424,11 +61424,11 @@ _ZN5clang7CodeGen15CodeGenFunction19OMPLocalDeclMapRAIIC2ERS1_.exit.i: ; preds =
   %.val.i = load i32, ptr %19, align 8
   %.val36.i = load ptr, ptr %20, align 8
   %.not.i.i35 = icmp eq i32 %.val.i, 105
-  br i1 %.not.i.i35, label %168, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i
+  br i1 %.not.i.i35, label %168, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i
 
 168:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction19OMPLocalDeclMapRAIIC2ERS1_.exit.i
   %.not.i.i.i63.i = icmp eq ptr %.val36.i, null
-  br i1 %.not.i.i.i63.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i
+  br i1 %.not.i.i.i63.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i: ; preds = %168
   %169 = getelementptr inbounds i8, ptr %.val36.i, i64 16
@@ -61449,36 +61449,36 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i: ; preds = %168
 177:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %178 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %178, %172
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !105
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i
   %.sroa.06.1.i.i.i.i.i = phi ptr [ %169, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i ], [ %.sroa.06.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not.i1.i.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i.i, %172
-  br i1 %.not.i1.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i
+  br i1 %.not.i1.i.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i, label %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i: ; preds = %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i
   %179 = load ptr, ptr %.sroa.06.1.i.i.i.i.i, align 8
   %.not10.i.i = icmp eq ptr %179, null
-  br i1 %.not10.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i, label %180
+  br i1 %.not10.i.i, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i, label %180
 
 180:                                              ; preds = %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %182 = load i32, ptr %181, align 4
   %183 = icmp ult i32 %182, 3
-  br i1 %183, label %switch.lookup98, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i
+  br i1 %183, label %switch.lookup98, label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i
 
 switch.lookup98:                                  ; preds = %180
   %184 = zext nneg i32 %182 to i64
   %switch.gep99 = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24emitWorksharingDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEb.520, i64 0, i64 %184
   %switch.load100 = load i32, ptr %switch.gep99, align 4
-  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i
+  br label %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i
 
-_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i: ; preds = %177, %168, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i, %180, %switch.lookup98, %_ZN5clang7CodeGen15CodeGenFunction19OMPLocalDeclMapRAIIC2ERS1_.exit.i
+_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i: ; preds = %177, %168, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i, %180, %switch.lookup98, %_ZN5clang7CodeGen15CodeGenFunction19OMPLocalDeclMapRAIIC2ERS1_.exit.i
   %.0.i.i = phi i32 [ %.val.i, %_ZN5clang7CodeGen15CodeGenFunction19OMPLocalDeclMapRAIIC2ERS1_.exit.i ], [ %switch.load100, %switch.lookup98 ], [ 105, %180 ], [ 105, %_ZNK5clang22OMPExecutableDirective15getSingleClauseINS_13OMPBindClauseEEEPKT_v.exit.i.i ], [ 105, %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i ], [ 105, %168 ], [ 105, %177 ]
   %185 = call noundef zeroext i1 @_ZN5clang25isOpenMPParallelDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i.i) #19
   br i1 %185, label %186, label %204
 
-186:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i
+186:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 400
@@ -61505,7 +61505,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i: ; preds
   call void %203(ptr noundef nonnull align 8 dereferenceable(4808) %200, ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 %.sroa.0.0.copyload.i65.i, i32 noundef 100, i1 noundef zeroext false, i1 noundef zeroext true) #19
   br label %208
 
-204:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit.i
+204:                                              ; preds = %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit.i
   %205 = ptrtoint ptr %10 to i64
   store i64 %205, ptr %12, align 8
   %206 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -61562,13 +61562,13 @@ _ZN4llvm11SmallVectorIPKN5clang4ExprELj4EED2Ev.exit68.i: ; preds = %224, %_ZN4ll
   %225 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %226 = load ptr, ptr %5, align 8
   %227 = icmp eq ptr %226, %82
-  br i1 %227, label %_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.exit, label %228
+  br i1 %227, label %_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.argprom.exit, label %228
 
 228:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ExprELj4EED2Ev.exit68.i
   call void @free(ptr noundef %226) #19
-  br label %_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.exit
+  br label %_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.argprom.exit
 
-_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.exit: ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ExprELj4EED2Ev.exit68.i, %228
+_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.argprom.exit: ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ExprELj4EED2Ev.exit68.i, %228
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
@@ -61581,11 +61581,11 @@ _ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirec
   %229 = call noundef zeroext i1 @_ZN5clang25isOpenMPParallelDirectiveEN4llvm3omp9DirectiveE(i32 noundef %.0.i) #19
   br i1 %229, label %241, label %230
 
-230:                                              ; preds = %_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.exit
+230:                                              ; preds = %_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.argprom.exit
   call fastcc void @_ZL28emitScanBasedDirectiveFinalsRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIKZL24emitWorksharingDirectiveS6_RKNS3_16OMPLoopDirectiveEbE3$_1EES2_lS6_", i64 %.pre)
   br label %241
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZL24emitWorksharingDirectiveRNS2_7CodeGen15CodeGenFunctionERKNS2_16OMPLoopDirectiveEbE3$_0EEbOT_T0_.exit.thread": ; preds = %46, %51, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i.i.i.i.i.i, %57, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit, %"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZL24emitWorksharingDirectiveRNS2_7CodeGen15CodeGenFunctionERKNS2_16OMPLoopDirectiveEbE3$_0EEbOT_T0_.exit"
+"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZL24emitWorksharingDirectiveRNS2_7CodeGen15CodeGenFunctionERKNS2_16OMPLoopDirectiveEbE3$_0EEbOT_T0_.exit.thread": ; preds = %46, %51, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i.i.i.i.i.i, %57, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %_ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.argprom.exit, %"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZL24emitWorksharingDirectiveRNS2_7CodeGen15CodeGenFunctionERKNS2_16OMPLoopDirectiveEbE3$_0EEbOT_T0_.exit"
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 3744
   tail call void @_ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack5enterERS1_N4llvm3omp9DirectiveEb(ptr noundef nonnull align 8 dereferenceable(464) %231, ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 noundef %.0.i, i1 noundef zeroext %2)
   %232 = load ptr, ptr %20, align 8
@@ -61605,7 +61605,7 @@ _ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirec
   tail call void @_ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack4exitERS1_(ptr noundef nonnull align 8 dereferenceable(464) %231, ptr noundef nonnull align 8 dereferenceable(6488) %0)
   br label %241
 
-241:                                              ; preds = %_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.exit, %230, %"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZL24emitWorksharingDirectiveRNS2_7CodeGen15CodeGenFunctionERKNS2_16OMPLoopDirectiveEbE3$_0EEbOT_T0_.exit.thread"
+241:                                              ; preds = %_ZL22emitScanBasedDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEENS7_IFvS2_EEESD_.argprom.exit, %230, %"_ZN4llvm6any_ofINS_14iterator_rangeIN5clang22OMPExecutableDirective24specific_clause_iteratorINS2_18OMPReductionClauseEEEEEZL24emitWorksharingDirectiveRNS2_7CodeGen15CodeGenFunctionERKNS2_16OMPLoopDirectiveEbE3$_0EEbOT_T0_.exit.thread"
   %242 = load i8, ptr %13, align 1
   %243 = trunc i8 %242 to i1
   ret i1 %243
@@ -63924,11 +63924,11 @@ _ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack8emitExitERS1_N4llvm3om
   %368 = ptrtoint ptr %30 to i64
   %369 = getelementptr i8, ptr %366, i64 24
   %.val.i = load ptr, ptr %369, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZZNS5_12EmitSectionsERKNS3_22OMPExecutableDirectiveEENK3$_0clES6_RNS4_15PrePostActionTyEEUlS6_E2_EES2_lS6_", i64 %368)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZZNS5_12EmitSectionsERKNS3_22OMPExecutableDirectiveEENK3$_0clES6_RNS4_15PrePostActionTyEEUlS6_E2_EES2_lS6_", i64 %368)
   %370 = load ptr, ptr %244, align 8
   %371 = load i8, ptr %370, align 1
   %372 = trunc i8 %371 to i1
-  br i1 %372, label %373, label %"_ZZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br i1 %372, label %373, label %"_ZZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
 373:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack8emitExitERS1_N4llvm3omp9DirectiveENS4_12function_refIFvS3_EEE.exit
   %374 = load ptr, ptr %32, align 8
@@ -63942,9 +63942,9 @@ _ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack8emitExitERS1_N4llvm3om
   %380 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %379) #19
   %381 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %40, i32 noundef 33, ptr noundef %376, ptr noundef %380, ptr noundef nonnull align 8 dereferenceable(34) %31)
   call void @_ZN5clang7CodeGen15CodeGenFunction29EmitOMPLastprivateClauseFinalERKNS_22OMPExecutableDirectiveEbPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %374, i1 noundef zeroext false, ptr noundef %381)
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit": ; preds = %373, %_ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack8emitExitERS1_N4llvm3omp9DirectiveENS4_12function_refIFvS3_EEE.exit
+"_ZZN5clang7CodeGen15CodeGenFunction12EmitSectionsERKNS_22OMPExecutableDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %373, %_ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack8emitExitERS1_N4llvm3omp9DirectiveENS4_12function_refIFvS3_EEE.exit
   call void @_ZN5clang7CodeGen15CGOpenMPRuntime26LastprivateConditionalRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(12) %22) #19
   call void @_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %21) #19
   call void @_ZN5clang7CodeGen15CodeGenFunction22OpaqueValueMappingData6unbindERS1_(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(6488) %1)
@@ -64834,7 +64834,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertPointEEZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS4_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -64842,18 +64842,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilde
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS1_20OMPSectionsDirectiveEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -64935,7 +64935,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertPointEEZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS4_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -64943,18 +64943,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilde
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPSectionDirectiveERKNS1_19OMPSectionDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -65194,7 +65194,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertPointEEZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS4_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -65202,18 +65202,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilde
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMasterDirectiveERKNS1_18OMPMasterDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -65295,7 +65295,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertPointEEZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS4_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -65303,18 +65303,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilde
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction22EmitOMPMaskedDirectiveERKNS1_18OMPMaskedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -65396,7 +65396,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertPointEEZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS4_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -65404,18 +65404,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilde
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction24EmitOMPCriticalDirectiveERKNS1_20OMPCriticalDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -66689,19 +66689,19 @@ _ZN4llvm20DbgVariableIntrinsic13setExpressionEPNS_12DIExpressionE.exit.i: ; pred
   %281 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
   %282 = load ptr, ptr %8, align 8
   %283 = icmp eq ptr %282, %150
-  br i1 %283, label %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.exit", label %284
+  br i1 %283, label %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.argprom.exit", label %284
 
 284:                                              ; preds = %_ZN4llvm20DbgVariableIntrinsic13setExpressionEPNS_12DIExpressionE.exit.i
   call void @free(ptr noundef %282) #19
-  br label %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.exit"
+  br label %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.argprom.exit"
 
-"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.exit": ; preds = %_ZN4llvm20DbgVariableIntrinsic13setExpressionEPNS_12DIExpressionE.exit.i, %284
+"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.argprom.exit": ; preds = %_ZN4llvm20DbgVariableIntrinsic13setExpressionEPNS_12DIExpressionE.exit.i, %284
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   %.pre = load ptr, ptr %149, align 8
   br label %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit.thread
 
-_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %214, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %203, %200, %191, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.exit"
-  %285 = phi ptr [ %192, %214 ], [ %192, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %192, %203 ], [ %192, %200 ], [ %192, %191 ], [ %192, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ %.pre, %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.exit" ]
+_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %214, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %203, %200, %191, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.argprom.exit"
+  %285 = phi ptr [ %192, %214 ], [ %192, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %192, %203 ], [ %192, %200 ], [ %192, %191 ], [ %192, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ %.pre, %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_20DbgVariableIntrinsicEEEDaSR_ST_j.argprom.exit" ]
   %286 = call noundef ptr @_ZN4llvm10BasicBlock21getTrailingDbgRecordsEv(ptr noundef nonnull align 8 dereferenceable(80) %285) #19
   %.not324 = icmp eq ptr %286, null
   br i1 %.not324, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit.thread, label %287
@@ -66855,17 +66855,17 @@ _ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit.i: ; preds =
   %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   %348 = load ptr, ptr %7, align 8
   %349 = icmp eq ptr %348, %151
-  br i1 %349, label %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_17DbgVariableRecordEEEDaSR_ST_j.exit", label %350
+  br i1 %349, label %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_17DbgVariableRecordEEEDaSR_ST_j.argprom.exit", label %350
 
 350:                                              ; preds = %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit.i
   call void @free(ptr noundef %348) #19
-  br label %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_17DbgVariableRecordEEEDaSR_ST_j.exit"
+  br label %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_17DbgVariableRecordEEEDaSR_ST_j.argprom.exit"
 
-"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_17DbgVariableRecordEEEDaSR_ST_j.exit": ; preds = %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit.i, %350
+"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_17DbgVariableRecordEEEDaSR_ST_j.argprom.exit": ; preds = %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit.i, %350
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   br label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit.thread
 
-_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit.thread: ; preds = %293, %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit.thread, %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_17DbgVariableRecordEEEDaSR_ST_j.exit", %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit
+_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit.thread: ; preds = %293, %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit.thread, %"_ZZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskBasedDirectiveERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS5_12function_refIFvRS1_PNS5_8FunctionERKNS0_13OMPTaskDataTyEEEERSF_ENK3$_0clESC_RNS0_15PrePostActionTyEENKUlRNS5_11LLVMContextEPT_jE_clINS5_17DbgVariableRecordEEEDaSR_ST_j.argprom.exit", %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit
   %351 = getelementptr inbounds i8, ptr %.sroa.0745.0829, i64 16
   %.not5.i3.i = icmp eq ptr %351, %.pn14.i
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang7VarDeclEPNS1_9FieldDeclENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EELb0EEppEv.exit, label %.lr.ph.i4.i
@@ -71062,13 +71062,13 @@ _ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9Direct
   %36 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   %37 = load ptr, ptr %4, align 8
   %38 = icmp eq ptr %37, %13
-  br i1 %38, label %"_ZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskgroupDirectiveERKNS_21OMPTaskgroupDirectiveEENK3$_0clEN4llvm13IRBuilderBase11InsertPointES8_.exit", label %39
+  br i1 %38, label %"_ZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskgroupDirectiveERKNS_21OMPTaskgroupDirectiveEENK3$_0clEN4llvm13IRBuilderBase11InsertPointES8_.argprom.exit", label %39
 
 39:                                               ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i
   call void @free(ptr noundef %37) #19
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskgroupDirectiveERKNS_21OMPTaskgroupDirectiveEENK3$_0clEN4llvm13IRBuilderBase11InsertPointES8_.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskgroupDirectiveERKNS_21OMPTaskgroupDirectiveEENK3$_0clEN4llvm13IRBuilderBase11InsertPointES8_.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskgroupDirectiveERKNS_21OMPTaskgroupDirectiveEENK3$_0clEN4llvm13IRBuilderBase11InsertPointES8_.exit": ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i, %39
+"_ZZN5clang7CodeGen15CodeGenFunction25EmitOMPTaskgroupDirectiveERKNS_21OMPTaskgroupDirectiveEENK3$_0clEN4llvm13IRBuilderBase11InsertPointES8_.argprom.exit": ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i, %39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %40 = getelementptr inbounds i8, ptr %.04.lcssa.i.i.i.i, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %.04.lcssa.i.i.i.i, i64 8
@@ -71388,14 +71388,14 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp9DirectiveE(i32 noundef %7) #19
-  br i1 %8, label %9, label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPDistributeLoopERKNS_16OMPLoopDirectiveERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEEPNS_4ExprEENK3$_0clES7_RNS0_15PrePostActionTyE.exit"
+  br i1 %8, label %9, label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPDistributeLoopERKNS_16OMPLoopDirectiveERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEEPNS_4ExprEENK3$_0clES7_RNS0_15PrePostActionTyE.argprom.exit"
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(36) %10)
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPDistributeLoopERKNS_16OMPLoopDirectiveERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEEPNS_4ExprEENK3$_0clES7_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPDistributeLoopERKNS_16OMPLoopDirectiveERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEEPNS_4ExprEENK3$_0clES7_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPDistributeLoopERKNS_16OMPLoopDirectiveERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEEPNS_4ExprEENK3$_0clES7_RNS0_15PrePostActionTyE.exit": ; preds = %3, %9
+"_ZZN5clang7CodeGen15CodeGenFunction21EmitOMPDistributeLoopERKNS_16OMPLoopDirectiveERKN4llvm12function_refIFvRS1_S4_NS1_8JumpDestEEEEPNS_4ExprEENK3$_0clES7_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %3, %9
   ret void
 }
 
@@ -71920,7 +71920,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilderBase11InsertPointEEZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS4_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -71928,18 +71928,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilde
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen15CodeGenFunction23EmitOMPOrderedDirectiveERKNS1_19OMPOrderedDirectiveEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -72570,7 +72570,7 @@ _ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit: 
   call fastcc void @_ZL27emitCommonOMPTeamsDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 91, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %46 = ptrtoint ptr %7 to i64
   %.val = load ptr, ptr %11, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL21emitTargetTeamsRegionS6_RNS4_15PrePostActionTyERKNS3_23OMPTargetTeamsDirectiveEE3$_1EES2_lS6_", i64 %46)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL21emitTargetTeamsRegionS6_RNS4_15PrePostActionTyERKNS3_23OMPTargetTeamsDirectiveEE3$_1EES2_lS6_", i64 %46)
   ret void
 }
 
@@ -72749,7 +72749,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = ptrtoint ptr %7 to i64
   %16 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL31emitTargetTeamsDistributeRegionS6_RNS4_15PrePostActionTyERKNS3_33OMPTargetTeamsDistributeDirectiveEE3$_2EES2_lS6_", i64 %15)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL31emitTargetTeamsDistributeRegionS6_RNS4_15PrePostActionTyERKNS3_33OMPTargetTeamsDistributeDirectiveEE3$_2EES2_lS6_", i64 %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -72931,7 +72931,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = ptrtoint ptr %7 to i64
   %16 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL31emitTargetTeamsDistributeRegionS6_RNS4_15PrePostActionTyERKNS3_33OMPTargetTeamsDistributeDirectiveEE3$_2EES2_lS6_", i64 %15)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL31emitTargetTeamsDistributeRegionS6_RNS4_15PrePostActionTyERKNS3_33OMPTargetTeamsDistributeDirectiveEE3$_2EES2_lS6_", i64 %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -72968,7 +72968,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = ptrtoint ptr %7 to i64
   %16 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL35emitTargetTeamsDistributeSimdRegionS6_RNS4_15PrePostActionTyERKNS3_37OMPTargetTeamsDistributeSimdDirectiveEE3$_2EES2_lS6_", i64 %15)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL35emitTargetTeamsDistributeSimdRegionS6_RNS4_15PrePostActionTyERKNS3_37OMPTargetTeamsDistributeSimdDirectiveEE3$_2EES2_lS6_", i64 %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -73150,7 +73150,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = ptrtoint ptr %7 to i64
   %16 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL35emitTargetTeamsDistributeSimdRegionS6_RNS4_15PrePostActionTyERKNS3_37OMPTargetTeamsDistributeSimdDirectiveEE3$_2EES2_lS6_", i64 %15)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL35emitTargetTeamsDistributeSimdRegionS6_RNS4_15PrePostActionTyERKNS3_37OMPTargetTeamsDistributeSimdDirectiveEE3$_2EES2_lS6_", i64 %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -73767,7 +73767,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = ptrtoint ptr %7 to i64
   %16 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL42emitTargetTeamsDistributeParallelForRegionS6_RKNS3_44OMPTargetTeamsDistributeParallelForDirectiveERNS4_15PrePostActionTyEE3$_2EES2_lS6_", i64 %15)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL42emitTargetTeamsDistributeParallelForRegionS6_RKNS3_44OMPTargetTeamsDistributeParallelForDirectiveERNS4_15PrePostActionTyEE3$_2EES2_lS6_", i64 %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -73949,7 +73949,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = ptrtoint ptr %7 to i64
   %16 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL42emitTargetTeamsDistributeParallelForRegionS6_RKNS3_44OMPTargetTeamsDistributeParallelForDirectiveERNS4_15PrePostActionTyEE3$_2EES2_lS6_", i64 %15)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL42emitTargetTeamsDistributeParallelForRegionS6_RKNS3_44OMPTargetTeamsDistributeParallelForDirectiveERNS4_15PrePostActionTyEE3$_2EES2_lS6_", i64 %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -73986,7 +73986,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = ptrtoint ptr %7 to i64
   %16 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL46emitTargetTeamsDistributeParallelForSimdRegionS6_RKNS3_48OMPTargetTeamsDistributeParallelForSimdDirectiveERNS4_15PrePostActionTyEE3$_2EES2_lS6_", i64 %15)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL46emitTargetTeamsDistributeParallelForSimdRegionS6_RKNS3_48OMPTargetTeamsDistributeParallelForSimdDirectiveERNS4_15PrePostActionTyEE3$_2EES2_lS6_", i64 %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -74168,7 +74168,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %15 = ptrtoint ptr %7 to i64
   %16 = getelementptr inbounds i8, ptr %.val, i64 24
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL46emitTargetTeamsDistributeParallelForSimdRegionS6_RKNS3_48OMPTargetTeamsDistributeParallelForSimdDirectiveERNS4_15PrePostActionTyEE3$_2EES2_lS6_", i64 %15)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL46emitTargetTeamsDistributeParallelForSimdRegionS6_RKNS3_48OMPTargetTeamsDistributeParallelForSimdDirectiveERNS4_15PrePostActionTyEE3$_2EES2_lS6_", i64 %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -75287,13 +75287,13 @@ _ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9Direct
   %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   %30 = load ptr, ptr %4, align 8
   %31 = icmp eq ptr %30, %6
-  br i1 %31, label %"_ZZZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.exit", label %32
+  br i1 %31, label %"_ZZZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.argprom.exit", label %32
 
 32:                                               ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i
   call void @free(ptr noundef %30) #19
-  br label %"_ZZZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.exit"
+  br label %"_ZZZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.argprom.exit"
 
-"_ZZZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.exit": ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i, %32
+"_ZZZN5clang7CodeGen15CodeGenFunction26EmitOMPTargetDataDirectiveERKNS_22OMPTargetDataDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.argprom.exit": ; preds = %_ZN5clang11OMPChildren24getInnermostCapturedStmtEN4llvm8ArrayRefINS1_3omp9DirectiveEEE.exit.i.i.i, %32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %33 = getelementptr inbounds i8, ptr %.04.lcssa.i.i.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.04.lcssa.i.i.i.i, i64 8
@@ -75393,7 +75393,7 @@ _ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit: 
   call fastcc void @_ZL30emitCommonOMPParallelDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS6_12function_refIFvS2_S5_RNS6_15SmallVectorImplIPNS6_5ValueEEEEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 47, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
   %48 = ptrtoint ptr %8 to i64
   %.val = load ptr, ptr %12, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL24emitTargetParallelRegionS6_RKNS3_26OMPTargetParallelDirectiveERNS4_15PrePostActionTyEE3$_1EES2_lS6_", i64 %48)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %.val, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL24emitTargetParallelRegionS6_RKNS3_26OMPTargetParallelDirectiveERNS4_15PrePostActionTyEE3$_1EES2_lS6_", i64 %48)
   ret void
 }
 
@@ -75774,7 +75774,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
 30:                                               ; preds = %3
   %31 = load i8, ptr %7, align 1
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %91, label %"_ZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br i1 %32, label %91, label %"_ZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
 33:                                               ; preds = %3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -75954,7 +75954,7 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit.i: ; preds 
   %147 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val.i, i64 %146
   %148 = load ptr, ptr %147, align 8, !noalias !1931
   %149 = icmp eq ptr %134, %148
-  br i1 %149, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit.i, label %.lr.ph.i.i.i.i67.i
+  br i1 %149, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit.i, label %.lr.ph.i.i.i.i67.i
 
 .lr.ph.i.i.i.i67.i:                               ; preds = %139, %152
   %150 = phi ptr [ %157, %152 ], [ %148, %139 ]
@@ -75971,14 +75971,14 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit.i: ; preds 
   %156 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val.i, i64 %155
   %157 = load ptr, ptr %156, align 8, !noalias !1931
   %158 = icmp eq ptr %134, %157
-  br i1 %158, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit.i, label %.lr.ph.i.i.i.i67.i, !llvm.loop !39
+  br i1 %158, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit.i, label %.lr.ph.i.i.i.i67.i, !llvm.loop !39
 
 .loopexit.i.i.i72.i:                              ; preds = %.lr.ph.i.i.i.i67.i, %91
   %159 = zext i32 %.val55.i to i64
   %160 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val.i, i64 %159
-  br label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit.i
+  br label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit.i
 
-_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit.i: ; preds = %152, %.loopexit.i.i.i72.i, %139
+_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit.i: ; preds = %152, %.loopexit.i.i.i72.i, %139
   %.0.i.pn.i.i.i71.i = phi ptr [ %160, %.loopexit.i.i.i72.i ], [ %147, %139 ], [ %156, %152 ]
   %161 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i71.i, i64 8
   %162 = load ptr, ptr %101, align 8
@@ -75998,7 +75998,7 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %173 = icmp eq i32 %.val58.i, 0
   br i1 %173, label %.loopexit.i.i.i79.i, label %174
 
-174:                                              ; preds = %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit.i
+174:                                              ; preds = %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit.i
   %175 = ptrtoint ptr %171 to i64
   %176 = trunc i64 %175 to i32
   %177 = lshr i32 %176, 4
@@ -76010,7 +76010,7 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %182 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val57.i, i64 %181
   %183 = load ptr, ptr %182, align 8, !noalias !1934
   %184 = icmp eq ptr %171, %183
-  br i1 %184, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit80.i, label %.lr.ph.i.i.i.i74.i
+  br i1 %184, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit80.i, label %.lr.ph.i.i.i.i74.i
 
 .lr.ph.i.i.i.i74.i:                               ; preds = %174, %187
   %185 = phi ptr [ %192, %187 ], [ %183, %174 ]
@@ -76027,14 +76027,14 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %191 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val57.i, i64 %190
   %192 = load ptr, ptr %191, align 8, !noalias !1934
   %193 = icmp eq ptr %171, %192
-  br i1 %193, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit80.i, label %.lr.ph.i.i.i.i74.i, !llvm.loop !39
+  br i1 %193, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit80.i, label %.lr.ph.i.i.i.i74.i, !llvm.loop !39
 
-.loopexit.i.i.i79.i:                              ; preds = %.lr.ph.i.i.i.i74.i, %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit.i
+.loopexit.i.i.i79.i:                              ; preds = %.lr.ph.i.i.i.i74.i, %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit.i
   %194 = zext i32 %.val58.i to i64
   %195 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val57.i, i64 %194
-  br label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit80.i
+  br label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit80.i
 
-_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit80.i: ; preds = %187, %.loopexit.i.i.i79.i, %174
+_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit80.i: ; preds = %187, %.loopexit.i.i.i79.i, %174
   %.0.i.pn.i.i.i78.i = phi ptr [ %195, %.loopexit.i.i.i79.i ], [ %182, %174 ], [ %191, %187 ]
   %196 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i78.i, i64 8
   %197 = load ptr, ptr %101, align 8
@@ -76054,7 +76054,7 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %208 = icmp eq i32 %.val61.i, 0
   br i1 %208, label %.loopexit.i.i.i87.i, label %209
 
-209:                                              ; preds = %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit80.i
+209:                                              ; preds = %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit80.i
   %210 = ptrtoint ptr %206 to i64
   %211 = trunc i64 %210 to i32
   %212 = lshr i32 %211, 4
@@ -76066,7 +76066,7 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %217 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val60.i, i64 %216
   %218 = load ptr, ptr %217, align 8, !noalias !1937
   %219 = icmp eq ptr %206, %218
-  br i1 %219, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit88.i, label %.lr.ph.i.i.i.i82.i
+  br i1 %219, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit88.i, label %.lr.ph.i.i.i.i82.i
 
 .lr.ph.i.i.i.i82.i:                               ; preds = %209, %222
   %220 = phi ptr [ %227, %222 ], [ %218, %209 ]
@@ -76083,14 +76083,14 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %226 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val60.i, i64 %225
   %227 = load ptr, ptr %226, align 8, !noalias !1937
   %228 = icmp eq ptr %206, %227
-  br i1 %228, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit88.i, label %.lr.ph.i.i.i.i82.i, !llvm.loop !39
+  br i1 %228, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit88.i, label %.lr.ph.i.i.i.i82.i, !llvm.loop !39
 
-.loopexit.i.i.i87.i:                              ; preds = %.lr.ph.i.i.i.i82.i, %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit80.i
+.loopexit.i.i.i87.i:                              ; preds = %.lr.ph.i.i.i.i82.i, %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit80.i
   %229 = zext i32 %.val61.i to i64
   %230 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val60.i, i64 %229
-  br label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit88.i
+  br label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit88.i
 
-_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit88.i: ; preds = %222, %.loopexit.i.i.i87.i, %209
+_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit88.i: ; preds = %222, %.loopexit.i.i.i87.i, %209
   %.0.i.pn.i.i.i86.i = phi ptr [ %230, %.loopexit.i.i.i87.i ], [ %217, %209 ], [ %226, %222 ]
   %231 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i86.i, i64 8
   %232 = load ptr, ptr %101, align 8
@@ -76110,7 +76110,7 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %243 = icmp eq i32 %.val64.i, 0
   br i1 %243, label %.loopexit.i.i.i95.i, label %244
 
-244:                                              ; preds = %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit88.i
+244:                                              ; preds = %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit88.i
   %245 = ptrtoint ptr %241 to i64
   %246 = trunc i64 %245 to i32
   %247 = lshr i32 %246, 4
@@ -76122,7 +76122,7 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %252 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val63.i, i64 %251
   %253 = load ptr, ptr %252, align 8, !noalias !1940
   %254 = icmp eq ptr %241, %253
-  br i1 %254, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit96.i, label %.lr.ph.i.i.i.i90.i
+  br i1 %254, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit96.i, label %.lr.ph.i.i.i.i90.i
 
 .lr.ph.i.i.i.i90.i:                               ; preds = %244, %257
   %255 = phi ptr [ %262, %257 ], [ %253, %244 ]
@@ -76139,14 +76139,14 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %261 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val63.i, i64 %260
   %262 = load ptr, ptr %261, align 8, !noalias !1940
   %263 = icmp eq ptr %241, %262
-  br i1 %263, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit96.i, label %.lr.ph.i.i.i.i90.i, !llvm.loop !39
+  br i1 %263, label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit96.i, label %.lr.ph.i.i.i.i90.i, !llvm.loop !39
 
-.loopexit.i.i.i95.i:                              ; preds = %.lr.ph.i.i.i.i90.i, %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit88.i
+.loopexit.i.i.i95.i:                              ; preds = %.lr.ph.i.i.i.i90.i, %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit88.i
   %264 = zext i32 %.val64.i to i64
   %265 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %.val63.i, i64 %264
-  br label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit96.i
+  br label %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit96.i
 
-_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit96.i: ; preds = %257, %.loopexit.i.i.i95.i, %244
+_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit96.i: ; preds = %257, %.loopexit.i.i.i95.i, %244
   %.0.i.pn.i.i.i94.i = phi ptr [ %265, %.loopexit.i.i.i95.i ], [ %252, %244 ], [ %261, %257 ]
   %266 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i94.i, i64 8
   %267 = load ptr, ptr %101, align 8
@@ -76169,7 +76169,7 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   %or.cond.i.i.i = select i1 %277, i1 %280, i1 false
   br i1 %or.cond.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit.i, label %281
 
-281:                                              ; preds = %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit96.i
+281:                                              ; preds = %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit96.i
   %282 = shl i32 %276, 2
   %283 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %284 = load i32, ptr %283, align 8
@@ -76201,7 +76201,7 @@ _ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17Implicit
   store i32 0, ptr %278, align 4
   br label %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit.i
 
-_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit.i: ; preds = %._crit_edge.i.i.i.i, %287, %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.exit96.i
+_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit.i: ; preds = %._crit_edge.i.i.i.i, %287, %_ZL8mapParamRN5clang7CodeGen15CodeGenFunctionEPKNS_11DeclRefExprEPKNS_17ImplicitParamDeclERNS1_15OMPPrivateScopeE.argprom.exit96.i
   %293 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %294 = load ptr, ptr %20, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
@@ -76414,9 +76414,9 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope10restoreMapEv.exit.i: ; pred
   %409 = ptrtoint ptr %18 to i64
   call void @_ZN5clang7CodeGen15CodeGenFunction24EmitOMPLinearClauseFinalERKNS_16OMPLoopDirectiveEN4llvm12function_refIFPNS5_5ValueERS1_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(36) %407, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZZNS5_29EmitOMPTaskLoopBasedDirectiveERKNS3_16OMPLoopDirectiveEENK3$_0clES6_RNS4_15PrePostActionTyEEUlS6_E_EES2_lS6_", i64 %409)
   call void @_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %11) #19
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit": ; preds = %30, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope10restoreMapEv.exit.i
+"_ZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %30, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope10restoreMapEv.exit.i
   call void @_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -76440,14 +76440,14 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZZNS0_15Co
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp9DirectiveE(i32 noundef %7) #19
-  br i1 %8, label %9, label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.exit"
+  br i1 %8, label %9, label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.argprom.exit"
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(36) %10)
-  br label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.exit"
+  br label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.argprom.exit"
 
-"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.exit": ; preds = %3, %9
+"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_S8_E_clES6_S8_.argprom.exit": ; preds = %3, %9
   ret void
 }
 
@@ -76560,7 +76560,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGe
   %22 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %10, i64 %21
   %23 = load ptr, ptr %22, align 8, !noalias !1946
   %24 = icmp eq ptr %.val.val, %23
-  br i1 %24, label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_E_clES6_.exit", label %.lr.ph.i.i.i.i
+  br i1 %24, label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_E_clES6_.argprom.argprom.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %14, %27
   %25 = phi ptr [ %32, %27 ], [ %23, %14 ]
@@ -76577,14 +76577,14 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGe
   %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %10, i64 %30
   %32 = load ptr, ptr %31, align 8, !noalias !1946
   %33 = icmp eq ptr %.val.val, %32
-  br i1 %33, label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_E_clES6_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !39
+  br i1 %33, label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_E_clES6_.argprom.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !39
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %34 = zext i32 %12 to i64
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1777", ptr %10, i64 %34
-  br label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_E_clES6_.exit"
+  br label %"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_E_clES6_.argprom.argprom.exit"
 
-"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_E_clES6_.exit": ; preds = %27, %14, %.loopexit.i.i.i
+"_ZZZN5clang7CodeGen15CodeGenFunction29EmitOMPTaskLoopBasedDirectiveERKNS_16OMPLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyEENKUlS6_E_clES6_.argprom.argprom.exit": ; preds = %27, %14, %.loopexit.i.i.i
   %.0.i.pn.i.i.i = phi ptr [ %35, %.loopexit.i.i.i ], [ %22, %14 ], [ %31, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
@@ -77023,13 +77023,13 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit.i: ; preds 
 
 _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope10restoreMapEv.exit.i: ; preds = %._crit_edge.i.i.i16.i, %95, %81, %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit.i
   call void @_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction27EmitOMPGenericLoopDirectiveERKNS_23OMPGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction27EmitOMPGenericLoopDirectiveERKNS_23OMPGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
 .critedge.i:                                      ; preds = %25, %3
   tail call void @_ZN5clang7CodeGen15CodeGenFunction8EmitStmtEPKNS_4StmtEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %23, ptr null, i64 0) #19
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction27EmitOMPGenericLoopDirectiveERKNS_23OMPGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction27EmitOMPGenericLoopDirectiveERKNS_23OMPGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction27EmitOMPGenericLoopDirectiveERKNS_23OMPGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit": ; preds = %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope10restoreMapEv.exit.i, %.critedge.i
+"_ZZN5clang7CodeGen15CodeGenFunction27EmitOMPGenericLoopDirectiveERKNS_23OMPGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %_ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope10restoreMapEv.exit.i, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
   ret void
 }
@@ -77247,12 +77247,12 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   call fastcc void @_ZL27emitCommonOMPTeamsDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %.val, i32 noundef 21, ptr noundef nonnull align 8 dereferenceable(24) %10)
   %24 = ptrtoint ptr %11 to i64
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL42emitTargetTeamsGenericLoopRegionAsParallelS6_RNS4_15PrePostActionTyERKNS3_34OMPTargetTeamsGenericLoopDirectiveEE3$_2EES2_lS6_", i64 %24)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL42emitTargetTeamsGenericLoopRegionAsParallelS6_RNS4_15PrePostActionTyERKNS3_34OMPTargetTeamsGenericLoopDirectiveEE3$_2EES2_lS6_", i64 %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction38EmitOMPTargetTeamsGenericLoopDirectiveERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction38EmitOMPTargetTeamsGenericLoopDirectiveERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
 25:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -77275,14 +77275,14 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   call fastcc void @_ZL27emitCommonOMPTeamsDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %.val, i32 noundef 18, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %32 = ptrtoint ptr %7 to i64
   %.val.i5.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i5.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL44emitTargetTeamsGenericLoopRegionAsDistributeS6_RNS4_15PrePostActionTyERKNS3_34OMPTargetTeamsGenericLoopDirectiveEE3$_2EES2_lS6_", i64 %32)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i5.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL44emitTargetTeamsGenericLoopRegionAsDistributeS6_RNS4_15PrePostActionTyERKNS3_34OMPTargetTeamsGenericLoopDirectiveEE3$_2EES2_lS6_", i64 %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction38EmitOMPTargetTeamsGenericLoopDirectiveERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction38EmitOMPTargetTeamsGenericLoopDirectiveERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction38EmitOMPTargetTeamsGenericLoopDirectiveERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit": ; preds = %17, %25
+"_ZZN5clang7CodeGen15CodeGenFunction38EmitOMPTargetTeamsGenericLoopDirectiveERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %17, %25
   ret void
 }
 
@@ -77615,12 +77615,12 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   call fastcc void @_ZL27emitCommonOMPTeamsDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %.val, i32 noundef 21, ptr noundef nonnull align 8 dereferenceable(24) %10)
   %24 = ptrtoint ptr %11 to i64
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL42emitTargetTeamsGenericLoopRegionAsParallelS6_RNS4_15PrePostActionTyERKNS3_34OMPTargetTeamsGenericLoopDirectiveEE3$_2EES2_lS6_", i64 %24)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL42emitTargetTeamsGenericLoopRegionAsParallelS6_RNS4_15PrePostActionTyERKNS3_34OMPTargetTeamsGenericLoopDirectiveEE3$_2EES2_lS6_", i64 %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction43EmitOMPTargetTeamsGenericLoopDeviceFunctionERNS0_13CodeGenModuleEN4llvm9StringRefERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction43EmitOMPTargetTeamsGenericLoopDeviceFunctionERNS0_13CodeGenModuleEN4llvm9StringRefERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
 25:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -77643,14 +77643,14 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   call fastcc void @_ZL27emitCommonOMPTeamsDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %.val, i32 noundef 18, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %32 = ptrtoint ptr %7 to i64
   %.val.i5.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i5.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL44emitTargetTeamsGenericLoopRegionAsDistributeS6_RNS4_15PrePostActionTyERKNS3_34OMPTargetTeamsGenericLoopDirectiveEE3$_2EES2_lS6_", i64 %32)
+  call fastcc void @_ZL32emitPostUpdateForReductionClauseRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm12function_refIFPNS6_5ValueES2_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr %.val.i5.i, ptr nonnull @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionEEE11callback_fnIZL44emitTargetTeamsGenericLoopRegionAsDistributeS6_RNS4_15PrePostActionTyERKNS3_34OMPTargetTeamsGenericLoopDirectiveEE3$_2EES2_lS6_", i64 %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %"_ZZN5clang7CodeGen15CodeGenFunction43EmitOMPTargetTeamsGenericLoopDeviceFunctionERNS0_13CodeGenModuleEN4llvm9StringRefERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit"
+  br label %"_ZZN5clang7CodeGen15CodeGenFunction43EmitOMPTargetTeamsGenericLoopDeviceFunctionERNS0_13CodeGenModuleEN4llvm9StringRefERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit"
 
-"_ZZN5clang7CodeGen15CodeGenFunction43EmitOMPTargetTeamsGenericLoopDeviceFunctionERNS0_13CodeGenModuleEN4llvm9StringRefERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.exit": ; preds = %17, %25
+"_ZZN5clang7CodeGen15CodeGenFunction43EmitOMPTargetTeamsGenericLoopDeviceFunctionERNS0_13CodeGenModuleEN4llvm9StringRefERKNS_34OMPTargetTeamsGenericLoopDirectiveEENK3$_0clERS1_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %17, %25
   ret void
 }
 
@@ -78727,8 +78727,8 @@ attributes #22 = { builtin nounwind }
 !59 = distinct !{!59, !60, !"_ZN5clang7CodeGen6LValue8MakeAddrENS0_7AddressENS_8QualTypeERNS_10ASTContextENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE: argument 0"}
 !60 = distinct !{!60, !"_ZN5clang7CodeGen6LValue8MakeAddrENS0_7AddressENS_8QualTypeERNS_10ASTContextENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE: argument 0"}
-!63 = distinct !{!63, !"_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE"}
+!62 = distinct !{!62, !63, !"_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom: argument 0"}
+!63 = distinct !{!63, !"_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom"}
 !64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE: argument 0"}
 !66 = distinct !{!66, !"_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE"}
@@ -78746,8 +78746,8 @@ attributes #22 = { builtin nounwind }
 !78 = distinct !{!78, !79, !"_ZNK5clang7CodeGen7Address13withAlignmentENS_9CharUnitsE: argument 0"}
 !79 = distinct !{!79, !"_ZNK5clang7CodeGen7Address13withAlignmentENS_9CharUnitsE"}
 !80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE: argument 0"}
-!82 = distinct !{!82, !"_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE"}
+!81 = distinct !{!81, !82, !"_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom: argument 0"}
+!82 = distinct !{!82, !"_ZL20castValueFromUintptrRN5clang7CodeGen15CodeGenFunctionENS_14SourceLocationENS_8QualTypeEN4llvm9StringRefENS0_6LValueE.argprom"}
 !83 = distinct !{!83, !5}
 !84 = !{!85}
 !85 = distinct !{!85, !86, !"_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE: argument 0"}
@@ -79820,8 +79820,8 @@ attributes #22 = { builtin nounwind }
 !1152 = distinct !{!1152, !1153, !"_ZN5clang7CodeGen6RValue3getEPN4llvm5ValueE: argument 0"}
 !1153 = distinct !{!1153, !"_ZN5clang7CodeGen6RValue3getEPN4llvm5ValueE"}
 !1154 = !{!1155}
-!1155 = distinct !{!1155, !1156, !"_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb: argument 0"}
-!1156 = distinct !{!1156, !"_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb"}
+!1155 = distinct !{!1155, !1156, !"_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.argprom: argument 0"}
+!1156 = distinct !{!1156, !"_ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEb.argprom"}
 !1157 = !{!1158, !1155}
 !1158 = distinct !{!1158, !1159, !"_ZSt9make_pairIbN5clang7CodeGen6RValueEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_: argument 0"}
 !1159 = distinct !{!1159, !"_ZSt9make_pairIbN5clang7CodeGen6RValueEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_"}
@@ -80254,8 +80254,8 @@ attributes #22 = { builtin nounwind }
 !1586 = distinct !{!1586, !5}
 !1587 = distinct !{!1587, !5}
 !1588 = !{!1589}
-!1589 = distinct !{!1589, !1590, !"_ZZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS_20OMPParallelDirectiveEENK3$_2clEN4llvm13IRBuilderBase11InsertPointES8_RNS6_5ValueESA_RPS9_: argument 0"}
-!1590 = distinct !{!1590, !"_ZZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS_20OMPParallelDirectiveEENK3$_2clEN4llvm13IRBuilderBase11InsertPointES8_RNS6_5ValueESA_RPS9_"}
+!1589 = distinct !{!1589, !1590, !"_ZZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS_20OMPParallelDirectiveEENK3$_2clEN4llvm13IRBuilderBase11InsertPointES8_RNS6_5ValueESA_RPS9_.argprom: argument 0"}
+!1590 = distinct !{!1590, !"_ZZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNS_20OMPParallelDirectiveEENK3$_2clEN4llvm13IRBuilderBase11InsertPointES8_RNS6_5ValueESA_RPS9_.argprom"}
 !1591 = !{!1592}
 !1592 = distinct !{!1592, !1593, !"_ZN5clang7CodeGen15CodeGenFunction25getJumpDestInCurrentScopeEPN4llvm10BasicBlockE: argument 0"}
 !1593 = distinct !{!1593, !"_ZN5clang7CodeGen15CodeGenFunction25getJumpDestInCurrentScopeEPN4llvm10BasicBlockE"}
@@ -80438,8 +80438,8 @@ attributes #22 = { builtin nounwind }
 !1770 = distinct !{!1770, !"_ZNK5clang12CompoundStmt8childrenEv"}
 !1771 = distinct !{!1771, !5}
 !1772 = !{!1773}
-!1773 = distinct !{!1773, !1774, !"_ZZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS_20OMPSectionsDirectiveEENK3$_3clEN4llvm13IRBuilderBase11InsertPointES8_RNS6_5ValueESA_RPS9_: argument 0"}
-!1774 = distinct !{!1774, !"_ZZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS_20OMPSectionsDirectiveEENK3$_3clEN4llvm13IRBuilderBase11InsertPointES8_RNS6_5ValueESA_RPS9_"}
+!1773 = distinct !{!1773, !1774, !"_ZZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS_20OMPSectionsDirectiveEENK3$_3clEN4llvm13IRBuilderBase11InsertPointES8_RNS6_5ValueESA_RPS9_.argprom: argument 0"}
+!1774 = distinct !{!1774, !"_ZZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNS_20OMPSectionsDirectiveEENK3$_3clEN4llvm13IRBuilderBase11InsertPointES8_RNS6_5ValueESA_RPS9_.argprom"}
 !1775 = !{!1776}
 !1776 = distinct !{!1776, !1777, !"_ZN5clang7CodeGen15CodeGenFunction25getJumpDestInCurrentScopeEPN4llvm10BasicBlockE: argument 0"}
 !1777 = distinct !{!1777, !"_ZN5clang7CodeGen15CodeGenFunction25getJumpDestInCurrentScopeEPN4llvm10BasicBlockE"}
@@ -80466,8 +80466,8 @@ attributes #22 = { builtin nounwind }
 !1798 = distinct !{!1798, !"_ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfo16getCaptureFieldsEv"}
 !1799 = distinct !{!1799, !5}
 !1800 = !{!1801, !1803}
-!1801 = distinct !{!1801, !1802, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_: argument 0"}
-!1802 = distinct !{!1802, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_"}
+!1801 = distinct !{!1801, !1802, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_.argprom: argument 0"}
+!1802 = distinct !{!1802, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_.argprom"}
 !1803 = distinct !{!1803, !1804, !"_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE: argument 0"}
 !1804 = distinct !{!1804, !"_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE"}
 !1805 = distinct !{!1805, !5}

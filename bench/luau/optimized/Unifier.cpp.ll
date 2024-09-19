@@ -30439,7 +30439,7 @@ _ZNK4Luau9WeirdIter4goodEv.exit:                  ; preds = %510
 524:                                              ; preds = %521
   %525 = load ptr, ptr %459, align 8
   %.sroa.024.0.copyload = load i64, ptr %474, align 4
-  %526 = invoke fastcc noundef ptr @"_ZZN4Luau7Unifier9tryUnify_EPKNS_11TypePackVarES3_bENK3$_0clEPNS_5ScopeENS_9TypeLevelE"(ptr nonnull %0, ptr noundef %525, i64 %.sroa.024.0.copyload)
+  %526 = invoke fastcc noundef ptr @"_ZZN4Luau7Unifier9tryUnify_EPKNS_11TypePackVarES3_bENK3$_0clEPNS_5ScopeENS_9TypeLevelE.argprom"(ptr nonnull %0, ptr noundef %525, i64 %.sroa.024.0.copyload)
           to label %527 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 527:                                              ; preds = %524
@@ -30471,7 +30471,7 @@ _ZNK4Luau9WeirdIter4goodEv.exit234:               ; preds = %_ZNK4Luau9WeirdIter
 541:                                              ; preds = %538
   %542 = load ptr, ptr %458, align 8
   %.sroa.023.0.copyload = load i64, ptr %478, align 4
-  %543 = invoke fastcc noundef ptr @"_ZZN4Luau7Unifier9tryUnify_EPKNS_11TypePackVarES3_bENK3$_0clEPNS_5ScopeENS_9TypeLevelE"(ptr nonnull %0, ptr noundef %542, i64 %.sroa.023.0.copyload)
+  %543 = invoke fastcc noundef ptr @"_ZZN4Luau7Unifier9tryUnify_EPKNS_11TypePackVarES3_bENK3$_0clEPNS_5ScopeENS_9TypeLevelE.argprom"(ptr nonnull %0, ptr noundef %542, i64 %.sroa.023.0.copyload)
           to label %544 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 544:                                              ; preds = %541
@@ -31755,7 +31755,7 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findE
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit18.thread.thread: ; preds = %3, %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit18.thread
   %.not.i172737 = phi i1 [ %.not.i1727, %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit18.thread ], [ true, %3 ]
-  %58 = tail call fastcc noundef zeroext i1 @"_ZZN4Luau7Unifier14canCacheResultEPKNS_4TypeES3_ENK3$_0clES3_"(ptr nonnull %0, ptr noundef %2)
+  %58 = tail call fastcc noundef zeroext i1 @"_ZZN4Luau7Unifier14canCacheResultEPKNS_4TypeES3_ENK3$_0clES3_.argprom"(ptr nonnull %0, ptr noundef %2)
   br i1 %58, label %63, label %59
 
 59:                                               ; preds = %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit18.thread.thread, %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit18.thread
@@ -31763,7 +31763,7 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findE
   br i1 %.not.i172736, label %60, label %62
 
 60:                                               ; preds = %59
-  %61 = tail call fastcc noundef zeroext i1 @"_ZZN4Luau7Unifier14canCacheResultEPKNS_4TypeES3_ENK3$_0clES3_"(ptr nonnull %0, ptr noundef %1)
+  %61 = tail call fastcc noundef zeroext i1 @"_ZZN4Luau7Unifier14canCacheResultEPKNS_4TypeES3_ENK3$_0clES3_.argprom"(ptr nonnull %0, ptr noundef %1)
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %60, %59
@@ -31775,7 +31775,7 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4Luau7Unifier14canCacheResultEPKNS_4TypeES3_ENK3$_0clES3_"(ptr nocapture readonly %.0.val, ptr noundef %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN4Luau7Unifier14canCacheResultEPKNS_4TypeES3_ENK3$_0clES3_.argprom"(ptr nocapture readonly %.0.val, ptr noundef %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.Luau::SkipCacheForType", align 8
   store ptr %0, ptr %2, align 8
@@ -33642,7 +33642,7 @@ _ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN4Luau7Unifier9tryUnify_EPKNS_11TypePackVarES3_bENK3$_0clEPNS_5ScopeENS_9TypeLevelE"(ptr nocapture readonly %.0.val, ptr noundef %0, i64 %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @"_ZZN4Luau7Unifier9tryUnify_EPKNS_11TypePackVarES3_bENK3$_0clEPNS_5ScopeENS_9TypeLevelE.argprom"(ptr nocapture readonly %.0.val, ptr noundef %0, i64 %1) unnamed_addr #1 align 2 {
   %3 = load i8, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %4 = trunc i8 %3 to i1
   %5 = load ptr, ptr %.0.val, align 8

@@ -2920,7 +2920,7 @@ define range(i32 0, 5) i32 @LzmaProps_Decode(ptr nocapture noundef writeonly %0,
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp ult i32 %2, 5
-  br i1 %5, label %LzmaDec_AllocateProbs2.exit, label %6
+  br i1 %5, label %LzmaDec_AllocateProbs2.argprom.exit, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 1
@@ -2928,7 +2928,7 @@ define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr 
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %8, i32 4096)
   %9 = load i8, ptr %1, align 1
   %10 = icmp ugt i8 %9, -32
-  br i1 %10, label %LzmaDec_AllocateProbs2.exit, label %11
+  br i1 %10, label %LzmaDec_AllocateProbs2.argprom.exit, label %11
 
 11:                                               ; preds = %6
   %12 = urem i8 %9, 9
@@ -2965,7 +2965,7 @@ define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr 
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %19, ptr %33, align 8
   %34 = icmp eq ptr %32, null
-  br i1 %34, label %LzmaDec_AllocateProbs2.exit, label %35
+  br i1 %34, label %LzmaDec_AllocateProbs2.argprom.exit, label %35
 
 35:                                               ; preds = %23, %26
   store i32 %13, ptr %0, align 8
@@ -2975,9 +2975,9 @@ define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr 
   store i32 %.zext.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %spec.store.select.i, ptr %.sroa.6.0..sroa_idx, align 4
-  br label %LzmaDec_AllocateProbs2.exit
+  br label %LzmaDec_AllocateProbs2.argprom.exit
 
-LzmaDec_AllocateProbs2.exit:                      ; preds = %6, %4, %26, %35
+LzmaDec_AllocateProbs2.argprom.exit:              ; preds = %6, %4, %26, %35
   %.0 = phi i32 [ 0, %35 ], [ 2, %26 ], [ 4, %4 ], [ 4, %6 ]
   ret i32 %.0
 }
@@ -2985,7 +2985,7 @@ LzmaDec_AllocateProbs2.exit:                      ; preds = %6, %4, %26, %35
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp ult i32 %2, 5
-  br i1 %5, label %LzmaDec_AllocateProbs2.exit, label %6
+  br i1 %5, label %LzmaDec_AllocateProbs2.argprom.exit, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 1
@@ -2993,7 +2993,7 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocap
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %8, i32 4096)
   %9 = load i8, ptr %1, align 1
   %10 = icmp ugt i8 %9, -32
-  br i1 %10, label %LzmaDec_AllocateProbs2.exit, label %11
+  br i1 %10, label %LzmaDec_AllocateProbs2.argprom.exit, label %11
 
 11:                                               ; preds = %6
   %12 = urem i8 %9, 9
@@ -3030,7 +3030,7 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocap
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %19, ptr %33, align 8
   %34 = icmp eq ptr %32, null
-  br i1 %34, label %LzmaDec_AllocateProbs2.exit, label %35
+  br i1 %34, label %LzmaDec_AllocateProbs2.argprom.exit, label %35
 
 35:                                               ; preds = %23, %26
   %36 = zext i32 %spec.store.select.i to i64
@@ -3061,7 +3061,7 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocap
   %51 = load ptr, ptr %20, align 8
   tail call void %50(ptr noundef nonnull %3, ptr noundef %51) #7
   store ptr null, ptr %20, align 8
-  br label %LzmaDec_AllocateProbs2.exit
+  br label %LzmaDec_AllocateProbs2.argprom.exit
 
 52:                                               ; preds = %43, %40
   %53 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3073,9 +3073,9 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocap
   store i32 %.zext.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %spec.store.select.i, ptr %.sroa.6.0..sroa_idx, align 4
-  br label %LzmaDec_AllocateProbs2.exit
+  br label %LzmaDec_AllocateProbs2.argprom.exit
 
-LzmaDec_AllocateProbs2.exit:                      ; preds = %6, %4, %26, %52, %49
+LzmaDec_AllocateProbs2.argprom.exit:              ; preds = %6, %4, %26, %52, %49
   %.0 = phi i32 [ 2, %49 ], [ 0, %52 ], [ 2, %26 ], [ 4, %4 ], [ 4, %6 ]
   ret i32 %.0
 }

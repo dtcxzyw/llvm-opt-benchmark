@@ -1549,7 +1549,7 @@ define internal i32 @intel_dp_mst_compute_config(ptr noundef %0, ptr noundef %1,
   %36 = ashr i32 %35, 4
   %.val = load ptr, ptr %7, align 8
   %.val14 = load ptr, ptr %2, align 8
-  %37 = call fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp(ptr %.val, ptr noundef %1, i32 noundef %34, i32 noundef %36, ptr noundef nonnull %5, ptr %.val14, i32 noundef 6, i1 noundef zeroext false)
+  %37 = call fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp.argprom(ptr %.val, ptr noundef %1, i32 noundef %34, i32 noundef %36, ptr noundef nonnull %5, ptr %.val14, i32 noundef 6, i1 noundef zeroext false)
   %38 = call i32 @llvm.smin.i32(i32 %37, i32 0)
   switch i32 %38, label %39 [
     i32 -35, label %198
@@ -1739,7 +1739,7 @@ define internal i32 @intel_dp_mst_compute_config(ptr noundef %0, ptr noundef %1,
   %158 = call i32 @intel_dp_dsc_nearest_valid_bpp(ptr noundef %83, i32 noundef %151, i32 noundef %157) #12
   %.val15 = load ptr, ptr %7, align 8
   %.val16 = load ptr, ptr %2, align 8
-  %159 = call fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp(ptr %.val15, ptr noundef %1, i32 noundef %156, i32 noundef %158, ptr noundef nonnull %5, ptr %.val16, i32 noundef 1, i1 noundef zeroext true)
+  %159 = call fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp.argprom(ptr %.val15, ptr noundef %1, i32 noundef %156, i32 noundef %158, ptr noundef nonnull %5, ptr %.val16, i32 noundef 1, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #12
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %198, label %.critedge
@@ -2730,7 +2730,7 @@ declare dso_local void @intel_dp_adjust_compliance_config(ptr noundef, ptr nound
 declare dso_local zeroext i1 @intel_dp_compute_config_link_bpp_limits(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp(ptr %.392.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr %.0.val, i32 noundef range(i32 1, 7) %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp.argprom(ptr %.392.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr %.0.val, i32 noundef range(i32 1, 7) %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 328
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %.392.val, i64 392

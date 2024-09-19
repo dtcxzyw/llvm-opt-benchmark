@@ -11501,7 +11501,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel12GetCheckTypeERKNS1_10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -11510,30 +11510,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN10open_spiel10kriegspiel12GetCheckTypeERKNS_5chess10ChessBoardEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN10open_spiel10kriegspiel12GetCheckTypeERKNS1_5chess10ChessBoardEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -12084,7 +12084,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.i.i.i:   ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, %21
-  br i1 %51, label %"_ZSt10__invoke_rIbRZNK10open_spiel10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread.i.i.i
+  br i1 %51, label %"_ZSt10__invoke_rIbRZNK10open_spiel10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread.i.i.i
 
 _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread.i.i.i: ; preds = %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.i.i.i, %45, %37, %29, %22
   %52 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 12
@@ -12118,7 +12118,7 @@ _ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit.i.i.i: ; preds = %.critedg
   %66 = load ptr, ptr %61, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr %67, ptr %61, align 8
-  br label %"_ZSt10__invoke_rIbRZNK10open_spiel10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZNK10open_spiel10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 68:                                               ; preds = %_ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit.i.i.i
   %69 = load ptr, ptr %57, align 8
@@ -12173,9 +12173,9 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   store ptr %88, ptr %61, align 8
   %90 = getelementptr inbounds i64, ptr %83, i64 %79
   store ptr %90, ptr %63, align 8
-  br label %"_ZSt10__invoke_rIbRZNK10open_spiel10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZNK10open_spiel10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZNK10open_spiel10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.i.i.i, %65, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIbRZNK10open_spiel10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.i.i.i, %65, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i.i
   ret i1 true
 }
 

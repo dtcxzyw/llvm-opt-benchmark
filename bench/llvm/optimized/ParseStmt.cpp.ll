@@ -4451,10 +4451,10 @@ _ZN5clang6Parser10ParseScope4ExitEv.exit105:      ; preds = %_ZN5clang6Parser10P
   br i1 %324, label %_ZN5clang6Parser10ParseScopeD2Ev.exit135, label %.thread194.thread232
 
 .thread194:                                       ; preds = %317
-  br i1 %.048184, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit.thread", label %429
+  br i1 %.048184, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit.thread", label %429
 
 .thread194.thread232:                             ; preds = %323
-  br i1 %.048184, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit.thread", label %.thread235
+  br i1 %.048184, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit.thread", label %.thread235
 
 .thread194.thread:                                ; preds = %319
   br i1 %.048184, label %325, label %432
@@ -4462,38 +4462,38 @@ _ZN5clang6Parser10ParseScope4ExitEv.exit105:      ; preds = %_ZN5clang6Parser10P
 325:                                              ; preds = %.thread194.thread
   %326 = load i8, ptr %321, align 8
   %327 = icmp eq i8 %326, -126
-  br i1 %327, label %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit"
+  br i1 %327, label %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit"
 
 _ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i: ; preds = %325
   %328 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %329 = load ptr, ptr %328, align 8
   %.not.i.i.i107 = icmp eq ptr %329, null
-  br i1 %.not.i.i.i107, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit.thread", label %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i
+  br i1 %.not.i.i.i107, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit.thread", label %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i
 
 _ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i: ; preds = %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i
   %.pre.i108 = load i8, ptr %329, align 8
-  br label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit"
+  br label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit"
 
-"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit": ; preds = %325, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i
+"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit": ; preds = %325, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i
   %330 = phi i8 [ %.pre.i108, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i ], [ %326, %325 ]
   %331 = icmp eq i8 %330, -21
-  br i1 %331, label %387, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit.thread"
+  br i1 %331, label %387, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit.thread"
 
-"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit.thread": ; preds = %.thread194.thread232, %.thread194, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit"
+"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit.thread": ; preds = %.thread194.thread232, %.thread194, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit"
   call void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %17, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 %.sroa.0165.0180, i32 noundef 16) #14
   %332 = load ptr, ptr %17, align 8
   %.not.i.i.i109 = icmp eq ptr %332, null
   br i1 %.not.i.i.i109, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i110, label %_ZNK5clang17DiagnosticBuilderlsIA10_cEERKS0_RKT_.exit
 
-_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i110: ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit.thread"
+_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i110: ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit.thread"
   %333 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %334 = load ptr, ptr %333, align 8
   %335 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %334)
   store ptr %335, ptr %17, align 8
   br label %_ZNK5clang17DiagnosticBuilderlsIA10_cEERKS0_RKT_.exit
 
-_ZNK5clang17DiagnosticBuilderlsIA10_cEERKS0_RKT_.exit: ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit.thread", %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i110
-  %336 = phi ptr [ %335, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i110 ], [ %332, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit.thread" ]
+_ZNK5clang17DiagnosticBuilderlsIA10_cEERKS0_RKT_.exit: ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit.thread", %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i110
+  %336 = phi ptr [ %335, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i110 ], [ %332, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit.thread" ]
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 1
   %338 = load i8, ptr %336, align 8
   %339 = zext i8 %338 to i64
@@ -4583,7 +4583,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i113:    ; preds = %365, %_ZNK5clang17D
   call void @_ZdlPvm(ptr noundef nonnull %372, i64 noundef 928) #15
   br label %_ZN5clang6Parser10ParseScopeD2Ev.exit135
 
-387:                                              ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit"
+387:                                              ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit"
   %388 = icmp eq i64 %.sroa.0138.0, 0
   br i1 %388, label %.thread235, label %389
 
@@ -4591,43 +4591,43 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i113:    ; preds = %365, %_ZNK5clang17D
   %390 = and i64 %.sroa.0138.0, -2
   %391 = inttoptr i64 %390 to ptr
   %.not.i.i119 = icmp eq i64 %390, 0
-  br i1 %.not.i.i119, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126.thread", label %392
+  br i1 %.not.i.i119, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126.thread", label %392
 
 392:                                              ; preds = %389
   %393 = load i8, ptr %391, align 8
   %394 = icmp eq i8 %393, -126
-  br i1 %394, label %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i122, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126"
+  br i1 %394, label %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i122, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126"
 
 _ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i122: ; preds = %392
   %395 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %396 = load ptr, ptr %395, align 8
   %.not.i.i.i123 = icmp eq ptr %396, null
-  br i1 %.not.i.i.i123, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126.thread", label %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i124
+  br i1 %.not.i.i.i123, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126.thread", label %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i124
 
 _ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i124: ; preds = %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i122
   %.pre.i125 = load i8, ptr %396, align 8
-  br label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126"
+  br label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126"
 
-"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126": ; preds = %392, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i124
+"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126": ; preds = %392, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i124
   %397 = phi i8 [ %.pre.i125, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread._ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.thread5_crit_edge.i124 ], [ %393, %392 ]
   %398 = icmp eq i8 %397, -21
-  br i1 %398, label %.thread235, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126.thread"
+  br i1 %398, label %.thread235, label %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126.thread"
 
-"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126.thread": ; preds = %389, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i122, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126"
+"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126.thread": ; preds = %389, %_ZN4llvm19dyn_cast_if_presentIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.thread.i122, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126"
   call void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %18, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 %.sroa.0147.0, i32 noundef 16) #14
   %399 = load ptr, ptr %18, align 8
   %.not.i.i.i127 = icmp eq ptr %399, null
   br i1 %.not.i.i.i127, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i128, label %_ZNK5clang17DiagnosticBuilderlsIA5_cEERKS0_RKT_.exit
 
-_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i128: ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126.thread"
+_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i128: ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126.thread"
   %400 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %401 = load ptr, ptr %400, align 8
   %402 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %401)
   store ptr %402, ptr %18, align 8
   br label %_ZNK5clang17DiagnosticBuilderlsIA5_cEERKS0_RKT_.exit
 
-_ZNK5clang17DiagnosticBuilderlsIA5_cEERKS0_RKT_.exit: ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126.thread", %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i128
-  %403 = phi ptr [ %402, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i128 ], [ %399, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126.thread" ]
+_ZNK5clang17DiagnosticBuilderlsIA5_cEERKS0_RKT_.exit: ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126.thread", %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i128
+  %403 = phi ptr [ %402, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i128 ], [ %399, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126.thread" ]
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 1
   %405 = load i8, ptr %403, align 8
   %406 = zext i8 %405 to i64
@@ -4684,9 +4684,9 @@ _ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit131: ; preds = %_ZNK5clang17
   %436 = call i64 @_ZN5clang4Sema13ActOnNullStmtENS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(17560) %435, i32 %.sroa.0146.0, i1 noundef zeroext false) #14
   br label %.thread235
 
-.thread235:                                       ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126", %387, %.thread194.thread232, %429, %434, %432
-  %.sroa.0152.0237 = phi i64 [ %210, %434 ], [ %210, %432 ], [ %431, %429 ], [ 0, %.thread194.thread232 ], [ %210, %387 ], [ %210, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126" ]
-  %.sroa.0138.1 = phi i64 [ %436, %434 ], [ %.sroa.0138.0, %432 ], [ %.sroa.0138.0, %429 ], [ %.sroa.0138.0, %.thread194.thread232 ], [ 0, %387 ], [ %.sroa.0138.0, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.exit126" ]
+.thread235:                                       ; preds = %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126", %387, %.thread194.thread232, %429, %434, %432
+  %.sroa.0152.0237 = phi i64 [ %210, %434 ], [ %210, %432 ], [ %431, %429 ], [ 0, %.thread194.thread232 ], [ %210, %387 ], [ %210, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126" ]
+  %.sroa.0138.1 = phi i64 [ %436, %434 ], [ %.sroa.0138.0, %432 ], [ %.sroa.0138.0, %429 ], [ %.sroa.0138.0, %.thread194.thread232 ], [ 0, %387 ], [ %.sroa.0138.0, %"_ZZN5clang6Parser16ParseIfStatementEPNS_14SourceLocationEENK3$_0clEPKNS_4StmtE.argprom.exit126" ]
   %.048.not = xor i1 %.048184, true
   %brmerge = or i1 %26, %.048.not
   %.mux = zext i1 %26 to i32
@@ -11766,16 +11766,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_128MisleadingIndentationChecker5Che
   %.val = load i32, ptr %38, align 4
   %78 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %78, null
-  br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_RKT_.exit
+  br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_RKT_.argprom.exit
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %80)
   store ptr %81, ptr %2, align 8
-  br label %_ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_RKT_.exit
+  br label %_ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_RKT_.argprom.exit
 
-_ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_RKT_.exit: ; preds = %76, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
+_ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_RKT_.argprom.exit: ; preds = %76, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
   %82 = phi ptr [ %81, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %78, %76 ]
   %83 = sext i32 %.val to i64
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 1
@@ -11798,7 +11798,7 @@ _ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %3) #14
   br label %95
 
-95:                                               ; preds = %60, %_ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_RKT_.exit, %69, %65, %.critedge2, %.critedge
+95:                                               ; preds = %60, %_ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_123MisleadingStatementKindEEERKS0_RKT_.argprom.exit, %69, %65, %.critedge2, %.critedge
   ret void
 }
 

@@ -303,7 +303,7 @@ select.unfold:                                    ; preds = %18, %8
   br label %61
 
 60:                                               ; preds = %47
-  tail call fastcc void @drm_set_master(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @drm_set_master.argelim(ptr noundef %0, ptr noundef %2)
   br label %61
 
 61:                                               ; preds = %18, %60, %56, %45, %38, %34, %23
@@ -425,7 +425,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @drm_new_set_master(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @drm_set_master(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @drm_set_master.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #6, !srcloc !13

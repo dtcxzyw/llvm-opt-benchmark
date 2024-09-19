@@ -453,11 +453,11 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias no
   %12 = shl nuw nsw i64 %4, 29
   %13 = or disjoint i64 %10, %12
   %14 = or i64 %13, 9221120237041090560
-  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit
+  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit
 
 15:                                               ; preds = %8
   %16 = or disjoint i64 %10, 9218868437227405312
-  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit
+  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit
 
 17:                                               ; preds = %2
   %.not21.i = icmp eq i64 %7, 0
@@ -467,7 +467,7 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias no
   %.lobit.i = lshr i32 %3, 31
   %19 = zext nneg i32 %.lobit.i to i64
   %20 = shl nuw i64 %19, 63
-  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit
+  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i64 %7 to i32
@@ -504,9 +504,9 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias no
   %43 = or disjoint i64 %40, 4035225266123964416
   %44 = add i64 %43, %42
   %45 = add i64 %44, %41
-  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit
+  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit
 
-_ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %11, %15, %18, %38
+_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit:  ; preds = %11, %15, %18, %38
   %.018.i = phi i64 [ %14, %11 ], [ %16, %15 ], [ %45, %38 ], [ %20, %18 ]
   store i64 %.018.i, ptr %0, align 8, !alias.scope !22
   ret void
@@ -524,13 +524,13 @@ define void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 9:                                                ; preds = %3
   tail call fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !25
-  br label %_ZN2cvL7f32_addENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_addENS_9softfloatES0_.argprom.exit
 
 10:                                               ; preds = %3
   tail call fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !25
-  br label %_ZN2cvL7f32_addENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_addENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL7f32_addENS_9softfloatES0_.exit:           ; preds = %9, %10
+_ZN2cvL7f32_addENS_9softfloatES0_.argprom.exit:   ; preds = %9, %10
   ret void
 }
 
@@ -546,13 +546,13 @@ define void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 9:                                                ; preds = %3
   tail call fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !28
-  br label %_ZN2cvL7f32_subENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_subENS_9softfloatES0_.argprom.exit
 
 10:                                               ; preds = %3
   tail call fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !28
-  br label %_ZN2cvL7f32_subENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_subENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL7f32_subENS_9softfloatES0_.exit:           ; preds = %9, %10
+_ZN2cvL7f32_subENS_9softfloatES0_.argprom.exit:   ; preds = %9, %10
   ret void
 }
 
@@ -755,7 +755,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %98, %89
 _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %110, %108
   %.0.i.i = phi i64 [ %121, %110 ], [ %109, %108 ]
   %122 = trunc i64 %.0.i.i to i32
-  br label %_ZN2cvL7f32_mulENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_mulENS_9softfloatES0_.argprom.exit
 
 123:                                              ; preds = %24, %17, %16
   %124 = and i64 %6, 2143289344
@@ -776,23 +776,23 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %110, %108
 _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %129, %123
   %.0.in.i.i = phi i32 [ %132, %129 ], [ %4, %123 ]
   %.0.i75.i = or i32 %.0.in.i.i, 4194304
-  br label %_ZN2cvL7f32_mulENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_mulENS_9softfloatES0_.argprom.exit
 
 133:                                              ; preds = %25, %20
   %.054.i = phi i64 [ %21, %20 ], [ %26, %25 ]
   %.not67.i = icmp eq i64 %.054.i, 0
-  br i1 %.not67.i, label %_ZN2cvL7f32_mulENS_9softfloatES0_.exit, label %134
+  br i1 %.not67.i, label %_ZN2cvL7f32_mulENS_9softfloatES0_.argprom.exit, label %134
 
 134:                                              ; preds = %133
   %.lobit61.lobit68.i = and i32 %.lobit61.i, -2147483648
   %135 = or disjoint i32 %.lobit61.lobit68.i, 2139095040
-  br label %_ZN2cvL7f32_mulENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_mulENS_9softfloatES0_.argprom.exit
 
 136:                                              ; preds = %48, %28
   %.lobit61.lobit.i = and i32 %.lobit61.i, -2147483648
-  br label %_ZN2cvL7f32_mulENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_mulENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL7f32_mulENS_9softfloatES0_.exit:           ; preds = %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %133, %134, %136
+_ZN2cvL7f32_mulENS_9softfloatES0_.argprom.exit:   ; preds = %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %133, %134, %136
   %storemerge.i = phi i32 [ %122, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %.0.i75.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %135, %134 ], [ %.lobit61.lobit.i, %136 ], [ -4194304, %133 ]
   store i32 %storemerge.i, ptr %0, align 4, !alias.scope !31
   ret void
@@ -826,7 +826,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 19:                                               ; preds = %17
   %.not73.i = icmp eq i64 %13, 0
-  br i1 %.not73.i, label %_ZN2cvL7f32_divENS_9softfloatES0_.exit, label %118
+  br i1 %.not73.i, label %_ZN2cvL7f32_divENS_9softfloatES0_.argprom.exit, label %118
 
 20:                                               ; preds = %3
   %trunc.i = trunc i64 %11 to i8
@@ -846,7 +846,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
 23:                                               ; preds = %22
   %24 = or i64 %8, %9
   %.not66.i = icmp eq i64 %24, 0
-  br i1 %.not66.i, label %_ZN2cvL7f32_divENS_9softfloatES0_.exit, label %128
+  br i1 %.not66.i, label %_ZN2cvL7f32_divENS_9softfloatES0_.argprom.exit, label %128
 
 25:                                               ; preds = %22
   %26 = trunc nuw nsw i64 %13 to i32
@@ -1001,7 +1001,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %93, %84
 _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %105, %103
   %.0.i.i = phi i64 [ %116, %105 ], [ %104, %103 ]
   %117 = trunc i64 %.0.i.i to i32
-  br label %_ZN2cvL7f32_divENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_divENS_9softfloatES0_.argprom.exit
 
 118:                                              ; preds = %21, %19, %16
   %119 = and i64 %6, 2143289344
@@ -1022,18 +1022,18 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %105, %103
 _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %124, %118
   %.0.in.i.i = phi i32 [ %127, %124 ], [ %4, %118 ]
   %.0.i80.i = or i32 %.0.in.i.i, 4194304
-  br label %_ZN2cvL7f32_divENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_divENS_9softfloatES0_.argprom.exit
 
 128:                                              ; preds = %23, %17
   %.lobit64.lobit72.i = and i32 %.lobit64.i, -2147483648
   %129 = or disjoint i32 %.lobit64.lobit72.i, 2139095040
-  br label %_ZN2cvL7f32_divENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_divENS_9softfloatES0_.argprom.exit
 
 130:                                              ; preds = %44, %21
   %.lobit64.lobit.i = and i32 %.lobit64.i, -2147483648
-  br label %_ZN2cvL7f32_divENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_divENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL7f32_divENS_9softfloatES0_.exit:           ; preds = %19, %23, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %128, %130
+_ZN2cvL7f32_divENS_9softfloatES0_.argprom.exit:   ; preds = %19, %23, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %128, %130
   %storemerge.i = phi i32 [ %117, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %.0.i80.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %129, %128 ], [ %.lobit64.lobit.i, %130 ], [ -4194304, %23 ], [ -4194304, %19 ]
   store i32 %storemerge.i, ptr %0, align 4, !alias.scope !34
   ret void
@@ -1078,7 +1078,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 21:                                               ; preds = %20
   store i32 %4, ptr %0, align 4, !alias.scope !37
-  br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_remENS_9softfloatES0_.argprom.exit
 
 22:                                               ; preds = %19
   %.not94.i = icmp eq i64 %13, 0
@@ -1120,7 +1120,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 43:                                               ; preds = %42
   store i32 %4, ptr %0, align 4, !alias.scope !37
-  br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_remENS_9softfloatES0_.argprom.exit
 
 44:                                               ; preds = %42
   %45 = trunc nuw nsw i64 %9 to i32
@@ -1162,7 +1162,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 70:                                               ; preds = %68
   store i32 %4, ptr %0, align 4, !alias.scope !37
-  br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_remENS_9softfloatES0_.argprom.exit
 
 71:                                               ; preds = %68
   %72 = shl i64 %65, 6
@@ -1263,7 +1263,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %spec.select105.i = icmp slt i32 %121, 0
   %122 = zext i32 %spec.select.i to i64
   tail call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias writable align 4 %0, i1 noundef zeroext %spec.select105.i, i64 noundef %.076.i, i64 noundef %122), !alias.scope !37
-  br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_remENS_9softfloatES0_.argprom.exit
 
 123:                                              ; preds = %20, %16, %15
   %124 = and i64 %6, 2143289344
@@ -1289,9 +1289,9 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %129, %123
 133:                                              ; preds = %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %22, %16
   %.078.i = phi i32 [ %.0.i.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ -4194304, %22 ], [ -4194304, %16 ]
   store i32 %.078.i, ptr %0, align 4, !alias.scope !43
-  br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
+  br label %_ZN2cvL7f32_remENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL7f32_remENS_9softfloatES0_.exit:           ; preds = %21, %43, %70, %120, %133
+_ZN2cvL7f32_remENS_9softfloatES0_.argprom.exit:   ; preds = %21, %43, %70, %120, %133
   ret void
 }
 
@@ -1305,7 +1305,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr nocapture noundef nonnu
   %8 = and i64 %5, 8388607
   %.not.i = icmp eq i64 %8, 0
   %or.cond.i = or i1 %7, %.not.i
-  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_eqENS_9softfloatES0_.exit
+  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_eqENS_9softfloatES0_.argprom.exit
 
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
@@ -1314,7 +1314,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr nocapture noundef nonnu
   %13 = and i64 %10, 8388607
   %.not14.i = icmp eq i64 %13, 0
   %or.cond18.i = or i1 %12, %.not14.i
-  br i1 %or.cond18.i, label %14, label %_ZN2cvL6f32_eqENS_9softfloatES0_.exit
+  br i1 %or.cond18.i, label %14, label %_ZN2cvL6f32_eqENS_9softfloatES0_.argprom.exit
 
 14:                                               ; preds = %9
   %15 = icmp eq i32 %3, %4
@@ -1322,9 +1322,9 @@ define noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr nocapture noundef nonnu
   %.mask.i = and i32 %16, 2147483647
   %.not15.i = icmp eq i32 %.mask.i, 0
   %17 = select i1 %15, i1 true, i1 %.not15.i
-  br label %_ZN2cvL6f32_eqENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_eqENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL6f32_eqENS_9softfloatES0_.exit:            ; preds = %2, %9, %14
+_ZN2cvL6f32_eqENS_9softfloatES0_.argprom.exit:    ; preds = %2, %9, %14
   %.0.i = phi i1 [ %17, %14 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -1339,7 +1339,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatneERKS0_(ptr nocapture noundef nonnu
   %8 = and i64 %5, 8388607
   %.not.i = icmp eq i64 %8, 0
   %or.cond.i = or i1 %7, %.not.i
-  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_eqENS_9softfloatES0_.exit
+  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_eqENS_9softfloatES0_.argprom.exit
 
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
@@ -1348,7 +1348,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatneERKS0_(ptr nocapture noundef nonnu
   %13 = and i64 %10, 8388607
   %.not14.i = icmp eq i64 %13, 0
   %or.cond18.i = or i1 %12, %.not14.i
-  br i1 %or.cond18.i, label %14, label %_ZN2cvL6f32_eqENS_9softfloatES0_.exit
+  br i1 %or.cond18.i, label %14, label %_ZN2cvL6f32_eqENS_9softfloatES0_.argprom.exit
 
 14:                                               ; preds = %9
   %15 = icmp ne i32 %3, %4
@@ -1356,9 +1356,9 @@ define noundef zeroext i1 @_ZNK2cv9softfloatneERKS0_(ptr nocapture noundef nonnu
   %.mask.i = and i32 %16, 2147483647
   %.not15.i = icmp ne i32 %.mask.i, 0
   %.not4 = select i1 %15, i1 %.not15.i, i1 false
-  br label %_ZN2cvL6f32_eqENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_eqENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL6f32_eqENS_9softfloatES0_.exit:            ; preds = %2, %9, %14
+_ZN2cvL6f32_eqENS_9softfloatES0_.argprom.exit:    ; preds = %2, %9, %14
   %.0.i = phi i1 [ %.not4, %14 ], [ true, %9 ], [ true, %2 ]
   ret i1 %.0.i
 }
@@ -1373,7 +1373,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr nocapture noundef nonnu
   %8 = and i64 %5, 8388607
   %.not.i = icmp eq i64 %8, 0
   %or.cond.i = or i1 %7, %.not.i
-  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
@@ -1382,7 +1382,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr nocapture noundef nonnu
   %13 = and i64 %10, 8388607
   %.not19.i = icmp eq i64 %13, 0
   %or.cond23.i = or i1 %12, %.not19.i
-  br i1 %or.cond23.i, label %14, label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br i1 %or.cond23.i, label %14, label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
 14:                                               ; preds = %9
   %.not21.unshifted.i = xor i32 %4, %3
@@ -1391,25 +1391,25 @@ define noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr nocapture noundef nonnu
 
 15:                                               ; preds = %14
   %16 = icmp slt i32 %3, 0
-  br i1 %16, label %17, label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br i1 %16, label %17, label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
 17:                                               ; preds = %15
   %18 = or i32 %4, %3
   %.mask.i = and i32 %18, 2147483647
   %19 = icmp ne i32 %.mask.i, 0
-  br label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
 20:                                               ; preds = %14
   %.not22.i = icmp eq i32 %3, %4
-  br i1 %.not22.i, label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit, label %21
+  br i1 %.not22.i, label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit, label %21
 
 21:                                               ; preds = %20
   %22 = icmp ult i32 %3, %4
   %23 = icmp slt i32 %3, 0
   %24 = xor i1 %23, %22
-  br label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL6f32_ltENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %20, %21
+_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit:    ; preds = %2, %9, %15, %17, %20, %21
   %.0.i = phi i1 [ false, %15 ], [ %19, %17 ], [ false, %20 ], [ %24, %21 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -1424,7 +1424,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatgeERKS0_(ptr nocapture noundef nonnu
   %8 = and i64 %5, 8388607
   %.not.i = icmp eq i64 %8, 0
   %or.cond.i = or i1 %7, %.not.i
-  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
+  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit
 
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
@@ -1433,7 +1433,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatgeERKS0_(ptr nocapture noundef nonnu
   %13 = and i64 %10, 8388607
   %.not19.i = icmp eq i64 %13, 0
   %or.cond23.i = or i1 %12, %.not19.i
-  br i1 %or.cond23.i, label %14, label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
+  br i1 %or.cond23.i, label %14, label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit
 
 14:                                               ; preds = %9
   %.not21.unshifted.i = xor i32 %4, %3
@@ -1442,25 +1442,25 @@ define noundef zeroext i1 @_ZNK2cv9softfloatgeERKS0_(ptr nocapture noundef nonnu
 
 15:                                               ; preds = %14
   %16 = icmp slt i32 %3, 0
-  br i1 %16, label %_ZN2cvL6f32_leENS_9softfloatES0_.exit, label %17
+  br i1 %16, label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit, label %17
 
 17:                                               ; preds = %15
   %.masked.i = and i32 %4, 2147483647
   %.mask.i = or i32 %.masked.i, %3
   %.not22.i = icmp eq i32 %.mask.i, 0
-  br label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit
 
 18:                                               ; preds = %14
   %19 = icmp eq i32 %3, %4
-  br i1 %19, label %_ZN2cvL6f32_leENS_9softfloatES0_.exit, label %20
+  br i1 %19, label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit, label %20
 
 20:                                               ; preds = %18
   %21 = icmp ult i32 %3, %4
   %22 = icmp slt i32 %3, 0
   %23 = xor i1 %22, %21
-  br label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL6f32_leENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %18, %20
+_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit:    ; preds = %2, %9, %15, %17, %18, %20
   %.0.i = phi i1 [ true, %15 ], [ %.not22.i, %17 ], [ true, %18 ], [ %23, %20 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -1475,7 +1475,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr nocapture noundef nonnu
   %8 = and i64 %5, 8388607
   %.not.i = icmp eq i64 %8, 0
   %or.cond.i = or i1 %7, %.not.i
-  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
@@ -1484,7 +1484,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr nocapture noundef nonnu
   %13 = and i64 %10, 8388607
   %.not19.i = icmp eq i64 %13, 0
   %or.cond23.i = or i1 %12, %.not19.i
-  br i1 %or.cond23.i, label %14, label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br i1 %or.cond23.i, label %14, label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
 14:                                               ; preds = %9
   %.not21.unshifted.i = xor i32 %4, %3
@@ -1493,25 +1493,25 @@ define noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr nocapture noundef nonnu
 
 15:                                               ; preds = %14
   %16 = icmp slt i32 %3, 0
-  br i1 %16, label %17, label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br i1 %16, label %17, label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
 17:                                               ; preds = %15
   %18 = or i32 %4, %3
   %.mask.i = and i32 %18, 2147483647
   %19 = icmp ne i32 %.mask.i, 0
-  br label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
 20:                                               ; preds = %14
   %.not22.i = icmp eq i32 %3, %4
-  br i1 %.not22.i, label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit, label %21
+  br i1 %.not22.i, label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit, label %21
 
 21:                                               ; preds = %20
   %22 = icmp ult i32 %3, %4
   %23 = icmp slt i32 %3, 0
   %24 = xor i1 %23, %22
-  br label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL6f32_ltENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %20, %21
+_ZN2cvL6f32_ltENS_9softfloatES0_.argprom.exit:    ; preds = %2, %9, %15, %17, %20, %21
   %.0.i = phi i1 [ false, %15 ], [ %19, %17 ], [ false, %20 ], [ %24, %21 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -1526,7 +1526,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatleERKS0_(ptr nocapture noundef nonnu
   %8 = and i64 %5, 8388607
   %.not.i = icmp eq i64 %8, 0
   %or.cond.i = or i1 %7, %.not.i
-  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
+  br i1 %or.cond.i, label %9, label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit
 
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
@@ -1535,7 +1535,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatleERKS0_(ptr nocapture noundef nonnu
   %13 = and i64 %10, 8388607
   %.not19.i = icmp eq i64 %13, 0
   %or.cond23.i = or i1 %12, %.not19.i
-  br i1 %or.cond23.i, label %14, label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
+  br i1 %or.cond23.i, label %14, label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit
 
 14:                                               ; preds = %9
   %.not21.unshifted.i = xor i32 %4, %3
@@ -1544,25 +1544,25 @@ define noundef zeroext i1 @_ZNK2cv9softfloatleERKS0_(ptr nocapture noundef nonnu
 
 15:                                               ; preds = %14
   %16 = icmp slt i32 %3, 0
-  br i1 %16, label %_ZN2cvL6f32_leENS_9softfloatES0_.exit, label %17
+  br i1 %16, label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit, label %17
 
 17:                                               ; preds = %15
   %.masked.i = and i32 %4, 2147483647
   %.mask.i = or i32 %.masked.i, %3
   %.not22.i = icmp eq i32 %.mask.i, 0
-  br label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit
 
 18:                                               ; preds = %14
   %19 = icmp eq i32 %3, %4
-  br i1 %19, label %_ZN2cvL6f32_leENS_9softfloatES0_.exit, label %20
+  br i1 %19, label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit, label %20
 
 20:                                               ; preds = %18
   %21 = icmp ult i32 %3, %4
   %22 = icmp slt i32 %3, 0
   %23 = xor i1 %22, %21
-  br label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
+  br label %_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit
 
-_ZN2cvL6f32_leENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %18, %20
+_ZN2cvL6f32_leENS_9softfloatES0_.argprom.exit:    ; preds = %2, %9, %15, %17, %18, %20
   %.0.i = phi i1 [ true, %15 ], [ %.not22.i, %17 ], [ true, %18 ], [ %23, %20 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -1716,7 +1716,7 @@ define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr nocapture noundef nonnull re
   %6 = and i64 %3, 8388607
   %7 = sub nsw i64 158, %5
   %8 = icmp ult i64 %5, 127
-  br i1 %8, label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit, label %9
+  br i1 %8, label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.argprom.exit, label %9
 
 9:                                                ; preds = %1
   %.not.i = icmp sgt i32 %2, -1
@@ -1725,7 +1725,7 @@ define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr nocapture noundef nonnull re
 
 11:                                               ; preds = %9
   %12 = icmp eq i32 %2, -822083584
-  br i1 %12, label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit, label %13
+  br i1 %12, label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.argprom.exit, label %13
 
 13:                                               ; preds = %11
   %14 = icmp eq i64 %5, 255
@@ -1733,7 +1733,7 @@ define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr nocapture noundef nonnull re
   %or.cond.i = and i1 %15, %14
   %16 = or i1 %.not.i, %or.cond.i
   %17 = select i1 %16, i64 2147483647, i64 -2147483648
-  br label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit
+  br label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.argprom.exit
 
 18:                                               ; preds = %9
   %19 = shl nuw nsw i64 %6, 8
@@ -1741,9 +1741,9 @@ define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr nocapture noundef nonnull re
   %21 = lshr i64 %20, %7
   %22 = sub nsw i64 0, %21
   %23 = select i1 %.not.i, i64 %21, i64 %22
-  br label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit
+  br label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.argprom.exit
 
-_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit: ; preds = %1, %11, %13, %18
+_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.argprom.exit: ; preds = %1, %11, %13, %18
   %.0.i = phi i64 [ %17, %13 ], [ %23, %18 ], [ 0, %1 ], [ -2147483648, %11 ]
   %24 = trunc nsw i64 %.0.i to i32
   ret i32 %24
@@ -1810,13 +1810,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %16, %1
   %36 = icmp sgt i64 %35, -1
   %.not3334.i.i = xor i1 %spec.select.i, %36
   %or.cond.i.i = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit, label %37
+  br i1 %or.cond.i.i, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit, label %37
 
 37:                                               ; preds = %26, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %38 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
+  br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit
 
-_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %26, %37
+_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit: ; preds = %26, %37
   %.0.i.i = phi i64 [ %38, %37 ], [ %35, %26 ]
   %39 = trunc nsw i64 %.0.i.i to i32
   ret i32 %39
@@ -1878,13 +1878,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %24, %16, %1
   %34 = icmp sgt i64 %33, -1
   %.not3334.i.i = xor i1 %spec.select.i, %34
   %or.cond.i.i = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit, label %35
+  br i1 %or.cond.i.i, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit, label %35
 
 35:                                               ; preds = %29, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %36 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
+  br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit
 
-_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %29, %35
+_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit: ; preds = %29, %35
   %.0.i.i = phi i64 [ %36, %35 ], [ %33, %29 ]
   %37 = trunc nsw i64 %.0.i.i to i32
   ret i32 %37
@@ -1946,13 +1946,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %24, %16, %1
   %34 = icmp sgt i64 %33, -1
   %.not3334.i.i = xor i1 %spec.select.i, %34
   %or.cond.i.i = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit, label %35
+  br i1 %or.cond.i.i, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit, label %35
 
 35:                                               ; preds = %29, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %36 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
+  br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit
 
-_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %29, %35
+_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit: ; preds = %29, %35
   %.0.i.i = phi i64 [ %36, %35 ], [ %33, %29 ]
   %37 = trunc nsw i64 %.0.i.i to i32
   ret i32 %37
@@ -1966,7 +1966,7 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr nocapture noundef nonnull 
   %5 = and i64 %2, 4503599627370495
   %6 = sub nsw i64 1075, %4
   %7 = icmp ult i64 %4, 1023
-  br i1 %7, label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit, label %8
+  br i1 %7, label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.argprom.exit, label %8
 
 8:                                                ; preds = %1
   %9 = icmp slt i64 %2, 0
@@ -1978,7 +1978,7 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr nocapture noundef nonnull 
   %13 = icmp ult i64 %5, 2097152
   %14 = and i1 %13, %12
   %or.cond3.i = and i1 %9, %14
-  br i1 %or.cond3.i, label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit, label %15
+  br i1 %or.cond3.i, label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.argprom.exit, label %15
 
 15:                                               ; preds = %11
   %16 = icmp eq i64 %4, 2047
@@ -1986,16 +1986,16 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr nocapture noundef nonnull 
   %or.cond7.i = and i1 %17, %16
   %18 = select i1 %9, i64 -2147483648, i64 2147483647
   %19 = select i1 %or.cond7.i, i64 2147483647, i64 %18
-  br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
+  br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.argprom.exit
 
 20:                                               ; preds = %8
   %21 = or disjoint i64 %5, 4503599627370496
   %22 = lshr i64 %21, %6
   %23 = sub nsw i64 0, %22
   %24 = select i1 %9, i64 %23, i64 %22
-  br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
+  br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.argprom.exit
 
-_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %15, %20
+_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.argprom.exit: ; preds = %1, %11, %15, %20
   %.0.i = phi i64 [ %19, %15 ], [ %24, %20 ], [ 0, %1 ], [ -2147483648, %11 ]
   %25 = trunc nsw i64 %.0.i to i32
   ret i32 %25
@@ -2060,13 +2060,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %13, %1
   %33 = icmp sgt i64 %32, -1
   %.not3334.i.i = xor i1 %spec.select.i, %33
   %or.cond.i.i = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %34
+  br i1 %or.cond.i.i, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit, label %34
 
 34:                                               ; preds = %23, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %35 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %23, %34
+_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit: ; preds = %23, %34
   %.0.i.i = phi i64 [ %35, %34 ], [ %32, %23 ]
   %36 = trunc nsw i64 %.0.i.i to i32
   ret i32 %36
@@ -2126,13 +2126,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %21, %13, %1
   %31 = icmp sgt i64 %30, -1
   %.not3334.i.i = xor i1 %spec.select.i, %31
   %or.cond.i.i = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %32
+  br i1 %or.cond.i.i, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit, label %32
 
 32:                                               ; preds = %26, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %33 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %26, %32
+_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit: ; preds = %26, %32
   %.0.i.i = phi i64 [ %33, %32 ], [ %30, %26 ]
   %34 = trunc nsw i64 %.0.i.i to i32
   ret i32 %34
@@ -2192,13 +2192,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %21, %13, %1
   %31 = icmp sgt i64 %30, -1
   %.not3334.i.i = xor i1 %spec.select.i, %31
   %or.cond.i.i = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %32
+  br i1 %or.cond.i.i, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit, label %32
 
 32:                                               ; preds = %26, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %33 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %26, %32
+_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit: ; preds = %26, %32
   %.0.i.i = phi i64 [ %33, %32 ], [ %30, %26 ]
   %34 = trunc nsw i64 %.0.i.i to i32
   ret i32 %34
@@ -2236,16 +2236,16 @@ define noundef i64 @_Z9cvRound64RKN2cv10softdoubleE(ptr nocapture noundef nonnul
   %18 = trunc nuw i8 %spec.select.i to i1
   %19 = sub nsw i64 0, %15
   %20 = select i1 %18, i64 %19, i64 %15
-  br label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit
+  br label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.argprom.exit
 
 21:                                               ; preds = %14, %12
   %22 = trunc nuw i8 %spec.select.i to i1
   %23 = select i1 %22, i64 -9223372036854775808, i64 9223372036854775807
-  br label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit
+  br label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.argprom.exit
 
 24:                                               ; preds = %1
   %25 = icmp ugt i64 %5, 1011
-  br i1 %25, label %26, label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit
+  br i1 %25, label %26, label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.argprom.exit
 
 26:                                               ; preds = %24
   %27 = trunc nuw i8 %spec.select.i to i1
@@ -2274,9 +2274,9 @@ _ZN2cvL20softfloat_roundToI64Ebmmhb.exit.i:       ; preds = %32, %26
   %or.cond.i.i = select i1 %.not33.i.i, i1 true, i1 %.not3435.i.i
   %41 = select i1 %27, i64 -9223372036854775808, i64 9223372036854775807
   %spec.select.i.i = select i1 %or.cond.i.i, i64 %39, i64 %41
-  br label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit
+  br label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit:      ; preds = %17, %21, %24, %_ZN2cvL20softfloat_roundToI64Ebmmhb.exit.i
+_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.argprom.exit: ; preds = %17, %21, %24, %_ZN2cvL20softfloat_roundToI64Ebmmhb.exit.i
   %.0.i = phi i64 [ %20, %17 ], [ %23, %21 ], [ %spec.select.i.i, %_ZN2cvL20softfloat_roundToI64Ebmmhb.exit.i ], [ 0, %24 ]
   ret i64 %.0.i
 }
@@ -2302,11 +2302,11 @@ define void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind noalias no
   %13 = and i64 %12, 4194303
   %14 = or disjoint i64 %10, %13
   %15 = or disjoint i64 %14, 2143289344
-  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit
+  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.argprom.exit
 
 16:                                               ; preds = %9
   %17 = or disjoint i64 %10, 2139095040
-  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit
+  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.argprom.exit
 
 18:                                               ; preds = %2
   %19 = lshr i64 %7, 22
@@ -2321,7 +2321,7 @@ define void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind noalias no
 25:                                               ; preds = %18
   %sh.diff.i = lshr i64 %3, 32
   %26 = and i64 %sh.diff.i, 2147483648
-  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit
+  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.argprom.exit
 
 27:                                               ; preds = %18
   %28 = add nsw i64 %6, -897
@@ -2366,7 +2366,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %36, %34
 
 53:                                               ; preds = %49
   %54 = select i1 %4, i64 4286578688, i64 2139095040
-  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit
+  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.argprom.exit
 
 55:                                               ; preds = %49, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i, %27
   %.041.i.i = phi i64 [ %29, %27 ], [ %29, %49 ], [ %47, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
@@ -2386,9 +2386,9 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %36, %34
   %64 = select i1 %.not49.i.i, i64 0, i64 %61
   %65 = add nuw nsw i64 %60, %63
   %66 = add nuw nsw i64 %65, %64
-  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit
+  br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.argprom.exit
 
-_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit:        ; preds = %11, %16, %25, %53, %55
+_ZN2cvL10f64_to_f32ENS_10softdoubleE.argprom.exit: ; preds = %11, %16, %25, %53, %55
   %storemerge.in.i = phi i64 [ %66, %55 ], [ %54, %53 ], [ %15, %11 ], [ %17, %16 ], [ %26, %25 ]
   %storemerge.i = trunc i64 %storemerge.in.i to i32
   store i32 %storemerge.i, ptr %0, align 4, !alias.scope !58
@@ -2406,13 +2406,13 @@ define void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 8:                                                ; preds = %3
   tail call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !61
-  br label %_ZN2cvL7f64_addENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_addENS_10softdoubleES0_.argprom.exit
 
 9:                                                ; preds = %3
   tail call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !61
-  br label %_ZN2cvL7f64_addENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_addENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL7f64_addENS_10softdoubleES0_.exit:         ; preds = %8, %9
+_ZN2cvL7f64_addENS_10softdoubleES0_.argprom.exit: ; preds = %8, %9
   ret void
 }
 
@@ -2427,13 +2427,13 @@ define void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 8:                                                ; preds = %3
   tail call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !64
-  br label %_ZN2cvL7f64_subENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_subENS_10softdoubleES0_.argprom.exit
 
 9:                                                ; preds = %3
   tail call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !64
-  br label %_ZN2cvL7f64_subENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_subENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL7f64_subENS_10softdoubleES0_.exit:         ; preds = %8, %9
+_ZN2cvL7f64_subENS_10softdoubleES0_.argprom.exit: ; preds = %8, %9
   ret void
 }
 
@@ -2625,7 +2625,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
 116:                                              ; preds = %112
   %117 = and i64 %.lobit65.i, -9223372036854775808
   %118 = or disjoint i64 %117, 9218868437227405312
-  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom.exit
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %112, %109, %102, %66
   %.041.i.i = phi i64 [ %.057.i, %66 ], [ %.057.i, %112 ], [ %108, %102 ], [ %111, %109 ]
@@ -2643,7 +2643,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %112, %109, %102, %6
   %126 = select i1 %.not49.i.i, i64 0, i64 %124
   %127 = or disjoint i64 %123, %125
   %128 = add i64 %127, %126
-  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom.exit
 
 129:                                              ; preds = %21, %14, %13
   %130 = and i64 %4, 9221120237041090560
@@ -2664,23 +2664,23 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %112, %109, %102, %6
 _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %135, %129
   %.0.in.i.i = phi i64 [ %138, %135 ], [ %4, %129 ]
   %.0.i85.i = or i64 %.0.in.i.i, 2251799813685248
-  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom.exit
 
 139:                                              ; preds = %22, %17
   %.055.i = phi i64 [ %18, %17 ], [ %23, %22 ]
   %.not71.i = icmp eq i64 %.055.i, 0
-  br i1 %.not71.i, label %_ZN2cvL7f64_mulENS_10softdoubleES0_.exit, label %140
+  br i1 %.not71.i, label %_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom.exit, label %140
 
 140:                                              ; preds = %139
   %.lobit65.lobit72.i = and i64 %.lobit65.i, -9223372036854775808
   %141 = or disjoint i64 %.lobit65.lobit72.i, 9218868437227405312
-  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom.exit
 
 142:                                              ; preds = %46, %25
   %.lobit65.lobit.i = and i64 %.lobit65.i, -9223372036854775808
-  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL7f64_mulENS_10softdoubleES0_.exit:         ; preds = %116, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %139, %140, %142
+_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom.exit: ; preds = %116, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %139, %140, %142
   %storemerge.i = phi i64 [ %128, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %118, %116 ], [ %.0.i85.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %141, %140 ], [ %.lobit65.lobit.i, %142 ], [ -2251799813685248, %139 ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !67
   ret void
@@ -2711,7 +2711,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 16:                                               ; preds = %14
   %.not94.i = icmp eq i64 %11, 0
-  br i1 %.not94.i, label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit, label %143
+  br i1 %.not94.i, label %_ZN2cvL7f64_divENS_10softdoubleES0_.argprom.exit, label %143
 
 17:                                               ; preds = %3
   switch i64 %10, label %41 [
@@ -2730,7 +2730,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
 20:                                               ; preds = %19
   %21 = or i64 %7, %8
   %.not86.i = icmp eq i64 %21, 0
-  br i1 %.not86.i, label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit, label %153
+  br i1 %.not86.i, label %_ZN2cvL7f64_divENS_10softdoubleES0_.argprom.exit, label %153
 
 22:                                               ; preds = %19
   %23 = lshr i64 %11, 32
@@ -2902,7 +2902,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
 130:                                              ; preds = %126
   %131 = and i64 %.lobit84.i, -9223372036854775808
   %132 = or disjoint i64 %131, 9218868437227405312
-  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.argprom.exit
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %126, %123, %116, %108
   %.041.i.i = phi i64 [ %.075.i, %108 ], [ %.075.i, %126 ], [ %122, %116 ], [ %125, %123 ]
@@ -2920,7 +2920,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %126, %123, %116, %1
   %140 = select i1 %.not49.i.i, i64 0, i64 %138
   %141 = or disjoint i64 %137, %139
   %142 = add i64 %141, %140
-  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.argprom.exit
 
 143:                                              ; preds = %18, %16, %13
   %144 = and i64 %4, 9221120237041090560
@@ -2941,18 +2941,18 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %126, %123, %116, %1
 _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %149, %143
   %.0.in.i.i = phi i64 [ %152, %149 ], [ %4, %143 ]
   %.0.i105.i = or i64 %.0.in.i.i, 2251799813685248
-  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.argprom.exit
 
 153:                                              ; preds = %20, %14
   %.lobit84.lobit93.i = and i64 %.lobit84.i, -9223372036854775808
   %154 = or disjoint i64 %.lobit84.lobit93.i, 9218868437227405312
-  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.argprom.exit
 
 155:                                              ; preds = %42, %18
   %.lobit84.lobit.i = and i64 %.lobit84.i, -9223372036854775808
-  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit
+  br label %_ZN2cvL7f64_divENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL7f64_divENS_10softdoubleES0_.exit:         ; preds = %16, %20, %130, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %153, %155
+_ZN2cvL7f64_divENS_10softdoubleES0_.argprom.exit: ; preds = %16, %20, %130, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %153, %155
   %storemerge.i = phi i64 [ %142, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %132, %130 ], [ %.0.i105.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %154, %153 ], [ %.lobit84.lobit.i, %155 ], [ -2251799813685248, %20 ], [ -2251799813685248, %16 ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !70
   ret void
@@ -2962,12 +2962,12 @@ _ZN2cvL7f64_divENS_10softdoubleES0_.exit:         ; preds = %16, %20, %130, %_ZN
 define void @_ZNK2cv10softdoublermERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #5 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
-  tail call fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias writable align 8 %0, i64 %4, i64 %5)
+  tail call fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_.argprom(ptr dead_on_unwind noalias writable align 8 %0, i64 %4, i64 %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 %.0.val, i64 %.0.val1) unnamed_addr #6 {
+define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_.argprom(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 %.0.val, i64 %.0.val1) unnamed_addr #6 {
   %2 = lshr i64 %.0.val, 52
   %3 = and i64 %2, 2047
   %4 = and i64 %.0.val, 4503599627370495
@@ -3253,7 +3253,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr nocapture noundef non
   %7 = and i64 %3, 4503599627370495
   %.not.i = icmp eq i64 %7, 0
   %or.cond.i = or i1 %6, %.not.i
-  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_eqENS_10softdoubleES0_.exit
+  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_eqENS_10softdoubleES0_.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i64 %4, 9218868437227405312
@@ -3261,7 +3261,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr nocapture noundef non
   %11 = and i64 %4, 4503599627370495
   %.not14.i = icmp eq i64 %11, 0
   %or.cond18.i = or i1 %10, %.not14.i
-  br i1 %or.cond18.i, label %12, label %_ZN2cvL6f64_eqENS_10softdoubleES0_.exit
+  br i1 %or.cond18.i, label %12, label %_ZN2cvL6f64_eqENS_10softdoubleES0_.argprom.exit
 
 12:                                               ; preds = %8
   %13 = icmp eq i64 %3, %4
@@ -3269,9 +3269,9 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr nocapture noundef non
   %15 = and i64 %14, 9223372036854775807
   %.not15.i = icmp eq i64 %15, 0
   %16 = select i1 %13, i1 true, i1 %.not15.i
-  br label %_ZN2cvL6f64_eqENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_eqENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL6f64_eqENS_10softdoubleES0_.exit:          ; preds = %2, %8, %12
+_ZN2cvL6f64_eqENS_10softdoubleES0_.argprom.exit:  ; preds = %2, %8, %12
   %.0.i = phi i1 [ %16, %12 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -3285,7 +3285,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleneERKS0_(ptr nocapture noundef non
   %7 = and i64 %3, 4503599627370495
   %.not.i = icmp eq i64 %7, 0
   %or.cond.i = or i1 %6, %.not.i
-  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_eqENS_10softdoubleES0_.exit
+  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_eqENS_10softdoubleES0_.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i64 %4, 9218868437227405312
@@ -3293,7 +3293,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleneERKS0_(ptr nocapture noundef non
   %11 = and i64 %4, 4503599627370495
   %.not14.i = icmp eq i64 %11, 0
   %or.cond18.i = or i1 %10, %.not14.i
-  br i1 %or.cond18.i, label %12, label %_ZN2cvL6f64_eqENS_10softdoubleES0_.exit
+  br i1 %or.cond18.i, label %12, label %_ZN2cvL6f64_eqENS_10softdoubleES0_.argprom.exit
 
 12:                                               ; preds = %8
   %13 = icmp ne i64 %3, %4
@@ -3301,9 +3301,9 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleneERKS0_(ptr nocapture noundef non
   %15 = and i64 %14, 9223372036854775807
   %.not15.i = icmp ne i64 %15, 0
   %.not4 = select i1 %13, i1 %.not15.i, i1 false
-  br label %_ZN2cvL6f64_eqENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_eqENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL6f64_eqENS_10softdoubleES0_.exit:          ; preds = %2, %8, %12
+_ZN2cvL6f64_eqENS_10softdoubleES0_.argprom.exit:  ; preds = %2, %8, %12
   %.0.i = phi i1 [ %.not4, %12 ], [ true, %8 ], [ true, %2 ]
   ret i1 %.0.i
 }
@@ -3317,7 +3317,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoublegtERKS0_(ptr nocapture noundef non
   %7 = and i64 %3, 4503599627370495
   %.not.i = icmp eq i64 %7, 0
   %or.cond.i = or i1 %6, %.not.i
-  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i64 %4, 9218868437227405312
@@ -3325,7 +3325,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoublegtERKS0_(ptr nocapture noundef non
   %11 = and i64 %4, 4503599627370495
   %.not19.i = icmp eq i64 %11, 0
   %or.cond23.i = or i1 %10, %.not19.i
-  br i1 %or.cond23.i, label %12, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br i1 %or.cond23.i, label %12, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
 12:                                               ; preds = %8
   %.not21.unshifted.i = xor i64 %4, %3
@@ -3334,25 +3334,25 @@ define noundef zeroext i1 @_ZNK2cv10softdoublegtERKS0_(ptr nocapture noundef non
 
 13:                                               ; preds = %12
   %14 = icmp slt i64 %3, 0
-  br i1 %14, label %15, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br i1 %14, label %15, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
 15:                                               ; preds = %13
   %16 = or i64 %4, %3
   %17 = and i64 %16, 9223372036854775807
   %18 = icmp ne i64 %17, 0
-  br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
 19:                                               ; preds = %12
   %.not22.i = icmp eq i64 %3, %4
-  br i1 %.not22.i, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit, label %20
+  br i1 %.not22.i, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit, label %20
 
 20:                                               ; preds = %19
   %21 = icmp ult i64 %3, %4
   %22 = icmp slt i64 %3, 0
   %23 = xor i1 %22, %21
-  br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL6f64_ltENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %19, %20
+_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit:  ; preds = %2, %8, %13, %15, %19, %20
   %.0.i = phi i1 [ false, %13 ], [ %18, %15 ], [ false, %19 ], [ %23, %20 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -3366,7 +3366,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoublegeERKS0_(ptr nocapture noundef non
   %7 = and i64 %3, 4503599627370495
   %.not.i = icmp eq i64 %7, 0
   %or.cond.i = or i1 %6, %.not.i
-  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
+  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i64 %4, 9218868437227405312
@@ -3374,7 +3374,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoublegeERKS0_(ptr nocapture noundef non
   %11 = and i64 %4, 4503599627370495
   %.not19.i = icmp eq i64 %11, 0
   %or.cond23.i = or i1 %10, %.not19.i
-  br i1 %or.cond23.i, label %12, label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
+  br i1 %or.cond23.i, label %12, label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit
 
 12:                                               ; preds = %8
   %.not21.unshifted.i = xor i64 %4, %3
@@ -3383,25 +3383,25 @@ define noundef zeroext i1 @_ZNK2cv10softdoublegeERKS0_(ptr nocapture noundef non
 
 13:                                               ; preds = %12
   %14 = icmp slt i64 %3, 0
-  br i1 %14, label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit, label %15
+  br i1 %14, label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit, label %15
 
 15:                                               ; preds = %13
   %.masked.i = and i64 %4, 9223372036854775807
   %16 = or i64 %.masked.i, %3
   %.not22.i = icmp eq i64 %16, 0
-  br label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit
 
 17:                                               ; preds = %12
   %18 = icmp eq i64 %3, %4
-  br i1 %18, label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit, label %19
+  br i1 %18, label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit, label %19
 
 19:                                               ; preds = %17
   %20 = icmp ult i64 %3, %4
   %21 = icmp slt i64 %3, 0
   %22 = xor i1 %21, %20
-  br label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL6f64_leENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %17, %19
+_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit:  ; preds = %2, %8, %13, %15, %17, %19
   %.0.i = phi i1 [ true, %13 ], [ %.not22.i, %15 ], [ true, %17 ], [ %22, %19 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -3415,7 +3415,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr nocapture noundef non
   %7 = and i64 %3, 4503599627370495
   %.not.i = icmp eq i64 %7, 0
   %or.cond.i = or i1 %6, %.not.i
-  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i64 %4, 9218868437227405312
@@ -3423,7 +3423,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr nocapture noundef non
   %11 = and i64 %4, 4503599627370495
   %.not19.i = icmp eq i64 %11, 0
   %or.cond23.i = or i1 %10, %.not19.i
-  br i1 %or.cond23.i, label %12, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br i1 %or.cond23.i, label %12, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
 12:                                               ; preds = %8
   %.not21.unshifted.i = xor i64 %4, %3
@@ -3432,25 +3432,25 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr nocapture noundef non
 
 13:                                               ; preds = %12
   %14 = icmp slt i64 %3, 0
-  br i1 %14, label %15, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br i1 %14, label %15, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
 15:                                               ; preds = %13
   %16 = or i64 %4, %3
   %17 = and i64 %16, 9223372036854775807
   %18 = icmp ne i64 %17, 0
-  br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
 19:                                               ; preds = %12
   %.not22.i = icmp eq i64 %3, %4
-  br i1 %.not22.i, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit, label %20
+  br i1 %.not22.i, label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit, label %20
 
 20:                                               ; preds = %19
   %21 = icmp ult i64 %3, %4
   %22 = icmp slt i64 %3, 0
   %23 = xor i1 %22, %21
-  br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL6f64_ltENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %19, %20
+_ZN2cvL6f64_ltENS_10softdoubleES0_.argprom.exit:  ; preds = %2, %8, %13, %15, %19, %20
   %.0.i = phi i1 [ false, %13 ], [ %18, %15 ], [ false, %19 ], [ %23, %20 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -3464,7 +3464,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleleERKS0_(ptr nocapture noundef non
   %7 = and i64 %3, 4503599627370495
   %.not.i = icmp eq i64 %7, 0
   %or.cond.i = or i1 %6, %.not.i
-  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
+  br i1 %or.cond.i, label %8, label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i64 %4, 9218868437227405312
@@ -3472,7 +3472,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleleERKS0_(ptr nocapture noundef non
   %11 = and i64 %4, 4503599627370495
   %.not19.i = icmp eq i64 %11, 0
   %or.cond23.i = or i1 %10, %.not19.i
-  br i1 %or.cond23.i, label %12, label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
+  br i1 %or.cond23.i, label %12, label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit
 
 12:                                               ; preds = %8
   %.not21.unshifted.i = xor i64 %4, %3
@@ -3481,25 +3481,25 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleleERKS0_(ptr nocapture noundef non
 
 13:                                               ; preds = %12
   %14 = icmp slt i64 %3, 0
-  br i1 %14, label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit, label %15
+  br i1 %14, label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit, label %15
 
 15:                                               ; preds = %13
   %.masked.i = and i64 %4, 9223372036854775807
   %16 = or i64 %.masked.i, %3
   %.not22.i = icmp eq i64 %16, 0
-  br label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit
 
 17:                                               ; preds = %12
   %18 = icmp eq i64 %3, %4
-  br i1 %18, label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit, label %19
+  br i1 %18, label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit, label %19
 
 19:                                               ; preds = %17
   %20 = icmp ult i64 %3, %4
   %21 = icmp slt i64 %3, 0
   %22 = xor i1 %21, %20
-  br label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
+  br label %_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit
 
-_ZN2cvL6f64_leENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %17, %19
+_ZN2cvL6f64_leENS_10softdoubleES0_.argprom.exit:  ; preds = %2, %8, %13, %15, %17, %19
   %.0.i = phi i1 [ true, %13 ], [ %.not22.i, %15 ], [ true, %17 ], [ %22, %19 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -3561,7 +3561,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
 
 37:                                               ; preds = %35
   %.not162.i.i = icmp eq i64 %20, 0
-  br i1 %.not162.i.i, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit, label %.thread.i.i
+  br i1 %.not162.i.i, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit, label %.thread.i.i
 
 38:                                               ; preds = %35
   %.not.i.i = icmp eq i64 %12, 0
@@ -3911,7 +3911,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i: ; preds = %239, %230
 
 249:                                              ; preds = %245
   %250 = select i1 %.0134.i.i, i64 4286578688, i64 2139095040
-  br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
+  br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit
 
 251:                                              ; preds = %245, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i, %220
   %.041.i.i.i = phi i64 [ %.0130.i.i, %220 ], [ %.0130.i.i, %245 ], [ %243, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
@@ -3931,7 +3931,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i: ; preds = %239, %230
   %260 = add nsw i64 %259, %258
   %261 = and i64 %260, 4286578688
   %262 = add nuw nsw i64 %261, %256
-  br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
+  br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit
 
 263:                                              ; preds = %32, %25, %24
   %264 = and i64 %8, 2143289344
@@ -3962,7 +3962,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i.i: ; preds = %269, %263
 274:                                              ; preds = %273
   %275 = select i1 %22, i64 4286578688, i64 2139095040
   %.not166.i.i = icmp eq i64 %19, 255
-  br i1 %.not166.i.i, label %276, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
+  br i1 %.not166.i.i, label %276, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit
 
 276:                                              ; preds = %274
   %.not167.i.i = icmp eq i64 %20, 0
@@ -3970,7 +3970,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i.i: ; preds = %269, %263
 
 277:                                              ; preds = %276
   %278 = xor i1 %22, %17
-  br i1 %278, label %.thread.i.i, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
+  br i1 %278, label %.thread.i.i, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit
 
 279:                                              ; preds = %276, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i.i
   %.0129.i.i = phi i64 [ %.0.i185.i.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i.i ], [ %275, %276 ]
@@ -3994,19 +3994,19 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i.i: ; preds = %269, %263
 _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i: ; preds = %.thread.i.i, %279
   %.0.in.i188.i.i = phi i64 [ %288, %.thread.i.i ], [ %.0129.i.i, %279 ]
   %.0.i189.i.i = or i64 %.0.in.i188.i.i, 4194304
-  br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
+  br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit
 
 289:                                              ; preds = %59, %39
   %290 = or i64 %19, %20
   %.not155.i.i = icmp eq i64 %290, 0
   %291 = xor i1 %22, %17
   %or.cond168.i.i = and i1 %291, %.not155.i.i
-  br i1 %or.cond168.i.i, label %292, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
+  br i1 %or.cond168.i.i, label %292, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit
 
 292:                                              ; preds = %289, %172
-  br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
+  br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit
 
-_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit:    ; preds = %37, %249, %251, %274, %277, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i, %289, %292
+_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom.exit: ; preds = %37, %249, %251, %274, %277, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i, %289, %292
   %storemerge.in.i.i = phi i64 [ %262, %251 ], [ %250, %249 ], [ %.0.i189.i.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i ], [ %275, %274 ], [ %275, %277 ], [ 0, %292 ], [ %10, %289 ], [ %10, %37 ]
   %storemerge.i.i = trunc i64 %storemerge.in.i.i to i32
   store i32 %storemerge.i.i, ptr %0, align 4, !alias.scope !84
@@ -4068,7 +4068,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
 
 34:                                               ; preds = %32
   %.not208.i.i = icmp eq i64 %17, 0
-  br i1 %.not208.i.i, label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit, label %.thread302.i.i
+  br i1 %.not208.i.i, label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit, label %.thread302.i.i
 
 35:                                               ; preds = %32
   %.not.i.i = icmp eq i64 %9, 0
@@ -4491,7 +4491,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
 
 275:                                              ; preds = %271
   %276 = select i1 %.0165.i.i, i64 -4503599627370496, i64 9218868437227405312
-  br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit
+  br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i: ; preds = %271, %268, %261, %253
   %.041.i.i.i = phi i64 [ %.0171.i.i, %253 ], [ %.0171.i.i, %271 ], [ %267, %261 ], [ %270, %268 ]
@@ -4509,7 +4509,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i: ; preds = %271, %268, %261, %2
   %284 = select i1 %.not49.i.i.i, i64 0, i64 %282
   %285 = or disjoint i64 %281, %283
   %286 = add i64 %285, %284
-  br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit
+  br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit
 
 287:                                              ; preds = %29, %22, %21
   %288 = and i64 %5, 9221120237041090560
@@ -4541,7 +4541,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i.i: ; preds = %293, %287
   %.lobit186188.lobit212.i.i = and i64 %.lobit186188.i.i, -9223372036854775808
   %299 = or disjoint i64 %.lobit186188.lobit212.i.i, 9218868437227405312
   %.not213.i.i = icmp eq i64 %16, 2047
-  br i1 %.not213.i.i, label %300, label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit
+  br i1 %.not213.i.i, label %300, label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit
 
 300:                                              ; preds = %298
   %.not214.i.i = icmp eq i64 %17, 0
@@ -4550,7 +4550,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i.i: ; preds = %293, %287
 301:                                              ; preds = %300
   %.unshifted217.i.i = xor i64 %.lobit186188.i.i, %7
   %302 = icmp sgt i64 %.unshifted217.i.i, -1
-  br i1 %302, label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit, label %.thread302.i.i
+  br i1 %302, label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit, label %.thread302.i.i
 
 303:                                              ; preds = %300, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i.i
   %.0167.i.i = phi i64 [ %.0.i261.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i.i ], [ %299, %300 ]
@@ -4574,7 +4574,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i.i: ; preds = %293, %287
 _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit266.i.i: ; preds = %.thread302.i.i, %303
   %.0.in.i264.i.i = phi i64 [ %312, %.thread302.i.i ], [ %.0167.i.i, %303 ]
   %.0.i265.i.i = or i64 %.0.in.i264.i.i, 2251799813685248
-  br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit
+  br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit
 
 313:                                              ; preds = %57, %36
   %314 = or i64 %16, %17
@@ -4582,12 +4582,12 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit266.i.i: ; preds = %.thread302.i.i, 
   %.not195.unshifted.i.i = xor i64 %.lobit186188.i.i, %7
   %.not195.i.i = icmp sgt i64 %.not195.unshifted.i.i, -1
   %or.cond218.i.i = or i1 %.not195.i.i, %.not192.i.i
-  br i1 %or.cond218.i.i, label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit, label %315
+  br i1 %or.cond218.i.i, label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit, label %315
 
 315:                                              ; preds = %313, %200
-  br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit
+  br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit
 
-_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit:  ; preds = %34, %275, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i, %298, %301, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit266.i.i, %313, %315
+_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom.exit: ; preds = %34, %275, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i, %298, %301, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit266.i.i, %313, %315
   %storemerge.i.i = phi i64 [ %286, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i ], [ %276, %275 ], [ %.0.i265.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit266.i.i ], [ %299, %298 ], [ %299, %301 ], [ 0, %315 ], [ %7, %313 ], [ %7, %34 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !91
   ret void
@@ -4623,7 +4623,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   br label %128
 
 19:                                               ; preds = %9
-  br i1 %.not.i, label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit, label %128
+  br i1 %.not.i, label %_ZN2cvL8f32_sqrtENS_9softfloatE.argprom.exit, label %128
 
 20:                                               ; preds = %2
   br i1 %.not.i, label %23, label %21
@@ -4631,7 +4631,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
 21:                                               ; preds = %20
   %22 = or i64 %6, %7
   %.not46.i = icmp eq i64 %22, 0
-  br i1 %.not46.i, label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit, label %128
+  br i1 %.not46.i, label %_ZN2cvL8f32_sqrtENS_9softfloatE.argprom.exit, label %128
 
 23:                                               ; preds = %20
   %.not41.i = icmp eq i64 %6, 0
@@ -4639,7 +4639,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
 
 24:                                               ; preds = %23
   %.not42.i = icmp eq i64 %7, 0
-  br i1 %.not42.i, label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit, label %25
+  br i1 %.not42.i, label %_ZN2cvL8f32_sqrtENS_9softfloatE.argprom.exit, label %25
 
 25:                                               ; preds = %24
   %26 = trunc nuw nsw i64 %7 to i32
@@ -4781,13 +4781,13 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %_ZN2cvL25softfloat_
   %125 = select i1 %.not49.i.i, i64 0, i64 %124
   %126 = add nuw nsw i64 %125, %123
   %127 = trunc nsw i64 %126 to i32
-  br label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit
+  br label %_ZN2cvL8f32_sqrtENS_9softfloatE.argprom.exit
 
 128:                                              ; preds = %21, %19, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i
   %.037.i = phi i32 [ %18, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ -4194304, %21 ], [ -4194304, %19 ]
-  br label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit
+  br label %_ZN2cvL8f32_sqrtENS_9softfloatE.argprom.exit
 
-_ZN2cvL8f32_sqrtENS_9softfloatE.exit:             ; preds = %19, %21, %24, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %128
+_ZN2cvL8f32_sqrtENS_9softfloatE.argprom.exit:     ; preds = %19, %21, %24, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %128
   %.037.sink.i = phi i32 [ %.037.i, %128 ], [ %127, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %3, %19 ], [ %3, %21 ], [ %3, %24 ]
   store i32 %.037.sink.i, ptr %0, align 4, !alias.scope !92
   ret void
@@ -4822,7 +4822,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   br label %126
 
 17:                                               ; preds = %8
-  br i1 %.not.i, label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit, label %126
+  br i1 %.not.i, label %_ZN2cvL8f64_sqrtENS_10softdoubleE.argprom.exit, label %126
 
 18:                                               ; preds = %2
   br i1 %.not.i, label %21, label %19
@@ -4830,7 +4830,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
 19:                                               ; preds = %18
   %20 = or i64 %5, %6
   %.not58.i = icmp eq i64 %20, 0
-  br i1 %.not58.i, label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit, label %126
+  br i1 %.not58.i, label %_ZN2cvL8f64_sqrtENS_10softdoubleE.argprom.exit, label %126
 
 21:                                               ; preds = %18
   %.not53.i = icmp eq i64 %5, 0
@@ -4838,7 +4838,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
 
 22:                                               ; preds = %21
   %.not54.i = icmp eq i64 %6, 0
-  br i1 %.not54.i, label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit, label %23
+  br i1 %.not54.i, label %_ZN2cvL8f64_sqrtENS_10softdoubleE.argprom.exit, label %23
 
 23:                                               ; preds = %22
   %24 = lshr i64 %6, 32
@@ -4976,13 +4976,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %113, %111, %42
   %123 = add i64 %122, 4602678819172646912
   %124 = select i1 %.not49.i.i, i64 0, i64 %123
   %125 = add nuw i64 %124, %119
-  br label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit
+  br label %_ZN2cvL8f64_sqrtENS_10softdoubleE.argprom.exit
 
 126:                                              ; preds = %19, %17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
   %.048.i = phi i64 [ %.0.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ -2251799813685248, %19 ], [ -2251799813685248, %17 ]
-  br label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit
+  br label %_ZN2cvL8f64_sqrtENS_10softdoubleE.argprom.exit
 
-_ZN2cvL8f64_sqrtENS_10softdoubleE.exit:           ; preds = %17, %19, %22, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %126
+_ZN2cvL8f64_sqrtENS_10softdoubleE.argprom.exit:   ; preds = %17, %19, %22, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %126
   %.048.sink.i = phi i64 [ %.048.i, %126 ], [ %125, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %3, %17 ], [ %3, %19 ], [ %3, %22 ]
   store i64 %.048.sink.i, ptr %0, align 8, !alias.scope !95
   ret void
@@ -5143,11 +5143,11 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   %70 = shl nuw nsw i64 %62, 29
   %71 = or disjoint i64 %68, %70
   %72 = or i64 %71, 9221120237041090560
-  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit
+  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit
 
 73:                                               ; preds = %66
   %74 = or disjoint i64 %68, 9218868437227405312
-  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit
+  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit
 
 75:                                               ; preds = %61
   %.not21.i = icmp eq i64 %65, 0
@@ -5157,7 +5157,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   %.lobit.i = lshr i32 %57, 31
   %77 = zext nneg i32 %.lobit.i to i64
   %78 = shl nuw i64 %77, 63
-  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit
+  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit
 
 79:                                               ; preds = %75
   %80 = trunc nuw nsw i64 %65 to i32
@@ -5194,17 +5194,17 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   %101 = or disjoint i64 %98, 4035225266123964416
   %102 = add i64 %101, %100
   %103 = add i64 %102, %99
-  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit
+  br label %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit
 
-_ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %69, %73, %76, %96
+_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit:  ; preds = %69, %73, %76, %96
   %.018.i = phi i64 [ %72, %69 ], [ %74, %73 ], [ %103, %96 ], [ %78, %76 ]
   store i64 %.018.i, ptr %9, align 8, !alias.scope !126
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL12exp_prescaleE)
   %104 = load i64, ptr %8, align 8
   br label %105
 
-105:                                              ; preds = %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit, %60
-  %storemerge = phi i64 [ %104, %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit ], [ %.sroa.032.0, %60 ]
+105:                                              ; preds = %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit, %60
+  %storemerge = phi i64 [ %104, %_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom.exit ], [ %.sroa.032.0, %60 ]
   %106 = icmp slt i64 %storemerge, 0
   %107 = lshr i64 %storemerge, 52
   %108 = and i64 %107, 2047
@@ -5261,13 +5261,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %116, %105
   %136 = icmp sgt i64 %135, -1
   %.not3334.i.i = xor i1 %spec.select.i, %136
   %or.cond.i.i17 = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i17, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %137
+  br i1 %or.cond.i.i17, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit, label %137
 
 137:                                              ; preds = %126, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %138 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %126, %137
+_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit: ; preds = %126, %137
   %.0.i.i16 = phi i64 [ %138, %137 ], [ %135, %126 ]
   %139 = trunc nsw i64 %.0.i.i16 to i32
   %140 = ashr i32 %139, 6
@@ -5280,10 +5280,10 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %126, %137
   %146 = icmp ult i64 %108, 1023
   br i1 %146, label %147, label %154
 
-147:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+147:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
   %148 = and i64 %storemerge, 9223372036854775807
   %.not47.i = icmp eq i64 %148, 0
-  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %149
+  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit, label %149
 
 149:                                              ; preds = %147
   %150 = and i64 %storemerge, -9223372036854775808
@@ -5292,14 +5292,14 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %126, %137
   %or.cond.i = and i1 %151, %152
   %153 = or disjoint i64 %150, 4607182418800017408
   %spec.select.i20 = select i1 %or.cond.i, i64 %153, i64 %150
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
-154:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+154:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
   %155 = icmp ugt i64 %108, 1074
   br i1 %155, label %156, label %165
 
 156:                                              ; preds = %154
-  br i1 %or.cond.not.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
+  br i1 %or.cond.not.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
 
 _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %156
   %157 = and i64 %storemerge, 9221120237041090560
@@ -5312,7 +5312,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %156
   %163 = or i1 %.not1.i, %161
   %164 = or i64 %storemerge, 2251799813685248
   %.0.i.i19 = select i1 %163, i64 %164, i64 2251799813685248
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
 165:                                              ; preds = %154
   %166 = sub nuw nsw i64 1075, %108
@@ -5327,19 +5327,19 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %156
   %174 = sub nsw i64 0, %167
   %175 = and i64 %173, %174
   %176 = and i64 %175, %170
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %147, %149, %156, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %165
+_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit: ; preds = %147, %149, %156, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %165
   %.0.sink.i = phi i64 [ %storemerge, %147 ], [ %storemerge, %156 ], [ %.0.i.i19, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %176, %165 ], [ %spec.select.i20, %149 ]
   %.unshifted.i.i = xor i64 %.0.sink.i, %storemerge
   %177 = icmp sgt i64 %.unshifted.i.i, -1
   br i1 %177, label %178, label %179
 
-178:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+178:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !129
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
-179:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+179:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
   call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !129
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
@@ -5683,7 +5683,7 @@ _Z7cvRoundRKN2cv10softdoubleE.exit:               ; preds = %99, %110
 120:                                              ; preds = %_Z7cvRoundRKN2cv10softdoubleE.exit
   %121 = and i64 %storemerge, 9223372036854775807
   %.not47.i = icmp eq i64 %121, 0
-  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %122
+  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit, label %122
 
 122:                                              ; preds = %120
   %123 = and i64 %storemerge, -9223372036854775808
@@ -5692,14 +5692,14 @@ _Z7cvRoundRKN2cv10softdoubleE.exit:               ; preds = %99, %110
   %or.cond.i = and i1 %124, %125
   %126 = or disjoint i64 %123, 4607182418800017408
   %spec.select.i = select i1 %or.cond.i, i64 %126, i64 %123
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
 127:                                              ; preds = %_Z7cvRoundRKN2cv10softdoubleE.exit
   %128 = icmp ugt i64 %81, 1074
   br i1 %128, label %129, label %138
 
 129:                                              ; preds = %127
-  br i1 %or.cond.not.i.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
+  br i1 %or.cond.not.i.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
 
 _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %129
   %130 = and i64 %storemerge, 9221120237041090560
@@ -5712,7 +5712,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %129
   %136 = or i1 %.not1.i, %134
   %137 = or i64 %storemerge, 2251799813685248
   %.0.i.i16 = select i1 %136, i64 %137, i64 2251799813685248
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
 138:                                              ; preds = %127
   %139 = sub nuw nsw i64 1075, %81
@@ -5727,19 +5727,19 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %129
   %147 = sub nsw i64 0, %140
   %148 = and i64 %146, %147
   %149 = and i64 %148, %143
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %120, %122, %129, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %138
+_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit: ; preds = %120, %122, %129, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %138
   %.0.sink.i = phi i64 [ %storemerge, %120 ], [ %storemerge, %129 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %149, %138 ], [ %spec.select.i, %122 ]
   %.unshifted.i.i = xor i64 %.0.sink.i, %storemerge
   %150 = icmp sgt i64 %.unshifted.i.i, -1
   br i1 %150, label %151, label %152
 
-151:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+151:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !191
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
-152:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+152:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
   call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !191
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
@@ -6889,7 +6889,7 @@ _ZNK2cv9softfloatltERKS0_.exit32.thread:          ; preds = %123, %129, %125, %1
 
 141:                                              ; preds = %137
   %.not47.i = icmp eq i32 %47, 0
-  br i1 %.not47.i, label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit, label %142
+  br i1 %.not47.i, label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.argprom.exit, label %142
 
 142:                                              ; preds = %141
   %143 = and i64 %107, 2147483648
@@ -6907,7 +6907,7 @@ _ZNK2cv9softfloatltERKS0_.exit32.thread:          ; preds = %123, %129, %125, %1
 149:                                              ; preds = %147
   %150 = icmp ne i64 %139, 255
   %or.cond48.i = or i1 %.not.i.i30.i, %150
-  br i1 %or.cond48.i, label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i
+  br i1 %or.cond48.i, label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.argprom.exit, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i
 
 _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %149
   %151 = and i64 %107, 2143289344
@@ -6939,13 +6939,13 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %149
 170:                                              ; preds = %158, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %142
   %.0.i = phi i64 [ %.0.i.i20, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %169, %158 ], [ %spec.select.i22, %142 ]
   %171 = trunc i64 %.0.i to i32
-  br label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit
+  br label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.argprom.exit
 
-_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit:    ; preds = %141, %149, %170
+_ZN2cvL14f32_roundToIntENS_9softfloatEhb.argprom.exit: ; preds = %141, %149, %170
   %.sink.i19 = phi i32 [ %171, %170 ], [ %46, %141 ], [ %46, %149 ]
   br i1 %or.cond.i.i31.i, label %172, label %_ZNK2cv9softfloateqERKS0_.exit.thread
 
-172:                                              ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit
+172:                                              ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.argprom.exit
   %173 = zext i32 %.sink.i19 to i64
   %174 = and i64 %173, 2139095040
   %175 = icmp ne i64 %174, 2139095040
@@ -7016,13 +7016,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %189, %180
   %209 = icmp sgt i64 %208, -1
   %.not3334.i.i = xor i1 %spec.select.i9, %209
   %or.cond.i.i13 = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i13, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit, label %210
+  br i1 %or.cond.i.i13, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit, label %210
 
 210:                                              ; preds = %199, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %211 = select i1 %spec.select.i9, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
+  br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit
 
-_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %199, %210
+_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit: ; preds = %199, %210
   %.0.i.i12 = phi i64 [ %211, %210 ], [ %208, %199 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -7039,16 +7039,16 @@ _ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %199, %210
   %or.cond.i = and i1 %.not15.i.i.i6, %or.cond.i.i.i4
   br i1 %or.cond.i, label %216, label %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
 
-216:                                              ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
+216:                                              ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit
   %217 = icmp slt i64 %.0.i.i12, 0
-  br i1 %217, label %_ZN2cvL8f32_powiENS_9softfloatEi.exit, label %218
+  br i1 %217, label %_ZN2cvL8f32_powiENS_9softfloatEi.argprom.exit, label %218
 
 218:                                              ; preds = %216
   %219 = icmp eq i64 %.0.i.i12, 0
   %spec.select.i = select i1 %219, i32 1065353216, i32 0
-  br label %_ZN2cvL8f32_powiENS_9softfloatEi.exit
+  br label %_ZN2cvL8f32_powiENS_9softfloatEi.argprom.exit
 
-_ZNK2cv9softfloateqERKS0_.exit.thread.i7:         ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
+_ZNK2cv9softfloateqERKS0_.exit.thread.i7:         ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.argprom.exit
   %220 = trunc nsw i64 %.0.i.i12 to i32
   store i32 1065353216, ptr %6, align 4, !alias.scope !397, !noalias !402
   store i32 %43, ptr %7, align 4, !noalias !402
@@ -7094,9 +7094,9 @@ _ZNK2cv9softfloateqERKS0_.exit.thread.i7:         ; preds = %_ZN2cvL10f32_to_i32
 ._crit_edge.i:                                    ; preds = %230, %225
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
   %234 = load i32, ptr %10, align 4, !noalias !402
-  br label %_ZN2cvL8f32_powiENS_9softfloatEi.exit
+  br label %_ZN2cvL8f32_powiENS_9softfloatEi.argprom.exit
 
-_ZN2cvL8f32_powiENS_9softfloatEi.exit:            ; preds = %216, %218, %._crit_edge.i
+_ZN2cvL8f32_powiENS_9softfloatEi.argprom.exit:    ; preds = %216, %218, %._crit_edge.i
   %storemerge.i = phi i32 [ %234, %._crit_edge.i ], [ 2139095040, %216 ], [ %spec.select.i, %218 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -7105,7 +7105,7 @@ _ZN2cvL8f32_powiENS_9softfloatEi.exit:            ; preds = %216, %218, %._crit_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-_ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit, %172, %_ZNK2cv9softfloateqERKS0_.exit
+_ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.argprom.exit, %172, %_ZNK2cv9softfloateqERKS0_.exit
   %235 = zext i32 %43 to i64
   %236 = and i64 %235, 2139095040
   %237 = icmp eq i64 %236, 2139095040
@@ -7178,8 +7178,8 @@ _ZNK2cv9softfloatltERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   %261 = load i32, ptr %11, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-_ZN2cv9softfloataSERKS0_.exit.sink.split.i:       ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.i, %260, %258, %249, %_ZN2cvL8f32_powiENS_9softfloatEi.exit, %135, %120, %115, %104, %90
-  %.sink.i = phi i32 [ %261, %260 ], [ %259, %258 ], [ %250, %249 ], [ %storemerge.i, %_ZN2cvL8f32_powiENS_9softfloatEi.exit ], [ %136, %135 ], [ %121, %120 ], [ %105, %104 ], [ %91, %90 ], [ %72, %115 ], [ %43, %_ZNK2cv9softfloateqERKS0_.exit47.i ]
+_ZN2cv9softfloataSERKS0_.exit.sink.split.i:       ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.i, %260, %258, %249, %_ZN2cvL8f32_powiENS_9softfloatEi.argprom.exit, %135, %120, %115, %104, %90
+  %.sink.i = phi i32 [ %261, %260 ], [ %259, %258 ], [ %250, %249 ], [ %storemerge.i, %_ZN2cvL8f32_powiENS_9softfloatEi.argprom.exit ], [ %136, %135 ], [ %121, %120 ], [ %105, %104 ], [ %91, %90 ], [ %72, %115 ], [ %43, %_ZNK2cv9softfloateqERKS0_.exit47.i ]
   store i32 %.sink.i, ptr %0, align 4, !alias.scope !374
   br label %_ZN2cvL7f32_powENS_9softfloatES0_.exit
 
@@ -7508,7 +7508,7 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %122, %129, %124, %1
 
 141:                                              ; preds = %137
   %.not47.i = icmp eq i64 %47, 0
-  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %142
+  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit, label %142
 
 142:                                              ; preds = %141
   %143 = and i64 %46, -9223372036854775808
@@ -7517,7 +7517,7 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %122, %129, %124, %1
   %or.cond.i18 = and i1 %144, %145
   %146 = or disjoint i64 %143, 4607182418800017408
   %spec.select.i19 = select i1 %or.cond.i18, i64 %146, i64 %143
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
 147:                                              ; preds = %137
   %148 = icmp ugt i64 %139, 1074
@@ -7526,7 +7526,7 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %122, %129, %124, %1
 149:                                              ; preds = %147
   %150 = icmp ne i64 %139, 2047
   %or.cond48.i = or i1 %.not.i.i28.i, %150
-  br i1 %or.cond48.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
+  br i1 %or.cond48.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
 
 _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %149
   %151 = and i64 %46, 9221120237041090560
@@ -7538,7 +7538,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %149
   %156 = or i1 %.not1.i, %155
   %157 = or i64 %46, 2251799813685248
   %.0.i.i17 = select i1 %156, i64 %157, i64 2251799813685248
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
 158:                                              ; preds = %147
   %159 = sub nuw nsw i64 1075, %139
@@ -7553,13 +7553,13 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %149
   %167 = sub nsw i64 0, %160
   %168 = and i64 %166, %167
   %169 = and i64 %168, %163
-  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %141, %142, %149, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %158
+_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit: ; preds = %141, %142, %149, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %158
   %.0.sink.i = phi i64 [ %46, %141 ], [ %46, %149 ], [ %.0.i.i17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %169, %158 ], [ %spec.select.i19, %142 ]
   br i1 %or.cond.i.i29.i, label %170, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
-170:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+170:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit
   %171 = and i64 %.0.sink.i, 9218868437227405312
   %172 = icmp ne i64 %171, 9218868437227405312
   %173 = and i64 %.0.sink.i, 4503599627370495
@@ -7628,13 +7628,13 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %185, %178
   %205 = icmp sgt i64 %204, -1
   %.not3334.i.i = xor i1 %spec.select.i8, %205
   %or.cond.i.i12 = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i12, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %206
+  br i1 %or.cond.i.i12, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit, label %206
 
 206:                                              ; preds = %195, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
   %207 = select i1 %spec.select.i8, i64 -2147483648, i64 2147483647
-  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+  br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
 
-_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %195, %206
+_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit: ; preds = %195, %206
   %.0.i.i11 = phi i64 [ %207, %206 ], [ %204, %195 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -7650,16 +7650,16 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %195, %206
   %or.cond.i = and i1 %.not15.i.i.i5, %or.cond.i.i.i4
   br i1 %or.cond.i, label %211, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
 
-211:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+211:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
   %212 = icmp slt i64 %.0.i.i11, 0
-  br i1 %212, label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit, label %213
+  br i1 %212, label %_ZN2cvL8f64_powiENS_10softdoubleEi.argprom.exit, label %213
 
 213:                                              ; preds = %211
   %214 = icmp eq i64 %.0.i.i11, 0
   %spec.select.i = select i1 %214, i64 4607182418800017408, i64 0
-  br label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit
+  br label %_ZN2cvL8f64_powiENS_10softdoubleEi.argprom.exit
 
-_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6:       ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6:       ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.argprom.exit
   %215 = trunc nsw i64 %.0.i.i11 to i32
   store i64 4607182418800017408, ptr %6, align 8, !alias.scope !434, !noalias !439
   store i64 %43, ptr %7, align 8, !noalias !439
@@ -7705,9 +7705,9 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread.i6:       ; preds = %_ZN2cvL10f64_to_i32
 ._crit_edge.i:                                    ; preds = %225, %220
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
   %229 = load i64, ptr %10, align 8, !noalias !439
-  br label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit
+  br label %_ZN2cvL8f64_powiENS_10softdoubleEi.argprom.exit
 
-_ZN2cvL8f64_powiENS_10softdoubleEi.exit:          ; preds = %211, %213, %._crit_edge.i
+_ZN2cvL8f64_powiENS_10softdoubleEi.argprom.exit:  ; preds = %211, %213, %._crit_edge.i
   %storemerge.i = phi i64 [ %229, %._crit_edge.i ], [ 9218868437227405312, %211 ], [ %spec.select.i, %213 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -7716,7 +7716,7 @@ _ZN2cvL8f64_powiENS_10softdoubleEi.exit:          ; preds = %211, %213, %._crit_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-_ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, %170, %_ZNK2cv10softdoubleeqERKS0_.exit
+_ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.argprom.exit, %170, %_ZNK2cv10softdoubleeqERKS0_.exit
   %230 = and i64 %43, 9218868437227405312
   %231 = icmp eq i64 %230, 9218868437227405312
   %232 = and i64 %43, 4503599627370495
@@ -7788,8 +7788,8 @@ _ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   %256 = load i64, ptr %11, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i:     ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.i, %255, %253, %244, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit, %135, %119, %113, %102, %88
-  %.sink.i = phi i64 [ %256, %255 ], [ %254, %253 ], [ %245, %244 ], [ %storemerge.i, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit ], [ %136, %135 ], [ %120, %119 ], [ %103, %102 ], [ %89, %88 ], [ %71, %113 ], [ %43, %_ZNK2cv10softdoubleeqERKS0_.exit43.i ]
+_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i:     ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.i, %255, %253, %244, %_ZN2cvL8f64_powiENS_10softdoubleEi.argprom.exit, %135, %119, %113, %102, %88
+  %.sink.i = phi i64 [ %256, %255 ], [ %254, %253 ], [ %245, %244 ], [ %storemerge.i, %_ZN2cvL8f64_powiENS_10softdoubleEi.argprom.exit ], [ %136, %135 ], [ %120, %119 ], [ %103, %102 ], [ %89, %88 ], [ %71, %113 ], [ %43, %_ZNK2cv10softdoubleeqERKS0_.exit43.i ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !411
   br label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit
 
@@ -7847,11 +7847,11 @@ define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture w
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %24 = and i32 %23, 2147483647
   %25 = icmp ugt i32 %24, 2139095040
-  br i1 %25, label %_ZN2cvL8f32_cbrtENS_9softfloatE.exit, label %26
+  br i1 %25, label %_ZN2cvL8f32_cbrtENS_9softfloatE.argprom.exit, label %26
 
 26:                                               ; preds = %2
   %27 = icmp eq i32 %24, 2139095040
-  br i1 %27, label %_ZN2cvL8f32_cbrtENS_9softfloatE.exit, label %28
+  br i1 %27, label %_ZN2cvL8f32_cbrtENS_9softfloatE.argprom.exit, label %28
 
 28:                                               ; preds = %26
   %29 = lshr i32 %23, 23
@@ -7995,7 +7995,7 @@ _ZNK2cv10softdoubleplERKS0_.exit19.i:             ; preds = %68, %67
 _ZNK2cv10softdoubleplERKS0_.exit21.i:             ; preds = %72, %71
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %15), !noalias !448
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %_ZN2cvL8f32_cbrtENS_9softfloatE.exit, label %73
+  br i1 %.not.i, label %_ZN2cvL8f32_cbrtENS_9softfloatE.argprom.exit, label %73
 
 73:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit21.i
   %74 = load i64, ptr %6, align 8, !noalias !448
@@ -8011,9 +8011,9 @@ _ZNK2cv10softdoubleplERKS0_.exit21.i:             ; preds = %72, %71
   %81 = trunc i64 %80 to i32
   %82 = and i32 %81, 8388607
   %83 = or disjoint i32 %79, %82
-  br label %_ZN2cvL8f32_cbrtENS_9softfloatE.exit
+  br label %_ZN2cvL8f32_cbrtENS_9softfloatE.argprom.exit
 
-_ZN2cvL8f32_cbrtENS_9softfloatE.exit:             ; preds = %2, %26, %_ZNK2cv10softdoubleplERKS0_.exit21.i, %73
+_ZN2cvL8f32_cbrtENS_9softfloatE.argprom.exit:     ; preds = %2, %26, %_ZNK2cv10softdoubleplERKS0_.exit21.i, %73
   %.sink.i = phi i32 [ 2147483647, %2 ], [ %23, %26 ], [ %83, %73 ], [ 0, %_ZNK2cv10softdoubleplERKS0_.exit21.i ]
   store i32 %.sink.i, ptr %0, align 4, !alias.scope !448
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -9267,7 +9267,7 @@ define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split
 
 _ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %3, %17
-  call fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 %12, i64 4618760256179416344)
+  call fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 %12, i64 4618760256179416344)
   %27 = load i64, ptr %4, align 8
   %28 = icmp sgt i64 %27, -1
   %29 = bitcast i64 %27 to double
@@ -9593,26 +9593,26 @@ attributes #15 = { nounwind }
 !17 = distinct !{!17, !18, !"_ZN2cvL10i64_to_f32El: argument 0"}
 !18 = distinct !{!18, !"_ZN2cvL10i64_to_f32El"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN2cvL10f32_to_f64ENS_9softfloatE: argument 0"}
-!21 = distinct !{!21, !"_ZN2cvL10f32_to_f64ENS_9softfloatE"}
+!20 = distinct !{!20, !21, !"_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom"}
 !22 = !{!23, !20}
 !23 = distinct !{!23, !24, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !24 = distinct !{!24, !"_ZN2cv10softdouble7fromRawEm"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN2cvL7f32_addENS_9softfloatES0_: argument 0"}
-!27 = distinct !{!27, !"_ZN2cvL7f32_addENS_9softfloatES0_"}
+!26 = distinct !{!26, !27, !"_ZN2cvL7f32_addENS_9softfloatES0_.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZN2cvL7f32_addENS_9softfloatES0_.argprom"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN2cvL7f32_subENS_9softfloatES0_: argument 0"}
-!30 = distinct !{!30, !"_ZN2cvL7f32_subENS_9softfloatES0_"}
+!29 = distinct !{!29, !30, !"_ZN2cvL7f32_subENS_9softfloatES0_.argprom: argument 0"}
+!30 = distinct !{!30, !"_ZN2cvL7f32_subENS_9softfloatES0_.argprom"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN2cvL7f32_mulENS_9softfloatES0_: argument 0"}
-!33 = distinct !{!33, !"_ZN2cvL7f32_mulENS_9softfloatES0_"}
+!32 = distinct !{!32, !33, !"_ZN2cvL7f32_mulENS_9softfloatES0_.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZN2cvL7f32_mulENS_9softfloatES0_.argprom"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN2cvL7f32_divENS_9softfloatES0_: argument 0"}
-!36 = distinct !{!36, !"_ZN2cvL7f32_divENS_9softfloatES0_"}
+!35 = distinct !{!35, !36, !"_ZN2cvL7f32_divENS_9softfloatES0_.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZN2cvL7f32_divENS_9softfloatES0_.argprom"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN2cvL7f32_remENS_9softfloatES0_: argument 0"}
-!39 = distinct !{!39, !"_ZN2cvL7f32_remENS_9softfloatES0_"}
+!38 = distinct !{!38, !39, !"_ZN2cvL7f32_remENS_9softfloatES0_.argprom: argument 0"}
+!39 = distinct !{!39, !"_ZN2cvL7f32_remENS_9softfloatES0_.argprom"}
 !40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
 !42 = distinct !{!42, !41}
@@ -9632,45 +9632,45 @@ attributes #15 = { nounwind }
 !56 = distinct !{!56, !57, !"_ZN2cvL10i64_to_f64El: argument 0"}
 !57 = distinct !{!57, !"_ZN2cvL10i64_to_f64El"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN2cvL10f64_to_f32ENS_10softdoubleE: argument 0"}
-!60 = distinct !{!60, !"_ZN2cvL10f64_to_f32ENS_10softdoubleE"}
+!59 = distinct !{!59, !60, !"_ZN2cvL10f64_to_f32ENS_10softdoubleE.argprom: argument 0"}
+!60 = distinct !{!60, !"_ZN2cvL10f64_to_f32ENS_10softdoubleE.argprom"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!63 = distinct !{!63, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!62 = distinct !{!62, !63, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!63 = distinct !{!63, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!66 = distinct !{!66, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!65 = distinct !{!65, !66, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom: argument 0"}
+!66 = distinct !{!66, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN2cvL7f64_mulENS_10softdoubleES0_: argument 0"}
-!69 = distinct !{!69, !"_ZN2cvL7f64_mulENS_10softdoubleES0_"}
+!68 = distinct !{!68, !69, !"_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom: argument 0"}
+!69 = distinct !{!69, !"_ZN2cvL7f64_mulENS_10softdoubleES0_.argprom"}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN2cvL7f64_divENS_10softdoubleES0_: argument 0"}
-!72 = distinct !{!72, !"_ZN2cvL7f64_divENS_10softdoubleES0_"}
+!71 = distinct !{!71, !72, !"_ZN2cvL7f64_divENS_10softdoubleES0_.argprom: argument 0"}
+!72 = distinct !{!72, !"_ZN2cvL7f64_divENS_10softdoubleES0_.argprom"}
 !73 = distinct !{!73, !41}
 !74 = distinct !{!74, !41}
 !75 = !{!76}
 !76 = distinct !{!76, !77, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !77 = distinct !{!77, !"_ZN2cv10softdouble7fromRawEm"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_: argument 0"}
-!80 = distinct !{!80, !"_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_"}
+!79 = distinct !{!79, !80, !"_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom: argument 0"}
+!80 = distinct !{!80, !"_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.argprom"}
 !81 = !{!82}
 !82 = distinct !{!82, !83, !"_ZN2cvL19softfloat_mulAddF32Emmmh: argument 0"}
 !83 = distinct !{!83, !"_ZN2cvL19softfloat_mulAddF32Emmmh"}
 !84 = !{!82, !79}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_: argument 0"}
-!87 = distinct !{!87, !"_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_"}
+!86 = distinct !{!86, !87, !"_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom: argument 0"}
+!87 = distinct !{!87, !"_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.argprom"}
 !88 = !{!89}
 !89 = distinct !{!89, !90, !"_ZN2cvL19softfloat_mulAddF64Emmmh: argument 0"}
 !90 = distinct !{!90, !"_ZN2cvL19softfloat_mulAddF64Emmmh"}
 !91 = !{!89, !86}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN2cvL8f32_sqrtENS_9softfloatE: argument 0"}
-!94 = distinct !{!94, !"_ZN2cvL8f32_sqrtENS_9softfloatE"}
+!93 = distinct !{!93, !94, !"_ZN2cvL8f32_sqrtENS_9softfloatE.argprom: argument 0"}
+!94 = distinct !{!94, !"_ZN2cvL8f32_sqrtENS_9softfloatE.argprom"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN2cvL8f64_sqrtENS_10softdoubleE: argument 0"}
-!97 = distinct !{!97, !"_ZN2cvL8f64_sqrtENS_10softdoubleE"}
+!96 = distinct !{!96, !97, !"_ZN2cvL8f64_sqrtENS_10softdoubleE.argprom: argument 0"}
+!97 = distinct !{!97, !"_ZN2cvL8f64_sqrtENS_10softdoubleE.argprom"}
 !98 = !{!99, !101}
 !99 = distinct !{!99, !100, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
 !100 = distinct !{!100, !"_ZN2cv9softfloat7fromRawEj"}
@@ -9697,14 +9697,14 @@ attributes #15 = { nounwind }
 !121 = distinct !{!121, !122, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !122 = distinct !{!122, !"_ZN2cv10softdouble7fromRawEm"}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZN2cvL10f32_to_f64ENS_9softfloatE: argument 0"}
-!125 = distinct !{!125, !"_ZN2cvL10f32_to_f64ENS_9softfloatE"}
+!124 = distinct !{!124, !125, !"_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom: argument 0"}
+!125 = distinct !{!125, !"_ZN2cvL10f32_to_f64ENS_9softfloatE.argprom"}
 !126 = !{!127, !124}
 !127 = distinct !{!127, !128, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !128 = distinct !{!128, !"_ZN2cv10softdouble7fromRawEm"}
 !129 = !{!130, !132}
-!130 = distinct !{!130, !131, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!131 = distinct !{!131, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!130 = distinct !{!130, !131, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom: argument 0"}
+!131 = distinct !{!131, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom"}
 !132 = distinct !{!132, !133, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
 !133 = distinct !{!133, !"_ZNK2cv10softdoublemiERKS0_"}
 !134 = !{!135}
@@ -9714,26 +9714,26 @@ attributes #15 = { nounwind }
 !138 = distinct !{!138, !139, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !139 = distinct !{!139, !"_ZNK2cv10softdoubleplERKS0_"}
 !140 = !{!141, !138}
-!141 = distinct !{!141, !142, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!142 = distinct !{!142, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!141 = distinct !{!141, !142, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!142 = distinct !{!142, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !143 = !{!144}
 !144 = distinct !{!144, !145, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !145 = distinct !{!145, !"_ZNK2cv10softdoubleplERKS0_"}
 !146 = !{!147, !144}
-!147 = distinct !{!147, !148, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!148 = distinct !{!148, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!147 = distinct !{!147, !148, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!148 = distinct !{!148, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !149 = !{!150}
 !150 = distinct !{!150, !151, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !151 = distinct !{!151, !"_ZNK2cv10softdoubleplERKS0_"}
 !152 = !{!153, !150}
-!153 = distinct !{!153, !154, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!154 = distinct !{!154, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!153 = distinct !{!153, !154, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!154 = distinct !{!154, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !155 = !{!156}
 !156 = distinct !{!156, !157, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !157 = distinct !{!157, !"_ZNK2cv10softdoubleplERKS0_"}
 !158 = !{!159, !156}
-!159 = distinct !{!159, !160, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!160 = distinct !{!160, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!159 = distinct !{!159, !160, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!160 = distinct !{!160, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !161 = !{!162, !164}
 !162 = distinct !{!162, !163, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !163 = distinct !{!163, !"_ZN2cv10softdouble7fromRawEm"}
@@ -9765,8 +9765,8 @@ attributes #15 = { nounwind }
 !189 = distinct !{!189, !190, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !190 = distinct !{!190, !"_ZN2cv10softdouble7fromRawEm"}
 !191 = !{!192, !194}
-!192 = distinct !{!192, !193, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!193 = distinct !{!193, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!192 = distinct !{!192, !193, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom: argument 0"}
+!193 = distinct !{!193, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom"}
 !194 = distinct !{!194, !195, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
 !195 = distinct !{!195, !"_ZNK2cv10softdoublemiERKS0_"}
 !196 = !{!197}
@@ -9776,32 +9776,32 @@ attributes #15 = { nounwind }
 !200 = distinct !{!200, !201, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !201 = distinct !{!201, !"_ZNK2cv10softdoubleplERKS0_"}
 !202 = !{!203, !200}
-!203 = distinct !{!203, !204, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!204 = distinct !{!204, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!203 = distinct !{!203, !204, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!204 = distinct !{!204, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !205 = !{!206}
 !206 = distinct !{!206, !207, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !207 = distinct !{!207, !"_ZNK2cv10softdoubleplERKS0_"}
 !208 = !{!209, !206}
-!209 = distinct !{!209, !210, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!210 = distinct !{!210, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!209 = distinct !{!209, !210, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!210 = distinct !{!210, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !211 = !{!212}
 !212 = distinct !{!212, !213, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !213 = distinct !{!213, !"_ZNK2cv10softdoubleplERKS0_"}
 !214 = !{!215, !212}
-!215 = distinct !{!215, !216, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!216 = distinct !{!216, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!215 = distinct !{!215, !216, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!216 = distinct !{!216, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !217 = !{!218}
 !218 = distinct !{!218, !219, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !219 = distinct !{!219, !"_ZNK2cv10softdoubleplERKS0_"}
 !220 = !{!221, !218}
-!221 = distinct !{!221, !222, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!222 = distinct !{!222, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!221 = distinct !{!221, !222, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!222 = distinct !{!222, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !223 = !{!224}
 !224 = distinct !{!224, !225, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !225 = distinct !{!225, !"_ZNK2cv10softdoubleplERKS0_"}
 !226 = !{!227, !224}
-!227 = distinct !{!227, !228, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!228 = distinct !{!228, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!227 = distinct !{!227, !228, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!228 = distinct !{!228, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !229 = !{!230, !232}
 !230 = distinct !{!230, !231, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
 !231 = distinct !{!231, !"_ZN2cv9softfloat7fromRawEj"}
@@ -9820,32 +9820,32 @@ attributes #15 = { nounwind }
 !244 = distinct !{!244, !245, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !245 = distinct !{!245, !"_ZNK2cv10softdoubleplERKS0_"}
 !246 = !{!247, !244}
-!247 = distinct !{!247, !248, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!248 = distinct !{!248, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!247 = distinct !{!247, !248, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!248 = distinct !{!248, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !249 = !{!250}
 !250 = distinct !{!250, !251, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !251 = distinct !{!251, !"_ZNK2cv10softdoubleplERKS0_"}
 !252 = !{!253, !250}
-!253 = distinct !{!253, !254, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!254 = distinct !{!254, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!253 = distinct !{!253, !254, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!254 = distinct !{!254, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !255 = !{!256}
 !256 = distinct !{!256, !257, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !257 = distinct !{!257, !"_ZNK2cv10softdoubleplERKS0_"}
 !258 = !{!259, !256}
-!259 = distinct !{!259, !260, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!260 = distinct !{!260, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!259 = distinct !{!259, !260, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!260 = distinct !{!260, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !261 = !{!262}
 !262 = distinct !{!262, !263, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
 !263 = distinct !{!263, !"_ZNK2cv10softdoublemiERKS0_"}
 !264 = !{!265, !262}
-!265 = distinct !{!265, !266, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!266 = distinct !{!266, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!265 = distinct !{!265, !266, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom: argument 0"}
+!266 = distinct !{!266, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom"}
 !267 = !{!268}
 !268 = distinct !{!268, !269, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !269 = distinct !{!269, !"_ZNK2cv10softdoubleplERKS0_"}
 !270 = !{!271, !268}
-!271 = distinct !{!271, !272, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!272 = distinct !{!272, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!271 = distinct !{!271, !272, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!272 = distinct !{!272, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !273 = !{!274, !276}
 !274 = distinct !{!274, !275, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !275 = distinct !{!275, !"_ZN2cv10softdouble7fromRawEm"}
@@ -9891,62 +9891,62 @@ attributes #15 = { nounwind }
 !315 = distinct !{!315, !316, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !316 = distinct !{!316, !"_ZNK2cv10softdoubleplERKS0_"}
 !317 = !{!318, !315}
-!318 = distinct !{!318, !319, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!319 = distinct !{!319, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!318 = distinct !{!318, !319, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!319 = distinct !{!319, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !320 = !{!321}
 !321 = distinct !{!321, !322, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !322 = distinct !{!322, !"_ZNK2cv10softdoubleplERKS0_"}
 !323 = !{!324, !321}
-!324 = distinct !{!324, !325, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!325 = distinct !{!325, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!324 = distinct !{!324, !325, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!325 = distinct !{!325, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !326 = !{!327}
 !327 = distinct !{!327, !328, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !328 = distinct !{!328, !"_ZNK2cv10softdoubleplERKS0_"}
 !329 = !{!330, !327}
-!330 = distinct !{!330, !331, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!331 = distinct !{!331, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!330 = distinct !{!330, !331, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!331 = distinct !{!331, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !332 = !{!333}
 !333 = distinct !{!333, !334, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !334 = distinct !{!334, !"_ZNK2cv10softdoubleplERKS0_"}
 !335 = !{!336, !333}
-!336 = distinct !{!336, !337, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!337 = distinct !{!337, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!336 = distinct !{!336, !337, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!337 = distinct !{!337, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !338 = !{!339}
 !339 = distinct !{!339, !340, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !340 = distinct !{!340, !"_ZNK2cv10softdoubleplERKS0_"}
 !341 = !{!342, !339}
-!342 = distinct !{!342, !343, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!343 = distinct !{!343, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!342 = distinct !{!342, !343, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!343 = distinct !{!343, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !344 = !{!345}
 !345 = distinct !{!345, !346, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !346 = distinct !{!346, !"_ZNK2cv10softdoubleplERKS0_"}
 !347 = !{!348, !345}
-!348 = distinct !{!348, !349, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!349 = distinct !{!349, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!348 = distinct !{!348, !349, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!349 = distinct !{!349, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !350 = !{!351}
 !351 = distinct !{!351, !352, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !352 = distinct !{!352, !"_ZNK2cv10softdoubleplERKS0_"}
 !353 = !{!354, !351}
-!354 = distinct !{!354, !355, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!355 = distinct !{!355, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!354 = distinct !{!354, !355, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!355 = distinct !{!355, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !356 = !{!357}
 !357 = distinct !{!357, !358, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !358 = distinct !{!358, !"_ZNK2cv10softdoubleplERKS0_"}
 !359 = !{!360, !357}
-!360 = distinct !{!360, !361, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!361 = distinct !{!361, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!360 = distinct !{!360, !361, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!361 = distinct !{!361, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !362 = !{!363}
 !363 = distinct !{!363, !364, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !364 = distinct !{!364, !"_ZNK2cv10softdoubleplERKS0_"}
 !365 = !{!366, !363}
-!366 = distinct !{!366, !367, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!367 = distinct !{!367, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!366 = distinct !{!366, !367, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!367 = distinct !{!367, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !368 = !{!369}
 !369 = distinct !{!369, !370, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !370 = distinct !{!370, !"_ZNK2cv10softdoubleplERKS0_"}
 !371 = !{!372, !369}
-!372 = distinct !{!372, !373, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!373 = distinct !{!373, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!372 = distinct !{!372, !373, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!373 = distinct !{!373, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !374 = !{!375}
 !375 = distinct !{!375, !376, !"_ZN2cvL7f32_powENS_9softfloatES0_: argument 0"}
 !376 = distinct !{!376, !"_ZN2cvL7f32_powENS_9softfloatES0_"}
@@ -9976,8 +9976,8 @@ attributes #15 = { nounwind }
 !400 = distinct !{!400, !401, !"_ZN2cv9softfloat3oneEv: argument 0"}
 !401 = distinct !{!401, !"_ZN2cv9softfloat3oneEv"}
 !402 = !{!403, !375}
-!403 = distinct !{!403, !404, !"_ZN2cvL8f32_powiENS_9softfloatEi: argument 0"}
-!404 = distinct !{!404, !"_ZN2cvL8f32_powiENS_9softfloatEi"}
+!403 = distinct !{!403, !404, !"_ZN2cvL8f32_powiENS_9softfloatEi.argprom: argument 0"}
+!404 = distinct !{!404, !"_ZN2cvL8f32_powiENS_9softfloatEi.argprom"}
 !405 = !{!406, !408}
 !406 = distinct !{!406, !407, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
 !407 = distinct !{!407, !"_ZN2cv9softfloat7fromRawEj"}
@@ -10013,8 +10013,8 @@ attributes #15 = { nounwind }
 !437 = distinct !{!437, !438, !"_ZN2cv10softdouble3oneEv: argument 0"}
 !438 = distinct !{!438, !"_ZN2cv10softdouble3oneEv"}
 !439 = !{!440, !412}
-!440 = distinct !{!440, !441, !"_ZN2cvL8f64_powiENS_10softdoubleEi: argument 0"}
-!441 = distinct !{!441, !"_ZN2cvL8f64_powiENS_10softdoubleEi"}
+!440 = distinct !{!440, !441, !"_ZN2cvL8f64_powiENS_10softdoubleEi.argprom: argument 0"}
+!441 = distinct !{!441, !"_ZN2cvL8f64_powiENS_10softdoubleEi.argprom"}
 !442 = !{!443, !445}
 !443 = distinct !{!443, !444, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !444 = distinct !{!444, !"_ZN2cv10softdouble7fromRawEm"}
@@ -10022,8 +10022,8 @@ attributes #15 = { nounwind }
 !446 = distinct !{!446, !"_ZN2cv10softdouble3oneEv"}
 !447 = distinct !{!447, !41}
 !448 = !{!449}
-!449 = distinct !{!449, !450, !"_ZN2cvL8f32_cbrtENS_9softfloatE: argument 0"}
-!450 = distinct !{!450, !"_ZN2cvL8f32_cbrtENS_9softfloatE"}
+!449 = distinct !{!449, !450, !"_ZN2cvL8f32_cbrtENS_9softfloatE.argprom: argument 0"}
+!450 = distinct !{!450, !"_ZN2cvL8f32_cbrtENS_9softfloatE.argprom"}
 !451 = !{!452}
 !452 = distinct !{!452, !453, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !453 = distinct !{!453, !"_ZN2cv10softdouble7fromRawEm"}
@@ -10035,57 +10035,57 @@ attributes #15 = { nounwind }
 !459 = distinct !{!459, !"_ZNK2cv10softdoubleplERKS0_"}
 !460 = !{!458, !449}
 !461 = !{!462, !458}
-!462 = distinct !{!462, !463, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!463 = distinct !{!463, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!462 = distinct !{!462, !463, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!463 = distinct !{!463, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !464 = !{!465}
 !465 = distinct !{!465, !466, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !466 = distinct !{!466, !"_ZNK2cv10softdoubleplERKS0_"}
 !467 = !{!465, !449}
 !468 = !{!469, !465}
-!469 = distinct !{!469, !470, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!470 = distinct !{!470, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!469 = distinct !{!469, !470, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!470 = distinct !{!470, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !471 = !{!472}
 !472 = distinct !{!472, !473, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !473 = distinct !{!473, !"_ZNK2cv10softdoubleplERKS0_"}
 !474 = !{!472, !449}
 !475 = !{!476, !472}
-!476 = distinct !{!476, !477, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!477 = distinct !{!477, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!476 = distinct !{!476, !477, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!477 = distinct !{!477, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !478 = !{!479}
 !479 = distinct !{!479, !480, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !480 = distinct !{!480, !"_ZNK2cv10softdoubleplERKS0_"}
 !481 = !{!479, !449}
 !482 = !{!483, !479}
-!483 = distinct !{!483, !484, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!484 = distinct !{!484, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!483 = distinct !{!483, !484, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!484 = distinct !{!484, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !485 = !{!486}
 !486 = distinct !{!486, !487, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !487 = distinct !{!487, !"_ZNK2cv10softdoubleplERKS0_"}
 !488 = !{!486, !449}
 !489 = !{!490, !486}
-!490 = distinct !{!490, !491, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!491 = distinct !{!491, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!490 = distinct !{!490, !491, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!491 = distinct !{!491, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !492 = !{!493}
 !493 = distinct !{!493, !494, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !494 = distinct !{!494, !"_ZNK2cv10softdoubleplERKS0_"}
 !495 = !{!493, !449}
 !496 = !{!497, !493}
-!497 = distinct !{!497, !498, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!498 = distinct !{!498, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!497 = distinct !{!497, !498, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!498 = distinct !{!498, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !499 = !{!500}
 !500 = distinct !{!500, !501, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !501 = distinct !{!501, !"_ZNK2cv10softdoubleplERKS0_"}
 !502 = !{!500, !449}
 !503 = !{!504, !500}
-!504 = distinct !{!504, !505, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!505 = distinct !{!505, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!504 = distinct !{!504, !505, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!505 = distinct !{!505, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !506 = !{!507}
 !507 = distinct !{!507, !508, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !508 = distinct !{!508, !"_ZNK2cv10softdoubleplERKS0_"}
 !509 = !{!507, !449}
 !510 = !{!511, !507}
-!511 = distinct !{!511, !512, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!512 = distinct !{!512, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!511 = distinct !{!511, !512, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!512 = distinct !{!512, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !513 = !{!514}
 !514 = distinct !{!514, !515, !"_ZN2cvL7f64_sinENS_10softdoubleE: argument 0"}
 !515 = distinct !{!515, !"_ZN2cvL7f64_sinENS_10softdoubleE"}
@@ -10125,38 +10125,38 @@ attributes #15 = { nounwind }
 !549 = distinct !{!549, !550, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !550 = distinct !{!550, !"_ZN2cv10softdouble7fromRawEm"}
 !551 = !{!552, !554}
-!552 = distinct !{!552, !553, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!553 = distinct !{!553, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!552 = distinct !{!552, !553, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom: argument 0"}
+!553 = distinct !{!553, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom"}
 !554 = distinct !{!554, !555, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
 !555 = distinct !{!555, !"_ZNK2cv10softdoublemiERKS0_"}
 !556 = !{!557, !559}
-!557 = distinct !{!557, !558, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!558 = distinct !{!558, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!557 = distinct !{!557, !558, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom: argument 0"}
+!558 = distinct !{!558, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom"}
 !559 = distinct !{!559, !560, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
 !560 = distinct !{!560, !"_ZNK2cv10softdoublemiERKS0_"}
 !561 = !{!562, !564}
-!562 = distinct !{!562, !563, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!563 = distinct !{!563, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!562 = distinct !{!562, !563, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!563 = distinct !{!563, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !564 = distinct !{!564, !565, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !565 = distinct !{!565, !"_ZNK2cv10softdoubleplERKS0_"}
 !566 = !{!567, !569}
-!567 = distinct !{!567, !568, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!568 = distinct !{!568, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!567 = distinct !{!567, !568, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom: argument 0"}
+!568 = distinct !{!568, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom"}
 !569 = distinct !{!569, !570, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
 !570 = distinct !{!570, !"_ZNK2cv10softdoublemiERKS0_"}
 !571 = !{!572, !574}
-!572 = distinct !{!572, !573, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!573 = distinct !{!573, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!572 = distinct !{!572, !573, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!573 = distinct !{!573, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !574 = distinct !{!574, !575, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !575 = distinct !{!575, !"_ZNK2cv10softdoubleplERKS0_"}
 !576 = !{!577, !579}
-!577 = distinct !{!577, !578, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!578 = distinct !{!578, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!577 = distinct !{!577, !578, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom: argument 0"}
+!578 = distinct !{!578, !"_ZN2cvL7f64_subENS_10softdoubleES0_.argprom"}
 !579 = distinct !{!579, !580, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
 !580 = distinct !{!580, !"_ZNK2cv10softdoublemiERKS0_"}
 !581 = !{!582, !584}
-!582 = distinct !{!582, !583, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!583 = distinct !{!583, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!582 = distinct !{!582, !583, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom: argument 0"}
+!583 = distinct !{!583, !"_ZN2cvL7f64_addENS_10softdoubleES0_.argprom"}
 !584 = distinct !{!584, !585, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
 !585 = distinct !{!585, !"_ZNK2cv10softdoubleplERKS0_"}
 !586 = !{!587, !589}

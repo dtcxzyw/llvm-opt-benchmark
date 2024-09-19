@@ -257,7 +257,7 @@ define i32 @Fxch_SCHashTableInsert(ptr nocapture noundef %0, ptr nocapture nound
 
 110:                                              ; preds = %108, %109
   %.val111 = load ptr, ptr %85, align 8
-  %111 = tail call fastcc i32 @Fxch_SCHashTableEntryCompare(ptr noundef nonnull %0, ptr %.val111, ptr noundef nonnull %89, ptr noundef nonnull %81)
+  %111 = tail call fastcc i32 @Fxch_SCHashTableEntryCompare.argprom(ptr noundef nonnull %0, ptr %.val111, ptr noundef nonnull %89, ptr noundef nonnull %81)
   %.not104 = icmp eq i32 %111, 0
   br i1 %.not104, label %307, label %112
 
@@ -667,7 +667,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Fxch_SCHashTableEntryCompare(ptr nocapture noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @Fxch_SCHashTableEntryCompare.argprom(ptr nocapture noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
@@ -1162,7 +1162,7 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
 
 73:                                               ; preds = %71, %72
   %.val107 = load ptr, ptr %47, align 8
-  %74 = tail call fastcc i32 @Fxch_SCHashTableEntryCompare(ptr noundef nonnull %0, ptr %.val107, ptr noundef nonnull %44, ptr noundef nonnull %52)
+  %74 = tail call fastcc i32 @Fxch_SCHashTableEntryCompare.argprom(ptr noundef nonnull %0, ptr %.val107, ptr noundef nonnull %44, ptr noundef nonnull %52)
   %.not97 = icmp eq i32 %74, 0
   br i1 %.not97, label %173, label %75
 

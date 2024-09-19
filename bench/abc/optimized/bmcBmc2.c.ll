@@ -760,7 +760,7 @@ Vec_IntFill.exit:                                 ; preds = %29, %7
   %68 = getelementptr i8, ptr %.val54, i64 36
   %.val59 = load i32, ptr %68, align 4
   %69 = add nsw i32 %.val59, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %calloc62, i32 noundef %69)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %calloc62, i32 noundef %69)
   %.val.i.i = load ptr, ptr %24, align 8
   %70 = sext i32 %.val59 to i64
   %71 = getelementptr inbounds i32, ptr %.val.i.i, i64 %70
@@ -1104,7 +1104,7 @@ define ptr @Saig_BmcIntervalConstruct_rec(ptr noundef %0, ptr nocapture noundef 
   %14 = getelementptr inbounds i32, ptr %.val19.i, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %Saig_BmcObjFrame.exit.thread, label %17
+  br i1 %16, label %Saig_BmcObjFrame.argprom.exit.thread, label %17
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1112,9 +1112,9 @@ define ptr @Saig_BmcIntervalConstruct_rec(ptr noundef %0, ptr nocapture noundef 
   %20 = getelementptr i8, ptr %19, i64 32
   %.val20.i = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %.val20.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.exit.thread.i, label %Aig_ManObj.exit.i
+  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.thread.i, label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %17
+Aig_ManObj.argprom.exit.i:                        ; preds = %17
   %21 = ashr i32 %15, 1
   %22 = getelementptr i8, ptr %.val20.i, i64 8
   %.val.i.i = load ptr, ptr %22, align 8
@@ -1122,22 +1122,22 @@ Aig_ManObj.exit.i:                                ; preds = %17
   %24 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %Aig_ManObj.exit.thread.i, label %Saig_BmcObjFrame.exit
+  br i1 %26, label %Aig_ManObj.argprom.exit.thread.i, label %Saig_BmcObjFrame.argprom.exit
 
-Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, %17
+Aig_ManObj.argprom.exit.thread.i:                 ; preds = %Aig_ManObj.argprom.exit.i, %17
   store i32 -1, ptr %14, align 4
-  br label %Saig_BmcObjFrame.exit.thread
+  br label %Saig_BmcObjFrame.argprom.exit.thread
 
-Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i
+Saig_BmcObjFrame.argprom.exit:                    ; preds = %Aig_ManObj.argprom.exit.i
   %27 = and i32 %15, 1
   %28 = ptrtoint ptr %25 to i64
   %29 = zext nneg i32 %27 to i64
   %30 = xor i64 %28, %29
   %31 = inttoptr i64 %30 to ptr
   %.not = icmp eq i64 %28, %29
-  br i1 %.not, label %Saig_BmcObjFrame.exit.thread, label %174
+  br i1 %.not, label %Saig_BmcObjFrame.argprom.exit.thread, label %174
 
-Saig_BmcObjFrame.exit.thread:                     ; preds = %Aig_ManObj.exit.thread.i, %4, %Saig_BmcObjFrame.exit
+Saig_BmcObjFrame.argprom.exit.thread:             ; preds = %Aig_ManObj.argprom.exit.thread.i, %4, %Saig_BmcObjFrame.argprom.exit
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %1, i64 24
@@ -1148,7 +1148,7 @@ Saig_BmcObjFrame.exit.thread:                     ; preds = %Aig_ManObj.exit.thr
     i64 3, label %52
   ]
 
-Saig_ObjIsPi.exit:                                ; preds = %Saig_BmcObjFrame.exit.thread
+Saig_ObjIsPi.exit:                                ; preds = %Saig_BmcObjFrame.argprom.exit.thread
   %.val3.i = load i32, ptr %1, align 8
   %36 = getelementptr i8, ptr %33, i64 108
   %.val4.i = load i32, ptr %36, align 4
@@ -1177,7 +1177,7 @@ Saig_ObjIsLo.exit:                                ; preds = %Saig_ObjIsPi.exit
   %51 = tail call ptr @Saig_BmcIntervalConstruct_rec(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %50, ptr noundef %3)
   br label %112
 
-52:                                               ; preds = %Saig_BmcObjFrame.exit.thread
+52:                                               ; preds = %Saig_BmcObjFrame.argprom.exit.thread
   %53 = getelementptr i8, ptr %1, i64 8
   %.val59 = load ptr, ptr %53, align 8
   %54 = ptrtoint ptr %.val59 to i64
@@ -1209,9 +1209,9 @@ Saig_ObjIsLo.exit:                                ; preds = %Saig_ObjIsPi.exit
   %74 = getelementptr i8, ptr %73, i64 32
   %.val20.i.i = load ptr, ptr %74, align 8
   %.not.i.i.i = icmp eq ptr %.val20.i.i, null
-  br i1 %.not.i.i.i, label %Aig_ManObj.exit.thread.i.i, label %Aig_ManObj.exit.i.i
+  br i1 %.not.i.i.i, label %Aig_ManObj.argprom.exit.thread.i.i, label %Aig_ManObj.argprom.exit.i.i
 
-Aig_ManObj.exit.i.i:                              ; preds = %71
+Aig_ManObj.argprom.exit.i.i:                      ; preds = %71
   %75 = ashr i32 %69, 1
   %76 = getelementptr i8, ptr %.val20.i.i, i64 8
   %.val.i.i.i = load ptr, ptr %76, align 8
@@ -1219,30 +1219,30 @@ Aig_ManObj.exit.i.i:                              ; preds = %71
   %78 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %Aig_ManObj.exit.thread.i.i, label %81
+  br i1 %80, label %Aig_ManObj.argprom.exit.thread.i.i, label %81
 
-Aig_ManObj.exit.thread.i.i:                       ; preds = %Aig_ManObj.exit.i.i, %71
+Aig_ManObj.argprom.exit.thread.i.i:               ; preds = %Aig_ManObj.argprom.exit.i.i, %71
   store i32 -1, ptr %68, align 4
   %.val3.pre.i = load ptr, ptr %53, align 8
   %.pre.i = ptrtoint ptr %.val3.pre.i to i64
   br label %Saig_BmcObjChild0.exit
 
-81:                                               ; preds = %Aig_ManObj.exit.i.i
+81:                                               ; preds = %Aig_ManObj.argprom.exit.i.i
   %82 = and i32 %69, 1
   %83 = ptrtoint ptr %79 to i64
   %84 = zext nneg i32 %82 to i64
   %85 = xor i64 %83, %84
   br label %Saig_BmcObjChild0.exit
 
-Saig_BmcObjChild0.exit:                           ; preds = %52, %Aig_ManObj.exit.thread.i.i, %81
-  %.pre-phi.i = phi i64 [ %58, %52 ], [ %.pre.i, %Aig_ManObj.exit.thread.i.i ], [ %58, %81 ]
-  %.0.i.i = phi i64 [ 0, %52 ], [ 0, %Aig_ManObj.exit.thread.i.i ], [ %85, %81 ]
+Saig_BmcObjChild0.exit:                           ; preds = %52, %Aig_ManObj.argprom.exit.thread.i.i, %81
+  %.pre-phi.i = phi i64 [ %58, %52 ], [ %.pre.i, %Aig_ManObj.argprom.exit.thread.i.i ], [ %58, %81 ]
+  %.0.i.i = phi i64 [ 0, %52 ], [ 0, %Aig_ManObj.argprom.exit.thread.i.i ], [ %85, %81 ]
   %86 = and i64 %.pre-phi.i, 1
   %87 = xor i64 %86, %.0.i.i
   %88 = inttoptr i64 %87 to ptr
   br label %112
 
-.thread87:                                        ; preds = %Saig_BmcObjFrame.exit.thread
+.thread87:                                        ; preds = %Saig_BmcObjFrame.argprom.exit.thread
   %89 = getelementptr i8, ptr %1, i64 8
   %.val58 = load ptr, ptr %89, align 8
   %90 = ptrtoint ptr %.val58 to i64
@@ -1410,8 +1410,8 @@ Vec_IntPush.exit82:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %2, ptr %173, align 4
   br label %174
 
-174:                                              ; preds = %Saig_BmcObjFrame.exit, %Vec_IntPush.exit82
-  %.052 = phi ptr [ %.0, %Vec_IntPush.exit82 ], [ %31, %Saig_BmcObjFrame.exit ]
+174:                                              ; preds = %Saig_BmcObjFrame.argprom.exit, %Vec_IntPush.exit82
+  %.052 = phi ptr [ %.0, %Vec_IntPush.exit82 ], [ %31, %Saig_BmcObjFrame.argprom.exit ]
   ret ptr %.052
 }
 
@@ -1439,7 +1439,7 @@ define internal fastcc ptr @Saig_BmcObjChild0(ptr nocapture noundef readonly %0,
   %17 = getelementptr inbounds i32, ptr %.val19.i, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %Saig_BmcObjFrame.exit, label %20
+  br i1 %19, label %Saig_BmcObjFrame.argprom.exit, label %20
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1447,9 +1447,9 @@ define internal fastcc ptr @Saig_BmcObjChild0(ptr nocapture noundef readonly %0,
   %23 = getelementptr i8, ptr %22, i64 32
   %.val20.i = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %.val20.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.exit.thread.i, label %Aig_ManObj.exit.i
+  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.thread.i, label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %20
+Aig_ManObj.argprom.exit.i:                        ; preds = %20
   %24 = ashr i32 %18, 1
   %25 = getelementptr i8, ptr %.val20.i, i64 8
   %.val.i.i = load ptr, ptr %25, align 8
@@ -1457,24 +1457,24 @@ Aig_ManObj.exit.i:                                ; preds = %20
   %27 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %Aig_ManObj.exit.thread.i, label %30
+  br i1 %29, label %Aig_ManObj.argprom.exit.thread.i, label %30
 
-Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, %20
+Aig_ManObj.argprom.exit.thread.i:                 ; preds = %Aig_ManObj.argprom.exit.i, %20
   store i32 -1, ptr %17, align 4
   %.val3.pre = load ptr, ptr %4, align 8
   %.pre = ptrtoint ptr %.val3.pre to i64
-  br label %Saig_BmcObjFrame.exit
+  br label %Saig_BmcObjFrame.argprom.exit
 
-30:                                               ; preds = %Aig_ManObj.exit.i
+30:                                               ; preds = %Aig_ManObj.argprom.exit.i
   %31 = and i32 %18, 1
   %32 = ptrtoint ptr %28 to i64
   %33 = zext nneg i32 %31 to i64
   %34 = xor i64 %32, %33
-  br label %Saig_BmcObjFrame.exit
+  br label %Saig_BmcObjFrame.argprom.exit
 
-Saig_BmcObjFrame.exit:                            ; preds = %3, %Aig_ManObj.exit.thread.i, %30
-  %.pre-phi = phi i64 [ %5, %3 ], [ %.pre, %Aig_ManObj.exit.thread.i ], [ %5, %30 ]
-  %.0.i = phi i64 [ 0, %3 ], [ 0, %Aig_ManObj.exit.thread.i ], [ %34, %30 ]
+Saig_BmcObjFrame.argprom.exit:                    ; preds = %3, %Aig_ManObj.argprom.exit.thread.i, %30
+  %.pre-phi = phi i64 [ %5, %3 ], [ %.pre, %Aig_ManObj.argprom.exit.thread.i ], [ %5, %30 ]
+  %.0.i = phi i64 [ 0, %3 ], [ 0, %Aig_ManObj.argprom.exit.thread.i ], [ %34, %30 ]
   %35 = and i64 %.pre-phi, 1
   %36 = xor i64 %35, %.0.i
   %37 = inttoptr i64 %36 to ptr
@@ -1505,7 +1505,7 @@ define internal fastcc ptr @Saig_BmcObjChild1(ptr nocapture noundef readonly %0,
   %17 = getelementptr inbounds i32, ptr %.val19.i, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %Saig_BmcObjFrame.exit, label %20
+  br i1 %19, label %Saig_BmcObjFrame.argprom.exit, label %20
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1513,9 +1513,9 @@ define internal fastcc ptr @Saig_BmcObjChild1(ptr nocapture noundef readonly %0,
   %23 = getelementptr i8, ptr %22, i64 32
   %.val20.i = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %.val20.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.exit.thread.i, label %Aig_ManObj.exit.i
+  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.thread.i, label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %20
+Aig_ManObj.argprom.exit.i:                        ; preds = %20
   %24 = ashr i32 %18, 1
   %25 = getelementptr i8, ptr %.val20.i, i64 8
   %.val.i.i = load ptr, ptr %25, align 8
@@ -1523,24 +1523,24 @@ Aig_ManObj.exit.i:                                ; preds = %20
   %27 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %Aig_ManObj.exit.thread.i, label %30
+  br i1 %29, label %Aig_ManObj.argprom.exit.thread.i, label %30
 
-Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, %20
+Aig_ManObj.argprom.exit.thread.i:                 ; preds = %Aig_ManObj.argprom.exit.i, %20
   store i32 -1, ptr %17, align 4
   %.val3.pre = load ptr, ptr %4, align 8
   %.pre = ptrtoint ptr %.val3.pre to i64
-  br label %Saig_BmcObjFrame.exit
+  br label %Saig_BmcObjFrame.argprom.exit
 
-30:                                               ; preds = %Aig_ManObj.exit.i
+30:                                               ; preds = %Aig_ManObj.argprom.exit.i
   %31 = and i32 %18, 1
   %32 = ptrtoint ptr %28 to i64
   %33 = zext nneg i32 %31 to i64
   %34 = xor i64 %32, %33
-  br label %Saig_BmcObjFrame.exit
+  br label %Saig_BmcObjFrame.argprom.exit
 
-Saig_BmcObjFrame.exit:                            ; preds = %3, %Aig_ManObj.exit.thread.i, %30
-  %.pre-phi = phi i64 [ %5, %3 ], [ %.pre, %Aig_ManObj.exit.thread.i ], [ %5, %30 ]
-  %.0.i = phi i64 [ 0, %3 ], [ 0, %Aig_ManObj.exit.thread.i ], [ %34, %30 ]
+Saig_BmcObjFrame.argprom.exit:                    ; preds = %3, %Aig_ManObj.argprom.exit.thread.i, %30
+  %.pre-phi = phi i64 [ %5, %3 ], [ %.pre, %Aig_ManObj.argprom.exit.thread.i ], [ %5, %30 ]
+  %.0.i = phi i64 [ 0, %3 ], [ 0, %Aig_ManObj.argprom.exit.thread.i ], [ %34, %30 ]
   %35 = and i64 %.pre-phi, 1
   %36 = xor i64 %35, %.0.i
   %37 = inttoptr i64 %36 to ptr
@@ -1711,11 +1711,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %90 = getelementptr i8, ptr %89, i64 4
   %.val5255 = load i32, ptr %90, align 4
   %91 = icmp sgt i32 %.val5255, 1
-  br i1 %91, label %Aig_ManObj.exit, label %.critedge
+  br i1 %91, label %Aig_ManObj.argprom.exit, label %.critedge
 
-Aig_ManObj.exit:                                  ; preds = %Vec_PtrPush.exit, %Saig_BmcObjFrame.exit
-  %92 = phi ptr [ %125, %Saig_BmcObjFrame.exit ], [ %89, %Vec_PtrPush.exit ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Saig_BmcObjFrame.exit ], [ 0, %Vec_PtrPush.exit ]
+Aig_ManObj.argprom.exit:                          ; preds = %Vec_PtrPush.exit, %Saig_BmcObjFrame.argprom.exit
+  %92 = phi ptr [ %125, %Saig_BmcObjFrame.argprom.exit ], [ %89, %Vec_PtrPush.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Saig_BmcObjFrame.argprom.exit ], [ 0, %Vec_PtrPush.exit ]
   %93 = or disjoint i64 %indvars.iv, 1
   %94 = getelementptr i8, ptr %92, i64 8
   %.val47 = load ptr, ptr %94, align 8
@@ -1745,16 +1745,16 @@ Aig_ManObj.exit:                                  ; preds = %Vec_PtrPush.exit, %
   %113 = getelementptr inbounds i32, ptr %.val19.i, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, -1
-  br i1 %115, label %Saig_BmcObjFrame.exit, label %116
+  br i1 %115, label %Saig_BmcObjFrame.argprom.exit, label %116
 
-116:                                              ; preds = %Aig_ManObj.exit
+116:                                              ; preds = %Aig_ManObj.argprom.exit
   %117 = load ptr, ptr %2, align 8
   %118 = getelementptr i8, ptr %117, i64 32
   %.val20.i = load ptr, ptr %118, align 8
   %.not.i.i = icmp eq ptr %.val20.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.exit.thread.i, label %Aig_ManObj.exit.i
+  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.thread.i, label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %116
+Aig_ManObj.argprom.exit.i:                        ; preds = %116
   %119 = ashr i32 %114, 1
   %120 = getelementptr i8, ptr %.val20.i, i64 8
   %.val.i.i = load ptr, ptr %120, align 8
@@ -1762,24 +1762,24 @@ Aig_ManObj.exit.i:                                ; preds = %116
   %122 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %Aig_ManObj.exit.thread.i, label %Saig_BmcObjFrame.exit
+  br i1 %124, label %Aig_ManObj.argprom.exit.thread.i, label %Saig_BmcObjFrame.argprom.exit
 
-Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, %116
+Aig_ManObj.argprom.exit.thread.i:                 ; preds = %Aig_ManObj.argprom.exit.i, %116
   store i32 -1, ptr %113, align 4
   %.pre65 = load ptr, ptr %19, align 8
-  br label %Saig_BmcObjFrame.exit
+  br label %Saig_BmcObjFrame.argprom.exit
 
-Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i, %Aig_ManObj.exit, %Aig_ManObj.exit.thread.i
-  %125 = phi ptr [ %92, %Aig_ManObj.exit.i ], [ %92, %Aig_ManObj.exit ], [ %.pre65, %Aig_ManObj.exit.thread.i ]
+Saig_BmcObjFrame.argprom.exit:                    ; preds = %Aig_ManObj.argprom.exit.i, %Aig_ManObj.argprom.exit, %Aig_ManObj.argprom.exit.thread.i
+  %125 = phi ptr [ %92, %Aig_ManObj.argprom.exit.i ], [ %92, %Aig_ManObj.argprom.exit ], [ %.pre65, %Aig_ManObj.argprom.exit.thread.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %126 = getelementptr i8, ptr %125, i64 4
   %.val52 = load i32, ptr %126, align 4
   %127 = trunc i64 %indvars.iv.next to i32
   %128 = or disjoint i32 %127, 1
   %129 = icmp slt i32 %128, %.val52
-  br i1 %129, label %Aig_ManObj.exit, label %.critedge, !llvm.loop !15
+  br i1 %129, label %Aig_ManObj.argprom.exit, label %.critedge, !llvm.loop !15
 
-.critedge:                                        ; preds = %Saig_BmcObjFrame.exit, %Vec_PtrPush.exit
+.critedge:                                        ; preds = %Saig_BmcObjFrame.argprom.exit, %Vec_PtrPush.exit
   %130 = load i32, ptr %16, align 8
   %131 = add nsw i32 %130, 1
   store i32 %131, ptr %16, align 8
@@ -1889,7 +1889,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val30 = load ptr, ptr %41, align 8
   %.val31 = load i32, ptr %9, align 4
   %42 = add nsw i32 %.val31, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val30, i32 noundef %42)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val30, i32 noundef %42)
   %43 = getelementptr i8, ptr %.val30, i64 8
   %.val.i.i = load ptr, ptr %43, align 8
   %44 = sext i32 %.val31 to i64
@@ -1936,7 +1936,7 @@ Vec_IntPush.exit._crit_edge:                      ; preds = %Vec_IntPush.exit
   %68 = ptrtoint ptr %.val32 to i64
   %69 = and i64 %68, -2
   %.not.i = icmp eq i64 %69, 0
-  br i1 %.not.i, label %Aig_ObjChild0Copy.exit, label %70
+  br i1 %.not.i, label %Aig_ObjChild0Copy.argprom.exit, label %70
 
 70:                                               ; preds = %57
   %71 = inttoptr i64 %69 to ptr
@@ -1946,17 +1946,17 @@ Vec_IntPush.exit._crit_edge:                      ; preds = %Vec_IntPush.exit
   %75 = ptrtoint ptr %73 to i64
   %76 = xor i64 %74, %75
   %77 = inttoptr i64 %76 to ptr
-  br label %Aig_ObjChild0Copy.exit
+  br label %Aig_ObjChild0Copy.argprom.exit
 
-Aig_ObjChild0Copy.exit:                           ; preds = %57, %70
+Aig_ObjChild0Copy.argprom.exit:                   ; preds = %57, %70
   %78 = phi ptr [ %77, %70 ], [ null, %57 ]
   %.val33 = load ptr, ptr %63, align 8
   %79 = ptrtoint ptr %.val33 to i64
   %80 = and i64 %79, -2
   %.not.i34 = icmp eq i64 %80, 0
-  br i1 %.not.i34, label %Aig_ObjChild1Copy.exit, label %81
+  br i1 %.not.i34, label %Aig_ObjChild1Copy.argprom.exit, label %81
 
-81:                                               ; preds = %Aig_ObjChild0Copy.exit
+81:                                               ; preds = %Aig_ObjChild0Copy.argprom.exit
   %82 = inttoptr i64 %80 to ptr
   %83 = getelementptr inbounds i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8
@@ -1964,15 +1964,15 @@ Aig_ObjChild0Copy.exit:                           ; preds = %57, %70
   %86 = ptrtoint ptr %84 to i64
   %87 = xor i64 %85, %86
   %88 = inttoptr i64 %87 to ptr
-  br label %Aig_ObjChild1Copy.exit
+  br label %Aig_ObjChild1Copy.argprom.exit
 
-Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit, %81
-  %89 = phi ptr [ %88, %81 ], [ null, %Aig_ObjChild0Copy.exit ]
+Aig_ObjChild1Copy.argprom.exit:                   ; preds = %Aig_ObjChild0Copy.argprom.exit, %81
+  %89 = phi ptr [ %88, %81 ], [ null, %Aig_ObjChild0Copy.argprom.exit ]
   %90 = tail call ptr @Aig_And(ptr noundef %1, ptr noundef %78, ptr noundef %89) #18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %52, %Aig_ObjChild1Copy.exit
-  %.sink = phi ptr [ %90, %Aig_ObjChild1Copy.exit ], [ %56, %52 ]
+.sink.split:                                      ; preds = %52, %Aig_ObjChild1Copy.argprom.exit
+  %.sink = phi ptr [ %90, %Aig_ObjChild1Copy.argprom.exit ], [ %56, %52 ]
   store ptr %.sink, ptr %4, align 8
   br label %91
 
@@ -2110,9 +2110,9 @@ define void @Saig_BmcLoadCnf(ptr nocapture noundef readonly %0, ptr nocapture no
   %6 = getelementptr i8, ptr %5, i64 4
   %.val5864 = load i32, ptr %6, align 4
   %7 = icmp sgt i32 %.val5864, 0
-  br i1 %7, label %Aig_ManObj.exit.lr.ph, label %.critedge
+  br i1 %7, label %Aig_ManObj.argprom.exit.lr.ph, label %.critedge
 
-Aig_ManObj.exit.lr.ph:                            ; preds = %2
+Aig_ManObj.argprom.exit.lr.ph:                    ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = getelementptr i8, ptr %0, i64 88
@@ -2120,11 +2120,11 @@ Aig_ManObj.exit.lr.ph:                            ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 72
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = getelementptr inbounds i8, ptr %3, i64 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.ph, %65
-  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.lr.ph ], [ %indvars.iv.next, %65 ]
-  %15 = phi ptr [ %5, %Aig_ManObj.exit.lr.ph ], [ %66, %65 ]
+Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.exit.lr.ph, %65
+  %indvars.iv = phi i64 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %indvars.iv.next, %65 ]
+  %15 = phi ptr [ %5, %Aig_ManObj.argprom.exit.lr.ph ], [ %66, %65 ]
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr i8, ptr %15, i64 8
   %.val56 = load ptr, ptr %17, align 8
@@ -2149,12 +2149,12 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %65, label %34
 
-34:                                               ; preds = %Aig_ManObj.exit
+34:                                               ; preds = %Aig_ManObj.argprom.exit
   %.val59 = load ptr, ptr %10, align 8
   %35 = getelementptr i8, ptr %24, i64 36
   %.val60 = load i32, ptr %35, align 4
   %36 = add nsw i32 %.val60, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val59, i32 noundef %36)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val59, i32 noundef %36)
   %37 = getelementptr i8, ptr %.val59, i64 8
   %.val.i.i = load ptr, ptr %37, align 8
   %38 = sext i32 %.val60 to i64
@@ -2167,7 +2167,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %.val = load ptr, ptr %10, align 8
   %.val55 = load i32, ptr %35, align 4
   %43 = add nsw i32 %.val55, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val, i32 noundef %43)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val, i32 noundef %43)
   %44 = getelementptr i8, ptr %.val, i64 8
   %.val.i.i61 = load ptr, ptr %44, align 8
   %45 = sext i32 %.val55 to i64
@@ -2211,14 +2211,14 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %64 = call i32 @sat_solver_addclause(ptr noundef %63, ptr noundef nonnull %3, ptr noundef nonnull %14) #18
   br label %65
 
-65:                                               ; preds = %60, %62, %Aig_ManObj.exit, %42
+65:                                               ; preds = %60, %62, %Aig_ManObj.argprom.exit, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load ptr, ptr %4, align 8
   %67 = getelementptr i8, ptr %66, i64 4
   %.val58 = load i32, ptr %67, align 4
   %68 = sext i32 %.val58 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %Aig_ManObj.exit, label %.critedge, !llvm.loop !19
+  br i1 %69, label %Aig_ManObj.argprom.exit, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %65, %2
   %70 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2394,9 +2394,9 @@ define noundef ptr @Saig_BmcGenerateCounterExample(ptr nocapture noundef readonl
   %29 = trunc nuw nsw i64 %indvars.iv65 to i32
   br label %30
 
-30:                                               ; preds = %.lr.ph, %Saig_BmcObjFrame.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Saig_BmcObjFrame.exit.thread ]
-  %31 = phi ptr [ %26, %.lr.ph ], [ %130, %Saig_BmcObjFrame.exit.thread ]
+30:                                               ; preds = %.lr.ph, %Saig_BmcObjFrame.argprom.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Saig_BmcObjFrame.argprom.exit.thread ]
+  %31 = phi ptr [ %26, %.lr.ph ], [ %130, %Saig_BmcObjFrame.argprom.exit.thread ]
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 8
@@ -2416,16 +2416,16 @@ define noundef ptr @Saig_BmcGenerateCounterExample(ptr nocapture noundef readonl
   %44 = getelementptr inbounds i32, ptr %.val19.i, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, -1
-  br i1 %46, label %Saig_BmcObjFrame.exit.thread, label %47
+  br i1 %46, label %Saig_BmcObjFrame.argprom.exit.thread, label %47
 
 47:                                               ; preds = %30
   %48 = load ptr, ptr %16, align 8
   %49 = getelementptr i8, ptr %48, i64 32
   %.val20.i = load ptr, ptr %49, align 8
   %.not.i.i = icmp eq ptr %.val20.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.exit.thread.i, label %Aig_ManObj.exit.i
+  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.thread.i, label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %47
+Aig_ManObj.argprom.exit.i:                        ; preds = %47
   %50 = ashr i32 %45, 1
   %51 = getelementptr i8, ptr %.val20.i, i64 8
   %.val.i.i = load ptr, ptr %51, align 8
@@ -2433,20 +2433,20 @@ Aig_ManObj.exit.i:                                ; preds = %47
   %53 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %Aig_ManObj.exit.thread.i, label %Saig_BmcObjFrame.exit
+  br i1 %55, label %Aig_ManObj.argprom.exit.thread.i, label %Saig_BmcObjFrame.argprom.exit
 
-Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, %47
+Aig_ManObj.argprom.exit.thread.i:                 ; preds = %Aig_ManObj.argprom.exit.i, %47
   store i32 -1, ptr %44, align 4
-  br label %Saig_BmcObjFrame.exit.thread
+  br label %Saig_BmcObjFrame.argprom.exit.thread
 
-Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i
+Saig_BmcObjFrame.argprom.exit:                    ; preds = %Aig_ManObj.argprom.exit.i
   %56 = and i32 %45, 1
   %57 = ptrtoint ptr %54 to i64
   %58 = zext nneg i32 %56 to i64
   %59 = icmp eq i64 %57, %58
-  br i1 %59, label %Saig_BmcObjFrame.exit.thread, label %60
+  br i1 %59, label %Saig_BmcObjFrame.argprom.exit.thread, label %60
 
-60:                                               ; preds = %Saig_BmcObjFrame.exit
+60:                                               ; preds = %Saig_BmcObjFrame.argprom.exit
   %61 = xor i64 %57, %58
   %62 = inttoptr i64 %61 to ptr
   %.val48 = load ptr, ptr %17, align 8
@@ -2550,7 +2550,7 @@ Vec_IntFillExtra.exit:                            ; preds = %60, %._crit_edge.i
   %102 = getelementptr inbounds i32, ptr %.val.i.i52, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %Saig_BmcObjFrame.exit.thread, label %105
+  br i1 %104, label %Saig_BmcObjFrame.argprom.exit.thread, label %105
 
 105:                                              ; preds = %Vec_IntFillExtra.exit
   %106 = load ptr, ptr %18, align 8
@@ -2560,7 +2560,7 @@ Vec_IntFillExtra.exit:                            ; preds = %60, %._crit_edge.i
 107:                                              ; preds = %105
   %108 = tail call i32 @satoko_read_cex_varvalue(ptr noundef nonnull %106, i32 noundef %103) #18
   %.not43 = icmp eq i32 %108, 0
-  br i1 %.not43, label %Saig_BmcObjFrame.exit.thread, label %115
+  br i1 %.not43, label %Saig_BmcObjFrame.argprom.exit.thread, label %115
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %19, align 8
@@ -2570,7 +2570,7 @@ Vec_IntFillExtra.exit:                            ; preds = %60, %._crit_edge.i
   %113 = getelementptr inbounds i32, ptr %.val51, i64 %112
   %114 = load i32, ptr %113, align 4
   %.not57 = icmp eq i32 %114, 1
-  br i1 %.not57, label %115, label %Saig_BmcObjFrame.exit.thread
+  br i1 %.not57, label %115, label %Saig_BmcObjFrame.argprom.exit.thread
 
 115:                                              ; preds = %109, %107
   %116 = load i32, ptr %21, align 4
@@ -2589,9 +2589,9 @@ Vec_IntFillExtra.exit:                            ; preds = %60, %._crit_edge.i
   %128 = load i32, ptr %127, align 4
   %129 = or i32 %124, %128
   store i32 %129, ptr %127, align 4
-  br label %Saig_BmcObjFrame.exit.thread
+  br label %Saig_BmcObjFrame.argprom.exit.thread
 
-Saig_BmcObjFrame.exit.thread:                     ; preds = %Aig_ManObj.exit.thread.i, %30, %107, %109, %115, %Vec_IntFillExtra.exit, %Saig_BmcObjFrame.exit
+Saig_BmcObjFrame.argprom.exit.thread:             ; preds = %Aig_ManObj.argprom.exit.thread.i, %30, %107, %109, %115, %Vec_IntFillExtra.exit, %Saig_BmcObjFrame.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = load ptr, ptr %2, align 8
   %131 = getelementptr i8, ptr %130, i64 108
@@ -2600,7 +2600,7 @@ Saig_BmcObjFrame.exit.thread:                     ; preds = %Aig_ManObj.exit.thr
   %133 = icmp slt i64 %indvars.iv.next, %132
   br i1 %133, label %30, label %.critedge.loopexit, !llvm.loop !24
 
-.critedge.loopexit:                               ; preds = %Saig_BmcObjFrame.exit.thread
+.critedge.loopexit:                               ; preds = %Saig_BmcObjFrame.argprom.exit.thread
   %.pre68 = load i32, ptr %6, align 4
   br label %.critedge
 
@@ -2727,7 +2727,7 @@ define range(i32 -1, 2) i32 @Saig_BmcSolveTargets(ptr nocapture noundef %0, i32 
   %56 = getelementptr i8, ptr %55, i64 36
   %.val60 = load i32, ptr %56, align 4
   %57 = add nsw i32 %.val60, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val59, i32 noundef %57)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val59, i32 noundef %57)
   %58 = getelementptr i8, ptr %.val59, i64 8
   %.val.i.i = load ptr, ptr %58, align 8
   %59 = sext i32 %.val60 to i64
@@ -3469,7 +3469,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #1 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

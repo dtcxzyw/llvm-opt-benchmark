@@ -438,14 +438,14 @@ if.then207:                                       ; preds = %land.lhs.true204
   %len.i = getelementptr inbounds i8, ptr %mainwt, i64 8
   %19 = load i64, ptr %len.i, align 8
   %cmp.i.i41 = icmp ult i64 %19, 5
-  br i1 %cmp.i.i41, label %strbuf_strip_suffix.exit, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i41, label %strbuf_strip_suffix.argprom.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then207
   %sub.i.i = add i64 %19, -5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 %sub.i.i
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.33, i64 5)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.exit
+  br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.argprom.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i.i
   store i64 %sub.i.i, ptr %len.i, align 8
@@ -460,26 +460,26 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i5.i:                                      ; preds = %if.then.i
   %cmp3.not.i.i = icmp eq ptr %18, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i, label %strbuf_strip_suffix.exit, label %if.then4.i.i
+  br i1 %cmp3.not.i.i, label %strbuf_strip_suffix.argprom.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i5.i
   store i8 0, ptr %add.ptr.i.i, align 1
   %.pre = load ptr, ptr %buf.i, align 8
-  br label %strbuf_strip_suffix.exit
+  br label %strbuf_strip_suffix.argprom.exit
 
-strbuf_strip_suffix.exit:                         ; preds = %if.then207, %lor.lhs.false.i.i, %if.end.i5.i, %if.then4.i.i
+strbuf_strip_suffix.argprom.exit:                 ; preds = %if.then207, %lor.lhs.false.i.i, %if.end.i5.i, %if.then4.i.i
   %21 = phi ptr [ %18, %if.then207 ], [ %18, %lor.lhs.false.i.i ], [ @strbuf_slopbuf, %if.end.i5.i ], [ %.pre, %if.then4.i.i ]
   %call209 = call i32 @chdir(ptr noundef %21) #13
   %cmp210 = icmp slt i32 %call209, 0
   br i1 %cmp210, label %if.then212, label %if.end215
 
-if.then212:                                       ; preds = %strbuf_strip_suffix.exit
+if.then212:                                       ; preds = %strbuf_strip_suffix.argprom.exit
   %call213 = call fastcc ptr @_(ptr noundef nonnull @.str.26)
   %22 = load ptr, ptr %buf.i, align 8
   call void (ptr, ...) @die_errno(ptr noundef %call213, ptr noundef %22) #14
   unreachable
 
-if.end215:                                        ; preds = %strbuf_strip_suffix.exit
+if.end215:                                        ; preds = %strbuf_strip_suffix.argprom.exit
   call void @strbuf_release(ptr noundef nonnull %mainwt) #13
   %call216 = call ptr @strbuf_detach(ptr noundef nonnull %sb, ptr noundef null) #13
   br label %if.end217

@@ -4942,7 +4942,7 @@ entry:
   %2 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %2, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %arg.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %arg.val, i64 8
@@ -4978,7 +4978,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %4, %if.then.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %arg.val, align 8
@@ -5003,16 +5003,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %10, %if.then.i.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %arg.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %arg.val) #22
-  br label %_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.exit
+  br label %_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.argprom.exit
 
-_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_126AsyncWorkSerializerDrainerD2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %arg) #21
   ret void
 }
@@ -7158,7 +7158,7 @@ if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.
   %producer_2.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %13 = load ptr, ptr %producer_2.i.i.i, align 8
   %cmp.i5.i.i.i = icmp eq ptr %13, null
-  br i1 %cmp.i5.i.i.i, label %if.then4.i.i.i, label %"_ZSt10__invoke_rIvRZN9grpc_core13HealthWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %cmp.i5.i.i.i, label %if.then4.i.i.i, label %"_ZSt10__invoke_rIvRZN9grpc_core13HealthWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #20, !noalias !99
@@ -7249,9 +7249,9 @@ _ZN9grpc_core13RefCountedPtrINS_14HealthProducerEED2Ev.exit.i.i.i: ; preds = %de
   %25 = getelementptr inbounds i8, ptr %__functor, i64 8
   %26 = load ptr, ptr %25, align 8
   store i8 1, ptr %26, align 1
-  br label %"_ZSt10__invoke_rIvRZN9grpc_core13HealthWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIvRZN9grpc_core13HealthWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN9grpc_core13HealthWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %if.end.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_14HealthProducerEED2Ev.exit.i.i.i
+"_ZSt10__invoke_rIvRZN9grpc_core13HealthWatcher13SetSubchannelEPNS0_10SubchannelEE3$_0JPPNS2_21DataProducerInterfaceEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %if.end.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_14HealthProducerEED2Ev.exit.i.i.i
   ret void
 }
 

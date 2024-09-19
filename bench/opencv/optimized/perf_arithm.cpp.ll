@@ -5362,9 +5362,9 @@ define hidden void @_ZN11opencv_test25BinaryOpTest_absdiff_Test12PerfTestBodyEv(
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %37, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 5.000000e-01, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit28 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit28 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit28:                     ; preds = %36
+_ZN2cvdVERNS_3MatERKd.argprom.exit28:             ; preds = %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %47
 
@@ -5398,7 +5398,7 @@ _ZN2cvdVERNS_3MatERKd.exit28:                     ; preds = %36
           cleanup
   br label %67
 
-47:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit28, %30
+47:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit28, %30
   %48 = getelementptr inbounds i8, ptr %10, i64 16
   %49 = getelementptr inbounds i8, ptr %10, i64 20
   %50 = getelementptr inbounds i8, ptr %10, i64 8
@@ -6381,9 +6381,9 @@ define hidden void @_ZN11opencv_test21BinaryOpTest_add_Test12PerfTestBodyEv(ptr 
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %39, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 5.000000e-01, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit28 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit28 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit28:                     ; preds = %38
+_ZN2cvdVERNS_3MatERKd.argprom.exit28:             ; preds = %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %49
 
@@ -6417,7 +6417,7 @@ _ZN2cvdVERNS_3MatERKd.exit28:                     ; preds = %38
           cleanup
   br label %71
 
-49:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit28, %32
+49:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit28, %32
   %50 = getelementptr inbounds i8, ptr %10, i64 16
   %51 = getelementptr inbounds i8, ptr %10, i64 20
   %52 = getelementptr inbounds i8, ptr %10, i64 8
@@ -7412,9 +7412,9 @@ define hidden void @_ZN11opencv_test26BinaryOpTest_subtract_Test12PerfTestBodyEv
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %37, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 5.000000e-01, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit28 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit28 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit28:                     ; preds = %36
+_ZN2cvdVERNS_3MatERKd.argprom.exit28:             ; preds = %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %47
 
@@ -7448,7 +7448,7 @@ _ZN2cvdVERNS_3MatERKd.exit28:                     ; preds = %36
           cleanup
   br label %69
 
-47:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit28, %30
+47:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit28, %30
   %48 = getelementptr inbounds i8, ptr %10, i64 16
   %49 = getelementptr inbounds i8, ptr %10, i64 20
   %50 = getelementptr inbounds i8, ptr %10, i64 8
@@ -8439,9 +8439,9 @@ define hidden void @_ZN11opencv_test26BinaryOpTest_multiply_Test12PerfTestBodyEv
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %37, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 0x3EE0000000000000, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit28 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit28 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit28:                     ; preds = %36
+_ZN2cvdVERNS_3MatERKd.argprom.exit28:             ; preds = %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %47
 
@@ -8475,7 +8475,7 @@ _ZN2cvdVERNS_3MatERKd.exit28:                     ; preds = %36
           cleanup
   br label %67
 
-47:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit28, %30
+47:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit28, %30
   %48 = getelementptr inbounds i8, ptr %10, i64 16
   %49 = getelementptr inbounds i8, ptr %10, i64 20
   %50 = getelementptr inbounds i8, ptr %10, i64 8
@@ -8789,9 +8789,9 @@ define hidden void @_ZN11opencv_test31BinaryOpTest_multiplyScale_Test12PerfTestB
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %37, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 0x3EE0000000000000, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit29 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit29 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit29:                     ; preds = %36
+_ZN2cvdVERNS_3MatERKd.argprom.exit29:             ; preds = %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %47
 
@@ -8825,7 +8825,7 @@ _ZN2cvdVERNS_3MatERKd.exit29:                     ; preds = %36
           cleanup
   br label %67
 
-47:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit29, %30
+47:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit29, %30
   %48 = getelementptr inbounds i8, ptr %10, i64 16
   %49 = getelementptr inbounds i8, ptr %10, i64 20
   %50 = getelementptr inbounds i8, ptr %10, i64 8
@@ -10453,9 +10453,9 @@ define hidden void @_ZN11opencv_test24ArithmMixedTest_add_Test12PerfTestBodyEv(p
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %36, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 5.000000e-01, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit29 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit29 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit29:                     ; preds = %35
+_ZN2cvdVERNS_3MatERKd.argprom.exit29:             ; preds = %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %46
 
@@ -10489,7 +10489,7 @@ _ZN2cvdVERNS_3MatERKd.exit29:                     ; preds = %35
           cleanup
   br label %68
 
-46:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit29, %29
+46:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit29, %29
   %47 = getelementptr inbounds i8, ptr %10, i64 16
   %48 = getelementptr inbounds i8, ptr %10, i64 20
   %49 = getelementptr inbounds i8, ptr %10, i64 8
@@ -11517,9 +11517,9 @@ define hidden void @_ZN11opencv_test29ArithmMixedTest_subtract_Test12PerfTestBod
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %34, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 5.000000e-01, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit29 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit29 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit29:                     ; preds = %33
+_ZN2cvdVERNS_3MatERKd.argprom.exit29:             ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %44
 
@@ -11553,7 +11553,7 @@ _ZN2cvdVERNS_3MatERKd.exit29:                     ; preds = %33
           cleanup
   br label %66
 
-44:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit29, %27
+44:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit29, %27
   %45 = getelementptr inbounds i8, ptr %10, i64 16
   %46 = getelementptr inbounds i8, ptr %10, i64 20
   %47 = getelementptr inbounds i8, ptr %10, i64 8
@@ -12545,9 +12545,9 @@ define hidden void @_ZN11opencv_test29ArithmMixedTest_multiply_Test12PerfTestBod
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %34, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 0x3EE0000000000000, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit29 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit29 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit29:                     ; preds = %33
+_ZN2cvdVERNS_3MatERKd.argprom.exit29:             ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %44
 
@@ -12581,7 +12581,7 @@ _ZN2cvdVERNS_3MatERKd.exit29:                     ; preds = %33
           cleanup
   br label %64
 
-44:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit29, %27
+44:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit29, %27
   %45 = getelementptr inbounds i8, ptr %10, i64 16
   %46 = getelementptr inbounds i8, ptr %10, i64 20
   %47 = getelementptr inbounds i8, ptr %10, i64 8
@@ -12894,9 +12894,9 @@ define hidden void @_ZN11opencv_test34ArithmMixedTest_multiplyScale_Test12PerfTe
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %34, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 0x3EE0000000000000, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit30 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit30 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit30:                     ; preds = %33
+_ZN2cvdVERNS_3MatERKd.argprom.exit30:             ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %44
 
@@ -12930,7 +12930,7 @@ _ZN2cvdVERNS_3MatERKd.exit30:                     ; preds = %33
           cleanup
   br label %64
 
-44:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit30, %27
+44:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit30, %27
   %45 = getelementptr inbounds i8, ptr %10, i64 16
   %46 = getelementptr inbounds i8, ptr %10, i64 20
   %47 = getelementptr inbounds i8, ptr %10, i64 8

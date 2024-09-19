@@ -501,7 +501,7 @@ if.end3:                                          ; preds = %do.end
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 122) #15
   %call713 = tail call ptr @block_job_next_locked(ptr noundef null) #15
   %tobool8.not1114 = icmp eq ptr %call713, null
-  br i1 %tobool8.not1114, label %glib_autoptr_cleanup_QemuLockable.exit, label %land.rhs
+  br i1 %tobool8.not1114, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end3, %land.rhs.backedge
   %job.012 = phi ptr [ %job.012.be, %land.rhs.backedge ], [ %call713, %if.end3 ]
@@ -524,7 +524,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false
 while.body:                                       ; preds = %lor.lhs.false, %land.rhs, %lor.rhs
   %call15 = tail call ptr @block_job_next_locked(ptr noundef nonnull %job.012) #15
   %tobool8.not = icmp eq ptr %call15, null
-  br i1 %tobool8.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %land.rhs.backedge
+  br i1 %tobool8.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %land.rhs.backedge
 
 land.rhs.backedge:                                ; preds = %while.body, %if.then17
   %job.012.be = phi ptr [ %call15, %while.body ], [ %call7, %if.then17 ]
@@ -534,15 +534,15 @@ if.then17:                                        ; preds = %lor.rhs
   tail call void @job_cancel_locked(ptr noundef nonnull %job.012, i1 noundef zeroext false) #15
   %call7 = tail call ptr @block_job_next_locked(ptr noundef null) #15
   %tobool8.not11 = icmp eq ptr %call7, null
-  br i1 %tobool8.not11, label %glib_autoptr_cleanup_QemuLockable.exit, label %land.rhs.backedge
+  br i1 %tobool8.not11, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %land.rhs.backedge
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then17, %while.body, %if.end3
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.then17, %while.body, %if.end3
   %auto_del = getelementptr inbounds i8, ptr %call, i64 12
   store i32 1, ptr %auto_del, align 4
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   br label %return
 
-return:                                           ; preds = %do.end, %glib_autoptr_cleanup_QemuLockable.exit
+return:                                           ; preds = %do.end, %glib_autoptr_cleanup_QemuLockable.argprom.exit
   ret void
 }
 
@@ -1857,7 +1857,7 @@ if.end94:                                         ; preds = %if.end90
   %20 = load ptr, ptr %interval_list, align 8
   %21 = getelementptr i8, ptr %20, i64 16
   %.val = load ptr, ptr %21, align 8
-  %call99 = call fastcc zeroext i1 @parse_stats_intervals(ptr noundef %call98, ptr %.val, ptr noundef %errp)
+  %call99 = call fastcc zeroext i1 @parse_stats_intervals.argprom(ptr noundef %call98, ptr %.val, ptr noundef %errp)
   br i1 %call99, label %if.end102, label %if.then100
 
 if.then100:                                       ; preds = %if.end94
@@ -2103,7 +2103,7 @@ do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #15
   %call2 = tail call fastcc ptr @qmp_get_root_bs(ptr noundef %device, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end4
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end4
 
 if.end4:                                          ; preds = %do.end
   %call5 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call2) #15
@@ -2184,20 +2184,20 @@ if.end29:                                         ; preds = %if.end25
   %icount = getelementptr inbounds i8, ptr %sn, i64 408
   %6 = load i64, ptr %icount, align 8
   %cmp.not = icmp eq i64 %6, -1
-  br i1 %cmp.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then45
+  br i1 %cmp.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then45
 
 if.then45:                                        ; preds = %if.end29
   %icount47 = getelementptr inbounds i8, ptr %call30, i64 64
   store i64 %6, ptr %icount47, align 8
   %has_icount = getelementptr inbounds i8, ptr %call30, i64 56
   store i8 1, ptr %has_icount, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 out_aio_context:                                  ; preds = %if.end9, %if.then28, %if.then18, %if.then15, %if.then8
   call void @aio_context_release(ptr noundef %call5) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end29, %if.then45, %do.end, %out_aio_context
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end29, %if.then45, %do.end, %out_aio_context
   %retval.0 = phi ptr [ null, %out_aio_context ], [ null, %do.end ], [ %call30, %if.then45 ], [ %call30, %if.end29 ]
   call void @bdrv_graph_rdunlock_main_loop() #15
   ret ptr %retval.0
@@ -2209,7 +2209,7 @@ entry:
   tail call void @bdrv_graph_rdlock_main_loop() #15
   %call1 = tail call ptr @bdrv_lookup_bs(ptr noundef %name, ptr noundef %name, ptr noundef %errp) #15
   %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %call2 = tail call zeroext i1 @bdrv_is_root_node(ptr noundef nonnull %call1) #15
@@ -2217,7 +2217,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1061, ptr noundef nonnull @__func__.qmp_get_root_bs, ptr noundef nonnull @.str.210) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call1) #15
@@ -2232,9 +2232,9 @@ if.then7:                                         ; preds = %if.end4
 if.end8:                                          ; preds = %if.then7, %if.end4
   %bs.0 = phi ptr [ %call1, %if.end4 ], [ null, %if.then7 ]
   tail call void @aio_context_release(ptr noundef %call5) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry, %if.end8, %if.then3
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %entry, %if.end8, %if.then3
   %retval.0 = phi ptr [ %bs.0, %if.end8 ], [ null, %if.then3 ], [ null, %entry ]
   tail call void @bdrv_graph_rdunlock_main_loop() #15
   ret ptr %retval.0
@@ -2272,7 +2272,7 @@ do.end:                                           ; preds = %entry
   %created = getelementptr inbounds i8, ptr %opaque, i64 424
   %1 = load i8, ptr %created, align 8
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.end5, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %tobool, label %if.end5, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end5:                                          ; preds = %do.end
   %2 = load ptr, ptr %opaque, align 8
@@ -2291,9 +2291,9 @@ if.then10:                                        ; preds = %if.end5
 
 if.end16:                                         ; preds = %if.then10, %if.end5
   call void @aio_context_release(ptr noundef %call7) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end, %if.end16
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.end, %if.end16
   call void @bdrv_graph_rdunlock_main_loop() #15
   ret void
 }
@@ -3206,7 +3206,7 @@ if.then79.i.i:                                    ; preds = %if.end77.i.i
   br i1 %cmp81.i.i, label %unref.i.i, label %if.end85.i.i
 
 if.end85.i.i:                                     ; preds = %if.then79.i.i, %if.end77.i.i
-  %call87.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %44, ptr noundef %call5.i.i, ptr noundef %call67.i.i, ptr noundef %block_job_txn.0, ptr noundef %local_err)
+  %call87.i.i = call fastcc ptr @do_backup_common.argprom(ptr noundef nonnull %44, ptr noundef %call5.i.i, ptr noundef %call67.i.i, ptr noundef %block_job_txn.0, ptr noundef %local_err)
   %job.i.i = getelementptr inbounds i8, ptr %call.i33.i, i64 8
   store ptr %call87.i.i, ptr %job.i.i, align 8
   br label %unref.i.i
@@ -3254,7 +3254,7 @@ if.end12.i.i:                                     ; preds = %if.end7.i.i
   call void @aio_context_acquire(ptr noundef %call8.i.i) #15
   store ptr %call2.i.i, ptr %call.i44.i, align 8
   call void @bdrv_drained_begin(ptr noundef nonnull %call2.i.i) #15
-  %call16.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %64, ptr noundef %call2.i.i, ptr noundef %call4.i.i, ptr noundef %block_job_txn.0, ptr noundef %local_err)
+  %call16.i.i = call fastcc ptr @do_backup_common.argprom(ptr noundef nonnull %64, ptr noundef %call2.i.i, ptr noundef %call4.i.i, ptr noundef %block_job_txn.0, ptr noundef %local_err)
   %job.i51.i = getelementptr inbounds i8, ptr %call.i44.i, i64 8
   store ptr %call16.i.i, ptr %job.i51.i, align 8
   call void @aio_context_release(ptr noundef %call8.i.i) #15
@@ -4028,11 +4028,11 @@ if.then21:                                        ; preds = %entry
 if.then24:                                        ; preds = %if.then21
   call void @error_free(ptr noundef %0) #15
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2601, ptr noundef nonnull @__func__.qmp_block_commit, i32 noundef 3, ptr noundef nonnull @.str.102, ptr noundef %device) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.else:                                          ; preds = %if.then21
   call void @error_propagate(ptr noundef %errp, ptr noundef %0) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end26:                                         ; preds = %entry
   %call27 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %call19) #15
@@ -4255,9 +4255,9 @@ if.then133:                                       ; preds = %if.end131
 
 out:                                              ; preds = %for.body, %if.end131, %if.else126, %if.then117, %if.else118, %if.then70, %if.then37, %if.end26, %if.then133, %if.then105, %if.then88, %if.then83, %if.then76, %if.then67, %if.then56, %if.then42, %if.then34
   call void @aio_context_release(ptr noundef %call27) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then24, %if.else, %out
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.then24, %if.else, %out
   call void @bdrv_graph_rdunlock_main_loop() #15
   ret void
 }
@@ -4309,7 +4309,7 @@ declare ptr @bdrv_named_nodes_list(i1 noundef zeroext, ptr noundef) local_unname
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qmp_x_debug_query_block_graph(ptr noundef %errp) local_unnamed_addr #0 {
-glib_autoptr_cleanup_GraphLockableMainloop.exit:
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit:
   tail call void @bdrv_graph_rdlock_main_loop() #15
   %call1 = tail call ptr @bdrv_get_xdbg_block_graph(ptr noundef %errp) #15
   tail call void @bdrv_graph_rdunlock_main_loop() #15
@@ -4691,7 +4691,7 @@ do.end:                                           ; preds = %entry
 
 if.then47:                                        ; preds = %do.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2958, ptr noundef nonnull @__func__.blockdev_mirror_common, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.242) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end48:                                         ; preds = %do.end
   %1 = tail call range(i32 0, 28) i32 @llvm.ctpop.i32(i32 %granularity.addr.0)
@@ -4700,15 +4700,15 @@ if.end48:                                         ; preds = %do.end
 
 if.then50:                                        ; preds = %if.end48
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2963, ptr noundef nonnull @__func__.blockdev_mirror_common, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.243) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end51:                                         ; preds = %if.end48
   %call52 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef nonnull %bs, i32 noundef 11, ptr noundef %errp) #15
-  br i1 %call52, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end54
+  br i1 %call52, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end54
 
 if.end54:                                         ; preds = %if.end51
   %call55 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef nonnull %target, i32 noundef 12, ptr noundef %errp) #15
-  br i1 %call55, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end57
+  br i1 %call55, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end57
 
 if.end57:                                         ; preds = %if.end54
   %call58 = tail call ptr @bdrv_backing_chain_next(ptr noundef nonnull %bs) #15
@@ -4735,12 +4735,12 @@ if.then75:                                        ; preds = %if.then72
   %2 = trunc i64 %call73 to i32
   %conv = sub i32 0, %2
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2994, ptr noundef nonnull @__func__.blockdev_mirror_common, i32 noundef %conv, ptr noundef nonnull @.str.244) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end77:                                         ; preds = %if.then72
   %call78 = tail call ptr @check_to_replace_node(ptr noundef nonnull %bs, ptr noundef nonnull %replaces.addr.0.ph, ptr noundef %errp) #15
   %tobool79.not = icmp eq ptr %call78, null
-  br i1 %tobool79.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end81
+  br i1 %tobool79.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end81
 
 if.end81:                                         ; preds = %if.end77
   %call82 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #15
@@ -4767,7 +4767,7 @@ if.then95:                                        ; preds = %if.end92
   %3 = trunc i64 %call8849 to i32
   %conv97 = sub i32 0, %3
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3019, ptr noundef nonnull @__func__.blockdev_mirror_common, i32 noundef %conv97, ptr noundef nonnull @.str.245) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end98:                                         ; preds = %if.end92
   %cmp99.not = icmp eq i64 %call73, %call8849
@@ -4775,14 +4775,14 @@ if.end98:                                         ; preds = %if.end92
 
 if.then101:                                       ; preds = %if.end98
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3024, ptr noundef nonnull @__func__.blockdev_mirror_common, ptr noundef nonnull @.str.246) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end103:                                        ; preds = %if.then65, %if.end98
   %replaces.addr.047 = phi ptr [ %replaces.addr.0.ph, %if.end98 ], [ null, %if.then65 ]
   tail call void @mirror_start(ptr noundef %job_id, ptr noundef nonnull %bs, ptr noundef nonnull %target, ptr noundef %replaces.addr.047, i32 noundef %job_flags.1, i64 noundef %spec.select, i32 noundef %granularity.addr.0, i64 noundef %buf_size.addr.0, i32 noundef %spec.store.select, i32 noundef %backing_mode, i1 noundef zeroext %zero_target, i32 noundef %on_source_error.addr.0, i32 noundef %on_target_error.addr.0, i1 noundef zeroext %unmap.addr.0, ptr noundef %filter_node_name, i32 noundef %copy_mode.addr.0, ptr noundef %errp) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end77, %if.end54, %if.end51, %if.end103, %if.then101, %if.then95, %if.then75, %if.then50, %if.then47
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end77, %if.end54, %if.end51, %if.end103, %if.then101, %if.then95, %if.then75, %if.then50, %if.then47
   tail call void @bdrv_graph_rdunlock_main_loop() #15
   ret void
 }
@@ -4842,13 +4842,13 @@ if.end.i:                                         ; preds = %entry
 
 find_block_job_locked.exit.thread:                ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3289, ptr noundef nonnull @__func__.find_block_job_locked, i32 noundef 2, ptr noundef nonnull @.str.248, ptr noundef nonnull %device) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.end.i
   %call3 = tail call zeroext i1 @block_job_set_speed_locked(ptr noundef nonnull %call.i, i64 noundef %speed, ptr noundef %errp) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %if.end
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %find_block_job_locked.exit.thread, %if.end
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret void
 }
@@ -4876,7 +4876,7 @@ if.end.i:                                         ; preds = %entry
 
 find_block_job_locked.exit.thread:                ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3289, ptr noundef nonnull @__func__.find_block_job_locked, i32 noundef 2, ptr noundef nonnull @.str.248, ptr noundef nonnull %device) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.end.i
   %spec.select = and i1 %has_force, %force
@@ -4887,7 +4887,7 @@ if.end:                                           ; preds = %if.end.i
 
 if.then10:                                        ; preds = %if.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3328, ptr noundef nonnull @__func__.qmp_block_job_cancel, ptr noundef nonnull @.str.117, ptr noundef nonnull %device) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end11:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -4925,9 +4925,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_qmp_block_job_cancel.exit:                  ; preds = %if.end11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @job_user_cancel_locked(ptr noundef nonnull %call.i, i1 noundef zeroext %spec.select, ptr noundef %errp) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_cancel.exit, %if.then10
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_cancel.exit, %if.then10
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret void
 }
@@ -4957,7 +4957,7 @@ if.end.i:                                         ; preds = %entry
 
 find_block_job_locked.exit.thread:                ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3289, ptr noundef nonnull @__func__.find_block_job_locked, i32 noundef 2, ptr noundef nonnull @.str.248, ptr noundef nonnull %device) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -4995,9 +4995,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_qmp_block_job_pause.exit:                   ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @job_user_pause_locked(ptr noundef nonnull %call.i, ptr noundef %errp) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_pause.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_pause.exit
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret void
 }
@@ -5025,7 +5025,7 @@ if.end.i:                                         ; preds = %entry
 
 find_block_job_locked.exit.thread:                ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3289, ptr noundef nonnull @__func__.find_block_job_locked, i32 noundef 2, ptr noundef nonnull @.str.248, ptr noundef nonnull %device) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5063,9 +5063,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_qmp_block_job_resume.exit:                  ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @job_user_resume_locked(ptr noundef nonnull %call.i, ptr noundef %errp) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_resume.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_resume.exit
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret void
 }
@@ -5093,7 +5093,7 @@ if.end.i:                                         ; preds = %entry
 
 find_block_job_locked.exit.thread:                ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3289, ptr noundef nonnull @__func__.find_block_job_locked, i32 noundef 2, ptr noundef nonnull @.str.248, ptr noundef nonnull %device) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5131,9 +5131,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_qmp_block_job_complete.exit:                ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @job_complete_locked(ptr noundef nonnull %call.i, ptr noundef %errp) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_complete.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_complete.exit
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret void
 }
@@ -5161,7 +5161,7 @@ if.end.i:                                         ; preds = %entry
 
 find_block_job_locked.exit.thread:                ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3289, ptr noundef nonnull @__func__.find_block_job_locked, i32 noundef 2, ptr noundef nonnull @.str.248, ptr noundef nonnull %id) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5201,9 +5201,9 @@ trace_qmp_block_job_finalize.exit:                ; preds = %if.end, %land.lhs.t
   tail call void @job_ref_locked(ptr noundef nonnull %call.i) #15
   tail call void @job_finalize_locked(ptr noundef nonnull %call.i, ptr noundef %errp) #15
   tail call void @job_unref_locked(ptr noundef nonnull %call.i) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_finalize.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_finalize.exit
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret void
 }
@@ -5236,7 +5236,7 @@ if.end.i:                                         ; preds = %entry
 
 find_block_job_locked.exit.thread:                ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3289, ptr noundef nonnull @__func__.find_block_job_locked, i32 noundef 2, ptr noundef nonnull @.str.248, ptr noundef nonnull %id) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5275,9 +5275,9 @@ trace_qmp_block_job_dismiss.exit:                 ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store ptr %call.i, ptr %job, align 8
   call void @job_dismiss_locked(ptr noundef nonnull %job, ptr noundef %errp) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_dismiss.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_dismiss.exit
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret void
 }
@@ -5305,13 +5305,13 @@ if.end.i:                                         ; preds = %entry
 
 find_block_job_locked.exit.thread:                ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3289, ptr noundef nonnull @__func__.find_block_job_locked, i32 noundef 2, ptr noundef nonnull @.str.248, ptr noundef nonnull %2) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.end.i
   tail call void @block_job_change_locked(ptr noundef nonnull %call.i, ptr noundef nonnull %opts, ptr noundef %errp) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %if.end
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %find_block_job_locked.exit.thread, %if.end
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret void
 }
@@ -5442,21 +5442,21 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
   %1 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %1, 6
-  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   call void @__assert_fail(ptr noundef nonnull @.str.207, ptr noundef nonnull @.str.208, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #16
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
+qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
 
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+if.else.i:                                        ; preds = %qobject_type.argprom.exit.i, %entry
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.argprom.exit.i ]
   call void @qdict_flatten(ptr noundef %retval.0.i) #15
   %call3 = call ptr @qdict_get_try_str(ptr noundef %retval.0.i, ptr noundef nonnull @.str.116) #15
   %tobool.not = icmp eq ptr %call3, null
@@ -5554,21 +5554,21 @@ land.lhs.true.i:                                  ; preds = %if.end5
   %obj.val.i = load i32, ptr %4, align 8
   %5 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %5, 6
-  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   call void @__assert_fail(ptr noundef nonnull @.str.207, ptr noundef nonnull @.str.208, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #16
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
+qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
 
-if.else.i:                                        ; preds = %qobject_type.exit.i, %if.end5
+if.else.i:                                        ; preds = %qobject_type.argprom.exit.i, %if.end5
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %4, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %4, %qobject_type.argprom.exit.i ]
   call void @qdict_flatten(ptr noundef %retval.0.i) #15
   %call9 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %call) #15
   call void @aio_context_acquire(ptr noundef %call9) #15
@@ -5615,7 +5615,7 @@ do.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %do.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3607, ptr noundef nonnull @__func__.qmp_blockdev_del, ptr noundef nonnull @.str.124, ptr noundef %node_name) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end4:                                          ; preds = %do.end
   %call5 = tail call zeroext i1 @bdrv_has_blk(ptr noundef nonnull %call2) #15
@@ -5623,7 +5623,7 @@ if.end4:                                          ; preds = %do.end
 
 if.then6:                                         ; preds = %if.end4
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3611, ptr noundef nonnull @__func__.qmp_blockdev_del, ptr noundef nonnull @.str.125, ptr noundef %node_name) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end7:                                          ; preds = %if.end4
   %call8 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call2) #15
@@ -5680,9 +5680,9 @@ if.end31:                                         ; preds = %if.else28, %if.then
 
 out:                                              ; preds = %if.end7, %if.end31, %if.then16, %if.then12
   tail call void @aio_context_release(ptr noundef %call8) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %out, %if.then6, %if.then3
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %out, %if.then6, %if.then3
   tail call void @bdrv_graph_rdunlock_main_loop() #15
   ret void
 }
@@ -5786,7 +5786,7 @@ entry:
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 122) #15
   %call2 = tail call ptr @block_job_next_locked(ptr noundef null) #15
   %tobool.not8 = icmp eq ptr %call2, null
-  br i1 %tobool.not8, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body
+  br i1 %tobool.not8, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %job.010 = phi ptr [ %call10, %for.inc ], [ %call2, %entry ]
@@ -5802,7 +5802,7 @@ if.end:                                           ; preds = %for.body
 if.then6:                                         ; preds = %if.end
   %head.0.head.0.head.0.head.0.head.0.head.0. = load ptr, ptr %head, align 8
   tail call void @qapi_free_BlockJobInfoList(ptr noundef %head.0.head.0.head.0.head.0.head.0.head.0.) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 do.body:                                          ; preds = %if.end
   %call8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #20
@@ -5820,9 +5820,9 @@ for.inc:                                          ; preds = %for.body, %do.body
 
 for.end.loopexit:                                 ; preds = %for.inc
   %head.0.head.0.head.0.head.0.head.0.head.0.7.pre = load ptr, ptr %head, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry, %for.end.loopexit, %if.then6
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %entry, %for.end.loopexit, %if.then6
   %retval.0 = phi ptr [ null, %if.then6 ], [ %head.0.head.0.head.0.head.0.head.0.head.0.7.pre, %for.end.loopexit ], [ null, %entry ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 132) #15
   ret ptr %retval.0
@@ -5844,7 +5844,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3735, ptr noundef nonnull @__func__.qmp_x_blockdev_set_iothread, ptr noundef nonnull @.str.124, ptr noundef %node_name) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end:                                           ; preds = %entry
   %brmerge.demorgan = and i1 %has_force, %force
@@ -5856,7 +5856,7 @@ land.lhs.true5:                                   ; preds = %if.end
 
 if.then7:                                         ; preds = %land.lhs.true5
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3743, ptr noundef nonnull @__func__.qmp_x_blockdev_set_iothread, ptr noundef nonnull @.str.132, ptr noundef %node_name) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end8:                                          ; preds = %if.end, %land.lhs.true5
   %0 = load i32, ptr %iothread, align 8
@@ -5873,7 +5873,7 @@ if.then9:                                         ; preds = %if.end8
 if.then12:                                        ; preds = %if.then9
   %2 = load ptr, ptr %u, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3750, ptr noundef nonnull @__func__.qmp_x_blockdev_set_iothread, ptr noundef nonnull @.str.133, ptr noundef %2) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end14:                                         ; preds = %if.then9
   %call15 = tail call ptr @iothread_get_aio_context(ptr noundef nonnull %call10) #15
@@ -5889,9 +5889,9 @@ if.end17:                                         ; preds = %if.else, %if.end14
   tail call void @aio_context_acquire(ptr noundef %call18) #15
   %call19 = tail call i32 @bdrv_try_change_aio_context(ptr noundef nonnull %call2, ptr noundef %new_context.0, ptr noundef null, ptr noundef %errp) #15
   tail call void @aio_context_release(ptr noundef %call18) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end17, %if.then12, %if.then7, %if.then
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end17, %if.then12, %if.then7, %if.then
   tail call void @bdrv_graph_rdunlock_main_loop() #15
   ret void
 }
@@ -5973,7 +5973,7 @@ declare void @block_acct_setup(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare ptr @blk_get_stats(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parse_stats_intervals(ptr noundef %stats, ptr readonly %intervals.16.val, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_stats_intervals.argprom(ptr noundef %stats, ptr readonly %intervals.16.val, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %length = alloca i64, align 8
   %tobool.not6 = icmp eq ptr %intervals.16.val, null
@@ -5985,19 +5985,19 @@ for.body:                                         ; preds = %entry, %for.inc
   %.val = load i32, ptr %0, align 8
   %1 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %1, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
   call void @__assert_fail(ptr noundef nonnull @.str.207, ptr noundef nonnull @.str.208, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #16
   unreachable
 
-qobject_type.exit:                                ; preds = %for.body
+qobject_type.argprom.exit:                        ; preds = %for.body
   switch i32 %.val, label %sw.default [
     i32 3, label %qobject_check_type.exit
     i32 2, label %qobject_check_type.exit24
   ]
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit
   %call5 = call ptr @qstring_get_str(ptr noundef nonnull %0) #15
   %call6 = call i32 @parse_uint_full(ptr noundef %call5, i32 noundef 10, ptr noundef nonnull %length) #15
   %cmp = icmp eq i32 %call6, 0
@@ -6011,7 +6011,7 @@ if.else:                                          ; preds = %qobject_check_type.
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.parse_stats_intervals, ptr noundef nonnull @.str.204, ptr noundef %call5) #15
   br label %return
 
-qobject_check_type.exit24:                        ; preds = %qobject_type.exit
+qobject_check_type.exit24:                        ; preds = %qobject_type.argprom.exit
   %call14 = call i64 @qnum_get_int(ptr noundef nonnull %0) #15
   %5 = add i64 %call14, -1
   %or.cond2 = icmp ult i64 %5, 4294967295
@@ -6021,7 +6021,7 @@ if.else22:                                        ; preds = %qobject_check_type.
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__func__.parse_stats_intervals, ptr noundef nonnull @.str.205, i64 noundef %call14) #15
   br label %return
 
-sw.default:                                       ; preds = %qobject_type.exit
+sw.default:                                       ; preds = %qobject_type.argprom.exit
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @__func__.parse_stats_intervals, ptr noundef nonnull @.str.206) #15
   br label %return
 
@@ -6108,7 +6108,7 @@ declare ptr @bdrv_cow_child(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @do_backup_common(ptr nocapture noundef %backup, ptr noundef nonnull %bs, ptr noundef nonnull %target_bs, ptr noundef %txn, ptr noundef nonnull %errp) unnamed_addr #0 {
+define internal fastcc ptr @do_backup_common.argprom(ptr nocapture noundef %backup, ptr noundef nonnull %bs, ptr noundef nonnull %target_bs, ptr noundef %txn, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %perf = alloca %struct.BackupPerf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %perf, ptr noundef nonnull align 8 dereferenceable(32) @__const.do_backup_common.perf, i64 32, i1 false)

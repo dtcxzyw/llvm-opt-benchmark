@@ -19,7 +19,7 @@ define range(i32 0, 2) i32 @Aig_NtkFindSatAssign_rec(ptr nocapture noundef reado
   %.val139145 = load i64, ptr %6, align 8
   %7 = and i64 %.val139145, 7
   %.not140146 = icmp eq i64 %7, 1
-  br i1 %.not140146, label %Aig_ObjSatValue.exit, label %.lr.ph.lr.ph
+  br i1 %.not140146, label %Aig_ObjSatValue.argprom.exit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %5
   %8 = getelementptr i8, ptr %0, i64 312
@@ -49,7 +49,7 @@ define range(i32 0, 2) i32 @Aig_NtkFindSatAssign_rec(ptr nocapture noundef reado
   %15 = lshr i32 %14, 4
   %16 = and i32 %15, 1
   %17 = icmp eq i32 %16, %.tr117142
-  br label %Aig_ObjSatValue.exit
+  br label %Aig_ObjSatValue.argprom.exit
 
 18:                                               ; preds = %10
   store i32 %.val70, ptr %12, align 8
@@ -65,7 +65,7 @@ define range(i32 0, 2) i32 @Aig_NtkFindSatAssign_rec(ptr nocapture noundef reado
 
 25:                                               ; preds = %18
   %.not68 = icmp eq ptr %3, null
-  br i1 %.not68, label %Aig_ObjSatValue.exit, label %26
+  br i1 %.not68, label %Aig_ObjSatValue.argprom.exit, label %26
 
 26:                                               ; preds = %25
   %.val74 = load i32, ptr %.tr116141, align 8
@@ -139,7 +139,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %59 = sext i32 %57 to i64
   %60 = getelementptr inbounds i32, ptr %56, i64 %59
   store i32 %29, ptr %60, align 4
-  br label %Aig_ObjSatValue.exit
+  br label %Aig_ObjSatValue.argprom.exit
 
 61:                                               ; preds = %18
   %.not64 = icmp eq i32 %.tr117142, 0
@@ -156,7 +156,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %69 = xor i32 %67, 1
   %70 = tail call i32 @Aig_NtkFindSatAssign_rec(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %69, ptr noundef %3, i32 noundef %.tr119.ph149)
   %.not66 = icmp eq i32 %70, 0
-  br i1 %.not66, label %Aig_ObjSatValue.exit, label %71
+  br i1 %.not66, label %Aig_ObjSatValue.argprom.exit, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr i8, ptr %.tr116141, i64 16
@@ -176,7 +176,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   %.val = load i64, ptr %79, align 8
   %80 = and i64 %.val, 7
   %.not = icmp eq i64 %80, 1
-  br i1 %.not, label %Aig_ObjSatValue.exit, label %10
+  br i1 %.not, label %Aig_ObjSatValue.argprom.exit, label %10
 
 81:                                               ; preds = %61
   %.val91 = load i32, ptr %8, align 8
@@ -192,7 +192,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   %87 = lshr i32 %86, 4
   %88 = and i32 %87, 1
   %.not4.i = icmp eq i32 %88, %67
-  br i1 %.not4.i, label %Aig_ObjSatValue.exit, label %89
+  br i1 %.not4.i, label %Aig_ObjSatValue.argprom.exit, label %89
 
 89:                                               ; preds = %83
   %90 = getelementptr i8, ptr %.tr116141, i64 16
@@ -214,7 +214,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   %100 = lshr i32 %99, 4
   %101 = and i32 %100, 1
   %.not4.i96170 = icmp eq i32 %101, %95
-  br label %Aig_ObjSatValue.exit
+  br label %Aig_ObjSatValue.argprom.exit
 
 .thread106:                                       ; preds = %81
   %102 = getelementptr i8, ptr %.tr116141, i64 16
@@ -236,7 +236,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   %113 = lshr i32 %112, 4
   %114 = and i32 %113, 1
   %.not4.i96 = icmp eq i32 %114, %107
-  br i1 %.not4.i96, label %Aig_ObjSatValue.exit, label %tailrecurse.backedge
+  br i1 %.not4.i96, label %Aig_ObjSatValue.argprom.exit, label %tailrecurse.backedge
 
 .thread105:                                       ; preds = %.thread106
   %115 = add nsw i32 %.tr119.ph149, 1
@@ -248,9 +248,9 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   %.val139 = load i64, ptr %118, align 8
   %119 = and i64 %.val139, 7
   %.not140 = icmp eq i64 %119, 1
-  br i1 %.not140, label %Aig_ObjSatValue.exit, label %.lr.ph
+  br i1 %.not140, label %Aig_ObjSatValue.argprom.exit, label %.lr.ph
 
-Aig_ObjSatValue.exit:                             ; preds = %.thread105, %tailrecurse.backedge, %68, %83, %109, %.thread, %5, %25, %Vec_IntPush.exit, %13
+Aig_ObjSatValue.argprom.exit:                     ; preds = %.thread105, %tailrecurse.backedge, %68, %83, %109, %.thread, %5, %25, %Vec_IntPush.exit, %13
   %.0.shrunk = phi i1 [ %17, %13 ], [ true, %Vec_IntPush.exit ], [ true, %25 ], [ true, %5 ], [ %.not4.i96170, %.thread ], [ true, %tailrecurse.backedge ], [ false, %68 ], [ true, %83 ], [ true, %109 ], [ true, %.thread105 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
@@ -487,20 +487,20 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %16 = getelementptr i8, ptr %15, i64 4
   %.val5491 = load i32, ptr %16, align 4
   %17 = icmp sgt i32 %.val5491, 0
-  br i1 %17, label %Aig_ManObj.exit.lr.ph, label %.critedge
+  br i1 %17, label %Aig_ManObj.argprom.exit.lr.ph, label %.critedge
 
-Aig_ManObj.exit.lr.ph:                            ; preds = %Abc_Clock.exit
+Aig_ManObj.argprom.exit.lr.ph:                    ; preds = %Abc_Clock.exit
   %18 = getelementptr i8, ptr %15, i64 8
   %19 = getelementptr i8, ptr %0, i64 32
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.ph, %66
-  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.lr.ph ], [ %indvars.iv.next, %66 ]
-  %.097 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.1, %66 ]
-  %.04296 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.143, %66 ]
-  %.04495 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.145, %66 ]
-  %.04694 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.147, %66 ]
-  %.04893 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.149, %66 ]
+Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.exit.lr.ph, %66
+  %indvars.iv = phi i64 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %indvars.iv.next, %66 ]
+  %.097 = phi i32 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %.1, %66 ]
+  %.04296 = phi i32 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %.143, %66 ]
+  %.04495 = phi i32 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %.145, %66 ]
+  %.04694 = phi i32 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %.147, %66 ]
+  %.04893 = phi i32 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %.149, %66 ]
   %.val55 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
@@ -518,7 +518,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %.not23.i62 = icmp eq i64 %29, 3
   br i1 %.not, label %48, label %30
 
-30:                                               ; preds = %Aig_ManObj.exit
+30:                                               ; preds = %Aig_ManObj.argprom.exit
   br i1 %.not23.i62, label %tailrecurse.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %tailrecurse.i, %30
@@ -567,7 +567,7 @@ Aig_ObjFindSatAssign.exit:                        ; preds = %42
   %47 = add nsw i32 %.04694, 1
   br label %66
 
-48:                                               ; preds = %Aig_ManObj.exit
+48:                                               ; preds = %Aig_ManObj.argprom.exit
   br i1 %.not23.i62, label %tailrecurse.i70, label %.preheader.i63
 
 .preheader.i63:                                   ; preds = %tailrecurse.i70, %48
@@ -626,7 +626,7 @@ Aig_ObjFindSatAssign.exit76:                      ; preds = %60
   %.val54 = load i32, ptr %16, align 4
   %67 = sext i32 %.val54 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %Aig_ManObj.exit, label %.critedge.loopexit, !llvm.loop !8
+  br i1 %68, label %Aig_ManObj.argprom.exit, label %.critedge.loopexit, !llvm.loop !8
 
 .critedge.loopexit:                               ; preds = %66
   %.pre = load ptr, ptr %13, align 8

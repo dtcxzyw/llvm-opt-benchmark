@@ -577,16 +577,16 @@ try_replace_op1.exit.thread.i:                    ; preds = %185, %229, %224, %2
   %.val110.i = load i32, ptr %249, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %250 = icmp eq i32 %.val110.i, %.pre76
-  br i1 %250, label %251, label %try_replace_op2.exit.thread.i
+  br i1 %250, label %251, label %try_replace_op2.argprom.exit.thread.i
 
 251:                                              ; preds = %247
   %252 = getelementptr i8, ptr %248, i64 28
   %.val.i.i = load i8, ptr %252, align 4
   switch i8 %.val.i.i, label %253 [
-    i8 -111, label %try_replace_op2.exit.thread.i
-    i8 -74, label %try_replace_op2.exit.thread.i
-    i8 78, label %try_replace_op2.exit.thread.i
-    i8 126, label %try_replace_op2.exit.thread.i
+    i8 -111, label %try_replace_op2.argprom.exit.thread.i
+    i8 -74, label %try_replace_op2.argprom.exit.thread.i
+    i8 78, label %try_replace_op2.argprom.exit.thread.i
+    i8 126, label %try_replace_op2.argprom.exit.thread.i
   ]
 
 253:                                              ; preds = %251
@@ -612,7 +612,7 @@ try_replace_op1.exit.thread.i:                    ; preds = %185, %229, %224, %2
 263:                                              ; preds = %260
   %264 = load i8, ptr %132, align 1
   %.not24.i113.i = icmp eq i8 %264, 0
-  br i1 %.not24.i113.i, label %try_replace_op2.exit.thread.i, label %265
+  br i1 %.not24.i113.i, label %try_replace_op2.argprom.exit.thread.i, label %265
 
 265:                                              ; preds = %263
   %266 = load ptr, ptr %5, align 8
@@ -622,14 +622,14 @@ try_replace_op1.exit.thread.i:                    ; preds = %185, %229, %224, %2
   %269 = add i32 %267, -1
   store i32 %269, ptr %266, align 4
   %.not25.i114.i = icmp eq i32 %269, 0
-  br i1 %.not25.i114.i, label %270, label %try_replace_op2.exit.thread.i
+  br i1 %.not25.i114.i, label %270, label %try_replace_op2.argprom.exit.thread.i
 
 270:                                              ; preds = %265
   %271 = load ptr, ptr %5, align 8
   call void @rc_dtor_func(ptr noundef %271) #13
-  br label %try_replace_op2.exit.thread.i
+  br label %try_replace_op2.argprom.exit.thread.i
 
-try_replace_op2.exit.thread.i:                    ; preds = %270, %265, %263, %251, %251, %251, %251, %247
+try_replace_op2.argprom.exit.thread.i:            ; preds = %270, %265, %263, %251, %251, %251, %251, %247
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %281
 
@@ -654,7 +654,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %270, %265, %263, %2
   store i32 -1, ptr %280, align 4
   br label %281
 
-281:                                              ; preds = %279, %try_replace_op2.exit.thread.i
+281:                                              ; preds = %279, %try_replace_op2.argprom.exit.thread.i
   %282 = icmp sgt i32 %.0.i62, -1
   br i1 %282, label %179, label %._crit_edge.loopexit.i
 
@@ -878,7 +878,7 @@ get_op2_value.exit:                               ; preds = %32, %40, %43
   %69 = getelementptr inbounds i8, ptr %0, i64 128
   %70 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %70, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val, i32 noundef %66, ptr noundef nonnull %69)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val, i32 noundef %66, ptr noundef nonnull %69)
   br label %71
 
 71:                                               ; preds = %68, %64
@@ -891,7 +891,7 @@ get_op2_value.exit:                               ; preds = %32, %40, %43
   %76 = getelementptr inbounds i8, ptr %0, i64 128
   %77 = getelementptr i8, ptr %0, i64 104
   %.val1844 = load ptr, ptr %77, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1844, i32 noundef %73, ptr noundef nonnull %76)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1844, i32 noundef %73, ptr noundef nonnull %76)
   br label %.loopexit
 
 78:                                               ; preds = %50, %54
@@ -903,7 +903,7 @@ get_op2_value.exit:                               ; preds = %32, %40, %43
 82:                                               ; preds = %78
   %83 = getelementptr i8, ptr %0, i64 104
   %.val1845 = load ptr, ptr %83, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1845, i32 noundef %80, ptr noundef %.0.i1989)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1845, i32 noundef %80, ptr noundef %.0.i1989)
   br label %84
 
 84:                                               ; preds = %82, %78
@@ -915,7 +915,7 @@ get_op2_value.exit:                               ; preds = %32, %40, %43
 88:                                               ; preds = %84
   %89 = getelementptr i8, ptr %0, i64 104
   %.val1846 = load ptr, ptr %89, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1846, i32 noundef %86, ptr noundef %.0.i1989)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1846, i32 noundef %86, ptr noundef %.0.i1989)
   br label %.loopexit
 
 90:                                               ; preds = %get_op2_value.exit
@@ -977,7 +977,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   %127 = getelementptr inbounds i8, ptr %0, i64 128
   %128 = getelementptr i8, ptr %0, i64 104
   %.val1847 = load ptr, ptr %128, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1847, i32 noundef %124, ptr noundef nonnull %127)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1847, i32 noundef %124, ptr noundef nonnull %127)
   br label %129
 
 129:                                              ; preds = %126, %122
@@ -990,7 +990,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   %134 = getelementptr inbounds i8, ptr %0, i64 128
   %135 = getelementptr i8, ptr %0, i64 104
   %.val1848 = load ptr, ptr %135, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1848, i32 noundef %131, ptr noundef nonnull %134)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1848, i32 noundef %131, ptr noundef nonnull %134)
   br label %.loopexit
 
 136:                                              ; preds = %get_op1_value.exit1992
@@ -1021,7 +1021,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   %149 = getelementptr inbounds i8, ptr %0, i64 128
   %150 = getelementptr i8, ptr %0, i64 104
   %.val1849 = load ptr, ptr %150, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1849, i32 noundef %146, ptr noundef nonnull %149)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1849, i32 noundef %146, ptr noundef nonnull %149)
   br label %151
 
 151:                                              ; preds = %144, %148
@@ -1042,7 +1042,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
 160:                                              ; preds = %155
   %161 = getelementptr i8, ptr %0, i64 104
   %.val1850 = load ptr, ptr %161, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1850, i32 noundef %158, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1850, i32 noundef %158, ptr noundef nonnull %4)
   %.phi.trans.insert2073 = getelementptr inbounds i8, ptr %4, i64 9
   %.pre2074 = load i8, ptr %.phi.trans.insert2073, align 1
   %162 = icmp eq i8 %.pre2074, 0
@@ -1077,7 +1077,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   %175 = getelementptr inbounds i8, ptr %0, i64 128
   %176 = getelementptr i8, ptr %0, i64 104
   %.val1851 = load ptr, ptr %176, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1851, i32 noundef %172, ptr noundef nonnull %175)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1851, i32 noundef %172, ptr noundef nonnull %175)
   %.pre2075 = load i8, ptr %120, align 8
   br label %177
 
@@ -1125,7 +1125,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
 194:                                              ; preds = %191
   %195 = getelementptr i8, ptr %0, i64 104
   %.val1852 = load ptr, ptr %195, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1852, i32 noundef %192, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1852, i32 noundef %192, ptr noundef nonnull %4)
   br label %208
 
 196:                                              ; preds = %190
@@ -1141,7 +1141,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
 202:                                              ; preds = %201
   %203 = getelementptr i8, ptr %0, i64 104
   %.val1853 = load ptr, ptr %203, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1853, i32 noundef %199, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1853, i32 noundef %199, ptr noundef nonnull %4)
   br label %208
 
 204:                                              ; preds = %196
@@ -1151,7 +1151,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   %206 = getelementptr inbounds i8, ptr %0, i64 128
   %207 = getelementptr i8, ptr %0, i64 104
   %.val1854 = load ptr, ptr %207, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1854, i32 noundef %199, ptr noundef nonnull %206)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1854, i32 noundef %199, ptr noundef nonnull %206)
   br label %208
 
 208:                                              ; preds = %201, %202, %204, %205, %194, %191
@@ -1185,7 +1185,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   %221 = getelementptr inbounds i8, ptr %0, i64 128
   %222 = getelementptr i8, ptr %0, i64 104
   %.val1855 = load ptr, ptr %222, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1855, i32 noundef %.pre2078, ptr noundef nonnull %221)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1855, i32 noundef %.pre2078, ptr noundef nonnull %221)
   br label %.loopexit
 
 223:                                              ; preds = %.critedge
@@ -1242,7 +1242,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
 248:                                              ; preds = %244
   %249 = getelementptr i8, ptr %0, i64 104
   %.val1856 = load ptr, ptr %249, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1856, i32 noundef %246, ptr noundef nonnull %.0.i1991)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1856, i32 noundef %246, ptr noundef nonnull %.0.i1991)
   br label %250
 
 250:                                              ; preds = %248, %244
@@ -1254,7 +1254,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
 254:                                              ; preds = %250
   %255 = getelementptr i8, ptr %0, i64 104
   %.val1857 = load ptr, ptr %255, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1857, i32 noundef %252, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1857, i32 noundef %252, ptr noundef nonnull %4)
   br label %289
 
 256:                                              ; preds = %.split1522, %.split
@@ -1281,7 +1281,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
 267:                                              ; preds = %263
   %268 = getelementptr i8, ptr %0, i64 104
   %.val1858 = load ptr, ptr %268, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1858, i32 noundef %265, ptr noundef nonnull %.0.i1991)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1858, i32 noundef %265, ptr noundef nonnull %.0.i1991)
   br label %269
 
 269:                                              ; preds = %267, %263
@@ -1293,7 +1293,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
 273:                                              ; preds = %269
   %274 = getelementptr i8, ptr %0, i64 104
   %.val1859 = load ptr, ptr %274, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1859, i32 noundef %271, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1859, i32 noundef %271, ptr noundef nonnull %4)
   br label %289
 
 275:                                              ; preds = %256
@@ -1306,7 +1306,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   %280 = getelementptr inbounds i8, ptr %0, i64 128
   %281 = getelementptr i8, ptr %0, i64 104
   %.val1860 = load ptr, ptr %281, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1860, i32 noundef %277, ptr noundef nonnull %280)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1860, i32 noundef %277, ptr noundef nonnull %280)
   br label %282
 
 282:                                              ; preds = %279, %275
@@ -1319,7 +1319,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   %287 = getelementptr inbounds i8, ptr %0, i64 128
   %288 = getelementptr i8, ptr %0, i64 104
   %.val1861 = load ptr, ptr %288, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1861, i32 noundef %284, ptr noundef nonnull %287)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1861, i32 noundef %284, ptr noundef nonnull %287)
   br label %289
 
 289:                                              ; preds = %269, %273, %282, %286, %254, %250
@@ -1418,7 +1418,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %348 = getelementptr inbounds i8, ptr %0, i64 128
   %349 = getelementptr i8, ptr %0, i64 104
   %.val1862 = load ptr, ptr %349, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1862, i32 noundef %345, ptr noundef nonnull %348)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1862, i32 noundef %345, ptr noundef nonnull %348)
   %.pre2072 = load i32, ptr %300, align 4
   %350 = icmp sgt i32 %.pre2072, -1
   br i1 %350, label %.thread2095, label %.loopexit
@@ -1428,7 +1428,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %352 = getelementptr inbounds i8, ptr %0, i64 128
   %353 = getelementptr i8, ptr %0, i64 104
   %.val1863 = load ptr, ptr %353, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1863, i32 noundef %351, ptr noundef nonnull %352)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1863, i32 noundef %351, ptr noundef nonnull %352)
   br label %.loopexit
 
 354:                                              ; preds = %339
@@ -1449,7 +1449,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %362 = getelementptr inbounds i8, ptr %0, i64 128
   %363 = getelementptr i8, ptr %0, i64 104
   %.val1864 = load ptr, ptr %363, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1864, i32 noundef %359, ptr noundef nonnull %362)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1864, i32 noundef %359, ptr noundef nonnull %362)
   %.pre2066 = load i32, ptr %300, align 4
   %364 = icmp sgt i32 %.pre2066, -1
   br i1 %364, label %.thread2096, label %.loopexit
@@ -1459,7 +1459,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %366 = getelementptr inbounds i8, ptr %0, i64 128
   %367 = getelementptr i8, ptr %0, i64 104
   %.val1865 = load ptr, ptr %367, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1865, i32 noundef %365, ptr noundef nonnull %366)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1865, i32 noundef %365, ptr noundef nonnull %366)
   br label %.loopexit
 
 368:                                              ; preds = %354
@@ -1486,7 +1486,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %380 = getelementptr inbounds i8, ptr %0, i64 128
   %381 = getelementptr i8, ptr %0, i64 104
   %.val1866 = load ptr, ptr %381, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1866, i32 noundef %377, ptr noundef nonnull %380)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1866, i32 noundef %377, ptr noundef nonnull %380)
   br label %382
 
 382:                                              ; preds = %375, %379
@@ -1501,7 +1501,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 387:                                              ; preds = %382
   %388 = getelementptr i8, ptr %0, i64 104
   %.val1867 = load ptr, ptr %388, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1867, i32 noundef %385, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1867, i32 noundef %385, ptr noundef nonnull %4)
   %.phi.trans.insert2067 = getelementptr inbounds i8, ptr %4, i64 9
   %.pre2068 = load i8, ptr %.phi.trans.insert2067, align 1
   %389 = icmp eq i8 %.pre2068, 0
@@ -1536,7 +1536,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %403 = getelementptr inbounds i8, ptr %0, i64 128
   %404 = getelementptr i8, ptr %0, i64 104
   %.val1868 = load ptr, ptr %404, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1868, i32 noundef %400, ptr noundef nonnull %403)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1868, i32 noundef %400, ptr noundef nonnull %403)
   %.pre2069 = load i8, ptr %355, align 8
   br label %405
 
@@ -1567,7 +1567,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 414:                                              ; preds = %411, %409
   %storemerge = phi ptr [ %413, %411 ], [ %410, %409 ]
   store ptr %storemerge, ptr %4, align 8
-  %415 = tail call fastcc i32 @ct_eval_del_obj_prop(ptr %storemerge, ptr noundef nonnull %.0.i1989)
+  %415 = tail call fastcc i32 @ct_eval_del_obj_prop.argprom(ptr %storemerge, ptr noundef nonnull %.0.i1989)
   %416 = icmp eq i32 %415, 0
   %417 = load i32, ptr %300, align 4
   %418 = icmp sgt i32 %417, -1
@@ -1583,13 +1583,13 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %422 = getelementptr inbounds i8, ptr %0, i64 128
   %423 = getelementptr i8, ptr %0, i64 104
   %.val1870 = load ptr, ptr %423, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1870, i32 noundef %417, ptr noundef nonnull %422)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1870, i32 noundef %417, ptr noundef nonnull %422)
   br label %.thread2099
 
 424:                                              ; preds = %419
   %425 = getelementptr i8, ptr %0, i64 104
   %.val1869 = load ptr, ptr %425, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1869, i32 noundef %417, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1869, i32 noundef %417, ptr noundef nonnull %4)
   %.phi.trans.insert2070 = getelementptr inbounds i8, ptr %4, i64 9
   %.pre2071 = load i8, ptr %.phi.trans.insert2070, align 1
   %426 = icmp eq i8 %.pre2071, 0
@@ -1619,7 +1619,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %437 = getelementptr inbounds i8, ptr %0, i64 128
   %438 = getelementptr i8, ptr %0, i64 104
   %.val1871 = load ptr, ptr %438, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1871, i32 noundef %434, ptr noundef nonnull %437)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1871, i32 noundef %434, ptr noundef nonnull %437)
   br label %.loopexit
 
 439:                                              ; preds = %396
@@ -1664,7 +1664,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 460:                                              ; preds = %459
   %461 = getelementptr i8, ptr %0, i64 104
   %.val1872 = load ptr, ptr %461, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1872, i32 noundef %457, ptr noundef nonnull %.0.i1994)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1872, i32 noundef %457, ptr noundef nonnull %.0.i1994)
   br label %462
 
 462:                                              ; preds = %460, %459
@@ -1675,7 +1675,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 465:                                              ; preds = %462
   %466 = getelementptr i8, ptr %0, i64 104
   %.val1873 = load ptr, ptr %466, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1873, i32 noundef %463, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1873, i32 noundef %463, ptr noundef nonnull %4)
   br label %477
 
 467:                                              ; preds = %453
@@ -1685,7 +1685,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %469 = getelementptr inbounds i8, ptr %0, i64 128
   %470 = getelementptr i8, ptr %0, i64 104
   %.val1874 = load ptr, ptr %470, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1874, i32 noundef %457, ptr noundef nonnull %469)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1874, i32 noundef %457, ptr noundef nonnull %469)
   br label %471
 
 471:                                              ; preds = %468, %467
@@ -1697,7 +1697,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %475 = getelementptr inbounds i8, ptr %0, i64 128
   %476 = getelementptr i8, ptr %0, i64 104
   %.val1875 = load ptr, ptr %476, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1875, i32 noundef %472, ptr noundef nonnull %475)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1875, i32 noundef %472, ptr noundef nonnull %475)
   br label %477
 
 477:                                              ; preds = %474, %471, %465, %462
@@ -1731,7 +1731,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %492 = getelementptr inbounds i8, ptr %0, i64 128
   %493 = getelementptr i8, ptr %0, i64 104
   %.val1876 = load ptr, ptr %493, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1876, i32 noundef %489, ptr noundef nonnull %492)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1876, i32 noundef %489, ptr noundef nonnull %492)
   %.pre2065 = load i32, ptr %300, align 4
   br label %494
 
@@ -1744,7 +1744,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %498 = getelementptr inbounds i8, ptr %0, i64 128
   %499 = getelementptr i8, ptr %0, i64 104
   %.val1877 = load ptr, ptr %499, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1877, i32 noundef %495, ptr noundef nonnull %498)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1877, i32 noundef %495, ptr noundef nonnull %498)
   br label %.loopexit
 
 500:                                              ; preds = %get_op2_value.exit, %get_op2_value.exit
@@ -1815,7 +1815,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 
 544:                                              ; preds = %540
   %545 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr nonnull %533, i32 noundef %542, ptr noundef nonnull %545)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr nonnull %533, i32 noundef %542, ptr noundef nonnull %545)
   br label %546
 
 546:                                              ; preds = %544, %540
@@ -1827,7 +1827,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 550:                                              ; preds = %546
   %551 = getelementptr inbounds i8, ptr %0, i64 128
   %.val1879 = load ptr, ptr %532, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1879, i32 noundef %548, ptr noundef nonnull %551)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1879, i32 noundef %548, ptr noundef nonnull %551)
   br label %.loopexit
 
 552:                                              ; preds = %get_op2_value.exit, %531
@@ -1871,7 +1871,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %572 = getelementptr inbounds i8, ptr %0, i64 128
   %573 = getelementptr i8, ptr %0, i64 104
   %.val1880 = load ptr, ptr %573, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1880, i32 noundef %569, ptr noundef nonnull %572)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1880, i32 noundef %569, ptr noundef nonnull %572)
   br label %.loopexit
 
 574:                                              ; preds = %563, %562
@@ -1893,7 +1893,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %584 = getelementptr inbounds i8, ptr %0, i64 128
   %585 = getelementptr i8, ptr %0, i64 104
   %.val1881 = load ptr, ptr %585, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1881, i32 noundef %581, ptr noundef nonnull %584)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1881, i32 noundef %581, ptr noundef nonnull %584)
   br label %586
 
 586:                                              ; preds = %579, %583
@@ -1914,7 +1914,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 595:                                              ; preds = %590
   %596 = getelementptr i8, ptr %0, i64 104
   %.val1882 = load ptr, ptr %596, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1882, i32 noundef %593, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1882, i32 noundef %593, ptr noundef nonnull %4)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 9
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %597 = icmp eq i8 %.pre, 0
@@ -1961,7 +1961,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %618 = getelementptr inbounds i8, ptr %0, i64 128
   %619 = getelementptr i8, ptr %0, i64 104
   %.val1883 = load ptr, ptr %619, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1883, i32 noundef %615, ptr noundef nonnull %618)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1883, i32 noundef %615, ptr noundef nonnull %618)
   br label %620
 
 620:                                              ; preds = %613, %617
@@ -2000,7 +2000,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 636:                                              ; preds = %633
   %637 = getelementptr i8, ptr %0, i64 104
   %.val1884 = load ptr, ptr %637, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1884, i32 noundef %634, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1884, i32 noundef %634, ptr noundef nonnull %4)
   br label %650
 
 638:                                              ; preds = %632
@@ -2016,7 +2016,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 644:                                              ; preds = %643
   %645 = getelementptr i8, ptr %0, i64 104
   %.val1885 = load ptr, ptr %645, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1885, i32 noundef %641, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1885, i32 noundef %641, ptr noundef nonnull %4)
   br label %650
 
 646:                                              ; preds = %638
@@ -2026,7 +2026,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %648 = getelementptr inbounds i8, ptr %0, i64 128
   %649 = getelementptr i8, ptr %0, i64 104
   %.val1886 = load ptr, ptr %649, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1886, i32 noundef %641, ptr noundef nonnull %648)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1886, i32 noundef %641, ptr noundef nonnull %648)
   br label %650
 
 650:                                              ; preds = %643, %644, %646, %647, %636, %633
@@ -2099,7 +2099,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 681:                                              ; preds = %677
   %682 = getelementptr i8, ptr %0, i64 104
   %.val1887 = load ptr, ptr %682, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1887, i32 noundef %679, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1887, i32 noundef %679, ptr noundef nonnull %4)
   br label %710
 
 683:                                              ; preds = %.split1524, %.split1523
@@ -2127,7 +2127,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 695:                                              ; preds = %691
   %696 = getelementptr i8, ptr %0, i64 104
   %.val1888 = load ptr, ptr %696, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1888, i32 noundef %693, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1888, i32 noundef %693, ptr noundef nonnull %4)
   br label %710
 
 697:                                              ; preds = %683
@@ -2140,7 +2140,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %702 = getelementptr inbounds i8, ptr %0, i64 128
   %703 = getelementptr i8, ptr %0, i64 104
   %.val1889 = load ptr, ptr %703, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1889, i32 noundef %699, ptr noundef nonnull %702)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1889, i32 noundef %699, ptr noundef nonnull %702)
   br label %710
 
 704:                                              ; preds = %669
@@ -2152,7 +2152,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 708:                                              ; preds = %704
   %709 = getelementptr i8, ptr %0, i64 104
   %.val1890 = load ptr, ptr %709, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1890, i32 noundef %706, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1890, i32 noundef %706, ptr noundef nonnull %4)
   br label %710
 
 710:                                              ; preds = %708, %704, %677, %681, %701, %697, %695, %691
@@ -2202,7 +2202,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 
 738:                                              ; preds = %734
   %739 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr nonnull %722, i32 noundef %736, ptr noundef nonnull %739)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr nonnull %722, i32 noundef %736, ptr noundef nonnull %739)
   br label %.loopexit
 
 740:                                              ; preds = %730
@@ -2223,7 +2223,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 
 749:                                              ; preds = %745
   %750 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr nonnull %722, i32 noundef %747, ptr noundef nonnull %750)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr nonnull %722, i32 noundef %747, ptr noundef nonnull %750)
   br label %.loopexit
 
 751:                                              ; preds = %743
@@ -2245,7 +2245,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 
 761:                                              ; preds = %760
   %.val1893 = load ptr, ptr %721, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1893, i32 noundef %758, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1893, i32 noundef %758, ptr noundef nonnull %4)
   br label %765
 
 762:                                              ; preds = %751
@@ -2254,7 +2254,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 763:                                              ; preds = %762
   %764 = getelementptr inbounds i8, ptr %0, i64 128
   %.val1894 = load ptr, ptr %721, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1894, i32 noundef %758, ptr noundef nonnull %764)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1894, i32 noundef %758, ptr noundef nonnull %764)
   br label %765
 
 765:                                              ; preds = %763, %762, %761, %760
@@ -2308,7 +2308,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
 794:                                              ; preds = %789
   %795 = getelementptr i8, ptr %0, i64 104
   %.val1895 = load ptr, ptr %795, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1895, i32 noundef %792, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1895, i32 noundef %792, ptr noundef nonnull %4)
   %.phi.trans.insert2063 = getelementptr inbounds i8, ptr %4, i64 9
   %.pre2064 = load i8, ptr %.phi.trans.insert2063, align 1
   %796 = icmp eq i8 %.pre2064, 0
@@ -2333,7 +2333,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %804 = getelementptr inbounds i8, ptr %0, i64 128
   %805 = getelementptr i8, ptr %0, i64 104
   %.val1896 = load ptr, ptr %805, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1896, i32 noundef %777, ptr noundef nonnull %804)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1896, i32 noundef %777, ptr noundef nonnull %804)
   br label %.loopexit
 
 806:                                              ; preds = %get_op2_value.exit, %get_op2_value.exit
@@ -2346,7 +2346,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %811 = getelementptr inbounds i8, ptr %0, i64 128
   %812 = getelementptr i8, ptr %0, i64 104
   %.val1897 = load ptr, ptr %812, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1897, i32 noundef %808, ptr noundef nonnull %811)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1897, i32 noundef %808, ptr noundef nonnull %811)
   br label %813
 
 813:                                              ; preds = %810, %806
@@ -2359,7 +2359,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %818 = getelementptr inbounds i8, ptr %0, i64 128
   %819 = getelementptr i8, ptr %0, i64 104
   %.val1898 = load ptr, ptr %819, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1898, i32 noundef %815, ptr noundef nonnull %818)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1898, i32 noundef %815, ptr noundef nonnull %818)
   br label %820
 
 820:                                              ; preds = %817, %813
@@ -2372,7 +2372,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %825 = getelementptr inbounds i8, ptr %0, i64 128
   %826 = getelementptr i8, ptr %0, i64 104
   %.val1899 = load ptr, ptr %826, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1899, i32 noundef %822, ptr noundef nonnull %825)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1899, i32 noundef %822, ptr noundef nonnull %825)
   br label %827
 
 827:                                              ; preds = %820, %824
@@ -2387,7 +2387,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %834 = getelementptr inbounds i8, ptr %0, i64 128
   %835 = getelementptr i8, ptr %0, i64 104
   %.val1900 = load ptr, ptr %835, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1900, i32 noundef %831, ptr noundef nonnull %834)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1900, i32 noundef %831, ptr noundef nonnull %834)
   br label %836
 
 836:                                              ; preds = %get_op2_value.exit, %833, %827
@@ -2432,7 +2432,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %852 = getelementptr inbounds i8, ptr %0, i64 128
   %853 = getelementptr i8, ptr %0, i64 104
   %.val1901 = load ptr, ptr %853, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1901, i32 noundef %849, ptr noundef nonnull %852)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1901, i32 noundef %849, ptr noundef nonnull %852)
   br label %854
 
 854:                                              ; preds = %851, %847
@@ -2445,7 +2445,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %859 = getelementptr inbounds i8, ptr %0, i64 128
   %860 = getelementptr i8, ptr %0, i64 104
   %.val1902 = load ptr, ptr %860, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1902, i32 noundef %856, ptr noundef nonnull %859)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1902, i32 noundef %856, ptr noundef nonnull %859)
   br label %861
 
 861:                                              ; preds = %858, %854
@@ -2458,7 +2458,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %866 = getelementptr inbounds i8, ptr %0, i64 128
   %867 = getelementptr i8, ptr %0, i64 104
   %.val1903 = load ptr, ptr %867, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1903, i32 noundef %863, ptr noundef nonnull %866)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1903, i32 noundef %863, ptr noundef nonnull %866)
   br label %.loopexit
 
 868:                                              ; preds = %843, %840
@@ -2568,7 +2568,7 @@ ct_eval_binary_op.exit:                           ; preds = %879
 888:                                              ; preds = %884
   %889 = getelementptr i8, ptr %0, i64 104
   %.val1904 = load ptr, ptr %889, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1904, i32 noundef %886, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1904, i32 noundef %886, ptr noundef nonnull %4)
   br label %890
 
 890:                                              ; preds = %884, %888
@@ -2602,7 +2602,7 @@ ct_eval_binary_op.exit.thread:                    ; preds = %879, %ct_eval_binar
   %904 = getelementptr inbounds i8, ptr %0, i64 128
   %905 = getelementptr i8, ptr %0, i64 104
   %.val1905 = load ptr, ptr %905, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1905, i32 noundef %901, ptr noundef nonnull %904)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1905, i32 noundef %901, ptr noundef nonnull %904)
   br label %.loopexit
 
 906:                                              ; preds = %868, %868, %868, %868
@@ -2658,7 +2658,7 @@ ct_eval_binary_op.exit1998:                       ; preds = %924
 934:                                              ; preds = %930
   %935 = getelementptr i8, ptr %0, i64 104
   %.val1906 = load ptr, ptr %935, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1906, i32 noundef %932, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1906, i32 noundef %932, ptr noundef nonnull %4)
   br label %936
 
 936:                                              ; preds = %934, %930
@@ -2670,7 +2670,7 @@ ct_eval_binary_op.exit1998:                       ; preds = %924
 940:                                              ; preds = %936
   %941 = getelementptr i8, ptr %0, i64 104
   %.val1907 = load ptr, ptr %941, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1907, i32 noundef %938, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1907, i32 noundef %938, ptr noundef nonnull %4)
   br label %942
 
 942:                                              ; preds = %936, %940
@@ -2771,7 +2771,7 @@ get_op1_value.exit2001:                           ; preds = %963, %971, %974
   %997 = getelementptr inbounds i8, ptr %0, i64 128
   %998 = getelementptr i8, ptr %0, i64 104
   %.val1908 = load ptr, ptr %998, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1908, i32 noundef %994, ptr noundef nonnull %997)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1908, i32 noundef %994, ptr noundef nonnull %997)
   br label %999
 
 999:                                              ; preds = %996, %988
@@ -2782,7 +2782,7 @@ get_op1_value.exit2001:                           ; preds = %963, %971, %974
 1002:                                             ; preds = %999
   %1003 = getelementptr i8, ptr %0, i64 104
   %.val1909 = load ptr, ptr %1003, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1909, i32 noundef %1000, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1909, i32 noundef %1000, ptr noundef nonnull %4)
   br label %1004
 
 1004:                                             ; preds = %999, %1002
@@ -2853,7 +2853,7 @@ ct_eval_binary_op.exit2003.thread:                ; preds = %1024, %ct_eval_bina
   %1038 = getelementptr inbounds i8, ptr %0, i64 128
   %1039 = getelementptr i8, ptr %0, i64 104
   %.val1910 = load ptr, ptr %1039, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1910, i32 noundef %1035, ptr noundef nonnull %1038)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1910, i32 noundef %1035, ptr noundef nonnull %1038)
   br label %1040
 
 1040:                                             ; preds = %1037, %ct_eval_binary_op.exit2003.thread
@@ -2865,7 +2865,7 @@ ct_eval_binary_op.exit2003.thread:                ; preds = %1024, %ct_eval_bina
   %1044 = getelementptr inbounds i8, ptr %0, i64 128
   %1045 = getelementptr i8, ptr %0, i64 104
   %.val1911 = load ptr, ptr %1045, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1911, i32 noundef %1041, ptr noundef nonnull %1044)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1911, i32 noundef %1041, ptr noundef nonnull %1044)
   br label %1046
 
 1046:                                             ; preds = %1040, %1043
@@ -2932,7 +2932,7 @@ ct_eval_binary_op.exit2003.thread:                ; preds = %1024, %ct_eval_bina
 1078:                                             ; preds = %1074
   %1079 = getelementptr i8, ptr %0, i64 104
   %.val1912 = load ptr, ptr %1079, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1912, i32 noundef %1076, ptr noundef nonnull %5)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1912, i32 noundef %1076, ptr noundef nonnull %5)
   br label %1080
 
 1080:                                             ; preds = %1078, %1074
@@ -2943,7 +2943,7 @@ ct_eval_binary_op.exit2003.thread:                ; preds = %1024, %ct_eval_bina
 1083:                                             ; preds = %1080
   %1084 = getelementptr i8, ptr %0, i64 104
   %.val1913 = load ptr, ptr %1084, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1913, i32 noundef %1081, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1913, i32 noundef %1081, ptr noundef nonnull %4)
   br label %1085
 
 1085:                                             ; preds = %1080, %1083
@@ -3106,7 +3106,7 @@ get_op1_value.exit2006:                           ; preds = %1147, %1155, %1158
   %1174 = load ptr, ptr %.0.i, align 8
   %1175 = tail call ptr @zend_array_dup(ptr noundef %1174) #13
   store ptr %1175, ptr %4, align 8
-  %1176 = tail call fastcc i32 @ct_eval_del_obj_prop(ptr %1175, ptr noundef %.0.i1989)
+  %1176 = tail call fastcc i32 @ct_eval_del_obj_prop.argprom(ptr %1175, ptr noundef %.0.i1989)
   %1177 = getelementptr inbounds i8, ptr %.015182030, i64 20
   %1178 = load i32, ptr %1177, align 4
   %1179 = icmp sgt i32 %1178, -1
@@ -3116,7 +3116,7 @@ get_op1_value.exit2006:                           ; preds = %1147, %1155, %1158
   %1181 = getelementptr inbounds i8, ptr %0, i64 128
   %1182 = getelementptr i8, ptr %0, i64 104
   %.val1914 = load ptr, ptr %1182, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1914, i32 noundef %1178, ptr noundef nonnull %1181)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1914, i32 noundef %1178, ptr noundef nonnull %1181)
   br label %1183
 
 1183:                                             ; preds = %1180, %1172
@@ -3127,7 +3127,7 @@ get_op1_value.exit2006:                           ; preds = %1147, %1155, %1158
 1186:                                             ; preds = %1183
   %1187 = getelementptr i8, ptr %0, i64 104
   %.val1915 = load ptr, ptr %1187, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1915, i32 noundef %1184, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1915, i32 noundef %1184, ptr noundef nonnull %4)
   br label %1188
 
 1188:                                             ; preds = %1183, %1186
@@ -3197,7 +3197,7 @@ ct_eval_binary_op.exit2008.thread:                ; preds = %1207, %ct_eval_bina
   %1221 = getelementptr inbounds i8, ptr %0, i64 128
   %1222 = getelementptr i8, ptr %0, i64 104
   %.val1916 = load ptr, ptr %1222, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1916, i32 noundef %1218, ptr noundef nonnull %1221)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1916, i32 noundef %1218, ptr noundef nonnull %1221)
   br label %1223
 
 1223:                                             ; preds = %1220, %ct_eval_binary_op.exit2008.thread
@@ -3209,7 +3209,7 @@ ct_eval_binary_op.exit2008.thread:                ; preds = %1207, %ct_eval_bina
   %1227 = getelementptr inbounds i8, ptr %0, i64 128
   %1228 = getelementptr i8, ptr %0, i64 104
   %.val1917 = load ptr, ptr %1228, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1917, i32 noundef %1224, ptr noundef nonnull %1227)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1917, i32 noundef %1224, ptr noundef nonnull %1227)
   br label %1229
 
 1229:                                             ; preds = %1223, %1226
@@ -3252,7 +3252,7 @@ ct_eval_binary_op.exit2008.thread:                ; preds = %1207, %ct_eval_bina
 1249:                                             ; preds = %1245
   %1250 = getelementptr i8, ptr %0, i64 104
   %.val1918 = load ptr, ptr %1250, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1918, i32 noundef %1247, ptr noundef nonnull %6)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1918, i32 noundef %1247, ptr noundef nonnull %6)
   br label %1251
 
 1251:                                             ; preds = %1249, %1245
@@ -3263,7 +3263,7 @@ ct_eval_binary_op.exit2008.thread:                ; preds = %1207, %ct_eval_bina
 1254:                                             ; preds = %1251
   %1255 = getelementptr i8, ptr %0, i64 104
   %.val1919 = load ptr, ptr %1255, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1919, i32 noundef %1252, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1919, i32 noundef %1252, ptr noundef nonnull %4)
   br label %1256
 
 1256:                                             ; preds = %1251, %1254
@@ -3360,7 +3360,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1299 = getelementptr inbounds i8, ptr %0, i64 128
   %1300 = getelementptr i8, ptr %0, i64 104
   %.val1920 = load ptr, ptr %1300, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1920, i32 noundef %1296, ptr noundef nonnull %1299)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1920, i32 noundef %1296, ptr noundef nonnull %1299)
   br label %1301
 
 1301:                                             ; preds = %1298, %ct_eval_binary_op.exit1998.thread
@@ -3373,7 +3373,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1306 = getelementptr inbounds i8, ptr %0, i64 128
   %1307 = getelementptr i8, ptr %0, i64 104
   %.val1921 = load ptr, ptr %1307, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1921, i32 noundef %1303, ptr noundef nonnull %1306)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1921, i32 noundef %1303, ptr noundef nonnull %1306)
   br label %.loopexit
 
 1308:                                             ; preds = %868, %868, %868, %868
@@ -3443,7 +3443,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %. = select i1 %switch1843, ptr %8, ptr %7
   %1350 = getelementptr i8, ptr %0, i64 104
   %.val1923 = load ptr, ptr %1350, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1923, i32 noundef %1346, ptr noundef nonnull %.)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1923, i32 noundef %1346, ptr noundef nonnull %.)
   br label %1351
 
 1351:                                             ; preds = %1340, %.sink.split
@@ -3495,7 +3495,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 1373:                                             ; preds = %1370
   %1374 = getelementptr i8, ptr %0, i64 104
   %.val1924 = load ptr, ptr %1374, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1924, i32 noundef %1371, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1924, i32 noundef %1371, ptr noundef nonnull %4)
   br label %1375
 
 1375:                                             ; preds = %1370, %1373
@@ -3549,7 +3549,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1399 = getelementptr inbounds i8, ptr %0, i64 128
   %1400 = getelementptr i8, ptr %0, i64 104
   %.val1925 = load ptr, ptr %1400, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1925, i32 noundef %1396, ptr noundef nonnull %1399)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1925, i32 noundef %1396, ptr noundef nonnull %1399)
   br label %1401
 
 1401:                                             ; preds = %1398, %1394
@@ -3562,7 +3562,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1406 = getelementptr inbounds i8, ptr %0, i64 128
   %1407 = getelementptr i8, ptr %0, i64 104
   %.val1926 = load ptr, ptr %1407, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1926, i32 noundef %1403, ptr noundef nonnull %1406)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1926, i32 noundef %1403, ptr noundef nonnull %1406)
   br label %.loopexit
 
 1408:                                             ; preds = %868, %868
@@ -3585,7 +3585,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 1419:                                             ; preds = %1418
   %1420 = getelementptr i8, ptr %0, i64 104
   %.val1927 = load ptr, ptr %1420, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1927, i32 noundef %1416, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1927, i32 noundef %1416, ptr noundef nonnull %4)
   br label %1421
 
 1421:                                             ; preds = %1419, %1418
@@ -3597,7 +3597,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 1425:                                             ; preds = %1421
   %1426 = getelementptr i8, ptr %0, i64 104
   %.val1928 = load ptr, ptr %1426, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1928, i32 noundef %1423, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1928, i32 noundef %1423, ptr noundef nonnull %4)
   br label %1427
 
 1427:                                             ; preds = %1421, %1425
@@ -3628,7 +3628,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1439 = getelementptr inbounds i8, ptr %0, i64 128
   %1440 = getelementptr i8, ptr %0, i64 104
   %.val1929 = load ptr, ptr %1440, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1929, i32 noundef %1416, ptr noundef nonnull %1439)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1929, i32 noundef %1416, ptr noundef nonnull %1439)
   br label %1441
 
 1441:                                             ; preds = %1438, %1437
@@ -3641,7 +3641,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1446 = getelementptr inbounds i8, ptr %0, i64 128
   %1447 = getelementptr i8, ptr %0, i64 104
   %.val1930 = load ptr, ptr %1447, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1930, i32 noundef %1443, ptr noundef nonnull %1446)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1930, i32 noundef %1443, ptr noundef nonnull %1446)
   br label %.loopexit
 
 1448:                                             ; preds = %868, %868
@@ -3659,7 +3659,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 1456:                                             ; preds = %1452
   %1457 = getelementptr i8, ptr %0, i64 104
   %.val1931 = load ptr, ptr %1457, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1931, i32 noundef %1454, ptr noundef nonnull %.0.i)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1931, i32 noundef %1454, ptr noundef nonnull %.0.i)
   %.pre2092 = load i8, ptr %869, align 4
   br label %1458
 
@@ -3678,7 +3678,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 1466:                                             ; preds = %1465
   %1467 = getelementptr i8, ptr %0, i64 104
   %.val1932 = load ptr, ptr %1467, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1932, i32 noundef %1463, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1932, i32 noundef %1463, ptr noundef nonnull %4)
   br label %1468
 
 1468:                                             ; preds = %1465, %1466
@@ -3709,7 +3709,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1480 = getelementptr inbounds i8, ptr %0, i64 128
   %1481 = getelementptr i8, ptr %0, i64 104
   %.val1933 = load ptr, ptr %1481, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1933, i32 noundef %1463, ptr noundef nonnull %1480)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1933, i32 noundef %1463, ptr noundef nonnull %1480)
   br label %.loopexit
 
 1482:                                             ; preds = %868, %868
@@ -3730,7 +3730,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1490 = getelementptr inbounds i8, ptr %0, i64 128
   %1491 = getelementptr i8, ptr %0, i64 104
   %.val1934 = load ptr, ptr %1491, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1934, i32 noundef %1487, ptr noundef nonnull %1490)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1934, i32 noundef %1487, ptr noundef nonnull %1490)
   br label %.loopexit
 
 1492:                                             ; preds = %1482
@@ -3747,7 +3747,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 1499:                                             ; preds = %1498
   %1500 = getelementptr i8, ptr %0, i64 104
   %.val1935 = load ptr, ptr %1500, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1935, i32 noundef %1496, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1935, i32 noundef %1496, ptr noundef nonnull %4)
   br label %1501
 
 1501:                                             ; preds = %1498, %1499
@@ -3778,7 +3778,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1513 = getelementptr inbounds i8, ptr %0, i64 128
   %1514 = getelementptr i8, ptr %0, i64 104
   %.val1936 = load ptr, ptr %1514, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1936, i32 noundef %1496, ptr noundef nonnull %1513)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1936, i32 noundef %1496, ptr noundef nonnull %1513)
   br label %.loopexit
 
 1515:                                             ; preds = %868
@@ -3799,7 +3799,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1523 = getelementptr inbounds i8, ptr %0, i64 128
   %1524 = getelementptr i8, ptr %0, i64 104
   %.val1937 = load ptr, ptr %1524, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1937, i32 noundef %1520, ptr noundef nonnull %1523)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1937, i32 noundef %1520, ptr noundef nonnull %1523)
   br label %.loopexit
 
 1525:                                             ; preds = %1515
@@ -3818,7 +3818,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 1534:                                             ; preds = %1533
   %1535 = getelementptr i8, ptr %0, i64 104
   %.val1938 = load ptr, ptr %1535, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1938, i32 noundef %1531, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1938, i32 noundef %1531, ptr noundef nonnull %4)
   br label %1536
 
 1536:                                             ; preds = %1533, %1534
@@ -3849,7 +3849,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1548 = getelementptr inbounds i8, ptr %0, i64 128
   %1549 = getelementptr i8, ptr %0, i64 104
   %.val1939 = load ptr, ptr %1549, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1939, i32 noundef %1531, ptr noundef nonnull %1548)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1939, i32 noundef %1531, ptr noundef nonnull %1548)
   br label %.loopexit
 
 1550:                                             ; preds = %868, %868, %868
@@ -3885,7 +3885,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 1566:                                             ; preds = %1561
   %1567 = getelementptr i8, ptr %0, i64 104
   %.val1940 = load ptr, ptr %1567, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1940, i32 noundef %1564, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1940, i32 noundef %1564, ptr noundef nonnull %4)
   %.phi.trans.insert2090 = getelementptr inbounds i8, ptr %4, i64 9
   %.pre2091 = load i8, ptr %.phi.trans.insert2090, align 1
   %1568 = icmp eq i8 %.pre2091, 0
@@ -3916,7 +3916,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1580 = getelementptr inbounds i8, ptr %0, i64 128
   %1581 = getelementptr i8, ptr %0, i64 104
   %.val1941 = load ptr, ptr %1581, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1941, i32 noundef %1577, ptr noundef nonnull %1580)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1941, i32 noundef %1577, ptr noundef nonnull %1580)
   br label %.loopexit
 
 1582:                                             ; preds = %868
@@ -3939,7 +3939,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1593:                                             ; preds = %1592
   %1594 = getelementptr i8, ptr %0, i64 104
   %.val1942 = load ptr, ptr %1594, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1942, i32 noundef %1590, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1942, i32 noundef %1590, ptr noundef nonnull %4)
   br label %1595
 
 1595:                                             ; preds = %1592, %1593
@@ -3970,7 +3970,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1607 = getelementptr inbounds i8, ptr %0, i64 128
   %1608 = getelementptr i8, ptr %0, i64 104
   %.val1943 = load ptr, ptr %1608, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1943, i32 noundef %1590, ptr noundef nonnull %1607)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1943, i32 noundef %1590, ptr noundef nonnull %1607)
   br label %.loopexit
 
 1609:                                             ; preds = %868
@@ -3999,7 +3999,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1622:                                             ; preds = %1617
   %1623 = getelementptr i8, ptr %0, i64 104
   %.val1944 = load ptr, ptr %1623, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1944, i32 noundef %1620, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1944, i32 noundef %1620, ptr noundef nonnull %4)
   br label %.loopexit
 
 1624:                                             ; preds = %1609, %1612
@@ -4012,7 +4012,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1629 = getelementptr inbounds i8, ptr %0, i64 128
   %1630 = getelementptr i8, ptr %0, i64 104
   %.val1945 = load ptr, ptr %1630, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1945, i32 noundef %1626, ptr noundef nonnull %1629)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1945, i32 noundef %1626, ptr noundef nonnull %1629)
   br label %.loopexit
 
 1631:                                             ; preds = %868
@@ -4039,7 +4039,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1643:                                             ; preds = %1634
   %1644 = getelementptr i8, ptr %0, i64 104
   %.val1946 = load ptr, ptr %1644, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1946, i32 noundef %1641, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1946, i32 noundef %1641, ptr noundef nonnull %4)
   %.phi.trans.insert2088 = getelementptr inbounds i8, ptr %4, i64 9
   %.pre2089 = load i8, ptr %.phi.trans.insert2088, align 1
   %1645 = icmp eq i8 %.pre2089, 0
@@ -4070,7 +4070,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1658 = getelementptr inbounds i8, ptr %0, i64 128
   %1659 = getelementptr i8, ptr %0, i64 104
   %.val1947 = load ptr, ptr %1659, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1947, i32 noundef %1655, ptr noundef nonnull %1658)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1947, i32 noundef %1655, ptr noundef nonnull %1658)
   br label %.loopexit
 
 1660:                                             ; preds = %868
@@ -4101,7 +4101,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1677:                                             ; preds = %1676
   %1678 = getelementptr i8, ptr %0, i64 104
   %.val1948 = load ptr, ptr %1678, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1948, i32 noundef %1674, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1948, i32 noundef %1674, ptr noundef nonnull %4)
   br label %1679
 
 1679:                                             ; preds = %1676, %1677
@@ -4132,7 +4132,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1691 = getelementptr inbounds i8, ptr %0, i64 128
   %1692 = getelementptr i8, ptr %0, i64 104
   %.val1949 = load ptr, ptr %1692, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1949, i32 noundef %1674, ptr noundef nonnull %1691)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1949, i32 noundef %1674, ptr noundef nonnull %1691)
   br label %.loopexit
 
 1693:                                             ; preds = %868
@@ -4161,7 +4161,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1708:                                             ; preds = %1707
   %1709 = getelementptr i8, ptr %0, i64 104
   %.val1950 = load ptr, ptr %1709, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1950, i32 noundef %1705, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1950, i32 noundef %1705, ptr noundef nonnull %4)
   br label %1710
 
 1710:                                             ; preds = %1707, %1708
@@ -4192,7 +4192,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1722 = getelementptr inbounds i8, ptr %0, i64 128
   %1723 = getelementptr i8, ptr %0, i64 104
   %.val1951 = load ptr, ptr %1723, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1951, i32 noundef %1705, ptr noundef nonnull %1722)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1951, i32 noundef %1705, ptr noundef nonnull %1722)
   br label %.loopexit
 
 1724:                                             ; preds = %868, %868, %868
@@ -4223,7 +4223,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1741:                                             ; preds = %1740
   %1742 = getelementptr i8, ptr %0, i64 104
   %.val1952 = load ptr, ptr %1742, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1952, i32 noundef %1738, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1952, i32 noundef %1738, ptr noundef nonnull %4)
   br label %1743
 
 1743:                                             ; preds = %1740, %1741
@@ -4254,7 +4254,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1755 = getelementptr inbounds i8, ptr %0, i64 128
   %1756 = getelementptr i8, ptr %0, i64 104
   %.val1953 = load ptr, ptr %1756, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1953, i32 noundef %1738, ptr noundef nonnull %1755)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1953, i32 noundef %1738, ptr noundef nonnull %1755)
   br label %.loopexit
 
 1757:                                             ; preds = %868
@@ -4285,7 +4285,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1774:                                             ; preds = %1773
   %1775 = getelementptr i8, ptr %0, i64 104
   %.val1954 = load ptr, ptr %1775, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1954, i32 noundef %1771, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1954, i32 noundef %1771, ptr noundef nonnull %4)
   br label %1776
 
 1776:                                             ; preds = %1773, %1774
@@ -4316,7 +4316,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1788 = getelementptr inbounds i8, ptr %0, i64 128
   %1789 = getelementptr i8, ptr %0, i64 104
   %.val1955 = load ptr, ptr %1789, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1955, i32 noundef %1771, ptr noundef nonnull %1788)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1955, i32 noundef %1771, ptr noundef nonnull %1788)
   br label %.loopexit
 
 1790:                                             ; preds = %868, %868
@@ -4348,7 +4348,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1806:                                             ; preds = %1802
   %1807 = getelementptr i8, ptr %0, i64 104
   %.val1956 = load ptr, ptr %1807, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1956, i32 noundef %1804, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1956, i32 noundef %1804, ptr noundef nonnull %4)
   br label %1808
 
 1808:                                             ; preds = %1802, %1806
@@ -4382,7 +4382,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1823 = getelementptr inbounds i8, ptr %0, i64 128
   %1824 = getelementptr i8, ptr %0, i64 104
   %.val1957 = load ptr, ptr %1824, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1957, i32 noundef %1820, ptr noundef nonnull %1823)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1957, i32 noundef %1820, ptr noundef nonnull %1823)
   br label %.loopexit
 
 1825:                                             ; preds = %868
@@ -4416,7 +4416,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1843:                                             ; preds = %1839
   %1844 = getelementptr i8, ptr %0, i64 104
   %.val1958 = load ptr, ptr %1844, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1958, i32 noundef %1841, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1958, i32 noundef %1841, ptr noundef nonnull %4)
   br label %1845
 
 1845:                                             ; preds = %1839, %1843
@@ -4450,7 +4450,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   %1860 = getelementptr inbounds i8, ptr %0, i64 128
   %1861 = getelementptr i8, ptr %0, i64 104
   %.val1959 = load ptr, ptr %1861, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1959, i32 noundef %1857, ptr noundef nonnull %1860)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1959, i32 noundef %1857, ptr noundef nonnull %1860)
   br label %.loopexit
 
 1862:                                             ; preds = %868, %868, %868, %868
@@ -4462,7 +4462,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1866:                                             ; preds = %1862
   %1867 = getelementptr i8, ptr %0, i64 104
   %.val1960 = load ptr, ptr %1867, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1960, i32 noundef %1864, ptr noundef %.0.i)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1960, i32 noundef %1864, ptr noundef %.0.i)
   br label %.loopexit
 
 switch.lookup:                                    ; preds = %868
@@ -4480,7 +4480,7 @@ switch.lookup:                                    ; preds = %868
 1875:                                             ; preds = %switch.lookup
   %1876 = getelementptr i8, ptr %0, i64 104
   %.val1961 = load ptr, ptr %1876, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1961, i32 noundef %1873, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1961, i32 noundef %1873, ptr noundef nonnull %4)
   br label %.loopexit
 
 1877:                                             ; preds = %868
@@ -4492,7 +4492,7 @@ switch.lookup:                                    ; preds = %868
 1881:                                             ; preds = %1877
   %1882 = getelementptr i8, ptr %0, i64 104
   %.val1962 = load ptr, ptr %1882, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1962, i32 noundef %1879, ptr noundef %.0.i1989)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1962, i32 noundef %1879, ptr noundef %.0.i1989)
   br label %.loopexit
 
 1883:                                             ; preds = %868
@@ -4517,7 +4517,7 @@ switch.lookup:                                    ; preds = %868
 1896:                                             ; preds = %1895
   %1897 = getelementptr i8, ptr %0, i64 104
   %.val1963 = load ptr, ptr %1897, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1963, i32 noundef %1893, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1963, i32 noundef %1893, ptr noundef nonnull %4)
   br label %1898
 
 1898:                                             ; preds = %1895, %1896
@@ -4548,7 +4548,7 @@ switch.lookup:                                    ; preds = %868
   %1910 = getelementptr inbounds i8, ptr %0, i64 128
   %1911 = getelementptr i8, ptr %0, i64 104
   %.val1964 = load ptr, ptr %1911, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1964, i32 noundef %1893, ptr noundef nonnull %1910)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1964, i32 noundef %1893, ptr noundef nonnull %1910)
   br label %.loopexit
 
 1912:                                             ; preds = %868
@@ -4579,7 +4579,7 @@ switch.lookup:                                    ; preds = %868
 1928:                                             ; preds = %1916
   %1929 = getelementptr i8, ptr %0, i64 104
   %.val1965 = load ptr, ptr %1929, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1965, i32 noundef %1926, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1965, i32 noundef %1926, ptr noundef nonnull %4)
   %.phi.trans.insert2086 = getelementptr inbounds i8, ptr %4, i64 9
   %.pre2087 = load i8, ptr %.phi.trans.insert2086, align 1
   %1930 = icmp eq i8 %.pre2087, 0
@@ -4617,7 +4617,7 @@ switch.lookup:                                    ; preds = %868
 1947:                                             ; preds = %1942
   %1948 = getelementptr i8, ptr %0, i64 104
   %.val1966 = load ptr, ptr %1948, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1966, i32 noundef %1945, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1966, i32 noundef %1945, ptr noundef nonnull %4)
   br label %.loopexit
 
 1949:                                             ; preds = %868
@@ -4638,7 +4638,7 @@ switch.lookup:                                    ; preds = %868
   %1957 = getelementptr inbounds i8, ptr %0, i64 128
   %1958 = getelementptr i8, ptr %0, i64 104
   %.val1967 = load ptr, ptr %1958, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1967, i32 noundef %1954, ptr noundef nonnull %1957)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1967, i32 noundef %1954, ptr noundef nonnull %1957)
   br label %.loopexit
 
 1959:                                             ; preds = %1949
@@ -4655,7 +4655,7 @@ switch.lookup:                                    ; preds = %868
 1966:                                             ; preds = %1965
   %1967 = getelementptr i8, ptr %0, i64 104
   %.val1968 = load ptr, ptr %1967, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1968, i32 noundef %1963, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1968, i32 noundef %1963, ptr noundef nonnull %4)
   br label %1968
 
 1968:                                             ; preds = %1965, %1966
@@ -4686,7 +4686,7 @@ switch.lookup:                                    ; preds = %868
   %1980 = getelementptr inbounds i8, ptr %0, i64 128
   %1981 = getelementptr i8, ptr %0, i64 104
   %.val1969 = load ptr, ptr %1981, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1969, i32 noundef %1963, ptr noundef nonnull %1980)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1969, i32 noundef %1963, ptr noundef nonnull %1980)
   br label %.loopexit
 
 1982:                                             ; preds = %868, %868
@@ -4721,7 +4721,7 @@ ct_eval_binary_op.exit2014:                       ; preds = %1990
 1999:                                             ; preds = %1995
   %2000 = getelementptr i8, ptr %0, i64 104
   %.val1970 = load ptr, ptr %2000, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1970, i32 noundef %1997, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1970, i32 noundef %1997, ptr noundef nonnull %4)
   br label %2001
 
 2001:                                             ; preds = %1995, %1999
@@ -4755,7 +4755,7 @@ ct_eval_binary_op.exit2014.thread:                ; preds = %1990, %ct_eval_bina
   %2015 = getelementptr inbounds i8, ptr %0, i64 128
   %2016 = getelementptr i8, ptr %0, i64 104
   %.val1971 = load ptr, ptr %2016, align 8
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1971, i32 noundef %2012, ptr noundef nonnull %2015)
+  call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1971, i32 noundef %2012, ptr noundef nonnull %2015)
   br label %.loopexit
 
 2017:                                             ; preds = %868
@@ -4775,7 +4775,7 @@ ct_eval_binary_op.exit2014.thread:                ; preds = %1990, %ct_eval_bina
   %2025 = getelementptr inbounds i8, ptr %0, i64 128
   %2026 = getelementptr i8, ptr %0, i64 104
   %.val1972 = load ptr, ptr %2026, align 8
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1972, i32 noundef %2022, ptr noundef nonnull %2025)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1972, i32 noundef %2022, ptr noundef nonnull %2025)
   br label %.loopexit
 
 2027:                                             ; preds = %2017
@@ -4846,7 +4846,7 @@ ct_eval_binary_op.exit2014.thread:                ; preds = %1990, %ct_eval_bina
 
 2074:                                             ; preds = %2067, %2063, %2059, %2055
   %2075 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr nonnull %2050, i32 noundef %2046, ptr noundef nonnull %2075)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr nonnull %2050, i32 noundef %2046, ptr noundef nonnull %2075)
   br label %.loopexit
 
 2076:                                             ; preds = %.lr.ph2052, %2111
@@ -4862,7 +4862,7 @@ ct_eval_binary_op.exit2014.thread:                ; preds = %1990, %ct_eval_bina
 
 2081:                                             ; preds = %2076
   %2082 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %2050, i32 noundef %2046, ptr noundef nonnull %2082)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %2050, i32 noundef %2046, ptr noundef nonnull %2082)
   br label %.loopexit
 
 2083:                                             ; preds = %2076, %2076
@@ -4918,7 +4918,7 @@ get_op1_value.exit2017:                           ; preds = %2087, %2102
 
 2109:                                             ; preds = %2106, %2106
   %2110 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %2050, i32 noundef %2046, ptr noundef nonnull %2110)
+  tail call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %2050, i32 noundef %2046, ptr noundef nonnull %2110)
   br label %.loopexit
 
 2111:                                             ; preds = %get_op1_value.exit2017.thread, %2106, %get_op1_value.exit2017
@@ -4943,7 +4943,7 @@ get_op1_value.exit2017:                           ; preds = %2087, %2102
 
 2120:                                             ; preds = %2119
   %.val1976 = load ptr, ptr %2049, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1976, i32 noundef %2117, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1976, i32 noundef %2117, ptr noundef nonnull %4)
   br label %2121
 
 2121:                                             ; preds = %2119, %2120
@@ -4973,7 +4973,7 @@ get_op1_value.exit2017:                           ; preds = %2087, %2102
 2132:                                             ; preds = %2131
   %2133 = getelementptr inbounds i8, ptr %0, i64 128
   %.val1977 = load ptr, ptr %2049, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1977, i32 noundef %2117, ptr noundef nonnull %2133)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1977, i32 noundef %2117, ptr noundef nonnull %2133)
   br label %.loopexit
 
 2134:                                             ; preds = %868, %868, %868, %868
@@ -5166,7 +5166,7 @@ get_op1_value.exit2026:                           ; preds = %2218, %2225, %2238
 
 2247:                                             ; preds = %2244
   %2248 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef %0, ptr %2140, i32 noundef %2245, ptr noundef nonnull %2248)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %2140, i32 noundef %2245, ptr noundef nonnull %2248)
   br label %.loopexit
 
 2249:                                             ; preds = %.lr.ph
@@ -5185,7 +5185,7 @@ get_op1_value.exit2026:                           ; preds = %2218, %2225, %2238
 
 2255:                                             ; preds = %2252
   %2256 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef %0, ptr %2140, i32 noundef %2253, ptr noundef nonnull %2256)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %2140, i32 noundef %2253, ptr noundef nonnull %2256)
   br label %.loopexit
 
 2257:                                             ; preds = %2249
@@ -5206,7 +5206,7 @@ get_op1_value.exit2026:                           ; preds = %2218, %2225, %2238
 
 2264:                                             ; preds = %2263
   %.val1980 = load ptr, ptr %2139, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1980, i32 noundef %2261, ptr noundef nonnull %4)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1980, i32 noundef %2261, ptr noundef nonnull %4)
   br label %2265
 
 2265:                                             ; preds = %2263, %2264
@@ -5236,7 +5236,7 @@ get_op1_value.exit2026:                           ; preds = %2218, %2225, %2238
 2276:                                             ; preds = %2275
   %2277 = getelementptr inbounds i8, ptr %0, i64 128
   %.val1981 = load ptr, ptr %2139, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1981, i32 noundef %2261, ptr noundef nonnull %2277)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val1981, i32 noundef %2261, ptr noundef nonnull %2277)
   br label %.loopexit
 
 2278:                                             ; preds = %868
@@ -5249,7 +5249,7 @@ get_op1_value.exit2026:                           ; preds = %2218, %2225, %2238
   %2283 = getelementptr inbounds i8, ptr %0, i64 128
   %2284 = getelementptr i8, ptr %0, i64 104
   %.val1982 = load ptr, ptr %2284, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1982, i32 noundef %2280, ptr noundef nonnull %2283)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1982, i32 noundef %2280, ptr noundef nonnull %2283)
   br label %2285
 
 2285:                                             ; preds = %2282, %2278
@@ -5262,7 +5262,7 @@ get_op1_value.exit2026:                           ; preds = %2218, %2225, %2238
   %2290 = getelementptr inbounds i8, ptr %0, i64 128
   %2291 = getelementptr i8, ptr %0, i64 104
   %.val1983 = load ptr, ptr %2291, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1983, i32 noundef %2287, ptr noundef nonnull %2290)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1983, i32 noundef %2287, ptr noundef nonnull %2290)
   br label %2292
 
 2292:                                             ; preds = %2289, %2285
@@ -5275,7 +5275,7 @@ get_op1_value.exit2026:                           ; preds = %2218, %2225, %2238
   %2297 = getelementptr inbounds i8, ptr %0, i64 128
   %2298 = getelementptr i8, ptr %0, i64 104
   %.val1984 = load ptr, ptr %2298, align 8
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1984, i32 noundef %2294, ptr noundef nonnull %2297)
+  tail call fastcc void @set_value.argprom(ptr noundef %0, ptr %.val1984, i32 noundef %2294, ptr noundef nonnull %2297)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2249, %2106, %1916, %1634, %1561, %179, %1550, %141, %775, %1949, %1631, %1609, %1515, %1482, %620, %586, %531, %372, %354, %151, %get_op1_value.exit1992, %2296, %2292, %2276, %2275, %2265, %2268, %2273, %2255, %2252, %2247, %2244, %2134, %2138, %2132, %2131, %2121, %2124, %2129, %._crit_edge2053, %2109, %2081, %2074, %2027, %2048, %2024, %2020, %2014, %ct_eval_binary_op.exit2014.thread, %2001, %2004, %2009, %1986, %1982, %1979, %1978, %1968, %1971, %1976, %1956, %1952, %1947, %1942, %1938, %1928, %1931, %1936, %1912, %1909, %1908, %1898, %1901, %1906, %1883, %1881, %1877, %1875, %switch.lookup, %1866, %1862, %1859, %1855, %1845, %1848, %1853, %1830, %1826, %1822, %1818, %1808, %1811, %1816, %1795, %1791, %1787, %1786, %1776, %1779, %1784, %1761, %1757, %1754, %1753, %1743, %1746, %1751, %1728, %1724, %1721, %1720, %1710, %1713, %1718, %1697, %1693, %1690, %1689, %1679, %1682, %1687, %1664, %1660, %1657, %1653, %1643, %1646, %1651, %1628, %1624, %1622, %1617, %1606, %1605, %1595, %1598, %1603, %1582, %1579, %ct_eval_bool_cast.exit, %1566, %1569, %1574, %1547, %1546, %1536, %1539, %1544, %1522, %1518, %1512, %1511, %1501, %1504, %1509, %1489, %1485, %1479, %1478, %1468, %1471, %1476, %1448, %1445, %1441, %1427, %1430, %1435, %1408, %1405, %1401, %1375, %1378, %1383, %1313, %1309, %1305, %1301, %1266, %1269, %1274, %1229, %1232, %1237, %1197, %1200, %1205, %get_op1_value.exit2006, %1095, %1098, %1103, %1046, %1049, %1054, %1014, %1017, %1022, %get_op1_value.exit2001, %942, %945, %950, %912, %907, %903, %ct_eval_binary_op.exit.thread, %890, %893, %898, %875, %871, %865, %861, %801, %.thread2103, %794, %803, %765, %768, %773, %749, %745, %740, %738, %734, %650, %653, %658, %718, %713, %710, %602, %.thread2101, %595, %571, %567, %558, %553, %550, %546, %503, %517, %520, %500, %477, %480, %485, %431, %.thread2099, %424, %433, %436, %494, %497, %387, %.thread2097, %394, %368, %.thread2096, %361, %.thread2095, %347, %220, %218, %208, %211, %216, %297, %292, %289, %167, %.thread, %160, %136, %133, %129, %71, %75, %84, %88
@@ -5453,7 +5453,7 @@ scdf_is_edge_feasible.exit46:                     ; preds = %92
 .loopexit:                                        ; preds = %118, %.preheader, %scdf_is_edge_feasible.exit, %62
   %122 = load i32, ptr %6, align 4
   %.val = load ptr, ptr %9, align 8
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val, i32 noundef %122, ptr noundef nonnull %3)
+  call fastcc void @set_value.argprom(ptr noundef nonnull %0, ptr %.val, i32 noundef %122, ptr noundef nonnull %3)
   %123 = getelementptr inbounds i8, ptr %3, i64 9
   %124 = load i8, ptr %123, align 1
   %.not = icmp eq i8 %124, 0
@@ -5861,7 +5861,7 @@ declare noalias ptr @_emalloc_32() local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_value(ptr nocapture noundef readonly %0, ptr nocapture %.104.val, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @set_value.argprom(ptr nocapture noundef readonly %0, ptr nocapture %.104.val, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct._zval_struct, ptr %.104.val, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -6114,7 +6114,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_obj_prop(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_obj_prop.argprom(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
@@ -7396,39 +7396,39 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0
   %17 = load ptr, ptr %12, align 8
   %18 = tail call i32 @zend_optimizer_eval_special_func_call(ptr noundef nonnull %1, ptr noundef %9, ptr noundef %17) #13
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %can_ct_eval_func_call.exit.thread, label %20
+  br i1 %19, label %can_ct_eval_func_call.argprom.exit.thread, label %20
 
 20:                                               ; preds = %16, %11, %5
   %21 = getelementptr i8, ptr %2, i64 4
   %.val = load i32, ptr %21, align 4
   %22 = and i32 %.val, 134217728
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %23, label %can_ct_eval_func_call.exit.thread65
+  br i1 %.not.i, label %23, label %can_ct_eval_func_call.argprom.exit.thread65
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %9, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 7
-  br i1 %26, label %can_ct_eval_func_call.exit, label %.critedge.i
+  br i1 %26, label %can_ct_eval_func_call.argprom.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %23
   %27 = icmp eq i32 %3, 2
   %28 = icmp eq i64 %25, 10
   %or.cond.i = and i1 %27, %28
-  br i1 %or.cond.i, label %29, label %can_ct_eval_func_call.exit.thread
+  br i1 %or.cond.i, label %29, label %can_ct_eval_func_call.argprom.exit.thread
 
 29:                                               ; preds = %.critedge.i
   %30 = getelementptr inbounds i8, ptr %9, i64 24
   %bcmp41.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %30, ptr noundef nonnull dereferenceable(10) @.str.7, i64 10)
   %.not42.i = icmp eq i32 %bcmp41.i, 0
-  br i1 %.not42.i, label %31, label %can_ct_eval_func_call.exit.thread
+  br i1 %.not42.i, label %31, label %can_ct_eval_func_call.argprom.exit.thread
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %4, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i8, ptr %33, align 8
   %35 = icmp eq i8 %34, 6
-  br i1 %35, label %36, label %can_ct_eval_func_call.exit.thread
+  br i1 %35, label %36, label %can_ct_eval_func_call.argprom.exit.thread
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %4, i64 8
@@ -7436,7 +7436,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, 4
-  br i1 %41, label %42, label %can_ct_eval_func_call.exit.thread
+  br i1 %41, label %42, label %can_ct_eval_func_call.argprom.exit.thread
 
 42:                                               ; preds = %36
   %43 = load i64, ptr %38, align 8
@@ -7449,15 +7449,15 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0
   %.not43.not.i = icmp eq i64 %49, 0
   %50 = icmp ult i64 %48, 65536
   %spec.select.i = select i1 %.not43.not.i, i1 %50, i1 false
-  br i1 %spec.select.i, label %can_ct_eval_func_call.exit.thread65, label %can_ct_eval_func_call.exit.thread
+  br i1 %spec.select.i, label %can_ct_eval_func_call.argprom.exit.thread65, label %can_ct_eval_func_call.argprom.exit.thread
 
-can_ct_eval_func_call.exit:                       ; preds = %23
+can_ct_eval_func_call.argprom.exit:               ; preds = %23
   %51 = getelementptr inbounds i8, ptr %9, i64 24
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %51, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
   %.not40.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not40.i, label %can_ct_eval_func_call.exit.thread65, label %can_ct_eval_func_call.exit.thread
+  br i1 %.not40.i, label %can_ct_eval_func_call.argprom.exit.thread65, label %can_ct_eval_func_call.argprom.exit.thread
 
-can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_eval_func_call.exit
+can_ct_eval_func_call.argprom.exit.thread65:      ; preds = %20, %42, %can_ct_eval_func_call.argprom.exit
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %53 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %53, i8 0, i64 72, i1 false)
@@ -7484,7 +7484,7 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   %.not72 = icmp eq i32 %3, 0
   br i1 %.not72, label %._crit_edge.thread, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %can_ct_eval_func_call.exit.thread65
+._crit_edge.thread:                               ; preds = %can_ct_eval_func_call.argprom.exit.thread65
   %63 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %2, i64 80
@@ -7492,8 +7492,8 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   call void %65(ptr noundef nonnull %57, ptr noundef nonnull %1) #13
   br label %._crit_edge71
 
-.lr.ph:                                           ; preds = %can_ct_eval_func_call.exit.thread65, %80
-  %.05867 = phi i32 [ %81, %80 ], [ 0, %can_ct_eval_func_call.exit.thread65 ]
+.lr.ph:                                           ; preds = %can_ct_eval_func_call.argprom.exit.thread65, %80
+  %.05867 = phi i32 [ %81, %80 ], [ 0, %can_ct_eval_func_call.argprom.exit.thread65 ]
   %66 = sext i32 %.05867 to i64
   %67 = getelementptr %struct._zval_struct, ptr %57, i64 %66
   %68 = getelementptr i8, ptr %67, i64 80
@@ -7584,10 +7584,10 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 804), align 4
   call void @_efree(ptr noundef nonnull %57) #13
   store ptr %52, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
-  br label %can_ct_eval_func_call.exit.thread
+  br label %can_ct_eval_func_call.argprom.exit.thread
 
-can_ct_eval_func_call.exit.thread:                ; preds = %.critedge.i, %29, %31, %36, %42, %can_ct_eval_func_call.exit, %16, %105
-  %.057 = phi i32 [ %.1, %105 ], [ 0, %16 ], [ -1, %can_ct_eval_func_call.exit ], [ -1, %42 ], [ -1, %36 ], [ -1, %31 ], [ -1, %29 ], [ -1, %.critedge.i ]
+can_ct_eval_func_call.argprom.exit.thread:        ; preds = %.critedge.i, %29, %31, %36, %42, %can_ct_eval_func_call.argprom.exit, %16, %105
+  %.057 = phi i32 [ %.1, %105 ], [ 0, %16 ], [ -1, %can_ct_eval_func_call.argprom.exit ], [ -1, %42 ], [ -1, %36 ], [ -1, %31 ], [ -1, %29 ], [ -1, %.critedge.i ]
   ret i32 %.057
 }
 

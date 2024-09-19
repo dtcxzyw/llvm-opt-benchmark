@@ -165,7 +165,7 @@ opal_init_psm.exit:                               ; preds = %24, %27
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_finalize_domain_t_class, i64 40), align 8
   %38 = load ptr, ptr %37, align 8
   %.not1.i = icmp eq ptr %38, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.i
   %39 = phi ptr [ %41, %.lr.ph.i ], [ %38, %36 ]
@@ -174,9 +174,9 @@ opal_init_psm.exit:                               ; preds = %24, %27
   %40 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %36
+opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %36
   tail call void @opal_finalize_domain_init(ptr noundef nonnull @opal_init_domain, ptr noundef nonnull @.str.7) #4
   tail call void @opal_finalize_set_domain(ptr noundef nonnull @opal_init_domain) #4
   tail call void @opal_finalize_append_cleanup(ptr noundef nonnull @mca_base_framework_close_list, ptr noundef nonnull @.str.8, ptr noundef nonnull @opal_init_frameworks) #4
@@ -184,11 +184,11 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %36
   %.not43 = icmp eq i32 %42, 0
   br i1 %.not43, label %45, label %43
 
-43:                                               ; preds = %opal_obj_run_constructors.exit
+43:                                               ; preds = %opal_obj_run_constructors.argprom.exit
   %44 = tail call i32 @opal_init_error(ptr noundef nonnull @.str.9, i32 noundef %42) #4
   br label %88
 
-45:                                               ; preds = %opal_obj_run_constructors.exit
+45:                                               ; preds = %opal_obj_run_constructors.argprom.exit
   %46 = tail call i32 @mca_base_framework_open(ptr noundef nonnull @opal_accelerator_base_framework, i32 noundef 0) #4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %52

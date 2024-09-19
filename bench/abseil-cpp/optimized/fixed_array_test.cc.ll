@@ -7820,14 +7820,14 @@ _ZN7testing15AssertionResultD2Ev.exit461:         ; preds = %if.end368, %_ZNKSt1
   store ptr null, ptr %message_.i458, align 8
   %array229.val60 = load i64, ptr %size_alloc_.i.i292, align 8
   %cmp.i.i.i462 = icmp ult i64 %array229.val60, 22
-  br i1 %cmp.i.i.i462, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_19ThreeIntsELm18446744073709551615ESaIS2_EED2Ev.exit, label %invoke.cont11.i.i463
+  br i1 %cmp.i.i.i462, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_19ThreeIntsELm18446744073709551615ESaIS2_EED2Ev.argprom.exit, label %invoke.cont11.i.i463
 
 invoke.cont11.i.i463:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit461
   %array229.val61 = load ptr, ptr %data_.i.i293, align 8
   call void @_ZdlPv(ptr noundef %array229.val61) #24
-  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_19ThreeIntsELm18446744073709551615ESaIS2_EED2Ev.exit
+  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_19ThreeIntsELm18446744073709551615ESaIS2_EED2Ev.argprom.exit
 
-_ZN4absl10FixedArrayIN12_GLOBAL__N_19ThreeIntsELm18446744073709551615ESaIS2_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit461, %invoke.cont11.i.i463
+_ZN4absl10FixedArrayIN12_GLOBAL__N_19ThreeIntsELm18446744073709551615ESaIS2_EED2Ev.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit461, %invoke.cont11.i.i463
   ret void
 
 ehcleanup369:                                     ; preds = %_ZN7testing7MessageD2Ev.exit457, %lpad357
@@ -21618,7 +21618,7 @@ invoke.cont58.i:                                  ; preds = %_ZNKSt14default_del
   %idx.ext.i = sext i32 %26 to i64
   %add.ptr.i = getelementptr inbounds %"class.(anonymous namespace)::ConstructionTester", ptr %array.val54.i, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %ref.tmp57.i, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar50.i, ptr %add.ptr.i.i51, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57.i)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar50.i, ptr %add.ptr.i.i51, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57.i)
           to label %invoke.cont60.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont60.i:                                  ; preds = %invoke.cont58.i
@@ -22544,7 +22544,7 @@ invoke.cont.i79:                                  ; preds = %.noexc345
 
 if.else.i.i.i.i82:                                ; preds = %invoke.cont.i79
   %cmp.i.i.i.i.i.i83 = icmp slt i32 %114, 0
-  br i1 %cmp.i.i.i.i.i.i83, label %if.then3.i.i.i.i.i.i342, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i83, label %if.then3.i.i.i.i.i.i342, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i342:                          ; preds = %if.else.i.i.i.i82
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -22553,12 +22553,12 @@ if.then3.i.i.i.i.i.i342:                          ; preds = %if.else.i.i.i.i82
 .noexc.i343:                                      ; preds = %if.then3.i.i.i.i.i.i342
   unreachable
 
-_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %if.else.i.i.i.i82
+_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i: ; preds = %if.else.i.i.i.i82
   %mul.i.i.i.i.i.i84 = shl nuw nsw i64 %conv.i80, 4
   %call5.i.i.i2.i.i60.i85 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i84) #25
           to label %invoke.cont.i.thread.i unwind label %lpad2.i86.loopexit
 
-invoke.cont.i.thread.i:                           ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i
+invoke.cont.i.thread.i:                           ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i
   store ptr %call5.i.i.i2.i.i60.i85, ptr %data_.i.i267.i, align 8
   br label %for.inc.i.i.preheader.i
 
@@ -22605,7 +22605,7 @@ lpad.i77:                                         ; preds = %.noexc345
           cleanup
   br label %ehcleanup275.i
 
-lpad2.i86.loopexit:                               ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i
+lpad2.i86.loopexit:                               ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i
   %lpad.loopexit1293 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup274.i
@@ -22825,7 +22825,7 @@ invoke.cont58.i167:                               ; preds = %_ZNKSt14default_del
   %idx.ext.i170 = sext i32 %137 to i64
   %add.ptr.i171 = getelementptr inbounds %"class.(anonymous namespace)::ConstructionTester", ptr %array.val54.i168, i64 %idx.ext.i170
   store ptr %add.ptr.i171, ptr %ref.tmp57.i72, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar50.i71, ptr %add.ptr.i.i169, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57.i72)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar50.i71, ptr %add.ptr.i.i169, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57.i72)
           to label %invoke.cont60.i172 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.i96
 
 invoke.cont60.i172:                               ; preds = %invoke.cont58.i167
@@ -23765,7 +23765,7 @@ invoke.cont.i397:                                 ; preds = %.noexc805
 
 if.else.i.i.i.i401:                               ; preds = %invoke.cont.i397
   %cmp.i.i.i.i.i.i402 = icmp slt i32 %233, 0
-  br i1 %cmp.i.i.i.i.i.i402, label %if.then3.i.i.i.i.i.i800, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i403
+  br i1 %cmp.i.i.i.i.i.i402, label %if.then3.i.i.i.i.i.i800, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i403
 
 if.then3.i.i.i.i.i.i800:                          ; preds = %if.else.i.i.i.i401
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -23774,12 +23774,12 @@ if.then3.i.i.i.i.i.i800:                          ; preds = %if.else.i.i.i.i401
 .noexc.i801:                                      ; preds = %if.then3.i.i.i.i.i.i800
   unreachable
 
-_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i403: ; preds = %if.else.i.i.i.i401
+_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i403: ; preds = %if.else.i.i.i.i401
   %mul.i.i.i.i.i.i404 = shl nuw nsw i64 %conv.i398, 4
   %call5.i.i.i2.i.i60.i405 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i404) #25
           to label %invoke.cont.i.thread.i409 unwind label %lpad2.i406.loopexit
 
-invoke.cont.i.thread.i409:                        ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i403
+invoke.cont.i.thread.i409:                        ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i403
   store ptr %call5.i.i.i2.i.i60.i405, ptr %data_.i.i267.i410, align 8
   br label %for.inc.i.i.preheader.i411
 
@@ -23826,7 +23826,7 @@ lpad.i394:                                        ; preds = %.noexc805
           cleanup
   br label %ehcleanup275.i395
 
-lpad2.i406.loopexit:                              ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i403
+lpad2.i406.loopexit:                              ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i403
   %lpad.loopexit1296 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup274.i407
@@ -24046,7 +24046,7 @@ invoke.cont58.i502:                               ; preds = %_ZNKSt14default_del
   %idx.ext.i506 = sext i32 %256 to i64
   %add.ptr.i507 = getelementptr inbounds %"class.(anonymous namespace)::ConstructionTester", ptr %array.val54.i504, i64 %idx.ext.i506
   store ptr %add.ptr.i507, ptr %ref.tmp57.i364, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar50.i363, ptr %add.ptr.i.i505, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57.i364)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar50.i363, ptr %add.ptr.i.i505, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57.i364)
           to label %invoke.cont60.i508 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.i427
 
 invoke.cont60.i508:                               ; preds = %invoke.cont58.i502
@@ -24986,7 +24986,7 @@ invoke.cont.i857:                                 ; preds = %.noexc1265
 
 if.else.i.i.i.i861:                               ; preds = %invoke.cont.i857
   %cmp.i.i.i.i.i.i862 = icmp slt i32 %352, 0
-  br i1 %cmp.i.i.i.i.i.i862, label %if.then3.i.i.i.i.i.i1260, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i863
+  br i1 %cmp.i.i.i.i.i.i862, label %if.then3.i.i.i.i.i.i1260, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i863
 
 if.then3.i.i.i.i.i.i1260:                         ; preds = %if.else.i.i.i.i861
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -24995,12 +24995,12 @@ if.then3.i.i.i.i.i.i1260:                         ; preds = %if.else.i.i.i.i861
 .noexc.i1261:                                     ; preds = %if.then3.i.i.i.i.i.i1260
   unreachable
 
-_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i863: ; preds = %if.else.i.i.i.i861
+_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i863: ; preds = %if.else.i.i.i.i861
   %mul.i.i.i.i.i.i864 = shl nuw nsw i64 %conv.i858, 4
   %call5.i.i.i2.i.i60.i865 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i864) #25
           to label %invoke.cont.i.thread.i869 unwind label %lpad2.i866.loopexit
 
-invoke.cont.i.thread.i869:                        ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i863
+invoke.cont.i.thread.i869:                        ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i863
   store ptr %call5.i.i.i2.i.i60.i865, ptr %data_.i.i267.i870, align 8
   br label %for.inc.i.i.preheader.i871
 
@@ -25047,7 +25047,7 @@ lpad.i854:                                        ; preds = %.noexc1265
           cleanup
   br label %ehcleanup275.i855
 
-lpad2.i866.loopexit:                              ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.exit.i.i.i.i863
+lpad2.i866.loopexit:                              ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_118ConstructionTesterEEE8allocateERS2_m.argprom.exit.i.i.i.i863
   %lpad.loopexit1299 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup274.i867
@@ -25267,7 +25267,7 @@ invoke.cont58.i962:                               ; preds = %_ZNKSt14default_del
   %idx.ext.i966 = sext i32 %375 to i64
   %add.ptr.i967 = getelementptr inbounds %"class.(anonymous namespace)::ConstructionTester", ptr %array.val54.i964, i64 %idx.ext.i966
   store ptr %add.ptr.i967, ptr %ref.tmp57.i824, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar50.i823, ptr %add.ptr.i.i965, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57.i824)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar50.i823, ptr %add.ptr.i.i965, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57.i824)
           to label %invoke.cont60.i968 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.i887
 
 invoke.cont60.i968:                               ; preds = %invoke.cont58.i962
@@ -26871,7 +26871,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIPN12_GLOBAL__N_118ConstructionTesterEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i34 = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i14 = alloca %"class.testing::internal::GTestLog", align 4
@@ -27347,15 +27347,15 @@ cleanup:                                          ; preds = %if.then, %_ZN7testi
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEEE, i64 16), ptr %matcher, align 8
   %this.val.i.i.i = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i.i: ; preds = %cleanup
+_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i.i: ; preds = %cleanup
   %shared_destroy.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 24
   %36 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
   %cmp3.i.not.i.i.i = icmp eq ptr %36, null
   br i1 %cmp3.i.not.i.i.i, label %_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %land.lhs.true.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i.i
+land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i.i
   %37 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i, align 8
   %38 = atomicrmw sub ptr %37, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %38, 1
@@ -27376,7 +27376,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %43) #27
   unreachable
 
-_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit: ; preds = %cleanup, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
+_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit: ; preds = %cleanup, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
   ret void
 
 ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %ehcleanup41
@@ -27716,7 +27716,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val38 = load i64, ptr %this, align 8
   %cmp.not11 = icmp eq i64 %this.val38, 0
-  br i1 %cmp.not11, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm0ESaIS2_EE7StorageD2Ev.exit, label %invoke.cont5.preheader
+  br i1 %cmp.not11, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm0ESaIS2_EE7StorageD2Ev.argprom.exit, label %invoke.cont5.preheader
 
 invoke.cont5.preheader:                           ; preds = %entry
   %this.val = load ptr, ptr %0, align 8
@@ -27738,13 +27738,13 @@ invoke.cont5:                                     ; preds = %invoke.cont5.prehea
 for.end:                                          ; preds = %invoke.cont5
   store i32 %inc.i.i.i, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %1 = icmp eq i64 %this.val3, 0
-  br i1 %1, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm0ESaIS2_EE7StorageD2Ev.exit, label %invoke.cont11.i
+  br i1 %1, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm0ESaIS2_EE7StorageD2Ev.argprom.exit, label %invoke.cont11.i
 
 invoke.cont11.i:                                  ; preds = %for.end
   tail call void @_ZdlPv(ptr noundef %this.val4) #24
-  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm0ESaIS2_EE7StorageD2Ev.exit
+  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm0ESaIS2_EE7StorageD2Ev.argprom.exit
 
-_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm0ESaIS2_EE7StorageD2Ev.exit: ; preds = %entry, %for.end, %invoke.cont11.i
+_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm0ESaIS2_EE7StorageD2Ev.argprom.exit: ; preds = %entry, %for.end, %invoke.cont11.i
   ret void
 }
 
@@ -27979,15 +27979,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %this.val.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i: ; preds = %entry
+_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i: ; preds = %entry
   %shared_destroy.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i, i64 24
   %1 = load ptr, ptr %shared_destroy.i.i.i, align 8
   %cmp3.i.not.i.i = icmp eq ptr %1, null
   br i1 %cmp3.i.not.i.i, label %_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i
+land.lhs.true.i.i:                                ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i
   %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buffer_.i.i, align 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
@@ -28009,7 +28009,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
-_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i, %land.lhs.true.i.i, %if.then.i.i
+_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i, %land.lhs.true.i.i, %if.then.i.i
   ret void
 }
 
@@ -28020,15 +28020,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i.i.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i.i: ; preds = %entry
+_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i.i: ; preds = %entry
   %shared_destroy.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 24
   %1 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
   %cmp3.i.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp3.i.not.i.i.i, label %_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %land.lhs.true.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i.i
+land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i.i
   %buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buffer_.i.i.i, align 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
@@ -28050,7 +28050,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
-_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
+_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -28095,15 +28095,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %this.val.i, null
-  br i1 %cmp.not.i.i, label %invoke.cont, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i
+  br i1 %cmp.not.i.i, label %invoke.cont, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i
 
-_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i: ; preds = %entry
+_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i: ; preds = %entry
   %shared_destroy.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 24
   %1 = load ptr, ptr %shared_destroy.i.i, align 8
   %cmp3.i.not.i = icmp eq ptr %1, null
   br i1 %cmp3.i.not.i, label %invoke.cont, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i
+land.lhs.true.i:                                  ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buffer_.i, align 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
@@ -28118,7 +28118,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   invoke void %5(ptr noundef %6)
           to label %invoke.cont unwind label %terminate.lpad
 
-invoke.cont:                                      ; preds = %land.lhs.true.i, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i, %entry, %if.then.i
+invoke.cont:                                      ; preds = %land.lhs.true.i, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i, %entry, %if.then.i
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -28136,15 +28136,15 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %this.val.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i
 
-_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i: ; preds = %entry
+_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i: ; preds = %entry
   %shared_destroy.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i, i64 24
   %1 = load ptr, ptr %shared_destroy.i.i.i, align 8
   %cmp3.i.not.i.i = icmp eq ptr %1, null
   br i1 %cmp3.i.not.i.i, label %_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i
+land.lhs.true.i.i:                                ; preds = %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i
   %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buffer_.i.i, align 8
   %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
@@ -28166,7 +28166,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
-_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.exit.i.i, %land.lhs.true.i.i, %if.then.i.i
+_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE8IsSharedEv.argprom.exit.i.i, %land.lhs.true.i.i, %if.then.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -28422,7 +28422,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val38 = load i64, ptr %1, align 8
   %cmp.not11 = icmp eq i64 %this.val38, 0
-  br i1 %cmp.not11, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1ESaIS2_EE7StorageD2Ev.exit, label %invoke.cont.preheader
+  br i1 %cmp.not11, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1ESaIS2_EE7StorageD2Ev.argprom.exit, label %invoke.cont.preheader
 
 invoke.cont.preheader:                            ; preds = %entry
   %this.val = load ptr, ptr %0, align 8
@@ -28444,13 +28444,13 @@ invoke.cont:                                      ; preds = %invoke.cont.prehead
 for.end:                                          ; preds = %invoke.cont
   store i32 %inc.i.i.i, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %2 = icmp ult i64 %this.val3, 2
-  br i1 %2, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1ESaIS2_EE7StorageD2Ev.exit, label %invoke.cont4.i
+  br i1 %2, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1ESaIS2_EE7StorageD2Ev.argprom.exit, label %invoke.cont4.i
 
 invoke.cont4.i:                                   ; preds = %for.end
   tail call void @_ZdlPv(ptr noundef %this.val4) #24
-  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1ESaIS2_EE7StorageD2Ev.exit
+  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1ESaIS2_EE7StorageD2Ev.argprom.exit
 
-_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1ESaIS2_EE7StorageD2Ev.exit: ; preds = %entry, %for.end, %invoke.cont4.i
+_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1ESaIS2_EE7StorageD2Ev.argprom.exit: ; preds = %entry, %for.end, %invoke.cont4.i
   ret void
 }
 
@@ -28461,7 +28461,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 1024
   %this.val38 = load i64, ptr %1, align 8
   %cmp.not11 = icmp eq i64 %this.val38, 0
-  br i1 %cmp.not11, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm64ESaIS2_EE7StorageD2Ev.exit, label %invoke.cont.preheader
+  br i1 %cmp.not11, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm64ESaIS2_EE7StorageD2Ev.argprom.exit, label %invoke.cont.preheader
 
 invoke.cont.preheader:                            ; preds = %entry
   %this.val = load ptr, ptr %0, align 8
@@ -28483,13 +28483,13 @@ invoke.cont:                                      ; preds = %invoke.cont.prehead
 for.end:                                          ; preds = %invoke.cont
   store i32 %inc.i.i.i, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %2 = icmp ult i64 %this.val3, 65
-  br i1 %2, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm64ESaIS2_EE7StorageD2Ev.exit, label %invoke.cont4.i
+  br i1 %2, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm64ESaIS2_EE7StorageD2Ev.argprom.exit, label %invoke.cont4.i
 
 invoke.cont4.i:                                   ; preds = %for.end
   tail call void @_ZdlPv(ptr noundef %this.val4) #24
-  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm64ESaIS2_EE7StorageD2Ev.exit
+  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm64ESaIS2_EE7StorageD2Ev.argprom.exit
 
-_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm64ESaIS2_EE7StorageD2Ev.exit: ; preds = %entry, %for.end, %invoke.cont4.i
+_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm64ESaIS2_EE7StorageD2Ev.argprom.exit: ; preds = %entry, %for.end, %invoke.cont4.i
   ret void
 }
 
@@ -28500,7 +28500,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 16000
   %this.val38 = load i64, ptr %1, align 8
   %cmp.not11 = icmp eq i64 %this.val38, 0
-  br i1 %cmp.not11, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1000ESaIS2_EE7StorageD2Ev.exit, label %invoke.cont.preheader
+  br i1 %cmp.not11, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1000ESaIS2_EE7StorageD2Ev.argprom.exit, label %invoke.cont.preheader
 
 invoke.cont.preheader:                            ; preds = %entry
   %this.val = load ptr, ptr %0, align 8
@@ -28522,13 +28522,13 @@ invoke.cont:                                      ; preds = %invoke.cont.prehead
 for.end:                                          ; preds = %invoke.cont
   store i32 %inc.i.i.i, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %2 = icmp ult i64 %this.val3, 1001
-  br i1 %2, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1000ESaIS2_EE7StorageD2Ev.exit, label %invoke.cont4.i
+  br i1 %2, label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1000ESaIS2_EE7StorageD2Ev.argprom.exit, label %invoke.cont4.i
 
 invoke.cont4.i:                                   ; preds = %for.end
   tail call void @_ZdlPv(ptr noundef %this.val4) #24
-  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1000ESaIS2_EE7StorageD2Ev.exit
+  br label %_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1000ESaIS2_EE7StorageD2Ev.argprom.exit
 
-_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1000ESaIS2_EE7StorageD2Ev.exit: ; preds = %entry, %for.end, %invoke.cont4.i
+_ZN4absl10FixedArrayIN12_GLOBAL__N_118ConstructionTesterELm1000ESaIS2_EE7StorageD2Ev.argprom.exit: ; preds = %entry, %for.end, %invoke.cont4.i
   ret void
 }
 
@@ -29226,7 +29226,7 @@ invoke.cont54.i:                                  ; preds = %_ZNKSt14default_del
   %call.val99.i = load i64, ptr %call.i105.i, align 8
   %add.ptr.i.i = getelementptr inbounds [1 x %"class.(anonymous namespace)::ConstructionTester"], ptr %call.val98.i, i64 %call.val99.i
   store ptr %add.ptr.i.i, ptr %ref.tmp53.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias align 8 %gtest_ar49.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias align 8 %gtest_ar49.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i)
           to label %invoke.cont56.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont56.i:                                  ; preds = %invoke.cont54.i
@@ -30357,7 +30357,7 @@ call.i.noexc.i85:                                 ; preds = %invoke.cont3.i79
 
 if.else.i.i.i.i.i88:                              ; preds = %call.i.noexc.i85
   %cmp.i.i.i.i.i.i.i89 = icmp slt i32 %n.addr.val.i80, 0
-  br i1 %cmp.i.i.i.i.i.i.i89, label %if.then3.i.i.i.i.i.i.i507, label %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i89, label %if.then3.i.i.i.i.i.i.i507, label %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i507:                        ; preds = %if.else.i.i.i.i.i88
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -30366,12 +30366,12 @@ if.then3.i.i.i.i.i.i.i507:                        ; preds = %if.else.i.i.i.i.i88
 .noexc.i.i508:                                    ; preds = %if.then3.i.i.i.i.i.i.i507
   unreachable
 
-_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i88
+_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i88
   %mul.i.i.i.i.i.i.i90 = shl nuw nsw i64 %conv.i.i86, 4
   %call5.i.i.i2.i.i1.i.i91 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i90) #25
           to label %invoke.cont.i.thread.i.i unwind label %lpad.i.i92.loopexit, !noalias !455
 
-invoke.cont.i.thread.i.i:                         ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i
+invoke.cont.i.thread.i.i:                         ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i
   %data_.i.i2.i.i = getelementptr inbounds i8, ptr %call.i105.i81, i64 24
   store ptr %call5.i.i.i2.i.i1.i.i91, ptr %data_.i.i2.i.i, align 8, !noalias !455
   br label %for.inc.preheader.i.i.i.i93
@@ -30403,7 +30403,7 @@ for.inc.i.i.i.i94:                                ; preds = %for.inc.i.i.i.i94, 
   %cmp.not.i.i.i.i97 = icmp eq ptr %incdec.ptr4.i.i.i.i96, %add.ptr.i.i6.i.i
   br i1 %cmp.not.i.i.i.i97, label %invoke.cont5.i, label %for.inc.i.i.i.i94, !llvm.loop !458
 
-lpad.i.i92.loopexit:                              ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i
+lpad.i.i92.loopexit:                              ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i
   %lpad.loopexit1566 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i.i92
@@ -30678,7 +30678,7 @@ invoke.cont54.i191:                               ; preds = %_ZNKSt14default_del
   %call.val99.i195 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %add.ptr.i.i196 = getelementptr inbounds [1 x %"class.(anonymous namespace)::ConstructionTester"], ptr %call.val98.i192, i64 %call.val99.i195
   store ptr %add.ptr.i.i196, ptr %ref.tmp53.i42, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias align 8 %gtest_ar49.i40, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i41, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i42)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias align 8 %gtest_ar49.i40, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i41, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i42)
           to label %invoke.cont56.i197 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.i98
 
 invoke.cont56.i197:                               ; preds = %invoke.cont54.i191
@@ -31810,7 +31810,7 @@ call.i.noexc.i585:                                ; preds = %invoke.cont3.i579
 
 if.else.i.i.i.i.i589:                             ; preds = %call.i.noexc.i585
   %cmp.i.i.i.i.i.i.i590 = icmp slt i32 %n.addr.val.i580, 0
-  br i1 %cmp.i.i.i.i.i.i.i590, label %if.then3.i.i.i.i.i.i.i1025, label %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i591
+  br i1 %cmp.i.i.i.i.i.i.i590, label %if.then3.i.i.i.i.i.i.i1025, label %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i591
 
 if.then3.i.i.i.i.i.i.i1025:                       ; preds = %if.else.i.i.i.i.i589
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -31819,12 +31819,12 @@ if.then3.i.i.i.i.i.i.i1025:                       ; preds = %if.else.i.i.i.i.i58
 .noexc.i.i1026:                                   ; preds = %if.then3.i.i.i.i.i.i.i1025
   unreachable
 
-_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i591: ; preds = %if.else.i.i.i.i.i589
+_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i591: ; preds = %if.else.i.i.i.i.i589
   %mul.i.i.i.i.i.i.i592 = shl nuw nsw i64 %conv.i.i586, 4
   %call5.i.i.i2.i.i1.i.i593 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i592) #25
           to label %invoke.cont.i.thread.i.i595 unwind label %lpad.i.i594.loopexit, !noalias !474
 
-invoke.cont.i.thread.i.i595:                      ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i591
+invoke.cont.i.thread.i.i595:                      ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i591
   %data_.i.i2.i.i596 = getelementptr inbounds i8, ptr %call.i105.i581, i64 1032
   store ptr %call5.i.i.i2.i.i1.i.i593, ptr %data_.i.i2.i.i596, align 8, !noalias !474
   br label %for.inc.preheader.i.i.i.i597
@@ -31856,7 +31856,7 @@ for.inc.i.i.i.i600:                               ; preds = %for.inc.i.i.i.i600,
   %cmp.not.i.i.i.i603 = icmp eq ptr %incdec.ptr4.i.i.i.i602, %add.ptr.i.i6.i.i599
   br i1 %cmp.not.i.i.i.i603, label %invoke.cont5.i604, label %for.inc.i.i.i.i600, !llvm.loop !477
 
-lpad.i.i594.loopexit:                             ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i591
+lpad.i.i594.loopexit:                             ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i591
   %lpad.loopexit1569 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i.i594
@@ -32131,7 +32131,7 @@ invoke.cont54.i706:                               ; preds = %_ZNKSt14default_del
   %call.val99.i710 = load i64, ptr %size_alloc_.i.i.i.i587, align 8
   %add.ptr.i.i711 = getelementptr inbounds [1 x %"class.(anonymous namespace)::ConstructionTester"], ptr %call.val98.i707, i64 %call.val99.i710
   store ptr %add.ptr.i.i711, ptr %ref.tmp53.i542, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias align 8 %gtest_ar49.i540, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i541, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i542)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias align 8 %gtest_ar49.i540, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i541, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i542)
           to label %invoke.cont56.i712 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.i608
 
 invoke.cont56.i712:                               ; preds = %invoke.cont54.i706
@@ -33263,7 +33263,7 @@ call.i.noexc.i1106:                               ; preds = %invoke.cont3.i1100
 
 if.else.i.i.i.i.i1110:                            ; preds = %call.i.noexc.i1106
   %cmp.i.i.i.i.i.i.i1111 = icmp slt i32 %n.addr.val.i1101, 0
-  br i1 %cmp.i.i.i.i.i.i.i1111, label %if.then3.i.i.i.i.i.i.i1546, label %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i1112
+  br i1 %cmp.i.i.i.i.i.i.i1111, label %if.then3.i.i.i.i.i.i.i1546, label %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i1112
 
 if.then3.i.i.i.i.i.i.i1546:                       ; preds = %if.else.i.i.i.i.i1110
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -33272,12 +33272,12 @@ if.then3.i.i.i.i.i.i.i1546:                       ; preds = %if.else.i.i.i.i.i11
 .noexc.i.i1547:                                   ; preds = %if.then3.i.i.i.i.i.i.i1546
   unreachable
 
-_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i1112: ; preds = %if.else.i.i.i.i.i1110
+_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i1112: ; preds = %if.else.i.i.i.i.i1110
   %mul.i.i.i.i.i.i.i1113 = shl nuw nsw i64 %conv.i.i1107, 4
   %call5.i.i.i2.i.i1.i.i1114 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i1113) #25
           to label %invoke.cont.i.thread.i.i1116 unwind label %lpad.i.i1115.loopexit, !noalias !493
 
-invoke.cont.i.thread.i.i1116:                     ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i1112
+invoke.cont.i.thread.i.i1116:                     ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i1112
   %data_.i.i2.i.i1117 = getelementptr inbounds i8, ptr %call.i105.i1102, i64 16008
   store ptr %call5.i.i.i2.i.i1.i.i1114, ptr %data_.i.i2.i.i1117, align 8, !noalias !493
   br label %for.inc.preheader.i.i.i.i1118
@@ -33309,7 +33309,7 @@ for.inc.i.i.i.i1121:                              ; preds = %for.inc.i.i.i.i1121
   %cmp.not.i.i.i.i1124 = icmp eq ptr %incdec.ptr4.i.i.i.i1123, %add.ptr.i.i6.i.i1120
   br i1 %cmp.not.i.i.i.i1124, label %invoke.cont5.i1125, label %for.inc.i.i.i.i1121, !llvm.loop !496
 
-lpad.i.i1115.loopexit:                            ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i1112
+lpad.i.i1115.loopexit:                            ; preds = %_ZNSt16allocator_traitsISaIA1_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i1112
   %lpad.loopexit1572 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i.i1115
@@ -33584,7 +33584,7 @@ invoke.cont54.i1227:                              ; preds = %_ZNKSt14default_del
   %call.val99.i1231 = load i64, ptr %size_alloc_.i.i.i.i1108, align 8
   %add.ptr.i.i1232 = getelementptr inbounds [1 x %"class.(anonymous namespace)::ConstructionTester"], ptr %call.val98.i1228, i64 %call.val99.i1231
   store ptr %add.ptr.i.i1232, ptr %ref.tmp53.i1063, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias align 8 %gtest_ar49.i1061, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i1062, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i1063)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias align 8 %gtest_ar49.i1061, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i1062, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i1063)
           to label %invoke.cont56.i1233 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.i1129
 
 invoke.cont56.i1233:                              ; preds = %invoke.cont54.i1227
@@ -34646,7 +34646,7 @@ declare void @_ZN7testing8internal24HasNewFatalFailureHelperC1Ev(ptr noundef non
 declare void @_ZN7testing8internal24HasNewFatalFailureHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIPA1_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -34659,7 +34659,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit
+  br label %_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !512
@@ -34681,7 +34681,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !525
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !525
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -34693,14 +34693,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #23, !noalias !525
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #23, !noalias !525
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !515
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !526
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !525
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load ptr, ptr %rhs, align 8, !noalias !531
   %cmp.i.i.i.i.i.i.i.i.i7.i.i = icmp eq ptr %value.val.i.i.i6.i.i, null
@@ -34728,9 +34728,9 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i11
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #23, !noalias !525
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !526
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.199, ptr noundef nonnull @.str.210, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
-          to label %_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit.i unwind label %lpad2.i.i
+          to label %_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -34746,14 +34746,14 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #23
   br label %common.resume.i.i
 
-_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit.i: ; preds = %invoke.cont.i.i
+_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit.i: ; preds = %invoke.cont.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !512
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i), !noalias !512
-  br label %_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit
+  br label %_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit
 
-_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit.i
+_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit.i
   ret void
 }
 
@@ -34768,7 +34768,7 @@ delete.notnull.i:                                 ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %0, i64 8
   %this.val37.i.i = load i64, ptr %0, align 8
   %cmp.not10.i.i = icmp eq i64 %this.val37.i.i, 0
-  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit, label %invoke.cont5.preheader.i.i
+  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont5.preheader.i.i
 
 invoke.cont5.preheader.i.i:                       ; preds = %delete.notnull.i
   %this.val.i.i = load ptr, ptr %1, align 8
@@ -34790,17 +34790,17 @@ invoke.cont5.i.i:                                 ; preds = %invoke.cont5.i.i, %
 for.end.i.i:                                      ; preds = %invoke.cont5.i.i
   store i32 %3, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %4 = icmp eq i64 %this.val3.i.i, 0
-  br i1 %4, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit, label %invoke.cont11.i.i.i
+  br i1 %4, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont11.i.i.i
 
 invoke.cont11.i.i.i:                              ; preds = %for.end.i.i
   tail call void @_ZdlPv(ptr noundef %this.val4.i.i) #24
-  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit
+  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit
 
-_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont11.i.i.i
+_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont11.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -34896,7 +34896,7 @@ delete.notnull.i:                                 ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %this.val37.i.i = load i64, ptr %2, align 8
   %cmp.not10.i.i = icmp eq i64 %this.val37.i.i, 0
-  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit, label %invoke.cont.preheader.i.i
+  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont.preheader.i.i
 
 invoke.cont.preheader.i.i:                        ; preds = %delete.notnull.i
   %this.val.i.i = load ptr, ptr %1, align 8
@@ -34918,17 +34918,17 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i, %i
 for.end.i.i:                                      ; preds = %invoke.cont.i.i
   store i32 %4, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %5 = icmp ult i64 %this.val3.i.i, 2
-  br i1 %5, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit, label %invoke.cont4.i.i.i
+  br i1 %5, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont4.i.i.i
 
 invoke.cont4.i.i.i:                               ; preds = %for.end.i.i
   tail call void @_ZdlPv(ptr noundef %this.val4.i.i) #24
-  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit
+  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit
 
-_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
+_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -34945,7 +34945,7 @@ delete.notnull.i:                                 ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %0, i64 1024
   %this.val37.i.i = load i64, ptr %2, align 8
   %cmp.not10.i.i = icmp eq i64 %this.val37.i.i, 0
-  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit, label %invoke.cont.preheader.i.i
+  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont.preheader.i.i
 
 invoke.cont.preheader.i.i:                        ; preds = %delete.notnull.i
   %this.val.i.i = load ptr, ptr %1, align 8
@@ -34967,17 +34967,17 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i, %i
 for.end.i.i:                                      ; preds = %invoke.cont.i.i
   store i32 %4, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %5 = icmp ult i64 %this.val3.i.i, 65
-  br i1 %5, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit, label %invoke.cont4.i.i.i
+  br i1 %5, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont4.i.i.i
 
 invoke.cont4.i.i.i:                               ; preds = %for.end.i.i
   tail call void @_ZdlPv(ptr noundef %this.val4.i.i) #24
-  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit
+  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit
 
-_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
+_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -34994,7 +34994,7 @@ delete.notnull.i:                                 ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %0, i64 16000
   %this.val37.i.i = load i64, ptr %2, align 8
   %cmp.not10.i.i = icmp eq i64 %this.val37.i.i, 0
-  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit, label %invoke.cont.preheader.i.i
+  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont.preheader.i.i
 
 invoke.cont.preheader.i.i:                        ; preds = %delete.notnull.i
   %this.val.i.i = load ptr, ptr %1, align 8
@@ -35016,17 +35016,17 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i, %i
 for.end.i.i:                                      ; preds = %invoke.cont.i.i
   store i32 %4, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %5 = icmp ult i64 %this.val3.i.i, 1001
-  br i1 %5, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit, label %invoke.cont4.i.i.i
+  br i1 %5, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont4.i.i.i
 
 invoke.cont4.i.i.i:                               ; preds = %for.end.i.i
   tail call void @_ZdlPv(ptr noundef %this.val4.i.i) #24
-  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit
+  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit
 
-_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
+_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -35700,7 +35700,7 @@ invoke.cont54.i:                                  ; preds = %_ZNKSt14default_del
   %call.val99.i = load i64, ptr %call.i105.i, align 8
   %add.ptr.i.i = getelementptr inbounds [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %call.val98.i, i64 %call.val99.i
   store ptr %add.ptr.i.i, ptr %ref.tmp53.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias align 8 %gtest_ar49.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias align 8 %gtest_ar49.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i)
           to label %invoke.cont56.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont56.i:                                  ; preds = %invoke.cont54.i
@@ -36467,9 +36467,9 @@ invoke.cont5.preheader.i.i.i:                     ; preds = %delete.notnull.i.i
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont5.i.i.i
 
-invoke.cont5.i.i.i:                               ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i, %invoke.cont5.preheader.i.i.i
-  %cur.011.i.i.i = phi ptr [ %129, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i ], [ %this.val.i.i.i, %invoke.cont5.preheader.i.i.i ]
-  %128 = phi i32 [ %130, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i, %invoke.cont5.preheader.i.i.i ]
+invoke.cont5.i.i.i:                               ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i, %invoke.cont5.preheader.i.i.i
+  %cur.011.i.i.i = phi ptr [ %129, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i ], [ %this.val.i.i.i, %invoke.cont5.preheader.i.i.i ]
+  %128 = phi i32 [ %130, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i, %invoke.cont5.preheader.i.i.i ]
   %129 = getelementptr inbounds i8, ptr %cur.011.i.i.i, i64 32
   br label %arraydestroy.body.i.i.i.i.i.i
 
@@ -36478,9 +36478,9 @@ arraydestroy.body.i.i.i.i.i.i:                    ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i.i, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i.i, align 8
   %arraydestroy.done.i.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i, %cur.011.i.i.i
-  br i1 %arraydestroy.done.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i
   %130 = add i32 %128, 2
   %this.val3.i.i.i = load i64, ptr %call.i105.i, align 8
   %this.val4.i.i.i = load ptr, ptr %26, align 8
@@ -36488,7 +36488,7 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i.i1531 = icmp eq ptr %129, %add.ptr.i.i.i.i1530
   br i1 %cmp.not.i.i.i1531, label %for.end.i.i.i, label %invoke.cont5.i.i.i, !llvm.loop !565
 
-for.end.i.i.i:                                    ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i
+for.end.i.i.i:                                    ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i
   store i32 %130, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %131 = icmp eq i64 %this.val3.i.i.i, 0
   br i1 %131, label %_ZNSt10unique_ptrIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEESt14default_deleteIS6_EED2Ev.exit, label %invoke.cont11.i.i.i.i
@@ -36629,9 +36629,9 @@ invoke.cont5.preheader.i.i.i.i:                   ; preds = %delete.notnull.i.i.
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont5.i.i.i.i
 
-invoke.cont5.i.i.i.i:                             ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i, %invoke.cont5.preheader.i.i.i.i
-  %cur.011.i.i.i.i = phi ptr [ %146, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i ], [ %this.val.i.i.i.i, %invoke.cont5.preheader.i.i.i.i ]
-  %145 = phi i32 [ %147, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i, %invoke.cont5.preheader.i.i.i.i ]
+invoke.cont5.i.i.i.i:                             ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i, %invoke.cont5.preheader.i.i.i.i
+  %cur.011.i.i.i.i = phi ptr [ %146, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i ], [ %this.val.i.i.i.i, %invoke.cont5.preheader.i.i.i.i ]
+  %145 = phi i32 [ %147, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i, %invoke.cont5.preheader.i.i.i.i ]
   %146 = getelementptr inbounds i8, ptr %cur.011.i.i.i.i, i64 32
   br label %arraydestroy.body.i.i.i.i.i.i.i
 
@@ -36640,9 +36640,9 @@ arraydestroy.body.i.i.i.i.i.i.i:                  ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i.i.i, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i.i.i, align 8
   %arraydestroy.done.i.i.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i.i, %cur.011.i.i.i.i
-  br i1 %arraydestroy.done.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i
   %147 = add i32 %145, 2
   %this.val3.i.i.i.i = load i64, ptr %call.i105.i, align 8
   %this.val4.i.i.i.i = load ptr, ptr %144, align 8
@@ -36650,7 +36650,7 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i.i347.i = icmp eq ptr %146, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i.i.i347.i, label %for.end.i.i.i.i, label %invoke.cont5.i.i.i.i, !llvm.loop !565
 
-for.end.i.i.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i
+for.end.i.i.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i
   store i32 %147, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %148 = icmp eq i64 %this.val3.i.i.i.i, 0
   br i1 %148, label %_ZNSt10unique_ptrIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEESt14default_deleteIS6_EED2Ev.exit.i, label %invoke.cont11.i.i.i.i.i
@@ -36811,7 +36811,7 @@ call.i.noexc.i66:                                 ; preds = %invoke.cont3.i60
 
 if.else.i.i.i.i.i69:                              ; preds = %call.i.noexc.i66
   %cmp.i.i.i.i.i.i.i70 = icmp slt i32 %n.addr.val.i61, 0
-  br i1 %cmp.i.i.i.i.i.i.i70, label %if.then3.i.i.i.i.i.i.i498, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i70, label %if.then3.i.i.i.i.i.i.i498, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i498:                        ; preds = %if.else.i.i.i.i.i69
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -36820,12 +36820,12 @@ if.then3.i.i.i.i.i.i.i498:                        ; preds = %if.else.i.i.i.i.i69
 .noexc.i.i499:                                    ; preds = %if.then3.i.i.i.i.i.i.i498
   unreachable
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i69
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i69
   %mul.i.i.i.i.i.i.i71 = shl nuw nsw i64 %conv.i.i67, 5
   %call5.i.i.i2.i.i1.i.i72 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i71) #25
           to label %invoke.cont.i.thread.i.i unwind label %lpad.i.i73.loopexit, !noalias !571
 
-invoke.cont.i.thread.i.i:                         ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i
+invoke.cont.i.thread.i.i:                         ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i
   %data_.i.i2.i.i = getelementptr inbounds i8, ptr %call.i105.i62, i64 40
   store ptr %call5.i.i.i2.i.i1.i.i72, ptr %data_.i.i2.i.i, align 8, !noalias !571
   br label %for.body.preheader.i.i.i.i74
@@ -36868,7 +36868,7 @@ for.inc.i.i.i.i84:                                ; preds = %arrayctor.loop.i.i.
   %cmp.not.i.i.i.i86 = icmp eq ptr %incdec.ptr4.i.i.i.i85, %add.ptr.i.i6.i.i
   br i1 %cmp.not.i.i.i.i86, label %invoke.cont5.i, label %for.body.i.i.i.i75, !llvm.loop !574
 
-lpad.i.i73.loopexit:                              ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i
+lpad.i.i73.loopexit:                              ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i
   %lpad.loopexit1617 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i.i73
@@ -37143,7 +37143,7 @@ invoke.cont54.i183:                               ; preds = %_ZNKSt14default_del
   %call.val99.i187 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %add.ptr.i.i188 = getelementptr inbounds [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %call.val98.i184, i64 %call.val99.i187
   store ptr %add.ptr.i.i188, ptr %ref.tmp53.i23, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias align 8 %gtest_ar49.i21, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i22, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i23)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias align 8 %gtest_ar49.i21, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i22, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i23)
           to label %invoke.cont56.i189 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.i87
 
 invoke.cont56.i189:                               ; preds = %invoke.cont54.i183
@@ -37910,9 +37910,9 @@ invoke.cont.preheader.i.i.i:                      ; preds = %delete.notnull.i.i1
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1547 = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i.i1548
 
-invoke.cont.i.i.i1548:                            ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i, %invoke.cont.preheader.i.i.i
-  %cur.011.i.i.i1549 = phi ptr [ %279, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i ], [ %this.val.i.i.i1546, %invoke.cont.preheader.i.i.i ]
-  %278 = phi i32 [ %280, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1547, %invoke.cont.preheader.i.i.i ]
+invoke.cont.i.i.i1548:                            ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i, %invoke.cont.preheader.i.i.i
+  %cur.011.i.i.i1549 = phi ptr [ %279, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i ], [ %this.val.i.i.i1546, %invoke.cont.preheader.i.i.i ]
+  %278 = phi i32 [ %280, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1547, %invoke.cont.preheader.i.i.i ]
   %279 = getelementptr inbounds i8, ptr %cur.011.i.i.i1549, i64 32
   br label %arraydestroy.body.i.i.i.i.i.i1550
 
@@ -37921,9 +37921,9 @@ arraydestroy.body.i.i.i.i.i.i1550:                ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i.i1552 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i.i1551, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i.i1552, align 8
   %arraydestroy.done.i.i.i.i.i.i1553 = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i1552, %cur.011.i.i.i1549
-  br i1 %arraydestroy.done.i.i.i.i.i.i1553, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i.i1550
+  br i1 %arraydestroy.done.i.i.i.i.i.i1553, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i.i1550
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i1550
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i1550
   %280 = add i32 %278, 2
   %this.val3.i.i.i1554 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %this.val4.i.i.i1555 = load ptr, ptr %176, align 8
@@ -37931,7 +37931,7 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i.i1557 = icmp eq ptr %279, %add.ptr.i.i.i.i1556
   br i1 %cmp.not.i.i.i1557, label %for.end.i.i.i1558, label %invoke.cont.i.i.i1548, !llvm.loop !586
 
-for.end.i.i.i1558:                                ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i
+for.end.i.i.i1558:                                ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i
   store i32 %280, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %281 = icmp ult i64 %this.val3.i.i.i1554, 2
   br i1 %281, label %_ZNSt10unique_ptrIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEESt14default_deleteIS6_EED2Ev.exit, label %invoke.cont4.i.i.i.i
@@ -38072,9 +38072,9 @@ invoke.cont.preheader.i.i.i.i:                    ; preds = %delete.notnull.i.i.
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i128 = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i.i.i
 
-invoke.cont.i.i.i.i:                              ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i, %invoke.cont.preheader.i.i.i.i
-  %cur.011.i.i.i.i129 = phi ptr [ %296, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i ], [ %this.val.i.i.i.i127, %invoke.cont.preheader.i.i.i.i ]
-  %295 = phi i32 [ %297, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i128, %invoke.cont.preheader.i.i.i.i ]
+invoke.cont.i.i.i.i:                              ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i, %invoke.cont.preheader.i.i.i.i
+  %cur.011.i.i.i.i129 = phi ptr [ %296, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i ], [ %this.val.i.i.i.i127, %invoke.cont.preheader.i.i.i.i ]
+  %295 = phi i32 [ %297, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i128, %invoke.cont.preheader.i.i.i.i ]
   %296 = getelementptr inbounds i8, ptr %cur.011.i.i.i.i129, i64 32
   br label %arraydestroy.body.i.i.i.i.i.i.i130
 
@@ -38083,9 +38083,9 @@ arraydestroy.body.i.i.i.i.i.i.i130:               ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i.i.i132 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i.i.i131, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i.i.i132, align 8
   %arraydestroy.done.i.i.i.i.i.i.i133 = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i.i132, %cur.011.i.i.i.i129
-  br i1 %arraydestroy.done.i.i.i.i.i.i.i133, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i130
+  br i1 %arraydestroy.done.i.i.i.i.i.i.i133, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i130
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i130
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i130
   %297 = add i32 %295, 2
   %this.val3.i.i.i.i134 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %this.val4.i.i.i.i135 = load ptr, ptr %294, align 8
@@ -38093,7 +38093,7 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i.i347.i137 = icmp eq ptr %296, %add.ptr.i.i.i.i.i136
   br i1 %cmp.not.i.i.i347.i137, label %for.end.i.i.i.i138, label %invoke.cont.i.i.i.i, !llvm.loop !586
 
-for.end.i.i.i.i138:                               ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i
+for.end.i.i.i.i138:                               ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i
   store i32 %297, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %298 = icmp ult i64 %this.val3.i.i.i.i134, 2
   br i1 %298, label %_ZNSt10unique_ptrIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEESt14default_deleteIS6_EED2Ev.exit.i, label %invoke.cont4.i.i.i.i.i
@@ -38249,7 +38249,7 @@ call.i.noexc.i562:                                ; preds = %invoke.cont3.i556
 
 if.else.i.i.i.i.i566:                             ; preds = %call.i.noexc.i562
   %cmp.i.i.i.i.i.i.i567 = icmp slt i32 %n.addr.val.i557, 0
-  br i1 %cmp.i.i.i.i.i.i.i567, label %if.then3.i.i.i.i.i.i.i1009, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i568
+  br i1 %cmp.i.i.i.i.i.i.i567, label %if.then3.i.i.i.i.i.i.i1009, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i568
 
 if.then3.i.i.i.i.i.i.i1009:                       ; preds = %if.else.i.i.i.i.i566
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -38258,12 +38258,12 @@ if.then3.i.i.i.i.i.i.i1009:                       ; preds = %if.else.i.i.i.i.i56
 .noexc.i.i1010:                                   ; preds = %if.then3.i.i.i.i.i.i.i1009
   unreachable
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i568: ; preds = %if.else.i.i.i.i.i566
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i568: ; preds = %if.else.i.i.i.i.i566
   %mul.i.i.i.i.i.i.i569 = shl nuw nsw i64 %conv.i.i563, 5
   %call5.i.i.i2.i.i1.i.i570 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i569) #25
           to label %invoke.cont.i.thread.i.i572 unwind label %lpad.i.i571.loopexit, !noalias !592
 
-invoke.cont.i.thread.i.i572:                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i568
+invoke.cont.i.thread.i.i572:                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i568
   %data_.i.i2.i.i573 = getelementptr inbounds i8, ptr %call.i105.i558, i64 2056
   store ptr %call5.i.i.i2.i.i1.i.i570, ptr %data_.i.i2.i.i573, align 8, !noalias !592
   br label %for.body.preheader.i.i.i.i574
@@ -38306,7 +38306,7 @@ for.inc.i.i.i.i586:                               ; preds = %arrayctor.loop.i.i.
   %cmp.not.i.i.i.i588 = icmp eq ptr %incdec.ptr4.i.i.i.i587, %add.ptr.i.i6.i.i576
   br i1 %cmp.not.i.i.i.i588, label %invoke.cont5.i589, label %for.body.i.i.i.i577, !llvm.loop !595
 
-lpad.i.i571.loopexit:                             ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i568
+lpad.i.i571.loopexit:                             ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i568
   %lpad.loopexit1620 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i.i571
@@ -38581,7 +38581,7 @@ invoke.cont54.i694:                               ; preds = %_ZNKSt14default_del
   %call.val99.i698 = load i64, ptr %size_alloc_.i.i.i.i564, align 8
   %add.ptr.i.i699 = getelementptr inbounds [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %call.val98.i695, i64 %call.val99.i698
   store ptr %add.ptr.i.i699, ptr %ref.tmp53.i519, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias align 8 %gtest_ar49.i517, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i518, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i519)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias align 8 %gtest_ar49.i517, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i518, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i519)
           to label %invoke.cont56.i700 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.i593
 
 invoke.cont56.i700:                               ; preds = %invoke.cont54.i694
@@ -39348,9 +39348,9 @@ invoke.cont.preheader.i.i.i1573:                  ; preds = %delete.notnull.i.i1
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1575 = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i.i1576
 
-invoke.cont.i.i.i1576:                            ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i, %invoke.cont.preheader.i.i.i1573
-  %cur.011.i.i.i1577 = phi ptr [ %429, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i ], [ %this.val.i.i.i1574, %invoke.cont.preheader.i.i.i1573 ]
-  %428 = phi i32 [ %430, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1575, %invoke.cont.preheader.i.i.i1573 ]
+invoke.cont.i.i.i1576:                            ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i, %invoke.cont.preheader.i.i.i1573
+  %cur.011.i.i.i1577 = phi ptr [ %429, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i ], [ %this.val.i.i.i1574, %invoke.cont.preheader.i.i.i1573 ]
+  %428 = phi i32 [ %430, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1575, %invoke.cont.preheader.i.i.i1573 ]
   %429 = getelementptr inbounds i8, ptr %cur.011.i.i.i1577, i64 32
   br label %arraydestroy.body.i.i.i.i.i.i1578
 
@@ -39359,9 +39359,9 @@ arraydestroy.body.i.i.i.i.i.i1578:                ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i.i1580 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i.i1579, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i.i1580, align 8
   %arraydestroy.done.i.i.i.i.i.i1581 = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i1580, %cur.011.i.i.i1577
-  br i1 %arraydestroy.done.i.i.i.i.i.i1581, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i.i1578
+  br i1 %arraydestroy.done.i.i.i.i.i.i1581, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i.i1578
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i1578
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i1578
   %430 = add i32 %428, 2
   %this.val3.i.i.i1582 = load i64, ptr %size_alloc_.i.i.i.i564, align 8
   %this.val4.i.i.i1583 = load ptr, ptr %326, align 8
@@ -39369,7 +39369,7 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i.i1585 = icmp eq ptr %429, %add.ptr.i.i.i.i1584
   br i1 %cmp.not.i.i.i1585, label %for.end.i.i.i1586, label %invoke.cont.i.i.i1576, !llvm.loop !607
 
-for.end.i.i.i1586:                                ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i
+for.end.i.i.i1586:                                ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i
   store i32 %430, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %431 = icmp ult i64 %this.val3.i.i.i1582, 65
   br i1 %431, label %_ZNSt10unique_ptrIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEESt14default_deleteIS6_EED2Ev.exit, label %invoke.cont4.i.i.i.i1587
@@ -39510,9 +39510,9 @@ invoke.cont.preheader.i.i.i.i634:                 ; preds = %delete.notnull.i.i.
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i636 = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i.i.i637
 
-invoke.cont.i.i.i.i637:                           ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i, %invoke.cont.preheader.i.i.i.i634
-  %cur.011.i.i.i.i638 = phi ptr [ %446, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i ], [ %this.val.i.i.i.i635, %invoke.cont.preheader.i.i.i.i634 ]
-  %445 = phi i32 [ %447, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i636, %invoke.cont.preheader.i.i.i.i634 ]
+invoke.cont.i.i.i.i637:                           ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i, %invoke.cont.preheader.i.i.i.i634
+  %cur.011.i.i.i.i638 = phi ptr [ %446, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i ], [ %this.val.i.i.i.i635, %invoke.cont.preheader.i.i.i.i634 ]
+  %445 = phi i32 [ %447, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i636, %invoke.cont.preheader.i.i.i.i634 ]
   %446 = getelementptr inbounds i8, ptr %cur.011.i.i.i.i638, i64 32
   br label %arraydestroy.body.i.i.i.i.i.i.i639
 
@@ -39521,9 +39521,9 @@ arraydestroy.body.i.i.i.i.i.i.i639:               ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i.i.i641 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i.i.i640, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i.i.i641, align 8
   %arraydestroy.done.i.i.i.i.i.i.i642 = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i.i641, %cur.011.i.i.i.i638
-  br i1 %arraydestroy.done.i.i.i.i.i.i.i642, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i639
+  br i1 %arraydestroy.done.i.i.i.i.i.i.i642, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i639
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i639
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i639
   %447 = add i32 %445, 2
   %this.val3.i.i.i.i643 = load i64, ptr %size_alloc_.i.i.i.i564, align 8
   %this.val4.i.i.i.i644 = load ptr, ptr %444, align 8
@@ -39531,7 +39531,7 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i.i347.i646 = icmp eq ptr %446, %add.ptr.i.i.i.i.i645
   br i1 %cmp.not.i.i.i347.i646, label %for.end.i.i.i.i647, label %invoke.cont.i.i.i.i637, !llvm.loop !607
 
-for.end.i.i.i.i647:                               ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i
+for.end.i.i.i.i647:                               ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i
   store i32 %447, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %448 = icmp ult i64 %this.val3.i.i.i.i643, 65
   br i1 %448, label %_ZNSt10unique_ptrIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEESt14default_deleteIS6_EED2Ev.exit.i, label %invoke.cont4.i.i.i.i.i648
@@ -39687,7 +39687,7 @@ call.i.noexc.i1076:                               ; preds = %invoke.cont3.i1070
 
 if.else.i.i.i.i.i1080:                            ; preds = %call.i.noexc.i1076
   %cmp.i.i.i.i.i.i.i1081 = icmp slt i32 %n.addr.val.i1071, 0
-  br i1 %cmp.i.i.i.i.i.i.i1081, label %if.then3.i.i.i.i.i.i.i1523, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i1082
+  br i1 %cmp.i.i.i.i.i.i.i1081, label %if.then3.i.i.i.i.i.i.i1523, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i1082
 
 if.then3.i.i.i.i.i.i.i1523:                       ; preds = %if.else.i.i.i.i.i1080
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -39696,12 +39696,12 @@ if.then3.i.i.i.i.i.i.i1523:                       ; preds = %if.else.i.i.i.i.i10
 .noexc.i.i1524:                                   ; preds = %if.then3.i.i.i.i.i.i.i1523
   unreachable
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i1082: ; preds = %if.else.i.i.i.i.i1080
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i1082: ; preds = %if.else.i.i.i.i.i1080
   %mul.i.i.i.i.i.i.i1083 = shl nuw nsw i64 %conv.i.i1077, 5
   %call5.i.i.i2.i.i1.i.i1084 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i1083) #25
           to label %invoke.cont.i.thread.i.i1086 unwind label %lpad.i.i1085.loopexit, !noalias !613
 
-invoke.cont.i.thread.i.i1086:                     ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i1082
+invoke.cont.i.thread.i.i1086:                     ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i1082
   %data_.i.i2.i.i1087 = getelementptr inbounds i8, ptr %call.i105.i1072, i64 32008
   store ptr %call5.i.i.i2.i.i1.i.i1084, ptr %data_.i.i2.i.i1087, align 8, !noalias !613
   br label %for.body.preheader.i.i.i.i1088
@@ -39744,7 +39744,7 @@ for.inc.i.i.i.i1100:                              ; preds = %arrayctor.loop.i.i.
   %cmp.not.i.i.i.i1102 = icmp eq ptr %incdec.ptr4.i.i.i.i1101, %add.ptr.i.i6.i.i1090
   br i1 %cmp.not.i.i.i.i1102, label %invoke.cont5.i1103, label %for.body.i.i.i.i1091, !llvm.loop !616
 
-lpad.i.i1085.loopexit:                            ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.exit.i.i.i.i.i1082
+lpad.i.i1085.loopexit:                            ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE8allocateERS3_m.argprom.exit.i.i.i.i.i1082
   %lpad.loopexit1623 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i.i1085
@@ -40019,7 +40019,7 @@ invoke.cont54.i1208:                              ; preds = %_ZNKSt14default_del
   %call.val99.i1212 = load i64, ptr %size_alloc_.i.i.i.i1078, align 8
   %add.ptr.i.i1213 = getelementptr inbounds [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %call.val98.i1209, i64 %call.val99.i1212
   store ptr %add.ptr.i.i1213, ptr %ref.tmp53.i1033, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias align 8 %gtest_ar49.i1031, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i1032, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i1033)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias align 8 %gtest_ar49.i1031, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.i1032, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53.i1033)
           to label %invoke.cont56.i1214 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.i1107
 
 invoke.cont56.i1214:                              ; preds = %invoke.cont54.i1208
@@ -40786,9 +40786,9 @@ invoke.cont.preheader.i.i.i1602:                  ; preds = %delete.notnull.i.i1
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1604 = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i.i1605
 
-invoke.cont.i.i.i1605:                            ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i, %invoke.cont.preheader.i.i.i1602
-  %cur.011.i.i.i1606 = phi ptr [ %579, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i ], [ %this.val.i.i.i1603, %invoke.cont.preheader.i.i.i1602 ]
-  %578 = phi i32 [ %580, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1604, %invoke.cont.preheader.i.i.i1602 ]
+invoke.cont.i.i.i1605:                            ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i, %invoke.cont.preheader.i.i.i1602
+  %cur.011.i.i.i1606 = phi ptr [ %579, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i ], [ %this.val.i.i.i1603, %invoke.cont.preheader.i.i.i1602 ]
+  %578 = phi i32 [ %580, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i1604, %invoke.cont.preheader.i.i.i1602 ]
   %579 = getelementptr inbounds i8, ptr %cur.011.i.i.i1606, i64 32
   br label %arraydestroy.body.i.i.i.i.i.i1607
 
@@ -40797,9 +40797,9 @@ arraydestroy.body.i.i.i.i.i.i1607:                ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i.i1609 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i.i1608, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i.i1609, align 8
   %arraydestroy.done.i.i.i.i.i.i1610 = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i1609, %cur.011.i.i.i1606
-  br i1 %arraydestroy.done.i.i.i.i.i.i1610, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i.i1607
+  br i1 %arraydestroy.done.i.i.i.i.i.i1610, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i.i1607
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i1607
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i1607
   %580 = add i32 %578, 2
   %this.val3.i.i.i1611 = load i64, ptr %size_alloc_.i.i.i.i1078, align 8
   %this.val4.i.i.i1612 = load ptr, ptr %476, align 8
@@ -40807,7 +40807,7 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i.i1614 = icmp eq ptr %579, %add.ptr.i.i.i.i1613
   br i1 %cmp.not.i.i.i1614, label %for.end.i.i.i1615, label %invoke.cont.i.i.i1605, !llvm.loop !628
 
-for.end.i.i.i1615:                                ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i
+for.end.i.i.i1615:                                ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i
   store i32 %580, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %581 = icmp ult i64 %this.val3.i.i.i1611, 1001
   br i1 %581, label %_ZNSt10unique_ptrIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEESt14default_deleteIS6_EED2Ev.exit, label %invoke.cont4.i.i.i.i1616
@@ -40948,9 +40948,9 @@ invoke.cont.preheader.i.i.i.i1148:                ; preds = %delete.notnull.i.i.
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i1150 = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i.i.i1151
 
-invoke.cont.i.i.i.i1151:                          ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i, %invoke.cont.preheader.i.i.i.i1148
-  %cur.011.i.i.i.i1152 = phi ptr [ %596, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i ], [ %this.val.i.i.i.i1149, %invoke.cont.preheader.i.i.i.i1148 ]
-  %595 = phi i32 [ %597, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i1150, %invoke.cont.preheader.i.i.i.i1148 ]
+invoke.cont.i.i.i.i1151:                          ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i, %invoke.cont.preheader.i.i.i.i1148
+  %cur.011.i.i.i.i1152 = phi ptr [ %596, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i ], [ %this.val.i.i.i.i1149, %invoke.cont.preheader.i.i.i.i1148 ]
+  %595 = phi i32 [ %597, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i.i.i1150, %invoke.cont.preheader.i.i.i.i1148 ]
   %596 = getelementptr inbounds i8, ptr %cur.011.i.i.i.i1152, i64 32
   br label %arraydestroy.body.i.i.i.i.i.i.i1153
 
@@ -40959,9 +40959,9 @@ arraydestroy.body.i.i.i.i.i.i.i1153:              ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i.i.i1155 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i.i.i1154, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i.i.i1155, align 8
   %arraydestroy.done.i.i.i.i.i.i.i1156 = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i.i1155, %cur.011.i.i.i.i1152
-  br i1 %arraydestroy.done.i.i.i.i.i.i.i1156, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i1153
+  br i1 %arraydestroy.done.i.i.i.i.i.i.i1156, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i1153
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i1153
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i1153
   %597 = add i32 %595, 2
   %this.val3.i.i.i.i1157 = load i64, ptr %size_alloc_.i.i.i.i1078, align 8
   %this.val4.i.i.i.i1158 = load ptr, ptr %594, align 8
@@ -40969,7 +40969,7 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i.i347.i1160 = icmp eq ptr %596, %add.ptr.i.i.i.i.i1159
   br i1 %cmp.not.i.i.i347.i1160, label %for.end.i.i.i.i1161, label %invoke.cont.i.i.i.i1151, !llvm.loop !628
 
-for.end.i.i.i.i1161:                              ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i.i.i
+for.end.i.i.i.i1161:                              ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i.i.i
   store i32 %597, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %598 = icmp ult i64 %this.val3.i.i.i.i1157, 1001
   br i1 %598, label %_ZNSt10unique_ptrIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEESt14default_deleteIS6_EED2Ev.exit.i, label %invoke.cont4.i.i.i.i.i1162
@@ -41058,7 +41058,7 @@ for.end:                                          ; preds = %_ZN12_GLOBAL__N_117
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIPA2_N12_GLOBAL__N_118ConstructionTesterES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -41071,7 +41071,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit
+  br label %_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !635
@@ -41093,7 +41093,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !648
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !648
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -41105,14 +41105,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #23, !noalias !648
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #23, !noalias !648
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !638
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !649
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !648
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load ptr, ptr %rhs, align 8, !noalias !654
   %cmp.i.i.i.i.i.i.i.i.i7.i.i = icmp eq ptr %value.val.i.i.i6.i.i, null
@@ -41140,9 +41140,9 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i11
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #23, !noalias !648
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !649
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.199, ptr noundef nonnull @.str.210, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
-          to label %_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit.i unwind label %lpad2.i.i
+          to label %_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -41158,14 +41158,14 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #23
   br label %common.resume.i.i
 
-_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit.i: ; preds = %invoke.cont.i.i
+_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit.i: ; preds = %invoke.cont.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !635
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i), !noalias !635
-  br label %_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit
+  br label %_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit
 
-_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit.i
+_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom.exit.i
   ret void
 }
 
@@ -41180,16 +41180,16 @@ delete.notnull.i:                                 ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %0, i64 8
   %this.val37.i.i = load i64, ptr %0, align 8
   %cmp.not10.i.i = icmp eq i64 %this.val37.i.i, 0
-  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit, label %invoke.cont5.preheader.i.i
+  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont5.preheader.i.i
 
 invoke.cont5.preheader.i.i:                       ; preds = %delete.notnull.i
   %this.val.i.i = load ptr, ptr %1, align 8
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont5.i.i
 
-invoke.cont5.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i, %invoke.cont5.preheader.i.i
-  %cur.011.i.i = phi ptr [ %3, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i ], [ %this.val.i.i, %invoke.cont5.preheader.i.i ]
-  %2 = phi i32 [ %4, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i, %invoke.cont5.preheader.i.i ]
+invoke.cont5.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i, %invoke.cont5.preheader.i.i
+  %cur.011.i.i = phi ptr [ %3, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i ], [ %this.val.i.i, %invoke.cont5.preheader.i.i ]
+  %2 = phi i32 [ %4, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i, %invoke.cont5.preheader.i.i ]
   %3 = getelementptr inbounds i8, ptr %cur.011.i.i, i64 32
   br label %arraydestroy.body.i.i.i.i.i
 
@@ -41198,9 +41198,9 @@ arraydestroy.body.i.i.i.i.i:                      ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i, align 8
   %arraydestroy.done.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i, %cur.011.i.i
-  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i, label %arraydestroy.body.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i, label %arraydestroy.body.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
   %4 = add i32 %2, 2
   %this.val3.i.i = load i64, ptr %0, align 8
   %this.val4.i.i = load ptr, ptr %1, align 8
@@ -41208,20 +41208,20 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %for.end.i.i, label %invoke.cont5.i.i, !llvm.loop !565
 
-for.end.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i
+for.end.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm0ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i
   store i32 %4, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %5 = icmp eq i64 %this.val3.i.i, 0
-  br i1 %5, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit, label %invoke.cont11.i.i.i
+  br i1 %5, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont11.i.i.i
 
 invoke.cont11.i.i.i:                              ; preds = %for.end.i.i
   tail call void @_ZdlPv(ptr noundef %this.val4.i.i) #24
-  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit
+  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit
 
-_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont11.i.i.i
+_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont11.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEEclEPS6_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -41238,16 +41238,16 @@ delete.notnull.i:                                 ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %this.val37.i.i = load i64, ptr %2, align 8
   %cmp.not10.i.i = icmp eq i64 %this.val37.i.i, 0
-  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit, label %invoke.cont.preheader.i.i
+  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont.preheader.i.i
 
 invoke.cont.preheader.i.i:                        ; preds = %delete.notnull.i
   %this.val.i.i = load ptr, ptr %1, align 8
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i, %invoke.cont.preheader.i.i
-  %cur.011.i.i = phi ptr [ %4, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i ], [ %this.val.i.i, %invoke.cont.preheader.i.i ]
-  %3 = phi i32 [ %5, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i, %invoke.cont.preheader.i.i ]
+invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i, %invoke.cont.preheader.i.i
+  %cur.011.i.i = phi ptr [ %4, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i ], [ %this.val.i.i, %invoke.cont.preheader.i.i ]
+  %3 = phi i32 [ %5, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i, %invoke.cont.preheader.i.i ]
   %4 = getelementptr inbounds i8, ptr %cur.011.i.i, i64 32
   br label %arraydestroy.body.i.i.i.i.i
 
@@ -41256,9 +41256,9 @@ arraydestroy.body.i.i.i.i.i:                      ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i, align 8
   %arraydestroy.done.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i, %cur.011.i.i
-  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i, label %arraydestroy.body.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i, label %arraydestroy.body.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
   %5 = add i32 %3, 2
   %this.val3.i.i = load i64, ptr %2, align 8
   %this.val4.i.i = load ptr, ptr %1, align 8
@@ -41266,20 +41266,20 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %for.end.i.i, label %invoke.cont.i.i, !llvm.loop !586
 
-for.end.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i
+for.end.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i
   store i32 %5, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %6 = icmp ult i64 %this.val3.i.i, 2
-  br i1 %6, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit, label %invoke.cont4.i.i.i
+  br i1 %6, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont4.i.i.i
 
 invoke.cont4.i.i.i:                               ; preds = %for.end.i.i
   tail call void @_ZdlPv(ptr noundef %this.val4.i.i) #24
-  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit
+  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit
 
-_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
+_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEEclEPS6_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -41296,16 +41296,16 @@ delete.notnull.i:                                 ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %0, i64 2048
   %this.val37.i.i = load i64, ptr %2, align 8
   %cmp.not10.i.i = icmp eq i64 %this.val37.i.i, 0
-  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit, label %invoke.cont.preheader.i.i
+  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont.preheader.i.i
 
 invoke.cont.preheader.i.i:                        ; preds = %delete.notnull.i
   %this.val.i.i = load ptr, ptr %1, align 8
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i, %invoke.cont.preheader.i.i
-  %cur.011.i.i = phi ptr [ %4, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i ], [ %this.val.i.i, %invoke.cont.preheader.i.i ]
-  %3 = phi i32 [ %5, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i, %invoke.cont.preheader.i.i ]
+invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i, %invoke.cont.preheader.i.i
+  %cur.011.i.i = phi ptr [ %4, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i ], [ %this.val.i.i, %invoke.cont.preheader.i.i ]
+  %3 = phi i32 [ %5, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i, %invoke.cont.preheader.i.i ]
   %4 = getelementptr inbounds i8, ptr %cur.011.i.i, i64 32
   br label %arraydestroy.body.i.i.i.i.i
 
@@ -41314,9 +41314,9 @@ arraydestroy.body.i.i.i.i.i:                      ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i, align 8
   %arraydestroy.done.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i, %cur.011.i.i
-  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i, label %arraydestroy.body.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i, label %arraydestroy.body.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
   %5 = add i32 %3, 2
   %this.val3.i.i = load i64, ptr %2, align 8
   %this.val4.i.i = load ptr, ptr %1, align 8
@@ -41324,20 +41324,20 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %for.end.i.i, label %invoke.cont.i.i, !llvm.loop !607
 
-for.end.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i
+for.end.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm64ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i
   store i32 %5, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %6 = icmp ult i64 %this.val3.i.i, 65
-  br i1 %6, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit, label %invoke.cont4.i.i.i
+  br i1 %6, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont4.i.i.i
 
 invoke.cont4.i.i.i:                               ; preds = %for.end.i.i
   tail call void @_ZdlPv(ptr noundef %this.val4.i.i) #24
-  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit
+  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit
 
-_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
+_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEEclEPS6_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -41354,16 +41354,16 @@ delete.notnull.i:                                 ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %0, i64 32000
   %this.val37.i.i = load i64, ptr %2, align 8
   %cmp.not10.i.i = icmp eq i64 %this.val37.i.i, 0
-  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit, label %invoke.cont.preheader.i.i
+  br i1 %cmp.not10.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont.preheader.i.i
 
 invoke.cont.preheader.i.i:                        ; preds = %delete.notnull.i
   %this.val.i.i = load ptr, ptr %1, align 8
   %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i = load i32, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i, %invoke.cont.preheader.i.i
-  %cur.011.i.i = phi ptr [ %4, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i ], [ %this.val.i.i, %invoke.cont.preheader.i.i ]
-  %3 = phi i32 [ %5, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i, %invoke.cont.preheader.i.i ]
+invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i, %invoke.cont.preheader.i.i
+  %cur.011.i.i = phi ptr [ %4, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i ], [ %this.val.i.i, %invoke.cont.preheader.i.i ]
+  %3 = phi i32 [ %5, %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i ], [ %_ZN12_GLOBAL__N_118ConstructionTester12destructionsE.promoted.i.i, %invoke.cont.preheader.i.i ]
   %4 = getelementptr inbounds i8, ptr %cur.011.i.i, i64 32
   br label %arraydestroy.body.i.i.i.i.i
 
@@ -41372,9 +41372,9 @@ arraydestroy.body.i.i.i.i.i:                      ; preds = %arraydestroy.body.i
   %arraydestroy.element.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -16
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i, align 8
   %arraydestroy.done.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i, %cur.011.i.i
-  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i, label %arraydestroy.body.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i, label %arraydestroy.body.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
+_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
   %5 = add i32 %3, 2
   %this.val3.i.i = load i64, ptr %2, align 8
   %this.val4.i.i = load ptr, ptr %1, align 8
@@ -41382,20 +41382,20 @@ _ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4a
   %cmp.not.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %for.end.i.i, label %invoke.cont.i.i, !llvm.loop !628
 
-for.end.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.exit.i.i
+for.end.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIA2_N12_GLOBAL__N_118ConstructionTesterEEE7destroyIN4absl10FixedArrayIS2_Lm1000ES3_E21StorageElementWrapperIS2_S1_Lm2EEEEEvRS3_PT_.argprom.exit.i.i
   store i32 %5, ptr @_ZN12_GLOBAL__N_118ConstructionTester12destructionsE, align 4
   %6 = icmp ult i64 %this.val3.i.i, 1001
-  br i1 %6, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit, label %invoke.cont4.i.i.i
+  br i1 %6, label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit, label %invoke.cont4.i.i.i
 
 invoke.cont4.i.i.i:                               ; preds = %for.end.i.i
   tail call void @_ZdlPv(ptr noundef %this.val4.i.i) #24
-  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit
+  br label %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit
 
-_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
+_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit: ; preds = %delete.notnull.i, %for.end.i.i, %invoke.cont4.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEEclEPS6_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -63182,14 +63182,14 @@ attributes #27 = { noreturn nounwind }
 !411 = distinct !{!411, !"_ZN7testing8internal15MatcherCastImplIRKmmE8CastImplILb1EEENS_7MatcherIS3_EES3_St17integral_constantIbLb1EES8_IbXT_EE"}
 !412 = !{!410, !407, !404, !401}
 !413 = !{!414, !416, !418, !420}
-!414 = distinct !{!414, !415, !"_ZN7testing8internal15MatcherCastImplIRKPN12_GLOBAL__N_118ConstructionTesterES4_E8CastImplILb1EEENS_7MatcherIS6_EES6_St17integral_constantIbLb1EESB_IbXT_EE: %agg.result"}
-!415 = distinct !{!415, !"_ZN7testing8internal15MatcherCastImplIRKPN12_GLOBAL__N_118ConstructionTesterES4_E8CastImplILb1EEENS_7MatcherIS6_EES6_St17integral_constantIbLb1EESB_IbXT_EE"}
-!416 = distinct !{!416, !417, !"_ZN7testing8internal15MatcherCastImplIRKPN12_GLOBAL__N_118ConstructionTesterES4_E4CastES6_: %agg.result"}
-!417 = distinct !{!417, !"_ZN7testing8internal15MatcherCastImplIRKPN12_GLOBAL__N_118ConstructionTesterES4_E4CastES6_"}
-!418 = distinct !{!418, !419, !"_ZN7testing11MatcherCastIRKPN12_GLOBAL__N_118ConstructionTesterES3_EENS_7MatcherIT_EERKT0_: %agg.result"}
-!419 = distinct !{!419, !"_ZN7testing11MatcherCastIRKPN12_GLOBAL__N_118ConstructionTesterES3_EENS_7MatcherIT_EERKT0_"}
-!420 = distinct !{!420, !421, !"_ZN7testing15SafeMatcherCastIRKPN12_GLOBAL__N_118ConstructionTesterES3_EENS_7MatcherIT_EERKT0_: %agg.result"}
-!421 = distinct !{!421, !"_ZN7testing15SafeMatcherCastIRKPN12_GLOBAL__N_118ConstructionTesterES3_EENS_7MatcherIT_EERKT0_"}
+!414 = distinct !{!414, !415, !"_ZN7testing8internal15MatcherCastImplIRKPN12_GLOBAL__N_118ConstructionTesterES4_E8CastImplILb1EEENS_7MatcherIS6_EES6_St17integral_constantIbLb1EESB_IbXT_EE.argprom: %agg.result"}
+!415 = distinct !{!415, !"_ZN7testing8internal15MatcherCastImplIRKPN12_GLOBAL__N_118ConstructionTesterES4_E8CastImplILb1EEENS_7MatcherIS6_EES6_St17integral_constantIbLb1EESB_IbXT_EE.argprom"}
+!416 = distinct !{!416, !417, !"_ZN7testing8internal15MatcherCastImplIRKPN12_GLOBAL__N_118ConstructionTesterES4_E4CastES6_.argprom: %agg.result"}
+!417 = distinct !{!417, !"_ZN7testing8internal15MatcherCastImplIRKPN12_GLOBAL__N_118ConstructionTesterES4_E4CastES6_.argprom"}
+!418 = distinct !{!418, !419, !"_ZN7testing11MatcherCastIRKPN12_GLOBAL__N_118ConstructionTesterES3_EENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!419 = distinct !{!419, !"_ZN7testing11MatcherCastIRKPN12_GLOBAL__N_118ConstructionTesterES3_EENS_7MatcherIT_EERKT0_.argprom"}
+!420 = distinct !{!420, !421, !"_ZN7testing15SafeMatcherCastIRKPN12_GLOBAL__N_118ConstructionTesterES3_EENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!421 = distinct !{!421, !"_ZN7testing15SafeMatcherCastIRKPN12_GLOBAL__N_118ConstructionTesterES3_EENS_7MatcherIT_EERKT0_.argprom"}
 !422 = !{!423}
 !423 = distinct !{!423, !424, !"_ZN7testing15SafeMatcherCastIRKiiEENS_7MatcherIT_EERKT0_: %agg.result"}
 !424 = distinct !{!424, !"_ZN7testing15SafeMatcherCastIRKiiEENS_7MatcherIT_EERKT0_"}
@@ -63205,8 +63205,8 @@ attributes #27 = { noreturn nounwind }
 !434 = !{!432, !429, !426, !423}
 !435 = distinct !{!435, !6}
 !436 = !{!437}
-!437 = distinct !{!437, !438, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!438 = distinct !{!438, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!437 = distinct !{!437, !438, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!438 = distinct !{!438, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !439 = distinct !{!439, !6}
 !440 = !{!441, !443}
 !441 = distinct !{!441, !442, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -63224,8 +63224,8 @@ attributes #27 = { noreturn nounwind }
 !453 = distinct !{!453, !454, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !454 = distinct !{!454, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !455 = !{!456}
-!456 = distinct !{!456, !457, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!457 = distinct !{!457, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!456 = distinct !{!456, !457, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!457 = distinct !{!457, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !458 = distinct !{!458, !6}
 !459 = !{!460, !462}
 !460 = distinct !{!460, !461, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -63243,8 +63243,8 @@ attributes #27 = { noreturn nounwind }
 !472 = distinct !{!472, !473, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !473 = distinct !{!473, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !474 = !{!475}
-!475 = distinct !{!475, !476, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!476 = distinct !{!476, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!475 = distinct !{!475, !476, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!476 = distinct !{!476, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !477 = distinct !{!477, !6}
 !478 = !{!479, !481}
 !479 = distinct !{!479, !480, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -63262,8 +63262,8 @@ attributes #27 = { noreturn nounwind }
 !491 = distinct !{!491, !492, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !492 = distinct !{!492, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !493 = !{!494}
-!494 = distinct !{!494, !495, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!495 = distinct !{!495, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!494 = distinct !{!494, !495, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!495 = distinct !{!495, !"_ZSt11make_uniqueIN4absl10FixedArrayIA1_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !496 = distinct !{!496, !6}
 !497 = !{!498, !500}
 !498 = distinct !{!498, !499, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -63281,15 +63281,15 @@ attributes #27 = { noreturn nounwind }
 !510 = distinct !{!510, !511, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !511 = distinct !{!511, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !512 = !{!513}
-!513 = distinct !{!513, !514, !"_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_: %agg.result"}
-!514 = distinct !{!514, !"_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_"}
+!513 = distinct !{!513, !514, !"_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom: %agg.result"}
+!514 = distinct !{!514, !"_ZN7testing8internal11CmpHelperEQIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom"}
 !515 = !{!516, !518, !520, !513}
 !516 = distinct !{!516, !517, !"_ZN7testing8internal19FormatForComparisonIPA1_N12_GLOBAL__N_118ConstructionTesterES5_E6FormatB5cxx11ERKS5_: %agg.result"}
 !517 = distinct !{!517, !"_ZN7testing8internal19FormatForComparisonIPA1_N12_GLOBAL__N_118ConstructionTesterES5_E6FormatB5cxx11ERKS5_"}
-!518 = distinct !{!518, !519, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!519 = distinct !{!519, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
-!520 = distinct !{!520, !521, !"_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_: %agg.result"}
-!521 = distinct !{!521, !"_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_"}
+!518 = distinct !{!518, !519, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!519 = distinct !{!519, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
+!520 = distinct !{!520, !521, !"_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom: %agg.result"}
+!521 = distinct !{!521, !"_ZN7testing8internal18CmpHelperEQFailureIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom"}
 !522 = !{!523, !516, !518, !520, !513}
 !523 = distinct !{!523, !524, !"_ZN7testing13PrintToStringIPA1_N12_GLOBAL__N_118ConstructionTesterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !524 = distinct !{!524, !"_ZN7testing13PrintToStringIPA1_N12_GLOBAL__N_118ConstructionTesterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -63297,8 +63297,8 @@ attributes #27 = { noreturn nounwind }
 !526 = !{!527, !529, !520, !513}
 !527 = distinct !{!527, !528, !"_ZN7testing8internal19FormatForComparisonIPA1_N12_GLOBAL__N_118ConstructionTesterES5_E6FormatB5cxx11ERKS5_: %agg.result"}
 !528 = distinct !{!528, !"_ZN7testing8internal19FormatForComparisonIPA1_N12_GLOBAL__N_118ConstructionTesterES5_E6FormatB5cxx11ERKS5_"}
-!529 = distinct !{!529, !530, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!530 = distinct !{!530, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!529 = distinct !{!529, !530, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!530 = distinct !{!530, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA1_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !531 = !{!532, !527, !529, !520, !513}
 !532 = distinct !{!532, !533, !"_ZN7testing13PrintToStringIPA1_N12_GLOBAL__N_118ConstructionTesterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !533 = distinct !{!533, !"_ZN7testing13PrintToStringIPA1_N12_GLOBAL__N_118ConstructionTesterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -63319,8 +63319,8 @@ attributes #27 = { noreturn nounwind }
 !548 = distinct !{!548, !549, !"_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !549 = distinct !{!549, !"_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !550 = !{!551}
-!551 = distinct !{!551, !552, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!552 = distinct !{!552, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!551 = distinct !{!551, !552, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!552 = distinct !{!552, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm0ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !553 = distinct !{!553, !6}
 !554 = !{!555, !557}
 !555 = distinct !{!555, !556, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -63340,8 +63340,8 @@ attributes #27 = { noreturn nounwind }
 !569 = distinct !{!569, !570, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !570 = distinct !{!570, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !571 = !{!572}
-!572 = distinct !{!572, !573, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!573 = distinct !{!573, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!572 = distinct !{!572, !573, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!573 = distinct !{!573, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !574 = distinct !{!574, !6}
 !575 = !{!576, !578}
 !576 = distinct !{!576, !577, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -63361,8 +63361,8 @@ attributes #27 = { noreturn nounwind }
 !590 = distinct !{!590, !591, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !591 = distinct !{!591, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !592 = !{!593}
-!593 = distinct !{!593, !594, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!594 = distinct !{!594, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!593 = distinct !{!593, !594, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!594 = distinct !{!594, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm64ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !595 = distinct !{!595, !6}
 !596 = !{!597, !599}
 !597 = distinct !{!597, !598, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -63382,8 +63382,8 @@ attributes #27 = { noreturn nounwind }
 !611 = distinct !{!611, !612, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !612 = distinct !{!612, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !613 = !{!614}
-!614 = distinct !{!614, !615, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!615 = distinct !{!615, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!614 = distinct !{!614, !615, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!615 = distinct !{!615, !"_ZSt11make_uniqueIN4absl10FixedArrayIA2_N12_GLOBAL__N_118ConstructionTesterELm1000ESaIS4_EEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !616 = distinct !{!616, !6}
 !617 = !{!618, !620}
 !618 = distinct !{!618, !619, !"_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -63404,15 +63404,15 @@ attributes #27 = { noreturn nounwind }
 !633 = distinct !{!633, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !634 = distinct !{!634, !6}
 !635 = !{!636}
-!636 = distinct !{!636, !637, !"_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_: %agg.result"}
-!637 = distinct !{!637, !"_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_"}
+!636 = distinct !{!636, !637, !"_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom: %agg.result"}
+!637 = distinct !{!637, !"_ZN7testing8internal11CmpHelperEQIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom"}
 !638 = !{!639, !641, !643, !636}
 !639 = distinct !{!639, !640, !"_ZN7testing8internal19FormatForComparisonIPA2_N12_GLOBAL__N_118ConstructionTesterES5_E6FormatB5cxx11ERKS5_: %agg.result"}
 !640 = distinct !{!640, !"_ZN7testing8internal19FormatForComparisonIPA2_N12_GLOBAL__N_118ConstructionTesterES5_E6FormatB5cxx11ERKS5_"}
-!641 = distinct !{!641, !642, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!642 = distinct !{!642, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
-!643 = distinct !{!643, !644, !"_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_: %agg.result"}
-!644 = distinct !{!644, !"_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_"}
+!641 = distinct !{!641, !642, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!642 = distinct !{!642, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
+!643 = distinct !{!643, !644, !"_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom: %agg.result"}
+!644 = distinct !{!644, !"_ZN7testing8internal18CmpHelperEQFailureIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.argprom"}
 !645 = !{!646, !639, !641, !643, !636}
 !646 = distinct !{!646, !647, !"_ZN7testing13PrintToStringIPA2_N12_GLOBAL__N_118ConstructionTesterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !647 = distinct !{!647, !"_ZN7testing13PrintToStringIPA2_N12_GLOBAL__N_118ConstructionTesterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -63420,8 +63420,8 @@ attributes #27 = { noreturn nounwind }
 !649 = !{!650, !652, !643, !636}
 !650 = distinct !{!650, !651, !"_ZN7testing8internal19FormatForComparisonIPA2_N12_GLOBAL__N_118ConstructionTesterES5_E6FormatB5cxx11ERKS5_: %agg.result"}
 !651 = distinct !{!651, !"_ZN7testing8internal19FormatForComparisonIPA2_N12_GLOBAL__N_118ConstructionTesterES5_E6FormatB5cxx11ERKS5_"}
-!652 = distinct !{!652, !653, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!653 = distinct !{!653, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!652 = distinct !{!652, !653, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!653 = distinct !{!653, !"_ZN7testing8internal33FormatForComparisonFailureMessageIPA2_N12_GLOBAL__N_118ConstructionTesterES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !654 = !{!655, !650, !652, !643, !636}
 !655 = distinct !{!655, !656, !"_ZN7testing13PrintToStringIPA2_N12_GLOBAL__N_118ConstructionTesterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !656 = distinct !{!656, !"_ZN7testing13PrintToStringIPA2_N12_GLOBAL__N_118ConstructionTesterEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}

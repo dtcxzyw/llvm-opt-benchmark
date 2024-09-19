@@ -3191,7 +3191,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   br label %56
 
 42:                                               ; preds = %4
-  call fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr noundef %5, ptr noundef %6)
+  call fastcc void @find_rsvp_session_tempfilt.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %6)
   %43 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %48, label %44
@@ -3631,7 +3631,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
+define internal fastcc void @find_rsvp_session_tempfilt.argelim(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %4 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 6, i32 noundef 2) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -3941,7 +3941,7 @@ define internal fastcc void @dissect_rsvp_msg_tree(ptr noundef %0, ptr noundef %
   %31 = zext i8 %25 to i32
   %32 = tail call ptr @val_to_str_ext(i32 noundef %31, ptr noundef nonnull @message_type_vals_ext, ptr noundef nonnull @.str.1426) #10
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.1447, ptr noundef %32) #10
-  call fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr noundef %21, ptr noundef %22)
+  call fastcc void @find_rsvp_session_tempfilt.argelim(ptr noundef %0, ptr noundef %21, ptr noundef %22)
   %33 = load i32, ptr %21, align 4
   %.not439 = icmp eq i32 %33, 0
   br i1 %.not439, label %38, label %34
@@ -4308,7 +4308,7 @@ rsvp_class_to_filter_num.exit:                    ; preds = %92, %100, %102, %10
 144:                                              ; preds = %141
   %145 = load ptr, ptr %19, align 8
   %146 = zext i8 %98 to i32
-  call fastcc void @dissect_rsvp_session(ptr noundef %1, ptr noundef %145, ptr noundef %135, ptr noundef %0, i32 noundef %.0700, i32 noundef %94, i32 noundef %146, ptr noundef %4)
+  call fastcc void @dissect_rsvp_session.argelim(ptr noundef %1, ptr noundef %145, ptr noundef %135, ptr noundef %0, i32 noundef %.0700, i32 noundef %94, i32 noundef %146, ptr noundef %4)
   br label %dissect_rsvp_hop.exit
 
 147:                                              ; preds = %141
@@ -5518,7 +5518,7 @@ proto_item_set_hidden.exit.i478:                  ; preds = %901, %898, %894
   %910 = add i32 %.0700, 6
   %911 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %909, ptr noundef %0, i32 noundef %910, i32 noundef 2, i32 noundef 0) #10
   %912 = icmp ugt i16 %93, 8
-  br i1 %912, label %.lr.ph7.preheader.i, label %dissect_rsvp_adspec.exit
+  br i1 %912, label %.lr.ph7.preheader.i, label %dissect_rsvp_adspec.argprom.exit
 
 .lr.ph7.preheader.i:                              ; preds = %proto_item_set_hidden.exit.i478
   %913 = add i32 %.0700, 8
@@ -5529,7 +5529,7 @@ proto_item_set_hidden.exit.i478:                  ; preds = %901, %898, %894
   %.176.lcssa.i = phi i32 [ %933, %.lr.ph7.i ], [ %980, %974 ]
   %.1.lcssa.i483 = phi i32 [ %934, %.lr.ph7.i ], [ %978, %974 ]
   %915 = icmp sgt i32 %.176.lcssa.i, 0
-  br i1 %915, label %.lr.ph7.i, label %dissect_rsvp_adspec.exit, !llvm.loop !14
+  br i1 %915, label %.lr.ph7.i, label %dissect_rsvp_adspec.argprom.exit, !llvm.loop !14
 
 .lr.ph7.i:                                        ; preds = %.loopexit.i, %.lr.ph7.preheader.i
   %.06.i = phi i32 [ %.1.lcssa.i483, %.loopexit.i ], [ %913, %.lr.ph7.preheader.i ]
@@ -5632,7 +5632,7 @@ proto_item_set_hidden.exit.i478:                  ; preds = %901, %898, %894
   %981 = icmp sgt i32 %979, 0
   br i1 %981, label %.lr.ph.i480, label %.loopexit.i, !llvm.loop !15
 
-dissect_rsvp_adspec.exit:                         ; preds = %.loopexit.i, %proto_item_set_hidden.exit.i478
+dissect_rsvp_adspec.argprom.exit:                 ; preds = %.loopexit.i, %proto_item_set_hidden.exit.i478
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   br label %dissect_rsvp_hop.exit
@@ -5641,22 +5641,22 @@ dissect_rsvp_adspec.exit:                         ; preds = %.loopexit.i, %proto
   %983 = load i32, ptr @hf_rsvp_ctype, align 4
   %984 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %983, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #10
   %.not.i.i484 = icmp eq ptr %984, null
-  br i1 %.not.i.i484, label %dissect_rsvp_integrity.exit, label %985
+  br i1 %.not.i.i484, label %dissect_rsvp_integrity.argprom.exit, label %985
 
 985:                                              ; preds = %982
   %986 = getelementptr inbounds i8, ptr %984, i64 32
   %987 = load ptr, ptr %986, align 8
   %.not5.i.i485 = icmp eq ptr %987, null
-  br i1 %.not5.i.i485, label %dissect_rsvp_integrity.exit, label %988
+  br i1 %.not5.i.i485, label %dissect_rsvp_integrity.argprom.exit, label %988
 
 988:                                              ; preds = %985
   %989 = getelementptr inbounds i8, ptr %987, i64 28
   %990 = load i32, ptr %989, align 4
   %991 = or i32 %990, 1
   store i32 %991, ptr %989, align 4
-  br label %dissect_rsvp_integrity.exit
+  br label %dissect_rsvp_integrity.argprom.exit
 
-dissect_rsvp_integrity.exit:                      ; preds = %982, %985, %988
+dissect_rsvp_integrity.argprom.exit:              ; preds = %982, %985, %988
   %992 = add i32 %.0700, 4
   %993 = load i32, ptr @hf_rsvp_ctype_integrity, align 4
   %994 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %993, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #10
@@ -5682,22 +5682,22 @@ dissect_rsvp_integrity.exit:                      ; preds = %982, %985, %988
   %1012 = load i32, ptr @hf_rsvp_ctype, align 4
   %1013 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %1012, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #10
   %.not.i.i487 = icmp eq ptr %1013, null
-  br i1 %.not.i.i487, label %dissect_rsvp_policy.exit, label %1014
+  br i1 %.not.i.i487, label %dissect_rsvp_policy.argprom.exit, label %1014
 
 1014:                                             ; preds = %1011
   %1015 = getelementptr inbounds i8, ptr %1013, i64 32
   %1016 = load ptr, ptr %1015, align 8
   %.not5.i.i488 = icmp eq ptr %1016, null
-  br i1 %.not5.i.i488, label %dissect_rsvp_policy.exit, label %1017
+  br i1 %.not5.i.i488, label %dissect_rsvp_policy.argprom.exit, label %1017
 
 1017:                                             ; preds = %1014
   %1018 = getelementptr inbounds i8, ptr %1016, i64 28
   %1019 = load i32, ptr %1018, align 4
   %1020 = or i32 %1019, 1
   store i32 %1020, ptr %1018, align 4
-  br label %dissect_rsvp_policy.exit
+  br label %dissect_rsvp_policy.argprom.exit
 
-dissect_rsvp_policy.exit:                         ; preds = %1011, %1014, %1017
+dissect_rsvp_policy.argprom.exit:                 ; preds = %1011, %1014, %1017
   %1021 = add i32 %.0700, 4
   %1022 = load i32, ptr @hf_rsvp_ctype_policy, align 4
   %1023 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %1022, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #10
@@ -7392,7 +7392,7 @@ proto_item_set_hidden.exit.i570:                  ; preds = %1963, %1960, %1955
   %2102 = add i32 %1971, %.0458473.i
   %2103 = call ptr @proto_tree_add_uint(ptr noundef %2093, i32 noundef %2101, ptr noundef %0, i32 noundef %2102, i32 noundef 1, i32 noundef %2086) #10
   %2104 = load ptr, ptr %14, align 8
-  call fastcc void @dissect_rsvp_session(ptr noundef %1, ptr noundef %2104, ptr noundef %2093, ptr noundef %0, i32 noundef %2081, i32 noundef %2083, i32 noundef %2100, ptr noundef %4)
+  call fastcc void @dissect_rsvp_session.argelim(ptr noundef %1, ptr noundef %2104, ptr noundef %2093, ptr noundef %0, i32 noundef %2081, i32 noundef %2083, i32 noundef %2100, ptr noundef %4)
   %2105 = add i32 %1957, %2083
   %2106 = add i32 %2105, %.0458473.i
   %2107 = add i32 %2106, 8
@@ -8411,16 +8411,16 @@ proto_item_set_hidden.exit.i602:                  ; preds = %2701, %2698, %2694
   %.not22.i = icmp eq i64 %2721, 0
   %2722 = select i1 %.not22.i, ptr @.str.1872, ptr @.str.1018
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2695, ptr noundef nonnull @.str.1870, ptr noundef nonnull %2714, ptr noundef nonnull %2716, ptr noundef nonnull %2718, ptr noundef nonnull %2720, ptr noundef nonnull %2722) #10
-  br label %dissect_rsvp_capability.exit
+  br label %dissect_rsvp_capability.argprom.exit
 
 2723:                                             ; preds = %proto_item_set_hidden.exit.i602
   %2724 = load i32, ptr @hf_rsvp_capability_data, align 4
   %2725 = add i32 %.0700, 4
   %2726 = add nsw i32 %94, -4
   %2727 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %2724, ptr noundef %0, i32 noundef %2725, i32 noundef %2726, i32 noundef 0) #10
-  br label %dissect_rsvp_capability.exit
+  br label %dissect_rsvp_capability.argprom.exit
 
-dissect_rsvp_capability.exit:                     ; preds = %2707, %2723
+dissect_rsvp_capability.argprom.exit:             ; preds = %2707, %2723
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %dissect_rsvp_hop.exit
 
@@ -9040,22 +9040,22 @@ proto_item_set_hidden.exit.i637:                  ; preds = %3109, %3106, %3103
   %3113 = load i32, ptr @hf_rsvp_ctype, align 4
   %3114 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3113, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #10
   %.not.i18.i = icmp eq ptr %3114, null
-  br i1 %.not.i18.i, label %dissect_rsvp_vendor_private_use.exit, label %3115
+  br i1 %.not.i18.i, label %dissect_rsvp_vendor_private_use.argprom.exit, label %3115
 
 3115:                                             ; preds = %proto_item_set_hidden.exit.i637
   %3116 = getelementptr inbounds i8, ptr %3114, i64 32
   %3117 = load ptr, ptr %3116, align 8
   %.not5.i19.i = icmp eq ptr %3117, null
-  br i1 %.not5.i19.i, label %dissect_rsvp_vendor_private_use.exit, label %3118
+  br i1 %.not5.i19.i, label %dissect_rsvp_vendor_private_use.argprom.exit, label %3118
 
 3118:                                             ; preds = %3115
   %3119 = getelementptr inbounds i8, ptr %3117, i64 28
   %3120 = load i32, ptr %3119, align 4
   %3121 = or i32 %3120, 1
   store i32 %3121, ptr %3119, align 4
-  br label %dissect_rsvp_vendor_private_use.exit
+  br label %dissect_rsvp_vendor_private_use.argprom.exit
 
-dissect_rsvp_vendor_private_use.exit:             ; preds = %proto_item_set_hidden.exit.i637, %3115, %3118
+dissect_rsvp_vendor_private_use.argprom.exit:     ; preds = %proto_item_set_hidden.exit.i637, %3115, %3118
   %3122 = load i32, ptr @hf_rsvp_ctype_vendor, align 4
   %3123 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3122, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #10
   %3124 = load i32, ptr getelementptr inbounds (i8, ptr @hf_rsvp_filter, i64 432), align 16
@@ -9323,8 +9323,8 @@ proto_item_set_hidden.exit.i657:                  ; preds = %3251, %3248, %3245
   %3261 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3258, ptr noundef %0, i32 noundef %3259, i32 noundef %3260, i32 noundef 0) #10
   br label %dissect_rsvp_hop.exit
 
-dissect_rsvp_hop.exit:                            ; preds = %3009, %1775, %1635, %1362, %1179, %.lr.ph.i, %.lr.ph6.i, %3257, %proto_item_set_hidden.exit.i657, %3242, %3241, %._crit_edge.i654, %3181, %3180, %3178, %3166, %3164, %3146, %3144, %3096, %3088, %3027, %3005, %2998, %2980, %2974, %2968, %2948, %2942, %2905, %2884, %2778, %2742, %2689, %proto_item_set_hidden.exit.i598, %1951, %1946, %1941, %1923, %1903, %1887, %1871, %1862, %1844, %1825, %1812, %1799, %1777, %1721, %1709, %1691, %1671, %1650, %1631, %1609, %proto_item_set_hidden.exit.i535, %1592, %._crit_edge.i531, %1560, %1550, %1540, %1531, %1518, %1499, %1497, %1479, %1477, %1460, %1459, %1439, %1437, %proto_item_set_hidden.exit.i501, %1316, %1311, %1303, %1295, %1280, %1268, %1255, %1211, %1182, %1167, %1163, %1162, %1153, %1130, %1111, %1100, %1048, %1041, %407, %404, %399, %381, %373, %356, %350, %344, %321, %315, %dissect_rsvp_error_value.exit.i, %251, %247, %246, %243, %242, %241, %223, %215, %197, %186, %175, %169, %161, %dissect_rsvp_vendor_private_use.exit, %dissect_rsvp_diffserv.exit, %dissect_rsvp_capability.exit, %dissect_rsvp_restart_cap.exit, %dissect_rsvp_3gpp_object.exit, %dissect_rsvp_call_id.exit, %dissect_rsvp_gen_uni.exit, %dissect_rsvp_policy.exit, %dissect_rsvp_integrity.exit, %dissect_rsvp_adspec.exit, %dissect_rsvp_flowspec.exit, %dissect_rsvp_tspec.exit, %411, %144
-  %.1 = phi i32 [ %.0430698, %dissect_rsvp_vendor_private_use.exit ], [ %.0430698, %dissect_rsvp_diffserv.exit ], [ %.0430698, %dissect_rsvp_capability.exit ], [ %.0430698, %dissect_rsvp_restart_cap.exit ], [ %.0430698, %dissect_rsvp_3gpp_object.exit ], [ %.0430698, %dissect_rsvp_call_id.exit ], [ %.0430698, %dissect_rsvp_gen_uni.exit ], [ %.0430698, %dissect_rsvp_policy.exit ], [ 1, %dissect_rsvp_integrity.exit ], [ %.0430698, %dissect_rsvp_adspec.exit ], [ %.0430698, %dissect_rsvp_flowspec.exit ], [ %.0430698, %dissect_rsvp_tspec.exit ], [ %.0430698, %411 ], [ %.0430698, %144 ], [ %.0430698, %161 ], [ %.0430698, %169 ], [ %.0430698, %175 ], [ %.0430698, %186 ], [ %.0430698, %197 ], [ %.0430698, %215 ], [ %.0430698, %223 ], [ %.0430698, %241 ], [ %.0430698, %242 ], [ %.0430698, %243 ], [ %.0430698, %246 ], [ %.0430698, %247 ], [ %.0430698, %251 ], [ %.0430698, %dissect_rsvp_error_value.exit.i ], [ %.0430698, %315 ], [ %.0430698, %321 ], [ %.0430698, %344 ], [ %.0430698, %350 ], [ %.0430698, %356 ], [ %.0430698, %373 ], [ %.0430698, %381 ], [ %.0430698, %399 ], [ %.0430698, %404 ], [ %.0430698, %407 ], [ %.0430698, %1041 ], [ %.0430698, %1048 ], [ %.0430698, %1100 ], [ %.0430698, %1111 ], [ %.0430698, %1130 ], [ %.0430698, %1153 ], [ %.0430698, %1162 ], [ %.0430698, %1163 ], [ %.0430698, %1167 ], [ %.0430698, %1182 ], [ %.0430698, %1211 ], [ %.0430698, %1255 ], [ %.0430698, %1268 ], [ %.0430698, %1280 ], [ %.0430698, %1295 ], [ %.0430698, %1303 ], [ %.0430698, %1311 ], [ %.0430698, %1316 ], [ %.0430698, %proto_item_set_hidden.exit.i501 ], [ %.0430698, %1437 ], [ %.0430698, %1439 ], [ %.0430698, %1459 ], [ %.0430698, %1460 ], [ %.0430698, %1477 ], [ %.0430698, %1479 ], [ %.0430698, %1497 ], [ %.0430698, %1499 ], [ %.0430698, %1518 ], [ %.0430698, %1531 ], [ %.0430698, %1540 ], [ %.0430698, %1550 ], [ %.0430698, %1560 ], [ %.0430698, %._crit_edge.i531 ], [ %.0430698, %1592 ], [ %.0430698, %proto_item_set_hidden.exit.i535 ], [ %.0430698, %1609 ], [ %.0430698, %1631 ], [ %.0430698, %1650 ], [ %.0430698, %1671 ], [ %.0430698, %1691 ], [ %.0430698, %1709 ], [ %.0430698, %1721 ], [ %.0430698, %1777 ], [ %.0430698, %1799 ], [ %.0430698, %1812 ], [ %.0430698, %1825 ], [ %.0430698, %1844 ], [ %.0430698, %1862 ], [ %.0430698, %1871 ], [ %.0430698, %1887 ], [ %.0430698, %1903 ], [ %.0430698, %1923 ], [ %.0430698, %1941 ], [ %.0430698, %1946 ], [ %.0430698, %1951 ], [ %.0430698, %proto_item_set_hidden.exit.i598 ], [ %.0430698, %2689 ], [ %.0430698, %2742 ], [ %.0430698, %2778 ], [ %.0430698, %2884 ], [ %.0430698, %2905 ], [ %.0430698, %2942 ], [ %.0430698, %2948 ], [ %.0430698, %2968 ], [ %.0430698, %2974 ], [ %.0430698, %2980 ], [ %.0430698, %2998 ], [ %.0430698, %3005 ], [ %.0430698, %3027 ], [ %.0430698, %3088 ], [ %.0430698, %3096 ], [ %.0430698, %3144 ], [ %.0430698, %3146 ], [ %.0430698, %3164 ], [ %.0430698, %3166 ], [ %.0430698, %3178 ], [ %.0430698, %3180 ], [ %.0430698, %3181 ], [ %.0430698, %._crit_edge.i654 ], [ %.0430698, %3241 ], [ %.0430698, %3242 ], [ %.0430698, %proto_item_set_hidden.exit.i657 ], [ %.0430698, %3257 ], [ %.0430698, %.lr.ph6.i ], [ %.0430698, %.lr.ph.i ], [ %.0430698, %1179 ], [ %.0430698, %1362 ], [ %.0430698, %1635 ], [ %.0430698, %1775 ], [ %.0430698, %3009 ]
+dissect_rsvp_hop.exit:                            ; preds = %3009, %1775, %1635, %1362, %1179, %.lr.ph.i, %.lr.ph6.i, %3257, %proto_item_set_hidden.exit.i657, %3242, %3241, %._crit_edge.i654, %3181, %3180, %3178, %3166, %3164, %3146, %3144, %3096, %3088, %3027, %3005, %2998, %2980, %2974, %2968, %2948, %2942, %2905, %2884, %2778, %2742, %2689, %proto_item_set_hidden.exit.i598, %1951, %1946, %1941, %1923, %1903, %1887, %1871, %1862, %1844, %1825, %1812, %1799, %1777, %1721, %1709, %1691, %1671, %1650, %1631, %1609, %proto_item_set_hidden.exit.i535, %1592, %._crit_edge.i531, %1560, %1550, %1540, %1531, %1518, %1499, %1497, %1479, %1477, %1460, %1459, %1439, %1437, %proto_item_set_hidden.exit.i501, %1316, %1311, %1303, %1295, %1280, %1268, %1255, %1211, %1182, %1167, %1163, %1162, %1153, %1130, %1111, %1100, %1048, %1041, %407, %404, %399, %381, %373, %356, %350, %344, %321, %315, %dissect_rsvp_error_value.exit.i, %251, %247, %246, %243, %242, %241, %223, %215, %197, %186, %175, %169, %161, %dissect_rsvp_vendor_private_use.argprom.exit, %dissect_rsvp_diffserv.exit, %dissect_rsvp_capability.argprom.exit, %dissect_rsvp_restart_cap.exit, %dissect_rsvp_3gpp_object.exit, %dissect_rsvp_call_id.exit, %dissect_rsvp_gen_uni.exit, %dissect_rsvp_policy.argprom.exit, %dissect_rsvp_integrity.argprom.exit, %dissect_rsvp_adspec.argprom.exit, %dissect_rsvp_flowspec.exit, %dissect_rsvp_tspec.exit, %411, %144
+  %.1 = phi i32 [ %.0430698, %dissect_rsvp_vendor_private_use.argprom.exit ], [ %.0430698, %dissect_rsvp_diffserv.exit ], [ %.0430698, %dissect_rsvp_capability.argprom.exit ], [ %.0430698, %dissect_rsvp_restart_cap.exit ], [ %.0430698, %dissect_rsvp_3gpp_object.exit ], [ %.0430698, %dissect_rsvp_call_id.exit ], [ %.0430698, %dissect_rsvp_gen_uni.exit ], [ %.0430698, %dissect_rsvp_policy.argprom.exit ], [ 1, %dissect_rsvp_integrity.argprom.exit ], [ %.0430698, %dissect_rsvp_adspec.argprom.exit ], [ %.0430698, %dissect_rsvp_flowspec.exit ], [ %.0430698, %dissect_rsvp_tspec.exit ], [ %.0430698, %411 ], [ %.0430698, %144 ], [ %.0430698, %161 ], [ %.0430698, %169 ], [ %.0430698, %175 ], [ %.0430698, %186 ], [ %.0430698, %197 ], [ %.0430698, %215 ], [ %.0430698, %223 ], [ %.0430698, %241 ], [ %.0430698, %242 ], [ %.0430698, %243 ], [ %.0430698, %246 ], [ %.0430698, %247 ], [ %.0430698, %251 ], [ %.0430698, %dissect_rsvp_error_value.exit.i ], [ %.0430698, %315 ], [ %.0430698, %321 ], [ %.0430698, %344 ], [ %.0430698, %350 ], [ %.0430698, %356 ], [ %.0430698, %373 ], [ %.0430698, %381 ], [ %.0430698, %399 ], [ %.0430698, %404 ], [ %.0430698, %407 ], [ %.0430698, %1041 ], [ %.0430698, %1048 ], [ %.0430698, %1100 ], [ %.0430698, %1111 ], [ %.0430698, %1130 ], [ %.0430698, %1153 ], [ %.0430698, %1162 ], [ %.0430698, %1163 ], [ %.0430698, %1167 ], [ %.0430698, %1182 ], [ %.0430698, %1211 ], [ %.0430698, %1255 ], [ %.0430698, %1268 ], [ %.0430698, %1280 ], [ %.0430698, %1295 ], [ %.0430698, %1303 ], [ %.0430698, %1311 ], [ %.0430698, %1316 ], [ %.0430698, %proto_item_set_hidden.exit.i501 ], [ %.0430698, %1437 ], [ %.0430698, %1439 ], [ %.0430698, %1459 ], [ %.0430698, %1460 ], [ %.0430698, %1477 ], [ %.0430698, %1479 ], [ %.0430698, %1497 ], [ %.0430698, %1499 ], [ %.0430698, %1518 ], [ %.0430698, %1531 ], [ %.0430698, %1540 ], [ %.0430698, %1550 ], [ %.0430698, %1560 ], [ %.0430698, %._crit_edge.i531 ], [ %.0430698, %1592 ], [ %.0430698, %proto_item_set_hidden.exit.i535 ], [ %.0430698, %1609 ], [ %.0430698, %1631 ], [ %.0430698, %1650 ], [ %.0430698, %1671 ], [ %.0430698, %1691 ], [ %.0430698, %1709 ], [ %.0430698, %1721 ], [ %.0430698, %1777 ], [ %.0430698, %1799 ], [ %.0430698, %1812 ], [ %.0430698, %1825 ], [ %.0430698, %1844 ], [ %.0430698, %1862 ], [ %.0430698, %1871 ], [ %.0430698, %1887 ], [ %.0430698, %1903 ], [ %.0430698, %1923 ], [ %.0430698, %1941 ], [ %.0430698, %1946 ], [ %.0430698, %1951 ], [ %.0430698, %proto_item_set_hidden.exit.i598 ], [ %.0430698, %2689 ], [ %.0430698, %2742 ], [ %.0430698, %2778 ], [ %.0430698, %2884 ], [ %.0430698, %2905 ], [ %.0430698, %2942 ], [ %.0430698, %2948 ], [ %.0430698, %2968 ], [ %.0430698, %2974 ], [ %.0430698, %2980 ], [ %.0430698, %2998 ], [ %.0430698, %3005 ], [ %.0430698, %3027 ], [ %.0430698, %3088 ], [ %.0430698, %3096 ], [ %.0430698, %3144 ], [ %.0430698, %3146 ], [ %.0430698, %3164 ], [ %.0430698, %3166 ], [ %.0430698, %3178 ], [ %.0430698, %3180 ], [ %.0430698, %3181 ], [ %.0430698, %._crit_edge.i654 ], [ %.0430698, %3241 ], [ %.0430698, %3242 ], [ %.0430698, %proto_item_set_hidden.exit.i657 ], [ %.0430698, %3257 ], [ %.0430698, %.lr.ph6.i ], [ %.0430698, %.lr.ph.i ], [ %.0430698, %1179 ], [ %.0430698, %1362 ], [ %.0430698, %1635 ], [ %.0430698, %1775 ], [ %.0430698, %3009 ]
   %3262 = add i32 %.0700, %94
   %3263 = add nuw nsw i32 %.0429699, %94
   %3264 = icmp ult i32 %3263, %24
@@ -9623,7 +9623,7 @@ define internal fastcc range(i32 2, 75) i32 @rsvp_class_to_tree_type(i32 noundef
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rsvp_session(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 4, 65536) %5, i32 noundef range(i32 0, 256) %6, ptr noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc void @dissect_rsvp_session.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 4, 65536) %5, i32 noundef range(i32 0, 256) %6, ptr noundef writeonly %7) unnamed_addr #1 {
   %9 = add i32 %4, 4
   %10 = getelementptr inbounds i8, ptr %0, i64 408
   %11 = load ptr, ptr %10, align 8

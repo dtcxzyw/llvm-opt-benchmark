@@ -640,7 +640,7 @@ land.lhs.true.i120:                               ; preds = %if.end.i115
   %dev.addr.0.val13.i = load ptr, ptr %45, align 8
   %add.ptr.i.i121 = getelementptr i8, ptr %dev.addr.0.val13.i, i64 62
   %add.ptr.val.i.i = load i16, ptr %add.ptr.i.i121, align 1
-  switch i32 %inj.sroa.50.0, label %pcie_aer_msg_vbridge.exit.i [
+  switch i32 %inj.sroa.50.0, label %pcie_aer_msg_vbridge.argprom.exit.i [
     i32 4, label %if.then.i.i
     i32 2, label %if.then.i.i
   ]
@@ -650,14 +650,14 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i120,
   %config.val.i.i.i = load i16, ptr %add.ptr3.i.i, align 1
   %or.i.i.i = or i16 %config.val.i.i.i, 16384
   store i16 %or.i.i.i, ptr %add.ptr3.i.i, align 1
-  br label %pcie_aer_msg_vbridge.exit.i
+  br label %pcie_aer_msg_vbridge.argprom.exit.i
 
-pcie_aer_msg_vbridge.exit.i:                      ; preds = %if.then.i.i, %land.lhs.true.i120
+pcie_aer_msg_vbridge.argprom.exit.i:              ; preds = %if.then.i.i, %land.lhs.true.i120
   %46 = and i16 %add.ptr.val.i.i, 2
   %tobool.not.i.not.i = icmp eq i16 %46, 0
   br i1 %tobool.not.i.not.i, label %pcie_aer_msg.exit, label %if.end13.i116
 
-if.end13.i116:                                    ; preds = %pcie_aer_msg_vbridge.exit.i, %if.end.i115
+if.end13.i116:                                    ; preds = %pcie_aer_msg_vbridge.argprom.exit.i, %if.end.i115
   %config.i.i = getelementptr inbounds i8, ptr %dev.addr.027.i, i64 168
   %47 = load ptr, ptr %config.i.i, align 8
   %exp.i.i = getelementptr inbounds i8, ptr %dev.addr.027.i, i64 2168
@@ -846,7 +846,7 @@ if.end21.i:                                       ; preds = %if.end16.i
   %tobool.not.i = icmp eq ptr %call23.i, null
   br i1 %tobool.not.i, label %pcie_aer_msg.exit, label %while.body.i, !llvm.loop !5
 
-pcie_aer_msg.exit:                                ; preds = %while.body.i, %pcie_aer_msg_vbridge.exit.i, %land.lhs.true22.i.i, %pcie_aer_msg_alldev.exit.i, %if.end21.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then.i.i.i, %if.then3.i.i.i, %if.else5.i.i.i, %if.then7.i.i.i
+pcie_aer_msg.exit:                                ; preds = %while.body.i, %pcie_aer_msg_vbridge.argprom.exit.i, %land.lhs.true22.i.i, %pcie_aer_msg_alldev.exit.i, %if.end21.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then.i.i.i, %if.then3.i.i.i, %if.else5.i.i.i, %if.then7.i.i.i
   br i1 %inj.sroa.46.0, label %if.then84, label %return
 
 if.then84:                                        ; preds = %pcie_aer_msg.exit

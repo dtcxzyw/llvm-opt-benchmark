@@ -242,7 +242,7 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
 
 95:                                               ; preds = %94, %89
   %.not22.i.i = icmp eq ptr %91, null
-  br i1 %.not22.i.i, label %pmix_obj_new_tma.exit.i, label %96
+  br i1 %.not22.i.i, label %pmix_obj_new_tma.argprom.exit.i, label %96
 
 96:                                               ; preds = %95
   %97 = call i32 @pthread_mutex_init(ptr noundef nonnull %91, ptr noundef null) #12
@@ -257,7 +257,7 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   %102 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 40), align 8
   %103 = load ptr, ptr %102, align 8
   %.not6.i.i.i = icmp eq ptr %103, null
-  br i1 %.not6.i.i.i, label %pmix_obj_new_tma.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %pmix_obj_new_tma.argprom.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %96, %.lr.ph.i.i.i
   %104 = phi ptr [ %106, %.lr.ph.i.i.i ], [ %103, %96 ]
@@ -266,9 +266,9 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   %105 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not.i.i.i = icmp eq ptr %106, null
-  br i1 %.not.i.i.i, label %pmix_obj_new_tma.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i, label %pmix_obj_new_tma.argprom.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
-pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, %95
+pmix_obj_new_tma.argprom.exit.i:                  ; preds = %.lr.ph.i.i.i, %96, %95
   %107 = getelementptr inbounds i8, ptr %91, i64 152
   store ptr %46, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %91, i64 256
@@ -298,7 +298,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, 
   call void @free(ptr noundef %46) #12
   br label %121
 
-121:                                              ; preds = %120, %pmix_obj_new_tma.exit.i
+121:                                              ; preds = %120, %pmix_obj_new_tma.argprom.exit.i
   %122 = load i32, ptr %4, align 4
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr %4, align 4

@@ -178,7 +178,7 @@ define internal noundef i32 @semcheck_ip_special_name(ptr noundef %0, ptr nounde
   %10 = tail call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %.val, i64 %4, i64 %5) #4
   %11 = and i32 %10, -2
   %12 = icmp eq i32 %11, 32
-  br i1 %12, label %check_ip_field.exit, label %13
+  br i1 %12, label %check_ip_field.argprom.exit, label %13
 
 13:                                               ; preds = %9, %6
   %14 = tail call { i64, i64 } @stnode_location(ptr noundef %.val) #4
@@ -187,7 +187,7 @@ define internal noundef i32 @semcheck_ip_special_name(ptr noundef %0, ptr nounde
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %15, i64 %16, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef %1) #5
   unreachable
 
-check_ip_field.exit:                              ; preds = %9
+check_ip_field.argprom.exit:                      ; preds = %9
   ret i32 26
 }
 
@@ -322,7 +322,7 @@ define internal noundef i32 @semcheck_ip_special_mask(ptr noundef %0, ptr nounde
   %10 = tail call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %.val, i64 %4, i64 %5) #4
   %11 = and i32 %10, -2
   %12 = icmp eq i32 %11, 32
-  br i1 %12, label %check_ip_field.exit, label %13
+  br i1 %12, label %check_ip_field.argprom.exit, label %13
 
 13:                                               ; preds = %9, %6
   %14 = tail call { i64, i64 } @stnode_location(ptr noundef %.val) #4
@@ -331,7 +331,7 @@ define internal noundef i32 @semcheck_ip_special_mask(ptr noundef %0, ptr nounde
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %15, i64 %16, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef %1) #5
   unreachable
 
-check_ip_field.exit:                              ; preds = %9
+check_ip_field.argprom.exit:                      ; preds = %9
   ret i32 7
 }
 
@@ -341,7 +341,7 @@ declare void @fvalue_set_uinteger(ptr noundef, i32 noundef) local_unnamed_addr #
 define internal zeroext i1 @df_func_ip_is_link_local(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %.val, null
-  br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
+  br i1 %4, label %df_func_ip_is_any.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -399,9 +399,9 @@ ip_is_link_local.exit:                            ; preds = %12, %17, %21
 ._crit_edge.i:                                    ; preds = %ip_is_link_local.exit, %.preheader.i
   %31 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %2) #4
   %32 = xor i1 %31, true
-  br label %df_func_ip_is_any.exit
+  br label %df_func_ip_is_any.argprom.exit
 
-df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
+df_func_ip_is_any.argprom.exit:                   ; preds = %3, %._crit_edge.i
   %.012.i = phi i1 [ %32, %._crit_edge.i ], [ false, %3 ]
   ret i1 %.012.i
 }
@@ -417,7 +417,7 @@ define internal noundef i32 @semcheck_is_ip_field(ptr noundef %0, ptr noundef %1
   %10 = tail call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %.val, i64 %4, i64 %5) #4
   %11 = and i32 %10, -2
   %12 = icmp eq i32 %11, 32
-  br i1 %12, label %check_ip_field.exit, label %13
+  br i1 %12, label %check_ip_field.argprom.exit, label %13
 
 13:                                               ; preds = %9, %6
   %14 = tail call { i64, i64 } @stnode_location(ptr noundef %.val) #4
@@ -426,7 +426,7 @@ define internal noundef i32 @semcheck_is_ip_field(ptr noundef %0, ptr noundef %1
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %15, i64 %16, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef %1) #5
   unreachable
 
-check_ip_field.exit:                              ; preds = %9
+check_ip_field.argprom.exit:                      ; preds = %9
   ret i32 2
 }
 
@@ -436,7 +436,7 @@ declare void @fvalue_set_uinteger64(ptr noundef, i64 noundef) local_unnamed_addr
 define internal zeroext i1 @df_func_ip_is_multicast(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %.val, null
-  br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
+  br i1 %4, label %df_func_ip_is_any.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -487,9 +487,9 @@ ip_is_multicast.exit:                             ; preds = %12, %17
 ._crit_edge.i:                                    ; preds = %ip_is_multicast.exit, %.preheader.i
   %25 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %2) #4
   %26 = xor i1 %25, true
-  br label %df_func_ip_is_any.exit
+  br label %df_func_ip_is_any.argprom.exit
 
-df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
+df_func_ip_is_any.argprom.exit:                   ; preds = %3, %._crit_edge.i
   %.012.i = phi i1 [ %26, %._crit_edge.i ], [ false, %3 ]
   ret i1 %.012.i
 }
@@ -498,7 +498,7 @@ df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
 define internal zeroext i1 @df_func_ip_is_rfc1918(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %.val, null
-  br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
+  br i1 %4, label %df_func_ip_is_any.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -557,9 +557,9 @@ ipv4_is_rfc1918.exit:                             ; preds = %.lr.ph.i, %12, %17,
 ._crit_edge.i:                                    ; preds = %ipv4_is_rfc1918.exit, %.preheader.i
   %32 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %2) #4
   %33 = xor i1 %32, true
-  br label %df_func_ip_is_any.exit
+  br label %df_func_ip_is_any.argprom.exit
 
-df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
+df_func_ip_is_any.argprom.exit:                   ; preds = %3, %._crit_edge.i
   %.012.i = phi i1 [ %33, %._crit_edge.i ], [ false, %3 ]
   ret i1 %.012.i
 }
@@ -568,7 +568,7 @@ df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
 define internal zeroext i1 @df_func_ip_is_ula(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %.val, null
-  br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
+  br i1 %4, label %df_func_ip_is_any.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -613,9 +613,9 @@ ipv6_is_ula.exit:                                 ; preds = %.lr.ph.i, %12
 ._crit_edge.i:                                    ; preds = %ipv6_is_ula.exit, %.preheader.i
   %21 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %2) #4
   %22 = xor i1 %21, true
-  br label %df_func_ip_is_any.exit
+  br label %df_func_ip_is_any.argprom.exit
 
-df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
+df_func_ip_is_any.argprom.exit:                   ; preds = %3, %._crit_edge.i
   %.012.i = phi i1 [ %22, %._crit_edge.i ], [ false, %3 ]
   ret i1 %.012.i
 }

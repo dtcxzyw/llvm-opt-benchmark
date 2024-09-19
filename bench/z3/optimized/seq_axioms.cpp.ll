@@ -23607,7 +23607,7 @@ lpad.i.i177:                                      ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont27:                                    ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i.i175
   %is_digit_.val87.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp29, ptr nonnull %this, ptr %is_digit_.val87.val, i32 noundef 0)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj.argprom.argprom"(ptr noalias align 8 %ref.tmp29, ptr nonnull %this, ptr %is_digit_.val87.val, i32 noundef 0)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont27
@@ -23693,7 +23693,7 @@ invoke.cont37:                                    ; preds = %.noexc218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i211), !noalias !741
   %79 = load ptr, ptr %ref.tmp35, align 8
   %digit.val96.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias align 8 %ref.tmp41, ptr nonnull %this, ptr %digit.val96.val, i32 noundef 0)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj.argprom.argprom"(ptr noalias align 8 %ref.tmp41, ptr nonnull %this, ptr %digit.val96.val, i32 noundef 0)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont37
@@ -23909,7 +23909,7 @@ lpad.i.i292:                                      ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont58:                                    ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i.i290
   %is_digit_.val89.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp59, ptr nonnull %this, ptr %is_digit_.val89.val, i32 noundef 0)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj.argprom.argprom"(ptr noalias align 8 %ref.tmp59, ptr nonnull %this, ptr %is_digit_.val89.val, i32 noundef 0)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont58
@@ -24529,7 +24529,7 @@ return.sink.split.i521:                           ; preds = %call.i.i.noexc537, 
 
 invoke.cont121:                                   ; preds = %return.sink.split.i521, %call.i.i.noexc537, %if.then.i533
   %is_digit_.val91.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp123, ptr nonnull %this, ptr %is_digit_.val91.val, i32 noundef %i.0974)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj.argprom.argprom"(ptr noalias align 8 %ref.tmp123, ptr nonnull %this, ptr %is_digit_.val91.val, i32 noundef %i.0974)
           to label %invoke.cont125 unwind label %lpad124
 
 invoke.cont125:                                   ; preds = %invoke.cont121
@@ -24642,7 +24642,7 @@ invoke.cont142:                                   ; preds = %.noexc584
 
 invoke.cont146:                                   ; preds = %invoke.cont142
   %digit.val98.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias align 8 %ref.tmp148, ptr nonnull %this, ptr %digit.val98.val, i32 noundef %i.0974)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj.argprom.argprom"(ptr noalias align 8 %ref.tmp148, ptr nonnull %this, ptr %digit.val98.val, i32 noundef %i.0974)
           to label %invoke.cont149 unwind label %lpad143
 
 invoke.cont149:                                   ; preds = %invoke.cont146
@@ -24959,7 +24959,7 @@ lpad.i.i698:                                      ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont171:                                   ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i.i696
   %is_digit_.val93.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp172, ptr nonnull %this, ptr %is_digit_.val93.val, i32 noundef %i.0974)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj.argprom.argprom"(ptr noalias align 8 %ref.tmp172, ptr nonnull %this, ptr %is_digit_.val93.val, i32 noundef %i.0974)
           to label %invoke.cont174 unwind label %lpad173
 
 invoke.cont174:                                   ; preds = %invoke.cont171
@@ -25470,7 +25470,7 @@ lpad.i.i901:                                      ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont229:                                   ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i.i899
   %is_digit_.val95.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp230, ptr nonnull %this, ptr %is_digit_.val95.val, i32 noundef %i.0974)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj.argprom.argprom"(ptr noalias align 8 %ref.tmp230, ptr nonnull %this, ptr %is_digit_.val95.val, i32 noundef %i.0974)
           to label %invoke.cont232 unwind label %lpad231
 
 invoke.cont232:                                   ; preds = %invoke.cont229
@@ -26073,7 +26073,7 @@ ehcleanup241:                                     ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr %this.8.val.0.val, i32 noundef %j) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj.argprom.argprom"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr %this.8.val.0.val, i32 noundef %j) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.addr.i.i.i = alloca ptr, align 8
   %es.i.i = alloca [2 x ptr], align 16
@@ -26167,7 +26167,7 @@ lpad:                                             ; preds = %_ZN3seq6axioms6mk_n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr %this.8.val.0.val, i32 noundef %j) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj.argprom.argprom"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr %this.8.val.0.val, i32 noundef %j) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %es.i.i = alloca [2 x ptr], align 16
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -41970,8 +41970,8 @@ attributes #23 = { builtin nounwind }
 !717 = distinct !{!717, !718, !"_ZcoRK7obj_refI4expr11ast_managerE: %agg.result"}
 !718 = distinct !{!718, !"_ZcoRK7obj_refI4expr11ast_managerE"}
 !719 = !{!720}
-!720 = distinct !{!720, !721, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!721 = distinct !{!721, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!720 = distinct !{!720, !721, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!721 = distinct !{!721, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !722 = !{!723, !720}
 !723 = distinct !{!723, !724, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !724 = distinct !{!724, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
@@ -41989,8 +41989,8 @@ attributes #23 = { builtin nounwind }
 !736 = distinct !{!736, !737, !"_ZcoRK7obj_refI4expr11ast_managerE: %agg.result"}
 !737 = distinct !{!737, !"_ZcoRK7obj_refI4expr11ast_managerE"}
 !738 = !{!739}
-!739 = distinct !{!739, !740, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!740 = distinct !{!740, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!739 = distinct !{!739, !740, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!740 = distinct !{!740, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !741 = !{!742, !739}
 !742 = distinct !{!742, !743, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !743 = distinct !{!743, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
@@ -42005,8 +42005,8 @@ attributes #23 = { builtin nounwind }
 !752 = distinct !{!752, !"_ZN3seq6axioms7mk_le_eEP4exprS2_"}
 !753 = !{!751, !748}
 !754 = !{!755}
-!755 = distinct !{!755, !756, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!756 = distinct !{!756, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!755 = distinct !{!755, !756, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!756 = distinct !{!756, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !757 = !{!758, !755}
 !758 = distinct !{!758, !759, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !759 = distinct !{!759, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
@@ -42024,14 +42024,14 @@ attributes #23 = { builtin nounwind }
 !771 = distinct !{!771, !772, !"_ZcoRK7obj_refI4expr11ast_managerE: %agg.result"}
 !772 = distinct !{!772, !"_ZcoRK7obj_refI4expr11ast_managerE"}
 !773 = !{!774}
-!774 = distinct !{!774, !775, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!775 = distinct !{!775, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!774 = distinct !{!774, !775, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!775 = distinct !{!775, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !776 = !{!777, !774}
 !777 = distinct !{!777, !778, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !778 = distinct !{!778, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
 !779 = !{!780}
-!780 = distinct !{!780, !781, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!781 = distinct !{!781, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!780 = distinct !{!780, !781, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!781 = distinct !{!781, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !782 = !{!783, !780}
 !783 = distinct !{!783, !784, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !784 = distinct !{!784, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
@@ -42046,8 +42046,8 @@ attributes #23 = { builtin nounwind }
 !793 = distinct !{!793, !"_ZN3seq6axioms7mk_le_eEP4exprS2_"}
 !794 = !{!792, !789}
 !795 = !{!796}
-!796 = distinct !{!796, !797, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!797 = distinct !{!797, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!796 = distinct !{!796, !797, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!797 = distinct !{!797, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !798 = !{!799, !796}
 !799 = distinct !{!799, !800, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !800 = distinct !{!800, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
@@ -42065,14 +42065,14 @@ attributes #23 = { builtin nounwind }
 !812 = distinct !{!812, !813, !"_ZcoRK7obj_refI4expr11ast_managerE: %agg.result"}
 !813 = distinct !{!813, !"_ZcoRK7obj_refI4expr11ast_managerE"}
 !814 = !{!815}
-!815 = distinct !{!815, !816, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!816 = distinct !{!816, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!815 = distinct !{!815, !816, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!816 = distinct !{!816, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !817 = !{!818, !815}
 !818 = distinct !{!818, !819, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !819 = distinct !{!819, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
 !820 = !{!821}
-!821 = distinct !{!821, !822, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!822 = distinct !{!822, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!821 = distinct !{!821, !822, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!822 = distinct !{!822, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !823 = !{!824, !821}
 !824 = distinct !{!824, !825, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !825 = distinct !{!825, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
@@ -42087,8 +42087,8 @@ attributes #23 = { builtin nounwind }
 !834 = distinct !{!834, !"_ZN3seq6axioms7mk_le_eEP4exprS2_"}
 !835 = !{!833, !830}
 !836 = !{!837}
-!837 = distinct !{!837, !838, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!838 = distinct !{!838, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!837 = distinct !{!837, !838, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!838 = distinct !{!838, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !839 = !{!840, !837}
 !840 = distinct !{!840, !841, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !841 = distinct !{!841, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
@@ -42103,8 +42103,8 @@ attributes #23 = { builtin nounwind }
 !850 = distinct !{!850, !"_ZN3seq6axioms7mk_le_eEP4exprS2_"}
 !851 = !{!849, !846}
 !852 = !{!853}
-!853 = distinct !{!853, !854, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!854 = distinct !{!854, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!853 = distinct !{!853, !854, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!854 = distinct !{!854, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !855 = !{!856, !853}
 !856 = distinct !{!856, !857, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !857 = distinct !{!857, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}
@@ -42116,8 +42116,8 @@ attributes #23 = { builtin nounwind }
 !863 = distinct !{!863, !"_ZN3seq6axioms7mk_ge_eEP4exprS2_"}
 !864 = !{!862, !859}
 !865 = !{!866}
-!866 = distinct !{!866, !867, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj: %agg.result"}
-!867 = distinct !{!867, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj"}
+!866 = distinct !{!866, !867, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom: %agg.result"}
+!867 = distinct !{!867, !"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_0clEj.argprom.argprom"}
 !868 = !{!869, !866}
 !869 = distinct !{!869, !870, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort: %agg.result"}
 !870 = distinct !{!870, !"_ZN3seq6skolem2mkEPKcP4exprS4_P4sort"}

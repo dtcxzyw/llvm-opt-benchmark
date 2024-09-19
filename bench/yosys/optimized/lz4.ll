@@ -757,7 +757,7 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343.thread: ; preds = %313
   %326 = trunc i64 %325 to i32
   %327 = and i32 %326, %41
   %328 = zext nneg i32 %327 to i64
-  br label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit
+  br label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit
 
 _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343: ; preds = %313
   %329 = trunc i64 %320 to i32
@@ -769,9 +769,9 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343: ; preds = %313
   %333 = trunc i64 %332 to i32
   %334 = and i32 %333, %41
   %335 = zext nneg i32 %334 to i64
-  br i1 %62, label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread, label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit
+  br i1 %62, label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread, label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit
 
-_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread: ; preds = %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343
+_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread: ; preds = %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343
   %336 = getelementptr inbounds i32, ptr %0, i64 %335
   %337 = load i32, ptr %336, align 4
   %338 = zext i32 %337 to i64
@@ -785,7 +785,7 @@ _ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread: ; preds = %_ZL15LZ4_putPo
   %341 = sub i64 %340, %48
   br label %349
 
-_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit:   ; preds = %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343.thread
+_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit: ; preds = %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343.thread
   %342 = phi i64 [ %328, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343.thread ], [ %335, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit343 ]
   %343 = getelementptr inbounds i16, ptr %0, i64 %342
   %344 = load i16, ptr %343, align 2
@@ -800,18 +800,18 @@ _ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit:   ; preds = %_ZL15LZ4_putPositio
   %348 = sub i64 %347, %48
   br i1 %35, label %354, label %349
 
-349:                                              ; preds = %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit
-  %350 = phi i64 [ %341, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread ], [ %348, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit ]
-  %.5361 = phi ptr [ %.5355, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread ], [ %.5, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit ]
-  %.4242359 = phi i64 [ %.4242354, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread ], [ %.4242, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit ]
-  %.0.i.i357 = phi ptr [ %.0.i.i351, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread ], [ %.0.i.i, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit ]
-  %351 = phi i64 [ %335, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread ], [ %342, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit ]
+349:                                              ; preds = %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit
+  %350 = phi i64 [ %341, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread ], [ %348, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit ]
+  %.5361 = phi ptr [ %.5355, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread ], [ %.5, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit ]
+  %.4242359 = phi i64 [ %.4242354, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread ], [ %.4242, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit ]
+  %.0.i.i357 = phi ptr [ %.0.i.i351, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread ], [ %.0.i.i, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit ]
+  %351 = phi i64 [ %335, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread ], [ %342, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit ]
   %352 = trunc i64 %350 to i32
   %353 = getelementptr inbounds i32, ptr %0, i64 %351
   store i32 %352, ptr %353, align 4
   br label %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit347
 
-354:                                              ; preds = %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit
+354:                                              ; preds = %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit
   %355 = trunc i64 %348 to i16
   store i16 %355, ptr %343, align 2
   br label %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit347
@@ -2450,22 +2450,22 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit212: ; preds = %180
   %193 = trunc i64 %192 to i32
   %194 = and i32 %193, %23
   %195 = zext nneg i32 %194 to i64
-  br i1 %37, label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread, label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit
+  br i1 %37, label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread, label %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit
 
-_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread: ; preds = %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit212
+_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread: ; preds = %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit212
   %196 = getelementptr inbounds i32, ptr %0, i64 %195
   %197 = load i32, ptr %196, align 4
   %198 = zext i32 %197 to i64
   br label %202
 
-_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit:   ; preds = %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit212
+_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit: ; preds = %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit212
   %199 = getelementptr inbounds i16, ptr %0, i64 %195
   %200 = load i16, ptr %199, align 2
   %201 = zext i16 %200 to i64
   br label %202
 
-202:                                              ; preds = %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread
-  %.pn238 = phi i64 [ %198, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit.thread ], [ %201, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.exit ]
+202:                                              ; preds = %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread
+  %.pn238 = phi i64 [ %198, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit.thread ], [ %201, %_ZL15LZ4_getPositionPKhPv11tableType_tS0_.argprom.exit ]
   %.pn237 = ptrtoint ptr %160 to i64
   %203 = sub i64 %.pn237, %38
   %204 = trunc i64 %203 to i32

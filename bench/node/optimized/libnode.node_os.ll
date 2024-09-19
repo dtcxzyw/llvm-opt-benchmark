@@ -2293,7 +2293,7 @@ do.body143:                                       ; preds = %do.body135
 do.end147:                                        ; preds = %do.body135
   %51 = load ptr, ptr %isolate_.i55, align 8
   %call153 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr nonnull %50) #15
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_2osL11GetUserInfoERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0ED2Ev.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_2osL11GetUserInfoERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0ED2Ev.argprom.exit"
 
 if.end157:                                        ; preds = %if.end129
   %52 = load ptr, ptr %isolate_.i55, align 8
@@ -2389,13 +2389,13 @@ if.else.i:                                        ; preds = %_ZNK2v85MaybeIbE5Ch
   %arrayidx.i = getelementptr inbounds i8, ptr %73, i64 24
   %74 = load i64, ptr %call160, align 8
   store i64 %74, ptr %arrayidx.i, align 8
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_2osL11GetUserInfoERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0ED2Ev.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_2osL11GetUserInfoERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0ED2Ev.argprom.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_2osL11GetUserInfoERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0ED2Ev.exit": ; preds = %if.else.i, %do.end147
+"_ZN4node16OnScopeLeaveImplIZNS_2osL11GetUserInfoERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0ED2Ev.argprom.exit": ; preds = %if.else.i, %do.end147
   call void @uv_os_free_passwd(ptr noundef nonnull %pwd) #15
   br label %cleanup.cont
 
-cleanup.cont:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit410, %"_ZN4node16OnScopeLeaveImplIZNS_2osL11GetUserInfoERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0ED2Ev.exit", %if.end.i
+cleanup.cont:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit410, %"_ZN4node16OnScopeLeaveImplIZNS_2osL11GetUserInfoERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0ED2Ev.argprom.exit", %if.end.i
   ret void
 }
 

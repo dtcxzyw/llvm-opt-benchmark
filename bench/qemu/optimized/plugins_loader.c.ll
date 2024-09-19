@@ -488,22 +488,22 @@ entry:
   br i1 %reset, label %for.body.us.us, label %for.body.us30
 
 for.body.us.us:                                   ; preds = %entry
-  br i1 %tobool2.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %lor.lhs.false.us.us
+  br i1 %tobool2.us.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %lor.lhs.false.us.us
 
 lor.lhs.false.us.us:                              ; preds = %for.body.us.us
   %resetting.us.us = getelementptr inbounds i8, ptr %call1.us.us, i64 114
   %3 = load i8, ptr %resetting.us.us, align 2
   %tobool4.us.us = trunc i8 %3 to i1
-  br i1 %tobool4.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.end
+  br i1 %tobool4.us.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.end
 
 for.body.us30:                                    ; preds = %entry
-  br i1 %tobool2.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %lor.lhs.false.us35
+  br i1 %tobool2.us.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %lor.lhs.false.us35
 
 lor.lhs.false.us35:                               ; preds = %for.body.us30
   %resetting6.us36 = getelementptr inbounds i8, ptr %call1.us.us, i64 114
   br label %for.end
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us30, %lor.lhs.false.us.us, %for.body.us.us
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body.us30, %lor.lhs.false.us.us, %for.body.us.us
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 147) #11
   br label %if.end20
 
@@ -532,7 +532,7 @@ if.else:                                          ; preds = %for.end
   tail call fastcc void @plugin_reset_destroy(ptr noundef nonnull %call11)
   br label %if.end20
 
-if.end20:                                         ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %if.else, %if.then18
+if.end20:                                         ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit, %if.else, %if.then18
   ret void
 }
 

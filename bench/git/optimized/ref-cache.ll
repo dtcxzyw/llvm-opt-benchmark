@@ -337,24 +337,24 @@ entry:
 if.end:                                           ; preds = %entry
   %entries = getelementptr inbounds i8, ptr %dir, i64 24
   %cmp.i = icmp ugt i32 %1, 1
-  br i1 %cmp.i, label %if.then.i, label %sane_qsort.exit
+  br i1 %cmp.i, label %if.then.i, label %sane_qsort.argprom.exit
 
 if.then.i:                                        ; preds = %if.end
   %conv = sext i32 %1 to i64
   %2 = load ptr, ptr %entries, align 8
   tail call void @qsort(ptr noundef %2, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @ref_entry_cmp) #12
   %.pre = load i32, ptr %dir, align 8
-  br label %sane_qsort.exit
+  br label %sane_qsort.argprom.exit
 
-sane_qsort.exit:                                  ; preds = %if.end, %if.then.i
+sane_qsort.argprom.exit:                          ; preds = %if.end, %if.then.i
   %3 = phi i32 [ %1, %if.end ], [ %.pre, %if.then.i ]
   %cmp320 = icmp sgt i32 %3, 0
   br i1 %cmp320, label %for.body, label %for.end
 
-for.body:                                         ; preds = %sane_qsort.exit, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sane_qsort.exit ]
-  %i.023 = phi i32 [ %i.1, %for.inc ], [ 0, %sane_qsort.exit ]
-  %last.022 = phi ptr [ %last.1, %for.inc ], [ null, %sane_qsort.exit ]
+for.body:                                         ; preds = %sane_qsort.argprom.exit, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sane_qsort.argprom.exit ]
+  %i.023 = phi i32 [ %i.1, %for.inc ], [ 0, %sane_qsort.argprom.exit ]
+  %last.022 = phi ptr [ %last.1, %for.inc ], [ null, %sane_qsort.argprom.exit ]
   %4 = load ptr, ptr %entries, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
@@ -448,8 +448,8 @@ for.inc:                                          ; preds = %if.then8, %if.else
   %cmp3 = icmp slt i64 %indvars.iv.next, %15
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !7
 
-for.end:                                          ; preds = %for.inc, %sane_qsort.exit
-  %i.0.lcssa = phi i32 [ 0, %sane_qsort.exit ], [ %i.1, %for.inc ]
+for.end:                                          ; preds = %for.inc, %sane_qsort.argprom.exit
+  %i.0.lcssa = phi i32 [ 0, %sane_qsort.argprom.exit ], [ %i.1, %for.inc ]
   store i32 %i.0.lcssa, ptr %dir, align 8
   store i32 %i.0.lcssa, ptr %sorted, align 8
   br label %return

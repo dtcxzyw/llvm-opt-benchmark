@@ -358,12 +358,12 @@ list_length.exit.i:                               ; preds = %196, %find_compatib
   %215 = trunc i8 %214 to i1
   %216 = load i8, ptr %7, align 1
   %217 = trunc i8 %216 to i1
-  br i1 %64, label %.preheader.i.i, label %find_compatible_trans.exit.thread.i
+  br i1 %64, label %.preheader.i.i, label %find_compatible_trans.argprom.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %211
   %218 = getelementptr inbounds i8, ptr %.2137.i, i64 4
   %.not.i123.i = icmp eq ptr %.2137.i, null
-  br i1 %.not.i123.i, label %find_compatible_trans.exit.thread.i, label %.lr.ph.i124.i
+  br i1 %.not.i123.i, label %find_compatible_trans.argprom.exit.thread.i, label %.lr.ph.i124.i
 
 .lr.ph.i124.i:                                    ; preds = %.preheader.i.i
   %219 = getelementptr inbounds i8, ptr %.2137.i, i64 16
@@ -373,7 +373,7 @@ list_length.exit.i:                               ; preds = %196, %find_compatib
   br i1 %217, label %.lr.ph.split.us.split.i.i, label %.lr.ph.split.split.i.i
 
 .lr.ph.split.us.split.i.i:                        ; preds = %.lr.ph.i124.i
-  br i1 %222, label %.lr.ph30.i.i, label %find_compatible_trans.exit.thread.i
+  br i1 %222, label %.lr.ph30.i.i, label %find_compatible_trans.argprom.exit.thread.i
 
 .lr.ph30.i.i:                                     ; preds = %.lr.ph.split.us.split.i.i
   %223 = load ptr, ptr %219, align 8
@@ -423,15 +423,15 @@ list_length.exit.i:                               ; preds = %196, %find_compatib
   %247 = getelementptr inbounds i8, ptr %231, i64 72
   %248 = load i8, ptr %247, align 8
   %249 = trunc i8 %248 to i1
-  br i1 %249, label %find_compatible_trans.exit.i, label %250
+  br i1 %249, label %find_compatible_trans.argprom.exit.i, label %250
 
 250:                                              ; preds = %246, %243, %240, %237, %234, %226
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next36.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %find_compatible_trans.exit.thread.i, label %226
+  br i1 %exitcond.not.i.i, label %find_compatible_trans.argprom.exit.thread.i, label %226
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.i124.i
-  br i1 %222, label %.lr.ph25.i.i, label %find_compatible_trans.exit.thread.i
+  br i1 %222, label %.lr.ph25.i.i, label %find_compatible_trans.argprom.exit.thread.i
 
 .lr.ph25.i.i:                                     ; preds = %.lr.ph.split.split.i.i, %281
   %251 = phi i32 [ %282, %281 ], [ %221, %.lr.ph.split.split.i.i ]
@@ -484,7 +484,7 @@ list_length.exit.i:                               ; preds = %196, %find_compatib
   %278 = getelementptr inbounds i8, ptr %259, i64 64
   %279 = load i64, ptr %278, align 8
   %280 = call zeroext i1 @datumIsEqual(i64 noundef %.0108.i, i64 noundef %279, i1 noundef zeroext %215, i32 noundef %213) #5
-  br i1 %280, label %find_compatible_trans.exit.i, label %._crit_edge.i.i
+  br i1 %280, label %find_compatible_trans.argprom.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %277
   %.pre.i.i = load i32, ptr %218, align 4
@@ -495,14 +495,14 @@ list_length.exit.i:                               ; preds = %196, %find_compatib
   %indvars.iv.next.i127.i = add nuw nsw i64 %indvars.iv.i125.i, 1
   %283 = sext i32 %282 to i64
   %284 = icmp slt i64 %indvars.iv.next.i127.i, %283
-  br i1 %284, label %.lr.ph25.i.i, label %find_compatible_trans.exit.thread.i
+  br i1 %284, label %.lr.ph25.i.i, label %find_compatible_trans.argprom.exit.thread.i
 
-find_compatible_trans.exit.i:                     ; preds = %277, %246
+find_compatible_trans.argprom.exit.i:             ; preds = %277, %246
   %.0.i122.i = phi i32 [ %228, %246 ], [ %254, %277 ]
   %285 = icmp eq i32 %.0.i122.i, -1
-  br i1 %285, label %find_compatible_trans.exit.thread.i, label %341
+  br i1 %285, label %find_compatible_trans.argprom.exit.thread.i, label %341
 
-find_compatible_trans.exit.thread.i:              ; preds = %281, %250, %find_compatible_trans.exit.i, %.lr.ph.split.split.i.i, %.lr.ph.split.us.split.i.i, %.preheader.i.i, %211
+find_compatible_trans.argprom.exit.thread.i:      ; preds = %281, %250, %find_compatible_trans.argprom.exit.i, %.lr.ph.split.split.i.i, %.lr.ph.split.us.split.i.i, %.preheader.i.i, %211
   %286 = call noundef ptr @palloc0(i64 noundef 80) #5
   store i32 312, ptr %286, align 4
   %287 = load ptr, ptr %49, align 8
@@ -545,13 +545,13 @@ find_compatible_trans.exit.thread.i:              ; preds = %281, %250, %find_co
   %.not.i128.i = icmp eq ptr %310, null
   br i1 %.not.i128.i, label %list_length.exit129.i, label %311
 
-311:                                              ; preds = %find_compatible_trans.exit.thread.i
+311:                                              ; preds = %find_compatible_trans.argprom.exit.thread.i
   %312 = getelementptr inbounds i8, ptr %310, i64 4
   %313 = load i32, ptr %312, align 4
   br label %list_length.exit129.i
 
-list_length.exit129.i:                            ; preds = %311, %find_compatible_trans.exit.thread.i
-  %314 = phi i32 [ %313, %311 ], [ 0, %find_compatible_trans.exit.thread.i ]
+list_length.exit129.i:                            ; preds = %311, %find_compatible_trans.argprom.exit.thread.i
+  %314 = phi i32 [ %313, %311 ], [ 0, %find_compatible_trans.argprom.exit.thread.i ]
   %315 = call ptr @lappend(ptr noundef %310, ptr noundef nonnull %286) #5
   store ptr %315, ptr %309, align 8
   %316 = getelementptr inbounds i8, ptr %1, i64 620
@@ -608,8 +608,8 @@ list_length.exit129.i:                            ; preds = %311, %find_compatib
   store i8 1, ptr %340, align 1
   br label %341
 
-341:                                              ; preds = %339, %337, %334, %322, %321, %list_length.exit129.i, %find_compatible_trans.exit.i
-  %.1.i = phi i32 [ %314, %list_length.exit129.i ], [ %314, %337 ], [ %314, %339 ], [ %314, %334 ], [ %314, %322 ], [ %314, %321 ], [ %.0.i122.i, %find_compatible_trans.exit.i ]
+341:                                              ; preds = %339, %337, %334, %322, %321, %list_length.exit129.i, %find_compatible_trans.argprom.exit.i
+  %.1.i = phi i32 [ %314, %list_length.exit129.i ], [ %314, %337 ], [ %314, %339 ], [ %314, %334 ], [ %314, %322 ], [ %314, %321 ], [ %.0.i122.i, %find_compatible_trans.argprom.exit.i ]
   %342 = getelementptr inbounds i8, ptr %189, i64 16
   store i32 %.1.i, ptr %342, align 8
   br label %preprocess_aggref.exit

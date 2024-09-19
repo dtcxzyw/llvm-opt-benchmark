@@ -178,7 +178,7 @@ define void @Abc_NtkRestrashRandom_rec(ptr noundef %0, ptr nocapture noundef %1)
   %.val3.i = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %5 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %6, align 8
   %7 = sext i32 %.val3.i to i64
@@ -194,7 +194,7 @@ define void @Abc_NtkRestrashRandom_rec(ptr noundef %0, ptr nocapture noundef %1)
   %.val25 = load i32, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %14 = add nsw i32 %.val25, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i27 = load ptr, ptr %15, align 8
   %16 = sext i32 %.val25 to i64
@@ -1335,7 +1335,7 @@ define void @Abc_NodeStrash_rec(ptr noundef %0, ptr nocapture noundef %1) local_
   %14 = ptrtoint ptr %.val15 to i64
   %15 = and i64 %14, -2
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %Hop_ObjChild0Copy.exit, label %16
+  br i1 %.not.i, label %Hop_ObjChild0Copy.argprom.exit, label %16
 
 16:                                               ; preds = %5
   %17 = inttoptr i64 %15 to ptr
@@ -1344,27 +1344,27 @@ define void @Abc_NodeStrash_rec(ptr noundef %0, ptr nocapture noundef %1) local_
   %20 = ptrtoint ptr %18 to i64
   %21 = xor i64 %19, %20
   %22 = inttoptr i64 %21 to ptr
-  br label %Hop_ObjChild0Copy.exit
+  br label %Hop_ObjChild0Copy.argprom.exit
 
-Hop_ObjChild0Copy.exit:                           ; preds = %5, %16
+Hop_ObjChild0Copy.argprom.exit:                   ; preds = %5, %16
   %23 = phi ptr [ %22, %16 ], [ null, %5 ]
   %.val16 = load ptr, ptr %10, align 8
   %24 = ptrtoint ptr %.val16 to i64
   %25 = and i64 %24, -2
   %.not.i17 = icmp eq i64 %25, 0
-  br i1 %.not.i17, label %Hop_ObjChild1Copy.exit, label %26
+  br i1 %.not.i17, label %Hop_ObjChild1Copy.argprom.exit, label %26
 
-26:                                               ; preds = %Hop_ObjChild0Copy.exit
+26:                                               ; preds = %Hop_ObjChild0Copy.argprom.exit
   %27 = inttoptr i64 %25 to ptr
   %28 = load ptr, ptr %27, align 8
   %29 = and i64 %24, 1
   %30 = ptrtoint ptr %28 to i64
   %31 = xor i64 %29, %30
   %32 = inttoptr i64 %31 to ptr
-  br label %Hop_ObjChild1Copy.exit
+  br label %Hop_ObjChild1Copy.argprom.exit
 
-Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %26
-  %33 = phi ptr [ %32, %26 ], [ null, %Hop_ObjChild0Copy.exit ]
+Hop_ObjChild1Copy.argprom.exit:                   ; preds = %Hop_ObjChild0Copy.argprom.exit, %26
+  %33 = phi ptr [ %32, %26 ], [ null, %Hop_ObjChild0Copy.argprom.exit ]
   %34 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %23, ptr noundef %33) #11
   store ptr %34, ptr %1, align 8
   %35 = load i32, ptr %3, align 8
@@ -1372,7 +1372,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
   store i32 %36, ptr %3, align 8
   br label %37
 
-37:                                               ; preds = %2, %Hop_ObjChild1Copy.exit
+37:                                               ; preds = %2, %Hop_ObjChild1Copy.argprom.exit
   ret void
 }
 
@@ -2309,17 +2309,17 @@ Vec_PtrFree.exit91:                               ; preds = %.critedge2, %186
   tail call void @free(ptr noundef nonnull %1) #11
   %187 = load i32, ptr %146, align 4
   %188 = icmp slt i32 %187, 2
-  br i1 %188, label %Vec_PtrUniqify.exit, label %Vec_PtrSort.exit.i
+  br i1 %188, label %Vec_PtrUniqify.argprom.exit, label %Vec_PtrSort.argprom.exit.i
 
-Vec_PtrSort.exit.i:                               ; preds = %Vec_PtrFree.exit91
+Vec_PtrSort.argprom.exit.i:                       ; preds = %Vec_PtrFree.exit91
   %189 = load ptr, ptr %152, align 8
   %190 = zext nneg i32 %187 to i64
   tail call void @qsort(ptr noundef %189, i64 noundef %190, i64 noundef 8, ptr noundef nonnull @Vec_CompareNodeIds) #11
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %Vec_PtrSort.exit.i, %199
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %199 ], [ 1, %Vec_PtrSort.exit.i ]
-  %.02.i = phi i32 [ %.1.i, %199 ], [ 1, %Vec_PtrSort.exit.i ]
+.lr.ph.i:                                         ; preds = %Vec_PtrSort.argprom.exit.i, %199
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %199 ], [ 1, %Vec_PtrSort.argprom.exit.i ]
+  %.02.i = phi i32 [ %.1.i, %199 ], [ 1, %Vec_PtrSort.argprom.exit.i ]
   %191 = getelementptr inbounds ptr, ptr %189, i64 %indvars.iv.i
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr i8, ptr %191, i64 -8
@@ -2342,9 +2342,9 @@ Vec_PtrSort.exit.i:                               ; preds = %Vec_PtrFree.exit91
 
 ._crit_edge.i:                                    ; preds = %199
   store i32 %.1.i, ptr %146, align 4
-  br label %Vec_PtrUniqify.exit
+  br label %Vec_PtrUniqify.argprom.exit
 
-Vec_PtrUniqify.exit:                              ; preds = %Vec_PtrFree.exit91, %._crit_edge.i
+Vec_PtrUniqify.argprom.exit:                      ; preds = %Vec_PtrFree.exit91, %._crit_edge.i
   ret ptr %144
 }
 
@@ -3325,7 +3325,7 @@ Vec_PtrFree.exit96:                               ; preds = %.critedge8, %114
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

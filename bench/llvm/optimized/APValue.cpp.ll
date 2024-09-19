@@ -6292,7 +6292,7 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
 
 207:                                              ; preds = %205
   %208 = call i8 @_ZN5clang15LinkageComputer12getLVForTypeERKNS_4TypeENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 16 dereferenceable(24) %179, i32 %2) #22
-  call fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_1clENS_11LinkageInfoE"(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 %208)
+  call fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_1clENS_11LinkageInfoE.retelim"(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 %208)
   br label %.loopexit
 
 209:                                              ; preds = %205
@@ -6335,7 +6335,7 @@ _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit: ; preds = %213
 _ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit: ; preds = %221, %224
   %229 = phi ptr [ %228, %224 ], [ null, %221 ]
   %230 = call i8 @_ZN5clang15LinkageComputer12getLVForDeclEPKNS_9NamedDeclENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %229, i32 %2) #22
-  call fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_1clENS_11LinkageInfoE"(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 %230)
+  call fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_1clENS_11LinkageInfoE.retelim"(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 %230)
   br label %.loopexit
 
 231:                                              ; preds = %3
@@ -6402,7 +6402,7 @@ _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_1clENS_11LinkageInfoE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i8 %1) unnamed_addr #12 align 2 {
+define internal fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_1clENS_11LinkageInfoE.retelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i8 %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = and i8 %1, 7
   %5 = load i8, ptr %3, align 1

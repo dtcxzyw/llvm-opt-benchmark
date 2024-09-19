@@ -365,9 +365,9 @@ if.end34.i.i.i:                                   ; preds = %do.body.i.i.i.i.i, 
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %state.val.i.i.i = load i64, ptr %precision19.i, align 8
   %cmp.not.i75.i.i.i = icmp eq i64 %state.val.i.i.i, 0
-  br i1 %cmp.not.i75.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i
+  br i1 %cmp.not.i75.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i: ; preds = %if.end34.i.i.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i: ; preds = %if.end34.i.i.i
   %state.val26.i.i.i = load ptr, ptr %conv20.i, align 8
   %flags_.i.i.i.i.i = getelementptr inbounds i8, ptr %state.val26.i.i.i, i64 1
   %29 = load i8, ptr %flags_.i.i.i.i.i, align 1
@@ -375,17 +375,17 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %and2.i.i.i.i.i.i = and i8 %.fr.i.i.i, 8
   %cmp.i.i.i.not.i.i.i = icmp eq i8 %and2.i.i.i.i.i.i, 0
   %dec.i.i.i = add i64 %sub.ptr.sub.i.i.i, -1
-  br i1 %cmp.i.i.i.not.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i
+  br i1 %cmp.i.i.i.not.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i, %if.end34.i.i.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i, %if.end34.i.i.i
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i
-  %30 = phi i64 [ %sub.ptr.sub.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i ], [ %dec.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i ]
+_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i
+  %30 = phi i64 [ %sub.ptr.sub.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i.i ], [ %dec.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i ]
   %sub.ptr.rhs.cast41.i.i.i = ptrtoint ptr %add.ptr3.i20.i.i to i64
   %sub.ptr.sub42.neg.i.i.i = sub i64 %sub.ptr.rhs.cast41.i.i.i, %sub.ptr.lhs.cast.i.i.i
   %sub43.i.i.i = add i64 %sub.ptr.sub42.neg.i.i.i, %state.val.i.i.i
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i, i64 %30, ptr nonnull %integral_digits_start.0.i.i.i, i64 noundef 0, i64 noundef %sub43.i.i.i, i64 0, ptr nonnull @.str.4)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_.argprom(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i, i64 %30, ptr nonnull %integral_digits_start.0.i.i.i, i64 noundef 0, i64 noundef %sub43.i.i.i, i64 0, ptr nonnull @.str.4)
   call void @llvm.lifetime.end.p0(i64 171, ptr nonnull %buffer.i.i.i)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FloatToSinkIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
@@ -901,7 +901,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatAINS_7uint128EEEvNS1_18HexFloa
   %add.ptr45.i.i = getelementptr inbounds i8, ptr %exp_buffer.i.i, i64 2
   %call46.i.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %cond43.i.i, ptr noundef nonnull %add.ptr45.i.i)
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %exp_buffer.i.i) #17
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp108.i, i64 %sub.ptr.sub.i94.i, ptr nonnull %digits_buffer.i.i, i64 noundef 2, i64 noundef %trailing_zeros.0.i.i, i64 %call.i.i.i.i, ptr nonnull %exp_buffer.i.i)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_.argprom(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp108.i, i64 %sub.ptr.sub.i94.i, ptr nonnull %digits_buffer.i.i, i64 noundef 2, i64 noundef %trailing_zeros.0.i.i, i64 %call.i.i.i.i, ptr nonnull %exp_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digits_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %exp_buffer.i.i)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FloatToSinkIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
@@ -928,7 +928,7 @@ if.end116.i:                                      ; preds = %if.end116.i.sink.sp
   %conv.val.i = load i8, ptr %87, align 1
   %88 = getelementptr inbounds i8, ptr %conv, i64 4
   %conv.val45.i = load i32, ptr %88, align 4
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteBufferToSinkEcSt17basic_string_viewIcSt11char_traitsIcEERKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %sign_char.0115.i, i64 %sub.ptr.sub.i, ptr %85, i8 %conv.val.i, i32 %conv.val45.i, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteBufferToSinkEcSt17basic_string_viewIcSt11char_traitsIcEERKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom(i8 noundef signext %sign_char.0115.i, i64 %sub.ptr.sub.i, ptr %85, i8 %conv.val.i, i32 %conv.val45.i, ptr noundef %sink)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FloatToSinkIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_111FloatToSinkIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIeEEbcT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit.i, %if.end10.i, %if.then2.i53.i, %if.then5.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i, %if.then29.i, %if.then50.i, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAINS_7uint128EEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit.i, %if.end116.i
@@ -1313,9 +1313,9 @@ if.end30.i.i:                                     ; preds = %do.body.i.i.i.i, %d
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %state.val.i.i = load i64, ptr %precision20, align 8
   %cmp.not.i54.i.i = icmp eq i64 %state.val.i.i, 0
-  br i1 %cmp.not.i54.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i
+  br i1 %cmp.not.i54.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i: ; preds = %if.end30.i.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i: ; preds = %if.end30.i.i
   %state.val31.i.i = load ptr, ptr %conv21, align 8
   %flags_.i.i.i.i = getelementptr inbounds i8, ptr %state.val31.i.i, i64 1
   %30 = load i8, ptr %flags_.i.i.i.i, align 1
@@ -1323,17 +1323,17 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %and2.i.i.i.i.i = and i8 %.fr.i.i, 8
   %cmp.i.i.i.not.i.i = icmp eq i8 %and2.i.i.i.i.i, 0
   %dec.i.i = add i64 %sub.ptr.sub.i.i, -1
-  br i1 %cmp.i.i.i.not.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i
+  br i1 %cmp.i.i.i.not.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i, %if.end30.i.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i, %if.end30.i.i
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i
-  %31 = phi i64 [ %sub.ptr.sub.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i ], [ %dec.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i ]
+_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i
+  %31 = phi i64 [ %sub.ptr.sub.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread.i.i ], [ %dec.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i ]
   %sub.ptr.rhs.cast37.i.i = ptrtoint ptr %add.ptr3.i15.i to i64
   %sub.ptr.sub38.neg.i.i = sub i64 %sub.ptr.rhs.cast37.i.i, %sub.ptr.lhs.cast.i.i
   %sub39.i.i = add i64 %sub.ptr.sub38.neg.i.i, %state.val.i.i
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp, i64 %31, ptr %integral_digits_start.0.i.i, i64 noundef 0, i64 noundef %sub39.i.i, i64 0, ptr nonnull @.str.4)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_.argprom(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp, i64 %31, ptr %integral_digits_start.0.i.i, i64 noundef 0, i64 noundef %sub39.i.i, i64 0, ptr nonnull @.str.4)
   call void @llvm.lifetime.end.p0(i64 171, ptr nonnull %buffer.i.i)
   br label %return
 
@@ -1713,7 +1713,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParams
   %add.ptr39.i = getelementptr inbounds i8, ptr %exp_buffer.i, i64 2
   %call40.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %cond37.i, ptr noundef nonnull %add.ptr39.i)
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %exp_buffer.i) #17
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp107, i64 %sub.ptr.sub.i100, ptr nonnull %digits_buffer.i, i64 noundef 2, i64 noundef %trailing_zeros.0.i, i64 %call.i.i.i, ptr nonnull %exp_buffer.i)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_.argprom(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp107, i64 %sub.ptr.sub.i100, ptr nonnull %digits_buffer.i, i64 noundef 2, i64 noundef %trailing_zeros.0.i, i64 %call.i.i.i, ptr nonnull %exp_buffer.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digits_buffer.i)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %exp_buffer.i)
   br label %return
@@ -1730,7 +1730,7 @@ if.end115:                                        ; preds = %_ZN4absl19str_forma
   %conv.val = load i8, ptr %75, align 1
   %76 = getelementptr inbounds i8, ptr %conv, i64 4
   %conv.val52 = load i32, ptr %76, align 4
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteBufferToSinkEcSt17basic_string_viewIcSt11char_traitsIcEERKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %sign_char.0121, i64 %sub.ptr.sub, ptr %73, i8 %conv.val, i32 %conv.val52, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteBufferToSinkEcSt17basic_string_viewIcSt11char_traitsIcEERKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom(i8 noundef signext %sign_char.0121, i64 %sub.ptr.sub, ptr %73, i8 %conv.val, i32 %conv.val52, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end10, %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i, %if.then4.i, %if.then2.i60, %_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit, %if.end115, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit, %if.then50, %if.then29
@@ -1977,22 +1977,22 @@ lor.lhs.false65.i:                                ; preds = %land.lhs.true.i
   %arrayidx.i67.i = getelementptr inbounds i8, ptr %buffer.val.i.pre110.i, i64 -1
   %17 = load i8, ptr %arrayidx.i67.i, align 1
   %cmp.i.i = icmp eq i8 %17, 46
-  br i1 %cmp.i.i, label %cond.true.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i
+  br i1 %cmp.i.i, label %cond.true.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i
 
 cond.true.i.i:                                    ; preds = %lor.lhs.false65.i
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %buffer.val.i.pre110.i, i64 -2
   %18 = load i8, ptr %arrayidx3.i.i, align 1
-  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i
+  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i: ; preds = %cond.true.i.i, %lor.lhs.false65.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i: ; preds = %cond.true.i.i, %lor.lhs.false65.i
   %cond.i.i = phi i8 [ %18, %cond.true.i.i ], [ %17, %lor.lhs.false65.i ]
   %conv67.i = sext i8 %cond.i.i to i32
   %19 = and i32 %conv67.i, -2147483647
   %cmp68.i = icmp eq i32 %19, 1
   br i1 %cmp68.i, label %if.then69.i, label %return
 
-if.then69.i:                                      ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %land.lhs.true.i, %for.end58.if.then69_crit_edge.i
-  %buffer.val.i.i = phi ptr [ %buffer.val.i.pre.i, %for.end58.if.then69_crit_edge.i ], [ %buffer.val.i.pre110.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ %buffer.val.i.pre110.i, %land.lhs.true.i ]
+if.then69.i:                                      ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i, %land.lhs.true.i, %for.end58.if.then69_crit_edge.i
+  %buffer.val.i.i = phi ptr [ %buffer.val.i.pre.i, %for.end58.if.then69_crit_edge.i ], [ %buffer.val.i.pre110.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i ], [ %buffer.val.i.pre110.i, %land.lhs.true.i ]
   %p.019.i.i = getelementptr inbounds i8, ptr %buffer.val.i.i, i64 -1
   %20 = load ptr, ptr %begin.i, align 8
   %cmp.not20.i.i = icmp ult ptr %p.019.i.i, %20
@@ -2267,22 +2267,22 @@ lor.lhs.false67.i:                                ; preds = %land.lhs.true.i21
   %arrayidx.i71.i = getelementptr inbounds i8, ptr %buffer.val.i.pre114.i, i64 -1
   %46 = load i8, ptr %arrayidx.i71.i, align 1
   %cmp.i.i39 = icmp eq i8 %46, 46
-  br i1 %cmp.i.i39, label %cond.true.i.i42, label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i40
+  br i1 %cmp.i.i39, label %cond.true.i.i42, label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i40
 
 cond.true.i.i42:                                  ; preds = %lor.lhs.false67.i
   %arrayidx3.i.i43 = getelementptr inbounds i8, ptr %buffer.val.i.pre114.i, i64 -2
   %47 = load i8, ptr %arrayidx3.i.i43, align 1
-  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i40
+  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i40
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i40: ; preds = %cond.true.i.i42, %lor.lhs.false67.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i40: ; preds = %cond.true.i.i42, %lor.lhs.false67.i
   %cond.i.i41 = phi i8 [ %47, %cond.true.i.i42 ], [ %46, %lor.lhs.false67.i ]
   %conv69.i = sext i8 %cond.i.i41 to i32
   %48 = and i32 %conv69.i, -2147483647
   %cmp70.i = icmp eq i32 %48, 1
   br i1 %cmp70.i, label %if.then71.i, label %return
 
-if.then71.i:                                      ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i40, %land.lhs.true.i21, %for.end60.if.then71_crit_edge.i
-  %buffer.val.i.i22 = phi ptr [ %buffer.val.i.pre.i44, %for.end60.if.then71_crit_edge.i ], [ %buffer.val.i.pre114.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i40 ], [ %buffer.val.i.pre114.i, %land.lhs.true.i21 ]
+if.then71.i:                                      ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i40, %land.lhs.true.i21, %for.end60.if.then71_crit_edge.i
+  %buffer.val.i.i22 = phi ptr [ %buffer.val.i.pre.i44, %for.end60.if.then71_crit_edge.i ], [ %buffer.val.i.pre114.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i40 ], [ %buffer.val.i.pre114.i, %land.lhs.true.i21 ]
   %p.019.i.i23 = getelementptr inbounds i8, ptr %buffer.val.i.i22, i64 -1
   %49 = load ptr, ptr %begin.i, align 8
   %cmp.not20.i.i24 = icmp ult ptr %p.019.i.i23, %49
@@ -2331,8 +2331,8 @@ if.else.i.i37:                                    ; preds = %land.rhs.i.i25
   store i8 %inc11.i.i38, ptr %p.021.i.i26, align 1
   br label %return
 
-return:                                           ; preds = %for.body.i65, %for.body.i, %if.end10.i, %if.else.i.i, %if.then8.i.i, %lor.lhs.false.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %if.then42.i, %if.then7.i, %if.else.i.i37, %if.then8.i.i30, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i40, %lor.lhs.false.i19, %if.then44.i, %if.end15.i, %if.end11.i, %if.then8.i, %if.then.i49, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then8.i ], [ true, %if.then44.i ], [ false, %if.then.i49 ], [ false, %if.end15.i ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i40 ], [ true, %lor.lhs.false.i19 ], [ true, %if.then8.i.i30 ], [ true, %if.else.i.i37 ], [ true, %if.end11.i ], [ true, %if.then7.i ], [ true, %if.then42.i ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %lor.lhs.false.i ], [ true, %if.then8.i.i ], [ true, %if.else.i.i ], [ true, %if.end10.i ], [ true, %for.body.i ], [ true, %for.body.i65 ]
+return:                                           ; preds = %for.body.i65, %for.body.i, %if.end10.i, %if.else.i.i, %if.then8.i.i, %lor.lhs.false.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i, %if.then42.i, %if.then7.i, %if.else.i.i37, %if.then8.i.i30, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i40, %lor.lhs.false.i19, %if.then44.i, %if.end15.i, %if.end11.i, %if.then8.i, %if.then.i49, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then8.i ], [ true, %if.then44.i ], [ false, %if.then.i49 ], [ false, %if.end15.i ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i40 ], [ true, %lor.lhs.false.i19 ], [ true, %if.then8.i.i30 ], [ true, %if.else.i.i37 ], [ true, %if.end11.i ], [ true, %if.then7.i ], [ true, %if.then42.i ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i ], [ true, %lor.lhs.false.i ], [ true, %if.then8.i.i ], [ true, %if.else.i.i ], [ true, %if.end10.i ], [ true, %for.body.i ], [ true, %for.body.i65 ]
   ret i1 %retval.0
 }
 
@@ -2566,7 +2566,7 @@ if.end16:                                         ; preds = %if.else9, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteBufferToSinkEcSt17basic_string_viewIcSt11char_traitsIcEERKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext range(i8 0, 46) %sign_char, i64 %str.coerce0, ptr %str.coerce1, i8 %conv.1.val, i32 %conv.4.val, ptr noundef %sink) unnamed_addr #0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteBufferToSinkEcSt17basic_string_viewIcSt11char_traitsIcEERKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom(i8 noundef signext range(i8 0, 46) %sign_char, i64 %str.coerce0, ptr %str.coerce1, i8 %conv.1.val, i32 %conv.4.val, ptr noundef %sink) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %conv.4.val, -1
   br i1 %cmp, label %if.then, label %if.end9
@@ -2952,13 +2952,13 @@ entry:
   %1 = getelementptr inbounds i8, ptr %state, i64 16
   %state.val15 = load ptr, ptr %1, align 8
   %cmp.not.i = icmp eq i64 %state.val, 0
-  br i1 %cmp.not.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread
+  br i1 %cmp.not.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread: ; preds = %entry
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread: ; preds = %entry
   %2 = add i64 %state.val, 2
   br label %4
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit: ; preds = %entry
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit: ; preds = %entry
   %flags_.i.i = getelementptr inbounds i8, ptr %state.val15, i64 1
   %3 = load i8, ptr %flags_.i.i, align 1
   %.fr = freeze i8 %3
@@ -2967,8 +2967,8 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %spec.select = select i1 %cmp.i.i.i.not, i64 1, i64 2
   br label %4
 
-4:                                                ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread
-  %5 = phi i64 [ %2, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread ], [ %spec.select, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit ]
+4:                                                ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread
+  %5 = phi i64 [ %2, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.thread ], [ %spec.select, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit ]
   %6 = load i8, ptr %state, align 8
   %tobool.not = icmp ne i8 %6, 0
   %conv = zext i1 %tobool.not to i64
@@ -2976,12 +2976,12 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %width_.i.i = getelementptr inbounds i8, ptr %state.val15, i64 4
   %7 = load i32, ptr %width_.i.i, align 4, !noalias !35
   %cmp.i = icmp slt i32 %7, 0
-  br i1 %cmp.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread, label %lor.lhs.false.i
+  br i1 %cmp.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %4
   %conv3.i = zext nneg i32 %7 to i64
   %cmp4.not.i = icmp ult i64 %add3, %conv3.i
-  br i1 %cmp4.not.i, label %if.end.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread
+  br i1 %cmp4.not.i, label %if.end.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %sub.i = sub nuw nsw i64 %conv3.i, %add3
@@ -2989,21 +2989,21 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %8 = load i8, ptr %flags_.i.i19, align 1, !noalias !35
   %and2.i.i.i20 = and i8 %8, 1
   %cmp.i.i.not.i = icmp eq i8 %and2.i.i.i20, 0
-  br i1 %cmp.i.i.not.i, label %if.else.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread
+  br i1 %cmp.i.i.not.i, label %if.else.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread
 
 if.else.i:                                        ; preds = %if.end.i
   %and2.i.i11.i = and i8 %8, 16
   %cmp.i.i12.not.i = icmp eq i8 %and2.i.i11.i, 0
-  br i1 %cmp.i.i12.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread
+  br i1 %cmp.i.i12.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread
 
-_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread: ; preds = %lor.lhs.false.i, %4, %if.end.i, %if.else.i
+_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread: ; preds = %lor.lhs.false.i, %4, %if.end.i, %if.else.i
   %padding.sroa.10.0.ph = phi i64 [ 0, %if.else.i ], [ %sub.i, %if.end.i ], [ 0, %4 ], [ 0, %lor.lhs.false.i ]
   %padding.sroa.5.0.ph = phi i64 [ %sub.i, %if.else.i ], [ 0, %if.end.i ], [ 0, %4 ], [ 0, %lor.lhs.false.i ]
   %add4192 = add nuw nsw i64 %padding.sroa.5.0.ph, 1
   %sink193 = getelementptr inbounds i8, ptr %state, i64 24
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit: ; preds = %if.else.i
+_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit: ; preds = %if.else.i
   %sink = getelementptr inbounds i8, ptr %state, i64 24
   %9 = load ptr, ptr %sink, align 8
   %size_.i = getelementptr inbounds i8, ptr %9, i64 16
@@ -3019,7 +3019,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11Format
   %cmp233.i = icmp ugt i64 %sub.i, %sub.ptr.sub.i32.i
   br i1 %cmp233.i, label %while.body.lr.ph.i, label %while.end.i
 
-while.body.lr.ph.i:                               ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit
+while.body.lr.ph.i:                               ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit
   %buf_.i.i = getelementptr inbounds i8, ptr %9, i64 32
   %sub.ptr.rhs.cast.i24.i = ptrtoint ptr %buf_.i.i to i64
   %write_.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -3051,9 +3051,9 @@ if.end8.i:                                        ; preds = %if.then6.i, %while.
   %cmp2.i = icmp ugt i64 %sub.i23, 1024
   br i1 %cmp2.i, label %while.body.i, label %while.end.i, !llvm.loop !34
 
-while.end.i:                                      ; preds = %if.end8.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit
-  %n.addr.0.lcssa.i = phi i64 [ %sub.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit ], [ %sub.i23, %if.end8.i ]
-  %.lcssa.i = phi ptr [ %11, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit ], [ %buf_.i.i, %if.end8.i ]
+while.end.i:                                      ; preds = %if.end8.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit
+  %n.addr.0.lcssa.i = phi i64 [ %sub.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit ], [ %sub.i23, %if.end8.i ]
+  %.lcssa.i = phi ptr [ %11, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit ], [ %buf_.i.i, %if.end8.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i, i8 32, i64 %n.addr.0.lcssa.i, i1 false)
   %16 = load ptr, ptr %pos_.i.i, align 8
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %16, i64 %n.addr.0.lcssa.i
@@ -3061,11 +3061,11 @@ while.end.i:                                      ; preds = %if.end8.i, %_ZN4abs
   %.pre = load i8, ptr %state, align 8
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread, %while.end.i
-  %17 = phi i8 [ %6, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ %.pre, %while.end.i ]
-  %sink197 = phi ptr [ %sink193, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ %sink, %while.end.i ]
-  %add4196 = phi i64 [ %add4192, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 1, %while.end.i ]
-  %padding.sroa.10.0195 = phi i64 [ %padding.sroa.10.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %while.end.i ]
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread, %while.end.i
+  %17 = phi i8 [ %6, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread ], [ %.pre, %while.end.i ]
+  %sink197 = phi ptr [ %sink193, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread ], [ %sink, %while.end.i ]
+  %add4196 = phi i64 [ %add4192, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread ], [ 1, %while.end.i ]
+  %padding.sroa.10.0195 = phi i64 [ %padding.sroa.10.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread ], [ 0, %while.end.i ]
   %cmp.not = icmp eq i8 %17, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3154,9 +3154,9 @@ while.end.i64:                                    ; preds = %if.end8.i80, %if.en
   store ptr %add.ptr.i27.i67, ptr %pos_.i.i59, align 8
   %state.val16 = load i64, ptr %0, align 8
   %cmp.not.i85 = icmp eq i64 %state.val16, 0
-  br i1 %cmp.not.i85, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit90, label %if.then12
+  br i1 %cmp.not.i85, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit90, label %if.then12
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit90: ; preds = %while.end.i64
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit90: ; preds = %while.end.i64
   %state.val17 = load ptr, ptr %1, align 8
   %flags_.i.i87 = getelementptr inbounds i8, ptr %state.val17, i64 1
   %32 = load i8, ptr %flags_.i.i87, align 1
@@ -3164,7 +3164,7 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %cmp.i.i.i89.not = icmp eq i8 %and2.i.i.i88, 0
   br i1 %cmp.i.i.i89.not, label %if.end14, label %if.then12
 
-if.then12:                                        ; preds = %while.end.i64, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit90
+if.then12:                                        ; preds = %while.end.i64, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit90
   %33 = load ptr, ptr %sink197, align 8
   %size_.i92 = getelementptr inbounds i8, ptr %33, i64 16
   %34 = load i64, ptr %size_.i92, align 8
@@ -3194,8 +3194,8 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit120: ; preds = %if.e
   %.pre198 = load i64, ptr %0, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit120, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit90
-  %39 = phi i64 [ %.pre198, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit120 ], [ 0, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit90 ]
+if.end14:                                         ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit120, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit90
+  %39 = phi i64 [ %.pre198, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit120 ], [ 0, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit90 ]
   store i64 %39, ptr %digits_to_go, align 8
   store ptr %state, ptr %ref.tmp, align 8
   %40 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -3916,7 +3916,7 @@ while.end.i.i.i.i.i:                              ; preds = %for.end31.i.i.i.i.i
   %inc44.i.i.i.i.i = phi i64 [ %5, %while.cond.preheader.i.while.end.i_crit_edge.i.i.i.i ], [ %dec38.i3.i.i.i.i, %for.end31.i.i.i.i.i ]
   store i64 %inc44.i.i.i.i.i, ptr %agg.tmp.i.i.i.i, align 8
   %cmp47.not51.i.i.i.i.i = icmp eq i32 %9, 0
-  br i1 %cmp47.not51.i.i.i.i.i, label %_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit, label %for.body48.lr.ph.i.i.i.i.i
+  br i1 %cmp47.not51.i.i.i.i.i, label %_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.exit, label %for.body48.lr.ph.i.i.i.i.i
 
 for.body48.lr.ph.i.i.i.i.i:                       ; preds = %while.end.i.i.i.i.i
   %digits_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
@@ -3935,9 +3935,9 @@ for.body48.i.i.i.i.i:                             ; preds = %for.body48.i.i.i.i.
   store i8 %conv51.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
   %div56.i.i.i.i.i = udiv i32 %first.052.i.i.i.i.i, 10
   %cmp47.not.i.i.i.i.i = icmp ult i32 %first.052.i.i.i.i.i, 10
-  br i1 %cmp47.not.i.i.i.i.i, label %_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit, label %for.body48.i.i.i.i.i, !llvm.loop !43
+  br i1 %cmp47.not.i.i.i.i.i, label %_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.exit, label %for.body48.i.i.i.i.i, !llvm.loop !43
 
-_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit: ; preds = %for.body48.i.i.i.i.i, %while.end.i.i.i.i.i
+_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.exit: ; preds = %for.body48.i.i.i.i.i, %while.end.i.i.i.i.i
   %this.val.i.i.i.i = load ptr, ptr %ptr.coerce, align 8
   %12 = getelementptr inbounds i8, ptr %ptr.coerce, i64 8
   %this.val1.i.i.i.i = load ptr, ptr %12, align 8
@@ -3969,21 +3969,21 @@ entry:
   %5 = getelementptr i8, ptr %3, i64 16
   %.val1.i.i.i.i = load ptr, ptr %5, align 8
   %cmp.not.i.i.i.i.i = icmp eq i64 %.val.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i.i, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i.i, label %cond.true.i.i.i.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i.i: ; preds = %entry
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i.i: ; preds = %entry
   %flags_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 1
   %6 = load i8, ptr %flags_.i.i.i.i.i.i, align 1
   %and2.i.i.i.i.i.i.i = and i8 %6, 8
   %cmp.i.i.i.not.i.i.i.i = icmp eq i8 %and2.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.not.i.i.i.i, label %cond.end.i.i.i.i, label %cond.true.i.i.i.i
 
-cond.true.i.i.i.i:                                ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i.i, %entry
+cond.true.i.i.i.i:                                ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i.i, %entry
   %add.i.i.i.i = add i64 %.val.i.i.i.i, 1
   br label %cond.end.i.i.i.i
 
-cond.end.i.i.i.i:                                 ; preds = %cond.true.i.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i.i
-  %cond.i.i.i.i = phi i64 [ %add.i.i.i.i, %cond.true.i.i.i.i ], [ 0, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i.i ]
+cond.end.i.i.i.i:                                 ; preds = %cond.true.i.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i.i
+  %cond.i.i.i.i = phi i64 [ %add.i.i.i.i, %cond.true.i.i.i.i ], [ 0, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit.i.i.i.i ]
   %add3.i.i.i.i = add i64 %add.i.i.i.i.i, %cond.i.i.i.i
   %7 = load i8, ptr %3, align 8
   %cmp.not.i.i.i.i = icmp ne i8 %7, 0
@@ -4010,9 +4010,9 @@ if.end.i.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %and2.i.i11.i.i.i.i.i = and i8 %9, 16
   %cmp.i.i12.not.i.i.i.i.i = icmp eq i8 %and2.i.i11.i.i.i.i.i, 0
-  br i1 %cmp.i.i12.not.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.i.i.i.i, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i
+  br i1 %cmp.i.i12.not.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.i.i.i.i, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i
   %sink.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %10 = load ptr, ptr %sink.i.i.i.i, align 8
   %size_.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
@@ -4028,7 +4028,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11Format
   %cmp233.i.i.i.i.i = icmp ugt i64 %sub.i5.i.i.i.i, %sub.ptr.sub.i32.i.i.i.i.i
   br i1 %cmp233.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %while.end.i.i.i.i.i
 
-while.body.lr.ph.i.i.i.i.i:                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.i.i.i.i
+while.body.lr.ph.i.i.i.i.i:                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.i.i.i.i
   %buf_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %sub.ptr.rhs.cast.i24.i.i.i.i.i = ptrtoint ptr %buf_.i.i.i.i.i.i to i64
   %write_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
@@ -4060,9 +4060,9 @@ if.end8.i.i.i.i.i:                                ; preds = %if.then6.i.i.i.i.i,
   %cmp2.i.i.i.i.i = icmp ugt i64 %sub.i11.i.i.i.i, 1024
   br i1 %cmp2.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i, !llvm.loop !34
 
-while.end.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.i.i.i.i
-  %n.addr.0.lcssa.i.i.i.i.i = phi i64 [ %sub.i5.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.i.i.i.i ], [ %sub.i11.i.i.i.i, %if.end8.i.i.i.i.i ]
-  %.lcssa.i.i.i.i.i = phi ptr [ %12, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.i.i.i.i ], [ %buf_.i.i.i.i.i.i, %if.end8.i.i.i.i.i ]
+while.end.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.i.i.i.i
+  %n.addr.0.lcssa.i.i.i.i.i = phi i64 [ %sub.i5.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.i.i.i.i ], [ %sub.i11.i.i.i.i, %if.end8.i.i.i.i.i ]
+  %.lcssa.i.i.i.i.i = phi ptr [ %12, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.i.i.i.i ], [ %buf_.i.i.i.i.i.i, %if.end8.i.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i.i.i.i.i, i8 32, i64 %n.addr.0.lcssa.i.i.i.i.i, i1 false)
   %17 = load ptr, ptr %pos_.i.i.i.i.i.i, align 8
   %add.ptr.i27.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 %n.addr.0.lcssa.i.i.i.i.i
@@ -4260,9 +4260,9 @@ do.end.i.i.i.i:                                   ; preds = %_ZN4absl19str_forma
   %52 = getelementptr i8, ptr %51, i64 8
   %.val2.i.i.i.i = load i64, ptr %52, align 8
   %cmp.not.i89.i.i.i.i = icmp eq i64 %.val2.i.i.i.i, 0
-  br i1 %cmp.not.i89.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit94.i.i.i.i, label %if.then17.i.i.i.i
+  br i1 %cmp.not.i89.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit94.i.i.i.i, label %if.then17.i.i.i.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit94.i.i.i.i: ; preds = %do.end.i.i.i.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit94.i.i.i.i: ; preds = %do.end.i.i.i.i
   %53 = getelementptr i8, ptr %51, i64 16
   %.val3.i.i.i.i = load ptr, ptr %53, align 8
   %flags_.i.i91.i.i.i.i = getelementptr inbounds i8, ptr %.val3.i.i.i.i, i64 1
@@ -4271,7 +4271,7 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %cmp.i.i.i93.not.i.i.i.i = icmp eq i8 %and2.i.i.i92.i.i.i.i, 0
   br i1 %cmp.i.i.i93.not.i.i.i.i, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit155.sink.split.i.i.i.i, label %if.then17.i.i.i.i
 
-if.then17.i.i.i.i:                                ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit94.i.i.i.i, %do.end.i.i.i.i
+if.then17.i.i.i.i:                                ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit94.i.i.i.i, %do.end.i.i.i.i
   %sink18.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 24
   %55 = load ptr, ptr %sink18.i.i.i.i, align 8
   %size_.i96.i.i.i.i = getelementptr inbounds i8, ptr %55, i64 16
@@ -4363,8 +4363,8 @@ while.end.i135.i.i.i.i:                           ; preds = %if.end8.i151.i.i.i.
   %.pre201.i.i.i.i = load ptr, ptr %ptr.coerce, align 8
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit155.sink.split.i.i.i.i
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit155.sink.split.i.i.i.i: ; preds = %while.end.i135.i.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit94.i.i.i.i
-  %.sink.i.i.i.i = phi ptr [ %.pre201.i.i.i.i, %while.end.i135.i.i.i.i ], [ %51, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit94.i.i.i.i ]
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit155.sink.split.i.i.i.i: ; preds = %while.end.i135.i.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit94.i.i.i.i
+  %.sink.i.i.i.i = phi ptr [ %.pre201.i.i.i.i, %while.end.i135.i.i.i.i ], [ %51, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.argprom.exit94.i.i.i.i ]
   %sink20203.i.i.i.i = getelementptr inbounds i8, ptr %.sink.i.i.i.i, i64 24
   %69 = load ptr, ptr %sink20203.i.i.i.i, align 8
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit155.i.i.i.i
@@ -4652,15 +4652,15 @@ if.else.i.i.i.i:                                  ; preds = %_ZN4absl19str_forma
   %cmp14.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %13
   %cmp.i44.i.i.i.i = icmp sgt i8 %digit_gen.val9.i.i.i.i, 5
   %or.cond.i.i.i.i = select i1 %cmp14.i.i.i.i, i1 true, i1 %cmp.i44.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %if.then30.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.exit.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %if.then30.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.argprom.exit.i.i.i.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.argprom.exit.i.i.i.i: ; preds = %if.else.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i8 %digit_gen.val9.i.i.i.i, 5
   %tobool.i45.i.i.i.i = icmp ne i64 %digit_gen.val10.i.i.i.i, 0
   %spec.select.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i, i1 %tobool.i45.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i, label %if.then30.i.i.i.i, label %if.else19.i.i.i.i
 
-if.else19.i.i.i.i:                                ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.exit.i.i.i.i
+if.else19.i.i.i.i:                                ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.argprom.exit.i.i.i.i
   %tobool.not.i.i.i.i.i = icmp eq i64 %digit_gen.val10.i.i.i.i, 0
   %34 = select i1 %cmp4.i.i.i.i.i, i1 %tobool.not.i.i.i.i.i, i1 false
   br i1 %34, label %if.then21.i.i.i.i, label %if.else36.i.i.i.i
@@ -4673,7 +4673,7 @@ if.then21.i.i.i.i:                                ; preds = %if.else19.i.i.i.i
   %frombool.i.i.i.i = or i1 %cmp26.i.i.i.i, %cmp23.not.i.i.i.i
   br i1 %frombool.i.i.i.i, label %if.then30.i.i.i.i, label %if.else36.i.i.i.i
 
-if.then30.i.i.i.i:                                ; preds = %if.then21.i.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.exit.i.i.i.i, %if.else.i.i.i.i
+if.then30.i.i.i.i:                                ; preds = %if.then21.i.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.argprom.exit.i.i.i.i, %if.else.i.i.i.i
   %36 = load ptr, ptr %ptr.coerce, align 8
   %sink31.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load ptr, ptr %sink31.i.i.i.i, align 8
@@ -4952,7 +4952,7 @@ return:                                           ; preds = %while.body10, %retu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %state, i64 %data.coerce0, ptr %data.coerce1, i64 noundef range(i64 0, 3) %padding_offset, i64 noundef %trailing_zeros, i64 %data_postfix.0.val, ptr %data_postfix.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %state, i64 %data.coerce0, ptr %data.coerce1, i64 noundef range(i64 0, 3) %padding_offset, i64 noundef %trailing_zeros, i64 %data_postfix.0.val, ptr %data_postfix.8.val) unnamed_addr #0 {
 entry:
   %conv = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load ptr, ptr %conv, align 8
@@ -5146,7 +5146,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %add17 = add i64 %add16, %conv13
   %conv3.i = zext nneg i32 %1 to i64
   %cmp4.not.i = icmp ult i64 %add17, %conv3.i
-  br i1 %cmp4.not.i, label %if.end.i78, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread
+  br i1 %cmp4.not.i, label %if.end.i78, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread
 
 if.end.i78:                                       ; preds = %lor.lhs.false.i
   %sub.i79 = sub nuw nsw i64 %conv3.i, %add17
@@ -5154,20 +5154,20 @@ if.end.i78:                                       ; preds = %lor.lhs.false.i
   %33 = load i8, ptr %flags_.i.i, align 1, !noalias !54
   %and2.i.i.i = and i8 %33, 1
   %cmp.i.i.not.i = icmp eq i8 %and2.i.i.i, 0
-  br i1 %cmp.i.i.not.i, label %if.else.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread
+  br i1 %cmp.i.i.not.i, label %if.else.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread
 
 if.else.i:                                        ; preds = %if.end.i78
   %and2.i.i11.i = and i8 %33, 16
   %cmp.i.i12.not.i = icmp eq i8 %and2.i.i11.i, 0
-  br i1 %cmp.i.i12.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread
+  br i1 %cmp.i.i12.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread
 
-_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread: ; preds = %lor.lhs.false.i, %if.end.i78, %if.else.i
+_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread: ; preds = %lor.lhs.false.i, %if.end.i78, %if.else.i
   %padding.sroa.5.0.ph = phi i64 [ %sub.i79, %if.else.i ], [ 0, %if.end.i78 ], [ 0, %lor.lhs.false.i ]
   %padding.sroa.8.0.ph = phi i64 [ 0, %if.else.i ], [ %sub.i79, %if.end.i78 ], [ 0, %lor.lhs.false.i ]
   %sink1811 = getelementptr inbounds i8, ptr %state, i64 24
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit110
 
-_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit: ; preds = %if.else.i
+_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit: ; preds = %if.else.i
   %sink18 = getelementptr inbounds i8, ptr %state, i64 24
   %34 = load ptr, ptr %sink18, align 8
   %size_.i82 = getelementptr inbounds i8, ptr %34, i64 16
@@ -5183,7 +5183,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11Format
   %cmp233.i89 = icmp ugt i64 %sub.i79, %sub.ptr.sub.i32.i88
   br i1 %cmp233.i89, label %while.body.lr.ph.i94, label %while.end.i90
 
-while.body.lr.ph.i94:                             ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit
+while.body.lr.ph.i94:                             ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit
   %buf_.i.i95 = getelementptr inbounds i8, ptr %34, i64 32
   %sub.ptr.rhs.cast.i24.i96 = ptrtoint ptr %buf_.i.i95 to i64
   %write_.i.i.i97 = getelementptr inbounds i8, ptr %34, i64 8
@@ -5215,9 +5215,9 @@ if.end8.i106:                                     ; preds = %if.then6.i103, %whi
   %cmp2.i109 = icmp ugt i64 %sub.i101, 1024
   br i1 %cmp2.i109, label %while.body.i98, label %while.end.i90, !llvm.loop !34
 
-while.end.i90:                                    ; preds = %if.end8.i106, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit
-  %n.addr.0.lcssa.i91 = phi i64 [ %sub.i79, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit ], [ %sub.i101, %if.end8.i106 ]
-  %.lcssa.i92 = phi ptr [ %36, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit ], [ %buf_.i.i95, %if.end8.i106 ]
+while.end.i90:                                    ; preds = %if.end8.i106, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit
+  %n.addr.0.lcssa.i91 = phi i64 [ %sub.i79, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit ], [ %sub.i101, %if.end8.i106 ]
+  %.lcssa.i92 = phi ptr [ %36, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit ], [ %buf_.i.i95, %if.end8.i106 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i92, i8 32, i64 %n.addr.0.lcssa.i91, i1 false)
   %41 = load ptr, ptr %pos_.i.i85, align 8
   %add.ptr.i27.i93 = getelementptr inbounds i8, ptr %41, i64 %n.addr.0.lcssa.i91
@@ -5225,11 +5225,11 @@ while.end.i90:                                    ; preds = %if.end8.i106, %_ZN4
   %.pre = load i8, ptr %state, align 8
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit110
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit110: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread, %while.end.i90
-  %42 = phi i8 [ %2, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ %.pre, %while.end.i90 ]
-  %sink1815 = phi ptr [ %sink1811, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ %sink18, %while.end.i90 ]
-  %padding.sroa.8.014 = phi i64 [ %padding.sroa.8.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %while.end.i90 ]
-  %padding.sroa.5.013 = phi i64 [ %padding.sroa.5.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %while.end.i90 ]
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit110: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread, %while.end.i90
+  %42 = phi i8 [ %2, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread ], [ %.pre, %while.end.i90 ]
+  %sink1815 = phi ptr [ %sink1811, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread ], [ %sink18, %while.end.i90 ]
+  %padding.sroa.8.014 = phi i64 [ %padding.sroa.8.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread ], [ 0, %while.end.i90 ]
+  %padding.sroa.5.013 = phi i64 [ %padding.sroa.5.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom.exit.thread ], [ 0, %while.end.i90 ]
   %cmp21.not = icmp eq i8 %42, 0
   br i1 %cmp21.not, label %if.end25, label %if.then22
 
@@ -6197,22 +6197,22 @@ lor.lhs.false65.i:                                ; preds = %land.lhs.true.i
   %arrayidx.i67.i = getelementptr inbounds i8, ptr %buffer.val.i.pre110.i, i64 -1
   %15 = load i8, ptr %arrayidx.i67.i, align 1
   %cmp.i.i = icmp eq i8 %15, 46
-  br i1 %cmp.i.i, label %cond.true.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i
+  br i1 %cmp.i.i, label %cond.true.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i
 
 cond.true.i.i:                                    ; preds = %lor.lhs.false65.i
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %buffer.val.i.pre110.i, i64 -2
   %16 = load i8, ptr %arrayidx3.i.i, align 1
-  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i
+  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i: ; preds = %cond.true.i.i, %lor.lhs.false65.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i: ; preds = %cond.true.i.i, %lor.lhs.false65.i
   %cond.i.i = phi i8 [ %16, %cond.true.i.i ], [ %15, %lor.lhs.false65.i ]
   %conv67.i = sext i8 %cond.i.i to i32
   %17 = and i32 %conv67.i, -2147483647
   %cmp68.i = icmp eq i32 %17, 1
   br i1 %cmp68.i, label %if.then69.i, label %return
 
-if.then69.i:                                      ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %land.lhs.true.i, %for.end58.if.then69_crit_edge.i
-  %buffer.val.i.i = phi ptr [ %buffer.val.i.pre.i, %for.end58.if.then69_crit_edge.i ], [ %buffer.val.i.pre110.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ %buffer.val.i.pre110.i, %land.lhs.true.i ]
+if.then69.i:                                      ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i, %land.lhs.true.i, %for.end58.if.then69_crit_edge.i
+  %buffer.val.i.i = phi ptr [ %buffer.val.i.pre.i, %for.end58.if.then69_crit_edge.i ], [ %buffer.val.i.pre110.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i ], [ %buffer.val.i.pre110.i, %land.lhs.true.i ]
   %p.019.i.i = getelementptr inbounds i8, ptr %buffer.val.i.i, i64 -1
   %18 = load ptr, ptr %begin.i, align 8
   %cmp.not20.i.i = icmp ult ptr %p.019.i.i, %18
@@ -6480,22 +6480,22 @@ lor.lhs.false67.i:                                ; preds = %land.lhs.true.i23
   %arrayidx.i71.i = getelementptr inbounds i8, ptr %buffer.val.i.pre114.i, i64 -1
   %43 = load i8, ptr %arrayidx.i71.i, align 1
   %cmp.i.i41 = icmp eq i8 %43, 46
-  br i1 %cmp.i.i41, label %cond.true.i.i44, label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i42
+  br i1 %cmp.i.i41, label %cond.true.i.i44, label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i42
 
 cond.true.i.i44:                                  ; preds = %lor.lhs.false67.i
   %arrayidx3.i.i45 = getelementptr inbounds i8, ptr %buffer.val.i.pre114.i, i64 -2
   %44 = load i8, ptr %arrayidx3.i.i45, align 1
-  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i42
+  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i42
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i42: ; preds = %cond.true.i.i44, %lor.lhs.false67.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i42: ; preds = %cond.true.i.i44, %lor.lhs.false67.i
   %cond.i.i43 = phi i8 [ %44, %cond.true.i.i44 ], [ %43, %lor.lhs.false67.i ]
   %conv69.i = sext i8 %cond.i.i43 to i32
   %45 = and i32 %conv69.i, -2147483647
   %cmp70.i = icmp eq i32 %45, 1
   br i1 %cmp70.i, label %if.then71.i, label %return
 
-if.then71.i:                                      ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i42, %land.lhs.true.i23, %for.end60.if.then71_crit_edge.i
-  %buffer.val.i.i24 = phi ptr [ %buffer.val.i.pre.i46, %for.end60.if.then71_crit_edge.i ], [ %buffer.val.i.pre114.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i42 ], [ %buffer.val.i.pre114.i, %land.lhs.true.i23 ]
+if.then71.i:                                      ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i42, %land.lhs.true.i23, %for.end60.if.then71_crit_edge.i
+  %buffer.val.i.i24 = phi ptr [ %buffer.val.i.pre.i46, %for.end60.if.then71_crit_edge.i ], [ %buffer.val.i.pre114.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i42 ], [ %buffer.val.i.pre114.i, %land.lhs.true.i23 ]
   %p.019.i.i25 = getelementptr inbounds i8, ptr %buffer.val.i.i24, i64 -1
   %46 = load ptr, ptr %begin.i, align 8
   %cmp.not20.i.i26 = icmp ult ptr %p.019.i.i25, %46
@@ -6544,8 +6544,8 @@ if.else.i.i39:                                    ; preds = %land.rhs.i.i27
   store i8 %inc11.i.i40, ptr %p.021.i.i28, align 1
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body.i69, %if.end10.i, %if.else.i.i, %if.then8.i.i, %lor.lhs.false.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %if.then42.i, %if.then7.i, %if.else.i.i39, %if.then8.i.i32, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i42, %lor.lhs.false.i21, %if.then44.i, %if.end15.i, %if.end11.i, %if.then8.i, %if.then.i51, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then8.i ], [ true, %if.then44.i ], [ false, %if.then.i51 ], [ false, %if.end15.i ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i42 ], [ true, %lor.lhs.false.i21 ], [ true, %if.then8.i.i32 ], [ true, %if.else.i.i39 ], [ true, %if.end11.i ], [ true, %if.then7.i ], [ true, %if.then42.i ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %lor.lhs.false.i ], [ true, %if.then8.i.i ], [ true, %if.else.i.i ], [ true, %if.end10.i ], [ true, %for.body.i69 ], [ true, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body.i69, %if.end10.i, %if.else.i.i, %if.then8.i.i, %lor.lhs.false.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i, %if.then42.i, %if.then7.i, %if.else.i.i39, %if.then8.i.i32, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i42, %lor.lhs.false.i21, %if.then44.i, %if.end15.i, %if.end11.i, %if.then8.i, %if.then.i51, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then8.i ], [ true, %if.then44.i ], [ false, %if.then.i51 ], [ false, %if.end15.i ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i42 ], [ true, %lor.lhs.false.i21 ], [ true, %if.then8.i.i32 ], [ true, %if.else.i.i39 ], [ true, %if.end11.i ], [ true, %if.then7.i ], [ true, %if.then42.i ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.argprom.exit.i ], [ true, %lor.lhs.false.i ], [ true, %if.then8.i.i ], [ true, %if.else.i.i ], [ true, %if.end10.i ], [ true, %for.body.i69 ], [ true, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -6804,8 +6804,8 @@ attributes #18 = { noreturn }
 !33 = distinct !{!33, !9}
 !34 = distinct !{!34, !9}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE: %agg.result"}
-!37 = distinct !{!37, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE"}
+!36 = distinct !{!36, !37, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom: %agg.result"}
+!37 = distinct !{!37, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom"}
 !38 = distinct !{!38, !9}
 !39 = distinct !{!39, !9}
 !40 = distinct !{!40, !9}
@@ -6813,8 +6813,8 @@ attributes #18 = { noreturn }
 !42 = distinct !{!42, !9}
 !43 = distinct !{!43, !9}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE: %agg.result"}
-!46 = distinct !{!46, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE"}
+!45 = distinct !{!45, !46, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom: %agg.result"}
+!46 = distinct !{!46, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom"}
 !47 = distinct !{!47, !9}
 !48 = distinct !{!48, !9}
 !49 = distinct !{!49, !9, !50}
@@ -6823,8 +6823,8 @@ attributes #18 = { noreturn }
 !52 = distinct !{!52, !9}
 !53 = distinct !{!53, !9}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE: %agg.result"}
-!56 = distinct !{!56, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE"}
+!55 = distinct !{!55, !56, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom: %agg.result"}
+!56 = distinct !{!56, !"_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.argprom"}
 !57 = distinct !{!57, !9}
 !58 = distinct !{!58, !9}
 !59 = distinct !{!59, !9}

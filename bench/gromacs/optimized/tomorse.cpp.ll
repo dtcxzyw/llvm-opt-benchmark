@@ -128,13 +128,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %18, %15
 24:                                               ; preds = %22
   %25 = sext i32 %.014.i to i64
   %.not.i = icmp slt i64 %indvars.iv.i, %25
-  br i1 %.not.i, label %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.exit.i, label %26
+  br i1 %.not.i, label %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.argprom.exit.i, label %26
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %.014.i, 16
   %28 = sext i32 %27 to i64
   %29 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 81, ptr noundef %.0.i, i64 noundef %28, i64 noundef 24)
-          to label %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.exit.i unwind label %32
+          to label %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.argprom.exit.i unwind label %32
 
 30:                                               ; preds = %3
   %31 = landingpad { ptr, i32 }
@@ -142,7 +142,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %18, %15
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   br label %common.resume
 
-32:                                               ; preds = %38, %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.exit.i, %26, %19
+32:                                               ; preds = %38, %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.argprom.exit.i, %26, %19
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = load ptr, ptr %8, align 8
@@ -153,13 +153,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %18, %15
   %36 = call i32 @fclose(ptr noundef nonnull %34)
   br label %common.resume
 
-_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.exit.i: ; preds = %26, %24
+_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.argprom.exit.i: ; preds = %26, %24
   %.124.i = phi ptr [ %.0.i, %24 ], [ %29, %26 ]
   %.1.i = phi i32 [ %.014.i, %24 ], [ %27, %26 ]
   %37 = invoke noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %4)
           to label %38 unwind label %32
 
-38:                                               ; preds = %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.exit.i
+38:                                               ; preds = %_ZL15gmx_srenew_implI8t_2morseEvPKcS2_iRPT_m.argprom.exit.i
   %39 = getelementptr inbounds %struct.t_2morse, ptr %.124.i, i64 %indvars.iv.i
   store ptr %37, ptr %39, align 8
   %40 = invoke noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %5)

@@ -480,8 +480,8 @@ for.cond.preheader.lr.ph:                         ; preds = %entry
   %0 = zext nneg i32 %count to i64
   br label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %for.cond.preheader.lr.ph, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit
-  %indvars.iv66 = phi i64 [ %0, %for.cond.preheader.lr.ph ], [ %indvars.iv.next67, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit ]
+for.cond.preheader:                               ; preds = %for.cond.preheader.lr.ph, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit
+  %indvars.iv66 = phi i64 [ %0, %for.cond.preheader.lr.ph ], [ %indvars.iv.next67, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit ]
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %_ZL5mergeRK12btDbvtAabbMmS1_.exit, %for.body
@@ -615,9 +615,9 @@ for.body.i.i33:                                   ; preds = %for.body.i.i33, %_Z
   store float %.sink25.i.i41, ptr %arrayidx38.i.i42, align 4
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i34, 1
   %exitcond.not.i.i44 = icmp eq i64 %indvars.iv.next.i.i43, 3
-  br i1 %exitcond.not.i.i44, label %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit, label %for.body.i.i33, !llvm.loop !11
+  br i1 %exitcond.not.i.i44, label %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit, label %for.body.i.i33, !llvm.loop !11
 
-_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit: ; preds = %for.body.i.i33
+_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit: ; preds = %for.body.i.i33
   store ptr %17, ptr %20, align 8
   %arrayidx28 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   store ptr %18, ptr %arrayidx28, align 8
@@ -633,7 +633,7 @@ _ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit: ; preds = %for.b
   %cmp = icmp sgt i64 %indvars.iv66, 2
   br i1 %cmp, label %for.cond.preheader, label %while.end, !llvm.loop !13
 
-while.end:                                        ; preds = %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit, %entry
+while.end:                                        ; preds = %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit, %entry
   ret void
 }
 
@@ -1474,13 +1474,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZL1
   store float %.sink25.i.i, ptr %arrayidx38.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit, label %for.body.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit, label %for.body.i.i, !llvm.loop !11
 
-_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit: ; preds = %for.body.i.i
+_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit: ; preds = %for.body.i.i
   %tobool13.not = icmp eq ptr %31, null
   br i1 %tobool13.not, label %if.else37, label %if.then14
 
-if.then14:                                        ; preds = %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit
+if.then14:                                        ; preds = %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit
   %39 = getelementptr inbounds i8, ptr %31, i64 40
   %40 = load ptr, ptr %parent9, align 8
   %arrayidx.i45 = getelementptr inbounds i8, ptr %40, i64 48
@@ -1583,7 +1583,7 @@ _Z5MergeRK12btDbvtAabbMmS1_RS_.exit:              ; preds = %for.body.i
   %cmp.not = icmp eq ptr %62, null
   br i1 %cmp.not, label %if.end44, label %do.body22, !llvm.loop !29
 
-if.else37:                                        ; preds = %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit
+if.else37:                                        ; preds = %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.argprom.exit
   store ptr %root.addr.0, ptr %33, align 8
   store ptr %node.0.i.i, ptr %parent9, align 8
   %arrayidx40 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48

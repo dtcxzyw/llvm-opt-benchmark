@@ -2812,18 +2812,18 @@ terminate.lpad.i177:                              ; preds = %if.then.i.i176
 _ZN4absl12lts_202308026StatusD2Ev.exit179:        ; preds = %cleanup134, %if.then.i.i176
   %content_slice.val = load ptr, ptr %content_slice, align 8
   %cmp.i.i180 = icmp ugt ptr %content_slice.val, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i180, label %if.then.i.i181, label %_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.exit
+  br i1 %cmp.i.i180, label %if.then.i.i181, label %_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.argprom.exit
 
 if.then.i.i181:                                   ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit179
   %89 = atomicrmw sub ptr %content_slice.val, i64 1 acq_rel, align 8
   %cmp.i.i.i182 = icmp eq i64 %89, 1
-  br i1 %cmp.i.i.i182, label %if.then.i.i.i183, label %_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.exit
+  br i1 %cmp.i.i.i182, label %if.then.i.i.i183, label %_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.argprom.exit
 
 if.then.i.i.i183:                                 ; preds = %if.then.i.i181
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %content_slice.val, i64 8
   %90 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %90(ptr noundef nonnull %content_slice.val)
-          to label %_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.exit unwind label %terminate.lpad.i184
+          to label %_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.argprom.exit unwind label %terminate.lpad.i184
 
 terminate.lpad.i184:                              ; preds = %if.then.i.i.i183
   %91 = landingpad { ptr, i32 }
@@ -2832,7 +2832,7 @@ terminate.lpad.i184:                              ; preds = %if.then.i.i.i183
   call void @__clang_call_terminate(ptr %92) #20
   unreachable
 
-_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit179, %if.then.i.i181, %if.then.i.i.i183
+_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.argprom.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit179, %if.then.i.i181, %if.then.i.i.i183
   ret void
 
 lpad124:                                          ; preds = %if.end121
@@ -2860,7 +2860,7 @@ ehcleanup135:                                     ; preds = %ehcleanup133, %ehcl
 ehcleanup137:                                     ; preds = %ehcleanup135, %lpad
   %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn, %ehcleanup135 ], [ %12, %lpad ]
   %content_slice.val20 = load ptr, ptr %content_slice, align 8
-  call fastcc void @_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev(ptr %content_slice.val20) #17
+  call fastcc void @_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.argprom(ptr %content_slice.val20) #17
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn
 }
 
@@ -2929,7 +2929,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core12experimenta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN9grpc_core30FileExternalAccountCredentials20RetrieveSubjectTokenEPNS_26ExternalAccountCredentials18HTTPRequestContextERKNS1_7OptionsESt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEEN12SliceWrapperD2Ev.argprom(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp ugt ptr %this.0.val, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i, label %invoke.cont2

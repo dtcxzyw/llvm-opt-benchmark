@@ -83,7 +83,7 @@ define i32 @prte_iof_base_write_output(ptr noundef %0, i16 noundef zeroext %1, p
 
 29:                                               ; preds = %28, %23
   %.not22.i = icmp eq ptr %25, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %30
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %30
 
 30:                                               ; preds = %29
   %31 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %25, ptr noundef null) #11
@@ -98,7 +98,7 @@ define i32 @prte_iof_base_write_output(ptr noundef %0, i16 noundef zeroext %1, p
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof_write_output_t_class, i64 40), align 8
   %37 = load ptr, ptr %36, align 8
   %.not6.i.i = icmp eq ptr %37, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
   %38 = phi ptr [ %40, %.lr.ph.i.i ], [ %37, %30 ]
@@ -107,19 +107,19 @@ define i32 @prte_iof_base_write_output(ptr noundef %0, i16 noundef zeroext %1, p
   %39 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %29, %30
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %29, %30
   %41 = icmp sgt i32 %3, 0
   br i1 %41, label %42, label %45
 
-42:                                               ; preds = %pmix_obj_new_tma.exit
+42:                                               ; preds = %pmix_obj_new_tma.argprom.exit
   %43 = getelementptr inbounds i8, ptr %25, i64 144
   %44 = zext nneg i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr align 1 %2, i64 %44, i1 false)
   br label %45
 
-45:                                               ; preds = %42, %pmix_obj_new_tma.exit
+45:                                               ; preds = %42, %pmix_obj_new_tma.argprom.exit
   %46 = getelementptr inbounds i8, ptr %25, i64 8336
   store i32 %3, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %4, i64 304

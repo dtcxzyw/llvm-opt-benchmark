@@ -2786,7 +2786,7 @@ define i32 @cli_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %.not307, label %254, label %32
 
 32:                                               ; preds = %30, %28
-  %33 = tail call fastcc i32 @cli_loadyara(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %0)
+  %33 = tail call fastcc i32 @cli_loadyara.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %0)
   br label %250
 
 34:                                               ; preds = %24
@@ -2798,7 +2798,7 @@ define i32 @cli_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %6)
   %37 = tail call i32 @cli_initroots(ptr noundef readonly %1, i32 poison)
   %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %38, label %cli_loaddb.exit
+  br i1 %.not.i, label %38, label %cli_loaddb.argprom.exit
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %1, i64 96
@@ -2816,7 +2816,7 @@ define i32 @cli_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
 
 46:                                               ; preds = %44
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.265) #21
-  br label %cli_loaddb.exit
+  br label %cli_loaddb.argprom.exit
 
 47:                                               ; preds = %44, %38
   %.043.i = phi ptr [ %45, %44 ], [ null, %38 ]
@@ -2933,26 +2933,26 @@ define i32 @cli_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
 
 88:                                               ; preds = %87
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.270) #21
-  br label %cli_loaddb.exit
+  br label %cli_loaddb.argprom.exit
 
 89:                                               ; preds = %87
   br i1 %.not543.i, label %91, label %90
 
 90:                                               ; preds = %89
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.271, i32 noundef %.142.i) #21
-  br label %cli_loaddb.exit
+  br label %cli_loaddb.argprom.exit
 
 91:                                               ; preds = %89
   %.not65.i = icmp eq ptr %2, null
-  br i1 %.not65.i, label %cli_loaddb.exit, label %92
+  br i1 %.not65.i, label %cli_loaddb.argprom.exit, label %92
 
 92:                                               ; preds = %91
   %93 = load i32, ptr %2, align 4
   %94 = add i32 %93, %.040.ph10.i
   store i32 %94, ptr %2, align 4
-  br label %cli_loaddb.exit
+  br label %cli_loaddb.argprom.exit
 
-cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, %91, %92
+cli_loaddb.argprom.exit:                          ; preds = %36, %46, %88, %90, %91, %92
   %.0.i = phi i32 [ %.1.i, %90 ], [ 4, %88 ], [ 20, %46 ], [ %37, %36 ], [ 0, %92 ], [ 0, %91 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
   br label %250
@@ -3090,7 +3090,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   br i1 %.not275, label %155, label %153
 
 153:                                              ; preds = %151
-  %154 = tail call fastcc i32 @cli_loadndb(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i16 noundef zeroext 0, i32 noundef %3, ptr noundef %4)
+  %154 = tail call fastcc i32 @cli_loadndb.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i16 noundef zeroext 0, i32 noundef %3, ptr noundef %4)
   br label %250
 
 155:                                              ; preds = %151
@@ -3105,7 +3105,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
 
 159:                                              ; preds = %157
   %160 = or i32 %3, 128
-  %161 = tail call fastcc i32 @cli_loadndb(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i16 noundef zeroext 0, i32 noundef %160, ptr noundef %4)
+  %161 = tail call fastcc i32 @cli_loadndb.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i16 noundef zeroext 0, i32 noundef %160, ptr noundef %4)
   br label %250
 
 162:                                              ; preds = %155
@@ -3114,7 +3114,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   br i1 %.not277, label %166, label %164
 
 164:                                              ; preds = %162
-  %165 = tail call fastcc i32 @cli_loadldb(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
+  %165 = tail call fastcc i32 @cli_loadldb.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   br label %250
 
 166:                                              ; preds = %162
@@ -3129,7 +3129,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
 
 170:                                              ; preds = %168
   %171 = or i32 %3, 128
-  %172 = tail call fastcc i32 @cli_loadldb(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef %171, ptr noundef %4)
+  %172 = tail call fastcc i32 @cli_loadldb.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef %171, ptr noundef %4)
   br label %250
 
 173:                                              ; preds = %166
@@ -3152,7 +3152,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   br i1 %.not280, label %183, label %181
 
 181:                                              ; preds = %179
-  %182 = tail call fastcc i32 @cli_loadndb(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i16 noundef zeroext 1, i32 noundef %3, ptr noundef %4)
+  %182 = tail call fastcc i32 @cli_loadndb.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i16 noundef zeroext 1, i32 noundef %3, ptr noundef %4)
   br label %250
 
 183:                                              ; preds = %179
@@ -3161,7 +3161,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   br i1 %.not281, label %187, label %185
 
 185:                                              ; preds = %183
-  %186 = tail call fastcc i32 @cli_loadmd(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef %3, ptr noundef %4)
+  %186 = tail call fastcc i32 @cli_loadmd.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef %3, ptr noundef %4)
   br label %250
 
 187:                                              ; preds = %183
@@ -3170,7 +3170,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   br i1 %.not282, label %191, label %189
 
 189:                                              ; preds = %187
-  %190 = tail call fastcc i32 @cli_loadmd(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef 2, i32 noundef %3, ptr noundef %4)
+  %190 = tail call fastcc i32 @cli_loadmd.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef 2, i32 noundef %3, ptr noundef %4)
   br label %250
 
 191:                                              ; preds = %187
@@ -3244,7 +3244,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   br i1 %.not290, label %223, label %221
 
 221:                                              ; preds = %219, %217
-  %222 = tail call fastcc i32 @cli_loadign(ptr noundef %.0247, ptr noundef %1, ptr noundef %4)
+  %222 = tail call fastcc i32 @cli_loadign.argelim(ptr noundef %.0247, ptr noundef %1, ptr noundef %4)
   br label %250
 
 223:                                              ; preds = %219
@@ -3295,7 +3295,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   br i1 %.not298, label %243, label %254
 
 243:                                              ; preds = %241
-  %244 = tail call fastcc i32 @cli_loadyara(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %0)
+  %244 = tail call fastcc i32 @cli_loadyara.argprom(ptr noundef %.0247, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %0)
   br label %250
 
 245:                                              ; preds = %239
@@ -3311,8 +3311,8 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.96, ptr noundef %0) #21
   br label %254
 
-250:                                              ; preds = %cli_loaddb.exit, %101, %109, %123, %136, %148, %159, %170, %181, %189, %197, %211, %221, %229, %235, %247, %243, %225, %215, %203, %193, %185, %177, %164, %153, %140, %130, %115, %105, %97, %32
-  %.0248 = phi i32 [ %33, %32 ], [ %.0.i, %cli_loaddb.exit ], [ %98, %97 ], [ %102, %101 ], [ %106, %105 ], [ %110, %109 ], [ %116, %115 ], [ %125, %123 ], [ %131, %130 ], [ %137, %136 ], [ %141, %140 ], [ %150, %148 ], [ %154, %153 ], [ %161, %159 ], [ %165, %164 ], [ %172, %170 ], [ %178, %177 ], [ %182, %181 ], [ %186, %185 ], [ %190, %189 ], [ %194, %193 ], [ %198, %197 ], [ %204, %203 ], [ %212, %211 ], [ %216, %215 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %236, %235 ], [ %244, %243 ], [ %248, %247 ]
+250:                                              ; preds = %cli_loaddb.argprom.exit, %101, %109, %123, %136, %148, %159, %170, %181, %189, %197, %211, %221, %229, %235, %247, %243, %225, %215, %203, %193, %185, %177, %164, %153, %140, %130, %115, %105, %97, %32
+  %.0248 = phi i32 [ %33, %32 ], [ %.0.i, %cli_loaddb.argprom.exit ], [ %98, %97 ], [ %102, %101 ], [ %106, %105 ], [ %110, %109 ], [ %116, %115 ], [ %125, %123 ], [ %131, %130 ], [ %137, %136 ], [ %141, %140 ], [ %150, %148 ], [ %154, %153 ], [ %161, %159 ], [ %165, %164 ], [ %172, %170 ], [ %178, %177 ], [ %182, %181 ], [ %186, %185 ], [ %190, %189 ], [ %194, %193 ], [ %198, %197 ], [ %204, %203 ], [ %212, %211 ], [ %216, %215 ], [ %222, %221 ], [ %226, %225 ], [ %230, %229 ], [ %236, %235 ], [ %244, %243 ], [ %248, %247 ]
   %.not308 = icmp eq i32 %.0248, 0
   br i1 %.not308, label %.thread321, label %251
 
@@ -3322,7 +3322,7 @@ cli_loaddb.exit:                                  ; preds = %36, %46, %88, %90, 
   br label %255
 
 253:                                              ; preds = %231
-  tail call fastcc void @cli_loadmscat(ptr noundef %.0247, ptr noundef %.0, ptr noundef %1)
+  tail call fastcc void @cli_loadmscat.argprom.argelim(ptr noundef %.0247, ptr noundef %.0, ptr noundef %1)
   br label %.thread321
 
 254:                                              ; preds = %241, %209, %201, %175, %168, %157, %146, %121, %30, %249
@@ -3379,7 +3379,7 @@ declare ptr @__errno_location() local_unnamed_addr #11
 declare i32 @cli_strbcasestr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadyara(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadyara.argprom(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.cli_ytable, align 8
   %7 = alloca %struct.cli_lsig_tdb, align 8
   %8 = alloca [2 x i32], align 4
@@ -3908,7 +3908,7 @@ yara_hexstr_verify.exit.thread353.i:              ; preds = %246
   %253 = load i32, ptr %130, align 4
   %254 = load ptr, ptr %127, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.174, i32 noundef %253, ptr noundef %254, ptr noundef nonnull %145) #21
-  call fastcc void @ytable_add_string(ptr noundef %6, ptr noundef nonnull %145)
+  call fastcc void @ytable_add_string.argelim(ptr noundef %6, ptr noundef nonnull %145)
   call void @free(ptr noundef nonnull %145) #21
   br label %295
 
@@ -3938,7 +3938,7 @@ yara_hexstr_verify.exit.thread353.i:              ; preds = %246
   %269 = load i32, ptr %257, align 4
   %270 = load ptr, ptr %266, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.178, i32 noundef %269, ptr noundef %270, ptr noundef nonnull %262) #21
-  call fastcc void @ytable_add_string(ptr noundef %6, ptr noundef nonnull %262)
+  call fastcc void @ytable_add_string.argelim(ptr noundef %6, ptr noundef nonnull %262)
   call void @free(ptr noundef nonnull %262) #21
   br label %295
 
@@ -3985,7 +3985,7 @@ yara_hexstr_verify.exit.thread353.i:              ; preds = %246
   %293 = load i32, ptr %257, align 4
   %294 = load ptr, ptr %279, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.182, i32 noundef %293, ptr noundef %294, ptr noundef nonnull %278) #21
-  call fastcc void @ytable_add_string(ptr noundef %6, ptr noundef nonnull %278)
+  call fastcc void @ytable_add_string.argelim(ptr noundef %6, ptr noundef nonnull %278)
   call void @free(ptr noundef %278) #21
   br label %295
 
@@ -4001,7 +4001,7 @@ yara_hexstr_verify.exit.thread353.i:              ; preds = %246
   %.not289.i = icmp eq i32 %299, 0
   %300 = select i1 %.not289.i, ptr @.str.185, ptr @.str.184
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.183, ptr noundef nonnull %300) #21
-  %301 = call fastcc i32 @ytable_add_attrib(ptr noundef %6, ptr noundef nonnull @.str.186, i32 noundef 1)
+  %301 = call fastcc i32 @ytable_add_attrib.argprom(ptr noundef %6, ptr noundef nonnull @.str.186, i32 noundef 1)
   %.not290.i = icmp eq i32 %301, 0
   br i1 %.not290.i, label %._crit_edge.i, label %302
 
@@ -4025,7 +4025,7 @@ yara_hexstr_verify.exit.thread353.i:              ; preds = %246
   %.not292.i = icmp eq i32 %308, 0
   %309 = select i1 %.not292.i, ptr @.str.185, ptr @.str.184
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.188, ptr noundef nonnull %309) #21
-  %310 = call fastcc i32 @ytable_add_attrib(ptr noundef %6, ptr noundef nonnull @.str.189, i32 noundef 1)
+  %310 = call fastcc i32 @ytable_add_attrib.argprom(ptr noundef %6, ptr noundef nonnull @.str.189, i32 noundef 1)
   %.not293.i = icmp eq i32 %310, 0
   br i1 %.not293.i, label %._crit_edge488.i, label %311
 
@@ -4060,7 +4060,7 @@ yara_hexstr_verify.exit.thread353.i:              ; preds = %246
   br label %.loopexit.i
 
 323:                                              ; preds = %316
-  %324 = call fastcc i32 @ytable_add_attrib(ptr noundef %6, ptr noundef nonnull @.str.193, i32 noundef 1)
+  %324 = call fastcc i32 @ytable_add_attrib.argprom(ptr noundef %6, ptr noundef nonnull @.str.193, i32 noundef 1)
   %.not297.i = icmp eq i32 %324, 0
   br i1 %.not297.i, label %._crit_edge490.i, label %325
 
@@ -4084,7 +4084,7 @@ yara_hexstr_verify.exit.thread353.i:              ; preds = %246
   %.not299.i = icmp eq i32 %331, 0
   %332 = select i1 %.not299.i, ptr @.str.185, ptr @.str.184
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.195, ptr noundef nonnull %332) #21
-  %333 = call fastcc i32 @ytable_add_attrib(ptr noundef %6, ptr noundef nonnull @.str.196, i32 noundef 1)
+  %333 = call fastcc i32 @ytable_add_attrib.argprom(ptr noundef %6, ptr noundef nonnull @.str.196, i32 noundef 1)
   %.not300.i = icmp eq i32 %333, 0
   br i1 %.not300.i, label %336, label %334
 
@@ -4182,7 +4182,7 @@ yara_hexstr_verify.exit.thread353.i:              ; preds = %246
   %365 = call ptr @cli_safer_strdup(ptr noundef nonnull @.str.201) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, i8 0, i64 136, i1 false)
   %.val.i = load ptr, ptr %66, align 8
-  %366 = call fastcc i32 @init_tdb(ptr noundef %7, ptr %.val.i, ptr noundef %365, ptr noundef %106)
+  %366 = call fastcc i32 @init_tdb.argprom(ptr noundef %7, ptr %.val.i, ptr noundef %365, ptr noundef %106)
   %.not301.i = icmp eq i32 %366, 0
   br i1 %.not301.i, label %369, label %367
 
@@ -5375,7 +5375,7 @@ sub_0:                                            ; preds = %68, %70, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadndb(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 2) %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadndb.argprom(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 2) %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = alloca [7 x ptr], align 16
   %8 = alloca [8192 x i8], align 16
   %9 = and i32 %4, 2
@@ -5671,7 +5671,7 @@ sub_0:                                            ; preds = %88
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadldb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadldb.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = alloca [32769 x i8], align 16
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
@@ -5734,7 +5734,7 @@ define internal fastcc i32 @cli_loadldb(ptr noundef %0, ptr nocapture noundef re
   %.not47 = icmp ne ptr %35, null
   %narrow = and i1 %21, %.not47
   %36 = zext i1 %narrow to i32
-  %37 = call fastcc i32 @load_oneldb(ptr noundef nonnull %6, i32 noundef %36, ptr noundef nonnull %1, i32 noundef %3, i32 noundef %26, ptr noundef %7, i32 noundef 0, ptr noundef %.034, ptr noundef null)
+  %37 = call fastcc i32 @load_oneldb.argprom(ptr noundef nonnull %6, i32 noundef %36, ptr noundef nonnull %1, i32 noundef %3, i32 noundef %26, ptr noundef %7, i32 noundef 0, ptr noundef %.034, ptr noundef null)
   %.not49 = icmp eq i32 %37, 0
   br i1 %.not49, label %38, label %._crit_edge
 
@@ -5954,7 +5954,7 @@ define internal fastcc i32 @cli_loadcbc(ptr noundef %0, ptr nocapture noundef %1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.332, ptr noundef %5, i32 noundef %77, ptr noundef nonnull %.pre) #21
   %78 = load ptr, ptr %76, align 8
   %79 = load i32, ptr %33, align 8
-  %80 = call fastcc i32 @load_oneldb(ptr noundef %78, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 0, ptr noundef %9, i32 noundef %79, ptr noundef null, ptr noundef nonnull %8)
+  %80 = call fastcc i32 @load_oneldb.argprom(ptr noundef %78, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 0, ptr noundef %9, i32 noundef %79, ptr noundef null, ptr noundef nonnull %8)
   %.not126 = icmp eq i32 %80, 0
   br i1 %.not126, label %84, label %81
 
@@ -6115,7 +6115,7 @@ define internal fastcc i32 @cli_loadcbc(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @cli_loadmd(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @cli_loadmd.argprom(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = alloca [10 x ptr], align 16
   %8 = alloca [8192 x i8], align 16
   %9 = getelementptr inbounds i8, ptr %1, i64 208
@@ -7161,7 +7161,7 @@ define internal fastcc i32 @cli_loadftm(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadign(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadign.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x ptr], align 16
   %5 = alloca [8192 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 208
@@ -8793,7 +8793,7 @@ sub_0226:                                         ; preds = %.critedge196.tail, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cli_loadmscat(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @cli_loadmscat.argprom.argelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -8989,7 +8989,7 @@ define internal fastcc range(i32 0, 23) i32 @cli_loadpwdb(ptr noundef %0, ptr no
   %.071 = phi ptr [ %55, %54 ], [ %60, %62 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8, i8 0, i64 136, i1 false)
   %.val = load ptr, ptr %15, align 8
-  %65 = call fastcc i32 @init_tdb(ptr noundef %8, ptr %.val, ptr noundef nonnull %.071, ptr noundef %38)
+  %65 = call fastcc i32 @init_tdb.argprom(ptr noundef %8, ptr %.val, ptr noundef nonnull %.071, ptr noundef %38)
   call void @free(ptr noundef nonnull %.071) #21
   switch i32 %65, label %.thread [
     i32 0, label %66
@@ -13898,9 +13898,9 @@ cli_signorm.exit:                                 ; preds = %16, %22, %24, %29, 
 declare ptr @mpool_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ytable_add_string(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @ytable_add_string.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %ytable_add_attrib.exit, label %3
+  br i1 %.not, label %ytable_add_attrib.argprom.exit, label %3
 
 3:                                                ; preds = %2
   %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #23
@@ -13909,7 +13909,7 @@ define internal fastcc void @ytable_add_string(ptr nocapture noundef nonnull %0,
 
 5:                                                ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.229) #21
-  br label %ytable_add_attrib.exit
+  br label %ytable_add_attrib.argprom.exit
 
 6:                                                ; preds = %3
   %7 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %1) #21
@@ -13921,7 +13921,7 @@ define internal fastcc void @ytable_add_string(ptr nocapture noundef nonnull %0,
 9:                                                ; preds = %6
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.230) #21
   tail call void @free(ptr noundef nonnull %4) #21
-  br label %ytable_add_attrib.exit
+  br label %ytable_add_attrib.argprom.exit
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13942,7 +13942,7 @@ define internal fastcc void @ytable_add_string(ptr nocapture noundef nonnull %0,
   %19 = load i32, ptr %11, align 8
   %20 = add nsw i32 %19, -1
   store i32 %20, ptr %11, align 8
-  br label %ytable_add_attrib.exit
+  br label %ytable_add_attrib.argprom.exit
 
 21:                                               ; preds = %10
   %22 = load i32, ptr %11, align 8
@@ -13979,7 +13979,7 @@ define internal fastcc void @ytable_add_string(ptr nocapture noundef nonnull %0,
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
   %.not34.i = icmp eq ptr %43, null
-  br i1 %.not34.i, label %44, label %ytable_add_attrib.exit
+  br i1 %.not34.i, label %44, label %ytable_add_attrib.argprom.exit
 
 44:                                               ; preds = %35, %21
   %.str.233.sink = phi ptr [ @.str.233, %21 ], [ @.str.235, %35 ]
@@ -13991,14 +13991,14 @@ define internal fastcc void @ytable_add_string(ptr nocapture noundef nonnull %0,
   %46 = load i32, ptr %11, align 8
   %47 = add nsw i32 %46, -1
   store i32 %47, ptr %11, align 8
-  br label %ytable_add_attrib.exit
+  br label %ytable_add_attrib.argprom.exit
 
-ytable_add_attrib.exit:                           ; preds = %35, %2, %44, %18, %9, %5
+ytable_add_attrib.argprom.exit:                   ; preds = %35, %2, %44, %18, %9, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @ytable_add_attrib(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @ytable_add_attrib.argprom(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %64, label %4
 
@@ -14159,7 +14159,7 @@ define internal fastcc void @ytable_delete(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 23) i32 @init_tdb(ptr noundef nonnull %0, ptr %.256.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 23) i32 @init_tdb.argprom(ptr noundef nonnull %0, ptr %.256.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [11 x %struct.lsig_attrib], align 16
   %5 = alloca [10 x ptr], align 16
   %6 = alloca i32, align 4
@@ -15237,7 +15237,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare i32 @hm_addhash_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @load_oneldb(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc noundef i32 @load_oneldb.argprom(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca [68 x ptr], align 16
   %11 = alloca %struct.cli_lsig_tdb, align 8
   %12 = alloca [2 x i32], align 4
@@ -15348,7 +15348,7 @@ define internal fastcc noundef i32 @load_oneldb(ptr noundef %0, i32 noundef rang
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr i8, ptr %2, i64 256
   %.val = load ptr, ptr %61, align 8
-  %62 = call fastcc i32 @init_tdb(ptr noundef %11, ptr %.val, ptr noundef %60, ptr noundef %18)
+  %62 = call fastcc i32 @init_tdb.argprom(ptr noundef %11, ptr %.val, ptr noundef %60, ptr noundef %18)
   switch i32 %62, label %121 [
     i32 0, label %63
     i32 22, label %.thread45.thread

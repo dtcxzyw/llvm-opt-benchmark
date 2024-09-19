@@ -3469,7 +3469,7 @@ define void @png_do_read_transformations(ptr noalias noundef %0, ptr noundef %1)
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 4096
   %.not140 = icmp eq i32 %16, 0
-  br i1 %.not140, label %png_do_expand_palette.exit, label %17
+  br i1 %.not140, label %png_do_expand_palette.argprom.exit, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3618,7 +3618,7 @@ define void @png_do_read_transformations(ptr noalias noundef %0, ptr noundef %1)
 
 86:                                               ; preds = %21
   %87 = icmp eq i8 %31, 8
-  br i1 %87, label %88, label %png_do_expand_palette.exit
+  br i1 %87, label %88, label %png_do_expand_palette.argprom.exit
 
 88:                                               ; preds = %86, %.thread.i
   %.not131.i = icmp eq i16 %28, 0
@@ -3741,7 +3741,7 @@ define void @png_do_read_transformations(ptr noalias noundef %0, ptr noundef %1)
   store i8 %.sink41.i, ptr %18, align 8
   %146 = getelementptr inbounds i8, ptr %1, i64 18
   store i8 %.sink.i, ptr %146, align 2
-  br label %png_do_expand_palette.exit
+  br label %png_do_expand_palette.argprom.exit
 
 147:                                              ; preds = %17
   %148 = getelementptr inbounds i8, ptr %0, i64 608
@@ -3756,19 +3756,19 @@ define void @png_do_read_transformations(ptr noalias noundef %0, ptr noundef %1)
 152:                                              ; preds = %147
   %153 = getelementptr inbounds i8, ptr %0, i64 752
   tail call fastcc void @png_do_expand(ptr noundef nonnull %1, ptr noundef nonnull %151, ptr noundef nonnull %153)
-  br label %png_do_expand_palette.exit
+  br label %png_do_expand_palette.argprom.exit
 
 154:                                              ; preds = %147
   tail call fastcc void @png_do_expand(ptr noundef nonnull %1, ptr noundef nonnull %151, ptr noundef null)
-  br label %png_do_expand_palette.exit
+  br label %png_do_expand_palette.argprom.exit
 
-png_do_expand_palette.exit:                       ; preds = %.sink.split.i, %86, %154, %152, %13
+png_do_expand_palette.argprom.exit:               ; preds = %.sink.split.i, %86, %154, %152, %13
   %155 = load i32, ptr %14, align 4
   %156 = and i32 %155, 262272
   %or.cond179 = icmp eq i32 %156, 262144
   br i1 %or.cond179, label %157, label %163
 
-157:                                              ; preds = %png_do_expand_palette.exit
+157:                                              ; preds = %png_do_expand_palette.argprom.exit
   %158 = getelementptr inbounds i8, ptr %1, i64 16
   %159 = load i8, ptr %158, align 8
   switch i8 %159, label %163 [
@@ -3783,8 +3783,8 @@ png_do_expand_palette.exit:                       ; preds = %.sink.split.i, %86,
   %.pre = load i32, ptr %14, align 4
   br label %163
 
-163:                                              ; preds = %157, %160, %png_do_expand_palette.exit
-  %164 = phi i32 [ %155, %157 ], [ %.pre, %160 ], [ %155, %png_do_expand_palette.exit ]
+163:                                              ; preds = %157, %160, %png_do_expand_palette.argprom.exit
+  %164 = phi i32 [ %155, %157 ], [ %.pre, %160 ], [ %155, %png_do_expand_palette.argprom.exit ]
   %165 = and i32 %164, 6291456
   %.not144 = icmp eq i32 %165, 0
   br i1 %.not144, label %png_do_rgb_to_gray.exit.thread, label %166

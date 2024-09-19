@@ -7790,14 +7790,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.not8.i = icmp eq ptr %70, %72
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %69, %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i"
-  %.sroa.04.010.i = phi ptr [ %77, %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i" ], [ %70, %69 ]
+.lr.ph.i:                                         ; preds = %69, %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.argprom.exit.i"
+  %.sroa.04.010.i = phi ptr [ %77, %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.argprom.exit.i" ], [ %70, %69 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc30 unwind label %82
 
 .noexc30:                                         ; preds = %.lr.ph.i
   %73 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.010.i)
-          to label %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i" unwind label %74
+          to label %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.argprom.exit.i" unwind label %74
 
 74:                                               ; preds = %.noexc30
   %75 = landingpad { ptr, i32 }
@@ -7805,14 +7805,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   br label %.body
 
-"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i": ; preds = %.noexc30
+"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.argprom.exit.i": ; preds = %.noexc30
   %76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.010.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %77 = getelementptr i8, ptr %.sroa.04.010.i, i64 32
   %.not.i = icmp eq ptr %77, %72
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !370
 
-.loopexit:                                        ; preds = %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i", %69
+.loopexit:                                        ; preds = %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.argprom.exit.i", %69
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.sink.split
@@ -22138,7 +22138,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112ba
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -22147,30 +22147,30 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112ba
 
 4:                                                ; preds = %3
   store ptr @_ZTIN12_GLOBAL__N_115NotInProjectDirE, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit, label %10
+  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit, label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #23
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
-_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115NotInProjectDirEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -25690,8 +25690,8 @@ attributes #26 = { noreturn }
 !422 = distinct !{!422, !"_ZZ8cmStrCatIRA14_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESJ_"}
 !423 = distinct !{!423, !6}
 !424 = !{!425}
-!425 = distinct !{!425, !426, !"_ZZN29cmLocalUnixMakefileGenerator319AppendCustomCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERK24cmCustomCommandGeneratorP17cmGeneratorTargetRKS6_bPSoENK3$_0clB5cxx11ESG_: argument 0"}
-!426 = distinct !{!426, !"_ZZN29cmLocalUnixMakefileGenerator319AppendCustomCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERK24cmCustomCommandGeneratorP17cmGeneratorTargetRKS6_bPSoENK3$_0clB5cxx11ESG_"}
+!425 = distinct !{!425, !426, !"_ZZN29cmLocalUnixMakefileGenerator319AppendCustomCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERK24cmCustomCommandGeneratorP17cmGeneratorTargetRKS6_bPSoENK3$_0clB5cxx11ESG_.argprom: argument 0"}
+!426 = distinct !{!426, !"_ZZN29cmLocalUnixMakefileGenerator319AppendCustomCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERK24cmCustomCommandGeneratorP17cmGeneratorTargetRKS6_bPSoENK3$_0clB5cxx11ESG_.argprom"}
 !427 = !{!428}
 !428 = distinct !{!428, !429, !"_ZZ8cmStrCatIRA2_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_: argument 0"}
 !429 = distinct !{!429, !"_ZZ8cmStrCatIRA2_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_"}

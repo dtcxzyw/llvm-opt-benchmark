@@ -1333,7 +1333,7 @@ if.then95:                                        ; preds = %if.end87
   br label %return
 
 if.end96:                                         ; preds = %if.end87
-  call fastcc void @get_localsplus_counts(i64 %.val56, ptr noundef nonnull %21, ptr noundef %nlocals, ptr noundef null, ptr noundef null)
+  call fastcc void @get_localsplus_counts.argprom(i64 %.val56, ptr noundef nonnull %21, ptr noundef %nlocals, ptr noundef null, ptr noundef null)
   %51 = load i32, ptr %nlocals, align 4
   %52 = add i32 %2, %0
   %53 = shl i32 %4, 29
@@ -1359,7 +1359,7 @@ return:                                           ; preds = %if.end96, %if.then1
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @get_localsplus_counts(i64 %names.16.val, ptr nocapture noundef readonly %kinds, ptr nocapture noundef nonnull writeonly %pnlocals, ptr noundef writeonly %pncellvars, ptr noundef writeonly %pnfreevars) unnamed_addr #3 {
+define internal fastcc void @get_localsplus_counts.argprom(i64 %names.16.val, ptr nocapture noundef readonly %kinds, ptr nocapture noundef nonnull writeonly %pnlocals, ptr noundef writeonly %pncellvars, ptr noundef writeonly %pnfreevars) unnamed_addr #3 {
 entry:
   %cmp2 = icmp sgt i64 %names.16.val, 0
   br i1 %cmp2, label %for.body.lr.ph, label %if.then25
@@ -1770,7 +1770,7 @@ if.end22:                                         ; preds = %if.end16
   %conv.i = trunc i64 %.val.i39 to i32
   %localspluskinds.i = getelementptr inbounds i8, ptr %con, i64 80
   %cmp2.i.i = icmp sgt i64 %.val.i39, 0
-  br i1 %cmp2.i.i, label %for.body.lr.ph.i.i, label %get_localsplus_counts.exit.i
+  br i1 %cmp2.i.i, label %for.body.lr.ph.i.i, label %get_localsplus_counts.argprom.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end22
   %37 = load ptr, ptr %localspluskinds.i, align 8
@@ -1819,9 +1819,9 @@ for.inc.i.i:                                      ; preds = %if.else14.i.i, %if.
   %inc.i.i = add i32 %i.05.i.i, 1
   %conv.i.i = sext i32 %inc.i.i to i64
   %cmp.i.i49 = icmp sgt i64 %.val.i39, %conv.i.i
-  br i1 %cmp.i.i49, label %for.body.i.i, label %get_localsplus_counts.exit.i, !llvm.loop !7
+  br i1 %cmp.i.i49, label %for.body.i.i, label %get_localsplus_counts.argprom.exit.i, !llvm.loop !7
 
-get_localsplus_counts.exit.i:                     ; preds = %for.inc.i.i, %if.end22
+get_localsplus_counts.argprom.exit.i:             ; preds = %for.inc.i.i, %if.end22
   %nfreevars.0.lcssa.i.i = phi i32 [ 0, %if.end22 ], [ %nfreevars.1.i.i, %for.inc.i.i ]
   %ncellvars.0.lcssa.i.i = phi i32 [ 0, %if.end22 ], [ %ncellvars.1.i.i, %for.inc.i.i ]
   %nlocals.0.lcssa.i.i = phi i32 [ 0, %if.end22 ], [ %nlocals.1.i.i, %for.inc.i.i ]
@@ -1830,11 +1830,11 @@ get_localsplus_counts.exit.i:                     ; preds = %for.inc.i.i, %if.en
   %cmp.i40 = icmp eq i32 %40, 0
   br i1 %cmp.i40, label %if.then.i48, label %if.end.i41
 
-if.then.i48:                                      ; preds = %get_localsplus_counts.exit.i
+if.then.i48:                                      ; preds = %get_localsplus_counts.argprom.exit.i
   store i32 1, ptr %stacksize.i, align 4
   br label %if.end.i41
 
-if.end.i41:                                       ; preds = %if.then.i48, %get_localsplus_counts.exit.i
+if.end.i41:                                       ; preds = %if.then.i48, %get_localsplus_counts.argprom.exit.i
   %41 = load ptr, ptr %con, align 8
   %42 = load i32, ptr %41, align 8
   %add.i.i.i = add i32 %42, 1
@@ -6341,7 +6341,7 @@ if.then200:                                       ; preds = %if.end194
 skip_optional:                                    ; preds = %if.end194, %if.end188, %if.end173
   %freevars.0 = phi ptr [ null, %if.end173 ], [ %47, %if.end188 ], [ %47, %if.end194 ]
   %cellvars.0 = phi ptr [ null, %if.end173 ], [ null, %if.end188 ], [ %51, %if.end194 ]
-  %call206 = tail call fastcc ptr @code_new_impl(i32 noundef %call16, i32 noundef %call25, i32 noundef %call34, i32 noundef %call43, i32 noundef %call52, i32 noundef %call61, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %18, ptr noundef nonnull %22, ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef nonnull %34, i32 noundef %call147, ptr noundef nonnull %39, ptr noundef nonnull %43, ptr noundef %freevars.0, ptr noundef %cellvars.0)
+  %call206 = tail call fastcc ptr @code_new_impl.argprom(i32 noundef %call16, i32 noundef %call25, i32 noundef %call34, i32 noundef %call43, i32 noundef %call52, i32 noundef %call61, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %18, ptr noundef nonnull %22, ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef nonnull %34, i32 noundef %call147, ptr noundef nonnull %39, ptr noundef nonnull %43, ptr noundef %freevars.0, ptr noundef %cellvars.0)
   br label %exit
 
 exit:                                             ; preds = %land.lhs.true149, %land.lhs.true63, %land.lhs.true54, %land.lhs.true45, %land.lhs.true36, %land.lhs.true27, %land.lhs.true18, %lor.lhs.false10, %lor.lhs.false4, %skip_optional, %if.then200, %if.then185, %if.then170, %if.then159, %if.then139, %if.then128, %if.then117, %if.then106, %if.then95, %if.then84, %if.then73
@@ -8466,7 +8466,7 @@ declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @code_new_impl(i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags, ptr noundef %code, ptr noundef %consts, ptr nocapture noundef readonly %names, ptr nocapture noundef readonly %varnames, ptr noundef %filename, ptr noundef %name, ptr noundef %qualname, i32 noundef %firstlineno, ptr noundef %linetable, ptr noundef %exceptiontable, ptr noundef readonly %freevars, ptr noundef readonly %cellvars) unnamed_addr #0 {
+define internal fastcc ptr @code_new_impl.argprom(i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags, ptr noundef %code, ptr noundef %consts, ptr nocapture noundef readonly %names, ptr nocapture noundef readonly %varnames, ptr noundef %filename, ptr noundef %name, ptr noundef %qualname, i32 noundef %firstlineno, ptr noundef %linetable, ptr noundef %exceptiontable, ptr noundef readonly %freevars, ptr noundef readonly %cellvars) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef %code, ptr noundef %filename, ptr noundef %name, i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags) #13
   %cmp = icmp slt i32 %call, 0

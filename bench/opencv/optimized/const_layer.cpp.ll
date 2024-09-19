@@ -588,7 +588,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn14ConstLayerImpl15getM
   %.idx = shl nsw i64 %26, 2
   %27 = getelementptr inbounds i8, ptr %8, i64 16
   %.not = icmp eq i32 %.val, 0
-  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %28
+  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %28
 
 28:                                               ; preds = %21
   %29 = icmp slt i32 %.val, 0
@@ -606,17 +606,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %28
   %32 = getelementptr inbounds i8, ptr %30, i64 %.idx
   store ptr %32, ptr %31, align 8
   store ptr %32, ptr %27, align 8
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
 
 common.resume:                                    ; preds = %20, %35, %38
   %common.resume.op = phi { ptr, i32 } [ %.pn, %20 ], [ %36, %35 ], [ %36, %38 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %21, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %21, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_assignEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit unwind label %35
 
-_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   %33 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %34
@@ -628,7 +628,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit: ; preds = %_ZN2cv3dnn14dnn4_
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit, %34
   ret i1 false
 
-35:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+35:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   %36 = landingpad { ptr, i32 }
           cleanup
   %37 = load ptr, ptr %8, align 8
@@ -1410,8 +1410,8 @@ attributes #19 = { noreturn nounwind }
 !6 = !{!7, !9}
 !7 = distinct !{!7, !8, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii: argument 0"}
 !8 = distinct !{!8, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii"}
-!9 = distinct !{!9, !10, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE: argument 0"}
-!10 = distinct !{!10, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE"}
+!9 = distinct !{!9, !10, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom"}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}

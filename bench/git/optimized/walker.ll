@@ -469,18 +469,18 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) @current_commit_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i.i11.i, i64 32)
-  br label %is_null_oid.exit.i.i
+  br label %is_null_oid.argprom.exit.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @current_commit_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i.i11.i, i64 20)
-  br label %is_null_oid.exit.i.i
+  br label %is_null_oid.argprom.exit.i.i
 
-is_null_oid.exit.i.i:                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
+is_null_oid.argprom.exit.i.i:                     ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.in.in.i.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %bcmp.i.i.i.i.i, %if.end.i.i.i.i.i ]
   %retval.0.in.i.i.i.not.i.i = icmp eq i32 %retval.0.in.in.i.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i.i, label %loop.exit.thread, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %is_null_oid.exit.i.i
+if.then.i.i:                                      ; preds = %is_null_oid.argprom.exit.i.i
   %29 = load ptr, ptr @stderr, align 8
   %call8.i.i = call ptr @oid_to_hex(ptr noundef nonnull @current_commit_oid) #14
   %call9.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.11, ptr noundef %call8.i.i) #13
@@ -831,7 +831,7 @@ if.end3.i.i29.i:                                  ; preds = %while.end.i
   %call.i.i30.i = call ptr @gettext(ptr noundef nonnull @.str.8) #14
   br label %loop.exit
 
-loop.exit.thread:                                 ; preds = %stop_progress.exit27.i, %is_null_oid.exit.i.i, %if.then.i.i
+loop.exit.thread:                                 ; preds = %stop_progress.exit27.i, %is_null_oid.argprom.exit.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %progress.i)
   br label %done
 

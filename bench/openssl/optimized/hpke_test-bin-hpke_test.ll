@@ -416,28 +416,28 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @export_only_test() #1 {
 entry:
-  %call = tail call fastcc i32 @do_testhpke(ptr noundef @__const.export_only_test.basedata, ptr noundef null, i64 noundef 0, ptr noundef @__const.export_only_test.exportdata)
+  %call = tail call fastcc i32 @do_testhpke.argelim(ptr noundef @__const.export_only_test.basedata, ptr noundef null, i64 noundef 0, ptr noundef @__const.export_only_test.exportdata)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @x25519kdfsha256_hkdfsha256_aes128gcm_base_test() #1 {
 entry:
-  %call = tail call fastcc i32 @do_testhpke(ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.basedata, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.aeaddata, i64 noundef 2, ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.exportdata)
+  %call = tail call fastcc i32 @do_testhpke.argelim(ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.basedata, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.aeaddata, i64 noundef 2, ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.exportdata)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @x25519kdfsha256_hkdfsha256_aes128gcm_psk_test() #1 {
 entry:
-  %call = tail call fastcc i32 @do_testhpke(ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.pskdata, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.aeaddata, i64 noundef 3, ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.exportdata)
+  %call = tail call fastcc i32 @do_testhpke.argelim(ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.pskdata, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.aeaddata, i64 noundef 3, ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.exportdata)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @P256kdfsha256_hkdfsha256_aes128gcm_base_test() #1 {
 entry:
-  %call = tail call fastcc i32 @do_testhpke(ptr noundef @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.basedata, ptr noundef nonnull @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.aeaddata, i64 noundef 2, ptr noundef @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.exportdata)
+  %call = tail call fastcc i32 @do_testhpke.argelim(ptr noundef @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.basedata, ptr noundef nonnull @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.aeaddata, i64 noundef 2, ptr noundef @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.exportdata)
   ret i32 %call
 }
 
@@ -2054,7 +2054,7 @@ declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr nocapture noundef nonnull readonly %base, ptr nocapture noundef readonly %aead, i64 noundef range(i64 0, 4) %aeadsz, ptr nocapture noundef nonnull readonly %export) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @do_testhpke.argelim(ptr nocapture noundef nonnull readonly %base, ptr nocapture noundef readonly %aead, i64 noundef range(i64 0, 4) %aeadsz, ptr nocapture noundef nonnull readonly %export) unnamed_addr #1 {
 entry:
   %ct = alloca [256 x i8], align 16
   %enc = alloca [256 x i8], align 16

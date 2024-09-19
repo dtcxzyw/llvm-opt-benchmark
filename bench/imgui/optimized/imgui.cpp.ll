@@ -2905,13 +2905,13 @@ entry:
   %p.val = load float, ptr %p, align 4
   %12 = getelementptr inbounds i8, ptr %p, i64 4
   %p.val6 = load float, ptr %12, align 4
-  call fastcc void @_ZL38ImBezierCubicClosestPointCasteljauStepRK6ImVec2RS_S2_Rffffffffffi(float %p.val, float %p.val6, ptr noundef nonnull align 4 dereferenceable(8) %retval, ptr noundef nonnull align 4 dereferenceable(8) %p_last, ptr noundef nonnull align 4 dereferenceable(4) %p_closest_dist2, float noundef %2, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %tess_tol, i32 noundef 0)
+  call fastcc void @_ZL38ImBezierCubicClosestPointCasteljauStepRK6ImVec2RS_S2_Rffffffffffi.argprom(float %p.val, float %p.val6, ptr noundef nonnull align 4 dereferenceable(8) %retval, ptr noundef nonnull align 4 dereferenceable(8) %p_last, ptr noundef nonnull align 4 dereferenceable(4) %p_closest_dist2, float noundef %2, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %tess_tol, i32 noundef 0)
   %13 = load <2 x float>, ptr %retval, align 8
   ret <2 x float> %13
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL38ImBezierCubicClosestPointCasteljauStepRK6ImVec2RS_S2_Rffffffffffi(float %p.0.val, float %p.4.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %p_closest, ptr nocapture noundef nonnull align 4 dereferenceable(8) %p_last, ptr nocapture noundef nonnull align 4 dereferenceable(4) %p_closest_dist2, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %x4, float noundef %y4, float noundef %tess_tol, i32 noundef range(i32 0, 11) %level) unnamed_addr #13 {
+define internal fastcc void @_ZL38ImBezierCubicClosestPointCasteljauStepRK6ImVec2RS_S2_Rffffffffffi.argprom(float %p.0.val, float %p.4.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %p_closest, ptr nocapture noundef nonnull align 4 dereferenceable(8) %p_last, ptr nocapture noundef nonnull align 4 dereferenceable(4) %p_closest_dist2, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %x4, float noundef %y4, float noundef %tess_tol, i32 noundef range(i32 0, 11) %level) unnamed_addr #13 {
 entry:
   br label %tailrecurse
 
@@ -3035,7 +3035,7 @@ if.then25:                                        ; preds = %if.else
   %add48 = fadd float %mul41, %mul45
   %mul49 = fmul float %add48, 5.000000e-01
   %add50 = add nuw nsw i32 %level.tr, 1
-  tail call fastcc void @_ZL38ImBezierCubicClosestPointCasteljauStepRK6ImVec2RS_S2_Rffffffffffi(float %p.0.val, float %p.4.val, ptr noundef nonnull align 4 dereferenceable(8) %p_closest, ptr noundef nonnull align 4 dereferenceable(8) %p_last, ptr noundef nonnull align 4 dereferenceable(4) %p_closest_dist2, float noundef %x1.tr, float noundef %y1.tr, float noundef %mul27, float noundef %mul29, float noundef %mul39, float noundef %mul41, float noundef %mul47, float noundef %mul49, float noundef %tess_tol, i32 noundef %add50)
+  tail call fastcc void @_ZL38ImBezierCubicClosestPointCasteljauStepRK6ImVec2RS_S2_Rffffffffffi.argprom(float %p.0.val, float %p.4.val, ptr noundef nonnull align 4 dereferenceable(8) %p_closest, ptr noundef nonnull align 4 dereferenceable(8) %p_last, ptr noundef nonnull align 4 dereferenceable(4) %p_closest_dist2, float noundef %x1.tr, float noundef %y1.tr, float noundef %mul27, float noundef %mul29, float noundef %mul39, float noundef %mul41, float noundef %mul47, float noundef %mul49, float noundef %tess_tol, i32 noundef %add50)
   br label %tailrecurse
 
 if.end53:                                         ; preds = %if.else, %if.end
@@ -5357,7 +5357,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val4 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -5376,16 +5376,16 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i5.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val4, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4, i64 %idx.ext.i5.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.end, label %return
@@ -5395,8 +5395,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %4 = load i32, ptr %3, align 8
   br label %return
 
-return:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ %4, %if.end ], [ %default_val, %lor.lhs.false ], [ %default_val, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit ]
+return:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, %lor.lhs.false, %if.end
+  %retval.0 = phi i32 [ %4, %if.end ], [ %default_val, %lor.lhs.false ], [ %default_val, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -5407,7 +5407,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val4.i = load ptr, ptr %0, align 8
   %cmp.not1.i.i = icmp eq i32 %this.val.i, 0
-  br i1 %cmp.not1.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, label %while.body.preheader.i.i
+  br i1 %cmp.not1.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %entry
   %idx.ext.i.i = sext i32 %this.val.i to i64
@@ -5426,16 +5426,16 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %count.1.i.i = select i1 %cmp4.i.i, i64 %sub.i.i, i64 %shr.i.i
   %first.1.i.i = select i1 %cmp4.i.i, ptr %incdec.ptr.i.i, ptr %first.03.i.i
   %cmp.not.i.i = icmp eq i64 %count.1.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, label %while.body.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, label %while.body.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i: ; preds = %while.body.i.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i: ; preds = %while.body.i.i, %entry
   %idx.ext.i5.pre-phi.i = phi i64 [ 0, %entry ], [ %idx.ext.i.i, %while.body.i.i ]
   %first.0.lcssa.i.i = phi ptr [ %this.val4.i, %entry ], [ %first.1.i.i, %while.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i, i64 %idx.ext.i5.pre-phi.i
   %cmp.i = icmp eq ptr %first.0.lcssa.i.i, %add.ptr.i.i
   br i1 %cmp.i, label %_ZNK12ImGuiStorage6GetIntEji.exit, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i
+lor.lhs.false.i:                                  ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i
   %2 = load i32, ptr %first.0.lcssa.i.i, align 8
   %cmp5.not.i = icmp eq i32 %2, %key
   br i1 %cmp5.not.i, label %if.end.i, label %_ZNK12ImGuiStorage6GetIntEji.exit
@@ -5446,8 +5446,8 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %5 = icmp ne i32 %4, 0
   br label %_ZNK12ImGuiStorage6GetIntEji.exit
 
-_ZNK12ImGuiStorage6GetIntEji.exit:                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, %lor.lhs.false.i, %if.end.i
-  %retval.0.i = phi i1 [ %5, %if.end.i ], [ %default_val, %lor.lhs.false.i ], [ %default_val, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i ]
+_ZNK12ImGuiStorage6GetIntEji.exit:                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, %lor.lhs.false.i, %if.end.i
+  %retval.0.i = phi i1 [ %5, %if.end.i ], [ %default_val, %lor.lhs.false.i ], [ %default_val, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i ]
   ret i1 %retval.0.i
 }
 
@@ -5458,7 +5458,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val4 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -5477,16 +5477,16 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i5.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val4, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4, i64 %idx.ext.i5.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.end, label %return
@@ -5496,8 +5496,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %4 = load float, ptr %3, align 8
   br label %return
 
-return:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, %lor.lhs.false, %if.end
-  %retval.0 = phi float [ %4, %if.end ], [ %default_val, %lor.lhs.false ], [ %default_val, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit ]
+return:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, %lor.lhs.false, %if.end
+  %retval.0 = phi float [ %4, %if.end ], [ %default_val, %lor.lhs.false ], [ %default_val, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit ]
   ret float %retval.0
 }
 
@@ -5508,7 +5508,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val4 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -5527,16 +5527,16 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i5.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val4, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4, i64 %idx.ext.i5.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.end, label %return
@@ -5546,8 +5546,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %4 = load ptr, ptr %3, align 8
   br label %return
 
-return:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, %lor.lhs.false, %if.end
-  %retval.0 = phi ptr [ %4, %if.end ], [ null, %lor.lhs.false ], [ null, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit ]
+return:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, %lor.lhs.false, %if.end
+  %retval.0 = phi ptr [ %4, %if.end ], [ null, %lor.lhs.false ], [ null, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit ]
   ret ptr %retval.0
 }
 
@@ -5558,7 +5558,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val6 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -5577,21 +5577,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i7.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val6, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val6, i64 %idx.ext.i7.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %first.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %this.val6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -5661,7 +5661,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val6.i = load ptr, ptr %0, align 8
   %cmp.not1.i.i = icmp eq i32 %this.val.i, 0
-  br i1 %cmp.not1.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, label %while.body.preheader.i.i
+  br i1 %cmp.not1.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %entry
   %idx.ext.i.i = sext i32 %this.val.i to i64
@@ -5680,21 +5680,21 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %count.1.i.i = select i1 %cmp4.i.i, i64 %sub.i.i, i64 %shr.i.i
   %first.1.i.i = select i1 %cmp4.i.i, ptr %incdec.ptr.i.i, ptr %first.03.i.i
   %cmp.not.i.i = icmp eq i64 %count.1.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, label %while.body.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, label %while.body.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i: ; preds = %while.body.i.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i: ; preds = %while.body.i.i, %entry
   %idx.ext.i7.pre-phi.i = phi i64 [ 0, %entry ], [ %idx.ext.i.i, %while.body.i.i ]
   %first.0.lcssa.i.i = phi ptr [ %this.val6.i, %entry ], [ %first.1.i.i, %while.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val6.i, i64 %idx.ext.i7.pre-phi.i
   %cmp.i = icmp eq ptr %first.0.lcssa.i.i, %add.ptr.i.i
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i
+lor.lhs.false.i:                                  ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i
   %2 = load i32, ptr %first.0.lcssa.i.i, align 8
   %cmp5.not.i = icmp eq i32 %2, %key
   br i1 %cmp5.not.i, label %_ZN12ImGuiStorage9GetIntRefEji.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %lor.lhs.false.i, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i
+if.then.i:                                        ; preds = %lor.lhs.false.i, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %first.0.lcssa.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %this.val6.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -5763,7 +5763,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val6 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -5782,21 +5782,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i7.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val6, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val6, i64 %idx.ext.i7.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %first.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %this.val6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -5865,7 +5865,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val6 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -5884,21 +5884,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i7.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val6, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val6, i64 %idx.ext.i7.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %first.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %this.val6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -5967,7 +5967,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -5986,21 +5986,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i8.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val7, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val7, i64 %idx.ext.i8.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %first.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %this.val7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -6071,7 +6071,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7.i = load ptr, ptr %0, align 8
   %cmp.not1.i.i = icmp eq i32 %this.val.i, 0
-  br i1 %cmp.not1.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, label %while.body.preheader.i.i
+  br i1 %cmp.not1.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %entry
   %idx.ext.i.i = sext i32 %this.val.i to i64
@@ -6090,21 +6090,21 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %count.1.i.i = select i1 %cmp4.i.i, i64 %sub.i.i, i64 %shr.i.i
   %first.1.i.i = select i1 %cmp4.i.i, ptr %incdec.ptr.i.i, ptr %first.03.i.i
   %cmp.not.i.i = icmp eq i64 %count.1.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, label %while.body.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, label %while.body.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i: ; preds = %while.body.i.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i: ; preds = %while.body.i.i, %entry
   %idx.ext.i8.pre-phi.i = phi i64 [ 0, %entry ], [ %idx.ext.i.i, %while.body.i.i ]
   %first.0.lcssa.i.i = phi ptr [ %this.val7.i, %entry ], [ %first.1.i.i, %while.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val7.i, i64 %idx.ext.i8.pre-phi.i
   %cmp.i = icmp eq ptr %first.0.lcssa.i.i, %add.ptr.i.i
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i
+lor.lhs.false.i:                                  ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i
   %2 = load i32, ptr %first.0.lcssa.i.i, align 8
   %cmp5.not.i = icmp eq i32 %2, %key
   br i1 %cmp5.not.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %lor.lhs.false.i, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i
+if.then.i:                                        ; preds = %lor.lhs.false.i, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %first.0.lcssa.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %this.val7.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -6174,7 +6174,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -6193,21 +6193,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i8.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val7, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val7, i64 %idx.ext.i8.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %first.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %this.val7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -6277,7 +6277,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7 = load ptr, ptr %0, align 8
   %cmp.not1.i = icmp eq i32 %this.val, 0
-  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.preheader.i
+  br i1 %cmp.not1.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
   %idx.ext.i = sext i32 %this.val to i64
@@ -6296,21 +6296,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %count.1.i = select i1 %cmp4.i, i64 %sub.i, i64 %shr.i
   %first.1.i = select i1 %cmp4.i, ptr %incdec.ptr.i, ptr %first.03.i
   %cmp.not.i = icmp eq i64 %count.1.i, 0
-  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit, label %while.body.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit: ; preds = %while.body.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit: ; preds = %while.body.i, %entry
   %idx.ext.i8.pre-phi = phi i64 [ 0, %entry ], [ %idx.ext.i, %while.body.i ]
   %first.0.lcssa.i = phi ptr [ %this.val7, %entry ], [ %first.1.i, %while.body.i ]
   %add.ptr.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val7, i64 %idx.ext.i8.pre-phi
   %cmp = icmp eq ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+lor.lhs.false:                                    ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %2 = load i32, ptr %first.0.lcssa.i, align 8
   %cmp5.not = icmp eq i32 %2, %key
   br i1 %cmp5.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit
+if.then:                                          ; preds = %lor.lhs.false, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %first.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %this.val7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -13844,7 +13844,7 @@ if.then:                                          ; preds = %for.body
   %this.val.i.i = load i32, ptr %WindowsById.i, align 8
   %this.val4.i.i = load ptr, ptr %3, align 8
   %cmp.not1.i.i.i = icmp eq i32 %this.val.i.i, 0
-  br i1 %cmp.not1.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, label %while.body.preheader.i.i.i
+  br i1 %cmp.not1.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %if.then
   %idx.ext.i.i.i = sext i32 %this.val.i.i to i64
@@ -13863,16 +13863,16 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %count.1.i.i.i = select i1 %cmp4.i.i.i, i64 %sub.i.i.i, i64 %shr.i.i.i
   %first.1.i.i.i = select i1 %cmp4.i.i.i, ptr %incdec.ptr.i.i.i, ptr %first.03.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %count.1.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, label %while.body.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, label %while.body.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i: ; preds = %while.body.i.i.i, %if.then
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i: ; preds = %while.body.i.i.i, %if.then
   %idx.ext.i5.pre-phi.i.i = phi i64 [ 0, %if.then ], [ %idx.ext.i.i.i, %while.body.i.i.i ]
   %first.0.lcssa.i.i.i = phi ptr [ %this.val4.i.i, %if.then ], [ %first.1.i.i.i, %while.body.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i, i64 %idx.ext.i5.pre-phi.i.i
   %cmp.i.i = icmp eq ptr %first.0.lcssa.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i, label %if.end, label %lor.lhs.false.i.i
 
-lor.lhs.false.i.i:                                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i
+lor.lhs.false.i.i:                                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i
   %8 = load i32, ptr %first.0.lcssa.i.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %8, %6
   br i1 %cmp5.not.i.i, label %_ZN5ImGui14FindWindowByIDEj.exit, label %if.end
@@ -13924,7 +13924,7 @@ _ZL19ApplyWindowSettingsP11ImGuiWindowP19ImGuiWindowSettings.exit: ; preds = %if
   store i8 %frombool.i, ptr %Collapsed21.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, %lor.lhs.false.i.i, %_ZL19ApplyWindowSettingsP11ImGuiWindowP19ImGuiWindowSettings.exit, %_ZN5ImGui14FindWindowByIDEj.exit
+if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, %lor.lhs.false.i.i, %_ZL19ApplyWindowSettingsP11ImGuiWindowP19ImGuiWindowSettings.exit, %_ZN5ImGui14FindWindowByIDEj.exit
   store i8 0, ptr %WantApply, align 2
   %.pre = load ptr, ptr %Data.i, align 8
   br label %for.inc
@@ -31046,7 +31046,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %6 = getelementptr inbounds i8, ptr %0, i64 16368
   %this.val4.i.i.i = load ptr, ptr %6, align 8
   %cmp.not1.i.i.i.i = icmp eq i32 %this.val.i.i.i, 0
-  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.preheader.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.preheader.i.i.i.i
 
 while.body.preheader.i.i.i.i:                     ; preds = %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i.i.i.i = sext i32 %this.val.i.i.i to i64
@@ -31065,16 +31065,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %count.1.i.i.i.i = select i1 %cmp4.i.i.i.i, i64 %sub.i.i.i.i, i64 %shr.i.i.i.i
   %first.1.i.i.i.i = select i1 %cmp4.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %first.03.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %count.1.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i5.pre-phi.i.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit.i ], [ %idx.ext.i.i.i.i, %while.body.i.i.i.i ]
   %first.0.lcssa.i.i.i.i = phi ptr [ %this.val4.i.i.i, %_Z9ImHashStrPKcmj.exit.i ], [ %first.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i.i, i64 %idx.ext.i5.pre-phi.i.i.i
   %cmp.i.i.i = icmp eq ptr %first.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i
   %8 = load i32, ptr %first.0.lcssa.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i32 %8, %crc.2.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit, label %if.then
@@ -31085,7 +31085,7 @@ _ZN5ImGui16FindWindowByNameEPKc.exit:             ; preds = %lor.lhs.false.i.i.i
   %cmp = icmp eq ptr %10, null
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, %lor.lhs.false.i.i.i, %_ZN5ImGui16FindWindowByNameEPKc.exit
+if.then:                                          ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, %lor.lhs.false.i.i.i, %_ZN5ImGui16FindWindowByNameEPKc.exit
   %11 = load ptr, ptr @_ZL21GImAllocatorAllocFunc, align 8
   %12 = load ptr, ptr @_ZL20GImAllocatorUserData, align 8
   %call.i.i = tail call noundef ptr %11(i64 noundef 1016, ptr noundef %12)
@@ -31141,7 +31141,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %if.end.i.i.i308, %i
   %this.val.i.i = load i32, ptr %WindowsById.i.i, align 8
   %this.val7.i.i = load ptr, ptr %6, align 8
   %cmp.not1.i.i.i = icmp eq i32 %this.val.i.i, 0
-  br i1 %cmp.not1.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, label %while.body.preheader.i.i.i
+  br i1 %cmp.not1.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %_ZN5ImGui8MemAllocEm.exit.i
   %idx.ext.i.i.i = sext i32 %this.val.i.i to i64
@@ -31160,21 +31160,21 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %count.1.i.i.i = select i1 %cmp4.i.i.i, i64 %sub.i.i.i, i64 %shr.i.i.i
   %first.1.i.i.i = select i1 %cmp4.i.i.i, ptr %incdec.ptr.i.i.i, ptr %first.03.i.i.i
   %cmp.not.i.i8.i = icmp eq i64 %count.1.i.i.i, 0
-  br i1 %cmp.not.i.i8.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, label %while.body.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i8.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, label %while.body.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i: ; preds = %while.body.i.i.i, %_ZN5ImGui8MemAllocEm.exit.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i: ; preds = %while.body.i.i.i, %_ZN5ImGui8MemAllocEm.exit.i
   %idx.ext.i8.pre-phi.i.i = phi i64 [ 0, %_ZN5ImGui8MemAllocEm.exit.i ], [ %idx.ext.i.i.i, %while.body.i.i.i ]
   %first.0.lcssa.i.i.i = phi ptr [ %this.val7.i.i, %_ZN5ImGui8MemAllocEm.exit.i ], [ %first.1.i.i.i, %while.body.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val7.i.i, i64 %idx.ext.i8.pre-phi.i.i
   %cmp.i.i = icmp eq ptr %first.0.lcssa.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i, label %if.then.i9.i, label %lor.lhs.false.i.i
 
-lor.lhs.false.i.i:                                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i
+lor.lhs.false.i.i:                                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i
   %22 = load i32, ptr %first.0.lcssa.i.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %22, %20
   br i1 %cmp5.not.i.i, label %if.else.i.i, label %if.then.i9.i
 
-if.then.i9.i:                                     ; preds = %lor.lhs.false.i.i, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i
+if.then.i9.i:                                     ; preds = %lor.lhs.false.i.i, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %first.0.lcssa.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %this.val7.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -32850,7 +32850,7 @@ if.end529:                                        ; preds = %if.then1.i500, %if.
   %use_current_size_for_scrollbar_x.1 = phi i8 [ %use_current_size_for_scrollbar_x.2, %if.end523 ], [ %frombool1433, %lor.lhs.false481 ], [ %use_current_size_for_scrollbar_x.0, %if.end471 ], [ %use_current_size_for_scrollbar_x.0, %if.then473 ], [ %use_current_size_for_scrollbar_x.2, %if.then526 ], [ %use_current_size_for_scrollbar_x.2, %if.then.i497 ], [ %use_current_size_for_scrollbar_x.2, %if.then1.i500 ]
   %SizeFull531 = getelementptr inbounds i8, ptr %window.0, i64 56
   %SizeFull531.val = load i64, ptr %SizeFull531, align 4
-  %call532 = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %SizeFull531.val)
+  %call532 = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull %window.0, i64 %SizeFull531.val)
   store <2 x float> %call532, ptr %SizeFull531, align 8
   %Collapsed535 = getelementptr inbounds i8, ptr %window.0, i64 193
   %269 = load i8, ptr %Collapsed535, align 1
@@ -33525,7 +33525,7 @@ land.lhs.true.i678:                               ; preds = %if.end72.i, %if.end
   br i1 %tobool76.i, label %if.then77.i, label %if.then81.i
 
 if.then77.i:                                      ; preds = %land.lhs.true.i678
-  %call79.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %366)
+  %call79.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull %window.0, i64 %366)
   call void @_ZN5ImGui11SetActiveIDEjP11ImGuiWindow(i32 noundef 0, ptr noundef null)
   br label %if.end138.i
 
@@ -33583,7 +33583,7 @@ if.then81.i:                                      ; preds = %land.lhs.true.i678
   %retval.sroa.0.0.vec.insert.i30.i.i = insertelement <2 x float> poison, float %sub.i29.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i31.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i30.i.i, float %sub3.i.i.i, i64 1
   %393 = bitcast <2 x float> %retval.sroa.0.4.vec.insert.i31.i.i to i64
-  %call5.i.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window.0, i64 %393)
+  %call5.i.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull readonly %window.0, i64 %393)
   %size_constrained.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call5.i.i, i64 0
   %sub.i270.i = fsub float %size_constrained.sroa.0.0.vec.extract.i.i, %sub.i29.i.i
   %sub9.i.i = fsub float %389, %sub.i270.i
@@ -33907,7 +33907,7 @@ if.then213.i:                                     ; preds = %land.lhs.true208.i
   ]
 
 if.then217.i:                                     ; preds = %if.then213.i, %if.then213.i
-  %call219.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %410)
+  %call219.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull %window.0, i64 %410)
   store <2 x float> %call219.i, ptr %ref.tmp218.i, align 8
   %conv220.i = zext i1 %412 to i64
   %arrayidx.i308.i = getelementptr inbounds float, ptr %ref.tmp218.i, i64 %conv220.i
@@ -34132,7 +34132,7 @@ if.then374.i:                                     ; preds = %if.end372.i
   %retval.sroa.0.0.vec.insert.i30.i380.i = insertelement <2 x float> poison, float %sub.i29.i378.i, i64 0
   %retval.sroa.0.4.vec.insert.i31.i381.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i30.i380.i, float %sub3.i.i379.i, i64 1
   %464 = bitcast <2 x float> %retval.sroa.0.4.vec.insert.i31.i381.i to i64
-  %call5.i382.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window.0, i64 %464)
+  %call5.i382.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull readonly %window.0, i64 %464)
   %cmp.i383.i = fcmp oeq float %..i.i, 0.000000e+00
   %size_constrained.sroa.0.0.vec.extract.i392.i = extractelement <2 x float> %call5.i382.i, i64 0
   %sub.i393.i = fsub float %size_constrained.sroa.0.0.vec.extract.i392.i, %sub.i29.i378.i
@@ -34140,23 +34140,23 @@ if.then374.i:                                     ; preds = %if.end372.i
   %pos_target.sroa.0.0.vec.insert539.i = insertelement <2 x float> %retval.sroa.0.4.vec.insert.i.i370.i, float %sub9.i394.i, i64 0
   %pos_target.sroa.0.7.i = select i1 %cmp.i383.i, <2 x float> %pos_target.sroa.0.0.vec.insert539.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i370.i
   %cmp10.i385.i = fcmp oeq float %cond11.i316.i, 0.000000e+00
-  br i1 %cmp10.i385.i, label %if.then11.i386.i, label %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i
+  br i1 %cmp10.i385.i, label %if.then11.i386.i, label %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.argprom.exit395.i
 
 if.then11.i386.i:                                 ; preds = %if.then374.i
   %size_constrained.sroa.0.4.vec.extract.i387.i = extractelement <2 x float> %call5.i382.i, i64 1
   %sub14.i388.i = fsub float %size_constrained.sroa.0.4.vec.extract.i387.i, %sub3.i.i379.i
   %sub16.i390.i = fsub float %461, %sub14.i388.i
   %pos_target.sroa.0.4.vec.insert546.i = insertelement <2 x float> %pos_target.sroa.0.7.i, float %sub16.i390.i, i64 1
-  br label %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i
+  br label %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.argprom.exit395.i
 
-_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i: ; preds = %if.then11.i386.i, %if.then374.i
+_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.argprom.exit395.i: ; preds = %if.then11.i386.i, %if.then374.i
   %pos_target.sroa.0.8.i = phi <2 x float> [ %pos_target.sroa.0.4.vec.insert546.i, %if.then11.i386.i ], [ %pos_target.sroa.0.7.i, %if.then374.i ]
   store <2 x float> %call5.i382.i, ptr %size_target.i, align 8
   br label %if.end381.i
 
-if.end381.i:                                      ; preds = %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i, %if.end372.i, %if.end226.i, %if.end206.i, %lor.lhs.false200.i
-  %pos_target.sroa.0.4.i = phi <2 x float> [ %pos_target.sroa.0.2573.i, %if.end226.i ], [ %pos_target.sroa.0.2573.i, %if.end372.i ], [ %pos_target.sroa.0.8.i, %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i ], [ %pos_target.sroa.0.2573.i, %if.end206.i ], [ %pos_target.sroa.0.2573.i, %lor.lhs.false200.i ]
-  %ret_auto_fit_mask.5.i = phi i32 [ %ret_auto_fit_mask.4.i, %if.end226.i ], [ %ret_auto_fit_mask.2576.i, %if.end372.i ], [ %ret_auto_fit_mask.2576.i, %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.exit395.i ], [ %ret_auto_fit_mask.2576.i, %if.end206.i ], [ %ret_auto_fit_mask.2576.i, %lor.lhs.false200.i ]
+if.end381.i:                                      ; preds = %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.argprom.exit395.i, %if.end372.i, %if.end226.i, %if.end206.i, %lor.lhs.false200.i
+  %pos_target.sroa.0.4.i = phi <2 x float> [ %pos_target.sroa.0.2573.i, %if.end226.i ], [ %pos_target.sroa.0.2573.i, %if.end372.i ], [ %pos_target.sroa.0.8.i, %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.argprom.exit395.i ], [ %pos_target.sroa.0.2573.i, %if.end206.i ], [ %pos_target.sroa.0.2573.i, %lor.lhs.false200.i ]
+  %ret_auto_fit_mask.5.i = phi i32 [ %ret_auto_fit_mask.4.i, %if.end226.i ], [ %ret_auto_fit_mask.2576.i, %if.end372.i ], [ %ret_auto_fit_mask.2576.i, %_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK6ImVec2S3_PS1_S4_.argprom.exit395.i ], [ %ret_auto_fit_mask.2576.i, %if.end206.i ], [ %ret_auto_fit_mask.2576.i, %lor.lhs.false200.i ]
   %465 = load i8, ptr %hovered187.i, align 1
   %tobool382.i = trunc i8 %465 to i1
   %spec.select1478 = select i1 %tobool382.i, i32 %411, i32 %border_hovered.1
@@ -34296,7 +34296,7 @@ if.then450.i:                                     ; preds = %if.then417.i
   %retval.sroa.0.0.vec.insert.i437.i = insertelement <2 x float> poison, float %add.i435.i, i64 0
   %retval.sroa.0.4.vec.insert.i438.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i437.i, float %add3.i436.i, i64 1
   %484 = bitcast <2 x float> %retval.sroa.0.4.vec.insert.i438.i to i64
-  %call454.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %484)
+  %call454.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull %window.0, i64 %484)
   store <2 x float> %call454.i, ptr %size_target.i, align 8
   %485 = load float, ptr %NavWindowingAccumDeltaSize.i, align 4
   %sub.i439.i = fsub float %485, %conv1.i.i671
@@ -34767,15 +34767,15 @@ _ZNK11ImGuiWindow12TitleBarRectEv.exit762:        ; preds = %if.end834, %_ZNK11I
   %conv1.i787 = sitofp i32 %conv.i786 to float
   %agg.tmp.sroa.0.0.copyload.i789 = load <2 x float>, ptr %Max5.i, align 4
   %cmp13.i.i792 = fcmp ogt float %r.val3.i, %conv1.i779
-  br i1 %cmp13.i.i792, label %_ZL7ImClampRK6ImVec2S1_S_.exit.i, label %cond.false16.i.i793
+  br i1 %cmp13.i.i792, label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, label %cond.false16.i.i793
 
 cond.false16.i.i793:                              ; preds = %_ZNK11ImGuiWindow12TitleBarRectEv.exit762
   %mx.sroa.0.4.vec.extract.i.i794 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i789, i64 1
   %cmp19.i.i795 = fcmp olt float %mx.sroa.0.4.vec.extract.i.i794, %conv1.i779
   %mx.sroa.0.4.vec.extract..i.i796 = select i1 %cmp19.i.i795, float %mx.sroa.0.4.vec.extract.i.i794, float %conv1.i779
-  br label %_ZL7ImClampRK6ImVec2S1_S_.exit.i
+  br label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
 
-_ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i793, %_ZNK11ImGuiWindow12TitleBarRectEv.exit762
+_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i:         ; preds = %cond.false16.i.i793, %_ZNK11ImGuiWindow12TitleBarRectEv.exit762
   %cond27.i.i797 = phi float [ %r.val3.i, %_ZNK11ImGuiWindow12TitleBarRectEv.exit762 ], [ %mx.sroa.0.4.vec.extract..i.i796, %cond.false16.i.i793 ]
   %cmp.i.i798 = fcmp ogt float %r.val.i, %conv1.i777
   %mx.sroa.0.0.vec.extract.i.i799 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i789, i64 0
@@ -34788,14 +34788,14 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i793
   %cmp13.i9.i = fcmp ogt float %r.val3.i, %conv1.i787
   br i1 %cmp13.i9.i, label %_ZN6ImRect12ClipWithFullERKS_.exit, label %cond.false16.i10.i
 
-cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i
+cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
   %mx.sroa.0.4.vec.extract.i11.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i789, i64 1
   %cmp19.i12.i = fcmp olt float %mx.sroa.0.4.vec.extract.i11.i, %conv1.i787
   %mx.sroa.0.4.vec.extract..i13.i = select i1 %cmp19.i12.i, float %mx.sroa.0.4.vec.extract.i11.i, float %conv1.i787
   br label %_ZN6ImRect12ClipWithFullERKS_.exit
 
-_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i, %cond.false16.i10.i
-  %cond27.i14.i = phi float [ %r.val3.i, %_ZL7ImClampRK6ImVec2S1_S_.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
+_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, %cond.false16.i10.i
+  %cond27.i14.i = phi float [ %r.val3.i, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
   %cmp.i15.i = fcmp ogt float %r.val.i, %conv1.i785
   %cmp5.i17.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i799, %conv1.i785
   %mx.sroa.0.0.vec.extract..i18.i = select i1 %cmp5.i17.i, float %mx.sroa.0.0.vec.extract.i.i799, float %conv1.i785
@@ -37700,7 +37700,7 @@ _Z9ImHashStrPKcmj.exit.loopexit.i.i.i:            ; preds = %if.end30.i.i.i.i
   %33 = getelementptr inbounds i8, ptr %25, i64 16368
   %this.val4.i.i.i.i.i = load ptr, ptr %33, align 8
   %cmp.not1.i.i.i.i.i.i = icmp eq i32 %this.val.i.i.i.i.i, 0
-  br i1 %cmp.not1.i.i.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i.i.i, label %while.body.preheader.i.i.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i.i.i, label %while.body.preheader.i.i.i.i.i.i
 
 while.body.preheader.i.i.i.i.i.i:                 ; preds = %_Z9ImHashStrPKcmj.exit.loopexit.i.i.i
   %idx.ext.i.i.i.i.i.i = sext i32 %this.val.i.i.i.i.i to i64
@@ -37719,16 +37719,16 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %count.1.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i
   %first.1.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i.i, ptr %first.03.i.i.i.i.i.i
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %count.1.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %_Z9ImHashStrPKcmj.exit.loopexit.i.i.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %_Z9ImHashStrPKcmj.exit.loopexit.i.i.i
   %idx.ext.i5.pre-phi.i.i.i.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit.loopexit.i.i.i ], [ %idx.ext.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %first.0.lcssa.i.i.i.i.i.i = phi ptr [ %this.val4.i.i.i.i.i, %_Z9ImHashStrPKcmj.exit.loopexit.i.i.i ], [ %first.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i.i.i.i, i64 %idx.ext.i5.pre-phi.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %first.0.lcssa.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit.i.i, label %lor.lhs.false.i.i.i.i.i
 
-lor.lhs.false.i.i.i.i.i:                          ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i.i.i
+lor.lhs.false.i.i.i.i.i:                          ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i.i.i
   %35 = load i32, ptr %first.0.lcssa.i.i.i.i.i.i, align 8
   %cmp5.not.i.i.i.i.i = icmp eq i32 %35, %32
   br i1 %cmp5.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit.i.i
@@ -37738,8 +37738,8 @@ if.end.i.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
   %37 = load ptr, ptr %36, align 8
   br label %_ZN5ImGui16FindWindowByNameEPKc.exit.i.i
 
-_ZN5ImGui16FindWindowByNameEPKc.exit.i.i:         ; preds = %if.end.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i.i.i
-  %retval.0.i.i.i.i.i = phi ptr [ %37, %if.end.i.i.i.i.i ], [ null, %lor.lhs.false.i.i.i.i.i ], [ null, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i.i.i ]
+_ZN5ImGui16FindWindowByNameEPKc.exit.i.i:         ; preds = %if.end.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i.i.i
+  %retval.0.i.i.i.i.i = phi ptr [ %37, %if.end.i.i.i.i.i ], [ null, %lor.lhs.false.i.i.i.i.i ], [ null, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i, ptr %NavWindowingListWindow.i.i, align 8
   br label %if.end4.i.i
 
@@ -42629,7 +42629,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 16368
   %this.val4.i = load ptr, ptr %1, align 8
   %cmp.not1.i.i = icmp eq i32 %this.val.i, 0
-  br i1 %cmp.not1.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, label %while.body.preheader.i.i
+  br i1 %cmp.not1.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %entry
   %idx.ext.i.i = sext i32 %this.val.i to i64
@@ -42648,16 +42648,16 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %count.1.i.i = select i1 %cmp4.i.i, i64 %sub.i.i, i64 %shr.i.i
   %first.1.i.i = select i1 %cmp4.i.i, ptr %incdec.ptr.i.i, ptr %first.03.i.i
   %cmp.not.i.i = icmp eq i64 %count.1.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, label %while.body.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, label %while.body.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i: ; preds = %while.body.i.i, %entry
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i: ; preds = %while.body.i.i, %entry
   %idx.ext.i5.pre-phi.i = phi i64 [ 0, %entry ], [ %idx.ext.i.i, %while.body.i.i ]
   %first.0.lcssa.i.i = phi ptr [ %this.val4.i, %entry ], [ %first.1.i.i, %while.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i, i64 %idx.ext.i5.pre-phi.i
   %cmp.i = icmp eq ptr %first.0.lcssa.i.i, %add.ptr.i.i
   br i1 %cmp.i, label %_ZNK12ImGuiStorage10GetVoidPtrEj.exit, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i
+lor.lhs.false.i:                                  ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i
   %3 = load i32, ptr %first.0.lcssa.i.i, align 8
   %cmp5.not.i = icmp eq i32 %3, %id
   br i1 %cmp5.not.i, label %if.end.i, label %_ZNK12ImGuiStorage10GetVoidPtrEj.exit
@@ -42667,8 +42667,8 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %5 = load ptr, ptr %4, align 8
   br label %_ZNK12ImGuiStorage10GetVoidPtrEj.exit
 
-_ZNK12ImGuiStorage10GetVoidPtrEj.exit:            ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i, %lor.lhs.false.i, %if.end.i
-  %retval.0.i = phi ptr [ %5, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i ]
+_ZNK12ImGuiStorage10GetVoidPtrEj.exit:            ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i, %lor.lhs.false.i, %if.end.i
+  %retval.0.i = phi ptr [ %5, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i ]
   ret ptr %retval.0.i
 }
 
@@ -42722,7 +42722,7 @@ _Z9ImHashStrPKcmj.exit:                           ; preds = %_Z9ImHashStrPKcmj.e
   %6 = getelementptr inbounds i8, ptr %5, i64 16368
   %this.val4.i.i = load ptr, ptr %6, align 8
   %cmp.not1.i.i.i = icmp eq i32 %this.val.i.i, 0
-  br i1 %cmp.not1.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, label %while.body.preheader.i.i.i
+  br i1 %cmp.not1.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %_Z9ImHashStrPKcmj.exit
   %idx.ext.i.i.i = sext i32 %this.val.i.i to i64
@@ -42741,16 +42741,16 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %count.1.i.i.i = select i1 %cmp4.i.i.i, i64 %sub.i.i.i, i64 %shr.i.i.i
   %first.1.i.i.i = select i1 %cmp4.i.i.i, ptr %incdec.ptr.i.i.i, ptr %first.03.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %count.1.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, label %while.body.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, label %while.body.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i: ; preds = %while.body.i.i.i, %_Z9ImHashStrPKcmj.exit
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i: ; preds = %while.body.i.i.i, %_Z9ImHashStrPKcmj.exit
   %idx.ext.i5.pre-phi.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit ], [ %idx.ext.i.i.i, %while.body.i.i.i ]
   %first.0.lcssa.i.i.i = phi ptr [ %this.val4.i.i, %_Z9ImHashStrPKcmj.exit ], [ %first.1.i.i.i, %while.body.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i, i64 %idx.ext.i5.pre-phi.i.i
   %cmp.i.i = icmp eq ptr %first.0.lcssa.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i, label %_ZN5ImGui14FindWindowByIDEj.exit, label %lor.lhs.false.i.i
 
-lor.lhs.false.i.i:                                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i
+lor.lhs.false.i.i:                                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i
   %8 = load i32, ptr %first.0.lcssa.i.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %8, %crc.2.i
   br i1 %cmp5.not.i.i, label %if.end.i.i, label %_ZN5ImGui14FindWindowByIDEj.exit
@@ -42760,8 +42760,8 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %10 = load ptr, ptr %9, align 8
   br label %_ZN5ImGui14FindWindowByIDEj.exit
 
-_ZN5ImGui14FindWindowByIDEj.exit:                 ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, %lor.lhs.false.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %10, %if.end.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i ]
+_ZN5ImGui14FindWindowByIDEj.exit:                 ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, %lor.lhs.false.i.i, %if.end.i.i
+  %retval.0.i.i = phi ptr [ %10, %if.end.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i ]
   ret ptr %retval.0.i.i
 }
 
@@ -42923,15 +42923,15 @@ cond.end.i8:                                      ; preds = %cond.false.i11, %if
   %size_min.sroa.0.0.vec.extract.i = extractelement <2 x float> %call7.i, i64 0
   %size_min.sroa.0.4.vec.extract.i = extractelement <2 x float> %call7.i, i64 1
   %cmp13.i.i = fcmp olt float %add3.i35.i, %size_min.sroa.0.4.vec.extract.i
-  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.exit.i, label %cond.false16.i.i
+  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, label %cond.false16.i.i
 
 cond.false16.i.i:                                 ; preds = %cond.end.i8
   %mx.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %size_max.sroa.0.0.i, i64 1
   %cmp19.i.i = fcmp ogt float %add3.i35.i, %mx.sroa.0.4.vec.extract.i.i
   %mx.sroa.0.4.vec.extract..i.i = select i1 %cmp19.i.i, float %mx.sroa.0.4.vec.extract.i.i, float %add3.i35.i
-  br label %_ZL7ImClampRK6ImVec2S1_S_.exit.i
+  br label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
 
-_ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %cond.end.i8
+_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i:         ; preds = %cond.false16.i.i, %cond.end.i8
   %cond27.i.i = phi float [ %size_min.sroa.0.4.vec.extract.i, %cond.end.i8 ], [ %mx.sroa.0.4.vec.extract..i.i, %cond.false16.i.i ]
   %cmp.i.i9 = fcmp olt float %add.i34.i, %size_min.sroa.0.0.vec.extract.i
   %mx.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %size_max.sroa.0.0.i, i64 0
@@ -42941,7 +42941,7 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %
   %retval.sroa.0.0.vec.insert.i45.i = insertelement <2 x float> poison, float %cond11.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i46.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i45.i, float %cond27.i.i, i64 1
   %29 = bitcast <2 x float> %retval.sroa.0.4.vec.insert.i46.i to i64
-  %call16.i = tail call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window, i64 %29)
+  %call16.i = tail call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull readonly %window, i64 %29)
   %size_auto_fit_after_constraint.sroa.0.0.vec.extract.i = extractelement <2 x float> %call16.i, i64 0
   %sub19.i = fsub float %size_auto_fit_after_constraint.sroa.0.0.vec.extract.i, %mul.i.i
   %sub20.i = fsub float %sub19.i, %sub.i5
@@ -42952,13 +42952,13 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %
   %or.cond.i = select i1 %cmp.i10, i1 %or.cond.not.i, i1 false
   br i1 %or.cond.i, label %lor.end.i, label %lor.rhs.i
 
-lor.rhs.i:                                        ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i
+lor.rhs.i:                                        ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
   %and30.i = and i32 %.pre.i, 32768
   %tobool31.i = icmp ne i32 %and30.i, 0
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %lor.rhs.i, %_ZL7ImClampRK6ImVec2S1_S_.exit.i
-  %31 = phi i1 [ %tobool31.i, %lor.rhs.i ], [ true, %_ZL7ImClampRK6ImVec2S1_S_.exit.i ]
+lor.end.i:                                        ; preds = %lor.rhs.i, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
+  %31 = phi i1 [ %tobool31.i, %lor.rhs.i ], [ true, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i ]
   %size_auto_fit_after_constraint.sroa.0.4.vec.extract.i = extractelement <2 x float> %call16.i, i64 1
   %sub34.i = fsub float %size_auto_fit_after_constraint.sroa.0.4.vec.extract.i, %mul1.i.i
   %sub35.i = fsub float %sub34.i, %sub3.i
@@ -42999,7 +42999,7 @@ if.then53.i:                                      ; preds = %if.end.i
 _ZL21CalcWindowAutoFitSizeP11ImGuiWindowRK6ImVec2.exit: ; preds = %if.then.i, %if.end.i, %if.then53.i
   %retval.sroa.0.0.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i, %if.then53.i ], [ %retval.sroa.0.1.i, %if.end.i ], [ %retval.sroa.0.4.vec.insert.i37.i, %if.then.i ]
   %35 = bitcast <2 x float> %retval.sroa.0.0.i to i64
-  %call1 = tail call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window, i64 %35)
+  %call1 = tail call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull %window, i64 %35)
   ret <2 x float> %call1
 }
 
@@ -43212,15 +43212,15 @@ cond.end:                                         ; preds = %if.else, %cond.fals
   %size_min.sroa.0.0.vec.extract = extractelement <2 x float> %call7, i64 0
   %size_min.sroa.0.4.vec.extract = extractelement <2 x float> %call7, i64 1
   %cmp13.i = fcmp olt float %add3.i35, %size_min.sroa.0.4.vec.extract
-  br i1 %cmp13.i, label %_ZL7ImClampRK6ImVec2S1_S_.exit, label %cond.false16.i
+  br i1 %cmp13.i, label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit, label %cond.false16.i
 
 cond.false16.i:                                   ; preds = %cond.end
   %mx.sroa.0.4.vec.extract.i = extractelement <2 x float> %size_max.sroa.0.0, i64 1
   %cmp19.i = fcmp ogt float %add3.i35, %mx.sroa.0.4.vec.extract.i
   %mx.sroa.0.4.vec.extract..i = select i1 %cmp19.i, float %mx.sroa.0.4.vec.extract.i, float %add3.i35
-  br label %_ZL7ImClampRK6ImVec2S1_S_.exit
+  br label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit
 
-_ZL7ImClampRK6ImVec2S1_S_.exit:                   ; preds = %cond.end, %cond.false16.i
+_ZL7ImClampRK6ImVec2S1_S_.argprom.exit:           ; preds = %cond.end, %cond.false16.i
   %cond27.i = phi float [ %size_min.sroa.0.4.vec.extract, %cond.end ], [ %mx.sroa.0.4.vec.extract..i, %cond.false16.i ]
   %cmp.i = fcmp olt float %add.i34, %size_min.sroa.0.0.vec.extract
   %mx.sroa.0.0.vec.extract.i = extractelement <2 x float> %size_max.sroa.0.0, i64 0
@@ -43230,7 +43230,7 @@ _ZL7ImClampRK6ImVec2S1_S_.exit:                   ; preds = %cond.end, %cond.fal
   %retval.sroa.0.0.vec.insert.i45 = insertelement <2 x float> poison, float %cond11.i, i64 0
   %retval.sroa.0.4.vec.insert.i46 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i45, float %cond27.i, i64 1
   %14 = bitcast <2 x float> %retval.sroa.0.4.vec.insert.i46 to i64
-  %call16 = tail call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window, i64 %14)
+  %call16 = tail call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr noundef nonnull %window, i64 %14)
   %size_auto_fit_after_constraint.sroa.0.0.vec.extract = extractelement <2 x float> %call16, i64 0
   %sub19 = fsub float %size_auto_fit_after_constraint.sroa.0.0.vec.extract, %mul.i
   %sub20 = fsub float %sub19, %sub
@@ -43242,13 +43242,13 @@ _ZL7ImClampRK6ImVec2S1_S_.exit:                   ; preds = %cond.end, %cond.fal
   %or.cond = select i1 %cmp, i1 %or.cond.not, i1 false
   br i1 %or.cond, label %lor.end, label %lor.rhs
 
-lor.rhs:                                          ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit
+lor.rhs:                                          ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit
   %and30 = and i32 %.pre, 32768
   %tobool31 = icmp ne i32 %and30, 0
   br label %lor.end
 
-lor.end:                                          ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit, %lor.rhs
-  %17 = phi i1 [ %tobool31, %lor.rhs ], [ true, %_ZL7ImClampRK6ImVec2S1_S_.exit ]
+lor.end:                                          ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit, %lor.rhs
+  %17 = phi i1 [ %tobool31, %lor.rhs ], [ true, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit ]
   %size_auto_fit_after_constraint.sroa.0.4.vec.extract = extractelement <2 x float> %call16, i64 1
   %sub34 = fsub float %size_auto_fit_after_constraint.sroa.0.4.vec.extract, %mul1.i
   %sub35 = fsub float %sub34, %sub3
@@ -43293,7 +43293,7 @@ return:                                           ; preds = %if.end, %if.then53,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr nocapture noundef readonly %window, i64 %size_desired.0.val) unnamed_addr #10 {
+define internal fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2.argprom(ptr nocapture noundef readonly %window, i64 %size_desired.0.val) unnamed_addr #10 {
 entry:
   %data = alloca %struct.ImGuiSizeCallbackData, align 8
   %0 = load ptr, ptr @GImGui, align 8
@@ -46372,7 +46372,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %6 = getelementptr inbounds i8, ptr %5, i64 16368
   %this.val4.i.i.i = load ptr, ptr %6, align 8
   %cmp.not1.i.i.i.i = icmp eq i32 %this.val.i.i.i, 0
-  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.preheader.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.preheader.i.i.i.i
 
 while.body.preheader.i.i.i.i:                     ; preds = %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i.i.i.i = sext i32 %this.val.i.i.i to i64
@@ -46391,16 +46391,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %count.1.i.i.i.i = select i1 %cmp4.i.i.i.i, i64 %sub.i.i.i.i, i64 %shr.i.i.i.i
   %first.1.i.i.i.i = select i1 %cmp4.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %first.03.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %count.1.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i5.pre-phi.i.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit.i ], [ %idx.ext.i.i.i.i, %while.body.i.i.i.i ]
   %first.0.lcssa.i.i.i.i = phi ptr [ %this.val4.i.i.i, %_Z9ImHashStrPKcmj.exit.i ], [ %first.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i.i, i64 %idx.ext.i5.pre-phi.i.i.i
   %cmp.i.i.i = icmp eq ptr %first.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i
   %8 = load i32, ptr %first.0.lcssa.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i32 %8, %crc.2.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit, label %if.end
@@ -46415,7 +46415,7 @@ if.then:                                          ; preds = %_ZN5ImGui16FindWind
   tail call void @_ZN5ImGui12SetWindowPosEP11ImGuiWindowRK6ImVec2i(ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(8) %pos, i32 noundef %cond)
   br label %if.end
 
-if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, %lor.lhs.false.i.i.i, %if.then, %_ZN5ImGui16FindWindowByNameEPKc.exit
+if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, %lor.lhs.false.i.i.i, %if.then, %_ZN5ImGui16FindWindowByNameEPKc.exit
   ret void
 }
 
@@ -46490,7 +46490,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %6 = getelementptr inbounds i8, ptr %5, i64 16368
   %this.val4.i.i.i = load ptr, ptr %6, align 8
   %cmp.not1.i.i.i.i = icmp eq i32 %this.val.i.i.i, 0
-  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.preheader.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.preheader.i.i.i.i
 
 while.body.preheader.i.i.i.i:                     ; preds = %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i.i.i.i = sext i32 %this.val.i.i.i to i64
@@ -46509,16 +46509,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %count.1.i.i.i.i = select i1 %cmp4.i.i.i.i, i64 %sub.i.i.i.i, i64 %shr.i.i.i.i
   %first.1.i.i.i.i = select i1 %cmp4.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %first.03.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %count.1.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i5.pre-phi.i.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit.i ], [ %idx.ext.i.i.i.i, %while.body.i.i.i.i ]
   %first.0.lcssa.i.i.i.i = phi ptr [ %this.val4.i.i.i, %_Z9ImHashStrPKcmj.exit.i ], [ %first.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i.i, i64 %idx.ext.i5.pre-phi.i.i.i
   %cmp.i.i.i = icmp eq ptr %first.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i
   %8 = load i32, ptr %first.0.lcssa.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i32 %8, %crc.2.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit, label %if.end
@@ -46533,7 +46533,7 @@ if.then:                                          ; preds = %_ZN5ImGui16FindWind
   tail call void @_ZN5ImGui13SetWindowSizeEP11ImGuiWindowRK6ImVec2i(ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(8) %size, i32 noundef %cond)
   br label %if.end
 
-if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, %lor.lhs.false.i.i.i, %if.then, %_ZN5ImGui16FindWindowByNameEPKc.exit
+if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, %lor.lhs.false.i.i.i, %if.then, %_ZN5ImGui16FindWindowByNameEPKc.exit
   ret void
 }
 
@@ -46687,7 +46687,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %6 = getelementptr inbounds i8, ptr %5, i64 16368
   %this.val4.i.i.i = load ptr, ptr %6, align 8
   %cmp.not1.i.i.i.i = icmp eq i32 %this.val.i.i.i, 0
-  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.preheader.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.preheader.i.i.i.i
 
 while.body.preheader.i.i.i.i:                     ; preds = %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i.i.i.i = sext i32 %this.val.i.i.i to i64
@@ -46706,16 +46706,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %count.1.i.i.i.i = select i1 %cmp4.i.i.i.i, i64 %sub.i.i.i.i, i64 %shr.i.i.i.i
   %first.1.i.i.i.i = select i1 %cmp4.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %first.03.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %count.1.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i5.pre-phi.i.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit.i ], [ %idx.ext.i.i.i.i, %while.body.i.i.i.i ]
   %first.0.lcssa.i.i.i.i = phi ptr [ %this.val4.i.i.i, %_Z9ImHashStrPKcmj.exit.i ], [ %first.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i.i, i64 %idx.ext.i5.pre-phi.i.i.i
   %cmp.i.i.i = icmp eq ptr %first.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i
   %8 = load i32, ptr %first.0.lcssa.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i32 %8, %crc.2.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit, label %if.end
@@ -46747,7 +46747,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
   store i8 %frombool.i, ptr %Collapsed.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, %lor.lhs.false.i.i.i, %if.end.i, %land.lhs.true.i, %_ZN5ImGui16FindWindowByNameEPKc.exit
+if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, %lor.lhs.false.i.i.i, %if.end.i, %land.lhs.true.i, %_ZN5ImGui16FindWindowByNameEPKc.exit
   ret void
 }
 
@@ -46815,7 +46815,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %6 = getelementptr inbounds i8, ptr %5, i64 16368
   %this.val4.i.i.i = load ptr, ptr %6, align 8
   %cmp.not1.i.i.i.i = icmp eq i32 %this.val.i.i.i, 0
-  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.preheader.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.preheader.i.i.i.i
 
 while.body.preheader.i.i.i.i:                     ; preds = %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i.i.i.i = sext i32 %this.val.i.i.i to i64
@@ -46834,16 +46834,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %count.1.i.i.i.i = select i1 %cmp4.i.i.i.i, i64 %sub.i.i.i.i, i64 %shr.i.i.i.i
   %first.1.i.i.i.i = select i1 %cmp4.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %first.03.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %count.1.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i5.pre-phi.i.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit.i ], [ %idx.ext.i.i.i.i, %while.body.i.i.i.i ]
   %first.0.lcssa.i.i.i.i = phi ptr [ %this.val4.i.i.i, %_Z9ImHashStrPKcmj.exit.i ], [ %first.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i.i, i64 %idx.ext.i5.pre-phi.i.i.i
   %cmp.i.i.i = icmp eq ptr %first.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.end3, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i
   %8 = load i32, ptr %first.0.lcssa.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i32 %8, %crc.2.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit, label %if.end3
@@ -46862,7 +46862,7 @@ if.else:                                          ; preds = %entry
   tail call void @_ZN5ImGui11FocusWindowEP11ImGuiWindowi(ptr noundef null, i32 noundef 0)
   br label %if.end3
 
-if.end3:                                          ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, %lor.lhs.false.i.i.i, %_ZN5ImGui16FindWindowByNameEPKc.exit, %if.then2, %if.else
+if.end3:                                          ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, %lor.lhs.false.i.i.i, %_ZN5ImGui16FindWindowByNameEPKc.exit, %if.then2, %if.else
   ret void
 }
 
@@ -54046,7 +54046,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %14 = getelementptr inbounds i8, ptr %13, i64 16368
   %this.val4.i.i.i = load ptr, ptr %14, align 8
   %cmp.not1.i.i.i.i = icmp eq i32 %this.val.i.i.i, 0
-  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.preheader.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.preheader.i.i.i.i
 
 while.body.preheader.i.i.i.i:                     ; preds = %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i.i.i.i = sext i32 %this.val.i.i.i to i64
@@ -54065,16 +54065,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %count.1.i.i.i.i = select i1 %cmp4.i.i.i.i, i64 %sub.i.i.i.i, i64 %shr.i.i.i.i
   %first.1.i.i.i.i = select i1 %cmp4.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %first.03.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %count.1.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i5.pre-phi.i.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit.i ], [ %idx.ext.i.i.i.i, %while.body.i.i.i.i ]
   %first.0.lcssa.i.i.i.i = phi ptr [ %this.val4.i.i.i, %_Z9ImHashStrPKcmj.exit.i ], [ %first.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i.i, i64 %idx.ext.i5.pre-phi.i.i.i
   %cmp.i.i.i = icmp eq ptr %first.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.end20, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i
   %16 = load i32, ptr %first.0.lcssa.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i32 %16, %crc.2.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit, label %if.end20
@@ -54105,7 +54105,7 @@ if.then13:                                        ; preds = %if.then11
   %call17 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %window_name, i64 noundef 16, ptr noundef nonnull @.str.109, i32 noundef %conv16)
   br label %if.end20
 
-if.end20:                                         ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, %lor.lhs.false.i.i.i, %_ZN5ImGui16FindWindowByNameEPKc.exit, %if.then13, %if.then11, %if.end
+if.end20:                                         ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, %lor.lhs.false.i.i.i, %_ZN5ImGui16FindWindowByNameEPKc.exit, %if.then13, %if.then11, %if.end
   %or22 = or i32 %extra_window_flags, 33751879
   %call23 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull %window_name, ptr noundef null, i32 noundef %or22)
   ret i1 true
@@ -60593,7 +60593,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %6 = getelementptr inbounds i8, ptr %5, i64 16368
   %this.val4.i.i.i = load ptr, ptr %6, align 8
   %cmp.not1.i.i.i.i = icmp eq i32 %this.val.i.i.i, 0
-  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.preheader.i.i.i.i
+  br i1 %cmp.not1.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.preheader.i.i.i.i
 
 while.body.preheader.i.i.i.i:                     ; preds = %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i.i.i.i = sext i32 %this.val.i.i.i to i64
@@ -60612,16 +60612,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %count.1.i.i.i.i = select i1 %cmp4.i.i.i.i, i64 %sub.i.i.i.i, i64 %shr.i.i.i.i
   %first.1.i.i.i.i = select i1 %cmp4.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %first.03.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %count.1.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i: ; preds = %while.body.i.i.i.i, %_Z9ImHashStrPKcmj.exit.i
   %idx.ext.i5.pre-phi.i.i.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit.i ], [ %idx.ext.i.i.i.i, %while.body.i.i.i.i ]
   %first.0.lcssa.i.i.i.i = phi ptr [ %this.val4.i.i.i, %_Z9ImHashStrPKcmj.exit.i ], [ %first.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i.i, i64 %idx.ext.i5.pre-phi.i.i.i
   %cmp.i.i.i = icmp eq ptr %first.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %cond.false, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i
   %8 = load i32, ptr %first.0.lcssa.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i32 %8, %crc.2.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5ImGui16FindWindowByNameEPKc.exit, label %cond.false
@@ -60710,7 +60710,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %cmp.i.i.i9 = icmp eq ptr %add.ptr.i6.i.i, %gep.i.i
   br i1 %cmp.i.i.i9, label %if.end6, label %for.body.i.i
 
-cond.false:                                       ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i.i, %lor.lhs.false.i.i.i, %_ZN5ImGui16FindWindowByNameEPKc.exit
+cond.false:                                       ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i.i, %lor.lhs.false.i.i.i, %_ZN5ImGui16FindWindowByNameEPKc.exit
   br i1 %tobool.not26.i.i, label %_Z9ImHashStrPKcmj.exit, label %while.body18.i
 
 while.body18.i:                                   ; preds = %cond.false, %if.end30.i
@@ -61082,15 +61082,15 @@ if.end:                                           ; preds = %lor.lhs.false
   %r.val.i = load float, ptr %bb, align 4
   %r.val5.i = load float, ptr %y5.i, align 4
   %cmp13.i.i = fcmp ogt float %r.val5.i, %conv3.i
-  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.exit.i, label %cond.false16.i.i
+  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, label %cond.false16.i.i
 
 cond.false16.i.i:                                 ; preds = %if.end
   %mx.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i.i = fcmp olt float %mx.sroa.0.4.vec.extract.i.i, %conv3.i
   %mx.sroa.0.4.vec.extract..i.i = select i1 %cmp19.i.i, float %mx.sroa.0.4.vec.extract.i.i, float %conv3.i
-  br label %_ZL7ImClampRK6ImVec2S1_S_.exit.i
+  br label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
 
-_ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %if.end
+_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i:         ; preds = %cond.false16.i.i, %if.end
   %cond27.i.i = phi float [ %r.val5.i, %if.end ], [ %mx.sroa.0.4.vec.extract..i.i, %cond.false16.i.i ]
   %cmp.i.i = fcmp ogt float %r.val.i, %conv1.i
   %mx.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
@@ -61103,14 +61103,14 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %
   %cmp13.i9.i = fcmp ogt float %r.val5.i, %conv3.i104
   br i1 %cmp13.i9.i, label %_ZN6ImRect12ClipWithFullERKS_.exit, label %cond.false16.i10.i
 
-cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i
+cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
   %mx.sroa.0.4.vec.extract.i11.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i12.i = fcmp olt float %mx.sroa.0.4.vec.extract.i11.i, %conv3.i104
   %mx.sroa.0.4.vec.extract..i13.i = select i1 %cmp19.i12.i, float %mx.sroa.0.4.vec.extract.i11.i, float %conv3.i104
   br label %_ZN6ImRect12ClipWithFullERKS_.exit
 
-_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i, %cond.false16.i10.i
-  %cond27.i14.i = phi float [ %r.val5.i, %_ZL7ImClampRK6ImVec2S1_S_.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
+_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, %cond.false16.i10.i
+  %cond27.i14.i = phi float [ %r.val5.i, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
   %cmp.i15.i = fcmp ogt float %r.val.i, %conv1.i102
   %cmp5.i17.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %conv1.i102
   %mx.sroa.0.0.vec.extract..i18.i = select i1 %cmp5.i17.i, float %mx.sroa.0.0.vec.extract.i.i, float %conv1.i102
@@ -61119,15 +61119,15 @@ _ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec
   %retval.sroa.0.4.vec.insert.i21.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i20.i, float %cond27.i14.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i21.i, ptr %16, align 8
   %cmp13.i.i150 = fcmp ogt float %r.val5.i, %conv3.i119
-  br i1 %cmp13.i.i150, label %_ZL7ImClampRK6ImVec2S1_S_.exit.i155, label %cond.false16.i.i151
+  br i1 %cmp13.i.i150, label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i155, label %cond.false16.i.i151
 
 cond.false16.i.i151:                              ; preds = %_ZN6ImRect12ClipWithFullERKS_.exit
   %mx.sroa.0.4.vec.extract.i.i152 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i.i153 = fcmp olt float %mx.sroa.0.4.vec.extract.i.i152, %conv3.i119
   %mx.sroa.0.4.vec.extract..i.i154 = select i1 %cmp19.i.i153, float %mx.sroa.0.4.vec.extract.i.i152, float %conv3.i119
-  br label %_ZL7ImClampRK6ImVec2S1_S_.exit.i155
+  br label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i155
 
-_ZL7ImClampRK6ImVec2S1_S_.exit.i155:              ; preds = %cond.false16.i.i151, %_ZN6ImRect12ClipWithFullERKS_.exit
+_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i155:      ; preds = %cond.false16.i.i151, %_ZN6ImRect12ClipWithFullERKS_.exit
   %cond27.i.i156 = phi float [ %r.val5.i, %_ZN6ImRect12ClipWithFullERKS_.exit ], [ %mx.sroa.0.4.vec.extract..i.i154, %cond.false16.i.i151 ]
   %cmp.i.i157 = fcmp ogt float %r.val.i, %conv1.i117
   %cmp5.i.i159 = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %conv1.i117
@@ -61139,14 +61139,14 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i155:              ; preds = %cond.false16.i.i151
   %cmp13.i9.i170 = fcmp olt float %add3.i139, %r.val5.i
   br i1 %cmp13.i9.i170, label %_ZN6ImRect12ClipWithFullERKS_.exit183, label %cond.false16.i10.i171
 
-cond.false16.i10.i171:                            ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i155
+cond.false16.i10.i171:                            ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i155
   %mx.sroa.0.4.vec.extract.i11.i172 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i12.i173 = fcmp ogt float %add3.i139, %mx.sroa.0.4.vec.extract.i11.i172
   %mx.sroa.0.4.vec.extract..i13.i174 = select i1 %cmp19.i12.i173, float %mx.sroa.0.4.vec.extract.i11.i172, float %add3.i139
   br label %_ZN6ImRect12ClipWithFullERKS_.exit183
 
-_ZN6ImRect12ClipWithFullERKS_.exit183:            ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i155, %cond.false16.i10.i171
-  %cond27.i14.i175 = phi float [ %r.val5.i, %_ZL7ImClampRK6ImVec2S1_S_.exit.i155 ], [ %mx.sroa.0.4.vec.extract..i13.i174, %cond.false16.i10.i171 ]
+_ZN6ImRect12ClipWithFullERKS_.exit183:            ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i155, %cond.false16.i10.i171
+  %cond27.i14.i175 = phi float [ %r.val5.i, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i155 ], [ %mx.sroa.0.4.vec.extract..i13.i174, %cond.false16.i10.i171 ]
   %cmp.i15.i176 = fcmp ogt float %r.val.i, %conv1.i132
   %cmp5.i17.i178 = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %conv1.i132
   %mx.sroa.0.0.vec.extract..i18.i179 = select i1 %cmp5.i17.i178, float %mx.sroa.0.0.vec.extract.i.i, float %conv1.i132
@@ -68663,7 +68663,7 @@ for.body:                                         ; preds = %if.then19, %for.inc
   %p.099 = phi ptr [ %p.1.lcssa, %for.inc46 ], [ %42, %if.then19 ]
   %stack_n.098 = phi i32 [ %inc47, %for.inc46 ], [ 0, %if.then19 ]
   store i8 47, ptr %p.099, align 1
-  call fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibPcm(ptr noundef nonnull %DebugIDStackTool, i32 noundef %stack_n.098, i1 noundef zeroext false, ptr noundef nonnull %level_desc, i64 noundef 256)
+  call fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibPcm.retelim(ptr noundef nonnull %DebugIDStackTool, i32 noundef %stack_n.098, i1 noundef zeroext false, ptr noundef nonnull %level_desc, i64 noundef 256)
   %p.187 = getelementptr inbounds i8, ptr %p.099, i64 1
   %46 = load i8, ptr %level_desc, align 16
   %tobool3088 = icmp ne i8 %46, 0
@@ -68791,7 +68791,7 @@ cond.end77:                                       ; preds = %for.body67, %cond.t
   %69 = load i32, ptr %TempBuffer79, align 8
   %conv83 = sext i32 %69 to i64
   %70 = trunc nuw nsw i64 %indvars.iv104 to i32
-  call fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibPcm(ptr noundef nonnull %DebugIDStackTool, i32 noundef %70, i1 noundef zeroext true, ptr noundef %68, i64 noundef %conv83)
+  call fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibPcm.retelim(ptr noundef nonnull %DebugIDStackTool, i32 noundef %70, i1 noundef zeroext true, ptr noundef %68, i64 noundef %conv83)
   %71 = load ptr, ptr %Data80, align 8
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef %71, ptr noundef null)
   %call87 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
@@ -71762,7 +71762,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibPcm(ptr nocapture noundef readonly %tool, i32 noundef %n, i1 noundef zeroext %format_for_ui, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %buf_size) unnamed_addr #20 {
+define internal fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibPcm.retelim(ptr nocapture noundef readonly %tool, i32 noundef %n, i1 noundef zeroext %format_for_ui, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %buf_size) unnamed_addr #20 {
 entry:
   %Results = getelementptr inbounds i8, ptr %tool, i64 16
   %Data.i = getelementptr inbounds i8, ptr %tool, i64 24
@@ -71784,7 +71784,7 @@ cond.true:                                        ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %3, i64 16368
   %this.val4.i.i = load ptr, ptr %4, align 8
   %cmp.not1.i.i.i = icmp eq i32 %this.val.i.i, 0
-  br i1 %cmp.not1.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, label %while.body.preheader.i.i.i
+  br i1 %cmp.not1.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %cond.true
   %idx.ext.i.i.i = sext i32 %this.val.i.i to i64
@@ -71803,16 +71803,16 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %count.1.i.i.i = select i1 %cmp4.i.i.i, i64 %sub.i.i.i, i64 %shr.i.i.i
   %first.1.i.i.i = select i1 %cmp4.i.i.i, ptr %incdec.ptr.i.i.i, ptr %first.03.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %count.1.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, label %while.body.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i, label %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, label %while.body.i.i.i, !llvm.loop !30
 
-_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i: ; preds = %while.body.i.i.i, %cond.true
+_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i: ; preds = %while.body.i.i.i, %cond.true
   %idx.ext.i5.pre-phi.i.i = phi i64 [ 0, %cond.true ], [ %idx.ext.i.i.i, %while.body.i.i.i ]
   %first.0.lcssa.i.i.i = phi ptr [ %this.val4.i.i, %cond.true ], [ %first.1.i.i.i, %while.body.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.ImGuiStorage::ImGuiStoragePair", ptr %this.val4.i.i, i64 %idx.ext.i5.pre-phi.i.i
   %cmp.i.i = icmp eq ptr %first.0.lcssa.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i, label %if.end, label %lor.lhs.false.i.i
 
-lor.lhs.false.i.i:                                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i
+lor.lhs.false.i.i:                                ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i
   %6 = load i32, ptr %first.0.lcssa.i.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %6, %2
   br i1 %cmp5.not.i.i, label %cond.end, label %if.end
@@ -71830,7 +71830,7 @@ if.then:                                          ; preds = %cond.end
   %call5 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef %buf, i64 noundef %buf_size, ptr noundef nonnull %cond4, ptr noundef %9)
   br label %return
 
-if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.exit.i.i, %lor.lhs.false.i.i, %entry, %cond.end
+if.end:                                           ; preds = %_ZL10LowerBoundR8ImVectorIN12ImGuiStorage16ImGuiStoragePairEEj.argprom.exit.i.i, %lor.lhs.false.i.i, %entry, %cond.end
   %QuerySuccess = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
   %10 = load i8, ptr %QuerySuccess, align 1
   %tobool6 = trunc i8 %10 to i1
@@ -75837,15 +75837,15 @@ _ZNK6ImRect8OverlapsERKS_.exit:                   ; preds = %land.lhs.true8.i
 if.end4:                                          ; preds = %_ZNK6ImRect8OverlapsERKS_.exit
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %Max.i, align 4
   %cmp13.i.i = fcmp olt float %cand.sroa.0.4.vec.extract107, %8
-  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.exit.i, label %cond.false16.i.i
+  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, label %cond.false16.i.i
 
 cond.false16.i.i:                                 ; preds = %if.end4
   %mx.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i.i = fcmp ogt float %cand.sroa.0.4.vec.extract107, %mx.sroa.0.4.vec.extract.i.i
   %mx.sroa.0.4.vec.extract..i.i = select i1 %cmp19.i.i, float %mx.sroa.0.4.vec.extract.i.i, float %cand.sroa.0.4.vec.extract107
-  br label %_ZL7ImClampRK6ImVec2S1_S_.exit.i
+  br label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
 
-_ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %if.end4
+_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i:         ; preds = %cond.false16.i.i, %if.end4
   %cond27.i.i = phi float [ %8, %if.end4 ], [ %mx.sroa.0.4.vec.extract..i.i, %cond.false16.i.i ]
   %cmp.i.i = fcmp olt float %cand.sroa.0.0.vec.extract99, %10
   %mx.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
@@ -75857,14 +75857,14 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %
   %cmp13.i9.i = fcmp olt float %cand.sroa.11.12.vec.extract121, %8
   br i1 %cmp13.i9.i, label %_ZN6ImRect12ClipWithFullERKS_.exit, label %cond.false16.i10.i
 
-cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i
+cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
   %mx.sroa.0.4.vec.extract.i11.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i12.i = fcmp ogt float %cand.sroa.11.12.vec.extract121, %mx.sroa.0.4.vec.extract.i11.i
   %mx.sroa.0.4.vec.extract..i13.i = select i1 %cmp19.i12.i, float %mx.sroa.0.4.vec.extract.i11.i, float %cand.sroa.11.12.vec.extract121
   br label %_ZN6ImRect12ClipWithFullERKS_.exit
 
-_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i, %cond.false16.i10.i
-  %cond27.i14.i = phi float [ %8, %_ZL7ImClampRK6ImVec2S1_S_.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
+_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, %cond.false16.i10.i
+  %cond27.i14.i = phi float [ %8, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
   %cmp.i15.i = fcmp olt float %cand.sroa.11.8.vec.extract113, %10
   %cmp5.i17.i = fcmp ogt float %cand.sroa.11.8.vec.extract113, %mx.sroa.0.0.vec.extract.i.i
   %mx.sroa.0.0.vec.extract..i18.i = select i1 %cmp5.i17.i, float %mx.sroa.0.0.vec.extract.i.i, float %cand.sroa.11.8.vec.extract113

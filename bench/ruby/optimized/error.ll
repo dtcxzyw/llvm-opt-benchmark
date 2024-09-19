@@ -563,7 +563,7 @@ err_vcatf.exit22:                                 ; preds = %syntax_error_with_p
 declare i64 @rb_enc_str_new_static(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rbimpl_str_cat_cstr(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @rbimpl_str_cat_cstr.retelim(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %4 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %3) #29
   ret void
@@ -770,7 +770,7 @@ define dso_local void @rb_category_compile_warn(i32 noundef %0, ptr noundef nonn
 rb_warning_category_to_name.exit:                 ; preds = %17, %19
   %21 = phi i64 [ %20, %19 ], [ 4, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call fastcc void @rb_warn_category(i64 noundef %11, i64 noundef %21)
+  call fastcc void @rb_warn_category.retelim(i64 noundef %11, i64 noundef %21)
   br label %22
 
 22:                                               ; preds = %rb_warning_category_to_name.exit, %4
@@ -778,7 +778,7 @@ rb_warning_category_to_name.exit:                 ; preds = %17, %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_warn_category(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @rb_warn_category.retelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca [2 x i64], align 16
   %5 = load i64, ptr @rb_mWarning, align 8
@@ -890,7 +890,7 @@ define dso_local void @rb_category_warn(i32 noundef %0, ptr noundef nonnull %1, 
 rb_warning_category_to_name.exit:                 ; preds = %18, %20
   %22 = phi i64 [ %21, %20 ], [ 4, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call fastcc void @rb_warn_category(i64 noundef %12, i64 noundef %22)
+  call fastcc void @rb_warn_category.retelim(i64 noundef %12, i64 noundef %22)
   br label %23
 
 23:                                               ; preds = %rb_warning_category_to_name.exit, %2
@@ -1001,7 +1001,7 @@ define dso_local void @rb_category_warning(i32 noundef %0, ptr noundef nonnull %
 rb_warning_category_to_name.exit:                 ; preds = %18, %20
   %22 = phi i64 [ %21, %20 ], [ 4, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call fastcc void @rb_warn_category(i64 noundef %12, i64 noundef %22)
+  call fastcc void @rb_warn_category.retelim(i64 noundef %12, i64 noundef %22)
   br label %23
 
 23:                                               ; preds = %rb_warning_category_to_name.exit, %2
@@ -1060,7 +1060,7 @@ warn_deprecated.exit:                             ; preds = %10, %19
   %21 = call i64 @rb_str_cat(i64 noundef %13, ptr noundef nonnull @.str, i64 noundef 1) #29
   %22 = load i64, ptr @id_deprecated, align 8
   %23 = call i64 @rb_id2sym(i64 noundef %22) #29
-  call fastcc void @rb_warn_category(i64 noundef %13, i64 noundef %23)
+  call fastcc void @rb_warn_category.retelim(i64 noundef %13, i64 noundef %23)
   br label %24
 
 24:                                               ; preds = %2, %warn_deprecated.exit
@@ -1113,7 +1113,7 @@ warn_deprecated.exit:                             ; preds = %22, %23
   %25 = call i64 @rb_str_cat(i64 noundef %14, ptr noundef nonnull @.str, i64 noundef 1) #29
   %26 = load i64, ptr @id_deprecated, align 8
   %27 = call i64 @rb_id2sym(i64 noundef %26) #29
-  call fastcc void @rb_warn_category(i64 noundef %14, i64 noundef %27)
+  call fastcc void @rb_warn_category.retelim(i64 noundef %14, i64 noundef %27)
   br label %28
 
 28:                                               ; preds = %3, %warn_deprecated.exit
@@ -2938,9 +2938,9 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
   %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq i64 %0, 4
-  br i1 %25, label %74, label %rb_ec_ractor_hooks.exit
+  br i1 %25, label %74, label %rb_ec_ractor_hooks.argprom.exit
 
-rb_ec_ractor_hooks.exit:                          ; preds = %21
+rb_ec_ractor_hooks.argprom.exit:                  ; preds = %21
   %26 = getelementptr i8, ptr %24, i64 48
   %.val = load ptr, ptr %26, align 8, !nonnull !21, !noundef !21
   %27 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -2951,7 +2951,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %21
   %.not25 = icmp eq i32 %31, 0
   br i1 %.not25, label %45, label %32
 
-32:                                               ; preds = %rb_ec_ractor_hooks.exit
+32:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   %33 = getelementptr inbounds i8, ptr %28, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
   store i32 32, ptr %3, align 8
@@ -2979,7 +2979,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %21
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %45
 
-45:                                               ; preds = %rb_ec_ractor_hooks.exit, %32
+45:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit, %32
   %46 = call i64 @rb_attr_get(i64 noundef %0, i64 noundef 3393) #29
   %47 = call i32 @rb_backtrace_p(i64 noundef %46) #29
   %.not.i28 = icmp eq i32 %47, 0
@@ -3266,26 +3266,26 @@ RTYPEDDATA_GET_DATA.exit.i.i:                     ; preds = %12, %4
   %16 = icmp ne i64 %15, 0
   %17 = icmp eq i64 %1, 0
   %18 = or i1 %17, %16
-  br i1 %18, label %rb_obj_write.exit.i.i, label %19
+  br i1 %18, label %rb_obj_write.argprom.exit.i.i, label %19
 
 19:                                               ; preds = %RTYPEDDATA_GET_DATA.exit.i.i
   tail call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %1) #29
-  br label %rb_obj_write.exit.i.i
+  br label %rb_obj_write.argprom.exit.i.i
 
-rb_obj_write.exit.i.i:                            ; preds = %19, %RTYPEDDATA_GET_DATA.exit.i.i
+rb_obj_write.argprom.exit.i.i:                    ; preds = %19, %RTYPEDDATA_GET_DATA.exit.i.i
   %20 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %2, ptr %20, align 8
   %21 = and i64 %2, 7
   %22 = icmp ne i64 %21, 0
   %23 = icmp eq i64 %2, 0
   %24 = or i1 %23, %22
-  br i1 %24, label %rb_obj_write.exit13.i.i, label %25
+  br i1 %24, label %rb_obj_write.argprom.exit13.i.i, label %25
 
-25:                                               ; preds = %rb_obj_write.exit.i.i
+25:                                               ; preds = %rb_obj_write.argprom.exit.i.i
   tail call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %2) #29
-  br label %rb_obj_write.exit13.i.i
+  br label %rb_obj_write.argprom.exit13.i.i
 
-rb_obj_write.exit13.i.i:                          ; preds = %25, %rb_obj_write.exit.i.i
+rb_obj_write.argprom.exit13.i.i:                  ; preds = %25, %rb_obj_write.argprom.exit.i.i
   %26 = getelementptr inbounds i8, ptr %14, i64 16
   store i64 %3, ptr %26, align 8
   %27 = and i64 %3, 7
@@ -3294,11 +3294,11 @@ rb_obj_write.exit13.i.i:                          ; preds = %25, %rb_obj_write.e
   %30 = or i1 %29, %28
   br i1 %30, label %rb_name_err_mesg_new.exit, label %31
 
-31:                                               ; preds = %rb_obj_write.exit13.i.i
+31:                                               ; preds = %rb_obj_write.argprom.exit13.i.i
   tail call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %3) #29
   br label %rb_name_err_mesg_new.exit
 
-rb_name_err_mesg_new.exit:                        ; preds = %rb_obj_write.exit13.i.i, %31
+rb_name_err_mesg_new.exit:                        ; preds = %rb_obj_write.argprom.exit13.i.i, %31
   %32 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef 3441, i64 noundef %6) #29
   %33 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef 3393, i64 noundef 4) #29
   %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -4609,7 +4609,7 @@ rb_name_err_mesg_init.exit:                       ; preds = %1, %8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @name_err_mesg_init_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = icmp eq i64 %0, %1
-  br i1 %3, label %rb_obj_write.exit19, label %4
+  br i1 %3, label %rb_obj_write.argprom.exit19, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_obj_init_copy(i64 noundef %0, i64 noundef %1) #29
@@ -4621,13 +4621,13 @@ define internal noundef i64 @name_err_mesg_init_copy(i64 noundef returned %0, i6
   %10 = icmp ne i64 %9, 0
   %11 = icmp eq i64 %8, 0
   %12 = or i1 %11, %10
-  br i1 %12, label %rb_obj_write.exit, label %13
+  br i1 %12, label %rb_obj_write.argprom.exit, label %13
 
 13:                                               ; preds = %4
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %8) #29
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %4, %13
+rb_obj_write.argprom.exit:                        ; preds = %4, %13
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = getelementptr inbounds i8, ptr %7, i64 8
   %16 = load i64, ptr %15, align 8
@@ -4636,13 +4636,13 @@ rb_obj_write.exit:                                ; preds = %4, %13
   %18 = icmp ne i64 %17, 0
   %19 = icmp eq i64 %16, 0
   %20 = or i1 %19, %18
-  br i1 %20, label %rb_obj_write.exit18, label %21
+  br i1 %20, label %rb_obj_write.argprom.exit18, label %21
 
-21:                                               ; preds = %rb_obj_write.exit
+21:                                               ; preds = %rb_obj_write.argprom.exit
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %16) #29
-  br label %rb_obj_write.exit18
+  br label %rb_obj_write.argprom.exit18
 
-rb_obj_write.exit18:                              ; preds = %rb_obj_write.exit, %21
+rb_obj_write.argprom.exit18:                      ; preds = %rb_obj_write.argprom.exit, %21
   %22 = getelementptr inbounds i8, ptr %6, i64 16
   %23 = getelementptr inbounds i8, ptr %7, i64 16
   %24 = load i64, ptr %23, align 8
@@ -4651,13 +4651,13 @@ rb_obj_write.exit18:                              ; preds = %rb_obj_write.exit, 
   %26 = icmp ne i64 %25, 0
   %27 = icmp eq i64 %24, 0
   %28 = or i1 %27, %26
-  br i1 %28, label %rb_obj_write.exit19, label %29
+  br i1 %28, label %rb_obj_write.argprom.exit19, label %29
 
-29:                                               ; preds = %rb_obj_write.exit18
+29:                                               ; preds = %rb_obj_write.argprom.exit18
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %24) #29
-  br label %rb_obj_write.exit19
+  br label %rb_obj_write.argprom.exit19
 
-rb_obj_write.exit19:                              ; preds = %29, %rb_obj_write.exit18, %2
+rb_obj_write.argprom.exit19:                      ; preds = %29, %rb_obj_write.argprom.exit18, %2
   ret i64 %0
 }
 
@@ -6079,7 +6079,7 @@ define hidden void @rb_syserr_enc_warning(i32 noundef %0, ptr noundef %1, ptr no
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define hidden void @rb_load_fail(i64 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call i64 @rb_str_buf_new_cstr(ptr noundef %1) #29
-  tail call fastcc void @rbimpl_str_cat_cstr(i64 noundef %3, ptr noundef @.str.89)
+  tail call fastcc void @rbimpl_str_cat_cstr.retelim(i64 noundef %3, ptr noundef @.str.89)
   %4 = tail call i64 @rb_str_append(i64 noundef %3, i64 noundef %0) #29
   tail call fastcc void @raise_loaderror(i64 noundef %0, i64 noundef %3) #30
   unreachable
@@ -9839,7 +9839,7 @@ rb_warning_category_from_name.exit:               ; preds = %109
   br label %120
 
 119:                                              ; preds = %115
-  call fastcc void @rb_warn_category(i64 noundef %.035, i64 noundef %.0)
+  call fastcc void @rb_warn_category.retelim(i64 noundef %.035, i64 noundef %.0)
   br label %120
 
 120:                                              ; preds = %118, %119, %rb_array_const_ptr.exit

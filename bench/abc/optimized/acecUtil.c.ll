@@ -34,9 +34,9 @@ define void @Gia_PolynCollectXors_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %17 = and i64 %.val21, 536870911
   %18 = icmp eq i64 %17, 536870911
   %narrow.i.not = or i1 %.not.i, %18
-  br i1 %narrow.i.not, label %Vec_IntPushUnique.exit, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not, label %Vec_IntPushUnique.exit, label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %15
+Gia_ObjIsXor.argprom.exit:                        ; preds = %15
   %19 = trunc i64 %.val21 to i32
   %20 = and i32 %19, 536870911
   %21 = lshr i64 %.val21, 32
@@ -45,7 +45,7 @@ Gia_ObjIsXor.exit:                                ; preds = %15
   %.not32 = icmp ult i32 %20, %23
   br i1 %.not32, label %24, label %Vec_IntPushUnique.exit
 
-24:                                               ; preds = %Gia_ObjIsXor.exit
+24:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %.val23 = load ptr, ptr %4, align 8
   %25 = getelementptr i8, ptr %0, i64 144
   %.val24 = load ptr, ptr %25, align 8
@@ -158,7 +158,7 @@ Vec_IntPush.exit.i:                               ; preds = %71, %Vec_IntGrow.ex
   store i32 %1, ptr %77, align 4
   br label %Vec_IntPushUnique.exit
 
-Vec_IntPushUnique.exit:                           ; preds = %45, %Vec_IntPush.exit.i, %15, %Gia_ObjIsXor.exit, %24, %3
+Vec_IntPushUnique.exit:                           ; preds = %45, %Vec_IntPush.exit.i, %15, %Gia_ObjIsXor.argprom.exit, %24, %3
   ret void
 }
 

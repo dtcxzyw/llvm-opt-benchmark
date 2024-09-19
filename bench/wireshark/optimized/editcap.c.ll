@@ -2431,18 +2431,18 @@ selected.exit:                                    ; preds = %882, %.thread615
 974:                                              ; preds = %972
   %975 = load ptr, ptr %17, align 8
   %.val = load i32, ptr %730, align 8
-  call fastcc void @set_unused_info(i32 %.val, ptr noundef %975)
+  call fastcc void @set_unused_info.argprom(i32 %.val, ptr noundef %975)
   br label %976
 
 976:                                              ; preds = %974, %972
   %.b = load i1, ptr @rem_vlan, align 4
-  br i1 %.b, label %977, label %remove_vlan_info.exit
+  br i1 %.b, label %977, label %remove_vlan_info.argprom.exit
 
 977:                                              ; preds = %976
   %978 = load ptr, ptr %17, align 8
   %.val518 = load i32, ptr %730, align 8
   %cond.i = icmp eq i32 %.val518, 25
-  br i1 %cond.i, label %979, label %remove_vlan_info.exit
+  br i1 %cond.i, label %979, label %remove_vlan_info.argprom.exit
 
 979:                                              ; preds = %977
   %980 = getelementptr i8, ptr %978, i64 14
@@ -2454,7 +2454,7 @@ selected.exit:                                    ; preds = %882, %.thread615
   %984 = zext i8 %.val6.i.i to i16
   %985 = or disjoint i16 %983, %984
   %986 = icmp eq i16 %985, -32512
-  br i1 %986, label %987, label %remove_vlan_info.exit
+  br i1 %986, label %987, label %remove_vlan_info.argprom.exit
 
 987:                                              ; preds = %979
   %988 = load i32, ptr %728, align 8
@@ -2465,13 +2465,13 @@ selected.exit:                                    ; preds = %882, %.thread615
   %992 = load i32, ptr %728, align 8
   %993 = add i32 %992, -4
   store i32 %993, ptr %728, align 8
-  br label %remove_vlan_info.exit
+  br label %remove_vlan_info.argprom.exit
 
-remove_vlan_info.exit:                            ; preds = %987, %979, %977, %976
+remove_vlan_info.argprom.exit:                    ; preds = %987, %979, %977, %976
   %.b434 = load i1, ptr @dup_detect, align 4
   br i1 %.b434, label %994, label %1030
 
-994:                                              ; preds = %remove_vlan_info.exit
+994:                                              ; preds = %remove_vlan_info.argprom.exit
   %995 = load ptr, ptr %17, align 8
   %996 = load i32, ptr %728, align 8
   %997 = call fastcc i32 @is_duplicate(ptr noundef %995, i32 noundef %996)
@@ -2544,7 +2544,7 @@ remove_vlan_info.exit:                            ; preds = %987, %979, %977, %9
   %fputc = call i32 @fputc(i32 10, ptr %1029)
   br label %1030
 
-1030:                                             ; preds = %1028, %1014, %remove_vlan_info.exit
+1030:                                             ; preds = %1028, %1014, %remove_vlan_info.argprom.exit
   %1031 = load i32, ptr %731, align 4
   %1032 = and i32 %1031, 1
   %1033 = icmp ne i32 %1032, 0
@@ -3906,7 +3906,7 @@ define internal fastcc void @handle_chopping(ptr nocapture noundef byval(%struct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @set_unused_info(i32 %.8.val, ptr nocapture noundef %0) unnamed_addr #13 {
+define internal fastcc void @set_unused_info.argprom(i32 %.8.val, ptr nocapture noundef %0) unnamed_addr #13 {
   switch i32 %.8.val, label %sll_set_unused_info.exit [
     i32 25, label %2
     i32 210, label %15

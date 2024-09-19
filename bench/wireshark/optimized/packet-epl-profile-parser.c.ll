@@ -197,14 +197,14 @@ define hidden noundef ptr @epl_eds_load(ptr noundef %0, ptr noundef %1) local_un
 
 51:                                               ; preds = %45, %41
   %52 = load ptr, ptr %.04560, align 8
-  %53 = call fastcc zeroext i16 @epl_g_key_file_get_uint16(ptr noundef %9, ptr noundef %52, ptr noundef nonnull @.str.5)
+  %53 = call fastcc zeroext i16 @epl_g_key_file_get_uint16.argprom(ptr noundef %9, ptr noundef %52, ptr noundef nonnull @.str.5)
   store i16 %53, ptr %25, align 2
   %.not = icmp eq i16 %53, 0
   br i1 %.not, label %101, label %54
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %.04560, align 8
-  %56 = call fastcc zeroext i16 @epl_g_key_file_get_uint16(ptr noundef %9, ptr noundef %55, ptr noundef nonnull @.str.6)
+  %56 = call fastcc zeroext i16 @epl_g_key_file_get_uint16.argprom(ptr noundef %9, ptr noundef %55, ptr noundef nonnull @.str.6)
   %.not53 = icmp eq i16 %56, 0
   br i1 %.not53, label %62, label %57
 
@@ -250,7 +250,7 @@ define hidden noundef ptr @epl_eds_load(ptr noundef %0, ptr noundef %1) local_un
   %78 = load ptr, ptr %13, align 8
   %79 = call noalias ptr @wmem_alloc(ptr noundef %78, i64 noundef 32) #10
   %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %epl_wmem_iarray_new.exit, label %80
+  br i1 %.not.i, label %epl_wmem_iarray_new.argprom.exit, label %80
 
 80:                                               ; preds = %77
   store ptr @subobject_equal, ptr %79, align 8
@@ -264,13 +264,13 @@ define hidden noundef ptr @epl_eds_load(ptr noundef %0, ptr noundef %1) local_un
   %86 = or i8 %85, 1
   store i8 %86, ptr %84, align 4
   %87 = call i32 @wmem_register_callback(ptr noundef %78, ptr noundef nonnull @free_garray, ptr noundef %82) #10
-  br label %epl_wmem_iarray_new.exit
+  br label %epl_wmem_iarray_new.argprom.exit
 
-epl_wmem_iarray_new.exit:                         ; preds = %77, %80
+epl_wmem_iarray_new.argprom.exit:                 ; preds = %77, %80
   store ptr %79, ptr %75, align 8
   br label %88
 
-88:                                               ; preds = %epl_wmem_iarray_new.exit, %74
+88:                                               ; preds = %epl_wmem_iarray_new.argprom.exit, %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 dereferenceable(88) %7, i64 88, i1 false)
   %89 = load ptr, ptr %75, align 8
   %90 = load i16, ptr %28, align 8
@@ -341,7 +341,7 @@ declare zeroext i1 @ws_hexstrtou16(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @epl_g_key_file_get_uint16(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i16 @epl_g_key_file_get_uint16.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca ptr, align 8
   store i16 0, ptr %4, align 2
@@ -942,7 +942,7 @@ define internal noundef i32 @populate_object_list(ptr nocapture noundef readonly
   %30 = load ptr, ptr %9, align 8
   %31 = call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef 32) #10
   %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %epl_wmem_iarray_new.exit, label %32
+  br i1 %.not.i, label %epl_wmem_iarray_new.argprom.exit, label %32
 
 32:                                               ; preds = %29
   store ptr @subobject_equal, ptr %31, align 8
@@ -956,9 +956,9 @@ define internal noundef i32 @populate_object_list(ptr nocapture noundef readonly
   %38 = or i8 %37, 1
   store i8 %38, ptr %36, align 4
   %39 = call i32 @wmem_register_callback(ptr noundef %30, ptr noundef nonnull @free_garray, ptr noundef %34) #10
-  br label %epl_wmem_iarray_new.exit
+  br label %epl_wmem_iarray_new.argprom.exit
 
-epl_wmem_iarray_new.exit:                         ; preds = %29, %32
+epl_wmem_iarray_new.argprom.exit:                 ; preds = %29, %32
   %40 = getelementptr inbounds i8, ptr %26, i64 88
   store ptr %31, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %17, i64 24
@@ -966,7 +966,7 @@ epl_wmem_iarray_new.exit:                         ; preds = %29, %32
   %.not3542 = icmp eq ptr %.041, null
   br i1 %.not3542, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %epl_wmem_iarray_new.exit
+.lr.ph:                                           ; preds = %epl_wmem_iarray_new.argprom.exit
   %42 = getelementptr inbounds i8, ptr %26, i64 4
   br label %43
 
@@ -1033,8 +1033,8 @@ epl_wmem_iarray_insert.exit:                      ; preds = %48, %56
   %.pre = load ptr, ptr %40, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %epl_wmem_iarray_new.exit
-  %71 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %31, %epl_wmem_iarray_new.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %epl_wmem_iarray_new.argprom.exit
+  %71 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %31, %epl_wmem_iarray_new.argprom.exit ]
   call fastcc void @epl_wmem_iarray_sort_and_compact(ptr noundef %71)
   br label %72
 

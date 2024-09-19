@@ -695,21 +695,21 @@ if.end7:                                          ; preds = %displaychangelisten
   %22 = load ptr, ptr %surface, align 8
   %con.val28 = load ptr, ptr %gl.i.i, align 8
   %tobool.not.i38 = icmp eq ptr %con.val28, null
-  br i1 %tobool.not.i38, label %dpy_gfx_create_texture.exit44, label %land.lhs.true.i39
+  br i1 %tobool.not.i38, label %dpy_gfx_create_texture.argprom.exit44, label %land.lhs.true.i39
 
 land.lhs.true.i39:                                ; preds = %if.end7
   %23 = load ptr, ptr %con.val28, align 8
   %dpy_gl_ctx_create_texture.i40 = getelementptr inbounds i8, ptr %23, i64 32
   %24 = load ptr, ptr %dpy_gl_ctx_create_texture.i40, align 8
   %tobool2.not.i41 = icmp eq ptr %24, null
-  br i1 %tobool2.not.i41, label %dpy_gfx_create_texture.exit44, label %if.then.i42
+  br i1 %tobool2.not.i41, label %dpy_gfx_create_texture.argprom.exit44, label %if.then.i42
 
 if.then.i42:                                      ; preds = %land.lhs.true.i39
   tail call void %24(ptr noundef nonnull %con.val28, ptr noundef %22) #18
   %.pre = load ptr, ptr %surface, align 8
-  br label %dpy_gfx_create_texture.exit44
+  br label %dpy_gfx_create_texture.argprom.exit44
 
-dpy_gfx_create_texture.exit44:                    ; preds = %if.end7, %land.lhs.true.i39, %if.then.i42
+dpy_gfx_create_texture.argprom.exit44:            ; preds = %if.end7, %land.lhs.true.i39, %if.then.i42
   %25 = phi ptr [ %22, %if.end7 ], [ %22, %land.lhs.true.i39 ], [ %.pre, %if.then.i42 ]
   %scanout = getelementptr inbounds i8, ptr %con, i64 64
   %26 = load i32, ptr %scanout, align 8
@@ -721,11 +721,11 @@ dpy_gfx_create_texture.exit44:                    ; preds = %if.end7, %land.lhs.
   %tobool.not.i47 = icmp eq ptr %28, null
   br i1 %tobool.not.i47, label %if.end.i49, label %if.then.i48
 
-if.then.i48:                                      ; preds = %dpy_gfx_create_texture.exit44
+if.then.i48:                                      ; preds = %dpy_gfx_create_texture.argprom.exit44
   tail call void %28(ptr noundef nonnull %dcl, ptr noundef %25) #18
   br label %if.end.i49
 
-if.end.i49:                                       ; preds = %if.then.i48, %dpy_gfx_create_texture.exit44
+if.end.i49:                                       ; preds = %if.then.i48, %dpy_gfx_create_texture.argprom.exit44
   br i1 %cmp, label %land.lhs.true.i50, label %displaychangelistener_gfx_switch.exit58
 
 land.lhs.true.i50:                                ; preds = %if.end.i49
@@ -1829,26 +1829,26 @@ if.end:                                           ; preds = %qemu_console_get_he
   %16 = getelementptr i8, ptr %con, i64 120
   %con.val = load ptr, ptr %16, align 8
   %tobool.not.i = icmp eq ptr %con.val, null
-  br i1 %tobool.not.i, label %dpy_gfx_update_texture.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %dpy_gfx_update_texture.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
   %17 = load ptr, ptr %con.val, align 8
   %dpy_gl_ctx_update_texture.i = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load ptr, ptr %dpy_gl_ctx_update_texture.i, align 8
   %tobool2.not.i = icmp eq ptr %18, null
-  br i1 %tobool2.not.i, label %dpy_gfx_update_texture.exit, label %if.then.i
+  br i1 %tobool2.not.i, label %dpy_gfx_update_texture.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void %18(ptr noundef nonnull %con.val, ptr noundef %15, i32 noundef %cond14, i32 noundef %cond20, i32 noundef %cond26, i32 noundef %cond33) #18
-  br label %dpy_gfx_update_texture.exit
+  br label %dpy_gfx_update_texture.argprom.exit
 
-dpy_gfx_update_texture.exit:                      ; preds = %if.end, %land.lhs.true.i, %if.then.i
+dpy_gfx_update_texture.argprom.exit:              ; preds = %if.end, %land.lhs.true.i, %if.then.i
   %dcl.0.in59 = getelementptr inbounds i8, ptr %0, i64 32
   %dcl.060 = load ptr, ptr %dcl.0.in59, align 8
   %tobool.not61 = icmp eq ptr %dcl.060, null
   br i1 %tobool.not61, label %for.end, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %dpy_gfx_update_texture.exit
+for.body.preheader:                               ; preds = %dpy_gfx_update_texture.argprom.exit
   %.pre63 = load ptr, ptr @active_console, align 8
   br label %for.body
 
@@ -1882,7 +1882,7 @@ for.inc:                                          ; preds = %if.end44, %if.then4
   %tobool.not = icmp eq ptr %dcl.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12
 
-for.end:                                          ; preds = %for.inc, %dpy_gfx_update_texture.exit, %qemu_console_is_visible.exit
+for.end:                                          ; preds = %for.inc, %dpy_gfx_update_texture.argprom.exit, %qemu_console_is_visible.exit
   ret void
 }
 
@@ -2108,26 +2108,26 @@ if.end9:                                          ; preds = %if.end6
   %2 = getelementptr i8, ptr %con, i64 120
   %con.val = load ptr, ptr %2, align 8
   %tobool.not.i = icmp eq ptr %con.val, null
-  br i1 %tobool.not.i, label %dpy_gfx_create_texture.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %dpy_gfx_create_texture.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end9
   %3 = load ptr, ptr %con.val, align 8
   %dpy_gl_ctx_create_texture.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %dpy_gl_ctx_create_texture.i, align 8
   %tobool2.not.i = icmp eq ptr %4, null
-  br i1 %tobool2.not.i, label %dpy_gfx_create_texture.exit, label %if.then.i
+  br i1 %tobool2.not.i, label %dpy_gfx_create_texture.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void %4(ptr noundef nonnull %con.val, ptr noundef %new_surface.0) #18
-  br label %dpy_gfx_create_texture.exit
+  br label %dpy_gfx_create_texture.argprom.exit
 
-dpy_gfx_create_texture.exit:                      ; preds = %if.end9, %land.lhs.true.i, %if.then.i
+dpy_gfx_create_texture.argprom.exit:              ; preds = %if.end9, %land.lhs.true.i, %if.then.i
   %dcl.0.in33 = getelementptr inbounds i8, ptr %0, i64 32
   %dcl.034 = load ptr, ptr %dcl.0.in33, align 8
   %tobool11.not35 = icmp eq ptr %dcl.034, null
   br i1 %tobool11.not35, label %for.end, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %dpy_gfx_create_texture.exit
+for.body.lr.ph:                                   ; preds = %dpy_gfx_create_texture.argprom.exit
   br i1 %tobool.not, label %for.body.us, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
@@ -2208,23 +2208,23 @@ for.inc:                                          ; preds = %if.end17, %if.then.
   %tobool11.not = icmp eq ptr %dcl.0, null
   br i1 %tobool11.not, label %for.end, label %for.body, !llvm.loop !13
 
-for.end:                                          ; preds = %for.inc, %for.inc.us, %dpy_gfx_create_texture.exit
+for.end:                                          ; preds = %for.inc, %for.inc.us, %dpy_gfx_create_texture.argprom.exit
   %con.val23 = load ptr, ptr %2, align 8
   %tobool.not.i28 = icmp eq ptr %con.val23, null
-  br i1 %tobool.not.i28, label %dpy_gfx_destroy_texture.exit, label %land.lhs.true.i29
+  br i1 %tobool.not.i28, label %dpy_gfx_destroy_texture.argprom.exit, label %land.lhs.true.i29
 
 land.lhs.true.i29:                                ; preds = %for.end
   %16 = load ptr, ptr %con.val23, align 8
   %dpy_gl_ctx_destroy_texture.i = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load ptr, ptr %dpy_gl_ctx_destroy_texture.i, align 8
   %tobool2.not.i30 = icmp eq ptr %17, null
-  br i1 %tobool2.not.i30, label %dpy_gfx_destroy_texture.exit, label %if.then.i31
+  br i1 %tobool2.not.i30, label %dpy_gfx_destroy_texture.argprom.exit, label %if.then.i31
 
 if.then.i31:                                      ; preds = %land.lhs.true.i29
   tail call void %17(ptr noundef nonnull %con.val23, ptr noundef %1) #18
-  br label %dpy_gfx_destroy_texture.exit
+  br label %dpy_gfx_destroy_texture.argprom.exit
 
-dpy_gfx_destroy_texture.exit:                     ; preds = %for.end, %land.lhs.true.i29, %if.then.i31
+dpy_gfx_destroy_texture.argprom.exit:             ; preds = %for.end, %land.lhs.true.i29, %if.then.i31
   tail call void @qemu_free_displaysurface(ptr noundef %1)
   ret void
 }

@@ -2029,10 +2029,10 @@ Vec_IntFill.exit246:                              ; preds = %146, %Vec_IntGrow.e
   %154 = icmp sgt i32 %.val166278, 0
   br i1 %154, label %.lr.ph280, label %.critedge2
 
-.lr.ph280:                                        ; preds = %Vec_IntFill.exit246, %Vec_IntDowndateEntry.exit
-  %155 = phi ptr [ %173, %Vec_IntDowndateEntry.exit ], [ %150, %Vec_IntFill.exit246 ]
-  %indvars.iv304 = phi i64 [ %indvars.iv.next305, %Vec_IntDowndateEntry.exit ], [ 0, %Vec_IntFill.exit246 ]
-  %156 = phi ptr [ %175, %Vec_IntDowndateEntry.exit ], [ %152, %Vec_IntFill.exit246 ]
+.lr.ph280:                                        ; preds = %Vec_IntFill.exit246, %Vec_IntDowndateEntry.argprom.exit
+  %155 = phi ptr [ %173, %Vec_IntDowndateEntry.argprom.exit ], [ %150, %Vec_IntFill.exit246 ]
+  %indvars.iv304 = phi i64 [ %indvars.iv.next305, %Vec_IntDowndateEntry.argprom.exit ], [ 0, %Vec_IntFill.exit246 ]
+  %156 = phi ptr [ %175, %Vec_IntDowndateEntry.argprom.exit ], [ %152, %Vec_IntFill.exit246 ]
   %157 = getelementptr i8, ptr %155, i64 32
   %.val210 = load ptr, ptr %157, align 8
   %158 = getelementptr i8, ptr %156, i64 8
@@ -2052,14 +2052,14 @@ Vec_IntFill.exit246:                              ; preds = %146, %Vec_IntGrow.e
   %169 = getelementptr inbounds i32, ptr %.val213, i64 %168
   %170 = load i32, ptr %169, align 4
   %171 = icmp sgt i32 %170, %.2
-  br i1 %171, label %172, label %Vec_IntDowndateEntry.exit
+  br i1 %171, label %172, label %Vec_IntDowndateEntry.argprom.exit
 
 172:                                              ; preds = %.lr.ph280
   store i32 %.2, ptr %169, align 4
   %.pre325 = load ptr, ptr %5, align 8
-  br label %Vec_IntDowndateEntry.exit
+  br label %Vec_IntDowndateEntry.argprom.exit
 
-Vec_IntDowndateEntry.exit:                        ; preds = %.lr.ph280, %172
+Vec_IntDowndateEntry.argprom.exit:                ; preds = %.lr.ph280, %172
   %173 = phi ptr [ %155, %.lr.ph280 ], [ %.pre325, %172 ]
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %174 = getelementptr inbounds i8, ptr %173, i64 72
@@ -2070,8 +2070,8 @@ Vec_IntDowndateEntry.exit:                        ; preds = %.lr.ph280, %172
   %178 = icmp slt i64 %indvars.iv.next305, %177
   br i1 %178, label %.lr.ph280, label %.critedge2, !llvm.loop !18
 
-.critedge2:                                       ; preds = %Vec_IntDowndateEntry.exit, %Vec_IntFill.exit246
-  %.lcssa = phi ptr [ %150, %Vec_IntFill.exit246 ], [ %173, %Vec_IntDowndateEntry.exit ]
+.critedge2:                                       ; preds = %Vec_IntDowndateEntry.argprom.exit, %Vec_IntFill.exit246
+  %.lcssa = phi ptr [ %150, %Vec_IntFill.exit246 ], [ %173, %Vec_IntDowndateEntry.argprom.exit ]
   %179 = getelementptr inbounds i8, ptr %.lcssa, i64 736
   %180 = load ptr, ptr %179, align 8
   %.not152 = icmp eq ptr %180, null
@@ -2153,9 +2153,9 @@ Vec_IntDowndateEntry.exit:                        ; preds = %.lr.ph280, %172
   %220 = getelementptr i8, ptr %217, i64 8
   br label %221
 
-221:                                              ; preds = %.lr.ph284, %Vec_IntDowndateEntry.exit250
-  %.val164326 = phi i32 [ %.val1.i249, %.lr.ph284 ], [ %.val164, %Vec_IntDowndateEntry.exit250 ]
-  %indvars.iv307 = phi i64 [ 0, %.lr.ph284 ], [ %indvars.iv.next308, %Vec_IntDowndateEntry.exit250 ]
+221:                                              ; preds = %.lr.ph284, %Vec_IntDowndateEntry.argprom.exit250
+  %.val164326 = phi i32 [ %.val1.i249, %.lr.ph284 ], [ %.val164, %Vec_IntDowndateEntry.argprom.exit250 ]
+  %indvars.iv307 = phi i64 [ 0, %.lr.ph284 ], [ %indvars.iv.next308, %Vec_IntDowndateEntry.argprom.exit250 ]
   %.val171 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds i32, ptr %.val171, i64 %indvars.iv307
   %223 = load i32, ptr %222, align 4
@@ -2166,14 +2166,14 @@ Vec_IntDowndateEntry.exit:                        ; preds = %.lr.ph280, %172
   %227 = getelementptr inbounds i32, ptr %.val214, i64 %226
   %228 = load i32, ptr %227, align 4
   %.not261 = icmp slt i32 %228, %215
-  br i1 %.not261, label %Vec_IntDowndateEntry.exit250, label %229
+  br i1 %.not261, label %Vec_IntDowndateEntry.argprom.exit250, label %229
 
 229:                                              ; preds = %221
   store i32 %216, ptr %227, align 4
   %.val164.pre = load i32, ptr %218, align 4
-  br label %Vec_IntDowndateEntry.exit250
+  br label %Vec_IntDowndateEntry.argprom.exit250
 
-Vec_IntDowndateEntry.exit250:                     ; preds = %221, %229
+Vec_IntDowndateEntry.argprom.exit250:             ; preds = %221, %229
   %.val164 = phi i32 [ %.val164326, %221 ], [ %.val164.pre, %229 ]
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %230 = sext i32 %.val164 to i64
@@ -2225,7 +2225,7 @@ Vec_IntDowndateEntry.exit250:                     ; preds = %221, %229
   store i32 %253, ptr %260, align 4
   br label %.critedge6
 
-.critedge6.loopexit:                              ; preds = %Vec_IntDowndateEntry.exit250
+.critedge6.loopexit:                              ; preds = %Vec_IntDowndateEntry.argprom.exit250
   %261 = trunc nuw nsw i64 %indvars.iv.next308 to i32
   br label %.critedge6
 
@@ -2288,9 +2288,9 @@ Vec_IntFree.exit256:                              ; preds = %.critedge4, %265
   %284 = getelementptr i8, ptr %281, i64 8
   br label %285
 
-285:                                              ; preds = %.lr.ph292, %Vec_IntDowndateEntry.exit258
-  %.val329 = phi i32 [ %.val1.i257, %.lr.ph292 ], [ %.val, %Vec_IntDowndateEntry.exit258 ]
-  %indvars.iv310 = phi i64 [ 0, %.lr.ph292 ], [ %indvars.iv.next311, %Vec_IntDowndateEntry.exit258 ]
+285:                                              ; preds = %.lr.ph292, %Vec_IntDowndateEntry.argprom.exit258
+  %.val329 = phi i32 [ %.val1.i257, %.lr.ph292 ], [ %.val, %Vec_IntDowndateEntry.argprom.exit258 ]
+  %indvars.iv310 = phi i64 [ 0, %.lr.ph292 ], [ %indvars.iv.next311, %Vec_IntDowndateEntry.argprom.exit258 ]
   %.val168 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds i32, ptr %.val168, i64 %indvars.iv310
   %287 = load i32, ptr %286, align 4
@@ -2301,21 +2301,21 @@ Vec_IntFree.exit256:                              ; preds = %.critedge4, %265
   %291 = getelementptr inbounds i32, ptr %.val215, i64 %290
   %292 = load i32, ptr %291, align 4
   %.not263 = icmp slt i32 %292, %279
-  br i1 %.not263, label %Vec_IntDowndateEntry.exit258, label %293
+  br i1 %.not263, label %Vec_IntDowndateEntry.argprom.exit258, label %293
 
 293:                                              ; preds = %285
   store i32 %280, ptr %291, align 4
   %.val.pre = load i32, ptr %282, align 4
-  br label %Vec_IntDowndateEntry.exit258
+  br label %Vec_IntDowndateEntry.argprom.exit258
 
-Vec_IntDowndateEntry.exit258:                     ; preds = %285, %293
+Vec_IntDowndateEntry.argprom.exit258:             ; preds = %285, %293
   %.val = phi i32 [ %.val329, %285 ], [ %.val.pre, %293 ]
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %294 = sext i32 %.val to i64
   %295 = icmp slt i64 %indvars.iv.next311, %294
   br i1 %295, label %285, label %.critedge8, !llvm.loop !21
 
-.critedge8:                                       ; preds = %Vec_IntDowndateEntry.exit258, %275, %.lr.ph295
+.critedge8:                                       ; preds = %Vec_IntDowndateEntry.argprom.exit258, %275, %.lr.ph295
   %296 = icmp sgt i64 %indvars.iv313, 2
   br i1 %296, label %.lr.ph295, label %.loopexit, !llvm.loop !22
 

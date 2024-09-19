@@ -335,14 +335,14 @@ define hidden void @zend_signal_activate() local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   br label %6
 
-6:                                                ; preds = %.preheader, %zend_signal_register.exit
-  %.03 = phi i64 [ 0, %.preheader ], [ %24, %zend_signal_register.exit ]
+6:                                                ; preds = %.preheader, %zend_signal_register.argprom.exit
+  %.03 = phi i64 [ 0, %.preheader ], [ %24, %zend_signal_register.argprom.exit ]
   %7 = getelementptr inbounds [7 x i32], ptr @zend_sigs, i64 0, i64 %.03
   %8 = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1)
   %9 = call i32 @sigaction(i32 noundef %8, ptr noundef null, ptr noundef nonnull %1) #9
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %zend_signal_register.exit
+  br i1 %10, label %11, label %zend_signal_register.argprom.exit
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %4, align 8
@@ -351,7 +351,7 @@ define hidden void @zend_signal_activate() local_unnamed_addr #0 {
   %14 = load ptr, ptr %1, align 8
   %15 = icmp eq ptr %14, @zend_signal_handler_defer
   %or.cond.i = select i1 %.not.i, i1 %15, i1 false
-  br i1 %or.cond.i, label %zend_signal_register.exit, label %16
+  br i1 %or.cond.i, label %zend_signal_register.argprom.exit, label %16
 
 16:                                               ; preds = %11
   %17 = add nsw i32 %8, -1
@@ -365,19 +365,19 @@ define hidden void @zend_signal_activate() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false)
   %21 = call i32 @sigaction(i32 noundef %8, ptr noundef nonnull %1, ptr noundef null) #9
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %zend_signal_register.exit
+  br i1 %22, label %23, label %zend_signal_register.argprom.exit
 
 23:                                               ; preds = %16
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str, i32 noundef %8) #10
   unreachable
 
-zend_signal_register.exit:                        ; preds = %6, %11, %16
+zend_signal_register.argprom.exit:                ; preds = %6, %11, %16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1)
   %24 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %24, 7
   br i1 %exitcond.not, label %.loopexit, label %6
 
-.loopexit:                                        ; preds = %zend_signal_register.exit, %0
+.loopexit:                                        ; preds = %zend_signal_register.argprom.exit, %0
   store i32 1, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 12), align 4
   store i32 0, ptr @zend_signal_globals, align 8
   ret void
@@ -500,9 +500,9 @@ define void @zend_signal_startup() local_unnamed_addr #0 {
   store ptr %3, ptr %5, align 8
   %6 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %6, 64
-  br i1 %exitcond.not.i, label %zend_signal_globals_ctor.exit, label %2
+  br i1 %exitcond.not.i, label %zend_signal_globals_ctor.argprom.exit, label %2
 
-zend_signal_globals_ctor.exit:                    ; preds = %2
+zend_signal_globals_ctor.argprom.exit:            ; preds = %2
   store ptr %4, ptr getelementptr inbounds (i8, ptr @zend_signal_globals, i64 3128), align 8
   %7 = tail call i32 @sigfillset(ptr noundef nonnull @global_sigmask) #9
   %8 = tail call i32 @sigdelset(ptr noundef nonnull @global_sigmask, i32 noundef 4) #9
@@ -523,8 +523,8 @@ zend_signal_globals_ctor.exit:                    ; preds = %2
   %21 = getelementptr inbounds i8, ptr %1, i64 136
   br label %22
 
-22:                                               ; preds = %32, %zend_signal_globals_ctor.exit
-  %indvars.iv.i = phi i64 [ 1, %zend_signal_globals_ctor.exit ], [ %indvars.iv.next.i, %32 ]
+22:                                               ; preds = %32, %zend_signal_globals_ctor.argprom.exit
+  %indvars.iv.i = phi i64 [ 1, %zend_signal_globals_ctor.argprom.exit ], [ %indvars.iv.next.i, %32 ]
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %24 = call i32 @sigaction(i32 noundef %23, ptr noundef null, ptr noundef nonnull %1) #9
   %25 = icmp eq i32 %24, 0

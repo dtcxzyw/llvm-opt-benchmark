@@ -5483,8 +5483,8 @@ _ZN10LinearScan7reg_numE7LIR_Opr.exit137:         ; preds = %125, %130, %133, %1
   %200 = add nsw i32 %194, 1
   br label %201
 
-201:                                              ; preds = %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.exit.i.i", %.lr.ph.i.i
-  %.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %285, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.exit.i.i" ]
+201:                                              ; preds = %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.argprom.exit.i.i", %.lr.ph.i.i
+  %.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %285, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.argprom.exit.i.i" ]
   %202 = lshr i64 %.019.i.i, 6
   %203 = load ptr, ptr %190, align 8
   %204 = getelementptr inbounds i64, ptr %203, i64 %202
@@ -5608,12 +5608,12 @@ _ZN10LinearScan7add_useEiii15IntervalUseKind9BasicType.exit.i.i.i.i: ; preds = %
   %265 = load i32, ptr %198, align 4
   %266 = and i32 %265, 1024
   %.not5.i.i.i.i = icmp eq i32 %266, 0
-  br i1 %.not5.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.exit.i.i", label %267
+  br i1 %.not5.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.argprom.exit.i.i", label %267
 
 267:                                              ; preds = %_ZN10LinearScan7add_useEiii15IntervalUseKind9BasicType.exit.i.i.i.i
   %268 = load i32, ptr %199, align 8
   %.not.i.i10.i.i = icmp eq i32 %268, -1
-  br i1 %.not.i.i10.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.exit.i.i", label %269
+  br i1 %.not.i.i10.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.argprom.exit.i.i", label %269
 
 269:                                              ; preds = %267
   %270 = sext i32 %268 to i64
@@ -5628,21 +5628,21 @@ _ZN10LinearScan7add_useEiii15IntervalUseKind9BasicType.exit.i.i.i.i: ; preds = %
   %279 = shl nuw i64 1, %278
   %280 = and i64 %279, %277
   %.not6.i.i.i.i = icmp eq i64 %280, 0
-  br i1 %.not6.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.exit.i.i", label %281
+  br i1 %.not6.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.argprom.exit.i.i", label %281
 
 281:                                              ; preds = %269
   %282 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %283 = getelementptr inbounds ptr, ptr %282, i64 %224
   %284 = load ptr, ptr %283, align 8
   call void @_ZN8Interval11add_use_posEi15IntervalUseKind(ptr noundef nonnull align 8 dereferenceable(136) %284, i32 noundef %200, i32 noundef 1)
-  br label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.exit.i.i"
+  br label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.argprom.exit.i.i"
 
-"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.exit.i.i": ; preds = %281, %269, %267, %_ZN10LinearScan7add_useEiii15IntervalUseKind9BasicType.exit.i.i.i.i
+"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.argprom.exit.i.i": ; preds = %281, %269, %267, %_ZN10LinearScan7add_useEiii15IntervalUseKind9BasicType.exit.i.i.i.i
   %285 = add nuw i64 %.0.i.i.i.i138, 1
   %286 = icmp ult i64 %285, %192
   br i1 %286, label %201, label %"_ZNK6BitMap7iterateIZN10LinearScan15build_intervalsEvE3$_0EEbT_.exit", !llvm.loop !35
 
-"_ZNK6BitMap7iterateIZN10LinearScan15build_intervalsEvE3$_0EEbT_.exit": ; preds = %218, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.exit.i.i", %.preheader.i.i, %182
+"_ZNK6BitMap7iterateIZN10LinearScan15build_intervalsEvE3$_0EEbT_.exit": ; preds = %218, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan15build_intervalsEvE3$_0EEbT_m.argprom.exit.i.i", %.preheader.i.i, %182
   %287 = load i32, ptr %187, align 4
   %288 = icmp sgt i32 %287, 1
   br i1 %288, label %.lr.ph256, label %.loopexit213
@@ -7670,8 +7670,8 @@ define hidden void @_ZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS1_R1
   %14 = getelementptr inbounds i8, ptr %2, i64 400
   br label %15
 
-15:                                               ; preds = %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i", %.lr.ph.i
-  %.019.i = phi i64 [ 0, %.lr.ph.i ], [ %60, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i" ]
+15:                                               ; preds = %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i", %.lr.ph.i
+  %.019.i = phi i64 [ 0, %.lr.ph.i ], [ %60, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i" ]
   %16 = lshr i64 %.019.i, 6
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds i64, ptr %17, i64 %16
@@ -7730,7 +7730,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i:        ; preds = %32, %15
   %47 = load i32, ptr %14, align 8
   %48 = tail call noundef ptr @_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE(ptr noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef %46, i32 noundef %47, i32 noundef 2)
   %.not.i.i10.i = icmp eq ptr %43, %48
-  br i1 %.not.i.i10.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i", label %49
+  br i1 %.not.i.i10.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i", label %49
 
 49:                                               ; preds = %36
   %50 = getelementptr inbounds i8, ptr %43, i64 60
@@ -7746,18 +7746,18 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i:        ; preds = %32, %15
   %57 = getelementptr inbounds i8, ptr %48, i64 64
   %58 = load i32, ptr %57, align 8
   %.not13.i.i.i = icmp eq i32 %56, %58
-  br i1 %.not13.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i", label %59
+  br i1 %.not13.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i", label %59
 
 59:                                               ; preds = %54, %49
   tail call void @_ZN12MoveResolver11add_mappingEP8IntervalS1_(ptr noundef nonnull align 8 dereferenceable(380) %3, ptr noundef nonnull %43, ptr noundef nonnull %48)
-  br label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i"
+  br label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i"
 
-"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i": ; preds = %59, %54, %36
+"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i": ; preds = %59, %54, %36
   %60 = add nuw i64 %.0.i.i.i, 1
   %61 = icmp ult i64 %60, %10
   br i1 %61, label %15, label %"_ZNK6BitMap7iterateIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS3_R12MoveResolverE3$_0EEbT_mm.exit", !llvm.loop !53
 
-"_ZNK6BitMap7iterateIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS3_R12MoveResolverE3$_0EEbT_mm.exit": ; preds = %32, %_ZNK6BitMap18find_first_set_bitEmm.exit.i, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i", %.preheader.i, %4
+"_ZNK6BitMap7iterateIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS3_R12MoveResolverE3$_0EEbT_mm.exit": ; preds = %32, %_ZNK6BitMap18find_first_set_bitEmm.exit.i, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i", %.preheader.i, %4
   ret void
 }
 
@@ -8118,8 +8118,8 @@ _ZNK10BlockBegin13number_of_suxEv.exit40:         ; preds = %118
   %156 = getelementptr inbounds i8, ptr %137, i64 400
   br label %157
 
-157:                                              ; preds = %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i.i", %.lr.ph.i.i
-  %.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %528, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i.i" ]
+157:                                              ; preds = %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i.i", %.lr.ph.i.i
+  %.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %528, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i.i" ]
   %158 = lshr i64 %.019.i.i, 6
   %159 = load ptr, ptr %150, align 8
   %160 = getelementptr inbounds i64, ptr %159, i64 %158
@@ -8516,7 +8516,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %330, %328
 _ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE.exit: ; preds = %_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE.exit66, %279, %304, %305, %358
   %.0.i = phi ptr [ %.0.i.i.i12.i, %358 ], [ %290, %304 ], [ %290, %305 ], [ %274, %_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE.exit66 ], [ %274, %279 ]
   %.not.i.i10.i.i = icmp eq ptr %.0.i53, %.0.i
-  br i1 %.not.i.i10.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i.i", label %363
+  br i1 %.not.i.i10.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i.i", label %363
 
 363:                                              ; preds = %_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE.exit
   %364 = getelementptr inbounds i8, ptr %.0.i53, i64 60
@@ -8532,7 +8532,7 @@ _ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE.ex
   %371 = getelementptr inbounds i8, ptr %.0.i, i64 64
   %372 = load i32, ptr %371, align 8
   %.not13.i.i.i.i = icmp eq i32 %370, %372
-  br i1 %.not13.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i.i", label %373
+  br i1 %.not13.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i.i", label %373
 
 373:                                              ; preds = %368, %363
   %374 = load i32, ptr %20, align 8
@@ -8881,14 +8881,14 @@ _ZN12MoveResolver11add_mappingEP8IntervalS1_.exit: ; preds = %_ZN26GrowableArray
   %526 = sext i32 %524 to i64
   %527 = getelementptr inbounds ptr, ptr %523, i64 %526
   store ptr %.0.i, ptr %527, align 8
-  br label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i.i"
+  br label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i.i"
 
-"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i.i": ; preds = %_ZN12MoveResolver11add_mappingEP8IntervalS1_.exit, %368, %_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE.exit
+"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i.i": ; preds = %_ZN12MoveResolver11add_mappingEP8IntervalS1_.exit, %368, %_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE.exit
   %528 = add nuw i64 %.0.i.i.i.i, 1
   %529 = icmp ult i64 %528, %154
   br i1 %529, label %157, label %_ZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS1_R12MoveResolver.exit, !llvm.loop !53
 
-_ZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS1_R12MoveResolver.exit: ; preds = %174, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.exit.i.i", %.preheader.i.i, %148
+_ZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS1_R12MoveResolver.exit: ; preds = %174, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS5_R12MoveResolverE3$_0EEbT_m.argprom.exit.i.i", %.preheader.i.i, %148
   %530 = load i32, ptr %20, align 8
   %531 = icmp sgt i32 %530, 0
   br i1 %531, label %532, label %566
@@ -10232,8 +10232,8 @@ define hidden void @_ZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveRe
   %14 = getelementptr inbounds i8, ptr %0, i64 88
   br label %15
 
-15:                                               ; preds = %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.exit.i", %.lr.ph.i
-  %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.exit.i" ]
+15:                                               ; preds = %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.argprom.exit.i", %.lr.ph.i
+  %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.argprom.exit.i" ]
   %16 = lshr i64 %.018.i, 6
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds i64, ptr %17, i64 %16
@@ -10284,7 +10284,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i:        ; preds = %32, %15
   %39 = getelementptr inbounds ptr, ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.exit.i", label %42
+  br i1 %41, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.argprom.exit.i", label %42
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %5, align 8
@@ -10296,7 +10296,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i:        ; preds = %32, %15
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef ptr @_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE(ptr noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef %49, i32 noundef %2, i32 noundef 0)
   %.not38.i.i.i.i = icmp eq ptr %50, %46
-  br i1 %.not38.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.exit.i", label %51
+  br i1 %.not38.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.argprom.exit.i", label %51
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds i8, ptr %50, i64 88
@@ -10313,18 +10313,18 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i:        ; preds = %32, %15
   %60 = getelementptr inbounds i8, ptr %46, i64 60
   %61 = load i32, ptr %60, align 4
   %.not39.i.i.i.i = icmp eq i32 %59, %61
-  br i1 %.not39.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.exit.i", label %62
+  br i1 %.not39.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.argprom.exit.i", label %62
 
 62:                                               ; preds = %57, %51
   tail call void @_ZN12MoveResolver11add_mappingEP8IntervalS1_(ptr noundef nonnull align 8 dereferenceable(380) %3, ptr noundef nonnull %50, ptr noundef %46)
-  br label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.exit.i"
+  br label %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.argprom.exit.i"
 
-"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.exit.i": ; preds = %62, %57, %42, %36
+"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.argprom.exit.i": ; preds = %62, %57, %42, %36
   %63 = add nuw i64 %.0.i.i.i, 1
   %64 = icmp ult i64 %63, %12
   br i1 %64, label %15, label %"_ZNK6BitMap7iterateIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_mm.exit", !llvm.loop !68
 
-"_ZNK6BitMap7iterateIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_mm.exit": ; preds = %32, %_ZNK6BitMap18find_first_set_bitEmm.exit.i, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.exit.i", %.preheader.i, %4
+"_ZNK6BitMap7iterateIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_mm.exit": ; preds = %32, %_ZNK6BitMap18find_first_set_bitEmm.exit.i, %"_ZNK6BitMap14IterateInvokerIvEclIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_m.argprom.exit.i", %.preheader.i, %4
   %65 = getelementptr inbounds i8, ptr %6, i64 96
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 48

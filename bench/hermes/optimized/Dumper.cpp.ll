@@ -1740,7 +1740,7 @@ if.end31:                                         ; preds = %if.then, %if.then4.
   store i8 %frombool, ptr %printNewLine, align 1
   %scopeDesc_.i.i = getelementptr inbounds i8, ptr %F, i64 72
   %21 = load ptr, ptr %scopeDesc_.i.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr noundef %21, ptr nonnull %printNewLine, ptr nonnull %this)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_.argprom"(ptr noundef %F, ptr noundef %21, ptr nonnull %printNewLine, ptr nonnull %this)
   ret void
 }
 
@@ -5622,7 +5622,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr noundef %scopeDesc, ptr nocapture %handler.coerce0, ptr %handler.coerce1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_.argprom"(ptr noundef nonnull %F, ptr noundef %scopeDesc, ptr nocapture %handler.coerce0, ptr %handler.coerce1) unnamed_addr #0 align 2 {
 entry:
   %function_.i = getelementptr inbounds i8, ptr %scopeDesc, i64 144
   %0 = load ptr, ptr %function_.i, align 8
@@ -5813,7 +5813,7 @@ if.then4.i.i45.i:                                 ; preds = %for.end.i
 for.body:                                         ; preds = %"_ZZN6hermes9IRPrinter22printFunctionVariablesEPNS_8FunctionEENK3$_0clEPNS_9ScopeDescE.exit", %for.body
   %__begin2.03 = phi ptr [ %incdec.ptr, %for.body ], [ %33, %"_ZZN6hermes9IRPrinter22printFunctionVariablesEPNS_8FunctionEENK3$_0clEPNS_9ScopeDescE.exit" ]
   %35 = load ptr, ptr %__begin2.03, align 8
-  tail call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr noundef %35, ptr nonnull %handler.coerce0, ptr nonnull %handler.coerce1)
+  tail call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_.argprom"(ptr noundef %F, ptr noundef %35, ptr nonnull %handler.coerce0, ptr nonnull %handler.coerce1)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.03, i64 8
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp5.not, label %for.end, label %for.body

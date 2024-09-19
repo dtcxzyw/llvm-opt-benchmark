@@ -2527,7 +2527,7 @@ define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr n
   br label %49
 
 33:                                               ; preds = %28, %28, %28
-  %34 = call fastcc ptr @transformGroupingSet(ptr noundef %8, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
+  %34 = call fastcc ptr @transformGroupingSet.argelim(ptr noundef %8, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
   %35 = call ptr @lappend(ptr noundef %.0385366, ptr noundef %34) #9
   br label %49
 
@@ -2738,7 +2738,7 @@ declare ptr @makeGroupingSet(i32 noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformGroupingSet(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc ptr @transformGroupingSet.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
@@ -2953,7 +2953,7 @@ transformGroupClauseList.exit:                    ; preds = %transformGroupClaus
   br label %109
 
 100:                                              ; preds = %.lr.ph7
-  %101 = tail call fastcc ptr @transformGroupingSet(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %20, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
+  %101 = tail call fastcc ptr @transformGroupingSet.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %20, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
   br label %109
 
 102:                                              ; preds = %.lr.ph7
@@ -5138,7 +5138,7 @@ define dso_local void @transformOnConflictArbiter(ptr noundef %0, ptr noundef %1
   %58 = getelementptr inbounds i8, ptr %7, i64 32
   %59 = load i32, ptr %56, align 4
   %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph, label %resolve_unique_index_expr.exit
+  br i1 %60, label %.lr.ph, label %resolve_unique_index_expr.argprom.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %108
   %.06.i47 = phi ptr [ %110, %108 ], [ null, %.lr.ph.i ]
@@ -5236,14 +5236,14 @@ define dso_local void @transformOnConflictArbiter(ptr noundef %0, ptr noundef %1
   %111 = load i32, ptr %56, align 4
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next.i, %112
-  br i1 %113, label %.lr.ph, label %resolve_unique_index_expr.exit
+  br i1 %113, label %.lr.ph, label %resolve_unique_index_expr.argprom.exit
 
-resolve_unique_index_expr.exit:                   ; preds = %108, %.lr.ph.i
+resolve_unique_index_expr.argprom.exit:           ; preds = %108, %.lr.ph.i
   %.06.i.lcssa = phi ptr [ null, %.lr.ph.i ], [ %110, %108 ]
   store ptr %.06.i.lcssa, ptr %2, align 8
   br label %114
 
-114:                                              ; preds = %resolve_unique_index_expr.exit, %53
+114:                                              ; preds = %resolve_unique_index_expr.argprom.exit, %53
   %115 = getelementptr inbounds i8, ptr %7, i64 16
   %116 = load ptr, ptr %115, align 8
   %.not42 = icmp eq ptr %116, null

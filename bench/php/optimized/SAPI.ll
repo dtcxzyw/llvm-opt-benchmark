@@ -1184,7 +1184,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
 72:                                               ; preds = %69, %67
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 160), align 8
   %.not1.i = icmp eq ptr %73, null
-  br i1 %.not1.i, label %sapi_remove_header.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %sapi_remove_header.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %72, %94
   %.02.i = phi ptr [ %75, %94 ], [ %73, %72 ]
@@ -1228,9 +1228,9 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
 
 94:                                               ; preds = %86, %84, %79, %.lr.ph.i
   %.not.i234 = icmp eq ptr %75, null
-  br i1 %.not.i234, label %sapi_remove_header.exit, label %.lr.ph.i
+  br i1 %.not.i234, label %sapi_remove_header.argprom.exit, label %.lr.ph.i
 
-sapi_remove_header.exit:                          ; preds = %94, %72
+sapi_remove_header.argprom.exit:                  ; preds = %94, %72
   call void @_efree(ptr noundef %31) #18
   br label %sapi_update_response_code.exit
 
@@ -1566,8 +1566,8 @@ sapi_update_response_code.exit246:                ; preds = %215, %209
   call fastcc void @sapi_header_add_op(i32 noundef %0, ptr noundef %3)
   br label %sapi_update_response_code.exit
 
-sapi_update_response_code.exit:                   ; preds = %24, %16, %15, %25, %27, %13, %14, %sapi_update_response_code.exit246, %118, %100, %98, %sapi_remove_header.exit, %65, %40
-  %.0 = phi i32 [ 0, %40 ], [ -1, %65 ], [ 0, %sapi_remove_header.exit ], [ -1, %98 ], [ -1, %100 ], [ 0, %sapi_update_response_code.exit246 ], [ 0, %118 ], [ -1, %14 ], [ -1, %13 ], [ -1, %27 ], [ -1, %25 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ]
+sapi_update_response_code.exit:                   ; preds = %24, %16, %15, %25, %27, %13, %14, %sapi_update_response_code.exit246, %118, %100, %98, %sapi_remove_header.argprom.exit, %65, %40
+  %.0 = phi i32 [ 0, %40 ], [ -1, %65 ], [ 0, %sapi_remove_header.argprom.exit ], [ -1, %98 ], [ -1, %100 ], [ 0, %sapi_update_response_code.exit246 ], [ 0, %118 ], [ -1, %14 ], [ -1, %13 ], [ -1, %27 ], [ -1, %25 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -1654,7 +1654,7 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #19
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 160), align 8
   %.not1.i = icmp eq ptr %16, null
-  br i1 %.not1.i, label %sapi_remove_header.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %sapi_remove_header.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %37
   %.02.i = phi ptr [ %18, %37 ], [ %16, %12 ]
@@ -1698,13 +1698,13 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
 
 37:                                               ; preds = %29, %27, %22, %.lr.ph.i
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %sapi_remove_header.exit, label %.lr.ph.i
+  br i1 %.not.i, label %sapi_remove_header.argprom.exit, label %.lr.ph.i
 
-sapi_remove_header.exit:                          ; preds = %37, %12
+sapi_remove_header.argprom.exit:                  ; preds = %37, %12
   store i8 %13, ptr %11, align 1
   br label %38
 
-38:                                               ; preds = %9, %sapi_remove_header.exit, %7
+38:                                               ; preds = %9, %sapi_remove_header.argprom.exit, %7
   tail call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr noundef nonnull %1) #18
   br label %41
 

@@ -3481,7 +3481,7 @@ invoke.cont4.i.i.i:                               ; preds = %invoke.cont2.i.i.i
   store i32 %7, ptr %6, align 8, !noalias !46
   %mu_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   invoke void @gpr_mu_init(ptr noundef nonnull %mu_.i.i.i)
-          to label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsEED2Ev.exit unwind label %lpad.i.i.i, !noalias !46
+          to label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsEED2Ev.argprom.exit unwind label %lpad.i.i.i, !noalias !46
 
 lpad.i.i.i:                                       ; preds = %invoke.cont4.i.i.i, %invoke.cont2.i.i.i, %invoke.cont.i.i.i, %do.end
   %8 = landingpad { ptr, i32 }
@@ -3491,7 +3491,7 @@ lpad.i.i.i:                                       ; preds = %invoke.cont4.i.i.i,
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #32, !noalias !46
   resume { ptr, i32 } %8
 
-_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsEED2Ev.exit: ; preds = %invoke.cont4.i.i.i
+_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsEED2Ev.argprom.exit: ; preds = %invoke.cont4.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsE, i64 16), ptr %call.i, align 8, !noalias !46
   %http_request_.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr null, ptr %http_request_.i.i, align 8, !noalias !46
@@ -4472,7 +4472,7 @@ lpad.i.i:                                         ; preds = %.noexc.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #29
-  br label %_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.exit
+  br label %_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.argprom.exit
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %if.then.i
   %3 = landingpad { ptr, i32 }
@@ -4499,19 +4499,19 @@ if.end.i:                                         ; preds = %if.then
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i.i, align 8, !noalias !68
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.58, i64 82, ptr nonnull %ref.tmp.i.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !65
-  br label %_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.exit
+  br label %_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.argprom.exit
 
-_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.exit: ; preds = %invoke.cont.i, %if.end.i
+_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.argprom.exit: ; preds = %invoke.cont.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 514, i32 noundef 1, ptr noundef nonnull @.str.38, ptr noundef %call1, ptr noundef %reserved)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.exit
+invoke.cont:                                      ; preds = %_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.argprom.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
   br label %do.body
 
-lpad:                                             ; preds = %_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.exit
+lpad:                                             ; preds = %_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.argprom.exit
   %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
@@ -5707,7 +5707,7 @@ invoke.cont18.i.i:                                ; preds = %invoke.cont15.i.i
   %actor_token_type.i.i = getelementptr inbounds i8, ptr %options, i64 64
   %18 = load ptr, ptr %actor_token_type.i.i, align 8, !noalias !100
   %call22.i.i = invoke ptr @gpr_strdup(ptr noundef %18)
-          to label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev.exit unwind label %lpad20.i.i, !noalias !100
+          to label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev.argprom.exit unwind label %lpad20.i.i, !noalias !100
 
 lpad.i.i:                                         ; preds = %_ZN37grpc_oauth2_token_fetcher_credentialsC2Ev.exit.i.i
   %19 = landingpad { ptr, i32 }
@@ -5792,7 +5792,7 @@ lpad.body.i:                                      ; preds = %ehcleanup28.i.i, %l
   call void @_ZdlPv(ptr noundef nonnull %call.i2) #32, !noalias !100
   br label %ehcleanup
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev.exit: ; preds = %invoke.cont18.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev.argprom.exit: ; preds = %invoke.cont18.i.i
   %actor_token_type_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 408
   store ptr %call22.i.i, ptr %actor_token_type_.i.i, align 8, !noalias !100
   %http_request_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 416
@@ -5801,8 +5801,8 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %agg.tmp.i)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev.exit, %invoke.cont7
-  %retval.0 = phi ptr [ %call.i2, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev.exit ], [ null, %invoke.cont7 ]
+cleanup:                                          ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev.argprom.exit, %invoke.cont7
+  %retval.0 = phi ptr [ %call.i2, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126StsTokenFetcherCredentialsEED2Ev.argprom.exit ], [ null, %invoke.cont7 ]
   %27 = load i64, ptr %sts_url, align 8
   %cmp.i.i.i.i4 = icmp eq i64 %27, 0
   br i1 %cmp.i.i.i.i4, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -10802,22 +10802,22 @@ define internal void @"_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lts_2
 entry:
   %arg.val = load ptr, ptr %arg, align 8
   %cmp.not.i.i.i = icmp eq ptr %arg.val, null
-  br i1 %cmp.not.i.i.i, label %"_ZN9grpc_core8DestructIZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1EEvPT_.exit", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZN9grpc_core8DestructIZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1EEvPT_.argprom.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %arg.val, i64 8
   %0 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %0, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZN9grpc_core8DestructIZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1EEvPT_.exit"
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZN9grpc_core8DestructIZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1EEvPT_.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %arg.val, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(112) %arg.val) #29
-  br label %"_ZN9grpc_core8DestructIZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1EEvPT_.exit"
+  br label %"_ZN9grpc_core8DestructIZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1EEvPT_.argprom.exit"
 
-"_ZN9grpc_core8DestructIZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1EEvPT_.exit": ; preds = %entry, %if.then.i.i.i, %if.then.i.i.i.i
+"_ZN9grpc_core8DestructIZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1EEvPT_.argprom.exit": ; preds = %entry, %if.then.i.i.i, %if.then.i.i.i.i
   ret void
 }
 
@@ -12770,8 +12770,8 @@ attributes #33 = { builtin allocsize(0) }
 !63 = distinct !{!63, !64, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
 !64 = distinct !{!64, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token: %agg.result"}
-!67 = distinct !{!67, !"_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token"}
+!66 = distinct !{!66, !67, !"_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.argprom: %agg.result"}
+!67 = distinct !{!67, !"_ZL29create_loggable_refresh_tokenB5cxx11P23grpc_auth_refresh_token.argprom"}
 !68 = !{!69, !66}
 !69 = distinct !{!69, !70, !"_ZN4absl12lts_202308029StrFormatIJPKcPcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSD_: %agg.result"}
 !70 = distinct !{!70, !"_ZN4absl12lts_202308029StrFormatIJPKcPcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSD_"}

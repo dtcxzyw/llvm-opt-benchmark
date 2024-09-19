@@ -5755,7 +5755,7 @@ for.body237.lr.ph:                                ; preds = %for.end230
   %464 = zext nneg i32 %.pre to i64
   br label %for.body237
 
-for.cond235.loopexit:                             ; preds = %for.cond246.loopexit, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit
+for.cond235.loopexit:                             ; preds = %for.cond246.loopexit, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.argprom.exit
   %cmp236 = icmp sgt i64 %indvars.iv1221, 1
   br i1 %cmp236, label %for.body237, label %for.end371, !llvm.loop !116
 
@@ -5769,7 +5769,7 @@ for.body237:                                      ; preds = %for.body237.lr.ph, 
   %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i750, i64 420
   %m_joint_type.val = load i32, ptr %m_joint_type, align 4
   switch i32 %m_joint_type.val, label %do.body.i [
-    i32 0, label %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit
+    i32 0, label %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.argprom.exit
     i32 1, label %for.body248.lr.ph
     i32 2, label %for.body248.lr.ph
     i32 3, label %sw.bb2.i
@@ -5788,7 +5788,7 @@ do.body.i:                                        ; preds = %for.body237
   call void @abort() #17
   unreachable
 
-_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit: ; preds = %for.body237
+_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.argprom.exit: ; preds = %for.body237
   %m_Jac_JR245 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JR, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JR245, i64 16, i1 false)
   %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i750, i64 504
@@ -6229,7 +6229,7 @@ while.body:                                       ; preds = %for.end310, %for.en
   %m_joint_type333 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 420
   %m_joint_type333.val = load i32, ptr %m_joint_type333, align 4
   switch i32 %m_joint_type333.val, label %do.body.i1001 [
-    i32 0, label %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit1002
+    i32 0, label %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.argprom.exit1002
     i32 1, label %for.body344.preheader
     i32 2, label %for.body344.preheader
     i32 3, label %sw.bb2.i999
@@ -6248,7 +6248,7 @@ do.body.i1001:                                    ; preds = %while.body
   call void @abort() #17
   unreachable
 
-_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit1002: ; preds = %while.body
+_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.argprom.exit1002: ; preds = %while.body
   %m_Jac_JR338 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JR337, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JR338, i64 16, i1 false)
   %m_Jac_JT340 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 504
@@ -6382,8 +6382,8 @@ for.end363.loopexit:                              ; preds = %if.end354
   %.pre1224 = load ptr, ptr %m_data.i910, align 8
   br label %for.end363
 
-for.end363:                                       ; preds = %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit1002, %for.end363.loopexit
-  %604 = phi ptr [ %.pre1224, %for.end363.loopexit ], [ %551, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit1002 ]
+for.end363:                                       ; preds = %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.argprom.exit1002, %for.end363.loopexit
+  %604 = phi ptr [ %.pre1224, %for.end363.loopexit ], [ %551, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.argprom.exit1002 ]
   %arrayidx.i1051 = getelementptr inbounds i32, ptr %604, i64 %idxprom.i917
   %parent_idx.0 = load i32, ptr %arrayidx.i1051, align 4
   %cmp312 = icmp sgt i32 %parent_idx.0, -1

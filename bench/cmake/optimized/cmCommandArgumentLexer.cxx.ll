@@ -95,7 +95,7 @@ define dso_local noundef range(i32 0, 270) i32 @_Z23cmCommandArgument_yylexPN29c
   br i1 %.not28.i, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.17) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.17) #26
   unreachable
 
 32:                                               ; preds = %29
@@ -122,7 +122,7 @@ define dso_local noundef range(i32 0, 270) i32 @_Z23cmCommandArgument_yylexPN29c
   br i1 %.not30.i, label %42, label %43
 
 42:                                               ; preds = %38
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.17) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.17) #26
   unreachable
 
 43:                                               ; preds = %38
@@ -658,7 +658,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i188, %304
   br i1 %333, label %334, label %335
 
 334:                                              ; preds = %330
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.13) #26
   unreachable
 
 335:                                              ; preds = %330
@@ -761,7 +761,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i188, %304
   br i1 %.not149.i, label %.loopexit.i, label %383
 
 .loopexit.i:                                      ; preds = %374, %.thread.i
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.14) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.14) #26
   unreachable
 
 383:                                              ; preds = %374
@@ -850,7 +850,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i188, %304
   br i1 %.not145.i, label %424, label %423
 
 423:                                              ; preds = %420
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.15) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.15) #26
   unreachable
 
 424:                                              ; preds = %420, %.thread154.i, %.critedge.i
@@ -890,7 +890,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i188, %304
   br i1 %.not143.i, label %445, label %444
 
 444:                                              ; preds = %442
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.15) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.15) #26
   unreachable
 
 445:                                              ; preds = %442
@@ -982,7 +982,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i188, %304
   br i1 %.not151.i, label %505, label %506
 
 505:                                              ; preds = %487
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.16) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.16) #26
   unreachable
 
 506:                                              ; preds = %487
@@ -1238,7 +1238,7 @@ _ZL18yy_get_next_bufferPv.exit.thread229:         ; preds = %341, %_ZL18yy_get_n
   br i1 %exitcond.not.i226, label %.outer.backedge, label %.lr.ph33.i213, !llvm.loop !10
 
 639:                                              ; preds = %140
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str) #26
   unreachable
 
 default.unreachable430:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
@@ -1256,7 +1256,7 @@ define dso_local noundef nonnull ptr @_Z34cmCommandArgument_yy_create_bufferP8_I
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.1) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.1) #26
   unreachable
 
 6:                                                ; preds = %3
@@ -1271,7 +1271,7 @@ define dso_local noundef nonnull ptr @_Z34cmCommandArgument_yy_create_bufferP8_I
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.1) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.1) #26
   unreachable
 
 13:                                               ; preds = %6
@@ -1365,7 +1365,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare noundef zeroext i1 @_ZN29cmCommandArgumentParserHelper18HandleEscapeSymbolEPNS_10ParserTypeEc(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %0) #31
   tail call void @exit(i32 noundef 2) #32
@@ -1394,7 +1394,7 @@ define dso_local void @_Z27cmCommandArgument_yyrestartP8_IO_FILEPv(ptr noundef %
   br i1 %.not28.i, label %13, label %14
 
 13:                                               ; preds = %11
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.17) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.17) #26
   unreachable
 
 14:                                               ; preds = %11
@@ -1421,7 +1421,7 @@ define dso_local void @_Z27cmCommandArgument_yyrestartP8_IO_FILEPv(ptr noundef %
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.17) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.17) #26
   unreachable
 
 25:                                               ; preds = %20
@@ -1578,7 +1578,7 @@ define dso_local void @_Z37cmCommandArgument_yy_switch_to_bufferP15yy_buffer_sta
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.17) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.17) #26
   unreachable
 
 8:                                                ; preds = %5
@@ -1607,7 +1607,7 @@ define dso_local void @_Z37cmCommandArgument_yy_switch_to_bufferP15yy_buffer_sta
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.17) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.17) #26
   unreachable
 
 22:                                               ; preds = %17
@@ -1822,7 +1822,7 @@ define dso_local void @_Z37cmCommandArgument_yypush_buffer_stateP15yy_buffer_sta
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.17) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.17) #26
   unreachable
 
 10:                                               ; preds = %7
@@ -1851,7 +1851,7 @@ define dso_local void @_Z37cmCommandArgument_yypush_buffer_stateP15yy_buffer_sta
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.17) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.17) #26
   unreachable
 
 24:                                               ; preds = %19
@@ -2046,7 +2046,7 @@ define dso_local noundef ptr @_Z32cmCommandArgument_yy_scan_bufferPcmPv(ptr noun
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.2) #26
   unreachable
 
 16:                                               ; preds = %13
@@ -2109,7 +2109,7 @@ define dso_local noundef nonnull ptr @_Z31cmCommandArgument_yy_scan_bytesPKciPv(
   br label %17
 
 12:                                               ; preds = %3
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.3) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.3) #26
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -2127,11 +2127,11 @@ define dso_local noundef nonnull ptr @_Z31cmCommandArgument_yy_scan_bytesPKciPv(
   br i1 %.not27.i, label %19, label %21
 
 19:                                               ; preds = %17
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.2) #26
   unreachable
 
 20:                                               ; preds = %._crit_edge
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.4) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.4) #26
   unreachable
 
 21:                                               ; preds = %17
@@ -2265,7 +2265,7 @@ define dso_local void @_Z30cmCommandArgument_yyset_linenoiPv(i32 noundef %0, ptr
   br i1 %10, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2, %5
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.5) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.5) #26
   unreachable
 
 11:                                               ; preds = %5
@@ -2290,7 +2290,7 @@ define dso_local void @_Z30cmCommandArgument_yyset_columniPv(i32 noundef %0, ptr
   br i1 %10, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2, %5
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.6) #26
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv.argprom(ptr noundef nonnull @.str.6) #26
   unreachable
 
 11:                                               ; preds = %5

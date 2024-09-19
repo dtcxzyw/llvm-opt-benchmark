@@ -808,7 +808,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i:              ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %131) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %131)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %132)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %146)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %146)
           to label %323 unwind label %431
 
 323:                                              ; preds = %322
@@ -857,7 +857,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i:              ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %129) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %129)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %130)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %147)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %147)
           to label %339 unwind label %433
 
 339:                                              ; preds = %338
@@ -1543,7 +1543,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i14:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %101) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %101)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %102)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %118)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %118)
           to label %597 unwind label %736
 
 597:                                              ; preds = %596
@@ -1591,7 +1591,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i14:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %99) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %99)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %100)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %119)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %119)
           to label %612 unwind label %738
 
 612:                                              ; preds = %611
@@ -1640,7 +1640,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i14:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %97) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %97)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %98)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %120)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %120)
           to label %628 unwind label %740
 
 628:                                              ; preds = %627
@@ -1689,7 +1689,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i14:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %95) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %95)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %96)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %121)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %121)
           to label %644 unwind label %742
 
 644:                                              ; preds = %643
@@ -2391,7 +2391,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i26:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %67) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %84)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %84)
           to label %906 unwind label %1045
 
 906:                                              ; preds = %905
@@ -2439,7 +2439,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i26:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %65) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %65)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %85)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %85)
           to label %921 unwind label %1047
 
 921:                                              ; preds = %920
@@ -2488,7 +2488,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i26:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %63) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %64)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %86)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %86)
           to label %937 unwind label %1049
 
 937:                                              ; preds = %936
@@ -2537,7 +2537,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i26:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %61)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %87)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %87)
           to label %953 unwind label %1051
 
 953:                                              ; preds = %952
@@ -3239,7 +3239,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i37:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %50)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %50)
           to label %1215 unwind label %1354
 
 1215:                                             ; preds = %1214
@@ -3287,7 +3287,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i37:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %51)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %51)
           to label %1230 unwind label %1356
 
 1230:                                             ; preds = %1229
@@ -3336,7 +3336,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i37:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %52)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %52)
           to label %1246 unwind label %1358
 
 1246:                                             ; preds = %1245
@@ -3385,7 +3385,7 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit.i37:            ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %53)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %1262 unwind label %1360
 
 1262:                                             ; preds = %1261
@@ -4090,7 +4090,7 @@ _ZN2cv3reg9MapProjec9normalizeEv.exit.i:          ; preds = %1496
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %18)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %18)
           to label %1529 unwind label %1636
 
 1529:                                             ; preds = %1528
@@ -4138,7 +4138,7 @@ _ZN2cv3reg9MapProjec9normalizeEv.exit.i:          ; preds = %1496
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %19)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %19)
           to label %1544 unwind label %1638
 
 1544:                                             ; preds = %1543
@@ -4951,7 +4951,7 @@ _ZNSt10shared_ptrIN2cv3reg3MapEED2Ev.exit:        ; preds = %1, %20, %33, %_ZNSt
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr.14", align 8
   %3 = alloca %"struct.cv::Ptr.18", align 8
   call void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.18") align 8 %3, i32 noundef 0)
@@ -4979,7 +4979,7 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 
 
 .noexc5:                                          ; preds = %.noexc
   %.not1.i = icmp eq ptr %16, null
-  br i1 %.not1.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc5, %.noexc7
   %.02.i = phi ptr [ %21, %.noexc7 ], [ %16, %.noexc5 ]
@@ -4995,15 +4995,15 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 
 
 .noexc7:                                          ; preds = %.noexc6
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, label %.lr.ph.i, !llvm.loop !38
+  br i1 %.not.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, label %.lr.ph.i, !llvm.loop !38
 
-_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit:        ; preds = %.noexc7, %.noexc5
+_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit: ; preds = %.noexc7, %.noexc5
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_9FormattedEED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit
+24:                                               ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load atomic i64, ptr %25 acquire, align 8
   %27 = icmp eq i64 %26, 4294967297
@@ -5071,7 +5071,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %57(ptr noundef nonnull align 8 dereferenceable(16) %23) #13
   br label %_ZN2cv3PtrINS_9FormattedEED2Ev.exit
 
-_ZN2cv3PtrINS_9FormattedEED2Ev.exit:              ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, %40, %53, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+_ZN2cv3PtrINS_9FormattedEED2Ev.exit:              ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, %40, %53, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %58 = getelementptr inbounds i8, ptr %3, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i.i8 = icmp eq ptr %59, null

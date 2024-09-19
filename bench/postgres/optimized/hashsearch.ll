@@ -52,7 +52,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
 
 23:                                               ; preds = %20
   %24 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %22, i32 noundef 1, i32 noundef 1) #5
-  %25 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef nonnull %0, i32 %24, i32 noundef 1)
+  %25 = tail call fastcc zeroext i1 @_hash_readpage.argprom(ptr noundef nonnull %0, i32 %24, i32 noundef 1)
   br i1 %25, label %.thread51, label %.thread
 
 26:                                               ; preds = %2
@@ -97,7 +97,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   br label %49
 
 49:                                               ; preds = %44, %48
-  %50 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef nonnull %0, i32 %40, i32 noundef %1)
+  %50 = tail call fastcc zeroext i1 @_hash_readpage.argprom(ptr noundef nonnull %0, i32 %40, i32 noundef %1)
   br i1 %50, label %.thread51, label %.thread
 
 .thread:                                          ; preds = %36, %20, %23, %49
@@ -138,7 +138,7 @@ declare void @_hash_kill_items(ptr noundef) local_unnamed_addr #1
 declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_hash_readpage(ptr noundef %0, i32 %.0.val, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_hash_readpage.argprom(ptr noundef %0, i32 %.0.val, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -748,7 +748,7 @@ BufferGetPage.exit54:                             ; preds = %81, %87
   %119 = phi i32 [ %.pre57, %.critedge2.loopexit ], [ %50, %104 ]
   %120 = getelementptr inbounds i8, ptr %9, i64 28
   store i32 %119, ptr %120, align 4
-  %121 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef %0, i32 %119, i32 noundef %1)
+  %121 = tail call fastcc zeroext i1 @_hash_readpage.argprom(ptr noundef %0, i32 %119, i32 noundef %1)
   br i1 %121, label %122, label %129
 
 122:                                              ; preds = %.critedge2

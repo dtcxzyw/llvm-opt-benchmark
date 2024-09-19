@@ -758,9 +758,9 @@ _ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit:     ; preds = %194
   %.sroa.067.092.i.ph = phi ptr [ %196, %194 ], [ %210, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
-  %.sroa.7.093.i = phi ptr [ %.sroa.10.0.i.i, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i ], [ %.sroa.7.093.i.ph, %.lr.ph.i.preheader ]
-  %.sroa.067.092.i = phi ptr [ %.sroa.09.0.i.i, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i ], [ %.sroa.067.092.i.ph, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
+  %.sroa.7.093.i = phi ptr [ %.sroa.10.0.i.i, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i ], [ %.sroa.7.093.i.ph, %.lr.ph.i.preheader ]
+  %.sroa.067.092.i = phi ptr [ %.sroa.09.0.i.i, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i ], [ %.sroa.067.092.i.ph, %.lr.ph.i.preheader ]
   %214 = ptrtoint ptr %.sroa.067.092.i to i64
   %215 = and i64 %214, 15
   %.not.i.i.i.i = icmp eq i64 %215, 0
@@ -812,11 +812,11 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14Attrib
   %239 = mul i64 %238, %236
   %240 = inttoptr i64 %239 to ptr
   %241 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i.i.i to ptr
-  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
+  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
 
 .thread.i.i:                                      ; preds = %_ZNK5clang7TypeLoc12IgnoreParensEv.exit.i.i
   %.not.i.i98 = icmp eq ptr %.sroa.01.0.i.i.i, null
-  br i1 %.not.i.i98, label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i, label %242
+  br i1 %.not.i.i98, label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i, label %242
 
 242:                                              ; preds = %.thread.i.i
   %243 = and i64 %.pre-phi.i.i, -16
@@ -835,7 +835,7 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14Attrib
   %256 = mul i64 %255, %253
   %257 = load ptr, ptr %244, align 16
   %258 = inttoptr i64 %256 to ptr
-  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
+  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
 
 259:                                              ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14AttributedTypeENS_17AttributedLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i
   %260 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i.i, i64 32
@@ -876,7 +876,7 @@ _ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i.i: ; preds = %273, %259
   %.pn11.i.i.i = phi ptr [ %287, %273 ], [ %271, %259 ]
   %.pn9.i.in.i.i = phi i64 [ %286, %273 ], [ %270, %259 ]
   %.pn9.i.i.i = inttoptr i64 %.pn9.i.in.i.i to ptr
-  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
+  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
 
 _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_16ReferenceTypeLocENS_13ReferenceTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i: ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14AttributedTypeENS_17AttributedLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i
   %288 = and i8 %227, -2
@@ -922,7 +922,7 @@ _ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i.i: ; preds = %303, %289
   %.pn11.i45.i.i = phi ptr [ %317, %303 ], [ %301, %289 ]
   %.pn9.i46.in.i.i = phi i64 [ %316, %303 ], [ %300, %289 ]
   %.pn9.i46.i.i = inttoptr i64 %.pn9.i46.in.i.i to ptr
-  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
+  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
 
 _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15AdjustedTypeLocENS_12AdjustedTypeENS_15AdjustedLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i: ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_16ReferenceTypeLocENS_13ReferenceTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i
   %spec.select.i.i.i.i55.i.i = icmp ult i8 %227, 2
@@ -942,10 +942,10 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15AdjustedTypeLocENS_12Adjusted
   %328 = mul i64 %327, %325
   %329 = inttoptr i64 %328 to ptr
   %330 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i58.i.i to ptr
-  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
+  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
 
 _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i: ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15AdjustedTypeLocENS_12AdjustedTypeENS_15AdjustedLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i
-  switch i8 %227, label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i [
+  switch i8 %227, label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i [
     i8 11, label %331
     i8 32, label %360
     i8 24, label %389
@@ -990,7 +990,7 @@ _ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i: ; preds = %345, %331
   %.pn11.i45.i = phi ptr [ %359, %345 ], [ %343, %331 ]
   %.pn9.i46.in.i = phi i64 [ %358, %345 ], [ %342, %331 ]
   %.pn9.i46.i = inttoptr i64 %.pn9.i46.in.i to ptr
-  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
+  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
 
 360:                                              ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i
   %361 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i.i, i64 32
@@ -1031,7 +1031,7 @@ _ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit38.i: ; preds = %374, %360
   %.pn11.i34.i = phi ptr [ %388, %374 ], [ %372, %360 ]
   %.pn9.i35.in.i = phi i64 [ %387, %374 ], [ %371, %360 ]
   %.pn9.i35.i = inttoptr i64 %.pn9.i35.in.i to ptr
-  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
+  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
 
 389:                                              ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i
   %390 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i.i, i64 40
@@ -1065,9 +1065,9 @@ _ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i: ; preds = %_ZNK5clang17
   %407 = mul i64 %406, %404
   %408 = inttoptr i64 %407 to ptr
   %409 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i.i to ptr
-  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
+  br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i
 
-_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i: ; preds = %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit38.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i, %318, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i.i, %242, %.thread.i.i, %228
+_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i: ; preds = %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit38.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i, %318, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i.i, %242, %.thread.i.i, %228
   %.sroa.09.0.i.i = phi ptr [ %241, %228 ], [ %257, %242 ], [ %.pn11.i.i.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i.i ], [ %.pn11.i45.i.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i.i ], [ %330, %318 ], [ %.pn11.i45.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i ], [ %.pn11.i34.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit38.i ], [ %409, %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i ], [ null, %.thread.i.i ], [ %.sroa.01.0.i.i.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i ]
   %.sroa.10.0.i.i = phi ptr [ %240, %228 ], [ %258, %242 ], [ %.pn9.i.i.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i.i ], [ %.pn9.i46.i.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i.i ], [ %329, %318 ], [ %.pn9.i46.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit49.i ], [ %.pn9.i35.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit38.i ], [ %408, %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i ], [ %.sroa.3.0.i.i.i, %.thread.i.i ], [ %.sroa.3.0.i.i.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i ]
   %410 = icmp ne ptr %.sroa.067.092.i, %.sroa.09.0.i.i
@@ -1075,9 +1075,9 @@ _ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i: ; p
   %.not3.i.i = select i1 %410, i1 true, i1 %411
   br i1 %.not3.i.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit
-  %.sroa.067.0.lcssa.i = phi ptr [ null, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit ], [ %.sroa.09.0.i.i, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i ]
-  %.sroa.7.0.lcssa.i = phi ptr [ null, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit ], [ %.sroa.10.0.i.i, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i ]
+._crit_edge.i:                                    ; preds = %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit
+  %.sroa.067.0.lcssa.i = phi ptr [ null, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit ], [ %.sroa.09.0.i.i, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i ]
+  %.sroa.7.0.lcssa.i = phi ptr [ null, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit ], [ %.sroa.10.0.i.i, %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.argprom.exit.i ]
   %412 = ptrtoint ptr %.sroa.067.0.lcssa.i to i64
   %413 = and i64 %412, 15
   %.not.i.i.i = icmp eq i64 %413, 0

@@ -797,7 +797,7 @@ cid_parse_dict.exit.i:                            ; preds = %259
   %285 = load i64, ptr %269, align 8
   %286 = load i64, ptr %100, align 8
   %.val.i = load ptr, ptr %36, align 8
-  %287 = call fastcc i32 @cid_hex_to_binary(ptr noundef %281, i64 noundef %285, i64 noundef %286, ptr %.val.i, ptr noundef %11)
+  %287 = call fastcc i32 @cid_hex_to_binary.argprom(ptr noundef %281, i64 noundef %285, i64 noundef %286, ptr %.val.i, ptr noundef %11)
   store i32 %287, ptr %10, align 4
   %.not79.i = icmp eq i32 %287, 0
   br i1 %.not79.i, label %288, label %352
@@ -1272,19 +1272,19 @@ define internal i32 @cid_size_init(ptr nocapture noundef readonly %0) #2 {
   %7 = icmp ne ptr %6, null
   %8 = icmp ne ptr %.val.val15, null
   %or.cond.i = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond.i, label %9, label %cid_size_get_globals_funcs.exit.thread
+  br i1 %or.cond.i, label %9, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %.val.val15, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %cid_size_get_globals_funcs.exit.thread, label %cid_size_get_globals_funcs.exit
+  br i1 %.not.i, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit
 
-cid_size_get_globals_funcs.exit:                  ; preds = %9
+cid_size_get_globals_funcs.argprom.argprom.argprom.exit: ; preds = %9
   %11 = tail call ptr %10(ptr noundef nonnull %6) #13
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %cid_size_get_globals_funcs.exit.thread, label %12
+  br i1 %.not, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %12
 
-12:                                               ; preds = %cid_size_get_globals_funcs.exit
+12:                                               ; preds = %cid_size_get_globals_funcs.argprom.argprom.argprom.exit
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 576
   %15 = load ptr, ptr %14, align 8
@@ -1296,17 +1296,17 @@ cid_size_get_globals_funcs.exit:                  ; preds = %9
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 %19(ptr noundef %21, ptr noundef %18, ptr noundef nonnull %2) #13
   %.not14 = icmp eq i32 %22, 0
-  br i1 %.not14, label %23, label %cid_size_get_globals_funcs.exit.thread
+  br i1 %.not14, label %23, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 23:                                               ; preds = %12
   %24 = load ptr, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
   store ptr %24, ptr %26, align 8
-  br label %cid_size_get_globals_funcs.exit.thread
+  br label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
-cid_size_get_globals_funcs.exit.thread:           ; preds = %1, %9, %12, %23, %cid_size_get_globals_funcs.exit
-  %.0 = phi i32 [ %22, %12 ], [ 0, %23 ], [ 0, %cid_size_get_globals_funcs.exit ], [ 0, %9 ], [ 0, %1 ]
+cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread: ; preds = %1, %9, %12, %23, %cid_size_get_globals_funcs.argprom.argprom.argprom.exit
+  %.0 = phi i32 [ %22, %12 ], [ 0, %23 ], [ 0, %cid_size_get_globals_funcs.argprom.argprom.argprom.exit ], [ 0, %9 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1330,32 +1330,32 @@ define internal void @cid_size_done(ptr nocapture noundef readonly %0) #2 {
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %.val.val8, null
   %or.cond.i = select i1 %10, i1 %11, i1 false
-  br i1 %or.cond.i, label %12, label %cid_size_get_globals_funcs.exit.thread
+  br i1 %or.cond.i, label %12, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %.val.val8, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %cid_size_get_globals_funcs.exit.thread, label %cid_size_get_globals_funcs.exit
+  br i1 %.not.i, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit
 
-cid_size_get_globals_funcs.exit:                  ; preds = %12
+cid_size_get_globals_funcs.argprom.argprom.argprom.exit: ; preds = %12
   %14 = tail call ptr %13(ptr noundef nonnull %9) #13
   %.not7 = icmp eq ptr %14, null
-  br i1 %.not7, label %cid_size_get_globals_funcs.exit.thread, label %15
+  br i1 %.not7, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %15
 
-15:                                               ; preds = %cid_size_get_globals_funcs.exit
+15:                                               ; preds = %cid_size_get_globals_funcs.argprom.argprom.argprom.exit
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %2, align 8
   %19 = load ptr, ptr %18, align 8
   tail call void %17(ptr noundef %19) #13
-  br label %cid_size_get_globals_funcs.exit.thread
+  br label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
-cid_size_get_globals_funcs.exit.thread:           ; preds = %5, %12, %15, %cid_size_get_globals_funcs.exit
+cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread: ; preds = %5, %12, %15, %cid_size_get_globals_funcs.argprom.argprom.argprom.exit
   %20 = load ptr, ptr %2, align 8
   store ptr null, ptr %20, align 8
   br label %21
 
-21:                                               ; preds = %cid_size_get_globals_funcs.exit.thread, %1
+21:                                               ; preds = %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, %1
   ret void
 }
 
@@ -1756,7 +1756,7 @@ define internal i32 @cid_size_request(ptr nocapture noundef readonly %0, ptr nou
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @FT_Request_Metrics(ptr noundef %3, ptr noundef %1) #13
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %cid_size_get_globals_funcs.exit.thread
+  br i1 %.not, label %5, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 5:                                                ; preds = %2
   %.val = load ptr, ptr %0, align 8
@@ -1770,19 +1770,19 @@ define internal i32 @cid_size_request(ptr nocapture noundef readonly %0, ptr nou
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %.val.val10, null
   %or.cond.i = select i1 %10, i1 %11, i1 false
-  br i1 %or.cond.i, label %12, label %cid_size_get_globals_funcs.exit.thread
+  br i1 %or.cond.i, label %12, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %.val.val10, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %cid_size_get_globals_funcs.exit.thread, label %cid_size_get_globals_funcs.exit
+  br i1 %.not.i, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit
 
-cid_size_get_globals_funcs.exit:                  ; preds = %12
+cid_size_get_globals_funcs.argprom.argprom.argprom.exit: ; preds = %12
   %14 = tail call ptr %13(ptr noundef nonnull %9) #13
   %.not9 = icmp eq ptr %14, null
-  br i1 %.not9, label %cid_size_get_globals_funcs.exit.thread, label %15
+  br i1 %.not9, label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %15
 
-15:                                               ; preds = %cid_size_get_globals_funcs.exit
+15:                                               ; preds = %cid_size_get_globals_funcs.argprom.argprom.argprom.exit
   %16 = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1793,9 +1793,9 @@ cid_size_get_globals_funcs.exit:                  ; preds = %12
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load i64, ptr %23, align 8
   tail call void %17(ptr noundef %20, i64 noundef %22, i64 noundef %24, i64 noundef 0, i64 noundef 0) #13
-  br label %cid_size_get_globals_funcs.exit.thread
+  br label %cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
-cid_size_get_globals_funcs.exit.thread:           ; preds = %5, %12, %cid_size_get_globals_funcs.exit, %15, %2
+cid_size_get_globals_funcs.argprom.argprom.argprom.exit.thread: ; preds = %5, %12, %cid_size_get_globals_funcs.argprom.argprom.argprom.exit, %15, %2
   ret i32 %4
 }
 
@@ -2062,7 +2062,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cid_hex_to_binary(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr %.192.val, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #2 {
+define internal fastcc i32 @cid_hex_to_binary.argprom(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr %.192.val, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #2 {
   %5 = alloca [256 x i8], align 16
   %6 = tail call i32 @FT_Stream_Seek(ptr noundef %.192.val, i64 noundef %2) #13
   %.not = icmp eq i32 %6, 0

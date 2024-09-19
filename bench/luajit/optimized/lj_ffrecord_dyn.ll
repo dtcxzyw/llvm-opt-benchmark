@@ -131,16 +131,16 @@ entry:
   %1 = getelementptr i8, ptr %0, i64 10
   %.val = load i8, ptr %1, align 2
   %cmp.i = icmp ult i8 %.val, -33
-  br i1 %cmp.i, label %if.then.i, label %recdef_lookup.exit
+  br i1 %cmp.i, label %if.then.i, label %recdef_lookup.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %conv.i = zext i8 %.val to i64
   %arrayidx.i = getelementptr inbounds [223 x i16], ptr @recff_idmap, i64 0, i64 %conv.i
   %2 = load i16, ptr %arrayidx.i, align 2
   %conv3.i = zext i16 %2 to i32
-  br label %recdef_lookup.exit
+  br label %recdef_lookup.argprom.exit
 
-recdef_lookup.exit:                               ; preds = %entry, %if.then.i
+recdef_lookup.argprom.exit:                       ; preds = %entry, %if.then.i
   %retval.0.i = phi i32 [ %conv3.i, %if.then.i ], [ 0, %entry ]
   %and = and i32 %retval.0.i, 255
   %data = getelementptr inbounds i8, ptr %rd, i64 16
@@ -168,7 +168,7 @@ recdef_lookup.exit:                               ; preds = %entry, %if.then.i
   %cmp = icmp sgt i64 %8, -1
   br i1 %cmp, label %if.then, label %if.end9
 
-if.then:                                          ; preds = %recdef_lookup.exit
+if.then:                                          ; preds = %recdef_lookup.argprom.exit
   %postproc = getelementptr inbounds i8, ptr %J, i64 372
   %9 = load i32, ptr %postproc, align 4
   %cmp5 = icmp eq i32 %9, 0
@@ -182,7 +182,7 @@ if.end:                                           ; preds = %if.then6, %if.then
   call void @lj_record_ret(ptr noundef nonnull %J, i32 noundef 0, i64 noundef %8) #9
   br label %if.end9
 
-if.end9:                                          ; preds = %if.end, %recdef_lookup.exit
+if.end9:                                          ; preds = %if.end, %recdef_lookup.argprom.exit
   ret void
 }
 
@@ -3242,9 +3242,9 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %J.val.val.val = load i64, ptr %12, align 8
   %and.i = and i64 %J.val.val.val, 3
   %cmp.i = icmp eq i64 %and.i, 0
-  br i1 %cmp.i, label %results_wanted.exit, label %if.then40
+  br i1 %cmp.i, label %results_wanted.argprom.argprom.argprom.exit, label %if.then40
 
-results_wanted.exit:                              ; preds = %cond.end
+results_wanted.argprom.argprom.argprom.exit:      ; preds = %cond.end
   %13 = inttoptr i64 %J.val.val.val to ptr
   %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i, align 4
@@ -3252,7 +3252,7 @@ results_wanted.exit:                              ; preds = %cond.end
   %cmp38.not = icmp eq i32 %shr.i.mask, 16777216
   br i1 %cmp38.not, label %for.inc, label %if.then40
 
-if.then40:                                        ; preds = %cond.end, %results_wanted.exit
+if.then40:                                        ; preds = %cond.end, %results_wanted.argprom.argprom.argprom.exit
   %call42 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef -1) #9
   br label %for.inc.sink.split
 
@@ -3265,9 +3265,9 @@ if.else:                                          ; preds = %land.lhs.true, %for
   %J.val47.val.val = load i64, ptr %16, align 8
   %and.i48 = and i64 %J.val47.val.val, 3
   %cmp.i49 = icmp eq i64 %and.i48, 0
-  br i1 %cmp.i49, label %results_wanted.exit56, label %for.inc.sink.split
+  br i1 %cmp.i49, label %results_wanted.argprom.argprom.argprom.exit56, label %for.inc.sink.split
 
-results_wanted.exit56:                            ; preds = %if.else
+results_wanted.argprom.argprom.argprom.exit56:    ; preds = %if.else
   %17 = inttoptr i64 %J.val47.val.val to ptr
   %arrayidx.i52 = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i52, align 4
@@ -3275,10 +3275,10 @@ results_wanted.exit56:                            ; preds = %if.else
   %cmp48.not = icmp eq i32 %shr.i53.mask, 16777216
   br i1 %cmp48.not, label %for.inc, label %for.inc.sink.split
 
-for.inc.sink.split:                               ; preds = %results_wanted.exit56, %if.else, %if.then40
-  %.sink = phi i16 [ 2451, %if.then40 ], [ 2195, %if.else ], [ 2195, %results_wanted.exit56 ]
-  %conv41.sink.in = phi i32 [ %call36, %if.then40 ], [ %call46, %if.else ], [ %call46, %results_wanted.exit56 ]
-  %conv43.sink.in = phi i32 [ %call42, %if.then40 ], [ %call11, %if.else ], [ %call11, %results_wanted.exit56 ]
+for.inc.sink.split:                               ; preds = %results_wanted.argprom.argprom.argprom.exit56, %if.else, %if.then40
+  %.sink = phi i16 [ 2451, %if.then40 ], [ 2195, %if.else ], [ 2195, %results_wanted.argprom.argprom.argprom.exit56 ]
+  %conv41.sink.in = phi i32 [ %call36, %if.then40 ], [ %call46, %if.else ], [ %call46, %results_wanted.argprom.argprom.argprom.exit56 ]
+  %conv43.sink.in = phi i32 [ %call42, %if.then40 ], [ %call11, %if.else ], [ %call11, %results_wanted.argprom.argprom.argprom.exit56 ]
   %conv43.sink = trunc i32 %conv43.sink.in to i16
   %conv41.sink = trunc i32 %conv41.sink.in to i16
   store i16 %.sink, ptr %ot1.i90, align 4
@@ -3287,7 +3287,7 @@ for.inc.sink.split:                               ; preds = %results_wanted.exit
   %call44 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %results_wanted.exit, %results_wanted.exit56
+for.inc:                                          ; preds = %for.inc.sink.split, %results_wanted.argprom.argprom.argprom.exit, %results_wanted.argprom.argprom.argprom.exit56
   %inc = add nuw nsw i64 %i.063, 1
   %19 = load ptr, ptr %base, align 8
   %arrayidx = getelementptr inbounds i32, ptr %19, i64 %inc
@@ -3317,9 +3317,9 @@ entry:
   %J.val.val.val = load i64, ptr %3, align 8
   %and.i = and i64 %J.val.val.val, 3
   %cmp.i = icmp eq i64 %and.i, 0
-  br i1 %cmp.i, label %results_wanted.exit, label %if.then
+  br i1 %cmp.i, label %results_wanted.argprom.argprom.argprom.exit, label %if.then
 
-results_wanted.exit:                              ; preds = %entry
+results_wanted.argprom.argprom.argprom.exit:      ; preds = %entry
   %4 = inttoptr i64 %J.val.val.val to ptr
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i, align 4
@@ -3327,7 +3327,7 @@ results_wanted.exit:                              ; preds = %entry
   %cmp.not = icmp eq i32 %shr.i.mask, 16777216
   br i1 %cmp.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %entry, %results_wanted.exit
+if.then:                                          ; preds = %entry, %results_wanted.argprom.argprom.argprom.exit
   %conv = trunc i32 %call1 to i16
   %call3 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef 0) #9
   %conv4 = trunc i32 %call3 to i16
@@ -3340,7 +3340,7 @@ if.then:                                          ; preds = %entry, %results_wan
   %call5 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %results_wanted.exit
+if.end:                                           ; preds = %if.then, %results_wanted.argprom.argprom.argprom.exit
   %base = getelementptr inbounds i8, ptr %J, i64 160
   %6 = load ptr, ptr %base, align 8
   store i32 33587197, ptr %6, align 4
@@ -3470,13 +3470,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -3523,7 +3523,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
   %call11 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br i1 %tobool.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %recff_sbufx_check.exit
+if.then:                                          ; preds = %recff_sbufx_check.argprom.exit
   %call13 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef 0) #9
   %call15 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef 2) #9
   %conv16 = trunc i32 %call15 to i16
@@ -3575,7 +3575,7 @@ if.then:                                          ; preds = %recff_sbufx_check.e
   %call19 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br label %if.end
 
-if.else:                                          ; preds = %recff_sbufx_check.exit
+if.else:                                          ; preds = %recff_sbufx_check.argprom.exit
   store i16 17673, ptr %ot1.i18.i, align 4
   store i16 %conv8.i, ptr %fold.i17.i, align 8
   store i16 16, ptr %op2.i21.i, align 2
@@ -3626,13 +3626,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -3712,13 +3712,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -3756,7 +3756,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
     i32 167772160, label %if.then29
   ]
 
-if.then:                                          ; preds = %recff_sbufx_check.exit
+if.then:                                          ; preds = %recff_sbufx_check.argprom.exit
   %conv = trunc i32 %6 to i16
   %call2 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef 0) #9
   %conv3 = trunc i32 %call2 to i16
@@ -3803,7 +3803,7 @@ if.end23:                                         ; preds = %if.else, %if.then18
   %call24 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %J, i32 noundef 24, i32 noundef %call4.i, i32 noundef %trp.0, i32 noundef %call6, i32 noundef %tr.0) #9
   br label %if.end37
 
-if.then29:                                        ; preds = %recff_sbufx_check.exit
+if.then29:                                        ; preds = %recff_sbufx_check.argprom.exit
   %11 = load ptr, ptr %rd, align 8
   %arrayidx31 = getelementptr inbounds i8, ptr %11, i64 8
   %call32 = tail call i32 @lj_crecord_topcvoid(ptr noundef nonnull %J, i32 noundef %6, ptr noundef nonnull %arrayidx31) #9
@@ -3811,7 +3811,7 @@ if.then29:                                        ; preds = %recff_sbufx_check.e
   %call35 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %J, i32 noundef 24, i32 noundef %call4.i, i32 noundef %call32, i32 noundef %call34, i32 noundef %6) #9
   br label %if.end37
 
-if.end37:                                         ; preds = %recff_sbufx_check.exit, %if.then29, %if.end23
+if.end37:                                         ; preds = %recff_sbufx_check.argprom.exit, %if.then29, %if.end23
   ret void
 }
 
@@ -3833,13 +3833,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -3880,10 +3880,10 @@ for.cond10.preheader:                             ; preds = %for.inc
   %tobool13.not91 = icmp eq i32 %.pre94, 0
   br i1 %tobool13.not91, label %for.end50, label %for.body14
 
-for.body:                                         ; preds = %recff_sbufx_check.exit, %for.inc
-  %7 = phi ptr [ %12, %for.inc ], [ %5, %recff_sbufx_check.exit ]
-  %8 = phi i32 [ %13, %for.inc ], [ %6, %recff_sbufx_check.exit ]
-  %arg.089 = phi i64 [ %inc, %for.inc ], [ 1, %recff_sbufx_check.exit ]
+for.body:                                         ; preds = %recff_sbufx_check.argprom.exit, %for.inc
+  %7 = phi ptr [ %12, %for.inc ], [ %5, %recff_sbufx_check.argprom.exit ]
+  %8 = phi i32 [ %13, %for.inc ], [ %6, %recff_sbufx_check.argprom.exit ]
+  %arg.089 = phi i64 [ %inc, %for.inc ], [ 1, %recff_sbufx_check.argprom.exit ]
   %and = and i32 %8, 520093696
   %cmp = icmp eq i32 %and, 201326592
   br i1 %cmp, label %if.then5, label %for.inc
@@ -3902,13 +3902,13 @@ land.lhs.true.i72:                                ; preds = %if.then5
   %udtype.i74 = getelementptr inbounds i8, ptr %10, i64 10
   %11 = load i8, ptr %udtype.i74, align 2
   %cmp6.i75 = icmp eq i8 %11, 3
-  br i1 %cmp6.i75, label %recff_sbufx_check.exit86, label %if.then.i71
+  br i1 %cmp6.i75, label %recff_sbufx_check.argprom.exit86, label %if.then.i71
 
 if.then.i71:                                      ; preds = %land.lhs.true.i72, %if.then5
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit86:                         ; preds = %land.lhs.true.i72
+recff_sbufx_check.argprom.exit86:                 ; preds = %land.lhs.true.i72
   %conv8.i76 = trunc i32 %8 to i16
   store i16 17680, ptr %ot1.i18.i, align 4
   store i16 %conv8.i76, ptr %fold.i17.i, align 8
@@ -3929,8 +3929,8 @@ recff_sbufx_check.exit86:                         ; preds = %land.lhs.true.i72
   %.pre = load ptr, ptr %base.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %recff_sbufx_check.exit86
-  %12 = phi ptr [ %7, %for.body ], [ %.pre, %recff_sbufx_check.exit86 ]
+for.inc:                                          ; preds = %for.body, %recff_sbufx_check.argprom.exit86
+  %12 = phi ptr [ %7, %for.body ], [ %.pre, %recff_sbufx_check.argprom.exit86 ]
   %inc = add nuw nsw i64 %arg.089, 1
   %arrayidx3 = getelementptr inbounds i32, ptr %12, i64 %inc
   %13 = load i32, ptr %arrayidx3, align 4
@@ -4027,7 +4027,7 @@ for.end50:                                        ; preds = %for.inc48, %for.con
   %call52 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br label %return
 
-return:                                           ; preds = %recff_sbufx_check.exit, %for.end50
+return:                                           ; preds = %recff_sbufx_check.argprom.exit, %for.end50
   ret void
 }
 
@@ -4049,13 +4049,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4106,13 +4106,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4144,7 +4144,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
   %tobool.not = icmp eq i32 %6, 0
   br i1 %tobool.not, label %if.end, label %for.body.preheader
 
-if.end:                                           ; preds = %recff_sbufx_check.exit
+if.end:                                           ; preds = %recff_sbufx_check.argprom.exit
   store i32 32767, ptr %arrayidx, align 4
   %7 = load ptr, ptr %base.i, align 8
   %arrayidx6 = getelementptr inbounds i8, ptr %7, i64 8
@@ -4155,9 +4155,9 @@ if.end:                                           ; preds = %recff_sbufx_check.e
   %tobool9.not76 = icmp eq i32 %.pre83, 0
   br i1 %tobool9.not76, label %for.end45, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %recff_sbufx_check.exit, %if.end
-  %.ph = phi ptr [ %5, %recff_sbufx_check.exit ], [ %.pre, %if.end ]
-  %.ph89 = phi i32 [ %6, %recff_sbufx_check.exit ], [ %.pre83, %if.end ]
+for.body.preheader:                               ; preds = %recff_sbufx_check.argprom.exit, %if.end
+  %.ph = phi ptr [ %5, %recff_sbufx_check.argprom.exit ], [ %.pre, %if.end ]
+  %.ph89 = phi i32 [ %6, %recff_sbufx_check.argprom.exit ], [ %.pre83, %if.end ]
   br label %for.body
 
 for.cond17.preheader:                             ; preds = %for.inc
@@ -4289,13 +4289,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4358,13 +4358,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4428,13 +4428,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4513,13 +4513,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4585,13 +4585,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4629,7 +4629,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
   %cmp.i7 = icmp ult i32 %sub.i, 5
   br i1 %cmp.i7, label %if.then.i9, label %recff_tmpref.exit
 
-if.then.i9:                                       ; preds = %recff_sbufx_check.exit
+if.then.i9:                                       ; preds = %recff_sbufx_check.argprom.exit
   %conv.i10 = trunc i32 %6 to i16
   store i16 23310, ptr %ot1.i18.i, align 4
   store i16 %conv.i10, ptr %fold.i17.i, align 8
@@ -4637,8 +4637,8 @@ if.then.i9:                                       ; preds = %recff_sbufx_check.e
   %call.i11 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br label %recff_tmpref.exit
 
-recff_tmpref.exit:                                ; preds = %recff_sbufx_check.exit, %if.then.i9
-  %tr.addr.0.i = phi i32 [ %call.i11, %if.then.i9 ], [ %6, %recff_sbufx_check.exit ]
+recff_tmpref.exit:                                ; preds = %recff_sbufx_check.argprom.exit, %if.then.i9
+  %tr.addr.0.i = phi i32 [ %call.i11, %if.then.i9 ], [ %6, %recff_sbufx_check.argprom.exit ]
   %conv1.i8 = trunc i32 %tr.addr.0.i to i16
   store i16 16137, ptr %ot1.i18.i, align 4
   store i16 %conv1.i8, ptr %fold.i17.i, align 8
@@ -4666,13 +4666,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4746,13 +4746,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -4817,13 +4817,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp6.i = icmp eq i8 %4, 3
-  br i1 %cmp6.i, label %recff_sbufx_check.exit, label %if.then.i
+  br i1 %cmp6.i, label %recff_sbufx_check.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
   tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #10
   unreachable
 
-recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
+recff_sbufx_check.argprom.exit:                   ; preds = %land.lhs.true.i
   %conv8.i = trunc i32 %1 to i16
   %fold.i17.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i18.i = getelementptr inbounds i8, ptr %J, i64 188

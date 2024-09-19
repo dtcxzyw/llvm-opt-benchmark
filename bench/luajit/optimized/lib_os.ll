@@ -493,13 +493,13 @@ getfield.exit52:                                  ; preds = %getfield.exit44
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.12) #12
   %call.i53 = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1) #12
   %cmp.i = icmp eq i32 %call.i53, 0
-  br i1 %cmp.i, label %getboolfield.exit, label %cond.false.i
+  br i1 %cmp.i, label %getboolfield.argprom.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %getfield.exit52
   %call1.i54 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #12
-  br label %getboolfield.exit
+  br label %getboolfield.argprom.exit
 
-getboolfield.exit:                                ; preds = %getfield.exit52, %cond.false.i
+getboolfield.argprom.exit:                        ; preds = %getfield.exit52, %cond.false.i
   %cond.i = phi i32 [ %call1.i54, %cond.false.i ], [ -1, %getfield.exit52 ]
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #12
   %tm_isdst = getelementptr inbounds i8, ptr %ts, i64 32
@@ -507,8 +507,8 @@ getboolfield.exit:                                ; preds = %getfield.exit52, %c
   %call10 = call i64 @mktime(ptr noundef nonnull %ts) #12
   br label %if.end
 
-if.end:                                           ; preds = %getboolfield.exit, %if.then
-  %t.0 = phi i64 [ %call1, %if.then ], [ %call10, %getboolfield.exit ]
+if.end:                                           ; preds = %getboolfield.argprom.exit, %if.then
+  %t.0 = phi i64 [ %call1, %if.then ], [ %call10, %getboolfield.argprom.exit ]
   %cmp11 = icmp eq i64 %t.0, -1
   br i1 %cmp11, label %if.then12, label %if.else13
 

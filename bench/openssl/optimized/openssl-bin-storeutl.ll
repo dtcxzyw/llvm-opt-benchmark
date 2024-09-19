@@ -688,18 +688,18 @@ if.then52:                                        ; preds = %if.end50
   %call53 = tail call ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef nonnull %call21.lcssa) #4
   %call54 = tail call ptr @OSSL_STORE_INFO_get0_NAME_description(ptr noundef nonnull %call21.lcssa) #4
   %9 = load ptr, ptr @bio_out, align 8
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %indent, ptr noundef %9, ptr noundef nonnull @.str.68, i32 noundef %items.0.ph, ptr noundef %call27, ptr noundef %call53)
+  tail call void (i32, ptr, ptr, ...) @indent_printf.retelim(i32 noundef %indent, ptr noundef %9, ptr noundef nonnull @.str.68, i32 noundef %items.0.ph, ptr noundef %call27, ptr noundef %call53)
   %cmp56.not = icmp eq ptr %call54, null
   br i1 %cmp56.not, label %sw.bb, label %if.then57
 
 if.then57:                                        ; preds = %if.then52
   %10 = load ptr, ptr @bio_out, align 8
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %indent, ptr noundef %10, ptr noundef nonnull @.str.69, ptr noundef nonnull %call54)
+  tail call void (i32, ptr, ptr, ...) @indent_printf.retelim(i32 noundef %indent, ptr noundef %10, ptr noundef nonnull @.str.69, ptr noundef nonnull %call54)
   br label %sw.bb
 
 if.end62:                                         ; preds = %if.end50
   %11 = load ptr, ptr @bio_out, align 8
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %indent, ptr noundef %11, ptr noundef nonnull @.str.70, i32 noundef %items.0.ph, ptr noundef %call27)
+  tail call void (i32, ptr, ptr, ...) @indent_printf.retelim(i32 noundef %indent, ptr noundef %11, ptr noundef nonnull @.str.70, i32 noundef %items.0.ph, ptr noundef %call27)
   switch i32 %call23, label %sw.default [
     i32 6, label %sw.bb113
     i32 2, label %sw.bb69
@@ -811,7 +811,7 @@ sw.epilog:                                        ; preds = %if.end118, %if.then
 
 for.end:                                          ; preds = %if.then34, %if.then34.us, %if.end42, %if.end46
   %ret.2 = phi i32 [ %.us-phi89, %if.end42 ], [ %inc49, %if.end46 ], [ %ret.187.us, %if.then34.us ], [ %ret.187, %if.then34 ]
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %indent, ptr noundef nonnull %out, ptr noundef nonnull @.str.72, i32 noundef %items.0.ph)
+  tail call void (i32, ptr, ptr, ...) @indent_printf.retelim(i32 noundef %indent, ptr noundef nonnull %out, ptr noundef nonnull @.str.72, i32 noundef %items.0.ph)
   br label %end2
 
 end2:                                             ; preds = %for.end, %if.then18, %if.then13, %if.then6
@@ -874,7 +874,7 @@ declare ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef) local_unnamed_addr #1
 declare ptr @OSSL_STORE_INFO_get0_NAME_description(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @indent_printf(i32 noundef %indent, ptr noundef %bio, ptr noundef %format, ...) unnamed_addr #0 {
+define internal void @indent_printf.retelim(i32 noundef %indent, ptr noundef %bio, ptr noundef %format, ...) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)

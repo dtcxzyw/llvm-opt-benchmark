@@ -561,7 +561,7 @@ _ZNSt3setIN5clang8QualTypeENS0_16QualTypeOrderingESaIS1_EE6insertERKS1_.exit: ; 
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %62, %64
   %.sroa.017.0.copyload = phi i64 [ %1, %62 ], [ %.sroa.017.0.copyload.pre, %64 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_126InheritanceHierarchyWriter18WriteNodeReferenceEN5clang8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %.sroa.017.0.copyload, i1 noundef zeroext %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_126InheritanceHierarchyWriter18WriteNodeReferenceEN5clang8QualTypeEb.retelim(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %.sroa.017.0.copyload, i1 noundef zeroext %2)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #11
   %67 = load ptr, ptr %52, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -847,7 +847,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit48:    ; preds = %195, %202
 
 _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %217, %219
   %.sroa.01.0.copyload = load i64, ptr %4, align 8
-  call fastcc void @_ZN12_GLOBAL__N_126InheritanceHierarchyWriter18WriteNodeReferenceEN5clang8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %.sroa.01.0.copyload, i1 noundef zeroext %2)
+  call fastcc void @_ZN12_GLOBAL__N_126InheritanceHierarchyWriter18WriteNodeReferenceEN5clang8QualTypeEb.retelim(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %.sroa.01.0.copyload, i1 noundef zeroext %2)
   %222 = load ptr, ptr %52, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %224 = load ptr, ptr %223, align 8
@@ -894,7 +894,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit61:    ; preds = %_ZN4llvm11raw_ostre
   %245 = load i8, ptr %188, align 4
   %246 = and i8 %245, 1
   %247 = icmp ne i8 %246, 0
-  call fastcc void @_ZN12_GLOBAL__N_126InheritanceHierarchyWriter18WriteNodeReferenceEN5clang8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %.sroa.03.0.i.i60, i1 noundef zeroext %247)
+  call fastcc void @_ZN12_GLOBAL__N_126InheritanceHierarchyWriter18WriteNodeReferenceEN5clang8QualTypeEb.retelim(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %.sroa.03.0.i.i60, i1 noundef zeroext %247)
   %248 = load i8, ptr %188, align 4
   %249 = and i8 %248, 1
   %.not77 = icmp eq i8 %249, 0
@@ -957,7 +957,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67:               ; preds = %271, %273
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126InheritanceHierarchyWriter18WriteNodeReferenceEN5clang8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126InheritanceHierarchyWriter18WriteNodeReferenceEN5clang8QualTypeEb.retelim(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::QualType", align 8
   %5 = and i64 %1, -16
   %6 = inttoptr i64 %5 to ptr

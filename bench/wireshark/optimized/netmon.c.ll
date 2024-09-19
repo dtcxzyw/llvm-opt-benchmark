@@ -1709,7 +1709,7 @@ define internal range(i32 -8, 1) i32 @netmon_dump_can_write_encap_1_x(i32 nounde
 define internal range(i32 0, 2) i32 @netmon_dump_open_1_x(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 128, i32 noundef 0, ptr noundef %1) #13
   %5 = icmp eq i64 %4, -1
-  br i1 %5, label %netmon_dump_open.exit, label %6
+  br i1 %5, label %netmon_dump_open.argprom.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1728,9 +1728,9 @@ define internal range(i32 0, 2) i32 @netmon_dump_open_1_x(ptr noundef %0, ptr no
   store i32 0, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 0, i64 20, i1 false)
-  br label %netmon_dump_open.exit
+  br label %netmon_dump_open.argprom.exit
 
-netmon_dump_open.exit:                            ; preds = %3, %6
+netmon_dump_open.argprom.exit:                    ; preds = %3, %6
   %.0.i = phi i32 [ 1, %6 ], [ 0, %3 ]
   ret i32 %.0.i
 }
@@ -2250,7 +2250,7 @@ define internal range(i32 -8, 1) i32 @netmon_dump_can_write_encap_2_x(i32 nounde
 define internal range(i32 0, 2) i32 @netmon_dump_open_2_x(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 128, i32 noundef 0, ptr noundef %1) #13
   %5 = icmp eq i64 %4, -1
-  br i1 %5, label %netmon_dump_open.exit, label %6
+  br i1 %5, label %netmon_dump_open.argprom.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2269,9 +2269,9 @@ define internal range(i32 0, 2) i32 @netmon_dump_open_2_x(ptr noundef %0, ptr no
   store i32 0, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 0, i64 20, i1 false)
-  br label %netmon_dump_open.exit
+  br label %netmon_dump_open.argprom.exit
 
-netmon_dump_open.exit:                            ; preds = %3, %6
+netmon_dump_open.argprom.exit:                    ; preds = %3, %6
   %.0.i = phi i32 [ 1, %6 ], [ 0, %3 ]
   ret i32 %.0.i
 }

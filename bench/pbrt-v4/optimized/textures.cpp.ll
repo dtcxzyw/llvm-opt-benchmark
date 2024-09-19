@@ -1515,7 +1515,7 @@ call.i.noexc.i.i.i:                               ; preds = %sw.bb1.i
 
 .noexc.i.i.i:                                     ; preds = %call.i.noexc.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.116, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 20))
-          to label %"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_.exit.i" unwind label %lpad.i.i.i18.i
+          to label %"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_.argprom.exit.i" unwind label %lpad.i.i.i18.i
 
 lpad.i.i.i18.i:                                   ; preds = %.noexc.i.i.i
   %8 = landingpad { ptr, i32 }
@@ -1533,7 +1533,7 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %lpad.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #24
   br label %common.resume16
 
-"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_.exit.i": ; preds = %.noexc.i.i.i
+"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_.argprom.exit.i": ; preds = %.noexc.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !12
   br label %return
@@ -1671,7 +1671,7 @@ lpad.i.i.i15:                                     ; preds = %sw.default.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %common.resume16
 
-return:                                           ; preds = %sw.default.i.i, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb.i.i, %sw.bb7.i, %"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_.exit.i", %sw.bb.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb4.i.i, %invoke.cont
+return:                                           ; preds = %sw.default.i.i, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb.i.i, %sw.bb7.i, %"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_.argprom.exit.i", %sw.bb.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb4.i.i, %invoke.cont
   ret void
 }
 
@@ -1790,7 +1790,7 @@ call.i.noexc.i.i.i:                               ; preds = %sw.bb1.i
 
 .noexc.i.i.i:                                     ; preds = %call.i.noexc.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.117, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.117, i64 23))
-          to label %"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_.exit.i" unwind label %lpad.i.i.i18.i
+          to label %"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_.argprom.exit.i" unwind label %lpad.i.i.i18.i
 
 lpad.i.i.i18.i:                                   ; preds = %.noexc.i.i.i
   %8 = landingpad { ptr, i32 }
@@ -1808,7 +1808,7 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %lpad.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #24
   br label %common.resume12
 
-"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_.exit.i": ; preds = %.noexc.i.i.i
+"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_.argprom.exit.i": ; preds = %.noexc.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !25
   br label %return
@@ -1925,7 +1925,7 @@ lpad.i.i.i11:                                     ; preds = %sw.default.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %common.resume12
 
-return:                                           ; preds = %sw.default.i.i, %sw.bb3.i.i, %sw.bb.i.i, %sw.bb7.i, %"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_.exit.i", %sw.bb.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb4.i.i, %invoke.cont
+return:                                           ; preds = %sw.default.i.i, %sw.bb3.i.i, %sw.bb.i.i, %sw.bb7.i, %"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_.argprom.exit.i", %sw.bb.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb4.i.i, %invoke.cont
   ret void
 }
 
@@ -2739,7 +2739,7 @@ if.then.i:                                        ; preds = %land.end
   %mul.i = and i32 %and.i11, 2
   %sub4.i = sub nsw i32 1, %mul.i
   %conv5.i = sitofp i32 %sub4.i to float
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit"
 
 if.end.i:                                         ; preds = %land.end
   %div.i.i = fmul float %add.i, 5.000000e-01
@@ -2774,9 +2774,9 @@ if.end.i:                                         ; preds = %land.end
   %add13.i = fadd float %add.i23.i, %sub10.i
   %mul.i24.i = fmul float %mul, %mul
   %div.i = fdiv float %add13.i, %mul.i24.i
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit"
 
-"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit": ; preds = %if.then.i, %if.end.i
+"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit": ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi float [ %conv5.i, %if.then.i ], [ %div.i, %if.end.i ]
   %cond-lvalue.i = getelementptr inbounds i8, ptr %c, i64 4
   %21 = load float, ptr %cond-lvalue.i, align 4
@@ -2787,16 +2787,16 @@ if.end.i:                                         ; preds = %land.end
   %cmp.i14 = fcmp oeq float %22, %23
   br i1 %cmp.i14, label %if.then.i43, label %if.end.i15
 
-if.then.i43:                                      ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit"
+if.then.i43:                                      ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit"
   %24 = call noundef float @llvm.floor.f32(float %21)
   %conv.i44 = fptosi float %24 to i32
   %and.i45 = shl i32 %conv.i44, 1
   %mul.i46 = and i32 %and.i45, 2
   %sub4.i47 = sub nsw i32 1, %mul.i46
   %conv5.i48 = sitofp i32 %sub4.i47 to float
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit49"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit49"
 
-if.end.i15:                                       ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit"
+if.end.i15:                                       ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit"
   %div.i.i16 = fmul float %add.i13, 5.000000e-01
   %25 = call noundef float @llvm.floor.f32(float %div.i.i16)
   %sub.i.i17 = fsub float %div.i.i16, %25
@@ -2829,9 +2829,9 @@ if.end.i15:                                       ; preds = %"_ZZN4pbrt12Checker
   %add13.i39 = fadd float %add.i23.i38, %sub10.i31
   %mul.i24.i40 = fmul float %mul11, %mul11
   %div.i41 = fdiv float %add13.i39, %mul.i24.i40
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit49"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit49"
 
-"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit49": ; preds = %if.then.i43, %if.end.i15
+"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit49": ; preds = %if.then.i43, %if.end.i15
   %retval.0.i42 = phi float [ %conv5.i48, %if.then.i43 ], [ %div.i41, %if.end.i15 ]
   %mul17 = fmul float %retval.0.i, %retval.0.i42
   %div = fmul float %mul17, 5.000000e-01
@@ -2900,7 +2900,7 @@ if.then.i91:                                      ; preds = %land.end20
   %mul.i94 = and i32 %and.i93, 2
   %sub4.i95 = sub nsw i32 1, %mul.i94
   %conv5.i96 = sitofp i32 %sub4.i95 to float
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit97"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit97"
 
 if.end.i63:                                       ; preds = %land.end20
   %div.i.i64 = fmul float %add.i61, 5.000000e-01
@@ -2935,9 +2935,9 @@ if.end.i63:                                       ; preds = %land.end20
   %add13.i87 = fadd float %add.i23.i86, %sub10.i79
   %mul.i24.i88 = fmul float %mul30, %mul30
   %div.i89 = fdiv float %add13.i87, %mul.i24.i88
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit97"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit97"
 
-"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit97": ; preds = %if.then.i91, %if.end.i63
+"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit97": ; preds = %if.then.i91, %if.end.i63
   %retval.0.i90 = phi float [ %conv5.i96, %if.then.i91 ], [ %div.i89, %if.end.i63 ]
   %mul51 = fmul float %retval.0.i90, 5.000000e-01
   %c22.sroa.0.4.vec.extract = extractelement <2 x float> %call.fca.0.extract.i.i.i.i.i, i64 1
@@ -2948,16 +2948,16 @@ if.end.i63:                                       ; preds = %land.end20
   %cmp.i100 = fcmp oeq float %47, %48
   br i1 %cmp.i100, label %if.then.i129, label %if.end.i101
 
-if.then.i129:                                     ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit97"
+if.then.i129:                                     ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit97"
   %49 = tail call noundef float @llvm.floor.f32(float %c22.sroa.0.4.vec.extract)
   %conv.i130 = fptosi float %49 to i32
   %and.i131 = shl i32 %conv.i130, 1
   %mul.i132 = and i32 %and.i131, 2
   %sub4.i133 = sub nsw i32 1, %mul.i132
   %conv5.i134 = sitofp i32 %sub4.i133 to float
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit135"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit135"
 
-if.end.i101:                                      ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit97"
+if.end.i101:                                      ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit97"
   %div.i.i102 = fmul float %add.i99, 5.000000e-01
   %50 = tail call noundef float @llvm.floor.f32(float %div.i.i102)
   %sub.i.i103 = fsub float %div.i.i102, %50
@@ -2990,9 +2990,9 @@ if.end.i101:                                      ; preds = %"_ZZN4pbrt12Checker
   %add13.i125 = fadd float %add.i23.i124, %sub10.i117
   %mul.i24.i126 = fmul float %mul39, %mul39
   %div.i127 = fdiv float %add13.i125, %mul.i24.i126
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit135"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit135"
 
-"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit135": ; preds = %if.then.i129, %if.end.i101
+"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit135": ; preds = %if.then.i129, %if.end.i101
   %retval.0.i128 = phi float [ %conv5.i134, %if.then.i129 ], [ %div.i127, %if.end.i101 ]
   %mul55 = fmul float %mul51, %retval.0.i128
   %sub.i136 = fsub float %call.fca.1.extract.i.i.i.i.i, %mul48
@@ -3002,16 +3002,16 @@ if.end.i101:                                      ; preds = %"_ZZN4pbrt12Checker
   %cmp.i138 = fcmp oeq float %56, %57
   br i1 %cmp.i138, label %if.then.i167, label %if.end.i139
 
-if.then.i167:                                     ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit135"
+if.then.i167:                                     ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit135"
   %58 = tail call noundef float @llvm.floor.f32(float %call.fca.1.extract.i.i.i.i.i)
   %conv.i168 = fptosi float %58 to i32
   %and.i169 = shl i32 %conv.i168, 1
   %mul.i170 = and i32 %and.i169, 2
   %sub4.i171 = sub nsw i32 1, %mul.i170
   %conv5.i172 = sitofp i32 %sub4.i171 to float
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit173"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit173"
 
-if.end.i139:                                      ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit135"
+if.end.i139:                                      ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit135"
   %div.i.i140 = fmul float %add.i137, 5.000000e-01
   %59 = tail call noundef float @llvm.floor.f32(float %div.i.i140)
   %sub.i.i141 = fsub float %div.i.i140, %59
@@ -3044,15 +3044,15 @@ if.end.i139:                                      ; preds = %"_ZZN4pbrt12Checker
   %add13.i163 = fadd float %add.i23.i162, %sub10.i155
   %mul.i24.i164 = fmul float %mul48, %mul48
   %div.i165 = fdiv float %add13.i163, %mul.i24.i164
-  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit173"
+  br label %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit173"
 
-"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit173": ; preds = %if.then.i167, %if.end.i139
+"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit173": ; preds = %if.then.i167, %if.end.i139
   %retval.0.i166 = phi float [ %conv5.i172, %if.then.i167 ], [ %div.i165, %if.end.i139 ]
   %mul59 = fmul float %mul55, %retval.0.i166
   br label %return
 
-return:                                           ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit173", %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit49"
-  %div.pn = phi float [ %div, %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit49" ], [ %mul59, %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.exit173" ]
+return:                                           ; preds = %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit173", %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit49"
+  %div.pn = phi float [ %div, %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit49" ], [ %mul59, %"_ZZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DEENK3$_0clEff.argprom.exit173" ]
   %retval.0 = fsub float 5.000000e-01, %div.pn
   ret float %retval.0
 }
@@ -29310,26 +29310,26 @@ attributes #29 = { builtin allocsize(0) }
 !5 = !{!6, !8, !10}
 !6 = distinct !{!6, !7, !"_ZNK4pbrt17FloatImageTexture8ToStringB5cxx11Ev: %agg.result"}
 !7 = distinct !{!7, !"_ZNK4pbrt17FloatImageTexture8ToStringB5cxx11Ev"}
-!8 = distinct !{!8, !9, !"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_17FloatImageTextureEEEDaT_: %agg.result"}
-!9 = distinct !{!9, !"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_17FloatImageTextureEEEDaT_"}
+!8 = distinct !{!8, !9, !"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_17FloatImageTextureEEEDaT_.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_17FloatImageTextureEEEDaT_.argprom"}
 !10 = distinct !{!10, !11, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_12FloatTexture8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEEDaOT_PKvi: %agg.result"}
 !11 = distinct !{!11, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_12FloatTexture8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEEDaOT_PKvi"}
 !12 = !{!13, !10}
-!13 = distinct !{!13, !14, !"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_: %agg.result"}
-!14 = distinct !{!14, !"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_"}
+!13 = distinct !{!13, !14, !"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_.argprom: %agg.result"}
+!14 = distinct !{!14, !"_ZZNK4pbrt12FloatTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20GPUFloatImageTextureEEEDaT_.argprom"}
 !15 = !{!16, !13, !10}
 !16 = distinct !{!16, !17, !"_ZNK4pbrt20GPUFloatImageTexture8ToStringB5cxx11Ev: %agg.result"}
 !17 = distinct !{!17, !"_ZNK4pbrt20GPUFloatImageTexture8ToStringB5cxx11Ev"}
 !18 = !{!19, !21, !23}
 !19 = distinct !{!19, !20, !"_ZNK4pbrt20SpectrumImageTexture8ToStringB5cxx11Ev: %agg.result"}
 !20 = distinct !{!20, !"_ZNK4pbrt20SpectrumImageTexture8ToStringB5cxx11Ev"}
-!21 = distinct !{!21, !22, !"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20SpectrumImageTextureEEEDaT_: %agg.result"}
-!22 = distinct !{!22, !"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20SpectrumImageTextureEEEDaT_"}
+!21 = distinct !{!21, !22, !"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20SpectrumImageTextureEEEDaT_.argprom: %agg.result"}
+!22 = distinct !{!22, !"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_20SpectrumImageTextureEEEDaT_.argprom"}
 !23 = distinct !{!23, !24, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_15SpectrumTexture8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20SpectrumImageTextureENS_23GPUSpectrumImageTextureENS_18SpectrumMixTextureENS_27SpectrumDirectionMixTextureENS_21SpectrumScaledTextureENS_23SpectrumConstantTextureENS_21SpectrumBilerpTextureENS_27SpectrumCheckerboardTextureEJNS_13MarbleTextureENS_19SpectrumDotsTextureENS_19SpectrumPtexTextureENS_22GPUSpectrumPtexTextureEEvEEDaOT_PKvi: %agg.result"}
 !24 = distinct !{!24, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_15SpectrumTexture8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20SpectrumImageTextureENS_23GPUSpectrumImageTextureENS_18SpectrumMixTextureENS_27SpectrumDirectionMixTextureENS_21SpectrumScaledTextureENS_23SpectrumConstantTextureENS_21SpectrumBilerpTextureENS_27SpectrumCheckerboardTextureEJNS_13MarbleTextureENS_19SpectrumDotsTextureENS_19SpectrumPtexTextureENS_22GPUSpectrumPtexTextureEEvEEDaOT_PKvi"}
 !25 = !{!26, !23}
-!26 = distinct !{!26, !27, !"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_: %agg.result"}
-!27 = distinct !{!27, !"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_"}
+!26 = distinct !{!26, !27, !"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_.argprom: %agg.result"}
+!27 = distinct !{!27, !"_ZZNK4pbrt15SpectrumTexture8ToStringB5cxx11EvENK3$_0clIPKNS_23GPUSpectrumImageTextureEEEDaT_.argprom"}
 !28 = !{!29, !26, !23}
 !29 = distinct !{!29, !30, !"_ZNK4pbrt23GPUSpectrumImageTexture8ToStringB5cxx11Ev: %agg.result"}
 !30 = distinct !{!30, !"_ZNK4pbrt23GPUSpectrumImageTexture8ToStringB5cxx11Ev"}

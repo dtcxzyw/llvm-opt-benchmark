@@ -68,9 +68,9 @@ define noalias noundef ptr @Gia_ManDetectHalfAdders(ptr noundef %0, i32 noundef 
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader, %Gia_ObjIsXor.exit.thread
-  %16 = phi i32 [ %58, %Gia_ObjIsXor.exit.thread ], [ %14, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ObjIsXor.exit.thread ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %Gia_ObjIsXor.argprom.exit.thread
+  %16 = phi i32 [ %58, %Gia_ObjIsXor.argprom.exit.thread ], [ %14, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ObjIsXor.argprom.exit.thread ], [ 0, %.preheader ]
   %.val = load ptr, ptr %12, align 8
   %.not160 = icmp eq ptr %.val, null
   br i1 %.not160, label %.critedge, label %17
@@ -83,18 +83,18 @@ define noalias noundef ptr @Gia_ManDetectHalfAdders(ptr noundef %0, i32 noundef 
   %20 = and i64 %.val170, 536870911
   %21 = icmp eq i64 %20, 536870911
   %narrow.i.not = or i1 %.not.i, %21
-  br i1 %narrow.i.not, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not, label %Gia_ObjIsXor.argprom.exit.thread, label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %17
+Gia_ObjIsXor.argprom.exit:                        ; preds = %17
   %22 = trunc i64 %.val170 to i32
   %23 = and i32 %22, 536870911
   %24 = lshr i64 %.val170, 32
   %25 = trunc nuw i64 %24 to i32
   %26 = and i32 %25, 536870911
   %.not195 = icmp ult i32 %23, %26
-  br i1 %.not195, label %27, label %Gia_ObjIsXor.exit.thread
+  br i1 %.not195, label %27, label %Gia_ObjIsXor.argprom.exit.thread
 
-27:                                               ; preds = %Gia_ObjIsXor.exit
+27:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = sub nsw i32 %28, %23
   %30 = sub nsw i32 %28, %26
@@ -155,10 +155,10 @@ Gia_ObjIsXor.exit:                                ; preds = %17
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %55, align 4
   %.pre = load i32, ptr %13, align 8
-  br label %Gia_ObjIsXor.exit.thread
+  br label %Gia_ObjIsXor.argprom.exit.thread
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %53, %17, %Gia_ObjIsXor.exit
-  %58 = phi i32 [ %.pre, %53 ], [ %16, %17 ], [ %16, %Gia_ObjIsXor.exit ]
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %53, %17, %Gia_ObjIsXor.argprom.exit
+  %58 = phi i32 [ %.pre, %53 ], [ %16, %17 ], [ %16, %Gia_ObjIsXor.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
@@ -345,7 +345,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %53, %17, %Gia_ObjIs
   store ptr null, ptr %62, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %Gia_ObjIsXor.exit.thread, %.lr.ph, %.preheader, %152, %.critedge2
+.critedge:                                        ; preds = %Gia_ObjIsXor.argprom.exit.thread, %.lr.ph, %.preheader, %152, %.critedge2
   call void @Gia_ManHashStop(ptr noundef nonnull %0) #29
   %.not161 = icmp eq i32 %1, 0
   br i1 %.not161, label %.critedge4, label %153
@@ -843,17 +843,17 @@ define i32 @Dtc_ObjComputeTruth_rec(ptr noundef %0) local_unnamed_addr #8 {
   %18 = icmp eq i64 %17, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %18
   %.pre = trunc i64 %.val to i32
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit.thread, label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %4
+Gia_ObjIsXor.argprom.exit:                        ; preds = %4
   %19 = and i32 %.pre, 536870911
   %20 = lshr i64 %.val, 32
   %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 536870911
   %.not33 = icmp ult i32 %19, %22
-  br i1 %.not33, label %23, label %Gia_ObjIsXor.exit.thread
+  br i1 %.not33, label %23, label %Gia_ObjIsXor.argprom.exit.thread
 
-23:                                               ; preds = %Gia_ObjIsXor.exit
+23:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %24 = shl i32 %.pre, 2
   %25 = ashr i32 %24, 31
   %26 = shl i64 %.val, 2
@@ -864,7 +864,7 @@ Gia_ObjIsXor.exit:                                ; preds = %4
   %31 = xor i32 %30, %15
   br label %.sink.split
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %4, %Gia_ObjIsXor.exit
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %4, %Gia_ObjIsXor.argprom.exit
   %32 = shl i32 %.pre, 2
   %33 = ashr i32 %32, 31
   %34 = xor i32 %33, %9
@@ -875,8 +875,8 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %4, %Gia_ObjIsXor.ex
   %39 = and i32 %34, %38
   br label %.sink.split
 
-.sink.split:                                      ; preds = %23, %Gia_ObjIsXor.exit.thread
-  %.sink = phi i32 [ %39, %Gia_ObjIsXor.exit.thread ], [ %31, %23 ]
+.sink.split:                                      ; preds = %23, %Gia_ObjIsXor.argprom.exit.thread
+  %.sink = phi i32 [ %39, %Gia_ObjIsXor.argprom.exit.thread ], [ %31, %23 ]
   store i32 %.sink, ptr %2, align 4
   br label %40
 

@@ -1050,7 +1050,7 @@ define dso_local void @xhci_hc_died(ptr noundef %0) local_unnamed_addr #2 align 
   %100 = icmp ne ptr %.val19, null
   %101 = icmp ne ptr %.val, null
   %102 = select i1 %100, i1 %101, i1 false
-  br i1 %102, label %103, label %xhci_unmap_td_bounce_buffer.exit
+  br i1 %102, label %103, label %xhci_unmap_td_bounce_buffer.argprom.exit
 
 103:                                              ; preds = %94
   %104 = getelementptr inbounds i8, ptr %.val, i64 92
@@ -1065,7 +1065,7 @@ define dso_local void @xhci_hc_died(ptr noundef %0) local_unnamed_addr #2 align 
 
 112:                                              ; preds = %103
   tail call void @dma_unmap_page_attrs(ptr noundef %99, i64 noundef %109, i64 noundef %111, i32 noundef 1, i64 noundef 0) #14
-  br label %xhci_unmap_td_bounce_buffer.exit
+  br label %xhci_unmap_td_bounce_buffer.argprom.exit
 
 113:                                              ; preds = %103
   tail call void @dma_unmap_page_attrs(ptr noundef %99, i64 noundef %109, i64 noundef %111, i32 noundef 2, i64 noundef 0) #14
@@ -1117,9 +1117,9 @@ define dso_local void @xhci_hc_died(ptr noundef %0) local_unnamed_addr #2 align 
   store i32 0, ptr %148, align 4
   %149 = getelementptr inbounds i8, ptr %.val19, i64 48
   store i32 0, ptr %149, align 8
-  br label %xhci_unmap_td_bounce_buffer.exit
+  br label %xhci_unmap_td_bounce_buffer.argprom.exit
 
-xhci_unmap_td_bounce_buffer.exit:                 ; preds = %94, %112, %147
+xhci_unmap_td_bounce_buffer.argprom.exit:         ; preds = %94, %112, %147
   %150 = load ptr, ptr %95, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
@@ -1136,7 +1136,7 @@ xhci_unmap_td_bounce_buffer.exit:                 ; preds = %94, %112, %147
   %162 = icmp eq i32 %160, %161
   br i1 %162, label %163, label %206
 
-163:                                              ; preds = %xhci_unmap_td_bounce_buffer.exit
+163:                                              ; preds = %xhci_unmap_td_bounce_buffer.argprom.exit
   %164 = getelementptr inbounds i8, ptr %156, i64 64
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 80
@@ -1172,7 +1172,7 @@ xhci_unmap_td_bounce_buffer.exit:                 ; preds = %94, %112, %147
   tail call void @xhci_urb_free_priv(ptr noundef %158) #14
   tail call void @usb_hcd_unlink_urb_from_ep(ptr noundef %167, ptr noundef %156) #14
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_xhci_urb_giveback, i64 8), i32 2) #14
-          to label %xhci_giveback_urb_in_irq.exit [label %186], !srcloc !9
+          to label %xhci_giveback_urb_in_irq.argprom.exit [label %186], !srcloc !9
 
 186:                                              ; preds = %185
   %187 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !31
@@ -1181,7 +1181,7 @@ xhci_unmap_td_bounce_buffer.exit:                 ; preds = %94, %112, %147
   %190 = icmp ult i8 %189, 2
   tail call void @llvm.assume(i1 %190)
   %191 = icmp eq i8 %189, 0
-  br i1 %191, label %xhci_giveback_urb_in_irq.exit, label %192
+  br i1 %191, label %xhci_giveback_urb_in_irq.argprom.exit, label %192
 
 192:                                              ; preds = %186
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !12
@@ -1202,19 +1202,19 @@ xhci_unmap_td_bounce_buffer.exit:                 ; preds = %94, %112, %147
   %201 = icmp ult i8 %200, 2
   tail call void @llvm.assume(i1 %201)
   %202 = icmp eq i8 %200, 0
-  br i1 %202, label %xhci_giveback_urb_in_irq.exit, label %203, !prof !16
+  br i1 %202, label %xhci_giveback_urb_in_irq.argprom.exit, label %203, !prof !16
 
 203:                                              ; preds = %199
   %204 = tail call i64 @llvm.read_register.i64(metadata !0)
   %205 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %204) #14, !srcloc !34
   tail call void @llvm.write_register.i64(metadata !0, i64 %205)
-  br label %xhci_giveback_urb_in_irq.exit
+  br label %xhci_giveback_urb_in_irq.argprom.exit
 
-xhci_giveback_urb_in_irq.exit:                    ; preds = %185, %186, %199, %203
+xhci_giveback_urb_in_irq.argprom.exit:            ; preds = %185, %186, %199, %203
   tail call void @usb_hcd_giveback_urb(ptr noundef %167, ptr noundef %156, i32 noundef -108) #14
   br label %206
 
-206:                                              ; preds = %xhci_giveback_urb_in_irq.exit, %xhci_unmap_td_bounce_buffer.exit
+206:                                              ; preds = %xhci_giveback_urb_in_irq.argprom.exit, %xhci_unmap_td_bounce_buffer.argprom.exit
   %207 = icmp eq ptr %83, %77
   br i1 %207, label %.loopexit, label %81, !llvm.loop !35
 
@@ -1280,7 +1280,7 @@ xhci_giveback_urb_in_irq.exit:                    ; preds = %185, %186, %199, %2
   %242 = icmp ne ptr %.val21, null
   %243 = icmp ne ptr %.val20, null
   %244 = select i1 %242, i1 %243, i1 false
-  br i1 %244, label %245, label %xhci_unmap_td_bounce_buffer.exit25
+  br i1 %244, label %245, label %xhci_unmap_td_bounce_buffer.argprom.exit25
 
 245:                                              ; preds = %236
   %246 = getelementptr inbounds i8, ptr %.val20, i64 92
@@ -1295,7 +1295,7 @@ xhci_giveback_urb_in_irq.exit:                    ; preds = %185, %186, %199, %2
 
 254:                                              ; preds = %245
   tail call void @dma_unmap_page_attrs(ptr noundef %241, i64 noundef %251, i64 noundef %253, i32 noundef 1, i64 noundef 0) #14
-  br label %xhci_unmap_td_bounce_buffer.exit25
+  br label %xhci_unmap_td_bounce_buffer.argprom.exit25
 
 255:                                              ; preds = %245
   tail call void @dma_unmap_page_attrs(ptr noundef %241, i64 noundef %251, i64 noundef %253, i32 noundef 2, i64 noundef 0) #14
@@ -1347,9 +1347,9 @@ xhci_giveback_urb_in_irq.exit:                    ; preds = %185, %186, %199, %2
   store i32 0, ptr %290, align 4
   %291 = getelementptr inbounds i8, ptr %.val21, i64 48
   store i32 0, ptr %291, align 8
-  br label %xhci_unmap_td_bounce_buffer.exit25
+  br label %xhci_unmap_td_bounce_buffer.argprom.exit25
 
-xhci_unmap_td_bounce_buffer.exit25:               ; preds = %236, %254, %289
+xhci_unmap_td_bounce_buffer.argprom.exit25:       ; preds = %236, %254, %289
   %292 = load ptr, ptr %237, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 8
   %294 = load ptr, ptr %293, align 8
@@ -1366,11 +1366,11 @@ xhci_unmap_td_bounce_buffer.exit25:               ; preds = %236, %254, %289
   %304 = icmp eq i32 %302, %303
   br i1 %304, label %305, label %306
 
-305:                                              ; preds = %xhci_unmap_td_bounce_buffer.exit25
-  tail call fastcc void @xhci_giveback_urb_in_irq(ptr noundef %0, ptr %298, i32 noundef -108)
+305:                                              ; preds = %xhci_unmap_td_bounce_buffer.argprom.exit25
+  tail call fastcc void @xhci_giveback_urb_in_irq.argprom(ptr noundef %0, ptr %298, i32 noundef -108)
   br label %306
 
-306:                                              ; preds = %305, %xhci_unmap_td_bounce_buffer.exit25
+306:                                              ; preds = %305, %xhci_unmap_td_bounce_buffer.argprom.exit25
   %307 = icmp eq ptr %225, %219
   br i1 %307, label %.loopexit29, label %223, !llvm.loop !35
 
@@ -1443,7 +1443,7 @@ xhci_unmap_td_bounce_buffer.exit25:               ; preds = %236, %254, %289
   tail call void @xhci_urb_free_priv(ptr noundef %325) #14
   tail call void @usb_hcd_unlink_urb_from_ep(ptr noundef %334, ptr noundef %323) #14
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_xhci_urb_giveback, i64 8), i32 2) #14
-          to label %xhci_giveback_urb_in_irq.exit26 [label %353], !srcloc !9
+          to label %xhci_giveback_urb_in_irq.argprom.exit26 [label %353], !srcloc !9
 
 353:                                              ; preds = %352
   %354 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !31
@@ -1452,7 +1452,7 @@ xhci_unmap_td_bounce_buffer.exit25:               ; preds = %236, %254, %289
   %357 = icmp ult i8 %356, 2
   tail call void @llvm.assume(i1 %357)
   %358 = icmp eq i8 %356, 0
-  br i1 %358, label %xhci_giveback_urb_in_irq.exit26, label %359
+  br i1 %358, label %xhci_giveback_urb_in_irq.argprom.exit26, label %359
 
 359:                                              ; preds = %353
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !12
@@ -1473,19 +1473,19 @@ xhci_unmap_td_bounce_buffer.exit25:               ; preds = %236, %254, %289
   %368 = icmp ult i8 %367, 2
   tail call void @llvm.assume(i1 %368)
   %369 = icmp eq i8 %367, 0
-  br i1 %369, label %xhci_giveback_urb_in_irq.exit26, label %370, !prof !16
+  br i1 %369, label %xhci_giveback_urb_in_irq.argprom.exit26, label %370, !prof !16
 
 370:                                              ; preds = %366
   %371 = tail call i64 @llvm.read_register.i64(metadata !0)
   %372 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %371) #14, !srcloc !34
   tail call void @llvm.write_register.i64(metadata !0, i64 %372)
-  br label %xhci_giveback_urb_in_irq.exit26
+  br label %xhci_giveback_urb_in_irq.argprom.exit26
 
-xhci_giveback_urb_in_irq.exit26:                  ; preds = %352, %353, %366, %370
+xhci_giveback_urb_in_irq.argprom.exit26:          ; preds = %352, %353, %366, %370
   tail call void @usb_hcd_giveback_urb(ptr noundef %334, ptr noundef %323, i32 noundef -108) #14
   br label %373
 
-373:                                              ; preds = %xhci_giveback_urb_in_irq.exit26, %.preheader27
+373:                                              ; preds = %xhci_giveback_urb_in_irq.argprom.exit26, %.preheader27
   %374 = icmp eq ptr %312, %308
   br i1 %374, label %.thread, label %.preheader27, !llvm.loop !37
 
@@ -6842,7 +6842,7 @@ define internal void @trace_xhci_dbg_cancel_urb(ptr noundef %0) #11 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_giveback_urb_in_irq(ptr nocapture noundef readonly %0, ptr %.40.val, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @xhci_giveback_urb_in_irq.argprom(ptr nocapture noundef readonly %0, ptr %.40.val, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %.40.val, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %.40.val, i64 64
@@ -7288,7 +7288,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr nocapture
 
 178:                                              ; preds = %174
   %.val = load i32, ptr %90, align 4
-  tail call fastcc void @xhci_handle_cmd_stop_ep(ptr noundef %0, i32 noundef %5, i32 %.val, i32 noundef %63)
+  tail call fastcc void @xhci_handle_cmd_stop_ep.argprom(ptr noundef %0, i32 noundef %5, i32 %.val, i32 noundef %63)
   br label %.thread37
 
 179:                                              ; preds = %89
@@ -8123,7 +8123,7 @@ define internal fastcc void @xhci_handle_cmd_config_ep(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_handle_cmd_stop_ep(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i32 %.12.val, i32 noundef range(i32 0, 256) %2) unnamed_addr #2 align 16 {
+define internal fastcc void @xhci_handle_cmd_stop_ep.argprom(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i32 %.12.val, i32 noundef range(i32 0, 256) %2) unnamed_addr #2 align 16 {
   %4 = and i32 %.12.val, 8388608
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %15, label %6, !prof !16
@@ -9280,7 +9280,7 @@ define internal fastcc void @xhci_td_cleanup(ptr nocapture noundef readonly %0, 
   %13 = select i1 %11, i1 %12, i1 false
   %14 = icmp ne ptr %6, null
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %16, label %xhci_unmap_td_bounce_buffer.exit
+  br i1 %15, label %16, label %xhci_unmap_td_bounce_buffer.argprom.exit
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %6, i64 92
@@ -9296,7 +9296,7 @@ define internal fastcc void @xhci_td_cleanup(ptr nocapture noundef readonly %0, 
 
 26:                                               ; preds = %16
   tail call void @dma_unmap_page_attrs(ptr noundef %10, i64 noundef %22, i64 noundef %25, i32 noundef 1, i64 noundef 0) #14
-  br label %xhci_unmap_td_bounce_buffer.exit
+  br label %xhci_unmap_td_bounce_buffer.argprom.exit
 
 27:                                               ; preds = %16
   tail call void @dma_unmap_page_attrs(ptr noundef %10, i64 noundef %22, i64 noundef %25, i32 noundef 2, i64 noundef 0) #14
@@ -9348,9 +9348,9 @@ define internal fastcc void @xhci_td_cleanup(ptr nocapture noundef readonly %0, 
   store i32 0, ptr %62, align 4
   %63 = getelementptr inbounds i8, ptr %.val6, i64 48
   store i32 0, ptr %63, align 8
-  br label %xhci_unmap_td_bounce_buffer.exit
+  br label %xhci_unmap_td_bounce_buffer.argprom.exit
 
-xhci_unmap_td_bounce_buffer.exit:                 ; preds = %4, %26, %61
+xhci_unmap_td_bounce_buffer.argprom.exit:         ; preds = %4, %26, %61
   %64 = getelementptr inbounds i8, ptr %6, i64 132
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds i8, ptr %6, i64 128
@@ -9358,15 +9358,15 @@ xhci_unmap_td_bounce_buffer.exit:                 ; preds = %4, %26, %61
   %68 = icmp ugt i32 %65, %67
   br i1 %68, label %69, label %72
 
-69:                                               ; preds = %xhci_unmap_td_bounce_buffer.exit
+69:                                               ; preds = %xhci_unmap_td_bounce_buffer.argprom.exit
   %70 = load ptr, ptr %0, align 8
   %71 = load ptr, ptr %70, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %71, ptr noundef nonnull @.str.35, i32 noundef %67, i32 noundef %65) #13
   store i32 0, ptr %64, align 4
   br label %72
 
-72:                                               ; preds = %69, %xhci_unmap_td_bounce_buffer.exit
-  %73 = phi i32 [ 0, %69 ], [ %3, %xhci_unmap_td_bounce_buffer.exit ]
+72:                                               ; preds = %69, %xhci_unmap_td_bounce_buffer.argprom.exit
+  %73 = phi i32 [ 0, %69 ], [ %3, %xhci_unmap_td_bounce_buffer.argprom.exit ]
   %74 = load volatile ptr, ptr %1, align 8
   %75 = icmp eq ptr %74, %1
   br i1 %75, label %80, label %76
@@ -9418,7 +9418,7 @@ xhci_unmap_td_bounce_buffer.exit:                 ; preds = %4, %26, %61
   %103 = load i32, ptr %102, align 8
   %104 = icmp ult i32 %103, 1073741824
   %105 = select i1 %104, i32 0, i32 %73
-  tail call fastcc void @xhci_giveback_urb_in_irq(ptr noundef %0, ptr %94, i32 noundef %105)
+  tail call fastcc void @xhci_giveback_urb_in_irq.argprom(ptr noundef %0, ptr %94, i32 noundef %105)
   br label %106
 
 106:                                              ; preds = %101, %88

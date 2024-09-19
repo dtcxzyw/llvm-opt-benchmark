@@ -5033,14 +5033,14 @@ if.then.i.i:                                      ; preds = %if.then.i29
   %call1.i.i = tail call ptr @__errno_location() #25
   %21 = load i32, ptr %call1.i.i, align 4
   store i32 %21, ptr %failure_errno.i.i, align 4
-  br label %refs_read_special_head.exit.i
+  br label %refs_read_special_head.argprom.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i29
   %22 = load ptr, ptr %buf2.i.i, align 8
   %call3.i.i = call i32 @parse_loose_ref_contents(ptr noundef %22, ptr noundef nonnull %unused_oid.i.i, ptr noundef nonnull @refs_resolve_ref_unsafe.sb_refname, ptr noundef nonnull %read_flags.i.i, ptr noundef nonnull %failure_errno.i.i) #23
-  br label %refs_read_special_head.exit.i
+  br label %refs_read_special_head.argprom.exit.i
 
-refs_read_special_head.exit.i:                    ; preds = %if.end.i.i, %if.then.i.i
+refs_read_special_head.argprom.exit.i:            ; preds = %if.end.i.i, %if.then.i.i
   %result.0.i.i = phi i32 [ -1, %if.then.i.i ], [ %call3.i.i, %if.end.i.i ]
   call void @strbuf_release(ptr noundef nonnull %full_path.i.i) #23
   call void @strbuf_release(ptr noundef nonnull %content.i.i) #23
@@ -5055,8 +5055,8 @@ if.end.i27:                                       ; preds = %for.cond.i.i26
   %call2.i = call i32 %24(ptr noundef nonnull %refs, ptr noundef nonnull %refname.addr.089.us.us.us.i.i, ptr noundef nonnull %unused_oid.i.i, ptr noundef nonnull @refs_resolve_ref_unsafe.sb_refname, ptr noundef nonnull %read_flags.i.i, ptr noundef nonnull %failure_errno.i.i) #23
   br label %refs_read_raw_ref.exit
 
-refs_read_raw_ref.exit:                           ; preds = %refs_read_special_head.exit.i, %if.end.i27
-  %retval.0.i28 = phi i32 [ %result.0.i.i, %refs_read_special_head.exit.i ], [ %call2.i, %if.end.i27 ]
+refs_read_raw_ref.exit:                           ; preds = %refs_read_special_head.argprom.exit.i, %if.end.i27
+  %retval.0.i28 = phi i32 [ %result.0.i.i, %refs_read_special_head.argprom.exit.i ], [ %call2.i, %if.end.i27 ]
   %tobool13.not.us.us.us.i.i = icmp eq i32 %retval.0.i28, 0
   br i1 %tobool13.not.us.us.us.i.i, label %if.end31.us.us.us.i.i, label %refs_ref_exists.exit.thread
 
@@ -6268,15 +6268,15 @@ if.then.i:                                        ; preds = %if.then
   %call1.i = tail call ptr @__errno_location() #25
   %3 = load i32, ptr %call1.i, align 4
   store i32 %3, ptr %failure_errno, align 4
-  br label %refs_read_special_head.exit
+  br label %refs_read_special_head.argprom.exit
 
 if.end.i:                                         ; preds = %if.then
   %buf2.i = getelementptr inbounds i8, ptr %content.i, i64 16
   %4 = load ptr, ptr %buf2.i, align 8
   %call3.i = call i32 @parse_loose_ref_contents(ptr noundef %4, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #23
-  br label %refs_read_special_head.exit
+  br label %refs_read_special_head.argprom.exit
 
-refs_read_special_head.exit:                      ; preds = %if.then.i, %if.end.i
+refs_read_special_head.argprom.exit:              ; preds = %if.then.i, %if.end.i
   %result.0.i = phi i32 [ -1, %if.then.i ], [ %call3.i, %if.end.i ]
   call void @strbuf_release(ptr noundef nonnull %full_path.i) #23
   call void @strbuf_release(ptr noundef nonnull %content.i) #23
@@ -6291,8 +6291,8 @@ if.end:                                           ; preds = %for.cond.i
   %call2 = tail call i32 %6(ptr noundef nonnull %ref_store, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #23
   br label %return
 
-return:                                           ; preds = %if.end, %refs_read_special_head.exit
-  %retval.0 = phi i32 [ %result.0.i, %refs_read_special_head.exit ], [ %call2, %if.end ]
+return:                                           ; preds = %if.end, %refs_read_special_head.argprom.exit
+  %retval.0 = phi i32 [ %result.0.i, %refs_read_special_head.argprom.exit ], [ %call2, %if.end ]
   ret i32 %retval.0
 }
 

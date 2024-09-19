@@ -121,15 +121,15 @@ entry:
   store ptr null, ptr %local_err.i, align 8
   %call.i = tail call ptr @qemu_opts_create(ptr noundef nonnull @parallels_runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef %errp) #16
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %parallels_opts_prealloc.exit.thread, label %if.end.i
+  br i1 %tobool.not.i, label %parallels_opts_prealloc.argprom.exit.thread, label %if.end.i
 
-parallels_opts_prealloc.exit.thread:              ; preds = %entry
+parallels_opts_prealloc.argprom.exit.thread:      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   br label %return
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef nonnull %call.i, ptr noundef %options, ptr noundef %errp) #16
-  br i1 %call1.i, label %if.end3.i, label %parallels_opts_prealloc.exit.thread114
+  br i1 %call1.i, label %if.end3.i, label %parallels_opts_prealloc.argprom.exit.thread114
 
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = tail call i64 @qemu_opt_get_size_del(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.19, i64 noundef 0) #16
@@ -147,9 +147,9 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end3.i
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #16
-  br label %parallels_opts_prealloc.exit.thread114
+  br label %parallels_opts_prealloc.argprom.exit.thread114
 
-parallels_opts_prealloc.exit.thread114:           ; preds = %if.then7.i, %if.end.i
+parallels_opts_prealloc.argprom.exit.thread114:   ; preds = %if.then7.i, %if.end.i
   call void @qemu_opts_del(ptr noundef nonnull %call.i) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   br label %return
@@ -168,13 +168,13 @@ if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %2, align 8
   %call7 = call i64 @bdrv_nb_sectors(ptr noundef %3) #16
   %cmp8 = icmp slt i64 %call7, 0
-  br i1 %cmp8, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end10
+  br i1 %cmp8, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end10
 
 if.end10:                                         ; preds = %if.end4
   %4 = load ptr, ptr %file, align 8
   %call12 = call i32 @bdrv_pread(ptr noundef %4, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %ph, i32 noundef 0) #16
   %cmp13 = icmp slt i32 %call12, 0
-  br i1 %cmp13, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end15
+  br i1 %cmp13, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
   %nb_sectors = getelementptr inbounds i8, ptr %ph, i64 36
@@ -222,7 +222,7 @@ if.end34:                                         ; preds = %if.then29, %if.then
 
 if.then40:                                        ; preds = %if.end34
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 1286, ptr noundef nonnull @__func__.parallels_open, ptr noundef nonnull @.str.12) #16
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end41:                                         ; preds = %if.end34
   %cmp43 = icmp ugt i32 %9, 4186127
@@ -230,7 +230,7 @@ if.end41:                                         ; preds = %if.end34
 
 if.then44:                                        ; preds = %if.end41
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 1290, ptr noundef nonnull @__func__.parallels_open, ptr noundef nonnull @.str.13) #16
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end45:                                         ; preds = %if.end41
   %conv = zext nneg i32 %9 to i64
@@ -249,7 +249,7 @@ if.end45:                                         ; preds = %if.end41
 
 if.then56:                                        ; preds = %if.end45
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 1298, ptr noundef nonnull @__func__.parallels_open, ptr noundef nonnull @.str.14) #16
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end57:                                         ; preds = %if.end45
   %mul.i = shl nuw nsw i32 %11, 2
@@ -275,7 +275,7 @@ if.end57:                                         ; preds = %if.end45
   %header = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call74, ptr %header, align 8
   %cmp76 = icmp eq ptr %call74, null
-  br i1 %cmp76, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end79
+  br i1 %cmp76, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end79
 
 if.end79:                                         ; preds = %if.end57
   %19 = load ptr, ptr %file, align 8
@@ -432,12 +432,12 @@ if.end195:                                        ; preds = %for.end, %if.end187
   %37 = and i32 %flags, 6146
   %brmerge = icmp ne i32 %37, 2
   %brmerge106 = or i1 %brmerge, %need_check.1
-  br i1 %brmerge106, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then203
+  br i1 %brmerge106, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then203
 
 if.then203:                                       ; preds = %if.end195
   %call204 = call i32 @bdrv_check(ptr noundef %bs, ptr noundef nonnull %res, i32 noundef 3) #16
   %cmp205 = icmp slt i32 %call204, 0
-  br i1 %cmp205, label %if.then207, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %cmp205, label %if.then207, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.then207:                                       ; preds = %if.then203
   %sub208 = sub i32 0, %call204
@@ -447,7 +447,7 @@ if.then207:                                       ; preds = %if.then203
 
 fail_format:                                      ; preds = %if.else, %if.end15
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.11, i32 noundef 1411, ptr noundef nonnull @__func__.parallels_open, ptr noundef nonnull @.str.18) #16
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 fail:                                             ; preds = %if.then182, %if.end140, %if.then131, %if.else116, %if.end79, %if.then207
   %ret.0 = phi i32 [ %call84, %if.end79 ], [ %call152, %if.end140 ], [ %call204, %if.then207 ], [ -12, %if.then182 ], [ %call135, %if.then131 ], [ %call120, %if.else116 ]
@@ -462,15 +462,15 @@ fail:                                             ; preds = %if.then182, %if.end
   call void @g_free(ptr noundef %39) #16
   %40 = load ptr, ptr %header, align 8
   call void @qemu_vfree(ptr noundef %40) #16
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end195, %if.then203, %if.end57, %if.end10, %if.end4, %fail, %fail_format, %if.then56, %if.then44, %if.then40
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end195, %if.then203, %if.end57, %if.end10, %if.end4, %fail, %fail_format, %if.then56, %if.then44, %if.then40
   %retval.1 = phi i32 [ -22, %fail_format ], [ -22, %if.then40 ], [ -27, %if.then44 ], [ -27, %if.then56 ], [ %ret.0, %fail ], [ -22, %if.end4 ], [ %call12, %if.end10 ], [ -12, %if.end57 ], [ 0, %if.end195 ], [ 0, %if.then203 ]
   call void @bdrv_graph_rdunlock_main_loop() #16
   br label %return
 
-return:                                           ; preds = %parallels_opts_prealloc.exit.thread114, %parallels_opts_prealloc.exit.thread, %if.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %if.end ], [ -12, %parallels_opts_prealloc.exit.thread ], [ -22, %parallels_opts_prealloc.exit.thread114 ]
+return:                                           ; preds = %parallels_opts_prealloc.argprom.exit.thread114, %parallels_opts_prealloc.argprom.exit.thread, %if.end, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %call1, %if.end ], [ -12, %parallels_opts_prealloc.argprom.exit.thread ], [ -22, %parallels_opts_prealloc.argprom.exit.thread114 ]
   ret i32 %retval.0
 }
 
@@ -483,7 +483,7 @@ entry:
   %1 = load i32, ptr %bs, align 8
   %2 = and i32 %1, 2050
   %or.cond = icmp eq i32 %2, 2
-  br i1 %or.cond, label %if.then, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %or.cond, label %if.then, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.then:                                          ; preds = %entry
   %header = getelementptr inbounds i8, ptr %0, i64 48
@@ -510,9 +510,9 @@ if.then:                                          ; preds = %entry
   %11 = load i64, ptr %data_end, align 8
   %shl = shl i64 %11, 9
   %call5 = tail call i32 @bdrv_truncate(ptr noundef %10, i64 noundef %shl, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null) #16
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then, %entry
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.then, %entry
   %bs.val = load ptr, ptr %opaque, align 8
   %used_bmap_size.i = getelementptr inbounds i8, ptr %bs.val, i64 88
   store i64 0, ptr %used_bmap_size.i, align 8
@@ -1328,7 +1328,7 @@ entry:
   %header_unclean.i = getelementptr inbounds i8, ptr %bs.val, i64 60
   %1 = load i8, ptr %header_unclean.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.end.i, label %parallels_check_unclean.exit
+  br i1 %tobool.i, label %if.end.i, label %parallels_check_unclean.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %and.i = and i32 %fix, 2
@@ -1339,34 +1339,34 @@ if.end.i:                                         ; preds = %entry
   %3 = load i32, ptr %res, align 8
   %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %res, align 8
-  br i1 %tobool1.not.i, label %parallels_check_unclean.exit, label %if.then4.i
+  br i1 %tobool1.not.i, label %parallels_check_unclean.argprom.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %4 = load i32, ptr %corruptions_fixed.i, align 4
   %inc5.i = add i32 %4, 1
   store i32 %inc5.i, ptr %corruptions_fixed.i, align 4
   store i8 0, ptr %header_unclean.i, align 4
-  br label %parallels_check_unclean.exit
+  br label %parallels_check_unclean.argprom.exit
 
-parallels_check_unclean.exit:                     ; preds = %entry, %if.end.i, %if.then4.i
+parallels_check_unclean.argprom.exit:             ; preds = %entry, %if.end.i, %if.then4.i
   %call2 = tail call i32 @parallels_check_data_off(ptr noundef nonnull %bs, ptr noundef %res, i32 noundef %fix)
   %cmp = icmp slt i32 %call2, 0
-  br i1 %cmp, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
+  br i1 %cmp, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end
 
-if.end:                                           ; preds = %parallels_check_unclean.exit
+if.end:                                           ; preds = %parallels_check_unclean.argprom.exit
   %call3 = tail call i32 @parallels_check_outside_image(ptr noundef nonnull %bs, ptr noundef %res, i32 noundef %fix)
   %cmp4 = icmp slt i32 %call3, 0
-  br i1 %cmp4, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end6
+  br i1 %cmp4, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call i32 @parallels_check_leak(ptr noundef nonnull %bs, ptr noundef %res, i32 noundef %fix, i1 noundef zeroext true)
   %cmp8 = icmp slt i32 %call7, 0
-  br i1 %cmp8, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end10
+  br i1 %cmp8, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
   %call11 = tail call i32 @parallels_check_duplicate(ptr noundef nonnull %bs, ptr noundef %res, i32 noundef %fix)
   %cmp12 = icmp slt i32 %call11, 0
-  br i1 %cmp12, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end14
+  br i1 %cmp12, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
   %bs.val28 = load ptr, ptr %opaque, align 8
@@ -1442,8 +1442,8 @@ qemu_lockable_auto_unlock.exit:                   ; preds = %for.inc.i, %if.end1
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %if.then17, label %return
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %parallels_check_unclean.exit, %if.end, %if.end6, %if.end10
-  %retval.0.ph = phi i32 [ %call11, %if.end10 ], [ %call7, %if.end6 ], [ %call3, %if.end ], [ %call2, %parallels_check_unclean.exit ]
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %parallels_check_unclean.argprom.exit, %if.end, %if.end6, %if.end10
+  %retval.0.ph = phi i32 [ %call11, %if.end10 ], [ %call7, %if.end6 ], [ %call3, %if.end ], [ %call2, %parallels_check_unclean.argprom.exit ]
   tail call void @qemu_co_mutex_unlock(ptr noundef %0) #16
   br label %return
 
@@ -1454,8 +1454,8 @@ if.then17:                                        ; preds = %qemu_lockable_auto_
   store i32 %inc, ptr %check_errors, align 8
   br label %return
 
-return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit, %if.then17
-  %retval.1 = phi i32 [ %retval.0.ph, %glib_autoptr_cleanup_QemuLockable.exit ], [ %call15, %if.then17 ], [ %call15, %qemu_lockable_auto_unlock.exit ]
+return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit, %qemu_lockable_auto_unlock.exit, %if.then17
+  %retval.1 = phi i32 [ %retval.0.ph, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ %call15, %if.then17 ], [ %call15, %qemu_lockable_auto_unlock.exit ]
   ret i32 %retval.1
 }
 
@@ -1669,7 +1669,7 @@ if.end28:                                         ; preds = %for.body
   %conv1.i.i = trunc i64 %div.i.i to i32
   %add.i = add i32 %conv1.i.i, 1
   %cmp.i = icmp ugt i32 %add.i, %conv31
-  br i1 %cmp.i, label %mark_used.exit, label %if.end.i
+  br i1 %cmp.i, label %mark_used.argprom.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end28
   %conv.i26 = and i64 %12, 4294967295
@@ -1677,13 +1677,13 @@ if.end.i:                                         ; preds = %if.end28
   %call2.i = tail call i64 @find_next_bit(ptr noundef %11, i64 noundef %conv.i26, i64 noundef %conv1.i27) #16
   %conv4.i = zext i32 %add.i to i64
   %cmp5.i = icmp ult i64 %call2.i, %conv4.i
-  br i1 %cmp5.i, label %mark_used.exit, label %if.end8.i
+  br i1 %cmp5.i, label %mark_used.argprom.argprom.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   tail call void @bitmap_set(ptr noundef %11, i64 noundef %conv1.i27, i64 noundef 1) #16
-  br label %mark_used.exit
+  br label %mark_used.argprom.argprom.exit
 
-mark_used.exit:                                   ; preds = %if.end28, %if.end.i, %if.end8.i
+mark_used.argprom.argprom.exit:                   ; preds = %if.end28, %if.end.i, %if.end8.i
   %cmp33 = phi i1 [ false, %if.end8.i ], [ true, %if.end28 ], [ true, %if.end.i ]
   %retval.0.i = phi i32 [ 0, %if.end8.i ], [ -7, %if.end28 ], [ -16, %if.end.i ]
   %cmp35 = icmp eq i32 %err.030, 0
@@ -1692,9 +1692,9 @@ mark_used.exit:                                   ; preds = %if.end28, %if.end.i
   %.pre = load i32, ptr %bat_size, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %mark_used.exit, %for.body
-  %16 = phi i32 [ %9, %for.body ], [ %.pre, %mark_used.exit ]
-  %err.1 = phi i32 [ %err.030, %for.body ], [ %spec.select, %mark_used.exit ]
+for.inc:                                          ; preds = %mark_used.argprom.argprom.exit, %for.body
+  %16 = phi i32 [ %9, %for.body ], [ %.pre, %mark_used.argprom.argprom.exit ]
+  %err.1 = phi i32 [ %err.030, %for.body ], [ %spec.select, %mark_used.argprom.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = zext i32 %16 to i64
   %cmp22 = icmp ult i64 %indvars.iv.next, %17
@@ -2137,15 +2137,15 @@ if.end.i:                                         ; preds = %if.end131
   %call2.i = call i64 @find_next_bit(ptr noundef %41, i64 noundef %conv.i121, i64 noundef %conv1.i) #16
   %conv4.i = zext i32 %add.i119 to i64
   %cmp5.i = icmp ult i64 %call2.i, %conv4.i
-  br i1 %cmp5.i, label %return, label %mark_used.exit
+  br i1 %cmp5.i, label %return, label %mark_used.argprom.argprom.exit
 
-mark_used.exit:                                   ; preds = %if.end.i
+mark_used.argprom.argprom.exit:                   ; preds = %if.end.i
   %conv10.i = and i64 %to_allocate.0, 4294967295
   call void @bitmap_set(ptr noundef %41, i64 noundef %conv1.i, i64 noundef %conv10.i) #16
   %cmp142134 = icmp sgt i64 %to_allocate.0, 0
   br i1 %cmp142134, label %for.body.lr.ph, label %for.end
 
-for.body.lr.ph:                                   ; preds = %mark_used.exit
+for.body.lr.ph:                                   ; preds = %mark_used.argprom.argprom.exit
   %bat_dirty_bmap.i = getelementptr inbounds i8, ptr %0, i64 64
   %bat_dirty_block.i = getelementptr inbounds i8, ptr %0, i64 72
   %cluster_size150 = getelementptr inbounds i8, ptr %0, i64 144
@@ -2179,8 +2179,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %exitcond.not = icmp eq i64 %inc, %to_allocate.0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
-for.end:                                          ; preds = %for.body, %mark_used.exit
-  %host_off.1.lcssa = phi i64 [ %host_off.0, %mark_used.exit ], [ %add152, %for.body ]
+for.end:                                          ; preds = %for.body, %mark_used.argprom.argprom.exit
+  %host_off.1.lcssa = phi i64 [ %host_off.0, %mark_used.argprom.argprom.exit ], [ %add152, %for.body ]
   %data_end153 = getelementptr inbounds i8, ptr %0, i64 120
   %50 = load i64, ptr %data_end153, align 8
   %mul154 = shl i64 %50, 9
@@ -2737,9 +2737,9 @@ if.end.i.us:                                      ; preds = %if.end15.us
   %call2.i.us = tail call i64 @find_next_bit(ptr noundef nonnull %call.i.i, i64 noundef %conv4, i64 noundef %conv1.i71.us) #16
   %conv4.i.us = zext i32 %add.i.us to i64
   %cmp5.i.us = icmp ult i64 %call2.i.us, %conv4.i.us
-  br i1 %cmp5.i.us, label %if.end24.us, label %mark_used.exit.us
+  br i1 %cmp5.i.us, label %if.end24.us, label %mark_used.argprom.argprom.exit.us
 
-mark_used.exit.us:                                ; preds = %if.end.i.us
+mark_used.argprom.argprom.exit.us:                ; preds = %if.end.i.us
   tail call void @bitmap_set(ptr noundef nonnull %call.i.i, i64 noundef %conv1.i71.us, i64 noundef 1) #16
   br label %for.inc.us
 
@@ -2752,8 +2752,8 @@ if.end24.us:                                      ; preds = %if.end.i.us
   store i32 %inc27.us, ptr %res, align 8
   br label %for.inc.us
 
-for.inc.us:                                       ; preds = %if.end24.us, %mark_used.exit.us, %for.body.us
-  %ret.1.us = phi i32 [ %ret.0143.us, %for.body.us ], [ -16, %if.end24.us ], [ 0, %mark_used.exit.us ]
+for.inc.us:                                       ; preds = %if.end24.us, %mark_used.argprom.argprom.exit.us, %for.body.us
+  %ret.1.us = phi i32 [ %ret.0143.us, %for.body.us ], [ -16, %if.end24.us ], [ 0, %mark_used.argprom.argprom.exit.us ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %18 = load i32, ptr %bat_size, align 8
   %19 = zext i32 %18 to i64
@@ -2795,9 +2795,9 @@ if.end.i:                                         ; preds = %if.end15
   %call2.i = call i64 @find_next_bit(ptr noundef nonnull %call.i.i, i64 noundef %conv4, i64 noundef %conv1.i71) #16
   %conv4.i = zext i32 %add.i to i64
   %cmp5.i = icmp ult i64 %call2.i, %conv4.i
-  br i1 %cmp5.i, label %if.end24, label %mark_used.exit
+  br i1 %cmp5.i, label %if.end24, label %mark_used.argprom.argprom.exit
 
-mark_used.exit:                                   ; preds = %if.end.i
+mark_used.argprom.argprom.exit:                   ; preds = %if.end.i
   call void @bitmap_set(ptr noundef nonnull %call.i.i, i64 noundef %conv1.i71, i64 noundef 1) #16
   br label %for.inc
 
@@ -2910,9 +2910,9 @@ if.end78:                                         ; preds = %if.end8.i95, %if.en
   store i32 %inc79, ptr %corruptions_fixed, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %mark_used.exit, %for.body, %if.end78
-  %ret.1 = phi i32 [ %ret.0143, %for.body ], [ %retval.0.i96.ph, %if.end78 ], [ 0, %mark_used.exit ]
-  %fixed.1 = phi i1 [ %fixed.0144, %for.body ], [ true, %if.end78 ], [ %fixed.0144, %mark_used.exit ]
+for.inc:                                          ; preds = %mark_used.argprom.argprom.exit, %for.body, %if.end78
+  %ret.1 = phi i32 [ %ret.0143, %for.body ], [ %retval.0.i96.ph, %if.end78 ], [ 0, %mark_used.argprom.argprom.exit ]
+  %fixed.1 = phi i1 [ %fixed.0144, %for.body ], [ true, %if.end78 ], [ %fixed.0144, %mark_used.argprom.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %bat_size, align 8
   %44 = zext i32 %43 to i64

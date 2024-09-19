@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Sdb_StoMergeCuts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-Gia_ObjIsXor.exit:
+Gia_ObjIsXor.argprom.exit:
   %2 = alloca i64, align 8
   %3 = alloca [1 x i64], align 8
   %4 = alloca [1 x i64], align 8
@@ -78,8 +78,8 @@ Gia_ObjIsXor.exit:
   %26 = getelementptr inbounds i8, ptr %0, i64 4952
   br label %27
 
-27:                                               ; preds = %27, %Gia_ObjIsXor.exit
-  %indvars.iv.i = phi i64 [ 0, %Gia_ObjIsXor.exit ], [ %indvars.iv.next.i, %27 ]
+27:                                               ; preds = %27, %Gia_ObjIsXor.argprom.exit
+  %indvars.iv.i = phi i64 [ 0, %Gia_ObjIsXor.argprom.exit ], [ %indvars.iv.next.i, %27 ]
   %28 = getelementptr inbounds [51 x %struct.Sdb_Cut_t_], ptr %26, i64 0, i64 %indvars.iv.i
   %29 = getelementptr inbounds [51 x ptr], ptr %25, i64 0, i64 %indvars.iv.i
   store ptr %28, ptr %29, align 8
@@ -1787,8 +1787,8 @@ Sdb_CutSetLastCutContains.exit.i.us:              ; preds = %._crit_edge56.loope
   %858 = icmp sgt i32 %.0.i.i136.us, 0
   br i1 %858, label %.lr.ph.i8.i.us, label %Sdb_CutSetSortByCost.exit.i.us
 
-.lr.ph.i8.i.us:                                   ; preds = %Sdb_CutSetLastCutContains.exit.i.us, %Sdb_CutCompare.exit.i.i.us
-  %.017.i.i137.us = phi i32 [ %875, %Sdb_CutCompare.exit.i.i.us ], [ %.0.i.i136.us, %Sdb_CutSetLastCutContains.exit.i.us ]
+.lr.ph.i8.i.us:                                   ; preds = %Sdb_CutSetLastCutContains.exit.i.us, %Sdb_CutCompare.argprom.exit.i.i.us
+  %.017.i.i137.us = phi i32 [ %875, %Sdb_CutCompare.argprom.exit.i.i.us ], [ %.0.i.i136.us, %Sdb_CutSetLastCutContains.exit.i.us ]
   %859 = zext nneg i32 %.017.i.i137.us to i64
   %860 = getelementptr ptr, ptr %25, i64 %859
   %861 = getelementptr i8, ptr %860, i64 -8
@@ -1805,23 +1805,23 @@ Sdb_CutSetLastCutContains.exit.i.us:              ; preds = %._crit_edge56.loope
 
 869:                                              ; preds = %.lr.ph.i8.i.us
   %870 = icmp ugt i32 %866, %867
-  br i1 %870, label %Sdb_CutCompare.exit.i.i.us, label %871
+  br i1 %870, label %Sdb_CutCompare.argprom.exit.i.i.us, label %871
 
 871:                                              ; preds = %869
   %872 = lshr i32 %.val.i.i138.us, 28
   %873 = lshr i32 %.val15.i.i.us, 28
   %874 = icmp ult i32 %872, %873
-  br i1 %874, label %Sdb_CutSetSortByCost.exit.i.us, label %Sdb_CutCompare.exit.i.i.us
+  br i1 %874, label %Sdb_CutSetSortByCost.exit.i.us, label %Sdb_CutCompare.argprom.exit.i.i.us
 
-Sdb_CutCompare.exit.i.i.us:                       ; preds = %871, %869
+Sdb_CutCompare.argprom.exit.i.i.us:               ; preds = %871, %869
   store ptr %863, ptr %861, align 8
   store ptr %862, ptr %860, align 8
   %875 = add nsw i32 %.017.i.i137.us, -1
   %876 = icmp sgt i32 %.017.i.i137.us, 1
   br i1 %876, label %.lr.ph.i8.i.us, label %Sdb_CutSetSortByCost.exit.i.us, !llvm.loop !30
 
-Sdb_CutSetSortByCost.exit.i.us:                   ; preds = %.lr.ph.i8.i.us, %871, %Sdb_CutCompare.exit.i.i.us, %Sdb_CutSetLastCutContains.exit.i.us, %793
-  %.0.i10.i.us = phi i32 [ %.0.i.i136.us, %Sdb_CutSetLastCutContains.exit.i.us ], [ %.1259.us, %793 ], [ %.0.i.i136.us, %Sdb_CutCompare.exit.i.i.us ], [ %.0.i.i136.us, %871 ], [ %.0.i.i136.us, %.lr.ph.i8.i.us ]
+Sdb_CutSetSortByCost.exit.i.us:                   ; preds = %.lr.ph.i8.i.us, %871, %Sdb_CutCompare.argprom.exit.i.i.us, %Sdb_CutSetLastCutContains.exit.i.us, %793
+  %.0.i10.i.us = phi i32 [ %.0.i.i136.us, %Sdb_CutSetLastCutContains.exit.i.us ], [ %.1259.us, %793 ], [ %.0.i.i136.us, %Sdb_CutCompare.argprom.exit.i.i.us ], [ %.0.i.i136.us, %871 ], [ %.0.i.i136.us, %.lr.ph.i8.i.us ]
   %877 = add nsw i32 %.0.i10.i.us, 1
   %878 = call noundef i32 @llvm.smin.i32(i32 %877, i32 %47)
   br label %Sdb_CutSetAddCut.exit.us
@@ -1941,7 +1941,7 @@ Vec_IntPush.exit.i:                               ; preds = %921, %Vec_IntGrow.e
   %927 = getelementptr inbounds i32, ptr %923, i64 %926
   store i32 %.084.lcssa, ptr %927, align 4
   %928 = icmp sgt i32 %.084.lcssa, 0
-  br i1 %928, label %.lr.ph3.i, label %Sdb_StoStoreResult.exit.thread
+  br i1 %928, label %.lr.ph3.i, label %Sdb_StoStoreResult.argprom.argprom.exit.thread
 
 .lr.ph3.i:                                        ; preds = %Vec_IntPush.exit.i
   %.phi.trans.insert.i22.i = getelementptr inbounds i8, ptr %896, i64 8
@@ -2168,27 +2168,27 @@ Vec_IntPush.exit41.i:                             ; preds = %1027, %Vec_IntGrow.
   store i32 %1005, ptr %1033, align 4
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond.not.i150 = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count.i145
-  br i1 %exitcond.not.i150, label %Sdb_StoStoreResult.exit, label %929, !llvm.loop !34
+  br i1 %exitcond.not.i150, label %Sdb_StoStoreResult.argprom.argprom.exit, label %929, !llvm.loop !34
 
-Sdb_StoStoreResult.exit:                          ; preds = %Vec_IntPush.exit41.i
+Sdb_StoStoreResult.argprom.argprom.exit:          ; preds = %Vec_IntPush.exit41.i
   %.not = icmp eq i32 %.084.lcssa, 1
-  br i1 %.not, label %Sdb_StoStoreResult.exit.thread, label %1038
+  br i1 %.not, label %Sdb_StoStoreResult.argprom.argprom.exit.thread, label %1038
 
-Sdb_StoStoreResult.exit.thread:                   ; preds = %Vec_IntPush.exit.i, %Sdb_StoStoreResult.exit
+Sdb_StoStoreResult.argprom.argprom.exit.thread:   ; preds = %Vec_IntPush.exit.i, %Sdb_StoStoreResult.argprom.argprom.exit
   %1034 = load ptr, ptr %25, align 8
   %1035 = getelementptr inbounds i8, ptr %1034, i64 20
   %1036 = load i32, ptr %1035, align 4
   %1037 = icmp ugt i32 %1036, 536870911
   br i1 %1037, label %1038, label %1040
 
-1038:                                             ; preds = %Sdb_StoStoreResult.exit.thread, %Sdb_StoStoreResult.exit
+1038:                                             ; preds = %Sdb_StoStoreResult.argprom.argprom.exit.thread, %Sdb_StoStoreResult.argprom.argprom.exit
   %.val96 = load ptr, ptr %894, align 8
   %1039 = getelementptr i8, ptr %.val96, i64 8
   %.val96.val = load ptr, ptr %1039, align 8
-  call fastcc void @Sdb_CutAddUnit(ptr %.val96.val, i32 noundef %1)
+  call fastcc void @Sdb_CutAddUnit.argprom.argprom(ptr %.val96.val, i32 noundef %1)
   br label %1040
 
-1040:                                             ; preds = %1038, %Sdb_StoStoreResult.exit.thread
+1040:                                             ; preds = %1038, %Sdb_StoStoreResult.argprom.argprom.exit.thread
   ret void
 }
 
@@ -2330,7 +2330,7 @@ Sdb_CutTreeLeaves.exit:                           ; preds = %Sdb_CutTreeLeaves.e
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Sdb_CutAddUnit(ptr nocapture %.40.val.8.val, i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @Sdb_CutAddUnit.argprom.argprom(ptr nocapture %.40.val.8.val, i32 noundef %0) unnamed_addr #2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.40.val.8.val, i64 %2
   %4 = getelementptr i8, ptr %3, i64 4
@@ -5105,7 +5105,7 @@ Vec_IntPush.exit10.i:                             ; preds = %61, %Vec_IntGrow.ex
 .Vec_IntGrow.exit10_crit_edge.i11.i:              ; preds = %Vec_IntPush.exit10.i
   %.phi.trans.insert.i12.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre.i13.i = load ptr, ptr %.phi.trans.insert.i12.i, align 8
-  br label %Sdb_CutAddZero.exit
+  br label %Sdb_CutAddZero.argprom.argprom.exit
 
 71:                                               ; preds = %Vec_IntPush.exit10.i
   %72 = icmp slt i32 %68, 16
@@ -5129,7 +5129,7 @@ Vec_IntGrow.exit.i16.i:                           ; preds = %78, %76
   %80 = phi ptr [ %77, %76 ], [ %79, %78 ]
   store ptr %80, ptr %74, align 8
   store i32 16, ptr %6, align 8
-  br label %Sdb_CutAddZero.exit
+  br label %Sdb_CutAddZero.argprom.argprom.exit
 
 81:                                               ; preds = %71
   %82 = shl nuw nsw i32 %68, 1
@@ -5152,9 +5152,9 @@ Vec_IntGrow.exit.i16.i:                           ; preds = %78, %76
   %92 = phi ptr [ %88, %87 ], [ %90, %89 ]
   store ptr %92, ptr %83, align 8
   store i32 %82, ptr %6, align 8
-  br label %Sdb_CutAddZero.exit
+  br label %Sdb_CutAddZero.argprom.argprom.exit
 
-Sdb_CutAddZero.exit:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i11.i, %Vec_IntGrow.exit.i16.i, %91
+Sdb_CutAddZero.argprom.argprom.exit:              ; preds = %.Vec_IntGrow.exit10_crit_edge.i11.i, %Vec_IntGrow.exit.i16.i, %91
   %93 = phi ptr [ %.pre.i13.i, %.Vec_IntGrow.exit10_crit_edge.i11.i ], [ %92, %91 ], [ %80, %Vec_IntGrow.exit.i16.i ]
   %94 = load i32, ptr %7, align 4
   %95 = add nsw i32 %94, 1
@@ -5171,7 +5171,7 @@ define void @Sdb_StoComputeCutsCi(ptr nocapture noundef readonly %0, i32 noundef
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %4, align 8
-  tail call fastcc void @Sdb_CutAddUnit(ptr %.val.val, i32 noundef %1)
+  tail call fastcc void @Sdb_CutAddUnit.argprom.argprom(ptr %.val.val, i32 noundef %1)
   ret void
 }
 
@@ -5360,7 +5360,7 @@ define noalias noundef ptr @Sdb_StoComputeCutsDetect(ptr noundef %0) local_unnam
   %.val.i = load ptr, ptr %18, align 8
   %25 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %25, align 8
-  tail call fastcc void @Sdb_CutAddUnit(ptr %.val.val.i, i32 noundef %23)
+  tail call fastcc void @Sdb_CutAddUnit.argprom.argprom(ptr %.val.val.i, i32 noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load ptr, ptr %14, align 8
   %27 = getelementptr i8, ptr %26, i64 4

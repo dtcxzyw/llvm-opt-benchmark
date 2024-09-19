@@ -186,13 +186,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont6, %if.then.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = atomicrmw sub ptr %use_count_.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !9
@@ -205,14 +205,14 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %9, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !9
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i
   %11 = landingpad { ptr, i32 }
@@ -221,12 +221,12 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   call void @__clang_call_terminate(ptr %12) #16
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
+_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
   %13 = load ptr, ptr %pn.i, align 8, !tbaa !15
   %cmp.not.i.i5 = icmp eq ptr %13, null
   br i1 %cmp.not.i.i5, label %_ZN5boost10shared_ptrIN8QuantLib18YieldTermStructureEED2Ev.exit, label %if.then.i.i6
 
-if.then.i.i6:                                     ; preds = %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit
+if.then.i.i6:                                     ; preds = %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit
   %use_count_.i.i.i7 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = atomicrmw sub ptr %use_count_.i.i.i7, i32 1 acq_rel, align 4
   %cmp.i.i.i = icmp eq i32 %14, 1
@@ -259,7 +259,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i10, 
   call void @__clang_call_terminate(ptr %19) #16
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib18YieldTermStructureEED2Ev.exit: ; preds = %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit, %if.then.i.i6, %.noexc.i.i, %if.then.i.i.i.i10
+_ZN5boost10shared_ptrIN8QuantLib18YieldTermStructureEED2Ev.exit: ; preds = %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit, %if.then.i.i6, %.noexc.i.i, %if.then.i.i.i.i10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
   ret void
 
@@ -288,7 +288,7 @@ terminate.lpad.i17:                               ; preds = %if.then.i15
 
 ehcleanup:                                        ; preds = %if.then.i15, %lpad5, %lpad3
   %.pn = phi { ptr, i32 } [ %20, %lpad3 ], [ %21, %lpad5 ], [ %21, %if.then.i15 ]
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev(ptr %1) #15
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom(ptr %1) #15
   call void @_ZN5boost10shared_ptrIN8QuantLib18YieldTermStructureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
   resume { ptr, i32 } %.pn
@@ -451,7 +451,7 @@ _ZNSt14_Function_baseD2Ev.exit21:                 ; preds = %lpad, %if.then.i18
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev(ptr %this.24.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom(ptr %this.24.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.24.val, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib18YieldTermStructureEED2Ev.exit, label %if.then.i.i
@@ -820,14 +820,14 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit.i.i.i: ; preds 
   %call2.i.i.i = tail call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %2, double noundef %3, i1 noundef zeroext false)
   %4 = load ptr, ptr %rTS_.i.i.i, align 8, !tbaa !11
   %cmp.not.i1.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i1.i.i.i, label %cond.false.i2.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit, !prof !34
+  br i1 %cmp.not.i1.i.i.i, label %cond.false.i2.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit, !prof !34
 
 cond.false.i2.i.i.i:                              ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit.i.i.i
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
   %.pre.i3.i.i.i = load ptr, ptr %rTS_.i.i.i, align 8, !tbaa !11
-  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
+  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
 
-_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit.i.i.i, %cond.false.i2.i.i.i
+_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit.i.i.i, %cond.false.i2.i.i.i
   %5 = phi ptr [ %4, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit.i.i.i ], [ %.pre.i3.i.i.i, %cond.false.i2.i.i.i ]
   %mul.i.i.i = fmul double %0, %call2.i.i.i
   %call5.i.i.i = tail call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %5, double noundef %__args.val, i1 noundef zeroext false)
@@ -887,13 +887,13 @@ delete.notnull.i.i:                               ; preds = %sw.bb6.i
   %3 = getelementptr i8, ptr %__dest.val.i, i64 24
   %.val.i.i = load ptr, ptr %3, align 8, !tbaa !15
   %cmp.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit.i.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
   %use_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %4 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i6.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i6.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit.i.i
 
 if.then.i.i.i.i.i6.i:                             ; preds = %if.then.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8, !tbaa !9
@@ -906,14 +906,14 @@ if.then.i.i.i.i.i6.i:                             ; preds = %if.then.i.i.i.i.i
   %weak_count_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 12
   %6 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %6, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %.noexc.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8, !tbaa !9
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i)
-          to label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
+          to label %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i6.i
   %8 = landingpad { ptr, i32 }
@@ -922,11 +922,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i, %delete.notnull.i.i
+_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i, %delete.notnull.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %__dest.val.i, i64 noundef 32) #19
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.exit.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i, %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %entry, %_ZN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryD2Ev.argprom.exit.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i, %sw.bb1, %sw.bb
   ret i1 false
 }
 

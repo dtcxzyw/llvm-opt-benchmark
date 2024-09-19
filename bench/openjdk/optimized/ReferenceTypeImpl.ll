@@ -149,13 +149,13 @@ define internal noundef zeroext i8 @modifiers(ptr noundef %0, ptr noundef %1) #0
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @fields(ptr noundef %0, ptr noundef %1) #0 {
-  tail call fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @fields1.retelim(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i8 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @methods(ptr noundef %0, ptr noundef %1) #0 {
-  tail call fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @methods1.retelim(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i8 1
 }
 
@@ -472,13 +472,13 @@ define internal noundef zeroext i8 @signatureWithGeneric(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @fieldsWithGeneric(ptr noundef %0, ptr noundef %1) #0 {
-  tail call fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @fields1.retelim(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i8 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @methodsWithGeneric(ptr noundef %0, ptr noundef %1) #0 {
-  tail call fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @methods1.retelim(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i8 1
 }
 
@@ -739,7 +739,7 @@ declare void @log_message_end(ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i16 @outStream_writeInt(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @fields1.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -918,7 +918,7 @@ declare zeroext i16 @outStream_writeFieldID(ptr noundef, ptr noundef) local_unna
 declare void @writeGenericSignature(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @methods1.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -974,8 +974,8 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
   %.not24.i = icmp eq i32 %2, 0
   br label %34
 
-34:                                               ; preds = %.lr.ph, %writeMethodInfo.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %writeMethodInfo.exit ]
+34:                                               ; preds = %.lr.ph, %writeMethodInfo.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %writeMethodInfo.argprom.exit ]
   %35 = call zeroext i16 @outStream_error(ptr noundef %1) #3
   %.not18 = icmp eq i16 %35, 0
   br i1 %.not18, label %36, label %.critedge
@@ -999,7 +999,7 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
 41:                                               ; preds = %36
   %42 = call zeroext i16 @map2jdwpError(i32 noundef %40) #3
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %42) #3
-  br label %writeMethodInfo.exit
+  br label %writeMethodInfo.argprom.exit
 
 43:                                               ; preds = %36
   %44 = call i32 @methodModifiers(ptr noundef %39, ptr noundef nonnull %7) #3
@@ -1009,7 +1009,7 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
 45:                                               ; preds = %43
   %46 = call zeroext i16 @map2jdwpError(i32 noundef %44) #3
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %46) #3
-  br label %writeMethodInfo.exit
+  br label %writeMethodInfo.argprom.exit
 
 47:                                               ; preds = %43
   %48 = call i32 @methodSignature(ptr noundef %39, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #3
@@ -1019,7 +1019,7 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
 49:                                               ; preds = %47
   %50 = call zeroext i16 @map2jdwpError(i32 noundef %48) #3
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %50) #3
-  br label %writeMethodInfo.exit
+  br label %writeMethodInfo.argprom.exit
 
 51:                                               ; preds = %47
   %52 = load i8, ptr %8, align 1
@@ -1054,13 +1054,13 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
   call void @jvmtiDeallocate(ptr noundef %68) #3
   %69 = load ptr, ptr %6, align 8
   %.not25.i = icmp eq ptr %69, null
-  br i1 %.not25.i, label %writeMethodInfo.exit, label %70
+  br i1 %.not25.i, label %writeMethodInfo.argprom.exit, label %70
 
 70:                                               ; preds = %64
   call void @jvmtiDeallocate(ptr noundef nonnull %69) #3
-  br label %writeMethodInfo.exit
+  br label %writeMethodInfo.argprom.exit
 
-writeMethodInfo.exit:                             ; preds = %41, %45, %49, %64, %70
+writeMethodInfo.argprom.exit:                     ; preds = %41, %45, %49, %64, %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1072,7 +1072,7 @@ writeMethodInfo.exit:                             ; preds = %41, %45, %49, %64, 
   %73 = icmp slt i64 %indvars.iv.next, %72
   br i1 %73, label %34, label %.critedge, !llvm.loop !11
 
-.critedge:                                        ; preds = %34, %writeMethodInfo.exit, %29
+.critedge:                                        ; preds = %34, %writeMethodInfo.argprom.exit, %29
   %74 = load ptr, ptr %10, align 8
   %.not19 = icmp eq ptr %74, null
   br i1 %.not19, label %76, label %75

@@ -983,7 +983,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZNSt6vec
   store i64 0, ptr %36, align 8
   %.val = load ptr, ptr %0, align 8
   %.val6 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124insert_lowercase_stringsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %.val, ptr %.val6)
+  invoke fastcc void @_ZN12_GLOBAL__N_124insert_lowercase_stringsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %.val, ptr %.val6)
           to label %37 unwind label %40
 
 37:                                               ; preds = %30
@@ -1029,7 +1029,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124insert_lowercase_stringsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124insert_lowercase_stringsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"struct.vcpkg::StringView", align 8
   %.not4 = icmp eq ptr %.0.val, %.8.val
@@ -1229,7 +1229,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZNSt6vec
   store i64 0, ptr %36, align 8
   %.val = load ptr, ptr %0, align 8
   %.val5 = load ptr, ptr %6, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124insert_lowercase_stringsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %.val, ptr %.val5)
+  invoke fastcc void @_ZN12_GLOBAL__N_124insert_lowercase_stringsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %.val, ptr %.val5)
           to label %37 unwind label %40
 
 37:                                               ; preds = %30

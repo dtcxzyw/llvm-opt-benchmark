@@ -319,20 +319,20 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i4
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i4, %invoke.cont5.i.i.i
   %5 = load ptr, ptr %agg.tmp2.i.i.i, align 8, !noalias !11
   %cmp.not.i1.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i1.i.i.i, label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i, label %if.then.i2.i.i.i
+  br i1 %cmp.not.i1.i.i.i, label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit.i, label %if.then.i2.i.i.i
 
 if.then.i2.i.i.i:                                 ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit.i.i.i
   %refs_.i.i3.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = atomicrmw sub ptr %refs_.i.i3.i.i.i, i64 1 acq_rel, align 8, !noalias !11
   %cmp.i.i.i4.i.i.i = icmp eq i64 %6, 1
-  br i1 %cmp.i.i.i4.i.i.i, label %if.then.i.i5.i.i.i, label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i
+  br i1 %cmp.i.i.i4.i.i.i, label %if.then.i.i5.i.i.i, label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit.i
 
 if.then.i.i5.i.i.i:                               ; preds = %if.then.i2.i.i.i
   %vtable.i.i.i6.i.i.i = load ptr, ptr %5, align 8, !noalias !11
   %vfn.i.i.i7.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i6.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i7.i.i.i, align 8, !noalias !11
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %5) #20, !noalias !11
-  br label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i
+  br label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit.i
 
 lpad4.i.i.i:                                      ; preds = %call.i.i3.noexc
   %8 = landingpad { ptr, i32 }
@@ -376,7 +376,7 @@ lpad.body.i.i:                                    ; preds = %if.then.i.i20.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %call.i.i36) #22, !noalias !11
   br label %lpad6.body
 
-_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i: ; preds = %if.then.i.i5.i.i.i, %if.then.i2.i.i.i, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit.i.i.i
+_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit.i: ; preds = %if.then.i.i5.i.i.i, %if.then.i2.i.i.i, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorE, i64 16), ptr %call.i.i36, align 8, !noalias !11
   %handshaker_factory_.i.i.i = getelementptr inbounds i8, ptr %call.i.i36, i64 56
   store ptr null, ptr %handshaker_factory_.i.i.i, align 8, !noalias !11
@@ -399,7 +399,7 @@ _ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_securi
   %call.i7.i = invoke noundef i32 @_Z53tsi_create_ssl_client_handshaker_factory_with_optionsPK33tsi_ssl_client_handshaker_optionsPP33tsi_ssl_client_handshaker_factory(ptr noundef nonnull %options.i.i, ptr noundef nonnull %handshaker_factory_.i.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !8
 
-invoke.cont.i.i:                                  ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i
+invoke.cont.i.i:                                  ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit.i
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %options.i.i, i64 96
   %15 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %15, null
@@ -473,7 +473,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   call void %25(ptr noundef nonnull align 8 dereferenceable(16) %15) #20, !noalias !8
   br label %invoke.cont4.i
 
-lpad.i.i:                                         ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i
+lpad.i.i:                                         ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit.i
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN33tsi_ssl_client_handshaker_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %options.i.i) #20, !noalias !8
@@ -1574,8 +1574,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !10, !"_ZN9grpc_core12_GLOBAL__N_145httpcli_ssl_channel_security_connector_createEPKcPK24tsi_ssl_root_certs_storeS2_: %agg.result"}
 !10 = distinct !{!10, !"_ZN9grpc_core12_GLOBAL__N_145httpcli_ssl_channel_security_connector_createEPKcPK24tsi_ssl_root_certs_storeS2_"}
 !11 = !{!12, !9}
-!12 = distinct !{!12, !13, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_: %agg.result"}
-!13 = distinct !{!13, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_"}
+!12 = distinct !{!12, !13, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.argprom: %agg.result"}
+!13 = distinct !{!13, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorEJPcEEENS_13RefCountedPtrIT_EEDpOT0_.argprom"}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
 !16 = distinct !{!16, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}

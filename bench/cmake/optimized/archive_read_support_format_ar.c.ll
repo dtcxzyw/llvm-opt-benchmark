@@ -210,7 +210,7 @@ thread-pre-split.thread.i:                        ; preds = %30, %21
   br i1 %50, label %51, label %93
 
 51:                                               ; preds = %49
-  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef readonly %13)
+  call fastcc void @ar_parse_common_header.retelim(ptr noundef %6, ptr noundef %1, ptr noundef readonly %13)
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %3) #13
   call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #13
   %52 = getelementptr inbounds i8, ptr %13, i64 48
@@ -429,13 +429,13 @@ ar_atol10.exit189.i:                              ; preds = %114, %111, %109, %.
 127:                                              ; preds = %124, %ar_atol10.exit189.i
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.16) #13
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %3) #13
-  call fastcc void @ar_parse_common_header(ptr noundef nonnull %6, ptr noundef %1, ptr noundef readonly %13)
+  call fastcc void @ar_parse_common_header.retelim(ptr noundef nonnull %6, ptr noundef %1, ptr noundef readonly %13)
   br label %175
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds i8, ptr %122, i64 %.127.i177.i
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %129) #13
-  call fastcc void @ar_parse_common_header(ptr noundef nonnull %6, ptr noundef %1, ptr noundef readonly %13)
+  call fastcc void @ar_parse_common_header.retelim(ptr noundef nonnull %6, ptr noundef %1, ptr noundef readonly %13)
   br label %175
 
 130:                                              ; preds = %93
@@ -444,7 +444,7 @@ ar_atol10.exit189.i:                              ; preds = %114, %111, %109, %.
   br i1 %131, label %132, label %173
 
 132:                                              ; preds = %130
-  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef readonly %13)
+  call fastcc void @ar_parse_common_header.retelim(ptr noundef %6, ptr noundef %1, ptr noundef readonly %13)
   %133 = getelementptr inbounds i8, ptr %13, i64 3
   %scevgep.i190.i = getelementptr i8, ptr %13, i64 16
   br label %134
@@ -568,7 +568,7 @@ ar_atol10.exit215.thread.i:                       ; preds = %145, %143, %ar_atol
   %.not157.i = icmp eq i64 %lhsv155.i, 13286731735978799
   %or.cond163.i = select i1 %.not154.i, i1 true, i1 %.not157.i
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %3) #13
-  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef readonly %13)
+  call fastcc void @ar_parse_common_header.retelim(ptr noundef %6, ptr noundef %1, ptr noundef readonly %13)
   br i1 %or.cond163.i, label %174, label %175
 
 174:                                              ; preds = %173
@@ -731,7 +731,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ar_parse_common_header(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @ar_parse_common_header.retelim(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   tail call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #13
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %scevgep.i = getelementptr i8, ptr %2, i64 28

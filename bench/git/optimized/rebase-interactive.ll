@@ -94,19 +94,19 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 if.then.i17:                                      ; preds = %strbuf_addch.exit
   %cmp.i = icmp eq i32 %command_count, 1
   %cond.i = select i1 %cmp.i, ptr @.str.1, ptr @.str.2
-  br label %Q_.exit
+  br label %Q_.argprom.exit
 
 if.end.i:                                         ; preds = %strbuf_addch.exit
   %conv = sext i32 %command_count to i64
   %call.i15 = tail call ptr @ngettext(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %conv) #10
-  br label %Q_.exit
+  br label %Q_.argprom.exit
 
-Q_.exit:                                          ; preds = %if.then.i17, %if.end.i
+Q_.argprom.exit:                                  ; preds = %if.then.i17, %if.end.i
   %retval.0.i16 = phi ptr [ %call.i15, %if.end.i ], [ %cond.i, %if.then.i17 ]
   tail call void (ptr, i8, ptr, ...) @strbuf_commented_addf(ptr noundef nonnull %buf, i8 noundef signext %7, ptr noundef %retval.0.i16, ptr noundef nonnull %shortrevisions, ptr noundef nonnull %shortonto, i32 noundef %command_count) #10
   br label %if.end
 
-if.end:                                           ; preds = %Q_.exit, %_.exit
+if.end:                                           ; preds = %Q_.argprom.exit, %_.exit
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #11
   %9 = load i8, ptr @comment_line_char, align 1
   tail call void @strbuf_add_commented_lines(ptr noundef %buf, ptr noundef %retval.0.i, i64 noundef %call4, i8 noundef signext %9) #10
@@ -470,14 +470,14 @@ if.end12.i.i:                                     ; preds = %if.end.i.i, %if.the
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %commit_seen.sroa.27.5, i64 %idxprom14.i.i
   %11 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %11, null
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %commit_seen_at.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %commit_seen_at.argprom.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %call24.i.i = tail call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
   store ptr %call24.i.i, ptr %arrayidx15.i.i, align 8
-  br label %commit_seen_at.exit
+  br label %commit_seen_at.argprom.exit
 
-commit_seen_at.exit:                              ; preds = %if.end12.i.i, %if.end20.i.i
+commit_seen_at.argprom.exit:                      ; preds = %if.end12.i.i, %if.end20.i.i
   %12 = phi ptr [ %11, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %idxprom34.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom34.i.i
@@ -485,10 +485,10 @@ commit_seen_at.exit:                              ; preds = %if.end12.i.i, %if.e
   %.pre = load i32, ptr %nr, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %commit_seen_at.exit
-  %13 = phi i32 [ %1, %for.body ], [ %.pre, %commit_seen_at.exit ]
-  %commit_seen.sroa.14.2 = phi i32 [ %commit_seen.sroa.14.1142, %for.body ], [ %commit_seen.sroa.14.5, %commit_seen_at.exit ]
-  %commit_seen.sroa.27.2 = phi ptr [ %commit_seen.sroa.27.1143, %for.body ], [ %commit_seen.sroa.27.5, %commit_seen_at.exit ]
+for.inc:                                          ; preds = %for.body, %commit_seen_at.argprom.exit
+  %13 = phi i32 [ %1, %for.body ], [ %.pre, %commit_seen_at.argprom.exit ]
+  %commit_seen.sroa.14.2 = phi i32 [ %commit_seen.sroa.14.1142, %for.body ], [ %commit_seen.sroa.14.5, %commit_seen_at.argprom.exit ]
+  %commit_seen.sroa.27.2 = phi ptr [ %commit_seen.sroa.27.1143, %for.body ], [ %commit_seen.sroa.27.5, %commit_seen_at.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = sext i32 %13 to i64
   %cmp1 = icmp slt i64 %indvars.iv.next, %14
@@ -549,14 +549,14 @@ if.end12.i.i38:                                   ; preds = %if.end.i.i24, %land
   %arrayidx15.i.i41 = getelementptr inbounds ptr, ptr %commit_seen.sroa.27.6, i64 %idxprom14.i.i40
   %26 = load ptr, ptr %arrayidx15.i.i41, align 8
   %tobool16.not.i.i42 = icmp eq ptr %26, null
-  br i1 %tobool16.not.i.i42, label %if.end20.i.i48, label %commit_seen_at.exit57
+  br i1 %tobool16.not.i.i42, label %if.end20.i.i48, label %commit_seen_at.argprom.exit57
 
 if.end20.i.i48:                                   ; preds = %if.end12.i.i38
   %call24.i.i52 = call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
   store ptr %call24.i.i52, ptr %arrayidx15.i.i41, align 8
-  br label %commit_seen_at.exit57
+  br label %commit_seen_at.argprom.exit57
 
-commit_seen_at.exit57:                            ; preds = %if.end12.i.i38, %if.end20.i.i48
+commit_seen_at.argprom.exit57:                    ; preds = %if.end12.i.i38, %if.end20.i.i48
   %27 = phi ptr [ %26, %if.end12.i.i38 ], [ %call24.i.i52, %if.end20.i.i48 ]
   %idxprom34.i.i46 = zext nneg i32 %rem.i.i43 to i64
   %arrayidx35.i.i47 = getelementptr inbounds i8, ptr %27, i64 %idxprom34.i.i46
@@ -564,7 +564,7 @@ commit_seen_at.exit57:                            ; preds = %if.end12.i.i38, %if
   %tobool15.not = icmp eq i8 %28, 0
   br i1 %tobool15.not, label %if.then16, label %for.inc21
 
-if.then16:                                        ; preds = %commit_seen_at.exit57
+if.then16:                                        ; preds = %commit_seen_at.argprom.exit57
   %29 = load ptr, ptr @the_repository, align 8
   %oid = getelementptr inbounds i8, ptr %18, i64 4
   %30 = load i32, ptr @default_abbrev, align 4
@@ -601,23 +601,23 @@ if.end12.i.i75:                                   ; preds = %if.end.i.i61, %if.t
   %arrayidx15.i.i78 = getelementptr inbounds ptr, ptr %commit_seen.sroa.27.7, i64 %idxprom14.i.i77
   %38 = load ptr, ptr %arrayidx15.i.i78, align 8
   %tobool16.not.i.i79 = icmp eq ptr %38, null
-  br i1 %tobool16.not.i.i79, label %if.end20.i.i85, label %commit_seen_at.exit94
+  br i1 %tobool16.not.i.i79, label %if.end20.i.i85, label %commit_seen_at.argprom.exit94
 
 if.end20.i.i85:                                   ; preds = %if.end12.i.i75
   %call24.i.i89 = call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
   store ptr %call24.i.i89, ptr %arrayidx15.i.i78, align 8
-  br label %commit_seen_at.exit94
+  br label %commit_seen_at.argprom.exit94
 
-commit_seen_at.exit94:                            ; preds = %if.end12.i.i75, %if.end20.i.i85
+commit_seen_at.argprom.exit94:                    ; preds = %if.end12.i.i75, %if.end20.i.i85
   %39 = phi ptr [ %38, %if.end12.i.i75 ], [ %call24.i.i89, %if.end20.i.i85 ]
   %idxprom34.i.i83 = zext nneg i32 %rem.i.i80 to i64
   %arrayidx35.i.i84 = getelementptr inbounds i8, ptr %39, i64 %idxprom34.i.i83
   store i8 1, ptr %arrayidx35.i.i84, align 1
   br label %for.inc21
 
-for.inc21:                                        ; preds = %for.body9, %commit_seen_at.exit57, %commit_seen_at.exit94
-  %commit_seen.sroa.14.4 = phi i32 [ %commit_seen.sroa.14.3148, %for.body9 ], [ %commit_seen.sroa.14.7, %commit_seen_at.exit94 ], [ %commit_seen.sroa.14.6, %commit_seen_at.exit57 ]
-  %commit_seen.sroa.27.4 = phi ptr [ %commit_seen.sroa.27.3149, %for.body9 ], [ %commit_seen.sroa.27.7, %commit_seen_at.exit94 ], [ %commit_seen.sroa.27.6, %commit_seen_at.exit57 ]
+for.inc21:                                        ; preds = %for.body9, %commit_seen_at.argprom.exit57, %commit_seen_at.argprom.exit94
+  %commit_seen.sroa.14.4 = phi i32 [ %commit_seen.sroa.14.3148, %for.body9 ], [ %commit_seen.sroa.14.7, %commit_seen_at.argprom.exit94 ], [ %commit_seen.sroa.14.6, %commit_seen_at.argprom.exit57 ]
+  %commit_seen.sroa.27.4 = phi ptr [ %commit_seen.sroa.27.3149, %for.body9 ], [ %commit_seen.sroa.27.7, %commit_seen_at.argprom.exit94 ], [ %commit_seen.sroa.27.6, %commit_seen_at.argprom.exit57 ]
   %cmp8 = icmp ugt i64 %indvars.iv163, 1
   br i1 %cmp8, label %for.body9, label %for.end22, !llvm.loop !7
 

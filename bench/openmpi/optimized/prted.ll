@@ -377,7 +377,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %88
   br label %114
 
 114:                                              ; preds = %111, %108
-  %115 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.14)
+  %115 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.14)
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
@@ -385,7 +385,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %88
   br label %117
 
 117:                                              ; preds = %116, %114
-  %118 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.15)
+  %118 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.15)
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
@@ -393,7 +393,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %88
   br label %120
 
 120:                                              ; preds = %119, %117
-  %121 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.16)
+  %121 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.16)
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %120
@@ -431,7 +431,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %88
   br label %142
 
 142:                                              ; preds = %136, %133, %130
-  %143 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.18)
+  %143 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.18)
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %142
@@ -440,7 +440,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %88
 
 146:                                              ; preds = %144, %142
   %147 = tail call i32 @PMIx_Setenv(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i1 noundef zeroext true, ptr noundef nonnull @environ) #17
-  %148 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.21)
+  %148 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.21)
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %146
@@ -566,7 +566,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %88
   br i1 %206, label %207, label %227
 
 207:                                              ; preds = %204
-  %208 = call fastcc ptr @pmix_obj_new_tma()
+  %208 = call fastcc ptr @pmix_obj_new_tma.argprom()
   %209 = getelementptr inbounds i8, ptr %208, i64 136
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr @prte_event_base, align 8
@@ -1297,7 +1297,7 @@ pmix_obj_run_constructors.exit434:                ; preds = %.lr.ph.i431, %438
   br label %.thread
 
 501:                                              ; preds = %496, %495
-  %502 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.40)
+  %502 = call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.40)
   %503 = load i32, ptr @prte_rml_base, align 8
   %or.cond13 = icmp ult i32 %503, 64
   br i1 %502, label %504, label %519
@@ -1369,11 +1369,11 @@ pmix_obj_run_constructors.exit434:                ; preds = %.lr.ph.i431, %438
   br label %591
 
 534:                                              ; preds = %528, %513
-  %535 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.40)
+  %535 = call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.40)
   br i1 %535, label %536, label %.loopexit
 
 536:                                              ; preds = %534
-  %537 = call fastcc ptr @pmix_cmd_line_get_param(ptr noundef nonnull @.str.47)
+  %537 = call fastcc ptr @pmix_cmd_line_get_param.argprom(ptr noundef nonnull @.str.47)
   %.not387 = icmp eq ptr %537, null
   br i1 %.not387, label %.loopexit445, label %.preheader444
 
@@ -1427,7 +1427,7 @@ pmix_obj_run_constructors.exit434:                ; preds = %.lr.ph.i431, %438
   br i1 %.not388, label %.loopexit445, label %.lr.ph478, !llvm.loop !15
 
 .loopexit445:                                     ; preds = %.loopexit443, %.preheader444, %536
-  %562 = call fastcc ptr @pmix_cmd_line_get_param(ptr noundef nonnull @.str.49)
+  %562 = call fastcc ptr @pmix_cmd_line_get_param.argprom(ptr noundef nonnull @.str.49)
   %.not389 = icmp eq ptr %562, null
   br i1 %.not389, label %.loopexit, label %.preheader
 
@@ -1653,10 +1653,10 @@ declare i32 @prte_register_params() local_unnamed_addr #6
 declare i32 @geteuid() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   %.01.i = load ptr, ptr getelementptr inbounds (i8, ptr @results, i64 360), align 8
   %.not2.i = icmp eq ptr %.01.i, getelementptr inbounds (i8, ptr @results, i64 240)
-  br i1 %.not2.i, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pmix_cmd_line_get_param.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %6
   %.03.i = phi ptr [ %.0.i, %6 ], [ %.01.i, %1 ]
@@ -1664,21 +1664,21 @@ define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr nocapture noundef 
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %pmix_cmd_line_get_param.exit.loopexit, label %6
+  br i1 %5, label %pmix_cmd_line_get_param.argprom.exit.loopexit, label %6
 
 6:                                                ; preds = %.lr.ph.i
   %7 = getelementptr inbounds i8, ptr %.03.i, i64 120
   %.0.i = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @results, i64 240)
-  br i1 %.not.i, label %pmix_cmd_line_get_param.exit.loopexit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %pmix_cmd_line_get_param.argprom.exit.loopexit, label %.lr.ph.i, !llvm.loop !18
 
-pmix_cmd_line_get_param.exit.loopexit:            ; preds = %6, %.lr.ph.i
+pmix_cmd_line_get_param.argprom.exit.loopexit:    ; preds = %6, %.lr.ph.i
   %.08.i.ph = phi ptr [ null, %6 ], [ %.03.i, %.lr.ph.i ]
   %8 = icmp ne ptr %.08.i.ph, null
-  br label %pmix_cmd_line_get_param.exit
+  br label %pmix_cmd_line_get_param.argprom.exit
 
-pmix_cmd_line_get_param.exit:                     ; preds = %pmix_cmd_line_get_param.exit.loopexit, %1
-  %.08.i = phi i1 [ false, %1 ], [ %8, %pmix_cmd_line_get_param.exit.loopexit ]
+pmix_cmd_line_get_param.argprom.exit:             ; preds = %pmix_cmd_line_get_param.argprom.exit.loopexit, %1
+  %.08.i = phi i1 [ false, %1 ], [ %8, %pmix_cmd_line_get_param.argprom.exit.loopexit ]
   ret i1 %.08.i
 }
 
@@ -1779,7 +1779,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma() unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma.argprom() unnamed_addr #0 {
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @prte_timer_t_class, i64 56), align 8
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %1) #22
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -2262,7 +2262,7 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i32 @PMIx_Data_unload(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @pmix_cmd_line_get_param(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc ptr @pmix_cmd_line_get_param.argprom(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   %.01 = load ptr, ptr getelementptr inbounds (i8, ptr @results, i64 360), align 8
   %.not2 = icmp eq ptr %.01, getelementptr inbounds (i8, ptr @results, i64 240)
   br i1 %.not2, label %._crit_edge, label %.lr.ph

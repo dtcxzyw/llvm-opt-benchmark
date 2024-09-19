@@ -1863,7 +1863,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsTravIdCurrent(ptr nocaptur
   %5 = getelementptr inbounds i8, ptr %.val2, i64 228
   %6 = load i32, ptr %5, align 4
   %.not.i.not.i.i = icmp slt i32 %.val3, %6
-  br i1 %.not.i.not.i.i, label %Abc_NodeTravId.exit, label %7
+  br i1 %.not.i.not.i.i, label %Abc_NodeTravId.argprom.exit, label %7
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %3, align 8
@@ -1949,9 +1949,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 ._crit_edge.i.i.i:                                ; preds = %37, %Vec_IntGrow.exit.i.i.i
   store i32 %4, ptr %5, align 4
   %.val.pre = load ptr, ptr %0, align 8
-  br label %Abc_NodeTravId.exit
+  br label %Abc_NodeTravId.argprom.exit
 
-Abc_NodeTravId.exit:                              ; preds = %1, %._crit_edge.i.i.i
+Abc_NodeTravId.argprom.exit:                      ; preds = %1, %._crit_edge.i.i.i
   %.val = phi ptr [ %.val2, %1 ], [ %.val.pre, %._crit_edge.i.i.i ]
   %40 = getelementptr i8, ptr %.val2, i64 232
   %.val.i.i = load ptr, ptr %40, align 8

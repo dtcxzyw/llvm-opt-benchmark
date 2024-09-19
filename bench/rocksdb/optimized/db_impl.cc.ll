@@ -3059,7 +3059,7 @@ cleanup.thread.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i, 
   %111 = load i64, ptr %_M_node_count.i.i.i.i.i138, align 16
   %inc.i.i.i.i.i = add i64 %111, 1
   store i64 %inc.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i138, align 16
-  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
+  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
 
 lpad.i.i.i:                                       ; preds = %call5.i.i.i.i.i.i.i.i.noexc
   %112 = landingpad { ptr, i32 }
@@ -3085,15 +3085,15 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i197
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i.i198) #35
-  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
+  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
 
-"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i": ; preds = %_ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i, %cleanup.thread.i.i.i
+"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i": ; preds = %_ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i, %cleanup.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__z.i.i.i)
   %.pre = load ptr, ptr %_M_parent.i.i.i.i.i135, align 8
   br label %invoke.cont172
 
-invoke.cont172:                                   ; preds = %_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i, %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
-  %116 = phi ptr [ %102, %_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i ], [ %.pre, %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i" ]
+invoke.cont172:                                   ; preds = %_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i, %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
+  %116 = phi ptr [ %102, %_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i ], [ %.pre, %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_0EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i" ]
   %cmp.not5.i.i.i.i203 = icmp eq ptr %116, null
   br i1 %cmp.not5.i.i.i.i203, label %if.then.i224, label %while.body.i.i.i.i205
 
@@ -3169,7 +3169,7 @@ cleanup.thread.i.i.i243:                          ; preds = %lor.rhs.i.i.i.i.i24
   %126 = load i64, ptr %_M_node_count.i.i.i.i.i138, align 16
   %inc.i.i.i.i.i245 = add i64 %126, 1
   store i64 %inc.i.i.i.i.i245, ptr %_M_node_count.i.i.i.i.i138, align 16
-  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
+  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
 
 lpad.i.i.i233:                                    ; preds = %call5.i.i.i.i.i.i.i.i.noexc253
   %127 = landingpad { ptr, i32 }
@@ -3195,15 +3195,15 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i251:          ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i252: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i249, %if.then.i.i.i.i247
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i.i254) #35
-  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
+  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
 
-"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i": ; preds = %_ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i252, %cleanup.thread.i.i.i243
+"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i": ; preds = %_ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i252, %cleanup.thread.i.i.i243
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__z.i.i.i200)
   %.pre413 = load ptr, ptr %_M_parent.i.i.i.i.i135, align 8
   br label %invoke.cont177
 
-invoke.cont177:                                   ; preds = %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i", %lor.rhs.i217
-  %131 = phi ptr [ %.pre413, %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i" ], [ %116, %lor.rhs.i217 ]
+invoke.cont177:                                   ; preds = %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i", %lor.rhs.i217
+  %131 = phi ptr [ %.pre413, %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_1EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i" ], [ %116, %lor.rhs.i217 ]
   %cmp.not5.i.i.i.i260 = icmp eq ptr %131, null
   br i1 %cmp.not5.i.i.i.i260, label %if.then.i281, label %while.body.i.i.i.i262
 
@@ -3279,7 +3279,7 @@ cleanup.thread.i.i.i300:                          ; preds = %lor.rhs.i.i.i.i.i29
   %141 = load i64, ptr %_M_node_count.i.i.i.i.i138, align 16
   %inc.i.i.i.i.i302 = add i64 %141, 1
   store i64 %inc.i.i.i.i.i302, ptr %_M_node_count.i.i.i.i.i138, align 16
-  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
+  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
 
 lpad.i.i.i290:                                    ; preds = %call5.i.i.i.i.i.i.i.i.noexc310
   %142 = landingpad { ptr, i32 }
@@ -3305,15 +3305,15 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i308:          ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i309: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i306, %if.then.i.i.i.i304
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i.i311) #35
-  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
+  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
 
-"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i": ; preds = %_ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i309, %cleanup.thread.i.i.i300
+"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i": ; preds = %_ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i309, %cleanup.thread.i.i.i300
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__z.i.i.i257)
   %.pre414 = load ptr, ptr %_M_parent.i.i.i.i.i135, align 8
   br label %invoke.cont183
 
-invoke.cont183:                                   ; preds = %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i", %lor.rhs.i274
-  %146 = phi ptr [ %.pre414, %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i" ], [ %131, %lor.rhs.i274 ]
+invoke.cont183:                                   ; preds = %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i", %lor.rhs.i274
+  %146 = phi ptr [ %.pre414, %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_2EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i" ], [ %131, %lor.rhs.i274 ]
   %cmp.not5.i.i.i.i317 = icmp eq ptr %146, null
   br i1 %cmp.not5.i.i.i.i317, label %if.then.i338, label %while.body.i.i.i.i319
 
@@ -3389,7 +3389,7 @@ cleanup.thread.i.i.i357:                          ; preds = %lor.rhs.i.i.i.i.i35
   %156 = load i64, ptr %_M_node_count.i.i.i.i.i138, align 16
   %inc.i.i.i.i.i359 = add i64 %156, 1
   store i64 %inc.i.i.i.i.i359, ptr %_M_node_count.i.i.i.i.i138, align 16
-  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_3EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
+  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_3EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
 
 lpad.i.i.i347:                                    ; preds = %call5.i.i.i.i.i.i.i.i.noexc367
   %157 = landingpad { ptr, i32 }
@@ -3415,13 +3415,13 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i365:          ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i366: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i363, %if.then.i.i.i.i361
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i.i368) #35
-  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_3EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i"
+  br label %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_3EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i"
 
-"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_3EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i": ; preds = %_ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i366, %cleanup.thread.i.i.i357
+"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_3EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i": ; preds = %_ZNSt8_Rb_treeIN7rocksdb16PeriodicTaskTypeESt4pairIKS1_KSt8functionIFvvEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i.i.i.i366, %cleanup.thread.i.i.i357
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__z.i.i.i314)
   br label %invoke.cont189
 
-invoke.cont189:                                   ; preds = %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_3EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i", %lor.rhs.i331
+invoke.cont189:                                   ; preds = %"_ZNSt3mapIN7rocksdb16PeriodicTaskTypeEKSt8functionIFvvEESt4lessIS1_ESaISt4pairIKS1_S5_EEE12emplace_hintIJS1_ZNS0_6DBImplC1ERKNS0_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbE3$_3EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.argprom.exit.i", %lor.rhs.i331
   %call194 = invoke noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #37
           to label %invoke.cont193 unwind label %lpad164.loopexit.split-lp
 

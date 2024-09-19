@@ -3839,7 +3839,7 @@ define internal void @i965_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %2, align 8
   %14 = getelementptr i8, ptr %2, i64 1648
   %.val18 = load i32, ptr %14, align 8
-  %15 = tail call fastcc ptr @i9xx_read_lut_8(ptr %.val, i32 %.val18)
+  %15 = tail call fastcc ptr @i9xx_read_lut_8.argprom(ptr %.val, i32 %.val18)
   %16 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %15, ptr %16, align 8
   br label %288
@@ -4263,7 +4263,7 @@ define internal void @i965_read_luts(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @i9xx_read_lut_8(ptr %.0.val, i32 %.1648.val) unnamed_addr #0 align 16 {
+define internal fastcc ptr @i9xx_read_lut_8.argprom(ptr %.0.val, i32 %.1648.val) unnamed_addr #0 align 16 {
   %1 = tail call ptr @drm_property_create_blob(ptr noundef %.0.val, i64 noundef 2048, ptr noundef null) #12
   %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
   br i1 %2, label %.loopexit, label %3
@@ -6246,7 +6246,7 @@ define internal void @i9xx_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %2, align 8
   %14 = getelementptr i8, ptr %2, i64 1648
   %.val9 = load i32, ptr %14, align 8
-  %15 = tail call fastcc ptr @i9xx_read_lut_8(ptr %.val, i32 %.val9)
+  %15 = tail call fastcc ptr @i9xx_read_lut_8.argprom(ptr %.val, i32 %.val9)
   %16 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %15, ptr %16, align 8
   br label %213
@@ -6841,7 +6841,7 @@ define internal range(i32 -22, 1) i32 @icl_color_check(ptr noundef %0) #0 align 
   %93 = getelementptr inbounds i8, ptr %0, i64 752
   %94 = getelementptr i8, ptr %.val8, i64 80
   %.val8.val = load ptr, ptr %94, align 8
-  tail call fastcc void @ilk_csc_convert_ctm(ptr %.val.val, ptr %.val8.val, ptr noundef %93, i1 noundef zeroext false)
+  tail call fastcc void @ilk_csc_convert_ctm.argprom.argprom(ptr %.val.val, ptr %.val8.val, ptr noundef %93, i1 noundef zeroext false)
   br label %110
 
 95:                                               ; preds = %65
@@ -7051,7 +7051,7 @@ define internal void @icl_color_commit_noarm(ptr nocapture noundef readonly %0) 
   %.val = load ptr, ptr %2, align 8
   %8 = getelementptr i8, ptr %2, i64 1648
   %.val35 = load i32, ptr %8, align 8
-  tail call fastcc void @ilk_update_pipe_csc(ptr %.val, i32 %.val35, ptr noundef %7)
+  tail call fastcc void @ilk_update_pipe_csc.argprom(ptr %.val, i32 %.val35, ptr noundef %7)
   %.pre = load i32, ptr %3, align 4
   br label %9
 
@@ -7908,7 +7908,7 @@ define internal void @icl_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %.val57 = load i64, ptr %8, align 8
   %9 = getelementptr i8, ptr %3, i64 80
   %.val58 = load ptr, ptr %9, align 8
-  tail call fastcc void @glk_load_degamma_lut(ptr noundef %0, i64 %.val57, ptr %.val58)
+  tail call fastcc void @glk_load_degamma_lut.argprom(ptr noundef %0, i64 %.val57, ptr %.val58)
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -7924,7 +7924,7 @@ define internal void @icl_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 14:                                               ; preds = %10
   tail call fastcc void @ilk_load_lut_8(ptr noundef %0, ptr noundef %5)
-  br label %ilk_lut_write.exit78
+  br label %ilk_lut_write.argprom.argprom.exit78
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %0, align 8
@@ -7943,7 +7943,7 @@ define internal void @icl_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 26:                                               ; preds = %15
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val2, i32 %23, i32 noundef 0) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 27:                                               ; preds = %15
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -8002,20 +8002,20 @@ define internal void @icl_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %58 = zext i32 %55 to i64
   %59 = getelementptr i8, ptr %57, i64 %58
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %59) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %26, %54
+ilk_lut_write.argprom.argprom.exit:               ; preds = %26, %54
   %.val3 = load ptr, ptr %0, align 8
   %.val4 = load ptr, ptr %24, align 8
   %.val3.val = load ptr, ptr %.val3, align 8
   %60 = icmp eq ptr %.val4, null
   br i1 %60, label %62, label %61
 
-61:                                               ; preds = %ilk_lut_write.exit
+61:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val4, i32 %23, i32 noundef 32768) #12
-  br label %ilk_lut_write.exit59
+  br label %ilk_lut_write.argprom.argprom.exit59
 
-62:                                               ; preds = %ilk_lut_write.exit
+62:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %83 [label %63], !srcloc !60
 
@@ -8072,15 +8072,15 @@ ilk_lut_write.exit:                               ; preds = %26, %54
   %93 = zext i32 %90 to i64
   %94 = getelementptr i8, ptr %92, i64 %93
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 32768, ptr elementtype(i32) %94) #12, !srcloc !68
-  br label %ilk_lut_write.exit59
+  br label %ilk_lut_write.argprom.argprom.exit59
 
-ilk_lut_write.exit59:                             ; preds = %61, %89
+ilk_lut_write.argprom.argprom.exit59:             ; preds = %61, %89
   %95 = add i32 %22, 304140
   %96 = icmp ult i32 %95, 262144
   br label %97
 
-97:                                               ; preds = %ilk_lut_write.exit61, %ilk_lut_write.exit59
-  %98 = phi i64 [ 0, %ilk_lut_write.exit59 ], [ %199, %ilk_lut_write.exit61 ]
+97:                                               ; preds = %ilk_lut_write.argprom.argprom.exit61, %ilk_lut_write.argprom.argprom.exit59
+  %98 = phi i64 [ 0, %ilk_lut_write.argprom.argprom.exit59 ], [ %199, %ilk_lut_write.argprom.argprom.exit61 ]
   %99 = getelementptr %struct.drm_color_lut, ptr %19, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 63
@@ -8106,7 +8106,7 @@ ilk_lut_write.exit59:                             ; preds = %61, %89
 
 117:                                              ; preds = %97
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val6, i32 %95, i32 noundef %115) #12
-  br label %ilk_lut_write.exit60
+  br label %ilk_lut_write.argprom.argprom.exit60
 
 118:                                              ; preds = %97
   %119 = zext nneg i32 %115 to i64
@@ -8165,9 +8165,9 @@ ilk_lut_write.exit59:                             ; preds = %61, %89
   %149 = zext i32 %146 to i64
   %150 = getelementptr i8, ptr %148, i64 %149
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %115, ptr elementtype(i32) %150) #12, !srcloc !68
-  br label %ilk_lut_write.exit60
+  br label %ilk_lut_write.argprom.argprom.exit60
 
-ilk_lut_write.exit60:                             ; preds = %117, %145
+ilk_lut_write.argprom.argprom.exit60:             ; preds = %117, %145
   %151 = load i16, ptr %99, align 2
   %152 = lshr i16 %151, 6
   %153 = zext nneg i16 %152 to i32
@@ -8187,11 +8187,11 @@ ilk_lut_write.exit60:                             ; preds = %117, %145
   %164 = icmp eq ptr %.val8, null
   br i1 %164, label %166, label %165
 
-165:                                              ; preds = %ilk_lut_write.exit60
+165:                                              ; preds = %ilk_lut_write.argprom.argprom.exit60
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val8, i32 %95, i32 noundef %163) #12
-  br label %ilk_lut_write.exit61
+  br label %ilk_lut_write.argprom.argprom.exit61
 
-166:                                              ; preds = %ilk_lut_write.exit60
+166:                                              ; preds = %ilk_lut_write.argprom.argprom.exit60
   %167 = zext nneg i32 %163 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %188 [label %168], !srcloc !60
@@ -8248,14 +8248,14 @@ ilk_lut_write.exit60:                             ; preds = %117, %145
   %197 = zext i32 %194 to i64
   %198 = getelementptr i8, ptr %196, i64 %197
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %163, ptr elementtype(i32) %198) #12, !srcloc !68
-  br label %ilk_lut_write.exit61
+  br label %ilk_lut_write.argprom.argprom.exit61
 
-ilk_lut_write.exit61:                             ; preds = %165, %193
+ilk_lut_write.argprom.argprom.exit61:             ; preds = %165, %193
   %199 = add nuw nsw i64 %98, 1
   %200 = icmp eq i64 %199, 9
   br i1 %200, label %201, label %97, !llvm.loop !149
 
-201:                                              ; preds = %ilk_lut_write.exit61
+201:                                              ; preds = %ilk_lut_write.argprom.argprom.exit61
   %.val9 = load ptr, ptr %0, align 8
   %.val10 = load ptr, ptr %24, align 8
   %.val9.val = load ptr, ptr %.val9, align 8
@@ -8264,7 +8264,7 @@ ilk_lut_write.exit61:                             ; preds = %165, %193
 
 203:                                              ; preds = %201
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val10, i32 %23, i32 noundef 0) #12
-  br label %ilk_lut_write.exit62
+  br label %ilk_lut_write.argprom.argprom.exit62
 
 204:                                              ; preds = %201
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -8323,9 +8323,9 @@ ilk_lut_write.exit61:                             ; preds = %165, %193
   %235 = zext i32 %232 to i64
   %236 = getelementptr i8, ptr %234, i64 %235
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %236) #12, !srcloc !68
-  br label %ilk_lut_write.exit62
+  br label %ilk_lut_write.argprom.argprom.exit62
 
-ilk_lut_write.exit62:                             ; preds = %203, %231
+ilk_lut_write.argprom.argprom.exit62:             ; preds = %203, %231
   %237 = load ptr, ptr %0, align 8
   %238 = load ptr, ptr %4, align 8
   %239 = getelementptr inbounds i8, ptr %238, i64 80
@@ -8339,11 +8339,11 @@ ilk_lut_write.exit62:                             ; preds = %203, %231
   %245 = icmp eq ptr %.val12, null
   br i1 %245, label %247, label %246
 
-246:                                              ; preds = %ilk_lut_write.exit62
+246:                                              ; preds = %ilk_lut_write.argprom.argprom.exit62
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val12, i32 %244, i32 noundef 0) #12
-  br label %ilk_lut_write.exit63
+  br label %ilk_lut_write.argprom.argprom.exit63
 
-247:                                              ; preds = %ilk_lut_write.exit62
+247:                                              ; preds = %ilk_lut_write.argprom.argprom.exit62
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %268 [label %248], !srcloc !60
 
@@ -8400,20 +8400,20 @@ ilk_lut_write.exit62:                             ; preds = %203, %231
   %278 = zext i32 %275 to i64
   %279 = getelementptr i8, ptr %277, i64 %278
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %279) #12, !srcloc !68
-  br label %ilk_lut_write.exit63
+  br label %ilk_lut_write.argprom.argprom.exit63
 
-ilk_lut_write.exit63:                             ; preds = %246, %274
+ilk_lut_write.argprom.argprom.exit63:             ; preds = %246, %274
   %.val13 = load ptr, ptr %0, align 8
   %.val14 = load ptr, ptr %24, align 8
   %.val13.val = load ptr, ptr %.val13, align 8
   %280 = icmp eq ptr %.val14, null
   br i1 %280, label %282, label %281
 
-281:                                              ; preds = %ilk_lut_write.exit63
+281:                                              ; preds = %ilk_lut_write.argprom.argprom.exit63
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val14, i32 %244, i32 noundef 32768) #12
-  br label %ilk_lut_write.exit64
+  br label %ilk_lut_write.argprom.argprom.exit64
 
-282:                                              ; preds = %ilk_lut_write.exit63
+282:                                              ; preds = %ilk_lut_write.argprom.argprom.exit63
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %303 [label %283], !srcloc !60
 
@@ -8470,15 +8470,15 @@ ilk_lut_write.exit63:                             ; preds = %246, %274
   %313 = zext i32 %310 to i64
   %314 = getelementptr i8, ptr %312, i64 %313
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 32768, ptr elementtype(i32) %314) #12, !srcloc !68
-  br label %ilk_lut_write.exit64
+  br label %ilk_lut_write.argprom.argprom.exit64
 
-ilk_lut_write.exit64:                             ; preds = %281, %309
+ilk_lut_write.argprom.argprom.exit64:             ; preds = %281, %309
   %315 = add i32 %243, 304132
   %316 = icmp ult i32 %315, 262144
   br label %317
 
-317:                                              ; preds = %ilk_lut_write.exit66, %ilk_lut_write.exit64
-  %318 = phi i64 [ 1, %ilk_lut_write.exit64 ], [ %419, %ilk_lut_write.exit66 ]
+317:                                              ; preds = %ilk_lut_write.argprom.argprom.exit66, %ilk_lut_write.argprom.argprom.exit64
+  %318 = phi i64 [ 1, %ilk_lut_write.argprom.argprom.exit64 ], [ %419, %ilk_lut_write.argprom.argprom.exit66 ]
   %.idx = shl i64 %318, 6
   %319 = getelementptr i8, ptr %240, i64 %.idx
   %320 = load i16, ptr %319, align 2
@@ -8505,7 +8505,7 @@ ilk_lut_write.exit64:                             ; preds = %281, %309
 
 337:                                              ; preds = %317
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val16, i32 %315, i32 noundef %335) #12
-  br label %ilk_lut_write.exit65
+  br label %ilk_lut_write.argprom.argprom.exit65
 
 338:                                              ; preds = %317
   %339 = zext nneg i32 %335 to i64
@@ -8564,9 +8564,9 @@ ilk_lut_write.exit64:                             ; preds = %281, %309
   %369 = zext i32 %366 to i64
   %370 = getelementptr i8, ptr %368, i64 %369
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %335, ptr elementtype(i32) %370) #12, !srcloc !68
-  br label %ilk_lut_write.exit65
+  br label %ilk_lut_write.argprom.argprom.exit65
 
-ilk_lut_write.exit65:                             ; preds = %337, %365
+ilk_lut_write.argprom.argprom.exit65:             ; preds = %337, %365
   %371 = load i16, ptr %319, align 2
   %372 = lshr i16 %371, 6
   %373 = zext nneg i16 %372 to i32
@@ -8586,11 +8586,11 @@ ilk_lut_write.exit65:                             ; preds = %337, %365
   %384 = icmp eq ptr %.val18, null
   br i1 %384, label %386, label %385
 
-385:                                              ; preds = %ilk_lut_write.exit65
+385:                                              ; preds = %ilk_lut_write.argprom.argprom.exit65
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val18, i32 %315, i32 noundef %383) #12
-  br label %ilk_lut_write.exit66
+  br label %ilk_lut_write.argprom.argprom.exit66
 
-386:                                              ; preds = %ilk_lut_write.exit65
+386:                                              ; preds = %ilk_lut_write.argprom.argprom.exit65
   %387 = zext nneg i32 %383 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %408 [label %388], !srcloc !60
@@ -8647,15 +8647,15 @@ ilk_lut_write.exit65:                             ; preds = %337, %365
   %417 = zext i32 %414 to i64
   %418 = getelementptr i8, ptr %416, i64 %417
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %383, ptr elementtype(i32) %418) #12, !srcloc !68
-  br label %ilk_lut_write.exit66
+  br label %ilk_lut_write.argprom.argprom.exit66
 
-ilk_lut_write.exit66:                             ; preds = %385, %413
+ilk_lut_write.argprom.argprom.exit66:             ; preds = %385, %413
   %419 = add nuw nsw i64 %318, 1
   %420 = icmp eq i64 %419, 257
   br i1 %420, label %.preheader, label %317, !llvm.loop !150
 
-.preheader:                                       ; preds = %ilk_lut_write.exit66, %ilk_lut_write.exit68
-  %421 = phi i64 [ %522, %ilk_lut_write.exit68 ], [ 0, %ilk_lut_write.exit66 ]
+.preheader:                                       ; preds = %ilk_lut_write.argprom.argprom.exit66, %ilk_lut_write.argprom.argprom.exit68
+  %421 = phi i64 [ %522, %ilk_lut_write.argprom.argprom.exit68 ], [ 0, %ilk_lut_write.argprom.argprom.exit66 ]
   %.idx1 = shl i64 %421, 13
   %422 = getelementptr i8, ptr %240, i64 %.idx1
   %423 = load i16, ptr %422, align 2
@@ -8682,7 +8682,7 @@ ilk_lut_write.exit66:                             ; preds = %385, %413
 
 440:                                              ; preds = %.preheader
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val20, i32 %315, i32 noundef %438) #12
-  br label %ilk_lut_write.exit67
+  br label %ilk_lut_write.argprom.argprom.exit67
 
 441:                                              ; preds = %.preheader
   %442 = zext nneg i32 %438 to i64
@@ -8741,9 +8741,9 @@ ilk_lut_write.exit66:                             ; preds = %385, %413
   %472 = zext i32 %469 to i64
   %473 = getelementptr i8, ptr %471, i64 %472
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %438, ptr elementtype(i32) %473) #12, !srcloc !68
-  br label %ilk_lut_write.exit67
+  br label %ilk_lut_write.argprom.argprom.exit67
 
-ilk_lut_write.exit67:                             ; preds = %440, %468
+ilk_lut_write.argprom.argprom.exit67:             ; preds = %440, %468
   %474 = load i16, ptr %422, align 2
   %475 = lshr i16 %474, 6
   %476 = zext nneg i16 %475 to i32
@@ -8763,11 +8763,11 @@ ilk_lut_write.exit67:                             ; preds = %440, %468
   %487 = icmp eq ptr %.val22, null
   br i1 %487, label %489, label %488
 
-488:                                              ; preds = %ilk_lut_write.exit67
+488:                                              ; preds = %ilk_lut_write.argprom.argprom.exit67
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val22, i32 %315, i32 noundef %486) #12
-  br label %ilk_lut_write.exit68
+  br label %ilk_lut_write.argprom.argprom.exit68
 
-489:                                              ; preds = %ilk_lut_write.exit67
+489:                                              ; preds = %ilk_lut_write.argprom.argprom.exit67
   %490 = zext nneg i32 %486 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %511 [label %491], !srcloc !60
@@ -8824,14 +8824,14 @@ ilk_lut_write.exit67:                             ; preds = %440, %468
   %520 = zext i32 %517 to i64
   %521 = getelementptr i8, ptr %519, i64 %520
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %486, ptr elementtype(i32) %521) #12, !srcloc !68
-  br label %ilk_lut_write.exit68
+  br label %ilk_lut_write.argprom.argprom.exit68
 
-ilk_lut_write.exit68:                             ; preds = %488, %516
+ilk_lut_write.argprom.argprom.exit68:             ; preds = %488, %516
   %522 = add nuw nsw i64 %421, 1
   %523 = icmp eq i64 %522, 256
   br i1 %523, label %524, label %.preheader, !llvm.loop !151
 
-524:                                              ; preds = %ilk_lut_write.exit68
+524:                                              ; preds = %ilk_lut_write.argprom.argprom.exit68
   %.val23 = load ptr, ptr %0, align 8
   %.val24 = load ptr, ptr %24, align 8
   %.val23.val = load ptr, ptr %.val23, align 8
@@ -8840,7 +8840,7 @@ ilk_lut_write.exit68:                             ; preds = %488, %516
 
 526:                                              ; preds = %524
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val24, i32 %244, i32 noundef 0) #12
-  br label %ilk_lut_write.exit69
+  br label %ilk_lut_write.argprom.argprom.exit69
 
 527:                                              ; preds = %524
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -8899,9 +8899,9 @@ ilk_lut_write.exit68:                             ; preds = %488, %516
   %558 = zext i32 %555 to i64
   %559 = getelementptr i8, ptr %557, i64 %558
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %559) #12, !srcloc !68
-  br label %ilk_lut_write.exit69
+  br label %ilk_lut_write.argprom.argprom.exit69
 
-ilk_lut_write.exit69:                             ; preds = %526, %554
+ilk_lut_write.argprom.argprom.exit69:             ; preds = %526, %554
   %560 = getelementptr i8, ptr %240, i64 2097152
   %561 = load ptr, ptr %0, align 8
   %562 = getelementptr inbounds i8, ptr %561, i64 1648
@@ -8915,11 +8915,11 @@ ilk_lut_write.exit69:                             ; preds = %526, %554
   %568 = icmp eq ptr %.val26, null
   br i1 %568, label %570, label %569
 
-569:                                              ; preds = %ilk_lut_write.exit69
+569:                                              ; preds = %ilk_lut_write.argprom.argprom.exit69
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val26, i32 %565, i32 noundef %567) #12
-  br label %ilk_lut_write.exit70
+  br label %ilk_lut_write.argprom.argprom.exit70
 
-570:                                              ; preds = %ilk_lut_write.exit69
+570:                                              ; preds = %ilk_lut_write.argprom.argprom.exit69
   %571 = zext i16 %566 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %592 [label %572], !srcloc !60
@@ -8977,9 +8977,9 @@ ilk_lut_write.exit69:                             ; preds = %526, %554
   %602 = zext i32 %599 to i64
   %603 = getelementptr i8, ptr %601, i64 %602
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %567, ptr elementtype(i32) %603) #12, !srcloc !68
-  br label %ilk_lut_write.exit70
+  br label %ilk_lut_write.argprom.argprom.exit70
 
-ilk_lut_write.exit70:                             ; preds = %569, %598
+ilk_lut_write.argprom.argprom.exit70:             ; preds = %569, %598
   %604 = add i32 %564, 304148
   %605 = getelementptr i8, ptr %240, i64 2097154
   %606 = load i16, ptr %605, align 2
@@ -8990,11 +8990,11 @@ ilk_lut_write.exit70:                             ; preds = %569, %598
   %608 = icmp eq ptr %.val28, null
   br i1 %608, label %610, label %609
 
-609:                                              ; preds = %ilk_lut_write.exit70
+609:                                              ; preds = %ilk_lut_write.argprom.argprom.exit70
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val28, i32 %604, i32 noundef %607) #12
-  br label %ilk_lut_write.exit71
+  br label %ilk_lut_write.argprom.argprom.exit71
 
-610:                                              ; preds = %ilk_lut_write.exit70
+610:                                              ; preds = %ilk_lut_write.argprom.argprom.exit70
   %611 = zext i16 %606 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %632 [label %612], !srcloc !60
@@ -9052,9 +9052,9 @@ ilk_lut_write.exit70:                             ; preds = %569, %598
   %642 = zext i32 %639 to i64
   %643 = getelementptr i8, ptr %641, i64 %642
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %607, ptr elementtype(i32) %643) #12, !srcloc !68
-  br label %ilk_lut_write.exit71
+  br label %ilk_lut_write.argprom.argprom.exit71
 
-ilk_lut_write.exit71:                             ; preds = %609, %638
+ilk_lut_write.argprom.argprom.exit71:             ; preds = %609, %638
   %644 = add i32 %564, 304152
   %645 = getelementptr i8, ptr %240, i64 2097156
   %646 = load i16, ptr %645, align 2
@@ -9065,11 +9065,11 @@ ilk_lut_write.exit71:                             ; preds = %609, %638
   %648 = icmp eq ptr %.val30, null
   br i1 %648, label %650, label %649
 
-649:                                              ; preds = %ilk_lut_write.exit71
+649:                                              ; preds = %ilk_lut_write.argprom.argprom.exit71
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val30, i32 %644, i32 noundef %647) #12
-  br label %ilk_lut_write.exit72
+  br label %ilk_lut_write.argprom.argprom.exit72
 
-650:                                              ; preds = %ilk_lut_write.exit71
+650:                                              ; preds = %ilk_lut_write.argprom.argprom.exit71
   %651 = zext i16 %646 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %672 [label %652], !srcloc !60
@@ -9127,9 +9127,9 @@ ilk_lut_write.exit71:                             ; preds = %609, %638
   %682 = zext i32 %679 to i64
   %683 = getelementptr i8, ptr %681, i64 %682
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %647, ptr elementtype(i32) %683) #12, !srcloc !68
-  br label %ilk_lut_write.exit72
+  br label %ilk_lut_write.argprom.argprom.exit72
 
-ilk_lut_write.exit72:                             ; preds = %649, %678
+ilk_lut_write.argprom.argprom.exit72:             ; preds = %649, %678
   %684 = load ptr, ptr %0, align 8
   %685 = getelementptr inbounds i8, ptr %684, i64 1648
   %686 = load i32, ptr %685, align 8
@@ -9140,11 +9140,11 @@ ilk_lut_write.exit72:                             ; preds = %649, %678
   %689 = icmp eq ptr %.val32, null
   br i1 %689, label %691, label %690
 
-690:                                              ; preds = %ilk_lut_write.exit72
+690:                                              ; preds = %ilk_lut_write.argprom.argprom.exit72
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val32, i32 %688, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit73
+  br label %ilk_lut_write.argprom.argprom.exit73
 
-691:                                              ; preds = %ilk_lut_write.exit72
+691:                                              ; preds = %ilk_lut_write.argprom.argprom.exit72
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %712 [label %692], !srcloc !60
 
@@ -9201,9 +9201,9 @@ ilk_lut_write.exit72:                             ; preds = %649, %678
   %722 = zext i32 %719 to i64
   %723 = getelementptr i8, ptr %721, i64 %722
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %723) #12, !srcloc !68
-  br label %ilk_lut_write.exit73
+  br label %ilk_lut_write.argprom.argprom.exit73
 
-ilk_lut_write.exit73:                             ; preds = %690, %718
+ilk_lut_write.argprom.argprom.exit73:             ; preds = %690, %718
   %724 = add i32 %687, 304164
   %.val33 = load ptr, ptr %0, align 8
   %.val34 = load ptr, ptr %24, align 8
@@ -9211,11 +9211,11 @@ ilk_lut_write.exit73:                             ; preds = %690, %718
   %725 = icmp eq ptr %.val34, null
   br i1 %725, label %727, label %726
 
-726:                                              ; preds = %ilk_lut_write.exit73
+726:                                              ; preds = %ilk_lut_write.argprom.argprom.exit73
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val34, i32 %724, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit74
+  br label %ilk_lut_write.argprom.argprom.exit74
 
-727:                                              ; preds = %ilk_lut_write.exit73
+727:                                              ; preds = %ilk_lut_write.argprom.argprom.exit73
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %748 [label %728], !srcloc !60
 
@@ -9272,9 +9272,9 @@ ilk_lut_write.exit73:                             ; preds = %690, %718
   %758 = zext i32 %755 to i64
   %759 = getelementptr i8, ptr %757, i64 %758
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %759) #12, !srcloc !68
-  br label %ilk_lut_write.exit74
+  br label %ilk_lut_write.argprom.argprom.exit74
 
-ilk_lut_write.exit74:                             ; preds = %726, %754
+ilk_lut_write.argprom.argprom.exit74:             ; preds = %726, %754
   %760 = add i32 %687, 304168
   %.val35 = load ptr, ptr %0, align 8
   %.val36 = load ptr, ptr %24, align 8
@@ -9282,11 +9282,11 @@ ilk_lut_write.exit74:                             ; preds = %726, %754
   %761 = icmp eq ptr %.val36, null
   br i1 %761, label %763, label %762
 
-762:                                              ; preds = %ilk_lut_write.exit74
+762:                                              ; preds = %ilk_lut_write.argprom.argprom.exit74
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val36, i32 %760, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit75
+  br label %ilk_lut_write.argprom.argprom.exit75
 
-763:                                              ; preds = %ilk_lut_write.exit74
+763:                                              ; preds = %ilk_lut_write.argprom.argprom.exit74
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %784 [label %764], !srcloc !60
 
@@ -9343,9 +9343,9 @@ ilk_lut_write.exit74:                             ; preds = %726, %754
   %794 = zext i32 %791 to i64
   %795 = getelementptr i8, ptr %793, i64 %794
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %795) #12, !srcloc !68
-  br label %ilk_lut_write.exit75
+  br label %ilk_lut_write.argprom.argprom.exit75
 
-ilk_lut_write.exit75:                             ; preds = %762, %790
+ilk_lut_write.argprom.argprom.exit75:             ; preds = %762, %790
   %796 = load ptr, ptr %0, align 8
   %797 = getelementptr inbounds i8, ptr %796, i64 1648
   %798 = load i32, ptr %797, align 8
@@ -9356,11 +9356,11 @@ ilk_lut_write.exit75:                             ; preds = %762, %790
   %801 = icmp eq ptr %.val38, null
   br i1 %801, label %803, label %802
 
-802:                                              ; preds = %ilk_lut_write.exit75
+802:                                              ; preds = %ilk_lut_write.argprom.argprom.exit75
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val38, i32 %800, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit76
+  br label %ilk_lut_write.argprom.argprom.exit76
 
-803:                                              ; preds = %ilk_lut_write.exit75
+803:                                              ; preds = %ilk_lut_write.argprom.argprom.exit75
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %824 [label %804], !srcloc !60
 
@@ -9417,9 +9417,9 @@ ilk_lut_write.exit75:                             ; preds = %762, %790
   %834 = zext i32 %831 to i64
   %835 = getelementptr i8, ptr %833, i64 %834
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %835) #12, !srcloc !68
-  br label %ilk_lut_write.exit76
+  br label %ilk_lut_write.argprom.argprom.exit76
 
-ilk_lut_write.exit76:                             ; preds = %802, %830
+ilk_lut_write.argprom.argprom.exit76:             ; preds = %802, %830
   %836 = add i32 %799, 304180
   %.val39 = load ptr, ptr %0, align 8
   %.val40 = load ptr, ptr %24, align 8
@@ -9427,11 +9427,11 @@ ilk_lut_write.exit76:                             ; preds = %802, %830
   %837 = icmp eq ptr %.val40, null
   br i1 %837, label %839, label %838
 
-838:                                              ; preds = %ilk_lut_write.exit76
+838:                                              ; preds = %ilk_lut_write.argprom.argprom.exit76
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val40, i32 %836, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit77
+  br label %ilk_lut_write.argprom.argprom.exit77
 
-839:                                              ; preds = %ilk_lut_write.exit76
+839:                                              ; preds = %ilk_lut_write.argprom.argprom.exit76
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %860 [label %840], !srcloc !60
 
@@ -9488,9 +9488,9 @@ ilk_lut_write.exit76:                             ; preds = %802, %830
   %870 = zext i32 %867 to i64
   %871 = getelementptr i8, ptr %869, i64 %870
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %871) #12, !srcloc !68
-  br label %ilk_lut_write.exit77
+  br label %ilk_lut_write.argprom.argprom.exit77
 
-ilk_lut_write.exit77:                             ; preds = %838, %866
+ilk_lut_write.argprom.argprom.exit77:             ; preds = %838, %866
   %872 = add i32 %799, 304184
   %.val41 = load ptr, ptr %0, align 8
   %.val42 = load ptr, ptr %24, align 8
@@ -9498,11 +9498,11 @@ ilk_lut_write.exit77:                             ; preds = %838, %866
   %873 = icmp eq ptr %.val42, null
   br i1 %873, label %875, label %874
 
-874:                                              ; preds = %ilk_lut_write.exit77
+874:                                              ; preds = %ilk_lut_write.argprom.argprom.exit77
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val42, i32 %872, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit78
+  br label %ilk_lut_write.argprom.argprom.exit78
 
-875:                                              ; preds = %ilk_lut_write.exit77
+875:                                              ; preds = %ilk_lut_write.argprom.argprom.exit77
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %896 [label %876], !srcloc !60
 
@@ -9559,14 +9559,14 @@ ilk_lut_write.exit77:                             ; preds = %838, %866
   %906 = zext i32 %903 to i64
   %907 = getelementptr i8, ptr %905, i64 %906
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %907) #12, !srcloc !68
-  br label %ilk_lut_write.exit78
+  br label %ilk_lut_write.argprom.argprom.exit78
 
 908:                                              ; preds = %10
   %909 = getelementptr i8, ptr %5, i64 72
   %.val55 = load i64, ptr %909, align 8
   %910 = getelementptr i8, ptr %5, i64 80
   %.val56 = load ptr, ptr %910, align 8
-  tail call fastcc void @bdw_load_lut_10(ptr noundef %0, i64 %.val55, ptr %.val56, i32 noundef 0)
+  tail call fastcc void @bdw_load_lut_10.argprom(ptr noundef %0, i64 %.val55, ptr %.val56, i32 noundef 0)
   %911 = load ptr, ptr %0, align 8
   %912 = getelementptr inbounds i8, ptr %911, i64 1648
   %913 = load i32, ptr %912, align 8
@@ -9580,7 +9580,7 @@ ilk_lut_write.exit77:                             ; preds = %838, %866
 
 918:                                              ; preds = %908
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val44, i32 %915, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit79
+  br label %ilk_lut_write.argprom.argprom.exit79
 
 919:                                              ; preds = %908
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -9639,9 +9639,9 @@ ilk_lut_write.exit77:                             ; preds = %838, %866
   %950 = zext i32 %947 to i64
   %951 = getelementptr i8, ptr %949, i64 %950
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %951) #12, !srcloc !68
-  br label %ilk_lut_write.exit79
+  br label %ilk_lut_write.argprom.argprom.exit79
 
-ilk_lut_write.exit79:                             ; preds = %918, %946
+ilk_lut_write.argprom.argprom.exit79:             ; preds = %918, %946
   %952 = add i32 %914, 304164
   %.val45 = load ptr, ptr %0, align 8
   %.val46 = load ptr, ptr %916, align 8
@@ -9649,11 +9649,11 @@ ilk_lut_write.exit79:                             ; preds = %918, %946
   %953 = icmp eq ptr %.val46, null
   br i1 %953, label %955, label %954
 
-954:                                              ; preds = %ilk_lut_write.exit79
+954:                                              ; preds = %ilk_lut_write.argprom.argprom.exit79
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val46, i32 %952, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit80
+  br label %ilk_lut_write.argprom.argprom.exit80
 
-955:                                              ; preds = %ilk_lut_write.exit79
+955:                                              ; preds = %ilk_lut_write.argprom.argprom.exit79
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %976 [label %956], !srcloc !60
 
@@ -9710,9 +9710,9 @@ ilk_lut_write.exit79:                             ; preds = %918, %946
   %986 = zext i32 %983 to i64
   %987 = getelementptr i8, ptr %985, i64 %986
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %987) #12, !srcloc !68
-  br label %ilk_lut_write.exit80
+  br label %ilk_lut_write.argprom.argprom.exit80
 
-ilk_lut_write.exit80:                             ; preds = %954, %982
+ilk_lut_write.argprom.argprom.exit80:             ; preds = %954, %982
   %988 = add i32 %914, 304168
   %.val47 = load ptr, ptr %0, align 8
   %.val48 = load ptr, ptr %916, align 8
@@ -9720,11 +9720,11 @@ ilk_lut_write.exit80:                             ; preds = %954, %982
   %989 = icmp eq ptr %.val48, null
   br i1 %989, label %991, label %990
 
-990:                                              ; preds = %ilk_lut_write.exit80
+990:                                              ; preds = %ilk_lut_write.argprom.argprom.exit80
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val48, i32 %988, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit81
+  br label %ilk_lut_write.argprom.argprom.exit81
 
-991:                                              ; preds = %ilk_lut_write.exit80
+991:                                              ; preds = %ilk_lut_write.argprom.argprom.exit80
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %1012 [label %992], !srcloc !60
 
@@ -9781,9 +9781,9 @@ ilk_lut_write.exit80:                             ; preds = %954, %982
   %1022 = zext i32 %1019 to i64
   %1023 = getelementptr i8, ptr %1021, i64 %1022
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %1023) #12, !srcloc !68
-  br label %ilk_lut_write.exit81
+  br label %ilk_lut_write.argprom.argprom.exit81
 
-ilk_lut_write.exit81:                             ; preds = %990, %1018
+ilk_lut_write.argprom.argprom.exit81:             ; preds = %990, %1018
   %1024 = load ptr, ptr %0, align 8
   %1025 = getelementptr inbounds i8, ptr %1024, i64 1648
   %1026 = load i32, ptr %1025, align 8
@@ -9794,11 +9794,11 @@ ilk_lut_write.exit81:                             ; preds = %990, %1018
   %1029 = icmp eq ptr %.val50, null
   br i1 %1029, label %1031, label %1030
 
-1030:                                             ; preds = %ilk_lut_write.exit81
+1030:                                             ; preds = %ilk_lut_write.argprom.argprom.exit81
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val50, i32 %1028, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit82
+  br label %ilk_lut_write.argprom.argprom.exit82
 
-1031:                                             ; preds = %ilk_lut_write.exit81
+1031:                                             ; preds = %ilk_lut_write.argprom.argprom.exit81
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %1052 [label %1032], !srcloc !60
 
@@ -9855,9 +9855,9 @@ ilk_lut_write.exit81:                             ; preds = %990, %1018
   %1062 = zext i32 %1059 to i64
   %1063 = getelementptr i8, ptr %1061, i64 %1062
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %1063) #12, !srcloc !68
-  br label %ilk_lut_write.exit82
+  br label %ilk_lut_write.argprom.argprom.exit82
 
-ilk_lut_write.exit82:                             ; preds = %1030, %1058
+ilk_lut_write.argprom.argprom.exit82:             ; preds = %1030, %1058
   %1064 = add i32 %1027, 304180
   %.val51 = load ptr, ptr %0, align 8
   %.val52 = load ptr, ptr %916, align 8
@@ -9865,11 +9865,11 @@ ilk_lut_write.exit82:                             ; preds = %1030, %1058
   %1065 = icmp eq ptr %.val52, null
   br i1 %1065, label %1067, label %1066
 
-1066:                                             ; preds = %ilk_lut_write.exit82
+1066:                                             ; preds = %ilk_lut_write.argprom.argprom.exit82
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val52, i32 %1064, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit83
+  br label %ilk_lut_write.argprom.argprom.exit83
 
-1067:                                             ; preds = %ilk_lut_write.exit82
+1067:                                             ; preds = %ilk_lut_write.argprom.argprom.exit82
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %1088 [label %1068], !srcloc !60
 
@@ -9926,9 +9926,9 @@ ilk_lut_write.exit82:                             ; preds = %1030, %1058
   %1098 = zext i32 %1095 to i64
   %1099 = getelementptr i8, ptr %1097, i64 %1098
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %1099) #12, !srcloc !68
-  br label %ilk_lut_write.exit83
+  br label %ilk_lut_write.argprom.argprom.exit83
 
-ilk_lut_write.exit83:                             ; preds = %1066, %1094
+ilk_lut_write.argprom.argprom.exit83:             ; preds = %1066, %1094
   %1100 = add i32 %1027, 304184
   %.val53 = load ptr, ptr %0, align 8
   %.val54 = load ptr, ptr %916, align 8
@@ -9936,11 +9936,11 @@ ilk_lut_write.exit83:                             ; preds = %1066, %1094
   %1101 = icmp eq ptr %.val54, null
   br i1 %1101, label %1103, label %1102
 
-1102:                                             ; preds = %ilk_lut_write.exit83
+1102:                                             ; preds = %ilk_lut_write.argprom.argprom.exit83
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val54, i32 %1100, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit78
+  br label %ilk_lut_write.argprom.argprom.exit78
 
-1103:                                             ; preds = %ilk_lut_write.exit83
+1103:                                             ; preds = %ilk_lut_write.argprom.argprom.exit83
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %1124 [label %1104], !srcloc !60
 
@@ -9997,7 +9997,7 @@ ilk_lut_write.exit83:                             ; preds = %1066, %1094
   %1134 = zext i32 %1131 to i64
   %1135 = getelementptr i8, ptr %1133, i64 %1134
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %1135) #12, !srcloc !68
-  br label %ilk_lut_write.exit78
+  br label %ilk_lut_write.argprom.argprom.exit78
 
 default.unreachable85:                            ; preds = %10
   unreachable
@@ -10011,9 +10011,9 @@ default.unreachable85:                            ; preds = %10
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1759, i32 2313, i64 12) #12, !srcloc !154
   tail call void asm sideeffect "1165: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1165b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1165) #12, !srcloc !155
   tail call void asm sideeffect "1166: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1166b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1166) #12, !srcloc !156
-  br label %ilk_lut_write.exit78
+  br label %ilk_lut_write.argprom.argprom.exit78
 
-ilk_lut_write.exit78:                             ; preds = %1130, %1102, %902, %874, %1136, %14
+ilk_lut_write.argprom.argprom.exit78:             ; preds = %1130, %1102, %902, %874, %1136, %14
   ret void
 }
 
@@ -10029,7 +10029,7 @@ define internal void @icl_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val15 = load ptr, ptr %2, align 8
   %7 = getelementptr i8, ptr %2, i64 1648
   %.val16 = load i32, ptr %7, align 8
-  %8 = tail call fastcc ptr @glk_read_degamma_lut(ptr %.val15, i32 %.val16)
+  %8 = tail call fastcc ptr @glk_read_degamma_lut.argprom(ptr %.val15, i32 %.val16)
   %9 = getelementptr inbounds i8, ptr %0, i64 736
   store ptr %8, ptr %9, align 8
   %.pre.pre = load i32, ptr %3, align 8
@@ -10058,7 +10058,7 @@ define internal void @icl_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %2, align 8
   %19 = getelementptr i8, ptr %2, i64 1648
   %.val12 = load i32, ptr %19, align 8
-  %20 = tail call fastcc ptr @ilk_read_lut_8(ptr %.val, i32 %.val12)
+  %20 = tail call fastcc ptr @ilk_read_lut_8.argprom(ptr %.val, i32 %.val12)
   %21 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %20, ptr %21, align 8
   br label %230
@@ -10067,7 +10067,7 @@ define internal void @icl_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val13 = load ptr, ptr %2, align 8
   %23 = getelementptr i8, ptr %2, i64 1648
   %.val14 = load i32, ptr %23, align 8
-  %24 = tail call fastcc ptr @bdw_read_lut_10(ptr %.val13, i32 %.val14, i32 noundef 0)
+  %24 = tail call fastcc ptr @bdw_read_lut_10.argprom(ptr %.val13, i32 %.val14, i32 noundef 0)
   %25 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %24, ptr %25, align 8
   br label %230
@@ -10725,7 +10725,7 @@ define internal void @icl_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %2, align 8
   %8 = getelementptr i8, ptr %2, i64 1648
   %.val35 = load i32, ptr %8, align 8
-  tail call fastcc void @ilk_read_pipe_csc(ptr %.val, i32 %.val35, ptr noundef %7)
+  tail call fastcc void @ilk_read_pipe_csc.argprom(ptr %.val, i32 %.val35, ptr noundef %7)
   %.pre = load i32, ptr %3, align 4
   br label %9
 
@@ -11534,7 +11534,7 @@ define internal void @skl_get_config(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.360.val.80.val, ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) unnamed_addr #10 align 16 {
+define internal fastcc void @ilk_csc_convert_ctm.argprom.argprom(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.360.val.80.val, ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) unnamed_addr #10 align 16 {
   %3 = alloca [9 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !168
@@ -11696,7 +11696,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_update_pipe_csc(ptr nocapture readonly %.0.val, i32 %.1648.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_update_pipe_csc.argprom(ptr nocapture readonly %.0.val, i32 %.1648.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = shl i32 %.1648.val, 8
   %3 = add i32 %2, 299056
   %4 = getelementptr inbounds i8, ptr %0, i64 18
@@ -12449,7 +12449,7 @@ define internal fastcc void @ilk_update_pipe_csc(ptr nocapture readonly %.0.val,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @glk_load_degamma_lut(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val) unnamed_addr #0 align 16 {
+define internal fastcc void @glk_load_degamma_lut.argprom(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = lshr i64 %.72.val, 3
@@ -12465,7 +12465,7 @@ define internal fastcc void @glk_load_degamma_lut(ptr nocapture noundef readonly
 
 12:                                               ; preds = %1
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val2, i32 %9, i32 noundef 0) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 13:                                               ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -12524,20 +12524,20 @@ define internal fastcc void @glk_load_degamma_lut(ptr nocapture noundef readonly
   %44 = zext i32 %41 to i64
   %45 = getelementptr i8, ptr %43, i64 %44
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %45) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %12, %40
+ilk_lut_write.argprom.argprom.exit:               ; preds = %12, %40
   %.val3 = load ptr, ptr %0, align 8
   %.val4 = load ptr, ptr %10, align 8
   %.val3.val = load ptr, ptr %.val3, align 8
   %46 = icmp eq ptr %.val4, null
   br i1 %46, label %48, label %47
 
-47:                                               ; preds = %ilk_lut_write.exit
+47:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val4, i32 %9, i32 noundef 1024) #12
-  br label %ilk_lut_write.exit11
+  br label %ilk_lut_write.argprom.argprom.exit11
 
-48:                                               ; preds = %ilk_lut_write.exit
+48:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %69 [label %49], !srcloc !60
 
@@ -12594,26 +12594,26 @@ ilk_lut_write.exit:                               ; preds = %12, %40
   %79 = zext i32 %76 to i64
   %80 = getelementptr i8, ptr %78, i64 %79
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1024, ptr elementtype(i32) %80) #12, !srcloc !68
-  br label %ilk_lut_write.exit11
+  br label %ilk_lut_write.argprom.argprom.exit11
 
-ilk_lut_write.exit11:                             ; preds = %47, %75
+ilk_lut_write.argprom.argprom.exit11:             ; preds = %47, %75
   %81 = icmp sgt i32 %5, 0
   br i1 %81, label %84, label %.thread
 
-.thread:                                          ; preds = %ilk_lut_write.exit11
+.thread:                                          ; preds = %ilk_lut_write.argprom.argprom.exit11
   %82 = getelementptr inbounds i8, ptr %3, i64 2632
   %83 = load i16, ptr %82, align 8
   %.pre = add i32 %8, 304264
   br label %95
 
-84:                                               ; preds = %ilk_lut_write.exit11
+84:                                               ; preds = %ilk_lut_write.argprom.argprom.exit11
   %85 = add i32 %8, 304264
   %86 = getelementptr inbounds i8, ptr %3, i64 2632
   %87 = and i64 %4, 2147483647
   %88 = icmp ult i32 %85, 262144
   br label %100
 
-89:                                               ; preds = %ilk_lut_write.exit12
+89:                                               ; preds = %ilk_lut_write.argprom.argprom.exit12
   %90 = trunc i64 %4 to i32
   %91 = load i16, ptr %86, align 8
   %92 = icmp ugt i16 %91, 12
@@ -12629,8 +12629,8 @@ ilk_lut_write.exit11:                             ; preds = %47, %75
   %99 = icmp ult i32 %.pre-phi, 262144
   br label %153
 
-100:                                              ; preds = %ilk_lut_write.exit12, %84
-  %101 = phi i64 [ 0, %84 ], [ %151, %ilk_lut_write.exit12 ]
+100:                                              ; preds = %ilk_lut_write.argprom.argprom.exit12, %84
+  %101 = phi i64 [ 0, %84 ], [ %151, %ilk_lut_write.argprom.argprom.exit12 ]
   %102 = load i16, ptr %86, align 8
   %103 = icmp ugt i16 %102, 13
   %104 = getelementptr %struct.drm_color_lut, ptr %.80.val, i64 %101, i32 1
@@ -12659,7 +12659,7 @@ ilk_lut_write.exit11:                             ; preds = %47, %75
 
 117:                                              ; preds = %114
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val6, i32 %85, i32 noundef %115) #12
-  br label %ilk_lut_write.exit12
+  br label %ilk_lut_write.argprom.argprom.exit12
 
 118:                                              ; preds = %114
   %119 = zext nneg i32 %115 to i64
@@ -12718,16 +12718,16 @@ ilk_lut_write.exit11:                             ; preds = %47, %75
   %149 = zext i32 %146 to i64
   %150 = getelementptr i8, ptr %148, i64 %149
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %115, ptr elementtype(i32) %150) #12, !srcloc !68
-  br label %ilk_lut_write.exit12
+  br label %ilk_lut_write.argprom.argprom.exit12
 
-ilk_lut_write.exit12:                             ; preds = %117, %145
+ilk_lut_write.argprom.argprom.exit12:             ; preds = %117, %145
   %151 = add nuw nsw i64 %101, 1
   %152 = icmp eq i64 %151, %87
   br i1 %152, label %89, label %100, !llvm.loop !171
 
-153:                                              ; preds = %ilk_lut_write.exit13, %95
-  %154 = phi i16 [ %96, %95 ], [ %194, %ilk_lut_write.exit13 ]
-  %155 = phi i32 [ %98, %95 ], [ %156, %ilk_lut_write.exit13 ]
+153:                                              ; preds = %ilk_lut_write.argprom.argprom.exit13, %95
+  %154 = phi i16 [ %96, %95 ], [ %194, %ilk_lut_write.argprom.argprom.exit13 ]
+  %155 = phi i32 [ %98, %95 ], [ %156, %ilk_lut_write.argprom.argprom.exit13 ]
   %156 = add nuw nsw i32 %155, 1
   %157 = icmp ugt i16 %154, 13
   %158 = select i1 %157, i32 16777216, i32 65536
@@ -12739,7 +12739,7 @@ ilk_lut_write.exit12:                             ; preds = %117, %145
 
 160:                                              ; preds = %153
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val8, i32 %.pre-phi, i32 noundef %158) #12
-  br label %ilk_lut_write.exit13
+  br label %ilk_lut_write.argprom.argprom.exit13
 
 161:                                              ; preds = %153
   %162 = zext nneg i32 %158 to i64
@@ -12798,16 +12798,16 @@ ilk_lut_write.exit12:                             ; preds = %117, %145
   %192 = zext i32 %189 to i64
   %193 = getelementptr i8, ptr %191, i64 %192
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %158, ptr elementtype(i32) %193) #12, !srcloc !68
-  br label %ilk_lut_write.exit13
+  br label %ilk_lut_write.argprom.argprom.exit13
 
-ilk_lut_write.exit13:                             ; preds = %160, %188
+ilk_lut_write.argprom.argprom.exit13:             ; preds = %160, %188
   %194 = load i16, ptr %97, align 8
   %195 = icmp ugt i16 %194, 12
   %196 = select i1 %195, i32 131, i32 35
   %197 = icmp slt i32 %156, %196
   br i1 %197, label %153, label %.loopexit, !llvm.loop !172
 
-.loopexit:                                        ; preds = %ilk_lut_write.exit13, %89
+.loopexit:                                        ; preds = %ilk_lut_write.argprom.argprom.exit13, %89
   %.val9 = load ptr, ptr %0, align 8
   %.val10 = load ptr, ptr %10, align 8
   %.val9.val = load ptr, ptr %.val9, align 8
@@ -12816,7 +12816,7 @@ ilk_lut_write.exit13:                             ; preds = %160, %188
 
 199:                                              ; preds = %.loopexit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val10, i32 %9, i32 noundef 0) #12
-  br label %ilk_lut_write.exit14
+  br label %ilk_lut_write.argprom.argprom.exit14
 
 200:                                              ; preds = %.loopexit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -12875,9 +12875,9 @@ ilk_lut_write.exit13:                             ; preds = %160, %188
   %231 = zext i32 %228 to i64
   %232 = getelementptr i8, ptr %230, i64 %231
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %232) #12, !srcloc !68
-  br label %ilk_lut_write.exit14
+  br label %ilk_lut_write.argprom.argprom.exit14
 
-ilk_lut_write.exit14:                             ; preds = %199, %227
+ilk_lut_write.argprom.argprom.exit14:             ; preds = %199, %227
   ret void
 }
 
@@ -12906,8 +12906,8 @@ define internal fastcc void @ilk_load_lut_8(ptr nocapture noundef readonly %0, p
   %16 = add i32 %15, 303104
   br label %17
 
-17:                                               ; preds = %ilk_lut_write.exit, %14
-  %18 = phi i64 [ 0, %14 ], [ %82, %ilk_lut_write.exit ]
+17:                                               ; preds = %ilk_lut_write.argprom.argprom.exit, %14
+  %18 = phi i64 [ 0, %14 ], [ %82, %ilk_lut_write.argprom.argprom.exit ]
   %19 = getelementptr %struct.drm_color_lut, ptr %9, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
@@ -12943,7 +12943,7 @@ define internal fastcc void @ilk_load_lut_8(ptr nocapture noundef readonly %0, p
 
 47:                                               ; preds = %17
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val3, i32 %45, i32 noundef %42) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 48:                                               ; preds = %17
   %49 = zext nneg i32 %42 to i64
@@ -13003,14 +13003,14 @@ define internal fastcc void @ilk_load_lut_8(ptr nocapture noundef readonly %0, p
   %80 = zext i32 %77 to i64
   %81 = getelementptr i8, ptr %79, i64 %80
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %42, ptr elementtype(i32) %81) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %47, %76
+ilk_lut_write.argprom.argprom.exit:               ; preds = %47, %76
   %82 = add nuw nsw i64 %18, 1
   %83 = icmp eq i64 %82, 256
   br i1 %83, label %84, label %17, !llvm.loop !173
 
-84:                                               ; preds = %ilk_lut_write.exit
+84:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   %85 = load ptr, ptr %10, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %88, label %87
@@ -13024,7 +13024,7 @@ ilk_lut_write.exit:                               ; preds = %47, %76
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bdw_load_lut_10(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val, i32 noundef range(i32 -2147483648, 1) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @bdw_load_lut_10.argprom(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val, i32 noundef range(i32 -2147483648, 1) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = lshr i64 %.72.val, 3
   %5 = trunc i64 %4 to i32
@@ -13040,7 +13040,7 @@ define internal fastcc void @bdw_load_lut_10(ptr nocapture noundef readonly %0, 
 
 12:                                               ; preds = %2
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val1, i32 %9, i32 noundef %1) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 13:                                               ; preds = %2
   %14 = zext i32 %1 to i64
@@ -13100,9 +13100,9 @@ define internal fastcc void @bdw_load_lut_10(ptr nocapture noundef readonly %0, 
   %45 = zext i32 %42 to i64
   %46 = getelementptr i8, ptr %44, i64 %45
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %1, ptr elementtype(i32) %46) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %12, %41
+ilk_lut_write.argprom.argprom.exit:               ; preds = %12, %41
   %47 = or i32 %1, 32768
   %.val2 = load ptr, ptr %0, align 8
   %.val3 = load ptr, ptr %10, align 8
@@ -13110,11 +13110,11 @@ ilk_lut_write.exit:                               ; preds = %12, %41
   %48 = icmp eq ptr %.val3, null
   br i1 %48, label %50, label %49
 
-49:                                               ; preds = %ilk_lut_write.exit
+49:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val3, i32 %9, i32 noundef %47) #12
-  br label %ilk_lut_write.exit8
+  br label %ilk_lut_write.argprom.argprom.exit8
 
-50:                                               ; preds = %ilk_lut_write.exit
+50:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   %51 = zext i32 %47 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %72 [label %52], !srcloc !60
@@ -13172,20 +13172,20 @@ ilk_lut_write.exit:                               ; preds = %12, %41
   %82 = zext i32 %79 to i64
   %83 = getelementptr i8, ptr %81, i64 %82
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %83) #12, !srcloc !68
-  br label %ilk_lut_write.exit8
+  br label %ilk_lut_write.argprom.argprom.exit8
 
-ilk_lut_write.exit8:                              ; preds = %49, %78
+ilk_lut_write.argprom.argprom.exit8:              ; preds = %49, %78
   %84 = icmp sgt i32 %5, 0
   br i1 %84, label %85, label %.loopexit
 
-85:                                               ; preds = %ilk_lut_write.exit8
+85:                                               ; preds = %ilk_lut_write.argprom.argprom.exit8
   %86 = add i32 %8, 304132
   %87 = and i64 %4, 2147483647
   %88 = icmp ult i32 %86, 262144
   br label %89
 
-89:                                               ; preds = %ilk_lut_write.exit9, %85
-  %90 = phi i64 [ 0, %85 ], [ %150, %ilk_lut_write.exit9 ]
+89:                                               ; preds = %ilk_lut_write.argprom.argprom.exit9, %85
+  %90 = phi i64 [ 0, %85 ], [ %150, %ilk_lut_write.argprom.argprom.exit9 ]
   %91 = getelementptr %struct.drm_color_lut, ptr %.80.val, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
@@ -13218,7 +13218,7 @@ ilk_lut_write.exit8:                              ; preds = %49, %78
 
 116:                                              ; preds = %89
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val5, i32 %86, i32 noundef %114) #12
-  br label %ilk_lut_write.exit9
+  br label %ilk_lut_write.argprom.argprom.exit9
 
 117:                                              ; preds = %89
   %118 = zext nneg i32 %114 to i64
@@ -13277,14 +13277,14 @@ ilk_lut_write.exit8:                              ; preds = %49, %78
   %148 = zext i32 %145 to i64
   %149 = getelementptr i8, ptr %147, i64 %148
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %114, ptr elementtype(i32) %149) #12, !srcloc !68
-  br label %ilk_lut_write.exit9
+  br label %ilk_lut_write.argprom.argprom.exit9
 
-ilk_lut_write.exit9:                              ; preds = %116, %144
+ilk_lut_write.argprom.argprom.exit9:              ; preds = %116, %144
   %150 = add nuw nsw i64 %90, 1
   %151 = icmp eq i64 %150, %87
   br i1 %151, label %.loopexit, label %89, !llvm.loop !174
 
-.loopexit:                                        ; preds = %ilk_lut_write.exit9, %ilk_lut_write.exit8
+.loopexit:                                        ; preds = %ilk_lut_write.argprom.argprom.exit9, %ilk_lut_write.argprom.argprom.exit8
   %.val6 = load ptr, ptr %0, align 8
   %.val7 = load ptr, ptr %10, align 8
   %.val6.val = load ptr, ptr %.val6, align 8
@@ -13293,7 +13293,7 @@ ilk_lut_write.exit9:                              ; preds = %116, %144
 
 153:                                              ; preds = %.loopexit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val7, i32 %9, i32 noundef 0) #12
-  br label %ilk_lut_write.exit10
+  br label %ilk_lut_write.argprom.argprom.exit10
 
 154:                                              ; preds = %.loopexit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -13352,9 +13352,9 @@ ilk_lut_write.exit9:                              ; preds = %116, %144
   %185 = zext i32 %182 to i64
   %186 = getelementptr i8, ptr %184, i64 %185
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %186) #12, !srcloc !68
-  br label %ilk_lut_write.exit10
+  br label %ilk_lut_write.argprom.argprom.exit10
 
-ilk_lut_write.exit10:                             ; preds = %153, %181
+ilk_lut_write.argprom.argprom.exit10:             ; preds = %153, %181
   ret void
 }
 
@@ -13368,7 +13368,7 @@ declare dso_local void @intel_dsb_nonpost_start(ptr noundef) local_unnamed_addr 
 declare dso_local void @intel_dsb_nonpost_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @glk_read_degamma_lut(ptr %.0.val, i32 %.1648.val) unnamed_addr #0 align 16 {
+define internal fastcc ptr @glk_read_degamma_lut.argprom(ptr %.0.val, i32 %.1648.val) unnamed_addr #0 align 16 {
   %1 = getelementptr inbounds i8, ptr %.0.val, i64 2624
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 108
@@ -13654,7 +13654,7 @@ define internal fastcc ptr @glk_read_degamma_lut(ptr %.0.val, i32 %.1648.val) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ilk_read_lut_8(ptr %.0.val, i32 %.1648.val) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ilk_read_lut_8.argprom(ptr %.0.val, i32 %.1648.val) unnamed_addr #0 align 16 {
   %1 = tail call ptr @drm_property_create_blob(ptr noundef %.0.val, i64 noundef 2048, ptr noundef null) #12
   %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
   br i1 %2, label %.loopexit, label %3
@@ -13763,7 +13763,7 @@ define internal fastcc ptr @ilk_read_lut_8(ptr %.0.val, i32 %.1648.val) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @bdw_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 noundef range(i32 -2147483648, 1) %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @bdw_read_lut_10.argprom(ptr %.0.val, i32 %.1648.val, i32 noundef range(i32 -2147483648, 1) %0) unnamed_addr #0 align 16 {
   %2 = icmp sgt i32 %0, -1
   %3 = select i1 %2, i32 1024, i32 512
   %4 = shl nuw nsw i32 %3, 3
@@ -14041,7 +14041,7 @@ define internal fastcc ptr @bdw_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i32 %.1648.val, ptr nocapture noundef writeonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_read_pipe_csc.argprom(ptr nocapture readonly %.0.val, i32 %.1648.val, ptr nocapture noundef writeonly %0) unnamed_addr #0 align 16 {
   %2 = shl i32 %.1648.val, 8
   %3 = add i32 %2, 299056
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 7368
@@ -15333,7 +15333,7 @@ define internal void @skl_color_commit_noarm(ptr nocapture noundef readonly %0) 
   %.val = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %10, i64 1648
   %.val1 = load i32, ptr %12, align 8
-  tail call fastcc void @ilk_update_pipe_csc(ptr %.val, i32 %.val1, ptr noundef %11)
+  tail call fastcc void @ilk_update_pipe_csc.argprom(ptr %.val, i32 %.val1, ptr noundef %11)
   br label %13
 
 13:                                               ; preds = %9, %5, %1
@@ -15359,7 +15359,7 @@ define internal void @skl_color_commit_arm(ptr nocapture noundef readonly %0) #0
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 752
-  tail call fastcc void @ilk_update_pipe_csc(ptr %3, i32 %5, ptr noundef %14)
+  tail call fastcc void @ilk_update_pipe_csc.argprom(ptr %3, i32 %5, ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %13, %9, %1
@@ -15463,7 +15463,7 @@ define internal void @glk_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %.val14 = load i64, ptr %8, align 8
   %9 = getelementptr i8, ptr %3, i64 80
   %.val15 = load ptr, ptr %9, align 8
-  tail call fastcc void @glk_load_degamma_lut(ptr noundef %0, i64 %.val14, ptr %.val15)
+  tail call fastcc void @glk_load_degamma_lut.argprom(ptr noundef %0, i64 %.val14, ptr %.val15)
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -15476,14 +15476,14 @@ define internal void @glk_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 13:                                               ; preds = %10
   tail call fastcc void @ilk_load_lut_8(ptr noundef %0, ptr noundef %5)
-  br label %ilk_lut_write.exit20
+  br label %ilk_lut_write.argprom.argprom.exit20
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %5, i64 72
   %.val12 = load i64, ptr %15, align 8
   %16 = getelementptr i8, ptr %5, i64 80
   %.val13 = load ptr, ptr %16, align 8
-  tail call fastcc void @bdw_load_lut_10(ptr noundef %0, i64 %.val12, ptr %.val13, i32 noundef 0)
+  tail call fastcc void @bdw_load_lut_10.argprom(ptr noundef %0, i64 %.val12, ptr %.val13, i32 noundef 0)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 1648
   %19 = load i32, ptr %18, align 8
@@ -15497,7 +15497,7 @@ define internal void @glk_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 24:                                               ; preds = %14
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val11, i32 %21, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 25:                                               ; preds = %14
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -15556,9 +15556,9 @@ define internal void @glk_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %56 = zext i32 %53 to i64
   %57 = getelementptr i8, ptr %55, i64 %56
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %57) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %24, %52
+ilk_lut_write.argprom.argprom.exit:               ; preds = %24, %52
   %58 = add i32 %20, 304164
   %.val8 = load ptr, ptr %0, align 8
   %.val9 = load ptr, ptr %22, align 8
@@ -15566,11 +15566,11 @@ ilk_lut_write.exit:                               ; preds = %24, %52
   %59 = icmp eq ptr %.val9, null
   br i1 %59, label %61, label %60
 
-60:                                               ; preds = %ilk_lut_write.exit
+60:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val9, i32 %58, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit16
+  br label %ilk_lut_write.argprom.argprom.exit16
 
-61:                                               ; preds = %ilk_lut_write.exit
+61:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %82 [label %62], !srcloc !60
 
@@ -15627,9 +15627,9 @@ ilk_lut_write.exit:                               ; preds = %24, %52
   %92 = zext i32 %89 to i64
   %93 = getelementptr i8, ptr %91, i64 %92
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %93) #12, !srcloc !68
-  br label %ilk_lut_write.exit16
+  br label %ilk_lut_write.argprom.argprom.exit16
 
-ilk_lut_write.exit16:                             ; preds = %60, %88
+ilk_lut_write.argprom.argprom.exit16:             ; preds = %60, %88
   %94 = add i32 %20, 304168
   %.val6 = load ptr, ptr %0, align 8
   %.val7 = load ptr, ptr %22, align 8
@@ -15637,11 +15637,11 @@ ilk_lut_write.exit16:                             ; preds = %60, %88
   %95 = icmp eq ptr %.val7, null
   br i1 %95, label %97, label %96
 
-96:                                               ; preds = %ilk_lut_write.exit16
+96:                                               ; preds = %ilk_lut_write.argprom.argprom.exit16
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val7, i32 %94, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit17
+  br label %ilk_lut_write.argprom.argprom.exit17
 
-97:                                               ; preds = %ilk_lut_write.exit16
+97:                                               ; preds = %ilk_lut_write.argprom.argprom.exit16
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %118 [label %98], !srcloc !60
 
@@ -15698,9 +15698,9 @@ ilk_lut_write.exit16:                             ; preds = %60, %88
   %128 = zext i32 %125 to i64
   %129 = getelementptr i8, ptr %127, i64 %128
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %129) #12, !srcloc !68
-  br label %ilk_lut_write.exit17
+  br label %ilk_lut_write.argprom.argprom.exit17
 
-ilk_lut_write.exit17:                             ; preds = %96, %124
+ilk_lut_write.argprom.argprom.exit17:             ; preds = %96, %124
   %130 = load ptr, ptr %0, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 1648
   %132 = load i32, ptr %131, align 8
@@ -15711,11 +15711,11 @@ ilk_lut_write.exit17:                             ; preds = %96, %124
   %135 = icmp eq ptr %.val5, null
   br i1 %135, label %137, label %136
 
-136:                                              ; preds = %ilk_lut_write.exit17
+136:                                              ; preds = %ilk_lut_write.argprom.argprom.exit17
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val5, i32 %134, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit18
+  br label %ilk_lut_write.argprom.argprom.exit18
 
-137:                                              ; preds = %ilk_lut_write.exit17
+137:                                              ; preds = %ilk_lut_write.argprom.argprom.exit17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %158 [label %138], !srcloc !60
 
@@ -15772,9 +15772,9 @@ ilk_lut_write.exit17:                             ; preds = %96, %124
   %168 = zext i32 %165 to i64
   %169 = getelementptr i8, ptr %167, i64 %168
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %169) #12, !srcloc !68
-  br label %ilk_lut_write.exit18
+  br label %ilk_lut_write.argprom.argprom.exit18
 
-ilk_lut_write.exit18:                             ; preds = %136, %164
+ilk_lut_write.argprom.argprom.exit18:             ; preds = %136, %164
   %170 = add i32 %133, 304180
   %.val2 = load ptr, ptr %0, align 8
   %.val3 = load ptr, ptr %22, align 8
@@ -15782,11 +15782,11 @@ ilk_lut_write.exit18:                             ; preds = %136, %164
   %171 = icmp eq ptr %.val3, null
   br i1 %171, label %173, label %172
 
-172:                                              ; preds = %ilk_lut_write.exit18
+172:                                              ; preds = %ilk_lut_write.argprom.argprom.exit18
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val3, i32 %170, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit19
+  br label %ilk_lut_write.argprom.argprom.exit19
 
-173:                                              ; preds = %ilk_lut_write.exit18
+173:                                              ; preds = %ilk_lut_write.argprom.argprom.exit18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %194 [label %174], !srcloc !60
 
@@ -15843,9 +15843,9 @@ ilk_lut_write.exit18:                             ; preds = %136, %164
   %204 = zext i32 %201 to i64
   %205 = getelementptr i8, ptr %203, i64 %204
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %205) #12, !srcloc !68
-  br label %ilk_lut_write.exit19
+  br label %ilk_lut_write.argprom.argprom.exit19
 
-ilk_lut_write.exit19:                             ; preds = %172, %200
+ilk_lut_write.argprom.argprom.exit19:             ; preds = %172, %200
   %206 = add i32 %133, 304184
   %.val = load ptr, ptr %0, align 8
   %.val1 = load ptr, ptr %22, align 8
@@ -15853,11 +15853,11 @@ ilk_lut_write.exit19:                             ; preds = %172, %200
   %207 = icmp eq ptr %.val1, null
   br i1 %207, label %209, label %208
 
-208:                                              ; preds = %ilk_lut_write.exit19
+208:                                              ; preds = %ilk_lut_write.argprom.argprom.exit19
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val1, i32 %206, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit20
+  br label %ilk_lut_write.argprom.argprom.exit20
 
-209:                                              ; preds = %ilk_lut_write.exit19
+209:                                              ; preds = %ilk_lut_write.argprom.argprom.exit19
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %230 [label %210], !srcloc !60
 
@@ -15914,7 +15914,7 @@ ilk_lut_write.exit19:                             ; preds = %172, %200
   %240 = zext i32 %237 to i64
   %241 = getelementptr i8, ptr %239, i64 %240
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %241) #12, !srcloc !68
-  br label %ilk_lut_write.exit20
+  br label %ilk_lut_write.argprom.argprom.exit20
 
 242:                                              ; preds = %10
   tail call void asm sideeffect "1159: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1159b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1159) #12, !srcloc !179
@@ -15925,9 +15925,9 @@ ilk_lut_write.exit19:                             ; preds = %172, %200
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1618, i32 2313, i64 12) #12, !srcloc !181
   tail call void asm sideeffect "1161: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1161b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1161) #12, !srcloc !182
   tail call void asm sideeffect "1162: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1162b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1162) #12, !srcloc !183
-  br label %ilk_lut_write.exit20
+  br label %ilk_lut_write.argprom.argprom.exit20
 
-ilk_lut_write.exit20:                             ; preds = %236, %208, %242, %13
+ilk_lut_write.argprom.argprom.exit20:             ; preds = %236, %208, %242, %13
   ret void
 }
 
@@ -15943,7 +15943,7 @@ define internal void @glk_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val4 = load ptr, ptr %2, align 8
   %7 = getelementptr i8, ptr %2, i64 1648
   %.val5 = load i32, ptr %7, align 8
-  %8 = tail call fastcc ptr @glk_read_degamma_lut(ptr %.val4, i32 %.val5)
+  %8 = tail call fastcc ptr @glk_read_degamma_lut.argprom(ptr %.val4, i32 %.val5)
   %9 = getelementptr inbounds i8, ptr %0, i64 736
   store ptr %8, ptr %9, align 8
   br label %10
@@ -15972,7 +15972,7 @@ define internal void @glk_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %2, align 8
   %22 = getelementptr i8, ptr %2, i64 1648
   %.val1 = load i32, ptr %22, align 8
-  %23 = tail call fastcc ptr @ilk_read_lut_8(ptr %.val, i32 %.val1)
+  %23 = tail call fastcc ptr @ilk_read_lut_8.argprom(ptr %.val, i32 %.val1)
   %24 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %23, ptr %24, align 8
   br label %32
@@ -15981,7 +15981,7 @@ define internal void @glk_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val2 = load ptr, ptr %2, align 8
   %26 = getelementptr i8, ptr %2, i64 1648
   %.val3 = load i32, ptr %26, align 8
-  %27 = tail call fastcc ptr @bdw_read_lut_10(ptr %.val2, i32 %.val3, i32 noundef 0)
+  %27 = tail call fastcc ptr @bdw_read_lut_10.argprom(ptr %.val2, i32 %.val3, i32 noundef 0)
   %28 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %27, ptr %28, align 8
   br label %32
@@ -16292,7 +16292,7 @@ define internal void @skl_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %6, i64 1648
   %.val1 = load i32, ptr %8, align 8
-  tail call fastcc void @ilk_read_pipe_csc(ptr %.val, i32 %.val1, ptr noundef %7)
+  tail call fastcc void @ilk_read_pipe_csc.argprom(ptr %.val, i32 %.val1, ptr noundef %7)
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -16405,7 +16405,7 @@ define internal fastcc void @ilk_assign_csc(ptr nocapture noundef %0) unnamed_ad
   %62 = getelementptr inbounds i8, ptr %0, i64 752
   %63 = getelementptr i8, ptr %.val4, i64 80
   %.val4.val = load ptr, ptr %63, align 8
-  tail call fastcc void @ilk_csc_convert_ctm(ptr %.val.val, ptr %.val4.val, ptr noundef %62, i1 noundef zeroext %41)
+  tail call fastcc void @ilk_csc_convert_ctm.argprom.argprom(ptr %.val.val, ptr %.val4.val, ptr noundef %62, i1 noundef zeroext %41)
   br label %136
 
 64:                                               ; preds = %40
@@ -17150,14 +17150,14 @@ define internal void @bdw_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 10:                                               ; preds = %1
   tail call fastcc void @ilk_load_lut_8(ptr noundef %0, ptr noundef %7)
-  br label %ilk_lut_write.exit22
+  br label %ilk_lut_write.argprom.argprom.exit22
 
 11:                                               ; preds = %1
   %12 = getelementptr i8, ptr %5, i64 72
   %.val16 = load i64, ptr %12, align 8
   %13 = getelementptr i8, ptr %5, i64 80
   %.val17 = load ptr, ptr %13, align 8
-  tail call fastcc void @bdw_load_lut_10(ptr noundef %0, i64 %.val16, ptr %.val17, i32 noundef -2147483648)
+  tail call fastcc void @bdw_load_lut_10.argprom(ptr noundef %0, i64 %.val16, ptr %.val17, i32 noundef -2147483648)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 1648
   %16 = load i32, ptr %15, align 8
@@ -17171,7 +17171,7 @@ define internal void @bdw_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 21:                                               ; preds = %11
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val11, i32 %18, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 22:                                               ; preds = %11
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -17230,9 +17230,9 @@ define internal void @bdw_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %53 = zext i32 %50 to i64
   %54 = getelementptr i8, ptr %52, i64 %53
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %54) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %21, %49
+ilk_lut_write.argprom.argprom.exit:               ; preds = %21, %49
   %55 = add i32 %17, 304164
   %.val8 = load ptr, ptr %0, align 8
   %.val9 = load ptr, ptr %19, align 8
@@ -17240,11 +17240,11 @@ ilk_lut_write.exit:                               ; preds = %21, %49
   %56 = icmp eq ptr %.val9, null
   br i1 %56, label %58, label %57
 
-57:                                               ; preds = %ilk_lut_write.exit
+57:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val9, i32 %55, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit18
+  br label %ilk_lut_write.argprom.argprom.exit18
 
-58:                                               ; preds = %ilk_lut_write.exit
+58:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %79 [label %59], !srcloc !60
 
@@ -17301,9 +17301,9 @@ ilk_lut_write.exit:                               ; preds = %21, %49
   %89 = zext i32 %86 to i64
   %90 = getelementptr i8, ptr %88, i64 %89
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %90) #12, !srcloc !68
-  br label %ilk_lut_write.exit18
+  br label %ilk_lut_write.argprom.argprom.exit18
 
-ilk_lut_write.exit18:                             ; preds = %57, %85
+ilk_lut_write.argprom.argprom.exit18:             ; preds = %57, %85
   %91 = add i32 %17, 304168
   %.val6 = load ptr, ptr %0, align 8
   %.val7 = load ptr, ptr %19, align 8
@@ -17311,11 +17311,11 @@ ilk_lut_write.exit18:                             ; preds = %57, %85
   %92 = icmp eq ptr %.val7, null
   br i1 %92, label %94, label %93
 
-93:                                               ; preds = %ilk_lut_write.exit18
+93:                                               ; preds = %ilk_lut_write.argprom.argprom.exit18
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val7, i32 %91, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit19
+  br label %ilk_lut_write.argprom.argprom.exit19
 
-94:                                               ; preds = %ilk_lut_write.exit18
+94:                                               ; preds = %ilk_lut_write.argprom.argprom.exit18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %115 [label %95], !srcloc !60
 
@@ -17372,22 +17372,22 @@ ilk_lut_write.exit18:                             ; preds = %57, %85
   %125 = zext i32 %122 to i64
   %126 = getelementptr i8, ptr %124, i64 %125
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %126) #12, !srcloc !68
-  br label %ilk_lut_write.exit19
+  br label %ilk_lut_write.argprom.argprom.exit19
 
-ilk_lut_write.exit19:                             ; preds = %93, %121
+ilk_lut_write.argprom.argprom.exit19:             ; preds = %93, %121
   %127 = getelementptr i8, ptr %3, i64 72
   %.val14 = load i64, ptr %127, align 8
   %128 = getelementptr i8, ptr %3, i64 80
   %.val15 = load ptr, ptr %128, align 8
-  tail call fastcc void @bdw_load_lut_10(ptr noundef %0, i64 %.val14, ptr %.val15, i32 noundef -2147483136)
-  br label %ilk_lut_write.exit22
+  tail call fastcc void @bdw_load_lut_10.argprom(ptr noundef %0, i64 %.val14, ptr %.val15, i32 noundef -2147483136)
+  br label %ilk_lut_write.argprom.argprom.exit22
 
 129:                                              ; preds = %1
   %130 = getelementptr i8, ptr %7, i64 72
   %.val12 = load i64, ptr %130, align 8
   %131 = getelementptr i8, ptr %7, i64 80
   %.val13 = load ptr, ptr %131, align 8
-  tail call fastcc void @bdw_load_lut_10(ptr noundef %0, i64 %.val12, ptr %.val13, i32 noundef 0)
+  tail call fastcc void @bdw_load_lut_10.argprom(ptr noundef %0, i64 %.val12, ptr %.val13, i32 noundef 0)
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 1648
   %134 = load i32, ptr %133, align 8
@@ -17401,7 +17401,7 @@ ilk_lut_write.exit19:                             ; preds = %93, %121
 
 139:                                              ; preds = %129
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val5, i32 %136, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit20
+  br label %ilk_lut_write.argprom.argprom.exit20
 
 140:                                              ; preds = %129
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -17460,9 +17460,9 @@ ilk_lut_write.exit19:                             ; preds = %93, %121
   %171 = zext i32 %168 to i64
   %172 = getelementptr i8, ptr %170, i64 %171
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %172) #12, !srcloc !68
-  br label %ilk_lut_write.exit20
+  br label %ilk_lut_write.argprom.argprom.exit20
 
-ilk_lut_write.exit20:                             ; preds = %139, %167
+ilk_lut_write.argprom.argprom.exit20:             ; preds = %139, %167
   %173 = add i32 %135, 304164
   %.val2 = load ptr, ptr %0, align 8
   %.val3 = load ptr, ptr %137, align 8
@@ -17470,11 +17470,11 @@ ilk_lut_write.exit20:                             ; preds = %139, %167
   %174 = icmp eq ptr %.val3, null
   br i1 %174, label %176, label %175
 
-175:                                              ; preds = %ilk_lut_write.exit20
+175:                                              ; preds = %ilk_lut_write.argprom.argprom.exit20
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val3, i32 %173, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit21
+  br label %ilk_lut_write.argprom.argprom.exit21
 
-176:                                              ; preds = %ilk_lut_write.exit20
+176:                                              ; preds = %ilk_lut_write.argprom.argprom.exit20
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %197 [label %177], !srcloc !60
 
@@ -17531,9 +17531,9 @@ ilk_lut_write.exit20:                             ; preds = %139, %167
   %207 = zext i32 %204 to i64
   %208 = getelementptr i8, ptr %206, i64 %207
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %208) #12, !srcloc !68
-  br label %ilk_lut_write.exit21
+  br label %ilk_lut_write.argprom.argprom.exit21
 
-ilk_lut_write.exit21:                             ; preds = %175, %203
+ilk_lut_write.argprom.argprom.exit21:             ; preds = %175, %203
   %209 = add i32 %135, 304168
   %.val = load ptr, ptr %0, align 8
   %.val1 = load ptr, ptr %137, align 8
@@ -17541,11 +17541,11 @@ ilk_lut_write.exit21:                             ; preds = %175, %203
   %210 = icmp eq ptr %.val1, null
   br i1 %210, label %212, label %211
 
-211:                                              ; preds = %ilk_lut_write.exit21
+211:                                              ; preds = %ilk_lut_write.argprom.argprom.exit21
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val1, i32 %209, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit22
+  br label %ilk_lut_write.argprom.argprom.exit22
 
-212:                                              ; preds = %ilk_lut_write.exit21
+212:                                              ; preds = %ilk_lut_write.argprom.argprom.exit21
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %233 [label %213], !srcloc !60
 
@@ -17602,7 +17602,7 @@ ilk_lut_write.exit21:                             ; preds = %175, %203
   %243 = zext i32 %240 to i64
   %244 = getelementptr i8, ptr %242, i64 %243
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %244) #12, !srcloc !68
-  br label %ilk_lut_write.exit22
+  br label %ilk_lut_write.argprom.argprom.exit22
 
 245:                                              ; preds = %1
   tail call void asm sideeffect "1151: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1151b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1151) #12, !srcloc !224
@@ -17613,9 +17613,9 @@ ilk_lut_write.exit21:                             ; preds = %175, %203
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1516, i32 2313, i64 12) #12, !srcloc !226
   tail call void asm sideeffect "1153: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1153b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1153) #12, !srcloc !227
   tail call void asm sideeffect "1154: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1154b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1154) #12, !srcloc !228
-  br label %ilk_lut_write.exit22
+  br label %ilk_lut_write.argprom.argprom.exit22
 
-ilk_lut_write.exit22:                             ; preds = %239, %211, %245, %ilk_lut_write.exit19, %10
+ilk_lut_write.argprom.argprom.exit22:             ; preds = %239, %211, %245, %ilk_lut_write.argprom.argprom.exit19, %10
   ret void
 }
 
@@ -17678,7 +17678,7 @@ define internal void @bdw_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %2, align 8
   %31 = getelementptr i8, ptr %2, i64 1648
   %.val1 = load i32, ptr %31, align 8
-  %32 = tail call fastcc ptr @ilk_read_lut_8(ptr %.val, i32 %.val1)
+  %32 = tail call fastcc ptr @ilk_read_lut_8.argprom(ptr %.val, i32 %.val1)
   store ptr %32, ptr %24, align 8
   br label %43
 
@@ -17686,11 +17686,11 @@ define internal void @bdw_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val6 = load ptr, ptr %2, align 8
   %34 = getelementptr i8, ptr %2, i64 1648
   %.val7 = load i32, ptr %34, align 8
-  %35 = tail call fastcc ptr @bdw_read_lut_10(ptr %.val6, i32 %.val7, i32 noundef -2147483648)
+  %35 = tail call fastcc ptr @bdw_read_lut_10.argprom(ptr %.val6, i32 %.val7, i32 noundef -2147483648)
   store ptr %35, ptr %22, align 8
   %.val4 = load ptr, ptr %2, align 8
   %.val5 = load i32, ptr %34, align 8
-  %36 = tail call fastcc ptr @bdw_read_lut_10(ptr %.val4, i32 %.val5, i32 noundef -2147483136)
+  %36 = tail call fastcc ptr @bdw_read_lut_10.argprom(ptr %.val4, i32 %.val5, i32 noundef -2147483136)
   store ptr %36, ptr %23, align 8
   br label %43
 
@@ -17698,7 +17698,7 @@ define internal void @bdw_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val2 = load ptr, ptr %2, align 8
   %38 = getelementptr i8, ptr %2, i64 1648
   %.val3 = load i32, ptr %38, align 8
-  %39 = tail call fastcc ptr @bdw_read_lut_10(ptr %.val2, i32 %.val3, i32 noundef 0)
+  %39 = tail call fastcc ptr @bdw_read_lut_10.argprom(ptr %.val2, i32 %.val3, i32 noundef 0)
   store ptr %39, ptr %24, align 8
   br label %43
 
@@ -18238,7 +18238,7 @@ define internal void @ilk_color_commit_noarm(ptr nocapture noundef readonly %0) 
   %.val = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %6, i64 1648
   %.val1 = load i32, ptr %8, align 8
-  tail call fastcc void @ilk_update_pipe_csc(ptr %.val, i32 %.val1, ptr noundef %7)
+  tail call fastcc void @ilk_update_pipe_csc.argprom(ptr %.val, i32 %.val1, ptr noundef %7)
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -18336,7 +18336,7 @@ define internal void @ilk_read_csc(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %6, i64 1648
   %.val1 = load i32, ptr %8, align 8
-  tail call fastcc void @ilk_read_pipe_csc(ptr %.val, i32 %.val1, ptr noundef %7)
+  tail call fastcc void @ilk_read_pipe_csc.argprom(ptr %.val, i32 %.val1, ptr noundef %7)
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -18436,14 +18436,14 @@ define internal void @ivb_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 10:                                               ; preds = %1
   tail call fastcc void @ilk_load_lut_8(ptr noundef %0, ptr noundef %7)
-  br label %ilk_lut_write.exit22
+  br label %ilk_lut_write.argprom.argprom.exit22
 
 11:                                               ; preds = %1
   %12 = getelementptr i8, ptr %5, i64 72
   %.val12 = load i64, ptr %12, align 8
   %13 = getelementptr i8, ptr %5, i64 80
   %.val13 = load ptr, ptr %13, align 8
-  tail call fastcc void @ivb_load_lut_10(ptr noundef %0, i64 %.val12, ptr %.val13, i32 noundef -2147483648)
+  tail call fastcc void @ivb_load_lut_10.argprom(ptr noundef %0, i64 %.val12, ptr %.val13, i32 noundef -2147483648)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 1648
   %16 = load i32, ptr %15, align 8
@@ -18457,7 +18457,7 @@ define internal void @ivb_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 21:                                               ; preds = %11
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val11, i32 %18, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 22:                                               ; preds = %11
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -18516,9 +18516,9 @@ define internal void @ivb_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %53 = zext i32 %50 to i64
   %54 = getelementptr i8, ptr %52, i64 %53
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %54) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %21, %49
+ilk_lut_write.argprom.argprom.exit:               ; preds = %21, %49
   %55 = add i32 %17, 304164
   %.val8 = load ptr, ptr %0, align 8
   %.val9 = load ptr, ptr %19, align 8
@@ -18526,11 +18526,11 @@ ilk_lut_write.exit:                               ; preds = %21, %49
   %56 = icmp eq ptr %.val9, null
   br i1 %56, label %58, label %57
 
-57:                                               ; preds = %ilk_lut_write.exit
+57:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val9, i32 %55, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit18
+  br label %ilk_lut_write.argprom.argprom.exit18
 
-58:                                               ; preds = %ilk_lut_write.exit
+58:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %79 [label %59], !srcloc !60
 
@@ -18587,9 +18587,9 @@ ilk_lut_write.exit:                               ; preds = %21, %49
   %89 = zext i32 %86 to i64
   %90 = getelementptr i8, ptr %88, i64 %89
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %90) #12, !srcloc !68
-  br label %ilk_lut_write.exit18
+  br label %ilk_lut_write.argprom.argprom.exit18
 
-ilk_lut_write.exit18:                             ; preds = %57, %85
+ilk_lut_write.argprom.argprom.exit18:             ; preds = %57, %85
   %91 = add i32 %17, 304168
   %.val6 = load ptr, ptr %0, align 8
   %.val7 = load ptr, ptr %19, align 8
@@ -18597,11 +18597,11 @@ ilk_lut_write.exit18:                             ; preds = %57, %85
   %92 = icmp eq ptr %.val7, null
   br i1 %92, label %94, label %93
 
-93:                                               ; preds = %ilk_lut_write.exit18
+93:                                               ; preds = %ilk_lut_write.argprom.argprom.exit18
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val7, i32 %91, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit19
+  br label %ilk_lut_write.argprom.argprom.exit19
 
-94:                                               ; preds = %ilk_lut_write.exit18
+94:                                               ; preds = %ilk_lut_write.argprom.argprom.exit18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %115 [label %95], !srcloc !60
 
@@ -18658,22 +18658,22 @@ ilk_lut_write.exit18:                             ; preds = %57, %85
   %125 = zext i32 %122 to i64
   %126 = getelementptr i8, ptr %124, i64 %125
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %126) #12, !srcloc !68
-  br label %ilk_lut_write.exit19
+  br label %ilk_lut_write.argprom.argprom.exit19
 
-ilk_lut_write.exit19:                             ; preds = %93, %121
+ilk_lut_write.argprom.argprom.exit19:             ; preds = %93, %121
   %127 = getelementptr i8, ptr %3, i64 72
   %.val14 = load i64, ptr %127, align 8
   %128 = getelementptr i8, ptr %3, i64 80
   %.val15 = load ptr, ptr %128, align 8
-  tail call fastcc void @ivb_load_lut_10(ptr noundef %0, i64 %.val14, ptr %.val15, i32 noundef -2147483136)
-  br label %ilk_lut_write.exit22
+  tail call fastcc void @ivb_load_lut_10.argprom(ptr noundef %0, i64 %.val14, ptr %.val15, i32 noundef -2147483136)
+  br label %ilk_lut_write.argprom.argprom.exit22
 
 129:                                              ; preds = %1
   %130 = getelementptr i8, ptr %7, i64 72
   %.val16 = load i64, ptr %130, align 8
   %131 = getelementptr i8, ptr %7, i64 80
   %.val17 = load ptr, ptr %131, align 8
-  tail call fastcc void @ivb_load_lut_10(ptr noundef %0, i64 %.val16, ptr %.val17, i32 noundef 0)
+  tail call fastcc void @ivb_load_lut_10.argprom(ptr noundef %0, i64 %.val16, ptr %.val17, i32 noundef 0)
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 1648
   %134 = load i32, ptr %133, align 8
@@ -18687,7 +18687,7 @@ ilk_lut_write.exit19:                             ; preds = %93, %121
 
 139:                                              ; preds = %129
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val5, i32 %136, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit20
+  br label %ilk_lut_write.argprom.argprom.exit20
 
 140:                                              ; preds = %129
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -18746,9 +18746,9 @@ ilk_lut_write.exit19:                             ; preds = %93, %121
   %171 = zext i32 %168 to i64
   %172 = getelementptr i8, ptr %170, i64 %171
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %172) #12, !srcloc !68
-  br label %ilk_lut_write.exit20
+  br label %ilk_lut_write.argprom.argprom.exit20
 
-ilk_lut_write.exit20:                             ; preds = %139, %167
+ilk_lut_write.argprom.argprom.exit20:             ; preds = %139, %167
   %173 = add i32 %135, 304164
   %.val2 = load ptr, ptr %0, align 8
   %.val3 = load ptr, ptr %137, align 8
@@ -18756,11 +18756,11 @@ ilk_lut_write.exit20:                             ; preds = %139, %167
   %174 = icmp eq ptr %.val3, null
   br i1 %174, label %176, label %175
 
-175:                                              ; preds = %ilk_lut_write.exit20
+175:                                              ; preds = %ilk_lut_write.argprom.argprom.exit20
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val3, i32 %173, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit21
+  br label %ilk_lut_write.argprom.argprom.exit21
 
-176:                                              ; preds = %ilk_lut_write.exit20
+176:                                              ; preds = %ilk_lut_write.argprom.argprom.exit20
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %197 [label %177], !srcloc !60
 
@@ -18817,9 +18817,9 @@ ilk_lut_write.exit20:                             ; preds = %139, %167
   %207 = zext i32 %204 to i64
   %208 = getelementptr i8, ptr %206, i64 %207
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %208) #12, !srcloc !68
-  br label %ilk_lut_write.exit21
+  br label %ilk_lut_write.argprom.argprom.exit21
 
-ilk_lut_write.exit21:                             ; preds = %175, %203
+ilk_lut_write.argprom.argprom.exit21:             ; preds = %175, %203
   %209 = add i32 %135, 304168
   %.val = load ptr, ptr %0, align 8
   %.val1 = load ptr, ptr %137, align 8
@@ -18827,11 +18827,11 @@ ilk_lut_write.exit21:                             ; preds = %175, %203
   %210 = icmp eq ptr %.val1, null
   br i1 %210, label %212, label %211
 
-211:                                              ; preds = %ilk_lut_write.exit21
+211:                                              ; preds = %ilk_lut_write.argprom.argprom.exit21
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val1, i32 %209, i32 noundef 65536) #12
-  br label %ilk_lut_write.exit22
+  br label %ilk_lut_write.argprom.argprom.exit22
 
-212:                                              ; preds = %ilk_lut_write.exit21
+212:                                              ; preds = %ilk_lut_write.argprom.argprom.exit21
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %233 [label %213], !srcloc !60
 
@@ -18888,7 +18888,7 @@ ilk_lut_write.exit21:                             ; preds = %175, %203
   %243 = zext i32 %240 to i64
   %244 = getelementptr i8, ptr %242, i64 %243
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %244) #12, !srcloc !68
-  br label %ilk_lut_write.exit22
+  br label %ilk_lut_write.argprom.argprom.exit22
 
 245:                                              ; preds = %1
   tail call void asm sideeffect "1147: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1147b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1147) #12, !srcloc !234
@@ -18899,9 +18899,9 @@ ilk_lut_write.exit21:                             ; preds = %175, %203
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1488, i32 2313, i64 12) #12, !srcloc !236
   tail call void asm sideeffect "1149: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1149b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1149) #12, !srcloc !237
   tail call void asm sideeffect "1150: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1150b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1150) #12, !srcloc !238
-  br label %ilk_lut_write.exit22
+  br label %ilk_lut_write.argprom.argprom.exit22
 
-ilk_lut_write.exit22:                             ; preds = %239, %211, %245, %ilk_lut_write.exit19, %10
+ilk_lut_write.argprom.argprom.exit22:             ; preds = %239, %211, %245, %ilk_lut_write.argprom.argprom.exit19, %10
   ret void
 }
 
@@ -18964,7 +18964,7 @@ define internal void @ivb_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %2, align 8
   %31 = getelementptr i8, ptr %2, i64 1648
   %.val1 = load i32, ptr %31, align 8
-  %32 = tail call fastcc ptr @ilk_read_lut_8(ptr %.val, i32 %.val1)
+  %32 = tail call fastcc ptr @ilk_read_lut_8.argprom(ptr %.val, i32 %.val1)
   store ptr %32, ptr %24, align 8
   br label %43
 
@@ -18972,11 +18972,11 @@ define internal void @ivb_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val2 = load ptr, ptr %2, align 8
   %34 = getelementptr i8, ptr %2, i64 1648
   %.val3 = load i32, ptr %34, align 8
-  %35 = tail call fastcc ptr @ivb_read_lut_10(ptr %.val2, i32 %.val3, i32 noundef -2147483648)
+  %35 = tail call fastcc ptr @ivb_read_lut_10.argprom(ptr %.val2, i32 %.val3, i32 noundef -2147483648)
   store ptr %35, ptr %22, align 8
   %.val4 = load ptr, ptr %2, align 8
   %.val5 = load i32, ptr %34, align 8
-  %36 = tail call fastcc ptr @ivb_read_lut_10(ptr %.val4, i32 %.val5, i32 noundef -2147483136)
+  %36 = tail call fastcc ptr @ivb_read_lut_10.argprom(ptr %.val4, i32 %.val5, i32 noundef -2147483136)
   store ptr %36, ptr %23, align 8
   br label %43
 
@@ -18984,7 +18984,7 @@ define internal void @ivb_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val6 = load ptr, ptr %2, align 8
   %38 = getelementptr i8, ptr %2, i64 1648
   %.val7 = load i32, ptr %38, align 8
-  %39 = tail call fastcc ptr @ivb_read_lut_10(ptr %.val6, i32 %.val7, i32 noundef 0)
+  %39 = tail call fastcc ptr @ivb_read_lut_10.argprom(ptr %.val6, i32 %.val7, i32 noundef 0)
   store ptr %39, ptr %24, align 8
   br label %43
 
@@ -19004,7 +19004,7 @@ define internal void @ivb_read_luts(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ivb_load_lut_10(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val, i32 noundef range(i32 -2147483648, 1) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ivb_load_lut_10.argprom(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val, i32 noundef range(i32 -2147483648, 1) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = lshr i64 %.72.val, 3
   %5 = trunc i64 %4 to i32
@@ -19023,8 +19023,8 @@ define internal fastcc void @ivb_load_lut_10(ptr nocapture noundef readonly %0, 
   %16 = icmp ult i32 %12, 262144
   br label %17
 
-17:                                               ; preds = %ilk_lut_write.exit6, %11
-  %18 = phi i64 [ 0, %11 ], [ %115, %ilk_lut_write.exit6 ]
+17:                                               ; preds = %ilk_lut_write.argprom.argprom.exit6, %11
+  %18 = phi i64 [ 0, %11 ], [ %115, %ilk_lut_write.argprom.argprom.exit6 ]
   %19 = trunc i64 %18 to i32
   %20 = add i32 %1, %19
   %.val4 = load ptr, ptr %0, align 8
@@ -19035,7 +19035,7 @@ define internal fastcc void @ivb_load_lut_10(ptr nocapture noundef readonly %0, 
 
 22:                                               ; preds = %17
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val5, i32 %10, i32 noundef %20) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 23:                                               ; preds = %17
   %24 = zext i32 %20 to i64
@@ -19094,9 +19094,9 @@ define internal fastcc void @ivb_load_lut_10(ptr nocapture noundef readonly %0, 
   %54 = zext i32 %51 to i64
   %55 = getelementptr i8, ptr %53, i64 %54
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %20, ptr elementtype(i32) %55) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %22, %50
+ilk_lut_write.argprom.argprom.exit:               ; preds = %22, %50
   %56 = getelementptr %struct.drm_color_lut, ptr %.80.val, i64 %18
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
@@ -19127,11 +19127,11 @@ ilk_lut_write.exit:                               ; preds = %22, %50
   %80 = icmp eq ptr %.val3, null
   br i1 %80, label %82, label %81
 
-81:                                               ; preds = %ilk_lut_write.exit
+81:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val3, i32 %12, i32 noundef %79) #12
-  br label %ilk_lut_write.exit6
+  br label %ilk_lut_write.argprom.argprom.exit6
 
-82:                                               ; preds = %ilk_lut_write.exit
+82:                                               ; preds = %ilk_lut_write.argprom.argprom.exit
   %83 = zext nneg i32 %79 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %104 [label %84], !srcloc !60
@@ -19188,14 +19188,14 @@ ilk_lut_write.exit:                               ; preds = %22, %50
   %113 = zext i32 %110 to i64
   %114 = getelementptr i8, ptr %112, i64 %113
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %79, ptr elementtype(i32) %114) #12, !srcloc !68
-  br label %ilk_lut_write.exit6
+  br label %ilk_lut_write.argprom.argprom.exit6
 
-ilk_lut_write.exit6:                              ; preds = %81, %109
+ilk_lut_write.argprom.argprom.exit6:              ; preds = %81, %109
   %115 = add nuw nsw i64 %18, 1
   %116 = icmp eq i64 %115, %13
   br i1 %116, label %.loopexit.loopexit, label %17, !llvm.loop !244
 
-.loopexit.loopexit:                               ; preds = %ilk_lut_write.exit6
+.loopexit.loopexit:                               ; preds = %ilk_lut_write.argprom.argprom.exit6
   %.val.pre = load ptr, ptr %0, align 8
   br label %.loopexit
 
@@ -19209,7 +19209,7 @@ ilk_lut_write.exit6:                              ; preds = %81, %109
 
 119:                                              ; preds = %.loopexit
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val1, i32 %10, i32 noundef 0) #12
-  br label %ilk_lut_write.exit7
+  br label %ilk_lut_write.argprom.argprom.exit7
 
 120:                                              ; preds = %.loopexit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -19268,14 +19268,14 @@ ilk_lut_write.exit6:                              ; preds = %81, %109
   %151 = zext i32 %148 to i64
   %152 = getelementptr i8, ptr %150, i64 %151
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %152) #12, !srcloc !68
-  br label %ilk_lut_write.exit7
+  br label %ilk_lut_write.argprom.argprom.exit7
 
-ilk_lut_write.exit7:                              ; preds = %119, %147
+ilk_lut_write.argprom.argprom.exit7:              ; preds = %119, %147
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ivb_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 noundef range(i32 -2147483648, 1) %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ivb_read_lut_10.argprom(ptr %.0.val, i32 %.1648.val, i32 noundef range(i32 -2147483648, 1) %0) unnamed_addr #0 align 16 {
   %2 = icmp sgt i32 %0, -1
   %3 = select i1 %2, i32 1024, i32 512
   %4 = shl nuw nsw i32 %3, 3
@@ -19906,8 +19906,8 @@ define internal void @ilk_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %26 = getelementptr i8, ptr %0, i64 4920
   br label %27
 
-27:                                               ; preds = %ilk_lut_write.exit, %19
-  %28 = phi i64 [ 0, %19 ], [ %92, %ilk_lut_write.exit ]
+27:                                               ; preds = %ilk_lut_write.argprom.argprom.exit, %19
+  %28 = phi i64 [ 0, %19 ], [ %92, %ilk_lut_write.argprom.argprom.exit ]
   %29 = trunc i64 %28 to i32
   %30 = shl i32 %29, 2
   %31 = add i32 %24, %30
@@ -19943,7 +19943,7 @@ define internal void @ilk_load_luts(ptr nocapture noundef readonly %0) #0 align 
 
 57:                                               ; preds = %27
   tail call void @intel_dsb_reg_write(ptr noundef nonnull %.val1, i32 %31, i32 noundef %55) #12
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
 58:                                               ; preds = %27
   %59 = zext nneg i32 %55 to i64
@@ -20003,9 +20003,9 @@ define internal void @ilk_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %90 = zext i32 %87 to i64
   %91 = getelementptr i8, ptr %89, i64 %90
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %55, ptr elementtype(i32) %91) #12, !srcloc !68
-  br label %ilk_lut_write.exit
+  br label %ilk_lut_write.argprom.argprom.exit
 
-ilk_lut_write.exit:                               ; preds = %57, %86
+ilk_lut_write.argprom.argprom.exit:               ; preds = %57, %86
   %92 = add nuw nsw i64 %28, 1
   %93 = icmp eq i64 %92, %25
   br i1 %93, label %.loopexit, label %27, !llvm.loop !246
@@ -20021,7 +20021,7 @@ ilk_lut_write.exit:                               ; preds = %57, %86
   tail call void asm sideeffect "1146: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1146b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1146) #12, !srcloc !251
   br label %.loopexit
 
-.loopexit:                                        ; preds = %ilk_lut_write.exit, %94, %11, %10
+.loopexit:                                        ; preds = %ilk_lut_write.argprom.argprom.exit, %94, %11, %10
   ret void
 }
 
@@ -20067,7 +20067,7 @@ define internal void @ilk_read_luts(ptr nocapture noundef %0) #0 align 16 {
   %.val = load ptr, ptr %2, align 8
   %25 = getelementptr i8, ptr %2, i64 1648
   %.val5 = load i32, ptr %25, align 8
-  %26 = tail call fastcc ptr @ilk_read_lut_8(ptr %.val, i32 %.val5)
+  %26 = tail call fastcc ptr @ilk_read_lut_8.argprom(ptr %.val, i32 %.val5)
   store ptr %26, ptr %18, align 8
   br label %112
 

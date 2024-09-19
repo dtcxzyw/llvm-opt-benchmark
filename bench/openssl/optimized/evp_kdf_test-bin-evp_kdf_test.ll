@@ -357,7 +357,7 @@ if.end10:                                         ; preds = %if.end5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp9.i)
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef 200, ptr noundef nonnull @.str.51, i32 noundef 479) #6
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %construct_pbkdf1_params.exit, label %if.end.i
+  br i1 %cmp.i, label %construct_pbkdf1_params.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end10
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -374,9 +374,9 @@ if.end.i:                                         ; preds = %if.end10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr5.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp8.i, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9.i) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr7.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp9.i, i64 40, i1 false)
-  br label %construct_pbkdf1_params.exit
+  br label %construct_pbkdf1_params.argprom.exit
 
-construct_pbkdf1_params.exit:                     ; preds = %if.end10, %if.end.i
+construct_pbkdf1_params.argprom.exit:             ; preds = %if.end10, %if.end.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp3.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp6.i)
@@ -386,7 +386,7 @@ construct_pbkdf1_params.exit:                     ; preds = %if.end10, %if.end.i
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %err, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %construct_pbkdf1_params.exit
+lor.lhs.false:                                    ; preds = %construct_pbkdf1_params.argprom.exit
   %call.i10 = call ptr @EVP_KDF_fetch(ptr noundef %call, ptr noundef nonnull @.str.62, ptr noundef null) #6
   %call1.i = call ptr @EVP_KDF_CTX_new(ptr noundef %call.i10) #6
   call void @EVP_KDF_free(ptr noundef %call.i10) #6
@@ -414,12 +414,12 @@ lor.lhs.false26:                                  ; preds = %lor.lhs.false22
   %spec.select = zext i1 %tobool30.not to i32
   br label %err
 
-err:                                              ; preds = %lor.lhs.false26, %construct_pbkdf1_params.exit, %lor.lhs.false, %lor.lhs.false17, %lor.lhs.false22, %if.end5, %entry
-  %ret.0 = phi i32 [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false17 ], [ 0, %lor.lhs.false ], [ 0, %construct_pbkdf1_params.exit ], [ 0, %if.end5 ], [ 0, %entry ], [ %spec.select, %lor.lhs.false26 ]
-  %kctx.0 = phi ptr [ %call1.i, %lor.lhs.false22 ], [ %call1.i, %lor.lhs.false17 ], [ %call1.i, %lor.lhs.false ], [ null, %construct_pbkdf1_params.exit ], [ null, %if.end5 ], [ null, %entry ], [ %call1.i, %lor.lhs.false26 ]
-  %params.0 = phi ptr [ %call.i, %lor.lhs.false22 ], [ %call.i, %lor.lhs.false17 ], [ %call.i, %lor.lhs.false ], [ %call.i, %construct_pbkdf1_params.exit ], [ null, %if.end5 ], [ null, %entry ], [ %call.i, %lor.lhs.false26 ]
-  %legacyprov.0 = phi ptr [ %call2, %lor.lhs.false22 ], [ %call2, %lor.lhs.false17 ], [ %call2, %lor.lhs.false ], [ %call2, %construct_pbkdf1_params.exit ], [ %call2, %if.end5 ], [ null, %entry ], [ %call2, %lor.lhs.false26 ]
-  %defprov.0 = phi ptr [ %call6, %lor.lhs.false22 ], [ %call6, %lor.lhs.false17 ], [ %call6, %lor.lhs.false ], [ %call6, %construct_pbkdf1_params.exit ], [ %call6, %if.end5 ], [ null, %entry ], [ %call6, %lor.lhs.false26 ]
+err:                                              ; preds = %lor.lhs.false26, %construct_pbkdf1_params.argprom.exit, %lor.lhs.false, %lor.lhs.false17, %lor.lhs.false22, %if.end5, %entry
+  %ret.0 = phi i32 [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false17 ], [ 0, %lor.lhs.false ], [ 0, %construct_pbkdf1_params.argprom.exit ], [ 0, %if.end5 ], [ 0, %entry ], [ %spec.select, %lor.lhs.false26 ]
+  %kctx.0 = phi ptr [ %call1.i, %lor.lhs.false22 ], [ %call1.i, %lor.lhs.false17 ], [ %call1.i, %lor.lhs.false ], [ null, %construct_pbkdf1_params.argprom.exit ], [ null, %if.end5 ], [ null, %entry ], [ %call1.i, %lor.lhs.false26 ]
+  %params.0 = phi ptr [ %call.i, %lor.lhs.false22 ], [ %call.i, %lor.lhs.false17 ], [ %call.i, %lor.lhs.false ], [ %call.i, %construct_pbkdf1_params.argprom.exit ], [ null, %if.end5 ], [ null, %entry ], [ %call.i, %lor.lhs.false26 ]
+  %legacyprov.0 = phi ptr [ %call2, %lor.lhs.false22 ], [ %call2, %lor.lhs.false17 ], [ %call2, %lor.lhs.false ], [ %call2, %construct_pbkdf1_params.argprom.exit ], [ %call2, %if.end5 ], [ null, %entry ], [ %call2, %lor.lhs.false26 ]
+  %defprov.0 = phi ptr [ %call6, %lor.lhs.false22 ], [ %call6, %lor.lhs.false17 ], [ %call6, %lor.lhs.false ], [ %call6, %construct_pbkdf1_params.argprom.exit ], [ %call6, %if.end5 ], [ null, %entry ], [ %call6, %lor.lhs.false26 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kctx.0) #6
   call void @CRYPTO_free(ptr noundef %params.0, ptr noundef nonnull @.str.51, i32 noundef 540) #6
   %call33 = call i32 @OSSL_PROVIDER_unload(ptr noundef %defprov.0) #6
@@ -581,7 +581,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_digest() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_invalid_digest.key, i64 noundef 1, ptr noundef %r)
+  %call = call fastcc ptr @construct_kbkdf_params.argprom(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_invalid_digest.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1108, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -619,7 +619,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_mac() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.86, ptr noundef nonnull @test_kdf_kbkdf_invalid_mac.key, i64 noundef 1, ptr noundef %r)
+  %call = call fastcc ptr @construct_kbkdf_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.86, ptr noundef nonnull @test_kdf_kbkdf_invalid_mac.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1131, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -657,7 +657,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_r() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 31, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_invalid_r.key, i64 noundef 1, ptr noundef %r)
+  %call = call fastcc ptr @construct_kbkdf_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_invalid_r.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1154, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -697,7 +697,7 @@ entry:
   %r = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %result, i8 0, i64 32, i1 false)
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_zero_output_size.key, i64 noundef 1, ptr noundef %r)
+  %call = call fastcc ptr @construct_kbkdf_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_zero_output_size.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1227, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -743,7 +743,7 @@ entry:
   %r = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %result, i8 0, i64 32, i1 false)
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_empty_key.key, i64 noundef 0, ptr noundef %r)
+  %call = call fastcc ptr @construct_kbkdf_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_empty_key.key, i64 noundef 0, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1179, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -789,7 +789,7 @@ entry:
   %r = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %result, i8 0, i64 32, i1 false)
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_1byte_key.key, i64 noundef 1, ptr noundef %r)
+  %call = call fastcc ptr @construct_kbkdf_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_1byte_key.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1204, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1711,7 +1711,7 @@ entry:
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %expected, ptr noundef nonnull align 16 dereferenceable(25) @__const.test_kdf_pbkdf2.expected, i64 25, i1 false)
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 588, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1752,7 +1752,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 614, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1795,7 +1795,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 645, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1832,7 +1832,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.140, ptr noundef %iterations, ptr noundef %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.140, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 671, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1869,7 +1869,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 1, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 696, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1910,7 +1910,7 @@ entry:
   %tmp14 = alloca %struct.ossl_param_st, align 8
   store i32 4096, ptr %iterations, align 4
   store i32 1, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.140, ptr noundef %iterations, ptr noundef %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.140, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 723, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1977,7 +1977,7 @@ entry:
   %tmp14 = alloca %struct.ossl_param_st, align 8
   store i32 1, ptr %iterations, align 4
   store i32 1, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params.argprom(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 760, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -2040,7 +2040,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params.argprom(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 795, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -2806,7 +2806,7 @@ declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @construct_kbkdf_params(ptr noundef %digest, ptr noundef %mac, ptr noundef %key, i64 noundef range(i64 0, 2) %keylen, ptr noundef nonnull %r) unnamed_addr #0 {
+define internal fastcc noalias ptr @construct_kbkdf_params.argprom(ptr noundef %digest, ptr noundef %mac, ptr noundef %key, i64 noundef range(i64 0, 2) %keylen, ptr noundef nonnull %r) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp2 = alloca %struct.ossl_param_st, align 8
@@ -3130,7 +3130,7 @@ end:                                              ; preds = %if.end5, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @construct_pbkdf2_params(ptr noundef %digest, ptr noundef %salt, ptr noundef nonnull %iter, ptr noundef nonnull %mode) unnamed_addr #0 {
+define internal fastcc noalias ptr @construct_pbkdf2_params.argprom(ptr noundef %digest, ptr noundef %salt, ptr noundef nonnull %iter, ptr noundef nonnull %mode) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp3 = alloca %struct.ossl_param_st, align 8

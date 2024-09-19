@@ -1032,19 +1032,19 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule4ImplD2Ev(ptr nocapture noun
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef %3)
-          to label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit unwind label %7
+          to label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit unwind label %7
 
-_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %1
+_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit:   ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit, label %6
 
-6:                                                ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit
+6:                                                ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit
   tail call void @_ZdlPv(ptr noundef nonnull %5) #28
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit: ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit, %6
+_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit: ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit, %6
   ret void
 
 7:                                                ; preds = %1

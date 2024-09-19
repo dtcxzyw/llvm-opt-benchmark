@@ -54,7 +54,7 @@ define noundef i32 @opal_util_keyval_parse_init() local_unnamed_addr #0 {
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not1.i = icmp eq ptr %6, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
@@ -63,9 +63,9 @@ define noundef i32 @opal_util_keyval_parse_init() local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
+opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %4
   tail call void @opal_finalize_append_cleanup(ptr noundef nonnull @opal_util_keyval_parse_finalize, ptr noundef nonnull @.str, ptr noundef null) #13
   ret i32 0
 }
@@ -85,7 +85,7 @@ define internal void @opal_util_keyval_parse_finalize() #0 {
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %.not1.i = icmp eq ptr %5, null
-  br i1 %.not1.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %6 = phi ptr [ %8, %.lr.ph.i ], [ %5, %0 ]
@@ -94,9 +94,9 @@ define internal void @opal_util_keyval_parse_finalize() #0 {
   %7 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !6
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
+opal_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %0
   ret void
 }
 
@@ -485,7 +485,7 @@ trim_name.exit42.i:                               ; preds = %173, %.critedge.i39
 178:                                              ; preds = %trim_name.exit42.i
   %179 = load ptr, ptr @key_buffer, align 8
   %180 = load ptr, ptr @opal_util_keyval_yytext, align 8
-  tail call fastcc void @add_to_env_str(ptr noundef %179, ptr noundef %180)
+  tail call fastcc void @add_to_env_str.retelim(ptr noundef %179, ptr noundef %180)
   br label %223
 
 181:                                              ; preds = %trim_name.exit42.i
@@ -569,7 +569,7 @@ sub_258.i:                                        ; preds = %sub_157.i
   br label %trim_name.exit52.i
 
 trim_name.exit52.i:                               ; preds = %216, %.critedge.i49.i, %185
-  tail call fastcc void @add_to_env_str(ptr noundef %186, ptr noundef null)
+  tail call fastcc void @add_to_env_str.retelim(ptr noundef %186, ptr noundef null)
   br label %223
 
 219:                                              ; preds = %68
@@ -781,7 +781,7 @@ define internal fastcc void @trim_name(ptr noundef %0, ptr noundef readonly %1, 
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_to_env_str(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @add_to_env_str.retelim(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %43, label %4
 

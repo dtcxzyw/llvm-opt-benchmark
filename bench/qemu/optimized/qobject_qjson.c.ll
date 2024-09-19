@@ -130,21 +130,21 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %call.i, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #10
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
+qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %qobject_type.exit.i
+if.else:                                          ; preds = %qobject_type.argprom.exit.i
   call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__PRETTY_FUNCTION__.qdict_from_vjsonf_nofail) #10
   unreachable
 
-if.end:                                           ; preds = %qobject_type.exit.i
+if.end:                                           ; preds = %qobject_type.argprom.exit.i
   ret ptr %call.i
 }
 
@@ -170,21 +170,21 @@ land.lhs.true.i.i:                                ; preds = %entry
   %obj.val.i.i = load i32, ptr %call.i.i, align 8
   %0 = add i32 %obj.val.i.i, -1
   %or.cond.i.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i.i, label %qobject_type.exit.i.i, label %if.else.i.i.i
+  br i1 %or.cond.i.i.i, label %qobject_type.argprom.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #10
   unreachable
 
-qobject_type.exit.i.i:                            ; preds = %land.lhs.true.i.i
+qobject_type.argprom.exit.i.i:                    ; preds = %land.lhs.true.i.i
   %cmp.i.i = icmp eq i32 %obj.val.i.i, 4
   br i1 %cmp.i.i, label %qdict_from_vjsonf_nofail.exit, label %if.else.i
 
-if.else.i:                                        ; preds = %qobject_type.exit.i.i
+if.else.i:                                        ; preds = %qobject_type.argprom.exit.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__PRETTY_FUNCTION__.qdict_from_vjsonf_nofail) #10
   unreachable
 
-qdict_from_vjsonf_nofail.exit:                    ; preds = %qobject_type.exit.i.i
+qdict_from_vjsonf_nofail.exit:                    ; preds = %qobject_type.argprom.exit.i.i
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i.i
 }
@@ -206,13 +206,13 @@ entry:
   %obj.val = load i32, ptr %obj, align 8
   %0 = add i32 %obj.val, -1
   %or.cond.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #10
   unreachable
 
-qobject_type.exit:                                ; preds = %entry
+qobject_type.argprom.exit:                        ; preds = %entry
   switch i32 %obj.val, label %default.unreachable [
     i32 1, label %sw.bb
     i32 2, label %qobject_check_type.exit
@@ -222,11 +222,11 @@ qobject_type.exit:                                ; preds = %entry
     i32 6, label %qobject_check_type.exit73
   ]
 
-sw.bb:                                            ; preds = %qobject_type.exit
+sw.bb:                                            ; preds = %qobject_type.argprom.exit
   tail call void @json_writer_null(ptr noundef %writer, ptr noundef %name) #8
   br label %sw.epilog35
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit
   %kind = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load i32, ptr %kind, align 8
   switch i32 %1, label %sw.default [
@@ -257,12 +257,12 @@ sw.default:                                       ; preds = %qobject_check_type.
   tail call void @abort() #10
   unreachable
 
-qobject_check_type.exit43:                        ; preds = %qobject_type.exit
+qobject_check_type.exit43:                        ; preds = %qobject_type.argprom.exit
   %call11 = tail call ptr @qstring_get_str(ptr noundef nonnull %obj) #8
   tail call void @json_writer_str(ptr noundef %writer, ptr noundef %name, ptr noundef %call11) #8
   br label %sw.epilog35
 
-qobject_check_type.exit53:                        ; preds = %qobject_type.exit
+qobject_check_type.exit53:                        ; preds = %qobject_type.argprom.exit
   tail call void @json_writer_start_object(ptr noundef %writer, ptr noundef %name) #8
   %call16 = tail call ptr @qdict_first(ptr noundef nonnull %obj) #8
   %tobool.not77 = icmp eq ptr %call16, null
@@ -281,7 +281,7 @@ for.end:                                          ; preds = %for.body, %qobject_
   tail call void @json_writer_end_object(ptr noundef %writer) #8
   br label %sw.epilog35
 
-qobject_check_type.exit63:                        ; preds = %qobject_type.exit
+qobject_check_type.exit63:                        ; preds = %qobject_type.argprom.exit
   tail call void @json_writer_start_array(ptr noundef %writer, ptr noundef %name) #8
   %head = getelementptr inbounds i8, ptr %obj, i64 16
   %entry23.074 = load ptr, ptr %head, align 8
@@ -301,12 +301,12 @@ for.end29:                                        ; preds = %for.body26, %qobjec
   tail call void @json_writer_end_array(ptr noundef %writer) #8
   br label %sw.epilog35
 
-qobject_check_type.exit73:                        ; preds = %qobject_type.exit
+qobject_check_type.exit73:                        ; preds = %qobject_type.argprom.exit
   %call33 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %obj) #8
   tail call void @json_writer_bool(ptr noundef %writer, ptr noundef %name, i1 noundef zeroext %call33) #8
   br label %sw.epilog35
 
-default.unreachable:                              ; preds = %qobject_type.exit
+default.unreachable:                              ; preds = %qobject_type.argprom.exit
   unreachable
 
 sw.epilog35:                                      ; preds = %sw.bb3, %sw.bb4, %sw.bb6, %qobject_check_type.exit73, %for.end29, %for.end, %qobject_check_type.exit43, %sw.bb

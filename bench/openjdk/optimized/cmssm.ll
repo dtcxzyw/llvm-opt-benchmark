@@ -235,14 +235,14 @@ define hidden noundef i32 @cmsGDBCompute(ptr noundef %0, i32 noundef %1) local_u
 
 3:                                                ; preds = %2, %3
   %.01720 = phi i32 [ 0, %2 ], [ %4, %3 ]
-  tail call fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef %.01720, i32 noundef 0)
+  tail call fastcc void @InterpolateMissingSector.retelim(ptr noundef %0, i32 noundef %.01720, i32 noundef 0)
   %4 = add nuw nsw i32 %.01720, 1
   %exitcond.not = icmp eq i32 %4, 16
   br i1 %exitcond.not, label %.preheader19, label %3, !llvm.loop !8
 
 .preheader19:                                     ; preds = %3, %.preheader19
   %.121 = phi i32 [ %5, %.preheader19 ], [ 0, %3 ]
-  tail call fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef %.121, i32 noundef 15)
+  tail call fastcc void @InterpolateMissingSector.retelim(ptr noundef %0, i32 noundef %.121, i32 noundef 15)
   %5 = add nuw nsw i32 %.121, 1
   %exitcond24.not = icmp eq i32 %5, 16
   br i1 %exitcond24.not, label %.preheader, label %.preheader19, !llvm.loop !9
@@ -253,7 +253,7 @@ define hidden noundef i32 @cmsGDBCompute(ptr noundef %0, i32 noundef %1) local_u
 
 6:                                                ; preds = %.preheader, %6
   %.222 = phi i32 [ 0, %.preheader ], [ %7, %6 ]
-  tail call fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef %.222, i32 noundef %.01623)
+  tail call fastcc void @InterpolateMissingSector.retelim(ptr noundef %0, i32 noundef %.222, i32 noundef %.01623)
   %7 = add nuw nsw i32 %.222, 1
   %exitcond25.not = icmp eq i32 %7, 16
   br i1 %exitcond25.not, label %8, label %6, !llvm.loop !10
@@ -268,7 +268,7 @@ define hidden noundef i32 @cmsGDBCompute(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef range(i32 -2147483648, 16) %1, i32 noundef range(i32 -2147483648, 16) %2) unnamed_addr #0 {
+define internal fastcc void @InterpolateMissingSector.retelim(ptr noundef %0, i32 noundef range(i32 -2147483648, 16) %1, i32 noundef range(i32 -2147483648, 16) %2) unnamed_addr #0 {
   %4 = alloca %struct.cmsVEC3, align 8
   %5 = alloca %struct.cmsVEC3, align 8
   %6 = alloca %struct.cmsLine, align 8

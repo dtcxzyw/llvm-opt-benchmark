@@ -5707,7 +5707,7 @@ Abc_Clock.exit92:                                 ; preds = %Abc_Clock.exit, %23
 32:                                               ; preds = %Abc_Clock.exit92
   %33 = getelementptr inbounds i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8
-  call fastcc void @Abc_TtReadHex(ptr noundef nonnull %11, ptr noundef %34)
+  call fastcc void @Abc_TtReadHex.retelim(ptr noundef nonnull %11, ptr noundef %34)
   %35 = load i64, ptr %11, align 16
   %36 = and i64 %35, 1
   %.not76 = icmp eq i64 %36, 0
@@ -6478,7 +6478,7 @@ Abc_Clock.exit110:                                ; preds = %398, %406
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc void @Abc_TtReadHex.retelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 48
   br i1 %4, label %5, label %9
@@ -7158,7 +7158,7 @@ Abc_UtilStrsav.exit:
 27:                                               ; preds = %._crit_edge, %20, %22, %24, %25, %23, %21
   %.sink = phi i32 [ 3, %20 ], [ 5, %22 ], [ 7, %24 ], [ 8, %25 ], [ 6, %23 ], [ 4, %21 ], [ 2, %._crit_edge ]
   store i32 %.sink, ptr %2, align 4
-  tail call fastcc void @Abc_TtReadHex(ptr noundef %1, ptr noundef nonnull %7)
+  tail call fastcc void @Abc_TtReadHex.retelim(ptr noundef %1, ptr noundef nonnull %7)
   store i8 %.lcssa69, ptr %.046.lcssa, align 1
   %.not5776 = icmp eq i8 %.lcssa69, 0
   br i1 %.not5776, label %.critedge.thread, label %.lr.ph79

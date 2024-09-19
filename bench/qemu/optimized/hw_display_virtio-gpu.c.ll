@@ -1645,13 +1645,13 @@ do.body.i.i:                                      ; preds = %for.inc.i.i.i, %tra
   %101 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %101, 2048
   %cmp.i11.not.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.i11.not.i.i, label %virtio_gpu_find_check_resource.exit.thread.i, label %if.then4.i.i
+  br i1 %cmp.i11.not.i.i, label %virtio_gpu_find_check_resource.argprom.exit.thread.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %do.body.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.virtio_gpu_resource_flush, i32 noundef %98) #12
-  br label %virtio_gpu_find_check_resource.exit.thread.i
+  br label %virtio_gpu_find_check_resource.argprom.exit.thread.i
 
-virtio_gpu_find_check_resource.exit.thread.i:     ; preds = %if.then4.i.i, %do.body.i.i
+virtio_gpu_find_check_resource.argprom.exit.thread.i: ; preds = %if.then4.i.i, %do.body.i.i
   store i32 4611, ptr %error.i145, align 4
   br label %virtio_gpu_resource_flush.exit
 
@@ -1915,7 +1915,7 @@ for.inc217.i:                                     ; preds = %if.then197.i, %lor.
   %cmp178.i = icmp ult i32 %inc218.i, %151
   br i1 %cmp178.i, label %for.body180.i, label %virtio_gpu_resource_flush.exit, !llvm.loop !11
 
-virtio_gpu_resource_flush.exit:                   ; preds = %for.inc.i.thread, %for.inc217.i, %do.body2.i166, %if.then5.i169, %virtio_gpu_find_check_resource.exit.thread.i, %for.end.i, %do.end90.i, %do.end159.i, %if.end161.i
+virtio_gpu_resource_flush.exit:                   ; preds = %for.inc.i.thread, %for.inc217.i, %do.body2.i166, %if.then5.i169, %virtio_gpu_find_check_resource.argprom.exit.thread.i, %for.end.i, %do.end90.i, %do.end159.i, %if.end161.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %rf.i)
   br label %sw.epilog
 
@@ -2012,7 +2012,7 @@ do.body.i.i193:                                   ; preds = %for.inc.i.i.i189, %
   %167 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i194 = and i32 %167, 2048
   %cmp.i11.not.i.i195 = icmp eq i32 %and.i.i.i194, 0
-  br i1 %cmp.i11.not.i.i195, label %virtio_gpu_find_check_resource.exit.i, label %virtio_gpu_find_check_resource.exit.sink.split.i
+  br i1 %cmp.i11.not.i.i195, label %virtio_gpu_find_check_resource.argprom.exit.i, label %virtio_gpu_find_check_resource.argprom.exit.sink.split.i
 
 if.end8.i.i:                                      ; preds = %for.body.i.i.i186
   %iov.i.i = getelementptr inbounds i8, ptr %res.06.i.i.i187, i64 24
@@ -2036,16 +2036,16 @@ do.body15.i.i:                                    ; preds = %land.lhs.true.i.i, 
   %171 = load i32, ptr @qemu_loglevel, align 4
   %and.i12.i.i = and i32 %171, 2048
   %cmp.i13.not.i.i = icmp eq i32 %and.i12.i.i, 0
-  br i1 %cmp.i13.not.i.i, label %virtio_gpu_find_check_resource.exit.i, label %virtio_gpu_find_check_resource.exit.sink.split.i
+  br i1 %cmp.i13.not.i.i, label %virtio_gpu_find_check_resource.argprom.exit.i, label %virtio_gpu_find_check_resource.argprom.exit.sink.split.i
 
-virtio_gpu_find_check_resource.exit.sink.split.i: ; preds = %do.body15.i.i, %do.body.i.i193
+virtio_gpu_find_check_resource.argprom.exit.sink.split.i: ; preds = %do.body15.i.i, %do.body.i.i193
   %.str.15.sink.i = phi ptr [ @.str.15, %do.body.i.i193 ], [ @.str.16, %do.body15.i.i ]
   %.sink.i.ph.i = phi i32 [ 4611, %do.body.i.i193 ], [ 4608, %do.body15.i.i ]
   call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.15.sink.i, ptr noundef nonnull @__func__.virtio_gpu_transfer_to_host_2d, i32 noundef %164) #12
-  br label %virtio_gpu_find_check_resource.exit.i
+  br label %virtio_gpu_find_check_resource.argprom.exit.i
 
-virtio_gpu_find_check_resource.exit.i:            ; preds = %virtio_gpu_find_check_resource.exit.sink.split.i, %do.body15.i.i, %do.body.i.i193
-  %.sink.i.i = phi i32 [ 4611, %do.body.i.i193 ], [ 4608, %do.body15.i.i ], [ %.sink.i.ph.i, %virtio_gpu_find_check_resource.exit.sink.split.i ]
+virtio_gpu_find_check_resource.argprom.exit.i:    ; preds = %virtio_gpu_find_check_resource.argprom.exit.sink.split.i, %do.body15.i.i, %do.body.i.i193
+  %.sink.i.i = phi i32 [ 4611, %do.body.i.i193 ], [ 4608, %do.body15.i.i ], [ %.sink.i.ph.i, %virtio_gpu_find_check_resource.argprom.exit.sink.split.i ]
   store i32 %.sink.i.i, ptr %error.i183, align 4
   br label %virtio_gpu_transfer_to_host_2d.exit
 
@@ -2187,7 +2187,7 @@ if.else.i55.i:                                    ; preds = %lor.lhs.false85.i
   %call.i56.i = call i64 @iov_to_buf_full(ptr noundef %202, i32 noundef %201, i64 noundef %conv125.i, ptr noundef %add.ptr127.i, i64 noundef %conv131.i) #12
   br label %virtio_gpu_transfer_to_host_2d.exit
 
-virtio_gpu_transfer_to_host_2d.exit:              ; preds = %if.else.i45.i, %do.body2.i229, %if.then5.i232, %land.lhs.true.i.i, %virtio_gpu_find_check_resource.exit.i, %lor.lhs.false.i197, %do.end71.i, %if.then92.i, %if.else.i55.i
+virtio_gpu_transfer_to_host_2d.exit:              ; preds = %if.else.i45.i, %do.body2.i229, %if.then5.i232, %land.lhs.true.i.i, %virtio_gpu_find_check_resource.argprom.exit.i, %lor.lhs.false.i197, %do.end71.i, %if.then92.i, %if.else.i55.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %t2d.i)
   br label %sw.epilog
 
@@ -2365,7 +2365,7 @@ do.body.i.i253:                                   ; preds = %for.inc.i.i24.i, %i
   %230 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i254 = and i32 %230, 2048
   %cmp.i11.not.i.i255 = icmp eq i32 %and.i.i.i254, 0
-  br i1 %cmp.i11.not.i.i255, label %virtio_gpu_find_check_resource.exit.i259, label %virtio_gpu_find_check_resource.exit.sink.split.i256
+  br i1 %cmp.i11.not.i.i255, label %virtio_gpu_find_check_resource.argprom.exit.i259, label %virtio_gpu_find_check_resource.argprom.exit.sink.split.i256
 
 if.end8.i.i261:                                   ; preds = %for.body.i.i21.i
   %iov.i.i262 = getelementptr inbounds i8, ptr %res.06.i.i22.i, i64 24
@@ -2389,16 +2389,16 @@ do.body15.i.i275:                                 ; preds = %land.lhs.true.i.i27
   %234 = load i32, ptr @qemu_loglevel, align 4
   %and.i12.i.i276 = and i32 %234, 2048
   %cmp.i13.not.i.i277 = icmp eq i32 %and.i12.i.i276, 0
-  br i1 %cmp.i13.not.i.i277, label %virtio_gpu_find_check_resource.exit.i259, label %virtio_gpu_find_check_resource.exit.sink.split.i256
+  br i1 %cmp.i13.not.i.i277, label %virtio_gpu_find_check_resource.argprom.exit.i259, label %virtio_gpu_find_check_resource.argprom.exit.sink.split.i256
 
-virtio_gpu_find_check_resource.exit.sink.split.i256: ; preds = %do.body15.i.i275, %do.body.i.i253
+virtio_gpu_find_check_resource.argprom.exit.sink.split.i256: ; preds = %do.body15.i.i275, %do.body.i.i253
   %.str.15.sink.i257 = phi ptr [ @.str.15, %do.body.i.i253 ], [ @.str.16, %do.body15.i.i275 ]
   %.sink.i.ph.i258 = phi i32 [ 4611, %do.body.i.i253 ], [ 4608, %do.body15.i.i275 ]
   call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.15.sink.i257, ptr noundef nonnull @__func__.virtio_gpu_set_scanout, i32 noundef %223) #12
-  br label %virtio_gpu_find_check_resource.exit.i259
+  br label %virtio_gpu_find_check_resource.argprom.exit.i259
 
-virtio_gpu_find_check_resource.exit.i259:         ; preds = %virtio_gpu_find_check_resource.exit.sink.split.i256, %do.body15.i.i275, %do.body.i.i253
-  %.sink.i.i260 = phi i32 [ 4611, %do.body.i.i253 ], [ 4608, %do.body15.i.i275 ], [ %.sink.i.ph.i258, %virtio_gpu_find_check_resource.exit.sink.split.i256 ]
+virtio_gpu_find_check_resource.argprom.exit.i259: ; preds = %virtio_gpu_find_check_resource.argprom.exit.sink.split.i256, %do.body15.i.i275, %do.body.i.i253
+  %.sink.i.i260 = phi i32 [ 4611, %do.body.i.i253 ], [ 4608, %do.body15.i.i275 ], [ %.sink.i.ph.i258, %virtio_gpu_find_check_resource.argprom.exit.sink.split.i256 ]
   store i32 %.sink.i.i260, ptr %error35.i, align 4
   br label %virtio_gpu_set_scanout.exit
 
@@ -2436,7 +2436,7 @@ if.end39.i:                                       ; preds = %land.lhs.true.i.i27
   call fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %240, ptr noundef %fb.i, ptr noundef %res.06.i.i22.i, ptr noundef %r.i243, ptr noundef nonnull %error35.i)
   br label %virtio_gpu_set_scanout.exit
 
-virtio_gpu_set_scanout.exit:                      ; preds = %do.body2.i299, %if.then5.i302, %do.end26.i, %if.then31.i, %if.end4.i.i, %virtio_gpu_find_check_resource.exit.i259, %if.end39.i
+virtio_gpu_set_scanout.exit:                      ; preds = %do.body2.i299, %if.then5.i302, %do.end26.i, %if.then31.i, %if.end4.i.i, %virtio_gpu_find_check_resource.argprom.exit.i259, %if.end39.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %fb.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ss.i)
   br label %sw.epilog
@@ -2627,7 +2627,7 @@ do.body.i.i334:                                   ; preds = %for.inc.i.i25.i, %i
   %269 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i335 = and i32 %269, 2048
   %cmp.i11.not.i.i336 = icmp eq i32 %and.i.i.i335, 0
-  br i1 %cmp.i11.not.i.i336, label %virtio_gpu_find_check_resource.exit.i340, label %virtio_gpu_find_check_resource.exit.sink.split.i337
+  br i1 %cmp.i11.not.i.i336, label %virtio_gpu_find_check_resource.argprom.exit.i340, label %virtio_gpu_find_check_resource.argprom.exit.sink.split.i337
 
 if.end8.i.i342:                                   ; preds = %for.body.i.i22.i
   %iov.i.i343 = getelementptr inbounds i8, ptr %res.06.i.i23.i, i64 24
@@ -2651,16 +2651,16 @@ do.body15.i.i365:                                 ; preds = %land.lhs.true.i.i36
   %273 = load i32, ptr @qemu_loglevel, align 4
   %and.i12.i.i366 = and i32 %273, 2048
   %cmp.i13.not.i.i367 = icmp eq i32 %and.i12.i.i366, 0
-  br i1 %cmp.i13.not.i.i367, label %virtio_gpu_find_check_resource.exit.i340, label %virtio_gpu_find_check_resource.exit.sink.split.i337
+  br i1 %cmp.i13.not.i.i367, label %virtio_gpu_find_check_resource.argprom.exit.i340, label %virtio_gpu_find_check_resource.argprom.exit.sink.split.i337
 
-virtio_gpu_find_check_resource.exit.sink.split.i337: ; preds = %do.body15.i.i365, %do.body.i.i334
+virtio_gpu_find_check_resource.argprom.exit.sink.split.i337: ; preds = %do.body15.i.i365, %do.body.i.i334
   %.str.15.sink.i338 = phi ptr [ @.str.15, %do.body.i.i334 ], [ @.str.16, %do.body15.i.i365 ]
   %.sink.i.ph.i339 = phi i32 [ 4611, %do.body.i.i334 ], [ 4608, %do.body15.i.i365 ]
   call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.15.sink.i338, ptr noundef nonnull @__func__.virtio_gpu_set_scanout_blob, i32 noundef %262) #12
-  br label %virtio_gpu_find_check_resource.exit.i340
+  br label %virtio_gpu_find_check_resource.argprom.exit.i340
 
-virtio_gpu_find_check_resource.exit.i340:         ; preds = %virtio_gpu_find_check_resource.exit.sink.split.i337, %do.body15.i.i365, %do.body.i.i334
-  %.sink.i.i341 = phi i32 [ 4611, %do.body.i.i334 ], [ 4608, %do.body15.i.i365 ], [ %.sink.i.ph.i339, %virtio_gpu_find_check_resource.exit.sink.split.i337 ]
+virtio_gpu_find_check_resource.argprom.exit.i340: ; preds = %virtio_gpu_find_check_resource.argprom.exit.sink.split.i337, %do.body15.i.i365, %do.body.i.i334
+  %.sink.i.i341 = phi i32 [ 4611, %do.body.i.i334 ], [ 4608, %do.body15.i.i365 ], [ %.sink.i.ph.i339, %virtio_gpu_find_check_resource.argprom.exit.sink.split.i337 ]
   store i32 %.sink.i.i341, ptr %error35.i332, align 4
   br label %virtio_gpu_set_scanout_blob.exit
 
@@ -2773,7 +2773,7 @@ if.end107.i:                                      ; preds = %if.end58.i
   call fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %259, ptr noundef %fb.i304, ptr noundef %res.06.i.i23.i, ptr noundef %r.i316, ptr noundef nonnull %error35.i332)
   br label %virtio_gpu_set_scanout_blob.exit
 
-virtio_gpu_set_scanout_blob.exit:                 ; preds = %do.body2.i403, %if.then5.i406, %do.end26.i327, %if.then31.i368, %if.end4.i.i384, %virtio_gpu_find_check_resource.exit.i340, %do.end56.i, %do.end105.i, %if.end107.i
+virtio_gpu_set_scanout_blob.exit:                 ; preds = %do.body2.i403, %if.then5.i406, %do.end26.i327, %if.then31.i368, %if.end4.i.i384, %virtio_gpu_find_check_resource.argprom.exit.i340, %do.end56.i, %do.end105.i, %if.end107.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %fb.i304)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ss.i305)
   br label %sw.epilog
@@ -3003,7 +3003,7 @@ do.body.i.i478:                                   ; preds = %for.inc.i.i.i474, %
   %318 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i479 = and i32 %318, 2048
   %cmp.i11.not.i.i480 = icmp eq i32 %and.i.i.i479, 0
-  br i1 %cmp.i11.not.i.i480, label %virtio_gpu_find_check_resource.exit.i484, label %virtio_gpu_find_check_resource.exit.sink.split.i481
+  br i1 %cmp.i11.not.i.i480, label %virtio_gpu_find_check_resource.argprom.exit.i484, label %virtio_gpu_find_check_resource.argprom.exit.sink.split.i481
 
 if.end8.i.i486:                                   ; preds = %for.body.i.i.i471
   %iov.i.i487 = getelementptr inbounds i8, ptr %res.06.i.i.i472, i64 24
@@ -3027,16 +3027,16 @@ do.body15.i.i495:                                 ; preds = %land.lhs.true.i.i49
   %322 = load i32, ptr @qemu_loglevel, align 4
   %and.i12.i.i496 = and i32 %322, 2048
   %cmp.i13.not.i.i497 = icmp eq i32 %and.i12.i.i496, 0
-  br i1 %cmp.i13.not.i.i497, label %virtio_gpu_find_check_resource.exit.i484, label %virtio_gpu_find_check_resource.exit.sink.split.i481
+  br i1 %cmp.i13.not.i.i497, label %virtio_gpu_find_check_resource.argprom.exit.i484, label %virtio_gpu_find_check_resource.argprom.exit.sink.split.i481
 
-virtio_gpu_find_check_resource.exit.sink.split.i481: ; preds = %do.body15.i.i495, %do.body.i.i478
+virtio_gpu_find_check_resource.argprom.exit.sink.split.i481: ; preds = %do.body15.i.i495, %do.body.i.i478
   %.str.15.sink.i482 = phi ptr [ @.str.15, %do.body.i.i478 ], [ @.str.16, %do.body15.i.i495 ]
   %.sink.i.ph.i483 = phi i32 [ 4611, %do.body.i.i478 ], [ 4608, %do.body15.i.i495 ]
   call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.15.sink.i482, ptr noundef nonnull @__func__.virtio_gpu_resource_detach_backing, i32 noundef %315) #12
-  br label %virtio_gpu_find_check_resource.exit.i484
+  br label %virtio_gpu_find_check_resource.argprom.exit.i484
 
-virtio_gpu_find_check_resource.exit.i484:         ; preds = %virtio_gpu_find_check_resource.exit.sink.split.i481, %do.body15.i.i495, %do.body.i.i478
-  %.sink.i.i485 = phi i32 [ 4611, %do.body.i.i478 ], [ 4608, %do.body15.i.i495 ], [ %.sink.i.ph.i483, %virtio_gpu_find_check_resource.exit.sink.split.i481 ]
+virtio_gpu_find_check_resource.argprom.exit.i484: ; preds = %virtio_gpu_find_check_resource.argprom.exit.sink.split.i481, %do.body15.i.i495, %do.body.i.i478
+  %.sink.i.i485 = phi i32 [ 4611, %do.body.i.i478 ], [ 4608, %do.body15.i.i495 ], [ %.sink.i.ph.i483, %virtio_gpu_find_check_resource.argprom.exit.sink.split.i481 ]
   store i32 %.sink.i.i485, ptr %error.i468, align 4
   br label %virtio_gpu_resource_detach_backing.exit
 
@@ -3044,7 +3044,7 @@ if.end12.i:                                       ; preds = %land.lhs.true.i.i49
   call void @virtio_gpu_cleanup_mapping(ptr noundef %g, ptr noundef nonnull %res.06.i.i.i472)
   br label %virtio_gpu_resource_detach_backing.exit
 
-virtio_gpu_resource_detach_backing.exit:          ; preds = %do.body2.i511, %if.then5.i514, %virtio_gpu_find_check_resource.exit.i484, %if.end12.i
+virtio_gpu_resource_detach_backing.exit:          ; preds = %do.body2.i511, %if.then5.i514, %virtio_gpu_find_check_resource.argprom.exit.i484, %if.end12.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %detach.i)
   br label %sw.epilog
 

@@ -2414,7 +2414,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit352
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit352:        ; preds = %889, %895, %898
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %76, ptr nonnull %67, ptr %890, ptr %891)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %76, ptr nonnull %67, ptr %890, ptr %891)
           to label %900 unwind label %1029
 
 900:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit352
@@ -3977,7 +3977,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 1580:                                             ; preds = %1578
   %.val156 = load ptr, ptr %89, align 8
   %.val157 = load ptr, ptr %1362, align 8
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %88, ptr nonnull %67, ptr %.val156, ptr %.val157)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %88, ptr nonnull %67, ptr %.val156, ptr %.val157)
           to label %1581 unwind label %1864
 
 1581:                                             ; preds = %1580
@@ -4991,7 +4991,7 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit606
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit606:        ; preds = %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit603, %1996, %1999
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %94, ptr nonnull %67, ptr %1991, ptr %1992)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %94, ptr nonnull %67, ptr %1991, ptr %1992)
           to label %2001 unwind label %2188
 
 2001:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit606
@@ -10467,7 +10467,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.ade::Handle", align 8

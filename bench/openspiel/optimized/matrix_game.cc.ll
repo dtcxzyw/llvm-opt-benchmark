@@ -2916,23 +2916,23 @@ define void @_ZN10open_spiel11matrix_game16CreateMatrixGameERKNSt7__cxx1112basic
   %46 = trunc nuw i8 %.125.i to i1
   %47 = trunc nuw i8 %.1.i to i1
   %48 = select i1 %47, i32 3, i32 2
-  br i1 %46, label %._crit_edge.thread.i, label %_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.exit
+  br i1 %46, label %._crit_edge.thread.i, label %_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.argprom.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.026.lcssa12.i = phi double [ %.127.i, %._crit_edge.i ], [ 0.000000e+00, %7 ]
   %49 = tail call double @llvm.fabs.f64(double %.026.lcssa12.i)
   %50 = fcmp ugt double %49, 0x3EB0C6F7A0000000
   %.mux.i = zext i1 %50 to i32
-  br label %_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.exit
+  br label %_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.argprom.exit
 
-_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.exit: ; preds = %._crit_edge.i, %._crit_edge.thread.i
+_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.argprom.exit: ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %.028.i = phi i32 [ %.mux.i, %._crit_edge.thread.i ], [ %48, %._crit_edge.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %52 unwind label %170
 
-52:                                               ; preds = %_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.exit
+52:                                               ; preds = %_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.argprom.exit
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 0, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 68
@@ -3228,7 +3228,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit55:              ; preds = %_ZN10open_spiel8Gam
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   ret void
 
-170:                                              ; preds = %_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.exit
+170:                                              ; preds = %_ZN10open_spiel11matrix_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIdSaIdEES6_.argprom.exit
   %171 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
@@ -3888,16 +3888,16 @@ define { i8, double } @_ZNK10open_spiel11matrix_game10MatrixGame10UtilitySumEv(p
 
 ._crit_edge.i:                                    ; preds = %25
   %26 = trunc nuw i8 %.1.i to i1
-  br i1 %26, label %._crit_edge.thread.i, label %_ZN10open_spiel11matrix_game12_GLOBAL__N_113GetUtilitySumERKSt6vectorIdSaIdEES6_.exit
+  br i1 %26, label %._crit_edge.thread.i, label %_ZN10open_spiel11matrix_game12_GLOBAL__N_113GetUtilitySumERKSt6vectorIdSaIdEES6_.argprom.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %1
   %.017.lcssa9.i = phi double [ %.118.i, %._crit_edge.i ], [ 0.000000e+00, %1 ]
   %27 = tail call double @llvm.fabs.f64(double %.017.lcssa9.i)
   %28 = fcmp ole double %27, 0x3EB0C6F7A0000000
   %29 = select i1 %28, double 0.000000e+00, double %.017.lcssa9.i
-  br label %_ZN10open_spiel11matrix_game12_GLOBAL__N_113GetUtilitySumERKSt6vectorIdSaIdEES6_.exit
+  br label %_ZN10open_spiel11matrix_game12_GLOBAL__N_113GetUtilitySumERKSt6vectorIdSaIdEES6_.argprom.exit
 
-_ZN10open_spiel11matrix_game12_GLOBAL__N_113GetUtilitySumERKSt6vectorIdSaIdEES6_.exit: ; preds = %._crit_edge.i, %._crit_edge.thread.i
+_ZN10open_spiel11matrix_game12_GLOBAL__N_113GetUtilitySumERKSt6vectorIdSaIdEES6_.argprom.exit: ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %.sroa.0.0.i = phi i8 [ 1, %._crit_edge.thread.i ], [ 0, %._crit_edge.i ]
   %.sroa.3.0.i = phi double [ %29, %._crit_edge.thread.i ], [ undef, %._crit_edge.i ]
   %.fca.0.insert.i = insertvalue { i8, double } poison, i8 %.sroa.0.0.i, 0

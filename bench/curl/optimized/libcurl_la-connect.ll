@@ -455,7 +455,7 @@ for.end.i:                                        ; preds = %baller_free.exit.i
   %winner.i = getelementptr inbounds i8, ptr %cf.val, i64 48
   %7 = load ptr, ptr %winner.i, align 8
   %tobool.not.i8.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i8.i, label %cf_he_ctx_clear.exit, label %if.then.i9.i
+  br i1 %tobool.not.i8.i, label %cf_he_ctx_clear.argprom.exit, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %for.end.i
   %cf.i.i10.i = getelementptr inbounds i8, ptr %7, i64 40
@@ -470,13 +470,13 @@ if.then.i.i12.i:                                  ; preds = %if.then.i9.i
 baller_close.exit.i13.i:                          ; preds = %if.then.i.i12.i, %if.then.i9.i
   %9 = load ptr, ptr @Curl_cfree, align 8
   tail call void %9(ptr noundef nonnull %7) #10
-  br label %cf_he_ctx_clear.exit
+  br label %cf_he_ctx_clear.argprom.exit
 
-cf_he_ctx_clear.exit:                             ; preds = %for.end.i, %baller_close.exit.i13.i
+cf_he_ctx_clear.argprom.exit:                     ; preds = %for.end.i, %baller_close.exit.i13.i
   store ptr null, ptr %winner.i, align 8
   br label %do.body9
 
-do.body9:                                         ; preds = %do.end, %cf_he_ctx_clear.exit
+do.body9:                                         ; preds = %do.end, %cf_he_ctx_clear.argprom.exit
   %10 = load ptr, ptr @Curl_cfree, align 8
   tail call void %10(ptr noundef %0) #10
   ret void
@@ -879,14 +879,14 @@ if.end11.i:                                       ; preds = %if.end.i41
   %tobool2.not.i.i = icmp eq i32 %57, 0
   %tobool.not.i.i43 = icmp eq i8 %56, 0
   %or.cond.i.i44 = and i1 %tobool.not.i.i43, %tobool2.not.i.i
-  br i1 %or.cond.i.i44, label %if.then.i.i, label %baller_connect.exit.i
+  br i1 %or.cond.i.i44, label %if.then.i.i, label %baller_connect.argprom.exit.i
 
 if.then.i.i:                                      ; preds = %if.end11.i
   %cf4.i.i = getelementptr inbounds i8, ptr %53, i64 40
   %58 = load ptr, ptr %cf4.i.i, align 8
   %call.i.i77 = tail call i32 @Curl_conn_cf_connect(ptr noundef %58, ptr noundef %data, i1 noundef zeroext false, ptr noundef nonnull %done) #10
   store i32 %call.i.i77, ptr %result.i.i42, align 4
-  switch i32 %call.i.i77, label %baller_connect.exit.i [
+  switch i32 %call.i.i77, label %baller_connect.argprom.exit.i [
     i32 0, label %if.then8.i.i
     i32 8, label %if.then34.i.i
   ]
@@ -900,7 +900,7 @@ if.then10.i.i:                                    ; preds = %if.then8.i.i
   %bf.load12.i.i = load i8, ptr %is_done.i, align 4
   %bf.set16.i.i = or i8 %bf.load12.i.i, 12
   store i8 %bf.set16.i.i, ptr %is_done.i, align 4
-  br label %baller_connect.exit.i
+  br label %baller_connect.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %if.then8.i.i
   %started.i.i = getelementptr inbounds i8, ptr %53, i64 64
@@ -915,7 +915,7 @@ if.else.i.i:                                      ; preds = %if.then8.i.i
 
 if.else.if.end40_crit_edge.i.i:                   ; preds = %if.else.i.i
   %.pre.i.i79 = load i32, ptr %result.i.i42, align 4
-  br label %baller_connect.exit.i
+  br label %baller_connect.argprom.exit.i
 
 do.body.i.i:                                      ; preds = %if.else.i.i
   br i1 %tobool19.not.i.i, label %do.end.i.i, label %land.lhs.true20.i.i
@@ -934,20 +934,20 @@ if.then26.i.i:                                    ; preds = %land.lhs.true20.i.i
 do.end.i.i:                                       ; preds = %if.then26.i.i, %land.lhs.true20.i.i, %do.body.i.i
   %error.i.i = getelementptr inbounds i8, ptr %53, i64 96
   store i32 110, ptr %error.i.i, align 8
-  br label %baller_connect.exit.i
+  br label %baller_connect.argprom.exit.i
 
 if.then34.i.i:                                    ; preds = %if.then.i.i
   %bf.load35.i.i = load i8, ptr %is_done.i, align 4
   %bf.set37.i.i = or i8 %bf.load35.i.i, 16
   store i8 %bf.set37.i.i, ptr %is_done.i, align 4
-  br label %baller_connect.exit.i
+  br label %baller_connect.argprom.exit.i
 
-baller_connect.exit.i:                            ; preds = %if.then34.i.i, %do.end.i.i, %if.else.if.end40_crit_edge.i.i, %if.then10.i.i, %if.then.i.i, %if.end11.i
+baller_connect.argprom.exit.i:                    ; preds = %if.then34.i.i, %do.end.i.i, %if.else.if.end40_crit_edge.i.i, %if.then10.i.i, %if.then.i.i, %if.end11.i
   %66 = phi i32 [ %.pre.i.i79, %if.else.if.end40_crit_edge.i.i ], [ %call.i.i77, %if.then.i.i ], [ 28, %do.end.i.i ], [ 0, %if.then10.i.i ], [ 8, %if.then34.i.i ], [ %57, %if.end11.i ]
   store i32 %66, ptr %result.i.i42, align 4
   br i1 %tobool19.not.i.i, label %do.end.i46, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %baller_connect.exit.i
+land.lhs.true.i:                                  ; preds = %baller_connect.argprom.exit.i
   %bf.load15.i = load i64, ptr %verbose.i.i, align 2
   %67 = and i64 %bf.load15.i, 536870912
   %tobool19.i = icmp ne i64 %67, 0
@@ -970,8 +970,8 @@ if.then24.i:                                      ; preds = %land.lhs.true22.i
   %.pr.pre.i76 = load i32, ptr %result.i.i42, align 4
   br label %do.end.i46
 
-do.end.i46:                                       ; preds = %if.then24.i, %land.lhs.true22.i, %land.lhs.true.i, %baller_connect.exit.i
-  %73 = phi i32 [ %66, %baller_connect.exit.i ], [ %.pr.pre.i76, %if.then24.i ], [ %66, %land.lhs.true22.i ], [ %66, %land.lhs.true.i ]
+do.end.i46:                                       ; preds = %if.then24.i, %land.lhs.true22.i, %land.lhs.true.i, %baller_connect.argprom.exit.i
+  %73 = phi i32 [ %66, %baller_connect.argprom.exit.i ], [ %.pr.pre.i76, %if.then24.i ], [ %66, %land.lhs.true22.i ], [ %66, %land.lhs.true.i ]
   %tobool29.not.i = icmp eq i32 %73, 0
   br i1 %tobool29.not.i, label %if.then30.i, label %if.else37.i
 
@@ -1098,7 +1098,7 @@ do.body60.thread.i:                               ; preds = %if.then19.i.i53
   br label %land.lhs.true62.i64
 
 baller_start_next.exit.i:                         ; preds = %if.then7.i148.i, %land.lhs.true.i.i, %baller_next_addr.exit.i.i
-  tail call fastcc void @baller_start(ptr noundef %cf, ptr noundef %data, ptr noundef %53, i64 noundef %spec.select166)
+  tail call fastcc void @baller_start.retelim(ptr noundef %cf, ptr noundef %data, ptr noundef %53, i64 noundef %spec.select166)
   %bf.load54.pre.i = load i8, ptr %is_done.i, align 4
   %92 = and i8 %bf.load54.pre.i, 4
   %93 = icmp eq i8 %92, 0
@@ -1284,7 +1284,7 @@ if.then19.i193.i:                                 ; preds = %if.then7.i186.i, %i
   %tobool32.not.i204.i = icmp eq i64 %timeleft_ms.031.i194.i, 0
   %cond41.i206.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select1.i203.i, i64 %timeleft_ms.031.i194.i)
   %spec.select168 = select i1 %tobool32.not.i204.i, i64 %spec.store.select1.i203.i, i64 %cond41.i206.i
-  tail call fastcc void @baller_start(ptr noundef %cf, ptr noundef nonnull %data, ptr noundef %111, i64 noundef %spec.select168)
+  tail call fastcc void @baller_start.retelim(ptr noundef %cf, ptr noundef nonnull %data, ptr noundef %111, i64 noundef %spec.select168)
   %bf.load159.i = load i8, ptr %has_started134.i, align 4
   %125 = and i8 %bf.load159.i, 4
   %tobool163.not.i = icmp eq i8 %125, 0
@@ -1583,7 +1583,7 @@ for.end.i86:                                      ; preds = %baller_free.exit.i
   %winner.i87 = getelementptr inbounds i8, ptr %cf.val, i64 48
   %163 = load ptr, ptr %winner.i87, align 8
   %tobool.not.i8.i = icmp eq ptr %163, null
-  br i1 %tobool.not.i8.i, label %cf_he_ctx_clear.exit, label %if.then.i9.i
+  br i1 %tobool.not.i8.i, label %cf_he_ctx_clear.argprom.exit, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %for.end.i86
   %cf.i.i10.i = getelementptr inbounds i8, ptr %163, i64 40
@@ -1598,9 +1598,9 @@ if.then.i.i12.i:                                  ; preds = %if.then.i9.i
 baller_close.exit.i13.i:                          ; preds = %if.then.i.i12.i, %if.then.i9.i
   %165 = load ptr, ptr @Curl_cfree, align 8
   tail call void %165(ptr noundef nonnull %163) #10
-  br label %cf_he_ctx_clear.exit
+  br label %cf_he_ctx_clear.argprom.exit
 
-cf_he_ctx_clear.exit:                             ; preds = %for.end.i86, %baller_close.exit.i13.i
+cf_he_ctx_clear.argprom.exit:                     ; preds = %for.end.i86, %baller_close.exit.i13.i
   store ptr null, ptr %winner.i87, align 8
   %166 = load ptr, ptr %next, align 8
   %call30 = tail call i32 @Curl_conn_cf_cntrl(ptr noundef %166, ptr noundef %data, i1 noundef zeroext true, i32 noundef 256, i32 noundef 0, ptr noundef null) #10
@@ -1613,13 +1613,13 @@ cf_he_ctx_clear.exit:                             ; preds = %for.end.i86, %balle
   %tobool31.not = icmp eq i32 %and, 0
   br i1 %tobool31.not, label %if.end34, label %if.then32
 
-if.then32:                                        ; preds = %cf_he_ctx_clear.exit
+if.then32:                                        ; preds = %cf_he_ctx_clear.argprom.exit
   %call33 = tail call { i64, i32 } @Curl_pgrsTime(ptr noundef %data, i32 noundef 6) #10
   %.pre = load ptr, ptr %conn2.i29, align 8
   br label %if.end34
 
-if.end34:                                         ; preds = %if.then32, %cf_he_ctx_clear.exit
-  %170 = phi ptr [ %.pre, %if.then32 ], [ %167, %cf_he_ctx_clear.exit ]
+if.end34:                                         ; preds = %if.then32, %cf_he_ctx_clear.argprom.exit
+  %170 = phi ptr [ %.pre, %if.then32 ], [ %167, %cf_he_ctx_clear.argprom.exit ]
   tail call void @Curl_verboseconnect(ptr noundef %data, ptr noundef %170) #10
   %numconnects = getelementptr inbounds i8, ptr %data, i64 5104
   %171 = load i64, ptr %numconnects, align 8
@@ -1699,7 +1699,7 @@ for.end.i:                                        ; preds = %baller_free.exit.i
   %winner.i = getelementptr inbounds i8, ptr %cf.val, i64 48
   %7 = load ptr, ptr %winner.i, align 8
   %tobool.not.i8.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i8.i, label %cf_he_ctx_clear.exit, label %if.then.i9.i
+  br i1 %tobool.not.i8.i, label %cf_he_ctx_clear.argprom.exit, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %for.end.i
   %cf.i.i10.i = getelementptr inbounds i8, ptr %7, i64 40
@@ -1714,9 +1714,9 @@ if.then.i.i12.i:                                  ; preds = %if.then.i9.i
 baller_close.exit.i13.i:                          ; preds = %if.then.i.i12.i, %if.then.i9.i
   %9 = load ptr, ptr @Curl_cfree, align 8
   tail call void %9(ptr noundef nonnull %7) #10
-  br label %cf_he_ctx_clear.exit
+  br label %cf_he_ctx_clear.argprom.exit
 
-cf_he_ctx_clear.exit:                             ; preds = %for.end.i, %baller_close.exit.i13.i
+cf_he_ctx_clear.argprom.exit:                     ; preds = %for.end.i, %baller_close.exit.i13.i
   store ptr null, ptr %winner.i, align 8
   %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load6 = load i8, ptr %connected, align 4
@@ -1729,7 +1729,7 @@ cf_he_ctx_clear.exit:                             ; preds = %for.end.i, %baller_
   %tobool8.not = icmp eq ptr %10, null
   br i1 %tobool8.not, label %if.end14, label %if.then9
 
-if.then9:                                         ; preds = %cf_he_ctx_clear.exit
+if.then9:                                         ; preds = %cf_he_ctx_clear.argprom.exit
   %11 = load ptr, ptr %10, align 8
   %do_close = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %do_close, align 8
@@ -1737,7 +1737,7 @@ if.then9:                                         ; preds = %cf_he_ctx_clear.exi
   tail call void @Curl_conn_cf_discard_chain(ptr noundef nonnull %next, ptr noundef %data) #10
   br label %if.end14
 
-if.end14:                                         ; preds = %if.then9, %cf_he_ctx_clear.exit
+if.end14:                                         ; preds = %if.then9, %cf_he_ctx_clear.argprom.exit
   ret void
 }
 
@@ -2015,9 +2015,9 @@ if.then15.i:                                      ; preds = %land.lhs.true12.i
 for.inc.i:                                        ; preds = %if.then15.i, %land.lhs.true12.i, %if.then.i, %land.lhs.true5.i, %land.lhs.true.i, %for.body.i
   %retval.sroa.4.1.i = phi i32 [ %retval.sroa.4.01.i, %land.lhs.true5.i ], [ %retval.sroa.4.0.copyload.i, %if.then15.i ], [ %retval.sroa.4.01.i, %land.lhs.true12.i ], [ %retval.sroa.4.01.i, %if.then.i ], [ %retval.sroa.4.01.i, %land.lhs.true.i ], [ %retval.sroa.4.01.i, %for.body.i ]
   %retval.sroa.0.1.i = phi i64 [ %retval.sroa.0.03.i, %land.lhs.true5.i ], [ %retval.sroa.0.0.copyload.i, %if.then15.i ], [ %retval.sroa.0.03.i, %land.lhs.true12.i ], [ %retval.sroa.0.03.i, %if.then.i ], [ %retval.sroa.0.03.i, %land.lhs.true.i ], [ %retval.sroa.0.03.i, %for.body.i ]
-  br i1 %cmp.i, label %for.body.i, label %get_max_baller_time.exit, !llvm.loop !14
+  br i1 %cmp.i, label %for.body.i, label %get_max_baller_time.argprom.exit, !llvm.loop !14
 
-get_max_baller_time.exit:                         ; preds = %for.inc.i
+get_max_baller_time.argprom.exit:                 ; preds = %for.inc.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
   store i64 %retval.sroa.0.1.i, ptr %pres2, align 8
   %tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %pres2, i64 8
@@ -2076,9 +2076,9 @@ if.then15.i64:                                    ; preds = %land.lhs.true12.i61
 for.inc.i52:                                      ; preds = %if.then15.i64, %land.lhs.true12.i61, %if.then.i57, %land.lhs.true5.i48, %land.lhs.true.i45, %for.body.i38
   %retval.sroa.4.1.i53 = phi i32 [ %retval.sroa.4.01.i42, %land.lhs.true5.i48 ], [ %retval.sroa.4.0.copyload.i66, %if.then15.i64 ], [ %retval.sroa.4.01.i42, %land.lhs.true12.i61 ], [ %retval.sroa.4.01.i42, %if.then.i57 ], [ %retval.sroa.4.01.i42, %land.lhs.true.i45 ], [ %retval.sroa.4.01.i42, %for.body.i38 ]
   %retval.sroa.0.1.i54 = phi i64 [ %retval.sroa.0.03.i39, %land.lhs.true5.i48 ], [ %retval.sroa.0.0.copyload.i65, %if.then15.i64 ], [ %retval.sroa.0.03.i39, %land.lhs.true12.i61 ], [ %retval.sroa.0.03.i39, %if.then.i57 ], [ %retval.sroa.0.03.i39, %land.lhs.true.i45 ], [ %retval.sroa.0.03.i39, %for.body.i38 ]
-  br i1 %cmp.i40, label %for.body.i38, label %get_max_baller_time.exit67, !llvm.loop !14
+  br i1 %cmp.i40, label %for.body.i38, label %get_max_baller_time.argprom.exit67, !llvm.loop !14
 
-get_max_baller_time.exit67:                       ; preds = %for.inc.i52
+get_max_baller_time.argprom.exit67:               ; preds = %for.inc.i52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i35)
   store i64 %retval.sroa.0.1.i54, ptr %pres2, align 8
   %tmp35.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %pres2, i64 8
@@ -2098,8 +2098,8 @@ cond.true:                                        ; preds = %if.end37
   %call43 = tail call i32 %24(ptr noundef nonnull %22, ptr noundef %data, i32 noundef %query, ptr noundef %pres1, ptr noundef %pres2) #10
   br label %return
 
-return:                                           ; preds = %cond.true, %if.end37, %if.then29, %land.lhs.true26, %land.lhs.true19, %for.end, %get_max_baller_time.exit67, %get_max_baller_time.exit
-  %retval.0 = phi i32 [ 0, %get_max_baller_time.exit67 ], [ 0, %get_max_baller_time.exit ], [ 0, %for.end ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true26 ], [ 0, %if.then29 ], [ %call43, %cond.true ], [ 48, %if.end37 ]
+return:                                           ; preds = %cond.true, %if.end37, %if.then29, %land.lhs.true26, %land.lhs.true19, %for.end, %get_max_baller_time.argprom.exit67, %get_max_baller_time.argprom.exit
+  %retval.0 = phi i32 [ 0, %get_max_baller_time.argprom.exit67 ], [ 0, %get_max_baller_time.argprom.exit ], [ 0, %for.end ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true26 ], [ 0, %if.then29 ], [ %call43, %cond.true ], [ 48, %if.end37 ]
   ret i32 %retval.0
 }
 
@@ -2243,7 +2243,7 @@ if.end9.i:                                        ; preds = %get_cf_create.exit.
   %11 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i.i = call ptr %11(i64 noundef 1, i64 noundef 72) #10
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %cf_happy_eyeballs_create.exit.i, label %out.i.i
+  br i1 %tobool.not.i.i, label %cf_happy_eyeballs_create.argprom.exit.i, label %out.i.i
 
 out.i.i:                                          ; preds = %if.end9.i
   store i32 %5, ptr %call.i.i, align 8
@@ -2254,9 +2254,9 @@ out.i.i:                                          ; preds = %if.end9.i
   %call4.i.i = call i32 @Curl_cf_create(ptr noundef nonnull %cf.i, ptr noundef nonnull @Curl_cft_happy_eyeballs, ptr noundef nonnull %call.i.i) #10
   %tobool5.not.i.i = icmp eq i32 %call4.i.i, 0
   %.pre.i = load ptr, ptr %cf.i, align 8
-  br i1 %tobool5.not.i.i, label %if.end21, label %cf_happy_eyeballs_create.exit.i
+  br i1 %tobool5.not.i.i, label %if.end21, label %cf_happy_eyeballs_create.argprom.exit.i
 
-cf_happy_eyeballs_create.exit.i:                  ; preds = %out.i.i, %if.end9.i
+cf_happy_eyeballs_create.argprom.exit.i:          ; preds = %out.i.i, %if.end9.i
   %12 = phi ptr [ %.pre.i, %out.i.i ], [ null, %if.end9.i ]
   %result.03.i.i = phi i32 [ %call4.i.i, %out.i.i ], [ 27, %if.end9.i ]
   %13 = load ptr, ptr @Curl_cfree, align 8
@@ -2266,8 +2266,8 @@ cf_happy_eyeballs_create.exit.i:                  ; preds = %out.i.i, %if.end9.i
   call void %14(ptr noundef %call.i.i) #10
   br label %cf_he_insert_after.exit.thread
 
-cf_he_insert_after.exit.thread:                   ; preds = %do.body1.i, %land.lhs.true.i, %land.lhs.true6.i, %if.then7.i, %cf_happy_eyeballs_create.exit.i
-  %retval.0.i.ph = phi i32 [ %result.03.i.i, %cf_happy_eyeballs_create.exit.i ], [ 1, %if.then7.i ], [ 1, %land.lhs.true6.i ], [ 1, %land.lhs.true.i ], [ 1, %do.body1.i ]
+cf_he_insert_after.exit.thread:                   ; preds = %do.body1.i, %land.lhs.true.i, %land.lhs.true6.i, %if.then7.i, %cf_happy_eyeballs_create.argprom.exit.i
+  %retval.0.i.ph = phi i32 [ %result.03.i.i, %cf_happy_eyeballs_create.argprom.exit.i ], [ 1, %if.then7.i ], [ 1, %land.lhs.true6.i ], [ 1, %land.lhs.true.i ], [ 1, %do.body1.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   br label %return
 
@@ -2535,15 +2535,15 @@ entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %0(i64 noundef 1, i64 noundef 24) #10
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %cf_setup_create.exit.thread, label %cf_setup_create.exit
+  br i1 %tobool.not.i, label %cf_setup_create.argprom.exit.thread, label %cf_setup_create.argprom.exit
 
-cf_setup_create.exit.thread:                      ; preds = %entry
+cf_setup_create.argprom.exit.thread:              ; preds = %entry
   %1 = load ptr, ptr @Curl_cfree, align 8
   tail call void %1(ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   br label %out
 
-cf_setup_create.exit:                             ; preds = %entry
+cf_setup_create.argprom.exit:                     ; preds = %entry
   store i32 0, ptr %call.i, align 8
   %remotehost1.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %remotehost, ptr %remotehost1.i, align 8
@@ -2561,12 +2561,12 @@ cf_setup_create.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   br i1 %tobool5.not.i, label %if.end, label %out
 
-if.end:                                           ; preds = %cf_setup_create.exit
+if.end:                                           ; preds = %cf_setup_create.argprom.exit
   call void @Curl_conn_cf_insert_after(ptr noundef %cf_at, ptr noundef %2) #10
   br label %out
 
-out:                                              ; preds = %cf_setup_create.exit.thread, %cf_setup_create.exit, %if.end
-  %result.06.i5 = phi i32 [ 27, %cf_setup_create.exit.thread ], [ %call4.fr.i, %cf_setup_create.exit ], [ 0, %if.end ]
+out:                                              ; preds = %cf_setup_create.argprom.exit.thread, %cf_setup_create.argprom.exit, %if.end
+  %result.06.i5 = phi i32 [ 27, %cf_setup_create.argprom.exit.thread ], [ %call4.fr.i, %cf_setup_create.argprom.exit ], [ 0, %if.end ]
   ret i32 %result.06.i5
 }
 
@@ -2609,15 +2609,15 @@ if.then12:                                        ; preds = %land.lhs.true, %if.
   %5 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i.i = tail call ptr %5(i64 noundef 1, i64 noundef 24) #10
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %cf_setup_create.exit.thread.i, label %cf_setup_create.exit.i
+  br i1 %tobool.not.i.i, label %cf_setup_create.argprom.exit.thread.i, label %cf_setup_create.argprom.exit.i
 
-cf_setup_create.exit.thread.i:                    ; preds = %if.then12
+cf_setup_create.argprom.exit.thread.i:            ; preds = %if.then12
   %6 = load ptr, ptr @Curl_cfree, align 8
   tail call void %6(ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i.i)
   br label %out
 
-cf_setup_create.exit.i:                           ; preds = %if.then12
+cf_setup_create.argprom.exit.i:                   ; preds = %if.then12
   %conv = zext i8 %4 to i32
   store i32 0, ptr %call.i.i, align 8
   %remotehost1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
@@ -2636,12 +2636,12 @@ cf_setup_create.exit.i:                           ; preds = %if.then12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i.i)
   br i1 %tobool5.not.i.i, label %if.end.i, label %out
 
-if.end.i:                                         ; preds = %cf_setup_create.exit.i
+if.end.i:                                         ; preds = %cf_setup_create.argprom.exit.i
   call void @Curl_conn_cf_add(ptr noundef %data, ptr noundef nonnull %conn, i32 noundef %sockindex, ptr noundef %7) #10
   br label %out
 
-out:                                              ; preds = %entry, %if.end.i, %cf_setup_create.exit.i, %cf_setup_create.exit.thread.i, %if.end7, %do.end4
-  %result.1 = phi i32 [ 0, %if.end7 ], [ %call, %do.end4 ], [ 27, %cf_setup_create.exit.thread.i ], [ %call4.fr.i.i, %cf_setup_create.exit.i ], [ 0, %if.end.i ], [ 0, %entry ]
+out:                                              ; preds = %entry, %if.end.i, %cf_setup_create.argprom.exit.i, %cf_setup_create.argprom.exit.thread.i, %if.end7, %do.end4
+  %result.1 = phi i32 [ 0, %if.end7 ], [ %call, %do.end4 ], [ 27, %cf_setup_create.argprom.exit.thread.i ], [ %call4.fr.i.i, %cf_setup_create.argprom.exit.i ], [ 0, %if.end.i ], [ 0, %entry ]
   ret i32 %result.1
 }
 
@@ -2665,7 +2665,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @baller_start(ptr noundef %cf, ptr noundef %data, ptr noundef nonnull %baller, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %timeoutms) unnamed_addr #0 {
+define internal fastcc void @baller_start.retelim(ptr noundef %cf, ptr noundef %data, ptr noundef nonnull %baller, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %timeoutms) unnamed_addr #0 {
 entry:
   %cf_prev.i = alloca ptr, align 8
   %error = getelementptr inbounds i8, ptr %baller, i64 96

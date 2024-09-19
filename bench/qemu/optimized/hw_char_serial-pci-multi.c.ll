@@ -101,24 +101,24 @@ entry:
   %0 = getelementptr i8, ptr %call1.i, i64 210
   %call2.val = load i16, ptr %0, align 2
   switch i16 %call2.val, label %do.body.i [
-    i16 3, label %multi_serial_get_port_count.exit
+    i16 3, label %multi_serial_get_port_count.argprom.exit
     i16 4, label %sw.bb1.i
   ]
 
 sw.bb1.i:                                         ; preds = %entry
-  br label %multi_serial_get_port_count.exit
+  br label %multi_serial_get_port_count.argprom.exit
 
 do.body.i:                                        ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 90, ptr noundef nonnull @__func__.multi_serial_get_port_count, ptr noundef null) #4
   unreachable
 
-multi_serial_get_port_count.exit:                 ; preds = %entry, %sw.bb1.i
+multi_serial_get_port_count.argprom.exit:         ; preds = %entry, %sw.bb1.i
   %retval.0.i = phi i64 [ 4, %sw.bb1.i ], [ 2, %entry ]
   %state = getelementptr inbounds i8, ptr %call.i, i64 2928
   br label %for.body
 
-for.body:                                         ; preds = %multi_serial_get_port_count.exit, %for.body
-  %i.06 = phi i64 [ 0, %multi_serial_get_port_count.exit ], [ %inc, %for.body ]
+for.body:                                         ; preds = %multi_serial_get_port_count.argprom.exit, %for.body
+  %i.06 = phi i64 [ 0, %multi_serial_get_port_count.argprom.exit ], [ %inc, %for.body ]
   %arrayidx = getelementptr [4 x %struct.SerialState], ptr %state, i64 0, i64 %i.06
   tail call void @object_initialize_child_internal(ptr noundef %o, ptr noundef nonnull @.str.3, ptr noundef %arrayidx, i64 noundef 656, ptr noundef nonnull @.str.4) #3
   %inc = add nuw nsw i64 %i.06, 1
@@ -175,18 +175,18 @@ entry:
   %0 = getelementptr i8, ptr %call1.i, i64 210
   %call.val = load i16, ptr %0, align 2
   switch i16 %call.val, label %do.body.i [
-    i16 3, label %multi_serial_get_port_count.exit
+    i16 3, label %multi_serial_get_port_count.argprom.exit
     i16 4, label %sw.bb1.i
   ]
 
 sw.bb1.i:                                         ; preds = %entry
-  br label %multi_serial_get_port_count.exit
+  br label %multi_serial_get_port_count.argprom.exit
 
 do.body.i:                                        ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 90, ptr noundef nonnull @__func__.multi_serial_get_port_count, ptr noundef null) #4
   unreachable
 
-multi_serial_get_port_count.exit:                 ; preds = %entry, %sw.bb1.i
+multi_serial_get_port_count.argprom.exit:         ; preds = %entry, %sw.bb1.i
   %retval.0.i = phi i64 [ 4, %sw.bb1.i ], [ 2, %entry ]
   %prog_if = getelementptr inbounds i8, ptr %dev, i64 5576
   %1 = load i8, ptr %prog_if, align 8
@@ -210,8 +210,8 @@ multi_serial_get_port_count.exit:                 ; preds = %entry, %sw.bb1.i
   %ports = getelementptr inbounds i8, ptr %dev, i64 2880
   br label %for.body
 
-for.body:                                         ; preds = %multi_serial_get_port_count.exit, %if.end
-  %i.032 = phi i64 [ 0, %multi_serial_get_port_count.exit ], [ %add, %if.end ]
+for.body:                                         ; preds = %multi_serial_get_port_count.argprom.exit, %if.end
+  %i.032 = phi i64 [ 0, %multi_serial_get_port_count.argprom.exit ], [ %add, %if.end ]
   %add.ptr11 = getelementptr %struct.SerialState, ptr %state, i64 %i.032
   %call.i31 = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr11, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   %call13 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i31, ptr noundef null, ptr noundef %errp) #3

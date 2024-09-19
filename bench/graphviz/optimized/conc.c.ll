@@ -37,9 +37,9 @@ define void @dot_concentrate(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv180.ph = phi i64 [ %22, %.preheader96.loopexit ], [ 1, %.preheader102 ]
   br label %.preheader95
 
-.loopexit101:                                     ; preds = %downcandidate.exit.thread, %.preheader100
-  %.pre187 = phi ptr [ %.pre, %.preheader100 ], [ %164, %downcandidate.exit.thread ]
-  %14 = phi ptr [ %17, %.preheader100 ], [ %162, %downcandidate.exit.thread ]
+.loopexit101:                                     ; preds = %downcandidate.argprom.exit.thread, %.preheader100
+  %.pre187 = phi ptr [ %.pre, %.preheader100 ], [ %164, %downcandidate.argprom.exit.thread ]
+  %14 = phi ptr [ %17, %.preheader100 ], [ %162, %downcandidate.argprom.exit.thread ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %15 = getelementptr inbounds %struct.rank_t, ptr %.pre187, i64 %indvars.iv.next168
   %16 = load i32, ptr %15, align 8
@@ -65,9 +65,9 @@ define void @dot_concentrate(ptr noundef %0) local_unnamed_addr #0 {
   %22 = and i64 %indvars.iv167, 4294967295
   br label %.preheader95.preheader
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %downcandidate.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %downcandidate.exit.thread ]
-  %23 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %164, %downcandidate.exit.thread ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %downcandidate.argprom.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %downcandidate.argprom.exit.thread ]
+  %23 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %164, %downcandidate.argprom.exit.thread ]
   %24 = getelementptr inbounds %struct.rank_t, ptr %23, i64 %indvars.iv169, i32 1
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
@@ -77,28 +77,28 @@ define void @dot_concentrate(ptr noundef %0) local_unnamed_addr #0 {
   %29 = getelementptr inbounds i8, ptr %.val, i64 216
   %30 = load i8, ptr %29, align 8
   %31 = icmp eq i8 %30, 1
-  br i1 %31, label %32, label %downcandidate.exit.thread
+  br i1 %31, label %32, label %downcandidate.argprom.exit.thread
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds i8, ptr %.val, i64 264
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %downcandidate.exit.thread
+  br i1 %35, label %36, label %downcandidate.argprom.exit.thread
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %.val, i64 280
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 1
-  br i1 %39, label %downcandidate.exit, label %downcandidate.exit.thread
+  br i1 %39, label %downcandidate.argprom.exit, label %downcandidate.argprom.exit.thread
 
-downcandidate.exit:                               ; preds = %36
+downcandidate.argprom.exit:                       ; preds = %36
   %40 = getelementptr inbounds i8, ptr %.val, i64 136
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.preheader98, label %downcandidate.exit.thread
+  br i1 %42, label %.preheader98, label %downcandidate.argprom.exit.thread
 
-.preheader98:                                     ; preds = %downcandidate.exit, %bothdowncandidates.exit
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %bothdowncandidates.exit ], [ %indvars.iv, %downcandidate.exit ]
+.preheader98:                                     ; preds = %downcandidate.argprom.exit, %bothdowncandidates.argprom.argprom.argprom.exit
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %bothdowncandidates.argprom.argprom.argprom.exit ], [ %indvars.iv, %downcandidate.argprom.exit ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %43 = load ptr, ptr %2, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 264
@@ -107,7 +107,7 @@ downcandidate.exit:                               ; preds = %36
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next164, %48
-  br i1 %49, label %50, label %bothdowncandidates.exit.thread
+  br i1 %49, label %50, label %bothdowncandidates.argprom.argprom.argprom.exit.thread
 
 50:                                               ; preds = %.preheader98
   %51 = getelementptr inbounds i8, ptr %46, i64 8
@@ -126,27 +126,27 @@ downcandidate.exit:                               ; preds = %36
   %60 = getelementptr inbounds i8, ptr %.val67, i64 216
   %61 = load i8, ptr %60, align 8
   %62 = icmp eq i8 %61, 1
-  br i1 %62, label %63, label %bothdowncandidates.exit.thread
+  br i1 %62, label %63, label %bothdowncandidates.argprom.argprom.argprom.exit.thread
 
 63:                                               ; preds = %50
   %64 = getelementptr inbounds i8, ptr %.val67, i64 264
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 1
-  br i1 %66, label %67, label %bothdowncandidates.exit.thread
+  br i1 %66, label %67, label %bothdowncandidates.argprom.argprom.argprom.exit.thread
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds i8, ptr %.val67, i64 280
   %69 = load i64, ptr %68, align 8
   %70 = icmp eq i64 %69, 1
-  br i1 %70, label %downcandidate.exit.i, label %bothdowncandidates.exit.thread
+  br i1 %70, label %downcandidate.argprom.exit.i, label %bothdowncandidates.argprom.argprom.argprom.exit.thread
 
-downcandidate.exit.i:                             ; preds = %67
+downcandidate.argprom.exit.i:                     ; preds = %67
   %71 = getelementptr inbounds i8, ptr %.val67, i64 136
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %bothdowncandidates.exit.thread
+  br i1 %73, label %74, label %bothdowncandidates.argprom.argprom.argprom.exit.thread
 
-74:                                               ; preds = %downcandidate.exit.i
+74:                                               ; preds = %downcandidate.argprom.exit.i
   %75 = load i32, ptr %.val66.val.val, align 8
   %76 = and i32 %75, 3
   %77 = icmp eq i32 %76, 3
@@ -162,7 +162,7 @@ downcandidate.exit.i:                             ; preds = %67
   %85 = getelementptr inbounds i8, ptr %84, i64 56
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %80, %86
-  br i1 %87, label %.lr.ph.i.i, label %bothdowncandidates.exit.thread
+  br i1 %87, label %.lr.ph.i.i, label %bothdowncandidates.argprom.argprom.argprom.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %74, %92
   %.02742.i.i = phi ptr [ %94, %92 ], [ %.val66.val.val, %74 ]
@@ -177,7 +177,7 @@ downcandidate.exit.i:                             ; preds = %67
   %93 = getelementptr inbounds i8, ptr %89, i64 160
   %94 = load ptr, ptr %93, align 8
   %cond.i.i = icmp eq ptr %94, null
-  br i1 %cond.i.i, label %bothdowncandidates.exit.thread, label %.lr.ph.i.i
+  br i1 %cond.i.i, label %bothdowncandidates.argprom.argprom.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph45.i.i:                                     ; preds = %.lr.ph.i.i, %.critedge.i.i
   %.044.i.i = phi ptr [ %100, %.critedge.i.i ], [ %59, %.lr.ph.i.i ]
@@ -192,19 +192,19 @@ downcandidate.exit.i:                             ; preds = %67
   %99 = getelementptr inbounds i8, ptr %96, i64 160
   %100 = load ptr, ptr %99, align 8
   %cond36.i.i = icmp eq ptr %100, null
-  br i1 %cond36.i.i, label %bothdowncandidates.exit.thread, label %.lr.ph45.i.i
+  br i1 %cond36.i.i, label %bothdowncandidates.argprom.argprom.argprom.exit.thread, label %.lr.ph45.i.i
 
 .critedge2.i.i:                                   ; preds = %.lr.ph45.i.i
   %101 = getelementptr inbounds i8, ptr %89, i64 209
   %102 = load i8, ptr %101, align 1
   %103 = trunc i8 %102 to i1
-  br i1 %103, label %bothdowncandidates.exit.thread, label %104
+  br i1 %103, label %bothdowncandidates.argprom.argprom.argprom.exit.thread, label %104
 
 104:                                              ; preds = %.critedge2.i.i
   %105 = getelementptr inbounds i8, ptr %96, i64 209
   %106 = load i8, ptr %105, align 1
   %107 = trunc i8 %106 to i1
-  br i1 %107, label %bothdowncandidates.exit.thread, label %samedir.exit.i
+  br i1 %107, label %bothdowncandidates.argprom.argprom.argprom.exit.thread, label %samedir.exit.i
 
 samedir.exit.i:                                   ; preds = %104
   %108 = load i32, ptr %.044.i.i, align 8
@@ -251,9 +251,9 @@ samedir.exit.i:                                   ; preds = %104
   %145 = sub nsw i32 %136, %144
   %146 = mul nsw i32 %145, %126
   %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %bothdowncandidates.exit, label %bothdowncandidates.exit.thread
+  br i1 %147, label %bothdowncandidates.argprom.argprom.argprom.exit, label %bothdowncandidates.argprom.argprom.argprom.exit.thread
 
-bothdowncandidates.exit:                          ; preds = %samedir.exit.i
+bothdowncandidates.argprom.argprom.argprom.exit:  ; preds = %samedir.exit.i
   %148 = getelementptr inbounds i8, ptr %.val66.val.val, i64 16
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 24
@@ -262,21 +262,21 @@ bothdowncandidates.exit:                          ; preds = %samedir.exit.i
   %153 = getelementptr inbounds i8, ptr %152, i64 24
   %154 = tail call i32 @portcmp(ptr noundef nonnull byval(%struct.port) align 8 %150, ptr noundef nonnull byval(%struct.port) align 8 %153) #2
   %155 = icmp eq i32 %154, 0
-  br i1 %155, label %.preheader98, label %bothdowncandidates.exit.thread
+  br i1 %155, label %.preheader98, label %bothdowncandidates.argprom.argprom.argprom.exit.thread
 
-bothdowncandidates.exit.thread:                   ; preds = %104, %.critedge2.i.i, %50, %63, %67, %downcandidate.exit.i, %74, %samedir.exit.i, %bothdowncandidates.exit, %.preheader98, %92, %.critedge.i.i
+bothdowncandidates.argprom.argprom.argprom.exit.thread: ; preds = %104, %.critedge2.i.i, %50, %63, %67, %downcandidate.argprom.exit.i, %74, %samedir.exit.i, %bothdowncandidates.argprom.argprom.argprom.exit, %.preheader98, %92, %.critedge.i.i
   %156 = trunc nuw nsw i64 %indvars.iv.next164 to i32
   %157 = trunc nuw nsw i64 %indvars.iv to i32
   %158 = sub nsw i32 %156, %157
   %159 = icmp sgt i32 %158, 1
-  br i1 %159, label %160, label %downcandidate.exit.thread
+  br i1 %159, label %160, label %downcandidate.argprom.exit.thread
 
-160:                                              ; preds = %bothdowncandidates.exit.thread
+160:                                              ; preds = %bothdowncandidates.argprom.argprom.argprom.exit.thread
   %161 = trunc nuw nsw i64 %indvars.iv163 to i32
   tail call fastcc void @mergevirtual(ptr noundef %0, i32 noundef %21, i32 noundef %157, i32 noundef %161, i32 noundef 1)
-  br label %downcandidate.exit.thread
+  br label %downcandidate.argprom.exit.thread
 
-downcandidate.exit.thread:                        ; preds = %.lr.ph, %32, %36, %bothdowncandidates.exit.thread, %160, %downcandidate.exit
+downcandidate.argprom.exit.thread:                ; preds = %.lr.ph, %32, %36, %bothdowncandidates.argprom.argprom.argprom.exit.thread, %160, %downcandidate.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %162 = load ptr, ptr %2, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 264
@@ -307,9 +307,9 @@ downcandidate.exit.thread:                        ; preds = %.lr.ph, %32, %36, %
   %.not64132 = icmp slt i32 %177, 1
   br i1 %.not64132, label %.loopexit, label %.lr.ph134
 
-.lr.ph130:                                        ; preds = %.lr.ph130.preheader, %upcandidate.exit.thread
-  %indvars.iv174 = phi i64 [ 0, %.lr.ph130.preheader ], [ %indvars.iv.next175, %upcandidate.exit.thread ]
-  %178 = phi ptr [ %171, %.lr.ph130.preheader ], [ %319, %upcandidate.exit.thread ]
+.lr.ph130:                                        ; preds = %.lr.ph130.preheader, %upcandidate.argprom.exit.thread
+  %indvars.iv174 = phi i64 [ 0, %.lr.ph130.preheader ], [ %indvars.iv.next175, %upcandidate.argprom.exit.thread ]
+  %178 = phi ptr [ %171, %.lr.ph130.preheader ], [ %319, %upcandidate.argprom.exit.thread ]
   %179 = getelementptr inbounds %struct.rank_t, ptr %178, i64 %indvars.iv180, i32 1
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds ptr, ptr %180, i64 %indvars.iv174
@@ -319,28 +319,28 @@ downcandidate.exit.thread:                        ; preds = %.lr.ph, %32, %36, %
   %184 = getelementptr inbounds i8, ptr %.val68, i64 216
   %185 = load i8, ptr %184, align 8
   %186 = icmp eq i8 %185, 1
-  br i1 %186, label %187, label %upcandidate.exit.thread
+  br i1 %186, label %187, label %upcandidate.argprom.exit.thread
 
 187:                                              ; preds = %.lr.ph130
   %188 = getelementptr inbounds i8, ptr %.val68, i64 280
   %189 = load i64, ptr %188, align 8
   %190 = icmp eq i64 %189, 1
-  br i1 %190, label %191, label %upcandidate.exit.thread
+  br i1 %190, label %191, label %upcandidate.argprom.exit.thread
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds i8, ptr %.val68, i64 264
   %193 = load i64, ptr %192, align 8
   %194 = icmp eq i64 %193, 1
-  br i1 %194, label %upcandidate.exit, label %upcandidate.exit.thread
+  br i1 %194, label %upcandidate.argprom.exit, label %upcandidate.argprom.exit.thread
 
-upcandidate.exit:                                 ; preds = %191
+upcandidate.argprom.exit:                         ; preds = %191
   %195 = getelementptr inbounds i8, ptr %.val68, i64 136
   %196 = load ptr, ptr %195, align 8
   %197 = icmp eq ptr %196, null
-  br i1 %197, label %.preheader93, label %upcandidate.exit.thread
+  br i1 %197, label %.preheader93, label %upcandidate.argprom.exit.thread
 
-.preheader93:                                     ; preds = %upcandidate.exit, %bothupcandidates.exit
-  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %bothupcandidates.exit ], [ %indvars.iv174, %upcandidate.exit ]
+.preheader93:                                     ; preds = %upcandidate.argprom.exit, %bothupcandidates.argprom.argprom.argprom.exit
+  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %bothupcandidates.argprom.argprom.argprom.exit ], [ %indvars.iv174, %upcandidate.argprom.exit ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %198 = load ptr, ptr %2, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 264
@@ -349,7 +349,7 @@ upcandidate.exit:                                 ; preds = %191
   %202 = load i32, ptr %201, align 8
   %203 = sext i32 %202 to i64
   %204 = icmp slt i64 %indvars.iv.next177, %203
-  br i1 %204, label %205, label %bothupcandidates.exit.thread
+  br i1 %204, label %205, label %bothupcandidates.argprom.argprom.argprom.exit.thread
 
 205:                                              ; preds = %.preheader93
   %206 = getelementptr inbounds i8, ptr %201, i64 8
@@ -368,27 +368,27 @@ upcandidate.exit:                                 ; preds = %191
   %215 = getelementptr inbounds i8, ptr %.val70, i64 216
   %216 = load i8, ptr %215, align 8
   %217 = icmp eq i8 %216, 1
-  br i1 %217, label %218, label %bothupcandidates.exit.thread
+  br i1 %217, label %218, label %bothupcandidates.argprom.argprom.argprom.exit.thread
 
 218:                                              ; preds = %205
   %219 = getelementptr inbounds i8, ptr %.val70, i64 280
   %220 = load i64, ptr %219, align 8
   %221 = icmp eq i64 %220, 1
-  br i1 %221, label %222, label %bothupcandidates.exit.thread
+  br i1 %221, label %222, label %bothupcandidates.argprom.argprom.argprom.exit.thread
 
 222:                                              ; preds = %218
   %223 = getelementptr inbounds i8, ptr %.val70, i64 264
   %224 = load i64, ptr %223, align 8
   %225 = icmp eq i64 %224, 1
-  br i1 %225, label %upcandidate.exit.i, label %bothupcandidates.exit.thread
+  br i1 %225, label %upcandidate.argprom.exit.i, label %bothupcandidates.argprom.argprom.argprom.exit.thread
 
-upcandidate.exit.i:                               ; preds = %222
+upcandidate.argprom.exit.i:                       ; preds = %222
   %226 = getelementptr inbounds i8, ptr %.val70, i64 136
   %227 = load ptr, ptr %226, align 8
   %228 = icmp eq ptr %227, null
-  br i1 %228, label %229, label %bothupcandidates.exit.thread
+  br i1 %228, label %229, label %bothupcandidates.argprom.argprom.argprom.exit.thread
 
-229:                                              ; preds = %upcandidate.exit.i
+229:                                              ; preds = %upcandidate.argprom.exit.i
   %230 = load i32, ptr %.val69.val.val, align 8
   %231 = and i32 %230, 3
   %232 = icmp eq i32 %231, 2
@@ -404,7 +404,7 @@ upcandidate.exit.i:                               ; preds = %222
   %240 = getelementptr inbounds i8, ptr %239, i64 56
   %241 = load ptr, ptr %240, align 8
   %242 = icmp eq ptr %235, %241
-  br i1 %242, label %.lr.ph.i.i74, label %bothupcandidates.exit.thread
+  br i1 %242, label %.lr.ph.i.i74, label %bothupcandidates.argprom.argprom.argprom.exit.thread
 
 .lr.ph.i.i74:                                     ; preds = %229, %247
   %.02742.i.i75 = phi ptr [ %249, %247 ], [ %.val69.val.val, %229 ]
@@ -419,7 +419,7 @@ upcandidate.exit.i:                               ; preds = %222
   %248 = getelementptr inbounds i8, ptr %244, i64 160
   %249 = load ptr, ptr %248, align 8
   %cond.i.i77 = icmp eq ptr %249, null
-  br i1 %cond.i.i77, label %bothupcandidates.exit.thread, label %.lr.ph.i.i74
+  br i1 %cond.i.i77, label %bothupcandidates.argprom.argprom.argprom.exit.thread, label %.lr.ph.i.i74
 
 .lr.ph45.i.i79:                                   ; preds = %.lr.ph.i.i74, %.critedge.i.i82
   %.044.i.i80 = phi ptr [ %255, %.critedge.i.i82 ], [ %214, %.lr.ph.i.i74 ]
@@ -434,19 +434,19 @@ upcandidate.exit.i:                               ; preds = %222
   %254 = getelementptr inbounds i8, ptr %251, i64 160
   %255 = load ptr, ptr %254, align 8
   %cond36.i.i83 = icmp eq ptr %255, null
-  br i1 %cond36.i.i83, label %bothupcandidates.exit.thread, label %.lr.ph45.i.i79
+  br i1 %cond36.i.i83, label %bothupcandidates.argprom.argprom.argprom.exit.thread, label %.lr.ph45.i.i79
 
 .critedge2.i.i84:                                 ; preds = %.lr.ph45.i.i79
   %256 = getelementptr inbounds i8, ptr %244, i64 209
   %257 = load i8, ptr %256, align 1
   %258 = trunc i8 %257 to i1
-  br i1 %258, label %bothupcandidates.exit.thread, label %259
+  br i1 %258, label %bothupcandidates.argprom.argprom.argprom.exit.thread, label %259
 
 259:                                              ; preds = %.critedge2.i.i84
   %260 = getelementptr inbounds i8, ptr %251, i64 209
   %261 = load i8, ptr %260, align 1
   %262 = trunc i8 %261 to i1
-  br i1 %262, label %bothupcandidates.exit.thread, label %samedir.exit.i85
+  br i1 %262, label %bothupcandidates.argprom.argprom.argprom.exit.thread, label %samedir.exit.i85
 
 samedir.exit.i85:                                 ; preds = %259
   %263 = load i32, ptr %.044.i.i80, align 8
@@ -493,9 +493,9 @@ samedir.exit.i85:                                 ; preds = %259
   %300 = sub nsw i32 %291, %299
   %301 = mul nsw i32 %300, %281
   %302 = icmp sgt i32 %301, 0
-  br i1 %302, label %bothupcandidates.exit, label %bothupcandidates.exit.thread
+  br i1 %302, label %bothupcandidates.argprom.argprom.argprom.exit, label %bothupcandidates.argprom.argprom.argprom.exit.thread
 
-bothupcandidates.exit:                            ; preds = %samedir.exit.i85
+bothupcandidates.argprom.argprom.argprom.exit:    ; preds = %samedir.exit.i85
   %303 = getelementptr inbounds i8, ptr %.val69.val.val, i64 16
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr inbounds i8, ptr %304, i64 72
@@ -504,21 +504,21 @@ bothupcandidates.exit:                            ; preds = %samedir.exit.i85
   %308 = getelementptr inbounds i8, ptr %307, i64 72
   %309 = tail call i32 @portcmp(ptr noundef nonnull byval(%struct.port) align 8 %305, ptr noundef nonnull byval(%struct.port) align 8 %308) #2
   %310 = icmp eq i32 %309, 0
-  br i1 %310, label %.preheader93, label %bothupcandidates.exit.thread
+  br i1 %310, label %.preheader93, label %bothupcandidates.argprom.argprom.argprom.exit.thread
 
-bothupcandidates.exit.thread:                     ; preds = %259, %.critedge2.i.i84, %205, %218, %222, %upcandidate.exit.i, %229, %samedir.exit.i85, %bothupcandidates.exit, %.preheader93, %247, %.critedge.i.i82
+bothupcandidates.argprom.argprom.argprom.exit.thread: ; preds = %259, %.critedge2.i.i84, %205, %218, %222, %upcandidate.argprom.exit.i, %229, %samedir.exit.i85, %bothupcandidates.argprom.argprom.argprom.exit, %.preheader93, %247, %.critedge.i.i82
   %311 = trunc nuw nsw i64 %indvars.iv.next177 to i32
   %312 = trunc nuw nsw i64 %indvars.iv174 to i32
   %313 = sub nsw i32 %311, %312
   %314 = icmp sgt i32 %313, 1
-  br i1 %314, label %315, label %upcandidate.exit.thread
+  br i1 %314, label %315, label %upcandidate.argprom.exit.thread
 
-315:                                              ; preds = %bothupcandidates.exit.thread
+315:                                              ; preds = %bothupcandidates.argprom.argprom.argprom.exit.thread
   %316 = trunc nuw nsw i64 %indvars.iv176 to i32
   tail call fastcc void @mergevirtual(ptr noundef %0, i32 noundef %175, i32 noundef %312, i32 noundef %316, i32 noundef 0)
-  br label %upcandidate.exit.thread
+  br label %upcandidate.argprom.exit.thread
 
-upcandidate.exit.thread:                          ; preds = %.lr.ph130, %187, %191, %bothupcandidates.exit.thread, %315, %upcandidate.exit
+upcandidate.argprom.exit.thread:                  ; preds = %.lr.ph130, %187, %191, %bothupcandidates.argprom.argprom.argprom.exit.thread, %315, %upcandidate.argprom.exit
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %317 = load ptr, ptr %2, align 8
   %318 = getelementptr inbounds i8, ptr %317, i64 264
@@ -529,8 +529,8 @@ upcandidate.exit.thread:                          ; preds = %.lr.ph130, %187, %1
   %323 = icmp slt i64 %indvars.iv.next175, %322
   br i1 %323, label %.lr.ph130, label %._crit_edge
 
-._crit_edge:                                      ; preds = %upcandidate.exit.thread, %.preheader95
-  %324 = phi ptr [ %169, %.preheader95 ], [ %317, %upcandidate.exit.thread ]
+._crit_edge:                                      ; preds = %upcandidate.argprom.exit.thread, %.preheader95
+  %324 = phi ptr [ %169, %.preheader95 ], [ %317, %upcandidate.argprom.exit.thread ]
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, -1
   %325 = icmp sgt i64 %indvars.iv180, 1
   br i1 %325, label %.preheader95, label %.preheader
@@ -926,19 +926,19 @@ define internal fastcc range(i32 -1, 1) i32 @rebuild_vlists(ptr noundef %0) unna
   %32 = getelementptr inbounds i8, ptr %20, i64 364
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %31, %33
-  br i1 %34, label %35, label %infuse.exit
+  br i1 %34, label %35, label %infuse.argprom.argprom.exit
 
 35:                                               ; preds = %27, %.lr.ph145
   store ptr %.0100143, ptr %24, align 8
-  br label %infuse.exit
+  br label %infuse.argprom.argprom.exit
 
-infuse.exit:                                      ; preds = %27, %35
+infuse.argprom.argprom.exit:                      ; preds = %27, %35
   %36 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.0100143) #2
   %.not122139 = icmp eq ptr %36, null
   br i1 %.not122139, label %._crit_edge141, label %.preheader130
 
-.preheader130:                                    ; preds = %infuse.exit, %.critedge
-  %.097140 = phi ptr [ %87, %.critedge ], [ %36, %infuse.exit ]
+.preheader130:                                    ; preds = %infuse.argprom.argprom.exit, %.critedge
+  %.097140 = phi ptr [ %87, %.critedge ], [ %36, %infuse.argprom.argprom.exit ]
   br label %37
 
 37:                                               ; preds = %.preheader130, %37
@@ -954,8 +954,8 @@ infuse.exit:                                      ; preds = %27, %35
   %invariant.gep = getelementptr i8, ptr %.097140, i64 56
   br label %42
 
-42:                                               ; preds = %.preheader129, %infuse.exit128
-  %.1138 = phi ptr [ %.098, %.preheader129 ], [ %86, %infuse.exit128 ]
+42:                                               ; preds = %.preheader129, %infuse.argprom.argprom.exit128
+  %.1138 = phi ptr [ %.098, %.preheader129 ], [ %86, %infuse.argprom.argprom.exit128 ]
   %43 = load i32, ptr %.1138, align 8
   %44 = and i32 %43, 3
   %45 = icmp eq i32 %44, 2
@@ -998,15 +998,15 @@ infuse.exit:                                      ; preds = %27, %35
   %74 = getelementptr inbounds i8, ptr %51, i64 364
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %73, %75
-  br i1 %76, label %77, label %infuse.exit128
+  br i1 %76, label %77, label %infuse.argprom.argprom.exit128
 
 77:                                               ; preds = %69, %63
   store ptr %49, ptr %66, align 8
   %.pre = load i32, ptr %.1138, align 8
   %.pre181 = and i32 %.pre, 3
-  br label %infuse.exit128
+  br label %infuse.argprom.argprom.exit128
 
-infuse.exit128:                                   ; preds = %69, %77
+infuse.argprom.argprom.exit128:                   ; preds = %69, %77
   %.pre-phi = phi i32 [ %44, %69 ], [ %.pre181, %77 ]
   %78 = icmp eq i32 %.pre-phi, 2
   %79 = select i1 %78, ptr %.1138, ptr %46
@@ -1020,12 +1020,12 @@ infuse.exit128:                                   ; preds = %69, %77
   %.not124 = icmp eq ptr %86, null
   br i1 %.not124, label %.critedge, label %42
 
-.critedge:                                        ; preds = %42, %infuse.exit128
+.critedge:                                        ; preds = %42, %infuse.argprom.argprom.exit128
   %87 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.097140) #2
   %.not122 = icmp eq ptr %87, null
   br i1 %.not122, label %._crit_edge141, label %.preheader130
 
-._crit_edge141:                                   ; preds = %.critedge, %infuse.exit
+._crit_edge141:                                   ; preds = %.critedge, %infuse.argprom.argprom.exit
   %88 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0100143) #2
   %.not111 = icmp eq ptr %88, null
   br i1 %.not111, label %._crit_edge146, label %.lr.ph145

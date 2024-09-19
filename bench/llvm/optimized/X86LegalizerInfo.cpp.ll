@@ -9735,7 +9735,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %44, %39, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -9745,29 +9745,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val5, i64 64, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -9864,7 +9864,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %38, %33, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -9874,29 +9874,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -10069,7 +10069,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit26.i.i.i:      ; preds = %_ZNK4llvm3LLT19getS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #11 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -10077,18 +10077,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -10340,7 +10340,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit44.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -10350,29 +10350,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %7, ptr noundef nonnull readonly align 8 dereferenceable(168) %.val5, i64 168, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 168) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -10476,7 +10476,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %42, %37, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -10486,29 +10486,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -10892,7 +10892,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit71.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -10902,29 +10902,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %7, ptr noundef nonnull readonly align 8 dereferenceable(168) %.val5, i64 168, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 168) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11008,7 +11008,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %28, %23, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11018,29 +11018,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11124,7 +11124,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %28, %23, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11134,29 +11134,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11258,7 +11258,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %40, %35, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11268,29 +11268,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11491,7 +11491,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit35.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11501,29 +11501,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %7, ptr noundef nonnull readonly align 8 dereferenceable(160) %.val5, i64 160, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 160) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11535,7 +11535,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %.val2.val = load i64, ptr %.val2, align 8
   %4 = load i64, ptr %.val, align 8
   %spec.select.i.i.i.i = icmp eq i64 %.val2.val, %4
-  br i1 %spec.select.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %5
+  br i1 %spec.select.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit", label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -11545,22 +11545,22 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 455
   %11 = load i8, ptr %10, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
+  br i1 %12, label %13, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %15 = load i64, ptr %14, align 8
   %spec.select.i3.i.i.i = icmp eq i64 %.val2.val, %15
-  br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %2, %5, %13
+"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit": ; preds = %2, %5, %13
   %16 = phi i1 [ true, %2 ], [ false, %5 ], [ %spec.select.i3.i.i.i, %13 ]
   ret i1 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11570,29 +11570,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11698,7 +11698,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.thread.i.i.i: ; preds = %43
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11708,29 +11708,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11836,7 +11836,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.thread.i.i.i: ; preds = %43
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11846,29 +11846,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11979,7 +11979,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.thread.i.i.i: ; preds = %46
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11989,29 +11989,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -12287,7 +12287,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit46.i.i.i: ; preds = %114, %.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -12297,29 +12297,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %7, ptr noundef nonnull readonly align 8 dereferenceable(184) %.val5, i64 184, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 184) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -12413,7 +12413,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %34, %29, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -12423,29 +12423,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -12520,7 +12520,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -12530,29 +12530,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -12641,7 +12641,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %32, %27, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -12651,29 +12651,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -12963,7 +12963,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit48.i.i.i: ; preds = %124, %.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -12973,29 +12973,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %7, ptr noundef nonnull readonly align 8 dereferenceable(112) %.val5, i64 112, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -13105,7 +13105,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %37
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -13115,29 +13115,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -13298,7 +13298,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit21.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -13308,29 +13308,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, ptr noundef nonnull readonly align 8 dereferenceable(72) %.val5, i64 72, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 72) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -13491,7 +13491,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit21.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -13501,29 +13501,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, ptr noundef nonnull readonly align 8 dereferenceable(72) %.val5, i64 72, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 72) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -13739,7 +13739,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit30.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -13749,29 +13749,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -13987,7 +13987,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit30.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -13997,29 +13997,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -14197,7 +14197,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit29.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -14207,29 +14207,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, ptr noundef nonnull readonly align 8 dereferenceable(128) %.val5, i64 128, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 128) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -14416,7 +14416,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %93
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -14426,29 +14426,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %7, ptr noundef nonnull readonly align 8 dereferenceable(112) %.val5, i64 112, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -14630,7 +14630,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i: ; preds = %89
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -14640,29 +14640,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %7, ptr noundef nonnull readonly align 8 dereferenceable(112) %.val5, i64 112, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #17
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

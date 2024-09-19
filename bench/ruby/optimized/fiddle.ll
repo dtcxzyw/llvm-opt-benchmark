@@ -160,38 +160,38 @@ define void @Init_fiddle() local_unnamed_addr #0 {
   %4 = load i64, ptr @mFiddle, align 8
   %.pr.i = load i64, ptr @Init_fiddle.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %5 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 7) #4
   store i64 %5, ptr @Init_fiddle.rbimpl_id, align 8
   %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !6
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !6
 
-rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %0
+rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %0
   %.lcssa.i = phi i64 [ %.pr.i, %0 ], [ %5, %.lr.ph.i ]
   %6 = tail call i32 @rb_const_defined(i64 noundef %4, i64 noundef %.lcssa.i) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
 
-7:                                                ; preds = %rbimpl_intern_const.exit
+7:                                                ; preds = %rbimpl_intern_const.argprom.exit
   %8 = load i64, ptr @mFiddle, align 8
   %.pr.i32 = load i64, ptr @Init_fiddle.rbimpl_id.3, align 8
   %.not1.i33 = icmp eq i64 %.pr.i32, 0
-  br i1 %.not1.i33, label %.lr.ph.i35, label %rbimpl_intern_const.exit37
+  br i1 %.not1.i33, label %.lr.ph.i35, label %rbimpl_intern_const.argprom.exit37
 
 .lr.ph.i35:                                       ; preds = %7, %.lr.ph.i35
   %9 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 7) #4
   store i64 %9, ptr @Init_fiddle.rbimpl_id.3, align 8
   %.not.i36 = icmp eq i64 %9, 0
-  br i1 %.not.i36, label %.lr.ph.i35, label %rbimpl_intern_const.exit37, !llvm.loop !6
+  br i1 %.not.i36, label %.lr.ph.i35, label %rbimpl_intern_const.argprom.exit37, !llvm.loop !6
 
-rbimpl_intern_const.exit37:                       ; preds = %.lr.ph.i35, %7
+rbimpl_intern_const.argprom.exit37:               ; preds = %.lr.ph.i35, %7
   %.lcssa.i34 = phi i64 [ %.pr.i32, %7 ], [ %9, %.lr.ph.i35 ]
   %10 = tail call i64 @rb_const_remove(i64 noundef %8, i64 noundef %.lcssa.i34) #4
   br label %11
 
-11:                                               ; preds = %rbimpl_intern_const.exit37, %rbimpl_intern_const.exit
+11:                                               ; preds = %rbimpl_intern_const.argprom.exit37, %rbimpl_intern_const.argprom.exit
   %12 = load i64, ptr @mFiddle, align 8
   %13 = load i64, ptr @rb_eFiddleError, align 8
   %14 = tail call i64 @rb_define_class_under(i64 noundef %12, ptr noundef nonnull @.str.2, i64 noundef %13) #4

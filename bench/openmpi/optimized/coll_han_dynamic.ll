@@ -348,7 +348,7 @@ define internal fastcc ptr @get_module(i32 noundef range(i32 0, 16) %0, i64 noun
   %.val24 = load i32, ptr %5, align 8
   %13 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %13, align 8
-  %14 = tail call fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32 %.val.val, i32 %.val24)
+  %14 = tail call fastcc ptr @get_dynamic_rule.argprom.argprom(i32 noundef %0, i64 noundef %1, i32 %.val.val, i32 %.val24)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %22, label %15
 
@@ -419,7 +419,7 @@ define internal fastcc i32 @get_algorithm(i32 noundef range(i32 0, 16) %0, i64 n
   %.val18 = load i32, ptr %17, align 8
   %18 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %18, align 8
-  %19 = call fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32 %.val.val, i32 %.val18)
+  %19 = call fastcc ptr @get_dynamic_rule.argprom.argprom(i32 noundef %0, i64 noundef %1, i32 %.val.val, i32 %.val18)
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %24, label %20
 
@@ -1390,7 +1390,7 @@ declare i32 @mca_coll_han_scatter_intra_simple(ptr noundef, i32 noundef, ptr nou
 declare i32 @mca_coll_han_scatter_intra(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_dynamic_rule(i32 noundef range(i32 0, 16) %0, i64 noundef %1, i32 %.248.val.16.val, i32 %.808.val) unnamed_addr #3 {
+define internal fastcc ptr @get_dynamic_rule.argprom.argprom(i32 noundef range(i32 0, 16) %0, i64 noundef %1, i32 %.248.val.16.val, i32 %.808.val) unnamed_addr #3 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 664), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 672), align 8
   %5 = zext i32 %3 to i64

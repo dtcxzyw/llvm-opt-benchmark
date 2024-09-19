@@ -9736,7 +9736,7 @@ entry:
   %ref.tmp.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %status, i64 8
   store i64 -1, ptr %ref.tmp.sroa.31.0..sroa_idx.i, align 8
   store i32 0, ptr %ref.tmp4.i, align 4
-  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %state_.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4.i)
+  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %state_.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp4.i)
   store ptr %call, ptr %agg.result, align 8
   ret void
@@ -9786,7 +9786,7 @@ entry:
   %ref.tmp.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %status, i64 8
   store i64 -1, ptr %ref.tmp.sroa.31.0..sroa_idx.i, align 8
   store i32 0, ptr %ref.tmp4.i, align 4
-  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %state_.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4.i)
+  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %state_.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp4.i)
   store ptr %call, ptr %agg.result, align 8
   ret void
@@ -9923,7 +9923,7 @@ entry:
   store i32 0, ptr %ref.tmp.sroa.3.0..sroa_idx.i.i.i, align 4, !noalias !172
   store i64 -1, ptr %pos.i.i, align 8, !noalias !172
   store i32 0, ptr %ref.tmp4.i.i.i, align 4, !noalias !172
-  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %state_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4.i.i.i)
+  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %state_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp4.i.i.i), !noalias !172
   call void @_ZN4node9inspector8protocol4cbor9ParseCBORENS1_4spanIhEEPNS1_22StreamingParserHandlerE(ptr %cbor.coerce0, i64 %cbor.coerce1, ptr noundef nonnull %call.i.i)
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
@@ -9984,7 +9984,7 @@ entry:
   store i32 0, ptr %ref.tmp.sroa.3.0..sroa_idx.i.i.i, align 4, !noalias !175
   store i64 -1, ptr %pos.i.i, align 8, !noalias !175
   store i32 0, ptr %ref.tmp4.i.i.i, align 4, !noalias !175
-  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %state_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4.i.i.i)
+  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %state_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp4.i.i.i), !noalias !175
   call void @_ZN4node9inspector8protocol4cbor9ParseCBORENS1_4spanIhEEPNS1_22StreamingParserHandlerE(ptr %cbor.coerce0, i64 %cbor.coerce1, ptr noundef nonnull %call.i.i)
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
@@ -18631,7 +18631,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(p
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) unnamed_addr #1 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -18731,7 +18731,7 @@ if.else31.i.i.i.i:                                ; preds = %if.then.i.i.i
   %add37.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %7
   %add38.i.i.i.i = add i64 %add37.i.i.i.i, 2
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add38.i.i.i.i, 1152921504606846975
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else31.i.i.i.i
   %cmp2.i.i.i.i.i.i.i = icmp ugt i64 %add38.i.i.i.i, 2305843009213693951
@@ -18745,7 +18745,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   tail call void @_ZSt17__throw_bad_allocv() #29
   unreachable
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.exit.i.i.i.i: ; preds = %if.else31.i.i.i.i
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i: ; preds = %if.else31.i.i.i.i
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %add38.i.i.i.i, 3
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #30
   %sub40.i.i.i.i = sub nsw i64 %add37.i.i.i.i, %sub.ptr.div.i.i.i.i
@@ -18755,13 +18755,13 @@ _ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15
   %tobool.not.i.i.i.i.i27.i.i.i.i = icmp eq ptr %add.ptr55.i.i.i.i, %3
   br i1 %tobool.not.i.i.i.i.i27.i.i.i.i, label %_ZSt4copyIPPN4node9inspector8protocol4json12_GLOBAL__N_15StateES7_ET0_T_S9_S8_.exit30.i.i.i.i, label %if.then.i.i.i.i.i28.i.i.i.i
 
-if.then.i.i.i.i.i28.i.i.i.i:                      ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.exit.i.i.i.i
+if.then.i.i.i.i.i28.i.i.i.i:                      ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i24.i.i.i.i = ptrtoint ptr %add.ptr55.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i26.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr42.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i26.i.i.i.i, i1 false)
   br label %_ZSt4copyIPPN4node9inspector8protocol4json12_GLOBAL__N_15StateES7_ET0_T_S9_S8_.exit30.i.i.i.i
 
-_ZSt4copyIPPN4node9inspector8protocol4json12_GLOBAL__N_15StateES7_ET0_T_S9_S8_.exit30.i.i.i.i: ; preds = %if.then.i.i.i.i.i28.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.exit.i.i.i.i
+_ZSt4copyIPPN4node9inspector8protocol4json12_GLOBAL__N_15StateES7_ET0_T_S9_S8_.exit30.i.i.i.i: ; preds = %if.then.i.i.i.i.i28.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %8) #28
   store ptr %call5.i.i.i.i.i.i.i, ptr %this, align 8
   store i64 %add38.i.i.i.i, ptr %_M_map_size.i.i.i, align 8
@@ -18834,7 +18834,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp1.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i
-  br i1 %cmp1.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
+  br i1 %cmp1.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for.body.i.i.i.i
   %__n.02.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.then.i.i.i ]
@@ -18842,18 +18842,18 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   tail call void @_ZdlPv(ptr noundef %3) #28
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.02.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.02.i.i.i.i, %2
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i, !llvm.loop !365
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i, !llvm.loop !365
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %state_, align 8
-  br label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
+  br label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i, %if.then.i.i.i
-  %4 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i ], [ %0, %if.then.i.i.i ]
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i, %if.then.i.i.i
+  %4 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i ], [ %0, %if.then.i.i.i ]
   tail call void @_ZdlPv(ptr noundef %4) #28
   br label %_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEED2Ev.exit
 
-_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
+_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i
   ret void
 }
 
@@ -18873,7 +18873,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp1.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i
-  br i1 %cmp1.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i.i
+  br i1 %cmp1.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i.i
   %__n.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
@@ -18881,18 +18881,18 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %f
   tail call void @_ZdlPv(ptr noundef %3) #28
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.02.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i = icmp ult ptr %__n.02.i.i.i.i.i, %2
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i.i, !llvm.loop !365
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i.i, !llvm.loop !365
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %state_.i, align 8
-  br label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i.i
+  br label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i.i
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i.i, %if.then.i.i.i.i
-  %4 = phi ptr [ %.pre.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i.i ], [ %0, %if.then.i.i.i.i ]
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i.i, %if.then.i.i.i.i
+  %4 = phi ptr [ %.pre.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i.i ], [ %0, %if.then.i.i.i.i ]
   tail call void @_ZdlPv(ptr noundef %4) #28
   br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEED2Ev.exit
 
-_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i.i
+_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
   ret void
 }
@@ -18931,7 +18931,7 @@ _ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5
   %7 = load ptr, ptr %out_, align 8
   tail call fastcc void @_ZN4node9inspector8protocol4json12_GLOBAL__N_15State12StartElementEPSt6vectorIhSaIhEE(ptr noundef nonnull align 4 dereferenceable(8) %incdec.ptr.i.i.i, ptr noundef %7)
   store i32 1, ptr %ref.tmp, align 4
-  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %state_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %state_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   %this.val = load ptr, ptr %out_, align 8
   %_M_finish.i.i.i1 = getelementptr inbounds i8, ptr %this.val, i64 8
   %8 = load ptr, ptr %_M_finish.i.i.i1, align 8
@@ -19147,7 +19147,7 @@ _ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5
   %7 = load ptr, ptr %out_, align 8
   tail call fastcc void @_ZN4node9inspector8protocol4json12_GLOBAL__N_15State12StartElementEPSt6vectorIhSaIhEE(ptr noundef nonnull align 4 dereferenceable(8) %incdec.ptr.i.i.i, ptr noundef %7)
   store i32 2, ptr %ref.tmp, align 4
-  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %state_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %state_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   %this.val = load ptr, ptr %out_, align 8
   %_M_finish.i.i.i1 = getelementptr inbounds i8, ptr %this.val, i64 8
   %8 = load ptr, ptr %_M_finish.i.i.i1, align 8
@@ -19373,7 +19373,7 @@ if.then.i.i.i48:                                  ; preds = %_ZNSt5stackIN4node9
   %10 = load ptr, ptr %_M_finish.i.i.i47, align 8
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %10, i64 1
   store ptr %incdec.ptr.i.i.i49, ptr %_M_finish.i.i.i47, align 8
-  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE3topEv.exit
   %11 = load ptr, ptr %this.val44, align 8
@@ -19425,14 +19425,14 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i47, align 8
   %add.ptr19.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
 
-_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit: ; preds = %if.then.i.i.i48, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i
+_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit: ; preds = %if.then.i.i.i48, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i
   %cmp189.not = icmp eq i64 %chars.coerce1, 0
   br i1 %cmp189.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit, %for.inc
-  %ii.0190 = phi i64 [ %inc107, %for.inc ], [ 0, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit ]
+for.body:                                         ; preds = %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit, %for.inc
+  %ii.0190 = phi i64 [ %inc107, %for.inc ], [ 0, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit ]
   %arrayidx.i = getelementptr inbounds i8, ptr %chars.coerce0, i64 %ii.0190
   %13 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %13 to i32
@@ -19744,7 +19744,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIhSaIhE
   %cmp = icmp ult i64 %inc107, %chars.coerce1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !376
 
-for.end:                                          ; preds = %for.inc, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+for.end:                                          ; preds = %for.inc, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
   %this.val46 = load ptr, ptr %out_, align 8
   %_M_finish.i.i.i155 = getelementptr inbounds i8, ptr %this.val46, i64 8
   %54 = load ptr, ptr %_M_finish.i.i.i155, align 8
@@ -19860,7 +19860,7 @@ if.then.i.i.i25:                                  ; preds = %_ZNSt5stackIN4node9
   %10 = load ptr, ptr %_M_finish.i.i.i24, align 8
   %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %10, i64 1
   store ptr %incdec.ptr.i.i.i26, ptr %_M_finish.i.i.i24, align 8
-  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE3topEv.exit
   %11 = load ptr, ptr %this.val21, align 8
@@ -19912,15 +19912,15 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i24, align 8
   %add.ptr19.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
 
-_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit: ; preds = %if.then.i.i.i25, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i
+_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit: ; preds = %if.then.i.i.i25, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i
   %add.ptr.i = getelementptr inbounds i16, ptr %chars.coerce0, i64 %chars.coerce1
   %cmp.not142 = icmp eq i64 %chars.coerce1, 0
   br i1 %cmp.not142, label %for.end, label %for.body
 
-for.body:                                         ; preds = %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit, %for.inc
-  %__begin4.0143 = phi ptr [ %incdec.ptr, %for.inc ], [ %chars.coerce0, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit ]
+for.body:                                         ; preds = %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit, %for.inc
+  %__begin4.0143 = phi ptr [ %incdec.ptr, %for.inc ], [ %chars.coerce0, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit ]
   %13 = load i16, ptr %__begin4.0143, align 2
   switch i16 %13, label %if.else30 [
     i16 34, label %if.then6
@@ -20109,7 +20109,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIhSaIhE
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %for.inc, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+for.end:                                          ; preds = %for.inc, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
   %this.val23 = load ptr, ptr %out_, align 8
   %_M_finish.i.i.i110 = getelementptr inbounds i8, ptr %this.val23, i64 8
   %37 = load ptr, ptr %_M_finish.i.i.i110, align 8
@@ -20225,7 +20225,7 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt5stackIN4node9
   %10 = load ptr, ptr %_M_finish.i.i.i2, align 8
   %incdec.ptr.i.i.i4 = getelementptr inbounds i8, ptr %10, i64 1
   store ptr %incdec.ptr.i.i.i4, ptr %_M_finish.i.i.i2, align 8
-  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE3topEv.exit
   %11 = load ptr, ptr %this.val, align 8
@@ -20277,14 +20277,14 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i2, align 8
   %add.ptr19.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+  br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
 
-_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit: ; preds = %if.then.i.i.i3, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i
+_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit: ; preds = %if.then.i.i.i3, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i
   %13 = load ptr, ptr %out_, align 8
   %cmp.not403.i = icmp ult i64 %bytes.coerce1, 3
   br i1 %cmp.not403.i, label %for.end.i, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
+for.body.lr.ph.i:                                 ; preds = %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
   %_M_finish.i.i.i6 = getelementptr inbounds i8, ptr %13, i64 8
   %_M_end_of_storage.i.i.i7 = getelementptr inbounds i8, ptr %13, i64 16
   %.pre.i = load ptr, ptr %_M_finish.i.i.i6, align 8
@@ -20592,8 +20592,8 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit129.i:      ; preds = %_ZNSt6vectorIhSaIhE
   %cmp.not.i = icmp ugt i64 %add.i, %bytes.coerce1
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !383
 
-for.end.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit129.i, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
-  %ii.0.lcssa.i = phi i64 [ 0, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit ], [ %add405.i, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit129.i ]
+for.end.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit129.i, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit
+  %ii.0.lcssa.i = phi i64 [ 0, %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.argprom.exit ], [ %add405.i, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit129.i ]
   %add24.i = add i64 %ii.0.lcssa.i, 2
   %cmp26.not.i = icmp ugt i64 %add24.i, %bytes.coerce1
   br i1 %cmp26.not.i, label %if.end.i, label %if.then.i
@@ -22192,7 +22192,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp1.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i
-  br i1 %cmp1.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
+  br i1 %cmp1.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for.body.i.i.i.i
   %__n.02.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.then.i.i.i ]
@@ -22200,18 +22200,18 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   tail call void @_ZdlPv(ptr noundef %3) #28
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.02.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.02.i.i.i.i, %2
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i, !llvm.loop !365
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i, !llvm.loop !365
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %state_, align 8
-  br label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
+  br label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i, %if.then.i.i.i
-  %4 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i ], [ %0, %if.then.i.i.i ]
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i, %if.then.i.i.i
+  %4 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i ], [ %0, %if.then.i.i.i ]
   tail call void @_ZdlPv(ptr noundef %4) #28
   br label %_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEED2Ev.exit
 
-_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
+_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i
   ret void
 }
 
@@ -22231,7 +22231,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp1.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i
-  br i1 %cmp1.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i.i
+  br i1 %cmp1.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i.i
   %__n.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
@@ -22239,18 +22239,18 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %f
   tail call void @_ZdlPv(ptr noundef %3) #28
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.02.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i = icmp ult ptr %__n.02.i.i.i.i.i, %2
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i.i, !llvm.loop !365
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i.i, !llvm.loop !365
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %state_.i, align 8
-  br label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i.i
+  br label %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i.i
 
-_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i.i, %if.then.i.i.i.i
-  %4 = phi ptr [ %.pre.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i.i.i.i ], [ %0, %if.then.i.i.i.i ]
+_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i.i, %if.then.i.i.i.i
+  %4 = phi ptr [ %.pre.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.loopexit.i.i.i.i ], [ %0, %if.then.i.i.i.i ]
   tail call void @_ZdlPv(ptr noundef %4) #28
   br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i.i
+_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE16_M_destroy_nodesEPPS5_S9_.argprom.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
   ret void
 }
@@ -22308,7 +22308,7 @@ _ZN4node9inspector8protocol4json12_GLOBAL__N_15State12StartElementEPNSt7__cxx111
   %inc.i.i = phi i32 [ %11, %if.then.i.i ], [ 1, %_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE3topEv.exit ]
   store i32 %inc.i.i, ptr %size_.i.i, align 4
   store i32 1, ptr %ref.tmp, align 4
-  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %state_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %state_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   %this.val = load ptr, ptr %out_, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i8 noundef signext 123) #27
   br label %return
@@ -22417,7 +22417,7 @@ _ZN4node9inspector8protocol4json12_GLOBAL__N_15State12StartElementEPNSt7__cxx111
   %inc.i.i = phi i32 [ %11, %if.then.i.i ], [ 1, %_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE3topEv.exit ]
   store i32 %inc.i.i, ptr %size_.i.i, align 4
   store i32 2, ptr %ref.tmp, align 4
-  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %state_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  call fastcc void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEE7emplaceIJNS4_9ContainerEEEEDcDpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %state_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   %this.val = load ptr, ptr %out_, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i8 noundef signext 91) #27
   br label %return

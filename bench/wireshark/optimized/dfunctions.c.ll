@@ -308,13 +308,13 @@ declare void @g_ptr_array_unref(ptr noundef) local_unnamed_addr #1
 define internal noundef zeroext i1 @df_func_lower(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp ne ptr %.val, null
-  br i1 %4, label %.preheader.i, label %string_walk.exit
+  br i1 %4, label %.preheader.i, label %string_walk.argprom.exit
 
 .preheader.i:                                     ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.val, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %string_walk.exit, label %.lr.ph3.i
+  br i1 %.not.i, label %string_walk.argprom.exit, label %.lr.ph3.i
 
 .lr.ph3.i:                                        ; preds = %.preheader.i, %40
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %.preheader.i ]
@@ -381,9 +381,9 @@ define internal noundef zeroext i1 @df_func_lower(ptr nocapture noundef readonly
   %41 = load i32, ptr %5, align 8
   %42 = zext i32 %41 to i64
   %43 = icmp ult i64 %indvars.iv.next.i, %42
-  br i1 %43, label %.lr.ph3.i, label %string_walk.exit, !llvm.loop !8
+  br i1 %43, label %.lr.ph3.i, label %string_walk.argprom.exit, !llvm.loop !8
 
-string_walk.exit:                                 ; preds = %40, %3, %.preheader.i
+string_walk.argprom.exit:                         ; preds = %40, %3, %.preheader.i
   ret i1 %4
 }
 
@@ -427,13 +427,13 @@ define internal noundef i32 @ul_semcheck_is_field_string(ptr noundef %0, ptr nou
 define internal noundef zeroext i1 @df_func_upper(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp ne ptr %.val, null
-  br i1 %4, label %.preheader.i, label %string_walk.exit
+  br i1 %4, label %.preheader.i, label %string_walk.argprom.exit
 
 .preheader.i:                                     ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.val, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %string_walk.exit, label %.lr.ph3.i
+  br i1 %.not.i, label %string_walk.argprom.exit, label %.lr.ph3.i
 
 .lr.ph3.i:                                        ; preds = %.preheader.i, %40
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %.preheader.i ]
@@ -500,9 +500,9 @@ define internal noundef zeroext i1 @df_func_upper(ptr nocapture noundef readonly
   %41 = load i32, ptr %5, align 8
   %42 = zext i32 %41 to i64
   %43 = icmp ult i64 %indvars.iv.next.i, %42
-  br i1 %43, label %.lr.ph3.i, label %string_walk.exit, !llvm.loop !8
+  br i1 %43, label %.lr.ph3.i, label %string_walk.argprom.exit, !llvm.loop !8
 
-string_walk.exit:                                 ; preds = %40, %3, %.preheader.i
+string_walk.argprom.exit:                         ; preds = %40, %3, %.preheader.i
   ret i1 %4
 }
 
@@ -714,7 +714,7 @@ define internal noundef i32 @ul_semcheck_string(ptr noundef %0, ptr noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @df_func_dec(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
   %.val = load ptr, ptr %0, align 8
-  %4 = tail call fastcc zeroext i1 @df_func_base(ptr %.val, ptr noundef %2, i32 noundef 1)
+  %4 = tail call fastcc zeroext i1 @df_func_base.argprom.argelim(ptr %.val, ptr noundef %2, i32 noundef 1)
   ret i1 %4
 }
 
@@ -770,7 +770,7 @@ define internal noundef i32 @ul_semcheck_base(ptr noundef %0, ptr noundef %1, i3
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @df_func_hex(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
   %.val = load ptr, ptr %0, align 8
-  %4 = tail call fastcc zeroext i1 @df_func_base(ptr %.val, ptr noundef %2, i32 noundef 2)
+  %4 = tail call fastcc zeroext i1 @df_func_base.argprom.argelim(ptr %.val, ptr noundef %2, i32 noundef 2)
   ret i1 %4
 }
 
@@ -1065,7 +1065,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sttype_field_hfinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly %.0.val, ptr noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @df_func_base.argprom.argelim(ptr readonly %.0.val, ptr noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 {
   %3 = icmp ne ptr %.0.val, null
   br i1 %3, label %.preheader, label %.loopexit
 

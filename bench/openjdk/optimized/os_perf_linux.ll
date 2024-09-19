@@ -1655,7 +1655,7 @@ define internal noundef i32 @_ZL13read_statdataPKcS0_z(ptr nocapture readnone %0
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
   %5 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5) #18
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZL14vread_statdataPKcS0_P13__va_list_tag.exit, label %7
+  br i1 %6, label %_ZL14vread_statdataPKcS0_P13__va_list_tag.argprom.exit, label %7
 
 7:                                                ; preds = %2
   %8 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 2048, ptr noundef nonnull %5)
@@ -1685,9 +1685,9 @@ define internal noundef i32 @_ZL13read_statdataPKcS0_z(ptr nocapture readnone %0
   %.0.i = phi i64 [ %19, %17 ], [ %8, %13 ], [ %8, %9 ], [ -1, %7 ]
   %21 = call i32 @fclose(ptr noundef nonnull %5)
   %22 = trunc i64 %.0.i to i32
-  br label %_ZL14vread_statdataPKcS0_P13__va_list_tag.exit
+  br label %_ZL14vread_statdataPKcS0_P13__va_list_tag.argprom.exit
 
-_ZL14vread_statdataPKcS0_P13__va_list_tag.exit:   ; preds = %2, %20
+_ZL14vread_statdataPKcS0_P13__va_list_tag.argprom.exit: ; preds = %2, %20
   %.011.i = phi i32 [ %22, %20 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)

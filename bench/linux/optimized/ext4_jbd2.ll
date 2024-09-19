@@ -726,7 +726,7 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
 declare dso_local i32 @jbd2_journal_get_write_access(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_journal_abort_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 align 16 {
+define internal fastcc void @ext4_journal_abort_handle.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 align 16 {
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !38
@@ -1200,7 +1200,7 @@ define dso_local i32 @__ext4_handle_dirty_metadata(ptr noundef %0, i32 noundef %
   tail call void asm sideeffect "2063: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2063) #10, !srcloc !53
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 356, i32 2307, i64 12) #10, !srcloc !54
   tail call void asm sideeffect "2064: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2064) #10, !srcloc !55
-  tail call fastcc void @ext4_journal_abort_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %26)
+  tail call fastcc void @ext4_journal_abort_handle.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %26)
   %42 = icmp eq ptr %3, null
   br i1 %42, label %43, label %69
 

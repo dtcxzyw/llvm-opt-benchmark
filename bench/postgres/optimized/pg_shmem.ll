@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local zeroext i1 @PGSharedMemoryIsInUse(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = trunc i64 %1 to i32
-  %5 = call fastcc i32 @PGSharedMemoryAttach(i32 noundef %4, ptr noundef %3)
+  %5 = call fastcc i32 @PGSharedMemoryAttach.argprom(i32 noundef %4, ptr noundef %3)
   %6 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %7
@@ -79,7 +79,7 @@ define dso_local zeroext i1 @PGSharedMemoryIsInUse(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @PGSharedMemoryAttach(i32 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @PGSharedMemoryAttach.argprom(i32 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.shmid_ds, align 8
   %4 = alloca %struct.stat, align 8
   store ptr null, ptr %1, align 8
@@ -518,7 +518,7 @@ InternalIpcMemoryCreate.exit:                     ; preds = %100
   br label %129
 
 113:                                              ; preds = %110
-  %114 = call fastcc i32 @PGSharedMemoryAttach(i32 noundef %111, ptr noundef %7)
+  %114 = call fastcc i32 @PGSharedMemoryAttach.argprom(i32 noundef %111, ptr noundef %7)
   switch i32 %114, label %default.unreachable98 [
     i32 0, label %115
     i32 1, label %115

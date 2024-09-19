@@ -607,9 +607,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIaLNS0_8CellKindE35EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIaLNS0_8CellKindE35EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIaLNS0_8CellKindE35EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIaLNS0_8CellKindE35EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -1431,9 +1431,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIsLNS0_8CellKindE36EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIsLNS0_8CellKindE36EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIsLNS0_8CellKindE36EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIsLNS0_8CellKindE36EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -2030,9 +2030,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIiLNS0_8CellKindE37EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIiLNS0_8CellKindE37EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIiLNS0_8CellKindE37EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIiLNS0_8CellKindE37EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -2629,9 +2629,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIhLNS0_8CellKindE38EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIhLNS0_8CellKindE38EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIhLNS0_8CellKindE38EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIhLNS0_8CellKindE38EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -3212,9 +3212,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIhLNS0_8CellKindE39EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIhLNS0_8CellKindE39EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIhLNS0_8CellKindE39EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIhLNS0_8CellKindE39EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -3787,9 +3787,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayItLNS0_8CellKindE40EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayItLNS0_8CellKindE40EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayItLNS0_8CellKindE40EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayItLNS0_8CellKindE40EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -4386,9 +4386,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIjLNS0_8CellKindE41EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIjLNS0_8CellKindE41EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIjLNS0_8CellKindE41EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIjLNS0_8CellKindE41EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -4970,9 +4970,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIfLNS0_8CellKindE42EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIfLNS0_8CellKindE42EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIfLNS0_8CellKindE42EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIfLNS0_8CellKindE42EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -5527,9 +5527,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIdLNS0_8CellKindE43EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIdLNS0_8CellKindE43EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIdLNS0_8CellKindE43EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIdLNS0_8CellKindE43EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -6157,9 +6157,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIlLNS0_8CellKindE44EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIlLNS0_8CellKindE44EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIlLNS0_8CellKindE44EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayIlLNS0_8CellKindE44EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 
@@ -6810,9 +6810,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayImLNS0_8CellKindE45EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayImLNS0_8CellKindE45EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayImLNS0_8CellKindE45EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_12JSTypedArrayImLNS0_8CellKindE45EEEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS7_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 

@@ -1548,7 +1548,7 @@ if.then4:                                         ; preds = %if.end
   %lineinfo.i.i = getelementptr inbounds i8, ptr %7, i64 88
   %11 = load ptr, ptr %lineinfo.i.i, align 8
   %cmp.i.i = icmp eq ptr %11, null
-  br i1 %cmp.i.i, label %getcurrentline.exit, label %if.else.i.i
+  br i1 %cmp.i.i, label %getcurrentline.argprom.argprom.argprom.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then4
   %sizeabslineinfo.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
@@ -1601,7 +1601,7 @@ getbaseline.exit.i.i:                             ; preds = %while.end.i.i.i, %i
   %retval.0.in.i.i.i = phi ptr [ %linedefined.i.i.i, %if.then.i.i.i ], [ %line.i.i.i, %while.end.i.i.i ]
   %retval.0.i.i.i = load i32, ptr %retval.0.in.i.i.i, align 4
   %cmp15.i.i = icmp slt i32 %basepc.1.i.i, %sub.i.i
-  br i1 %cmp15.i.i, label %while.body.preheader.i.i, label %getcurrentline.exit
+  br i1 %cmp15.i.i, label %while.body.preheader.i.i, label %getcurrentline.argprom.argprom.argprom.exit
 
 while.body.preheader.i.i:                         ; preds = %getbaseline.exit.i.i
   %21 = sext i32 %basepc.1.i.i to i64
@@ -1617,15 +1617,15 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %conv.i3.i = sext i8 %22 to i32
   %add.i.i = add nsw i32 %baseline.07.i.i, %conv.i3.i
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %getcurrentline.exit, label %while.body.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %getcurrentline.argprom.argprom.argprom.exit, label %while.body.i.i, !llvm.loop !7
 
-getcurrentline.exit:                              ; preds = %while.body.i.i, %if.then4, %getbaseline.exit.i.i
+getcurrentline.argprom.argprom.argprom.exit:      ; preds = %while.body.i.i, %if.then4, %getbaseline.exit.i.i
   %retval.0.i.i = phi i32 [ -1, %if.then4 ], [ %retval.0.i.i.i, %getbaseline.exit.i.i ], [ %add.i.i, %while.body.i.i ]
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %buff.i)
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %getcurrentline.exit
+if.then.i:                                        ; preds = %getcurrentline.argprom.argprom.argprom.exit
   %contents.i = getelementptr inbounds i8, ptr %8, i64 24
   %shrlen.i = getelementptr inbounds i8, ptr %8, i64 11
   %23 = load i8, ptr %shrlen.i, align 1
@@ -1646,7 +1646,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   call void @luaO_chunkid(ptr noundef nonnull %buff.i, ptr noundef nonnull %contents.i, i64 noundef %cond.i) #13
   br label %luaG_addinfo.exit
 
-if.else.i:                                        ; preds = %getcurrentline.exit
+if.else.i:                                        ; preds = %getcurrentline.argprom.argprom.argprom.exit
   store i8 63, ptr %buff.i, align 16
   %arrayidx5.i = getelementptr inbounds i8, ptr %buff.i, i64 1
   store i8 0, ptr %arrayidx5.i, align 1
@@ -2318,14 +2318,14 @@ sw.bb:                                            ; preds = %if.then2
   %4 = load i8, ptr %tt_.i, align 8
   %5 = and i8 %4, 15
   %cmp.i = icmp eq i8 %5, 4
-  br i1 %cmp.i, label %if.then.i, label %kname.exit
+  br i1 %cmp.i, label %if.then.i, label %kname.argprom.exit
 
 if.then.i:                                        ; preds = %sw.bb
   %6 = load ptr, ptr %arrayidx.i, align 8
   %contents.i = getelementptr inbounds i8, ptr %6, i64 24
-  br label %kname.exit
+  br label %kname.argprom.exit
 
-kname.exit:                                       ; preds = %sw.bb, %if.then.i
+kname.argprom.exit:                               ; preds = %sw.bb, %if.then.i
   %storemerge.i = phi ptr [ %contents.i, %if.then.i ], [ @.str.18, %sw.bb ]
   store ptr %storemerge.i, ptr %name, align 8
   %shr.i = lshr i32 %2, 16
@@ -2398,14 +2398,14 @@ sw.bb13:                                          ; preds = %if.then2
   %13 = load i8, ptr %tt_.i34, align 8
   %14 = and i8 %13, 15
   %cmp.i35 = icmp eq i8 %14, 4
-  br i1 %cmp.i35, label %if.then.i38, label %kname.exit40
+  br i1 %cmp.i35, label %if.then.i38, label %kname.argprom.exit40
 
 if.then.i38:                                      ; preds = %sw.bb13
   %15 = load ptr, ptr %arrayidx.i33, align 8
   %contents.i39 = getelementptr inbounds i8, ptr %15, i64 24
-  br label %kname.exit40
+  br label %kname.argprom.exit40
 
-kname.exit40:                                     ; preds = %sw.bb13, %if.then.i38
+kname.argprom.exit40:                             ; preds = %sw.bb13, %if.then.i38
   %storemerge.i36 = phi ptr [ %contents.i39, %if.then.i38 ], [ @.str.18, %sw.bb13 ]
   store ptr %storemerge.i36, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pc.addr.i41)
@@ -2418,14 +2418,14 @@ kname.exit40:                                     ; preds = %sw.bb13, %if.then.i
   %tobool2.not.i47 = icmp eq ptr %.pr.i46, null
   br i1 %tobool2.not.i47, label %isEnv.exit52, label %land.rhs.i48
 
-land.rhs.i48:                                     ; preds = %kname.exit40
+land.rhs.i48:                                     ; preds = %kname.argprom.exit40
   %call3.i49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr.i46, ptr noundef nonnull dereferenceable(5) @.str.24) #14
   %cmp.i50 = icmp eq i32 %call3.i49, 0
   %16 = select i1 %cmp.i50, ptr @.str.25, ptr @.str.20
   br label %isEnv.exit52
 
-isEnv.exit52:                                     ; preds = %kname.exit40, %land.rhs.i48
-  %cond.i51 = phi ptr [ @.str.20, %kname.exit40 ], [ %16, %land.rhs.i48 ]
+isEnv.exit52:                                     ; preds = %kname.argprom.exit40, %land.rhs.i48
+  %cond.i51 = phi ptr [ @.str.20, %kname.argprom.exit40 ], [ %16, %land.rhs.i48 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pc.addr.i41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i42)
   br label %return
@@ -2445,14 +2445,14 @@ if.then.i55:                                      ; preds = %sw.bb19
   %19 = load i8, ptr %tt_.i.i, align 8
   %20 = and i8 %19, 15
   %cmp.i.i59 = icmp eq i8 %20, 4
-  br i1 %cmp.i.i59, label %if.then.i.i, label %kname.exit.i
+  br i1 %cmp.i.i59, label %if.then.i.i, label %kname.argprom.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i55
   %21 = load ptr, ptr %arrayidx.i.i58, align 8
   %contents.i.i60 = getelementptr inbounds i8, ptr %21, i64 24
-  br label %kname.exit.i
+  br label %kname.argprom.exit.i
 
-kname.exit.i:                                     ; preds = %if.then.i.i, %if.then.i55
+kname.argprom.exit.i:                             ; preds = %if.then.i.i, %if.then.i55
   %storemerge.i.i = phi ptr [ %contents.i.i60, %if.then.i.i ], [ @.str.18, %if.then.i55 ]
   store ptr %storemerge.i.i, ptr %name, align 8
   br label %return
@@ -2477,8 +2477,8 @@ rname.exit.i:                                     ; preds = %if.then.i6.i, %land
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pc.addr.i.i)
   br label %return
 
-return:                                           ; preds = %rname.exit.i, %kname.exit.i, %if.then2, %if.else, %entry, %isEnv.exit52, %sw.bb12, %isEnv.exit, %kname.exit
-  %retval.0 = phi ptr [ %cond.i51, %isEnv.exit52 ], [ @.str.20, %sw.bb12 ], [ %cond.i, %isEnv.exit ], [ %9, %kname.exit ], [ %call, %entry ], [ null, %if.else ], [ null, %if.then2 ], [ @.str.21, %kname.exit.i ], [ @.str.21, %rname.exit.i ]
+return:                                           ; preds = %rname.exit.i, %kname.argprom.exit.i, %if.then2, %if.else, %entry, %isEnv.exit52, %sw.bb12, %isEnv.exit, %kname.argprom.exit
+  %retval.0 = phi ptr [ %cond.i51, %isEnv.exit52 ], [ @.str.20, %sw.bb12 ], [ %cond.i, %isEnv.exit ], [ %9, %kname.argprom.exit ], [ %call, %entry ], [ null, %if.else ], [ null, %if.then2 ], [ @.str.21, %kname.argprom.exit.i ], [ @.str.21, %rname.exit.i ]
   ret ptr %retval.0
 }
 
@@ -2511,9 +2511,9 @@ if.end:                                           ; preds = %tailrecurse
   %dec.i = sext i8 %.lobit.i to i32
   %spec.select.i = add nsw i32 %1, %dec.i
   %cmp6.i = icmp sgt i32 %spec.select.i, 0
-  br i1 %cmp6.i, label %for.body.preheader.i, label %findsetreg.exit.thread
+  br i1 %cmp6.i, label %for.body.preheader.i, label %findsetreg.argprom.exit.thread
 
-findsetreg.exit.thread:                           ; preds = %if.end
+findsetreg.argprom.exit.thread:                   ; preds = %if.end
   store i32 -1, ptr %ppc, align 4
   br label %return
 
@@ -2589,14 +2589,14 @@ for.inc.i:                                        ; preds = %if.then48.i, %sw.ep
   %setreg.1.i = phi i32 [ %.pc.i.i, %if.then48.i ], [ %setreg.08.i, %sw.epilog.i ], [ %setreg.08.i, %sw.bb.i ], [ %setreg.08.i, %sw.bb25.i ], [ %setreg.08.i, %sw.default.i ], [ %setreg.08.i, %sw.bb22.i ], [ %setreg.08.i, %sw.bb18.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %findsetreg.exit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %findsetreg.argprom.exit, label %for.body.i, !llvm.loop !14
 
-findsetreg.exit:                                  ; preds = %for.inc.i
+findsetreg.argprom.exit:                          ; preds = %for.inc.i
   store i32 %setreg.1.i, ptr %ppc, align 4
   %cmp.not = icmp eq i32 %setreg.1.i, -1
   br i1 %cmp.not, label %return, label %if.then2
 
-if.then2:                                         ; preds = %findsetreg.exit
+if.then2:                                         ; preds = %findsetreg.argprom.exit
   %13 = load ptr, ptr %0, align 8
   %idxprom = sext i32 %setreg.1.i to i64
   %arrayidx = getelementptr inbounds i32, ptr %13, i64 %idxprom
@@ -2641,14 +2641,14 @@ sw.bb15:                                          ; preds = %if.then2
   %18 = load i8, ptr %tt_.i, align 8
   %19 = and i8 %18, 15
   %cmp.i32 = icmp eq i8 %19, 4
-  br i1 %cmp.i32, label %if.then.i, label %kname.exit
+  br i1 %cmp.i32, label %if.then.i, label %kname.argprom.exit
 
 if.then.i:                                        ; preds = %sw.bb15
   %20 = load ptr, ptr %arrayidx.i31, align 8
   %contents.i34 = getelementptr inbounds i8, ptr %20, i64 24
-  br label %kname.exit
+  br label %kname.argprom.exit
 
-kname.exit:                                       ; preds = %sw.bb15, %if.then.i
+kname.argprom.exit:                               ; preds = %sw.bb15, %if.then.i
   %storemerge.i = phi ptr [ %contents.i34, %if.then.i ], [ @.str.18, %sw.bb15 ]
   %retval.0.i33 = phi ptr [ @.str.23, %if.then.i ], [ null, %sw.bb15 ]
   store ptr %storemerge.i, ptr %name, align 8
@@ -2667,21 +2667,21 @@ sw.bb19:                                          ; preds = %if.then2
   %23 = load i8, ptr %tt_.i37, align 8
   %24 = and i8 %23, 15
   %cmp.i38 = icmp eq i8 %24, 4
-  br i1 %cmp.i38, label %if.then.i41, label %kname.exit43
+  br i1 %cmp.i38, label %if.then.i41, label %kname.argprom.exit43
 
 if.then.i41:                                      ; preds = %sw.bb19
   %25 = load ptr, ptr %arrayidx.i36, align 8
   %contents.i42 = getelementptr inbounds i8, ptr %25, i64 24
-  br label %kname.exit43
+  br label %kname.argprom.exit43
 
-kname.exit43:                                     ; preds = %sw.bb19, %if.then.i41
+kname.argprom.exit43:                             ; preds = %sw.bb19, %if.then.i41
   %storemerge.i39 = phi ptr [ %contents.i42, %if.then.i41 ], [ @.str.18, %sw.bb19 ]
   %retval.0.i40 = phi ptr [ @.str.23, %if.then.i41 ], [ null, %sw.bb19 ]
   store ptr %storemerge.i39, ptr %name, align 8
   br label %return
 
-return:                                           ; preds = %findsetreg.exit, %if.then2, %sw.bb, %tailrecurse, %findsetreg.exit.thread, %kname.exit43, %kname.exit, %sw.bb11
-  %retval.0 = phi ptr [ %retval.0.i40, %kname.exit43 ], [ %retval.0.i33, %kname.exit ], [ @.str.17, %sw.bb11 ], [ null, %findsetreg.exit.thread ], [ null, %findsetreg.exit ], [ null, %if.then2 ], [ null, %sw.bb ], [ @.str.22, %tailrecurse ]
+return:                                           ; preds = %findsetreg.argprom.exit, %if.then2, %sw.bb, %tailrecurse, %findsetreg.argprom.exit.thread, %kname.argprom.exit43, %kname.argprom.exit, %sw.bb11
+  %retval.0 = phi ptr [ %retval.0.i40, %kname.argprom.exit43 ], [ %retval.0.i33, %kname.argprom.exit ], [ @.str.17, %sw.bb11 ], [ null, %findsetreg.argprom.exit.thread ], [ null, %findsetreg.argprom.exit ], [ null, %if.then2 ], [ null, %sw.bb ], [ @.str.22, %tailrecurse ]
   ret ptr %retval.0
 }
 

@@ -39,7 +39,7 @@ define noundef ptr @agopen(ptr noundef %0, i32 %1, ptr noundef %2) local_unnamed
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.1, i64 noundef 112) #11
-  tail call fastcc void @graphviz_exit() #12
+  tail call fastcc void @graphviz_exit.argelim() #12
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %3
@@ -69,7 +69,7 @@ agclos.exit:                                      ; preds = %gv_calloc.exit.i, %
 18:                                               ; preds = %agclos.exit
   %19 = load ptr, ptr @stderr, align 8
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.1, i64 noundef 136) #11
-  tail call fastcc void @graphviz_exit() #12
+  tail call fastcc void @graphviz_exit.argelim() #12
   unreachable
 
 gv_calloc.exit:                                   ; preds = %agclos.exit
@@ -598,7 +598,7 @@ define internal range(i32 -1, 2) i32 @agraphidcmpf(ptr nocapture readnone %0, pt
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #14
   unreachable
 }

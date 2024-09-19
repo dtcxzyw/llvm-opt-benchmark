@@ -113,7 +113,7 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   %46 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %41, i64 %31
   %47 = getelementptr inbounds i8, ptr %46, i64 -16
   %.not314 = icmp sgt i64 %spec.store.select, %31
-  br i1 %.not314, label %48, label %php_json_yyerror.exit336
+  br i1 %.not314, label %48, label %php_json_yyerror.argprom.exit336
 
 48:                                               ; preds = %44, %23
   %.2278 = phi ptr [ %47, %44 ], [ %.0276, %23 ]
@@ -122,7 +122,7 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   %.1263 = phi ptr [ %37, %44 ], [ %.0262, %23 ]
   %.1261 = phi i64 [ %spec.store.select, %44 ], [ %.0260, %23 ]
   %49 = icmp eq i32 %.0253, 16
-  br i1 %49, label %php_json_yyerror.exit336, label %50
+  br i1 %49, label %php_json_yyerror.argprom.exit336, label %50
 
 50:                                               ; preds = %48
   %51 = sext i32 %.0253 to i64
@@ -194,7 +194,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
 
 83:                                               ; preds = %php_json_yylex.exit
   %84 = icmp eq i32 %.5, 256
-  br i1 %84, label %php_json_yyerror.exit, label %85
+  br i1 %84, label %php_json_yyerror.argprom.exit, label %85
 
 85:                                               ; preds = %83
   %86 = icmp ult i32 %.5, 267
@@ -287,7 +287,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   store ptr %127, ptr %126, align 8
   %129 = getelementptr inbounds i8, ptr %126, i64 8
   store i32 %128, ptr %129, align 8
-  br label %php_json_yyerror.exit336
+  br label %php_json_yyerror.argprom.exit336
 
 130:                                              ; preds = %113
   %131 = load i32, ptr %16, align 4
@@ -488,11 +488,11 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %239 = getelementptr inbounds i8, ptr %0, i64 84
   %240 = load i32, ptr %239, align 4
   %.not.i334 = icmp eq i32 %240, 0
-  br i1 %.not.i334, label %241, label %php_json_yyerror.exit
+  br i1 %.not.i334, label %241, label %php_json_yyerror.argprom.exit
 
 241:                                              ; preds = %238
   store i32 4, ptr %239, align 4
-  br label %php_json_yyerror.exit
+  br label %php_json_yyerror.argprom.exit
 
 .loopexit.sink.split:                             ; preds = %113, %175, %113, %130
   %.sink = phi i32 [ 1, %130 ], [ 2, %113 ], [ 1, %175 ], [ 2, %113 ]
@@ -506,53 +506,53 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %245 = getelementptr inbounds i8, ptr %.2268, i64 %243
   %246 = load i8, ptr %245, align 1
   %247 = sext i8 %246 to i32
-  br label %php_json_yyerror.exit
+  br label %php_json_yyerror.argprom.exit
 
-php_json_yyerror.exit:                            ; preds = %83, %241, %238, %.loopexit
+php_json_yyerror.argprom.exit:                    ; preds = %83, %241, %238, %.loopexit
   %.4280 = phi ptr [ %244, %.loopexit ], [ %.2278, %238 ], [ %.2278, %241 ], [ %.2278, %83 ]
   %.4270 = phi ptr [ %245, %.loopexit ], [ %.2268, %238 ], [ %.2268, %241 ], [ %.2268, %83 ]
   %.2255 = phi i32 [ %247, %.loopexit ], [ %.0253, %238 ], [ %.0253, %241 ], [ %.0253, %83 ]
   %.7 = phi i32 [ %.8, %.loopexit ], [ %.4, %238 ], [ %.4, %241 ], [ 257, %83 ]
   %248 = icmp eq ptr %.4270, %.1263
-  br i1 %248, label %php_json_yyerror.exit336, label %.lr.ph
+  br i1 %248, label %php_json_yyerror.argprom.exit336, label %.lr.ph
 
-.lr.ph:                                           ; preds = %php_json_yyerror.exit, %.lr.ph
-  %.3256466 = phi i32 [ %256, %.lr.ph ], [ %.2255, %php_json_yyerror.exit ]
-  %.5271465 = phi ptr [ %254, %.lr.ph ], [ %.4270, %php_json_yyerror.exit ]
-  %.5281464 = phi ptr [ %253, %.lr.ph ], [ %.4280, %php_json_yyerror.exit ]
+.lr.ph:                                           ; preds = %php_json_yyerror.argprom.exit, %.lr.ph
+  %.3256466 = phi i32 [ %256, %.lr.ph ], [ %.2255, %php_json_yyerror.argprom.exit ]
+  %.5271465 = phi ptr [ %254, %.lr.ph ], [ %.4270, %php_json_yyerror.argprom.exit ]
+  %.5281464 = phi ptr [ %253, %.lr.ph ], [ %.4280, %php_json_yyerror.argprom.exit ]
   %249 = sext i32 %.3256466 to i64
   %250 = getelementptr inbounds [40 x i8], ptr @yystos, i64 0, i64 %249
   %251 = load i8, ptr %250, align 1
   %252 = sext i8 %251 to i32
-  call fastcc void @yydestruct(i32 noundef %252, ptr noundef %.5281464)
+  call fastcc void @yydestruct.argprom(i32 noundef %252, ptr noundef %.5281464)
   %253 = getelementptr inbounds i8, ptr %.5281464, i64 -16
   %254 = getelementptr inbounds i8, ptr %.5271465, i64 -1
   %255 = load i8, ptr %254, align 1
   %256 = sext i8 %255 to i32
   %257 = icmp eq ptr %254, %.1263
-  br i1 %257, label %php_json_yyerror.exit336, label %.lr.ph
+  br i1 %257, label %php_json_yyerror.argprom.exit336, label %.lr.ph
 
 258:                                              ; preds = %33, %27
   %259 = getelementptr inbounds i8, ptr %0, i64 84
   %260 = load i32, ptr %259, align 4
   %.not.i335 = icmp eq i32 %260, 0
-  br i1 %.not.i335, label %261, label %php_json_yyerror.exit336
+  br i1 %.not.i335, label %261, label %php_json_yyerror.argprom.exit336
 
 261:                                              ; preds = %258
   store i32 4, ptr %259, align 4
-  br label %php_json_yyerror.exit336
+  br label %php_json_yyerror.argprom.exit336
 
-php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %php_json_yyerror.exit, %261, %258, %120
-  %.5292 = phi i64 [ %117, %120 ], [ 0, %258 ], [ 0, %261 ], [ 0, %php_json_yyerror.exit ], [ 0, %.lr.ph ], [ 0, %48 ], [ 0, %44 ]
-  %.0285 = phi i32 [ 0, %120 ], [ 2, %258 ], [ 2, %261 ], [ 1, %php_json_yyerror.exit ], [ 1, %.lr.ph ], [ 1, %44 ], [ 0, %48 ]
-  %.6282 = phi ptr [ %.2278, %120 ], [ %.0276, %258 ], [ %.0276, %261 ], [ %.4280, %php_json_yyerror.exit ], [ %253, %.lr.ph ], [ %47, %44 ], [ %.2278, %48 ]
-  %.6272 = phi ptr [ %.2268, %120 ], [ %.0266, %258 ], [ %.0266, %261 ], [ %.4270, %php_json_yyerror.exit ], [ %254, %.lr.ph ], [ %45, %44 ], [ %.2268, %48 ]
-  %.3265 = phi ptr [ %.1263, %120 ], [ %.0262, %258 ], [ %.0262, %261 ], [ %.1263, %php_json_yyerror.exit ], [ %.1263, %.lr.ph ], [ %37, %44 ], [ %.1263, %48 ]
-  %.9 = phi i32 [ %.8, %120 ], [ %.0, %258 ], [ %.0, %261 ], [ %.7, %php_json_yyerror.exit ], [ %.7, %.lr.ph ], [ %.0, %48 ], [ %.0, %44 ]
+php_json_yyerror.argprom.exit336:                 ; preds = %44, %48, %.lr.ph, %php_json_yyerror.argprom.exit, %261, %258, %120
+  %.5292 = phi i64 [ %117, %120 ], [ 0, %258 ], [ 0, %261 ], [ 0, %php_json_yyerror.argprom.exit ], [ 0, %.lr.ph ], [ 0, %48 ], [ 0, %44 ]
+  %.0285 = phi i32 [ 0, %120 ], [ 2, %258 ], [ 2, %261 ], [ 1, %php_json_yyerror.argprom.exit ], [ 1, %.lr.ph ], [ 1, %44 ], [ 0, %48 ]
+  %.6282 = phi ptr [ %.2278, %120 ], [ %.0276, %258 ], [ %.0276, %261 ], [ %.4280, %php_json_yyerror.argprom.exit ], [ %253, %.lr.ph ], [ %47, %44 ], [ %.2278, %48 ]
+  %.6272 = phi ptr [ %.2268, %120 ], [ %.0266, %258 ], [ %.0266, %261 ], [ %.4270, %php_json_yyerror.argprom.exit ], [ %254, %.lr.ph ], [ %45, %44 ], [ %.2268, %48 ]
+  %.3265 = phi ptr [ %.1263, %120 ], [ %.0262, %258 ], [ %.0262, %261 ], [ %.1263, %php_json_yyerror.argprom.exit ], [ %.1263, %.lr.ph ], [ %37, %44 ], [ %.1263, %48 ]
+  %.9 = phi i32 [ %.8, %120 ], [ %.0, %258 ], [ %.0, %261 ], [ %.7, %php_json_yyerror.argprom.exit ], [ %.7, %.lr.ph ], [ %.0, %48 ], [ %.0, %44 ]
   %.not331 = icmp eq i32 %.9, -2
   br i1 %.not331, label %269, label %262
 
-262:                                              ; preds = %php_json_yyerror.exit336
+262:                                              ; preds = %php_json_yyerror.argprom.exit336
   %or.cond11 = icmp ult i32 %.9, 267
   br i1 %or.cond11, label %.thread, label %267
 
@@ -565,10 +565,10 @@ php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %
 
 267:                                              ; preds = %262, %.thread
   %268 = phi i32 [ %266, %.thread ], [ 2, %262 ]
-  call fastcc void @yydestruct(i32 noundef %268, ptr noundef %2)
+  call fastcc void @yydestruct.argprom(i32 noundef %268, ptr noundef %2)
   br label %269
 
-269:                                              ; preds = %267, %php_json_yyerror.exit336
+269:                                              ; preds = %267, %php_json_yyerror.argprom.exit336
   %270 = sub nsw i64 0, %.5292
   %271 = getelementptr inbounds i8, ptr %.6272, i64 %270
   %.not332468 = icmp eq ptr %271, %.3265
@@ -586,7 +586,7 @@ php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %
   %275 = getelementptr inbounds [40 x i8], ptr @yystos, i64 0, i64 %274
   %276 = load i8, ptr %275, align 1
   %277 = sext i8 %276 to i32
-  call fastcc void @yydestruct(i32 noundef %277, ptr noundef %.7283469)
+  call fastcc void @yydestruct.argprom(i32 noundef %277, ptr noundef %.7283469)
   %278 = getelementptr inbounds i8, ptr %.7283469, i64 -16
   %279 = getelementptr inbounds i8, ptr %.7273470, i64 -1
   %.not332 = icmp eq ptr %279, %.3265
@@ -646,7 +646,7 @@ define internal noundef i32 @php_json_parser_array_create(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @yydestruct.argprom(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   switch i32 %0, label %132 [
     i32 3, label %3
     i32 4, label %11

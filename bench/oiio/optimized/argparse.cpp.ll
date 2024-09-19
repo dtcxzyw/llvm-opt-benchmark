@@ -2598,11 +2598,11 @@ invoke.cont:                                      ; preds = %if.then
   store ptr %9, ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEZNS1_4Impl10parse_argsEiPS6_E3$_0E9_M_invokeERKSt9_Any_dataS3_OS8_", ptr %_M_invoker4.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i, label %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_0EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.exit", label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_0EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.argprom.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
   %call.i.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_0EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_0EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.argprom.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %10 = landingpad { ptr, i32 }
@@ -2611,7 +2611,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %11) #33
   unreachable
 
-"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_0EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.exit": ; preds = %invoke.cont, %if.then.i.i.i
+"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_0EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.argprom.exit": ; preds = %invoke.cont, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %12 = load ptr, ptr %m_option, align 8
   %13 = load ptr, ptr %12, align 8
@@ -2624,7 +2624,7 @@ lpad:                                             ; preds = %if.then
   tail call void @_ZdlPv(ptr noundef nonnull %call7) #32
   br label %eh.resume
 
-if.end:                                           ; preds = %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_0EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.exit", %land.lhs.true, %entry
+if.end:                                           ; preds = %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_0EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.argprom.exit", %land.lhs.true, %entry
   %m_add_help = getelementptr inbounds i8, ptr %this, i64 233
   %15 = load i8, ptr %m_add_help, align 1
   %tobool24 = trunc i8 %15 to i1
@@ -2674,11 +2674,11 @@ invoke.cont39:                                    ; preds = %if.then28
   store ptr %25, ptr %_M_invoker.i.i61, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEZNS1_4Impl10parse_argsEiPS6_E3$_1E9_M_invokeERKSt9_Any_dataS3_OS8_", ptr %_M_invoker4.i.i63, align 8
   %tobool.not.i.i.i64 = icmp eq ptr %24, null
-  br i1 %tobool.not.i.i.i64, label %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_1EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.exit", label %if.then.i.i.i65
+  br i1 %tobool.not.i.i.i64, label %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_1EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.argprom.exit", label %if.then.i.i.i65
 
 if.then.i.i.i65:                                  ; preds = %invoke.cont39
   %call.i.i.i66 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i59, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i59, i32 noundef 3)
-          to label %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_1EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.exit" unwind label %terminate.lpad.i.i.i67
+          to label %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_1EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.argprom.exit" unwind label %terminate.lpad.i.i.i67
 
 terminate.lpad.i.i.i67:                           ; preds = %if.then.i.i.i65
   %26 = landingpad { ptr, i32 }
@@ -2687,7 +2687,7 @@ terminate.lpad.i.i.i67:                           ; preds = %if.then.i.i.i65
   call void @__clang_call_terminate(ptr %27) #33
   unreachable
 
-"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_1EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.exit": ; preds = %invoke.cont39, %if.then.i.i.i65
+"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_1EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.argprom.exit": ; preds = %invoke.cont39, %if.then.i.i.i65
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59)
   %28 = load ptr, ptr %m_option29, align 8
   %29 = load ptr, ptr %28, align 8
@@ -2700,7 +2700,7 @@ lpad38:                                           ; preds = %if.then28
   call void @_ZdlPv(ptr noundef nonnull %call36) #32
   br label %eh.resume
 
-if.end59:                                         ; preds = %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_1EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.exit", %land.lhs.true25, %if.end
+if.end59:                                         ; preds = %"_ZNSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEaSIZNS1_4Impl10parse_argsEiPS6_E3$_1EENSt9enable_ifIXsrNSA_9_CallableIT_NSF_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISH_E4typeEE4typeESA_EE5valueESt5decayISH_EE4type4typeESt15__invoke_resultIRSS_JS3_S8_EEEE5valueERSA_E4typeEOSH_.argprom.exit", %land.lhs.true25, %if.end
   %31 = load i32, ptr %m_argc, align 8
   %cmp212 = icmp sgt i32 %31, 1
   br i1 %cmp212, label %for.body.lr.ph, label %return
@@ -3328,7 +3328,7 @@ entry:
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_intro) #31
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_intro) #31
   %tobool.not.i = icmp eq i64 %call2.i, 0
-  br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable.i.i = load ptr, ptr @_ZSt4cout, align 8
@@ -3355,16 +3355,16 @@ if.then3.i:                                       ; preds = %_ZN18OpenImageIO_v2
 
 if.end.i:                                         ; preds = %if.then3.i, %_ZN18OpenImageIO_v2_6_0lsERSoRKNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i
   %call6.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i8 noundef signext 10)
-  br label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit
+  br label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit
 
-_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit: ; preds = %entry, %if.end.i
+_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit: ; preds = %entry, %if.end.i
   %3 = load ptr, ptr %this, align 8
   %m_usage = getelementptr inbounds i8, ptr %3, i64 104
   %call4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_usage) #31
   %tobool.not = icmp eq i64 %call4, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit
+if.then:                                          ; preds = %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.30)
   %4 = load ptr, ptr %this, align 8
   %m_usage9 = getelementptr inbounds i8, ptr %4, i64 104
@@ -3400,13 +3400,13 @@ if.end.i35:                                       ; preds = %if.then3.i33, %_ZN1
   %call6.i36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i8 noundef signext 10)
   br label %if.end
 
-if.end:                                           ; preds = %if.end.i35, %if.then, %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit
+if.end:                                           ; preds = %if.end.i35, %if.then, %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit
   %7 = load ptr, ptr %this, align 8
   %m_description = getelementptr inbounds i8, ptr %7, i64 136
   %call.i40 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_description) #31
   %call2.i42 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_description) #31
   %tobool.not.i44 = icmp eq i64 %call2.i42, 0
-  br i1 %tobool.not.i44, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit60, label %if.then.i45
+  br i1 %tobool.not.i44, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit60, label %if.then.i45
 
 if.then.i45:                                      ; preds = %if.end
   %vtable.i.i46 = load ptr, ptr @_ZSt4cout, align 8
@@ -3433,20 +3433,20 @@ if.then3.i54:                                     ; preds = %_ZN18OpenImageIO_v2
 
 if.end.i56:                                       ; preds = %if.then3.i54, %_ZN18OpenImageIO_v2_6_0lsERSoRKNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i51
   %call6.i57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i8 noundef signext 10)
-  br label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit60
+  br label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit60
 
-_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit60: ; preds = %if.end, %if.end.i56
+_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit60: ; preds = %if.end, %if.end.i56
   %10 = load ptr, ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %10, i64 288
   %11 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %if.then.i62, label %_ZNKSt8functionIFvRKN18OpenImageIO_v2_6_08ArgParseERSoEEclES3_S4_.exit
 
-if.then.i62:                                      ; preds = %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit60
+if.then.i62:                                      ; preds = %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit60
   tail call void @_ZSt25__throw_bad_function_callv() #35
   unreachable
 
-_ZNKSt8functionIFvRKN18OpenImageIO_v2_6_08ArgParseERSoEEclES3_S4_.exit: ; preds = %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit60
+_ZNKSt8functionIFvRKN18OpenImageIO_v2_6_08ArgParseERSoEEclES3_S4_.exit: ; preds = %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit60
   %m_preoption_help = getelementptr inbounds i8, ptr %10, i64 272
   %_M_invoker.i = getelementptr inbounds i8, ptr %10, i64 296
   %12 = load ptr, ptr %_M_invoker.i, align 8
@@ -3808,7 +3808,7 @@ _ZNKSt8functionIFvRKN18OpenImageIO_v2_6_08ArgParseERSoEEclES3_S4_.exit113: ; pre
   %call.i114 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_epilog) #31
   %call2.i116 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_epilog) #31
   %tobool.not.i118 = icmp eq i64 %call2.i116, 0
-  br i1 %tobool.not.i118, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit133, label %if.then.i119
+  br i1 %tobool.not.i118, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit133, label %if.then.i119
 
 if.then.i119:                                     ; preds = %_ZNKSt8functionIFvRKN18OpenImageIO_v2_6_08ArgParseERSoEEclES3_S4_.exit113
   %vtable.i.i120 = load ptr, ptr @_ZSt4cout, align 8
@@ -3827,13 +3827,13 @@ _ZN18OpenImageIO_v2_6_0lsERSoRKNS_17basic_string_viewIcSt11char_traitsIcEEE.exit
   %arrayidx.i.i126 = getelementptr i8, ptr %49, i64 -1
   %50 = load i8, ptr %arrayidx.i.i126, align 1
   %cmp.not.i127 = icmp eq i8 %50, 10
-  br i1 %cmp.not.i127, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit133, label %if.then3.i128
+  br i1 %cmp.not.i127, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit133, label %if.then3.i128
 
 if.then3.i128:                                    ; preds = %_ZN18OpenImageIO_v2_6_0lsERSoRKNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i125
   %call4.i129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i8 noundef signext 10)
-  br label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit133
+  br label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit133
 
-_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit133: ; preds = %_ZN18OpenImageIO_v2_6_0lsERSoRKNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i125, %if.then3.i128, %_ZNKSt8functionIFvRKN18OpenImageIO_v2_6_08ArgParseERSoEEclES3_S4_.exit113
+_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit133: ; preds = %_ZN18OpenImageIO_v2_6_0lsERSoRKNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i125, %if.then3.i128, %_ZNKSt8functionIFvRKN18OpenImageIO_v2_6_08ArgParseERSoEEclES3_S4_.exit113
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup137, %ehcleanup88, %ehcleanup, %lpad
@@ -5463,7 +5463,7 @@ entry:
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_intro) #31
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_intro) #31
   %tobool.not.i = icmp eq i64 %call2.i, 0
-  br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable.i.i = load ptr, ptr @_ZSt4cout, align 8
@@ -5490,16 +5490,16 @@ if.then3.i:                                       ; preds = %_ZN18OpenImageIO_v2
 
 if.end.i:                                         ; preds = %if.then3.i, %_ZN18OpenImageIO_v2_6_0lsERSoRKNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i
   %call6.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i8 noundef signext 10)
-  br label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit
+  br label %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit
 
-_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit: ; preds = %entry, %if.end.i
+_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit: ; preds = %entry, %if.end.i
   %3 = load ptr, ptr %this, align 8
   %m_usage = getelementptr inbounds i8, ptr %3, i64 104
   %call4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_usage) #31
   %tobool.not = icmp eq i64 %call4, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit
+if.then:                                          ; preds = %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.30)
   %4 = load ptr, ptr %this, align 8
   %m_usage9 = getelementptr inbounds i8, ptr %4, i64 104
@@ -5535,7 +5535,7 @@ if.end.i24:                                       ; preds = %if.then3.i22, %_ZN1
   %call6.i25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i8 noundef signext 10)
   br label %if.end
 
-if.end:                                           ; preds = %if.end.i24, %if.then, %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit
+if.end:                                           ; preds = %if.end.i24, %if.then, %_ZN18OpenImageIO_v2_6_0L7printlnERSoNS_17basic_string_viewIcSt11char_traitsIcEEEi.argprom.exit
   %call10 = tail call noundef i32 @_ZN18OpenImageIO_v2_6_07Sysutil16terminal_columnsEv()
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pending) #31
   %7 = load ptr, ptr %this, align 8
@@ -7826,13 +7826,13 @@ entry:
   %m_exit_on_error.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 234
   %3 = load i8, ptr %m_exit_on_error.i.i.i, align 2
   %tobool.i.i.i = trunc i8 %3 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKcE3$_0JRNS1_3ArgENS0_4spanIKS4_Lln1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKcE3$_0JRNS1_3ArgENS0_4spanIKS4_Lln1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   call void @exit(i32 noundef 0) #33
   unreachable
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKcE3$_0JRNS1_3ArgENS0_4spanIKS4_Lln1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKcE3$_0JRNS1_3ArgENS0_4spanIKS4_Lln1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %entry
   %4 = load ptr, ptr %call.val, align 8
   %5 = load ptr, ptr %4, align 8
   %m_aborted.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 236
@@ -39353,13 +39353,13 @@ entry:
   %m_exit_on_error.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 234
   %1 = load i8, ptr %m_exit_on_error.i.i.i, align 2
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKcE3$_1JRNS1_3ArgENS0_4spanIKS4_Lln1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKcE3$_1JRNS1_3ArgENS0_4spanIKS4_Lln1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @exit(i32 noundef 0) #33
   unreachable
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKcE3$_1JRNS1_3ArgENS0_4spanIKS4_Lln1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKcE3$_1JRNS1_3ArgENS0_4spanIKS4_Lln1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %entry
   %2 = load ptr, ptr %call.val, align 8
   %3 = load ptr, ptr %2, align 8
   %m_aborted.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 236

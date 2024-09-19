@@ -3748,7 +3748,7 @@ define hidden noundef zeroext i1 @_ZN17FailedSpeculation22add_failed_speculation
   %8 = ptrtoint ptr %.val to i64
   %9 = and i64 %8, 1
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit, label %10
+  br i1 %.not.i, label %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.argprom.exit, label %10
 
 10:                                               ; preds = %4
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #20
@@ -3794,14 +3794,14 @@ define hidden noundef zeroext i1 @_ZN17FailedSpeculation22add_failed_speculation
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.5, i32 noundef 827, ptr noundef nonnull @.str.59, ptr noundef %25) #21
   unreachable
 
-_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit: ; preds = %4
+_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.argprom.exit: ; preds = %4
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5)
   br label %26
 
-26:                                               ; preds = %56, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit
-  %27 = phi ptr [ %.val, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit ], [ %.pre, %56 ]
-  %.024 = phi ptr [ %1, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit ], [ %57, %56 ]
-  %.023 = phi ptr [ null, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit ], [ %.232, %56 ]
+26:                                               ; preds = %56, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.argprom.exit
+  %27 = phi ptr [ %.val, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.argprom.exit ], [ %.pre, %56 ]
+  %.024 = phi ptr [ %1, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.argprom.exit ], [ %57, %56 ]
+  %.023 = phi ptr [ null, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.argprom.exit ], [ %.232, %56 ]
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %.thread29
 

@@ -173,7 +173,7 @@ if.else17:                                        ; preds = %land.lhs.true13, %i
 if.end19:                                         ; preds = %land.lhs.true13, %if.else17
   %lflags.0 = phi i32 [ 1409548322, %if.else17 ], [ 2013528098, %land.lhs.true13 ]
   store i8 1, ptr %is_large, align 1
-  %call24 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef %lflags.0) #10
+  %call24 = tail call fastcc ptr @unix_mmap_prim.argelim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef %lflags.0) #10
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %if.end34, label %return
 
@@ -182,7 +182,7 @@ if.end34:                                         ; preds = %if.end19
   %call30 = tail call ptr @__errno_location() #9
   %3 = load i32, ptr %call30, align 4
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %3) #8
-  %call33 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef 1409548322) #10
+  %call33 = tail call fastcc ptr @unix_mmap_prim.argelim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef 1409548322) #10
   %cmp38 = icmp ne ptr %call33, null
   %or.cond.not = select i1 %large_only, i1 true, i1 %cmp38
   br i1 %or.cond.not, label %return, label %if.then39
@@ -193,7 +193,7 @@ if.then39:                                        ; preds = %if.end34
 
 if.then46:                                        ; preds = %if.then8, %if.then39, %land.lhs.true, %lor.lhs.false
   store i8 0, ptr %is_large, align 1
-  %call47 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef %spec.select) #10
+  %call47 = tail call fastcc ptr @unix_mmap_prim.argelim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef %spec.select) #10
   %cmp48.not = icmp ne ptr %call47, null
   %brmerge42.not = and i1 %allow_large, %cmp48.not
   br i1 %brmerge42.not, label %land.lhs.true51, label %return
@@ -327,7 +327,7 @@ if.else17.i:                                      ; preds = %land.lhs.true13.i, 
 
 if.end19.i:                                       ; preds = %if.else17.i, %land.lhs.true13.i
   %lflags.0.i = phi i32 [ 1409548322, %if.else17.i ], [ 2013528098, %land.lhs.true13.i ]
-  %call24.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef %lflags.0.i) #10
+  %call24.i = tail call fastcc ptr @unix_mmap_prim.argelim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef %lflags.0.i) #10
   %cmp25.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.i, label %if.end34.i, label %unix_mmap.exit
 
@@ -336,7 +336,7 @@ if.end34.i:                                       ; preds = %if.end19.i
   %call30.i = tail call ptr @__errno_location() #9
   %1 = load i32, ptr %call30.i, align 4
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %1) #8
-  %call33.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef 1409548322) #10
+  %call33.i = tail call fastcc ptr @unix_mmap_prim.argelim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef 1409548322) #10
   br label %unix_mmap.exit
 
 unix_mmap.exit:                                   ; preds = %if.end19.i, %if.end34.i
@@ -678,7 +678,7 @@ declare zeroext i1 @_mi_os_has_overcommit() local_unnamed_addr #3
 declare zeroext i1 @_mi_os_use_large_page(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unix_mmap_prim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %protect_flags, i32 noundef range(i32 34, 2013528099) %flags) unnamed_addr #0 {
+define internal fastcc ptr @unix_mmap_prim.argelim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %protect_flags, i32 noundef range(i32 34, 2013528099) %flags) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %addr, null
   br i1 %cmp, label %if.then, label %if.end12

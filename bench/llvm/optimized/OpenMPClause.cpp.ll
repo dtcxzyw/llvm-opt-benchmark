@@ -26006,7 +26006,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefEEZN5clang16TargetOMPContextC1ERNS3_10ASTContextEOSt8functionIFvS1_EEPKNS3_12FunctionDeclENS0_8ArrayRefINS0_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #6 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -26014,18 +26014,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang16TargetOMPContextC1ERNS1_10ASTContextEOSt8functionIFvN4llvm9StringRefEEEPKNS1_12FunctionDeclENS6_8ArrayRefINS6_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 

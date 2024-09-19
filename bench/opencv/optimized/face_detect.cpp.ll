@@ -786,7 +786,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %301 = uitofp i1 %296 to double
   %302 = fdiv double %301, %299
   %.0.i = select i1 %300, double 0.000000e+00, double %302
-  invoke fastcc void @_ZL9visualizeRN2cv3MatEiS1_di(ptr noundef nonnull align 8 dereferenceable(96) %44, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(96) %49, double noundef %.0.i)
+  invoke fastcc void @_ZL9visualizeRN2cv3MatEiS1_di.argelim(ptr noundef nonnull align 8 dereferenceable(96) %44, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(96) %49, double noundef %.0.i)
           to label %303 unwind label %288
 
 303:                                              ; preds = %295
@@ -1082,7 +1082,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %411 = uitofp i1 %406 to double
   %412 = fdiv double %411, %409
   %.0.i253 = select i1 %410, double 0.000000e+00, double %412
-  invoke fastcc void @_ZL9visualizeRN2cv3MatEiS1_di(ptr noundef nonnull align 8 dereferenceable(96) %64, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(96) %67, double noundef %.0.i253)
+  invoke fastcc void @_ZL9visualizeRN2cv3MatEiS1_di.argelim(ptr noundef nonnull align 8 dereferenceable(96) %64, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(96) %67, double noundef %.0.i253)
           to label %413 unwind label %398
 
 413:                                              ; preds = %405
@@ -1921,7 +1921,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %729 = uitofp nneg i64 %.sroa.0288.4 to double
   %730 = fdiv double %729, %727
   %.0.i275 = select i1 %728, double 0.000000e+00, double %730
-  invoke fastcc void @_ZL9visualizeRN2cv3MatEiS1_di(ptr noundef nonnull align 8 dereferenceable(96) %117, i32 noundef %.045, ptr noundef nonnull align 8 dereferenceable(96) %114, double noundef %.0.i275)
+  invoke fastcc void @_ZL9visualizeRN2cv3MatEiS1_di.argelim(ptr noundef nonnull align 8 dereferenceable(96) %117, i32 noundef %.045, ptr noundef nonnull align 8 dereferenceable(96) %114, double noundef %.0.i275)
           to label %731 unwind label %743
 
 731:                                              ; preds = %725
@@ -2315,7 +2315,7 @@ declare void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEE
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL9visualizeRN2cv3MatEiS1_di(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9visualizeRN2cv3MatEiS1_di.argelim(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.cv::_InputOutputArray", align 8

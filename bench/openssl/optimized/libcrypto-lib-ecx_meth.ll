@@ -187,7 +187,7 @@ return:                                           ; preds = %entry, %cond.end
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ecx_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_key_print(ptr noundef %bp, ptr noundef %pkey, i32 noundef %indent, i32 noundef 0)
+  %call = tail call fastcc i32 @ecx_key_print.argprom(ptr noundef %bp, ptr noundef %pkey, i32 noundef %indent, i32 noundef 0)
   ret i32 %call
 }
 
@@ -271,7 +271,7 @@ return:                                           ; preds = %if.end15, %if.then2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ecx_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @ecx_key_print(ptr noundef %bp, ptr noundef %pkey, i32 noundef %indent, i32 noundef 1)
+  %call = tail call fastcc i32 @ecx_key_print.argprom(ptr noundef %bp, ptr noundef %pkey, i32 noundef %indent, i32 noundef 1)
   ret i32 %call
 }
 
@@ -921,7 +921,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecx_key_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_key_print.argprom(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -1154,7 +1154,7 @@ define internal range(i32 0, 2) i32 @pkey_ecx_derive25519(ptr nocapture noundef 
 entry:
   %privkey = alloca ptr, align 8
   %pubkey = alloca ptr, align 8
-  %call = call fastcc i32 @validate_ecx_derive(ptr noundef %ctx, ptr noundef %privkey, ptr noundef %pubkey)
+  %call = call fastcc i32 @validate_ecx_derive.argprom(ptr noundef %ctx, ptr noundef %privkey, ptr noundef %pubkey)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
@@ -1187,7 +1187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_ecx_derive(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull writeonly %privkey, ptr nocapture noundef nonnull writeonly %pubkey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_ecx_derive.argprom(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull writeonly %privkey, ptr nocapture noundef nonnull writeonly %pubkey) unnamed_addr #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey, align 8
@@ -1255,7 +1255,7 @@ define internal range(i32 0, 2) i32 @pkey_ecx_derive448(ptr nocapture noundef re
 entry:
   %privkey = alloca ptr, align 8
   %pubkey = alloca ptr, align 8
-  %call = call fastcc i32 @validate_ecx_derive(ptr noundef %ctx, ptr noundef %privkey, ptr noundef %pubkey)
+  %call = call fastcc i32 @validate_ecx_derive.argprom(ptr noundef %ctx, ptr noundef %privkey, ptr noundef %pubkey)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 

@@ -97,7 +97,7 @@ redo:                                             ; preds = %if.end25, %if.then1
   %dlen.addr.0 = phi i32 [ %dlen.addr.1, %if.then117 ], [ %dlen, %if.end25 ]
   %retries.0 = phi i32 [ %inc, %if.then117 ], [ 0, %if.end25 ]
   %call.val = load ptr, ptr %call, align 8
-  %call34 = call fastcc i32 @dsa_sign_setup(ptr noundef nonnull %dsa, ptr noundef nonnull %call22, ptr noundef nonnull %kinv, ptr %call.val, ptr noundef %dgst, i32 noundef %dlen.addr.0, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq)
+  %call34 = call fastcc i32 @dsa_sign_setup.argprom(ptr noundef nonnull %dsa, ptr noundef nonnull %call22, ptr noundef nonnull %kinv, ptr %call.val, ptr noundef %dgst, i32 noundef %dlen.addr.0, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call34, 0
   br i1 %tobool.not, label %if.then123, label %if.end36
 
@@ -232,7 +232,7 @@ declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #4
 declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr %rp.0.val, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup.argprom(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr %rp.0.val, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #3 {
 entry:
   %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -530,7 +530,7 @@ entry:
 define internal range(i32 0, 2) i32 @dsa_sign_setup_no_digest(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef readonly %rp) #3 {
 entry:
   %rp.val = load ptr, ptr %rp, align 8
-  %call = tail call fastcc i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef %kinvp, ptr %rp.val, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %call = tail call fastcc i32 @dsa_sign_setup.argprom(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef %kinvp, ptr %rp.val, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 

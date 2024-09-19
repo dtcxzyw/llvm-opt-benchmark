@@ -3553,7 +3553,7 @@ define dso_local void @stbtt_Rasterize(ptr nocapture noundef readonly %0, float 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   %19 = fmul float %18, %18
   %20 = icmp sgt i32 %3, 0
-  br i1 %20, label %.lr.ph.preheader.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread
+  br i1 %20, label %.lr.ph.preheader.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %12
   %wide.trip.count.i = zext nneg i32 %3 to i64
@@ -3573,14 +3573,14 @@ define dso_local void @stbtt_Rasterize(ptr nocapture noundef readonly %0, float 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %25 = icmp eq i32 %spec.select.i, 0
-  br i1 %25, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread, label %26
+  br i1 %25, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread, label %26
 
 26:                                               ; preds = %._crit_edge.i
   %27 = zext nneg i32 %spec.select.i to i64
   %28 = shl nuw nsw i64 %27, 2
   %29 = tail call noalias noundef ptr @malloc(i64 noundef %28) #27
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread, label %.preheader.split.us.i
+  br i1 %30, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread, label %.preheader.split.us.i
 
 .preheader.split.us.i:                            ; preds = %26, %._crit_edge11.us.i
   %31 = phi i32 [ %89, %._crit_edge11.us.i ], [ 0, %26 ]
@@ -3630,7 +3630,7 @@ define dso_local void @stbtt_Rasterize(ptr nocapture noundef readonly %0, float 
   %52 = getelementptr inbounds i8, ptr %40, i64 2
   %53 = load i16, ptr %52, align 2
   %54 = sitofp i16 %53 to float
-  call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %.183.us.i, ptr noundef %15, float noundef %.0717.us.i, float noundef %.08.us.i, float noundef %46, float noundef %49, float noundef %51, float noundef %54, float noundef %19, i32 noundef 0)
+  call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi.argelim(ptr noundef %.183.us.i, ptr noundef %15, float noundef %.0717.us.i, float noundef %.08.us.i, float noundef %46, float noundef %49, float noundef %51, float noundef %54, float noundef %19, i32 noundef 0)
   %55 = load i16, ptr %40, align 2
   %56 = sitofp i16 %55 to float
   %57 = load i16, ptr %52, align 2
@@ -3702,21 +3702,21 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i: ; preds = %85, %77, %67, %59,
   %91 = sext i32 %.3.us.i to i64
   %92 = getelementptr inbounds i32, ptr %29, i64 %91
   store i32 %90, ptr %92, align 4
-  br i1 %33, label %.preheader.split.us.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit, !llvm.loop !19
+  br i1 %33, label %.preheader.split.us.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit, !llvm.loop !19
 
 .split.us.i:                                      ; preds = %34
   tail call void @free(ptr noundef nonnull %29) #28
-  br label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread
+  br label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread
 
-_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread: ; preds = %._crit_edge.i, %.split.us.i, %26, %12
+_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread: ; preds = %._crit_edge.i, %.split.us.i, %26, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %1347
 
-_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11.us.i
+_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit: ; preds = %._crit_edge11.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br i1 %.not.i87.us.i, label %1347, label %.lr.ph.preheader.i22
 
-.lr.ph.preheader.i22:                             ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit
+.lr.ph.preheader.i22:                             ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit
   %93 = fneg float %5
   br label %.lr.ph.i24
 
@@ -3738,7 +3738,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %100 = mul nsw i64 %99, 20
   %101 = tail call noalias noundef ptr @malloc(i64 noundef %100) #27
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit, label %.preheader.i29
+  br i1 %102, label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit, label %.preheader.i29
 
 .preheader.i29:                                   ; preds = %._crit_edge.i28
   br i1 %.not.i, label %.lr.ph15.split.us.i, label %.lr.ph15.split.i
@@ -3984,7 +3984,7 @@ _ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i:     ; preds = %186, %._crit_edge16
   %204 = getelementptr inbounds %struct.stbtt__edge, ptr %101, i64 %203, i32 1
   store float %202, ptr %204, align 4
   %205 = icmp sgt i32 %199, 0
-  br i1 %205, label %.lr.ph34.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i
+  br i1 %205, label %.lr.ph34.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i
 
 .lr.ph34.i.i:                                     ; preds = %195
   %206 = sitofp i32 %8 to float
@@ -4045,57 +4045,57 @@ _ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i:     ; preds = %186, %._crit_edge16
   %.not84.i.i = icmp eq ptr %230, null
   br i1 %.not84.i.i, label %.preheader7.i.i, label %.lr.ph.i.i, !llvm.loop !25
 
-.lr.ph15.i.i:                                     ; preds = %.preheader7.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i
-  %231 = phi float [ %277, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ], [ %220, %.preheader7.i.i ]
-  %232 = phi ptr [ %276, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ], [ %219, %.preheader7.i.i ]
-  %.114.i.i = phi ptr [ %275, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ], [ %.032.i.i, %.preheader7.i.i ]
-  %.sroa.0.113.i.i = phi ptr [ %.sroa.0.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ], [ %.sroa.0.029.i.i, %.preheader7.i.i ]
-  %.sroa.9.112.i.i = phi i32 [ %.sroa.9.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ], [ %.sroa.9.028.i.i, %.preheader7.i.i ]
-  %.sroa.5.311.i.i = phi ptr [ %.sroa.5.6.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ], [ %.sroa.5.1.lcssa.i.i, %.preheader7.i.i ]
+.lr.ph15.i.i:                                     ; preds = %.preheader7.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i
+  %231 = phi float [ %277, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ], [ %220, %.preheader7.i.i ]
+  %232 = phi ptr [ %276, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ], [ %219, %.preheader7.i.i ]
+  %.114.i.i = phi ptr [ %275, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ], [ %.032.i.i, %.preheader7.i.i ]
+  %.sroa.0.113.i.i = phi ptr [ %.sroa.0.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ], [ %.sroa.0.029.i.i, %.preheader7.i.i ]
+  %.sroa.9.112.i.i = phi i32 [ %.sroa.9.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ], [ %.sroa.9.028.i.i, %.preheader7.i.i ]
+  %.sroa.5.311.i.i = phi ptr [ %.sroa.5.6.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ], [ %.sroa.5.1.lcssa.i.i, %.preheader7.i.i ]
   %233 = getelementptr inbounds i8, ptr %.114.i.i, i64 12
   %234 = load float, ptr %233, align 4
   %235 = fcmp une float %231, %234
-  br i1 %235, label %236, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i
+  br i1 %235, label %236, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i
 
 236:                                              ; preds = %.lr.ph15.i.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.5.311.i.i, null
-  br i1 %.not.i.i.i.i, label %238, label %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i
+  br i1 %.not.i.i.i.i, label %238, label %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i
 
-_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i: ; preds = %236
+_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i: ; preds = %236
   %237 = load ptr, ptr %.sroa.5.311.i.i, align 8
-  br label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i
+  br label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.i.i
 
 238:                                              ; preds = %236
   %239 = icmp eq i32 %.sroa.9.112.i.i, 0
-  br i1 %239, label %240, label %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i
+  br i1 %239, label %240, label %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i
 
 240:                                              ; preds = %238
   %241 = tail call noalias noundef dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #27
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i, label %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i
+  br i1 %242, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i, label %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i
 
-_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i: ; preds = %240
+_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i: ; preds = %240
   store ptr %.sroa.0.113.i.i, ptr %241, align 8
   %243 = getelementptr inbounds i8, ptr %241, i64 25568
   %.pre.i.i = load float, ptr %233, align 4
   %.pre41.i.i = load float, ptr %232, align 4
-  br label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i
+  br label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.i.i
 
-_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i: ; preds = %238
+_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i: ; preds = %238
   %244 = add nsw i32 %.sroa.9.112.i.i, -1
   %245 = sext i32 %244 to i64
   %246 = shl nsw i64 %245, 5
   %247 = getelementptr inbounds i8, ptr %.sroa.0.113.i.i, i64 %246
   %.not.i.i98.i = icmp eq ptr %.sroa.0.113.i.i, null
-  br i1 %.not.i.i98.i, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i
+  br i1 %.not.i.i98.i, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.i.i
 
-_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i: ; preds = %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i
-  %248 = phi float [ %.pre41.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i ], [ %231, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %231, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]
-  %249 = phi float [ %.pre.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i ], [ %234, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %234, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]
-  %.sroa.5.4.i.i = phi ptr [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %237, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]
-  %.sroa.9.2.i.i = phi i32 [ 799, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i ], [ %244, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %.sroa.9.112.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]
-  %.sroa.0.2.i.i = phi ptr [ %241, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i ], [ %.sroa.0.113.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %.sroa.0.113.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]
-  %.0.i7.i.i.i = phi ptr [ %243, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i ], [ %247, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %.sroa.5.311.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]
+_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.i.i: ; preds = %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i
+  %248 = phi float [ %.pre41.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i ], [ %231, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ %231, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i ]
+  %249 = phi float [ %.pre.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i ], [ %234, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ %234, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i ]
+  %.sroa.5.4.i.i = phi ptr [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ %237, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i ]
+  %.sroa.9.2.i.i = phi i32 [ 799, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i ], [ %244, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ %.sroa.9.112.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i ]
+  %.sroa.0.2.i.i = phi ptr [ %241, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i ], [ %.sroa.0.113.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ %.sroa.0.113.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i ]
+  %.0.i7.i.i.i = phi ptr [ %243, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread8.i.i.i ], [ %247, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ %.sroa.5.311.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.thread4.i.i.i ]
   %250 = getelementptr inbounds i8, ptr %.114.i.i, i64 8
   %251 = load float, ptr %250, align 4
   %252 = load float, ptr %.114.i.i, align 4
@@ -4132,23 +4132,23 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i: ; preds = %_ZL
   %.0..0..0..0..0..0..0..0..i.i = load ptr, ptr %13, align 8
   store ptr %.0..0..0..0..0..0..0..0..i.i, ptr %.0.i7.i.i.i, align 8
   store ptr %.0.i7.i.i.i, ptr %13, align 8
-  br label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i
+  br label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i
 
-_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds = %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i, %240, %.lr.ph15.i.i
-  %.sroa.5.6.i.i = phi ptr [ %.sroa.5.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.5.311.i.i, %.lr.ph15.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ null, %240 ]
-  %.sroa.9.4.i.i = phi i32 [ %.sroa.9.2.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.9.112.i.i, %.lr.ph15.i.i ], [ %244, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ 0, %240 ]
-  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.2.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.0.113.i.i, %.lr.ph15.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %.sroa.0.113.i.i, %240 ]
+_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i: ; preds = %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i, %240, %.lr.ph15.i.i
+  %.sroa.5.6.i.i = phi ptr [ %.sroa.5.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.i.i ], [ %.sroa.5.311.i.i, %.lr.ph15.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ null, %240 ]
+  %.sroa.9.4.i.i = phi i32 [ %.sroa.9.2.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.i.i ], [ %.sroa.9.112.i.i, %.lr.ph15.i.i ], [ %244, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ 0, %240 ]
+  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.2.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.i.i ], [ %.sroa.0.113.i.i, %.lr.ph15.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.argprom.exit.i.i.i ], [ %.sroa.0.113.i.i, %240 ]
   %275 = getelementptr inbounds i8, ptr %.114.i.i, i64 20
   %276 = getelementptr inbounds i8, ptr %.114.i.i, i64 24
   %277 = load float, ptr %276, align 4
   %278 = fcmp ugt float %277, %212
   br i1 %278, label %._crit_edge.i.i, label %.lr.ph15.i.i, !llvm.loop !26
 
-._crit_edge.i.i:                                  ; preds = %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i, %.preheader7.i.i
-  %.sroa.5.3.lcssa.i.i = phi ptr [ %.sroa.5.1.lcssa.i.i, %.preheader7.i.i ], [ %.sroa.5.6.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ]
-  %.sroa.9.1.lcssa.i.i = phi i32 [ %.sroa.9.028.i.i, %.preheader7.i.i ], [ %.sroa.9.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ]
-  %.sroa.0.1.lcssa.i.i = phi ptr [ %.sroa.0.029.i.i, %.preheader7.i.i ], [ %.sroa.0.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ]
-  %.1.lcssa.i.i = phi ptr [ %.032.i.i, %.preheader7.i.i ], [ %275, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i ]
+._crit_edge.i.i:                                  ; preds = %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i, %.preheader7.i.i
+  %.sroa.5.3.lcssa.i.i = phi ptr [ %.sroa.5.1.lcssa.i.i, %.preheader7.i.i ], [ %.sroa.5.6.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ]
+  %.sroa.9.1.lcssa.i.i = phi i32 [ %.sroa.9.028.i.i, %.preheader7.i.i ], [ %.sroa.9.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ]
+  %.sroa.0.1.lcssa.i.i = phi ptr [ %.sroa.0.029.i.i, %.preheader7.i.i ], [ %.sroa.0.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ]
+  %.1.lcssa.i.i = phi ptr [ %.032.i.i, %.preheader7.i.i ], [ %275, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.argprom.exit.thread.i.i ]
   %.0..0..0..0..0..0..0..0.77.i.i = load ptr, ptr %13, align 8
   %.not85.i.i = icmp eq ptr %.0..0..0..0..0..0..0..0.77.i.i, null
   %.pre43.i.i = load i32, ptr %0, align 8
@@ -5878,35 +5878,35 @@ _ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i: ; preds =
 
 ._crit_edge35.i.i:                                ; preds = %._crit_edge26.i.i
   %.not1.i.i.i = icmp eq ptr %.sroa.0.1.lcssa.i.i, null
-  br i1 %.not1.i.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i, label %.lr.ph.i89.i.i
+  br i1 %.not1.i.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i, label %.lr.ph.i89.i.i
 
 .lr.ph.i89.i.i:                                   ; preds = %._crit_edge35.i.i, %.lr.ph.i89.i.i
   %.02.i.i.i = phi ptr [ %1345, %.lr.ph.i89.i.i ], [ %.sroa.0.1.lcssa.i.i, %._crit_edge35.i.i ]
   %1345 = load ptr, ptr %.02.i.i.i, align 8
   tail call void @free(ptr noundef nonnull %.02.i.i.i) #28
   %.not.i90.i.i = icmp eq ptr %1345, null
-  br i1 %.not.i90.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i, label %.lr.ph.i89.i.i, !llvm.loop !33
+  br i1 %.not.i90.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i, label %.lr.ph.i89.i.i, !llvm.loop !33
 
-_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i: ; preds = %.lr.ph.i89.i.i, %._crit_edge35.i.i, %195
+_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i: ; preds = %.lr.ph.i89.i.i, %._crit_edge35.i.i, %195
   %.not.i.i = icmp eq ptr %.074.i.i, %14
-  br i1 %.not.i.i, label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i, label %1346
+  br i1 %.not.i.i, label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i, label %1346
 
-1346:                                             ; preds = %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i
+1346:                                             ; preds = %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i
   call void @free(ptr noundef %.074.i.i) #28
-  br label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i
+  br label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i
 
-_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i: ; preds = %1346, %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i
+_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i: ; preds = %1346, %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %14)
   call void @free(ptr noundef %101) #28
-  br label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit
+  br label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit
 
-_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit: ; preds = %._crit_edge.i28, %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i
+_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit: ; preds = %._crit_edge.i28, %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i
   call void @free(ptr noundef %29) #28
   call void @free(ptr noundef %.183.us.i) #28
   br label %1347
 
-1347:                                             ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread, %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit
+1347:                                             ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread, %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit
   ret void
 }
 
@@ -9157,7 +9157,7 @@ define dso_local void @_Z17imguiRenderGLDrawv() local_unnamed_addr #19 {
   store float %64, ptr %30, align 4
   store float %59, ptr %31, align 8
   store float %64, ptr %32, align 4
-  call fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %3, i32 noundef 4, i32 noundef %58)
+  call fastcc void @_ZL11drawPolygonPKfjfj.argelim(ptr noundef %3, i32 noundef 4, i32 noundef %58)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %_ZL8drawTextffPKcij.exit
 
@@ -9265,7 +9265,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   %122 = load float, ptr getelementptr inbounds (i8, ptr @_ZL13g_circleVerts, i64 4), align 4
   %123 = call float @llvm.fmuladd.f32(float %122, float %67, float %86)
   store float %123, ptr %121, align 4
-  call fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %2, i32 noundef 36, i32 noundef %69)
+  call fastcc void @_ZL11drawPolygonPKfjfj.argelim(ptr noundef %2, i32 noundef 36, i32 noundef %69)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %2)
   br label %_ZL8drawTextffPKcij.exit
 
@@ -9332,7 +9332,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   store float %172, ptr %24, align 8
   %173 = fsub float %170, %161
   store float %173, ptr %25, align 4
-  call fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %1, i32 noundef 4, i32 noundef %146)
+  call fastcc void @_ZL11drawPolygonPKfjfj.argelim(ptr noundef %1, i32 noundef 4, i32 noundef %146)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   br label %_ZL8drawTextffPKcij.exit
 
@@ -9373,7 +9373,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   store float %200, ptr %13, align 4
   %201 = getelementptr inbounds i8, ptr %34, i64 4
   %202 = load i32, ptr %201, align 4
-  call fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %4, i32 noundef 3, i32 noundef %202)
+  call fastcc void @_ZL11drawPolygonPKfjfj.argelim(ptr noundef %4, i32 noundef 3, i32 noundef %202)
   %.pr = load i8, ptr %175, align 1
   br label %203
 
@@ -9413,7 +9413,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   store float %219, ptr %18, align 4
   %229 = getelementptr inbounds i8, ptr %34, i64 4
   %230 = load i32, ptr %229, align 4
-  call fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %5, i32 noundef 3, i32 noundef %230)
+  call fastcc void @_ZL11drawPolygonPKfjfj.argelim(ptr noundef %5, i32 noundef 3, i32 noundef %230)
   br label %_ZL8drawTextffPKcij.exit
 
 231:                                              ; preds = %33
@@ -9447,7 +9447,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   %.0.i.i = phi ptr [ %277, %.loopexit.i.i ], [ %239, %245 ]
   %248 = load i8, ptr %.0.i.i, align 1
   switch i8 %248, label %253 [
-    i8 0, label %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i
+    i8 0, label %_ZL13getTextLengthP15stbtt_bakedcharPKc.argprom.exit.i
     i8 9, label %.preheader.i.i
   ]
 
@@ -9498,7 +9498,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   %277 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
   br label %.preheader65.i, !llvm.loop !67
 
-_ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
+_ZL13getTextLengthP15stbtt_bakedcharPKc.argprom.exit.i: ; preds = %.preheader65.i
   %278 = fmul float %.023.i.i, 5.000000e-01
   %279 = fsub float %234, %278
   br label %311
@@ -9509,7 +9509,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
   %.0.i32.i = phi ptr [ %309, %.loopexit.i37.i ], [ %239, %245 ]
   %280 = load i8, ptr %.0.i32.i, align 1
   switch i8 %280, label %285 [
-    i8 0, label %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i
+    i8 0, label %_ZL13getTextLengthP15stbtt_bakedcharPKc.argprom.exit41.i
     i8 9, label %.preheader.i33.i
   ]
 
@@ -9560,12 +9560,12 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
   %309 = getelementptr inbounds i8, ptr %.0.i32.i, i64 1
   br label %.preheader66.i, !llvm.loop !67
 
-_ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
+_ZL13getTextLengthP15stbtt_bakedcharPKc.argprom.exit41.i: ; preds = %.preheader66.i
   %310 = fsub float %234, %.023.i30.i
   br label %311
 
-311:                                              ; preds = %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i, %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i, %245
-  %.063.i = phi float [ %234, %245 ], [ %310, %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i ], [ %279, %_ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i ]
+311:                                              ; preds = %_ZL13getTextLengthP15stbtt_bakedcharPKc.argprom.exit41.i, %_ZL13getTextLengthP15stbtt_bakedcharPKc.argprom.exit.i, %245
+  %.063.i = phi float [ %234, %245 ], [ %310, %_ZL13getTextLengthP15stbtt_bakedcharPKc.argprom.exit41.i ], [ %279, %_ZL13getTextLengthP15stbtt_bakedcharPKc.argprom.exit.i ]
   %312 = trunc i32 %241 to i8
   %313 = lshr i32 %241, 8
   %314 = trunc i32 %313 to i8
@@ -9715,7 +9715,7 @@ declare noundef i32 @_Z23imguiGetRenderQueueSizev() local_unnamed_addr #22
 declare void @glDisable(i32 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 noundef range(i32 3, 37) %1, i32 noundef %2) unnamed_addr #19 {
+define internal fastcc void @_ZL11drawPolygonPKfjfj.argelim(ptr noundef nonnull %0, i32 noundef range(i32 3, 37) %1, i32 noundef %2) unnamed_addr #19 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
@@ -9875,7 +9875,7 @@ declare float @llvm.floor.f32(float) #7
 declare float @llvm.ceil.f32(float) #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %0, ptr nocapture noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #23 {
+define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi.argelim(ptr noundef %0, ptr nocapture noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #23 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -9913,7 +9913,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %27 = fadd float %.tr5164, %.tr5366
   %28 = fmul float %27, 5.000000e-01
   %29 = add i32 %.tr5767, 1
-  tail call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
+  tail call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi.argelim(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
   %30 = fadd float %6, %.tr5265
   %31 = fmul float %30, 5.000000e-01
   %32 = fadd float %7, %.tr5366

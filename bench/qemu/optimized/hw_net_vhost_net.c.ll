@@ -54,22 +54,22 @@ entry:
   %net.val.val = load ptr, ptr %net.val, align 8
   %net.val.val.val = load i32, ptr %net.val.val, align 8
   switch i32 %net.val.val.val, label %sw.default.i [
-    i32 3, label %vhost_net_get_feature_bits.exit
+    i32 3, label %vhost_net_get_feature_bits.argprom.argprom.argprom.exit
     i32 12, label %sw.bb1.i
     i32 13, label %sw.bb2.i
   ]
 
 sw.bb1.i:                                         ; preds = %entry
-  br label %vhost_net_get_feature_bits.exit
+  br label %vhost_net_get_feature_bits.argprom.argprom.argprom.exit
 
 sw.bb2.i:                                         ; preds = %entry
-  br label %vhost_net_get_feature_bits.exit
+  br label %vhost_net_get_feature_bits.argprom.argprom.argprom.exit
 
 sw.default.i:                                     ; preds = %entry
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %net.val.val.val) #11
-  br label %vhost_net_get_feature_bits.exit
+  br label %vhost_net_get_feature_bits.argprom.argprom.argprom.exit
 
-vhost_net_get_feature_bits.exit:                  ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.default.i
+vhost_net_get_feature_bits.argprom.argprom.argprom.exit: ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.default.i
   %feature_bits.0.i = phi ptr [ null, %sw.default.i ], [ @vdpa_feature_bits, %sw.bb2.i ], [ @user_feature_bits, %sw.bb1.i ], [ @kernel_feature_bits, %entry ]
   %call1 = tail call i64 @vhost_get_features(ptr noundef nonnull %net, ptr noundef %feature_bits.0.i, i64 noundef %features) #11
   ret i64 %call1
@@ -107,22 +107,22 @@ entry:
   %net.val.val = load ptr, ptr %net.val, align 8
   %net.val.val.val = load i32, ptr %net.val.val, align 8
   switch i32 %net.val.val.val, label %sw.default.i [
-    i32 3, label %vhost_net_get_feature_bits.exit
+    i32 3, label %vhost_net_get_feature_bits.argprom.argprom.argprom.exit
     i32 12, label %sw.bb1.i
     i32 13, label %sw.bb2.i
   ]
 
 sw.bb1.i:                                         ; preds = %entry
-  br label %vhost_net_get_feature_bits.exit
+  br label %vhost_net_get_feature_bits.argprom.argprom.argprom.exit
 
 sw.bb2.i:                                         ; preds = %entry
-  br label %vhost_net_get_feature_bits.exit
+  br label %vhost_net_get_feature_bits.argprom.argprom.argprom.exit
 
 sw.default.i:                                     ; preds = %entry
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %net.val.val.val) #11
-  br label %vhost_net_get_feature_bits.exit
+  br label %vhost_net_get_feature_bits.argprom.argprom.argprom.exit
 
-vhost_net_get_feature_bits.exit:                  ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.default.i
+vhost_net_get_feature_bits.argprom.argprom.argprom.exit: ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.default.i
   %feature_bits.0.i = phi ptr [ null, %sw.default.i ], [ @vdpa_feature_bits, %sw.bb2.i ], [ @user_feature_bits, %sw.bb1.i ], [ @kernel_feature_bits, %entry ]
   tail call void @vhost_ack_features(ptr noundef nonnull %net, ptr noundef %feature_bits.0.i, i64 noundef %features) #11
   ret void

@@ -4942,7 +4942,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
 147:                                              ; preds = %139
   %148 = load i32, ptr @hf_smb_dfs_referral_path, align 4
   %149 = add i32 %49, %124
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %148, i32 noundef %149, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %146, i32 noundef %5, ptr noundef %9)
+  call fastcc void @dissect_dfs_referral_string.retelim(ptr noundef %0, ptr noundef %54, i32 noundef %148, i32 noundef %149, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %146, i32 noundef %5, ptr noundef %9)
   br label %150
 
 150:                                              ; preds = %147, %139
@@ -4953,7 +4953,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
   %152 = load i32, ptr @hf_smb_dfs_referral_alt_path, align 4
   %153 = add i32 %49, %133
   %154 = load i16, ptr %4, align 2
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %152, i32 noundef %153, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %154, i32 noundef %5, ptr noundef %9)
+  call fastcc void @dissect_dfs_referral_string.retelim(ptr noundef %0, ptr noundef %54, i32 noundef %152, i32 noundef %153, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %154, i32 noundef %5, ptr noundef %9)
   br label %155
 
 155:                                              ; preds = %151, %150
@@ -4964,7 +4964,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
   %157 = load i32, ptr @hf_smb_dfs_referral_node, align 4
   %158 = add i32 %49, %142
   %159 = load i16, ptr %4, align 2
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %157, i32 noundef %158, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %159, i32 noundef %5, ptr noundef %9)
+  call fastcc void @dissect_dfs_referral_string.retelim(ptr noundef %0, ptr noundef %54, i32 noundef %157, i32 noundef %158, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %159, i32 noundef %5, ptr noundef %9)
   br label %dissect_dfs_referral_entry_v2.exit
 
 dissect_dfs_referral_entry_v2.exit:               ; preds = %105, %107, %114, %121, %130, %155, %156
@@ -5107,7 +5107,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
 46:                                               ; preds = %38
   %47 = load i32, ptr @hf_smb_dfs_referral_domain_name, align 4
   %48 = add i32 %2, %23
-  tail call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %47, i32 noundef %48, i32 noundef %2, i32 noundef %43, i16 noundef zeroext %45, i32 noundef %6, ptr noundef %7)
+  tail call fastcc void @dissect_dfs_referral_string.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %47, i32 noundef %48, i32 noundef %2, i32 noundef %43, i16 noundef zeroext %45, i32 noundef %6, ptr noundef %7)
   br label %49
 
 49:                                               ; preds = %46, %38
@@ -5122,7 +5122,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
   %55 = load i32, ptr @hf_smb_dfs_referral_expname, align 4
   %56 = add i32 %2, %41
   %57 = load i16, ptr %5, align 2
-  tail call fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %54, i32 noundef %55, i32 noundef %32, i32 noundef %56, i32 noundef %2, i32 noundef %43, i16 noundef zeroext %57, i32 noundef %6, ptr noundef %7)
+  tail call fastcc void @dissect_dfs_referral_strings.retelim(ptr noundef %0, ptr noundef %54, i32 noundef %55, i32 noundef %32, i32 noundef %56, i32 noundef %2, i32 noundef %43, i16 noundef zeroext %57, i32 noundef %6, ptr noundef %7)
   br label %105
 
 58:                                               ; preds = %11
@@ -5177,7 +5177,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
 92:                                               ; preds = %86
   %93 = load i32, ptr @hf_smb_dfs_referral_path, align 4
   %94 = add i32 %2, %62
-  tail call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %93, i32 noundef %94, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %91, i32 noundef %6, ptr noundef %7)
+  tail call fastcc void @dissect_dfs_referral_string.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %93, i32 noundef %94, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %91, i32 noundef %6, ptr noundef %7)
   br label %95
 
 95:                                               ; preds = %92, %86
@@ -5188,7 +5188,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
   %97 = load i32, ptr @hf_smb_dfs_referral_alt_path, align 4
   %98 = add i32 %2, %71
   %99 = load i16, ptr %5, align 2
-  tail call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %97, i32 noundef %98, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %99, i32 noundef %6, ptr noundef %7)
+  tail call fastcc void @dissect_dfs_referral_string.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %97, i32 noundef %98, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %99, i32 noundef %6, ptr noundef %7)
   br label %100
 
 100:                                              ; preds = %96, %95
@@ -5199,7 +5199,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
   %102 = load i32, ptr @hf_smb_dfs_referral_node, align 4
   %103 = add i32 %2, %80
   %104 = load i16, ptr %5, align 2
-  tail call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %102, i32 noundef %103, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %104, i32 noundef %6, ptr noundef %7)
+  tail call fastcc void @dissect_dfs_referral_string.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %102, i32 noundef %103, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %104, i32 noundef %6, ptr noundef %7)
   br label %105
 
 105:                                              ; preds = %50, %49, %101, %100, %77, %68, %59, %58, %29, %20, %19, %8
@@ -5712,7 +5712,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
-  %7 = tail call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
+  %7 = tail call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   %8 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %42
@@ -5776,7 +5776,7 @@ define hidden i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %31, label %8
@@ -7061,7 +7061,7 @@ decode_smb_error.exit:                            ; preds = %330, %340, %342, %3
   %.sink390 = phi i32 [ 0, %386 ], [ 1, %384 ]
   %388 = load i32, ptr %21, align 4
   %389 = trunc i32 %388 to i16
-  %390 = call fastcc i32 @dissect_smb_tid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %41, i32 noundef 24, i16 noundef zeroext %389, i32 noundef %.sink390, ptr noundef nonnull %9)
+  %390 = call fastcc i32 @dissect_smb_tid.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %41, i32 noundef 24, i16 noundef zeroext %389, i32 noundef %.sink390, ptr noundef nonnull %9)
   %391 = load i32, ptr @hf_smb_pid, align 4
   %392 = load i32, ptr %24, align 8
   %393 = call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %391, ptr noundef %0, i32 noundef %390, i32 noundef 2, i32 noundef %392) #15
@@ -7218,7 +7218,7 @@ dissect_smb_uid.exit:                             ; preds = %387, %proto_item_se
   %470 = load i32, ptr @smb_tap, align 4
   call void @tap_queue_packet(i32 noundef %470, ptr noundef nonnull %1, ptr noundef nonnull %9) #15
   %471 = load i8, ptr %9, align 8
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %469, ptr noundef %39, i8 noundef zeroext %471, i32 noundef 1, ptr noundef nonnull %9)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %469, ptr noundef %39, i8 noundef zeroext %471, i32 noundef 1, ptr noundef nonnull %9)
   %472 = load i32, ptr %16, align 4
   %.not354 = icmp eq i32 %472, 0
   br i1 %.not354, label %473, label %490
@@ -7719,7 +7719,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
+define internal fastcc void @dissect_dfs_referral_string.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
   %12 = alloca i32, align 4
@@ -7765,7 +7765,7 @@ dissect_dfs_referral_strings.exit:                ; preds = %.lr.ph.split.i.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
+define internal fastcc void @dissect_dfs_referral_strings.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
@@ -7966,7 +7966,7 @@ declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb_tid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb_tid.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %6) unnamed_addr #0 {
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %9
 
@@ -8122,7 +8122,7 @@ proto_item_set_generated.exit67:                  ; preds = %83, %80, %77, %prot
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %10
@@ -12137,7 +12137,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %53, %54, %55, %56, 
   unreachable
 
 281:                                              ; preds = %278
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.0320, ptr noundef %4, i8 noundef zeroext %.0317, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.0320, ptr noundef %4, i8 noundef zeroext %.0317, i32 noundef 0, ptr noundef nonnull %5)
   br label %282
 
 282:                                              ; preds = %281, %277
@@ -12367,7 +12367,7 @@ proto_item_set_generated.exit:                    ; preds = %20, %25, %28
   unreachable
 
 145:                                              ; preds = %142
-  tail call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.0132, ptr noundef %4, i8 noundef zeroext %.0130, i32 noundef 0, ptr noundef nonnull %5)
+  tail call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.0132, ptr noundef %4, i8 noundef zeroext %.0130, i32 noundef 0, ptr noundef nonnull %5)
   br label %146
 
 146:                                              ; preds = %145, %141
@@ -13693,7 +13693,7 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %817 = icmp eq i16 %.0276, 1
-  br i1 %817, label %dissect_dfs_inconsistency_data.exit.i, label %818
+  br i1 %817, label %dissect_dfs_inconsistency_data.argprom.exit.i, label %818
 
 818:                                              ; preds = %816
   %819 = load i32, ptr @hf_smb_dfs_referral_version, align 4
@@ -13702,7 +13702,7 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
   %822 = add i16 %.0276, -2
   store i16 %822, ptr %9, align 2
   %823 = icmp ult i16 %822, 2
-  br i1 %823, label %dissect_dfs_inconsistency_data.exit.i, label %824
+  br i1 %823, label %dissect_dfs_inconsistency_data.argprom.exit.i, label %824
 
 824:                                              ; preds = %818
   %825 = load i32, ptr @hf_smb_dfs_referral_size, align 4
@@ -13711,7 +13711,7 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
   %828 = add i16 %.0276, -4
   store i16 %828, ptr %9, align 2
   %829 = icmp ult i16 %828, 2
-  br i1 %829, label %dissect_dfs_inconsistency_data.exit.i, label %830
+  br i1 %829, label %dissect_dfs_inconsistency_data.argprom.exit.i, label %830
 
 830:                                              ; preds = %824
   %831 = load i32, ptr @hf_smb_dfs_referral_server_type, align 4
@@ -13720,7 +13720,7 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
   %834 = add i16 %.0276, -6
   store i16 %834, ptr %9, align 2
   %835 = icmp ult i16 %834, 2
-  br i1 %835, label %dissect_dfs_inconsistency_data.exit.i, label %836
+  br i1 %835, label %dissect_dfs_inconsistency_data.argprom.exit.i, label %836
 
 836:                                              ; preds = %830
   %837 = load i32, ptr @hf_smb_dfs_referral_flags, align 4
@@ -13738,7 +13738,7 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
 
 846:                                              ; preds = %836
   %847 = load i32, ptr %7, align 4
-  br label %dissect_dfs_inconsistency_data.exit.i
+  br label %dissect_dfs_inconsistency_data.argprom.exit.i
 
 848:                                              ; preds = %836
   %849 = load i32, ptr @hf_smb_dfs_referral_node, align 4
@@ -13751,16 +13751,16 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
   %856 = trunc i32 %853 to i16
   %857 = sub i16 %855, %856
   store i16 %857, ptr %9, align 2
-  br label %dissect_dfs_inconsistency_data.exit.i
+  br label %dissect_dfs_inconsistency_data.argprom.exit.i
 
-dissect_dfs_inconsistency_data.exit.i:            ; preds = %848, %846, %830, %824, %818, %816
+dissect_dfs_inconsistency_data.argprom.exit.i:    ; preds = %848, %846, %830, %824, %818, %816
   %.0.i32.i = phi i32 [ %847, %846 ], [ %854, %848 ], [ %782, %816 ], [ %821, %818 ], [ %827, %824 ], [ %833, %830 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %dissect_sfsi_request.exit.i
 
-dissect_sfsi_request.exit.i:                      ; preds = %dissect_dfs_inconsistency_data.exit.i, %813, %810, %808, %793
-  %.0.ph.i = phi i32 [ %809, %808 ], [ %782, %793 ], [ %.0.i32.i, %dissect_dfs_inconsistency_data.exit.i ], [ %815, %813 ], [ %812, %810 ]
+dissect_sfsi_request.exit.i:                      ; preds = %dissect_dfs_inconsistency_data.argprom.exit.i, %813, %810, %808, %793
+  %.0.ph.i = phi i32 [ %809, %808 ], [ %782, %793 ], [ %.0.i32.i, %dissect_dfs_inconsistency_data.argprom.exit.i ], [ %815, %813 ], [ %812, %810 ]
   %.pr.i320 = load i16, ptr %9, align 2
   %.not.i321 = icmp eq i16 %.pr.i320, 0
   br i1 %.not.i321, label %dissect_transaction2_request_data.exit, label %dissect_sfsi_request.exit.dissect_sfsi_request.exit.thread35_crit_edge.i
@@ -14427,7 +14427,7 @@ proto_item_set_generated.exit473:                 ; preds = %proto_item_set_gene
   %226 = zext i16 %.0380 to i32
   %227 = zext i16 %.0409 to i32
   %228 = add nuw nsw i32 %227, %220
-  %229 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0379, i32 noundef %226, i32 noundef %.0381, i32 noundef %228, ptr noundef %5)
+  %229 = tail call fastcc ptr @smb_trans_defragment.argprom(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0379, i32 noundef %226, i32 noundef %.0381, i32 noundef %228, ptr noundef %5)
   br label %230
 
 230:                                              ; preds = %225, %224
@@ -14441,7 +14441,7 @@ proto_item_set_generated.exit473:                 ; preds = %proto_item_set_gene
   %234 = zext i16 %.0409 to i32
   %235 = add nuw nsw i32 %.0411, %234
   %236 = add nuw nsw i32 %234, %220
-  %237 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0378, i32 noundef %221, i32 noundef %235, i32 noundef %236, ptr noundef %5)
+  %237 = tail call fastcc ptr @smb_trans_defragment.argprom(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0378, i32 noundef %221, i32 noundef %235, i32 noundef %236, ptr noundef %5)
   br label %238
 
 238:                                              ; preds = %233, %230
@@ -15540,12 +15540,12 @@ dissect_qfsi_vals.exit.i:                         ; preds = %.lr.ph.i.i, %754, %
 
 871:                                              ; preds = %494
   %872 = load ptr, ptr %9, align 8
-  %873 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %872, ptr noundef %11, ptr noundef %5)
+  %873 = call fastcc i32 @dissect_qpi_loi_vals.argelim(ptr noundef %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %872, ptr noundef %11, ptr noundef %5)
   br label %dissect_sfsi_response.exit.i
 
 874:                                              ; preds = %494
   %875 = load ptr, ptr %9, align 8
-  %876 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %875, ptr noundef %11, ptr noundef %5)
+  %876 = call fastcc i32 @dissect_qpi_loi_vals.argelim(ptr noundef %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %875, ptr noundef %11, ptr noundef %5)
   br label %dissect_sfsi_response.exit.i
 
 877:                                              ; preds = %494
@@ -15694,7 +15694,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef 
 
 18:                                               ; preds = %11
   %19 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %16) #15
-  %20 = tail call fastcc i32 @dissect_smb_tid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i16 noundef zeroext %19, i32 noundef 0, ptr noundef nonnull %5)
+  %20 = tail call fastcc i32 @dissect_smb_tid.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i16 noundef zeroext %19, i32 noundef 0, ptr noundef nonnull %5)
   %21 = load i32, ptr @hf_smb_open_function, align 4
   %22 = load i32, ptr @ett_smb_openfunction, align 4
   %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %20, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @dissect_open_function.flags, i32 noundef -2147483648) #15
@@ -15919,7 +15919,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef 
 
 18:                                               ; preds = %11
   %19 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %16) #15
-  %20 = tail call fastcc i32 @dissect_smb_tid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i16 noundef zeroext %19, i32 noundef 0, ptr noundef nonnull %5)
+  %20 = tail call fastcc i32 @dissect_smb_tid.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i16 noundef zeroext %19, i32 noundef 0, ptr noundef nonnull %5)
   %21 = load i32, ptr @hf_smb_open_function, align 4
   %22 = load i32, ptr @ett_smb_openfunction, align 4
   %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %20, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @dissect_open_function.flags, i32 noundef -2147483648) #15
@@ -16452,7 +16452,7 @@ thread-pre-split:                                 ; preds = %130
   unreachable
 
 149:                                              ; preds = %146
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.076, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.076, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
   br label %150
 
 150:                                              ; preds = %149, %145
@@ -16665,7 +16665,7 @@ dissect_smb_UTIME.exit:                           ; preds = %47, %49
   unreachable
 
 134:                                              ; preds = %130
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %131, ptr noundef %4, i8 noundef zeroext %.0142, i32 noundef 0, ptr noundef %5)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %131, ptr noundef %4, i8 noundef zeroext %.0142, i32 noundef 0, ptr noundef %5)
   br label %135
 
 135:                                              ; preds = %134, %129
@@ -16908,7 +16908,7 @@ proto_item_set_generated.exit168:                 ; preds = %69, %117, %114, %pr
   unreachable
 
 140:                                              ; preds = %136
-  tail call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %137, ptr noundef %4, i8 noundef zeroext %.0142, i32 noundef 0, ptr noundef nonnull %5)
+  tail call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %137, ptr noundef %4, i8 noundef zeroext %.0142, i32 noundef 0, ptr noundef nonnull %5)
   br label %141
 
 141:                                              ; preds = %140, %135
@@ -17145,7 +17145,7 @@ proto_item_set_generated.exit183:                 ; preds = %proto_item_set_gene
   unreachable
 
 140:                                              ; preds = %137
-  tail call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.0152, ptr noundef %4, i8 noundef zeroext %.0151, i32 noundef 0, ptr noundef nonnull %5)
+  tail call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.0152, ptr noundef %4, i8 noundef zeroext %.0151, i32 noundef 0, ptr noundef nonnull %5)
   br label %141
 
 141:                                              ; preds = %140, %136
@@ -17496,7 +17496,7 @@ proto_item_set_generated.exit237:                 ; preds = %74, %122, %119, %pr
   unreachable
 
 204:                                              ; preds = %200
-  tail call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %201, ptr noundef %4, i8 noundef zeroext %.0193, i32 noundef 0, ptr noundef nonnull %5)
+  tail call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %201, ptr noundef %4, i8 noundef zeroext %.0193, i32 noundef 0, ptr noundef nonnull %5)
   br label %205
 
 205:                                              ; preds = %204, %199
@@ -17676,7 +17676,7 @@ proto_item_set_generated.exit123:                 ; preds = %24, %36, %61, %58, 
   unreachable
 
 106:                                              ; preds = %103
-  tail call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.0106, ptr noundef %4, i8 noundef zeroext %.0104, i32 noundef 0, ptr noundef nonnull %5)
+  tail call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.0106, ptr noundef %4, i8 noundef zeroext %.0104, i32 noundef 0, ptr noundef nonnull %5)
   br label %107
 
 107:                                              ; preds = %106, %102
@@ -17925,7 +17925,7 @@ define internal noundef i32 @dissect_tree_connect_response(ptr noundef %0, ptr n
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef -2147483648) #15
   %16 = add i32 %3, 3
   %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %16) #15
-  %18 = tail call fastcc i32 @dissect_smb_tid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i16 noundef zeroext %17, i32 noundef 1, ptr noundef %5)
+  %18 = tail call fastcc i32 @dissect_smb_tid.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i16 noundef zeroext %17, i32 noundef 1, ptr noundef %5)
   br label %19
 
 19:                                               ; preds = %6, %13
@@ -19039,7 +19039,7 @@ thread-pre-split.thread:                          ; preds = %311, %thread-pre-sp
   unreachable
 
 326:                                              ; preds = %322
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %323, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %323, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
   br label %327
 
 327:                                              ; preds = %326, %321
@@ -19328,7 +19328,7 @@ thread-pre-split.thread:                          ; preds = %156, %thread-pre-sp
   unreachable
 
 171:                                              ; preds = %167
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %168, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %168, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
   br label %172
 
 172:                                              ; preds = %171, %166
@@ -19418,7 +19418,7 @@ define internal noundef i32 @dissect_empty_andx(ptr noundef %0, ptr noundef %1, 
   unreachable
 
 51:                                               ; preds = %48
-  tail call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.064, ptr noundef %4, i8 noundef zeroext %.065, i32 noundef 0, ptr noundef %5)
+  tail call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.064, ptr noundef %4, i8 noundef zeroext %.065, i32 noundef 0, ptr noundef %5)
   br label %52
 
 52:                                               ; preds = %51, %47
@@ -19607,7 +19607,7 @@ thread-pre-split:                                 ; preds = %98
   unreachable
 
 119:                                              ; preds = %116
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.065, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.065, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
   br label %120
 
 120:                                              ; preds = %119, %115
@@ -19833,7 +19833,7 @@ thread-pre-split83.thread:                        ; preds = %128, %thread-pre-sp
   unreachable
 
 143:                                              ; preds = %139
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %140, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %140, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
   br label %144
 
 144:                                              ; preds = %143, %138
@@ -19904,31 +19904,31 @@ define internal noundef i32 @dissect_query_information_disk_response(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_search_dir_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
-  %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 0)
+  %7 = tail call fastcc i32 @dissect_search_find_request.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 0)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_search_dir_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
-  %7 = tail call fastcc i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef %5)
+  %7 = tail call fastcc i32 @dissect_search_find_response.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_find_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
-  %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 1)
+  %7 = tail call fastcc i32 @dissect_search_find_request.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_find_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
-  %7 = tail call fastcc i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %5)
+  %7 = tail call fastcc i32 @dissect_search_find_response.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_find_close_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
-  %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 1)
+  %7 = tail call fastcc i32 @dissect_search_find_request.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 1)
   ret i32 %7
 }
 
@@ -20288,7 +20288,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 
 169:                                              ; preds = %168
   %170 = add i32 %.0303, %.0304
-  %171 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0284, i32 noundef %.0283, i32 noundef 0, i32 noundef %170, ptr noundef %5)
+  %171 = tail call fastcc ptr @smb_trans_defragment.argprom(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0284, i32 noundef %.0283, i32 noundef 0, i32 noundef %170, ptr noundef %5)
   br label %172
 
 172:                                              ; preds = %169, %168
@@ -20301,7 +20301,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 175:                                              ; preds = %172
   %176 = add i32 %.0287, %.0304
   %177 = add i32 %.0303, %.0304
-  %178 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0286, i32 noundef %.0285, i32 noundef %176, i32 noundef %177, ptr noundef %5)
+  %178 = tail call fastcc ptr @smb_trans_defragment.argprom(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0286, i32 noundef %.0285, i32 noundef %176, i32 noundef %177, ptr noundef %5)
   br label %179
 
 179:                                              ; preds = %175, %172
@@ -20321,10 +20321,10 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 .thread365:                                       ; preds = %180
   %185 = call i32 @tvb_reported_length(ptr noundef nonnull %183) #15
   %186 = trunc i32 %185 to i16
-  call fastcc void @dissect_nt_trans_param_request(ptr noundef nonnull %183, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2, i32 noundef %.0304, i16 noundef zeroext %186, ptr noundef %.0292, ptr noundef %5, i32 noundef %.0301, ptr noundef %7, ptr noundef %8)
+  call fastcc void @dissect_nt_trans_param_request.argelim(ptr noundef nonnull %183, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2, i32 noundef %.0304, i16 noundef zeroext %186, ptr noundef %.0292, ptr noundef %5, i32 noundef %.0301, ptr noundef %7, ptr noundef %8)
   %187 = load i32, ptr %7, align 4
   %188 = load i32, ptr %8, align 4
-  call fastcc void @dissect_nt_trans_data_request(ptr noundef nonnull %183, ptr noundef nonnull %1, i32 noundef %.0304, ptr noundef %2, i32 noundef %.0303, ptr noundef %.0292, i32 noundef %.0301, i32 noundef %187, i32 noundef %188)
+  call fastcc void @dissect_nt_trans_data_request.argprom.argelim(ptr noundef nonnull %183, ptr noundef nonnull %1, i32 noundef %.0304, ptr noundef %2, i32 noundef %.0303, ptr noundef %.0292, i32 noundef %.0301, i32 noundef %187, i32 noundef %188)
   %189 = add i32 %162, %160
   br label %237
 
@@ -20354,7 +20354,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
   br i1 %201, label %237, label %202
 
 202:                                              ; preds = %199
-  call fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.8, ptr noundef %2, i32 noundef %.0283, i16 noundef zeroext %.1297, ptr noundef %.0292, ptr noundef %5, i32 noundef %.0301, ptr noundef %7, ptr noundef %8)
+  call fastcc void @dissect_nt_trans_param_request.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.8, ptr noundef %2, i32 noundef %.0283, i16 noundef zeroext %.1297, ptr noundef %.0292, ptr noundef %5, i32 noundef %.0301, ptr noundef %7, ptr noundef %8)
   %203 = add i32 %.8, %.0283
   %204 = trunc i32 %.0283 to i16
   %205 = sub i16 %.1297, %204
@@ -20391,7 +20391,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 220:                                              ; preds = %217
   %221 = load i32, ptr %7, align 4
   %222 = load i32, ptr %8, align 4
-  call fastcc void @dissect_nt_trans_data_request(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.10, ptr noundef %2, i32 noundef %.0285, ptr noundef %.0292, i32 noundef %.0301, i32 noundef %221, i32 noundef %222)
+  call fastcc void @dissect_nt_trans_data_request.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.10, ptr noundef %2, i32 noundef %.0285, ptr noundef %.0292, i32 noundef %.0301, i32 noundef %221, i32 noundef %222)
   %223 = add i32 %.10, %.0285
   %224 = trunc i32 %.0285 to i16
   %225 = sub i16 %.3299, %224
@@ -20550,7 +20550,7 @@ define internal i32 @dissect_nt_transaction_response(ptr noundef %0, ptr noundef
 88:                                               ; preds = %85, %81, %79
   %.0.i = phi ptr [ %87, %85 ], [ null, %81 ], [ null, %79 ]
   %.not26.i = icmp eq ptr %2, null
-  br i1 %.not26.i, label %dissect_nt_trans_setup_response.exit, label %89
+  br i1 %.not26.i, label %dissect_nt_trans_setup_response.argprom.exit, label %89
 
 89:                                               ; preds = %88
   %.not27.i = icmp eq ptr %.0.i, null
@@ -20561,26 +20561,26 @@ define internal i32 @dissect_nt_transaction_response(ptr noundef %0, ptr noundef
   %92 = load i32, ptr %.0.i, align 4
   %93 = tail call ptr @val_to_str_ext(i32 noundef %92, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2690) #15
   %94 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %2, i32 noundef %91, ptr noundef %0, i32 noundef %78, i32 noundef %80, ptr noundef null, ptr noundef nonnull @.str.2683, ptr noundef %93) #15
-  br label %dissect_nt_trans_setup_response.exit
+  br label %dissect_nt_trans_setup_response.argprom.exit
 
 95:                                               ; preds = %89
   %96 = tail call ptr @proto_tree_add_expert(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_smb_nt_transaction_setup, ptr noundef %0, i32 noundef %78, i32 noundef %80) #15
-  br label %dissect_nt_trans_setup_response.exit
+  br label %dissect_nt_trans_setup_response.argprom.exit
 
-dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
+dissect_nt_trans_setup_response.argprom.exit:     ; preds = %88, %90, %95
   %97 = add i32 %80, %78
   br label %98
 
-98:                                               ; preds = %38, %dissect_nt_trans_setup_response.exit, %31
-  %.0262 = phi i32 [ 0, %31 ], [ %46, %dissect_nt_trans_setup_response.exit ], [ %46, %38 ]
-  %.0261 = phi i32 [ 0, %31 ], [ %42, %dissect_nt_trans_setup_response.exit ], [ %42, %38 ]
-  %.0249 = phi i32 [ 0, %31 ], [ %70, %dissect_nt_trans_setup_response.exit ], [ %70, %38 ]
-  %.0248 = phi i32 [ 0, %31 ], [ %66, %dissect_nt_trans_setup_response.exit ], [ %66, %38 ]
-  %.0247 = phi i32 [ 0, %31 ], [ %62, %dissect_nt_trans_setup_response.exit ], [ %62, %38 ]
-  %.0246 = phi i32 [ 0, %31 ], [ %58, %dissect_nt_trans_setup_response.exit ], [ %58, %38 ]
-  %.0245 = phi i32 [ 0, %31 ], [ %54, %dissect_nt_trans_setup_response.exit ], [ %54, %38 ]
-  %.0244 = phi i32 [ 0, %31 ], [ %50, %dissect_nt_trans_setup_response.exit ], [ %50, %38 ]
-  %.0 = phi i32 [ %36, %31 ], [ %97, %dissect_nt_trans_setup_response.exit ], [ %78, %38 ]
+98:                                               ; preds = %38, %dissect_nt_trans_setup_response.argprom.exit, %31
+  %.0262 = phi i32 [ 0, %31 ], [ %46, %dissect_nt_trans_setup_response.argprom.exit ], [ %46, %38 ]
+  %.0261 = phi i32 [ 0, %31 ], [ %42, %dissect_nt_trans_setup_response.argprom.exit ], [ %42, %38 ]
+  %.0249 = phi i32 [ 0, %31 ], [ %70, %dissect_nt_trans_setup_response.argprom.exit ], [ %70, %38 ]
+  %.0248 = phi i32 [ 0, %31 ], [ %66, %dissect_nt_trans_setup_response.argprom.exit ], [ %66, %38 ]
+  %.0247 = phi i32 [ 0, %31 ], [ %62, %dissect_nt_trans_setup_response.argprom.exit ], [ %62, %38 ]
+  %.0246 = phi i32 [ 0, %31 ], [ %58, %dissect_nt_trans_setup_response.argprom.exit ], [ %58, %38 ]
+  %.0245 = phi i32 [ 0, %31 ], [ %54, %dissect_nt_trans_setup_response.argprom.exit ], [ %54, %38 ]
+  %.0244 = phi i32 [ 0, %31 ], [ %50, %dissect_nt_trans_setup_response.argprom.exit ], [ %50, %38 ]
+  %.0 = phi i32 [ %36, %31 ], [ %97, %dissect_nt_trans_setup_response.argprom.exit ], [ %78, %38 ]
   %99 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0) #15
   %100 = load i32, ptr @hf_smb_byte_count, align 4
   %101 = zext i16 %99 to i32
@@ -20615,7 +20615,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 
 112:                                              ; preds = %111
   %113 = add i32 %.0261, %.0262
-  %114 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0245, i32 noundef %.0244, i32 noundef %.0246, i32 noundef %113, ptr noundef %5)
+  %114 = tail call fastcc ptr @smb_trans_defragment.argprom(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0245, i32 noundef %.0244, i32 noundef %.0246, i32 noundef %113, ptr noundef %5)
   br label %115
 
 115:                                              ; preds = %112, %111
@@ -20628,7 +20628,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 118:                                              ; preds = %115
   %119 = add i32 %.0249, %.0261
   %120 = add i32 %.0261, %.0262
-  %121 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0248, i32 noundef %.0247, i32 noundef %119, i32 noundef %120, ptr noundef %5)
+  %121 = tail call fastcc ptr @smb_trans_defragment.argprom(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0248, i32 noundef %.0247, i32 noundef %119, i32 noundef %120, ptr noundef %5)
   br label %122
 
 122:                                              ; preds = %118, %115
@@ -20648,8 +20648,8 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 .thread306:                                       ; preds = %123
   %128 = call i32 @tvb_reported_length(ptr noundef nonnull %126) #15
   %129 = trunc i32 %128 to i16
-  call fastcc void @dissect_nt_trans_param_response(ptr noundef nonnull %126, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2, i32 noundef %.0261, i16 noundef zeroext %129, ptr noundef %5)
-  call fastcc void @dissect_nt_trans_data_response(ptr noundef nonnull %126, ptr noundef nonnull %1, i32 noundef %.0261, ptr noundef %2, i32 noundef %.0262, ptr noundef %.0260296)
+  call fastcc void @dissect_nt_trans_param_response.argelim(ptr noundef nonnull %126, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2, i32 noundef %.0261, i16 noundef zeroext %129, ptr noundef %5)
+  call fastcc void @dissect_nt_trans_data_response.argprom.argelim(ptr noundef nonnull %126, ptr noundef nonnull %1, i32 noundef %.0261, ptr noundef %2, i32 noundef %.0262, ptr noundef %.0260296)
   %130 = add i32 %103, %101
   store i32 %107, ptr %106, align 8
   br label %176
@@ -20680,7 +20680,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
   br i1 %142, label %176, label %143
 
 143:                                              ; preds = %140
-  call fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.3, ptr noundef %2, i32 noundef %.0244, i16 noundef zeroext %.1256, ptr noundef %5)
+  call fastcc void @dissect_nt_trans_param_response.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.3, ptr noundef %2, i32 noundef %.0244, i16 noundef zeroext %.1256, ptr noundef %5)
   %144 = add i32 %.3, %.0244
   %145 = trunc i32 %.0244 to i16
   %146 = sub i16 %.1256, %145
@@ -20715,7 +20715,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
   br i1 %160, label %176, label %161
 
 161:                                              ; preds = %158
-  call fastcc void @dissect_nt_trans_data_response(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.5, ptr noundef %2, i32 noundef %.0247, ptr noundef %.0260296)
+  call fastcc void @dissect_nt_trans_data_response.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.5, ptr noundef %2, i32 noundef %.0247, ptr noundef %.0260296)
   %162 = add i32 %.5, %.0247
   %163 = trunc i32 %.0247 to i16
   %164 = sub i16 %.3258, %163
@@ -20988,7 +20988,7 @@ thread-pre-split:                                 ; preds = %140
   unreachable
 
 159:                                              ; preds = %156
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.0106, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.0106, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
   br label %160
 
 160:                                              ; preds = %159, %155
@@ -21178,7 +21178,7 @@ define internal noundef i32 @dissect_nt_create_andx_response(ptr noundef %0, ptr
   unreachable
 
 128:                                              ; preds = %124
-  tail call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %125, ptr noundef %4, i8 noundef zeroext %.0160, i32 noundef 0, ptr noundef %5)
+  tail call fastcc void @dissect_smb_command.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %125, ptr noundef %4, i8 noundef zeroext %.0160, i32 noundef 0, ptr noundef %5)
   br label %129
 
 129:                                              ; preds = %128, %123
@@ -21723,14 +21723,14 @@ define internal i32 @dissect_get_print_queue_response(ptr noundef %0, ptr nocapt
   %26 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %25) #15
   %27 = add i32 %.0, 2
   %28 = icmp eq i16 %23, 0
-  br i1 %28, label %dissect_print_queue_element.exit.thread, label %29
+  br i1 %28, label %dissect_print_queue_element.argprom.exit.thread, label %29
 
 29:                                               ; preds = %22
   %30 = load i32, ptr @hf_smb_buffer_format, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef -2147483648) #15
   %32 = add i32 %.0, 3
   %33 = icmp ult i16 %23, 3
-  br i1 %33, label %dissect_print_queue_element.exit.thread, label %34
+  br i1 %33, label %dissect_print_queue_element.argprom.exit.thread, label %34
 
 34:                                               ; preds = %29
   %35 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %32) #15
@@ -21747,15 +21747,15 @@ define internal i32 @dissect_get_print_queue_response(ptr noundef %0, ptr nocapt
   %41 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %.not.i, label %46, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %dissect_print_queue_element.exit
-  %.295 = phi i32 [ %88, %dissect_print_queue_element.exit ], [ %39, %.lr.ph ]
-  %.15794 = phi i16 [ %42, %dissect_print_queue_element.exit ], [ %.056, %.lr.ph ]
-  %.07793 = phi i16 [ %90, %dissect_print_queue_element.exit ], [ %40, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %dissect_print_queue_element.argprom.exit
+  %.295 = phi i32 [ %88, %dissect_print_queue_element.argprom.exit ], [ %39, %.lr.ph ]
+  %.15794 = phi i16 [ %42, %dissect_print_queue_element.argprom.exit ], [ %.056, %.lr.ph ]
+  %.07793 = phi i16 [ %90, %dissect_print_queue_element.argprom.exit ], [ %40, %.lr.ph ]
   %42 = add i16 %.15794, -1
   %43 = load i32, ptr @ett_smb_print_queue_entry, align 4
   %44 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.295, i32 noundef 28, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.2693) #15
   %45 = icmp ult i16 %.07793, 4
-  br i1 %45, label %dissect_print_queue_element.exit.thread, label %47
+  br i1 %45, label %dissect_print_queue_element.argprom.exit.thread, label %47
 
 46:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10267, ptr noundef nonnull @.str.2) #16
@@ -21767,7 +21767,7 @@ define internal i32 @dissect_get_print_queue_response(ptr noundef %0, ptr nocapt
   %50 = load i32, ptr @hf_smb_print_queue_dos_time, align 4
   %51 = tail call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %44, i32 noundef %.295, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef 0)
   %52 = icmp eq i16 %.07793, 4
-  br i1 %52, label %dissect_print_queue_element.exit.thread, label %53
+  br i1 %52, label %dissect_print_queue_element.argprom.exit.thread, label %53
 
 53:                                               ; preds = %47
   %54 = load i32, ptr @hf_smb_print_status, align 4
@@ -21775,7 +21775,7 @@ define internal i32 @dissect_get_print_queue_response(ptr noundef %0, ptr nocapt
   %56 = add i32 %51, 1
   %57 = add i16 %.07793, -5
   %58 = icmp ult i16 %57, 2
-  br i1 %58, label %dissect_print_queue_element.exit.thread, label %59
+  br i1 %58, label %dissect_print_queue_element.argprom.exit.thread, label %59
 
 59:                                               ; preds = %53
   %60 = load i32, ptr @hf_smb_print_spool_file_number, align 4
@@ -21783,14 +21783,14 @@ define internal i32 @dissect_get_print_queue_response(ptr noundef %0, ptr nocapt
   %62 = add i32 %51, 3
   %63 = add i16 %.07793, -7
   %64 = icmp ult i16 %63, 4
-  br i1 %64, label %dissect_print_queue_element.exit.thread, label %65
+  br i1 %64, label %dissect_print_queue_element.argprom.exit.thread, label %65
 
 65:                                               ; preds = %59
   %66 = load i32, ptr @hf_smb_print_spool_file_size, align 4
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef -2147483648) #15
   %68 = add i32 %51, 7
   %69 = icmp eq i16 %.07793, 11
-  br i1 %69, label %dissect_print_queue_element.exit.thread, label %70
+  br i1 %69, label %dissect_print_queue_element.argprom.exit.thread, label %70
 
 70:                                               ; preds = %65
   %71 = load i32, ptr @hf_smb_reserved, align 4
@@ -21798,7 +21798,7 @@ define internal i32 @dissect_get_print_queue_response(ptr noundef %0, ptr nocapt
   %73 = add i32 %51, 8
   %74 = add i16 %.07793, -12
   %75 = icmp eq i16 %74, 0
-  br i1 %75, label %dissect_print_queue_element.exit.thread, label %76
+  br i1 %75, label %dissect_print_queue_element.argprom.exit.thread, label %76
 
 76:                                               ; preds = %70
   %77 = load i32, ptr %41, align 8
@@ -21821,9 +21821,9 @@ get_unicode_or_ascii_string.exit.i:               ; preds = %82, %78
   %.022.i = phi i32 [ 16, %82 ], [ %spec.select.i.i, %78 ]
   %.0.i.i = phi ptr [ %84, %82 ], [ %81, %78 ]
   %85 = icmp eq ptr %.0.i.i, null
-  br i1 %85, label %dissect_print_queue_element.exit.thread, label %dissect_print_queue_element.exit
+  br i1 %85, label %dissect_print_queue_element.argprom.exit.thread, label %dissect_print_queue_element.argprom.exit
 
-dissect_print_queue_element.exit:                 ; preds = %get_unicode_or_ascii_string.exit.i
+dissect_print_queue_element.argprom.exit:         ; preds = %get_unicode_or_ascii_string.exit.i
   %86 = load i32, ptr @hf_smb_print_spool_file_name, align 4
   %87 = tail call ptr @proto_tree_add_string(ptr noundef %44, i32 noundef %86, ptr noundef %0, i32 noundef %73, i32 noundef 16, ptr noundef nonnull %.0.i.i) #15
   %88 = add i32 %.022.i, %73
@@ -21832,11 +21832,11 @@ dissect_print_queue_element.exit:                 ; preds = %get_unicode_or_asci
   %.not = icmp eq i16 %42, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %dissect_print_queue_element.exit, %34
-  %.077.lcssa = phi i16 [ %40, %34 ], [ %90, %dissect_print_queue_element.exit ]
-  %.2.lcssa = phi i32 [ %39, %34 ], [ %88, %dissect_print_queue_element.exit ]
+._crit_edge:                                      ; preds = %dissect_print_queue_element.argprom.exit, %34
+  %.077.lcssa = phi i16 [ %40, %34 ], [ %90, %dissect_print_queue_element.argprom.exit ]
+  %.2.lcssa = phi i32 [ %39, %34 ], [ %88, %dissect_print_queue_element.argprom.exit ]
   %.not60 = icmp eq i16 %.077.lcssa, 0
-  br i1 %.not60, label %dissect_print_queue_element.exit.thread, label %91
+  br i1 %.not60, label %dissect_print_queue_element.argprom.exit.thread, label %91
 
 91:                                               ; preds = %._crit_edge
   %92 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.lcssa) #15
@@ -21862,9 +21862,9 @@ dissect_print_queue_element.exit:                 ; preds = %get_unicode_or_asci
 99:                                               ; preds = %.thread, %95
   %.17887 = phi i32 [ %.pre-phi, %.thread ], [ 0, %95 ]
   %100 = add i32 %.17887, %.2.lcssa
-  br label %dissect_print_queue_element.exit.thread
+  br label %dissect_print_queue_element.argprom.exit.thread
 
-dissect_print_queue_element.exit.thread:          ; preds = %get_unicode_or_ascii_string.exit.i, %70, %65, %59, %53, %47, %.lr.ph.split, %._crit_edge, %99, %29, %22
+dissect_print_queue_element.argprom.exit.thread:  ; preds = %get_unicode_or_ascii_string.exit.i, %70, %65, %59, %53, %47, %.lr.ph.split, %._crit_edge, %99, %29, %22
   %.1 = phi i32 [ %27, %22 ], [ %32, %29 ], [ %100, %99 ], [ %.2.lcssa, %._crit_edge ], [ %.295, %.lr.ph.split ], [ %51, %47 ], [ %56, %53 ], [ %62, %59 ], [ %68, %65 ], [ %73, %70 ], [ %73, %get_unicode_or_ascii_string.exit.i ]
   ret i32 %.1
 }
@@ -23272,7 +23272,7 @@ define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1,
   %8 = alloca i32, align 4
   %9 = load i16, ptr %5, align 2
   %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %dissect_4_2_16_4.exit.thread, label %10
+  br i1 %.not, label %dissect_4_2_16_4.argprom.exit.thread, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %6, i64 36
@@ -23283,7 +23283,7 @@ define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1,
     i32 4, label %17
     i32 257, label %19
     i32 1004, label %19
-    i32 258, label %dissect_4_2_19_2.exit
+    i32 258, label %dissect_4_2_19_2.argprom.exit
     i32 259, label %39
     i32 1019, label %39
     i32 260, label %47
@@ -23299,7 +23299,7 @@ define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1,
     i32 522, label %73
     i32 523, label %75
     i32 1010, label %77
-    i32 1013, label %dissect_disposition_info.exit
+    i32 1013, label %dissect_disposition_info.argprom.exit
     i32 1014, label %133
     i32 1016, label %141
     i32 1023, label %dissect_sfi_SMB_FILE_PIPE_INFO.exit
@@ -23311,27 +23311,27 @@ define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1,
   ]
 
 13:                                               ; preds = %10
-  %14 = call fastcc i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %14 = call fastcc i32 @dissect_qsfi_SMB_INFO_STANDARD.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 15:                                               ; preds = %10
-  %16 = call fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %16 = call fastcc i32 @dissect_4_2_16_2.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 17:                                               ; preds = %10
-  %18 = call fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %18 = call fastcc i32 @dissect_4_2_16_2.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 19:                                               ; preds = %10, %10
-  %20 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %20 = call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
   %21 = load i32, ptr %8, align 4
   %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %22, label %dissect_4_2_16_4.exit.thread160
+  br i1 %.not.i, label %22, label %dissect_4_2_16_4.argprom.exit.thread160
 
 22:                                               ; preds = %19
   %23 = load i16, ptr %5, align 2
   %24 = icmp ult i16 %23, 4
-  br i1 %24, label %dissect_4_2_16_4.exit, label %25
+  br i1 %24, label %dissect_4_2_16_4.argprom.exit, label %25
 
 25:                                               ; preds = %22
   %26 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %20) #15
@@ -23343,20 +23343,20 @@ define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1,
   %32 = load i16, ptr %5, align 2
   %33 = add i16 %32, -4
   store i16 %33, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
-dissect_4_2_19_2.exit:                            ; preds = %10
+dissect_4_2_19_2.argprom.exit:                    ; preds = %10
   %34 = load i32, ptr @hf_smb_t2_marked_for_deletion, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #15
   %36 = add i32 %4, 1
   %37 = load i16, ptr %5, align 2
   %38 = add i16 %37, -1
   store i16 %38, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 39:                                               ; preds = %10, %10
   %40 = icmp ult i16 %9, 8
-  br i1 %40, label %dissect_4_2_16_4.exit, label %41
+  br i1 %40, label %dissect_4_2_16_4.argprom.exit, label %41
 
 41:                                               ; preds = %39
   %42 = load i32, ptr @hf_smb_alloc_size64, align 4
@@ -23365,11 +23365,11 @@ dissect_4_2_19_2.exit:                            ; preds = %10
   %45 = load i16, ptr %5, align 2
   %46 = add i16 %45, -8
   store i16 %46, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 47:                                               ; preds = %10, %10
   %48 = icmp ult i16 %9, 8
-  br i1 %48, label %dissect_4_2_16_4.exit, label %49
+  br i1 %48, label %dissect_4_2_16_4.argprom.exit, label %49
 
 49:                                               ; preds = %47
   %50 = load i32, ptr @hf_smb_end_of_file, align 4
@@ -23378,55 +23378,55 @@ dissect_4_2_19_2.exit:                            ; preds = %10
   %53 = load i16, ptr %5, align 2
   %54 = add i16 %53, -8
   store i16 %54, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 55:                                               ; preds = %10
-  %56 = call fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %56 = call fastcc i32 @dissect_4_2_16_12.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 57:                                               ; preds = %10
   %58 = getelementptr i8, ptr %6, i64 24
   %.val = load i32, ptr %58, align 8
-  %59 = call fastcc i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8, i32 %.val)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %59 = call fastcc i32 @dissect_4_2_16_13.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8, i32 %.val)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 60:                                               ; preds = %10
   %61 = getelementptr i8, ptr %6, i64 24
   %.val141 = load i32, ptr %61, align 8
-  %62 = call fastcc i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8, i32 %.val141)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %62 = call fastcc i32 @dissect_4_2_16_13.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8, i32 %.val141)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 63:                                               ; preds = %10
   %64 = call fastcc i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 65:                                               ; preds = %10
   %66 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef %4, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 67:                                               ; preds = %10
   %68 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef %4, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 69:                                               ; preds = %10
   %70 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef %4, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 71:                                               ; preds = %10
   %72 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef %4, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 73:                                               ; preds = %10
   %74 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef %4, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 75:                                               ; preds = %10
-  %76 = call fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %76 = call fastcc i32 @dissect_qspi_unix_info2.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 77:                                               ; preds = %10
   %78 = icmp ult i16 %9, 4
-  br i1 %78, label %dissect_4_2_16_4.exit, label %79
+  br i1 %78, label %dissect_4_2_16_4.argprom.exit, label %79
 
 79:                                               ; preds = %77
   %80 = load i32, ptr @hf_smb_replace, align 4
@@ -23436,7 +23436,7 @@ dissect_4_2_19_2.exit:                            ; preds = %10
   %84 = add i16 %83, -4
   store i16 %84, ptr %5, align 2
   %85 = icmp ult i16 %84, 4
-  br i1 %85, label %dissect_4_2_16_4.exit, label %86
+  br i1 %85, label %dissect_4_2_16_4.argprom.exit, label %86
 
 86:                                               ; preds = %79
   %87 = load i32, ptr @hf_smb_root_dir_handle, align 4
@@ -23446,7 +23446,7 @@ dissect_4_2_19_2.exit:                            ; preds = %10
   %91 = add i16 %90, -4
   store i16 %91, ptr %5, align 2
   %92 = icmp ult i16 %91, 4
-  br i1 %92, label %dissect_4_2_16_4.exit, label %93
+  br i1 %92, label %dissect_4_2_16_4.argprom.exit, label %93
 
 93:                                               ; preds = %86
   %94 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %89) #15
@@ -23457,7 +23457,7 @@ dissect_4_2_19_2.exit:                            ; preds = %10
   %99 = add i16 %98, -4
   store i16 %99, ptr %5, align 2
   %100 = icmp eq i16 %99, 0
-  br i1 %100, label %dissect_4_2_16_4.exit, label %101
+  br i1 %100, label %dissect_4_2_16_4.argprom.exit, label %101
 
 101:                                              ; preds = %93
   %102 = getelementptr inbounds i8, ptr %6, i64 24
@@ -23475,7 +23475,7 @@ dissect_4_2_19_2.exit:                            ; preds = %10
   %108 = add i16 %98, -5
   store i16 %108, ptr %5, align 2
   %109 = icmp eq i16 %108, 0
-  br i1 %109, label %dissect_4_2_16_4.exit, label %110
+  br i1 %109, label %dissect_4_2_16_4.argprom.exit, label %110
 
 110:                                              ; preds = %106, %104
   %.020.i = phi i32 [ %97, %104 ], [ %107, %106 ]
@@ -23499,7 +23499,7 @@ get_unicode_or_ascii_string.exit.i:               ; preds = %117, %110
   %.019.i = phi i32 [ %94, %117 ], [ %114, %110 ]
   %.0.i.i = phi ptr [ %119, %117 ], [ %116, %110 ]
   %120 = icmp eq ptr %.0.i.i, null
-  br i1 %120, label %dissect_4_2_16_4.exit, label %121
+  br i1 %120, label %dissect_4_2_16_4.argprom.exit, label %121
 
 121:                                              ; preds = %get_unicode_or_ascii_string.exit.i
   %122 = load i32, ptr @hf_smb_target_name, align 4
@@ -23509,20 +23509,20 @@ get_unicode_or_ascii_string.exit.i:               ; preds = %117, %110
   %126 = trunc i32 %.019.i to i16
   %127 = sub i16 %125, %126
   store i16 %127, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
-dissect_disposition_info.exit:                    ; preds = %10
+dissect_disposition_info.argprom.exit:            ; preds = %10
   %128 = load i32, ptr @hf_smb_disposition_delete_on_close, align 4
   %129 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %128, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #15
   %130 = add i32 %4, 1
   %131 = load i16, ptr %5, align 2
   %132 = add i16 %131, -1
   store i16 %132, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 133:                                              ; preds = %10
   %134 = icmp ult i16 %9, 8
-  br i1 %134, label %dissect_4_2_16_4.exit, label %135
+  br i1 %134, label %dissect_4_2_16_4.argprom.exit, label %135
 
 135:                                              ; preds = %133
   %136 = load i32, ptr @hf_smb_position, align 4
@@ -23531,11 +23531,11 @@ dissect_disposition_info.exit:                    ; preds = %10
   %139 = load i16, ptr %5, align 2
   %140 = add i16 %139, -8
   store i16 %140, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 141:                                              ; preds = %10
   %142 = icmp ult i16 %9, 4
-  br i1 %142, label %dissect_4_2_16_4.exit, label %143
+  br i1 %142, label %dissect_4_2_16_4.argprom.exit, label %143
 
 143:                                              ; preds = %141
   %144 = load i32, ptr @hf_smb_mode, align 4
@@ -23544,7 +23544,7 @@ dissect_disposition_info.exit:                    ; preds = %10
   %147 = load i16, ptr %5, align 2
   %148 = add i16 %147, -4
   store i16 %148, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 dissect_sfi_SMB_FILE_PIPE_INFO.exit:              ; preds = %10
   %149 = load i32, ptr @hf_smb_pipe_info_flag, align 4
@@ -23553,7 +23553,7 @@ dissect_sfi_SMB_FILE_PIPE_INFO.exit:              ; preds = %10
   %152 = load i16, ptr %5, align 2
   %153 = add i16 %152, -1
   store i16 %153, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 154:                                              ; preds = %10, %10, %10, %10, %10
   %155 = zext i16 %9 to i32
@@ -23562,7 +23562,7 @@ dissect_sfi_SMB_FILE_PIPE_INFO.exit:              ; preds = %10
   %158 = zext i16 %157 to i32
   %159 = add i32 %4, %158
   store i16 0, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 160:                                              ; preds = %10
   %161 = zext i16 %9 to i32
@@ -23571,26 +23571,26 @@ dissect_sfi_SMB_FILE_PIPE_INFO.exit:              ; preds = %10
   %164 = zext i16 %163 to i32
   %165 = add i32 %4, %164
   store i16 0, ptr %5, align 2
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
-dissect_4_2_16_4.exitthread-pre-split:            ; preds = %13, %15, %17, %55, %57, %60, %63, %75
+dissect_4_2_16_4.argprom.exitthread-pre-split:    ; preds = %13, %15, %17, %55, %57, %60, %63, %75
   %.0137.ph = phi i32 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %56, %55 ], [ %59, %57 ], [ %62, %60 ], [ %64, %63 ], [ %76, %75 ]
   %.pr = load i32, ptr %8, align 4
   %166 = icmp eq i32 %.pr, 0
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
-dissect_4_2_16_4.exit:                            ; preds = %143, %141, %135, %133, %121, %get_unicode_or_ascii_string.exit.i, %106, %93, %86, %79, %77, %49, %47, %41, %39, %22, %25, %dissect_4_2_16_4.exitthread-pre-split
-  %.not140 = phi i1 [ %166, %dissect_4_2_16_4.exitthread-pre-split ], [ true, %25 ], [ false, %22 ], [ true, %41 ], [ false, %39 ], [ true, %49 ], [ false, %47 ], [ true, %121 ], [ false, %77 ], [ false, %79 ], [ false, %86 ], [ false, %106 ], [ false, %93 ], [ false, %get_unicode_or_ascii_string.exit.i ], [ true, %135 ], [ false, %133 ], [ true, %143 ], [ false, %141 ]
-  %.0137 = phi i32 [ %.0137.ph, %dissect_4_2_16_4.exitthread-pre-split ], [ %31, %25 ], [ %20, %22 ], [ %44, %41 ], [ %4, %39 ], [ %52, %49 ], [ %4, %47 ], [ %124, %121 ], [ %4, %77 ], [ %82, %79 ], [ %89, %86 ], [ %107, %106 ], [ %97, %93 ], [ %.1.i, %get_unicode_or_ascii_string.exit.i ], [ %138, %135 ], [ %4, %133 ], [ %146, %143 ], [ %4, %141 ]
-  br i1 %.not140, label %dissect_4_2_16_4.exit.thread, label %dissect_4_2_16_4.exit.thread160
+dissect_4_2_16_4.argprom.exit:                    ; preds = %143, %141, %135, %133, %121, %get_unicode_or_ascii_string.exit.i, %106, %93, %86, %79, %77, %49, %47, %41, %39, %22, %25, %dissect_4_2_16_4.argprom.exitthread-pre-split
+  %.not140 = phi i1 [ %166, %dissect_4_2_16_4.argprom.exitthread-pre-split ], [ true, %25 ], [ false, %22 ], [ true, %41 ], [ false, %39 ], [ true, %49 ], [ false, %47 ], [ true, %121 ], [ false, %77 ], [ false, %79 ], [ false, %86 ], [ false, %106 ], [ false, %93 ], [ false, %get_unicode_or_ascii_string.exit.i ], [ true, %135 ], [ false, %133 ], [ true, %143 ], [ false, %141 ]
+  %.0137 = phi i32 [ %.0137.ph, %dissect_4_2_16_4.argprom.exitthread-pre-split ], [ %31, %25 ], [ %20, %22 ], [ %44, %41 ], [ %4, %39 ], [ %52, %49 ], [ %4, %47 ], [ %124, %121 ], [ %4, %77 ], [ %82, %79 ], [ %89, %86 ], [ %107, %106 ], [ %97, %93 ], [ %.1.i, %get_unicode_or_ascii_string.exit.i ], [ %138, %135 ], [ %4, %133 ], [ %146, %143 ], [ %4, %141 ]
+  br i1 %.not140, label %dissect_4_2_16_4.argprom.exit.thread, label %dissect_4_2_16_4.argprom.exit.thread160
 
-dissect_4_2_16_4.exit.thread160:                  ; preds = %19, %dissect_4_2_16_4.exit
-  %.0137163 = phi i32 [ %.0137, %dissect_4_2_16_4.exit ], [ %20, %19 ]
+dissect_4_2_16_4.argprom.exit.thread160:          ; preds = %19, %dissect_4_2_16_4.argprom.exit
+  %.0137163 = phi i32 [ %.0137, %dissect_4_2_16_4.argprom.exit ], [ %20, %19 ]
   %167 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_smb_mal_information_level) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
-dissect_4_2_16_4.exit.thread:                     ; preds = %dissect_4_2_19_2.exit, %65, %67, %69, %71, %73, %dissect_disposition_info.exit, %dissect_sfi_SMB_FILE_PIPE_INFO.exit, %154, %160, %dissect_4_2_16_4.exit, %dissect_4_2_16_4.exit.thread160, %7
-  %.0 = phi i32 [ %4, %7 ], [ %.0137163, %dissect_4_2_16_4.exit.thread160 ], [ %.0137, %dissect_4_2_16_4.exit ], [ %36, %dissect_4_2_19_2.exit ], [ %4, %65 ], [ %4, %67 ], [ %4, %69 ], [ %4, %71 ], [ %4, %73 ], [ %130, %dissect_disposition_info.exit ], [ %151, %dissect_sfi_SMB_FILE_PIPE_INFO.exit ], [ %159, %154 ], [ %165, %160 ]
+dissect_4_2_16_4.argprom.exit.thread:             ; preds = %dissect_4_2_19_2.argprom.exit, %65, %67, %69, %71, %73, %dissect_disposition_info.argprom.exit, %dissect_sfi_SMB_FILE_PIPE_INFO.exit, %154, %160, %dissect_4_2_16_4.argprom.exit, %dissect_4_2_16_4.argprom.exit.thread160, %7
+  %.0 = phi i32 [ %4, %7 ], [ %.0137163, %dissect_4_2_16_4.argprom.exit.thread160 ], [ %.0137, %dissect_4_2_16_4.argprom.exit ], [ %36, %dissect_4_2_19_2.argprom.exit ], [ %4, %65 ], [ %4, %67 ], [ %4, %69 ], [ %4, %71 ], [ %4, %73 ], [ %130, %dissect_disposition_info.argprom.exit ], [ %151, %dissect_sfi_SMB_FILE_PIPE_INFO.exit ], [ %159, %154 ], [ %165, %160 ]
   ret i32 %.0
 }
 
@@ -23599,7 +23599,7 @@ declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 4
   br i1 %7, label %61, label %8
@@ -23689,7 +23689,7 @@ define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_2.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i16, ptr %3, align 2
@@ -23789,7 +23789,7 @@ define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_12.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %95, label %8
@@ -23928,7 +23928,7 @@ define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_4_2_16_13.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 %.24.val) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %get_unicode_or_ascii_string.exit.thread, label %8
@@ -24173,7 +24173,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_qspi_unix_info2.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %117, label %8
@@ -24351,7 +24351,7 @@ declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, pt
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @smb_trans_defragment(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc ptr @smb_trans_defragment.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %3) #15
   %.not = icmp eq i32 %8, 0
   %9 = icmp ugt i32 %4, %5
@@ -24492,7 +24492,7 @@ define internal fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %0, pt
 
 38:                                               ; preds = %7
   store i32 0, ptr %5, align 4
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 39:                                               ; preds = %7
   %40 = getelementptr inbounds i8, ptr %6, i64 36
@@ -24730,7 +24730,7 @@ dissect_4_3_4_1.exit:                             ; preds = %68, %78, %87, %96, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 165:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
@@ -24973,7 +24973,7 @@ dissect_4_3_4_2.exit:                             ; preds = %191, %201, %210, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 302:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
@@ -25206,7 +25206,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 436:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
@@ -25267,7 +25267,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
   %467 = load i16, ptr %4, align 2
   %468 = add i16 %467, -4
   store i16 %468, ptr %4, align 2
-  %469 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %451, i32 noundef %466, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %469 = call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef nonnull %0, ptr noundef %451, i32 noundef %466, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %470 = load i32, ptr %5, align 4
   %.not80.i = icmp eq i32 %470, 0
   br i1 %.not80.i, label %471, label %dissect_4_3_4_4.exit
@@ -25403,7 +25403,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 545:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
@@ -25464,7 +25464,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
   %576 = load i16, ptr %4, align 2
   %577 = add i16 %576, -4
   store i16 %577, ptr %4, align 2
-  %578 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %560, i32 noundef %575, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %578 = call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef nonnull %0, ptr noundef %560, i32 noundef %575, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %579 = load i32, ptr %5, align 4
   %.not85.i = icmp eq i32 %579, 0
   br i1 %.not85.i, label %580, label %dissect_4_3_4_5.exit
@@ -25614,7 +25614,7 @@ dissect_4_3_4_5.exit:                             ; preds = %547, %563, %571, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 662:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
@@ -25770,7 +25770,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
   %.080.i = phi i32 [ %.1.i, %744 ], [ %3, %662 ], [ %3, %669 ], [ %682, %679 ], [ %689, %686 ], [ %707, %706 ], [ %697, %693 ], [ %.3.i, %get_unicode_or_ascii_string.exit.i ], [ %724, %736 ]
   store i32 %.sink.i, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 751:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
@@ -25832,7 +25832,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
   %782 = load i16, ptr %4, align 2
   %783 = add i16 %782, -4
   store i16 %783, ptr %4, align 2
-  %784 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %766, i32 noundef %781, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %784 = call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef nonnull %0, ptr noundef %766, i32 noundef %781, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %785 = load i32, ptr %5, align 4
   %.not106.i = icmp eq i32 %785, 0
   br i1 %.not106.i, label %786, label %dissect_4_3_4_6.exit
@@ -26033,7 +26033,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 898:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
@@ -26094,7 +26094,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
   %929 = load i16, ptr %4, align 2
   %930 = add i16 %929, -4
   store i16 %930, ptr %4, align 2
-  %931 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %913, i32 noundef %928, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %931 = call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef nonnull %0, ptr noundef %913, i32 noundef %928, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %932 = load i32, ptr %5, align 4
   %.not91.i = icmp eq i32 %932, 0
   br i1 %.not91.i, label %933, label %dissect_4_3_4_6full.exit
@@ -26258,7 +26258,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 1023:                                             ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -26320,7 +26320,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
   %1054 = load i16, ptr %4, align 2
   %1055 = add i16 %1054, -4
   store i16 %1055, ptr %4, align 2
-  %1056 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %1038, i32 noundef %1053, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %1056 = call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef nonnull %0, ptr noundef %1038, i32 noundef %1053, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %1057 = load i32, ptr %5, align 4
   %.not116.i = icmp eq i32 %1057, 0
   br i1 %.not116.i, label %1058, label %dissect_4_3_4_6_id_both.exit
@@ -26549,7 +26549,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 1186:                                             ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -26559,7 +26559,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
 
 1188:                                             ; preds = %1186
   store i32 1, ptr %5, align 4
-  br label %dissect_4_3_4_8.exit
+  br label %dissect_4_3_4_8.argprom.exit
 
 1189:                                             ; preds = %1186
   %1190 = load i32, ptr @hf_smb_unix_find_file_nextoffset, align 4
@@ -26573,7 +26573,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
 
 1196:                                             ; preds = %1189
   store i32 1, ptr %5, align 4
-  br label %dissect_4_3_4_8.exit
+  br label %dissect_4_3_4_8.argprom.exit
 
 1197:                                             ; preds = %1189
   %1198 = load i32, ptr @hf_smb_unix_find_file_resumekey, align 4
@@ -26582,11 +26582,11 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
   %1201 = load i16, ptr %4, align 2
   %1202 = add i16 %1201, -4
   store i16 %1202, ptr %4, align 2
-  %1203 = tail call fastcc i32 @dissect_4_2_16_12(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1200, ptr noundef %4, ptr noundef %5)
+  %1203 = tail call fastcc i32 @dissect_4_2_16_12.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1200, ptr noundef %4, ptr noundef %5)
   store i32 %1203, ptr %8, align 4
   %1204 = load i32, ptr %5, align 4
   %.not.i116 = icmp eq i32 %1204, 0
-  br i1 %.not.i116, label %1205, label %dissect_4_3_4_8.exit
+  br i1 %.not.i116, label %1205, label %dissect_4_3_4_8.argprom.exit
 
 1205:                                             ; preds = %1197
   %1206 = getelementptr inbounds i8, ptr %6, i64 24
@@ -26598,7 +26598,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
 1210:                                             ; preds = %1205
   store i32 1, ptr %5, align 4
   %1211 = load i32, ptr %8, align 4
-  br label %dissect_4_3_4_8.exit
+  br label %dissect_4_3_4_8.argprom.exit
 
 1212:                                             ; preds = %1205
   %1213 = load i32, ptr @hf_smb_unix_file_name, align 4
@@ -26621,13 +26621,13 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
   %1225 = add i32 %1224, %1218
   store i16 %storemerge.i118, ptr %4, align 2
   store i32 0, ptr %5, align 4
-  br label %dissect_4_3_4_8.exit
+  br label %dissect_4_3_4_8.argprom.exit
 
-dissect_4_3_4_8.exit:                             ; preds = %1188, %1196, %1197, %1210, %1212
+dissect_4_3_4_8.argprom.exit:                     ; preds = %1188, %1196, %1197, %1210, %1212
   %.0.i117 = phi i32 [ %3, %1188 ], [ %1192, %1196 ], [ %1211, %1210 ], [ %1225, %1212 ], [ %1203, %1197 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 1226:                                             ; preds = %39
   %1227 = icmp ult i16 %37, 4
@@ -26650,10 +26650,10 @@ dissect_4_3_4_8.exit:                             ; preds = %1188, %1196, %1197,
   %1239 = load i16, ptr %4, align 2
   %1240 = add i16 %1239, -4
   store i16 %1240, ptr %4, align 2
-  %1241 = tail call fastcc i32 @dissect_qspi_unix_info2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1238, ptr noundef %4, ptr noundef %5)
+  %1241 = tail call fastcc i32 @dissect_qspi_unix_info2.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1238, ptr noundef %4, ptr noundef %5)
   %1242 = load i32, ptr %5, align 4
   %.not.i119 = icmp eq i32 %1242, 0
-  br i1 %.not.i119, label %1243, label %dissect_find_file_unix_info2.exit
+  br i1 %.not.i119, label %1243, label %dissect_find_file_unix_info2.argprom.exit
 
 1243:                                             ; preds = %1235
   %1244 = load i16, ptr %4, align 2
@@ -26729,26 +26729,26 @@ get_unicode_or_ascii_string.exit.i123:            ; preds = %1264, %1258
   %.sink.i125 = phi i32 [ 1, %1226 ], [ 1, %1228 ], [ 1, %1243 ], [ 1, %1246 ], [ 1, %get_unicode_or_ascii_string.exit.i123 ], [ 1, %1276 ], [ 0, %1280 ], [ 0, %1268 ]
   %.0.ph.i = phi i32 [ %3, %1226 ], [ %1231, %1228 ], [ %1241, %1243 ], [ %1250, %1246 ], [ %1250, %get_unicode_or_ascii_string.exit.i123 ], [ %1271, %1276 ], [ %1281, %1280 ], [ %1271, %1268 ]
   store i32 %.sink.i125, ptr %5, align 4
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
 1284:                                             ; preds = %39
   store i32 0, ptr %5, align 4
-  br label %dissect_find_file_unix_info2.exit
+  br label %dissect_find_file_unix_info2.argprom.exit
 
-dissect_find_file_unix_info2.exit:                ; preds = %.sink.split.i, %1235, %dissect_4_3_4_1.exit, %dissect_4_3_4_2.exit, %dissect_4_3_4_3.exit, %dissect_4_3_4_4.exit, %dissect_4_3_4_5.exit, %dissect_4_3_4_7.exit, %dissect_4_3_4_6.exit, %dissect_4_3_4_6full.exit, %dissect_4_3_4_6_id_both.exit, %dissect_4_3_4_8.exit, %1284, %38
-  %.0 = phi i32 [ %3, %38 ], [ %3, %1284 ], [ %.0.i117, %dissect_4_3_4_8.exit ], [ %.0.i114, %dissect_4_3_4_6_id_both.exit ], [ %.0.i111, %dissect_4_3_4_6full.exit ], [ %.0.i108, %dissect_4_3_4_6.exit ], [ %.080.i, %dissect_4_3_4_7.exit ], [ %.0.i102, %dissect_4_3_4_5.exit ], [ %.0.i99, %dissect_4_3_4_4.exit ], [ %.082.i, %dissect_4_3_4_3.exit ], [ %.083.i, %dissect_4_3_4_2.exit ], [ %.076.i, %dissect_4_3_4_1.exit ], [ %1241, %1235 ], [ %.0.ph.i, %.sink.split.i ]
+dissect_find_file_unix_info2.argprom.exit:        ; preds = %.sink.split.i, %1235, %dissect_4_3_4_1.exit, %dissect_4_3_4_2.exit, %dissect_4_3_4_3.exit, %dissect_4_3_4_4.exit, %dissect_4_3_4_5.exit, %dissect_4_3_4_7.exit, %dissect_4_3_4_6.exit, %dissect_4_3_4_6full.exit, %dissect_4_3_4_6_id_both.exit, %dissect_4_3_4_8.argprom.exit, %1284, %38
+  %.0 = phi i32 [ %3, %38 ], [ %3, %1284 ], [ %.0.i117, %dissect_4_3_4_8.argprom.exit ], [ %.0.i114, %dissect_4_3_4_6_id_both.exit ], [ %.0.i111, %dissect_4_3_4_6full.exit ], [ %.0.i108, %dissect_4_3_4_6.exit ], [ %.080.i, %dissect_4_3_4_7.exit ], [ %.0.i102, %dissect_4_3_4_5.exit ], [ %.0.i99, %dissect_4_3_4_4.exit ], [ %.082.i, %dissect_4_3_4_3.exit ], [ %.083.i, %dissect_4_3_4_2.exit ], [ %.076.i, %dissect_4_3_4_1.exit ], [ %1241, %1235 ], [ %.0.ph.i, %.sink.split.i ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_qpi_loi_vals.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %10 = load i16, ptr %4, align 2
   %.not = icmp eq i16 %10, 0
-  br i1 %.not, label %dissect_4_2_16_4.exit.thread, label %11
+  br i1 %.not, label %dissect_4_2_16_4.argprom.exit.thread, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %5, i64 36
@@ -26785,7 +26785,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
     i32 1035, label %195
     i32 512, label %197
     i32 513, label %199
-    i32 514, label %dissect_4_2_16_4.exitthread-pre-split
+    i32 514, label %dissect_4_2_16_4.argprom.exitthread-pre-split
     i32 516, label %202
     i32 517, label %204
     i32 518, label %206
@@ -26800,33 +26800,33 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   br label %188
 
 14:                                               ; preds = %11
-  %15 = call fastcc i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %15 = call fastcc i32 @dissect_qsfi_SMB_INFO_STANDARD.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 16:                                               ; preds = %11
-  %17 = call fastcc i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %17 = call fastcc i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef %9)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 18:                                               ; preds = %11, %11
-  %19 = call fastcc i32 @dissect_4_2_16_2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %19 = call fastcc i32 @dissect_4_2_16_2.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 20:                                               ; preds = %11
   %21 = getelementptr i8, ptr %5, i64 24
   %.val166 = load i32, ptr %21, align 8
-  %22 = call fastcc i32 @dissect_4_2_16_3(ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef %9, i32 %.val166)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %22 = call fastcc i32 @dissect_4_2_16_3.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef %9, i32 %.val166)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 23:                                               ; preds = %11, %11
-  %24 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %24 = call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
   %25 = load i32, ptr %9, align 4
   %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %26, label %dissect_4_2_16_4.exit.thread185
+  br i1 %.not.i, label %26, label %dissect_4_2_16_4.argprom.exit.thread185
 
 26:                                               ; preds = %23
   %27 = load i16, ptr %4, align 2
   %28 = icmp ult i16 %27, 4
-  br i1 %28, label %dissect_4_2_16_4.exit, label %29
+  br i1 %28, label %dissect_4_2_16_4.argprom.exit, label %29
 
 29:                                               ; preds = %26
   %30 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %24) #15
@@ -26838,15 +26838,15 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %36 = load i16, ptr %4, align 2
   %37 = add i16 %36, -4
   store i16 %37, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 38:                                               ; preds = %11, %11
   %39 = call i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 40:                                               ; preds = %11
   %41 = icmp ult i16 %10, 8
-  br i1 %41, label %dissect_4_2_16_4.exit, label %42
+  br i1 %41, label %dissect_4_2_16_4.argprom.exit, label %42
 
 42:                                               ; preds = %40
   %43 = load i32, ptr @hf_smb_index_number, align 4
@@ -26854,11 +26854,11 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %45 = load i16, ptr %4, align 2
   %46 = add i16 %45, -8
   store i16 %46, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 47:                                               ; preds = %11, %11
   %48 = icmp ult i16 %10, 4
-  br i1 %48, label %dissect_4_2_16_4.exit, label %49
+  br i1 %48, label %dissect_4_2_16_4.argprom.exit, label %49
 
 49:                                               ; preds = %47
   %50 = load i32, ptr @hf_smb_ea_list_length, align 4
@@ -26866,17 +26866,17 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %52 = load i16, ptr %4, align 2
   %53 = add i16 %52, -4
   store i16 %53, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 54:                                               ; preds = %11, %11
   %55 = getelementptr inbounds i8, ptr %5, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = call i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %56)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 58:                                               ; preds = %11
   %59 = icmp ult i16 %10, 8
-  br i1 %59, label %dissect_4_2_16_4.exit, label %60
+  br i1 %59, label %dissect_4_2_16_4.argprom.exit, label %60
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_smb_position, align 4
@@ -26884,11 +26884,11 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %63 = load i16, ptr %4, align 2
   %64 = add i16 %63, -8
   store i16 %64, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 65:                                               ; preds = %11
   %66 = icmp ult i16 %10, 4
-  br i1 %66, label %dissect_4_2_16_4.exit, label %67
+  br i1 %66, label %dissect_4_2_16_4.argprom.exit, label %67
 
 67:                                               ; preds = %65
   %68 = load i32, ptr @hf_smb_mode, align 4
@@ -26896,11 +26896,11 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %70 = load i16, ptr %4, align 2
   %71 = add i16 %70, -4
   store i16 %71, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 72:                                               ; preds = %11
   %73 = icmp ult i16 %10, 4
-  br i1 %73, label %dissect_4_2_16_4.exit, label %74
+  br i1 %73, label %dissect_4_2_16_4.argprom.exit, label %74
 
 74:                                               ; preds = %72
   %75 = load i32, ptr @hf_smb_t2_alignment, align 4
@@ -26908,15 +26908,15 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %77 = load i16, ptr %4, align 2
   %78 = add i16 %77, -4
   store i16 %78, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 79:                                               ; preds = %11, %11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %80 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %80 = call fastcc i32 @dissect_smb_standard_8byte_timestamps.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
   %81 = load i32, ptr %9, align 4
   %.not.i176 = icmp eq i32 %81, 0
-  br i1 %.not.i176, label %82, label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br i1 %.not.i176, label %82, label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 82:                                               ; preds = %79
   %83 = load i16, ptr %4, align 2
@@ -26925,7 +26925,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 85:                                               ; preds = %82
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 86:                                               ; preds = %82
   %87 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %80) #15
@@ -26942,7 +26942,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 96:                                               ; preds = %86
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 97:                                               ; preds = %86
   %98 = load i32, ptr @hf_smb_alloc_size64, align 4
@@ -26956,7 +26956,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 104:                                              ; preds = %97
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 105:                                              ; preds = %97
   %106 = load i32, ptr @hf_smb_end_of_file, align 4
@@ -26970,7 +26970,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 112:                                              ; preds = %105
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 113:                                              ; preds = %105
   %114 = load i32, ptr @hf_smb_number_of_links, align 4
@@ -26984,7 +26984,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 120:                                              ; preds = %113
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 121:                                              ; preds = %113
   %122 = load i32, ptr @hf_smb_delete_pending, align 4
@@ -26998,7 +26998,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 128:                                              ; preds = %121
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 129:                                              ; preds = %121
   %130 = load i32, ptr @hf_smb_is_directory, align 4
@@ -27012,7 +27012,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 136:                                              ; preds = %129
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 137:                                              ; preds = %129
   %138 = load i32, ptr @hf_smb_ea_list_length, align 4
@@ -27026,7 +27026,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 144:                                              ; preds = %137
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 145:                                              ; preds = %137
   %146 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %140) #15
@@ -27044,7 +27044,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 154:                                              ; preds = %145
   store i32 1, ptr %9, align 4
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
 155:                                              ; preds = %145
   %156 = getelementptr inbounds i8, ptr %5, i64 24
@@ -27052,7 +27052,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %158 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %7, i32 noundef %157, ptr noundef %8, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %.not63.i = icmp eq ptr %158, null
   %.pre189 = load i32, ptr %7, align 4
-  br i1 %.not63.i, label %dissect_qfi_SMB_FILE_ALL_INFO.exit, label %159
+  br i1 %.not63.i, label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit, label %159
 
 159:                                              ; preds = %155
   %160 = load i32, ptr @hf_smb_file_name, align 4
@@ -27064,17 +27064,17 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %166 = trunc i32 %163 to i16
   %167 = sub i16 %165, %166
   store i16 %167, ptr %4, align 2
-  br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
+  br label %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit
 
-dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85, %96, %104, %112, %120, %128, %136, %144, %154
+dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit:       ; preds = %155, %159, %79, %85, %96, %104, %112, %120, %128, %136, %144, %154
   %.0.i177 = phi i32 [ %80, %85 ], [ %93, %96 ], [ %100, %104 ], [ %108, %112 ], [ %116, %120 ], [ %124, %128 ], [ %133, %136 ], [ %140, %144 ], [ %149, %154 ], [ %80, %79 ], [ %164, %159 ], [ %.pre189, %155 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 168:                                              ; preds = %11
   %169 = icmp ult i16 %10, 8
-  br i1 %169, label %dissect_4_2_16_4.exit, label %170
+  br i1 %169, label %dissect_4_2_16_4.argprom.exit, label %170
 
 170:                                              ; preds = %168
   %171 = load i32, ptr @hf_smb_alloc_size64, align 4
@@ -27082,11 +27082,11 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85
   %173 = load i16, ptr %4, align 2
   %174 = add i16 %173, -8
   store i16 %174, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 175:                                              ; preds = %11
   %176 = icmp ult i16 %10, 8
-  br i1 %176, label %dissect_4_2_16_4.exit, label %177
+  br i1 %176, label %dissect_4_2_16_4.argprom.exit, label %177
 
 177:                                              ; preds = %175
   %178 = load i32, ptr @hf_smb_end_of_file, align 4
@@ -27094,13 +27094,13 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85
   %180 = load i16, ptr %4, align 2
   %181 = add i16 %180, -8
   store i16 %181, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
 182:                                              ; preds = %11, %11
   %183 = getelementptr inbounds i8, ptr %5, i64 24
   %184 = load i32, ptr %183, align 8
   %185 = call i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %184)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 186:                                              ; preds = %11
   %187 = getelementptr inbounds i8, ptr %5, i64 24
@@ -27110,53 +27110,53 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85
 188:                                              ; preds = %._crit_edge, %186
   %189 = phi i32 [ %.pre, %._crit_edge ], [ 1, %186 ]
   %190 = call i32 @dissect_qfi_SMB_FILE_STREAM_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %189)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 191:                                              ; preds = %11, %11
   %192 = call i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 193:                                              ; preds = %11
   %194 = call i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 195:                                              ; preds = %11
   %196 = call i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 197:                                              ; preds = %11
-  %198 = call fastcc i32 @dissect_4_2_16_12(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %198 = call fastcc i32 @dissect_4_2_16_12.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 199:                                              ; preds = %11
   %200 = getelementptr i8, ptr %5, i64 24
   %.val = load i32, ptr %200, align 8
-  %201 = call fastcc i32 @dissect_4_2_16_13(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9, i32 %.val)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %201 = call fastcc i32 @dissect_4_2_16_13.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9, i32 %.val)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 202:                                              ; preds = %11
   %203 = call fastcc i32 @dissect_qspi_unix_acl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 204:                                              ; preds = %11
   %205 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 206:                                              ; preds = %11
   %207 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 208:                                              ; preds = %11
   %209 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 210:                                              ; preds = %11
   %211 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
 212:                                              ; preds = %11
-  %213 = call fastcc i32 @dissect_qspi_unix_info2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
-  br label %dissect_4_2_16_4.exitthread-pre-split
+  %213 = call fastcc i32 @dissect_qspi_unix_info2.argprom(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
+  br label %dissect_4_2_16_4.argprom.exitthread-pre-split
 
 214:                                              ; preds = %11
   %215 = zext i16 %10 to i32
@@ -27164,26 +27164,26 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85
   %217 = load i16, ptr %4, align 2
   %218 = zext i16 %217 to i32
   store i16 0, ptr %4, align 2
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
-dissect_4_2_16_4.exitthread-pre-split:            ; preds = %14, %16, %18, %20, %38, %54, %dissect_qfi_SMB_FILE_ALL_INFO.exit, %182, %188, %191, %193, %195, %197, %199, %202, %212, %11
-  %.0162.ph = phi i32 [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ], [ %39, %38 ], [ %57, %54 ], [ %.0.i177, %dissect_qfi_SMB_FILE_ALL_INFO.exit ], [ %185, %182 ], [ %190, %188 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %201, %199 ], [ 0, %11 ], [ %203, %202 ], [ %213, %212 ]
+dissect_4_2_16_4.argprom.exitthread-pre-split:    ; preds = %14, %16, %18, %20, %38, %54, %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit, %182, %188, %191, %193, %195, %197, %199, %202, %212, %11
+  %.0162.ph = phi i32 [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ], [ %39, %38 ], [ %57, %54 ], [ %.0.i177, %dissect_qfi_SMB_FILE_ALL_INFO.argprom.exit ], [ %185, %182 ], [ %190, %188 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %201, %199 ], [ 0, %11 ], [ %203, %202 ], [ %213, %212 ]
   %.pr = load i32, ptr %9, align 4
   %219 = icmp eq i32 %.pr, 0
-  br label %dissect_4_2_16_4.exit
+  br label %dissect_4_2_16_4.argprom.exit
 
-dissect_4_2_16_4.exit:                            ; preds = %177, %175, %170, %168, %74, %72, %67, %65, %60, %58, %49, %47, %42, %40, %26, %29, %dissect_4_2_16_4.exitthread-pre-split
-  %.not165 = phi i1 [ %219, %dissect_4_2_16_4.exitthread-pre-split ], [ true, %29 ], [ false, %26 ], [ true, %42 ], [ false, %40 ], [ true, %49 ], [ false, %47 ], [ true, %60 ], [ false, %58 ], [ true, %67 ], [ false, %65 ], [ true, %74 ], [ false, %72 ], [ true, %170 ], [ false, %168 ], [ true, %177 ], [ false, %175 ]
-  %.0162 = phi i32 [ %.0162.ph, %dissect_4_2_16_4.exitthread-pre-split ], [ %35, %29 ], [ %24, %26 ], [ 8, %42 ], [ 0, %40 ], [ 4, %49 ], [ 0, %47 ], [ 8, %60 ], [ 0, %58 ], [ 4, %67 ], [ 0, %65 ], [ 4, %74 ], [ 0, %72 ], [ 8, %170 ], [ 0, %168 ], [ 8, %177 ], [ 0, %175 ]
-  br i1 %.not165, label %dissect_4_2_16_4.exit.thread, label %dissect_4_2_16_4.exit.thread185
+dissect_4_2_16_4.argprom.exit:                    ; preds = %177, %175, %170, %168, %74, %72, %67, %65, %60, %58, %49, %47, %42, %40, %26, %29, %dissect_4_2_16_4.argprom.exitthread-pre-split
+  %.not165 = phi i1 [ %219, %dissect_4_2_16_4.argprom.exitthread-pre-split ], [ true, %29 ], [ false, %26 ], [ true, %42 ], [ false, %40 ], [ true, %49 ], [ false, %47 ], [ true, %60 ], [ false, %58 ], [ true, %67 ], [ false, %65 ], [ true, %74 ], [ false, %72 ], [ true, %170 ], [ false, %168 ], [ true, %177 ], [ false, %175 ]
+  %.0162 = phi i32 [ %.0162.ph, %dissect_4_2_16_4.argprom.exitthread-pre-split ], [ %35, %29 ], [ %24, %26 ], [ 8, %42 ], [ 0, %40 ], [ 4, %49 ], [ 0, %47 ], [ 8, %60 ], [ 0, %58 ], [ 4, %67 ], [ 0, %65 ], [ 4, %74 ], [ 0, %72 ], [ 8, %170 ], [ 0, %168 ], [ 8, %177 ], [ 0, %175 ]
+  br i1 %.not165, label %dissect_4_2_16_4.argprom.exit.thread, label %dissect_4_2_16_4.argprom.exit.thread185
 
-dissect_4_2_16_4.exit.thread185:                  ; preds = %23, %dissect_4_2_16_4.exit
-  %.0162188 = phi i32 [ %.0162, %dissect_4_2_16_4.exit ], [ %24, %23 ]
+dissect_4_2_16_4.argprom.exit.thread185:          ; preds = %23, %dissect_4_2_16_4.argprom.exit
+  %.0162188 = phi i32 [ %.0162, %dissect_4_2_16_4.argprom.exit ], [ %24, %23 ]
   %220 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_smb_mal_information_level) #15
-  br label %dissect_4_2_16_4.exit.thread
+  br label %dissect_4_2_16_4.argprom.exit.thread
 
-dissect_4_2_16_4.exit.thread:                     ; preds = %204, %206, %208, %210, %214, %dissect_4_2_16_4.exit, %dissect_4_2_16_4.exit.thread185, %6
-  %.0 = phi i32 [ 0, %6 ], [ %.0162188, %dissect_4_2_16_4.exit.thread185 ], [ %.0162, %dissect_4_2_16_4.exit ], [ 0, %204 ], [ 0, %206 ], [ 0, %208 ], [ 0, %210 ], [ %218, %214 ]
+dissect_4_2_16_4.argprom.exit.thread:             ; preds = %204, %206, %208, %210, %214, %dissect_4_2_16_4.argprom.exit, %dissect_4_2_16_4.argprom.exit.thread185, %6
+  %.0 = phi i32 [ 0, %6 ], [ %.0162188, %dissect_4_2_16_4.argprom.exit.thread185 ], [ %.0162, %dissect_4_2_16_4.argprom.exit ], [ 0, %204 ], [ 0, %206 ], [ 0, %208 ], [ 0, %210 ], [ %218, %214 ]
   ret i32 %.0
 }
 
@@ -27194,7 +27194,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE.argprom.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = load i16, ptr %2, align 2
   %6 = icmp ult i16 %5, 4
   br i1 %6, label %59, label %7
@@ -27280,7 +27280,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_3(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_3.argprom.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i32 %.24.val) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -27334,7 +27334,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_search_find_request.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -27427,7 +27427,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noca
   br i1 %.not56, label %78, label %72
 
 72:                                               ; preds = %65
-  %73 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %2, i32 noundef %70, ptr noundef %9, ptr noundef %10, i32 noundef %5)
+  %73 = call fastcc i32 @dissect_search_resume_key.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %70, ptr noundef %9, ptr noundef %10, i32 noundef %5)
   %74 = load i32, ptr %10, align 4
   %75 = icmp eq i32 %74, 0
   %76 = load i16, ptr %9, align 2
@@ -27470,7 +27470,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_search_resume_key.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = load i32, ptr @ett_smb_search_resume_key, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 21, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.1163) #15
   %9 = load i16, ptr %3, align 2
@@ -27557,7 +27557,7 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %44, %39, %29, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readnone %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_search_find_response.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readnone %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #15
@@ -27585,14 +27585,14 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
   %24 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %23) #15
   %25 = add i32 %.0, 2
   %26 = icmp eq i16 %21, 0
-  br i1 %26, label %dissect_search_dir_info.exit.thread, label %27
+  br i1 %26, label %dissect_search_dir_info.argprom.exit.thread, label %27
 
 27:                                               ; preds = %20
   %28 = load i32, ptr @hf_smb_buffer_format, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef -2147483648) #15
   %30 = add i32 %.0, 3
   %31 = icmp ult i16 %21, 3
-  br i1 %31, label %dissect_search_dir_info.exit.thread, label %32
+  br i1 %31, label %dissect_search_dir_info.argprom.exit.thread, label %32
 
 32:                                               ; preds = %27
   %33 = load i32, ptr @hf_smb_data_len, align 4
@@ -27607,16 +27607,16 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %42, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %dissect_search_dir_info.exit
-  %.213 = phi i32 [ %69, %dissect_search_dir_info.exit ], [ %35, %.lr.ph ]
-  %.15112 = phi i16 [ %37, %dissect_search_dir_info.exit ], [ %.050, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %dissect_search_dir_info.argprom.exit
+  %.213 = phi i32 [ %69, %dissect_search_dir_info.argprom.exit ], [ %35, %.lr.ph ]
+  %.15112 = phi i16 [ %37, %dissect_search_dir_info.argprom.exit ], [ %.050, %.lr.ph ]
   %37 = add i16 %.15112, -1
   %38 = load i32, ptr @ett_smb_search_dir_info, align 4
   %39 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.213, i32 noundef 43, i32 noundef %38, ptr noundef null, ptr noundef nonnull @.str.2681) #15
-  %40 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %39, i32 noundef %.213, ptr noundef %6, ptr noundef %7, i32 noundef %3)
+  %40 = call fastcc i32 @dissect_search_resume_key.argprom(ptr noundef %0, ptr noundef %39, i32 noundef %.213, ptr noundef %6, ptr noundef %7, i32 noundef %3)
   %41 = load i32, ptr %7, align 4
   %.not37.i = icmp eq i32 %41, 0
-  br i1 %.not37.i, label %43, label %dissect_search_dir_info.exit.thread
+  br i1 %.not37.i, label %43, label %dissect_search_dir_info.argprom.exit.thread
 
 42:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5964, ptr noundef nonnull @.str.2) #16
@@ -27625,7 +27625,7 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
 43:                                               ; preds = %.lr.ph.split
   %44 = load i16, ptr %6, align 2
   %45 = icmp eq i16 %44, 0
-  br i1 %45, label %dissect_search_dir_info.exit.thread, label %46
+  br i1 %45, label %dissect_search_dir_info.argprom.exit.thread, label %46
 
 46:                                               ; preds = %43
   %47 = load i32, ptr @hf_smb_file_attr_8bit, align 4
@@ -27633,7 +27633,7 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
   %49 = tail call ptr @proto_tree_add_bitmask(ptr noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef %47, i32 noundef %48, ptr noundef nonnull @dissect_dir_info_file_attributes.flags, i32 noundef 0) #15
   %50 = add i32 %40, 1
   %51 = icmp ult i16 %44, 5
-  br i1 %51, label %dissect_search_dir_info.exit.thread, label %52
+  br i1 %51, label %dissect_search_dir_info.argprom.exit.thread, label %52
 
 52:                                               ; preds = %46
   %53 = load i32, ptr @hf_smb_last_write_time, align 4
@@ -27642,22 +27642,22 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
   %56 = tail call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %39, i32 noundef %50, i32 noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef 1)
   %57 = add i16 %44, -5
   %58 = icmp ult i16 %57, 4
-  br i1 %58, label %dissect_search_dir_info.exit.thread, label %59
+  br i1 %58, label %dissect_search_dir_info.argprom.exit.thread, label %59
 
 59:                                               ; preds = %52
   %60 = load i32, ptr @hf_smb_file_size, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %60, ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef -2147483648) #15
   %62 = add i32 %56, 4
   %63 = icmp eq i16 %44, 9
-  br i1 %63, label %dissect_search_dir_info.exit.thread, label %get_unicode_or_ascii_string.exit.i
+  br i1 %63, label %dissect_search_dir_info.argprom.exit.thread, label %get_unicode_or_ascii_string.exit.i
 
 get_unicode_or_ascii_string.exit.i:               ; preds = %59
   %64 = tail call ptr @wmem_packet_scope() #15
   %65 = tail call ptr @tvb_get_string_enc(ptr noundef %64, ptr noundef %0, i32 noundef %62, i32 noundef 13, i32 noundef 0) #15
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %dissect_search_dir_info.exit.thread, label %dissect_search_dir_info.exit
+  br i1 %66, label %dissect_search_dir_info.argprom.exit.thread, label %dissect_search_dir_info.argprom.exit
 
-dissect_search_dir_info.exit:                     ; preds = %get_unicode_or_ascii_string.exit.i
+dissect_search_dir_info.argprom.exit:             ; preds = %get_unicode_or_ascii_string.exit.i
   %67 = load i32, ptr @hf_smb_file_name, align 4
   %68 = tail call ptr @proto_tree_add_string(ptr noundef %39, i32 noundef %67, ptr noundef %0, i32 noundef %62, i32 noundef 13, ptr noundef nonnull %65) #15
   %69 = add i32 %56, 17
@@ -27667,11 +27667,11 @@ dissect_search_dir_info.exit:                     ; preds = %get_unicode_or_asci
   %.not = icmp eq i16 %37, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %dissect_search_dir_info.exit, %32
-  %.pr = phi i16 [ %36, %32 ], [ %70, %dissect_search_dir_info.exit ]
-  %.2.lcssa = phi i32 [ %35, %32 ], [ %69, %dissect_search_dir_info.exit ]
+._crit_edge:                                      ; preds = %dissect_search_dir_info.argprom.exit, %32
+  %.pr = phi i16 [ %36, %32 ], [ %70, %dissect_search_dir_info.argprom.exit ]
+  %.2.lcssa = phi i32 [ %35, %32 ], [ %69, %dissect_search_dir_info.argprom.exit ]
   %.not54 = icmp eq i16 %.pr, 0
-  br i1 %.not54, label %dissect_search_dir_info.exit.thread, label %71
+  br i1 %.not54, label %dissect_search_dir_info.argprom.exit.thread, label %71
 
 71:                                               ; preds = %._crit_edge
   %72 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.lcssa) #15
@@ -27694,9 +27694,9 @@ thread-pre-split.thread:                          ; preds = %71, %thread-pre-spl
 ._crit_edge17:                                    ; preds = %thread-pre-split, %thread-pre-split.thread
   %.pre-phi = phi i32 [ %78, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
   %80 = add i32 %.2.lcssa, %.pre-phi
-  br label %dissect_search_dir_info.exit.thread
+  br label %dissect_search_dir_info.argprom.exit.thread
 
-dissect_search_dir_info.exit.thread:              ; preds = %.lr.ph.split, %get_unicode_or_ascii_string.exit.i, %59, %52, %46, %43, %._crit_edge, %._crit_edge17, %27, %20
+dissect_search_dir_info.argprom.exit.thread:      ; preds = %.lr.ph.split, %get_unicode_or_ascii_string.exit.i, %59, %52, %46, %43, %._crit_edge, %._crit_edge17, %27, %20
   %.1 = phi i32 [ %25, %20 ], [ %30, %27 ], [ %80, %._crit_edge17 ], [ %.2.lcssa, %._crit_edge ], [ %62, %get_unicode_or_ascii_string.exit.i ], [ %62, %59 ], [ %56, %52 ], [ %50, %46 ], [ %40, %43 ], [ %40, %.lr.ph.split ]
   ret i32 %.1
 }
@@ -27704,7 +27704,7 @@ dissect_search_dir_info.exit.thread:              ; preds = %.lr.ph.split, %get_
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef nonnull %7, i32 noundef range(i32 0, 65536) %8, ptr noundef nonnull %9, ptr noundef nonnull %10) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_param_request.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef nonnull %7, i32 noundef range(i32 0, 65536) %8, ptr noundef nonnull %9, ptr noundef nonnull %10) unnamed_addr #0 {
   %12 = load i32, ptr @ett_smb_nt_trans_param, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2684) #15
   %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.2633, ptr noundef %13) #15
@@ -27887,7 +27887,7 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %78, %get_unicode_or
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_data_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef range(i32 0, 65536) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_data_request.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef range(i32 0, 65536) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = trunc i32 %4 to i16
   store i16 %11, ptr %10, align 2
@@ -28041,7 +28041,7 @@ define internal void @smb_dir_specific_rights(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_param_response.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %6, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -28316,7 +28316,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %139, %145
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_data_response(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_data_response.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   %.not = icmp eq ptr %3, null
   %8 = icmp eq ptr %5, null

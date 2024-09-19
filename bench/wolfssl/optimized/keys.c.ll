@@ -947,19 +947,19 @@ land.lhs.true:                                    ; preds = %sw.epilog
 if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %auth, align 8
   %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %land.lhs.true3.i, label %SetAuthKeys.exit.thread
+  br i1 %cmp.i, label %land.lhs.true3.i, label %SetAuthKeys.argprom.exit.thread
 
 land.lhs.true3.i:                                 ; preds = %if.then
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 96) #7
   store ptr %call.i, ptr %auth, align 8
   %cmp5.i = icmp eq ptr %call.i, null
-  br i1 %cmp5.i, label %return, label %SetAuthKeys.exit.thread
+  br i1 %cmp5.i, label %return, label %SetAuthKeys.argprom.exit.thread
 
-SetAuthKeys.exit.thread:                          ; preds = %if.then, %land.lhs.true3.i
+SetAuthKeys.argprom.exit.thread:                  ; preds = %if.then, %land.lhs.true3.i
   store i8 1, ptr %setup, align 8
   br label %if.end12
 
-if.end12:                                         ; preds = %SetAuthKeys.exit.thread, %land.lhs.true, %sw.epilog
+if.end12:                                         ; preds = %SetAuthKeys.argprom.exit.thread, %land.lhs.true, %sw.epilog
   %specs13 = getelementptr inbounds i8, ptr %ssl, i64 698
   %side14 = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %side14, align 8

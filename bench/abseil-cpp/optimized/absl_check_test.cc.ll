@@ -2525,7 +2525,7 @@ invoke.cont29:                                    ; preds = %sw.bb26
   br i1 %call30, label %if.then31, label %try.cont
 
 if.then31:                                        ; preds = %invoke.cont29
-  invoke fastcc void @"_ZZN17absl_log_internal42CHECKTest_TestMacroExpansionInMessage_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN17absl_log_internal42CHECKTest_TestMacroExpansionInMessage_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %try.cont.unreachable unwind label %lpad28
 
 lpad28:                                           ; preds = %if.then31, %sw.bb26
@@ -2785,7 +2785,7 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal42CHECKTest_TestMacroExpansionInMessage_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal42CHECKTest_TestMacroExpansionInMessage_Test8TestBodyEvENK3$_0clEv.argprom"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 142, i64 15, ptr nonnull @.str.35) #25
@@ -7983,7 +7983,7 @@ invoke.cont29:                                    ; preds = %sw.bb26
   br i1 %call30, label %if.then31, label %try.cont
 
 if.then31:                                        ; preds = %invoke.cont29
-  invoke fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias align 8 %ref.tmp32, ptr nonnull %counter)
+  invoke fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom"(ptr noalias align 8 %ref.tmp32, ptr nonnull %counter)
           to label %invoke.cont33 unwind label %lpad28
 
 invoke.cont33:                                    ; preds = %if.then31
@@ -7995,7 +7995,7 @@ cond.false:                                       ; preds = %invoke.cont33
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %cond.false
-  invoke fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias align 8 %ref.tmp45, ptr nonnull %counter)
+  invoke fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom"(ptr noalias align 8 %ref.tmp45, ptr nonnull %counter)
           to label %invoke.cont46 unwind label %lpad42
 
 invoke.cont46:                                    ; preds = %invoke.cont41
@@ -8293,7 +8293,7 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias nonnull align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom"(ptr noalias nonnull align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load i32, ptr %this.0.val, align 4
@@ -8639,7 +8639,7 @@ invoke.cont41:                                    ; preds = %sw.bb38
   br i1 %call42, label %if.then43, label %try.cont
 
 if.then43:                                        ; preds = %invoke.cont41
-  invoke fastcc void @"_ZZN17absl_log_internal35CHECKTest_TestSecondaryFailure_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN17absl_log_internal35CHECKTest_TestSecondaryFailure_Test8TestBodyEvENK3$_0clEv.argprom.retelim"()
           to label %invoke.cont44 unwind label %lpad40
 
 invoke.cont44:                                    ; preds = %if.then43
@@ -8899,7 +8899,7 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal35CHECKTest_TestSecondaryFailure_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal35CHECKTest_TestSecondaryFailure_Test8TestBodyEvENK3$_0clEv.argprom.retelim"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 213, i64 5, ptr nonnull @.str.7) #25
@@ -9220,7 +9220,7 @@ if.then43:                                        ; preds = %invoke.cont41
           to label %invoke.cont47 unwind label %lpad40
 
 invoke.cont47:                                    ; preds = %if.then43
-  invoke fastcc void @"_ZZN17absl_log_internal44CHECKTest_TestSecondaryFailureInMessage_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN17absl_log_internal44CHECKTest_TestSecondaryFailureInMessage_Test8TestBodyEvENK3$_0clEv.argprom.retelim"()
           to label %invoke.cont52.unreachable unwind label %lpad48
 
 invoke.cont52.unreachable:                        ; preds = %invoke.cont47
@@ -9420,7 +9420,7 @@ terminate.lpad:                                   ; preds = %lpad70, %lpad61
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal44CHECKTest_TestSecondaryFailureInMessage_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal44CHECKTest_TestSecondaryFailureInMessage_Test8TestBodyEvENK3$_0clEv.argprom.retelim"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 222, i64 5, ptr nonnull @.str.7) #25

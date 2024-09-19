@@ -5284,7 +5284,7 @@ define dso_local ptr @__ip6_route_redirect(ptr noundef %0, ptr noundef %1, ptr n
 64:                                               ; preds = %38
   %65 = getelementptr inbounds i8, ptr %24, i64 168
   store ptr %65, ptr %7, align 8
-  %66 = call fastcc zeroext i1 @ip6_redirect_nh_match(ptr %65, ptr noundef %2, ptr noundef %11, ptr noundef nonnull %6)
+  %66 = call fastcc zeroext i1 @ip6_redirect_nh_match.argprom(ptr %65, ptr noundef %2, ptr noundef %11, ptr noundef nonnull %6)
   br i1 %66, label %thread-pre-split, label %67
 
 67:                                               ; preds = %64, %61, %54, %29
@@ -5454,13 +5454,13 @@ define internal noundef range(i32 0, 2) i32 @fib6_nh_redirect_match(ptr noundef 
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %.val = load ptr, ptr %4, align 8
-  %11 = tail call fastcc zeroext i1 @ip6_redirect_nh_match(ptr %.val, ptr noundef %6, ptr noundef %8, ptr noundef %10)
+  %11 = tail call fastcc zeroext i1 @ip6_redirect_nh_match.argprom(ptr %.val, ptr noundef %6, ptr noundef %8, ptr noundef %10)
   %12 = zext i1 %11 to i32
   ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ip6_redirect_nh_match(ptr %.0.val, ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @ip6_redirect_nh_match.argprom(ptr %.0.val, ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 15
   %6 = load i8, ptr %5, align 1

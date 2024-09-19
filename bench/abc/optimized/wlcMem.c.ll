@@ -1352,7 +1352,7 @@ Wlc_ObjFanin.exit:                                ; preds = %Wlc_ObjHasArray.exi
   %28 = sub nsw i32 %.val12, %.val13
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
   %30 = add nuw nsw i32 %29, 1
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %2, i32 noundef %30)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %2, i32 noundef %30)
   %.val14.pre = load i32, ptr %6, align 8
   br label %31
 
@@ -1368,7 +1368,7 @@ Wlc_ObjFanin.exit:                                ; preds = %Wlc_ObjHasArray.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1750,7 +1750,7 @@ Wlc_ObjFanin.exit.i:                              ; preds = %21, %Wlc_ObjHasArra
   %29 = sub nsw i32 %.val12.i, %.val13.i
   %30 = tail call i32 @llvm.abs.i32(i32 %29, i1 true)
   %31 = add nuw nsw i32 %30, 1
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %3, i32 noundef %31)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %3, i32 noundef %31)
   %.val14.pre.i = load i32, ptr %7, align 8
   br label %32
 
@@ -2448,7 +2448,7 @@ define void @Wlc_NtkAbsAddToNodeFrames(ptr nocapture noundef %0, ptr nocapture n
   %.val = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef %0, i32 noundef %8)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %0, i32 noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val7 = load i32, ptr %3, align 4
   %9 = sext i32 %.val7 to i64
@@ -6672,7 +6672,7 @@ Vec_IntPush.exit:                                 ; preds = %164
   %.val102 = load ptr, ptr %169, align 8
   %186 = getelementptr inbounds i32, ptr %.val102, i64 %indvars.iv196
   %187 = load i32, ptr %186, align 4
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %172, i32 noundef %187)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %172, i32 noundef %187)
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %.val112 = load i32, ptr %123, align 4
   %188 = sext i32 %.val112 to i64
@@ -6684,7 +6684,7 @@ Vec_IntPush.exit:                                 ; preds = %164
   %.val = load ptr, ptr %170, align 8
   %190 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv199
   %191 = load i32, ptr %190, align 4
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %172, i32 noundef %191)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %172, i32 noundef %191)
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %.val111 = load i32, ptr %171, align 4
   %192 = sext i32 %.val111 to i64
@@ -7414,7 +7414,7 @@ Vec_IntPush.exit36:                               ; preds = %.Vec_IntGrow.exit10
   %.val.i = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i32, ptr %.val.i, i64 %indvars.iv.i
   %141 = load i32, ptr %140, align 4
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %141)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %141)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val7.i = load i32, ptr %16, align 4
   %142 = sext i32 %.val7.i to i64
@@ -8348,7 +8348,7 @@ define void @Wlc_NtkExploreMem_rec(ptr nocapture noundef readonly %0, ptr nounde
   %22 = sub i64 %20, %21
   %23 = sdiv exact i64 %22, 24
   %24 = trunc i64 %23 to i32
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef %2, i32 noundef %24)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %2, i32 noundef %24)
   br label %.critedge
 
 25:                                               ; preds = %16

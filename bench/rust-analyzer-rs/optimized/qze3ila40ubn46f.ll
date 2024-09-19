@@ -30,7 +30,7 @@ define internal noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17ha3f
   call void @_ZN3std3env7_var_os17hc776618f090d355dE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 @anon.21dec6af1fbc3b005144ba86c660a4a7.11, i64 noundef 15)
   %3 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %.not.i = icmp eq i64 %3, -9223372036854775808
-  br i1 %.not.i, label %"_ZN7profile10stop_watch9StopWatch5start12PERF_ENABLED28_$u7b$$u7b$closure$u7d$$u7d$17hb037ed686a11f273E.exit", label %4
+  br i1 %.not.i, label %"_ZN7profile10stop_watch9StopWatch5start12PERF_ENABLED28_$u7b$$u7b$closure$u7d$$u7d$17hb037ed686a11f273E.argprom.exit", label %4
 
 4:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !6
@@ -50,9 +50,9 @@ define internal noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17ha3f
 
 "_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h1419fc99f395bdc8E.exit.i.i": ; preds = %7, %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1), !noalias !6
-  br label %"_ZN7profile10stop_watch9StopWatch5start12PERF_ENABLED28_$u7b$$u7b$closure$u7d$$u7d$17hb037ed686a11f273E.exit"
+  br label %"_ZN7profile10stop_watch9StopWatch5start12PERF_ENABLED28_$u7b$$u7b$closure$u7d$$u7d$17hb037ed686a11f273E.argprom.exit"
 
-"_ZN7profile10stop_watch9StopWatch5start12PERF_ENABLED28_$u7b$$u7b$closure$u7d$$u7d$17hb037ed686a11f273E.exit": ; preds = %0, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h1419fc99f395bdc8E.exit.i.i"
+"_ZN7profile10stop_watch9StopWatch5start12PERF_ENABLED28_$u7b$$u7b$closure$u7d$$u7d$17hb037ed686a11f273E.argprom.exit": ; preds = %0, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h1419fc99f395bdc8E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.not.i
 }

@@ -737,13 +737,13 @@ define hidden double @cmsBFDdeltaE(ptr nocapture noundef readonly %0, ptr nocapt
   %6 = fdiv double %5, 1.160000e+02
   %7 = fmul double %6, %6
   %8 = fmul double %6, %7
-  br label %ComputeLBFD.exit
+  br label %ComputeLBFD.argprom.exit
 
 9:                                                ; preds = %2
   %10 = fdiv double %.val, 0x408C3A6666666666
-  br label %ComputeLBFD.exit
+  br label %ComputeLBFD.argprom.exit
 
-ComputeLBFD.exit:                                 ; preds = %4, %9
+ComputeLBFD.argprom.exit:                         ; preds = %4, %9
   %.0.in.i = phi double [ %8, %4 ], [ %10, %9 ]
   %.0.i = fmul double %.0.in.i, 1.000000e+02
   %11 = fadd double %.0.i, 1.500000e+00
@@ -752,18 +752,18 @@ ComputeLBFD.exit:                                 ; preds = %4, %9
   %13 = fcmp ogt double %.val59, 0x401FFCE5710880D8
   br i1 %13, label %14, label %19
 
-14:                                               ; preds = %ComputeLBFD.exit
+14:                                               ; preds = %ComputeLBFD.argprom.exit
   %15 = fadd double %.val59, 1.600000e+01
   %16 = fdiv double %15, 1.160000e+02
   %17 = fmul double %16, %16
   %18 = fmul double %16, %17
-  br label %ComputeLBFD.exit62
+  br label %ComputeLBFD.argprom.exit62
 
-19:                                               ; preds = %ComputeLBFD.exit
+19:                                               ; preds = %ComputeLBFD.argprom.exit
   %20 = fdiv double %.val59, 0x408C3A6666666666
-  br label %ComputeLBFD.exit62
+  br label %ComputeLBFD.argprom.exit62
 
-ComputeLBFD.exit62:                               ; preds = %14, %19
+ComputeLBFD.argprom.exit62:                       ; preds = %14, %19
   %.0.in.i60 = phi double [ %18, %14 ], [ %20, %19 ]
   %.0.i61 = fmul double %.0.in.i60, 1.000000e+02
   %21 = fadd double %.0.i61, 1.500000e+00
@@ -783,7 +783,7 @@ ComputeLBFD.exit62:                               ; preds = %14, %19
   %or.cond.i.i = and i1 %33, %34
   br i1 %or.cond.i.i, label %cmsLab2LCh.exit, label %35
 
-35:                                               ; preds = %ComputeLBFD.exit62
+35:                                               ; preds = %ComputeLBFD.argprom.exit62
   %36 = tail call double @atan2(double noundef %31, double noundef %32) #10
   %37 = fmul double %36, 0x404CA5DC1A63C1F8
   %38 = fcmp ogt double %37, 3.600000e+02
@@ -806,8 +806,8 @@ ComputeLBFD.exit62:                               ; preds = %14, %19
   %43 = fcmp olt double %42, 0.000000e+00
   br i1 %43, label %.lr.ph13.i.i, label %cmsLab2LCh.exit, !llvm.loop !8
 
-cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %ComputeLBFD.exit62, %.preheader.i.i
-  %.2.lcssa.i.i = phi double [ %.1.lcssa.i.i, %.preheader.i.i ], [ 0.000000e+00, %ComputeLBFD.exit62 ], [ %42, %.lr.ph13.i.i ]
+cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %ComputeLBFD.argprom.exit62, %.preheader.i.i
+  %.2.lcssa.i.i = phi double [ %.1.lcssa.i.i, %.preheader.i.i ], [ 0.000000e+00, %ComputeLBFD.argprom.exit62 ], [ %42, %.lr.ph13.i.i ]
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   %45 = load double, ptr %44, align 8
   %46 = fmul double %45, %45

@@ -1562,7 +1562,7 @@ define dso_local void @intel_fbc_update(ptr nocapture noundef readonly %0, ptr n
 
 66:                                               ; preds = %64
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @intel_fbc_update_state(ptr noundef %0, i32 %.val, ptr noundef nonnull %24)
+  tail call fastcc void @intel_fbc_update_state.argprom(ptr noundef %0, i32 %.val, ptr noundef nonnull %24)
   br label %352
 
 67:                                               ; preds = %64
@@ -1982,7 +1982,7 @@ define dso_local void @intel_fbc_update(ptr nocapture noundef readonly %0, ptr n
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %321, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %323, ptr noundef %325) #11
   store ptr @.str.32, ptr %87, align 8
   %.val14 = load i32, ptr %11, align 8
-  tail call fastcc void @intel_fbc_update_state(ptr noundef %0, i32 %.val14, ptr noundef nonnull %24)
+  tail call fastcc void @intel_fbc_update_state.argprom(ptr noundef %0, i32 %.val14, ptr noundef nonnull %24)
   %326 = load ptr, ptr %58, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 2632
   %328 = load i16, ptr %327, align 8
@@ -3168,7 +3168,7 @@ define internal fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr nocap
 declare dso_local ptr @intel_atomic_get_cdclk_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_fbc_update_state(ptr nocapture noundef readonly %0, i32 %.144.val, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_fbc_update_state.argprom(ptr nocapture noundef readonly %0, i32 %.144.val, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

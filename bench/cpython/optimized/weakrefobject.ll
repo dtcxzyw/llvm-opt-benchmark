@@ -1264,90 +1264,90 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val29 = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %self.val29, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i, label %lor.lhs.false8, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %lor.lhs.false8, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
+PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %self.val29, ptr noundef nonnull @_PyWeakref_RefType) #7
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.lhs.false2, label %lor.lhs.false8
 
-lor.lhs.false2:                                   ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false2:                                   ; preds = %PyObject_TypeCheck.argprom.exit
   %self.val = load ptr, ptr %1, align 8
   %cmp.i31.not = icmp eq ptr %self.val, @_PyWeakref_ProxyType
   %cmp.i32.not = icmp eq ptr %self.val, @_PyWeakref_CallableProxyType
   %or.cond84 = or i1 %cmp.i31.not, %cmp.i32.not
   br i1 %or.cond84, label %lor.lhs.false8, label %return
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false, %lor.lhs.false2, %PyObject_TypeCheck.exit
+lor.lhs.false8:                                   ; preds = %lor.lhs.false, %lor.lhs.false2, %PyObject_TypeCheck.argprom.exit
   %2 = getelementptr i8, ptr %other, i64 8
   %other.val30 = load ptr, ptr %2, align 8
   %cmp.i.not.i34 = icmp eq ptr %other.val30, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i34, label %if.end, label %PyObject_TypeCheck.exit39
+  br i1 %cmp.i.not.i34, label %if.end, label %PyObject_TypeCheck.argprom.exit39
 
-PyObject_TypeCheck.exit39:                        ; preds = %lor.lhs.false8
+PyObject_TypeCheck.argprom.exit39:                ; preds = %lor.lhs.false8
   %call2.i36 = tail call i32 @PyType_IsSubtype(ptr noundef %other.val30, ptr noundef nonnull @_PyWeakref_RefType) #7
   %tobool3.i37.not = icmp eq i32 %call2.i36, 0
   br i1 %tobool3.i37.not, label %lor.lhs.false11, label %if.end
 
-lor.lhs.false11:                                  ; preds = %PyObject_TypeCheck.exit39
+lor.lhs.false11:                                  ; preds = %PyObject_TypeCheck.argprom.exit39
   %other.val = load ptr, ptr %2, align 8
   %cmp.i40.not = icmp eq ptr %other.val, @_PyWeakref_ProxyType
   %cmp.i42.not = icmp eq ptr %other.val, @_PyWeakref_CallableProxyType
   %or.cond85 = or i1 %cmp.i40.not, %cmp.i42.not
   br i1 %or.cond85, label %if.end, label %return
 
-if.end:                                           ; preds = %lor.lhs.false8, %lor.lhs.false11, %PyObject_TypeCheck.exit39
+if.end:                                           ; preds = %lor.lhs.false8, %lor.lhs.false11, %PyObject_TypeCheck.argprom.exit39
   %3 = getelementptr i8, ptr %self, i64 16
   %self.val27 = load ptr, ptr %3, align 8
   %cmp.i44 = icmp eq ptr %self.val27, @_Py_NoneStruct
-  br i1 %cmp.i44, label %_PyWeakref_GET_REF.exit, label %if.end.i45
+  br i1 %cmp.i44, label %_PyWeakref_GET_REF.argprom.exit, label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.end
   %.val.i = load i64, ptr %self.val27, align 8
   %cmp1.i = icmp eq i64 %.val.i, 0
-  br i1 %cmp1.i, label %_PyWeakref_GET_REF.exit, label %if.end3.i
+  br i1 %cmp1.i, label %_PyWeakref_GET_REF.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i45
   %4 = trunc i64 %.val.i to i32
   %add.i.i.i = add i32 %4, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_PyWeakref_GET_REF.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_PyWeakref_GET_REF.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end3.i
   store i32 %add.i.i.i, ptr %self.val27, align 8
-  br label %_PyWeakref_GET_REF.exit
+  br label %_PyWeakref_GET_REF.argprom.exit
 
-_PyWeakref_GET_REF.exit:                          ; preds = %if.end, %if.end.i45, %if.end3.i, %if.end.i.i.i
+_PyWeakref_GET_REF.argprom.exit:                  ; preds = %if.end, %if.end.i45, %if.end3.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ null, %if.end ], [ null, %if.end.i45 ], [ %self.val27, %if.end3.i ], [ %self.val27, %if.end.i.i.i ]
   %5 = getelementptr i8, ptr %other, i64 16
   %other.val28 = load ptr, ptr %5, align 8
   %cmp.i46 = icmp eq ptr %other.val28, @_Py_NoneStruct
-  br i1 %cmp.i46, label %_PyWeakref_GET_REF.exit55.thread, label %if.end.i47
+  br i1 %cmp.i46, label %_PyWeakref_GET_REF.argprom.exit55.thread, label %if.end.i47
 
-if.end.i47:                                       ; preds = %_PyWeakref_GET_REF.exit
+if.end.i47:                                       ; preds = %_PyWeakref_GET_REF.argprom.exit
   %.val.i48 = load i64, ptr %other.val28, align 8
   %cmp1.i49 = icmp eq i64 %.val.i48, 0
-  br i1 %cmp1.i49, label %_PyWeakref_GET_REF.exit55.thread, label %if.end3.i50
+  br i1 %cmp1.i49, label %_PyWeakref_GET_REF.argprom.exit55.thread, label %if.end3.i50
 
 if.end3.i50:                                      ; preds = %if.end.i47
   %6 = trunc i64 %.val.i48 to i32
   %add.i.i.i51 = add i32 %6, 1
   %cmp.i.i.i52 = icmp eq i32 %add.i.i.i51, 0
-  br i1 %cmp.i.i.i52, label %_PyWeakref_GET_REF.exit55, label %if.end.i.i.i53
+  br i1 %cmp.i.i.i52, label %_PyWeakref_GET_REF.argprom.exit55, label %if.end.i.i.i53
 
 if.end.i.i.i53:                                   ; preds = %if.end3.i50
   store i32 %add.i.i.i51, ptr %other.val28, align 8
-  br label %_PyWeakref_GET_REF.exit55
+  br label %_PyWeakref_GET_REF.argprom.exit55
 
-_PyWeakref_GET_REF.exit55.thread:                 ; preds = %_PyWeakref_GET_REF.exit, %if.end.i47
+_PyWeakref_GET_REF.argprom.exit55.thread:         ; preds = %_PyWeakref_GET_REF.argprom.exit, %if.end.i47
   %cmp1971 = icmp eq ptr %retval.0.i, null
   br i1 %cmp1971, label %Py_XDECREF.exit65, label %if.then.i
 
-_PyWeakref_GET_REF.exit55:                        ; preds = %if.end3.i50, %if.end.i.i.i53
+_PyWeakref_GET_REF.argprom.exit55:                ; preds = %if.end3.i50, %if.end.i.i.i53
   %cmp19 = icmp eq ptr %retval.0.i, null
   br i1 %cmp19, label %if.then.i58, label %if.end31
 
-if.then.i:                                        ; preds = %_PyWeakref_GET_REF.exit55.thread
+if.then.i:                                        ; preds = %_PyWeakref_GET_REF.argprom.exit55.thread
   %7 = load i64, ptr %retval.0.i, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i2.not.i = icmp eq i64 %8, 0
@@ -1359,7 +1359,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %Py_XDECREF.exit65.sink.split, label %Py_XDECREF.exit65
 
-if.then.i58:                                      ; preds = %_PyWeakref_GET_REF.exit55
+if.then.i58:                                      ; preds = %_PyWeakref_GET_REF.argprom.exit55
   %9 = load i64, ptr %other.val28, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i2.not.i59 = icmp eq i64 %10, 0
@@ -1376,14 +1376,14 @@ Py_XDECREF.exit65.sink.split:                     ; preds = %if.end.i.i61, %if.e
   tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i.sink) #7
   br label %Py_XDECREF.exit65
 
-Py_XDECREF.exit65:                                ; preds = %Py_XDECREF.exit65.sink.split, %if.end.i.i, %if.then.i, %_PyWeakref_GET_REF.exit55.thread, %if.then.i58, %if.end.i.i61
+Py_XDECREF.exit65:                                ; preds = %Py_XDECREF.exit65.sink.split, %if.end.i.i, %if.then.i, %_PyWeakref_GET_REF.argprom.exit55.thread, %if.then.i58, %if.end.i.i61
   %cmp23 = icmp eq ptr %self, %other
   %cmp24 = icmp eq i32 %op, 3
   %spec.select = xor i1 %cmp23, %cmp24
   %spec.select24 = select i1 %spec.select, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   br label %return
 
-if.end31:                                         ; preds = %_PyWeakref_GET_REF.exit55
+if.end31:                                         ; preds = %_PyWeakref_GET_REF.argprom.exit55
   %call33 = tail call ptr @PyObject_RichCompare(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %other.val28, i32 noundef %op) #7
   %11 = load i64, ptr %retval.0.i, align 8
   %12 = and i64 %11, 2147483648
@@ -1739,13 +1739,13 @@ entry:
   %1 = trunc i64 %.val.i to i32
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_PyWeakref_GET_REF.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_PyWeakref_GET_REF.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %proxy.val, align 8
-  br label %_PyWeakref_GET_REF.exit
+  br label %_PyWeakref_GET_REF.argprom.exit
 
-_PyWeakref_GET_REF.exit:                          ; preds = %entry, %if.end.i.i.i
+_PyWeakref_GET_REF.argprom.exit:                  ; preds = %entry, %if.end.i.i.i
   %2 = getelementptr i8, ptr %proxy.val, i64 8
   %call.val = load ptr, ptr %2, align 8
   %tp_name = getelementptr inbounds i8, ptr %call.val, i64 24
@@ -1756,7 +1756,7 @@ _PyWeakref_GET_REF.exit:                          ; preds = %entry, %if.end.i.i.
   %cmp.i4.not = icmp eq i64 %5, 0
   br i1 %cmp.i4.not, label %if.end.i, label %Py_DECREF.exit
 
-if.end.i:                                         ; preds = %_PyWeakref_GET_REF.exit
+if.end.i:                                         ; preds = %_PyWeakref_GET_REF.argprom.exit
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %proxy.val, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
@@ -1766,7 +1766,7 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %proxy.val) #7
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %_PyWeakref_GET_REF.exit, %if.then1.i, %if.end.i
+Py_DECREF.exit:                                   ; preds = %_PyWeakref_GET_REF.argprom.exit, %if.then1.i, %if.end.i
   ret ptr %call2
 }
 
@@ -3017,14 +3017,14 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %ref, i64 8
   %ref.val10 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %ref.val10, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i, label %if.end7, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end7, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %ref.val10, ptr noundef nonnull @_PyWeakref_RefType) #7
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.lhs.false, label %if.end7
 
-lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.argprom.exit
   %ref.val = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %ref.val, @_PyWeakref_ProxyType
   %cmp.i11.not = icmp eq ptr %ref.val, @_PyWeakref_CallableProxyType
@@ -3037,36 +3037,36 @@ if.then6:                                         ; preds = %lor.lhs.false
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.5) #7
   br label %return
 
-if.end7:                                          ; preds = %if.end, %lor.lhs.false, %PyObject_TypeCheck.exit
+if.end7:                                          ; preds = %if.end, %lor.lhs.false, %PyObject_TypeCheck.argprom.exit
   %2 = getelementptr i8, ptr %ref, i64 16
   %ref.val9 = load ptr, ptr %2, align 8
   %cmp.i13 = icmp eq ptr %ref.val9, @_Py_NoneStruct
-  br i1 %cmp.i13, label %_PyWeakref_GET_REF.exit, label %if.end.i
+  br i1 %cmp.i13, label %_PyWeakref_GET_REF.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end7
   %.val.i = load i64, ptr %ref.val9, align 8
   %cmp1.i = icmp eq i64 %.val.i, 0
-  br i1 %cmp1.i, label %_PyWeakref_GET_REF.exit, label %if.end3.i
+  br i1 %cmp1.i, label %_PyWeakref_GET_REF.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %3 = trunc i64 %.val.i to i32
   %add.i.i.i = add i32 %3, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_PyWeakref_GET_REF.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_PyWeakref_GET_REF.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end3.i
   store i32 %add.i.i.i, ptr %ref.val9, align 8
-  br label %_PyWeakref_GET_REF.exit
+  br label %_PyWeakref_GET_REF.argprom.exit
 
-_PyWeakref_GET_REF.exit:                          ; preds = %if.end7, %if.end.i, %if.end3.i, %if.end.i.i.i
+_PyWeakref_GET_REF.argprom.exit:                  ; preds = %if.end7, %if.end.i, %if.end3.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ null, %if.end7 ], [ null, %if.end.i ], [ %ref.val9, %if.end3.i ], [ %ref.val9, %if.end.i.i.i ]
   store ptr %retval.0.i, ptr %pobj, align 8
   %cmp9 = icmp ne ptr %retval.0.i, null
   %conv = zext i1 %cmp9 to i32
   br label %return
 
-return:                                           ; preds = %_PyWeakref_GET_REF.exit, %if.then6, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %conv, %_PyWeakref_GET_REF.exit ], [ -1, %if.then6 ]
+return:                                           ; preds = %_PyWeakref_GET_REF.argprom.exit, %if.then6, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ %conv, %_PyWeakref_GET_REF.argprom.exit ], [ -1, %if.then6 ]
   ret i32 %retval.0
 }
 
@@ -3084,14 +3084,14 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = getelementptr i8, ptr %ref, i64 8
   %ref.val11 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %ref.val11, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
+PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %ref.val11, ptr noundef nonnull @_PyWeakref_RefType) #7
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.lhs.false1, label %if.end
 
-lor.lhs.false1:                                   ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false1:                                   ; preds = %PyObject_TypeCheck.argprom.exit
   %ref.val9 = load ptr, ptr %0, align 8
   %cmp.i12.not21 = icmp eq ptr %ref.val9, @_PyWeakref_ProxyType
   %cmp.i13.not = icmp eq ptr %ref.val9, @_PyWeakref_CallableProxyType
@@ -3102,7 +3102,7 @@ if.then:                                          ; preds = %lor.lhs.false1, %en
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.4, i32 noundef 925) #7
   br label %return
 
-if.end:                                           ; preds = %lor.lhs.false, %lor.lhs.false1, %PyObject_TypeCheck.exit
+if.end:                                           ; preds = %lor.lhs.false, %lor.lhs.false1, %PyObject_TypeCheck.argprom.exit
   %1 = getelementptr i8, ptr %ref, i64 16
   %ref.val10 = load ptr, ptr %1, align 8
   %cmp.i15 = icmp eq ptr %ref.val10, @_Py_NoneStruct
@@ -3520,31 +3520,31 @@ if.end8:                                          ; preds = %if.end, %lor.lhs.fa
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
   %cmp.i = icmp eq ptr %self.val, @_Py_NoneStruct
-  br i1 %cmp.i, label %_PyWeakref_GET_REF.exit, label %if.end.i
+  br i1 %cmp.i, label %_PyWeakref_GET_REF.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8
   %.val.i = load i64, ptr %self.val, align 8
   %cmp1.i = icmp eq i64 %.val.i, 0
-  br i1 %cmp1.i, label %_PyWeakref_GET_REF.exit, label %if.end3.i
+  br i1 %cmp1.i, label %_PyWeakref_GET_REF.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %1 = trunc i64 %.val.i to i32
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_PyWeakref_GET_REF.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_PyWeakref_GET_REF.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end3.i
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %_PyWeakref_GET_REF.exit
+  br label %_PyWeakref_GET_REF.argprom.exit
 
-_PyWeakref_GET_REF.exit:                          ; preds = %if.end8, %if.end.i, %if.end3.i, %if.end.i.i.i
+_PyWeakref_GET_REF.argprom.exit:                  ; preds = %if.end8, %if.end.i, %if.end3.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ null, %if.end8 ], [ null, %if.end.i ], [ %self.val, %if.end3.i ], [ %self.val, %if.end.i.i.i ]
   %cmp10 = icmp eq ptr %retval.0.i, null
   %_Py_NoneStruct.call9 = select i1 %cmp10, ptr @_Py_NoneStruct, ptr %retval.0.i
   br label %return
 
-return:                                           ; preds = %_PyWeakref_GET_REF.exit, %lor.lhs.false4, %lor.lhs.false
-  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %lor.lhs.false4 ], [ %_Py_NoneStruct.call9, %_PyWeakref_GET_REF.exit ]
+return:                                           ; preds = %_PyWeakref_GET_REF.argprom.exit, %lor.lhs.false4, %lor.lhs.false
+  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %lor.lhs.false4 ], [ %_Py_NoneStruct.call9, %_PyWeakref_GET_REF.argprom.exit ]
   ret ptr %retval.0
 }
 

@@ -441,7 +441,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %.27.i = phi ptr [ %.16.i, %234 ], [ %240, %235 ]
   %.2.i = phi i64 [ %.1.i, %234 ], [ %.recomposed, %235 ]
   %.not82.i = icmp eq i64 %.2.i, 0
-  br i1 %.not82.i, label %position_predefined_data.exit, label %247
+  br i1 %.not82.i, label %position_predefined_data.argprom.exit, label %247
 
 247:                                              ; preds = %246
   %248 = mul i64 %.2.i, %202
@@ -455,16 +455,16 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %.2.sink.i = phi i64 [ %spec.select.i, %208 ], [ %.2.i, %247 ]
   %.3.ph.i = phi ptr [ %212, %208 ], [ %249, %247 ]
   %251 = sub i64 %.8195, %.2.sink.i
-  br label %position_predefined_data.exit
+  br label %position_predefined_data.argprom.exit
 
-position_predefined_data.exit:                    ; preds = %246, %.sink.split.i
+position_predefined_data.argprom.exit:            ; preds = %246, %.sink.split.i
   %.9 = phi i64 [ %251, %.sink.split.i ], [ %.7194, %246 ]
   %.8 = phi i64 [ %.sink.i, %.sink.split.i ], [ %.7, %246 ]
   %.3.i = phi ptr [ %.3.ph.i, %.sink.split.i ], [ %.27.i, %246 ]
   %.not145 = icmp eq i64 %.9, 0
   br i1 %.not145, label %252, label %276
 
-252:                                              ; preds = %position_predefined_data.exit
+252:                                              ; preds = %position_predefined_data.argprom.exit
   %253 = load ptr, ptr %7, align 8
   %254 = load i64, ptr %139, align 8
   %255 = getelementptr inbounds i8, ptr %253, i64 %254
@@ -498,7 +498,7 @@ position_predefined_data.exit:                    ; preds = %246, %.sink.split.i
   %.not144 = icmp eq i16 %275, 0
   br i1 %.not144, label %.backedge.outer.backedge, label %190, !llvm.loop !6
 
-276:                                              ; preds = %position_predefined_data.exit
+276:                                              ; preds = %position_predefined_data.argprom.exit
   store i64 %.8, ptr %65, align 8
   %.phi.trans.insert232 = getelementptr inbounds i8, ptr %0, i64 20
   %.pre233 = load i32, ptr %.phi.trans.insert232, align 4

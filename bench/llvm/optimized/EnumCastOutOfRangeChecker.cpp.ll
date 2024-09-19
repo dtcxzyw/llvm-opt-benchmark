@@ -970,7 +970,7 @@ _ZNK5clang8EnumDecl11enumeratorsEv.exit.thread29.i.i: ; preds = %.lr.ph.i.i.i.i9
   call void @_ZN4llvm5APIntC1EjjPKm(ptr noundef nonnull align 8 dereferenceable(12) %25, i32 noundef %101, i32 noundef %107, ptr noundef %108) #16, !noalias !28
   %.pre.i.i.i.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !noalias !29
   %.pre1.i.i.i.i.i.i = load i64, ptr %25, align 8, !noalias !29
-  br label %"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.exit.i.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.argprom.exit.i.i.i.i"
 
 109:                                              ; preds = %98
   %110 = load i64, ptr %99, align 8, !noalias !21
@@ -982,9 +982,9 @@ _ZNK5clang8EnumDecl11enumeratorsEv.exit.thread29.i.i: ; preds = %.lr.ph.i.i.i.i9
   %116 = icmp eq i32 %101, 0
   %spec.store.select.i.i.i.i.i.i.i.i.i.i = select i1 %116, i64 0, i64 %115
   %117 = and i64 %110, %spec.store.select.i.i.i.i.i.i.i.i.i.i
-  br label %"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.exit.i.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.argprom.exit.i.i.i.i"
 
-"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.exit.i.i.i.i": ; preds = %109, %103
+"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.argprom.exit.i.i.i.i": ; preds = %109, %103
   %118 = phi i64 [ %117, %109 ], [ %.pre1.i.i.i.i.i.i, %103 ]
   %119 = phi i32 [ %101, %109 ], [ %.pre.i.i.i.i.i.i, %103 ]
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i.i.i, i64 80
@@ -996,7 +996,7 @@ _ZNK5clang8EnumDecl11enumeratorsEv.exit.thread29.i.i: ; preds = %.lr.ph.i.i.i.i9
   %125 = icmp ult i32 %124, 65
   br i1 %125, label %_ZN4llvm6APSIntD2Ev.exit.i.i.i.i, label %126
 
-126:                                              ; preds = %"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.exit.i.i.i.i"
+126:                                              ; preds = %"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.argprom.exit.i.i.i.i"
   %127 = load ptr, ptr %.09.i.i.i.i, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %_ZN4llvm6APSIntD2Ev.exit.i.i.i.i, label %129
@@ -1005,7 +1005,7 @@ _ZNK5clang8EnumDecl11enumeratorsEv.exit.thread29.i.i: ; preds = %.lr.ph.i.i.i.i9
   call void @_ZdaPv(ptr noundef nonnull %127) #18
   br label %_ZN4llvm6APSIntD2Ev.exit.i.i.i.i
 
-_ZN4llvm6APSIntD2Ev.exit.i.i.i.i:                 ; preds = %129, %126, %"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.exit.i.i.i.i"
+_ZN4llvm6APSIntD2Ev.exit.i.i.i.i:                 ; preds = %129, %126, %"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.argprom.exit.i.i.i.i"
   store i64 %118, ptr %.09.i.i.i.i, align 8
   store i32 %119, ptr %123, align 8
   %130 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 12
@@ -1186,13 +1186,13 @@ _ZSt9__find_ifIPN4llvm6APSIntEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126Con
 
 _ZSt9__find_ifIPN4llvm6APSIntEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEET_S9_S9_T0_.exit.i.i.i.i.i: ; preds = %191, %_ZSt9__find_ifIPN4llvm6APSIntEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEET_S9_S9_T0_St26random_access_iterator_tag.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  br i1 %.not.i.i.i16.i, label %_ZN4llvm6any_ofIRNS_11SmallVectorINS_6APSIntELj6EEEN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEbOT_T0_.exit.thread.i, label %_ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.exit.i
+  br i1 %.not.i.i.i16.i, label %_ZN4llvm6any_ofIRNS_11SmallVectorINS_6APSIntELj6EEEN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEbOT_T0_.exit.thread.i, label %_ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.argprom.exit.i
 
 _ZN4llvm6any_ofIRNS_11SmallVectorINS_6APSIntELj6EEEN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEbOT_T0_.exit.thread.i: ; preds = %_ZSt9__find_ifIPN4llvm6APSIntEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEET_S9_S9_T0_.exit.i.i.i.i.i
   %.not36.i = icmp eq ptr %156, %.028.i.i.i.i.i.i.i
   br i1 %.not36.i, label %192, label %328
 
-_ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.exit.i: ; preds = %_ZSt9__find_ifIPN4llvm6APSIntEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEET_S9_S9_T0_.exit.i.i.i.i.i
+_ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.argprom.exit.i: ; preds = %_ZSt9__find_ifIPN4llvm6APSIntEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEET_S9_S9_T0_.exit.i.i.i.i.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %149) #16
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %149) #16
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %149) #16
@@ -1202,7 +1202,7 @@ _ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.exit.i: ; preds = %_ZSt9__find
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %149) #16
   br i1 %.not.i, label %192, label %328
 
-192:                                              ; preds = %_ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.exit.i, %_ZN4llvm6any_ofIRNS_11SmallVectorINS_6APSIntELj6EEEN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEbOT_T0_.exit.thread.i
+192:                                              ; preds = %_ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.argprom.exit.i, %_ZN4llvm6any_ofIRNS_11SmallVectorINS_6APSIntELj6EEEN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEbOT_T0_.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
@@ -1555,7 +1555,7 @@ _ZNK12_GLOBAL__N_125EnumCastOutOfRangeChecker13reportWarningERN5clang4ento14Chec
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   br label %328
 
-328:                                              ; preds = %_ZNK12_GLOBAL__N_125EnumCastOutOfRangeChecker13reportWarningERN5clang4ento14CheckerContextEPKNS1_8CastExprEPKNS1_8EnumDeclE.exit.i, %_ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.exit.i, %_ZN4llvm6any_ofIRNS_11SmallVectorINS_6APSIntELj6EEEN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEbOT_T0_.exit.thread.i, %_ZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclE.exit.i
+328:                                              ; preds = %_ZNK12_GLOBAL__N_125EnumCastOutOfRangeChecker13reportWarningERN5clang4ento14CheckerContextEPKNS1_8CastExprEPKNS1_8EnumDeclE.exit.i, %_ZN12_GLOBAL__N_126ConstraintBasedEQEvaluatorD2Ev.argprom.exit.i, %_ZN4llvm6any_ofIRNS_11SmallVectorINS_6APSIntELj6EEEN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEbOT_T0_.exit.thread.i, %_ZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclE.exit.i
   %329 = load ptr, ptr %27, align 8
   %330 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #16
   %.not4.i.i.i = icmp eq i64 %330, 0
@@ -2731,8 +2731,8 @@ attributes #19 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = !{!19, !14}
-!19 = distinct !{!19, !20, !"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE: argument 0"}
-!20 = distinct !{!20, !"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE"}
+!19 = distinct !{!19, !20, !"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZZN12_GLOBAL__N_120getDeclValuesForEnumEPKN5clang8EnumDeclEENK3$_0clEPKNS0_16EnumConstantDeclE.argprom"}
 !21 = !{!22, !24, !26, !19}
 !22 = distinct !{!22, !23, !"_ZNK5clang16APNumericStorage11getIntValueEv: argument 0"}
 !23 = distinct !{!23, !"_ZNK5clang16APNumericStorage11getIntValueEv"}

@@ -3382,20 +3382,20 @@ define internal fastcc zeroext i1 @php_dom_node_is_equal_node(ptr noundef %0, pt
   %23 = getelementptr inbounds i8, ptr %1, i64 72
   %24 = load ptr, ptr %23, align 8
   %.not7.i = icmp eq ptr %24, null
-  br i1 %.not7.i, label %php_dom_node_is_ns_prefix_equal.exit, label %25
+  br i1 %.not7.i, label %php_dom_node_is_ns_prefix_equal.argprom.exit, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %24, i64 24
   %27 = load ptr, ptr %26, align 8
-  br label %php_dom_node_is_ns_prefix_equal.exit
+  br label %php_dom_node_is_ns_prefix_equal.argprom.exit
 
-php_dom_node_is_ns_prefix_equal.exit:             ; preds = %21, %25
+php_dom_node_is_ns_prefix_equal.argprom.exit:     ; preds = %21, %25
   %28 = phi ptr [ %27, %25 ], [ null, %21 ]
   %29 = tail call i32 @xmlStrEqual(ptr noundef %22, ptr noundef %28) #12
   %.not93 = icmp eq i32 %29, 0
   br i1 %.not93, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %30
 
-30:                                               ; preds = %php_dom_node_is_ns_prefix_equal.exit
+30:                                               ; preds = %php_dom_node_is_ns_prefix_equal.argprom.exit
   %.val81 = load ptr, ptr %17, align 8
   %.not.i82 = icmp eq ptr %.val81, null
   br i1 %.not.i82, label %34, label %31
@@ -3409,20 +3409,20 @@ php_dom_node_is_ns_prefix_equal.exit:             ; preds = %21, %25
   %35 = phi ptr [ %33, %31 ], [ null, %30 ]
   %36 = load ptr, ptr %23, align 8
   %.not7.i83 = icmp eq ptr %36, null
-  br i1 %.not7.i83, label %php_dom_node_is_ns_uri_equal.exit, label %37
+  br i1 %.not7.i83, label %php_dom_node_is_ns_uri_equal.argprom.exit, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %36, i64 16
   %39 = load ptr, ptr %38, align 8
-  br label %php_dom_node_is_ns_uri_equal.exit
+  br label %php_dom_node_is_ns_uri_equal.argprom.exit
 
-php_dom_node_is_ns_uri_equal.exit:                ; preds = %34, %37
+php_dom_node_is_ns_uri_equal.argprom.exit:        ; preds = %34, %37
   %40 = phi ptr [ %39, %37 ], [ null, %34 ]
   %41 = tail call i32 @xmlStrEqual(ptr noundef %35, ptr noundef %40) #12
   %.not94 = icmp eq i32 %41, 0
   br i1 %.not94, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %42
 
-42:                                               ; preds = %php_dom_node_is_ns_uri_equal.exit
+42:                                               ; preds = %php_dom_node_is_ns_uri_equal.argprom.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 88
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %1, i64 88
@@ -3626,8 +3626,8 @@ php_dom_node_count_list_size_xmlNode.exit:        ; preds = %.lr.ph.i, %php_dom_
   %exitcond.not = icmp eq i64 %164, %.0.lcssa.i91
   br i1 %exitcond.not, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %.lr.ph
 
-php_dom_node_list_equality_check_ordered_xmlNode.exit: ; preds = %159, %.lr.ph, %.preheader, %php_dom_node_count_list_size_xmlNode.exit, %9, %134, %140, %108, %114, %120, %126, %132, %79, %85, %60, %66, %72, %10, %php_dom_node_is_ns_prefix_equal.exit, %php_dom_node_is_ns_uri_equal.exit, %42, %48, %54, %2, %101, %99, %92
-  %.0 = phi i1 [ %98, %92 ], [ %100, %99 ], [ %107, %101 ], [ false, %2 ], [ false, %48 ], [ false, %42 ], [ false, %php_dom_node_is_ns_uri_equal.exit ], [ false, %php_dom_node_is_ns_prefix_equal.exit ], [ false, %10 ], [ %59, %54 ], [ false, %66 ], [ false, %60 ], [ %78, %72 ], [ false, %79 ], [ %91, %85 ], [ false, %126 ], [ false, %120 ], [ false, %114 ], [ false, %108 ], [ %133, %132 ], [ false, %134 ], [ %146, %140 ], [ false, %9 ], [ false, %php_dom_node_count_list_size_xmlNode.exit ], [ true, %.preheader ], [ %158, %.lr.ph ], [ %158, %159 ]
+php_dom_node_list_equality_check_ordered_xmlNode.exit: ; preds = %159, %.lr.ph, %.preheader, %php_dom_node_count_list_size_xmlNode.exit, %9, %134, %140, %108, %114, %120, %126, %132, %79, %85, %60, %66, %72, %10, %php_dom_node_is_ns_prefix_equal.argprom.exit, %php_dom_node_is_ns_uri_equal.argprom.exit, %42, %48, %54, %2, %101, %99, %92
+  %.0 = phi i1 [ %98, %92 ], [ %100, %99 ], [ %107, %101 ], [ false, %2 ], [ false, %48 ], [ false, %42 ], [ false, %php_dom_node_is_ns_uri_equal.argprom.exit ], [ false, %php_dom_node_is_ns_prefix_equal.argprom.exit ], [ false, %10 ], [ %59, %54 ], [ false, %66 ], [ false, %60 ], [ %78, %72 ], [ false, %79 ], [ %91, %85 ], [ false, %126 ], [ false, %120 ], [ false, %114 ], [ false, %108 ], [ %133, %132 ], [ false, %134 ], [ %146, %140 ], [ false, %9 ], [ false, %php_dom_node_count_list_size_xmlNode.exit ], [ true, %.preheader ], [ %158, %.lr.ph ], [ %158, %159 ]
   ret i1 %.0
 }
 
@@ -5058,20 +5058,20 @@ define internal fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef nonnull %0,
   %16 = getelementptr inbounds i8, ptr %1, i64 72
   %17 = load ptr, ptr %16, align 8
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %php_dom_node_is_ns_uri_equal.exit, label %18
+  br i1 %.not7.i, label %php_dom_node_is_ns_uri_equal.argprom.exit, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = load ptr, ptr %19, align 8
-  br label %php_dom_node_is_ns_uri_equal.exit
+  br label %php_dom_node_is_ns_uri_equal.argprom.exit
 
-php_dom_node_is_ns_uri_equal.exit:                ; preds = %14, %18
+php_dom_node_is_ns_uri_equal.argprom.exit:        ; preds = %14, %18
   %21 = phi ptr [ %20, %18 ], [ null, %14 ]
   %22 = tail call i32 @xmlStrEqual(ptr noundef %15, ptr noundef %21) #12
   %.not8 = icmp eq i32 %22, 0
   br i1 %.not8, label %30, label %23
 
-23:                                               ; preds = %php_dom_node_is_ns_uri_equal.exit
+23:                                               ; preds = %php_dom_node_is_ns_uri_equal.argprom.exit
   %24 = tail call ptr @xmlNodeGetContent(ptr noundef nonnull %0) #12
   %25 = tail call ptr @xmlNodeGetContent(ptr noundef nonnull %1) #12
   %26 = tail call i32 @xmlStrEqual(ptr noundef %24, ptr noundef %25) #12
@@ -5082,8 +5082,8 @@ php_dom_node_is_ns_uri_equal.exit:                ; preds = %14, %18
   tail call void %29(ptr noundef %25) #12
   br label %30
 
-30:                                               ; preds = %23, %php_dom_node_is_ns_uri_equal.exit, %2
-  %31 = phi i1 [ false, %php_dom_node_is_ns_uri_equal.exit ], [ false, %2 ], [ %27, %23 ]
+30:                                               ; preds = %23, %php_dom_node_is_ns_uri_equal.argprom.exit, %2
+  %31 = phi i1 [ false, %php_dom_node_is_ns_uri_equal.argprom.exit ], [ false, %2 ], [ %27, %23 ]
   ret i1 %31
 }
 

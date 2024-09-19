@@ -648,7 +648,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %or.cond327, label %177, label %175
 
 175:                                              ; preds = %172
-  %176 = call fastcc i32 @msxml_parse_value(ptr noundef %.0194, ptr noundef %173)
+  %176 = call fastcc i32 @msxml_parse_value.argprom(ptr noundef %.0194, ptr noundef %173)
   %.not257 = icmp eq i32 %176, 0
   br i1 %.not257, label %._crit_edge304, label %.thread
 
@@ -1002,7 +1002,7 @@ declare i32 @xmlTextReaderMoveToElement(ptr noundef) local_unnamed_addr #2
 declare i32 @xmlTextReaderIsEmptyElement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @msxml_parse_value(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @msxml_parse_value.argprom(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @cli_jsonarray(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #8
   %5 = icmp eq ptr %4, null

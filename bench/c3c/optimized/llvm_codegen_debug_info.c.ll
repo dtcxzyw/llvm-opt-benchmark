@@ -704,31 +704,31 @@ common.ret74:                                     ; preds = %13, %3, %69, %67, %
 21:                                               ; preds = %13
   %22 = getelementptr i8, ptr %0, i64 304
   %.val = load ptr, ptr %22, align 8
-  %23 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val, ptr noundef nonnull %1, i32 noundef 2)
+  %23 = tail call fastcc ptr @llvm_debug_simple_type.argprom(ptr %.val, ptr noundef nonnull %1, i32 noundef 2)
   br label %common.ret74
 
 24:                                               ; preds = %13
   %25 = getelementptr i8, ptr %0, i64 304
   %.val68 = load ptr, ptr %25, align 8
-  %26 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val68, ptr noundef nonnull %1, i32 noundef 6)
+  %26 = tail call fastcc ptr @llvm_debug_simple_type.argprom(ptr %.val68, ptr noundef nonnull %1, i32 noundef 6)
   br label %common.ret74
 
 27:                                               ; preds = %13
   %28 = getelementptr i8, ptr %0, i64 304
   %.val69 = load ptr, ptr %28, align 8
-  %29 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val69, ptr noundef nonnull %1, i32 noundef 8)
+  %29 = tail call fastcc ptr @llvm_debug_simple_type.argprom(ptr %.val69, ptr noundef nonnull %1, i32 noundef 8)
   br label %common.ret74
 
 30:                                               ; preds = %13, %13, %13, %13
   %31 = getelementptr i8, ptr %0, i64 304
   %.val70 = load ptr, ptr %31, align 8
-  %32 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val70, ptr noundef nonnull %1, i32 noundef 5)
+  %32 = tail call fastcc ptr @llvm_debug_simple_type.argprom(ptr %.val70, ptr noundef nonnull %1, i32 noundef 5)
   br label %common.ret74
 
 33:                                               ; preds = %13, %13, %13, %13
   %34 = getelementptr i8, ptr %0, i64 304
   %.val71 = load ptr, ptr %34, align 8
-  %35 = tail call fastcc ptr @llvm_debug_simple_type(ptr %.val71, ptr noundef nonnull %1, i32 noundef 7)
+  %35 = tail call fastcc ptr @llvm_debug_simple_type.argprom(ptr %.val71, ptr noundef nonnull %1, i32 noundef 7)
   br label %common.ret74
 
 36:                                               ; preds = %13, %13, %13, %13, %13
@@ -753,7 +753,7 @@ common.ret74:                                     ; preds = %13, %3, %69, %67, %
 48:                                               ; preds = %13
   %49 = getelementptr i8, ptr %0, i64 304
   %.val73 = load ptr, ptr %49, align 8
-  %50 = tail call fastcc ptr @llvm_debug_typeid_type(ptr %.val73, ptr noundef nonnull %1)
+  %50 = tail call fastcc ptr @llvm_debug_typeid_type.argprom(ptr %.val73, ptr noundef nonnull %1)
   store ptr %50, ptr %4, align 8
   br label %common.ret74
 
@@ -953,7 +953,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_simple_type(ptr %.304.val, ptr nocapture noundef %0, i32 noundef range(i32 2, 9) %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_simple_type.argprom(ptr %.304.val, ptr nocapture noundef %0, i32 noundef range(i32 2, 9) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
@@ -1078,7 +1078,7 @@ define internal fastcc ptr @llvm_debug_vector_type(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_typeid_type(ptr %.304.val, ptr nocapture noundef writeonly %0) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_typeid_type.argprom(ptr %.304.val, ptr nocapture noundef writeonly %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_voidptr, align 8
   %3 = tail call i32 @type_size(ptr noundef %2) #8
   %4 = shl i32 %3, 3
@@ -1905,13 +1905,13 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
   br i1 %.not89, label %.split, label %.split82
 
 .split:                                           ; preds = %124
-  %126 = tail call fastcc ptr @llvm_get_debug_struct(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %125, ptr noundef null, i32 noundef 0, ptr noundef nonnull %8, ptr noundef %2)
+  %126 = tail call fastcc ptr @llvm_get_debug_struct.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %125, ptr noundef null, i32 noundef 0, ptr noundef nonnull %8, ptr noundef %2)
   br label %130
 
 .split82:                                         ; preds = %124
   %127 = getelementptr inbounds i8, ptr %.079.lcssa, i64 -8
   %128 = load i32, ptr %127, align 4
-  %129 = tail call fastcc ptr @llvm_get_debug_struct(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %125, ptr noundef nonnull %.079.lcssa, i32 noundef %128, ptr noundef nonnull %8, ptr noundef %2)
+  %129 = tail call fastcc ptr @llvm_get_debug_struct.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %125, ptr noundef nonnull %.079.lcssa, i32 noundef %128, ptr noundef nonnull %8, ptr noundef %2)
   br label %130
 
 130:                                              ; preds = %.split, %.split82, %.thread
@@ -2219,7 +2219,7 @@ define internal fastcc ptr @llvm_debug_subarray_type(ptr nocapture noundef reado
   %49 = tail call ptr @LLVMDIBuilderCreateMemberType(ptr noundef %40, ptr noundef %23, ptr noundef nonnull @.str.9, i64 noundef 3, ptr noundef null, i32 noundef 0, i64 noundef %43, i32 noundef %45, i64 noundef %47, i32 noundef 0, ptr noundef %48) #8
   store ptr %49, ptr %36, align 8
   %50 = load ptr, ptr %4, align 8
-  %51 = call fastcc ptr @llvm_get_debug_struct(ptr noundef %0, ptr noundef %1, ptr noundef %50, ptr noundef nonnull %3, i32 noundef 2, ptr noundef null, ptr noundef null)
+  %51 = call fastcc ptr @llvm_get_debug_struct.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %50, ptr noundef nonnull %3, i32 noundef 2, ptr noundef null, ptr noundef null)
   ret ptr %51
 }
 
@@ -2292,7 +2292,7 @@ define internal fastcc ptr @llvm_debug_any_type(ptr nocapture noundef readonly %
   %47 = tail call ptr @LLVMDIBuilderCreateMemberType(ptr noundef %38, ptr noundef %23, ptr noundef nonnull @.str.10, i64 noundef 4, ptr noundef null, i32 noundef 0, i64 noundef %41, i32 noundef %43, i64 noundef %45, i32 noundef 0, ptr noundef %46) #8
   store ptr %47, ptr %34, align 8
   %48 = load ptr, ptr %4, align 8
-  %49 = call fastcc ptr @llvm_get_debug_struct(ptr noundef %0, ptr noundef %1, ptr noundef %48, ptr noundef nonnull %3, i32 noundef 2, ptr noundef null, ptr noundef null)
+  %49 = call fastcc ptr @llvm_get_debug_struct.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %48, ptr noundef nonnull %3, i32 noundef 2, ptr noundef null, ptr noundef null)
   ret ptr %49
 }
 
@@ -2335,7 +2335,7 @@ declare ptr @LLVMDIBuilderCreateSubroutineType(ptr noundef, ptr noundef, ptr nou
 declare ptr @LLVMDIBuilderCreateUnionType(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_get_debug_struct(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @llvm_get_debug_struct.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %char0 = load i8, ptr %2, align 1
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %8

@@ -4250,7 +4250,7 @@ split:                                            ; preds = %367, %._crit_edge11
 766:                                              ; preds = %91
   %767 = getelementptr i8, ptr %0, i64 2120
   %.val = load ptr, ptr %767, align 8
-  %768 = call fastcc i32 @nl80211_send_coalesce(ptr noundef %2, ptr %.val)
+  %768 = call fastcc i32 @nl80211_send_coalesce.argprom(ptr noundef %2, ptr %.val)
   %769 = icmp eq i32 %768, 0
   br i1 %769, label %770, label %.thread43
 
@@ -4705,7 +4705,7 @@ split:                                            ; preds = %367, %._crit_edge11
 1064:                                             ; preds = %91
   %1065 = getelementptr i8, ptr %0, i64 2192
   %.val41 = load ptr, ptr %1065, align 16
-  %1066 = call fastcc i32 @nl80211_send_pmsr_capa(ptr %.val41, ptr noundef %2)
+  %1066 = call fastcc i32 @nl80211_send_pmsr_capa.argprom(ptr %.val41, ptr noundef %2)
   %1067 = icmp eq i32 %1066, 0
   br i1 %1067, label %1109, label %.thread43
 
@@ -14146,7 +14146,7 @@ define dso_local void @cfg80211_report_wowlan_wakeup(ptr noundef %0, ptr noundef
   br i1 %182, label %.thread11, label %183
 
 183:                                              ; preds = %179
-  %184 = call fastcc i32 @cfg80211_net_detect_results(ptr noundef %42, ptr nonnull %181)
+  %184 = call fastcc i32 @cfg80211_net_detect_results.argprom(ptr noundef %42, ptr nonnull %181)
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %.thread11, label %.thread10
 
@@ -14189,7 +14189,7 @@ define dso_local void @cfg80211_report_wowlan_wakeup(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -90, 1) i32 @cfg80211_net_detect_results(ptr noundef nonnull %0, ptr nocapture readonly %.32.val) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -90, 1) i32 @cfg80211_net_detect_results.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.32.val) unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
@@ -15327,7 +15327,7 @@ define internal i32 @nl80211_pre_doit(ptr nocapture noundef readonly %0, ptr noc
   %.val = load ptr, ptr %33, align 8
   %34 = getelementptr i8, ptr %32, i64 1224
   %.val13 = load ptr, ptr %34, align 8
-  %35 = tail call fastcc ptr @__cfg80211_wdev_from_attrs(ptr noundef null, ptr noundef %30, ptr %.val, ptr %.val13)
+  %35 = tail call fastcc ptr @__cfg80211_wdev_from_attrs.argprom(ptr noundef null, ptr noundef %30, ptr %.val, ptr %.val13)
   %36 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
   br i1 %36, label %37, label %40
 
@@ -15789,7 +15789,7 @@ declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr 
 declare dso_local void @rtnl_lock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__cfg80211_wdev_from_attrs(ptr noundef readonly %0, ptr noundef readnone %1, ptr readonly %.24.val, ptr %.1224.val) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__cfg80211_wdev_from_attrs.argprom(ptr noundef readonly %0, ptr noundef readnone %1, ptr readonly %.24.val, ptr %.1224.val) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp ne ptr %.24.val, null
   %5 = icmp ne ptr %.1224.val, null
@@ -19360,7 +19360,7 @@ define internal i32 @nl80211_set_beacon(ptr nocapture readnone %0, ptr nocapture
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %52 = and i8 %.val, 16
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %nl80211_parse_fils_discovery.exit.thread, label %54
+  br i1 %53, label %nl80211_parse_fils_discovery.argprom.exit.thread, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %47, i64 2
@@ -19370,7 +19370,7 @@ define internal i32 @nl80211_set_beacon(ptr nocapture readnone %0, ptr nocapture
 
 .thread.i:                                        ; preds = %54
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_parse_nested.__msg) #26
-  br label %nl80211_parse_fils_discovery.exit.thread
+  br label %nl80211_parse_fils_discovery.argprom.exit.thread
 
 58:                                               ; preds = %54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !76
@@ -19380,7 +19380,7 @@ define internal i32 @nl80211_set_beacon(ptr nocapture readnone %0, ptr nocapture
   %62 = zext i16 %61 to i32
   %63 = call i32 @__nla_parse(ptr noundef nonnull %3, i32 noundef 3, ptr noundef %59, i32 noundef %62, ptr noundef null, i32 noundef 31, ptr noundef null) #26
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %nl80211_parse_fils_discovery.exit.thread
+  br i1 %64, label %65, label %nl80211_parse_fils_discovery.argprom.exit.thread
 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds i8, ptr %3, i64 8
@@ -19394,12 +19394,12 @@ define internal i32 @nl80211_set_beacon(ptr nocapture readnone %0, ptr nocapture
   %74 = load ptr, ptr %73, align 8
   %75 = icmp ne ptr %74, null
   %76 = select i1 %72, i1 true, i1 %75
-  br i1 %76, label %77, label %nl80211_parse_fils_discovery.exit
+  br i1 %76, label %77, label %nl80211_parse_fils_discovery.argprom.exit
 
 77:                                               ; preds = %65
   %78 = select i1 %68, i1 %71, i1 false
   %79 = select i1 %78, i1 %75, i1 false
-  br i1 %79, label %80, label %nl80211_parse_fils_discovery.exit.thread
+  br i1 %79, label %80, label %nl80211_parse_fils_discovery.argprom.exit.thread
 
 80:                                               ; preds = %77
   %81 = load i16, ptr %74, align 2
@@ -19418,21 +19418,21 @@ define internal i32 @nl80211_set_beacon(ptr nocapture readnone %0, ptr nocapture
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds i8, ptr %36, i64 176
   store i32 %91, ptr %92, align 8
-  br label %nl80211_parse_fils_discovery.exit
+  br label %nl80211_parse_fils_discovery.argprom.exit
 
-nl80211_parse_fils_discovery.exit.thread:         ; preds = %49, %58, %77, %.thread.i
+nl80211_parse_fils_discovery.argprom.exit.thread: ; preds = %49, %58, %77, %.thread.i
   %.ph = phi i32 [ -22, %.thread.i ], [ -22, %77 ], [ %63, %58 ], [ -22, %49 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   br label %183
 
-nl80211_parse_fils_discovery.exit:                ; preds = %65, %80
+nl80211_parse_fils_discovery.argprom.exit:        ; preds = %65, %80
   store i8 1, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   %.pre = load ptr, ptr %7, align 8
   br label %93
 
-93:                                               ; preds = %nl80211_parse_fils_discovery.exit, %44
-  %94 = phi ptr [ %.pre, %nl80211_parse_fils_discovery.exit ], [ %45, %44 ]
+93:                                               ; preds = %nl80211_parse_fils_discovery.argprom.exit, %44
+  %94 = phi ptr [ %.pre, %nl80211_parse_fils_discovery.argprom.exit ], [ %45, %44 ]
   %95 = getelementptr i8, ptr %94, i64 2360
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
@@ -19591,8 +19591,8 @@ nl80211_parse_fils_discovery.exit:                ; preds = %65, %80
   call void @llvm.write_register.i64(metadata !0, i64 %182)
   br label %183
 
-183:                                              ; preds = %.thread13, %nl80211_parse_fils_discovery.exit.thread, %180, %176, %163, %158, %38
-  %184 = phi i32 [ %42, %38 ], [ %162, %158 ], [ %162, %163 ], [ %162, %176 ], [ %162, %180 ], [ %.ph, %nl80211_parse_fils_discovery.exit.thread ], [ %.ph12, %.thread13 ]
+183:                                              ; preds = %.thread13, %nl80211_parse_fils_discovery.argprom.exit.thread, %180, %176, %163, %158, %38
+  %184 = phi i32 [ %42, %38 ], [ %162, %158 ], [ %162, %163 ], [ %162, %176 ], [ %162, %180 ], [ %.ph, %nl80211_parse_fils_discovery.argprom.exit.thread ], [ %.ph12, %.thread13 ]
   %185 = getelementptr inbounds i8, ptr %36, i64 72
   %186 = load ptr, ptr %185, align 8
   call void @kfree(ptr noundef %186) #26
@@ -19985,7 +19985,7 @@ nl80211_get_ap_channel.exit:                      ; preds = %216
 248:                                              ; preds = %243
   %249 = getelementptr inbounds i8, ptr %47, i64 380
   %.val = load ptr, ptr %18, align 8
-  %250 = tail call fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr noundef %1, ptr noundef %244, i32 noundef 90, ptr noundef %249, ptr %.val, i1 noundef zeroext false, i32 noundef %15)
+  %250 = tail call fastcc i32 @nl80211_parse_tx_bitrate_mask.argprom(ptr noundef %1, ptr noundef %244, i32 noundef 90, ptr noundef %249, ptr %.val, i1 noundef zeroext false, i32 noundef %15)
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %252, label %.thread
 
@@ -20062,7 +20062,7 @@ nl80211_get_ap_channel.exit:                      ; preds = %216
 293:                                              ; preds = %289
   %294 = getelementptr i8, ptr %4, i64 1042
   %.val37 = load i16, ptr %294, align 2
-  %295 = tail call fastcc ptr @parse_acl_data(i16 %.val37, ptr noundef %1)
+  %295 = tail call fastcc ptr @parse_acl_data.argprom(i16 %.val37, ptr noundef %1)
   %296 = getelementptr inbounds i8, ptr %47, i64 368
   store ptr %295, ptr %296, align 8
   %297 = icmp ugt ptr %295, inttoptr (i64 -4096 to ptr)
@@ -20112,7 +20112,7 @@ nl80211_get_ap_channel.exit:                      ; preds = %216
   %321 = getelementptr inbounds i8, ptr %47, i64 832
   %322 = getelementptr i8, ptr %4, i64 1062
   %.val38 = load i8, ptr %322, align 1
-  %323 = tail call fastcc i32 @nl80211_parse_fils_discovery(i8 %.val38, ptr noundef nonnull %318, ptr noundef %321)
+  %323 = tail call fastcc i32 @nl80211_parse_fils_discovery.argprom(i8 %.val38, ptr noundef nonnull %318, ptr noundef %321)
   %324 = icmp eq i32 %323, 0
   br i1 %324, label %._crit_edge50, label %.thread
 
@@ -20131,7 +20131,7 @@ nl80211_get_ap_channel.exit:                      ; preds = %216
   %331 = getelementptr inbounds i8, ptr %47, i64 864
   %332 = getelementptr i8, ptr %4, i64 1062
   %.val39 = load i8, ptr %332, align 1
-  %333 = tail call fastcc i32 @nl80211_parse_unsol_bcast_probe_resp(i8 %.val39, ptr noundef nonnull %328, ptr noundef %331)
+  %333 = tail call fastcc i32 @nl80211_parse_unsol_bcast_probe_resp.argprom(i8 %.val39, ptr noundef nonnull %328, ptr noundef %331)
   %334 = icmp eq i32 %333, 0
   br i1 %334, label %._crit_edge52, label %.thread
 
@@ -27128,7 +27128,7 @@ define internal i32 @nl80211_associate(ptr nocapture readnone %0, ptr nocapture 
 
 245:                                              ; preds = %.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %225, i8 0, i64 2640, i1 false)
-  %246 = call fastcc i32 @nla_parse_nested(ptr noundef nonnull %225, ptr noundef %240, ptr noundef null, ptr noundef null)
+  %246 = call fastcc i32 @nla_parse_nested.argelim(ptr noundef nonnull %225, ptr noundef %240, ptr noundef null, ptr noundef null)
   %247 = load ptr, ptr %233, align 8
   %248 = icmp eq ptr %247, null
   br i1 %248, label %249, label %257
@@ -30440,7 +30440,7 @@ define internal i32 @nl80211_set_tx_bitrate_mask(ptr nocapture readnone %0, ptr 
 23:                                               ; preds = %13
   %24 = getelementptr i8, ptr %18, i64 960
   %.val = load ptr, ptr %24, align 8
-  %25 = call fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr noundef %1, ptr noundef %5, i32 noundef 90, ptr noundef nonnull %3, ptr %.val, i1 noundef zeroext true, i32 noundef %14)
+  %25 = call fastcc i32 @nl80211_parse_tx_bitrate_mask.argprom(ptr noundef %1, ptr noundef %5, i32 noundef 90, ptr noundef nonnull %3, ptr %.val, i1 noundef zeroext true, i32 noundef %14)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %74
 
@@ -32019,7 +32019,7 @@ define internal i32 @nl80211_join_mesh(ptr nocapture readnone %0, ptr nocapture 
   %234 = getelementptr inbounds i8, ptr %5, i64 92
   %235 = getelementptr i8, ptr %9, i64 960
   %.val = load ptr, ptr %235, align 8
-  %236 = call fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr noundef %1, ptr noundef %229, i32 noundef 90, ptr noundef %234, ptr %.val, i1 noundef zeroext false, i32 noundef 0)
+  %236 = call fastcc i32 @nl80211_parse_tx_bitrate_mask.argprom(ptr noundef %1, ptr noundef %229, i32 noundef 90, ptr noundef %234, ptr %.val, i1 noundef zeroext false, i32 noundef 0)
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %.thread24
 
@@ -32313,7 +32313,7 @@ define internal range(i32 -2147483648, 1) i32 @nl80211_get_wowlan(ptr nocapture 
 
 108:                                              ; preds = %._crit_edge15, %100
   %.val = phi ptr [ %.val.pre, %._crit_edge15 ], [ %101, %100 ]
-  %109 = tail call fastcc i32 @nl80211_send_wowlan_patterns(ptr noundef nonnull %31, ptr %.val)
+  %109 = tail call fastcc i32 @nl80211_send_wowlan_patterns.argprom(ptr noundef nonnull %31, ptr %.val)
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %151
 
@@ -35293,7 +35293,7 @@ define internal i32 @nl80211_set_mac_acl(ptr nocapture readnone %0, ptr nocaptur
   %16 = getelementptr inbounds i8, ptr %4, i64 960
   %17 = getelementptr i8, ptr %4, i64 1042
   %.val = load i16, ptr %17, align 2
-  %18 = tail call fastcc ptr @parse_acl_data(i16 %.val, ptr noundef %1)
+  %18 = tail call fastcc ptr @parse_acl_data.argprom(i16 %.val, ptr noundef %1)
   %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
   br i1 %19, label %20, label %23
 
@@ -37075,7 +37075,7 @@ define internal i32 @nl80211_vendor_cmd(ptr nocapture readnone %0, ptr noundef %
   %.val = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %8, i64 1224
   %.val12 = load ptr, ptr %10, align 8
-  %11 = tail call fastcc ptr @__cfg80211_wdev_from_attrs(ptr noundef %4, ptr noundef %6, ptr %.val, ptr %.val12)
+  %11 = tail call fastcc ptr @__cfg80211_wdev_from_attrs.argprom(ptr noundef %4, ptr noundef %6, ptr %.val, ptr %.val12)
   %12 = getelementptr inbounds i8, ptr %4, i64 960
   %13 = getelementptr inbounds i8, ptr %4, i64 2128
   %14 = load ptr, ptr %13, align 16
@@ -37373,7 +37373,7 @@ define internal i32 @nl80211_vendor_cmd_dump(ptr noundef %0, ptr noundef %1) #0 
   %.val = load ptr, ptr %67, align 8
   %68 = getelementptr i8, ptr %34, i64 1224
   %.val27 = load ptr, ptr %68, align 8
-  %69 = tail call fastcc ptr @__cfg80211_wdev_from_attrs(ptr noundef null, ptr noundef %66, ptr %.val, ptr %.val27)
+  %69 = tail call fastcc ptr @__cfg80211_wdev_from_attrs.argprom(ptr noundef null, ptr noundef %66, ptr %.val, ptr %.val27)
   %70 = icmp ugt ptr %69, inttoptr (i64 -4096 to ptr)
   %71 = select i1 %70, ptr null, ptr %69
   %72 = load ptr, ptr %63, align 8
@@ -40366,7 +40366,7 @@ define internal i32 @nl80211_set_tid_config(ptr nocapture readnone %0, ptr nocap
 244:                                              ; preds = %238
   %245 = getelementptr inbounds i8, ptr %101, i64 40
   %.val = load ptr, ptr %81, align 8
-  %246 = call fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 13, ptr noundef %245, ptr %.val, i1 noundef zeroext true, i32 noundef %16)
+  %246 = call fastcc i32 @nl80211_parse_tx_bitrate_mask.argprom(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 13, ptr noundef %245, ptr %.val, i1 noundef zeroext true, i32 noundef %16)
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %248, label %.thread30
 
@@ -40852,7 +40852,7 @@ define internal i32 @nl80211_color_change(ptr nocapture readnone %0, ptr nocaptu
   %55 = getelementptr i8, ptr %54, i64 2440
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %45, align 8
-  %58 = tail call fastcc i32 @nla_parse_nested(ptr noundef nonnull %51, ptr noundef %56, ptr noundef nonnull @nl80211_policy, ptr noundef %57)
+  %58 = tail call fastcc i32 @nla_parse_nested.argelim(ptr noundef nonnull %51, ptr noundef %56, ptr noundef nonnull @nl80211_policy, ptr noundef %57)
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %110
 
@@ -44121,7 +44121,7 @@ define internal fastcc i32 @nl80211_parse_beacon(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nl80211_parse_fils_discovery(i8 %.1062.val, ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nl80211_parse_fils_discovery.argprom(i8 %.1062.val, ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %4 = and i8 %.1062.val, 16
@@ -44197,7 +44197,7 @@ define internal fastcc i32 @nl80211_parse_fils_discovery(i8 %.1062.val, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nl80211_parse_unsol_bcast_probe_resp(i8 %.1062.val, ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nl80211_parse_unsol_bcast_probe_resp.argprom(i8 %.1062.val, ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26
   %4 = and i8 %.1062.val, 32
@@ -44264,7 +44264,7 @@ define internal fastcc i32 @nl80211_parse_unsol_bcast_probe_resp(i8 %.1062.val, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_parse_nested(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 16 {
+define internal fastcc i32 @nla_parse_nested.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   %6 = load i16, ptr %5, align 2
   %7 = icmp sgt i16 %6, -1
@@ -44613,7 +44613,7 @@ select.unfold:                                    ; preds = %93, %132, %122, %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 13, 91) %2, ptr nocapture noundef %3, ptr nocapture readonly %.960.val, i1 noundef zeroext %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nl80211_parse_tx_bitrate_mask.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 13, 91) %2, ptr nocapture noundef %3, ptr nocapture readonly %.960.val, i1 noundef zeroext %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 align 16 {
   %7 = alloca [8 x i16], align 16
   %8 = alloca [8 x i16], align 16
   %9 = alloca [8 x ptr], align 16
@@ -45612,7 +45612,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @parse_acl_data(i16 %.82.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @parse_acl_data.argprom(i16 %.82.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = icmp eq i16 %.82.val, 0
   br i1 %2, label %.critedge.thread, label %3
 
@@ -46933,7 +46933,7 @@ define internal fastcc i32 @nl80211_prepare_wdev_dump(ptr nocapture noundef %0, 
   %.val = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %16, i64 1224
   %.val8 = load ptr, ptr %43, align 8
-  %44 = tail call fastcc ptr @__cfg80211_wdev_from_attrs(ptr noundef null, ptr noundef %41, ptr %.val, ptr %.val8)
+  %44 = tail call fastcc ptr @__cfg80211_wdev_from_attrs.argprom(ptr noundef null, ptr noundef %41, ptr %.val, ptr %.val8)
   store ptr %44, ptr %2, align 8
   tail call void @kfree(ptr noundef %15) #26
   %45 = load ptr, ptr %2, align 8
@@ -49899,7 +49899,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %480 = getelementptr inbounds i8, ptr %478, i64 40
   %481 = load i32, ptr %480, align 4
   %.val = load i8, ptr %423, align 1
-  %482 = call fastcc i32 @nl80211_parse_sched_scan_per_band_rssi(i8 %.val, ptr noundef %478, ptr noundef %479, i32 noundef %481)
+  %482 = call fastcc i32 @nl80211_parse_sched_scan_per_band_rssi.argprom(i8 %.val, ptr noundef %478, ptr noundef %479, i32 noundef %481)
   %483 = icmp eq i32 %482, 0
   br i1 %483, label %484, label %.thread96
 
@@ -50088,7 +50088,7 @@ define internal fastcc i64 @cfg80211_assign_cookie(ptr nocapture noundef %0) unn
 declare dso_local void @cfg80211_add_sched_scan_req(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc noundef range(i32 -95, 1) i32 @nl80211_parse_sched_scan_per_band_rssi(i8 %.100.val, ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #21 align 16 {
+define internal fastcc noundef range(i32 -95, 1) i32 @nl80211_parse_sched_scan_per_band_rssi.argprom(i8 %.100.val, ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #21 align 16 {
   %4 = and i8 %.100.val, 8
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %8, label %6
@@ -51163,7 +51163,7 @@ declare dso_local i32 @cfg80211_join_ocb(ptr noundef, ptr noundef, ptr noundef) 
 declare dso_local i32 @cfg80211_leave_ocb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_send_wowlan_patterns(ptr noundef nonnull %0, ptr nocapture readonly %.1200.val) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_send_wowlan_patterns.argprom(ptr noundef nonnull %0, ptr nocapture readonly %.1200.val) unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %.1200.val, i64 24
   %4 = load i32, ptr %3, align 8
@@ -55667,7 +55667,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_send_wowlan(ptr n
   %.val = load ptr, ptr %6, align 8
   %114 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load ptr, ptr %114, align 8
-  %115 = call fastcc i32 @nl80211_send_wowlan_tcp_caps(ptr %.val.val, ptr noundef %0)
+  %115 = call fastcc i32 @nl80211_send_wowlan_tcp_caps.argprom.argprom(ptr %.val.val, ptr noundef %0)
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %126
 
@@ -56114,7 +56114,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_send_mgmt_stypes(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -105, 1) i32 @nl80211_send_coalesce(ptr noundef %0, ptr readonly %.2120.val) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -105, 1) i32 @nl80211_send_coalesce.argprom(ptr noundef %0, ptr readonly %.2120.val) unnamed_addr #0 align 16 {
   %2 = alloca %struct.nl80211_coalesce_rule_support, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #26
   %3 = icmp eq ptr %.2120.val, null
@@ -56503,7 +56503,7 @@ define internal fastcc noundef zeroext i1 @nl80211_put_txq_stats(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_send_pmsr_capa(ptr readonly %.2192.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_send_pmsr_capa.argprom(ptr readonly %.2192.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -57254,7 +57254,7 @@ declare dso_local i32 @__SCT__tp_func_rdev_get_antenna(ptr noundef, ptr noundef)
 declare dso_local i32 @__SCT__tp_func_rdev_return_int_tx_rx(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_send_wowlan_tcp_caps(ptr readonly %.1192.val.24.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @nl80211_send_wowlan_tcp_caps.argprom.argprom(ptr readonly %.1192.val.24.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

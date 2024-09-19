@@ -3109,7 +3109,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %end_col_offset = getelementptr inbounds i8, ptr %exp, i64 44
   %7 = load i32, ptr %end_col_offset, align 4
   %conv3 = sext i32 %7 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv1, i64 noundef %conv2, i64 noundef %conv3, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv1, i64 noundef %conv2, i64 noundef %conv3, ptr noundef nonnull @.str.2)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.then
@@ -3118,7 +3118,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #1 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -3162,7 +3162,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %end_col_offset = getelementptr inbounds i8, ptr %exp, i64 44
   %7 = load i32, ptr %end_col_offset, align 4
   %conv3 = sext i32 %7 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv1, i64 noundef %conv2, i64 noundef %conv3, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv1, i64 noundef %conv2, i64 noundef %conv3, ptr noundef nonnull @.str.3)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.then
@@ -3414,7 +3414,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %end_col_offset10 = getelementptr inbounds i8, ptr %conv, i64 44
   %7 = load i32, ptr %end_col_offset10, align 4
   %conv11 = sext i32 %7 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %4, i64 noundef %conv6, i64 noundef %conv8, i64 noundef %conv9, i64 noundef %conv11, ptr noundef nonnull @.str.9)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %4, i64 noundef %conv6, i64 noundef %conv8, i64 noundef %conv9, i64 noundef %conv11, ptr noundef nonnull @.str.9)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -4191,7 +4191,7 @@ _PyPegen_get_last_comprehension_item.exit19:      ; preds = %if.then.i17, %_PyPe
   %end_col_offset = getelementptr inbounds i8, ptr %retval.0.i16, i64 44
   %15 = load i32, ptr %end_col_offset, align 4
   %conv16 = sext i32 %15 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %6, i64 noundef %conv, i64 noundef %conv12, i64 noundef %conv1426, i64 noundef %conv16, ptr noundef nonnull @.str.39)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %6, i64 noundef %conv, i64 noundef %conv12, i64 noundef %conv1426, i64 noundef %conv16, ptr noundef nonnull @.str.39)
   br label %return
 
 return:                                           ; preds = %entry, %cond.end, %_PyPegen_get_last_comprehension_item.exit19
@@ -4834,7 +4834,7 @@ if.then10:                                        ; preds = %lor.lhs.false, %PyU
   %end_col_offset16 = getelementptr inbounds i8, ptr %0, i64 44
   %17 = load i32, ptr %end_col_offset16, align 4
   %conv17 = sext i32 %17 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %13, i64 noundef %conv, i64 noundef %conv13, i64 noundef %conv15, i64 noundef %conv17, ptr noundef nonnull @.str.42, ptr noundef nonnull %1)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %13, i64 noundef %conv, i64 noundef %conv13, i64 noundef %conv15, i64 noundef %conv17, ptr noundef nonnull @.str.42, ptr noundef nonnull %1)
   br label %return
 
 if.else:                                          ; preds = %entry

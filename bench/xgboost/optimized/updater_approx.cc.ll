@@ -2976,7 +2976,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11Tree
   %.val3 = load ptr, ptr %2, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #36
   invoke void @_ZN7xgboost4tree19GlobalApproxUpdaterC2EPKNS_7ContextEPKNS_7ObjInfoE(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef %.val, ptr noundef %.val3)
-          to label %"_ZSt10__invoke_rIPN7xgboost11TreeUpdaterERNS0_4tree3$_0EJPKNS0_7ContextEPKNS0_7ObjInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %5
+          to label %"_ZSt10__invoke_rIPN7xgboost11TreeUpdaterERNS0_4tree3$_0EJPKNS0_7ContextEPKNS0_7ObjInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit" unwind label %5
 
 5:                                                ; preds = %3
   %6 = landingpad { ptr, i32 }
@@ -2984,7 +2984,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11Tree
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #37
   resume { ptr, i32 } %6
 
-"_ZSt10__invoke_rIPN7xgboost11TreeUpdaterERNS0_4tree3$_0EJPKNS0_7ContextEPKNS0_7ObjInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %3
+"_ZSt10__invoke_rIPN7xgboost11TreeUpdaterERNS0_4tree3$_0EJPKNS0_7ContextEPKNS0_7ObjInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %3
   ret ptr %4
 }
 
@@ -111460,8 +111460,8 @@ attributes #40 = { nounwind allocsize(0) }
 !99 = distinct !{!99, !"_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE8HostSpanEv"}
 !100 = !{!95, !92}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE: argument 0"}
-!103 = distinct !{!103, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE"}
+!102 = distinct !{!102, !103, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE.argprom: argument 0"}
+!103 = distinct !{!103, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE.argprom"}
 !104 = !{!105}
 !105 = distinct !{!105, !106, !"_ZN7xgboost7DMatrix10GetBatchesINS_16GHistIndexMatrixEEENS_8BatchSetIT_EEPKNS_7ContextERKNS_10BatchParamE: argument 0"}
 !106 = distinct !{!106, !"_ZN7xgboost7DMatrix10GetBatchesINS_16GHistIndexMatrixEEENS_8BatchSetIT_EEPKNS_7ContextERKNS_10BatchParamE"}
@@ -111502,8 +111502,8 @@ attributes #40 = { nounwind allocsize(0) }
 !141 = distinct !{!141, !5}
 !142 = distinct !{!142, !5}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEENS_7ObjInfoE: argument 0"}
-!145 = distinct !{!145, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEENS_7ObjInfoE"}
+!144 = distinct !{!144, !145, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEENS_7ObjInfoE.argprom: argument 0"}
+!145 = distinct !{!145, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEENS_7ObjInfoE.argprom"}
 !146 = !{!147}
 !147 = distinct !{!147, !148, !"_ZN7xgboost7DMatrix10GetBatchesINS_16GHistIndexMatrixEEENS_8BatchSetIT_EEPKNS_7ContextERKNS_10BatchParamE: argument 0"}
 !148 = distinct !{!148, !"_ZN7xgboost7DMatrix10GetBatchesINS_16GHistIndexMatrixEEENS_8BatchSetIT_EEPKNS_7ContextERKNS_10BatchParamE"}
@@ -111517,8 +111517,8 @@ attributes #40 = { nounwind allocsize(0) }
 !156 = distinct !{!156, !157, !"_ZN4dmlc11LogCheck_EQB5cxx11Eii: argument 0"}
 !157 = distinct !{!157, !"_ZN4dmlc11LogCheck_EQB5cxx11Eii"}
 !158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE: argument 0"}
-!160 = distinct !{!160, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE"}
+!159 = distinct !{!159, !160, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE.argprom: argument 0"}
+!160 = distinct !{!160, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE.argprom"}
 !161 = !{!162}
 !162 = distinct !{!162, !163, !"_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE: argument 0"}
 !163 = distinct !{!163, !"_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE"}
@@ -111532,8 +111532,8 @@ attributes #40 = { nounwind allocsize(0) }
 !171 = distinct !{!171, !172, !"_ZN7xgboost6linalg14MakeTensorViewIKSt6vectorINS_6detail20GradientPairInternalIfEESaIS5_EEJmiETnPNSt9enable_ifIXaantsr6common6detail6IsSpanIT_EE5valuentsr3stdE12is_pointer_vISA_EEvE4typeELPv0EEEDaPKNS_7ContextERSA_DpOT0_: argument 0"}
 !172 = distinct !{!172, !"_ZN7xgboost6linalg14MakeTensorViewIKSt6vectorINS_6detail20GradientPairInternalIfEESaIS5_EEJmiETnPNSt9enable_ifIXaantsr6common6detail6IsSpanIT_EE5valuentsr3stdE12is_pointer_vISA_EEvE4typeELPv0EEEDaPKNS_7ContextERSA_DpOT0_"}
 !173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE: argument 0"}
-!175 = distinct !{!175, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE"}
+!174 = distinct !{!174, !175, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE.argprom: argument 0"}
+!175 = distinct !{!175, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE.argprom"}
 !176 = !{!177, !179}
 !177 = distinct !{!177, !178, !"_ZNK7xgboost16HostDeviceVectorINS_11FeatureTypeEE8HostSpanEv: argument 0"}
 !178 = distinct !{!178, !"_ZNK7xgboost16HostDeviceVectorINS_11FeatureTypeEE8HostSpanEv"}
@@ -111550,8 +111550,8 @@ attributes #40 = { nounwind allocsize(0) }
 !189 = distinct !{!189, !190, !"_ZN7xgboost6linalg14MakeTensorViewIKSt6vectorINS_6detail20GradientPairInternalIfEESaIS5_EEJmiETnPNSt9enable_ifIXaantsr6common6detail6IsSpanIT_EE5valuentsr3stdE12is_pointer_vISA_EEvE4typeELPv0EEEDaPKNS_7ContextERSA_DpOT0_: argument 0"}
 !190 = distinct !{!190, !"_ZN7xgboost6linalg14MakeTensorViewIKSt6vectorINS_6detail20GradientPairInternalIfEESaIS5_EEJmiETnPNSt9enable_ifIXaantsr6common6detail6IsSpanIT_EE5valuentsr3stdE12is_pointer_vISA_EEvE4typeELPv0EEEDaPKNS_7ContextERSA_DpOT0_"}
 !191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE: argument 0"}
-!193 = distinct !{!193, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE"}
+!192 = distinct !{!192, !193, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE.argprom: argument 0"}
+!193 = distinct !{!193, !"_ZN7xgboost4tree12_GLOBAL__N_19BatchSpecERKNS0_10TrainParamENS_6common4SpanIfLm18446744073709551615EEE.argprom"}
 !194 = distinct !{!194, !5}
 !195 = distinct !{!195, !5}
 !196 = distinct !{!196, !5, !197}

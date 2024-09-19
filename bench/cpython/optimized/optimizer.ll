@@ -250,14 +250,14 @@ if.end.i16:                                       ; preds = %entry
   %co_executors.i = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %co_executors.i, align 8
   %cmp3.i = icmp eq ptr %4, null
-  br i1 %cmp3.i, label %if.end, label %has_space_for_executor.exit
+  br i1 %cmp3.i, label %if.end, label %has_space_for_executor.argprom.exit
 
-has_space_for_executor.exit:                      ; preds = %if.end.i16
+has_space_for_executor.argprom.exit:              ; preds = %if.end.i16
   %5 = load i32, ptr %4, align 8
   %cmp8.i = icmp slt i32 %5, 256
   br i1 %cmp8.i, label %if.end, label %return
 
-if.end:                                           ; preds = %if.end.i16, %entry, %has_space_for_executor.exit
+if.end:                                           ; preds = %if.end.i16, %entry, %has_space_for_executor.argprom.exit
   %optimizer = getelementptr inbounds i8, ptr %3, i64 414920
   %6 = load ptr, ptr %optimizer, align 8
   store ptr null, ptr %executor, align 8
@@ -436,8 +436,8 @@ return.sink.split:                                ; preds = %if.end.i, %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %.sink) #17
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i, %insert_executor.exit, %if.end.i15, %if.then10, %if.end, %has_space_for_executor.exit
-  %retval.0 = phi i32 [ 0, %has_space_for_executor.exit ], [ %call3, %if.end ], [ 0, %if.then10 ], [ 0, %if.end.i15 ], [ 1, %insert_executor.exit ], [ 1, %if.end.i ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i, %insert_executor.exit, %if.end.i15, %if.then10, %if.end, %has_space_for_executor.argprom.exit
+  %retval.0 = phi i32 [ 0, %has_space_for_executor.argprom.exit ], [ %call3, %if.end ], [ 0, %if.then10 ], [ 0, %if.end.i15 ], [ 1, %insert_executor.exit ], [ 1, %if.end.i ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

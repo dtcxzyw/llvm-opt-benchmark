@@ -770,9 +770,9 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %147, %150
   %.sroa.01.04.i = phi ptr [ %170, %169 ], [ %167, %166 ]
   %171 = load ptr, ptr %.sroa.01.04.i, align 8
   %172 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %171, ptr noundef nonnull %109) #18
-  br i1 %172, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.exit", label %169
+  br i1 %172, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.argprom.exit", label %169
 
-"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.exit": ; preds = %.lr.ph.i
+"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.argprom.exit": ; preds = %.lr.ph.i
   %173 = load ptr, ptr %90, align 8
   %174 = load ptr, ptr %160, align 8
   %175 = call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(408123) %173, ptr noundef nonnull align 8 dereferenceable(512) %81, ptr noundef %174, i1 noundef zeroext false)
@@ -785,12 +785,12 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %147, %150
   %.not.i.i79 = icmp eq i32 %179, 0
   br i1 %.not.i.i79, label %183, label %180
 
-180:                                              ; preds = %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.exit"
+180:                                              ; preds = %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.argprom.exit"
   %181 = getelementptr inbounds i8, ptr %114, i64 -8
   %182 = load ptr, ptr %181, align 8
   br label %_ZNK4llvm4User10getOperandEj.exit80
 
-183:                                              ; preds = %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.exit"
+183:                                              ; preds = %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.argprom.exit"
   %184 = and i32 %178, 134217727
   %185 = zext nneg i32 %184 to i64
   %186 = sub nsw i64 0, %185
@@ -885,7 +885,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %216, %219
   %232 = load i32, ptr %231, align 8
   %233 = and i32 %232, 255
   %234 = icmp eq i32 %233, 12
-  br i1 %234, label %_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb.exit, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread"
+  br i1 %234, label %_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb.exit, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit.thread"
 
 _ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb.exit: ; preds = %229
   %235 = call { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef nonnull %.val71, i1 noundef zeroext false) #18
@@ -901,7 +901,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %_ZNK4llvm
   %.phi.trans.insert176 = getelementptr inbounds [233 x ptr], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert175
   %.pre = load ptr, ptr %.phi.trans.insert176, align 8
   %.not10.i = icmp eq ptr %.pre, null
-  br i1 %.not10.i, label %238, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread"
+  br i1 %.not10.i, label %238, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit.thread"
 
 238:                                              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb.exit
   %239 = load ptr, ptr %95, align 8
@@ -910,7 +910,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %_ZNK4llvm
   %240 = load i8, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not.i84 = icmp eq i8 %240, 1
-  br i1 %.not.i84, label %241, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread"
+  br i1 %.not.i84, label %241, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit.thread"
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr %90, align 8
@@ -928,7 +928,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %_ZNK4llvm
   %252 = getelementptr inbounds i8, ptr %251, i64 1440
   %253 = load ptr, ptr %252, align 8
   %254 = call noundef zeroext i1 %253(ptr noundef nonnull align 8 dereferenceable(408123) %250, i16 %236, ptr %237, i16 %248, ptr %249) #18
-  br i1 %254, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread", label %255
+  br i1 %254, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit.thread", label %255
 
 255:                                              ; preds = %241
   %256 = load i32, ptr %93, align 8
@@ -941,7 +941,7 @@ _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.i:       ; preds = %255
   %259 = call { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   %260 = extractvalue { i64, i8 } %259, 0
   %261 = icmp ugt i64 %260, %257
-  br i1 %261, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread", label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit"
+  br i1 %261, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit"
 
 _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i: ; preds = %255
   %262 = zext i16 %258 to i64
@@ -949,25 +949,25 @@ _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i: ; preds = %255
   %264 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %263
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %264, align 16
   %265 = icmp ugt i64 %.sroa.0.0.copyload.i.i.i.i, %257
-  br i1 %265, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread", label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit"
+  br i1 %265, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit"
 
-"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread": ; preds = %229, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %238, %241, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.i, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i
+"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit.thread": ; preds = %229, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %238, %241, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.i, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %270
 
-"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit": ; preds = %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.i, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i
+"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit": ; preds = %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.i, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i
   %.pn.i.i16.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i ], [ %260, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.i ]
   %266 = trunc i64 %.pn.i.i16.i to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.not68 = icmp eq i32 %266, 0
   br i1 %.not68, label %270, label %267
 
-267:                                              ; preds = %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit"
+267:                                              ; preds = %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit"
   %268 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl12TryToPromoteEPN4llvm5ValueEjRKNS1_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull %226, i32 noundef %266, ptr noundef nonnull align 8 dereferenceable(144) %4)
   %269 = or i1 %.1148, %268
   br label %.loopexit
 
-270:                                              ; preds = %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread", %.lr.ph, %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit"
+270:                                              ; preds = %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit.thread", %.lr.ph, %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.argprom.exit"
   %271 = getelementptr inbounds i8, ptr %.060145, i64 32
   %.not66 = icmp eq ptr %271, %225
   br i1 %.not66, label %.loopexit, label %.lr.ph
@@ -1862,7 +1862,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit69:     ; preds = %90, %94
   %.val = load i32, ptr %0, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 24
   %.val63 = load i32, ptr %97, align 8
-  %98 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl16isSupportedValueEPN4llvm5ValueE(i32 %.val, i32 %.val63, ptr noundef nonnull %1)
+  %98 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl16isSupportedValueEPN4llvm5ValueE.argprom(i32 %.val, i32 %.val63, ptr noundef nonnull %1)
   br i1 %98, label %99, label %1798
 
 99:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit69
@@ -1897,7 +1897,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit69:     ; preds = %90, %94
   %114 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %38, ptr %114, align 8
   %115 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %104) #18
-  br i1 %115, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit._crit_edge, label %.lr.ph264
+  br i1 %115, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit._crit_edge, label %.lr.ph264
 
 .lr.ph264:                                        ; preds = %103
   %116 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -1907,7 +1907,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit69:     ; preds = %90, %94
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %121
 
-121:                                              ; preds = %.lr.ph264, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge
+121:                                              ; preds = %.lr.ph264, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge
   %122 = call noundef ptr @_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE12pop_back_valEv(ptr noundef nonnull align 8 dereferenceable(40) %38)
   store ptr %122, ptr %43, align 8
   %123 = load ptr, ptr %41, align 8
@@ -1927,7 +1927,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit69:     ; preds = %90, %94
   %134 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %123, i64 %133
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %122, %135
-  br i1 %136, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge, label %.lr.ph.i.i.i.i.i.i
+  br i1 %136, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %126, %139
   %137 = phi ptr [ %144, %139 ], [ %135, %126 ]
@@ -1944,12 +1944,12 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit69:     ; preds = %90, %94
   %143 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %123, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %122, %144
-  br i1 %145, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %145, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !14
 
 .loopexit218:                                     ; preds = %.lr.ph.i.i.i.i.i.i, %121
   %146 = load i8, ptr %122, align 8
   %147 = icmp ugt i8 %146, 28
-  br i1 %147, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread, label %148
+  br i1 %147, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread, label %148
 
 148:                                              ; preds = %.loopexit218
   %149 = getelementptr i8, ptr %122, i64 8
@@ -1960,15 +1960,15 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit69:     ; preds = %90, %94
   %154 = icmp eq i32 %153, 12
   %cond = icmp eq i8 %146, 22
   %or.cond201 = and i1 %cond, %154
-  br i1 %or.cond201, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge
+  br i1 %or.cond201, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread: ; preds = %148, %.loopexit218
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread: ; preds = %148, %.loopexit218
   %155 = load ptr, ptr %118, align 8, !noalias !15
   %156 = load ptr, ptr %117, align 8, !noalias !15
   %157 = icmp eq ptr %155, %156
   br i1 %157, label %158, label %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
 
-158:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread
+158:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread
   %159 = load i32, ptr %119, align 4, !noalias !15
   %160 = zext i32 %159 to i64
   %161 = getelementptr inbounds ptr, ptr %156, i64 %160
@@ -1997,7 +1997,7 @@ _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread: ; pred
   store ptr %122, ptr %161, align 8, !noalias !15
   br label %171
 
-_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %._crit_edge.i.i, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread
+_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %._crit_edge.i.i, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread
   %169 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %117, ptr noundef nonnull %122) #18, !noalias !15
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %169, 1
   %170 = trunc i8 %.fca.1.extract.i.i to i1
@@ -2024,15 +2024,15 @@ _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %._crit_edge.i
   %183 = load i32, ptr %182, align 8
   %184 = and i32 %183, 255
   %185 = icmp eq i32 %184, 12
-  br i1 %185, label %186, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread
+  br i1 %185, label %186, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread
 
 186:                                              ; preds = %178
   %187 = load i8, ptr %179, align 8
-  switch i8 %187, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread [
-    i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread177
-    i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread177
+  switch i8 %187, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread [
+    i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread177
+    i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread177
     i8 85, label %188
-    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78
+    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78
   ]
 
 188:                                              ; preds = %186
@@ -2043,7 +2043,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %._crit_edge.i
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72.thread193: ; preds = %188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread177
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread177
 
 191:                                              ; preds = %188
   %192 = getelementptr inbounds i8, ptr %179, i64 -32
@@ -2066,7 +2066,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i74: ; pre
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72.thread: ; preds = %191, %194, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i74
   %202 = getelementptr inbounds nuw i8, ptr %193, i64 120
@@ -2074,23 +2074,23 @@ _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72: ; preds = %_ZN4
   store ptr %.sroa.0.0.copyload.i.i.i.i76, ptr %36, align 8
   %203 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef 0, i32 noundef 75) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  br i1 %203, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread177, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread
+  br i1 %203, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread177, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78: ; preds = %186
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78: ; preds = %186
   %204 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %181) #21
   %205 = icmp eq i32 %204, %.val65
-  br i1 %205, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread177, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread
+  br i1 %205, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread177, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread177: ; preds = %186, %186, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72.thread193, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread177: ; preds = %186, %186, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72.thread193, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78
   %206 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(8) %43)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread: ; preds = %186, %178, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72.thread, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread177, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread: ; preds = %186, %178, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72.thread, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i72, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread177, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78
   %207 = load ptr, ptr %43, align 8
   %208 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl6isSinkEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef %207)
-  br i1 %208, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181, label %209
+  br i1 %208, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181, label %209
 
-209:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread
+209:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread
   %210 = load ptr, ptr %43, align 8
   %.val66 = load i32, ptr %0, align 8
   %211 = getelementptr i8, ptr %210, i64 8
@@ -2099,15 +2099,15 @@ _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread: ; pr
   %214 = load i32, ptr %213, align 8
   %215 = and i32 %214, 255
   %216 = icmp eq i32 %215, 12
-  br i1 %216, label %217, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread
+  br i1 %216, label %217, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread
 
 217:                                              ; preds = %209
   %218 = load i8, ptr %210, align 8
-  switch i8 %218, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread [
-    i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181
-    i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181
+  switch i8 %218, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread [
+    i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181
+    i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181
     i8 85, label %219
-    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87
+    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87
   ]
 
 219:                                              ; preds = %217
@@ -2118,7 +2118,7 @@ _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread: ; pr
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81.thread196: ; preds = %219
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181
 
 222:                                              ; preds = %219
   %223 = getelementptr inbounds i8, ptr %210, i64 -32
@@ -2141,7 +2141,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i83: ; pre
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81.thread: ; preds = %222, %225, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i83
   %233 = getelementptr inbounds nuw i8, ptr %224, i64 120
@@ -2149,20 +2149,20 @@ _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81: ; preds = %_ZN4
   store ptr %.sroa.0.0.copyload.i.i.i.i85, ptr %35, align 8
   %234 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %35, i32 noundef 0, i32 noundef 75) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  br i1 %234, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread
+  br i1 %234, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87: ; preds = %217
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87: ; preds = %217
   %235 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %212) #21
   %236 = icmp eq i32 %235, %.val66
-  br i1 %236, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread
+  br i1 %236, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread: ; preds = %217, %209, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81.thread, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread: ; preds = %217, %209, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81.thread, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87
   %237 = load ptr, ptr %43, align 8
   %238 = load i8, ptr %237, align 8
   %239 = icmp ult i8 %238, 29
-  br i1 %239, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181, label %240
+  br i1 %239, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181, label %240
 
-240:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread
+240:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 4
   %242 = load i32, ptr %241, align 4
   %243 = and i32 %242, 1073741824
@@ -2188,12 +2188,12 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %244, %247
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %244 ], [ %249, %247 ]
   %253 = getelementptr inbounds %"class.llvm::Use", ptr %252, i64 %.pre-phi2.i.i
   %.not60258 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not60258, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181, label %.lr.ph
+  br i1 %.not60258, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181, label %.lr.ph
 
 254:                                              ; preds = %.lr.ph
   %255 = getelementptr inbounds i8, ptr %.037259, i64 32
   %.not60 = icmp eq ptr %255, %253
-  br i1 %.not60, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181, label %.lr.ph
+  br i1 %.not60, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm4User8operandsEv.exit, %254
   %.037259 = phi ptr [ %255, %254 ], [ %252, %_ZN4llvm4User8operandsEv.exit ]
@@ -2201,7 +2201,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %244, %247
   %257 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_117TypePromotionImpl12TryToPromoteEPN4llvm5ValueEjRKNS1_8LoopInfoEENK3$_0clES3_"(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef %256)
   br i1 %257, label %254, label %_ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj4EED2Ev.exit
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181: ; preds = %254, %_ZN4llvm4User8operandsEv.exit, %217, %217, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81.thread196, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit78.thread
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181: ; preds = %254, %_ZN4llvm4User8operandsEv.exit, %217, %217, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81.thread196, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i81, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit78.thread
   %258 = load ptr, ptr %43, align 8
   %.val67 = load i32, ptr %0, align 8
   %259 = getelementptr i8, ptr %258, i64 8
@@ -2210,15 +2210,15 @@ _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181: ;
   %262 = load i32, ptr %261, align 8
   %263 = and i32 %262, 255
   %264 = icmp eq i32 %263, 12
-  br i1 %264, label %265, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread
+  br i1 %264, label %265, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread
 
-265:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181
+265:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181
   %266 = load i8, ptr %258, align 8
-  switch i8 %266, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread [
-    i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185
-    i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185
+  switch i8 %266, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread [
+    i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185
+    i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185
     i8 85, label %267
-    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96
+    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96
   ]
 
 267:                                              ; preds = %265
@@ -2229,7 +2229,7 @@ _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181: ;
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90.thread199: ; preds = %267
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185
 
 270:                                              ; preds = %267
   %271 = getelementptr inbounds i8, ptr %258, i64 -32
@@ -2252,7 +2252,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i92: ; pre
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90.thread: ; preds = %270, %273, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i92
   %281 = getelementptr inbounds nuw i8, ptr %272, i64 120
@@ -2260,43 +2260,43 @@ _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90: ; preds = %_ZN4
   store ptr %.sroa.0.0.copyload.i.i.i.i94, ptr %34, align 8
   %282 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %34, i32 noundef 0, i32 noundef 75) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  br i1 %282, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread
+  br i1 %282, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96: ; preds = %265
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96: ; preds = %265
   %283 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %260) #21
   %284 = icmp eq i32 %283, %.val67
-  br i1 %284, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread
+  br i1 %284, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread: ; preds = %265, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit87.thread181, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90.thread, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread: ; preds = %265, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit87.thread181, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90.thread, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96
   %285 = load ptr, ptr %43, align 8
   %286 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl13shouldPromoteEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef %285)
-  br i1 %286, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge
+  br i1 %286, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185: ; preds = %265, %265, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90.thread199, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185: ; preds = %265, %265, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90.thread199, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i90, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96
   %287 = load ptr, ptr %43, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 16
   %.sroa.0160.0260 = load ptr, ptr %288, align 8
   %.not205261 = icmp eq ptr %.sroa.0160.0260, null
-  br i1 %.not205261, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge, label %.lr.ph263
+  br i1 %.not205261, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge, label %.lr.ph263
 
 289:                                              ; preds = %.lr.ph263
   %290 = getelementptr inbounds nuw i8, ptr %.sroa.0160.0262, i64 8
   %.sroa.0160.0 = load ptr, ptr %290, align 8
   %.not205 = icmp eq ptr %.sroa.0160.0, null
-  br i1 %.not205, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge, label %.lr.ph263
+  br i1 %.not205, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge, label %.lr.ph263
 
-.lr.ph263:                                        ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185, %289
-  %.sroa.0160.0262 = phi ptr [ %.sroa.0160.0, %289 ], [ %.sroa.0160.0260, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185 ]
+.lr.ph263:                                        ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185, %289
+  %.sroa.0160.0262 = phi ptr [ %.sroa.0160.0, %289 ], [ %.sroa.0160.0260, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185 ]
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.0160.0262, i64 24
   %292 = load ptr, ptr %291, align 8
   %293 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_117TypePromotionImpl12TryToPromoteEPN4llvm5ValueEjRKNS1_8LoopInfoEENK3$_0clES3_"(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef %292)
   br i1 %293, label %289, label %_ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj4EED2Ev.exit
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge: ; preds = %139, %289, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit96.thread185, %126, %148
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge: ; preds = %139, %289, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit96.thread185, %126, %148
   %294 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %104) #18
-  br i1 %294, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit._crit_edge, label %121, !llvm.loop !19
+  br i1 %294, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit._crit_edge, label %121, !llvm.loop !19
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit._crit_edge: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.backedge, %103
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit._crit_edge: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.backedge, %103
   %295 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %295, ptr %45, align 8
   %296 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -2313,7 +2313,7 @@ _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit._crit_edge: ; 
   %.not265 = icmp eq i64 %301, 0
   br i1 %.not265, label %._crit_edge.thread, label %.lr.ph271
 
-.lr.ph271:                                        ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit._crit_edge
+.lr.ph271:                                        ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit._crit_edge
   %303 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %304 = getelementptr inbounds nuw i8, ptr %40, i64 16
   br label %305
@@ -2516,7 +2516,7 @@ _ZNK4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_
   %brmerge = select i1 %404, i1 true, i1 %401
   br i1 %brmerge, label %422, label %408
 
-._crit_edge.thread:                               ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit._crit_edge
+._crit_edge.thread:                               ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit._crit_edge
   %405 = load ptr, ptr %37, align 8
   %406 = load i8, ptr %405, align 8
   %407 = icmp eq i8 %406, 84
@@ -6211,7 +6211,7 @@ declare { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef nonnull 
 declare { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl16isSupportedValueEPN4llvm5ValueE(i32 %.0.val, i32 %.24.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl16isSupportedValueEPN4llvm5ValueE.argprom(i32 %.0.val, i32 %.24.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::AttributeList", align 8
   %3 = load i8, ptr %0, align 8
   %4 = icmp ult i8 %3, 29
@@ -6219,10 +6219,10 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl1
 
 5:                                                ; preds = %1
   switch i8 %3, label %6 [
-    i8 63, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 62, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 31, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 32, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+    i8 63, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
+    i8 62, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
+    i8 31, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
+    i8 32, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
     i8 84, label %20
     i8 86, label %20
     i8 30, label %20
@@ -6238,7 +6238,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl1
   %7 = zext i8 %3 to i32
   %8 = add nsw i32 %7, -42
   %9 = icmp ult i32 %8, 18
-  br i1 %9, label %10, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br i1 %9, label %10, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 10:                                               ; preds = %6
   %11 = getelementptr i8, ptr %0, i64 8
@@ -6246,9 +6246,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl1
   %12 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
   %13 = load i32, ptr %12, align 8
   %trunc.i = trunc i32 %13 to i8
-  switch i8 %trunc.i, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29 [
-    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19
-    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19
+  switch i8 %trunc.i, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29 [
+    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit.thread19
+    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit.thread19
     i8 12, label %14
   ]
 
@@ -6257,17 +6257,17 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl1
   %16 = icmp eq i32 %15, 1
   %17 = icmp ugt i32 %15, %.24.val
   %or.cond.i = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit
+  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit: ; preds = %14
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit: ; preds = %14
   %18 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6) #21
   %.not28 = icmp ugt i32 %18, %.0.val
-  br i1 %.not28, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19
+  br i1 %.not28, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit.thread19
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19: ; preds = %10, %10, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit.thread19: ; preds = %10, %10, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit
   %switch.tableidx = add i8 %3, -49
   %19 = icmp ult i8 %switch.tableidx, 21
-  br i1 %19, label %switch.lookup, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br i1 %19, label %switch.lookup, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 20:                                               ; preds = %5, %5, %5, %5, %5
   %21 = getelementptr i8, ptr %0, i64 8
@@ -6276,8 +6276,8 @@ _ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread
   %23 = load i32, ptr %22, align 8
   %trunc.i25 = trunc i32 %23 to i8
   switch i8 %trunc.i25, label %.fold.split.i28 [
-    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
+    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
     i8 12, label %24
   ]
 
@@ -6286,15 +6286,15 @@ _ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread
   %26 = icmp eq i32 %25, 1
   %27 = icmp ugt i32 %25, %.24.val
   %or.cond.i26 = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond.i26, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %28
+  br i1 %or.cond.i26, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val9) #21
   %30 = icmp ule i32 %29, %.0.val
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 .fold.split.i28:                                  ; preds = %20
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 31:                                               ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -6323,7 +6323,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %35, %38
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %46, %48
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 50:                                               ; preds = %5
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -6353,8 +6353,8 @@ _ZNK4llvm4User10getOperandEj.exit31:              ; preds = %54, %57
   %66 = load i32, ptr %65, align 8
   %trunc.i32 = trunc i32 %66 to i8
   switch i8 %trunc.i32, label %.fold.split.i35 [
-    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
+    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
     i8 12, label %67
   ]
 
@@ -6363,15 +6363,15 @@ _ZNK4llvm4User10getOperandEj.exit31:              ; preds = %54, %57
   %69 = icmp eq i32 %68, 1
   %70 = icmp ugt i32 %68, %.24.val
   %or.cond.i33 = select i1 %69, i1 true, i1 %70
-  br i1 %or.cond.i33, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %71
+  br i1 %or.cond.i33, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %71
 
 71:                                               ; preds = %67
   %72 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val12) #21
   %73 = icmp ule i32 %72, %.0.val
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 .fold.split.i35:                                  ; preds = %_ZNK4llvm4User10getOperandEj.exit31
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 74:                                               ; preds = %5
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -6392,7 +6392,7 @@ _ZNK4llvm4User10getOperandEj.exit38:              ; preds = %74
   %86 = load i32, ptr %85, align 8
   %87 = and i32 %86, 255
   %88 = icmp eq i32 %87, 14
-  br i1 %88, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZNK4llvm4User10getOperandEj.exit40
+  br i1 %88, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %_ZNK4llvm4User10getOperandEj.exit40
 
 _ZNK4llvm4User10getOperandEj.exit38.thread:       ; preds = %74
   %89 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -6404,13 +6404,13 @@ _ZNK4llvm4User10getOperandEj.exit38.thread:       ; preds = %74
   %95 = load i32, ptr %94, align 8
   %96 = and i32 %95, 255
   %97 = icmp eq i32 %96, 14
-  br i1 %97, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZNK4llvm4User10getOperandEj.exit40
+  br i1 %97, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %_ZNK4llvm4User10getOperandEj.exit40
 
 _ZNK4llvm4User10getOperandEj.exit40:              ; preds = %_ZNK4llvm4User10getOperandEj.exit38, %_ZNK4llvm4User10getOperandEj.exit38.thread
   %.val24 = phi ptr [ %93, %_ZNK4llvm4User10getOperandEj.exit38.thread ], [ %84, %_ZNK4llvm4User10getOperandEj.exit38 ]
   %98 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val24) #21
   %99 = icmp eq i32 %98, %.0.val
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 100:                                              ; preds = %5
   %101 = getelementptr i8, ptr %0, i64 8
@@ -6418,9 +6418,9 @@ _ZNK4llvm4User10getOperandEj.exit40:              ; preds = %_ZNK4llvm4User10get
   %102 = getelementptr inbounds nuw i8, ptr %.val15, i64 8
   %103 = load i32, ptr %102, align 8
   %trunc.i41 = trunc i32 %103 to i8
-  switch i8 %trunc.i41, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29 [
-    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
-    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
+  switch i8 %trunc.i41, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29 [
+    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45.thread23
+    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45.thread23
     i8 12, label %104
   ]
 
@@ -6429,20 +6429,20 @@ _ZNK4llvm4User10getOperandEj.exit40:              ; preds = %_ZNK4llvm4User10get
   %106 = icmp eq i32 %105, 1
   %107 = icmp ugt i32 %105, %.24.val
   %or.cond.i42 = select i1 %106, i1 true, i1 %107
-  br i1 %or.cond.i42, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45
+  br i1 %or.cond.i42, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45: ; preds = %104
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45: ; preds = %104
   %108 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val15) #21
   %.not27 = icmp ugt i32 %108, %.0.val
-  br i1 %.not27, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
+  br i1 %.not27, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45.thread23
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23: ; preds = %100, %100, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45.thread23: ; preds = %100, %100, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %110 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %109, i32 noundef 0, i32 noundef 75) #18
   br i1 %110, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, label %111
 
-111:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
+111:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45.thread23
   %112 = getelementptr inbounds i8, ptr %0, i64 -32
   %113 = load ptr, ptr %112, align 8
   %.not.i.i.i.i.i = icmp eq ptr %113, null
@@ -6468,10 +6468,10 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_
   %123 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 0, i32 noundef 75) #18
   br label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit
 
-_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23, %111, %114, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i
-  %.0.i.i = phi i1 [ %123, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23 ], [ false, %111 ], [ false, %114 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ]
+_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45.thread23, %111, %114, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i
+  %.0.i.i = phi i1 [ %123, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45.thread23 ], [ false, %111 ], [ false, %114 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 124:                                              ; preds = %1
   %125 = icmp ult i8 %3, 22
@@ -6488,8 +6488,8 @@ _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit: ; preds = %_ZN12_GL
   %131 = load i32, ptr %130, align 8
   %trunc.i46 = trunc i32 %131 to i8
   switch i8 %trunc.i46, label %.fold.split.i49 [
-    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
+    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
     i8 12, label %132
   ]
 
@@ -6498,15 +6498,15 @@ _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit: ; preds = %_ZN12_GL
   %134 = icmp eq i32 %133, 1
   %135 = icmp ugt i32 %133, %.24.val
   %or.cond.i47 = select i1 %134, i1 true, i1 %135
-  br i1 %or.cond.i47, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %136
+  br i1 %or.cond.i47, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %136
 
 136:                                              ; preds = %132
   %137 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val18) #21
   %138 = icmp ule i32 %137, %.0.val
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 .fold.split.i49:                                  ; preds = %128
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 139:                                              ; preds = %124
   %140 = icmp eq i8 %3, 22
@@ -6519,8 +6519,8 @@ _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit: ; preds = %_ZN12_GL
   %144 = load i32, ptr %143, align 8
   %trunc.i51 = trunc i32 %144 to i8
   switch i8 %trunc.i51, label %.fold.split.i54 [
-    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+    i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
+    i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
     i8 12, label %145
   ]
 
@@ -6529,28 +6529,28 @@ _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit: ; preds = %_ZN12_GL
   %147 = icmp eq i32 %146, 1
   %148 = icmp ugt i32 %146, %.24.val
   %or.cond.i52 = select i1 %147, i1 true, i1 %148
-  br i1 %or.cond.i52, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %149
+  br i1 %or.cond.i52, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29, label %149
 
 149:                                              ; preds = %145
   %150 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val21) #21
   %151 = icmp ule i32 %150, %.0.val
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 .fold.split.i54:                                  ; preds = %141
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
 .thread25:                                        ; preds = %126, %139
   %152 = icmp eq i8 %3, 23
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
-switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19
+switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit.thread19
   %switch.cast = zext nneg i8 %switch.tableidx to i21
   %switch.downshift = lshr i21 1048438, %switch.cast
   %switch.masked = trunc i21 %switch.downshift to i1
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19, %switch.lookup, %100, %104, %10, %14, %.fold.split.i54, %149, %145, %141, %141, %.fold.split.i49, %136, %132, %128, %128, %_ZNK4llvm4User10getOperandEj.exit38.thread, %.fold.split.i35, %71, %67, %_ZNK4llvm4User10getOperandEj.exit31, %_ZNK4llvm4User10getOperandEj.exit31, %.fold.split.i28, %28, %24, %20, %20, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, %_ZNK4llvm4User10getOperandEj.exit38, %5, %5, %5, %5, %6, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit, %.thread25, %_ZNK4llvm4User10getOperandEj.exit40, %_ZNK4llvm4User10getOperandEj.exit
-  %.0 = phi i1 [ %99, %_ZNK4llvm4User10getOperandEj.exit40 ], [ %49, %_ZNK4llvm4User10getOperandEj.exit ], [ %152, %.thread25 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit ], [ false, %6 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %_ZNK4llvm4User10getOperandEj.exit38 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45 ], [ %.0.i.i, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit ], [ %30, %28 ], [ true, %20 ], [ false, %24 ], [ true, %20 ], [ false, %.fold.split.i28 ], [ %73, %71 ], [ true, %_ZNK4llvm4User10getOperandEj.exit31 ], [ false, %67 ], [ true, %_ZNK4llvm4User10getOperandEj.exit31 ], [ false, %.fold.split.i35 ], [ true, %_ZNK4llvm4User10getOperandEj.exit38.thread ], [ %138, %136 ], [ true, %128 ], [ false, %132 ], [ true, %128 ], [ false, %.fold.split.i49 ], [ %151, %149 ], [ true, %141 ], [ false, %145 ], [ true, %141 ], [ false, %.fold.split.i54 ], [ false, %14 ], [ false, %10 ], [ false, %104 ], [ false, %100 ], [ %switch.masked, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19 ]
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit29: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit.thread19, %switch.lookup, %100, %104, %10, %14, %.fold.split.i54, %149, %145, %141, %141, %.fold.split.i49, %136, %132, %128, %128, %_ZNK4llvm4User10getOperandEj.exit38.thread, %.fold.split.i35, %71, %67, %_ZNK4llvm4User10getOperandEj.exit31, %_ZNK4llvm4User10getOperandEj.exit31, %.fold.split.i28, %28, %24, %20, %20, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, %_ZNK4llvm4User10getOperandEj.exit38, %5, %5, %5, %5, %6, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit, %.thread25, %_ZNK4llvm4User10getOperandEj.exit40, %_ZNK4llvm4User10getOperandEj.exit
+  %.0 = phi i1 [ %99, %_ZNK4llvm4User10getOperandEj.exit40 ], [ %49, %_ZNK4llvm4User10getOperandEj.exit ], [ %152, %.thread25 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit ], [ false, %6 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %_ZNK4llvm4User10getOperandEj.exit38 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit45 ], [ %.0.i.i, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit ], [ %30, %28 ], [ true, %20 ], [ false, %24 ], [ true, %20 ], [ false, %.fold.split.i28 ], [ %73, %71 ], [ true, %_ZNK4llvm4User10getOperandEj.exit31 ], [ false, %67 ], [ true, %_ZNK4llvm4User10getOperandEj.exit31 ], [ false, %.fold.split.i35 ], [ true, %_ZNK4llvm4User10getOperandEj.exit38.thread ], [ %138, %136 ], [ true, %128 ], [ false, %132 ], [ true, %128 ], [ false, %.fold.split.i49 ], [ %151, %149 ], [ true, %141 ], [ false, %145 ], [ true, %141 ], [ false, %.fold.split.i54 ], [ false, %14 ], [ false, %10 ], [ false, %104 ], [ false, %100 ], [ %switch.masked, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.argprom.exit.thread19 ]
   ret i1 %.0
 }
 
@@ -6576,15 +6576,15 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl1
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp eq i32 %16, 12
-  br i1 %17, label %18, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split
+  br i1 %17, label %18, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.threadthread-pre-split
 
 18:                                               ; preds = %12
   %19 = load i8, ptr %1, align 8
-  switch i8 %19, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread [
+  switch i8 %19, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread [
     i8 22, label %.critedge
     i8 61, label %.critedge
     i8 85, label %20
-    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit
+    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit
   ]
 
 20:                                               ; preds = %18
@@ -6618,7 +6618,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i: ; preds
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i.thread: ; preds = %23, %26, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.threadthread-pre-split
 
 _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 120
@@ -6626,29 +6626,29 @@ _ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i: ; preds = %_ZN4ll
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %3, align 8
   %35 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 0, i32 noundef 75) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %35, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split
+  br i1 %35, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.threadthread-pre-split
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit: ; preds = %18
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit: ; preds = %18
   %36 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %13) #21
   %37 = icmp eq i32 %36, %.val
-  br i1 %37, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread
+  br i1 %37, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split: ; preds = %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i.thread, %12
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.threadthread-pre-split: ; preds = %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i.thread, %12
   %.pr = load i8, ptr %1, align 8
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread
+  br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split, %18
-  %38 = phi i8 [ %.pr, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split ], [ %19, %18 ]
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.threadthread-pre-split, %18
+  %38 = phi i8 [ %.pr, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.threadthread-pre-split ], [ %19, %18 ]
   %39 = icmp ult i8 %38, 29
-  br i1 %39, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread
+  br i1 %39, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread
-  %40 = phi i8 [ %38, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread ], [ 67, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit ]
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread
+  %40 = phi i8 [ %38, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread ], [ 67, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit ]
   %41 = icmp ne i8 %40, 82
   br label %.critedge
 
-.critedge:                                        ; preds = %18, %18, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i.thread12, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit, %10, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %10 ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread ], [ %41, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread ], [ true, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i ], [ true, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i.thread12 ], [ true, %18 ], [ true, %18 ]
+.critedge:                                        ; preds = %18, %18, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i.thread12, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit, %10, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %10 ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread ], [ %41, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.argprom.exit.thread.thread ], [ true, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i ], [ true, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit.i.thread12 ], [ true, %18 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -6737,14 +6737,14 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit: ; preds = %.lr.
 
 46:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit
   %.val.i = load i8, ptr %1, align 8
-  switch i8 %.val.i, label %_ZL16GenerateSignBitsPN4llvm11InstructionE.exit.i [
+  switch i8 %.val.i, label %_ZL16GenerateSignBitsPN4llvm11InstructionE.argprom.exit.i [
     i8 56, label %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread17
     i8 52, label %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread17
     i8 49, label %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread17
     i8 69, label %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread17
   ]
 
-_ZL16GenerateSignBitsPN4llvm11InstructionE.exit.i: ; preds = %46
+_ZL16GenerateSignBitsPN4llvm11InstructionE.argprom.exit.i: ; preds = %46
   %47 = zext i8 %.val.i to i32
   %48 = add nsw i32 %47, -42
   %49 = tail call i32 @llvm.fshl.i32(i32 %48, i32 %48, i32 31)
@@ -6755,7 +6755,7 @@ _ZL16GenerateSignBitsPN4llvm11InstructionE.exit.i: ; preds = %46
     i32 6, label %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit
   ]
 
-_ZL20isPromotedResultSafePN4llvm11InstructionE.exit: ; preds = %_ZL16GenerateSignBitsPN4llvm11InstructionE.exit.i, %_ZL16GenerateSignBitsPN4llvm11InstructionE.exit.i, %_ZL16GenerateSignBitsPN4llvm11InstructionE.exit.i, %_ZL16GenerateSignBitsPN4llvm11InstructionE.exit.i
+_ZL20isPromotedResultSafePN4llvm11InstructionE.exit: ; preds = %_ZL16GenerateSignBitsPN4llvm11InstructionE.argprom.exit.i, %_ZL16GenerateSignBitsPN4llvm11InstructionE.argprom.exit.i, %_ZL16GenerateSignBitsPN4llvm11InstructionE.argprom.exit.i, %_ZL16GenerateSignBitsPN4llvm11InstructionE.argprom.exit.i
   %50 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %1) #21
   br i1 %50, label %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread, label %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread17
 
@@ -7118,7 +7118,7 @@ _ZN12_GLOBAL__N_117TypePromotionImpl10isSafeWrapEPN4llvm11InstructionE.exit: ; p
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br i1 %.1.i, label %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread, label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit
 
-_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread: ; preds = %_ZL16GenerateSignBitsPN4llvm11InstructionE.exit.i, %210, %_ZN12_GLOBAL__N_117TypePromotionImpl10isSafeWrapEPN4llvm11InstructionE.exit, %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit
+_ZL20isPromotedResultSafePN4llvm11InstructionE.exit.thread: ; preds = %_ZL16GenerateSignBitsPN4llvm11InstructionE.argprom.exit.i, %210, %_ZN12_GLOBAL__N_117TypePromotionImpl10isSafeWrapEPN4llvm11InstructionE.exit, %_ZL20isPromotedResultSafePN4llvm11InstructionE.exit
   %211 = load ptr, ptr %16, align 8, !noalias !58
   %212 = load ptr, ptr %15, align 8, !noalias !58
   %213 = icmp eq ptr %211, %212
@@ -7539,7 +7539,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_117TypePromotionImp
   %.val = load i32, ptr %5, align 8
   %34 = getelementptr i8, ptr %5, i64 24
   %.val2 = load i32, ptr %34, align 8
-  %35 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl16isSupportedValueEPN4llvm5ValueE(i32 %.val, i32 %.val2, ptr noundef nonnull %1)
+  %35 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl16isSupportedValueEPN4llvm5ValueE.argprom(i32 %.val, i32 %.val2, ptr noundef nonnull %1)
   br i1 %35, label %36, label %_ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit
 
 36:                                               ; preds = %33

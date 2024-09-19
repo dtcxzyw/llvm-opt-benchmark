@@ -1088,13 +1088,13 @@ land.lhs.true15.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp17.i, label %if.then18.i, label %if.end32.i
 
 if.then18.i:                                      ; preds = %land.lhs.true15.i
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %67, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %67, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %.noexc23 unwind label %lpad67.loopexit.split-lp.loopexit
 
 .noexc23:                                         ; preds = %if.then18.i
   %68 = load ptr, ptr %regions.i, align 8
   %add.ptr.i.i20 = getelementptr inbounds i8, ptr %68, i64 160
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i20, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i20, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %.noexc24 unwind label %lpad67.loopexit.split-lp.loopexit
 
 .noexc24:                                         ; preds = %.noexc23
@@ -1123,7 +1123,7 @@ call27.i.noexc:                                   ; preds = %call24.i.noexc
 call28.i.noexc:                                   ; preds = %call27.i.noexc
   %71 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %71, i64 -160
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i.i, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i.i, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %return.i unwind label %lpad67.loopexit.split-lp.loopexit
 
 if.end32.i:                                       ; preds = %land.lhs.true15.i, %land.lhs.true.i, %call11.i.noexc
@@ -1136,7 +1136,7 @@ if.end32.i:                                       ; preds = %land.lhs.true15.i, 
 
 for.body.i:                                       ; preds = %if.end32.i, %.noexc30
   %__begin2.sroa.0.0156.i = phi ptr [ %incdec.ptr.i.i, %.noexc30 ], [ %72, %if.end32.i ]
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %__begin2.sroa.0.0156.i, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %__begin2.sroa.0.0156.i, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %.noexc30 unwind label %lpad67.loopexit
 
 .noexc30:                                         ; preds = %for.body.i
@@ -2517,7 +2517,7 @@ if.then13:                                        ; preds = %if.then
   %add.ptr.i = getelementptr inbounds i8, ptr %binary, i64 %region.val
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #10, !noalias !16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %add.ptr.i, i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-          to label %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh.exit unwind label %lpad.i
+          to label %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh.argprom.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then13
   %4 = landingpad { ptr, i32 }
@@ -2525,7 +2525,7 @@ lpad.i:                                           ; preds = %if.then13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #10
   br label %ehcleanup
 
-_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh.exit: ; preds = %if.then13
+_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh.argprom.exit: ; preds = %if.then13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   br label %cleanup
@@ -3317,7 +3317,7 @@ if.end77:                                         ; preds = %sw.epilog, %invoke.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %s) #10
   br label %cleanup
 
-cleanup:                                          ; preds = %sw.bb27.invoke, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIaEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh.exit, %sw.bb35, %sw.bb21, %sw.bb19, %sw.bb, %if.end77, %for.end
+cleanup:                                          ; preds = %sw.bb27.invoke, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIaEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh.exit, %_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh.argprom.exit, %sw.bb35, %sw.bb21, %sw.bb19, %sw.bb, %if.end77, %for.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #10
   ret void
 
@@ -4677,7 +4677,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %output_config) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %output_config) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5720,7 +5720,7 @@ lpad156.i.i:                                      ; preds = %invoke.cont155.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont157.i.i, %sw.epilog.i.i
   %68 = load i32, ptr %comment.i, align 8, !noalias !66
-  switch i32 %68, label %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.exit.i [
+  switch i32 %68, label %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom.exit.i [
     i32 207, label %sw.bb234.i.i
     i32 100, label %sw.bb161.i.i
     i32 101, label %sw.bb171.invoke.i.i
@@ -5752,7 +5752,7 @@ sw.bb171.i.i:                                     ; preds = %if.end.i.i
 sw.bb171.invoke.i.i:                              ; preds = %sw.bb171.i.i, %sw.bb168.i.i, %if.end.i.i
   %69 = phi ptr [ @.str.74, %sw.bb171.i.i ], [ @.str.73, %sw.bb168.i.i ], [ @.str.72, %if.end.i.i ]
   %70 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124.i, ptr noundef nonnull %69)
-          to label %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.exit.i unwind label %lpad.i45.i
+          to label %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom.exit.i unwind label %lpad.i45.i
 
 sw.bb174.i.i:                                     ; preds = %if.end.i.i
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp175.i.i, ptr noundef nonnull @.str.75, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124.i)
@@ -5937,14 +5937,14 @@ lpad238.i.i:                                      ; preds = %invoke.cont237.i.i
 nrvo.skipdtor.sink.split.i.i:                     ; preds = %invoke.cont239.i.i, %invoke.cont231.i.i, %invoke.cont223.i.i, %invoke.cont215.i.i, %invoke.cont207.i.i, %invoke.cont197.i.i, %invoke.cont183.i.i, %invoke.cont176.i.i, %invoke.cont163.i.i
   %ref.tmp162.sink.i.i = phi ptr [ %ref.tmp162.i.i, %invoke.cont163.i.i ], [ %ref.tmp175.i.i, %invoke.cont176.i.i ], [ %ref.tmp180.i.i, %invoke.cont183.i.i ], [ %ref.tmp190.i.i, %invoke.cont197.i.i ], [ %ref.tmp204.i.i, %invoke.cont207.i.i ], [ %ref.tmp212.i.i, %invoke.cont215.i.i ], [ %ref.tmp220.i.i, %invoke.cont223.i.i ], [ %ref.tmp228.i.i, %invoke.cont231.i.i ], [ %ref.tmp236.i.i, %invoke.cont239.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162.sink.i.i) #10
-  br label %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.exit.i
+  br label %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom.exit.i
 
 ehcleanup243.i.i:                                 ; preds = %lpad238.i.i, %lpad230.i.i, %lpad222.i.i, %lpad214.i.i, %lpad206.i.i, %ehcleanup201.i.i, %lpad182.i.i, %lpad156.i.i, %ehcleanup151.i.i, %ehcleanup138.i.i, %ehcleanup125.i.i, %ehcleanup112.i.i, %ehcleanup87.i.i, %lpad62.i.i, %lpad53.i.i, %ehcleanup.i.i, %lpad7.i.i, %lpad.i45.i
   %.pn33.i.i = phi { ptr, i32 } [ %78, %lpad230.i.i ], [ %41, %lpad.i45.i ], [ %77, %lpad222.i.i ], [ %76, %lpad214.i.i ], [ %75, %lpad206.i.i ], [ %.pn30.pn.i.i, %ehcleanup201.i.i ], [ %71, %lpad182.i.i ], [ %79, %lpad238.i.i ], [ %67, %lpad156.i.i ], [ %.pn.i.i, %ehcleanup151.i.i ], [ %.pn18.i.i, %ehcleanup138.i.i ], [ %.pn20.i.i, %ehcleanup125.i.i ], [ %.pn22.i.i, %ehcleanup112.i.i ], [ %.pn24.pn.pn.i.i, %ehcleanup87.i.i ], [ %47, %lpad62.i.i ], [ %46, %lpad53.i.i ], [ %.pn28.i.i, %ehcleanup.i.i ], [ %42, %lpad7.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124.i) #10
   br label %ehcleanup
 
-_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.exit.i: ; preds = %nrvo.skipdtor.sink.split.i.i, %sw.bb171.invoke.i.i, %if.end.i.i
+_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom.exit.i: ; preds = %nrvo.skipdtor.sink.split.i.i, %sw.bb171.invoke.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23.i.i)
@@ -5995,14 +5995,14 @@ _ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommen
   %call127.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124.i)
           to label %invoke.cont50 unwind label %lpad125.i
 
-lpad125.i:                                        ; preds = %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.exit.i
+lpad125.i:                                        ; preds = %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom.exit.i
   %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124.i) #10
   br label %ehcleanup
 
-invoke.cont50:                                    ; preds = %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.exit.i, %.noexc33
-  %ref.tmp124.sink.i = phi ptr [ %ref.tmp12.i, %.noexc33 ], [ %ref.tmp124.i, %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.exit.i ]
+invoke.cont50:                                    ; preds = %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom.exit.i, %.noexc33
+  %ref.tmp124.sink.i = phi ptr [ %ref.tmp12.i, %.noexc33 ], [ %ref.tmp124.i, %_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124.sink.i) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -6121,8 +6121,8 @@ attributes #12 = { noreturn nounwind }
 !14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh: %agg.result"}
-!18 = distinct !{!18, !"_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh"}
+!17 = distinct !{!17, !18, !"_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh.argprom: %agg.result"}
+!18 = distinct !{!18, !"_ZN11flatbuffers12_GLOBAL__N_113ToValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKNS_12BinaryRegionEPKh.argprom"}
 !19 = !{!20}
 !20 = distinct !{!20, !21, !"_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh: %agg.result"}
 !21 = distinct !{!21, !"_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh"}
@@ -6171,8 +6171,8 @@ attributes #12 = { noreturn nounwind }
 !64 = distinct !{!64, !15}
 !65 = distinct !{!65, !15}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE: %agg.result"}
-!68 = distinct !{!68, !"_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE"}
+!67 = distinct !{!67, !68, !"_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom: %agg.result"}
+!68 = distinct !{!68, !"_ZN11flatbuffers12_GLOBAL__N_115GenerateCommentB5cxx11ERKNS_19BinaryRegionCommentERKNS_13BinarySectionE.argprom"}
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !71 = distinct !{!71, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}

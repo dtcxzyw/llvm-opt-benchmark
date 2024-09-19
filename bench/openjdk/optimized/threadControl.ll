@@ -563,7 +563,7 @@ commonResume.exit:                                ; preds = %2, %6
   %.0.i = phi i32 [ %7, %6 ], [ 0, %2 ]
   %8 = load ptr, ptr @otherThreads, align 8
   %.not1.i = icmp eq ptr %8, null
-  br i1 %.not1.i, label %removeResumed.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %removeResumed.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %commonResume.exit, %31
   %.02.i = phi ptr [ %10, %31 ], [ %8, %commonResume.exit ]
@@ -621,20 +621,20 @@ removeThread.exit.i:                              ; preds = %28, %26
 
 31:                                               ; preds = %removeThread.exit.i, %.lr.ph.i
   %.not.i4 = icmp eq ptr %10, null
-  br i1 %.not.i4, label %removeResumed.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i4, label %removeResumed.argprom.exit, label %.lr.ph.i, !llvm.loop !9
 
-removeResumed.exit:                               ; preds = %31, %commonResume.exit
+removeResumed.argprom.exit:                       ; preds = %31, %commonResume.exit
   %32 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %32) #6
   tail call void @eventHandler_unlock() #6
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %34, label %33
 
-33:                                               ; preds = %removeResumed.exit
+33:                                               ; preds = %removeResumed.argprom.exit
   tail call void @unblockCommandLoop() #6
   br label %34
 
-34:                                               ; preds = %33, %removeResumed.exit
+34:                                               ; preds = %33, %removeResumed.argprom.exit
   ret i32 %.0.i
 }
 
@@ -1658,7 +1658,7 @@ resumeCopyHelper.exit.i:                          ; preds = %117, %.lr.ph.i37.i,
 enumerateOverThreadList.exit43.i:                 ; preds = %resumeCopyHelper.exit.i, %106
   %.0812.i44.i = load ptr, ptr @runningVThreads, align 8
   %.not13.i45.i = icmp eq ptr %.0812.i44.i, null
-  br i1 %.not13.i45.i, label %commonResumeList.exit, label %.lr.ph.i46.i
+  br i1 %.not13.i45.i, label %commonResumeList.argprom.exit, label %.lr.ph.i46.i
 
 resumeCopyHelper.exit95.sink.split.i:             ; preds = %147, %143, %141, %136
   %.sink17.i = phi i32 [ %137, %136 ], [ 0, %141 ], [ 0, %143 ], [ %148, %147 ]
@@ -1669,7 +1669,7 @@ resumeCopyHelper.exit95.i:                        ; preds = %138, %.lr.ph.i46.i,
   %128 = getelementptr inbounds i8, ptr %.0814.i47.i, i64 232
   %.08.i50.i = load ptr, ptr %128, align 8
   %.not.i51.i = icmp eq ptr %.08.i50.i, null
-  br i1 %.not.i51.i, label %commonResumeList.exit, label %.lr.ph.i46.i, !llvm.loop !11
+  br i1 %.not.i51.i, label %commonResumeList.argprom.exit, label %.lr.ph.i46.i, !llvm.loop !11
 
 .lr.ph.i46.i:                                     ; preds = %enumerateOverThreadList.exit43.i, %resumeCopyHelper.exit95.i
   %.0814.i47.i = phi ptr [ %.08.i50.i, %resumeCopyHelper.exit95.i ], [ %.0812.i44.i, %enumerateOverThreadList.exit43.i ]
@@ -2021,15 +2021,15 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   tail call void @jvmtiDeallocate(ptr noundef %151) #6
   %272 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorNotifyAll(ptr noundef %272) #6
-  br label %commonResumeList.exit
+  br label %commonResumeList.argprom.exit
 
-commonResumeList.exit:                            ; preds = %resumeCopyHelper.exit95.i, %enumerateOverThreadList.exit43.i, %._crit_edge.i
+commonResumeList.argprom.exit:                    ; preds = %resumeCopyHelper.exit95.i, %enumerateOverThreadList.exit43.i, %._crit_edge.i
   %.0.i = phi i32 [ %245, %._crit_edge.i ], [ 0, %enumerateOverThreadList.exit43.i ], [ 0, %resumeCopyHelper.exit95.i ]
   %273 = icmp eq i32 %.0.i, 0
   %274 = load ptr, ptr @otherThreads, align 8
   %275 = icmp ne ptr %274, null
   %or.cond = select i1 %273, i1 %275, i1 false
-  br i1 %or.cond, label %.lr.ph.i35, label %removeResumed.exit
+  br i1 %or.cond, label %.lr.ph.i35, label %removeResumed.argprom.exit
 
 276:                                              ; preds = %.lr.ph.i35
   %277 = getelementptr inbounds i8, ptr %.0814.i36, i64 232
@@ -2037,8 +2037,8 @@ commonResumeList.exit:                            ; preds = %resumeCopyHelper.ex
   %.not.i41 = icmp eq ptr %.08.i40, null
   br i1 %.not.i41, label %enumerateOverThreadList.exit42, label %.lr.ph.i35, !llvm.loop !11
 
-.lr.ph.i35:                                       ; preds = %commonResumeList.exit, %276
-  %.0814.i36 = phi ptr [ %.08.i40, %276 ], [ %274, %commonResumeList.exit ]
+.lr.ph.i35:                                       ; preds = %commonResumeList.argprom.exit, %276
+  %.0814.i36 = phi ptr [ %.08.i40, %276 ], [ %274, %commonResumeList.argprom.exit ]
   %278 = tail call fastcc i32 @resumeThreadByNode(ptr noundef nonnull %.0814.i36)
   %.not11.i37 = icmp eq i32 %278, 0
   br i1 %.not11.i37, label %276, label %enumerateOverThreadList.exit42
@@ -2046,7 +2046,7 @@ commonResumeList.exit:                            ; preds = %resumeCopyHelper.ex
 enumerateOverThreadList.exit42:                   ; preds = %276, %.lr.ph.i35
   %279 = load ptr, ptr @otherThreads, align 8
   %.not1.i = icmp eq ptr %279, null
-  br i1 %.not1.i, label %removeResumed.exit, label %.lr.ph.i43
+  br i1 %.not1.i, label %removeResumed.argprom.exit, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %enumerateOverThreadList.exit42, %302
   %.02.i = phi ptr [ %281, %302 ], [ %279, %enumerateOverThreadList.exit42 ]
@@ -2104,22 +2104,22 @@ removeThread.exit.i:                              ; preds = %299, %297
 
 302:                                              ; preds = %removeThread.exit.i, %.lr.ph.i43
   %.not.i44 = icmp eq ptr %281, null
-  br i1 %.not.i44, label %removeResumed.exit, label %.lr.ph.i43, !llvm.loop !9
+  br i1 %.not.i44, label %removeResumed.argprom.exit, label %.lr.ph.i43, !llvm.loop !9
 
-removeResumed.exit:                               ; preds = %302, %enumerateOverThreadList.exit42, %commonResumeList.exit
-  %.016 = phi i32 [ %.0.i, %commonResumeList.exit ], [ %278, %enumerateOverThreadList.exit42 ], [ %278, %302 ]
+removeResumed.argprom.exit:                       ; preds = %302, %enumerateOverThreadList.exit42, %commonResumeList.argprom.exit
+  %.016 = phi i32 [ %.0.i, %commonResumeList.argprom.exit ], [ %278, %enumerateOverThreadList.exit42 ], [ %278, %302 ]
   %303 = load i32, ptr @suspendAllCount, align 4
   %304 = icmp sgt i32 %303, 0
   br i1 %304, label %305, label %308
 
-305:                                              ; preds = %removeResumed.exit
+305:                                              ; preds = %removeResumed.argprom.exit
   tail call void (...) @commonRef_unpinAll() #6
   %306 = load i32, ptr @suspendAllCount, align 4
   %307 = add nsw i32 %306, -1
   store i32 %307, ptr @suspendAllCount, align 4
   br label %308
 
-308:                                              ; preds = %305, %removeResumed.exit
+308:                                              ; preds = %305, %removeResumed.argprom.exit
   %309 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %309) #6
   tail call void @eventHandler_unlock() #6
@@ -2646,7 +2646,7 @@ define hidden ptr @threadControl_onEventHandlerEntry(i8 noundef signext %0, ptr 
 getPopFrameThread.exit.thread.i:                  ; preds = %3
   %11 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %11) #6
-  br label %checkForPopFrameEvents.exit
+  br label %checkForPopFrameEvents.argprom.exit
 
 getPopFrameThread.exit.i:                         ; preds = %3
   %12 = getelementptr inbounds i8, ptr %9, i64 8
@@ -2655,10 +2655,10 @@ getPopFrameThread.exit.i:                         ; preds = %3
   tail call void @debugMonitorExit(ptr noundef %14) #6
   %15 = and i16 %13, 256
   %.not.i = icmp eq i16 %15, 0
-  br i1 %.not.i, label %checkForPopFrameEvents.exit, label %16
+  br i1 %.not.i, label %checkForPopFrameEvents.argprom.exit, label %16
 
 16:                                               ; preds = %getPopFrameThread.exit.i
-  switch i32 %4, label %checkForPopFrameEvents.exit [
+  switch i32 %4, label %checkForPopFrameEvents.argprom.exit [
     i32 5, label %17
     i32 6, label %20
     i32 21, label %21
@@ -2677,27 +2677,27 @@ getPopFrameThread.exit.i:                         ; preds = %3
   %19 = tail call ptr @jvmtiErrorText(i32 noundef 181) #6
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %19, i32 noundef 181, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.5, i32 noundef 1998) #6
   tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.70) #6
-  br label %checkForPopFrameEvents.exit
+  br label %checkForPopFrameEvents.argprom.exit
 
 20:                                               ; preds = %16
   tail call fastcc void @setPopFrameThread(ptr noundef %6, i8 noundef zeroext 0)
   tail call fastcc void @popFrameCompleteEvent(ptr noundef %6)
-  br label %checkForPopFrameEvents.exit
+  br label %checkForPopFrameEvents.argprom.exit
 
 21:                                               ; preds = %16, %16
   %22 = load ptr, ptr @gdata, align 8
   %.not6.i = icmp eq ptr %22, null
-  br i1 %.not6.i, label %checkForPopFrameEvents.exit, label %23
+  br i1 %.not6.i, label %checkForPopFrameEvents.argprom.exit, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %22, i64 17
   %25 = load i8, ptr %24, align 1
   %.not7.i = icmp eq i8 %25, 0
-  br i1 %.not7.i, label %checkForPopFrameEvents.exit, label %26
+  br i1 %.not7.i, label %checkForPopFrameEvents.argprom.exit, label %26
 
 26:                                               ; preds = %23
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2007, ptr noundef nonnull @.str.71) #6
-  br label %checkForPopFrameEvents.exit
+  br label %checkForPopFrameEvents.argprom.exit
 
 27:                                               ; preds = %16
   tail call fastcc void @popFrameCompleteEvent(ptr noundef %6)
@@ -2742,14 +2742,14 @@ getPopFrameThread.exit.i:                         ; preds = %3
   tail call void %45(ptr noundef nonnull %7) #6
   br label %166
 
-checkForPopFrameEvents.exit:                      ; preds = %26, %23, %21, %20, %17, %16, %getPopFrameThread.exit.i, %getPopFrameThread.exit.thread.i
+checkForPopFrameEvents.argprom.exit:              ; preds = %26, %23, %21, %20, %17, %16, %getPopFrameThread.exit.i, %getPopFrameThread.exit.thread.i
   %46 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %46) #6
   %47 = tail call fastcc ptr @findThread(ptr noundef nonnull @otherThreads, ptr noundef %6)
   %.not51 = icmp eq ptr %47, null
   br i1 %.not51, label %89, label %48
 
-48:                                               ; preds = %checkForPopFrameEvents.exit
+48:                                               ; preds = %checkForPopFrameEvents.argprom.exit
   %49 = getelementptr inbounds i8, ptr %47, i64 8
   %50 = load i16, ptr %49, align 8
   %51 = and i16 %50, 32
@@ -2833,19 +2833,19 @@ removeNode.exit.i:                                ; preds = %68, %66
 85:                                               ; preds = %83, %80
   store ptr %47, ptr %52, align 8
   store ptr %52, ptr %57, align 8
-  br i1 %.not53.not, label %moveNode.exit, label %86
+  br i1 %.not53.not, label %moveNode.argprom.exit, label %86
 
 86:                                               ; preds = %85
   %87 = load i32, ptr @numRunningVThreads, align 4
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr @numRunningVThreads, align 4
-  br label %moveNode.exit
+  br label %moveNode.argprom.exit
 
-moveNode.exit:                                    ; preds = %85, %86
+moveNode.argprom.exit:                            ; preds = %85, %86
   tail call fastcc void @setThreadLocalStorage(ptr noundef %6, ptr noundef nonnull %47)
   br label %96
 
-89:                                               ; preds = %checkForPopFrameEvents.exit
+89:                                               ; preds = %checkForPopFrameEvents.argprom.exit
   %90 = getelementptr inbounds i8, ptr %1, i64 16
   %91 = load i8, ptr %90, align 8
   %.not52 = icmp eq i8 %91, 0
@@ -2859,8 +2859,8 @@ moveNode.exit:                                    ; preds = %85, %86
   %95 = tail call fastcc ptr @insertThread(ptr noundef %7, ptr noundef nonnull @runningThreads, ptr noundef %6)
   br label %96
 
-96:                                               ; preds = %moveNode.exit, %94, %92
-  %.045 = phi ptr [ %47, %moveNode.exit ], [ %93, %92 ], [ %95, %94 ]
+96:                                               ; preds = %moveNode.argprom.exit, %94, %92
+  %.045 = phi ptr [ %47, %moveNode.argprom.exit ], [ %93, %92 ], [ %95, %94 ]
   %97 = load ptr, ptr @gdata, align 8
   %.not54 = icmp eq ptr %97, null
   br i1 %.not54, label %.thread, label %98
@@ -2970,19 +2970,19 @@ threadSetEventNotificationMode.exit.i:            ; preds = %133, %128
   %.sink.i.i = select i1 %145, ptr @deferredEventModes, ptr %147
   store ptr %146, ptr %.sink.i.i, align 8
   %148 = icmp eq ptr %146, null
-  br i1 %148, label %149, label %removeEventMode.exit.i
+  br i1 %148, label %149, label %removeEventMode.argprom.exit.i
 
 149:                                              ; preds = %144
   store ptr %.01924.i, ptr getelementptr inbounds (i8, ptr @deferredEventModes, i64 8), align 8
-  br label %removeEventMode.exit.i
+  br label %removeEventMode.argprom.exit.i
 
-removeEventMode.exit.i:                           ; preds = %149, %144
+removeEventMode.argprom.exit.i:                   ; preds = %149, %144
   tail call void @tossGlobalRef(ptr noundef %7, ptr noundef nonnull %118) #6
   tail call void @jvmtiDeallocate(ptr noundef nonnull %.025.i) #6
   br label %150
 
-150:                                              ; preds = %removeEventMode.exit.i, %115
-  %.1.i = phi ptr [ %.01924.i, %removeEventMode.exit.i ], [ %.025.i, %115 ]
+150:                                              ; preds = %removeEventMode.argprom.exit.i, %115
+  %.1.i = phi ptr [ %.01924.i, %removeEventMode.argprom.exit.i ], [ %.025.i, %115 ]
   %.not.i63 = icmp eq ptr %117, null
   br i1 %.not.i63, label %processDeferredEventModes.exit, label %115, !llvm.loop !18
 
@@ -3147,7 +3147,7 @@ removeThread.exit:                                ; preds = %27, %25
   %36 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %36) #6
   tail call void @eventHandler_unlock() #6
-  br label %doPendingTasks.exit.thread
+  br label %doPendingTasks.argprom.exit.thread
 
 37:                                               ; preds = %3
   %38 = load ptr, ptr @threadLock, align 8
@@ -3211,7 +3211,7 @@ removeThread.exit:                                ; preds = %27, %25
 
 69:                                               ; preds = %62, %45
   %.not5.i = icmp eq ptr %49, null
-  br i1 %.not5.i, label %doPendingTasks.exit.thread, label %70
+  br i1 %.not5.i, label %doPendingTasks.argprom.exit.thread, label %70
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr @gdata, align 8
@@ -3235,9 +3235,9 @@ removeThread.exit:                                ; preds = %27, %25
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i32 %81(ptr noundef nonnull %78, ptr noundef %50, ptr noundef nonnull %49) #6
   call void @tossGlobalRef(ptr noundef %5, ptr noundef nonnull %4) #6
-  br label %doPendingTasks.exit.thread
+  br label %doPendingTasks.argprom.exit.thread
 
-doPendingTasks.exit.thread:                       ; preds = %69, %76, %removeThread.exit
+doPendingTasks.argprom.exit.thread:               ; preds = %69, %76, %removeThread.exit
   ret void
 }
 
@@ -3607,7 +3607,7 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %24, %25
   %.0814.i = phi ptr [ %.08.i, %25 ], [ %.0812.i, %24 ]
-  %27 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i) #6
+  %27 = tail call fastcc i32 @resetHelper.argelim(ptr noundef nonnull %.0814.i) #6
   %.not11.i = icmp eq i32 %27, 0
   br i1 %.not11.i, label %25, label %enumerateOverThreadList.exit
 
@@ -3624,7 +3624,7 @@ enumerateOverThreadList.exit:                     ; preds = %25, %.lr.ph.i, %24
 
 .lr.ph.i18:                                       ; preds = %enumerateOverThreadList.exit, %28
   %.0814.i19 = phi ptr [ %.08.i22, %28 ], [ %.0812.i16, %enumerateOverThreadList.exit ]
-  %30 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i19) #6
+  %30 = tail call fastcc i32 @resetHelper.argelim(ptr noundef nonnull %.0814.i19) #6
   %.not11.i20 = icmp eq i32 %30, 0
   br i1 %.not11.i20, label %28, label %enumerateOverThreadList.exit24
 
@@ -3641,14 +3641,14 @@ enumerateOverThreadList.exit24:                   ; preds = %28, %.lr.ph.i18, %e
 
 .lr.ph.i27:                                       ; preds = %enumerateOverThreadList.exit24, %31
   %.0814.i28 = phi ptr [ %.08.i31, %31 ], [ %.0812.i25, %enumerateOverThreadList.exit24 ]
-  %33 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i28) #6
+  %33 = tail call fastcc i32 @resetHelper.argelim(ptr noundef nonnull %.0814.i28) #6
   %.not11.i29 = icmp eq i32 %33, 0
   br i1 %.not11.i29, label %31, label %enumerateOverThreadList.exit33
 
 enumerateOverThreadList.exit33:                   ; preds = %31, %.lr.ph.i27, %enumerateOverThreadList.exit24
   %34 = load ptr, ptr @otherThreads, align 8
   %.not1.i = icmp eq ptr %34, null
-  br i1 %.not1.i, label %removeResumed.exit, label %.lr.ph.i34
+  br i1 %.not1.i, label %removeResumed.argprom.exit, label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %enumerateOverThreadList.exit33, %57
   %.02.i = phi ptr [ %36, %57 ], [ %34, %enumerateOverThreadList.exit33 ]
@@ -3706,15 +3706,15 @@ removeThread.exit.i:                              ; preds = %54, %52
 
 57:                                               ; preds = %removeThread.exit.i, %.lr.ph.i34
   %.not.i35 = icmp eq ptr %36, null
-  br i1 %.not.i35, label %removeResumed.exit, label %.lr.ph.i34, !llvm.loop !9
+  br i1 %.not.i35, label %removeResumed.argprom.exit, label %.lr.ph.i34, !llvm.loop !9
 
-removeResumed.exit:                               ; preds = %57, %enumerateOverThreadList.exit33
+removeResumed.argprom.exit:                       ; preds = %57, %enumerateOverThreadList.exit33
   %58 = load ptr, ptr @deferredEventModes, align 8
   %.not6.i = icmp eq ptr %58, null
   br i1 %.not6.i, label %freeDeferredEventModes.exit, label %.lr.ph.i36
 
-.lr.ph.i36:                                       ; preds = %removeResumed.exit, %.lr.ph.i36
-  %.07.i = phi ptr [ %60, %.lr.ph.i36 ], [ %58, %removeResumed.exit ]
+.lr.ph.i36:                                       ; preds = %removeResumed.argprom.exit, %.lr.ph.i36
+  %.07.i = phi ptr [ %60, %.lr.ph.i36 ], [ %58, %removeResumed.argprom.exit ]
   %59 = getelementptr inbounds i8, ptr %.07.i, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %.07.i, i64 8
@@ -3723,7 +3723,7 @@ removeResumed.exit:                               ; preds = %57, %enumerateOverT
   %.not.i37 = icmp eq ptr %60, null
   br i1 %.not.i37, label %freeDeferredEventModes.exit, label %.lr.ph.i36, !llvm.loop !20
 
-freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %removeResumed.exit
+freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %removeResumed.argprom.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @deferredEventModes, i8 0, i64 16, i1 false)
   store i32 0, ptr @suspendAllCount, align 4
   %62 = load ptr, ptr @gdata, align 8
@@ -3821,7 +3821,7 @@ removeVThreads.exit:                              ; preds = %removeNode.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @resetHelper.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 1

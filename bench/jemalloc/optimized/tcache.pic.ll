@@ -89,12 +89,12 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #14
-  %call1.i6 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %0)
+  %call1.i6 = call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %0)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i.split:                                   ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsdn, i64 440
-  %call1.i7 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %0)
+  %call1.i7 = tail call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %0)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if.then.i
@@ -378,7 +378,7 @@ entry:
   %5 = zext i32 %add.i to i64
   %vla.i = alloca %union.emap_batch_lookup_result_u, i64 %5, align 16
   %conv.i8 = zext i32 %sub.i to i64
-  call fastcc void @tcache_bin_flush_edatas_lookup(ptr noundef %tsd, ptr noundef %ptrs.i, i64 noundef %conv.i8, ptr noundef %vla.i)
+  call fastcc void @tcache_bin_flush_edatas_lookup.argelim(ptr noundef %tsd, ptr noundef %ptrs.i, i64 noundef %conv.i8, ptr noundef %vla.i)
   %vla7.i = alloca ptr, i64 %5, align 16
   %cmp.i.not214 = icmp eq i32 %sub.i, 0
   br i1 %cmp.i.not214, label %if.then132.i, label %while.body.i.lr.ph
@@ -711,13 +711,13 @@ tcache_bin_flush_impl.exit:                       ; preds = %malloc_mutex_lock.e
   %sub.i.i6.i.i = sub i16 %bin.val3.i.i, %bin.val4.i.i
   %54 = lshr i16 %sub.i.i6.i.i, 3
   %cmp.i.i202 = icmp ult i16 %52, %54
-  br i1 %cmp.i.i202, label %if.then.i.i203, label %cache_bin_finish_flush.exit
+  br i1 %cmp.i.i202, label %if.then.i.i203, label %cache_bin_finish_flush.argprom.exit
 
 if.then.i.i203:                                   ; preds = %tcache_bin_flush_impl.exit
   store i16 %conv.i.i8.i, ptr %53, align 8
-  br label %cache_bin_finish_flush.exit
+  br label %cache_bin_finish_flush.argprom.exit
 
-cache_bin_finish_flush.exit:                      ; preds = %tcache_bin_flush_impl.exit, %if.then.i.i203
+cache_bin_finish_flush.argprom.exit:              ; preds = %tcache_bin_flush_impl.exit, %if.then.i.i203
   ret void
 }
 
@@ -753,7 +753,7 @@ entry:
   %5 = zext i32 %add.i to i64
   %vla.i = alloca %union.emap_batch_lookup_result_u, i64 %5, align 16
   %conv.i8 = zext i32 %sub.i to i64
-  call fastcc void @tcache_bin_flush_edatas_lookup(ptr noundef %tsd, ptr noundef %ptrs.i, i64 noundef %conv.i8, ptr noundef %vla.i)
+  call fastcc void @tcache_bin_flush_edatas_lookup.argelim(ptr noundef %tsd, ptr noundef %ptrs.i, i64 noundef %conv.i8, ptr noundef %vla.i)
   %cmp.i.not186 = icmp eq i32 %sub.i, 0
   br i1 %cmp.i.not186, label %if.else146.i, label %while.body.i.lr.ph
 
@@ -995,13 +995,13 @@ tcache_bin_flush_impl.exit:                       ; preds = %if.else146.i, %for.
   %sub.i.i6.i.i = sub i16 %bin.val3.i.i, %bin.val4.i.i
   %40 = lshr i16 %sub.i.i6.i.i, 3
   %cmp.i.i177 = icmp ult i16 %38, %40
-  br i1 %cmp.i.i177, label %if.then.i.i178, label %cache_bin_finish_flush.exit
+  br i1 %cmp.i.i177, label %if.then.i.i178, label %cache_bin_finish_flush.argprom.exit
 
 if.then.i.i178:                                   ; preds = %tcache_bin_flush_impl.exit
   store i16 %conv.i.i8.i, ptr %39, align 8
-  br label %cache_bin_finish_flush.exit
+  br label %cache_bin_finish_flush.argprom.exit
 
-cache_bin_finish_flush.exit:                      ; preds = %tcache_bin_flush_impl.exit, %if.then.i.i178
+cache_bin_finish_flush.argprom.exit:              ; preds = %tcache_bin_flush_impl.exit, %if.then.i.i178
   ret void
 }
 
@@ -1048,7 +1048,7 @@ while.body.i.lr.ph:                               ; preds = %entry
   %add.i = add nuw nsw i32 %conv, 1
   %8 = zext nneg i32 %add.i to i64
   %vla.i = alloca %union.emap_batch_lookup_result_u, i64 %8, align 16
-  call fastcc void @tcache_bin_flush_edatas_lookup(ptr noundef %tsd, ptr noundef %ptrs, i64 noundef %conv5, ptr noundef %vla.i)
+  call fastcc void @tcache_bin_flush_edatas_lookup.argelim(ptr noundef %tsd, ptr noundef %ptrs, i64 noundef %conv5, ptr noundef %vla.i)
   %vla7.i = alloca ptr, i64 %8, align 16
   %arrayidx.i168 = getelementptr inbounds [36 x i32], ptr @arena_bin_offsets, i64 0, i64 %idxprom.i23
   %tstats39.i = getelementptr inbounds i8, ptr %cache_bin, i64 8
@@ -1724,13 +1724,13 @@ if.end89:                                         ; preds = %do.body49, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden void @tcache_arena_reassociate(ptr noundef %tsdn, ptr noundef %tcache_slow, ptr noundef %tcache, ptr noundef %arena) local_unnamed_addr #0 {
 entry:
-  tail call fastcc void @tcache_arena_dissociate(ptr noundef %tsdn, ptr noundef %tcache_slow)
+  tail call fastcc void @tcache_arena_dissociate.argprom(ptr noundef %tsdn, ptr noundef %tcache_slow)
   tail call void @tcache_arena_associate(ptr noundef %tsdn, ptr noundef %tcache_slow, ptr noundef %tcache, ptr noundef %arena)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcache_arena_dissociate(ptr noundef %tsdn, ptr noundef %tcache_slow) unnamed_addr #0 {
+define internal fastcc void @tcache_arena_dissociate.argprom(ptr noundef %tsdn, ptr noundef %tcache_slow) unnamed_addr #0 {
 entry:
   %arena1 = getelementptr inbounds i8, ptr %tcache_slow, i64 40
   %0 = load ptr, ptr %arena1, align 8
@@ -1972,25 +1972,25 @@ if.then.i48:                                      ; preds = %arena_get.exit
 
 if.then.i.i59:                                    ; preds = %if.then.i48
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #14
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %magicptr)
+  call fastcc void @rtree_read.argprom(ptr noalias align 8 %tmp.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %magicptr)
   %12 = load ptr, ptr %tmp.i, align 8
   %.val81 = load i64, ptr %12, align 8
   %conv.i82 = and i64 %.val81, 4095
   %arrayidx.i84 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i82
   %13 = load atomic i64, ptr %arrayidx.i84 monotonic, align 8
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #14
-  %call1.i.i69 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %magicptr)
+  %call1.i.i69 = call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %magicptr)
   br label %isalloc.exit
 
 if.end.i.i58.split:                               ; preds = %if.then.i48
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i77 = getelementptr inbounds i8, ptr %tsd, i64 440
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i77, i64 noundef %magicptr)
+  call fastcc void @rtree_read.argprom(ptr noalias align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i77, i64 noundef %magicptr)
   %14 = load ptr, ptr %tmp.i, align 8
   %.val = load i64, ptr %14, align 8
   %conv.i = and i64 %.val, 4095
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i
   %15 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %call1.i.i70 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i77, i64 noundef %magicptr)
+  %call1.i.i70 = call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i77, i64 noundef %magicptr)
   br label %isalloc.exit
 
 isalloc.exit:                                     ; preds = %if.end.i.i58.split, %if.then.i.i59
@@ -2009,7 +2009,7 @@ isalloc.exit:                                     ; preds = %if.end.i.i58.split,
   %20 = load i32, ptr @global_do_not_change_tcache_nbins, align 4
   %tcache_nbins.i = getelementptr inbounds i8, ptr %add.ptr, i64 1808
   store i32 %20, ptr %tcache_nbins.i, align 8
-  call fastcc void @tcache_init(ptr noundef nonnull %add.ptr8, ptr noundef nonnull %add.ptr, ptr noundef %call12.i, ptr noundef nonnull @opt_tcache_ncached_max)
+  call fastcc void @tcache_init.argprom(ptr noundef nonnull %add.ptr8, ptr noundef nonnull %add.ptr, ptr noundef %call12.i, ptr noundef nonnull @opt_tcache_ncached_max)
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
   %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %cmp1.i.i = icmp sgt i8 %21, 0
@@ -2019,23 +2019,23 @@ if.then5.i.i:                                     ; preds = %isalloc.exit
   %22 = load atomic i64, ptr @arenas acquire, align 8
   %23 = inttoptr i64 %22 to ptr
   %cmp.i44.i.i = icmp eq i64 %22, 0
-  br i1 %cmp.i44.i.i, label %if.then3.i.i.i, label %arena_ichoose.exit
+  br i1 %cmp.i44.i.i, label %if.then3.i.i.i, label %arena_ichoose.argprom.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then5.i.i
   %call4.i.i.i = call ptr @arena_init(ptr noundef nonnull %tsd, i32 noundef 0, ptr noundef nonnull @arena_config_default) #14
-  br label %arena_ichoose.exit
+  br label %arena_ichoose.argprom.exit
 
 if.end8.i.i:                                      ; preds = %isalloc.exit
   %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 136
   %cond.i.i = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i.i.i, align 8
   %cmp13.i.i = icmp eq ptr %cond.i.i, null
-  br i1 %cmp13.i.i, label %if.then21.i.i, label %arena_ichoose.exit
+  br i1 %cmp13.i.i, label %if.then21.i.i, label %arena_ichoose.argprom.exit
 
 if.then21.i.i:                                    ; preds = %if.end8.i.i
   %call23.i.i = call ptr @arena_choose_hard(ptr noundef nonnull %tsd, i1 noundef zeroext true) #14
   %24 = load i8, ptr %tsd, align 1
   %tobool.i.i.i = trunc i8 %24 to i1
-  br i1 %tobool.i.i.i, label %if.then25.i.i, label %arena_ichoose.exit
+  br i1 %tobool.i.i.i, label %if.then25.i.i, label %arena_ichoose.argprom.exit
 
 if.then25.i.i:                                    ; preds = %if.then21.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 256
@@ -2047,30 +2047,30 @@ if.then25.i.i:                                    ; preds = %if.then21.i.i
 
 do.end33.i.i:                                     ; preds = %if.then25.i.i
   %cmp35.not.i.i = icmp eq ptr %25, %call23.i.i
-  br i1 %cmp35.not.i.i, label %arena_ichoose.exit, label %if.then37.i.i
+  br i1 %cmp35.not.i.i, label %arena_ichoose.argprom.exit, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %do.end33.i.i
-  call fastcc void @tcache_arena_dissociate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i.i)
+  call fastcc void @tcache_arena_dissociate.argprom(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i.i)
   br label %if.end43.sink.split.i.i
 
 if.end43.sink.split.i.i:                          ; preds = %if.then37.i.i, %if.then25.i.i
   call void @tcache_arena_associate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i.i, ptr noundef %call23.i.i)
-  br label %arena_ichoose.exit
+  br label %arena_ichoose.argprom.exit
 
-arena_ichoose.exit:                               ; preds = %if.then5.i.i, %if.then3.i.i.i, %if.end8.i.i, %if.then21.i.i, %do.end33.i.i, %if.end43.sink.split.i.i
+arena_ichoose.argprom.exit:                       ; preds = %if.then5.i.i, %if.then3.i.i.i, %if.end8.i.i, %if.then21.i.i, %do.end33.i.i, %if.end43.sink.split.i.i
   %retval.0.i.i = phi ptr [ %call4.i.i.i, %if.then3.i.i.i ], [ %23, %if.then5.i.i ], [ %call23.i.i, %do.end33.i.i ], [ %call23.i.i, %if.then21.i.i ], [ %cond.i.i, %if.end8.i.i ], [ %call23.i.i, %if.end43.sink.split.i.i ]
   call void @tcache_arena_associate(ptr noundef nonnull %tsd, ptr noundef nonnull %add.ptr8, ptr noundef nonnull %add.ptr, ptr noundef %retval.0.i.i)
   br label %return
 
-return:                                           ; preds = %arena_get.exit, %arena_ichoose.exit
-  %retval.0 = phi ptr [ %add.ptr, %arena_ichoose.exit ], [ null, %arena_get.exit ]
+return:                                           ; preds = %arena_get.exit, %arena_ichoose.argprom.exit
+  %retval.0 = phi ptr [ %add.ptr, %arena_ichoose.argprom.exit ], [ null, %arena_get.exit ]
   ret ptr %retval.0
 }
 
 declare void @cache_bin_info_compute_alloc(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcache_init(ptr noundef %tcache_slow, ptr noundef %tcache, ptr noundef nonnull %mem, ptr noundef %tcache_bin_info) unnamed_addr #0 {
+define internal fastcc void @tcache_init.argprom(ptr noundef %tcache_slow, ptr noundef %tcache, ptr noundef nonnull %mem, ptr noundef %tcache_bin_info) unnamed_addr #0 {
 entry:
   %cur_offset = alloca i64, align 8
   store ptr %tcache_slow, ptr %tcache, align 8
@@ -2178,7 +2178,7 @@ entry:
   br i1 %tobool1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @tsd_tcache_data_init(ptr noundef nonnull %tsd, ptr noundef null, ptr noundef nonnull @opt_tcache_ncached_max)
+  tail call fastcc void @tsd_tcache_data_init.retelim(ptr noundef nonnull %tsd, ptr noundef null, ptr noundef nonnull @opt_tcache_ncached_max)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2188,7 +2188,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @tsd_slow_update(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tsd_tcache_data_init(ptr noundef %tsd, ptr noundef %arena, ptr noundef %tcache_bin_info) unnamed_addr #0 {
+define internal fastcc void @tsd_tcache_data_init.retelim(ptr noundef %tsd, ptr noundef %arena, ptr noundef %tcache_bin_info) unnamed_addr #0 {
 entry:
   %tmp.i.i = alloca %struct.rtree_contents_s, align 8
   %size.i = alloca i64, align 8
@@ -2312,14 +2312,14 @@ arena_get.exit.i:                                 ; preds = %if.then3.i.i, %sz_s
 if.end.thread98.i:                                ; preds = %arena_get.exit.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i102.i = getelementptr inbounds i8, ptr %tsd, i64 440
   %12 = ptrtoint ptr %call12.i.i to i64
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i102.i, i64 noundef %12)
+  call fastcc void @rtree_read.argprom(ptr noalias align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i102.i, i64 noundef %12)
   %13 = load ptr, ptr %tmp.i.i, align 8
   %.val.i = load i64, ptr %13, align 8
   %conv.i.i = and i64 %.val.i, 4095
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i.i
   %14 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  %call1.i.i77.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i102.i, i64 noundef %12)
+  %call1.i.i77.i = call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i102.i, i64 noundef %12)
   %call1.i.i.fca.0.extract.i = extractvalue { i64, i32 } %call1.i.i77.i, 0
   %idxprom.i.i.i = and i64 %call1.i.i.fca.0.extract.i, 4294967295
   %arrayidx.i.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i.i
@@ -2335,7 +2335,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end13.i:                                       ; preds = %if.end.i, %if.end.thread98.i
   %mem.0101.i = phi ptr [ %call12.i.i, %if.end.thread98.i ], [ %call7.i, %if.end.i ]
-  call fastcc void @tcache_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %mem.0101.i, ptr noundef %tcache_bin_info)
+  call fastcc void @tcache_init.argprom(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %mem.0101.i, ptr noundef %tcache_bin_info)
   %arena14.i = getelementptr inbounds i8, ptr %tsd, i64 296
   store ptr null, ptr %arena14.i, align 8
   %18 = load i32, ptr @malloc_init_state, align 4
@@ -2389,7 +2389,7 @@ do.end33.i.i.i:                                   ; preds = %if.then25.i.i.i
   br i1 %cmp35.not.i.i.i, label %if.end43.i.i.i, label %if.then37.i.i.i
 
 if.then37.i.i.i:                                  ; preds = %do.end33.i.i.i
-  call fastcc void @tcache_arena_dissociate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i)
+  call fastcc void @tcache_arena_dissociate.argprom(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i)
   br label %if.end43.sink.split.i.i.i
 
 if.end43.sink.split.i.i.i:                        ; preds = %if.then37.i.i.i, %if.then25.i.i.i
@@ -2469,7 +2469,7 @@ arena_get.exit.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   br i1 %tobool.i.i.i.i.i.i, label %if.then10.i.i.i.i, label %percpu_arena_update.exit.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %arena_get.exit.i.i.i.i
-  call fastcc void @tcache_arena_dissociate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i)
+  call fastcc void @tcache_arena_dissociate.argprom(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i)
   call void @tcache_arena_associate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %ret.0.i.i.i.i.i)
   br label %percpu_arena_update.exit.i.i.i
 
@@ -2511,7 +2511,7 @@ entry:
   br i1 %brmerge, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @tsd_tcache_data_init(ptr noundef nonnull %tsd, ptr noundef null, ptr noundef nonnull @opt_tcache_ncached_max)
+  tail call fastcc void @tsd_tcache_data_init.retelim(ptr noundef nonnull %tsd, ptr noundef null, ptr noundef nonnull @opt_tcache_ncached_max)
   br label %if.end9
 
 if.else:                                          ; preds = %entry
@@ -2630,7 +2630,7 @@ tcache_max_set.exit:                              ; preds = %if.then.i.i, %if.en
   br i1 %tobool.i, label %if.then8, label %do.end13
 
 if.then8:                                         ; preds = %tcache_max_set.exit
-  call fastcc void @tsd_tcache_data_init(ptr noundef nonnull %tsd, ptr noundef %assigned_arena.0, ptr noundef nonnull %tcache_bin_info)
+  call fastcc void @tsd_tcache_data_init.retelim(ptr noundef nonnull %tsd, ptr noundef %assigned_arena.0, ptr noundef nonnull %tcache_bin_info)
   br label %do.end13
 
 do.end13:                                         ; preds = %if.then8, %tcache_max_set.exit
@@ -2818,7 +2818,7 @@ do.end7.i:                                        ; preds = %if.end
   br label %tcache_cleanup.exit
 
 tcache_cleanup.exit:                              ; preds = %if.end, %do.end7.i
-  call fastcc void @tsd_tcache_data_init(ptr noundef nonnull %tsd, ptr noundef %2, ptr noundef nonnull %tcache_bin_info)
+  call fastcc void @tsd_tcache_data_init.retelim(ptr noundef nonnull %tsd, ptr noundef %2, ptr noundef nonnull %tcache_bin_info)
   br label %return
 
 return:                                           ; preds = %tcache_bin_settings_backup.exit, %tcache_cleanup.exit
@@ -2919,7 +2919,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
 tcache_flush_cache.exit:                          ; preds = %for.inc.i, %entry
   %arena2 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %arena2, align 8
-  tail call fastcc void @tcache_arena_dissociate(ptr noundef %tsd, ptr noundef nonnull %0)
+  tail call fastcc void @tcache_arena_dissociate.argprom(ptr noundef %tsd, ptr noundef nonnull %0)
   br i1 %tsd_tcache, label %if.then, label %if.else
 
 if.then:                                          ; preds = %tcache_flush_cache.exit
@@ -2941,7 +2941,7 @@ if.else:                                          ; preds = %tcache_flush_cache.
 
 tsdn_rtree_ctx.exit.i:                            ; preds = %if.else
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #14
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %7)
+  call fastcc void @rtree_read.argprom(ptr noalias align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %7)
   %8 = load ptr, ptr %tmp.i.i, align 8
   %.val138 = load i64, ptr %8, align 8
   %conv.i139 = and i64 %.val138, 4095
@@ -2949,7 +2949,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.else
   %9 = load atomic i64, ptr %arrayidx.i.i141 monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i) #14
-  %call1.i.i.i130 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i, i64 noundef %7)
+  %call1.i.i.i130 = call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i, i64 noundef %7)
   %call1.i.i.i.fca.0.extract143 = extractvalue { i64, i32 } %call1.i.i.i130, 0
   %idxprom.i.i.i144 = and i64 %call1.i.i.i.fca.0.extract143, 4294967295
   %arrayidx.i.i.i145 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i.i144
@@ -2958,7 +2958,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.else
   %12 = atomicrmw sub ptr %internal.i146, i64 %11 monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i134)
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i134) #14
-  %call1.i10.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i134, i64 noundef %7)
+  %call1.i10.i = call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i134, i64 noundef %7)
   %call1.i.fca.1.extract.i = extractvalue { i64, i32 } %call1.i10.i, 1
   %13 = and i32 %call1.i.fca.1.extract.i, 256
   %tobool.i.not.i = icmp eq i32 %13, 0
@@ -2966,14 +2966,14 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.else
 
 tsdn_rtree_ctx.exit.thread.i:                     ; preds = %if.else
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i = getelementptr inbounds i8, ptr %tsd, i64 440
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i, i64 noundef %7)
+  call fastcc void @rtree_read.argprom(ptr noalias align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i, i64 noundef %7)
   %14 = load ptr, ptr %tmp.i.i, align 8
   %.val = load i64, ptr %14, align 8
   %conv.i = and i64 %.val, 4095
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i
   %15 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
-  %call1.i.i.i131 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i, i64 noundef %7)
+  %call1.i.i.i131 = tail call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i, i64 noundef %7)
   %call1.i.i.i.fca.0.extract = extractvalue { i64, i32 } %call1.i.i.i131, 0
   %idxprom.i.i.i = and i64 %call1.i.i.i.fca.0.extract, 4294967295
   %arrayidx.i.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i.i
@@ -2981,7 +2981,7 @@ tsdn_rtree_ctx.exit.thread.i:                     ; preds = %if.else
   %internal.i = getelementptr inbounds i8, ptr %16, i64 72
   %18 = atomicrmw sub ptr %internal.i, i64 %17 monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i134)
-  %call1.i11.i = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i, i64 noundef %7)
+  %call1.i11.i = tail call fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i, i64 noundef %7)
   %call1.i.fca.1.extract13.i = extractvalue { i64, i32 } %call1.i11.i, 1
   %19 = and i32 %call1.i.fca.1.extract13.i, 256
   %tobool.i.not14.i = icmp eq i32 %19, 0
@@ -2995,13 +2995,13 @@ if.then.i.i.i.i:                                  ; preds = %tsdn_rtree_ctx.exit
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i.i133)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i.i.i)
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i133) #14
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i133, i64 noundef %7)
+  call fastcc void @rtree_read.argprom(ptr noalias align 8 %tmp.i.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i133, i64 noundef %7)
   br label %arena_dalloc_large_no_tcache.exit.i
 
 if.end.i.i.split.i.i:                             ; preds = %tsdn_rtree_ctx.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i.i133)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i.i.i)
-  call fastcc void @rtree_read(ptr noalias align 8 %tmp.i.i.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i, i64 noundef %7)
+  call fastcc void @rtree_read.argprom(ptr noalias align 8 %tmp.i.i.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i48.i, i64 noundef %7)
   br label %arena_dalloc_large_no_tcache.exit.i
 
 arena_dalloc_large_no_tcache.exit.i:              ; preds = %if.end.i.i.split.i.i, %if.then.i.i.i.i
@@ -3305,25 +3305,25 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %arrayidx = getelementptr inbounds %struct.tcaches_s, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %tcaches_elm_remove.exit.thread, label %if.end.i5
+  br i1 %cmp.i, label %tcaches_elm_remove.argprom.exit.thread, label %if.end.i5
 
 if.end.i5:                                        ; preds = %malloc_mutex_lock.exit
   store ptr inttoptr (i64 1 to ptr), ptr %arrayidx, align 8
   %cmp3.i = icmp eq ptr %4, inttoptr (i64 1 to ptr)
-  br i1 %cmp3.i, label %tcaches_elm_remove.exit.thread, label %tcaches_elm_remove.exit
+  br i1 %cmp3.i, label %tcaches_elm_remove.argprom.exit.thread, label %tcaches_elm_remove.argprom.exit
 
-tcaches_elm_remove.exit.thread:                   ; preds = %malloc_mutex_lock.exit, %if.end.i5
+tcaches_elm_remove.argprom.exit.thread:           ; preds = %malloc_mutex_lock.exit, %if.end.i5
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tcaches_mtx, i64 64) monotonic, align 8
   %call1.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tcaches_mtx, i64 72)) #14
   br label %if.end
 
-tcaches_elm_remove.exit:                          ; preds = %if.end.i5
+tcaches_elm_remove.argprom.exit:                  ; preds = %if.end.i5
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tcaches_mtx, i64 64) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tcaches_mtx, i64 72)) #14
   tail call fastcc void @tcache_destroy(ptr noundef %tsd, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %if.end
 
-if.end:                                           ; preds = %tcaches_elm_remove.exit.thread, %tcaches_elm_remove.exit
+if.end:                                           ; preds = %tcaches_elm_remove.argprom.exit.thread, %tcaches_elm_remove.argprom.exit
   ret void
 }
 
@@ -3513,9 +3513,9 @@ cond.end.i:                                       ; preds = %tcache_ncached_max_
   tail call void @cache_bin_info_init(ptr noundef nonnull %arrayidx8.i, i16 noundef zeroext %cond.i) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73
-  br i1 %exitcond.not.i, label %tcache_bin_info_compute.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %tcache_bin_info_compute.argprom.exit, label %for.body.i, !llvm.loop !16
 
-tcache_bin_info_compute.exit:                     ; preds = %cond.end.i
+tcache_bin_info_compute.argprom.exit:             ; preds = %cond.end.i
   %call2 = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull @tcaches_mtx, ptr noundef nonnull @.str, i32 noundef 3, i32 noundef 0) #14
   ret i1 %call2
 }
@@ -3556,7 +3556,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @rtree_metadata_read(ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @rtree_metadata_read.argprom(ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15
@@ -3661,7 +3661,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare ptr @llvm.stacksave.p0() #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcache_bin_flush_edatas_lookup(ptr noundef %tsd, ptr nocapture noundef nonnull readonly %arr, i64 noundef range(i64 0, 4294967296) %nflush, ptr nocapture noundef nonnull %edatas) unnamed_addr #0 {
+define internal fastcc void @tcache_bin_flush_edatas_lookup.argelim(ptr noundef %tsd, ptr nocapture noundef nonnull readonly %arr, i64 noundef range(i64 0, 4294967296) %nflush, ptr nocapture noundef nonnull %edatas) unnamed_addr #0 {
 entry:
   %cmp.i = icmp ne ptr %tsd, null
   tail call void @llvm.assume(i1 %cmp.i)
@@ -3817,7 +3817,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #11
 declare ptr @arena_palloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

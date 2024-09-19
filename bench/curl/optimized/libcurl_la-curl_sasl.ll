@@ -566,7 +566,7 @@ if.then169:                                       ; preds = %if.then166
   %sasl.val = load ptr, ptr %sasl, align 8
   %28 = getelementptr i8, ptr %sasl.val, i64 58
   %sasl.val.val = load i16, ptr %28, align 2
-  %call170 = call fastcc i32 @build_message(i16 %sasl.val.val, ptr noundef %resp)
+  %call170 = call fastcc i32 @build_message.argprom.argprom(i16 %sasl.val.val, ptr noundef %resp)
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then169, %if.then166
@@ -641,7 +641,7 @@ declare i32 @Curl_auth_create_login_message(ptr noundef, ptr noundef) local_unna
 declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @build_message(i16 %sasl.0.val.58.val, ptr noundef nonnull %msg) unnamed_addr #0 {
+define internal fastcc i32 @build_message.argprom.argprom(i16 %sasl.0.val.58.val, ptr noundef nonnull %msg) unnamed_addr #0 {
 entry:
   %base64 = alloca ptr, align 8
   %base64len = alloca i64, align 8
@@ -960,7 +960,7 @@ sw.bb108:                                         ; preds = %sw.epilog.thread, %
   %sasl.val = load ptr, ptr %sasl, align 8
   %41 = getelementptr i8, ptr %sasl.val, i64 58
   %sasl.val.val = load i16, ptr %41, align 2
-  %call109 = call fastcc i32 @build_message(i16 %sasl.val.val, ptr noundef %resp)
+  %call109 = call fastcc i32 @build_message.argprom.argprom(i16 %sasl.val.val, ptr noundef %resp)
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %if.then111, label %sw.epilog117
 

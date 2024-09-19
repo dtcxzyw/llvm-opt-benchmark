@@ -89,34 +89,34 @@ default.unreachable:                              ; preds = %9
   unreachable
 
 18:                                               ; preds = %9
-  br i1 %17, label %19, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit.i.i"
+  br i1 %17, label %19, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit.i.i"
 
 19:                                               ; preds = %18
   tail call void @llvm.trap()
   unreachable
 
 20:                                               ; preds = %9
-  br i1 %17, label %21, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit.i.i"
+  br i1 %17, label %21, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit.i.i"
 
 21:                                               ; preds = %20
   tail call void @llvm.trap()
   unreachable
 
 22:                                               ; preds = %9
-  br i1 %17, label %23, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit.i.i"
+  br i1 %17, label %23, label %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit.i.i"
 
 23:                                               ; preds = %22
   tail call void @llvm.trap()
   unreachable
 
-"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit.i.i": ; preds = %22, %20, %18
+"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit.i.i": ; preds = %22, %20, %18
   store i64 %.val.i, ptr %3, align 8, !noalias !11
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.val1.i, ptr %24, align 8, !noalias !11
   %25 = invoke noundef double @"_ZN5typst6layout4size74_$LT$impl$u20$typst..layout..axes..Axes$LT$typst..layout..abs..Abs$GT$$GT$12aspect_ratio17h22b23b0067479d70E"(double noundef %.val2.i, double noundef %.val3.i)
-          to label %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.exit.i" unwind label %26, !noalias !11
+          to label %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.argprom.exit.i" unwind label %26, !noalias !11
 
-26:                                               ; preds = %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit.i.i"
+26:                                               ; preds = %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit.i.i"
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$typst..visualize..gradient..Gradient$GT$17hafd26f4d987aa5c5E"(ptr noalias noundef align 8 dereferenceable(16) %3) #17
@@ -132,7 +132,7 @@ common.resume.i:                                  ; preds = %35, %26
   %common.resume.op.i = phi { ptr, i32 } [ %27, %26 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op.i
 
-"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.exit.i": ; preds = %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit.i.i"
+"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.argprom.exit.i": ; preds = %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !11
   store i128 %13, ptr %4, align 16, !noalias !6
   %30 = getelementptr inbounds i8, ptr %4, i64 16
@@ -146,7 +146,7 @@ common.resume.i:                                  ; preds = %35, %26
   %33 = icmp eq i64 %31, %32
   br i1 %33, label %34, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h94e5a6efd3a4b14eE.exit"
 
-34:                                               ; preds = %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.exit.i"
+34:                                               ; preds = %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.argprom.exit.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h05965aa785a5b514E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.48.0.copyload, i64 noundef %31)
           to label %._crit_edge.i.i unwind label %35, !noalias !17
 
@@ -166,8 +166,8 @@ common.resume.i:                                  ; preds = %35, %26
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18, !noalias !6
   unreachable
 
-"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h94e5a6efd3a4b14eE.exit": ; preds = %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.exit.i", %._crit_edge.i.i
-  %39 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %31, %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.exit.i" ]
+"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h94e5a6efd3a4b14eE.exit": ; preds = %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.argprom.exit.i", %._crit_edge.i.i
+  %39 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %31, %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.argprom.exit.i" ]
   %40 = getelementptr inbounds i8, ptr %.sroa.48.0.copyload, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !14, !noalias !17, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds { i128, { { i64, [1 x i64] }, double }, [1 x i64] }, ptr %41, i64 %39
@@ -1279,13 +1279,13 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %.val.i = load ptr, ptr %.sroa.69.0.copyload, align 8, !noalias !253, !nonnull !4, !noundef !4
   %13 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !253
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %15, label %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.exit.i"
+  br i1 %14, label %15, label %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.argprom.exit.i"
 
 15:                                               ; preds = %8
   tail call void @llvm.trap()
   unreachable
 
-"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.exit.i": ; preds = %8
+"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.argprom.exit.i": ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !253
   store i128 %12, ptr %3, align 16, !noalias !260
@@ -1296,7 +1296,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %19 = icmp eq i64 %17, %18
   br i1 %19, label %20, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h7e7ca7d7082bb980E.exit"
 
-20:                                               ; preds = %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.exit.i"
+20:                                               ; preds = %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.argprom.exit.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h4dd560e1c39cdf70E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.47.0.copyload, i64 noundef %17)
           to label %._crit_edge.i.i unwind label %21, !noalias !253
 
@@ -1319,8 +1319,8 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
 25:                                               ; preds = %21
   resume { ptr, i32 } %22
 
-"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h7e7ca7d7082bb980E.exit": ; preds = %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.exit.i", %._crit_edge.i.i
-  %26 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %17, %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.exit.i" ]
+"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h7e7ca7d7082bb980E.exit": ; preds = %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.argprom.exit.i", %._crit_edge.i.i
+  %26 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %17, %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.argprom.exit.i" ]
   %27 = getelementptr inbounds i8, ptr %.sroa.47.0.copyload, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !257, !noalias !253, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %28, i64 %26
@@ -3232,8 +3232,8 @@ attributes #19 = { noreturn }
 !9 = distinct !{!9, !8, !"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h94e5a6efd3a4b14eE: argument 1"}
 !10 = !{i64 0, i64 3}
 !11 = !{!12, !7, !9}
-!12 = distinct !{!12, !13, !"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E: argument 0"}
-!13 = distinct !{!13, !"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E"}
+!12 = distinct !{!12, !13, !"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.argprom"}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0ae5bc05107028fE: argument 0"}
 !16 = distinct !{!16, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0ae5bc05107028fE"}

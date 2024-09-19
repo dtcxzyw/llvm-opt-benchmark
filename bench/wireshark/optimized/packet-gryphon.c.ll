@@ -1869,11 +1869,11 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   ]
 
 151:                                              ; preds = %145
-  call fastcc void @cmd_init(ptr noundef %0, ptr noundef %149)
+  call fastcc void @cmd_init.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 152:                                              ; preds = %145, %145
-  call fastcc void @eventnum(ptr noundef %0, ptr noundef %149)
+  call fastcc void @eventnum.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 153:                                              ; preds = %145
@@ -1885,7 +1885,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 157:                                              ; preds = %145
-  %158 = call fastcc i32 @cmd_setfilt(ptr noundef %0, ptr noundef %149)
+  %158 = call fastcc i32 @cmd_setfilt.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 159:                                              ; preds = %145
@@ -1901,7 +1901,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 165:                                              ; preds = %145
-  call fastcc void @cmd_modfilt(ptr noundef %0, ptr noundef %149)
+  call fastcc void @cmd_modfilt.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 166:                                              ; preds = %145
@@ -1913,7 +1913,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 170:                                              ; preds = %145
-  call fastcc void @cmd_register(ptr noundef %0, ptr noundef %149)
+  call fastcc void @cmd_register.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 171:                                              ; preds = %145
@@ -1941,11 +1941,11 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 185:                                              ; preds = %145
-  call fastcc void @cmd_ldf_desc(ptr noundef %0, ptr noundef %149)
+  call fastcc void @cmd_ldf_desc.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 186:                                              ; preds = %145
-  %187 = call fastcc i32 @cmd_ldf_upload(ptr noundef %0, ptr noundef %149)
+  %187 = call fastcc i32 @cmd_ldf_upload.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 188:                                              ; preds = %145
@@ -1974,7 +1974,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
 201:                                              ; preds = %145
   %202 = getelementptr i8, ptr %1, i64 408
   %.val.i = load ptr, ptr %202, align 8
-  %203 = call fastcc i32 @cmd_ldf_get_frame_info(ptr noundef %0, ptr %.val.i, ptr noundef %149)
+  %203 = call fastcc i32 @cmd_ldf_get_frame_info.argprom.argelim(ptr noundef %0, ptr %.val.i, ptr noundef %149)
   br label %decode_command.exit
 
 204:                                              ; preds = %145
@@ -2005,11 +2005,11 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 219:                                              ; preds = %145
-  %220 = call fastcc i32 @cmd_ldf_save_session(ptr noundef %0, ptr noundef %149)
+  %220 = call fastcc i32 @cmd_ldf_save_session.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 221:                                              ; preds = %145
-  %222 = call fastcc i32 @cmd_ldf_emulate_nodes(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %149)
+  %222 = call fastcc i32 @cmd_ldf_emulate_nodes.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %149)
   br label %decode_command.exit
 
 223:                                              ; preds = %145
@@ -2022,31 +2022,31 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 228:                                              ; preds = %145
-  %229 = call fastcc i32 @cmd_restore_session(ptr noundef %0, ptr noundef %149)
+  %229 = call fastcc i32 @cmd_restore_session.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 230:                                              ; preds = %145
-  %231 = call fastcc i32 @cmd_cnvt_get_values(ptr noundef %0, ptr noundef %149)
+  %231 = call fastcc i32 @cmd_cnvt_get_values.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 232:                                              ; preds = %145
-  %233 = call fastcc i32 @cmd_cnvt_get_units(ptr noundef %0, ptr noundef %149)
+  %233 = call fastcc i32 @cmd_cnvt_get_units.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 234:                                              ; preds = %145
-  %235 = call fastcc i32 @cmd_cnvt_set_values(ptr noundef %0, ptr noundef %149)
+  %235 = call fastcc i32 @cmd_cnvt_set_values.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 236:                                              ; preds = %145
-  %237 = call fastcc i32 @cmd_ldf_save_session(ptr noundef %0, ptr noundef %149)
+  %237 = call fastcc i32 @cmd_ldf_save_session.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 238:                                              ; preds = %145
-  %239 = call fastcc i32 @cmd_restore_session(ptr noundef %0, ptr noundef %149)
+  %239 = call fastcc i32 @cmd_restore_session.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 240:                                              ; preds = %145
-  %241 = call fastcc i32 @cmd_cnvt_destroy_session(ptr noundef %0, ptr noundef %149)
+  %241 = call fastcc i32 @cmd_cnvt_destroy_session.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 242:                                              ; preds = %145
@@ -2067,15 +2067,15 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 251:                                              ; preds = %145
-  call fastcc void @cmd_modresp(ptr noundef %0, ptr noundef %149)
+  call fastcc void @cmd_modresp.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 252:                                              ; preds = %145
-  call fastcc void @cmd_desc(ptr noundef %0, ptr noundef %149)
+  call fastcc void @cmd_desc.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 253:                                              ; preds = %145
-  %254 = call fastcc i32 @cmd_upload(ptr noundef %0, ptr noundef %149)
+  %254 = call fastcc i32 @cmd_upload.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 255:                                              ; preds = %145
@@ -2084,11 +2084,11 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 258:                                              ; preds = %145
-  call fastcc void @cmd_list(ptr noundef %0, ptr noundef %149)
+  call fastcc void @cmd_list.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 259:                                              ; preds = %145
-  %260 = call fastcc i32 @cmd_start(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %149)
+  %260 = call fastcc i32 @cmd_start.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %149)
   br label %decode_command.exit
 
 261:                                              ; preds = %145
@@ -2101,15 +2101,15 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 266:                                              ; preds = %145
-  %267 = call fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %149)
+  %267 = call fastcc i32 @cmd_options.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 268:                                              ; preds = %145
-  %269 = call fastcc i32 @cmd_files(ptr noundef %0, ptr noundef %149)
+  %269 = call fastcc i32 @cmd_files.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 270:                                              ; preds = %145
-  %271 = call fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %149)
+  %271 = call fastcc i32 @cmd_sched.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 272:                                              ; preds = %145
@@ -2118,23 +2118,23 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 275:                                              ; preds = %145
-  %276 = call fastcc i32 @cmd_sched_rep(ptr noundef %0, ptr noundef %149)
+  %276 = call fastcc i32 @cmd_sched_rep.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 277:                                              ; preds = %145
-  %278 = call fastcc i32 @cmd_usdt(ptr noundef %0, ptr noundef %149)
+  %278 = call fastcc i32 @cmd_usdt.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 279:                                              ; preds = %145
-  %280 = call fastcc i32 @cmd_usdt(ptr noundef %0, ptr noundef %149)
+  %280 = call fastcc i32 @cmd_usdt.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 281:                                              ; preds = %145
-  call fastcc void @cmd_usdt_set_stmin_mul(ptr noundef %0, ptr noundef %149)
+  call fastcc void @cmd_usdt_set_stmin_mul.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 282:                                              ; preds = %145
-  %283 = call fastcc i32 @cmd_usdt_register_non_legacy(ptr noundef %0, ptr noundef %149)
+  %283 = call fastcc i32 @cmd_usdt_register_non_legacy.argelim(ptr noundef %0, ptr noundef %149)
   br label %decode_command.exit
 
 284:                                              ; preds = %145
@@ -2184,7 +2184,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %310
 
 310:                                              ; preds = %308, %302
-  %311 = call fastcc i32 @cmd_ioctl(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %149, i32 noundef %303)
+  %311 = call fastcc i32 @cmd_ioctl.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %149, i32 noundef %303)
   br label %decode_command.exit
 
 312:                                              ; preds = %145
@@ -2433,7 +2433,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   ]
 
 421:                                              ; preds = %416
-  %422 = call fastcc i32 @resp_config(ptr noundef %0, ptr noundef %420)
+  %422 = call fastcc i32 @resp_config.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 423:                                              ; preds = %416
@@ -2453,7 +2453,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 431:                                              ; preds = %416
-  %432 = call fastcc i32 @resp_filthan(ptr noundef %0, ptr noundef %420)
+  %432 = call fastcc i32 @resp_filthan.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 433:                                              ; preds = %416
@@ -2465,15 +2465,15 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 437:                                              ; preds = %416
-  %438 = call fastcc i32 @resp_events(ptr noundef %0, ptr noundef %420)
+  %438 = call fastcc i32 @resp_events.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 439:                                              ; preds = %416
-  %440 = call fastcc i32 @resp_getspeeds(ptr noundef %0, ptr noundef %420)
+  %440 = call fastcc i32 @resp_getspeeds.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 441:                                              ; preds = %416
-  call fastcc void @resp_register(ptr noundef %0, ptr noundef %420)
+  call fastcc void @resp_register.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 442:                                              ; preds = %416
@@ -2481,55 +2481,55 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 444:                                              ; preds = %416
-  call fastcc void @resp_blm_data(ptr noundef %0, ptr noundef %420)
+  call fastcc void @resp_blm_data.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 445:                                              ; preds = %416
-  call fastcc void @resp_blm_stat(ptr noundef %0, ptr noundef %420)
+  call fastcc void @resp_blm_stat.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 446:                                              ; preds = %416
-  %447 = call fastcc i32 @resp_ldf_list(ptr noundef %0, ptr noundef %420)
+  %447 = call fastcc i32 @resp_ldf_list.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 448:                                              ; preds = %416
-  call fastcc void @resp_ldf_desc(ptr noundef %0, ptr noundef %420)
+  call fastcc void @resp_ldf_desc.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 449:                                              ; preds = %416
-  call fastcc void @resp_get_ldf_info(ptr noundef %0, ptr noundef %420)
+  call fastcc void @resp_get_ldf_info.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 450:                                              ; preds = %416
-  %451 = call fastcc i32 @resp_ldf_get_node_names(ptr noundef %0, ptr noundef %420)
+  %451 = call fastcc i32 @resp_ldf_get_node_names.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 452:                                              ; preds = %416
-  %453 = call fastcc i32 @resp_ldf_get_node_signals(ptr noundef %0, ptr noundef %420)
+  %453 = call fastcc i32 @resp_ldf_get_node_signals.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 454:                                              ; preds = %416
-  %455 = call fastcc i32 @resp_ldf_get_frames(ptr noundef %0, ptr noundef %420)
+  %455 = call fastcc i32 @resp_ldf_get_frames.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 456:                                              ; preds = %416
-  %457 = call fastcc i32 @resp_ldf_get_frame_info(ptr noundef %0, ptr noundef %420)
+  %457 = call fastcc i32 @resp_ldf_get_frame_info.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 458:                                              ; preds = %416
-  %459 = call fastcc i32 @resp_ldf_get_signal_info(ptr noundef %0, ptr noundef %420)
+  %459 = call fastcc i32 @resp_ldf_get_signal_info.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 460:                                              ; preds = %416
-  %461 = call fastcc i32 @resp_ldf_get_signal_detail(ptr noundef %0, ptr noundef %1, ptr noundef %420)
+  %461 = call fastcc i32 @resp_ldf_get_signal_detail.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %420)
   br label %decode_response.exit
 
 462:                                              ; preds = %416
-  %463 = call fastcc i32 @resp_ldf_get_encoding_info(ptr noundef %0, ptr noundef %1, ptr noundef %420)
+  %463 = call fastcc i32 @resp_ldf_get_encoding_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %420)
   br label %decode_response.exit
 
 464:                                              ; preds = %416
-  %465 = call fastcc i32 @resp_ldf_get_schedules(ptr noundef %0, ptr noundef %420)
+  %465 = call fastcc i32 @resp_ldf_get_schedules.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 466:                                              ; preds = %416
@@ -2538,11 +2538,11 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 469:                                              ; preds = %416
-  %470 = call fastcc i32 @resp_cnvt_get_values(ptr noundef %0, ptr noundef %420)
+  %470 = call fastcc i32 @resp_cnvt_get_values.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 471:                                              ; preds = %416
-  %472 = call fastcc i32 @resp_cnvt_get_units(ptr noundef %0, ptr noundef %420)
+  %472 = call fastcc i32 @resp_cnvt_get_units.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 473:                                              ; preds = %416
@@ -2551,7 +2551,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 476:                                              ; preds = %416
-  %477 = call fastcc i32 @resp_ldf_get_node_signals(ptr noundef %0, ptr noundef %420)
+  %477 = call fastcc i32 @resp_ldf_get_node_signals.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 478:                                              ; preds = %416
@@ -2563,15 +2563,15 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 482:                                              ; preds = %416
-  %483 = call fastcc i32 @resp_resphan(ptr noundef %0, ptr noundef %420)
+  %483 = call fastcc i32 @resp_resphan.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 484:                                              ; preds = %416
-  call fastcc void @resp_desc(ptr noundef %0, ptr noundef %420)
+  call fastcc void @resp_desc.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 485:                                              ; preds = %416
-  %486 = call fastcc i32 @resp_list(ptr noundef %0, ptr noundef %420)
+  %486 = call fastcc i32 @resp_list.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 487:                                              ; preds = %416, %416
@@ -2579,11 +2579,11 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 489:                                              ; preds = %416, %416
-  %490 = call fastcc i32 @resp_status(ptr noundef %0, ptr noundef %420)
+  %490 = call fastcc i32 @resp_status.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 491:                                              ; preds = %416
-  %492 = call fastcc i32 @resp_files(ptr noundef %0, ptr noundef %420)
+  %492 = call fastcc i32 @resp_files.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 493:                                              ; preds = %416
@@ -2602,7 +2602,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 502:                                              ; preds = %416
-  call fastcc void @cmd_usdt_get_stmin_override(ptr noundef %0, ptr noundef %420)
+  call fastcc void @cmd_usdt_get_stmin_override.argelim(ptr noundef %0, ptr noundef %420)
   br label %decode_response.exit
 
 503:                                              ; preds = %416, %416, %416, %416
@@ -2619,7 +2619,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
 
 509:                                              ; preds = %416
   %510 = load i32, ptr %376, align 8
-  %511 = call fastcc i32 @cmd_ioctl_resp(ptr noundef %0, ptr noundef %1, ptr noundef %420, i32 noundef %510)
+  %511 = call fastcc i32 @cmd_ioctl_resp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %420, i32 noundef %510)
   br label %decode_response.exit
 
 512:                                              ; preds = %416
@@ -2887,7 +2887,7 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_init(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_init.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %8
@@ -2910,7 +2910,7 @@ define internal fastcc void @cmd_init(ptr noundef %0, ptr noundef %1) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @eventnum(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @eventnum.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %.not = icmp eq i8 %3, 0
   %4 = load i32, ptr @hf_gryphon_eventnum, align 4
@@ -2957,7 +2957,7 @@ define internal fastcc range(i32 16, 21) i32 @speed(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 20, 132113) i32 @cmd_setfilt(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 20, 132113) i32 @cmd_setfilt.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %5 = zext i8 %4 to i32
@@ -3056,7 +3056,7 @@ define internal fastcc i32 @cmd_addfilt(ptr noundef %0, i32 noundef range(i32 12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_modfilt(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_modfilt.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %.not = icmp eq i8 %3, 0
   %4 = load i32, ptr @hf_gryphon_modfilt, align 4
@@ -3101,7 +3101,7 @@ define internal fastcc range(i32 16, 21) i32 @filtmode(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_register(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_register.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_register_username, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 12, i32 noundef 16, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_register_password, align 4
@@ -3147,7 +3147,7 @@ define internal fastcc range(i32 20, 25) i32 @blm_mode(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_ldf_desc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_ldf_desc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_ldf_size, align 4
   %5 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %3, ptr noundef nonnull @.str.1001, i32 noundef %3) #4
@@ -3159,7 +3159,7 @@ define internal fastcc void @cmd_ldf_desc(ptr noundef %0, ptr noundef %1) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_ldf_upload(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_ldf_upload.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_ldf_blockn, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #4
@@ -3171,7 +3171,7 @@ define internal fastcc i32 @cmd_ldf_upload(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_ldf_get_frame_info(ptr noundef %0, ptr %.408.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_ldf_get_frame_info.argprom.argelim(ptr noundef %0, ptr %.408.val, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = call ptr @tvb_get_stringz_enc(ptr noundef %.408.val, ptr noundef %0, i32 noundef 12, ptr noundef nonnull %3, i32 noundef 0) #4
   %5 = load i32, ptr %3, align 4
@@ -3201,7 +3201,7 @@ define internal fastcc i32 @cmd_ldf_get_frame_info(ptr noundef %0, ptr %.408.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cmd_ldf_save_session(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @cmd_ldf_save_session.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_ldf_restore_session, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 12, i32 noundef %3, i32 noundef 0) #4
@@ -3210,7 +3210,7 @@ define internal fastcc noundef i32 @cmd_ldf_save_session(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_ldf_emulate_nodes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @cmd_ldf_emulate_nodes.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %6 = load i32, ptr @hf_gryphon_ldf_nodenumber, align 4
@@ -3252,7 +3252,7 @@ define internal fastcc i32 @cmd_ldf_emulate_nodes(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cmd_restore_session(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @cmd_restore_session.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_ldf_restore_session, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 12, i32 noundef %3, i32 noundef 0) #4
@@ -3261,7 +3261,7 @@ define internal fastcc noundef i32 @cmd_restore_session(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_cnvt_get_values(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_cnvt_get_values.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %5 = load i32, ptr @hf_gryphon_ldf_get_frame_num_signals, align 4
@@ -3287,7 +3287,7 @@ define internal fastcc i32 @cmd_cnvt_get_values(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_cnvt_get_units(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_cnvt_get_units.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %5 = load i32, ptr @hf_gryphon_ldf_get_frame_num_signals, align 4
@@ -3313,7 +3313,7 @@ define internal fastcc i32 @cmd_cnvt_get_units(ptr noundef %0, ptr noundef %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cmd_cnvt_set_values(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @cmd_cnvt_set_values.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %5 = load i32, ptr @hf_gryphon_ldf_get_frame_num_signals, align 4
@@ -3344,7 +3344,7 @@ define internal fastcc noundef i32 @cmd_cnvt_set_values(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cmd_cnvt_destroy_session(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @cmd_cnvt_destroy_session.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_ldf_ui, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 12, i32 noundef %3, i32 noundef 0) #4
@@ -3490,7 +3490,7 @@ define internal fastcc range(i32 16, 21) i32 @resp_addresp(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_modresp(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_modresp.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %.not = icmp eq i8 %4, 0
@@ -3524,7 +3524,7 @@ define internal fastcc void @cmd_modresp(ptr noundef %0, ptr noundef %1) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_desc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_desc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_desc_program_size, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_desc_program_name, align 4
@@ -3535,7 +3535,7 @@ define internal fastcc void @cmd_desc(ptr noundef %0, ptr noundef %1) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_upload(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_upload.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_upload_block_number, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #4
@@ -3562,7 +3562,7 @@ define internal fastcc i32 @cmd_upload(ptr noundef %0, ptr noundef %1) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_list(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_list.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_list_block_number, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3571,7 +3571,7 @@ define internal fastcc void @cmd_list(ptr noundef %0, ptr noundef %1) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_start(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @cmd_start.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %6 = load i32, ptr @hf_gryphon_delete, align 4
@@ -3633,7 +3633,7 @@ define internal fastcc range(i32 12, 21) i32 @resp_start(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_options.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_options_handle, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #4
@@ -3743,7 +3743,7 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_files(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_files.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %5 = icmp eq i8 %4, 0
@@ -3769,7 +3769,7 @@ define internal fastcc i32 @cmd_files(ptr noundef %0, ptr noundef %1) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_sched.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #4
@@ -3871,7 +3871,7 @@ define internal fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %1) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_sched_rep(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_sched_rep.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #4
   %.not = icmp sgt i32 %3, -1
   %.str.805..str.804 = select i1 %.not, ptr @.str.805, ptr @.str.804
@@ -3886,7 +3886,7 @@ define internal fastcc i32 @cmd_sched_rep(ptr noundef %0, ptr noundef %1) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_usdt(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmd_usdt.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_usdt_flags_register, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #4
@@ -4005,7 +4005,7 @@ define internal fastcc i32 @cmd_usdt(ptr noundef %0, ptr noundef %1) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_usdt_set_stmin_mul(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_usdt_set_stmin_mul.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef 12) #4
   %4 = load i32, ptr @hf_gryphon_usdt_set_stmin_mul, align 4
   %5 = fpext float %3 to double
@@ -4014,7 +4014,7 @@ define internal fastcc void @cmd_usdt_set_stmin_mul(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cmd_usdt_register_non_legacy(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @cmd_usdt_register_non_legacy.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %5 = load i32, ptr @ett_gryphon_usdt_action_flags, align 4
@@ -4484,7 +4484,7 @@ define internal fastcc i32 @cmd_init_strat(ptr noundef %0, i32 noundef range(i32
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @cmd_ioctl.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #4
   %6 = load i32, ptr @hf_gryphon_ioctl, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
@@ -4493,7 +4493,7 @@ define internal fastcc i32 @cmd_ioctl(ptr noundef %0, ptr nocapture noundef read
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = tail call fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %8)
+  %11 = tail call fastcc i32 @cmd_ioctl_details.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %8)
   br label %12
 
 12:                                               ; preds = %10, %4
@@ -4647,7 +4647,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 1, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc i32 @cmd_ioctl_details.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 1, -2147483648) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   switch i32 %3, label %246 [
     i32 297795613, label %.loopexit
@@ -5038,7 +5038,7 @@ declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_config(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_config.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_config_device_name, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 16, i32 noundef 20, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_config_device_version, align 4
@@ -5141,7 +5141,7 @@ define internal fastcc i32 @resp_config(ptr noundef %0, ptr noundef %1) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 17, 276) i32 @resp_filthan(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 17, 276) i32 @resp_filthan.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %4 = zext i8 %3 to i32
   %5 = load i32, ptr @hf_gryphon_filthan, align 4
@@ -5181,7 +5181,7 @@ define internal fastcc range(i32 17, 276) i32 @resp_filthan(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @resp_events(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @resp_events.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #4
   %.not18 = icmp eq i32 %3, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -5209,7 +5209,7 @@ define internal fastcc noundef i32 @resp_events(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_getspeeds(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_getspeeds.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 24) #4
   %4 = zext i8 %3 to i32
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 25) #4
@@ -5245,7 +5245,7 @@ define internal fastcc i32 @resp_getspeeds(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resp_register(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @resp_register.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_register_client_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_register_privileges, align 4
@@ -5256,7 +5256,7 @@ define internal fastcc void @resp_register(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resp_blm_data(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @resp_blm_data.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.nstime_t, align 8
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #4
   %5 = udiv i32 %4, 100000
@@ -5305,8 +5305,8 @@ define internal fastcc void @resp_blm_data(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resp_blm_stat(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  tail call fastcc void @resp_blm_data(ptr noundef %0, ptr noundef %1)
+define internal fastcc void @resp_blm_stat.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  tail call fastcc void @resp_blm_data.argelim(ptr noundef %0, ptr noundef %1)
   %3 = load i32, ptr @hf_gryphon_blm_stat_receive_frame_count, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_blm_stat_transmit_frame_count, align 4
@@ -5323,7 +5323,7 @@ define internal fastcc void @resp_blm_stat(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_list(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_list.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %4 = zext i8 %3 to i32
   %5 = load i32, ptr @hf_gryphon_ldf_number, align 4
@@ -5356,7 +5356,7 @@ define internal fastcc i32 @resp_ldf_list(ptr noundef %0, ptr noundef %1) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resp_ldf_desc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @resp_ldf_desc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_ldf_exists, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_ldf_desc_pad, align 4
@@ -5365,7 +5365,7 @@ define internal fastcc void @resp_ldf_desc(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resp_get_ldf_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @resp_get_ldf_info.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_ldf_info_pv, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_ldf_info_lv, align 4
@@ -5380,7 +5380,7 @@ define internal fastcc void @resp_get_ldf_info(ptr noundef %0, ptr noundef %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_get_node_names(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_get_node_names.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16) #4
   %5 = load i32, ptr @hf_gryphon_ldf_num_node_names, align 4
@@ -5410,7 +5410,7 @@ define internal fastcc i32 @resp_ldf_get_node_names(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_get_node_signals(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_get_node_signals.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16) #4
   %5 = load i32, ptr @hf_gryphon_ldf_num_signal_names, align 4
@@ -5435,7 +5435,7 @@ define internal fastcc i32 @resp_ldf_get_node_signals(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_get_frames(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_get_frames.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16) #4
   %5 = load i32, ptr @hf_gryphon_ldf_num_frames, align 4
@@ -5465,7 +5465,7 @@ define internal fastcc i32 @resp_ldf_get_frames(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_get_frame_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_get_frame_info.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_gryphon_ldf_get_frame_num, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #4
@@ -5497,7 +5497,7 @@ define internal fastcc i32 @resp_ldf_get_frame_info(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_get_signal_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_get_signal_info.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_gryphon_ldf_signal_offset, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #4
@@ -5511,7 +5511,7 @@ define internal fastcc i32 @resp_ldf_get_signal_info(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_get_signal_detail(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_get_signal_detail.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_ldf_signal_offset, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_ldf_signal_length, align 4
@@ -5530,7 +5530,7 @@ define internal fastcc i32 @resp_ldf_get_signal_detail(ptr noundef %0, ptr nocap
   %.024 = phi i16 [ %8, %.lr.ph ], [ %14, %12 ]
   %.02023 = phi i32 [ 20, %.lr.ph ], [ %13, %12 ]
   %.val = load ptr, ptr %11, align 8
-  %13 = tail call fastcc i32 @resp_ldf_do_encoding_block(ptr noundef %0, ptr %.val, i32 noundef %.02023, ptr noundef %2)
+  %13 = tail call fastcc i32 @resp_ldf_do_encoding_block.argprom(ptr noundef %0, ptr %.val, i32 noundef %.02023, ptr noundef %2)
   %14 = add i16 %.024, -1
   %.not = icmp eq i16 %14, 0
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !33
@@ -5541,7 +5541,7 @@ define internal fastcc i32 @resp_ldf_get_signal_detail(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_get_encoding_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_get_encoding_info.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16) #4
   %5 = load i32, ptr @hf_gryphon_ldf_num_encodings, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0) #4
@@ -5556,7 +5556,7 @@ define internal fastcc i32 @resp_ldf_get_encoding_info(ptr noundef %0, ptr nocap
   %.016 = phi i16 [ %4, %.lr.ph ], [ %10, %8 ]
   %.01215 = phi i32 [ 18, %.lr.ph ], [ %9, %8 ]
   %.val = load ptr, ptr %7, align 8
-  %9 = tail call fastcc i32 @resp_ldf_do_encoding_block(ptr noundef %0, ptr %.val, i32 noundef %.01215, ptr noundef %2)
+  %9 = tail call fastcc i32 @resp_ldf_do_encoding_block.argprom(ptr noundef %0, ptr %.val, i32 noundef %.01215, ptr noundef %2)
   %10 = add i16 %.016, -1
   %.not = icmp eq i16 %10, 0
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !34
@@ -5567,7 +5567,7 @@ define internal fastcc i32 @resp_ldf_get_encoding_info(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_get_schedules(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_get_schedules.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16) #4
   %5 = load i32, ptr @hf_gryphon_ldf_num_schedules, align 4
@@ -5592,7 +5592,7 @@ define internal fastcc i32 @resp_ldf_get_schedules(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_cnvt_get_values(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_cnvt_get_values.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %5 = load i32, ptr @hf_gryphon_ldf_get_frame_num_signals, align 4
@@ -5658,7 +5658,7 @@ define internal fastcc i32 @resp_cnvt_get_values(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_cnvt_get_units(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_cnvt_get_units.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %5 = load i32, ptr @hf_gryphon_ldf_get_frame_num_signals, align 4
@@ -5684,7 +5684,7 @@ define internal fastcc i32 @resp_cnvt_get_units(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 17, 276) i32 @resp_resphan(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 17, 276) i32 @resp_resphan.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %4 = zext i8 %3 to i32
   %5 = load i32, ptr @hf_gryphon_num_resphan, align 4
@@ -5724,7 +5724,7 @@ define internal fastcc range(i32 17, 276) i32 @resp_resphan(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resp_desc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @resp_desc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_desc_flags, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #4
   %5 = load i32, ptr @ett_gryphon_flags, align 4
@@ -5739,7 +5739,7 @@ define internal fastcc void @resp_desc(ptr noundef %0, ptr noundef %1) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @resp_list(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @resp_list.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_gryphon_list_num_programs, align 4
   %5 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #4
@@ -5773,7 +5773,7 @@ define internal fastcc noundef i32 @resp_list(ptr noundef %0, ptr noundef %1) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 17, 276) i32 @resp_status(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 17, 276) i32 @resp_status.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %4 = zext i8 %3 to i32
   %5 = load i32, ptr @hf_gryphon_status_num_running_copies, align 4
@@ -5819,7 +5819,7 @@ define internal fastcc range(i32 17, 276) i32 @resp_status(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_files(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @resp_files.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #4
   %4 = load i32, ptr @hf_gryphon_more_filenames, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #4
@@ -5831,7 +5831,7 @@ define internal fastcc i32 @resp_files(ptr noundef %0, ptr noundef %1) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmd_usdt_get_stmin_override(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cmd_usdt_get_stmin_override.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_usdt_stmin_override, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_usdt_stmin_override_active, align 4
@@ -5840,13 +5840,13 @@ define internal fastcc void @cmd_usdt_get_stmin_override(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_ioctl_resp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @cmd_ioctl_resp.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5)
+  %8 = tail call fastcc i32 @cmd_ioctl_details.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5)
   br label %9
 
 9:                                                ; preds = %7, %4
@@ -5859,7 +5859,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_do_encoding_block(ptr noundef %0, ptr %.408.val, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @resp_ldf_do_encoding_block.argprom(ptr noundef %0, ptr %.408.val, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = call ptr @tvb_get_stringz_enc(ptr noundef %.408.val, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_ldf_signal_encoding_type, align 4

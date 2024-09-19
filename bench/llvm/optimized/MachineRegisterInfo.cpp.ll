@@ -2699,7 +2699,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isPhysRegMo
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, %7
   %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread
+  br i1 %.not, label %14, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %0, align 8
@@ -2719,7 +2719,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isPhysRegMo
   %28 = getelementptr inbounds i16, ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.not25.not42 = icmp eq i64 %27, 0
-  br i1 %.not25.not42, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread, label %.lr.ph45
+  br i1 %.not25.not42, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %14, %._crit_edge
   %.sroa.018.043 = phi ptr [ %89, %._crit_edge ], [ %26, %14 ]
@@ -2751,7 +2751,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isPhysRegMo
 
 .lr.ph:                                           ; preds = %34, %40
   %.sroa.0.0.i = phi ptr [ %.0.i.i, %34 ], [ %39, %40 ]
-  br i1 %2, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread, label %.lr.ph.split
+  br i1 %2, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %86
   %.sroa.013.030 = phi ptr [ %85, %86 ], [ %.sroa.0.0.i, %.lr.ph ]
@@ -2773,25 +2773,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isPhysRegMo
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, 128
   %.not.i = icmp eq i64 %55, 0
-  br i1 %.not.i, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread, label %57
+  br i1 %.not.i, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread, label %57
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %.lr.ph.split
   %56 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.val, i64 noundef 128, i32 noundef 1) #19
-  br i1 %56, label %57, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread
+  br i1 %56, label %57, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread
 
 57:                                               ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %50
   %58 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %61 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #19
-  br i1 %61, label %62, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread
+  br i1 %61, label %62, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %65, i32 noundef 90) #19
-  br i1 %66, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread, label %67
+  br i1 %66, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread, label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr i8, ptr %.val, i64 32
@@ -2801,7 +2801,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %.lr.ph.split
   %70 = zext i24 %.val12.i to i64
   %71 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.val.i, i64 %70
   %.not3.i.i = icmp eq i24 %.val12.i, 0
-  br i1 %.not3.i.i, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread, label %.lr.ph.i.i
+  br i1 %.not3.i.i, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %67, %79
   %.0124.i.i = phi ptr [ %80, %79 ], [ %.val.i, %67 ]
@@ -2815,22 +2815,22 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %.lr.ph.split
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %77, align 8
   %.not2.i.i = icmp eq i8 %78, 0
-  br i1 %.not2.i.i, label %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i, label %79
+  br i1 %.not2.i.i, label %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.argprom.exit.i, label %79
 
 79:                                               ; preds = %75, %.lr.ph.i.i
   %80 = getelementptr inbounds i8, ptr %.0124.i.i, i64 32
   %.not.i.i10 = icmp eq ptr %80, %71
-  br i1 %.not.i.i10, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread, label %.lr.ph.i.i
+  br i1 %.not.i.i10, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread, label %.lr.ph.i.i
 
-_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i: ; preds = %75
+_ZL17getCalledFunctionRKN4llvm12MachineInstrE.argprom.exit.i: ; preds = %75
   %81 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %77, i32 noundef 34) #19
-  br i1 %81, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread
+  br i1 %81, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread
 
-_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit: ; preds = %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i
+_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit: ; preds = %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.argprom.exit.i
   %82 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %77, i32 noundef 39) #19
-  br i1 %82, label %83, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread
+  br i1 %82, label %83, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread
 
-83:                                               ; preds = %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit
+83:                                               ; preds = %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.013.030, i64 24
   %85 = load ptr, ptr %84, align 8
   %.not.i.i11 = icmp eq ptr %85, null
@@ -2845,10 +2845,10 @@ _ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit: ; preds = %_ZL17getCalledFunct
 ._crit_edge:                                      ; preds = %86, %83, %40, %37, %.lr.ph45
   %89 = getelementptr inbounds i8, ptr %.sroa.018.043, i64 2
   %.not25.not = icmp eq ptr %89, %28
-  br i1 %.not25.not, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread, label %.lr.ph45, !llvm.loop !38
+  br i1 %.not25.not, label %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread, label %.lr.ph45, !llvm.loop !38
 
-_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit.thread: ; preds = %.lr.ph, %._crit_edge, %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %57, %62, %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i, %50, %67, %79, %14, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %14 ], [ true, %79 ], [ true, %67 ], [ true, %50 ], [ true, %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i ], [ true, %62 ], [ true, %57 ], [ true, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i ], [ true, %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit ], [ false, %._crit_edge ], [ true, %.lr.ph ]
+_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit.thread: ; preds = %.lr.ph, %._crit_edge, %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %57, %62, %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.argprom.exit.i, %50, %67, %79, %14, %3
+  %.0 = phi i1 [ true, %3 ], [ false, %14 ], [ true, %79 ], [ true, %67 ], [ true, %50 ], [ true, %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.argprom.exit.i ], [ true, %62 ], [ true, %57 ], [ true, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i ], [ true, %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.argprom.exit ], [ false, %._crit_edge ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3295,7 +3295,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isReservedR
   %18 = getelementptr inbounds i8, ptr %0, i64 384
   %.val = load ptr, ptr %18, align 8
   %.not.not.not19 = icmp eq i16 %16, 0
-  br i1 %.not.not.not19, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.thread", label %.lr.ph
+  br i1 %.not.not.not19, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %19 = getelementptr inbounds [2 x i16], ptr %13, i64 %14, i64 1
@@ -3304,10 +3304,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isReservedR
   %.not5.i.i.i.i.i = icmp eq ptr %21, null
   br label %22
 
-22:                                               ; preds = %.lr.ph, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit"
-  %.sroa.5.021 = phi i16 [ %20, %.lr.ph ], [ 0, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit" ]
-  %.sroa.05.020 = phi i16 [ %16, %.lr.ph ], [ %.sroa.5.021, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit" ]
-  br i1 %.not5.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i.preheader
+22:                                               ; preds = %.lr.ph, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit"
+  %.sroa.5.021 = phi i16 [ %20, %.lr.ph ], [ 0, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit" ]
+  %.sroa.05.020 = phi i16 [ %16, %.lr.ph ], [ %.sroa.5.021, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit" ]
+  br i1 %.not5.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %22
   %23 = load ptr, ptr %11, align 8, !noalias !44
@@ -3331,21 +3331,21 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isReservedR
   %38 = load i64, ptr %37, align 8, !noalias !47
   %39 = and i64 %34, %38
   %.not.i.i.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit", label %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit", label %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i
 
 _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i
   %40 = getelementptr inbounds i8, ptr %29, i64 2
   %41 = load i16, ptr %29, align 2, !noalias !47
   %42 = add i16 %41, %30
   %.not.i.i.i.i.i.i.i = icmp eq i16 %41, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i, !llvm.loop !54
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph.i.i.i.i.i, !llvm.loop !54
 
-"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i
   %.not.not.not = icmp eq i16 %.sroa.5.021, 0
-  br i1 %.not.not.not, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.thread", label %22, !llvm.loop !55
+  br i1 %.not.not.not, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit.thread", label %22, !llvm.loop !55
 
-"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.thread": ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit", %22, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i, %2
-  %.not15 = phi i1 [ false, %2 ], [ true, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i ], [ %.not5.i.i.i.i.i, %22 ], [ %.not5.i.i.i.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit" ]
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit", %22, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i, %2
+  %.not15 = phi i1 [ false, %2 ], [ true, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i ], [ %.not5.i.i.i.i.i, %22 ], [ %.not5.i.i.i.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.argprom.exit" ]
   ret i1 %.not15
 }
 
@@ -4582,8 +4582,8 @@ attributes #22 = { noreturn nounwind }
 !45 = distinct !{!45, !46, !"_ZNK4llvm14MCRegisterInfo19superregs_inclusiveENS_10MCRegisterE: argument 0"}
 !46 = distinct !{!46, !"_ZNK4llvm14MCRegisterInfo19superregs_inclusiveENS_10MCRegisterE"}
 !47 = !{!48, !50, !52}
-!48 = distinct !{!48, !49, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_St18input_iterator_tag: argument 0"}
-!49 = distinct !{!49, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_St18input_iterator_tag"}
+!48 = distinct !{!48, !49, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_St18input_iterator_tag.argprom: argument 0"}
+!49 = distinct !{!49, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_St18input_iterator_tag.argprom"}
 !50 = distinct !{!50, !51, !"_ZSt13__find_if_notIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops10_Iter_predIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_: argument 0"}
 !51 = distinct !{!51, !"_ZSt13__find_if_notIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops10_Iter_predIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_"}
 !52 = distinct !{!52, !53, !"_ZSt11find_if_notIN4llvm18MCSuperRegIteratorEZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0ET_S4_S4_T0_: argument 0"}

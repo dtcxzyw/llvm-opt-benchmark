@@ -1291,13 +1291,13 @@ wimaxasncp_get_tlv_info.exit:                     ; preds = %.loopexit.i, %30
   %114 = getelementptr i8, ptr %32, i64 80
   %.val.i = load ptr, ptr %114, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %wimaxasncp_get_enum_name.exit.i, label %115
+  br i1 %.not.i.i, label %wimaxasncp_get_enum_name.argprom.exit.i, label %115
 
 115:                                              ; preds = %111
   %116 = call ptr @val_to_str_const(i32 noundef %113, ptr noundef nonnull %.val.i, ptr noundef nonnull @.str.23) #8
-  br label %wimaxasncp_get_enum_name.exit.i
+  br label %wimaxasncp_get_enum_name.argprom.exit.i
 
-wimaxasncp_get_enum_name.exit.i:                  ; preds = %115, %111
+wimaxasncp_get_enum_name.argprom.exit.i:          ; preds = %115, %111
   %.0.i.i = phi ptr [ %116, %115 ], [ @.str.23, %111 ]
   %117 = getelementptr inbounds i8, ptr %32, i64 36
   %118 = load i32, ptr %117, align 4
@@ -1335,13 +1335,13 @@ wimaxasncp_get_enum_name.exit.i:                  ; preds = %115, %111
   %135 = getelementptr i8, ptr %32, i64 80
   %.val704.i = load ptr, ptr %135, align 8
   %.not.i709.i = icmp eq ptr %.val704.i, null
-  br i1 %.not.i709.i, label %wimaxasncp_get_enum_name.exit711.i, label %136
+  br i1 %.not.i709.i, label %wimaxasncp_get_enum_name.argprom.exit711.i, label %136
 
 136:                                              ; preds = %132
   %137 = call ptr @val_to_str_const(i32 noundef %134, ptr noundef nonnull %.val704.i, ptr noundef nonnull @.str.23) #8
-  br label %wimaxasncp_get_enum_name.exit711.i
+  br label %wimaxasncp_get_enum_name.argprom.exit711.i
 
-wimaxasncp_get_enum_name.exit711.i:               ; preds = %136, %132
+wimaxasncp_get_enum_name.argprom.exit711.i:       ; preds = %136, %132
   %.0.i710.i = phi ptr [ %137, %136 ], [ @.str.23, %132 ]
   %138 = getelementptr inbounds i8, ptr %32, i64 36
   %139 = load i32, ptr %138, align 4
@@ -1378,13 +1378,13 @@ wimaxasncp_get_enum_name.exit711.i:               ; preds = %136, %132
   %155 = getelementptr i8, ptr %32, i64 80
   %.val705.i = load ptr, ptr %155, align 8
   %.not.i712.i = icmp eq ptr %.val705.i, null
-  br i1 %.not.i712.i, label %wimaxasncp_get_enum_name.exit714.i, label %156
+  br i1 %.not.i712.i, label %wimaxasncp_get_enum_name.argprom.exit714.i, label %156
 
 156:                                              ; preds = %153
   %157 = call ptr @val_to_str_const(i32 noundef %154, ptr noundef nonnull %.val705.i, ptr noundef nonnull @.str.23) #8
-  br label %wimaxasncp_get_enum_name.exit714.i
+  br label %wimaxasncp_get_enum_name.argprom.exit714.i
 
-wimaxasncp_get_enum_name.exit714.i:               ; preds = %156, %153
+wimaxasncp_get_enum_name.argprom.exit714.i:       ; preds = %156, %153
   %.0.i713.i = phi ptr [ %157, %156 ], [ @.str.23, %153 ]
   %158 = getelementptr inbounds i8, ptr %32, i64 36
   %159 = load i32, ptr %158, align 4
@@ -1474,19 +1474,19 @@ wimaxasncp_proto_tree_add_ether_value.exit102:    ; preds = %163, %167
 200:                                              ; preds = %196
   %.val706.i = load ptr, ptr %195, align 8
   %.not.i715.i = icmp eq ptr %.val706.i, null
-  br i1 %.not.i715.i, label %wimaxasncp_get_enum_name.exit717.i, label %201
+  br i1 %.not.i715.i, label %wimaxasncp_get_enum_name.argprom.exit717.i, label %201
 
 201:                                              ; preds = %200
   %202 = call ptr @val_to_str_const(i32 noundef %199, ptr noundef nonnull %.val706.i, ptr noundef nonnull @.str.23) #8
-  br label %wimaxasncp_get_enum_name.exit717.i
+  br label %wimaxasncp_get_enum_name.argprom.exit717.i
 
-wimaxasncp_get_enum_name.exit717.i:               ; preds = %201, %200
+wimaxasncp_get_enum_name.argprom.exit717.i:       ; preds = %201, %200
   %.0.i716.i = phi ptr [ %202, %201 ], [ @.str.23, %200 ]
   %203 = load i32, ptr @hf_wimaxasncp_tlv_value_bitflags8, align 4
   %204 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %194, i32 noundef %203, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef %191, ptr noundef nonnull @.str.22, i32 noundef %.0609757.i, ptr noundef %.0.i716.i) #8
   br label %205
 
-205:                                              ; preds = %wimaxasncp_get_enum_name.exit717.i, %196
+205:                                              ; preds = %wimaxasncp_get_enum_name.argprom.exit717.i, %196
   %206 = add nuw nsw i32 %.0609757.i, 1
   %exitcond769.not.i = icmp eq i32 %206, 8
   br i1 %exitcond769.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %196, !llvm.loop !12
@@ -1526,19 +1526,19 @@ wimaxasncp_get_enum_name.exit717.i:               ; preds = %201, %200
 223:                                              ; preds = %219
   %.val707.i = load ptr, ptr %218, align 8
   %.not.i718.i = icmp eq ptr %.val707.i, null
-  br i1 %.not.i718.i, label %wimaxasncp_get_enum_name.exit720.i, label %224
+  br i1 %.not.i718.i, label %wimaxasncp_get_enum_name.argprom.exit720.i, label %224
 
 224:                                              ; preds = %223
   %225 = call ptr @val_to_str_const(i32 noundef %222, ptr noundef nonnull %.val707.i, ptr noundef nonnull @.str.23) #8
-  br label %wimaxasncp_get_enum_name.exit720.i
+  br label %wimaxasncp_get_enum_name.argprom.exit720.i
 
-wimaxasncp_get_enum_name.exit720.i:               ; preds = %224, %223
+wimaxasncp_get_enum_name.argprom.exit720.i:       ; preds = %224, %223
   %.0.i719.i = phi ptr [ %225, %224 ], [ @.str.23, %223 ]
   %226 = load i32, ptr @hf_wimaxasncp_tlv_value_bitflags16, align 4
   %227 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %217, i32 noundef %226, ptr noundef %96, i32 noundef 0, i32 noundef 2, i32 noundef %214, ptr noundef nonnull @.str.22, i32 noundef %.0610756.i, ptr noundef %.0.i719.i) #8
   br label %228
 
-228:                                              ; preds = %wimaxasncp_get_enum_name.exit720.i, %219
+228:                                              ; preds = %wimaxasncp_get_enum_name.argprom.exit720.i, %219
   %229 = add nuw nsw i32 %.0610756.i, 1
   %exitcond768.not.i = icmp eq i32 %229, 16
   br i1 %exitcond768.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %219, !llvm.loop !13
@@ -1576,19 +1576,19 @@ wimaxasncp_get_enum_name.exit720.i:               ; preds = %224, %223
 244:                                              ; preds = %241
   %.val708.i = load ptr, ptr %240, align 8
   %.not.i721.i = icmp eq ptr %.val708.i, null
-  br i1 %.not.i721.i, label %wimaxasncp_get_enum_name.exit723.i, label %245
+  br i1 %.not.i721.i, label %wimaxasncp_get_enum_name.argprom.exit723.i, label %245
 
 245:                                              ; preds = %244
   %246 = call ptr @val_to_str_const(i32 noundef %243, ptr noundef nonnull %.val708.i, ptr noundef nonnull @.str.23) #8
-  br label %wimaxasncp_get_enum_name.exit723.i
+  br label %wimaxasncp_get_enum_name.argprom.exit723.i
 
-wimaxasncp_get_enum_name.exit723.i:               ; preds = %245, %244
+wimaxasncp_get_enum_name.argprom.exit723.i:       ; preds = %245, %244
   %.0.i722.i = phi ptr [ %246, %245 ], [ @.str.23, %244 ]
   %247 = load i32, ptr @hf_wimaxasncp_tlv_value_bitflags32, align 4
   %248 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %239, i32 noundef %247, ptr noundef %96, i32 noundef 0, i32 noundef 4, i32 noundef %233, ptr noundef nonnull @.str.22, i32 noundef %.0611755.i, ptr noundef %.0.i722.i) #8
   br label %249
 
-249:                                              ; preds = %wimaxasncp_get_enum_name.exit723.i, %241
+249:                                              ; preds = %wimaxasncp_get_enum_name.argprom.exit723.i, %241
   %250 = add nuw nsw i32 %.0611755.i, 1
   %exitcond.not.i = icmp eq i32 %250, 32
   br i1 %exitcond.not.i, label %wimaxasncp_dissect_tlv_value.exit, label %241, !llvm.loop !14
@@ -2367,7 +2367,7 @@ proto_item_set_hidden.exit739.i:                  ; preds = %590, %587, %581
   %633 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef nonnull %59, i32 noundef %632, ptr noundef %96, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.179) #8
   br label %wimaxasncp_dissect_tlv_value.exit
 
-wimaxasncp_dissect_tlv_value.exit:                ; preds = %528, %517, %488, %429, %249, %228, %205, %631, %.thread.i, %623, %616, %608, %606, %601, %proto_item_set_hidden.exit739.i, %580, %570, %.preheader.i89, %.preheader746.i, %494, %proto_item_set_hidden.exit727.i, %435, %proto_item_set_hidden.exit.i, %397, %wimaxasncp_proto_tree_add_tlv_ipv4_value.exit, %383, %375, %374, %wimaxasncp_proto_tree_add_tlv_ipv4_value.exit94, %362, %360, %347, %336, %335, %328, %327, %320, %319, %313, %312, %305, %304, %297, %296, %294, %289, %284, %277, %276, %wimaxasncp_proto_tree_add_ether_value.exit, %264, %wimaxasncp_proto_tree_add_tlv_ipv4_value.exit100, %252, %232, %231, %209, %208, %186, %185, %181, %175, %174, %wimaxasncp_proto_tree_add_ether_value.exit102, %162, %wimaxasncp_get_enum_name.exit714.i, %152, %wimaxasncp_get_enum_name.exit711.i, %131, %wimaxasncp_get_enum_name.exit.i, %110, %74, %88, %84
+wimaxasncp_dissect_tlv_value.exit:                ; preds = %528, %517, %488, %429, %249, %228, %205, %631, %.thread.i, %623, %616, %608, %606, %601, %proto_item_set_hidden.exit739.i, %580, %570, %.preheader.i89, %.preheader746.i, %494, %proto_item_set_hidden.exit727.i, %435, %proto_item_set_hidden.exit.i, %397, %wimaxasncp_proto_tree_add_tlv_ipv4_value.exit, %383, %375, %374, %wimaxasncp_proto_tree_add_tlv_ipv4_value.exit94, %362, %360, %347, %336, %335, %328, %327, %320, %319, %313, %312, %305, %304, %297, %296, %294, %289, %284, %277, %276, %wimaxasncp_proto_tree_add_ether_value.exit, %264, %wimaxasncp_proto_tree_add_tlv_ipv4_value.exit100, %252, %232, %231, %209, %208, %186, %185, %181, %175, %174, %wimaxasncp_proto_tree_add_ether_value.exit102, %162, %wimaxasncp_get_enum_name.argprom.exit714.i, %152, %wimaxasncp_get_enum_name.argprom.exit711.i, %131, %wimaxasncp_get_enum_name.argprom.exit.i, %110, %74, %88, %84
   %634 = add i32 %71, %35
   %635 = call i32 @tvb_reported_length(ptr noundef %0) #8
   %636 = icmp ult i32 %634, %635

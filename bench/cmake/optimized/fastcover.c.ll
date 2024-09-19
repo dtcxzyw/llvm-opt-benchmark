@@ -188,7 +188,7 @@ FASTCOVER_checkParameters.exit.thread:            ; preds = %29, %28, %6
   %85 = tail call noalias ptr @calloc(i64 noundef %84, i64 noundef 2) #14
   %86 = getelementptr inbounds i8, ptr %7, i64 56
   %87 = load ptr, ptr %86, align 8
-  %88 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %7, ptr noundef %87, ptr noundef %0, i64 noundef %1, i32 %.sroa.0.0.copyload31, i32 %.sroa.4.0.copyload, ptr noundef %85)
+  %88 = call fastcc i64 @FASTCOVER_buildDictionary.argprom(ptr noundef nonnull %7, ptr noundef %87, ptr noundef %0, i64 noundef %1, i32 %.sroa.0.0.copyload31, i32 %.sroa.4.0.copyload, ptr noundef %85)
   %89 = getelementptr inbounds i8, ptr %7, i64 32
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %7, i64 72
@@ -525,7 +525,7 @@ declare void @COVER_warnOnSmallCorpus(i64 noundef, i64 noundef, i32 noundef) loc
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i32 %.0.val, i32 %.4.val, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @FASTCOVER_buildDictionary.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i32 %.0.val, i32 %.4.val, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = trunc i64 %3 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
@@ -667,7 +667,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
 
 .preheader.i:                                     ; preds = %76, %.preheader1.i
   %.not13.i = icmp eq i32 %.sroa.049.sroa.0.0.lcssa.i, %.sroa.049.sroa.4.0.lcssa.i
-  br i1 %.not13.i, label %FASTCOVER_selectSegment.exit, label %.lr.ph15.i
+  br i1 %.not13.i, label %FASTCOVER_selectSegment.argprom.exit, label %.lr.ph15.i
 
 .lr.ph15.i:                                       ; preds = %.preheader.i
   %74 = sub i32 64, %30
@@ -701,18 +701,18 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
   store i32 0, ptr %90, align 4
   %91 = add i32 %.014.i, 1
   %.not.i = icmp eq i32 %91, %.sroa.049.sroa.4.0.lcssa.i
-  br i1 %.not.i, label %FASTCOVER_selectSegment.exit, label %84, !llvm.loop !11
+  br i1 %.not.i, label %FASTCOVER_selectSegment.argprom.exit, label %84, !llvm.loop !11
 
-FASTCOVER_selectSegment.exit:                     ; preds = %84, %.preheader.i
+FASTCOVER_selectSegment.argprom.exit:             ; preds = %84, %.preheader.i
   %.sroa.049.sroa.0.0.insert.ext.i = zext i32 %.sroa.049.sroa.0.0.lcssa.i to i64
   br i1 %.sroa.6.0.lcssa.i, label %92, label %95
 
-92:                                               ; preds = %FASTCOVER_selectSegment.exit
+92:                                               ; preds = %FASTCOVER_selectSegment.argprom.exit
   %93 = add nuw nsw i64 %.0353, 1
   %94 = icmp ugt i64 %.0353, 8
   br i1 %94, label %._crit_edge, label %124
 
-95:                                               ; preds = %FASTCOVER_selectSegment.exit
+95:                                               ; preds = %FASTCOVER_selectSegment.argprom.exit
   %96 = add i32 %23, %.sroa.049.sroa.4.0.lcssa.i
   %97 = sub i32 %96, %.sroa.049.sroa.0.0.lcssa.i
   %98 = zext i32 %97 to i64
@@ -1271,7 +1271,7 @@ define internal void @FASTCOVER_tryParameters(ptr nocapture noundef %0) #0 {
   %.val = load i32, ptr %2, align 8
   %31 = getelementptr inbounds i8, ptr %2, i64 4
   %.val43 = load i32, ptr %31, align 4
-  %32 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %5, ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %8, i32 %.val, i32 %.val43, ptr noundef nonnull %13)
+  %32 = call fastcc i64 @FASTCOVER_buildDictionary.argprom(ptr noundef nonnull %5, ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %8, i32 %.val, i32 %.val43, ptr noundef nonnull %13)
   %33 = getelementptr inbounds i8, ptr %5, i64 32
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 72

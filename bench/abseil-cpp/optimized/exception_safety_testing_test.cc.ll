@@ -1750,7 +1750,7 @@ if.end58:                                         ; preds = %catch37, %_ZN7testi
 
 .noexc.i:                                         ; preds = %if.end58
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   %22 = landingpad { ptr, i32 }
@@ -1759,9 +1759,9 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   call void @__clang_call_terminate(ptr %23) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %.noexc.i
+"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i)
-  br label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.exit"
+  br label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit"
 
 lpad.i:                                           ; preds = %if.end58
   %24 = landingpad { ptr, i32 }
@@ -1819,7 +1819,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 _ZN7testing7MessageD2Ev.exit.i:                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i, %invoke.cont12.i
   store ptr null, ptr %ref.tmp.i, align 8
   call void @__cxa_end_catch()
-  br label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.exit"
+  br label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit"
 
 lpad1.i:                                          ; preds = %catch.i
   %34 = landingpad { ptr, i32 }
@@ -1876,7 +1876,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup13.i
   call void @__clang_call_terminate(ptr %40) #27
   unreachable
 
-"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.exit": ; preds = %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_0clEv.exit.i", %_ZN7testing7MessageD2Ev.exit.i
+"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit": ; preds = %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_0clEv.argprom.exit.i", %_ZN7testing7MessageD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i22)
@@ -1885,9 +1885,9 @@ terminate.lpad.i:                                 ; preds = %ehcleanup13.i
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %bomb.i.i21)
           to label %.noexc.i61 unwind label %lpad.i24
 
-.noexc.i61:                                       ; preds = %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.exit"
+.noexc.i61:                                       ; preds = %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit"
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i21)
-          to label %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_1clEv.exit.i" unwind label %terminate.lpad.i.i.i.i62
+          to label %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i62
 
 terminate.lpad.i.i.i.i62:                         ; preds = %.noexc.i61
   %41 = landingpad { ptr, i32 }
@@ -1896,11 +1896,11 @@ terminate.lpad.i.i.i.i62:                         ; preds = %.noexc.i61
   call void @__clang_call_terminate(ptr %42) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_1clEv.exit.i": ; preds = %.noexc.i61
+"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_1clEv.argprom.exit.i": ; preds = %.noexc.i61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i21)
   br label %if.then66
 
-lpad.i24:                                         ; preds = %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.exit"
+lpad.i24:                                         ; preds = %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_29ThrowingValueTest_Throws_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit"
   %43 = landingpad { ptr, i32 }
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %44 = extractvalue { ptr, i32 } %43, 1
@@ -2003,7 +2003,7 @@ terminate.lpad.i32:                               ; preds = %ehcleanup13.i30
   call void @__clang_call_terminate(ptr %59) #27
   unreachable
 
-if.then66:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i60, %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_1clEv.exit.i"
+if.then66:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i60, %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_1clEv.argprom.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg62, i8 0, i64 32, i1 false)
@@ -3333,7 +3333,7 @@ entry:
 
 .noexc.i.i:                                       ; preds = %entry
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i
   %0 = landingpad { ptr, i32 }
@@ -3342,7 +3342,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i
   call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.exit.i.i": ; preds = %.noexc.i.i
+"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i": ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i)
   br label %if.then.i
 
@@ -3450,7 +3450,7 @@ terminate.lpad.i.i:                               ; preds = %ehcleanup13.i.i
   call void @__clang_call_terminate(ptr %18) #27
   unreachable
 
-if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.exit.i.i"
+if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -3469,7 +3469,7 @@ if.then2.i:                                       ; preds = %invoke.cont.i
 
 .noexc.i:                                         ; preds = %if.then2.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   %19 = landingpad { ptr, i32 }
@@ -3478,7 +3478,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   call void @__clang_call_terminate(ptr %20) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %.noexc.i
+"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i)
   br label %if.then38.critedge.i
 
@@ -3498,7 +3498,7 @@ catch35.i:                                        ; preds = %lpad.i
   invoke void @__cxa_end_catch()
           to label %invoke.cont unwind label %lpad8.i
 
-if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.exit.i", %invoke.cont.i
+if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_0clEv.argprom.exit.i", %invoke.cont.i
   %call41.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i unwind label %lpad8.i
 
@@ -3664,7 +3664,7 @@ invoke.cont:                                      ; preds = %_ZN7testing7Message
 
 .noexc.i.i98:                                     ; preds = %invoke.cont
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb1.i.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i99
+          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i99
 
 terminate.lpad.i.i.i.i.i99:                       ; preds = %.noexc.i.i98
   %43 = landingpad { ptr, i32 }
@@ -3673,7 +3673,7 @@ terminate.lpad.i.i.i.i.i99:                       ; preds = %.noexc.i.i98
   call void @__clang_call_terminate(ptr %44) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.exit.i.i": ; preds = %.noexc.i.i98
+"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i": ; preds = %.noexc.i.i98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb1.i.i.i)
   br label %if.then.i44
 
@@ -3781,7 +3781,7 @@ terminate.lpad.i.i15:                             ; preds = %ehcleanup13.i.i13
   call void @__clang_call_terminate(ptr %61) #27
   unreachable
 
-if.then.i44:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i43, %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.exit.i.i"
+if.then.i44:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i43, %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i2)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -3800,7 +3800,7 @@ if.then2.i95:                                     ; preds = %invoke.cont.i92
 
 .noexc.i96:                                       ; preds = %if.then2.i95
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb1.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.exit.i" unwind label %terminate.lpad.i.i.i.i97
+          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i97
 
 terminate.lpad.i.i.i.i97:                         ; preds = %.noexc.i96
   %62 = landingpad { ptr, i32 }
@@ -3809,7 +3809,7 @@ terminate.lpad.i.i.i.i97:                         ; preds = %.noexc.i96
   call void @__clang_call_terminate(ptr %63) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.exit.i": ; preds = %.noexc.i96
+"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.argprom.exit.i": ; preds = %.noexc.i96
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb1.i.i)
   br label %if.then38.critedge.i93
 
@@ -3829,7 +3829,7 @@ catch35.i91:                                      ; preds = %lpad.i46
   invoke void @__cxa_end_catch()
           to label %invoke.cont3 unwind label %lpad8.i57
 
-if.then38.critedge.i93:                           ; preds = %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.exit.i", %invoke.cont.i92
+if.then38.critedge.i93:                           ; preds = %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_1clEv.argprom.exit.i", %invoke.cont.i92
   %call41.i94 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i3, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i58 unwind label %lpad8.i57
 
@@ -3995,7 +3995,7 @@ invoke.cont3:                                     ; preds = %_ZN7testing7Message
 
 .noexc.i.i209:                                    ; preds = %invoke.cont3
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb1.i.i.i104)
-          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i210
+          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i210
 
 terminate.lpad.i.i.i.i.i210:                      ; preds = %.noexc.i.i209
   %86 = landingpad { ptr, i32 }
@@ -4004,7 +4004,7 @@ terminate.lpad.i.i.i.i.i210:                      ; preds = %.noexc.i.i209
   call void @__clang_call_terminate(ptr %87) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.exit.i.i": ; preds = %.noexc.i.i209
+"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i": ; preds = %.noexc.i.i209
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb1.i.i.i104)
   br label %if.then.i149
 
@@ -4112,7 +4112,7 @@ terminate.lpad.i.i120:                            ; preds = %ehcleanup13.i.i118
   call void @__clang_call_terminate(ptr %104) #27
   unreachable
 
-if.then.i149:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i148, %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.exit.i.i"
+if.then.i149:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i148, %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i105)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i106)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -4131,7 +4131,7 @@ if.then2.i205:                                    ; preds = %invoke.cont.i202
 
 .noexc.i207:                                      ; preds = %if.then2.i205
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb1.i.i103)
-          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.exit.i" unwind label %terminate.lpad.i.i.i.i208
+          to label %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i208
 
 terminate.lpad.i.i.i.i208:                        ; preds = %.noexc.i207
   %105 = landingpad { ptr, i32 }
@@ -4140,7 +4140,7 @@ terminate.lpad.i.i.i.i208:                        ; preds = %.noexc.i207
   call void @__clang_call_terminate(ptr %106) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.exit.i": ; preds = %.noexc.i207
+"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.argprom.exit.i": ; preds = %.noexc.i207
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb1.i.i103)
   br label %if.then38.critedge.i203
 
@@ -4160,7 +4160,7 @@ catch35.i201:                                     ; preds = %lpad.i151
   invoke void @__cxa_end_catch()
           to label %invoke.cont5 unwind label %lpad8.i162
 
-if.then38.critedge.i203:                          ; preds = %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.exit.i", %invoke.cont.i202
+if.then38.critedge.i203:                          ; preds = %"_ZZN7testing12_GLOBAL__N_136ThrowingValueTest_ThrowingCtors_Test8TestBodyEvENK3$_2clEv.argprom.exit.i", %invoke.cont.i202
   %call41.i204 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i107, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i163 unwind label %lpad8.i162
 
@@ -4596,9 +4596,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 938550620, ptr %bomb, align 4
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 131, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEaSERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.exit.i.i" unwind label %lpad.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i" unwind label %lpad.i.i
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.exit.i.i": ; preds = %invoke.cont
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i": ; preds = %invoke.cont
   %0 = load i32, ptr %bomb1, align 4
   store i32 %0, ptr %bomb, align 4
   br label %if.then.i
@@ -4707,7 +4707,7 @@ terminate.lpad.i.i:                               ; preds = %ehcleanup13.i.i
   call void @__clang_call_terminate(ptr %17) #27
   unreachable
 
-if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.exit.i.i"
+if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -4722,9 +4722,9 @@ invoke.cont.i:                                    ; preds = %if.then.i
 if.then2.i:                                       ; preds = %invoke.cont.i
   store i32 938550620, ptr %bomb, align 4
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 131, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEaSERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %lpad.i
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %lpad.i
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %if.then2.i
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %if.then2.i
   %18 = load i32, ptr %bomb1, align 4
   store i32 %18, ptr %bomb, align 4
   br label %if.then38.critedge.i
@@ -4745,7 +4745,7 @@ catch35.i:                                        ; preds = %lpad.i
   invoke void @__cxa_end_catch()
           to label %invoke.cont3 unwind label %lpad8.i
 
-if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.exit.i", %invoke.cont.i
+if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_0clEv.argprom.exit.i", %invoke.cont.i
   %call41.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i unwind label %lpad8.i
 
@@ -4907,9 +4907,9 @@ invoke.cont3:                                     ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i37)
   store i32 938550620, ptr %bomb, align 4
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 126, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEaSEOS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.exit.i.i" unwind label %lpad.i.i44
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i" unwind label %lpad.i.i44
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.exit.i.i": ; preds = %invoke.cont3
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i": ; preds = %invoke.cont3
   %41 = load i32, ptr %bomb1, align 4
   store i32 %41, ptr %bomb, align 4
   br label %if.then.i81
@@ -5018,7 +5018,7 @@ terminate.lpad.i.i52:                             ; preds = %ehcleanup13.i.i50
   call void @__clang_call_terminate(ptr %58) #27
   unreachable
 
-if.then.i81:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i80, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.exit.i.i"
+if.then.i81:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i80, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i37)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -5033,9 +5033,9 @@ invoke.cont.i134:                                 ; preds = %if.then.i81
 if.then2.i137:                                    ; preds = %invoke.cont.i134
   store i32 938550620, ptr %bomb, align 4
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 126, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEaSEOS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.exit.i" unwind label %lpad.i83
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" unwind label %lpad.i83
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.exit.i": ; preds = %if.then2.i137
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.argprom.exit.i": ; preds = %if.then2.i137
   %59 = load i32, ptr %bomb1, align 4
   store i32 %59, ptr %bomb, align 4
   br label %if.then38.critedge.i135
@@ -5056,7 +5056,7 @@ catch35.i133:                                     ; preds = %lpad.i83
   invoke void @__cxa_end_catch()
           to label %invoke.cont5 unwind label %lpad8.i94
 
-if.then38.critedge.i135:                          ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.exit.i", %invoke.cont.i134
+if.then38.critedge.i135:                          ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingAssignment_Test8TestBodyEvENK3$_1clEv.argprom.exit.i", %invoke.cont.i134
   %call41.i136 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i38, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i95 unwind label %lpad8.i94
 
@@ -9109,7 +9109,7 @@ invoke.cont:                                      ; preds = %entry
 
 .noexc.i.i:                                       ; preds = %invoke.cont
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i
   %0 = landingpad { ptr, i32 }
@@ -9118,7 +9118,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i
   call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.exit.i.i": ; preds = %.noexc.i.i
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i": ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i)
   br label %if.then.i
 
@@ -9226,7 +9226,7 @@ terminate.lpad.i.i:                               ; preds = %ehcleanup13.i.i
   call void @__clang_call_terminate(ptr %18) #27
   unreachable
 
-if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.exit.i.i"
+if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -9245,7 +9245,7 @@ if.then2.i:                                       ; preds = %invoke.cont.i
 
 .noexc.i:                                         ; preds = %if.then2.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   %19 = landingpad { ptr, i32 }
@@ -9254,7 +9254,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   call void @__clang_call_terminate(ptr %20) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %.noexc.i
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i)
   br label %if.then38.critedge.i
 
@@ -9274,7 +9274,7 @@ catch35.i:                                        ; preds = %lpad.i
   invoke void @__cxa_end_catch()
           to label %invoke.cont3 unwind label %lpad8.i
 
-if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.exit.i", %invoke.cont.i
+if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i", %invoke.cont.i
   %call41.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i unwind label %lpad8.i
 
@@ -9440,7 +9440,7 @@ invoke.cont3:                                     ; preds = %_ZN7testing7Message
 
 .noexc.i.i108:                                    ; preds = %invoke.cont3
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i3)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i109
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i109
 
 terminate.lpad.i.i.i.i.i109:                      ; preds = %.noexc.i.i108
   %43 = landingpad { ptr, i32 }
@@ -9449,7 +9449,7 @@ terminate.lpad.i.i.i.i.i109:                      ; preds = %.noexc.i.i108
   call void @__clang_call_terminate(ptr %44) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.exit.i.i": ; preds = %.noexc.i.i108
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i": ; preds = %.noexc.i.i108
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i3)
   br label %if.then.i48
 
@@ -9557,7 +9557,7 @@ terminate.lpad.i.i19:                             ; preds = %ehcleanup13.i.i17
   call void @__clang_call_terminate(ptr %61) #27
   unreachable
 
-if.then.i48:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i47, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.exit.i.i"
+if.then.i48:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i47, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i5)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -9576,7 +9576,7 @@ if.then2.i104:                                    ; preds = %invoke.cont.i101
 
 .noexc.i106:                                      ; preds = %if.then2.i104
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i2)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.exit.i" unwind label %terminate.lpad.i.i.i.i107
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i107
 
 terminate.lpad.i.i.i.i107:                        ; preds = %.noexc.i106
   %62 = landingpad { ptr, i32 }
@@ -9585,7 +9585,7 @@ terminate.lpad.i.i.i.i107:                        ; preds = %.noexc.i106
   call void @__clang_call_terminate(ptr %63) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.exit.i": ; preds = %.noexc.i106
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i": ; preds = %.noexc.i106
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i2)
   br label %if.then38.critedge.i102
 
@@ -9605,7 +9605,7 @@ catch35.i100:                                     ; preds = %lpad.i50
   invoke void @__cxa_end_catch()
           to label %invoke.cont5 unwind label %lpad8.i61
 
-if.then38.critedge.i102:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.exit.i", %invoke.cont.i101
+if.then38.critedge.i102:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i", %invoke.cont.i101
   %call41.i103 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i6, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i62 unwind label %lpad8.i61
 
@@ -9766,9 +9766,9 @@ invoke.cont5:                                     ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i113)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i114)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 105, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEppEv, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.exit.i.i" unwind label %lpad.i.i120
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i" unwind label %lpad.i.i120
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.exit.i.i": ; preds = %invoke.cont5
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i": ; preds = %invoke.cont5
   %86 = load i32, ptr %bomb1, align 4
   %inc.i.i.i.i = add nsw i32 %86, 1
   store i32 %inc.i.i.i.i, ptr %bomb1, align 4
@@ -9878,7 +9878,7 @@ terminate.lpad.i.i128:                            ; preds = %ehcleanup13.i.i126
   call void @__clang_call_terminate(ptr %103) #27
   unreachable
 
-if.then.i157:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i156, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.exit.i.i"
+if.then.i157:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i156, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i113)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i114)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -9892,9 +9892,9 @@ invoke.cont.i210:                                 ; preds = %if.then.i157
 
 if.then2.i213:                                    ; preds = %invoke.cont.i210
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 105, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEppEv, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.exit.i" unwind label %lpad.i159
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i" unwind label %lpad.i159
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.exit.i": ; preds = %if.then2.i213
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i": ; preds = %if.then2.i213
   %104 = load i32, ptr %bomb1, align 4
   %inc.i.i.i = add nsw i32 %104, 1
   store i32 %inc.i.i.i, ptr %bomb1, align 4
@@ -9916,7 +9916,7 @@ catch35.i209:                                     ; preds = %lpad.i159
   invoke void @__cxa_end_catch()
           to label %invoke.cont7 unwind label %lpad8.i170
 
-if.then38.critedge.i211:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.exit.i", %invoke.cont.i210
+if.then38.critedge.i211:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i", %invoke.cont.i210
   %call41.i212 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i115, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i171 unwind label %lpad8.i170
 
@@ -10082,7 +10082,7 @@ invoke.cont7:                                     ; preds = %_ZN7testing7Message
 
 .noexc.i.i324:                                    ; preds = %invoke.cont7
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i219)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i325
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i325
 
 terminate.lpad.i.i.i.i.i325:                      ; preds = %.noexc.i.i324
   %127 = landingpad { ptr, i32 }
@@ -10091,7 +10091,7 @@ terminate.lpad.i.i.i.i.i325:                      ; preds = %.noexc.i.i324
   call void @__clang_call_terminate(ptr %128) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.exit.i.i": ; preds = %.noexc.i.i324
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i": ; preds = %.noexc.i.i324
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i219)
   br label %if.then.i264
 
@@ -10199,7 +10199,7 @@ terminate.lpad.i.i235:                            ; preds = %ehcleanup13.i.i233
   call void @__clang_call_terminate(ptr %145) #27
   unreachable
 
-if.then.i264:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i263, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.exit.i.i"
+if.then.i264:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i263, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i220)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i221)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -10218,7 +10218,7 @@ if.then2.i320:                                    ; preds = %invoke.cont.i317
 
 .noexc.i322:                                      ; preds = %if.then2.i320
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i218)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.exit.i" unwind label %terminate.lpad.i.i.i.i323
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i323
 
 terminate.lpad.i.i.i.i323:                        ; preds = %.noexc.i322
   %146 = landingpad { ptr, i32 }
@@ -10227,7 +10227,7 @@ terminate.lpad.i.i.i.i323:                        ; preds = %.noexc.i322
   call void @__clang_call_terminate(ptr %147) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.exit.i": ; preds = %.noexc.i322
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i": ; preds = %.noexc.i322
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i218)
   br label %if.then38.critedge.i318
 
@@ -10247,7 +10247,7 @@ catch35.i316:                                     ; preds = %lpad.i266
   invoke void @__cxa_end_catch()
           to label %invoke.cont9 unwind label %lpad8.i277
 
-if.then38.critedge.i318:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.exit.i", %invoke.cont.i317
+if.then38.critedge.i318:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i", %invoke.cont.i317
   %call41.i319 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i222, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i278 unwind label %lpad8.i277
 
@@ -10408,9 +10408,9 @@ invoke.cont9:                                     ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i329)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i330)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 105, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEmmEv, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.exit.i.i" unwind label %lpad.i.i336
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i.i" unwind label %lpad.i.i336
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.exit.i.i": ; preds = %invoke.cont9
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i.i": ; preds = %invoke.cont9
   %170 = load i32, ptr %bomb1, align 4
   %dec.i.i.i.i = add nsw i32 %170, -1
   store i32 %dec.i.i.i.i, ptr %bomb1, align 4
@@ -10520,7 +10520,7 @@ terminate.lpad.i.i344:                            ; preds = %ehcleanup13.i.i342
   call void @__clang_call_terminate(ptr %187) #27
   unreachable
 
-if.then.i373:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i372, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.exit.i.i"
+if.then.i373:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i372, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i329)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i330)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -10534,9 +10534,9 @@ invoke.cont.i426:                                 ; preds = %if.then.i373
 
 if.then2.i429:                                    ; preds = %invoke.cont.i426
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 105, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEmmEv, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.exit.i" unwind label %lpad.i375
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i" unwind label %lpad.i375
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.exit.i": ; preds = %if.then2.i429
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i": ; preds = %if.then2.i429
   %188 = load i32, ptr %bomb1, align 4
   %dec.i.i.i = add nsw i32 %188, -1
   store i32 %dec.i.i.i, ptr %bomb1, align 4
@@ -10558,7 +10558,7 @@ catch35.i425:                                     ; preds = %lpad.i375
   invoke void @__cxa_end_catch()
           to label %invoke.cont11 unwind label %lpad8.i386
 
-if.then38.critedge.i427:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.exit.i", %invoke.cont.i426
+if.then38.critedge.i427:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i", %invoke.cont.i426
   %call41.i428 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i331, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i387 unwind label %lpad8.i386
 
@@ -10724,7 +10724,7 @@ invoke.cont11:                                    ; preds = %_ZN7testing7Message
 
 .noexc.i.i540:                                    ; preds = %invoke.cont11
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i435)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i541
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i541
 
 terminate.lpad.i.i.i.i.i541:                      ; preds = %.noexc.i.i540
   %211 = landingpad { ptr, i32 }
@@ -10733,7 +10733,7 @@ terminate.lpad.i.i.i.i.i541:                      ; preds = %.noexc.i.i540
   call void @__clang_call_terminate(ptr %212) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.exit.i.i": ; preds = %.noexc.i.i540
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i.i": ; preds = %.noexc.i.i540
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i435)
   br label %if.then.i480
 
@@ -10841,7 +10841,7 @@ terminate.lpad.i.i451:                            ; preds = %ehcleanup13.i.i449
   call void @__clang_call_terminate(ptr %229) #27
   unreachable
 
-if.then.i480:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i479, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.exit.i.i"
+if.then.i480:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i479, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i436)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i437)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -10860,7 +10860,7 @@ if.then2.i536:                                    ; preds = %invoke.cont.i533
 
 .noexc.i538:                                      ; preds = %if.then2.i536
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i434)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.exit.i" unwind label %terminate.lpad.i.i.i.i539
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i539
 
 terminate.lpad.i.i.i.i539:                        ; preds = %.noexc.i538
   %230 = landingpad { ptr, i32 }
@@ -10869,7 +10869,7 @@ terminate.lpad.i.i.i.i539:                        ; preds = %.noexc.i538
   call void @__clang_call_terminate(ptr %231) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.exit.i": ; preds = %.noexc.i538
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i": ; preds = %.noexc.i538
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i434)
   br label %if.then38.critedge.i534
 
@@ -10889,7 +10889,7 @@ catch35.i532:                                     ; preds = %lpad.i482
   invoke void @__cxa_end_catch()
           to label %invoke.cont13 unwind label %lpad8.i493
 
-if.then38.critedge.i534:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.exit.i", %invoke.cont.i533
+if.then38.critedge.i534:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i", %invoke.cont.i533
   %call41.i535 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i438, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i494 unwind label %lpad8.i493
 
@@ -11055,7 +11055,7 @@ invoke.cont13:                                    ; preds = %_ZN7testing7Message
 
 .noexc.i.i638:                                    ; preds = %invoke.cont13
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i546)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i639
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i639
 
 terminate.lpad.i.i.i.i.i639:                      ; preds = %.noexc.i.i638
   %254 = landingpad { ptr, i32 }
@@ -11064,7 +11064,7 @@ terminate.lpad.i.i.i.i.i639:                      ; preds = %.noexc.i.i638
   call void @__clang_call_terminate(ptr %255) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.exit.i.i": ; preds = %.noexc.i.i638
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i.i": ; preds = %.noexc.i.i638
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i546)
   br label %if.then.i582
 
@@ -11172,7 +11172,7 @@ terminate.lpad.i.i561:                            ; preds = %ehcleanup13.i.i559
   call void @__clang_call_terminate(ptr %272) #27
   unreachable
 
-if.then.i582:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i581, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.exit.i.i"
+if.then.i582:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i581, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i547)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i548)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -11191,7 +11191,7 @@ if.then2.i633:                                    ; preds = %invoke.cont.i630
 
 .noexc.i636:                                      ; preds = %if.then2.i633
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i545)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.exit.i" unwind label %terminate.lpad.i.i.i.i637
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i637
 
 terminate.lpad.i.i.i.i637:                        ; preds = %.noexc.i636
   %273 = landingpad { ptr, i32 }
@@ -11200,7 +11200,7 @@ terminate.lpad.i.i.i.i637:                        ; preds = %.noexc.i636
   call void @__clang_call_terminate(ptr %274) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.exit.i": ; preds = %.noexc.i636
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i": ; preds = %.noexc.i636
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i545)
   br label %if.then38.critedge.i631
 
@@ -11220,7 +11220,7 @@ catch35.i629:                                     ; preds = %lpad.i584
   invoke void @__cxa_end_catch()
           to label %invoke.cont15 unwind label %lpad8.i595
 
-if.then38.critedge.i631:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.exit.i", %invoke.cont.i630
+if.then38.critedge.i631:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i", %invoke.cont.i630
   %call41.i632 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i549, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i596 unwind label %lpad8.i595
 
@@ -11386,7 +11386,7 @@ invoke.cont15:                                    ; preds = %_ZN7testing7Message
 
 .noexc.i.i751:                                    ; preds = %invoke.cont15
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i644)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i752
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i752
 
 terminate.lpad.i.i.i.i.i752:                      ; preds = %.noexc.i.i751
   %297 = landingpad { ptr, i32 }
@@ -11395,7 +11395,7 @@ terminate.lpad.i.i.i.i.i752:                      ; preds = %.noexc.i.i751
   call void @__clang_call_terminate(ptr %298) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.exit.i.i": ; preds = %.noexc.i.i751
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i.i": ; preds = %.noexc.i.i751
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i644)
   br label %if.then.i690
 
@@ -11503,7 +11503,7 @@ terminate.lpad.i.i661:                            ; preds = %ehcleanup13.i.i659
   call void @__clang_call_terminate(ptr %315) #27
   unreachable
 
-if.then.i690:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i689, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.exit.i.i"
+if.then.i690:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i689, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i645)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i646)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -11522,7 +11522,7 @@ if.then2.i746:                                    ; preds = %invoke.cont.i743
 
 .noexc.i749:                                      ; preds = %if.then2.i746
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i643)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.exit.i" unwind label %terminate.lpad.i.i.i.i750
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i750
 
 terminate.lpad.i.i.i.i750:                        ; preds = %.noexc.i749
   %316 = landingpad { ptr, i32 }
@@ -11531,7 +11531,7 @@ terminate.lpad.i.i.i.i750:                        ; preds = %.noexc.i749
   call void @__clang_call_terminate(ptr %317) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.exit.i": ; preds = %.noexc.i749
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i": ; preds = %.noexc.i749
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i643)
   br label %if.then38.critedge.i744
 
@@ -11551,7 +11551,7 @@ catch35.i742:                                     ; preds = %lpad.i692
   invoke void @__cxa_end_catch()
           to label %invoke.cont17 unwind label %lpad8.i703
 
-if.then38.critedge.i744:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.exit.i", %invoke.cont.i743
+if.then38.critedge.i744:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i", %invoke.cont.i743
   %call41.i745 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i647, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i704 unwind label %lpad8.i703
 
@@ -11717,7 +11717,7 @@ invoke.cont17:                                    ; preds = %_ZN7testing7Message
 
 .noexc.i.i864:                                    ; preds = %invoke.cont17
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i757)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i865
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i865
 
 terminate.lpad.i.i.i.i.i865:                      ; preds = %.noexc.i.i864
   %340 = landingpad { ptr, i32 }
@@ -11726,7 +11726,7 @@ terminate.lpad.i.i.i.i.i865:                      ; preds = %.noexc.i.i864
   call void @__clang_call_terminate(ptr %341) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.exit.i.i": ; preds = %.noexc.i.i864
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i.i": ; preds = %.noexc.i.i864
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i757)
   br label %if.then.i803
 
@@ -11834,7 +11834,7 @@ terminate.lpad.i.i774:                            ; preds = %ehcleanup13.i.i772
   call void @__clang_call_terminate(ptr %358) #27
   unreachable
 
-if.then.i803:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i802, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.exit.i.i"
+if.then.i803:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i802, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i758)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i759)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -11853,7 +11853,7 @@ if.then2.i859:                                    ; preds = %invoke.cont.i856
 
 .noexc.i862:                                      ; preds = %if.then2.i859
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i756)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.exit.i" unwind label %terminate.lpad.i.i.i.i863
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i863
 
 terminate.lpad.i.i.i.i863:                        ; preds = %.noexc.i862
   %359 = landingpad { ptr, i32 }
@@ -11862,7 +11862,7 @@ terminate.lpad.i.i.i.i863:                        ; preds = %.noexc.i862
   call void @__clang_call_terminate(ptr %360) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.exit.i": ; preds = %.noexc.i862
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i": ; preds = %.noexc.i862
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i756)
   br label %if.then38.critedge.i857
 
@@ -11882,7 +11882,7 @@ catch35.i855:                                     ; preds = %lpad.i805
   invoke void @__cxa_end_catch()
           to label %invoke.cont19 unwind label %lpad8.i816
 
-if.then38.critedge.i857:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.exit.i", %invoke.cont.i856
+if.then38.critedge.i857:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i", %invoke.cont.i856
   %call41.i858 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i760, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i817 unwind label %lpad8.i816
 
@@ -12048,7 +12048,7 @@ invoke.cont19:                                    ; preds = %_ZN7testing7Message
 
 .noexc.i.i977:                                    ; preds = %invoke.cont19
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i870)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i978
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i978
 
 terminate.lpad.i.i.i.i.i978:                      ; preds = %.noexc.i.i977
   %383 = landingpad { ptr, i32 }
@@ -12057,7 +12057,7 @@ terminate.lpad.i.i.i.i.i978:                      ; preds = %.noexc.i.i977
   call void @__clang_call_terminate(ptr %384) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.exit.i.i": ; preds = %.noexc.i.i977
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.argprom.exit.i.i": ; preds = %.noexc.i.i977
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i870)
   br label %if.then.i916
 
@@ -12165,7 +12165,7 @@ terminate.lpad.i.i887:                            ; preds = %ehcleanup13.i.i885
   call void @__clang_call_terminate(ptr %401) #27
   unreachable
 
-if.then.i916:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i915, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.exit.i.i"
+if.then.i916:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i915, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i871)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i872)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -12184,7 +12184,7 @@ if.then2.i972:                                    ; preds = %invoke.cont.i969
 
 .noexc.i975:                                      ; preds = %if.then2.i972
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i869)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.exit.i" unwind label %terminate.lpad.i.i.i.i976
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i976
 
 terminate.lpad.i.i.i.i976:                        ; preds = %.noexc.i975
   %402 = landingpad { ptr, i32 }
@@ -12193,7 +12193,7 @@ terminate.lpad.i.i.i.i976:                        ; preds = %.noexc.i975
   call void @__clang_call_terminate(ptr %403) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.exit.i": ; preds = %.noexc.i975
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.argprom.exit.i": ; preds = %.noexc.i975
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i869)
   br label %if.then38.critedge.i970
 
@@ -12213,7 +12213,7 @@ catch35.i968:                                     ; preds = %lpad.i918
   invoke void @__cxa_end_catch()
           to label %invoke.cont21 unwind label %lpad8.i929
 
-if.then38.critedge.i970:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.exit.i", %invoke.cont.i969
+if.then38.critedge.i970:                          ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK3$_9clEv.argprom.exit.i", %invoke.cont.i969
   %call41.i971 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i873, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i930 unwind label %lpad8.i929
 
@@ -12379,7 +12379,7 @@ invoke.cont21:                                    ; preds = %_ZN7testing7Message
 
 .noexc.i.i1088:                                   ; preds = %invoke.cont21
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i983)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i1089
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i1089
 
 terminate.lpad.i.i.i.i.i1089:                     ; preds = %.noexc.i.i1088
   %426 = landingpad { ptr, i32 }
@@ -12388,7 +12388,7 @@ terminate.lpad.i.i.i.i.i1089:                     ; preds = %.noexc.i.i1088
   call void @__clang_call_terminate(ptr %427) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.exit.i.i": ; preds = %.noexc.i.i1088
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.argprom.exit.i.i": ; preds = %.noexc.i.i1088
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i983)
   br label %if.then.i1028
 
@@ -12496,7 +12496,7 @@ terminate.lpad.i.i999:                            ; preds = %ehcleanup13.i.i997
   call void @__clang_call_terminate(ptr %444) #27
   unreachable
 
-if.then.i1028:                                    ; preds = %_ZN7testing7MessageD2Ev.exit.i.i1027, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.exit.i.i"
+if.then.i1028:                                    ; preds = %_ZN7testing7MessageD2Ev.exit.i.i1027, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i984)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i985)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -12515,7 +12515,7 @@ if.then2.i1084:                                   ; preds = %invoke.cont.i1081
 
 .noexc.i1086:                                     ; preds = %if.then2.i1084
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i982)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.exit.i" unwind label %terminate.lpad.i.i.i.i1087
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i1087
 
 terminate.lpad.i.i.i.i1087:                       ; preds = %.noexc.i1086
   %445 = landingpad { ptr, i32 }
@@ -12524,7 +12524,7 @@ terminate.lpad.i.i.i.i1087:                       ; preds = %.noexc.i1086
   call void @__clang_call_terminate(ptr %446) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.exit.i": ; preds = %.noexc.i1086
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.argprom.exit.i": ; preds = %.noexc.i1086
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i982)
   br label %if.then38.critedge.i1082
 
@@ -12544,7 +12544,7 @@ catch35.i1080:                                    ; preds = %lpad.i1030
   invoke void @__cxa_end_catch()
           to label %invoke.cont23 unwind label %lpad8.i1041
 
-if.then38.critedge.i1082:                         ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.exit.i", %invoke.cont.i1081
+if.then38.critedge.i1082:                         ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_10clEv.argprom.exit.i", %invoke.cont.i1081
   %call41.i1083 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i986, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i1042 unwind label %lpad8.i1041
 
@@ -12710,7 +12710,7 @@ invoke.cont23:                                    ; preds = %_ZN7testing7Message
 
 .noexc.i.i1199:                                   ; preds = %invoke.cont23
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i1094)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i1200
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i1200
 
 terminate.lpad.i.i.i.i.i1200:                     ; preds = %.noexc.i.i1199
   %469 = landingpad { ptr, i32 }
@@ -12719,7 +12719,7 @@ terminate.lpad.i.i.i.i.i1200:                     ; preds = %.noexc.i.i1199
   call void @__clang_call_terminate(ptr %470) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.exit.i.i": ; preds = %.noexc.i.i1199
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.argprom.exit.i.i": ; preds = %.noexc.i.i1199
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i1094)
   br label %if.then.i1139
 
@@ -12827,7 +12827,7 @@ terminate.lpad.i.i1110:                           ; preds = %ehcleanup13.i.i1108
   call void @__clang_call_terminate(ptr %487) #27
   unreachable
 
-if.then.i1139:                                    ; preds = %_ZN7testing7MessageD2Ev.exit.i.i1138, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.exit.i.i"
+if.then.i1139:                                    ; preds = %_ZN7testing7MessageD2Ev.exit.i.i1138, %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i1095)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i1096)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -12846,7 +12846,7 @@ if.then2.i1195:                                   ; preds = %invoke.cont.i1192
 
 .noexc.i1197:                                     ; preds = %if.then2.i1195
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i1093)
-          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.exit.i" unwind label %terminate.lpad.i.i.i.i1198
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i1198
 
 terminate.lpad.i.i.i.i1198:                       ; preds = %.noexc.i1197
   %488 = landingpad { ptr, i32 }
@@ -12855,7 +12855,7 @@ terminate.lpad.i.i.i.i1198:                       ; preds = %.noexc.i1197
   call void @__clang_call_terminate(ptr %489) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.exit.i": ; preds = %.noexc.i1197
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.argprom.exit.i": ; preds = %.noexc.i1197
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i1093)
   br label %if.then38.critedge.i1193
 
@@ -12875,7 +12875,7 @@ catch35.i1191:                                    ; preds = %lpad.i1141
   invoke void @__cxa_end_catch()
           to label %invoke.cont25 unwind label %lpad8.i1152
 
-if.then38.critedge.i1193:                         ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.exit.i", %invoke.cont.i1192
+if.then38.critedge.i1193:                         ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingArithmeticOps_Test8TestBodyEvENK4$_11clEv.argprom.exit.i", %invoke.cont.i1192
   %call41.i1194 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i1097, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i1153 unwind label %lpad8.i1152
 
@@ -14671,7 +14671,7 @@ invoke.cont:                                      ; preds = %entry
 
 .noexc.i.i:                                       ; preds = %invoke.cont
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i
   %0 = landingpad { ptr, i32 }
@@ -14680,7 +14680,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i
   call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.exit.i.i": ; preds = %.noexc.i.i
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i": ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i)
   br label %if.then.i
 
@@ -14788,7 +14788,7 @@ terminate.lpad.i.i:                               ; preds = %ehcleanup13.i.i
   call void @__clang_call_terminate(ptr %18) #27
   unreachable
 
-if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.exit.i.i"
+if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -14807,7 +14807,7 @@ if.then2.i:                                       ; preds = %invoke.cont.i
 
 .noexc.i:                                         ; preds = %if.then2.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   %19 = landingpad { ptr, i32 }
@@ -14816,7 +14816,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   call void @__clang_call_terminate(ptr %20) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %.noexc.i
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i)
   br label %if.then38.critedge.i
 
@@ -14836,7 +14836,7 @@ catch35.i:                                        ; preds = %lpad.i
   invoke void @__cxa_end_catch()
           to label %invoke.cont3 unwind label %lpad8.i
 
-if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.exit.i", %invoke.cont.i
+if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i", %invoke.cont.i
   %call41.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i unwind label %lpad8.i
 
@@ -15002,7 +15002,7 @@ invoke.cont3:                                     ; preds = %_ZN7testing7Message
 
 .noexc.i.i95:                                     ; preds = %invoke.cont3
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i3)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i96
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i96
 
 terminate.lpad.i.i.i.i.i96:                       ; preds = %.noexc.i.i95
   %43 = landingpad { ptr, i32 }
@@ -15011,7 +15011,7 @@ terminate.lpad.i.i.i.i.i96:                       ; preds = %.noexc.i.i95
   call void @__clang_call_terminate(ptr %44) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.exit.i.i": ; preds = %.noexc.i.i95
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i": ; preds = %.noexc.i.i95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i3)
   br label %if.then.i39
 
@@ -15119,7 +15119,7 @@ terminate.lpad.i.i18:                             ; preds = %ehcleanup13.i.i16
   call void @__clang_call_terminate(ptr %61) #27
   unreachable
 
-if.then.i39:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i38, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.exit.i.i"
+if.then.i39:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i38, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i5)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -15138,7 +15138,7 @@ if.then2.i90:                                     ; preds = %invoke.cont.i87
 
 .noexc.i93:                                       ; preds = %if.then2.i90
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i2)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.exit.i" unwind label %terminate.lpad.i.i.i.i94
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i94
 
 terminate.lpad.i.i.i.i94:                         ; preds = %.noexc.i93
   %62 = landingpad { ptr, i32 }
@@ -15147,7 +15147,7 @@ terminate.lpad.i.i.i.i94:                         ; preds = %.noexc.i93
   call void @__clang_call_terminate(ptr %63) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.exit.i": ; preds = %.noexc.i93
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i": ; preds = %.noexc.i93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i2)
   br label %if.then38.critedge.i88
 
@@ -15167,7 +15167,7 @@ catch35.i86:                                      ; preds = %lpad.i41
   invoke void @__cxa_end_catch()
           to label %invoke.cont5 unwind label %lpad8.i52
 
-if.then38.critedge.i88:                           ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.exit.i", %invoke.cont.i87
+if.then38.critedge.i88:                           ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i", %invoke.cont.i87
   %call41.i89 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i6, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i53 unwind label %lpad8.i52
 
@@ -15333,7 +15333,7 @@ invoke.cont5:                                     ; preds = %_ZN7testing7Message
 
 .noexc.i.i208:                                    ; preds = %invoke.cont5
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i101)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i209
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i209
 
 terminate.lpad.i.i.i.i.i209:                      ; preds = %.noexc.i.i208
   %86 = landingpad { ptr, i32 }
@@ -15342,7 +15342,7 @@ terminate.lpad.i.i.i.i.i209:                      ; preds = %.noexc.i.i208
   call void @__clang_call_terminate(ptr %87) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.exit.i.i": ; preds = %.noexc.i.i208
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i": ; preds = %.noexc.i.i208
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i101)
   br label %if.then.i147
 
@@ -15450,7 +15450,7 @@ terminate.lpad.i.i118:                            ; preds = %ehcleanup13.i.i116
   call void @__clang_call_terminate(ptr %104) #27
   unreachable
 
-if.then.i147:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i146, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.exit.i.i"
+if.then.i147:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i146, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i102)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i103)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -15469,7 +15469,7 @@ if.then2.i203:                                    ; preds = %invoke.cont.i200
 
 .noexc.i206:                                      ; preds = %if.then2.i203
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i100)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.exit.i" unwind label %terminate.lpad.i.i.i.i207
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i207
 
 terminate.lpad.i.i.i.i207:                        ; preds = %.noexc.i206
   %105 = landingpad { ptr, i32 }
@@ -15478,7 +15478,7 @@ terminate.lpad.i.i.i.i207:                        ; preds = %.noexc.i206
   call void @__clang_call_terminate(ptr %106) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.exit.i": ; preds = %.noexc.i206
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i": ; preds = %.noexc.i206
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i100)
   br label %if.then38.critedge.i201
 
@@ -15498,7 +15498,7 @@ catch35.i199:                                     ; preds = %lpad.i149
   invoke void @__cxa_end_catch()
           to label %invoke.cont7 unwind label %lpad8.i160
 
-if.then38.critedge.i201:                          ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.exit.i", %invoke.cont.i200
+if.then38.critedge.i201:                          ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i", %invoke.cont.i200
   %call41.i202 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i104, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i161 unwind label %lpad8.i160
 
@@ -15664,7 +15664,7 @@ invoke.cont7:                                     ; preds = %_ZN7testing7Message
 
 .noexc.i.i321:                                    ; preds = %invoke.cont7
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i.i214)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i322
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i322
 
 terminate.lpad.i.i.i.i.i322:                      ; preds = %.noexc.i.i321
   %129 = landingpad { ptr, i32 }
@@ -15673,7 +15673,7 @@ terminate.lpad.i.i.i.i.i322:                      ; preds = %.noexc.i.i321
   call void @__clang_call_terminate(ptr %130) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.exit.i.i": ; preds = %.noexc.i.i321
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i": ; preds = %.noexc.i.i321
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i.i214)
   br label %if.then.i260
 
@@ -15781,7 +15781,7 @@ terminate.lpad.i.i231:                            ; preds = %ehcleanup13.i.i229
   call void @__clang_call_terminate(ptr %147) #27
   unreachable
 
-if.then.i260:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i259, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.exit.i.i"
+if.then.i260:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i259, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i215)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i216)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -15800,7 +15800,7 @@ if.then2.i316:                                    ; preds = %invoke.cont.i313
 
 .noexc.i319:                                      ; preds = %if.then2.i316
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %agg.tmp.ensured.i.i213)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.exit.i" unwind label %terminate.lpad.i.i.i.i320
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i320
 
 terminate.lpad.i.i.i.i320:                        ; preds = %.noexc.i319
   %148 = landingpad { ptr, i32 }
@@ -15809,7 +15809,7 @@ terminate.lpad.i.i.i.i320:                        ; preds = %.noexc.i319
   call void @__clang_call_terminate(ptr %149) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.exit.i": ; preds = %.noexc.i319
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i": ; preds = %.noexc.i319
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %agg.tmp.ensured.i.i213)
   br label %if.then38.critedge.i314
 
@@ -15829,7 +15829,7 @@ catch35.i312:                                     ; preds = %lpad.i262
   invoke void @__cxa_end_catch()
           to label %invoke.cont9 unwind label %lpad8.i273
 
-if.then38.critedge.i314:                          ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.exit.i", %invoke.cont.i313
+if.then38.critedge.i314:                          ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingBitwiseOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i", %invoke.cont.i313
   %call41.i315 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i217, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i274 unwind label %lpad8.i273
 
@@ -16341,9 +16341,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEpLERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.exit.i.i" unwind label %lpad.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i" unwind label %lpad.i.i
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.exit.i.i": ; preds = %invoke.cont
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i": ; preds = %invoke.cont
   %0 = load i32, ptr %bomb2, align 4
   %1 = load i32, ptr %bomb1, align 4
   %add.i.i.i.i = add nsw i32 %1, %0
@@ -16454,7 +16454,7 @@ terminate.lpad.i.i:                               ; preds = %ehcleanup13.i.i
   call void @__clang_call_terminate(ptr %18) #27
   unreachable
 
-if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.exit.i.i"
+if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -16468,9 +16468,9 @@ invoke.cont.i:                                    ; preds = %if.then.i
 
 if.then2.i:                                       ; preds = %invoke.cont.i
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEpLERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %lpad.i
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %lpad.i
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %if.then2.i
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %if.then2.i
   %19 = load i32, ptr %bomb2, align 4
   %20 = load i32, ptr %bomb1, align 4
   %add.i.i.i = add nsw i32 %20, %19
@@ -16493,7 +16493,7 @@ catch35.i:                                        ; preds = %lpad.i
   invoke void @__cxa_end_catch()
           to label %invoke.cont3 unwind label %lpad8.i
 
-if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.exit.i", %invoke.cont.i
+if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_0clEv.argprom.exit.i", %invoke.cont.i
   %call41.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i unwind label %lpad8.i
 
@@ -16654,9 +16654,9 @@ invoke.cont3:                                     ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i3)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEmIERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.exit.i.i" unwind label %lpad.i.i10
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i" unwind label %lpad.i.i10
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.exit.i.i": ; preds = %invoke.cont3
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i": ; preds = %invoke.cont3
   %43 = load i32, ptr %bomb2, align 4
   %44 = load i32, ptr %bomb1, align 4
   %sub.i.i.i.i = sub nsw i32 %44, %43
@@ -16767,7 +16767,7 @@ terminate.lpad.i.i18:                             ; preds = %ehcleanup13.i.i16
   call void @__clang_call_terminate(ptr %61) #27
   unreachable
 
-if.then.i47:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i46, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.exit.i.i"
+if.then.i47:                                      ; preds = %_ZN7testing7MessageD2Ev.exit.i.i46, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i3)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -16781,9 +16781,9 @@ invoke.cont.i100:                                 ; preds = %if.then.i47
 
 if.then2.i103:                                    ; preds = %invoke.cont.i100
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEmIERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.exit.i" unwind label %lpad.i49
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" unwind label %lpad.i49
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.exit.i": ; preds = %if.then2.i103
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i": ; preds = %if.then2.i103
   %62 = load i32, ptr %bomb2, align 4
   %63 = load i32, ptr %bomb1, align 4
   %sub.i.i.i = sub nsw i32 %63, %62
@@ -16806,7 +16806,7 @@ catch35.i99:                                      ; preds = %lpad.i49
   invoke void @__cxa_end_catch()
           to label %invoke.cont5 unwind label %lpad8.i60
 
-if.then38.critedge.i101:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.exit.i", %invoke.cont.i100
+if.then38.critedge.i101:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_1clEv.argprom.exit.i", %invoke.cont.i100
   %call41.i102 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i4, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i61 unwind label %lpad8.i60
 
@@ -16967,9 +16967,9 @@ invoke.cont5:                                     ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i109)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i110)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEmLERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.exit.i.i" unwind label %lpad.i.i117
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i" unwind label %lpad.i.i117
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.exit.i.i": ; preds = %invoke.cont5
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i": ; preds = %invoke.cont5
   %86 = load i32, ptr %bomb2, align 4
   %87 = load i32, ptr %bomb1, align 4
   %mul.i.i.i.i = mul nsw i32 %87, %86
@@ -17080,7 +17080,7 @@ terminate.lpad.i.i125:                            ; preds = %ehcleanup13.i.i123
   call void @__clang_call_terminate(ptr %104) #27
   unreachable
 
-if.then.i154:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i153, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.exit.i.i"
+if.then.i154:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i153, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i109)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i110)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -17094,9 +17094,9 @@ invoke.cont.i207:                                 ; preds = %if.then.i154
 
 if.then2.i210:                                    ; preds = %invoke.cont.i207
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEmLERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.exit.i" unwind label %lpad.i156
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i" unwind label %lpad.i156
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.exit.i": ; preds = %if.then2.i210
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i": ; preds = %if.then2.i210
   %105 = load i32, ptr %bomb2, align 4
   %106 = load i32, ptr %bomb1, align 4
   %mul.i.i.i = mul nsw i32 %106, %105
@@ -17119,7 +17119,7 @@ catch35.i206:                                     ; preds = %lpad.i156
   invoke void @__cxa_end_catch()
           to label %invoke.cont7 unwind label %lpad8.i167
 
-if.then38.critedge.i208:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.exit.i", %invoke.cont.i207
+if.then38.critedge.i208:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_2clEv.argprom.exit.i", %invoke.cont.i207
   %call41.i209 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i111, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i168 unwind label %lpad8.i167
 
@@ -17280,9 +17280,9 @@ invoke.cont7:                                     ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i216)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i217)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEdVERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.exit.i.i" unwind label %lpad.i.i224
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i" unwind label %lpad.i.i224
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.exit.i.i": ; preds = %invoke.cont7
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i": ; preds = %invoke.cont7
   %129 = load i32, ptr %bomb2, align 4
   %130 = load i32, ptr %bomb1, align 4
   %div.i.i.i.i = sdiv i32 %130, %129
@@ -17393,7 +17393,7 @@ terminate.lpad.i.i232:                            ; preds = %ehcleanup13.i.i230
   call void @__clang_call_terminate(ptr %147) #27
   unreachable
 
-if.then.i261:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i260, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.exit.i.i"
+if.then.i261:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i260, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i216)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i217)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -17407,9 +17407,9 @@ invoke.cont.i314:                                 ; preds = %if.then.i261
 
 if.then2.i317:                                    ; preds = %invoke.cont.i314
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEdVERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.exit.i" unwind label %lpad.i263
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i" unwind label %lpad.i263
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.exit.i": ; preds = %if.then2.i317
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i": ; preds = %if.then2.i317
   %148 = load i32, ptr %bomb2, align 4
   %149 = load i32, ptr %bomb1, align 4
   %div.i.i.i = sdiv i32 %149, %148
@@ -17432,7 +17432,7 @@ catch35.i313:                                     ; preds = %lpad.i263
   invoke void @__cxa_end_catch()
           to label %invoke.cont9 unwind label %lpad8.i274
 
-if.then38.critedge.i315:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.exit.i", %invoke.cont.i314
+if.then38.critedge.i315:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_3clEv.argprom.exit.i", %invoke.cont.i314
   %call41.i316 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i218, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i275 unwind label %lpad8.i274
 
@@ -17593,9 +17593,9 @@ invoke.cont9:                                     ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i323)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i324)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EErMERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.exit.i.i" unwind label %lpad.i.i331
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i.i" unwind label %lpad.i.i331
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.exit.i.i": ; preds = %invoke.cont9
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i.i": ; preds = %invoke.cont9
   %172 = load i32, ptr %bomb2, align 4
   %173 = load i32, ptr %bomb1, align 4
   %rem.i.i.i.i = srem i32 %173, %172
@@ -17706,7 +17706,7 @@ terminate.lpad.i.i339:                            ; preds = %ehcleanup13.i.i337
   call void @__clang_call_terminate(ptr %190) #27
   unreachable
 
-if.then.i368:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i367, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.exit.i.i"
+if.then.i368:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i367, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i323)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i324)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -17720,9 +17720,9 @@ invoke.cont.i421:                                 ; preds = %if.then.i368
 
 if.then2.i424:                                    ; preds = %invoke.cont.i421
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EErMERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.exit.i" unwind label %lpad.i370
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i" unwind label %lpad.i370
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.exit.i": ; preds = %if.then2.i424
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i": ; preds = %if.then2.i424
   %191 = load i32, ptr %bomb2, align 4
   %192 = load i32, ptr %bomb1, align 4
   %rem.i.i.i = srem i32 %192, %191
@@ -17745,7 +17745,7 @@ catch35.i420:                                     ; preds = %lpad.i370
   invoke void @__cxa_end_catch()
           to label %invoke.cont11 unwind label %lpad8.i381
 
-if.then38.critedge.i422:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.exit.i", %invoke.cont.i421
+if.then38.critedge.i422:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_4clEv.argprom.exit.i", %invoke.cont.i421
   %call41.i423 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i325, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i382 unwind label %lpad8.i381
 
@@ -17906,9 +17906,9 @@ invoke.cont11:                                    ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i430)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i431)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEaNERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.exit.i.i" unwind label %lpad.i.i438
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i.i" unwind label %lpad.i.i438
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.exit.i.i": ; preds = %invoke.cont11
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i.i": ; preds = %invoke.cont11
   %215 = load i32, ptr %bomb2, align 4
   %216 = load i32, ptr %bomb1, align 4
   %and.i.i.i.i = and i32 %216, %215
@@ -18019,7 +18019,7 @@ terminate.lpad.i.i446:                            ; preds = %ehcleanup13.i.i444
   call void @__clang_call_terminate(ptr %233) #27
   unreachable
 
-if.then.i475:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i474, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.exit.i.i"
+if.then.i475:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i474, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i430)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i431)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -18033,9 +18033,9 @@ invoke.cont.i528:                                 ; preds = %if.then.i475
 
 if.then2.i531:                                    ; preds = %invoke.cont.i528
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEaNERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.exit.i" unwind label %lpad.i477
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i" unwind label %lpad.i477
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.exit.i": ; preds = %if.then2.i531
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i": ; preds = %if.then2.i531
   %234 = load i32, ptr %bomb2, align 4
   %235 = load i32, ptr %bomb1, align 4
   %and.i.i.i = and i32 %235, %234
@@ -18058,7 +18058,7 @@ catch35.i527:                                     ; preds = %lpad.i477
   invoke void @__cxa_end_catch()
           to label %invoke.cont13 unwind label %lpad8.i488
 
-if.then38.critedge.i529:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.exit.i", %invoke.cont.i528
+if.then38.critedge.i529:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_5clEv.argprom.exit.i", %invoke.cont.i528
   %call41.i530 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i432, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i489 unwind label %lpad8.i488
 
@@ -18219,9 +18219,9 @@ invoke.cont13:                                    ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i537)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i538)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEoRERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.exit.i.i" unwind label %lpad.i.i545
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i.i" unwind label %lpad.i.i545
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.exit.i.i": ; preds = %invoke.cont13
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i.i": ; preds = %invoke.cont13
   %258 = load i32, ptr %bomb2, align 4
   %259 = load i32, ptr %bomb1, align 4
   %or.i.i.i.i = or i32 %259, %258
@@ -18332,7 +18332,7 @@ terminate.lpad.i.i553:                            ; preds = %ehcleanup13.i.i551
   call void @__clang_call_terminate(ptr %276) #27
   unreachable
 
-if.then.i582:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i581, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.exit.i.i"
+if.then.i582:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i581, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i537)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i538)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -18346,9 +18346,9 @@ invoke.cont.i635:                                 ; preds = %if.then.i582
 
 if.then2.i638:                                    ; preds = %invoke.cont.i635
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEoRERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.exit.i" unwind label %lpad.i584
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i" unwind label %lpad.i584
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.exit.i": ; preds = %if.then2.i638
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i": ; preds = %if.then2.i638
   %277 = load i32, ptr %bomb2, align 4
   %278 = load i32, ptr %bomb1, align 4
   %or.i.i.i = or i32 %278, %277
@@ -18371,7 +18371,7 @@ catch35.i634:                                     ; preds = %lpad.i584
   invoke void @__cxa_end_catch()
           to label %invoke.cont15 unwind label %lpad8.i595
 
-if.then38.critedge.i636:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.exit.i", %invoke.cont.i635
+if.then38.critedge.i636:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_6clEv.argprom.exit.i", %invoke.cont.i635
   %call41.i637 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i539, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i596 unwind label %lpad8.i595
 
@@ -18532,9 +18532,9 @@ invoke.cont15:                                    ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i644)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i645)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEeOERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.exit.i.i" unwind label %lpad.i.i652
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i.i" unwind label %lpad.i.i652
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.exit.i.i": ; preds = %invoke.cont15
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i.i": ; preds = %invoke.cont15
   %301 = load i32, ptr %bomb2, align 4
   %302 = load i32, ptr %bomb1, align 4
   %xor.i.i.i.i = xor i32 %302, %301
@@ -18645,7 +18645,7 @@ terminate.lpad.i.i660:                            ; preds = %ehcleanup13.i.i658
   call void @__clang_call_terminate(ptr %319) #27
   unreachable
 
-if.then.i689:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i688, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.exit.i.i"
+if.then.i689:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i688, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i644)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i645)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -18659,9 +18659,9 @@ invoke.cont.i742:                                 ; preds = %if.then.i689
 
 if.then2.i745:                                    ; preds = %invoke.cont.i742
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEeOERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.exit.i" unwind label %lpad.i691
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i" unwind label %lpad.i691
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.exit.i": ; preds = %if.then2.i745
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i": ; preds = %if.then2.i745
   %320 = load i32, ptr %bomb2, align 4
   %321 = load i32, ptr %bomb1, align 4
   %xor.i.i.i = xor i32 %321, %320
@@ -18684,7 +18684,7 @@ catch35.i741:                                     ; preds = %lpad.i691
   invoke void @__cxa_end_catch()
           to label %invoke.cont17 unwind label %lpad8.i702
 
-if.then38.critedge.i743:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.exit.i", %invoke.cont.i742
+if.then38.critedge.i743:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_7clEv.argprom.exit.i", %invoke.cont.i742
   %call41.i744 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i646, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i703 unwind label %lpad8.i702
 
@@ -18845,9 +18845,9 @@ invoke.cont17:                                    ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i751)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i752)
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEmLERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.exit.i.i" unwind label %lpad.i.i759
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i.i" unwind label %lpad.i.i759
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.exit.i.i": ; preds = %invoke.cont17
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i.i": ; preds = %invoke.cont17
   %344 = load i32, ptr %bomb2, align 4
   %345 = load i32, ptr %bomb1, align 4
   %mul.i.i.i.i856 = mul nsw i32 %345, %344
@@ -18958,7 +18958,7 @@ terminate.lpad.i.i767:                            ; preds = %ehcleanup13.i.i765
   call void @__clang_call_terminate(ptr %362) #27
   unreachable
 
-if.then.i796:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i795, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.exit.i.i"
+if.then.i796:                                     ; preds = %_ZN7testing7MessageD2Ev.exit.i.i795, %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i751)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i752)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -18972,9 +18972,9 @@ invoke.cont.i849:                                 ; preds = %if.then.i796
 
 if.then2.i852:                                    ; preds = %invoke.cont.i849
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 132, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEmLERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.exit.i" unwind label %lpad.i798
+          to label %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i" unwind label %lpad.i798
 
-"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.exit.i": ; preds = %if.then2.i852
+"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i": ; preds = %if.then2.i852
   %363 = load i32, ptr %bomb2, align 4
   %364 = load i32, ptr %bomb1, align 4
   %mul.i.i.i855 = mul nsw i32 %364, %363
@@ -18997,7 +18997,7 @@ catch35.i848:                                     ; preds = %lpad.i798
   invoke void @__cxa_end_catch()
           to label %invoke.cont19 unwind label %lpad8.i809
 
-if.then38.critedge.i850:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.exit.i", %invoke.cont.i849
+if.then38.critedge.i850:                          ; preds = %"_ZZN7testing12_GLOBAL__N_152ThrowingValueTest_ThrowingCompoundAssignmentOps_Test8TestBodyEvENK3$_8clEv.argprom.exit.i", %invoke.cont.i849
   %call41.i851 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i753, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i810 unwind label %lpad8.i809
 
@@ -21476,7 +21476,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i.i
 catch35.i:                                        ; preds = %lpad.body.i
   %27 = call ptr @__cxa_begin_catch(ptr %24) #24
   invoke void @__cxa_end_catch()
-          to label %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.exit" unwind label %lpad8.i
+          to label %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit" unwind label %lpad8.i
 
 if.then38.critedge.i:                             ; preds = %_ZNSt10unique_ptrIN7testing13ThrowingValueILNS0_8TypeSpecE0EEESt14default_deleteIS3_EED2Ev.exit.i, %invoke.cont.i
   %call41.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i, ptr noundef nonnull @.str.158)
@@ -21583,7 +21583,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit.i:                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i, %invoke.cont53.i
   store ptr null, ptr %ref.tmp45.i, align 8
-  br label %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.exit"
+  br label %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit"
 
 lpad50.i:                                         ; preds = %invoke.cont46.i
   %39 = landingpad { ptr, i32 }
@@ -21620,7 +21620,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup.i, %lpad5
   call void @__clang_call_terminate(ptr %44) #27
   unreachable
 
-"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.exit": ; preds = %catch35.i, %_ZN7testing7MessageD2Ev.exit.i
+"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit": ; preds = %catch35.i, %_ZN7testing7MessageD2Ev.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i) #24
   store i32 -1, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %gtest_msg.i)
@@ -21636,7 +21636,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup.i, %lpad5
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 107, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEnaEm, i1 noundef zeroext true)
           to label %.noexc.i.i98 unwind label %lpad.i.i7
 
-.noexc.i.i98:                                     ; preds = %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.exit"
+.noexc.i.i98:                                     ; preds = %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit"
   %call.i.i.i4.i.i99 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
           to label %call.i.i.i.noexc.i.i100 unwind label %lpad.i.i7
 
@@ -21716,7 +21716,7 @@ _ZNSt10unique_ptrIA_N7testing13ThrowingValueILNS0_8TypeSpecE0EEESt14default_dele
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i4.i.i99) #24
   br label %if.then.i38
 
-lpad.i.i7:                                        ; preds = %.noexc.i.i98, %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.exit"
+lpad.i.i7:                                        ; preds = %.noexc.i.i98, %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit"
   %51 = landingpad { ptr, i32 }
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   br label %lpad.body.i.i8
@@ -21938,7 +21938,7 @@ lpad.body.i41:                                    ; preds = %lpad.i40, %arraydes
 catch35.i87:                                      ; preds = %lpad.body.i41
   %78 = call ptr @__cxa_begin_catch(ptr %75) #24
   invoke void @__cxa_end_catch()
-          to label %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_1EEvRKT_.exit" unwind label %lpad8.i53
+          to label %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_1EEvRKT_.argprom.exit" unwind label %lpad8.i53
 
 if.then38.critedge.i89:                           ; preds = %_ZNSt10unique_ptrIA_N7testing13ThrowingValueILNS0_8TypeSpecE0EEESt14default_deleteIS4_EED2Ev.exit.i, %invoke.cont.i88
   %call41.i90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i3, ptr noundef nonnull @.str.158)
@@ -22045,7 +22045,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit.i67:                 ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i64, %invoke.cont53.i62
   store ptr null, ptr %ref.tmp45.i5, align 8
-  br label %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_1EEvRKT_.exit"
+  br label %"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_1EEvRKT_.argprom.exit"
 
 lpad50.i57:                                       ; preds = %invoke.cont46.i55
   %90 = landingpad { ptr, i32 }
@@ -22082,7 +22082,7 @@ terminate.lpad.i49:                               ; preds = %ehcleanup.i71, %lpa
   call void @__clang_call_terminate(ptr %95) #27
   unreachable
 
-"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_1EEvRKT_.exit": ; preds = %catch35.i87, %_ZN7testing7MessageD2Ev.exit.i67
+"_ZN7testing12_GLOBAL__N_116TestAllocatingOpIZNS0_44ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvE3$_1EEvRKT_.argprom.exit": ; preds = %catch35.i87, %_ZN7testing7MessageD2Ev.exit.i67
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i3) #24
   store i32 -1, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %gtest_msg.i3)
@@ -22522,7 +22522,7 @@ entry:
 
 .noexc.i.i:                                       ; preds = %entry
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %tv_copy.i.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i
   %0 = landingpad { ptr, i32 }
@@ -22531,7 +22531,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i
   call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.exit.i.i": ; preds = %.noexc.i.i
+"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i": ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tv_copy.i.i.i)
   br label %if.then.i
 
@@ -22639,7 +22639,7 @@ terminate.lpad.i.i:                               ; preds = %ehcleanup13.i.i
   call void @__clang_call_terminate(ptr %18) #27
   unreachable
 
-if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.exit.i.i"
+if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -22658,7 +22658,7 @@ if.then2.i:                                       ; preds = %invoke.cont.i
 
 .noexc.i:                                         ; preds = %if.then2.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %tv_copy.i.i)
-          to label %"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   %19 = landingpad { ptr, i32 }
@@ -22667,7 +22667,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i
   call void @__clang_call_terminate(ptr %20) #27
   unreachable
 
-"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %.noexc.i
+"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tv_copy.i.i)
   br label %if.then38.critedge.i
 
@@ -22687,7 +22687,7 @@ catch35.i:                                        ; preds = %lpad.i
   invoke void @__cxa_end_catch()
           to label %invoke.cont unwind label %lpad8.i
 
-if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.exit.i", %invoke.cont.i
+if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_139ThrowingValueTest_ThrowingCopyCtor_Test8TestBodyEvENK3$_0clEv.argprom.exit.i", %invoke.cont.i
   %call41.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i unwind label %lpad8.i
 
@@ -22945,9 +22945,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 938550620, ptr %tv1, align 4
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 131, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEaSERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.exit.i.i" unwind label %lpad.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i" unwind label %lpad.i.i
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.exit.i.i": ; preds = %invoke.cont
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i": ; preds = %invoke.cont
   %0 = load i32, ptr %tv2, align 4
   store i32 %0, ptr %tv1, align 4
   br label %if.then.i
@@ -23056,7 +23056,7 @@ terminate.lpad.i.i:                               ; preds = %ehcleanup13.i.i
   call void @__clang_call_terminate(ptr %17) #27
   unreachable
 
-if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.exit.i.i"
+if.then.i:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i.i, %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.argprom.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
@@ -23071,9 +23071,9 @@ invoke.cont.i:                                    ; preds = %if.then.i
 if.then2.i:                                       ; preds = %invoke.cont.i
   store i32 938550620, ptr %tv1, align 4
   invoke void @_ZN7testing19exceptions_internal10MaybeThrowESt17basic_string_viewIcSt11char_traitsIcEEb(i64 131, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing13ThrowingValueILNS_8TypeSpecE0EEaSERKS2_, i1 noundef zeroext false)
-          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %lpad.i
+          to label %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %lpad.i
 
-"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %if.then2.i
+"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %if.then2.i
   %18 = load i32, ptr %tv2, align 4
   store i32 %18, ptr %tv1, align 4
   br label %if.then38.critedge.i
@@ -23094,7 +23094,7 @@ catch35.i:                                        ; preds = %lpad.i
   invoke void @__cxa_end_catch()
           to label %invoke.cont3 unwind label %lpad8.i
 
-if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.exit.i", %invoke.cont.i
+if.then38.critedge.i:                             ; preds = %"_ZZN7testing12_GLOBAL__N_141ThrowingValueTest_ThrowingCopyAssign_Test8TestBodyEvENK3$_0clEv.argprom.exit.i", %invoke.cont.i
   %call41.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg.i, ptr noundef nonnull @.str.133)
           to label %gtest_label_testthrow_71.i unwind label %lpad8.i
 
@@ -24794,7 +24794,7 @@ delete.notnull.i.i4:                              ; preds = %delete.notnull.i.i
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
   %2 = load i64, ptr %call.i2, align 4
   %arraydestroy.isempty.i.i = icmp eq i64 %2, 0
-  br i1 %arraydestroy.isempty.i.i, label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_40ThrowingValueTest_NonThrowingDelete_Test8TestBodyEvE3$_1EEvRKT_.exit", label %arraydestroy.body.preheader.i.i
+  br i1 %arraydestroy.isempty.i.i, label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_40ThrowingValueTest_NonThrowingDelete_Test8TestBodyEvE3$_1EEvRKT_.argprom.exit", label %arraydestroy.body.preheader.i.i
 
 arraydestroy.body.preheader.i.i:                  ; preds = %delete.notnull.i.i4
   %delete.end.i.i.idx = shl nsw i64 %2, 2
@@ -24817,9 +24817,9 @@ terminate.lpad.i.i.i.i5:                          ; preds = %arraydestroy.body.i
 
 _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i6: ; preds = %arraydestroy.body.i.i
   %arraydestroy.done.i.i = icmp eq i64 %arraydestroy.elementPast.i.i.add, 8
-  br i1 %arraydestroy.done.i.i, label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_40ThrowingValueTest_NonThrowingDelete_Test8TestBodyEvE3$_1EEvRKT_.exit", label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_40ThrowingValueTest_NonThrowingDelete_Test8TestBodyEvE3$_1EEvRKT_.argprom.exit", label %arraydestroy.body.i.i
 
-"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_40ThrowingValueTest_NonThrowingDelete_Test8TestBodyEvE3$_1EEvRKT_.exit": ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i6, %delete.notnull.i.i4
+"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_40ThrowingValueTest_NonThrowingDelete_Test8TestBodyEvE3$_1EEvRKT_.argprom.exit": ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i6, %delete.notnull.i.i4
   tail call void @_ZdaPv(ptr noundef nonnull %call.i2) #24
   store i32 -1, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
   ret void
@@ -25053,7 +25053,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %buf)
-          to label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.exit" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %13 = landingpad { ptr, i32 }
@@ -25062,13 +25062,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %_ZN7testing15Assert
   call void @__clang_call_terminate(ptr %14) #27
   unreachable
 
-"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit
+"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.exit"
-  %cmp.i.i = phi i1 [ true, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.exit" ], [ false, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i ]
-  %indvars.iv.i.i = phi i64 [ 0, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.exit" ], [ 1, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i ]
+for.body.i.i:                                     ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit"
+  %cmp.i.i = phi i1 [ true, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit" ], [ false, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_49ThrowingValueTest_NonThrowingPlacementDelete_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit" ], [ 1, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i ]
   %arrayidx.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %.ptr, i64 %indvars.iv.i.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arrayidx.i.i)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i11
@@ -25154,7 +25154,7 @@ entry:
 delete.notnull.i.i:                               ; preds = %entry
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %call.i)
-          to label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingDestructor_Test8TestBodyEvE3$_0EEvRKT_.exit" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingDestructor_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i.i
   %0 = landingpad { ptr, i32 }
@@ -25163,7 +25163,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i.i
   tail call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingDestructor_Test8TestBodyEvE3$_0EEvRKT_.exit": ; preds = %delete.notnull.i.i
+"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingDestructor_Test8TestBodyEvE3$_0EEvRKT_.argprom.exit": ; preds = %delete.notnull.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
   store i32 -1, ptr @_ZN7testing19exceptions_internal9countdownE, align 4
   ret void
@@ -29804,7 +29804,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp47.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
-  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %if.then.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
@@ -29924,7 +29924,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   br i1 %call1.i, label %if.then2.i, label %if.then38.critedge.i
 
 if.then2.i:                                       ; preds = %invoke.cont.i
-  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %if.then38.critedge.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then2.i, %if.then.i
@@ -30103,7 +30103,7 @@ invoke.cont:                                      ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp47.i6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i2)
-  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_1clEv"(ptr %a)
+  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_1clEv.argprom"(ptr %a)
           to label %if.then.i44 unwind label %lpad.i.i7
 
 lpad.i.i7:                                        ; preds = %invoke.cont
@@ -30223,7 +30223,7 @@ invoke.cont.i92:                                  ; preds = %if.then.i44
   br i1 %call1.i45, label %if.then2.i95, label %if.then38.critedge.i93
 
 if.then2.i95:                                     ; preds = %invoke.cont.i92
-  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_1clEv"(ptr %a)
+  invoke fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_1clEv.argprom"(ptr %a)
           to label %if.then38.critedge.i93 unwind label %lpad.i46
 
 lpad.i46:                                         ; preds = %if.then2.i95, %if.then.i44
@@ -30495,7 +30495,7 @@ lpad.body:                                        ; preds = %lpad, %ehcleanup57.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_0clEv.argprom"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.testing::ThrowingAllocator", align 8
   call void @_ZN7testing17ThrowingAllocatorIiLNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %a)
@@ -30588,7 +30588,7 @@ _ZN7testing17ThrowingAllocatorIiLNS_9AllocSpecE0EED2Ev.exit: ; preds = %_ZNSt10s
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_1clEv"(ptr nonnull %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7testing12_GLOBAL__N_156ThrowingAllocatorTest_ThrowingAllocatorConstruction_Test8TestBodyEvENK3$_1clEv.argprom"(ptr nonnull %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.testing::ThrowingAllocator", align 8
   tail call void @_ZNK7testing17ThrowingAllocatorIiLNS_9AllocSpecE0EE22ReadStateAndMaybeThrowESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val, i64 155, ptr nonnull @__PRETTY_FUNCTION__._ZN7testing17ThrowingAllocatorIiLNS_9AllocSpecE0EE37select_on_container_copy_constructionEv), !noalias !132
@@ -33945,7 +33945,7 @@ _ZN7testing15AssertionResultD2Ev.exit43:          ; preds = %if.end47, %_ZNKSt14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !217, !noalias !214
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractINS2_3$_3EEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !214
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractINS2_3$_3EEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !214
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i)
           to label %invoke.cont7.i.i.i.i unwind label %lpad6.i.i.i.i
 
 invoke.cont7.i.i.i.i:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit43
@@ -34039,11 +34039,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i5.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i, %invoke.cont6.i.i.i
   %36 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !214
   %tobool.not.i.i7.i.i.i = icmp eq ptr %36, null
-  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.exit", label %if.then.i.i8.i.i.i
+  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit", label %if.then.i.i8.i.i.i
 
 if.then.i.i8.i.i.i:                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.exit" unwind label %terminate.lpad.i.i10.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i
 
 terminate.lpad.i.i10.i.i.i:                       ; preds = %if.then.i.i8.i.i.i
   %37 = landingpad { ptr, i32 }
@@ -34101,7 +34101,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %if.then.i.i19.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit16.i.i.i ], [ %.pn.i.i.i91, %if.then.i.i19.i.i.i98 ], [ %.pn.i.i.i91, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit16.i.i.i96 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !209
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !209
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !209
@@ -34109,7 +34109,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %tobool.i44 = trunc i8 %46 to i1
   br i1 %tobool.i44, label %if.end75, label %if.else59
 
-if.else59:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.exit"
+if.else59:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60)
           to label %invoke.cont62 unwind label %lpad61
 
@@ -34187,7 +34187,7 @@ _ZN7testing7MessageD2Ev.exit54:                   ; preds = %ehcleanup74, %_ZNKS
   store ptr null, ptr %ref.tmp60, align 8
   br label %common.resume.sink.split
 
-if.end75:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.exit", %_ZN7testing7MessageD2Ev.exit49
+if.end75:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit", %_ZN7testing7MessageD2Ev.exit49
   %message_.i55 = getelementptr inbounds i8, ptr %gtest_ar_49, i64 8
   %55 = load ptr, ptr %message_.i55, align 8
   %cmp.not.i.i56 = icmp eq ptr %55, null
@@ -34232,7 +34232,7 @@ _ZN7testing15AssertionResultD2Ev.exit58:          ; preds = %if.end75, %_ZNKSt14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i59, i8 0, i64 16, i1 false), !alias.scope !228, !noalias !225
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractINS2_3$_4EEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i.i.i.i.i74, align 8, !alias.scope !228, !noalias !225
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractINS2_3$_4EEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i73, align 8, !alias.scope !228, !noalias !225
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i72, ptr %ref.tmp.i.i.i.i59)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i72, ptr %ref.tmp.i.i.i.i59)
           to label %invoke.cont7.i.i.i.i102 unwind label %lpad6.i.i.i.i75
 
 invoke.cont7.i.i.i.i102:                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit58
@@ -34326,11 +34326,11 @@ terminate.lpad.i.i.i.i.i113:                      ; preds = %if.then.i.i5.i.i.i1
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i.i114: ; preds = %if.then.i.i5.i.i.i111, %invoke.cont6.i.i.i109
   %72 = load ptr, ptr %_M_manager.i.i.i.i.i63, align 8, !noalias !225
   %tobool.not.i.i7.i.i.i115 = icmp eq ptr %72, null
-  br i1 %tobool.not.i.i7.i.i.i115, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.exit", label %if.then.i.i8.i.i.i116
+  br i1 %tobool.not.i.i7.i.i.i115, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit", label %if.then.i.i8.i.i.i116
 
 if.then.i.i8.i.i.i116:                            ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i.i114
   %call.i.i9.i.i.i117 = invoke noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i61, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i61, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.exit" unwind label %terminate.lpad.i.i10.i.i.i118
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i118
 
 terminate.lpad.i.i10.i.i.i118:                    ; preds = %if.then.i.i8.i.i.i116
   %73 = landingpad { ptr, i32 }
@@ -34378,7 +34378,7 @@ terminate.lpad.i.i21.i.i.i100:                    ; preds = %if.then.i.i19.i.i.i
   call void @__clang_call_terminate(ptr %81) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i.i114, %if.then.i.i8.i.i.i116
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i.i114, %if.then.i.i8.i.i.i116
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i60), !noalias !220
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i61), !noalias !220
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i62), !noalias !220
@@ -34386,7 +34386,7 @@ terminate.lpad.i.i21.i.i.i100:                    ; preds = %if.then.i.i19.i.i.i
   %tobool.i119 = trunc i8 %82 to i1
   br i1 %tobool.i119, label %if.end103, label %if.else87
 
-if.else87:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.exit"
+if.else87:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp88)
           to label %invoke.cont90 unwind label %lpad89
 
@@ -34464,7 +34464,7 @@ _ZN7testing7MessageD2Ev.exit129:                  ; preds = %ehcleanup102, %_ZNK
   store ptr null, ptr %ref.tmp88, align 8
   br label %common.resume.sink.split
 
-if.end103:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.exit", %_ZN7testing7MessageD2Ev.exit124
+if.end103:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.argprom.exit", %_ZN7testing7MessageD2Ev.exit124
   %message_.i130 = getelementptr inbounds i8, ptr %gtest_ar_77, i64 8
   %91 = load ptr, ptr %message_.i130, align 8
   %cmp.not.i.i131 = icmp eq ptr %91, null
@@ -34633,7 +34633,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i14.i.i
   store i64 %16, ptr %ref.tmp.i.i.i, align 8, !alias.scope !240, !noalias !237
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPS5_EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i, align 8, !alias.scope !240, !noalias !237
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPS5_EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i, align 8, !alias.scope !240, !noalias !237
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i, ptr %ref.tmp.i.i.i)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i, ptr %ref.tmp.i.i.i)
           to label %invoke.cont7.i.i.i unwind label %lpad6.i.i.i
 
 invoke.cont7.i.i.i:                               ; preds = %invoke.cont.i.i.i
@@ -34728,11 +34728,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i7.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i: ; preds = %if.then.i.i7.i.i, %invoke.cont5.i.i
   %33 = load ptr, ptr %1, align 8, !noalias !237
   %tobool.not.i.i9.i.i = icmp eq ptr %33, null
-  br i1 %tobool.not.i.i9.i.i, label %_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_.exit, label %if.then.i.i10.i.i
+  br i1 %tobool.not.i.i9.i.i, label %_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_.argprom.exit, label %if.then.i.i10.i.i
 
 if.then.i.i10.i.i:                                ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i
   %call.i.i11.i.i = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, i32 noundef 3)
-          to label %_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_.exit unwind label %terminate.lpad.i.i12.i.i
+          to label %_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_.argprom.exit unwind label %terminate.lpad.i.i12.i.i
 
 terminate.lpad.i.i12.i.i:                         ; preds = %if.then.i.i10.i.i
   %34 = landingpad { ptr, i32 }
@@ -34784,7 +34784,7 @@ terminate.lpad.i.i23.i.i:                         ; preds = %if.then.i.i21.i.i
 _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEED2Ev.exit24.i.i: ; preds = %if.then.i.i21.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit18.i.i
   resume { ptr, i32 } %.pn.i.i
 
-_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_.exit: ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i, %if.then.i.i10.i.i
+_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_.argprom.exit: ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEED2Ev.exit.i.i, %if.then.i.i10.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i), !noalias !234
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i), !noalias !234
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !234
@@ -34996,13 +34996,13 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
 invoke.cont29:                                    ; preds = %cleanup
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i: ; preds = %invoke.cont29
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i: ; preds = %invoke.cont29
   call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i
   store ptr null, ptr %t_ptr, align 8
   br i1 %tobool.i, label %return, label %for.cond4
 
@@ -35025,26 +35025,26 @@ ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, 
   %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
-  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i30
+  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i30
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i30: ; preds = %ehcleanup34
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i30: ; preds = %ehcleanup34
   call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i30
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i30
   store ptr null, ptr %t_ptr, align 8
   br label %ehcleanup39
 
 cleanup36.critedge:                               ; preds = %invoke.cont9
   %23 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i33 = icmp eq ptr %23, null
-  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i34
+  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i34
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i34: ; preds = %cleanup36.critedge
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i34: ; preds = %cleanup36.critedge
   call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit36
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i34
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.argprom.exit.i34
   store ptr null, ptr %t_ptr, align 8
   br label %return
 
@@ -35226,7 +35226,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 for.body.i.i.i.i.preheader.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call5.i.i.i.i5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
@@ -35306,13 +35306,13 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 lpad.body:                                        ; preds = %lpad2.i.i.i.i.i
   %this.val.pre = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %this.val.pre, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EED2Ev.exit, label %if.then.i.i6
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EED2Ev.argprom.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.pre) #25
-  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EED2Ev.exit: ; preds = %lpad.body, %if.then.i.i6
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EED2Ev.argprom.exit: ; preds = %lpad.body, %if.then.i.i6
   resume { ptr, i32 } %9
 }
 
@@ -35713,7 +35713,7 @@ entry:
   store i64 %0, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !291, !noalias !288
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_119FailsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !291, !noalias !288
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_119FailsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !291, !noalias !288
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
           to label %invoke.cont7.i.i.i.i unwind label %lpad6.i.i.i.i, !noalias !288
 
 invoke.cont7.i.i.i.i:                             ; preds = %entry
@@ -35807,11 +35807,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i5.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i, %invoke.cont6.i.i.i
   %18 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !288
   %tobool.not.i.i7.i.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i
+  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i
 
 if.then.i.i8.i.i.i:                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i
 
 terminate.lpad.i.i10.i.i.i:                       ; preds = %if.then.i.i8.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -35869,14 +35869,14 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %if.then.i.i19.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit16.i.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !283
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !283
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !283
   invoke void @_ZNK7testing15AssertionResultntEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit"
+invoke.cont:                                      ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit"
   %message_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %28 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i = icmp eq ptr %28, null
@@ -35893,7 +35893,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont, %_ZNKS
   %tobool.i = trunc i8 %29 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-lpad:                                             ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit"
+lpad:                                             ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit"
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
@@ -36196,13 +36196,13 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
 invoke.cont29:                                    ; preds = %cleanup
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i: ; preds = %invoke.cont29
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i: ; preds = %invoke.cont29
   call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i
   store ptr null, ptr %t_ptr, align 8
   br i1 %tobool.i, label %return, label %for.cond4
 
@@ -36225,26 +36225,26 @@ ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, 
   %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
-  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i30
+  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i30
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i30: ; preds = %ehcleanup34
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i30: ; preds = %ehcleanup34
   call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i30
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i30
   store ptr null, ptr %t_ptr, align 8
   br label %ehcleanup39
 
 cleanup36.critedge:                               ; preds = %invoke.cont9
   %23 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i33 = icmp eq ptr %23, null
-  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i34
+  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i34
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i34: ; preds = %cleanup36.critedge
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i34: ; preds = %cleanup36.critedge
   call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i34
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.argprom.exit.i34
   store ptr null, ptr %t_ptr, align 8
   br label %return
 
@@ -36412,7 +36412,7 @@ entry:
   %inc.i.i.i.i = add nsw i32 %1, 1
   store i32 %inc.i.i.i.i, ptr %__args.val, align 4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_19FailsBasicGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_19FailsBasicGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -36421,7 +36421,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   call void @__clang_call_terminate(ptr %3) #27
   unreachable
 
-"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_19FailsBasicGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_19FailsBasicGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   ret void
 }
@@ -36447,7 +36447,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.306", ptr %__l.coerce0, i64 %__l.coerce1
@@ -36540,13 +36540,13 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i
 lpad.body:                                        ; preds = %lpad2.i.i.i.i.i
   %this.val.pre = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %this.val.pre, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EED2Ev.exit, label %if.then.i.i6
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EED2Ev.argprom.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.pre) #25
-  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EED2Ev.exit: ; preds = %lpad.body, %if.then.i.i6
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EED2Ev.argprom.exit: ; preds = %lpad.body, %if.then.i.i6
   resume { ptr, i32 } %9
 }
 
@@ -36710,7 +36710,7 @@ entry:
   store i64 %0, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !324, !noalias !321
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !324, !noalias !321
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !324, !noalias !321
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
           to label %invoke.cont7.i.i.i.i unwind label %lpad6.i.i.i.i, !noalias !321
 
 invoke.cont7.i.i.i.i:                             ; preds = %entry
@@ -36804,11 +36804,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i5.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i, %invoke.cont6.i.i.i
   %18 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !321
   %tobool.not.i.i7.i.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i
+  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i
 
 if.then.i.i8.i.i.i:                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i
 
 terminate.lpad.i.i10.i.i.i:                       ; preds = %if.then.i.i8.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -36860,7 +36860,7 @@ common.resume:                                    ; preds = %_ZNSt8functionIFvPN
   %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup14 ], [ %.pn.i.i.i, %if.then.i.i19.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit16.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !316
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !316
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !316
@@ -36868,7 +36868,7 @@ common.resume:                                    ; preds = %_ZNSt8functionIFvPN
   %tobool.i = trunc i8 %28 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit"
+if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
 
@@ -36946,7 +36946,7 @@ _ZN7testing7MessageD2Ev.exit9:                    ; preds = %ehcleanup13, %_ZNKS
   store ptr null, ptr %ref.tmp3, align 8
   br label %ehcleanup14
 
-if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit", %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit", %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %37 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i10 = icmp eq ptr %37, null
@@ -37171,13 +37171,13 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
 invoke.cont29:                                    ; preds = %cleanup
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i: ; preds = %invoke.cont29
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i: ; preds = %invoke.cont29
   call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i
   store ptr null, ptr %t_ptr, align 8
   br i1 %tobool.i, label %return, label %for.cond4
 
@@ -37200,26 +37200,26 @@ ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, 
   %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
-  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i30
+  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i30
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i30: ; preds = %ehcleanup34
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i30: ; preds = %ehcleanup34
   call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i30
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i30
   store ptr null, ptr %t_ptr, align 8
   br label %ehcleanup39
 
 cleanup36.critedge:                               ; preds = %invoke.cont9
   %23 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i33 = icmp eq ptr %23, null
-  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i34
+  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i34
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i34: ; preds = %cleanup36.critedge
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i34: ; preds = %cleanup36.critedge
   call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i34
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.argprom.exit.i34
   store ptr null, ptr %t_ptr, align 8
   br label %return
 
@@ -37384,7 +37384,7 @@ entry:
   store i32 %inc.i.i.i.i, ptr %__args.val, align 4
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %bomb.i.i.i.i)
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_21FollowsBasicGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_21FollowsBasicGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -37393,7 +37393,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   call void @__clang_call_terminate(ptr %2) #27
   unreachable
 
-"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_21FollowsBasicGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_21FollowsBasicGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   ret void
 }
@@ -37419,7 +37419,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 4) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 4) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.335", ptr %__l.coerce0, i64 %__l.coerce1
@@ -37512,13 +37512,13 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i
 lpad.body:                                        ; preds = %lpad2.i.i.i.i.i
   %this.val.pre = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %this.val.pre, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EED2Ev.exit, label %if.then.i.i6
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EED2Ev.argprom.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.pre) #25
-  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EED2Ev.exit: ; preds = %lpad.body, %if.then.i.i6
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EED2Ev.argprom.exit: ; preds = %lpad.body, %if.then.i.i6
   resume { ptr, i32 } %9
 }
 
@@ -37701,7 +37701,7 @@ entry:
   store i64 %3, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !360, !noalias !354
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_119FailsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !360, !noalias !354
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_119FailsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !360, !noalias !354
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 2)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 2)
           to label %invoke.cont10.i.i.i.i unwind label %lpad9.i.i.i.i, !noalias !354
 
 invoke.cont10.i.i.i.i:                            ; preds = %entry
@@ -37817,11 +37817,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i5.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i, %invoke.cont8.i.i.i
   %22 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !354
   %tobool.not.i.i7.i.i.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i
+  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i
 
 if.then.i.i8.i.i.i:                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i
 
 terminate.lpad.i.i10.i.i.i:                       ; preds = %if.then.i.i8.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -37879,14 +37879,14 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %if.then.i.i19.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit16.i.i.i ], [ %.pn.i.i.i62, %if.then.i.i19.i.i.i68 ], [ %.pn.i.i.i62, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit16.i.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !349
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !349
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !349
   invoke void @_ZNK7testing15AssertionResultntEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit"
+invoke.cont:                                      ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit"
   %message_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %32 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i = icmp eq ptr %32, null
@@ -37903,7 +37903,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont, %_ZNKS
   %tobool.i = trunc i8 %33 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-lpad:                                             ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit"
+lpad:                                             ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit"
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
@@ -38043,7 +38043,7 @@ _ZN7testing15AssertionResultD2Ev.exit20:          ; preds = %if.end, %_ZNKSt14de
   store i64 %47, ptr %arrayinit.element.i.i.i.i38, align 8, !alias.scope !374, !noalias !368
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i40, align 8, !alias.scope !374, !noalias !368
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i39, align 8, !alias.scope !374, !noalias !368
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i35, ptr %ref.tmp.i.i.i.i22, i64 2)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i35, ptr %ref.tmp.i.i.i.i22, i64 2)
           to label %invoke.cont10.i.i.i.i71 unwind label %lpad9.i.i.i.i41, !noalias !368
 
 invoke.cont10.i.i.i.i71:                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit20
@@ -38159,11 +38159,11 @@ terminate.lpad.i.i.i.i.i87:                       ; preds = %if.then.i.i5.i.i.i8
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i85, %invoke.cont8.i.i.i83
   %66 = load ptr, ptr %_M_manager.i.i.i.i.i26, align 8, !noalias !368
   %tobool.not.i.i7.i.i.i88 = icmp eq ptr %66, null
-  br i1 %tobool.not.i.i7.i.i.i88, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i89
+  br i1 %tobool.not.i.i7.i.i.i88, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i89
 
 if.then.i.i8.i.i.i89:                             ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i90 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i24, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i91
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i91
 
 terminate.lpad.i.i10.i.i.i91:                     ; preds = %if.then.i.i8.i.i.i89
   %67 = landingpad { ptr, i32 }
@@ -38211,14 +38211,14 @@ terminate.lpad.i.i21.i.i.i70:                     ; preds = %if.then.i.i19.i.i.i
   call void @__clang_call_terminate(ptr %75) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i89
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i89
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i23), !noalias !363
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i24), !noalias !363
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i25), !noalias !363
   invoke void @_ZNK7testing15AssertionResultntEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar_18, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
-invoke.cont24:                                    ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit"
+invoke.cont24:                                    ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit"
   %message_.i92 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   %76 = load ptr, ptr %message_.i92, align 8
   %cmp.not.i.i93 = icmp eq ptr %76, null
@@ -38235,7 +38235,7 @@ _ZN7testing15AssertionResultD2Ev.exit95:          ; preds = %invoke.cont24, %_ZN
   %tobool.i96 = trunc i8 %77 to i1
   br i1 %tobool.i96, label %if.end44, label %if.else28
 
-lpad23:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit"
+lpad23:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit"
   %78 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
@@ -38346,13 +38346,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !387
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #28, !noalias !387
   unreachable
 
-_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit: ; preds = %entry
+_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !noalias !387
   call void %1(ptr nonnull sret(%"class.std::unique_ptr.295") align 8 %ref.tmp2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call.val), !noalias !390
@@ -38408,13 +38408,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !401
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #28, !noalias !401
   unreachable
 
-_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit: ; preds = %entry
+_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !noalias !401
   call void %1(ptr nonnull sret(%"class.std::unique_ptr.324") align 8 %ref.tmp2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call.val), !noalias !404
@@ -38557,7 +38557,7 @@ entry:
   store i64 %0, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !413, !noalias !410
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !413, !noalias !410
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !413, !noalias !410
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
           to label %invoke.cont7.i.i.i.i unwind label %lpad6.i.i.i.i, !noalias !410
 
 invoke.cont7.i.i.i.i:                             ; preds = %entry
@@ -38651,11 +38651,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i5.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i, %invoke.cont6.i.i.i
   %18 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !410
   %tobool.not.i.i7.i.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i
+  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i
 
 if.then.i.i8.i.i.i:                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i
 
 terminate.lpad.i.i10.i.i.i:                       ; preds = %if.then.i.i8.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -38713,7 +38713,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %if.then.i.i19.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit16.i.i.i ], [ %.pn.i.i.i36, %if.then.i.i19.i.i.i43 ], [ %.pn.i.i.i36, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit16.i.i.i41 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !405
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !405
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !405
@@ -38721,7 +38721,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %tobool.i = trunc i8 %28 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit"
+if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
 
@@ -38799,7 +38799,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %ehcleanup12, %_ZNKS
   store ptr null, ptr %ref.tmp2, align 8
   br label %common.resume.sink.split
 
-if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit", %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit", %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %37 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i18 = icmp eq ptr %37, null
@@ -38851,7 +38851,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !427, !noalias !421
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !427, !noalias !421
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !427, !noalias !421
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i32, ptr %ref.tmp.i.i.i.i19, i64 2)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i32, ptr %ref.tmp.i.i.i.i19, i64 2)
           to label %invoke.cont9.i.i.i.i unwind label %lpad8.i.i.i.i, !noalias !421
 
 invoke.cont9.i.i.i.i:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -38967,11 +38967,11 @@ terminate.lpad.i.i.i.i.i51:                       ; preds = %if.then.i.i5.i.i.i4
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit.i.i.i52: ; preds = %if.then.i.i5.i.i.i49, %invoke.cont8.i.i.i
   %57 = load ptr, ptr %_M_manager.i.i.i.i.i23, align 8, !noalias !421
   %tobool.not.i.i7.i.i.i53 = icmp eq ptr %57, null
-  br i1 %tobool.not.i.i7.i.i.i53, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i54
+  br i1 %tobool.not.i.i7.i.i.i53, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i54
 
 if.then.i.i8.i.i.i54:                             ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit.i.i.i52
   %call.i.i9.i.i.i55 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i21, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i56
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i56
 
 terminate.lpad.i.i10.i.i.i56:                     ; preds = %if.then.i.i8.i.i.i54
   %58 = landingpad { ptr, i32 }
@@ -39019,7 +39019,7 @@ terminate.lpad.i.i21.i.i.i45:                     ; preds = %if.then.i.i19.i.i.i
   call void @__clang_call_terminate(ptr %66) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit.i.i.i52, %if.then.i.i8.i.i.i54
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEED2Ev.exit.i.i.i52, %if.then.i.i8.i.i.i54
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i20), !noalias !416
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i21), !noalias !416
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i22), !noalias !416
@@ -39027,7 +39027,7 @@ terminate.lpad.i.i21.i.i.i45:                     ; preds = %if.then.i.i19.i.i.i
   %tobool.i57 = trunc i8 %67 to i1
   br i1 %tobool.i57, label %if.end35, label %if.else19
 
-if.else19:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.exit"
+if.else19:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20)
           to label %invoke.cont22 unwind label %lpad21
 
@@ -39105,7 +39105,7 @@ _ZN7testing7MessageD2Ev.exit67:                   ; preds = %ehcleanup34, %_ZNKS
   store ptr null, ptr %ref.tmp20, align 8
   br label %common.resume.sink.split
 
-if.end35:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.exit", %_ZN7testing7MessageD2Ev.exit62
+if.end35:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.argprom.exit", %_ZN7testing7MessageD2Ev.exit62
   %message_.i68 = getelementptr inbounds i8, ptr %gtest_ar_14, i64 8
   %76 = load ptr, ptr %message_.i68, align 8
   %cmp.not.i.i69 = icmp eq ptr %76, null
@@ -39325,13 +39325,13 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
 invoke.cont29:                                    ; preds = %cleanup
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i: ; preds = %invoke.cont29
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i: ; preds = %invoke.cont29
   call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i
   store ptr null, ptr %t_ptr, align 8
   br i1 %tobool.i, label %return, label %for.cond4
 
@@ -39354,26 +39354,26 @@ ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, 
   %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
-  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i30
+  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i30
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i30: ; preds = %ehcleanup34
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i30: ; preds = %ehcleanup34
   call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i30
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i30
   store ptr null, ptr %t_ptr, align 8
   br label %ehcleanup39
 
 cleanup36.critedge:                               ; preds = %invoke.cont9
   %23 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i33 = icmp eq ptr %23, null
-  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i34
+  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i34
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i34: ; preds = %cleanup36.critedge
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i34: ; preds = %cleanup36.critedge
   call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit36
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i34
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.argprom.exit.i34
   store ptr null, ptr %t_ptr, align 8
   br label %return
 
@@ -39539,7 +39539,7 @@ entry:
   %inc.i.i.i.i = add nsw i32 %0, 1
   store i32 %inc.i.i.i.i, ptr %__args.val, align 4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_32BasicGuaranteeWithExtraContractsEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_32BasicGuaranteeWithExtraContractsEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -39548,7 +39548,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   call void @__clang_call_terminate(ptr %2) #27
   unreachable
 
-"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_32BasicGuaranteeWithExtraContractsEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_32BasicGuaranteeWithExtraContractsEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   ret void
 }
@@ -39574,7 +39574,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.376", ptr %__l.coerce0, i64 %__l.coerce1
@@ -39667,13 +39667,13 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i
 lpad.body:                                        ; preds = %lpad2.i.i.i.i.i
   %this.val.pre = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %this.val.pre, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EED2Ev.exit, label %if.then.i.i6
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EED2Ev.argprom.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.pre) #25
-  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EED2Ev.exit: ; preds = %lpad.body, %if.then.i.i6
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EED2Ev.argprom.exit: ; preds = %lpad.body, %if.then.i.i6
   resume { ptr, i32 } %9
 }
 
@@ -39761,7 +39761,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.exit"
+  br label %"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom.exit"
 
 if.end.i.i.i.i:                                   ; preds = %entry
   call void @_ZN7testing16AssertionFailureEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %ref.tmp.i.i.i.i), !noalias !459
@@ -39941,12 +39941,12 @@ invoke.cont9.i.i.i.i:                             ; preds = %invoke.cont7.i.i.i.
   %message_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   %26 = load ptr, ptr %message_.i.i.i.i.i, align 8, !noalias !459
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i: ; preds = %invoke.cont9.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #24
   call void @_ZdlPv(ptr noundef nonnull %26) #25
-  br label %"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.exit"
+  br label %"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom.exit"
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont7.i.i.i.i, %invoke.cont4.i.i.i.i, %invoke.cont2.i.i.i.i, %invoke.cont.i.i.i.i, %if.end.i.i.i.i
   %27 = landingpad { ptr, i32 }
@@ -39958,7 +39958,7 @@ lpad.body.i.i.i.i:                                ; preds = %lpad.i.i.i.i, %_ZNK
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i) #24
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i
 
-"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.exit": ; preds = %if.then.i.i.i.i, %invoke.cont9.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i
+"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %if.then.i.i.i.i, %invoke.cont9.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !452
   ret void
 }
@@ -40089,7 +40089,7 @@ entry:
   store i64 %0, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !470, !noalias !467
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !470, !noalias !467
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !470, !noalias !467
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
           to label %invoke.cont7.i.i.i.i unwind label %lpad6.i.i.i.i, !noalias !467
 
 invoke.cont7.i.i.i.i:                             ; preds = %entry
@@ -40183,11 +40183,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i5.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i, %invoke.cont6.i.i.i
   %18 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !467
   %tobool.not.i.i7.i.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i
+  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i
 
 if.then.i.i8.i.i.i:                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i
 
 terminate.lpad.i.i10.i.i.i:                       ; preds = %if.then.i.i8.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -40245,7 +40245,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %if.then.i.i19.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit16.i.i.i ], [ %.pn.i.i.i35, %if.then.i.i19.i.i.i42 ], [ %.pn.i.i.i35, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit16.i.i.i40 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !462
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !462
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !462
@@ -40253,7 +40253,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %tobool.i = trunc i8 %28 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit"
+if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
 
@@ -40331,7 +40331,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %ehcleanup13, %_ZNKS
   store ptr null, ptr %ref.tmp3, align 8
   br label %common.resume.sink.split
 
-if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.exit", %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom.exit", %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %37 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i16 = icmp eq ptr %37, null
@@ -40388,7 +40388,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store i64 %41, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !484, !noalias !478
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !484, !noalias !478
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !484, !noalias !478
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i31, ptr %ref.tmp.i.i.i.i18, i64 2)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i31, ptr %ref.tmp.i.i.i.i18, i64 2)
           to label %invoke.cont10.i.i.i.i unwind label %lpad9.i.i.i.i, !noalias !478
 
 invoke.cont10.i.i.i.i:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -40504,11 +40504,11 @@ terminate.lpad.i.i.i.i.i50:                       ; preds = %if.then.i.i5.i.i.i4
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i51: ; preds = %if.then.i.i5.i.i.i48, %invoke.cont8.i.i.i
   %60 = load ptr, ptr %_M_manager.i.i.i.i.i22, align 8, !noalias !478
   %tobool.not.i.i7.i.i.i52 = icmp eq ptr %60, null
-  br i1 %tobool.not.i.i7.i.i.i52, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i53
+  br i1 %tobool.not.i.i7.i.i.i52, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i53
 
 if.then.i.i8.i.i.i53:                             ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i51
   %call.i.i9.i.i.i54 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i20, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i55
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i55
 
 terminate.lpad.i.i10.i.i.i55:                     ; preds = %if.then.i.i8.i.i.i53
   %61 = landingpad { ptr, i32 }
@@ -40556,7 +40556,7 @@ terminate.lpad.i.i21.i.i.i44:                     ; preds = %if.then.i.i19.i.i.i
   call void @__clang_call_terminate(ptr %69) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i51, %if.then.i.i8.i.i.i53
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i51, %if.then.i.i8.i.i.i53
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i19), !noalias !473
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i20), !noalias !473
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i21), !noalias !473
@@ -40564,7 +40564,7 @@ terminate.lpad.i.i21.i.i.i44:                     ; preds = %if.then.i.i19.i.i.i
   %tobool.i56 = trunc i8 %70 to i1
   br i1 %tobool.i56, label %if.end37, label %if.else21
 
-if.else21:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit"
+if.else21:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -40642,7 +40642,7 @@ _ZN7testing7MessageD2Ev.exit66:                   ; preds = %ehcleanup36, %_ZNKS
   store ptr null, ptr %ref.tmp22, align 8
   br label %common.resume.sink.split
 
-if.end37:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.exit", %_ZN7testing7MessageD2Ev.exit61
+if.end37:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom.exit", %_ZN7testing7MessageD2Ev.exit61
   %message_.i67 = getelementptr inbounds i8, ptr %gtest_ar_15, i64 8
   %79 = load ptr, ptr %message_.i67, align 8
   %cmp.not.i.i68 = icmp eq ptr %79, null
@@ -40862,13 +40862,13 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
 invoke.cont29:                                    ; preds = %cleanup
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i: ; preds = %invoke.cont29
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i: ; preds = %invoke.cont29
   call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i
   store ptr null, ptr %t_ptr, align 8
   br i1 %tobool.i, label %return, label %for.cond4
 
@@ -40891,26 +40891,26 @@ ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, 
   %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
-  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i30
+  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i30
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i30: ; preds = %ehcleanup34
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i30: ; preds = %ehcleanup34
   call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i30
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i30
   store ptr null, ptr %t_ptr, align 8
   br label %ehcleanup39
 
 cleanup36.critedge:                               ; preds = %invoke.cont9
   %23 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i33 = icmp eq ptr %23, null
-  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i34
+  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i34
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i34: ; preds = %cleanup36.critedge
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i34: ; preds = %cleanup36.critedge
   call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit36
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i34
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.argprom.exit.i34
   store ptr null, ptr %t_ptr, align 8
   br label %return
 
@@ -41071,7 +41071,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %bomb.i.i.i.i)
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_22FollowsStrongGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_22FollowsStrongGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -41080,7 +41080,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_22FollowsStrongGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_22FollowsStrongGuaranteeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   ret void
 }
@@ -41106,7 +41106,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 4) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 4) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.410", ptr %__l.coerce0, i64 %__l.coerce1
@@ -41199,13 +41199,13 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i
 lpad.body:                                        ; preds = %lpad2.i.i.i.i.i
   %this.val.pre = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %this.val.pre, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EED2Ev.exit, label %if.then.i.i6
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EED2Ev.argprom.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.pre) #25
-  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EED2Ev.exit: ; preds = %lpad.body, %if.then.i.i6
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EED2Ev.argprom.exit: ; preds = %lpad.body, %if.then.i.i6
   resume { ptr, i32 } %9
 }
 
@@ -41290,13 +41290,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !519
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #28, !noalias !519
   unreachable
 
-_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit: ; preds = %entry
+_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !noalias !519
   call void %1(ptr nonnull sret(%"class.std::unique_ptr.399") align 8 %ref.tmp2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call.val), !noalias !522
@@ -41467,7 +41467,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element8.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !537, !noalias !528
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i19.i.i.i.i, align 8, !alias.scope !537, !noalias !528
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i18.i.i.i.i, align 8, !alias.scope !537, !noalias !528
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 3)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 3)
           to label %invoke.cont13.i.i.i.i unwind label %lpad12.i.i.i.i, !noalias !528
 
 invoke.cont13.i.i.i.i:                            ; preds = %entry
@@ -41583,11 +41583,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i5.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i, %invoke.cont10.i.i.i
   %20 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !528
   %tobool.not.i.i7.i.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i
+  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i
 
 if.then.i.i8.i.i.i:                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i
 
 terminate.lpad.i.i10.i.i.i:                       ; preds = %if.then.i.i8.i.i.i
   %21 = landingpad { ptr, i32 }
@@ -41645,14 +41645,14 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %if.then.i.i19.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit16.i.i.i ], [ %.pn.i.i.i72, %if.then.i.i19.i.i.i78 ], [ %.pn.i.i.i72, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit16.i.i.i ], [ %.pn79.i.i, %if.then.i.i28.i.i ], [ %.pn79.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_18HasResetEEED2Ev.exit25.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !523
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !523
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !523
   invoke void @_ZNK7testing15AssertionResultntEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.exit"
+invoke.cont:                                      ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.argprom.exit"
   %message_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %30 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i = icmp eq ptr %30, null
@@ -41669,7 +41669,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont, %_ZNKS
   %tobool.i = trunc i8 %31 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-lpad:                                             ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.exit"
+lpad:                                             ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.argprom.exit"
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
@@ -41815,7 +41815,7 @@ _ZN7testing15AssertionResultD2Ev.exit27:          ; preds = %if.end, %_ZNKSt14de
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element7.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !554, !noalias !545
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i19.i.i.i.i50, align 8, !alias.scope !554, !noalias !545
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i18.i.i.i.i49, align 8, !alias.scope !554, !noalias !545
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i43, ptr %ref.tmp.i.i.i.i30, i64 3)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i43, ptr %ref.tmp.i.i.i.i30, i64 3)
           to label %invoke.cont13.i.i.i.i81 unwind label %lpad12.i.i.i.i51, !noalias !545
 
 invoke.cont13.i.i.i.i81:                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit27
@@ -41931,11 +41931,11 @@ terminate.lpad.i.i.i.i.i97:                       ; preds = %if.then.i.i5.i.i.i9
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i95, %invoke.cont10.i.i.i93
   %64 = load ptr, ptr %_M_manager.i.i.i.i.i34, align 8, !noalias !545
   %tobool.not.i.i7.i.i.i98 = icmp eq ptr %64, null
-  br i1 %tobool.not.i.i7.i.i.i98, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.exit", label %if.then.i.i8.i.i.i99
+  br i1 %tobool.not.i.i7.i.i.i98, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.argprom.exit", label %if.then.i.i8.i.i.i99
 
 if.then.i.i8.i.i.i99:                             ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i100 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i32, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.exit" unwind label %terminate.lpad.i.i10.i.i.i101
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i101
 
 terminate.lpad.i.i10.i.i.i101:                    ; preds = %if.then.i.i8.i.i.i99
   %65 = landingpad { ptr, i32 }
@@ -41983,7 +41983,7 @@ terminate.lpad.i.i21.i.i.i80:                     ; preds = %if.then.i.i19.i.i.i
   call void @__clang_call_terminate(ptr %73) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i99
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i99
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i31), !noalias !540
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i32), !noalias !540
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i33), !noalias !540
@@ -41991,7 +41991,7 @@ terminate.lpad.i.i21.i.i.i80:                     ; preds = %if.then.i.i19.i.i.i
   %tobool.i102 = trunc i8 %74 to i1
   br i1 %tobool.i102, label %if.end42, label %if.else26
 
-if.else26:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.exit"
+if.else26:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
@@ -42069,7 +42069,7 @@ _ZN7testing7MessageD2Ev.exit112:                  ; preds = %ehcleanup41, %_ZNKS
   store ptr null, ptr %ref.tmp27, align 8
   br label %common.resume.sink.split
 
-if.end42:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.exit", %_ZN7testing7MessageD2Ev.exit107
+if.end42:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.argprom.exit", %_ZN7testing7MessageD2Ev.exit107
   %message_.i113 = getelementptr inbounds i8, ptr %gtest_ar_19, i64 8
   %83 = load ptr, ptr %message_.i113, align 8
   %cmp.not.i.i114 = icmp eq ptr %83, null
@@ -42324,13 +42324,13 @@ cleanup.i.i.i:                                    ; preds = %invoke.cont27.i.i.i
 invoke.cont29.i.i.i:                              ; preds = %cleanup.i.i.i
   %103 = load ptr, ptr %t_ptr.i.i.i, align 8, !noalias !563
   %cmp.not.i.i.i.i = icmp eq ptr %103, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i.i.i.i: ; preds = %invoke.cont29.i.i.i
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i.i.i.i: ; preds = %invoke.cont29.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %103) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i.i.i.i, %invoke.cont29.i.i.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i.i.i.i, %invoke.cont29.i.i.i
   store ptr null, ptr %t_ptr.i.i.i, align 8, !noalias !563
   br i1 %tobool.i.i.i.i, label %invoke.cont6.i.i, label %for.cond4.i.i.i
 
@@ -42353,26 +42353,26 @@ ehcleanup34.i.i.i:                                ; preds = %lpad8.i.i.i, %ehcle
   %ehselector.slot.1.i.i.i = phi i32 [ %106, %lpad28.i.i.i ], [ %ehselector.slot.2.i.i.i, %ehcleanup.i.i.i124 ], [ %94, %lpad8.i.i.i ]
   %107 = load ptr, ptr %t_ptr.i.i.i, align 8, !noalias !563
   %cmp.not.i29.i.i.i = icmp eq ptr %107, null
-  br i1 %cmp.not.i29.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i30.i.i.i
+  br i1 %cmp.not.i29.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i30.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i30.i.i.i: ; preds = %ehcleanup34.i.i.i
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i30.i.i.i: ; preds = %ehcleanup34.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %107) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i30.i.i.i, %ehcleanup34.i.i.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i30.i.i.i, %ehcleanup34.i.i.i
   store ptr null, ptr %t_ptr.i.i.i, align 8, !noalias !563
   br label %ehcleanup.i.i
 
 cleanup36.critedge.i.i.i:                         ; preds = %invoke.cont9.i.i.i
   %108 = load ptr, ptr %t_ptr.i.i.i, align 8, !noalias !563
   %cmp.not.i33.i.i.i = icmp eq ptr %108, null
-  br i1 %cmp.not.i33.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit36.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i34.i.i.i
+  br i1 %cmp.not.i33.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit36.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i34.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i34.i.i.i: ; preds = %cleanup36.critedge.i.i.i
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i34.i.i.i: ; preds = %cleanup36.critedge.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %108) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit36.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit36.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i34.i.i.i, %cleanup36.critedge.i.i.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit36.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.argprom.exit.i34.i.i.i, %cleanup36.critedge.i.i.i
   store ptr null, ptr %t_ptr.i.i.i, align 8, !noalias !563
   br label %invoke.cont6.i.i
 
@@ -42417,11 +42417,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i14.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_18HasResetEEED2Ev.exit.i.i: ; preds = %if.then.i.i14.i.i, %invoke.cont6.i.i
   %114 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !560
   %tobool.not.i.i16.i.i = icmp eq ptr %114, null
-  br i1 %tobool.not.i.i16.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.exit", label %if.then.i.i17.i.i
+  br i1 %tobool.not.i.i16.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.argprom.exit", label %if.then.i.i17.i.i
 
 if.then.i.i17.i.i:                                ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_18HasResetEEED2Ev.exit.i.i
   %call.i.i18.i.i = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.exit" unwind label %terminate.lpad.i.i19.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.argprom.exit" unwind label %terminate.lpad.i.i19.i.i
 
 terminate.lpad.i.i19.i.i:                         ; preds = %if.then.i.i17.i.i
   %115 = landingpad { ptr, i32 }
@@ -42471,7 +42471,7 @@ terminate.lpad.i.i30.i.i:                         ; preds = %if.then.i.i28.i.i
   call void @__clang_call_terminate(ptr %122) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_18HasResetEEED2Ev.exit.i.i, %if.then.i.i17.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_18HasResetEEED2Ev.exit.i.i, %if.then.i.i17.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i), !noalias !557
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !557
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i), !noalias !557
@@ -42479,7 +42479,7 @@ terminate.lpad.i.i30.i.i:                         ; preds = %if.then.i.i28.i.i
   %tobool.i127 = trunc i8 %123 to i1
   br i1 %tobool.i127, label %if.end72, label %if.else56
 
-if.else56:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.exit"
+if.else56:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57)
           to label %invoke.cont59 unwind label %lpad58
 
@@ -42557,7 +42557,7 @@ _ZN7testing7MessageD2Ev.exit137:                  ; preds = %ehcleanup71, %_ZNKS
   store ptr null, ptr %ref.tmp57, align 8
   br label %common.resume.sink.split
 
-if.end72:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.exit", %_ZN7testing7MessageD2Ev.exit132
+if.end72:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.argprom.exit", %_ZN7testing7MessageD2Ev.exit132
   %message_.i138 = getelementptr inbounds i8, ptr %gtest_ar_44, i64 8
   %132 = load ptr, ptr %message_.i138, align 8
   %cmp.not.i.i139 = icmp eq ptr %132, null
@@ -42828,7 +42828,7 @@ entry:
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %bomb.i.i.i.i)
   store i32 1, ptr %__args.val, align 4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_8HasResetEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_8HasResetEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -42837,7 +42837,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_8HasResetEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_8HasResetEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   ret void
 }
@@ -43582,11 +43582,11 @@ terminate.lpad.i.i9.i.i:                          ; preds = %if.then.i.i7.i.i
 _ZNSt8functionIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEED2Ev.exit.i.i: ; preds = %if.then.i.i7.i.i, %invoke.cont6.i.i
   %33 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !618
   %tobool.not.i.i12.i.i = icmp eq ptr %33, null
-  br i1 %tobool.not.i.i12.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_.exit", label %if.then.i.i13.i.i
+  br i1 %tobool.not.i.i12.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_.argprom.exit", label %if.then.i.i13.i.i
 
 if.then.i.i13.i.i:                                ; preds = %_ZNSt8functionIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEED2Ev.exit.i.i
   %call.i.i14.i.i = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_.exit" unwind label %terminate.lpad.i.i15.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_.argprom.exit" unwind label %terminate.lpad.i.i15.i.i
 
 terminate.lpad.i.i15.i.i:                         ; preds = %if.then.i.i13.i.i
   %34 = landingpad { ptr, i32 }
@@ -43634,7 +43634,7 @@ terminate.lpad.i.i28.i.i:                         ; preds = %if.then.i.i26.i.i
   call void @__clang_call_terminate(ptr %42) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_.exit": ; preds = %_ZNSt8functionIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEED2Ev.exit.i.i, %if.then.i.i13.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEED2Ev.exit.i.i, %if.then.i.i13.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i), !noalias !615
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !615
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i), !noalias !615
@@ -44388,7 +44388,7 @@ entry:
   store i64 %0, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !654, !noalias !651
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_111NonCopyableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !654, !noalias !651
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_111NonCopyableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !654, !noalias !651
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 1)
           to label %invoke.cont7.i.i.i.i unwind label %lpad6.i.i.i.i, !noalias !651
 
 invoke.cont7.i.i.i.i:                             ; preds = %entry
@@ -44482,11 +44482,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i5.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i5.i.i.i, %invoke.cont6.i.i.i
   %18 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !651
   %tobool.not.i.i7.i.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.exit", label %if.then.i.i8.i.i.i
+  br i1 %tobool.not.i.i7.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.argprom.exit", label %if.then.i.i8.i.i.i
 
 if.then.i.i8.i.i.i:                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit.i.i.i
   %call.i.i9.i.i.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.exit" unwind label %terminate.lpad.i.i10.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i
 
 terminate.lpad.i.i10.i.i.i:                       ; preds = %if.then.i.i8.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -44544,7 +44544,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %if.then.i.i19.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit16.i.i.i ], [ %.pn.i.i.i33, %if.then.i.i19.i.i.i40 ], [ %.pn.i.i.i33, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit16.i.i.i38 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit.i.i.i, %if.then.i.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !646
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !646
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !646
@@ -44552,7 +44552,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %tobool.i = trunc i8 %28 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.exit"
+if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
 
@@ -44630,7 +44630,7 @@ _ZN7testing7MessageD2Ev.exit13:                   ; preds = %ehcleanup12, %_ZNKS
   store ptr null, ptr %ref.tmp2, align 8
   br label %common.resume.sink.split
 
-if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.exit", %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.argprom.exit", %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %37 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i14 = icmp eq ptr %37, null
@@ -44687,7 +44687,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store i64 %41, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !668, !noalias !662
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_111NonCopyableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !668, !noalias !662
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_111NonCopyableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !668, !noalias !662
-  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i29, ptr %ref.tmp.i.i.i.i16, i64 2)
+  invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i29, ptr %ref.tmp.i.i.i.i16, i64 2)
           to label %invoke.cont10.i.i.i.i unwind label %lpad9.i.i.i.i, !noalias !662
 
 invoke.cont10.i.i.i.i:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -44803,11 +44803,11 @@ terminate.lpad.i.i.i.i.i48:                       ; preds = %if.then.i.i5.i.i.i4
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit.i.i.i49: ; preds = %if.then.i.i5.i.i.i46, %invoke.cont8.i.i.i
   %60 = load ptr, ptr %_M_manager.i.i.i.i.i20, align 8, !noalias !662
   %tobool.not.i.i7.i.i.i50 = icmp eq ptr %60, null
-  br i1 %tobool.not.i.i7.i.i.i50, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.exit", label %if.then.i.i8.i.i.i51
+  br i1 %tobool.not.i.i7.i.i.i50, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.argprom.exit", label %if.then.i.i8.i.i.i51
 
 if.then.i.i8.i.i.i51:                             ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit.i.i.i49
   %call.i.i9.i.i.i52 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i18, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.exit" unwind label %terminate.lpad.i.i10.i.i.i53
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.argprom.exit" unwind label %terminate.lpad.i.i10.i.i.i53
 
 terminate.lpad.i.i10.i.i.i53:                     ; preds = %if.then.i.i8.i.i.i51
   %61 = landingpad { ptr, i32 }
@@ -44855,7 +44855,7 @@ terminate.lpad.i.i21.i.i.i42:                     ; preds = %if.then.i.i19.i.i.i
   call void @__clang_call_terminate(ptr %69) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit.i.i.i49, %if.then.i.i8.i.i.i51
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_111NonCopyableEEED2Ev.exit.i.i.i49, %if.then.i.i8.i.i.i51
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i17), !noalias !657
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i18), !noalias !657
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i19), !noalias !657
@@ -44863,7 +44863,7 @@ terminate.lpad.i.i21.i.i.i42:                     ; preds = %if.then.i.i19.i.i.i
   %tobool.i54 = trunc i8 %70 to i1
   br i1 %tobool.i54, label %if.end34, label %if.else18
 
-if.else18:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.exit"
+if.else18:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19)
           to label %invoke.cont21 unwind label %lpad20
 
@@ -44941,7 +44941,7 @@ _ZN7testing7MessageD2Ev.exit64:                   ; preds = %ehcleanup33, %_ZNKS
   store ptr null, ptr %ref.tmp19, align 8
   br label %common.resume.sink.split
 
-if.end34:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.exit", %_ZN7testing7MessageD2Ev.exit59
+if.end34:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.argprom.exit", %_ZN7testing7MessageD2Ev.exit59
   %message_.i65 = getelementptr inbounds i8, ptr %gtest_ar_14, i64 8
   %79 = load ptr, ptr %message_.i65, align 8
   %cmp.not.i.i66 = icmp eq ptr %79, null
@@ -45161,13 +45161,13 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
 invoke.cont29:                                    ; preds = %cleanup
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i: ; preds = %invoke.cont29
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i: ; preds = %invoke.cont29
   call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i
   store ptr null, ptr %t_ptr, align 8
   br i1 %tobool.i, label %return, label %for.cond4
 
@@ -45190,26 +45190,26 @@ ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, 
   %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
-  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i30
+  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i30
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i30: ; preds = %ehcleanup34
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i30: ; preds = %ehcleanup34
   call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i30
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i30
   store ptr null, ptr %t_ptr, align 8
   br label %ehcleanup39
 
 cleanup36.critedge:                               ; preds = %invoke.cont9
   %23 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i33 = icmp eq ptr %23, null
-  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i34
+  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i34
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i34: ; preds = %cleanup36.critedge
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i34: ; preds = %cleanup36.critedge
   call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit36
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i34
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.argprom.exit.i34
   store ptr null, ptr %t_ptr, align 8
   br label %return
 
@@ -45363,7 +45363,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %bomb.i.i.i.i)
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_11NonCopyableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_11NonCopyableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -45372,7 +45372,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_11NonCopyableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_11NonCopyableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   ret void
 }
@@ -45398,7 +45398,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.539", ptr %__l.coerce0, i64 %__l.coerce1
@@ -45491,13 +45491,13 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i
 lpad.body:                                        ; preds = %lpad2.i.i.i.i.i
   %this.val.pre = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %this.val.pre, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EED2Ev.exit, label %if.then.i.i6
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EED2Ev.argprom.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.pre) #25
-  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EED2Ev.exit: ; preds = %lpad.body, %if.then.i.i6
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EED2Ev.argprom.exit: ; preds = %lpad.body, %if.then.i.i6
   resume { ptr, i32 } %9
 }
 
@@ -45582,13 +45582,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !703
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #28, !noalias !703
   unreachable
 
-_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit: ; preds = %entry
+_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !noalias !703
   call void %1(ptr nonnull sret(%"class.std::unique_ptr.528") align 8 %ref.tmp2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call.val), !noalias !706
@@ -45714,7 +45714,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.i.i.i, i8 0, i64 16, i1 false), !noalias !715
   store ptr @"_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEENS1_4$_12EE9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i3.i.i.i, align 8, !noalias !715
   store ptr @"_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEENS1_4$_12EE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i2.i.i.i, align 8, !noalias !715
-  invoke fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %contracts_.i.i)
+  invoke fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_.argprom"(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %contracts_.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !715
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -45920,7 +45920,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.i.i, i8 0, i64 16, i1 false), !noalias !721
   store ptr @"_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEZNS1_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i3.i.i, align 8, !noalias !721
   store ptr @"_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEZNS1_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i2.i.i, align 8, !noalias !721
-  invoke fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %contracts_.i.i)
+  invoke fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_.argprom"(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %contracts_.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !721
 
 invoke.cont.i.i:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -45947,11 +45947,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %invoke.cont8.i.i
   %28 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !721
   %tobool.not.i.i6.i.i = icmp eq ptr %28, null
-  br i1 %tobool.not.i.i6.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.exit", label %if.then.i.i7.i.i
+  br i1 %tobool.not.i.i6.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.argprom.exit", label %if.then.i.i7.i.i
 
 if.then.i.i7.i.i:                                 ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEED2Ev.exit.i.i
   %call.i.i8.i.i = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.exit" unwind label %terminate.lpad.i.i9.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.argprom.exit" unwind label %terminate.lpad.i.i9.i.i
 
 terminate.lpad.i.i9.i.i:                          ; preds = %if.then.i.i7.i.i
   %29 = landingpad { ptr, i32 }
@@ -46004,14 +46004,14 @@ terminate.lpad.i.i20.i.i:                         ; preds = %if.then.i.i18.i.i
   call void @__clang_call_terminate(ptr %38) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEED2Ev.exit.i.i, %if.then.i.i7.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEED2Ev.exit.i.i, %if.then.i.i7.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i), !noalias !718
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !718
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i), !noalias !718
   invoke void @_ZNK7testing15AssertionResultntEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar_15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16)
           to label %invoke.cont19 unwind label %lpad18
 
-invoke.cont19:                                    ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.exit"
+invoke.cont19:                                    ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.argprom.exit"
   %message_.i18 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %39 = load ptr, ptr %message_.i18, align 8
   %cmp.not.i.i19 = icmp eq ptr %39, null
@@ -46028,7 +46028,7 @@ _ZN7testing15AssertionResultD2Ev.exit21:          ; preds = %invoke.cont19, %_ZN
   %tobool.i22 = trunc i8 %40 to i1
   br i1 %tobool.i22, label %if.end39, label %if.else23
 
-lpad18:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.exit"
+lpad18:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.argprom.exit"
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
@@ -46127,7 +46127,7 @@ _ZN7testing15AssertionResultD2Ev.exit36:          ; preds = %if.end39, %_ZNKSt14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %contracts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_.argprom"(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %contracts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [2 x %"class.std::function.581"], align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -46627,13 +46627,13 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
 invoke.cont29:                                    ; preds = %cleanup
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i: ; preds = %invoke.cont29
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i: ; preds = %invoke.cont29
   call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i
   store ptr null, ptr %t_ptr, align 8
   br i1 %tobool.i, label %return, label %for.cond4
 
@@ -46656,26 +46656,26 @@ ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, 
   %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
-  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i30
+  br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i30
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i30: ; preds = %ehcleanup34
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i30: ; preds = %ehcleanup34
   call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i30
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i30
   store ptr null, ptr %t_ptr, align 8
   br label %ehcleanup39
 
 cleanup36.critedge:                               ; preds = %invoke.cont9
   %23 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i33 = icmp eq ptr %23, null
-  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i34
+  br i1 %cmp.not.i33, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit36, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i34
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i34: ; preds = %cleanup36.critedge
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i34: ; preds = %cleanup36.critedge
   call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit36
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i34
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit36: ; preds = %cleanup36.critedge, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.argprom.exit.i34
   store ptr null, ptr %t_ptr, align 8
   br label %return
 
@@ -46836,7 +46836,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %bomb.i.i.i.i)
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_21NonEqualityComparableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_21NonEqualityComparableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -46845,7 +46845,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   call void @__clang_call_terminate(ptr %1) #27
   unreachable
 
-"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_21NonEqualityComparableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_21NonEqualityComparableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   ret void
 }
@@ -46991,7 +46991,7 @@ entry:
   %dec.i.i.i.i = add nsw i32 %1, -1
   store i32 %dec.i.i.i.i, ptr %__args.val, align 4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %bomb.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRZN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_1JPNS1_21NonEqualityComparableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_1JPNS1_21NonEqualityComparableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -47000,7 +47000,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   call void @__clang_call_terminate(ptr %3) #27
   unreachable
 
-"_ZSt10__invoke_rIvRZN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_1JPNS1_21NonEqualityComparableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_1JPNS1_21NonEqualityComparableEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bomb.i.i.i.i)
   ret void
 }
@@ -47353,13 +47353,13 @@ cleanup.i.i.i.i:                                  ; preds = %invoke.cont27.i.i.i
 invoke.cont29.i.i.i.i:                            ; preds = %cleanup.i.i.i.i
   %18 = load ptr, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
   %cmp.not.i.i.i.i.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i.i.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i.i.i.i.i: ; preds = %invoke.cont29.i.i.i.i
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i.i.i.i.i: ; preds = %invoke.cont29.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i.i.i.i.i, %invoke.cont29.i.i.i.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i.i.i.i.i, %invoke.cont29.i.i.i.i
   store ptr null, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
   br i1 %tobool.i.i.i.i.i, label %invoke.cont6.i.i.i, label %for.cond4.i.i.i.i
 
@@ -47382,26 +47382,26 @@ ehcleanup34.i.i.i.i:                              ; preds = %lpad8.i.i.i.i, %ehc
   %ehselector.slot.1.i.i.i.i = phi i32 [ %21, %lpad28.i.i.i.i ], [ %ehselector.slot.2.i.i.i.i, %ehcleanup.i.i.i.i ], [ %9, %lpad8.i.i.i.i ]
   %22 = load ptr, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
   %cmp.not.i29.i.i.i.i = icmp eq ptr %22, null
-  br i1 %cmp.not.i29.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i30.i.i.i.i
+  br i1 %cmp.not.i29.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i30.i.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i30.i.i.i.i: ; preds = %ehcleanup34.i.i.i.i
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i30.i.i.i.i: ; preds = %ehcleanup34.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i30.i.i.i.i, %ehcleanup34.i.i.i.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i30.i.i.i.i, %ehcleanup34.i.i.i.i
   store ptr null, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
   br label %ehcleanup.i.i.i
 
 cleanup36.critedge.i.i.i.i:                       ; preds = %invoke.cont9.i.i.i.i
   %23 = load ptr, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
   %cmp.not.i33.i.i.i.i = icmp eq ptr %23, null
-  br i1 %cmp.not.i33.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit36.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i34.i.i.i.i
+  br i1 %cmp.not.i33.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit36.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i34.i.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i34.i.i.i.i: ; preds = %cleanup36.critedge.i.i.i.i
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i34.i.i.i.i: ; preds = %cleanup36.critedge.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit36.i.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit36.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i34.i.i.i.i, %cleanup36.critedge.i.i.i.i
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit36.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.argprom.exit.i34.i.i.i.i, %cleanup36.critedge.i.i.i.i
   store ptr null, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
   br label %invoke.cont6.i.i.i
 
@@ -47446,11 +47446,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i14.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i14.i.i.i, %invoke.cont6.i.i.i
   %29 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !766
   %tobool.not.i.i16.i.i.i = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i16.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.exit", label %if.then.i.i17.i.i.i
+  br i1 %tobool.not.i.i16.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.argprom.exit", label %if.then.i.i17.i.i.i
 
 if.then.i.i17.i.i.i:                              ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEED2Ev.exit.i.i.i
   %call.i.i18.i.i.i = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.exit" unwind label %terminate.lpad.i.i19.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.argprom.exit" unwind label %terminate.lpad.i.i19.i.i.i
 
 terminate.lpad.i.i19.i.i.i:                       ; preds = %if.then.i.i17.i.i.i
   %30 = landingpad { ptr, i32 }
@@ -47510,7 +47510,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn126.i.i.i, %if.then.i.i28.i.i.i ], [ %.pn126.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEED2Ev.exit25.i.i.i ], [ %.pn.i.i.i, %if.then.i.i32.i.i.i ], [ %.pn.i.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEED2Ev.exit29.i.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEED2Ev.exit.i.i.i, %if.then.i.i17.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEED2Ev.exit.i.i.i, %if.then.i.i17.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i), !noalias !761
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !761
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !761
@@ -47518,7 +47518,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %tobool.i = trunc i8 %38 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.exit"
+if.else:                                          ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
           to label %invoke.cont unwind label %lpad
 
@@ -47596,7 +47596,7 @@ _ZN7testing7MessageD2Ev.exit19:                   ; preds = %ehcleanup15, %_ZNKS
   store ptr null, ptr %ref.tmp5, align 8
   br label %common.resume.sink.split
 
-if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.exit", %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.argprom.exit", %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %47 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i20 = icmp eq ptr %47, null
@@ -48136,13 +48136,13 @@ cleanup.i.i.i.i109:                               ; preds = %invoke.cont27.i.i.i
 invoke.cont29.i.i.i.i111:                         ; preds = %cleanup.i.i.i.i109
   %105 = load ptr, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
   %cmp.not.i.i.i.i.i112 = icmp eq ptr %105, null
-  br i1 %cmp.not.i.i.i.i.i112, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i112, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i.i.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i.i.i.i.i: ; preds = %invoke.cont29.i.i.i.i111
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i.i.i.i.i: ; preds = %invoke.cont29.i.i.i.i111
   call void @_ZdlPv(ptr noundef nonnull %105) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit.i.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i.i.i.i.i, %invoke.cont29.i.i.i.i111
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i.i.i.i.i, %invoke.cont29.i.i.i.i111
   store ptr null, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
   br i1 %tobool.i.i.i.i.i108, label %invoke.cont8.i.i.i, label %for.cond4.i.i.i.i113
 
@@ -48165,26 +48165,26 @@ ehcleanup34.i.i.i.i93:                            ; preds = %lpad8.i.i.i.i91, %e
   %ehselector.slot.1.i.i.i.i95 = phi i32 [ %108, %lpad28.i.i.i.i110 ], [ %ehselector.slot.2.i.i.i.i102, %ehcleanup.i13.i.i.i ], [ %96, %lpad8.i.i.i.i91 ]
   %109 = load ptr, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
   %cmp.not.i29.i.i.i.i96 = icmp eq ptr %109, null
-  br i1 %cmp.not.i29.i.i.i.i96, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i30.i.i.i.i
+  br i1 %cmp.not.i29.i.i.i.i96, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i30.i.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i30.i.i.i.i: ; preds = %ehcleanup34.i.i.i.i93
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i30.i.i.i.i: ; preds = %ehcleanup34.i.i.i.i93
   call void @_ZdlPv(ptr noundef nonnull %109) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i30.i.i.i.i, %ehcleanup34.i.i.i.i93
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i30.i.i.i.i, %ehcleanup34.i.i.i.i93
   store ptr null, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
   br label %ehcleanup39.i.i.i.i
 
 cleanup36.critedge.i.i.i.i137:                    ; preds = %invoke.cont9.i.i.i.i136
   %110 = load ptr, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
   %cmp.not.i33.i.i.i.i138 = icmp eq ptr %110, null
-  br i1 %cmp.not.i33.i.i.i.i138, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit36.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i34.i.i.i.i
+  br i1 %cmp.not.i33.i.i.i.i138, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit36.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i34.i.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i34.i.i.i.i: ; preds = %cleanup36.critedge.i.i.i.i137
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i34.i.i.i.i: ; preds = %cleanup36.critedge.i.i.i.i137
   call void @_ZdlPv(ptr noundef nonnull %110) #25
   br label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit36.i.i.i.i
 
-_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit36.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i34.i.i.i.i, %cleanup36.critedge.i.i.i.i137
+_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit36.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i34.i.i.i.i, %cleanup36.critedge.i.i.i.i137
   store ptr null, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
   br label %invoke.cont8.i.i.i
 
@@ -48236,11 +48236,11 @@ terminate.lpad.i.i.i.i.i120:                      ; preds = %if.then.i.i18.i.i.i
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i18.i.i.i, %invoke.cont8.i.i.i
   %116 = load ptr, ptr %_M_manager.i.i.i.i.i47, align 8, !noalias !790
   %tobool.not.i.i20.i.i.i = icmp eq ptr %116, null
-  br i1 %tobool.not.i.i20.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.exit", label %if.then.i.i21.i.i.i
+  br i1 %tobool.not.i.i20.i.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.argprom.exit", label %if.then.i.i21.i.i.i
 
 if.then.i.i21.i.i.i:                              ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEED2Ev.exit.i.i.i
   %call.i.i22.i.i.i = invoke noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i45, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i45, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.exit" unwind label %terminate.lpad.i.i23.i.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.argprom.exit" unwind label %terminate.lpad.i.i23.i.i.i
 
 terminate.lpad.i.i23.i.i.i:                       ; preds = %if.then.i.i21.i.i.i
   %117 = landingpad { ptr, i32 }
@@ -48282,7 +48282,7 @@ terminate.lpad.i.i34.i.i.i:                       ; preds = %if.then.i.i32.i.i.i
   call void @__clang_call_terminate(ptr %124) #27
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEED2Ev.exit.i.i.i, %if.then.i.i21.i.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.argprom.exit": ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEED2Ev.exit.i.i.i, %if.then.i.i21.i.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i.i44), !noalias !785
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i45), !noalias !785
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i46), !noalias !785
@@ -48290,7 +48290,7 @@ terminate.lpad.i.i34.i.i.i:                       ; preds = %if.then.i.i32.i.i.i
   %tobool.i144 = trunc i8 %125 to i1
   br i1 %tobool.i144, label %if.end57, label %if.else41
 
-if.else41:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.exit"
+if.else41:                                        ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp42)
           to label %invoke.cont44 unwind label %lpad43
 
@@ -48368,7 +48368,7 @@ _ZN7testing7MessageD2Ev.exit154:                  ; preds = %ehcleanup56, %_ZNKS
   store ptr null, ptr %ref.tmp42, align 8
   br label %common.resume.sink.split
 
-if.end57:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.exit", %_ZN7testing7MessageD2Ev.exit149
+if.end57:                                         ; preds = %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.argprom.exit", %_ZN7testing7MessageD2Ev.exit149
   %message_.i155 = getelementptr inbounds i8, ptr %gtest_ar_35, i64 8
   %134 = load ptr, ptr %message_.i155, align 8
   %cmp.not.i.i156 = icmp eq ptr %134, null
@@ -48929,7 +48929,7 @@ terminate.lpad.i.i2.i.i.i.i:                      ; preds = %_ZN7testing13Throwi
 
 _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3.i.i.i.i: ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit.i.i.i.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %b1.i.i.i.i)
-          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_20ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit" unwind label %terminate.lpad.i.i4.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_20ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit" unwind label %terminate.lpad.i.i4.i.i.i.i
 
 terminate.lpad.i.i4.i.i.i.i:                      ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3.i.i.i.i
   %12 = landingpad { ptr, i32 }
@@ -48971,7 +48971,7 @@ terminate.lpad.i.i8.i.i.i.i:                      ; preds = %ehcleanup.i.i.i.i
 _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9.i.i.i.i: ; preds = %ehcleanup.i.i.i.i
   resume { ptr, i32 } %.pn.i.i.i.i
 
-"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_20ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3.i.i.i.i
+"_ZSt10__invoke_rIvRN7testing12_GLOBAL__N_14$_12EJPNS1_20ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b1.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b2.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b3.i.i.i.i)
@@ -49058,13 +49058,13 @@ _ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS
   store ptr null, ptr %message_.i.i.i.i, align 8, !alias.scope !873
   %2 = load ptr, ptr %ref.tmp2.i.i.i, align 8, !noalias !873
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i.i.i.i: ; preds = %_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EEvEEclEv.exit.i.i.i
+_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i.i.i.i: ; preds = %_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EEvEEclEv.exit.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !873
-  br label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
+  br label %_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit
 
-_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EEvEEclEv.exit.i.i.i, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i.i.i.i
+_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit: ; preds = %_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EEvEEclEv.exit.i.i.i, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.argprom.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i), !noalias !869
   ret void
 }
@@ -55001,23 +55001,23 @@ attributes #29 = { allocsize(0) }
 !46 = !{!47, !49}
 !47 = distinct !{!47, !48, !"_ZSt11make_uniqueIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !48 = distinct !{!48, !"_ZSt11make_uniqueIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!49 = distinct !{!49, !50, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_0clEv: %agg.result"}
-!50 = distinct !{!50, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_0clEv"}
+!49 = distinct !{!49, !50, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_0clEv.argprom: %agg.result"}
+!50 = distinct !{!50, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_0clEv.argprom"}
 !51 = !{!52, !54}
 !52 = distinct !{!52, !53, !"_ZSt11make_uniqueIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !53 = distinct !{!53, !"_ZSt11make_uniqueIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!54 = distinct !{!54, !55, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_0clEv: %agg.result"}
-!55 = distinct !{!55, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_0clEv"}
+!54 = distinct !{!54, !55, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_0clEv.argprom: %agg.result"}
+!55 = distinct !{!55, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_0clEv.argprom"}
 !56 = !{!57, !59}
 !57 = distinct !{!57, !58, !"_ZSt11make_uniqueIA_N7testing13ThrowingValueILNS0_8TypeSpecE0EEEENSt8__detail9_MakeUniqIT_E7__arrayEm: %agg.result"}
 !58 = distinct !{!58, !"_ZSt11make_uniqueIA_N7testing13ThrowingValueILNS0_8TypeSpecE0EEEENSt8__detail9_MakeUniqIT_E7__arrayEm"}
-!59 = distinct !{!59, !60, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_1clEv: %agg.result"}
-!60 = distinct !{!60, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_1clEv"}
+!59 = distinct !{!59, !60, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_1clEv.argprom: %agg.result"}
+!60 = distinct !{!60, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_1clEv.argprom"}
 !61 = !{!62, !64}
 !62 = distinct !{!62, !63, !"_ZSt11make_uniqueIA_N7testing13ThrowingValueILNS0_8TypeSpecE0EEEENSt8__detail9_MakeUniqIT_E7__arrayEm: %agg.result"}
 !63 = distinct !{!63, !"_ZSt11make_uniqueIA_N7testing13ThrowingValueILNS0_8TypeSpecE0EEEENSt8__detail9_MakeUniqIT_E7__arrayEm"}
-!64 = distinct !{!64, !65, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_1clEv: %agg.result"}
-!65 = distinct !{!65, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_1clEv"}
+!64 = distinct !{!64, !65, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_1clEv.argprom: %agg.result"}
+!65 = distinct !{!65, !"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_ThrowingAllocatingOps_Test8TestBodyEvENK3$_1clEv.argprom"}
 !66 = !{!67}
 !67 = distinct !{!67, !68, !"_ZN4absl6StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_S9_S9_S9_DpRKT_: %agg.result"}
 !68 = distinct !{!68, !"_ZN4absl6StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_S9_S9_S9_DpRKT_"}
@@ -55156,45 +55156,45 @@ attributes #29 = { allocsize(0) }
 !201 = distinct !{!201, !"_ZN4absl10SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS_19substitute_internal3ArgES7_"}
 !202 = distinct !{!202, !12}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJEE13WithContractsIJFNS_15AssertionResultESA_EEEENS1_IS9_SC_JDpNSt5decayIT_E4typeEEEEDpRKSI_: %agg.result"}
-!205 = distinct !{!205, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJEE13WithContractsIJFNS_15AssertionResultESA_EEEENS1_IS9_SC_JDpNSt5decayIT_E4typeEEEEDpRKSI_"}
+!204 = distinct !{!204, !205, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJEE13WithContractsIJFNS_15AssertionResultESA_EEEENS1_IS9_SC_JDpNSt5decayIT_E4typeEEEEDpRKSI_.argprom: %agg.result"}
+!205 = distinct !{!205, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJEE13WithContractsIJFNS_15AssertionResultESA_EEEENS1_IS9_SC_JDpNSt5decayIT_E4typeEEEEDpRKSI_.argprom"}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJEE13WithContractsIJPFNS_15AssertionResultESA_EEEENS1_IS9_SC_JDpNSt5decayIT_E4typeEEEEDpRKSJ_: %agg.result"}
-!208 = distinct !{!208, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJEE13WithContractsIJPFNS_15AssertionResultESA_EEEENS1_IS9_SC_JDpNSt5decayIT_E4typeEEEEDpRKSJ_"}
+!207 = distinct !{!207, !208, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJEE13WithContractsIJPFNS_15AssertionResultESA_EEEENS1_IS9_SC_JDpNSt5decayIT_E4typeEEEEDpRKSJ_.argprom: %agg.result"}
+!208 = distinct !{!208, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJEE13WithContractsIJPFNS_15AssertionResultESA_EEEENS1_IS9_SC_JDpNSt5decayIT_E4typeEEEEDpRKSJ_.argprom"}
 !209 = !{!210, !212}
-!210 = distinct !{!210, !211, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultERKT_: %agg.result"}
-!211 = distinct !{!211, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultERKT_"}
-!212 = distinct !{!212, !213, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv: %agg.result"}
-!213 = distinct !{!213, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv"}
+!210 = distinct !{!210, !211, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultERKT_.argprom: %agg.result"}
+!211 = distinct !{!211, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultERKT_.argprom"}
+!212 = distinct !{!212, !213, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.argprom: %agg.result"}
+!213 = distinct !{!213, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE4TestIS4_vEENS_15AssertionResultEv.argprom"}
 !214 = !{!215, !210, !212}
-!215 = distinct !{!215, !216, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE8TestImplIS4_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!216 = distinct !{!216, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE8TestImplIS4_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE"}
+!215 = distinct !{!215, !216, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE8TestImplIS4_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!216 = distinct !{!216, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_13$_1ENS2_3$_2EJNS2_3$_3EEE8TestImplIS4_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE.argprom"}
 !217 = !{!218}
-!218 = distinct !{!218, !219, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractINS2_3$_3EEESt8functionIFNS_15AssertionResultEPS3_EERKT_: %agg.result"}
-!219 = distinct !{!219, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractINS2_3$_3EEESt8functionIFNS_15AssertionResultEPS3_EERKT_"}
+!218 = distinct !{!218, !219, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractINS2_3$_3EEESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom: %agg.result"}
+!219 = distinct !{!219, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractINS2_3$_3EEESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom"}
 !220 = !{!221, !223}
-!221 = distinct !{!221, !222, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultERKT_: %agg.result"}
-!222 = distinct !{!222, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultERKT_"}
-!223 = distinct !{!223, !224, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv: %agg.result"}
-!224 = distinct !{!224, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv"}
+!221 = distinct !{!221, !222, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultERKT_.argprom: %agg.result"}
+!222 = distinct !{!222, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultERKT_.argprom"}
+!223 = distinct !{!223, !224, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.argprom: %agg.result"}
+!224 = distinct !{!224, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE4TestIS4_vEENS_15AssertionResultEv.argprom"}
 !225 = !{!226, !221, !223}
-!226 = distinct !{!226, !227, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE8TestImplIS4_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!227 = distinct !{!227, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE8TestImplIS4_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE"}
+!226 = distinct !{!226, !227, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE8TestImplIS4_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!227 = distinct !{!227, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS_12_GLOBAL__N_14$_88ENS2_4$_89EJNS2_3$_4EEE8TestImplIS4_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE.argprom"}
 !228 = !{!229}
-!229 = distinct !{!229, !230, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractINS2_3$_4EEESt8functionIFNS_15AssertionResultEPS3_EERKT_: %agg.result"}
-!230 = distinct !{!230, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractINS2_3$_4EEESt8functionIFNS_15AssertionResultEPS3_EERKT_"}
+!229 = distinct !{!229, !230, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractINS2_3$_4EEESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom: %agg.result"}
+!230 = distinct !{!230, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractINS2_3$_4EEESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom"}
 !231 = !{!232}
 !232 = distinct !{!232, !233, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_113ExampleStructEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !233 = distinct !{!233, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_113ExampleStructEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_: %agg.result"}
-!236 = distinct !{!236, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_"}
+!235 = distinct !{!235, !236, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_.argprom: %agg.result"}
+!236 = distinct !{!236, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE4TestISC_vEESD_RKT_.argprom"}
 !237 = !{!238, !235}
 !238 = distinct !{!238, !239, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE8TestImplISC_JLm0EEEESD_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
 !239 = distinct !{!239, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIPFSt10unique_ptrINS_12_GLOBAL__N_113ExampleStructESt14default_deleteIS4_EEvEPFvPS4_EJPFNS_15AssertionResultESA_EEE8TestImplISC_JLm0EEEESD_T_St16integer_sequenceImJXspT0_EEE"}
 !240 = !{!241}
-!241 = distinct !{!241, !242, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractIPFNS_15AssertionResultEPS3_EEESt8functionIS8_ERKT_: %agg.result"}
-!242 = distinct !{!242, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractIPFNS_15AssertionResultEPS3_EEESt8functionIS8_ERKT_"}
+!241 = distinct !{!241, !242, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractIPFNS_15AssertionResultEPS3_EEESt8functionIS8_ERKT_.argprom: %agg.result"}
+!242 = distinct !{!242, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_113ExampleStructEE12WrapContractIPFNS_15AssertionResultEPS3_EEESt8functionIS8_ERKT_.argprom"}
 !243 = !{!244}
 !244 = distinct !{!244, !245, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEclEv: %agg.result"}
 !245 = distinct !{!245, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEclEv"}
@@ -55204,14 +55204,14 @@ attributes #29 = { allocsize(0) }
 !249 = distinct !{!249, !12}
 !250 = distinct !{!250, !12}
 !251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_3$_1EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_: %agg.result"}
-!253 = distinct !{!253, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_3$_1EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_"}
+!252 = distinct !{!252, !253, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_3$_1EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom: %agg.result"}
+!253 = distinct !{!253, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_3$_1EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom"}
 !254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_3$_1EJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!256 = distinct !{!256, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_3$_1EJEET_St14__invoke_otherOT0_DpOT1_"}
+!255 = distinct !{!255, !256, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_3$_1EJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!256 = distinct !{!256, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_3$_1EJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !257 = !{!258}
-!258 = distinct !{!258, !259, !"_ZNK7testing12_GLOBAL__N_13$_1clEv: %agg.result"}
-!259 = distinct !{!259, !"_ZNK7testing12_GLOBAL__N_13$_1clEv"}
+!258 = distinct !{!258, !259, !"_ZNK7testing12_GLOBAL__N_13$_1clEv.argprom: %agg.result"}
+!259 = distinct !{!259, !"_ZNK7testing12_GLOBAL__N_13$_1clEv.argprom"}
 !260 = !{!261}
 !261 = distinct !{!261, !262, !"_ZN7testing12_GLOBAL__N_122ExampleFunctionFactoryEv: %agg.result"}
 !262 = distinct !{!262, !"_ZN7testing12_GLOBAL__N_122ExampleFunctionFactoryEv"}
@@ -55220,14 +55220,14 @@ attributes #29 = { allocsize(0) }
 !265 = distinct !{!265, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_113ExampleStructEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !266 = !{!264, !261, !258, !255, !252}
 !267 = !{!268}
-!268 = distinct !{!268, !269, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_4$_88EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_: %agg.result"}
-!269 = distinct !{!269, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_4$_88EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_"}
+!268 = distinct !{!268, !269, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_4$_88EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom: %agg.result"}
+!269 = distinct !{!269, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_4$_88EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom"}
 !270 = !{!271}
-!271 = distinct !{!271, !272, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_4$_88EJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!272 = distinct !{!272, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_4$_88EJEET_St14__invoke_otherOT0_DpOT1_"}
+!271 = distinct !{!271, !272, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_4$_88EJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!272 = distinct !{!272, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EERNS2_4$_88EJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !273 = !{!274}
-!274 = distinct !{!274, !275, !"_ZNK7testing12_GLOBAL__N_14$_88clEv: %agg.result"}
-!275 = distinct !{!275, !"_ZNK7testing12_GLOBAL__N_14$_88clEv"}
+!274 = distinct !{!274, !275, !"_ZNK7testing12_GLOBAL__N_14$_88clEv.argprom: %agg.result"}
+!275 = distinct !{!275, !"_ZNK7testing12_GLOBAL__N_14$_88clEv.argprom"}
 !276 = !{!277}
 !277 = distinct !{!277, !278, !"_ZN7testing12_GLOBAL__N_122ExampleFunctionFactoryEv: %agg.result"}
 !278 = distinct !{!278, !"_ZN7testing12_GLOBAL__N_122ExampleFunctionFactoryEv"}
@@ -55236,16 +55236,16 @@ attributes #29 = { allocsize(0) }
 !281 = distinct !{!281, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_113ExampleStructEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !282 = !{!280, !277, !274, !271, !268}
 !283 = !{!284, !286}
-!284 = distinct !{!284, !285, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_: %agg.result"}
-!285 = distinct !{!285, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_"}
-!286 = distinct !{!286, !287, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v: %agg.result"}
-!287 = distinct !{!287, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v"}
+!284 = distinct !{!284, !285, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!285 = distinct !{!285, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_.argprom"}
+!286 = distinct !{!286, !287, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom: %agg.result"}
+!287 = distinct !{!287, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom"}
 !288 = !{!289, !284, !286}
-!289 = distinct !{!289, !290, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!290 = distinct !{!290, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!289 = distinct !{!289, !290, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!290 = distinct !{!290, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !291 = !{!292}
-!292 = distinct !{!292, !293, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!293 = distinct !{!293, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!292 = distinct !{!292, !293, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!293 = distinct !{!293, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !294 = !{!295}
 !295 = distinct !{!295, !296, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EEvEEclEv: %agg.result"}
 !296 = distinct !{!296, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EEvEEclEv"}
@@ -55255,30 +55255,30 @@ attributes #29 = { allocsize(0) }
 !300 = distinct !{!300, !12}
 !301 = distinct !{!301, !12}
 !302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!304 = distinct !{!304, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!303 = distinct !{!303, !304, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!304 = distinct !{!304, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !305 = !{!306}
-!306 = distinct !{!306, !307, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!307 = distinct !{!307, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_"}
+!306 = distinct !{!306, !307, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!307 = distinct !{!307, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !308 = !{!309}
-!309 = distinct !{!309, !310, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEclEv: %agg.result"}
-!310 = distinct !{!310, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEclEv"}
+!309 = distinct !{!309, !310, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEclEv.argprom: %agg.result"}
+!310 = distinct !{!310, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEclEv.argprom"}
 !311 = !{!312}
-!312 = distinct !{!312, !313, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!313 = distinct !{!313, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!312 = distinct !{!312, !313, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!313 = distinct !{!313, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !314 = !{!312, !309, !306, !303}
 !315 = distinct !{!315, !12}
 !316 = !{!317, !319}
-!317 = distinct !{!317, !318, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_: %agg.result"}
-!318 = distinct !{!318, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_"}
-!319 = distinct !{!319, !320, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v: %agg.result"}
-!320 = distinct !{!320, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v"}
+!317 = distinct !{!317, !318, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!318 = distinct !{!318, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_.argprom"}
+!319 = distinct !{!319, !320, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom: %agg.result"}
+!320 = distinct !{!320, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom"}
 !321 = !{!322, !317, !319}
-!322 = distinct !{!322, !323, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!323 = distinct !{!323, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!322 = distinct !{!322, !323, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!323 = distinct !{!323, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !324 = !{!325}
-!325 = distinct !{!325, !326, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!326 = distinct !{!326, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!325 = distinct !{!325, !326, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!326 = distinct !{!326, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !327 = !{!328}
 !328 = distinct !{!328, !329, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EEvEEclEv: %agg.result"}
 !329 = distinct !{!329, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EEvEEclEv"}
@@ -55288,100 +55288,100 @@ attributes #29 = { allocsize(0) }
 !333 = distinct !{!333, !12}
 !334 = distinct !{!334, !12}
 !335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!337 = distinct !{!337, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!336 = distinct !{!336, !337, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!337 = distinct !{!337, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !338 = !{!339}
-!339 = distinct !{!339, !340, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!340 = distinct !{!340, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_"}
+!339 = distinct !{!339, !340, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!340 = distinct !{!340, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !341 = !{!342}
-!342 = distinct !{!342, !343, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEclEv: %agg.result"}
-!343 = distinct !{!343, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEclEv"}
+!342 = distinct !{!342, !343, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEclEv.argprom: %agg.result"}
+!343 = distinct !{!343, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEclEv.argprom"}
 !344 = !{!345}
-!345 = distinct !{!345, !346, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!346 = distinct !{!346, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!345 = distinct !{!345, !346, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!346 = distinct !{!346, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !347 = !{!345, !342, !339, !336}
 !348 = distinct !{!348, !12}
 !349 = !{!350, !352}
-!350 = distinct !{!350, !351, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_: %agg.result"}
-!351 = distinct !{!351, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_"}
-!352 = distinct !{!352, !353, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v: %agg.result"}
-!353 = distinct !{!353, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v"}
+!350 = distinct !{!350, !351, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!351 = distinct !{!351, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_.argprom"}
+!352 = distinct !{!352, !353, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom: %agg.result"}
+!353 = distinct !{!353, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom"}
 !354 = !{!355, !350, !352}
-!355 = distinct !{!355, !356, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!356 = distinct !{!356, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!355 = distinct !{!355, !356, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!356 = distinct !{!356, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_119FailsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !357 = !{!358}
-!358 = distinct !{!358, !359, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!359 = distinct !{!359, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!358 = distinct !{!358, !359, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!359 = distinct !{!359, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !360 = !{!361}
 !361 = distinct !{!361, !362, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeE: %agg.result"}
 !362 = distinct !{!362, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeE"}
 !363 = !{!364, !366}
-!364 = distinct !{!364, !365, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_: %agg.result"}
-!365 = distinct !{!365, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_"}
-!366 = distinct !{!366, !367, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v: %agg.result"}
-!367 = distinct !{!367, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v"}
+!364 = distinct !{!364, !365, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!365 = distinct !{!365, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_.argprom"}
+!366 = distinct !{!366, !367, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom: %agg.result"}
+!367 = distinct !{!367, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom"}
 !368 = !{!369, !364, !366}
-!369 = distinct !{!369, !370, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!370 = distinct !{!370, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!369 = distinct !{!369, !370, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!370 = distinct !{!370, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !371 = !{!372}
-!372 = distinct !{!372, !373, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!373 = distinct !{!373, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!372 = distinct !{!372, !373, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!373 = distinct !{!373, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !374 = !{!375}
 !375 = distinct !{!375, !376, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeE: %agg.result"}
 !376 = distinct !{!376, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeE"}
 !377 = !{!378}
-!378 = distinct !{!378, !379, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!379 = distinct !{!379, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!378 = distinct !{!378, !379, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!379 = distinct !{!379, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !380 = !{!381}
-!381 = distinct !{!381, !382, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!382 = distinct !{!382, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_"}
+!381 = distinct !{!381, !382, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!382 = distinct !{!382, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !383 = !{!384}
-!384 = distinct !{!384, !385, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_: %agg.result"}
-!385 = distinct !{!385, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_"}
+!384 = distinct !{!384, !385, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_.argprom: %agg.result"}
+!385 = distinct !{!385, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_119FailsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_.argprom"}
 !386 = !{!381, !378}
 !387 = !{!388, !384, !381, !378}
 !388 = distinct !{!388, !389, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EEvEEclEv: %agg.result"}
 !389 = distinct !{!389, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EEvEEclEv"}
 !390 = !{!384, !381, !378}
 !391 = !{!392}
-!392 = distinct !{!392, !393, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!393 = distinct !{!393, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!392 = distinct !{!392, !393, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!393 = distinct !{!393, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !394 = !{!395}
-!395 = distinct !{!395, !396, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!396 = distinct !{!396, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_"}
+!395 = distinct !{!395, !396, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!396 = distinct !{!396, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !397 = !{!398}
-!398 = distinct !{!398, !399, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_: %agg.result"}
-!399 = distinct !{!399, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_"}
+!398 = distinct !{!398, !399, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_.argprom: %agg.result"}
+!399 = distinct !{!399, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_.argprom"}
 !400 = !{!395, !392}
 !401 = !{!402, !398, !395, !392}
 !402 = distinct !{!402, !403, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EEvEEclEv: %agg.result"}
 !403 = distinct !{!403, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EEvEEclEv"}
 !404 = !{!398, !395, !392}
 !405 = !{!406, !408}
-!406 = distinct !{!406, !407, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_: %agg.result"}
-!407 = distinct !{!407, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_"}
-!408 = distinct !{!408, !409, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v: %agg.result"}
-!409 = distinct !{!409, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v"}
+!406 = distinct !{!406, !407, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!407 = distinct !{!407, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_.argprom"}
+!408 = distinct !{!408, !409, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom: %agg.result"}
+!409 = distinct !{!409, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom"}
 !410 = !{!411, !406, !408}
-!411 = distinct !{!411, !412, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!412 = distinct !{!412, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!411 = distinct !{!411, !412, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!412 = distinct !{!412, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !413 = !{!414}
-!414 = distinct !{!414, !415, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!415 = distinct !{!415, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!414 = distinct !{!414, !415, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!415 = distinct !{!415, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !416 = !{!417, !419}
-!417 = distinct !{!417, !418, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_RKT_: %agg.result"}
-!418 = distinct !{!418, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_RKT_"}
-!419 = distinct !{!419, !420, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v: %agg.result"}
-!420 = distinct !{!420, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v"}
+!417 = distinct !{!417, !418, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!418 = distinct !{!418, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_RKT_.argprom"}
+!419 = distinct !{!419, !420, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.argprom: %agg.result"}
+!420 = distinct !{!420, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v.argprom"}
 !421 = !{!422, !417, !419}
-!422 = distinct !{!422, !423, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!423 = distinct !{!423, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!422 = distinct !{!422, !423, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!423 = distinct !{!423, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !424 = !{!425}
-!425 = distinct !{!425, !426, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!426 = distinct !{!426, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!425 = distinct !{!425, !426, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!426 = distinct !{!426, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !427 = !{!428}
-!428 = distinct !{!428, !429, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_: %agg.result"}
-!429 = distinct !{!429, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_"}
+!428 = distinct !{!428, !429, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom: %agg.result"}
+!429 = distinct !{!429, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom"}
 !430 = !{!431}
 !431 = distinct !{!431, !432, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EEvEEclEv: %agg.result"}
 !432 = distinct !{!432, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EEvEEclEv"}
@@ -55391,51 +55391,51 @@ attributes #29 = { allocsize(0) }
 !436 = distinct !{!436, !12}
 !437 = distinct !{!437, !12}
 !438 = !{!439}
-!439 = distinct !{!439, !440, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!440 = distinct !{!440, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!439 = distinct !{!439, !440, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!440 = distinct !{!440, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !441 = !{!442}
-!442 = distinct !{!442, !443, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!443 = distinct !{!443, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_"}
+!442 = distinct !{!442, !443, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!443 = distinct !{!443, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !444 = !{!445}
-!445 = distinct !{!445, !446, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEv: %agg.result"}
-!446 = distinct !{!446, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEv"}
+!445 = distinct !{!445, !446, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEv.argprom: %agg.result"}
+!446 = distinct !{!446, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEv.argprom"}
 !447 = !{!448}
-!448 = distinct !{!448, !449, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!449 = distinct !{!449, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!448 = distinct !{!448, !449, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!449 = distinct !{!449, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !450 = !{!448, !445, !442, !439}
 !451 = distinct !{!451, !12}
 !452 = !{!453, !455, !457}
-!453 = distinct !{!453, !454, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_: %agg.result"}
-!454 = distinct !{!454, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_"}
-!455 = distinct !{!455, !456, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!456 = distinct !{!456, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_"}
-!457 = distinct !{!457, !458, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_: %agg.result"}
-!458 = distinct !{!458, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_"}
+!453 = distinct !{!453, !454, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom: %agg.result"}
+!454 = distinct !{!454, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom"}
+!455 = distinct !{!455, !456, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!456 = distinct !{!456, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom"}
+!457 = distinct !{!457, !458, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom: %agg.result"}
+!458 = distinct !{!458, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEE12WrapContractIZNS4_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom"}
 !459 = !{!460, !453, !455, !457}
-!460 = distinct !{!460, !461, !"_ZZN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvENK3$_0clEPNS0_32BasicGuaranteeWithExtraContractsE: %agg.result"}
-!461 = distinct !{!461, !"_ZZN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvENK3$_0clEPNS0_32BasicGuaranteeWithExtraContractsE"}
+!460 = distinct !{!460, !461, !"_ZZN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvENK3$_0clEPNS0_32BasicGuaranteeWithExtraContractsE.argprom: %agg.result"}
+!461 = distinct !{!461, !"_ZZN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvENK3$_0clEPNS0_32BasicGuaranteeWithExtraContractsE.argprom"}
 !462 = !{!463, !465}
-!463 = distinct !{!463, !464, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_: %agg.result"}
-!464 = distinct !{!464, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_"}
-!465 = distinct !{!465, !466, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v: %agg.result"}
-!466 = distinct !{!466, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v"}
+!463 = distinct !{!463, !464, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!464 = distinct !{!464, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_RKT_.argprom"}
+!465 = distinct !{!465, !466, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom: %agg.result"}
+!466 = distinct !{!466, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE4TestIS6_vEES7_v.argprom"}
 !467 = !{!468, !463, !465}
-!468 = distinct !{!468, !469, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!469 = distinct !{!469, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!468 = distinct !{!468, !469, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!469 = distinct !{!469, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE8TestImplIS6_JLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !470 = !{!471}
-!471 = distinct !{!471, !472, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!472 = distinct !{!472, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!471 = distinct !{!471, !472, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!472 = distinct !{!472, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !473 = !{!474, !476}
-!474 = distinct !{!474, !475, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_: %agg.result"}
-!475 = distinct !{!475, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_"}
-!476 = distinct !{!476, !477, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v: %agg.result"}
-!477 = distinct !{!477, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v"}
+!474 = distinct !{!474, !475, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!475 = distinct !{!475, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_RKT_.argprom"}
+!476 = distinct !{!476, !477, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom: %agg.result"}
+!477 = distinct !{!477, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS6_vEES7_v.argprom"}
 !478 = !{!479, !474, !476}
-!479 = distinct !{!479, !480, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!480 = distinct !{!480, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!479 = distinct !{!479, !480, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!480 = distinct !{!480, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !481 = !{!482}
-!482 = distinct !{!482, !483, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!483 = distinct !{!483, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!482 = distinct !{!482, !483, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!483 = distinct !{!483, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !484 = !{!485}
 !485 = distinct !{!485, !486, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeE: %agg.result"}
 !486 = distinct !{!486, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeE"}
@@ -55448,73 +55448,73 @@ attributes #29 = { allocsize(0) }
 !493 = distinct !{!493, !12}
 !494 = distinct !{!494, !12}
 !495 = !{!496}
-!496 = distinct !{!496, !497, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!497 = distinct !{!497, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!496 = distinct !{!496, !497, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!497 = distinct !{!497, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !498 = !{!499}
-!499 = distinct !{!499, !500, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!500 = distinct !{!500, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_"}
+!499 = distinct !{!499, !500, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!500 = distinct !{!500, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !501 = !{!502}
-!502 = distinct !{!502, !503, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEclEv: %agg.result"}
-!503 = distinct !{!503, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEclEv"}
+!502 = distinct !{!502, !503, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEclEv.argprom: %agg.result"}
+!503 = distinct !{!503, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEclEv.argprom"}
 !504 = !{!505}
-!505 = distinct !{!505, !506, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!506 = distinct !{!506, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!505 = distinct !{!505, !506, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!506 = distinct !{!506, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !507 = !{!505, !502, !499, !496}
 !508 = distinct !{!508, !12}
 !509 = !{!510}
-!510 = distinct !{!510, !511, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!511 = distinct !{!511, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!510 = distinct !{!510, !511, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!511 = distinct !{!511, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !512 = !{!513}
-!513 = distinct !{!513, !514, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!514 = distinct !{!514, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_"}
+!513 = distinct !{!513, !514, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!514 = distinct !{!514, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !515 = !{!516}
-!516 = distinct !{!516, !517, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_: %agg.result"}
-!517 = distinct !{!517, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_"}
+!516 = distinct !{!516, !517, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_.argprom: %agg.result"}
+!517 = distinct !{!517, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_.argprom"}
 !518 = !{!513, !510}
 !519 = !{!520, !516, !513, !510}
 !520 = distinct !{!520, !521, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EEvEEclEv: %agg.result"}
 !521 = distinct !{!521, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EEvEEclEv"}
 !522 = !{!516, !513, !510}
 !523 = !{!524, !526}
-!524 = distinct !{!524, !525, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_RKT_: %agg.result"}
-!525 = distinct !{!525, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_RKT_"}
-!526 = distinct !{!526, !527, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v: %agg.result"}
-!527 = distinct !{!527, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v"}
+!524 = distinct !{!524, !525, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!525 = distinct !{!525, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_RKT_.argprom"}
+!526 = distinct !{!526, !527, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.argprom: %agg.result"}
+!527 = distinct !{!527, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE4TestIS6_vEES7_v.argprom"}
 !528 = !{!529, !524, !526}
-!529 = distinct !{!529, !530, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE8TestImplIS6_JLm0ELm1ELm2EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!530 = distinct !{!530, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE8TestImplIS6_JLm0ELm1ELm2EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!529 = distinct !{!529, !530, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE8TestImplIS6_JLm0ELm1ELm2EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!530 = distinct !{!530, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121FollowsBasicGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0ZNSC_8TestBodyEvE3$_1EE8TestImplIS6_JLm0ELm1ELm2EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !531 = !{!532}
-!532 = distinct !{!532, !533, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!533 = distinct !{!533, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!532 = distinct !{!532, !533, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!533 = distinct !{!533, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !534 = !{!535}
-!535 = distinct !{!535, !536, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_: %agg.result"}
-!536 = distinct !{!536, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_"}
+!535 = distinct !{!535, !536, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom: %agg.result"}
+!536 = distinct !{!536, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom"}
 !537 = !{!538}
-!538 = distinct !{!538, !539, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFNS_15AssertionResultEPS3_EERKT_: %agg.result"}
-!539 = distinct !{!539, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFNS_15AssertionResultEPS3_EERKT_"}
+!538 = distinct !{!538, !539, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom: %agg.result"}
+!539 = distinct !{!539, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom"}
 !540 = !{!541, !543}
-!541 = distinct !{!541, !542, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_RKT_: %agg.result"}
-!542 = distinct !{!542, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_RKT_"}
-!543 = distinct !{!543, !544, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v: %agg.result"}
-!544 = distinct !{!544, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v"}
+!541 = distinct !{!541, !542, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!542 = distinct !{!542, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_RKT_.argprom"}
+!543 = distinct !{!543, !544, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.argprom: %agg.result"}
+!544 = distinct !{!544, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE4TestIS6_vEES7_v.argprom"}
 !545 = !{!546, !541, !543}
-!546 = distinct !{!546, !547, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE8TestImplIS6_JLm0ELm1ELm2EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!547 = distinct !{!547, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE8TestImplIS6_JLm0ELm1ELm2EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!546 = distinct !{!546, !547, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE8TestImplIS6_JLm0ELm1ELm2EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!547 = distinct !{!547, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_122FollowsStrongGuaranteeEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEENS0_22StrongGuaranteeTagTypeEZNS3_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EE8TestImplIS6_JLm0ELm1ELm2EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !548 = !{!549}
-!549 = distinct !{!549, !550, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!550 = distinct !{!550, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!549 = distinct !{!549, !550, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!550 = distinct !{!550, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !551 = !{!552}
 !552 = distinct !{!552, !553, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeE: %agg.result"}
 !553 = distinct !{!553, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractENS0_22StrongGuaranteeTagTypeE"}
 !554 = !{!555}
-!555 = distinct !{!555, !556, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFNS_15AssertionResultEPS3_EERKT_: %agg.result"}
-!556 = distinct !{!556, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFNS_15AssertionResultEPS3_EERKT_"}
+!555 = distinct !{!555, !556, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom: %agg.result"}
+!556 = distinct !{!556, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom"}
 !557 = !{!558}
-!558 = distinct !{!558, !559, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_: %agg.result"}
-!559 = distinct !{!559, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_"}
+!558 = distinct !{!558, !559, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.argprom: %agg.result"}
+!559 = distinct !{!559, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE4TestINS3_4$_12EvEES7_RKT_.argprom"}
 !560 = !{!561, !558}
-!561 = distinct !{!561, !562, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE8TestImplINS3_4$_12EJLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!562 = distinct !{!562, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE8TestImplINS3_4$_12EJLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
+!561 = distinct !{!561, !562, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE8TestImplINS3_4$_12EJLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!562 = distinct !{!562, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEENS0_14UninitializedTEJPFNS_15AssertionResultEPS4_EEE8TestImplINS3_4$_12EJLm0EEEES7_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !563 = !{!564, !561, !558}
 !564 = distinct !{!564, !565, !"_ZNK7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_18HasResetEE4TestEv: %agg.result"}
 !565 = distinct !{!565, !"_ZNK7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_18HasResetEE4TestEv"}
@@ -55527,55 +55527,55 @@ attributes #29 = { allocsize(0) }
 !572 = !{!570}
 !573 = distinct !{!573, !12}
 !574 = !{!575, !577, !579, !581}
-!575 = distinct !{!575, !576, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_0clEPNS0_21FollowsBasicGuaranteeE: %agg.result"}
-!576 = distinct !{!576, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_0clEPNS0_21FollowsBasicGuaranteeE"}
-!577 = distinct !{!577, !578, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_: %agg.result"}
-!578 = distinct !{!578, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_"}
-!579 = distinct !{!579, !580, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!580 = distinct !{!580, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_"}
-!581 = distinct !{!581, !582, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_: %agg.result"}
-!582 = distinct !{!582, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_"}
+!575 = distinct !{!575, !576, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_0clEPNS0_21FollowsBasicGuaranteeE.argprom: %agg.result"}
+!576 = distinct !{!576, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_0clEPNS0_21FollowsBasicGuaranteeE.argprom"}
+!577 = distinct !{!577, !578, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom: %agg.result"}
+!578 = distinct !{!578, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom"}
+!579 = distinct !{!579, !580, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!580 = distinct !{!580, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom"}
+!581 = distinct !{!581, !582, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom: %agg.result"}
+!582 = distinct !{!582, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom"}
 !583 = !{!584, !586, !588, !590}
-!584 = distinct !{!584, !585, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_1clEPNS0_21FollowsBasicGuaranteeE: %agg.result"}
-!585 = distinct !{!585, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_1clEPNS0_21FollowsBasicGuaranteeE"}
-!586 = distinct !{!586, !587, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_: %agg.result"}
-!587 = distinct !{!587, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_"}
-!588 = distinct !{!588, !589, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!589 = distinct !{!589, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_"}
-!590 = distinct !{!590, !591, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_: %agg.result"}
-!591 = distinct !{!591, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_"}
+!584 = distinct !{!584, !585, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_1clEPNS0_21FollowsBasicGuaranteeE.argprom: %agg.result"}
+!585 = distinct !{!585, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_1clEPNS0_21FollowsBasicGuaranteeE.argprom"}
+!586 = distinct !{!586, !587, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom: %agg.result"}
+!587 = distinct !{!587, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom"}
+!588 = distinct !{!588, !589, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom.argprom: %agg.result"}
+!589 = distinct !{!589, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
+!590 = distinct !{!590, !591, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom.argprom: %agg.result"}
+!591 = distinct !{!591, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121FollowsBasicGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom.argprom"}
 !592 = !{!593, !595, !597, !599}
-!593 = distinct !{!593, !594, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_2clEPNS0_22FollowsStrongGuaranteeE: %agg.result"}
-!594 = distinct !{!594, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_2clEPNS0_22FollowsStrongGuaranteeE"}
-!595 = distinct !{!595, !596, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_: %agg.result"}
-!596 = distinct !{!596, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_"}
-!597 = distinct !{!597, !598, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!598 = distinct !{!598, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_"}
-!599 = distinct !{!599, !600, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_: %agg.result"}
-!600 = distinct !{!600, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_"}
+!593 = distinct !{!593, !594, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_2clEPNS0_22FollowsStrongGuaranteeE.argprom: %agg.result"}
+!594 = distinct !{!594, !"_ZZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvENK3$_2clEPNS0_22FollowsStrongGuaranteeE.argprom"}
+!595 = distinct !{!595, !596, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom: %agg.result"}
+!596 = distinct !{!596, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom"}
+!597 = distinct !{!597, !598, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!598 = distinct !{!598, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom"}
+!599 = distinct !{!599, !600, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom: %agg.result"}
+!600 = distinct !{!600, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_122FollowsStrongGuaranteeEE12WrapContractIZNS4_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom"}
 !601 = distinct !{!601, !12}
 !602 = !{!603}
-!603 = distinct !{!603, !604, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!604 = distinct !{!604, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!603 = distinct !{!603, !604, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!604 = distinct !{!604, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !605 = !{!606}
-!606 = distinct !{!606, !607, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!607 = distinct !{!607, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_"}
+!606 = distinct !{!606, !607, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!607 = distinct !{!607, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !608 = !{!609}
-!609 = distinct !{!609, !610, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEclEv: %agg.result"}
-!610 = distinct !{!610, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEclEv"}
+!609 = distinct !{!609, !610, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEclEv.argprom: %agg.result"}
+!610 = distinct !{!610, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_18HasResetEEclEv.argprom"}
 !611 = !{!612}
-!612 = distinct !{!612, !613, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_18HasResetEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!613 = distinct !{!613, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_18HasResetEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!612 = distinct !{!612, !613, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_18HasResetEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!613 = distinct !{!613, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_18HasResetEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !614 = !{!612, !609, !606, !603}
 !615 = !{!616}
-!616 = distinct !{!616, !617, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_: %agg.result"}
-!617 = distinct !{!617, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_"}
+!616 = distinct !{!616, !617, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_.argprom: %agg.result"}
+!617 = distinct !{!617, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE4TestIS9_vEENS_15AssertionResultERKT_.argprom"}
 !618 = !{!619, !616}
 !619 = distinct !{!619, !620, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE8TestImplIS9_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE: %agg.result"}
 !620 = distinct !{!620, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_13ThrowingValueILNS_8TypeSpecE0EEEEEZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1JZNS8_8TestBodyEvE3$_0EE8TestImplIS9_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE"}
 !621 = !{!622}
-!622 = distinct !{!622, !623, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_13ThrowingValueILNS_8TypeSpecE0EEEE12WrapContractIZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS4_EERKT_: %agg.result"}
-!623 = distinct !{!623, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_13ThrowingValueILNS_8TypeSpecE0EEEE12WrapContractIZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS4_EERKT_"}
+!622 = distinct !{!622, !623, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_13ThrowingValueILNS_8TypeSpecE0EEEE12WrapContractIZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS4_EERKT_.argprom: %agg.result"}
+!623 = distinct !{!623, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_13ThrowingValueILNS_8TypeSpecE0EEEE12WrapContractIZNS_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS4_EERKT_.argprom"}
 !624 = !{!625}
 !625 = distinct !{!625, !626, !"_ZNKSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14default_deleteIS4_EEvEEclEv: %agg.result"}
 !626 = distinct !{!626, !"_ZNKSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14default_deleteIS4_EEvEEclEv"}
@@ -55599,27 +55599,27 @@ attributes #29 = { allocsize(0) }
 !644 = !{!642, !639, !636, !633}
 !645 = distinct !{!645, !12}
 !646 = !{!647, !649}
-!647 = distinct !{!647, !648, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_RKT_: %agg.result"}
-!648 = distinct !{!648, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_RKT_"}
-!649 = distinct !{!649, !650, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v: %agg.result"}
-!650 = distinct !{!650, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v"}
+!647 = distinct !{!647, !648, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_RKT_.argprom: %agg.result"}
+!648 = distinct !{!648, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_RKT_.argprom"}
+!649 = distinct !{!649, !650, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.argprom: %agg.result"}
+!650 = distinct !{!650, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE4TestIS5_vEES6_v.argprom"}
 !651 = !{!652, !647, !649}
-!652 = distinct !{!652, !653, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE8TestImplIS5_JLm0EEEES6_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!653 = distinct !{!653, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE8TestImplIS5_JLm0EEEES6_T_St16integer_sequenceImJXspT0_EEE"}
+!652 = distinct !{!652, !653, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE8TestImplIS5_JLm0EEEES6_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!653 = distinct !{!653, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEEEE8TestImplIS5_JLm0EEEES6_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !654 = !{!655}
-!655 = distinct !{!655, !656, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!656 = distinct !{!656, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!655 = distinct !{!655, !656, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!656 = distinct !{!656, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !657 = !{!658, !660}
-!658 = distinct !{!658, !659, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_RKT_: %agg.result"}
-!659 = distinct !{!659, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_RKT_"}
-!660 = distinct !{!660, !661, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v: %agg.result"}
-!661 = distinct !{!661, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v"}
+!658 = distinct !{!658, !659, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_RKT_.argprom: %agg.result"}
+!659 = distinct !{!659, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_RKT_.argprom"}
+!660 = distinct !{!660, !661, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.argprom: %agg.result"}
+!661 = distinct !{!661, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE4TestIS5_vEES6_v.argprom"}
 !662 = !{!663, !658, !660}
-!663 = distinct !{!663, !664, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS5_JLm0ELm1EEEES6_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!664 = distinct !{!664, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS5_JLm0ELm1EEEES6_T_St16integer_sequenceImJXspT0_EEE"}
+!663 = distinct !{!663, !664, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS5_JLm0ELm1EEEES6_T_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!664 = distinct !{!664, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderIZNS_12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0NS2_4$_12EJPFNS_15AssertionResultEPNS2_11NonNegativeEENS0_22StrongGuaranteeTagTypeEEE8TestImplIS5_JLm0ELm1EEEES6_T_St16integer_sequenceImJXspT0_EEE.argprom"}
 !665 = !{!666}
-!666 = distinct !{!666, !667, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!667 = distinct !{!667, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!666 = distinct !{!666, !667, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!667 = distinct !{!667, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !668 = !{!669}
 !669 = distinct !{!669, !670, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractENS0_22StrongGuaranteeTagTypeE: %agg.result"}
 !670 = distinct !{!670, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractENS0_22StrongGuaranteeTagTypeE"}
@@ -55632,56 +55632,56 @@ attributes #29 = { allocsize(0) }
 !677 = distinct !{!677, !12}
 !678 = distinct !{!678, !12}
 !679 = !{!680}
-!680 = distinct !{!680, !681, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EERZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_: %agg.result"}
-!681 = distinct !{!681, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EERZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_"}
+!680 = distinct !{!680, !681, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EERZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom: %agg.result"}
+!681 = distinct !{!681, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EERZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom"}
 !682 = !{!683}
-!683 = distinct !{!683, !684, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EERZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!684 = distinct !{!684, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EERZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
+!683 = distinct !{!683, !684, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EERZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!684 = distinct !{!684, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EERZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !685 = !{!686}
-!686 = distinct !{!686, !687, !"_ZZN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvENK3$_0clEv: %agg.result"}
-!687 = distinct !{!687, !"_ZZN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvENK3$_0clEv"}
+!686 = distinct !{!686, !687, !"_ZZN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvENK3$_0clEv.argprom: %agg.result"}
+!687 = distinct !{!687, !"_ZZN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_Test8TestBodyEvENK3$_0clEv.argprom"}
 !688 = !{!689}
 !689 = distinct !{!689, !690, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_111NonCopyableEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !690 = distinct !{!690, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_111NonCopyableEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !691 = !{!689, !686, !683, !680}
 !692 = distinct !{!692, !12}
 !693 = !{!694}
-!694 = distinct !{!694, !695, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!695 = distinct !{!695, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!694 = distinct !{!694, !695, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!695 = distinct !{!695, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !696 = !{!697}
-!697 = distinct !{!697, !698, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!698 = distinct !{!698, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_"}
+!697 = distinct !{!697, !698, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!698 = distinct !{!698, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_111NonCopyableEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS5_E_JS8_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !699 = !{!700}
-!700 = distinct !{!700, !701, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_: %agg.result"}
-!701 = distinct !{!701, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_"}
+!700 = distinct !{!700, !701, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_.argprom: %agg.result"}
+!701 = distinct !{!701, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_111NonCopyableEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS3_E_clES6_.argprom"}
 !702 = !{!697, !694}
 !703 = !{!704, !700, !697, !694}
 !704 = distinct !{!704, !705, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EEvEEclEv: %agg.result"}
 !705 = distinct !{!705, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EEvEEclEv"}
 !706 = !{!700, !697, !694}
 !707 = !{!708}
-!708 = distinct !{!708, !709, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE13WithContractsIJZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEENS1_IS5_S6_JSB_DpNSt5decayIT_E4typeEEEEDpRKSH_: %agg.result"}
-!709 = distinct !{!709, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE13WithContractsIJZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEENS1_IS5_S6_JSB_DpNSt5decayIT_E4typeEEEEDpRKSH_"}
+!708 = distinct !{!708, !709, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE13WithContractsIJZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEENS1_IS5_S6_JSB_DpNSt5decayIT_E4typeEEEEDpRKSH_.argprom: %agg.result"}
+!709 = distinct !{!709, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEEE13WithContractsIJZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEENS1_IS5_S6_JSB_DpNSt5decayIT_E4typeEEEEDpRKSH_.argprom"}
 !710 = !{!711, !713}
-!711 = distinct !{!711, !712, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_RKT_: %agg.result"}
-!712 = distinct !{!712, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_RKT_"}
+!711 = distinct !{!711, !712, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_RKT_.argprom: %agg.result"}
+!712 = distinct !{!712, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_RKT_.argprom"}
 !713 = distinct !{!713, !714, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v: %agg.result"}
 !714 = distinct !{!714, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIS6_vEES7_v"}
 !715 = !{!716, !711, !713}
 !716 = distinct !{!716, !717, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
 !717 = distinct !{!717, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE8TestImplIS6_JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
 !718 = !{!719}
-!719 = distinct !{!719, !720, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_: %agg.result"}
-!720 = distinct !{!720, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_"}
+!719 = distinct !{!719, !720, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.argprom: %agg.result"}
+!720 = distinct !{!720, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE4TestIZNSC_8TestBodyEvE3$_1vEES7_RKT_.argprom"}
 !721 = !{!722, !719}
 !722 = distinct !{!722, !723, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE8TestImplIZNSC_8TestBodyEvE3$_1JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
 !723 = distinct !{!723, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEENS3_4$_12EJPFNS_15AssertionResultEPNS3_11NonNegativeEEZNS3_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EE8TestImplIZNSC_8TestBodyEvE3$_1JLm0ELm1EEEES7_T_St16integer_sequenceImJXspT0_EEE"}
 !724 = !{!725}
-!725 = distinct !{!725, !726, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_: %agg.result"}
-!726 = distinct !{!726, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_"}
+!725 = distinct !{!725, !726, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom: %agg.result"}
+!726 = distinct !{!726, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIPFNS_15AssertionResultEPNS2_11NonNegativeEEEESt8functionIFS6_PS3_EERKT_.argprom"}
 !727 = !{!728}
-!728 = distinct !{!728, !729, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_: %agg.result"}
-!729 = distinct !{!729, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_"}
+!728 = distinct !{!728, !729, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom: %agg.result"}
+!729 = distinct !{!729, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_.argprom"}
 !730 = distinct !{!730, !12}
 !731 = !{!732}
 !732 = distinct !{!732, !733, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EEvEEclEv: %agg.result"}
@@ -55692,35 +55692,35 @@ attributes #29 = { allocsize(0) }
 !737 = distinct !{!737, !12}
 !738 = distinct !{!738, !12}
 !739 = !{!740}
-!740 = distinct !{!740, !741, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
-!741 = distinct !{!741, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
+!740 = distinct !{!740, !741, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
+!741 = distinct !{!741, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
 !742 = !{!743}
-!743 = distinct !{!743, !744, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!744 = distinct !{!744, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_"}
+!743 = distinct !{!743, !744, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!744 = distinct !{!744, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EERNS1_19exceptions_internal14DefaultFactoryIS3_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !745 = !{!746}
-!746 = distinct !{!746, !747, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEclEv: %agg.result"}
-!747 = distinct !{!747, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEclEv"}
+!746 = distinct !{!746, !747, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEclEv.argprom: %agg.result"}
+!747 = distinct !{!747, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_121NonEqualityComparableEEclEv.argprom"}
 !748 = !{!749}
-!749 = distinct !{!749, !750, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_121NonEqualityComparableEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!750 = distinct !{!750, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_121NonEqualityComparableEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!749 = distinct !{!749, !750, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_121NonEqualityComparableEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!750 = distinct !{!750, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_121NonEqualityComparableEJRKS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !751 = !{!749, !746, !743, !740}
 !752 = !{!753, !755, !757, !759}
-!753 = distinct !{!753, !754, !"_ZZN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvENK3$_0clEPNS0_21NonEqualityComparableE: %agg.result"}
-!754 = distinct !{!754, !"_ZZN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvENK3$_0clEPNS0_21NonEqualityComparableE"}
-!755 = distinct !{!755, !756, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_: %agg.result"}
-!756 = distinct !{!756, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_"}
-!757 = distinct !{!757, !758, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS4_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!758 = distinct !{!758, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS4_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_"}
-!759 = distinct !{!759, !760, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS4_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_: %agg.result"}
-!760 = distinct !{!760, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS4_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_"}
+!753 = distinct !{!753, !754, !"_ZZN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvENK3$_0clEPNS0_21NonEqualityComparableE.argprom: %agg.result"}
+!754 = distinct !{!754, !"_ZZN7testing12_GLOBAL__N_145ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvENK3$_0clEPNS0_21NonEqualityComparableE.argprom"}
+!755 = distinct !{!755, !756, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom: %agg.result"}
+!756 = distinct !{!756, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFNS_15AssertionResultEPS3_EERKT_ENKUlSA_E_clESA_.argprom"}
+!757 = distinct !{!757, !758, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS4_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom.argprom: %agg.result"}
+!758 = distinct !{!758, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS4_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EESE_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
+!759 = distinct !{!759, !760, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS4_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom.argprom: %agg.result"}
+!760 = distinct !{!760, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_121NonEqualityComparableEE12WrapContractIZNS4_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIFS1_PS5_EERKT_EUlSB_E_JSB_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSK_DpOSL_.argprom.argprom"}
 !761 = !{!762, !764}
-!762 = distinct !{!762, !763, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultERKT_: %agg.result"}
-!763 = distinct !{!763, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultERKT_"}
-!764 = distinct !{!764, !765, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv: %agg.result"}
-!765 = distinct !{!765, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv"}
+!762 = distinct !{!762, !763, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultERKT_.argprom: %agg.result"}
+!763 = distinct !{!763, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultERKT_.argprom"}
+!764 = distinct !{!764, !765, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.argprom: %agg.result"}
+!765 = distinct !{!765, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE4TestIS7_vEENS_15AssertionResultEv.argprom"}
 !766 = !{!767, !762, !764}
-!767 = distinct !{!767, !768, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE8TestImplIS7_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!768 = distinct !{!768, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE8TestImplIS7_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE"}
+!767 = distinct !{!767, !768, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE8TestImplIS7_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!768 = distinct !{!768, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEENS3_4$_12EJNS3_4$_11EEE8TestImplIS7_JLm0EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE.argprom"}
 !769 = !{!770, !767, !762, !764}
 !770 = distinct !{!770, !771, !"_ZNK7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEE4TestEv: %agg.result"}
 !771 = distinct !{!771, !"_ZNK7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEE4TestEv"}
@@ -55738,16 +55738,16 @@ attributes #29 = { allocsize(0) }
 !783 = distinct !{!783, !784, !"_ZN7testing8internal8EqHelper7CompareIhiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !784 = distinct !{!784, !"_ZN7testing8internal8EqHelper7CompareIhiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !785 = !{!786, !788}
-!786 = distinct !{!786, !787, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultERKT_: %agg.result"}
-!787 = distinct !{!787, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultERKT_"}
-!788 = distinct !{!788, !789, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv: %agg.result"}
-!789 = distinct !{!789, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv"}
+!786 = distinct !{!786, !787, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultERKT_.argprom: %agg.result"}
+!787 = distinct !{!787, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultERKT_.argprom"}
+!788 = distinct !{!788, !789, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.argprom: %agg.result"}
+!789 = distinct !{!789, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE4TestISA_vEENS_15AssertionResultEv.argprom"}
 !790 = !{!791, !786, !788}
-!791 = distinct !{!791, !792, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE8TestImplISA_JLm0ELm1EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE: %agg.result"}
-!792 = distinct !{!792, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE8TestImplISA_JLm0ELm1EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE"}
+!791 = distinct !{!791, !792, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE8TestImplISA_JLm0ELm1EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE.argprom: %agg.result"}
+!792 = distinct !{!792, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEENS3_4$_12EJNS3_4$_11ENS0_22StrongGuaranteeTagTypeEEE8TestImplISA_JLm0ELm1EEEENS_15AssertionResultET_St16integer_sequenceImJXspT0_EEE.argprom"}
 !793 = !{!794}
-!794 = distinct !{!794, !795, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractINS2_4$_11EEESt8functionIFNS_15AssertionResultEPS7_EERKT_: %agg.result"}
-!795 = distinct !{!795, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractINS2_4$_11EEESt8functionIFNS_15AssertionResultEPS7_EERKT_"}
+!794 = distinct !{!794, !795, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractINS2_4$_11EEESt8functionIFNS_15AssertionResultEPS7_EERKT_.argprom: %agg.result"}
+!795 = distinct !{!795, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractINS2_4$_11EEESt8functionIFNS_15AssertionResultEPS7_EERKT_.argprom"}
 !796 = !{!797}
 !797 = distinct !{!797, !798, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractENS0_22StrongGuaranteeTagTypeE: %agg.result"}
 !798 = distinct !{!798, !"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractENS0_22StrongGuaranteeTagTypeE"}
@@ -55770,17 +55770,17 @@ attributes #29 = { allocsize(0) }
 !815 = distinct !{!815, !"_ZN7testing8internal8EqHelper7CompareIhiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !816 = distinct !{!816, !12}
 !817 = !{!818}
-!818 = distinct !{!818, !819, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EERNS1_19exceptions_internal14DefaultFactoryIS4_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_: %agg.result"}
-!819 = distinct !{!819, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EERNS1_19exceptions_internal14DefaultFactoryIS4_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_"}
+!818 = distinct !{!818, !819, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EERNS1_19exceptions_internal14DefaultFactoryIS4_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom: %agg.result"}
+!819 = distinct !{!819, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EERNS1_19exceptions_internal14DefaultFactoryIS4_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom"}
 !820 = !{!821}
-!821 = distinct !{!821, !822, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EERNS1_19exceptions_internal14DefaultFactoryIS4_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!822 = distinct !{!822, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EERNS1_19exceptions_internal14DefaultFactoryIS4_EEJEET_St14__invoke_otherOT0_DpOT1_"}
+!821 = distinct !{!821, !822, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EERNS1_19exceptions_internal14DefaultFactoryIS4_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!822 = distinct !{!822, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EERNS1_19exceptions_internal14DefaultFactoryIS4_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !823 = !{!824}
-!824 = distinct !{!824, !825, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEv: %agg.result"}
-!825 = distinct !{!825, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEv"}
+!824 = distinct !{!824, !825, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEv.argprom: %agg.result"}
+!825 = distinct !{!825, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEv.argprom"}
 !826 = !{!827}
-!827 = distinct !{!827, !828, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEJRKS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!828 = distinct !{!828, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEJRKS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!827 = distinct !{!827, !828, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEJRKS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!828 = distinct !{!828, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEJRKS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !829 = !{!827, !824, !821, !818}
 !830 = !{!831, !833}
 !831 = distinct !{!831, !832, !"_ZN7testing8internal19FormatForComparisonIhiE6FormatB5cxx11ERKh: %agg.result"}
@@ -55800,27 +55800,27 @@ attributes #29 = { allocsize(0) }
 !845 = distinct !{!845, !"_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !846 = distinct !{!846, !12}
 !847 = !{!848}
-!848 = distinct !{!848, !849, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EERNS1_19exceptions_internal14DefaultFactoryIS7_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!849 = distinct !{!849, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EERNS1_19exceptions_internal14DefaultFactoryIS7_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!848 = distinct !{!848, !849, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EERNS1_19exceptions_internal14DefaultFactoryIS7_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: %agg.result"}
+!849 = distinct !{!849, !"_ZSt10__invoke_rISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EERNS1_19exceptions_internal14DefaultFactoryIS7_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
 !850 = !{!851}
-!851 = distinct !{!851, !852, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EERNS1_19exceptions_internal14DefaultFactoryIS7_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!852 = distinct !{!852, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EERNS1_19exceptions_internal14DefaultFactoryIS7_EEJEET_St14__invoke_otherOT0_DpOT1_"}
+!851 = distinct !{!851, !852, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EERNS1_19exceptions_internal14DefaultFactoryIS7_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!852 = distinct !{!852, !"_ZSt13__invoke_implISt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EERNS1_19exceptions_internal14DefaultFactoryIS7_EEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !853 = !{!854}
-!854 = distinct !{!854, !855, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEclEv: %agg.result"}
-!855 = distinct !{!855, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEclEv"}
+!854 = distinct !{!854, !855, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEclEv.argprom: %agg.result"}
+!855 = distinct !{!855, !"_ZNK7testing19exceptions_internal14DefaultFactoryINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEEclEv.argprom"}
 !856 = !{!857}
-!857 = distinct !{!857, !858, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEJRKS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!858 = distinct !{!858, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEJRKS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!857 = distinct !{!857, !858, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEJRKS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!858 = distinct !{!858, !"_ZSt11make_uniqueIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEJRKS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !859 = !{!857, !854, !851, !848}
 !860 = !{!861}
-!861 = distinct !{!861, !862, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!862 = distinct !{!862, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!861 = distinct !{!861, !862, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: %agg.result"}
+!862 = distinct !{!862, !"_ZSt10__invoke_rIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
 !863 = !{!864}
-!864 = distinct !{!864, !865, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!865 = distinct !{!865, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EET_St14__invoke_otherOT0_DpOT1_"}
+!864 = distinct !{!864, !865, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!865 = distinct !{!865, !"_ZSt13__invoke_implIN7testing15AssertionResultERZNS0_19exceptions_internal19ExceptionSafetyTestINS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEE12WrapContractENS2_22StrongGuaranteeTagTypeEEUlPS9_E_JSC_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !866 = !{!867}
-!867 = distinct !{!867, !868, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS7_E_clESA_: %agg.result"}
-!868 = distinct !{!868, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS7_E_clESA_"}
+!867 = distinct !{!867, !868, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS7_E_clESA_.argprom: %agg.result"}
+!868 = distinct !{!868, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEE12WrapContractENS0_22StrongGuaranteeTagTypeEENKUlPS7_E_clESA_.argprom"}
 !869 = !{!864, !861}
 !870 = !{!871, !867, !864, !861}
 !871 = distinct !{!871, !872, !"_ZNKSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EEvEEclEv: %agg.result"}

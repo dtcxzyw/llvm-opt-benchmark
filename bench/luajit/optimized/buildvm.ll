@@ -682,7 +682,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.657 = private unnamed_addr constant [39 x i8] c"NYI: cannot assemble IR instruction %d\00", align 1
 @.str.658 = private unnamed_addr constant [31 x i8] c"NYI: PHI shuffling too complex\00", align 1
 @.str.659 = private unnamed_addr constant [37 x i8] c"NYI: register coalescing too complex\00", align 1
-@switch.table.build_backend = private unnamed_addr constant [4 x i32] [i32 9831, i32 9836, i32 2922, i32 9841], align 4
+@switch.table.build_backend.retelim = private unnamed_addr constant [4 x i32] [i32 9831, i32 9836, i32 2922, i32 9841], align 4
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @dasm_init(ptr nocapture noundef writeonly %ctx, i32 noundef %maxsection) local_unnamed_addr #0 {
@@ -2537,13 +2537,13 @@ if.then2.i:                                       ; preds = %if.end.i
   %call.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) @.str.370, ptr noundef nonnull %cond.i.i, ptr noundef nonnull @.str.368, ptr noundef %65) #25
   %call2.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.i.i, i32 noundef 64) #28
   %tobool.not.i.i = icmp eq ptr %call2.i.i, null
-  br i1 %tobool.not.i.i, label %sym_decorate.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %sym_decorate.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then2.i
   store i8 0, ptr %call2.i.i, align 1
-  br label %sym_decorate.exit.i
+  br label %sym_decorate.argprom.exit.i
 
-sym_decorate.exit.i:                              ; preds = %if.then.i.i, %if.then2.i
+sym_decorate.argprom.exit.i:                      ; preds = %if.then.i.i, %if.then2.i
   %call4.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i.i) #28
   %add.i.i = add i64 %call4.i.i, 1
   %call5.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i.i) #29
@@ -2561,9 +2561,9 @@ sym_decorate.exit.i:                              ; preds = %if.then.i.i, %if.th
   %.pre17.i = load i32, ptr %arrayidx.i, align 4
   br label %collect_reloc.exit
 
-collect_reloc.exit:                               ; preds = %if.end.i, %sym_decorate.exit.i
-  %69 = phi i32 [ %.pre17.i, %sym_decorate.exit.i ], [ %63, %if.end.i ]
-  %70 = phi i32 [ %.pre.i, %sym_decorate.exit.i ], [ %59, %if.end.i ]
+collect_reloc.exit:                               ; preds = %if.end.i, %sym_decorate.argprom.exit.i
+  %69 = phi i32 [ %.pre17.i, %sym_decorate.argprom.exit.i ], [ %63, %if.end.i ]
+  %70 = phi i32 [ %.pre.i, %sym_decorate.argprom.exit.i ], [ %59, %if.end.i ]
   %71 = load ptr, ptr %code.i, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %71 to i64
   %sub.ptr.sub.i = sub i64 %cp.2205, %sub.ptr.rhs.cast.i
@@ -2965,7 +2965,7 @@ for.body.i.i24:                                   ; preds = %for.body.i.i24, %fo
   br i1 %exitcond.not.i, label %dasm_setup.exit.i, label %for.body.i.i24, !llvm.loop !9
 
 dasm_setup.exit.i:                                ; preds = %for.body.i.i24
-  call fastcc void @build_backend(ptr noundef %ctx_)
+  call fastcc void @build_backend.retelim(ptr noundef %ctx_)
   %npc.i = getelementptr inbounds i8, ptr %ctx_, i64 56
   store i32 97, ptr %npc.i, align 8
   %18 = load ptr, ptr %ctx_, align 8
@@ -3021,13 +3021,13 @@ if.end19.i:                                       ; preds = %if.end.i28
   %call.i91.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) @.str.370, ptr noundef nonnull %cond.i.i, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.427) #25
   %call2.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.i.i, i32 noundef 64) #28
   %tobool.not.i92.i = icmp eq ptr %call2.i.i, null
-  br i1 %tobool.not.i92.i, label %sym_decorate.exit.i, label %if.then.i93.i
+  br i1 %tobool.not.i92.i, label %sym_decorate.argprom.exit.i, label %if.then.i93.i
 
 if.then.i93.i:                                    ; preds = %if.end19.i
   store i8 0, ptr %call2.i.i, align 1
-  br label %sym_decorate.exit.i
+  br label %sym_decorate.argprom.exit.i
 
-sym_decorate.exit.i:                              ; preds = %if.then.i93.i, %if.end19.i
+sym_decorate.argprom.exit.i:                      ; preds = %if.then.i93.i, %if.end19.i
   %call4.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i.i) #28
   %add.i95.i = add i64 %call4.i.i, 1
   %call5.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i95.i) #29
@@ -3058,13 +3058,13 @@ for.cond49.preheader.loopexit.i:                  ; preds = %if.end40.i
   %.pre.i = load i32, ptr %nglob.i, align 4
   br label %for.cond49.preheader.i
 
-for.cond49.preheader.i:                           ; preds = %for.cond49.preheader.loopexit.i, %sym_decorate.exit.i
-  %26 = phi i32 [ %.pre.i, %for.cond49.preheader.loopexit.i ], [ %25, %sym_decorate.exit.i ]
+for.cond49.preheader.i:                           ; preds = %for.cond49.preheader.loopexit.i, %sym_decorate.argprom.exit.i
+  %26 = phi i32 [ %.pre.i, %for.cond49.preheader.loopexit.i ], [ %25, %sym_decorate.argprom.exit.i ]
   %cmp51129.i = icmp sgt i32 %26, 0
   br i1 %cmp51129.i, label %for.body53.i, label %for.end90.i
 
-for.body35.i:                                     ; preds = %sym_decorate.exit.i, %if.end40.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end40.i ], [ 0, %sym_decorate.exit.i ]
+for.body35.i:                                     ; preds = %sym_decorate.argprom.exit.i, %if.end40.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end40.i ], [ 0, %sym_decorate.argprom.exit.i ]
   %27 = load ptr, ptr %ctx_, align 8
   %mul.i97.i = shl nuw nsw i64 %indvars.iv.i, 2
   %pcsize.i98.i = getelementptr inbounds i8, ptr %27, i64 40
@@ -3724,7 +3724,7 @@ for.end:                                          ; preds = %for.body
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_backend(ptr noundef nonnull readonly %ctx) unnamed_addr #4 {
+define internal fastcc void @build_backend.retelim(ptr noundef nonnull readonly %ctx) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %pcsize.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -3966,7 +3966,7 @@ for.body:                                         ; preds = %dasm_growpc.exit, %
 sw.bb.i:                                          ; preds = %for.body, %for.body, %for.body, %for.body
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9765, i32 noundef -14, i32 noundef -14)
   %5 = zext nneg i32 %op.09 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.build_backend, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.build_backend.retelim, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef %switch.load)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9846, i32 noundef -131072)
@@ -4621,13 +4621,13 @@ while.end:                                        ; preds = %if.end, %while.body
   %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) @.str.370, ptr noundef nonnull %cond.i, ptr noundef %prefix, ptr noundef %suffix) #25
   %call2.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.i, i32 noundef 64) #28
   %tobool.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool.not.i, label %sym_decorate.exit, label %if.then.i
+  br i1 %tobool.not.i, label %sym_decorate.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %while.end
   store i8 0, ptr %call2.i, align 1
-  br label %sym_decorate.exit
+  br label %sym_decorate.argprom.exit
 
-sym_decorate.exit:                                ; preds = %while.end, %if.then.i
+sym_decorate.argprom.exit:                        ; preds = %while.end, %if.then.i
   %call4.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i) #28
   %add.i = add i64 %call4.i, 1
   %call5.i = call noalias noundef ptr @malloc(i64 noundef %add.i) #29

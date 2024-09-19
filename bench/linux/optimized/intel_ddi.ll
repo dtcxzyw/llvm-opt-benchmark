@@ -583,7 +583,7 @@ define dso_local void @intel_ddi_enable_transcoder_func(ptr nocapture noundef re
   %47 = add i32 %46, %44
   %48 = getelementptr i8, ptr %0, i64 132
   %.val = load i32, ptr %48, align 4
-  %49 = tail call fastcc i32 @intel_ddi_transcoder_func_reg_val_get(i32 %.val, ptr noundef %1)
+  %49 = tail call fastcc i32 @intel_ddi_transcoder_func_reg_val_get.argprom(i32 %.val, ptr noundef %1)
   %50 = getelementptr inbounds i8, ptr %4, i64 7368
   %51 = getelementptr inbounds i8, ptr %4, i64 7544
   %52 = load ptr, ptr %51, align 8
@@ -592,7 +592,7 @@ define dso_local void @intel_ddi_enable_transcoder_func(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 0) i32 @intel_ddi_transcoder_func_reg_val_get(i32 %.132.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 0) i32 @intel_ddi_transcoder_func_reg_val_get.argprom(i32 %.132.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 1648
@@ -4410,19 +4410,19 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   %.val = load ptr, ptr %132, align 8
   %.val12 = load i32, ptr %201, align 4
   %428 = tail call i32 @intel_port_to_phy(ptr noundef %.val, i32 noundef %.val12) #14
-  br i1 %112, label %need_aux_ch.exit.thread, label %need_aux_ch.exit
+  br i1 %112, label %need_aux_ch.argprom.exit.thread, label %need_aux_ch.argprom.exit
 
-need_aux_ch.exit:                                 ; preds = %423
+need_aux_ch.argprom.exit:                         ; preds = %423
   %429 = tail call zeroext i1 @intel_phy_is_tc(ptr noundef %.val, i32 noundef %428) #14
-  br i1 %429, label %need_aux_ch.exit.thread, label %432
+  br i1 %429, label %need_aux_ch.argprom.exit.thread, label %432
 
-need_aux_ch.exit.thread:                          ; preds = %423, %need_aux_ch.exit
+need_aux_ch.argprom.exit.thread:                  ; preds = %423, %need_aux_ch.argprom.exit
   %430 = tail call i32 @intel_dp_aux_ch(ptr noundef nonnull %132) #14
   store i32 %430, ptr %135, align 4
   %431 = icmp eq i32 %430, -1
   br i1 %431, label %534, label %432
 
-432:                                              ; preds = %need_aux_ch.exit.thread, %need_aux_ch.exit
+432:                                              ; preds = %need_aux_ch.argprom.exit.thread, %need_aux_ch.argprom.exit
   %433 = tail call zeroext i1 @intel_phy_is_tc(ptr noundef %0, i32 noundef %74) #14
   br i1 %433, label %434, label %460
 
@@ -4613,7 +4613,7 @@ need_aux_ch.exit.thread:                          ; preds = %423, %need_aux_ch.e
   %533 = icmp eq ptr %532, null
   br i1 %533, label %534, label %535
 
-534:                                              ; preds = %531, %513, %454, %need_aux_ch.exit.thread
+534:                                              ; preds = %531, %513, %454, %need_aux_ch.argprom.exit.thread
   tail call void @drm_encoder_cleanup(ptr noundef nonnull %132) #14
   tail call void @kfree(ptr noundef nonnull %132) #14
   br label %535
@@ -5509,7 +5509,7 @@ define internal void @intel_enable_ddi(ptr noundef %0, ptr noundef %1, ptr nound
   %72 = add i32 %71, %69
   %73 = getelementptr i8, ptr %1, i64 132
   %.val = load i32, ptr %73, align 4
-  %74 = tail call fastcc i32 @intel_ddi_transcoder_func_reg_val_get(i32 %.val, ptr noundef %2)
+  %74 = tail call fastcc i32 @intel_ddi_transcoder_func_reg_val_get.argprom(i32 %.val, ptr noundef %2)
   %75 = getelementptr inbounds i8, ptr %29, i64 7368
   %76 = getelementptr inbounds i8, ptr %29, i64 7544
   %77 = load ptr, ptr %76, align 8
@@ -5690,7 +5690,7 @@ thread-pre-split:                                 ; preds = %178, %115
 181:                                              ; preds = %thread-pre-split
   %.val10 = load ptr, ptr %1, align 8
   %.val11 = load i32, ptr %94, align 4
-  call fastcc void @mtl_ddi_enable_d2d(ptr %.val10, i32 %.val11)
+  call fastcc void @mtl_ddi_enable_d2d.argprom(ptr %.val10, i32 %.val11)
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %119, %181, %thread-pre-split
@@ -6566,7 +6566,7 @@ define internal void @intel_ddi_pre_enable(ptr noundef %0, ptr noundef %1, ptr n
   %231 = load ptr, ptr %230, align 8
   %232 = load i32, ptr %192, align 8
   %.val19 = load i32, ptr %168, align 4
-  %233 = call fastcc i32 @intel_ddi_transcoder_func_reg_val_get(i32 %.val19, ptr noundef %2)
+  %233 = call fastcc i32 @intel_ddi_transcoder_func_reg_val_get.argprom(i32 %.val19, ptr noundef %2)
   %234 = and i32 %233, 2147483647
   %235 = getelementptr inbounds i8, ptr %231, i64 2624
   %236 = load ptr, ptr %235, align 8
@@ -6651,7 +6651,7 @@ define internal void @intel_ddi_pre_enable(ptr noundef %0, ptr noundef %1, ptr n
   %.val20 = load i8, ptr %290, align 1, !range !37, !noundef !38
   %291 = load ptr, ptr %149, align 8
   %292 = icmp eq i8 %.val20, 0
-  br i1 %292, label %intel_dp_sink_set_fec_ready.exit, label %293
+  br i1 %292, label %intel_dp_sink_set_fec_ready.argprom.exit, label %293
 
 293:                                              ; preds = %289
   %294 = getelementptr inbounds i8, ptr %149, i64 616
@@ -6682,7 +6682,7 @@ define internal void @intel_ddi_pre_enable(ptr noundef %0, ptr noundef %1, ptr n
   %305 = call i64 @drm_dp_dpcd_write(ptr noundef %294, i32 noundef 640, ptr noundef nonnull %9, i64 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %306 = icmp slt i64 %305, 1
-  br i1 %306, label %307, label %intel_dp_sink_set_fec_ready.exit
+  br i1 %306, label %307, label %intel_dp_sink_set_fec_ready.argprom.exit
 
 307:                                              ; preds = %304
   %308 = icmp eq ptr %291, null
@@ -6696,20 +6696,20 @@ define internal void @intel_ddi_pre_enable(ptr noundef %0, ptr noundef %1, ptr n
 312:                                              ; preds = %309, %307
   %313 = phi ptr [ %311, %309 ], [ null, %307 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %313, i32 noundef 2, ptr noundef nonnull @.str.76) #14
-  br label %intel_dp_sink_set_fec_ready.exit
+  br label %intel_dp_sink_set_fec_ready.argprom.exit
 
-intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
+intel_dp_sink_set_fec_ready.argprom.exit:         ; preds = %289, %304, %312
   call void @intel_dp_check_frl_training(ptr noundef %150) #14
   call void @intel_dp_pcon_dsc_configure(ptr noundef %150, ptr noundef %2) #14
   call void @intel_dp_start_link_train(ptr noundef %150, ptr noundef %2) #14
   %314 = call zeroext i1 @is_trans_port_sync_mode(ptr noundef %2) #14
   br i1 %314, label %316, label %315
 
-315:                                              ; preds = %intel_dp_sink_set_fec_ready.exit
+315:                                              ; preds = %intel_dp_sink_set_fec_ready.argprom.exit
   call void @intel_dp_stop_link_train(ptr noundef %150, ptr noundef %2) #14
   br label %316
 
-316:                                              ; preds = %315, %intel_dp_sink_set_fec_ready.exit
+316:                                              ; preds = %315, %intel_dp_sink_set_fec_ready.argprom.exit
   %317 = load ptr, ptr %1, align 8
   %318 = load i8, ptr %290, align 1, !range !37, !noundef !38
   %319 = icmp eq i8 %318, 0
@@ -6950,7 +6950,7 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
   %460 = load ptr, ptr %459, align 8
   %461 = load i32, ptr %410, align 8
   %.val = load i32, ptr %412, align 4
-  %462 = call fastcc i32 @intel_ddi_transcoder_func_reg_val_get(i32 %.val, ptr noundef %2)
+  %462 = call fastcc i32 @intel_ddi_transcoder_func_reg_val_get.argprom(i32 %.val, ptr noundef %2)
   %463 = and i32 %462, 2147483647
   %464 = getelementptr inbounds i8, ptr %460, i64 2624
   %465 = load ptr, ptr %464, align 8
@@ -7074,7 +7074,7 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
   %.val21 = load i8, ptr %540, align 1, !range !37, !noundef !38
   %541 = load ptr, ptr %.pn37, align 8
   %542 = icmp eq i8 %.val21, 0
-  br i1 %542, label %intel_dp_sink_set_fec_ready.exit23, label %543
+  br i1 %542, label %intel_dp_sink_set_fec_ready.argprom.exit23, label %543
 
 543:                                              ; preds = %539
   %544 = getelementptr inbounds i8, ptr %.pn37, i64 616
@@ -7105,7 +7105,7 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
   %555 = call i64 @drm_dp_dpcd_write(ptr noundef %544, i32 noundef 640, ptr noundef nonnull %7, i64 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %556 = icmp slt i64 %555, 1
-  br i1 %556, label %557, label %intel_dp_sink_set_fec_ready.exit23
+  br i1 %556, label %557, label %intel_dp_sink_set_fec_ready.argprom.exit23
 
 557:                                              ; preds = %554
   %558 = icmp eq ptr %541, null
@@ -7119,20 +7119,20 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
 562:                                              ; preds = %559, %557
   %563 = phi ptr [ %561, %559 ], [ null, %557 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %563, i32 noundef 2, ptr noundef nonnull @.str.76) #14
-  br label %intel_dp_sink_set_fec_ready.exit23
+  br label %intel_dp_sink_set_fec_ready.argprom.exit23
 
-intel_dp_sink_set_fec_ready.exit23:               ; preds = %539, %554, %562
+intel_dp_sink_set_fec_ready.argprom.exit23:       ; preds = %539, %554, %562
   call void @intel_dp_check_frl_training(ptr noundef %372) #14
   call void @intel_dp_pcon_dsc_configure(ptr noundef %372, ptr noundef %2) #14
   call void @intel_dp_start_link_train(ptr noundef %372, ptr noundef %2) #14
   %564 = call zeroext i1 @is_trans_port_sync_mode(ptr noundef %2) #14
   br i1 %564, label %566, label %565
 
-565:                                              ; preds = %intel_dp_sink_set_fec_ready.exit23
+565:                                              ; preds = %intel_dp_sink_set_fec_ready.argprom.exit23
   call void @intel_dp_stop_link_train(ptr noundef %372, ptr noundef %2) #14
   br label %566
 
-566:                                              ; preds = %565, %intel_dp_sink_set_fec_ready.exit23
+566:                                              ; preds = %565, %intel_dp_sink_set_fec_ready.argprom.exit23
   %567 = load ptr, ptr %1, align 8
   %568 = load i8, ptr %540, align 1, !range !37, !noundef !38
   %569 = icmp eq i8 %568, 0
@@ -7435,7 +7435,7 @@ intel_dp_sink_set_fec_ready.exit23:               ; preds = %539, %554, %562
   %.val22 = load i8, ptr %730, align 1, !range !37, !noundef !38
   %731 = load ptr, ptr %.pn, align 8
   %732 = icmp eq i8 %.val22, 0
-  br i1 %732, label %intel_dp_sink_set_fec_ready.exit24, label %733
+  br i1 %732, label %intel_dp_sink_set_fec_ready.argprom.exit24, label %733
 
 733:                                              ; preds = %729
   %734 = getelementptr inbounds i8, ptr %.pn, i64 616
@@ -7466,7 +7466,7 @@ intel_dp_sink_set_fec_ready.exit23:               ; preds = %539, %554, %562
   %745 = call i64 @drm_dp_dpcd_write(ptr noundef %734, i32 noundef 640, ptr noundef nonnull %5, i64 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %746 = icmp slt i64 %745, 1
-  br i1 %746, label %747, label %intel_dp_sink_set_fec_ready.exit24
+  br i1 %746, label %747, label %intel_dp_sink_set_fec_ready.argprom.exit24
 
 747:                                              ; preds = %744
   %748 = icmp eq ptr %731, null
@@ -7480,19 +7480,19 @@ intel_dp_sink_set_fec_ready.exit23:               ; preds = %539, %554, %562
 752:                                              ; preds = %749, %747
   %753 = phi ptr [ %751, %749 ], [ null, %747 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %753, i32 noundef 2, ptr noundef nonnull @.str.76) #14
-  br label %intel_dp_sink_set_fec_ready.exit24
+  br label %intel_dp_sink_set_fec_ready.argprom.exit24
 
-intel_dp_sink_set_fec_ready.exit24:               ; preds = %729, %744, %752
+intel_dp_sink_set_fec_ready.argprom.exit24:       ; preds = %729, %744, %752
   call void @intel_dp_start_link_train(ptr noundef %625, ptr noundef %2) #14
   %754 = icmp eq i32 %621, 0
   br i1 %754, label %755, label %758
 
-755:                                              ; preds = %intel_dp_sink_set_fec_ready.exit24
+755:                                              ; preds = %intel_dp_sink_set_fec_ready.argprom.exit24
   %756 = load i16, ptr %629, align 8
   %757 = icmp ugt i16 %756, 8
   br i1 %757, label %758, label %761
 
-758:                                              ; preds = %755, %intel_dp_sink_set_fec_ready.exit24
+758:                                              ; preds = %755, %intel_dp_sink_set_fec_ready.argprom.exit24
   %759 = call zeroext i1 @is_trans_port_sync_mode(ptr noundef %2) #14
   br i1 %759, label %761, label %760
 
@@ -11438,7 +11438,7 @@ declare dso_local void @intel_hdcp_enable(ptr noundef, ptr noundef, ptr noundef,
 declare dso_local zeroext i1 @intel_hdmi_handle_sink_scrambling(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mtl_ddi_enable_d2d(ptr %.0.val, i32 %.132.val) unnamed_addr #0 align 16 {
+define internal fastcc void @mtl_ddi_enable_d2d.argprom(ptr %.0.val, i32 %.132.val) unnamed_addr #0 align 16 {
   %1 = icmp slt i32 %.132.val, 3
   %2 = shl i32 %.132.val, 8
   %3 = add i32 %2, 409604
@@ -12805,7 +12805,7 @@ define internal void @mtl_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef %
   %111 = tail call i32 %110(ptr noundef %35, i32 %109, i1 noundef zeroext false) #14
   %.val = load ptr, ptr %3, align 8
   %.val1 = load i32, ptr %5, align 4
-  tail call fastcc void @mtl_ddi_enable_d2d(ptr %.val, i32 %.val1)
+  tail call fastcc void @mtl_ddi_enable_d2d.argprom(ptr %.val, i32 %.val1)
   %112 = getelementptr i8, ptr %0, i64 -32
   %113 = load ptr, ptr %112, align 8
   tail call void %113(ptr noundef %3, ptr noundef %1) #14

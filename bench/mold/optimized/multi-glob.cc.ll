@@ -28765,14 +28765,14 @@ entry:
   %root.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.val.i, i64 24
   %2 = load ptr, ptr %root.i.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSB_ENKUlvE_clEv.exit", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSB_ENKUlvE_clEv.argprom.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   tail call void @_ZN4mold9MultiGlob16fix_suffix_linksERNS0_8TrieNodeE(ptr noundef nonnull align 8 dereferenceable(61) %.val.val.i, ptr noundef nonnull align 8 dereferenceable(2064) %2)
   tail call void @_ZN4mold9MultiGlob10fix_valuesEv(ptr noundef nonnull align 8 dereferenceable(61) %.val.val.i)
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSB_ENKUlvE_clEv.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSB_ENKUlvE_clEv.argprom.exit"
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSB_ENKUlvE_clEv.exit": ; preds = %entry, %if.then.i.i.i.i.i.i
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSB_ENKUlvE_clEv.argprom.exit": ; preds = %entry, %if.then.i.i.i.i.i.i
   ret void
 }
 

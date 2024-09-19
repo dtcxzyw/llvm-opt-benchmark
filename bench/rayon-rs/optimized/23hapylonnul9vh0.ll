@@ -30,7 +30,7 @@ default.unreachable:                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i", label %7
+  br i1 %.not.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i", label %7
 
 7:                                                ; preds = %6
   %8 = load i64, ptr %1, align 8, !range !12, !alias.scope !13, !noundef !5
@@ -38,15 +38,15 @@ default.unreachable:                              ; preds = %2
   %10 = load ptr, ptr %9, align 8, !alias.scope !13
   store i64 0, ptr %1, align 8, !alias.scope !13
   %.not3.i.i = icmp eq i64 %8, 0
-  br i1 %.not3.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i", label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i"
+  br i1 %.not3.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i", label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i"
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i": ; preds = %7, %6
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i": ; preds = %7, %6
   %11 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17h4291705fb7fa571eE(), !noalias !13
   %12 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17hc81d7bdedb8dd66cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11), !noalias !13
   br label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i"
 
-"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i": ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i", %7
-  %.0.i.i = phi ptr [ %12, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i" ], [ %10, %7 ]
+"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i": ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i", %7
+  %.0.i.i = phi ptr [ %12, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i" ], [ %10, %7 ]
   %13 = load i64, ptr %0, align 8, !range !12, !noalias !6, !noundef !5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !6
@@ -111,7 +111,7 @@ default.unreachable:                              ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %.not.i.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i.i", label %10
+  br i1 %.not.i.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i.i", label %10
 
 10:                                               ; preds = %9
   %11 = load i64, ptr %1, align 8, !range !12, !alias.scope !23, !noundef !5
@@ -119,15 +119,15 @@ default.unreachable:                              ; preds = %5
   %13 = load ptr, ptr %12, align 8, !alias.scope !23
   store i64 0, ptr %1, align 8, !alias.scope !23
   %.not3.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not3.i.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i.i", label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i.i"
+  br i1 %.not3.i.i.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i.i", label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i.i"
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i.i": ; preds = %10, %9
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i.i": ; preds = %10, %9
   %14 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17h4291705fb7fa571eE(), !noalias !23
   %15 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17hc81d7bdedb8dd66cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14), !noalias !23
   br label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i.i"
 
-"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i.i": ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i.i", %10
-  %.0.i.i.i = phi ptr [ %15, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.exit.i.i.i" ], [ %13, %10 ]
+"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17had99e6cd827a2d22E.exit.i.i": ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i.i", %10
+  %.0.i.i.i = phi ptr [ %15, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h69bfee7d92e42723E.argprom.exit.i.i.i" ], [ %13, %10 ]
   %16 = load i64, ptr %0, align 8, !range !12, !noalias !24, !noundef !5
   %17 = load ptr, ptr %4, align 8, !noalias !24
   store i64 1, ptr %0, align 8, !noalias !24
@@ -173,7 +173,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 2, ptr %7, align 1, !noalias !25
   %8 = icmp eq i64 %4, 0
-  br i1 %8, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.exit", label %9
+  br i1 %8, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.argprom.exit", label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %6, i64 2072
@@ -185,11 +185,11 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
   %15 = icmp eq i64 %11, 0
   %16 = icmp eq i64 %13, 1
   %or.cond.i.i.i.i.i.i.i.i.i = and i1 %15, %16
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %17, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.exit"
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %17, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.argprom.exit"
 
 17:                                               ; preds = %9
   invoke void @_ZN15crossbeam_epoch8internal5Local8finalize17h63b198663ed08730E(ptr noundef nonnull align 128 %6)
-          to label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.exit" unwind label %18, !noalias !30
+          to label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.argprom.exit" unwind label %18, !noalias !30
 
 18:                                               ; preds = %17
   %19 = landingpad { ptr, i32 }
@@ -233,7 +233,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
 
 35:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h924a3493a8f3f511E"(ptr %34)
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h924a3493a8f3f511E.argprom"(ptr %34)
           to label %36 unwind label %.body
 
 36:                                               ; preds = %35
@@ -243,7 +243,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
 37:                                               ; preds = %36
   unreachable
 
-"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.exit": ; preds = %17, %1, %9
+"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd719b5a24ec309ecE.argprom.exit": ; preds = %17, %1, %9
   ret void
 }
 
@@ -749,7 +749,7 @@ default.unreachable:                              ; preds = %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h924a3493a8f3f511E"(ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h924a3493a8f3f511E.argprom"(ptr %.0.val) unnamed_addr #0 {
   %1 = alloca { i8, [15 x i8] }, align 8
   %2 = icmp eq ptr %.0.val, null
   br i1 %2, label %3, label %4
@@ -1198,10 +1198,10 @@ attributes #19 = { cold }
 !29 = distinct !{!29, !"_ZN3std9panicking3try17h18d7b66a04cceffaE"}
 !30 = !{!28}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
-!33 = distinct !{!33, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
+!32 = distinct !{!32, !33, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
 !34 = !{!35}
-!35 = distinct !{!35, !33, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
+!35 = distinct !{!35, !33, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17h885612c4ccbdc88bE: argument 0"}
 !38 = distinct !{!38, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17h885612c4ccbdc88bE"}

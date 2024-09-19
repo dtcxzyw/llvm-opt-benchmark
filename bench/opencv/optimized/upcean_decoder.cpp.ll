@@ -1774,7 +1774,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7barcode15g
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @"_ZZN2cv7barcode15get_AB_PatternsEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN2cv7barcode15get_AB_PatternsEvENK3$_0clEv.argprom"()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -1793,7 +1793,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7barcode15g
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv7barcode15get_AB_PatternsEvENK3$_0clEv"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv7barcode15get_AB_PatternsEvENK3$_0clEv.argprom"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %0 = alloca %"class.std::vector", align 8
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17

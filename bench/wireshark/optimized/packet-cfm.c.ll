@@ -961,7 +961,7 @@ define internal noundef i32 @dissect_cfm(ptr noundef %0, ptr noundef %1, ptr nou
   %81 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %67, i32 noundef %80, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %42) #5
   %82 = load i32, ptr @hf_cfm_ccm_seq_number, align 4
   %83 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %82, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #5
-  %84 = call fastcc i32 @dissect_mep_maid(ptr noundef %0, ptr noundef %67, i32 noundef 8)
+  %84 = call fastcc i32 @dissect_mep_maid.argprom(ptr noundef %0, ptr noundef %67, i32 noundef 8)
   %85 = load i32, ptr @hf_cfm_ccm_itu_t_y1731, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 16, i32 noundef 0) #5
   %87 = load i32, ptr @ett_cfm_ccm_itu, align 4
@@ -981,20 +981,20 @@ define internal noundef i32 @dissect_cfm(ptr noundef %0, ptr noundef %1, ptr nou
   %101 = load i32, ptr %42, align 4
   %102 = sub i32 %101, %97
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %104, label %dissect_cfm_ccm.exit
+  br i1 %103, label %104, label %dissect_cfm_ccm.argprom.exit
 
 104:                                              ; preds = %63
   %105 = load i32, ptr @hf_cfm_unknown_data, align 4
   %106 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %105, ptr noundef %0, i32 noundef %100, i32 noundef %102, i32 noundef 0) #5
   %107 = add i32 %102, %100
-  br label %dissect_cfm_ccm.exit
+  br label %dissect_cfm_ccm.argprom.exit
 
-dissect_cfm_ccm.exit:                             ; preds = %63, %104
+dissect_cfm_ccm.argprom.exit:                     ; preds = %63, %104
   %.0.i = phi i32 [ %107, %104 ], [ %100, %63 ]
   %108 = add i32 %.0.i, -2
   call void @proto_item_set_len(ptr noundef %65, i32 noundef %108) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 109:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
@@ -1015,20 +1015,20 @@ dissect_cfm_ccm.exit:                             ; preds = %63, %104
   %124 = load i32, ptr %41, align 4
   %125 = add i32 %124, -4
   %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %127, label %dissect_cfm_lbm.exit
+  br i1 %126, label %127, label %dissect_cfm_lbm.argprom.exit
 
 127:                                              ; preds = %109
   %128 = load i32, ptr @hf_cfm_unknown_data, align 4
   %129 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %128, ptr noundef %0, i32 noundef 8, i32 noundef %125, i32 noundef 0) #5
   %130 = add nuw i32 %124, 4
-  br label %dissect_cfm_lbm.exit
+  br label %dissect_cfm_lbm.argprom.exit
 
-dissect_cfm_lbm.exit:                             ; preds = %109, %127
+dissect_cfm_lbm.argprom.exit:                     ; preds = %109, %127
   %.0.i457 = phi i32 [ %130, %127 ], [ 8, %109 ]
   %131 = add i32 %.0.i457, -2
   call void @proto_item_set_len(ptr noundef %111, i32 noundef %131) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 132:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40)
@@ -1049,20 +1049,20 @@ dissect_cfm_lbm.exit:                             ; preds = %109, %127
   %147 = load i32, ptr %40, align 4
   %148 = add i32 %147, -4
   %149 = icmp sgt i32 %148, 0
-  br i1 %149, label %150, label %dissect_cfm_lbr.exit
+  br i1 %149, label %150, label %dissect_cfm_lbr.argprom.exit
 
 150:                                              ; preds = %132
   %151 = load i32, ptr @hf_cfm_unknown_data, align 4
   %152 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %151, ptr noundef %0, i32 noundef 8, i32 noundef %148, i32 noundef 0) #5
   %153 = add nuw i32 %147, 4
-  br label %dissect_cfm_lbr.exit
+  br label %dissect_cfm_lbr.argprom.exit
 
-dissect_cfm_lbr.exit:                             ; preds = %132, %150
+dissect_cfm_lbr.argprom.exit:                     ; preds = %132, %150
   %.0.i458 = phi i32 [ %153, %150 ], [ 8, %132 ]
   %154 = add i32 %.0.i458, -2
   call void @proto_item_set_len(ptr noundef %134, i32 noundef %154) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 155:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
@@ -1091,20 +1091,20 @@ dissect_cfm_lbr.exit:                             ; preds = %132, %150
   %178 = load i32, ptr %39, align 4
   %179 = add i32 %178, -17
   %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %181, label %dissect_cfm_ltm.exit
+  br i1 %180, label %181, label %dissect_cfm_ltm.argprom.exit
 
 181:                                              ; preds = %155
   %182 = load i32, ptr @hf_cfm_unknown_data, align 4
   %183 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %182, ptr noundef %0, i32 noundef 21, i32 noundef %179, i32 noundef 0) #5
   %184 = add nuw i32 %178, 4
-  br label %dissect_cfm_ltm.exit
+  br label %dissect_cfm_ltm.argprom.exit
 
-dissect_cfm_ltm.exit:                             ; preds = %155, %181
+dissect_cfm_ltm.argprom.exit:                     ; preds = %155, %181
   %.0.i459 = phi i32 [ %184, %181 ], [ 21, %155 ]
   %185 = add i32 %.0.i459, -2
   call void @proto_item_set_len(ptr noundef %157, i32 noundef %185) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 186:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
@@ -1135,20 +1135,20 @@ dissect_cfm_ltm.exit:                             ; preds = %155, %181
   %211 = load i32, ptr %38, align 4
   %212 = add i32 %211, -6
   %213 = icmp sgt i32 %212, 0
-  br i1 %213, label %214, label %dissect_cfm_ltr.exit
+  br i1 %213, label %214, label %dissect_cfm_ltr.argprom.exit
 
 214:                                              ; preds = %186
   %215 = load i32, ptr @hf_cfm_unknown_data, align 4
   %216 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %215, ptr noundef %0, i32 noundef 10, i32 noundef %212, i32 noundef 0) #5
   %217 = add nuw i32 %211, 4
-  br label %dissect_cfm_ltr.exit
+  br label %dissect_cfm_ltr.argprom.exit
 
-dissect_cfm_ltr.exit:                             ; preds = %186, %214
+dissect_cfm_ltr.argprom.exit:                     ; preds = %186, %214
   %.0.i460 = phi i32 [ %217, %214 ], [ 10, %186 ]
   %218 = add i32 %.0.i460, -2
   call void @proto_item_set_len(ptr noundef %188, i32 noundef %218) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 219:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
@@ -1169,20 +1169,20 @@ dissect_cfm_ltr.exit:                             ; preds = %186, %214
   %234 = load i32, ptr %37, align 4
   %235 = add i32 %234, -4
   %236 = icmp sgt i32 %235, 0
-  br i1 %236, label %237, label %dissect_cfm_rfm.exit
+  br i1 %236, label %237, label %dissect_cfm_rfm.argprom.exit
 
 237:                                              ; preds = %219
   %238 = load i32, ptr @hf_cfm_unknown_data, align 4
   %239 = call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %238, ptr noundef %0, i32 noundef 8, i32 noundef %235, i32 noundef 0) #5
   %240 = add nuw i32 %234, 4
-  br label %dissect_cfm_rfm.exit
+  br label %dissect_cfm_rfm.argprom.exit
 
-dissect_cfm_rfm.exit:                             ; preds = %219, %237
+dissect_cfm_rfm.argprom.exit:                     ; preds = %219, %237
   %.0.i461 = phi i32 [ %240, %237 ], [ 8, %219 ]
   %241 = add i32 %.0.i461, -2
   call void @proto_item_set_len(ptr noundef %221, i32 noundef %241) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 242:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
@@ -1203,20 +1203,20 @@ dissect_cfm_rfm.exit:                             ; preds = %219, %237
   %257 = load i32, ptr %36, align 4
   %258 = add i32 %257, -4
   %259 = icmp sgt i32 %258, 0
-  br i1 %259, label %260, label %dissect_cfm_sfm.exit
+  br i1 %259, label %260, label %dissect_cfm_sfm.argprom.exit
 
 260:                                              ; preds = %242
   %261 = load i32, ptr @hf_cfm_unknown_data, align 4
   %262 = call ptr @proto_tree_add_item(ptr noundef %246, i32 noundef %261, ptr noundef %0, i32 noundef 8, i32 noundef %258, i32 noundef 0) #5
   %263 = add nuw i32 %257, 4
-  br label %dissect_cfm_sfm.exit
+  br label %dissect_cfm_sfm.argprom.exit
 
-dissect_cfm_sfm.exit:                             ; preds = %242, %260
+dissect_cfm_sfm.argprom.exit:                     ; preds = %242, %260
   %.0.i462 = phi i32 [ %263, %260 ], [ 8, %242 ]
   %264 = add i32 %.0.i462, -2
   call void @proto_item_set_len(ptr noundef %244, i32 noundef %264) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 265:                                              ; preds = %4
   %266 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
@@ -1250,20 +1250,20 @@ dissect_cfm_sfm.exit:                             ; preds = %242, %260
   %290 = load i32, ptr %35, align 4
   %291 = add i32 %290, -13
   %292 = icmp sgt i32 %291, 0
-  br i1 %292, label %293, label %dissect_cfm_bnm.exit.i
+  br i1 %292, label %293, label %dissect_cfm_bnm.argprom.exit.i
 
 293:                                              ; preds = %267
   %294 = load i32, ptr @hf_cfm_unknown_data, align 4
   %295 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %294, ptr noundef %0, i32 noundef 17, i32 noundef %291, i32 noundef 0) #5
   %296 = add nuw i32 %290, 4
-  br label %dissect_cfm_bnm.exit.i
+  br label %dissect_cfm_bnm.argprom.exit.i
 
-dissect_cfm_bnm.exit.i:                           ; preds = %293, %267
+dissect_cfm_bnm.argprom.exit.i:                   ; preds = %293, %267
   %.0.i.i = phi i32 [ %296, %293 ], [ 17, %267 ]
   %297 = add i32 %.0.i.i, -2
   call void @proto_item_set_len(ptr noundef %269, i32 noundef %297) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 298:                                              ; preds = %265
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
@@ -1284,20 +1284,20 @@ dissect_cfm_bnm.exit.i:                           ; preds = %293, %267
   %313 = load i32, ptr %34, align 4
   %314 = add i32 %313, -1
   %315 = icmp sgt i32 %314, 0
-  br i1 %315, label %316, label %dissect_cfm_gnm_unknown.exit.i
+  br i1 %315, label %316, label %dissect_cfm_gnm_unknown.argprom.exit.i
 
 316:                                              ; preds = %298
   %317 = load i32, ptr @hf_cfm_unknown_data, align 4
   %318 = call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %317, ptr noundef %0, i32 noundef 5, i32 noundef %314, i32 noundef 0) #5
   %319 = add nuw i32 %313, 4
-  br label %dissect_cfm_gnm_unknown.exit.i
+  br label %dissect_cfm_gnm_unknown.argprom.exit.i
 
-dissect_cfm_gnm_unknown.exit.i:                   ; preds = %316, %298
+dissect_cfm_gnm_unknown.argprom.exit.i:           ; preds = %316, %298
   %.0.i11.i = phi i32 [ %319, %316 ], [ 5, %298 ]
   %320 = add i32 %.0.i11.i, -2
   call void @proto_item_set_len(ptr noundef %300, i32 noundef %320) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 321:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
@@ -1317,20 +1317,20 @@ dissect_cfm_gnm_unknown.exit.i:                   ; preds = %316, %298
   %335 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %334, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %33) #5
   %336 = load i32, ptr %33, align 4
   %337 = icmp sgt i32 %336, 0
-  br i1 %337, label %338, label %dissect_cfm_ais.exit
+  br i1 %337, label %338, label %dissect_cfm_ais.argprom.exit
 
 338:                                              ; preds = %321
   %339 = load i32, ptr @hf_cfm_unknown_data, align 4
   %340 = call ptr @proto_tree_add_item(ptr noundef %325, i32 noundef %339, ptr noundef %0, i32 noundef 4, i32 noundef %336, i32 noundef 0) #5
   %341 = add nuw i32 %336, 4
-  br label %dissect_cfm_ais.exit
+  br label %dissect_cfm_ais.argprom.exit
 
-dissect_cfm_ais.exit:                             ; preds = %321, %338
+dissect_cfm_ais.argprom.exit:                     ; preds = %321, %338
   %.0.i464 = phi i32 [ %341, %338 ], [ 4, %321 ]
   %342 = add i32 %.0.i464, -2
   call void @proto_item_set_len(ptr noundef %323, i32 noundef %342) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 343:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
@@ -1350,20 +1350,20 @@ dissect_cfm_ais.exit:                             ; preds = %321, %338
   %357 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %347, i32 noundef %356, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %32) #5
   %358 = load i32, ptr %32, align 4
   %359 = icmp sgt i32 %358, 0
-  br i1 %359, label %360, label %dissect_cfm_lck.exit
+  br i1 %359, label %360, label %dissect_cfm_lck.argprom.exit
 
 360:                                              ; preds = %343
   %361 = load i32, ptr @hf_cfm_unknown_data, align 4
   %362 = call ptr @proto_tree_add_item(ptr noundef %347, i32 noundef %361, ptr noundef %0, i32 noundef 4, i32 noundef %358, i32 noundef 0) #5
   %363 = add nuw i32 %358, 4
-  br label %dissect_cfm_lck.exit
+  br label %dissect_cfm_lck.argprom.exit
 
-dissect_cfm_lck.exit:                             ; preds = %343, %360
+dissect_cfm_lck.argprom.exit:                     ; preds = %343, %360
   %.0.i465 = phi i32 [ %363, %360 ], [ 4, %343 ]
   %364 = add i32 %.0.i465, -2
   call void @proto_item_set_len(ptr noundef %345, i32 noundef %364) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 365:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
@@ -1384,20 +1384,20 @@ dissect_cfm_lck.exit:                             ; preds = %343, %360
   %380 = load i32, ptr %31, align 4
   %381 = add i32 %380, -4
   %382 = icmp sgt i32 %381, 0
-  br i1 %382, label %383, label %dissect_cfm_tst.exit
+  br i1 %382, label %383, label %dissect_cfm_tst.argprom.exit
 
 383:                                              ; preds = %365
   %384 = load i32, ptr @hf_cfm_unknown_data, align 4
   %385 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %384, ptr noundef %0, i32 noundef 8, i32 noundef %381, i32 noundef 0) #5
   %386 = add nuw i32 %380, 4
-  br label %dissect_cfm_tst.exit
+  br label %dissect_cfm_tst.argprom.exit
 
-dissect_cfm_tst.exit:                             ; preds = %365, %383
+dissect_cfm_tst.argprom.exit:                     ; preds = %365, %383
   %.0.i466 = phi i32 [ %386, %383 ], [ 8, %365 ]
   %387 = add i32 %.0.i466, -2
   call void @proto_item_set_len(ptr noundef %367, i32 noundef %387) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 388:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
@@ -1432,20 +1432,20 @@ dissect_cfm_tst.exit:                             ; preds = %365, %383
   %417 = load i32, ptr %30, align 4
   %418 = add i32 %417, -4
   %419 = icmp sgt i32 %418, 0
-  br i1 %419, label %420, label %dissect_cfm_aps.exit
+  br i1 %419, label %420, label %dissect_cfm_aps.argprom.exit
 
 420:                                              ; preds = %388
   %421 = load i32, ptr @hf_cfm_unknown_data, align 4
   %422 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %421, ptr noundef %0, i32 noundef 8, i32 noundef %418, i32 noundef 0) #5
   %423 = add nuw i32 %417, 4
-  br label %dissect_cfm_aps.exit
+  br label %dissect_cfm_aps.argprom.exit
 
-dissect_cfm_aps.exit:                             ; preds = %388, %420
+dissect_cfm_aps.argprom.exit:                     ; preds = %388, %420
   %.0.i467 = phi i32 [ %423, %420 ], [ 8, %388 ]
   %424 = add i32 %.0.i467, -2
   call void @proto_item_set_len(ptr noundef %390, i32 noundef %424) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 425:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
@@ -1500,21 +1500,21 @@ dissect_cfm_aps.exit:                             ; preds = %388, %420
   %465 = load i32, ptr %28, align 4
   %466 = add i32 %465, -32
   %467 = icmp sgt i32 %466, 0
-  br i1 %467, label %468, label %dissect_cfm_raps.exit
+  br i1 %467, label %468, label %dissect_cfm_raps.argprom.exit
 
 468:                                              ; preds = %458
   %469 = load i32, ptr @hf_cfm_unknown_data, align 4
   %470 = call ptr @proto_tree_add_item(ptr noundef %429, i32 noundef %469, ptr noundef %0, i32 noundef 36, i32 noundef %466, i32 noundef 0) #5
   %471 = add nuw i32 %465, 4
-  br label %dissect_cfm_raps.exit
+  br label %dissect_cfm_raps.argprom.exit
 
-dissect_cfm_raps.exit:                            ; preds = %458, %468
+dissect_cfm_raps.argprom.exit:                    ; preds = %458, %468
   %.0.i468 = phi i32 [ %471, %468 ], [ 36, %458 ]
   %472 = add i32 %.0.i468, -2
   call void @proto_item_set_len(ptr noundef %427, i32 noundef %472) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 473:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
@@ -1568,18 +1568,18 @@ find_end_tlv.exit.i:                              ; preds = %497, %494, %.lr.ph.
   %505 = add i32 %.1.i.i, -8
   %506 = select i1 %.not.i, i32 -1, i32 %505
   %507 = call ptr @proto_tree_add_item(ptr noundef %477, i32 noundef %504, ptr noundef %0, i32 noundef 8, i32 noundef %506, i32 noundef 0) #5
-  br i1 %.not.i, label %508, label %dissect_cfm_mcc.exit
+  br i1 %.not.i, label %508, label %dissect_cfm_mcc.argprom.exit
 
 508:                                              ; preds = %find_end_tlv.exit.i
   %509 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %dissect_cfm_mcc.exit
+  br label %dissect_cfm_mcc.argprom.exit
 
-dissect_cfm_mcc.exit:                             ; preds = %find_end_tlv.exit.i, %508
+dissect_cfm_mcc.argprom.exit:                     ; preds = %find_end_tlv.exit.i, %508
   %510 = phi i32 [ %509, %508 ], [ %.1.i.i, %find_end_tlv.exit.i ]
   %511 = add i32 %510, -2
   call void @proto_item_set_len(ptr noundef %475, i32 noundef %511) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 512:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
@@ -1606,20 +1606,20 @@ dissect_cfm_mcc.exit:                             ; preds = %find_end_tlv.exit.i
   %533 = load i32, ptr %26, align 4
   %534 = add i32 %533, -12
   %535 = icmp sgt i32 %534, 0
-  br i1 %535, label %536, label %dissect_cfm_lmm.exit
+  br i1 %535, label %536, label %dissect_cfm_lmm.argprom.exit
 
 536:                                              ; preds = %512
   %537 = load i32, ptr @hf_cfm_unknown_data, align 4
   %538 = call ptr @proto_tree_add_item(ptr noundef %516, i32 noundef %537, ptr noundef %0, i32 noundef 16, i32 noundef %534, i32 noundef 0) #5
   %539 = add nuw i32 %533, 4
-  br label %dissect_cfm_lmm.exit
+  br label %dissect_cfm_lmm.argprom.exit
 
-dissect_cfm_lmm.exit:                             ; preds = %512, %536
+dissect_cfm_lmm.argprom.exit:                     ; preds = %512, %536
   %.0.i469 = phi i32 [ %539, %536 ], [ 16, %512 ]
   %540 = add i32 %.0.i469, -2
   call void @proto_item_set_len(ptr noundef %514, i32 noundef %540) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 541:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
@@ -1646,20 +1646,20 @@ dissect_cfm_lmm.exit:                             ; preds = %512, %536
   %562 = load i32, ptr %25, align 4
   %563 = add i32 %562, -12
   %564 = icmp sgt i32 %563, 0
-  br i1 %564, label %565, label %dissect_cfm_lmr.exit
+  br i1 %564, label %565, label %dissect_cfm_lmr.argprom.exit
 
 565:                                              ; preds = %541
   %566 = load i32, ptr @hf_cfm_unknown_data, align 4
   %567 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %566, ptr noundef %0, i32 noundef 16, i32 noundef %563, i32 noundef 0) #5
   %568 = add nuw i32 %562, 4
-  br label %dissect_cfm_lmr.exit
+  br label %dissect_cfm_lmr.argprom.exit
 
-dissect_cfm_lmr.exit:                             ; preds = %541, %565
+dissect_cfm_lmr.argprom.exit:                     ; preds = %541, %565
   %.0.i470 = phi i32 [ %568, %565 ], [ 16, %541 ]
   %569 = add i32 %.0.i470, -2
   call void @proto_item_set_len(ptr noundef %543, i32 noundef %569) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 570:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
@@ -1684,20 +1684,20 @@ dissect_cfm_lmr.exit:                             ; preds = %541, %565
   %589 = load i32, ptr %24, align 4
   %590 = add i32 %589, -16
   %591 = icmp sgt i32 %590, 0
-  br i1 %591, label %592, label %dissect_cfm_odm.exit
+  br i1 %591, label %592, label %dissect_cfm_odm.argprom.exit
 
 592:                                              ; preds = %570
   %593 = load i32, ptr @hf_cfm_unknown_data, align 4
   %594 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %593, ptr noundef %0, i32 noundef 20, i32 noundef %590, i32 noundef 0) #5
   %595 = add nuw i32 %589, 4
-  br label %dissect_cfm_odm.exit
+  br label %dissect_cfm_odm.argprom.exit
 
-dissect_cfm_odm.exit:                             ; preds = %570, %592
+dissect_cfm_odm.argprom.exit:                     ; preds = %570, %592
   %.0.i471 = phi i32 [ %595, %592 ], [ 20, %570 ]
   %596 = add i32 %.0.i471, -2
   call void @proto_item_set_len(ptr noundef %572, i32 noundef %596) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 597:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
@@ -1726,20 +1726,20 @@ dissect_cfm_odm.exit:                             ; preds = %570, %592
   %620 = load i32, ptr %23, align 4
   %621 = add i32 %620, -32
   %622 = icmp sgt i32 %621, 0
-  br i1 %622, label %623, label %dissect_cfm_dmm.exit
+  br i1 %622, label %623, label %dissect_cfm_dmm.argprom.exit
 
 623:                                              ; preds = %597
   %624 = load i32, ptr @hf_cfm_unknown_data, align 4
   %625 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %624, ptr noundef %0, i32 noundef 36, i32 noundef %621, i32 noundef 0) #5
   %626 = add nuw i32 %620, 4
-  br label %dissect_cfm_dmm.exit
+  br label %dissect_cfm_dmm.argprom.exit
 
-dissect_cfm_dmm.exit:                             ; preds = %597, %623
+dissect_cfm_dmm.argprom.exit:                     ; preds = %597, %623
   %.0.i472 = phi i32 [ %626, %623 ], [ 36, %597 ]
   %627 = add i32 %.0.i472, -2
   call void @proto_item_set_len(ptr noundef %599, i32 noundef %627) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 628:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
@@ -1768,20 +1768,20 @@ dissect_cfm_dmm.exit:                             ; preds = %597, %623
   %651 = load i32, ptr %22, align 4
   %652 = add i32 %651, -32
   %653 = icmp sgt i32 %652, 0
-  br i1 %653, label %654, label %dissect_cfm_dmr.exit
+  br i1 %653, label %654, label %dissect_cfm_dmr.argprom.exit
 
 654:                                              ; preds = %628
   %655 = load i32, ptr @hf_cfm_unknown_data, align 4
   %656 = call ptr @proto_tree_add_item(ptr noundef %632, i32 noundef %655, ptr noundef %0, i32 noundef 36, i32 noundef %652, i32 noundef 0) #5
   %657 = add nuw i32 %651, 4
-  br label %dissect_cfm_dmr.exit
+  br label %dissect_cfm_dmr.argprom.exit
 
-dissect_cfm_dmr.exit:                             ; preds = %628, %654
+dissect_cfm_dmr.argprom.exit:                     ; preds = %628, %654
   %.0.i473 = phi i32 [ %657, %654 ], [ 36, %628 ]
   %658 = add i32 %.0.i473, -2
   call void @proto_item_set_len(ptr noundef %630, i32 noundef %658) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 659:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
@@ -1835,18 +1835,18 @@ find_end_tlv.exit.i479:                           ; preds = %683, %680, %.lr.ph.
   %691 = add i32 %.1.i.i480, -8
   %692 = select i1 %.not.i481, i32 -1, i32 %691
   %693 = call ptr @proto_tree_add_item(ptr noundef %663, i32 noundef %690, ptr noundef %0, i32 noundef 8, i32 noundef %692, i32 noundef 0) #5
-  br i1 %.not.i481, label %694, label %dissect_cfm_exm.exit
+  br i1 %.not.i481, label %694, label %dissect_cfm_exm.argprom.exit
 
 694:                                              ; preds = %find_end_tlv.exit.i479
   %695 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %dissect_cfm_exm.exit
+  br label %dissect_cfm_exm.argprom.exit
 
-dissect_cfm_exm.exit:                             ; preds = %find_end_tlv.exit.i479, %694
+dissect_cfm_exm.argprom.exit:                     ; preds = %find_end_tlv.exit.i479, %694
   %696 = phi i32 [ %695, %694 ], [ %.1.i.i480, %find_end_tlv.exit.i479 ]
   %697 = add i32 %696, -2
   call void @proto_item_set_len(ptr noundef %661, i32 noundef %697) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 698:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
@@ -1900,18 +1900,18 @@ find_end_tlv.exit.i487:                           ; preds = %722, %719, %.lr.ph.
   %730 = add i32 %.1.i.i488, -8
   %731 = select i1 %.not.i489, i32 -1, i32 %730
   %732 = call ptr @proto_tree_add_item(ptr noundef %702, i32 noundef %729, ptr noundef %0, i32 noundef 8, i32 noundef %731, i32 noundef 0) #5
-  br i1 %.not.i489, label %733, label %dissect_cfm_exr.exit
+  br i1 %.not.i489, label %733, label %dissect_cfm_exr.argprom.exit
 
 733:                                              ; preds = %find_end_tlv.exit.i487
   %734 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %dissect_cfm_exr.exit
+  br label %dissect_cfm_exr.argprom.exit
 
-dissect_cfm_exr.exit:                             ; preds = %find_end_tlv.exit.i487, %733
+dissect_cfm_exr.argprom.exit:                     ; preds = %find_end_tlv.exit.i487, %733
   %735 = phi i32 [ %734, %733 ], [ %.1.i.i488, %find_end_tlv.exit.i487 ]
   %736 = add i32 %735, -2
   call void @proto_item_set_len(ptr noundef %700, i32 noundef %736) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 737:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
@@ -1965,18 +1965,18 @@ find_end_tlv.exit.i495:                           ; preds = %761, %758, %.lr.ph.
   %769 = add i32 %.1.i.i496, -8
   %770 = select i1 %.not.i497, i32 -1, i32 %769
   %771 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %768, ptr noundef %0, i32 noundef 8, i32 noundef %770, i32 noundef 0) #5
-  br i1 %.not.i497, label %772, label %dissect_cfm_vsm.exit
+  br i1 %.not.i497, label %772, label %dissect_cfm_vsm.argprom.exit
 
 772:                                              ; preds = %find_end_tlv.exit.i495
   %773 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %dissect_cfm_vsm.exit
+  br label %dissect_cfm_vsm.argprom.exit
 
-dissect_cfm_vsm.exit:                             ; preds = %find_end_tlv.exit.i495, %772
+dissect_cfm_vsm.argprom.exit:                     ; preds = %find_end_tlv.exit.i495, %772
   %774 = phi i32 [ %773, %772 ], [ %.1.i.i496, %find_end_tlv.exit.i495 ]
   %775 = add i32 %774, -2
   call void @proto_item_set_len(ptr noundef %739, i32 noundef %775) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 776:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
@@ -2030,18 +2030,18 @@ find_end_tlv.exit.i503:                           ; preds = %800, %797, %.lr.ph.
   %808 = add i32 %.1.i.i504, -8
   %809 = select i1 %.not.i505, i32 -1, i32 %808
   %810 = call ptr @proto_tree_add_item(ptr noundef %780, i32 noundef %807, ptr noundef %0, i32 noundef 8, i32 noundef %809, i32 noundef 0) #5
-  br i1 %.not.i505, label %811, label %dissect_cfm_vsr.exit
+  br i1 %.not.i505, label %811, label %dissect_cfm_vsr.argprom.exit
 
 811:                                              ; preds = %find_end_tlv.exit.i503
   %812 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %dissect_cfm_vsr.exit
+  br label %dissect_cfm_vsr.argprom.exit
 
-dissect_cfm_vsr.exit:                             ; preds = %find_end_tlv.exit.i503, %811
+dissect_cfm_vsr.argprom.exit:                     ; preds = %find_end_tlv.exit.i503, %811
   %813 = phi i32 [ %812, %811 ], [ %.1.i.i504, %find_end_tlv.exit.i503 ]
   %814 = add i32 %813, -2
   call void @proto_item_set_len(ptr noundef %778, i32 noundef %814) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 815:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
@@ -2063,20 +2063,20 @@ dissect_cfm_vsr.exit:                             ; preds = %find_end_tlv.exit.i
   %831 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %819, i32 noundef %830, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %17) #5
   %832 = load i32, ptr %17, align 4
   %833 = icmp sgt i32 %832, 0
-  br i1 %833, label %834, label %dissect_cfm_csf.exit
+  br i1 %833, label %834, label %dissect_cfm_csf.argprom.exit
 
 834:                                              ; preds = %815
   %835 = load i32, ptr @hf_cfm_unknown_data, align 4
   %836 = call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %835, ptr noundef %0, i32 noundef 4, i32 noundef %832, i32 noundef 0) #5
   %837 = add nuw i32 %832, 4
-  br label %dissect_cfm_csf.exit
+  br label %dissect_cfm_csf.argprom.exit
 
-dissect_cfm_csf.exit:                             ; preds = %815, %834
+dissect_cfm_csf.argprom.exit:                     ; preds = %815, %834
   %.0.i506 = phi i32 [ %837, %834 ], [ 4, %815 ]
   %838 = add i32 %.0.i506, -2
   call void @proto_item_set_len(ptr noundef %817, i32 noundef %838) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 839:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
@@ -2105,20 +2105,20 @@ dissect_cfm_csf.exit:                             ; preds = %815, %834
   %862 = load i32, ptr %16, align 4
   %863 = add i32 %862, -16
   %864 = icmp sgt i32 %863, 0
-  br i1 %864, label %865, label %dissect_cfm_osl.exit
+  br i1 %864, label %865, label %dissect_cfm_osl.argprom.exit
 
 865:                                              ; preds = %839
   %866 = load i32, ptr @hf_cfm_unknown_data, align 4
   %867 = call ptr @proto_tree_add_item(ptr noundef %843, i32 noundef %866, ptr noundef %0, i32 noundef 20, i32 noundef %863, i32 noundef 0) #5
   %868 = add nuw i32 %862, 4
-  br label %dissect_cfm_osl.exit
+  br label %dissect_cfm_osl.argprom.exit
 
-dissect_cfm_osl.exit:                             ; preds = %839, %865
+dissect_cfm_osl.argprom.exit:                     ; preds = %839, %865
   %.0.i507 = phi i32 [ %868, %865 ], [ 20, %839 ]
   %869 = add i32 %.0.i507, -2
   call void @proto_item_set_len(ptr noundef %841, i32 noundef %869) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 870:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
@@ -2147,20 +2147,20 @@ dissect_cfm_osl.exit:                             ; preds = %839, %865
   %893 = load i32, ptr %15, align 4
   %894 = add i32 %893, -16
   %895 = icmp sgt i32 %894, 0
-  br i1 %895, label %896, label %dissect_cfm_slm.exit
+  br i1 %895, label %896, label %dissect_cfm_slm.argprom.exit
 
 896:                                              ; preds = %870
   %897 = load i32, ptr @hf_cfm_unknown_data, align 4
   %898 = call ptr @proto_tree_add_item(ptr noundef %874, i32 noundef %897, ptr noundef %0, i32 noundef 20, i32 noundef %894, i32 noundef 0) #5
   %899 = add nuw i32 %893, 4
-  br label %dissect_cfm_slm.exit
+  br label %dissect_cfm_slm.argprom.exit
 
-dissect_cfm_slm.exit:                             ; preds = %870, %896
+dissect_cfm_slm.argprom.exit:                     ; preds = %870, %896
   %.0.i508 = phi i32 [ %899, %896 ], [ 20, %870 ]
   %900 = add i32 %.0.i508, -2
   call void @proto_item_set_len(ptr noundef %872, i32 noundef %900) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 901:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
@@ -2189,20 +2189,20 @@ dissect_cfm_slm.exit:                             ; preds = %870, %896
   %924 = load i32, ptr %14, align 4
   %925 = add i32 %924, -16
   %926 = icmp sgt i32 %925, 0
-  br i1 %926, label %927, label %dissect_cfm_slr.exit
+  br i1 %926, label %927, label %dissect_cfm_slr.argprom.exit
 
 927:                                              ; preds = %901
   %928 = load i32, ptr @hf_cfm_unknown_data, align 4
   %929 = call ptr @proto_tree_add_item(ptr noundef %905, i32 noundef %928, ptr noundef %0, i32 noundef 20, i32 noundef %925, i32 noundef 0) #5
   %930 = add nuw i32 %924, 4
-  br label %dissect_cfm_slr.exit
+  br label %dissect_cfm_slr.argprom.exit
 
-dissect_cfm_slr.exit:                             ; preds = %901, %927
+dissect_cfm_slr.argprom.exit:                     ; preds = %901, %927
   %.0.i509 = phi i32 [ %930, %927 ], [ 20, %901 ]
   %931 = add i32 %.0.i509, -2
   call void @proto_item_set_len(ptr noundef %903, i32 noundef %931) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
 932:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
@@ -2220,23 +2220,23 @@ dissect_cfm_slr.exit:                             ; preds = %901, %927
   %944 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %936, i32 noundef %943, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13) #5
   %945 = load i32, ptr %13, align 4
   %946 = icmp sgt i32 %945, 0
-  br i1 %946, label %947, label %dissect_cfm_unknown.exit
+  br i1 %946, label %947, label %dissect_cfm_unknown.argprom.exit
 
 947:                                              ; preds = %932
   %948 = load i32, ptr @hf_cfm_unknown_data, align 4
   %949 = call ptr @proto_tree_add_item(ptr noundef %936, i32 noundef %948, ptr noundef %0, i32 noundef 4, i32 noundef %945, i32 noundef 0) #5
   %950 = add nuw i32 %945, 4
-  br label %dissect_cfm_unknown.exit
+  br label %dissect_cfm_unknown.argprom.exit
 
-dissect_cfm_unknown.exit:                         ; preds = %932, %947
+dissect_cfm_unknown.argprom.exit:                 ; preds = %932, %947
   %.0.i510 = phi i32 [ %950, %947 ], [ 4, %932 ]
   %951 = add i32 %.0.i510, -2
   call void @proto_item_set_len(ptr noundef %934, i32 noundef %951) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br label %dissect_cfm_gnm.exit
+  br label %dissect_cfm_gnm.argprom.exit
 
-dissect_cfm_gnm.exit:                             ; preds = %dissect_cfm_gnm_unknown.exit.i, %dissect_cfm_bnm.exit.i, %dissect_cfm_unknown.exit, %dissect_cfm_slr.exit, %dissect_cfm_slm.exit, %dissect_cfm_osl.exit, %dissect_cfm_csf.exit, %dissect_cfm_vsr.exit, %dissect_cfm_vsm.exit, %dissect_cfm_exr.exit, %dissect_cfm_exm.exit, %dissect_cfm_dmr.exit, %dissect_cfm_dmm.exit, %dissect_cfm_odm.exit, %dissect_cfm_lmr.exit, %dissect_cfm_lmm.exit, %dissect_cfm_mcc.exit, %dissect_cfm_raps.exit, %dissect_cfm_aps.exit, %dissect_cfm_tst.exit, %dissect_cfm_lck.exit, %dissect_cfm_ais.exit, %dissect_cfm_sfm.exit, %dissect_cfm_rfm.exit, %dissect_cfm_ltr.exit, %dissect_cfm_ltm.exit, %dissect_cfm_lbr.exit, %dissect_cfm_lbm.exit, %dissect_cfm_ccm.exit
-  %.0 = phi i32 [ %.0.i510, %dissect_cfm_unknown.exit ], [ %.0.i509, %dissect_cfm_slr.exit ], [ %.0.i508, %dissect_cfm_slm.exit ], [ %.0.i507, %dissect_cfm_osl.exit ], [ %.0.i506, %dissect_cfm_csf.exit ], [ %813, %dissect_cfm_vsr.exit ], [ %774, %dissect_cfm_vsm.exit ], [ %735, %dissect_cfm_exr.exit ], [ %696, %dissect_cfm_exm.exit ], [ %.0.i473, %dissect_cfm_dmr.exit ], [ %.0.i472, %dissect_cfm_dmm.exit ], [ %.0.i471, %dissect_cfm_odm.exit ], [ %.0.i470, %dissect_cfm_lmr.exit ], [ %.0.i469, %dissect_cfm_lmm.exit ], [ %510, %dissect_cfm_mcc.exit ], [ %.0.i468, %dissect_cfm_raps.exit ], [ %.0.i467, %dissect_cfm_aps.exit ], [ %.0.i466, %dissect_cfm_tst.exit ], [ %.0.i465, %dissect_cfm_lck.exit ], [ %.0.i464, %dissect_cfm_ais.exit ], [ %.0.i462, %dissect_cfm_sfm.exit ], [ %.0.i461, %dissect_cfm_rfm.exit ], [ %.0.i460, %dissect_cfm_ltr.exit ], [ %.0.i459, %dissect_cfm_ltm.exit ], [ %.0.i458, %dissect_cfm_lbr.exit ], [ %.0.i457, %dissect_cfm_lbm.exit ], [ %.0.i, %dissect_cfm_ccm.exit ], [ %.0.i.i, %dissect_cfm_bnm.exit.i ], [ %.0.i11.i, %dissect_cfm_gnm_unknown.exit.i ]
+dissect_cfm_gnm.argprom.exit:                     ; preds = %dissect_cfm_gnm_unknown.argprom.exit.i, %dissect_cfm_bnm.argprom.exit.i, %dissect_cfm_unknown.argprom.exit, %dissect_cfm_slr.argprom.exit, %dissect_cfm_slm.argprom.exit, %dissect_cfm_osl.argprom.exit, %dissect_cfm_csf.argprom.exit, %dissect_cfm_vsr.argprom.exit, %dissect_cfm_vsm.argprom.exit, %dissect_cfm_exr.argprom.exit, %dissect_cfm_exm.argprom.exit, %dissect_cfm_dmr.argprom.exit, %dissect_cfm_dmm.argprom.exit, %dissect_cfm_odm.argprom.exit, %dissect_cfm_lmr.argprom.exit, %dissect_cfm_lmm.argprom.exit, %dissect_cfm_mcc.argprom.exit, %dissect_cfm_raps.argprom.exit, %dissect_cfm_aps.argprom.exit, %dissect_cfm_tst.argprom.exit, %dissect_cfm_lck.argprom.exit, %dissect_cfm_ais.argprom.exit, %dissect_cfm_sfm.argprom.exit, %dissect_cfm_rfm.argprom.exit, %dissect_cfm_ltr.argprom.exit, %dissect_cfm_ltm.argprom.exit, %dissect_cfm_lbr.argprom.exit, %dissect_cfm_lbm.argprom.exit, %dissect_cfm_ccm.argprom.exit
+  %.0 = phi i32 [ %.0.i510, %dissect_cfm_unknown.argprom.exit ], [ %.0.i509, %dissect_cfm_slr.argprom.exit ], [ %.0.i508, %dissect_cfm_slm.argprom.exit ], [ %.0.i507, %dissect_cfm_osl.argprom.exit ], [ %.0.i506, %dissect_cfm_csf.argprom.exit ], [ %813, %dissect_cfm_vsr.argprom.exit ], [ %774, %dissect_cfm_vsm.argprom.exit ], [ %735, %dissect_cfm_exr.argprom.exit ], [ %696, %dissect_cfm_exm.argprom.exit ], [ %.0.i473, %dissect_cfm_dmr.argprom.exit ], [ %.0.i472, %dissect_cfm_dmm.argprom.exit ], [ %.0.i471, %dissect_cfm_odm.argprom.exit ], [ %.0.i470, %dissect_cfm_lmr.argprom.exit ], [ %.0.i469, %dissect_cfm_lmm.argprom.exit ], [ %510, %dissect_cfm_mcc.argprom.exit ], [ %.0.i468, %dissect_cfm_raps.argprom.exit ], [ %.0.i467, %dissect_cfm_aps.argprom.exit ], [ %.0.i466, %dissect_cfm_tst.argprom.exit ], [ %.0.i465, %dissect_cfm_lck.argprom.exit ], [ %.0.i464, %dissect_cfm_ais.argprom.exit ], [ %.0.i462, %dissect_cfm_sfm.argprom.exit ], [ %.0.i461, %dissect_cfm_rfm.argprom.exit ], [ %.0.i460, %dissect_cfm_ltr.argprom.exit ], [ %.0.i459, %dissect_cfm_ltm.argprom.exit ], [ %.0.i458, %dissect_cfm_lbr.argprom.exit ], [ %.0.i457, %dissect_cfm_lbm.argprom.exit ], [ %.0.i, %dissect_cfm_ccm.argprom.exit ], [ %.0.i.i, %dissect_cfm_bnm.argprom.exit.i ], [ %.0.i11.i, %dissect_cfm_gnm_unknown.argprom.exit.i ]
   %952 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
   %953 = load i32, ptr @hf_cfm_all_tlvs, align 4
   %954 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %953, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
@@ -2246,7 +2246,7 @@ dissect_cfm_gnm.exit:                             ; preds = %dissect_cfm_gnm_unk
   %958 = icmp eq i8 %957, 0
   br i1 %958, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %dissect_cfm_gnm.exit
+.lr.ph:                                           ; preds = %dissect_cfm_gnm.argprom.exit
   %959 = getelementptr inbounds i8, ptr %1, i64 408
   %960 = getelementptr inbounds i8, ptr %6, i64 1
   %961 = getelementptr inbounds i8, ptr %6, i64 2
@@ -2325,8 +2325,8 @@ dissect_cfm_gnm.exit:                             ; preds = %dissect_cfm_gnm_unk
   %1034 = getelementptr inbounds i8, ptr %5, i64 224
   br label %1041
 
-._crit_edge:                                      ; preds = %1343, %dissect_cfm_gnm.exit
-  %.0434.lcssa = phi i32 [ %.0, %dissect_cfm_gnm.exit ], [ %.1, %1343 ]
+._crit_edge:                                      ; preds = %1343, %dissect_cfm_gnm.argprom.exit
+  %.0434.lcssa = phi i32 [ %.0, %dissect_cfm_gnm.argprom.exit ], [ %.1, %1343 ]
   %1035 = load i32, ptr @ett_cfm_tlv, align 4
   %1036 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %956, ptr noundef %0, i32 noundef %.0434.lcssa, i32 noundef 1, i32 noundef %1035, ptr noundef null, ptr noundef nonnull @.str.542) #5
   %1037 = load i32, ptr @hf_cfm_tlv_type, align 4
@@ -2911,7 +2911,7 @@ sender_id_tlv_management_address.exit:            ; preds = %1155, %1164, %.loop
   %1328 = load i32, ptr @hf_tlv_req_mep_id_lb, align 4
   %1329 = call ptr @proto_tree_add_item(ptr noundef %1052, i32 noundef %1328, ptr noundef %0, i32 noundef %1060, i32 noundef 1, i32 noundef 0) #5
   %1330 = add i32 %.0434515, 4
-  %1331 = call fastcc i32 @dissect_mep_maid(ptr noundef %0, ptr noundef %1052, i32 noundef %1330)
+  %1331 = call fastcc i32 @dissect_mep_maid.argprom(ptr noundef %0, ptr noundef %1052, i32 noundef %1330)
   %1332 = load i32, ptr @hf_tlv_req_mep_id_reserved, align 4
   %1333 = call ptr @proto_tree_add_item(ptr noundef %1052, i32 noundef %1332, ptr noundef %0, i32 noundef %1331, i32 noundef 2, i32 noundef 0) #5
   %1334 = add i32 %1331, 2
@@ -3074,7 +3074,7 @@ define internal fastcc noundef i32 @reply_ing_egr_tlv_port_id(ptr noundef %0, pt
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mep_maid(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_mep_maid.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

@@ -852,7 +852,7 @@ invoke.cont36.lr.ph:                              ; preds = %for.cond26.preheade
 for.cond.cleanup24:                               ; preds = %for.inc107
   %this.val72 = load i64, ptr %columns_6.i, align 8
   %cmp1.not.i = icmp eq i64 %this.val72, 0
-  br i1 %cmp1.not.i, label %_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.exit, label %for.body.lr.ph.i
+  br i1 %cmp1.not.i, label %_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.argprom.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.cleanup24
   %this.val = load ptr, ptr %this, align 8
@@ -868,9 +868,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %30 = call double @llvm.fmuladd.f64(double %29, double %29, double %x.02.i)
   %inc.i = add nuw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %this.val72
-  br i1 %exitcond.not.i, label %_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.exit, label %for.body.i, !llvm.loop !69
+  br i1 %exitcond.not.i, label %_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.argprom.exit, label %for.body.i, !llvm.loop !69
 
-_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.exit: ; preds = %for.body.i, %for.cond.cleanup24
+_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.argprom.exit: ; preds = %for.body.i, %for.cond.cleanup24
   %x.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.cleanup24 ], [ %30, %for.body.i ]
   %31 = load i64, ptr %dimension_, align 8
   %cmp134220.not = icmp eq i64 %31, 0
@@ -934,7 +934,7 @@ if.then53:                                        ; preds = %for.body47
   %orthoNormalizedVectors_.val74 = load ptr, ptr %orthoNormalizedVectors_, align 8
   %orthoNormalizedVectors_.val75 = load i64, ptr %columns_.i95, align 8
   %cmp1.not.i111 = icmp eq i64 %orthoNormalizedVectors_.val75, 0
-  br i1 %cmp1.not.i111, label %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit, label %for.body.lr.ph.i112
+  br i1 %cmp1.not.i111, label %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit, label %for.body.lr.ph.i112
 
 for.body.lr.ph.i112:                              ; preds = %if.then53
   %mul.i.i.i113 = mul i64 %orthoNormalizedVectors_.val75, %k.0218
@@ -953,13 +953,13 @@ for.body.i115:                                    ; preds = %for.body.i115, %for
   %39 = call double @llvm.fmuladd.f64(double %37, double %38, double %x.02.i117)
   %inc.i119 = add nuw i64 %i.03.i116, 1
   %exitcond.not.i120 = icmp eq i64 %inc.i119, %orthoNormalizedVectors_.val75
-  br i1 %exitcond.not.i120, label %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit, label %for.body.i115, !llvm.loop !71
+  br i1 %exitcond.not.i120, label %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit, label %for.body.i115, !llvm.loop !71
 
-_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit: ; preds = %for.body.i115, %if.then53
+_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit: ; preds = %for.body.i115, %if.then53
   %x.0.lcssa.i121 = phi double [ 0.000000e+00, %if.then53 ], [ %39, %for.body.i115 ]
   br i1 %cmp28209.not, label %for.inc76, label %invoke.cont70.lr.ph
 
-invoke.cont70.lr.ph:                              ; preds = %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit
+invoke.cont70.lr.ph:                              ; preds = %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit
   %mul.i.i123 = mul i64 %orthoNormalizedVectors_.val75, %l.0214
   %add.ptr.i.i124 = getelementptr inbounds nuw double, ptr %orthoNormalizedVectors_.val74, i64 %mul.i.i123
   %mul.i.i126 = mul i64 %orthoNormalizedVectors_.val75, %k.0218
@@ -979,7 +979,7 @@ invoke.cont70:                                    ; preds = %invoke.cont70.lr.ph
   %exitcond239.not = icmp eq i64 %inc74, %24
   br i1 %exitcond239.not, label %for.inc76, label %invoke.cont70, !llvm.loop !72
 
-for.inc76:                                        ; preds = %invoke.cont70, %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit, %for.body47
+for.inc76:                                        ; preds = %invoke.cont70, %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit, %for.body47
   %inc77 = add nuw i64 %l.0214, 1
   %exitcond240.not = icmp eq i64 %inc77, %k.0218
   br i1 %exitcond240.not, label %for.cond.cleanup46, label %for.body47, !llvm.loop !73
@@ -1045,8 +1045,8 @@ for.body.i139:                                    ; preds = %for.body.i139, %for
   %exitcond.not.i145 = icmp eq i64 %inc.i144, %this.val83
   br i1 %exitcond.not.i145, label %invoke.cont161, label %for.body.i139, !llvm.loop !71
 
-for.body119:                                      ; preds = %_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.exit, %for.inc154
-  %r.0222 = phi i64 [ 0, %_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.exit ], [ %inc155, %for.inc154 ]
+for.body119:                                      ; preds = %_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.argprom.exit, %for.inc154
+  %r.0222 = phi i64 [ 0, %_ZN8QuantLib12_GLOBAL__N_111normSquaredERKNS_6MatrixEm.argprom.exit ], [ %inc155, %for.inc154 ]
   %arrayidx.i149 = getelementptr inbounds nuw i8, ptr %22, i64 %r.0222
   %47 = load i8, ptr %arrayidx.i149, align 1, !tbaa !60, !range !67, !noundef !68
   %loadedv122 = trunc nuw i8 %47 to i1
@@ -1058,7 +1058,7 @@ if.then125:                                       ; preds = %for.body119
   %orthoNormalizedVectors_.val78 = load ptr, ptr %orthoNormalizedVectors_, align 8
   %orthoNormalizedVectors_.val79 = load i64, ptr %columns_.i95, align 8
   %cmp1.not.i150 = icmp eq i64 %orthoNormalizedVectors_.val79, 0
-  br i1 %cmp1.not.i150, label %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit164, label %for.body.lr.ph.i151
+  br i1 %cmp1.not.i150, label %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit164, label %for.body.lr.ph.i151
 
 for.body.lr.ph.i151:                              ; preds = %if.then125
   %mul.i.i.i152 = mul i64 %orthoNormalizedVectors_.val79, %j.0227
@@ -1077,13 +1077,13 @@ for.body.i156:                                    ; preds = %for.body.i156, %for
   %50 = call double @llvm.fmuladd.f64(double %48, double %49, double %x.02.i158)
   %inc.i161 = add nuw i64 %i.03.i157, 1
   %exitcond.not.i162 = icmp eq i64 %inc.i161, %orthoNormalizedVectors_.val79
-  br i1 %exitcond.not.i162, label %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit164, label %for.body.i156, !llvm.loop !71
+  br i1 %exitcond.not.i162, label %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit164, label %for.body.i156, !llvm.loop !71
 
-_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit164: ; preds = %for.body.i156, %if.then125
+_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit164: ; preds = %for.body.i156, %if.then125
   %x.0.lcssa.i163 = phi double [ 0.000000e+00, %if.then125 ], [ %50, %for.body.i156 ]
   br i1 %cmp134220.not, label %for.inc154, label %invoke.cont144.lr.ph
 
-invoke.cont144.lr.ph:                             ; preds = %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit164
+invoke.cont144.lr.ph:                             ; preds = %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit164
   %mul.i.i166 = mul i64 %orthoNormalizedVectors_.val79, %r.0222
   %add.ptr.i.i167 = getelementptr inbounds nuw double, ptr %orthoNormalizedVectors_.val78, i64 %mul.i.i166
   %mul.i.i169 = mul i64 %orthoNormalizedVectors_.val79, %j.0227
@@ -1103,7 +1103,7 @@ invoke.cont144:                                   ; preds = %invoke.cont144.lr.p
   %exitcond243.not = icmp eq i64 %inc149, %31
   br i1 %exitcond243.not, label %for.inc154, label %invoke.cont144, !llvm.loop !76
 
-for.inc154:                                       ; preds = %invoke.cont144, %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.exit164, %for.body119
+for.inc154:                                       ; preds = %invoke.cont144, %_ZN8QuantLib12_GLOBAL__N_112innerProductERKNS_6MatrixEmS3_m.argprom.exit164, %for.body119
   %inc155 = add nuw i64 %r.0222, 1
   %exitcond244.not = icmp eq i64 %inc155, %21
   br i1 %exitcond244.not, label %for.cond.cleanup118, label %for.body119, !llvm.loop !77

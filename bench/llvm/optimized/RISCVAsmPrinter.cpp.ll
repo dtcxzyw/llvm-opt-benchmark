@@ -759,7 +759,7 @@ define internal void @_ZN12_GLOBAL__N_115RISCVAsmPrinter16emitEndOfAsmFileERN4ll
   br label %16
 
 16:                                               ; preds = %8, %2
-  tail call fastcc void @_ZN12_GLOBAL__N_115RISCVAsmPrinter26EmitHwasanMemaccessSymbolsERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(848) %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_115RISCVAsmPrinter26EmitHwasanMemaccessSymbolsERN4llvm6ModuleE.argprom(ptr noundef nonnull align 8 dereferenceable(848) %0)
   ret void
 }
 
@@ -996,24 +996,24 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit24.i: ; preds = %127, %_ZN4llvm6M
   %139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %134) #16
   %140 = load ptr, ptr %134, align 8
   %141 = icmp eq ptr %140, %135
-  br i1 %141, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i, label %142
+  br i1 %141, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i, label %142
 
 142:                                              ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit24.i
   call void @free(ptr noundef %140) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i: ; preds = %142, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit24.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i: ; preds = %142, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit24.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %53)
   %143 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #16
   %144 = load ptr, ptr %90, align 8
   %145 = icmp eq ptr %144, %91
   br i1 %145, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter11emitNTLHintEPKN4llvm12MachineInstrE.exit, label %146
 
-146:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i
+146:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i
   call void @free(ptr noundef %144) #16
   br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter11emitNTLHintEPKN4llvm12MachineInstrE.exit
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter11emitNTLHintEPKN4llvm12MachineInstrE.exit: ; preds = %2, %67, %74, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.i, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i, %146
+_ZN12_GLOBAL__N_115RISCVAsmPrinter11emitNTLHintEPKN4llvm12MachineInstrE.exit: ; preds = %2, %67, %74, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.i, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i, %146
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %54)
   %147 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %148 = getelementptr inbounds i8, ptr %55, i64 32
@@ -1037,17 +1037,17 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter11emitNTLHintEPKN4llvm12MachineInstrE.exit: ; 
   %157 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %152) #16
   %158 = load ptr, ptr %152, align 8
   %159 = icmp eq ptr %158, %153
-  br i1 %159, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit, label %160
+  br i1 %159, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit, label %160
 
 160:                                              ; preds = %150
   call void @free(ptr noundef %158) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit: ; preds = %150, %160
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit: ; preds = %150, %160
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %52)
   br label %161
 
-161:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter11emitNTLHintEPKN4llvm12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit
+161:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter11emitNTLHintEPKN4llvm12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit
   %162 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %147) #16
   %163 = load ptr, ptr %147, align 8
   %164 = icmp eq ptr %163, %148
@@ -1286,24 +1286,24 @@ _ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i: ; preds = %242, %227
   %253 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %248) #16
   %254 = load ptr, ptr %248, align 8
   %255 = icmp eq ptr %254, %249
-  br i1 %255, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i14, label %256
+  br i1 %255, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i14, label %256
 
 256:                                              ; preds = %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i
   call void @free(ptr noundef %254) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i14
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i14
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i14: ; preds = %256, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i14: ; preds = %256, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %38)
   %257 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %235) #16
   %258 = load ptr, ptr %235, align 8
   %259 = icmp eq ptr %258, %236
-  br i1 %259, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12MachineInstrE.exit, label %260
+  br i1 %259, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12MachineInstrE.argprom.argprom.exit, label %260
 
-260:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i14
+260:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i14
   call void @free(ptr noundef %258) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12MachineInstrE.exit
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12MachineInstrE.argprom.argprom.exit
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12MachineInstrE.exit: ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i14, %260
+_ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12MachineInstrE.argprom.argprom.exit: ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i14, %260
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45)
@@ -1339,7 +1339,7 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12Machin
   %.030.ptr119.i = getelementptr inbounds i8, ptr %30, i64 %.030.idx117.i
   %269 = load i32, ptr %.030.ptr119.i, align 4
   %.not.i.i16 = icmp eq i32 %269, %265
-  br i1 %.not.i.i16, label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i.preheader", label %270
+  br i1 %.not.i.i16, label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i.preheader", label %270
 
 270:                                              ; preds = %268
   %271 = zext i32 %269 to i64
@@ -1350,17 +1350,17 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12Machin
   %276 = shl nuw i64 1, %275
   %277 = and i64 %274, %276
   %.not1.i.i = icmp eq i64 %277, 0
-  br i1 %.not1.i.i, label %290, label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i.preheader"
+  br i1 %.not1.i.i, label %290, label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i.preheader"
 
-"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i.preheader": ; preds = %270, %268
-  br label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i"
+"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i.preheader": ; preds = %270, %268
+  br label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i": ; preds = %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i.preheader", %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.thread.i"
-  %.2.i = phi i32 [ %285, %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.thread.i" ], [ %.0118.i, %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i.preheader" ]
+"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i": ; preds = %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i.preheader", %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.thread.i"
+  %.2.i = phi i32 [ %285, %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.thread.i" ], [ %.0118.i, %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i.preheader" ]
   %.not.i35.i = icmp eq i32 %.2.i, %265
-  br i1 %.not.i35.i, label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.thread.i", label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.i"
+  br i1 %.not.i35.i, label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.thread.i", label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.i"
 
-"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.i": ; preds = %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i"
+"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.i": ; preds = %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i"
   %278 = zext i32 %.2.i to i64
   %279 = lshr i64 %278, 6
   %280 = getelementptr inbounds [8 x i64], ptr %267, i64 0, i64 %279
@@ -1369,13 +1369,13 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12Machin
   %283 = shl nuw i64 1, %282
   %284 = and i64 %281, %283
   %.not1.i36.i = icmp eq i64 %284, 0
-  br i1 %.not1.i36.i, label %286, label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.thread.i"
+  br i1 %.not1.i36.i, label %286, label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.thread.i"
 
-"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.thread.i": ; preds = %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.i", %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i"
+"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.thread.i": ; preds = %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.i", %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i"
   %285 = add i32 %.2.i, 1
-  br label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit.i", !llvm.loop !28
+  br label %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit.i", !llvm.loop !28
 
-286:                                              ; preds = %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.exit37.i"
+286:                                              ; preds = %"_ZZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrEENK3$_0clEj.argprom.argprom.exit37.i"
   %287 = add nuw nsw i32 %.2.i, 1
   store i32 %.2.i, ptr %.030.ptr119.i, align 4
   %288 = icmp ugt i32 %.2.i, 74
@@ -1477,13 +1477,13 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit.i:          ; preds = %319, %_ZN4llvm13MCI
   %330 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %325) #16
   %331 = load ptr, ptr %325, align 8
   %332 = icmp eq ptr %331, %326
-  br i1 %332, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i25, label %333
+  br i1 %332, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i25, label %333
 
 333:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit.i
   call void @free(ptr noundef %331) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i25
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i25
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i25: ; preds = %333, %_ZN4llvm13MCInstBuilder6addImmEl.exit.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i25: ; preds = %333, %_ZN4llvm13MCInstBuilder6addImmEl.exit.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %29)
   %334 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %295) #16
   %335 = load ptr, ptr %295, align 8
@@ -1595,27 +1595,27 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit54.i:        ; preds = %380, %_ZN4llvm13MCI
   %391 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %386) #16
   %392 = load ptr, ptr %386, align 8
   %393 = icmp eq ptr %392, %387
-  br i1 %393, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit56.i, label %394
+  br i1 %393, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit56.i, label %394
 
 394:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit54.i
   call void @free(ptr noundef %392) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit56.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit56.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit56.i: ; preds = %394, %_ZN4llvm13MCInstBuilder6addImmEl.exit54.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit56.i: ; preds = %394, %_ZN4llvm13MCInstBuilder6addImmEl.exit54.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %27)
   %395 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %353) #16
   %396 = load ptr, ptr %353, align 8
   %397 = icmp eq ptr %396, %354
   br i1 %397, label %_ZN4llvm13MCInstBuilderD2Ev.exit.i, label %_ZN4llvm13MCInstBuilderD2Ev.exit.sink.split.i
 
-_ZN4llvm13MCInstBuilderD2Ev.exit.sink.split.i:    ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit56.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i25
-  %.sink.i = phi ptr [ %335, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i25 ], [ %396, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit56.i ]
-  %.ph.i = phi i32 [ %297, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i25 ], [ %355, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit56.i ]
+_ZN4llvm13MCInstBuilderD2Ev.exit.sink.split.i:    ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit56.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i25
+  %.sink.i = phi ptr [ %335, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i25 ], [ %396, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit56.i ]
+  %.ph.i = phi i32 [ %297, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i25 ], [ %355, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit56.i ]
   call void @free(ptr noundef %.sink.i) #16
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit.i
 
-_ZN4llvm13MCInstBuilderD2Ev.exit.i:               ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit.sink.split.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit56.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i25
-  %398 = phi i32 [ %355, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit56.i ], [ %297, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i25 ], [ %.ph.i, %_ZN4llvm13MCInstBuilderD2Ev.exit.sink.split.i ]
+_ZN4llvm13MCInstBuilderD2Ev.exit.i:               ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit.sink.split.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit56.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i25
+  %398 = phi i32 [ %355, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit56.i ], [ %297, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i25 ], [ %.ph.i, %_ZN4llvm13MCInstBuilderD2Ev.exit.sink.split.i ]
   %399 = load ptr, ptr %262, align 8
   %400 = getelementptr inbounds i8, ptr %399, i64 48
   %401 = load i64, ptr %400, align 8
@@ -1695,24 +1695,24 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit64.i:        ; preds = %426, %_ZN4llvm13MCI
   %437 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %432) #16
   %438 = load ptr, ptr %432, align 8
   %439 = icmp eq ptr %438, %433
-  br i1 %439, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit66.i, label %440
+  br i1 %439, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit66.i, label %440
 
 440:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit64.i
   call void @free(ptr noundef %438) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit66.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit66.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit66.i: ; preds = %440, %_ZN4llvm13MCInstBuilder6addImmEl.exit64.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit66.i: ; preds = %440, %_ZN4llvm13MCInstBuilder6addImmEl.exit64.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %26)
   %441 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %410) #16
   %442 = load ptr, ptr %410, align 8
   %443 = icmp eq ptr %442, %411
   br i1 %443, label %_ZN4llvm13MCInstBuilderD2Ev.exit67.i, label %444
 
-444:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit66.i
+444:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit66.i
   call void @free(ptr noundef %442) #16
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit67.i
 
-_ZN4llvm13MCInstBuilderD2Ev.exit67.i:             ; preds = %444, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit66.i
+_ZN4llvm13MCInstBuilderD2Ev.exit67.i:             ; preds = %444, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit66.i
   %.not116.i = icmp eq i64 %405, 0
   br i1 %.not116.i, label %_ZN4llvm13MCInstBuilderD2Ev.exit81.i, label %_ZN4llvm13MCInstBuilderD2Ev.exit67.thread.i
 
@@ -1805,25 +1805,25 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit78.i:        ; preds = %477, %_ZN4llvm13MCI
   %488 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %483) #16
   %489 = load ptr, ptr %483, align 8
   %490 = icmp eq ptr %489, %484
-  br i1 %490, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit80.i, label %491
+  br i1 %490, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit80.i, label %491
 
 491:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit78.i
   call void @free(ptr noundef %489) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit80.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit80.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit80.i: ; preds = %491, %_ZN4llvm13MCInstBuilder6addImmEl.exit78.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit80.i: ; preds = %491, %_ZN4llvm13MCInstBuilder6addImmEl.exit78.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %25)
   %492 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %454) #16
   %493 = load ptr, ptr %454, align 8
   %494 = icmp eq ptr %493, %455
   br i1 %494, label %_ZN4llvm13MCInstBuilderD2Ev.exit81.i, label %495
 
-495:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit80.i
+495:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit80.i
   call void @free(ptr noundef %493) #16
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit81.i
 
-_ZN4llvm13MCInstBuilderD2Ev.exit81.i:             ; preds = %495, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit80.i, %_ZN4llvm13MCInstBuilderD2Ev.exit67.i
-  %496 = phi i32 [ %445, %495 ], [ %445, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit80.i ], [ %413, %_ZN4llvm13MCInstBuilderD2Ev.exit67.i ]
+_ZN4llvm13MCInstBuilderD2Ev.exit81.i:             ; preds = %495, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit80.i, %_ZN4llvm13MCInstBuilderD2Ev.exit67.i
+  %496 = phi i32 [ %445, %495 ], [ %445, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit80.i ], [ %413, %_ZN4llvm13MCInstBuilderD2Ev.exit67.i ]
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %498 = load ptr, ptr %497, align 8
   %499 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull align 8 dereferenceable(2432) %498) #16
@@ -1911,24 +1911,24 @@ _ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i20: ; preds = %526, %_ZN4llv
   %537 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %532) #16
   %538 = load ptr, ptr %532, align 8
   %539 = icmp eq ptr %538, %533
-  br i1 %539, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit93.i, label %540
+  br i1 %539, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit93.i, label %540
 
 540:                                              ; preds = %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i20
   call void @free(ptr noundef %538) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit93.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit93.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit93.i: ; preds = %540, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i20
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit93.i: ; preds = %540, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i20
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %24)
   %541 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %501) #16
   %542 = load ptr, ptr %501, align 8
   %543 = icmp eq ptr %542, %502
   br i1 %543, label %_ZN4llvm13MCInstBuilderD2Ev.exit94.i, label %544
 
-544:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit93.i
+544:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit93.i
   call void @free(ptr noundef %542) #16
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit94.i
 
-_ZN4llvm13MCInstBuilderD2Ev.exit94.i:             ; preds = %544, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit93.i
+_ZN4llvm13MCInstBuilderD2Ev.exit94.i:             ; preds = %544, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit93.i
   %545 = load ptr, ptr %497, align 8
   %546 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull align 8 dereferenceable(2432) %545) #16
   %547 = load ptr, ptr %500, align 8
@@ -1954,24 +1954,24 @@ _ZN4llvm13MCInstBuilderD2Ev.exit94.i:             ; preds = %544, %_ZN12_GLOBAL_
   %558 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %553) #16
   %559 = load ptr, ptr %553, align 8
   %560 = icmp eq ptr %559, %554
-  br i1 %560, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit96.i, label %561
+  br i1 %560, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit96.i, label %561
 
 561:                                              ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit94.i
   call void @free(ptr noundef %559) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit96.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit96.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit96.i: ; preds = %561, %_ZN4llvm13MCInstBuilderD2Ev.exit94.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit96.i: ; preds = %561, %_ZN4llvm13MCInstBuilderD2Ev.exit94.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %23)
   %562 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %551) #16
   %563 = load ptr, ptr %551, align 8
   %564 = icmp eq ptr %563, %552
   br i1 %564, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrE.exit, label %565
 
-565:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit96.i
+565:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit96.i
   call void @free(ptr noundef %563) #16
   br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrE.exit
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrE.exit: ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit96.i, %565
+_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrE.exit: ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit96.i, %565
   %566 = call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #16
   call void @_ZN4llvm10AsmPrinter17emitKCFITrapEntryERKNS_15MachineFunctionEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(785) %0, ptr noundef nonnull align 8 dereferenceable(1041) %566, ptr noundef %546) #16
   %567 = load ptr, ptr %500, align 8
@@ -2186,9 +2186,9 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter13LowerSTACKMAPERN4llvm10MCStreamerERNS1_9Stac
   %672 = getelementptr inbounds i8, ptr %16, i64 32
   br label %673
 
-673:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i32, %.lr.ph.i30
-  %.053.i = phi i32 [ 0, %.lr.ph.i30 ], [ %682, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i32 ]
-  %.03252.i = phi ptr [ %668, %.lr.ph.i30 ], [ %683, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i32 ]
+673:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i32, %.lr.ph.i30
+  %.053.i = phi i32 [ 0, %.lr.ph.i30 ], [ %682, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i32 ]
+  %.03252.i = phi ptr [ %668, %.lr.ph.i30 ], [ %683, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i32 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %671, ptr noundef nonnull %672, i64 noundef 6) #16
@@ -2200,13 +2200,13 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter13LowerSTACKMAPERN4llvm10MCStreamerERNS1_9Stac
   %677 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %671) #16
   %678 = load ptr, ptr %671, align 8
   %679 = icmp eq ptr %678, %672
-  br i1 %679, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i32, label %680
+  br i1 %679, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i32, label %680
 
 680:                                              ; preds = %673
   call void @free(ptr noundef %678) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i32
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i32
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i32: ; preds = %680, %673
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i32: ; preds = %680, %673
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16)
   %681 = select i1 %675, i32 2, i32 4
   %682 = add i32 %681, %.053.i
@@ -2214,8 +2214,8 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MC
   %.not34.i = icmp eq ptr %683, %670
   br i1 %.not34.i, label %._crit_edge.i, label %673
 
-._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i32, %665
-  %.0.lcssa.i33 = phi i32 [ 0, %665 ], [ %682, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i32 ]
+._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i32, %665
+  %.0.lcssa.i33 = phi i32 [ 0, %665 ], [ %682, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i32 ]
   %684 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %685 = getelementptr inbounds i8, ptr %19, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
@@ -2294,24 +2294,24 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit.i37:        ; preds = %707, %_ZN4llvm13MCI
   %718 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %713) #16
   %719 = load ptr, ptr %713, align 8
   %720 = icmp eq ptr %719, %714
-  br i1 %720, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit42.i, label %721
+  br i1 %720, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit42.i, label %721
 
 721:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit.i37
   call void @free(ptr noundef %719) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit42.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit42.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit42.i: ; preds = %721, %_ZN4llvm13MCInstBuilder6addImmEl.exit.i37
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit42.i: ; preds = %721, %_ZN4llvm13MCInstBuilder6addImmEl.exit.i37
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15)
   %722 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %684) #16
   %723 = load ptr, ptr %684, align 8
   %724 = icmp eq ptr %723, %685
   br i1 %724, label %_ZN4llvm13MCInstBuilderD2Ev.exit.i39, label %725
 
-725:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit42.i
+725:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit42.i
   call void @free(ptr noundef %723) #16
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit.i39
 
-_ZN4llvm13MCInstBuilderD2Ev.exit.i39:             ; preds = %725, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit42.i
+_ZN4llvm13MCInstBuilderD2Ev.exit.i39:             ; preds = %725, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit42.i
   %726 = select i1 %716, i32 2, i32 4
   %727 = add i32 %726, %.0.lcssa.i33
   %728 = load ptr, ptr %18, align 8
@@ -2391,27 +2391,27 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i: ; preds = %748, %74
   %759 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %754) #16
   %760 = load ptr, ptr %754, align 8
   %761 = icmp eq ptr %760, %755
-  br i1 %761, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit46.i, label %762
+  br i1 %761, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit46.i, label %762
 
 762:                                              ; preds = %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i
   call void @free(ptr noundef %760) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit46.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit46.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit46.i: ; preds = %762, %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit46.i: ; preds = %762, %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14)
   %763 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %743) #16
   %764 = load ptr, ptr %743, align 8
   %765 = icmp eq ptr %764, %744
   br i1 %765, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerPATCHPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, label %_ZN4llvm11SmallVectorINS_6MCInstELj8EED2Ev.exit.sink.split.i
 
-_ZN4llvm11SmallVectorINS_6MCInstELj8EED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit46.i, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i
-  %.sink.i27 = phi ptr [ %738, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i ], [ %764, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit46.i ]
-  %.1.ph.i = phi i32 [ %727, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i ], [ 8, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit46.i ]
+_ZN4llvm11SmallVectorINS_6MCInstELj8EED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit46.i, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i
+  %.sink.i27 = phi ptr [ %738, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i ], [ %764, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit46.i ]
+  %.1.ph.i = phi i32 [ %727, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i ], [ 8, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit46.i ]
   call void @free(ptr noundef %.sink.i27) #16
   br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerPATCHPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerPATCHPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit: ; preds = %637, %662, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit46.i, %_ZN4llvm11SmallVectorINS_6MCInstELj8EED2Ev.exit.sink.split.i
-  %.1.i28 = phi i32 [ 0, %662 ], [ %727, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i ], [ 8, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit46.i ], [ 0, %637 ], [ %.1.ph.i, %_ZN4llvm11SmallVectorINS_6MCInstELj8EED2Ev.exit.sink.split.i ]
+_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerPATCHPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit: ; preds = %637, %662, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit46.i, %_ZN4llvm11SmallVectorINS_6MCInstELj8EED2Ev.exit.sink.split.i
+  %.1.i28 = phi i32 [ 0, %662 ], [ %727, %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE13destroy_rangeEPS1_S3_.exit.i.i ], [ 8, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit46.i ], [ 0, %637 ], [ %.1.ph.i, %_ZN4llvm11SmallVectorINS_6MCInstELj8EED2Ev.exit.sink.split.i ]
   %766 = trunc i8 %643 to i1
   %767 = trunc i8 %645 to i1
   %768 = select i1 %766, i1 true, i1 %767
@@ -2533,20 +2533,20 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i54: ; preds = %825, %
   %836 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %831) #16
   %837 = load ptr, ptr %831, align 8
   %838 = icmp eq ptr %837, %832
-  br i1 %838, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i57, label %839
+  br i1 %838, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i57, label %839
 
 839:                                              ; preds = %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i54
   call void @free(ptr noundef %837) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i57
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i57
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i57: ; preds = %839, %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i54
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i57: ; preds = %839, %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i54
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9)
   %840 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %820) #16
   %841 = load ptr, ptr %820, align 8
   %842 = icmp eq ptr %841, %821
   br i1 %842, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, label %843
 
-843:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i57
+843:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i57
   call void @free(ptr noundef %841) #16
   br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit
 
@@ -2611,20 +2611,20 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit30.i: ; preds = %861, %
   %872 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %867) #16
   %873 = load ptr, ptr %867, align 8
   %874 = icmp eq ptr %873, %868
-  br i1 %874, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit32.i, label %875
+  br i1 %874, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit32.i, label %875
 
 875:                                              ; preds = %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit30.i
   call void @free(ptr noundef %873) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit32.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit32.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit32.i: ; preds = %875, %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit30.i
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit32.i: ; preds = %875, %_ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit30.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
   %876 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %847) #16
   %877 = load ptr, ptr %847, align 8
   %878 = icmp eq ptr %877, %848
   br i1 %878, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, label %879
 
-879:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit32.i
+879:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit32.i
   call void @free(ptr noundef %877) #16
   br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit
 
@@ -2710,27 +2710,27 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit.i48:        ; preds = %906, %_ZN4llvm13MCI
   %917 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %912) #16
   %918 = load ptr, ptr %912, align 8
   %919 = icmp eq ptr %918, %913
-  br i1 %919, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit48.i, label %920
+  br i1 %919, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit48.i, label %920
 
 920:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit.i48
   call void @free(ptr noundef %918) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit48.i
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit48.i
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit48.i: ; preds = %920, %_ZN4llvm13MCInstBuilder6addImmEl.exit.i48
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit48.i: ; preds = %920, %_ZN4llvm13MCInstBuilder6addImmEl.exit.i48
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   %921 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %883) #16
   %922 = load ptr, ptr %883, align 8
   %923 = icmp eq ptr %922, %884
   br i1 %923, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, label %924
 
-924:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit48.i
+924:                                              ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit48.i
   call void @free(ptr noundef %922) #16
   br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit
 
 925:                                              ; preds = %811
   unreachable
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit: ; preds = %805, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit.i57, %843, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit32.i, %879, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit48.i, %924
+_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit: ; preds = %805, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit.i57, %843, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit32.i, %879, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit48.i, %924
   %926 = getelementptr inbounds nuw i8, ptr %784, i64 8
   %927 = load ptr, ptr %926, align 8
   %928 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull align 8 dereferenceable(2432) %927) #16
@@ -3428,17 +3428,17 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter13lowerToMCInstEPKN4llvm12MachineInstrERNS1_6M
   %1321 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1316) #16
   %1322 = load ptr, ptr %1316, align 8
   %1323 = icmp eq ptr %1322, %1317
-  br i1 %1323, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit74, label %1324
+  br i1 %1323, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit74, label %1324
 
 1324:                                             ; preds = %1314
   call void @free(ptr noundef %1322) #16
-  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit74
+  br label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit74
 
-_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit74: ; preds = %1314, %1324
+_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit74: ; preds = %1314, %1324
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   br label %1325
 
-1325:                                             ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter13lowerToMCInstEPKN4llvm12MachineInstrERNS1_6MCInstE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit74
+1325:                                             ; preds = %_ZN12_GLOBAL__N_115RISCVAsmPrinter13lowerToMCInstEPKN4llvm12MachineInstrERNS1_6MCInstE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.argprom.exit74
   %1326 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %933) #16
   %1327 = load ptr, ptr %933, align 8
   %1328 = icmp eq ptr %1327, %934
@@ -3448,7 +3448,7 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MC
   call void @free(ptr noundef %1327) #16
   br label %_ZN4llvm6MCInstD2Ev.exit75
 
-_ZN4llvm6MCInstD2Ev.exit75:                       ; preds = %1329, %1325, %_ZN4llvm6MCInstD2Ev.exit, %166, %166, %166, %166, %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerPATCHPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter13LowerSTACKMAPERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12MachineInstrE.exit
+_ZN4llvm6MCInstD2Ev.exit75:                       ; preds = %1329, %1325, %_ZN4llvm6MCInstD2Ev.exit, %166, %166, %166, %166, %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerSTATEPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerPATCHPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter13LowerSTACKMAPERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerKCFI_CHECKERKN4llvm12MachineInstrE.exit, %_ZN12_GLOBAL__N_115RISCVAsmPrinter27LowerHWASAN_CHECK_MEMACCESSERKN4llvm12MachineInstrE.argprom.argprom.exit
   ret void
 }
 
@@ -4712,7 +4712,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZN4llvm19RISCVTargetStreamer20emitTargetAttributesERKNS_15MCSubtargetInfoEb(ptr noundef nonnull align 8 dereferenceable(22), ptr noundef nonnull align 8 dereferenceable(288), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115RISCVAsmPrinter26EmitHwasanMemaccessSymbolsERN4llvm6ModuleE(ptr noundef nonnull readonly align 8 dereferenceable(848) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115RISCVAsmPrinter26EmitHwasanMemaccessSymbolsERN4llvm6ModuleE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(848) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -8082,7 +8082,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115RISCVAsmPrinter12
   %19 = tail call noundef ptr @_ZNK4llvm17MachineBasicBlock9getSymbolEv(ptr noundef nonnull align 8 dereferenceable(288) %18) #16
   %20 = getelementptr inbounds i8, ptr %0, i64 72
   %.val = load ptr, ptr %20, align 8
-  %21 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %19, ptr %.val)
+  %21 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %19, ptr %.val)
   %22 = extractvalue { i8, i64 } %21, 0
   %23 = extractvalue { i8, i64 } %21, 1
   br label %.sink.split
@@ -8093,7 +8093,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115RISCVAsmPrinter12
   %27 = tail call noundef ptr @_ZNK4llvm10AsmPrinter20getSymbolPreferLocalERKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(785) %0, ptr noundef nonnull align 8 dereferenceable(48) %26) #16
   %28 = getelementptr inbounds i8, ptr %0, i64 72
   %.val55 = load ptr, ptr %28, align 8
-  %29 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %27, ptr %.val55)
+  %29 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %27, ptr %.val55)
   %30 = extractvalue { i8, i64 } %29, 0
   %31 = extractvalue { i8, i64 } %29, 1
   br label %.sink.split
@@ -8104,7 +8104,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115RISCVAsmPrinter12
   %35 = tail call noundef ptr @_ZNK4llvm10AsmPrinter21GetBlockAddressSymbolEPKNS_12BlockAddressE(ptr noundef nonnull align 8 dereferenceable(785) %0, ptr noundef %34) #16
   %36 = getelementptr inbounds i8, ptr %0, i64 72
   %.val56 = load ptr, ptr %36, align 8
-  %37 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %35, ptr %.val56)
+  %37 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %35, ptr %.val56)
   %38 = extractvalue { i8, i64 } %37, 0
   %39 = extractvalue { i8, i64 } %37, 1
   br label %.sink.split
@@ -8129,7 +8129,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %40, %46
   %47 = tail call noundef ptr @_ZNK4llvm10AsmPrinter23GetExternalSymbolSymbolENS_5TwineE(ptr noundef nonnull align 8 dereferenceable(785) %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %4) #16
   %48 = getelementptr inbounds i8, ptr %0, i64 72
   %.val57 = load ptr, ptr %48, align 8
-  %49 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %47, ptr %.val57)
+  %49 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %47, ptr %.val57)
   %50 = extractvalue { i8, i64 } %49, 0
   %51 = extractvalue { i8, i64 } %49, 1
   br label %.sink.split
@@ -8143,7 +8143,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %40, %46
   %58 = tail call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(785) %0, i32 noundef %54) #16
   %59 = getelementptr inbounds i8, ptr %0, i64 72
   %.val58 = load ptr, ptr %59, align 8
-  %60 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %58, ptr %.val58)
+  %60 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %58, ptr %.val58)
   %61 = extractvalue { i8, i64 } %60, 0
   %62 = extractvalue { i8, i64 } %60, 1
   br label %.sink.split
@@ -8154,7 +8154,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %40, %46
   %66 = tail call noundef ptr @_ZNK4llvm10AsmPrinter12GetJTISymbolEjb(ptr noundef nonnull align 8 dereferenceable(785) %0, i32 noundef %65, i1 noundef zeroext false) #16
   %67 = getelementptr inbounds i8, ptr %0, i64 72
   %.val59 = load ptr, ptr %67, align 8
-  %68 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %66, ptr %.val59)
+  %68 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %66, ptr %.val59)
   %69 = extractvalue { i8, i64 } %68, 0
   %70 = extractvalue { i8, i64 } %68, 1
   br label %.sink.split
@@ -8164,7 +8164,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %40, %46
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 72
   %.val60 = load ptr, ptr %74, align 8
-  %75 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %73, ptr %.val60)
+  %75 = tail call fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %73, ptr %.val60)
   %76 = extractvalue { i8, i64 } %75, 0
   %77 = extractvalue { i8, i64 } %75, 1
   br label %.sink.split
@@ -8186,7 +8186,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %40, %46
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr %.72.val) unnamed_addr #0 {
+define internal fastcc { i8, i64 } @_ZL18lowerSymbolOperandRKN4llvm14MachineOperandEPNS_8MCSymbolERKNS_10AsmPrinterE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr %.72.val) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 255
   %5 = icmp eq i32 %4, 0

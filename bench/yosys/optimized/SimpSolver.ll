@@ -2671,7 +2671,7 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver16strengthenClauseEjNS_3LitE(p
   %27 = phi i32 [ %18, %.critedge.thread.i.i ], [ %20, %.critedge.i.i ], [ %20, %23 ]
   %28 = and i32 %13, 8
   %.not.i.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i.i.i, label %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i, label %29
+  br i1 %.not.i.i.i.i, label %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i, label %29
 
 29:                                               ; preds = %._crit_edge.i.i
   %30 = zext nneg i32 %14 to i64
@@ -2681,9 +2681,9 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver16strengthenClauseEjNS_3LitE(p
   %34 = load i32, ptr %31, align 4
   store i32 %34, ptr %33, align 4
   %.pre.i.i.i.i = load i32, ptr %7, align 4
-  br label %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i
+  br label %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i
 
-_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i: ; preds = %29, %._crit_edge.i.i
+_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i: ; preds = %29, %._crit_edge.i.i
   %35 = phi i32 [ %.pre.i.i.i.i, %29 ], [ %13, %._crit_edge.i.i ]
   %36 = and i32 %35, -32
   %37 = add i32 %36, -32
@@ -2693,7 +2693,7 @@ _ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i: ; preds = %29, %._cri
   %.not.i1.i = icmp eq i32 %37, 0
   br i1 %.not.i1.i, label %_ZN7Minisat6Clause10strengthenENS_3LitE.exit, label %.lr.ph.i2.i
 
-.lr.ph.i2.i:                                      ; preds = %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i
+.lr.ph.i2.i:                                      ; preds = %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i
   %40 = lshr exact i32 %37, 5
   %wide.trip.count.i3.i = zext nneg i32 %40 to i64
   br label %41
@@ -2711,9 +2711,9 @@ _ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i: ; preds = %29, %._cri
   %exitcond.not.i6.i = icmp eq i64 %indvars.iv.next.i5.i, %wide.trip.count.i3.i
   br i1 %exitcond.not.i6.i, label %_ZN7Minisat6Clause10strengthenENS_3LitE.exit, label %41, !llvm.loop !8
 
-_ZN7Minisat6Clause10strengthenENS_3LitE.exit:     ; preds = %41, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i
-  %.pre-phi.i.i = phi i64 [ 0, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i ], [ %wide.trip.count.i3.i, %41 ]
-  %.0.lcssa.i8.i = phi i32 [ 0, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i ], [ %46, %41 ]
+_ZN7Minisat6Clause10strengthenENS_3LitE.exit:     ; preds = %41, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i
+  %.pre-phi.i.i = phi i64 [ 0, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i ], [ %wide.trip.count.i3.i, %41 ]
+  %.0.lcssa.i8.i = phi i32 [ 0, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i ], [ %46, %41 ]
   %47 = getelementptr inbounds [0 x %union.anon], ptr %11, i64 0, i64 %.pre-phi.i.i
   store i32 %.0.lcssa.i8.i, ptr %47, align 4
   br label %_ZN7Minisat10SimpSolver14updateElimHeapEi.exit
@@ -2774,7 +2774,7 @@ _ZN7Minisat6Clause10strengthenENS_3LitE.exit:     ; preds = %41, %_ZN7MinisatL6r
   %63 = phi i32 [ %54, %.critedge.thread.i.i24 ], [ %56, %.critedge.i.i40 ], [ %56, %59 ]
   %64 = and i32 %49, 8
   %.not.i.i.i.i26 = icmp eq i32 %64, 0
-  br i1 %.not.i.i.i.i26, label %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28, label %65
+  br i1 %.not.i.i.i.i26, label %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i28, label %65
 
 65:                                               ; preds = %._crit_edge.i.i25
   %66 = zext nneg i32 %50 to i64
@@ -2784,9 +2784,9 @@ _ZN7Minisat6Clause10strengthenENS_3LitE.exit:     ; preds = %41, %_ZN7MinisatL6r
   %70 = load i32, ptr %67, align 4
   store i32 %70, ptr %69, align 4
   %.pre.i.i.i.i27 = load i32, ptr %7, align 4
-  br label %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28
+  br label %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i28
 
-_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28: ; preds = %65, %._crit_edge.i.i25
+_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i28: ; preds = %65, %._crit_edge.i.i25
   %71 = phi i32 [ %.pre.i.i.i.i27, %65 ], [ %49, %._crit_edge.i.i25 ]
   %72 = and i32 %71, -32
   %73 = add i32 %72, -32
@@ -2796,7 +2796,7 @@ _ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28: ; preds = %65, %._c
   %.not.i1.i29 = icmp eq i32 %73, 0
   br i1 %.not.i1.i29, label %_ZN7Minisat6Clause10strengthenENS_3LitE.exit47, label %.lr.ph.i2.i30
 
-.lr.ph.i2.i30:                                    ; preds = %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28
+.lr.ph.i2.i30:                                    ; preds = %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i28
   %76 = lshr exact i32 %73, 5
   %wide.trip.count.i3.i31 = zext nneg i32 %76 to i64
   br label %77
@@ -2814,9 +2814,9 @@ _ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28: ; preds = %65, %._c
   %exitcond.not.i6.i36 = icmp eq i64 %indvars.iv.next.i5.i35, %wide.trip.count.i3.i31
   br i1 %exitcond.not.i6.i36, label %_ZN7Minisat6Clause10strengthenENS_3LitE.exit47, label %77, !llvm.loop !8
 
-_ZN7Minisat6Clause10strengthenENS_3LitE.exit47:   ; preds = %77, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28
-  %.pre-phi.i.i37 = phi i64 [ 0, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28 ], [ %wide.trip.count.i3.i31, %77 ]
-  %.0.lcssa.i8.i38 = phi i32 [ 0, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i28 ], [ %82, %77 ]
+_ZN7Minisat6Clause10strengthenENS_3LitE.exit47:   ; preds = %77, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i28
+  %.pre-phi.i.i37 = phi i64 [ 0, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i28 ], [ %wide.trip.count.i3.i31, %77 ]
+  %.0.lcssa.i8.i38 = phi i32 [ 0, %_ZN7MinisatL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.argprom.exit.i28 ], [ %82, %77 ]
   %83 = getelementptr inbounds [0 x %union.anon], ptr %11, i64 0, i64 %.pre-phi.i.i37
   store i32 %.0.lcssa.i8.i38, ptr %83, align 4
   tail call void @_ZN7Minisat6Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 noundef %1)
@@ -2849,7 +2849,7 @@ _ZN7Minisat6Clause10strengthenENS_3LitE.exit47:   ; preds = %77, %_ZN7MinisatL6r
 
 .critedge.thread.i:                               ; preds = %96
   %97 = add nsw i32 %90, -1
-  br label %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit
+  br label %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.argprom.exit
 
 .critedge.loopexit.i:                             ; preds = %93
   %98 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -2859,7 +2859,7 @@ _ZN7Minisat6Clause10strengthenENS_3LitE.exit47:   ; preds = %77, %_ZN7MinisatL6r
   %.0.lcssa.i = phi i32 [ 0, %_ZN7Minisat6Clause10strengthenENS_3LitE.exit47 ], [ %98, %.critedge.loopexit.i ]
   %99 = add nsw i32 %90, -1
   %100 = icmp slt i32 %.0.lcssa.i, %99
-  br i1 %100, label %.lr.ph6.preheader.i, label %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit
+  br i1 %100, label %.lr.ph6.preheader.i, label %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.argprom.exit
 
 .lr.ph6.preheader.i:                              ; preds = %.critedge.i
   %101 = zext i32 %.0.lcssa.i to i64
@@ -2877,9 +2877,9 @@ _ZN7Minisat6Clause10strengthenENS_3LitE.exit47:   ; preds = %77, %_ZN7MinisatL6r
   %107 = add nsw i32 %106, -1
   %108 = trunc nuw i64 %indvars.iv.next11.i to i32
   %109 = icmp sgt i32 %107, %108
-  br i1 %109, label %.lr.ph6.i, label %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit, !llvm.loop !26
+  br i1 %109, label %.lr.ph6.i, label %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.argprom.exit, !llvm.loop !26
 
-_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit: ; preds = %.lr.ph6.i, %.critedge.thread.i, %.critedge.i
+_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.argprom.exit: ; preds = %.lr.ph6.i, %.critedge.thread.i, %.critedge.i
   %.lcssa.i = phi i32 [ %99, %.critedge.i ], [ %97, %.critedge.thread.i ], [ %107, %.lr.ph6.i ]
   store i32 %.lcssa.i, ptr %89, align 8
   %110 = getelementptr inbounds i8, ptr %0, i64 1024
@@ -2895,7 +2895,7 @@ _ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit: ; preds = %.lr.ph6.i, %.crite
   %119 = icmp slt i32 %85, %118
   br i1 %119, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i
 
-_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i: ; preds = %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit
+_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i: ; preds = %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.argprom.exit
   %120 = getelementptr inbounds i8, ptr %0, i64 1064
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i32, ptr %121, i64 %87
@@ -2903,7 +2903,7 @@ _ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit
   %124 = icmp sgt i32 %123, -1
   br i1 %124, label %.critedge.i50, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i
 
-_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i: ; preds = %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit, %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i
+_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i: ; preds = %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.argprom.exit, %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i
   %125 = getelementptr inbounds i8, ptr %0, i64 1120
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 %87
@@ -4649,7 +4649,7 @@ _ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us: ; preds = %90, %98
   %110 = getelementptr inbounds i8, ptr %109, i64 4
   %111 = load i32, ptr %109, align 4
   %112 = icmp ugt i32 %111, 31
-  br i1 %112, label %.lr.ph.preheader.i, label %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit
+  br i1 %112, label %.lr.ph.preheader.i, label %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %103
   %113 = lshr i32 %111, 5
@@ -4659,27 +4659,27 @@ _ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us: ; preds = %90, %98
 114:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit, label %.lr.ph.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.argprom.exit, label %.lr.ph.i, !llvm.loop !46
 
 .lr.ph.i:                                         ; preds = %114, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %114 ]
   %115 = getelementptr inbounds [0 x %union.anon], ptr %110, i64 0, i64 %indvars.iv.i
   %116 = load i32, ptr %115, align 4
   %.not.i54 = icmp eq i32 %116, %48
-  br i1 %.not.i54, label %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit, label %114
+  br i1 %.not.i54, label %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.argprom.exit, label %114
 
-_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit: ; preds = %.lr.ph.i, %114, %103
+_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.argprom.exit: ; preds = %.lr.ph.i, %114, %103
   %117 = phi i32 [ %.sroa.9.0214, %103 ], [ %.sroa.11.0219, %.lr.ph.i ], [ %.sroa.9.0214, %114 ]
   %.lcssa.i149152 = phi i1 [ false, %103 ], [ %.not.i54, %114 ], [ %.not.i54, %.lr.ph.i ]
   %118 = phi i32 [ %.sroa.16.0212, %103 ], [ %.sroa.20.0217, %.lr.ph.i ], [ %.sroa.16.0212, %114 ]
   %119 = icmp eq i32 %117, %118
   br i1 %119, label %120, label %._ZN7Minisat3vecIjiE8capacityEi.exit_crit_edge.i
 
-._ZN7Minisat3vecIjiE8capacityEi.exit_crit_edge.i: ; preds = %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit
+._ZN7Minisat3vecIjiE8capacityEi.exit_crit_edge.i: ; preds = %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.argprom.exit
   %.pre.i55.sroa.speculated = select i1 %.lcssa.i149152, ptr %.sroa.0115.0221, ptr %.sroa.095.0216
   br label %_ZN7Minisat3vecIjiE4pushERKj.exit
 
-120:                                              ; preds = %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit
+120:                                              ; preds = %_ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.argprom.exit
   %121 = ashr i32 %117, 1
   %122 = and i32 %121, -2
   %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)

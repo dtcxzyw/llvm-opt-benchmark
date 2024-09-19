@@ -79,7 +79,7 @@ onas_init_event_queue.exit:                       ; preds = %1, %19, %21
   br i1 %.not, label %27, label %26
 
 26:                                               ; preds = %onas_init_event_queue.exit
-  call fastcc void @onas_scan_queue_exit()
+  call fastcc void @onas_scan_queue_exit.argprom()
   call void @__pthread_unwind_next(ptr noundef nonnull %4) #11
   unreachable
 
@@ -142,7 +142,7 @@ declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @thpool_init(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @onas_scan_queue_exit() unnamed_addr #4 {
+define internal fastcc void @onas_scan_queue_exit.argprom() unnamed_addr #4 {
   %1 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.4) #9
   %2 = load ptr, ptr @g_thpool, align 8
   %.not = icmp eq ptr %2, null

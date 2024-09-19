@@ -647,7 +647,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef %dt, ptr noundef %normalizedCounter, i32 noundef %maxSymbolValue, ptr noundef %baseValue, ptr noundef %nbAdditionalBits, i32 noundef %tableLog, ptr noundef %wksp)
+  tail call fastcc void @ZSTD_buildFSETable_body_bmi2.argelim(ptr noundef %dt, ptr noundef %normalizedCounter, i32 noundef %maxSymbolValue, ptr noundef %baseValue, ptr noundef %nbAdditionalBits, i32 noundef %tableLog, ptr noundef %wksp)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -879,7 +879,7 @@ return:                                           ; preds = %for.body132.i.i, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, ptr nocapture noundef readonly %baseValue, ptr nocapture noundef readonly %nbAdditionalBits, i32 noundef %tableLog, ptr nocapture noundef %wksp) unnamed_addr #3 {
+define internal fastcc void @ZSTD_buildFSETable_body_bmi2.argelim(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, ptr nocapture noundef readonly %baseValue, ptr nocapture noundef readonly %nbAdditionalBits, i32 noundef %tableLog, ptr nocapture noundef %wksp) unnamed_addr #3 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %dt, i64 8
   %add.i = add i32 %maxSymbolValue, 1
@@ -1628,7 +1628,7 @@ if.end89:                                         ; preds = %ZSTD_getOffsetInfo.
   br i1 %tobool91.not, label %if.end94, label %if.then92
 
 if.then92:                                        ; preds = %if.end89
-  %call93 = tail call fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %add.ptr31, i64 noundef %sub32, i32 noundef %8)
+  %call93 = tail call fastcc i64 @ZSTD_decompressSequencesLong.argelim(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %add.ptr31, i64 noundef %sub32, i32 noundef %8)
   br label %return
 
 if.end94:                                         ; preds = %if.end89
@@ -1638,11 +1638,11 @@ if.end94:                                         ; preds = %if.end89
   br i1 %cmp95, label %if.then97, label %if.else
 
 if.then97:                                        ; preds = %if.end94
-  %call98 = tail call fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %add.ptr31, i64 noundef %sub32, i32 noundef %8)
+  %call98 = tail call fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer.argelim(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %add.ptr31, i64 noundef %sub32, i32 noundef %8)
   br label %return
 
 if.else:                                          ; preds = %if.end94
-  %call99 = tail call fastcc i64 @ZSTD_decompressSequences(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %add.ptr31, i64 noundef %sub32, i32 noundef %8)
+  %call99 = tail call fastcc i64 @ZSTD_decompressSequences.argelim(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %add.ptr31, i64 noundef %sub32, i32 noundef %8)
   br label %return
 
 return:                                           ; preds = %if.end30, %cond.end, %do.end10, %ZSTD_blockSizeMax.exit, %if.else, %if.then97, %if.then92
@@ -1651,7 +1651,7 @@ return:                                           ; preds = %if.end30, %cond.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #4 {
+define internal fastcc i64 @ZSTD_decompressSequencesLong.argelim(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #4 {
 entry:
   %litPtr.i.i = alloca ptr, align 8
   %sequences.i.i = alloca [8 x %struct.seq_t], align 16
@@ -1662,7 +1662,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq)
+  %call1 = tail call fastcc i64 @ZSTD_decompressSequencesLong_bmi2.argelim(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4659,7 +4659,7 @@ return:                                           ; preds = %ZSTD_decompressSequ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #5 {
+define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer.argelim(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #5 {
 entry:
   %sequence449.i.i = alloca %struct.seq_t, align 8
   %sequence103433.i.i = alloca %struct.seq_t, align 8
@@ -4671,7 +4671,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq)
+  %call1 = tail call fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2.argelim(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6705,7 +6705,7 @@ return:                                           ; preds = %ZSTD_decompressSequ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #5 {
+define internal fastcc i64 @ZSTD_decompressSequences.argelim(ptr nocapture noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #5 {
 entry:
   %sequence101.i.i = alloca %struct.seq_t, align 8
   %litPtr.i.i = alloca ptr, align 8
@@ -6716,7 +6716,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq)
+  %call1 = tail call fastcc i64 @ZSTD_decompressSequences_bmi2.argelim(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -7861,7 +7861,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 declare i64 @FSE_readNCount(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #11 {
+define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2.argelim(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #11 {
 entry:
   %litPtr.i = alloca ptr, align 8
   %sequences.i = alloca [8 x %struct.seq_t], align 16
@@ -11223,7 +11223,7 @@ while.end28:                                      ; preds = %do.body11.i47, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #14 {
+define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2.argelim(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #14 {
 entry:
   %sequence449.i = alloca %struct.seq_t, align 8
   %sequence103433.i = alloca %struct.seq_t, align 8
@@ -13247,7 +13247,7 @@ ZSTD_decompressSequences_bodySplitLitBuffer.exit: ; preds = %do.body53.i, %do.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #14 {
+define internal fastcc i64 @ZSTD_decompressSequences_bmi2.argelim(ptr nocapture noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #14 {
 entry:
   %sequence101.i = alloca %struct.seq_t, align 8
   %litPtr.i = alloca ptr, align 8

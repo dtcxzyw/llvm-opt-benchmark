@@ -27948,7 +27948,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit90:     ; preds = %361, %367, %370
   br label %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit93
 
 _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit93:     ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit90, %378, %381
-  %383 = invoke fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i(ptr noundef %24, ptr noundef %25)
+  %383 = invoke fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i.argelim(ptr noundef %24, ptr noundef %25)
           to label %.critedge unwind label %386
 
 .critedge:                                        ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit93
@@ -28474,7 +28474,7 @@ _ZNSt12__shared_ptrI4SeamLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__detail::_AllocNode.736", align 8
   %4 = alloca %"struct.std::__detail::_AllocNode.736", align 8
   %5 = alloca %"class.std::unordered_set.696", align 8
@@ -36446,7 +36446,7 @@ _ZNSt10shared_ptrIK9AlgoStateEC2IS0_vEERKS_IT_E.exit.i: ; preds = %_ZNSt10shared
   %404 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %405 = load ptr, ptr %404, align 8
   %406 = icmp eq ptr %.val.i, %405
-  br i1 %406, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit.i, label %402, !llvm.loop !457
+  br i1 %406, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit.i, label %402, !llvm.loop !457
 
 407:                                              ; preds = %_ZNSt10shared_ptrIK9AlgoStateEC2IS0_vEERKS_IT_E.exit.i
   %408 = getelementptr inbounds i8, ptr %386, i64 32
@@ -36465,11 +36465,11 @@ _ZNSt10shared_ptrIK9AlgoStateEC2IS0_vEERKS_IT_E.exit.i: ; preds = %_ZNSt10shared
   %418 = getelementptr inbounds i8, ptr %417, i64 8
   %419 = load ptr, ptr %418, align 8
   %420 = icmp eq ptr %.val.i, %419
-  br i1 %420, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %420, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 421:                                              ; preds = %424
   %422 = icmp eq ptr %.val.i, %426
-  br i1 %422, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !321
+  br i1 %422, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !321
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %416, %421
   %.018.i.i.i.i.i.i = phi ptr [ %423, %421 ], [ %417, %416 ]
@@ -36485,14 +36485,14 @@ _ZNSt10shared_ptrIK9AlgoStateEC2IS0_vEERKS_IT_E.exit.i: ; preds = %_ZNSt10shared
   %.not17.i.i.i.i.i.i = icmp eq i64 %428, %412
   br i1 %.not17.i.i.i.i.i.i, label %421, label %.critedge.i, !llvm.loop !321
 
-_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit.i: ; preds = %421, %403, %416
+_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit.i: ; preds = %421, %403, %416
   %.sroa.06.1.i.i.i.i = phi ptr [ %417, %416 ], [ %.sroa.06.0.i.i.i.i, %403 ], [ %423, %421 ]
   %429 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i.i, i64 24
   %430 = load double, ptr %429, align 8
   %431 = fcmp oeq double %430, %.val10.i
   br i1 %431, label %432, label %.critedge.i
 
-432:                                              ; preds = %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit.i
+432:                                              ; preds = %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit.i
   %433 = fcmp une double %.val10.i, 0x7FF0000000000000
   br i1 %.not.i.i.i.i107, label %_ZNSt10shared_ptrIK9AlgoStateED2Ev.exit.i, label %434
 
@@ -36583,7 +36583,7 @@ _ZNSt13unordered_setISt10shared_ptrI13ClusteredSeamESt4hashIS2_ESt8equal_toIS2_E
   call void @_ZNSt4pairISt10shared_ptrI13ClusteredSeamEdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #26
   br label %.body
 
-.critedge.i:                                      ; preds = %424, %.lr.ph.i.i.i.i.i.i, %402, %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit.i, %407
+.critedge.i:                                      ; preds = %424, %.lr.ph.i.i.i.i.i.i, %402, %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit.i, %407
   br i1 %.not.i.i.i.i107, label %_ZNSt10shared_ptrIK9AlgoStateED2Ev.exit23.i, label %472
 
 472:                                              ; preds = %.critedge.i
@@ -37453,7 +37453,7 @@ _ZNSt10shared_ptrIK9AlgoStateEC2IS0_vEERKS_IT_E.exit: ; preds = %_ZNSt14priority
   %.sroa.06.0.in.i.i.i = phi ptr [ %872, %871 ], [ %.sroa.06.0.i.i.i, %874 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
   %.not.i.i.i126 = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i.i126, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit, label %874
+  br i1 %.not.i.i.i126, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit, label %874
 
 874:                                              ; preds = %873
   %875 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
@@ -37471,7 +37471,7 @@ _ZNSt10shared_ptrIK9AlgoStateEC2IS0_vEERKS_IT_E.exit: ; preds = %_ZNSt14priority
   %885 = getelementptr inbounds ptr, ptr %884, i64 %883
   %886 = load ptr, ptr %885, align 8
   %.not.i.i.i.i.i125 = icmp eq ptr %886, null
-  br i1 %.not.i.i.i.i.i125, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit, label %887
+  br i1 %.not.i.i.i.i.i125, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit, label %887
 
 887:                                              ; preds = %878
   %888 = load ptr, ptr %886, align 8
@@ -37488,7 +37488,7 @@ _ZNSt10shared_ptrIK9AlgoStateEC2IS0_vEERKS_IT_E.exit: ; preds = %_ZNSt14priority
   %.018.i.i.i.i.i = phi ptr [ %894, %892 ], [ %888, %887 ]
   %894 = load ptr, ptr %.018.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i = icmp eq ptr %894, null
-  br i1 %.not16.i.i.i.i.i, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit, label %895
+  br i1 %.not16.i.i.i.i.i, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit, label %895
 
 895:                                              ; preds = %.lr.ph.i.i.i.i.i
   %896 = getelementptr inbounds i8, ptr %894, i64 8
@@ -37496,20 +37496,20 @@ _ZNSt10shared_ptrIK9AlgoStateEC2IS0_vEERKS_IT_E.exit: ; preds = %_ZNSt14priority
   %898 = ptrtoint ptr %897 to i64
   %899 = urem i64 %898, %882
   %.not17.i.i.i.i.i = icmp eq i64 %899, %883
-  br i1 %.not17.i.i.i.i.i, label %892, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit, !llvm.loop !321
+  br i1 %.not17.i.i.i.i.i, label %892, label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit, !llvm.loop !321
 
 _ZNKSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_dEEE4findERS8_.exit.i: ; preds = %892, %874, %887
   %.sroa.06.1.i.i.i = phi ptr [ %888, %887 ], [ %.sroa.06.0.i.i.i, %874 ], [ %894, %892 ]
   %900 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 24
   %901 = load double, ptr %900, align 8
   %902 = fcmp oeq double %901, %.val90
-  br label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit
+  br label %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit
 
-_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit: ; preds = %895, %.lr.ph.i.i.i.i.i, %873, %_ZNKSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_dEEE4findERS8_.exit.i, %878
+_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit: ; preds = %895, %.lr.ph.i.i.i.i.i, %873, %_ZNKSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_dEEE4findERS8_.exit.i, %878
   %903 = phi i1 [ %902, %_ZNKSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_dEEE4findERS8_.exit.i ], [ false, %878 ], [ false, %873 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %895 ]
   br i1 %.not.i.i.i123, label %_ZNSt10shared_ptrIK9AlgoStateED2Ev.exit, label %904
 
-904:                                              ; preds = %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit
+904:                                              ; preds = %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit
   %905 = getelementptr inbounds i8, ptr %860, i64 8
   %906 = load atomic i64, ptr %905 acquire, align 8
   %907 = icmp eq i64 %906, 4294967297
@@ -37577,7 +37577,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %937(ptr noundef nonnull align 8 dereferenceable(16) %860) #26
   br label %_ZNSt10shared_ptrIK9AlgoStateED2Ev.exit
 
-_ZNSt10shared_ptrIK9AlgoStateED2Ev.exit:          ; preds = %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.exit, %920, %933, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i132
+_ZNSt10shared_ptrIK9AlgoStateED2Ev.exit:          ; preds = %_ZL5ValidRKSt4pairISt10shared_ptrI13ClusteredSeamEdES0_IK9AlgoStateE.argprom.exit, %920, %933, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i132
   br i1 %903, label %938, label %.critedge77
 
 938:                                              ; preds = %_ZNSt10shared_ptrIK9AlgoStateED2Ev.exit
@@ -46875,7 +46875,7 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorI
 4577:                                             ; preds = %4568, %4564, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i331 = phi i64 [ %4570, %4568 ], [ %.0.lcssa.i.i.i.i.i, %4564 ], [ %.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %4578 = icmp sgt i64 %.1.i.i.i.i.i331, 0
-  br i1 %4578, label %.lr.ph.i.i.i.i71.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.exit.i.i.i"
+  br i1 %4578, label %.lr.ph.i.i.i.i71.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.argprom.exit.i.i.i"
 
 .lr.ph.i.i.i.i71.i.i:                             ; preds = %4577, %4582
   %.010.i.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i.i332, %4582 ], [ %.1.i.i.i.i.i331, %4577 ]
@@ -46885,7 +46885,7 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorI
   %4580 = getelementptr i8, ptr %4579, i64 8
   %.val.i.i.i.i.i.i.i = load double, ptr %4580, align 8
   %4581 = fcmp olt double %.val.i.i.i.i.i.i.i, %.sroa.24.0.copyload.i.i.i.i
-  br i1 %4581, label %4582, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.exit.i.i.i"
+  br i1 %4581, label %4582, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.argprom.exit.i.i.i"
 
 4582:                                             ; preds = %.lr.ph.i.i.i.i71.i.i
   %4583 = getelementptr inbounds %"struct.std::pair.1019", ptr %.sroa.046.5206.i.i, i64 %.010.i.i.i.i.i.i
@@ -46894,9 +46894,9 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorI
   %4585 = getelementptr inbounds i8, ptr %4583, i64 8
   store double %.val.i.i.i.i.i.i.i, ptr %4585, align 8
   %4586 = icmp sgt i64 %.010.i.i.i.i.i.i, 2
-  br i1 %4586, label %.lr.ph.i.i.i.i71.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.exit.i.i.i", !llvm.loop !530
+  br i1 %4586, label %.lr.ph.i.i.i.i71.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.argprom.exit.i.i.i", !llvm.loop !530
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.exit.i.i.i": ; preds = %4582, %.lr.ph.i.i.i.i71.i.i, %4577
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.argprom.exit.i.i.i": ; preds = %4582, %.lr.ph.i.i.i.i71.i.i, %4577
   %.0.lcssa.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i331, %4577 ], [ %.0911.i.i.i.i.i.i332, %4582 ], [ %.010.i.i.i.i.i.i, %.lr.ph.i.i.i.i71.i.i ]
   %4587 = getelementptr inbounds %"struct.std::pair.1019", ptr %.sroa.046.5206.i.i, i64 %.0.lcssa.i.i.i.i.i.i
   store ptr %.sroa.03.0.copyload.i.i.i.i, ptr %4587, align 8
@@ -46904,7 +46904,7 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorI
   store double %.sroa.24.0.copyload.i.i.i.i, ptr %4588, align 8
   br label %"_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEEZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EvT_SS_T0_.exit.i.i"
 
-"_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEEZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EvT_SS_T0_.exit.i.i": ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.exit.i.i.i", %4533
+"_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEEZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EvT_SS_T0_.exit.i.i": ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP10MeshVertexdESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIS4_dSt4hashIS4_ESt8equal_toIS4_ESaIS2_IKS4_dEEERK8SeamDataE3$_0EEEvT_SV_SV_RT0_.argprom.exit.i.i.i", %4533
   %4589 = getelementptr inbounds i8, ptr %.sroa.14.2205.i.i, i64 -16
   %.sroa.033.0.copyload.i.i = load ptr, ptr %4589, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.14.2205.i.i, i64 -8
@@ -51200,7 +51200,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit.i:     ; preds = %6257, %6254, %_ZNSt
   %6260 = getelementptr i8, ptr %6249, i64 24
   %.val74.val75.i = load ptr, ptr %6260, align 8
   %.not12.i.i = icmp eq ptr %.val74.val.i, %.val74.val75.i
-  br i1 %.not12.i.i, label %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit.i, label %.lr.ph.i.i453
+  br i1 %.not12.i.i, label %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit.i, label %.lr.ph.i.i453
 
 .lr.ph.i.i453:                                    ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit.i
   %6261 = load ptr, ptr %235, align 8
@@ -51240,12 +51240,12 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit.i:     ; preds = %6257, %6254, %_ZNSt
 6278:                                             ; preds = %6268
   %6279 = getelementptr inbounds i8, ptr %.sroa.03.013.i.i, i64 8
   %.not.i.i457 = icmp eq ptr %6279, %.val74.val75.i
-  br i1 %.not.i.i457, label %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit.i, label %6264
+  br i1 %.not.i.i457, label %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit.i, label %6264
 
-_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit.i: ; preds = %6278, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit.i
+_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit.i: ; preds = %6278, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit.i
   br i1 %.not.i.i.i.i451, label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit.i, label %6280
 
-6280:                                             ; preds = %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit.i
+6280:                                             ; preds = %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit.i
   %6281 = getelementptr inbounds i8, ptr %6250, i64 8
   %6282 = load atomic i64, ptr %6281 acquire, align 8
   %6283 = icmp eq i64 %6282, 4294967297
@@ -51313,7 +51313,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %6313(ptr noundef nonnull align 8 dereferenceable(16) %6250) #26
   br label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit.i
 
-_ZNSt10shared_ptrI9FaceGroupED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i491, %6309, %6296, %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit.i
+_ZNSt10shared_ptrI9FaceGroupED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i491, %6309, %6296, %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit.i
   %6314 = load ptr, ptr %227, align 8
   %6315 = load ptr, ptr %231, align 8
   %.not.i459 = icmp eq ptr %6314, %6315
@@ -51346,7 +51346,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit81.i:   ; preds = %6324, %6321, %6316
   %6327 = getelementptr i8, ptr %6315, i64 24
   %.val.val76.i = load ptr, ptr %6327, align 8
   %.not12.i82.i = icmp eq ptr %.val.val.i, %.val.val76.i
-  br i1 %.not12.i82.i, label %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit93.i, label %.lr.ph.i83.i
+  br i1 %.not12.i82.i, label %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit93.i, label %.lr.ph.i83.i
 
 .lr.ph.i83.i:                                     ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit81.i
   %6328 = load ptr, ptr %241, align 8
@@ -51386,12 +51386,12 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit81.i:   ; preds = %6324, %6321, %6316
 6345:                                             ; preds = %6335
   %6346 = getelementptr inbounds i8, ptr %.sroa.03.013.i86.i, i64 8
   %.not.i92.i = icmp eq ptr %6346, %.val.val76.i
-  br i1 %.not.i92.i, label %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit93.i, label %6331
+  br i1 %.not.i92.i, label %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit93.i, label %6331
 
-_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit93.i: ; preds = %6345, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit81.i
+_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit93.i: ; preds = %6345, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit81.i
   br i1 %.not.i.i.i79.i, label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit100.i, label %6347
 
-6347:                                             ; preds = %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit93.i
+6347:                                             ; preds = %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit93.i
   %6348 = getelementptr inbounds i8, ptr %6317, i64 8
   %6349 = load atomic i64, ptr %6348 acquire, align 8
   %6350 = icmp eq i64 %6349, 4294967297
@@ -51459,7 +51459,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %6380(ptr noundef nonnull align 8 dereferenceable(16) %6317) #26
   br label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit100.i
 
-_ZNSt10shared_ptrI9FaceGroupED2Ev.exit100.i:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i, %6376, %6363, %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.exit93.i, %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit.i
+_ZNSt10shared_ptrI9FaceGroupED2Ev.exit100.i:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i, %6376, %6363, %_ZL22RestoreChartAttributesSt10shared_ptrI9FaceGroupER4MeshN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS5_IPKN3vcg6Point2IdEES8_ISE_SaISE_EEEE.argprom.argprom.exit93.i, %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit.i
   %6381 = load ptr, ptr %50, align 8
   %6382 = getelementptr inbounds i8, ptr %6381, i64 8
   %6383 = load ptr, ptr %6382, align 8
@@ -54966,7 +54966,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit:       ; preds = %60, %68, %71
   %74 = getelementptr i8, ptr %62, i64 24
   %.val211.val212 = load ptr, ptr %74, align 8
   %.not5.i = icmp eq ptr %.val211.val, %.val211.val212
-  br i1 %.not5.i, label %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit, %83
   %.sroa.01.06.i = phi ptr [ %84, %83 ], [ %.val211.val, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit ]
@@ -54989,12 +54989,12 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit:       ; preds = %60, %68, %71
 83:                                               ; preds = %78
   %84 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 8
   %.not.i = icmp eq ptr %84, %.val211.val212
-  br i1 %.not.i, label %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit, label %.lr.ph.i
 
-_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit: ; preds = %83, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit
+_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit: ; preds = %83, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit, label %85
 
-85:                                               ; preds = %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit
+85:                                               ; preds = %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit
   %86 = getelementptr inbounds i8, ptr %64, i64 8
   %87 = load atomic i64, ptr %86 acquire, align 8
   %88 = icmp eq i64 %87, 4294967297
@@ -55062,7 +55062,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %118(ptr noundef nonnull align 8 dereferenceable(16) %64) #26
   br label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit
 
-_ZNSt10shared_ptrI9FaceGroupED2Ev.exit:           ; preds = %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit, %101, %114, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrI9FaceGroupED2Ev.exit:           ; preds = %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit, %101, %114, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %119 = getelementptr inbounds i8, ptr %0, i64 32
   %120 = load ptr, ptr %61, align 8
   %121 = load ptr, ptr %119, align 8
@@ -55097,7 +55097,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit218:    ; preds = %122, %128, %131
   %134 = getelementptr i8, ptr %121, i64 24
   %.val.val213 = load ptr, ptr %134, align 8
   %.not5.i219 = icmp eq ptr %.val.val, %.val.val213
-  br i1 %.not5.i219, label %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit226, label %.lr.ph.i220
+  br i1 %.not5.i219, label %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit226, label %.lr.ph.i220
 
 .lr.ph.i220:                                      ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit218, %143
   %.sroa.01.06.i221 = phi ptr [ %144, %143 ], [ %.val.val, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit218 ]
@@ -55120,12 +55120,12 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit218:    ; preds = %122, %128, %131
 143:                                              ; preds = %138
   %144 = getelementptr inbounds i8, ptr %.sroa.01.06.i221, i64 8
   %.not.i225 = icmp eq ptr %144, %.val.val213
-  br i1 %.not.i225, label %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit226, label %.lr.ph.i220
+  br i1 %.not.i225, label %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit226, label %.lr.ph.i220
 
-_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit226: ; preds = %143, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit218
+_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit226: ; preds = %143, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit218
   br i1 %.not.i.i.i216, label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit233, label %145
 
-145:                                              ; preds = %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit226
+145:                                              ; preds = %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit226
   %146 = getelementptr inbounds i8, ptr %124, i64 8
   %147 = load atomic i64, ptr %146 acquire, align 8
   %148 = icmp eq i64 %147, 4294967297
@@ -55193,7 +55193,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %178(ptr noundef nonnull align 8 dereferenceable(16) %124) #26
   br label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit233
 
-_ZNSt10shared_ptrI9FaceGroupED2Ev.exit233:        ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i232, %174, %161, %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.exit226, %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit
+_ZNSt10shared_ptrI9FaceGroupED2Ev.exit233:        ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i232, %174, %161, %_ZL21WedgeTexFromVertexTexSt10shared_ptrI9FaceGroupE.argprom.argprom.exit226, %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit
   %179 = invoke noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
           to label %180 unwind label %.loopexit.split-lp335.loopexit.split-lp.loopexit.split-lp
 
@@ -56501,22 +56501,22 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit.i: ; preds = %174, %_ZNSt6ve
 .lr.ph.i.i.i.i170.i:                              ; preds = %193, %.lr.ph.preheader.i.i.i.i.i
   %.043.i.i.i.i.i = phi i64 [ %195, %193 ], [ %180, %.lr.ph.preheader.i.i.i.i.i ]
   %.sroa.032.042.i.i.i.i.i = phi ptr [ %194, %193 ], [ %175, %.lr.ph.preheader.i.i.i.i.i ]
-  %183 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.042.i.i.i.i.i)
+  %183 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.032.042.i.i.i.i.i)
   br i1 %183, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i", label %184
 
 184:                                              ; preds = %.lr.ph.i.i.i.i170.i
   %185 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i, i64 32
-  %186 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %185)
+  %186 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr nonnull %185)
   br i1 %186, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i", label %187
 
 187:                                              ; preds = %184
   %188 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i, i64 64
-  %189 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %188)
+  %189 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr nonnull %188)
   br i1 %189, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i", label %190
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i, i64 96
-  %192 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %191)
+  %192 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr nonnull %191)
   br i1 %192, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i", label %193
 
 193:                                              ; preds = %190
@@ -56541,7 +56541,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit.i: ; preds = %174, %_ZNSt6ve
   ]
 
 198:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %199 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.0.lcssa.i.i.i.i.i)
+  %199 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.032.0.lcssa.i.i.i.i.i)
   br i1 %199, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i", label %200
 
 200:                                              ; preds = %198
@@ -56550,7 +56550,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit.i: ; preds = %174, %_ZNSt6ve
 
 202:                                              ; preds = %200, %._crit_edge.i.i.i.i.i
   %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %201, %200 ]
-  %203 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.1.i.i.i.i.i)
+  %203 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.032.1.i.i.i.i.i)
   br i1 %203, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i", label %204
 
 204:                                              ; preds = %202
@@ -56559,7 +56559,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit.i: ; preds = %174, %_ZNSt6ve
 
 206:                                              ; preds = %204, %._crit_edge.i.i.i.i.i
   %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %205, %204 ]
-  %207 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.2.i.i.i.i.i)
+  %207 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.032.2.i.i.i.i.i)
   %spec.select.i.i.i.i.i = select i1 %207, ptr %.sroa.032.2.i.i.i.i.i, ptr %176
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i"
 
@@ -56575,7 +56575,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit.i: ; preds = %174, %_ZNSt6ve
   %.sroa.07.022.i.i.i = phi ptr [ %.sroa.07.0.i.i.i, %214 ], [ %.sroa.07.018.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i" ]
   %.sroa.013.121.i.i.i = phi ptr [ %.sroa.013.2.i.i.i, %214 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i" ]
   %.sroa.08.0.in.sroa.speculated.i.i.pn20.i.i.i = phi ptr [ %.sroa.07.022.i.i.i, %214 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EEET_SM_SM_T0_.exit.i.i.i" ]
-  %209 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %.sroa.07.022.i.i.i)
+  %209 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr nonnull %.sroa.07.022.i.i.i)
   br i1 %209, label %214, label %210
 
 210:                                              ; preds = %.lr.ph.i.i.i
@@ -57238,7 +57238,7 @@ _ZSt10_ConstructISt10shared_ptrI9FaceGroupEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %482 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %478, ptr %482, align 8
   %.val.i = load ptr, ptr %10, align 8
-  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias writable align 8 %9, ptr %.val.i, ptr nonnull %478, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext true)
+  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr %.val.i, ptr nonnull %478, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext true)
           to label %483 unwind label %590
 
 483:                                              ; preds = %481
@@ -57659,7 +57659,7 @@ _ZSt10_ConstructISt10shared_ptrI9FaceGroupEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i27
   %663 = phi ptr [ %.val162.pre.i, %661 ], [ %649, %658 ], [ %649, %.noexc3.i270.i ]
   %664 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %650, ptr %664, align 8
-  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias writable align 8 %14, ptr %663, ptr nonnull %650, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false)
+  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb.argprom(ptr dead_on_unwind noalias writable align 8 %14, ptr %663, ptr nonnull %650, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false)
           to label %667 unwind label %859
 
 665:                                              ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit267.i
@@ -57901,7 +57901,7 @@ _ZSt10_ConstructISt10shared_ptrI9FaceGroupEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i31
   %767 = phi ptr [ %.val164.pre.i, %765 ], [ %753, %762 ], [ %753, %.noexc3.i310.i ]
   %768 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %754, ptr %768, align 8
-  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias writable align 8 %17, ptr %767, ptr nonnull %754, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false)
+  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb.argprom(ptr dead_on_unwind noalias writable align 8 %17, ptr %767, ptr nonnull %754, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false)
           to label %771 unwind label %861
 
 769:                                              ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit307.i
@@ -62565,14 +62565,14 @@ _ZNSt10shared_ptrI4SeamED2Ev.exit.i:              ; preds = %_ZNSt16_Sp_counted_
   %1995 = getelementptr inbounds i8, ptr %.sroa.09.037.i, i64 16
   %.not42.i = icmp eq ptr %1995, %1878
   %or.cond.i = select i1 %.not25.i, i1 true, i1 %.not42.i
-  br i1 %or.cond.i, label %_ZL30SeamInterceptsOptimizationAreaSt10shared_ptrI13ClusteredSeamERK8SeamData.exit, label %1881
+  br i1 %or.cond.i, label %_ZL30SeamInterceptsOptimizationAreaSt10shared_ptrI13ClusteredSeamERK8SeamData.argprom.exit, label %1881
 
-_ZL30SeamInterceptsOptimizationAreaSt10shared_ptrI13ClusteredSeamERK8SeamData.exit: ; preds = %_ZNSt10shared_ptrI4SeamED2Ev.exit.i
+_ZL30SeamInterceptsOptimizationAreaSt10shared_ptrI13ClusteredSeamERK8SeamData.argprom.exit: ; preds = %_ZNSt10shared_ptrI4SeamED2Ev.exit.i
   %not..not25.i = xor i1 %.not25.i, true
   br label %.thread990
 
-.thread990:                                       ; preds = %_ZL30SeamInterceptsOptimizationAreaSt10shared_ptrI13ClusteredSeamERK8SeamData.exit, %_ZNSt10shared_ptrI13ClusteredSeamEC2ERKS1_.exit592
-  %1996 = phi i1 [ true, %_ZNSt10shared_ptrI13ClusteredSeamEC2ERKS1_.exit592 ], [ %not..not25.i, %_ZL30SeamInterceptsOptimizationAreaSt10shared_ptrI13ClusteredSeamERK8SeamData.exit ]
+.thread990:                                       ; preds = %_ZL30SeamInterceptsOptimizationAreaSt10shared_ptrI13ClusteredSeamERK8SeamData.argprom.exit, %_ZNSt10shared_ptrI13ClusteredSeamEC2ERKS1_.exit592
+  %1996 = phi i1 [ true, %_ZNSt10shared_ptrI13ClusteredSeamEC2ERKS1_.exit592 ], [ %not..not25.i, %_ZL30SeamInterceptsOptimizationAreaSt10shared_ptrI13ClusteredSeamERK8SeamData.argprom.exit ]
   br i1 %.not.i.i.i590, label %_ZNSt10shared_ptrI13ClusteredSeamED2Ev.exit603, label %1997
 
 1997:                                             ; preds = %.thread990
@@ -73120,22 +73120,22 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 .lr.ph.i.i.i:                                     ; preds = %20, %.lr.ph.preheader.i.i.i
   %.043.i.i.i = phi i64 [ %22, %20 ], [ %7, %.lr.ph.preheader.i.i.i ]
   %.sroa.032.042.i.i.i = phi ptr [ %21, %20 ], [ %0, %.lr.ph.preheader.i.i.i ]
-  %10 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.042.i.i.i)
+  %10 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %2, ptr %.sroa.032.042.i.i.i)
   br i1 %10, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %11
 
 11:                                               ; preds = %.lr.ph.i.i.i
   %12 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 32
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %2, ptr nonnull %12)
   br i1 %13, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 64
-  %16 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr nonnull %15)
+  %16 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %2, ptr nonnull %15)
   br i1 %16, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 96
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr nonnull %18)
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %2, ptr nonnull %18)
   br i1 %19, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %20
 
 20:                                               ; preds = %17
@@ -73160,7 +73160,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
   ]
 
 25:                                               ; preds = %._crit_edge.i.i.i
-  %26 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.0.lcssa.i.i.i)
+  %26 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %2, ptr %.sroa.032.0.lcssa.i.i.i)
   br i1 %26, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %27
 
 27:                                               ; preds = %25
@@ -73169,7 +73169,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i
   %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %27 ]
-  %30 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.1.i.i.i)
+  %30 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %2, ptr %.sroa.032.1.i.i.i)
   br i1 %30, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %31
 
 31:                                               ; preds = %29
@@ -73178,7 +73178,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
   %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
-  %34 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.2.i.i.i)
+  %34 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %2, ptr %.sroa.032.2.i.i.i)
   %spec.select.i.i.i = select i1 %34, ptr %.sroa.032.2.i.i.i, ptr %1
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i"
 
@@ -73194,7 +73194,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
   %.sroa.07.022.i = phi ptr [ %.sroa.07.0.i, %41 ], [ %.sroa.07.018.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i" ]
   %.sroa.013.121.i = phi ptr [ %.sroa.013.2.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i" ]
   %.sroa.08.0.in.sroa.speculated.i.i.pn20.i = phi ptr [ %.sroa.07.022.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i" ]
-  %36 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr nonnull %.sroa.07.022.i)
+  %36 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nonnull readonly %2, ptr nonnull %.sroa.07.022.i)
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %.lr.ph.i
@@ -73217,7 +73217,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb.argprom(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Segment2", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not23 = icmp eq ptr %.0.val, %.8.val
@@ -73667,7 +73667,7 @@ _ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EED2Ev.exit: ; preds = %_ZSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 1472
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -73689,7 +73689,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32
   %.sroa.06.0.in.i.i.i = phi ptr [ %13, %12 ], [ %.sroa.06.0.i.i.i, %15 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %15
+  br i1 %.not.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
@@ -73706,7 +73706,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32
   %25 = getelementptr inbounds ptr, ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %27
+  br i1 %.not.i.i.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %27
 
 27:                                               ; preds = %19
   %28 = load ptr, ptr %26, align 8
@@ -73731,7 +73731,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %.018.i.i.i.i.i = phi ptr [ %39, %37 ], [ %28, %27 ]
   %39 = load ptr, ptr %.018.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not16.i.i.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %40
+  br i1 %.not16.i.i.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %40
 
 40:                                               ; preds = %.lr.ph.i.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %39, i64 8
@@ -73739,7 +73739,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %43 = ptrtoint ptr %42 to i64
   %44 = urem i64 %43, %22
   %.not17.i.i.i.i.i = icmp eq i64 %44, %23
-  br i1 %.not17.i.i.i.i.i, label %37, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !501
+  br i1 %.not17.i.i.i.i.i, label %37, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", !llvm.loop !501
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i: ; preds = %37, %15
   %45 = add nsw i32 %5, 1
@@ -73763,7 +73763,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %.sroa.06.0.in.i.i12.i = phi ptr [ %51, %50 ], [ %.sroa.06.0.i.i13.i, %53 ]
   %.sroa.06.0.i.i13.i = load ptr, ptr %.sroa.06.0.in.i.i12.i, align 8
   %.not.i.i14.i = icmp eq ptr %.sroa.06.0.i.i13.i, null
-  br i1 %.not.i.i14.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %53
+  br i1 %.not.i.i14.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %53
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i13.i, i64 8
@@ -73780,7 +73780,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %63 = getelementptr inbounds ptr, ptr %58, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not.i.i.i.i6.i = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i6.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %65
+  br i1 %.not.i.i.i.i6.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %65
 
 65:                                               ; preds = %57
   %66 = load ptr, ptr %64, align 8
@@ -73808,7 +73808,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %.018.i.i.i.i8.i = phi ptr [ %80, %78 ], [ %66, %65 ]
   %80 = load ptr, ptr %.018.i.i.i.i8.i, align 8
   %.not16.i.i.i.i9.i = icmp eq ptr %80, null
-  br i1 %.not16.i.i.i.i9.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %81
+  br i1 %.not16.i.i.i.i9.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %81
 
 81:                                               ; preds = %.lr.ph.i.i.i.i7.i
   %82 = getelementptr inbounds i8, ptr %80, i64 8
@@ -73816,7 +73816,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %84 = ptrtoint ptr %83 to i64
   %85 = urem i64 %84, %59
   %.not17.i.i.i.i10.i = icmp eq i64 %85, %62
-  br i1 %.not17.i.i.i.i10.i, label %78, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !501
+  br i1 %.not17.i.i.i.i10.i, label %78, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", !llvm.loop !501
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit15.i: ; preds = %78, %53
   %86 = getelementptr inbounds i8, ptr %0, i64 16
@@ -73843,7 +73843,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %.sroa.06.0.in.i.i23.i = phi ptr [ %95, %94 ], [ %.sroa.06.0.i.i24.i, %97 ]
   %.sroa.06.0.i.i24.i = load ptr, ptr %.sroa.06.0.in.i.i23.i, align 8
   %.not.i.i25.i = icmp eq ptr %.sroa.06.0.i.i24.i, null
-  br i1 %.not.i.i25.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %97
+  br i1 %.not.i.i25.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %97
 
 97:                                               ; preds = %96
   %98 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i24.i, i64 8
@@ -73862,7 +73862,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %109 = getelementptr inbounds ptr, ptr %102, i64 %108
   %110 = load ptr, ptr %109, align 8
   %.not.i.i.i.i17.i = icmp eq ptr %110, null
-  br i1 %.not.i.i.i.i17.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %111
+  br i1 %.not.i.i.i.i17.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %111
 
 111:                                              ; preds = %101
   %112 = load ptr, ptr %110, align 8
@@ -73887,7 +73887,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %.018.i.i.i.i19.i = phi ptr [ %123, %121 ], [ %112, %111 ]
   %123 = load ptr, ptr %.018.i.i.i.i19.i, align 8
   %.not16.i.i.i.i20.i = icmp eq ptr %123, null
-  br i1 %.not16.i.i.i.i20.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", label %124
+  br i1 %.not16.i.i.i.i20.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %124
 
 124:                                              ; preds = %.lr.ph.i.i.i.i18.i
   %125 = getelementptr inbounds i8, ptr %123, i64 8
@@ -73895,7 +73895,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %127 = ptrtoint ptr %126 to i64
   %128 = urem i64 %127, %103
   %.not17.i.i.i.i21.i = icmp eq i64 %128, %108
-  br i1 %.not17.i.i.i.i21.i, label %121, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !501
+  br i1 %.not17.i.i.i.i21.i, label %121, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit", !llvm.loop !501
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit26.i: ; preds = %121, %97
   %129 = phi ptr [ %90, %97 ], [ %105, %121 ]
@@ -73968,15 +73968,15 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit37.i: ; preds = %159, %.lr.ph.i.i.i.i29.i, %156, %139, %138, %151, %143
   %.sroa.06.1.i.i33.i = phi ptr [ null, %143 ], [ %152, %151 ], [ %.sroa.06.0.i.i35.i, %139 ], [ null, %138 ], [ null, %159 ], [ null, %.lr.ph.i.i.i.i29.i ], [ %158, %156 ]
   %164 = icmp ne ptr %.sroa.06.1.i.i33.i, null
-  br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit"
+  br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit"
 
-"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit": ; preds = %.lr.ph.i.i.i.i.i, %40, %14, %.lr.ph.i.i.i.i7.i, %81, %52, %.lr.ph.i.i.i.i18.i, %124, %96, %19, %57, %101, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit37.i
+"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %40, %14, %.lr.ph.i.i.i.i7.i, %81, %52, %.lr.ph.i.i.i.i18.i, %124, %96, %19, %57, %101, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit37.i
   %165 = phi i1 [ %164, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit37.i ], [ false, %19 ], [ false, %57 ], [ false, %101 ], [ false, %96 ], [ false, %124 ], [ false, %.lr.ph.i.i.i.i18.i ], [ false, %52 ], [ false, %81 ], [ false, %.lr.ph.i.i.i.i7.i ], [ false, %14 ], [ false, %40 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %165
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_.argprom"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %.val1 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 8
   %.val2 = load i32, ptr %2, align 8
@@ -73998,7 +73998,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32
   %.sroa.06.0.in.i.i.i = phi ptr [ %11, %10 ], [ %.sroa.06.0.i.i.i, %13 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.exit", label %13
+  br i1 %.not.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
@@ -74015,7 +74015,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32
   %23 = getelementptr inbounds ptr, ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.exit", label %25
+  br i1 %.not.i.i.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %25
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %24, align 8
@@ -74040,7 +74040,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %.018.i.i.i.i.i = phi ptr [ %37, %35 ], [ %26, %25 ]
   %37 = load ptr, ptr %.018.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not16.i.i.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.exit", label %38
+  br i1 %.not16.i.i.i.i.i, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.argprom.exit", label %38
 
 38:                                               ; preds = %.lr.ph.i.i.i.i.i
   %39 = getelementptr inbounds i8, ptr %37, i64 8
@@ -74048,7 +74048,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %41 = ptrtoint ptr %40 to i64
   %42 = urem i64 %41, %20
   %.not17.i.i.i.i.i = icmp eq i64 %42, %21
-  br i1 %.not17.i.i.i.i.i, label %35, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !501
+  br i1 %.not17.i.i.i.i.i, label %35, label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.argprom.exit", !llvm.loop !501
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i: ; preds = %35, %13
   %43 = add nsw i32 %.val2, 1
@@ -74119,9 +74119,9 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit13.i: ; preds = %71, %.lr.ph.i.i.i.i5.i, %68, %51, %50, %63, %55
   %.sroa.06.1.i.i9.i = phi ptr [ null, %55 ], [ %64, %63 ], [ %.sroa.06.0.i.i11.i, %51 ], [ null, %50 ], [ null, %71 ], [ null, %.lr.ph.i.i.i.i5.i ], [ %70, %68 ]
   %76 = icmp ne ptr %.sroa.06.1.i.i9.i, null
-  br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.exit"
+  br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.argprom.exit"
 
-"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.exit": ; preds = %.lr.ph.i.i.i.i.i, %38, %12, %17, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit13.i
+"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_1clERKSt4pairI8HalfEdgeS9_E.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %38, %12, %17, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit13.i
   %77 = phi i1 [ %76, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit13.i ], [ false, %17 ], [ false, %12 ], [ false, %38 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %77
 }
@@ -80385,8 +80385,8 @@ attributes #31 = { nounwind willreturn memory(read) }
 !518 = distinct !{!518, !13}
 !519 = distinct !{!519, !13}
 !520 = !{!521}
-!521 = distinct !{!521, !522, !"_ZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIP10MeshVertexdSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_dEEERK8SeamData: argument 0"}
-!522 = distinct !{!522, !"_ZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIP10MeshVertexdSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_dEEERK8SeamData"}
+!521 = distinct !{!521, !522, !"_ZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIP10MeshVertexdSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_dEEERK8SeamData.argprom: argument 0"}
+!522 = distinct !{!522, !"_ZL36ComputeVerticesWithinOffsetThresholdR4MeshRKSt13unordered_mapIP10MeshVertexdSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_dEEERK8SeamData.argprom"}
 !523 = !{!524, !526}
 !524 = distinct !{!524, !525, !"_ZSt19__relocate_object_aISt4pairIP10MeshVertexdES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
 !525 = distinct !{!525, !"_ZSt19__relocate_object_aISt4pairIP10MeshVertexdES3_SaIS3_EEvPT_PT0_RT1_"}

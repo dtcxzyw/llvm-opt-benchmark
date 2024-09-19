@@ -1827,9 +1827,9 @@ define void @_ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersio
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %3, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %10, ptr nonnull @_ZN7glslang12_GLOBAL__N_113BaseFunctionsE, i64 79)
+  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %10, ptr nonnull @_ZN7glslang12_GLOBAL__N_113BaseFunctionsE, i64 79)
   %11 = getelementptr inbounds i8, ptr %0, i64 208
-  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr nonnull @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 3)
+  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr nonnull @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 3)
   %12 = load i32, ptr %6, align 4
   %13 = icmp eq i32 %12, 8
   %14 = load i32, ptr %5, align 4
@@ -1845,7 +1845,7 @@ define void @_ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersio
 
 19:                                               ; preds = %16, %4
   %20 = getelementptr inbounds i8, ptr %0, i64 248
-  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %20, ptr nonnull @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 3)
+  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %20, ptr nonnull @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 3)
   br label %21
 
 21:                                               ; preds = %19, %16
@@ -1853,7 +1853,7 @@ define void @_ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr readonly %.0.val1, i64 %.8.val) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr readonly %.0.val1, i64 %.8.val) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds %"struct.glslang::(anonymous namespace)::BuiltInFunction", ptr %.0.val1, i64 %.8.val
   %.not14 = icmp eq i64 %.8.val, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -1865,8 +1865,8 @@ define internal fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfi
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   br label %8
 
-8:                                                ; preds = %.lr.ph, %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.exit
-  %.015 = phi ptr [ %.0.val1, %.lr.ph ], [ %617, %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.exit ]
+8:                                                ; preds = %.lr.ph, %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.argprom.exit
+  %.015 = phi ptr [ %.0.val1, %.lr.ph ], [ %617, %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.argprom.exit ]
   %9 = load ptr, ptr %0, align 8
   %10 = load i32, ptr %9, align 4
   %11 = load ptr, ptr %4, align 8
@@ -1910,7 +1910,7 @@ define internal fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfi
 29:                                               ; preds = %26, %22, %.lr.ph.i
   %30 = getelementptr inbounds i8, ptr %.0152.i, i64 24
   %.not.i = icmp eq ptr %30, %16
-  br i1 %.not.i, label %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.argprom.exit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %26, %19, %8
   %31 = getelementptr inbounds i8, ptr %.015, i64 24
@@ -3518,14 +3518,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %615 = and i32 %614, 31
   %.not.i14 = icmp ne i32 %615, 0
   %616 = and i1 %.not83.i, %.not.i14
-  br i1 %616, label %36, label %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.exit, !llvm.loop !7
+  br i1 %616, label %36, label %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.argprom.exit, !llvm.loop !7
 
-_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.exit: ; preds = %29, %.loopexit.i
+_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.argprom.exit: ; preds = %29, %.loopexit.i
   %617 = getelementptr inbounds i8, ptr %.015, i64 48
   %.not = icmp eq ptr %617, %3
   br i1 %.not, label %._crit_edge, label %8
 
-._crit_edge:                                      ; preds = %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.exit, %2
+._crit_edge:                                      ; preds = %_ZN7glslang12_GLOBAL__N_112ValidVersionERKNS0_15BuiltInFunctionEi8EProfileRKNS_10SpvVersionE.argprom.exit, %2
   ret void
 }
 
@@ -3535,7 +3535,7 @@ define void @_ZN7glslang9TBuiltIns20relateTabledBuiltinsEi8EProfileRKNS_10SpvVer
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = icmp eq ptr %8, %9
-  br i1 %10, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit, label %.split.i
+  br i1 %10, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit, label %.split.i
 
 .split.i:                                         ; preds = %6, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i
   %11 = phi ptr [ %30, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i ], [ %8, %6 ]
@@ -3573,19 +3573,19 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i: ; preds = 
   %32 = phi ptr [ %12, %.split.i ], [ %23, %.lr.ph.i.i ]
   %.0.add.i = add nuw nsw i64 %.0.idx1.i, 48
   %.not.i = icmp eq i64 %.0.add.i, 3792
-  br i1 %.not.i, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit, label %.split.i, !llvm.loop !9
+  br i1 %.not.i, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit, label %.split.i, !llvm.loop !9
 
-_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit: ; preds = %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i, %6
+_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit: ; preds = %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i, %6
   %33 = phi ptr [ %9, %6 ], [ %31, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i ]
   %34 = phi ptr [ %8, %6 ], [ %30, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i ]
   %35 = icmp eq ptr %34, %33
-  br i1 %35, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsIA39_NS0_14CustomFunctionEEEvRKT_RNS_12TSymbolTableE.exit, label %.split.i3
+  br i1 %35, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsIA39_NS0_14CustomFunctionEEEvRKT_RNS_12TSymbolTableE.argprom.exit, label %.split.i3
 
-.split.i3:                                        ; preds = %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9
-  %36 = phi ptr [ %55, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9 ], [ %34, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit ]
-  %37 = phi ptr [ %56, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9 ], [ %33, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit ]
-  %38 = phi ptr [ %57, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9 ], [ %34, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit ]
-  %.0.idx1.i4 = phi i64 [ %.0.add.i10, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9 ], [ 0, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit ]
+.split.i3:                                        ; preds = %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9
+  %36 = phi ptr [ %55, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9 ], [ %34, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit ]
+  %37 = phi ptr [ %56, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9 ], [ %33, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit ]
+  %38 = phi ptr [ %57, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9 ], [ %34, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit ]
+  %.0.idx1.i4 = phi i64 [ %.0.add.i10, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9 ], [ 0, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit ]
   %.0.ptr.i5 = getelementptr inbounds i8, ptr @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 %.0.idx1.i4
   %39 = getelementptr inbounds i8, ptr %.0.ptr.i5, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -3617,16 +3617,16 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9: ; preds =
   %57 = phi ptr [ %37, %.split.i3 ], [ %48, %.lr.ph.i.i7 ]
   %.0.add.i10 = add nuw nsw i64 %.0.idx1.i4, 48
   %.not.i11 = icmp eq i64 %.0.add.i10, 144
-  br i1 %.not.i11, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.exit, label %.split.i3, !llvm.loop !11
+  br i1 %.not.i11, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.argprom.exit, label %.split.i3, !llvm.loop !11
 
-_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.exit: ; preds = %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9
+_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.argprom.exit: ; preds = %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i9
   %58 = icmp eq ptr %55, %56
-  br i1 %58, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsIA39_NS0_14CustomFunctionEEEvRKT_RNS_12TSymbolTableE.exit, label %.split.i12
+  br i1 %58, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsIA39_NS0_14CustomFunctionEEEvRKT_RNS_12TSymbolTableE.argprom.exit, label %.split.i12
 
-.split.i12:                                       ; preds = %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.exit, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18
-  %59 = phi ptr [ %77, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18 ], [ %56, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.exit ]
-  %60 = phi ptr [ %78, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18 ], [ %55, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.exit ]
-  %.0.idx1.i13 = phi i64 [ %.0.add.i19, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18 ], [ 0, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.exit ]
+.split.i12:                                       ; preds = %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.argprom.exit, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18
+  %59 = phi ptr [ %77, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18 ], [ %56, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.argprom.exit ]
+  %60 = phi ptr [ %78, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18 ], [ %55, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.argprom.exit ]
+  %.0.idx1.i13 = phi i64 [ %.0.add.i19, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18 ], [ 0, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.argprom.exit ]
   %.0.ptr.i14 = getelementptr inbounds i8, ptr @_ZN7glslang12_GLOBAL__N_115CustomFunctionsE, i64 %.0.idx1.i13
   %61 = getelementptr inbounds i8, ptr %.0.ptr.i14, i64 8
   %62 = load ptr, ptr %61, align 8
@@ -3657,9 +3657,9 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18: ; preds 
   %78 = phi ptr [ %59, %.split.i12 ], [ %70, %.lr.ph.i.i16 ]
   %.0.add.i19 = add nuw nsw i64 %.0.idx1.i13, 32
   %.not.i20 = icmp eq i64 %.0.add.i19, 1248
-  br i1 %.not.i20, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsIA39_NS0_14CustomFunctionEEEvRKT_RNS_12TSymbolTableE.exit, label %.split.i12, !llvm.loop !12
+  br i1 %.not.i20, label %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsIA39_NS0_14CustomFunctionEEEvRKT_RNS_12TSymbolTableE.argprom.exit, label %.split.i12, !llvm.loop !12
 
-_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsIA39_NS0_14CustomFunctionEEEvRKT_RNS_12TSymbolTableE.exit: ; preds = %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.exit, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.exit
+_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsIA39_NS0_14CustomFunctionEEEvRKT_RNS_12TSymbolTableE.argprom.exit: ; preds = %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit.i18, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm79EEEEvRKT_RNS_12TSymbolTableE.argprom.exit, %_ZN7glslang12_GLOBAL__N_120RelateTabledBuiltinsISt5arrayINS0_15BuiltInFunctionELm3EEEEvRKT_RNS_12TSymbolTableE.argprom.exit
   ret void
 }
 
@@ -3851,9 +3851,9 @@ define void @_ZN7glslang9TBuiltIns10initializeEi8EProfileRKNS_10SpvVersionE(ptr 
   %17 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %3, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %18, ptr nonnull @_ZN7glslang12_GLOBAL__N_113BaseFunctionsE, i64 79)
+  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %18, ptr nonnull @_ZN7glslang12_GLOBAL__N_113BaseFunctionsE, i64 79)
   %19 = getelementptr inbounds i8, ptr %0, i64 208
-  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %19, ptr nonnull @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 3)
+  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %19, ptr nonnull @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 3)
   %20 = load i32, ptr %6, align 4
   %21 = icmp eq i32 %20, 8
   %22 = load i32, ptr %5, align 4
@@ -3869,7 +3869,7 @@ define void @_ZN7glslang9TBuiltIns10initializeEi8EProfileRKNS_10SpvVersionE(ptr 
 
 27:                                               ; preds = %24, %4
   %28 = getelementptr inbounds i8, ptr %0, i64 248
-  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr nonnull @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 3)
+  call fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr nonnull @_ZN7glslang12_GLOBAL__N_119DerivativeFunctionsE, i64 3)
   br label %_ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionE.exit
 
 _ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionE.exit: ; preds = %24, %27
@@ -46308,7 +46308,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i, %542
   %555 = icmp eq ptr %550, null
-  br i1 %555, label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit, label %556
+  br i1 %555, label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit, label %556
 
 556:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i
   %557 = load ptr, ptr %550, align 8
@@ -46323,9 +46323,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %566 = load i64, ptr %565, align 8
   %567 = or i64 %566, 2147483648
   store i64 %567, ptr %565, align 8
-  br label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit
+  br label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit
 
-_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i, %556
+_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i, %556
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %569
 
@@ -46333,7 +46333,7 @@ _ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit: ; preds = %_ZNS
   tail call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.621, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(40) %5)
   br label %569
 
-569:                                              ; preds = %568, %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit, %540, %535
+569:                                              ; preds = %568, %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit, %540, %535
   br i1 %or.cond2137, label %570, label %571
 
 570:                                              ; preds = %569
@@ -49582,7 +49582,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i2808: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i2809, %2364
   %2377 = icmp eq ptr %2372, null
-  br i1 %2377, label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit2810, label %2378
+  br i1 %2377, label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit2810, label %2378
 
 2378:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i2808
   %2379 = load ptr, ptr %2372, align 8
@@ -49597,9 +49597,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %2388 = load i64, ptr %2387, align 8
   %2389 = or i64 %2388, 2147483648
   store i64 %2389, ptr %2387, align 8
-  br label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit2810
+  br label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit2810
 
-_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit2810: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i2808, %2378
+_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit2810: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i2808, %2378
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %2391
 
@@ -49607,7 +49607,7 @@ _ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit2810: ; preds = %
   call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.621, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(40) %5)
   br label %2391
 
-2391:                                             ; preds = %2390, %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit2810, %2359
+2391:                                             ; preds = %2390, %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit2810, %2359
   %brmerge2156 = or i1 %or.cond53, %or.cond23
   br i1 %brmerge2156, label %2392, label %_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2818.thread
 
@@ -53644,7 +53644,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i3467: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i3468, %4616
   %4629 = icmp eq ptr %4624, null
-  br i1 %4629, label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit3469, label %4630
+  br i1 %4629, label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit3469, label %4630
 
 4630:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i3467
   %4631 = load ptr, ptr %4624, align 8
@@ -53659,9 +53659,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %4640 = load i64, ptr %4639, align 8
   %4641 = or i64 %4640, 2147483648
   store i64 %4641, ptr %4639, align 8
-  br label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit3469
+  br label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit3469
 
-_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit3469: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i3467, %4630
+_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit3469: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i3467, %4630
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %4643
 
@@ -53669,7 +53669,7 @@ _ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit3469: ; preds = %
   call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.621, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(40) %5)
   br label %4643
 
-4643:                                             ; preds = %4614, %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit3469, %4642
+4643:                                             ; preds = %4614, %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.argprom.exit3469, %4642
   call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.1062, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL30E_GL_KHR_shader_subgroup_basicE)
   call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.1063, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL30E_GL_KHR_shader_subgroup_basicE)
   call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.746, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL30E_GL_KHR_shader_subgroup_basicE)

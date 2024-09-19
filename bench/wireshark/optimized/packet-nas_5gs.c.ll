@@ -5350,7 +5350,7 @@ nas5gs_get_private_data.exit:                     ; preds = %7, %25
 
 33:                                               ; preds = %nas5gs_get_private_data.exit
   %34 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %4) #12
-  %35 = tail call fastcc i32 @dissect_nas_5gs_common(ptr noundef %34, ptr noundef nonnull %2, ptr noundef %1, i32 noundef 0)
+  %35 = tail call fastcc i32 @dissect_nas_5gs_common.argprom(ptr noundef %34, ptr noundef nonnull %2, ptr noundef %1, i32 noundef 0)
   br label %.loopexit
 
 36:                                               ; preds = %nas5gs_get_private_data.exit
@@ -5385,7 +5385,7 @@ nas5gs_get_private_data.exit:                     ; preds = %7, %25
 
 52:                                               ; preds = %nas5gs_get_private_data.exit
   %53 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %4) #12
-  tail call fastcc void @dissect_nas_5gs_updp(ptr noundef %53, ptr noundef nonnull %2, ptr noundef %1)
+  tail call fastcc void @dissect_nas_5gs_updp.argelim(ptr noundef %53, ptr noundef nonnull %2, ptr noundef %1)
   br label %.loopexit
 
 54:                                               ; preds = %nas5gs_get_private_data.exit
@@ -8009,7 +8009,7 @@ define internal i32 @dissect_nas_5gs(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %4
-  %14 = tail call fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0)
+  %14 = tail call fastcc i32 @dissect_nas_5gs_common.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0)
   br label %43
 
 15:                                               ; preds = %4
@@ -8018,7 +8018,7 @@ define internal i32 @dissect_nas_5gs(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = tail call fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0)
+  %19 = tail call fastcc i32 @dissect_nas_5gs_common.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0)
   br label %43
 
 20:                                               ; preds = %15
@@ -8043,7 +8043,7 @@ define internal i32 @dissect_nas_5gs(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond4, label %37, label %39
 
 37:                                               ; preds = %20
-  %38 = tail call fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 7)
+  %38 = tail call fastcc i32 @dissect_nas_5gs_common.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 7)
   br label %43
 
 39:                                               ; preds = %20
@@ -8270,7 +8270,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not98, label %58, label %59
 
 58:                                               ; preds = %56, %54, %.tail.thread
-  tail call fastcc void @dissect_nas_5gs_sm_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.072)
+  tail call fastcc void @dissect_nas_5gs_sm_info.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.072)
   br label %.thread112.sink.split
 
 59:                                               ; preds = %56
@@ -8289,7 +8289,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not101, label %65, label %.thread112
 
 65:                                               ; preds = %63
-  tail call fastcc void @dissect_nas_5gs_updp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_nas_5gs_updp.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread112.sink.split
 
 66:                                               ; preds = %61, %59, %45, %.tail
@@ -8619,7 +8619,7 @@ declare ptr @abs_time_to_str_ex(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 8) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nas_5gs_common.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 8) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -8770,7 +8770,7 @@ dissect_nas_5gs_mm_msg.exit:                      ; preds = %82, %78, %76, %74, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nas_5gs_updp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_nas_5gs_updp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
   %6 = load i32, ptr @hf_nas_5gs_proc_trans_id, align 4
@@ -13632,7 +13632,7 @@ declare ptr @json_get_string(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nas_5gs_sm_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_nas_5gs_sm_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_sep_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.1307, ptr noundef nonnull @.str.1267) #12

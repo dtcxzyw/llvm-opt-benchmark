@@ -446,7 +446,7 @@ delete.notnull:                                   ; preds = %entry
   %0 = getelementptr i8, ptr %abiRt, i64 16
   %call.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
@@ -482,7 +482,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %call.val, align 8
@@ -507,20 +507,20 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %call.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %call.val) #9
-  br label %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.exit
+  br label %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.argprom.exit
 
-_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.exit: ; preds = %delete.notnull, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.argprom.exit: ; preds = %delete.notnull, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %abiRt) #10
   br label %delete.end
 
-delete.end:                                       ; preds = %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.exit, %entry
+delete.end:                                       ; preds = %_ZN12_GLOBAL__N_120HermesABIRuntimeImplD2Ev.argprom.exit, %entry
   ret void
 }
 

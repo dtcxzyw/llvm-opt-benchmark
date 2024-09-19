@@ -1436,20 +1436,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49: ; preds =
   call void %73(ptr noundef nonnull align 8 dereferenceable(120) %69, ptr noundef nonnull %7) #17
   %74 = load ptr, ptr %7, align 8
   %.not.i.i.i50 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i50, label %_ZNK12_GLOBAL__N_125MismatchedIteratorChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValES5_RNS4_14CheckerContextEPNS4_12ExplodedNodeE.exit, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i
+  br i1 %.not.i.i.i50, label %_ZNK12_GLOBAL__N_125MismatchedIteratorChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValES5_RNS4_14CheckerContextEPNS4_12ExplodedNodeE.argprom.exit, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i
 
 _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i: ; preds = %62
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(488) %74) #17
-  br label %_ZNK12_GLOBAL__N_125MismatchedIteratorChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValES5_RNS4_14CheckerContextEPNS4_12ExplodedNodeE.exit
+  br label %_ZNK12_GLOBAL__N_125MismatchedIteratorChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValES5_RNS4_14CheckerContextEPNS4_12ExplodedNodeE.argprom.exit
 
-_ZNK12_GLOBAL__N_125MismatchedIteratorChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValES5_RNS4_14CheckerContextEPNS4_12ExplodedNodeE.exit: ; preds = %62, %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i
+_ZNK12_GLOBAL__N_125MismatchedIteratorChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValES5_RNS4_14CheckerContextEPNS4_12ExplodedNodeE.argprom.exit: ; preds = %62, %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %78
 
-78:                                               ; preds = %43, %_ZNK12_GLOBAL__N_125MismatchedIteratorChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValES5_RNS4_14CheckerContextEPNS4_12ExplodedNodeE.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49, %37, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit45, %23, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
+78:                                               ; preds = %43, %_ZNK12_GLOBAL__N_125MismatchedIteratorChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValES5_RNS4_14CheckerContextEPNS4_12ExplodedNodeE.argprom.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49, %37, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit45, %23, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit52, label %79
 
 79:                                               ; preds = %78

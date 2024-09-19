@@ -836,7 +836,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef
 
 48:                                               ; preds = %.lr.ph.i.i
   %.not23.i.i = icmp eq i32 %1, %44
-  br i1 %.not23.i.i, label %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit, label %49
+  br i1 %.not23.i.i, label %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.argprom.exit, label %49
 
 49:                                               ; preds = %48
   %50 = add nuw nsw i32 %24, 1
@@ -848,7 +848,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef
   %.not.not.i.i = icmp sgt i32 %.1.i.i, %.121.i.i
   br i1 %.not.not.i.i, label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit, label %.lr.ph.i.i, !llvm.loop !6
 
-_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit: ; preds = %48
+_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.argprom.exit: ; preds = %48
   %52 = getelementptr inbounds i8, ptr %0, i64 10
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
@@ -880,7 +880,7 @@ _ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit: ; pr
   %.not.i.i = icmp ult i32 %70, %78
   br i1 %.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit
 
-_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i: ; preds = %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit
+_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i: ; preds = %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.argprom.exit
   %79 = getelementptr inbounds i8, ptr %27, i64 6
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
@@ -939,8 +939,8 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %131 = tail call noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13VarRegionListEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i.i, i32 noundef %86, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i8.i.i, ptr noundef null)
   br label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit
 
-_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit:   ; preds = %51, %4, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit
-  %.0 = phi float [ %131, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i ], [ 0.000000e+00, %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %51 ]
+_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit:   ; preds = %51, %4, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.argprom.exit
+  %.0 = phi float [ %131, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i ], [ 0.000000e+00, %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.argprom.exit ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %51 ]
   ret float %.0
 }
 

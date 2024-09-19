@@ -4623,7 +4623,7 @@ if.end317:                                        ; preds = %if.then308, %if.end
   br i1 %tobool321.not, label %sw.epilog, label %if.then322
 
 if.then322:                                       ; preds = %if.end317
-  tail call fastcc void @symtable_raise_if_comprehension_block(ptr noundef %st, ptr noundef nonnull %e)
+  tail call fastcc void @symtable_raise_if_comprehension_block.retelim(ptr noundef %st, ptr noundef nonnull %e)
   br label %return
 
 sw.bb325:                                         ; preds = %if.end
@@ -4664,7 +4664,7 @@ if.end339:                                        ; preds = %if.end331
   br i1 %tobool347.not, label %sw.epilog, label %if.then348
 
 if.then348:                                       ; preds = %if.end339
-  tail call fastcc void @symtable_raise_if_comprehension_block(ptr noundef %st, ptr noundef nonnull %e)
+  tail call fastcc void @symtable_raise_if_comprehension_block.retelim(ptr noundef %st, ptr noundef nonnull %e)
   br label %return
 
 sw.bb351:                                         ; preds = %if.end
@@ -5827,7 +5827,7 @@ if.end31:                                         ; preds = %if.end27
   %ident.val44 = load i32, ptr %state.i, align 8
   %55 = and i32 %ident.val44, 64
   %tobool.not.i = icmp eq i32 %55, 0
-  br i1 %tobool.not.i, label %if.end.i211, label %PyUnicode_MAX_CHAR_VALUE.exit
+  br i1 %tobool.not.i, label %if.end.i211, label %PyUnicode_MAX_CHAR_VALUE.argprom.exit
 
 if.end.i211:                                      ; preds = %if.end31
   %bf.lshr.i212 = lshr i32 %ident.val44, 2
@@ -5836,13 +5836,13 @@ if.end.i211:                                      ; preds = %if.end31
   %switch.select.i = select i1 %switch.selectcmp.i, i32 65535, i32 1114111
   %switch.selectcmp3.i = icmp eq i32 %bf.clear.i213, 1
   %switch.select4.i = select i1 %switch.selectcmp3.i, i32 255, i32 %switch.select.i
-  br label %PyUnicode_MAX_CHAR_VALUE.exit
+  br label %PyUnicode_MAX_CHAR_VALUE.argprom.exit
 
-PyUnicode_MAX_CHAR_VALUE.exit:                    ; preds = %if.end31, %if.end.i211
+PyUnicode_MAX_CHAR_VALUE.argprom.exit:            ; preds = %if.end31, %if.end.i211
   %retval.0.i210 = phi i32 [ 127, %if.end31 ], [ %switch.select4.i, %if.end.i211 ]
-  br i1 %tobool.not.i.i10.i174, label %PyUnicode_MAX_CHAR_VALUE.exit223, label %if.end37
+  br i1 %tobool.not.i.i10.i174, label %PyUnicode_MAX_CHAR_VALUE.argprom.exit223, label %if.end37
 
-PyUnicode_MAX_CHAR_VALUE.exit223:                 ; preds = %PyUnicode_MAX_CHAR_VALUE.exit
+PyUnicode_MAX_CHAR_VALUE.argprom.exit223:         ; preds = %PyUnicode_MAX_CHAR_VALUE.argprom.exit
   %switch.selectcmp.i219 = icmp eq i32 %bf.clear.i170, 2
   %switch.select.i220 = select i1 %switch.selectcmp.i219, i32 65535, i32 1114111
   %switch.selectcmp3.i221 = icmp eq i32 %bf.clear.i170, 1
@@ -5850,8 +5850,8 @@ PyUnicode_MAX_CHAR_VALUE.exit223:                 ; preds = %PyUnicode_MAX_CHAR_
   %spec.select = tail call i32 @llvm.umax.i32(i32 %switch.select4.i222, i32 %retval.0.i210)
   br label %if.end37
 
-if.end37:                                         ; preds = %PyUnicode_MAX_CHAR_VALUE.exit223, %PyUnicode_MAX_CHAR_VALUE.exit
-  %maxchar.0 = phi i32 [ %retval.0.i210, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %spec.select, %PyUnicode_MAX_CHAR_VALUE.exit223 ]
+if.end37:                                         ; preds = %PyUnicode_MAX_CHAR_VALUE.argprom.exit223, %PyUnicode_MAX_CHAR_VALUE.argprom.exit
+  %maxchar.0 = phi i32 [ %retval.0.i210, %PyUnicode_MAX_CHAR_VALUE.argprom.exit ], [ %spec.select, %PyUnicode_MAX_CHAR_VALUE.argprom.exit223 ]
   %add38 = add i64 %ident.val, 1
   %add39 = add i64 %add38, %sub28
   %call40 = tail call ptr @PyUnicode_New(i64 noundef %add39, i32 noundef %maxchar.0) #7
@@ -6093,7 +6093,7 @@ if.then.i:                                        ; preds = %while.body
 if.then3.i:                                       ; preds = %if.then.i
   %8 = load ptr, ptr @PyExc_SyntaxError, align 8
   %call.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.14, ptr noundef %7) #7
-  call fastcc void @error_at_directive(ptr noundef nonnull %ste, ptr noundef %7)
+  call fastcc void @error_at_directive.retelim(ptr noundef nonnull %ste, ptr noundef %7)
   br label %if.then.i146
 
 if.end.i109:                                      ; preds = %if.then.i
@@ -6157,7 +6157,7 @@ if.then24.i:                                      ; preds = %if.end21.i
 if.then26.i:                                      ; preds = %if.then24.i
   %11 = load ptr, ptr @PyExc_SyntaxError, align 8
   %call27.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.15) #7
-  call fastcc void @error_at_directive(ptr noundef nonnull %ste, ptr noundef %7)
+  call fastcc void @error_at_directive.retelim(ptr noundef nonnull %ste, ptr noundef %7)
   br label %if.then.i146
 
 if.end29.i:                                       ; preds = %if.then24.i
@@ -6172,7 +6172,7 @@ if.end33.i:                                       ; preds = %if.end29.i
 if.then35.i:                                      ; preds = %if.end33.i
   %12 = load ptr, ptr @PyExc_SyntaxError, align 8
   %call36.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.16, ptr noundef %7) #7
-  call fastcc void @error_at_directive(ptr noundef nonnull %ste, ptr noundef %7)
+  call fastcc void @error_at_directive.retelim(ptr noundef nonnull %ste, ptr noundef %7)
   br label %if.then.i146
 
 if.end38.i:                                       ; preds = %if.end33.i
@@ -6187,7 +6187,7 @@ if.end42.i:                                       ; preds = %if.end38.i
 if.then44.i:                                      ; preds = %if.end42.i
   %13 = load ptr, ptr @PyExc_SyntaxError, align 8
   %call45.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.17, ptr noundef %7) #7
-  call fastcc void @error_at_directive(ptr noundef nonnull %ste, ptr noundef %7)
+  call fastcc void @error_at_directive.retelim(ptr noundef nonnull %ste, ptr noundef %7)
   br label %if.then.i146
 
 if.end47.i:                                       ; preds = %if.end42.i
@@ -7776,7 +7776,7 @@ return:                                           ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @error_at_directive(ptr nocapture noundef readonly %ste, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @error_at_directive.retelim(ptr nocapture noundef readonly %ste, ptr noundef %name) unnamed_addr #0 {
 entry:
   %ste_directives = getelementptr inbounds i8, ptr %ste, i64 56
   %0 = load ptr, ptr %ste_directives, align 8
@@ -9760,7 +9760,7 @@ return:                                           ; preds = %sw.epilog.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @symtable_raise_if_comprehension_block(ptr nocapture noundef nonnull %st, ptr nocapture noundef readonly %e) unnamed_addr #0 {
+define internal fastcc void @symtable_raise_if_comprehension_block.retelim(ptr nocapture noundef nonnull %st, ptr nocapture noundef readonly %e) unnamed_addr #0 {
 entry:
   %st_cur = getelementptr inbounds i8, ptr %st, i64 8
   %0 = load ptr, ptr %st_cur, align 8

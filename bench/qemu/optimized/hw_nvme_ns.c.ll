@@ -649,21 +649,21 @@ lbaf_found.i:                                     ; preds = %for.end.i, %if.then
   %call20.i.i = tail call ptr @blk_bs(ptr noundef %61) #14
   %call21.i.i = call i32 @bdrv_get_info(ptr noundef %call20.i.i, ptr noundef nonnull %bdi.i.i) #14
   %cmp.i.i = icmp sgt i32 %call21.i.i, -1
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %nvme_ns_init.exit
+  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %nvme_ns_init.argprom.exit
 
 land.lhs.true.i.i:                                ; preds = %lbaf_found.i
   %62 = load i32, ptr %bdi.i.i, align 8
   %63 = load i32, ptr %discard_granularity.i, align 8
   %cmp25.i.i = icmp ugt i32 %62, %63
-  br i1 %cmp25.i.i, label %if.then.i.i, label %nvme_ns_init.exit
+  br i1 %cmp25.i.i, label %if.then.i.i, label %nvme_ns_init.argprom.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %conv28.i.i = sext i32 %62 to i64
   %64 = load i64, ptr %lbasz.i.i, align 8
   %div30.i.i = udiv i64 %conv28.i.i, %64
-  br label %nvme_ns_init.exit
+  br label %nvme_ns_init.argprom.exit
 
-nvme_ns_init.exit:                                ; preds = %lbaf_found.i, %land.lhs.true.i.i, %if.then.i.i
+nvme_ns_init.argprom.exit:                        ; preds = %lbaf_found.i, %land.lhs.true.i.i, %if.then.i.i
   %npdg.0.in.i.i = phi i64 [ %div30.i.i, %if.then.i.i ], [ %div17.i.i, %land.lhs.true.i.i ], [ %div17.i.i, %lbaf_found.i ]
   %npdg.0.i.i = trunc i64 %npdg.0.in.i.i to i16
   %sub.i.i = add i16 %npdg.0.i.i, -1
@@ -676,7 +676,7 @@ nvme_ns_init.exit:                                ; preds = %lbaf_found.i, %land
   %tobool9 = trunc i8 %65 to i1
   br i1 %tobool9, label %if.then10, label %if.end14
 
-if.then10:                                        ; preds = %nvme_ns_init.exit
+if.then10:                                        ; preds = %nvme_ns_init.argprom.exit
   %zone_size_bs.i = getelementptr inbounds i8, ptr %ns, i64 8712
   %66 = load i64, ptr %zone_size_bs.i, align 8
   %tobool.not.i25 = icmp eq i64 %66, 0
@@ -930,7 +930,7 @@ nvme_ns_init_zoned.exit:                          ; preds = %if.end.i50, %if.the
   store ptr %call.i35, ptr %id_ns_zoned.i, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %nvme_ns_init_zoned.exit, %nvme_ns_init.exit
+if.end14:                                         ; preds = %nvme_ns_init_zoned.exit, %nvme_ns_init.argprom.exit
   %endgrp = getelementptr inbounds i8, ptr %ns, i64 8776
   %97 = load ptr, ptr %endgrp, align 8
   %tobool15.not = icmp eq ptr %97, null

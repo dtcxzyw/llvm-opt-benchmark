@@ -420,7 +420,7 @@ define void @Abc_ManCollectLatches_rec(ptr noundef %0, ptr nocapture noundef %1)
   %.val3.i = load i32, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %8 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %7, i32 noundef %8)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %7, i32 noundef %8)
   %9 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %9, align 8
   %10 = sext i32 %.val3.i to i64
@@ -436,7 +436,7 @@ define void @Abc_ManCollectLatches_rec(ptr noundef %0, ptr nocapture noundef %1)
   %.val12 = load i32, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %17 = add nsw i32 %.val12, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i20 = load ptr, ptr %18, align 8
   %19 = sext i32 %.val12 to i64
@@ -629,7 +629,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr nocapture
   %.0.lcssa.i = phi i1 [ true, %30 ], [ %32, %.critedge.preheader.i.loopexit ]
   %.val8.i = load i32, ptr %13, align 4
   %33 = icmp sgt i32 %.val8.i, 0
-  br i1 %33, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.exit
+  br i1 %33, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.argprom.exit
 
 .lr.ph6.i:                                        ; preds = %30, %57
   %.val3618.i = phi i32 [ %.val36.i, %57 ], [ %.val363.i, %30 ]
@@ -742,12 +742,12 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr nocapture
   %.val.i = load i32, ptr %13, align 4
   %85 = sext i32 %.val.i to i64
   %86 = icmp slt i64 %indvars.iv.next16.i, %85
-  br i1 %86, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.exit, !llvm.loop !12
+  br i1 %86, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.argprom.exit, !llvm.loop !12
 
-Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.critedge.preheader.i
+Abc_NtkRetimeUpdateLValue.argprom.exit:           ; preds = %.critedge.i, %.critedge.preheader.i
   br i1 %.0.lcssa.i, label %Abc_NtkRetimePosOverLimit.exit.thread45, label %87
 
-87:                                               ; preds = %Abc_NtkRetimeUpdateLValue.exit
+87:                                               ; preds = %Abc_NtkRetimeUpdateLValue.argprom.exit
   %.val10.i = load ptr, ptr %15, align 8
   %88 = getelementptr i8, ptr %.val10.i, i64 4
   %.val10.val.i = load i32, ptr %88, align 4
@@ -798,7 +798,7 @@ Abc_NtkRetimePosOverLimit.exit:                   ; preds = %.critedge, %92, %.c
   %.not31 = icmp eq i32 %5, 0
   br i1 %.not31, label %110, label %106
 
-Abc_NtkRetimePosOverLimit.exit.thread45:          ; preds = %Abc_NtkRetimeUpdateLValue.exit
+Abc_NtkRetimePosOverLimit.exit.thread45:          ; preds = %Abc_NtkRetimeUpdateLValue.argprom.exit
   %.not3148 = icmp eq i32 %5, 0
   br i1 %.not3148, label %110, label %108
 
@@ -831,7 +831,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

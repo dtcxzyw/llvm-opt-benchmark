@@ -361,7 +361,7 @@ maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i: ; pre
   %124 = icmp eq i32 %.10.i, %14
   %125 = icmp slt i32 %.10.i, %.val
   %or.cond.i = select i1 %124, i1 true, i1 %125
-  br i1 %or.cond.i, label %Multilevel_coarsen_internal.exit, label %126
+  br i1 %or.cond.i, label %Multilevel_coarsen_internal.argprom.exit, label %126
 
 126:                                              ; preds = %maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i
   %127 = call fastcc ptr @gv_calloc(i64 noundef %19, i64 noundef 4)
@@ -429,7 +429,7 @@ maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i: ; pre
   %149 = call ptr @SparseMatrix_transpose(ptr noundef %148) #14
   %150 = call ptr @SparseMatrix_multiply3(ptr noundef %149, ptr noundef nonnull %.0, ptr noundef %148) #14
   %.not.i = icmp eq ptr %150, null
-  br i1 %.not.i, label %Multilevel_coarsen_internal.exit, label %151
+  br i1 %.not.i, label %Multilevel_coarsen_internal.argprom.exit, label %151
 
 151:                                              ; preds = %._crit_edge.i
   %152 = call ptr @SparseMatrix_divide_row_by_degree(ptr noundef %149) #14
@@ -438,9 +438,9 @@ maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i: ; pre
   %155 = or i32 %154, 3
   store i32 %155, ptr %153, align 4
   %156 = call ptr @SparseMatrix_remove_diagonal(ptr noundef nonnull %150) #14
-  br label %Multilevel_coarsen_internal.exit
+  br label %Multilevel_coarsen_internal.argprom.exit
 
-Multilevel_coarsen_internal.exit:                 ; preds = %maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i, %._crit_edge.i, %151
+Multilevel_coarsen_internal.argprom.exit:         ; preds = %maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i, %._crit_edge.i, %151
   %.040 = phi ptr [ null, %maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i ], [ null, %._crit_edge.i ], [ %156, %151 ]
   %.039 = phi ptr [ null, %maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i ], [ %148, %._crit_edge.i ], [ %148, %151 ]
   %.038 = phi ptr [ null, %maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i ], [ %149, %._crit_edge.i ], [ %152, %151 ]
@@ -455,7 +455,7 @@ Multilevel_coarsen_internal.exit:                 ; preds = %maximal_independent
   %.not = icmp eq ptr %.040, null
   br i1 %.not, label %176, label %157
 
-157:                                              ; preds = %Multilevel_coarsen_internal.exit
+157:                                              ; preds = %Multilevel_coarsen_internal.argprom.exit
   %158 = getelementptr inbounds i8, ptr %.040, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = load ptr, ptr %2, align 8
@@ -498,7 +498,7 @@ Multilevel_coarsen_internal.exit:                 ; preds = %maximal_independent
   %175 = fcmp olt double %174, %172
   br i1 %175, label %13, label %176
 
-176:                                              ; preds = %Multilevel_coarsen_internal.exit, %171
+176:                                              ; preds = %Multilevel_coarsen_internal.argprom.exit, %171
   ret void
 }
 
@@ -550,7 +550,7 @@ define noundef ptr @Multilevel_new(ptr noundef %0, ptr nocapture noundef readonl
 15:                                               ; preds = %.thread
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.2, i64 noundef 56) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %.thread
@@ -593,7 +593,7 @@ Multilevel_init.exit:                             ; preds = %11, %gv_alloc.exit.
 31:                                               ; preds = %28
   %32 = load ptr, ptr @stderr, align 8
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.2, i64 noundef 56) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 Multilevel_init.exit.i:                           ; preds = %28
@@ -675,7 +675,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i64 noundef %0, i64 noundef %1) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 8:                                                ; preds = %4
@@ -687,7 +687,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.2, i64 noundef %13) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -713,7 +713,7 @@ declare ptr @random_permutation(i32 noundef) local_unnamed_addr #3
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }

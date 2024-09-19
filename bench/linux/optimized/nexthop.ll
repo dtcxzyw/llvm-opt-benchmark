@@ -3270,7 +3270,7 @@ fib6_check_nh_list.exit84:                        ; preds = %.thread108, %.threa
 
 940:                                              ; preds = %.thread116, %937
   call fastcc void @nh_rt_cache_flush(ptr noundef %13, ptr noundef nonnull %692, ptr noundef %665)
-  call fastcc void @__remove_nexthop(ptr noundef %13, ptr noundef %665)
+  call fastcc void @__remove_nexthop.argprom(ptr noundef %13, ptr noundef %665)
   call fastcc void @nexthop_put(ptr noundef %665)
   br label %fib6_check_nh_list.exit.thread
 
@@ -3580,7 +3580,7 @@ fib6_check_nh_list.exit.thread:                   ; preds = %705, %784, %.thread
 
 .thread128:                                       ; preds = %.thread128.sink.split, %698, %967, %953, %.thread121
   %1110 = phi i32 [ %1037, %.thread121 ], [ -22, %967 ], [ -2, %953 ], [ -17, %698 ], [ %.ph224, %.thread128.sink.split ]
-  call fastcc void @__remove_nexthop(ptr noundef %13, ptr noundef %665)
+  call fastcc void @__remove_nexthop.argprom(ptr noundef %13, ptr noundef %665)
   %1111 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %668, i32 -1, ptr elementtype(i32) %668) #13, !srcloc !11
   %1112 = icmp eq i32 %1111, 1
   br i1 %1112, label %1116, label %1113
@@ -5290,7 +5290,7 @@ define internal fastcc void @nexthop_notify(i32 noundef range(i32 104, 106) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__remove_nexthop(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__remove_nexthop.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3

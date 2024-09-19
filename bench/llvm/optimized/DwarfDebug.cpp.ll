@@ -2921,7 +2921,7 @@ _ZNK4llvm6Triple4isPSEv.exit.thread:              ; preds = %150
   %.val = load i32, ptr %277, align 4
   %278 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL11AccelTables, i64 128), align 8
   %.not.i = icmp eq i32 %278, 0
-  br i1 %.not.i, label %279, label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit
+  br i1 %.not.i, label %279, label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit
 
 279:                                              ; preds = %271
   %280 = icmp ugt i32 %211, 4
@@ -2931,21 +2931,21 @@ _ZNK4llvm6Triple4isPSEv.exit.thread:              ; preds = %150
   %282 = icmp eq i32 %.val, 3
   %or.cond.i = select i1 %280, i1 %282, i1 false
   %spec.select.i47 = select i1 %or.cond.i, i32 3, i32 1
-  br label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit
+  br label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit
 
 283:                                              ; preds = %279
-  br i1 %280, label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit, label %284
+  br i1 %280, label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit, label %284
 
 284:                                              ; preds = %283
   %285 = icmp eq i32 %275, 2
-  br i1 %285, label %286, label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit
+  br i1 %285, label %286, label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit
 
 286:                                              ; preds = %284
   %287 = icmp eq i32 %.val, 5
   %288 = select i1 %287, i32 2, i32 3
-  br label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit
+  br label %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit
 
-_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit: ; preds = %271, %281, %283, %284, %286
+_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit: ; preds = %271, %281, %283, %284, %286
   %.0.i = phi i32 [ %288, %286 ], [ 3, %283 ], [ 1, %284 ], [ %278, %271 ], [ %spec.select.i47, %281 ]
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 3468
   store i32 %.0.i, ptr %289, align 4
@@ -2973,7 +2973,7 @@ _ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit: ; preds = %
   store i8 %307, ptr %306, align 1
   br i1 %298, label %315, label %308
 
-308:                                              ; preds = %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit
+308:                                              ; preds = %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit
   %309 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16UseGNUDebugMacro, i64 128), align 8
   %310 = trunc i8 %309 to i1
   br i1 %310, label %311, label %315
@@ -2984,8 +2984,8 @@ _ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit: ; preds = %
   %314 = xor i8 %313, 1
   br label %315
 
-315:                                              ; preds = %308, %311, %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit
-  %316 = phi i8 [ 1, %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.exit ], [ 0, %308 ], [ %314, %311 ]
+315:                                              ; preds = %308, %311, %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit
+  %316 = phi i8 [ 1, %_ZL21computeAccelTableKindjbN4llvm12DebuggerKindERKNS_6TripleE.argprom.exit ], [ 0, %308 ], [ %314, %311 ]
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 3461
   store i8 %316, ptr %317, align 1
   %318 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14DwarfOpConvert, i64 128), align 8
@@ -7695,15 +7695,15 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_16DIGlobalVariableENS_11SmallVectorINS_1
   br i1 %.not.i.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i.i.i.i, label %.split.i.preheader.i.i.i.i.i.i.i
 
 .split.i.preheader.i.i.i.i.i.i.i:                 ; preds = %709
-  br i1 %.not18.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not18.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
 
 .split.us.i.i.i.i.i.i.i.i:                        ; preds = %709
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br i1 %.not18.i.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i.i.i.i.i.i.i.i"
+  br i1 %.not18.i.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i.i.i.i.i.i.i.i": ; preds = %.split.us.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i.i.i.i.i.i.i.i"
-  %.09.us16.i.i.i.i.i.i.i.i = phi ptr [ %.0.us17.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i.i.i.i.i.i.i.i" ], [ %.015.i.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i.i.i.i.i.i.i.i": ; preds = %.split.us.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i.i.i.i.i.i.i.i"
+  %.09.us16.i.i.i.i.i.i.i.i = phi ptr [ %.0.us17.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i.i.i.i.i.i.i.i" ], [ %.015.i.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i ]
   %.0.us17.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.09.us16.i.i.i.i.i.i.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.us16.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.us17.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %713 = getelementptr i8, ptr %.09.us16.i.i.i.i.i.i.i.i, i64 -24
@@ -7713,9 +7713,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_16DIGlobalVariableENS_11SmallVectorINS_1
   %.not19.i.i.i.i.i.i.i.i = icmp eq ptr %.0.val.us.i.i.i.i.i.i.i.i, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br i1 %.not19.i.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i.i.i.i.i.i.i.i", !llvm.loop !102
+  br i1 %.not19.i.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i.i.i.i.i.i.i.i", !llvm.loop !102
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i": ; preds = %.split.i.i.i.i.i.i.i.i, %.split.i.preheader.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i": ; preds = %.split.i.i.i.i.i.i.i.i, %.split.i.preheader.i.i.i.i.i.i.i
   %.09.i.lcssa.i.i.i.i.i.i.i = phi ptr [ %.015.i.i.i.i.i.i.i, %.split.i.preheader.i.i.i.i.i.i.i ], [ %.0.i12.i.i.i.i.i.i.i, %.split.i.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -7746,7 +7746,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_16DIGlobalVariableENS_11SmallVectorINS_1
   %730 = load i8, ptr %189, align 8
   %731 = trunc i8 %730 to i1
   %732 = select i1 %729, i1 %731, i1 false
-  br i1 %732, label %733, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i.i.i.i.i.i.i.i"
+  br i1 %732, label %733, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i"
 
 733:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %734 = load i64, ptr %187, align 8
@@ -7756,24 +7756,24 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_16DIGlobalVariableENS_11SmallVectorINS_1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br i1 %736, label %.split.i.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i.i.i = xor i1 %729, true
   %.mux.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 %731, i1 false
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br i1 %.mux.i.i.i.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i"
 
-.split.i.i.i.i.i.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i.i.i.i.i.i.i.i", %733
+.split.i.i.i.i.i.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i", %733
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i11.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i12.i.i.i.i.i.i.i, i64 16, i1 false)
   %737 = getelementptr i8, ptr %.09.i11.i.i.i.i.i.i.i, i64 -24
   %.0.val.i.i.i.i.i.i.i.i = load ptr, ptr %737, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %.not20.i.i.i.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i.i.i.i.i, null
-  br i1 %.not20.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !102
+  br i1 %.not20.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !102
 
-"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i.i.i.i.i.i.i.i", %733, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i", %.split.us.i.i.i.i.i.i.i.i
-  %.us-phi.i.i.i.i.i.i.i.i = phi ptr [ %.015.i.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i ], [ %.09.i.lcssa.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i" ], [ %.0.us17.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i.i.i.i.i.i.i.i" ], [ %.09.i11.i.i.i.i.i.i.i, %733 ], [ %.09.i11.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i.i.i.i.i.i.i.i" ]
+"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i", %733, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i", %.split.us.i.i.i.i.i.i.i.i
+  %.us-phi.i.i.i.i.i.i.i.i = phi ptr [ %.015.i.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i ], [ %.09.i.lcssa.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i" ], [ %.0.us17.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i.i.i.i.i.i.i.i" ], [ %.09.i11.i.i.i.i.i.i.i, %733 ], [ %.09.i11.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i" ]
   store ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %.us-phi.i.i.i.i.i.i.i.i, align 8
   %.sroa.2.0..09.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.us-phi.i.i.i.i.i.i.i.i, i64 8
   store ptr %.sroa.2.0.copyload.fr.i.i.i.i.i.i.i.i, ptr %.sroa.2.0..09.sroa_idx.i.i.i.i.i.i.i.i, align 8
@@ -13115,13 +13115,13 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %4, %11
   %13 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   %14 = call noundef ptr @_ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %13) #27
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread", label %15
+  br i1 %.not, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread", label %15
 
 15:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #27
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread", label %19
+  br i1 %18, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread", label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %16, align 8
@@ -13133,7 +13133,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %4, %11
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not31 = icmp eq ptr %25, %8
-  br i1 %.not31, label %26, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread"
+  br i1 %.not31, label %26, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread"
 
 26:                                               ; preds = %23
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
@@ -13293,7 +13293,7 @@ _ZNK4llvm12LexicalScope9dominatesEPKS0_.exit:     ; preds = %100, %90, %95, %85,
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm12LexicalScope9dominatesEPKS0_.exit, %101
-  switch i32 %.026.ph, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread" [
+  switch i32 %.026.ph, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread" [
     i32 0, label %_ZN4llvm8DebugLocD2Ev.exit.thread
     i32 4, label %_ZN4llvm8DebugLocD2Ev.exit.thread
   ]
@@ -13334,7 +13334,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit56: ; pred
 
 .loopexit:                                        ; preds = %41, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit56, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit, %19
   %.not33 = icmp eq ptr %2, null
-  br i1 %.not33, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread", label %113
+  br i1 %.not33, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread", label %113
 
 113:                                              ; preds = %.loopexit
   %114 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -13373,28 +13373,28 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit56: ; pred
   %.029.val.i.i.i.i.i = load i32, ptr %.02949.i.i.i.i.i, align 8
   %133 = and i32 %.029.val.i.i.i.i.i, 255
   %.not35.i.i.i.i.i = icmp eq i32 %133, 1
-  br i1 %.not35.i.i.i.i.i, label %134, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit"
+  br i1 %.not35.i.i.i.i.i, label %134, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit"
 
 134:                                              ; preds = %.lr.ph.i.i.i.i.i
   %135 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i = load i32, ptr %135, align 8
   %136 = and i32 %.val.i.i.i.i.i, 255
   %.not36.i.i.i.i.i = icmp eq i32 %136, 1
-  br i1 %.not36.i.i.i.i.i, label %137, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
+  br i1 %.not36.i.i.i.i.i, label %137, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit"
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 64
   %.val30.i.i.i.i.i = load i32, ptr %138, align 8
   %139 = and i32 %.val30.i.i.i.i.i, 255
   %.not37.i.i.i.i.i = icmp eq i32 %139, 1
-  br i1 %.not37.i.i.i.i.i, label %140, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit96"
+  br i1 %.not37.i.i.i.i.i, label %140, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit96"
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 96
   %.val31.i.i.i.i.i = load i32, ptr %141, align 8
   %142 = and i32 %.val31.i.i.i.i.i, 255
   %.not38.i.i.i.i.i = icmp eq i32 %142, 1
-  br i1 %.not38.i.i.i.i.i, label %143, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit98"
+  br i1 %.not38.i.i.i.i.i, label %143, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit98"
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 128
@@ -13411,7 +13411,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit56: ; pred
   %.pre-phi56.i.i.i.i.i = phi i64 [ %.pre55.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %129, %116 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %.pn6.i, %116 ]
   %147 = ashr exact i64 %.pre-phi56.i.i.i.i.i, 5
-  switch i64 %147, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread" [
+  switch i64 %147, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread" [
     i64 3, label %148
     i64 2, label %152
     i64 1, label %156
@@ -13421,7 +13421,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit56: ; pred
   %.029.val32.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i, align 8
   %149 = and i32 %.029.val32.i.i.i.i.i, 255
   %.not.i.i.i.i.i57 = icmp eq i32 %149, 1
-  br i1 %.not.i.i.i.i.i57, label %150, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit"
+  br i1 %.not.i.i.i.i.i57, label %150, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit"
 
 150:                                              ; preds = %148
   %151 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 32
@@ -13432,7 +13432,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit56: ; pred
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %153 = and i32 %.1.val.i.i.i.i.i, 255
   %.not33.i.i.i.i.i = icmp eq i32 %153, 1
-  br i1 %.not33.i.i.i.i.i, label %154, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit"
+  br i1 %.not33.i.i.i.i.i, label %154, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit"
 
 154:                                              ; preds = %152
   %155 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 32
@@ -13443,26 +13443,26 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit56: ; pred
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %157 = and i32 %.2.val.i.i.i.i.i, 255
   %.not34.i.i.i.i.i = icmp eq i32 %157, 1
-  br i1 %.not34.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit"
+  br i1 %.not34.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %134
+"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %134
   %158 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit96": ; preds = %137
+"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit96": ; preds = %137
   %159 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 64
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit98": ; preds = %140
+"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit98": ; preds = %140
   %160 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 96
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit96", %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit98", %148, %152, %156
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %148 ], [ %.1.i.i.i.i.i, %152 ], [ %.2.i.i.i.i.i, %156 ], [ %158, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %159, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit96" ], [ %160, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit98" ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit96", %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit98", %148, %152, %156
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %148 ], [ %.1.i.i.i.i.i, %152 ], [ %.2.i.i.i.i.i, %156 ], [ %158, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %159, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit96" ], [ %160, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit98" ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %161 = icmp eq ptr %.pn4.i, %.028.i.i.i.i.i
-  br i1 %161, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread", label %.critedge
+  br i1 %161, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread", label %.critedge
 
-.critedge:                                        ; preds = %113, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit"
+.critedge:                                        ; preds = %113, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit"
   %162 = load ptr, ptr %16, align 8
   %163 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #27
   %164 = getelementptr inbounds %"struct.std::pair.780", ptr %162, i64 %163
@@ -13470,19 +13470,19 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit56: ; pred
   %166 = load ptr, ptr %165, align 8
   %167 = call noundef zeroext i1 @_ZNK4llvm19InstructionOrdering8isBeforeEPKNS_12MachineInstrES3_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %2, ptr noundef %166) #27
   %not. = xor i1 %167, true
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread": ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %156, %._crit_edge.i.i.i.i.i, %.critedge, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit", %.loopexit, %23, %15, %_ZN4llvm8DebugLocC2ERKS0_.exit
-  %.0 = phi i1 [ false, %_ZN4llvm8DebugLocC2ERKS0_.exit ], [ false, %15 ], [ false, %23 ], [ true, %.loopexit ], [ true, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit" ], [ %not., %.critedge ], [ true, %._crit_edge.i.i.i.i.i ], [ true, %156 ], [ false, %_ZN4llvm8DebugLocD2Ev.exit ]
+"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %156, %._crit_edge.i.i.i.i.i, %.critedge, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit", %.loopexit, %23, %15, %_ZN4llvm8DebugLocC2ERKS0_.exit
+  %.0 = phi i1 [ false, %_ZN4llvm8DebugLocC2ERKS0_.exit ], [ false, %15 ], [ false, %23 ], [ true, %.loopexit ], [ true, %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit" ], [ %not., %.critedge ], [ true, %._crit_edge.i.i.i.i.i ], [ true, %156 ], [ false, %_ZN4llvm8DebugLocD2Ev.exit ]
   %168 = load ptr, ptr %5, align 8
   %.not.i.i.i.i58 = icmp eq ptr %168, null
   br i1 %.not.i.i.i.i58, label %_ZN4llvm8DebugLocD2Ev.exit59, label %169
 
-169:                                              ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread"
+169:                                              ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread"
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(8) %168) #27
   br label %_ZN4llvm8DebugLocD2Ev.exit59
 
-_ZN4llvm8DebugLocD2Ev.exit59:                     ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.exit.thread", %169
+_ZN4llvm8DebugLocD2Ev.exit59:                     ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZL15validThroughoutRNS_13LexicalScopesEPKNS_12MachineInstrESA_RKNS_19InstructionOrderingEE3$_0EEbOT_T0_.argprom.exit.thread", %169
   ret i1 %.0
 }
 
@@ -15377,7 +15377,7 @@ define dso_local void @_ZN4llvm10DwarfDebug16recordSourceLineEjjPKNS_6MDNodeEj(p
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 3064
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #27
-  tail call fastcc void @_ZL16recordSourceLineRN4llvm10AsmPrinterEjjPKNS_6MDNodeEjjtNS_8ArrayRefISt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(785) %7, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %13, i16 noundef zeroext %15, ptr %17)
+  tail call fastcc void @_ZL16recordSourceLineRN4llvm10AsmPrinterEjjPKNS_6MDNodeEjjtNS_8ArrayRefISt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS7_EEEE.argprom(ptr noundef nonnull align 8 dereferenceable(785) %7, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %13, i16 noundef zeroext %15, ptr %17)
   ret void
 }
 
@@ -15767,7 +15767,7 @@ _ZNK4llvm10DILocation17getInlinedAtScopeEv.exit:  ; preds = %121, %125
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 3064
   %143 = load ptr, ptr %142, align 8
   %144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %142) #27
-  call fastcc void @_ZL16recordSourceLineRN4llvm10AsmPrinterEjjPKNS_6MDNodeEjjtNS_8ArrayRefISt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(785) %133, i32 noundef %135, i32 noundef 0, ptr noundef nonnull %131, i32 noundef 1, i32 noundef %3, i16 noundef zeroext %141, ptr %143)
+  call fastcc void @_ZL16recordSourceLineRN4llvm10AsmPrinterEjjPKNS_6MDNodeEjjtNS_8ArrayRefISt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS7_EEEE.argprom(ptr noundef nonnull align 8 dereferenceable(785) %133, i32 noundef %135, i32 noundef 0, ptr noundef nonnull %131, i32 noundef 1, i32 noundef %3, i16 noundef zeroext %141, ptr %143)
   %145 = load ptr, ptr %7, align 8
   store ptr %145, ptr %0, align 8
   %.not.i.i.i.i13 = icmp eq ptr %145, null
@@ -15799,7 +15799,7 @@ _ZNSt4pairIN4llvm8DebugLocEbED2Ev.exit:           ; preds = %_ZN4llvm8DebugLocD2
 declare noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16recordSourceLineRN4llvm10AsmPrinterEjjPKNS_6MDNodeEjjtNS_8ArrayRefISt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS7_EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, ptr nocapture readonly %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZL16recordSourceLineRN4llvm10AsmPrinterEjjPKNS_6MDNodeEjjtNS_8ArrayRefISt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS7_EEEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, ptr nocapture readonly %.0.val) unnamed_addr #0 {
   %8 = alloca %"class.llvm::StringRef", align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %73, label %9
@@ -18662,7 +18662,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
   %57 = icmp eq i32 %.029.val.i.i.i.i.i.i, 0
   %.not.i.i.i.i.i.i.i.i = icmp ult i64 %.029.val30.i.i.i.i.i.i, 4294967296
   %58 = select i1 %57, i1 %.not.i.i.i.i.i.i.i.i, i1 false
-  br i1 %58, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit", label %59
+  br i1 %58, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit", label %59
 
 59:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %60 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 24
@@ -18672,7 +18672,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
   %62 = icmp eq i32 %.val.i.i.i.i.i.i, 0
   %.not.i.i40.i.i.i.i.i.i = icmp ult i64 %.val31.i.i.i.i.i.i, 4294967296
   %63 = select i1 %62, i1 %.not.i.i40.i.i.i.i.i.i, i1 false
-  br i1 %63, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", label %64
+  br i1 %63, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %64
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 48
@@ -18682,7 +18682,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
   %67 = icmp eq i32 %.val32.i.i.i.i.i.i, 0
   %.not.i.i41.i.i.i.i.i.i = icmp ult i64 %.val33.i.i.i.i.i.i, 4294967296
   %68 = select i1 %67, i1 %.not.i.i41.i.i.i.i.i.i, i1 false
-  br i1 %68, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit47", label %69
+  br i1 %68, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit47", label %69
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 72
@@ -18692,7 +18692,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
   %72 = icmp eq i32 %.val34.i.i.i.i.i.i, 0
   %.not.i.i42.i.i.i.i.i.i = icmp ult i64 %.val35.i.i.i.i.i.i, 4294967296
   %73 = select i1 %72, i1 %.not.i.i42.i.i.i.i.i.i, i1 false
-  br i1 %73, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit49", label %74
+  br i1 %73, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit49", label %74
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 96
@@ -18708,7 +18708,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %51
   %.pre-phi63.i.i.i.i.i.i = phi i64 [ %78, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %47, %51 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %46, %51 ]
-  switch i64 %.pre-phi63.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.thread" [
+  switch i64 %.pre-phi63.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.thread" [
     i64 3, label %79
     i64 2, label %85
     i64 1, label %91
@@ -18721,7 +18721,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
   %81 = icmp eq i32 %.029.val36.i.i.i.i.i.i, 0
   %.not.i.i43.i.i.i.i.i.i = icmp ult i64 %.029.val37.i.i.i.i.i.i, 4294967296
   %82 = select i1 %81, i1 %.not.i.i43.i.i.i.i.i.i, i1 false
-  br i1 %82, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit", label %83
+  br i1 %82, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit", label %83
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 24
@@ -18735,7 +18735,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
   %87 = icmp eq i32 %.1.val.i.i.i.i.i.i, 0
   %.not.i.i44.i.i.i.i.i.i = icmp ult i64 %.1.val38.i.i.i.i.i.i, 4294967296
   %88 = select i1 %87, i1 %.not.i.i44.i.i.i.i.i.i, i1 false
-  br i1 %88, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit", label %89
+  br i1 %88, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit", label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 24
@@ -18749,26 +18749,26 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
   %93 = icmp eq i32 %.2.val.i.i.i.i.i.i, 0
   %.not.i.i45.i.i.i.i.i.i = icmp ult i64 %.2.val39.i.i.i.i.i.i, 4294967296
   %94 = select i1 %93, i1 %.not.i.i45.i.i.i.i.i.i, i1 false
-  br i1 %94, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit", label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.thread"
+  br i1 %94, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit", label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %59
+"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %59
   %95 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit47": ; preds = %64
+"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit47": ; preds = %64
   %96 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit49": ; preds = %69
+"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit49": ; preds = %69
   %97 = getelementptr inbounds i8, ptr %.02956.i.i.i.i.i.i, i64 72
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit47", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit49", %79, %85, %91
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %79 ], [ %.1.i.i.i.i.i.i, %85 ], [ %.2.i.i.i.i.i.i, %91 ], [ %95, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %96, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit47" ], [ %97, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit49" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit47", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit49", %79, %85, %91
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %79 ], [ %.1.i.i.i.i.i.i, %85 ], [ %.2.i.i.i.i.i.i, %91 ], [ %95, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %96, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit47" ], [ %97, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit49" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not = icmp eq ptr %52, %.028.i.i.i.i.i.i
-  br i1 %.not, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.thread", label %101
+  br i1 %.not, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.thread", label %101
 
-"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.thread": ; preds = %91, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit"
+"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.thread": ; preds = %91, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %2, ptr %98, align 8
@@ -18776,7 +18776,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit.thread: ; preds = %4
   %100 = call noundef zeroext i1 @_ZN4llvm15DwarfExpression13addExpressionEONS_18DIExpressionCursorENS_12function_refIFbjRS1_EEE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @"_ZN4llvm12function_refIFbjRNS_18DIExpressionCursorEEE11callback_fnIZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_2EEbljS2_", i64 %99) #27
   br label %101
 
-101:                                              ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit", %48, %22, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.exit.thread", %50, %38
+101:                                              ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit", %48, %22, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_10DwarfDebug17emitDebugLocValueERKNS_10AsmPrinterEPKNS_11DIBasicTypeERKNS_11DbgValueLocERNS_15DwarfExpressionEE3$_1EEbOT_T0_.argprom.exit.thread", %50, %38
   ret void
 }
 
@@ -31192,7 +31192,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %81 = icmp ne ptr %.val29.i.i, null
   %82 = icmp ne ptr %.val30.i.i, null
   %or.cond.i.i.i.i = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond.i.i.i.i, label %83, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i.i"
+  br i1 %or.cond.i.i.i.i, label %83, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i.i"
 
 83:                                               ; preds = %75
   %84 = getelementptr inbounds nuw i8, ptr %.val29.i.i, i64 16
@@ -31220,7 +31220,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %.not.i.i.i.i = xor i1 %101, true
   %104 = select i1 %101, i1 %103, i1 false
   %.mux.i.i.i.i = select i1 %.not.i.i.i.i, i1 %103, i1 false
-  br i1 %104, label %105, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i.i"
+  br i1 %104, label %105, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i.i"
 
 105:                                              ; preds = %83
   %106 = load i64, ptr %33, align 8
@@ -31230,13 +31230,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br i1 %108, label %109, label %171
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i.i": ; preds = %83, %75
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i.i": ; preds = %83, %75
   %.0.i.i.i.i = phi i1 [ %82, %75 ], [ %.mux.i.i.i.i, %83 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br i1 %.0.i.i.i.i, label %109, label %171
 
-109:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i.i", %105
+109:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i.i", %105
   %.val27.i.i = load ptr, ptr %80, align 8
   %110 = getelementptr i8, ptr %.024, i64 -8
   %.val28.i.i = load ptr, ptr %110, align 8
@@ -31245,7 +31245,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %111 = icmp ne ptr %.val27.i.i, null
   %112 = icmp ne ptr %.val28.i.i, null
   %or.cond.i.i31.i.i = select i1 %111, i1 %112, i1 false
-  br i1 %or.cond.i.i31.i.i, label %113, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit35.i.i"
+  br i1 %or.cond.i.i31.i.i, label %113, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit35.i.i"
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %.val27.i.i, i64 16
@@ -31273,7 +31273,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %.not.i.i33.i.i = xor i1 %131, true
   %134 = select i1 %131, i1 %133, i1 false
   %.mux.i.i34.i.i = select i1 %.not.i.i33.i.i, i1 %133, i1 false
-  br i1 %134, label %135, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit35.i.i"
+  br i1 %134, label %135, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit35.i.i"
 
 135:                                              ; preds = %113
   %136 = load i64, ptr %45, align 8
@@ -31283,13 +31283,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   br i1 %138, label %139, label %140
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit35.i.i": ; preds = %113, %109
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit35.i.i": ; preds = %113, %109
   %.0.i.i32.i.i = phi i1 [ %112, %109 ], [ %.mux.i.i34.i.i, %113 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   br i1 %.0.i.i32.i.i, label %139, label %140
 
-139:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit35.i.i", %135
+139:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit35.i.i", %135
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false)
@@ -31297,7 +31297,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   br label %"_ZSt22__move_median_to_firstIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-140:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit35.i.i", %135
+140:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit35.i.i", %135
   %.val25.i.i = load ptr, ptr %30, align 8
   %.val26.i.i = load ptr, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
@@ -31305,7 +31305,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %141 = icmp ne ptr %.val25.i.i, null
   %142 = icmp ne ptr %.val26.i.i, null
   %or.cond.i.i36.i.i = select i1 %141, i1 %142, i1 false
-  br i1 %or.cond.i.i36.i.i, label %143, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit40.i.i"
+  br i1 %or.cond.i.i36.i.i, label %143, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit40.i.i"
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %.val25.i.i, i64 16
@@ -31333,7 +31333,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %.not.i.i38.i.i = xor i1 %161, true
   %164 = select i1 %161, i1 %163, i1 false
   %.mux.i.i39.i.i = select i1 %.not.i.i38.i.i, i1 %163, i1 false
-  br i1 %164, label %165, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit40.i.i"
+  br i1 %164, label %165, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit40.i.i"
 
 165:                                              ; preds = %143
   %166 = load i64, ptr %49, align 8
@@ -31343,13 +31343,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br i1 %168, label %169, label %170
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit40.i.i": ; preds = %143, %140
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit40.i.i": ; preds = %143, %140
   %.0.i.i37.i.i = phi i1 [ %142, %140 ], [ %.mux.i.i39.i.i, %143 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br i1 %.0.i.i37.i.i, label %169, label %170
 
-169:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit40.i.i", %165
+169:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit40.i.i", %165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false)
@@ -31357,7 +31357,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br label %"_ZSt22__move_median_to_firstIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-170:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit40.i.i", %165
+170:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit40.i.i", %165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
@@ -31365,7 +31365,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   br label %"_ZSt22__move_median_to_firstIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-171:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i.i", %105
+171:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i.i", %105
   %.val23.i.i = load ptr, ptr %30, align 8
   %172 = getelementptr i8, ptr %.024, i64 -8
   %.val24.i.i = load ptr, ptr %172, align 8
@@ -31374,7 +31374,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %173 = icmp ne ptr %.val23.i.i, null
   %174 = icmp ne ptr %.val24.i.i, null
   %or.cond.i.i41.i.i = select i1 %173, i1 %174, i1 false
-  br i1 %or.cond.i.i41.i.i, label %175, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit45.i.i"
+  br i1 %or.cond.i.i41.i.i, label %175, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit45.i.i"
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 16
@@ -31402,7 +31402,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %.not.i.i43.i.i = xor i1 %193, true
   %196 = select i1 %193, i1 %195, i1 false
   %.mux.i.i44.i.i = select i1 %.not.i.i43.i.i, i1 %195, i1 false
-  br i1 %196, label %197, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit45.i.i"
+  br i1 %196, label %197, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit45.i.i"
 
 197:                                              ; preds = %175
   %198 = load i64, ptr %37, align 8
@@ -31412,13 +31412,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br i1 %200, label %201, label %202
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit45.i.i": ; preds = %175, %171
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit45.i.i": ; preds = %175, %171
   %.0.i.i42.i.i = phi i1 [ %174, %171 ], [ %.mux.i.i44.i.i, %175 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br i1 %.0.i.i42.i.i, label %201, label %202
 
-201:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit45.i.i", %197
+201:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit45.i.i", %197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
@@ -31426,7 +31426,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %"_ZSt22__move_median_to_firstIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-202:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit45.i.i", %197
+202:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit45.i.i", %197
   %.val.i.i = load ptr, ptr %80, align 8
   %.val22.i.i = load ptr, ptr %172, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -31434,7 +31434,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %203 = icmp ne ptr %.val.i.i, null
   %204 = icmp ne ptr %.val22.i.i, null
   %or.cond.i.i46.i.i = select i1 %203, i1 %204, i1 false
-  br i1 %or.cond.i.i46.i.i, label %205, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit50.i.i"
+  br i1 %or.cond.i.i46.i.i, label %205, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit50.i.i"
 
 205:                                              ; preds = %202
   %206 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
@@ -31462,7 +31462,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %.not.i.i48.i.i = xor i1 %223, true
   %226 = select i1 %223, i1 %225, i1 false
   %.mux.i.i49.i.i = select i1 %.not.i.i48.i.i, i1 %225, i1 false
-  br i1 %226, label %227, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit50.i.i"
+  br i1 %226, label %227, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit50.i.i"
 
 227:                                              ; preds = %205
   %228 = load i64, ptr %41, align 8
@@ -31472,13 +31472,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br i1 %230, label %231, label %232
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit50.i.i": ; preds = %205, %202
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit50.i.i": ; preds = %205, %202
   %.0.i.i47.i.i = phi i1 [ %204, %202 ], [ %.mux.i.i49.i.i, %205 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br i1 %.0.i.i47.i.i, label %231, label %232
 
-231:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit50.i.i", %227
+231:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit50.i.i", %227
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false)
@@ -31486,7 +31486,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-232:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit50.i.i", %227
+232:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit50.i.i", %227
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false)
@@ -31512,7 +31512,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %235 = icmp ne ptr %.1.val.i.i, null
   %236 = icmp ne ptr %.val15.i.i, null
   %or.cond.i.i.i13.i = select i1 %235, i1 %236, i1 false
-  br i1 %or.cond.i.i.i13.i, label %237, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i14.i"
+  br i1 %or.cond.i.i.i13.i, label %237, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i14.i"
 
 237:                                              ; preds = %233
   %238 = getelementptr inbounds nuw i8, ptr %.1.val.i.i, i64 16
@@ -31540,7 +31540,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %.not.i.i.i17.i = xor i1 %255, true
   %258 = select i1 %255, i1 %257, i1 false
   %.mux.i.i.i18.i = select i1 %.not.i.i.i17.i, i1 %257, i1 false
-  br i1 %258, label %259, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i14.i"
+  br i1 %258, label %259, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i14.i"
 
 259:                                              ; preds = %237
   %260 = load i64, ptr %51, align 8
@@ -31550,16 +31550,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br i1 %262, label %263, label %.preheader.i.i.preheader
 
-.preheader.i.i.preheader:                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i14.i", %259
+.preheader.i.i.preheader:                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i14.i", %259
   br label %.preheader.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i14.i": ; preds = %237, %233
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i14.i": ; preds = %237, %233
   %.0.i.i.i15.i = phi i1 [ %236, %233 ], [ %.mux.i.i.i18.i, %237 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br i1 %.0.i.i.i15.i, label %263, label %.preheader.i.i.preheader
 
-263:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit.i14.i", %259
+263:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit.i14.i", %259
   %264 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
   br label %233, !llvm.loop !559
 
@@ -31574,7 +31574,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %266 = icmp ne ptr %.val.i16.i, null
   %267 = icmp ne ptr %.114.val.i.i, null
   %or.cond.i.i16.i.i = select i1 %266, i1 %267, i1 false
-  br i1 %or.cond.i.i16.i.i, label %268, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit20.i.i"
+  br i1 %or.cond.i.i16.i.i, label %268, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit20.i.i"
 
 268:                                              ; preds = %.preheader.i.i
   %269 = getelementptr inbounds nuw i8, ptr %.val.i16.i, i64 16
@@ -31602,7 +31602,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   %.not.i.i18.i.i = xor i1 %286, true
   %289 = select i1 %286, i1 %288, i1 false
   %.mux.i.i19.i.i = select i1 %.not.i.i18.i.i, i1 %288, i1 false
-  br i1 %289, label %290, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit20.i.i"
+  br i1 %289, label %290, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit20.i.i"
 
 290:                                              ; preds = %268
   %291 = load i64, ptr %56, align 8
@@ -31612,16 +31612,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br i1 %293, label %.preheader.i.i.backedge, label %294
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit20.i.i": ; preds = %268, %.preheader.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit20.i.i": ; preds = %268, %.preheader.i.i
   %.0.i.i17.i.i = phi i1 [ %267, %.preheader.i.i ], [ %.mux.i.i19.i.i, %268 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br i1 %.0.i.i17.i.i, label %.preheader.i.i.backedge, label %294
 
-.preheader.i.i.backedge:                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit20.i.i", %290
+.preheader.i.i.backedge:                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit20.i.i", %290
   br label %.preheader.i.i, !llvm.loop !566
 
-294:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit20.i.i", %290
+294:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit20.i.i", %290
   %295 = icmp ult ptr %.1.i.i, %.114.i.i
   br i1 %295, label %296, label %"_ZSt27__unguarded_partition_pivotIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEET_SC_SC_T0_.exit"
 
@@ -31663,8 +31663,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %17
 
-17:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit"
-  %.031 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit" ]
+17:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit"
+  %.031 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit" ]
   %18 = shl i64 %.031, 1
   %19 = add i64 %18, 2
   %20 = or disjoint i64 %18, 1
@@ -31677,7 +31677,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %23 = icmp ne ptr %.val, null
   %24 = icmp ne ptr %.val30, null
   %or.cond.i.i = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond.i.i, label %25, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit"
+  br i1 %or.cond.i.i, label %25, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit"
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -31705,15 +31705,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %.not.i.i = xor i1 %43, true
   %46 = select i1 %43, i1 %45, i1 false
   %.mux.i.i = select i1 %.not.i.i, i1 %45, i1 false
-  br i1 %46, label %47, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit"
+  br i1 %46, label %47, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit"
 
 47:                                               ; preds = %25
   %48 = load i64, ptr %15, align 8
   %49 = load i64, ptr %16, align 8
   %50 = icmp ult i64 %48, %49
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit": ; preds = %17, %25, %47
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit": ; preds = %17, %25, %47
   %.0.i.i = phi i1 [ %50, %47 ], [ %24, %17 ], [ %.mux.i.i, %25 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -31724,8 +31724,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %53 = icmp slt i64 %spec.select, %11
   br i1 %53, label %17, label %._crit_edge, !llvm.loop !575
 
-._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit", %5
-  %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit" ]
+._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit", %5
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit" ]
   %54 = and i64 %2, 1
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %56, label %65
@@ -31749,7 +31749,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %.fr10.i = freeze ptr %4
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %67 = icmp sgt i64 %.1, %1
-  br i1 %67, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.exit"
+  br i1 %67, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.argprom.exit"
 
 .lr.ph.i:                                         ; preds = %65
   %.not.i = icmp eq ptr %.fr10.i, null
@@ -31758,7 +31758,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br i1 %.not.i, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.exit", label %.lr.ph.split.i
+  br i1 %.not.i, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.argprom.exit", label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %99
   %.0133.i = phi i64 [ %.04.i, %99 ], [ %.1, %.lr.ph.i ]
@@ -31794,7 +31794,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %92 = load i8, ptr %71, align 8
   %93 = trunc i8 %92 to i1
   %94 = select i1 %91, i1 %93, i1 false
-  br i1 %94, label %95, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.exit.i"
+  br i1 %94, label %95, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.argprom.exit.i"
 
 95:                                               ; preds = %75
   %96 = load i64, ptr %66, align 8
@@ -31802,28 +31802,28 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %98 = icmp ult i64 %96, %97
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br i1 %98, label %99, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.exit"
+  br i1 %98, label %99, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.exit.i": ; preds = %75
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.argprom.exit.i": ; preds = %75
   %.not.i.i.i = xor i1 %91, true
   %.mux.i.i.i = select i1 %.not.i.i.i, i1 %93, i1 false
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br i1 %.mux.i.i.i, label %99, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.exit"
+  br i1 %.mux.i.i.i, label %99, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.argprom.exit"
 
 .critedge9.i:                                     ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %99
 
-99:                                               ; preds = %.critedge9.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.exit.i", %95
+99:                                               ; preds = %.critedge9.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.argprom.exit.i", %95
   %100 = getelementptr inbounds %"struct.llvm::DwarfCompileUnit::GlobalExpr", ptr %0, i64 %.0133.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false)
   %101 = icmp sgt i64 %.04.i, %1
-  br i1 %101, label %.lr.ph.split.i, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.exit", !llvm.loop !582
+  br i1 %101, label %.lr.ph.split.i, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.argprom.exit", !llvm.loop !582
 
-"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.exit": ; preds = %95, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.exit.i", %99, %65, %.lr.ph.i
-  %.013.lcssa.i = phi i64 [ %.1, %65 ], [ %.1, %.lr.ph.i ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.exit.i" ], [ %.04.i, %99 ], [ %.0133.i, %95 ]
+"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.argprom.exit": ; preds = %95, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.argprom.exit.i", %99, %65, %.lr.ph.i
+  %.013.lcssa.i = phi i64 [ %.1, %65 ], [ %.1, %.lr.ph.i ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.argprom.exit.i" ], [ %.04.i, %99 ], [ %.0133.i, %95 ]
   %102 = getelementptr inbounds %"struct.llvm::DwarfCompileUnit::GlobalExpr", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %102, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %102, i64 8
@@ -31873,7 +31873,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   %21 = icmp ne ptr %.0.val, null
   %22 = icmp ne ptr %.val, null
   %or.cond.i.i = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond.i.i, label %23, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit"
+  br i1 %or.cond.i.i, label %23, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit"
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -31901,7 +31901,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   %.not.i.i = xor i1 %41, true
   %44 = select i1 %41, i1 %43, i1 false
   %.mux.i.i = select i1 %.not.i.i, i1 %43, i1 false
-  br i1 %44, label %45, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit"
+  br i1 %44, label %45, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit"
 
 45:                                               ; preds = %23
   %46 = load i64, ptr %12, align 8
@@ -31911,13 +31911,13 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br i1 %48, label %49, label %55
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit": ; preds = %19, %23
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit": ; preds = %19, %23
   %.0.i.i = phi i1 [ %22, %19 ], [ %.mux.i.i, %23 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br i1 %.0.i.i, label %49, label %55
 
-49:                                               ; preds = %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit"
+49:                                               ; preds = %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.027, i64 16, i1 false)
   %50 = getelementptr inbounds i8, ptr %.pn26, i64 32
   %51 = ptrtoint ptr %.027 to i64
@@ -31929,7 +31929,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   br label %85
 
-55:                                               ; preds = %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.exit"
+55:                                               ; preds = %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_SB_EEbT_T0_.argprom.exit"
   %.sroa.0.0.copyload.i = load ptr, ptr %.027, align 8
   %.sroa.2.0.copyload.i = load ptr, ptr %20, align 8
   %.sroa.2.0.copyload.fr.i = freeze ptr %.sroa.2.0.copyload.i
@@ -31944,7 +31944,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %.not20.i20 = icmp eq ptr %.0.val.i19, null
-  br i1 %.not20.i20, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i", label %.lr.ph
+  br i1 %.not20.i20, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i", label %.lr.ph
 
 .split.us.i:                                      ; preds = %55
   %59 = getelementptr i8, ptr %.pn26, i64 8
@@ -31954,10 +31954,10 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   %.not18.i = icmp eq ptr %.0.val.us15.i, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br i1 %.not18.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i"
+  br i1 %.not18.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i": ; preds = %.split.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i"
-  %.09.us16.i = phi ptr [ %.0.us17.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i" ], [ %.027, %.split.us.i ]
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i": ; preds = %.split.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i"
+  %.09.us16.i = phi ptr [ %.0.us17.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i" ], [ %.027, %.split.us.i ]
   %.0.us17.i = getelementptr inbounds i8, ptr %.09.us16.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.us16.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.us17.i, i64 16, i1 false)
   %60 = getelementptr i8, ptr %.09.us16.i, i64 -24
@@ -31967,9 +31967,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   %.not19.i = icmp eq ptr %.0.val.us.i, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br i1 %.not19.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i", !llvm.loop !102
+  br i1 %.not19.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i", !llvm.loop !102
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i": ; preds = %.split.i, %.split.i.preheader
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i": ; preds = %.split.i, %.split.i.preheader
   %.09.i.lcssa = phi ptr [ %.027, %.split.i.preheader ], [ %.0.i22, %.split.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -32000,7 +32000,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   %77 = load i8, ptr %16, align 8
   %78 = trunc i8 %77 to i1
   %79 = select i1 %76, i1 %78, i1 false
-  br i1 %79, label %80, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i"
+  br i1 %79, label %80, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i"
 
 80:                                               ; preds = %.lr.ph
   %81 = load i64, ptr %14, align 8
@@ -32010,24 +32010,24 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br i1 %83, label %.split.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i": ; preds = %.lr.ph
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i": ; preds = %.lr.ph
   %.not.i.i.i = xor i1 %76, true
   %.mux.i.i.i = select i1 %.not.i.i.i, i1 %78, i1 false
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br i1 %.mux.i.i.i, label %.split.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit"
 
-.split.i:                                         ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i", %80
+.split.i:                                         ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i", %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i21, ptr noundef nonnull align 8 dereferenceable(16) %.0.i22, i64 16, i1 false)
   %84 = getelementptr i8, ptr %.09.i21, i64 -24
   %.0.val.i = load ptr, ptr %84, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %.not20.i = icmp eq ptr %.0.val.i, null
-  br i1 %.not20.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i", label %.lr.ph, !llvm.loop !102
+  br i1 %.not20.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i", label %.lr.ph, !llvm.loop !102
 
-"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit": ; preds = %80, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i", %.split.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i"
-  %.us-phi.i = phi ptr [ %.027, %.split.us.i ], [ %.09.i.lcssa, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.thread.i" ], [ %.0.us17.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.us.i" ], [ %.09.i21, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.exit.i" ], [ %.09.i21, %80 ]
+"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit": ; preds = %80, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i", %.split.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i"
+  %.us-phi.i = phi ptr [ %.027, %.split.us.i ], [ %.09.i.lcssa, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.thread.i" ], [ %.0.us17.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.us.i" ], [ %.09.i21, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIS5_PS5_EEbRT_T0_.argprom.exit.i" ], [ %.09.i21, %80 ]
   store ptr %.sroa.0.0.copyload.i, ptr %.us-phi.i, align 8
   %.sroa.2.0..09.sroa_idx.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
   store ptr %.sroa.2.0.copyload.fr.i, ptr %.sroa.2.0..09.sroa_idx.i, align 8
@@ -44242,8 +44242,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEP
   %68 = add nsw i64 %.0.i.i.i, -1
   br i1 %67, label %.lr.ph.i5.i, label %33, !llvm.loop !784
 
-.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_T0_SM_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.exit"
-  %.01.i.i = phi ptr [ %69, %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.exit" ], [ %.030, %"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_T0_SM_T1_T2_.exit.i.i.i" ]
+.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_T0_SM_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.argprom.exit"
+  %.01.i.i = phi ptr [ %69, %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.argprom.exit" ], [ %.030, %"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_T0_SM_T1_T2_.exit.i.i.i" ]
   %69 = getelementptr inbounds i8, ptr %.01.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
@@ -44312,7 +44312,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEP
 105:                                              ; preds = %97, %93, %._crit_edge.i.i
   %.127.i.i = phi i64 [ %99, %97 ], [ %.0.lcssa.i.i, %93 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
   %106 = icmp sgt i64 %.127.i.i, 0
-  br i1 %106, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.exit"
+  br i1 %106, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.argprom.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %105
   %107 = getelementptr i8, ptr %.sroa.23.0.copyload.i, i64 16
@@ -44329,7 +44329,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEP
   %.val.val.i.i.i = load i32, ptr %111, align 8
   %.val14.val.i.i.i = load i32, ptr %107, align 8
   %112 = icmp ult i32 %.val.val.i.i.i, %.val14.val.i.i.i
-  br i1 %112, label %113, label %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.exit"
+  br i1 %112, label %113, label %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.argprom.exit"
 
 113:                                              ; preds = %108
   %114 = getelementptr inbounds %"struct.std::pair.1185", ptr %0, i64 %.0133.i.i.i
@@ -44337,9 +44337,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEP
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr %.val.i.i.i, ptr %115, align 8
   %.not.i = icmp ult i64 %.04.in.i.i.i, 2
-  br i1 %.not.i, label %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.exit", label %108, !llvm.loop !783
+  br i1 %.not.i, label %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.argprom.exit", label %108, !llvm.loop !783
 
-"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.exit": ; preds = %108, %113, %105
+"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.argprom.exit": ; preds = %108, %113, %105
   %.013.lcssa.i.i.i = phi i64 [ %.127.i.i, %105 ], [ %.0133.i.i.i, %108 ], [ 0, %113 ]
   %116 = getelementptr inbounds %"struct.std::pair.1185", ptr %0, i64 %.013.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i64 16, i1 false)
@@ -44494,7 +44494,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEP
   %162 = icmp sgt i64 %161, 384
   br i1 %162, label %17, label %"_ZSt14__partial_sortIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_T0_.exit", !llvm.loop !789
 
-"_ZSt14__partial_sortIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEET_SL_SL_T0_.exit", %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.exit", %3
+"_ZSt14__partial_sortIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEET_SL_SL_T0_.exit", %"_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.argprom.exit", %3
   ret void
 }
 
@@ -45530,7 +45530,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %23, ptr %48, align 8
   %49 = icmp eq i64 %.0.us.i.i.i, 0
   %50 = add nsw i64 %.0.us.i.i.i, -1
-  br i1 %49, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.exit.i.i", label %.split.split.us.i.i.i, !llvm.loop !798
+  br i1 %49, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", label %.split.split.us.i.i.i, !llvm.loop !798
 
 .split.split.i.i.i:                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %.split.split.preheader.i.i.i
   %.0.i.i.i = phi i64 [ %83, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ], [ %15, %.split.split.preheader.i.i.i ]
@@ -45604,14 +45604,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %51, ptr %81, align 8
   %82 = icmp eq i64 %.0.i.i.i, 0
   %83 = add nsw i64 %.0.i.i.i, -1
-  br i1 %82, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.exit.i.i", label %.split.split.i.i.i, !llvm.loop !798
+  br i1 %82, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", label %.split.split.i.i.i, !llvm.loop !798
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_T0_SG_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_T0_SG_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
   %84 = icmp sgt i64 %.fr.i.i.i28.lcssa, 8
   br i1 %84, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.exit.i13.i"
-  %.sroa.0.03.i.i = phi ptr [ %85, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.exit.i13.i" ], [ %storemerge26.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i13.i"
+  %.sroa.0.03.i.i = phi ptr [ %85, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i13.i" ], [ %storemerge26.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i" ]
   %85 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %.fr29, align 8
@@ -45670,7 +45670,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 120:                                              ; preds = %114, %110, %._crit_edge.i.i.i10.i
   %.1.i.i.i12.i = phi i64 [ %116, %114 ], [ %.0.lcssa.i.i.i11.i, %110 ], [ %.0.lcssa.i.i.i11.i, %._crit_edge.i.i.i10.i ]
   %121 = icmp sgt i64 %.1.i.i.i12.i, 0
-  br i1 %121, label %.lr.ph.i.i.i.i15.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.exit.i13.i"
+  br i1 %121, label %.lr.ph.i.i.i.i15.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i13.i"
 
 .lr.ph.i.i.i.i15.i:                               ; preds = %120
   %122 = getelementptr i8, ptr %86, i64 72
@@ -45686,15 +45686,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %126 = getelementptr i8, ptr %125, i64 72
   %.val.i.i.i.i.i20.i = load i32, ptr %126, align 8
   %127 = icmp ult i32 %.val.i.i.i.i.i20.i, %.val.val.i.i.i.i19.i
-  br i1 %127, label %128, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.exit.i13.i"
+  br i1 %127, label %128, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i13.i"
 
 128:                                              ; preds = %123
   %129 = getelementptr inbounds ptr, ptr %.fr29, i64 %.010.i.i.i.i16.i
   store ptr %125, ptr %129, align 8
   %.not.i.i21.i = icmp ult i64 %.0911.in.i.i.i.i17.i, 2
-  br i1 %.not.i.i21.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.exit.i13.i", label %123, !llvm.loop !797
+  br i1 %.not.i.i21.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i13.i", label %123, !llvm.loop !797
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.exit.i13.i": ; preds = %128, %123, %120
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i13.i": ; preds = %128, %123, %120
   %.0.lcssa.i.i.i.i14.i = phi i64 [ %.1.i.i.i12.i, %120 ], [ %.010.i.i.i.i16.i, %123 ], [ 0, %128 ]
   %130 = getelementptr inbounds ptr, ptr %.fr29, i64 %.0.lcssa.i.i.i.i14.i
   store ptr %86, ptr %130, align 8
@@ -45817,7 +45817,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %178 = icmp sgt i64 %177, 16
   br i1 %178, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !795
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.exit.i13.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i13.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm16DwarfCompileUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10DwarfDebug16emitDebugARangesEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i"
   ret void
 }
 

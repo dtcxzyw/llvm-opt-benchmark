@@ -900,11 +900,11 @@ entry:
 
 sw.bb.i.i:                                        ; preds = %entry
   tail call void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nonnull readnone align 4 poison)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1440) %0, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nonnull readnone align 4 poison)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i), !noalias !5
@@ -912,7 +912,7 @@ sw.bb4.i.i:                                       ; preds = %entry
   store i64 %or.i.i.i.i.i.i, ptr %agg.tmp.i.i.i.i, align 8, !noalias !12
   call void @_ZN4pbrt10CameraBase23GenerateRayDifferentialENS_6CameraENS_12CameraSampleERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i), !noalias !5
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i), !noalias !15
@@ -920,9 +920,9 @@ sw.default.i.i:                                   ; preds = %entry
   store i64 %or.i.i.i.i17.i.i, ptr %agg.tmp.i.i15.i.i, align 8, !noalias !18
   call void @_ZN4pbrt10CameraBase23GenerateRayDifferentialENS_6CameraENS_12CameraSampleERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i.i15.i.i, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i), !noalias !15
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
-"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
+"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
   ret void
 }
 
@@ -933,7 +933,7 @@ entry:
   %shr.i.i = lshr i64 %this.val, 57
   %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
-    i32 1, label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEEE3$_0EEDcOT_.exit"
+    i32 1, label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEEE3$_0EEDcOT_.argprom.exit"
     i32 2, label %sw.bb4.i.i
     i32 3, label %sw.bb8.i.i
   ]
@@ -950,7 +950,7 @@ sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.95, i32 noundef 491, ptr noundef nonnull @.str.98) #25
   unreachable
 
-"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEEE3$_0EEDcOT_.exit": ; preds = %entry
+"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEEE3$_0EEDcOT_.argprom.exit": ; preds = %entry
   %and.i.i = and i64 %this.val, 144115188075855871
   %0 = inttoptr i64 %and.i.i to ptr
   %call.i.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt17PerspectiveCamera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef nonnull align 8 dereferenceable(40) %ray, ptr nonnull align 4 poison, ptr noundef %pRaster2)
@@ -964,7 +964,7 @@ entry:
   %shr.i.i = lshr i64 %this.val, 57
   %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
-    i32 1, label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera6PDF_WeERKNS_3RayEPfSB_E3$_0EEDcOT_.exit"
+    i32 1, label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera6PDF_WeERKNS_3RayEPfSB_E3$_0EEDcOT_.argprom.exit"
     i32 2, label %sw.bb3.i.i
     i32 3, label %sw.bb4.i.i
   ]
@@ -981,7 +981,7 @@ sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.95, i32 noundef 497, ptr noundef nonnull @.str.101) #25
   unreachable
 
-"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera6PDF_WeERKNS_3RayEPfSB_E3$_0EEDcOT_.exit": ; preds = %entry
+"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera6PDF_WeERKNS_3RayEPfSB_E3$_0EEDcOT_.argprom.exit": ; preds = %entry
   %and.i.i = and i64 %this.val, 144115188075855871
   %0 = inttoptr i64 %and.i.i to ptr
   tail call void @_ZNK4pbrt17PerspectiveCamera6PDF_WeERKNS_3RayEPfS4_(ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef nonnull align 8 dereferenceable(40) %ray, ptr noundef %pdfPos, ptr noundef %pdfDir)
@@ -995,7 +995,7 @@ entry:
   %shr.i.i = lshr i64 %this.val, 57
   %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
-    i32 1, label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+    i32 1, label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
     i32 2, label %sw.bb3.i.i
     i32 3, label %sw.bb4.i.i
   ]
@@ -1012,7 +1012,7 @@ sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.95, i32 noundef 503, ptr noundef nonnull @.str.104) #25, !noalias !21
   unreachable
 
-"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0EEDcOT_.exit": ; preds = %entry
+"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit": ; preds = %entry
   %and.i.i = and i64 %this.val, 144115188075855871
   %0 = inttoptr i64 %and.i.i to ptr
   tail call void @_ZNK4pbrt17PerspectiveCamera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsE(ptr sret(%"class.pstd::optional.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef nonnull align 8 dereferenceable(80) %ref, <2 x float> %u.coerce, ptr nonnull align 4 poison)
@@ -1041,11 +1041,11 @@ entry:
 
 sw.bb.i.i:                                        ; preds = %entry
   tail call void @_ZNK4pbrt16ProjectiveCamera12InitMetadataEPNS_13ImageMetadataE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef %metadata)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.argprom.argprom.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt16ProjectiveCamera12InitMetadataEPNS_13ImageMetadataE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef %metadata)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.argprom.argprom.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.sroa.0.i.i.i.i)
@@ -1065,7 +1065,7 @@ sw.bb4.i.i:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %cameraFromWorld.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.sroa.0.i.i.i.i, i64 64, i1 false)
   store i8 1, ptr %set.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.sroa.0.i.i.i.i)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.argprom.argprom.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.sroa.0.i.i12.i.i)
@@ -1085,9 +1085,9 @@ sw.default.i.i:                                   ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %cameraFromWorld.i.i17.i.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.sroa.0.i.i12.i.i, i64 64, i1 false)
   store i8 1, ptr %set.i.i.i.i16.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.sroa.0.i.i12.i.i)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.argprom.argprom.exit"
 
-"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
+"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera12InitMetadataEPNS_13ImageMetadataEE3$_0EEDcOT_.argprom.argprom.exit": ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
   ret void
 }
 
@@ -1161,7 +1161,7 @@ sw.bb.i.i:                                        ; preds = %if.end
   %cosTotalWidth.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 1440
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKNS_7Vector3IfEESB_RKfSD_EEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %dxCamera.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %dyCamera.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %A.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %cosTotalWidth.i.i.i.i)
-          to label %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_.exit.i.i" unwind label %lpad.i.i.i.i.i
+          to label %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_.argprom.exit.i.i" unwind label %lpad.i.i.i.i.i
 
 common.resume.i.i:                                ; preds = %lpad.i.i.i14.i.i, %lpad.i.i.i12.i.i, %lpad.i.i.i10.i.i, %lpad.i.i.i.i.i
   %ref.tmp.i.i13.sink.i.i = phi ptr [ %ref.tmp.i.i13.i.i, %lpad.i.i.i14.i.i ], [ %ref.tmp.i.i11.i.i, %lpad.i.i.i12.i.i ], [ %ref.tmp.i.i7.i.i, %lpad.i.i.i10.i.i ], [ %ref.tmp.i.i.i.i, %lpad.i.i.i.i.i ]
@@ -1175,7 +1175,7 @@ lpad.i.i.i.i.i:                                   ; preds = %sw.bb.i.i
           cleanup
   br label %common.resume.i.i
 
-"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_.exit.i.i": ; preds = %sw.bb.i.i
+"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_.argprom.exit.i.i": ; preds = %sw.bb.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i), !noalias !32
   br label %return
@@ -1187,14 +1187,14 @@ sw.bb3.i.i:                                       ; preds = %if.end
   %dyCamera.i.i9.i.i = getelementptr inbounds i8, ptr %1, i64 1428
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKNS_7Vector3IfEESB_EEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i7.i.i, ptr noundef nonnull align 4 dereferenceable(12) %dxCamera.i.i8.i.i, ptr noundef nonnull align 4 dereferenceable(12) %dyCamera.i.i9.i.i)
-          to label %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_.exit.i.i" unwind label %lpad.i.i.i10.i.i
+          to label %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_.argprom.exit.i.i" unwind label %lpad.i.i.i10.i.i
 
 lpad.i.i.i10.i.i:                                 ; preds = %sw.bb3.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i
 
-"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_.exit.i.i": ; preds = %sw.bb3.i.i
+"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_.argprom.exit.i.i": ; preds = %sw.bb3.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i7.i.i) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i7.i.i), !noalias !42
   br label %return
@@ -1210,14 +1210,14 @@ sw.bb4.i.i:                                       ; preds = %if.end
   store ptr %cond.i.i.i.i, ptr %ref.tmp2.i.i.i.i, align 8, !noalias !51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcEEEvPS7_S9_OT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.34, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i.i.i)
-          to label %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_.exit.i.i" unwind label %lpad.i.i.i12.i.i
+          to label %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom.exit.i.i" unwind label %lpad.i.i.i12.i.i
 
 lpad.i.i.i12.i.i:                                 ; preds = %sw.bb4.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i
 
-"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_.exit.i.i": ; preds = %sw.bb4.i.i
+"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom.exit.i.i": ; preds = %sw.bb4.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i11.i.i) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i11.i.i), !noalias !48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i), !noalias !48
@@ -1230,19 +1230,19 @@ sw.default.i.i:                                   ; preds = %if.end
   %exitPupilBounds.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 1096
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKN4pstd6vectorINS_15RealisticCamera20LensElementInterfaceENS8_3pmr21polymorphic_allocatorISB_EEEERKNS9_INS_7Bounds2IfEENSD_ISJ_EEEEEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.78, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i13.i.i, ptr noundef nonnull align 8 dereferenceable(32) %elementInterfaces.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %exitPupilBounds.i.i.i.i)
-          to label %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_.exit.i.i" unwind label %lpad.i.i.i14.i.i
+          to label %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom.exit.i.i" unwind label %lpad.i.i.i14.i.i
 
 lpad.i.i.i14.i.i:                                 ; preds = %sw.default.i.i
   %8 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i
 
-"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_.exit.i.i": ; preds = %sw.default.i.i
+"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom.exit.i.i": ; preds = %sw.default.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i13.i.i) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i13.i.i), !noalias !54
   br label %return
 
-return:                                           ; preds = %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_.exit.i.i", %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_.exit.i.i", %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_.exit.i.i", %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_.exit.i.i", %invoke.cont
+return:                                           ; preds = %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom.exit.i.i", %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom.exit.i.i", %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_.argprom.exit.i.i", %"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_.argprom.exit.i.i", %invoke.cont
   ret void
 }
 
@@ -27328,26 +27328,26 @@ attributes #29 = { cold }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6, !8, !10}
-!6 = distinct !{!6, !7, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15SphericalCameraEEEDaT_: %agg.result"}
-!7 = distinct !{!7, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15SphericalCameraEEEDaT_"}
-!8 = distinct !{!8, !9, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_21CameraRayDifferentialEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi: %agg.result"}
-!9 = distinct !{!9, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_21CameraRayDifferentialEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi"}
-!10 = distinct !{!10, !11, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_: %agg.result"}
-!11 = distinct !{!11, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_"}
+!6 = distinct !{!6, !7, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom: %agg.result"}
+!7 = distinct !{!7, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_21CameraRayDifferentialEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_21CameraRayDifferentialEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi.argprom"}
+!10 = distinct !{!10, !11, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom: %agg.result"}
+!11 = distinct !{!11, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom"}
 !12 = !{!13, !6, !8, !10}
 !13 = distinct !{!13, !14, !"_ZNK4pbrt15SphericalCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE: %agg.result"}
 !14 = distinct !{!14, !"_ZNK4pbrt15SphericalCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE"}
 !15 = !{!16, !8, !10}
-!16 = distinct !{!16, !17, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15RealisticCameraEEEDaT_: %agg.result"}
-!17 = distinct !{!17, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15RealisticCameraEEEDaT_"}
+!16 = distinct !{!16, !17, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom: %agg.result"}
+!17 = distinct !{!17, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom"}
 !18 = !{!19, !16, !8, !10}
 !19 = distinct !{!19, !20, !"_ZNK4pbrt15RealisticCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE: %agg.result"}
 !20 = distinct !{!20, !"_ZNK4pbrt15RealisticCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE"}
 !21 = !{!22, !24}
 !22 = distinct !{!22, !23, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_14CameraWiSampleEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi: %agg.result"}
 !23 = distinct !{!23, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_14CameraWiSampleEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi"}
-!24 = distinct !{!24, !25, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0EEDcOT_: %agg.result"}
-!25 = distinct !{!25, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0EEDcOT_"}
+!24 = distinct !{!24, !25, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom: %agg.result"}
+!25 = distinct !{!25, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom"}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZNK4pbrt15CameraTransform15CameraFromWorldEf: %agg.result"}
 !28 = distinct !{!28, !"_ZNK4pbrt15CameraTransform15CameraFromWorldEf"}
@@ -27355,30 +27355,30 @@ attributes #29 = { cold }
 !30 = distinct !{!30, !31, !"_ZNK4pbrt15CameraTransform15CameraFromWorldEf: %agg.result"}
 !31 = distinct !{!31, !"_ZNK4pbrt15CameraTransform15CameraFromWorldEf"}
 !32 = !{!33, !35, !37}
-!33 = distinct !{!33, !34, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_: %agg.result"}
-!34 = distinct !{!34, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_"}
-!35 = distinct !{!35, !36, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_6Camera8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEEDaOT_PKvi: %agg.result"}
-!36 = distinct !{!36, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_6Camera8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEEDaOT_PKvi"}
-!37 = distinct !{!37, !38, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera8ToStringB5cxx11EvE3$_0EEDcOT_: %agg.result"}
-!38 = distinct !{!38, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera8ToStringB5cxx11EvE3$_0EEDcOT_"}
+!33 = distinct !{!33, !34, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_.argprom: %agg.result"}
+!34 = distinct !{!34, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_17PerspectiveCameraEEEDaT_.argprom"}
+!35 = distinct !{!35, !36, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_6Camera8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEEDaOT_PKvi.argprom: %agg.result"}
+!36 = distinct !{!36, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_6Camera8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEEDaOT_PKvi.argprom"}
+!37 = distinct !{!37, !38, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera8ToStringB5cxx11EvE3$_0EEDcOT_.argprom: %agg.result"}
+!38 = distinct !{!38, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE11DispatchCPUIRZNKS_6Camera8ToStringB5cxx11EvE3$_0EEDcOT_.argprom"}
 !39 = !{!40, !33, !35, !37}
 !40 = distinct !{!40, !41, !"_ZNK4pbrt17PerspectiveCamera8ToStringB5cxx11Ev: %agg.result"}
 !41 = distinct !{!41, !"_ZNK4pbrt17PerspectiveCamera8ToStringB5cxx11Ev"}
 !42 = !{!43, !35, !37}
-!43 = distinct !{!43, !44, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_: %agg.result"}
-!44 = distinct !{!44, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_"}
+!43 = distinct !{!43, !44, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_.argprom: %agg.result"}
+!44 = distinct !{!44, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_18OrthographicCameraEEEDaT_.argprom"}
 !45 = !{!46, !43, !35, !37}
 !46 = distinct !{!46, !47, !"_ZNK4pbrt18OrthographicCamera8ToStringB5cxx11Ev: %agg.result"}
 !47 = distinct !{!47, !"_ZNK4pbrt18OrthographicCamera8ToStringB5cxx11Ev"}
 !48 = !{!49, !35, !37}
-!49 = distinct !{!49, !50, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_: %agg.result"}
-!50 = distinct !{!50, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_"}
+!49 = distinct !{!49, !50, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom: %agg.result"}
+!50 = distinct !{!50, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom"}
 !51 = !{!52, !49, !35, !37}
 !52 = distinct !{!52, !53, !"_ZNK4pbrt15SphericalCamera8ToStringB5cxx11Ev: %agg.result"}
 !53 = distinct !{!53, !"_ZNK4pbrt15SphericalCamera8ToStringB5cxx11Ev"}
 !54 = !{!55, !35, !37}
-!55 = distinct !{!55, !56, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_: %agg.result"}
-!56 = distinct !{!56, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_"}
+!55 = distinct !{!55, !56, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom: %agg.result"}
+!56 = distinct !{!56, !"_ZZNK4pbrt6Camera8ToStringB5cxx11EvENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom"}
 !57 = !{!58, !55, !35, !37}
 !58 = distinct !{!58, !59, !"_ZNK4pbrt15RealisticCamera8ToStringB5cxx11Ev: %agg.result"}
 !59 = distinct !{!59, !"_ZNK4pbrt15RealisticCamera8ToStringB5cxx11Ev"}
@@ -27400,18 +27400,18 @@ attributes #29 = { cold }
 !75 = distinct !{!75, !76, !"_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE: %agg.result"}
 !76 = distinct !{!76, !"_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE"}
 !77 = !{!78, !80, !82, !75}
-!78 = distinct !{!78, !79, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15SphericalCameraEEEDaT_: %agg.result"}
-!79 = distinct !{!79, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15SphericalCameraEEEDaT_"}
-!80 = distinct !{!80, !81, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_21CameraRayDifferentialEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi: %agg.result"}
-!81 = distinct !{!81, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_21CameraRayDifferentialEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi"}
-!82 = distinct !{!82, !83, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_: %agg.result"}
-!83 = distinct !{!83, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_"}
+!78 = distinct !{!78, !79, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom: %agg.result"}
+!79 = distinct !{!79, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15SphericalCameraEEEDaT_.argprom"}
+!80 = distinct !{!80, !81, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_21CameraRayDifferentialEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi.argprom: %agg.result"}
+!81 = distinct !{!81, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0N4pstd8optionalINS_21CameraRayDifferentialEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OT_PKvi.argprom"}
+!82 = distinct !{!82, !83, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom: %agg.result"}
+!83 = distinct !{!83, !"_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEE3$_0EEDcOT_.argprom"}
 !84 = !{!85, !78, !80, !82, !75}
 !85 = distinct !{!85, !86, !"_ZNK4pbrt15SphericalCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE: %agg.result"}
 !86 = distinct !{!86, !"_ZNK4pbrt15SphericalCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE"}
 !87 = !{!88, !80, !82, !75}
-!88 = distinct !{!88, !89, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15RealisticCameraEEEDaT_: %agg.result"}
-!89 = distinct !{!89, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15RealisticCameraEEEDaT_"}
+!88 = distinct !{!88, !89, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom: %agg.result"}
+!89 = distinct !{!89, !"_ZZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsEENK3$_0clIPKNS_15RealisticCameraEEEDaT_.argprom"}
 !90 = !{!91, !88, !80, !82, !75}
 !91 = distinct !{!91, !92, !"_ZNK4pbrt15RealisticCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE: %agg.result"}
 !92 = distinct !{!92, !"_ZNK4pbrt15RealisticCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE"}

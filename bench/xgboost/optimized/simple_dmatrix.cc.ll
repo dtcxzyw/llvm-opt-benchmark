@@ -10345,13 +10345,13 @@ _ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit:  ; preds = %_ZN7xgboost13BatchI
   %198 = sub i64 %196, %197
   %199 = ashr exact i64 %198, 3
   %.not = icmp eq i64 %186, %187
-  br i1 %.not, label %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit", label %.lr.ph.i
+  br i1 %.not, label %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit", label %.lr.ph.i
 
 200:                                              ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i, %209, %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
   %201 = phi ptr [ %232, %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ %211, %209 ], [ %203, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i ]
   %202 = add nuw i64 %.sroa.5.08.i, 1
   %.not64 = icmp eq i64 %202, %188
-  br i1 %.not64, label %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit.loopexit", label %.lr.ph.i, !llvm.loop !108
+  br i1 %.not64, label %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit.loopexit", label %.lr.ph.i, !llvm.loop !108
 
 .lr.ph.i:                                         ; preds = %193, %200
   %203 = phi ptr [ %201, %200 ], [ %194, %193 ]
@@ -10440,16 +10440,16 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17
   store ptr %234, ptr %173, align 8
   br label %200
 
-"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit.loopexit": ; preds = %200
+"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit.loopexit": ; preds = %200
   %.pre = load ptr, ptr %168, align 8
   %.pre175 = ptrtoint ptr %201 to i64
   %.pre176 = ptrtoint ptr %.pre to i64
   %.pre178 = sub i64 %.pre175, %.pre176
   %.pre180 = ashr exact i64 %.pre178, 3
-  br label %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit"
+  br label %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit"
 
-"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit": ; preds = %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit.loopexit", %193
-  %.pre-phi181 = phi i64 [ %.pre180, %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit.loopexit" ], [ %199, %193 ]
+"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit": ; preds = %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit.loopexit", %193
+  %.pre-phi181 = phi i64 [ %.pre180, %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit.loopexit" ], [ %199, %193 ]
   %235 = sub nsw i64 %.pre-phi181, %199
   %236 = add i64 %235, %.0
   %237 = load ptr, ptr %174, align 8
@@ -10457,14 +10457,14 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17
   %.not.i = icmp eq ptr %237, %238
   br i1 %.not.i, label %242, label %239
 
-239:                                              ; preds = %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit"
+239:                                              ; preds = %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit"
   store i64 %236, ptr %237, align 8
   %240 = load ptr, ptr %174, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 8
   store ptr %241, ptr %174, align 8
   br label %_ZNSt6vectorImSaImEE12emplace_backIJRmEEES3_DpOT_.exit
 
-242:                                              ; preds = %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.exit"
+242:                                              ; preds = %"_ZSt7copy_ifIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKNS0_5EntryELm18446744073709551615EEELb0EEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEZNS0_4data13SimpleDMatrix8SliceColEiiE3$_0ET0_T_SI_SH_T1_.argprom.exit"
   %243 = load ptr, ptr %170, align 8
   %244 = ptrtoint ptr %237 to i64
   %245 = ptrtoint ptr %243 to i64

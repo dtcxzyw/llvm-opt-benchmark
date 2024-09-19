@@ -72,8 +72,8 @@ entry:
   %sa_flags.i = getelementptr inbounds i8, ptr %act.i, i64 136
   br label %for.body
 
-for.body:                                         ; preds = %entry, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit
-  %__begin1.0.idx3 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit ]
+for.body:                                         ; preds = %entry, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.argprom.exit
+  %__begin1.0.idx3 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.argprom.exit ]
   %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx3
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %act.i, i8 0, i64 152, i1 false)
@@ -96,7 +96,7 @@ init.check.i.i:                                   ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZN4abslL23SetupAlternateStackOnceEv()
+  invoke fastcc void @_ZN4abslL23SetupAlternateStackOnceEv.retelim()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -121,19 +121,19 @@ if.end.i:                                         ; preds = %_ZN4abslL24MaybeSet
   %previous_action.i = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 16
   %call6.i = call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %act.i, ptr noundef nonnull %previous_action.i) #13
   %cmp.not.i = icmp eq i32 %call6.i, 0
-  br i1 %cmp.not.i, label %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit, label %do.body8.i
+  br i1 %cmp.not.i, label %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.argprom.exit, label %do.body8.i
 
 do.body8.i:                                       ; preds = %if.end.i
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 114), i32 noundef 226, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
   unreachable
 
-_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit: ; preds = %if.end.i
+_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.argprom.exit: ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i)
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx3, 168
   %cmp.not = icmp eq i64 %__begin1.0.add, 1176
   br i1 %cmp.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit
+for.end:                                          ; preds = %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.argprom.exit
   ret void
 }
 
@@ -260,7 +260,7 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4abslL23SetupAlternateStackOnceEv() unnamed_addr #1 {
+define internal fastcc void @_ZN4abslL23SetupAlternateStackOnceEv.retelim() unnamed_addr #1 {
 entry:
   %sigstk = alloca %struct.stack_t, align 8
   %call = tail call i64 @sysconf(i32 noundef 30) #13

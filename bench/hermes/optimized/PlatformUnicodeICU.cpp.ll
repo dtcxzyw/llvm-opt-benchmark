@@ -40,7 +40,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call fastcc void @"_ZZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEvENK3$_0clEv"()
+  tail call fastcc void @"_ZZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEvENK3$_0clEv.argprom"()
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrI9UCollatorN6hermes16platform_unicode12_GLOBAL__N_116UCollatorDeleterEED2Ev, ptr nonnull @_ZZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEvE4coll, ptr nonnull @__dso_handle) #8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEvE4coll) #8
   br label %_ZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEv.exit
@@ -754,7 +754,7 @@ declare i32 @unorm2_normalize_70(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEvENK3$_0clEv"() unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN6hermes16platform_unicode12_GLOBAL__N_120getUCollatorInstanceEvENK3$_0clEv.argprom"() unnamed_addr #0 align 2 {
 entry:
   %err = alloca i32, align 4
   store i32 0, ptr %err, align 4

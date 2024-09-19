@@ -280,18 +280,18 @@ _ZL10is_allowedPK5Klass.exit.thread.i:            ; preds = %_ZN26GrowableArrayW
   call void @_ZN22ClassHierarchyIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #10
   %.pr.i = load ptr, ptr %44, align 8
   %85 = icmp eq ptr %.pr.i, null
-  br i1 %85, label %_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.exit, label %46, !llvm.loop !8
+  br i1 %85, label %_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.argprom.exit, label %46, !llvm.loop !8
 
-_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.exit: ; preds = %_ZL10is_allowedPK5Klass.exit.thread.i
+_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.argprom.exit: ; preds = %_ZL10is_allowedPK5Klass.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %86 = icmp eq i32 %.sroa.041.1, 0
   br i1 %86, label %87, label %89
 
-87:                                               ; preds = %_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.exit
+87:                                               ; preds = %_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.argprom.exit
   %88 = load ptr, ptr @_ZL25empty_java_util_arraylist, align 8
   br label %_ZN13GrowableArrayIPKvED2Ev.exit
 
-89:                                               ; preds = %_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.exit
+89:                                               ; preds = %_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.argprom.exit
   %90 = icmp sgt i32 %.sroa.041.1, 0
   br i1 %90, label %.lr.ph.i24.preheader, label %_ZL38transform_klasses_to_local_jni_handlesR13GrowableArrayIPKvEP10JavaThread.exit
 

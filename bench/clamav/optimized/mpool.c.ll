@@ -323,16 +323,16 @@ from_bits.exit.thread:                            ; preds = %33
 59:                                               ; preds = %56
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 100
-  br i1 %exitcond.not.i.i, label %allocate_aligned.exit, label %56
+  br i1 %exitcond.not.i.i, label %allocate_aligned.argprom.exit, label %56
 
 to_bits.exit.i:                                   ; preds = %56
   %60 = trunc i64 %indvars.iv.i.i to i8
   %61 = icmp ugt i64 %indvars.iv.i.i, 99
   %62 = zext i32 %58 to i64
   %spec.select = select i1 %61, i64 0, i64 %62
-  br label %allocate_aligned.exit
+  br label %allocate_aligned.argprom.exit
 
-allocate_aligned.exit:                            ; preds = %59, %to_bits.exit.i
+allocate_aligned.argprom.exit:                    ; preds = %59, %to_bits.exit.i
   %.06.i2.i = phi i8 [ %60, %to_bits.exit.i ], [ 100, %59 ]
   %.0.i.i = phi i64 [ %spec.select, %to_bits.exit.i ], [ 0, %59 ]
   %63 = and i64 %52, 4294967295
@@ -405,16 +405,16 @@ allocate_aligned.exit:                            ; preds = %59, %to_bits.exit.i
 105:                                              ; preds = %102
   %indvars.iv.next.i.i75 = add nuw nsw i64 %indvars.iv.i.i70, 1
   %exitcond.not.i.i76 = icmp eq i64 %indvars.iv.next.i.i75, 100
-  br i1 %exitcond.not.i.i76, label %allocate_aligned.exit77, label %102
+  br i1 %exitcond.not.i.i76, label %allocate_aligned.argprom.exit77, label %102
 
 to_bits.exit.i72:                                 ; preds = %102
   %106 = trunc i64 %indvars.iv.i.i70 to i8
   %107 = icmp ugt i64 %indvars.iv.i.i70, 99
   %108 = zext i32 %104 to i64
   %spec.select82 = select i1 %107, i64 0, i64 %108
-  br label %allocate_aligned.exit77
+  br label %allocate_aligned.argprom.exit77
 
-allocate_aligned.exit77:                          ; preds = %105, %to_bits.exit.i72
+allocate_aligned.argprom.exit77:                  ; preds = %105, %to_bits.exit.i72
   %.06.i2.i73 = phi i8 [ %106, %to_bits.exit.i72 ], [ 100, %105 ]
   %.0.i.i74 = phi i64 [ %spec.select82, %to_bits.exit.i72 ], [ 0, %105 ]
   %109 = and i64 %98, 4294967295
@@ -431,8 +431,8 @@ allocate_aligned.exit77:                          ; preds = %105, %to_bits.exit.
   store i64 %117, ptr %89, align 8
   br label %118
 
-118:                                              ; preds = %allocate_aligned.exit77, %86, %allocate_aligned.exit, %from_bits.exit.thread, %19, %to_bits.exit.thread
-  %.0 = phi ptr [ null, %to_bits.exit.thread ], [ %32, %19 ], [ %64, %allocate_aligned.exit ], [ null, %86 ], [ %110, %allocate_aligned.exit77 ], [ null, %from_bits.exit.thread ]
+118:                                              ; preds = %allocate_aligned.argprom.exit77, %86, %allocate_aligned.argprom.exit, %from_bits.exit.thread, %19, %to_bits.exit.thread
+  %.0 = phi ptr [ null, %to_bits.exit.thread ], [ %32, %19 ], [ %64, %allocate_aligned.argprom.exit ], [ null, %86 ], [ %110, %allocate_aligned.argprom.exit77 ], [ null, %from_bits.exit.thread ]
   ret ptr %.0
 }
 

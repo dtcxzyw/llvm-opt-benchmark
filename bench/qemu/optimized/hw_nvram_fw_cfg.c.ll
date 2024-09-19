@@ -873,7 +873,7 @@ if.then15:                                        ; preds = %if.end13
   %8 = getelementptr i8, ptr %s, i64 888
   %s.val77 = load i32, ptr %8, align 8
   %cmp.i = icmp sgt i32 %s.val77, 0
-  br i1 %cmp.i, label %get_fw_cfg_order.exit, label %for.body.i
+  br i1 %cmp.i, label %get_fw_cfg_order.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then15, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then15 ]
@@ -890,7 +890,7 @@ if.end8.i:                                        ; preds = %for.body.i
 if.then14.i:                                      ; preds = %if.end8.i
   %order.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %10 = load i32, ptr %order.i, align 8
-  br label %get_fw_cfg_order.exit
+  br label %get_fw_cfg_order.argprom.exit
 
 for.inc.i:                                        ; preds = %if.end8.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -899,14 +899,14 @@ for.inc.i:                                        ; preds = %if.end8.i, %for.bod
 
 for.end.i:                                        ; preds = %for.inc.i
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.59, ptr noundef %filename) #20
-  br label %get_fw_cfg_order.exit
+  br label %get_fw_cfg_order.argprom.exit
 
-get_fw_cfg_order.exit:                            ; preds = %if.then15, %if.then14.i, %for.end.i
+get_fw_cfg_order.argprom.exit:                    ; preds = %if.then15, %if.then14.i, %for.end.i
   %retval.0.i = phi i32 [ %10, %if.then14.i ], [ 200, %for.end.i ], [ %s.val77, %if.then15 ]
   %cmp1787 = icmp sgt i32 %4, 0
   br i1 %cmp1787, label %land.rhs.lr.ph, label %if.end38.for.end78_crit_edge
 
-land.rhs.lr.ph:                                   ; preds = %get_fw_cfg_order.exit
+land.rhs.lr.ph:                                   ; preds = %get_fw_cfg_order.argprom.exit
   %entry_order = getelementptr inbounds i8, ptr %s, i64 840
   %11 = load ptr, ptr %entry_order, align 8
   %invariant.gep = getelementptr i8, ptr %11, i64 -4
@@ -944,9 +944,9 @@ if.end38:                                         ; preds = %for.inc, %land.rhs,
   %cmp4090 = icmp sgt i32 %4, %index.1
   br i1 %cmp4090, label %for.body42.lr.ph, label %if.end38.for.end78_crit_edge
 
-if.end38.for.end78_crit_edge:                     ; preds = %get_fw_cfg_order.exit, %if.end38
-  %order.0112 = phi i32 [ %order.0, %if.end38 ], [ %retval.0.i, %get_fw_cfg_order.exit ]
-  %index.1110 = phi i32 [ %index.1, %if.end38 ], [ %4, %get_fw_cfg_order.exit ]
+if.end38.for.end78_crit_edge:                     ; preds = %get_fw_cfg_order.argprom.exit, %if.end38
+  %order.0112 = phi i32 [ %order.0, %if.end38 ], [ %retval.0.i, %get_fw_cfg_order.argprom.exit ]
+  %index.1110 = phi i32 [ %index.1, %if.end38 ], [ %4, %get_fw_cfg_order.argprom.exit ]
   %.pre105 = sext i32 %index.1110 to i64
   br label %for.end78
 
@@ -1775,14 +1775,14 @@ entry:
 define internal void @fw_cfg_reset(ptr noundef %d) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
-  tail call fastcc void @fw_cfg_select(ptr noundef %call.i, i16 noundef zeroext 0)
+  tail call fastcc void @fw_cfg_select.retelim(ptr noundef %call.i, i16 noundef zeroext 0)
   ret void
 }
 
 declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fw_cfg_select(ptr noundef %s, i16 noundef zeroext %key) unnamed_addr #1 {
+define internal fastcc void @fw_cfg_select.retelim(ptr noundef %s, i16 noundef zeroext %key) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cur_offset = getelementptr inbounds i8, ptr %s, i64 860
@@ -2404,7 +2404,7 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   %conv2 = trunc i64 %value to i16
-  tail call fastcc void @fw_cfg_select(ptr noundef %opaque, i16 noundef zeroext %conv2)
+  tail call fastcc void @fw_cfg_select.retelim(ptr noundef %opaque, i16 noundef zeroext %conv2)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb1
@@ -2568,7 +2568,7 @@ if.end:                                           ; preds = %entry
 if.then72:                                        ; preds = %if.end
   %shr = lshr i32 %8, 16
   %conv = trunc nuw i32 %shr to i16
-  call fastcc void @fw_cfg_select(ptr noundef nonnull %s, i16 noundef zeroext %conv)
+  call fastcc void @fw_cfg_select.retelim(ptr noundef nonnull %s, i16 noundef zeroext %conv)
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then72, %if.end
@@ -2974,7 +2974,7 @@ entry:
 define internal void @fw_cfg_ctl_mem_write(ptr noundef %opaque, i64 %addr, i64 noundef %value, i32 %size) #1 {
 entry:
   %conv = trunc i64 %value to i16
-  tail call fastcc void @fw_cfg_select(ptr noundef %opaque, i16 noundef zeroext %conv)
+  tail call fastcc void @fw_cfg_select.retelim(ptr noundef %opaque, i16 noundef zeroext %conv)
   ret void
 }
 

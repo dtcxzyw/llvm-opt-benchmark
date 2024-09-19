@@ -32,7 +32,7 @@ define range(i32 0, 56) i32 @PMPI_T_pvar_session_create(ptr nocapture noundef wr
 
 9:                                                ; preds = %8, %3
   %.not9.i = icmp eq ptr %5, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %10
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %10
 
 10:                                               ; preds = %9
   store ptr @mca_base_pvar_session_t_class, ptr %5, align 8
@@ -41,7 +41,7 @@ define range(i32 0, 56) i32 @PMPI_T_pvar_session_create(ptr nocapture noundef wr
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_pvar_session_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i.i = icmp eq ptr %13, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %14 = phi ptr [ %16, %.lr.ph.i.i ], [ %13, %10 ]
@@ -50,16 +50,16 @@ define range(i32 0, 56) i32 @PMPI_T_pvar_session_create(ptr nocapture noundef wr
   %15 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %9, %10
   %spec.select = phi i32 [ 54, %9 ], [ 0, %10 ], [ 0, %.lr.ph.i.i ]
   store ptr %5, ptr %0, align 8
   tail call void @ompi_mpit_unlock() #3
   br label %17
 
-17:                                               ; preds = %1, %opal_obj_new.exit
-  %.03 = phi i32 [ %spec.select, %opal_obj_new.exit ], [ 55, %1 ]
+17:                                               ; preds = %1, %opal_obj_new.argprom.exit
+  %.03 = phi i32 [ %spec.select, %opal_obj_new.argprom.exit ], [ 55, %1 ]
   ret i32 %.03
 }
 

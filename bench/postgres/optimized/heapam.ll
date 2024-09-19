@@ -1726,7 +1726,7 @@ heapgettup_advance_block.exit:                    ; preds = %334, %314, %313, %h
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr ptr, ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8
-  br label %heapgettup_start_page.exit
+  br label %heapgettup_start_page.argprom.exit
 
 104:                                              ; preds = %94
   %105 = load ptr, ptr @BufferBlocks, align 8
@@ -1734,9 +1734,9 @@ heapgettup_advance_block.exit:                    ; preds = %334, %314, %313, %h
   %107 = sext i32 %106 to i64
   %108 = shl nsw i64 %107, 13
   %109 = getelementptr i8, ptr %105, i64 %108
-  br label %heapgettup_start_page.exit
+  br label %heapgettup_start_page.argprom.exit
 
-heapgettup_start_page.exit:                       ; preds = %98, %104
+heapgettup_start_page.argprom.exit:               ; preds = %98, %104
   %.0.i.i.i55 = phi ptr [ %103, %98 ], [ %109, %104 ]
   %110 = getelementptr i8, ptr %.0.i.i.i55, i64 12
   %.val.i = load i16, ptr %110, align 4
@@ -1751,11 +1751,11 @@ heapgettup_start_page.exit:                       ; preds = %98, %104
   %..i = select i1 %117, i16 1, i16 %.0.i.i
   br label %heapgettup_continue_page.exit
 
-heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettup_start_page.exit
-  %.067 = phi i16 [ %..i, %heapgettup_start_page.exit ], [ %73, %70 ], [ %spec.select.i, %83 ]
-  %.065 = phi i32 [ %116, %heapgettup_start_page.exit ], [ %82, %70 ], [ %93, %83 ]
-  %.050 = phi ptr [ %.0.i.i.i55, %heapgettup_start_page.exit ], [ %.0.i.i.i, %70 ], [ %.0.i.i.i, %83 ]
-  %.0 = phi i32 [ %.1, %heapgettup_start_page.exit ], [ %52, %70 ], [ %52, %83 ]
+heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettup_start_page.argprom.exit
+  %.067 = phi i16 [ %..i, %heapgettup_start_page.argprom.exit ], [ %73, %70 ], [ %spec.select.i, %83 ]
+  %.065 = phi i32 [ %116, %heapgettup_start_page.argprom.exit ], [ %82, %70 ], [ %93, %83 ]
+  %.050 = phi ptr [ %.0.i.i.i55, %heapgettup_start_page.argprom.exit ], [ %.0.i.i.i, %70 ], [ %.0.i.i.i, %83 ]
+  %.0 = phi i32 [ %.1, %heapgettup_start_page.argprom.exit ], [ %52, %70 ], [ %52, %83 ]
   %118 = icmp sgt i32 %.065, 0
   br i1 %118, label %.lr.ph, label %._crit_edge
 
@@ -3404,7 +3404,7 @@ BufferGetPage.exit89:                             ; preds = %62, %68
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %84, %75
-  call fastcc void @log_heap_new_cid(ptr noundef nonnull %0, ptr noundef nonnull %10)
+  call fastcc void @log_heap_new_cid.retelim(ptr noundef nonnull %0, ptr noundef nonnull %10)
   br label %89
 
 89:                                               ; preds = %80, %77, %88, %84, %BufferGetPage.exit89
@@ -3642,7 +3642,7 @@ declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @log_heap_new_cid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @log_heap_new_cid.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = alloca %struct.xl_heap_new_cid, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3999,7 +3999,7 @@ BufferGetPage.exit:                               ; preds = %139, %145
 
 161:                                              ; preds = %BufferGetPage.exit
   %162 = load ptr, ptr %132, align 8
-  call fastcc void @log_heap_new_cid(ptr noundef %0, ptr noundef %162)
+  call fastcc void @log_heap_new_cid.retelim(ptr noundef %0, ptr noundef %162)
   br label %163
 
 163:                                              ; preds = %BufferGetPage.exit, %161
@@ -4890,7 +4890,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %167, %.loopexit.i.i
   br i1 %289, label %290, label %.thread181
 
 290:                                              ; preds = %286, %277
-  call fastcc void @log_heap_new_cid(ptr noundef nonnull %0, ptr noundef nonnull %10)
+  call fastcc void @log_heap_new_cid.retelim(ptr noundef nonnull %0, ptr noundef nonnull %10)
   br label %.thread181
 
 .thread181:                                       ; preds = %272, %282, %279, %290, %286, %276
@@ -6045,7 +6045,7 @@ BufferGetPage.exit:                               ; preds = %58, %64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
   %91 = call i32 @bms_next_member(ptr noundef %50, i32 noundef -1) #11
   %92 = icmp sgt i32 %91, -1
-  br i1 %92, label %.lr.ph.lr.ph.i, label %HeapDetermineColumnsInfo.exit
+  br i1 %92, label %.lr.ph.lr.ph.i, label %HeapDetermineColumnsInfo.argprom.exit
 
 .lr.ph.lr.ph.i:                                   ; preds = %73
   %93 = getelementptr inbounds i8, ptr %.val338, i64 24
@@ -6070,7 +6070,7 @@ BufferGetPage.exit:                               ; preds = %58, %64
   %100 = call ptr @bms_add_member(ptr noundef %.032.ph5.i, i32 noundef %96) #11
   %101 = call i32 @bms_next_member(ptr noundef %50, i32 noundef %96) #11
   %102 = icmp sgt i32 %101, -1
-  br i1 %102, label %.lr.ph.i, label %HeapDetermineColumnsInfo.exit, !llvm.loop !23
+  br i1 %102, label %.lr.ph.i, label %HeapDetermineColumnsInfo.argprom.exit, !llvm.loop !23
 
 103:                                              ; preds = %95
   %104 = icmp slt i32 %98, 0
@@ -6139,7 +6139,7 @@ heap_attr_equals.exit.i:                          ; preds = %106
   %.2383 = phi i1 [ %.1382, %131 ], [ %.1382, %.thread.i ], [ %.1382, %141 ], [ %.1382, %134 ], [ %spec.select455, %145 ]
   %139 = call i32 @bms_next_member(ptr noundef %50, i32 noundef %96) #11
   %140 = icmp sgt i32 %139, -1
-  br i1 %140, label %95, label %HeapDetermineColumnsInfo.exit, !llvm.loop !23
+  br i1 %140, label %95, label %HeapDetermineColumnsInfo.argprom.exit, !llvm.loop !23
 
 141:                                              ; preds = %134
   %142 = inttoptr i64 %107 to ptr
@@ -6152,7 +6152,7 @@ heap_attr_equals.exit.i:                          ; preds = %106
   %spec.select455 = select i1 %146, i1 true, i1 %.1382
   br label %.backedge.i
 
-HeapDetermineColumnsInfo.exit:                    ; preds = %.outer.backedge.i, %.backedge.i, %73
+HeapDetermineColumnsInfo.argprom.exit:            ; preds = %.outer.backedge.i, %.backedge.i, %73
   %.3 = phi i1 [ false, %73 ], [ %.2383, %.backedge.i ], [ %.1382, %.outer.backedge.i ]
   %.032.ph.lcssa.i = phi ptr [ null, %73 ], [ %.032.ph5.i, %.backedge.i ], [ %100, %.outer.backedge.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
@@ -6160,12 +6160,12 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %.outer.backedge.i, 
   %147 = call zeroext i1 @bms_overlap(ptr noundef %.032.ph.lcssa.i, ptr noundef %45) #11
   br i1 %147, label %149, label %148
 
-148:                                              ; preds = %HeapDetermineColumnsInfo.exit
+148:                                              ; preds = %HeapDetermineColumnsInfo.argprom.exit
   store i32 2, ptr %7, align 4
   call void @MultiXactIdSetOldestMember() #11
   br label %150
 
-149:                                              ; preds = %HeapDetermineColumnsInfo.exit
+149:                                              ; preds = %HeapDetermineColumnsInfo.argprom.exit
   store i32 3, ptr %7, align 4
   br label %150
 
@@ -7198,8 +7198,8 @@ BufferGetPage.exit362:                            ; preds = %BufferGetPage.exit3
   br i1 %676, label %677, label %.thread454
 
 677:                                              ; preds = %673, %664
-  call fastcc void @log_heap_new_cid(ptr noundef nonnull %0, ptr noundef nonnull %22)
-  call fastcc void @log_heap_new_cid(ptr noundef nonnull %0, ptr noundef nonnull %.1267)
+  call fastcc void @log_heap_new_cid.retelim(ptr noundef nonnull %0, ptr noundef nonnull %22)
+  call fastcc void @log_heap_new_cid.retelim(ptr noundef nonnull %0, ptr noundef nonnull %.1267)
   br label %.thread454
 
 .thread454:                                       ; preds = %659, %669, %666, %677, %673, %663
@@ -11310,16 +11310,16 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr nocapture nou
 ._crit_edge.i:                                    ; preds = %.critedge.i, %14
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 9
-  br i1 %exitcond16.not.i, label %index_delete_sort.exit, label %14, !llvm.loop !36
+  br i1 %exitcond16.not.i, label %index_delete_sort.argprom.exit, label %14, !llvm.loop !36
 
-index_delete_sort.exit:                           ; preds = %._crit_edge.i
+index_delete_sort.argprom.exit:                   ; preds = %._crit_edge.i
   %44 = getelementptr inbounds i8, ptr %1, i64 12
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
   %.pre288 = load i32, ptr %12, align 4
   br i1 %46, label %47, label %145
 
-47:                                               ; preds = %index_delete_sort.exit
+47:                                               ; preds = %index_delete_sort.argprom.exit
   %48 = sext i32 %.pre288 to i64
   %49 = mul nsw i64 %48, 6
   %50 = tail call ptr @palloc(i64 noundef %49) #11
@@ -11524,9 +11524,9 @@ bottomup_sort_and_shrink.exit:                    ; preds = %._crit_edge.i142, %
   %.pre = load i32, ptr %12, align 4
   br label %145
 
-145:                                              ; preds = %bottomup_sort_and_shrink.exit, %index_delete_sort.exit
-  %146 = phi i32 [ %.pre, %bottomup_sort_and_shrink.exit ], [ %.pre288, %index_delete_sort.exit ]
-  %.0109 = phi i32 [ %.015.lcssa.i97.i, %bottomup_sort_and_shrink.exit ], [ 0, %index_delete_sort.exit ]
+145:                                              ; preds = %bottomup_sort_and_shrink.exit, %index_delete_sort.argprom.exit
+  %146 = phi i32 [ %.pre, %bottomup_sort_and_shrink.exit ], [ %.pre288, %index_delete_sort.argprom.exit ]
+  %.0109 = phi i32 [ %.015.lcssa.i97.i, %bottomup_sort_and_shrink.exit ], [ 0, %index_delete_sort.argprom.exit ]
   %147 = load ptr, ptr %13, align 8
   %148 = tail call zeroext i1 @IsCatalogRelation(ptr noundef %0) #11
   br i1 %148, label %149, label %151

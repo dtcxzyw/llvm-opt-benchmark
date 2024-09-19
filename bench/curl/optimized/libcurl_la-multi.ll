@@ -4964,21 +4964,21 @@ if.end:                                           ; preds = %if.then
   %2 = getelementptr i8, ptr %multi, i64 96
   %multi.val = load ptr, ptr %2, align 8
   %tobool.not.i = icmp eq ptr %multi.val, null
-  br i1 %tobool.not.i, label %unlink_all_msgsent_handles.exit, label %if.then.i
+  br i1 %tobool.not.i, label %unlink_all_msgsent_handles.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %3 = load ptr, ptr %multi.val, align 8
   %multi1.i = getelementptr inbounds i8, ptr %3, i64 192
   store ptr null, ptr %multi1.i, align 8
-  br label %unlink_all_msgsent_handles.exit
+  br label %unlink_all_msgsent_handles.argprom.exit
 
-unlink_all_msgsent_handles.exit:                  ; preds = %if.end, %if.then.i
+unlink_all_msgsent_handles.argprom.exit:          ; preds = %if.end, %if.then.i
   %pending.i = getelementptr inbounds i8, ptr %multi, i64 64
   %4 = load ptr, ptr %pending.i, align 8
   %tobool.not.i30 = icmp eq ptr %4, null
   br i1 %tobool.not.i30, label %process_pending_handles.exit, label %if.then.i31
 
-if.then.i31:                                      ; preds = %unlink_all_msgsent_handles.exit
+if.then.i31:                                      ; preds = %unlink_all_msgsent_handles.argprom.exit
   %5 = load ptr, ptr %4, align 8
   %next.i.i = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %next.i.i, align 8
@@ -5025,7 +5025,7 @@ mstate.exit.i:                                    ; preds = %if.end.i.i, %link_e
   store i32 %bf.set.i, ptr %previouslypending.i, align 4
   br label %process_pending_handles.exit
 
-process_pending_handles.exit:                     ; preds = %unlink_all_msgsent_handles.exit, %mstate.exit.i
+process_pending_handles.exit:                     ; preds = %unlink_all_msgsent_handles.argprom.exit, %mstate.exit.i
   %easyp = getelementptr inbounds i8, ptr %multi, i64 8
   %9 = load ptr, ptr %easyp, align 8
   %tobool4.not33 = icmp eq ptr %9, null

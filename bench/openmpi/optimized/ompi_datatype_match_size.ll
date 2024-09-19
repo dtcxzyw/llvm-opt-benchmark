@@ -40,7 +40,7 @@ define ptr @ompi_datatype_match_size(i32 noundef %0, i16 noundef zeroext %1, i16
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 88), align 8
   %14 = sext i32 %13 to i64
   %.not17 = icmp slt i64 %indvars.iv, %14
-  br i1 %.not17, label %15, label %opal_pointer_array_get_item.exit
+  br i1 %.not17, label %15, label %opal_pointer_array_get_item.argprom.exit
 
 15:                                               ; preds = %12
   %16 = load i8, ptr @opal_uses_threads, align 1
@@ -58,13 +58,13 @@ define ptr @ompi_datatype_match_size(i32 noundef %0, i16 noundef zeroext %1, i16
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i8 %21 to i1
-  br i1 %25, label %26, label %opal_pointer_array_get_item.exit
+  br i1 %25, label %26, label %opal_pointer_array_get_item.argprom.exit
 
 26:                                               ; preds = %20
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #2
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %12, %20, %26
+opal_pointer_array_get_item.argprom.exit:         ; preds = %12, %20, %26
   %.0.i = phi ptr [ null, %12 ], [ %24, %20 ], [ %24, %26 ]
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %29 = load i16, ptr %28, align 8
@@ -76,13 +76,13 @@ opal_pointer_array_get_item.exit:                 ; preds = %12, %20, %26
   %or.cond16 = and i1 %.not, %.not15
   br i1 %or.cond16, label %33, label %37
 
-33:                                               ; preds = %opal_pointer_array_get_item.exit
+33:                                               ; preds = %opal_pointer_array_get_item.argprom.exit
   %34 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, %5
   br i1 %36, label %._crit_edge, label %37
 
-37:                                               ; preds = %33, %opal_pointer_array_get_item.exit
+37:                                               ; preds = %33, %opal_pointer_array_get_item.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
   %39 = sext i32 %38 to i64

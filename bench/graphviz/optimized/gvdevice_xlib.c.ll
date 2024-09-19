@@ -206,7 +206,7 @@ define internal void @xlib_finalize(ptr noundef %0) #0 {
 32:                                               ; preds = %30
   %33 = tail call ptr @getcwd(ptr noundef null, i64 noundef 0) #19
   %34 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %9, ptr noundef nonnull @.str.6, ptr noundef %33, ptr noundef %34)
+  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %9, ptr noundef nonnull @.str.6, ptr noundef %33, ptr noundef %34)
   tail call void @free(ptr noundef %33) #19
   %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 31
   %.val.i.i.i100.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -314,14 +314,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %75 = call i32 @inotify_add_watch(i32 noundef %16, ptr noundef %73, i32 noundef 2) #19
   %.val99 = load i8, ptr %52, align 1
   %76 = icmp eq i8 %.val99, -1
-  br i1 %76, label %77, label %agxbfree.exit
+  br i1 %76, label %77, label %agxbfree.argprom.exit
 
 77:                                               ; preds = %agxbuse.exit
   %.val = load ptr, ptr %9, align 8
   call void @free(ptr noundef %.val) #19
-  br label %agxbfree.exit
+  br label %agxbfree.argprom.exit
 
-agxbfree.exit:                                    ; preds = %agxbuse.exit, %77
+agxbfree.argprom.exit:                            ; preds = %agxbuse.exit, %77
   %78 = call i32 @llvm.smax.i32(i32 %16, i32 %23)
   br label %.lr.ph
 
@@ -330,12 +330,12 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %77
   %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 %23)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %79, %agxbfree.exit, %26
-  %.082 = phi i8 [ 0, %agxbfree.exit ], [ 0, %26 ], [ 1, %79 ]
-  %.081 = phi i32 [ %75, %agxbfree.exit ], [ 0, %26 ], [ 0, %79 ]
-  %.080 = phi i1 [ true, %agxbfree.exit ], [ false, %26 ], [ false, %79 ]
-  %.079 = phi i32 [ 0, %agxbfree.exit ], [ 0, %26 ], [ %80, %79 ]
-  %.078 = phi i32 [ %78, %agxbfree.exit ], [ %23, %26 ], [ %81, %79 ]
+.lr.ph:                                           ; preds = %79, %agxbfree.argprom.exit, %26
+  %.082 = phi i8 [ 0, %agxbfree.argprom.exit ], [ 0, %26 ], [ 1, %79 ]
+  %.081 = phi i32 [ %75, %agxbfree.argprom.exit ], [ 0, %26 ], [ 0, %79 ]
+  %.080 = phi i1 [ true, %agxbfree.argprom.exit ], [ false, %26 ], [ false, %79 ]
+  %.079 = phi i32 [ 0, %agxbfree.argprom.exit ], [ 0, %26 ], [ %80, %79 ]
+  %.078 = phi i32 [ %78, %agxbfree.argprom.exit ], [ %23, %26 ], [ %81, %79 ]
   %82 = getelementptr inbounds i8, ptr %11, i64 232
   %83 = sext i32 %13 to i64
   %84 = getelementptr inbounds i8, ptr %6, i64 8
@@ -452,7 +452,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %141, %130
   %164 = call i64 @XCreateWindow(ptr noundef %11, i64 noundef %163, i32 noundef 0, i32 noundef 0, i32 noundef 480, i32 noundef 325, i32 noundef 0, i32 noundef %160, i32 noundef 1, ptr noundef %153, i64 noundef 10, ptr noundef nonnull %6) #19
   store i64 %164, ptr %125, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10)
+  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10)
   %165 = call ptr @XAllocSizeHints() #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, i8 0, i64 16, i1 false)
   %166 = load i32, ptr %131, align 8
@@ -524,14 +524,14 @@ agxbuse.exit.i:                                   ; preds = %188, %agxbclear.exi
   %193 = call i32 @XFree(ptr noundef nonnull %165) #19
   %.val103.i = load i8, ptr %86, align 1
   %194 = icmp eq i8 %.val103.i, -1
-  br i1 %194, label %195, label %agxbfree.exit.i
+  br i1 %194, label %195, label %agxbfree.argprom.exit.i
 
 195:                                              ; preds = %agxbuse.exit.i
   %.val.i = load ptr, ptr %7, align 8
   call void @free(ptr noundef %.val.i) #19
-  br label %agxbfree.exit.i
+  br label %agxbfree.argprom.exit.i
 
-agxbfree.exit.i:                                  ; preds = %195, %agxbuse.exit.i
+agxbfree.argprom.exit.i:                          ; preds = %195, %agxbuse.exit.i
   %196 = load i64, ptr %125, align 8
   %197 = load i32, ptr %131, align 8
   %198 = load i32, ptr %135, align 4
@@ -552,7 +552,7 @@ agxbfree.exit.i:                                  ; preds = %195, %agxbuse.exit.
   %210 = trunc i8 %209 to i1
   br i1 %210, label %.thread.i113, label %220
 
-.thread.i113:                                     ; preds = %agxbfree.exit.i
+.thread.i113:                                     ; preds = %agxbfree.argprom.exit.i
   %211 = getelementptr inbounds i8, ptr %207, i64 16
   %212 = load i64, ptr %211, align 8
   %213 = call i32 @XFreePixmap(ptr noundef nonnull %11, i64 noundef %212) #19
@@ -567,7 +567,7 @@ agxbfree.exit.i:                                  ; preds = %195, %agxbuse.exit.
   store i8 1, ptr %147, align 1
   br label %222
 
-220:                                              ; preds = %agxbfree.exit.i
+220:                                              ; preds = %agxbfree.argprom.exit.i
   %.pre.i112 = load i8, ptr %147, align 1
   %221 = trunc i8 %.pre.i112 to i1
   br i1 %221, label %222, label %update_display.exit114
@@ -905,7 +905,7 @@ handle_stdin_events.exit:                         ; preds = %322
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, ptr noundef nonnull align 16 dereferenceable(24) @__const.browser_show.exec_argv, i64 24, i1 false)
   store ptr %386, ptr %116, align 8
   %393 = call i32 @fork() #19
-  switch i32 %393, label %browser_show.exit.i [
+  switch i32 %393, label %browser_show.argprom.exit.i [
     i32 -1, label %394
     i32 0, label %400
   ]
@@ -916,7 +916,7 @@ handle_stdin_events.exit:                         ; preds = %322
   %397 = load i32, ptr %396, align 4
   %398 = call ptr @strerror(i32 noundef %397) #19
   %399 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %395, ptr noundef nonnull @.str.21, ptr noundef %398) #20
-  br label %browser_show.exit.i
+  br label %browser_show.argprom.exit.i
 
 400:                                              ; preds = %392
   %401 = call i32 @execvp(ptr noundef nonnull @.str.20, ptr noundef nonnull %2) #19
@@ -926,13 +926,13 @@ handle_stdin_events.exit:                         ; preds = %322
   %405 = load i32, ptr %404, align 4
   %406 = call ptr @strerror(i32 noundef %405) #19
   %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %402, ptr noundef nonnull @.str.22, ptr noundef %403, ptr noundef %406) #20
-  br label %browser_show.exit.i
+  br label %browser_show.argprom.exit.i
 
-browser_show.exit.i:                              ; preds = %400, %394, %392
+browser_show.argprom.exit.i:                      ; preds = %400, %394, %392
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %408
 
-408:                                              ; preds = %browser_show.exit.i, %387, %375
+408:                                              ; preds = %browser_show.argprom.exit.i, %387, %375
   %409 = add nsw i32 %.054.i, 1
   br label %..loopexit_crit_edge.i
 
@@ -943,7 +943,7 @@ browser_show.exit.i:                              ; preds = %400, %394, %392
   %413 = getelementptr inbounds i8, ptr %.03652.i, i64 776
   %414 = load i32, ptr %413, align 8
   %415 = icmp sgt i32 %414, 0
-  br i1 %415, label %.lr.ph.preheader.i.i, label %handle_keypress.exit.thread.i
+  br i1 %415, label %.lr.ph.preheader.i.i, label %handle_keypress.argprom.exit.thread.i
 
 .lr.ph.preheader.i.i:                             ; preds = %410
   %wide.trip.count.i.i = zext nneg i32 %414 to i64
@@ -952,7 +952,7 @@ browser_show.exit.i:                              ; preds = %400, %394, %392
 416:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %handle_keypress.exit.thread.i, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %handle_keypress.argprom.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %416, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %416 ]
@@ -960,22 +960,22 @@ browser_show.exit.i:                              ; preds = %400, %394, %392
   %418 = load i8, ptr %417, align 1
   %419 = zext i8 %418 to i32
   %420 = icmp eq i32 %.val.i110, %419
-  br i1 %420, label %handle_keypress.exit.i, label %416
+  br i1 %420, label %handle_keypress.argprom.exit.i, label %416
 
-handle_keypress.exit.i:                           ; preds = %.lr.ph.i.i
+handle_keypress.argprom.exit.i:                   ; preds = %.lr.ph.i.i
   %421 = getelementptr inbounds i8, ptr %.03652.i, i64 768
   %422 = load ptr, ptr %421, align 8
   %423 = getelementptr inbounds %struct.gvevent_key_binding_s, ptr %422, i64 %indvars.iv.i.i, i32 1
   %424 = load ptr, ptr %423, align 8
   %425 = call i32 %424(ptr noundef nonnull %.03652.i) #19
   %.not47.i = icmp eq i32 %425, 0
-  br i1 %.not47.i, label %handle_keypress.exit.thread.i, label %handle_xlib_events.exit.thread123
+  br i1 %.not47.i, label %handle_keypress.argprom.exit.thread.i, label %handle_xlib_events.exit.thread123
 
-handle_xlib_events.exit.thread123:                ; preds = %handle_keypress.exit.i
+handle_xlib_events.exit.thread123:                ; preds = %handle_keypress.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3)
   br label %.loopexit
 
-handle_keypress.exit.thread.i:                    ; preds = %416, %handle_keypress.exit.i, %410
+handle_keypress.argprom.exit.thread.i:            ; preds = %416, %handle_keypress.argprom.exit.i, %410
   %426 = add nsw i32 %.054.i, 1
   br label %..loopexit_crit_edge.i
 
@@ -1036,20 +1036,20 @@ handle_configure_notify.exit.i:                   ; preds = %449, %427
 463:                                              ; preds = %349
   %.val43.i = load i32, ptr %106, align 8
   %464 = icmp eq i32 %.val43.i, 32
-  br i1 %464, label %465, label %handle_client_message.exit.i
+  br i1 %464, label %465, label %handle_client_message.argprom.exit.i
 
 465:                                              ; preds = %463
   %.val44.i = load i64, ptr %107, align 8
   %466 = getelementptr inbounds i8, ptr %346, i64 56
   %467 = load i64, ptr %466, align 8
   %468 = icmp eq i64 %.val44.i, %467
-  br i1 %468, label %469, label %handle_client_message.exit.i
+  br i1 %468, label %469, label %handle_client_message.argprom.exit.i
 
 469:                                              ; preds = %465
   call fastcc void @graphviz_exit(i32 noundef 0) #25
   unreachable
 
-handle_client_message.exit.i:                     ; preds = %465, %463
+handle_client_message.argprom.exit.i:             ; preds = %465, %463
   %470 = add nsw i32 %.054.i, 1
   br label %..loopexit_crit_edge.i
 
@@ -1059,8 +1059,8 @@ handle_client_message.exit.i:                     ; preds = %465, %463
   %.not38.i = icmp eq ptr %473, null
   br i1 %.not38.i, label %..loopexit_crit_edge.i, label %344
 
-..loopexit_crit_edge.i:                           ; preds = %471, %handle_client_message.exit.i, %453, %handle_configure_notify.exit.i, %handle_keypress.exit.thread.i, %408, %365, %362, %351, %349
-  %.1.i = phi i32 [ %.054.i, %349 ], [ %470, %handle_client_message.exit.i ], [ %462, %453 ], [ %452, %handle_configure_notify.exit.i ], [ %426, %handle_keypress.exit.thread.i ], [ %409, %408 ], [ %374, %365 ], [ %.054.i, %362 ], [ %361, %351 ], [ %.054.i, %471 ]
+..loopexit_crit_edge.i:                           ; preds = %471, %handle_client_message.argprom.exit.i, %453, %handle_configure_notify.exit.i, %handle_keypress.argprom.exit.thread.i, %408, %365, %362, %351, %349
+  %.1.i = phi i32 [ %.054.i, %349 ], [ %470, %handle_client_message.argprom.exit.i ], [ %462, %453 ], [ %452, %handle_configure_notify.exit.i ], [ %426, %handle_keypress.argprom.exit.thread.i ], [ %409, %408 ], [ %374, %365 ], [ %.054.i, %362 ], [ %361, %351 ], [ %.054.i, %471 ]
   %474 = call i32 @XPending(ptr noundef %11) #19
   %.not.i108 = icmp eq i32 %474, 0
   br i1 %.not.i108, label %handle_xlib_events.exit, label %.lr.ph.i107
@@ -1215,7 +1215,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)

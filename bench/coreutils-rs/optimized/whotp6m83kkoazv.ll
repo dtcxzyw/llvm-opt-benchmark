@@ -48,7 +48,7 @@ define hidden noundef i64 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
   br label %12
 
 12:                                               ; preds = %12, %6
-  %13 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr nonnull %.val6.i.i), !noalias !17
+  %13 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E.argprom(ptr nonnull %.val6.i.i), !noalias !17
   %14 = zext i64 %13 to i128
   %15 = mul nuw i128 %14, %11
   %16 = trunc i128 %15 to i64
@@ -123,7 +123,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   %13 = getelementptr inbounds i8, ptr %.val, i64 272
   %14 = load i64, ptr %13, align 16, !alias.scope !31, !noalias !34, !noundef !16
   %15 = icmp ugt i64 %14, 63
-  br i1 %15, label %16, label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit
+  br i1 %15, label %16, label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit
 
 16:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37), !noalias !34
@@ -159,13 +159,13 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 
 "_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i": ; preds = %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !47
-  br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit
+  br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit
 
 33:                                               ; preds = %22, %16
   tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %17, ptr noalias noundef nonnull align 4 dereferenceable(256) %12, i64 noundef %18), !noalias !34
-  br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit
+  br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit
 
-_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i", %33
+_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit: ; preds = %11, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i", %33
   %34 = phi i64 [ %14, %11 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i" ], [ 0, %33 ]
   %35 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4, !alias.scope !31, !noalias !34, !noundef !16
@@ -188,11 +188,11 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$ran
   %.pre = load i64, ptr %43, align 16, !alias.scope !51, !noalias !54
   br label %49
 
-49:                                               ; preds = %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8, %38
-  %50 = phi i64 [ %69, %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8 ], [ %.pre, %38 ]
+49:                                               ; preds = %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit8, %38
+  %50 = phi i64 [ %69, %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit8 ], [ %.pre, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %51 = icmp ugt i64 %50, 63
-  br i1 %51, label %52, label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8
+  br i1 %51, label %52, label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit8
 
 52:                                               ; preds = %49
   call void @llvm.experimental.noalias.scope.decl(metadata !57), !noalias !54
@@ -224,13 +224,13 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$ran
 
 "_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7": ; preds = %62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !67
-  br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8
+  br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit8
 
 65:                                               ; preds = %56, %52
   call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %44, ptr noalias noundef nonnull align 4 dereferenceable(256) %42, i64 noundef %53), !noalias !54
-  br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8
+  br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit8
 
-_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8:   ; preds = %49, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7", %65
+_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit8: ; preds = %49, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7", %65
   %66 = phi i64 [ %50, %49 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7" ], [ 0, %65 ]
   %67 = getelementptr inbounds [0 x i32], ptr %42, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4, !alias.scope !51, !noalias !54, !noundef !16
@@ -242,14 +242,14 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8:   ; preds = %49, %"_ZN84_$LT$ran
   %.not5 = icmp ult i32 %41, %72
   br i1 %.not5, label %49, label %73
 
-73:                                               ; preds = %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8
+73:                                               ; preds = %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit8
   %74 = lshr i64 %71, 32
   %75 = trunc nuw i64 %74 to i32
   %76 = add i32 %0, %75
   br label %77
 
-77:                                               ; preds = %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit, %73
-  %.0 = phi i32 [ %36, %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit ], [ %76, %73 ]
+77:                                               ; preds = %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit, %73
+  %.0 = phi i32 [ %36, %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.argprom.exit ], [ %76, %73 ]
   ret i32 %.0
 }
 
@@ -273,7 +273,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   br label %12
 
 12:                                               ; preds = %12, %6
-  %13 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr nonnull %.val6.i), !noalias !71
+  %13 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E.argprom(ptr nonnull %.val6.i), !noalias !71
   %14 = zext i64 %13 to i128
   %15 = mul nuw i128 %14, %11
   %16 = trunc i128 %15 to i64
@@ -304,7 +304,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
 
 9:                                                ; preds = %5
   %.val = load ptr, ptr %2, align 8, !alias.scope !77, !nonnull !16, !noundef !16
-  %10 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr nonnull %.val)
+  %10 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E.argprom(ptr nonnull %.val)
   br label %25
 
 11:                                               ; preds = %5
@@ -316,7 +316,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   br label %16
 
 16:                                               ; preds = %16, %11
-  %17 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr nonnull %.val6)
+  %17 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E.argprom(ptr nonnull %.val6)
   %18 = zext i64 %17 to i128
   %19 = mul nuw i128 %18, %15
   %20 = trunc i128 %19 to i64
@@ -351,7 +351,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr %.0.val) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E.argprom(ptr %.0.val) unnamed_addr #0 {
   %1 = alloca { ptr, ptr, {} }, align 8
   %2 = alloca { ptr, ptr, {} }, align 8
   %3 = icmp ne ptr %.0.val, null
@@ -372,7 +372,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
   store i64 %10, ptr %5, align 16, !alias.scope !80, !noalias !83
   %11 = getelementptr inbounds i32, ptr %4, i64 %6
   %12 = load i64, ptr %11, align 4, !alias.scope !86, !noalias !83
-  br label %"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.exit"
+  br label %"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.argprom.exit"
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %.0.val, i64 268
@@ -423,7 +423,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
   %35 = zext i32 %34 to i64
   %36 = shl nuw i64 %35, 32
   %37 = or disjoint i64 %36, %33
-  br label %"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.exit"
+  br label %"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.argprom.exit"
 
 38:                                               ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104), !noalias !83
@@ -468,9 +468,9 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i": ; preds = %55, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i8.i.i"
   store i64 2, ptr %5, align 16, !alias.scope !118, !noalias !83
   %56 = load i64, ptr %4, align 4, !alias.scope !119, !noalias !83
-  br label %"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.exit"
+  br label %"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.argprom.exit"
 
-"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.exit": ; preds = %9, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i", %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i"
+"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h3da7d7bbe74efd47E.argprom.exit": ; preds = %9, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i", %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i"
   %.0.i.i = phi i64 [ %12, %9 ], [ %56, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i" ], [ %37, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i" ]
   ret i64 %.0.i.i
 }
@@ -493,7 +493,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17h049e68daa6e4f7acE(ptr no
   br label %10
 
 10:                                               ; preds = %10, %4
-  %11 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr nonnull %.val6.i.i.i), !noalias !134
+  %11 = tail call fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E.argprom(ptr nonnull %.val6.i.i.i), !noalias !134
   %12 = zext i64 %11 to i128
   %13 = mul nuw i128 %12, %9
   %14 = trunc i128 %13 to i64
@@ -674,8 +674,8 @@ attributes #10 = { noreturn }
 !84 = distinct !{!84, !85, !"_ZN68_$LT$rand..rngs..thread..ThreadRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h234faf5ddb6c55e5E: argument 0"}
 !85 = distinct !{!85, !"_ZN68_$LT$rand..rngs..thread..ThreadRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h234faf5ddb6c55e5E"}
 !86 = !{!87, !81}
-!87 = distinct !{!87, !88, !"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17h6a566d2943e3b536E: argument 0"}
-!88 = distinct !{!88, !"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17h6a566d2943e3b536E"}
+!87 = distinct !{!87, !88, !"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17h6a566d2943e3b536E.argprom: argument 0"}
+!88 = distinct !{!88, !"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17h6a566d2943e3b536E.argprom"}
 !89 = !{!90}
 !90 = distinct !{!90, !91, !"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE: argument 0"}
 !91 = distinct !{!91, !"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE"}
@@ -707,8 +707,8 @@ attributes #10 = { noreturn }
 !117 = distinct !{!117, !116, !"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789: argument 1"}
 !118 = !{!105, !81}
 !119 = !{!120, !81}
-!120 = distinct !{!120, !121, !"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17h6a566d2943e3b536E: argument 0"}
-!121 = distinct !{!121, !"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17h6a566d2943e3b536E"}
+!120 = distinct !{!120, !121, !"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17h6a566d2943e3b536E.argprom: argument 0"}
+!121 = distinct !{!121, !"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17h6a566d2943e3b536E.argprom"}
 !122 = !{!123}
 !123 = distinct !{!123, !124, !"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distributions..uniform..SampleRange$LT$T$GT$$GT$13sample_single17hb533e4eed05052bbE.llvm.5489380481392814572: argument 0"}
 !124 = distinct !{!124, !"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distributions..uniform..SampleRange$LT$T$GT$$GT$13sample_single17hb533e4eed05052bbE.llvm.5489380481392814572"}

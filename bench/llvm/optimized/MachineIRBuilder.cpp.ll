@@ -505,7 +505,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
   %15 = extractvalue { ptr, ptr } %13, 1
   %16 = load i8, ptr %1, align 8
   %.not.i = icmp eq i8 %16, 5
-  br i1 %.not.i, label %17, label %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.exit"
+  br i1 %.not.i, label %17, label %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.argprom.exit"
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -522,9 +522,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
   %27 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.pr.pre = load i8, ptr %28, align 8
-  br label %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.exit"
+  br label %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.argprom.exit"
 
-"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.exit": ; preds = %21, %4
+"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.argprom.exit": ; preds = %21, %4
   %29 = phi i8 [ %16, %4 ], [ %.pr.pre, %21 ]
   %.0.i = phi ptr [ %1, %4 ], [ %28, %21 ]
   switch i8 %29, label %.thread [
@@ -533,7 +533,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
     i8 20, label %44
   ]
 
-30:                                               ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.exit"
+30:                                               ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.argprom.exit"
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = icmp ugt i32 %32, 64
@@ -563,7 +563,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   br label %46
 
-41:                                               ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.exit"
+41:                                               ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.argprom.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store i32 3, ptr %10, align 8, !alias.scope !22
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -574,7 +574,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %46
 
-44:                                               ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.exit"
+44:                                               ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.argprom.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store i32 1, ptr %9, align 8, !alias.scope !25
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -583,7 +583,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br label %46
 
-.thread:                                          ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.exit", %17
+.thread:                                          ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.argprom.exit", %17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %15, ptr noundef nonnull align 8 dereferenceable(1041) %14, ptr noundef nonnull align 8 dereferenceable(32) %8) #11

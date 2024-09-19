@@ -1077,7 +1077,7 @@ if.else5.i.i:                                     ; preds = %if.else.i.i
 internal_error_callback.exit.i:                   ; preds = %if.else5.i.i
   %call10.i.i = call ptr @PyUnicode_FromString(ptr noundef nonnull %call28) #7
   %cmp.i20 = icmp eq ptr %call10.i.i, null
-  br i1 %cmp.i20, label %_multibytecodec_MultibyteCodec_decode_impl.exit, label %if.end.i
+  br i1 %cmp.i20, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional_pos.thread, %internal_error_callback.exit.i, %if.else5.i.i, %if.else.i.i, %lor.lhs.false.i.i
   %input.val1929 = phi i64 [ %input.val19, %internal_error_callback.exit.i ], [ %input.val19, %if.else5.i.i ], [ %input.val19, %if.else.i.i ], [ %input.val19, %lor.lhs.false.i.i ], [ %input.val1926, %skip_optional_pos.thread ]
@@ -1111,7 +1111,7 @@ if.then1.i82.i:                                   ; preds = %if.end.i79.i
 do.end.i:                                         ; preds = %if.then1.i82.i, %if.end.i79.i, %if.then7.i, %land.lhs.true.i
   %call9.i = call ptr @PyUnicode_New(i64 noundef 0, i32 noundef 0) #7
   %cmp.i40.i = icmp eq ptr %call9.i, null
-  br i1 %cmp.i40.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit, label %if.end.i41.i
+  br i1 %cmp.i40.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit, label %if.end.i41.i
 
 if.end.i41.i:                                     ; preds = %do.end.i
   %call.i42.i = call ptr @PyTuple_New(i64 noundef 2) #7
@@ -1122,17 +1122,17 @@ if.then2.i.i:                                     ; preds = %if.end.i41.i
   %15 = load i64, ptr %call9.i, align 8
   %16 = and i64 %15, 2147483648
   %cmp.i18.not.i.i = icmp eq i64 %16, 0
-  br i1 %cmp.i18.not.i.i, label %if.end.i11.i.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br i1 %cmp.i18.not.i.i, label %if.end.i11.i.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end.i11.i.i:                                   ; preds = %if.then2.i.i
   %dec.i12.i.i = add i64 %15, -1
   store i64 %dec.i12.i.i, ptr %call9.i, align 8
   %cmp.i13.i.i = icmp eq i64 %dec.i12.i.i, 0
-  br i1 %cmp.i13.i.i, label %if.then1.i14.i.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br i1 %cmp.i13.i.i, label %if.then1.i14.i.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.then1.i14.i.i:                                 ; preds = %if.end.i11.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call9.i) #7
-  br label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end3.i.i:                                      ; preds = %if.end.i41.i
   %ob_item.i.i.i = getelementptr inbounds i8, ptr %call.i42.i, i64 24
@@ -1145,22 +1145,22 @@ if.then6.i.i:                                     ; preds = %if.end3.i.i
   %17 = load i64, ptr %call.i42.i, align 8
   %18 = and i64 %17, 2147483648
   %cmp.i21.not.i.i = icmp eq i64 %18, 0
-  br i1 %cmp.i21.not.i.i, label %if.end.i.i.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br i1 %cmp.i21.not.i.i, label %if.end.i.i.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end.i.i.i:                                     ; preds = %if.then6.i.i
   %dec.i.i.i = add i64 %17, -1
   store i64 %dec.i.i.i, ptr %call.i42.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call.i42.i) #7
-  br label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end7.i.i:                                      ; preds = %if.end3.i.i
   %arrayidx.i.i.i = getelementptr i8, ptr %call.i42.i, i64 32
   store ptr %call4.i.i, ptr %arrayidx.i.i.i, align 8
-  br label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end11.i:                                       ; preds = %if.end.i
   %writer.i = getelementptr inbounds i8, ptr %buf.i, i64 32
@@ -1209,7 +1209,7 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.else.i:                                        ; preds = %while.body.i
   %25 = load ptr, ptr %codec.i, align 8
-  %call36.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %25, ptr noundef %buf.i, ptr noundef nonnull %retval.0.i4.i, i64 noundef %call32.i)
+  %call36.i = call fastcc i32 @multibytecodec_decerror.argprom(ptr noundef %25, ptr noundef %buf.i, ptr noundef nonnull %retval.0.i4.i, i64 noundef %call32.i)
   %tobool.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool.not.i, label %while.cond.i, label %land.lhs.true58.i, !llvm.loop !4
 
@@ -1270,17 +1270,17 @@ if.then2.i67.i:                                   ; preds = %if.end.i51.i
   %31 = load i64, ptr %call41.i, align 8
   %32 = and i64 %31, 2147483648
   %cmp.i18.not.i68.i = icmp eq i64 %32, 0
-  br i1 %cmp.i18.not.i68.i, label %if.end.i11.i69.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br i1 %cmp.i18.not.i68.i, label %if.end.i11.i69.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end.i11.i69.i:                                 ; preds = %if.then2.i67.i
   %dec.i12.i70.i = add i64 %31, -1
   store i64 %dec.i12.i70.i, ptr %call41.i, align 8
   %cmp.i13.i71.i = icmp eq i64 %dec.i12.i70.i, 0
-  br i1 %cmp.i13.i71.i, label %if.then1.i14.i72.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br i1 %cmp.i13.i71.i, label %if.then1.i14.i72.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.then1.i14.i72.i:                               ; preds = %if.end.i11.i69.i
   call void @_Py_Dealloc(ptr noundef nonnull %call41.i) #7
-  br label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end3.i54.i:                                    ; preds = %if.end.i51.i
   %ob_item.i.i55.i = getelementptr inbounds i8, ptr %call.i52.i, i64 24
@@ -1293,22 +1293,22 @@ if.then6.i61.i:                                   ; preds = %if.end3.i54.i
   %33 = load i64, ptr %call.i52.i, align 8
   %34 = and i64 %33, 2147483648
   %cmp.i21.not.i62.i = icmp eq i64 %34, 0
-  br i1 %cmp.i21.not.i62.i, label %if.end.i.i63.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br i1 %cmp.i21.not.i62.i, label %if.end.i.i63.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end.i.i63.i:                                   ; preds = %if.then6.i61.i
   %dec.i.i64.i = add i64 %33, -1
   store i64 %dec.i.i64.i, ptr %call.i52.i, align 8
   %cmp.i.i65.i = icmp eq i64 %dec.i.i64.i, 0
-  br i1 %cmp.i.i65.i, label %if.then1.i.i66.i, label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br i1 %cmp.i.i65.i, label %if.then1.i.i66.i, label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.then1.i.i66.i:                                 ; preds = %if.end.i.i63.i
   call void @_Py_Dealloc(ptr noundef nonnull %call.i52.i) #7
-  br label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 if.end7.i58.i:                                    ; preds = %if.end3.i54.i
   %arrayidx.i.i59.i = getelementptr i8, ptr %call.i52.i, i64 32
   store ptr %call4.i56.i, ptr %arrayidx.i.i59.i, align 8
-  br label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
 land.lhs.true58.i:                                ; preds = %if.else.i, %while.end.i, %land.lhs.true15.i
   %cmp59.i = icmp ult ptr %retval.0.i4.i, inttoptr (i64 1 to ptr)
@@ -1355,16 +1355,16 @@ if.then1.i.i81.i:                                 ; preds = %if.end.i.i78.i
 
 Py_XDECREF.exit82.i:                              ; preds = %if.then1.i.i81.i, %if.end.i.i78.i, %if.then.i75.i, %do.end64.i
   call void @_PyUnicodeWriter_Dealloc(ptr noundef nonnull %writer.i) #7
-  br label %_multibytecodec_MultibyteCodec_decode_impl.exit
+  br label %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit
 
-_multibytecodec_MultibyteCodec_decode_impl.exit:  ; preds = %internal_error_callback.exit.i, %do.end.i, %if.then2.i.i, %if.end.i11.i.i, %if.then1.i14.i.i, %if.then6.i.i, %if.end.i.i.i, %if.then1.i.i.i, %if.end7.i.i, %if.then2.i67.i, %if.end.i11.i69.i, %if.then1.i14.i72.i, %if.then6.i61.i, %if.end.i.i63.i, %if.then1.i.i66.i, %if.end7.i58.i, %Py_XDECREF.exit82.i
+_multibytecodec_MultibyteCodec_decode_impl.argprom.exit: ; preds = %internal_error_callback.exit.i, %do.end.i, %if.then2.i.i, %if.end.i11.i.i, %if.then1.i14.i.i, %if.then6.i.i, %if.end.i.i.i, %if.then1.i.i.i, %if.end7.i.i, %if.then2.i67.i, %if.end.i11.i69.i, %if.then1.i14.i72.i, %if.then6.i61.i, %if.end.i.i63.i, %if.then1.i.i66.i, %if.end7.i58.i, %Py_XDECREF.exit82.i
   %retval.0.i = phi ptr [ null, %Py_XDECREF.exit82.i ], [ null, %internal_error_callback.exit.i ], [ %call.i42.i, %if.end7.i.i ], [ null, %do.end.i ], [ null, %if.then2.i.i ], [ null, %if.then1.i14.i.i ], [ null, %if.end.i11.i.i ], [ null, %if.then6.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.end.i.i.i ], [ %call.i52.i, %if.end7.i58.i ], [ null, %if.then2.i67.i ], [ null, %if.then1.i14.i72.i ], [ null, %if.end.i11.i69.i ], [ null, %if.then6.i61.i ], [ null, %if.then1.i.i66.i ], [ null, %if.end.i.i63.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %state.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %buf.i)
   br label %exit
 
-exit:                                             ; preds = %if.then26, %if.end, %cond.end9, %_multibytecodec_MultibyteCodec_decode_impl.exit, %if.else36, %if.then34
-  %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i, %_multibytecodec_MultibyteCodec_decode_impl.exit ], [ null, %if.then26 ], [ null, %if.then34 ], [ null, %if.else36 ], [ null, %cond.end9 ]
+exit:                                             ; preds = %if.then26, %if.end, %cond.end9, %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit, %if.else36, %if.then34
+  %return_value.0 = phi ptr [ null, %if.end ], [ %retval.0.i, %_multibytecodec_MultibyteCodec_decode_impl.argprom.exit ], [ null, %if.then26 ], [ null, %if.then34 ], [ null, %if.else36 ], [ null, %cond.end9 ]
   %obj = getelementptr inbounds i8, ptr %input, i64 8
   %40 = load ptr, ptr %obj, align 8
   %tobool41.not = icmp eq ptr %40, null
@@ -2272,7 +2272,7 @@ declare ptr @PyUnicode_New(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare void @_PyUnicodeWriter_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @multibytecodec_decerror(ptr nocapture noundef readonly %codec, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef range(i64 1, 0) %e) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @multibytecodec_decerror.argprom(ptr nocapture noundef readonly %codec, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef range(i64 1, 0) %e) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i64 %e, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -3860,7 +3860,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 if.else.i.i:                                      ; preds = %while.body.i.i
   %15 = load ptr, ptr %codec.i.i, align 8
   %16 = load ptr, ptr %errors.i.i, align 8
-  %call9.i.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %15, ptr noundef %buf.i, ptr noundef %16, i64 noundef %call.i.i)
+  %call9.i.i = call fastcc i32 @multibytecodec_decerror.argprom(ptr noundef %15, ptr noundef %buf.i, ptr noundef %16, i64 noundef %call.i.i)
   %tobool.not.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %tobool.not.i.i, label %while.cond.i.i, label %errorexit.i, !llvm.loop !7
 
@@ -3875,7 +3875,7 @@ if.end22.i:                                       ; preds = %while.body.i.i, %wh
 if.then25.i:                                      ; preds = %if.end22.i
   %17 = load ptr, ptr %codec.i.i, align 8
   %18 = load ptr, ptr %errors.i.i, align 8
-  %call26.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %17, ptr noundef %buf.i, ptr noundef %18, i64 noundef -2)
+  %call26.i = call fastcc i32 @multibytecodec_decerror.argprom(ptr noundef %17, ptr noundef %buf.i, ptr noundef %18, i64 noundef -2)
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %if.then25.if.end33_crit_edge.i, label %if.then28.i
 
@@ -3906,9 +3906,9 @@ if.then37.i:                                      ; preds = %if.end33.i
   %sub.i.i = sub i64 9223372036854775807, %21
   %cmp2.i.i = icmp sgt i64 %sub.ptr.sub.i39.i, %sub.i.i
   %or.cond.i.i = or i1 %cmp.i41.i, %cmp2.i.i
-  br i1 %or.cond.i.i, label %decoder_append_pending.exit.i, label %decoder_append_pending.exit.thread.i
+  br i1 %or.cond.i.i, label %decoder_append_pending.argprom.exit.i, label %decoder_append_pending.argprom.exit.thread.i
 
-decoder_append_pending.exit.thread.i:             ; preds = %if.then37.i
+decoder_append_pending.argprom.exit.thread.i:     ; preds = %if.then37.i
   %pending.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %add.ptr.i42.i = getelementptr i8, ptr %pending.i.i, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i42.i, ptr align 1 %20, i64 %sub.ptr.sub.i39.i, i1 false)
@@ -3917,12 +3917,12 @@ decoder_append_pending.exit.thread.i:             ; preds = %if.then37.i
   store i64 %add6.i.i, ptr %pendingsize.i, align 8
   br label %if.end42.i
 
-decoder_append_pending.exit.i:                    ; preds = %if.then37.i
+decoder_append_pending.argprom.exit.i:            ; preds = %if.then37.i
   %23 = load ptr, ptr @PyExc_UnicodeError, align 8
   call void @PyErr_SetString(ptr noundef %23, ptr noundef nonnull @.str.31) #7
   br label %errorexit.i
 
-if.end42.i:                                       ; preds = %decoder_append_pending.exit.thread.i, %if.end33.i
+if.end42.i:                                       ; preds = %decoder_append_pending.argprom.exit.thread.i, %if.end33.i
   %call44.i = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %writer.i) #7
   %cmp45.i = icmp eq ptr %call44.i, null
   br i1 %cmp45.i, label %errorexit.i, label %if.end47.i
@@ -3938,25 +3938,25 @@ if.then49.i:                                      ; preds = %if.end47.i
 if.end50.i:                                       ; preds = %if.then49.i, %if.end47.i
   %24 = load ptr, ptr %excobj.i, align 8
   %cmp.not.i.i = icmp eq ptr %24, null
-  br i1 %cmp.not.i.i, label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.exit, label %if.then.i44.i
+  br i1 %cmp.not.i.i, label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.argprom.exit, label %if.then.i44.i
 
 if.then.i44.i:                                    ; preds = %if.end50.i
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %26, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.exit
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.argprom.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i44.i
   %dec.i.i.i = add i64 %25, -1
   store i64 %dec.i.i.i, ptr %24, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.exit
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.argprom.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %24) #7
-  br label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.exit
+  br label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.argprom.exit
 
-errorexit.i:                                      ; preds = %if.else.i.i, %if.end42.i, %decoder_append_pending.exit.i, %if.then28.i
+errorexit.i:                                      ; preds = %if.else.i.i, %if.end42.i, %decoder_append_pending.argprom.exit.i, %if.then28.i
   %cmp52.not.i = icmp eq ptr %wdata.0.i, null
   %cmp54.not.i = icmp eq ptr %wdata.0.i, %input.val
   %or.cond.i = select i1 %cmp52.not.i, i1 true, i1 %cmp54.not.i
@@ -3989,15 +3989,15 @@ if.then1.i.i53.i:                                 ; preds = %if.end.i.i50.i
 
 Py_XDECREF.exit54.i:                              ; preds = %if.then1.i.i53.i, %if.end.i.i50.i, %if.then.i47.i, %if.end56.i
   call void @_PyUnicodeWriter_Dealloc(ptr noundef nonnull %writer.i) #7
-  br label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.exit
+  br label %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.argprom.exit
 
-_multibytecodec_MultibyteIncrementalDecoder_decode_impl.exit: ; preds = %if.end50.i, %if.then.i44.i, %if.end.i.i.i, %if.then1.i.i.i, %Py_XDECREF.exit54.i
+_multibytecodec_MultibyteIncrementalDecoder_decode_impl.argprom.exit: ; preds = %if.end50.i, %if.then.i44.i, %if.end.i.i.i, %if.then1.i.i.i, %Py_XDECREF.exit54.i
   %retval.0.i = phi ptr [ null, %Py_XDECREF.exit54.i ], [ %call44.i, %if.end50.i ], [ %call44.i, %if.then.i44.i ], [ %call44.i, %if.end.i.i.i ], [ %call44.i, %if.then1.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %buf.i)
   br label %exit
 
-exit:                                             ; preds = %if.end18, %if.end, %cond.end9, %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.exit
-  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.end18 ], [ %retval.0.i, %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.exit ], [ null, %cond.end9 ]
+exit:                                             ; preds = %if.end18, %if.end, %cond.end9, %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.end18 ], [ %retval.0.i, %_multibytecodec_MultibyteIncrementalDecoder_decode_impl.argprom.exit ], [ null, %cond.end9 ]
   %obj = getelementptr inbounds i8, ptr %input, i64 8
   %30 = load ptr, ptr %obj, align 8
   %tobool25.not = icmp eq ptr %30, null
@@ -4806,7 +4806,7 @@ while.body.i:                                     ; preds = %while.cond.i
 if.else.i:                                        ; preds = %while.body.i
   %17 = load ptr, ptr %codec.i, align 8
   %18 = load ptr, ptr %errors.i, align 8
-  %call9.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %17, ptr noundef %buf, ptr noundef %18, i64 noundef %call.i)
+  %call9.i = call fastcc i32 @multibytecodec_decerror.argprom(ptr noundef %17, ptr noundef %buf, ptr noundef %18, i64 noundef %call.i)
   %tobool.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool.not.i, label %while.cond.i, label %if.then.i70, !llvm.loop !7
 
@@ -4826,7 +4826,7 @@ if.end54:                                         ; preds = %if.end54.loopexit, 
 land.lhs.true61:                                  ; preds = %if.end54
   %19 = load ptr, ptr %codec.i, align 8
   %20 = load ptr, ptr %errors.i, align 8
-  %call62 = call fastcc i32 @multibytecodec_decerror(ptr noundef %19, ptr noundef %buf, ptr noundef %20, i64 noundef -2)
+  %call62 = call fastcc i32 @multibytecodec_decerror.argprom(ptr noundef %19, ptr noundef %buf, ptr noundef %20, i64 noundef -2)
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %land.lhs.true61.if.end66_crit_edge, label %if.then.i70
 
@@ -4851,9 +4851,9 @@ if.then71:                                        ; preds = %if.end66
   %sub.i = sub i64 9223372036854775807, %23
   %cmp2.i = icmp sgt i64 %sub.ptr.sub.i60, %sub.i
   %or.cond.i = or i1 %cmp.i62, %cmp2.i
-  br i1 %or.cond.i, label %decoder_append_pending.exit, label %decoder_append_pending.exit.thread
+  br i1 %or.cond.i, label %decoder_append_pending.argprom.exit, label %decoder_append_pending.argprom.exit.thread
 
-decoder_append_pending.exit.thread:               ; preds = %if.then71
+decoder_append_pending.argprom.exit.thread:       ; preds = %if.then71
   %add.ptr.i64 = getelementptr i8, ptr %pending, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i64, ptr align 1 %22, i64 %sub.ptr.sub.i60, i1 false)
   %24 = load i64, ptr %pendingsize, align 8
@@ -4861,12 +4861,12 @@ decoder_append_pending.exit.thread:               ; preds = %if.then71
   store i64 %add6.i, ptr %pendingsize, align 8
   br label %do.body78
 
-decoder_append_pending.exit:                      ; preds = %if.then71
+decoder_append_pending.argprom.exit:              ; preds = %if.then71
   %25 = load ptr, ptr @PyExc_UnicodeError, align 8
   call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.31) #7
   br label %if.then.i70
 
-do.body78:                                        ; preds = %decoder_append_pending.exit.thread, %if.end66
+do.body78:                                        ; preds = %decoder_append_pending.argprom.exit.thread, %if.end66
   %26 = load i64, ptr %cres.2, align 8
   %27 = and i64 %26, 2147483648
   %cmp.i115.not = icmp eq i64 %27, 0
@@ -4916,8 +4916,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %29) #7
   br label %return
 
-if.then.i70:                                      ; preds = %land.lhs.true61, %if.end27, %if.else.i, %decoder_append_pending.exit, %if.then12, %if.then25
-  %cres.193 = phi ptr [ %cres.0, %if.then25 ], [ %cres.0, %if.then12 ], [ %cres.2, %decoder_append_pending.exit ], [ %cres.2, %if.else.i ], [ %cres.2, %land.lhs.true61 ], [ %cres.0, %if.end27 ]
+if.then.i70:                                      ; preds = %land.lhs.true61, %if.end27, %if.else.i, %decoder_append_pending.argprom.exit, %if.then12, %if.then25
+  %cres.193 = phi ptr [ %cres.0, %if.then25 ], [ %cres.0, %if.then12 ], [ %cres.2, %decoder_append_pending.argprom.exit ], [ %cres.2, %if.else.i ], [ %cres.2, %land.lhs.true61 ], [ %cres.0, %if.end27 ]
   %32 = load i64, ptr %cres.193, align 8
   %33 = and i64 %32, 2147483648
   %cmp.i2.not.i71 = icmp eq i64 %33, 0

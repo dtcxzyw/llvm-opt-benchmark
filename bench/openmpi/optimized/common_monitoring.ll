@@ -151,7 +151,7 @@ opal_gethostname.exit:                            ; preds = %6, %9
 
 20:                                               ; preds = %19, %opal_gethostname.exit
   %.not9.i = icmp eq ptr %16, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %21
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %21
 
 21:                                               ; preds = %20
   store ptr @opal_hash_table_t_class, ptr %16, align 8
@@ -160,7 +160,7 @@ opal_gethostname.exit:                            ; preds = %6, %9
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i.i = icmp eq ptr %24, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
   %25 = phi ptr [ %27, %.lr.ph.i.i ], [ %24, %21 ]
@@ -169,15 +169,15 @@ opal_gethostname.exit:                            ; preds = %6, %9
   %26 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %20, %21
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %20, %21
   store ptr %16, ptr @ompi_common_monitoring_translation_ht, align 8
   %28 = tail call i32 @opal_hash_table_init(ptr noundef %16, i64 noundef 2048) #19
   br label %29
 
-29:                                               ; preds = %2, %0, %opal_obj_new.exit
-  %.0 = phi i32 [ 0, %opal_obj_new.exit ], [ -1, %0 ], [ 0, %2 ]
+29:                                               ; preds = %2, %0, %opal_obj_new.argprom.exit
+  %.0 = phi i32 [ 0, %opal_obj_new.argprom.exit ], [ -1, %0 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -947,21 +947,21 @@ define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture nound
   %56 = and i64 %55, 32767
   %57 = and i64 %52, -65536
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %56, %57
-  br label %ompi_group_get_proc_name.exit
+  br label %ompi_group_get_proc_name.argprom.exit
 
 58:                                               ; preds = %47
   %59 = getelementptr inbounds i8, ptr %51, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %59, align 8
-  br label %ompi_group_get_proc_name.exit
+  br label %ompi_group_get_proc_name.argprom.exit
 
-ompi_group_get_proc_name.exit:                    ; preds = %54, %58
+ompi_group_get_proc_name.argprom.exit:            ; preds = %54, %58
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.insert.i.i, %54 ], [ %.sroa.0.0.copyload.i, %58 ]
   %60 = load ptr, ptr @opal_compare_proc, align 8
   %61 = tail call i32 %60(i64 %.sroa.013.0.insert.insert, i64 %.sroa.0.0.i) #19
   %.not31 = icmp eq i32 %61, 0
   br i1 %.not31, label %62, label %67
 
-62:                                               ; preds = %ompi_group_get_proc_name.exit
+62:                                               ; preds = %ompi_group_get_proc_name.argprom.exit
   %63 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
   %64 = and i64 %indvars.iv, 4294967295
   %65 = inttoptr i64 %64 to ptr
@@ -969,7 +969,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %54, %58
   %.not32 = icmp eq i32 %66, 0
   br i1 %.not32, label %.loopexit, label %._crit_edge
 
-67:                                               ; preds = %ompi_group_get_proc_name.exit
+67:                                               ; preds = %ompi_group_get_proc_name.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load i32, ptr @nprocs_world, align 4
   %69 = sext i32 %68 to i64

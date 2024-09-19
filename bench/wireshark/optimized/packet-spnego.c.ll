@@ -432,7 +432,7 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
   br label %79
 
 57:                                               ; preds = %48
-  %58 = call fastcc i32 @dissect_spnego_krb5_getmic_base(ptr noundef %0, i32 noundef %.1, ptr noundef %15)
+  %58 = call fastcc i32 @dissect_spnego_krb5_getmic_base.argprom(ptr noundef %0, i32 noundef %.1, ptr noundef %15)
   br label %79
 
 59:                                               ; preds = %48
@@ -458,7 +458,7 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
   br label %79
 
 77:                                               ; preds = %48
-  %78 = call fastcc i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %15, ptr noundef %3)
+  %78 = call fastcc i32 @dissect_spnego_krb5_cfx_wrap_base.argelim(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %15, ptr noundef %3)
   br label %79
 
 79:                                               ; preds = %49, %51, %53, %57, %59, %61, %77, %48, %36
@@ -489,7 +489,7 @@ define internal noundef i32 @dissect_spnego_krb5_wrap(ptr noundef %0, ptr nounde
   ]
 
 13:                                               ; preds = %4
-  %14 = tail call fastcc i32 @dissect_spnego_krb5_getmic_base(ptr noundef %0, i32 noundef 2, ptr noundef %8)
+  %14 = tail call fastcc i32 @dissect_spnego_krb5_getmic_base.argprom(ptr noundef %0, i32 noundef 2, ptr noundef %8)
   br label %32
 
 15:                                               ; preds = %4
@@ -512,7 +512,7 @@ define internal noundef i32 @dissect_spnego_krb5_wrap(ptr noundef %0, ptr nounde
   br label %32
 
 30:                                               ; preds = %4
-  %31 = tail call fastcc i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef 2, ptr noundef %1, ptr noundef %8, ptr noundef %3)
+  %31 = tail call fastcc i32 @dissect_spnego_krb5_cfx_wrap_base.argelim(ptr noundef %0, i32 noundef 2, ptr noundef %1, ptr noundef %8, ptr noundef %3)
   br label %32
 
 32:                                               ; preds = %4, %30, %17, %15, %13
@@ -902,7 +902,7 @@ declare i32 @dissect_kerberos_TGT_REQ(i1 noundef zeroext, ptr noundef, i32 nound
 declare i32 @dissect_kerberos_TGT_REP(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_spnego_krb5_getmic_base(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_spnego_krb5_getmic_base.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1) #6
   %5 = load i32, ptr @hf_spnego_krb5_sgn_alg, align 4
   %6 = zext i16 %4 to i32
@@ -1253,7 +1253,7 @@ arcfour_mic_key.exit.i:                           ; preds = %135, %133, %130
   %167 = sub i32 %91, %159
   %168 = load ptr, ptr %61, align 8
   %169 = call ptr @tvb_get_ptr(ptr noundef %168, i32 noundef 0, i32 noundef 8) #6
-  call fastcc void @arcfour_mic_cksum(ptr noundef %86, i32 noundef %88, ptr noundef %17, ptr noundef %169, ptr noundef %16, ptr noundef %76, i64 noundef %157)
+  call fastcc void @arcfour_mic_cksum.argelim(ptr noundef %86, i32 noundef %88, ptr noundef %17, ptr noundef %169, ptr noundef %16, ptr noundef %76, i64 noundef %157)
   %170 = load ptr, ptr %61, align 8
   %171 = call i32 @tvb_memeql(ptr noundef %170, i32 noundef 16, ptr noundef nonnull %17, i64 noundef 8) #6
   %.not55.i.i = icmp eq i32 %171, 0
@@ -1306,7 +1306,7 @@ decrypt_arcfour.exit.i:                           ; preds = %.thread65.i.i, %153
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca i32, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #6
@@ -1592,7 +1592,7 @@ declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @arcfour_mic_cksum(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i64 noundef range(i64 -2147483648, 2147483648) %6) unnamed_addr #0 {
+define internal fastcc void @arcfour_mic_cksum.argelim(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i64 noundef range(i64 -2147483648, 2147483648) %6) unnamed_addr #0 {
   %8 = alloca [16 x i8], align 16
   %9 = alloca [4 x i8], align 1
   %10 = alloca [16 x i8], align 16

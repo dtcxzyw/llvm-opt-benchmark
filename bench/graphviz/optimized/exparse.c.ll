@@ -1761,7 +1761,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %122 = load ptr, ptr @stderr, align 8
   %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19) #25
   %124 = load ptr, ptr @stderr, align 8
-  call fastcc void @yy_symbol_print(ptr noundef %124, i32 noundef %.0710)
+  call fastcc void @yy_symbol_print.argprom(ptr noundef %124, i32 noundef %.0710)
   %125 = load ptr, ptr @stderr, align 8
   %fputc806 = call i32 @fputc(i32 10, ptr %125)
   br label %126
@@ -1795,7 +1795,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br i1 %.not807, label %145, label %144
 
 144:                                              ; preds = %134
-  call fastcc void @yy_reduce_print(ptr noundef %.2695, i32 noundef %.0707)
+  call fastcc void @yy_reduce_print.argprom(ptr noundef %.2695, i32 noundef %.0707)
   br label %145
 
 145:                                              ; preds = %134, %144
@@ -4092,7 +4092,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %.0.i926 = load i32, ptr %.0.in.i925, align 4
   %1319 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1320 = load ptr, ptr %1319, align 8
-  %1321 = call fastcc ptr @call(ptr noundef %1309, ptr noundef %1320)
+  %1321 = call fastcc ptr @call.argprom(ptr noundef %1309, ptr noundef %1320)
   %1322 = load ptr, ptr %1319, align 8
   %1323 = getelementptr inbounds i8, ptr %1307, i64 96
   %1324 = load ptr, ptr %1323, align 8
@@ -4127,7 +4127,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %.0.i929 = load i32, ptr %.0.in.i928, align 4
   %1343 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1344 = load ptr, ptr %1343, align 8
-  %1345 = call fastcc ptr @call(ptr noundef %1333, ptr noundef %1344)
+  %1345 = call fastcc ptr @call.argprom(ptr noundef %1333, ptr noundef %1344)
   %1346 = load ptr, ptr %1343, align 8
   %1347 = getelementptr inbounds i8, ptr %1331, i64 96
   %1348 = load ptr, ptr %1347, align 8
@@ -5595,7 +5595,7 @@ extypename.exit937:                               ; preds = %1853, %1860
 2211:                                             ; preds = %2207
   %2212 = load i32, ptr @ex_debug, align 4
   %.not3.i = icmp eq i32 %2212, 0
-  br i1 %.not3.i, label %yydestruct.exit, label %2213
+  br i1 %.not3.i, label %yydestruct.argprom.exit, label %2213
 
 2213:                                             ; preds = %2211
   %2214 = load ptr, ptr @stderr, align 8
@@ -5610,13 +5610,13 @@ extypename.exit937:                               ; preds = %1853, %1860
   %fputc.i.i = call i32 @fputc(i32 41, ptr %2216)
   %2223 = load ptr, ptr @stderr, align 8
   %fputc.i939 = call i32 @fputc(i32 10, ptr %2223)
-  br label %yydestruct.exit
+  br label %yydestruct.argprom.exit
 
-yydestruct.exit:                                  ; preds = %2211, %2213
+yydestruct.argprom.exit:                          ; preds = %2211, %2213
   store i32 -2, ptr @ex_char, align 4
   br label %.preheader
 
-.preheader:                                       ; preds = %2204, %2202, %2209, %yydestruct.exit, %81
+.preheader:                                       ; preds = %2204, %2202, %2209, %yydestruct.argprom.exit, %81
   br label %2224
 
 2224:                                             ; preds = %.preheader, %2259
@@ -5649,14 +5649,14 @@ yydestruct.exit:                                  ; preds = %2211, %2213
 2240:                                             ; preds = %2238
   %2241 = load i32, ptr @ex_debug, align 4
   %.not3.i940 = icmp eq i32 %2241, 0
-  br i1 %.not3.i940, label %yydestruct.exit943.thread, label %yydestruct.exit943
+  br i1 %.not3.i940, label %yydestruct.argprom.exit943.thread, label %yydestruct.argprom.exit943
 
-yydestruct.exit943.thread:                        ; preds = %2240
+yydestruct.argprom.exit943.thread:                ; preds = %2240
   %2242 = getelementptr inbounds i8, ptr %.4, i64 -2
   %2243 = load i16, ptr %2242, align 2
   br label %2259
 
-yydestruct.exit943:                               ; preds = %2240
+yydestruct.argprom.exit943:                       ; preds = %2240
   %2244 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %2226
   %2245 = load i8, ptr %2244, align 1
   %2246 = load ptr, ptr @stderr, align 8
@@ -5677,13 +5677,13 @@ yydestruct.exit943:                               ; preds = %2240
   %.not903 = icmp eq i32 %.pr983, 0
   br i1 %.not903, label %2259, label %2258
 
-2258:                                             ; preds = %yydestruct.exit943
+2258:                                             ; preds = %yydestruct.argprom.exit943
   call fastcc void @yy_stack_print(ptr noundef %.1691, ptr noundef %2256)
   br label %2259
 
-2259:                                             ; preds = %yydestruct.exit943.thread, %yydestruct.exit943, %2258
-  %.in989 = phi i16 [ %2243, %yydestruct.exit943.thread ], [ %2257, %yydestruct.exit943 ], [ %2257, %2258 ]
-  %2260 = phi ptr [ %2242, %yydestruct.exit943.thread ], [ %2256, %yydestruct.exit943 ], [ %2256, %2258 ]
+2259:                                             ; preds = %yydestruct.argprom.exit943.thread, %yydestruct.argprom.exit943, %2258
+  %.in989 = phi i16 [ %2243, %yydestruct.argprom.exit943.thread ], [ %2257, %yydestruct.argprom.exit943 ], [ %2257, %2258 ]
+  %2260 = phi ptr [ %2242, %yydestruct.argprom.exit943.thread ], [ %2256, %yydestruct.argprom.exit943 ], [ %2256, %2258 ]
   %2261 = getelementptr inbounds i8, ptr %.4703, i64 -8
   %2262 = sext i16 %.in989 to i32
   %.phi.trans.insert1067 = sext i16 %.in989 to i64
@@ -5708,7 +5708,7 @@ yydestruct.exit943:                               ; preds = %2240
   %2273 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %2272
   %2274 = load i8, ptr %2273, align 1
   %2275 = zext i8 %2274 to i32
-  call fastcc void @yy_symbol_print(ptr noundef %2271, i32 noundef %2275)
+  call fastcc void @yy_symbol_print.argprom(ptr noundef %2271, i32 noundef %2275)
   %2276 = load ptr, ptr @stderr, align 8
   %fputc902 = call i32 @fputc(i32 10, ptr %2276)
   br label %8
@@ -5723,7 +5723,7 @@ yydestruct.exit943:                               ; preds = %2240
   %.3 = phi ptr [ %.0690, %2277 ], [ %.1691, %2238 ], [ %33, %51 ], [ %.1691, %2209 ], [ %.1691, %52 ]
   %2278 = load i32, ptr @ex_char, align 4
   %.not904 = icmp eq i32 %2278, -2
-  br i1 %.not904, label %yydestruct.exit947, label %2279
+  br i1 %.not904, label %yydestruct.argprom.exit947, label %2279
 
 2279:                                             ; preds = %.loopexit
   %or.cond11 = icmp ult i32 %2278, 337
@@ -5740,7 +5740,7 @@ yydestruct.exit943:                               ; preds = %2240
   %2286 = phi i32 [ %2284, %2280 ], [ 2, %2279 ]
   %2287 = load i32, ptr @ex_debug, align 4
   %.not3.i944 = icmp eq i32 %2287, 0
-  br i1 %.not3.i944, label %yydestruct.exit947.thread, label %2288
+  br i1 %.not3.i944, label %yydestruct.argprom.exit947.thread, label %2288
 
 2288:                                             ; preds = %2285
   %2289 = load ptr, ptr @stderr, align 8
@@ -5755,29 +5755,29 @@ yydestruct.exit943:                               ; preds = %2240
   %fputc.i.i945 = call i32 @fputc(i32 41, ptr %2291)
   %2298 = load ptr, ptr @stderr, align 8
   %fputc.i946 = call i32 @fputc(i32 10, ptr %2298)
-  br label %yydestruct.exit947
+  br label %yydestruct.argprom.exit947
 
-yydestruct.exit947:                               ; preds = %2288, %.loopexit
+yydestruct.argprom.exit947:                       ; preds = %2288, %.loopexit
   %.pr985 = load i32, ptr @ex_debug, align 4
   %.not905 = icmp eq i32 %.pr985, 0
-  br i1 %.not905, label %yydestruct.exit947.thread, label %2299
+  br i1 %.not905, label %yydestruct.argprom.exit947.thread, label %2299
 
-2299:                                             ; preds = %yydestruct.exit947
+2299:                                             ; preds = %yydestruct.argprom.exit947
   call fastcc void @yy_stack_print(ptr noundef %.3, ptr noundef %.5)
-  br label %yydestruct.exit947.thread
+  br label %yydestruct.argprom.exit947.thread
 
-yydestruct.exit947.thread:                        ; preds = %2285, %yydestruct.exit947, %2299
+yydestruct.argprom.exit947.thread:                ; preds = %2285, %yydestruct.argprom.exit947, %2299
   %.not9061001 = icmp eq ptr %.5, %.3
   %2300 = load i32, ptr @ex_debug, align 4
   %2301 = icmp eq i32 %2300, 0
   %or.cond1103 = select i1 %.not9061001, i1 true, i1 %2301
   br i1 %or.cond1103, label %._crit_edge, label %.lr.ph1003.split
 
-.lr.ph1003.split:                                 ; preds = %yydestruct.exit947.thread, %yydestruct.exit951
-  %2302 = phi i32 [ %2318, %yydestruct.exit951 ], [ 1, %yydestruct.exit947.thread ]
-  %.61002 = phi ptr [ %2319, %yydestruct.exit951 ], [ %.5, %yydestruct.exit947.thread ]
+.lr.ph1003.split:                                 ; preds = %yydestruct.argprom.exit947.thread, %yydestruct.argprom.exit951
+  %2302 = phi i32 [ %2318, %yydestruct.argprom.exit951 ], [ 1, %yydestruct.argprom.exit947.thread ]
+  %.61002 = phi ptr [ %2319, %yydestruct.argprom.exit951 ], [ %.5, %yydestruct.argprom.exit947.thread ]
   %.not3.i948 = icmp eq i32 %2302, 0
-  br i1 %.not3.i948, label %yydestruct.exit951, label %2303
+  br i1 %.not3.i948, label %yydestruct.argprom.exit951, label %2303
 
 2303:                                             ; preds = %.lr.ph1003.split
   %2304 = load i16, ptr %.61002, align 2
@@ -5797,15 +5797,15 @@ yydestruct.exit947.thread:                        ; preds = %2285, %yydestruct.e
   %2317 = load ptr, ptr @stderr, align 8
   %fputc.i950 = call i32 @fputc(i32 10, ptr %2317)
   %.pre1070 = load i32, ptr @ex_debug, align 4
-  br label %yydestruct.exit951
+  br label %yydestruct.argprom.exit951
 
-yydestruct.exit951:                               ; preds = %.lr.ph1003.split, %2303
+yydestruct.argprom.exit951:                       ; preds = %.lr.ph1003.split, %2303
   %2318 = phi i32 [ 0, %.lr.ph1003.split ], [ %.pre1070, %2303 ]
   %2319 = getelementptr inbounds i8, ptr %.61002, i64 -2
   %.not906 = icmp eq ptr %2319, %.3
   br i1 %.not906, label %._crit_edge, label %.lr.ph1003.split, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %yydestruct.exit951, %yydestruct.exit947.thread
+._crit_edge:                                      ; preds = %yydestruct.argprom.exit951, %yydestruct.argprom.exit947.thread
   %.not907 = icmp eq ptr %.3, %1
   br i1 %.not907, label %2321, label %2320
 
@@ -5997,7 +5997,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 declare i32 @extoken_fn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @yy_symbol_print(ptr nocapture noundef %0, i32 noundef range(i32 -128, 256) %1) unnamed_addr #13 {
+define internal fastcc void @yy_symbol_print.argprom(ptr nocapture noundef %0, i32 noundef range(i32 -128, 256) %1) unnamed_addr #13 {
   %3 = icmp slt i32 %1, 107
   %4 = select i1 %3, ptr @.str.66, ptr @.str.67
   %5 = sext i32 %1 to i64
@@ -6009,7 +6009,7 @@ define internal fastcc void @yy_symbol_print(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @yy_reduce_print(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #11 {
+define internal fastcc void @yy_reduce_print.argprom(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #11 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds [143 x i16], ptr @yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -6208,7 +6208,7 @@ extypename.exit16:                                ; preds = %45, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @call.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -6897,7 +6897,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   %.0116222.us = phi ptr [ %35, %34 ], [ %19, %.lr.ph ]
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 184
-  tail call fastcc void @agxbputc(ptr noundef nonnull %25, i8 noundef signext %23)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %25, i8 noundef signext %23)
   %26 = load i8, ptr %.0116222.us, align 1
   %27 = icmp eq i8 %26, 37
   br i1 %27, label %28, label %34
@@ -6930,7 +6930,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   %.0116222 = phi ptr [ %52, %51 ], [ %19, %.lr.ph ]
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 184
-  tail call fastcc void @agxbputc(ptr noundef nonnull %39, i8 noundef signext %37)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %39, i8 noundef signext %37)
   %40 = load i8, ptr %.0116222, align 1
   %41 = icmp eq i8 %40, 37
   br i1 %41, label %42, label %51
@@ -6954,7 +6954,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 48:                                               ; preds = %46
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 184
-  tail call fastcc void @agxbputc(ptr noundef nonnull %50, i8 noundef signext 37)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %50, i8 noundef signext 37)
   br label %51
 
 51:                                               ; preds = %.lr.ph.split, %48
@@ -7099,7 +7099,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i
 96:                                               ; preds = %93
   %97 = load ptr, ptr @stderr, align 8
   %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.106, i64 noundef %spec.select33.i.i) #25
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 99:                                               ; preds = %93
@@ -7120,7 +7120,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i
 106:                                              ; preds = %.thread.i
   %107 = load ptr, ptr @stderr, align 8
   %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.106, i64 noundef 62) #25
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_calloc.exit.i.i:                               ; preds = %.thread.i
@@ -7211,7 +7211,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %.3 = phi ptr [ %.2, %131 ], [ %78, %72 ], [ %.2, %62 ], [ %.2, %agxbputc.exit ], [ %.2, %127 ]
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 184
-  tail call fastcc void @agxbputc(ptr noundef nonnull %137, i8 noundef signext %.0114)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %137, i8 noundef signext %.0114)
   %.pr162 = load i8, ptr %.6, align 1
   br label %62
 
@@ -7228,7 +7228,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %.2113 = phi i32 [ 260, %.loopexit292 ], [ 263, %.loopexit354 ], [ 259, %.loopexit165.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
   %138 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 184
-  tail call fastcc void @agxbputc(ptr noundef nonnull %139, i8 noundef signext %63)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %139, i8 noundef signext %63)
   br label %140
 
 140:                                              ; preds = %146, %.loopexit165
@@ -7256,7 +7256,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %.10 = phi ptr [ %.8, %140 ], [ %143, %142 ]
   %147 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 184
-  tail call fastcc void @agxbputc(ptr noundef nonnull %148, i8 noundef signext %141)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %148, i8 noundef signext %141)
   %149 = getelementptr inbounds i8, ptr %.10, i64 1
   br label %140
 
@@ -7457,7 +7457,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %252 = getelementptr inbounds i8, ptr %251, i64 96
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds i8, ptr %251, i64 184
-  tail call fastcc void @agxbputc(ptr noundef nonnull %254, i8 noundef signext 0)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %254, i8 noundef signext 0)
   %255 = getelementptr i8, ptr %251, i64 215
   %.val.i.i159 = load i8, ptr %255, align 1
   %.not.i.i160 = icmp eq i8 %.val.i.i159, -1
@@ -7696,7 +7696,7 @@ declare void @_err_msg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @exopname(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbputc(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc void @agxbputc.retelim(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -7737,7 +7737,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit
 17:                                               ; preds = %14
   %18 = load ptr, ptr @stderr, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.106, i64 noundef %spec.select33.i) #25
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 20:                                               ; preds = %14
@@ -7758,7 +7758,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit
 27:                                               ; preds = %.thread
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.106, i64 noundef 62) #25
-  tail call fastcc void @graphviz_exit() #29
+  tail call fastcc void @graphviz_exit.argelim() #29
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %.thread
@@ -7808,7 +7808,7 @@ gv_calloc.exit.i:                                 ; preds = %.thread
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #17 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #17 {
   tail call void @exit(i32 noundef 1) #30
   unreachable
 }

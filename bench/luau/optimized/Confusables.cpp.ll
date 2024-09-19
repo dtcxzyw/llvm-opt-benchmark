@@ -25,13 +25,13 @@ _ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPK
   %.112.i.i = select i1 %5, i64 %8, i64 %2
   %.1.i.i = select i1 %5, ptr %6, ptr %.05.i.i
   %9 = icmp sgt i64 %.112.i.i, 0
-  br i1 %9, label %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit", !llvm.loop !5
+  br i1 %9, label %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.argprom.exit", !llvm.loop !5
 
-"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit": ; preds = %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i
+"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.argprom.exit": ; preds = %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i
   %.not = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZN4LuauL12kConfusablesE, i64 14288)
   br i1 %.not, label %15, label %10
 
-10:                                               ; preds = %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit"
+10:                                               ; preds = %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.argprom.exit"
   %11 = load i24, ptr %.1.i.i, align 4
   %12 = zext i24 %11 to i32
   %13 = icmp eq i32 %0, %12
@@ -39,8 +39,8 @@ _ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPK
   %spec.select = select i1 %13, ptr %14, ptr null
   br label %15
 
-15:                                               ; preds = %10, %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit"
-  %16 = phi ptr [ null, %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit" ], [ %spec.select, %10 ]
+15:                                               ; preds = %10, %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.argprom.exit"
+  %16 = phi ptr [ null, %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.argprom.exit" ], [ %spec.select, %10 ]
   ret ptr %16
 }
 

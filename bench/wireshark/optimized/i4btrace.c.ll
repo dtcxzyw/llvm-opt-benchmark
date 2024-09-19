@@ -280,7 +280,7 @@ define internal i32 @i4btrace_read(ptr nocapture noundef readonly %0, ptr nocapt
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %10, align 8
-  %11 = tail call fastcc i32 @i4b_read_rec(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %11 = tail call fastcc i32 @i4b_read_rec.argprom(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %11
 }
 
@@ -296,7 +296,7 @@ define internal range(i32 0, 2) i32 @i4btrace_seek_read(ptr nocapture noundef re
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc i32 @i4b_read_rec(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %14 = tail call fastcc i32 @i4b_read_rec.argprom(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %19
 
@@ -331,7 +331,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @i4b_read_rec(ptr nocapture readonly %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @i4b_read_rec.argprom(ptr nocapture readonly %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.i4b_trace_hdr_t, align 4
   %7 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 32, ptr noundef %3, ptr noundef %4) #4
   %.not = icmp eq i32 %7, 0

@@ -390,24 +390,24 @@ if.then.i:                                        ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %next
   %0 = load atomic i32, ptr %work.i.i seq_cst, align 4
   %cmp.i.not1.i = icmp eq i32 %0, 0
-  br i1 %cmp.i.not1.i, label %while.body.i, label %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.exit"
+  br i1 %cmp.i.not1.i, label %while.body.i, label %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.argprom.exit"
 
 while.body.i:                                     ; preds = %while.body, %while.body.i
   call void @_ZNSt3_V222condition_variable_any4waitISt5mutexEEvRT_(ptr noundef nonnull align 8 dereferenceable(64) %cv, ptr noundef nonnull align 8 dereferenceable(40) @_ZL7workers)
   %1 = load atomic i32, ptr %work.i.i seq_cst, align 4
   %cmp.i.not.i = icmp eq i32 %1, 0
-  br i1 %cmp.i.not.i, label %while.body.i, label %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.exit", !llvm.loop !7
+  br i1 %cmp.i.not.i, label %while.body.i, label %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.argprom.exit", !llvm.loop !7
 
-"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.exit": ; preds = %while.body.i, %while.body
+"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.argprom.exit": ; preds = %while.body.i, %while.body
   %call1.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL7workers) #20
   %2 = load atomic i32, ptr %work.i.i seq_cst, align 4
   %cmp = icmp eq i32 %2, 2
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.exit"
+if.then:                                          ; preds = %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.argprom.exit"
   ret void
 
-if.end:                                           ; preds = %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.exit"
+if.end:                                           ; preds = %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.argprom.exit"
   %call1 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
   %3 = load i32, ptr %ms, align 4
   %conv.i = zext i32 %3 to i64

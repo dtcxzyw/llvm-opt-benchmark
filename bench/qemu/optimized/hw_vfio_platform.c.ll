@@ -844,7 +844,7 @@ for.end:                                          ; preds = %for.cond, %trace_vf
   %pending_intp_queue = getelementptr i8, ptr %vbasedev, i64 168
   %14 = load ptr, ptr %pending_intp_queue, align 8
   %cmp10 = icmp eq ptr %14, null
-  br i1 %cmp10, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then12
+  br i1 %cmp10, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then12
 
 if.then12:                                        ; preds = %for.end
   %pin.i = getelementptr inbounds i8, ptr %14, i64 60
@@ -906,9 +906,9 @@ if.then21:                                        ; preds = %vfio_intp_inject_pe
 
 if.end25:                                         ; preds = %if.then21, %vfio_intp_inject_pending_lockheld.exit
   store ptr null, ptr %pqnext, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end25, %for.end
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end25, %for.end
   tail call void @qemu_mutex_unlock_impl(ptr noundef %intp_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #15
   ret void
 }
@@ -1020,13 +1020,13 @@ trace_vfio_platform_intp_mmap_enable.exit:        ; preds = %if.then, %land.lhs.
   %conv4 = zext i32 %11 to i64
   %add = add nsw i64 %div.i, %conv4
   tail call void @timer_mod(ptr noundef %10, i64 noundef %add) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 for.end:                                          ; preds = %for.cond
   %num_regions.i = getelementptr inbounds i8, ptr %opaque, i64 932
   %12 = load i32, ptr %num_regions.i, align 4
   %cmp4.not.i = icmp eq i32 %12, 0
-  br i1 %cmp4.not.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body.lr.ph.i
+  br i1 %cmp4.not.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
   %regions.i = getelementptr inbounds i8, ptr %opaque, i64 968
@@ -1042,9 +1042,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %inc.i = add nuw i32 %i.05.i, 1
   %15 = load i32, ptr %num_regions.i, align 4
   %cmp.i = icmp ult i32 %inc.i, %15
-  br i1 %cmp.i, label %for.body.i, label %glib_autoptr_cleanup_QemuLockable.exit, !llvm.loop !15
+  br i1 %cmp.i, label %for.body.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, !llvm.loop !15
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.i, %for.end, %trace_vfio_platform_intp_mmap_enable.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body.i, %for.end, %trace_vfio_platform_intp_mmap_enable.exit
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %intp_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #15
   ret void
 }
@@ -1161,7 +1161,7 @@ trace_vfio_intp_interrupt_set_pending.exit:       ; preds = %if.then11, %land.lh
   %interrupt = getelementptr inbounds i8, ptr %intp, i64 24
   %13 = load ptr, ptr %interrupt, align 8
   %call17 = tail call i32 @event_notifier_test_and_clear(ptr noundef %13) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end18:                                         ; preds = %for.cond, %entry
   %pin19 = getelementptr inbounds i8, ptr %intp, i64 60
@@ -1245,7 +1245,7 @@ vfio_mmap_set_enabled.exit:                       ; preds = %for.body.i, %if.end
   %mmap_timeout = getelementptr inbounds i8, ptr %0, i64 1012
   %29 = load i32, ptr %mmap_timeout, align 4
   %tobool31.not = icmp eq i32 %29, 0
-  br i1 %tobool31.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then32
+  br i1 %tobool31.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then32
 
 if.then32:                                        ; preds = %vfio_mmap_set_enabled.exit
   %mmap_timer = getelementptr inbounds i8, ptr %0, i64 1016
@@ -1256,9 +1256,9 @@ if.then32:                                        ; preds = %vfio_mmap_set_enabl
   %conv35 = zext i32 %31 to i64
   %add = add nsw i64 %div.i, %conv35
   tail call void @timer_mod(ptr noundef %30, i64 noundef %add) #15
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %vfio_mmap_set_enabled.exit, %if.then32, %trace_vfio_intp_interrupt_set_pending.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %vfio_mmap_set_enabled.exit, %if.then32, %trace_vfio_intp_interrupt_set_pending.exit
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %intp_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #15
   ret void
 }

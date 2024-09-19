@@ -96,7 +96,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %44
 25:                                               ; preds = %21
   store ptr null, ptr %7, align 8
   %26 = load ptr, ptr %6, align 8
-  %27 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %26, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
+  %27 = call fastcc i32 @create_app.argprom(ptr noundef %0, ptr noundef %26, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not32 = icmp eq i32 %27, 0
   br i1 %.not32, label %28, label %.sink.split
 
@@ -148,7 +148,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %44
 50:                                               ; preds = %._crit_edge
   store ptr null, ptr %7, align 8
   %51 = load ptr, ptr %6, align 8
-  %52 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %51, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
+  %52 = call fastcc i32 @create_app.argprom(ptr noundef %0, ptr noundef %51, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not29 = icmp eq i32 %52, 0
   br i1 %.not29, label %53, label %68
 
@@ -196,7 +196,7 @@ declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_app(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @create_app.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [4097 x i8], align 16
   %8 = alloca %struct.pmix_cli_result_t, align 8
   %9 = alloca %struct.pmix_value, align 8
@@ -308,7 +308,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
 
 60:                                               ; preds = %59, %54
   %.not22.i = icmp eq ptr %56, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %61
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %61
 
 61:                                               ; preds = %60
   %62 = call i32 @pthread_mutex_init(ptr noundef nonnull %56, ptr noundef null) #13
@@ -323,7 +323,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_pmix_app_t_class, i64 40), align 8
   %68 = load ptr, ptr %67, align 8
   %.not6.i.i = icmp eq ptr %68, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %61, %.lr.ph.i.i
   %69 = phi ptr [ %71, %.lr.ph.i.i ], [ %68, %61 ]
@@ -332,9 +332,9 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   %70 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !6
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %61
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %60, %61
   %72 = load ptr, ptr %51, align 8
   %73 = call ptr @PMIx_Argv_copy(ptr noundef %72) #13
   %74 = getelementptr inbounds i8, ptr %56, i64 144
@@ -347,8 +347,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   %.not10.i = icmp eq ptr %.09.i, %77
   br i1 %.not10.i, label %pmix_cmd_line_get_param.exit.thread, label %.lr.ph.i211
 
-.lr.ph.i211:                                      ; preds = %pmix_obj_new_tma.exit, %83
-  %.011.i = phi ptr [ %.0.i, %83 ], [ %.09.i, %pmix_obj_new_tma.exit ]
+.lr.ph.i211:                                      ; preds = %pmix_obj_new_tma.argprom.exit, %83
+  %.011.i = phi ptr [ %.0.i, %83 ], [ %.09.i, %pmix_obj_new_tma.argprom.exit ]
   %79 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull readonly dereferenceable(16) @.str.2) #16
@@ -377,8 +377,8 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i211
   %92 = zext i1 %91 to i8
   br label %pmix_cmd_line_get_param.exit.thread
 
-pmix_cmd_line_get_param.exit.thread:              ; preds = %83, %pmix_obj_new_tma.exit, %87
-  %.0 = phi i8 [ %92, %87 ], [ %76, %pmix_obj_new_tma.exit ], [ %76, %83 ]
+pmix_cmd_line_get_param.exit.thread:              ; preds = %83, %pmix_obj_new_tma.argprom.exit, %87
+  %.0 = phi i8 [ %92, %87 ], [ %76, %pmix_obj_new_tma.argprom.exit ], [ %76, %83 ]
   %93 = trunc i8 %.0 to i1
   br i1 %93, label %.thread, label %97
 
@@ -486,7 +486,7 @@ pmix_cmd_line_get_param.exit228:                  ; preds = %.lr.ph.i223
   br label %148
 
 .loopexit:                                        ; preds = %125, %pmix_cmd_line_get_param.exit220.thread
-  %140 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %8)
+  %140 = call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef %8)
   br i1 %140, label %141, label %145
 
 141:                                              ; preds = %.loopexit
@@ -1008,7 +1008,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare i32 @PMIx_Info_list_add(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0) unnamed_addr #6 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull readonly %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %.09.i = load ptr, ptr %3, align 8

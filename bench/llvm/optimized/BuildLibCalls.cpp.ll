@@ -559,7 +559,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   %72 = or i1 %70, %71
   %73 = call fastcc noundef zeroext i1 @_ZL13setWillReturnRN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %74 = or i1 %72, %73
-  %75 = call fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %75 = call fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %76 = or i1 %74, %75
   %77 = call fastcc noundef zeroext i1 @_ZL17setDoesNotCaptureRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 1)
   %78 = or i1 %76, %77
@@ -574,7 +574,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   br label %1348
 
 87:                                               ; preds = %35, %35
-  %88 = call fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %88 = call fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %89 = zext i1 %88 to i8
   %90 = or i8 %.0, %89
   br label %91
@@ -700,7 +700,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   br label %1348
 
 194:                                              ; preds = %35
-  %195 = call fastcc noundef zeroext i1 @_ZL13setArgNoUndefRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %195 = call fastcc noundef zeroext i1 @_ZL13setArgNoUndefRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %196 = zext i1 %195 to i8
   %197 = or i8 %.0, %196
   br label %198
@@ -824,7 +824,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   br label %1348
 
 301:                                              ; preds = %35
-  %302 = call fastcc noundef zeroext i1 @_ZL20setAlignedAllocParamRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %302 = call fastcc noundef zeroext i1 @_ZL20setAlignedAllocParamRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %303 = call fastcc noundef zeroext i1 @_ZL12setAllocSizeRN4llvm8FunctionEjSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 1, i64 0)
   %304 = or i1 %302, %303
   %305 = call fastcc noundef zeroext i1 @_ZL12setAllocKindRN4llvm8FunctionENS_11AllocFnKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef 41)
@@ -916,7 +916,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   %379 = or i1 %377, %378
   %380 = call fastcc noundef zeroext i1 @_ZL15setDoesNotAliasRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 0)
   %381 = or i1 %379, %380
-  %382 = call fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %382 = call fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %383 = or i1 %381, %382
   %384 = call fastcc noundef zeroext i1 @_ZL19setOnlyWritesMemoryRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 0)
   %385 = or i1 %383, %384
@@ -936,7 +936,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   %397 = or i1 %395, %396
   %398 = call fastcc noundef zeroext i1 @_ZL13setWillReturnRN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %399 = or i1 %397, %398
-  %400 = call fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %400 = call fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %401 = or i1 %399, %400
   %402 = call fastcc noundef zeroext i1 @_ZL19setOnlyWritesMemoryRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 0)
   %403 = or i1 %401, %402
@@ -986,7 +986,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   %440 = or i1 %438, %439
   %441 = call fastcc noundef zeroext i1 @_ZL12setAllocSizeRN4llvm8FunctionEjSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 1, i64 0)
   %442 = or i1 %440, %441
-  %443 = call fastcc noundef zeroext i1 @_ZL20setAlignedAllocParamRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %443 = call fastcc noundef zeroext i1 @_ZL20setAlignedAllocParamRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %444 = or i1 %442, %443
   %445 = call fastcc noundef zeroext i1 @_ZL33setOnlyAccessesInaccessibleMemoryRN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %446 = or i1 %444, %445
@@ -1033,7 +1033,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   %481 = call fastcc noundef zeroext i1 @_ZL14setAllocFamilyRN4llvm8FunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %479, i64 %480)
   %482 = call fastcc noundef zeroext i1 @_ZL12setAllocKindRN4llvm8FunctionENS_11AllocFnKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef 2)
   %483 = or i1 %481, %482
-  %484 = call fastcc noundef zeroext i1 @_ZL24setAllocatedPointerParamRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %484 = call fastcc noundef zeroext i1 @_ZL24setAllocatedPointerParamRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %485 = or i1 %483, %484
   %486 = call fastcc noundef zeroext i1 @_ZL12setAllocSizeRN4llvm8FunctionEjSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 1, i64 0)
   %487 = or i1 %485, %486
@@ -1049,7 +1049,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   %497 = or i1 %495, %496
   %498 = call fastcc noundef zeroext i1 @_ZL17setDoesNotCaptureRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 0)
   %499 = or i1 %497, %498
-  %500 = call fastcc noundef zeroext i1 @_ZL13setArgNoUndefRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %500 = call fastcc noundef zeroext i1 @_ZL13setArgNoUndefRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %501 = or i1 %499, %500
   %502 = zext i1 %501 to i8
   %503 = or i8 %.0, %502
@@ -1291,7 +1291,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   %703 = call fastcc noundef zeroext i1 @_ZL14setAllocFamilyRN4llvm8FunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %701, i64 %702)
   %704 = call fastcc noundef zeroext i1 @_ZL12setAllocKindRN4llvm8FunctionENS_11AllocFnKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef 4)
   %705 = or i1 %703, %704
-  %706 = call fastcc noundef zeroext i1 @_ZL24setAllocatedPointerParamRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %706 = call fastcc noundef zeroext i1 @_ZL24setAllocatedPointerParamRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %707 = or i1 %705, %706
   %708 = call fastcc noundef zeroext i1 @_ZL38setOnlyAccessesInaccessibleMemOrArgMemRN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %709 = or i1 %707, %708
@@ -1814,7 +1814,7 @@ _ZL14setNonLazyBindRN4llvm8FunctionE.exit:        ; preds = %31, %33
   br label %1348
 
 1138:                                             ; preds = %35
-  %1139 = call fastcc noundef zeroext i1 @_ZL13setArgNoUndefRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  %1139 = call fastcc noundef zeroext i1 @_ZL13setArgNoUndefRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %1140 = zext i1 %1139 to i8
   %1141 = or i8 %.0, %1140
   br label %1142
@@ -2224,7 +2224,7 @@ define internal fastcc noundef zeroext i1 @_ZL18setOnlyReadsMemoryRN4llvm8Functi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 0, i32 noundef 50) #7
   br i1 %2, label %4, label %3
 
@@ -2318,7 +2318,7 @@ _ZL14setArgsNoUndefRN4llvm8FunctionE.exit:        ; preds = %18, %_ZL13setRetNoU
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL13setArgNoUndefRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL13setArgNoUndefRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 1, i32 noundef 38) #7
   br i1 %2, label %4, label %3
 
@@ -2374,7 +2374,7 @@ define internal fastcc noundef zeroext i1 @_ZL18setRetDoesNotAliasRN4llvm8Functi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20setAlignedAllocParamRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL20setAlignedAllocParamRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 0, i32 noundef 1) #7
   br i1 %2, label %4, label %3
 
@@ -2476,7 +2476,7 @@ define internal fastcc noundef zeroext i1 @_ZL13setRetNoUndefRN4llvm8FunctionE(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24setAllocatedPointerParamRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL24setAllocatedPointerParamRN4llvm8FunctionEj.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 0, i32 noundef 2) #7
   br i1 %2, label %4, label %3
 
@@ -2701,7 +2701,7 @@ define dso_local { ptr, ptr } @_ZN4llvm18getOrInsertLibFuncEPNS_6ModuleERKNS_17T
   %8 = extractvalue { ptr, i64 } %6, 1
   %9 = tail call { ptr, ptr } @_ZN4llvm6Module19getOrInsertFunctionENS_9StringRefEPNS_12FunctionTypeENS_13AttributeListE(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr %7, i64 %8, ptr noundef %3, ptr %4) #7
   %10 = extractvalue { ptr, ptr } %9, 1
-  switch i32 %2, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit [
+  switch i32 %2, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit [
     i32 280, label %11
     i32 384, label %11
     i32 323, label %20
@@ -2723,15 +2723,15 @@ define dso_local { ptr, ptr } @_ZN4llvm18getOrInsertLibFuncEPNS_6ModuleERKNS_17T
   %14 = trunc i8 %.val.val to i1
   %15 = trunc i8 %.val.val21 to i1
   %16 = select i1 %14, i1 true, i1 %15
-  br i1 %16, label %17, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  br i1 %16, label %17, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit
 
 17:                                               ; preds = %11
   %18 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 0, i32 noundef 52) #7
-  br i1 %18, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %19
+  br i1 %18, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit, label %19
 
 19:                                               ; preds = %17
   tail call void @_ZN4llvm8Function12addParamAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 0, i32 noundef 52) #7
-  br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit
 
 20:                                               ; preds = %5, %5, %5, %5, %5, %5
   %.val17 = load ptr, ptr %1, align 8
@@ -2742,15 +2742,15 @@ define dso_local { ptr, ptr } @_ZN4llvm18getOrInsertLibFuncEPNS_6ModuleERKNS_17T
   %23 = trunc i8 %.val17.val to i1
   %24 = trunc i8 %.val17.val20 to i1
   %25 = select i1 %23, i1 true, i1 %24
-  br i1 %25, label %26, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  br i1 %25, label %26, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit
 
 26:                                               ; preds = %20
   %27 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 1, i32 noundef 52) #7
-  br i1 %27, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %28
+  br i1 %27, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit, label %28
 
 28:                                               ; preds = %26
   tail call void @_ZN4llvm8Function12addParamAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 1, i32 noundef 52) #7
-  br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit
 
 29:                                               ; preds = %5
   %.val18 = load ptr, ptr %1, align 8
@@ -2761,15 +2761,15 @@ define dso_local { ptr, ptr } @_ZN4llvm18getOrInsertLibFuncEPNS_6ModuleERKNS_17T
   %32 = trunc i8 %.val18.val to i1
   %33 = trunc i8 %.val18.val19 to i1
   %34 = select i1 %32, i1 true, i1 %33
-  br i1 %34, label %35, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  br i1 %34, label %35, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit
 
 35:                                               ; preds = %29
   %36 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 2, i32 noundef 52) #7
-  br i1 %36, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %37
+  br i1 %36, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit, label %37
 
 37:                                               ; preds = %35
   tail call void @_ZN4llvm8Function12addParamAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 2, i32 noundef 52) #7
-  br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit
 
 38:                                               ; preds = %5
   %.val22 = load ptr, ptr %1, align 8
@@ -2780,17 +2780,17 @@ define dso_local { ptr, ptr } @_ZN4llvm18getOrInsertLibFuncEPNS_6ModuleERKNS_17T
   %41 = trunc i8 %.val22.val to i1
   %42 = trunc i8 %.val22.val23 to i1
   %43 = select i1 %41, i1 true, i1 %42
-  br i1 %43, label %44, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  br i1 %43, label %44, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit
 
 44:                                               ; preds = %38
   %45 = tail call noundef zeroext i1 @_ZNK4llvm8Function15hasRetAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 52) #7
-  br i1 %45, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit, label %46
+  br i1 %45, label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit, label %46
 
 46:                                               ; preds = %44
   tail call void @_ZN4llvm8Function10addRetAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 52) #7
-  br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit
+  br label %_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit
 
-_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.exit: ; preds = %46, %44, %38, %37, %35, %29, %28, %26, %20, %19, %17, %11, %5
+_ZL13setArgExtAttrRN4llvm8FunctionEjRKNS_17TargetLibraryInfoEb.argprom.argprom.exit: ; preds = %46, %44, %38, %37, %35, %29, %28, %26, %20, %19, %17, %11, %5
   tail call void @_ZN4llvm31markRegisterParameterAttributesEPNS_8FunctionE(ptr noundef %10)
   ret { ptr, ptr } %9
 }

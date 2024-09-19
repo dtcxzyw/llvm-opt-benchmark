@@ -495,7 +495,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %161 = sext i32 %160 to i64
   %162 = urem i64 %156, %161
   %163 = getelementptr i32, ptr %158, i64 %162
-  br label %get_partition_for_tuple.exit.sink.split
+  br label %get_partition_for_tuple.argprom.exit.sink.split
 
 164:                                              ; preds = %146
   %165 = load i8, ptr %14, align 16
@@ -506,7 +506,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %168 = getelementptr inbounds i8, ptr %148, i64 48
   %169 = load i32, ptr %168, align 8
   %.not.i133 = icmp eq i32 %169, -1
-  br i1 %.not.i133, label %.thread.i129, label %get_partition_for_tuple.exit
+  br i1 %.not.i133, label %.thread.i129, label %get_partition_for_tuple.argprom.exit
 
 170:                                              ; preds = %164
   %171 = getelementptr inbounds i8, ptr %.0100.val127, i64 40
@@ -542,7 +542,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %192 = getelementptr inbounds i8, ptr %148, i64 40
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr i32, ptr %193, i64 %179
-  br label %get_partition_for_tuple.exit.sink.split
+  br label %get_partition_for_tuple.argprom.exit.sink.split
 
 195:                                              ; preds = %._crit_edge223, %170
   %196 = phi i64 [ %.pre, %._crit_edge223 ], [ %.pre224, %170 ]
@@ -621,7 +621,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %243 = add i32 %224, 1
   %244 = sext i32 %243 to i64
   %245 = getelementptr i32, ptr %242, i64 %244
-  br label %get_partition_for_tuple.exit.sink.split
+  br label %get_partition_for_tuple.argprom.exit.sink.split
 
 246:                                              ; preds = %222
   %247 = icmp slt i32 %238, 0
@@ -654,7 +654,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %268 = getelementptr inbounds i8, ptr %148, i64 40
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr i32, ptr %269, i64 %255
-  br label %get_partition_for_tuple.exit.sink.split
+  br label %get_partition_for_tuple.argprom.exit.sink.split
 
 271:                                              ; preds = %253, %248, %246, %.critedge.i
   %272 = getelementptr inbounds i8, ptr %.0100.val, i64 40
@@ -688,7 +688,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
 
 .thread.i129:                                     ; preds = %.lr.ph.i130, %288, %203, %195, %167
   %290 = getelementptr inbounds i8, ptr %148, i64 52
-  br label %get_partition_for_tuple.exit.sink.split
+  br label %get_partition_for_tuple.argprom.exit.sink.split
 
 291:                                              ; preds = %288
   %292 = getelementptr inbounds i8, ptr %.0100.val127, i64 32
@@ -700,34 +700,34 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
 296:                                              ; preds = %291
   %297 = load i32, ptr %295, align 8
   %298 = add i32 %297, 1
-  br label %get_partition_for_tuple.exit.thread
+  br label %get_partition_for_tuple.argprom.exit.thread
 
 299:                                              ; preds = %291
   %300 = getelementptr inbounds i8, ptr %.0100.val127, i64 36
   store i32 %.092.i, ptr %300, align 4
   store i32 %.091.i, ptr %292, align 8
-  br label %get_partition_for_tuple.exit.thread
+  br label %get_partition_for_tuple.argprom.exit.thread
 
-get_partition_for_tuple.exit.thread:              ; preds = %299, %296
+get_partition_for_tuple.argprom.exit.thread:      ; preds = %299, %296
   %.sink = phi i32 [ %298, %296 ], [ 1, %299 ]
   store i32 %.sink, ptr %295, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   br label %358
 
-get_partition_for_tuple.exit.sink.split:          ; preds = %.thread.i129, %267, %240, %191, %150
+get_partition_for_tuple.argprom.exit.sink.split:  ; preds = %.thread.i129, %267, %240, %191, %150
   %.sink253 = phi ptr [ %163, %150 ], [ %194, %191 ], [ %245, %240 ], [ %270, %267 ], [ %290, %.thread.i129 ]
   %301 = load i32, ptr %.sink253, align 4
-  br label %get_partition_for_tuple.exit
+  br label %get_partition_for_tuple.argprom.exit
 
-get_partition_for_tuple.exit:                     ; preds = %get_partition_for_tuple.exit.sink.split, %167
-  %.0.i128 = phi i32 [ %169, %167 ], [ %301, %get_partition_for_tuple.exit.sink.split ]
+get_partition_for_tuple.argprom.exit:             ; preds = %get_partition_for_tuple.argprom.exit.sink.split, %167
+  %.0.i128 = phi i32 [ %169, %167 ], [ %301, %get_partition_for_tuple.argprom.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %302 = icmp slt i32 %.0.i128, 0
   br i1 %302, label %303, label %358
 
-303:                                              ; preds = %get_partition_for_tuple.exit, %FormPartitionKeyDatum.exit
+303:                                              ; preds = %get_partition_for_tuple.argprom.exit, %FormPartitionKeyDatum.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
@@ -861,8 +861,8 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 335, ptr noundef nonnull @__func__.ExecFindPartition) #8
   unreachable
 
-358:                                              ; preds = %get_partition_for_tuple.exit.thread, %get_partition_for_tuple.exit
-  %.0.i128155 = phi i32 [ %.092.i, %get_partition_for_tuple.exit.thread ], [ %.0.i128, %get_partition_for_tuple.exit ]
+358:                                              ; preds = %get_partition_for_tuple.argprom.exit.thread, %get_partition_for_tuple.argprom.exit
+  %.0.i128155 = phi i32 [ %.092.i, %get_partition_for_tuple.argprom.exit.thread ], [ %.0.i128, %get_partition_for_tuple.argprom.exit ]
   %359 = getelementptr inbounds i8, ptr %65, i64 16
   %360 = load ptr, ptr %359, align 8
   %361 = zext nneg i32 %.0.i128155 to i64

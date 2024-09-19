@@ -258,12 +258,12 @@ entry:
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 %1() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %_curses_panel_bottom_panel_impl.exit, label %if.end.i
+  br i1 %tobool.not.i, label %_curses_panel_bottom_panel_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @panel_above(ptr noundef null) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %_curses_panel_bottom_panel_impl.exit, label %if.end3.i
+  br i1 %cmp.i, label %_curses_panel_bottom_panel_impl.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr @lop, align 8
@@ -286,19 +286,19 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 if.then6.i:                                       ; preds = %for.body.i.i
   %6 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.5) #3
-  br label %_curses_panel_bottom_panel_impl.exit
+  br label %_curses_panel_bottom_panel_impl.argprom.exit
 
 if.end7.i:                                        ; preds = %for.cond.i.i
   %7 = load i32, ptr %3, align 8
   %add.i.i.i = add i32 %7, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_curses_panel_bottom_panel_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_curses_panel_bottom_panel_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end7.i
   store i32 %add.i.i.i, ptr %3, align 8
-  br label %_curses_panel_bottom_panel_impl.exit
+  br label %_curses_panel_bottom_panel_impl.argprom.exit
 
-_curses_panel_bottom_panel_impl.exit:             ; preds = %entry, %if.end.i, %if.then6.i, %if.end7.i, %if.end.i.i.i
+_curses_panel_bottom_panel_impl.argprom.exit:     ; preds = %entry, %if.end.i, %if.then6.i, %if.end7.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ null, %if.then6.i ], [ null, %entry ], [ @_Py_NoneStruct, %if.end.i ], [ %3, %if.end7.i ], [ %3, %if.end.i.i.i ]
   ret ptr %retval.0.i
 }
@@ -311,14 +311,14 @@ entry:
   %2 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %2, align 8
   %cmp.i.not.i = icmp eq ptr %arg.val, %1
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %arg.val, ptr noundef %1) #3
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
   %3 = load ptr, ptr @PyCurses_API, align 8
   %4 = load ptr, ptr %3, align 8
   %tp_name = getelementptr inbounds i8, ptr %4, i64 24
@@ -326,7 +326,7 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, ptr noundef %5, ptr noundef nonnull %arg) #3
   br label %exit
 
-if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
+if.end:                                           ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
   %win1.i = getelementptr inbounds i8, ptr %arg, i64 16
   %6 = load ptr, ptr %win1.i, align 8
@@ -405,12 +405,12 @@ entry:
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 %1() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %_curses_panel_top_panel_impl.exit, label %if.end.i
+  br i1 %tobool.not.i, label %_curses_panel_top_panel_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @panel_below(ptr noundef null) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %_curses_panel_top_panel_impl.exit, label %if.end3.i
+  br i1 %cmp.i, label %_curses_panel_top_panel_impl.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr @lop, align 8
@@ -433,19 +433,19 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 if.then6.i:                                       ; preds = %for.body.i.i
   %6 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.7) #3
-  br label %_curses_panel_top_panel_impl.exit
+  br label %_curses_panel_top_panel_impl.argprom.exit
 
 if.end7.i:                                        ; preds = %for.cond.i.i
   %7 = load i32, ptr %3, align 8
   %add.i.i.i = add i32 %7, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_curses_panel_top_panel_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_curses_panel_top_panel_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end7.i
   store i32 %add.i.i.i, ptr %3, align 8
-  br label %_curses_panel_top_panel_impl.exit
+  br label %_curses_panel_top_panel_impl.argprom.exit
 
-_curses_panel_top_panel_impl.exit:                ; preds = %entry, %if.end.i, %if.then6.i, %if.end7.i, %if.end.i.i.i
+_curses_panel_top_panel_impl.argprom.exit:        ; preds = %entry, %if.end.i, %if.then6.i, %if.end7.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ null, %if.then6.i ], [ null, %entry ], [ @_Py_NoneStruct, %if.end.i ], [ %3, %if.end7.i ], [ %3, %if.end.i.i.i ]
   ret ptr %retval.0.i
 }
@@ -458,13 +458,13 @@ entry:
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 %1() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %_curses_panel_update_panels_impl.exit, label %if.end.i
+  br i1 %tobool.not.i, label %_curses_panel_update_panels_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   tail call void @update_panels() #3
-  br label %_curses_panel_update_panels_impl.exit
+  br label %_curses_panel_update_panels_impl.argprom.exit
 
-_curses_panel_update_panels_impl.exit:            ; preds = %entry, %if.end.i
+_curses_panel_update_panels_impl.argprom.exit:    ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ @_Py_NoneStruct, %if.end.i ], [ null, %entry ]
   ret ptr %retval.0.i
 }
@@ -728,7 +728,7 @@ entry:
   %self.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @panel_above(ptr noundef %self.val) #3
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_curses_panel_panel_above_impl.exit, label %if.end.i
+  br i1 %cmp.i, label %_curses_panel_panel_above_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr @lop, align 8
@@ -751,19 +751,19 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 if.then4.i:                                       ; preds = %for.body.i.i
   %5 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.5) #3
-  br label %_curses_panel_panel_above_impl.exit
+  br label %_curses_panel_panel_above_impl.argprom.exit
 
 if.end5.i:                                        ; preds = %for.cond.i.i
   %6 = load i32, ptr %2, align 8
   %add.i.i.i = add i32 %6, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_curses_panel_panel_above_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_curses_panel_panel_above_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end5.i
   store i32 %add.i.i.i, ptr %2, align 8
-  br label %_curses_panel_panel_above_impl.exit
+  br label %_curses_panel_panel_above_impl.argprom.exit
 
-_curses_panel_panel_above_impl.exit:              ; preds = %entry, %if.then4.i, %if.end5.i, %if.end.i.i.i
+_curses_panel_panel_above_impl.argprom.exit:      ; preds = %entry, %if.then4.i, %if.end5.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ null, %if.then4.i ], [ @_Py_NoneStruct, %entry ], [ %2, %if.end5.i ], [ %2, %if.end.i.i.i ]
   ret ptr %retval.0.i
 }
@@ -775,7 +775,7 @@ entry:
   %self.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @panel_below(ptr noundef %self.val) #3
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_curses_panel_panel_below_impl.exit, label %if.end.i
+  br i1 %cmp.i, label %_curses_panel_panel_below_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr @lop, align 8
@@ -798,19 +798,19 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 if.then4.i:                                       ; preds = %for.body.i.i
   %5 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.7) #3
-  br label %_curses_panel_panel_below_impl.exit
+  br label %_curses_panel_panel_below_impl.argprom.exit
 
 if.end5.i:                                        ; preds = %for.cond.i.i
   %6 = load i32, ptr %2, align 8
   %add.i.i.i = add i32 %6, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_curses_panel_panel_below_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_curses_panel_panel_below_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end5.i
   store i32 %add.i.i.i, ptr %2, align 8
-  br label %_curses_panel_panel_below_impl.exit
+  br label %_curses_panel_panel_below_impl.argprom.exit
 
-_curses_panel_panel_below_impl.exit:              ; preds = %entry, %if.then4.i, %if.end5.i, %if.end.i.i.i
+_curses_panel_panel_below_impl.argprom.exit:      ; preds = %entry, %if.then4.i, %if.end5.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ null, %if.then4.i ], [ @_Py_NoneStruct, %entry ], [ %2, %if.end5.i ], [ %2, %if.end.i.i.i ]
   ret ptr %retval.0.i
 }
@@ -975,15 +975,15 @@ if.end:                                           ; preds = %entry, %cond.end
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %cmp.i.not.i = icmp eq ptr %.val, %3
-  br i1 %cmp.i.not.i, label %if.end12, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end12, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef %3) #3
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   %.pre = load ptr, ptr %cond14, align 8
   br i1 %tobool3.i.not, label %if.then9, label %if.end12
 
-if.then9:                                         ; preds = %PyObject_TypeCheck.exit
+if.then9:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %5 = load ptr, ptr @PyCurses_API, align 8
   %6 = load ptr, ptr %5, align 8
   %tp_name = getelementptr inbounds i8, ptr %6, i64 24
@@ -991,8 +991,8 @@ if.then9:                                         ; preds = %PyObject_TypeCheck.
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.32, ptr noundef %7, ptr noundef %.pre) #3
   br label %exit
 
-if.end12:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
-  %8 = phi ptr [ %1, %if.end ], [ %.pre, %PyObject_TypeCheck.exit ]
+if.end12:                                         ; preds = %if.end, %PyObject_TypeCheck.argprom.exit
+  %8 = phi ptr [ %1, %if.end ], [ %.pre, %PyObject_TypeCheck.argprom.exit ]
   %call.i = call ptr @PyType_GetModuleState(ptr noundef %cls) #3
   %pan.i = getelementptr inbounds i8, ptr %self, i64 16
   %9 = load ptr, ptr %pan.i, align 8
@@ -1273,13 +1273,13 @@ entry:
   %1 = load i32, ptr %self.val, align 8
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_curses_panel_panel_window_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_curses_panel_panel_window_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %_curses_panel_panel_window_impl.exit
+  br label %_curses_panel_panel_window_impl.argprom.exit
 
-_curses_panel_panel_window_impl.exit:             ; preds = %entry, %if.end.i.i.i
+_curses_panel_panel_window_impl.argprom.exit:     ; preds = %entry, %if.end.i.i.i
   ret ptr %self.val
 }
 

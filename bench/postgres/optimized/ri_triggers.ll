@@ -129,14 +129,14 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i64 @RI_FKey_check_ins(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str, i32 noundef 1)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str, i32 noundef 1)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @RI_FKey_check(ptr noundef %3)
+  tail call fastcc void @RI_FKey_check.retelim(ptr noundef %3)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_CheckTrigger(ptr readonly %.8.val, ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #0 {
+define internal fastcc void @ri_CheckTrigger.argprom(ptr readonly %.8.val, ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %6, label %3
 
@@ -220,7 +220,7 @@ default.unreachable1:                             ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RI_FKey_check(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @RI_FKey_check.retelim(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.RI_QueryKey, align 4
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [262 x i8], align 16
@@ -255,7 +255,7 @@ define internal fastcc void @RI_FKey_check(ptr nocapture noundef readonly %0) un
   %28 = getelementptr inbounds i8, ptr %12, i64 168
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph.i, label %ri_NullCheck.exit.thread
+  br i1 %30, label %.lr.ph.i, label %ri_NullCheck.argprom.exit.thread
 
 .lr.ph.i:                                         ; preds = %23
   %31 = getelementptr inbounds i8, ptr %12, i64 236
@@ -297,16 +297,16 @@ slot_attisnull.exit.i:                            ; preds = %slot_getsomeattrs.e
   br i1 %49, label %34, label %._crit_edge.loopexit.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i:                           ; preds = %slot_attisnull.exit.i
-  br i1 %.012..i, label %ri_NullCheck.exit.thread, label %ri_NullCheck.exit
+  br i1 %.012..i, label %ri_NullCheck.argprom.exit.thread, label %ri_NullCheck.argprom.exit
 
-ri_NullCheck.exit:                                ; preds = %._crit_edge.loopexit.i
+ri_NullCheck.argprom.exit:                        ; preds = %._crit_edge.loopexit.i
   br i1 %..011.i, label %64, label %50
 
-ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexit.i, %23
+ri_NullCheck.argprom.exit.thread:                 ; preds = %._crit_edge.loopexit.i, %23
   tail call void @table_close(ptr noundef %27, i32 noundef 2) #11
   br label %149
 
-50:                                               ; preds = %ri_NullCheck.exit
+50:                                               ; preds = %ri_NullCheck.argprom.exit
   %51 = getelementptr inbounds i8, ptr %12, i64 164
   %52 = load i8, ptr %51, align 4
   switch i8 %52, label %64 [
@@ -332,7 +332,7 @@ ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexi
   tail call void @table_close(ptr noundef %27, i32 noundef 2) #11
   br label %149
 
-64:                                               ; preds = %ri_NullCheck.exit, %50
+64:                                               ; preds = %ri_NullCheck.argprom.exit, %50
   %65 = tail call i32 @SPI_connect() #11
   %.not = icmp eq i32 %65, 1
   br i1 %.not, label %69, label %66
@@ -525,7 +525,7 @@ quoteOneName.exit:                                ; preds = %118
   call void @table_close(ptr noundef nonnull %27, i32 noundef 2) #11
   br label %149
 
-149:                                              ; preds = %1, %148, %63, %ri_NullCheck.exit.thread
+149:                                              ; preds = %1, %148, %63, %ri_NullCheck.argprom.exit.thread
   ret void
 }
 
@@ -533,9 +533,9 @@ quoteOneName.exit:                                ; preds = %118
 define dso_local noundef i64 @RI_FKey_check_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.1, i32 noundef 2)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.1, i32 noundef 2)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @RI_FKey_check(ptr noundef %3)
+  tail call fastcc void @RI_FKey_check.retelim(ptr noundef %3)
   ret i64 0
 }
 
@@ -543,14 +543,14 @@ define dso_local noundef i64 @RI_FKey_check_upd(ptr nocapture noundef readonly %
 define dso_local noundef i64 @RI_FKey_noaction_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.2, i32 noundef 3)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.2, i32 noundef 3)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_restrict(ptr noundef %3, i1 noundef zeroext true)
+  tail call fastcc void @ri_restrict.retelim(ptr noundef %3, i1 noundef zeroext true)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_restrict(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @ri_restrict.retelim(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.RI_QueryKey, align 4
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca [262 x i8], align 16
@@ -984,9 +984,9 @@ quoteOneName.exit:                                ; preds = %164
 define dso_local noundef i64 @RI_FKey_restrict_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.3, i32 noundef 3)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.3, i32 noundef 3)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_restrict(ptr noundef %3, i1 noundef zeroext false)
+  tail call fastcc void @ri_restrict.retelim(ptr noundef %3, i1 noundef zeroext false)
   ret i64 0
 }
 
@@ -994,9 +994,9 @@ define dso_local noundef i64 @RI_FKey_restrict_del(ptr nocapture noundef readonl
 define dso_local noundef i64 @RI_FKey_noaction_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.4, i32 noundef 2)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.4, i32 noundef 2)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_restrict(ptr noundef %3, i1 noundef zeroext true)
+  tail call fastcc void @ri_restrict.retelim(ptr noundef %3, i1 noundef zeroext true)
   ret i64 0
 }
 
@@ -1004,9 +1004,9 @@ define dso_local noundef i64 @RI_FKey_noaction_upd(ptr nocapture noundef readonl
 define dso_local noundef i64 @RI_FKey_restrict_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.5, i32 noundef 2)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.5, i32 noundef 2)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_restrict(ptr noundef %3, i1 noundef zeroext false)
+  tail call fastcc void @ri_restrict.retelim(ptr noundef %3, i1 noundef zeroext false)
   ret i64 0
 }
 
@@ -1020,7 +1020,7 @@ define dso_local noundef i64 @RI_FKey_cascade_del(ptr nocapture noundef readonly
   %7 = alloca [32 x i32], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %9, ptr noundef nonnull @.str.6, i32 noundef 3)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %9, ptr noundef nonnull @.str.6, i32 noundef 3)
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1437,19 +1437,19 @@ get_ri_constraint_root.exit.i:                    ; preds = %66
   %114 = getelementptr inbounds i8, ptr %29, i64 688
   %115 = load ptr, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 8), align 8
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %.dlist_push_tail.exit_crit_edge.i.i
+  br i1 %116, label %117, label %.dlist_push_tail.argprom.exit_crit_edge.i.i
 
-.dlist_push_tail.exit_crit_edge.i.i:              ; preds = %79
+.dlist_push_tail.argprom.exit_crit_edge.i.i:      ; preds = %79
   %.pre.i.pre.i.i = load ptr, ptr @ri_constraint_cache_valid_list, align 8
-  br label %dclist_push_tail.exit.i
+  br label %dclist_push_tail.argprom.exit.i
 
 117:                                              ; preds = %79
   store ptr @ri_constraint_cache_valid_list, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 8), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @ri_constraint_cache_valid_list, i64 16), align 8
-  br label %dclist_push_tail.exit.i
+  br label %dclist_push_tail.argprom.exit.i
 
-dclist_push_tail.exit.i:                          ; preds = %117, %.dlist_push_tail.exit_crit_edge.i.i
-  %.pre.i.i.i = phi ptr [ %.pre.i.pre.i.i, %.dlist_push_tail.exit_crit_edge.i.i ], [ @ri_constraint_cache_valid_list, %117 ]
+dclist_push_tail.argprom.exit.i:                  ; preds = %117, %.dlist_push_tail.argprom.exit_crit_edge.i.i
+  %.pre.i.i.i = phi ptr [ %.pre.i.pre.i.i, %.dlist_push_tail.argprom.exit_crit_edge.i.i ], [ @ri_constraint_cache_valid_list, %117 ]
   %118 = getelementptr inbounds i8, ptr %29, i64 696
   store ptr @ri_constraint_cache_valid_list, ptr %118, align 8
   store ptr %.pre.i.i.i, ptr %114, align 8
@@ -1462,7 +1462,7 @@ dclist_push_tail.exit.i:                          ; preds = %117, %.dlist_push_t
   store i8 1, ptr %32, align 4
   br label %ri_LoadConstraintInfo.exit
 
-ri_LoadConstraintInfo.exit:                       ; preds = %34, %dclist_push_tail.exit.i
+ri_LoadConstraintInfo.exit:                       ; preds = %34, %dclist_push_tail.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %122 = getelementptr inbounds i8, ptr %29, i64 88
@@ -1814,7 +1814,7 @@ define internal fastcc zeroext i1 @ri_PerformCheck(ptr noundef %0, ptr nocapture
   br i1 %.not, label %79, label %20
 
 20:                                               ; preds = %9
-  br i1 %19, label %.lr.ph.i, label %ri_ExtractValues.exit
+  br i1 %19, label %.lr.ph.i, label %ri_ExtractValues.argprom.exit
 
 .lr.ph.i:                                         ; preds = %20
   %..i = select i1 %.not74, i64 236, i64 172
@@ -1858,19 +1858,19 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = sext i32 %32 to i64
   %46 = icmp slt i64 %indvars.iv.next.i, %45
-  br i1 %46, label %25, label %ri_ExtractValues.exit, !llvm.loop !12
+  br i1 %46, label %25, label %ri_ExtractValues.argprom.exit, !llvm.loop !12
 
-ri_ExtractValues.exit:                            ; preds = %slot_getattr.exit.i, %20
+ri_ExtractValues.argprom.exit:                    ; preds = %slot_getattr.exit.i, %20
   %47 = phi i32 [ %18, %20 ], [ %32, %slot_getattr.exit.i ]
   %.not56 = icmp eq ptr %5, null
-  br i1 %.not56, label %ri_ExtractValues.exit66, label %48
+  br i1 %.not56, label %ri_ExtractValues.argprom.exit66, label %48
 
-48:                                               ; preds = %ri_ExtractValues.exit
+48:                                               ; preds = %ri_ExtractValues.argprom.exit
   %49 = sext i32 %47 to i64
   %50 = getelementptr i64, ptr %12, i64 %49
   %51 = getelementptr i8, ptr %13, i64 %49
   %52 = icmp sgt i32 %47, 0
-  br i1 %52, label %.lr.ph.i60, label %ri_ExtractValues.exit66
+  br i1 %52, label %.lr.ph.i60, label %ri_ExtractValues.argprom.exit66
 
 .lr.ph.i60:                                       ; preds = %48
   %..i61 = select i1 %.not74, i64 236, i64 172
@@ -1914,10 +1914,10 @@ slot_getattr.exit.i63:                            ; preds = %slot_getsomeattrs.e
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i62, 1
   %77 = sext i32 %64 to i64
   %78 = icmp slt i64 %indvars.iv.next.i64, %77
-  br i1 %78, label %57, label %ri_ExtractValues.exit66, !llvm.loop !12
+  br i1 %78, label %57, label %ri_ExtractValues.argprom.exit66, !llvm.loop !12
 
 79:                                               ; preds = %9
-  br i1 %19, label %.lr.ph.i67, label %ri_ExtractValues.exit66
+  br i1 %19, label %.lr.ph.i67, label %ri_ExtractValues.argprom.exit66
 
 .lr.ph.i67:                                       ; preds = %79
   %..i68 = select i1 %.not74, i64 236, i64 172
@@ -1961,23 +1961,23 @@ slot_getattr.exit.i70:                            ; preds = %slot_getsomeattrs.e
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i69, 1
   %104 = sext i32 %91 to i64
   %105 = icmp slt i64 %indvars.iv.next.i71, %104
-  br i1 %105, label %84, label %ri_ExtractValues.exit66, !llvm.loop !12
+  br i1 %105, label %84, label %ri_ExtractValues.argprom.exit66, !llvm.loop !12
 
-ri_ExtractValues.exit66:                          ; preds = %slot_getattr.exit.i63, %slot_getattr.exit.i70, %79, %48, %ri_ExtractValues.exit
+ri_ExtractValues.argprom.exit66:                  ; preds = %slot_getattr.exit.i63, %slot_getattr.exit.i70, %79, %48, %ri_ExtractValues.argprom.exit
   %106 = load i32, ptr @XactIsoLevel, align 4
   %107 = icmp sgt i32 %106, 1
   %brmerge.not = and i1 %7, %107
   br i1 %brmerge.not, label %108, label %111
 
-108:                                              ; preds = %ri_ExtractValues.exit66
+108:                                              ; preds = %ri_ExtractValues.argprom.exit66
   tail call void @CommandCounterIncrement() #11
   %109 = tail call ptr @GetLatestSnapshot() #11
   %110 = tail call ptr @GetTransactionSnapshot() #11
   br label %111
 
-111:                                              ; preds = %ri_ExtractValues.exit66, %108
-  %.049 = phi ptr [ %109, %108 ], [ null, %ri_ExtractValues.exit66 ]
-  %.048 = phi ptr [ %110, %108 ], [ null, %ri_ExtractValues.exit66 ]
+111:                                              ; preds = %ri_ExtractValues.argprom.exit66, %108
+  %.049 = phi ptr [ %109, %108 ], [ null, %ri_ExtractValues.argprom.exit66 ]
+  %.048 = phi ptr [ %110, %108 ], [ null, %ri_ExtractValues.argprom.exit66 ]
   %112 = icmp eq i32 %8, 5
   call void @GetUserIdAndSecContext(ptr noundef nonnull %10, ptr noundef nonnull %11) #11
   %113 = getelementptr inbounds i8, ptr %., i64 56
@@ -2061,7 +2061,7 @@ define dso_local noundef i64 @RI_FKey_cascade_upd(ptr nocapture noundef readonly
   %8 = alloca [64 x i32], align 16
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %10, ptr noundef nonnull @.str.16, i32 noundef 2)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %10, ptr noundef nonnull @.str.16, i32 noundef 2)
   %11 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2301,14 +2301,14 @@ declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) loca
 define dso_local noundef i64 @RI_FKey_setnull_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.20, i32 noundef 3)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.20, i32 noundef 3)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_set(ptr noundef %3, i1 noundef zeroext true, i32 noundef 3)
+  tail call fastcc void @ri_set.retelim(ptr noundef %3, i1 noundef zeroext true, i32 noundef 3)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_set(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #0 {
+define internal fastcc void @ri_set.retelim(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #0 {
   %4 = alloca %struct.RI_QueryKey, align 4
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca [262 x i8], align 16
@@ -2605,7 +2605,7 @@ quoteOneName.exit92:                              ; preds = %106
   br i1 %1, label %136, label %135
 
 135:                                              ; preds = %134
-  call fastcc void @ri_restrict(ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @ri_restrict.retelim(ptr noundef %0, i1 noundef zeroext true)
   br label %136
 
 136:                                              ; preds = %134, %135
@@ -2616,9 +2616,9 @@ quoteOneName.exit92:                              ; preds = %106
 define dso_local noundef i64 @RI_FKey_setnull_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.21, i32 noundef 2)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.21, i32 noundef 2)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_set(ptr noundef %3, i1 noundef zeroext true, i32 noundef 2)
+  tail call fastcc void @ri_set.retelim(ptr noundef %3, i1 noundef zeroext true, i32 noundef 2)
   ret i64 0
 }
 
@@ -2626,9 +2626,9 @@ define dso_local noundef i64 @RI_FKey_setnull_upd(ptr nocapture noundef readonly
 define dso_local noundef i64 @RI_FKey_setdefault_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.22, i32 noundef 3)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.22, i32 noundef 3)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_set(ptr noundef %3, i1 noundef zeroext false, i32 noundef 3)
+  tail call fastcc void @ri_set.retelim(ptr noundef %3, i1 noundef zeroext false, i32 noundef 3)
   ret i64 0
 }
 
@@ -2636,9 +2636,9 @@ define dso_local noundef i64 @RI_FKey_setdefault_del(ptr nocapture noundef reado
 define dso_local noundef i64 @RI_FKey_setdefault_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.23, i32 noundef 2)
+  tail call fastcc void @ri_CheckTrigger.argprom(ptr %.val, ptr noundef nonnull @.str.23, i32 noundef 2)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @ri_set(ptr noundef %3, i1 noundef zeroext false, i32 noundef 2)
+  tail call fastcc void @ri_set.retelim(ptr noundef %3, i1 noundef zeroext false, i32 noundef 2)
   ret i64 0
 }
 
@@ -2648,7 +2648,7 @@ define dso_local noundef zeroext i1 @RI_FKey_pk_upd_check_required(ptr nocapture
   %6 = getelementptr inbounds i8, ptr %5, i64 168
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph.i, label %ri_NullCheck.exit.thread
+  br i1 %8, label %.lr.ph.i, label %ri_NullCheck.argprom.exit.thread
 
 .lr.ph.i:                                         ; preds = %4
   %9 = getelementptr inbounds i8, ptr %5, i64 172
@@ -2688,7 +2688,7 @@ slot_attisnull.exit.i:                            ; preds = %slot_getsomeattrs.e
   br i1 %28, label %12, label %._crit_edge.loopexit.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i:                           ; preds = %slot_attisnull.exit.i
-  br i1 %26, label %29, label %ri_NullCheck.exit.thread
+  br i1 %26, label %29, label %ri_NullCheck.argprom.exit.thread
 
 29:                                               ; preds = %._crit_edge.loopexit.i
   %.not12 = icmp eq ptr %3, null
@@ -2696,18 +2696,18 @@ slot_attisnull.exit.i:                            ; preds = %slot_getsomeattrs.e
 
 30:                                               ; preds = %29
   %31 = tail call fastcc zeroext i1 @ri_KeysEqual(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, i1 noundef zeroext true)
-  br i1 %31, label %ri_NullCheck.exit.thread, label %32
+  br i1 %31, label %ri_NullCheck.argprom.exit.thread, label %32
 
 32:                                               ; preds = %30, %29
-  br label %ri_NullCheck.exit.thread
+  br label %ri_NullCheck.argprom.exit.thread
 
-ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexit.i, %4, %30, %32
+ri_NullCheck.argprom.exit.thread:                 ; preds = %._crit_edge.loopexit.i, %4, %30, %32
   %.0 = phi i1 [ true, %32 ], [ false, %30 ], [ false, %4 ], [ false, %._crit_edge.loopexit.i ]
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @ri_NullCheck(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @ri_NullCheck.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 168
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -3058,7 +3058,7 @@ define dso_local noundef zeroext i1 @RI_FKey_fk_upd_check_required(ptr nocapture
   %7 = getelementptr inbounds i8, ptr %6, i64 168
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph.i, label %ri_NullCheck.exit.thread
+  br i1 %9, label %.lr.ph.i, label %ri_NullCheck.argprom.exit.thread
 
 .lr.ph.i:                                         ; preds = %4
   %10 = getelementptr inbounds i8, ptr %6, i64 236
@@ -3100,23 +3100,23 @@ slot_attisnull.exit.i:                            ; preds = %slot_getsomeattrs.e
   br i1 %28, label %13, label %._crit_edge.loopexit.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i:                           ; preds = %slot_attisnull.exit.i
-  br i1 %.012..i, label %ri_NullCheck.exit.thread, label %ri_NullCheck.exit
+  br i1 %.012..i, label %ri_NullCheck.argprom.exit.thread, label %ri_NullCheck.argprom.exit
 
-ri_NullCheck.exit:                                ; preds = %._crit_edge.loopexit.i
+ri_NullCheck.argprom.exit:                        ; preds = %._crit_edge.loopexit.i
   br i1 %..011.i, label %33, label %29
 
-29:                                               ; preds = %ri_NullCheck.exit
+29:                                               ; preds = %ri_NullCheck.argprom.exit
   %30 = getelementptr inbounds i8, ptr %6, i64 164
   %31 = load i8, ptr %30, align 4
   switch i8 %31, label %33 [
-    i8 115, label %ri_NullCheck.exit.thread
+    i8 115, label %ri_NullCheck.argprom.exit.thread
     i8 102, label %32
   ]
 
 32:                                               ; preds = %29
-  br label %ri_NullCheck.exit.thread
+  br label %ri_NullCheck.argprom.exit.thread
 
-33:                                               ; preds = %ri_NullCheck.exit, %29
+33:                                               ; preds = %ri_NullCheck.argprom.exit, %29
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 40
@@ -3124,14 +3124,14 @@ ri_NullCheck.exit:                                ; preds = %._crit_edge.loopexi
   %38 = call i64 %37(ptr noundef %2, i32 noundef -2, ptr noundef nonnull %5) #11
   %39 = trunc i64 %38 to i32
   %40 = call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %39) #11
-  br i1 %40, label %ri_NullCheck.exit.thread, label %41
+  br i1 %40, label %ri_NullCheck.argprom.exit.thread, label %41
 
 41:                                               ; preds = %33
   %42 = call fastcc zeroext i1 @ri_KeysEqual(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %6, i1 noundef zeroext false)
   %not. = xor i1 %42, true
-  br label %ri_NullCheck.exit.thread
+  br label %ri_NullCheck.argprom.exit.thread
 
-ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexit.i, %4, %41, %33, %29, %32
+ri_NullCheck.argprom.exit.thread:                 ; preds = %._crit_edge.loopexit.i, %4, %41, %33, %29, %32
   %.0 = phi i1 [ true, %32 ], [ false, %29 ], [ true, %33 ], [ %not., %41 ], [ false, %4 ], [ false, %._crit_edge.loopexit.i ]
   ret i1 %.0
 }
@@ -3809,7 +3809,7 @@ quoteOneName.exit178:                             ; preds = %253
   br i1 %317, label %318, label %329
 
 318:                                              ; preds = %._crit_edge196
-  %319 = call fastcc i32 @ri_NullCheck(ptr noundef %302, ptr noundef nonnull %10, i1 noundef zeroext false)
+  %319 = call fastcc i32 @ri_NullCheck.argprom(ptr noundef %302, ptr noundef nonnull %10, i1 noundef zeroext false)
   %.not139 = icmp eq i32 %319, 2
   br i1 %.not139, label %329, label %320
 

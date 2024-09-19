@@ -954,7 +954,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
 155:                                              ; preds = %.loopexit
   %156 = getelementptr i8, ptr %.pn164, i64 64
   %.0121.val = load i32, ptr %156, align 4
-  tail call fastcc void @ir_dump_dessa_moves(ptr noundef %0, i32 noundef %.0165, i32 %.0121.val, ptr noundef %1)
+  tail call fastcc void @ir_dump_dessa_moves.argprom(ptr noundef %0, i32 noundef %.0165, i32 %.0121.val, ptr noundef %1)
   br label %157
 
 157:                                              ; preds = %.loopexit, %155
@@ -971,7 +971,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_dump_dessa_moves(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %.12.val, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @ir_dump_dessa_moves.argprom(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %.12.val, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %.12.val to i64
@@ -2194,7 +2194,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 300:                                              ; preds = %._crit_edge377
   %301 = getelementptr i8, ptr %.pn380, i64 64
   %.0287.val = load i32, ptr %301, align 4
-  tail call fastcc void @ir_dump_dessa_moves(ptr noundef nonnull %0, i32 noundef %.0286381, i32 %.0287.val, ptr noundef %1)
+  tail call fastcc void @ir_dump_dessa_moves.argprom(ptr noundef nonnull %0, i32 noundef %.0286381, i32 %.0287.val, ptr noundef %1)
   %.pre = load i32, ptr %52, align 4
   br label %302
 

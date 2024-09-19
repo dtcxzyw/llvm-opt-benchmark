@@ -1098,7 +1098,7 @@ get_CDR_ulong.exit:                               ; preds = %13, %15
 38:                                               ; preds = %25
   %39 = getelementptr i8, ptr %1, i64 408
   %.val = load ptr, ptr %39, align 8
-  tail call fastcc void @dissect_tk_enum_params(ptr noundef %0, ptr %.val, ptr noundef %34, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef %7)
+  tail call fastcc void @dissect_tk_enum_params.argprom(ptr noundef %0, ptr %.val, ptr noundef %34, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef %7)
   br label %79
 
 40:                                               ; preds = %25
@@ -3363,7 +3363,7 @@ get_CDR_ulong.exit:                               ; preds = %38, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tk_enum_params(ptr noundef %0, ptr %.408.val, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_tk_enum_params.argprom(ptr noundef %0, ptr %.408.val, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -4634,7 +4634,7 @@ make_printable_string.exit:                       ; preds = %149
   %161 = getelementptr inbounds i8, ptr %1, i64 208
   %162 = getelementptr inbounds i8, ptr %1, i64 284
   %163 = load i32, ptr %162, align 4
-  %164 = call fastcc ptr @insert_in_comp_req_list(ptr noundef %158, i32 noundef %160, i32 noundef %19, ptr noundef %99, ptr noundef nonnull %161, i32 noundef %163)
+  %164 = call fastcc ptr @insert_in_comp_req_list.argprom(ptr noundef %158, i32 noundef %160, i32 noundef %19, ptr noundef %99, ptr noundef nonnull %161, i32 noundef %163)
   store ptr %164, ptr @giop_complete_request_list, align 8
   br label %165
 
@@ -4879,7 +4879,7 @@ set_new_alignment.exit:                           ; preds = %._crit_edge.i, %61
   %78 = getelementptr inbounds i8, ptr %1, i64 208
   %79 = getelementptr inbounds i8, ptr %1, i64 284
   %80 = load i32, ptr %79, align 4
-  %81 = call fastcc ptr @insert_in_comp_req_list(ptr noundef %75, i32 noundef %77, i32 noundef %16, ptr noundef %50, ptr noundef nonnull %78, i32 noundef %80)
+  %81 = call fastcc ptr @insert_in_comp_req_list.argprom(ptr noundef %75, i32 noundef %77, i32 noundef %16, ptr noundef %50, ptr noundef nonnull %78, i32 noundef %80)
   store ptr %81, ptr @giop_complete_request_list, align 8
   br label %82
 
@@ -5478,7 +5478,7 @@ get_CDR_ulong.exit33:                             ; preds = %19, %21
   br label %43
 
 34:                                               ; preds = %32
-  call fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %2, ptr noundef %6, i32 noundef %4)
+  call fastcc void @decode_SystemExceptionReplyBody.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %6, i32 noundef %4)
   br label %43
 
 35:                                               ; preds = %32
@@ -5646,7 +5646,7 @@ get_CDR_ulong.exit99:                             ; preds = %37, %39
 
 .thread106:                                       ; preds = %.thread
   %66 = add i32 %65, -1
-  call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef %3, i32 noundef %66)
+  call fastcc void @decode_UnknownServiceContext.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef %3, i32 noundef %66)
   br label %113
 
 67:                                               ; preds = %57
@@ -5761,7 +5761,7 @@ decode_RTCorbaPriority.exit:                      ; preds = %102, %104
 
 111:                                              ; preds = %67
   %112 = add i32 %61, -1
-  call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef %3, i32 noundef %112)
+  call fastcc void @decode_UnknownServiceContext.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef %3, i32 noundef %112)
   br label %113
 
 113:                                              ; preds = %.thread, %.thread106, %111, %decode_RTCorbaPriority.exit, %decode_CodeSetServiceContext.exit, %57
@@ -6312,7 +6312,7 @@ decode_IIOP_IOR_profile.exit:                     ; preds = %219, %221, %193, %g
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @insert_in_comp_req_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @insert_in_comp_req_list.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call ptr @wmem_file_scope() #14
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 72) #14
   store i32 %1, ptr %8, align 8
@@ -6602,7 +6602,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, -1) %4) unnamed_addr #0 {
+define internal fastcc void @decode_UnknownServiceContext.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, -1) %4) unnamed_addr #0 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %32, label %.lr.ph.i
 
@@ -6883,7 +6883,7 @@ define internal fastcc void @dissect_reply_body(ptr noundef %0, i32 noundef %1, 
   ]
 
 12:                                               ; preds = %8
-  call fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %3, ptr noundef %10, i32 noundef %4)
+  call fastcc void @decode_SystemExceptionReplyBody.argelim(ptr noundef %0, ptr noundef %3, ptr noundef %10, i32 noundef %4)
   br label %.critedge77
 
 13:                                               ; preds = %8
@@ -7074,7 +7074,7 @@ get_CDR_ushort.exit:                              ; preds = %92, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @decode_SystemExceptionReplyBody.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.promoted.i.i = load i32, ptr %2, align 4
   %5 = and i32 %.promoted.i.i, 3
   %.not10.i.i = icmp eq i32 %5, 0

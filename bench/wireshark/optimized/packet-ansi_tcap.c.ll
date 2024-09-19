@@ -984,7 +984,7 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 32), align 8
   %23 = icmp ne ptr %22, null
   %or.cond.i = select i1 %21, i1 %23, i1 false
-  br i1 %or.cond.i, label %24, label %save_invoke_data.exit
+  br i1 %or.cond.i, label %24, label %save_invoke_data.argprom.exit
 
 24:                                               ; preds = %8
   %25 = load i32, ptr @ansi_tcap_response_matching_type, align 4
@@ -1024,12 +1024,12 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   %44 = getelementptr inbounds i8, ptr %7, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = tail call zeroext i1 @wmem_multimap_insert32(ptr noundef %41, ptr noundef %43, i32 noundef %45, ptr noundef nonnull %35) #4
-  br label %save_invoke_data.exit
+  br label %save_invoke_data.argprom.exit
 
 47:                                               ; preds = %3
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 32), align 8
   %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %save_invoke_data.exit, label %49
+  br i1 %.not.i, label %save_invoke_data.argprom.exit, label %49
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds i8, ptr %7, i64 408
@@ -1067,7 +1067,7 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   %70 = load i32, ptr %69, align 4
   %71 = tail call ptr @wmem_multimap_lookup32_le(ptr noundef %68, ptr noundef nonnull %58, i32 noundef %70) #4
   %.not19.i = icmp eq ptr %71, null
-  br i1 %.not19.i, label %save_invoke_data.exit, label %72
+  br i1 %.not19.i, label %save_invoke_data.argprom.exit, label %72
 
 72:                                               ; preds = %67
   %73 = load i32, ptr %71, align 4
@@ -1102,20 +1102,20 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
 
 proto_item_set_generated.exit:                    ; preds = %72, %81, %84
   store ptr %80, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 56), align 8
-  br label %save_invoke_data.exit
+  br label %save_invoke_data.argprom.exit
 
-save_invoke_data.exit:                            ; preds = %67, %47, %33, %8, %proto_item_set_generated.exit
+save_invoke_data.argprom.exit:                    ; preds = %67, %47, %33, %8, %proto_item_set_generated.exit
   %88 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 44), align 4
-  switch i32 %88, label %save_invoke_data.exit._crit_edge [
+  switch i32 %88, label %save_invoke_data.argprom.exit._crit_edge [
     i32 0, label %89
     i32 1, label %104
   ]
 
-save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.exit
+save_invoke_data.argprom.exit._crit_edge:         ; preds = %save_invoke_data.argprom.exit
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 52), align 4
   br label %125
 
-89:                                               ; preds = %save_invoke_data.exit
+89:                                               ; preds = %save_invoke_data.argprom.exit
   %90 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %91 = load ptr, ptr @ansi_tcap_national_opcode_table, align 8
   %92 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1135,7 +1135,7 @@ save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.ex
   %103 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %100, ptr noundef nonnull @ei_ansi_tcap_dissector_not_implemented, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.204, i32 noundef %101, i32 noundef %99, i32 noundef %102) #4
   br label %130
 
-104:                                              ; preds = %save_invoke_data.exit
+104:                                              ; preds = %save_invoke_data.argprom.exit
   %105 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 52), align 4
   %106 = and i32 %105, 65280
   %107 = icmp eq i32 %106, 2304
@@ -1164,8 +1164,8 @@ save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.ex
   %124 = tail call i32 @call_dissector_with_data(ptr noundef %119, ptr noundef %0, ptr noundef %121, ptr noundef %123, ptr noundef nonnull @ansi_tcap_private) #4
   br label %130
 
-125:                                              ; preds = %save_invoke_data.exit._crit_edge, %115
-  %126 = phi i32 [ %.pre, %save_invoke_data.exit._crit_edge ], [ %105, %115 ]
+125:                                              ; preds = %save_invoke_data.argprom.exit._crit_edge, %115
+  %126 = phi i32 [ %.pre, %save_invoke_data.argprom.exit._crit_edge ], [ %105, %115 ]
   %127 = getelementptr inbounds i8, ptr %1, i64 16
   %128 = load ptr, ptr %127, align 8
   %129 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %128, ptr noundef nonnull @ei_ansi_tcap_dissector_not_implemented, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.205, i32 noundef %126) #4

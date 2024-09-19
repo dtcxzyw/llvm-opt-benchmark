@@ -6620,7 +6620,7 @@ entry:
   %arrayidx.i121 = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %25, i64 %idxprom.i43
   %26 = load ptr, ptr %m_data.i48, align 8
   %arrayidx.i124 = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %26, i64 %idxprom.i49
-  %call44 = call fastcc noundef i32 @_ZL19clipHullAgainstHullRK9b3Vector3RK22b3ConvexPolyhedronDataS4_S1_RK12b3QuaternionS1_S7_PS_S8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiESC_SG_SJ_S8_i(ptr noundef nonnull align 16 dereferenceable(16) %hostNormal, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx.i121, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx.i124, ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 16 dereferenceable(16) %trAorn, ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i67, ptr noundef nonnull align 16 dereferenceable(16) %trBorn, ptr noundef %worldVertsB1, ptr noundef %worldVertsB2, i32 noundef 1024, float noundef -1.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %verticesA, ptr noundef nonnull align 8 dereferenceable(25) %facesA, ptr noundef nonnull align 8 dereferenceable(25) %indicesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr noundef nonnull align 8 dereferenceable(25) %facesB, ptr noundef nonnull align 8 dereferenceable(25) %indicesB, ptr noundef %contactsOut, i32 noundef 1024)
+  %call44 = call fastcc noundef i32 @_ZL19clipHullAgainstHullRK9b3Vector3RK22b3ConvexPolyhedronDataS4_S1_RK12b3QuaternionS1_S7_PS_S8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiESC_SG_SJ_S8_i.argelim(ptr noundef nonnull align 16 dereferenceable(16) %hostNormal, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx.i121, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx.i124, ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 16 dereferenceable(16) %trAorn, ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i67, ptr noundef nonnull align 16 dereferenceable(16) %trBorn, ptr noundef %worldVertsB1, ptr noundef %worldVertsB2, i32 noundef 1024, float noundef -1.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %verticesA, ptr noundef nonnull align 8 dereferenceable(25) %facesA, ptr noundef nonnull align 8 dereferenceable(25) %indicesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr noundef nonnull align 8 dereferenceable(25) %facesB, ptr noundef nonnull align 8 dereferenceable(25) %indicesB, ptr noundef %contactsOut, i32 noundef 1024)
   %cmp = icmp sgt i32 %call44, 0
   br i1 %cmp, label %if.then, label %if.end80
 
@@ -6768,7 +6768,7 @@ if.end80:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL19clipHullAgainstHullRK9b3Vector3RK22b3ConvexPolyhedronDataS4_S1_RK12b3QuaternionS1_S7_PS_S8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiESC_SG_SJ_S8_i(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %separatingNormal, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull %worldVertsB1, ptr nocapture noundef nonnull %worldVertsB2, i32 noundef range(i32 64, 1025) %capacityWorldVerts, float noundef %minDist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesB, ptr nocapture noundef nonnull writeonly %contactsOut, i32 noundef range(i32 64, 1025) %contactCapacity) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL19clipHullAgainstHullRK9b3Vector3RK22b3ConvexPolyhedronDataS4_S1_RK12b3QuaternionS1_S7_PS_S8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiESC_SG_SJ_S8_i.argelim(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %separatingNormal, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull %worldVertsB1, ptr nocapture noundef nonnull %worldVertsB2, i32 noundef range(i32 64, 1025) %capacityWorldVerts, float noundef %minDist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesB, ptr nocapture noundef nonnull writeonly %contactsOut, i32 noundef range(i32 64, 1025) %contactCapacity) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.72)
   %m_numFaces = getelementptr inbounds i8, ptr %hullB, i64 72
@@ -9730,11 +9730,11 @@ if.end74:                                         ; preds = %if.end60
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %sepNormal, align 16
   %120 = getelementptr inbounds i8, ptr %sepNormal, i64 8
   store <2 x float> zeroinitializer, ptr %120, align 8
-  %call98 = call fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_(ptr noundef nonnull align 16 dereferenceable(96) %arrayidx78, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx83, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 16 dereferenceable(16) %sepNormal)
+  %call98 = call fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_.argprom(ptr noundef nonnull align 16 dereferenceable(96) %arrayidx78, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx83, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 16 dereferenceable(16) %sepNormal)
   br i1 %call98, label %if.else100, label %if.end123
 
 if.else100:                                       ; preds = %if.end74
-  %call105 = call fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_(ptr noundef nonnull align 16 dereferenceable(96) %arrayidx83, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx78, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 16 dereferenceable(16) %sepNormal)
+  %call105 = call fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_.argprom(ptr noundef nonnull align 16 dereferenceable(96) %arrayidx83, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx78, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 16 dereferenceable(16) %sepNormal)
   br i1 %call105, label %if.else109, label %if.end123
 
 if.else109:                                       ; preds = %if.else100
@@ -9753,7 +9753,7 @@ if.end123:                                        ; preds = %if.else100, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullA, ptr noundef nonnull align 16 dereferenceable(96) %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB1, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdgesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdgesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesB, ptr nocapture noundef nonnull align 16 dereferenceable(16) %sep) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_.argprom(ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullA, ptr noundef nonnull align 16 dereferenceable(96) %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB1, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdgesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdgesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesB, ptr nocapture noundef nonnull align 16 dereferenceable(16) %sep) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %Min1.i220 = alloca float, align 4
   %Max1.i221 = alloca float, align 4
@@ -10941,7 +10941,7 @@ if.end62:                                         ; preds = %if.else58, %if.then
   %arrayidx69 = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %convexShapes, i64 %idxprom68
   %idxprom70 = sext i32 %91 to i64
   %arrayidx71 = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %convexShapes, i64 %idxprom70
-  %call74 = call fastcc noundef i32 @_ZL19clipHullAgainstHullRK9b3Vector3RK22b3ConvexPolyhedronDataS4_S1_RK12b3QuaternionS1_S7_PS_S8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiESC_SG_SJ_S8_i(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i131, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx69, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx71, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef %worldVertsB1, ptr noundef %worldVertsB2, i32 noundef 64, float noundef 0xC6293E5940000000, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %indices, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %indices, ptr noundef %localContactsOut, i32 noundef 64)
+  %call74 = call fastcc noundef i32 @_ZL19clipHullAgainstHullRK9b3Vector3RK22b3ConvexPolyhedronDataS4_S1_RK12b3QuaternionS1_S7_PS_S8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiESC_SG_SJ_S8_i.argelim(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i131, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx69, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx71, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef %worldVertsB1, ptr noundef %worldVertsB2, i32 noundef 64, float noundef 0xC6293E5940000000, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %indices, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %indices, ptr noundef %localContactsOut, i32 noundef 64)
   %cmp75 = icmp sgt i32 %call74, 0
   br i1 %cmp75, label %if.then76, label %if.end127
 
@@ -12334,7 +12334,7 @@ entry:
   %idxprom.i48 = sext i32 %colB.sroa.1.0.copyload to i64
   %arrayidx.i49 = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %2, i64 %idxprom.i48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %hullB, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx.i49, i64 96, i1 false)
-  %call10 = call fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_(ptr noundef nonnull align 16 dereferenceable(96) %hullA, ptr noundef nonnull align 16 dereferenceable(96) %hullB, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 8 dereferenceable(25) %convexVertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %convexVertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 16 dereferenceable(16) %sepNormalWorldSpace)
+  %call10 = call fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_.argprom(ptr noundef nonnull align 16 dereferenceable(96) %hullA, ptr noundef nonnull align 16 dereferenceable(96) %hullB, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 8 dereferenceable(25) %convexVertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %convexVertices, ptr noundef nonnull align 8 dereferenceable(25) %uniqueEdges, ptr noundef nonnull align 8 dereferenceable(25) %faces, ptr noundef nonnull align 16 dereferenceable(16) %sepNormalWorldSpace)
   br i1 %call10, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -25395,7 +25395,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.rh
   %dir.sroa.47.0.dir.i.sroa_idx.i = getelementptr inbounds i8, ptr %dir.i.i, i64 8
   store <2 x float> %dir.sroa.47.8.vec.insert124.i, ptr %dir.sroa.47.0.dir.i.sroa_idx.i, align 8
   %v1.i82.i = getelementptr inbounds i8, ptr %portal, i64 64
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i, ptr noundef nonnull %v1.i82.i)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexA, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i, ptr noundef nonnull %v1.i82.i)
   %mul.i.i83.i = fneg float %mul.i.i.i.i
   %mul2.i.i.i = fneg float %mul3.i.i.i.i
   %mul4.i.i.i = fneg float %mul5.i.i.i.i
@@ -25405,7 +25405,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.rh
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i86.i, ptr %dir.i.i, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i87.i, ptr %dir.sroa.47.0.dir.i.sroa_idx.i, align 8
   %v2.i88.i = getelementptr inbounds i8, ptr %portal, i64 80
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i, ptr noundef nonnull %v2.i88.i)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexB, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i, ptr noundef nonnull %v2.i88.i)
   %12 = load float, ptr %v1.i82.i, align 16
   %13 = load float, ptr %v2.i88.i, align 16
   %sub.i.i89.i = fsub float %12, %13
@@ -25496,7 +25496,7 @@ if.end30.i:                                       ; preds = %if.end16.i
   %dir.sroa.47.0.dir.i154.sroa_idx.i = getelementptr inbounds i8, ptr %dir.i154.i, i64 8
   store <2 x float> %dir.sroa.47.8.vec.insert134.i, ptr %dir.sroa.47.0.dir.i154.sroa_idx.i, align 8
   %v1.i155.i = getelementptr inbounds i8, ptr %portal, i64 112
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i154.i, ptr noundef nonnull %v1.i155.i)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexA, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i154.i, ptr noundef nonnull %v1.i155.i)
   %mul.i.i156.i = fneg float %mul.i.i.i150.i
   %mul2.i.i158.i = fneg float %mul3.i.i.i151.i
   %mul4.i.i160.i = fneg float %mul5.i.i.i152.i
@@ -25506,7 +25506,7 @@ if.end30.i:                                       ; preds = %if.end16.i
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i162.i, ptr %dir.i154.i, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i163.i, ptr %dir.sroa.47.0.dir.i154.sroa_idx.i, align 8
   %v2.i165.i = getelementptr inbounds i8, ptr %portal, i64 128
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i154.i, ptr noundef nonnull %v2.i165.i)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexB, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i154.i, ptr noundef nonnull %v2.i165.i)
   %37 = load float, ptr %v1.i155.i, align 16
   %38 = load float, ptr %v2.i165.i, align 16
   %sub.i.i166.i = fsub float %37, %38
@@ -25611,7 +25611,7 @@ while.body.i:                                     ; preds = %if.end108.i, %while
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dir.i246.i)
   store <2 x float> %dir.sroa.0.1180.i, ptr %dir.i246.i, align 16
   store <2 x float> %dir.sroa.47.1181.i, ptr %dir.sroa.47.0.dir.i246.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i246.i, ptr noundef nonnull %v1.i247.i)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i246.i, ptr noundef nonnull %v1.i247.i)
   %dir.sroa.0.0.vec.extract70.i = extractelement <2 x float> %dir.sroa.0.1180.i, i64 0
   %mul.i.i248.i = fneg float %dir.sroa.0.0.vec.extract70.i
   %dir.sroa.0.4.vec.extract110.i = extractelement <2 x float> %dir.sroa.0.1180.i, i64 1
@@ -25622,7 +25622,7 @@ while.body.i:                                     ; preds = %if.end108.i, %while
   %retval.sroa.3.12.vec.insert.i.i.i255.i237 = insertelement <2 x float> %64, float 0.000000e+00, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i254.i, ptr %dir.i246.i, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i255.i237, ptr %dir.sroa.47.0.dir.i246.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i246.i, ptr noundef nonnull %v2.i257.i)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i246.i, ptr noundef nonnull %v2.i257.i)
   %65 = load float, ptr %v1.i247.i, align 16
   %66 = load float, ptr %v2.i257.i, align 16
   %sub.i.i258.i = fsub float %65, %66
@@ -25815,7 +25815,7 @@ if.end.i46:                                       ; preds = %for.body.i
   store float %mul.i.i.i.i.i, ptr %dir.i.i33, align 16
   store float %mul3.i.i.i.i.i, ptr %dir.sroa.6.0.dir.i.sroa_idx.i, align 4
   store <2 x float> %dir.sroa.11.8.vec.insert.i, ptr %dir.sroa.11.0.dir.i.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i33, ptr noundef nonnull %v1.i.i35)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i33, ptr noundef nonnull %v1.i.i35)
   %mul.i.i.i = fneg float %mul.i.i.i.i.i
   %mul2.i.i.i47 = fneg float %mul3.i.i.i.i.i
   %mul4.i.i.i48 = fneg float %mul5.i.i.i.i.i42
@@ -25824,7 +25824,7 @@ if.end.i46:                                       ; preds = %for.body.i
   %retval.sroa.3.12.vec.insert.i.i.i.i51 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul4.i.i.i48, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i50, ptr %dir.i.i33, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i.i51, ptr %dir.sroa.11.0.dir.i.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i33, ptr noundef nonnull %v2.i.i36)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i33, ptr noundef nonnull %v2.i.i36)
   %140 = load float, ptr %v1.i.i35, align 16
   %141 = load float, ptr %v2.i.i36, align 16
   %sub.i.i.i52 = fsub float %140, %141
@@ -25847,7 +25847,7 @@ if.end.i46:                                       ; preds = %for.body.i
   %cmp.i.i13.i = fcmp uge float %148, 0x3E80000000000000
   %cmp.i14.i = fcmp ule float %147, 0.000000e+00
   %.not18.i = and i1 %cmp.i14.i, %cmp.i.i13.i
-  br i1 %.not18.i, label %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread, label %lor.lhs.false.i
+  br i1 %.not18.i, label %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.argprom.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i46
   %mul5.i.i.i18.i.i = fmul float %122, %mul3.i.i.i.i.i
@@ -25866,7 +25866,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i46
   %sub.i.i23.i = fadd float %cond16.i.i, 0xBEB0C6F7A0000000
   %153 = tail call noundef float @llvm.fabs.f32(float %sub.i.i23.i)
   %cmp.i.i24.i = fcmp olt float %153, 0x3E80000000000000
-  br i1 %cmp.i.i24.i, label %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread, label %if.end.i.i.i
+  br i1 %cmp.i.i24.i, label %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.argprom.exit.thread, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i
   %154 = tail call noundef float @llvm.fabs.f32(float %cond16.i.i)
@@ -25877,7 +25877,7 @@ if.end.i.i.i:                                     ; preds = %lor.lhs.false.i
   %retval.0.shrunk.i.i.i = select i1 %cmp4.i.i.i, i1 %cmp6.i.i.i, i1 %cmp8.i.i.i59
   %cmp18.i.i = fcmp uge float %cond16.i.i, 0x3EB0C6F7A0000000
   %.not19.i = and i1 %cmp18.i.i, %retval.0.shrunk.i.i.i
-  br i1 %.not19.i, label %if.end6.i, label %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread
+  br i1 %.not19.i, label %if.end6.i, label %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.argprom.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i.i.i
   %neg.i.i.i.i28.i = fmul float %sub7.i.i.i54, %117
@@ -25917,9 +25917,9 @@ _Z14b3ExpandPortalP15_b3MprSimplex_tPK15_b3MprSupport_t.exit.i: ; preds = %if.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %add.ptr.i29.sink.i.i, ptr noundef nonnull align 16 dereferenceable(48) %v4.i, i64 48, i1 false)
   %inc.i = add nuw nsw i32 %i.020.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 1000
-  br i1 %exitcond.not.i, label %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread, label %for.body.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.argprom.exit.thread, label %for.body.i, !llvm.loop !81
 
-_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread: ; preds = %if.end.i.i.i, %if.end.i46, %_Z14b3ExpandPortalP15_b3MprSimplex_tPK15_b3MprSupport_t.exit.i, %lor.lhs.false.i
+_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.argprom.exit.thread: ; preds = %if.end.i.i.i, %if.end.i46, %_Z14b3ExpandPortalP15_b3MprSimplex_tPK15_b3MprSupport_t.exit.i, %lor.lhs.false.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %v4.i)
   br label %return
 
@@ -25978,7 +25978,7 @@ for.body.i78:                                     ; preds = %_Z14b3ExpandPortalP
   store float %mul.i.i.i.i.i91, ptr %dir.i.i60, align 16
   store float %mul3.i.i.i.i.i92, ptr %dir.sroa.5.0.dir.i.sroa_idx.i, align 4
   store <2 x float> %dir.sroa.8.8.vec.insert.i, ptr %dir.sroa.8.0.dir.i.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i60, ptr noundef nonnull %v1.i.i71)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i60, ptr noundef nonnull %v1.i.i71)
   %mul.i.i.i94 = fneg float %mul.i.i.i.i.i91
   %mul2.i.i.i95 = fneg float %mul3.i.i.i.i.i92
   %mul4.i.i.i96 = fneg float %mul5.i.i.i.i.i93
@@ -25987,7 +25987,7 @@ for.body.i78:                                     ; preds = %_Z14b3ExpandPortalP
   %retval.sroa.3.12.vec.insert.i.i.i.i99 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul4.i.i.i96, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i98, ptr %dir.i.i60, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i.i99, ptr %dir.sroa.8.0.dir.i.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i60, ptr noundef nonnull %v2.i.i72)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i60, ptr noundef nonnull %v2.i.i72)
   %181 = load float, ptr %v1.i.i71, align 16
   %182 = load float, ptr %v2.i.i72, align 16
   %sub.i.i.i100 = fsub float %181, %182
@@ -26249,7 +26249,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %add5.i164.i.i = fadd float %p2.sroa.11.0291.i.i, %mul5.i.i157.i.i
   %inc.i.i = add nuw nsw i64 %i.0294.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.exit, label %for.body.i.i, !llvm.loop !82
+  br i1 %exitcond.not.i.i, label %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.argprom.exit, label %for.body.i.i, !llvm.loop !82
 
 if.end19.i:                                       ; preds = %if.end.i.i.i116
   %neg.i.i.i.i45.i = fmul float %sub7.i.i.i102, %117
@@ -26299,7 +26299,7 @@ _Z14b3ExpandPortalP15_b3MprSimplex_tPK15_b3MprSupport_t.exit.i127: ; preds = %if
   %.pre189 = load float, ptr %ref.tmp3.sroa.2.0.v.sroa_idx.i268.i, align 8
   br label %for.body.i78
 
-_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.exit: ; preds = %for.body.i.i
+_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.argprom.exit: ; preds = %for.body.i.i
   %div.i40.i = fdiv float 1.000000e+00, %sum.0.i.i
   %mul.i.i165.i.i = fmul float %div.i40.i, %add.i.i.i
   %mul3.i.i167.i.i = fmul float %div.i40.i, %add3.i.i.i
@@ -26406,8 +26406,8 @@ sw.default:                                       ; preds = %while.body.i, %if.e
   store i32 0, ptr %arrayidx, align 4
   br label %return
 
-return:                                           ; preds = %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread, %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.exit, %sw.bb8, %sw.bb9, %sw.default
-  %retval.0 = phi i32 [ -1, %sw.default ], [ 0, %sw.bb9 ], [ 0, %sw.bb8 ], [ 0, %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.exit ], [ -1, %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread ]
+return:                                           ; preds = %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.argprom.exit.thread, %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.argprom.exit, %sw.bb8, %sw.bb9, %sw.default
+  %retval.0 = phi i32 [ -1, %sw.default ], [ 0, %sw.bb9 ], [ 0, %sw.bb8 ], [ 0, %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.argprom.exit ], [ -1, %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.argprom.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -27693,7 +27693,7 @@ declare void @b3LeaveProfileZone() local_unnamed_addr #16
 declare float @sqrtf(float noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndex, ptr nocapture noundef readonly %cpuBodyBuf, ptr nocapture noundef readonly %cpuConvexData, ptr nocapture noundef readonly %cpuCollidables, ptr nocapture noundef readonly %cpuVertices, ptr nocapture noundef nonnull readonly %_dir, ptr nocapture noundef writeonly %outp) unnamed_addr #2 {
+define internal fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i.argprom.argelim(i32 noundef %bodyIndex, ptr nocapture noundef readonly %cpuBodyBuf, ptr nocapture noundef readonly %cpuConvexData, ptr nocapture noundef readonly %cpuCollidables, ptr nocapture noundef readonly %cpuVertices, ptr nocapture noundef nonnull readonly %_dir, ptr nocapture noundef writeonly %outp) unnamed_addr #2 {
 entry:
   %idxprom = sext i32 %bodyIndex to i64
   %arrayidx = getelementptr inbounds %struct.b3RigidBodyData, ptr %cpuBodyBuf, i64 %idxprom

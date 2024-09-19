@@ -1172,7 +1172,7 @@ if.else472.i:                                     ; preds = %if.else468.i
   br i1 %cmp474.i, label %if.then475.i, label %if.else477.i
 
 if.then475.i:                                     ; preds = %if.else472.i
-  call fastcc void @append_major_operation(ptr noundef %options, i32 noundef 35)
+  call fastcc void @append_major_operation.retelim(ptr noundef %options, i32 noundef 35)
   br label %parse_option.exit
 
 if.else477.i:                                     ; preds = %if.else472.i
@@ -1181,7 +1181,7 @@ if.else477.i:                                     ; preds = %if.else472.i
   br i1 %cmp479.i, label %if.then480.i, label %if.else482.i
 
 if.then480.i:                                     ; preds = %if.else477.i
-  call fastcc void @append_major_operation(ptr noundef %options, i32 noundef 36)
+  call fastcc void @append_major_operation.retelim(ptr noundef %options, i32 noundef 36)
   br label %parse_option.exit
 
 if.else482.i:                                     ; preds = %if.else477.i
@@ -1190,7 +1190,7 @@ if.else482.i:                                     ; preds = %if.else477.i
   br i1 %cmp484.i, label %if.then485.i, label %if.else487.i
 
 if.then485.i:                                     ; preds = %if.else482.i
-  call fastcc void @append_major_operation(ptr noundef %options, i32 noundef 37)
+  call fastcc void @append_major_operation.retelim(ptr noundef %options, i32 noundef 37)
   br label %parse_option.exit
 
 if.else487.i:                                     ; preds = %if.else482.i
@@ -1199,7 +1199,7 @@ if.else487.i:                                     ; preds = %if.else482.i
   br i1 %cmp489.i, label %if.then490.i, label %if.else492.i
 
 if.then490.i:                                     ; preds = %if.else487.i
-  call fastcc void @append_major_operation(ptr noundef %options, i32 noundef 38)
+  call fastcc void @append_major_operation.retelim(ptr noundef %options, i32 noundef 38)
   br label %parse_option.exit
 
 if.else492.i:                                     ; preds = %if.else487.i
@@ -1208,7 +1208,7 @@ if.else492.i:                                     ; preds = %if.else487.i
   br i1 %cmp494.i, label %if.then495.i, label %if.else497.i
 
 if.then495.i:                                     ; preds = %if.else492.i
-  call fastcc void @append_major_operation(ptr noundef %options, i32 noundef 39)
+  call fastcc void @append_major_operation.retelim(ptr noundef %options, i32 noundef 39)
   br label %parse_option.exit
 
 if.else497.i:                                     ; preds = %if.else492.i
@@ -1217,7 +1217,7 @@ if.else497.i:                                     ; preds = %if.else492.i
   br i1 %cmp499.i, label %if.then500.i, label %if.else502.i
 
 if.then500.i:                                     ; preds = %if.else497.i
-  call fastcc void @append_major_operation(ptr noundef %options, i32 noundef 40)
+  call fastcc void @append_major_operation.retelim(ptr noundef %options, i32 noundef 40)
   br label %parse_option.exit
 
 if.else502.i:                                     ; preds = %if.else497.i
@@ -2242,7 +2242,7 @@ return:                                           ; preds = %if.end54, %if.then5
 declare void @local_strcat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @append_major_operation(ptr nocapture noundef %options, i32 noundef range(i32 35, 41) %type) unnamed_addr #1 {
+define internal fastcc void @append_major_operation.retelim(ptr nocapture noundef %options, i32 noundef range(i32 35, 41) %type) unnamed_addr #1 {
 entry:
   %op = alloca %struct.Operation, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %op, i8 0, i64 48, i1 false)

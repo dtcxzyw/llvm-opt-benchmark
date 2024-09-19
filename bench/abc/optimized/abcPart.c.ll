@@ -135,7 +135,7 @@ define ptr @Supp_ManFetch(ptr nocapture noundef %0, i32 noundef %1) local_unname
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = add nsw i32 %9, 1
-  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %11, i32 noundef %12)
+  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %11, i32 noundef %12)
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr i8, ptr %13, i64 8
   %.val = load ptr, ptr %14, align 8
@@ -253,7 +253,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @Vec_PtrFillExtra.argprom(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -359,7 +359,7 @@ define void @Supp_ManRecycle(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %10, 1
-  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %12, i32 noundef %13)
+  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %12, i32 noundef %13)
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 8
   %.val = load ptr, ptr %15, align 8
@@ -678,7 +678,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_PtrAlloc.exit, 
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %.val46, i64 224
   %37 = add nsw i32 %.val47, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %36, i32 noundef %37)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %36, i32 noundef %37)
   %38 = getelementptr i8, ptr %.val46, i64 232
   %.val.i.i.i = load ptr, ptr %38, align 8
   %39 = sext i32 %.val47 to i64
@@ -1701,7 +1701,7 @@ Supp_ManMergeEntry.exit:                          ; preds = %.lr.ph58.i, %.prehe
   %135 = add nsw i32 %131, %134
   %136 = load ptr, ptr %35, align 8
   %137 = add nsw i32 %135, 1
-  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %136, i32 noundef %137)
+  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %136, i32 noundef %137)
   %138 = getelementptr i8, ptr %136, i64 8
   %.val.i.i = load ptr, ptr %138, align 8
   %139 = sext i32 %135 to i64
@@ -1733,7 +1733,7 @@ Supp_ManMergeEntry.exit:                          ; preds = %.lr.ph58.i, %.prehe
   %157 = add nsw i32 %153, %156
   %158 = load ptr, ptr %35, align 8
   %159 = add nsw i32 %157, 1
-  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %158, i32 noundef %159)
+  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %158, i32 noundef %159)
   %160 = getelementptr i8, ptr %158, i64 8
   %.val.i.i120 = load ptr, ptr %160, align 8
   %161 = sext i32 %157 to i64
@@ -1925,7 +1925,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %256 = add nsw i32 %252, %255
   %257 = load ptr, ptr %35, align 8
   %258 = add nsw i32 %256, 1
-  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %257, i32 noundef %258)
+  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %257, i32 noundef %258)
   %259 = getelementptr i8, ptr %257, i64 8
   %.val.i.i125 = load ptr, ptr %259, align 8
   %260 = sext i32 %256 to i64
@@ -3007,7 +3007,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %11
 .preheader.i:                                     ; preds = %.lr.ph13.i, %.preheader5.i
   %.2.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader5.i ], [ %46, %.lr.ph13.i ]
   %43 = icmp ult ptr %.036.lcssa.i, %22
-  br i1 %43, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.exit
+  br i1 %43, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.argprom.exit
 
 .lr.ph13.i:                                       ; preds = %.preheader5.i, %.lr.ph13.i
   %.212.i = phi ptr [ %46, %.lr.ph13.i ], [ %.0.lcssa.i, %.preheader5.i ]
@@ -3027,9 +3027,9 @@ Vec_IntAlloc.exit:                                ; preds = %2, %11
   %50 = getelementptr inbounds i8, ptr %.316.i, i64 4
   store i32 %49, ptr %.316.i, align 4
   %51 = icmp ult ptr %48, %22
-  br i1 %51, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.exit, !llvm.loop !33
+  br i1 %51, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.argprom.exit, !llvm.loop !33
 
-Vec_IntTwoMerge2Int.exit:                         ; preds = %.lr.ph17.i, %.preheader.i
+Vec_IntTwoMerge2Int.argprom.exit:                 ; preds = %.lr.ph17.i, %.preheader.i
   %.3.lcssa.i = phi ptr [ %.2.lcssa.i, %.preheader.i ], [ %50, %.lr.ph17.i ]
   %52 = load ptr, ptr %16, align 8
   %53 = ptrtoint ptr %.3.lcssa.i to i64
@@ -3160,14 +3160,14 @@ Abc_Clock.exit117:                                ; preds = %32, %39
   %61 = load i32, ptr %53, align 4
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv, %62
-  br i1 %63, label %Extra_ProgressBarUpdate.exit, label %64
+  br i1 %63, label %Extra_ProgressBarUpdate.argprom.exit, label %64
 
 64:                                               ; preds = %60, %57
   %65 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %53, i32 noundef %65, ptr noundef null) #23
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %60, %64
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %60, %64
   %66 = getelementptr inbounds i8, ptr %59, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %59, i64 4
@@ -3187,7 +3187,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %60, %64
   %77 = icmp eq i32 %75, -1
   br i1 %77, label %Vec_IntPush.exit, label %192
 
-Vec_IntPush.exit:                                 ; preds = %Extra_ProgressBarUpdate.exit
+Vec_IntPush.exit:                                 ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %78 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %79 = getelementptr inbounds i8, ptr %78, i64 4
   store i32 32, ptr %78, align 8
@@ -3439,7 +3439,7 @@ Vec_PtrPush.exit139:                              ; preds = %.Vec_PtrGrow.exit11
   store ptr %calloc.i, ptr %191, align 8
   br label %Abc_NtkSuppCharAdd.exit
 
-192:                                              ; preds = %Extra_ProgressBarUpdate.exit
+192:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %.val107 = load ptr, ptr %46, align 8
   %193 = sext i32 %75 to i64
   %194 = getelementptr inbounds ptr, ptr %.val107, i64 %193
@@ -5459,7 +5459,7 @@ Abc_Clock.exit40:                                 ; preds = %Vec_PtrFree.exit38,
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

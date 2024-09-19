@@ -5413,7 +5413,7 @@ define internal range(i32 0, 3) i32 @php_iconv_stream_filter_do_filter(ptr nound
   %18 = load i16, ptr %11, align 8
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
-  %21 = call fastcc i32 @php_iconv_stream_filter_append_bucket(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef %15, i64 noundef %17, ptr noundef %7, i32 noundef %20)
+  %21 = call fastcc i32 @php_iconv_stream_filter_append_bucket.argprom(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef %15, i64 noundef %17, ptr noundef %7, i32 noundef %20)
   %.not28 = icmp eq i32 %21, 0
   br i1 %.not28, label %22, label %.thread
 
@@ -5433,7 +5433,7 @@ define internal range(i32 0, 3) i32 @php_iconv_stream_filter_do_filter(ptr nound
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 1
   %28 = zext nneg i16 %27 to i32
-  %29 = call fastcc i32 @php_iconv_stream_filter_append_bucket(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef null, i64 noundef 0, ptr noundef %7, i32 noundef %28)
+  %29 = call fastcc i32 @php_iconv_stream_filter_append_bucket.argprom(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef null, i64 noundef 0, ptr noundef %7, i32 noundef %28)
   %.not26 = icmp eq i32 %29, 0
   br i1 %.not26, label %30, label %33
 
@@ -5518,7 +5518,7 @@ php_iconv_stream_filter_dtor.exit:                ; preds = %16, %17
 declare void @php_stream_bucket_unlink(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_bucket(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef nonnull %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_bucket.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef nonnull %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8

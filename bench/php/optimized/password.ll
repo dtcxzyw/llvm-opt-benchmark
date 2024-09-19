@@ -116,7 +116,7 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
 
 17:                                               ; preds = %15
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.9, i64 noundef %.0) #12
-  br label %php_password_get_salt.exit.thread
+  br label %php_password_get_salt.argprom.exit.thread
 
 .thread116:                                       ; preds = %5, %15
   %.sink = phi i64 [ %.0, %15 ], [ 12, %5 ]
@@ -150,7 +150,7 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
   %31 = load i32, ptr %24, align 4
   %32 = and i32 %31, 64
   %.not145.i.i = icmp eq i32 %32, 0
-  br i1 %.not145.i.i, label %33, label %php_password_get_salt.exit.thread
+  br i1 %.not145.i.i, label %33, label %php_password_get_salt.argprom.exit.thread
 
 33:                                               ; preds = %30
   %34 = load i32, ptr %23, align 4
@@ -159,11 +159,11 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
   %36 = add i32 %34, -1
   store i32 %36, ptr %23, align 4
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %php_password_get_salt.exit.thread
+  br i1 %37, label %38, label %php_password_get_salt.argprom.exit.thread
 
 38:                                               ; preds = %33
   call void @_efree(ptr noundef nonnull %23) #12
-  br label %php_password_get_salt.exit.thread
+  br label %php_password_get_salt.argprom.exit.thread
 
 39:                                               ; preds = %21
   %40 = call noalias ptr @_emalloc_48() #12
@@ -294,7 +294,7 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
 95:                                               ; preds = %94, %89, %86
   store i32 0, ptr %40, align 4
   call void @_efree(ptr noundef nonnull %40) #12
-  br label %php_password_get_salt.exit.thread
+  br label %php_password_get_salt.argprom.exit.thread
 
 php_password_salt_to64.exit.i.i:                  ; preds = %85, %84, %78
   %96 = load i32, ptr %24, align 4
@@ -385,20 +385,20 @@ php_password_salt_to64.exit.i.i:                  ; preds = %85, %84, %78
 
 145:                                              ; preds = %139, %144, %129
   %.not110 = icmp eq ptr %136, null
-  br i1 %.not110, label %php_password_get_salt.exit.thread, label %146
+  br i1 %.not110, label %php_password_get_salt.argprom.exit.thread, label %146
 
 146:                                              ; preds = %145
   %147 = getelementptr inbounds i8, ptr %136, i64 16
   %148 = load i64, ptr %147, align 8
   %149 = icmp ult i64 %148, 13
-  br i1 %149, label %150, label %php_password_get_salt.exit.thread
+  br i1 %149, label %150, label %php_password_get_salt.argprom.exit.thread
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds i8, ptr %136, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 64
   %.not111 = icmp eq i32 %153, 0
-  br i1 %.not111, label %154, label %php_password_get_salt.exit.thread
+  br i1 %.not111, label %154, label %php_password_get_salt.argprom.exit.thread
 
 154:                                              ; preds = %150
   %155 = and i32 %152, 128
@@ -407,13 +407,13 @@ php_password_salt_to64.exit.i.i:                  ; preds = %85, %84, %78
 
 156:                                              ; preds = %154
   call void @free(ptr noundef nonnull %136) #12
-  br label %php_password_get_salt.exit.thread
+  br label %php_password_get_salt.argprom.exit.thread
 
 157:                                              ; preds = %154
   call void @_efree(ptr noundef nonnull %136) #12
-  br label %php_password_get_salt.exit.thread
+  br label %php_password_get_salt.argprom.exit.thread
 
-php_password_get_salt.exit.thread:                ; preds = %95, %30, %38, %33, %146, %150, %157, %156, %145, %17
+php_password_get_salt.argprom.exit.thread:        ; preds = %95, %30, %38, %33, %146, %150, %157, %156, %145, %17
   %.0100 = phi ptr [ null, %17 ], [ null, %145 ], [ null, %156 ], [ null, %157 ], [ null, %150 ], [ %136, %146 ], [ null, %33 ], [ null, %38 ], [ null, %30 ], [ null, %95 ]
   ret ptr %.0100
 }

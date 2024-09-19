@@ -734,7 +734,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12CoroSaveInstELb1EE9push_backES2_.exit: ;
   br i1 %174, label %176, label %175
 
 175:                                              ; preds = %157
-  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.60) #15
+  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.60) #15
   unreachable
 
 176:                                              ; preds = %157
@@ -753,7 +753,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12CoroSaveInstELb1EE9push_backES2_.exit: ;
   br i1 %185, label %_ZNK4llvm20CoroSuspendAsyncInst15checkWellFormedEv.exit, label %186
 
 186:                                              ; preds = %179, %176
-  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.61) #15
+  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.61) #15
   unreachable
 
 _ZNK4llvm20CoroSuspendAsyncInst15checkWellFormedEv.exit: ; preds = %179
@@ -992,7 +992,7 @@ _ZNK4llvm16CoroAsyncEndInst23getMustTailCallFunctionEv.exit.i: ; preds = %299
   br i1 %.not5.i, label %_ZNK4llvm16CoroAsyncEndInst15checkWellFormedEv.exit, label %333
 
 333:                                              ; preds = %316
-  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.15) #15
+  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.15) #15
   unreachable
 
 _ZNK4llvm16CoroAsyncEndInst15checkWellFormedEv.exit: ; preds = %316, %_ZNK4llvm16CoroAsyncEndInst23getMustTailCallFunctionEv.exit.i, %299, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14AnyCoroEndInstELb1EE9push_backES2_.exit
@@ -1484,35 +1484,35 @@ _ZNK4llvm15CoroSuspendInst11getCoroSaveEv.exit:   ; preds = %_ZN4llvm14CastIsPos
   %614 = load ptr, ptr %613, align 8
   %615 = load i8, ptr %614, align 8
   %616 = icmp eq i8 %615, 17
-  br i1 %616, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit.i, label %617
+  br i1 %616, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit.i, label %617
 
 617:                                              ; preds = %607
-  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.12) #15
+  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.12) #15
   unreachable
 
-_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit.i: ; preds = %607
+_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit.i: ; preds = %607
   %618 = getelementptr inbounds i8, ptr %613, i64 32
   %619 = load ptr, ptr %618, align 8
   %620 = load i8, ptr %619, align 8
   %621 = icmp eq i8 %620, 17
-  br i1 %621, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1.i, label %622
+  br i1 %621, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1.i, label %622
 
-622:                                              ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit.i
-  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.13) #15
+622:                                              ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit.i
+  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.13) #15
   unreachable
 
-_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1.i: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit.i
+_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1.i: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit.i
   %623 = getelementptr inbounds i8, ptr %613, i64 64
   %624 = load ptr, ptr %623, align 8
   %625 = load i8, ptr %624, align 8
   %626 = icmp eq i8 %625, 17
-  br i1 %626, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2.i, label %627
+  br i1 %626, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit2.i, label %627
 
-627:                                              ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1.i
-  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.14) #15
+627:                                              ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1.i
+  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.14) #15
   unreachable
 
-_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2.i: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1.i
+_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit2.i: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1.i
   %628 = getelementptr inbounds i8, ptr %613, i64 96
   %629 = load ptr, ptr %628, align 8
   %630 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %629) #14
@@ -1520,11 +1520,11 @@ _ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2.i: ; preds = %_Z
   %.not.i.i221 = icmp eq i8 %631, 3
   br i1 %.not.i.i221, label %_ZNK4llvm15CoroIdAsyncInst15checkWellFormedEv.exit, label %632
 
-632:                                              ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2.i
-  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.59) #15
+632:                                              ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit2.i
+  call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.59) #15
   unreachable
 
-_ZNK4llvm15CoroIdAsyncInst15checkWellFormedEv.exit: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2.i
+_ZNK4llvm15CoroIdAsyncInst15checkWellFormedEv.exit: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit2.i
   %633 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 3, ptr %633, align 8
   %634 = getelementptr inbounds i8, ptr %492, i64 40
@@ -2022,7 +2022,7 @@ define hidden void @_ZNK4llvm20CoroSuspendAsyncInst15checkWellFormedEv(ptr nocap
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %1
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.60) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.60) #15
   unreachable
 
 20:                                               ; preds = %1
@@ -2038,13 +2038,13 @@ define hidden void @_ZNK4llvm20CoroSuspendAsyncInst15checkWellFormedEv(ptr nocap
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 255
   %29 = icmp eq i32 %28, 14
-  br i1 %29, label %_ZL32checkAsyncContextProjectFunctionPKN4llvm11InstructionEPNS_8FunctionE.exit, label %30
+  br i1 %29, label %_ZL32checkAsyncContextProjectFunctionPKN4llvm11InstructionEPNS_8FunctionE.argprom.exit, label %30
 
 30:                                               ; preds = %23, %20
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.61) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.61) #15
   unreachable
 
-_ZL32checkAsyncContextProjectFunctionPKN4llvm11InstructionEPNS_8FunctionE.exit: ; preds = %23
+_ZL32checkAsyncContextProjectFunctionPKN4llvm11InstructionEPNS_8FunctionE.argprom.exit: ; preds = %23
   ret void
 }
 
@@ -2098,7 +2098,7 @@ _ZNK4llvm16CoroAsyncEndInst23getMustTailCallFunctionEv.exit: ; preds = %1
   br i1 %.not5, label %_ZNK4llvm16CoroAsyncEndInst23getMustTailCallFunctionEv.exit.thread, label %35
 
 35:                                               ; preds = %18
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.15) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.15) #15
   unreachable
 
 _ZNK4llvm16CoroAsyncEndInst23getMustTailCallFunctionEv.exit.thread: ; preds = %1, %_ZNK4llvm16CoroAsyncEndInst23getMustTailCallFunctionEv.exit, %18
@@ -2122,47 +2122,47 @@ define hidden void @_ZNK4llvm15CoroIdAsyncInst15checkWellFormedEv(ptr nocapture 
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 17
-  br i1 %10, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit, label %11
+  br i1 %10, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit, label %11
 
 11:                                               ; preds = %1
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.12) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.12) #15
   unreachable
 
-_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit: ; preds = %1
+_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit: ; preds = %1
   %12 = getelementptr inbounds i8, ptr %7, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 17
-  br i1 %15, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1, label %16
+  br i1 %15, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1, label %16
 
-16:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.13) #15
+16:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.13) #15
   unreachable
 
-_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit
+_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit
   %17 = getelementptr inbounds i8, ptr %7, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 17
-  br i1 %20, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2, label %21
+  br i1 %20, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit2, label %21
 
-21:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.14) #15
+21:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.14) #15
   unreachable
 
-_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1
+_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit2: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1
   %22 = getelementptr inbounds i8, ptr %7, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
   %25 = load i8, ptr %24, align 8
   %.not.i = icmp eq i8 %25, 3
-  br i1 %.not.i, label %_ZL21checkAsyncFuncPointerPKN4llvm11InstructionEPNS_5ValueE.exit, label %26
+  br i1 %.not.i, label %_ZL21checkAsyncFuncPointerPKN4llvm11InstructionEPNS_5ValueE.argprom.exit, label %26
 
-26:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.59) #15
+26:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit2
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.59) #15
   unreachable
 
-_ZL21checkAsyncFuncPointerPKN4llvm11InstructionEPNS_5ValueE.exit: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit2
+_ZL21checkAsyncFuncPointerPKN4llvm11InstructionEPNS_5ValueE.argprom.exit: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit2
   ret void
 }
 
@@ -2177,24 +2177,24 @@ define hidden void @_ZNK4llvm19AnyCoroIdRetconInst15checkWellFormedEv(ptr nounde
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 17
-  br i1 %10, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit, label %11
+  br i1 %10, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit, label %11
 
 11:                                               ; preds = %1
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.10) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.10) #15
   unreachable
 
-_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit: ; preds = %1
+_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit: ; preds = %1
   %12 = getelementptr inbounds i8, ptr %7, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 17
-  br i1 %15, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1, label %16
+  br i1 %15, label %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1, label %16
 
-16:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.11) #15
+16:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.11) #15
   unreachable
 
-_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit
+_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1: ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit
   %17 = getelementptr inbounds i8, ptr %7, i64 96
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
@@ -2202,11 +2202,11 @@ _ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1: ; preds = %_ZL1
   %.not.i = icmp eq i8 %20, 0
   br i1 %.not.i, label %22, label %21
 
-21:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.49) #15
+21:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.49) #15
   unreachable
 
-22:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1
+22:                                               ; preds = %_ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.argprom.exit1
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -2257,7 +2257,7 @@ _ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1: ; preds = %_ZL1
   br i1 %57, label %.critedge.i, label %.critedge22.i
 
 .critedge22.i:                                    ; preds = %50, %47, %45
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.50) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.50) #15
   unreachable
 
 .critedge.i:                                      ; preds = %50, %37
@@ -2271,7 +2271,7 @@ _ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1: ; preds = %_ZL1
   br i1 %.not20.i, label %65, label %64
 
 64:                                               ; preds = %.critedge.i
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.51) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.51) #15
   unreachable
 
 65:                                               ; preds = %.critedge.i, %22
@@ -2292,7 +2292,7 @@ _ZL16checkConstantIntPKN4llvm11InstructionEPNS_5ValueEPKc.exit1: ; preds = %_ZL1
   br i1 %77, label %_ZL22checkWFRetconPrototypePKN4llvm19AnyCoroIdRetconInstEPNS_5ValueE.exit, label %78
 
 78:                                               ; preds = %69, %65
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.52) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.52) #15
   unreachable
 
 _ZL22checkWFRetconPrototypePKN4llvm19AnyCoroIdRetconInstEPNS_5ValueE.exit: ; preds = %69
@@ -2309,7 +2309,7 @@ _ZL22checkWFRetconPrototypePKN4llvm19AnyCoroIdRetconInstEPNS_5ValueE.exit: ; pre
   br i1 %.not.i2, label %89, label %88
 
 88:                                               ; preds = %_ZL22checkWFRetconPrototypePKN4llvm19AnyCoroIdRetconInstEPNS_5ValueE.exit
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.53) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.53) #15
   unreachable
 
 89:                                               ; preds = %_ZL22checkWFRetconPrototypePKN4llvm19AnyCoroIdRetconInstEPNS_5ValueE.exit
@@ -2325,7 +2325,7 @@ _ZL22checkWFRetconPrototypePKN4llvm19AnyCoroIdRetconInstEPNS_5ValueE.exit: ; pre
   br i1 %98, label %100, label %99
 
 99:                                               ; preds = %89
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.54) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.54) #15
   unreachable
 
 100:                                              ; preds = %89
@@ -2341,13 +2341,13 @@ _ZL22checkWFRetconPrototypePKN4llvm19AnyCoroIdRetconInstEPNS_5ValueE.exit: ; pre
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 255
   %109 = icmp eq i32 %108, 12
-  br i1 %109, label %_ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.exit, label %110
+  br i1 %109, label %_ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.argprom.exit, label %110
 
 110:                                              ; preds = %103, %100
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.55) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.55) #15
   unreachable
 
-_ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.exit: ; preds = %103
+_ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.argprom.exit: ; preds = %103
   %111 = load i32, ptr %2, align 4
   %112 = and i32 %111, 134217727
   %113 = zext nneg i32 %112 to i64
@@ -2360,11 +2360,11 @@ _ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.exit: ; preds = %103
   %.not.i3 = icmp eq i8 %119, 0
   br i1 %.not.i3, label %121, label %120
 
-120:                                              ; preds = %_ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.exit
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.56) #15
+120:                                              ; preds = %_ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.argprom.exit
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.56) #15
   unreachable
 
-121:                                              ; preds = %_ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.exit
+121:                                              ; preds = %_ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.argprom.exit
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -2377,7 +2377,7 @@ _ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.exit: ; preds = %103
   br i1 %130, label %132, label %131
 
 131:                                              ; preds = %121
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.57) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.57) #15
   unreachable
 
 132:                                              ; preds = %121
@@ -2393,13 +2393,13 @@ _ZL12checkWFAllocPKN4llvm11InstructionEPNS_5ValueE.exit: ; preds = %103
   %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, 255
   %141 = icmp eq i32 %140, 14
-  br i1 %141, label %_ZL14checkWFDeallocPKN4llvm11InstructionEPNS_5ValueE.exit, label %142
+  br i1 %141, label %_ZL14checkWFDeallocPKN4llvm11InstructionEPNS_5ValueE.argprom.exit, label %142
 
 142:                                              ; preds = %135, %132
-  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef nonnull @.str.58) #15
+  tail call fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef nonnull @.str.58) #15
   unreachable
 
-_ZL14checkWFDeallocPKN4llvm11InstructionEPNS_5ValueE.exit: ; preds = %135
+_ZL14checkWFDeallocPKN4llvm11InstructionEPNS_5ValueE.argprom.exit: ; preds = %135
   ret void
 }
 
@@ -2640,7 +2640,7 @@ _ZL18addCallToCallGraphPN4llvm9CallGraphEPNS_8CallInstEPNS_8FunctionE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @_ZL4failPKN4llvm11InstructionEPKcPNS_5ValueE.argprom(ptr noundef %0) unnamed_addr #3 {
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef %0, i1 noundef zeroext true) #16
   unreachable
 }

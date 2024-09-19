@@ -1391,25 +1391,25 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit: ; preds = %32, %34, %36, %_Z
   %.not.i.i54 = icmp sge i32 %42, %50
   %51 = icmp slt i32 %42, %49
   %or.cond.i.i = and i1 %.not.i.i54, %51
-  br i1 %or.cond.i.i, label %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit, label %52
+  br i1 %or.cond.i.i, label %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit, label %52
 
 52:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit
   tail call void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %42, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20240521L14normalize_axisEiiE15__cv_check__243) #21
   unreachable
 
-_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit
+_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEmRKS1_.exit
   %53 = icmp slt i32 %42, 0
   %54 = select i1 %53, i32 %49, i32 0
   %55 = add nsw i32 %54, %42
   %56 = load ptr, ptr %12, align 8
   %.not81 = icmp eq ptr %56, %43
-  br i1 %.not81, label %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit.._crit_edge_crit_edge, label %.lr.ph80
+  br i1 %.not81, label %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit.._crit_edge_crit_edge, label %.lr.ph80
 
-_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit.._crit_edge_crit_edge: ; preds = %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit
+_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit.._crit_edge_crit_edge: ; preds = %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit
   %.pre98 = sext i32 %55 to i64
   br label %._crit_edge
 
-.lr.ph80:                                         ; preds = %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit
+.lr.ph80:                                         ; preds = %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit
   %57 = getelementptr inbounds i8, ptr %0, i64 104
   %58 = sext i32 %55 to i64
   %59 = zext i32 %55 to i64
@@ -1603,9 +1603,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %123, %.lr.ph77, %.p
   call void @_ZdlPv(ptr noundef nonnull %75) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit57
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit.._crit_edge_crit_edge
-  %.pre-phi99 = phi i64 [ %.pre98, %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit.._crit_edge_crit_edge ], [ %58, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %.035.lcssa = phi i32 [ 0, %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.exit.._crit_edge_crit_edge ], [ %126, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit.._crit_edge_crit_edge
+  %.pre-phi99 = phi i64 [ %.pre98, %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit.._crit_edge_crit_edge ], [ %58, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %.035.lcssa = phi i32 [ 0, %_ZN2cv3dnn14dnn4_v20240521L14normalize_axisEiRKSt6vectorIiSaIiEE.argprom.exit.._crit_edge_crit_edge ], [ %126, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %137 = load ptr, ptr %3, align 8
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i32, ptr %138, i64 %.pre-phi99

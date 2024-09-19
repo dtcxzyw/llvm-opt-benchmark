@@ -542,7 +542,7 @@ Abc_NtkIncrementTravId.exit266.i:                 ; preds = %Vec_IntFill.exit.i2
   %192 = load i32, ptr %191, align 8
   %193 = getelementptr inbounds i8, ptr %.val246.i, i64 224
   %194 = add nsw i32 %.val236.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %193, i32 noundef %194)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %193, i32 noundef %194)
   %195 = getelementptr i8, ptr %.val246.i, i64 232
   %.val.i.i.i267.i = load ptr, ptr %195, align 8
   %196 = sext i32 %.val236.i to i64
@@ -1838,7 +1838,7 @@ Abc_NtkIncrementTravId.exit269.i:                 ; preds = %Vec_IntFill.exit.i2
   %770 = load i32, ptr %769, align 8
   %771 = getelementptr inbounds i8, ptr %.val245.i, i64 224
   %772 = add nsw i32 %.val221.i94, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %771, i32 noundef %772)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %771, i32 noundef %772)
   %773 = getelementptr i8, ptr %.val245.i, i64 232
   %.val.i.i.i270.i = load ptr, ptr %773, align 8
   %774 = sext i32 %.val221.i94 to i64
@@ -4355,7 +4355,7 @@ define internal fastcc void @Abc_FlowRetime_Dfs_forw(ptr noundef %0, ptr nocaptu
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %.val12, i64 224
   %10 = add nsw i32 %.val13, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %9, i32 noundef %10)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %9, i32 noundef %10)
   %11 = getelementptr i8, ptr %.val12, i64 232
   %.val.i.i.i = load ptr, ptr %11, align 8
   %12 = sext i32 %.val13 to i64
@@ -4388,7 +4388,7 @@ define internal fastcc void @Abc_FlowRetime_Dfs_forw(ptr noundef %0, ptr nocaptu
   %.val3.i = load i32, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %27 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %26, i32 noundef %27)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %26, i32 noundef %27)
   %28 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i17 = load ptr, ptr %28, align 8
   %29 = sext i32 %.val3.i to i64
@@ -4488,7 +4488,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -4598,7 +4598,7 @@ define internal fastcc void @Abc_FlowRetime_Dfs_back(ptr noundef %0, ptr nocaptu
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %.val15, i64 224
   %10 = add nsw i32 %.val16, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %9, i32 noundef %10)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %9, i32 noundef %10)
   %11 = getelementptr i8, ptr %.val15, i64 232
   %.val.i.i.i = load ptr, ptr %11, align 8
   %12 = sext i32 %.val16 to i64
@@ -4631,7 +4631,7 @@ define internal fastcc void @Abc_FlowRetime_Dfs_back(ptr noundef %0, ptr nocaptu
   %.val3.i = load i32, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %27 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %26, i32 noundef %27)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %26, i32 noundef %27)
   %28 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i17 = load ptr, ptr %28, align 8
   %29 = sext i32 %.val3.i to i64

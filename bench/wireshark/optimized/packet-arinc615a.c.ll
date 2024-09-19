@@ -379,7 +379,7 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
   %72 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %71, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %17) #3
   %73 = load i32, ptr %17, align 4
   %.not.i30.i = icmp eq i32 %73, 0
-  br i1 %.not.i30.i, label %dissect_a615a_LCL.exit.i, label %.lr.ph4.i.i
+  br i1 %.not.i30.i, label %dissect_a615a_LCL.argprom.exit.i, label %.lr.ph4.i.i
 
 .lr.ph4.i.i:                                      ; preds = %68, %._crit_edge.i.i
   %.0172.i.i = phi i32 [ %94, %._crit_edge.i.i ], [ 0, %68 ]
@@ -416,9 +416,9 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
   %94 = add nuw i32 %.0172.i.i, 1
   %95 = load i32, ptr %17, align 4
   %96 = icmp ult i32 %94, %95
-  br i1 %96, label %.lr.ph4.i.i, label %dissect_a615a_LCL.exit.i, !llvm.loop !6
+  br i1 %96, label %.lr.ph4.i.i, label %dissect_a615a_LCL.argprom.exit.i, !llvm.loop !6
 
-dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %68
+dissect_a615a_LCL.argprom.exit.i:                 ; preds = %._crit_edge.i.i, %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   br label %dissect_a615a_protocol_file.exit
@@ -452,7 +452,7 @@ dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %6
   %117 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %116, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %15) #3
   %118 = load i32, ptr %15, align 4
   %.not.i31.i = icmp eq i32 %118, 0
-  br i1 %.not.i31.i, label %dissect_a615a_LNA.exit.i, label %.lr.ph.i32.i
+  br i1 %.not.i31.i, label %dissect_a615a_LNA.argprom.exit.i, label %.lr.ph.i32.i
 
 .lr.ph.i32.i:                                     ; preds = %113, %.lr.ph.i32.i
   %.01.i33.i = phi i32 [ %121, %.lr.ph.i32.i ], [ 0, %113 ]
@@ -461,9 +461,9 @@ dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %6
   %121 = add nuw i32 %.01.i33.i, 1
   %122 = load i32, ptr %15, align 4
   %123 = icmp ult i32 %121, %122
-  br i1 %123, label %.lr.ph.i32.i, label %dissect_a615a_LNA.exit.i, !llvm.loop !7
+  br i1 %123, label %.lr.ph.i32.i, label %dissect_a615a_LNA.argprom.exit.i, !llvm.loop !7
 
-dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
+dissect_a615a_LNA.argprom.exit.i:                 ; preds = %.lr.ph.i32.i, %113
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %dissect_a615a_protocol_file.exit
 
@@ -475,7 +475,7 @@ dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
   %128 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %127, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %14) #3
   %129 = load i32, ptr %14, align 4
   %.not.i35.i = icmp eq i32 %129, 0
-  br i1 %.not.i35.i, label %dissect_a615a_LNL.exit.i, label %.lr.ph.i36.i
+  br i1 %.not.i35.i, label %dissect_a615a_LNL.argprom.exit.i, label %.lr.ph.i36.i
 
 .lr.ph.i36.i:                                     ; preds = %124, %.lr.ph.i36.i
   %.01.i37.i = phi i32 [ %136, %.lr.ph.i36.i ], [ 0, %124 ]
@@ -489,9 +489,9 @@ dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
   %136 = add nuw i32 %.01.i37.i, 1
   %137 = load i32, ptr %14, align 4
   %138 = icmp ult i32 %136, %137
-  br i1 %138, label %.lr.ph.i36.i, label %dissect_a615a_LNL.exit.i, !llvm.loop !8
+  br i1 %138, label %.lr.ph.i36.i, label %dissect_a615a_LNL.argprom.exit.i, !llvm.loop !8
 
-dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
+dissect_a615a_LNL.argprom.exit.i:                 ; preds = %.lr.ph.i36.i, %124
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %dissect_a615a_protocol_file.exit
 
@@ -503,7 +503,7 @@ dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
   %143 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %142, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #3
   %144 = load i32, ptr %13, align 4
   %.not.i39.i = icmp eq i32 %144, 0
-  br i1 %.not.i39.i, label %dissect_a615a_LNR.exit.i, label %.lr.ph.i40.i
+  br i1 %.not.i39.i, label %dissect_a615a_LNR.argprom.exit.i, label %.lr.ph.i40.i
 
 .lr.ph.i40.i:                                     ; preds = %139, %.lr.ph.i40.i
   %.01.i41.i = phi i32 [ %147, %.lr.ph.i40.i ], [ 0, %139 ]
@@ -512,9 +512,9 @@ dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
   %147 = add nuw i32 %.01.i41.i, 1
   %148 = load i32, ptr %13, align 4
   %149 = icmp ult i32 %147, %148
-  br i1 %149, label %.lr.ph.i40.i, label %dissect_a615a_LNR.exit.i, !llvm.loop !9
+  br i1 %149, label %.lr.ph.i40.i, label %dissect_a615a_LNR.argprom.exit.i, !llvm.loop !9
 
-dissect_a615a_LNR.exit.i:                         ; preds = %.lr.ph.i40.i, %139
+dissect_a615a_LNR.argprom.exit.i:                 ; preds = %.lr.ph.i40.i, %139
   %150 = load i32, ptr @hf_a615a_user_data, align 4
   %151 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %150, i32 noundef 1, i32 noundef 0) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -605,7 +605,7 @@ dissect_a615a_LNS.exit.i:                         ; preds = %.lr.ph.i44.i, %174
   %197 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %196, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #3
   %198 = load i32, ptr %9, align 4
   %.not.i46.i = icmp eq i32 %198, 0
-  br i1 %.not.i46.i, label %dissect_a615a_LUR.exit.i, label %.lr.ph.i47.i
+  br i1 %.not.i46.i, label %dissect_a615a_LUR.argprom.exit.i, label %.lr.ph.i47.i
 
 .lr.ph.i47.i:                                     ; preds = %193, %.lr.ph.i47.i
   %.01.i48.i = phi i32 [ %205, %.lr.ph.i47.i ], [ 0, %193 ]
@@ -619,9 +619,9 @@ dissect_a615a_LNS.exit.i:                         ; preds = %.lr.ph.i44.i, %174
   %205 = add nuw i32 %.01.i48.i, 1
   %206 = load i32, ptr %9, align 4
   %207 = icmp ult i32 %205, %206
-  br i1 %207, label %.lr.ph.i47.i, label %dissect_a615a_LUR.exit.i, !llvm.loop !11
+  br i1 %207, label %.lr.ph.i47.i, label %dissect_a615a_LUR.argprom.exit.i, !llvm.loop !11
 
-dissect_a615a_LUR.exit.i:                         ; preds = %.lr.ph.i47.i, %193
+dissect_a615a_LUR.argprom.exit.i:                 ; preds = %.lr.ph.i47.i, %193
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %dissect_a615a_protocol_file.exit
 
@@ -718,7 +718,7 @@ dissect_a615a_LUS.exit.i:                         ; preds = %.lr.ph.i53.i, %230
 default.unreachable:                              ; preds = %proto_item_set_generated.exit.i
   unreachable
 
-dissect_a615a_protocol_file.exit:                 ; preds = %58, %dissect_a615a_LCL.exit.i, %97, %dissect_a615a_LNA.exit.i, %dissect_a615a_LNL.exit.i, %dissect_a615a_LNR.exit.i, %dissect_a615a_LNS.exit.i, %dissect_a615a_LUR.exit.i, %dissect_a615a_LUS.exit.i
+dissect_a615a_protocol_file.exit:                 ; preds = %58, %dissect_a615a_LCL.argprom.exit.i, %97, %dissect_a615a_LNA.argprom.exit.i, %dissect_a615a_LNL.argprom.exit.i, %dissect_a615a_LNR.argprom.exit.i, %dissect_a615a_LNS.exit.i, %dissect_a615a_LUR.argprom.exit.i, %dissect_a615a_LUS.exit.i
   call void @ptvcursor_free(ptr noundef %55) #3
   br label %.loopexit
 

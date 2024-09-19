@@ -591,7 +591,7 @@ nghttp2_frame_pack_priority_spec.exit:            ; preds = %24, %29
   store i64 0, ptr %38, align 8
   %39 = tail call i64 @nghttp2_bufs_len(ptr noundef nonnull %0) #17
   store i64 %39, ptr %1, align 8
-  tail call fastcc void @frame_pack_headers_shared(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @frame_pack_headers_shared.retelim(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %40
 
 40:                                               ; preds = %3, %37
@@ -628,7 +628,7 @@ define dso_local void @nghttp2_frame_pack_priority_spec(ptr noundef %0, ptr noca
 declare i64 @nghttp2_bufs_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @frame_pack_headers_shared(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @frame_pack_headers_shared.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8
@@ -1083,7 +1083,7 @@ define dso_local i32 @nghttp2_frame_pack_push_promise(ptr noundef %0, ptr nocapt
   store i64 0, ptr %21, align 8
   %22 = tail call i64 @nghttp2_bufs_len(ptr noundef nonnull %0) #17
   store i64 %22, ptr %1, align 8
-  tail call fastcc void @frame_pack_headers_shared(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @frame_pack_headers_shared.retelim(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %23
 
 23:                                               ; preds = %3, %18

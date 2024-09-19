@@ -1017,13 +1017,13 @@ define internal fastcc void @set_guc_source(ptr noundef %0, i32 noundef %1) unna
 
 ._crit_edge.i:                                    ; preds = %7
   %.pre.i = load ptr, ptr @guc_nondef_list, align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
 11:                                               ; preds = %7
   store ptr @guc_nondef_list, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
-dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %11
+dlist_push_tail.argprom.exit:                     ; preds = %._crit_edge.i, %11
   %12 = phi ptr [ %.pre.i, %._crit_edge.i ], [ @guc_nondef_list, %11 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @guc_nondef_list, ptr %13, align 8
@@ -1047,7 +1047,7 @@ dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %11
   store ptr %22, ptr %19, align 8
   br label %23
 
-23:                                               ; preds = %15, %16, %6, %dlist_push_tail.exit
+23:                                               ; preds = %15, %16, %6, %dlist_push_tail.argprom.exit
   store i32 %1, ptr %3, align 4
   ret void
 }
@@ -3192,13 +3192,13 @@ set_extra_field.exit:                             ; preds = %285, %281, %244, %2
 
 ._crit_edge.i.i:                                  ; preds = %294
   %.pre.i.i = load ptr, ptr @guc_nondef_list, align 8
-  br label %dlist_push_tail.exit.i
+  br label %dlist_push_tail.argprom.exit.i
 
 297:                                              ; preds = %294
   store ptr @guc_nondef_list, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
-  br label %dlist_push_tail.exit.i
+  br label %dlist_push_tail.argprom.exit.i
 
-dlist_push_tail.exit.i:                           ; preds = %297, %._crit_edge.i.i
+dlist_push_tail.argprom.exit.i:                   ; preds = %297, %._crit_edge.i.i
   %298 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ @guc_nondef_list, %297 ]
   store ptr @guc_nondef_list, ptr %.sroa.6.0129.in, align 8
   store ptr %298, ptr %.sroa.0.0128, align 8
@@ -3219,7 +3219,7 @@ dlist_push_tail.exit.i:                           ; preds = %297, %._crit_edge.i
   store ptr %305, ptr %302, align 8
   br label %set_guc_source.exit
 
-set_guc_source.exit:                              ; preds = %293, %dlist_push_tail.exit.i, %300, %301
+set_guc_source.exit:                              ; preds = %293, %dlist_push_tail.argprom.exit.i, %300, %301
   store i32 %290, ptr %10, align 4
   %306 = getelementptr i8, ptr %.sroa.0.0128, i64 -32
   %307 = load i32, ptr %306, align 8
@@ -4506,13 +4506,13 @@ set_extra_field.exit249:                          ; preds = %413, %417, %set_ext
 
 ._crit_edge.i.i:                                  ; preds = %424
   %.pre.i.i = load ptr, ptr @guc_nondef_list, align 8
-  br label %dlist_push_tail.exit.i
+  br label %dlist_push_tail.argprom.exit.i
 
 427:                                              ; preds = %424
   store ptr @guc_nondef_list, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
-  br label %dlist_push_tail.exit.i
+  br label %dlist_push_tail.argprom.exit.i
 
-dlist_push_tail.exit.i:                           ; preds = %427, %._crit_edge.i.i
+dlist_push_tail.argprom.exit.i:                   ; preds = %427, %._crit_edge.i.i
   %428 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ @guc_nondef_list, %427 ]
   store ptr @guc_nondef_list, ptr %20, align 8
   store ptr %428, ptr %19, align 8
@@ -4533,7 +4533,7 @@ dlist_push_tail.exit.i:                           ; preds = %427, %._crit_edge.i
   store ptr %435, ptr %432, align 8
   br label %set_guc_source.exit
 
-set_guc_source.exit:                              ; preds = %423, %dlist_push_tail.exit.i, %430, %431
+set_guc_source.exit:                              ; preds = %423, %dlist_push_tail.argprom.exit.i, %430, %431
   store i32 %.0162, ptr %18, align 4
   store i32 %.0163, ptr %21, align 4
   store i32 %.0164, ptr %22, align 4

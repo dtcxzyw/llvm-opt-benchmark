@@ -246,15 +246,15 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   %85 = call i64 %83(ptr noundef %84) #10
   %.pr.i = load i64, ptr @date_strftime_with_tmx.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
 
 .lr.ph.i:                                         ; preds = %81, %.lr.ph.i
   %86 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #10
   store i64 %86, ptr @date_strftime_with_tmx.rbimpl_id, align 8
   %.not.i = icmp eq i64 %86, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !6
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !6
 
-rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %81
+rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %81
   %.lcssa.i = phi i64 [ %.pr.i, %81 ], [ %86, %.lr.ph.i ]
   %87 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %85, i64 noundef %.lcssa.i, i32 noundef 1, i64 noundef 201) #10
   %88 = and i64 %87, 1
@@ -266,7 +266,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %81
   %.51011 = select i1 %.not1258, i32 %spec.select1273, i32 1
   br i1 %.not1401, label %103, label %91
 
-91:                                               ; preds = %rbimpl_intern_const.exit
+91:                                               ; preds = %rbimpl_intern_const.argprom.exit
   %92 = ptrtoint ptr %.09901715 to i64
   %93 = sub i64 %34, %92
   %94 = icmp eq i8 %.01021, 48
@@ -283,7 +283,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %81
   %102 = getelementptr inbounds i8, ptr %.09901715, i64 %101
   br label %1123
 
-103:                                              ; preds = %rbimpl_intern_const.exit
+103:                                              ; preds = %rbimpl_intern_const.argprom.exit
   %104 = zext nneg i32 %.51011 to i64
   %105 = shl nuw nsw i64 %104, 1
   %106 = or disjoint i64 %105, 1
@@ -294,15 +294,15 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %81
   %110 = call i64 %108(ptr noundef %109) #10
   %.pr.i1316 = load i64, ptr @date_strftime_with_tmx.rbimpl_id.4, align 8
   %.not1.i1317 = icmp eq i64 %.pr.i1316, 0
-  br i1 %.not1.i1317, label %.lr.ph.i1319, label %rbimpl_intern_const.exit1321
+  br i1 %.not1.i1317, label %.lr.ph.i1319, label %rbimpl_intern_const.argprom.exit1321
 
 .lr.ph.i1319:                                     ; preds = %103, %.lr.ph.i1319
   %111 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #10
   store i64 %111, ptr @date_strftime_with_tmx.rbimpl_id.4, align 8
   %.not.i1320 = icmp eq i64 %111, 0
-  br i1 %.not.i1320, label %.lr.ph.i1319, label %rbimpl_intern_const.exit1321, !llvm.loop !6
+  br i1 %.not.i1320, label %.lr.ph.i1319, label %rbimpl_intern_const.argprom.exit1321, !llvm.loop !6
 
-rbimpl_intern_const.exit1321:                     ; preds = %.lr.ph.i1319, %103
+rbimpl_intern_const.argprom.exit1321:             ; preds = %.lr.ph.i1319, %103
   %.lcssa.i1318 = phi i64 [ %.pr.i1316, %103 ], [ %111, %.lr.ph.i1319 ]
   %112 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %110, i64 noundef %.lcssa.i1318, i32 noundef 1, i64 noundef 201) #10
   store i64 %112, ptr %40, align 8
@@ -311,11 +311,11 @@ rbimpl_intern_const.exit1321:                     ; preds = %.lr.ph.i1319, %103
     i8 0, label %113
   ]
 
-113:                                              ; preds = %rbimpl_intern_const.exit1321, %rbimpl_intern_const.exit1321
+113:                                              ; preds = %rbimpl_intern_const.argprom.exit1321, %rbimpl_intern_const.argprom.exit1321
   %114 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #10
   br label %117
 
-115:                                              ; preds = %rbimpl_intern_const.exit1321
+115:                                              ; preds = %rbimpl_intern_const.argprom.exit1321
   %116 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #10
   br label %117
 
@@ -853,28 +853,28 @@ rb_num2int_inline.exit:                           ; preds = %285, %287
   %.11025 = phi i64 [ %389, %._crit_edge ], [ %.01024.lcssa, %.preheader1407 ]
   %.pr.i1332 = load i64, ptr @date_strftime_with_tmx.rbimpl_id.10, align 8
   %.not1.i1333 = icmp eq i64 %.pr.i1332, 0
-  br i1 %.not1.i1333, label %.lr.ph.i1335, label %rbimpl_intern_const.exit1337
+  br i1 %.not1.i1333, label %.lr.ph.i1335, label %rbimpl_intern_const.argprom.exit1337
 
 .lr.ph.i1335:                                     ; preds = %._crit_edge.thread, %.lr.ph.i1335
   %390 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #10
   store i64 %390, ptr @date_strftime_with_tmx.rbimpl_id.10, align 8
   %.not.i1336 = icmp eq i64 %390, 0
-  br i1 %.not.i1336, label %.lr.ph.i1335, label %rbimpl_intern_const.exit1337, !llvm.loop !6
+  br i1 %.not.i1336, label %.lr.ph.i1335, label %rbimpl_intern_const.argprom.exit1337, !llvm.loop !6
 
-rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._crit_edge.thread
+rbimpl_intern_const.argprom.exit1337:             ; preds = %.lr.ph.i1335, %._crit_edge.thread
   %.lcssa.i1334 = phi i64 [ %.pr.i1332, %._crit_edge.thread ], [ %390, %.lr.ph.i1335 ]
   %391 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.11025, i64 noundef %.lcssa.i1334, i32 noundef 1, i64 noundef 3) #10
   %392 = and i64 %391, 1
   %.not1399 = icmp eq i64 %392, 0
   br i1 %.not1399, label %397, label %393
 
-393:                                              ; preds = %rbimpl_intern_const.exit1337
+393:                                              ; preds = %rbimpl_intern_const.argprom.exit1337
   %394 = ashr i64 %391, 1
   %395 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901715, i64 noundef %371, ptr noundef nonnull @.str.2, i32 noundef %.22, i64 noundef %394) #10
   %396 = getelementptr inbounds i8, ptr %.09901715, i64 %369
   br label %1123
 
-397:                                              ; preds = %rbimpl_intern_const.exit1337
+397:                                              ; preds = %rbimpl_intern_const.argprom.exit1337
   %398 = shl nuw nsw i64 %369, 1
   %399 = or disjoint i64 %398, 1
   store i64 %399, ptr %9, align 16

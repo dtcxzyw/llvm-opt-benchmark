@@ -229,7 +229,7 @@ merge_start.exit:                                 ; preds = %if.then.i, %if.end3
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.22, %if.then.i ]
   %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %2 = load ptr, ptr %buf.i, align 8
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %2)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %2)
   call void @strbuf_release(ptr noundef nonnull %sb.i) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   br label %return
@@ -479,7 +479,7 @@ _.exit73:                                         ; preds = %if.then18, %if.end3
   %oid21 = getelementptr inbounds i8, ptr %head, i64 4
   %call22 = call ptr @oid_to_hex(ptr noundef nonnull %oid21) #22
   %call25 = call ptr @oid_to_hex(ptr noundef nonnull %oid7) #22
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i72, ptr noundef %call22, ptr noundef %call25)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i72, ptr noundef %call22, ptr noundef %call25)
   %.pre = load ptr, ptr %priv.i, align 8
   br label %if.end27
 
@@ -1148,7 +1148,7 @@ setup_rename_conflict_info.exit.i.i:              ; preds = %land.lhs.true.i.i.i
   br label %if.end270.sink.split.i.i
 
 if.else124.i.i:                                   ; preds = %if.end111.i.i
-  call fastcc void @remove_file(ptr noundef %opt, i32 noundef 1, ptr noundef %133, i32 noundef 1)
+  call fastcc void @remove_file.retelim(ptr noundef %opt, i32 noundef 1, ptr noundef %133, i32 noundef 1)
   %147 = load ptr, ptr %dst_entry.i.i, align 8
   %148 = load ptr, ptr %pair94.i.i, align 8
   %149 = load ptr, ptr %148, align 8
@@ -1306,7 +1306,7 @@ lor.rhs168.i.i:                                   ; preds = %if.then165.i.i
 
 lor.end173.i.i:                                   ; preds = %lor.rhs168.i.i, %if.then165.i.i
   %lor.ext.i.i = phi i32 [ 1, %if.then165.i.i ], [ %call1.i.lobit.i.i, %lor.rhs168.i.i ]
-  call fastcc void @remove_file(ptr noundef %opt, i32 noundef 1, ptr noundef %133, i32 noundef %lor.ext.i.i)
+  call fastcc void @remove_file.retelim(ptr noundef %opt, i32 noundef 1, ptr noundef %133, i32 noundef %lor.ext.i.i)
   br label %if.end175.i.i
 
 if.end175.i.i:                                    ; preds = %lor.end173.i.i, %if.else156.i.i
@@ -2091,7 +2091,7 @@ land.lhs.true.i198.i:                             ; preds = %sw.bb25.i
   %cache_nr.i.i.i = getelementptr inbounds i8, ptr %opt.val.val.i.i, i64 12
   %285 = load i32, ptr %cache_nr.i.i.i, align 4
   %cmp31.i.i.i = icmp ult i32 %spec.select.i.i.i, %285
-  br i1 %cmp31.i.i.i, label %land.rhs.lr.ph.i.i.i, label %would_lose_untracked.exit.i.i
+  br i1 %cmp31.i.i.i, label %land.rhs.lr.ph.i.i.i, label %would_lose_untracked.argprom.argprom.exit.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %land.lhs.true.i198.i
   %286 = load ptr, ptr %opt.val.val.i.i, align 8
@@ -2105,7 +2105,7 @@ land.rhs.i.i.i:                                   ; preds = %sw.epilog.i.i.i, %l
   %name.i.i.i = getelementptr inbounds i8, ptr %288, i64 108
   %call5.i.i202.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %280, ptr noundef nonnull dereferenceable(1) %name.i.i.i) #23
   %tobool.not.i.i203.i = icmp eq i32 %call5.i.i202.i, 0
-  br i1 %tobool.not.i.i203.i, label %while.body.i.i.i, label %would_lose_untracked.exit.i.i
+  br i1 %tobool.not.i.i203.i, label %while.body.i.i.i, label %would_lose_untracked.argprom.argprom.exit.i.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %ce_flags.i.i.i = getelementptr inbounds i8, ptr %288, i64 56
@@ -2113,25 +2113,25 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %and.i.i.i = lshr i32 %289, 12
   %shr.i.i.i = and i32 %and.i.i.i, 3
   switch i32 %shr.i.i.i, label %sw.epilog.i.i.i [
-    i32 0, label %would_lose_untracked.exit.thread.i.i
-    i32 2, label %would_lose_untracked.exit.thread.i.i
+    i32 0, label %would_lose_untracked.argprom.argprom.exit.thread.i.i
+    i32 2, label %would_lose_untracked.argprom.argprom.exit.thread.i.i
   ]
 
 sw.epilog.i.i.i:                                  ; preds = %while.body.i.i.i
   %indvars.iv.next.i.i.i156 = add nuw nsw i64 %indvars.iv.i.i.i154, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i156 to i32
   %exitcond.not.i.i.i = icmp eq i32 %285, %lftr.wideiv.i.i.i
-  br i1 %exitcond.not.i.i.i, label %would_lose_untracked.exit.i.i, label %land.rhs.i.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i, label %would_lose_untracked.argprom.argprom.exit.i.i, label %land.rhs.i.i.i, !llvm.loop !15
 
-would_lose_untracked.exit.thread.i.i:             ; preds = %while.body.i.i.i, %while.body.i.i.i
+would_lose_untracked.argprom.argprom.exit.thread.i.i: ; preds = %while.body.i.i.i, %while.body.i.i.i
   br i1 %cmp.i195.i, label %if.then8.i.i, label %if.else.i.i146
 
-would_lose_untracked.exit.i.i:                    ; preds = %sw.epilog.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i198.i
+would_lose_untracked.argprom.argprom.exit.i.i:    ; preds = %sw.epilog.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i198.i
   %call9.i.i.i = call i32 @file_exists(ptr noundef %280) #22
   %tobool2.not.i.i = icmp eq i32 %call9.i.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end.i.i145, label %if.then.i201.i
 
-if.then.i201.i:                                   ; preds = %would_lose_untracked.exit.i.i
+if.then.i201.i:                                   ; preds = %would_lose_untracked.argprom.argprom.exit.i.i
   %290 = load ptr, ptr %path.i.i144, align 8
   %branch.i.i = getelementptr inbounds i8, ptr %.val.i, i64 16
   %291 = load ptr, ptr %branch.i.i, align 8
@@ -2150,11 +2150,11 @@ if.end.thread.i.i:                                ; preds = %if.end3.i.i.i153, %
   call void (ptr, i32, ptr, ...) @output(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %retval.0.i28.i.i, ptr noundef %293, ptr noundef %call4.i.i)
   br label %if.then8.i.i
 
-if.end.i.i145:                                    ; preds = %would_lose_untracked.exit.i.i, %sw.bb25.i
+if.end.i.i145:                                    ; preds = %would_lose_untracked.argprom.argprom.exit.i.i, %sw.bb25.i
   br i1 %cmp.i195.i, label %if.then8.i.i, label %if.else.i.i146
 
-if.then8.i.i:                                     ; preds = %if.end.i.i145, %if.end.thread.i.i, %would_lose_untracked.exit.thread.i.i
-  %file_path.05.i.i = phi ptr [ %call4.i.i, %if.end.thread.i.i ], [ %280, %if.end.i.i145 ], [ %280, %would_lose_untracked.exit.thread.i.i ]
+if.then8.i.i:                                     ; preds = %if.end.i.i145, %if.end.thread.i.i, %would_lose_untracked.argprom.argprom.exit.thread.i.i
+  %file_path.05.i.i = phi ptr [ %call4.i.i, %if.end.thread.i.i ], [ %280, %if.end.i.i145 ], [ %280, %would_lose_untracked.argprom.argprom.exit.thread.i.i ]
   %294 = load ptr, ptr %priv.i, align 8
   %295 = load i32, ptr %294, align 8
   %tobool.not.i29.i.i = icmp eq i32 %295, 0
@@ -2188,7 +2188,7 @@ if.end17.i.i:                                     ; preds = %if.then16.i.i, %if.
   %..i.i = sext i1 %tobool31.not.i.i to i32
   br label %sw.epilog.i
 
-if.else.i.i146:                                   ; preds = %if.end.i.i145, %would_lose_untracked.exit.thread.i.i
+if.else.i.i146:                                   ; preds = %if.end.i.i145, %would_lose_untracked.argprom.argprom.exit.thread.i.i
   %301 = load ptr, ptr %path.i.i144, align 8
   %302 = load ptr, ptr %priv.i, align 8
   %303 = load i32, ptr %302, align 8
@@ -2349,7 +2349,7 @@ if.then24.i.i:                                    ; preds = %if.end.i232.i
   %path25.i.i = getelementptr inbounds i8, ptr %.val143.val.val145.i, i64 40
   %344 = load ptr, ptr %path25.i.i, align 8
   %call26.i233.i = call i32 @remove_file_from_index(ptr noundef %343, ptr noundef %344) #22
-  br label %handle_rename_delete.exit.i
+  br label %handle_rename_delete.argprom.argprom.argprom.exit.i
 
 if.else.i234.i:                                   ; preds = %if.end.i232.i
   %path27.i.i = getelementptr inbounds i8, ptr %.val143.val.val145.i, i64 40
@@ -2359,9 +2359,9 @@ if.else.i234.i:                                   ; preds = %if.end.i232.i
   %cond33.i.i = select i1 %cmp29.i.i, ptr %.val143.val.val145.i, ptr null
   %cond39.i.i = select i1 %cmp29.i.i, ptr null, ptr %.val143.val.val145.i
   %call40.i.i = call fastcc i32 @update_stages(ptr noundef nonnull %opt, ptr noundef %345, ptr noundef null, ptr noundef %cond33.i.i, ptr noundef %cond39.i.i)
-  br label %handle_rename_delete.exit.i
+  br label %handle_rename_delete.argprom.argprom.argprom.exit.i
 
-handle_rename_delete.exit.i:                      ; preds = %if.else.i234.i, %if.then24.i.i
+handle_rename_delete.argprom.argprom.argprom.exit.i: ; preds = %if.else.i234.i, %if.then24.i.i
   %retval.0.i231.i = phi i32 [ %call26.i233.i, %if.then24.i.i ], [ %call40.i.i, %if.else.i234.i ]
   %retval.0.i231.fr.i = freeze i32 %retval.0.i231.i
   %tobool31.not.i = icmp ne i32 %retval.0.i231.fr.i, 0
@@ -2902,8 +2902,8 @@ sw.default.i:                                     ; preds = %if.then.i112
   store i8 %bf.clear68.i, ptr %processed, align 8
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.default.i, %handle_rename_rename_2to1.exit.i, %447, %handle_rename_rename_1to2.exit.thread.i, %handle_rename_delete.exit.i, %_.exit27.i.i, %handle_rename_add.exit.i, %if.else.i.i146, %if.end17.i.i, %if.then8.i.i, %handle_rename_normal.exit.i
-  %clean_merge.0.i = phi i32 [ 1, %sw.default.i ], [ %retval.0.i301.i, %handle_rename_rename_2to1.exit.i ], [ %retval.0.i219.i, %handle_rename_add.exit.i ], [ %retval.0.i.i161, %handle_rename_normal.exit.i ], [ -1, %if.then8.i.i ], [ %..i.i, %if.end17.i.i ], [ %.26.i.i, %if.else.i.i146 ], [ 0, %447 ], [ -1, %handle_rename_rename_1to2.exit.thread.i ], [ -1, %_.exit27.i.i ], [ %spec.select.i, %handle_rename_delete.exit.i ]
+sw.epilog.i:                                      ; preds = %sw.default.i, %handle_rename_rename_2to1.exit.i, %447, %handle_rename_rename_1to2.exit.thread.i, %handle_rename_delete.argprom.argprom.argprom.exit.i, %_.exit27.i.i, %handle_rename_add.exit.i, %if.else.i.i146, %if.end17.i.i, %if.then8.i.i, %handle_rename_normal.exit.i
+  %clean_merge.0.i = phi i32 [ 1, %sw.default.i ], [ %retval.0.i301.i, %handle_rename_rename_2to1.exit.i ], [ %retval.0.i219.i, %handle_rename_add.exit.i ], [ %retval.0.i.i161, %handle_rename_normal.exit.i ], [ -1, %if.then8.i.i ], [ %..i.i, %if.end17.i.i ], [ %.26.i.i, %if.else.i.i146 ], [ 0, %447 ], [ -1, %handle_rename_rename_1to2.exit.thread.i ], [ -1, %_.exit27.i.i ], [ %spec.select.i, %handle_rename_delete.argprom.argprom.argprom.exit.i ]
   %spec.select140.i = call i32 @llvm.smin.i32(i32 %and.i114, i32 %clean_merge.0.i)
   br label %process_entry.exit
 
@@ -2954,7 +2954,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
 if.end94.i:                                       ; preds = %_.exit.i, %if.then90.i, %land.lhs.true87.i, %if.then76.i
   %lnot.i = xor i1 %land.ext.i164.i, true
   %lnot.ext.i170 = zext i1 %lnot.i to i32
-  call fastcc void @remove_file(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %243, i32 noundef %lnot.ext.i170)
+  call fastcc void @remove_file.retelim(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %243, i32 noundef %lnot.ext.i170)
   br label %process_entry.exit.thread
 
 if.else97.i:                                      ; preds = %land.lhs.true87.i, %lor.lhs.false85.i
@@ -3178,7 +3178,7 @@ if.then179.i:                                     ; preds = %if.else173.i
   %536 = load i16, ptr %mode.i146.i, align 8
   %tobool181.not.i = icmp eq i16 %536, 0
   %lnot.ext183.i = zext i1 %tobool181.not.i to i32
-  call fastcc void @remove_file(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %243, i32 noundef %lnot.ext183.i)
+  call fastcc void @remove_file.retelim(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %243, i32 noundef %lnot.ext183.i)
   br label %process_entry.exit.thread
 
 if.else185.i:                                     ; preds = %if.else173.i
@@ -3433,7 +3433,7 @@ merge_start.exit:                                 ; preds = %if.then.i, %if.end3
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.22, %if.then.i ]
   %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %5 = load ptr, ptr %buf.i, align 8
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %5)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %5)
   call void @strbuf_release(ptr noundef nonnull %sb.i) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   br label %return
@@ -3521,21 +3521,21 @@ if.then9:                                         ; preds = %if.end6
 if.then.i:                                        ; preds = %if.then9
   %cmp.i = icmp eq i32 %call10, 1
   %cond.i = select i1 %cmp.i, ptr @.str.124, ptr @.str.125
-  br label %Q_.exit
+  br label %Q_.argprom.exit
 
 if.end.i:                                         ; preds = %if.then9
   %conv = zext i32 %call10 to i64
   %call.i59 = tail call ptr @ngettext(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, i64 noundef %conv) #22
-  br label %Q_.exit
+  br label %Q_.argprom.exit
 
-Q_.exit:                                          ; preds = %if.then.i, %if.end.i
+Q_.argprom.exit:                                  ; preds = %if.then.i, %if.end.i
   %retval.0.i60 = phi ptr [ %call.i59, %if.end.i ], [ %cond.i, %if.then.i ]
   tail call void (ptr, i32, ptr, ...) @output(ptr noundef nonnull %opt, i32 noundef 5, ptr noundef %retval.0.i60, i32 noundef %call10)
   %tobool12.not78 = icmp eq ptr %iter.077, null
   br i1 %tobool12.not78, label %if.end13, label %for.body
 
-for.body:                                         ; preds = %Q_.exit, %for.body
-  %iter.079 = phi ptr [ %iter.0, %for.body ], [ %iter.077, %Q_.exit ]
+for.body:                                         ; preds = %Q_.argprom.exit, %for.body
+  %iter.079 = phi ptr [ %iter.0, %for.body ], [ %iter.077, %Q_.argprom.exit ]
   %9 = load ptr, ptr %iter.079, align 8
   %10 = load ptr, ptr @the_repository, align 8
   tail call fastcc void @repo_output_commit_title(ptr noundef %opt, ptr noundef %10, ptr noundef %9)
@@ -3544,7 +3544,7 @@ for.body:                                         ; preds = %Q_.exit, %for.body
   %tobool12.not = icmp eq ptr %iter.0, null
   br i1 %tobool12.not, label %if.end13, label %for.body, !llvm.loop !19
 
-if.end13:                                         ; preds = %for.body, %Q_.exit, %if.end6
+if.end13:                                         ; preds = %for.body, %Q_.argprom.exit, %if.end6
   %call14 = call ptr @pop_commit(ptr noundef nonnull %merge_bases.addr) #22
   store ptr %call14, ptr %merged_merge_bases, align 8
   %tobool15.not = icmp eq ptr %call14, null
@@ -3656,7 +3656,7 @@ if.end3.i64:                                      ; preds = %if.then50
 
 _.exit67:                                         ; preds = %if.then50, %if.end3.i64
   %retval.0.i66 = phi ptr [ %call.i65, %if.end3.i64 ], [ @.str.131, %if.then50 ]
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i66)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i66)
   br label %return
 
 for.end56:                                        ; preds = %for.cond32, %if.end31
@@ -3796,7 +3796,7 @@ _.exit:                                           ; preds = %if.then9, %if.end3.
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str, %if.then9 ]
   %7 = load ptr, ptr %arrayidx.le, align 8
   %call13 = call ptr @oid_to_hex(ptr noundef %7) #22
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i, ptr noundef %call13)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i, ptr noundef %call13)
   br label %return
 
 if.end:                                           ; preds = %for.body
@@ -3845,7 +3845,7 @@ if.end3.i22:                                      ; preds = %if.then29
 
 _.exit25:                                         ; preds = %if.then29, %if.end3.i22
   %retval.0.i24 = phi ptr [ %call.i23, %if.end3.i22 ], [ @.str.2, %if.then29 ]
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i24)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i24)
   br label %return
 
 if.end32:                                         ; preds = %if.end25
@@ -3904,7 +3904,7 @@ return:                                           ; preds = %if.end13, %if.end, 
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @err(ptr noundef %opt, ptr noundef %err, ...) unnamed_addr #0 {
+define internal void @err.retelim(ptr noundef %opt, ptr noundef %err, ...) unnamed_addr #0 {
 entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
   %buffer_output = getelementptr inbounds i8, ptr %opt, i64 72
@@ -4588,13 +4588,13 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
-hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
+hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32
@@ -5580,7 +5580,7 @@ if.end.i62:                                       ; preds = %_.exit.i74, %was_di
   %62 = load ptr, ptr %two, align 8
   %path6.i = getelementptr inbounds i8, ptr %62, i64 40
   %63 = load ptr, ptr %path6.i, align 8
-  call fastcc void @remove_file(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %63, i32 noundef %retval.0.i36.i)
+  call fastcc void @remove_file.retelim(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %63, i32 noundef %retval.0.i36.i)
   %call11.i63 = call ptr @string_list_lookup(ptr noundef %entries, ptr noundef nonnull %retval.0.i) #22
   %tobool12.not.i64 = icmp eq ptr %call11.i63, null
   br i1 %tobool12.not.i64, label %if.else.i67, label %if.then13.i
@@ -5932,7 +5932,7 @@ declare void @strbuf_add_separated_string_list(ptr noundef, ptr noundef, ptr nou
 declare ptr @null_oid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_file(ptr nocapture noundef readonly %opt, i32 noundef range(i32 0, 2) %clean, ptr noundef %path, i32 noundef range(i32 0, 2) %no_wd) unnamed_addr #0 {
+define internal fastcc void @remove_file.retelim(ptr nocapture noundef readonly %opt, i32 noundef range(i32 0, 2) %clean, ptr noundef %path, i32 noundef range(i32 0, 2) %no_wd) unnamed_addr #0 {
 entry:
   %priv = getelementptr inbounds i8, ptr %opt, i64 128
   %0 = load ptr, ptr %priv, align 8
@@ -6041,7 +6041,7 @@ if.end3.i:                                        ; preds = %if.then7
 _.exit:                                           ; preds = %if.then7, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.42, %if.then7 ]
   %call10 = call ptr @oid_to_hex(ptr noundef nonnull %contents) #22
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i, ptr noundef %call10, ptr noundef %path)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i, ptr noundef %call10, ptr noundef %path)
   br label %free_buf
 
 if.end12:                                         ; preds = %if.end5
@@ -6061,7 +6061,7 @@ if.end3.i44:                                      ; preds = %if.then15
 _.exit47:                                         ; preds = %if.then15, %if.end3.i44
   %retval.0.i46 = phi ptr [ %call.i45, %if.end3.i44 ], [ @.str.43, %if.then15 ]
   %call18 = call ptr @oid_to_hex(ptr noundef nonnull %contents) #22
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i46, ptr noundef %call18, ptr noundef %path)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i46, ptr noundef %call18, ptr noundef %path)
   br label %free_buf
 
 if.end20:                                         ; preds = %if.end12
@@ -6176,11 +6176,11 @@ if.end3.i35.i:                                    ; preds = %if.then24.i
 
 _.exit38.i:                                       ; preds = %if.end3.i35.i, %if.then24.i
   %retval.0.i37.i = phi ptr [ %call.i36.i, %if.end3.i35.i ], [ @.str.49, %if.then24.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %path, ptr noundef %retval.0.i37.i)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %path, ptr noundef %retval.0.i37.i)
   br label %free_buf
 
 if.end27.i:                                       ; preds = %for.end.i
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %path, ptr noundef nonnull @.str.7)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %path, ptr noundef nonnull @.str.7)
   br label %free_buf
 
 if.end29.i:                                       ; preds = %for.end.i
@@ -6195,7 +6195,7 @@ if.end29.i:                                       ; preds = %for.end.i
   %cache_nr.i.i = getelementptr inbounds i8, ptr %opt.val.val.i, i64 12
   %25 = load i32, ptr %cache_nr.i.i, align 4
   %cmp31.i.i = icmp ult i32 %spec.select.i.i, %25
-  br i1 %cmp31.i.i, label %land.rhs.lr.ph.i.i, label %would_lose_untracked.exit.i
+  br i1 %cmp31.i.i, label %land.rhs.lr.ph.i.i, label %would_lose_untracked.argprom.argprom.exit.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.end29.i
   %26 = load ptr, ptr %opt.val.val.i, align 8
@@ -6209,7 +6209,7 @@ land.rhs.i.i:                                     ; preds = %sw.epilog.i.i, %lan
   %name.i.i = getelementptr inbounds i8, ptr %28, i64 108
   %call5.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %name.i.i) #23
   %tobool.not.i.i = icmp eq i32 %call5.i.i, 0
-  br i1 %tobool.not.i.i, label %while.body.i.i, label %would_lose_untracked.exit.i
+  br i1 %tobool.not.i.i, label %while.body.i.i, label %would_lose_untracked.argprom.argprom.exit.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %ce_flags.i.i = getelementptr inbounds i8, ptr %28, i64 56
@@ -6225,14 +6225,14 @@ sw.epilog.i.i:                                    ; preds = %while.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %25, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %would_lose_untracked.exit.i, label %land.rhs.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %would_lose_untracked.argprom.argprom.exit.i, label %land.rhs.i.i, !llvm.loop !15
 
-would_lose_untracked.exit.i:                      ; preds = %sw.epilog.i.i, %land.rhs.i.i, %if.end29.i
+would_lose_untracked.argprom.argprom.exit.i:      ; preds = %sw.epilog.i.i, %land.rhs.i.i, %if.end29.i
   %call9.i.i = call i32 @file_exists(ptr noundef %path) #22
   %tobool31.not.i = icmp eq i32 %call9.i.i, 0
   br i1 %tobool31.not.i, label %if.end35.i, label %if.then32.i
 
-if.then32.i:                                      ; preds = %would_lose_untracked.exit.i
+if.then32.i:                                      ; preds = %would_lose_untracked.argprom.argprom.exit.i
   %30 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i41.i = icmp eq i32 %30, 0
   br i1 %tobool1.not.i41.i, label %_.exit45.i, label %if.end3.i42.i
@@ -6243,10 +6243,10 @@ if.end3.i42.i:                                    ; preds = %if.then32.i
 
 _.exit45.i:                                       ; preds = %if.end3.i42.i, %if.then32.i
   %retval.0.i44.i = phi ptr [ %call.i43.i, %if.end3.i42.i ], [ @.str.50, %if.then32.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i44.i, ptr noundef %path)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i44.i, ptr noundef %path)
   br label %free_buf
 
-if.end35.i:                                       ; preds = %while.body.i.i, %while.body.i.i, %would_lose_untracked.exit.i
+if.end35.i:                                       ; preds = %while.body.i.i, %while.body.i.i, %would_lose_untracked.argprom.argprom.exit.i
   %call36.i = call i32 @unlink(ptr noundef %path) #22
   %tobool37.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool37.not.i, label %if.end37, label %if.end39.i
@@ -6268,7 +6268,7 @@ if.end3.i47.i:                                    ; preds = %if.end44.i
 
 _.exit50.i:                                       ; preds = %if.end3.i47.i, %if.end44.i
   %retval.0.i49.i = phi ptr [ %call.i48.i, %if.end3.i47.i ], [ @.str.49, %if.end44.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %path, ptr noundef %retval.0.i49.i)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %path, ptr noundef %retval.0.i49.i)
   br label %free_buf
 
 if.end37:                                         ; preds = %if.end39.i, %if.end35.i
@@ -6306,7 +6306,7 @@ _.exit54:                                         ; preds = %if.then58, %if.end3
   %call60 = tail call ptr @__errno_location() #25
   %38 = load i32, ptr %call60, align 4
   %call61 = call ptr @strerror(i32 noundef %38) #22
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i53, ptr noundef %path, ptr noundef %call61)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i53, ptr noundef %path, ptr noundef %call61)
   br label %free_buf
 
 if.end63:                                         ; preds = %if.then49
@@ -6341,7 +6341,7 @@ _.exit59:                                         ; preds = %if.then77, %if.end3
   %call79 = tail call ptr @__errno_location() #25
   %42 = load i32, ptr %call79, align 4
   %call80 = call ptr @strerror(i32 noundef %42) #22
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i58, ptr noundef %path, ptr noundef %call80)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i58, ptr noundef %path, ptr noundef %call80)
   br label %if.end82
 
 if.end82:                                         ; preds = %_.exit59, %if.then71
@@ -6364,7 +6364,7 @@ _.exit64:                                         ; preds = %if.else83, %if.end3
   %retval.0.i63 = phi ptr [ %call.i62, %if.end3.i61 ], [ @.str.46, %if.else83 ]
   %conv86 = zext i16 %44 to i32
   %call88 = call ptr @oid_to_hex(ptr noundef nonnull %contents) #22
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i63, i32 noundef %conv86, ptr noundef %call88, ptr noundef %path)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i63, i32 noundef %conv86, ptr noundef %call88, ptr noundef %path)
   br label %free_buf
 
 free_buf:                                         ; preds = %_.exit50.i, %_.exit45.i, %if.end27.i, %_.exit38.i, %if.end63, %_.exit64, %if.end82, %_.exit54, %_.exit47, %_.exit
@@ -6456,7 +6456,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.51, %if.then ]
-  tail call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i, ptr noundef %path)
+  tail call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i, ptr noundef %path)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6480,7 +6480,7 @@ if.end3.i16:                                      ; preds = %if.then8
 
 _.exit19:                                         ; preds = %if.then8, %if.end3.i16
   %retval.0.i18 = phi ptr [ %call.i17, %if.end3.i16 ], [ @.str.52, %if.then8 ]
-  tail call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i18, ptr noundef %path)
+  tail call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i18, ptr noundef %path)
   br label %return
 
 if.end11:                                         ; preds = %if.then5
@@ -7076,7 +7076,7 @@ while.end.i:                                      ; preds = %sw.epilog.i, %land.
 
 lor.end:                                          ; preds = %while.body.i, %while.body.i, %while.end.i, %if.then2
   %lor.ext = phi i32 [ 1, %if.then2 ], [ %10, %while.end.i ], [ 0, %while.body.i ], [ 0, %while.body.i ]
-  tail call fastcc void @remove_file(ptr noundef %opt, i32 noundef 1, ptr noundef nonnull %prev_path1.tr, i32 noundef %lor.ext)
+  tail call fastcc void @remove_file.retelim(ptr noundef %opt, i32 noundef 1, ptr noundef nonnull %prev_path1.tr, i32 noundef %lor.ext)
   br label %if.end7
 
 if.end7:                                          ; preds = %lor.end, %if.end
@@ -7142,7 +7142,7 @@ while.end.i54:                                    ; preds = %sw.epilog.i68, %lan
 
 lor.end16:                                        ; preds = %while.body.i64, %while.body.i64, %while.end.i54, %if.then9
   %lor.ext17 = phi i32 [ 1, %if.then9 ], [ %20, %while.end.i54 ], [ 0, %while.body.i64 ], [ 0, %while.body.i64 ]
-  tail call fastcc void @remove_file(ptr noundef %opt, i32 noundef 1, ptr noundef nonnull %prev_path2.tr, i32 noundef %lor.ext17)
+  tail call fastcc void @remove_file.retelim(ptr noundef %opt, i32 noundef 1, ptr noundef nonnull %prev_path2.tr, i32 noundef %lor.ext17)
   br label %if.end19
 
 if.end19:                                         ; preds = %lor.end16, %if.end7
@@ -7201,7 +7201,7 @@ if.else:                                          ; preds = %if.end19, %lor.lhs.
   %cache_nr.i85 = getelementptr inbounds i8, ptr %opt.val.val, i64 12
   %29 = load i32, ptr %cache_nr.i85, align 4
   %cmp31.i86 = icmp ult i32 %spec.select.i84, %29
-  br i1 %cmp31.i86, label %land.rhs.lr.ph.i90, label %would_lose_untracked.exit105
+  br i1 %cmp31.i86, label %land.rhs.lr.ph.i90, label %would_lose_untracked.argprom.argprom.exit105
 
 land.rhs.lr.ph.i90:                               ; preds = %if.else
   %30 = load ptr, ptr %opt.val.val, align 8
@@ -7215,7 +7215,7 @@ land.rhs.i91:                                     ; preds = %sw.epilog.i101, %la
   %name.i94 = getelementptr inbounds i8, ptr %32, i64 108
   %call5.i95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %collide_path, ptr noundef nonnull dereferenceable(1) %name.i94) #23
   %tobool.not.i96 = icmp eq i32 %call5.i95, 0
-  br i1 %tobool.not.i96, label %while.body.i97, label %would_lose_untracked.exit105
+  br i1 %tobool.not.i96, label %while.body.i97, label %would_lose_untracked.argprom.argprom.exit105
 
 while.body.i97:                                   ; preds = %land.rhs.i91
   %ce_flags.i98 = getelementptr inbounds i8, ptr %32, i64 56
@@ -7231,14 +7231,14 @@ sw.epilog.i101:                                   ; preds = %while.body.i97
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i92, 1
   %lftr.wideiv.i103 = trunc i64 %indvars.iv.next.i102 to i32
   %exitcond.not.i104 = icmp eq i32 %29, %lftr.wideiv.i103
-  br i1 %exitcond.not.i104, label %would_lose_untracked.exit105, label %land.rhs.i91, !llvm.loop !15
+  br i1 %exitcond.not.i104, label %would_lose_untracked.argprom.argprom.exit105, label %land.rhs.i91, !llvm.loop !15
 
-would_lose_untracked.exit105:                     ; preds = %land.rhs.i91, %sw.epilog.i101, %if.else
+would_lose_untracked.argprom.argprom.exit105:     ; preds = %land.rhs.i91, %sw.epilog.i101, %if.else
   %call9.i88 = tail call i32 @file_exists(ptr noundef %collide_path) #22
   %tobool26.not = icmp eq i32 %call9.i88, 0
   br i1 %tobool26.not, label %if.else30, label %if.then27
 
-if.then27:                                        ; preds = %would_lose_untracked.exit105
+if.then27:                                        ; preds = %would_lose_untracked.argprom.argprom.exit105
   %34 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i107 = icmp eq i32 %34, 0
   br i1 %tobool1.not.i107, label %_.exit111, label %if.end3.i108
@@ -7253,8 +7253,8 @@ _.exit111:                                        ; preds = %if.then27, %if.end3
   %call29 = tail call fastcc ptr @unique_path(ptr noundef nonnull %opt, ptr noundef %collide_path, ptr noundef nonnull @.str.114)
   br label %if.end33
 
-if.else30:                                        ; preds = %while.body.i97, %while.body.i97, %would_lose_untracked.exit105
-  tail call fastcc void @remove_file(ptr noundef nonnull %opt, i32 noundef 0, ptr noundef %collide_path, i32 noundef 0)
+if.else30:                                        ; preds = %while.body.i97, %while.body.i97, %would_lose_untracked.argprom.argprom.exit105
+  tail call fastcc void @remove_file.retelim(ptr noundef nonnull %opt, i32 noundef 0, ptr noundef %collide_path, i32 noundef 0)
   br label %if.end33
 
 if.end33:                                         ; preds = %_.exit111, %if.else30, %_.exit
@@ -7772,7 +7772,7 @@ if.end3.i.i:                                      ; preds = %if.then.i
 
 add_cacheinfo.exit.thread:                        ; preds = %if.then.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.51, %if.then.i ]
-  tail call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %path)
+  tail call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i, ptr noundef %path)
   br label %return
 
 add_cacheinfo.exit:                               ; preds = %if.then5
@@ -7806,7 +7806,7 @@ if.end3.i.i22:                                    ; preds = %if.then.i20
 
 add_cacheinfo.exit27.thread:                      ; preds = %if.then.i20, %if.end3.i.i22
   %retval.0.i.i25 = phi ptr [ %call.i.i23, %if.end3.i.i22 ], [ @.str.51, %if.then.i20 ]
-  tail call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i25, ptr noundef %path)
+  tail call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i25, ptr noundef %path)
   br label %return
 
 add_cacheinfo.exit27:                             ; preds = %if.then12
@@ -7840,7 +7840,7 @@ if.end3.i.i38:                                    ; preds = %if.then.i36
 
 add_cacheinfo.exit43.thread:                      ; preds = %if.then.i36, %if.end3.i.i38
   %retval.0.i.i41 = phi ptr [ %call.i.i39, %if.end3.i.i38 ], [ @.str.51, %if.then.i36 ]
-  tail call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i41, ptr noundef %path)
+  tail call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i.i41, ptr noundef %path)
   br label %return
 
 add_cacheinfo.exit43:                             ; preds = %if.then19
@@ -8180,7 +8180,7 @@ if.end3.i:                                        ; preds = %if.then117
 
 _.exit:                                           ; preds = %if.then117, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.68, %if.then117 ]
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i)
   br label %if.then134.critedge
 
 land.lhs.true122:                                 ; preds = %if.then111
@@ -8203,7 +8203,7 @@ _.exit172:                                        ; preds = %if.then128, %if.end
   %retval.0.i171 = phi ptr [ %call.i170, %if.end3.i169 ], [ @.str.69, %if.then128 ]
   %path = getelementptr inbounds i8, ptr %a.tr, i64 40
   %41 = load ptr, ptr %path, align 8
-  call void (ptr, ptr, ...) @err(ptr noundef nonnull %opt, ptr noundef %retval.0.i171, ptr noundef %41)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef nonnull %opt, ptr noundef %retval.0.i171, ptr noundef %41)
   br label %if.then134.critedge
 
 if.end131:                                        ; preds = %land.lhs.true122
@@ -9180,7 +9180,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %cache_nr.i = getelementptr inbounds i8, ptr %opt.val.val, i64 12
   %7 = load i32, ptr %cache_nr.i, align 4
   %cmp31.i = icmp ult i32 %spec.select.i, %7
-  br i1 %cmp31.i, label %land.rhs.lr.ph.i, label %would_lose_untracked.exit
+  br i1 %cmp31.i, label %land.rhs.lr.ph.i, label %would_lose_untracked.argprom.argprom.exit
 
 land.rhs.lr.ph.i:                                 ; preds = %land.lhs.true
   %8 = load ptr, ptr %opt.val.val, align 8
@@ -9194,7 +9194,7 @@ land.rhs.i:                                       ; preds = %sw.epilog.i, %land.
   %name.i = getelementptr inbounds i8, ptr %10, i64 108
   %call5.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %name.i) #23
   %tobool.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool.not.i, label %while.body.i, label %would_lose_untracked.exit
+  br i1 %tobool.not.i, label %while.body.i, label %would_lose_untracked.argprom.argprom.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
   %ce_flags.i = getelementptr inbounds i8, ptr %10, i64 56
@@ -9210,20 +9210,20 @@ sw.epilog.i:                                      ; preds = %while.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %7, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %would_lose_untracked.exit, label %land.rhs.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %would_lose_untracked.argprom.argprom.exit, label %land.rhs.i, !llvm.loop !15
 
-would_lose_untracked.exit:                        ; preds = %land.rhs.i, %sw.epilog.i, %land.lhs.true
+would_lose_untracked.argprom.argprom.exit:        ; preds = %land.rhs.i, %sw.epilog.i, %land.lhs.true
   %call9.i = tail call i32 @file_exists(ptr noundef %path) #22
   %tobool6.not = icmp eq i32 %call9.i, 0
   br i1 %tobool6.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %would_lose_untracked.exit, %entry
+if.then:                                          ; preds = %would_lose_untracked.argprom.argprom.exit, %entry
   %call7 = tail call fastcc ptr @unique_path(ptr noundef nonnull %opt, ptr noundef %path, ptr noundef %change_branch)
   br label %if.end
 
-if.end:                                           ; preds = %while.body.i, %while.body.i, %if.then, %would_lose_untracked.exit, %lor.lhs.false
-  %alt_path.0 = phi ptr [ %call7, %if.then ], [ null, %lor.lhs.false ], [ null, %would_lose_untracked.exit ], [ null, %while.body.i ], [ null, %while.body.i ]
-  %update_path.0 = phi ptr [ %call7, %if.then ], [ %path, %lor.lhs.false ], [ %path, %would_lose_untracked.exit ], [ %path, %while.body.i ], [ %path, %while.body.i ]
+if.end:                                           ; preds = %while.body.i, %while.body.i, %if.then, %would_lose_untracked.argprom.argprom.exit, %lor.lhs.false
+  %alt_path.0 = phi ptr [ %call7, %if.then ], [ null, %lor.lhs.false ], [ null, %would_lose_untracked.argprom.argprom.exit ], [ null, %while.body.i ], [ null, %while.body.i ]
+  %update_path.0 = phi ptr [ %call7, %if.then ], [ %path, %lor.lhs.false ], [ %path, %would_lose_untracked.argprom.argprom.exit ], [ %path, %while.body.i ], [ %path, %while.body.i ]
   %12 = load ptr, ptr %priv, align 8
   %13 = load i32, ptr %12, align 8
   %tobool10.not = icmp eq i32 %13, 0
@@ -9363,7 +9363,7 @@ if.else:                                          ; preds = %entry
   %cache_nr.i = getelementptr inbounds i8, ptr %opt.val.val, i64 12
   %6 = load i32, ptr %cache_nr.i, align 4
   %cmp31.i = icmp ult i32 %spec.select.i, %6
-  br i1 %cmp31.i, label %land.rhs.lr.ph.i, label %would_lose_untracked.exit
+  br i1 %cmp31.i, label %land.rhs.lr.ph.i, label %would_lose_untracked.argprom.argprom.exit
 
 land.rhs.lr.ph.i:                                 ; preds = %if.else
   %7 = load ptr, ptr %opt.val.val, align 8
@@ -9377,7 +9377,7 @@ land.rhs.i:                                       ; preds = %sw.epilog.i, %land.
   %name.i = getelementptr inbounds i8, ptr %9, i64 108
   %call5.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %name.i) #23
   %tobool.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool.not.i, label %while.body.i, label %would_lose_untracked.exit
+  br i1 %tobool.not.i, label %while.body.i, label %would_lose_untracked.argprom.argprom.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
   %ce_flags.i = getelementptr inbounds i8, ptr %9, i64 56
@@ -9393,14 +9393,14 @@ sw.epilog.i:                                      ; preds = %while.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %6, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %would_lose_untracked.exit, label %land.rhs.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %would_lose_untracked.argprom.argprom.exit, label %land.rhs.i, !llvm.loop !15
 
-would_lose_untracked.exit:                        ; preds = %land.rhs.i, %sw.epilog.i, %if.else
+would_lose_untracked.argprom.argprom.exit:        ; preds = %land.rhs.i, %sw.epilog.i, %if.else
   %call9.i = tail call i32 @file_exists(ptr noundef %path) #22
   %tobool5.not = icmp eq i32 %call9.i, 0
   br i1 %tobool5.not, label %if.end9, label %if.then6
 
-if.then6:                                         ; preds = %would_lose_untracked.exit
+if.then6:                                         ; preds = %would_lose_untracked.argprom.argprom.exit
   %call7 = tail call fastcc ptr @unique_path(ptr noundef nonnull %opt, ptr noundef %path, ptr noundef %branch1)
   %11 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i17 = icmp eq i32 %11, 0
@@ -9415,8 +9415,8 @@ _.exit21:                                         ; preds = %if.then6, %if.end3.
   tail call void (ptr, i32, ptr, ...) @output(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %retval.0.i20, ptr noundef %path, ptr noundef %call7)
   br label %if.end9
 
-if.end9:                                          ; preds = %while.body.i, %while.body.i, %would_lose_untracked.exit, %_.exit21, %_.exit
-  %new_path.0 = phi ptr [ %call2, %_.exit ], [ %call7, %_.exit21 ], [ null, %would_lose_untracked.exit ], [ null, %while.body.i ], [ null, %while.body.i ]
+if.end9:                                          ; preds = %while.body.i, %while.body.i, %would_lose_untracked.argprom.argprom.exit, %_.exit21, %_.exit
+  %new_path.0 = phi ptr [ %call2, %_.exit ], [ %call7, %_.exit21 ], [ null, %would_lose_untracked.argprom.argprom.exit ], [ null, %while.body.i ], [ null, %while.body.i ]
   ret ptr %new_path.0
 }
 
@@ -9442,7 +9442,7 @@ if.end3.i:                                        ; preds = %if.then
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.108, %if.then ]
   %call2 = call ptr @oid_to_hex(ptr noundef %oid) #22
-  call void (ptr, ptr, ...) @err(ptr noundef %opt, ptr noundef %retval.0.i, ptr noundef %call2)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef %opt, ptr noundef %retval.0.i, ptr noundef %call2)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -9463,7 +9463,7 @@ if.end3.i7:                                       ; preds = %if.then4
 _.exit10:                                         ; preds = %if.then4, %if.end3.i7
   %retval.0.i9 = phi ptr [ %call.i8, %if.end3.i7 ], [ @.str.109, %if.then4 ]
   %call6 = call ptr @oid_to_hex(ptr noundef %oid) #22
-  call void (ptr, ptr, ...) @err(ptr noundef %opt, ptr noundef %retval.0.i9, ptr noundef %call6)
+  call void (ptr, ptr, ...) @err.retelim(ptr noundef %opt, ptr noundef %retval.0.i9, ptr noundef %call6)
   br label %return
 
 if.end8:                                          ; preds = %if.end

@@ -204,11 +204,11 @@ define internal range(i32 0, 2) i32 @nettrace_read(ptr nocapture noundef readonl
 20:                                               ; preds = %.lr.ph.i
   %21 = call i32 @file_error(ptr noundef %11, ptr noundef %4) #11
   store i32 %21, ptr %3, align 4
-  br label %read_until.exit.thread
+  br label %read_until.argprom.exit.thread
 
 22:                                               ; preds = %.lr.ph.i
   %23 = icmp eq i32 %18, 0
-  br i1 %23, label %read_until.exit.thread, label %24
+  br i1 %23, label %read_until.argprom.exit.thread, label %24
 
 24:                                               ; preds = %22
   %25 = call ptr @g_byte_array_append(ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef %18) #11
@@ -219,7 +219,7 @@ define internal range(i32 0, 2) i32 @nettrace_read(ptr nocapture noundef readonl
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.lr.ph.i, label %.loopexit, !llvm.loop !4
 
-read_until.exit.thread:                           ; preds = %22, %20
+read_until.argprom.exit.thread:                   ; preds = %22, %20
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   br label %.thread
 
@@ -287,7 +287,7 @@ read_until.exit.thread:                           ; preds = %22, %20
   %69 = icmp eq i32 %54, 0
   br i1 %69, label %.thread, label %72
 
-.thread:                                          ; preds = %read_until.exit.thread, %41, %._crit_edge
+.thread:                                          ; preds = %read_until.argprom.exit.thread, %41, %._crit_edge
   %70 = load ptr, ptr %9, align 8
   %71 = call ptr @g_byte_array_set_size(ptr noundef %70, i32 noundef 0) #11
   br label %72
@@ -328,11 +328,11 @@ define internal range(i32 0, 2) i32 @nettrace_seek_read(ptr nocapture noundef re
 25:                                               ; preds = %.lr.ph.i
   %26 = call i32 @file_error(ptr noundef %16, ptr noundef %5) #11
   store i32 %26, ptr %4, align 4
-  br label %read_until.exit.thread
+  br label %read_until.argprom.exit.thread
 
 27:                                               ; preds = %.lr.ph.i
   %28 = icmp eq i32 %23, 0
-  br i1 %28, label %read_until.exit.thread, label %29
+  br i1 %28, label %read_until.argprom.exit.thread, label %29
 
 29:                                               ; preds = %27
   %30 = call ptr @g_byte_array_append(ptr noundef nonnull %15, ptr noundef nonnull %7, i32 noundef %23) #11
@@ -343,7 +343,7 @@ define internal range(i32 0, 2) i32 @nettrace_seek_read(ptr nocapture noundef re
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.lr.ph.i, label %.loopexit, !llvm.loop !4
 
-read_until.exit.thread:                           ; preds = %27, %25
+read_until.argprom.exit.thread:                   ; preds = %27, %25
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   br label %47
 
@@ -362,8 +362,8 @@ read_until.exit.thread:                           ; preds = %27, %25
   %46 = call ptr @g_byte_array_set_size(ptr noundef %45, i32 noundef 0) #11
   br label %47
 
-47:                                               ; preds = %read_until.exit.thread, %6, %.loopexit
-  %.0 = phi i32 [ %44, %.loopexit ], [ 0, %6 ], [ 0, %read_until.exit.thread ]
+47:                                               ; preds = %read_until.argprom.exit.thread, %6, %.loopexit
+  %.0 = phi i32 [ %44, %.loopexit ], [ 0, %6 ], [ 0, %read_until.argprom.exit.thread ]
   ret i32 %.0
 }
 
@@ -601,7 +601,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   br i1 %.not231, label %112, label %111
 
 111:                                              ; preds = %106
-  call fastcc void @nettrace_parse_address(ptr noundef %107, i32 noundef 1, ptr noundef %8)
+  call fastcc void @nettrace_parse_address.argelim(ptr noundef %107, i32 noundef 1, ptr noundef %8)
   br label %112
 
 112:                                              ; preds = %106, %111, %104
@@ -619,7 +619,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   br i1 %.not234, label %120, label %119
 
 119:                                              ; preds = %114
-  call fastcc void @nettrace_parse_address(ptr noundef %115, i32 noundef 0, ptr noundef %8)
+  call fastcc void @nettrace_parse_address.argelim(ptr noundef %115, i32 noundef 0, ptr noundef %8)
   br label %120
 
 120:                                              ; preds = %114, %119, %112
@@ -972,7 +972,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @ascii_strdown_inplace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nettrace_parse_address(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @nettrace_parse_address.argelim(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [46 x i8], align 16
   %6 = alloca %struct.e_in6_addr, align 1

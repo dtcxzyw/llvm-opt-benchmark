@@ -1070,7 +1070,7 @@ proto_item_set_generated.exit138:                 ; preds = %144, %141, %135, %p
   ]
 
 198:                                              ; preds = %171
-  tail call fastcc void @dissect_rlc_nr_tm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37, ptr noundef %40, ptr noundef %35)
+  tail call fastcc void @dissect_rlc_nr_tm.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37, ptr noundef %40, ptr noundef %35)
   br label %659
 
 199:                                              ; preds = %171
@@ -1337,7 +1337,7 @@ show_PDU_in_info.exit134.i:                       ; preds = %325, %321
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   %334 = and i16 %.val.val.i, 8
   %.not.i135.i = icmp eq i16 %334, 0
-  br i1 %.not.i135.i, label %335, label %reassembly_frame_complete.exit.i
+  br i1 %.not.i135.i, label %335, label %reassembly_frame_complete.argprom.argprom.exit.i
 
 335:                                              ; preds = %328
   %336 = load i16, ptr %82, align 2
@@ -1366,9 +1366,9 @@ show_PDU_in_info.exit134.i:                       ; preds = %325, %321
   store ptr null, ptr %350, align 8
   %351 = load ptr, ptr @reassembly_start_table, align 8
   call void @wmem_tree_insert32_array(ptr noundef %351, ptr noundef nonnull %23, ptr noundef null) #9
-  br label %reassembly_frame_complete.exit.i
+  br label %reassembly_frame_complete.argprom.argprom.exit.i
 
-reassembly_frame_complete.exit.i:                 ; preds = %335, %328
+reassembly_frame_complete.argprom.argprom.exit.i: ; preds = %335, %328
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   br label %dissect_rlc_nr_um.exit
@@ -1382,7 +1382,7 @@ reassembly_frame_complete.exit.i:                 ; preds = %335, %328
   %355 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %210, ptr noundef nonnull @ei_rlc_nr_um_data_no_data) #9
   br label %dissect_rlc_nr_um.exit
 
-dissect_rlc_nr_um.exit:                           ; preds = %232, %274, %278, %show_PDU_in_info.exit134.i, %reassembly_frame_complete.exit.i, %352, %354
+dissect_rlc_nr_um.exit:                           ; preds = %232, %274, %278, %show_PDU_in_info.exit134.i, %reassembly_frame_complete.argprom.argprom.exit.i, %352, %354
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
@@ -2068,7 +2068,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rlc_nr_tm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_rlc_nr_tm.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4

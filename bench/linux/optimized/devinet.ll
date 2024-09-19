@@ -875,7 +875,7 @@ define dso_local i32 @devinet_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 160:                                              ; preds = %159, %149
   %.val = load ptr, ptr %33, align 8
-  %161 = tail call fastcc i32 @inet_set_ifa(ptr %.val, ptr noundef nonnull %116)
+  %161 = tail call fastcc i32 @inet_set_ifa.argprom(ptr %.val, ptr noundef nonnull %116)
   br label %228
 
 162:                                              ; preds = %.thread
@@ -1047,7 +1047,7 @@ define internal fastcc range(i32 -1, 33) i32 @inet_abc_len(i32 noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 32770, 2) i32 @inet_set_ifa(ptr %.952.val, ptr noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 32770, 2) i32 @inet_set_ifa.argprom(ptr %.952.val, ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = tail call i32 @rtnl_is_locked() #18
   %3 = icmp ne i32 %2, 0
   %4 = load i1, ptr @inet_set_ifa.__already_done, align 1
@@ -2460,7 +2460,7 @@ define internal i32 @inet_rtm_newaddr(ptr nocapture noundef readonly %0, ptr nou
   %.val28.val = load ptr, ptr %.val28, align 8
   %241 = getelementptr i8, ptr %.val28.val, i64 216
   %.val28.val.val = load i32, ptr %241, align 8
-  %242 = call fastcc i32 @ip_mc_autojoin_config(ptr %.val, i1 noundef zeroext true, i32 %.val28.val.val, i32 %.val29)
+  %242 = call fastcc i32 @ip_mc_autojoin_config.argprom.argprom.argprom(ptr %.val, i1 noundef zeroext true, i32 %.val28.val.val, i32 %.val29)
   %243 = icmp sgt i32 %242, -1
   br i1 %243, label %249, label %244
 
@@ -2744,7 +2744,7 @@ split:                                            ; preds = %72, %._crit_edge
   %.val10.val = load ptr, ptr %.val10, align 8
   %89 = getelementptr i8, ptr %.val10.val, i64 216
   %.val10.val.val = load i32, ptr %89, align 8
-  %90 = call fastcc i32 @ip_mc_autojoin_config(ptr %.val, i1 noundef zeroext false, i32 %.val10.val.val, i32 %82)
+  %90 = call fastcc i32 @ip_mc_autojoin_config.argprom.argprom.argprom(ptr %.val, i1 noundef zeroext false, i32 %.val10.val.val, i32 %82)
   br label %91
 
 91:                                               ; preds = %86, %split
@@ -6469,7 +6469,7 @@ declare dso_local ptr @nla_reserve(ptr noundef, i32 noundef, i32 noundef) local_
 declare dso_local i32 @__nla_parse(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ip_mc_autojoin_config(ptr %.1048.val, i1 noundef zeroext %0, i32 %.24.val.0.val.216.val, i32 %.52.val) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ip_mc_autojoin_config.argprom.argprom.argprom(ptr %.1048.val, i1 noundef zeroext %0, i32 %.24.val.0.val.216.val, i32 %.52.val) unnamed_addr #0 align 16 {
   %2 = alloca %struct.ip_mreqn, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #18
   store i32 %.52.val, ptr %2, align 4

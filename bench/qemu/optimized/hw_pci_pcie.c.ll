@@ -815,19 +815,19 @@ if.end:                                           ; preds = %entry
   %add.ptr2.val.i = load i16, ptr %add.ptr2.i, align 1
   %4 = and i16 %add.ptr2.val.i, 128
   %tobool.not.i = icmp eq i16 %4, 0
-  br i1 %tobool.not.i, label %if.end12, label %pcie_cap_slot_plug_common.exit
+  br i1 %tobool.not.i, label %if.end12, label %pcie_cap_slot_plug_common.argprom.exit
 
-pcie_cap_slot_plug_common.exit:                   ; preds = %if.end
+pcie_cap_slot_plug_common.argprom.exit:           ; preds = %if.end
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 445, ptr noundef nonnull @__func__.pcie_cap_slot_plug_common, i32 noundef 16, ptr noundef nonnull @.str.19) #10
   %.pre = load ptr, ptr %local_err, align 8
   %tobool.not = icmp eq ptr %.pre, null
   br i1 %tobool.not, label %if.end12, label %if.then11
 
-if.then11:                                        ; preds = %pcie_cap_slot_plug_common.exit
+if.then11:                                        ; preds = %pcie_cap_slot_plug_common.argprom.exit
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %.pre) #10
   br label %return
 
-if.end12:                                         ; preds = %if.end, %pcie_cap_slot_plug_common.exit
+if.end12:                                         ; preds = %if.end, %pcie_cap_slot_plug_common.argprom.exit
   %5 = and i16 %add.ptr7.val, 768
   %cmp15 = icmp eq i16 %5, 512
   br i1 %cmp15, label %if.then17, label %if.end18
@@ -1728,7 +1728,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %dev.val, i64 256
   %add.ptr.val.i = load i32, ptr %add.ptr.i, align 1
   %tobool.not.i = icmp eq i32 %add.ptr.val.i, 0
-  br i1 %tobool.not.i, label %pcie_find_capability_list.exit, label %for.body.i
+  br i1 %tobool.not.i, label %pcie_find_capability_list.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %next.14.i = phi i16 [ %conv20.i, %for.inc.i ], [ 256, %entry ]
@@ -1753,16 +1753,16 @@ if.end10.i:                                       ; preds = %if.end4.i
   %add.ptr13.val.i = load i32, ptr %add.ptr13.i, align 1
   %1 = trunc i32 %add.ptr13.val.i to i16
   %cmp15.i = icmp eq i16 %cap_id, %1
-  br i1 %cmp15.i, label %pcie_find_capability_list.exit, label %for.inc.i
+  br i1 %cmp15.i, label %pcie_find_capability_list.argprom.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end10.i
   %shr.i = lshr i32 %add.ptr13.val.i, 20
   %2 = trunc nuw nsw i32 %shr.i to i16
   %conv20.i = and i16 %2, 4092
   %tobool1.not.i = icmp eq i16 %conv20.i, 0
-  br i1 %tobool1.not.i, label %pcie_find_capability_list.exit, label %for.body.i, !llvm.loop !5
+  br i1 %tobool1.not.i, label %pcie_find_capability_list.argprom.exit, label %for.body.i, !llvm.loop !5
 
-pcie_find_capability_list.exit:                   ; preds = %if.end10.i, %for.inc.i, %entry
+pcie_find_capability_list.argprom.exit:           ; preds = %if.end10.i, %for.inc.i, %entry
   %next.0.i = phi i16 [ 0, %entry ], [ 0, %for.inc.i ], [ %next.14.i, %if.end10.i ]
   ret i16 %next.0.i
 }
@@ -1860,13 +1860,13 @@ if.end41:                                         ; preds = %if.end10.i
   %conv1.i = zext i16 %offset to i32
   %and.i24 = and i32 %conv1.i, 3
   %tobool.not.i25 = icmp eq i32 %and.i24, 0
-  br i1 %tobool.not.i25, label %pcie_ext_cap_set_next.exit, label %if.else.i26
+  br i1 %tobool.not.i25, label %pcie_ext_cap_set_next.argprom.exit, label %if.else.i26
 
 if.else.i26:                                      ; preds = %if.end41
   tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_ext_cap_set_next) #9
   unreachable
 
-pcie_ext_cap_set_next.exit:                       ; preds = %if.end41
+pcie_ext_cap_set_next.argprom.exit:               ; preds = %if.end41
   %add.ptr13.i.le = getelementptr i8, ptr %dev.val21, i64 %idx.ext.i
   %and2.i = and i32 %add.ptr13.val.i, 4194303
   %shl.i = shl i32 %conv1.i, 20
@@ -1874,7 +1874,7 @@ pcie_ext_cap_set_next.exit:                       ; preds = %if.end41
   store i32 %or.i, ptr %add.ptr13.i.le, align 1
   br label %if.end42
 
-if.end42:                                         ; preds = %pcie_ext_cap_set_next.exit, %if.end30
+if.end42:                                         ; preds = %pcie_ext_cap_set_next.argprom.exit, %if.end30
   %config = getelementptr inbounds i8, ptr %dev, i64 168
   %3 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %offset to i64

@@ -350,7 +350,7 @@ _ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_trai
   %102 = ptrtoint ptr %.sroa.080.3134 to i64
   %103 = sub i64 %101, %102
   %104 = icmp eq i64 %103, 9223372036854775800
-  br i1 %104, label %105, label %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.exit.i.i.i45
+  br i1 %104, label %105, label %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i45
 
 105:                                              ; preds = %100
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
@@ -359,7 +359,7 @@ _ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_trai
 .noexc52:                                         ; preds = %105
   unreachable
 
-_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.exit.i.i.i45: ; preds = %100
+_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i45: ; preds = %100
   %106 = sdiv exact i64 %103, 24
   %107 = icmp eq ptr %.sroa.8.1133, %.sroa.080.3134
   %.sroa.speculated.i.i.i.i46 = select i1 %107, i64 1, i64 %106
@@ -368,15 +368,15 @@ _ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metada
   %110 = call i64 @llvm.umin.i64(i64 %108, i64 384307168202282325)
   %111 = select i1 %109, i64 384307168202282325, i64 %110
   %.not.i.i.i.i47 = icmp eq i64 %111, 0
-  br i1 %.not.i.i.i.i47, label %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.exit.i.i.i48, label %112
+  br i1 %.not.i.i.i.i47, label %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.argprom.exit.i.i.i48, label %112
 
-112:                                              ; preds = %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.exit.i.i.i45
+112:                                              ; preds = %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i45
   %113 = mul nuw nsw i64 %111, 24
   %114 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %113) #16
-          to label %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.exit.i.i.i48 unwind label %.loopexit94
+          to label %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.argprom.exit.i.i.i48 unwind label %.loopexit94
 
-_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.exit.i.i.i48: ; preds = %112, %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.exit.i.i.i45
-  %115 = phi ptr [ null, %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.exit.i.i.i45 ], [ %114, %112 ]
+_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.argprom.exit.i.i.i48: ; preds = %112, %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i45
+  %115 = phi ptr [ null, %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i45 ], [ %114, %112 ]
   %116 = getelementptr inbounds %struct.MetadataTuple, ptr %115, i64 %106
   store ptr %.02092, ptr %116, align 8
   %.sroa.3.0..sroa_idx59 = getelementptr inbounds i8, ptr %116, i64 8
@@ -384,24 +384,24 @@ _ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13
   %.sroa.4.0..sroa_idx63 = getelementptr inbounds i8, ptr %116, i64 16
   store i32 %96, ptr %.sroa.4.0..sroa_idx63, align 8
   %117 = icmp sgt i64 %103, 0
-  br i1 %117, label %118, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49
+  br i1 %117, label %118, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit20.i.i.i49
 
-118:                                              ; preds = %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.exit.i.i.i48
+118:                                              ; preds = %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.argprom.exit.i.i.i48
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %115, ptr align 8 %.sroa.080.3134, i64 %103, i1 false)
-  br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49
+  br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit20.i.i.i49
 
-_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49: ; preds = %118, %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.exit.i.i.i48
+_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit20.i.i.i49: ; preds = %118, %_ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.argprom.exit.i.i.i48
   %119 = getelementptr inbounds i8, ptr %115, i64 %103
   %.not.i21.i.i.i50 = icmp eq ptr %.sroa.080.3134, null
   br i1 %.not.i21.i.i.i50, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51, label %120
 
-120:                                              ; preds = %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49
+120:                                              ; preds = %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit20.i.i.i49
   call void @_ZdlPv(ptr noundef nonnull %.sroa.080.3134) #19
   %.pre.pre = load i32, ptr %7, align 4
   br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51
 
-_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51: ; preds = %120, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49
-  %.pre = phi i32 [ %.pre.pre, %120 ], [ %.pre159, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i49 ]
+_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51: ; preds = %120, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit20.i.i.i49
+  %.pre = phi i32 [ %.pre.pre, %120 ], [ %.pre159, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit20.i.i.i49 ]
   %121 = getelementptr inbounds %struct.MetadataTuple, ptr %115, i64 %111
   br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54
 
@@ -420,26 +420,26 @@ _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metadat
   %.sroa.080.1130 = phi ptr [ %.sroa.080.1141, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread88 ], [ %.sroa.080.1141, %82 ], [ %.sroa.080.1141, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.sroa.080.1141, %13 ], [ %.sroa.080.1141, %74 ], [ %.sroa.080.1141, %.thread ], [ %.sroa.080.1141, %._crit_edge ], [ %.sroa.080.1141, %85 ], [ %.sroa.080.3.lcssa, %.loopexit ]
   %125 = phi i1 [ false, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread88 ], [ false, %82 ], [ false, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %13 ], [ false, %74 ], [ false, %.thread ], [ false, %._crit_edge ], [ false, %85 ], [ true, %.loopexit ]
   %.not.i.i.i = icmp eq ptr %.sroa.080.1130, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit, label %126
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.argprom.argprom.exit, label %126
 
 126:                                              ; preds = %.loopexit99
   call void @_ZdlPv(ptr noundef nonnull %.sroa.080.1130) #19
-  br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit
+  br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.argprom.argprom.exit
 
-_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit: ; preds = %.loopexit99, %126
+_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.argprom.argprom.exit: ; preds = %.loopexit99, %126
   ret i1 %125
 
 .loopexit.split-lp:                               ; preds = %.loopexit94, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %73
   %.sroa.080.2 = phi ptr [ %.sroa.080.1141, %73 ], [ %.sroa.080.3134, %.loopexit94 ], [ %.sroa.080.1141, %.loopexit.split-lp.loopexit ], [ %.sroa.080.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn27 = phi { ptr, i32 } [ %.pn, %73 ], [ %lpad.loopexit, %.loopexit94 ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp97, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i55 = icmp eq ptr %.sroa.080.2, null
-  br i1 %.not.i.i.i55, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit56, label %127
+  br i1 %.not.i.i.i55, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.argprom.argprom.exit56, label %127
 
 127:                                              ; preds = %.loopexit.split-lp
   call void @_ZdlPv(ptr noundef nonnull %.sroa.080.2) #19
-  br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit56
+  br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.argprom.argprom.exit56
 
-_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit56: ; preds = %.loopexit.split-lp, %127
+_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.argprom.argprom.exit56: ; preds = %.loopexit.split-lp, %127
   resume { ptr, i32 } %.pn27
 }
 

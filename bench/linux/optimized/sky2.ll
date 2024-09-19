@@ -3253,7 +3253,7 @@ declare dso_local ptr @dma_alloc_attrs(ptr noundef, i64 noundef, ptr noundef, i3
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @sky2_us2clk(i8 %.440.val, i32 noundef range(i32 1, 0) %0) unnamed_addr #11 align 16 {
+define internal fastcc noundef i32 @sky2_us2clk.argprom(i8 %.440.val, i32 noundef range(i32 1, 0) %0) unnamed_addr #11 align 16 {
   switch i8 %.440.val, label %5 [
     i8 -74, label %6
     i8 -76, label %6
@@ -4002,7 +4002,7 @@ define internal noundef range(i32 -22, 1) i32 @sky2_set_coalesce(ptr nocapture n
   br label %54
 
 48:                                               ; preds = %43
-  %49 = tail call fastcc i32 @sky2_us2clk(i8 %8, i32 noundef %17)
+  %49 = tail call fastcc i32 @sky2_us2clk.argprom(i8 %8, i32 noundef %17)
   %50 = load ptr, ptr %6, align 8
   %51 = getelementptr i8, ptr %50, i64 3776
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr elementtype(i32) %51) #23, !srcloc !6
@@ -4029,7 +4029,7 @@ define internal noundef range(i32 -22, 1) i32 @sky2_set_coalesce(ptr nocapture n
 
 64:                                               ; preds = %54
   %.val4 = load i8, ptr %7, align 8
-  %65 = tail call fastcc i32 @sky2_us2clk(i8 %.val4, i32 noundef %59)
+  %65 = tail call fastcc i32 @sky2_us2clk.argprom(i8 %.val4, i32 noundef %59)
   %66 = load ptr, ptr %6, align 8
   %67 = getelementptr i8, ptr %66, i64 3760
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %65, ptr elementtype(i32) %67) #23, !srcloc !6
@@ -4056,7 +4056,7 @@ define internal noundef range(i32 -22, 1) i32 @sky2_set_coalesce(ptr nocapture n
 
 80:                                               ; preds = %70
   %.val = load i8, ptr %7, align 8
-  %81 = tail call fastcc i32 @sky2_us2clk(i8 %.val, i32 noundef %75)
+  %81 = tail call fastcc i32 @sky2_us2clk.argprom(i8 %.val, i32 noundef %75)
   %82 = load ptr, ptr %6, align 8
   %83 = getelementptr i8, ptr %82, i64 3792
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %81, ptr elementtype(i32) %83) #23, !srcloc !6

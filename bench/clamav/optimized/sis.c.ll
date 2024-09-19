@@ -401,7 +401,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 69:                                               ; preds = %._crit_edge.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.153) #8
   %70 = zext i32 %.48..48..48..48..48.625.i to i64
-  tail call fastcc void @spamsisnames(ptr noundef %37, i64 noundef %70, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
+  tail call fastcc void @spamsisnames.retelim(ptr noundef %37, i64 noundef %70, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
   br label %71
 
 71:                                               ; preds = %69, %68
@@ -417,7 +417,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 73:                                               ; preds = %71
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.155) #8
   %74 = zext i32 %.56..56..56..56..56.627.i to i64
-  tail call fastcc void @spamsisnames(ptr noundef %37, i64 noundef %74, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
+  tail call fastcc void @spamsisnames.retelim(ptr noundef %37, i64 noundef %74, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
   br label %75
 
 75:                                               ; preds = %73, %72
@@ -480,7 +480,7 @@ fmap_readn.exit575.thread.i:                      ; preds = %fmap_readn.exit575.
   %91 = sext i16 %.6..6..6..6..6..i to i32
   %.8..8..8..8..8..i = load i32, ptr %.8..8..8..8..8..sroa_idx, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.159, i32 noundef %.0..0..0..0..0..i, i32 noundef %90, i32 noundef %91, i32 noundef %.8..8..8..8..8..i) #8
-  tail call fastcc void @spamsisnames(ptr noundef nonnull %37, i64 noundef %89, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
+  tail call fastcc void @spamsisnames.retelim(ptr noundef nonnull %37, i64 noundef %89, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
   br label %92
 
 92:                                               ; preds = %88, %fmap_readn.exit575.thread.i
@@ -2588,7 +2588,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spamsisnames(ptr noundef %0, i64 noundef range(i64 0, 38653919236) %1, i16 noundef zeroext %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @spamsisnames.retelim(ptr noundef %0, i64 noundef range(i64 0, 38653919236) %1, i16 noundef zeroext %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %.tr = zext i16 %2 to i64
   %5 = shl nuw nsw i64 %.tr, 3
   %6 = getelementptr inbounds i8, ptr %0, i64 104

@@ -1177,7 +1177,7 @@ c_valid_start_p.exit.thread.i:                    ; preds = %c_valid_start_p.exi
 valid_ordinal_sub.exit:                           ; preds = %33, %c_valid_start_p.exit.i, %c_valid_start_p.exit.thread.i
   %.0.i = phi double [ %31, %c_valid_start_p.exit.i ], [ 0.000000e+00, %c_valid_start_p.exit.thread.i ], [ %31, %33 ]
   %38 = trunc i64 %.0.i.i to i32
-  %39 = call fastcc i32 @valid_ordinal_p(i64 noundef %22, i32 noundef %38, double noundef %.0.i, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %39 = call fastcc i32 @valid_ordinal_p.argprom(i64 noundef %22, i32 noundef %38, double noundef %.0.i, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %.not9.i = icmp eq i32 %39, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -1982,7 +1982,7 @@ check_numeric.exit27:                             ; preds = %f_zero_p.exit.threa
   %.016 = phi i64 [ 1, %3 ], [ %.117, %check_numeric.exit27 ]
   %.013 = phi i32 [ 1, %3 ], [ %.114, %check_numeric.exit27 ]
   %.0 = phi double [ 0x41418A8C80000000, %3 ], [ %.2, %check_numeric.exit27 ]
-  %67 = call fastcc i32 @valid_ordinal_p(i64 noundef %.018, i32 noundef %.013, double noundef %.0, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %67 = call fastcc i32 @valid_ordinal_p.argprom(i64 noundef %.018, i32 noundef %.013, double noundef %.0, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %.not20 = icmp eq i32 %67, 0
   br i1 %.not20, label %68, label %70
 
@@ -2606,7 +2606,7 @@ d_simple_new_internal.exit:                       ; preds = %canon.exit.i, %67
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @date_s__strptime(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
-  %4 = tail call fastcc i64 @date_s__strptime_internal(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.173)
+  %4 = tail call fastcc i64 @date_s__strptime_internal.argelim(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.173)
   ret i64 %4
 }
 
@@ -2643,7 +2643,7 @@ define internal i64 @date_s_strptime(i32 noundef %0, ptr noundef %1, i64 noundef
   %16 = load i64, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %16, ptr %17, align 8
-  %18 = call fastcc noundef i64 @date_s__strptime_internal(i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull @.str.173)
+  %18 = call fastcc noundef i64 @date_s__strptime_internal.argelim(i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull @.str.173)
   %19 = load i64, ptr %6, align 8
   %20 = call fastcc i64 @d_new_by_frags(i64 noundef %2, i64 noundef %18, i64 noundef %19)
   ret i64 %20
@@ -3603,13 +3603,13 @@ canon.exit:                                       ; preds = %valid_gregorian_p.e
   %158 = icmp ne i64 %157, 0
   %159 = icmp eq i64 %.024.i, 0
   %160 = or i1 %159, %158
-  br i1 %160, label %rb_obj_write.exit, label %161
+  br i1 %160, label %rb_obj_write.argprom.exit, label %161
 
 161:                                              ; preds = %canon.exit
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.024.i) #20
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %canon.exit, %161
+rb_obj_write.argprom.exit:                        ; preds = %canon.exit, %161
   %162 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 0, ptr %162, align 4
   %163 = fptrunc double %.036 to float
@@ -3661,13 +3661,13 @@ canon.exit66:                                     ; preds = %169, %176, %181, %1
   %186 = icmp ne i64 %185, 0
   %187 = icmp eq i64 %.024.i64, 0
   %188 = or i1 %187, %186
-  br i1 %188, label %rb_obj_write.exit67, label %189
+  br i1 %188, label %rb_obj_write.argprom.exit67, label %189
 
 189:                                              ; preds = %canon.exit66
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.024.i64) #20
-  br label %rb_obj_write.exit67
+  br label %rb_obj_write.argprom.exit67
 
-rb_obj_write.exit67:                              ; preds = %canon.exit66, %189
+rb_obj_write.argprom.exit67:                      ; preds = %canon.exit66, %189
   %190 = load i32, ptr %15, align 4
   %191 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %190, ptr %191, align 4
@@ -3681,10 +3681,10 @@ rb_obj_write.exit67:                              ; preds = %canon.exit66, %189
   %197 = load i32, ptr %14, align 4
   br label %198
 
-198:                                              ; preds = %rb_obj_write.exit67, %rb_obj_write.exit
-  %.sink = phi i32 [ %197, %rb_obj_write.exit67 ], [ %.018.i.i, %rb_obj_write.exit ]
-  %.sink107.in = phi i32 [ %196, %rb_obj_write.exit67 ], [ %spec.select.i.i, %rb_obj_write.exit ]
-  %storemerge = phi i32 [ 5, %rb_obj_write.exit67 ], [ 4, %rb_obj_write.exit ]
+198:                                              ; preds = %rb_obj_write.argprom.exit67, %rb_obj_write.argprom.exit
+  %.sink = phi i32 [ %197, %rb_obj_write.argprom.exit67 ], [ %.018.i.i, %rb_obj_write.argprom.exit ]
+  %.sink107.in = phi i32 [ %196, %rb_obj_write.argprom.exit67 ], [ %spec.select.i.i, %rb_obj_write.argprom.exit ]
+  %storemerge = phi i32 [ 5, %rb_obj_write.argprom.exit67 ], [ 4, %rb_obj_write.argprom.exit ]
   %.sink107 = shl i32 %.sink107.in, 22
   %199 = shl i32 %.sink, 17
   %200 = or i32 %199, %.sink107
@@ -8249,13 +8249,13 @@ define internal i64 @d_lite_to_s(i64 noundef %0) #0 {
   %12 = load ptr, ptr %4, align 8
   %13 = call i64 @rb_usascii_str_new(ptr noundef %12, i64 noundef %9) #20
   %.not.i = icmp eq ptr %12, %3
-  br i1 %.not.i, label %strftimev.exit, label %14
+  br i1 %.not.i, label %strftimev.argprom.exit, label %14
 
 14:                                               ; preds = %1
   call void @ruby_xfree(ptr noundef %12) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %1, %14
+strftimev.argprom.exit:                           ; preds = %1, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -8358,7 +8358,7 @@ mk_inspect.exit:                                  ; preds = %m_real_jd.exit.i, %
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @d_lite_strftime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call fastcc i64 @date_strftime_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.345)
+  %4 = tail call fastcc i64 @date_strftime_internal.argprom(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.345)
   ret i64 %4
 }
 
@@ -8388,13 +8388,13 @@ define internal i64 @d_lite_asctime(i64 noundef %0) #0 {
   %12 = load ptr, ptr %4, align 8
   %13 = call i64 @rb_usascii_str_new(ptr noundef %12, i64 noundef %9) #20
   %.not.i = icmp eq ptr %12, %3
-  br i1 %.not.i, label %strftimev.exit, label %14
+  br i1 %.not.i, label %strftimev.argprom.exit, label %14
 
 14:                                               ; preds = %1
   call void @ruby_xfree(ptr noundef %12) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %1, %14
+strftimev.argprom.exit:                           ; preds = %1, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -8429,13 +8429,13 @@ define internal i64 @d_lite_iso8601(i64 noundef %0) #0 {
   %12 = load ptr, ptr %4, align 8
   %13 = call i64 @rb_usascii_str_new(ptr noundef %12, i64 noundef %9) #20
   %.not.i = icmp eq ptr %12, %3
-  br i1 %.not.i, label %strftimev.exit, label %14
+  br i1 %.not.i, label %strftimev.argprom.exit, label %14
 
 14:                                               ; preds = %1
   call void @ruby_xfree(ptr noundef %12) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %1, %14
+strftimev.argprom.exit:                           ; preds = %1, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -8470,13 +8470,13 @@ define internal i64 @d_lite_rfc3339(i64 noundef %0) #0 {
   %12 = load ptr, ptr %4, align 8
   %13 = call i64 @rb_usascii_str_new(ptr noundef %12, i64 noundef %9) #20
   %.not.i = icmp eq ptr %12, %3
-  br i1 %.not.i, label %strftimev.exit, label %14
+  br i1 %.not.i, label %strftimev.argprom.exit, label %14
 
 14:                                               ; preds = %1
   call void @ruby_xfree(ptr noundef %12) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %1, %14
+strftimev.argprom.exit:                           ; preds = %1, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -8511,13 +8511,13 @@ define internal i64 @d_lite_rfc2822(i64 noundef %0) #0 {
   %12 = load ptr, ptr %4, align 8
   %13 = call i64 @rb_usascii_str_new(ptr noundef %12, i64 noundef %9) #20
   %.not.i = icmp eq ptr %12, %3
-  br i1 %.not.i, label %strftimev.exit, label %14
+  br i1 %.not.i, label %strftimev.argprom.exit, label %14
 
 14:                                               ; preds = %1
   call void @ruby_xfree(ptr noundef %12) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %1, %14
+strftimev.argprom.exit:                           ; preds = %1, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -8556,13 +8556,13 @@ define internal i64 @d_lite_httpdate(i64 noundef %0) #0 {
   %14 = load ptr, ptr %4, align 8
   %15 = call i64 @rb_usascii_str_new(ptr noundef %14, i64 noundef %11) #20
   %.not.i = icmp eq ptr %14, %3
-  br i1 %.not.i, label %strftimev.exit, label %16
+  br i1 %.not.i, label %strftimev.argprom.exit, label %16
 
 16:                                               ; preds = %1
   call void @ruby_xfree(ptr noundef %14) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %1, %16
+strftimev.argprom.exit:                           ; preds = %1, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -8658,13 +8658,13 @@ jisx0301_date_format.exit:                        ; preds = %m_real_local_jd.exi
   %39 = load ptr, ptr %4, align 8
   %40 = call i64 @rb_usascii_str_new(ptr noundef %39, i64 noundef %36) #20
   %.not.i4 = icmp eq ptr %39, %3
-  br i1 %.not.i4, label %strftimev.exit, label %41
+  br i1 %.not.i4, label %strftimev.argprom.exit, label %41
 
 41:                                               ; preds = %jisx0301_date_format.exit
   call void @ruby_xfree(ptr noundef %39) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %jisx0301_date_format.exit, %41
+strftimev.argprom.exit:                           ; preds = %jisx0301_date_format.exit, %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -9426,13 +9426,13 @@ canon.exit:                                       ; preds = %236, %243, %248, %2
   %253 = icmp ne i64 %252, 0
   %254 = icmp eq i64 %.024.i, 0
   %255 = or i1 %254, %253
-  br i1 %255, label %rb_obj_write.exit, label %256
+  br i1 %255, label %rb_obj_write.argprom.exit, label %256
 
 256:                                              ; preds = %canon.exit
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %.024.i) #20
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %canon.exit, %256
+rb_obj_write.argprom.exit:                        ; preds = %canon.exit, %256
   %257 = load i32, ptr %4, align 4
   %258 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %257, ptr %258, align 4
@@ -9479,13 +9479,13 @@ canon.exit118:                                    ; preds = %263, %270, %275, %2
   %280 = icmp ne i64 %279, 0
   %281 = icmp eq i64 %.024.i116, 0
   %282 = or i1 %281, %280
-  br i1 %282, label %rb_obj_write.exit119, label %283
+  br i1 %282, label %rb_obj_write.argprom.exit119, label %283
 
 283:                                              ; preds = %canon.exit118
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %.024.i116) #20
-  br label %rb_obj_write.exit119
+  br label %rb_obj_write.argprom.exit119
 
-rb_obj_write.exit119:                             ; preds = %canon.exit118, %283
+rb_obj_write.argprom.exit119:                     ; preds = %canon.exit118, %283
   %284 = load i32, ptr %4, align 4
   %285 = getelementptr inbounds i8, ptr %.068, i64 4
   store i32 %284, ptr %285, align 4
@@ -9498,7 +9498,7 @@ rb_obj_write.exit119:                             ; preds = %canon.exit118, %283
   %291 = or i1 %290, %289
   br i1 %291, label %canon.exit122, label %292
 
-292:                                              ; preds = %rb_obj_write.exit119
+292:                                              ; preds = %rb_obj_write.argprom.exit119
   %293 = inttoptr i64 %.0139 to ptr
   %294 = load i64, ptr %293, align 8
   %295 = and i64 %294, 31
@@ -9514,20 +9514,20 @@ rb_obj_write.exit119:                             ; preds = %canon.exit118, %283
   %300 = tail call i64 @rb_rational_num(i64 noundef %.0139) #23
   br label %canon.exit122
 
-canon.exit122:                                    ; preds = %rb_obj_write.exit119, %292, %297, %299
-  %.024.i120 = phi i64 [ %300, %299 ], [ %.0139, %rb_obj_write.exit119 ], [ %.0139, %297 ], [ %.0139, %292 ]
+canon.exit122:                                    ; preds = %rb_obj_write.argprom.exit119, %292, %297, %299
+  %.024.i120 = phi i64 [ %300, %299 ], [ %.0139, %rb_obj_write.argprom.exit119 ], [ %.0139, %297 ], [ %.0139, %292 ]
   store i64 %.024.i120, ptr %287, align 8
   %301 = and i64 %.024.i120, 7
   %302 = icmp ne i64 %301, 0
   %303 = icmp eq i64 %.024.i120, 0
   %304 = or i1 %303, %302
-  br i1 %304, label %rb_obj_write.exit123, label %305
+  br i1 %304, label %rb_obj_write.argprom.exit123, label %305
 
 305:                                              ; preds = %canon.exit122
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %.024.i120) #20
-  br label %rb_obj_write.exit123
+  br label %rb_obj_write.argprom.exit123
 
-rb_obj_write.exit123:                             ; preds = %canon.exit122, %305
+rb_obj_write.argprom.exit123:                     ; preds = %canon.exit122, %305
   %306 = getelementptr inbounds i8, ptr %.068, i64 32
   store i32 %.0136, ptr %306, align 8
   %307 = fptrunc double %.0135 to float
@@ -9540,7 +9540,7 @@ rb_obj_write.exit123:                             ; preds = %canon.exit122, %305
   store i32 131, ptr %.068, align 8
   br label %RB_FL_TEST.exit
 
-RB_FL_TEST.exit:                                  ; preds = %rb_obj_write.exit123, %rb_obj_write.exit
+RB_FL_TEST.exit:                                  ; preds = %rb_obj_write.argprom.exit123, %rb_obj_write.argprom.exit
   %311 = load i64, ptr %22, align 8
   %312 = and i64 %311, 31
   %313 = icmp eq i64 %312, 27
@@ -10687,7 +10687,7 @@ check_numeric.exit92:                             ; preds = %f_zero_p.exit90.thr
   %.022 = phi i32 [ 0, %3 ], [ %.426, %check_numeric.exit92 ]
   %.021 = phi double [ 0x41418A8C80000000, %3 ], [ %.5, %check_numeric.exit92 ]
   %.0 = phi i64 [ -9423, %3 ], [ %179, %check_numeric.exit92 ]
-  %181 = call fastcc i32 @valid_ordinal_p(i64 noundef %.0, i32 noundef %.034, double noundef %.021, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %181 = call fastcc i32 @valid_ordinal_p.argprom(i64 noundef %.0, i32 noundef %.034, double noundef %.021, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
   %.not48 = icmp eq i32 %181, 0
   br i1 %.not48, label %182, label %184
 
@@ -11603,13 +11603,13 @@ canon.exit.i:                                     ; preds = %302, %300, %295, %2
   %305 = icmp ne i64 %304, 0
   %306 = icmp eq i64 %.024.i.i, 0
   %307 = or i1 %306, %305
-  br i1 %307, label %rb_obj_write.exit.i, label %308
+  br i1 %307, label %rb_obj_write.argprom.exit.i, label %308
 
 308:                                              ; preds = %canon.exit.i
   call void @rb_gc_writebarrier(i64 noundef %22, i64 noundef %.024.i.i) #20
-  br label %rb_obj_write.exit.i
+  br label %rb_obj_write.argprom.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %308, %canon.exit.i
+rb_obj_write.argprom.exit.i:                      ; preds = %308, %canon.exit.i
   %309 = getelementptr inbounds i8, ptr %39, i64 4
   store i32 0, ptr %309, align 4
   %310 = getelementptr inbounds i8, ptr %39, i64 28
@@ -11723,13 +11723,13 @@ canon.exit159.i:                                  ; preds = %364, %362, %357, %3
   %367 = icmp ne i64 %366, 0
   %368 = icmp eq i64 %.024.i157.i, 0
   %369 = or i1 %368, %367
-  br i1 %369, label %rb_obj_write.exit160.i, label %370
+  br i1 %369, label %rb_obj_write.argprom.exit160.i, label %370
 
 370:                                              ; preds = %canon.exit159.i
   call void @rb_gc_writebarrier(i64 noundef %22, i64 noundef %.024.i157.i) #20
-  br label %rb_obj_write.exit160.i
+  br label %rb_obj_write.argprom.exit160.i
 
-rb_obj_write.exit160.i:                           ; preds = %370, %canon.exit159.i
+rb_obj_write.argprom.exit160.i:                   ; preds = %370, %canon.exit159.i
   %371 = getelementptr inbounds i8, ptr %39, i64 4
   store i32 %.0.i156.i, ptr %371, align 4
   %372 = getelementptr inbounds i8, ptr %39, i64 28
@@ -11753,12 +11753,12 @@ rb_obj_write.exit160.i:                           ; preds = %370, %canon.exit159
   %385 = or i32 %384, %382
   br label %386
 
-386:                                              ; preds = %rb_obj_write.exit160.i, %rb_obj_write.exit.i
-  %.029.i149.sink.i = phi i32 [ %.029.i149.i, %rb_obj_write.exit160.i ], [ %.029.i.i, %rb_obj_write.exit.i ]
-  %.sink.i = phi i32 [ %385, %rb_obj_write.exit160.i ], [ %321, %rb_obj_write.exit.i ]
-  %.030.i150.sink.i = phi i32 [ %.030.i150.i, %rb_obj_write.exit160.i ], [ %.030.i.i, %rb_obj_write.exit.i ]
-  %storemerge.i = phi i32 [ 141, %rb_obj_write.exit160.i ], [ 140, %rb_obj_write.exit.i ]
-  %.7.i = phi i64 [ %.8.i, %rb_obj_write.exit160.i ], [ %.6.i, %rb_obj_write.exit.i ]
+386:                                              ; preds = %rb_obj_write.argprom.exit160.i, %rb_obj_write.argprom.exit.i
+  %.029.i149.sink.i = phi i32 [ %.029.i149.i, %rb_obj_write.argprom.exit160.i ], [ %.029.i.i, %rb_obj_write.argprom.exit.i ]
+  %.sink.i = phi i32 [ %385, %rb_obj_write.argprom.exit160.i ], [ %321, %rb_obj_write.argprom.exit.i ]
+  %.030.i150.sink.i = phi i32 [ %.030.i150.i, %rb_obj_write.argprom.exit160.i ], [ %.030.i.i, %rb_obj_write.argprom.exit.i ]
+  %storemerge.i = phi i32 [ 141, %rb_obj_write.argprom.exit160.i ], [ 140, %rb_obj_write.argprom.exit.i ]
+  %.7.i = phi i64 [ %.8.i, %rb_obj_write.argprom.exit160.i ], [ %.6.i, %rb_obj_write.argprom.exit.i ]
   %387 = shl nuw nsw i32 %.029.i149.sink.i, 6
   %388 = add nuw nsw i32 %.sink.i, %387
   %389 = add nuw nsw i32 %388, %.030.i150.sink.i
@@ -12626,7 +12626,7 @@ rb_long2num_inline.exit:                          ; preds = %48, %51
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @datetime_s__strptime(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
-  %4 = tail call fastcc i64 @date_s__strptime_internal(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.370)
+  %4 = tail call fastcc i64 @date_s__strptime_internal.argelim(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.370)
   ret i64 %4
 }
 
@@ -12663,7 +12663,7 @@ define internal i64 @datetime_s_strptime(i32 noundef %0, ptr noundef %1, i64 nou
   %16 = load i64, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %16, ptr %17, align 8
-  %18 = call fastcc noundef i64 @date_s__strptime_internal(i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull @.str.173)
+  %18 = call fastcc noundef i64 @date_s__strptime_internal.argelim(i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull @.str.173)
   %19 = load i64, ptr %6, align 8
   %20 = call fastcc i64 @dt_new_by_frags(i64 noundef %2, i64 noundef %18, i64 noundef %19)
   ret i64 %20
@@ -13484,13 +13484,13 @@ define internal i64 @dt_lite_to_s(i64 noundef %0) #0 {
   %12 = load ptr, ptr %4, align 8
   %13 = call i64 @rb_usascii_str_new(ptr noundef %12, i64 noundef %9) #20
   %.not.i = icmp eq ptr %12, %3
-  br i1 %.not.i, label %strftimev.exit, label %14
+  br i1 %.not.i, label %strftimev.argprom.exit, label %14
 
 14:                                               ; preds = %1
   call void @ruby_xfree(ptr noundef %12) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %1, %14
+strftimev.argprom.exit:                           ; preds = %1, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -13501,7 +13501,7 @@ strftimev.exit:                                   ; preds = %1, %14
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @dt_lite_strftime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call fastcc i64 @date_strftime_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.350)
+  %4 = tail call fastcc i64 @date_strftime_internal.argprom(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.350)
   ret i64 %4
 }
 
@@ -13558,13 +13558,13 @@ rb_num2long_inline.exit:                          ; preds = %16, %14, %rb_check_
   %23 = load ptr, ptr %6, align 8
   %24 = call i64 @rb_usascii_str_new(ptr noundef %23, i64 noundef %20) #20
   %.not.i5 = icmp eq ptr %23, %5
-  br i1 %.not.i5, label %strftimev.exit, label %25
+  br i1 %.not.i5, label %strftimev.argprom.exit, label %25
 
 25:                                               ; preds = %rb_num2long_inline.exit
   call void @ruby_xfree(ptr noundef %23) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %rb_num2long_inline.exit, %25
+strftimev.argprom.exit:                           ; preds = %rb_num2long_inline.exit, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -14322,13 +14322,13 @@ d_lite_s_alloc_simple.exit28:                     ; preds = %24, %25
   %38 = icmp ne i64 %37, 0
   %39 = icmp eq i64 %36, 0
   %40 = or i1 %39, %38
-  br i1 %40, label %rb_obj_write.exit, label %41
+  br i1 %40, label %rb_obj_write.argprom.exit, label %41
 
 41:                                               ; preds = %d_lite_s_alloc_simple.exit28
   tail call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %36) #20
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %d_lite_s_alloc_simple.exit28, %41
+rb_obj_write.argprom.exit:                        ; preds = %d_lite_s_alloc_simple.exit28, %41
   %42 = getelementptr inbounds i8, ptr %2, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %33, i64 4
@@ -14355,7 +14355,7 @@ rb_obj_write.exit:                                ; preds = %d_lite_s_alloc_simp
   store i32 %58, ptr %33, align 8
   br label %59
 
-59:                                               ; preds = %rb_obj_write.exit, %d_lite_s_alloc_simple.exit
+59:                                               ; preds = %rb_obj_write.argprom.exit, %d_lite_s_alloc_simple.exit
   ret i64 %6
 }
 
@@ -14428,13 +14428,13 @@ canon.exit:                                       ; preds = %RTYPEDDATA_GET_DATA
   %33 = icmp ne i64 %32, 0
   %34 = icmp eq i64 %.024.i, 0
   %35 = or i1 %34, %33
-  br i1 %35, label %rb_obj_write.exit, label %36
+  br i1 %35, label %rb_obj_write.argprom.exit, label %36
 
 36:                                               ; preds = %canon.exit
   tail call void @rb_gc_writebarrier(i64 noundef %9, i64 noundef %.024.i) #20
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %canon.exit, %36
+rb_obj_write.argprom.exit:                        ; preds = %canon.exit, %36
   %37 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %2, ptr %37, align 4
   %38 = fptrunc double %3 to float
@@ -14505,7 +14505,7 @@ declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #1
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @valid_ordinal_p(i64 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @valid_ordinal_p.argprom(i64 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = tail call double @llvm.fabs.f64(double %2) #21
@@ -14550,7 +14550,7 @@ guess_style.exit:                                 ; preds = %7, %f_negative_p.ex
 guess_style.exit.thread:                          ; preds = %23, %guess_style.exit
   %28 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %29 = trunc i64 %28 to i32
-  %30 = call fastcc i32 @c_valid_ordinal_p(i32 noundef %29, i32 noundef %1, double noundef %2, ptr noundef %8, ptr noundef %6)
+  %30 = call fastcc i32 @c_valid_ordinal_p.argprom(i32 noundef %29, i32 noundef %1, double noundef %2, ptr noundef %8, ptr noundef %6)
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %62, label %31
 
@@ -14624,7 +14624,7 @@ f_zero_p.exit.thread:                             ; preds = %50, %rb_type.exit.i
 59:                                               ; preds = %guess_style.exit
   tail call fastcc void @decode_year(i64 noundef %0, double noundef %.0.i, ptr noundef %3, ptr noundef %4)
   %60 = load i32, ptr %4, align 4
-  %61 = tail call fastcc i32 @c_valid_ordinal_p(i32 noundef %60, i32 noundef %1, double noundef %.0.i, ptr noundef %5, ptr noundef %6)
+  %61 = tail call fastcc i32 @c_valid_ordinal_p.argprom(i32 noundef %60, i32 noundef %1, double noundef %.0.i, ptr noundef %5, ptr noundef %6)
   br label %62
 
 62:                                               ; preds = %59, %f_zero_p.exit.thread, %f_zero_p.exit.thread6, %guess_style.exit.thread
@@ -14705,7 +14705,7 @@ declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @c_valid_ordinal_p(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_ordinal_p.argprom(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #7 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -16554,7 +16554,7 @@ f_negative_p.exit.thread:                         ; preds = %32, %f_negative_p.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @date_s__strptime_internal(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @date_s__strptime_internal.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.158, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
@@ -19103,7 +19103,7 @@ rb_num2int_inline.exit.i:                         ; preds = %33, %31
   %.0.i.i = phi i64 [ %32, %31 ], [ %34, %33 ]
   %35 = trunc i64 %.0.i.i to i32
   %36 = tail call double @rb_num2dbl(i64 noundef %1) #20
-  %37 = call fastcc i32 @valid_ordinal_p(i64 noundef %27, i32 noundef %35, double noundef %36, ptr noundef %10, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  %37 = call fastcc i32 @valid_ordinal_p.argprom(i64 noundef %27, i32 noundef %35, double noundef %36, ptr noundef %10, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %.not.i99 = icmp eq i32 %37, 0
   br i1 %.not.i99, label %rt__valid_ordinal_p.exit.thread, label %rt__valid_ordinal_p.exit
 
@@ -21552,13 +21552,13 @@ d_lite_s_alloc_complex.exit.i:                    ; preds = %38, %31
   %53 = icmp ne i64 %52, 0
   %54 = icmp eq i64 %51, 0
   %55 = or i1 %54, %53
-  br i1 %55, label %rb_obj_written.exit19.i, label %56
+  br i1 %55, label %rb_obj_written.argprom.exit19.i, label %56
 
 56:                                               ; preds = %d_lite_s_alloc_complex.exit.i
   tail call void @rb_gc_writebarrier(i64 noundef %32, i64 noundef %51) #20
-  br label %rb_obj_written.exit19.i
+  br label %rb_obj_written.argprom.exit19.i
 
-rb_obj_written.exit19.i:                          ; preds = %56, %d_lite_s_alloc_complex.exit.i
+rb_obj_written.argprom.exit19.i:                  ; preds = %56, %d_lite_s_alloc_complex.exit.i
   %57 = getelementptr inbounds i8, ptr %49, i64 40
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 7
@@ -21567,12 +21567,12 @@ rb_obj_written.exit19.i:                          ; preds = %56, %d_lite_s_alloc
   %62 = or i1 %61, %60
   br i1 %62, label %dup_obj.exit, label %63
 
-63:                                               ; preds = %rb_obj_written.exit19.i
+63:                                               ; preds = %rb_obj_written.argprom.exit19.i
   tail call void @rb_gc_writebarrier(i64 noundef %32, i64 noundef %58) #20
   br label %dup_obj.exit
 
-dup_obj.exit:                                     ; preds = %d_lite_s_alloc_simple.exit.i, %30, %rb_obj_written.exit19.i, %63
-  %.0.i = phi i64 [ %9, %d_lite_s_alloc_simple.exit.i ], [ %9, %30 ], [ %32, %rb_obj_written.exit19.i ], [ %32, %63 ]
+dup_obj.exit:                                     ; preds = %d_lite_s_alloc_simple.exit.i, %30, %rb_obj_written.argprom.exit19.i, %63
+  %.0.i = phi i64 [ %9, %d_lite_s_alloc_simple.exit.i ], [ %9, %30 ], [ %32, %rb_obj_written.argprom.exit19.i ], [ %32, %63 ]
   store volatile i64 %.0.i, ptr %3, align 8
   %.0..0..0..0.1 = load volatile i64, ptr %3, align 8
   %64 = tail call ptr @rb_check_typeddata(i64 noundef %.0..0..0..0.1, ptr noundef nonnull @d_lite_type) #20
@@ -21630,13 +21630,13 @@ canon.exit:                                       ; preds = %RTYPEDDATA_GET_DATA
   %39 = icmp ne i64 %38, 0
   %40 = icmp eq i64 %.024.i, 0
   %41 = or i1 %40, %39
-  br i1 %41, label %rb_obj_write.exit, label %42
+  br i1 %41, label %rb_obj_write.argprom.exit, label %42
 
 42:                                               ; preds = %canon.exit
   tail call void @rb_gc_writebarrier(i64 noundef %15, i64 noundef %.024.i) #20
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %canon.exit, %42
+rb_obj_write.argprom.exit:                        ; preds = %canon.exit, %42
   %43 = getelementptr inbounds i8, ptr %23, i64 4
   store i32 %2, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %23, i64 28
@@ -21648,7 +21648,7 @@ rb_obj_write.exit:                                ; preds = %canon.exit, %42
   %49 = or i1 %48, %47
   br i1 %49, label %canon.exit30, label %50
 
-50:                                               ; preds = %rb_obj_write.exit
+50:                                               ; preds = %rb_obj_write.argprom.exit
   %51 = inttoptr i64 %4 to ptr
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 31
@@ -21664,20 +21664,20 @@ rb_obj_write.exit:                                ; preds = %canon.exit, %42
   %58 = tail call i64 @rb_rational_num(i64 noundef %4) #23
   br label %canon.exit30
 
-canon.exit30:                                     ; preds = %rb_obj_write.exit, %50, %55, %57
-  %.024.i28 = phi i64 [ %58, %57 ], [ %4, %rb_obj_write.exit ], [ %4, %55 ], [ %4, %50 ]
+canon.exit30:                                     ; preds = %rb_obj_write.argprom.exit, %50, %55, %57
+  %.024.i28 = phi i64 [ %58, %57 ], [ %4, %rb_obj_write.argprom.exit ], [ %4, %55 ], [ %4, %50 ]
   store i64 %.024.i28, ptr %45, align 8
   %59 = and i64 %.024.i28, 7
   %60 = icmp ne i64 %59, 0
   %61 = icmp eq i64 %.024.i28, 0
   %62 = or i1 %61, %60
-  br i1 %62, label %rb_obj_write.exit31, label %63
+  br i1 %62, label %rb_obj_write.argprom.exit31, label %63
 
 63:                                               ; preds = %canon.exit30
   tail call void @rb_gc_writebarrier(i64 noundef %15, i64 noundef %.024.i28) #20
-  br label %rb_obj_write.exit31
+  br label %rb_obj_write.argprom.exit31
 
-rb_obj_write.exit31:                              ; preds = %canon.exit30, %63
+rb_obj_write.argprom.exit31:                      ; preds = %canon.exit30, %63
   %64 = getelementptr inbounds i8, ptr %23, i64 32
   store i32 %5, ptr %64, align 8
   %65 = fptrunc double %6 to float
@@ -21817,14 +21817,14 @@ get_s_jd.exit:                                    ; preds = %.get_s_jd.exit_crit
   %65 = icmp ne i64 %64, 0
   %66 = icmp eq i64 %.1.i, 0
   %67 = or i1 %66, %65
-  br i1 %67, label %rb_obj_write.exit.i, label %68
+  br i1 %67, label %rb_obj_write.argprom.exit.i, label %68
 
 68:                                               ; preds = %62
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %.1.i) #20
   %.pre.i = load i32, ptr %47, align 4
-  br label %rb_obj_write.exit.i
+  br label %rb_obj_write.argprom.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %68, %62
+rb_obj_write.argprom.exit.i:                      ; preds = %68, %62
   %69 = phi i32 [ %63, %62 ], [ %.pre.i, %68 ]
   %.not.i6 = icmp eq i32 %69, %46
   br i1 %.not.i6, label %canonicalize_s_jd.exit, label %canonicalize_s_jd.exit.sink.split
@@ -21866,25 +21866,25 @@ rb_obj_write.exit.i:                              ; preds = %68, %62
   %90 = icmp ne i64 %89, 0
   %91 = icmp eq i64 %.1.i8, 0
   %92 = or i1 %91, %90
-  br i1 %92, label %rb_obj_write.exit.i10, label %93
+  br i1 %92, label %rb_obj_write.argprom.exit.i10, label %93
 
 93:                                               ; preds = %87
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %.1.i8) #20
   %.pre.i9 = load i32, ptr %71, align 4
-  br label %rb_obj_write.exit.i10
+  br label %rb_obj_write.argprom.exit.i10
 
-rb_obj_write.exit.i10:                            ; preds = %93, %87
+rb_obj_write.argprom.exit.i10:                    ; preds = %93, %87
   %94 = phi i32 [ %88, %87 ], [ %.pre.i9, %93 ]
   %.not.i11 = icmp eq i32 %94, %72
   br i1 %.not.i11, label %canonicalize_s_jd.exit, label %canonicalize_s_jd.exit.sink.split
 
-canonicalize_s_jd.exit.sink.split:                ; preds = %rb_obj_write.exit.i10, %rb_obj_write.exit.i
+canonicalize_s_jd.exit.sink.split:                ; preds = %rb_obj_write.argprom.exit.i10, %rb_obj_write.argprom.exit.i
   %95 = load i32, ptr %1, align 8
   %96 = and i32 %95, -5
   store i32 %96, ptr %1, align 8
   br label %canonicalize_s_jd.exit
 
-canonicalize_s_jd.exit:                           ; preds = %canonicalize_s_jd.exit.sink.split, %rb_obj_write.exit.i10, %rb_obj_write.exit.i
+canonicalize_s_jd.exit:                           ; preds = %canonicalize_s_jd.exit.sink.split, %rb_obj_write.argprom.exit.i10, %rb_obj_write.argprom.exit.i
   ret void
 }
 
@@ -22616,7 +22616,7 @@ declare i64 @rb_enc_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @date_strftime_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @date_strftime_internal.argprom(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [100 x i8], align 16
   %7 = alloca ptr, align 8
@@ -22809,13 +22809,13 @@ d_lite_s_alloc_complex.exit.i:                    ; preds = %15, %14
   %31 = icmp ne i64 %30, 0
   %32 = icmp eq i64 %29, 0
   %33 = or i1 %32, %31
-  br i1 %33, label %rb_obj_write.exit.i, label %34
+  br i1 %33, label %rb_obj_write.argprom.exit.i, label %34
 
 34:                                               ; preds = %d_lite_s_alloc_complex.exit.i
   tail call void @rb_gc_writebarrier(i64 noundef %8, i64 noundef %29) #20
-  br label %rb_obj_write.exit.i
+  br label %rb_obj_write.argprom.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %34, %d_lite_s_alloc_complex.exit.i
+rb_obj_write.argprom.exit.i:                      ; preds = %34, %d_lite_s_alloc_complex.exit.i
   %35 = getelementptr inbounds i8, ptr %4, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %26, i64 4
@@ -22878,13 +22878,13 @@ d_lite_s_alloc_complex.exit34.i:                  ; preds = %54, %53
   %69 = icmp ne i64 %68, 0
   %70 = icmp eq i64 %67, 0
   %71 = or i1 %70, %69
-  br i1 %71, label %rb_obj_written.exit.i, label %72
+  br i1 %71, label %rb_obj_written.argprom.exit.i, label %72
 
 72:                                               ; preds = %d_lite_s_alloc_complex.exit34.i
   tail call void @rb_gc_writebarrier(i64 noundef %8, i64 noundef %67) #20
-  br label %rb_obj_written.exit.i
+  br label %rb_obj_written.argprom.exit.i
 
-rb_obj_written.exit.i:                            ; preds = %72, %d_lite_s_alloc_complex.exit34.i
+rb_obj_written.argprom.exit.i:                    ; preds = %72, %d_lite_s_alloc_complex.exit34.i
   %73 = getelementptr inbounds i8, ptr %65, i64 40
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, 7
@@ -22893,11 +22893,11 @@ rb_obj_written.exit.i:                            ; preds = %72, %d_lite_s_alloc
   %78 = or i1 %77, %76
   br i1 %78, label %dup_obj_as_complex.exit, label %79
 
-79:                                               ; preds = %rb_obj_written.exit.i
+79:                                               ; preds = %rb_obj_written.argprom.exit.i
   tail call void @rb_gc_writebarrier(i64 noundef %8, i64 noundef %74) #20
   br label %dup_obj_as_complex.exit
 
-dup_obj_as_complex.exit:                          ; preds = %rb_obj_write.exit.i, %rb_obj_written.exit.i, %79
+dup_obj_as_complex.exit:                          ; preds = %rb_obj_write.argprom.exit.i, %rb_obj_written.argprom.exit.i, %79
   store volatile i64 %8, ptr %3, align 8
   %.0..0..0..0.1 = load volatile i64, ptr %3, align 8
   %80 = tail call ptr @rb_check_typeddata(i64 noundef %.0..0..0..0.1, ptr noundef nonnull @d_lite_type) #20
@@ -24781,13 +24781,13 @@ define internal fastcc i64 @iso8601_timediv(i64 noundef %0, i64 noundef %1) unna
   %21 = load ptr, ptr %5, align 8
   %22 = call i64 @rb_usascii_str_new(ptr noundef %21, i64 noundef %18) #20
   %.not.i = icmp eq ptr %21, %4
-  br i1 %.not.i, label %strftimev.exit, label %23
+  br i1 %.not.i, label %strftimev.argprom.exit, label %23
 
 23:                                               ; preds = %15
   call void @ruby_xfree(ptr noundef %21) #20
-  br label %strftimev.exit
+  br label %strftimev.argprom.exit
 
-strftimev.exit:                                   ; preds = %15, %23
+strftimev.argprom.exit:                           ; preds = %15, %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

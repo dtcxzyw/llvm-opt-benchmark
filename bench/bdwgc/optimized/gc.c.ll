@@ -7959,7 +7959,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %0, align 8
   store ptr %0, ptr %59, align 8
-  br label %free_internal.exit
+  br label %free_internal.argprom.exit
 
 61:                                               ; preds = %46
   %62 = icmp ugt i64 %.val6, 4096
@@ -7977,17 +7977,17 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %69 = and i64 %3, -4096
   %70 = inttoptr i64 %69 to ptr
   tail call fastcc void @GC_freehblk(ptr noundef %70)
-  br label %free_internal.exit
+  br label %free_internal.argprom.exit
 
-free_internal.exit:                               ; preds = %57, %68
+free_internal.argprom.exit:                       ; preds = %57, %68
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %71, label %73
 
-71:                                               ; preds = %free_internal.exit
+71:                                               ; preds = %free_internal.argprom.exit
   %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #41
   br label %73
 
-73:                                               ; preds = %free_internal.exit, %71, %1
+73:                                               ; preds = %free_internal.argprom.exit, %71, %1
   ret void
 }
 
@@ -10072,7 +10072,7 @@ GC_find_header.exit._crit_edge.i46.i:             ; preds = %GC_find_header.exit
   %220 = getelementptr inbounds i8, ptr %219, i64 %.044.i.i
   %221 = load atomic volatile i8, ptr %220 monotonic, align 1
   %.not52.i.i = icmp eq i8 %221, 0
-  br i1 %.not52.i.i, label %222, label %GC_push_contents_hdr.exit.i
+  br i1 %.not52.i.i, label %222, label %GC_push_contents_hdr.argprom.exit.i
 
 222:                                              ; preds = %218
   store atomic volatile i8 1, ptr %220 monotonic, align 1
@@ -10083,7 +10083,7 @@ GC_find_header.exit._crit_edge.i46.i:             ; preds = %GC_find_header.exit
   %226 = getelementptr i8, ptr %.022.i, i64 40
   %.val.i.i = load i64, ptr %226, align 8
   %227 = icmp eq i64 %.val.i.i, 0
-  br i1 %227, label %GC_push_contents_hdr.exit.i, label %228
+  br i1 %227, label %GC_push_contents_hdr.argprom.exit.i, label %228
 
 228:                                              ; preds = %222
   %229 = getelementptr inbounds i8, ptr %197, i64 16
@@ -10119,14 +10119,14 @@ GC_custom_push_proc.exit.i.i.i:                   ; preds = %GC_signal_mark_stac
   store ptr %.043.i.i, ptr %.0.i.i84.i.i, align 8
   %238 = getelementptr inbounds i8, ptr %.0.i.i84.i.i, i64 8
   store i64 %.val.i.i, ptr %238, align 8
-  br label %GC_push_contents_hdr.exit.i
+  br label %GC_push_contents_hdr.argprom.exit.i
 
-GC_push_contents_hdr.exit.i:                      ; preds = %GC_custom_push_proc.exit.i.i.i, %222, %218
+GC_push_contents_hdr.argprom.exit.i:              ; preds = %GC_custom_push_proc.exit.i.i.i, %222, %218
   %.0.i50.i = phi ptr [ %197, %218 ], [ %197, %222 ], [ %.0.i.i84.i.i, %GC_custom_push_proc.exit.i.i.i ]
   store volatile ptr %.0.i50.i, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   br label %GC_mark_and_push_stack.exit
 
-GC_mark_and_push_stack.exit:                      ; preds = %GC_push_contents_hdr.exit.i, %183, %175, %161, %156, %148, %127, %119, %16
+GC_mark_and_push_stack.exit:                      ; preds = %GC_push_contents_hdr.argprom.exit.i, %183, %175, %161, %156, %148, %127, %119, %16
   %239 = getelementptr inbounds i8, ptr %.015, i64 8
   %240 = ptrtoint ptr %239 to i64
   %.not = icmp ult i64 %12, %240
@@ -12043,7 +12043,7 @@ GC_find_header.exit:                              ; preds = %7
   %20 = getelementptr i8, ptr %17, i64 40
   %.val = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.val, 0
-  br i1 %21, label %GC_push_obj.exit, label %22
+  br i1 %21, label %GC_push_obj.argprom.exit, label %22
 
 22:                                               ; preds = %GC_find_header.exit
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 152), align 8
@@ -12080,9 +12080,9 @@ GC_custom_push_proc.exit.i:                       ; preds = %GC_signal_mark_stac
   store ptr %0, ptr %.0.i.i, align 8
   %33 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   store i64 %.val, ptr %33, align 8
-  br label %GC_push_obj.exit
+  br label %GC_push_obj.argprom.exit
 
-GC_push_obj.exit:                                 ; preds = %GC_find_header.exit, %GC_custom_push_proc.exit.i
+GC_push_obj.argprom.exit:                         ; preds = %GC_find_header.exit, %GC_custom_push_proc.exit.i
   %.0.i2 = phi ptr [ %18, %GC_find_header.exit ], [ %.0.i.i, %GC_custom_push_proc.exit.i ]
   store volatile ptr %.0.i2, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   ret void
@@ -17910,7 +17910,7 @@ GC_find_header.exit._crit_edge.i35:               ; preds = %GC_find_header.exit
   br label %GC_add_to_black_list_stack.exit
 
 147:                                              ; preds = %92
-  %148 = tail call fastcc ptr @GC_push_contents_hdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.023, i32 noundef 1)
+  %148 = tail call fastcc ptr @GC_push_contents_hdr.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.023, i32 noundef 1)
   br label %GC_add_to_black_list_stack.exit
 
 GC_add_to_black_list_stack.exit:                  ; preds = %142, %134, %.thread, %116, %108, %147
@@ -17922,7 +17922,7 @@ GC_add_to_black_list_stack.exit:                  ; preds = %142, %134, %.thread
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #22
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @GC_push_contents_hdr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readnone %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @GC_push_contents_hdr.argprom(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readnone %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %6, 4095
   %8 = lshr i64 %7, 4
@@ -22991,7 +22991,7 @@ define internal fastcc void @GC_read_dirty(i32 noundef range(i32 0, 2) %0) unnam
 
 108:                                              ; preds = %105, %.lr.ph.i6
   %109 = phi ptr [ %107, %105 ], [ null, %.lr.ph.i6 ]
-  tail call fastcc void @soft_set_grungy_pages(ptr noundef %99, ptr noundef %102, ptr noundef %109)
+  tail call fastcc void @soft_set_grungy_pages.argelim(ptr noundef %99, ptr noundef %102, ptr noundef %109)
   %110 = add i64 %.019.i, 1
   %111 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 288), align 8
   %.not17.i = icmp eq i64 %110, %111
@@ -23020,7 +23020,7 @@ define internal fastcc void @GC_read_dirty(i32 noundef range(i32 0, 2) %0) unnam
 
 .lr.ph21._crit_edge.i:                            ; preds = %123, %.lr.ph21.i
   %126 = phi ptr [ %125, %123 ], [ null, %.lr.ph21.i ]
-  tail call fastcc void @soft_set_grungy_pages(ptr noundef %117, ptr noundef %119, ptr noundef %126)
+  tail call fastcc void @soft_set_grungy_pages.argelim(ptr noundef %117, ptr noundef %119, ptr noundef %126)
   %indvars.i = trunc i64 %122 to i32
   %127 = load i32, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 412), align 4
   %128 = icmp sgt i32 %127, %indvars.i
@@ -31028,18 +31028,18 @@ GC_block_was_dirty.exit.thread.i:                 ; preds = %GC_block_was_dirty.
   %.not19.i.i = icmp ugt ptr %.1.i, %169
   br i1 %.not19.i.i, label %GC_push_unconditionally.exit.sink.split.i, label %.lr.ph.i31.i
 
-.lr.ph.i31.i:                                     ; preds = %161, %GC_push_obj.exit.i.i
-  %.021.i.i = phi ptr [ %186, %GC_push_obj.exit.i.i ], [ %.1.i, %161 ]
-  %.01720.i.i = phi ptr [ %.1.i33.i, %GC_push_obj.exit.i.i ], [ %170, %161 ]
+.lr.ph.i31.i:                                     ; preds = %161, %GC_push_obj.argprom.exit.i.i
+  %.021.i.i = phi ptr [ %186, %GC_push_obj.argprom.exit.i.i ], [ %.1.i, %161 ]
+  %.01720.i.i = phi ptr [ %.1.i33.i, %GC_push_obj.argprom.exit.i.i ], [ %170, %161 ]
   %171 = load i64, ptr %.021.i.i, align 8
   %172 = and i64 %171, 3
   %.not18.i.i = icmp eq i64 %172, 0
-  br i1 %.not18.i.i, label %GC_push_obj.exit.i.i, label %173
+  br i1 %.not18.i.i, label %GC_push_obj.argprom.exit.i.i, label %173
 
 173:                                              ; preds = %.lr.ph.i31.i
   %.val.i.i = load i64, ptr %157, align 8
   %174 = icmp eq i64 %.val.i.i, 0
-  br i1 %174, label %GC_push_obj.exit.i.i, label %175
+  br i1 %174, label %GC_push_obj.argprom.exit.i.i, label %175
 
 175:                                              ; preds = %173
   %176 = getelementptr inbounds i8, ptr %.01720.i.i, i64 16
@@ -31075,9 +31075,9 @@ GC_custom_push_proc.exit.i.i.i:                   ; preds = %GC_signal_mark_stac
   store ptr %.021.i.i, ptr %.0.i.i.i32.i, align 8
   %185 = getelementptr inbounds i8, ptr %.0.i.i.i32.i, i64 8
   store i64 %.val.i.i, ptr %185, align 8
-  br label %GC_push_obj.exit.i.i
+  br label %GC_push_obj.argprom.exit.i.i
 
-GC_push_obj.exit.i.i:                             ; preds = %GC_custom_push_proc.exit.i.i.i, %173, %.lr.ph.i31.i
+GC_push_obj.argprom.exit.i.i:                     ; preds = %GC_custom_push_proc.exit.i.i.i, %173, %.lr.ph.i31.i
   %.1.i33.i = phi ptr [ %.01720.i.i, %.lr.ph.i31.i ], [ %.01720.i.i, %173 ], [ %.0.i.i.i32.i, %GC_custom_push_proc.exit.i.i.i ]
   %186 = getelementptr inbounds i8, ptr %.021.i.i, i64 %96
   %.not.i34.i = icmp ugt ptr %186, %169
@@ -31112,19 +31112,19 @@ GC_push_obj.exit.i.i:                             ; preds = %GC_custom_push_proc
   %202 = getelementptr inbounds i8, ptr %.0.i, i64 64
   br label %203
 
-203:                                              ; preds = %GC_push_obj.exit.i45.i, %.lr.ph.i36.i
-  %.029.i37.i = phi ptr [ %.1.i, %.lr.ph.i36.i ], [ %219, %GC_push_obj.exit.i45.i ]
-  %.02228.i.i = phi ptr [ %201, %.lr.ph.i36.i ], [ %.1.i46.i, %GC_push_obj.exit.i45.i ]
-  %.02327.i.i = phi i64 [ 0, %.lr.ph.i36.i ], [ %220, %GC_push_obj.exit.i45.i ]
+203:                                              ; preds = %GC_push_obj.argprom.exit.i45.i, %.lr.ph.i36.i
+  %.029.i37.i = phi ptr [ %.1.i, %.lr.ph.i36.i ], [ %219, %GC_push_obj.argprom.exit.i45.i ]
+  %.02228.i.i = phi ptr [ %201, %.lr.ph.i36.i ], [ %.1.i46.i, %GC_push_obj.argprom.exit.i45.i ]
+  %.02327.i.i = phi i64 [ 0, %.lr.ph.i36.i ], [ %220, %GC_push_obj.argprom.exit.i45.i ]
   %204 = getelementptr inbounds [257 x i8], ptr %202, i64 0, i64 %.02327.i.i
   %205 = load i8, ptr %204, align 1
   %.not25.i.i = icmp eq i8 %205, 0
-  br i1 %.not25.i.i, label %GC_push_obj.exit.i45.i, label %206
+  br i1 %.not25.i.i, label %GC_push_obj.argprom.exit.i45.i, label %206
 
 206:                                              ; preds = %203
   %.val.i38.i = load i64, ptr %157, align 8
   %207 = icmp eq i64 %.val.i38.i, 0
-  br i1 %207, label %GC_push_obj.exit.i45.i, label %208
+  br i1 %207, label %GC_push_obj.argprom.exit.i45.i, label %208
 
 208:                                              ; preds = %206
   %209 = getelementptr inbounds i8, ptr %.02228.i.i, i64 16
@@ -31160,17 +31160,17 @@ GC_custom_push_proc.exit.i.i43.i:                 ; preds = %GC_signal_mark_stac
   store ptr %.029.i37.i, ptr %.0.i.i.i44.i, align 8
   %218 = getelementptr inbounds i8, ptr %.0.i.i.i44.i, i64 8
   store i64 %.val.i38.i, ptr %218, align 8
-  br label %GC_push_obj.exit.i45.i
+  br label %GC_push_obj.argprom.exit.i45.i
 
-GC_push_obj.exit.i45.i:                           ; preds = %GC_custom_push_proc.exit.i.i43.i, %206, %203
+GC_push_obj.argprom.exit.i45.i:                   ; preds = %GC_custom_push_proc.exit.i.i43.i, %206, %203
   %.1.i46.i = phi ptr [ %.02228.i.i, %203 ], [ %.02228.i.i, %206 ], [ %.0.i.i.i44.i, %GC_custom_push_proc.exit.i.i43.i ]
   %219 = getelementptr inbounds i8, ptr %.029.i37.i, i64 %96
   %220 = add i64 %.02327.i.i, %194
   %.not24.i.i = icmp ugt ptr %219, %200
   br i1 %.not24.i.i, label %GC_push_unconditionally.exit.sink.split.i, label %203, !llvm.loop !154
 
-GC_push_unconditionally.exit.sink.split.i:        ; preds = %GC_push_obj.exit.i.i, %GC_push_obj.exit.i45.i, %191, %161
-  %.022.lcssa.i.sink.i = phi ptr [ %170, %161 ], [ %201, %191 ], [ %.1.i46.i, %GC_push_obj.exit.i45.i ], [ %.1.i33.i, %GC_push_obj.exit.i.i ]
+GC_push_unconditionally.exit.sink.split.i:        ; preds = %GC_push_obj.argprom.exit.i.i, %GC_push_obj.argprom.exit.i45.i, %191, %161
+  %.022.lcssa.i.sink.i = phi ptr [ %170, %161 ], [ %201, %191 ], [ %.1.i46.i, %GC_push_obj.argprom.exit.i45.i ], [ %.1.i33.i, %GC_push_obj.argprom.exit.i.i ]
   store volatile ptr %.022.lcssa.i.sink.i, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   %.pre171 = load i64, ptr %153, align 8
   br label %GC_push_unconditionally.exit.i
@@ -31429,19 +31429,19 @@ GC_find_header.exit25.i:                          ; preds = %317
   %352 = getelementptr inbounds i8, ptr %.1.i42, i64 64
   br label %353
 
-353:                                              ; preds = %GC_push_obj.exit.i.i59, %.lr.ph.i27.i
-  %.029.i28.i = phi ptr [ %.119.i, %.lr.ph.i27.i ], [ %369, %GC_push_obj.exit.i.i59 ]
-  %.02228.i.i49 = phi ptr [ %351, %.lr.ph.i27.i ], [ %.1.i29.i, %GC_push_obj.exit.i.i59 ]
-  %.02327.i.i50 = phi i64 [ 0, %.lr.ph.i27.i ], [ %370, %GC_push_obj.exit.i.i59 ]
+353:                                              ; preds = %GC_push_obj.argprom.exit.i.i59, %.lr.ph.i27.i
+  %.029.i28.i = phi ptr [ %.119.i, %.lr.ph.i27.i ], [ %369, %GC_push_obj.argprom.exit.i.i59 ]
+  %.02228.i.i49 = phi ptr [ %351, %.lr.ph.i27.i ], [ %.1.i29.i, %GC_push_obj.argprom.exit.i.i59 ]
+  %.02327.i.i50 = phi i64 [ 0, %.lr.ph.i27.i ], [ %370, %GC_push_obj.argprom.exit.i.i59 ]
   %354 = getelementptr inbounds [257 x i8], ptr %352, i64 0, i64 %.02327.i.i50
   %355 = load i8, ptr %354, align 1
   %.not25.i.i51 = icmp eq i8 %355, 0
-  br i1 %.not25.i.i51, label %GC_push_obj.exit.i.i59, label %356
+  br i1 %.not25.i.i51, label %GC_push_obj.argprom.exit.i.i59, label %356
 
 356:                                              ; preds = %353
   %.val.i.i52 = load i64, ptr %334, align 8
   %357 = icmp eq i64 %.val.i.i52, 0
-  br i1 %357, label %GC_push_obj.exit.i.i59, label %358
+  br i1 %357, label %GC_push_obj.argprom.exit.i.i59, label %358
 
 358:                                              ; preds = %356
   %359 = getelementptr inbounds i8, ptr %.02228.i.i49, i64 16
@@ -31477,9 +31477,9 @@ GC_custom_push_proc.exit.i.i.i57:                 ; preds = %GC_signal_mark_stac
   store ptr %.029.i28.i, ptr %.0.i.i.i.i58, align 8
   %368 = getelementptr inbounds i8, ptr %.0.i.i.i.i58, i64 8
   store i64 %.val.i.i52, ptr %368, align 8
-  br label %GC_push_obj.exit.i.i59
+  br label %GC_push_obj.argprom.exit.i.i59
 
-GC_push_obj.exit.i.i59:                           ; preds = %GC_custom_push_proc.exit.i.i.i57, %356, %353
+GC_push_obj.argprom.exit.i.i59:                   ; preds = %GC_custom_push_proc.exit.i.i.i57, %356, %353
   %.1.i29.i = phi ptr [ %.02228.i.i49, %353 ], [ %.02228.i.i49, %356 ], [ %.0.i.i.i.i58, %GC_custom_push_proc.exit.i.i.i57 ]
   %369 = getelementptr inbounds i8, ptr %.029.i28.i, i64 %333
   %370 = add i64 %.02327.i.i50, %344
@@ -31517,18 +31517,18 @@ GC_push_obj.exit.i.i59:                           ; preds = %GC_custom_push_proc
   %.not19.i.i44 = icmp ugt ptr %.119.i, %390
   br i1 %.not19.i.i44, label %GC_push_marked.exit.sink.split.i, label %.lr.ph.i30.i
 
-.lr.ph.i30.i:                                     ; preds = %382, %GC_push_obj.exit.i38.i
-  %.021.i.i45 = phi ptr [ %407, %GC_push_obj.exit.i38.i ], [ %.119.i, %382 ]
-  %.01720.i.i46 = phi ptr [ %.1.i39.i, %GC_push_obj.exit.i38.i ], [ %391, %382 ]
+.lr.ph.i30.i:                                     ; preds = %382, %GC_push_obj.argprom.exit.i38.i
+  %.021.i.i45 = phi ptr [ %407, %GC_push_obj.argprom.exit.i38.i ], [ %.119.i, %382 ]
+  %.01720.i.i46 = phi ptr [ %.1.i39.i, %GC_push_obj.argprom.exit.i38.i ], [ %391, %382 ]
   %392 = load i64, ptr %.021.i.i45, align 8
   %393 = and i64 %392, 3
   %.not18.i.i47 = icmp eq i64 %393, 0
-  br i1 %.not18.i.i47, label %GC_push_obj.exit.i38.i, label %394
+  br i1 %.not18.i.i47, label %GC_push_obj.argprom.exit.i38.i, label %394
 
 394:                                              ; preds = %.lr.ph.i30.i
   %.val.i31.i = load i64, ptr %378, align 8
   %395 = icmp eq i64 %.val.i31.i, 0
-  br i1 %395, label %GC_push_obj.exit.i38.i, label %396
+  br i1 %395, label %GC_push_obj.argprom.exit.i38.i, label %396
 
 396:                                              ; preds = %394
   %397 = getelementptr inbounds i8, ptr %.01720.i.i46, i64 16
@@ -31564,9 +31564,9 @@ GC_custom_push_proc.exit.i.i36.i:                 ; preds = %GC_signal_mark_stac
   store ptr %.021.i.i45, ptr %.0.i.i.i37.i, align 8
   %406 = getelementptr inbounds i8, ptr %.0.i.i.i37.i, i64 8
   store i64 %.val.i31.i, ptr %406, align 8
-  br label %GC_push_obj.exit.i38.i
+  br label %GC_push_obj.argprom.exit.i38.i
 
-GC_push_obj.exit.i38.i:                           ; preds = %GC_custom_push_proc.exit.i.i36.i, %394, %.lr.ph.i30.i
+GC_push_obj.argprom.exit.i38.i:                   ; preds = %GC_custom_push_proc.exit.i.i36.i, %394, %.lr.ph.i30.i
   %.1.i39.i = phi ptr [ %.01720.i.i46, %.lr.ph.i30.i ], [ %.01720.i.i46, %394 ], [ %.0.i.i.i37.i, %GC_custom_push_proc.exit.i.i36.i ]
   %407 = getelementptr inbounds i8, ptr %.021.i.i45, i64 %376
   %.not.i40.i = icmp ugt ptr %407, %390
@@ -31599,8 +31599,8 @@ GC_find_header.exit44.i:                          ; preds = %416
   %425 = getelementptr inbounds [1024 x ptr], ptr %.0.i43.i, i64 0, i64 %424
   br label %260
 
-GC_push_marked.exit.sink.split.i:                 ; preds = %GC_push_obj.exit.i38.i, %GC_push_obj.exit.i.i59, %382, %341
-  %.017.lcssa.i.sink.i = phi ptr [ %351, %341 ], [ %391, %382 ], [ %.1.i29.i, %GC_push_obj.exit.i.i59 ], [ %.1.i39.i, %GC_push_obj.exit.i38.i ]
+GC_push_marked.exit.sink.split.i:                 ; preds = %GC_push_obj.argprom.exit.i38.i, %GC_push_obj.argprom.exit.i.i59, %382, %341
+  %.017.lcssa.i.sink.i = phi ptr [ %351, %341 ], [ %391, %382 ], [ %.1.i29.i, %GC_push_obj.argprom.exit.i.i59 ], [ %.1.i39.i, %GC_push_obj.argprom.exit.i38.i ]
   store volatile ptr %.017.lcssa.i.sink.i, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.1.i42, i64 32
   %.pre170 = load i64, ptr %.phi.trans.insert, align 8
@@ -32057,19 +32057,19 @@ GC_find_header.exit17.i:                          ; preds = %600
   %631 = getelementptr inbounds i8, ptr %.0.i86, i64 64
   br label %632
 
-632:                                              ; preds = %GC_push_obj.exit.i.i98, %.lr.ph.i19.i
-  %.029.i20.i = phi ptr [ %.011.i, %.lr.ph.i19.i ], [ %648, %GC_push_obj.exit.i.i98 ]
-  %.02228.i.i88 = phi ptr [ %630, %.lr.ph.i19.i ], [ %.1.i21.i, %GC_push_obj.exit.i.i98 ]
-  %.02327.i.i89 = phi i64 [ 0, %.lr.ph.i19.i ], [ %649, %GC_push_obj.exit.i.i98 ]
+632:                                              ; preds = %GC_push_obj.argprom.exit.i.i98, %.lr.ph.i19.i
+  %.029.i20.i = phi ptr [ %.011.i, %.lr.ph.i19.i ], [ %648, %GC_push_obj.argprom.exit.i.i98 ]
+  %.02228.i.i88 = phi ptr [ %630, %.lr.ph.i19.i ], [ %.1.i21.i, %GC_push_obj.argprom.exit.i.i98 ]
+  %.02327.i.i89 = phi i64 [ 0, %.lr.ph.i19.i ], [ %649, %GC_push_obj.argprom.exit.i.i98 ]
   %633 = getelementptr inbounds [257 x i8], ptr %631, i64 0, i64 %.02327.i.i89
   %634 = load i8, ptr %633, align 1
   %.not25.i.i90 = icmp eq i8 %634, 0
-  br i1 %.not25.i.i90, label %GC_push_obj.exit.i.i98, label %635
+  br i1 %.not25.i.i90, label %GC_push_obj.argprom.exit.i.i98, label %635
 
 635:                                              ; preds = %632
   %.val.i.i91 = load i64, ptr %613, align 8
   %636 = icmp eq i64 %.val.i.i91, 0
-  br i1 %636, label %GC_push_obj.exit.i.i98, label %637
+  br i1 %636, label %GC_push_obj.argprom.exit.i.i98, label %637
 
 637:                                              ; preds = %635
   %638 = getelementptr inbounds i8, ptr %.02228.i.i88, i64 16
@@ -32105,16 +32105,16 @@ GC_custom_push_proc.exit.i.i.i96:                 ; preds = %GC_signal_mark_stac
   store ptr %.029.i20.i, ptr %.0.i.i.i.i97, align 8
   %647 = getelementptr inbounds i8, ptr %.0.i.i.i.i97, i64 8
   store i64 %.val.i.i91, ptr %647, align 8
-  br label %GC_push_obj.exit.i.i98
+  br label %GC_push_obj.argprom.exit.i.i98
 
-GC_push_obj.exit.i.i98:                           ; preds = %GC_custom_push_proc.exit.i.i.i96, %635, %632
+GC_push_obj.argprom.exit.i.i98:                   ; preds = %GC_custom_push_proc.exit.i.i.i96, %635, %632
   %.1.i21.i = phi ptr [ %.02228.i.i88, %632 ], [ %.02228.i.i88, %635 ], [ %.0.i.i.i.i97, %GC_custom_push_proc.exit.i.i.i96 ]
   %648 = getelementptr inbounds i8, ptr %.029.i20.i, i64 %612
   %649 = add i64 %.02327.i.i89, %623
   %.not24.i.i99 = icmp ugt ptr %648, %629
   br i1 %.not24.i.i99, label %._crit_edge.i.i.loopexit, label %632, !llvm.loop !154
 
-._crit_edge.i.i.loopexit:                         ; preds = %GC_push_obj.exit.i.i98
+._crit_edge.i.i.loopexit:                         ; preds = %GC_push_obj.argprom.exit.i.i98
   %.pre169.pre.pre = load i32, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 272), align 8
   br label %._crit_edge.i.i
 
@@ -35044,7 +35044,7 @@ default.unreachable:                              ; preds = %54
 
 96:                                               ; preds = %93, %90
   %.0137 = phi ptr [ %92, %90 ], [ %94, %93 ]
-  %97 = tail call fastcc ptr @GC_push_contents_hdr(ptr noundef nonnull %84, ptr noundef %.2282, ptr noundef %2, ptr noundef %.0137, i32 noundef 1)
+  %97 = tail call fastcc ptr @GC_push_contents_hdr.argprom(ptr noundef nonnull %84, ptr noundef %.2282, ptr noundef %2, ptr noundef %.0137, i32 noundef 1)
   br label %98
 
 98:                                               ; preds = %79, %93, %96, %.lr.ph284
@@ -35162,7 +35162,7 @@ default.unreachable:                              ; preds = %54
 
 153:                                              ; preds = %150, %147
   %.0132 = phi ptr [ %149, %147 ], [ %151, %150 ]
-  %154 = tail call fastcc ptr @GC_push_contents_hdr(ptr noundef nonnull %141, ptr noundef %.6288, ptr noundef %2, ptr noundef %.0132, i32 noundef 1)
+  %154 = tail call fastcc ptr @GC_push_contents_hdr.argprom(ptr noundef nonnull %141, ptr noundef %.6288, ptr noundef %2, ptr noundef %.0132, i32 noundef 1)
   br label %155
 
 155:                                              ; preds = %.lr.ph290, %150, %153
@@ -35193,7 +35193,7 @@ default.unreachable:                              ; preds = %54
 
 169:                                              ; preds = %166, %163
   %.0130 = phi ptr [ %165, %163 ], [ %167, %166 ]
-  %170 = tail call fastcc ptr @GC_push_contents_hdr(ptr noundef nonnull %157, ptr noundef %.6.lcssa, ptr noundef %2, ptr noundef %.0130, i32 noundef 1)
+  %170 = tail call fastcc ptr @GC_push_contents_hdr.argprom(ptr noundef nonnull %157, ptr noundef %.6.lcssa, ptr noundef %2, ptr noundef %.0130, i32 noundef 1)
   br label %.outer170.backedge
 
 .outer170.backedge:                               ; preds = %98, %125, %132, %166, %169, %.split210.split.us, %.split214.split.us
@@ -41938,9 +41938,9 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 232), align 8
   br label %23
 
-23:                                               ; preds = %.lr.ph, %next_hblk_fits_better.exit.thread184
-  %24 = phi ptr [ %.pre, %.lr.ph ], [ %335, %next_hblk_fits_better.exit.thread184 ]
-  %.0109257 = phi ptr [ %.0109255261, %.lr.ph ], [ %.0109, %next_hblk_fits_better.exit.thread184 ]
+23:                                               ; preds = %.lr.ph, %next_hblk_fits_better.argprom.exit.thread184
+  %24 = phi ptr [ %.pre, %.lr.ph ], [ %335, %next_hblk_fits_better.argprom.exit.thread184 ]
+  %.0109257 = phi ptr [ %.0109255261, %.lr.ph ], [ %.0109, %next_hblk_fits_better.argprom.exit.thread184 ]
   %25 = ptrtoint ptr %.0109257 to i64
   %26 = lshr i64 %25, 22
   %27 = and i64 %26, 2047
@@ -41967,22 +41967,22 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %42 = load i64, ptr %41, align 8
   %.not123 = icmp eq i64 %42, %8
   %or.cond136 = select i1 %.not122, i1 true, i1 %.not123
-  br i1 %or.cond136, label %43, label %next_hblk_fits_better.exit.thread184
+  br i1 %or.cond136, label %43, label %next_hblk_fits_better.argprom.exit.thread184
 
 43:                                               ; preds = %36
   %44 = sub i64 %11, %25
   %45 = and i64 %44, %5
   %46 = add i64 %45, %8
   %47 = icmp ult i64 %42, %46
-  br i1 %47, label %next_hblk_fits_better.exit.thread184, label %48
+  br i1 %47, label %next_hblk_fits_better.argprom.exit.thread184, label %48
 
 48:                                               ; preds = %43
-  br i1 %.not123, label %next_hblk_fits_better.exit.thread, label %49
+  br i1 %.not123, label %next_hblk_fits_better.argprom.exit.thread, label %49
 
 49:                                               ; preds = %48
   %.val = load ptr, ptr %40, align 8
   %50 = icmp eq ptr %.val, null
-  br i1 %50, label %next_hblk_fits_better.exit.thread, label %51
+  br i1 %50, label %next_hblk_fits_better.argprom.exit.thread, label %51
 
 51:                                               ; preds = %49
   %52 = ptrtoint ptr %.val to i64
@@ -42010,14 +42010,14 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %68 = getelementptr inbounds i8, ptr %67, i64 32
   %69 = load i64, ptr %68, align 8
   %.not.i = icmp ugt i64 %42, %69
-  br i1 %.not.i, label %70, label %next_hblk_fits_better.exit.thread
+  br i1 %.not.i, label %70, label %next_hblk_fits_better.argprom.exit.thread
 
 70:                                               ; preds = %63
   %71 = sub i64 %11, %52
   %72 = and i64 %71, %5
   %73 = add i64 %72, %8
   %.not27.i = icmp ult i64 %69, %73
-  br i1 %.not27.i, label %next_hblk_fits_better.exit.thread, label %74
+  br i1 %.not27.i, label %next_hblk_fits_better.argprom.exit.thread, label %74
 
 74:                                               ; preds = %70
   %75 = lshr i64 %72, 12
@@ -42038,7 +42038,7 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %87 = shl nuw i64 1, %86
   %88 = and i64 %85, %87
   %.not24.i.i = icmp eq i64 %88, 0
-  br i1 %.not24.i.i, label %89, label %next_hblk_fits_better.exit.thread
+  br i1 %.not24.i.i, label %89, label %next_hblk_fits_better.argprom.exit.thread
 
 89:                                               ; preds = %81
   %90 = load ptr, ptr @GC_incomplete_normal_bl, align 8
@@ -42046,7 +42046,7 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, %87
   %.not25.i.i = icmp eq i64 %93, 0
-  br i1 %.not25.i.i, label %94, label %next_hblk_fits_better.exit.thread
+  br i1 %.not25.i.i, label %94, label %next_hblk_fits_better.argprom.exit.thread
 
 94:                                               ; preds = %89, %74
   %95 = load ptr, ptr @GC_old_stack_bl, align 8
@@ -42079,14 +42079,14 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %111 = shl nuw i64 1, %110
   %112 = and i64 %100, %111
   %.not26.i.i = icmp eq i64 %112, 0
-  br i1 %.not26.i.i, label %113, label %next_hblk_fits_better.exit
+  br i1 %.not26.i.i, label %113, label %next_hblk_fits_better.argprom.exit
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds i64, ptr %96, i64 %98
   %115 = load i64, ptr %114, align 8
   %116 = and i64 %115, %111
   %.not27.i.i = icmp eq i64 %116, 0
-  br i1 %.not27.i.i, label %117, label %next_hblk_fits_better.exit
+  br i1 %.not27.i.i, label %117, label %next_hblk_fits_better.argprom.exit
 
 117:                                              ; preds = %113
   %118 = add i64 %.022.i.i, 1
@@ -42095,7 +42095,7 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
 119:                                              ; preds = %117, %106
   %.1.i.i = phi i64 [ %108, %106 ], [ %118, %117 ]
   %.not28.i.i = icmp ult i64 %.1.i.i, %12
-  br i1 %.not28.i.i, label %120, label %next_hblk_fits_better.exit.thread184
+  br i1 %.not28.i.i, label %120, label %next_hblk_fits_better.argprom.exit.thread184
 
 120:                                              ; preds = %119
   %121 = getelementptr inbounds %struct.GC_hblk_s, ptr %76, i64 %.1.i.i
@@ -42104,21 +42104,21 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %124 = and i64 %123, 262143
   br label %97
 
-next_hblk_fits_better.exit:                       ; preds = %109, %113
+next_hblk_fits_better.argprom.exit:               ; preds = %109, %113
   %125 = getelementptr %struct.GC_hblk_s, ptr %76, i64 %.022.i.i
   %126 = getelementptr i8, ptr %125, i64 4096
   %.not193 = icmp eq ptr %126, null
-  br i1 %.not193, label %next_hblk_fits_better.exit.thread184, label %next_hblk_fits_better.exit.thread
+  br i1 %.not193, label %next_hblk_fits_better.argprom.exit.thread184, label %next_hblk_fits_better.argprom.exit.thread
 
-next_hblk_fits_better.exit.thread:                ; preds = %81, %89, %70, %63, %49, %next_hblk_fits_better.exit, %48
+next_hblk_fits_better.argprom.exit.thread:        ; preds = %81, %89, %70, %63, %49, %next_hblk_fits_better.argprom.exit, %48
   br i1 %brmerge, label %127, label %130
 
-127:                                              ; preds = %next_hblk_fits_better.exit.thread
+127:                                              ; preds = %next_hblk_fits_better.argprom.exit.thread
   %128 = lshr i64 %45, 12
   %129 = getelementptr inbounds %struct.GC_hblk_s, ptr %.0109257, i64 %128
   br label %.loopexit
 
-130:                                              ; preds = %next_hblk_fits_better.exit.thread
+130:                                              ; preds = %next_hblk_fits_better.argprom.exit.thread
   %131 = sub i64 %42, %8
   %132 = add i64 %131, %25
   %133 = and i64 %132, %17
@@ -42309,7 +42309,7 @@ find_nonbl_hblk.exit:                             ; preds = %GC_is_black_listed.
   %228 = load i8, ptr %227, align 1
   %229 = and i8 %228, 2
   %230 = icmp eq i8 %229, 0
-  br i1 %230, label %.loopexit, label %next_hblk_fits_better.exit.thread184
+  br i1 %230, label %.loopexit, label %next_hblk_fits_better.argprom.exit.thread184
 
 find_nonbl_hblk.exit.thread:                      ; preds = %223, %177, %find_nonbl_hblk.exit
   %231 = load i32, ptr @GC_find_leak, align 4
@@ -42465,14 +42465,14 @@ GC_find_header.exit:                              ; preds = %310
   %318 = and i64 %317, 1023
   %319 = getelementptr inbounds [1024 x ptr], ptr %.0.i153, i64 0, i64 %318
   %320 = load ptr, ptr %319, align 8
-  br label %next_hblk_fits_better.exit.thread184
+  br label %next_hblk_fits_better.argprom.exit.thread184
 
 321:                                              ; preds = %238, %233, %find_nonbl_hblk.exit.thread
   %322 = load i64, ptr @GC_black_list_spacing, align 8
   %323 = icmp ugt i64 %8, %322
   %324 = icmp ugt i64 %131, %322
   %or.cond138 = and i1 %323, %324
-  br i1 %or.cond138, label %325, label %next_hblk_fits_better.exit.thread184
+  br i1 %or.cond138, label %325, label %next_hblk_fits_better.argprom.exit.thread184
 
 325:                                              ; preds = %321
   %326 = load i64, ptr @GC_large_alloc_warn_suppressed, align 8
@@ -42494,9 +42494,9 @@ GC_find_header.exit:                              ; preds = %310
   %334 = getelementptr inbounds %struct.GC_hblk_s, ptr %.0109257, i64 %333
   br label %.loopexit
 
-next_hblk_fits_better.exit.thread184:             ; preds = %119, %36, %321, %226, %next_hblk_fits_better.exit, %43, %GC_find_header.exit
-  %335 = phi ptr [ %24, %43 ], [ %24, %next_hblk_fits_better.exit ], [ %24, %226 ], [ %24, %321 ], [ %309, %GC_find_header.exit ], [ %24, %36 ], [ %24, %119 ]
-  %.0112 = phi ptr [ %40, %43 ], [ %40, %next_hblk_fits_better.exit ], [ %40, %226 ], [ %40, %321 ], [ %320, %GC_find_header.exit ], [ %40, %36 ], [ %40, %119 ]
+next_hblk_fits_better.argprom.exit.thread184:     ; preds = %119, %36, %321, %226, %next_hblk_fits_better.argprom.exit, %43, %GC_find_header.exit
+  %335 = phi ptr [ %24, %43 ], [ %24, %next_hblk_fits_better.argprom.exit ], [ %24, %226 ], [ %24, %321 ], [ %309, %GC_find_header.exit ], [ %24, %36 ], [ %24, %119 ]
+  %.0112 = phi ptr [ %40, %43 ], [ %40, %next_hblk_fits_better.argprom.exit ], [ %40, %226 ], [ %40, %321 ], [ %320, %GC_find_header.exit ], [ %40, %36 ], [ %40, %119 ]
   %.0109 = load ptr, ptr %.0112, align 8
   %.not = icmp eq ptr %.0109, null
   br i1 %.not, label %GC_remove_counts.exit, label %23
@@ -43243,8 +43243,8 @@ GC_find_header.exit.i176:                         ; preds = %692
   store i64 %729, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 32), align 8
   br label %GC_remove_counts.exit
 
-GC_remove_counts.exit:                            ; preds = %.loopexit205, %next_hblk_fits_better.exit.thread184, %._crit_edge.i.i, %716, %6, %._crit_edge.i36.i, %GC_find_header.exit.i176, %685, %GC_get_first_part.exit.thread, %336, %723
-  %.0 = phi ptr [ %.1, %723 ], [ null, %336 ], [ null, %GC_get_first_part.exit.thread ], [ null, %685 ], [ null, %GC_find_header.exit.i176 ], [ null, %._crit_edge.i36.i ], [ null, %6 ], [ null, %716 ], [ null, %._crit_edge.i.i ], [ null, %next_hblk_fits_better.exit.thread184 ], [ null, %.loopexit205 ]
+GC_remove_counts.exit:                            ; preds = %.loopexit205, %next_hblk_fits_better.argprom.exit.thread184, %._crit_edge.i.i, %716, %6, %._crit_edge.i36.i, %GC_find_header.exit.i176, %685, %GC_get_first_part.exit.thread, %336, %723
+  %.0 = phi ptr [ %.1, %723 ], [ null, %336 ], [ null, %GC_get_first_part.exit.thread ], [ null, %685 ], [ null, %GC_find_header.exit.i176 ], [ null, %._crit_edge.i36.i ], [ null, %6 ], [ null, %716 ], [ null, %._crit_edge.i.i ], [ null, %next_hblk_fits_better.argprom.exit.thread184 ], [ null, %.loopexit205 ]
   ret ptr %.0
 }
 
@@ -43557,7 +43557,7 @@ define internal ptr @GC_typed_mark_proc(ptr noundef %0, ptr noundef %1, ptr noun
 
 32:                                               ; preds = %29, %26
   %.028 = phi ptr [ %28, %26 ], [ %30, %29 ]
-  %33 = tail call fastcc ptr @GC_push_contents_hdr(ptr noundef nonnull %20, ptr noundef %.039, ptr noundef %2, ptr noundef %.028, i32 noundef 1)
+  %33 = tail call fastcc ptr @GC_push_contents_hdr.argprom(ptr noundef nonnull %20, ptr noundef %.039, ptr noundef %2, ptr noundef %.028, i32 noundef 1)
   br label %34
 
 34:                                               ; preds = %13, %32, %29, %15
@@ -44130,7 +44130,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #12
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @soft_set_grungy_pages.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = ptrtoint ptr %0 to i64
   %5 = load i64, ptr @GC_page_size, align 8
   %6 = sub i64 0, %5
@@ -44971,7 +44971,7 @@ define internal void @GC_suspend_sigaction(i32 noundef %0, ptr nocapture readnon
   %12 = load atomic volatile i64, ptr @GC_stop_count acquire, align 8
   %13 = and i64 %12, 1
   %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %14, label %GC_suspend_handler_inner.exit
+  br i1 %.not.i, label %14, label %GC_suspend_handler_inner.argprom.exit
 
 14:                                               ; preds = %9
   %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %5) #41
@@ -45078,9 +45078,9 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
 .sink.split.i:                                    ; preds = %63, %60, %56, %34, %32
   %65 = load i32, ptr %5, align 4
   %66 = call i32 @pthread_setcancelstate(i32 noundef %65, ptr noundef null) #41
-  br label %GC_suspend_handler_inner.exit
+  br label %GC_suspend_handler_inner.argprom.exit
 
-GC_suspend_handler_inner.exit:                    ; preds = %9, %.sink.split.i
+GC_suspend_handler_inner.argprom.exit:            ; preds = %9, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store i32 %11, ptr %10, align 4
   ret void

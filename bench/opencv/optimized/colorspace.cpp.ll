@@ -4997,7 +4997,7 @@ define hidden void @_ZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatE(ptr dead_on_unwind n
   store ptr %69, ptr %10, align 8, !noalias !31
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11elementWiseIZNKS5_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES8_RKS8_OT_S8_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_", ptr %70, align 8, !noalias !31
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11elementWiseIZNKS5_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES8_RKS8_OT_S8_EUlS3_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %67, align 8, !noalias !31
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef %10)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef %10)
           to label %71 unwind label %78
 
 71:                                               ; preds = %.noexc8
@@ -5165,7 +5165,7 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %105, %.n
   %136 = fdiv double %135, %133
   %137 = load double, ptr %128, align 8, !noalias !31
   %138 = call double @pow(double noundef %136, double noundef %137) #28, !noalias !31
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i"
 
 139:                                              ; preds = %.lr.ph.i
   %140 = fneg double %130
@@ -5175,7 +5175,7 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %105, %.n
 142:                                              ; preds = %139
   %143 = load double, ptr %124, align 8, !noalias !31
   %144 = fdiv double %129, %143
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i"
 
 145:                                              ; preds = %139
   %146 = load double, ptr %125, align 8, !noalias !31
@@ -5185,9 +5185,9 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %105, %.n
   %150 = load double, ptr %126, align 8, !noalias !31
   %151 = call double @pow(double noundef %149, double noundef %150) #28, !noalias !31
   %152 = fneg double %151
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i"
 
-"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i": ; preds = %145, %142, %132
+"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i": ; preds = %145, %142, %132
   %.0.i.i.i = phi double [ %138, %132 ], [ %144, %142 ], [ %152, %145 ]
   %153 = load ptr, ptr %95, align 8, !noalias !31
   store double %.0.i.i.i, ptr %153, align 8, !noalias !31
@@ -5196,7 +5196,7 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %105, %.n
   %.val29.pre91.i = load ptr, ptr %95, align 8, !noalias !31
   br i1 %.not.i.i38.i, label %_ZN2cv12MatIterator_IdEppEv.exit.i, label %155
 
-155:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i"
+155:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i"
   %156 = load i64, ptr %94, align 8, !noalias !31
   %157 = getelementptr inbounds i8, ptr %.val29.pre91.i, i64 %156
   store ptr %157, ptr %95, align 8, !noalias !31
@@ -5214,9 +5214,9 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %105, %.n
   %.val29.pre.i = load ptr, ptr %95, align 8, !noalias !31
   br label %_ZN2cv12MatIterator_IdEppEv.exit.i
 
-_ZN2cv12MatIterator_IdEppEv.exit.i:               ; preds = %.noexc15, %155, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i"
-  %.val29.i = phi ptr [ %.val29.pre91.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i" ], [ %157, %155 ], [ %.val29.pre.i, %.noexc15 ]
-  %.val28.i = phi ptr [ null, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i" ], [ %154, %155 ], [ %.val28.pre.i, %.noexc15 ]
+_ZN2cv12MatIterator_IdEppEv.exit.i:               ; preds = %.noexc15, %155, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i"
+  %.val29.i = phi ptr [ %.val29.pre91.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i" ], [ %157, %155 ], [ %.val29.pre.i, %.noexc15 ]
+  %.val28.i = phi ptr [ null, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i" ], [ %154, %155 ], [ %.val28.pre.i, %.noexc15 ]
   %.not.i.i = icmp ne ptr %.val28.i, %118
   %160 = icmp ne ptr %.val29.i, %120
   %161 = select i1 %.not.i.i, i1 true, i1 %160
@@ -5349,7 +5349,7 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
   %213 = fdiv double %212, %210
   %214 = load double, ptr %203, align 8, !noalias !31
   %215 = call double @pow(double noundef %213, double noundef %214) #28, !noalias !31
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit44.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit44.i"
 
 216:                                              ; preds = %.preheader.i
   %217 = fneg double %207
@@ -5359,7 +5359,7 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
 219:                                              ; preds = %216
   %220 = load double, ptr %199, align 8, !noalias !31
   %221 = fdiv double %206, %220
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit44.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit44.i"
 
 222:                                              ; preds = %216
   %223 = load double, ptr %200, align 8, !noalias !31
@@ -5369,9 +5369,9 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
   %227 = load double, ptr %201, align 8, !noalias !31
   %228 = call double @pow(double noundef %226, double noundef %227) #28, !noalias !31
   %229 = fneg double %228
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit44.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit44.i"
 
-"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit44.i": ; preds = %222, %219, %209
+"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit44.i": ; preds = %222, %219, %209
   %.0.i.i43.i = phi double [ %215, %209 ], [ %221, %219 ], [ %229, %222 ]
   %230 = load ptr, ptr %170, align 8, !noalias !31
   %231 = getelementptr inbounds [3 x double], ptr %230, i64 0, i64 %indvars.iv.i
@@ -5380,11 +5380,11 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %232, label %.preheader.i.backedge
 
-.preheader.i.backedge:                            ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit44.i", %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i
-  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit44.i" ], [ 0, %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i ]
+.preheader.i.backedge:                            ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit44.i", %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i
+  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit44.i" ], [ 0, %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i ]
   br label %.preheader.i, !llvm.loop !47
 
-232:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit44.i"
+232:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit44.i"
   %233 = load ptr, ptr %14, align 8, !noalias !31
   %.not.i.i45.i = icmp eq ptr %233, null
   %.val33.pre78.i = load ptr, ptr %170, align 8, !noalias !31
@@ -5691,7 +5691,7 @@ define hidden void @_ZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_(ptr dead_on_unw
   store ptr %70, ptr %11, align 8, !noalias !48
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11elementWiseIZNKS5_9sRGBBase_9fromLFuncERNS0_3MatES8_E3$_0EES8_RKS8_OT_S8_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_", ptr %71, align 8, !noalias !48
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11elementWiseIZNKS5_9sRGBBase_9fromLFuncERNS0_3MatES8_E3$_0EES8_RKS8_OT_S8_EUlS3_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %68, align 8, !noalias !48
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef %11)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef %11)
           to label %72 unwind label %79
 
 72:                                               ; preds = %.noexc8
@@ -5861,7 +5861,7 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %106, %.n
   %139 = fadd double %138, -1.000000e+00
   %140 = fneg double %139
   %141 = call double @llvm.fmuladd.f64(double %134, double %137, double %140)
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i"
 
 142:                                              ; preds = %.lr.ph.i
   %143 = fneg double %131
@@ -5871,7 +5871,7 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %106, %.n
 145:                                              ; preds = %142
   %146 = load double, ptr %125, align 8, !noalias !48
   %147 = fmul double %130, %146
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i"
 
 148:                                              ; preds = %142
   %149 = load double, ptr %126, align 8, !noalias !48
@@ -5884,9 +5884,9 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %106, %.n
   %156 = fneg double %155
   %157 = call double @llvm.fmuladd.f64(double %149, double %153, double %156)
   %158 = fneg double %157
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i"
 
-"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i": ; preds = %148, %145, %133
+"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i": ; preds = %148, %145, %133
   %.0.i.i.i = phi double [ %141, %133 ], [ %147, %145 ], [ %158, %148 ]
   %159 = load ptr, ptr %96, align 8, !noalias !48
   store double %.0.i.i.i, ptr %159, align 8, !noalias !48
@@ -5895,7 +5895,7 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %106, %.n
   %.val27.pre91.i = load ptr, ptr %96, align 8, !noalias !48
   br i1 %.not.i.i38.i, label %_ZN2cv12MatIterator_IdEppEv.exit.i, label %161
 
-161:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i"
+161:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i"
   %162 = load i64, ptr %95, align 8, !noalias !48
   %163 = getelementptr inbounds i8, ptr %.val27.pre91.i, i64 %162
   store ptr %163, ptr %96, align 8, !noalias !48
@@ -5913,9 +5913,9 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %106, %.n
   %.val27.pre.i = load ptr, ptr %96, align 8, !noalias !48
   br label %_ZN2cv12MatIterator_IdEppEv.exit.i
 
-_ZN2cv12MatIterator_IdEppEv.exit.i:               ; preds = %.noexc15, %161, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i"
-  %.val27.i = phi ptr [ %.val27.pre91.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i" ], [ %163, %161 ], [ %.val27.pre.i, %.noexc15 ]
-  %.val.i = phi ptr [ null, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i" ], [ %160, %161 ], [ %.val.pre.i, %.noexc15 ]
+_ZN2cv12MatIterator_IdEppEv.exit.i:               ; preds = %.noexc15, %161, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i"
+  %.val27.i = phi ptr [ %.val27.pre91.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i" ], [ %163, %161 ], [ %.val27.pre.i, %.noexc15 ]
+  %.val.i = phi ptr [ null, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i" ], [ %160, %161 ], [ %.val.pre.i, %.noexc15 ]
   %.not.i.i = icmp ne ptr %.val.i, %119
   %166 = icmp ne ptr %.val27.i, %121
   %167 = select i1 %.not.i.i, i1 true, i1 %166
@@ -6050,7 +6050,7 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
   %221 = fadd double %220, -1.000000e+00
   %222 = fneg double %221
   %223 = call double @llvm.fmuladd.f64(double %216, double %219, double %222)
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit44.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit44.i"
 
 224:                                              ; preds = %.preheader.i
   %225 = fneg double %213
@@ -6060,7 +6060,7 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
 227:                                              ; preds = %224
   %228 = load double, ptr %205, align 8, !noalias !48
   %229 = fmul double %212, %228
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit44.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit44.i"
 
 230:                                              ; preds = %224
   %231 = load double, ptr %206, align 8, !noalias !48
@@ -6073,9 +6073,9 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
   %238 = fneg double %237
   %239 = call double @llvm.fmuladd.f64(double %231, double %235, double %238)
   %240 = fneg double %239
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit44.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit44.i"
 
-"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit44.i": ; preds = %230, %227, %215
+"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit44.i": ; preds = %230, %227, %215
   %.0.i.i43.i = phi double [ %223, %215 ], [ %229, %227 ], [ %240, %230 ]
   %241 = load ptr, ptr %176, align 8, !noalias !48
   %242 = getelementptr inbounds [3 x double], ptr %241, i64 0, i64 %indvars.iv.i
@@ -6084,11 +6084,11 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %243, label %.preheader.i.backedge
 
-.preheader.i.backedge:                            ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit44.i", %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i
-  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit44.i" ], [ 0, %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i ]
+.preheader.i.backedge:                            ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit44.i", %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i
+  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit44.i" ], [ 0, %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i ]
   br label %.preheader.i, !llvm.loop !64
 
-243:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit44.i"
+243:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit44.i"
   %244 = load ptr, ptr %15, align 8, !noalias !48
   %.not.i.i45.i = icmp eq ptr %244, null
   %.val31.pre78.i = load ptr, ptr %176, align 8, !noalias !48
@@ -9154,39 +9154,39 @@ define hidden void @_ZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEE(ptr dead_on_unwind n
 
 21:                                               ; preds = %3
   %22 = tail call double @cbrt(double noundef %9) #34
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit"
 
 23:                                               ; preds = %3
   %24 = tail call double @llvm.fmuladd.f64(double %9, double 0x401F25ED097B425E, double 0x3FC1A7B9611A7B96)
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit"
 
-"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit": ; preds = %21, %23
+"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit": ; preds = %21, %23
   %25 = phi double [ %22, %21 ], [ %24, %23 ]
   %26 = fcmp ogt double %14, 0x3F822354D28F7CD6
   br i1 %26, label %27, label %29
 
-27:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit"
+27:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit"
   %28 = tail call double @cbrt(double noundef %14) #34
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15"
 
-29:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit"
+29:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit"
   %30 = tail call double @llvm.fmuladd.f64(double %14, double 0x401F25ED097B425E, double 0x3FC1A7B9611A7B96)
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15"
 
-"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15": ; preds = %27, %29
+"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15": ; preds = %27, %29
   %31 = phi double [ %28, %27 ], [ %30, %29 ]
   %32 = fcmp ogt double %19, 0x3F822354D28F7CD6
   br i1 %32, label %33, label %35
 
-33:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15"
+33:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15"
   %34 = tail call double @cbrt(double noundef %19) #34
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit16"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit16"
 
-35:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15"
+35:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15"
   %36 = tail call double @llvm.fmuladd.f64(double %19, double 0x401F25ED097B425E, double 0x3FC1A7B9611A7B96)
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit16"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit16"
 
-"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit16": ; preds = %33, %35
+"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit16": ; preds = %33, %35
   %37 = phi double [ %34, %33 ], [ %36, %35 ]
   %38 = tail call double @llvm.fmuladd.f64(double %31, double 1.160000e+02, double -1.600000e+01)
   %39 = fsub double %25, %31
@@ -9341,35 +9341,35 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %._ZN2
 
 54:                                               ; preds = %.noexc13.i
   %55 = call double @cbrt(double noundef %46) #34
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i"
 
 56:                                               ; preds = %.noexc13.i
   %57 = call double @llvm.fmuladd.f64(double %46, double 0x401F25ED097B425E, double 0x3FC1A7B9611A7B96)
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i"
 
-"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i": ; preds = %56, %54
+"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i": ; preds = %56, %54
   %58 = phi double [ %55, %54 ], [ %57, %56 ]
   %59 = fcmp ogt double %49, 0x3F822354D28F7CD6
   br i1 %59, label %60, label %62
 
-60:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i"
+60:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i"
   %61 = call double @cbrt(double noundef %49) #34
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15.i.i.i"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15.i.i.i"
 
-62:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i"
+62:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i"
   %63 = call double @llvm.fmuladd.f64(double %49, double 0x401F25ED097B425E, double 0x3FC1A7B9611A7B96)
-  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15.i.i.i"
+  br label %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15.i.i.i"
 
-"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15.i.i.i": ; preds = %62, %60
+"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15.i.i.i": ; preds = %62, %60
   %64 = phi double [ %61, %60 ], [ %63, %62 ]
   %65 = fcmp ogt double %52, 0x3F822354D28F7CD6
   br i1 %65, label %66, label %68
 
-66:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15.i.i.i"
+66:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15.i.i.i"
   %67 = call double @cbrt(double noundef %52) #34
   br label %70
 
-68:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.exit15.i.i.i"
+68:                                               ; preds = %"_ZZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit15.i.i.i"
   %69 = call double @llvm.fmuladd.f64(double %52, double 0x401F25ED097B425E, double 0x3FC1A7B9611A7B96)
   br label %70
 
@@ -9461,14 +9461,14 @@ define hidden void @_ZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEE(ptr dead_on_unwind noa
 19:                                               ; preds = %3
   %20 = tail call double @pow(double noundef %17, double noundef 3.000000e+00) #28
   %.pre = load ptr, ptr %14, align 8
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit"
 
 21:                                               ; preds = %3
   %22 = fadd double %17, 0xBFC1A7B9611A7B96
   %23 = fdiv double %22, 0x401F25ED097B425E
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit"
 
-"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit": ; preds = %19, %21
+"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit": ; preds = %19, %21
   %24 = phi ptr [ %.pre, %19 ], [ %15, %21 ]
   %25 = phi double [ %20, %19 ], [ %23, %21 ]
   %26 = getelementptr inbounds i8, ptr %24, i64 8
@@ -9476,17 +9476,17 @@ define hidden void @_ZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEE(ptr dead_on_unwind noa
   %28 = fcmp ogt double %6, 0x3FCA7B9611A7B961
   br i1 %28, label %29, label %31
 
-29:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit"
+29:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit"
   %30 = tail call double @pow(double noundef %6, double noundef 3.000000e+00) #28
   %.pre14 = load ptr, ptr %14, align 8
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12"
 
-31:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit"
+31:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit"
   %32 = fadd double %6, 0xBFC1A7B9611A7B96
   %33 = fdiv double %32, 0x401F25ED097B425E
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12"
 
-"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12": ; preds = %29, %31
+"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12": ; preds = %29, %31
   %34 = phi ptr [ %.pre14, %29 ], [ %24, %31 ]
   %35 = phi double [ %30, %29 ], [ %33, %31 ]
   %36 = getelementptr inbounds i8, ptr %34, i64 16
@@ -9495,16 +9495,16 @@ define hidden void @_ZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEE(ptr dead_on_unwind noa
   %39 = fcmp ogt double %38, 0x3FCA7B9611A7B961
   br i1 %39, label %40, label %42
 
-40:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12"
+40:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12"
   %41 = tail call double @pow(double noundef %38, double noundef 3.000000e+00) #28
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit13"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit13"
 
-42:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12"
+42:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12"
   %43 = fadd double %38, 0xBFC1A7B9611A7B96
   %44 = fdiv double %43, 0x401F25ED097B425E
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit13"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit13"
 
-"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit13": ; preds = %40, %42
+"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit13": ; preds = %40, %42
   %45 = phi double [ %41, %40 ], [ %44, %42 ]
   %46 = fmul double %27, %35
   %47 = fmul double %16, %25
@@ -9656,14 +9656,14 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %._ZN2
 52:                                               ; preds = %.noexc13.i
   %53 = call double @pow(double noundef %50, double noundef 3.000000e+00) #28, !noalias !112
   %.pre.i.i.i = load ptr, ptr %46, align 8, !noalias !112
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i"
 
 54:                                               ; preds = %.noexc13.i
   %55 = fadd double %50, 0xBFC1A7B9611A7B96
   %56 = fdiv double %55, 0x401F25ED097B425E
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i"
 
-"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i": ; preds = %54, %52
+"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i": ; preds = %54, %52
   %57 = phi ptr [ %.pre.i.i.i, %52 ], [ %48, %54 ]
   %58 = phi double [ %53, %52 ], [ %56, %54 ]
   %59 = getelementptr inbounds i8, ptr %57, i64 8
@@ -9671,17 +9671,17 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %._ZN2
   %61 = fcmp ogt double %44, 0x3FCA7B9611A7B961
   br i1 %61, label %62, label %64
 
-62:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i"
+62:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i"
   %63 = call double @pow(double noundef %44, double noundef 3.000000e+00) #28, !noalias !112
   %.pre14.i.i.i = load ptr, ptr %46, align 8, !noalias !112
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12.i.i.i"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12.i.i.i"
 
-64:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit.i.i.i"
+64:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit.i.i.i"
   %65 = fadd double %44, 0xBFC1A7B9611A7B96
   %66 = fdiv double %65, 0x401F25ED097B425E
-  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12.i.i.i"
+  br label %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12.i.i.i"
 
-"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12.i.i.i": ; preds = %64, %62
+"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12.i.i.i": ; preds = %64, %62
   %67 = phi ptr [ %.pre14.i.i.i, %62 ], [ %57, %64 ]
   %68 = phi double [ %63, %62 ], [ %66, %64 ]
   %69 = getelementptr inbounds i8, ptr %67, i64 16
@@ -9690,11 +9690,11 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %._ZN2
   %72 = fcmp ogt double %71, 0x3FCA7B9611A7B961
   br i1 %72, label %73, label %75
 
-73:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12.i.i.i"
+73:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12.i.i.i"
   %74 = call double @pow(double noundef %71, double noundef 3.000000e+00) #28, !noalias !112
   br label %78
 
-75:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.exit12.i.i.i"
+75:                                               ; preds = %"_ZZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEEENK3$_0clEd.argprom.exit12.i.i.i"
   %76 = fadd double %71, 0xBFC1A7B9611A7B96
   %77 = fdiv double %76, 0x401F25ED097B425E
   br label %78
@@ -22694,7 +22694,7 @@ declare void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96), 
 declare noundef i32 @_ZN2cv13getNumThreadsEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %4 = alloca %"class.std::function.139", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -22945,7 +22945,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %10 = load i32, ptr %9, align 4
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %7)
   %11 = icmp slt i32 %6, %.sroa.speculated.i.i.i
-  br i1 %11, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.exit"
+  br i1 %11, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.argprom.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %12 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -22955,8 +22955,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %wide.trip.count.i.i.i = sext i32 %.sroa.speculated.i.i.i to i64
   br label %16
 
-16:                                               ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i", %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i" ]
+16:                                               ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i.i.i", %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i.i.i" ]
   %17 = load ptr, ptr %12, align 8
   %18 = load ptr, ptr %13, align 8
   %19 = load ptr, ptr %18, align 8
@@ -22977,7 +22977,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %31 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 448
   %32 = load double, ptr %31, align 8
   %33 = tail call double @pow(double noundef %30, double noundef %32) #28
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i.i.i"
 
 34:                                               ; preds = %16
   %35 = fneg double %23
@@ -22988,7 +22988,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %38 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 472
   %39 = load double, ptr %38, align 8
   %40 = fdiv double %21, %39
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i.i.i"
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 456
@@ -23000,9 +23000,9 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %48 = load double, ptr %47, align 8
   %49 = tail call double @pow(double noundef %46, double noundef %48) #28
   %50 = fneg double %49
-  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i.i.i"
 
-"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i": ; preds = %41, %37, %25
+"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i.i.i": ; preds = %41, %37, %25
   %.0.i.i.i.i.i = phi double [ %33, %25 ], [ %40, %37 ], [ %50, %41 ]
   %51 = load ptr, ptr %14, align 8
   %52 = load ptr, ptr %51, align 8
@@ -23010,15 +23010,15 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   store double %.0.i.i.i.i.i, ptr %53, align 8
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.exit", label %16, !llvm.loop !232
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.argprom.exit", label %16, !llvm.loop !232
 
-"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i", %2
+"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.argprom.exit.i.i.i", %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11elementWiseIZNKS5_9sRGBBase_7toLFuncERNS0_3MatEE3$_0EES8_RKS8_OT_S8_EUlS3_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -23027,30 +23027,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv3ccm11elementWiseIZNKS0_9sRGBBase_7toLFuncERNS_3MatEE3$_0EES3_RKS3_OT_S3_EUlRKNS_5RangeEE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_7toLFuncERNS1_3MatEE3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -23154,7 +23154,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %10 = load i32, ptr %9, align 4
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %7)
   %11 = icmp slt i32 %6, %.sroa.speculated.i.i.i
-  br i1 %11, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_9fromLFuncERNS0_3MatES4_E3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.exit"
+  br i1 %11, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_9fromLFuncERNS0_3MatES4_E3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.argprom.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %12 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -23164,8 +23164,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %wide.trip.count.i.i.i = sext i32 %.sroa.speculated.i.i.i to i64
   br label %16
 
-16:                                               ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i", %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i" ]
+16:                                               ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i.i.i", %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i.i.i" ]
   %17 = load ptr, ptr %12, align 8
   %18 = load ptr, ptr %13, align 8
   %19 = load ptr, ptr %18, align 8
@@ -23188,7 +23188,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %33 = fadd double %32, -1.000000e+00
   %34 = fneg double %33
   %35 = tail call double @llvm.fmuladd.f64(double %27, double %31, double %34)
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i.i.i"
 
 36:                                               ; preds = %16
   %37 = fneg double %23
@@ -23199,7 +23199,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %40 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 472
   %41 = load double, ptr %40, align 8
   %42 = fmul double %21, %41
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i.i.i"
 
 43:                                               ; preds = %36
   %44 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 456
@@ -23214,9 +23214,9 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %53 = fneg double %52
   %54 = tail call double @llvm.fmuladd.f64(double %45, double %50, double %53)
   %55 = fneg double %54
-  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i"
+  br label %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i.i.i"
 
-"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i": ; preds = %43, %39, %25
+"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i.i.i": ; preds = %43, %39, %25
   %.0.i.i.i.i.i = phi double [ %35, %25 ], [ %42, %39 ], [ %55, %43 ]
   %56 = load ptr, ptr %14, align 8
   %57 = load ptr, ptr %56, align 8
@@ -23224,15 +23224,15 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   store double %.0.i.i.i.i.i, ptr %58, align 8
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_9fromLFuncERNS0_3MatES4_E3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.exit", label %16, !llvm.loop !233
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_9fromLFuncERNS0_3MatES4_E3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.argprom.exit", label %16, !llvm.loop !233
 
-"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_9fromLFuncERNS0_3MatES4_E3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i", %2
+"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNKS1_9sRGBBase_9fromLFuncERNS0_3MatES4_E3$_0EES4_RKS4_OT_S4_EUlRKNS0_5RangeEE_JSD_EENSt9enable_ifIXsr6__and_ISt7is_voidIS9_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.argprom.exit.i.i.i", %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11elementWiseIZNKS5_9sRGBBase_9fromLFuncERNS0_3MatES8_E3$_0EES8_RKS8_OT_S8_EUlS3_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -23241,30 +23241,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv3ccm11elementWiseIZNKS0_9sRGBBase_9fromLFuncERNS_3MatES3_E3$_0EES3_RKS3_OT_S3_EUlRKNS_5RangeEE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNKS2_9sRGBBase_9fromLFuncERNS1_3MatES5_E3$_0EES5_RKS5_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -26168,8 +26168,8 @@ attributes #34 = { nounwind willreturn memory(none) }
 !98 = !{!99, !101}
 !99 = distinct !{!99, !100, !"_ZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEE: argument 0"}
 !100 = distinct !{!100, !"_ZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEE"}
-!101 = distinct !{!101, !102, !"_ZZN2cv3ccm3Lab7fromsrcERNS_3MatEENK3$_0clENS_3VecIdLi3EEE: argument 0"}
-!102 = distinct !{!102, !"_ZZN2cv3ccm3Lab7fromsrcERNS_3MatEENK3$_0clENS_3VecIdLi3EEE"}
+!101 = distinct !{!101, !102, !"_ZZN2cv3ccm3Lab7fromsrcERNS_3MatEENK3$_0clENS_3VecIdLi3EEE.argprom: argument 0"}
+!102 = distinct !{!102, !"_ZZN2cv3ccm3Lab7fromsrcERNS_3MatEENK3$_0clENS_3VecIdLi3EEE.argprom"}
 !103 = !{!104}
 !104 = distinct !{!104, !105, !"_ZN2cv3ccm11channelWiseIZNS0_3Lab5tosrcERNS_3MatEE3$_0EES3_RKS3_OT_: argument 0"}
 !105 = distinct !{!105, !"_ZN2cv3ccm11channelWiseIZNS0_3Lab5tosrcERNS_3MatEE3$_0EES3_RKS3_OT_"}
@@ -26182,8 +26182,8 @@ attributes #34 = { nounwind willreturn memory(none) }
 !112 = !{!113, !115}
 !113 = distinct !{!113, !114, !"_ZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEE: argument 0"}
 !114 = distinct !{!114, !"_ZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEE"}
-!115 = distinct !{!115, !116, !"_ZZN2cv3ccm3Lab5tosrcERNS_3MatEENK3$_0clENS_3VecIdLi3EEE: argument 0"}
-!116 = distinct !{!116, !"_ZZN2cv3ccm3Lab5tosrcERNS_3MatEENK3$_0clENS_3VecIdLi3EEE"}
+!115 = distinct !{!115, !116, !"_ZZN2cv3ccm3Lab5tosrcERNS_3MatEENK3$_0clENS_3VecIdLi3EEE.argprom: argument 0"}
+!116 = distinct !{!116, !"_ZZN2cv3ccm3Lab5tosrcERNS_3MatEENK3$_0clENS_3VecIdLi3EEE.argprom"}
 !117 = distinct !{!117, !6}
 !118 = distinct !{!118, !6}
 !119 = distinct !{!119, !6}
@@ -26270,8 +26270,8 @@ attributes #34 = { nounwind willreturn memory(none) }
 !200 = distinct !{!200, !201, !"_ZSt13__invoke_implIN2cv3MatERZNKS0_3ccm8RGBBase_8relationERKNS2_10ColorSpaceEE3$_0JS1_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
 !201 = distinct !{!201, !"_ZSt13__invoke_implIN2cv3MatERZNKS0_3ccm8RGBBase_8relationERKNS2_10ColorSpaceEE3$_0JS1_EET_St14__invoke_otherOT0_DpOT1_"}
 !202 = !{!203, !200, !197}
-!203 = distinct !{!203, !204, !"_ZZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceEENK3$_0clENS_3MatE: argument 0"}
-!204 = distinct !{!204, !"_ZZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceEENK3$_0clENS_3MatE"}
+!203 = distinct !{!203, !204, !"_ZZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceEENK3$_0clENS_3MatE.argprom: argument 0"}
+!204 = distinct !{!204, !"_ZZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceEENK3$_0clENS_3MatE.argprom"}
 !205 = !{!206}
 !206 = distinct !{!206, !207, !"_ZSt10__invoke_rIN2cv3MatERZNKS0_3ccm8RGBBase_8relationERKNS2_10ColorSpaceEE3$_1JS1_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESC_EEE5valueESC_E4typeEOSH_DpOSI_: argument 0"}
 !207 = distinct !{!207, !"_ZSt10__invoke_rIN2cv3MatERZNKS0_3ccm8RGBBase_8relationERKNS2_10ColorSpaceEE3$_1JS1_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESC_EEE5valueESC_E4typeEOSH_DpOSI_"}
@@ -26279,8 +26279,8 @@ attributes #34 = { nounwind willreturn memory(none) }
 !209 = distinct !{!209, !210, !"_ZSt13__invoke_implIN2cv3MatERZNKS0_3ccm8RGBBase_8relationERKNS2_10ColorSpaceEE3$_1JS1_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
 !210 = distinct !{!210, !"_ZSt13__invoke_implIN2cv3MatERZNKS0_3ccm8RGBBase_8relationERKNS2_10ColorSpaceEE3$_1JS1_EET_St14__invoke_otherOT0_DpOT1_"}
 !211 = !{!212, !209, !206}
-!212 = distinct !{!212, !213, !"_ZZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceEENK3$_1clENS_3MatE: argument 0"}
-!213 = distinct !{!213, !"_ZZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceEENK3$_1clENS_3MatE"}
+!212 = distinct !{!212, !213, !"_ZZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceEENK3$_1clENS_3MatE.argprom: argument 0"}
+!213 = distinct !{!213, !"_ZZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceEENK3$_1clENS_3MatE.argprom"}
 !214 = !{!215}
 !215 = distinct !{!215, !216, !"_ZSt10__invoke_rIN2cv3MatERZNS0_3ccm8RGBBase_13calOperationsEvE3$_0JS1_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES9_EEE5valueES9_E4typeEOSE_DpOSF_: argument 0"}
 !216 = distinct !{!216, !"_ZSt10__invoke_rIN2cv3MatERZNS0_3ccm8RGBBase_13calOperationsEvE3$_0JS1_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES9_EEE5valueES9_E4typeEOSE_DpOSF_"}
@@ -26288,8 +26288,8 @@ attributes #34 = { nounwind willreturn memory(none) }
 !218 = distinct !{!218, !219, !"_ZSt13__invoke_implIN2cv3MatERZNS0_3ccm8RGBBase_13calOperationsEvE3$_0JS1_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
 !219 = distinct !{!219, !"_ZSt13__invoke_implIN2cv3MatERZNS0_3ccm8RGBBase_13calOperationsEvE3$_0JS1_EET_St14__invoke_otherOT0_DpOT1_"}
 !220 = !{!221, !218, !215}
-!221 = distinct !{!221, !222, !"_ZZN2cv3ccm8RGBBase_13calOperationsEvENK3$_0clENS_3MatE: argument 0"}
-!222 = distinct !{!222, !"_ZZN2cv3ccm8RGBBase_13calOperationsEvENK3$_0clENS_3MatE"}
+!221 = distinct !{!221, !222, !"_ZZN2cv3ccm8RGBBase_13calOperationsEvENK3$_0clENS_3MatE.argprom: argument 0"}
+!222 = distinct !{!222, !"_ZZN2cv3ccm8RGBBase_13calOperationsEvENK3$_0clENS_3MatE.argprom"}
 !223 = !{!224}
 !224 = distinct !{!224, !225, !"_ZSt10__invoke_rIN2cv3MatERZNS0_3ccm8RGBBase_13calOperationsEvE3$_1JS1_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES9_EEE5valueES9_E4typeEOSE_DpOSF_: argument 0"}
 !225 = distinct !{!225, !"_ZSt10__invoke_rIN2cv3MatERZNS0_3ccm8RGBBase_13calOperationsEvE3$_1JS1_EENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES9_EEE5valueES9_E4typeEOSE_DpOSF_"}
@@ -26297,8 +26297,8 @@ attributes #34 = { nounwind willreturn memory(none) }
 !227 = distinct !{!227, !228, !"_ZSt13__invoke_implIN2cv3MatERZNS0_3ccm8RGBBase_13calOperationsEvE3$_1JS1_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
 !228 = distinct !{!228, !"_ZSt13__invoke_implIN2cv3MatERZNS0_3ccm8RGBBase_13calOperationsEvE3$_1JS1_EET_St14__invoke_otherOT0_DpOT1_"}
 !229 = !{!230, !227, !224}
-!230 = distinct !{!230, !231, !"_ZZN2cv3ccm8RGBBase_13calOperationsEvENK3$_1clENS_3MatE: argument 0"}
-!231 = distinct !{!231, !"_ZZN2cv3ccm8RGBBase_13calOperationsEvENK3$_1clENS_3MatE"}
+!230 = distinct !{!230, !231, !"_ZZN2cv3ccm8RGBBase_13calOperationsEvENK3$_1clENS_3MatE.argprom: argument 0"}
+!231 = distinct !{!231, !"_ZZN2cv3ccm8RGBBase_13calOperationsEvENK3$_1clENS_3MatE.argprom"}
 !232 = distinct !{!232, !6}
 !233 = distinct !{!233, !6}
 !234 = distinct !{!234, !6}

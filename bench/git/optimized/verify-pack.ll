@@ -176,22 +176,22 @@ if.then4.i.i.i:                                   ; preds = %if.end.i5.i.i
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end12.i
   %call.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #12
   %cmp.i.i.i.i = icmp ult i64 %call.i.i.i, 5
-  br i1 %cmp.i.i.i.i, label %if.then17.i, label %ends_with.exit.i
+  br i1 %cmp.i.i.i.i, label %if.then17.i, label %ends_with.argprom.exit.i
 
-ends_with.exit.i:                                 ; preds = %lor.lhs.false.i
+ends_with.argprom.exit.i:                         ; preds = %lor.lhs.false.i
   %6 = getelementptr i8, ptr %3, i64 %call.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %6, i64 -5
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.13, i64 5)
   %tobool.not.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.not.i, label %if.end18.i, label %if.then17.i
 
-if.then17.i:                                      ; preds = %ends_with.exit.i, %lor.lhs.false.i, %if.then4.i.i.i, %if.end.i5.i.i
+if.then17.i:                                      ; preds = %ends_with.argprom.exit.i, %lor.lhs.false.i, %if.then4.i.i.i, %if.end.i5.i.i
   call void @strbuf_add(ptr noundef nonnull %arg.i, ptr noundef nonnull @.str.13, i64 noundef 5) #10
   %.pre.i = load ptr, ptr %buf.i.i, align 8
   br label %if.end18.i
 
-if.end18.i:                                       ; preds = %if.then17.i, %ends_with.exit.i
-  %7 = phi ptr [ %.pre.i, %if.then17.i ], [ %3, %ends_with.exit.i ]
+if.end18.i:                                       ; preds = %if.then17.i, %ends_with.argprom.exit.i
+  %7 = phi ptr [ %.pre.i, %if.then17.i ], [ %3, %ends_with.argprom.exit.i ]
   %call20.i = call ptr @strvec_push(ptr noundef nonnull %index_pack.i, ptr noundef %7) #10
   %bf.load.i = load i16, ptr %git_cmd.i, align 8
   %bf.set.i = or i16 %bf.load.i, 8

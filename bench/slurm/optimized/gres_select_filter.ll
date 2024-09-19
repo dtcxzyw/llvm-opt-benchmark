@@ -1802,7 +1802,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
 
 594:                                              ; preds = %585
   %595 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__._set_node_bits, i32 noundef %40, i32 noundef %586) #6
-  br label %_set_node_bits.exit
+  br label %_set_node_bits.argprom.exit
 
 596:                                              ; preds = %585
   %597 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef %67, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
@@ -1811,7 +1811,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
 
 599:                                              ; preds = %596
   %600 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._set_node_bits, i32 noundef %40, i32 noundef %586) #6
-  br label %_set_node_bits.exit
+  br label %_set_node_bits.argprom.exit
 
 601:                                              ; preds = %596
   %602 = getelementptr inbounds i8, ptr %73, i64 56
@@ -2541,9 +2541,9 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
 .critedge6.i:                                     ; preds = %.critedge8.i, %847
   call void @slurm_xfree(ptr noundef nonnull %18) #6
   call void @slurm_xfree(ptr noundef nonnull %17) #6
-  br label %_set_node_bits.exit
+  br label %_set_node_bits.argprom.exit
 
-_set_node_bits.exit:                              ; preds = %594, %599, %.critedge6.i
+_set_node_bits.argprom.exit:                      ; preds = %594, %599, %.critedge6.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
@@ -4271,8 +4271,8 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
   %1698 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.gres_select_filter_select_and_set, i32 noundef %40) #6
   br label %1699
 
-1699:                                             ; preds = %_set_node_bits.exit, %_set_task_bits.exit, %1697, %_set_sock_bits.exit, %_set_shared_node_bits.exit, %580, %_set_shared_task_bits.exit
-  %.2 = phi i32 [ %.040.i, %_set_shared_node_bits.exit ], [ %.030.i, %_set_shared_task_bits.exit ], [ 2072, %580 ], [ %.1133.ph, %_set_node_bits.exit ], [ %.1133.ph, %_set_sock_bits.exit ], [ %.1133.ph, %_set_task_bits.exit ], [ %.1133.ph, %1697 ]
+1699:                                             ; preds = %_set_node_bits.argprom.exit, %_set_task_bits.exit, %1697, %_set_sock_bits.exit, %_set_shared_node_bits.exit, %580, %_set_shared_task_bits.exit
+  %.2 = phi i32 [ %.040.i, %_set_shared_node_bits.exit ], [ %.030.i, %_set_shared_task_bits.exit ], [ 2072, %580 ], [ %.1133.ph, %_set_node_bits.argprom.exit ], [ %.1133.ph, %_set_sock_bits.exit ], [ %.1133.ph, %_set_task_bits.exit ], [ %.1133.ph, %1697 ]
   br i1 %71, label %1700, label %.outer360, !llvm.loop !12
 
 1700:                                             ; preds = %1699
@@ -4331,9 +4331,9 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
   %1721 = trunc nuw nsw i64 %indvars.iv.next507 to i32
   br label %.lr.ph426
 
-.lr.ph426:                                        ; preds = %.lr.ph426.preheader, %_set_job_bits2.exit
-  %1722 = phi ptr [ %1893, %_set_job_bits2.exit ], [ %1720, %.lr.ph426.preheader ]
-  %.5.ph431 = phi i32 [ %.6, %_set_job_bits2.exit ], [ -1, %.lr.ph426.preheader ]
+.lr.ph426:                                        ; preds = %.lr.ph426.preheader, %_set_job_bits2.argprom.exit
+  %1722 = phi ptr [ %1893, %_set_job_bits2.argprom.exit ], [ %1720, %.lr.ph426.preheader ]
+  %.5.ph431 = phi i32 [ %.6, %_set_job_bits2.argprom.exit ], [ -1, %.lr.ph426.preheader ]
   br label %1723
 
 1723:                                             ; preds = %.lr.ph426, %1734
@@ -4369,7 +4369,7 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
   %1740 = getelementptr inbounds i8, ptr %1728, i64 112
   %1741 = load i64, ptr %1740, align 8
   %.not.i303 = icmp ugt i64 %1739, %1741
-  br i1 %.not.i303, label %1742, label %_set_job_bits2.exit
+  br i1 %.not.i303, label %1742, label %_set_job_bits2.argprom.exit
 
 1742:                                             ; preds = %1736
   %1743 = getelementptr inbounds i8, ptr %1728, i64 88
@@ -4386,7 +4386,7 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
 
 1749:                                             ; preds = %1745, %1742
   %1750 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__._set_job_bits2, i32 noundef %40, i32 noundef %1737) #6
-  br label %_set_job_bits2.exit
+  br label %_set_job_bits2.argprom.exit
 
 1751:                                             ; preds = %1745
   %1752 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef %1721, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
@@ -4395,7 +4395,7 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
 
 1753:                                             ; preds = %1751
   %1754 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__._set_job_bits2, i32 noundef %40, i32 noundef %1737) #6
-  br label %_set_job_bits2.exit
+  br label %_set_job_bits2.argprom.exit
 
 1755:                                             ; preds = %1751
   %1756 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef %1721, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
@@ -4404,7 +4404,7 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
 
 1758:                                             ; preds = %1755
   %1759 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._set_job_bits2, i32 noundef %40, i32 noundef %1737) #6
-  br label %_set_job_bits2.exit
+  br label %_set_job_bits2.argprom.exit
 
 1760:                                             ; preds = %1755
   %1761 = getelementptr inbounds i8, ptr %1724, i64 56
@@ -4677,9 +4677,9 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
   %1891 = load i64, ptr %1740, align 8
   %.not126.i = icmp ule i64 %1890, %1891
   %1892 = zext i1 %.not126.i to i32
-  br label %_set_job_bits2.exit
+  br label %_set_job_bits2.argprom.exit
 
-_set_job_bits2.exit:                              ; preds = %1736, %1749, %1753, %1758, %.critedge.i305
+_set_job_bits2.argprom.exit:                      ; preds = %1736, %1749, %1753, %1758, %.critedge.i305
   %.0104.i = phi i32 [ 1, %1753 ], [ 0, %1758 ], [ %1892, %.critedge.i305 ], [ 1, %1749 ], [ 1, %1736 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
@@ -4689,8 +4689,8 @@ _set_job_bits2.exit:                              ; preds = %1736, %1749, %1753,
   %.not156425 = icmp eq ptr %1893, null
   br i1 %.not156425, label %.outer._crit_edge, label %.lr.ph426, !llvm.loop !78
 
-.outer._crit_edge:                                ; preds = %_set_job_bits2.exit, %1734
-  %.5.ph.lcssa = phi i32 [ %.5.ph431, %1734 ], [ %.6, %_set_job_bits2.exit ]
+.outer._crit_edge:                                ; preds = %_set_job_bits2.argprom.exit, %1734
+  %.5.ph.lcssa = phi i32 [ %.5.ph431, %1734 ], [ %.6, %_set_job_bits2.argprom.exit ]
   call void @slurm_list_iterator_destroy(ptr noundef %1719) #6
   %1894 = icmp eq i32 %.5.ph.lcssa, 1
   br i1 %1894, label %.thread340, label %1895

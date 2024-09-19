@@ -11233,7 +11233,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i32, ptr %0, align 4
   %cmp26.i.i.i = icmp sgt i32 %1, 0
-  br i1 %cmp26.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit"
+  br i1 %cmp26.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit"
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -11303,9 +11303,9 @@ for.end.i.i.i:                                    ; preds = %for.body10.i.i.i, %
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %cmp.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %16
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit", !llvm.loop !129
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit", !llvm.loop !129
 
-"_ZSt10__invoke_rIvRZ4mainE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit": ; preds = %for.end.i.i.i, %entry
+"_ZSt10__invoke_rIvRZ4mainE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit": ; preds = %for.end.i.i.i, %entry
   ret void
 }
 
@@ -11976,7 +11976,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i32, ptr %0, align 4
   %cmp6.i.i.i = icmp sgt i32 %1, 0
-  br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit"
+  br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit"
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %__args.val = load i64, ptr %__args, align 8
@@ -12006,9 +12006,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %cmp.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %13
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit", !llvm.loop !130
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit", !llvm.loop !130
 
-"_ZSt10__invoke_rIvRZ4mainE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit": ; preds = %for.body.i.i.i, %entry
+"_ZSt10__invoke_rIvRZ4mainE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit": ; preds = %for.body.i.i.i, %entry
   ret void
 }
 

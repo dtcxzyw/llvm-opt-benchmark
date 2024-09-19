@@ -812,7 +812,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
   %442 = mul nsw i32 %440, %441
   %443 = sext i32 %442 to i64
   %444 = getelementptr inbounds ptr, ptr %411, i64 %443
-  call fastcc void @shuffle_init(i32 noundef 0, i32 noundef %435, i32 noundef %436, ptr noundef %438, ptr noundef %444)
+  call fastcc void @shuffle_init.argelim(i32 noundef 0, i32 noundef %435, i32 noundef %436, ptr noundef %438, ptr noundef %444)
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
   %445 = load i32, ptr %67, align 8
   %446 = sext i32 %445 to i64
@@ -898,7 +898,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
 
 491:                                              ; preds = %._crit_edge627
   %492 = load ptr, ptr %461, align 8
-  %493 = call fastcc i32 @write_init(ptr noundef nonnull %0, ptr noundef %492, i32 noundef %38, i32 noundef %.0472, ptr noundef %14)
+  %493 = call fastcc i32 @write_init.argelim(ptr noundef nonnull %0, ptr noundef %492, i32 noundef %38, i32 noundef %.0472, ptr noundef %14)
   %.not518 = icmp eq i32 %493, 0
   br i1 %.not518, label %._crit_edge725, label %.preheader542
 
@@ -925,7 +925,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
   %506 = mul nsw i32 %504, %505
   %507 = sext i32 %506 to i64
   %508 = getelementptr inbounds ptr, ptr %411, i64 %507
-  call fastcc void @shuffle_init(i32 noundef %.0633, i32 noundef %499, i32 noundef %500, ptr noundef %502, ptr noundef %508)
+  call fastcc void @shuffle_init.argelim(i32 noundef %.0633, i32 noundef %499, i32 noundef %500, ptr noundef %502, ptr noundef %508)
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
   %509 = load i32, ptr %67, align 8
   %510 = sext i32 %509 to i64
@@ -1011,7 +1011,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
   %552 = sext i32 %.0473.lcssa to i64
   %553 = getelementptr inbounds ptr, ptr %71, i64 %552
   %554 = load ptr, ptr %553, align 8
-  %555 = call fastcc i32 @write_init(ptr noundef nonnull %0, ptr noundef %554, i32 noundef %38, i32 noundef %.0472, ptr noundef %14)
+  %555 = call fastcc i32 @write_init.argelim(ptr noundef nonnull %0, ptr noundef %554, i32 noundef %38, i32 noundef %.0472, ptr noundef %14)
   %556 = icmp eq i32 %555, 0
   br i1 %556, label %557, label %.preheader542
 
@@ -1735,7 +1735,7 @@ declare i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef, i32 noundef, ptr
 declare i32 @ompi_fcoll_base_sort_iovec(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @shuffle_init.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 216
   store i32 0, ptr %7, align 8
@@ -3197,7 +3197,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
 declare void @mca_common_ompio_register_progress() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_init(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 1, 3) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @write_init.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 1, 3) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   call void @mca_common_ompio_request_alloc(ptr noundef nonnull %6, i32 noundef 0) #11

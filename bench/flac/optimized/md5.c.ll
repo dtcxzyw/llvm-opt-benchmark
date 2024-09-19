@@ -700,7 +700,7 @@ if.end32:                                         ; preds = %if.end15, %if.end30
 
 for.cond412.preheader.i:                          ; preds = %if.end32
   %cmp41321.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp41321.not.i, label %format_input_.exit, label %for.body415.lr.ph.i
+  br i1 %cmp41321.not.i, label %format_input_.argprom.exit, label %for.body415.lr.ph.i
 
 for.body415.lr.ph.i:                              ; preds = %for.cond412.preheader.i
   %arrayidx420.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -714,7 +714,7 @@ for.body415.lr.ph.i:                              ; preds = %for.cond412.prehead
 
 for.cond380.preheader.i:                          ; preds = %if.end32
   %cmp38124.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp38124.not.i, label %format_input_.exit, label %for.body383.lr.ph.i
+  br i1 %cmp38124.not.i, label %format_input_.argprom.exit, label %for.body383.lr.ph.i
 
 for.body383.lr.ph.i:                              ; preds = %for.cond380.preheader.i
   %arrayidx388.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -726,7 +726,7 @@ for.body383.lr.ph.i:                              ; preds = %for.cond380.prehead
 
 for.cond356.preheader.i:                          ; preds = %if.end32
   %cmp35727.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp35727.not.i, label %format_input_.exit, label %for.body359.lr.ph.i
+  br i1 %cmp35727.not.i, label %format_input_.argprom.exit, label %for.body359.lr.ph.i
 
 for.body359.lr.ph.i:                              ; preds = %for.cond356.preheader.i
   %arrayidx364.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -736,7 +736,7 @@ for.body359.lr.ph.i:                              ; preds = %for.cond356.prehead
 
 for.cond340.preheader.i:                          ; preds = %if.end32
   %cmp34130.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp34130.not.i, label %format_input_.exit, label %for.body343.lr.ph.i
+  br i1 %cmp34130.not.i, label %format_input_.argprom.exit, label %for.body343.lr.ph.i
 
 for.body343.lr.ph.i:                              ; preds = %for.cond340.preheader.i
   %arrayidx348.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -744,11 +744,11 @@ for.body343.lr.ph.i:                              ; preds = %for.cond340.prehead
 
 for.cond328.preheader.i:                          ; preds = %if.end32
   %cmp32933.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp32933.not.i, label %format_input_.exit, label %for.body331.i
+  br i1 %cmp32933.not.i, label %format_input_.argprom.exit, label %for.body331.i
 
 for.cond298.preheader.i:                          ; preds = %if.end32
   %cmp29936.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp29936.not.i, label %format_input_.exit, label %for.body301.lr.ph.i
+  br i1 %cmp29936.not.i, label %format_input_.argprom.exit, label %for.body301.lr.ph.i
 
 for.body301.lr.ph.i:                              ; preds = %for.cond298.preheader.i
   %arrayidx313.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -756,11 +756,11 @@ for.body301.lr.ph.i:                              ; preds = %for.cond298.prehead
 
 for.cond280.preheader.i:                          ; preds = %if.end32
   %cmp28139.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp28139.not.i, label %format_input_.exit, label %for.body283.i
+  br i1 %cmp28139.not.i, label %format_input_.argprom.exit, label %for.body283.i
 
 for.cond232.preheader.i:                          ; preds = %if.end32
   %cmp23342.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp23342.not.i, label %format_input_.exit, label %for.body235.lr.ph.i
+  br i1 %cmp23342.not.i, label %format_input_.argprom.exit, label %for.body235.lr.ph.i
 
 for.body235.lr.ph.i:                              ; preds = %for.cond232.preheader.i
   %arrayidx241.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -774,7 +774,7 @@ for.body235.lr.ph.i:                              ; preds = %for.cond232.prehead
 
 for.cond194.preheader.i:                          ; preds = %if.end32
   %cmp19545.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp19545.not.i, label %format_input_.exit, label %for.body197.lr.ph.i
+  br i1 %cmp19545.not.i, label %format_input_.argprom.exit, label %for.body197.lr.ph.i
 
 for.body197.lr.ph.i:                              ; preds = %for.cond194.preheader.i
   %arrayidx203.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -786,7 +786,7 @@ for.body197.lr.ph.i:                              ; preds = %for.cond194.prehead
 
 for.cond166.preheader.i:                          ; preds = %if.end32
   %cmp16748.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp16748.not.i, label %format_input_.exit, label %for.body169.lr.ph.i
+  br i1 %cmp16748.not.i, label %format_input_.argprom.exit, label %for.body169.lr.ph.i
 
 for.body169.lr.ph.i:                              ; preds = %for.cond166.preheader.i
   %arrayidx175.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -796,7 +796,7 @@ for.body169.lr.ph.i:                              ; preds = %for.cond166.prehead
 
 for.cond148.preheader.i:                          ; preds = %if.end32
   %cmp14951.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp14951.not.i, label %format_input_.exit, label %for.body151.lr.ph.i
+  br i1 %cmp14951.not.i, label %format_input_.argprom.exit, label %for.body151.lr.ph.i
 
 for.body151.lr.ph.i:                              ; preds = %for.cond148.preheader.i
   %arrayidx157.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -804,11 +804,11 @@ for.body151.lr.ph.i:                              ; preds = %for.cond148.prehead
 
 for.cond135.preheader.i:                          ; preds = %if.end32
   %cmp13654.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp13654.not.i, label %format_input_.exit, label %for.body138.i
+  br i1 %cmp13654.not.i, label %format_input_.argprom.exit, label %for.body138.i
 
 for.cond87.preheader.i:                           ; preds = %if.end32
   %cmp8857.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp8857.not.i, label %format_input_.exit, label %for.body90.lr.ph.i
+  br i1 %cmp8857.not.i, label %format_input_.argprom.exit, label %for.body90.lr.ph.i
 
 for.body90.lr.ph.i:                               ; preds = %for.cond87.preheader.i
   %arrayidx96.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -822,7 +822,7 @@ for.body90.lr.ph.i:                               ; preds = %for.cond87.preheade
 
 for.cond49.preheader.i:                           ; preds = %if.end32
   %cmp5060.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp5060.not.i, label %format_input_.exit, label %for.body52.lr.ph.i
+  br i1 %cmp5060.not.i, label %format_input_.argprom.exit, label %for.body52.lr.ph.i
 
 for.body52.lr.ph.i:                               ; preds = %for.cond49.preheader.i
   %arrayidx58.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -834,7 +834,7 @@ for.body52.lr.ph.i:                               ; preds = %for.cond49.preheade
 
 for.cond21.preheader.i:                           ; preds = %if.end32
   %cmp2263.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp2263.not.i, label %format_input_.exit, label %for.body24.lr.ph.i
+  br i1 %cmp2263.not.i, label %format_input_.argprom.exit, label %for.body24.lr.ph.i
 
 for.body24.lr.ph.i:                               ; preds = %for.cond21.preheader.i
   %arrayidx30.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -844,7 +844,7 @@ for.body24.lr.ph.i:                               ; preds = %for.cond21.preheade
 
 for.cond3.preheader.i:                            ; preds = %if.end32
   %cmp466.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp466.not.i, label %format_input_.exit, label %for.body6.lr.ph.i
+  br i1 %cmp466.not.i, label %format_input_.argprom.exit, label %for.body6.lr.ph.i
 
 for.body6.lr.ph.i:                                ; preds = %for.cond3.preheader.i
   %arrayidx12.i = getelementptr inbounds i8, ptr %signal, i64 8
@@ -852,7 +852,7 @@ for.body6.lr.ph.i:                                ; preds = %for.cond3.preheader
 
 for.cond.preheader.i:                             ; preds = %if.end32
   %cmp69.not.i = icmp eq i32 %samples, 0
-  br i1 %cmp69.not.i, label %format_input_.exit, label %for.body.i
+  br i1 %cmp69.not.i, label %format_input_.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %indvars.iv199.i = phi i64 [ %indvars.iv.next200.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
@@ -865,7 +865,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   store i8 %conv.i, ptr %buf_.070.i, align 1
   %indvars.iv.next200.i = add nuw nsw i64 %indvars.iv199.i, 1
   %exitcond203.not.i = icmp eq i64 %indvars.iv.next200.i, %conv1
-  br i1 %exitcond203.not.i, label %format_input_.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond203.not.i, label %format_input_.argprom.exit, label %for.body.i, !llvm.loop !4
 
 for.body6.i:                                      ; preds = %for.body6.i, %for.body6.lr.ph.i
   %indvars.iv194.i = phi i64 [ 0, %for.body6.lr.ph.i ], [ %indvars.iv.next195.i, %for.body6.i ]
@@ -884,7 +884,7 @@ for.body6.i:                                      ; preds = %for.body6.i, %for.b
   store i8 %conv15.i, ptr %incdec.ptr11.i, align 1
   %indvars.iv.next195.i = add nuw nsw i64 %indvars.iv194.i, 1
   %exitcond198.not.i = icmp eq i64 %indvars.iv.next195.i, %conv1
-  br i1 %exitcond198.not.i, label %format_input_.exit, label %for.body6.i, !llvm.loop !6
+  br i1 %exitcond198.not.i, label %format_input_.argprom.exit, label %for.body6.i, !llvm.loop !6
 
 for.body24.i:                                     ; preds = %for.body24.i, %for.body24.lr.ph.i
   %indvars.iv189.i = phi i64 [ 0, %for.body24.lr.ph.i ], [ %indvars.iv.next190.i, %for.body24.i ]
@@ -915,7 +915,7 @@ for.body24.i:                                     ; preds = %for.body24.i, %for.
   store i8 %conv43.i, ptr %incdec.ptr39.i, align 1
   %indvars.iv.next190.i = add nuw nsw i64 %indvars.iv189.i, 1
   %exitcond193.not.i = icmp eq i64 %indvars.iv.next190.i, %conv1
-  br i1 %exitcond193.not.i, label %format_input_.exit, label %for.body24.i, !llvm.loop !7
+  br i1 %exitcond193.not.i, label %format_input_.argprom.exit, label %for.body24.i, !llvm.loop !7
 
 for.body52.i:                                     ; preds = %for.body52.i, %for.body52.lr.ph.i
   %indvars.iv184.i = phi i64 [ 0, %for.body52.lr.ph.i ], [ %indvars.iv.next185.i, %for.body52.i ]
@@ -958,7 +958,7 @@ for.body52.i:                                     ; preds = %for.body52.i, %for.
   store i8 %conv81.i, ptr %incdec.ptr77.i, align 1
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
   %exitcond188.not.i = icmp eq i64 %indvars.iv.next185.i, %conv1
-  br i1 %exitcond188.not.i, label %format_input_.exit, label %for.body52.i, !llvm.loop !8
+  br i1 %exitcond188.not.i, label %format_input_.argprom.exit, label %for.body52.i, !llvm.loop !8
 
 for.body90.i:                                     ; preds = %for.body90.i, %for.body90.lr.ph.i
   %indvars.iv179.i = phi i64 [ 0, %for.body90.lr.ph.i ], [ %indvars.iv.next180.i, %for.body90.i ]
@@ -1013,7 +1013,7 @@ for.body90.i:                                     ; preds = %for.body90.i, %for.
   store i8 %conv129.i, ptr %incdec.ptr125.i, align 1
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, %conv1
-  br i1 %exitcond183.not.i, label %format_input_.exit, label %for.body90.i, !llvm.loop !9
+  br i1 %exitcond183.not.i, label %format_input_.argprom.exit, label %for.body90.i, !llvm.loop !9
 
 for.body138.i:                                    ; preds = %for.cond135.preheader.i, %for.body138.i
   %indvars.iv174.i = phi i64 [ %indvars.iv.next175.i, %for.body138.i ], [ 0, %for.cond135.preheader.i ]
@@ -1026,7 +1026,7 @@ for.body138.i:                                    ; preds = %for.cond135.prehead
   store i16 %conv142.i, ptr %buf16.055.i, align 2
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
   %exitcond178.not.i = icmp eq i64 %indvars.iv.next175.i, %conv1
-  br i1 %exitcond178.not.i, label %format_input_.exit, label %for.body138.i, !llvm.loop !10
+  br i1 %exitcond178.not.i, label %format_input_.argprom.exit, label %for.body138.i, !llvm.loop !10
 
 for.body151.i:                                    ; preds = %for.body151.i, %for.body151.lr.ph.i
   %indvars.iv169.i = phi i64 [ 0, %for.body151.lr.ph.i ], [ %indvars.iv.next170.i, %for.body151.i ]
@@ -1045,7 +1045,7 @@ for.body151.i:                                    ; preds = %for.body151.i, %for
   store i16 %conv160.i, ptr %incdec.ptr156.i, align 2
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
   %exitcond173.not.i = icmp eq i64 %indvars.iv.next170.i, %conv1
-  br i1 %exitcond173.not.i, label %format_input_.exit, label %for.body151.i, !llvm.loop !11
+  br i1 %exitcond173.not.i, label %format_input_.argprom.exit, label %for.body151.i, !llvm.loop !11
 
 for.body169.i:                                    ; preds = %for.body169.i, %for.body169.lr.ph.i
   %indvars.iv164.i = phi i64 [ 0, %for.body169.lr.ph.i ], [ %indvars.iv.next165.i, %for.body169.i ]
@@ -1076,7 +1076,7 @@ for.body169.i:                                    ; preds = %for.body169.i, %for
   store i16 %conv188.i, ptr %incdec.ptr184.i, align 2
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
   %exitcond168.not.i = icmp eq i64 %indvars.iv.next165.i, %conv1
-  br i1 %exitcond168.not.i, label %format_input_.exit, label %for.body169.i, !llvm.loop !12
+  br i1 %exitcond168.not.i, label %format_input_.argprom.exit, label %for.body169.i, !llvm.loop !12
 
 for.body197.i:                                    ; preds = %for.body197.i, %for.body197.lr.ph.i
   %indvars.iv159.i = phi i64 [ 0, %for.body197.lr.ph.i ], [ %indvars.iv.next160.i, %for.body197.i ]
@@ -1119,7 +1119,7 @@ for.body197.i:                                    ; preds = %for.body197.i, %for
   store i16 %conv226.i, ptr %incdec.ptr222.i, align 2
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %exitcond163.not.i = icmp eq i64 %indvars.iv.next160.i, %conv1
-  br i1 %exitcond163.not.i, label %format_input_.exit, label %for.body197.i, !llvm.loop !13
+  br i1 %exitcond163.not.i, label %format_input_.argprom.exit, label %for.body197.i, !llvm.loop !13
 
 for.body235.i:                                    ; preds = %for.body235.i, %for.body235.lr.ph.i
   %indvars.iv154.i = phi i64 [ 0, %for.body235.lr.ph.i ], [ %indvars.iv.next155.i, %for.body235.i ]
@@ -1174,7 +1174,7 @@ for.body235.i:                                    ; preds = %for.body235.i, %for
   store i16 %conv274.i, ptr %incdec.ptr270.i, align 2
   %indvars.iv.next155.i = add nuw nsw i64 %indvars.iv154.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next155.i, %conv1
-  br i1 %exitcond158.not.i, label %format_input_.exit, label %for.body235.i, !llvm.loop !14
+  br i1 %exitcond158.not.i, label %format_input_.argprom.exit, label %for.body235.i, !llvm.loop !14
 
 for.body283.i:                                    ; preds = %for.cond280.preheader.i, %for.body283.i
   %indvars.iv149.i = phi i64 [ %indvars.iv.next150.i, %for.body283.i ], [ 0, %for.cond280.preheader.i ]
@@ -1195,7 +1195,7 @@ for.body283.i:                                    ; preds = %for.cond280.prehead
   store i8 %conv292.i, ptr %incdec.ptr290.i, align 1
   %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
   %exitcond153.not.i = icmp eq i64 %indvars.iv.next150.i, %conv1
-  br i1 %exitcond153.not.i, label %format_input_.exit, label %for.body283.i, !llvm.loop !15
+  br i1 %exitcond153.not.i, label %format_input_.argprom.exit, label %for.body283.i, !llvm.loop !15
 
 for.body301.i:                                    ; preds = %for.body301.i, %for.body301.lr.ph.i
   %indvars.iv144.i = phi i64 [ 0, %for.body301.lr.ph.i ], [ %indvars.iv.next145.i, %for.body301.i ]
@@ -1230,7 +1230,7 @@ for.body301.i:                                    ; preds = %for.body301.i, %for
   store i8 %conv322.i, ptr %incdec.ptr320.i, align 1
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond148.not.i = icmp eq i64 %indvars.iv.next145.i, %conv1
-  br i1 %exitcond148.not.i, label %format_input_.exit, label %for.body301.i, !llvm.loop !16
+  br i1 %exitcond148.not.i, label %format_input_.argprom.exit, label %for.body301.i, !llvm.loop !16
 
 for.body331.i:                                    ; preds = %for.cond328.preheader.i, %for.body331.i
   %indvars.iv139.i = phi i64 [ %indvars.iv.next140.i, %for.body331.i ], [ 0, %for.cond328.preheader.i ]
@@ -1242,7 +1242,7 @@ for.body331.i:                                    ; preds = %for.cond328.prehead
   store i32 %93, ptr %buf32.034.i, align 4
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
   %exitcond143.not.i = icmp eq i64 %indvars.iv.next140.i, %conv1
-  br i1 %exitcond143.not.i, label %format_input_.exit, label %for.body331.i, !llvm.loop !17
+  br i1 %exitcond143.not.i, label %format_input_.argprom.exit, label %for.body331.i, !llvm.loop !17
 
 for.body343.i:                                    ; preds = %for.body343.i, %for.body343.lr.ph.i
   %indvars.iv134.i = phi i64 [ 0, %for.body343.lr.ph.i ], [ %indvars.iv.next135.i, %for.body343.i ]
@@ -1259,7 +1259,7 @@ for.body343.i:                                    ; preds = %for.body343.i, %for
   store i32 %97, ptr %incdec.ptr347.i, align 4
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
   %exitcond138.not.i = icmp eq i64 %indvars.iv.next135.i, %conv1
-  br i1 %exitcond138.not.i, label %format_input_.exit, label %for.body343.i, !llvm.loop !18
+  br i1 %exitcond138.not.i, label %format_input_.argprom.exit, label %for.body343.i, !llvm.loop !18
 
 for.body359.i:                                    ; preds = %for.body359.i, %for.body359.lr.ph.i
   %indvars.iv129.i = phi i64 [ 0, %for.body359.lr.ph.i ], [ %indvars.iv.next130.i, %for.body359.i ]
@@ -1286,7 +1286,7 @@ for.body359.i:                                    ; preds = %for.body359.i, %for
   store i32 %105, ptr %incdec.ptr371.i, align 4
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %exitcond133.not.i = icmp eq i64 %indvars.iv.next130.i, %conv1
-  br i1 %exitcond133.not.i, label %format_input_.exit, label %for.body359.i, !llvm.loop !19
+  br i1 %exitcond133.not.i, label %format_input_.argprom.exit, label %for.body359.i, !llvm.loop !19
 
 for.body383.i:                                    ; preds = %for.body383.i, %for.body383.lr.ph.i
   %indvars.iv124.i = phi i64 [ 0, %for.body383.lr.ph.i ], [ %indvars.iv.next125.i, %for.body383.i ]
@@ -1323,7 +1323,7 @@ for.body383.i:                                    ; preds = %for.body383.i, %for
   store i32 %117, ptr %incdec.ptr403.i, align 4
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %exitcond128.not.i = icmp eq i64 %indvars.iv.next125.i, %conv1
-  br i1 %exitcond128.not.i, label %format_input_.exit, label %for.body383.i, !llvm.loop !20
+  br i1 %exitcond128.not.i, label %format_input_.argprom.exit, label %for.body383.i, !llvm.loop !20
 
 for.body415.i:                                    ; preds = %for.body415.i, %for.body415.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body415.lr.ph.i ], [ %indvars.iv.next.i, %for.body415.i ]
@@ -1370,10 +1370,10 @@ for.body415.i:                                    ; preds = %for.body415.i, %for
   store i32 %133, ptr %incdec.ptr443.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv1
-  br i1 %exitcond.not.i, label %format_input_.exit, label %for.body415.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %format_input_.argprom.exit, label %for.body415.i, !llvm.loop !21
 
 sw.epilog.i:                                      ; preds = %if.end32
-  switch i32 %bytes_per_sample, label %format_input_.exit [
+  switch i32 %bytes_per_sample, label %format_input_.argprom.exit [
     i32 1, label %for.cond452.preheader.i
     i32 2, label %for.cond473.preheader.i
     i32 3, label %for.cond494.preheader.i
@@ -1384,7 +1384,7 @@ for.cond521.preheader.i:                          ; preds = %sw.epilog.i
   %cmp52275.not.i = icmp eq i32 %samples, 0
   %cmp52672.not.i = icmp eq i32 %channels, 0
   %or.cond.i23 = or i1 %cmp52672.not.i, %cmp52275.not.i
-  br i1 %or.cond.i23, label %format_input_.exit, label %for.cond525.preheader.us.i
+  br i1 %or.cond.i23, label %format_input_.argprom.exit, label %for.cond525.preheader.us.i
 
 for.cond525.preheader.us.i:                       ; preds = %for.cond521.preheader.i, %for.cond525.for.inc537_crit_edge.us.i
   %indvars.iv209.i = phi i64 [ %indvars.iv.next210.i, %for.cond525.for.inc537_crit_edge.us.i ], [ 0, %for.cond521.preheader.i ]
@@ -1407,13 +1407,13 @@ for.body528.us.i:                                 ; preds = %for.body528.us.i, %
 for.cond525.for.inc537_crit_edge.us.i:            ; preds = %for.body528.us.i
   %indvars.iv.next210.i = add nuw nsw i64 %indvars.iv209.i, 1
   %exitcond213.not.i = icmp eq i64 %indvars.iv.next210.i, %conv1
-  br i1 %exitcond213.not.i, label %format_input_.exit, label %for.cond525.preheader.us.i, !llvm.loop !23
+  br i1 %exitcond213.not.i, label %format_input_.argprom.exit, label %for.cond525.preheader.us.i, !llvm.loop !23
 
 for.cond494.preheader.i:                          ; preds = %sw.epilog.i
   %cmp49581.not.i = icmp eq i32 %samples, 0
   %cmp49978.not.i = icmp eq i32 %channels, 0
   %or.cond264.i = or i1 %cmp49978.not.i, %cmp49581.not.i
-  br i1 %or.cond264.i, label %format_input_.exit, label %for.cond498.preheader.us.i
+  br i1 %or.cond264.i, label %format_input_.argprom.exit, label %for.cond498.preheader.us.i
 
 for.cond498.preheader.us.i:                       ; preds = %for.cond494.preheader.i, %for.cond498.for.inc517_crit_edge.us.i
   %indvars.iv219.i = phi i64 [ %indvars.iv.next220.i, %for.cond498.for.inc517_crit_edge.us.i ], [ 0, %for.cond494.preheader.i ]
@@ -1445,13 +1445,13 @@ for.body501.us.i:                                 ; preds = %for.body501.us.i, %
 for.cond498.for.inc517_crit_edge.us.i:            ; preds = %for.body501.us.i
   %indvars.iv.next220.i = add nuw nsw i64 %indvars.iv219.i, 1
   %exitcond223.not.i = icmp eq i64 %indvars.iv.next220.i, %conv1
-  br i1 %exitcond223.not.i, label %format_input_.exit, label %for.cond498.preheader.us.i, !llvm.loop !25
+  br i1 %exitcond223.not.i, label %format_input_.argprom.exit, label %for.cond498.preheader.us.i, !llvm.loop !25
 
 for.cond473.preheader.i:                          ; preds = %sw.epilog.i
   %cmp47488.not.i = icmp eq i32 %samples, 0
   %cmp47885.not.i = icmp eq i32 %channels, 0
   %or.cond265.i = or i1 %cmp47885.not.i, %cmp47488.not.i
-  br i1 %or.cond265.i, label %format_input_.exit, label %for.cond477.preheader.us.i
+  br i1 %or.cond265.i, label %format_input_.argprom.exit, label %for.cond477.preheader.us.i
 
 for.cond477.preheader.us.i:                       ; preds = %for.cond473.preheader.i, %for.cond477.for.inc490_crit_edge.us.i
   %indvars.iv229.i = phi i64 [ %indvars.iv.next230.i, %for.cond477.for.inc490_crit_edge.us.i ], [ 0, %for.cond473.preheader.i ]
@@ -1475,13 +1475,13 @@ for.body480.us.i:                                 ; preds = %for.body480.us.i, %
 for.cond477.for.inc490_crit_edge.us.i:            ; preds = %for.body480.us.i
   %indvars.iv.next230.i = add nuw nsw i64 %indvars.iv229.i, 1
   %exitcond233.not.i = icmp eq i64 %indvars.iv.next230.i, %conv1
-  br i1 %exitcond233.not.i, label %format_input_.exit, label %for.cond477.preheader.us.i, !llvm.loop !27
+  br i1 %exitcond233.not.i, label %format_input_.argprom.exit, label %for.cond477.preheader.us.i, !llvm.loop !27
 
 for.cond452.preheader.i:                          ; preds = %sw.epilog.i
   %cmp45395.not.i = icmp eq i32 %samples, 0
   %cmp45792.not.i = icmp eq i32 %channels, 0
   %or.cond266.i = or i1 %cmp45792.not.i, %cmp45395.not.i
-  br i1 %or.cond266.i, label %format_input_.exit, label %for.cond456.preheader.us.i
+  br i1 %or.cond266.i, label %format_input_.argprom.exit, label %for.cond456.preheader.us.i
 
 for.cond456.preheader.us.i:                       ; preds = %for.cond452.preheader.i, %for.cond456.for.inc469_crit_edge.us.i
   %indvars.iv239.i = phi i64 [ %indvars.iv.next240.i, %for.cond456.for.inc469_crit_edge.us.i ], [ 0, %for.cond452.preheader.i ]
@@ -1505,9 +1505,9 @@ for.body459.us.i:                                 ; preds = %for.body459.us.i, %
 for.cond456.for.inc469_crit_edge.us.i:            ; preds = %for.body459.us.i
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
   %exitcond243.not.i = icmp eq i64 %indvars.iv.next240.i, %conv1
-  br i1 %exitcond243.not.i, label %format_input_.exit, label %for.cond456.preheader.us.i, !llvm.loop !29
+  br i1 %exitcond243.not.i, label %format_input_.argprom.exit, label %for.cond456.preheader.us.i, !llvm.loop !29
 
-format_input_.exit:                               ; preds = %for.body415.i, %for.body383.i, %for.body359.i, %for.body343.i, %for.body331.i, %for.body301.i, %for.body283.i, %for.body235.i, %for.body197.i, %for.body169.i, %for.body151.i, %for.body138.i, %for.body90.i, %for.body52.i, %for.body24.i, %for.body6.i, %for.body.i, %for.cond525.for.inc537_crit_edge.us.i, %for.cond498.for.inc517_crit_edge.us.i, %for.cond477.for.inc490_crit_edge.us.i, %for.cond456.for.inc469_crit_edge.us.i, %for.cond412.preheader.i, %for.cond380.preheader.i, %for.cond356.preheader.i, %for.cond340.preheader.i, %for.cond328.preheader.i, %for.cond298.preheader.i, %for.cond280.preheader.i, %for.cond232.preheader.i, %for.cond194.preheader.i, %for.cond166.preheader.i, %for.cond148.preheader.i, %for.cond135.preheader.i, %for.cond87.preheader.i, %for.cond49.preheader.i, %for.cond21.preheader.i, %for.cond3.preheader.i, %for.cond.preheader.i, %sw.epilog.i, %for.cond521.preheader.i, %for.cond494.preheader.i, %for.cond473.preheader.i, %for.cond452.preheader.i
+format_input_.argprom.exit:                       ; preds = %for.body415.i, %for.body383.i, %for.body359.i, %for.body343.i, %for.body331.i, %for.body301.i, %for.body283.i, %for.body235.i, %for.body197.i, %for.body169.i, %for.body151.i, %for.body138.i, %for.body90.i, %for.body52.i, %for.body24.i, %for.body6.i, %for.body.i, %for.cond525.for.inc537_crit_edge.us.i, %for.cond498.for.inc517_crit_edge.us.i, %for.cond477.for.inc490_crit_edge.us.i, %for.cond456.for.inc469_crit_edge.us.i, %for.cond412.preheader.i, %for.cond380.preheader.i, %for.cond356.preheader.i, %for.cond340.preheader.i, %for.cond328.preheader.i, %for.cond298.preheader.i, %for.cond280.preheader.i, %for.cond232.preheader.i, %for.cond194.preheader.i, %for.cond166.preheader.i, %for.cond148.preheader.i, %for.cond135.preheader.i, %for.cond87.preheader.i, %for.cond49.preheader.i, %for.cond21.preheader.i, %for.cond3.preheader.i, %for.cond.preheader.i, %sw.epilog.i, %for.cond521.preheader.i, %for.cond494.preheader.i, %for.cond473.preheader.i, %for.cond452.preheader.i
   %142 = load ptr, ptr %internal_buf33, align 8
   %conv35 = trunc i64 %mul3 to i32
   %bytes.i = getelementptr inbounds i8, ptr %ctx, i64 80
@@ -1517,14 +1517,14 @@ format_input_.exit:                               ; preds = %for.body415.i, %for
   %cmp.i25 = icmp ult i32 %add.i24, %143
   br i1 %cmp.i25, label %if.then.i27, label %if.end.i
 
-if.then.i27:                                      ; preds = %format_input_.exit
+if.then.i27:                                      ; preds = %format_input_.argprom.exit
   %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 84
   %144 = load i32, ptr %arrayidx4.i, align 4
   %inc.i = add i32 %144, 1
   store i32 %inc.i, ptr %arrayidx4.i, align 4
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i27, %format_input_.exit
+if.end.i:                                         ; preds = %if.then.i27, %format_input_.argprom.exit
   %and.i = and i32 %143, 63
   %sub.i = sub nuw nsw i32 64, %and.i
   %cmp5.i = icmp ugt i32 %sub.i, %conv35

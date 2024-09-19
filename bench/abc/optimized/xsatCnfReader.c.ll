@@ -206,7 +206,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %59, %skipLine.exit2
   store i32 0, ptr %16, align 4
   %68 = call fastcc i32 @xSAT_ReadInt(ptr noundef %3)
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %xSAT_ReadClause.exit.i, label %.lr.ph.i.i
+  br i1 %69, label %xSAT_ReadClause.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %67, %xSAT_ReadInt.exit.i
   %70 = phi i32 [ %144, %xSAT_ReadInt.exit.i ], [ %68, %67 ]
@@ -353,18 +353,18 @@ xSAT_ReadInt.exit.i:                              ; preds = %.lr.ph27.i.i
   %143 = sub nsw i32 0, %136
   %144 = select i1 %.not19.i.i, i32 %143, i32 %136
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %xSAT_ReadClause.exit.i, label %.lr.ph.i.i
+  br i1 %145, label %xSAT_ReadClause.argprom.exit.i, label %.lr.ph.i.i
 
-xSAT_ReadClause.exit.i:                           ; preds = %xSAT_ReadInt.exit.i, %67
+xSAT_ReadClause.argprom.exit.i:                   ; preds = %xSAT_ReadInt.exit.i, %67
   %146 = tail call i32 @xSAT_SolverAddClause(ptr noundef nonnull %.012.i.ph, ptr noundef %.013.i.ph) #14
   %.not16.i = icmp eq i32 %146, 0
-  br i1 %.not16.i, label %147, label %xSAT_ReadClause.exit.skipLine.exit_crit_edge.i
+  br i1 %.not16.i, label %147, label %xSAT_ReadClause.argprom.exit.skipLine.exit_crit_edge.i
 
-xSAT_ReadClause.exit.skipLine.exit_crit_edge.i:   ; preds = %xSAT_ReadClause.exit.i
+xSAT_ReadClause.argprom.exit.skipLine.exit_crit_edge.i: ; preds = %xSAT_ReadClause.argprom.exit.i
   %.promoted.pre.pre.i = load ptr, ptr %3, align 8
   br label %skipLine.exit.i.backedge
 
-147:                                              ; preds = %xSAT_ReadClause.exit.i
+147:                                              ; preds = %xSAT_ReadClause.argprom.exit.i
   %.val.i.i = load i32, ptr %16, align 4
   %148 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val.i.i)
   %.val68.i.i = load i32, ptr %16, align 4
@@ -395,8 +395,8 @@ skipLine.exit.loopexit.i:                         ; preds = %.preheader.i
   store ptr %27, ptr %3, align 8
   br label %skipLine.exit.i.backedge
 
-skipLine.exit.i.backedge:                         ; preds = %skipLine.exit.loopexit.i, %xSAT_ReadClause.exit.skipLine.exit_crit_edge.i, %28
-  %.promoted.i.be = phi ptr [ %.promoted.pre.pre.i, %xSAT_ReadClause.exit.skipLine.exit_crit_edge.i ], [ %29, %28 ], [ %27, %skipLine.exit.loopexit.i ]
+skipLine.exit.i.backedge:                         ; preds = %skipLine.exit.loopexit.i, %xSAT_ReadClause.argprom.exit.skipLine.exit_crit_edge.i, %28
+  %.promoted.i.be = phi ptr [ %.promoted.pre.pre.i, %xSAT_ReadClause.argprom.exit.skipLine.exit_crit_edge.i ], [ %29, %28 ], [ %27, %skipLine.exit.loopexit.i ]
   br label %skipLine.exit.i
 
 157:                                              ; preds = %25

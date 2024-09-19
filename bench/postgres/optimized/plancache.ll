@@ -1364,13 +1364,13 @@ ReleaseGenericPlan.exit:                          ; preds = %87, %90, %95, %99
   %118 = getelementptr i8, ptr %88, i64 8
   %.val = load ptr, ptr %118, align 8
   %.not.i52 = icmp eq ptr %.val, null
-  br i1 %.not.i52, label %cached_plan_cost.exit, label %.lr.ph.i
+  br i1 %.not.i52, label %cached_plan_cost.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %117
   %119 = getelementptr inbounds i8, ptr %.val, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph17.i, label %cached_plan_cost.exit
+  br i1 %121, label %.lr.ph17.i, label %cached_plan_cost.argprom.exit
 
 .lr.ph17.i:                                       ; preds = %.lr.ph.i
   %122 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -1400,9 +1400,9 @@ ReleaseGenericPlan.exit:                          ; preds = %87, %90, %95, %99
   %.1.i = phi double [ %.0415.i, %124 ], [ %135, %130 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %cached_plan_cost.exit, label %124
+  br i1 %exitcond.not.i, label %cached_plan_cost.argprom.exit, label %124
 
-cached_plan_cost.exit:                            ; preds = %136, %117, %.lr.ph.i
+cached_plan_cost.argprom.exit:                    ; preds = %136, %117, %.lr.ph.i
   %.0.lcssa.i = phi double [ 0.000000e+00, %117 ], [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %136 ]
   %137 = getelementptr inbounds i8, ptr %0, i64 168
   store double %.0.lcssa.i, ptr %137, align 8
@@ -1410,7 +1410,7 @@ cached_plan_cost.exit:                            ; preds = %136, %117, %.lr.ph.
   %139 = trunc i8 %138 to i1
   br i1 %139, label %choose_custom_plan.exit58.thread, label %140
 
-140:                                              ; preds = %cached_plan_cost.exit
+140:                                              ; preds = %cached_plan_cost.argprom.exit
   br i1 %18, label %choose_custom_plan.exit58.thread79, label %141
 
 141:                                              ; preds = %140
@@ -1457,13 +1457,13 @@ choose_custom_plan.exit58:                        ; preds = %154
   %163 = fcmp uge double %162, %161
   br i1 %163, label %choose_custom_plan.exit58.thread, label %choose_custom_plan.exit58.thread79
 
-choose_custom_plan.exit58.thread:                 ; preds = %146, %24, %32, %30, %12, %154, %152, %cached_plan_cost.exit, %choose_custom_plan.exit, %choose_custom_plan.exit58
-  %.04473 = phi ptr [ null, %choose_custom_plan.exit58 ], [ null, %154 ], [ null, %152 ], [ null, %cached_plan_cost.exit ], [ %13, %choose_custom_plan.exit ], [ %13, %12 ], [ %13, %30 ], [ %13, %32 ], [ %13, %24 ], [ null, %146 ]
+choose_custom_plan.exit58.thread:                 ; preds = %146, %24, %32, %30, %12, %154, %152, %cached_plan_cost.argprom.exit, %choose_custom_plan.exit, %choose_custom_plan.exit58
+  %.04473 = phi ptr [ null, %choose_custom_plan.exit58 ], [ null, %154 ], [ null, %152 ], [ null, %cached_plan_cost.argprom.exit ], [ %13, %choose_custom_plan.exit ], [ %13, %12 ], [ %13, %30 ], [ %13, %32 ], [ %13, %24 ], [ null, %146 ]
   %164 = tail call fastcc ptr @BuildCachedPlan(ptr noundef nonnull %0, ptr noundef %.04473, ptr noundef %1, ptr noundef %3)
   %165 = getelementptr i8, ptr %164, i64 8
   %.val48 = load ptr, ptr %165, align 8
   %.not.i59 = icmp eq ptr %.val48, null
-  br i1 %.not.i59, label %cached_plan_cost.exit63, label %.lr.ph.i60
+  br i1 %.not.i59, label %cached_plan_cost.argprom.exit63, label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %choose_custom_plan.exit58.thread
   %166 = getelementptr inbounds i8, ptr %.val48, i64 4
@@ -1471,7 +1471,7 @@ choose_custom_plan.exit58.thread:                 ; preds = %146, %24, %32, %30,
   %168 = load double, ptr @cpu_operator_cost, align 8
   %169 = fmul double %168, 1.000000e+03
   %170 = icmp sgt i32 %167, 0
-  br i1 %170, label %.lr.ph23.i, label %cached_plan_cost.exit63
+  br i1 %170, label %.lr.ph23.i, label %cached_plan_cost.argprom.exit63
 
 .lr.ph23.i:                                       ; preds = %.lr.ph.i60
   %171 = getelementptr inbounds i8, ptr %.val48, i64 16
@@ -1516,9 +1516,9 @@ list_length.exit.us.i:                            ; preds = %187, %179
   %.1.us.i = phi double [ %.04.us21.i, %173 ], [ %193, %list_length.exit.us.i ]
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %cached_plan_cost.exit63, label %173
+  br i1 %exitcond31.not.i, label %cached_plan_cost.argprom.exit63, label %173
 
-cached_plan_cost.exit63:                          ; preds = %194, %choose_custom_plan.exit58.thread, %.lr.ph.i60
+cached_plan_cost.argprom.exit63:                  ; preds = %194, %choose_custom_plan.exit58.thread, %.lr.ph.i60
   %.0.lcssa.i62 = phi double [ 0.000000e+00, %choose_custom_plan.exit58.thread ], [ 0.000000e+00, %.lr.ph.i60 ], [ %.1.us.i, %194 ]
   %195 = getelementptr inbounds i8, ptr %0, i64 176
   %196 = load double, ptr %195, align 8
@@ -1526,10 +1526,10 @@ cached_plan_cost.exit63:                          ; preds = %194, %choose_custom
   store double %197, ptr %195, align 8
   br label %choose_custom_plan.exit58.thread79
 
-choose_custom_plan.exit58.thread79:               ; preds = %choose_custom_plan.exit58, %CheckCachedPlan.exit, %140, %144, %141, %146, %148, %cached_plan_cost.exit63
-  %.sink87 = phi i64 [ 184, %cached_plan_cost.exit63 ], [ 192, %148 ], [ 192, %146 ], [ 192, %141 ], [ 192, %144 ], [ 192, %140 ], [ 192, %CheckCachedPlan.exit ], [ 192, %choose_custom_plan.exit58 ]
-  %.0.in74 = phi i1 [ true, %cached_plan_cost.exit63 ], [ false, %148 ], [ false, %146 ], [ false, %141 ], [ false, %144 ], [ false, %140 ], [ false, %CheckCachedPlan.exit ], [ false, %choose_custom_plan.exit58 ]
-  %.1 = phi ptr [ %164, %cached_plan_cost.exit63 ], [ %88, %148 ], [ %88, %146 ], [ %88, %141 ], [ %88, %144 ], [ %88, %140 ], [ %86, %CheckCachedPlan.exit ], [ %88, %choose_custom_plan.exit58 ]
+choose_custom_plan.exit58.thread79:               ; preds = %choose_custom_plan.exit58, %CheckCachedPlan.exit, %140, %144, %141, %146, %148, %cached_plan_cost.argprom.exit63
+  %.sink87 = phi i64 [ 184, %cached_plan_cost.argprom.exit63 ], [ 192, %148 ], [ 192, %146 ], [ 192, %141 ], [ 192, %144 ], [ 192, %140 ], [ 192, %CheckCachedPlan.exit ], [ 192, %choose_custom_plan.exit58 ]
+  %.0.in74 = phi i1 [ true, %cached_plan_cost.argprom.exit63 ], [ false, %148 ], [ false, %146 ], [ false, %141 ], [ false, %144 ], [ false, %140 ], [ false, %CheckCachedPlan.exit ], [ false, %choose_custom_plan.exit58 ]
+  %.1 = phi ptr [ %164, %cached_plan_cost.argprom.exit63 ], [ %88, %148 ], [ %88, %146 ], [ %88, %141 ], [ %88, %144 ], [ %88, %140 ], [ %86, %CheckCachedPlan.exit ], [ %88, %choose_custom_plan.exit58 ]
   %198 = getelementptr inbounds i8, ptr %0, i64 %.sink87
   %199 = load i64, ptr %198, align 8
   %200 = add i64 %199, 1

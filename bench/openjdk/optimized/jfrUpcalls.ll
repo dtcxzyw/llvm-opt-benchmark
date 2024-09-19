@@ -74,7 +74,7 @@ define hidden void @_ZN10JfrUpcalls14on_retransformElP7_jclassiPKhPiPPhP10JavaTh
 
 11:                                               ; preds = %7
   store i32 0, ptr %9, align 4
-  tail call fastcc void @_ZL10initializeP10JavaThread()
+  tail call fastcc void @_ZL10initializeP10JavaThread.argprom.retelim()
   %12 = load ptr, ptr @_ZL25on_retransform_method_sym, align 8
   %13 = load ptr, ptr @_ZL28on_retransform_signature_sym, align 8
   %14 = call fastcc noundef ptr @_ZL6invokelhhP7_jclassiPKhP6SymbolS4_RiP10JavaThread(i64 noundef %0, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef %6)
@@ -125,7 +125,7 @@ _ZL23log_error_and_throw_oomiP10JavaThread.exit:  ; preds = %22, %25
 declare noundef zeroext i1 @_ZN11JdkJfrEvent10is_visibleEP7_jclass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10initializeP10JavaThread() unnamed_addr #0 {
+define internal fastcc void @_ZL10initializeP10JavaThread.argprom.retelim() unnamed_addr #0 {
   %1 = load i8, ptr @_ZZL10initializeP10JavaThreadE11initialized, align 1
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %13, label %3
@@ -261,7 +261,7 @@ define hidden void @_ZN10JfrUpcalls31new_bytes_eager_instrumentationElhhP7_jclas
   %10 = alloca [256 x i8], align 16
   %11 = alloca i32, align 4
   store i32 0, ptr %11, align 4
-  tail call fastcc void @_ZL10initializeP10JavaThread()
+  tail call fastcc void @_ZL10initializeP10JavaThread.argprom.retelim()
   %12 = load ptr, ptr @_ZL35bytes_for_eager_instrumentation_sym, align 8
   %13 = load ptr, ptr @_ZL39bytes_for_eager_instrumentation_sig_sym, align 8
   %14 = call fastcc noundef ptr @_ZL6invokelhhP7_jclassiPKhP6SymbolS4_RiP10JavaThread(i64 noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef %8)

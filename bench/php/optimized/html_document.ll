@@ -1889,7 +1889,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTMLFile(ptr nocapture noundef read
   store ptr @dom_write_output_stream, ptr %42, align 8
   %43 = getelementptr i8, ptr %40, i64 112
   %.val = load ptr, ptr %43, align 8
-  %44 = call fastcc i32 @dom_common_save(ptr noundef %5, ptr %.val, ptr noundef %40)
+  %44 = call fastcc i32 @dom_common_save.argprom(ptr noundef %5, ptr %.val, ptr noundef %40)
   %.not19 = icmp eq i32 %44, 0
   br i1 %.not19, label %48, label %45
 
@@ -1922,7 +1922,7 @@ define internal range(i32 -1, 1) i32 @dom_write_output_stream(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dom_common_save(ptr noundef nonnull %0, ptr %.112.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dom_common_save.argprom(ptr noundef nonnull %0, ptr %.112.val, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.lxb_encoding_encode_t, align 8
   %4 = alloca %struct.lxb_encoding_decode_t, align 8
   %5 = alloca [4096 x i8], align 16
@@ -2185,7 +2185,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   store ptr @dom_write_output_smart_str, ptr %55, align 8
   %56 = getelementptr i8, ptr %29, i64 112
   %.val = load ptr, ptr %56, align 8
-  %57 = call fastcc i32 @dom_common_save(ptr noundef %5, ptr %.val, ptr noundef %.0119)
+  %57 = call fastcc i32 @dom_common_save.argprom(ptr noundef %5, ptr %.val, ptr noundef %.0119)
   %58 = icmp eq i32 %57, 0
   call void @llvm.assume(i1 %58)
   %59 = load ptr, ptr %4, align 8

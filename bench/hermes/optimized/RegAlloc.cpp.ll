@@ -8559,7 +8559,7 @@ for.body.i50.i:                                   ; preds = %lor.rhs.i, %for.bod
 
 _ZNK6hermes8Interval5startEv.exit57.i:            ; preds = %for.body.i50.i, %lor.rhs.i
   %start.0.lcssa.i56.i = phi i64 [ %42, %lor.rhs.i ], [ %.sroa.speculated.i53.i, %for.body.i50.i ]
-  br i1 %cmp.not7.i13.i, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit", label %for.body.i62.i
+  br i1 %cmp.not7.i13.i, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit", label %for.body.i62.i
 
 for.body.i62.i:                                   ; preds = %_ZNK6hermes8Interval5startEv.exit57.i, %for.body.i62.i
   %__begin2.09.i63.i = phi ptr [ %incdec.ptr.i66.i, %for.body.i62.i ], [ %38, %_ZNK6hermes8Interval5startEv.exit57.i ]
@@ -8568,7 +8568,7 @@ for.body.i62.i:                                   ; preds = %_ZNK6hermes8Interva
   %.sroa.speculated.i65.i = call i64 @llvm.umin.i64(i64 %47, i64 %start.08.i64.i)
   %incdec.ptr.i66.i = getelementptr inbounds i8, ptr %__begin2.09.i63.i, i64 16
   %cmp.not.i67.i = icmp eq ptr %incdec.ptr.i66.i, %add.ptr.i.i12.i
-  br i1 %cmp.not.i67.i, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit", label %for.body.i62.i
+  br i1 %cmp.not.i67.i, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit", label %for.body.i62.i
 
 if.end.i502:                                      ; preds = %_ZNK6hermes8Interval3endEv.exit22.i
   br i1 %cmp.not7.i.i, label %_ZNK6hermes8Interval3endEv.exit83.i, label %for.body.i75.i
@@ -8602,21 +8602,21 @@ _ZNK6hermes8Interval3endEv.exit97.i:              ; preds = %for.body.i89.i, %_Z
   %cmp16.i = icmp ugt i64 %start.0.lcssa.i82.i, %start.0.lcssa.i96.i
   br i1 %cmp16.i, label %while.body.i.i.i99, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_0E4pushEOj.exit"
 
-"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit": ; preds = %for.body.i62.i, %_ZNK6hermes8Interval5startEv.exit57.i
+"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit": ; preds = %for.body.i62.i, %_ZNK6hermes8Interval5startEv.exit57.i
   %start.0.lcssa.i68.i = phi i64 [ %44, %_ZNK6hermes8Interval5startEv.exit57.i ], [ %.sroa.speculated.i65.i, %for.body.i62.i ]
   %cmp12.i = icmp eq i64 %start.0.lcssa.i56.i, %start.0.lcssa.i68.i
   %cmp13.i = icmp ugt i32 %32, %add.ptr.val.i.i.i
   %50 = and i1 %cmp13.i, %cmp12.i
   br i1 %50, label %while.body.i.i.i99, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_0E4pushEOj.exit"
 
-while.body.i.i.i99:                               ; preds = %_ZNK6hermes8Interval5startEv.exit45.i, %_ZNK6hermes8Interval3endEv.exit97.i, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit"
+while.body.i.i.i99:                               ; preds = %_ZNK6hermes8Interval5startEv.exit45.i, %_ZNK6hermes8Interval3endEv.exit97.i, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit"
   %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %31, i64 %__holeIndex.addr.014.i.i.i
   store i32 %add.ptr.val.i.i.i, ptr %add.ptr2.i.i.i, align 4
   %cmp.i.not.i.i = icmp ult i64 %__parent.015.in.i.i.i, 2
   br i1 %cmp.i.not.i.i, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_0E4pushEOj.exit", label %land.rhs.i.i.i, !llvm.loop !50
 
-"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_0E4pushEOj.exit": ; preds = %_ZNK6hermes8Interval3endEv.exit97.i, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit", %while.body.i.i.i99, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %sub.i.i, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i ], [ %__holeIndex.addr.014.i.i.i, %_ZNK6hermes8Interval3endEv.exit97.i ], [ %__holeIndex.addr.014.i.i.i, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit" ], [ 0, %while.body.i.i.i99 ]
+"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_0E4pushEOj.exit": ; preds = %_ZNK6hermes8Interval3endEv.exit97.i, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit", %while.body.i.i.i99, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %sub.i.i, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i ], [ %__holeIndex.addr.014.i.i.i, %_ZNK6hermes8Interval3endEv.exit97.i ], [ %__holeIndex.addr.014.i.i.i, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit" ], [ 0, %while.body.i.i.i99 ]
   %add.ptr5.i.i.i = getelementptr inbounds i32, ptr %31, i64 %__holeIndex.addr.0.lcssa.i.i.i
   store i32 %32, ptr %add.ptr5.i.i.i, align 4
   %inc = add nuw nsw i32 %i.0759, 1
@@ -8772,7 +8772,7 @@ for.body.i38.i615:                                ; preds = %_ZNK6hermes8Interva
 _ZNK6hermes8Interval5startEv.exit45.i621:         ; preds = %for.body.i38.i615, %_ZNK6hermes8Interval5startEv.exit.i613
   %start.0.lcssa.i44.i622 = phi i64 [ %64, %_ZNK6hermes8Interval5startEv.exit.i613 ], [ %.sroa.speculated.i41.i618, %for.body.i38.i615 ]
   %cmp9.i623 = icmp ugt i64 %start.0.lcssa.i33.i614, %start.0.lcssa.i44.i622
-  br i1 %cmp9.i623, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643.thread", label %lor.rhs.i624
+  br i1 %cmp9.i623, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643.thread", label %lor.rhs.i624
 
 lor.rhs.i624:                                     ; preds = %_ZNK6hermes8Interval5startEv.exit45.i621
   br i1 %cmp.not7.i.i560, label %_ZNK6hermes8Interval5startEv.exit57.i631, label %for.body.i50.i625
@@ -8788,7 +8788,7 @@ for.body.i50.i625:                                ; preds = %lor.rhs.i624, %for.
 
 _ZNK6hermes8Interval5startEv.exit57.i631:         ; preds = %for.body.i50.i625, %lor.rhs.i624
   %start.0.lcssa.i56.i632 = phi i64 [ %62, %lor.rhs.i624 ], [ %.sroa.speculated.i53.i628, %for.body.i50.i625 ]
-  br i1 %cmp.not7.i13.i574, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643", label %for.body.i62.i633
+  br i1 %cmp.not7.i13.i574, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643", label %for.body.i62.i633
 
 for.body.i62.i633:                                ; preds = %_ZNK6hermes8Interval5startEv.exit57.i631, %for.body.i62.i633
   %__begin2.09.i63.i634 = phi ptr [ %incdec.ptr.i66.i637, %for.body.i62.i633 ], [ %58, %_ZNK6hermes8Interval5startEv.exit57.i631 ]
@@ -8797,7 +8797,7 @@ for.body.i62.i633:                                ; preds = %_ZNK6hermes8Interva
   %.sroa.speculated.i65.i636 = call i64 @llvm.umin.i64(i64 %67, i64 %start.08.i64.i635)
   %incdec.ptr.i66.i637 = getelementptr inbounds i8, ptr %__begin2.09.i63.i634, i64 16
   %cmp.not.i67.i638 = icmp eq ptr %incdec.ptr.i66.i637, %add.ptr.i.i12.i573
-  br i1 %cmp.not.i67.i638, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643", label %for.body.i62.i633
+  br i1 %cmp.not.i67.i638, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643", label %for.body.i62.i633
 
 if.end.i585:                                      ; preds = %_ZNK6hermes8Interval3endEv.exit22.i582
   br i1 %cmp.not7.i.i560, label %_ZNK6hermes8Interval3endEv.exit83.i593, label %for.body.i75.i586
@@ -8830,22 +8830,22 @@ _ZNK6hermes8Interval3endEv.exit97.i602:           ; preds = %for.body.i89.i595, 
   %start.0.lcssa.i96.i603 = phi i64 [ %59, %_ZNK6hermes8Interval3endEv.exit83.i593 ], [ %.sroa.speculated.i93.i599, %for.body.i89.i595 ]
   %cmp16.i604 = icmp ugt i64 %start.0.lcssa.i82.i594, %start.0.lcssa.i96.i603
   %cond.fr708 = freeze i1 %cmp16.i604
-  br i1 %cond.fr708, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643.thread", label %71
+  br i1 %cond.fr708, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643.thread", label %71
 
-"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643": ; preds = %for.body.i62.i633, %_ZNK6hermes8Interval5startEv.exit57.i631
+"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643": ; preds = %for.body.i62.i633, %_ZNK6hermes8Interval5startEv.exit57.i631
   %start.0.lcssa.i68.i640 = phi i64 [ %64, %_ZNK6hermes8Interval5startEv.exit57.i631 ], [ %.sroa.speculated.i65.i636, %for.body.i62.i633 ]
   %cmp12.i641 = icmp eq i64 %start.0.lcssa.i56.i632, %start.0.lcssa.i68.i640
   %cmp13.i642 = icmp ugt i32 %add.ptr3.val.i.i.i.i172, %add.ptr.val.i.i.i.i171
   %70 = and i1 %cmp13.i642, %cmp12.i641
   %cond.fr = freeze i1 %70
-  br i1 %cond.fr, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643.thread", label %71
+  br i1 %cond.fr, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643.thread", label %71
 
-"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643.thread": ; preds = %_ZNK6hermes8Interval5startEv.exit45.i621, %_ZNK6hermes8Interval3endEv.exit97.i602, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643"
+"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643.thread": ; preds = %_ZNK6hermes8Interval5startEv.exit45.i621, %_ZNK6hermes8Interval3endEv.exit97.i602, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643"
   br label %71
 
-71:                                               ; preds = %_ZNK6hermes8Interval3endEv.exit97.i602, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643", %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643.thread"
-  %72 = phi i32 [ %add.ptr3.val.i.i.i.i172, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643.thread" ], [ %add.ptr.val.i.i.i.i171, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643" ], [ %add.ptr.val.i.i.i.i171, %_ZNK6hermes8Interval3endEv.exit97.i602 ]
-  %73 = phi i64 [ %sub2.i.i.i.i169, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643.thread" ], [ %mul.i.i.i.i167, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit643" ], [ %mul.i.i.i.i167, %_ZNK6hermes8Interval3endEv.exit97.i602 ]
+71:                                               ; preds = %_ZNK6hermes8Interval3endEv.exit97.i602, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643", %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643.thread"
+  %72 = phi i32 [ %add.ptr3.val.i.i.i.i172, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643.thread" ], [ %add.ptr.val.i.i.i.i171, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643" ], [ %add.ptr.val.i.i.i.i171, %_ZNK6hermes8Interval3endEv.exit97.i602 ]
+  %73 = phi i64 [ %sub2.i.i.i.i169, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643.thread" ], [ %mul.i.i.i.i167, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom.exit643" ], [ %mul.i.i.i.i167, %_ZNK6hermes8Interval3endEv.exit97.i602 ]
   %add.ptr5.i.i.i.i177 = getelementptr inbounds i32, ptr %intervals.val30, i64 %__secondChild.025.i.i.i.i165
   store i32 %72, ptr %add.ptr5.i.i.i.i177, align 4
   %cmp.i.i.i.i178 = icmp slt i64 %73, %div.i.i.i.i
@@ -8888,7 +8888,7 @@ land.rhs.i.i.i.i.i147:                            ; preds = %while.body.i.i.i.i.
   %add.ptr.i.i.i.i.i150 = getelementptr inbounds i32, ptr %intervals.val30, i64 %__parent.015.i.i45.i.i.i
   %add.ptr.val.i.i.i.i.i151 = load i32, ptr %add.ptr.i.i.i.i.i150, align 4
   %__comp.val.val.i.i.i.i.i152 = load ptr, ptr %76, align 8
-  %call.i.i.i.i.i.i153 = call fastcc noundef zeroext i1 @"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj"(ptr readonly %__comp.val.val.i.i.i.i.i152, i32 noundef %add.ptr.val.i.i.i.i.i151, i32 noundef %52)
+  %call.i.i.i.i.i.i153 = call fastcc noundef zeroext i1 @"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom"(ptr readonly %__comp.val.val.i.i.i.i.i152, i32 noundef %add.ptr.val.i.i.i.i.i151, i32 noundef %52)
   br i1 %call.i.i.i.i.i.i153, label %while.body.i.i.i.i.i154, label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_0EEEvT_SD_SD_RT0_.exit.i.i"
 
 while.body.i.i.i.i.i154:                          ; preds = %land.rhs.i.i.i.i.i147
@@ -9568,7 +9568,7 @@ for.body.i21.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i, 
 
 _ZNK6hermes8Interval5startEv.exit28.i.i.i.i.i:    ; preds = %for.body.i21.i.i.i.i.i, %lor.rhs.i.i.i.i.i
   %start.0.lcssa.i27.i.i.i.i.i = phi i64 [ %165, %lor.rhs.i.i.i.i.i ], [ %.sroa.speculated.i24.i.i.i.i.i, %for.body.i21.i.i.i.i.i ]
-  br i1 %cmp.not7.i8.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i.i.i", label %for.body.i33.i.i.i.i.i
+  br i1 %cmp.not7.i8.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i.i.i", label %for.body.i33.i.i.i.i.i
 
 for.body.i33.i.i.i.i.i:                           ; preds = %_ZNK6hermes8Interval5startEv.exit28.i.i.i.i.i, %for.body.i33.i.i.i.i.i
   %__begin2.09.i34.i.i.i.i.i = phi ptr [ %incdec.ptr.i37.i.i.i.i.i, %for.body.i33.i.i.i.i.i ], [ %168, %_ZNK6hermes8Interval5startEv.exit28.i.i.i.i.i ]
@@ -9577,23 +9577,23 @@ for.body.i33.i.i.i.i.i:                           ; preds = %_ZNK6hermes8Interva
   %.sroa.speculated.i36.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %173, i64 %start.08.i35.i.i.i.i.i)
   %incdec.ptr.i37.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.09.i34.i.i.i.i.i, i64 16
   %cmp.not.i38.i.i.i.i.i = icmp eq ptr %incdec.ptr.i37.i.i.i.i.i, %add.ptr.i.i7.i.i.i.i.i
-  br i1 %cmp.not.i38.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i.i.i", label %for.body.i33.i.i.i.i.i
+  br i1 %cmp.not.i38.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i.i.i", label %for.body.i33.i.i.i.i.i
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i.i.i": ; preds = %for.body.i33.i.i.i.i.i, %_ZNK6hermes8Interval5startEv.exit28.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i.i.i": ; preds = %for.body.i33.i.i.i.i.i, %_ZNK6hermes8Interval5startEv.exit28.i.i.i.i.i
   %start.0.lcssa.i39.i.i.i.i.i = phi i64 [ %169, %_ZNK6hermes8Interval5startEv.exit28.i.i.i.i.i ], [ %.sroa.speculated.i36.i.i.i.i.i, %for.body.i33.i.i.i.i.i ]
   %cmp9.i.i.i.i.i = icmp eq i64 %start.0.lcssa.i27.i.i.i.i.i, %start.0.lcssa.i39.i.i.i.i.i
   %cmp10.i.i.i.i.i = icmp ult i32 %add.ptr.val.i.i.i309, %162
   %174 = and i1 %cmp10.i.i.i.i.i, %cmp9.i.i.i.i.i
   br i1 %174, label %while.body.i.i.i314, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_1E4pushERKj.exit"
 
-while.body.i.i.i314:                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i.i.i", %_ZNK6hermes8Interval5startEv.exit16.i.i.i.i.i
+while.body.i.i.i314:                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i.i.i", %_ZNK6hermes8Interval5startEv.exit16.i.i.i.i.i
   %add.ptr2.i.i.i315 = getelementptr inbounds i32, ptr %161, i64 %__holeIndex.addr.014.i.i.i305
   store i32 %add.ptr.val.i.i.i309, ptr %add.ptr2.i.i.i315, align 4
   %cmp.i.not.i.i316 = icmp ult i64 %__parent.015.in.i.i.i306, 2
   br i1 %cmp.i.not.i.i316, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_1E4pushERKj.exit", label %land.rhs.i.i.i304, !llvm.loop !54
 
-"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_1E4pushERKj.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i.i.i", %while.body.i.i.i314, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i291
-  %__holeIndex.addr.0.lcssa.i.i.i300 = phi i64 [ %sub.i.i298, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i291 ], [ %__holeIndex.addr.014.i.i.i305, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i.i.i" ], [ %__parent.015.i34.i.i307, %while.body.i.i.i314 ]
+"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_1E4pushERKj.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i.i.i", %while.body.i.i.i314, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i291
+  %__holeIndex.addr.0.lcssa.i.i.i300 = phi i64 [ %sub.i.i298, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i291 ], [ %__holeIndex.addr.014.i.i.i305, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i.i.i" ], [ %__parent.015.i34.i.i307, %while.body.i.i.i314 ]
   %add.ptr5.i.i.i301 = getelementptr inbounds i32, ptr %161, i64 %__holeIndex.addr.0.lcssa.i.i.i300
   store i32 %162, ptr %add.ptr5.i.i.i301, align 4
   br label %while.cond.backedge
@@ -13657,7 +13657,7 @@ return:                                           ; preds = %for.body.i.i, %for.
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj"(ptr nocapture readonly %this.0.val.328.val, i32 noundef %a, i32 noundef %b) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.argprom.argprom"(ptr nocapture readonly %this.0.val.328.val, i32 noundef %a, i32 noundef %b) unnamed_addr #2 align 2 {
 entry:
   %conv = zext i32 %a to i64
   %arrayidx.i21 = getelementptr inbounds %"struct.hermes::Interval", ptr %this.0.val.328.val, i64 %conv
@@ -13878,7 +13878,7 @@ for.body.i9.i.i:                                  ; preds = %_ZNK6hermes8Interva
 _ZNK6hermes8Interval5startEv.exit16.i.i:          ; preds = %for.body.i9.i.i, %_ZNK6hermes8Interval5startEv.exit.i.i
   %start.0.lcssa.i15.i.i = phi i64 [ %6, %_ZNK6hermes8Interval5startEv.exit.i.i ], [ %.sroa.speculated.i12.i.i, %for.body.i9.i.i ]
   %cmp.i.i = icmp ult i64 %start.0.lcssa.i.i.i, %start.0.lcssa.i15.i.i
-  br i1 %cmp.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread", label %lor.rhs.i.i
+  br i1 %cmp.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit.thread", label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZNK6hermes8Interval5startEv.exit16.i.i
   br i1 %cmp.not7.i.i.i, label %_ZNK6hermes8Interval5startEv.exit28.i.i, label %for.body.i21.i.i
@@ -13894,7 +13894,7 @@ for.body.i21.i.i:                                 ; preds = %lor.rhs.i.i, %for.b
 
 _ZNK6hermes8Interval5startEv.exit28.i.i:          ; preds = %for.body.i21.i.i, %lor.rhs.i.i
   %start.0.lcssa.i27.i.i = phi i64 [ %2, %lor.rhs.i.i ], [ %.sroa.speculated.i24.i.i, %for.body.i21.i.i ]
-  br i1 %cmp.not7.i8.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", label %for.body.i33.i.i
+  br i1 %cmp.not7.i8.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit", label %for.body.i33.i.i
 
 for.body.i33.i.i:                                 ; preds = %_ZNK6hermes8Interval5startEv.exit28.i.i, %for.body.i33.i.i
   %__begin2.09.i34.i.i = phi ptr [ %incdec.ptr.i37.i.i, %for.body.i33.i.i ], [ %5, %_ZNK6hermes8Interval5startEv.exit28.i.i ]
@@ -13903,22 +13903,22 @@ for.body.i33.i.i:                                 ; preds = %_ZNK6hermes8Interva
   %.sroa.speculated.i36.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %start.08.i35.i.i)
   %incdec.ptr.i37.i.i = getelementptr inbounds i8, ptr %__begin2.09.i34.i.i, i64 16
   %cmp.not.i38.i.i = icmp eq ptr %incdec.ptr.i37.i.i, %add.ptr.i.i7.i.i
-  br i1 %cmp.not.i38.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", label %for.body.i33.i.i
+  br i1 %cmp.not.i38.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit", label %for.body.i33.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit": ; preds = %for.body.i33.i.i, %_ZNK6hermes8Interval5startEv.exit28.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit": ; preds = %for.body.i33.i.i, %_ZNK6hermes8Interval5startEv.exit28.i.i
   %start.0.lcssa.i39.i.i = phi i64 [ %6, %_ZNK6hermes8Interval5startEv.exit28.i.i ], [ %.sroa.speculated.i36.i.i, %for.body.i33.i.i ]
   %cmp9.i.i = icmp eq i64 %start.0.lcssa.i27.i.i, %start.0.lcssa.i39.i.i
   %cmp10.i.i = icmp ult i32 %add.ptr.val, %add.ptr3.val
   %11 = and i1 %cmp10.i.i, %cmp9.i.i
   %cond.fr = freeze i1 %11
-  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread", label %while.cond
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit.thread", label %while.cond
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread": ; preds = %_ZNK6hermes8Interval5startEv.exit16.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit.thread": ; preds = %_ZNK6hermes8Interval5startEv.exit16.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit"
   br label %while.cond
 
-while.cond:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"
-  %12 = phi i32 [ %add.ptr3.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ], [ %add.ptr.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
-  %13 = phi i64 [ %sub2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ], [ %mul, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
+while.cond:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit.thread"
+  %12 = phi i32 [ %add.ptr3.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit.thread" ], [ %add.ptr.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit" ]
+  %13 = phi i64 [ %sub2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit.thread" ], [ %mul, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.argprom.argprom.exit" ]
   %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.026
   store i32 %12, ptr %add.ptr5, align 4
   %cmp = icmp slt i64 %13, %div
@@ -14022,7 +14022,7 @@ for.body.i21.i.i.i:                               ; preds = %lor.rhs.i.i.i, %for
 
 _ZNK6hermes8Interval5startEv.exit28.i.i.i:        ; preds = %for.body.i21.i.i.i, %lor.rhs.i.i.i
   %start.0.lcssa.i27.i.i.i = phi i64 [ %17, %lor.rhs.i.i.i ], [ %.sroa.speculated.i24.i.i.i, %for.body.i21.i.i.i ]
-  br i1 %cmp.not7.i8.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i", label %for.body.i33.i.i.i
+  br i1 %cmp.not7.i8.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i", label %for.body.i33.i.i.i
 
 for.body.i33.i.i.i:                               ; preds = %_ZNK6hermes8Interval5startEv.exit28.i.i.i, %for.body.i33.i.i.i
   %__begin2.09.i34.i.i.i = phi ptr [ %incdec.ptr.i37.i.i.i, %for.body.i33.i.i.i ], [ %20, %_ZNK6hermes8Interval5startEv.exit28.i.i.i ]
@@ -14031,23 +14031,23 @@ for.body.i33.i.i.i:                               ; preds = %_ZNK6hermes8Interva
   %.sroa.speculated.i36.i.i.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %start.08.i35.i.i.i)
   %incdec.ptr.i37.i.i.i = getelementptr inbounds i8, ptr %__begin2.09.i34.i.i.i, i64 16
   %cmp.not.i38.i.i.i = icmp eq ptr %incdec.ptr.i37.i.i.i, %add.ptr.i.i7.i.i.i
-  br i1 %cmp.not.i38.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i", label %for.body.i33.i.i.i
+  br i1 %cmp.not.i38.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i", label %for.body.i33.i.i.i
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i": ; preds = %for.body.i33.i.i.i, %_ZNK6hermes8Interval5startEv.exit28.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i": ; preds = %for.body.i33.i.i.i, %_ZNK6hermes8Interval5startEv.exit28.i.i.i
   %start.0.lcssa.i39.i.i.i = phi i64 [ %21, %_ZNK6hermes8Interval5startEv.exit28.i.i.i ], [ %.sroa.speculated.i36.i.i.i, %for.body.i33.i.i.i ]
   %cmp9.i.i.i = icmp eq i64 %start.0.lcssa.i27.i.i.i, %start.0.lcssa.i39.i.i.i
   %cmp10.i.i.i = icmp ult i32 %add.ptr.val.i, %__value
   %26 = and i1 %cmp10.i.i.i, %cmp9.i.i.i
   br i1 %26, label %while.body.i, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_RT2_.exit"
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i", %_ZNK6hermes8Interval5startEv.exit16.i.i.i
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i", %_ZNK6hermes8Interval5startEv.exit16.i.i.i
   %add.ptr2.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.014.i
   store i32 %add.ptr.val.i, ptr %add.ptr2.i, align 4
   %cmp.i = icmp sgt i64 %__parent.015.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_RT2_.exit", !llvm.loop !54
 
-"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i", %while.body.i, %if.end17
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.014.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i" ], [ %__parent.015.i, %while.body.i ]
+"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i", %while.body.i, %if.end17
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.014.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.argprom.argprom.exit.i" ], [ %__parent.015.i, %while.body.i ]
   %add.ptr5.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %__value, ptr %add.ptr5.i, align 4
   ret void

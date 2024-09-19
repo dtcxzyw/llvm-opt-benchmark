@@ -92,12 +92,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @job_sizes_grouped_by_acct(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  tail call fastcc void @_run_report(i32 noundef 0, i32 noundef %0, ptr noundef %1)
+  tail call fastcc void @_run_report.retelim(i32 noundef 0, i32 noundef %0, ptr noundef %1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_run_report(i32 noundef range(i32 0, 3) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_run_report.retelim(i32 noundef range(i32 0, 3) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1559,13 +1559,13 @@ _setup_grouping_print_fields_list.exit:           ; preds = %452, %453
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @job_sizes_grouped_by_wckey(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  tail call fastcc void @_run_report(i32 noundef 1, i32 noundef %0, ptr noundef %1)
+  tail call fastcc void @_run_report.retelim(i32 noundef 1, i32 noundef %0, ptr noundef %1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @job_sizes_grouped_by_acct_and_wckey(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  tail call fastcc void @_run_report(i32 noundef 2, i32 noundef %0, ptr noundef %1)
+  tail call fastcc void @_run_report.retelim(i32 noundef 2, i32 noundef %0, ptr noundef %1)
   ret i32 0
 }
 

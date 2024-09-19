@@ -400,7 +400,7 @@ define void @_ZN5ZXing10BigInteger3AddERKS0_S2_RS0_(ptr noundef nonnull align 8 
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
   %43 = icmp ult i64 %38, %42
-  br i1 %43, label %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit, label %44
+  br i1 %43, label %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.argprom.exit, label %44
 
 44:                                               ; preds = %34
   %45 = icmp ugt i64 %38, %42
@@ -432,9 +432,9 @@ _ZSt8mismatchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorIm
   %56 = getelementptr inbounds i8, ptr %.ptr.i, i64 -8
   %57 = load i64, ptr %56, align 8
   %58 = icmp ult i64 %55, %57
-  br i1 %58, label %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit, label %61
+  br i1 %58, label %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.argprom.exit, label %61
 
-_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit: ; preds = %53, %34
+_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.argprom.exit: ; preds = %53, %34
   %59 = and i8 %27, 1
   store i8 %59, ptr %2, align 8
   %60 = getelementptr inbounds i8, ptr %2, i64 8
@@ -461,7 +461,7 @@ _ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit: ; preds = %53, %34
   store ptr %66, ptr %67, align 8
   br label %_ZNSt6vectorImSaImEE5clearEv.exit
 
-_ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %69, %64, %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit, %61, %31, %22, %9
+_ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %69, %64, %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.argprom.exit, %61, %31, %22, %9
   ret void
 }
 
@@ -806,7 +806,7 @@ define void @_ZN5ZXing10BigInteger8SubtractERKS0_S2_RS0_(ptr noundef nonnull ali
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
   %43 = icmp ult i64 %38, %42
-  br i1 %43, label %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit, label %44
+  br i1 %43, label %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.argprom.exit, label %44
 
 44:                                               ; preds = %34
   %45 = icmp ugt i64 %38, %42
@@ -838,9 +838,9 @@ _ZSt8mismatchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorIm
   %56 = getelementptr inbounds i8, ptr %.ptr.i, i64 -8
   %57 = load i64, ptr %56, align 8
   %58 = icmp ult i64 %55, %57
-  br i1 %58, label %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit, label %62
+  br i1 %58, label %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.argprom.exit, label %62
 
-_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit: ; preds = %53, %34
+_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.argprom.exit: ; preds = %53, %34
   %59 = and i8 %28, 1
   %60 = xor i8 %59, 1
   store i8 %60, ptr %2, align 8
@@ -868,7 +868,7 @@ _ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit: ; preds = %53, %34
   store ptr %67, ptr %68, align 8
   br label %_ZNSt6vectorImSaImEE5clearEv.exit
 
-_ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %70, %65, %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.exit, %62, %31, %23, %9
+_ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %70, %65, %_ZN5ZXingL10CompareMagERKSt6vectorImSaImEES4_.argprom.exit, %62, %31, %23, %9
   ret void
 }
 
@@ -1161,19 +1161,19 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %46, %48, %50, %52
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %70, %73
   resume { ptr, i32 } %71
 
-.preheader:                                       ; preds = %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit
+.preheader:                                       ; preds = %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit
   br i1 %.0.in, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre100 = load ptr, ptr %23, align 8
   br label %.lr.ph
 
-74:                                               ; preds = %.preheader86, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit
-  %75 = phi i64 [ %68, %.preheader86 ], [ %107, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit ]
-  %76 = phi ptr [ %64, %.preheader86 ], [ %103, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit ]
-  %.05590 = phi i64 [ 0, %.preheader86 ], [ %100, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit ]
-  %.05689 = phi i1 [ false, %.preheader86 ], [ %.0.in, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit ]
-  %.05788 = phi i64 [ %.06093, %.preheader86 ], [ %101, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit ]
+74:                                               ; preds = %.preheader86, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit
+  %75 = phi i64 [ %68, %.preheader86 ], [ %107, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit ]
+  %76 = phi ptr [ %64, %.preheader86 ], [ %103, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit ]
+  %.05590 = phi i64 [ 0, %.preheader86 ], [ %100, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit ]
+  %.05689 = phi i1 [ false, %.preheader86 ], [ %.0.in, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit ]
+  %.05788 = phi i64 [ %.06093, %.preheader86 ], [ %101, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit ]
   %77 = load ptr, ptr %23, align 8
   %78 = getelementptr inbounds i64, ptr %77, i64 %.05788
   %79 = load i64, ptr %78, align 8
@@ -1191,15 +1191,15 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %70, %73
 86:                                               ; preds = %81, %74
   %87 = phi i64 [ %85, %81 ], [ 0, %74 ]
   %88 = icmp eq i64 %.05590, %75
-  br i1 %88, label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit, label %89
+  br i1 %88, label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit, label %89
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i64, ptr %76, i64 %.05590
   %91 = load i64, ptr %90, align 8
   %92 = shl i64 %91, %.05992
-  br label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit
+  br label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit
 
-_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit: ; preds = %86, %89
+_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit: ; preds = %86, %89
   %93 = phi i64 [ %92, %89 ], [ 0, %86 ]
   %94 = or i64 %93, %87
   %95 = add i64 %94, %79
@@ -1764,7 +1764,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %._ZNSt6vectorImSaIm
   %umax = call i64 @llvm.umax.i64(i64 %146, i64 1)
   br label %155
 
-.preheader:                                       ; preds = %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit
+.preheader:                                       ; preds = %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit
   %147 = load ptr, ptr %17, align 8
   %148 = load ptr, ptr %0, align 8
   %149 = ptrtoint ptr %147 to i64
@@ -1775,10 +1775,10 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %._ZNSt6vectorImSaIm
   %154 = select i1 %153, i1 %.0.in, i1 false
   br i1 %154, label %.lr.ph, label %._crit_edge
 
-155:                                              ; preds = %135, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit
-  %.086185 = phi i64 [ 0, %135 ], [ %176, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit ]
-  %.087184 = phi i1 [ false, %135 ], [ %.0.in, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit ]
-  %.088183 = phi i64 [ %132, %135 ], [ %177, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit ]
+155:                                              ; preds = %135, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit
+  %.086185 = phi i64 [ 0, %135 ], [ %176, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit ]
+  %.087184 = phi i1 [ false, %135 ], [ %.0.in, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit ]
+  %.088183 = phi i64 [ %132, %135 ], [ %177, %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit ]
   %156 = getelementptr inbounds i64, ptr %143, i64 %.088183
   %157 = load i64, ptr %156, align 8
   %158 = icmp eq i64 %.086185, 0
@@ -1794,15 +1794,15 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %._ZNSt6vectorImSaIm
 162:                                              ; preds = %159, %155
   %163 = phi i64 [ %161, %159 ], [ 0, %155 ]
   %164 = icmp eq i64 %.086185, %142
-  br i1 %164, label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit, label %165
+  br i1 %164, label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit, label %165
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds i64, ptr %138, i64 %.086185
   %167 = load i64, ptr %166, align 8
   %168 = shl i64 %167, %136
-  br label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit
+  br label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit
 
-_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit: ; preds = %162, %165
+_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.argprom.exit: ; preds = %162, %165
   %169 = phi i64 [ %168, %165 ], [ 0, %162 ]
   %170 = or i64 %169, %163
   %171 = sub i64 %157, %170

@@ -378,7 +378,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.14, i64 noundef %0, i64 noundef %1) #19
-  tail call fastcc void @graphviz_exit() #20
+  tail call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 8:                                                ; preds = %4
@@ -390,7 +390,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.15, i64 noundef %13) #19
-  tail call fastcc void @graphviz_exit() #20
+  tail call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -1110,7 +1110,7 @@ define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr n
 117:                                              ; preds = %113
   %118 = load ptr, ptr @stderr, align 8
   %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.15, i64 noundef 160) #19
-  call fastcc void @graphviz_exit() #20
+  call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %113
@@ -1124,7 +1124,7 @@ gv_calloc.exit.i:                                 ; preds = %113
 125:                                              ; preds = %gv_calloc.exit.i
   %126 = load ptr, ptr @stderr, align 8
   %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.15, i64 noundef 320) #19
-  call fastcc void @graphviz_exit() #20
+  call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %gv_calloc.exit552.i
@@ -2796,7 +2796,7 @@ define internal fastcc double @compute_stressf(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #9 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #9 {
   tail call void @exit(i32 noundef 1) #22
   unreachable
 }

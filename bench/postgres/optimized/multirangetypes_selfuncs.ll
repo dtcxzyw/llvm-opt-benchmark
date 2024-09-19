@@ -346,7 +346,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %177 = getelementptr inbounds i8, ptr %2, i64 24
   %178 = load i32, ptr %177, align 8
   %179 = icmp slt i32 %178, 2
-  br i1 %179, label %calc_hist_selectivity.exit.thread37.i, label %180
+  br i1 %179, label %calc_hist_selectivity.argprom.exit.thread37.i, label %180
 
 180:                                              ; preds = %176
   %181 = zext nneg i32 %178 to i64
@@ -393,17 +393,17 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 201:                                              ; preds = %200, %200, %200, %200
   %202 = load ptr, ptr %127, align 8
   %.not89.i.i = icmp eq ptr %202, null
-  br i1 %.not89.i.i, label %calc_hist_selectivity.exit.thread37.i, label %203
+  br i1 %.not89.i.i, label %calc_hist_selectivity.argprom.exit.thread37.i, label %203
 
 203:                                              ; preds = %201
   %204 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef nonnull %202, i32 noundef 6, i32 noundef 0, i32 noundef 1) #10
-  br i1 %204, label %205, label %calc_hist_selectivity.exit.thread37.i
+  br i1 %204, label %205, label %calc_hist_selectivity.argprom.exit.thread37.i
 
 205:                                              ; preds = %203
   %206 = getelementptr inbounds i8, ptr %3, i64 24
   %207 = load i32, ptr %206, align 8
   %208 = icmp slt i32 %207, 2
-  br i1 %208, label %calc_hist_selectivity.exit.i, label %210
+  br i1 %208, label %calc_hist_selectivity.argprom.exit.i, label %210
 
 209:                                              ; preds = %200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
@@ -438,39 +438,39 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 
 213:                                              ; preds = %210
   %214 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %4, ptr noundef %183, i32 noundef %178, i1 noundef zeroext false)
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 215:                                              ; preds = %210
   %216 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %4, ptr noundef %183, i32 noundef %178, i1 noundef zeroext true)
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 217:                                              ; preds = %210
   %218 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %4, ptr noundef %183, i32 noundef %178, i1 noundef zeroext false)
   %219 = fsub double 1.000000e+00, %218
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 220:                                              ; preds = %210
   %221 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %4, ptr noundef %183, i32 noundef %178, i1 noundef zeroext true)
   %222 = fsub double 1.000000e+00, %221
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 223:                                              ; preds = %210, %210
   %224 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %4, ptr noundef %184, i32 noundef %178, i1 noundef zeroext false)
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 225:                                              ; preds = %210, %210
   %226 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %5, ptr noundef %183, i32 noundef %178, i1 noundef zeroext true)
   %227 = fsub double 1.000000e+00, %226
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 228:                                              ; preds = %210, %210
   %229 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %4, ptr noundef %183, i32 noundef %178, i1 noundef zeroext false)
   %230 = fsub double 1.000000e+00, %229
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 231:                                              ; preds = %210, %210
   %232 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %5, ptr noundef %184, i32 noundef %178, i1 noundef zeroext true)
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 233:                                              ; preds = %210, %210, %210
   %234 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %4, ptr noundef %184, i32 noundef %178, i1 noundef zeroext false)
@@ -478,7 +478,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %236 = fsub double 1.000000e+00, %235
   %237 = fadd double %234, %236
   %238 = fsub double 1.000000e+00, %237
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 239:                                              ; preds = %210, %210
   %240 = getelementptr inbounds i8, ptr %3, i64 16
@@ -486,7 +486,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %242 = getelementptr inbounds i8, ptr %3, i64 24
   %243 = load i32, ptr %242, align 8
   %244 = call fastcc double @calc_hist_selectivity_contains(ptr noundef %.val.i, ptr noundef %4, ptr noundef %5, ptr noundef %183, i32 noundef %178, ptr noundef %241, i32 noundef %243)
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 245:                                              ; preds = %210, %210
   %246 = getelementptr inbounds i8, ptr %4, i64 8
@@ -496,7 +496,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 
 249:                                              ; preds = %245
   %250 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %5, ptr noundef %184, i32 noundef %178, i1 noundef zeroext true)
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 251:                                              ; preds = %245
   %252 = getelementptr inbounds i8, ptr %5, i64 8
@@ -507,7 +507,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 255:                                              ; preds = %251
   %256 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.val.i, ptr noundef %4, ptr noundef %183, i32 noundef %178, i1 noundef zeroext false)
   %257 = fsub double 1.000000e+00, %256
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 258:                                              ; preds = %251
   %259 = getelementptr inbounds i8, ptr %3, i64 16
@@ -515,7 +515,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %261 = getelementptr inbounds i8, ptr %3, i64 24
   %262 = load i32, ptr %261, align 8
   %263 = call fastcc double @calc_hist_selectivity_contained(ptr noundef %.val.i, ptr noundef %4, ptr noundef %5, ptr noundef %183, i32 noundef %178, ptr noundef %260, i32 noundef %262)
-  br label %calc_hist_selectivity.exit.i
+  br label %calc_hist_selectivity.argprom.exit.i
 
 264:                                              ; preds = %210
   %265 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -524,11 +524,11 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.calc_hist_selectivity) #10
   unreachable
 
-calc_hist_selectivity.exit.thread37.i:            ; preds = %203, %201, %176
+calc_hist_selectivity.argprom.exit.thread37.i:    ; preds = %203, %201, %176
   call void @free_attstatsslot(ptr noundef nonnull %2) #10
   br label %.sink.split.i
 
-calc_hist_selectivity.exit.i:                     ; preds = %258, %255, %249, %239, %233, %231, %228, %225, %223, %220, %217, %215, %213, %205
+calc_hist_selectivity.argprom.exit.i:             ; preds = %258, %255, %249, %239, %233, %231, %228, %225, %223, %220, %217, %215, %213, %205
   %.083.ph.ph.i.i = phi double [ -1.000000e+00, %205 ], [ %250, %249 ], [ %257, %255 ], [ %263, %258 ], [ %244, %239 ], [ %238, %233 ], [ %232, %231 ], [ %230, %228 ], [ %227, %225 ], [ %224, %223 ], [ %222, %220 ], [ %219, %217 ], [ %216, %215 ], [ %214, %213 ]
   call void @free_attstatsslot(ptr noundef nonnull %3) #10
   call void @free_attstatsslot(ptr noundef nonnull %2) #10
@@ -541,7 +541,7 @@ calc_hist_selectivity.exit.i:                     ; preds = %258, %255, %249, %2
   %267 = fcmp olt double %.083.ph.ph.i.i, 0.000000e+00
   br i1 %267, label %268, label %270
 
-.sink.split.i:                                    ; preds = %calc_hist_selectivity.exit.thread37.i, %174, %172, %170, %162
+.sink.split.i:                                    ; preds = %calc_hist_selectivity.argprom.exit.thread37.i, %174, %172, %170, %162
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -550,12 +550,12 @@ calc_hist_selectivity.exit.i:                     ; preds = %258, %255, %249, %2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %268
 
-268:                                              ; preds = %.sink.split.i, %calc_hist_selectivity.exit.i
+268:                                              ; preds = %.sink.split.i, %calc_hist_selectivity.argprom.exit.i
   %269 = call fastcc double @default_multirange_selectivity(i32 noundef %.074)
   br label %270
 
-270:                                              ; preds = %268, %calc_hist_selectivity.exit.i
-  %.0.i = phi double [ %269, %268 ], [ %.083.ph.ph.i.i, %calc_hist_selectivity.exit.i ]
+270:                                              ; preds = %268, %calc_hist_selectivity.argprom.exit.i
+  %.0.i = phi double [ %269, %268 ], [ %.083.ph.ph.i.i, %calc_hist_selectivity.argprom.exit.i ]
   switch i32 %.074, label %274 [
     i32 4540, label %271
     i32 2874, label %271

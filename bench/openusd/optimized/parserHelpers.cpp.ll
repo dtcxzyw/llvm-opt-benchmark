@@ -4199,7 +4199,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN32pxrInternal_v0_24__
   %5 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E seq_cst, align 8
   %6 = inttoptr i64 %5 to ptr
   %.not.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i, label %7, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit
+  br i1 %.not.i.i, label %7, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit
 
 7:                                                ; preds = %2
   %8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
@@ -4217,7 +4217,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN32pxrInternal_v0_24__
   %14 = ptrtoint ptr %8 to i64
   %15 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E, i64 0, i64 %14 seq_cst seq_cst, align 8
   %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit, label %17
+  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit, label %17
 
 17:                                               ; preds = %7
   %18 = load ptr, ptr %10, align 8
@@ -4235,9 +4235,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 48) #25
   %22 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E seq_cst, align 8
   %23 = inttoptr i64 %22 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit: ; preds = %2, %7, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit: ; preds = %2, %7, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i
   %24 = phi ptr [ %6, %2 ], [ %23, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i ], [ %8, %7 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
@@ -4245,9 +4245,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_s
   %.not11.i.i.i = icmp eq ptr %26, null
   br i1 %.not11.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %26, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit ]
-  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %27, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit ]
+.lr.ph.i.i.i:                                     ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
+  %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %26, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit ]
+  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %27, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %29 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %30
@@ -4289,12 +4289,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %spec.select.i.i = select i1 %41, ptr %27, ptr %.19.i.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %.sroa.0.0.i.i = phi ptr [ %27, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %27, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
+  %.sroa.0.0.i.i = phi ptr [ %27, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %27, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %42 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E seq_cst, align 8
   %43 = inttoptr i64 %42 to ptr
   %.not.i.i10 = icmp eq i64 %42, 0
-  br i1 %.not.i.i10, label %44, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit12
+  br i1 %.not.i.i10, label %44, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit12
 
 44:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
   %45 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
@@ -4312,7 +4312,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
   %51 = ptrtoint ptr %45 to i64
   %52 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E, i64 0, i64 %51 seq_cst seq_cst, align 8
   %53 = extractvalue { i64, i1 } %52, 1
-  br i1 %53, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit12, label %54
+  br i1 %53, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit12, label %54
 
 54:                                               ; preds = %44
   %55 = load ptr, ptr %47, align 8
@@ -4330,20 +4330,20 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
   tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 48) #25
   %59 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E seq_cst, align 8
   %60 = inttoptr i64 %59 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit12
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit12
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit12: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit, %44, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i11
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit12: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit, %44, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i11
   %61 = phi ptr [ %43, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ], [ %60, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i11 ], [ %45, %44 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %.not17 = icmp eq ptr %.sroa.0.0.i.i, %62
   br i1 %.not17, label %65, label %63
 
-63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit12
+63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit12
   store i8 1, ptr %1, align 1
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
   br label %86
 
-65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit12
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.argprom.exit12
   %66 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers27GetValueFactoryForMenvaNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbE4none acquire, align 8
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %76, !prof !6
@@ -4354,7 +4354,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_s
   br i1 %.not, label %76, label %70
 
 70:                                               ; preds = %68
-  %71 = invoke fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEdeEv()
+  %71 = invoke fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEdeEv.argprom()
           to label %72 unwind label %78
 
 72:                                               ; preds = %70
@@ -4413,11 +4413,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_s
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEdeEv() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEdeEv.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E seq_cst, align 8
   %2 = inttoptr i64 %1 to ptr
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %3, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEE3GetEv.exit
+  br i1 %.not.i, label %3, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEE3GetEv.argprom.exit
 
 3:                                                ; preds = %0
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
@@ -4435,7 +4435,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32px
   %10 = ptrtoint ptr %4 to i64
   %11 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E, i64 0, i64 %10 seq_cst seq_cst, align 8
   %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEE3GetEv.exit, label %13
+  br i1 %12, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEE3GetEv.argprom.exit, label %13
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %6, align 8
@@ -4453,9 +4453,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 48) #25
   %18 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E seq_cst, align 8
   %19 = inttoptr i64 %18 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEE3GetEv.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEE3GetEv.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEE3GetEv.exit: ; preds = %0, %3, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEE3GetEv.argprom.exit: ; preds = %0, %3, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i
   %20 = phi ptr [ %2, %0 ], [ %19, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i ], [ %4, %3 ]
   ret ptr %20
 }

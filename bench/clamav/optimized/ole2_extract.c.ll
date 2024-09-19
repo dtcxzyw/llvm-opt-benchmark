@@ -990,7 +990,7 @@ define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocaptu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %5, ptr noundef nonnull readonly align 1 dereferenceable(72) %63, i64 72, i1 false)
   %64 = getelementptr inbounds i8, ptr %4, i64 256
   store i32 128, ptr %64, align 4
-  %65 = call fastcc i32 @generate_key_aes(ptr noundef %4, ptr noundef %5)
+  %65 = call fastcc i32 @generate_key_aes.argprom(ptr noundef %4, ptr noundef %5)
   %.not40 = icmp eq i32 %65, 0
   br i1 %.not40, label %66, label %70
 
@@ -2151,7 +2151,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   %203 = getelementptr inbounds i8, ptr %158, i64 %202
   %204 = sext i32 %195 to i64
   %.064..i = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %204)
-  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef %7, ptr noundef %203, i64 noundef %.064..i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
+  call fastcc void @scan_biff_for_xlm_macros_and_images.retelim(ptr noundef %7, ptr noundef %203, i64 noundef %.064..i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
   %205 = load i32, ptr %174, align 8
   %206 = shl nuw i32 1, %205
   %207 = sext i32 %206 to i64
@@ -2299,7 +2299,7 @@ ole2_get_next_sbat_block.exit.i:                  ; preds = %241, %236, %.thread
   %278 = shl nuw i32 1, %277
   %279 = sext i32 %278 to i64
   %.064.81.i = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %279)
-  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef %7, ptr noundef %158, i64 noundef %.064.81.i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
+  call fastcc void @scan_biff_for_xlm_macros_and_images.retelim(ptr noundef %7, ptr noundef %158, i64 noundef %.064.81.i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
   %280 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull readonly %0, i32 noundef %.065106.i)
   %281 = load i16, ptr %153, align 2
   %282 = zext nneg i16 %281 to i32
@@ -3833,7 +3833,7 @@ ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 35) i32 @generate_key_aes(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 35) i32 @generate_key_aes.argprom(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
   %3 = alloca [28 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
@@ -4712,7 +4712,7 @@ ole2_read_block.exit:                             ; preds = %52, %46, %38, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_biff_for_xlm_macros_and_images(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) unnamed_addr #2 {
+define internal fastcc void @scan_biff_for_xlm_macros_and_images.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) unnamed_addr #2 {
   %.not95 = icmp eq i64 %2, 0
   br i1 %.not95, label %._crit_edge, label %.lr.ph
 

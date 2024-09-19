@@ -727,7 +727,7 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit: ; preds = %184, %219, %.th
   %.val215 = load i64, ptr %.sroa.065.sroa.6.0..sroa_idx, align 8, !noundef !4
   %.val217 = load i64, ptr %38, align 8, !noundef !4
   %.not.i.i = icmp eq i64 %.val215, %.val217
-  br i1 %.not.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit", label %718
+  br i1 %.not.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit", label %718
 
 .preheader497:                                    ; preds = %233, %.preheader497.backedge
   %.sroa.95.4 = phi i32 [ 1114113, %.preheader497.backedge ], [ %.sroa.95.3, %233 ]
@@ -1768,14 +1768,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit361: ; preds = %712
   store i8 1, ptr %46, align 1
   br label %.preheader497.backedge
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %235
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit": ; preds = %235
   %.val216 = load ptr, ptr %37, align 8, !nonnull !4, !align !28, !noundef !4
   %.val = load ptr, ptr %.sroa.065.sroa.5.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val216, i64 %.val215), !alias.scope !268
   %717 = icmp eq i32 %bcmp.i.i, 0
   br i1 %717, label %721, label %718
 
-718:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit", %235
+718:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit", %235
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
   store ptr %37, ptr %30, align 8
   %719 = getelementptr inbounds i8, ptr %30, i64 8
@@ -1801,7 +1801,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit374: ; preds = %718
   store i64 2, ptr %0, align 8
   br label %336
 
-721:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
+721:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
   store ptr %37, ptr %32, align 8
   %722 = getelementptr inbounds i8, ptr %32, i64 8

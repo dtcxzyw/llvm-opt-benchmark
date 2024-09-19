@@ -530,7 +530,7 @@ define hidden noundef i32 @regression_main(i32 noundef %0, ptr noundef %1, ptr n
   %61 = call ptr @pg_strdup(ptr noundef %60) #23
   %62 = call ptr @strtok(ptr noundef %61, ptr noundef nonnull @.str.39) #23
   %.not1.i = icmp eq ptr %62, null
-  br i1 %.not1.i, label %split_to_stringlist.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %split_to_stringlist.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %59, %add_stringlist_item.exit.i
   %.02.i = phi ptr [ %71, %add_stringlist_item.exit.i ], [ %62, %59 ]
@@ -559,9 +559,9 @@ add_stringlist_item.exit.i:                       ; preds = %add_stringlist_item
   store ptr %63, ptr %.sink.i.i, align 8
   %71 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.39) #23
   %.not.i = icmp eq ptr %71, null
-  br i1 %.not.i, label %split_to_stringlist.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %split_to_stringlist.argprom.exit, label %.lr.ph.i, !llvm.loop !6
 
-split_to_stringlist.exit:                         ; preds = %add_stringlist_item.exit.i, %59
+split_to_stringlist.argprom.exit:                 ; preds = %add_stringlist_item.exit.i, %59
   call void @free(ptr noundef %61) #23
   br label %.backedge
 
@@ -660,7 +660,7 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
   store ptr %111, ptr @bindir, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %110, %112, %159, %156, %153, %add_stringlist_item.exit157, %140, %139, %add_stringlist_item.exit152, %split_to_stringlist.exit147, %113, %105, %102, %99, %98, %95, %add_stringlist_item.exit, %82, %79, %76, %73, %72, %split_to_stringlist.exit
+.backedge:                                        ; preds = %110, %112, %159, %156, %153, %add_stringlist_item.exit157, %140, %139, %add_stringlist_item.exit152, %split_to_stringlist.argprom.exit147, %113, %105, %102, %99, %98, %95, %add_stringlist_item.exit, %82, %79, %76, %73, %72, %split_to_stringlist.argprom.exit
   br label %51, !llvm.loop !7
 
 112:                                              ; preds = %108
@@ -678,7 +678,7 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
   %118 = call ptr @pg_strdup(ptr noundef %117) #23
   %119 = call ptr @strtok(ptr noundef %118, ptr noundef nonnull @.str.39) #23
   %.not1.i137 = icmp eq ptr %119, null
-  br i1 %.not1.i137, label %split_to_stringlist.exit147, label %.lr.ph.i138
+  br i1 %.not1.i137, label %split_to_stringlist.argprom.exit147, label %.lr.ph.i138
 
 .lr.ph.i138:                                      ; preds = %116, %add_stringlist_item.exit.i144
   %.02.i139 = phi ptr [ %128, %add_stringlist_item.exit.i144 ], [ %119, %116 ]
@@ -707,9 +707,9 @@ add_stringlist_item.exit.i144:                    ; preds = %add_stringlist_item
   store ptr %120, ptr %.sink.i.i145, align 8
   %128 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.39) #23
   %.not.i146 = icmp eq ptr %128, null
-  br i1 %.not.i146, label %split_to_stringlist.exit147, label %.lr.ph.i138, !llvm.loop !6
+  br i1 %.not.i146, label %split_to_stringlist.argprom.exit147, label %.lr.ph.i138, !llvm.loop !6
 
-split_to_stringlist.exit147:                      ; preds = %add_stringlist_item.exit.i144, %116
+split_to_stringlist.argprom.exit147:              ; preds = %add_stringlist_item.exit.i144, %116
   call void @free(ptr noundef %118) #23
   br label %.backedge
 
@@ -3754,22 +3754,22 @@ get_expectfile.exit:                              ; preds = %15
   %36 = call i32 @system(ptr noundef nonnull %6) #23
   %37 = and i32 %36, 65151
   %or.cond.i = icmp eq i32 %37, 0
-  br i1 %or.cond.i, label %run_diff.exit, label %38
+  br i1 %or.cond.i, label %run_diff.argprom.exit, label %38
 
 38:                                               ; preds = %31
   call void (i1, ptr, ...) @bail_out(i1 noundef zeroext false, ptr noundef nonnull @.str.237, i32 noundef %36, ptr noundef nonnull %6)
   unreachable
 
-run_diff.exit:                                    ; preds = %31
+run_diff.argprom.exit:                            ; preds = %31
   %39 = and i32 %36, 256
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %43
 
-41:                                               ; preds = %run_diff.exit
+41:                                               ; preds = %run_diff.argprom.exit
   %42 = call i32 @unlink(ptr noundef nonnull %5) #23
   br label %143
 
-43:                                               ; preds = %run_diff.exit
+43:                                               ; preds = %run_diff.argprom.exit
   %44 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.9)
   %.not.i47 = icmp eq ptr %44, null
   br i1 %.not.i47, label %45, label %.preheader.i.outer
@@ -3853,7 +3853,7 @@ get_alternative_expectfile.exit.thread79:         ; preds = %60, %65
   %74 = call i32 @system(ptr noundef nonnull %6) #23
   %75 = and i32 %74, 65151
   %or.cond.i54 = icmp eq i32 %75, 0
-  br i1 %or.cond.i54, label %run_diff.exit55, label %79
+  br i1 %or.cond.i54, label %run_diff.argprom.exit55, label %79
 
 .split38:                                         ; preds = %55, %get_alternative_expectfile.exit.thread79
   %76 = tail call ptr @__errno_location() #24
@@ -3870,17 +3870,17 @@ file_exists.exit:                                 ; preds = %.split
   call void (i1, ptr, ...) @bail_out(i1 noundef zeroext false, ptr noundef nonnull @.str.237, i32 noundef %74, ptr noundef nonnull %6)
   unreachable
 
-run_diff.exit55:                                  ; preds = %69
+run_diff.argprom.exit55:                          ; preds = %69
   %80 = and i32 %74, 256
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %84
 
-82:                                               ; preds = %run_diff.exit55
+82:                                               ; preds = %run_diff.argprom.exit55
   %83 = call i32 @unlink(ptr noundef nonnull %5) #23
   call void @free(ptr noundef nonnull %61) #23
   br label %143
 
-84:                                               ; preds = %run_diff.exit55
+84:                                               ; preds = %run_diff.argprom.exit55
   %85 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.9)
   %.not.i56 = icmp eq ptr %85, null
   br i1 %.not.i56, label %86, label %.preheader.i57.outer
@@ -3941,22 +3941,22 @@ file_line_count.exit61:                           ; preds = %86, %93
   %106 = call i32 @system(ptr noundef nonnull %6) #23
   %107 = and i32 %106, 65151
   %or.cond.i62 = icmp eq i32 %107, 0
-  br i1 %or.cond.i62, label %run_diff.exit63, label %108
+  br i1 %or.cond.i62, label %run_diff.argprom.exit63, label %108
 
 108:                                              ; preds = %102
   call void (i1, ptr, ...) @bail_out(i1 noundef zeroext false, ptr noundef nonnull @.str.237, i32 noundef %106, ptr noundef nonnull %6)
   unreachable
 
-run_diff.exit63:                                  ; preds = %102
+run_diff.argprom.exit63:                          ; preds = %102
   %109 = and i32 %106, 256
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %113
 
-111:                                              ; preds = %run_diff.exit63
+111:                                              ; preds = %run_diff.argprom.exit63
   %112 = call i32 @unlink(ptr noundef nonnull %5) #23
   br label %143
 
-113:                                              ; preds = %run_diff.exit63
+113:                                              ; preds = %run_diff.argprom.exit63
   %114 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.9)
   %.not.i64 = icmp eq ptr %114, null
   br i1 %.not.i64, label %115, label %.preheader.i65.outer
@@ -4016,18 +4016,18 @@ file_line_count.exit69:                           ; preds = %115, %122
   %139 = call i32 @system(ptr noundef nonnull %6) #23
   %140 = and i32 %139, 65151
   %or.cond.i70 = icmp eq i32 %140, 0
-  br i1 %or.cond.i70, label %run_diff.exit71, label %141
+  br i1 %or.cond.i70, label %run_diff.argprom.exit71, label %141
 
 141:                                              ; preds = %134
   call void (i1, ptr, ...) @bail_out(i1 noundef zeroext false, ptr noundef nonnull @.str.237, i32 noundef %139, ptr noundef nonnull %6)
   unreachable
 
-run_diff.exit71:                                  ; preds = %134
+run_diff.argprom.exit71:                          ; preds = %134
   %142 = call i32 @unlink(ptr noundef nonnull %5) #23
   br label %143
 
-143:                                              ; preds = %run_diff.exit71, %111, %82, %41
-  %.0 = phi i1 [ false, %41 ], [ false, %82 ], [ false, %111 ], [ true, %run_diff.exit71 ]
+143:                                              ; preds = %run_diff.argprom.exit71, %111, %82, %41
+  %.0 = phi i1 [ false, %41 ], [ false, %82 ], [ false, %111 ], [ true, %run_diff.argprom.exit71 ]
   ret i1 %.0
 }
 

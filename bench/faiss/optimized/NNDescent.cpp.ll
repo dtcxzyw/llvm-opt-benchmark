@@ -2345,9 +2345,9 @@ define internal void @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outli
   %.sroa.022.033.i = phi ptr [ %33, %.lr.ph.i ], [ %48, %.noexc14 ]
   %37 = load i32, ptr %.sroa.022.033.i, align 4, !llvm.access.group !29
   %38 = icmp slt i32 %32, %37
-  br i1 %38, label %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit.i", label %.noexc14
+  br i1 %38, label %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit.i", label %.noexc14
 
-"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit.i": ; preds = %36
+"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit.i": ; preds = %36
   %39 = sext i32 %37 to i64
   %40 = load ptr, ptr %3, align 8, !llvm.access.group !29
   %41 = getelementptr inbounds i8, ptr %40, i64 24
@@ -2355,7 +2355,7 @@ define internal void @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outli
   %43 = invoke noundef float %42(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %35, i64 noundef %39)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit.i"
+.noexc:                                           ; preds = %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit.i"
   %44 = load ptr, ptr %16, align 8, !llvm.access.group !29
   %45 = getelementptr inbounds %"struct.faiss::nndescent::Nhood", ptr %44, i64 %35
   invoke void @_ZN5faiss9nndescent5Nhood6insertEif(ptr noundef nonnull align 8 dereferenceable(168) %45, i32 noundef %37, float noundef %43)
@@ -2382,11 +2382,11 @@ define internal void @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outli
   %51 = sext i32 %32 to i64
   br label %52
 
-52:                                               ; preds = %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit17.i", %.lr.ph37.i
-  %.sroa.018.035.i = phi ptr [ %49, %.lr.ph37.i ], [ %64, %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit17.i" ]
+52:                                               ; preds = %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit17.i", %.lr.ph37.i
+  %.sroa.018.035.i = phi ptr [ %49, %.lr.ph37.i ], [ %64, %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit17.i" ]
   %53 = load i32, ptr %.sroa.018.035.i, align 4, !llvm.access.group !29
   %.not.i16.i = icmp eq i32 %32, %53
-  br i1 %.not.i16.i, label %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit17.i", label %54
+  br i1 %.not.i16.i, label %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit17.i", label %54
 
 54:                                               ; preds = %52
   %55 = sext i32 %53 to i64
@@ -2406,14 +2406,14 @@ define internal void @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outli
   %62 = load ptr, ptr %16, align 8, !llvm.access.group !29
   %63 = getelementptr inbounds %"struct.faiss::nndescent::Nhood", ptr %62, i64 %55
   invoke void @_ZN5faiss9nndescent5Nhood6insertEif(ptr noundef nonnull align 8 dereferenceable(168) %63, i32 noundef %32, float noundef %59)
-          to label %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit17.i" unwind label %.loopexit
+          to label %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit17.i" unwind label %.loopexit
 
-"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit17.i": ; preds = %.noexc16, %52
+"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit17.i": ; preds = %.noexc16, %52
   %64 = getelementptr inbounds i8, ptr %.sroa.018.035.i, i64 4
   %.not31.i = icmp eq ptr %64, %50
   br i1 %.not31.i, label %._crit_edge38.i, label %52
 
-._crit_edge38.i:                                  ; preds = %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit17.i", %._crit_edge.i
+._crit_edge38.i:                                  ; preds = %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit17.i", %._crit_edge.i
   %65 = getelementptr inbounds i8, ptr %.sroa.026.040.i, i64 4
   %.not.i = icmp eq ptr %65, %28
   br i1 %.not.i, label %"_ZNK5faiss9nndescent5Nhood4joinIZNS_9NNDescent4joinERNS_16DistanceComputerEE3$_0EEvT_.exit.loopexit", label %31
@@ -2437,7 +2437,7 @@ define internal void @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outli
           catch ptr null
   br label %68
 
-.loopexit.split-lp:                               ; preds = %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.exit.i", %.noexc, %.noexc13
+.loopexit.split-lp:                               ; preds = %"_ZZN5faiss9NNDescent4joinERNS_16DistanceComputerEENK3$_0clEii.argprom.exit.i", %.noexc, %.noexc13
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   br label %68

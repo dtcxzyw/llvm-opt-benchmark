@@ -623,7 +623,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %196 = zext nneg i32 %195 to i64
   %197 = call noalias ptr @calloc(i64 noundef %196, i64 noundef 8) #14
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %mergePaths.exit.i, label %.preheader5.i.i
+  br i1 %198, label %mergePaths.argprom.exit.i, label %.preheader5.i.i
 
 .preheader5.i.i:                                  ; preds = %._crit_edge.i68.i
   %.not51.i.i = icmp eq i32 %.0103.i.i, 0
@@ -820,13 +820,13 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 .loopexit.i.i:                                    ; preds = %244, %239, %._crit_edge46.i.i, %.preheader.i72.i
   %.0.i73.i = phi ptr [ null, %239 ], [ null, %._crit_edge46.i.i ], [ null, %.preheader.i72.i ], [ %241, %244 ]
   call void @free(ptr noundef %197) #13
-  br label %mergePaths.exit.i
+  br label %mergePaths.argprom.exit.i
 
-mergePaths.exit.i:                                ; preds = %.loopexit.i.i, %._crit_edge.i68.i
+mergePaths.argprom.exit.i:                        ; preds = %.loopexit.i.i, %._crit_edge.i68.i
   %.084.i.i = phi ptr [ %.0.i73.i, %.loopexit.i.i ], [ null, %._crit_edge.i68.i ]
   br i1 %.not.i66.i, label %252, label %.preheader75.i
 
-.preheader75.i:                                   ; preds = %mergePaths.exit.i
+.preheader75.i:                                   ; preds = %mergePaths.argprom.exit.i
   %248 = load ptr, ptr %.0.i.i, align 8
   %.not5379.i = icmp eq ptr %248, null
   br i1 %.not5379.i, label %._crit_edge.i, label %.lr.ph.i
@@ -844,7 +844,7 @@ mergePaths.exit.i:                                ; preds = %.loopexit.i.i, %._c
   call void @free(ptr noundef %.0.i.i) #13
   br label %252
 
-252:                                              ; preds = %._crit_edge.i, %mergePaths.exit.i
+252:                                              ; preds = %._crit_edge.i, %mergePaths.argprom.exit.i
   br i1 %.not112.i.i, label %getPlatformFontPathChars.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %252

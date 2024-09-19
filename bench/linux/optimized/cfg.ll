@@ -8917,7 +8917,7 @@ define internal noundef range(i32 -95, 1) i32 @ieee80211_color_change(ptr nocapt
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %52
-  call fastcc void @ieee80211_color_change_bss_config_notify(ptr noundef %6, i64 noundef %53)
+  call fastcc void @ieee80211_color_change_bss_config_notify.argelim(ptr noundef %6, i64 noundef %53)
   br label %64
 
 63:                                               ; preds = %52
@@ -10626,7 +10626,7 @@ declare dso_local void @_raw_spin_lock_bh(ptr noundef) local_unnamed_addr #2 sec
 declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_color_change_bss_config_notify(ptr noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_color_change_bss_config_notify.argelim(ptr noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   %4 = getelementptr inbounds i8, ptr %0, i64 4056
   %5 = getelementptr inbounds i8, ptr %0, i64 4449

@@ -584,15 +584,15 @@ segfeature_active.exit.thread.i.i:                ; preds = %segfeature_active.e
 92:                                               ; preds = %88, %segfeature_active.exit.thread.i.i
   %93 = phi i64 [ %91, %88 ], [ 0, %segfeature_active.exit.thread.i.i ]
   %.not8.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not8.i.i.i, label %av1_get_skip_txfm_context.exit.i.i, label %94
+  br i1 %.not8.i.i.i, label %av1_get_skip_txfm_context.argprom.exit.i.i, label %94
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 152
   %96 = load i8, ptr %95, align 8
   %97 = sext i8 %96 to i64
-  br label %av1_get_skip_txfm_context.exit.i.i
+  br label %av1_get_skip_txfm_context.argprom.exit.i.i
 
-av1_get_skip_txfm_context.exit.i.i:               ; preds = %94, %92
+av1_get_skip_txfm_context.argprom.exit.i.i:       ; preds = %94, %92
   %98 = phi i64 [ %97, %94 ], [ 0, %92 ]
   %99 = add nsw i64 %98, %93
   %100 = load ptr, ptr %27, align 8
@@ -605,7 +605,7 @@ av1_get_skip_txfm_context.exit.i.i:               ; preds = %94, %92
   %.not.i10.i.i = icmp eq i8 %106, 0
   br i1 %.not.i10.i.i, label %read_skip_txfm.exit.i, label %107
 
-107:                                              ; preds = %av1_get_skip_txfm_context.exit.i.i
+107:                                              ; preds = %av1_get_skip_txfm_context.argprom.exit.i.i
   %108 = getelementptr inbounds i8, ptr %102, i64 4
   %109 = load i16, ptr %108, align 2
   %110 = icmp ugt i16 %109, 15
@@ -647,8 +647,8 @@ av1_get_skip_txfm_context.exit.i.i:               ; preds = %94, %92
   store i16 %135, ptr %108, align 2
   br label %read_skip_txfm.exit.i
 
-read_skip_txfm.exit.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i, %av1_get_skip_txfm_context.exit.i.i, %segfeature_active.exit.i.i
-  %.0.i103.i = phi i32 [ 1, %segfeature_active.exit.i.i ], [ %104, %av1_get_skip_txfm_context.exit.i.i ], [ %104, %._crit_edge.loopexit.i.i.i.i ]
+read_skip_txfm.exit.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i, %av1_get_skip_txfm_context.argprom.exit.i.i, %segfeature_active.exit.i.i
+  %.0.i103.i = phi i32 [ 1, %segfeature_active.exit.i.i ], [ %104, %av1_get_skip_txfm_context.argprom.exit.i.i ], [ %104, %._crit_edge.loopexit.i.i.i.i ]
   %136 = trunc i32 %.0.i103.i to i8
   %137 = getelementptr inbounds nuw i8, ptr %21, i64 152
   store i8 %136, ptr %137, align 8
@@ -1465,35 +1465,35 @@ read_angle_delta.exit158.i:                       ; preds = %._crit_edge.loopexi
   %640 = load ptr, ptr %12, align 8
   %641 = load ptr, ptr %640, align 8
   %.not.i159.i = icmp eq i8 %.val101.i, 0
-  br i1 %.not.i159.i, label %642, label %store_cfl_required.exit.i
+  br i1 %.not.i159.i, label %642, label %store_cfl_required.argprom.exit.i
 
 642:                                              ; preds = %638
   %643 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %644 = load i8, ptr %643, align 4
   %645 = trunc i8 %644 to i1
-  br i1 %645, label %646, label %store_cfl_required.exit.i
+  br i1 %645, label %646, label %store_cfl_required.argprom.exit.i
 
 646:                                              ; preds = %642
   %647 = getelementptr i8, ptr %641, i64 175
   %.val.i.i.i = load i16, ptr %647, align 1
   %648 = and i16 %.val.i.i.i, 128
   %.not.i.i161.i = icmp eq i16 %648, 0
-  br i1 %.not.i.i161.i, label %is_inter_block.exit.i.i, label %store_cfl_required.exit.i
+  br i1 %.not.i.i161.i, label %is_inter_block.exit.i.i, label %store_cfl_required.argprom.exit.i
 
 is_inter_block.exit.i.i:                          ; preds = %646
   %649 = getelementptr inbounds nuw i8, ptr %641, i64 16
   %650 = load i8, ptr %649, align 8
   %651 = icmp slt i8 %650, 1
-  br i1 %651, label %652, label %store_cfl_required.exit.i
+  br i1 %651, label %652, label %store_cfl_required.argprom.exit.i
 
 652:                                              ; preds = %is_inter_block.exit.i.i
   %653 = getelementptr inbounds nuw i8, ptr %641, i64 3
   %654 = load i8, ptr %653, align 1
   %655 = icmp eq i8 %654, 13
   %656 = zext i1 %655 to i32
-  br label %store_cfl_required.exit.i
+  br label %store_cfl_required.argprom.exit.i
 
-store_cfl_required.exit.i:                        ; preds = %652, %is_inter_block.exit.i.i, %646, %642, %638
+store_cfl_required.argprom.exit.i:                ; preds = %652, %is_inter_block.exit.i.i, %646, %642, %638
   %.0.i160.i = phi i32 [ 0, %638 ], [ 1, %642 ], [ 0, %is_inter_block.exit.i.i ], [ %656, %652 ], [ 0, %646 ]
   %657 = getelementptr inbounds nuw i8, ptr %1, i64 47792
   store i32 %.0.i160.i, ptr %657, align 16
@@ -1504,7 +1504,7 @@ store_cfl_required.exit.i:                        ; preds = %652, %is_inter_bloc
   %.not.i162.i = icmp eq i8 %660, 0
   br i1 %.not.i162.i, label %662, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %store_cfl_required.exit.i
+switch.early.test.i:                              ; preds = %store_cfl_required.argprom.exit.i
   switch i8 %26, label %661 [
     i8 15, label %662
     i8 14, label %662
@@ -1518,7 +1518,7 @@ switch.early.test.i:                              ; preds = %store_cfl_required.
   call fastcc void @read_palette_mode_info(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef %2)
   br label %662
 
-662:                                              ; preds = %661, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %store_cfl_required.exit.i
+662:                                              ; preds = %661, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %store_cfl_required.argprom.exit.i
   call fastcc void @read_filter_intra_mode_info(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef %2)
   br label %read_intra_frame_mode_info.exit
 
@@ -1526,7 +1526,7 @@ read_intra_frame_mode_info.exit:                  ; preds = %read_intrabc_info.e
   %663 = getelementptr inbounds nuw i8, ptr %0, i64 73204
   %664 = load i32, ptr %663, align 4
   %.not24 = icmp eq i32 %664, 0
-  br i1 %.not24, label %intra_copy_frame_mvs.exit, label %665
+  br i1 %.not24, label %intra_copy_frame_mvs.argprom.argprom.exit, label %665
 
 665:                                              ; preds = %read_intra_frame_mode_info.exit
   %666 = load i32, ptr %1, align 16
@@ -1540,7 +1540,7 @@ read_intra_frame_mode_info.exit:                  ; preds = %read_intrabc_info.e
   %672 = add nsw i32 %4, 1
   %673 = ashr i32 %672, 1
   %674 = icmp sgt i32 %673, 0
-  br i1 %674, label %.preheader.lr.ph.i, label %intra_copy_frame_mvs.exit
+  br i1 %674, label %.preheader.lr.ph.i, label %intra_copy_frame_mvs.argprom.argprom.exit
 
 .preheader.lr.ph.i:                               ; preds = %665
   %675 = getelementptr i8, ptr %0, i64 49048
@@ -1549,7 +1549,7 @@ read_intra_frame_mode_info.exit:                  ; preds = %read_intrabc_info.e
   %677 = ashr i32 %676, 1
   %678 = icmp sgt i32 %671, 0
   %679 = sext i32 %677 to i64
-  br i1 %678, label %.preheader.us.preheader.i, label %intra_copy_frame_mvs.exit
+  br i1 %678, label %.preheader.us.preheader.i, label %intra_copy_frame_mvs.argprom.argprom.exit
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %680 = ashr i32 %666, 1
@@ -1580,23 +1580,23 @@ read_intra_frame_mode_info.exit:                  ; preds = %read_intrabc_info.e
   %691 = getelementptr inbounds %struct.MV_REF, ptr %.0193.us.i, i64 %679
   %692 = add nuw nsw i32 %.0184.us.i, 1
   %exitcond7.not.i = icmp eq i32 %692, %673
-  br i1 %exitcond7.not.i, label %intra_copy_frame_mvs.exit, label %.preheader.us.i, !llvm.loop !9
+  br i1 %exitcond7.not.i, label %intra_copy_frame_mvs.argprom.argprom.exit, label %.preheader.us.i, !llvm.loop !9
 
 693:                                              ; preds = %5
   tail call fastcc void @read_inter_frame_mode_info(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
   %694 = getelementptr inbounds nuw i8, ptr %0, i64 73204
   %695 = load i32, ptr %694, align 4
   %.not23 = icmp eq i32 %695, 0
-  br i1 %.not23, label %intra_copy_frame_mvs.exit, label %696
+  br i1 %.not23, label %intra_copy_frame_mvs.argprom.argprom.exit, label %696
 
 696:                                              ; preds = %693
   %697 = load i32, ptr %1, align 16
   %698 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %699 = load i32, ptr %698, align 4
   tail call void @av1_copy_frame_mvs(ptr noundef nonnull %11, ptr noundef nonnull %14, i32 noundef %697, i32 noundef %699, i32 noundef %3, i32 noundef %4) #9
-  br label %intra_copy_frame_mvs.exit
+  br label %intra_copy_frame_mvs.argprom.argprom.exit
 
-intra_copy_frame_mvs.exit:                        ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %665, %693, %696, %read_intra_frame_mode_info.exit
+intra_copy_frame_mvs.argprom.argprom.exit:        ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %665, %693, %696, %read_intra_frame_mode_info.exit
   ret void
 }
 
@@ -1692,7 +1692,7 @@ segfeature_active.exit22.thread.i:                ; preds = %segfeature_active.e
 58:                                               ; preds = %52, %segfeature_active.exit22.thread.i
   %59 = phi i64 [ %57, %52 ], [ 0, %segfeature_active.exit22.thread.i ]
   %.not8.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not8.i.i, label %av1_get_skip_mode_context.exit.i, label %60
+  br i1 %.not8.i.i, label %av1_get_skip_mode_context.argprom.exit.i, label %60
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %.val.i, i64 175
@@ -1700,9 +1700,9 @@ segfeature_active.exit22.thread.i:                ; preds = %segfeature_active.e
   %63 = lshr i16 %62, 6
   %64 = and i16 %63, 1
   %65 = zext nneg i16 %64 to i64
-  br label %av1_get_skip_mode_context.exit.i
+  br label %av1_get_skip_mode_context.argprom.exit.i
 
-av1_get_skip_mode_context.exit.i:                 ; preds = %60, %58
+av1_get_skip_mode_context.argprom.exit.i:         ; preds = %60, %58
   %66 = phi i64 [ %65, %60 ], [ 0, %58 ]
   %67 = add nuw nsw i64 %66, %59
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 10648
@@ -1716,7 +1716,7 @@ av1_get_skip_mode_context.exit.i:                 ; preds = %60, %58
   %.not.i24.i = icmp eq i8 %75, 0
   br i1 %.not.i24.i, label %read_skip_mode.exit, label %76
 
-76:                                               ; preds = %av1_get_skip_mode_context.exit.i
+76:                                               ; preds = %av1_get_skip_mode_context.argprom.exit.i
   %77 = getelementptr inbounds i8, ptr %71, i64 4
   %78 = load i16, ptr %77, align 2
   %79 = icmp ugt i16 %78, 15
@@ -1758,8 +1758,8 @@ av1_get_skip_mode_context.exit.i:                 ; preds = %60, %58
   store i16 %104, ptr %77, align 2
   br label %read_skip_mode.exit
 
-read_skip_mode.exit:                              ; preds = %3, %segfeature_active.exit.i, %segfeature_active.exit.thread.i, %segfeature_active.exit20.i, %av1_get_skip_mode_context.exit.i, %._crit_edge.loopexit.i.i.i
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %segfeature_active.exit.i ], [ 0, %segfeature_active.exit.thread.i ], [ 0, %segfeature_active.exit20.i ], [ %73, %av1_get_skip_mode_context.exit.i ], [ %73, %._crit_edge.loopexit.i.i.i ]
+read_skip_mode.exit:                              ; preds = %3, %segfeature_active.exit.i, %segfeature_active.exit.thread.i, %segfeature_active.exit20.i, %av1_get_skip_mode_context.argprom.exit.i, %._crit_edge.loopexit.i.i.i
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %segfeature_active.exit.i ], [ 0, %segfeature_active.exit.thread.i ], [ 0, %segfeature_active.exit20.i ], [ %73, %av1_get_skip_mode_context.argprom.exit.i ], [ %73, %._crit_edge.loopexit.i.i.i ]
   %105 = trunc i32 %.0.i to i16
   %106 = load i16, ptr %19, align 1
   %107 = shl i16 %105, 6
@@ -1804,15 +1804,15 @@ segfeature_active.exit.thread.i61:                ; preds = %segfeature_active.e
 127:                                              ; preds = %123, %segfeature_active.exit.thread.i61
   %128 = phi i64 [ %126, %123 ], [ 0, %segfeature_active.exit.thread.i61 ]
   %.not8.i.i63 = icmp eq ptr %.val.i62, null
-  br i1 %.not8.i.i63, label %av1_get_skip_txfm_context.exit.i, label %129
+  br i1 %.not8.i.i63, label %av1_get_skip_txfm_context.argprom.exit.i, label %129
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %.val.i62, i64 152
   %131 = load i8, ptr %130, align 8
   %132 = sext i8 %131 to i64
-  br label %av1_get_skip_txfm_context.exit.i
+  br label %av1_get_skip_txfm_context.argprom.exit.i
 
-av1_get_skip_txfm_context.exit.i:                 ; preds = %129, %127
+av1_get_skip_txfm_context.argprom.exit.i:         ; preds = %129, %127
   %133 = phi i64 [ %132, %129 ], [ 0, %127 ]
   %134 = add nsw i64 %133, %128
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 10648
@@ -1826,7 +1826,7 @@ av1_get_skip_txfm_context.exit.i:                 ; preds = %129, %127
   %.not.i10.i = icmp eq i8 %142, 0
   br i1 %.not.i10.i, label %read_skip_txfm.exit, label %143
 
-143:                                              ; preds = %av1_get_skip_txfm_context.exit.i
+143:                                              ; preds = %av1_get_skip_txfm_context.argprom.exit.i
   %144 = getelementptr inbounds i8, ptr %138, i64 4
   %145 = load i16, ptr %144, align 2
   %146 = icmp ugt i16 %145, 15
@@ -1868,8 +1868,8 @@ av1_get_skip_txfm_context.exit.i:                 ; preds = %129, %127
   store i16 %171, ptr %144, align 2
   br label %read_skip_txfm.exit
 
-read_skip_txfm.exit:                              ; preds = %segfeature_active.exit.i58, %av1_get_skip_txfm_context.exit.i, %._crit_edge.loopexit.i.i.i65
-  %.0.i60 = phi i32 [ 1, %segfeature_active.exit.i58 ], [ %140, %av1_get_skip_txfm_context.exit.i ], [ %140, %._crit_edge.loopexit.i.i.i65 ]
+read_skip_txfm.exit:                              ; preds = %segfeature_active.exit.i58, %av1_get_skip_txfm_context.argprom.exit.i, %._crit_edge.loopexit.i.i.i65
+  %.0.i60 = phi i32 [ 1, %segfeature_active.exit.i58 ], [ %140, %av1_get_skip_txfm_context.argprom.exit.i ], [ %140, %._crit_edge.loopexit.i.i.i65 ]
   %172 = trunc i32 %.0.i60 to i8
   br label %173
 
@@ -3004,7 +3004,7 @@ get_uni_comp_ref_idx.exit.thread.i.i.i:           ; preds = %848, %838
 av1_ref_frame_type.exit.thread.i.i:               ; preds = %segfeature_active.exit284.thread.i
   %854 = sext i8 %.val274.i to i64
   %855 = getelementptr inbounds i16, ptr %7, i64 %854
-  br label %av1_mode_context_analyzer.exit.i
+  br label %av1_mode_context_analyzer.argprom.exit.i
 
 av1_ref_frame_type.exit.i.i:                      ; preds = %get_uni_comp_ref_idx.exit.thread.i.i.i, %get_uni_comp_ref_idx.exit.i.i.i
   %.0.i.i286.i = phi i8 [ %850, %get_uni_comp_ref_idx.exit.i.i.i ], [ %853, %get_uni_comp_ref_idx.exit.thread.i.i.i ]
@@ -3018,16 +3018,16 @@ av1_ref_frame_type.exit.i.i:                      ; preds = %get_uni_comp_ref_id
   %863 = call i16 @llvm.umin.i16(i16 %859, i16 4)
   %864 = zext nneg i16 %863 to i64
   %865 = getelementptr inbounds [3 x [5 x i16]], ptr @compound_mode_ctx_map, i64 0, i64 %862, i64 %864
-  br label %av1_mode_context_analyzer.exit.i
+  br label %av1_mode_context_analyzer.argprom.exit.i
 
-av1_mode_context_analyzer.exit.i:                 ; preds = %av1_ref_frame_type.exit.i.i, %av1_ref_frame_type.exit.thread.i.i
+av1_mode_context_analyzer.argprom.exit.i:         ; preds = %av1_ref_frame_type.exit.i.i, %av1_ref_frame_type.exit.thread.i.i
   %.0.in.i.i = phi ptr [ %855, %av1_ref_frame_type.exit.thread.i.i ], [ %865, %av1_ref_frame_type.exit.i.i ]
   %.0.i285.i = load i16, ptr %.0.in.i.i, align 2
   %866 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %867 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br i1 %820, label %868, label %906
 
-868:                                              ; preds = %av1_mode_context_analyzer.exit.i
+868:                                              ; preds = %av1_mode_context_analyzer.argprom.exit.i
   %.val276.i = load ptr, ptr %270, align 8
   %869 = getelementptr inbounds nuw i8, ptr %.val276.i, i64 8192
   %870 = sext i16 %.0.i285.i to i64
@@ -3091,7 +3091,7 @@ av1_mode_context_analyzer.exit.i:                 ; preds = %av1_ref_frame_type.
   store i16 %905, ptr %875, align 2
   br label %read_inter_mode.exit.i
 
-906:                                              ; preds = %av1_mode_context_analyzer.exit.i
+906:                                              ; preds = %av1_mode_context_analyzer.argprom.exit.i
   %907 = and i16 %.0.i285.i, 7
   %908 = getelementptr inbounds nuw i8, ptr %271, i64 8090
   %909 = zext nneg i16 %907 to i64
@@ -4294,7 +4294,7 @@ aom_read_symbol_.exit.i:                          ; preds = %._crit_edge.loopexi
   %1553 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1517, ptr noundef nonnull %1552, i32 noundef 4) #9
   %1554 = load i8, ptr %1519, align 8
   %.not.i.i359.i = icmp eq i8 %1554, 0
-  br i1 %.not.i.i359.i, label %read_interintra_mode.exit.i, label %1555
+  br i1 %.not.i.i359.i, label %read_interintra_mode.argprom.exit.i, label %1555
 
 1555:                                             ; preds = %1550
   %1556 = getelementptr inbounds i8, ptr %1552, i64 8
@@ -4348,9 +4348,9 @@ aom_read_symbol_.exit.i:                          ; preds = %._crit_edge.loopexi
   %1585 = zext i1 %1584 to i16
   %1586 = add i16 %.pre.i.i.i367.i, %1585
   store i16 %1586, ptr %1556, align 2
-  br label %read_interintra_mode.exit.i
+  br label %read_interintra_mode.argprom.exit.i
 
-read_interintra_mode.exit.i:                      ; preds = %._crit_edge.loopexit.i.i.i366.i, %1550
+read_interintra_mode.argprom.exit.i:              ; preds = %._crit_edge.loopexit.i.i.i366.i, %1550
   %1587 = trunc i32 %1553 to i8
   store i8 0, ptr %821, align 1
   %1588 = getelementptr inbounds nuw i8, ptr %14, i64 72
@@ -4366,7 +4366,7 @@ read_interintra_mode.exit.i:                      ; preds = %._crit_edge.loopexi
   %1594 = icmp slt i32 %1593, 1
   br i1 %1594, label %is_interintra_allowed.exit.thread.i, label %1595
 
-1595:                                             ; preds = %read_interintra_mode.exit.i
+1595:                                             ; preds = %read_interintra_mode.argprom.exit.i
   %1596 = getelementptr inbounds nuw i8, ptr %271, i64 9240
   %1597 = getelementptr inbounds [22 x [3 x i16]], ptr %1596, i64 0, i64 %1511
   %1598 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1517, ptr noundef nonnull %1597, i32 noundef 2) #9
@@ -4496,7 +4496,7 @@ aom_read_symbol_.exit388.i:                       ; preds = %._crit_edge.loopexi
   store i8 %1673, ptr %1674, align 1
   br label %is_interintra_allowed.exit.thread.i
 
-is_interintra_allowed.exit.thread.i:              ; preds = %aom_read_symbol_.exit388.i, %aom_read_symbol_.exit378.i, %read_interintra_mode.exit.i, %aom_read_symbol_.exit.i, %is_interintra_allowed.exit.i, %1505, %1501, %1497, %assign_mv.exit.i
+is_interintra_allowed.exit.thread.i:              ; preds = %aom_read_symbol_.exit388.i, %aom_read_symbol_.exit378.i, %read_interintra_mode.argprom.exit.i, %aom_read_symbol_.exit.i, %is_interintra_allowed.exit.i, %1505, %1501, %1497, %assign_mv.exit.i
   %1675 = getelementptr inbounds nuw i8, ptr %1, i64 7944
   %1676 = getelementptr inbounds nuw i8, ptr %0, i64 48608
   %1677 = getelementptr inbounds nuw i8, ptr %0, i64 48672
@@ -4884,7 +4884,7 @@ is_interinter_compound_used.exit.thread.i.i:      ; preds = %is_interinter_compo
 1878:                                             ; preds = %1874, %1868, %1864
   %.013.i.i = phi i32 [ %1873, %1868 ], [ 0, %1864 ], [ %spec.select.i409.i, %1874 ]
   %.not17.i.i = icmp eq ptr %.val278.i, null
-  br i1 %.not17.i.i, label %get_comp_group_idx_context.exit.i, label %1879
+  br i1 %.not17.i.i, label %get_comp_group_idx_context.argprom.exit.i, label %1879
 
 1879:                                             ; preds = %1878
   %1880 = getelementptr i8, ptr %.val278.i, i64 17
@@ -4898,16 +4898,16 @@ is_interinter_compound_used.exit.thread.i.i:      ; preds = %is_interinter_compo
   %1885 = lshr i16 %1884, 8
   %1886 = and i16 %1885, 1
   %1887 = zext nneg i16 %1886 to i32
-  br label %get_comp_group_idx_context.exit.i
+  br label %get_comp_group_idx_context.argprom.exit.i
 
 1888:                                             ; preds = %1879
   %1889 = getelementptr inbounds nuw i8, ptr %.val278.i, i64 16
   %1890 = load i8, ptr %1889, align 8
   %1891 = icmp eq i8 %1890, 7
   %spec.select19.i.i = select i1 %1891, i32 3, i32 0
-  br label %get_comp_group_idx_context.exit.i
+  br label %get_comp_group_idx_context.argprom.exit.i
 
-get_comp_group_idx_context.exit.i:                ; preds = %1888, %1882, %1878
+get_comp_group_idx_context.argprom.exit.i:        ; preds = %1888, %1882, %1878
   %.0.i408.i = phi i32 [ %1887, %1882 ], [ 0, %1878 ], [ %spec.select19.i.i, %1888 ]
   %1892 = add nuw nsw i32 %.0.i408.i, %.013.i.i
   %1893 = call range(i32 0, 6) i32 @llvm.umin.i32(i32 %1892, i32 5)
@@ -4921,7 +4921,7 @@ get_comp_group_idx_context.exit.i:                ; preds = %1888, %1882, %1878
   %.not.i410.i = icmp eq i8 %1900, 0
   br i1 %.not.i410.i, label %aom_read_symbol_.exit419.i, label %1901
 
-1901:                                             ; preds = %get_comp_group_idx_context.exit.i
+1901:                                             ; preds = %get_comp_group_idx_context.argprom.exit.i
   %1902 = getelementptr inbounds i8, ptr %1896, i64 4
   %1903 = load i16, ptr %1902, align 2
   %1904 = icmp ugt i16 %1903, 15
@@ -4963,7 +4963,7 @@ get_comp_group_idx_context.exit.i:                ; preds = %1888, %1882, %1878
   store i16 %1929, ptr %1902, align 2
   br label %aom_read_symbol_.exit419.i
 
-aom_read_symbol_.exit419.i:                       ; preds = %._crit_edge.loopexit.i.i417.i, %get_comp_group_idx_context.exit.i
+aom_read_symbol_.exit419.i:                       ; preds = %._crit_edge.loopexit.i.i417.i, %get_comp_group_idx_context.argprom.exit.i
   %1930 = trunc i32 %1898 to i16
   %1931 = load i16, ptr %19, align 1
   %1932 = shl i16 %1930, 8
@@ -6097,35 +6097,35 @@ read_angle_delta.exit76.i:                        ; preds = %._crit_edge.loopexi
   %2583 = load ptr, ptr %12, align 8
   %2584 = load ptr, ptr %2583, align 8
   %.not.i77.i = icmp eq i8 %.val.i96, 0
-  br i1 %.not.i77.i, label %2585, label %store_cfl_required.exit.i
+  br i1 %.not.i77.i, label %2585, label %store_cfl_required.argprom.exit.i
 
 2585:                                             ; preds = %2581
   %2586 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %2587 = load i8, ptr %2586, align 4
   %2588 = trunc i8 %2587 to i1
-  br i1 %2588, label %2589, label %store_cfl_required.exit.i
+  br i1 %2588, label %2589, label %store_cfl_required.argprom.exit.i
 
 2589:                                             ; preds = %2585
   %2590 = getelementptr i8, ptr %2584, i64 175
   %.val.i.i.i97 = load i16, ptr %2590, align 1
   %2591 = and i16 %.val.i.i.i97, 128
   %.not.i.i79.i = icmp eq i16 %2591, 0
-  br i1 %.not.i.i79.i, label %is_inter_block.exit.i.i98, label %store_cfl_required.exit.i
+  br i1 %.not.i.i79.i, label %is_inter_block.exit.i.i98, label %store_cfl_required.argprom.exit.i
 
 is_inter_block.exit.i.i98:                        ; preds = %2589
   %2592 = getelementptr inbounds nuw i8, ptr %2584, i64 16
   %2593 = load i8, ptr %2592, align 8
   %2594 = icmp slt i8 %2593, 1
-  br i1 %2594, label %2595, label %store_cfl_required.exit.i
+  br i1 %2594, label %2595, label %store_cfl_required.argprom.exit.i
 
 2595:                                             ; preds = %is_inter_block.exit.i.i98
   %2596 = getelementptr inbounds nuw i8, ptr %2584, i64 3
   %2597 = load i8, ptr %2596, align 1
   %2598 = icmp eq i8 %2597, 13
   %2599 = zext i1 %2598 to i32
-  br label %store_cfl_required.exit.i
+  br label %store_cfl_required.argprom.exit.i
 
-store_cfl_required.exit.i:                        ; preds = %2595, %is_inter_block.exit.i.i98, %2589, %2585, %2581
+store_cfl_required.argprom.exit.i:                ; preds = %2595, %is_inter_block.exit.i.i98, %2589, %2585, %2581
   %.0.i78.i = phi i32 [ 0, %2581 ], [ 1, %2585 ], [ 0, %is_inter_block.exit.i.i98 ], [ %2599, %2595 ], [ 0, %2589 ]
   %2600 = getelementptr inbounds nuw i8, ptr %1, i64 47792
   store i32 %.0.i78.i, ptr %2600, align 16
@@ -6140,7 +6140,7 @@ store_cfl_required.exit.i:                        ; preds = %2595, %is_inter_blo
   %.not.i80.i = icmp eq i8 %2605, 0
   br i1 %.not.i80.i, label %read_intra_block_mode_info.exit, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %store_cfl_required.exit.i
+switch.early.test.i:                              ; preds = %store_cfl_required.argprom.exit.i
   switch i8 %2347, label %2606 [
     i8 15, label %read_intra_block_mode_info.exit
     i8 14, label %read_intra_block_mode_info.exit
@@ -6154,7 +6154,7 @@ switch.early.test.i:                              ; preds = %store_cfl_required.
   tail call fastcc void @read_palette_mode_info(ptr noundef nonnull readonly %11, ptr noundef nonnull %1, ptr noundef %2)
   br label %read_intra_block_mode_info.exit
 
-read_intra_block_mode_info.exit:                  ; preds = %store_cfl_required.exit.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %2606
+read_intra_block_mode_info.exit:                  ; preds = %store_cfl_required.argprom.exit.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %2606
   tail call fastcc void @read_filter_intra_mode_info(ptr noundef nonnull readonly %11, ptr noundef nonnull %1, ptr noundef %2)
   br label %2607
 
@@ -6308,10 +6308,10 @@ define internal fastcc void @read_delta_q_params(ptr nocapture noundef readonly 
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 0
   %or.cond.i = select i1 %27, i1 %21, i1 false
-  br i1 %or.cond.i, label %29, label %read_delta_qindex.exit
+  br i1 %or.cond.i, label %29, label %read_delta_qindex.argprom.exit
 
 28:                                               ; preds = %6
-  br i1 %21, label %29, label %read_delta_qindex.exit
+  br i1 %21, label %29, label %read_delta_qindex.argprom.exit
 
 29:                                               ; preds = %28, %24
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 15128
@@ -6415,7 +6415,7 @@ aom_read_literal_.exit36.i:                       ; preds = %.lr.ph.i.i, %aom_re
 81:                                               ; preds = %aom_read_literal_.exit36.i, %aom_read_symbol_.exit.i
   %.028.i = phi i32 [ %32, %aom_read_symbol_.exit.i ], [ %80, %aom_read_literal_.exit36.i ]
   %.not31.i = icmp eq i32 %.028.i, 0
-  br i1 %.not31.i, label %read_delta_qindex.exit, label %82
+  br i1 %.not31.i, label %read_delta_qindex.argprom.exit, label %82
 
 82:                                               ; preds = %81
   %83 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %31, i32 noundef 16384) #9
@@ -6423,9 +6423,9 @@ aom_read_literal_.exit36.i:                       ; preds = %.lr.ph.i.i, %aom_re
   %84 = icmp eq i32 %.fr.i, 0
   %85 = sub nsw i32 0, %.028.i
   %spec.select.i = select i1 %84, i32 %.028.i, i32 %85
-  br label %read_delta_qindex.exit
+  br label %read_delta_qindex.argprom.exit
 
-read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
+read_delta_qindex.argprom.exit:                   ; preds = %24, %28, %81, %82
   %.029.i = phi i32 [ 0, %28 ], [ 0, %24 ], [ 0, %81 ], [ %spec.select.i, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24816
   %87 = load i32, ptr %86, align 4
@@ -6442,7 +6442,7 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
   %.not45 = icmp eq i32 %96, 0
   br i1 %.not45, label %.loopexit, label %97
 
-97:                                               ; preds = %read_delta_qindex.exit
+97:                                               ; preds = %read_delta_qindex.argprom.exit
   %98 = load i32, ptr %1, align 16
   %99 = load i32, ptr %13, align 4
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24828
@@ -6469,7 +6469,7 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
   %112 = getelementptr inbounds [4 x [5 x i16]], ptr %105, i64 0, i64 %indvars.iv
   %.val49 = load i8, ptr %10, align 4
   %.val50 = load i32, ptr %11, align 16
-  %113 = tail call fastcc i32 @read_delta_lflevel(i8 %.val49, i32 %.val50, ptr noundef %2, ptr noundef nonnull %112, ptr noundef nonnull %9, i32 noundef %99, i32 noundef %98)
+  %113 = tail call fastcc i32 @read_delta_lflevel.argprom(i8 %.val49, i32 %.val50, ptr noundef %2, ptr noundef nonnull %112, ptr noundef nonnull %9, i32 noundef %99, i32 noundef %98)
   %114 = load i32, ptr %106, align 4
   %115 = mul nsw i32 %114, %113
   %116 = add nsw i32 %115, %111
@@ -6490,7 +6490,7 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
   %125 = getelementptr inbounds nuw i8, ptr %94, i64 15178
   %.val51 = load i8, ptr %10, align 4
   %.val52 = load i32, ptr %11, align 16
-  %126 = tail call fastcc i32 @read_delta_lflevel(i8 %.val51, i32 %.val52, ptr noundef %2, ptr noundef nonnull %125, ptr noundef nonnull %9, i32 noundef %99, i32 noundef %98)
+  %126 = tail call fastcc i32 @read_delta_lflevel.argprom(i8 %.val51, i32 %.val52, ptr noundef %2, ptr noundef nonnull %125, ptr noundef nonnull %9, i32 noundef %99, i32 noundef %98)
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24824
   %128 = load i32, ptr %127, align 4
   %129 = mul nsw i32 %128, %126
@@ -6503,7 +6503,7 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
   store i8 %133, ptr %134, align 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %108, %read_delta_qindex.exit, %121, %3
+.loopexit:                                        ; preds = %108, %read_delta_qindex.argprom.exit, %121, %3
   ret void
 }
 
@@ -6776,7 +6776,7 @@ define internal fastcc void @read_palette_mode_info(ptr nocapture noundef readon
 30:                                               ; preds = %25, %22
   %.0.i = phi i32 [ %29, %25 ], [ 0, %22 ]
   %.not10.i = icmp eq ptr %.val36, null
-  br i1 %.not10.i, label %av1_get_palette_mode_ctx.exit, label %31
+  br i1 %.not10.i, label %av1_get_palette_mode_ctx.argprom.exit, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %.val36, i64 150
@@ -6784,9 +6784,9 @@ define internal fastcc void @read_palette_mode_info(ptr nocapture noundef readon
   %34 = icmp ne i8 %33, 0
   %35 = zext i1 %34 to i32
   %36 = add nuw nsw i32 %.0.i, %35
-  br label %av1_get_palette_mode_ctx.exit
+  br label %av1_get_palette_mode_ctx.argprom.exit
 
-av1_get_palette_mode_ctx.exit:                    ; preds = %30, %31
+av1_get_palette_mode_ctx.argprom.exit:            ; preds = %30, %31
   %.1.i = phi i32 [ %36, %31 ], [ %.0.i, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 10648
   %38 = load ptr, ptr %37, align 8
@@ -6801,7 +6801,7 @@ av1_get_palette_mode_ctx.exit:                    ; preds = %30, %31
   %.not.i39 = icmp eq i8 %46, 0
   br i1 %.not.i39, label %aom_read_symbol_.exit, label %47
 
-47:                                               ; preds = %av1_get_palette_mode_ctx.exit
+47:                                               ; preds = %av1_get_palette_mode_ctx.argprom.exit
   %48 = getelementptr inbounds i8, ptr %42, i64 4
   %49 = load i16, ptr %48, align 2
   %50 = icmp ugt i16 %49, 15
@@ -6843,7 +6843,7 @@ av1_get_palette_mode_ctx.exit:                    ; preds = %30, %31
   store i16 %75, ptr %48, align 2
   br label %aom_read_symbol_.exit
 
-aom_read_symbol_.exit:                            ; preds = %av1_get_palette_mode_ctx.exit, %._crit_edge.loopexit.i.i
+aom_read_symbol_.exit:                            ; preds = %av1_get_palette_mode_ctx.argprom.exit, %._crit_edge.loopexit.i.i
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %208, label %76
 
@@ -7865,9 +7865,9 @@ define internal fastcc i32 @read_segment_id(ptr nocapture noundef readonly %0, p
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 7873
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %14, label %18, label %.get_segment_id.exit.i_crit_edge
+  br i1 %14, label %18, label %.get_segment_id.argprom.exit.i_crit_edge
 
-.get_segment_id.exit.i_crit_edge:                 ; preds = %4
+.get_segment_id.argprom.exit.i_crit_edge:         ; preds = %4
   br i1 %17, label %43, label %av1_get_spatial_seg_pred.exit
 
 18:                                               ; preds = %4
@@ -7900,7 +7900,7 @@ define internal fastcc i32 @read_segment_id(ptr nocapture noundef readonly %0, p
   %33 = icmp sge i32 %.val.i, %5
   %34 = icmp sgt i32 %.val49.i, %7
   %or.cond.i54.i = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond.i54.i, label %.preheader.us.i56.i, label %get_segment_id.exit.i
+  br i1 %or.cond.i54.i, label %.preheader.us.i56.i, label %get_segment_id.argprom.exit.i
 
 .preheader.us.i56.i:                              ; preds = %._crit_edge.i
   %35 = add nsw i32 %5, -1
@@ -7911,14 +7911,14 @@ define internal fastcc i32 @read_segment_id(ptr nocapture noundef readonly %0, p
   %40 = load i8, ptr %39, align 1
   %41 = tail call i8 @llvm.umin.i8(i8 %40, i8 8)
   %42 = zext nneg i8 %41 to i32
-  br i1 %17, label %43, label %get_segment_id.exit61.i
+  br i1 %17, label %43, label %get_segment_id.argprom.exit61.i
 
-get_segment_id.exit.i:                            ; preds = %._crit_edge.i
-  br i1 %17, label %43, label %get_segment_id.exit61.i
+get_segment_id.argprom.exit.i:                    ; preds = %._crit_edge.i
+  br i1 %17, label %43, label %get_segment_id.argprom.exit61.i
 
-43:                                               ; preds = %.preheader.us.i56.i, %.get_segment_id.exit.i_crit_edge, %get_segment_id.exit.i
-  %.046.i26 = phi i32 [ -1, %.get_segment_id.exit.i_crit_edge ], [ 8, %get_segment_id.exit.i ], [ %42, %.preheader.us.i56.i ]
-  %.04463.i24 = phi i32 [ -1, %.get_segment_id.exit.i_crit_edge ], [ %.044.ph.i, %get_segment_id.exit.i ], [ %.044.ph.i, %.preheader.us.i56.i ]
+43:                                               ; preds = %.preheader.us.i56.i, %.get_segment_id.argprom.exit.i_crit_edge, %get_segment_id.argprom.exit.i
+  %.046.i26 = phi i32 [ -1, %.get_segment_id.argprom.exit.i_crit_edge ], [ 8, %get_segment_id.argprom.exit.i ], [ %42, %.preheader.us.i56.i ]
+  %.04463.i24 = phi i32 [ -1, %.get_segment_id.argprom.exit.i_crit_edge ], [ %.044.ph.i, %get_segment_id.argprom.exit.i ], [ %.044.ph.i, %.preheader.us.i56.i ]
   %44 = getelementptr i8, ptr %0, i64 1076
   %.val52.i = load i32, ptr %44, align 4
   %45 = getelementptr i8, ptr %0, i64 1080
@@ -7926,7 +7926,7 @@ get_segment_id.exit.i:                            ; preds = %._crit_edge.i
   %46 = icmp sgt i32 %.val52.i, %5
   %47 = icmp sge i32 %.val53.i, %7
   %or.cond.i58.i = select i1 %46, i1 %47, i1 false
-  br i1 %or.cond.i58.i, label %.preheader.us.i60.i, label %get_segment_id.exit61.i
+  br i1 %or.cond.i58.i, label %.preheader.us.i60.i, label %get_segment_id.argprom.exit61.i
 
 .preheader.us.i60.i:                              ; preds = %43
   %48 = add nsw i32 %7, -1
@@ -7938,16 +7938,16 @@ get_segment_id.exit.i:                            ; preds = %._crit_edge.i
   %.fr48 = freeze i8 %53
   %54 = tail call i8 @llvm.umin.i8(i8 %.fr48, i8 8)
   %55 = zext nneg i8 %54 to i32
-  br label %get_segment_id.exit61.i
+  br label %get_segment_id.argprom.exit61.i
 
-get_segment_id.exit61.i:                          ; preds = %.preheader.us.i56.i, %.preheader.us.i60.i, %43, %get_segment_id.exit.i
-  %.046.i25 = phi i32 [ 8, %get_segment_id.exit.i ], [ %.046.i26, %43 ], [ %.046.i26, %.preheader.us.i60.i ], [ %42, %.preheader.us.i56.i ]
-  %.04463.i23 = phi i32 [ %.044.ph.i, %get_segment_id.exit.i ], [ %.04463.i24, %43 ], [ %.04463.i24, %.preheader.us.i60.i ], [ %.044.ph.i, %.preheader.us.i56.i ]
-  %.045.i = phi i32 [ -1, %get_segment_id.exit.i ], [ 8, %43 ], [ %55, %.preheader.us.i60.i ], [ -1, %.preheader.us.i56.i ]
+get_segment_id.argprom.exit61.i:                  ; preds = %.preheader.us.i56.i, %.preheader.us.i60.i, %43, %get_segment_id.argprom.exit.i
+  %.046.i25 = phi i32 [ 8, %get_segment_id.argprom.exit.i ], [ %.046.i26, %43 ], [ %.046.i26, %.preheader.us.i60.i ], [ %42, %.preheader.us.i56.i ]
+  %.04463.i23 = phi i32 [ %.044.ph.i, %get_segment_id.argprom.exit.i ], [ %.04463.i24, %43 ], [ %.04463.i24, %.preheader.us.i60.i ], [ %.044.ph.i, %.preheader.us.i56.i ]
+  %.045.i = phi i32 [ -1, %get_segment_id.argprom.exit.i ], [ 8, %43 ], [ %55, %.preheader.us.i60.i ], [ -1, %.preheader.us.i56.i ]
   %56 = icmp slt i32 %.04463.i23, 0
   br i1 %56, label %62, label %57
 
-57:                                               ; preds = %get_segment_id.exit61.i
+57:                                               ; preds = %get_segment_id.argprom.exit61.i
   %58 = icmp eq i32 %.04463.i23, %.046.i25
   %59 = icmp eq i32 %.04463.i23, %.045.i
   %or.cond.i = select i1 %58, i1 %59, i1 false
@@ -7960,9 +7960,9 @@ get_segment_id.exit61.i:                          ; preds = %.preheader.us.i56.i
   %..i = zext i1 %or.cond48.i to i32
   br label %62
 
-62:                                               ; preds = %60, %get_segment_id.exit61.i
-  %.04463.i2332 = phi i32 [ -1, %get_segment_id.exit61.i ], [ %.04463.i23, %60 ]
-  %.sink.i = phi i32 [ 0, %get_segment_id.exit61.i ], [ %..i, %60 ]
+62:                                               ; preds = %60, %get_segment_id.argprom.exit61.i
+  %.04463.i2332 = phi i32 [ -1, %get_segment_id.argprom.exit61.i ], [ %.04463.i23, %60 ]
+  %.sink.i = phi i32 [ 0, %get_segment_id.argprom.exit61.i ], [ %..i, %60 ]
   %63 = icmp eq i32 %.046.i25, -1
   %64 = icmp eq i32 %.045.i, -1
   br i1 %63, label %65, label %66
@@ -7981,9 +7981,9 @@ get_segment_id.exit61.i:                          ; preds = %.preheader.us.i56.i
   %68 = select i1 %67, i32 %.046.i25, i32 %.045.i
   br label %av1_get_spatial_seg_pred.exit
 
-av1_get_spatial_seg_pred.exit:                    ; preds = %65, %.get_segment_id.exit.i_crit_edge, %66, %.thread65.i
-  %.1 = phi i32 [ %.sink.i, %66 ], [ %.021, %.thread65.i ], [ 0, %.get_segment_id.exit.i_crit_edge ], [ %.sink.i, %65 ]
-  %.0.i = phi i32 [ %.046.i25, %66 ], [ %68, %.thread65.i ], [ 0, %.get_segment_id.exit.i_crit_edge ], [ %spec.select, %65 ]
+av1_get_spatial_seg_pred.exit:                    ; preds = %65, %.get_segment_id.argprom.exit.i_crit_edge, %66, %.thread65.i
+  %.1 = phi i32 [ %.sink.i, %66 ], [ %.021, %.thread65.i ], [ 0, %.get_segment_id.argprom.exit.i_crit_edge ], [ %.sink.i, %65 ]
+  %.0.i = phi i32 [ %.046.i25, %66 ], [ %68, %.thread65.i ], [ 0, %.get_segment_id.argprom.exit.i_crit_edge ], [ %spec.select, %65 ]
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %69, label %147
 
@@ -8142,7 +8142,7 @@ declare void @aom_internal_error(ptr noundef, i32 noundef, ptr noundef, ...) loc
 declare i32 @od_ec_decode_bool_q15(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_delta_lflevel(i8 %.25212.val, i32 %.25216.val, ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @read_delta_lflevel.argprom(i8 %.25212.val, i32 %.25216.val, ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i8, ptr %2, align 8
   %7 = add nsw i32 %.25216.val, -1
   %8 = or i32 %4, %3
@@ -9014,7 +9014,7 @@ copy_segment_id.exit:                             ; preds = %._crit_edge.split.u
 118:                                              ; preds = %112, %109
   %119 = phi i64 [ %117, %112 ], [ 0, %109 ]
   %.not8.i = icmp eq ptr %.val, null
-  br i1 %.not8.i, label %av1_get_pred_context_seg_id.exit, label %120
+  br i1 %.not8.i, label %av1_get_pred_context_seg_id.argprom.exit, label %120
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %.val, i64 175
@@ -9022,9 +9022,9 @@ copy_segment_id.exit:                             ; preds = %._crit_edge.split.u
   %123 = lshr i16 %122, 3
   %124 = and i16 %123, 1
   %125 = zext nneg i16 %124 to i64
-  br label %av1_get_pred_context_seg_id.exit
+  br label %av1_get_pred_context_seg_id.argprom.exit
 
-av1_get_pred_context_seg_id.exit:                 ; preds = %118, %120
+av1_get_pred_context_seg_id.argprom.exit:         ; preds = %118, %120
   %126 = phi i64 [ %125, %120 ], [ 0, %118 ]
   %127 = add nuw nsw i64 %126, %119
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 10648
@@ -9038,7 +9038,7 @@ av1_get_pred_context_seg_id.exit:                 ; preds = %118, %120
   %.not.i92 = icmp eq i8 %135, 0
   br i1 %.not.i92, label %aom_read_symbol_.exit, label %136
 
-136:                                              ; preds = %av1_get_pred_context_seg_id.exit
+136:                                              ; preds = %av1_get_pred_context_seg_id.argprom.exit
   %137 = getelementptr inbounds i8, ptr %131, i64 4
   %138 = load i16, ptr %137, align 2
   %139 = icmp ugt i16 %138, 15
@@ -9080,7 +9080,7 @@ av1_get_pred_context_seg_id.exit:                 ; preds = %118, %120
   store i16 %164, ptr %137, align 2
   br label %aom_read_symbol_.exit
 
-aom_read_symbol_.exit:                            ; preds = %av1_get_pred_context_seg_id.exit, %._crit_edge.loopexit.i.i
+aom_read_symbol_.exit:                            ; preds = %av1_get_pred_context_seg_id.argprom.exit, %._crit_edge.loopexit.i.i
   %165 = trunc i32 %133 to i16
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 175
   %167 = load i16, ptr %166, align 1

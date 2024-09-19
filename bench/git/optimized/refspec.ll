@@ -312,7 +312,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc ptr @_()
+  %call1 = tail call fastcc ptr @_.argprom()
   tail call void (ptr, ...) @die(ptr noundef %call1, ptr noundef %refspec) #14
   unreachable
 
@@ -324,7 +324,7 @@ if.end:                                           ; preds = %entry
 declare void @die(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_() unnamed_addr #0 {
+define internal fastcc ptr @_.argprom() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0
@@ -387,7 +387,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %refspec_item_init_or_die.exit
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = tail call fastcc ptr @_()
+  %call1.i = tail call fastcc ptr @_.argprom()
   tail call void (ptr, ...) @die(ptr noundef %call1.i, ptr noundef %refspec) #14
   unreachable
 

@@ -819,7 +819,7 @@ entry:
 
 if.then.i35:                                      ; preds = %entry
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #10
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %0)
+  call fastcc void @rtree_read.argprom(ptr dead_on_unwind noalias writable align 8 %tmp.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %0)
   %1 = load ptr, ptr %tmp.i, align 8
   %.val108 = load i64, ptr %1, align 8
   %2 = lshr i64 %.val108, 20
@@ -831,7 +831,7 @@ if.then.i35:                                      ; preds = %entry
 
 tsdn_rtree_ctx.exit:                              ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i, ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %0)
+  call fastcc void @rtree_read.argprom(ptr dead_on_unwind noalias writable align 8 %tmp.i, ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %0)
   %4 = load ptr, ptr %tmp.i, align 8
   %.val107 = load i64, ptr %4, align 8
   %5 = lshr i64 %.val107, 20
@@ -932,7 +932,7 @@ if.else.i116:                                     ; preds = %sz_size2index.exit.
 
 if.then.i.i.i:                                    ; preds = %if.else.i116
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i) #10
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i, i64 noundef %23)
+  call fastcc void @rtree_read.argprom(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i, i64 noundef %23)
   %24 = load ptr, ptr %tmp.i.i.i, align 8
   %edata.val.i.i.i.i = load i64, ptr %24, align 8
   %conv.i.i.i.i.i = and i64 %edata.val.i.i.i.i, 4095
@@ -958,7 +958,7 @@ large_dalloc.exit.i.i:                            ; preds = %if.then.i.i.i.i, %i
 
 if.end.i.split.i.i:                               ; preds = %if.else.i116
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i, i64 noundef %23)
+  call fastcc void @rtree_read.argprom(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i, i64 noundef %23)
   %28 = load ptr, ptr %tmp.i.i.i, align 8
   call void @large_dalloc(ptr noundef nonnull %tsdn, ptr noundef %28)
   br label %arena_dalloc_large_no_tcache.exit.i
@@ -1104,14 +1104,14 @@ if.else.i77:                                      ; preds = %if.else.i
 
 if.then.i.i85:                                    ; preds = %if.else.i77
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #10
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %54)
+  call fastcc void @rtree_read.argprom(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %54)
   %55 = load ptr, ptr %tmp.i.i, align 8
   call void @large_dalloc(ptr noundef null, ptr noundef %55)
   br label %return
 
 if.end.i.i81.split:                               ; preds = %if.else.i77
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %54)
+  call fastcc void @rtree_read.argprom(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %54)
   %56 = load ptr, ptr %tmp.i.i, align 8
   call void @large_dalloc(ptr noundef nonnull %tsdn, ptr noundef %56)
   br label %return
@@ -1547,7 +1547,7 @@ declare zeroext i1 @pa_shrink(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 declare void @arena_extent_ralloc_large_shrink(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

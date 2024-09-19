@@ -271,7 +271,7 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   %.030.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.030.idx.i
   %16 = load i8, ptr %.030.ptr.i, align 1
   switch i8 %16, label %27 [
-    i8 0, label %Io_ReadFileRemoveComments.exit
+    i8 0, label %Io_ReadFileRemoveComments.argprom.exit
     i8 35, label %.lr.ph.i
     i8 10, label %.loopexit.thread.i
   ]
@@ -324,14 +324,14 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   %.131.add.i = add nsw i64 %.131.idx8.i, 1
   br label %15, !llvm.loop !7
 
-Io_ReadFileRemoveComments.exit:                   ; preds = %15
+Io_ReadFileRemoveComments.argprom.exit:           ; preds = %15
   %28 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr null, ptr %28, align 8
   %29 = tail call ptr @strtok(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #17
   %.not107123133.i = icmp eq ptr %29, null
   br i1 %.not107123133.i, label %.critedge.thread.i, label %.lr.ph.lr.ph.lr.ph.i
 
-.lr.ph.lr.ph.lr.ph.i:                             ; preds = %Io_ReadFileRemoveComments.exit
+.lr.ph.lr.ph.lr.ph.i:                             ; preds = %Io_ReadFileRemoveComments.argprom.exit
   %.not.i24.i.i = icmp eq i32 %1, 0
   %.not57.i = icmp eq ptr %2, null
   br label %.lr.ph.lr.ph.i
@@ -673,7 +673,7 @@ Mio_LibraryReadGate.exit.thread70.i:              ; preds = %146, %.lr.ph.i.i, %
   %180 = icmp eq i32 %.039.ph97.i, 0
   br i1 %180, label %.critedge.thread.i, label %181
 
-.critedge.thread.i:                               ; preds = %.critedge.i, %Io_ReadFileRemoveComments.exit
+.critedge.thread.i:                               ; preds = %.critedge.i, %Io_ReadFileRemoveComments.argprom.exit
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %187
 

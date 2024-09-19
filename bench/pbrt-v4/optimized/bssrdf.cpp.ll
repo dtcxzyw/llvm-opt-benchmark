@@ -2573,7 +2573,7 @@ entry:
   %cmp29.not.i.i.i = icmp eq i64 %2, 0
   %sext.i.i = shl i64 %__args.val, 32
   %.pre35.i.i.i = ashr exact i64 %sext.i.i, 32
-  br i1 %cmp29.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS0_11BSSRDFTableEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp29.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS0_11BSSRDFTableEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -2623,9 +2623,9 @@ for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
   %.pre33.i.i.i = load ptr, ptr %.pre.i.i.i, align 8
   %nStored.i.i.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre33.i.i.i, i64 56
   %.pre34.i.i.i = load i64, ptr %nStored.i.i.phi.trans.insert.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS0_11BSSRDFTableEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS0_11BSSRDFTableEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS0_11BSSRDFTableEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry, %for.end.loopexit.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS0_11BSSRDFTableEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry, %for.end.loopexit.i.i.i
   %mul20.pre-phi.i.i.i = phi i64 [ %mul12.i.i.i, %for.end.loopexit.i.i.i ], [ 0, %entry ]
   %23 = phi i64 [ %.pre34.i.i.i, %for.end.loopexit.i.i.i ], [ 0, %entry ]
   %24 = phi ptr [ %.pre33.i.i.i, %for.end.loopexit.i.i.i ], [ %1, %entry ]

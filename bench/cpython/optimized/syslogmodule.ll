@@ -190,7 +190,7 @@ skip_optional_pos:                                ; preds = %if.end44, %land.lhs
   %ident.0 = phi ptr [ %2, %land.lhs.true48 ], [ %2, %if.end44 ], [ %2, %if.end39 ], [ %2, %if.end23 ], [ null, %if.end ]
   %logopt.0 = phi i64 [ %logopt.1, %land.lhs.true48 ], [ %logopt.1, %if.end44 ], [ %call33, %if.end39 ], [ 0, %if.end23 ], [ 0, %if.end ]
   %facility.0 = phi i64 [ -1, %land.lhs.true48 ], [ %call46, %if.end44 ], [ 8, %if.end39 ], [ 8, %if.end23 ], [ 8, %if.end ]
-  %call53 = call fastcc ptr @syslog_openlog_impl(ptr noundef %ident.0, i64 noundef %logopt.0, i64 noundef %facility.0)
+  %call53 = call fastcc ptr @syslog_openlog_impl.argprom(ptr noundef %ident.0, i64 noundef %logopt.0, i64 noundef %facility.0)
   br label %exit
 
 exit:                                             ; preds = %land.lhs.true48, %land.lhs.true35, %cond.end9, %skip_optional_pos, %if.then21
@@ -209,16 +209,16 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.15) #4
-  br label %syslog_closelog_impl.exit
+  br label %syslog_closelog_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.16, ptr noundef null) #4
   %cmp.i = icmp slt i32 %call1.i, 0
-  br i1 %cmp.i, label %syslog_closelog_impl.exit, label %if.end3.i
+  br i1 %cmp.i, label %syslog_closelog_impl.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %.b.i = load i1, ptr @S_log_open, align 1
-  br i1 %.b.i, label %if.then5.i, label %syslog_closelog_impl.exit
+  br i1 %.b.i, label %if.then5.i, label %syslog_closelog_impl.argprom.exit
 
 if.then5.i:                                       ; preds = %if.end3.i
   tail call void @closelog() #4
@@ -245,9 +245,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 do.end.i:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then7.i, %if.then5.i
   store i1 false, ptr @S_log_open, align 1
-  br label %syslog_closelog_impl.exit
+  br label %syslog_closelog_impl.argprom.exit
 
-syslog_closelog_impl.exit:                        ; preds = %if.then.i, %if.end.i, %if.end3.i, %do.end.i
+syslog_closelog_impl.argprom.exit:                ; preds = %if.then.i, %if.end.i, %if.end3.i, %do.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.end.i ], [ @_Py_NoneStruct, %do.end.i ], [ @_Py_NoneStruct, %if.end3.i ]
   ret ptr %retval.0.i
 }
@@ -307,7 +307,7 @@ if.then4.i:                                       ; preds = %if.then1.i
   br label %exit
 
 if.end5.i:                                        ; preds = %if.then1.i
-  %call6.i = call fastcc ptr @syslog_openlog_impl(ptr noundef null, i64 noundef 0, i64 noundef 8)
+  %call6.i = call fastcc ptr @syslog_openlog_impl.argprom(ptr noundef null, i64 noundef 0, i64 noundef 8)
   %cmp7.i = icmp eq ptr %call6.i, null
   br i1 %cmp7.i, label %exit, label %if.end9.i
 
@@ -489,7 +489,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @syslog_openlog_impl(ptr noundef %ident, i64 noundef %logopt, i64 noundef %facility) unnamed_addr #0 {
+define internal fastcc noundef ptr @syslog_openlog_impl.argprom(ptr noundef %ident, i64 noundef %logopt, i64 noundef %facility) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyInterpreterState_Get() #4
   %call1.i = tail call ptr @PyInterpreterState_Main() #4

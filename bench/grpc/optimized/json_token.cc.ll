@@ -1451,11 +1451,11 @@ invoke.cont41.i:                                  ; preds = %invoke.cont38.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i22.i)
   %25 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.not.i.i24.i = icmp eq i8 %25, -1
-  br i1 %cmp.i.i.i.not.i.i24.i, label %_ZL18encoded_jwt_headerPKcS0_.exit, label %if.end.i.i.i.i25.i
+  br i1 %cmp.i.i.i.not.i.i24.i, label %_ZL18encoded_jwt_headerPKcS0_.argprom.exit, label %if.end.i.i.i.i25.i
 
 if.end.i.i.i.i25.i:                               ; preds = %invoke.cont41.i
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i22.i, ptr noundef nonnull align 8 dereferenceable(49) %json.i)
-          to label %_ZL18encoded_jwt_headerPKcS0_.exit unwind label %terminate.lpad.i.i.i.i26.i
+          to label %_ZL18encoded_jwt_headerPKcS0_.argprom.exit unwind label %terminate.lpad.i.i.i.i26.i
 
 terminate.lpad.i.i.i.i26.i:                       ; preds = %if.end.i.i.i.i25.i
   %26 = landingpad { ptr, i32 }
@@ -1537,7 +1537,7 @@ common.resume:                                    ; preds = %arraydestroy.body32
   %common.resume.op = phi { ptr, i32 } [ %.pn5.i, %ehcleanup44.i ], [ %.pn.pn.pn.i, %ehcleanup31.i ], [ %.pn17.i, %ehcleanup92.i ], [ %.pn.pn.pn.pn.i, %ehcleanup45.i ], [ %.pn.pn.pn.pn.i, %arraydestroy.body46.i ], [ %.pn.pn.pn.i, %arraydestroy.body32.i ]
   resume { ptr, i32 } %common.resume.op
 
-_ZL18encoded_jwt_headerPKcS0_.exit:               ; preds = %invoke.cont41.i, %if.end.i.i.i.i25.i
+_ZL18encoded_jwt_headerPKcS0_.argprom.exit:       ; preds = %invoke.cont41.i, %if.end.i.i.i.i25.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i22.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %json.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -1568,13 +1568,13 @@ _ZL18encoded_jwt_headerPKcS0_.exit:               ; preds = %invoke.cont41.i, %i
   %cmp.i = icmp sgt i32 %call6.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %_ZL18encoded_jwt_headerPKcS0_.exit
+if.then.i:                                        ; preds = %_ZL18encoded_jwt_headerPKcS0_.argprom.exit
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 192, i32 noundef 1, ptr noundef nonnull @.str.32)
   %call10.i = call { i64, i64 } @gpr_time_add(i64 %34, i64 %35, i64 3600, i64 12884901888)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %_ZL18encoded_jwt_headerPKcS0_.exit
-  %call10.pn.i = phi { i64, i64 } [ %call10.i, %if.then.i ], [ %call2.i, %_ZL18encoded_jwt_headerPKcS0_.exit ]
+if.end.i:                                         ; preds = %if.then.i, %_ZL18encoded_jwt_headerPKcS0_.argprom.exit
+  %call10.pn.i = phi { i64, i64 } [ %call10.i, %if.then.i ], [ %call2.i, %_ZL18encoded_jwt_headerPKcS0_.argprom.exit ]
   %expiration.sroa.0.0.i = extractvalue { i64, i64 } %call10.pn.i, 0
   %client_email.i = getelementptr inbounds i8, ptr %json_key, i64 24
   %36 = load ptr, ptr %client_email.i, align 8

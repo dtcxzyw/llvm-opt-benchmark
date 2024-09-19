@@ -335,7 +335,7 @@ for.end.i:                                        ; preds = %for.inc.i, %strbuf_
   br i1 %tobool11.not.i, label %if.end14.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %for.end.i
-  %call13.i = call fastcc ptr @_()
+  %call13.i = call fastcc ptr @_.argprom()
   call void (ptr, ...) @die(ptr noundef %call13.i, ptr noundef nonnull %call13) #18
   unreachable
 
@@ -882,7 +882,7 @@ declare void @strbuf_list_free(ptr noundef) local_unnamed_addr #2
 declare i32 @check_refname_format(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_() unnamed_addr #0 {
+define internal fastcc ptr @_.argprom() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

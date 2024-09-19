@@ -31,7 +31,7 @@ define { i64, ptr } @taper(ptr nocapture noundef readonly %0, ptr nocapture noun
   %12 = load ptr, ptr @stderr, align 8
   %13 = tail call ptr @strerror(i32 noundef 12) #14
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef %13) #15
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 insertArr.exit:                                   ; preds = %3
@@ -41,9 +41,9 @@ insertArr.exit:                                   ; preds = %3
   %15 = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val, i64 16, i1 false), !noalias !4
   %16 = icmp ugt i64 %.val187, 3
-  br i1 %16, label %.lr.ph.i, label %pathtolines.exit.thread
+  br i1 %16, label %.lr.ph.i, label %pathtolines.argprom.exit.thread
 
-pathtolines.exit.thread:                          ; preds = %insertArr.exit
+pathtolines.argprom.exit.thread:                  ; preds = %insertArr.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %17 = getelementptr inbounds i8, ptr %calloc, i64 16
   br label %.lr.ph
@@ -58,7 +58,7 @@ pathtolines.exit.thread:                          ; preds = %insertArr.exit
   %18 = add i64 %21, 3
   %19 = icmp ult i64 %18, %.val187
   %indvar.next.i = add i64 %indvar.i, 1
-  br i1 %19, label %20, label %pathtolines.exit
+  br i1 %19, label %20, label %pathtolines.argprom.exit
 
 20:                                               ; preds = %.loopexit.i, %.lr.ph.i
   %.sroa.0.0 = phi ptr [ %calloc, %.lr.ph.i ], [ %.sroa.0.2, %.loopexit.i ]
@@ -121,7 +121,7 @@ pathtolines.exit.thread:                          ; preds = %insertArr.exit
   %47 = load ptr, ptr @stderr, align 8, !noalias !4
   %48 = call ptr @strerror(i32 noundef %.0.i.ph.i.i.i) #14, !noalias !4
   %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str, ptr noundef %48) #15, !noalias !4
-  call fastcc void @graphviz_exit() #16
+  call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 insertArr.exit.i:                                 ; preds = %23, %41
@@ -144,21 +144,21 @@ insertArr.exit.i:                                 ; preds = %23, %41
   %exitcond.not.i = icmp eq i32 %52, 21
   br i1 %exitcond.not.i, label %.loopexit.i, label %23
 
-pathtolines.exit:                                 ; preds = %.loopexit.i
+pathtolines.argprom.exit:                         ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %53 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.2, i64 %.sroa.9.1, i32 2
   %.not235 = icmp eq i64 %51, 0
   br i1 %.not235, label %._crit_edge.thread, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %pathtolines.exit
+._crit_edge.thread:                               ; preds = %pathtolines.argprom.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %._crit_edge225
 
-.lr.ph:                                           ; preds = %pathtolines.exit.thread, %pathtolines.exit
-  %.in = phi ptr [ %17, %pathtolines.exit.thread ], [ %53, %pathtolines.exit ]
-  %54 = phi i64 [ 0, %pathtolines.exit.thread ], [ %.sroa.9.1, %pathtolines.exit ]
-  %.sroa.9.2245 = phi i64 [ 1, %pathtolines.exit.thread ], [ %51, %pathtolines.exit ]
-  %.sroa.0.3243 = phi ptr [ %calloc, %pathtolines.exit.thread ], [ %.sroa.0.2, %pathtolines.exit ]
+.lr.ph:                                           ; preds = %pathtolines.argprom.exit.thread, %pathtolines.argprom.exit
+  %.in = phi ptr [ %17, %pathtolines.argprom.exit.thread ], [ %53, %pathtolines.argprom.exit ]
+  %54 = phi i64 [ 0, %pathtolines.argprom.exit.thread ], [ %.sroa.9.1, %pathtolines.argprom.exit ]
+  %.sroa.9.2245 = phi i64 [ 1, %pathtolines.argprom.exit.thread ], [ %51, %pathtolines.argprom.exit ]
+  %.sroa.0.3243 = phi ptr [ %calloc, %pathtolines.argprom.exit.thread ], [ %.sroa.0.2, %pathtolines.argprom.exit ]
   %55 = load double, ptr %.in, align 8
   %56 = trunc i64 %.sroa.9.2245 to i32
   %57 = sitofp i32 %56 to double
@@ -469,7 +469,7 @@ define internal fastcc void @addto(ptr nocapture noundef nonnull %0, double noun
 9:                                                ; preds = %3
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, i64 noundef %7, i64 noundef 16) #15
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 12:                                               ; preds = %3
@@ -490,7 +490,7 @@ define internal fastcc void @addto(ptr nocapture noundef nonnull %0, double noun
 20:                                               ; preds = %17
   %21 = load ptr, ptr @stderr, align 8
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.2, i64 noundef %14) #15
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 23:                                               ; preds = %17
@@ -533,7 +533,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #9 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #9 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }
@@ -589,5 +589,5 @@ attributes #18 = { cold noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"pathtolines: argument 0"}
-!6 = distinct !{!6, !"pathtolines"}
+!5 = distinct !{!5, !6, !"pathtolines.argprom: argument 0"}
+!6 = distinct !{!6, !"pathtolines.argprom"}

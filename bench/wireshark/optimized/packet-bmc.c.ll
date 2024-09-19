@@ -207,7 +207,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @proto_item_set_len(ptr noundef %62, i32 noundef %63) #3
   %64 = call i32 @tvb_reported_length_remaining(ptr noundef %18, i32 noundef %.0.lcssa.i) #3
   %.not91.i = icmp eq i32 %64, 0
-  br i1 %.not91.i, label %dissect_bmc_schedule_message.exit, label %65
+  br i1 %.not91.i, label %dissect_bmc_schedule_message.argprom.exit, label %65
 
 65:                                               ; preds = %._crit_edge8.i
   %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %.0.lcssa.i) #3
@@ -216,7 +216,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %69 = add i32 %.0.lcssa.i, 1
   %70 = and i8 %66, 1
   %.not92.i = icmp eq i8 %70, 0
-  br i1 %.not92.i, label %dissect_bmc_schedule_message.exit, label %71
+  br i1 %.not92.i, label %dissect_bmc_schedule_message.argprom.exit, label %71
 
 71:                                               ; preds = %65
   %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %69) #3
@@ -224,7 +224,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %74 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %73, ptr noundef %18, i32 noundef %69, i32 noundef 1, i32 noundef 0) #3
   %75 = add i32 %.0.lcssa.i, 2
   %.not16.i = icmp eq i8 %72, 0
-  br i1 %.not16.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i
+  br i1 %.not16.i, label %dissect_bmc_schedule_message.argprom.exit, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %71, %.lr.ph13.i
   %.411.i = phi i32 [ %81, %.lr.ph13.i ], [ %75, %71 ]
@@ -237,9 +237,9 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %81 = add i32 %.411.i, 3
   %82 = add nuw i8 %.08610.i, 1
   %exitcond.not.i = icmp eq i8 %82, %72
-  br i1 %exitcond.not.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %dissect_bmc_schedule_message.argprom.exit, label %.lr.ph13.i, !llvm.loop !7
 
-dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit_edge8.i, %65, %71
+dissect_bmc_schedule_message.argprom.exit:        ; preds = %.lr.ph13.i, %._crit_edge8.i, %65, %71
   %.3.i = phi i32 [ %69, %65 ], [ %.0.lcssa.i, %._crit_edge8.i ], [ %75, %71 ], [ %81, %.lr.ph13.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %90
@@ -253,8 +253,8 @@ dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit
   %89 = tail call i32 @tvb_reported_length(ptr noundef %18) #3
   br label %90
 
-90:                                               ; preds = %4, %83, %dissect_bmc_schedule_message.exit, %25
-  %.0 = phi i32 [ 1, %4 ], [ %89, %83 ], [ %.3.i, %dissect_bmc_schedule_message.exit ], [ %31, %25 ]
+90:                                               ; preds = %4, %83, %dissect_bmc_schedule_message.argprom.exit, %25
+  %.0 = phi i32 [ 1, %4 ], [ %89, %83 ], [ %.3.i, %dissect_bmc_schedule_message.argprom.exit ], [ %31, %25 ]
   ret i32 %.0
 }
 

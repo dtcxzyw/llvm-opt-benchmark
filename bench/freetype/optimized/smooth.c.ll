@@ -1374,7 +1374,7 @@ define internal noundef i32 @gray_conic_to(ptr nocapture noundef readonly %0, pt
 28:                                               ; preds = %22, %3
   store i64 %12, ptr %6, align 8
   store i64 %13, ptr %8, align 8
-  br label %gray_render_conic.exit
+  br label %gray_render_conic.argprom.exit
 
 29:                                               ; preds = %22
   %30 = sub nsw i64 %10, %7
@@ -1391,7 +1391,7 @@ define internal noundef i32 @gray_conic_to(ptr nocapture noundef readonly %0, pt
 
 39:                                               ; preds = %29
   tail call fastcc void @gray_render_line(ptr noundef nonnull %2, i64 noundef %12, i64 noundef %13)
-  br label %gray_render_conic.exit
+  br label %gray_render_conic.argprom.exit
 
 .preheader.i:                                     ; preds = %29, %.preheader.i
   %.1.i = phi i64 [ %40, %.preheader.i ], [ %spec.select.i, %29 ]
@@ -1434,9 +1434,9 @@ define internal noundef i32 @gray_conic_to(ptr nocapture noundef readonly %0, pt
   tail call fastcc void @gray_render_line(ptr noundef %2, i64 noundef %64, i64 noundef %65)
   %66 = add i32 %.0.i, -1
   %.not85.i = icmp eq i32 %66, 0
-  br i1 %.not85.i, label %gray_render_conic.exit, label %59, !llvm.loop !13
+  br i1 %.not85.i, label %gray_render_conic.argprom.exit, label %59, !llvm.loop !13
 
-gray_render_conic.exit:                           ; preds = %59, %28, %39
+gray_render_conic.argprom.exit:                   ; preds = %59, %28, %39
   ret i32 0
 }
 
@@ -1520,7 +1520,7 @@ define internal noundef i32 @gray_cubic_to(ptr nocapture noundef readonly %0, pt
 42:                                               ; preds = %35, %32
   store i64 %9, ptr %20, align 8
   store i64 %10, ptr %23, align 8
-  br label %gray_render_cubic.exit
+  br label %gray_render_cubic.argprom.exit
 
 .preheader.i:                                     ; preds = %35, %.backedge.i
   %43 = phi i64 [ %.pre22.i, %.backedge.i ], [ %21, %35 ]
@@ -1586,7 +1586,7 @@ define internal noundef i32 @gray_cubic_to(ptr nocapture noundef readonly %0, pt
 81:                                               ; preds = %73
   call fastcc void @gray_render_line(ptr noundef %3, i64 noundef %45, i64 noundef %55)
   %82 = icmp eq ptr %.0.i, %5
-  br i1 %82, label %gray_render_cubic.exit, label %83
+  br i1 %82, label %gray_render_cubic.argprom.exit, label %83
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %.0.i, i64 -48
@@ -1654,7 +1654,7 @@ define internal noundef i32 @gray_cubic_to(ptr nocapture noundef readonly %0, pt
   store i64 %122, ptr %105, align 8
   br label %.backedge.i
 
-gray_render_cubic.exit:                           ; preds = %81, %42
+gray_render_cubic.argprom.exit:                   ; preds = %81, %42
   call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %5)
   ret i32 0
 }

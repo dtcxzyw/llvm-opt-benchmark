@@ -621,7 +621,7 @@ if.end16.i:                                       ; preds = %if.else9.i, %if.the
   %call17.val.i = load ptr, ptr %call.i.i, align 8
   %call.i11.i = call ptr @_PyObject_GC_New(ptr noundef %call17.val.i) #8
   %cmp.i12.i = icmp eq ptr %call.i11.i, null
-  br i1 %cmp.i12.i, label %newxmlparseobject.exit.i, label %if.end.i13.i
+  br i1 %cmp.i12.i, label %newxmlparseobject.argprom.exit.i, label %if.end.i13.i
 
 if.end.i13.i:                                     ; preds = %if.end16.i
   %buffer.i.i = getelementptr inbounds i8, ptr %call.i11.i, i64 40
@@ -662,17 +662,17 @@ if.then6.i.i:                                     ; preds = %_Py_XNewRef.exit.i.
   %22 = load i64, ptr %call.i11.i, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i32.not.i.i = icmp eq i64 %23, 0
-  br i1 %cmp.i32.not.i.i, label %if.end.i25.i.i, label %newxmlparseobject.exit.i
+  br i1 %cmp.i32.not.i.i, label %if.end.i25.i.i, label %newxmlparseobject.argprom.exit.i
 
 if.end.i25.i.i:                                   ; preds = %if.then6.i.i
   %dec.i26.i.i = add i64 %22, -1
   store i64 %dec.i26.i.i, ptr %call.i11.i, align 8
   %cmp.i27.i.i = icmp eq i64 %dec.i26.i.i, 0
-  br i1 %cmp.i27.i.i, label %if.then1.i28.i.i, label %newxmlparseobject.exit.i
+  br i1 %cmp.i27.i.i, label %if.then1.i28.i.i, label %newxmlparseobject.argprom.exit.i
 
 if.then1.i28.i.i:                                 ; preds = %if.end.i25.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call.i11.i) #8
-  br label %newxmlparseobject.exit.i
+  br label %newxmlparseobject.argprom.exit.i
 
 if.end7.i.i:                                      ; preds = %_Py_XNewRef.exit.i.i
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @_Py_HashSecret, i64 16), align 8
@@ -725,7 +725,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then19.i.i
   %call20.i.i = call ptr @PyErr_NoMemory() #8
-  br label %newxmlparseobject.exit.i
+  br label %newxmlparseobject.argprom.exit.i
 
 if.end21.i.i:                                     ; preds = %cond.end.i.i
   %30 = load ptr, ptr @handler_info, align 16
@@ -747,13 +747,13 @@ for.body.i.i.i:                                   ; preds = %if.end21.i.i, %for.
 
 clear_handlers.exit.i.i:                          ; preds = %for.body.i.i.i, %if.end21.i.i
   call void @PyObject_GC_Track(ptr noundef nonnull %call.i11.i) #8
-  br label %newxmlparseobject.exit.i
+  br label %newxmlparseobject.argprom.exit.i
 
-newxmlparseobject.exit.i:                         ; preds = %clear_handlers.exit.i.i, %Py_DECREF.exit.i.i, %if.then1.i28.i.i, %if.end.i25.i.i, %if.then6.i.i, %if.end16.i
+newxmlparseobject.argprom.exit.i:                 ; preds = %clear_handlers.exit.i.i, %Py_DECREF.exit.i.i, %if.then1.i28.i.i, %if.end.i25.i.i, %if.then6.i.i, %if.end16.i
   %retval.0.i.i = phi ptr [ %call.i11.i, %clear_handlers.exit.i.i ], [ %call20.i.i, %Py_DECREF.exit.i.i ], [ null, %if.end16.i ], [ null, %if.then6.i.i ], [ null, %if.then1.i28.i.i ], [ null, %if.end.i25.i.i ]
   br i1 %tobool19.not.i, label %exit, label %if.then20.i
 
-if.then20.i:                                      ; preds = %newxmlparseobject.exit.i
+if.then20.i:                                      ; preds = %newxmlparseobject.argprom.exit.i
   %33 = load i64, ptr %intern.addr.0.i, align 8
   %34 = and i64 %33, 2147483648
   %cmp.i23.not.i = icmp eq i64 %34, 0
@@ -769,8 +769,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %intern.addr.0.i) #8
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %if.then20.i, %newxmlparseobject.exit.i, %if.then13.i, %if.then5.i, %if.then.i, %if.then53, %if.then24, %cond.end9, %if.else63, %if.then61, %if.else34, %if.then32
-  %return_value.0 = phi ptr [ null, %if.then53 ], [ null, %if.then61 ], [ null, %if.else63 ], [ null, %if.then24 ], [ null, %if.then32 ], [ null, %if.else34 ], [ null, %cond.end9 ], [ null, %if.then.i ], [ null, %if.then13.i ], [ null, %if.then5.i ], [ %retval.0.i.i, %if.end.i.i ], [ %retval.0.i.i, %if.then1.i.i ], [ %retval.0.i.i, %if.then20.i ], [ %retval.0.i.i, %newxmlparseobject.exit.i ]
+exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %if.then20.i, %newxmlparseobject.argprom.exit.i, %if.then13.i, %if.then5.i, %if.then.i, %if.then53, %if.then24, %cond.end9, %if.else63, %if.then61, %if.else34, %if.then32
+  %return_value.0 = phi ptr [ null, %if.then53 ], [ null, %if.then61 ], [ null, %if.else63 ], [ null, %if.then24 ], [ null, %if.then32 ], [ null, %if.else34 ], [ null, %cond.end9 ], [ null, %if.then.i ], [ null, %if.then13.i ], [ null, %if.then5.i ], [ %retval.0.i.i, %if.end.i.i ], [ %retval.0.i.i, %if.then1.i.i ], [ %retval.0.i.i, %if.then20.i ], [ %retval.0.i.i, %newxmlparseobject.argprom.exit.i ]
   ret ptr %return_value.0
 }
 
@@ -5127,7 +5127,7 @@ flush_character_buffer.exit:                      ; preds = %lor.lhs.false.i
   br i1 %cmp, label %Py_XDECREF.exit, label %if.end6
 
 if.end6:                                          ; preds = %if.end, %lor.lhs.false.i, %flush_character_buffer.exit
-  %call7 = tail call fastcc ptr @conv_content_model(ptr noundef %model)
+  %call7 = tail call fastcc ptr @conv_content_model.argprom(ptr noundef %model)
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %if.end10
 
@@ -6194,7 +6194,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @conv_content_model(ptr nocapture noundef readonly %model) unnamed_addr #0 {
+define internal fastcc ptr @conv_content_model.argprom(ptr nocapture noundef readonly %model) unnamed_addr #0 {
 entry:
   %numchildren = getelementptr inbounds i8, ptr %model, i64 16
   %0 = load i32, ptr %numchildren, align 8
@@ -6217,7 +6217,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
   %2 = load ptr, ptr %children5, align 8
   %arrayidx = getelementptr %struct.XML_cp, ptr %2, i64 %indvars.iv
-  %call6 = tail call fastcc ptr @conv_content_model(ptr noundef %arrayidx)
+  %call6 = tail call fastcc ptr @conv_content_model.argprom(ptr noundef %arrayidx)
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %if.then.i, label %if.end
 
@@ -7294,7 +7294,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %14 = load ptr, ptr %itself.i.i, align 8
   %call2.i.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %14) #8
   %self.val.i.i = load ptr, ptr %itself.i.i, align 8
-  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
+  call fastcc void @set_error.argprom.retelim(ptr noundef readonly %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
   br label %pyexpat_xmlparser_Parse_impl.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -7410,7 +7410,7 @@ if.end.i14.i:                                     ; preds = %Py_XDECREF.exit.i
   %9 = load ptr, ptr %itself.i, align 8
   %call2.i.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %9) #8
   %self.val.i.i = load ptr, ptr %itself.i, align 8
-  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
+  call fastcc void @set_error.argprom.retelim(ptr noundef readonly %call.i, ptr %self.val.i.i, i32 noundef %call2.i.i)
   br label %pyexpat_xmlparser_ParseFile_impl.exit
 
 if.end9.i:                                        ; preds = %for.cond.i
@@ -7435,14 +7435,14 @@ if.then3.i.i:                                     ; preds = %if.end.i18.i
 
 if.else.i.i:                                      ; preds = %if.end.i18.i
   %cmp.i.not.i.i.i = icmp eq ptr %call.val16.i.i, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i.i, label %if.then7.i.i, label %PyObject_TypeCheck.exit.i.i
+  br i1 %cmp.i.not.i.i.i, label %if.then7.i.i, label %PyObject_TypeCheck.argprom.exit.i.i
 
-PyObject_TypeCheck.exit.i.i:                      ; preds = %if.else.i.i
+PyObject_TypeCheck.argprom.exit.i.i:              ; preds = %if.else.i.i
   %call2.i.i.i = call i32 @PyType_IsSubtype(ptr noundef %call.val16.i.i, ptr noundef nonnull @PyByteArray_Type) #8
   %tobool3.i.not.i.i = icmp eq i32 %call2.i.i.i, 0
   br i1 %tobool3.i.not.i.i, label %if.else9.i.i, label %if.then7.i.i
 
-if.then7.i.i:                                     ; preds = %PyObject_TypeCheck.exit.i.i, %if.else.i.i
+if.then7.i.i:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i.i, %if.else.i.i
   %13 = getelementptr i8, ptr %call.i16.i, i64 16
   %op.val.i.i.i = load i64, ptr %13, align 8
   %tobool.not.i.i.i = icmp eq i64 %op.val.i.i.i, 0
@@ -7453,7 +7453,7 @@ if.then.i.i.i:                                    ; preds = %if.then7.i.i
   %14 = load ptr, ptr %ob_start.i.i.i, align 8
   br label %if.end13.i.i
 
-if.else9.i.i:                                     ; preds = %PyObject_TypeCheck.exit.i.i
+if.else9.i.i:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i.i
   %15 = getelementptr i8, ptr %call.i16.i, i64 8
   %16 = load ptr, ptr @PyExc_TypeError, align 8
   %call.val.i.i = load ptr, ptr %15, align 8
@@ -7598,7 +7598,7 @@ if.then1.i48.i:                                   ; preds = %if.end.i45.i
   %33 = load ptr, ptr %itself.i, align 8
   %call2.i50.i = call i32 @PyExpat_XML_GetErrorCode(ptr noundef %33) #8
   %self.val.i51.i = load ptr, ptr %itself.i, align 8
-  call fastcc void @set_error(ptr noundef readonly %call.i, ptr %self.val.i51.i, i32 noundef %call2.i50.i)
+  call fastcc void @set_error.argprom.retelim(ptr noundef readonly %call.i, ptr %self.val.i51.i, i32 noundef %call2.i50.i)
   br label %pyexpat_xmlparser_ParseFile_impl.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i45.i
@@ -7689,14 +7689,14 @@ entry:
   %self.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @PyExpat_XML_GetBase(ptr noundef %self.val) #8
   %cmp.i.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i.i, label %pyexpat_xmlparser_GetBase_impl.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %pyexpat_xmlparser_GetBase_impl.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #9
   %call1.i.i = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %call.i, i64 noundef %call.i.i, ptr noundef nonnull @.str.41) #8
-  br label %pyexpat_xmlparser_GetBase_impl.exit
+  br label %pyexpat_xmlparser_GetBase_impl.argprom.exit
 
-pyexpat_xmlparser_GetBase_impl.exit:              ; preds = %entry, %if.end.i.i
+pyexpat_xmlparser_GetBase_impl.argprom.exit:      ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call1.i.i, %if.end.i.i ], [ @_Py_NoneStruct, %entry ]
   ret ptr %retval.0.i.i
 }
@@ -8131,7 +8131,7 @@ skip_optional_posonly:                            ; preds = %if.end8, %if.end
 
 if.then.i:                                        ; preds = %skip_optional_posonly
   %self.val.i = load ptr, ptr %itself.i, align 8
-  call fastcc void @set_error(ptr noundef %call.i, ptr %self.val.i, i32 noundef %call1.i)
+  call fastcc void @set_error.argprom.retelim(ptr noundef %call.i, ptr %self.val.i, i32 noundef %call1.i)
   br label %exit
 
 exit:                                             ; preds = %if.then.i, %skip_optional_posonly, %if.end8, %cond.end
@@ -8148,7 +8148,7 @@ declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_error(ptr nocapture noundef readonly %state, ptr %self.16.val, i32 noundef %code) unnamed_addr #0 {
+define internal fastcc void @set_error.argprom.retelim(ptr nocapture noundef readonly %state, ptr %self.16.val, i32 noundef %code) unnamed_addr #0 {
 entry:
   %call = tail call i64 @PyExpat_XML_GetCurrentLineNumber(ptr noundef %self.16.val) #8
   %conv = trunc i64 %call to i32

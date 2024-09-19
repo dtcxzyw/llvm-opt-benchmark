@@ -590,12 +590,12 @@ common.resume:                                    ; preds = %157, %161, %168, %1
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %178 = load ptr, ptr %177, align 8
   %.not168.i = icmp eq ptr %178, null
-  br i1 %.not168.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %179
+  br i1 %.not168.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, label %179
 
 179:                                              ; preds = %._crit_edge22.i
   %180 = atomicrmw add ptr %178, i32 -1 acq_rel, align 4
   %181 = icmp eq i32 %180, 1
-  br i1 %181, label %182, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
+  br i1 %181, label %182, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
 
 182:                                              ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -609,15 +609,15 @@ common.resume:                                    ; preds = %157, %161, %168, %1
   %188 = getelementptr inbounds i8, ptr %187, i64 24
   %189 = load ptr, ptr %188, align 8
   invoke void %189(ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef %185)
-          to label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit unwind label %192
+          to label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit unwind label %192
 
 190:                                              ; preds = %182
   %.not170.i = icmp eq ptr %185, null
-  br i1 %.not170.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %191
+  br i1 %.not170.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, label %191
 
 191:                                              ; preds = %190
   call void @free(ptr noundef nonnull %185) #14
-  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
+  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
 
 192:                                              ; preds = %186
   %193 = landingpad { ptr, i32 }
@@ -709,15 +709,15 @@ common.resume:                                    ; preds = %157, %161, %168, %1
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %244 = load i64, ptr %243, align 8
   store i64 %244, ptr %224, align 8
-  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
+  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
 
-_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit: ; preds = %._crit_edge22.i, %179, %186, %190, %191, %216
+_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit: ; preds = %._crit_edge22.i, %179, %186, %190, %191, %216
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   %245 = load i8, ptr %1, align 8
   %246 = trunc i8 %245 to i1
   br i1 %246, label %247, label %266
 
-247:                                              ; preds = %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
+247:                                              ; preds = %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %249 = load ptr, ptr %248, align 8
   %.not = icmp eq ptr %249, null
@@ -758,7 +758,7 @@ _ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %264, i8 0, i64 20, i1 false)
   br label %266
 
-266:                                              ; preds = %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, %263, %25
+266:                                              ; preds = %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, %263, %25
   ret i32 0
 }
 

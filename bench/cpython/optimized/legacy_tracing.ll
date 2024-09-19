@@ -570,14 +570,14 @@ entry:
   %1 = getelementptr i8, ptr %0, i64 8
   %.val15 = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %.val15, @PyCFunction_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyCFunction_Type) #4
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
   %c_profilefunc.i = getelementptr inbounds i8, ptr %3, i64 72
@@ -632,7 +632,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %_Py_NoneStruct..i = select i1 %tobool.not.i, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-if.end:                                           ; preds = %PyObject_TypeCheck.exit
+if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit
   %.val = load ptr, ptr %1, align 8
   %cmp = icmp eq ptr %.val, @PyMethodDescr_Type
   br i1 %cmp, label %if.then3, label %return

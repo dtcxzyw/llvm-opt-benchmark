@@ -4468,7 +4468,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.7, %if.then ]
-  tail call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i)
+  tail call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4502,7 +4502,7 @@ _.exit18:                                         ; preds = %if.then8, %if.end3.
   %retval.0.i17 = phi ptr [ %call.i16, %if.end3.i15 ], [ @.str.8, %if.then8 ]
   %name = getelementptr inbounds i8, ptr %branch, i64 16
   %5 = load ptr, ptr %name, align 8
-  tail call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i17, ptr noundef %5)
+  tail call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i17, ptr noundef %5)
   br label %return
 
 if.end11:                                         ; preds = %if.then5
@@ -4516,7 +4516,7 @@ _.exit23:                                         ; preds = %if.end11, %if.end3.
   %retval.0.i22 = phi ptr [ %call.i21, %if.end3.i20 ], [ @.str.9, %if.end11 ]
   %name13 = getelementptr inbounds i8, ptr %branch, i64 16
   %6 = load ptr, ptr %name13, align 8
-  tail call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i22, ptr noundef %6)
+  tail call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i22, ptr noundef %6)
   br label %return
 
 if.end15:                                         ; preds = %lor.lhs.false
@@ -4541,7 +4541,7 @@ _.exit28:                                         ; preds = %if.then19, %if.end3
   %retval.0.i27 = phi ptr [ %call.i26, %if.end3.i25 ], [ @.str.10, %if.then19 ]
   %src = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %src, align 8
-  tail call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i27, ptr noundef %10)
+  tail call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i27, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %if.end15, %_.exit28, %_.exit23, %_.exit18, %_.exit
@@ -4550,7 +4550,7 @@ return:                                           ; preds = %if.end15, %_.exit28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @error_buf(ptr noundef %err, ptr noundef %fmt, ...) unnamed_addr #0 {
+define internal void @error_buf.retelim(ptr noundef %err, ptr noundef %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %err, null
@@ -4643,7 +4643,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i7, %if.end3.i ], [ @.str.7, %if.then ]
-  tail call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i)
+  tail call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i)
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true.i
@@ -4704,7 +4704,7 @@ if.end3.i.i:                                      ; preds = %if.then.i12
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.then.i12
   %retval.0.i34.i = phi ptr [ %call.i33.i, %if.end3.i.i ], [ @.str.105, %if.then.i12 ]
   %16 = load ptr, ptr %name.i, align 8
-  call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i34.i, ptr noundef %16)
+  call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i34.i, ptr noundef %16)
   br label %branch_get_push_1.exit
 
 if.end.i:                                         ; preds = %remotes_pushremote_for_branch.exit.i
@@ -4744,7 +4744,7 @@ _.exit41.i:                                       ; preds = %if.end3.i38.i, %if.
   %name11.i = getelementptr inbounds i8, ptr %call.i.i8, i64 16
   %21 = load ptr, ptr %name11.i, align 8
   %22 = load ptr, ptr %name.i, align 8
-  call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i40.i, ptr noundef %21, ptr noundef %22)
+  call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i40.i, ptr noundef %21, ptr noundef %22)
   br label %branch_get_push_1.exit
 
 if.end14.i:                                       ; preds = %if.then5.i
@@ -4775,7 +4775,7 @@ _.exit.i.i:                                       ; preds = %if.end3.i.i.i, %if.
   %retval.0.i5.i.i = phi ptr [ %call.i4.i.i, %if.end3.i.i.i ], [ @.str.110, %if.then.i44.i ]
   %name.i.i = getelementptr inbounds i8, ptr %call.i.i8, i64 16
   %25 = load ptr, ptr %name.i.i, align 8
-  call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i5.i.i, ptr noundef nonnull %19, ptr noundef %25)
+  call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i5.i.i, ptr noundef nonnull %19, ptr noundef %25)
   br label %tracking_for_push_dest.exit.i
 
 tracking_for_push_dest.exit.i:                    ; preds = %_.exit.i.i, %if.end14.i
@@ -4819,7 +4819,7 @@ _.exit.i59.i:                                     ; preds = %if.end3.i.i57.i, %i
   %retval.0.i5.i60.i = phi ptr [ %call.i4.i58.i, %if.end3.i.i57.i ], [ @.str.110, %if.then.i55.i ]
   %name.i61.i = getelementptr inbounds i8, ptr %call.i.i8, i64 16
   %30 = load ptr, ptr %name.i61.i, align 8
-  call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i5.i60.i, ptr noundef %27, ptr noundef %30)
+  call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i5.i60.i, ptr noundef %27, ptr noundef %30)
   br label %branch_get_push_1.exit
 
 if.end21.i:                                       ; preds = %if.end16.i
@@ -4844,7 +4844,7 @@ if.end3.i65.i:                                    ; preds = %sw.bb.i
 
 _.exit68.i:                                       ; preds = %if.end3.i65.i, %sw.bb.i
   %retval.0.i67.i = phi ptr [ %call.i66.i, %if.end3.i65.i ], [ @.str.107, %sw.bb.i ]
-  call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i67.i)
+  call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i67.i)
   br label %branch_get_push_1.exit
 
 sw.bb24.i:                                        ; preds = %if.end21.i, %if.end21.i
@@ -4877,7 +4877,7 @@ _.exit.i82.i:                                     ; preds = %if.end3.i.i80.i, %i
   %retval.0.i5.i83.i = phi ptr [ %call.i4.i81.i, %if.end3.i.i80.i ], [ @.str.110, %if.then.i78.i ]
   %name.i84.i = getelementptr inbounds i8, ptr %call.i.i8, i64 16
   %36 = load ptr, ptr %name.i84.i, align 8
-  call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i5.i83.i, ptr noundef %33, ptr noundef %36)
+  call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i5.i83.i, ptr noundef %33, ptr noundef %36)
   br label %branch_get_push_1.exit
 
 sw.bb27.i:                                        ; preds = %if.end21.i
@@ -4912,7 +4912,7 @@ if.end3.i88.i:                                    ; preds = %if.then41.i
 
 _.exit91.i:                                       ; preds = %if.end3.i88.i, %if.then41.i
   %retval.0.i90.i = phi ptr [ %call.i89.i, %if.end3.i88.i ], [ @.str.108, %if.then41.i ]
-  call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i90.i)
+  call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i90.i)
   br label %branch_get_push_1.exit
 
 sw.epilog.i:                                      ; preds = %if.end21.i
@@ -7179,16 +7179,16 @@ strbuf_setlen.exit32:                             ; preds = %while.end, %if.then
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.33, ptr noundef %remoteurl.1.lcssa, ptr noundef nonnull %cond, ptr noundef nonnull %url.addr.0.lcssa) #21
   %call.i.i33 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %url.addr.0.lcssa) #20
   %cmp.i.i.i = icmp eq i64 %call.i.i33, 0
-  br i1 %cmp.i.i.i, label %if.end48, label %ends_with.exit
+  br i1 %cmp.i.i.i, label %if.end48, label %ends_with.argprom.exit
 
-ends_with.exit:                                   ; preds = %strbuf_setlen.exit32
+ends_with.argprom.exit:                           ; preds = %strbuf_setlen.exit32
   %15 = getelementptr i8, ptr %url.addr.0.lcssa, i64 %call.i.i33
   %add.ptr.i.i.i = getelementptr i8, ptr %15, i64 -1
   %lhsc.i.i.i = load i8, ptr %add.ptr.i.i.i, align 1
   %tobool.not.i.i.i.not = icmp eq i8 %lhsc.i.i.i, 47
   br i1 %tobool.not.i.i.i.not, label %if.then45, label %if.end48
 
-if.then45:                                        ; preds = %ends_with.exit
+if.then45:                                        ; preds = %ends_with.argprom.exit
   %16 = load i64, ptr %len2.i27, align 8
   %sub47 = add i64 %16, -1
   %17 = load i64, ptr %sb, align 8
@@ -7211,7 +7211,7 @@ if.then4.i40:                                     ; preds = %if.end.i36
   store i8 0, ptr %arrayidx.i, align 1
   br label %if.end48
 
-if.end48:                                         ; preds = %strbuf_setlen.exit32, %if.then4.i40, %if.end.i36, %ends_with.exit
+if.end48:                                         ; preds = %strbuf_setlen.exit32, %if.then4.i40, %if.end.i36, %ends_with.argprom.exit
   call void @free(ptr noundef %remoteurl.1.lcssa) #21
   %19 = load ptr, ptr %buf.i28, align 8
   %call.i43 = call i32 @path_match_flags(ptr noundef %19, i32 noundef 5) #21
@@ -8965,7 +8965,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i5 = phi ptr [ %call.i4, %if.end3.i ], [ @.str.110, %if.then ]
   %name = getelementptr inbounds i8, ptr %remote, i64 16
   %2 = load ptr, ptr %name, align 8
-  tail call void (ptr, ptr, ...) @error_buf(ptr noundef %err, ptr noundef %retval.0.i5, ptr noundef %refname, ptr noundef %2)
+  tail call void (ptr, ptr, ...) @error_buf.retelim(ptr noundef %err, ptr noundef %retval.0.i5, ptr noundef %refname, ptr noundef %2)
   br label %return
 
 return:                                           ; preds = %entry, %_.exit

@@ -424,7 +424,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm21Prof
   %5 = ptrtoint ptr %.val to i64
   %6 = sub i64 %4, %5
   %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit"
+  br i1 %7, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i: ; preds = %2
   %8 = udiv exact i64 %6, 24
@@ -444,18 +444,18 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vec
   %.sroa.013.1.i.i = select i1 %12, ptr %13, ptr %.sroa.013.014.i.i
   %.1.i.i = select i1 %12, i64 %15, i64 %9
   %16 = icmp sgt i64 %.1.i.i, 0
-  br i1 %16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit", !llvm.loop !4
+  br i1 %16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit", !llvm.loop !4
 
-"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, %2
+"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, %2
   %.sroa.013.0.lcssa.i.i = phi ptr [ %.val, %2 ], [ %.sroa.013.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i ]
   %17 = icmp eq ptr %.sroa.013.0.lcssa.i.i, %.val2
   br i1 %17, label %18, label %19
 
-18:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit"
+18:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit"
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #19
   unreachable
 
-19:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit"
+19:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit"
   ret ptr %.sroa.013.0.lcssa.i.i
 }
 
@@ -921,7 +921,7 @@ define dso_local noundef i64 @_ZN4llvm21ProfileSummaryBuilder20getHotCountThresh
   %6 = ptrtoint ptr %.val.i to i64
   %7 = sub i64 %5, %6
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i"
+  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i: ; preds = %1
   %9 = udiv exact i64 %7, 24
@@ -941,18 +941,18 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vec
   %.sroa.013.1.i.i.i = select i1 %13, ptr %14, ptr %.sroa.013.014.i.i.i
   %.1.i.i.i = select i1 %13, i64 %16, i64 %10
   %17 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %17, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i", !llvm.loop !4
+  br i1 %17, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i", !llvm.loop !4
 
-"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, %1
+"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, %1
   %.sroa.013.0.lcssa.i.i.i = phi ptr [ %.val.i, %1 ], [ %.sroa.013.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ]
   %18 = icmp eq ptr %.sroa.013.0.lcssa.i.i.i, %.val2.i
   br i1 %18, label %19, label %_ZN4llvm21ProfileSummaryBuilder21getEntryForPercentileERKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEm.exit
 
-19:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i"
+19:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i"
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #19
   unreachable
 
-_ZN4llvm21ProfileSummaryBuilder21getEntryForPercentileERKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEm.exit: ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i"
+_ZN4llvm21ProfileSummaryBuilder21getEntryForPercentileERKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEm.exit: ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i"
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.lcssa.i.i.i, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22ProfileSummaryHotCountE, i64 8), align 8
@@ -973,7 +973,7 @@ define dso_local noundef i64 @_ZN4llvm21ProfileSummaryBuilder21getColdCountThres
   %6 = ptrtoint ptr %.val.i to i64
   %7 = sub i64 %5, %6
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i"
+  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i: ; preds = %1
   %9 = udiv exact i64 %7, 24
@@ -993,18 +993,18 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vec
   %.sroa.013.1.i.i.i = select i1 %13, ptr %14, ptr %.sroa.013.014.i.i.i
   %.1.i.i.i = select i1 %13, i64 %16, i64 %10
   %17 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %17, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i", !llvm.loop !4
+  br i1 %17, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i", !llvm.loop !4
 
-"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, %1
+"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, %1
   %.sroa.013.0.lcssa.i.i.i = phi ptr [ %.val.i, %1 ], [ %.sroa.013.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm19ProfileSummaryEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ]
   %18 = icmp eq ptr %.sroa.013.0.lcssa.i.i.i, %.val2.i
   br i1 %18, label %19, label %_ZN4llvm21ProfileSummaryBuilder21getEntryForPercentileERKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEm.exit
 
-19:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i"
+19:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i"
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #19
   unreachable
 
-_ZN4llvm21ProfileSummaryBuilder21getEntryForPercentileERKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEm.exit: ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.exit.i"
+_ZN4llvm21ProfileSummaryBuilder21getEntryForPercentileERKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEm.exit: ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_19ProfileSummaryEntryESaIS2_EEZNS_21ProfileSummaryBuilder21getEntryForPercentileES6_mE3$_0RKS2_EEDaOT_T0_.argprom.exit.i"
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.lcssa.i.i.i, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm23ProfileSummaryColdCountE, i64 8), align 8

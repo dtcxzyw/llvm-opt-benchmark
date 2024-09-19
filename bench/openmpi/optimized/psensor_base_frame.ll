@@ -80,7 +80,7 @@ define internal i32 @pmix_psensor_base_open(i32 noundef %0) #1 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %7, null
-  br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %8 = phi ptr [ %10, %.lr.ph.i ], [ %7, %5 ]
@@ -89,20 +89,20 @@ define internal i32 @pmix_psensor_base_open(i32 noundef %0) #1 {
   %9 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
+pmix_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %5
   %11 = load i8, ptr @use_separate_thread, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %16
 
-13:                                               ; preds = %pmix_obj_run_constructors.exit
+13:                                               ; preds = %pmix_obj_run_constructors.argprom.exit
   %14 = tail call ptr @pmix_progress_thread_init(ptr noundef nonnull @.str.7) #8
   store ptr %14, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %18
 
-16:                                               ; preds = %pmix_obj_run_constructors.exit
+16:                                               ; preds = %pmix_obj_run_constructors.argprom.exit
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
   store ptr %17, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
   br label %18

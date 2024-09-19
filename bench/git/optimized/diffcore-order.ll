@@ -37,7 +37,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then1.i, label %if.end3.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %call2.i = call fastcc ptr @_()
+  %call2.i = call fastcc ptr @_.argprom()
   call void (ptr, ...) @die_errno(ptr noundef %call2.i, ptr noundef %orderfile) #12
   unreachable
 
@@ -208,13 +208,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   store i64 0, ptr getelementptr inbounds (i8, ptr @match_order.p, i64 8), align 8
   %cmp3.not.i.i = icmp eq ptr %10, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
+  br i1 %cmp3.not.i.i, label %strbuf_setlen.argprom.exit.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %for.body.i
   store i8 0, ptr %10, align 1
-  br label %strbuf_setlen.exit.i
+  br label %strbuf_setlen.argprom.exit.i
 
-strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %for.body.i
+strbuf_setlen.argprom.exit.i:                     ; preds = %if.then4.i.i, %for.body.i
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #13
   call void @strbuf_add(ptr noundef nonnull @match_order.p, ptr noundef %call, i64 noundef %call.i.i) #11
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @match_order.p, i64 16), align 8
@@ -222,8 +222,8 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %for.
   %tobool.not8.i = icmp eq i8 %12, 0
   br i1 %tobool.not8.i, label %for.inc.i, label %while.body.i
 
-while.body.i:                                     ; preds = %strbuf_setlen.exit.i, %if.end6.i
-  %13 = phi ptr [ %17, %if.end6.i ], [ %11, %strbuf_setlen.exit.i ]
+while.body.i:                                     ; preds = %strbuf_setlen.argprom.exit.i, %if.end6.i
+  %13 = phi ptr [ %17, %if.end6.i ], [ %11, %strbuf_setlen.argprom.exit.i ]
   %14 = load ptr, ptr @order, align 8
   %arrayidx1.i = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i
   %15 = load ptr, ptr %arrayidx1.i, align 8
@@ -244,8 +244,8 @@ if.end6.i:                                        ; preds = %if.end.i12
   %tobool.not.i13 = icmp eq i8 %18, 0
   br i1 %tobool.not.i13, label %for.inc.i, label %while.body.i, !llvm.loop !9
 
-for.inc.i:                                        ; preds = %if.end6.i, %if.end.i12, %strbuf_setlen.exit.i
-  %19 = phi ptr [ %11, %strbuf_setlen.exit.i ], [ %17, %if.end6.i ], [ %16, %if.end.i12 ]
+for.inc.i:                                        ; preds = %if.end6.i, %if.end.i12, %strbuf_setlen.argprom.exit.i
+  %19 = phi ptr [ %11, %strbuf_setlen.argprom.exit.i ], [ %17, %if.end6.i ], [ %16, %if.end.i12 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = load i32, ptr @order_cnt, align 4
   %21 = sext i32 %20 to i64
@@ -392,7 +392,7 @@ declare i64 @strbuf_read_file(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_() unnamed_addr #0 {
+define internal fastcc ptr @_.argprom() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

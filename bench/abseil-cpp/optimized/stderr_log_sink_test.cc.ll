@@ -5079,7 +5079,7 @@ invoke.cont26:                                    ; preds = %if.then25
           to label %invoke.cont28 unwind label %lpad22
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  invoke fastcc void @"_ZZN12_GLOBAL__N_158StderrLogSinkDeathTest_SecondaryFatalMessagesInStderr_Test8TestBodyEvENK3$_0clB5cxx11Ev"()
+  invoke fastcc void @"_ZZN12_GLOBAL__N_158StderrLogSinkDeathTest_SecondaryFatalMessagesInStderr_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom"()
           to label %invoke.cont32.unreachable unwind label %lpad31
 
 invoke.cont32.unreachable:                        ; preds = %invoke.cont28
@@ -5279,7 +5279,7 @@ terminate.lpad:                                   ; preds = %lpad48, %lpad39
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_158StderrLogSinkDeathTest_SecondaryFatalMessagesInStderr_Test8TestBodyEvENK3$_0clB5cxx11Ev"() unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_158StderrLogSinkDeathTest_SecondaryFatalMessagesInStderr_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom"() unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 93) #29
@@ -5892,23 +5892,23 @@ attributes #32 = { noreturn }
 !12 = distinct !{!12, !13, !"_ZNK7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEENS_18PolymorphicMatcherINS0_16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEcvNS_7MatcherIT_EEIRKSE_EEv: %agg.result"}
 !13 = distinct !{!13, !"_ZNK7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEENS_18PolymorphicMatcherINS0_16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEcvNS_7MatcherIT_EEIRKSE_EEv"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEENS_7MatcherIT_EERKT0_: %agg.result"}
-!16 = distinct !{!16, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEENS_7MatcherIT_EERKT0_"}
+!15 = distinct !{!15, !16, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!16 = distinct !{!16, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEENS_7MatcherIT_EERKT0_.argprom"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEENS_7MatcherIT_EERKT0_: %agg.result"}
-!19 = distinct !{!19, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEENS_7MatcherIT_EERKT0_"}
+!18 = distinct !{!18, !19, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!19 = distinct !{!19, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEENS_7MatcherIT_EERKT0_.argprom"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE4CastERKSD_: %agg.result"}
-!22 = distinct !{!22, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE4CastERKSD_"}
+!21 = distinct !{!21, !22, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE4CastERKSD_.argprom: %agg.result"}
+!22 = distinct !{!22, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE4CastERKSD_.argprom"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE8CastImplILb0EEENS_7MatcherIS9_EERKSD_St17integral_constantIbLb1EESK_IbXT_EE: %agg.result"}
-!25 = distinct !{!25, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE8CastImplILb0EEENS_7MatcherIS9_EERKSD_St17integral_constantIbLb1EESK_IbXT_EE"}
+!24 = distinct !{!24, !25, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE8CastImplILb0EEENS_7MatcherIS9_EERKSD_St17integral_constantIbLb1EESK_IbXT_EE.argprom: %agg.result"}
+!25 = distinct !{!25, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE8CastImplILb0EEENS_7MatcherIS9_EERKSD_St17integral_constantIbLb1EESK_IbXT_EE.argprom"}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
-!28 = distinct !{!28, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
+!27 = distinct !{!27, !28, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
+!28 = distinct !{!28, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
-!31 = distinct !{!31, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
+!30 = distinct !{!30, !31, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
+!31 = distinct !{!31, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
 !32 = !{!30, !27, !24, !21, !18, !15, !12}
 !33 = !{!30, !27, !24, !21, !18, !15}
 !34 = !{!35}

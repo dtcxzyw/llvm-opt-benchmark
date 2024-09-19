@@ -619,7 +619,7 @@ _ZN15actix_multipart4form8tempfile14TempFileConfig15create_tempfile17h36d768ed61
   %.val.i.i = load ptr, ptr %83, align 8, !noalias !121, !noundef !4
   %84 = getelementptr i8, ptr %72, i64 32
   %.val3.i.i = load ptr, ptr %84, align 8, !noalias !121
-  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef align 8 dereferenceable(48) %11, ptr %.val.i.i, ptr %.val3.i.i, ptr noalias noundef readonly align 8 dereferenceable(8) %73, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %82, ptr noundef nonnull %80)
+  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(48) %11, ptr %.val.i.i, ptr %.val3.i.i, ptr noalias noundef readonly align 8 dereferenceable(8) %73, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %82, ptr noundef nonnull %80)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2e1cd5d6f5be078E.exit" unwind label %85
 
 85:                                               ; preds = %78
@@ -684,7 +684,7 @@ _ZN15actix_multipart4form8tempfile14TempFileConfig15create_tempfile17h36d768ed61
   %.val.i.i67 = load ptr, ptr %103, align 8, !noalias !139, !noundef !4
   %104 = getelementptr i8, ptr %93, i64 32
   %.val3.i.i68 = load ptr, ptr %104, align 8, !noalias !139
-  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef align 8 dereferenceable(48) %10, ptr %.val.i.i67, ptr %.val3.i.i68, ptr noalias noundef readonly align 8 dereferenceable(8) %94, ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %102, ptr noundef nonnull %100)
+  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(48) %10, ptr %.val.i.i67, ptr %.val3.i.i68, ptr noalias noundef readonly align 8 dereferenceable(8) %94, ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %102, ptr noundef nonnull %100)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h25314388720d416dE.exit" unwind label %105
 
 105:                                              ; preds = %98
@@ -867,7 +867,7 @@ _ZN15actix_multipart4form8tempfile14TempFileConfig15create_tempfile17h36d768ed61
   %.val.i.i78 = load ptr, ptr %168, align 8, !noalias !186, !noundef !4
   %169 = getelementptr i8, ptr %163, i64 32
   %.val3.i.i79 = load ptr, ptr %169, align 8, !noalias !186
-  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef align 8 dereferenceable(48) %8, ptr %.val.i.i78, ptr %.val3.i.i79, ptr noalias noundef readonly align 8 dereferenceable(8) %161, ptr noalias noundef nonnull readonly align 1 %165, i64 noundef %167, ptr noundef nonnull %157)
+  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(48) %8, ptr %.val.i.i78, ptr %.val3.i.i79, ptr noalias noundef readonly align 8 dereferenceable(8) %161, ptr noalias noundef nonnull readonly align 1 %165, i64 noundef %167, ptr noundef nonnull %157)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf77c4c23caf2a3e5E.exit" unwind label %171
 
 common.ret:                                       ; preds = %316, %269, %195, %170
@@ -1141,19 +1141,19 @@ common.ret:                                       ; preds = %316, %269, %195, %1
 249:                                              ; preds = %34, %241
   %.val53 = phi ptr [ %.val53.pre, %34 ], [ %242, %241 ]
   %250 = invoke { i64, ptr } @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h6aa52a6f621de3a3E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %.val53, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.exit" unwind label %251
+          to label %"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.argprom.exit" unwind label %251
 
 251:                                              ; preds = %249
   %252 = landingpad { ptr, i32 }
           cleanup
   br label %243
 
-"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.exit": ; preds = %249
+"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.argprom.exit": ; preds = %249
   %253 = extractvalue { i64, ptr } %250, 0
   %switch48 = icmp eq i64 %253, 0
   br i1 %switch48, label %254, label %269
 
-254:                                              ; preds = %"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.exit"
+254:                                              ; preds = %"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.argprom.exit"
   %255 = extractvalue { i64, ptr } %250, 1
   %256 = getelementptr inbounds i8, ptr %1, i64 272
   %257 = icmp eq ptr %255, null
@@ -1173,10 +1173,10 @@ common.ret:                                       ; preds = %316, %269, %195, %1
   %.val.i.i96 = load ptr, ptr %267, align 8, !noalias !235, !noundef !4
   %268 = getelementptr i8, ptr %262, i64 32
   %.val3.i.i97 = load ptr, ptr %268, align 8, !noalias !235
-  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef align 8 dereferenceable(48) %6, ptr %.val.i.i96, ptr %.val3.i.i97, ptr noalias noundef readonly align 8 dereferenceable(8) %260, ptr noalias noundef nonnull readonly align 1 %264, i64 noundef %266, ptr noundef nonnull %255)
+  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(48) %6, ptr %.val.i.i96, ptr %.val3.i.i97, ptr noalias noundef readonly align 8 dereferenceable(8) %260, ptr noalias noundef nonnull readonly align 1 %264, i64 noundef %266, ptr noundef nonnull %255)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h36d78940576cbab3E.exit" unwind label %270
 
-269:                                              ; preds = %"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.exit"
+269:                                              ; preds = %"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.argprom.exit"
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.9167.sroa.7)
   br label %common.ret
@@ -1407,7 +1407,7 @@ define noundef i16 @"_ZN114_$LT$actix_multipart..form..tempfile..TempFileError$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr %.24.val, ptr readonly %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr %.24.val, ptr readonly %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { { { { { ptr, ptr } }, {} }, {} } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -1911,9 +1911,9 @@ attributes #18 = { noreturn }
 !167 = distinct !{!167, !"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h19e1948612d28868E"}
 !168 = !{i8 0, i8 2}
 !169 = !{!170, !172}
-!170 = distinct !{!170, !171, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h3e6f837cc0e29639E: argument 0"}
-!171 = distinct !{!171, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h3e6f837cc0e29639E"}
-!172 = distinct !{!172, !171, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h3e6f837cc0e29639E: argument 1"}
+!170 = distinct !{!170, !171, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h3e6f837cc0e29639E.argprom: argument 0"}
+!171 = distinct !{!171, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h3e6f837cc0e29639E.argprom"}
+!172 = distinct !{!172, !171, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h3e6f837cc0e29639E.argprom: argument 1"}
 !173 = !{!174, !176, !178, !180}
 !174 = distinct !{!174, !175, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17b57927b2d4341eE.llvm.1711877461099840233: argument 0"}
 !175 = distinct !{!175, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17b57927b2d4341eE.llvm.1711877461099840233"}
@@ -2002,7 +2002,7 @@ attributes #18 = { noreturn }
 !258 = distinct !{!258, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8b0b401650d5ef36E"}
 !259 = !{i64 1, i64 0}
 !260 = !{!261}
-!261 = distinct !{!261, !262, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!262 = distinct !{!262, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!261 = distinct !{!261, !262, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
+!262 = distinct !{!262, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
 !263 = !{!264}
-!264 = distinct !{!264, !262, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!264 = distinct !{!264, !262, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}

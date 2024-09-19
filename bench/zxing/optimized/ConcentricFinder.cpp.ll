@@ -1504,12 +1504,12 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds %"struct.ZXing::PointT", ptr %.sroa.040.4.i, i64 %232
   %234 = icmp eq i32 %158, %231
-  br i1 %234, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i", label %.preheader.i.i114.i
+  br i1 %234, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i", label %.preheader.i.i114.i
 
 .preheader.i.i114.i:                              ; preds = %.thread.i104.i
   %235 = getelementptr inbounds i8, ptr %160, i64 16
   %.not19.i.i115.i = icmp eq ptr %235, %233
-  br i1 %.not19.i.i115.i, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i", label %.lr.ph.i.i116.i
+  br i1 %.not19.i.i115.i, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i", label %.lr.ph.i.i116.i
 
 .lr.ph.i.i116.i:                                  ; preds = %.preheader.i.i114.i
   %.0.val.pre.i.i119.i = load double, ptr %160, align 8, !noalias !29
@@ -1538,9 +1538,9 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %spec.select.i.i126.i = select i1 %248, ptr %237, ptr %.021.i.i121.i
   %250 = getelementptr inbounds i8, ptr %237, i64 16
   %.not.i.i127.i = icmp eq ptr %250, %233
-  br i1 %.not.i.i127.i, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i", label %236, !llvm.loop !40
+  br i1 %.not.i.i127.i, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i", label %236, !llvm.loop !40
 
-"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i": ; preds = %236, %.preheader.i.i114.i, %.thread.i104.i
+"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i": ; preds = %236, %.preheader.i.i114.i, %.thread.i104.i
   %.011.i.i129.i = phi ptr [ %160, %.thread.i104.i ], [ %160, %.preheader.i.i114.i ], [ %spec.select.i.i126.i, %236 ]
   %251 = getelementptr inbounds i8, ptr %11, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false), !noalias !29
@@ -1549,10 +1549,10 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %.not6.i.i.i.i = icmp eq ptr %107, %.011.i.i84.i
   br i1 %.not6.i.i.i.i, label %._crit_edge.thread.i202.i, label %.lr.ph.i.i.i189.i
 
-.lr.ph.i.i.i189.i:                                ; preds = %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i", %.lr.ph.i.i.i189.i
-  %.09.i.i.i190.i = phi ptr [ %259, %.lr.ph.i.i.i189.i ], [ %107, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i" ]
-  %.sroa.0.08.i.i.i191.i = phi double [ %255, %.lr.ph.i.i.i189.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i" ]
-  %.sroa.4.07.i.i.i192.i = phi double [ %258, %.lr.ph.i.i.i189.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i" ]
+.lr.ph.i.i.i189.i:                                ; preds = %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i", %.lr.ph.i.i.i189.i
+  %.09.i.i.i190.i = phi ptr [ %259, %.lr.ph.i.i.i189.i ], [ %107, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i" ]
+  %.sroa.0.08.i.i.i191.i = phi double [ %255, %.lr.ph.i.i.i189.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i" ]
+  %.sroa.4.07.i.i.i192.i = phi double [ %258, %.lr.ph.i.i.i189.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i" ]
   %254 = load double, ptr %.09.i.i.i190.i, align 8, !noalias !29
   %255 = fadd double %.sroa.0.08.i.i.i191.i, %254
   %256 = getelementptr inbounds i8, ptr %.09.i.i.i190.i, i64 8
@@ -1593,11 +1593,11 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i: ; 
   %276 = fcmp ult double %273, %272
   br i1 %276, label %281, label %._crit_edge.thread.i202.i
 
-._crit_edge.thread.i202.i:                        ; preds = %._crit_edge.i201.i, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i"
-  %.035.lcssa90.i.i = phi double [ %273, %._crit_edge.i201.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i" ]
-  %.036.lcssa89.i.i = phi double [ %274, %._crit_edge.i201.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i" ]
-  %277 = phi double [ %265, %._crit_edge.i201.i ], [ 0x7FF8000000000000, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i" ]
-  %278 = phi double [ %266, %._crit_edge.i201.i ], [ 0x7FF8000000000000, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i" ]
+._crit_edge.thread.i202.i:                        ; preds = %._crit_edge.i201.i, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i"
+  %.035.lcssa90.i.i = phi double [ %273, %._crit_edge.i201.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i" ]
+  %.036.lcssa89.i.i = phi double [ %274, %._crit_edge.i201.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i" ]
+  %277 = phi double [ %265, %._crit_edge.i201.i ], [ 0x7FF8000000000000, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i" ]
+  %278 = phi double [ %266, %._crit_edge.i201.i ], [ 0x7FF8000000000000, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.argprom.exit136.i" ]
   %279 = fmul double %.036.lcssa89.i.i, %.036.lcssa89.i.i
   %280 = call double @llvm.fmuladd.f64(double %.035.lcssa90.i.i, double %.035.lcssa90.i.i, double %279)
   br label %284
@@ -1942,16 +1942,16 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i: ; 
   %453 = select i1 %451, double %452, double 0.000000e+00
   %454 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i300.i, double 0.000000e+00, double %453)
   %455 = fcmp olt double %454, 0.000000e+00
-  br i1 %455, label %456, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i"
+  br i1 %455, label %456, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.argprom.exit.i.i.i.i.i.i"
 
 456:                                              ; preds = %445
   %457 = fneg double %448
   store double %457, ptr %413, align 8, !noalias !29
   %458 = fneg double %450
   store double %458, ptr %414, align 8, !noalias !29
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.argprom.exit.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i": ; preds = %456, %445
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %456, %445
   %459 = phi double [ %458, %456 ], [ %450, %445 ]
   %.sroa.8.24.copyload3.i67.i.i.i.i.i.i = phi double [ %457, %456 ], [ %448, %445 ]
   %460 = fcmp ord double %.sroa.8.24.copyload3.i67.i.i.i.i.i.i, 0.000000e+00
@@ -1970,7 +1970,7 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i: ; 
   %or.cond469.i = select i1 %or.cond468.i, i1 true, i1 %467
   br i1 %or.cond469.i, label %.loopexit353.i, label %.thread.i
 
-.thread.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i"
+.thread.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.argprom.exit.i.i.i.i.i.i"
   store ptr %107, ptr %12, align 8, !noalias !29
   %468 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %304, ptr %468, align 8, !noalias !29
@@ -2088,8 +2088,8 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i: ; 
   %exitcond440.not.i = icmp eq i64 %indvars.iv.next438.i, 4
   br i1 %exitcond440.not.i, label %.loopexit353.i, label %506, !llvm.loop !43
 
-.loopexit353.i:                                   ; preds = %498, %506, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i"
-  %.sink.i = phi i8 [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i" ], [ 1, %506 ], [ 0, %498 ]
+.loopexit353.i:                                   ; preds = %498, %506, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.argprom.exit.i.i.i.i.i.i"
+  %.sink.i = phi i8 [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.argprom.exit.i.i.i.i.i.i" ], [ 1, %506 ], [ 0, %498 ]
   br label %533
 
 533:                                              ; preds = %_ZN5ZXing14RegressionLineD2Ev.exit.i178.i, %.loopexit353.i

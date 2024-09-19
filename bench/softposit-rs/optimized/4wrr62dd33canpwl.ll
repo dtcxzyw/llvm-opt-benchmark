@@ -262,12 +262,12 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %6 = tail call noundef i16 @"_ZN9softposit7quire167convert43_$LT$impl$u20$softposit..quire16..Q16E1$GT$8to_posit17he7ba2f7c005a4e92E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %0)
   switch i16 %6, label %8 [
-    i16 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+    i16 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
     i16 -32768, label %7
   ]
 
 7:                                                ; preds = %2
-  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i16 %6, -32768
@@ -326,9 +326,9 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i: ; preds
   %35 = add i64 %34, %30
   %36 = or disjoint i64 %35, %25
   %37 = bitcast i64 %36 to double
-  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i
+_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit: ; preds = %2, %7, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i
   %.0.i = phi double [ %37, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i ], [ 0x7FF8000000000000, %7 ], [ 0.000000e+00, %2 ]
   store double %.0.i, ptr %4, align 8
   store ptr %4, ptr %5, align 8
@@ -387,5 +387,5 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
 !4 = !{}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!7 = distinct !{!7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!6 = distinct !{!6, !7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom: argument 0"}
+!7 = distinct !{!7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom"}

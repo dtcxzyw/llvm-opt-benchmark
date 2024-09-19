@@ -2008,7 +2008,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   %105 = call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) null) #19
   call void @_ZN5clang7CodeGen13CodeGenModule5ErrorENS_14SourceLocationEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3600) %.val, i32 %105, ptr nonnull @.str.22, i64 52) #17
   %.pre = load ptr, ptr %100, align 8
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 _ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
   %106 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #18, !noalias !97
@@ -2024,9 +2024,9 @@ _ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.
   store ptr %99, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 112
   store ptr null, ptr %111, align 8
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
-_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit: ; preds = %102, %_ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.i
+_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit: ; preds = %102, %_ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.i
   %112 = phi ptr [ %.pre, %102 ], [ %106, %_ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.i ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %84, ptr %113, align 8
@@ -2035,13 +2035,13 @@ _ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8C
   %.not.i112 = icmp eq ptr %115, null
   br i1 %.not.i112, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit113, label %116
 
-116:                                              ; preds = %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+116:                                              ; preds = %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %118 = load ptr, ptr %117, align 8
   br label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit113
 
-_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit113: ; preds = %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit, %116
-  %119 = phi ptr [ %118, %116 ], [ null, %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit ]
+_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit113: ; preds = %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit, %116
+  %119 = phi ptr [ %118, %116 ], [ null, %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit ]
   store ptr %99, ptr %19, align 8
   %120 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i16 257, ptr %120, align 8
@@ -2793,8 +2793,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclEPKNS2_4StmtENS_12Dens
   %510 = getelementptr inbounds nuw i8, ptr %27, i64 16
   br label %511
 
-511:                                              ; preds = %.lr.ph308, %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.exit
-  %.0307 = phi ptr [ %.ptr.ptr, %.lr.ph308 ], [ %604, %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.exit ]
+511:                                              ; preds = %.lr.ph308, %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.argprom.exit
+  %.0307 = phi ptr [ %.ptr.ptr, %.lr.ph308 ], [ %604, %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.argprom.exit ]
   %512 = load ptr, ptr %.0307, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction8EmitStmtEPKNS_4StmtEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %512, ptr null, i64 0) #17
   %513 = getelementptr i8, ptr %512, i64 8
@@ -2933,7 +2933,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_7CodeGen7AddressENS_12Den
   %589 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1238", ptr %579, i64 %588
   %590 = load ptr, ptr %589, align 8
   %591 = icmp eq ptr %.val109, %590
-  br i1 %591, label %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.exit, label %.lr.ph.i.i7.i
+  br i1 %591, label %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.argprom.exit, label %.lr.ph.i.i7.i
 
 .lr.ph.i.i7.i:                                    ; preds = %581, %594
   %592 = phi ptr [ %599, %594 ], [ %590, %581 ]
@@ -2950,14 +2950,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_7CodeGen7AddressENS_12Den
   %598 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1238", ptr %579, i64 %597
   %599 = load ptr, ptr %598, align 8
   %600 = icmp eq ptr %.val109, %599
-  br i1 %600, label %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.exit, label %.lr.ph.i.i7.i, !llvm.loop !63
+  br i1 %600, label %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.argprom.exit, label %.lr.ph.i.i7.i, !llvm.loop !63
 
 .loopexit.i17.i:                                  ; preds = %.lr.ph.i.i7.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_7CodeGen7AddressENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6insertEOSt4pairIS5_S7_E.exit.i
   %601 = zext i32 %578 to i64
   %602 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1238", ptr %579, i64 %601
-  br label %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.exit
+  br label %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.argprom.exit
 
-_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.exit: ; preds = %594, %581, %.loopexit.i17.i
+_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.argprom.exit: ; preds = %594, %581, %.loopexit.i17.i
   %.0.i.pn.i13.i = phi ptr [ %602, %.loopexit.i17.i ], [ %589, %581 ], [ %598, %594 ]
   %603 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i13.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %545, ptr noundef nonnull align 8 dereferenceable(48) %603, i64 48, i1 false)
@@ -2967,7 +2967,7 @@ _ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.exit: 
   %.not101 = icmp eq ptr %604, %.ptr311
   br i1 %.not101, label %._crit_edge, label %511
 
-._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.exit, %.loopexit
+._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_126ParamReferenceReplacerRAII7addCopyEPKN5clang8DeclStmtE.argprom.exit, %.loopexit
   %605 = getelementptr inbounds i8, ptr %1, i64 24
   %606 = load ptr, ptr %605, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction8EmitStmtEPKNS_4StmtEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %606, ptr null, i64 0) #17
@@ -3866,13 +3866,13 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction22EmitCoroutineIntrinsi
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
   %.not31 = icmp eq ptr %17, null
-  br i1 %.not31, label %18, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br i1 %.not31, label %18, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 18:                                               ; preds = %15, %12
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1904
   %20 = load ptr, ptr %19, align 8
   %.not32 = icmp eq ptr %20, null
-  br i1 %.not32, label %21, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br i1 %.not32, label %21, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -3883,7 +3883,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction22EmitCoroutineIntrinsi
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef 0) #17
   %28 = call noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef %27) #17
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 29:                                               ; preds = %4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -3917,7 +3917,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i16 257, ptr %51, align 8
   %52 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef %50, ptr noundef %46, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef null)
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 53:                                               ; preds = %4
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -3951,7 +3951,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit35:
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 257, ptr %75, align 8
   %76 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %59, ptr noundef %74, ptr noundef %70, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef null)
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 77:                                               ; preds = %4, %4, %4
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 1888
@@ -4104,7 +4104,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit45:
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i16 257, ptr %161, align 8
   %162 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %154, ptr noundef %158, ptr noundef %153, ptr %159, i64 %160, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef null)
-  switch i32 %3, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit [
+  switch i32 %3, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit [
     i32 46, label %163
     i32 38, label %178
     i32 45, label %183
@@ -4126,11 +4126,11 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit45:
 
 170:                                              ; preds = %166
   call void @_ZN5clang7CodeGen13CodeGenModule5ErrorENS_14SourceLocationEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3600) %.val, i32 %169, ptr nonnull @.str.22, i64 52) #17
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 171:                                              ; preds = %166
   call void @_ZN5clang7CodeGen13CodeGenModule5ErrorENS_14SourceLocationEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3600) %.val, i32 %169, ptr nonnull @.str.23, i64 54) #17
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 _ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %163
   %172 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #18, !noalias !147
@@ -4146,31 +4146,31 @@ _ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.
   store ptr %162, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 112
   store ptr %2, ptr %177, align 8
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 178:                                              ; preds = %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit45
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %180 = load ptr, ptr %179, align 8
   %.not79 = icmp eq ptr %180, null
-  br i1 %.not79, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit, label %181
+  br i1 %.not79, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit, label %181
 
 181:                                              ; preds = %178
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 96
   store ptr %162, ptr %182, align 8
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
 183:                                              ; preds = %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit45
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %185 = load ptr, ptr %184, align 8
   %.not78 = icmp eq ptr %185, null
-  br i1 %.not78, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit, label %186
+  br i1 %.not78, label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit, label %186
 
 186:                                              ; preds = %183
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 104
   store ptr %162, ptr %187, align 8
-  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+  br label %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
 
-_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit: ; preds = %186, %183, %178, %181, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit45, %170, %171, %_ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.i, %18, %15, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit35, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, %21
+_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit: ; preds = %186, %183, %178, %181, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit45, %170, %171, %_ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.i, %18, %15, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit35, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, %21
   %.sink = phi ptr [ %76, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit35 ], [ %52, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ], [ %28, %21 ], [ %17, %15 ], [ %20, %18 ], [ %162, %_ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.i ], [ %162, %171 ], [ %162, %170 ], [ %162, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit45 ], [ %162, %181 ], [ %162, %178 ], [ %162, %183 ], [ %162, %186 ]
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %189 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4184,11 +4184,11 @@ _ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8C
   %194 = icmp eq ptr %193, %11
   br i1 %194, label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit, label %195
 
-195:                                              ; preds = %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit
+195:                                              ; preds = %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit
   call void @free(ptr noundef %193) #17
   br label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit:  ; preds = %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.exit, %195
+_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit:  ; preds = %_ZL14createCoroDataRN5clang7CodeGen15CodeGenFunctionERNS1_10CGCoroInfoEPN4llvm8CallInstEPKNS_8CallExprE.argprom.exit, %195
   ret void
 }
 
@@ -4480,19 +4480,19 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i: ; preds = %
   %38 = and i32 %37, 15
   %.off.i = add nsw i32 %38, -4
   %switch.i = icmp ult i32 %.off.i, 5
-  br i1 %switch.i, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
+  br i1 %switch.i, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
 
-_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i
+_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i
   %39 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.0.i6.i) #17
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit._crit_edge, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
+  br i1 %.not, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit._crit_edge, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
 
-_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit._crit_edge: ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit
+_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit._crit_edge: ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit
   %.pre = load i8, ptr %0, align 8
   br label %40
 
-40:                                               ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit._crit_edge, %1
-  %41 = phi i8 [ %.pre, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit._crit_edge ], [ %4, %1 ]
+40:                                               ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit._crit_edge, %1
+  %41 = phi i8 [ %.pre, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit._crit_edge ], [ %4, %1 ]
   %.not40 = icmp eq i8 %41, 116
   br i1 %.not40, label %42, label %67
 
@@ -4535,14 +4535,14 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i26: ; preds =
   %65 = and i32 %64, 15
   %.off.i28 = add nsw i32 %65, -4
   %switch.i29 = icmp ult i32 %.off.i28, 5
-  br i1 %switch.i29, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit30, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
+  br i1 %switch.i29, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit30, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
 
-_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit30: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i26
+_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit30: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i26
   %66 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.0.i6.i27) #17
   %.not41 = icmp eq i32 %66, 0
   br i1 %.not41, label %67, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
 
-67:                                               ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit30, %40
+67:                                               ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit30, %40
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1220") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %0) #17, !noalias !182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -4608,8 +4608,8 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   %.not3.i = select i1 %93, i1 true, i1 %95
   br i1 %.not3.i, label %.lr.ph, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
 
-_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %67, %52, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i26, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i24, %25, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, %6, %13, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit30, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit
-  %.0 = phi i1 [ true, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit ], [ true, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit30 ], [ true, %13 ], [ true, %6 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i ], [ true, %25 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i24 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i26 ], [ true, %52 ], [ false, %67 ], [ %81, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %81, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit ]
+_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %67, %52, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i26, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i24, %25, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, %6, %13, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit30, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit
+  %.0 = phi i1 [ true, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit ], [ true, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.argprom.exit30 ], [ true, %13 ], [ true, %6 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i ], [ true, %25 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i24 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i26 ], [ true, %52 ], [ false, %67 ], [ %81, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %81, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit ]
   ret i1 %.0
 }
 

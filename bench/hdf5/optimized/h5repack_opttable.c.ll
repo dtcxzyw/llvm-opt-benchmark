@@ -672,10 +672,10 @@ thread-pre-split:                                 ; preds = %9
   %wide.trip.count113 = zext i32 %1 to i64
   br label %119
 
-.preheader79:                                     ; preds = %.preheader79.lr.ph, %aux_tblinsert_filter.exit69
-  %indvars.iv104 = phi i64 [ 0, %.preheader79.lr.ph ], [ %indvars.iv.next105, %aux_tblinsert_filter.exit69 ]
-  %.089 = phi i1 [ false, %.preheader79.lr.ph ], [ %.177, %aux_tblinsert_filter.exit69 ]
-  %.05688 = phi i32 [ 0, %.preheader79.lr.ph ], [ %.157, %aux_tblinsert_filter.exit69 ]
+.preheader79:                                     ; preds = %.preheader79.lr.ph, %aux_tblinsert_filter.argprom.exit69
+  %indvars.iv104 = phi i64 [ 0, %.preheader79.lr.ph ], [ %indvars.iv.next105, %aux_tblinsert_filter.argprom.exit69 ]
+  %.089 = phi i1 [ false, %.preheader79.lr.ph ], [ %.177, %aux_tblinsert_filter.argprom.exit69 ]
+  %.05688 = phi i32 [ 0, %.preheader79.lr.ph ], [ %.157, %aux_tblinsert_filter.argprom.exit69 ]
   %16 = load i32, ptr %5, align 4
   %.not96 = icmp eq i32 %16, 0
   %.pre115.pre = load ptr, ptr %14, align 8
@@ -768,12 +768,12 @@ thread-pre-split:                                 ; preds = %9
   %63 = sext i32 %58 to i64
   %64 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %61, i64 0, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %64, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
-  br label %aux_tblinsert_filter.exit69
+  br label %aux_tblinsert_filter.argprom.exit69
 
 65:                                               ; preds = %49
   %66 = load i32, ptr @enable_error_stack, align 4
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %68, label %aux_tblinsert_filter.exit69
+  br i1 %67, label %68, label %aux_tblinsert_filter.argprom.exit69
 
 68:                                               ; preds = %65
   %69 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -787,14 +787,14 @@ thread-pre-split:                                 ; preds = %9
   %74 = load i64, ptr @H5E_tools_g, align 8
   %75 = load i64, ptr @H5E_tools_min_info_id_g, align 8
   %76 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %69, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.aux_tblinsert_filter, i32 noundef 59, i64 noundef %71, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.6) #16
-  br label %aux_tblinsert_filter.exit69
+  br label %aux_tblinsert_filter.argprom.exit69
 
 77:                                               ; preds = %68
   %78 = load ptr, ptr @stderr, align 8
   %79 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 66, i64 1, ptr %78) #17
   %80 = load ptr, ptr @stderr, align 8
   %fputc.i68 = tail call i32 @fputc(i32 10, ptr %80)
-  br label %aux_tblinsert_filter.exit69
+  br label %aux_tblinsert_filter.argprom.exit69
 
 81:                                               ; preds = %.thread, %._crit_edge
   %82 = phi ptr [ %.pre, %.thread ], [ %.pre115.pre, %._crit_edge ]
@@ -804,7 +804,7 @@ thread-pre-split:                                 ; preds = %9
   %85 = getelementptr inbounds %struct.pack_info_t, ptr %82, i64 %84
   %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(1) %85) #18
   %.not63 = icmp eq i32 %86, 0
-  br i1 %.not63, label %aux_tblinsert_filter.exit69, label %87
+  br i1 %.not63, label %aux_tblinsert_filter.argprom.exit69, label %87
 
 87:                                               ; preds = %81
   %88 = load i32, ptr %5, align 4
@@ -827,12 +827,12 @@ thread-pre-split:                                 ; preds = %9
   %101 = sext i32 %96 to i64
   %102 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %99, i64 0, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %102, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
-  br label %aux_tblinsert_filter.exit69
+  br label %aux_tblinsert_filter.argprom.exit69
 
 103:                                              ; preds = %87
   %104 = load i32, ptr @enable_error_stack, align 4
   %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %106, label %aux_tblinsert_filter.exit69
+  br i1 %105, label %106, label %aux_tblinsert_filter.argprom.exit69
 
 106:                                              ; preds = %103
   %107 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -846,24 +846,24 @@ thread-pre-split:                                 ; preds = %9
   %112 = load i64, ptr @H5E_tools_g, align 8
   %113 = load i64, ptr @H5E_tools_min_info_id_g, align 8
   %114 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %107, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.aux_tblinsert_filter, i32 noundef 59, i64 noundef %109, i64 noundef %112, i64 noundef %113, ptr noundef nonnull @.str.6) #16
-  br label %aux_tblinsert_filter.exit69
+  br label %aux_tblinsert_filter.argprom.exit69
 
 115:                                              ; preds = %106
   %116 = load ptr, ptr @stderr, align 8
   %117 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 66, i64 1, ptr %116) #17
   %118 = load ptr, ptr @stderr, align 8
   %fputc.i71 = tail call i32 @fputc(i32 10, ptr %118)
-  br label %aux_tblinsert_filter.exit69
+  br label %aux_tblinsert_filter.argprom.exit69
 
-aux_tblinsert_filter.exit69:                      ; preds = %115, %111, %103, %98, %77, %73, %65, %60, %81
+aux_tblinsert_filter.argprom.exit69:              ; preds = %115, %111, %103, %98, %77, %73, %65, %60, %81
   %.177 = phi i1 [ true, %81 ], [ false, %60 ], [ false, %65 ], [ false, %73 ], [ false, %77 ], [ true, %98 ], [ true, %103 ], [ true, %111 ], [ true, %115 ]
   %.157 = phi i32 [ %.05688, %81 ], [ %51, %60 ], [ %51, %65 ], [ %51, %73 ], [ %51, %77 ], [ %90, %98 ], [ %90, %103 ], [ %90, %111 ], [ %90, %115 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count106
   br i1 %exitcond107.not, label %.loopexit, label %.preheader79
 
-119:                                              ; preds = %.lr.ph93, %aux_tblinsert_filter.exit75
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next109, %aux_tblinsert_filter.exit75 ]
+119:                                              ; preds = %.lr.ph93, %aux_tblinsert_filter.argprom.exit75
+  %indvars.iv108 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next109, %aux_tblinsert_filter.argprom.exit75 ]
   %indvars110 = trunc i64 %indvars.iv108 to i32
   %120 = load i32, ptr %5, align 4
   %121 = add i32 %120, %indvars110
@@ -887,12 +887,12 @@ aux_tblinsert_filter.exit69:                      ; preds = %115, %111, %103, %9
   %134 = sext i32 %129 to i64
   %135 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %132, i64 0, i64 %134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %135, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
-  br label %aux_tblinsert_filter.exit75
+  br label %aux_tblinsert_filter.argprom.exit75
 
 136:                                              ; preds = %119
   %137 = load i32, ptr @enable_error_stack, align 4
   %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %139, label %aux_tblinsert_filter.exit75
+  br i1 %138, label %139, label %aux_tblinsert_filter.argprom.exit75
 
 139:                                              ; preds = %136
   %140 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -906,21 +906,21 @@ aux_tblinsert_filter.exit69:                      ; preds = %115, %111, %103, %9
   %145 = load i64, ptr @H5E_tools_g, align 8
   %146 = load i64, ptr @H5E_tools_min_info_id_g, align 8
   %147 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %140, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.aux_tblinsert_filter, i32 noundef 59, i64 noundef %142, i64 noundef %145, i64 noundef %146, ptr noundef nonnull @.str.6) #16
-  br label %aux_tblinsert_filter.exit75
+  br label %aux_tblinsert_filter.argprom.exit75
 
 148:                                              ; preds = %139
   %149 = load ptr, ptr @stderr, align 8
   %150 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 66, i64 1, ptr %149) #17
   %151 = load ptr, ptr @stderr, align 8
   %fputc.i74 = tail call i32 @fputc(i32 10, ptr %151)
-  br label %aux_tblinsert_filter.exit75
+  br label %aux_tblinsert_filter.argprom.exit75
 
-aux_tblinsert_filter.exit75:                      ; preds = %131, %136, %144, %148
+aux_tblinsert_filter.argprom.exit75:              ; preds = %131, %136, %144, %148
   %exitcond114.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count113
   br i1 %exitcond114.not, label %.loopexit, label %119
 
-.loopexit:                                        ; preds = %aux_tblinsert_filter.exit69, %aux_tblinsert_filter.exit75, %.preheader80, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader80 ], [ %1, %aux_tblinsert_filter.exit75 ], [ %.157, %aux_tblinsert_filter.exit69 ]
+.loopexit:                                        ; preds = %aux_tblinsert_filter.argprom.exit69, %aux_tblinsert_filter.argprom.exit75, %.preheader80, %.preheader
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader80 ], [ %1, %aux_tblinsert_filter.argprom.exit75 ], [ %.157, %aux_tblinsert_filter.argprom.exit69 ]
   %152 = load i32, ptr %5, align 4
   %153 = add i32 %152, %.2
   store i32 %153, ptr %5, align 4

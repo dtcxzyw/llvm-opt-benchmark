@@ -731,7 +731,7 @@ _ZNK4llvm4User10getOperandEj.exit12.i.i:          ; preds = %204, %201
   %210 = load ptr, ptr %209, align 8
   %211 = load i8, ptr %210, align 8
   %.not18.i.i = icmp eq i8 %211, 22
-  br i1 %.not18.i.i, label %212, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i
+  br i1 %.not18.i.i, label %212, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i
 
 212:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit12.i.i
   %213 = tail call noundef zeroext i1 @_ZNK4llvm8Argument11hasZExtAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %210) #21
@@ -740,9 +740,9 @@ _ZNK4llvm4User10getOperandEj.exit12.i.i:          ; preds = %204, %201
 _ZL12isIntExtFreePKN4llvm11InstructionE.exit.i:   ; preds = %212
   %.pre.i = load i8, ptr %177, align 8
   %214 = icmp ugt i8 %.pre.i, 28
-  br i1 %214, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i
+  br i1 %214, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i, %_ZNK4llvm4User10getOperandEj.exit12.i.i
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i, %_ZNK4llvm4User10getOperandEj.exit12.i.i
   %215 = getelementptr inbounds i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %215, align 8
   %216 = getelementptr inbounds i8, ptr %177, i64 40
@@ -757,9 +757,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i: ; 
   %225 = getelementptr inbounds nuw i8, ptr %.val.i, i64 680
   %226 = load ptr, ptr %225, align 8
   %227 = icmp eq ptr %224, %226
-  br i1 %227, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i
+  br i1 %227, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i
   %228 = getelementptr inbounds i8, ptr %177, i64 -32
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
@@ -771,7 +771,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.threa
   %spec.select.i.i73.i = icmp ult i32 %235, -2
   br i1 %spec.select.i.i73.i, label %236, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i
 
-236:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i
+236:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i
   %237 = load ptr, ptr %28, align 8
   %238 = load ptr, ptr %114, align 8
   %239 = tail call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(408123) %237, ptr noundef nonnull align 8 dereferenceable(512) %238, ptr noundef nonnull %231, i1 noundef zeroext true)
@@ -885,7 +885,7 @@ _ZNK4llvm4User10getOperandEj.exit12.i89.i:        ; preds = %286, %283
 
 _ZL12isIntExtFreePKN4llvm11InstructionE.exit95.thread.i: ; preds = %_ZNK4llvm4User10getOperandEj.exit12.i89.i
   store i16 0, ptr %27, align 2
-  br label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i
+  br label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.i
 
 .critedge.i92.i:                                  ; preds = %_ZNK4llvm4User10getOperandEj.exit12.i89.i
   %294 = tail call noundef zeroext i1 @_ZNK4llvm8Argument11hasSExtAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %292) #21
@@ -895,9 +895,9 @@ _ZL12isIntExtFreePKN4llvm11InstructionE.exit95.i: ; preds = %.critedge.i92.i
   %.pre168.i = load i8, ptr %177, align 8
   %295 = icmp ugt i8 %.pre168.i, 28
   store i16 0, ptr %27, align 2
-  br i1 %295, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thread.i
+  br i1 %295, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.thread.i
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit95.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit95.thread.i
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.i: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit95.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit95.thread.i
   %296 = getelementptr inbounds i8, ptr %0, i64 32
   %.val65.i = load ptr, ptr %296, align 8
   %297 = getelementptr inbounds i8, ptr %177, i64 40
@@ -912,9 +912,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i: 
   %306 = getelementptr inbounds nuw i8, ptr %.val65.i, i64 680
   %307 = load ptr, ptr %306, align 8
   %308 = icmp eq ptr %305, %307
-  br i1 %308, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thread.i, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i
+  br i1 %308, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.thread.i, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thread.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit95.i
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.thread.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit95.i
   %309 = getelementptr inbounds i8, ptr %177, i64 -32
   %310 = load ptr, ptr %309, align 8
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -922,7 +922,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thr
   %313 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %312, ptr noundef nonnull align 2 dereferenceable(2) %27, i1 noundef zeroext false)
   br i1 %313, label %314, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i
 
-314:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thread.i
+314:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.thread.i
   %.sroa.025.0.copyload27.i = load i16, ptr %27, align 2
   br label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i
 
@@ -933,10 +933,10 @@ _ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i: ; preds = %_ZN
   %315 = load ptr, ptr %.sink.i, align 8
   br label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i
 
-_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thread.i, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i, %.critedge.i92.i, %_ZNK4llvm5Value9hasOneUseEv.exit.i94.i, %260, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i79.i, %254, %254, %254, %248, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i, %212, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i
-  %.054.i = phi ptr [ %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i ], [ %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thread.i ], [ %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i ], [ %177, %260 ], [ %177, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ %177, %212 ], [ %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i ], [ %177, %248 ], [ %177, %254 ], [ %177, %_ZNK4llvm5Value9hasOneUseEv.exit.i94.i ], [ %177, %.critedge.i92.i ], [ %177, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i79.i ], [ %177, %254 ], [ %177, %254 ], [ %315, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i ]
-  %.053.shrunk.i = phi i1 [ %167, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i ], [ %167, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thread.i ], [ %167, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i ], [ %167, %260 ], [ %167, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ %167, %212 ], [ %167, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i ], [ %167, %248 ], [ %167, %254 ], [ %167, %_ZNK4llvm5Value9hasOneUseEv.exit.i94.i ], [ %167, %.critedge.i92.i ], [ %167, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i79.i ], [ %167, %254 ], [ %167, %254 ], [ %.053.shrunk.ph.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i ]
-  %.sroa.025.0.i = phi i16 [ %117, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i ], [ %117, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.thread.i ], [ %117, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit97.i ], [ %117, %260 ], [ %117, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ %117, %212 ], [ %117, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i ], [ %117, %248 ], [ %117, %254 ], [ %117, %_ZNK4llvm5Value9hasOneUseEv.exit.i94.i ], [ %117, %.critedge.i92.i ], [ %117, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i79.i ], [ %117, %254 ], [ %117, %254 ], [ %.sroa.025.0.ph.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i ]
+_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.thread.i, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.i, %.critedge.i92.i, %_ZNK4llvm5Value9hasOneUseEv.exit.i94.i, %260, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i79.i, %254, %254, %254, %248, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i, %212, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i
+  %.054.i = phi ptr [ %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i ], [ %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.thread.i ], [ %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.i ], [ %177, %260 ], [ %177, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ %177, %212 ], [ %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i ], [ %177, %248 ], [ %177, %254 ], [ %177, %_ZNK4llvm5Value9hasOneUseEv.exit.i94.i ], [ %177, %.critedge.i92.i ], [ %177, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i79.i ], [ %177, %254 ], [ %177, %254 ], [ %315, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i ]
+  %.053.shrunk.i = phi i1 [ %167, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i ], [ %167, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.thread.i ], [ %167, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.i ], [ %167, %260 ], [ %167, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ %167, %212 ], [ %167, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i ], [ %167, %248 ], [ %167, %254 ], [ %167, %_ZNK4llvm5Value9hasOneUseEv.exit.i94.i ], [ %167, %.critedge.i92.i ], [ %167, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i79.i ], [ %167, %254 ], [ %167, %254 ], [ %.053.shrunk.ph.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i ]
+  %.sroa.025.0.i = phi i16 [ %117, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i ], [ %117, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.thread.i ], [ %117, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit97.i ], [ %117, %260 ], [ %117, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ %117, %212 ], [ %117, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i ], [ %117, %248 ], [ %117, %254 ], [ %117, %_ZNK4llvm5Value9hasOneUseEv.exit.i94.i ], [ %117, %.critedge.i92.i ], [ %117, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i79.i ], [ %117, %254 ], [ %117, %254 ], [ %.sroa.025.0.ph.i, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split.i ]
   %316 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %.054.i) #21
   %.not63.i = icmp eq i32 %316, 0
   br i1 %.not63.i, label %_ZN12_GLOBAL__N_115AArch64FastISel11selectShiftEPKN4llvm11InstructionE.exit, label %317
@@ -1612,55 +1612,55 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i68:           ; preds = %620
 
 651:                                              ; preds = %650
   switch i16 %.028.val.i.i, label %684 [
-    i16 4549, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4552, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4561, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4380, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4396, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4445, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4379, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4395, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4444, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4378, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4394, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4443, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
+    i16 4549, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4552, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4561, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4380, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4396, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4445, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4379, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4395, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4444, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4378, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4394, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4443, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
   ]
 
 .critedge34.i.i:                                  ; preds = %650
   switch i16 %.028.val.i.i, label %684 [
-    i16 4555, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4557, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4556, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4558, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4559, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4412, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4422, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4417, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4427, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4433, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4411, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4421, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4416, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4426, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4432, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4410, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4420, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4415, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4425, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
-    i16 4431, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
+    i16 4555, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4557, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4556, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4558, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4559, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4412, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4422, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4417, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4427, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4433, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4411, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4421, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4416, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4426, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4432, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4410, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4420, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4415, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4425, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
+    i16 4431, label %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
   ]
 
-_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i: ; preds = %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %651, %651, %651, %651, %651, %651, %651, %651, %651, %651, %651, %651
+_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i: ; preds = %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %651, %651, %651, %651, %651, %651, %651, %651, %651, %651, %651, %651
   %652 = icmp ne i16 %544, 8
   %653 = icmp ugt i16 %587, 7
   %or.cond.i.i = select i1 %652, i1 true, i1 %653
   br i1 %or.cond.i.i, label %.critedge.i.i, label %654
 
-.critedge.i.i:                                    ; preds = %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
+.critedge.i.i:                                    ; preds = %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
   tail call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 %627, i32 noundef 1) #21
   br label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
 
-654:                                              ; preds = %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
+654:                                              ; preds = %_ZL10isZExtLoadPKN4llvm12MachineInstrE.argprom.exit.thread.i.i
   br i1 %634, label %655, label %677
 
 655:                                              ; preds = %654
@@ -3461,7 +3461,7 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %105
   %140 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %136, i32 noundef 1) #21
   %141 = and i16 %140, 256
   %.not442 = icmp eq i16 %141, 0
-  br i1 %.not442, label %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit, label %142
+  br i1 %.not442, label %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit, label %142
 
 142:                                              ; preds = %130, %139
   %143 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %136, i32 noundef 0) #21
@@ -3482,12 +3482,12 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %105
   %150 = icmp ult i64 %149, 5
   br i1 %150, label %152, label %181
 
-_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; preds = %139
+_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit: ; preds = %139
   %151 = icmp ult i64 %.0.i.i145, 32
   br i1 %151, label %152, label %181
 
-152:                                              ; preds = %142, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit
-  %.sroa.0315.0.insert.insert318460 = phi i16 [ %.sroa.0315.0.insert.insert318, %142 ], [ 0, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit ]
+152:                                              ; preds = %142, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit
+  %.sroa.0315.0.insert.insert318460 = phi i16 [ %.sroa.0315.0.insert.insert318, %142 ], [ 0, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit ]
   store i32 0, ptr %14, align 8
   %153 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 -1, ptr %153, align 4
@@ -3534,7 +3534,7 @@ _ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; p
   %180 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel18tryEmitSmallMemCpyENS0_7AddressES1_mN4llvm10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull byval(%"class.(anonymous namespace)::AArch64FastISel::Address") align 8 %14, ptr noundef nonnull byval(%"class.(anonymous namespace)::AArch64FastISel::Address") align 8 %15, i64 noundef %.0.i.i145, i16 %.sroa.0315.0.insert.insert318460)
   br i1 %180, label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EED2Ev.exit, label %181
 
-181:                                              ; preds = %142, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit, %179, %123
+181:                                              ; preds = %142, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit, %179, %123
   %182 = load i32, ptr %106, align 4
   %183 = and i32 %182, 134217727
   %184 = zext nneg i32 %183 to i64
@@ -6838,7 +6838,7 @@ _ZNK4llvm4User10getOperandEj.exit12.i:            ; preds = %111, %108
 
 _ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread125: ; preds = %_ZNK4llvm4User10getOperandEj.exit12.i
   store i16 0, ptr %3, align 2
-  br label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit
+  br label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit
 
 119:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit12.i
   %120 = tail call noundef zeroext i1 @_ZNK4llvm8Argument11hasZExtAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %117) #21
@@ -6848,9 +6848,9 @@ _ZL12isIntExtFreePKN4llvm11InstructionE.exit:     ; preds = %119
   %.pre = load i8, ptr %.090, align 8
   %121 = icmp ugt i8 %.pre, 28
   store i16 0, ptr %3, align 2
-  br i1 %121, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread
+  br i1 %121, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread125, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread125, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit
   %122 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %.090, i64 40
@@ -6865,9 +6865,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; pr
   %132 = getelementptr inbounds nuw i8, ptr %.val, i64 680
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %131, %133
-  br i1 %134, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread
+  br i1 %134, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit
   %135 = getelementptr inbounds i8, ptr %.090, i64 -32
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -6888,9 +6888,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.threa
   store i16 0, ptr %4, align 2
   %145 = load i8, ptr %.090, align 8
   %146 = icmp ugt i8 %145, 28
-  br i1 %146, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread
+  br i1 %146, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66: ; preds = %144
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66: ; preds = %144
   %147 = getelementptr inbounds i8, ptr %0, i64 32
   %.val50 = load ptr, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %.090, i64 40
@@ -6905,9 +6905,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66: ; 
   %157 = getelementptr inbounds nuw i8, ptr %.val50, i64 680
   %158 = load ptr, ptr %157, align 8
   %159 = icmp eq ptr %156, %158
-  br i1 %159, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread
+  br i1 %159, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread: ; preds = %144, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread: ; preds = %144, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66
   %160 = getelementptr inbounds i8, ptr %.090, i64 -32
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -6915,18 +6915,18 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thr
   %164 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %163, ptr noundef nonnull align 2 dereferenceable(2) %4, i1 noundef zeroext false)
   br i1 %164, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread
 
-_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread
-  %.sink126 = phi ptr [ %3, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread ], [ %4, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread ]
-  %.sink = phi ptr [ %135, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread ], [ %160, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread ]
+_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread
+  %.sink126 = phi ptr [ %3, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread ], [ %4, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread ]
+  %.sink = phi ptr [ %135, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread ], [ %160, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread ]
   %.035.ph = xor i1 %.not43, true
   %.sroa.016.0.copyload18 = load i16, ptr %.sink126, align 2
   %165 = load ptr, ptr %.sink, align 8
   br label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread
 
-_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split, %119, %_ZNK4llvm5Value9hasOneUseEv.exit.i, %140, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread, %142, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit
-  %.1 = phi ptr [ %.090, %140 ], [ %.090, %142 ], [ %.090, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread ], [ %.090, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66 ], [ %.090, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread ], [ %.090, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ %.090, %_ZNK4llvm5Value9hasOneUseEv.exit.i ], [ %.090, %119 ], [ %165, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split ]
-  %.035 = phi i1 [ true, %140 ], [ true, %142 ], [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread ], [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66 ], [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread ], [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ true, %_ZNK4llvm5Value9hasOneUseEv.exit.i ], [ true, %119 ], [ %.035.ph, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split ]
-  %.sroa.016.0 = phi i16 [ %12, %140 ], [ %12, %142 ], [ %12, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66.thread ], [ %12, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit66 ], [ %12, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread ], [ %12, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ %12, %_ZNK4llvm5Value9hasOneUseEv.exit.i ], [ %12, %119 ], [ %.sroa.016.0.copyload18, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split ]
+_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread: ; preds = %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split, %119, %_ZNK4llvm5Value9hasOneUseEv.exit.i, %140, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread, %142, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit
+  %.1 = phi ptr [ %.090, %140 ], [ %.090, %142 ], [ %.090, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread ], [ %.090, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66 ], [ %.090, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread ], [ %.090, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ %.090, %_ZNK4llvm5Value9hasOneUseEv.exit.i ], [ %.090, %119 ], [ %165, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split ]
+  %.035 = phi i1 [ true, %140 ], [ true, %142 ], [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread ], [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66 ], [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread ], [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ true, %_ZNK4llvm5Value9hasOneUseEv.exit.i ], [ true, %119 ], [ %.035.ph, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split ]
+  %.sroa.016.0 = phi i16 [ %12, %140 ], [ %12, %142 ], [ %12, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66.thread ], [ %12, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit66 ], [ %12, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread ], [ %12, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ %12, %_ZNK4llvm5Value9hasOneUseEv.exit.i ], [ %12, %119 ], [ %.sroa.016.0.copyload18, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.sink.split ]
   %166 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %.1) #21
   %.not45 = icmp eq i32 %166, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread97, label %167
@@ -7453,9 +7453,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
+  br i1 %54, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit: ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
   %55 = getelementptr inbounds i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 44
@@ -7466,26 +7466,26 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; pr
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 680
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %61, %63
-  br i1 %64, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
+  br i1 %64, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit
   %65 = tail call noundef i32 @_ZNK4llvm8FastISel20optimizeCmpPredicateEPKNS_7CmpInstE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %45) #21
   switch i32 %65, label %70 [
     i32 0, label %66
     i32 15, label %68
   ]
 
-66:                                               ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread
+66:                                               ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN4llvm8FastISel14fastEmitBranchEPNS_17MachineBasicBlockERKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(8) %67) #21
   br label %424
 
-68:                                               ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread
+68:                                               ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN4llvm8FastISel14fastEmitBranchEPNS_17MachineBasicBlockERKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %69) #21
   br label %424
 
-70:                                               ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread
+70:                                               ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %71 = load ptr, ptr %23, align 8
@@ -7639,9 +7639,9 @@ _ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exi
 154:                                              ; preds = %152
   %155 = load i8, ptr %.0109.i, align 8
   %156 = icmp eq i8 %155, 57
-  br i1 %156, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i, label %184
+  br i1 %156, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i, label %184
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i: ; preds = %154
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i: ; preds = %154
   %.val.i = load ptr, ptr %23, align 8
   %157 = getelementptr inbounds i8, ptr %.0109.i, i64 40
   %158 = load ptr, ptr %157, align 8
@@ -7655,9 +7655,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i: ; 
   %166 = getelementptr inbounds nuw i8, ptr %.val.i, i64 680
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %165, %167
-  br i1 %168, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i, label %184
+  br i1 %168, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i, label %184
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i
   %169 = getelementptr inbounds i8, ptr %.0109.i, i64 -64
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds i8, ptr %.0109.i, i64 -32
@@ -7666,16 +7666,16 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.threa
   %.not.i = icmp eq i8 %173, 17
   br i1 %.not.i, label %174, label %177
 
-174:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i
+174:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %176 = call noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr noundef nonnull align 8 dereferenceable(12) %175)
   %spec.select134.i = select i1 %176, ptr %170, ptr %172
   %spec.select135.i = select i1 %176, ptr %172, ptr %170
   br label %177
 
-177:                                              ; preds = %174, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i
-  %.0115.i = phi ptr [ %172, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i ], [ %spec.select134.i, %174 ]
-  %.0114.i = phi ptr [ %170, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread.i ], [ %spec.select135.i, %174 ]
+177:                                              ; preds = %174, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i
+  %.0115.i = phi ptr [ %172, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i ], [ %spec.select134.i, %174 ]
+  %.0114.i = phi ptr [ %170, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread.i ], [ %spec.select135.i, %174 ]
   %178 = load i8, ptr %.0115.i, align 8
   %.not145.i = icmp eq i8 %178, 17
   br i1 %.not145.i, label %179, label %184
@@ -7689,9 +7689,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.threa
   %183 = call noundef i32 @_ZNK4llvm5APInt8logBase2Ev(ptr noundef nonnull align 8 dereferenceable(12) %180)
   br label %184
 
-184:                                              ; preds = %182, %179, %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i, %154
-  %.1.i = phi ptr [ %.0109.i, %154 ], [ %.0109.i, %177 ], [ %.0114.i, %182 ], [ %.0109.i, %179 ], [ %.0109.i, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i ]
-  %.052.i = phi i32 [ -1, %154 ], [ -1, %177 ], [ %183, %182 ], [ -1, %179 ], [ -1, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.i ]
+184:                                              ; preds = %182, %179, %177, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i, %154
+  %.1.i = phi ptr [ %.0109.i, %154 ], [ %.0109.i, %177 ], [ %.0114.i, %182 ], [ %.0109.i, %179 ], [ %.0109.i, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i ]
+  %.052.i = phi i32 [ -1, %154 ], [ -1, %177 ], [ %183, %182 ], [ -1, %179 ], [ -1, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.i ]
   %185 = icmp eq i16 %95, 2
   %spec.select.i = select i1 %185, i32 0, i32 %.052.i
   br label %216
@@ -8077,8 +8077,8 @@ _ZN12_GLOBAL__N_115AArch64FastISel20emitCompareAndBranchEPKN4llvm10BranchInstE.e
   call void @_ZN4llvm8FastISel16finishCondBranchEPKNS_10BasicBlockEPNS_17MachineBasicBlockES5_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %390, ptr noundef %33, ptr noundef %43) #21
   br label %424
 
-_ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %49, %365, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit
-  %391 = phi ptr [ %45, %49 ], [ %.pre, %365 ], [ %45, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %45, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ]
+_ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %49, %365, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit
+  %391 = phi ptr [ %45, %49 ], [ %.pre, %365 ], [ %45, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %45, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ]
   %392 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %391) #21
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %424, label %394
@@ -9953,9 +9953,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
+  br i1 %104, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit: ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
   %105 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %43, i64 40
@@ -9972,7 +9972,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; pr
   %117 = icmp eq ptr %114, %116
   br i1 %117, label %118, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
-118:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit
+118:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit
   %119 = tail call noundef i32 @_ZNK4llvm8FastISel20optimizeCmpPredicateEPKNS_7CmpInstE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %43) #21
   switch i32 %119, label %.thread [
     i32 0, label %121
@@ -10027,7 +10027,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; pr
   store i32 12, ptr %5, align 4
   br label %160
 
-_ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %99, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, %_ZNK4llvm5Value9hasOneUseEv.exit, %94
+_ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %99, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, %_ZNK4llvm5Value9hasOneUseEv.exit, %94
   %140 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %43) #21
   %.not = icmp eq i32 %140, 0
   br i1 %.not, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread112, label %.loopexit.i
@@ -12720,9 +12720,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %22
 
 29:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
   %30 = icmp ugt i8 %23, 28
-  br i1 %30, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, label %45
+  br i1 %30, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, label %45
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; preds = %29
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit: ; preds = %29
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %.0216, i64 40
@@ -12751,7 +12751,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; pr
   %50 = icmp eq i16 %49, 17
   br i1 %50, label %_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i, label %_ZNK4llvm5Value9hasOneUseEv.exit112
 
-_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, %47
+_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, %47
   %51 = getelementptr inbounds i8, ptr %.0216, i64 -64
   %52 = load ptr, ptr %51, align 8
   %53 = load i8, ptr %52, align 8
@@ -12807,10 +12807,10 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i:      ; preds = %62, %59, %_ZN4llvm8
   %.not.i.i110 = icmp eq ptr %.pre, null
   br i1 %.not.i.i110, label %.critedge104, label %_ZNK4llvm5Value9hasOneUseEv.exit112
 
-_ZNK4llvm5Value9hasOneUseEv.exit112:              ; preds = %76, %73, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i, %47, %45, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, %.critedge
-  %.1270 = phi ptr [ %.0217, %.critedge ], [ %.0216, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ %.0216, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %.0216, %45 ], [ %.0216, %47 ], [ %.0216, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.0216, %73 ], [ %.0216, %76 ]
-  %.1218269 = phi ptr [ %.0216, %.critedge ], [ %.0217, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ %.0217, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %.0217, %45 ], [ %.0217, %47 ], [ %.0217, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.0217, %73 ], [ %.0217, %76 ]
-  %79 = phi ptr [ %.pre, %.critedge ], [ %25, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ %25, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %25, %45 ], [ %25, %47 ], [ %25, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %25, %73 ], [ %25, %76 ]
+_ZNK4llvm5Value9hasOneUseEv.exit112:              ; preds = %76, %73, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i, %47, %45, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, %.critedge
+  %.1270 = phi ptr [ %.0217, %.critedge ], [ %.0216, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ %.0216, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %.0216, %45 ], [ %.0216, %47 ], [ %.0216, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.0216, %73 ], [ %.0216, %76 ]
+  %.1218269 = phi ptr [ %.0216, %.critedge ], [ %.0217, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ %.0217, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %.0217, %45 ], [ %.0217, %47 ], [ %.0217, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.0217, %73 ], [ %.0217, %76 ]
+  %79 = phi ptr [ %.pre, %.critedge ], [ %25, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ %25, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %25, %45 ], [ %25, %47 ], [ %25, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %25, %73 ], [ %25, %76 ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -12819,9 +12819,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit112:              ; preds = %76, %73, %_ZNK4llvm
 83:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit112
   %84 = load i8, ptr %.1270, align 8
   %85 = icmp ult i8 %84, 29
-  br i1 %85, label %.critedge104, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114
+  br i1 %85, label %.critedge104, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114: ; preds = %83
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114: ; preds = %83
   %86 = getelementptr inbounds i8, ptr %0, i64 32
   %.val105 = load ptr, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %.1270, i64 40
@@ -12836,15 +12836,15 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114: ;
   %96 = getelementptr inbounds nuw i8, ptr %.val105, i64 680
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %95, %97
-  br i1 %98, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114.thread, label %.critedge104
+  br i1 %98, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114.thread, label %.critedge104
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114.thread: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114.thread: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114
   %99 = zext i8 %84 to i32
   %100 = add nsw i32 %99, -60
   %101 = icmp ult i32 %100, -18
   br i1 %101, label %.critedge104, label %102
 
-102:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114.thread
+102:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114.thread
   %103 = getelementptr inbounds i8, ptr %.1270, i64 -32
   %104 = load ptr, ptr %103, align 8
   %105 = load i8, ptr %104, align 8
@@ -12858,9 +12858,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114.th
   %spec.select248 = select i1 %switch, ptr %.1218269, ptr %.1270
   br label %.critedge104
 
-.critedge104:                                     ; preds = %83, %22, %107, %.critedge, %14, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114.thread, %102, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114, %_ZNK4llvm5Value9hasOneUseEv.exit112
-  %.2219 = phi ptr [ %.1218269, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114.thread ], [ %.1218269, %102 ], [ %.1218269, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114 ], [ %.1218269, %_ZNK4llvm5Value9hasOneUseEv.exit112 ], [ %4, %14 ], [ %.0216, %.critedge ], [ %spec.select247, %107 ], [ %.0217, %22 ], [ %.1218269, %83 ]
-  %.2 = phi ptr [ %.1270, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114.thread ], [ %.1270, %102 ], [ %.1270, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit114 ], [ %.1270, %_ZNK4llvm5Value9hasOneUseEv.exit112 ], [ %3, %14 ], [ %.0217, %.critedge ], [ %spec.select248, %107 ], [ %.0216, %22 ], [ %.1270, %83 ]
+.critedge104:                                     ; preds = %83, %22, %107, %.critedge, %14, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114.thread, %102, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114, %_ZNK4llvm5Value9hasOneUseEv.exit112
+  %.2219 = phi ptr [ %.1218269, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114.thread ], [ %.1218269, %102 ], [ %.1218269, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114 ], [ %.1218269, %_ZNK4llvm5Value9hasOneUseEv.exit112 ], [ %4, %14 ], [ %.0216, %.critedge ], [ %spec.select247, %107 ], [ %.0217, %22 ], [ %.1218269, %83 ]
+  %.2 = phi ptr [ %.1270, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114.thread ], [ %.1270, %102 ], [ %.1270, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit114 ], [ %.1270, %_ZNK4llvm5Value9hasOneUseEv.exit112 ], [ %3, %14 ], [ %.0217, %.critedge ], [ %spec.select248, %107 ], [ %.0216, %22 ], [ %.1270, %83 ]
   %108 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %.2) #21
   %.not89 = icmp eq i32 %108, 0
   br i1 %.not89, label %309, label %109
@@ -12977,9 +12977,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit120:              ; preds = %160
 164:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit120
   %165 = load i8, ptr %.2219, align 8
   %166 = icmp ugt i8 %165, 28
-  br i1 %166, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122.thread
+  br i1 %166, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122: ; preds = %164
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122: ; preds = %164
   %167 = getelementptr inbounds i8, ptr %0, i64 32
   %.val106 = load ptr, ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %.2219, i64 40
@@ -12994,21 +12994,21 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122: ;
   %177 = getelementptr inbounds nuw i8, ptr %.val106, i64 680
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %176, %178
-  br i1 %179, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit125
+  br i1 %179, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit125
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122.thread: ; preds = %164, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122.thread: ; preds = %164, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122
   %180 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.2219) #21
   %.not103 = icmp eq i32 %180, 0
   br i1 %.not103, label %309, label %181
 
-181:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122.thread
+181:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122.thread
   %182 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel13emitAddSub_rxEbN4llvm3MVTEjjNS1_10AArch64_AM15ShiftExtendTypeEmbb(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext %1, i16 %.sroa.speculated, i32 noundef %.sroa.0163.0, i32 noundef %180, i32 noundef %.077, i64 noundef 0, i1 noundef zeroext %5, i1 noundef zeroext %6)
   br label %309
 
 _ZNK4llvm5Value9hasOneUseEv.exit120.thread:       ; preds = %.thread225
   br i1 %.not.i.i123, label %_ZNK4llvm5Value9hasOneUseEv.exit142.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit125
 
-_ZNK4llvm5Value9hasOneUseEv.exit125:              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit120, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122, %_ZNK4llvm5Value9hasOneUseEv.exit120.thread
+_ZNK4llvm5Value9hasOneUseEv.exit125:              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit120, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122, %_ZNK4llvm5Value9hasOneUseEv.exit120.thread
   %183 = getelementptr inbounds nuw i8, ptr %.2219, i64 16
   %184 = getelementptr inbounds nuw i8, ptr %.pre264, i64 8
   %185 = load ptr, ptr %184, align 8
@@ -13018,9 +13018,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit125:              ; preds = %_ZNK4llvm5Value9has
 187:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit125
   %188 = load i8, ptr %.2219, align 8
   %189 = icmp ugt i8 %188, 28
-  br i1 %189, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit127, label %204
+  br i1 %189, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit127, label %204
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit127: ; preds = %187
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit127: ; preds = %187
   %190 = getelementptr inbounds i8, ptr %0, i64 32
   %.val107 = load ptr, ptr %190, align 8
   %191 = getelementptr inbounds i8, ptr %.2219, i64 40
@@ -13049,7 +13049,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit127: ;
   %209 = icmp eq i16 %208, 17
   br i1 %209, label %_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i130, label %_ZNK4llvm5Value9hasOneUseEv.exit142
 
-_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i130: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit127, %206
+_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i130: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit127, %206
   %210 = getelementptr inbounds i8, ptr %.2219, i64 -64
   %211 = load ptr, ptr %210, align 8
   %212 = load i8, ptr %211, align 8
@@ -13157,8 +13157,8 @@ _ZL11isMulPowOf2PKN4llvm5ValueE.exit137:          ; preds = %260
   %.not.i.i140 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i140, label %_ZNK4llvm5Value9hasOneUseEv.exit142.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit142
 
-_ZNK4llvm5Value9hasOneUseEv.exit142:              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit125, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit127, %204, %206, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i132, %232, %235, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit137
-  %.pr281 = phi ptr [ %.pr.pre, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit137 ], [ %.pre264, %235 ], [ %.pre264, %232 ], [ %.pre264, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i132 ], [ %.pre264, %206 ], [ %.pre264, %204 ], [ %.pre264, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit127 ], [ %.pre264, %_ZNK4llvm5Value9hasOneUseEv.exit125 ]
+_ZNK4llvm5Value9hasOneUseEv.exit142:              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit125, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit127, %204, %206, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i132, %232, %235, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit137
+  %.pr281 = phi ptr [ %.pr.pre, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit137 ], [ %.pre264, %235 ], [ %.pre264, %232 ], [ %.pre264, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i132 ], [ %.pre264, %206 ], [ %.pre264, %204 ], [ %.pre264, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit127 ], [ %.pre264, %_ZNK4llvm5Value9hasOneUseEv.exit125 ]
   %265 = getelementptr inbounds nuw i8, ptr %.pr281, i64 8
   %266 = load ptr, ptr %265, align 8
   %267 = icmp eq ptr %266, null
@@ -13167,9 +13167,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit142:              ; preds = %_ZNK4llvm5Value9has
 268:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit142
   %269 = load i8, ptr %.2219, align 8
   %270 = icmp ult i8 %269, 29
-  br i1 %270, label %_ZNK4llvm5Value9hasOneUseEv.exit142.thread, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit144
+  br i1 %270, label %_ZNK4llvm5Value9hasOneUseEv.exit142.thread, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit144
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit144: ; preds = %268
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit144: ; preds = %268
   %271 = getelementptr inbounds i8, ptr %0, i64 32
   %.val108 = load ptr, ptr %271, align 8
   %272 = getelementptr inbounds i8, ptr %.2219, i64 40
@@ -13190,7 +13190,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit144: ;
   %or.cond285 = select i1 %283, i1 true, i1 %286
   br i1 %or.cond285, label %_ZNK4llvm5Value9hasOneUseEv.exit142.thread, label %287
 
-287:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit144
+287:                                              ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit144
   %288 = getelementptr inbounds i8, ptr %.2219, i64 -64
   %289 = getelementptr inbounds i8, ptr %.2219, i64 -32
   %290 = load ptr, ptr %289, align 8
@@ -13222,7 +13222,7 @@ switch.lookup:                                    ; preds = %292
   %.not101 = icmp eq i32 %302, 0
   br i1 %.not101, label %_ZNK4llvm5Value9hasOneUseEv.exit142.thread, label %309
 
-_ZNK4llvm5Value9hasOneUseEv.exit142.thread:       ; preds = %292, %268, %160, %_ZNK4llvm5Value9hasOneUseEv.exit120.thread, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit137, %301, %287, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit144, %_ZNK4llvm5Value9hasOneUseEv.exit142
+_ZNK4llvm5Value9hasOneUseEv.exit142.thread:       ; preds = %292, %268, %160, %_ZNK4llvm5Value9hasOneUseEv.exit120.thread, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit137, %301, %287, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit144, %_ZNK4llvm5Value9hasOneUseEv.exit142
   %303 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.2219) #21
   %.not102 = icmp eq i32 %303, 0
   br i1 %.not102, label %309, label %304
@@ -13239,8 +13239,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit142.thread:       ; preds = %292, %268, %160, %_
   %308 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel13emitAddSub_rrEbN4llvm3MVTEjjbb(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext %1, i16 %.sroa.speculated, i32 noundef %.sroa.0163.0, i32 noundef %.sroa.0149.0, i1 noundef zeroext %5, i1 noundef zeroext %6)
   br label %309
 
-309:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit142.thread, %301, %switch.lookup, %260, %_ZNK4llvm5APInt8logBase2Ev.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122.thread, %159, %.critedge104, %8, %307, %181
-  %.0 = phi i32 [ %182, %181 ], [ %308, %307 ], [ 0, %8 ], [ 0, %.critedge104 ], [ %.079, %159 ], [ 0, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit122.thread ], [ 0, %_ZNK4llvm5APInt8logBase2Ev.exit ], [ %264, %260 ], [ 0, %switch.lookup ], [ %302, %301 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit142.thread ]
+309:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit142.thread, %301, %switch.lookup, %260, %_ZNK4llvm5APInt8logBase2Ev.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122.thread, %159, %.critedge104, %8, %307, %181
+  %.0 = phi i32 [ %182, %181 ], [ %308, %307 ], [ 0, %8 ], [ 0, %.critedge104 ], [ %.079, %159 ], [ 0, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit122.thread ], [ 0, %_ZNK4llvm5APInt8logBase2Ev.exit ], [ %264, %260 ], [ 0, %switch.lookup ], [ %302, %301 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit142.thread ]
   ret i32 %.0
 }
 
@@ -15058,9 +15058,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %11
 
 18:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
   %19 = icmp ugt i8 %12, 28
-  br i1 %19, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, label %34
+  br i1 %19, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, label %34
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; preds = %18
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit: ; preds = %18
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   %.val53 = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %.0142, i64 40
@@ -15089,7 +15089,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; pr
   %39 = icmp eq i16 %38, 17
   br i1 %39, label %_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i, label %_ZNK4llvm5Value9hasOneUseEv.exit57
 
-_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, %36
+_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, %36
   %40 = getelementptr inbounds i8, ptr %.0142, i64 -64
   %41 = load ptr, ptr %40, align 8
   %42 = load i8, ptr %41, align 8
@@ -15145,10 +15145,10 @@ _ZL11isMulPowOf2PKN4llvm5ValueE.exit:             ; preds = %62, %48, %65, %51
   %.not.i.i55 = icmp eq ptr %.pre, null
   br i1 %.not.i.i55, label %_ZNK4llvm5Value9hasOneUseEv.exit57.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit57
 
-_ZNK4llvm5Value9hasOneUseEv.exit57:               ; preds = %65, %62, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i, %36, %34, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit
-  %.1185 = phi ptr [ %.0143, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %.0142, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ %.0142, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %.0142, %34 ], [ %.0142, %36 ], [ %.0142, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.0142, %62 ], [ %.0142, %65 ]
-  %.1144184 = phi ptr [ %.0142, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %.0143, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ %.0143, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %.0143, %34 ], [ %.0143, %36 ], [ %.0143, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.0143, %62 ], [ %.0143, %65 ]
-  %68 = phi ptr [ %.pre, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %14, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ %14, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %14, %34 ], [ %14, %36 ], [ %14, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %14, %62 ], [ %14, %65 ]
+_ZNK4llvm5Value9hasOneUseEv.exit57:               ; preds = %65, %62, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i, %36, %34, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit
+  %.1185 = phi ptr [ %.0143, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %.0142, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ %.0142, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %.0142, %34 ], [ %.0142, %36 ], [ %.0142, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.0142, %62 ], [ %.0142, %65 ]
+  %.1144184 = phi ptr [ %.0142, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %.0143, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ %.0143, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %.0143, %34 ], [ %.0143, %36 ], [ %.0143, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.0143, %62 ], [ %.0143, %65 ]
+  %68 = phi ptr [ %.pre, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %14, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ %14, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %14, %34 ], [ %14, %36 ], [ %14, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %14, %62 ], [ %14, %65 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
@@ -15157,9 +15157,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit57:               ; preds = %65, %62, %_ZNK4llvm
 72:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit57
   %73 = load i8, ptr %.1185, align 8
   %74 = icmp ugt i8 %73, 28
-  br i1 %74, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit59, label %89
+  br i1 %74, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit59, label %89
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit59: ; preds = %72
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit59: ; preds = %72
   %75 = getelementptr inbounds i8, ptr %0, i64 32
   %.val52 = load ptr, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %.1185, i64 40
@@ -15188,7 +15188,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit59: ; 
   %94 = icmp eq i16 %93, 25
   br i1 %94, label %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit, label %_ZNK4llvm5Value9hasOneUseEv.exit57.thread
 
-_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit59, %91
+_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit59, %91
   %95 = getelementptr inbounds i8, ptr %.1185, i64 -32
   %96 = load ptr, ptr %95, align 8
   %97 = load i8, ptr %96, align 8
@@ -15197,9 +15197,9 @@ _ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit: ; preds = %_ZNK12_G
   %spec.select169 = select i1 %98, ptr %.1144184, ptr %.1185
   br label %_ZNK4llvm5Value9hasOneUseEv.exit57.thread
 
-_ZNK4llvm5Value9hasOneUseEv.exit57.thread:        ; preds = %11, %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit, %89, %91, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit59, %_ZNK4llvm5Value9hasOneUseEv.exit57
-  %.2145 = phi ptr [ %.1144184, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit59 ], [ %.1144184, %_ZNK4llvm5Value9hasOneUseEv.exit57 ], [ %.0142, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %.1144184, %91 ], [ %.1144184, %89 ], [ %spec.select168, %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit ], [ %.0143, %11 ]
-  %.2 = phi ptr [ %.1185, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit59 ], [ %.1185, %_ZNK4llvm5Value9hasOneUseEv.exit57 ], [ %.0143, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %.1185, %91 ], [ %.1185, %89 ], [ %spec.select169, %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit ], [ %.0142, %11 ]
+_ZNK4llvm5Value9hasOneUseEv.exit57.thread:        ; preds = %11, %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit, %89, %91, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit59, %_ZNK4llvm5Value9hasOneUseEv.exit57
+  %.2145 = phi ptr [ %.1144184, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit59 ], [ %.1144184, %_ZNK4llvm5Value9hasOneUseEv.exit57 ], [ %.0142, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %.1144184, %91 ], [ %.1144184, %89 ], [ %spec.select168, %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit ], [ %.0143, %11 ]
+  %.2 = phi ptr [ %.1185, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit59 ], [ %.1185, %_ZNK4llvm5Value9hasOneUseEv.exit57 ], [ %.0143, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit ], [ %.1185, %91 ], [ %.1185, %89 ], [ %spec.select169, %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit ], [ %.0142, %11 ]
   %99 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %.2) #21
   %.not40 = icmp eq i32 %99, 0
   br i1 %.not40, label %.critedge, label %100
@@ -15236,9 +15236,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit63:               ; preds = %.thread154
 114:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit63
   %115 = load i8, ptr %.2145, align 8
   %116 = icmp ugt i8 %115, 28
-  br i1 %116, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit65, label %131
+  br i1 %116, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit65, label %131
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit65: ; preds = %114
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit65: ; preds = %114
   %117 = getelementptr inbounds i8, ptr %0, i64 32
   %.val51 = load ptr, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %.2145, i64 40
@@ -15267,7 +15267,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit65: ; 
   %136 = icmp eq i16 %135, 17
   br i1 %136, label %_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i68, label %_ZNK4llvm5Value9hasOneUseEv.exit79
 
-_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i68: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit65, %133
+_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i68: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit65, %133
   %137 = getelementptr inbounds i8, ptr %.2145, i64 -64
   %138 = load ptr, ptr %137, align 8
   %139 = load i8, ptr %138, align 8
@@ -15375,8 +15375,8 @@ _ZL11isMulPowOf2PKN4llvm5ValueE.exit75:           ; preds = %187
   %.not.i.i77 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i77, label %_ZNK4llvm5Value9hasOneUseEv.exit79.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit79
 
-_ZNK4llvm5Value9hasOneUseEv.exit79:               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit63, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit65, %131, %133, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i70, %159, %162, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit75
-  %.pr192 = phi ptr [ %.pr.pre, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit75 ], [ %110, %162 ], [ %110, %159 ], [ %110, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i70 ], [ %110, %133 ], [ %110, %131 ], [ %110, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit65 ], [ %110, %_ZNK4llvm5Value9hasOneUseEv.exit63 ]
+_ZNK4llvm5Value9hasOneUseEv.exit79:               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit63, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit65, %131, %133, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i70, %159, %162, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit75
+  %.pr192 = phi ptr [ %.pr.pre, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit75 ], [ %110, %162 ], [ %110, %159 ], [ %110, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i70 ], [ %110, %133 ], [ %110, %131 ], [ %110, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit65 ], [ %110, %_ZNK4llvm5Value9hasOneUseEv.exit63 ]
   %192 = getelementptr inbounds nuw i8, ptr %.pr192, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = icmp eq ptr %193, null
@@ -15385,9 +15385,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit79:               ; preds = %_ZNK4llvm5Value9has
 195:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit79
   %196 = load i8, ptr %.2145, align 8
   %197 = icmp ugt i8 %196, 28
-  br i1 %197, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit81, label %212
+  br i1 %197, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit81, label %212
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit81: ; preds = %195
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit81: ; preds = %195
   %198 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %198, align 8
   %199 = getelementptr inbounds i8, ptr %.2145, i64 40
@@ -15416,7 +15416,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit81: ; 
   %217 = icmp eq i16 %216, 25
   br i1 %217, label %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit84, label %_ZNK4llvm5Value9hasOneUseEv.exit79.thread
 
-_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit84: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit81, %214
+_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit84: ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit81, %214
   %218 = getelementptr inbounds i8, ptr %.2145, i64 -32
   %219 = load ptr, ptr %218, align 8
   %220 = load i8, ptr %219, align 8
@@ -15442,7 +15442,7 @@ _ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit84: ; preds = %_ZNK12
   %.not49 = icmp eq i32 %231, 0
   br i1 %.not49, label %_ZNK4llvm5Value9hasOneUseEv.exit79.thread, label %.critedge
 
-_ZNK4llvm5Value9hasOneUseEv.exit79.thread:        ; preds = %212, %214, %.thread154, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit75, %230, %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit84, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit81, %_ZNK4llvm5Value9hasOneUseEv.exit79
+_ZNK4llvm5Value9hasOneUseEv.exit79.thread:        ; preds = %212, %214, %.thread154, %_ZL11isMulPowOf2PKN4llvm5ValueE.exit75, %230, %_ZN4llvm8dyn_castINS_11ShlOperatorEKNS_5ValueEEEDcPT0_.exit84, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit81, %_ZNK4llvm5Value9hasOneUseEv.exit79
   %232 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.2145) #21
   %.not50 = icmp eq i32 %232, 0
   br i1 %.not50, label %.critedge, label %233
@@ -15937,9 +15937,9 @@ _ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit: ; 
   %.026 = phi i32 [ 1, %.thread ], [ 3, %96 ], [ 2, %.thread63 ], [ 6, %88 ], [ 6, %76 ], [ 6, %76 ]
   %97 = load i8, ptr %9, align 8
   %98 = icmp ugt i8 %97, 28
-  br i1 %98, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread
+  br i1 %98, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; preds = %.thread61
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit: ; preds = %.thread61
   %99 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %9, i64 40
@@ -15954,17 +15954,17 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit: ; pr
   %109 = getelementptr inbounds nuw i8, ptr %.val, i64 680
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %108, %110
-  br i1 %111, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread
+  br i1 %111, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread: ; preds = %.thread61, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread: ; preds = %.thread61, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit
   %112 = getelementptr inbounds i8, ptr %2, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %9, i64 24
   %.not7475 = icmp eq ptr %113, %114
   br i1 %.not7475, label %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit
-  %.sroa.0.076 = phi ptr [ %121, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %113, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread ]
+.lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit
+  %.sroa.0.076 = phi ptr [ %121, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %113, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread ]
   %115 = getelementptr inbounds i8, ptr %.sroa.0.076, i64 -24
   %116 = load i8, ptr %115, align 8
   %117 = icmp eq i8 %116, 93
@@ -15981,12 +15981,12 @@ _ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11I
   %.not74 = icmp eq ptr %121, %114
   br i1 %.not74, label %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge, label %.lr.ph, !llvm.loop !399
 
-_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge: ; preds = %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.thread
+_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge: ; preds = %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit.thread
   store i32 %.026, ptr %1, align 4
   br label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread
 
-_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread: ; preds = %118, %.lr.ph, %53, %53, %53, %76, %46, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %15, %12, %7, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit, %4, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge
-  %.0 = phi i1 [ true, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge ], [ false, %4 ], [ false, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit ], [ false, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit ], [ false, %7 ], [ false, %12 ], [ false, %15 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %46 ], [ false, %53 ], [ false, %76 ], [ false, %53 ], [ false, %53 ], [ false, %.lr.ph ], [ false, %118 ]
+_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread: ; preds = %118, %.lr.ph, %53, %53, %53, %76, %46, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %15, %12, %7, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit, %4, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge
+  %.0 = phi i1 [ true, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb1EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge ], [ false, %4 ], [ false, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit ], [ false, %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.argprom.exit ], [ false, %7 ], [ false, %12 ], [ false, %15 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %46 ], [ false, %53 ], [ false, %76 ], [ false, %53 ], [ false, %53 ], [ false, %.lr.ph ], [ false, %118 ]
   ret i1 %.0
 }
 
@@ -19131,12 +19131,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel15p
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %25 = getelementptr inbounds i8, ptr %0, i64 176
   switch i32 %16, label %27 [
-    i32 10, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+    i32 10, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
     i32 19, label %26
   ]
 
 26:                                               ; preds = %4
-  br label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+  br label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
 
 27:                                               ; preds = %4
   %.val59 = load ptr, ptr %25, align 8
@@ -19144,23 +19144,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel15p
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, -9
   %spec.select.i.i.i.i = icmp eq i32 %30, 1
-  br i1 %spec.select.i.i.i.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit, label %31
+  br i1 %spec.select.i.i.i.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit, label %31
 
 31:                                               ; preds = %27
   switch i32 %29, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i [
-    i32 26, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-    i32 5, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-    i32 27, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-    i32 29, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-    i32 30, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+    i32 26, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+    i32 5, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+    i32 27, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+    i32 29, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+    i32 30, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
   ]
 
 _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i: ; preds = %31
   %32 = icmp eq i32 %29, 14
   %_ZN4llvm19CC_AArch64_Win64PCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE._ZN4llvm16CC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.i = select i1 %32, ptr @_ZN4llvm19CC_AArch64_Win64PCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, ptr @_ZN4llvm16CC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE
-  br label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+  br label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
 
-_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %26, %27, %31, %31, %31, %31, %31, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i
+_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit: ; preds = %4, %26, %27, %31, %31, %31, %31, %31, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i
   %.0.i = phi ptr [ @_ZN4llvm30CC_AArch64_Win64_CFGuard_CheckEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %26 ], [ @_ZN4llvm14CC_AArch64_GHCEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %4 ], [ %_ZN4llvm19CC_AArch64_Win64PCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE._ZN4llvm16CC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.i, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %31 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %31 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %31 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %31 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %31 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %27 ]
   call void @_ZN4llvm7CCState19AnalyzeCallOperandsERNS_15SmallVectorImplINS_3MVTEEERNS1_INS_3ISD10ArgFlagsTyEEEPFbjS2_S2_NS_11CCValAssign7LocInfoES6_RS0_E(ptr noundef nonnull align 8 dereferenceable(420) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %.0.i) #21
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -19207,7 +19207,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %26
   %.not100 = icmp eq i64 %59, 0
   br i1 %.not100, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+.lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -19447,8 +19447,8 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %151
   %.not = icmp eq ptr %172, %60
   br i1 %.not, label %._crit_edge, label %68
 
-._crit_edge:                                      ; preds = %105, %68, %84, %87, %130, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %171, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-  %.not.lcssa = phi i1 [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit ], [ false, %105 ], [ true, %171 ], [ false, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit ], [ false, %130 ], [ false, %87 ], [ false, %84 ], [ false, %68 ]
+._crit_edge:                                      ; preds = %105, %68, %84, %87, %130, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %171, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+  %.not.lcssa = phi i1 [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit ], [ false, %105 ], [ true, %171 ], [ false, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit ], [ false, %130 ], [ false, %87 ], [ false, %84 ], [ false, %68 ]
   call void @_ZN4llvm7CCStateD2Ev(ptr noundef nonnull align 8 dereferenceable(420) %9) #21
   %173 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
   %174 = load ptr, ptr %8, align 8
@@ -19836,12 +19836,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel10f
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %40 = getelementptr inbounds i8, ptr %0, i64 176
   switch i32 %10, label %42 [
-    i32 10, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+    i32 10, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
     i32 19, label %41
   ]
 
 41:                                               ; preds = %3
-  br label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+  br label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
 
 42:                                               ; preds = %3
   %.val = load ptr, ptr %40, align 8
@@ -19849,23 +19849,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel10f
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, -9
   %spec.select.i.i.i.i = icmp eq i32 %45, 1
-  br i1 %spec.select.i.i.i.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit, label %46
+  br i1 %spec.select.i.i.i.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit, label %46
 
 46:                                               ; preds = %42
   switch i32 %44, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i [
-    i32 26, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-    i32 5, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-    i32 27, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-    i32 29, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-    i32 30, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+    i32 26, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+    i32 5, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+    i32 27, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+    i32 29, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
+    i32 30, label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
   ]
 
 _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i: ; preds = %46
   %47 = icmp eq i32 %44, 14
   %_ZN4llvm19CC_AArch64_Win64PCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE._ZN4llvm16CC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.i = select i1 %47, ptr @_ZN4llvm19CC_AArch64_Win64PCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, ptr @_ZN4llvm16CC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE
-  br label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+  br label %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
 
-_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %3, %41, %42, %46, %46, %46, %46, %46, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i
+_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit: ; preds = %3, %41, %42, %46, %46, %46, %46, %46, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i
   %.0.i = phi ptr [ @_ZN4llvm30CC_AArch64_Win64_CFGuard_CheckEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %41 ], [ @_ZN4llvm14CC_AArch64_GHCEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %3 ], [ %_ZN4llvm19CC_AArch64_Win64PCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE._ZN4llvm16CC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.i, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.i ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %46 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %46 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %46 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %46 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %46 ], [ @_ZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, %42 ]
   call void @_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E(ptr noundef nonnull align 8 dereferenceable(420) %8, ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %.0.i) #21
   %48 = load ptr, ptr %15, align 8
@@ -19875,7 +19875,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %3, %41
   %.not40 = icmp eq i64 %51, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+.lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -19967,7 +19967,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %.not = icmp eq i64 %97, %96
   br i1 %.not, label %._crit_edge, label %57, !llvm.loop !510
 
-._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.argprom.exit
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %50, ptr %98, align 8
   %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
@@ -20053,7 +20053,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel18t
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = and i16 %4, 256
   %.not.i = icmp eq i16 %7, 0
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit, label %8
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit, label %8
 
 8:                                                ; preds = %5
   %9 = and i16 %4, 255
@@ -20062,11 +20062,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel18t
   %12 = icmp ult i64 %11, 5
   br i1 %12, label %14, label %.loopexit
 
-_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; preds = %5
+_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit: ; preds = %5
   %13 = icmp ult i64 %3, 32
   br i1 %13, label %14, label %.loopexit
 
-14:                                               ; preds = %8, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit
+14:                                               ; preds = %8, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit
   %.sroa.142.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.142.0.copyload = load i64, ptr %.sroa.142.0..sroa_idx, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
@@ -20143,8 +20143,8 @@ _ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; p
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %.loopexit, label %18, !llvm.loop !511
 
-.loopexit:                                        ; preds = %27, %29, %31, %14, %8, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit
-  %.0 = phi i1 [ false, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit ], [ false, %8 ], [ true, %14 ], [ false, %27 ], [ false, %29 ], [ true, %31 ]
+.loopexit:                                        ; preds = %27, %29, %31, %14, %8, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit
+  %.0 = phi i1 [ false, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.argprom.exit ], [ false, %8 ], [ true, %14 ], [ false, %27 ], [ false, %29 ], [ true, %31 ]
   ret i1 %.0
 }
 

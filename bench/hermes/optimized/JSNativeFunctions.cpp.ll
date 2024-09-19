@@ -41,7 +41,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call fastcc void @_ZN6hermes2vmL9funcNamesEv()
+  tail call fastcc void @_ZN6hermes2vmL9funcNamesEv.argprom()
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh8DenseMapIPKvPKcNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEED2Ev, ptr nonnull @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, ptr nonnull @__dso_handle) #7
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6hermes2vmL19getFunctionNameImplEPvE3map) #7
   br label %init.end
@@ -116,7 +116,7 @@ entry:
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes2vmL9funcNamesEv() unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes2vmL9funcNamesEv.argprom() unnamed_addr #0 {
 entry:
   store i32 1024, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 16), align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(16384) ptr @_Znwm(i64 noundef 16384) #8

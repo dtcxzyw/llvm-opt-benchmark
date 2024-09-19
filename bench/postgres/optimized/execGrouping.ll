@@ -256,13 +256,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local ptr @tuplehash_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc i32 @TupleHashTableHash_internal(ptr %.val, ptr noundef %1)
+  %5 = tail call fastcc i32 @TupleHashTableHash_internal.argprom(ptr %.val, ptr noundef %1)
   %6 = tail call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %0, ptr noundef %1, i32 noundef %5, ptr noundef %2)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TupleHashTableHash_internal(ptr nocapture readonly %.40.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @TupleHashTableHash_internal.argprom(ptr nocapture readonly %.40.val, ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.40.val, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %.40.val, i64 16
@@ -441,16 +441,16 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr nocapture noundef
   %50 = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %TupleHashTableMatch.exit.thread, label %TupleHashTableMatch.exit
+  br i1 %51, label %TupleHashTableMatch.argprom.exit.thread, label %TupleHashTableMatch.argprom.exit
 
-TupleHashTableMatch.exit.thread:                  ; preds = %38
+TupleHashTableMatch.argprom.exit.thread:          ; preds = %38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %52 = getelementptr inbounds i8, ptr %41, i64 40
   %53 = load ptr, ptr %52, align 8
   call void @MemoryContextReset(ptr noundef %53) #14
   br label %.loopexit
 
-TupleHashTableMatch.exit:                         ; preds = %38
+TupleHashTableMatch.argprom.exit:                 ; preds = %38
   %54 = getelementptr inbounds i8, ptr %41, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -463,16 +463,16 @@ TupleHashTableMatch.exit:                         ; preds = %38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %60 = load ptr, ptr %54, align 8
   call void @MemoryContextReset(ptr noundef %60) #14
-  br i1 %.not90, label %TupleHashTableMatch.exit._crit_edge, label %.loopexit
+  br i1 %.not90, label %TupleHashTableMatch.argprom.exit._crit_edge, label %.loopexit
 
-TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch.exit
+TupleHashTableMatch.argprom.exit._crit_edge:      ; preds = %TupleHashTableMatch.argprom.exit
   %.val.pre = load i32, ptr %35, align 4
   %.val83.pre = load i32, ptr %9, align 4
   br label %61
 
-61:                                               ; preds = %TupleHashTableMatch.exit._crit_edge, %.lr.ph
-  %.val83 = phi i32 [ %.val83.pre, %TupleHashTableMatch.exit._crit_edge ], [ %.val83210, %.lr.ph ]
-  %.val = phi i32 [ %.val.pre, %TupleHashTableMatch.exit._crit_edge ], [ %36, %.lr.ph ]
+61:                                               ; preds = %TupleHashTableMatch.argprom.exit._crit_edge, %.lr.ph
+  %.val83 = phi i32 [ %.val83.pre, %TupleHashTableMatch.argprom.exit._crit_edge ], [ %.val83210, %.lr.ph ]
+  %.val = phi i32 [ %.val.pre, %TupleHashTableMatch.argprom.exit._crit_edge ], [ %36, %.lr.ph ]
   %62 = and i32 %.val83, %.val
   %.not.i = icmp ugt i32 %62, %.076132
   br i1 %.not.i, label %63, label %tuplehash_distance.exit
@@ -580,9 +580,9 @@ tuplehash_distance.exit:                          ; preds = %61, %63
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %._crit_edge, label %.lr.ph
 
-.loopexit:                                        ; preds = %TupleHashTableMatch.exit, %TupleHashTableMatch.exit.thread, %._crit_edge164, %._crit_edge
-  %.sink = phi i8 [ 0, %._crit_edge164 ], [ 0, %._crit_edge ], [ 1, %TupleHashTableMatch.exit.thread ], [ 1, %TupleHashTableMatch.exit ]
-  %116 = phi ptr [ %34, %._crit_edge164 ], [ %.lcssa130, %._crit_edge ], [ %34, %TupleHashTableMatch.exit.thread ], [ %34, %TupleHashTableMatch.exit ]
+.loopexit:                                        ; preds = %TupleHashTableMatch.argprom.exit, %TupleHashTableMatch.argprom.exit.thread, %._crit_edge164, %._crit_edge
+  %.sink = phi i8 [ 0, %._crit_edge164 ], [ 0, %._crit_edge ], [ 1, %TupleHashTableMatch.argprom.exit.thread ], [ 1, %TupleHashTableMatch.argprom.exit ]
+  %116 = phi ptr [ %34, %._crit_edge164 ], [ %.lcssa130, %._crit_edge ], [ %34, %TupleHashTableMatch.argprom.exit.thread ], [ %34, %TupleHashTableMatch.argprom.exit ]
   store i8 %.sink, ptr %3, align 1
   ret ptr %116
 }
@@ -597,13 +597,13 @@ define dso_local ptr @tuplehash_insert_hash(ptr nocapture noundef %0, ptr nounde
 define dso_local ptr @tuplehash_lookup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call fastcc i32 @TupleHashTableHash_internal(ptr %.val, ptr noundef %1)
-  %5 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %0, i32 noundef %4)
+  %4 = tail call fastcc i32 @TupleHashTableHash_internal.argprom(ptr %.val, ptr noundef %1)
+  %5 = tail call fastcc ptr @tuplehash_lookup_hash_internal.argprom(ptr noundef %0, i32 noundef %4)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tuplehash_lookup_hash_internal(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @tuplehash_lookup_hash_internal.argprom(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %4, align 4
@@ -649,16 +649,16 @@ define internal fastcc ptr @tuplehash_lookup_hash_internal(ptr nocapture noundef
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %TupleHashTableMatch.exit.thread, label %TupleHashTableMatch.exit
+  br i1 %33, label %TupleHashTableMatch.argprom.exit.thread, label %TupleHashTableMatch.argprom.exit
 
-TupleHashTableMatch.exit.thread:                  ; preds = %20
+TupleHashTableMatch.argprom.exit.thread:          ; preds = %20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %34 = getelementptr inbounds i8, ptr %23, i64 40
   %35 = load ptr, ptr %34, align 8
   call void @MemoryContextReset(ptr noundef %35) #14
   br label %.loopexit
 
-TupleHashTableMatch.exit:                         ; preds = %20
+TupleHashTableMatch.argprom.exit:                 ; preds = %20
   %36 = getelementptr inbounds i8, ptr %23, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -671,16 +671,16 @@ TupleHashTableMatch.exit:                         ; preds = %20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %42 = load ptr, ptr %36, align 8
   call void @MemoryContextReset(ptr noundef %42) #14
-  br i1 %.not, label %TupleHashTableMatch.exit._crit_edge, label %.loopexit
+  br i1 %.not, label %TupleHashTableMatch.argprom.exit._crit_edge, label %.loopexit
 
-TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch.exit
+TupleHashTableMatch.argprom.exit._crit_edge:      ; preds = %TupleHashTableMatch.argprom.exit
   %.val16.pre = load i32, ptr %4, align 4
   %.pre = load ptr, ptr %6, align 8
   br label %43
 
-43:                                               ; preds = %TupleHashTableMatch.exit._crit_edge, %14
-  %44 = phi ptr [ %.pre, %TupleHashTableMatch.exit._crit_edge ], [ %15, %14 ]
-  %.val16 = phi i32 [ %.val16.pre, %TupleHashTableMatch.exit._crit_edge ], [ %.val168, %14 ]
+43:                                               ; preds = %TupleHashTableMatch.argprom.exit._crit_edge, %14
+  %44 = phi ptr [ %.pre, %TupleHashTableMatch.argprom.exit._crit_edge ], [ %15, %14 ]
+  %.val16 = phi i32 [ %.val16.pre, %TupleHashTableMatch.argprom.exit._crit_edge ], [ %.val168, %14 ]
   %45 = add i32 %.0154, 1
   %46 = and i32 %.val16, %45
   %47 = zext i32 %46 to i64
@@ -690,14 +690,14 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %.loopexit, label %14
 
-.loopexit:                                        ; preds = %43, %TupleHashTableMatch.exit, %2, %TupleHashTableMatch.exit.thread
-  %.0 = phi ptr [ %16, %TupleHashTableMatch.exit.thread ], [ null, %2 ], [ null, %43 ], [ %16, %TupleHashTableMatch.exit ]
+.loopexit:                                        ; preds = %43, %TupleHashTableMatch.argprom.exit, %2, %TupleHashTableMatch.argprom.exit.thread
+  %.0 = phi ptr [ %16, %TupleHashTableMatch.argprom.exit.thread ], [ null, %2 ], [ null, %43 ], [ %16, %TupleHashTableMatch.argprom.exit ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplehash_lookup_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %0, i32 noundef %2)
+  %4 = tail call fastcc ptr @tuplehash_lookup_hash_internal.argprom(ptr noundef %0, i32 noundef %2)
   ret ptr %4
 }
 
@@ -706,7 +706,7 @@ define dso_local noundef zeroext i1 @tuplehash_delete(ptr nocapture noundef %0, 
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 40
   %.val44 = load ptr, ptr %4, align 8
-  %5 = tail call fastcc i32 @TupleHashTableHash_internal(ptr %.val44, ptr noundef %1)
+  %5 = tail call fastcc i32 @TupleHashTableHash_internal.argprom(ptr %.val44, ptr noundef %1)
   %6 = getelementptr i8, ptr %0, i64 12
   %.val41 = load i32, ptr %6, align 4
   %7 = and i32 %.val41, %5
@@ -752,16 +752,16 @@ define dso_local noundef zeroext i1 @tuplehash_delete(ptr nocapture noundef %0, 
   %34 = load ptr, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %TupleHashTableMatch.exit.thread, label %TupleHashTableMatch.exit
+  br i1 %35, label %TupleHashTableMatch.argprom.exit.thread, label %TupleHashTableMatch.argprom.exit
 
-TupleHashTableMatch.exit.thread:                  ; preds = %22
+TupleHashTableMatch.argprom.exit.thread:          ; preds = %22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %36 = getelementptr inbounds i8, ptr %25, i64 40
   %37 = load ptr, ptr %36, align 8
   call void @MemoryContextReset(ptr noundef %37) #14
   br label %.loopexit48
 
-TupleHashTableMatch.exit:                         ; preds = %22
+TupleHashTableMatch.argprom.exit:                 ; preds = %22
   %38 = getelementptr inbounds i8, ptr %25, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -774,14 +774,14 @@ TupleHashTableMatch.exit:                         ; preds = %22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %44 = load ptr, ptr %38, align 8
   call void @MemoryContextReset(ptr noundef %44) #14
-  br i1 %.not47, label %TupleHashTableMatch.exit._crit_edge, label %.loopexit48
+  br i1 %.not47, label %TupleHashTableMatch.argprom.exit._crit_edge, label %.loopexit48
 
-TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch.exit
+TupleHashTableMatch.argprom.exit._crit_edge:      ; preds = %TupleHashTableMatch.argprom.exit
   %.val42.pre = load i32, ptr %6, align 4
   %.pre = load ptr, ptr %8, align 8
   br label %68
 
-.loopexit48:                                      ; preds = %TupleHashTableMatch.exit, %TupleHashTableMatch.exit.thread
+.loopexit48:                                      ; preds = %TupleHashTableMatch.argprom.exit, %TupleHashTableMatch.argprom.exit.thread
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = add i32 %46, -1
@@ -821,9 +821,9 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
   %.not = icmp eq i32 %67, 1
   br i1 %.not, label %.lr.ph68, label %.loopexit.sink.split
 
-68:                                               ; preds = %TupleHashTableMatch.exit._crit_edge, %18, %.lr.ph
-  %69 = phi ptr [ %.pre, %TupleHashTableMatch.exit._crit_edge ], [ %14, %18 ], [ %14, %.lr.ph ]
-  %.val42 = phi i32 [ %.val42.pre, %TupleHashTableMatch.exit._crit_edge ], [ %.val4281, %18 ], [ %.val4281, %.lr.ph ]
+68:                                               ; preds = %TupleHashTableMatch.argprom.exit._crit_edge, %18, %.lr.ph
+  %69 = phi ptr [ %.pre, %TupleHashTableMatch.argprom.exit._crit_edge ], [ %14, %18 ], [ %14, %.lr.ph ]
+  %.val42 = phi i32 [ %.val42.pre, %TupleHashTableMatch.argprom.exit._crit_edge ], [ %.val4281, %18 ], [ %.val4281, %.lr.ph ]
   %70 = add i32 %.03663, 1
   %71 = and i32 %.val42, %70
   %72 = zext i32 %71 to i64
@@ -1338,7 +1338,7 @@ define dso_local ptr @LookupTupleHashEntry(ptr nocapture noundef %0, ptr noundef
   %26 = getelementptr inbounds i8, ptr %.val, i64 88
   %.027.i = load ptr, ptr %26, align 8
   %27 = icmp sgt i32 %19, 0
-  br i1 %27, label %.lr.ph.i, label %TupleHashTableHash_internal.exit
+  br i1 %27, label %.lr.ph.i, label %TupleHashTableHash_internal.argprom.exit
 
 .lr.ph.i:                                         ; preds = %4
   %28 = getelementptr inbounds i8, ptr %25, i64 6
@@ -1389,15 +1389,15 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %.1.i = phi i32 [ %35, %slot_getattr.exit.i ], [ %55, %45 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit.loopexit, label %32, !llvm.loop !8
+  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.argprom.exit.loopexit, label %32, !llvm.loop !8
 
-TupleHashTableHash_internal.exit.loopexit:        ; preds = %56
+TupleHashTableHash_internal.argprom.exit.loopexit: ; preds = %56
   %.pre = load ptr, ptr %0, align 8
-  br label %TupleHashTableHash_internal.exit
+  br label %TupleHashTableHash_internal.argprom.exit
 
-TupleHashTableHash_internal.exit:                 ; preds = %TupleHashTableHash_internal.exit.loopexit, %4
-  %57 = phi ptr [ %16, %4 ], [ %.pre, %TupleHashTableHash_internal.exit.loopexit ]
-  %.0.lcssa.i = phi i32 [ %23, %4 ], [ %.1.i, %TupleHashTableHash_internal.exit.loopexit ]
+TupleHashTableHash_internal.argprom.exit:         ; preds = %TupleHashTableHash_internal.argprom.exit.loopexit, %4
+  %57 = phi ptr [ %16, %4 ], [ %.pre, %TupleHashTableHash_internal.argprom.exit.loopexit ]
+  %.0.lcssa.i = phi i32 [ %23, %4 ], [ %.1.i, %TupleHashTableHash_internal.argprom.exit.loopexit ]
   %58 = lshr i32 %.0.lcssa.i, 16
   %59 = xor i32 %58, %.0.lcssa.i
   %60 = mul i32 %59, -2048144789
@@ -1410,7 +1410,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %TupleHashTableHash_
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %80, label %66
 
-66:                                               ; preds = %TupleHashTableHash_internal.exit
+66:                                               ; preds = %TupleHashTableHash_internal.argprom.exit
   %67 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %57, ptr noundef null, i32 noundef %65, ptr noundef nonnull %5)
   %68 = load i8, ptr %5, align 1
   %69 = trunc i8 %68 to i1
@@ -1435,8 +1435,8 @@ TupleHashTableHash_internal.exit:                 ; preds = %TupleHashTableHash_
   store ptr %79, ptr %67, align 8
   br label %LookupTupleHashEntry_internal.exit
 
-80:                                               ; preds = %TupleHashTableHash_internal.exit
-  %81 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %57, i32 noundef %65)
+80:                                               ; preds = %TupleHashTableHash_internal.argprom.exit
+  %81 = tail call fastcc ptr @tuplehash_lookup_hash_internal.argprom(ptr noundef readonly %57, i32 noundef %65)
   br label %LookupTupleHashEntry_internal.exit
 
 LookupTupleHashEntry_internal.exit:               ; preds = %70, %71, %80
@@ -1480,7 +1480,7 @@ define dso_local i32 @TupleHashTableHash(ptr nocapture noundef %0, ptr noundef %
   %20 = getelementptr inbounds i8, ptr %.val, i64 88
   %.027.i = load ptr, ptr %20, align 8
   %21 = icmp sgt i32 %13, 0
-  br i1 %21, label %.lr.ph.i, label %TupleHashTableHash_internal.exit
+  br i1 %21, label %.lr.ph.i, label %TupleHashTableHash_internal.argprom.exit
 
 .lr.ph.i:                                         ; preds = %2
   %22 = getelementptr inbounds i8, ptr %19, i64 6
@@ -1531,9 +1531,9 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %.1.i = phi i32 [ %29, %slot_getattr.exit.i ], [ %49, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit, label %26, !llvm.loop !8
+  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.argprom.exit, label %26, !llvm.loop !8
 
-TupleHashTableHash_internal.exit:                 ; preds = %50, %2
+TupleHashTableHash_internal.argprom.exit:         ; preds = %50, %2
   %.0.lcssa.i = phi i32 [ %17, %2 ], [ %.1.i, %50 ]
   %51 = lshr i32 %.0.lcssa.i, 16
   %52 = xor i32 %51, %.0.lcssa.i
@@ -1595,7 +1595,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef %0, ptr nou
   br label %LookupTupleHashEntry_internal.exit
 
 31:                                               ; preds = %4
-  %32 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %16, i32 noundef %3)
+  %32 = tail call fastcc ptr @tuplehash_lookup_hash_internal.argprom(ptr noundef readonly %16, i32 noundef %3)
   br label %LookupTupleHashEntry_internal.exit
 
 LookupTupleHashEntry_internal.exit:               ; preds = %21, %22, %31
@@ -1631,7 +1631,7 @@ define dso_local ptr @FindTupleHashEntry(ptr nocapture noundef %0, ptr noundef %
   %21 = getelementptr inbounds i8, ptr %.val.i, i64 88
   %.027.i = load ptr, ptr %21, align 8
   %22 = icmp sgt i32 %14, 0
-  br i1 %22, label %.lr.ph.i, label %TupleHashTableHash_internal.exit
+  br i1 %22, label %.lr.ph.i, label %TupleHashTableHash_internal.argprom.exit
 
 .lr.ph.i:                                         ; preds = %4
   %23 = getelementptr inbounds i8, ptr %20, i64 6
@@ -1682,9 +1682,9 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %.1.i = phi i32 [ %30, %slot_getattr.exit.i ], [ %50, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit, label %27, !llvm.loop !8
+  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.argprom.exit, label %27, !llvm.loop !8
 
-TupleHashTableHash_internal.exit:                 ; preds = %51, %4
+TupleHashTableHash_internal.argprom.exit:         ; preds = %51, %4
   %.0.lcssa.i = phi i32 [ %18, %4 ], [ %.1.i, %51 ]
   %52 = lshr i32 %.0.lcssa.i, 16
   %53 = xor i32 %52, %.0.lcssa.i
@@ -1694,7 +1694,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %51, %4
   %57 = mul i32 %56, -1028477387
   %58 = lshr i32 %57, 16
   %59 = xor i32 %58, %57
-  %60 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %11, i32 noundef %59)
+  %60 = tail call fastcc ptr @tuplehash_lookup_hash_internal.argprom(ptr noundef readonly %11, i32 noundef %59)
   store ptr %7, ptr @CurrentMemoryContext, align 8
   ret ptr %60
 }

@@ -9506,7 +9506,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext_QoS_Subscribed(i1 noundef zeroext %0, 
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %dissect_gsm_map_ext_qos_subscribed.exit, label %10
+  br i1 %.not, label %dissect_gsm_map_ext_qos_subscribed.argprom.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr i8, ptr %3, i64 24
@@ -9715,7 +9715,7 @@ gsm_map_calc_bitrate.exit115.i:                   ; preds = %106, %103, %100, %9
 
 113:                                              ; preds = %110
   %114 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %13, i32 noundef %112, ptr noundef %1, i32 noundef 8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.4332) #5
-  br label %dissect_gsm_map_ext_qos_subscribed.exit
+  br label %dissect_gsm_map_ext_qos_subscribed.argprom.exit
 
 115:                                              ; preds = %110
   %116 = lshr i8 %111, 6
@@ -9746,9 +9746,9 @@ gsm_map_calc_bitrate.exit115.i:                   ; preds = %106, %103, %100, %9
 gsm_map_calc_bitrate.exit118.i:                   ; preds = %125, %122, %119, %115, %110
   %.09.i116.i = phi i32 [ %118, %115 ], [ %124, %122 ], [ %121, %119 ], [ %127, %125 ], [ 0, %110 ]
   %128 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %112, ptr noundef %1, i32 noundef 8, i32 noundef 1, i32 noundef %.09.i116.i) #5
-  br label %dissect_gsm_map_ext_qos_subscribed.exit
+  br label %dissect_gsm_map_ext_qos_subscribed.argprom.exit
 
-dissect_gsm_map_ext_qos_subscribed.exit:          ; preds = %gsm_map_calc_bitrate.exit118.i, %113, %6
+dissect_gsm_map_ext_qos_subscribed.argprom.exit:  ; preds = %gsm_map_calc_bitrate.exit118.i, %113, %6
   ret i32 %8
 }
 
@@ -9758,7 +9758,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %dissect_gsm_map_ext2_qos_subscribed.exit, label %10
+  br i1 %.not, label %dissect_gsm_map_ext2_qos_subscribed.argprom.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 16
@@ -9781,7 +9781,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   %27 = load i32, ptr @hf_gsm_map_qos_source_stat_desc, align 4
   %28 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %23, ptr noundef nonnull @.str.4335, ptr noundef nonnull %.str.4333..str.4334.i, i32 noundef %25) #5
   %29 = icmp eq i32 %13, 1
-  br i1 %29, label %dissect_gsm_map_ext2_qos_subscribed.exit, label %30
+  br i1 %29, label %dissect_gsm_map_ext2_qos_subscribed.argprom.exit, label %30
 
 30:                                               ; preds = %10
   %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #5
@@ -9818,7 +9818,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   %49 = load i32, ptr @hf_gsm_map_qos_max_bitrate_downl_ext, align 4
   %50 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %49, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef %32, ptr noundef nonnull @.str.4335, ptr noundef %.1.i, i32 noundef %32) #5
   %51 = icmp eq i32 %13, 2
-  br i1 %51, label %dissect_gsm_map_ext2_qos_subscribed.exit, label %52
+  br i1 %51, label %dissect_gsm_map_ext2_qos_subscribed.argprom.exit, label %52
 
 52:                                               ; preds = %48
   %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 2) #5
@@ -9854,9 +9854,9 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   %.2.i = phi ptr [ %67, %66 ], [ %69, %68 ], [ @.str.4339, %52 ]
   %71 = load i32, ptr @hf_gsm_map_qos_guar_bitrate_downl_ext, align 4
   %72 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %71, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef %54, ptr noundef nonnull @.str.4335, ptr noundef %.2.i, i32 noundef %54) #5
-  br label %dissect_gsm_map_ext2_qos_subscribed.exit
+  br label %dissect_gsm_map_ext2_qos_subscribed.argprom.exit
 
-dissect_gsm_map_ext2_qos_subscribed.exit:         ; preds = %70, %48, %10, %6
+dissect_gsm_map_ext2_qos_subscribed.argprom.exit: ; preds = %70, %48, %10, %6
   ret i32 %8
 }
 
@@ -9866,7 +9866,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext3_QoS_Subscribed(i1 noundef zeroext %0,
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %dissect_gsm_map_ext3_qos_subscribed.exit, label %10
+  br i1 %.not, label %dissect_gsm_map_ext3_qos_subscribed.argprom.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 16
@@ -9910,7 +9910,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext3_QoS_Subscribed(i1 noundef zeroext %0,
   %36 = load i32, ptr @hf_gsm_map_qos_max_bitrate_upl_ext, align 4
   %37 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %36, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %19, ptr noundef nonnull @.str.4335, ptr noundef %.0.i, i32 noundef %19) #5
   %38 = icmp eq i32 %13, 1
-  br i1 %38, label %dissect_gsm_map_ext3_qos_subscribed.exit, label %39
+  br i1 %38, label %dissect_gsm_map_ext3_qos_subscribed.argprom.exit, label %39
 
 39:                                               ; preds = %35
   %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #5
@@ -9946,9 +9946,9 @@ define hidden i32 @dissect_gsm_map_ms_Ext3_QoS_Subscribed(i1 noundef zeroext %0,
   %.1.i = phi ptr [ %54, %53 ], [ %56, %55 ], [ @.str.4341, %39 ]
   %58 = load i32, ptr @hf_gsm_map_qos_guar_bitrate_upl_ext, align 4
   %59 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %58, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.4335, ptr noundef %.1.i, i32 noundef %41) #5
-  br label %dissect_gsm_map_ext3_qos_subscribed.exit
+  br label %dissect_gsm_map_ext3_qos_subscribed.argprom.exit
 
-dissect_gsm_map_ext3_qos_subscribed.exit:         ; preds = %57, %35, %6
+dissect_gsm_map_ext3_qos_subscribed.argprom.exit: ; preds = %57, %35, %6
   ret i32 %8
 }
 
@@ -11146,7 +11146,7 @@ define internal i32 @dissect_gsm_map(ptr noundef %0, ptr noundef %1, ptr noundef
   %15 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_gsm_map, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
-  call fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef %6, ptr noundef %17)
+  call fastcc void @dissect_gsm_map_GSMMAPPDU.argelim(ptr noundef %0, ptr noundef %6, ptr noundef %17)
   %18 = load i32, ptr @opcode, align 4
   %19 = call ptr @try_val_to_str_idx(i32 noundef %18, ptr noundef nonnull @gsm_map_opr_code_strings, ptr noundef nonnull %5) #5
   %20 = load i32, ptr %5, align 4
@@ -11193,7 +11193,7 @@ define internal i32 @dissect_gsm_map_sccp(ptr noundef %0, ptr noundef %1, ptr no
   %16 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_gsm_map, align 4
   %18 = call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
-  call fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef %6, ptr noundef %18)
+  call fastcc void @dissect_gsm_map_GSMMAPPDU.argelim(ptr noundef %0, ptr noundef %6, ptr noundef %18)
   %19 = load i32, ptr @opcode, align 4
   %20 = call ptr @try_val_to_str_idx(i32 noundef %19, ptr noundef nonnull @gsm_map_opr_code_strings, ptr noundef nonnull %5) #5
   %21 = load i32, ptr %5, align 4
@@ -13465,7 +13465,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_gsm_map_GSMMAPPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   store i32 0, ptr @opcode, align 4
   %4 = load i32, ptr @pref_application_context_version, align 4
   %5 = icmp eq i32 %4, 0
@@ -13695,7 +13695,7 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
 
 11:                                               ; preds = %6
   %12 = load i32, ptr @hf_gsm_map_ms_identity, align 4
-  %13 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_Identity, i32 noundef %12, ptr noundef nonnull @dissect_gsm_map_Identity, i32 noundef %12, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_CancelLocationArg)
+  %13 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_Identity, i32 noundef %12, ptr noundef nonnull @dissect_gsm_map_Identity, i32 noundef %12, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_CancelLocationArg)
   br label %dissect_invokeData.exit
 
 14:                                               ; preds = %6
@@ -13784,7 +13784,7 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
   br label %dissect_invokeData.exit
 
 65:                                               ; preds = %6
-  %66 = tail call fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Arg(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %66 = tail call fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Arg.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 67:                                               ; preds = %6
@@ -13823,7 +13823,7 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
   br label %dissect_invokeData.exit
 
 88:                                               ; preds = %6
-  %89 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_Bss_APDU, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_SendEndSignal_Arg)
+  %89 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_Bss_APDU, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_SendEndSignal_Arg)
   br label %dissect_invokeData.exit
 
 90:                                               ; preds = %6
@@ -13837,11 +13837,11 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
   br label %dissect_invokeData.exit
 
 96:                                               ; preds = %6
-  %97 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_Bss_APDU, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_ProcessAccessSignalling_Arg)
+  %97 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_Bss_APDU, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_ProcessAccessSignalling_Arg)
   br label %dissect_invokeData.exit
 
 98:                                               ; preds = %6
-  %99 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_Bss_APDU, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_ForwardAccessSignalling_Arg)
+  %99 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_Bss_APDU, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_ForwardAccessSignalling_Arg)
   br label %dissect_invokeData.exit
 
 100:                                              ; preds = %6
@@ -13891,11 +13891,11 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
   br i1 %.not.i, label %129, label %127
 
 127:                                              ; preds = %124
-  %128 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMEI, i32 noundef %126, ptr noundef nonnull @dissect_gsm_map_ericsson_EnhancedCheckIMEI_Arg, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
+  %128 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMEI, i32 noundef %126, ptr noundef nonnull @dissect_gsm_map_ericsson_EnhancedCheckIMEI_Arg, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
   br label %dissect_invokeData.exit
 
 129:                                              ; preds = %124
-  %130 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMEI, i32 noundef %126, ptr noundef nonnull @dissect_gsm_map_ms_CheckIMEI_Arg, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
+  %130 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMEI, i32 noundef %126, ptr noundef nonnull @dissect_gsm_map_ms_CheckIMEI_Arg, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
   br label %dissect_invokeData.exit
 
 131:                                              ; preds = %6
@@ -13904,11 +13904,11 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %131
-  %135 = tail call fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %135 = tail call fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 136:                                              ; preds = %131
-  %137 = tail call fastcc i32 @dissect_gsm_old_ForwardSM_Arg(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %137 = tail call fastcc i32 @dissect_gsm_old_ForwardSM_Arg.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 138:                                              ; preds = %6
@@ -13932,11 +13932,11 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %147
-  %151 = tail call fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Arg(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %151 = tail call fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Arg.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 152:                                              ; preds = %147
-  %153 = tail call fastcc i32 @dissect_gsm_old_ForwardSM_Arg(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %153 = tail call fastcc i32 @dissect_gsm_old_ForwardSM_Arg.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 154:                                              ; preds = %6
@@ -13976,12 +13976,12 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
 
 175:                                              ; preds = %6
   %176 = load i32, ptr @hf_gsm_map_tmsi, align 4
-  %177 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_TMSI, i32 noundef %176, ptr noundef nonnull @dissect_gsm_map_ms_SendIdentificationArg, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
+  %177 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_TMSI, i32 noundef %176, ptr noundef nonnull @dissect_gsm_map_ms_SendIdentificationArg, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
   br label %dissect_invokeData.exit
 
 178:                                              ; preds = %6
   %179 = load i32, ptr @hf_gsm_map_imsi, align 4
-  %180 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %179, ptr noundef nonnull @dissect_gsm_map_ms_SendAuthenticationInfoArg, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
+  %180 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %179, ptr noundef nonnull @dissect_gsm_map_ms_SendAuthenticationInfoArg, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
   br label %dissect_invokeData.exit
 
 181:                                              ; preds = %6
@@ -14036,15 +14036,15 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
 
 211:                                              ; preds = %6
   %212 = load i32, ptr @hf_gsm_map_imsi, align 4
-  %213 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %212, ptr noundef nonnull @dissect_gsm_old_PurgeMSArgV2, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PurgeMS_Arg)
+  %213 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %212, ptr noundef nonnull @dissect_gsm_old_PurgeMSArgV2, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PurgeMS_Arg)
   br label %dissect_invokeData.exit
 
 214:                                              ; preds = %6
-  %215 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_PrepareHO_ArgOld, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PrepareHO_Arg)
+  %215 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_PrepareHO_ArgOld, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PrepareHO_Arg)
   br label %dissect_invokeData.exit
 
 216:                                              ; preds = %6
-  %217 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PrepareSubsequentHO_Arg)
+  %217 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PrepareSubsequentHO_Arg)
   br label %dissect_invokeData.exit
 
 218:                                              ; preds = %6
@@ -14266,7 +14266,7 @@ dissect_gsm_old_GSMMAPOperationLocalvalue.exit:   ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_mc_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) unnamed_addr #0 {
+define internal fastcc i32 @dissect_mc_message.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) unnamed_addr #0 {
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = alloca i8, align 1
@@ -14358,7 +14358,7 @@ define internal i32 @dissect_gsm_map_ms_DeleteSubscriberDataArg(i1 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Arg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Arg.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MT_ForwardSM_VGCS_Arg, align 4
@@ -14565,7 +14565,7 @@ define internal i32 @dissect_gsm_map_ms_CheckIMEI_Arg(i1 noundef zeroext %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MT_ForwardSM_Arg, align 4
@@ -14607,7 +14607,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gsm_old_ForwardSM_Arg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gsm_old_ForwardSM_Arg.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_old_ForwardSM_Arg, align 4
@@ -14650,7 +14650,7 @@ define internal fastcc i32 @dissect_gsm_old_ForwardSM_Arg(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Arg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Arg.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MO_ForwardSM_Arg, align 4
@@ -18282,7 +18282,7 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_gsm_map_imsi, align 4
-  %10 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %9, ptr noundef nonnull @dissect_gsm_map_ms_UpdateLocationRes, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
+  %10 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %9, ptr noundef nonnull @dissect_gsm_map_ms_UpdateLocationRes, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
   br label %dissect_returnResultData.exit
 
 11:                                               ; preds = %6
@@ -18292,7 +18292,7 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
 
 14:                                               ; preds = %6
   %15 = load i32, ptr @hf_gsm_map_msisdn, align 4
-  %16 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_ISDN_AddressString, i32 noundef %15, ptr noundef nonnull @dissect_gsm_map_ch_ProvideRoamingNumberRes, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
+  %16 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_ISDN_AddressString, i32 noundef %15, ptr noundef nonnull @dissect_gsm_map_ch_ProvideRoamingNumberRes, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
   br label %dissect_returnResultData.exit
 
 17:                                               ; preds = %6
@@ -18371,7 +18371,7 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
   br label %dissect_returnResultData.exit
 
 62:                                               ; preds = %6
-  %63 = tail call fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Res(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %63 = tail call fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Res.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dissect_returnResultData.exit
 
 64:                                               ; preds = %6
@@ -18380,12 +18380,12 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %64
-  %68 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_map_ch_SendRoutingInfoRes_U, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ch_SendRoutingInfoRes)
+  %68 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_map_ch_SendRoutingInfoRes_U, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ch_SendRoutingInfoRes)
   br label %dissect_returnResultData.exit
 
 69:                                               ; preds = %64
   %70 = load i32, ptr @hf_gsm_map_imsi, align 4
-  %71 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %70, ptr noundef nonnull @dissect_gsm_old_SendRoutingInfoResV2, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ch_SendRoutingInfoRes)
+  %71 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %70, ptr noundef nonnull @dissect_gsm_old_SendRoutingInfoResV2, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ch_SendRoutingInfoRes)
   br label %dissect_returnResultData.exit
 
 72:                                               ; preds = %6
@@ -18440,11 +18440,11 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
 
 102:                                              ; preds = %6
   %103 = load i32, ptr @hf_gsm_map_ms_equipmentStatus, align 4
-  %104 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_ms_EquipmentStatus, i32 noundef %103, ptr noundef nonnull @dissect_gsm_map_ms_CheckIMEI_Res, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
+  %104 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_ms_EquipmentStatus, i32 noundef %103, ptr noundef nonnull @dissect_gsm_map_ms_CheckIMEI_Res, i32 noundef -1, i1 noundef zeroext true, ptr noundef null)
   br label %dissect_returnResultData.exit
 
 105:                                              ; preds = %6
-  %106 = tail call fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %106 = tail call fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dissect_returnResultData.exit
 
 107:                                              ; preds = %6
@@ -18463,12 +18463,12 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
   br label %dissect_returnResultData.exit
 
 116:                                              ; preds = %6
-  %117 = tail call fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Res(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %117 = tail call fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Res.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dissect_returnResultData.exit
 
 118:                                              ; preds = %6
   %119 = load i32, ptr @hf_gsm_map_sm_storedMSISDN, align 4
-  %120 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_ISDN_AddressString, i32 noundef %119, ptr noundef nonnull @dissect_gsm_map_sm_ReportSM_DeliveryStatusRes, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
+  %120 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_ISDN_AddressString, i32 noundef %119, ptr noundef nonnull @dissect_gsm_map_sm_ReportSM_DeliveryStatusRes, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   br label %dissect_returnResultData.exit
 
 121:                                              ; preds = %6
@@ -18488,11 +18488,11 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
 
 130:                                              ; preds = %6
   %131 = load i32, ptr @hf_gsm_map_imsi, align 4
-  %132 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %131, ptr noundef nonnull @dissect_gsm_old_SendIdentificationResV2, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_SendIdentificationRes)
+  %132 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_IMSI, i32 noundef %131, ptr noundef nonnull @dissect_gsm_old_SendIdentificationResV2, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_SendIdentificationRes)
   br label %dissect_returnResultData.exit
 
 133:                                              ; preds = %6
-  %134 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_SendAuthenticationInfoResOld, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_SendAuthenticationInfoRes)
+  %134 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_SendAuthenticationInfoResOld, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_SendAuthenticationInfoRes)
   br label %dissect_returnResultData.exit
 
 135:                                              ; preds = %6
@@ -18542,11 +18542,11 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
   br label %dissect_returnResultData.exit
 
 163:                                              ; preds = %6
-  %164 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_PrepareHO_ResOld, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PrepareHO_Res)
+  %164 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef nonnull @dissect_gsm_old_PrepareHO_ResOld, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PrepareHO_Res)
   br label %dissect_returnResultData.exit
 
 165:                                              ; preds = %6
-  %166 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PrepareSubsequentHO_Res)
+  %166 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef -1, i1 noundef zeroext true, ptr noundef nonnull @dissect_gsm_map_ms_PrepareSubsequentHO_Res)
   br label %dissect_returnResultData.exit
 
 167:                                              ; preds = %6
@@ -18701,7 +18701,7 @@ define internal i32 @dissect_gsm_map_ch_ProvideRoamingNumberRes(i1 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Res(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Res.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MT_ForwardSM_VGCS_Res, align 4
@@ -18776,7 +18776,7 @@ define internal i32 @dissect_gsm_map_ms_CheckIMEI_Res(i1 noundef zeroext %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MT_ForwardSM_Res, align 4
@@ -18818,7 +18818,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Res(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Res.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MO_ForwardSM_Res, align 4
@@ -19607,7 +19607,7 @@ define internal i32 @dissect_gsm_old_ReturnErrorParameter(i1 zeroext %0, ptr nou
 
 80:                                               ; preds = %6
   %81 = load i32, ptr @hf_gsm_map_er_sm_EnumeratedDeliveryFailureCause, align 4
-  %82 = tail call fastcc i32 @dissect_mc_message(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_er_SM_EnumeratedDeliveryFailureCause, i32 noundef %81, ptr noundef nonnull @dissect_gsm_map_er_SM_DeliveryFailureCause, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
+  %82 = tail call fastcc i32 @dissect_mc_message.argelim(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @dissect_gsm_map_er_SM_EnumeratedDeliveryFailureCause, i32 noundef %81, ptr noundef nonnull @dissect_gsm_map_er_SM_DeliveryFailureCause, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   br label %dissect_returnErrorData.exit
 
 83:                                               ; preds = %6

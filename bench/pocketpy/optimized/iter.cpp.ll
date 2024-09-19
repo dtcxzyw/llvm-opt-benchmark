@@ -401,11 +401,11 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9RangeIter9_registerEPNS_
 
 11:                                               ; preds = %2
   %.not11.i = icmp slt i64 %8, %10
-  br i1 %.not11.i, label %13, label %"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
+  br i1 %.not11.i, label %13, label %"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit"
 
 12:                                               ; preds = %2
   %.not.i = icmp sgt i64 %8, %10
-  br i1 %.not.i, label %13, label %"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
+  br i1 %.not.i, label %13, label %"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit"
 
 13:                                               ; preds = %12, %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -436,9 +436,9 @@ _ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %18, %14
   %25 = load i64, ptr %7, align 8
   %26 = add nsw i64 %25, %24
   store i64 %26, ptr %7, align 8
-  br label %"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
+  br label %"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit"
 
-"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit": ; preds = %11, %12, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
+"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit": ; preds = %11, %12, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
   %.0.i = phi i32 [ 1, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ 0, %11 ], [ 0, %12 ]
   ret i32 %.0.i
 }
@@ -585,7 +585,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9ArrayIter9_registerEPNS_
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
-  br i1 %8, label %"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit", label %9
+  br i1 %8, label %"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit", label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %5, i64 8
@@ -596,9 +596,9 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9ArrayIter9_registerEPNS_
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %14, ptr %12, align 8
   store ptr %11, ptr %13, align 8
-  br label %"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
+  br label %"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit"
 
-"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit": ; preds = %2, %9
+"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit": ; preds = %2, %9
   %.0.i = phi i32 [ 1, %9 ], [ 0, %2 ]
   ret i32 %.0.i
 }
@@ -881,7 +881,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy10StringIter9_registerEPN
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %7, align 8
   %11 = icmp eq i32 %9, %10
-  br i1 %11, label %"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit", label %12
+  br i1 %11, label %"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit", label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %6, i64 32
@@ -905,7 +905,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %12
   store ptr %25, ptr %23, align 8
   store ptr %22, ptr %24, align 8
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  br label %"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
+  br label %"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit"
 
 26:                                               ; preds = %12
   %27 = landingpad { ptr, i32 }
@@ -913,7 +913,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %12
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   resume { ptr, i32 } %27
 
-"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit": ; preds = %2, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
+"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit": ; preds = %2, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
   %.0.i = phi i32 [ 1, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret i32 %.0.i
@@ -1166,7 +1166,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9Generator9_registerEPNS_
   %6 = getelementptr inbounds i8, ptr %0, i64 264552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
-  br i1 %8, label %"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit", label %9
+  br i1 %8, label %"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit", label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 264296
@@ -1174,9 +1174,9 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9Generator9_registerEPNS_
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %12, ptr %10, align 8
   store ptr %5, ptr %11, align 8
-  br label %"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
+  br label %"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit"
 
-"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit": ; preds = %2, %9
+"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit": ; preds = %2, %9
   %.0.i = phi i32 [ 1, %9 ], [ 0, %2 ]
   ret i32 %.0.i
 }
@@ -1294,7 +1294,7 @@ define internal noundef range(i32 0, 3) i32 @"_ZZN4pkpy13DictItemsIter9_register
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
-  br i1 %6, label %"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit", label %7
+  br i1 %6, label %"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1325,9 +1325,9 @@ define internal noundef range(i32 0, 3) i32 @"_ZZN4pkpy13DictItemsIter9_register
   %29 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %26, i64 %28, i32 1
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %4, align 8
-  br label %"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
+  br label %"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit"
 
-"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit": ; preds = %2, %7
+"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.argprom.exit": ; preds = %2, %7
   %.0.i = phi i32 [ 2, %7 ], [ 0, %2 ]
   ret i32 %.0.i
 }

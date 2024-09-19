@@ -6106,13 +6106,13 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 78:                                               ; preds = %3, %3, %3
   %79 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_0clERNS_9BlockTypeE"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %79)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_0clERNS_9BlockTypeE.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %79)
   br label %496
 
 80:                                               ; preds = %3
   tail call void @_ZN8WasmEdge3AST11Instruction11setTryCatchEv(ptr noundef nonnull align 16 dereferenceable(25) %2)
   %81 = load ptr, ptr %2, align 16
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_0clERNS_9BlockTypeE"(ptr dead_on_unwind noalias nonnull writable align 4 %8, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %81)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_0clERNS_9BlockTypeE.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %8, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %81)
   %82 = load i8, ptr %8, align 4
   %83 = trunc i8 %82 to i1
   br i1 %83, label %88, label %84
@@ -6205,7 +6205,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 129:                                              ; preds = %112
   %130 = getelementptr inbounds i8, ptr %109, i64 4
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %15, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %130)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %15, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %130)
   %131 = load i8, ptr %15, align 4
   %132 = trunc i8 %131 to i1
   br i1 %132, label %137, label %133
@@ -6220,7 +6220,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 137:                                              ; preds = %129, %112
   %138 = getelementptr inbounds i8, ptr %109, i64 8
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %16, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %138)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %16, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %138)
   %139 = load i8, ptr %16, align 4
   %140 = trunc i8 %139 to i1
   br i1 %140, label %104, label %141
@@ -6240,15 +6240,15 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 145:                                              ; preds = %3
   tail call void @_ZN8WasmEdge3AST11Instruction11setTryCatchEv(ptr noundef nonnull align 16 dereferenceable(25) %2)
   %146 = load ptr, ptr %2, align 16
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_0clERNS_9BlockTypeE"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %146)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_0clERNS_9BlockTypeE.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %146)
   br label %496
 
 147:                                              ; preds = %3
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 148:                                              ; preds = %3
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 149:                                              ; preds = %3
@@ -6262,7 +6262,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 152:                                              ; preds = %3, %3, %3, %3
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 153:                                              ; preds = %3
@@ -6314,7 +6314,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %indvars.iv198 = phi i64 [ 0, %.lr.ph187 ], [ %indvars.iv.next199, %169 ]
   %171 = load ptr, ptr %163, align 8
   %172 = getelementptr inbounds %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %171, i64 %indvars.iv198
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %22, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %172)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %22, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %172)
   %173 = load i8, ptr %22, align 4
   %174 = trunc i8 %173 to i1
   br i1 %174, label %169, label %175
@@ -6332,15 +6332,15 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %179 = getelementptr inbounds i8, ptr %2, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %180, i64 %.pre-phi
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %181)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %181)
   br label %496
 
 182:                                              ; preds = %3, %3, %3, %3
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 183:                                              ; preds = %3, %3
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %23, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %23, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %184 = load i8, ptr %23, align 4
   %185 = trunc i8 %184 to i1
   br i1 %185, label %190, label %186
@@ -6357,7 +6357,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %191 = getelementptr inbounds i8, ptr %1, i64 184
   %192 = load i64, ptr %191, align 8
   %193 = getelementptr inbounds i8, ptr %2, i64 4
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %24, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %193)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %24, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %193)
   %194 = load i8, ptr %24, align 4
   %195 = trunc i8 %194 to i1
   br i1 %195, label %200, label %196
@@ -6445,11 +6445,11 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 233:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 234:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %29, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %29, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %235 = load i8, ptr %29, align 4
   %236 = trunc i8 %235 to i1
   br i1 %236, label %241, label %237
@@ -6464,12 +6464,12 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 241:                                              ; preds = %234
   %242 = getelementptr inbounds i8, ptr %2, i64 4
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %242)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %242)
   br label %496
 
 243:                                              ; preds = %3, %3
   store i8 0, ptr %30, align 1
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh"(ptr dead_on_unwind noalias nonnull writable align 4 %31, ptr nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %30)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %31, ptr nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %30)
   %244 = load i8, ptr %31, align 4
   %245 = trunc i8 %244 to i1
   br i1 %245, label %253, label %246
@@ -6489,7 +6489,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 253:                                              ; preds = %243
   store i32 0, ptr %34, align 4
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %35, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %34)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %35, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %34)
   %254 = load i8, ptr %35, align 4
   %255 = trunc i8 %254 to i1
   br i1 %255, label %263, label %256
@@ -6631,12 +6631,12 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 321:                                              ; preds = %3, %3, %3, %3, %3
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 322:                                              ; preds = %3
   %323 = getelementptr inbounds i8, ptr %2, i64 4
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %48, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %323)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %48, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %323)
   %324 = load i8, ptr %48, align 4
   %325 = trunc i8 %324 to i1
   br i1 %325, label %330, label %326
@@ -6650,11 +6650,11 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 330:                                              ; preds = %322, %3, %3, %3, %3, %3, %3
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 331:                                              ; preds = %3
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %49, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %49, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %332 = load i8, ptr %49, align 4
   %333 = trunc i8 %332 to i1
   br i1 %333, label %338, label %334
@@ -6669,7 +6669,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 338:                                              ; preds = %331
   %339 = getelementptr inbounds i8, ptr %2, i64 4
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %339)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %339)
   br label %496
 
 340:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
@@ -6696,7 +6696,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 351:                                              ; preds = %341
   %352 = getelementptr inbounds i8, ptr %2, i64 4
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %52, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %352)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %52, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %352)
   %353 = load i8, ptr %52, align 4
   %354 = trunc i8 %353 to i1
   br i1 %354, label %359, label %355
@@ -6714,11 +6714,11 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br i1 %360, label %361, label %362
 
 361:                                              ; preds = %359
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 362:                                              ; preds = %359
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 363:                                              ; preds = %3
@@ -6726,7 +6726,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br i1 %364, label %365, label %374
 
 365:                                              ; preds = %363
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %53, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %53, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %366 = load i8, ptr %53, align 4
   %367 = trunc i8 %366 to i1
   br i1 %367, label %372, label %368
@@ -6741,11 +6741,11 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 372:                                              ; preds = %365
   %373 = getelementptr inbounds i8, ptr %2, i64 4
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %373)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %373)
   br label %496
 
 374:                                              ; preds = %363
-  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %54, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %54, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %375 = load i8, ptr %54, align 4
   %376 = trunc i8 %375 to i1
   br i1 %376, label %381, label %377
@@ -6760,7 +6760,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 381:                                              ; preds = %374
   %382 = getelementptr inbounds i8, ptr %2, i64 4
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %382)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %382)
   br label %496
 
 383:                                              ; preds = %3
@@ -6782,7 +6782,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 393:                                              ; preds = %383
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 394:                                              ; preds = %3
@@ -6915,7 +6915,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 454:                                              ; preds = %447
   %455 = getelementptr inbounds i8, ptr %2, i64 12
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %455)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %455)
   br label %496
 
 456:                                              ; preds = %3, %3
@@ -6976,7 +6976,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %484 = load i8, ptr %481, align 4, !noalias !89
   store i8 %484, ptr %483, align 4, !noalias !89
   store i64 0, ptr %0, align 4, !alias.scope !89
-  br label %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.exit"
+  br label %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom.exit"
 
 485:                                              ; preds = %477
   %486 = load i32, ptr %481, align 4, !noalias !89
@@ -6987,9 +6987,9 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %489 = getelementptr inbounds i8, ptr %0, i64 4
   %490 = load i32, ptr %5, align 4, !noalias !89
   store i32 %490, ptr %489, align 4, !alias.scope !89
-  br label %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.exit"
+  br label %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom.exit"
 
-"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.exit": ; preds = %482, %485
+"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom.exit": ; preds = %482, %485
   %.sink.i = phi i8 [ 1, %482 ], [ 0, %485 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -7006,7 +7006,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 493:                                              ; preds = %3
-  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %496
 
 494:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
@@ -7016,7 +7016,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 495:                                              ; preds = %3
   unreachable
 
-496:                                              ; preds = %494, %493, %492, %491, %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.exit", %476, %462, %454, %450, %446, %445, %443, %437, %431, %426, %417, %411, %405, %400, %393, %387, %381, %377, %372, %368, %362, %361, %355, %345, %340, %338, %334, %330, %326, %321, %._crit_edge, %318, %306, %297, %296, %286, %290, %280, %256, %246, %241, %237, %233, %232, %227, %229, %218, %220, %213, %208, %196, %186, %182, %._crit_edge188, %175, %164, %153, %152, %149, %148, %147, %145, %._crit_edge192, %141, %133, %123, %99, %84, %78, %77
+496:                                              ; preds = %494, %493, %492, %491, %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom.exit", %476, %462, %454, %450, %446, %445, %443, %437, %431, %426, %417, %411, %405, %400, %393, %387, %381, %377, %372, %368, %362, %361, %355, %345, %340, %338, %334, %330, %326, %321, %._crit_edge, %318, %306, %297, %296, %286, %290, %280, %256, %246, %241, %237, %233, %232, %227, %229, %218, %220, %213, %208, %196, %186, %182, %._crit_edge188, %175, %164, %153, %152, %149, %148, %147, %145, %._crit_edge192, %141, %133, %123, %99, %84, %78, %77
   ret void
 }
 
@@ -7064,7 +7064,7 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EED2Ev.exit: ; preds = %_Z
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_0clERNS_9BlockTypeE"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_0clERNS_9BlockTypeE.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cxx20::expected.168", align 8
   %4 = alloca %"class.cxx20::expected.120", align 4
   %5 = alloca %"class.cxx20::unexpected", align 4
@@ -7284,7 +7284,7 @@ _ZNSt6vectorIN8WasmEdge3AST11Instruction15CatchDescriptorESaIS3_EE15_M_erase_at_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cxx20::expected.37", align 4
   %4 = alloca %"class.cxx20::unexpected", align 4
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -7401,7 +7401,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt11shared_lockI
 declare void @_ZN8WasmEdge6Loader6Loader12loadHeapTypeENS_8TypeCodeENS_11ASTNodeAttrE(ptr dead_on_unwind writable sret(%"class.cxx20::expected.120") align 4, ptr noundef nonnull align 8 dereferenceable(360), i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cxx20::expected.0", align 4
   %4 = alloca %"class.cxx20::unexpected", align 4
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -7575,9 +7575,9 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %29
   %48 = trunc i8 %47 to i1
   %49 = getelementptr inbounds i8, ptr %6, i64 4
   %50 = load i32, ptr %49, align 4, !noalias !98
-  br i1 %48, label %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.exit4", label %51
+  br i1 %48, label %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom.exit4", label %51
 
-"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.exit4": ; preds = %43
+"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom.exit4": ; preds = %43
   store i32 %50, ptr %45, align 4, !noalias !98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -7599,8 +7599,8 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %29
   store i32 %54, ptr %55, align 4
   br label %70
 
-56:                                               ; preds = %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.exit4", %39, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
-  %57 = phi ptr [ %.pre, %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.exit4" ], [ %.pre26, %39 ], [ %.pre26, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit ]
+56:                                               ; preds = %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom.exit4", %39, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
+  %57 = phi ptr [ %.pre, %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom.exit4" ], [ %.pre26, %39 ], [ %.pre26, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit ]
   %.val = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -7641,7 +7641,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cxx20::expected.0", align 4
   %4 = alloca %"class.cxx20::unexpected", align 4
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -35811,23 +35811,23 @@ attributes #23 = { nounwind willreturn memory(read) }
 !87 = distinct !{!87, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !88 = distinct !{!88, !13}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh: argument 0"}
-!91 = distinct !{!91, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh"}
+!90 = distinct !{!90, !91, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom: argument 0"}
+!91 = distinct !{!91, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom"}
 !92 = !{!93}
 !93 = distinct !{!93, !94, !"_ZN8WasmEdge8UnexpectINS_7ValTypeEEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !94 = distinct !{!94, !"_ZN8WasmEdge8UnexpectINS_7ValTypeEEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj: argument 0"}
-!97 = distinct !{!97, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"}
+!96 = distinct !{!96, !97, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom: argument 0"}
+!97 = distinct !{!97, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj: argument 0"}
-!100 = distinct !{!100, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"}
+!99 = distinct !{!99, !100, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom: argument 0"}
+!100 = distinct !{!100, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj: argument 0"}
-!103 = distinct !{!103, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"}
+!102 = distinct !{!102, !103, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom: argument 0"}
+!103 = distinct !{!103, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj.argprom"}
 !104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh: argument 0"}
-!106 = distinct !{!106, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh"}
+!105 = distinct !{!105, !106, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom: argument 0"}
+!106 = distinct !{!106, !"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.argprom"}
 !107 = distinct !{!107, !13}
 !108 = distinct !{!108, !13}
 !109 = distinct !{!109, !13}

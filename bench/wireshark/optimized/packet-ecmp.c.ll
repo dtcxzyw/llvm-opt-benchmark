@@ -1120,7 +1120,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_ecmp_tcp(ptr noundef %0, 
   br label %159
 
 92:                                               ; preds = %31
-  call fastcc void @tunnel_frame(i32 noundef %59, ptr noundef %0, ptr noundef %15)
+  call fastcc void @tunnel_frame.argelim(i32 noundef %59, ptr noundef %0, ptr noundef %15)
   br label %159
 
 93:                                               ; preds = %31
@@ -1213,15 +1213,15 @@ define internal range(i32 0, -2147483648) i32 @dissect_ecmp_tcp(ptr noundef %0, 
   br label %159
 
 130:                                              ; preds = %124
-  tail call fastcc void @get_parameter_responses(ptr noundef nonnull %1, i32 noundef %125, i8 noundef zeroext 16, ptr noundef %0, ptr noundef %15)
+  tail call fastcc void @get_parameter_responses.argelim(ptr noundef nonnull %1, i32 noundef %125, i8 noundef zeroext 16, ptr noundef %0, ptr noundef %15)
   br label %159
 
 131:                                              ; preds = %124
-  tail call fastcc void @get_parameter_responses(ptr noundef nonnull %1, i32 noundef %125, i8 noundef zeroext 17, ptr noundef %0, ptr noundef %15)
+  tail call fastcc void @get_parameter_responses.argelim(ptr noundef nonnull %1, i32 noundef %125, i8 noundef zeroext 17, ptr noundef %0, ptr noundef %15)
   br label %159
 
 132:                                              ; preds = %124
-  tail call fastcc void @get_parameter_responses(ptr noundef nonnull %1, i32 noundef %125, i8 noundef zeroext 18, ptr noundef %0, ptr noundef %15)
+  tail call fastcc void @get_parameter_responses.argelim(ptr noundef nonnull %1, i32 noundef %125, i8 noundef zeroext 18, ptr noundef %0, ptr noundef %15)
   br label %159
 
 133:                                              ; preds = %124
@@ -1229,7 +1229,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_ecmp_tcp(ptr noundef %0, 
   br label %159
 
 134:                                              ; preds = %124
-  tail call fastcc void @get_parameter_responses(ptr noundef nonnull %1, i32 noundef %125, i8 noundef zeroext 20, ptr noundef %0, ptr noundef %15)
+  tail call fastcc void @get_parameter_responses.argelim(ptr noundef nonnull %1, i32 noundef %125, i8 noundef zeroext 20, ptr noundef %0, ptr noundef %15)
   br label %159
 
 135:                                              ; preds = %124
@@ -1291,11 +1291,11 @@ define internal range(i32 0, -2147483648) i32 @dissect_ecmp_tcp(ptr noundef %0, 
   br label %159
 
 154:                                              ; preds = %124
-  tail call fastcc void @add_cyclic_frame(i32 noundef %125, ptr noundef %0, ptr noundef %15)
+  tail call fastcc void @add_cyclic_frame.argelim(i32 noundef %125, ptr noundef %0, ptr noundef %15)
   br label %159
 
 155:                                              ; preds = %124
-  tail call fastcc void @tunnel_frame(i32 noundef %125, ptr noundef %0, ptr noundef %15)
+  tail call fastcc void @tunnel_frame.argelim(i32 noundef %125, ptr noundef %0, ptr noundef %15)
   br label %159
 
 156:                                              ; preds = %124
@@ -1367,13 +1367,13 @@ define internal i32 @dissect_ecmp_udp(ptr noundef %0, ptr nocapture noundef read
   %43 = tail call ptr @proto_tree_add_subtree(ptr noundef %24, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %42, ptr noundef null, ptr noundef nonnull @.str.626) #4
   %44 = sub nsw i32 %5, %.0
   %45 = trunc i32 %44 to i16
-  tail call fastcc void @display_raw_cyclic_data(i8 noundef zeroext 2, i32 noundef %.0, i16 noundef zeroext %45, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43)
+  tail call fastcc void @display_raw_cyclic_data.argelim(i8 noundef zeroext 2, i32 noundef %.0, i16 noundef zeroext %45, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43)
   %46 = load i32, ptr @ett_ecmp_cyclic_data_16_bit_display, align 4
   %47 = tail call ptr @proto_tree_add_subtree(ptr noundef %24, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.627) #4
-  tail call fastcc void @display_raw_cyclic_data(i8 noundef zeroext 1, i32 noundef %.0, i16 noundef zeroext %45, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %47)
+  tail call fastcc void @display_raw_cyclic_data.argelim(i8 noundef zeroext 1, i32 noundef %.0, i16 noundef zeroext %45, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %47)
   %48 = load i32, ptr @ett_ecmp_cyclic_data_8_bit_display, align 4
   %49 = tail call ptr @proto_tree_add_subtree(ptr noundef %24, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.628) #4
-  tail call fastcc void @display_raw_cyclic_data(i8 noundef zeroext 0, i32 noundef %.0, i16 noundef zeroext %45, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %49)
+  tail call fastcc void @display_raw_cyclic_data.argelim(i8 noundef zeroext 0, i32 noundef %.0, i16 noundef zeroext %45, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %49)
   br label %50
 
 50:                                               ; preds = %41, %7
@@ -2352,7 +2352,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %22 = zext i16 %16 to i32
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %20, ptr noundef %3, i32 noundef %22, i32 noundef 1, i32 noundef 0) #4
   %24 = zext i16 %21 to i32
-  tail call fastcc void @add_cyclic_setup_attributes(ptr noundef %0, i32 noundef %24, i16 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @add_cyclic_setup_attributes.argelim(ptr noundef %0, i32 noundef %24, i16 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
   br label %.loopexit
 
 25:                                               ; preds = %10, %10, %10, %10
@@ -2523,7 +2523,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
 
 130:                                              ; preds = %70, %70, %70
   %131 = zext i16 %80 to i32
-  tail call fastcc void @add_cyclic_setup_attributes(ptr noundef %0, i32 noundef %131, i16 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @add_cyclic_setup_attributes.argelim(ptr noundef %0, i32 noundef %131, i16 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
   br label %.loopexit
 
 132:                                              ; preds = %70
@@ -2591,7 +2591,7 @@ define internal fastcc void @program_status(i32 noundef %0, i32 noundef range(i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tunnel_frame(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @tunnel_frame.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_ecmp_tunnel_control, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %1, i32 noundef %0, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_ecmp_tunnel_start_flag, align 4
@@ -2737,7 +2737,7 @@ define internal fastcc void @add_info_response(i32 noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_parameter_responses(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @get_parameter_responses.argelim(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %1) #4
   %8 = tail call i32 @tvb_reported_length(ptr noundef %3) #4
@@ -3052,7 +3052,7 @@ define internal fastcc void @get_object_info_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_cyclic_frame(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_cyclic_frame.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_ecmp_cyclic_link_num, align 4
   %5 = add i32 %0, 1
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %1, i32 noundef %0, i32 noundef 1, i32 noundef 0) #4
@@ -3321,7 +3321,7 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_cyclic_setup_attributes(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_cyclic_setup_attributes.argelim(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_ecmp_cyclic_setup_attrib_count, align 4
   %7 = add nuw nsw i32 %1, 1
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %3, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
@@ -3452,7 +3452,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8 0, 3) %0, i32 noundef range(i32 10, 27) %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @display_raw_cyclic_data.argelim(i8 noundef zeroext range(i8 0, 3) %0, i32 noundef range(i32 10, 27) %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = icmp eq i16 %2, 0
   br i1 %7, label %8, label %12
 

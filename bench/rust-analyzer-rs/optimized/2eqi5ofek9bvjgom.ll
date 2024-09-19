@@ -22,7 +22,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %6 = load ptr, ptr %5, align 8, !noalias !9, !noundef !7
   store ptr null, ptr %5, align 8, !noalias !9
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %_ZN4core3ops8function6FnOnce9call_once17he292fe9a0211a003E.exit
+  br i1 %7, label %8, label %_ZN4core3ops8function6FnOnce9call_once17he292fe9a0211a003E.argprom.exit
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !9
@@ -38,7 +38,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5a910b2ee449410d9967603fdb4c0b9.6) #7, !noalias !9
   unreachable
 
-_ZN4core3ops8function6FnOnce9call_once17he292fe9a0211a003E.exit: ; preds = %1
+_ZN4core3ops8function6FnOnce9call_once17he292fe9a0211a003E.argprom.exit: ; preds = %1
   %13 = tail call noundef zeroext i1 %6(), !noalias !9
   %14 = zext i1 %13 to i8
   %15 = icmp ne ptr %.val1, null

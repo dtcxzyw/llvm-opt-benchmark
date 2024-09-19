@@ -699,7 +699,7 @@ get_priority.exit:                                ; preds = %get_priority.exit.s
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %65, ptr %7, align 8
-  switch i32 %.val, label %logcat_log.exit.thread [
+  switch i32 %.val, label %logcat_log.argprom.exit.thread [
     i32 164, label %76
     i32 165, label %78
     i32 166, label %80
@@ -709,26 +709,26 @@ get_priority.exit:                                ; preds = %get_priority.exit.s
     i32 170, label %98
   ]
 
-logcat_log.exit.thread:                           ; preds = %75
+logcat_log.argprom.exit.thread:                   ; preds = %75
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.loopexit
 
 76:                                               ; preds = %75
   %77 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef %.083, ptr noundef %56, i32 noundef %34, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 78:                                               ; preds = %75
   %79 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef %.083, i32 noundef %34, ptr noundef %.086, ptr noundef nonnull @.str.21) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 80:                                               ; preds = %75
   %81 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 82:                                               ; preds = %75
   %83 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef %.083, i32 noundef %34, i32 noundef %36, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 84:                                               ; preds = %75
   %85 = call ptr @gmtime(ptr noundef nonnull %7) #11
@@ -738,11 +738,11 @@ logcat_log.exit.thread:                           ; preds = %75
 86:                                               ; preds = %84
   %87 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %85) #11
   %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %6, i32 noundef %41, i32 noundef %.083, ptr noundef %56, i32 noundef %34, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 89:                                               ; preds = %84
   %90 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %.083, ptr noundef %56, i32 noundef %34, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 91:                                               ; preds = %75
   %92 = call ptr @gmtime(ptr noundef nonnull %7) #11
@@ -752,11 +752,11 @@ logcat_log.exit.thread:                           ; preds = %75
 93:                                               ; preds = %91
   %94 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %92) #11
   %95 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef nonnull %6, i32 noundef %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 96:                                               ; preds = %91
   %97 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 98:                                               ; preds = %.thread, %75
   %.1105 = phi ptr [ null, %.thread ], [ %.1, %75 ]
@@ -767,13 +767,13 @@ logcat_log.exit.thread:                           ; preds = %75
 100:                                              ; preds = %98
   %101 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %99) #11
   %102 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, i32 noundef %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
 103:                                              ; preds = %98
   %104 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
-  br label %logcat_log.exit
+  br label %logcat_log.argprom.exit
 
-logcat_log.exit:                                  ; preds = %76, %78, %80, %82, %86, %89, %93, %96, %100, %103
+logcat_log.argprom.exit:                          ; preds = %76, %78, %80, %82, %86, %89, %93, %96, %100, %103
   %.1106 = phi ptr [ %.1105, %100 ], [ %.1105, %103 ], [ %.1, %93 ], [ %.1, %96 ], [ %.1, %86 ], [ %.1, %89 ], [ %.1, %82 ], [ %.1, %80 ], [ %.1, %78 ], [ %.1, %76 ]
   %.0.i102 = phi ptr [ %102, %100 ], [ %104, %103 ], [ %95, %93 ], [ %97, %96 ], [ %88, %86 ], [ %90, %89 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ]
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6)
@@ -781,11 +781,11 @@ logcat_log.exit:                                  ; preds = %76, %78, %80, %82, 
   %.not96 = icmp eq ptr %.0.i102, null
   br i1 %.not96, label %.loopexit, label %105
 
-.loopexit:                                        ; preds = %logcat_log.exit, %logcat_log.exit.thread
+.loopexit:                                        ; preds = %logcat_log.argprom.exit, %logcat_log.argprom.exit.thread
   call void @g_free(ptr noundef %64) #11
   br label %121
 
-105:                                              ; preds = %logcat_log.exit
+105:                                              ; preds = %logcat_log.argprom.exit
   %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i102) #13
   %sext = shl i64 %106, 32
   %107 = ashr exact i64 %sext, 32

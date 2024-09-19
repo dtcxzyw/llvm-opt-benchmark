@@ -7375,7 +7375,7 @@ _ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit: ; preds = %._crit_edge.us.i
   %186 = getelementptr i8, ptr %6, i64 376
   %.val47 = load ptr, ptr %186, align 8
   %.not5.i.i = icmp eq ptr %.val, %.val47
-  br i1 %.not5.i.i, label %_ZL14energyVrescalePK7t_state.exit, label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %_ZL14energyVrescalePK7t_state.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %184, %.lr.ph.i.i
   %.07.i.i = phi double [ %188, %.lr.ph.i.i ], [ 0.000000e+00, %184 ]
@@ -7388,9 +7388,9 @@ _ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit: ; preds = %._crit_edge.us.i
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %190 = fptrunc double %188 to float
-  br label %_ZL14energyVrescalePK7t_state.exit
+  br label %_ZL14energyVrescalePK7t_state.argprom.exit
 
-_ZL14energyVrescalePK7t_state.exit:               ; preds = %184, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit.i
+_ZL14energyVrescalePK7t_state.argprom.exit:       ; preds = %184, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit.i
   %.0.lcssa.i.i = phi float [ 0.000000e+00, %184 ], [ %190, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit.i ]
   %191 = fadd float %.0, %.0.lcssa.i.i
   br label %275
@@ -7403,7 +7403,7 @@ _ZL14energyVrescalePK7t_state.exit:               ; preds = %184, %_ZSt10accumul
   %195 = getelementptr inbounds i8, ptr %6, i64 8
   %196 = load i32, ptr %195, align 8
   %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %.lr.ph5.i, label %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit
+  br i1 %197, label %.lr.ph5.i, label %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.argprom.exit
 
 .lr.ph5.i:                                        ; preds = %192
   %198 = getelementptr inbounds i8, ptr %6, i64 272
@@ -7420,7 +7420,7 @@ _ZL14energyVrescalePK7t_state.exit:               ; preds = %184, %_ZSt10accumul
 
 .lr.ph5.split.us.i:                               ; preds = %.lr.ph5.i
   %204 = icmp sgt i32 %.fr8.i, 0
-  br i1 %204, label %.lr.ph5.split.us.split.us.preheader.i, label %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit
+  br i1 %204, label %.lr.ph5.split.us.split.us.preheader.i, label %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.argprom.exit
 
 .lr.ph5.split.us.split.us.preheader.i:            ; preds = %.lr.ph5.split.us.i
   %205 = zext nneg i32 %.fr8.i to i64
@@ -7455,7 +7455,7 @@ _ZL14energyVrescalePK7t_state.exit:               ; preds = %184, %_ZSt10accumul
   %.3.us.us.i = phi float [ %.0454.us.us.i, %.lr.ph5.split.us.split.us.i ], [ %.2.us.us.i, %241 ]
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit, label %.lr.ph5.split.us.split.us.i, !llvm.loop !121
+  br i1 %exitcond21.not.i, label %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.argprom.exit, label %.lr.ph5.split.us.split.us.i, !llvm.loop !121
 
 221:                                              ; preds = %241, %.preheader.us.us.i
   %indvars.iv12.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next13.i, %241 ]
@@ -7532,9 +7532,9 @@ _ZL14energyVrescalePK7t_state.exit:               ; preds = %184, %_ZSt10accumul
   %.3.i = phi float [ %271, %245 ], [ %.0454.i, %.lr.ph5.split.i ]
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i
-  br i1 %exitcond.not.i55, label %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit, label %.lr.ph5.split.i, !llvm.loop !121
+  br i1 %exitcond.not.i55, label %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.argprom.exit, label %.lr.ph5.split.i, !llvm.loop !121
 
-_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit: ; preds = %272, %..loopexit_crit_edge.us.us.i, %192, %.lr.ph5.split.us.i
+_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.argprom.exit: ; preds = %272, %..loopexit_crit_edge.us.us.i, %192, %.lr.ph5.split.us.i
   %.045.lcssa.i = phi float [ 0.000000e+00, %192 ], [ 0.000000e+00, %.lr.ph5.split.us.i ], [ %.3.us.us.i, %..loopexit_crit_edge.us.us.i ], [ %.3.i, %272 ]
   %273 = fadd float %.0, %.045.lcssa.i
   br label %275
@@ -7543,8 +7543,8 @@ _ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmas
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.36, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ10NPT_energyRK23PressureCouplingOptions19TemperatureCouplingN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmassENK3$_0clEv", ptr noundef nonnull @.str, i32 noundef 2107) #27
   unreachable
 
-275:                                              ; preds = %183, %183, %183, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit, %_ZL14energyVrescalePK7t_state.exit
-  %.4 = phi float [ %273, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit ], [ %191, %_ZL14energyVrescalePK7t_state.exit ], [ %.0, %183 ], [ %.0, %183 ], [ %.0, %183 ]
+275:                                              ; preds = %183, %183, %183, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.argprom.exit, %_ZL14energyVrescalePK7t_state.argprom.exit
+  %.4 = phi float [ %273, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.argprom.exit ], [ %191, %_ZL14energyVrescalePK7t_state.argprom.exit ], [ %.0, %183 ], [ %.0, %183 ], [ %.0, %183 ]
   ret float %.4
 }
 

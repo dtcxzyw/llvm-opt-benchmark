@@ -315,7 +315,7 @@ for.body8.lr.ph.i:                                ; preds = %for.end.i
 
 for.cond44.preheader.i:                           ; preds = %for.inc40.i, %for.end.i
   %cmp457.i = icmp sgt i32 %num_bs.0.lcssa.i, 0
-  br i1 %cmp457.i, label %for.body47.preheader.i, label %init_blk_migration.exit
+  br i1 %cmp457.i, label %for.body47.preheader.i, label %init_blk_migration.argprom.exit
 
 for.body47.preheader.i:                           ; preds = %for.cond44.preheader.i
   %wide.trip.count.i = zext nneg i32 %num_bs.0.lcssa.i to i64
@@ -335,7 +335,7 @@ if.end.i:                                         ; preds = %for.body8.i
 if.then12.i:                                      ; preds = %if.end.i
   %conv13.i = trunc i64 %call10.i to i32
   call void @bdrv_next_cleanup(ptr noundef nonnull %it.i) #13
-  br label %init_blk_migration.exit
+  br label %init_blk_migration.argprom.exit
 
 if.end14.i:                                       ; preds = %if.end.i
   %call15.i = call noalias dereferenceable_or_null(96) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 96) #15
@@ -479,7 +479,7 @@ if.then55.i:                                      ; preds = %for.body47.i
 if.then60.i:                                      ; preds = %if.then55.i
   %25 = load ptr, ptr %local_err.i, align 8
   call void @error_report_err(ptr noundef %25) #13
-  br label %init_blk_migration.exit
+  br label %init_blk_migration.argprom.exit
 
 if.end61.i:                                       ; preds = %if.then55.i
   %total_sectors.i.i = getelementptr inbounds i8, ptr %22, i64 24
@@ -498,9 +498,9 @@ if.end61.i:                                       ; preds = %if.then55.i
 for.inc64.i:                                      ; preds = %if.end61.i, %for.body47.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %init_blk_migration.exit, label %for.body47.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %init_blk_migration.argprom.exit, label %for.body47.i, !llvm.loop !10
 
-init_blk_migration.exit:                          ; preds = %for.inc64.i, %for.cond44.preheader.i, %if.then12.i, %if.then60.i
+init_blk_migration.argprom.exit:                  ; preds = %for.inc64.i, %for.cond44.preheader.i, %if.then12.i, %if.then60.i
   %ret.0.i = phi i32 [ %conv13.i, %if.then12.i ], [ %call57.i, %if.then60.i ], [ 0, %for.cond44.preheader.i ], [ 0, %for.inc64.i ]
   call void @g_free(ptr noundef %call4.i) #13
   call void @bdrv_graph_rdunlock_main_loop() #13
@@ -509,7 +509,7 @@ init_blk_migration.exit:                          ; preds = %for.inc64.i, %for.c
   %cmp = icmp slt i32 %ret.0.i, 0
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %init_blk_migration.exit
+if.end:                                           ; preds = %init_blk_migration.argprom.exit
   %bmds.010.i = load ptr, ptr @block_mig_state, align 8
   %tobool.not11.i = icmp eq ptr %bmds.010.i, null
   br i1 %tobool.not11.i, label %if.end3, label %for.body.i7
@@ -578,8 +578,8 @@ blk_mig_reset_dirty_cursor.exit:                  ; preds = %for.body.i13, %if.e
   call void @qemu_put_be64(ptr noundef %f, i64 noundef 2) #13
   br label %return
 
-return:                                           ; preds = %set_dirty_tracking.exit, %init_blk_migration.exit, %blk_mig_reset_dirty_cursor.exit
-  %retval.0 = phi i32 [ %call4, %blk_mig_reset_dirty_cursor.exit ], [ %ret.0.i, %init_blk_migration.exit ], [ %sub.i, %set_dirty_tracking.exit ]
+return:                                           ; preds = %set_dirty_tracking.exit, %init_blk_migration.argprom.exit, %blk_mig_reset_dirty_cursor.exit
+  %retval.0 = phi i32 [ %call4, %blk_mig_reset_dirty_cursor.exit ], [ %ret.0.i, %init_blk_migration.argprom.exit ], [ %sub.i, %set_dirty_tracking.exit ]
   ret i32 %retval.0
 }
 
@@ -909,15 +909,15 @@ if.end10.i.i:                                     ; preds = %while.end.i.i, %if.
   %cur_sector.0.i.i = phi i64 [ %cur_sector.1.lcssa.i.i, %while.end.i.i ], [ %16, %if.then.i ]
   %cmp11.not.i.i = icmp slt i64 %cur_sector.0.i.i, %15
   %completed_sectors15.i.i = getelementptr inbounds i8, ptr %bmds.021.i, i64 80
-  br i1 %cmp11.not.i.i, label %mig_save_device_bulk.exit.i, label %mig_save_device_bulk.exit.thread.i
+  br i1 %cmp11.not.i.i, label %mig_save_device_bulk.argprom.exit.i, label %mig_save_device_bulk.argprom.exit.thread.i
 
-mig_save_device_bulk.exit.thread.i:               ; preds = %if.end10.i.i
+mig_save_device_bulk.argprom.exit.thread.i:       ; preds = %if.end10.i.i
   store i64 %15, ptr %completed_sectors15.i.i, align 8
   store i64 %15, ptr %cur_sector2.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %count.i.i)
   br label %if.then2.i
 
-mig_save_device_bulk.exit.i:                      ; preds = %if.end10.i.i
+mig_save_device_bulk.argprom.exit.i:              ; preds = %if.end10.i.i
   store i64 %cur_sector.0.i.i, ptr %completed_sectors15.i.i, align 8
   %and.i.i = and i64 %cur_sector.0.i.i, -2048
   %sub.i.i = sub i64 %15, %and.i.i
@@ -971,11 +971,11 @@ mig_save_device_bulk.exit.i:                      ; preds = %if.end10.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %count.i.i)
   br i1 %cmp41.i.not.i, label %if.end.i, label %if.then2.i
 
-if.then2.i:                                       ; preds = %mig_save_device_bulk.exit.i, %mig_save_device_bulk.exit.thread.i
+if.then2.i:                                       ; preds = %mig_save_device_bulk.argprom.exit.i, %mig_save_device_bulk.argprom.exit.thread.i
   store i32 1, ptr %bulk_completed.i.le, align 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then2.i, %mig_save_device_bulk.exit.i
+if.end.i:                                         ; preds = %if.then2.i, %mig_save_device_bulk.argprom.exit.i
   %27 = load i64, ptr %completed_sectors15.i.i, align 8
   %add.i = add i64 %27, %completed_sector_sum.020.i
   br label %for.end.i

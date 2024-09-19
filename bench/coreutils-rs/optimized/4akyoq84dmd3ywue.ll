@@ -103,7 +103,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.93860d8c1ba8e9822194161df2090b00.5.llvm.12924684182139021660 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = ptrtoint ptr %.0.val to i64
@@ -1981,13 +1981,13 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias nocapture
   tail call void @llvm.experimental.noalias.scope.decl(metadata !357)
   %60 = load i64, ptr %28, align 8, !range !283, !alias.scope !357, !noalias !360, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %60 to i1
-  br i1 %trunc.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exitthread-pre-split.i", label %.preheader.i.i.i
+  br i1 %trunc.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exitthread-pre-split.i", label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.noexc
   %61 = getelementptr inbounds i8, ptr %28, i64 26
   %62 = load i8, ptr %61, align 2, !range !362, !alias.scope !363, !noalias !366, !noundef !5
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread", label %.lr.ph.i.i.i
+  br i1 %63, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i.thread", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
   %64 = getelementptr inbounds i8, ptr %28, i64 25
@@ -2000,7 +2000,7 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias nocapture
   %.promoted35.i.i.i = load i64, ptr %65, align 8, !alias.scope !363, !noalias !366
   %70 = trunc nuw i8 %.promoted.i.i.i to i1
   %71 = icmp eq i64 %.promoted35.i.i.i, 0
-  br i1 %71, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i", label %.lr.ph.i.i
+  br i1 %71, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h3350d34c5184bed3E.exit.i.i.i"
   %.in.i.i = phi i8 [ %74, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h3350d34c5184bed3E.exit.i.i.i" ], [ %.promoted.i.i.i, %.lr.ph.i.i.i ]
@@ -2098,7 +2098,7 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
 
 122:                                              ; preds = %_ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thread.i.i.i.i
   %123 = icmp eq i32 %.sroa.4.1.i.ph.i.i.i.i, 1114112
-  br i1 %123, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread", label %124
+  br i1 %123, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i.thread", label %124
 
 124:                                              ; preds = %122
   %125 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 128
@@ -2118,9 +2118,9 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %130 = add i64 %.013.neg.i.i.i.i, %73
   %131 = icmp ne i8 %.in.i.i, 1
   %132 = icmp eq i64 %130, 0
-  br i1 %132, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i", label %.lr.ph.i.i
+  br i1 %132, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i", label %.lr.ph.i.i
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exitthread-pre-split.i": ; preds = %.noexc
+"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exitthread-pre-split.i": ; preds = %.noexc
   %133 = getelementptr inbounds i8, ptr %28, i64 56
   %134 = load i64, ptr %133, align 8, !alias.scope !357, !noalias !360, !noundef !5
   %135 = icmp eq i64 %134, -1
@@ -2139,9 +2139,9 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %.promoted.i = load i64, ptr %144, align 8, !alias.scope !379, !noalias !386
   %145 = sub i64 %.promoted.i, %143
   %.not3764.i = icmp ult i64 %145, %139
-  br i1 %.not3764.i, label %.lr.ph.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread"
+  br i1 %.not3764.i, label %.lr.ph.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i.thread"
 
-.lr.ph.i:                                         ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exitthread-pre-split.i"
+.lr.ph.i:                                         ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exitthread-pre-split.i"
   %146 = getelementptr inbounds i8, ptr %28, i64 32
   %147 = load i64, ptr %146, align 8, !alias.scope !379, !noalias !386, !noundef !5
   %148 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2214,7 +2214,7 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %179 = phi i64 [ %176, %.split398.us ], [ %201, %200 ], [ %156, %164 ], [ %.ph104.i, %.sink.split.i ]
   %180 = sub i64 %179, %143
   %.not37.i = icmp ult i64 %180, %139
-  br i1 %.not37.i, label %153, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread"
+  br i1 %.not37.i, label %153, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i.thread"
 
 .split394.us:                                     ; preds = %.split.us, %.split
   %.015.i = select i1 %135, i64 %143, i64 %155
@@ -2266,11 +2266,11 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %201 = sub i64 %154, %152
   br i1 %135, label %177, label %.sink.split.i
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread": ; preds = %122, %177, %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exitthread-pre-split.i", %.preheader.i.i.i
+"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i.thread": ; preds = %122, %177, %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exitthread-pre-split.i", %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %28), !noalias !353
   br label %259
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i": ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h3350d34c5184bed3E.exit.i.i.i", %.lr.ph.i.i.i
+"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i": ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h3350d34c5184bed3E.exit.i.i.i", %.lr.ph.i.i.i
   %.lcssa4.i.i = phi i1 [ %70, %.lr.ph.i.i.i ], [ %131, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h3350d34c5184bed3E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %28), !noalias !353
   br i1 %.lcssa4.i.i, label %.thread302, label %259
@@ -2282,8 +2282,8 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %203 = icmp eq i64 %202, 0
   br i1 %203, label %210, label %.thread302
 
-.thread302:                                       ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i", %.loopexit377
-  %204 = phi i64 [ %202, %.loopexit377 ], [ 3, %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i" ]
+.thread302:                                       ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i", %.loopexit377
+  %204 = phi i64 [ %202, %.loopexit377 ], [ 3, %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i" ]
   %.not.i.i.i = icmp ult i64 %204, %56
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", label %205
 
@@ -2382,7 +2382,7 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %258 = add i64 %reass.sub, 1
   br label %.loopexit
 
-259:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread", %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i"
+259:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i.thread", %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom.exit.i"
   %260 = load i64, ptr %44, align 8, !range !16, !noundef !5
   %261 = icmp eq i64 %260, -9223372036854775808
   br i1 %261, label %265, label %266
@@ -5540,7 +5540,7 @@ define void @_ZN9uu_mktemp4exec17h928dc3ff22380017E(ptr noalias nocapture nounde
 
 86:                                               ; preds = %61
   %.val.i = load ptr, ptr %72, align 8, !noalias !1233, !nonnull !5, !noundef !5
-  %87 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val.i), !noalias !1239
+  %87 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %.val.i), !noalias !1239
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %110, label %111
 
@@ -5981,7 +5981,7 @@ _ZN9uu_mktemp14make_temp_file17h0a31a1240447a4c0E.exit.thread: ; preds = %200, %
 
 222:                                              ; preds = %203
   %.val.i49 = load ptr, ptr %214, align 8, !noalias !1328, !nonnull !5, !noundef !5
-  %223 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val.i49), !noalias !1334
+  %223 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %.val.i49), !noalias !1334
   %224 = icmp eq i8 %223, 0
   br i1 %224, label %243, label %244
 
@@ -7536,8 +7536,8 @@ attributes #19 = { noreturn }
 !351 = distinct !{!351, !352, !"_ZN9uu_mktemp32find_last_contiguous_block_of_xs17ha2c9179f8897d495E: argument 1"}
 !352 = distinct !{!352, !"_ZN9uu_mktemp32find_last_contiguous_block_of_xs17ha2c9179f8897d495E"}
 !353 = !{!354, !356, !351}
-!354 = distinct !{!354, !355, !"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE: argument 0"}
-!355 = distinct !{!355, !"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE"}
+!354 = distinct !{!354, !355, !"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom: argument 0"}
+!355 = distinct !{!355, !"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.argprom"}
 !356 = distinct !{!356, !352, !"_ZN9uu_mktemp32find_last_contiguous_block_of_xs17ha2c9179f8897d495E: argument 0"}
 !357 = !{!358}
 !358 = distinct !{!358, !359, !"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h740a92bf39ccf600E: argument 1"}

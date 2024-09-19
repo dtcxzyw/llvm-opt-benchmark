@@ -335,18 +335,18 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %1
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %14, align 1
   switch i16 %.0.copyload.i.i.i.i, label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit [
-    i16 4368, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4367, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4423, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4422, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4437, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4438, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4355, label %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4354, label %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4429, label %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
+    i16 4368, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4367, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4423, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4422, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4437, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4438, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4355, label %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4354, label %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4429, label %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
   ]
 
-_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
@@ -366,7 +366,7 @@ _ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE
   %20 = load i32, ptr %19, align 8
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
@@ -384,7 +384,7 @@ _ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEE
   %25 = load i32, ptr %24, align 8
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
@@ -402,7 +402,7 @@ _ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKin
   %30 = load i32, ptr %29, align 8
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
@@ -423,7 +423,7 @@ _ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10Symbol
   %.not.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, label %38
 
-38:                                               ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
+38:                                               ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
@@ -432,8 +432,8 @@ _ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10Symbol
   call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %43) #13
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %1, %38, %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-  %.0 = phi i32 [ %30, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %25, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %20, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ %35, %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %35, %38 ], [ 0, %1 ]
+_ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %1, %38, %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+  %.0 = phi i32 [ %30, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit ], [ %25, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit ], [ %20, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ %35, %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit ], [ %35, %38 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -458,18 +458,18 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %1
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %14, align 1
   switch i16 %.0.copyload.i.i.i.i, label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit [
-    i16 4368, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4367, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4423, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4422, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4437, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4438, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4355, label %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4354, label %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-    i16 4429, label %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
+    i16 4368, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4367, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4423, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4422, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4437, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4438, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4355, label %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4354, label %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+    i16 4429, label %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
   ]
 
-_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
@@ -488,7 +488,7 @@ _ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE
   %19 = load i32, ptr %15, align 4
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
@@ -505,7 +505,7 @@ _ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEE
   %23 = load i32, ptr %20, align 4
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
@@ -522,7 +522,7 @@ _ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKin
   %27 = load i32, ptr %24, align 4
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
@@ -542,7 +542,7 @@ _ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10Symbol
   %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, label %34
 
-34:                                               ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
+34:                                               ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
@@ -551,8 +551,8 @@ _ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10Symbol
   call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #13
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %1, %34, %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-  %.0 = phi i32 [ %27, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %23, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %19, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ %31, %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %31, %34 ], [ 0, %1 ]
+_ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %1, %34, %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit
+  %.0 = phi i32 [ %27, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit ], [ %23, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit ], [ %19, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ %31, %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom.exit ], [ %31, %34 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -9327,29 +9327,29 @@ attributes #16 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE: argument 0"}
-!6 = distinct !{!6, !"_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE"}
+!5 = distinct !{!5, !6, !"_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom: argument 0"}
+!6 = distinct !{!6, !"_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE: argument 0"}
-!9 = distinct !{!9, !"_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE"}
+!8 = distinct !{!8, !9, !"_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom: argument 0"}
+!9 = distinct !{!9, !"_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE: argument 0"}
-!12 = distinct !{!12, !"_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE"}
+!11 = distinct !{!11, !12, !"_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE: argument 0"}
-!15 = distinct !{!15, !"_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE"}
+!14 = distinct !{!14, !15, !"_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE: argument 0"}
-!18 = distinct !{!18, !"_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE"}
+!17 = distinct !{!17, !18, !"_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom: argument 0"}
+!18 = distinct !{!18, !"_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE: argument 0"}
-!21 = distinct !{!21, !"_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE"}
+!20 = distinct !{!20, !21, !"_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE: argument 0"}
-!24 = distinct !{!24, !"_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE"}
+!23 = distinct !{!23, !24, !"_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom: argument 0"}
+!24 = distinct !{!24, !"_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE: argument 0"}
-!27 = distinct !{!27, !"_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE"}
+!26 = distinct !{!26, !27, !"_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.argprom"}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN4llvm8codeview18SymbolDeserializer14visitSymbolEndERNS0_8CVRecordINS0_10SymbolKindEEE: argument 0"}
 !30 = distinct !{!30, !"_ZN4llvm8codeview18SymbolDeserializer14visitSymbolEndERNS0_8CVRecordINS0_10SymbolKindEEE"}

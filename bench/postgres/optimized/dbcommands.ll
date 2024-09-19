@@ -1439,7 +1439,7 @@ database_is_invalid_oid.exit:                     ; preds = %311
   %568 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, ptr noundef nonnull %spec.store.select) #15
   %569 = load i32, ptr %28, align 4
   %570 = load i32, ptr %29, align 4
-  call fastcc void @errdetail_busy_db(i32 noundef %569, i32 noundef %570)
+  call fastcc void @errdetail_busy_db.retelim(i32 noundef %569, i32 noundef %570)
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 1323, ptr noundef nonnull @__func__.createdb) #15
   unreachable
 
@@ -1736,16 +1736,16 @@ BufferGetPage.exit.i.i:                           ; preds = %692, %686
   %713 = trunc i32 %704 to i16
   br label %714
 
-714:                                              ; preds = %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i, %.lr.ph.i.i.i
-  %.037.i.i.i = phi ptr [ %.03639.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
-  %.02336.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %763, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
+714:                                              ; preds = %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i, %.lr.ph.i.i.i
+  %.037.i.i.i = phi ptr [ %.03639.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i ]
+  %.02336.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %763, %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i ]
   %715 = zext i16 %.02336.i.i.i to i64
   %716 = add nsw i64 %715, -1
   %717 = getelementptr [0 x %struct.ItemIdData], ptr %710, i64 0, i64 %716
   %718 = load i32, ptr %717, align 4
   %719 = and i32 %718, 98304
   %switch.i.i.i = icmp eq i32 %719, 32768
-  br i1 %switch.i.i.i, label %720, label %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i
+  br i1 %switch.i.i.i, label %720, label %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i
 
 720:                                              ; preds = %714
   store i16 %712, ptr %675, align 4
@@ -1759,7 +1759,7 @@ BufferGetPage.exit.i.i:                           ; preds = %692, %686
   store i32 %724, ptr %5, align 8
   store i32 1259, ptr %679, align 4
   %725 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %5, ptr noundef %674, i32 noundef %684) #15
-  br i1 %725, label %726, label %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i
+  br i1 %725, label %726, label %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i
 
 726:                                              ; preds = %720
   %.val31.i.i.i = load ptr, ptr %678, align 8
@@ -1770,12 +1770,12 @@ BufferGetPage.exit.i.i:                           ; preds = %692, %686
   %731 = getelementptr inbounds i8, ptr %730, i64 92
   %732 = load i32, ptr %731, align 4
   %733 = icmp eq i32 %732, 1664
-  br i1 %733, label %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i, label %734
+  br i1 %733, label %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i, label %734
 
 734:                                              ; preds = %726
   %735 = getelementptr inbounds i8, ptr %730, i64 115
   %736 = load i8, ptr %735, align 1
-  switch i8 %736, label %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i [
+  switch i8 %736, label %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i [
     i8 114, label %737
     i8 105, label %737
     i8 83, label %737
@@ -1787,7 +1787,7 @@ BufferGetPage.exit.i.i:                           ; preds = %692, %686
   %738 = getelementptr inbounds i8, ptr %730, i64 114
   %739 = load i8, ptr %738, align 2
   %740 = icmp eq i8 %739, 116
-  br i1 %740, label %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i, label %741
+  br i1 %740, label %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i, label %741
 
 741:                                              ; preds = %737
   %742 = getelementptr inbounds i8, ptr %730, i64 88
@@ -1829,16 +1829,16 @@ BufferGetPage.exit.i.i:                           ; preds = %692, %686
   %761 = zext i1 %759 to i8
   store i8 %761, ptr %760, align 4
   %762 = call ptr @lappend(ptr noundef %.037.i.i.i, ptr noundef nonnull %752) #15
-  br label %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i
+  br label %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i
 
-ScanSourceDatabasePgClassTuple.exit.thread.i.i.i: ; preds = %751, %737, %734, %726, %720, %714
+ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i: ; preds = %751, %737, %734, %726, %720, %714
   %.1.i.i.i = phi ptr [ %762, %751 ], [ %.037.i.i.i, %720 ], [ %.037.i.i.i, %714 ], [ %.037.i.i.i, %734 ], [ %.037.i.i.i, %737 ], [ %.037.i.i.i, %726 ]
   %763 = add i16 %.02336.i.i.i, 1
   %.not.i.i.i = icmp ugt i16 %763, %709
   br i1 %.not.i.i.i, label %ScanSourceDatabasePgClassPage.exit.i.i, label %714, !llvm.loop !7
 
-ScanSourceDatabasePgClassPage.exit.i.i:           ; preds = %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i, %703
-  %.0.lcssa.i.i.i = phi ptr [ %.03639.i.i, %703 ], [ %.1.i.i.i, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
+ScanSourceDatabasePgClassPage.exit.i.i:           ; preds = %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i, %703
+  %.0.lcssa.i.i.i = phi ptr [ %.03639.i.i, %703 ], [ %.1.i.i.i, %ScanSourceDatabasePgClassTuple.argprom.exit.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %764
 
@@ -2487,7 +2487,7 @@ define dso_local i32 @get_database_oid(ptr noundef %0, i1 noundef zeroext %1) lo
 declare zeroext i1 @CountOtherDBBackends(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @errdetail_busy_db(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @errdetail_busy_db.retelim(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp sgt i32 %0, 0
   %4 = icmp sgt i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -2778,7 +2778,7 @@ define dso_local void @dropdb(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
   %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef %0) #15
   %70 = load i32, ptr %6, align 4
   %71 = load i32, ptr %7, align 4
-  call fastcc void @errdetail_busy_db(i32 noundef %70, i32 noundef %71)
+  call fastcc void @errdetail_busy_db.retelim(i32 noundef %70, i32 noundef %71)
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 1705, ptr noundef nonnull @__func__.dropdb) #15
   unreachable
 
@@ -3109,7 +3109,7 @@ have_createdb_privilege.exit.thread:              ; preds = %17, %have_createdb_
   %52 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef %0) #15
   %53 = load i32, ptr %4, align 4
   %54 = load i32, ptr %5, align 4
-  call fastcc void @errdetail_busy_db(i32 noundef %53, i32 noundef %54)
+  call fastcc void @errdetail_busy_db.retelim(i32 noundef %53, i32 noundef %54)
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 1879, ptr noundef nonnull @__func__.RenameDatabase) #15
   unreachable
 
@@ -3635,7 +3635,7 @@ define internal fastcc void @movedb(ptr noundef %0, ptr noundef %1) unnamed_addr
   %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef %0) #15
   %54 = load i32, ptr %4, align 4
   %55 = load i32, ptr %5, align 4
-  call fastcc void @errdetail_busy_db(i32 noundef %54, i32 noundef %55)
+  call fastcc void @errdetail_busy_db.retelim(i32 noundef %54, i32 noundef %55)
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 2006, ptr noundef nonnull @__func__.movedb) #15
   unreachable
 

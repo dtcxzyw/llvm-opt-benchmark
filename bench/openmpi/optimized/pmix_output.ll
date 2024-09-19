@@ -159,7 +159,7 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %33 = load ptr, ptr %32, align 8
   %.not1.i = icmp eq ptr %33, null
-  br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
   %34 = phi ptr [ %36, %.lr.ph.i ], [ %33, %31 ]
@@ -168,14 +168,14 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
   %35 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %31
+pmix_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %31
   %37 = load i8, ptr @pmix_output_redirected_to_syslog, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %45
 
-39:                                               ; preds = %pmix_obj_run_constructors.exit
+39:                                               ; preds = %pmix_obj_run_constructors.argprom.exit
   store i8 1, ptr getelementptr inbounds (i8, ptr @verbose, i64 153), align 1
   %40 = load i32, ptr @pmix_output_redirected_syslog_pri, align 4
   store i32 %40, ptr getelementptr inbounds (i8, ptr @verbose, i64 124), align 4
@@ -192,7 +192,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %31
   store i8 0, ptr getelementptr inbounds (i8, ptr @verbose, i64 154), align 2
   br label %46
 
-45:                                               ; preds = %pmix_obj_run_constructors.exit
+45:                                               ; preds = %pmix_obj_run_constructors.argprom.exit
   store i8 1, ptr getelementptr inbounds (i8, ptr @verbose, i64 155), align 1
   br label %46
 
@@ -1184,7 +1184,7 @@ pmix_output_close.exit:                           ; preds = %.loopexit.loopexit.
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %.not1.i = icmp eq ptr %19, null
-  br i1 %.not1.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_destructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %pmix_output_close.exit, %.lr.ph.i
   %20 = phi ptr [ %22, %.lr.ph.i ], [ %19, %pmix_output_close.exit ]
@@ -1193,13 +1193,13 @@ pmix_output_close.exit:                           ; preds = %.loopexit.loopexit.
   %21 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %pmix_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !11
 
-pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %pmix_output_close.exit
+pmix_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %pmix_output_close.exit
   store i1 false, ptr @initialized, align 1
   br label %23
 
-23:                                               ; preds = %pmix_obj_run_destructors.exit, %0
+23:                                               ; preds = %pmix_obj_run_destructors.argprom.exit, %0
   ret void
 }
 

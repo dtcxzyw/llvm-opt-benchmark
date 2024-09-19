@@ -3377,11 +3377,11 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
   br label %cops_flow_spec.exit
 
 148:                                              ; preds = %19
-  call fastcc void @cops_classifier(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
+  call fastcc void @cops_classifier.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
   br label %cops_flow_spec.exit
 
 149:                                              ; preds = %19
-  call fastcc void @cops_classifier(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
+  call fastcc void @cops_classifier.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
   br label %cops_flow_spec.exit
 
 150:                                              ; preds = %19
@@ -3646,11 +3646,11 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
   ]
 
 388:                                              ; preds = %387, %387, %387
-  call fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
+  call fastcc void @cops_best_effort_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
   br label %cops_flow_spec.exit
 
 389:                                              ; preds = %387, %387, %387
-  call fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
+  call fastcc void @cops_best_effort_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
   br label %cops_flow_spec.exit
 
 390:                                              ; preds = %387
@@ -3795,11 +3795,11 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
   ]
 
 516:                                              ; preds = %515, %515, %515
-  call fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
+  call fastcc void @cops_non_real_time_polling_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
   br label %cops_flow_spec.exit
 
 517:                                              ; preds = %515, %515, %515
-  call fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
+  call fastcc void @cops_non_real_time_polling_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
   br label %cops_flow_spec.exit
 
 518:                                              ; preds = %515
@@ -3956,11 +3956,11 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
   ]
 
 656:                                              ; preds = %655, %655, %655
-  call fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
+  call fastcc void @cops_real_time_polling_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
   br label %cops_flow_spec.exit
 
 657:                                              ; preds = %655, %655, %655
-  call fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
+  call fastcc void @cops_real_time_polling_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
   br label %cops_flow_spec.exit
 
 658:                                              ; preds = %655
@@ -4105,11 +4105,11 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
   ]
 
 784:                                              ; preds = %783, %783, %783
-  call fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
+  call fastcc void @cops_unsolicited_grant_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
   br label %cops_flow_spec.exit
 
 785:                                              ; preds = %783, %783, %783
-  call fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
+  call fastcc void @cops_unsolicited_grant_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
   br label %cops_flow_spec.exit
 
 786:                                              ; preds = %783
@@ -4227,11 +4227,11 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
   ]
 
 885:                                              ; preds = %884, %884, %884
-  call fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
+  call fastcc void @cops_ugs_with_activity_detection_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
   br label %cops_flow_spec.exit
 
 886:                                              ; preds = %884, %884, %884
-  call fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
+  call fastcc void @cops_ugs_with_activity_detection_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
   br label %cops_flow_spec.exit
 
 887:                                              ; preds = %884
@@ -4375,11 +4375,11 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
   ]
 
 1012:                                             ; preds = %1009, %1009, %1009
-  call fastcc void @cops_downstream_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
+  call fastcc void @cops_downstream_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 1)
   br label %cops_flow_spec.exit
 
 1013:                                             ; preds = %1009, %1009, %1009
-  call fastcc void @cops_downstream_service_i04_i05(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
+  call fastcc void @cops_downstream_service_i04_i05.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.0313, i32 noundef 0)
   br label %cops_flow_spec.exit
 
 1014:                                             ; preds = %1009
@@ -4835,7 +4835,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint64_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @cops_classifier.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   %6 = select i1 %.not, ptr @.str.797, ptr @.str.796
   %7 = load i32, ptr @hf_cops_subtree, align 4
@@ -4951,7 +4951,7 @@ define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @cops_best_effort_service_i04_i05.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.810) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5142,7 +5142,7 @@ define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @cops_non_real_time_polling_service_i04_i05.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.811) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5345,7 +5345,7 @@ define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @cops_real_time_polling_service_i04_i05.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.812) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5536,7 +5536,7 @@ define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @cops_unsolicited_grant_service_i04_i05.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.813) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5700,7 +5700,7 @@ define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @cops_ugs_with_activity_detection_i04_i05.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.814) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5888,7 +5888,7 @@ define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_downstream_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @cops_downstream_service_i04_i05.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.815) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4

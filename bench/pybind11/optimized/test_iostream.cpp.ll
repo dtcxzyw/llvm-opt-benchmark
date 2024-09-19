@@ -1807,18 +1807,18 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i:         ; preds = %116, %_ZN8pybind114
 _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i: ; preds = %_ZNKR8pybind116handle7inc_refEv.exit.i.i
   %120 = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i19.i = icmp eq ptr %120, null
-  br i1 %.not.i.i.i.i.i19.i, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.exit", label %121
+  br i1 %.not.i.i.i.i.i19.i, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.argprom.exit", label %121
 
 121:                                              ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i
   %122 = load i64, ptr %120, align 8
   %123 = add nsw i64 %122, -1
   store i64 %123, ptr %120, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i64 %123, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %124, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.exit"
+  br i1 %.not.i.i.i.i.i.i.i, label %124, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.argprom.exit"
 
 124:                                              ; preds = %121
   invoke void @_Py_Dealloc(ptr noundef nonnull %120)
-          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.exit" unwind label %125
+          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.argprom.exit" unwind label %125
 
 125:                                              ; preds = %124
   %126 = landingpad { ptr, i32 }
@@ -1847,7 +1847,7 @@ common.resume:                                    ; preds = %.body, %513, %515, 
   %common.resume.op = phi { ptr, i32 } [ %206, %205 ], [ %290, %289 ], [ %132, %131 ], [ %.pn.i, %130 ], [ %193, %192 ], [ %.pn.i27, %191 ], [ %277, %276 ], [ %.pn.i49, %275 ], [ %370, %369 ], [ %.pn.i74, %368 ], [ %431, %430 ], [ %.pn.i93, %429 ], [ %492, %491 ], [ %.pn.i112, %490 ], [ %518, %517 ], [ %516, %515 ], [ %514, %513 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i, %121, %124
+"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.argprom.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i, %121, %124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
@@ -1864,7 +1864,7 @@ common.resume:                                    ; preds = %.body, %513, %515, 
   %136 = invoke ptr @PyObject_GetAttrString(ptr noundef %.sroa.02.0.copyload.cast.i26, ptr noundef nonnull @.str.4)
           to label %.noexc.i29 unwind label %189
 
-.noexc.i29:                                       ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.exit"
+.noexc.i29:                                       ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %.not.i.i30 = icmp eq ptr %136, null
   br i1 %.not.i.i30, label %138, label %137
 
@@ -2002,18 +2002,18 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i41:       ; preds = %177, %_ZN8pybind114
 _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i42: ; preds = %_ZNKR8pybind116handle7inc_refEv.exit.i.i41
   %181 = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i19.i43 = icmp eq ptr %181, null
-  br i1 %.not.i.i.i.i.i19.i43, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.exit", label %182
+  br i1 %.not.i.i.i.i.i19.i43, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.argprom.exit", label %182
 
 182:                                              ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i42
   %183 = load i64, ptr %181, align 8
   %184 = add nsw i64 %183, -1
   store i64 %184, ptr %181, align 8
   %.not.i.i.i.i.i.i.i44 = icmp eq i64 %184, 0
-  br i1 %.not.i.i.i.i.i.i.i44, label %185, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.exit"
+  br i1 %.not.i.i.i.i.i.i.i44, label %185, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.argprom.exit"
 
 185:                                              ; preds = %182
   invoke void @_Py_Dealloc(ptr noundef nonnull %181)
-          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.exit" unwind label %186
+          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.argprom.exit" unwind label %186
 
 186:                                              ; preds = %185
   %187 = landingpad { ptr, i32 }
@@ -2022,7 +2022,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i42: ; preds = %_ZNKR8pybi
   call void @__clang_call_terminate(ptr %188) #27
   unreachable
 
-189:                                              ; preds = %138, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.exit"
+189:                                              ; preds = %138, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_0JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %190 = landingpad { ptr, i32 }
           cleanup
   br label %191
@@ -2038,7 +2038,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i42: ; preds = %_ZNKR8pybi
   call void @_ZN8pybind1112cpp_functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #26
   br label %common.resume
 
-"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i42, %182, %185
+"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.argprom.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i42, %182, %185
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -2063,7 +2063,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i42: ; preds = %_ZNKR8pybi
   %202 = invoke ptr @PyErr_Occurred()
           to label %203 unwind label %205, !noalias !30
 
-203:                                              ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.exit"
+203:                                              ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %.not.i.i.i = icmp eq ptr %202, null
   br i1 %.not.i.i.i, label %_ZNK8pybind113argaSIbEENS_5arg_vEOT_.exit, label %204
 
@@ -2071,7 +2071,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i42: ; preds = %_ZNKR8pybi
   invoke void @PyErr_Clear()
           to label %_ZNK8pybind113argaSIbEENS_5arg_vEOT_.exit unwind label %205, !noalias !30
 
-205:                                              ; preds = %204, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.exit"
+205:                                              ; preds = %204, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_1JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %206 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %198) #26
@@ -2256,18 +2256,18 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i63:       ; preds = %261, %_ZN8pybind114
 _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i64: ; preds = %_ZNKR8pybind116handle7inc_refEv.exit.i.i63
   %265 = load ptr, ptr %17, align 8
   %.not.i.i.i.i.i19.i65 = icmp eq ptr %265, null
-  br i1 %.not.i.i.i.i.i19.i65, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.exit", label %266
+  br i1 %.not.i.i.i.i.i19.i65, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.argprom.exit", label %266
 
 266:                                              ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i64
   %267 = load i64, ptr %265, align 8
   %268 = add nsw i64 %267, -1
   store i64 %268, ptr %265, align 8
   %.not.i.i.i.i.i.i.i66 = icmp eq i64 %268, 0
-  br i1 %.not.i.i.i.i.i.i.i66, label %269, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.exit"
+  br i1 %.not.i.i.i.i.i.i.i66, label %269, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.argprom.exit"
 
 269:                                              ; preds = %266
   invoke void @_Py_Dealloc(ptr noundef nonnull %265)
-          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.exit" unwind label %270
+          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.argprom.exit" unwind label %270
 
 270:                                              ; preds = %269
   %271 = landingpad { ptr, i32 }
@@ -2292,7 +2292,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i64: ; preds = %_ZNKR8pybi
   call void @_ZN8pybind1112cpp_functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #26
   br label %common.resume
 
-"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i64, %266, %269
+"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.argprom.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i64, %266, %269
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
@@ -2317,7 +2317,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i64: ; preds = %_ZNKR8pybi
   %286 = invoke ptr @PyErr_Occurred()
           to label %287 unwind label %289, !noalias !49
 
-287:                                              ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.exit"
+287:                                              ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %.not.i.i.i67 = icmp eq ptr %286, null
   br i1 %.not.i.i.i67, label %_ZNK8pybind113argaSIbEENS_5arg_vEOT_.exit68, label %288
 
@@ -2325,7 +2325,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i64: ; preds = %_ZNKR8pybi
   invoke void @PyErr_Clear()
           to label %_ZNK8pybind113argaSIbEENS_5arg_vEOT_.exit68 unwind label %289, !noalias !49
 
-289:                                              ; preds = %288, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.exit"
+289:                                              ; preds = %288, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_2JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %290 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %282) #26
@@ -2524,18 +2524,18 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i88:       ; preds = %354, %_ZN8pybind114
 _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i89: ; preds = %_ZNKR8pybind116handle7inc_refEv.exit.i.i88
   %358 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i19.i90 = icmp eq ptr %358, null
-  br i1 %.not.i.i.i.i.i19.i90, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.exit", label %359
+  br i1 %.not.i.i.i.i.i19.i90, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.argprom.exit", label %359
 
 359:                                              ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i89
   %360 = load i64, ptr %358, align 8
   %361 = add nsw i64 %360, -1
   store i64 %361, ptr %358, align 8
   %.not.i.i.i.i.i.i.i91 = icmp eq i64 %361, 0
-  br i1 %.not.i.i.i.i.i.i.i91, label %362, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.exit"
+  br i1 %.not.i.i.i.i.i.i.i91, label %362, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.argprom.exit"
 
 362:                                              ; preds = %359
   invoke void @_Py_Dealloc(ptr noundef nonnull %358)
-          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.exit" unwind label %363
+          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.argprom.exit" unwind label %363
 
 363:                                              ; preds = %362
   %364 = landingpad { ptr, i32 }
@@ -2560,7 +2560,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i89: ; preds = %_ZNKR8pybi
   call void @_ZN8pybind1112cpp_functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #26
   br label %common.resume
 
-"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i89, %359, %362
+"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.argprom.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i89, %359, %362
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -2577,7 +2577,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i89: ; preds = %_ZNKR8pybi
   %374 = invoke ptr @PyObject_GetAttrString(ptr noundef %.sroa.02.0.copyload.cast.i92, ptr noundef nonnull @.str.13)
           to label %.noexc.i95 unwind label %427
 
-.noexc.i95:                                       ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.exit"
+.noexc.i95:                                       ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %.not.i.i96 = icmp eq ptr %374, null
   br i1 %.not.i.i96, label %376, label %375
 
@@ -2715,18 +2715,18 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i107:      ; preds = %415, %_ZN8pybind114
 _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i108: ; preds = %_ZNKR8pybind116handle7inc_refEv.exit.i.i107
   %419 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i19.i109 = icmp eq ptr %419, null
-  br i1 %.not.i.i.i.i.i19.i109, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.exit", label %420
+  br i1 %.not.i.i.i.i.i19.i109, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.argprom.exit", label %420
 
 420:                                              ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i108
   %421 = load i64, ptr %419, align 8
   %422 = add nsw i64 %421, -1
   store i64 %422, ptr %419, align 8
   %.not.i.i.i.i.i.i.i110 = icmp eq i64 %422, 0
-  br i1 %.not.i.i.i.i.i.i.i110, label %423, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.exit"
+  br i1 %.not.i.i.i.i.i.i.i110, label %423, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.argprom.exit"
 
 423:                                              ; preds = %420
   invoke void @_Py_Dealloc(ptr noundef nonnull %419)
-          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.exit" unwind label %424
+          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.argprom.exit" unwind label %424
 
 424:                                              ; preds = %423
   %425 = landingpad { ptr, i32 }
@@ -2735,7 +2735,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i108: ; preds = %_ZNKR8pyb
   call void @__clang_call_terminate(ptr %426) #27
   unreachable
 
-427:                                              ; preds = %376, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.exit"
+427:                                              ; preds = %376, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_3JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %428 = landingpad { ptr, i32 }
           cleanup
   br label %429
@@ -2751,7 +2751,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i108: ; preds = %_ZNKR8pyb
   call void @_ZN8pybind1112cpp_functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #26
   br label %common.resume
 
-"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i108, %420, %423
+"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.argprom.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i108, %420, %423
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -2768,7 +2768,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i108: ; preds = %_ZNKR8pyb
   %435 = invoke ptr @PyObject_GetAttrString(ptr noundef %.sroa.02.0.copyload.cast.i111, ptr noundef nonnull @.str.14)
           to label %.noexc.i114 unwind label %488
 
-.noexc.i114:                                      ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.exit"
+.noexc.i114:                                      ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %.not.i.i115 = icmp eq ptr %435, null
   br i1 %.not.i.i115, label %437, label %436
 
@@ -2906,18 +2906,18 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i126:      ; preds = %476, %_ZN8pybind114
 _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i127: ; preds = %_ZNKR8pybind116handle7inc_refEv.exit.i.i126
   %480 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i19.i128 = icmp eq ptr %480, null
-  br i1 %.not.i.i.i.i.i19.i128, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.exit", label %481
+  br i1 %.not.i.i.i.i.i19.i128, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.argprom.exit", label %481
 
 481:                                              ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i127
   %482 = load i64, ptr %480, align 8
   %483 = add nsw i64 %482, -1
   store i64 %483, ptr %480, align 8
   %.not.i.i.i.i.i.i.i129 = icmp eq i64 %483, 0
-  br i1 %.not.i.i.i.i.i.i.i129, label %484, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.exit"
+  br i1 %.not.i.i.i.i.i.i.i129, label %484, label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.argprom.exit"
 
 484:                                              ; preds = %481
   invoke void @_Py_Dealloc(ptr noundef nonnull %480)
-          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.exit" unwind label %485
+          to label %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.argprom.exit" unwind label %485
 
 485:                                              ; preds = %484
   %486 = landingpad { ptr, i32 }
@@ -2926,7 +2926,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i127: ; preds = %_ZNKR8pyb
   call void @__clang_call_terminate(ptr %487) #27
   unreachable
 
-488:                                              ; preds = %437, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.exit"
+488:                                              ; preds = %437, %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_4JEEES2_PKcOT_DpRKT0_.argprom.exit"
   %489 = landingpad { ptr, i32 }
           cleanup
   br label %490
@@ -2942,7 +2942,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i127: ; preds = %_ZNKR8pyb
   call void @_ZN8pybind1112cpp_functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
   br label %common.resume
 
-"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i127, %481, %484
+"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.argprom.exit": ; preds = %_ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i127, %481, %484
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -2953,7 +2953,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i127: ; preds = %_ZNKR8pyb
   %493 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybind116class_I10TestThreadJEE3defIZNS_6detail8initimpl11constructorIJEE7executeIS2_JETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSA_DpRKT0_EUlRNS4_16value_and_holderEE_JNS4_24is_new_style_constructorEEEERS2_PKcOSA_SH_(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %494 unwind label %517
 
-494:                                              ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.exit"
+494:                                              ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.argprom.exit"
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   store i64 ptrtoint (ptr @_ZN10TestThread4stopEv to i64), ptr %44, align 8
@@ -3031,7 +3031,7 @@ _ZN8pybind116class_I10TestThreadJEED2Ev.exit:     ; preds = %500, %502, %505
   call void @_ZN8pybind115arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #26
   br label %common.resume
 
-517:                                              ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.exit", %498, %496, %494
+517:                                              ; preds = %"_ZN8pybind117module_3defIZ23test_submodule_iostreamRS0_E3$_5JEEES2_PKcOT_DpRKT0_.argprom.exit", %498, %496, %494
   %518 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8pybind116class_I10TestThreadJEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #26
@@ -8032,23 +8032,23 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail13string_caste
 
 18:                                               ; preds = %2
   %.not.i = icmp eq ptr %8, @PyByteArray_Type
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %18
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %18
   %19 = tail call i32 @PyType_IsSubtype(ptr noundef %8, ptr noundef nonnull @PyByteArray_Type)
   %.not22 = icmp eq i32 %19, 0
-  br i1 %.not22, label %27, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not22, label %27, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %20 = tail call ptr @PyByteArray_AsString(ptr noundef nonnull %1)
   %.not12 = icmp eq ptr %20, null
   br i1 %.not12, label %21, label %22
 
-21:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+21:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   tail call void @_ZN8pybind1113pybind11_failEPKc(ptr noundef nonnull @.str.45) #30
   unreachable
 
-22:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+22:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %23 = tail call i64 @PyByteArray_Size(ptr noundef nonnull %1)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %20, i64 noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -8067,8 +8067,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %18, %_ZL
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #26
   br label %27
 
-27:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %.0 = phi i1 [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ true, %.sink.split ]
+27:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %.0 = phi i1 [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ true, %.sink.split ]
   ret i1 %.0
 
 28:                                               ; preds = %24, %16
@@ -11861,19 +11861,19 @@ thread-pre-split.thread:                          ; preds = %498, %thread-pre-sp
   %504 = getelementptr i8, ptr %503, i64 8
   %.val259 = load ptr, ptr %504, align 8
   %.not.i372 = icmp eq ptr %.val259, @PyCFunction_Type
-  br i1 %.not.i372, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %505
+  br i1 %.not.i372, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %505
 
 505:                                              ; preds = %thread-pre-split.thread
   %506 = invoke i32 @PyType_IsSubtype(ptr noundef %.val259, ptr noundef nonnull @PyCFunction_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %.loopexit.split-lp489
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %.loopexit.split-lp489
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %505
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %505
   %.not485 = icmp eq i32 %506, 0
   %.pre612 = load ptr, ptr %496, align 8
-  br i1 %.not485, label %548, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br i1 %.not485, label %548, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %thread-pre-split.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %507 = phi ptr [ %503, %thread-pre-split.thread ], [ %.pre612, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %thread-pre-split.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %507 = phi ptr [ %503, %thread-pre-split.thread ], [ %.pre612, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ]
   %508 = getelementptr inbounds i8, ptr %507, i64 16
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds i8, ptr %509, i64 16
@@ -11882,7 +11882,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %thread-p
   %.not203 = icmp eq i32 %512, 0
   br i1 %.not203, label %513, label %_ZN8pybind117capsuleD2Ev.exit.thread
 
-513:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+513:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %514 = getelementptr inbounds i8, ptr %507, i64 24
   %515 = load ptr, ptr %514, align 8
   %.not.i.i374 = icmp eq ptr %515, null
@@ -11980,7 +11980,7 @@ _ZN8pybind116detail26is_function_record_capsuleERKNS_7capsuleE.exit: ; preds = %
   call void @__clang_call_terminate(ptr %547) #27
   unreachable
 
-548:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+548:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %549 = icmp eq ptr %.pre612, @_Py_NoneStruct
   br i1 %549, label %_ZN8pybind117capsuleD2Ev.exit.thread, label %550
 
@@ -12052,7 +12052,7 @@ _ZN8pybind117capsuleD2Ev.exit:                    ; preds = %544, %541, %_ZN8pyb
   %.not204 = icmp eq ptr %.1177, null
   br i1 %.not204, label %_ZN8pybind117capsuleD2Ev.exit.thread, label %658
 
-_ZN8pybind117capsuleD2Ev.exit.thread:             ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %513, %_ZNSt6vectorIN8pybind116detail15argument_recordESaIS2_EE13shrink_to_fitEv.exit, %_ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit, %thread-pre-split, %550, %548, %_ZN8pybind117capsuleD2Ev.exit
+_ZN8pybind117capsuleD2Ev.exit.thread:             ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, %513, %_ZNSt6vectorIN8pybind116detail15argument_recordESaIS2_EE13shrink_to_fitEv.exit, %_ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit, %thread-pre-split, %550, %548, %_ZN8pybind117capsuleD2Ev.exit
   %571 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
           to label %572 unwind label %.loopexit.split-lp489
 
@@ -13703,36 +13703,36 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind1112cpp_function10dispatcherEP
   %63 = getelementptr i8, ptr %52, i64 8
   %.val = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %.val, %62
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %60
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %60
   %64 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef %62)
   %.not693 = icmp eq i32 %64, 0
-  br i1 %.not693, label %.thread662, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge
+  br i1 %.not693, label %.thread662, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %.pre = load ptr, ptr %61, align 8
-  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
 
-.thread662:                                       ; preds = %.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %59
+.thread662:                                       ; preds = %.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %59
   %65 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %65, ptr noundef nonnull @.str.90)
   br label %1247
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %60
-  %66 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %62, %60 ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge, %60
+  %66 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread_crit_edge ], [ %62, %60 ]
   %67 = tail call { ptr, i8 } @_ZN8pybind116detail23all_type_info_get_cacheEP11_typeobject(ptr noundef %66)
   %68 = extractvalue { ptr, i8 } %67, 0
   %69 = extractvalue { ptr, i8 } %67, 1
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %_ZN8pybind116detail13all_type_infoEP11_typeobject.exit.i
 
-71:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+71:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %72 = getelementptr inbounds i8, ptr %68, i64 16
   tail call void @_ZN8pybind116detail22all_type_info_populateEP11_typeobjectRSt6vectorIPNS0_9type_infoESaIS5_EE(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(24) %72)
   br label %_ZN8pybind116detail13all_type_infoEP11_typeobject.exit.i
 
-_ZN8pybind116detail13all_type_infoEP11_typeobject.exit.i: ; preds = %71, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+_ZN8pybind116detail13all_type_infoEP11_typeobject.exit.i: ; preds = %71, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread
   %73 = getelementptr inbounds i8, ptr %68, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %68, i64 24
@@ -26034,13 +26034,13 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit.thread:
 
 34:                                               ; preds = %32
   %35 = invoke i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyModule_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %64
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %64
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %34
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %34
   %.not256 = icmp eq i32 %35, 0
   br i1 %.not256, label %36, label %_ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit
 
-36:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+36:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %.sroa.050.0.copyload = load ptr, ptr %0, align 8
   %37 = invoke i32 @PyObject_HasAttrString(ptr noundef %.sroa.050.0.copyload, ptr noundef nonnull @.str.72)
           to label %38 unwind label %64
@@ -26122,8 +26122,8 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %52, %49, %48
   call void @_ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   br label %395
 
-_ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit: ; preds = %32, %60, %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %68 = phi ptr [ %27, %32 ], [ %47, %60 ], [ %47, %57 ], [ %47, %_ZN8pybind116objectD2Ev.exit ], [ %27, %38 ], [ %27, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+_ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit: ; preds = %32, %60, %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %68 = phi ptr [ %27, %32 ], [ %47, %60 ], [ %47, %57 ], [ %47, %_ZN8pybind116objectD2Ev.exit ], [ %27, %38 ], [ %27, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ]
   %.pr = load ptr, ptr %0, align 8
   store ptr null, ptr %7, align 8
   %.not = icmp eq ptr %.pr, null
@@ -32258,7 +32258,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
           to label %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i unwind label %15
 
 _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %1
-  br i1 %14, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_0vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br i1 %14, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_0vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
 15:                                               ; preds = %20, %.invoke.i, %1
   %16 = landingpad { ptr, i32 }
@@ -32473,9 +32473,9 @@ _ZN8pybind117module_D2Ev.exit.i.i.i:              ; preds = %61, %_ZN8pybind116d
   %86 = load i64, ptr @_Py_NoneStruct, align 8
   %87 = add nsw i64 %86, 1
   store i64 %87, ptr @_Py_NoneStruct, align 8
-  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_0vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_0vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
-"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_0vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
+"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_0vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
   %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %.sink.split.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -32506,7 +32506,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
           to label %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i unwind label %15
 
 _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %1
-  br i1 %14, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_1vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br i1 %14, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_1vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
 15:                                               ; preds = %20, %.invoke.i, %1
   %16 = landingpad { ptr, i32 }
@@ -32721,9 +32721,9 @@ _ZN8pybind117module_D2Ev.exit.i.i.i:              ; preds = %61, %_ZN8pybind116d
   %86 = load i64, ptr @_Py_NoneStruct, align 8
   %87 = add nsw i64 %86, 1
   store i64 %87, ptr @_Py_NoneStruct, align 8
-  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_1vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_1vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
-"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_1vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
+"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_1vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
   %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %.sink.split.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -33382,7 +33382,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
           to label %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i unwind label %15
 
 _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %1
-  br i1 %14, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_2vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br i1 %14, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_2vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
 15:                                               ; preds = %20, %.invoke.i, %1
   %16 = landingpad { ptr, i32 }
@@ -33597,9 +33597,9 @@ _ZN8pybind117module_D2Ev.exit.i.i.i:              ; preds = %61, %_ZN8pybind116d
   %86 = load i64, ptr @_Py_NoneStruct, align 8
   %87 = add nsw i64 %86, 1
   store i64 %87, ptr @_Py_NoneStruct, align 8
-  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_2vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_2vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
-"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_2vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
+"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_2vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
   %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %.sink.split.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -34308,7 +34308,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
           to label %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i unwind label %11
 
 _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %1
-  br i1 %10, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_3vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br i1 %10, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_3vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
 11:                                               ; preds = %.noexc18.invoke.i, %.invoke.i, %1
   %12 = landingpad { ptr, i32 }
@@ -34328,9 +34328,9 @@ _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_trai
   %15 = load i64, ptr @_Py_NoneStruct, align 8
   %16 = add nsw i64 %15, 1
   store i64 %16, ptr @_Py_NoneStruct, align 8
-  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_3vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_3vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
-"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_3vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
+"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_3vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
   %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %.sink.split.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -34355,7 +34355,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
           to label %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i unwind label %11
 
 _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %1
-  br i1 %10, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_4vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br i1 %10, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_4vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
 11:                                               ; preds = %.noexc18.invoke.i, %.invoke.i, %1
   %12 = landingpad { ptr, i32 }
@@ -34375,9 +34375,9 @@ _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_trai
   %15 = load i64, ptr @_Py_NoneStruct, align 8
   %16 = add nsw i64 %15, 1
   store i64 %16, ptr @_Py_NoneStruct, align 8
-  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_4vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_4vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
-"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_4vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
+"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_4vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit": ; preds = %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i, %.sink.split.i
   %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %.sink.split.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -34413,7 +34413,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
           to label %.noexc.i unwind label %28
 
 .noexc.i:                                         ; preds = %1
-  br i1 %19, label %20, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_5vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br i1 %19, label %20, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_5vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
 20:                                               ; preds = %.noexc.i
   %21 = load ptr, ptr %12, align 8
@@ -34427,7 +34427,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ2
           to label %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE9load_argsERNS0_13function_callE.exit.i unwind label %28
 
 _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE9load_argsERNS0_13function_callE.exit.i: ; preds = %20
-  br i1 %27, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_5vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br i1 %27, label %.invoke.i, label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_5vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
 28:                                               ; preds = %33, %.invoke.i, %20, %1
   %29 = landingpad { ptr, i32 }
@@ -34846,9 +34846,9 @@ _ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_trai
   %168 = load i64, ptr @_Py_NoneStruct, align 8
   %169 = add nsw i64 %168, 1
   store i64 %169, ptr @_Py_NoneStruct, align 8
-  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_5vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit"
+  br label %"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_5vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit"
 
-"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_5vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.exit": ; preds = %.noexc.i, %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE9load_argsERNS0_13function_callE.exit.i, %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE9load_argsERNS0_13function_callE.exit.thread.sink.split.i
+"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_iostreamRNS_7module_EE3$_5vJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clEST_.argprom.exit": ; preds = %.noexc.i, %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE9load_argsERNS0_13function_callE.exit.i, %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE9load_argsERNS0_13function_callE.exit.thread.sink.split.i
   %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE9load_argsERNS0_13function_callE.exit.i ], [ inttoptr (i64 1 to ptr), %.noexc.i ], [ @_Py_NoneStruct, %_ZN8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE9load_argsERNS0_13function_callE.exit.thread.sink.split.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #26

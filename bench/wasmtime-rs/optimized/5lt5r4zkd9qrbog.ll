@@ -370,18 +370,18 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   tail call void @llvm.assume(i1 %3)
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = tail call zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8is_value17hc95b7a52fa88596cE(ptr nonnull align 8 %.val)
-  br i1 %4, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc18c6ff8c38fdb59E.exit", label %5
+  br i1 %4, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc18c6ff8c38fdb59E.argprom.exit", label %5
 
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Operand10is_varargs17h12758baafd87bbe0E(ptr nonnull align 8 %.val)
-  br i1 %6, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc18c6ff8c38fdb59E.exit", label %7
+  br i1 %6, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc18c6ff8c38fdb59E.argprom.exit", label %7
 
 7:                                                ; preds = %5
   %8 = tail call zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind8is_block17h839ed686daa70d50E(ptr nonnull align 8 %.val)
   %9 = xor i1 %8, true
-  br label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc18c6ff8c38fdb59E.exit"
+  br label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc18c6ff8c38fdb59E.argprom.exit"
 
-"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc18c6ff8c38fdb59E.exit": ; preds = %2, %5, %7
+"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc18c6ff8c38fdb59E.argprom.exit": ; preds = %2, %5, %7
   %.0.i = phi i1 [ %9, %7 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -422,18 +422,18 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   tail call void @llvm.assume(i1 %3)
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = tail call zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8is_value17hc95b7a52fa88596cE(ptr nonnull align 8 %.val)
-  br i1 %4, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h270907f56ade69ffE.exit", label %5
+  br i1 %4, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h270907f56ade69ffE.argprom.exit", label %5
 
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Operand10is_varargs17h12758baafd87bbe0E(ptr nonnull align 8 %.val)
-  br i1 %6, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h270907f56ade69ffE.exit", label %7
+  br i1 %6, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h270907f56ade69ffE.argprom.exit", label %7
 
 7:                                                ; preds = %5
   %8 = tail call zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind8is_block17h839ed686daa70d50E(ptr nonnull align 8 %.val)
   %9 = xor i1 %8, true
-  br label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h270907f56ade69ffE.exit"
+  br label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h270907f56ade69ffE.argprom.exit"
 
-"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h270907f56ade69ffE.exit": ; preds = %2, %5, %7
+"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h270907f56ade69ffE.argprom.exit": ; preds = %2, %5, %7
   %.0.i = phi i1 [ %9, %7 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -456,21 +456,21 @@ define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hc542871cae985cccE.exit", label %7
+  br i1 %.not.i, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hc542871cae985cccE.argprom.exit", label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 88
   %9 = load i8, ptr %8, align 8, !range !6, !noundef !3
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hc542871cae985cccE.exit", label %11
+  br i1 %10, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hc542871cae985cccE.argprom.exit", label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %4, i64 72
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = icmp ne i64 %13, 1
-  br label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hc542871cae985cccE.exit"
+  br label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hc542871cae985cccE.argprom.exit"
 
-"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hc542871cae985cccE.exit": ; preds = %2, %7, %11
+"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hc542871cae985cccE.argprom.exit": ; preds = %2, %7, %11
   %.0.i = phi i1 [ %14, %11 ], [ false, %7 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -6500,13 +6500,13 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7
   %10 = call { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17ha82abe43f3d559eeE"(ptr nonnull align 8 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hff1c5e83c20f1047E.exit"
+  br i1 %12, label %13, label %"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hff1c5e83c20f1047E.argprom.exit"
 
 13:                                               ; preds = %3
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.291) #15
   unreachable
 
-"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hff1c5e83c20f1047E.exit": ; preds = %3
+"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17hff1c5e83c20f1047E.argprom.exit": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   %14 = extractvalue { ptr, i64 } %10, 1
@@ -8774,10 +8774,10 @@ attributes #15 = { noreturn }
 !6 = !{i8 0, i8 2}
 !7 = !{i64 1}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN22cranelift_codegen_meta8gen_inst18iterable_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h05ff525fa976ad72E: argument 0"}
-!10 = distinct !{!10, !"_ZN22cranelift_codegen_meta8gen_inst18iterable_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h05ff525fa976ad72E"}
+!9 = distinct !{!9, !10, !"_ZN22cranelift_codegen_meta8gen_inst18iterable_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h05ff525fa976ad72E.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZN22cranelift_codegen_meta8gen_inst18iterable_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h05ff525fa976ad72E.argprom"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h5d69600dc25b3741E: argument 0"}
-!13 = distinct !{!13, !"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h5d69600dc25b3741E"}
+!12 = distinct !{!12, !13, !"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h5d69600dc25b3741E.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h5d69600dc25b3741E.argprom"}
 !14 = !{i8 0, i8 3}
 !15 = !{!"branch_weights", !"expected", i32 2000, i32 1}

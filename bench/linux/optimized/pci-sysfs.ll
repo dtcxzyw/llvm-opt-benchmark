@@ -724,7 +724,7 @@ define internal i32 @pci_mmap_resource_wc(ptr nocapture readnone %0, ptr noundef
   %12 = getelementptr [11 x %struct.resource], ptr %9, i64 0, i64 %11
   %13 = tail call i32 @security_locked_down(i32 noundef 6) #11
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %pci_mmap_resource.exit
+  br i1 %14, label %15, label %pci_mmap_resource.argprom.exit
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %12, i64 24
@@ -736,19 +736,19 @@ define internal i32 @pci_mmap_resource_wc(ptr nocapture readnone %0, ptr noundef
 20:                                               ; preds = %15
   %21 = load i64, ptr %12, align 8
   %22 = tail call zeroext i1 @iomem_is_exclusive(i64 noundef %21) #11
-  br i1 %22, label %pci_mmap_resource.exit, label %23
+  br i1 %22, label %pci_mmap_resource.argprom.exit, label %23
 
 23:                                               ; preds = %20, %15
   %24 = getelementptr inbounds i8, ptr %12, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %pci_mmap_resource.exit, label %27
+  br i1 %26, label %pci_mmap_resource.argprom.exit, label %27
 
 27:                                               ; preds = %23
   %28 = load i64, ptr %12, align 8
   %29 = add i64 %25, 1
   %30 = icmp eq i64 %29, %28
-  br i1 %30, label %pci_mmap_resource.exit, label %31
+  br i1 %30, label %pci_mmap_resource.argprom.exit, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %3, i64 8
@@ -765,7 +765,7 @@ define internal i32 @pci_mmap_resource_wc(ptr nocapture readnone %0, ptr noundef
   %43 = add i64 %36, %38
   %44 = icmp ugt i64 %43, %41
   %45 = select i1 %42, i1 true, i1 %44
-  br i1 %45, label %pci_mmap_resource.exit, label %46
+  br i1 %45, label %pci_mmap_resource.argprom.exit, label %46
 
 46:                                               ; preds = %31
   %47 = load i64, ptr %16, align 8
@@ -773,9 +773,9 @@ define internal i32 @pci_mmap_resource_wc(ptr nocapture readnone %0, ptr noundef
   %49 = lshr i32 %48, 9
   %50 = and i32 %49, 1
   %51 = tail call i32 @pci_mmap_resource_range(ptr noundef %6, i32 noundef %8, ptr noundef %3, i32 noundef %50, i32 noundef 1) #11
-  br label %pci_mmap_resource.exit
+  br label %pci_mmap_resource.argprom.exit
 
-pci_mmap_resource.exit:                           ; preds = %4, %20, %23, %27, %31, %46
+pci_mmap_resource.argprom.exit:                   ; preds = %4, %20, %23, %27, %31, %46
   %52 = phi i32 [ %51, %46 ], [ %13, %4 ], [ -22, %20 ], [ -22, %31 ], [ -22, %23 ], [ -22, %27 ]
   ret i32 %52
 }
@@ -906,7 +906,7 @@ define internal i32 @pci_mmap_resource_uc(ptr nocapture readnone %0, ptr noundef
   %12 = getelementptr [11 x %struct.resource], ptr %9, i64 0, i64 %11
   %13 = tail call i32 @security_locked_down(i32 noundef 6) #11
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %pci_mmap_resource.exit
+  br i1 %14, label %15, label %pci_mmap_resource.argprom.exit
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %12, i64 24
@@ -918,19 +918,19 @@ define internal i32 @pci_mmap_resource_uc(ptr nocapture readnone %0, ptr noundef
 20:                                               ; preds = %15
   %21 = load i64, ptr %12, align 8
   %22 = tail call zeroext i1 @iomem_is_exclusive(i64 noundef %21) #11
-  br i1 %22, label %pci_mmap_resource.exit, label %23
+  br i1 %22, label %pci_mmap_resource.argprom.exit, label %23
 
 23:                                               ; preds = %20, %15
   %24 = getelementptr inbounds i8, ptr %12, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %pci_mmap_resource.exit, label %27
+  br i1 %26, label %pci_mmap_resource.argprom.exit, label %27
 
 27:                                               ; preds = %23
   %28 = load i64, ptr %12, align 8
   %29 = add i64 %25, 1
   %30 = icmp eq i64 %29, %28
-  br i1 %30, label %pci_mmap_resource.exit, label %31
+  br i1 %30, label %pci_mmap_resource.argprom.exit, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %3, i64 8
@@ -947,7 +947,7 @@ define internal i32 @pci_mmap_resource_uc(ptr nocapture readnone %0, ptr noundef
   %43 = add i64 %36, %38
   %44 = icmp ugt i64 %43, %41
   %45 = select i1 %42, i1 true, i1 %44
-  br i1 %45, label %pci_mmap_resource.exit, label %46
+  br i1 %45, label %pci_mmap_resource.argprom.exit, label %46
 
 46:                                               ; preds = %31
   %47 = load i64, ptr %16, align 8
@@ -955,9 +955,9 @@ define internal i32 @pci_mmap_resource_uc(ptr nocapture readnone %0, ptr noundef
   %49 = lshr i32 %48, 9
   %50 = and i32 %49, 1
   %51 = tail call i32 @pci_mmap_resource_range(ptr noundef %6, i32 noundef %8, ptr noundef %3, i32 noundef %50, i32 noundef 0) #11
-  br label %pci_mmap_resource.exit
+  br label %pci_mmap_resource.argprom.exit
 
-pci_mmap_resource.exit:                           ; preds = %4, %20, %23, %27, %31, %46
+pci_mmap_resource.argprom.exit:                   ; preds = %4, %20, %23, %27, %31, %46
   %52 = phi i32 [ %51, %46 ], [ %13, %4 ], [ -22, %20 ], [ -22, %31 ], [ -22, %23 ], [ -22, %27 ]
   ret i32 %52
 }

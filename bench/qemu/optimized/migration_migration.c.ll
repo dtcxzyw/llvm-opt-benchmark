@@ -438,14 +438,14 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(23) %old_caps.i, i8 0, i64 23, i1 false)
   %parameters.i = getelementptr inbounds i8, ptr %12, i64 520
   %call.i1 = tail call zeroext i1 @migrate_params_check(ptr noundef nonnull %parameters.i, ptr noundef nonnull @error_fatal) #19
-  br i1 %call.i1, label %if.end.i, label %migration_object_check.exit
+  br i1 %call.i1, label %if.end.i, label %migration_object_check.argprom.exit
 
 if.end.i:                                         ; preds = %if.end5
   %capabilities.i = getelementptr inbounds i8, ptr %12, i64 1080
   %call2.i = call zeroext i1 @migrate_caps_check(ptr noundef nonnull %old_caps.i, ptr noundef nonnull %capabilities.i, ptr noundef nonnull @error_fatal) #19
-  br label %migration_object_check.exit
+  br label %migration_object_check.argprom.exit
 
-migration_object_check.exit:                      ; preds = %if.end5, %if.end.i
+migration_object_check.argprom.exit:              ; preds = %if.end5, %if.end.i
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %old_caps.i)
   call void @blk_mig_init() #19
   call void @ram_mig_init() #19
@@ -662,14 +662,14 @@ entry:
   %error3 = getelementptr inbounds i8, ptr %s, i64 1480
   %2 = load ptr, ptr %error3, align 8
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %if.then, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %tobool.not, label %if.then, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.then:                                          ; preds = %entry
   %call4 = tail call ptr @error_copy(ptr noundef %error) #19
   store ptr %call4, ptr %error3, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then, %entry
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.then, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %error_mutex, ptr noundef nonnull @.str.53, i32 noundef 132) #19
   ret void
 }
@@ -1011,7 +1011,7 @@ trace_migrate_send_rp_message.exit:               ; preds = %entry, %land.lhs.tr
   %to_src_file = getelementptr inbounds i8, ptr %mis, i64 280
   %8 = load ptr, ptr %to_src_file, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end
 
 if.end:                                           ; preds = %trace_migrate_send_rp_message.exit
   tail call void @qemu_put_be16(ptr noundef nonnull %8, i32 noundef %message_type) #19
@@ -1023,9 +1023,9 @@ if.end:                                           ; preds = %trace_migrate_send_
   tail call void @qemu_put_buffer(ptr noundef %10, ptr noundef %data, i64 noundef %conv6) #19
   %11 = load ptr, ptr %to_src_file, align 8
   %call8 = tail call i32 @qemu_fflush(ptr noundef %11) #19
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %trace_migrate_send_rp_message.exit, %if.end
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %trace_migrate_send_rp_message.exit, %if.end
   %retval.0 = phi i32 [ %call8, %if.end ], [ -5, %trace_migrate_send_rp_message.exit ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rp_mutex, ptr noundef nonnull @.str.53, i32 noundef 132) #19
   ret i32 %retval.0
@@ -1269,7 +1269,7 @@ if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %3, align 8
   %value16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %call15, ptr %value16, align 8
-  br label %glib_autoptr_cleanup_MigrationAddress.exit.thread
+  br label %glib_autoptr_cleanup_MigrationAddress.argprom.exit.thread
 
 if.else:                                          ; preds = %entry
   %call20 = tail call i32 @strstart(ptr noundef %uri, ptr noundef nonnull @.str.13, ptr noundef null) #19
@@ -1288,7 +1288,7 @@ if.then26:                                        ; preds = %if.then22
 
 if.end:                                           ; preds = %if.then22
   store i32 2, ptr %call1, align 8
-  br label %glib_autoptr_cleanup_MigrationAddress.exit.thread
+  br label %glib_autoptr_cleanup_MigrationAddress.argprom.exit.thread
 
 if.else28:                                        ; preds = %if.else
   %call29 = tail call i32 @strstart(ptr noundef %uri, ptr noundef nonnull @.str.14, ptr noundef null) #19
@@ -1323,7 +1323,7 @@ if.end44:                                         ; preds = %if.then39
   %u49 = getelementptr inbounds i8, ptr %call41, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %u48, ptr noundef nonnull align 8 dereferenceable(32) %u49, i64 32, i1 false)
   tail call void @g_free(ptr noundef nonnull %call41) #19
-  br label %glib_autoptr_cleanup_MigrationAddress.exit.thread
+  br label %glib_autoptr_cleanup_MigrationAddress.argprom.exit.thread
 
 if.else50:                                        ; preds = %lor.lhs.false36
   %call51 = tail call i32 @strstart(ptr noundef %uri, ptr noundef nonnull @.str.18, ptr noundef null) #19
@@ -1338,37 +1338,37 @@ if.then53:                                        ; preds = %if.else50
   %offset = getelementptr inbounds i8, ptr %call1, i64 16
   %call61 = tail call i32 @file_parse_offset(ptr noundef %call56, ptr noundef nonnull %offset, ptr noundef %errp) #19
   %tobool62.not = icmp eq i32 %call61, 0
-  br i1 %tobool62.not, label %glib_autoptr_cleanup_MigrationAddress.exit.thread, label %if.then.i.i
+  br i1 %tobool62.not, label %glib_autoptr_cleanup_MigrationAddress.argprom.exit.thread, label %if.then.i.i
 
 if.else65:                                        ; preds = %if.else50
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 505, ptr noundef nonnull @__func__.migrate_uri_parse, ptr noundef nonnull @.str.19, ptr noundef %uri) #19
   br label %cleanup
 
-glib_autoptr_cleanup_MigrationAddress.exit.thread: ; preds = %if.end, %if.then53, %if.end44, %if.then
+glib_autoptr_cleanup_MigrationAddress.argprom.exit.thread: ; preds = %if.end, %if.then53, %if.end44, %if.then
   store i32 0, ptr %call, align 8
   %addr71 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %addr71, align 8
   store ptr %call, ptr %channel, align 8
-  br label %glib_autoptr_cleanup_MigrationChannel.exit
+  br label %glib_autoptr_cleanup_MigrationChannel.argprom.exit
 
 cleanup:                                          ; preds = %if.else65, %if.then26
   %tobool.not.i.i = icmp eq ptr %call1, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_MigrationAddress.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_MigrationAddress.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then39, %if.then53, %cleanup
   tail call void @qapi_free_MigrationAddress(ptr noundef nonnull %call1) #19
-  br label %glib_autoptr_cleanup_MigrationAddress.exit
+  br label %glib_autoptr_cleanup_MigrationAddress.argprom.exit
 
-glib_autoptr_cleanup_MigrationAddress.exit:       ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_MigrationAddress.argprom.exit: ; preds = %cleanup, %if.then.i.i
   %tobool.not.i.i27 = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i27, label %glib_autoptr_cleanup_MigrationChannel.exit, label %if.then.i.i28
+  br i1 %tobool.not.i.i27, label %glib_autoptr_cleanup_MigrationChannel.argprom.exit, label %if.then.i.i28
 
-if.then.i.i28:                                    ; preds = %glib_autoptr_cleanup_MigrationAddress.exit
+if.then.i.i28:                                    ; preds = %glib_autoptr_cleanup_MigrationAddress.argprom.exit
   tail call void @qapi_free_MigrationChannel(ptr noundef nonnull %call) #19
-  br label %glib_autoptr_cleanup_MigrationChannel.exit
+  br label %glib_autoptr_cleanup_MigrationChannel.argprom.exit
 
-glib_autoptr_cleanup_MigrationChannel.exit:       ; preds = %glib_autoptr_cleanup_MigrationAddress.exit.thread, %glib_autoptr_cleanup_MigrationAddress.exit, %if.then.i.i28
-  %retval.04554 = phi i1 [ true, %glib_autoptr_cleanup_MigrationAddress.exit.thread ], [ false, %glib_autoptr_cleanup_MigrationAddress.exit ], [ false, %if.then.i.i28 ]
+glib_autoptr_cleanup_MigrationChannel.argprom.exit: ; preds = %glib_autoptr_cleanup_MigrationAddress.argprom.exit.thread, %glib_autoptr_cleanup_MigrationAddress.argprom.exit, %if.then.i.i28
+  %retval.04554 = phi i1 [ true, %glib_autoptr_cleanup_MigrationAddress.argprom.exit.thread ], [ false, %glib_autoptr_cleanup_MigrationAddress.argprom.exit ], [ false, %if.then.i.i28 ]
   ret i1 %retval.04554
 }
 
@@ -1617,23 +1617,23 @@ if.else.i.i:                                      ; preds = %entry
 migration_incoming_get_current.exit.i:            ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %if.then.i, label %migration_incoming_setup.exit
+  br i1 %tobool.not.i, label %if.then.i, label %migration_incoming_setup.argprom.exit
 
 if.then.i:                                        ; preds = %migration_incoming_get_current.exit.i
   store ptr %f, ptr %0, align 8
-  br label %migration_incoming_setup.exit
+  br label %migration_incoming_setup.argprom.exit
 
-migration_incoming_setup.exit:                    ; preds = %migration_incoming_get_current.exit.i, %if.then.i
+migration_incoming_setup.argprom.exit:            ; preds = %migration_incoming_get_current.exit.i, %if.then.i
   tail call void @qemu_file_set_blocking(ptr noundef %f, i1 noundef zeroext false) #19
   %call1 = tail call fastcc zeroext i1 @postcopy_try_recover()
   br i1 %call1, label %return, label %if.end3
 
-if.end3:                                          ; preds = %migration_incoming_setup.exit
+if.end3:                                          ; preds = %migration_incoming_setup.argprom.exit
   %call.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @process_incoming_migration_co, ptr noundef null) #19
   tail call void @qemu_coroutine_enter(ptr noundef %call.i) #19
   br label %return
 
-return:                                           ; preds = %migration_incoming_setup.exit, %if.end3
+return:                                           ; preds = %migration_incoming_setup.argprom.exit, %if.end3
   ret void
 }
 
@@ -1751,13 +1751,13 @@ if.else.i.i:                                      ; preds = %if.then16
 migration_incoming_get_current.exit.i:            ; preds = %if.then16
   %5 = load ptr, ptr %4, align 8
   %tobool.not.i12 = icmp eq ptr %5, null
-  br i1 %tobool.not.i12, label %if.then.i, label %migration_incoming_setup.exit
+  br i1 %tobool.not.i12, label %if.then.i, label %migration_incoming_setup.argprom.exit
 
 if.then.i:                                        ; preds = %migration_incoming_get_current.exit.i
   store ptr %call17, ptr %4, align 8
-  br label %migration_incoming_setup.exit
+  br label %migration_incoming_setup.argprom.exit
 
-migration_incoming_setup.exit:                    ; preds = %migration_incoming_get_current.exit.i, %if.then.i
+migration_incoming_setup.argprom.exit:            ; preds = %migration_incoming_get_current.exit.i, %if.then.i
   call void @qemu_file_set_blocking(ptr noundef %call17, i1 noundef zeroext false) #19
   br label %if.end38
 
@@ -1803,7 +1803,7 @@ if.then36:                                        ; preds = %if.end34
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %6) #19
   br label %if.end45
 
-if.end38:                                         ; preds = %migration_incoming_setup.exit, %if.end34
+if.end38:                                         ; preds = %migration_incoming_setup.argprom.exit, %if.end34
   %call.i13 = call zeroext i1 @migrate_multifd() #19
   br i1 %call.i13, label %if.then.i15, label %if.end.i
 
@@ -2224,26 +2224,26 @@ if.end.i.i:                                       ; preds = %if.else.i35.i, %if.
 lor.rhs.i.i.i:                                    ; preds = %if.end.i.i
   %17 = load ptr, ptr @current_migration, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %migrate_show_downtime.exit.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %migrate_show_downtime.argprom.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 246, ptr noundef nonnull @__PRETTY_FUNCTION__.migrate_get_current) #20
   unreachable
 
-migrate_show_downtime.exit.i.i:                   ; preds = %lor.rhs.i.i.i
+migrate_show_downtime.argprom.exit.i.i:           ; preds = %lor.rhs.i.i.i
   %state.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 776
   %18 = load i32, ptr %state.i.i.i.i, align 8
   %.off.i.i.i.i = add i32 %18, -5
   %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, 3
   br i1 %switch.i.i.i.i, label %populate_time_info.exit.i, label %if.else8.i.i
 
-if.else8.i.i:                                     ; preds = %migrate_show_downtime.exit.i.i
+if.else8.i.i:                                     ; preds = %migrate_show_downtime.argprom.exit.i.i
   br label %populate_time_info.exit.i
 
-populate_time_info.exit.i:                        ; preds = %if.else8.i.i, %migrate_show_downtime.exit.i.i, %if.end.i.i
-  %.sink18.i.i = phi i64 [ 56, %if.else8.i.i ], [ 72, %if.end.i.i ], [ 72, %migrate_show_downtime.exit.i.i ]
-  %.sink.i.i = phi i64 [ 1072, %if.else8.i.i ], [ 1064, %if.end.i.i ], [ 1064, %migrate_show_downtime.exit.i.i ]
-  %.sink17.i.i = phi i64 [ 64, %if.else8.i.i ], [ 80, %if.end.i.i ], [ 80, %migrate_show_downtime.exit.i.i ]
+populate_time_info.exit.i:                        ; preds = %if.else8.i.i, %migrate_show_downtime.argprom.exit.i.i, %if.end.i.i
+  %.sink18.i.i = phi i64 [ 56, %if.else8.i.i ], [ 72, %if.end.i.i ], [ 72, %migrate_show_downtime.argprom.exit.i.i ]
+  %.sink.i.i = phi i64 [ 1072, %if.else8.i.i ], [ 1064, %if.end.i.i ], [ 1064, %migrate_show_downtime.argprom.exit.i.i ]
+  %.sink17.i.i = phi i64 [ 64, %if.else8.i.i ], [ 80, %if.end.i.i ], [ 80, %migrate_show_downtime.argprom.exit.i.i ]
   %has_expected_downtime.i.i = getelementptr inbounds i8, ptr %call, i64 %.sink18.i.i
   store i8 1, ptr %has_expected_downtime.i.i, align 8
   %expected_downtime.i.i = getelementptr inbounds i8, ptr %4, i64 %.sink.i.i
@@ -2318,26 +2318,26 @@ if.end.i50.i:                                     ; preds = %if.else.i45.i, %if.
 lor.rhs.i.i54.i:                                  ; preds = %if.end.i50.i
   %28 = load ptr, ptr @current_migration, align 8
   %tobool.not.i.i.i.i55.i = icmp eq ptr %28, null
-  br i1 %tobool.not.i.i.i.i55.i, label %if.else.i.i.i.i67.i, label %migrate_show_downtime.exit.i56.i
+  br i1 %tobool.not.i.i.i.i55.i, label %if.else.i.i.i.i67.i, label %migrate_show_downtime.argprom.exit.i56.i
 
 if.else.i.i.i.i67.i:                              ; preds = %lor.rhs.i.i54.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 246, ptr noundef nonnull @__PRETTY_FUNCTION__.migrate_get_current) #20
   unreachable
 
-migrate_show_downtime.exit.i56.i:                 ; preds = %lor.rhs.i.i54.i
+migrate_show_downtime.argprom.exit.i56.i:         ; preds = %lor.rhs.i.i54.i
   %state.i.i.i57.i = getelementptr inbounds i8, ptr %28, i64 776
   %29 = load i32, ptr %state.i.i.i57.i, align 8
   %.off.i.i.i58.i = add i32 %29, -5
   %switch.i.i.i59.i = icmp ult i32 %.off.i.i.i58.i, 3
   br i1 %switch.i.i.i59.i, label %populate_time_info.exit70.i, label %if.else8.i60.i
 
-if.else8.i60.i:                                   ; preds = %migrate_show_downtime.exit.i56.i
+if.else8.i60.i:                                   ; preds = %migrate_show_downtime.argprom.exit.i56.i
   br label %populate_time_info.exit70.i
 
-populate_time_info.exit70.i:                      ; preds = %if.else8.i60.i, %migrate_show_downtime.exit.i56.i, %if.end.i50.i
-  %.sink18.i61.i = phi i64 [ 56, %if.else8.i60.i ], [ 72, %if.end.i50.i ], [ 72, %migrate_show_downtime.exit.i56.i ]
-  %.sink.i62.i = phi i64 [ 1072, %if.else8.i60.i ], [ 1064, %if.end.i50.i ], [ 1064, %migrate_show_downtime.exit.i56.i ]
-  %.sink17.i63.i = phi i64 [ 64, %if.else8.i60.i ], [ 80, %if.end.i50.i ], [ 80, %migrate_show_downtime.exit.i56.i ]
+populate_time_info.exit70.i:                      ; preds = %if.else8.i60.i, %migrate_show_downtime.argprom.exit.i56.i, %if.end.i50.i
+  %.sink18.i61.i = phi i64 [ 56, %if.else8.i60.i ], [ 72, %if.end.i50.i ], [ 72, %migrate_show_downtime.argprom.exit.i56.i ]
+  %.sink.i62.i = phi i64 [ 1072, %if.else8.i60.i ], [ 1064, %if.end.i50.i ], [ 1064, %migrate_show_downtime.argprom.exit.i56.i ]
+  %.sink17.i63.i = phi i64 [ 64, %if.else8.i60.i ], [ 80, %if.end.i50.i ], [ 80, %migrate_show_downtime.argprom.exit.i56.i ]
   %has_expected_downtime.i64.i = getelementptr inbounds i8, ptr %call, i64 %.sink18.i61.i
   store i8 1, ptr %has_expected_downtime.i64.i, align 8
   %expected_downtime.i65.i = getelementptr inbounds i8, ptr %4, i64 %.sink.i62.i
@@ -2370,20 +2370,20 @@ sw.epilog.i6:                                     ; preds = %sw.bb26.i, %sw.bb24
   %error.i = getelementptr inbounds i8, ptr %4, i64 1480
   %33 = load ptr, ptr %error.i, align 8
   %tobool31.not.i = icmp eq ptr %33, null
-  br i1 %tobool31.not.i, label %glib_autoptr_cleanup_QemuLockable.exit.i, label %if.then.i8
+  br i1 %tobool31.not.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.i, label %if.then.i8
 
 if.then.i8:                                       ; preds = %sw.epilog.i6
   %call33.i = tail call ptr @error_get_pretty(ptr noundef nonnull %33) #19
   %call34.i = tail call noalias ptr @g_strdup(ptr noundef %call33.i) #19
   %error_desc.i = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %call34.i, ptr %error_desc.i, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit.i
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit.i
 
-glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %if.then.i8, %sw.epilog.i6
+glib_autoptr_cleanup_QemuLockable.argprom.exit.i: ; preds = %if.then.i8, %sw.epilog.i6
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %error_mutex.i, ptr noundef nonnull @.str.53, i32 noundef 132) #19
   br label %fill_source_migration_info.exit
 
-fill_source_migration_info.exit:                  ; preds = %while.end15.i, %glib_autoptr_cleanup_QemuLockable.exit.i
+fill_source_migration_info.exit:                  ; preds = %while.end15.i, %glib_autoptr_cleanup_QemuLockable.argprom.exit.i
   ret ptr %call
 }
 
@@ -2496,7 +2496,7 @@ declare ptr @error_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @migrate_has_error(ptr noundef %s) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %error_mutex = getelementptr inbounds i8, ptr %s, i64 1488
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -3250,13 +3250,13 @@ if.else46:                                        ; preds = %if.end20
 cleanup:                                          ; preds = %migration_channels_and_transport_compatible.exit, %if.then32, %if.then28, %if.then44, %if.else46, %if.then39, %if.then21, %if.then9, %if.else14, %if.then5, %if.then
   %channel.val = load ptr, ptr %channel, align 8
   %tobool.not.i.i = icmp eq ptr %channel.val, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_MigrationChannel.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_MigrationChannel.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   tail call void @qapi_free_MigrationChannel(ptr noundef nonnull %channel.val) #19
-  br label %glib_autoptr_cleanup_MigrationChannel.exit
+  br label %glib_autoptr_cleanup_MigrationChannel.argprom.exit
 
-glib_autoptr_cleanup_MigrationChannel.exit:       ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_MigrationChannel.argprom.exit: ; preds = %cleanup, %if.then.i.i
   ret void
 }
 
@@ -3490,7 +3490,7 @@ migrate_get_current.exit:                         ; preds = %entry
 
 cleanup.thread:                                   ; preds = %migrate_get_current.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 1945, ptr noundef nonnull @__func__.qmp_migrate, ptr noundef nonnull @.str.35) #19
-  br label %glib_autoptr_cleanup_MigrationChannel.exit
+  br label %glib_autoptr_cleanup_MigrationChannel.argprom.exit
 
 if.else:                                          ; preds = %migrate_get_current.exit
   %tobool10.not = icmp eq ptr %channels, null
@@ -3775,13 +3775,13 @@ if.end88:                                         ; preds = %if.then84, %if.then
 cleanup:                                          ; preds = %migrate_prepare.exit.thread, %migration_channels_and_transport_compatible.exit, %if.end80, %if.then45, %migrate_prepare.exit, %if.then17, %if.end88, %if.else22, %if.then13
   %channel.val.pr = load ptr, ptr %channel, align 8
   %tobool.not.i.i36 = icmp eq ptr %channel.val.pr, null
-  br i1 %tobool.not.i.i36, label %glib_autoptr_cleanup_MigrationChannel.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i36, label %glib_autoptr_cleanup_MigrationChannel.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @qapi_free_MigrationChannel(ptr noundef nonnull %channel.val.pr) #19
-  br label %glib_autoptr_cleanup_MigrationChannel.exit
+  br label %glib_autoptr_cleanup_MigrationChannel.argprom.exit
 
-glib_autoptr_cleanup_MigrationChannel.exit:       ; preds = %cleanup.thread, %cleanup, %if.then.i.i
+glib_autoptr_cleanup_MigrationChannel.argprom.exit: ; preds = %cleanup.thread, %cleanup, %if.then.i.i
   ret void
 }
 
@@ -4682,7 +4682,7 @@ entry:
   %3 = load ptr, ptr %to_dst_file, align 8
   tail call void @qemu_savevm_state_setup(ptr noundef %3) #19
   tail call void @qemu_mutex_unlock_iothread() #19
-  tail call fastcc void @qemu_savevm_wait_unplug(ptr noundef %opaque)
+  tail call fastcc void @qemu_savevm_wait_unplug.argelim(ptr noundef %opaque)
   %call.i27 = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #19
   %div.i28 = sdiv i64 %call.i27, 1000000
   %sub = add nsw i64 %div.i28, %div.i.neg
@@ -5059,7 +5059,7 @@ if.end13:                                         ; preds = %if.then11, %if.end9
   %6 = load ptr, ptr %to_dst_file, align 8
   tail call void @qemu_savevm_state_setup(ptr noundef %6) #19
   tail call void @qemu_mutex_unlock_iothread() #19
-  tail call fastcc void @qemu_savevm_wait_unplug(ptr noundef nonnull %opaque)
+  tail call fastcc void @qemu_savevm_wait_unplug.argelim(ptr noundef nonnull %opaque)
   %call.i20 = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #19
   %div.i21 = sdiv i64 %call.i20, 1000000
   %sub = add nsw i64 %div.i21, %div.i.neg
@@ -7071,7 +7071,7 @@ sw.bb57:                                          ; preds = %if.end46
   %add.ptr.val = load i32, ptr %add.ptr74, align 8
   %32 = call i32 @llvm.bswap.i32(i32 %add.ptr.val)
   %conv62 = sext i32 %32 to i64
-  call fastcc void @migrate_handle_rp_req_pages(ptr noundef null, i64 noundef %31, i64 noundef %conv62, ptr noundef %err)
+  call fastcc void @migrate_handle_rp_req_pages.argprom(ptr noundef null, i64 noundef %31, i64 noundef %conv62, ptr noundef %err)
   %33 = load ptr, ptr %err, align 8
   %tobool63.not = icmp eq ptr %33, null
   br i1 %tobool63.not, label %while.cond.outer.backedge, label %if.then118
@@ -7105,7 +7105,7 @@ if.then87:                                        ; preds = %if.end83
   br label %out
 
 if.end89:                                         ; preds = %if.end83
-  call fastcc void @migrate_handle_rp_req_pages(ptr noundef nonnull %arrayidx90, i64 noundef %start.2, i64 noundef %len.2, ptr noundef %err)
+  call fastcc void @migrate_handle_rp_req_pages.argprom(ptr noundef nonnull %arrayidx90, i64 noundef %start.2, i64 noundef %len.2, ptr noundef %err)
   %37 = load ptr, ptr %err, align 8
   %tobool91.not = icmp eq ptr %37, null
   br i1 %tobool91.not, label %while.cond.outer.backedge, label %if.then118
@@ -7350,7 +7350,7 @@ declare i32 @qemu_file_get_error_obj(ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @qemu_get_buffer(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @migrate_handle_rp_req_pages(ptr noundef %rbname, i64 noundef %start, i64 noundef range(i64 -2147483648, 2147483648) %len, ptr noundef nonnull %errp) unnamed_addr #0 {
+define internal fastcc void @migrate_handle_rp_req_pages.argprom(ptr noundef %rbname, i64 noundef %start, i64 noundef range(i64 -2147483648, 2147483648) %len, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call i32 @getpagesize() #25
@@ -7436,7 +7436,7 @@ declare void @qemu_savevm_state_header(ptr noundef) local_unnamed_addr #1
 declare void @qemu_savevm_state_setup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qemu_savevm_wait_unplug(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @qemu_savevm_wait_unplug.argelim(ptr noundef %s) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_savevm_state_guest_unplug_pending() #19
   %state = getelementptr inbounds i8, ptr %s, i64 776

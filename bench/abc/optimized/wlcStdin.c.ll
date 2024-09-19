@@ -394,8 +394,8 @@ define noalias noundef ptr @Wlc_StdinCollectProblem(ptr nocapture noundef readon
   %11 = sub nsw i64 0, %10
   br label %12
 
-12:                                               ; preds = %.lr.ph, %Wlc_StdinCollectStop.exit.thread
-  %13 = phi i32 [ %9, %.lr.ph ], [ %49, %Wlc_StdinCollectStop.exit.thread ]
+12:                                               ; preds = %.lr.ph, %Wlc_StdinCollectStop.argprom.exit.thread
+  %13 = phi i32 [ %9, %.lr.ph ], [ %49, %Wlc_StdinCollectStop.argprom.exit.thread ]
   %14 = trunc i32 %13 to i8
   %15 = load i32, ptr %5, align 4
   %16 = load i32, ptr %4, align 8
@@ -458,44 +458,44 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %40 = getelementptr inbounds i8, ptr %37, i64 %39
   store i8 %14, ptr %40, align 1
   %41 = icmp eq i32 %13, 41
-  br i1 %41, label %42, label %Wlc_StdinCollectStop.exit.thread
+  br i1 %41, label %42, label %Wlc_StdinCollectStop.argprom.exit.thread
 
 42:                                               ; preds = %Vec_StrPush.exit
   %.val = load i32, ptr %5, align 4
   %43 = icmp slt i32 %.val, %3
-  br i1 %43, label %Wlc_StdinCollectStop.exit.thread, label %Wlc_StdinCollectStop.exit
+  br i1 %43, label %Wlc_StdinCollectStop.argprom.exit.thread, label %Wlc_StdinCollectStop.argprom.exit
 
-Wlc_StdinCollectStop.exit:                        ; preds = %42
+Wlc_StdinCollectStop.argprom.exit:                ; preds = %42
   %.val9 = load ptr, ptr %7, align 8
   %44 = sext i32 %.val to i64
   %45 = getelementptr inbounds i8, ptr %.val9, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 %11
   %47 = tail call i32 @strncmp(ptr noundef readonly %46, ptr noundef readonly %0, i64 noundef %10) #17
   %.not.i.not = icmp eq i32 %47, 0
-  br i1 %.not.i.not, label %Wlc_StdinCollectStop.exit._crit_edge, label %Wlc_StdinCollectStop.exit.thread
+  br i1 %.not.i.not, label %Wlc_StdinCollectStop.argprom.exit._crit_edge, label %Wlc_StdinCollectStop.argprom.exit.thread
 
-Wlc_StdinCollectStop.exit.thread:                 ; preds = %42, %Wlc_StdinCollectStop.exit, %Vec_StrPush.exit
+Wlc_StdinCollectStop.argprom.exit.thread:         ; preds = %42, %Wlc_StdinCollectStop.argprom.exit, %Vec_StrPush.exit
   %48 = load ptr, ptr @stdin, align 8
   %49 = tail call i32 @fgetc(ptr noundef %48)
   %.not = icmp eq i32 %49, -1
-  br i1 %.not, label %Wlc_StdinCollectStop.exit.thread.Wlc_StdinCollectStop.exit._crit_edge.loopexit_crit_edge, label %12, !llvm.loop !11
+  br i1 %.not, label %Wlc_StdinCollectStop.argprom.exit.thread.Wlc_StdinCollectStop.argprom.exit._crit_edge.loopexit_crit_edge, label %12, !llvm.loop !11
 
-Wlc_StdinCollectStop.exit.thread.Wlc_StdinCollectStop.exit._crit_edge.loopexit_crit_edge: ; preds = %Wlc_StdinCollectStop.exit.thread
+Wlc_StdinCollectStop.argprom.exit.thread.Wlc_StdinCollectStop.argprom.exit._crit_edge.loopexit_crit_edge: ; preds = %Wlc_StdinCollectStop.argprom.exit.thread
   %.pre.pre = load i32, ptr %5, align 4
-  br label %Wlc_StdinCollectStop.exit._crit_edge
+  br label %Wlc_StdinCollectStop.argprom.exit._crit_edge
 
-Wlc_StdinCollectStop.exit._crit_edge:             ; preds = %Wlc_StdinCollectStop.exit, %Wlc_StdinCollectStop.exit.thread.Wlc_StdinCollectStop.exit._crit_edge.loopexit_crit_edge
-  %.pre = phi i32 [ %.pre.pre, %Wlc_StdinCollectStop.exit.thread.Wlc_StdinCollectStop.exit._crit_edge.loopexit_crit_edge ], [ %.val, %Wlc_StdinCollectStop.exit ]
+Wlc_StdinCollectStop.argprom.exit._crit_edge:     ; preds = %Wlc_StdinCollectStop.argprom.exit, %Wlc_StdinCollectStop.argprom.exit.thread.Wlc_StdinCollectStop.argprom.exit._crit_edge.loopexit_crit_edge
+  %.pre = phi i32 [ %.pre.pre, %Wlc_StdinCollectStop.argprom.exit.thread.Wlc_StdinCollectStop.argprom.exit._crit_edge.loopexit_crit_edge ], [ %.val, %Wlc_StdinCollectStop.argprom.exit ]
   %.pre20 = load i32, ptr %4, align 8
   %50 = icmp eq i32 %.pre, %.pre20
   br i1 %50, label %52, label %.Vec_StrGrow.exit10_crit_edge.i10
 
-.Vec_StrGrow.exit10_crit_edge.i10:                ; preds = %1, %Wlc_StdinCollectStop.exit._crit_edge
-  %51 = phi i32 [ %.pre, %Wlc_StdinCollectStop.exit._crit_edge ], [ 0, %1 ]
+.Vec_StrGrow.exit10_crit_edge.i10:                ; preds = %1, %Wlc_StdinCollectStop.argprom.exit._crit_edge
+  %51 = phi i32 [ %.pre, %Wlc_StdinCollectStop.argprom.exit._crit_edge ], [ 0, %1 ]
   %.pre.i12 = load ptr, ptr %7, align 8
   br label %Vec_StrPush.exit16
 
-52:                                               ; preds = %Wlc_StdinCollectStop.exit._crit_edge
+52:                                               ; preds = %Wlc_StdinCollectStop.argprom.exit._crit_edge
   %53 = icmp slt i32 %.pre20, 16
   br i1 %53, label %54, label %61
 

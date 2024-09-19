@@ -312,7 +312,7 @@ entry:
   store ptr null, ptr %s_object, align 8
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %call = call fastcc i32 @cache_struct_converter(ptr %module.val, ptr noundef %arg, ptr noundef %s_object)
+  %call = call fastcc i32 @cache_struct_converter.argprom(ptr %module.val, ptr noundef %arg, ptr noundef %s_object)
   %tobool.not = icmp eq i32 %call, 0
   %.pre = load ptr, ptr %s_object, align 8
   br i1 %tobool.not, label %exit, label %if.end
@@ -375,7 +375,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   %0 = load ptr, ptr %args, align 8
   %1 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %1, align 8
-  %call2 = call fastcc i32 @cache_struct_converter(ptr %module.val, ptr noundef %0, ptr noundef %s_object)
+  %call2 = call fastcc i32 @cache_struct_converter.argprom(ptr %module.val, ptr noundef %0, ptr noundef %s_object)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %exitthread-pre-split, label %if.end5
 
@@ -434,7 +434,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %args, align 8
   %2 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %2, align 8
-  %call = call fastcc i32 @cache_struct_converter(ptr %module.val, ptr noundef %1, ptr noundef %s_object)
+  %call = call fastcc i32 @cache_struct_converter.argprom(ptr %module.val, ptr noundef %1, ptr noundef %s_object)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -480,7 +480,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %args, align 8
   %2 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %2, align 8
-  %call = call fastcc i32 @cache_struct_converter(ptr %module.val, ptr noundef %1, ptr noundef %s_object)
+  %call = call fastcc i32 @cache_struct_converter.argprom(ptr %module.val, ptr noundef %1, ptr noundef %s_object)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -528,7 +528,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   %0 = load ptr, ptr %args, align 8
   %1 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %1, align 8
-  %call2 = call fastcc i32 @cache_struct_converter(ptr %module.val, ptr noundef %0, ptr noundef %s_object)
+  %call2 = call fastcc i32 @cache_struct_converter.argprom(ptr %module.val, ptr noundef %0, ptr noundef %s_object)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end.exit_crit_edge, label %if.end5
 
@@ -642,7 +642,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   %4 = load ptr, ptr %cond1024, align 8
   %5 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %5, align 8
-  %call12 = call fastcc i32 @cache_struct_converter(ptr %module.val, ptr noundef %4, ptr noundef %s_object)
+  %call12 = call fastcc i32 @cache_struct_converter.argprom(ptr %module.val, ptr noundef %4, ptr noundef %s_object)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exitthread-pre-split, label %if.end15
 
@@ -739,7 +739,7 @@ if.end39:                                         ; preds = %if.then38, %Py_XDEC
 declare void @PyDict_Clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 131073) i32 @cache_struct_converter(ptr nocapture readonly %module.32.val, ptr noundef %fmt, ptr nocapture noundef nonnull %ptr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 131073) i32 @cache_struct_converter.argprom(ptr nocapture readonly %module.32.val, ptr noundef %fmt, ptr nocapture noundef nonnull %ptr) unnamed_addr #0 {
 entry:
   %s_object = alloca ptr, align 8
   %cmp = icmp eq ptr %fmt, null
@@ -1059,9 +1059,9 @@ if.then:                                          ; preds = %while.body
 
 land.lhs.true:                                    ; preds = %if.then
   %cmp.i.not.i = icmp eq ptr %.val46, @PyByteArray_Type
-  br i1 %cmp.i.not.i, label %if.else, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.else, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %land.lhs.true
+PyObject_TypeCheck.argprom.exit:                  ; preds = %land.lhs.true
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val46, ptr noundef nonnull @PyByteArray_Type) #6
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %return.sink.split, label %if.else
@@ -1072,7 +1072,7 @@ if.then13:                                        ; preds = %if.then
   %ob_sval.i = getelementptr inbounds i8, ptr %6, i64 32
   br label %if.end18
 
-if.else:                                          ; preds = %land.lhs.true, %PyObject_TypeCheck.exit
+if.else:                                          ; preds = %land.lhs.true, %PyObject_TypeCheck.argprom.exit
   %12 = getelementptr i8, ptr %6, i64 16
   %.val51 = load i64, ptr %12, align 8
   %tobool.not.i = icmp eq i64 %.val51, 0
@@ -1106,9 +1106,9 @@ if.then33:                                        ; preds = %while.body
 
 land.lhs.true40:                                  ; preds = %if.then33
   %cmp.i.not.i56 = icmp eq ptr %.val45, @PyByteArray_Type
-  br i1 %cmp.i.not.i56, label %if.else50, label %PyObject_TypeCheck.exit61
+  br i1 %cmp.i.not.i56, label %if.else50, label %PyObject_TypeCheck.argprom.exit61
 
-PyObject_TypeCheck.exit61:                        ; preds = %land.lhs.true40
+PyObject_TypeCheck.argprom.exit61:                ; preds = %land.lhs.true40
   %call2.i58 = tail call i32 @PyType_IsSubtype(ptr noundef %.val45, ptr noundef nonnull @PyByteArray_Type) #6
   %tobool3.i59.not = icmp eq i32 %call2.i58, 0
   br i1 %tobool3.i59.not, label %return.sink.split, label %if.else50
@@ -1119,7 +1119,7 @@ if.then47:                                        ; preds = %if.then33
   %ob_sval.i62 = getelementptr inbounds i8, ptr %6, i64 32
   br label %if.end53
 
-if.else50:                                        ; preds = %land.lhs.true40, %PyObject_TypeCheck.exit61
+if.else50:                                        ; preds = %land.lhs.true40, %PyObject_TypeCheck.argprom.exit61
   %19 = getelementptr i8, ptr %6, i64 16
   %.val52 = load i64, ptr %19, align 8
   %tobool.not.i64 = icmp eq i64 %.val52, 0
@@ -1184,8 +1184,8 @@ for.inc:                                          ; preds = %if.end87, %for.body
   %cmp.not = icmp eq ptr %28, null
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !6
 
-return.sink.split:                                ; preds = %PyObject_TypeCheck.exit61, %PyObject_TypeCheck.exit, %land.lhs.true79
-  %.str.14.sink = phi ptr [ @.str.14, %land.lhs.true79 ], [ @.str.12, %PyObject_TypeCheck.exit ], [ @.str.13, %PyObject_TypeCheck.exit61 ]
+return.sink.split:                                ; preds = %PyObject_TypeCheck.argprom.exit61, %PyObject_TypeCheck.argprom.exit, %land.lhs.true79
+  %.str.14.sink = phi ptr [ @.str.14, %land.lhs.true79 ], [ @.str.12, %PyObject_TypeCheck.argprom.exit ], [ @.str.13, %PyObject_TypeCheck.argprom.exit61 ]
   %StructError83 = getelementptr inbounds i8, ptr %state, i64 24
   %29 = load ptr, ptr %StructError83, align 8
   tail call void @PyErr_SetString(ptr noundef %29, ptr noundef nonnull %.str.14.sink) #6

@@ -4838,19 +4838,19 @@ define internal void @dissect_r3_upstreamcommand_debugmsg(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_queryversion(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_querydatetime(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_queryserialnumber(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -4940,13 +4940,13 @@ define internal void @dissect_r3_upstreamcommand_dumpnvram(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_rmtquthrequest(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_retrieveuser(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -5056,7 +5056,7 @@ define internal void @dissect_r3_upstreamcommand_queryconfig(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_rmteventlogrecord(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -5088,7 +5088,7 @@ define internal void @dissect_r3_upstreamcommand_dpac(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_notify(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -5134,7 +5134,7 @@ define internal void @dissect_r3_upstreamcommand_mfg(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_eventlogwarning(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -5168,13 +5168,13 @@ define internal void @dissect_r3_upstreamcommand_dumpnvramrle(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_rmtdeclinedrecord(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_declinedwarning(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -5235,13 +5235,13 @@ define internal void @dissect_r3_upstreamcommand_dumpdeclinedlog(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_rmtalarmrecord(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_alarmwarning(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -5289,19 +5289,19 @@ define internal void @dissect_r3_upstreamcommand_dumpalarmlog(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_connectscheduler(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_connectcommuser(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_r3_upstreamcommand_commandalarm(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
-  tail call fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -5340,7 +5340,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_r3_upstreamfields.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %.preheader, label %7
 
@@ -5429,7 +5429,7 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
 38:                                               ; preds = %26
   %39 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %27, i32 noundef %.0234) #5
   %40 = load i32, ptr getelementptr inbounds (i8, ptr @hf_r3_upstreamfieldarray, i64 4), align 4
-  tail call fastcc void @dissect_serialnumber(ptr noundef %39, ptr noundef %2, ptr noundef %18, i32 noundef %40)
+  tail call fastcc void @dissect_serialnumber.argelim(ptr noundef %39, ptr noundef %2, ptr noundef %18, i32 noundef %40)
   br label %223
 
 41:                                               ; preds = %26
@@ -5686,7 +5686,7 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_serialnumber(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_serialnumber.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 16) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %54, label %5
@@ -7271,7 +7271,7 @@ define internal void @dissect_r3_cmdmfg_setserialnumber(ptr noundef %0, i32 noun
   %11 = add i32 %1, 1
   %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef -2147483648) #5
   %13 = load i32, ptr @hf_r3_mfgsetserialnumber, align 4
-  tail call fastcc void @dissect_serialnumber(ptr noundef %7, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %13)
+  tail call fastcc void @dissect_serialnumber.argelim(ptr noundef %7, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %13)
   br label %14
 
 14:                                               ; preds = %.split, %.split13

@@ -211,18 +211,18 @@ Abc_Clock.exit95:                                 ; preds = %Abc_NtkStartCutManF
   %91 = load i32, ptr %72, align 4
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv, %92
-  br i1 %93, label %Extra_ProgressBarUpdate.exit, label %94
+  br i1 %93, label %Extra_ProgressBarUpdate.argprom.exit, label %94
 
 94:                                               ; preds = %90, %89
   %95 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %72, i32 noundef %95, ptr noundef null) #11
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %90, %94
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %90, %94
   %.not78 = icmp slt i64 %indvars.iv, %79
   br i1 %.not78, label %96, label %.critedge
 
-96:                                               ; preds = %Extra_ProgressBarUpdate.exit
+96:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %.val91 = load i32, ptr %87, align 4
   %97 = and i32 %.val91, 512
   %.not79 = icmp eq i32 %97, 0
@@ -321,9 +321,9 @@ Abc_Clock.exit100:                                ; preds = %122, %125
   %140 = icmp slt i64 %indvars.iv.next, %139
   br i1 %140, label %80, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %Extra_ProgressBarUpdate.exit, %136, %Abc_Clock.exit98, %67
-  %141 = phi i1 [ true, %67 ], [ false, %Abc_Clock.exit98 ], [ true, %136 ], [ true, %Extra_ProgressBarUpdate.exit ]
-  %.071 = phi i32 [ 1, %67 ], [ -1, %Abc_Clock.exit98 ], [ 1, %136 ], [ 1, %Extra_ProgressBarUpdate.exit ]
+.critedge:                                        ; preds = %Extra_ProgressBarUpdate.argprom.exit, %136, %Abc_Clock.exit98, %67
+  %141 = phi i1 [ true, %67 ], [ false, %Abc_Clock.exit98 ], [ true, %136 ], [ true, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.071 = phi i32 [ 1, %67 ], [ -1, %Abc_Clock.exit98 ], [ 1, %136 ], [ 1, %Extra_ProgressBarUpdate.argprom.exit ]
   call void @Extra_ProgressBarStop(ptr noundef %72) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %142 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #11
@@ -619,7 +619,7 @@ define void @Abc_ManShowCutCone_rec(ptr noundef %0, ptr noundef %1) local_unname
   %.val3.i = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %5 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %6, align 8
   %7 = sext i32 %.val3.i to i64
@@ -635,7 +635,7 @@ define void @Abc_ManShowCutCone_rec(ptr noundef %0, ptr noundef %1) local_unname
   %.val12 = load i32, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %14 = add nsw i32 %.val12, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i13 = load ptr, ptr %15, align 8
   %16 = sext i32 %.val12 to i64
@@ -911,7 +911,7 @@ declare ptr @Abc_NtkFanoutCounts(ptr noundef) local_unnamed_addr #1
 declare void @Cut_NodeSetTriv(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

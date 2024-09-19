@@ -946,16 +946,16 @@ lor.lhs.false.i:                                  ; preds = %if.end10.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i24, i64 -1
   %19 = load i8, ptr %add.ptr2.i.i, align 1
   %cmp15.i = icmp eq i8 %19, 47
-  br i1 %cmp15.i, label %if.end21, label %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.exit
+  br i1 %cmp15.i, label %if.end21, label %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.argprom.exit
 
-_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.exit: ; preds = %lor.lhs.false.i
+_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.argprom.exit: ; preds = %lor.lhs.false.i
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %11
   %20 = load i8, ptr %add.ptr.i3.i, align 1
   %cmp19.i = icmp eq i8 %20, 47
   br i1 %cmp19.i, label %if.end21, label %if.then19
 
-if.then19:                                        ; preds = %do.end15.if.then19_crit_edge, %lor.rhs.i.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.exit
-  %21 = phi i64 [ %.pre, %do.end15.if.then19_crit_edge ], [ %14, %lor.rhs.i.i ], [ %14, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %14, %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.exit ]
+if.then19:                                        ; preds = %do.end15.if.then19_crit_edge, %lor.rhs.i.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.argprom.exit
+  %21 = phi i64 [ %.pre, %do.end15.if.then19_crit_edge ], [ %14, %lor.rhs.i.i ], [ %14, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %14, %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.argprom.exit ]
   %22 = load i8, ptr %call_args, align 1
   store i8 %22, ptr %agg.tmp20, align 8
   %23 = getelementptr inbounds i8, ptr %agg.tmp20, i64 8
@@ -1053,7 +1053,7 @@ lpad:                                             ; preds = %if.end.i25, %if.the
   call void @_ZN9grpc_core8CallArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp20) #26
   br label %common.resume
 
-if.end21:                                         ; preds = %if.end10.i, %lor.lhs.false.i, %lor.lhs.false, %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.exit
+if.end21:                                         ; preds = %if.end10.i, %lor.lhs.false.i, %lor.lhs.false, %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE.argprom.exit
   %call26 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i21) #26
   %39 = extractvalue { i64, ptr } %call26, 0
   %40 = extractvalue { i64, ptr } %call26, 1
@@ -5149,7 +5149,7 @@ entry:
   %10 = inttoptr i64 %2 to ptr
   %11 = getelementptr i8, ptr %9, i64 24
   %.val.i.i.i = load ptr, ptr %11, align 8, !noalias !94
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132MaybeUpdateServerInitialMetadataEPKNS_33StatefulSessionMethodParsedConfig12CookieConfigEbSt17basic_string_viewIcSt11char_traitsIcEES8_PNS_24XdsOverrideHostAttributeEP19grpc_metadata_batch(ptr noundef %3, i1 noundef zeroext %tobool.i.i.i, i64 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i.i, i64 %agg.tmp2.sroa.0.0.copyload.i.i.i, ptr %agg.tmp2.sroa.2.0.copyload.i.i.i, ptr %.val.i.i.i, ptr noundef %10)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132MaybeUpdateServerInitialMetadataEPKNS_33StatefulSessionMethodParsedConfig12CookieConfigEbSt17basic_string_viewIcSt11char_traitsIcEES8_PNS_24XdsOverrideHostAttributeEP19grpc_metadata_batch.argprom(ptr noundef %3, i1 noundef zeroext %tobool.i.i.i, i64 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i.i, i64 %agg.tmp2.sroa.0.0.copyload.i.i.i, ptr %agg.tmp2.sroa.2.0.copyload.i.i.i, ptr %.val.i.i.i, ptr noundef %10)
           to label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit unwind label %lpad.i.i, !noalias !91
 
 lpad.i.i:                                         ; preds = %entry
@@ -5216,7 +5216,7 @@ if.end:                                           ; preds = %_ZN9grpc_core8Destr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_132MaybeUpdateServerInitialMetadataEPKNS_33StatefulSessionMethodParsedConfig12CookieConfigEbSt17basic_string_viewIcSt11char_traitsIcEES8_PNS_24XdsOverrideHostAttributeEP19grpc_metadata_batch(ptr noundef %cookie_config, i1 noundef zeroext %cluster_changed, i64 %actual_cluster.coerce0, ptr %actual_cluster.coerce1, i64 %cookie_address_list.coerce0, ptr nocapture readonly %cookie_address_list.coerce1, ptr %override_host_attribute.24.val, ptr noundef %server_initial_metadata) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_132MaybeUpdateServerInitialMetadataEPKNS_33StatefulSessionMethodParsedConfig12CookieConfigEbSt17basic_string_viewIcSt11char_traitsIcEES8_PNS_24XdsOverrideHostAttributeEP19grpc_metadata_batch.argprom(ptr noundef %cookie_config, i1 noundef zeroext %cluster_changed, i64 %actual_cluster.coerce0, ptr %actual_cluster.coerce1, i64 %cookie_address_list.coerce0, ptr nocapture readonly %cookie_address_list.coerce1, ptr %override_host_attribute.24.val, ptr noundef %server_initial_metadata) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %struct.grpc_slice, align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8930,7 +8930,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %19 = load ptr, ptr %18, align 8, !noalias !442
   %20 = getelementptr i8, ptr %19, i64 24
   %.val.i.i = load ptr, ptr %20, align 8, !noalias !442
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132MaybeUpdateServerInitialMetadataEPKNS_33StatefulSessionMethodParsedConfig12CookieConfigEbSt17basic_string_viewIcSt11char_traitsIcEES8_PNS_24XdsOverrideHostAttributeEP19grpc_metadata_batch(ptr noundef %13, i1 noundef zeroext %tobool.i.i, i64 %agg.tmp7.sroa.0.0.copyload.i.i, ptr %agg.tmp7.sroa.2.0.copyload.i.i, i64 %agg.tmp8.sroa.0.0.copyload.i.i, ptr %agg.tmp8.sroa.2.0.copyload.i.i, ptr %.val.i.i, ptr noundef nonnull %.cast.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132MaybeUpdateServerInitialMetadataEPKNS_33StatefulSessionMethodParsedConfig12CookieConfigEbSt17basic_string_viewIcSt11char_traitsIcEES8_PNS_24XdsOverrideHostAttributeEP19grpc_metadata_batch.argprom(ptr noundef %13, i1 noundef zeroext %tobool.i.i, i64 %agg.tmp7.sroa.0.0.copyload.i.i, ptr %agg.tmp7.sroa.2.0.copyload.i.i, i64 %agg.tmp8.sroa.0.0.copyload.i.i, ptr %agg.tmp8.sroa.2.0.copyload.i.i, ptr %.val.i.i, ptr noundef nonnull %.cast.i)
           to label %if.then.i2 unwind label %lpad2.i, !noalias !427
 
 lpad2.i:                                          ; preds = %if.then.i.i

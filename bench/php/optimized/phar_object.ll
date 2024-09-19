@@ -1314,7 +1314,7 @@ sub_1:                                            ; preds = %sub_0
   br label %thread-pre-split
 
 212:                                              ; preds = %198, %198
-  call fastcc void @phar_do_403()
+  call fastcc void @phar_do_403.argprom.argelim()
   br i1 %.3, label %215, label %213
 
 213:                                              ; preds = %212
@@ -1357,7 +1357,7 @@ thread-pre-split:                                 ; preds = %173, %201
   br i1 %.not248, label %._crit_edge, label %225
 
 225:                                              ; preds = %thread-pre-split
-  call fastcc void @phar_postprocess_ru_web(ptr noundef nonnull %62, i64 noundef %64, ptr %.val, ptr noundef %18, ptr noundef %10, ptr noundef %13)
+  call fastcc void @phar_postprocess_ru_web.argprom(ptr noundef nonnull %62, i64 noundef %64, ptr %.val, ptr noundef %18, ptr noundef %10, ptr noundef %13)
   %.pre = load i64, ptr %18, align 8
   switch i64 %.pre, label %288 [
     i64 0, label %._crit_edge
@@ -1415,7 +1415,7 @@ thread-pre-split:                                 ; preds = %173, %201
   %251 = load ptr, ptr %19, align 8
   %252 = load ptr, ptr %9, align 8
   %253 = load i64, ptr %12, align 8
-  call fastcc void @phar_do_404(ptr noundef %251, ptr noundef nonnull %62, ptr noundef %252, i64 noundef %253)
+  call fastcc void @phar_do_404.argprom.argelim(ptr noundef %251, ptr noundef nonnull %62, ptr noundef %252, i64 noundef %253)
   br i1 %.3, label %256, label %254
 
 254:                                              ; preds = %250
@@ -1507,7 +1507,7 @@ thread-pre-split:                                 ; preds = %173, %201
   %297 = load ptr, ptr %19, align 8
   %298 = load ptr, ptr %9, align 8
   %299 = load i64, ptr %12, align 8
-  call fastcc void @phar_do_404(ptr noundef %297, ptr noundef nonnull %62, ptr noundef %298, i64 noundef %299)
+  call fastcc void @phar_do_404.argprom.argelim(ptr noundef %297, ptr noundef nonnull %62, ptr noundef %298, i64 noundef %299)
   call void @_zend_bailout(ptr noundef nonnull @.str.26, i32 noundef 805) #22
   unreachable
 
@@ -1597,7 +1597,7 @@ thread-pre-split:                                 ; preds = %173, %201
   %.pr266 = load ptr, ptr %15, align 8
   %.not255 = icmp eq ptr %.pr266, null
   call void @llvm.assume(i1 %.not255)
-  %339 = call fastcc i32 @phar_file_type(ptr noundef %293, ptr noundef %15)
+  %339 = call fastcc i32 @phar_file_type.argprom(ptr noundef %293, ptr noundef %15)
   %.pre282 = load ptr, ptr %15, align 8
   br label %.thread
 
@@ -1606,7 +1606,7 @@ thread-pre-split:                                 ; preds = %173, %201
   %.1203 = phi i32 [ %339, %338 ], [ %318, %317 ], [ 2, %327 ]
   %341 = load ptr, ptr %19, align 8
   %342 = load i64, ptr %13, align 8
-  call fastcc void @phar_file_action(ptr noundef %341, ptr noundef %294, ptr noundef %340, i32 noundef %.1203, ptr noundef %293, i64 noundef %.pre, ptr noundef nonnull %62, ptr noundef %.1200, i64 noundef %342)
+  call fastcc void @phar_file_action.argprom.argelim(ptr noundef %341, ptr noundef %294, ptr noundef %340, i32 noundef %.1203, ptr noundef %293, i64 noundef %.pre, ptr noundef nonnull %62, ptr noundef %.1200, i64 noundef %342)
   br label %343
 
 343:                                              ; preds = %.critedge.thread, %84, %88, %91, %59, %42, %57, %36, %38, %.thread, %335, %324, %221, %137, %29
@@ -1657,7 +1657,7 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @zend_call_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_do_403() unnamed_addr #0 {
+define internal fastcc void @phar_do_403.argprom.argelim() unnamed_addr #0 {
   %1 = alloca %struct.sapi_header_line, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 403, ptr %2, align 8
@@ -1677,7 +1677,7 @@ declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_postprocess_ru_web(ptr noundef %0, i64 noundef %1, ptr %.0.val, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @phar_postprocess_ru_web.argprom(ptr noundef %0, i64 noundef %1, ptr %.0.val, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %.0.val, i64 1
   %7 = load i64, ptr %2, align 8
   %8 = add i64 %7, -1
@@ -1771,7 +1771,7 @@ declare i32 @phar_get_archive(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare ptr @phar_get_entry_info(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_do_404(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @phar_do_404.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.sapi_header_line, align 8
   %6 = icmp ne ptr %0, null
   %7 = icmp ne i64 %3, 0
@@ -1784,7 +1784,7 @@ define internal fastcc void @phar_do_404(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %8
-  tail call fastcc void @phar_file_action(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull @.str.202, i32 noundef 0, ptr noundef %2, i64 noundef %3, ptr noundef %1, ptr noundef null, i64 noundef 0)
+  tail call fastcc void @phar_file_action.argprom.argelim(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull @.str.202, i32 noundef 0, ptr noundef %2, i64 noundef %3, ptr noundef %1, ptr noundef null, i64 noundef 0)
   br label %18
 
 11:                                               ; preds = %8, %4
@@ -1808,7 +1808,7 @@ declare i32 @sapi_header_op(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sapi_send_headers() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -128, 128) i32 @phar_file_type.argprom(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -1843,7 +1843,7 @@ define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_file_action(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc void @phar_file_action.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca ptr, align 8
   %12 = alloca [8192 x i8], align 16

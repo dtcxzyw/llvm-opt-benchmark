@@ -516,13 +516,13 @@ entry:
   %info.val = load i64, ptr %0, align 8
   %sub.i.i = xor i64 %info.val, -1
   %cmp.i.i = icmp ugt i64 %namelen, %sub.i.i
-  br i1 %cmp.i.i, label %if.then.i.i, label %traverse_path_len.exit
+  br i1 %cmp.i.i, label %if.then.i.i, label %traverse_path_len.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.17, i64 noundef %info.val, i64 noundef %namelen) #13
   unreachable
 
-traverse_path_len.exit:                           ; preds = %entry
+traverse_path_len.argprom.exit:                   ; preds = %entry
   %add.i.i = add i64 %info.val, %namelen
   tail call void @strbuf_grow(ptr noundef %out, i64 noundef %add.i.i) #14
   %buf = getelementptr inbounds i8, ptr %out, i64 16
@@ -535,11 +535,11 @@ traverse_path_len.exit:                           ; preds = %entry
   %cmp.i.i11 = icmp ugt i64 %namelen, %sub.i.i10
   br i1 %cmp.i.i11, label %if.then.i.i13, label %st_add.exit.i
 
-if.then.i.i13:                                    ; preds = %traverse_path_len.exit
+if.then.i.i13:                                    ; preds = %traverse_path_len.argprom.exit
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.17, i64 noundef %3, i64 noundef %namelen) #13
   unreachable
 
-st_add.exit.i:                                    ; preds = %traverse_path_len.exit
+st_add.exit.i:                                    ; preds = %traverse_path_len.argprom.exit
   %4 = load i64, ptr %out, align 8
   %sub = sub i64 %4, %2
   %add.i.i12 = add i64 %3, %namelen
@@ -1203,7 +1203,7 @@ if.end3.i:                                        ; preds = %if.end115
   %tobool.i.i = icmp eq i32 %and.i.i, 0
   %cmp.i.i = icmp slt i32 %call.i.i123, 1
   %or.cond.i.i = select i1 %tobool.i.i, i1 true, i1 %cmp.i.i
-  br i1 %or.cond.i.i, label %prune_traversal.exit, label %if.end.i.i124
+  br i1 %or.cond.i.i, label %prune_traversal.argprom.exit, label %if.end.i.i124
 
 if.end.i.i124:                                    ; preds = %if.end3.i
   %call2.i.i = call fastcc i32 @do_match(ptr noundef %istate, ptr noundef readonly %e.5, ptr noundef nonnull %base, ptr noundef nonnull readonly %info.val, i32 noundef 1)
@@ -1231,14 +1231,14 @@ if.end17.i.i:                                     ; preds = %if.end9.i.i
   %or.cond22.i.i = select i1 %cmp18.i.i, i1 true, i1 %or.cond5.i.i
   %not.or.cond22.i.i = xor i1 %or.cond22.i.i, true
   %spec.select.i.i = sext i1 %not.or.cond22.i.i to i32
-  br label %prune_traversal.exit
+  br label %prune_traversal.argprom.exit
 
-prune_traversal.exit:                             ; preds = %if.end3.i, %if.end17.i.i
+prune_traversal.argprom.exit:                     ; preds = %if.end3.i, %if.end17.i.i
   %retval.0.i = phi i32 [ %call.i.i123, %if.end3.i ], [ %spec.select.i.i, %if.end17.i.i ]
   %cmp117 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp117, label %for.body155.preheader, label %if.end120
 
-if.end120:                                        ; preds = %prune_traversal.exit
+if.end120:                                        ; preds = %prune_traversal.argprom.exit
   %tobool121.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool121.not, label %if.end133, label %if.then122
 
@@ -1302,32 +1302,32 @@ for.inc148:                                       ; preds = %if.else.i, %if.then
   %exitcond271.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count270
   br i1 %exitcond271.not, label %for.body31.preheader.loopexit, label %for.body137, !llvm.loop !7
 
-for.body155.preheader:                            ; preds = %for.end112, %prune_traversal.exit, %if.then126
-  %ret.1 = phi i32 [ %ret.0320, %prune_traversal.exit ], [ %call123, %if.then126 ], [ %ret.0320, %for.end112 ]
+for.body155.preheader:                            ; preds = %for.end112, %prune_traversal.argprom.exit, %if.then126
+  %ret.1 = phi i32 [ %ret.0320, %prune_traversal.argprom.exit ], [ %call123, %if.then126 ], [ %ret.0320, %for.end112 ]
   %wide.trip.count276 = zext nneg i32 %smax to i64
   br label %for.body155
 
-for.body155:                                      ; preds = %for.body155.preheader, %free_extended_entry.exit
-  %indvars.iv272 = phi i64 [ 0, %for.body155.preheader ], [ %indvars.iv.next273, %free_extended_entry.exit ]
+for.body155:                                      ; preds = %for.body155.preheader, %free_extended_entry.argprom.exit
+  %indvars.iv272 = phi i64 [ 0, %for.body155.preheader ], [ %indvars.iv.next273, %free_extended_entry.argprom.exit ]
   %69 = getelementptr %struct.tree_desc_x, ptr %call11, i64 %indvars.iv272, i32 1
   %add.ptr157.val = load ptr, ptr %69, align 8
   %tobool.not1.i = icmp eq ptr %add.ptr157.val, null
-  br i1 %tobool.not1.i, label %free_extended_entry.exit, label %for.body.i129
+  br i1 %tobool.not1.i, label %free_extended_entry.argprom.exit, label %for.body.i129
 
 for.body.i129:                                    ; preds = %for.body155, %for.body.i129
   %s.02.i = phi ptr [ %70, %for.body.i129 ], [ %add.ptr157.val, %for.body155 ]
   %70 = load ptr, ptr %s.02.i, align 8
   call void @free(ptr noundef nonnull %s.02.i) #14
   %tobool.not.i130 = icmp eq ptr %70, null
-  br i1 %tobool.not.i130, label %free_extended_entry.exit, label %for.body.i129, !llvm.loop !14
+  br i1 %tobool.not.i130, label %free_extended_entry.argprom.exit, label %for.body.i129, !llvm.loop !14
 
-free_extended_entry.exit:                         ; preds = %for.body.i129, %for.body155
+free_extended_entry.argprom.exit:                 ; preds = %for.body.i129, %for.body155
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count276
   br i1 %exitcond277.not, label %for.end160, label %for.body155, !llvm.loop !15
 
-for.end160:                                       ; preds = %free_extended_entry.exit, %if.end24
-  %ret.1294 = phi i32 [ 0, %if.end24 ], [ %ret.1, %free_extended_entry.exit ]
+for.end160:                                       ; preds = %free_extended_entry.argprom.exit, %if.end24
+  %ret.1294 = phi i32 [ 0, %if.end24 ], [ %ret.1, %free_extended_entry.argprom.exit ]
   call void @free(ptr noundef %call11) #14
   call void @free(ptr noundef %call8) #14
   call void @free(ptr noundef %traverse_path.0) #14
@@ -2301,13 +2301,13 @@ land.lhs.true137:                                 ; preds = %land.lhs.true132
 
 if.then.i129:                                     ; preds = %land.lhs.true137
   %call.i130 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %36, i64 noundef %conv143) #15
-  br label %ps_strncmp.exit
+  br label %ps_strncmp.argprom.exit
 
 if.else.i132:                                     ; preds = %land.lhs.true137
   %call1.i = tail call i32 @strncmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %36, i64 noundef %conv143) #15
-  br label %ps_strncmp.exit
+  br label %ps_strncmp.argprom.exit
 
-ps_strncmp.exit:                                  ; preds = %if.then.i129, %if.else.i132
+ps_strncmp.argprom.exit:                          ; preds = %if.then.i129, %if.else.i132
   %retval.0.i131 = phi i32 [ %call.i130, %if.then.i129 ], [ %call1.i, %if.else.i132 ]
   %tobool145.not = icmp eq i32 %retval.0.i131, 0
   br i1 %tobool145.not, label %interesting, label %for.inc
@@ -2437,18 +2437,18 @@ land.lhs.true183:                                 ; preds = %land.lhs.true178
 
 if.then.i165:                                     ; preds = %land.lhs.true183
   %call.i166 = tail call i32 @strncasecmp(ptr noundef readonly %10, ptr noundef readonly %48, i64 noundef %conv186) #15
-  br label %ps_strncmp.exit170
+  br label %ps_strncmp.argprom.exit170
 
 if.else.i168:                                     ; preds = %land.lhs.true183
   %call1.i169 = tail call i32 @strncmp(ptr noundef readonly %10, ptr noundef readonly %48, i64 noundef %conv186) #15
-  br label %ps_strncmp.exit170
+  br label %ps_strncmp.argprom.exit170
 
-ps_strncmp.exit170:                               ; preds = %if.then.i165, %if.else.i168
+ps_strncmp.argprom.exit170:                       ; preds = %if.then.i165, %if.else.i168
   %retval.0.i167 = phi i32 [ %call.i166, %if.then.i165 ], [ %call1.i169, %if.else.i168 ]
   %tobool188.not = icmp eq i32 %retval.0.i167, 0
   br i1 %tobool188.not, label %if.then189, label %if.end191
 
-if.then189:                                       ; preds = %ps_strncmp.exit170
+if.then189:                                       ; preds = %ps_strncmp.argprom.exit170
   %51 = load i64, ptr %base, align 8
   %spec.select.i171 = tail call i64 @llvm.usub.sat.i64(i64 %51, i64 1)
   %cmp.i172 = icmp ugt i64 %conv718.i, %spec.select.i171
@@ -2463,7 +2463,7 @@ if.end.i173:                                      ; preds = %if.then189
   %cmp3.not.i176 = icmp eq ptr %48, @strbuf_slopbuf
   br i1 %cmp3.not.i176, label %interesting, label %interesting.sink.split
 
-if.end191:                                        ; preds = %ps_strncmp.exit170, %land.lhs.true178, %if.end171
+if.end191:                                        ; preds = %ps_strncmp.argprom.exit170, %land.lhs.true178, %if.end171
   %52 = load i64, ptr %base, align 8
   %spec.select.i181 = tail call i64 @llvm.usub.sat.i64(i64 %52, i64 1)
   %cmp.i182 = icmp ugt i64 %conv718.i, %spec.select.i181
@@ -2502,7 +2502,7 @@ interesting.sink.split:                           ; preds = %if.end.i173, %if.en
   store i8 0, ptr %arrayidx.i178, align 1
   br label %interesting
 
-interesting:                                      ; preds = %interesting.sink.split, %if.end.i173, %if.end.i160, %ps_strncmp.exit, %if.then105, %match_entry.exit, %if.end69, %if.then66
+interesting:                                      ; preds = %interesting.sink.split, %if.end.i173, %if.end.i160, %ps_strncmp.argprom.exit, %if.then105, %match_entry.exit, %if.end69, %if.then66
   %attr_match_nr206 = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %56 = load i32, ptr %attr_match_nr206, align 4
   %tobool207.not = icmp eq i32 %56, 0
@@ -2545,8 +2545,8 @@ strbuf_setlen.exit200:                            ; preds = %if.end.i193, %if.th
   %tobool222.not = icmp eq i32 %call220, 0
   br i1 %tobool222.not, label %for.inc, label %return
 
-for.inc:                                          ; preds = %if.then.i20.i, %basecmp.exit36.i, %if.then.i.i140, %strbuf_setlen.exit200, %strbuf_setlen.exit190, %land.lhs.true199, %match_wildcard_base.exit, %match_wildcards, %if.end101, %ps_strncmp.exit, %land.lhs.true132, %if.end126, %land.lhs.true, %land.lhs.true39
-  %never_interesting.1 = phi i32 [ 0, %strbuf_setlen.exit200 ], [ %never_interesting.3213, %if.end126 ], [ %never_interesting.3213, %ps_strncmp.exit ], [ %never_interesting.3213, %land.lhs.true132 ], [ %never_interesting.3213, %if.end101 ], [ %never_interesting.0230, %match_wildcards ], [ %never_interesting.0230, %strbuf_setlen.exit190 ], [ %never_interesting.0230, %land.lhs.true199 ], [ %never_interesting.0230, %match_wildcard_base.exit ], [ %never_interesting.0230, %land.lhs.true39 ], [ %never_interesting.0230, %land.lhs.true ], [ %never_interesting.0230, %if.then.i.i140 ], [ %never_interesting.0230, %basecmp.exit36.i ], [ %never_interesting.0230, %if.then.i20.i ]
+for.inc:                                          ; preds = %if.then.i20.i, %basecmp.exit36.i, %if.then.i.i140, %strbuf_setlen.exit200, %strbuf_setlen.exit190, %land.lhs.true199, %match_wildcard_base.exit, %match_wildcards, %if.end101, %ps_strncmp.argprom.exit, %land.lhs.true132, %if.end126, %land.lhs.true, %land.lhs.true39
+  %never_interesting.1 = phi i32 [ 0, %strbuf_setlen.exit200 ], [ %never_interesting.3213, %if.end126 ], [ %never_interesting.3213, %ps_strncmp.argprom.exit ], [ %never_interesting.3213, %land.lhs.true132 ], [ %never_interesting.3213, %if.end101 ], [ %never_interesting.0230, %match_wildcards ], [ %never_interesting.0230, %strbuf_setlen.exit190 ], [ %never_interesting.0230, %land.lhs.true199 ], [ %never_interesting.0230, %match_wildcard_base.exit ], [ %never_interesting.0230, %land.lhs.true39 ], [ %never_interesting.0230, %land.lhs.true ], [ %never_interesting.0230, %if.then.i.i140 ], [ %never_interesting.0230, %basecmp.exit36.i ], [ %never_interesting.0230, %if.then.i20.i ]
   %cmp28 = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp28, label %for.body, label %return, !llvm.loop !19
 

@@ -1450,7 +1450,7 @@ if.then13:                                        ; preds = %if.end11
   br i1 %cmp14.not, label %if.end43, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.2)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.2)
   br label %return
 
 if.else17:                                        ; preds = %if.end11
@@ -1464,7 +1464,7 @@ if.then19:                                        ; preds = %if.else17
   br i1 %cmp20.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %if.then19
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.3)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.3)
   br label %return
 
 if.end23:                                         ; preds = %if.then19
@@ -1473,7 +1473,7 @@ if.end23:                                         ; preds = %if.then19
   br i1 %cmp24.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.4)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.4)
   br label %return
 
 if.end27:                                         ; preds = %if.end23
@@ -1482,7 +1482,7 @@ if.end27:                                         ; preds = %if.end23
   br i1 %cmp28.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.2)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.2)
   br label %return
 
 if.end31:                                         ; preds = %if.end27
@@ -1491,7 +1491,7 @@ if.end31:                                         ; preds = %if.end27
   br i1 %cmp32.not, label %if.end43, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.5)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.5)
   br label %return
 
 if.end37:                                         ; preds = %if.else17
@@ -1508,7 +1508,7 @@ land.lhs.true:                                    ; preds = %if.end37
   br i1 %or.cond, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %land.lhs.true
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.6)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.6)
   br label %return
 
 if.end43:                                         ; preds = %if.then13, %if.end31, %land.lhs.true, %if.end37
@@ -1520,7 +1520,7 @@ if.end43:                                         ; preds = %if.then13, %if.end3
   br i1 %or.cond47, label %if.then49, label %if.end52
 
 if.then49:                                        ; preds = %if.end43
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.7, i32 noundef %15, i32 noundef 8)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.7, i32 noundef %15, i32 noundef 8)
   br label %return
 
 if.end52:                                         ; preds = %if.end43
@@ -1539,7 +1539,7 @@ switch.early.test:                                ; preds = %if.end52
   ]
 
 if.then62:                                        ; preds = %switch.early.test
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.8, i32 noundef %.fr182)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.8, i32 noundef %.fr182)
   br label %return
 
 if.end65:                                         ; preds = %switch.early.test, %switch.early.test, %if.end52
@@ -1554,7 +1554,7 @@ if.then67:                                        ; preds = %if.end65
 
 if.then70:                                        ; preds = %if.then67
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 1264), align 8
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.9, i32 noundef %20, i32 noundef 1048575)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.9, i32 noundef %20, i32 noundef 1048575)
   br label %return
 
 if.end73:                                         ; preds = %if.then67, %if.end65
@@ -1593,7 +1593,7 @@ if.end73:                                         ; preds = %if.then67, %if.end6
   br i1 %cmp95, label %if.then96, label %if.end98
 
 if.then96:                                        ; preds = %if.end73
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.10)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.10)
   br label %return
 
 if.end98:                                         ; preds = %if.end73
@@ -1610,7 +1610,7 @@ if.then102:                                       ; preds = %if.then100
   br i1 %cmp103, label %if.then104, label %if.end106
 
 if.then104:                                       ; preds = %if.then102
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.11)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.11)
   br label %return
 
 if.end106:                                        ; preds = %if.then102
@@ -1619,7 +1619,7 @@ if.end106:                                        ; preds = %if.then102
   br i1 %cmp107, label %if.then108, label %if.end111
 
 if.then108:                                       ; preds = %if.end106
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.12)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.12)
   br label %return
 
 if.end111:                                        ; preds = %if.end106, %if.then100
@@ -1628,7 +1628,7 @@ if.end111:                                        ; preds = %if.end106, %if.then
   br i1 %cmp112, label %if.then113, label %if.end115
 
 if.then113:                                       ; preds = %if.end111
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.13)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.13)
   br label %return
 
 if.end115:                                        ; preds = %if.end111
@@ -1637,7 +1637,7 @@ if.end115:                                        ; preds = %if.end111
   br i1 %cmp116, label %if.then117, label %if.end119
 
 if.then117:                                       ; preds = %if.end115
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.14)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.14)
   br label %return
 
 if.end119:                                        ; preds = %if.end115
@@ -1646,7 +1646,7 @@ if.end119:                                        ; preds = %if.end115
   br i1 %cmp120, label %if.then121, label %if.end124.thread
 
 if.then121:                                       ; preds = %if.end119
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.15)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.15)
   br label %return
 
 if.end124:                                        ; preds = %if.end98
@@ -1660,7 +1660,7 @@ if.end124.thread:                                 ; preds = %if.end119
   br i1 %tobool125.not162, label %if.end143, label %if.then128
 
 if.then128:                                       ; preds = %if.end124.thread
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.16)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.16)
   br label %return
 
 if.end130:                                        ; preds = %if.end124
@@ -1669,7 +1669,7 @@ if.end130:                                        ; preds = %if.end124
   br i1 %cmp131.not, label %if.end134, label %if.then132
 
 if.then132:                                       ; preds = %if.end130
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.17)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.17)
   br label %return
 
 if.end134:                                        ; preds = %if.end130
@@ -1678,7 +1678,7 @@ if.end134:                                        ; preds = %if.end130
   br i1 %cmp135.not, label %if.end138, label %if.then136
 
 if.then136:                                       ; preds = %if.end134
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.18)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.18)
   br label %return
 
 if.end138:                                        ; preds = %if.end134
@@ -1687,7 +1687,7 @@ if.end138:                                        ; preds = %if.end134
   br i1 %cmp139.not, label %if.end143, label %if.then140
 
 if.then140:                                       ; preds = %if.end138
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.19)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.19)
   br label %return
 
 if.end143:                                        ; preds = %if.end124.thread, %if.end138, %if.end124
@@ -1701,14 +1701,14 @@ if.then145:                                       ; preds = %if.end143
   br i1 %tobool146.not, label %if.end149, label %if.then147
 
 if.then147:                                       ; preds = %if.then145
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.20)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.20)
   br label %return
 
 if.end149:                                        ; preds = %if.then145
   br i1 %tobool99.not, label %if.end153, label %if.then151
 
 if.then151:                                       ; preds = %if.end149
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.21)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.21)
   br label %return
 
 if.end153:                                        ; preds = %if.end149
@@ -1717,7 +1717,7 @@ if.end153:                                        ; preds = %if.end149
   br i1 %cmp154, label %if.then155, label %if.end157
 
 if.then155:                                       ; preds = %if.end153
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.22)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.22)
   br label %return
 
 if.end157:                                        ; preds = %if.end153
@@ -1731,7 +1731,7 @@ land.lhs.true159:                                 ; preds = %if.end157
   br i1 %tobool161.not, label %if.then162, label %if.end164
 
 if.then162:                                       ; preds = %land.lhs.true159
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.23)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.23)
   br label %return
 
 if.end164:                                        ; preds = %land.lhs.true159, %if.end157
@@ -1763,7 +1763,7 @@ if.end174:                                        ; preds = %lor.lhs.false168, %
   br i1 %or.cond11, label %if.then178, label %if.end180
 
 if.then178:                                       ; preds = %if.end174
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.25)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.25)
   br label %return
 
 if.end180:                                        ; preds = %if.end174
@@ -1773,7 +1773,7 @@ if.end180:                                        ; preds = %if.end174
   br i1 %or.cond13, label %if.then184, label %if.end186
 
 if.then184:                                       ; preds = %if.end180
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.26)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.26)
   br label %return
 
 if.end186:                                        ; preds = %if.end180
@@ -1786,7 +1786,7 @@ if.end186:                                        ; preds = %if.end180
   br i1 %or.cond17, label %if.then192, label %if.end194
 
 if.then192:                                       ; preds = %if.end186
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.27)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.27)
   br label %return
 
 if.end194:                                        ; preds = %if.end186
@@ -1803,7 +1803,7 @@ if.then198:                                       ; preds = %if.end194
   br i1 %tobool199.not, label %if.end202, label %if.then200
 
 if.then200:                                       ; preds = %if.then198
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.28)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.28)
   br label %return
 
 if.end202:                                        ; preds = %if.then198
@@ -1812,7 +1812,7 @@ if.end202:                                        ; preds = %if.then198
   br i1 %tobool203.not, label %if.end206, label %if.then204
 
 if.then204:                                       ; preds = %if.end202
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.29)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.29)
   br label %return
 
 if.end206:                                        ; preds = %if.end202
@@ -1821,7 +1821,7 @@ if.end206:                                        ; preds = %if.end202
   br i1 %tobool207.not, label %if.end210, label %if.then208
 
 if.then208:                                       ; preds = %if.end206
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.30)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.30)
   br label %return
 
 if.end210:                                        ; preds = %if.end206
@@ -2053,7 +2053,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal void @usage_error(ptr nocapture noundef readonly %message, ...) unnamed_addr #3 {
+define internal void @usage_error.retelim(ptr nocapture noundef readonly %message, ...) unnamed_addr #3 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr @flac__utils_verbosity_, align 4
@@ -2129,7 +2129,7 @@ lor.lhs.false9.tail:                              ; preds = %sub_0122
   br i1 %12, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %lor.lhs.false9.tail, %if.then6.tail
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.467)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.467)
   br label %return
 
 if.end18:                                         ; preds = %sub_0122, %lor.lhs.false9.tail
@@ -2340,7 +2340,7 @@ if.then149:                                       ; preds = %land.lhs.true146
   %idxprom = zext nneg i32 %output_format.1109 to i64
   %arrayidx = getelementptr inbounds [8 x ptr], ptr @FileFormatString, i64 0, i64 %idxprom
   %38 = load ptr, ptr %arrayidx, align 8
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.476, ptr noundef %38)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.476, ptr noundef %38)
   br label %return
 
 if.end151:                                        ; preds = %land.lhs.true146
@@ -2359,7 +2359,7 @@ if.then158:                                       ; preds = %land.lhs.true155
   %idxprom159 = zext nneg i32 %output_format.1109148 to i64
   %arrayidx160 = getelementptr inbounds [8 x ptr], ptr @FileFormatString, i64 0, i64 %idxprom159
   %39 = load ptr, ptr %arrayidx160, align 8
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.477, ptr noundef %39)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.477, ptr noundef %39)
   br label %return
 
 if.end162:                                        ; preds = %land.lhs.true155
@@ -2378,7 +2378,7 @@ if.then167:                                       ; preds = %land.lhs.true164
   %idxprom168 = zext nneg i32 %output_format.1109150 to i64
   %arrayidx169 = getelementptr inbounds [8 x ptr], ptr @FileFormatString, i64 0, i64 %idxprom168
   %41 = load ptr, ptr %arrayidx169, align 8
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.478, ptr noundef %41)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.478, ptr noundef %41)
   br label %return
 
 if.end172:                                        ; preds = %if.else117, %if.end162, %land.lhs.true164, %if.end140
@@ -2465,7 +2465,7 @@ land.lhs.true190:                                 ; preds = %if.end184
 
 if.then194:                                       ; preds = %land.lhs.true190
   call void @flac__foreign_metadata_delete(ptr noundef %foreign_metadata.0) #22
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.480)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.480)
   br label %return
 
 if.end197:                                        ; preds = %land.lhs.true190, %if.end184
@@ -2506,7 +2506,7 @@ if.end220:                                        ; preds = %land.lhs.true211, %
 
 if.then226:                                       ; preds = %if.end220
   call void @flac__foreign_metadata_delete(ptr noundef %foreign_metadata.0) #22
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.483)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.483)
   br label %return
 
 if.end228:                                        ; preds = %if.end220
@@ -2518,7 +2518,7 @@ if.end228:                                        ; preds = %if.end220
 
 if.then231:                                       ; preds = %if.end228
   call void @flac__foreign_metadata_delete(ptr noundef %foreign_metadata.0) #22
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.484)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.484)
   br label %return
 
 if.end233:                                        ; preds = %if.end228
@@ -2543,7 +2543,7 @@ if.then240:                                       ; preds = %if.end238
 
 if.then243:                                       ; preds = %if.then240
   call void @flac__foreign_metadata_delete(ptr noundef %foreign_metadata.0) #22
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.485)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.485)
   br label %return
 
 if.end248:                                        ; preds = %if.end238, %if.then240
@@ -2977,7 +2977,7 @@ if.else.i243:                                     ; preds = %if.then188
   br label %conditional_fclose.exit246
 
 conditional_fclose.exit246:                       ; preds = %if.then188, %if.else.i243
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.511, ptr noundef nonnull %infilename)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.511, ptr noundef nonnull %infilename)
   br label %return
 
 if.end191:                                        ; preds = %land.lhs.true177
@@ -3032,7 +3032,7 @@ if.else.i252:                                     ; preds = %if.then235
   br label %conditional_fclose.exit255
 
 conditional_fclose.exit255:                       ; preds = %if.then235, %if.else.i252
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.513)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.513)
   br label %return
 
 if.end238:                                        ; preds = %if.then230
@@ -3054,7 +3054,7 @@ if.else.i261:                                     ; preds = %if.then253
   br label %conditional_fclose.exit264
 
 conditional_fclose.exit264:                       ; preds = %if.then253, %if.else.i261
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.514)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.514)
   br label %return
 
 if.end257:                                        ; preds = %if.end238, %if.end226
@@ -3161,7 +3161,7 @@ if.else.i288:                                     ; preds = %if.then311
   br label %conditional_fclose.exit291
 
 conditional_fclose.exit291:                       ; preds = %if.then311, %if.else.i288
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.518)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.518)
   br label %return
 
 if.else315:                                       ; preds = %if.end293
@@ -3191,7 +3191,7 @@ if.else.i297:                                     ; preds = %if.then330
   br label %conditional_fclose.exit300
 
 conditional_fclose.exit300:                       ; preds = %if.then330, %if.else.i297
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.519)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.519)
   br label %return
 
 if.end334:                                        ; preds = %if.else315, %if.then296
@@ -3217,7 +3217,7 @@ if.else.i306:                                     ; preds = %if.then338
   br label %conditional_fclose.exit309
 
 conditional_fclose.exit309:                       ; preds = %if.then338, %if.else.i306
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.520)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.520)
   br label %return
 
 if.end342:                                        ; preds = %if.end334
@@ -3241,7 +3241,7 @@ if.else.i315:                                     ; preds = %if.then346
   br label %conditional_fclose.exit318
 
 conditional_fclose.exit318:                       ; preds = %if.then346, %if.else.i315
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.521)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.521)
   br label %return
 
 if.end349:                                        ; preds = %if.end342
@@ -3268,7 +3268,7 @@ if.else.i324:                                     ; preds = %if.then355
   br label %conditional_fclose.exit327
 
 conditional_fclose.exit327:                       ; preds = %if.then355, %if.else.i324
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.483)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.483)
   br label %return
 
 if.end358:                                        ; preds = %if.end349
@@ -3293,7 +3293,7 @@ if.else.i333:                                     ; preds = %if.then361
   br label %conditional_fclose.exit336
 
 conditional_fclose.exit336:                       ; preds = %if.then361, %if.else.i333
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.484)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.484)
   br label %return
 
 if.end364:                                        ; preds = %if.end358
@@ -4024,7 +4024,7 @@ lor.lhs.false:                                    ; preds = %if.then33
   br i1 %tobool.not, label %if.end, label %if.then37
 
 if.then37:                                        ; preds = %lor.lhs.false, %if.then33
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.632, ptr noundef %long_option)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.632, ptr noundef %long_option)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -4033,7 +4033,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp44, label %if.then46, label %return
 
 if.then46:                                        ; preds = %if.end
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.634, ptr noundef %long_option)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.634, ptr noundef %long_option)
   br label %return
 
 if.else49:                                        ; preds = %if.else30
@@ -4105,7 +4105,7 @@ if.then95:                                        ; preds = %land.lhs.true
   br label %for.inc
 
 if.else98:                                        ; preds = %for.cond, %land.lhs.true
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.635, ptr noundef nonnull %option_argument, ptr noundef %long_option)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.635, ptr noundef nonnull %option_argument, ptr noundef %long_option)
   br label %return
 
 for.inc:                                          ; preds = %if.then67, %if.then77, %if.then95, %if.then82, %if.then72
@@ -4128,7 +4128,7 @@ lor.lhs.false114:                                 ; preds = %if.then111
   br i1 %tobool116.not, label %if.end119, label %if.then117
 
 if.then117:                                       ; preds = %lor.lhs.false114, %if.then111
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.637)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.637)
   br label %return
 
 if.end119:                                        ; preds = %lor.lhs.false114
@@ -4155,7 +4155,7 @@ if.then129:                                       ; preds = %if.else125
   br i1 %cmp130, label %if.then132, label %if.end134
 
 if.then132:                                       ; preds = %if.then129
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.638, i32 noundef 64)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.638, i32 noundef 64)
   br label %return
 
 if.end134:                                        ; preds = %if.then129
@@ -4169,7 +4169,7 @@ if.end134:                                        ; preds = %if.then129
 
 if.then139:                                       ; preds = %if.end134
   %7 = load ptr, ptr %violation, align 8
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.639, ptr noundef %7)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.639, ptr noundef %7)
   br label %return
 
 if.end141:                                        ; preds = %if.end134
@@ -4194,7 +4194,7 @@ if.then146:                                       ; preds = %if.else142
 
 if.then150:                                       ; preds = %if.then146
   %11 = load ptr, ptr %violation, align 8
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.640, ptr noundef %11)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.640, ptr noundef %11)
   br label %return
 
 if.else153:                                       ; preds = %if.else142
@@ -4350,7 +4350,7 @@ if.then239:                                       ; preds = %if.else234
   br label %return
 
 if.else240:                                       ; preds = %if.else234
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.643)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.643)
   br label %return
 
 if.else244:                                       ; preds = %if.else224
@@ -4408,7 +4408,7 @@ if.then277:                                       ; preds = %if.else272
   br label %return
 
 if.else278:                                       ; preds = %if.else272
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.646)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.646)
   br label %return
 
 if.else282:                                       ; preds = %if.else262
@@ -4742,7 +4742,7 @@ sw.bb507:                                         ; preds = %entry
 
 if.then513:                                       ; preds = %sw.bb507
   %14 = load ptr, ptr %violation, align 8
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.647, ptr noundef %14)
+  call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.647, ptr noundef %14)
   br label %return
 
 sw.bb516:                                         ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
@@ -4761,7 +4761,7 @@ add_compression_setting_uint32_t.exit:            ; preds = %sw.bb516
   br label %return
 
 sw.bb518:                                         ; preds = %entry
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.648)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.648)
   br label %return
 
 sw.bb520:                                         ; preds = %entry
@@ -4801,7 +4801,7 @@ if.else527:                                       ; preds = %sub_0, %sw.bb522.ta
   br i1 %cmp536, label %if.then538, label %if.else540
 
 if.then538:                                       ; preds = %if.else527
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.649)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.649)
   br label %return
 
 if.else540:                                       ; preds = %if.else527
@@ -4817,7 +4817,7 @@ sw.bb546:                                         ; preds = %entry
   br i1 %cmp548, label %if.then550, label %return
 
 if.then550:                                       ; preds = %sw.bb546
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.651, i32 noundef 80, i32 noundef 80)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.651, i32 noundef 80, i32 noundef 80)
   br label %return
 
 sw.bb553:                                         ; preds = %entry
@@ -4827,7 +4827,7 @@ sw.bb553:                                         ; preds = %entry
   br i1 %or.cond, label %if.then560, label %if.end562
 
 if.then560:                                       ; preds = %sw.bb553
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.652, i32 noundef 98, i32 noundef %call554, i32 noundef 16, i32 noundef 65535)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.652, i32 noundef 98, i32 noundef %call554, i32 noundef 16, i32 noundef 65535)
   br label %return
 
 if.end562:                                        ; preds = %sw.bb553
@@ -4878,7 +4878,7 @@ sw.bb565:                                         ; preds = %entry
   br i1 %cmp568, label %if.then570, label %if.end572
 
 if.then570:                                       ; preds = %sw.bb565
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.653, i32 noundef 108, i32 noundef %call567, i32 noundef 0, i32 noundef 32)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.653, i32 noundef 108, i32 noundef %call567, i32 noundef 0, i32 noundef 32)
   br label %return
 
 if.end572:                                        ; preds = %sw.bb565
@@ -5000,7 +5000,7 @@ sw.bb577:                                         ; preds = %entry
   br i1 %or.cond140, label %if.then588, label %if.end590
 
 if.then588:                                       ; preds = %sw.bb577
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.654, i32 noundef %call579, i32 noundef 113, i32 noundef 5, i32 noundef 15)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.654, i32 noundef %call579, i32 noundef 113, i32 noundef 5, i32 noundef 15)
   br label %return
 
 if.end590:                                        ; preds = %sw.bb577
@@ -5019,7 +5019,7 @@ if.then597:                                       ; preds = %sw.bb591
   br i1 %cmp599, label %if.then601, label %if.end603
 
 if.then601:                                       ; preds = %if.then597
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.655, i32 noundef %call598, i32 noundef 114, i32 noundef 15)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.655, i32 noundef %call598, i32 noundef 114, i32 noundef 15)
   br label %return
 
 if.end603:                                        ; preds = %if.then597
@@ -5032,7 +5032,7 @@ if.else604:                                       ; preds = %sw.bb591
   br i1 %cmp606, label %if.then608, label %if.end610
 
 if.then608:                                       ; preds = %if.else604
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.656, i32 noundef %call605, i32 noundef 114, i32 noundef 15)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.656, i32 noundef %call605, i32 noundef 114, i32 noundef 15)
   br label %return
 
 if.end610:                                        ; preds = %if.else604
@@ -5043,7 +5043,7 @@ if.end610:                                        ; preds = %if.else604
   br i1 %cmp613, label %if.then615, label %if.end617
 
 if.then615:                                       ; preds = %if.end610
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.657, i32 noundef %call612, i32 noundef 114, i32 noundef 15)
+  tail call void (ptr, ...) @usage_error.retelim(ptr noundef nonnull @.str.657, i32 noundef %call612, i32 noundef 114, i32 noundef 15)
   br label %return
 
 if.end617:                                        ; preds = %if.end610

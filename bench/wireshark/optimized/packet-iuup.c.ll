@@ -3083,7 +3083,7 @@ define internal i32 @dissect_iuup(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %192
 
 101:                                              ; preds = %95
-  tail call fastcc void @dissect_iuup_ratectl(ptr noundef %.0172, ptr noundef %.0174)
+  tail call fastcc void @dissect_iuup_ratectl.argprom(ptr noundef %.0172, ptr noundef %.0174)
   br label %192
 
 102:                                              ; preds = %95
@@ -3119,7 +3119,7 @@ default.unreachable:                              ; preds = %86
 
 113:                                              ; preds = %110
   tail call fastcc void @add_payload_crc(ptr noundef %.0172, ptr noundef nonnull %1, ptr noundef %.0174)
-  tail call fastcc void @dissect_iuup_ratectl(ptr noundef %.0172, ptr noundef %.0174)
+  tail call fastcc void @dissect_iuup_ratectl.argprom(ptr noundef %.0172, ptr noundef %.0174)
   br label %192
 
 114:                                              ; preds = %95, %110
@@ -3516,7 +3516,7 @@ define internal fastcc void @dissect_iuup_payload(ptr noundef %0, ptr noundef %1
   %53 = zext nneg i32 %52 to i64
   %54 = tail call ptr @tvb_memdup(ptr noundef %.val, ptr noundef %0, i32 noundef %45, i64 noundef %53) #8
   %.not2.i = icmp eq i32 %51, 0
-  br i1 %.not2.i, label %iuup_proto_tree_add_bits.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %iuup_proto_tree_add_bits.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39
   %55 = zext nneg i32 %46 to i64
@@ -3538,9 +3538,9 @@ define internal fastcc void @dissect_iuup_payload(ptr noundef %0, ptr noundef %1
   %65 = tail call i8 @llvm.fshl.i8(i8 %60, i8 %64, i8 %58)
   store i8 %65, ptr %61, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %iuup_proto_tree_add_bits.exit, label %59, !llvm.loop !7
+  br i1 %exitcond.not.i, label %iuup_proto_tree_add_bits.argprom.exit, label %59, !llvm.loop !7
 
-iuup_proto_tree_add_bits.exit:                    ; preds = %59, %39
+iuup_proto_tree_add_bits.argprom.exit:            ; preds = %59, %39
   %.pre-phi.i = phi i64 [ 0, %39 ], [ %wide.trip.count.i, %59 ]
   %66 = getelementptr i8, ptr %54, i64 %.pre-phi.i
   %67 = load i8, ptr %66, align 1
@@ -3561,8 +3561,8 @@ iuup_proto_tree_add_bits.exit:                    ; preds = %59, %39
   %79 = add i32 %78, %.04763
   br label %80
 
-80:                                               ; preds = %.lr.ph65, %iuup_proto_tree_add_bits.exit
-  %.1 = phi i32 [ %79, %iuup_proto_tree_add_bits.exit ], [ %.04763, %.lr.ph65 ]
+80:                                               ; preds = %.lr.ph65, %iuup_proto_tree_add_bits.argprom.exit
+  %.1 = phi i32 [ %79, %iuup_proto_tree_add_bits.argprom.exit ], [ %.04763, %.lr.ph65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph65, !llvm.loop !8
@@ -3593,7 +3593,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_iuup_ratectl(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_iuup_ratectl.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #8
   %4 = and i8 %3, 63
   %5 = load i32, ptr @hf_iuup_num_rfci_ind, align 4
@@ -3679,7 +3679,7 @@ define internal fastcc void @dissect_iuup_init(ptr noundef %0, ptr nocapture nou
 
 .thread68:                                        ; preds = %31
   store i32 5, ptr %5, align 4
-  %32 = call fastcc i32 @dissect_rfcis(ptr noundef %0, ptr noundef null, ptr noundef %5, ptr noundef nonnull %.067)
+  %32 = call fastcc i32 @dissect_rfcis.argprom(ptr noundef %0, ptr noundef null, ptr noundef %5, ptr noundef nonnull %.067)
   br label %73
 
 33:                                               ; preds = %31
@@ -3692,7 +3692,7 @@ define internal fastcc void @dissect_iuup_init(ptr noundef %0, ptr nocapture nou
   %40 = load i32, ptr @hf_iuup_init_chain_ind, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %40, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #8
   store i32 5, ptr %5, align 4
-  %42 = call fastcc i32 @dissect_rfcis(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %.067)
+  %42 = call fastcc i32 @dissect_rfcis.argprom(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %.067)
   %.not62 = icmp eq i32 %10, 0
   %.pre = load i32, ptr %5, align 4
   br i1 %.not62, label %59, label %43
@@ -3784,7 +3784,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 64) i32 @dissect_rfcis.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 8

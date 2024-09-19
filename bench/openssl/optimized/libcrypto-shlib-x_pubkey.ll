@@ -602,12 +602,12 @@ if.end:                                           ; preds = %if.then2.i, %if.the
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_d2i_PUBKEY_legacy(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc ptr @d2i_PUBKEY_int(ptr noundef %a, ptr noundef %pp, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call = tail call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef %a, ptr noundef %pp, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @d2i_PUBKEY_int(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq, i32 noundef range(i32 0, 2) %force_legacy) unnamed_addr #0 {
+define internal fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq, i32 noundef range(i32 0, 2) %force_legacy) unnamed_addr #0 {
 entry:
   %xpk2 = alloca ptr, align 8
   %q = alloca ptr, align 8
@@ -691,7 +691,7 @@ return:                                           ; preds = %if.then, %end
 ; Function Attrs: nounwind uwtable
 define ptr @d2i_PUBKEY_ex(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc ptr @d2i_PUBKEY_int(ptr noundef %a, ptr noundef %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq, i32 noundef 0)
+  %call = tail call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef %a, ptr noundef %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq, i32 noundef 0)
   ret ptr %call
 }
 
@@ -704,27 +704,27 @@ entry:
   store ptr %0, ptr %q.i, align 8
   %call1.i.i = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %q.i, i64 noundef %length, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
   %cmp13.i = icmp eq ptr %call1.i.i, null
-  br i1 %cmp13.i, label %d2i_PUBKEY_int.exit, label %if.end15.i
+  br i1 %cmp13.i, label %d2i_PUBKEY_int.argprom.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %entry
   %call16.i = call ptr @X509_PUBKEY_get(ptr noundef nonnull %call1.i.i)
   call void @ASN1_item_free(ptr noundef nonnull %call1.i.i, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
   %cmp17.i = icmp eq ptr %call16.i, null
-  br i1 %cmp17.i, label %d2i_PUBKEY_int.exit, label %if.end19.i
+  br i1 %cmp17.i, label %d2i_PUBKEY_int.argprom.exit, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end15.i
   %1 = load ptr, ptr %q.i, align 8
   store ptr %1, ptr %pp, align 8
   %cmp20.not.i = icmp eq ptr %a, null
-  br i1 %cmp20.not.i, label %d2i_PUBKEY_int.exit, label %if.then21.i
+  br i1 %cmp20.not.i, label %d2i_PUBKEY_int.argprom.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
   %2 = load ptr, ptr %a, align 8
   call void @EVP_PKEY_free(ptr noundef %2) #8
   store ptr %call16.i, ptr %a, align 8
-  br label %d2i_PUBKEY_int.exit
+  br label %d2i_PUBKEY_int.argprom.exit
 
-d2i_PUBKEY_int.exit:                              ; preds = %entry, %if.end15.i, %if.end19.i, %if.then21.i
+d2i_PUBKEY_int.argprom.exit:                      ; preds = %entry, %if.end15.i, %if.end19.i, %if.then21.i
   %pktmp.0.i = phi ptr [ null, %entry ], [ null, %if.end15.i ], [ %call16.i, %if.then21.i ], [ %call16.i, %if.end19.i ]
   call void @ASN1_item_free(ptr noundef null, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.i)
@@ -863,7 +863,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -934,7 +934,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1012,7 +1012,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1084,7 +1084,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1125,7 +1125,7 @@ entry:
   %0 = load ptr, ptr %pp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %q.i)
   store ptr %0, ptr %q.i, align 8
-  %call.i.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q.i, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q.i, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %d2i_DSA_PUBKEY.exit.thread, label %if.end.i
 
@@ -1211,7 +1211,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1289,7 +1289,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1356,7 +1356,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1430,7 +1430,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1504,7 +1504,7 @@ entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr %q, align 8
-  %call.i = call fastcc ptr @d2i_PUBKEY_int(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %call.i = call fastcc ptr @d2i_PUBKEY_int.argprom(ptr noundef null, ptr noundef nonnull %q, i64 noundef %length, ptr noundef null, ptr noundef null, i32 noundef 1)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1803,15 +1803,15 @@ land.rhs.i:                                       ; preds = %lor.lhs.false.i, %i
   %public_key.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %public_key.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
-  br i1 %cmp3.not.i, label %x509_pubkey_ex_populate.exit, label %if.then.i
+  br i1 %cmp3.not.i, label %x509_pubkey_ex_populate.argprom.exit, label %if.then.i
 
-x509_pubkey_ex_populate.exit:                     ; preds = %land.rhs.i
+x509_pubkey_ex_populate.argprom.exit:             ; preds = %land.rhs.i
   %call4.i = tail call ptr @ASN1_BIT_STRING_new() #8
   store ptr %call4.i, ptr %public_key.i, align 8
   %cmp6.i.not = icmp eq ptr %call4.i, null
   br i1 %cmp6.i.not, label %x509_pubkey_ex_free.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %land.rhs.i, %x509_pubkey_ex_populate.exit
+if.then.i:                                        ; preds = %land.rhs.i, %x509_pubkey_ex_populate.argprom.exit
   %libctx1.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %libctx, ptr %libctx1.i, align 8
   %propq2.i = getelementptr inbounds i8, ptr %call, i64 32
@@ -1827,7 +1827,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %cmp8.i = icmp eq ptr %call.i2, null
   br i1 %cmp8.i, label %x509_pubkey_ex_free.exit, label %if.else
 
-x509_pubkey_ex_free.exit:                         ; preds = %if.then5.i, %lor.lhs.false.i, %x509_pubkey_ex_populate.exit
+x509_pubkey_ex_free.exit:                         ; preds = %if.then5.i, %lor.lhs.false.i, %x509_pubkey_ex_populate.argprom.exit
   %3 = load ptr, ptr %call, align 8
   tail call void @X509_ALGOR_free(ptr noundef %3) #8
   %public_key.i5 = getelementptr inbounds i8, ptr %call, i64 8
@@ -1890,21 +1890,21 @@ land.rhs.i:                                       ; preds = %lor.lhs.false.i, %i
   %public_key.i = getelementptr inbounds i8, ptr %pval.val, i64 8
   %3 = load ptr, ptr %public_key.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
-  br i1 %cmp3.not.i, label %x509_pubkey_ex_populate.exit, label %if.end4
+  br i1 %cmp3.not.i, label %x509_pubkey_ex_populate.argprom.exit, label %if.end4
 
-x509_pubkey_ex_populate.exit:                     ; preds = %land.rhs.i
+x509_pubkey_ex_populate.argprom.exit:             ; preds = %land.rhs.i
   %call4.i = tail call ptr @ASN1_BIT_STRING_new() #8
   store ptr %call4.i, ptr %public_key.i, align 8
   %cmp6.i.not = icmp eq ptr %call4.i, null
   br i1 %cmp6.i.not, label %if.then3, label %if.end4
 
-if.then3:                                         ; preds = %lor.lhs.false.i, %x509_pubkey_ex_populate.exit
+if.then3:                                         ; preds = %lor.lhs.false.i, %x509_pubkey_ex_populate.argprom.exit
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 146, ptr noundef nonnull @__func__.x509_pubkey_ex_d2i_ex) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524299, ptr noundef null) #8
   br label %return
 
-if.end4:                                          ; preds = %land.rhs.i, %x509_pubkey_ex_populate.exit
+if.end4:                                          ; preds = %land.rhs.i, %x509_pubkey_ex_populate.argprom.exit
   %call6 = tail call i32 @ASN1_item_ex_d2i(ptr noundef nonnull %pval, ptr noundef nonnull %in, i64 noundef %len, ptr noundef nonnull @X509_PUBKEY_INTERNAL_it.local_it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) #8
   %cmp7 = icmp slt i32 %call6, 1
   br i1 %cmp7, label %return, label %if.end9

@@ -3812,7 +3812,7 @@ if.end11:                                         ; preds = %if.end3
   %agg.tmp.sroa.2.0.copyload.i37 = load i64, ptr %agg.tmp.sroa.2.0.Prefix.sroa_idx.i36, align 8
   %Loc.i38 = getelementptr inbounds i8, ptr %this, i64 152
   %agg.tmp1.sroa.0.0.copyload.i = load ptr, ptr %Loc.i38, align 8
-  tail call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp.sroa.0.0.copyload.i35, i64 %agg.tmp.sroa.2.0.copyload.i37, ptr %agg.tmp1.sroa.0.0.copyload.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %this, ptr %add.ptr.i37, i64 %sub.i39, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %call6, i64 noundef %1, i8 %Req.val, i8 %Req.val31)
+  tail call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE.argprom(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp.sroa.0.0.copyload.i35, i64 %agg.tmp.sroa.2.0.copyload.i37, ptr %agg.tmp1.sroa.0.0.copyload.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %this, ptr %add.ptr.i37, i64 %sub.i39, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %call6, i64 noundef %1, i8 %Req.val, i8 %Req.val31)
   br i1 %IsLabelScanMode, label %if.end28, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
@@ -3995,7 +3995,7 @@ if.then31:                                        ; preds = %if.end28
   %agg.tmp32.sroa.2.0.copyload = load i64, ptr %agg.tmp32.sroa.2.0.Prefix33.sroa_idx, align 8
   %retval.sroa.0.0.copyload.i61 = load ptr, ptr %PatItr.sroa.0.0201, align 8
   %Req.val = load i8, ptr %2, align 4
-  call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp32.sroa.0.0.copyload, i64 %agg.tmp32.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i61, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %add, i64 noundef %.pre, i8 %Req.val, i8 %10)
+  call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE.argprom(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp32.sroa.0.0.copyload, i64 %agg.tmp32.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i61, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %add, i64 noundef %.pre, i8 %Req.val, i8 %10)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then31, %if.end28
@@ -4107,7 +4107,7 @@ if.then123:                                       ; preds = %for.end120
   %retval.sroa.0.0.copyload.i81 = load ptr, ptr %PatItr.sroa.0.0201, align 8
   %23 = load i64, ptr %MatchLen, align 8
   %Req.val46 = load i8, ptr %2, align 4
-  call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp124.sroa.0.0.copyload, i64 %agg.tmp124.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i81, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %add, i64 noundef %23, i8 %Req.val46, i8 %22)
+  call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE.argprom(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp124.sroa.0.0.copyload, i64 %agg.tmp124.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i81, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %add, i64 noundef %23, i8 %Req.val46, i8 %22)
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then123, %for.end120
@@ -4413,7 +4413,7 @@ if.end:                                           ; preds = %for.body
   %5 = getelementptr inbounds i8, ptr %Req, i64 84
   %Req.val = load i8, ptr %5, align 4
   %Req.val14 = load i8, ptr %VerboseVerbose, align 1
-  tail call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp7.sroa.0.0.copyload, i64 %agg.tmp7.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %call6, i64 noundef %4, i8 %Req.val, i8 %Req.val14)
+  tail call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE.argprom(i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp7.sroa.0.0.copyload, i64 %agg.tmp7.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %call6, i64 noundef %4, i8 %Req.val, i8 %Req.val14)
   br label %return
 
 return:                                           ; preds = %if.then, %entry, %if.end
@@ -4566,7 +4566,7 @@ if.end30:                                         ; preds = %entry, %if.then28, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext %ExpectedMatch, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %Prefix.coerce0, i64 %Prefix.coerce1, ptr %Loc.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %Pat, ptr %Buffer.0.val, i64 %Buffer.8.val, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %MatchPos, i64 noundef %MatchLen, i8 %Req.84.val, i8 %Req.85.val) unnamed_addr #0 {
+define internal fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE.argprom(i1 noundef zeroext %ExpectedMatch, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %Prefix.coerce0, i64 %Prefix.coerce1, ptr %Loc.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %Pat, ptr %Buffer.0.val, i64 %Buffer.8.val, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %MatchPos, i64 noundef %MatchLen, i8 %Req.84.val, i8 %Req.85.val) unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -4699,7 +4699,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit677: ; preds = %1370, %_ZNSt
 
 1398:                                             ; preds = %1391
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
-  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE(ptr %1394, ptr %1396, ptr noundef nonnull align 8 dereferenceable(24) %57)
+  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE.argprom(ptr %1394, ptr %1396, ptr noundef nonnull align 8 dereferenceable(24) %57)
   %1399 = load ptr, ptr %67, align 8
   %1400 = load i32, ptr %1392, align 8
   call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %1399, i32 noundef %1400, ptr noundef nonnull align 8 dereferenceable(24) %57) #20
@@ -5900,7 +5900,7 @@ _ZN7glslang4TMapIiNS_7TVectorIPKNS_12TIntermTypedEEESt4lessIiEEC2ERKS8_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE(ptr readonly %.8.val, ptr readnone %.16.val, ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE.argprom(ptr readonly %.8.val, ptr readnone %.16.val, ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
   %2 = alloca i32, align 4
   %.not1114 = icmp eq ptr %.8.val, %.16.val
   br i1 %.not1114, label %._crit_edge18, label %.lr.ph17
@@ -6749,7 +6749,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.
   %191 = call noundef nonnull align 8 dereferenceable(80) ptr %190(ptr noundef nonnull align 8 dereferenceable(152) %187) #20
   %192 = getelementptr inbounds i8, ptr %191, i64 8
   %.val = load i64, ptr %192, align 8
-  %193 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser32TranslateInterpolationDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
+  %193 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser32TranslateInterpolationDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
   call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %166, i32 noundef %183, i32 noundef %193, i32 noundef -1) #20
   %194 = load i32, ptr %24, align 4
   %195 = load ptr, ptr %1, align 8
@@ -6764,17 +6764,17 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.
   %.val93 = load i64, ptr %203, align 8
   %204 = and i64 %.val93, 536870912
   %.not.i = icmp eq i64 %204, 0
-  br i1 %.not.i, label %205, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit
+  br i1 %.not.i, label %205, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit
 
 205:                                              ; preds = %165
   %206 = and i64 %.val93, 17592186044416
   %.not4.i = icmp eq i64 %206, 0
-  br i1 %.not4.i, label %207, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit
+  br i1 %.not4.i, label %207, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit
 
 207:                                              ; preds = %205
   %208 = and i64 %.val93, 35184372088832
   %.not5.i = icmp eq i64 %208, 0
-  br i1 %.not5.i, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit, label %209
+  br i1 %.not5.i, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit, label %209
 
 209:                                              ; preds = %207
   %210 = getelementptr inbounds i8, ptr %0, i64 464
@@ -6814,7 +6814,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.
   %221 = phi i32 [ %.pre.i.i.i.i, %218 ], [ %213, %._crit_edge.i.i.i.i.i ]
   %.019.lcssa29.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i, %218 ], [ %.02024.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %222 = icmp slt i32 %221, 35
-  br i1 %222, label %select.unfold.i.i.i.i, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit
+  br i1 %222, label %select.unfold.i.i.i.i, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit
 
 select.unfold.i.i.i.i:                            ; preds = %220, %._crit_edge.thread.i.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i, %220 ]
@@ -6837,9 +6837,9 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %232 = load i64, ptr %231, align 8
   %233 = add i64 %232, 1
   store i64 %233, ptr %231, align 8
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit
 
-_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit: ; preds = %165, %205, %207, %220, %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i
+_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit: ; preds = %165, %205, %207, %220, %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i
   %.0.i = phi i32 [ 16, %165 ], [ 15, %205 ], [ 2147483647, %207 ], [ 17, %220 ], [ 17, %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i ]
   call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %166, i32 noundef %194, i32 noundef %.0.i, i32 noundef -1) #20
   %234 = load i32, ptr %24, align 4
@@ -6862,7 +6862,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationER
   %.not265 = icmp eq i64 %249, 16384
   br i1 %.not265, label %261, label %250
 
-250:                                              ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit
+250:                                              ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit
   %251 = load i32, ptr %24, align 4
   %252 = load ptr, ptr %1, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 272
@@ -6876,7 +6876,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationER
   call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %166, i32 noundef %251, i32 noundef 31, i32 noundef %260) #20
   br label %261
 
-261:                                              ; preds = %250, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit
+261:                                              ; preds = %250, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit
   %262 = load ptr, ptr %1, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 272
   %264 = load ptr, ptr %263, align 8
@@ -10289,7 +10289,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %280 = getelementptr inbounds i8, ptr %279, i64 240
   %281 = load ptr, ptr %280, align 8
   %282 = call noundef nonnull align 8 dereferenceable(152) ptr %281(ptr noundef nonnull align 8 dereferenceable(184) %278) #20
-  %283 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %282)
+  %283 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %282)
   %284 = load ptr, ptr %2, align 8
   %285 = getelementptr inbounds i8, ptr %284, i64 408
   %286 = load ptr, ptr %285, align 8
@@ -10298,7 +10298,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %289 = getelementptr inbounds i8, ptr %288, i64 240
   %290 = load ptr, ptr %289, align 8
   %291 = call noundef nonnull align 8 dereferenceable(152) ptr %290(ptr noundef nonnull align 8 dereferenceable(184) %287) #20
-  %292 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %291)
+  %292 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %291)
   %293 = or i32 %292, %283
   %294 = trunc nuw nsw i32 %293 to i16
   %295 = getelementptr inbounds i8, ptr %2, i64 188
@@ -10326,7 +10326,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %314 = and i64 %.val124, 68719476736
   %.not.i129 = icmp eq i64 %314, 0
   %..i = select i1 %.not.i129, i32 2147483647, i32 42
-  %315 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %294)
+  %315 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %294)
   store i32 %304, ptr %13, align 4
   %316 = getelementptr inbounds i8, ptr %13, i64 4
   store i32 %..i, ptr %316, align 4
@@ -10337,7 +10337,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %320 = getelementptr inbounds i8, ptr %319, i64 240
   %321 = load ptr, ptr %320, align 8
   %322 = call noundef nonnull align 8 dereferenceable(152) ptr %321(ptr noundef nonnull align 8 dereferenceable(184) %2) #20
-  %323 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %322)
+  %323 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %322)
   %324 = load ptr, ptr %2, align 8
   %325 = getelementptr inbounds i8, ptr %324, i64 240
   %326 = load ptr, ptr %325, align 8
@@ -10589,7 +10589,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i145:               ; preds = %415, %_ZN3spv7Build
   %483 = getelementptr inbounds i8, ptr %482, i64 240
   %484 = load ptr, ptr %483, align 8
   %485 = call noundef nonnull align 8 dereferenceable(152) ptr %484(ptr noundef nonnull align 8 dereferenceable(184) %481) #20
-  %486 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %485)
+  %486 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %485)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store i32 %448, ptr %16, align 4
   call void @_ZNSt6vectorIjSaIjEE9push_backEOj(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
@@ -10601,7 +10601,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i145:               ; preds = %415, %_ZN3spv7Build
   %492 = getelementptr inbounds i8, ptr %491, i64 240
   %493 = load ptr, ptr %492, align 8
   %494 = call noundef nonnull align 8 dereferenceable(152) ptr %493(ptr noundef nonnull align 8 dereferenceable(184) %490) #20
-  %495 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %494)
+  %495 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %494)
   %.sroa.023.0.insert.insert = and i32 %486, 511
   %496 = load ptr, ptr %2, align 8
   %497 = getelementptr inbounds i8, ptr %496, i64 400
@@ -10730,7 +10730,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i145:               ; preds = %415, %_ZN3spv7Build
   %591 = getelementptr inbounds i8, ptr %590, i64 240
   %592 = load ptr, ptr %591, align 8
   %593 = call noundef nonnull align 8 dereferenceable(152) ptr %592(ptr noundef nonnull align 8 dereferenceable(184) %589) #20
-  %594 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %593)
+  %594 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %593)
   %595 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %30, i32 noundef 32, i1 noundef zeroext true) #20
   %596 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %30, i32 noundef %595, i32 noundef %.0115, i1 noundef zeroext false) #20
   %.sroa.019.0.insert.insert = and i32 %594, 511
@@ -10826,7 +10826,7 @@ _ZNK7glslang5TType27getBufferReferenceAlignmentEv.exit: ; preds = %585, %610, %6
   %672 = load ptr, ptr %671, align 8
   %673 = getelementptr i8, ptr %672, i64 8
   %.val126 = load ptr, ptr %673, align 8
-  call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser24declareUseOfStructMemberERKN7glslang7TVectorINS1_8TTypeLocEEEi(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr %.val126, i32 noundef %448)
+  call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser24declareUseOfStructMemberERKN7glslang7TVectorINS1_8TTypeLocEEEi.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr %.val126, i32 noundef %448)
   br label %_ZN3spv7Builder11AccessChainD2Ev.exit147
 
 674:                                              ; preds = %152
@@ -11792,7 +11792,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit165:         ; preds = %_ZNSt6vectorIjSaIjE
   %1151 = getelementptr inbounds i8, ptr %1150, i64 240
   %1152 = load ptr, ptr %1151, align 8
   %1153 = call noundef nonnull align 8 dereferenceable(152) ptr %1152(ptr noundef nonnull align 8 dereferenceable(184) %1149) #20
-  %1154 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1153)
+  %1154 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %1153)
   %.sroa.015.0.extract.trunc = trunc nuw nsw i32 %1154 to i16
   %1155 = load ptr, ptr %2, align 8
   %1156 = getelementptr inbounds i8, ptr %1155, i64 400
@@ -11802,7 +11802,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit165:         ; preds = %_ZNSt6vectorIjSaIjE
   %1160 = getelementptr inbounds i8, ptr %1159, i64 240
   %1161 = load ptr, ptr %1160, align 8
   %1162 = call noundef nonnull align 8 dereferenceable(152) ptr %1161(ptr noundef nonnull align 8 dereferenceable(184) %1158) #20
-  %1163 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1162)
+  %1163 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %1162)
   %.sroa.07.0.extract.trunc = trunc nuw nsw i32 %1163 to i16
   %1164 = and i16 %.sroa.015.0.extract.trunc, 512
   %1165 = and i16 %.sroa.07.0.extract.trunc, 511
@@ -11845,7 +11845,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit165:         ; preds = %_ZNSt6vectorIjSaIjE
   %1198 = getelementptr inbounds i8, ptr %1197, i64 240
   %1199 = load ptr, ptr %1198, align 8
   %1200 = call noundef nonnull align 8 dereferenceable(152) ptr %1199(ptr noundef nonnull align 8 dereferenceable(184) %1196) #20
-  %1201 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1200)
+  %1201 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1200)
   %.sroa.07.0.insert.ext8 = zext nneg i16 %1166 to i32
   %1202 = load ptr, ptr %2, align 8
   %1203 = getelementptr inbounds i8, ptr %1202, i64 400
@@ -11959,7 +11959,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i170:               ; preds = %1254, %1252
   %1280 = getelementptr inbounds i8, ptr %1279, i64 48
   %1281 = load ptr, ptr %1280, align 8
   %1282 = call noundef ptr %1281(ptr noundef nonnull align 8 dereferenceable(32) %1278) #20
-  call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14convertSwizzleERKN7glslang16TIntermAggregateERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(364) %1282, ptr noundef nonnull align 8 dereferenceable(24) %23)
+  call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14convertSwizzleERKN7glslang16TIntermAggregateERSt6vectorIjSaIjEE.argprom(ptr noundef nonnull align 8 dereferenceable(364) %1282, ptr noundef nonnull align 8 dereferenceable(24) %23)
   %1283 = load ptr, ptr %2, align 8
   %1284 = getelementptr inbounds i8, ptr %1283, i64 400
   %1285 = load ptr, ptr %1284, align 8
@@ -11968,7 +11968,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i170:               ; preds = %1254, %1252
   %1288 = getelementptr inbounds i8, ptr %1287, i64 240
   %1289 = load ptr, ptr %1288, align 8
   %1290 = call noundef nonnull align 8 dereferenceable(152) ptr %1289(ptr noundef nonnull align 8 dereferenceable(184) %1286) #20
-  %1291 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1290)
+  %1291 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1290)
   %1292 = load ptr, ptr %2, align 8
   %1293 = getelementptr inbounds i8, ptr %1292, i64 400
   %1294 = load ptr, ptr %1293, align 8
@@ -11977,7 +11977,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i170:               ; preds = %1254, %1252
   %1297 = getelementptr inbounds i8, ptr %1296, i64 240
   %1298 = load ptr, ptr %1297, align 8
   %1299 = call noundef nonnull align 8 dereferenceable(152) ptr %1298(ptr noundef nonnull align 8 dereferenceable(184) %1295) #20
-  %1300 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1299)
+  %1300 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %1299)
   %1301 = load ptr, ptr %2, align 8
   %1302 = getelementptr inbounds i8, ptr %1301, i64 400
   %1303 = load ptr, ptr %1302, align 8
@@ -12058,7 +12058,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i170:               ; preds = %1254, %1252
   %1354 = load ptr, ptr %1353, align 8
   %1355 = call noundef ptr %1354(ptr noundef nonnull align 8 dereferenceable(32) %1329) #20
   %1356 = icmp eq ptr %1355, null
-  br i1 %1356, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit.i, label %1357
+  br i1 %1356, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit.i, label %1357
 
 1357:                                             ; preds = %1351
   %1358 = load ptr, ptr %1329, align 8
@@ -12073,7 +12073,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i170:               ; preds = %1254, %1252
   %1367 = load i64, ptr %1366, align 8
   %1368 = trunc i64 %1367 to i32
   %1369 = and i32 %1368, 127
-  switch i32 %1369, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit.i [
+  switch i32 %1369, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit.i [
     i32 0, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser9isTrivialEPKN7glslang12TIntermTypedE.exit
     i32 1, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser9isTrivialEPKN7glslang12TIntermTypedE.exit
     i32 16, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser9isTrivialEPKN7glslang12TIntermTypedE.exit
@@ -12083,7 +12083,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i170:               ; preds = %1254, %1252
     i32 5, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser9isTrivialEPKN7glslang12TIntermTypedE.exit
   ]
 
-_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit.i: ; preds = %1357, %1351
+_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit.i: ; preds = %1357, %1351
   %1370 = load ptr, ptr %1329, align 8
   %1371 = getelementptr inbounds i8, ptr %1370, i64 160
   %1372 = load ptr, ptr %1371, align 8
@@ -12097,7 +12097,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTyp
   %or.cond.i = and i1 %1378, %1379
   br i1 %or.cond.i, label %1430, label %1380
 
-1380:                                             ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit.i
+1380:                                             ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit.i
   br i1 %1378, label %1416, label %1381
 
 1381:                                             ; preds = %1380
@@ -12114,7 +12114,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTyp
   %1390 = load ptr, ptr %1389, align 8
   %1391 = call noundef ptr %1390(ptr noundef nonnull align 8 dereferenceable(32) %1385) #20
   %.not.i20.i = icmp eq ptr %1391, null
-  br i1 %.not.i20.i, label %1392, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i
+  br i1 %.not.i20.i, label %1392, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i
 
 1392:                                             ; preds = %1387
   %1393 = load ptr, ptr %1385, align 8
@@ -12138,24 +12138,24 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTyp
   %1409 = trunc i64 %1408 to i32
   %1410 = and i32 %1409, 127
   switch i32 %1410, label %1430 [
-    i32 0, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i
-    i32 1, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i
-    i32 16, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i
-    i32 18, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i
-    i32 2, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i
-    i32 19, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i
-    i32 5, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i
+    i32 0, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i
+    i32 1, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i
+    i32 16, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i
+    i32 18, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i
+    i32 2, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i
+    i32 19, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i
+    i32 5, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i
   ]
 
-_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i: ; preds = %1398, %1398, %1398, %1398, %1398, %1398, %1398, %1387
+_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i: ; preds = %1398, %1398, %1398, %1398, %1398, %1398, %1398, %1387
   %1411 = load ptr, ptr %1373, align 8
   %1412 = getelementptr inbounds i8, ptr %1411, i64 408
   %1413 = load ptr, ptr %1412, align 8
   %1414 = call noundef ptr %1413(ptr noundef nonnull align 8 dereferenceable(208) %1373) #20
-  %1415 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE(ptr noundef %1414)
+  %1415 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom(ptr noundef %1414)
   br i1 %1415, label %1416, label %1430
 
-1416:                                             ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i, %1380
+1416:                                             ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i, %1380
   br i1 %1379, label %1423, label %1417
 
 1417:                                             ; preds = %1416
@@ -12163,7 +12163,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTyp
   %1419 = getelementptr inbounds i8, ptr %1418, i64 400
   %1420 = load ptr, ptr %1419, align 8
   %1421 = call noundef ptr %1420(ptr noundef nonnull align 8 dereferenceable(248) %1377) #20
-  %1422 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE(ptr noundef %1421)
+  %1422 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom(ptr noundef %1421)
   br i1 %1422, label %1423, label %1430
 
 1423:                                             ; preds = %1417, %1416
@@ -12192,7 +12192,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTyp
     i32 453, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser9isTrivialEPKN7glslang12TIntermTypedE.exit
   ]
 
-1430:                                             ; preds = %1423, %1321, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit.i, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.exit22.i, %1417, %1381, %1392, %1398
+1430:                                             ; preds = %1423, %1321, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit.i, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom.exit22.i, %1417, %1381, %1392, %1398
   %1431 = load i32, ptr %153, align 8
   %1432 = load ptr, ptr %2, align 8
   %1433 = getelementptr inbounds i8, ptr %1432, i64 400
@@ -12367,7 +12367,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser9isTrivialEPKN7glslang12TIntermTypedE.e
   %1557 = call noundef nonnull align 8 dereferenceable(80) ptr %1556(ptr noundef nonnull align 8 dereferenceable(152) %1553) #20
   %1558 = getelementptr inbounds i8, ptr %1557, i64 8
   %.val = load i64, ptr %1558, align 8
-  %1559 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
+  %1559 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
   store i32 %1539, ptr %27, align 4
   %1560 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %..i181, ptr %1560, align 4
@@ -12378,7 +12378,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser9isTrivialEPKN7glslang12TIntermTypedE.e
   %1564 = getelementptr inbounds i8, ptr %1563, i64 240
   %1565 = load ptr, ptr %1564, align 8
   %1566 = call noundef nonnull align 8 dereferenceable(152) ptr %1565(ptr noundef nonnull align 8 dereferenceable(184) %2) #20
-  %1567 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1566)
+  %1567 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1566)
   %1568 = load ptr, ptr %2, align 8
   %1569 = getelementptr inbounds i8, ptr %1568, i64 400
   %1570 = load ptr, ptr %1569, align 8
@@ -12527,7 +12527,7 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit:     ; preds = %3, %31
   %74 = getelementptr inbounds i8, ptr %72, i64 240
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef nonnull align 8 dereferenceable(152) ptr %75(ptr noundef nonnull align 8 dereferenceable(184) %71) #20
-  %77 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %76)
+  %77 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %76)
   %78 = load ptr, ptr %2, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 392
   %80 = load ptr, ptr %79, align 8
@@ -12680,7 +12680,7 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit:     ; preds = %3, %31
   %185 = getelementptr inbounds i8, ptr %184, i64 240
   %186 = load ptr, ptr %185, align 8
   %187 = call noundef nonnull align 8 dereferenceable(152) ptr %186(ptr noundef nonnull align 8 dereferenceable(184) %183) #20
-  %188 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %187)
+  %188 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %187)
   br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22getInvertedSwizzleTypeERKN7glslang12TIntermTypedE.exit
 
 _ZN12_GLOBAL__N_122TGlslangToSpvTraverser22getInvertedSwizzleTypeERKN7glslang12TIntermTypedE.exit: ; preds = %158, %167, %175
@@ -12721,18 +12721,18 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser22getInvertedSwizzleTypeERKN7glslang12T
   %210 = getelementptr inbounds i8, ptr %209, i64 184
   %211 = load i32, ptr %210, align 8
   switch i32 %211, label %.thread129 [
-    i32 440, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 441, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 442, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
+    i32 440, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 441, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 442, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
     i32 293, label %212
-    i32 719, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 721, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 722, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 735, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 734, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 731, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 716, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 718, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
+    i32 719, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 721, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 722, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 735, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 734, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 731, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 716, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 718, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
     i32 7, label %217
   ]
 
@@ -12742,7 +12742,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser22getInvertedSwizzleTypeERKN7glslang12T
   %215 = getelementptr inbounds i8, ptr %214, i64 768
   %216 = load i32, ptr %215, align 8
   %.not61 = icmp eq i32 %216, 2
-  br i1 %.not61, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
+  br i1 %.not61, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
 
 217:                                              ; preds = %205
   %218 = load ptr, ptr %.056, align 8
@@ -12757,7 +12757,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser22getInvertedSwizzleTypeERKN7glslang12T
   %227 = load i64, ptr %226, align 8
   %228 = and i64 %227, 288230376151711744
   %.not146 = icmp eq i64 %228, 0
-  br i1 %.not146, label %..thread129_crit_edge, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
+  br i1 %.not146, label %..thread129_crit_edge, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
 
 ..thread129_crit_edge:                            ; preds = %217
   %.pre = load ptr, ptr %5, align 8
@@ -12767,31 +12767,31 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser22getInvertedSwizzleTypeERKN7glslang12T
 
 .thread129:                                       ; preds = %..thread129_crit_edge, %205
   %229 = phi i32 [ %.pre149, %..thread129_crit_edge ], [ %211, %205 ]
-  switch i32 %229, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit" [
-    i32 768, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 767, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 763, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 762, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 761, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 760, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 759, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 754, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 753, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 756, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 755, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 757, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 758, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 752, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 751, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 748, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 750, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 749, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 746, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 764, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
-    i32 765, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
+  switch i32 %229, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit" [
+    i32 768, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 767, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 763, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 762, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 761, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 760, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 759, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 754, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 753, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 756, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 755, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 757, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 758, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 752, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 751, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 748, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 750, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 749, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 746, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 764, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
+    i32 765, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
   ]
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread": ; preds = %205, %205, %205, %205, %205, %205, %205, %205, %205, %205, %205, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %217, %212
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread": ; preds = %205, %205, %205, %205, %205, %205, %205, %205, %205, %205, %205, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %.thread129, %217, %212
   %230 = call noundef i32 @_ZN3spv7Builder20accessChainGetLValueEv(ptr noundef nonnull align 8 dereferenceable(1416) %20) #20
   %231 = getelementptr inbounds i8, ptr %0, i64 592
   call void @_ZN3spv7Builder11AccessChainC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(84) %9, ptr noundef nonnull align 8 dereferenceable(84) %231)
@@ -12802,7 +12802,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser22getInvertedSwizzleTypeERKN7glslang12T
   %.not.i.i.i.i = icmp eq ptr %235, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i, label %236
 
-236:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
+236:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
   %237 = getelementptr inbounds i8, ptr %9, i64 56
   %238 = load ptr, ptr %237, align 8
   %239 = ptrtoint ptr %238 to i64
@@ -12811,7 +12811,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser22getInvertedSwizzleTypeERKN7glslang12T
   call void @_ZdlPvm(ptr noundef nonnull %235, i64 noundef %241) #23
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i
 
-_ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %236, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit.thread"
+_ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %236, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit.thread"
   %242 = getelementptr inbounds i8, ptr %9, i64 8
   %243 = load ptr, ptr %242, align 8
   %.not.i.i.i1.i = icmp eq ptr %243, null
@@ -12835,7 +12835,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %255 = getelementptr inbounds i8, ptr %254, i64 240
   %256 = load ptr, ptr %255, align 8
   %257 = call noundef nonnull align 8 dereferenceable(152) ptr %256(ptr noundef nonnull align 8 dereferenceable(184) %253) #20
-  %258 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %257)
+  %258 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %257)
   %.sroa.0111.0.extract.trunc = trunc nuw nsw i32 %258 to i16
   %259 = and i16 %.sroa.0111.0.extract.trunc, 1
   %260 = or i16 %233, %.sroa.0111.0.extract.trunc
@@ -12846,7 +12846,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   store i16 %263, ptr %8, align 4
   br label %286
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit": ; preds = %212, %.thread129
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit": ; preds = %212, %.thread129
   %264 = load ptr, ptr %.056, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 24
   %266 = load ptr, ptr %265, align 8
@@ -12861,7 +12861,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %.not147 = icmp eq i64 %274, 0
   br i1 %.not147, label %275, label %286
 
-275:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit"
+275:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit"
   %276 = load ptr, ptr %5, align 8
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 392
@@ -12874,8 +12874,8 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %285 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser15accessChainLoadERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %284)
   br label %286
 
-286:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit", %275, %_ZN3spv7Builder11AccessChainD2Ev.exit
-  %.057 = phi i32 [ %230, %_ZN3spv7Builder11AccessChainD2Ev.exit ], [ %285, %275 ], [ 0, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.exit" ]
+286:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit", %275, %_ZN3spv7Builder11AccessChainD2Ev.exit
+  %.057 = phi i32 [ %230, %_ZN3spv7Builder11AccessChainD2Ev.exit ], [ %285, %275 ], [ 0, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_0clENS1_9TOperatorE.argprom.exit" ]
   %287 = load ptr, ptr %5, align 8
   %288 = getelementptr inbounds i8, ptr %287, i64 188
   %289 = load i32, ptr %288, align 4
@@ -12913,7 +12913,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %316 = call noundef nonnull align 8 dereferenceable(80) ptr %315(ptr noundef nonnull align 8 dereferenceable(152) %312) #20
   %317 = getelementptr inbounds i8, ptr %316, i64 8
   %.val67 = load i64, ptr %317, align 8
-  %318 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val67)
+  %318 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val67)
   store i32 %297, ptr %10, align 4
   %319 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %..i, ptr %319, align 4
@@ -12931,7 +12931,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %327 = getelementptr inbounds i8, ptr %326, i64 240
   %328 = load ptr, ptr %327, align 8
   %329 = call noundef nonnull align 8 dereferenceable(152) ptr %328(ptr noundef nonnull align 8 dereferenceable(184) %321) #20
-  %330 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %329)
+  %330 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %329)
   %.pre150 = load ptr, ptr %5, align 8
   br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser10visitUnaryEN7glslang6TVisitEPNS1_12TIntermUnaryEENK3$_1clEv.exit"
 
@@ -13260,7 +13260,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %443, label %444, label %493
 
 444:                                              ; preds = %437
-  %445 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser26createUnaryMatrixOperationEN3spv2OpERNS_12_GLOBAL__N_113OpDecorationsEjjN7glslang10TBasicTypeE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef 115, ptr noundef nonnull readonly align 4 dereferenceable(12) %10, i32 noundef %332, i32 noundef %.057)
+  %445 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser26createUnaryMatrixOperationEN3spv2OpERNS_12_GLOBAL__N_113OpDecorationsEjjN7glslang10TBasicTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef 115, ptr noundef nonnull readonly align 4 dereferenceable(12) %10, i32 noundef %332, i32 noundef %.057)
   br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser16createConversionEN7glslang9TOperatorERNS_12_GLOBAL__N_113OpDecorationsEjjNS1_10TBasicTypeE.exit
 
 446:                                              ; preds = %351, %351, %351, %351, %351, %351, %351, %351, %351, %351, %351, %351
@@ -13462,7 +13462,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser16createConversionEN7glslang9TOperatorE
   %504 = getelementptr inbounds i8, ptr %503, i64 240
   %505 = load ptr, ptr %504, align 8
   %506 = call noundef nonnull align 8 dereferenceable(152) ptr %505(ptr noundef nonnull align 8 dereferenceable(184) %498) #20
-  %507 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %506)
+  %507 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %506)
   %.pre151 = load ptr, ptr %5, align 8
   br label %508
 
@@ -13529,7 +13529,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %533
   %.val = load ptr, ptr %546, align 8
   %551 = getelementptr inbounds i8, ptr %12, i64 16
   %.val66 = load ptr, ptr %551, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE(ptr %.val, ptr %.val66, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE.argprom(ptr %.val, ptr %.val66, ptr noundef nonnull align 8 dereferenceable(24) %11)
   %552 = load ptr, ptr %11, align 8
   %553 = load i32, ptr %552, align 4
   %554 = getelementptr inbounds i8, ptr %11, i64 16
@@ -13679,12 +13679,12 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN3spv
   %630 = getelementptr inbounds i8, ptr %629, i64 48
   %631 = load ptr, ptr %630, align 8
   %632 = call noundef ptr %631(ptr noundef nonnull align 8 dereferenceable(32) %628) #20
-  call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14convertSwizzleERKN7glslang16TIntermAggregateERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(364) %632, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14convertSwizzleERKN7glslang16TIntermAggregateERSt6vectorIjSaIjEE.argprom(ptr noundef nonnull align 8 dereferenceable(364) %632, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %633 = load ptr, ptr %620, align 8
   %634 = getelementptr inbounds i8, ptr %633, i64 240
   %635 = load ptr, ptr %634, align 8
   %636 = call noundef nonnull align 8 dereferenceable(152) ptr %635(ptr noundef nonnull align 8 dereferenceable(184) %620) #20
-  %637 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %636)
+  %637 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %636)
   %638 = call noundef i32 @_ZN3spv7Builder19createRvalueSwizzleENS_10DecorationEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %20, i32 noundef %615, i32 noundef %637, i32 noundef %.2139, ptr noundef nonnull align 8 dereferenceable(24) %4) #20
   %639 = load ptr, ptr %4, align 8
   %.not.i.i.i.i88 = icmp eq ptr %639, null
@@ -13851,7 +13851,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createInvertedSwizzleEN3spv10Decorati
   %734 = getelementptr inbounds i8, ptr %733, i64 240
   %735 = load ptr, ptr %734, align 8
   %736 = call noundef nonnull align 8 dereferenceable(152) ptr %735(ptr noundef nonnull align 8 dereferenceable(184) %728) #20
-  %737 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %736)
+  %737 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %736)
   %738 = load ptr, ptr %5, align 8
   %739 = load ptr, ptr %738, align 8
   %740 = getelementptr inbounds i8, ptr %739, i64 240
@@ -13866,7 +13866,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createInvertedSwizzleEN3spv10Decorati
   call void @_ZN3spv7Builder11AccessChainC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(84) %17, ptr noundef nonnull align 8 dereferenceable(84) %748)
   %749 = getelementptr inbounds i8, ptr %17, i64 80
   %.val70 = load i16, ptr %749, align 8
-  %750 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val70)
+  %750 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val70)
   call void @_ZN3spv7Builder16accessChainStoreEjNS_10DecorationENS_16MemoryAccessMaskENS_5ScopeEj(ptr noundef nonnull align 8 dereferenceable(1416) %20, i32 noundef %747, i32 noundef %750, i32 noundef 0, i32 noundef 2147483647, i32 noundef 0) #20
   call void @_ZN3spv7Builder11AccessChainD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %17) #20
   call void @_ZN3spv7Builder16clearAccessChainEv(ptr noundef nonnull align 8 dereferenceable(1416) %20) #20
@@ -14028,9 +14028,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %77 = load ptr, ptr %76, align 8
   %78 = tail call noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(32) %74) #20
   %.not.i.i = icmp eq ptr %78, null
-  br i1 %.not.i.i, label %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.i", label %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.thread.i"
+  br i1 %.not.i.i, label %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.i", label %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.thread.i"
 
-"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.i": ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i"
+"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.i": ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i"
   %79 = load ptr, ptr %74, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 240
   %81 = load ptr, ptr %80, align 8
@@ -14046,9 +14046,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %91 = and i64 %88, 4294967296
   %92 = icmp ne i64 %91, 0
   %93 = or i1 %90, %92
-  br i1 %93, label %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.thread.i", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread"
+  br i1 %93, label %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.thread.i", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread"
 
-"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.thread.i": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.i", %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i"
+"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.thread.i": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.i", %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i"
   %94 = load ptr, ptr %2, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 416
   %96 = load ptr, ptr %95, align 8
@@ -14064,7 +14064,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %.not.i2.i = icmp eq ptr %105, null
   br i1 %.not.i2.i, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.thread.i"
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.thread.i"
   %106 = load ptr, ptr %101, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 240
   %108 = load ptr, ptr %107, align 8
@@ -14082,7 +14082,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %120 = or i1 %117, %119
   br i1 %120, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.thread.i", %33, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit"
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.thread.i", %33, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit"
   %121 = getelementptr inbounds i8, ptr %0, i64 104
   %122 = getelementptr inbounds i8, ptr %0, i64 584
   %123 = load i8, ptr %122, align 8
@@ -14111,7 +14111,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %139 = getelementptr inbounds i8, ptr %138, i64 240
   %140 = load ptr, ptr %139, align 8
   %141 = tail call noundef nonnull align 8 dereferenceable(152) ptr %140(ptr noundef nonnull align 8 dereferenceable(184) %2) #20
-  %142 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %141)
+  %142 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %141)
   %143 = load ptr, ptr %2, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 400
   %145 = load ptr, ptr %144, align 8
@@ -14385,7 +14385,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit22.i:            ; preds = %283, %277
   store i8 %124, ptr %122, align 8
   br label %421
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread": ; preds = %58, %37, %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.i", %3, %27, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit"
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread": ; preds = %58, %37, %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.argprom.exit.i", %3, %27, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %323 = load ptr, ptr %2, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 256
@@ -14416,7 +14416,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit22.i:            ; preds = %283, %277
   %345 = getelementptr inbounds i8, ptr %344, i64 240
   %346 = load ptr, ptr %345, align 8
   %347 = tail call noundef nonnull align 8 dereferenceable(152) ptr %346(ptr noundef nonnull align 8 dereferenceable(184) %2) #20
-  %348 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %347)
+  %348 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %347)
   %349 = tail call noundef i32 @_ZN3spv7Builder14createVariableENS_10DecorationENS_12StorageClassEjPKcjb(ptr noundef nonnull align 8 dereferenceable(1416) %328, i32 noundef %343, i32 noundef 7, i32 noundef %348, ptr noundef null, i32 noundef 0, i1 noundef zeroext true) #20
   br label %350
 
@@ -15762,7 +15762,7 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit350:  ; preds = %.thread540, %548
   %570 = call noundef nonnull align 8 dereferenceable(80) ptr %569(ptr noundef nonnull align 8 dereferenceable(152) %566) #20
   %571 = getelementptr inbounds i8, ptr %570, i64 8
   %.val327 = load i64, ptr %571, align 8
-  %572 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val327)
+  %572 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val327)
   store i32 %99, ptr %17, align 4
   %573 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %..i, ptr %573, align 4
@@ -15999,7 +15999,7 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit350:  ; preds = %.thread540, %548
   %703 = getelementptr inbounds i8, ptr %702, i64 240
   %704 = load ptr, ptr %703, align 8
   %705 = call noundef nonnull align 8 dereferenceable(152) ptr %704(ptr noundef nonnull align 8 dereferenceable(184) %701) #20
-  %706 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %705)
+  %706 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %705)
   store i32 %706, ptr %5, align 4
   br label %735
 
@@ -16243,7 +16243,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %834 = getelementptr inbounds i8, ptr %833, i64 240
   %835 = load ptr, ptr %834, align 8
   %836 = call noundef nonnull align 8 dereferenceable(152) ptr %835(ptr noundef nonnull align 8 dereferenceable(184) %832) #20
-  %837 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %836)
+  %837 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %836)
   %838 = load ptr, ptr %592, align 8
   %839 = getelementptr inbounds i8, ptr %838, i64 8
   %840 = load ptr, ptr %839, align 8
@@ -16354,7 +16354,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i359:               ; preds = %896, %_ZN3spv7Build
   br label %_ZN3spv7Builder11AccessChainD2Ev.exit361
 
 _ZN3spv7Builder11AccessChainD2Ev.exit361:         ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i359, %902
-  %907 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21TranslateMemoryAccessERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0520.0.extract.trunc)
+  %907 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21TranslateMemoryAccessERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0520.0.extract.trunc)
   %908 = load ptr, ptr %4, align 8
   %909 = getelementptr inbounds i8, ptr %908, i64 184
   %910 = load i32, ptr %909, align 8
@@ -16541,7 +16541,7 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backEOS1_.exit367: ; preds = %983,
   br i1 %.not304, label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backEOS1_.exit369, label %985
 
 985:                                              ; preds = %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backEOS1_.exit367
-  %986 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0520.0.extract.trunc)
+  %986 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0520.0.extract.trunc)
   %987 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %63, i32 noundef 32, i1 noundef zeroext false) #20
   %988 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %63, i32 noundef %987, i32 noundef %986, i1 noundef zeroext false) #20
   %989 = load ptr, ptr %637, align 8
@@ -16790,7 +16790,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit379:         ; preds = %_ZNSt6vectorIjSaIjE
   %1095 = getelementptr inbounds i8, ptr %1094, i64 240
   %1096 = load ptr, ptr %1095, align 8
   %1097 = call noundef nonnull align 8 dereferenceable(152) ptr %1096(ptr noundef nonnull align 8 dereferenceable(184) %1093) #20
-  %1098 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1097)
+  %1098 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %1097)
   %.sroa.0469.0.extract.trunc = trunc nuw nsw i32 %1098 to i16
   %1099 = and i16 %.sroa.0469.0.extract.trunc, 1
   %1100 = or i16 %1074, %.sroa.0469.0.extract.trunc
@@ -17664,7 +17664,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %1381, %1401
   %1626 = getelementptr inbounds i8, ptr %1625, i64 240
   %1627 = load ptr, ptr %1626, align 8
   %1628 = call noundef nonnull align 8 dereferenceable(152) ptr %1627(ptr noundef nonnull align 8 dereferenceable(184) %1624) #20
-  %1629 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createAtomicOperationEN7glslang9TOperatorEN3spv10DecorationEjRSt6vectorIjSaIjEENS1_10TBasicTypeERKNS3_7Builder11AccessChain13CoherentFlagsERKNS1_5TTypeE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %1622, i32 noundef %1623, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef %1619, ptr noundef nonnull align 4 dereferenceable(2) %9, ptr noundef nonnull align 8 dereferenceable(152) %1628)
+  %1629 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createAtomicOperationEN7glslang9TOperatorEN3spv10DecorationEjRSt6vectorIjSaIjEENS1_10TBasicTypeERKNS3_7Builder11AccessChain13CoherentFlagsERKNS1_5TTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %1622, i32 noundef %1623, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef %1619, ptr noundef nonnull align 4 dereferenceable(2) %9, ptr noundef nonnull align 8 dereferenceable(152) %1628)
   br i1 %.2275538, label %1839, label %1833
 
 1630:                                             ; preds = %1600
@@ -17730,7 +17730,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit419:                 ; preds = %1642
   call void @_ZNSt6vectorIPKN7glslang20TIntermConstantUnionENS0_14pool_allocatorIS3_EEE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(8) %56)
   %.val = load ptr, ptr %1637, align 8
   %.val326 = load ptr, ptr %1638, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE(ptr %.val, ptr %.val326, ptr noundef nonnull align 8 dereferenceable(24) %54)
+  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE.argprom(ptr %.val, ptr %.val326, ptr noundef nonnull align 8 dereferenceable(24) %54)
   %1666 = load ptr, ptr %54, align 8
   %1667 = load i32, ptr %1666, align 4
   store i8 0, ptr %57, align 4
@@ -17892,7 +17892,7 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EED2Ev.exit421: ; preds = %1700, %1698, %1
   %1765 = call noundef nonnull align 8 dereferenceable(80) ptr %1764(ptr noundef nonnull align 8 dereferenceable(152) %1761) #20
   %1766 = getelementptr inbounds i8, ptr %1765, i64 8
   %.val328 = load i64, ptr %1766, align 8
-  %1767 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val328)
+  %1767 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val328)
   store i32 %99, ptr %59, align 4
   %1768 = getelementptr inbounds i8, ptr %59, i64 4
   store i32 %..i423, ptr %1768, align 4
@@ -17971,7 +17971,7 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EED2Ev.exit421: ; preds = %1700, %1698, %1
   %1821 = load ptr, ptr %6, align 8
   %1822 = getelementptr inbounds %"struct.spv::Builder::AccessChain", ptr %1821, i64 %1814, i32 11
   %.val331 = load i16, ptr %1822, align 4
-  %1823 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val331)
+  %1823 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val331)
   call void @_ZN3spv7Builder16accessChainStoreEjNS_10DecorationENS_16MemoryAccessMaskENS_5ScopeEj(ptr noundef nonnull align 8 dereferenceable(1416) %63, i32 noundef %1820, i32 noundef %1823, i32 noundef 0, i32 noundef 2147483647, i32 noundef 0) #20
   %1824 = add i32 %.0585, 1
   %1825 = zext i32 %1824 to i64
@@ -22764,7 +22764,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17c
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(152) %51) #20
   %.not.i = icmp eq i32 %55, 16
-  br i1 %.not.i, label %56, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
+  br i1 %.not.i, label %56, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
 
 56:                                               ; preds = %47
   %57 = load ptr, ptr %51, align 8
@@ -22808,7 +22808,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17c
   %86 = load i64, ptr %85, align 8
   %87 = and i64 %86, 8796093022208
   %.not1.i = icmp eq i64 %87, 0
-  br i1 %.not1.i, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit, label %88
+  br i1 %.not1.i, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit, label %88
 
 88:                                               ; preds = %80, %72, %64, %56
   %89 = load ptr, ptr %51, align 8
@@ -22818,7 +22818,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17c
   %93 = getelementptr inbounds i8, ptr %92, i64 16
   %94 = load i8, ptr %93, align 8
   %95 = and i8 %94, 15
-  switch i8 %95, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit [
+  switch i8 %95, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit [
     i8 2, label %96
     i8 3, label %96
     i8 5, label %96
@@ -22833,9 +22833,9 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17c
   %102 = load i8, ptr %101, align 8
   %103 = and i8 %102, 15
   %104 = zext nneg i8 %103 to i32
-  br label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
+  br label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
 
-_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit: ; preds = %47, %80, %88, %96
+_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit: ; preds = %47, %80, %88, %96
   %.0.i = phi i32 [ %104, %96 ], [ 0, %47 ], [ 0, %80 ], [ 0, %88 ]
   %105 = load ptr, ptr %51, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 88
@@ -22844,8 +22844,8 @@ _ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE
   %109 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %51, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(80) %108, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %110
 
-110:                                              ; preds = %40, %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
-  %111 = phi i32 [ %109, %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit ], [ %2, %40 ]
+110:                                              ; preds = %40, %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
+  %111 = phi i32 [ %109, %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit ], [ %2, %40 ]
   %112 = load ptr, ptr %1, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 240
   %114 = load ptr, ptr %113, align 8
@@ -24127,7 +24127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 13, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser32TranslateInterpolationDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.8.val) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 13, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser32TranslateInterpolationDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.8.val) unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = and i64 %.8.val, 1073741824
@@ -25175,7 +25175,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser18applySpi
 
 26:                                               ; preds = %.lr.ph.split.us
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE(ptr %22, ptr %24, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE.argprom(ptr %22, ptr %24, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %27 = load i32, ptr %20, align 8
   call void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %18, i32 noundef %2, i32 noundef %.sroa.073.0.extract.trunc, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   %28 = load ptr, ptr %5, align 8
@@ -25212,7 +25212,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.us:                 ; preds = %34, %29, %26
 
 43:                                               ; preds = %.lr.ph.split
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE(ptr %39, ptr %41, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateLiteralsERKN7glslang7TVectorIPKNS1_20TIntermConstantUnionEEERSt6vectorIjSaIjEE.argprom(ptr %39, ptr %41, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %44 = load i32, ptr %37, align 8
   call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %18, i32 noundef %2, i32 noundef %44, ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   %45 = load ptr, ptr %5, align 8
@@ -26423,13 +26423,13 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %_ZNK7glslang10T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   %.not.i = icmp eq i32 %6, 16
-  br i1 %.not.i, label %7, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
+  br i1 %.not.i, label %7, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8
@@ -26473,7 +26473,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23c
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 8796093022208
   %.not1.i = icmp eq i64 %38, 0
-  br i1 %.not1.i, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit, label %39
+  br i1 %.not1.i, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit, label %39
 
 39:                                               ; preds = %31, %23, %15, %7
   %40 = load ptr, ptr %1, align 8
@@ -26483,7 +26483,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23c
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load i8, ptr %44, align 8
   %46 = and i8 %45, 15
-  switch i8 %46, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit [
+  switch i8 %46, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit [
     i8 2, label %47
     i8 3, label %47
     i8 5, label %47
@@ -26498,9 +26498,9 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23c
   %53 = load i8, ptr %52, align 8
   %54 = and i8 %53, 15
   %55 = zext nneg i8 %54 to i32
-  br label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
+  br label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
 
-_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit: ; preds = %2, %31, %39, %47
+_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit: ; preds = %2, %31, %39, %47
   %.0.i = phi i32 [ %55, %47 ], [ 0, %2 ], [ 0, %31 ], [ 0, %39 ]
   %56 = load ptr, ptr %1, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 88
@@ -26524,7 +26524,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser36c
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   %.not.i346 = icmp eq i32 %15, 16
-  br i1 %.not.i346, label %16, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
+  br i1 %.not.i346, label %16, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %1, align 8
@@ -26568,7 +26568,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser36c
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 8796093022208
   %.not1.i = icmp eq i64 %47, 0
-  br i1 %.not1.i, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit, label %48
+  br i1 %.not1.i, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit, label %48
 
 48:                                               ; preds = %40, %32, %24, %16
   %49 = load ptr, ptr %1, align 8
@@ -26578,7 +26578,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser36c
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load i8, ptr %53, align 8
   %55 = and i8 %54, 15
-  switch i8 %55, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit [
+  switch i8 %55, label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit [
     i8 2, label %56
     i8 3, label %56
     i8 5, label %56
@@ -26593,9 +26593,9 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser36c
   %62 = load i8, ptr %61, align 8
   %63 = and i8 %62, 15
   %64 = zext nneg i8 %63 to i32
-  br label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
+  br label %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
 
-_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit: ; preds = %5, %40, %48, %56
+_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit: ; preds = %5, %40, %48, %56
   %.0.i = phi i32 [ %64, %56 ], [ 0, %5 ], [ 0, %40 ], [ 0, %48 ]
   %65 = load ptr, ptr %1, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 88
@@ -26608,7 +26608,7 @@ _ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE
   %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br i1 %73, label %74, label %118
 
-74:                                               ; preds = %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
+74:                                               ; preds = %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 0, i1 noundef zeroext false)
   %75 = load ptr, ptr %1, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 120
@@ -26701,7 +26701,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %86, %_ZNSt6vectorIj
   %117 = icmp slt i32 %112, %116
   br i1 %117, label %82, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit153, !llvm.loop !150
 
-118:                                              ; preds = %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.exit
+118:                                              ; preds = %_ZNK12_GLOBAL__N_122TGlslangToSpvTraverser17getExplicitLayoutERKN7glslang5TTypeE.argprom.exit
   %119 = load ptr, ptr %1, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 224
   %121 = load ptr, ptr %120, align 8
@@ -29277,7 +29277,7 @@ _ZNSt3mapIPKN7glslang5TTypeEjSt4lessIS3_ESaISt4pairIKS3_jEEE4findERS7_.exit.thre
   %260 = getelementptr inbounds i8, ptr %259, i64 168
   %261 = load ptr, ptr %260, align 8
   %262 = call noundef ptr %261(ptr noundef nonnull align 8 dereferenceable(152) %1) #20
-  %263 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %262)
+  %263 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %262)
   %264 = getelementptr inbounds i8, ptr %0, i64 104
   %265 = load ptr, ptr %1, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 168
@@ -29317,15 +29317,15 @@ _ZNSt3mapIPKN7glslang5TTypeEjSt4lessIS3_ESaISt4pairIKS3_jEEE4findERS7_.exit.thre
 
 283:                                              ; preds = %282
   %284 = tail call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %279, i32 noundef 32, i1 noundef zeroext true) #20
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit
 
 285:                                              ; preds = %282
   %286 = tail call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %279, i32 noundef 32, i1 noundef zeroext false) #20
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit
 
 287:                                              ; preds = %282
   %288 = tail call noundef i32 @_ZN3spv7Builder13makeFloatTypeEi(ptr noundef nonnull align 8 dereferenceable(1416) %279, i32 noundef 32) #20
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit
 
 289:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58)
@@ -29404,7 +29404,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
 
 _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i: ; preds = %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i, %303
   %317 = call noundef i32 @_ZN3spv7Builder13makeFloatTypeEi(ptr noundef nonnull align 8 dereferenceable(1416) %279, i32 noundef 16) #20
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit
 
 318:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56)
@@ -29483,7 +29483,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
 
 _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit19.i: ; preds = %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i14.i, %332
   %346 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %279, i32 noundef 64, i1 noundef zeroext true) #20
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit
 
 347:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54)
@@ -29562,29 +29562,29 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
 
 _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit37.i: ; preds = %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i32.i, %361
   %375 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %279, i32 noundef 64, i1 noundef zeroext false) #20
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit
 
 376:                                              ; preds = %282
   %377 = tail call noundef i32 @_ZN3spv7Builder13makeFloatTypeEi(ptr noundef nonnull align 8 dereferenceable(1416) %279, i32 noundef 32) #20
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit
 
-_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit: ; preds = %283, %285, %287, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit19.i, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit37.i, %376
+_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit: ; preds = %283, %285, %287, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit19.i, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit37.i, %376
   %.0.i = phi i32 [ %377, %376 ], [ %375, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit37.i ], [ %346, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit19.i ], [ %317, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ]
   %.val162 = load i32, ptr %276, align 4
   %378 = lshr i32 %.val162, 8
   %trunc.i207 = trunc i32 %378 to i8
   %switch.tableidx = add i8 %trunc.i207, -1
   %379 = icmp ult i8 %switch.tableidx, 8
-  br i1 %379, label %switch.lookup, label %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit
+  br i1 %379, label %switch.lookup, label %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit
 
-switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
+switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit
   %380 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb, i64 0, i64 %380
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit
+  br label %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit
 
-_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit: ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit, %switch.lookup
-  %.0.i208 = phi i32 [ %switch.load, %switch.lookup ], [ 1, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit ]
+_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit: ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit, %switch.lookup
+  %.0.i208 = phi i32 [ %switch.load, %switch.lookup ], [ 1, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.argprom.exit ]
   %381 = and i32 %.val162, 131072
   %382 = icmp ne i32 %381, 0
   %383 = and i32 %.val162, 65536
@@ -29631,7 +29631,7 @@ _ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit: ; preds =
     i8 33, label %417
   ]
 
-395:                                              ; preds = %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit
+395:                                              ; preds = %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit
   %396 = getelementptr inbounds i8, ptr %0, i64 464
   %397 = getelementptr inbounds i8, ptr %0, i64 456
   %.02022.i.i.i.i.i211 = load ptr, ptr %396, align 8
@@ -29690,7 +29690,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %414, ptr noundef nonnull %415, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i.i222, ptr noundef nonnull align 8 dereferenceable(32) %397) #20
   br label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.sink.split.i
 
-417:                                              ; preds = %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit
+417:                                              ; preds = %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %53)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #20
@@ -29768,7 +29768,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.sink.split.i: ; preds = %_Z
   store i64 %444, ptr %442, align 8
   br label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i209
 
-_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i209: ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.sink.split.i, %431, %406, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit
+_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i209: ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.sink.split.i, %431, %406, %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.argprom.exit
   %445 = load ptr, ptr %1, align 8
   %446 = getelementptr inbounds i8, ptr %445, i64 88
   %447 = load ptr, ptr %446, align 8
@@ -29824,22 +29824,22 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateImageFormatERKN7glslang5TTyp
   %.val164 = load i64, ptr %471, align 4
   %474 = and i64 %.val164, 4095
   %.not1.i = icmp eq i64 %474, 4095
-  br i1 %.not1.i, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit
+  br i1 %.not1.i, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit
 
-_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit: ; preds = %473
+_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit: ; preds = %473
   %475 = load ptr, ptr %1, align 8
   %476 = getelementptr inbounds i8, ptr %475, i64 56
   %477 = load ptr, ptr %476, align 8
   %478 = tail call noundef i32 %477(ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   %479 = icmp eq i32 %478, 16
-  br i1 %479, label %.thread, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689_crit_edge
+  br i1 %479, label %.thread, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689_crit_edge
 
-_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689_crit_edge: ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit
+_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689_crit_edge: ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit
   %.pre = load i64, ptr %470, align 8
-  br label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689
+  br label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689
 
-_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689: ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689_crit_edge, %473
-  %480 = phi i64 [ %.pre, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689_crit_edge ], [ %.val163, %473 ]
+_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689: ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689_crit_edge, %473
+  %480 = phi i64 [ %.pre, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689_crit_edge ], [ %.val163, %473 ]
   %481 = getelementptr inbounds i8, ptr %0, i64 1880
   %482 = zext nneg i32 %2 to i64
   %483 = lshr i64 %480, 60
@@ -29850,7 +29850,7 @@ _ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.
   %.not156 = icmp eq i32 %487, 0
   br i1 %.not156, label %.thread, label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EED2Ev.exit
 
-.thread:                                          ; preds = %467, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689
+.thread:                                          ; preds = %467, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689
   %488 = load ptr, ptr %1, align 8
   %489 = getelementptr inbounds i8, ptr %488, i64 56
   %490 = load ptr, ptr %489, align 8
@@ -30305,28 +30305,28 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %670, %_ZNSt6vectorI
   %.val.i = load i64, ptr %470, align 8
   %739 = and i64 %.val.i, 268435456
   %.not.i423 = icmp eq i64 %739, 0
-  br i1 %.not.i423, label %740, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread
+  br i1 %.not.i423, label %740, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread
 
 740:                                              ; preds = %._crit_edge778
   %.val47.i = load i64, ptr %471, align 4
   %741 = and i64 %.val47.i, 4095
   %.not1.i424 = icmp eq i64 %741, 4095
-  br i1 %.not1.i424, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread693, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425
+  br i1 %.not1.i424, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread693, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425
 
-_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425: ; preds = %740
+_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425: ; preds = %740
   %742 = load ptr, ptr %1, align 8
   %743 = getelementptr inbounds i8, ptr %742, i64 56
   %744 = load ptr, ptr %743, align 8
   %745 = call noundef i32 %744(ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   %746 = icmp eq i32 %745, 16
-  br i1 %746, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread693_crit_edge
+  br i1 %746, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread, label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread693_crit_edge
 
-_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread693_crit_edge: ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425
+_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread693_crit_edge: ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425
   %.pre857 = load i64, ptr %470, align 8
-  br label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread693
+  br label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread693
 
-_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread693: ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread693_crit_edge, %740
-  %747 = phi i64 [ %.pre857, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread693_crit_edge ], [ %.val.i, %740 ]
+_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread693: ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread693_crit_edge, %740
+  %747 = phi i64 [ %.pre857, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread693_crit_edge ], [ %.val.i, %740 ]
   %748 = getelementptr inbounds i8, ptr %0, i64 1880
   %749 = zext nneg i32 %2 to i64
   %750 = lshr i64 %747, 60
@@ -30334,9 +30334,9 @@ _ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.
   %752 = getelementptr inbounds [6 x [3 x %"class.std::unordered_map.279"]], ptr %748, i64 0, i64 %749, i64 %751
   %753 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIPKN7glslang7TVectorINS1_8TTypeLocEEESt4pairIKS6_jESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %752, ptr noundef nonnull align 8 dereferenceable(8) %47)
   store i32 %738, ptr %753, align 4
-  br label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread
+  br label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread
 
-_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread: ; preds = %._crit_edge778, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread693, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425
+_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread: ; preds = %._crit_edge778, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread693, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425
   %754 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %35)
@@ -30347,7 +30347,7 @@ _ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.
   %.not.i.i397 = icmp eq ptr %756, null
   br i1 %.not.i.i397, label %_ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread, label %757
 
-757:                                              ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread
+757:                                              ; preds = %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread
   %758 = getelementptr inbounds i8, ptr %756, i64 8
   %759 = load ptr, ptr %758, align 8
   %760 = icmp eq ptr %759, null
@@ -30366,7 +30366,7 @@ _ZNK7glslang5TType15isArrayOfArraysEv.exit.i:     ; preds = %757
   %770 = icmp sgt i32 %769, 1
   br i1 %770, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.i, label %_ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread
 
-_ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread: ; preds = %757, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit425.thread, %_ZNK7glslang5TType15isArrayOfArraysEv.exit.i
+_ZNK7glslang5TType15isArrayOfArraysEv.exit.i.thread: ; preds = %757, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit425.thread, %_ZNK7glslang5TType15isArrayOfArraysEv.exit.i
   %771 = load ptr, ptr %1, align 8
   %772 = getelementptr inbounds i8, ptr %771, i64 232
   %773 = load ptr, ptr %772, align 8
@@ -30697,21 +30697,21 @@ _ZN12_GLOBAL__N_125TranslateLayoutDecorationERKN7glslang5TTypeENS0_13TLayoutMatr
   br i1 %970, label %971, label %999
 
 971:                                              ; preds = %966, %960
-  %972 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser32TranslateInterpolationDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %885)
+  %972 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser32TranslateInterpolationDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %885)
   call void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %731, i32 noundef %738, i32 noundef %.0687, i32 noundef %972, i32 noundef -1) #20
   %973 = and i64 %885, 536870912
   %.not.i102.i = icmp eq i64 %973, 0
-  br i1 %.not.i102.i, label %974, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit.i
+  br i1 %.not.i102.i, label %974, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit.i
 
 974:                                              ; preds = %971
   %975 = and i64 %885, 17592186044416
   %.not4.i104.i = icmp eq i64 %975, 0
-  br i1 %.not4.i104.i, label %976, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit.i
+  br i1 %.not4.i104.i, label %976, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit.i
 
 976:                                              ; preds = %974
   %977 = and i64 %885, 35184372088832
   %.not5.i105.i = icmp eq i64 %977, 0
-  br i1 %.not5.i105.i, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit.i, label %978
+  br i1 %.not5.i105.i, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit.i, label %978
 
 978:                                              ; preds = %976
   %.02022.i.i.i.i.i.i = load ptr, ptr %837, align 8
@@ -30748,7 +30748,7 @@ _ZN12_GLOBAL__N_125TranslateLayoutDecorationERKN7glslang5TTypeENS0_13TLayoutMatr
   %987 = phi i32 [ %.pre.i.i.i.i.i, %984 ], [ %980, %._crit_edge.i.i.i.i.i.i ]
   %.019.lcssa29.i.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i.i, %984 ], [ %.02024.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %988 = icmp slt i32 %987, 35
-  br i1 %988, label %select.unfold.i.i.i.i.i, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit.i
+  br i1 %988, label %select.unfold.i.i.i.i.i, label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %986, %._crit_edge.thread.i.i.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i.i, %986 ]
@@ -30771,17 +30771,17 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %998 = add i64 %997, 1
   store i64 %998, ptr %840, align 8
   %.val97.i.pre.pre = load i64, ptr %835, align 8
-  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit.i
+  br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit.i
 
-_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit.i: ; preds = %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i.i, %986, %976, %974, %971
+_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit.i: ; preds = %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i.i, %986, %976, %974, %971
   %.val97.i.pre = phi i64 [ %885, %971 ], [ %885, %974 ], [ %885, %976 ], [ %885, %986 ], [ %.val97.i.pre.pre, %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i.i ]
   %.0.i103.i = phi i32 [ 16, %971 ], [ 15, %974 ], [ 2147483647, %976 ], [ 17, %986 ], [ 17, %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i.i.i ]
   call void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %731, i32 noundef %738, i32 noundef %.0687, i32 noundef %.0.i103.i, i32 noundef -1) #20
   call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser19addMeshNVDecorationEjiRKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %738, i32 noundef %.0687, ptr noundef nonnull align 8 dereferenceable(80) %35)
   br label %999
 
-999:                                              ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit.i, %966, %951
-  %.val97.i = phi i64 [ %.val97.i.pre, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.exit.i ], [ %885, %966 ], [ %885, %951 ]
+999:                                              ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit.i, %966, %951
+  %.val97.i = phi i64 [ %.val97.i.pre, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser35TranslateAuxiliaryStorageDecorationERKN7glslang10TQualifierE.argprom.exit.i ], [ %885, %966 ], [ %885, %951 ]
   %1000 = and i64 %.val97.i, 268435456
   %.not.i106.i = icmp eq i64 %1000, 0
   %..i.i = select i1 %.not.i106.i, i32 2147483647, i32 18
@@ -31147,7 +31147,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser18updateMemberOffsetERKN7glslang5TTypeE
   %1207 = call noundef nonnull align 8 dereferenceable(80) ptr %1206(ptr noundef nonnull align 8 dereferenceable(152) %858) #20
   %1208 = getelementptr inbounds i8, ptr %1207, i64 8
   %.val98.i = load i64, ptr %1208, align 8
-  %1209 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val98.i)
+  %1209 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val98.i)
   call void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %731, i32 noundef %738, i32 noundef %.0687, i32 noundef %1209, i32 noundef -1) #20
   %1210 = load ptr, ptr %836, align 8
   %1211 = getelementptr inbounds i8, ptr %1210, i64 824
@@ -32368,7 +32368,7 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx1
 1734:                                             ; preds = %1519
   %1735 = icmp eq i8 %1521, 1
   %.0.i259 = select i1 %1735, ptr %1523, ptr null
-  %1736 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %.0.i259)
+  %1736 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %.0.i259)
   %1737 = load ptr, ptr %1514, align 8
   %1738 = load ptr, ptr %1515, align 8
   %.not.i.i260 = icmp eq ptr %1737, %1738
@@ -32473,8 +32473,8 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6v
   call void @_ZdlPvm(ptr noundef nonnull %1770, i64 noundef %1776) #23
   br label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3spv11IdImmediateESaIS1_EED2Ev.exit: ; preds = %1771, %._crit_edge769, %6, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689, %280, %465, %459, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateImageFormatERKN7glslang5TTypeE.exit, %251, %258, %85, %87, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit246, %_ZNSt6vectorIjSaIjEED2Ev.exit, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit195, %172, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %80
-  %.0141 = phi i32 [ 0, %6 ], [ %1506, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit246 ], [ %487, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread689 ], [ %738, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %281, %280 ], [ %466, %465 ], [ %453, %459 ], [ %453, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateImageFormatERKN7glslang5TTypeE.exit ], [ %257, %251 ], [ %257, %258 ], [ %227, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit195 ], [ %174, %172 ], [ %148, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit ], [ %121, %119 ], [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %106, %104 ], [ %103, %101 ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %86, %85 ], [ %88, %87 ], [ %82, %80 ], [ %1769, %._crit_edge769 ], [ %1769, %1771 ]
+_ZNSt6vectorIN3spv11IdImmediateESaIS1_EED2Ev.exit: ; preds = %1771, %._crit_edge769, %6, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689, %280, %465, %459, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateImageFormatERKN7glslang5TTypeE.exit, %251, %258, %85, %87, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit246, %_ZNSt6vectorIjSaIjEED2Ev.exit, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit195, %172, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %80
+  %.0141 = phi i32 [ 0, %6 ], [ %1506, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit246 ], [ %487, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.argprom.exit.thread689 ], [ %738, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %281, %280 ], [ %466, %465 ], [ %453, %459 ], [ %453, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateImageFormatERKN7glslang5TTypeE.exit ], [ %257, %251 ], [ %257, %258 ], [ %227, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit195 ], [ %174, %172 ], [ %148, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit ], [ %121, %119 ], [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %106, %104 ], [ %103, %101 ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %86, %85 ], [ %88, %87 ], [ %82, %80 ], [ %1769, %._crit_edge769 ], [ %1769, %1771 ]
   %1777 = load ptr, ptr %1, align 8
   %1778 = getelementptr inbounds i8, ptr %1777, i64 224
   %1779 = load ptr, ptr %1778, align 8
@@ -36172,7 +36172,7 @@ declare void @_ZN3spv7Builder13addMemberNameEjiPKc(ptr noundef nonnull align 8 d
 declare void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 5300, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.8.val) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 5300, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.8.val) unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = and i64 %.8.val, 8589934592
@@ -40047,7 +40047,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %13, %2
   br label %_ZN3spv7Builder11AccessChainD2Ev.exit
 
 _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i, %21
-  %27 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1)
+  %27 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %1)
   %.sroa.0.0.extract.trunc = trunc nuw nsw i32 %27 to i16
   %28 = and i16 %.sroa.0.0.extract.trunc, 1
   %29 = or i16 %.sroa.0.0.extract.trunc, %.sroa.036.0.extract.trunc
@@ -40055,7 +40055,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %30 = or i16 %28, %.sroa.036.0.extract.trunc.masked
   %31 = and i16 %29, 1022
   %32 = or disjoint i16 %30, %31
-  %33 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21TranslateMemoryAccessERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %32)
+  %33 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21TranslateMemoryAccessERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %32)
   %34 = and i32 %33, 55
   %35 = load ptr, ptr %1, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 88
@@ -40175,15 +40175,15 @@ _ZNK7glslang5TType27getBufferReferenceAlignmentEv.exit: ; preds = %_ZN3spv7Build
   call void @_ZN3spv7Builder11AccessChainC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(84) %5, ptr noundef nonnull align 8 dereferenceable(84) %8)
   %117 = getelementptr inbounds i8, ptr %5, i64 80
   %.val17 = load i16, ptr %117, align 8
-  %118 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val17)
+  %118 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val17)
   %119 = load ptr, ptr %1, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 88
   %121 = load ptr, ptr %120, align 8
   %122 = call noundef nonnull align 8 dereferenceable(80) ptr %121(ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   %.val = load i64, ptr %123, align 8
-  %124 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
-  %125 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %32)
+  %124 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
+  %125 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %32)
   %126 = call noundef i32 @_ZN3spv7Builder15accessChainLoadENS_10DecorationES1_S1_jNS_16MemoryAccessMaskENS_5ScopeEj(ptr noundef nonnull align 8 dereferenceable(1416) %6, i32 noundef %116, i32 noundef %118, i32 noundef %124, i32 noundef %7, i32 noundef %.015, i32 noundef %125, i32 noundef %105) #20
   %127 = getelementptr inbounds i8, ptr %5, i64 40
   %128 = load ptr, ptr %127, align 8
@@ -40269,7 +40269,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i32 0, 1024) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #3 align 2 {
+define internal fastcc range(i32 0, 1024) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -40391,7 +40391,7 @@ define internal fastcc range(i32 0, 1024) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 64) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21TranslateMemoryAccessERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.0.val) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 0, 64) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21TranslateMemoryAccessERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.0.val) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1576
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 772
@@ -40494,7 +40494,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %_ZNSt8_Rb_treeI
 declare noundef i32 @_ZN3spv7Builder15accessChainLoadENS_10DecorationES1_S1_jNS_16MemoryAccessMaskENS_5ScopeEj(ptr noundef nonnull align 8 dereferenceable(1416), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 5300, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.0.val) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 5300, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.0.val) unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = and i16 %.0.val, 512
@@ -40591,7 +40591,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %_ZNSt8_Rb_treeI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 1, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.0.val) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 1, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.0.val) unnamed_addr #3 align 2 {
   %2 = and i16 %.0.val, 129
   %or.cond16 = icmp eq i16 %2, 0
   br i1 %or.cond16, label %10, label %3
@@ -40762,7 +40762,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser32c
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 31:                                               ; preds = %21
-  %32 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  %32 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
   %.not = icmp eq i32 %2, %32
   br i1 %.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %33
 
@@ -43229,7 +43229,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit54:              ; preds = %44, %49
   store i32 %26, ptr %70, align 8
   %73 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %15, i32 noundef 32, i1 noundef zeroext true) #20
   %74 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %15, i32 noundef %73, i32 noundef %.060, i1 noundef zeroext false) #20
-  %75 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1)
+  %75 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %1)
   %76 = load ptr, ptr %1, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 56
   %78 = load ptr, ptr %77, align 8
@@ -43312,7 +43312,7 @@ _ZNK7glslang5TType27getBufferReferenceAlignmentEv.exit: ; preds = %71, %81, %93
   store i32 %26, ptr %127, align 8
   %135 = tail call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %15, i32 noundef 32, i1 noundef zeroext true) #20
   %136 = tail call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %15, i32 noundef %135, i32 noundef %132, i1 noundef zeroext false) #20
-  %137 = tail call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1)
+  %137 = tail call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %1)
   %138 = load ptr, ptr %1, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 56
   %140 = load ptr, ptr %139, align 8
@@ -43533,7 +43533,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %10, %_ZNSt6vectorIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser24declareUseOfStructMemberERKN7glslang7TVectorINS1_8TTypeLocEEEi(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr nocapture readonly %.8.val, i32 noundef %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser24declareUseOfStructMemberERKN7glslang7TVectorINS1_8TTypeLocEEEi.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr nocapture readonly %.8.val, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %.8.val, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -43616,7 +43616,7 @@ define linkonce_odr void @_ZN3spv7Builder24accessChainPushComponentEjjNS0_11Acce
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14convertSwizzleERKN7glslang16TIntermAggregateERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14convertSwizzleERKN7glslang16TIntermAggregateERSt6vectorIjSaIjEE.argprom(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 408
   %5 = load ptr, ptr %4, align 8
@@ -44002,7 +44002,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %80, %73
   br label %_ZN3spv7Builder11AccessChainD2Ev.exit
 
 _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i, %88
-  %94 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1)
+  %94 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %1)
   %.sroa.0.0.extract.trunc = trunc nuw nsw i32 %94 to i16
   %95 = and i16 %.sroa.0.0.extract.trunc, 1
   %96 = or i16 %.sroa.0.0.extract.trunc, %.sroa.059.0.extract.trunc
@@ -44088,10 +44088,10 @@ _ZNK7glslang5TType27getBufferReferenceAlignmentEv.exit: ; preds = %_ZN3spv7Build
   call void @_ZN3spv7Builder11AccessChainC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(84) %6, ptr noundef nonnull align 8 dereferenceable(84) %75)
   %151 = getelementptr inbounds i8, ptr %6, i64 80
   %.val39 = load i16, ptr %151, align 8
-  %152 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val39)
-  %153 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21TranslateMemoryAccessERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %99)
+  %152 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val39)
+  %153 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21TranslateMemoryAccessERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %99)
   %154 = and i32 %153, 47
-  %155 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %99)
+  %155 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %99)
   call void @_ZN3spv7Builder16accessChainStoreEjNS_10DecorationENS_16MemoryAccessMaskENS_5ScopeEj(ptr noundef nonnull align 8 dereferenceable(1416) %74, i32 noundef %.0, i32 noundef %152, i32 noundef %154, i32 noundef %155, i32 noundef %150) #20
   %156 = getelementptr inbounds i8, ptr %6, i64 40
   %157 = load ptr, ptr %156, align 8
@@ -44137,7 +44137,7 @@ declare noundef i32 @_ZN3spv7Builder11createTriOpENS_2OpEjjjj(ptr noundef nonnul
 declare void @_ZN3spv7Builder16accessChainStoreEjNS_10DecorationENS_16MemoryAccessMaskENS_5ScopeEj(ptr noundef nonnull align 8 dereferenceable(1416), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE(ptr noundef %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13isTrivialLeafEPKN7glslang12TIntermTypedE.argprom(ptr noundef %0) unnamed_addr #3 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 
@@ -44815,9 +44815,9 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit326: ; preds = %373
   %400 = getelementptr inbounds i8, ptr %0, i64 168
   %.val277.val = load i32, ptr %400, align 8
   %401 = icmp ugt i32 %.val277.val, 66559
-  br i1 %401, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit.thread"
+  br i1 %401, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit.thread"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit": ; preds = %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit326
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit": ; preds = %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit326
   %402 = and i32 %107, 255
   %switch.selectcmp.i = icmp eq i32 %402, 8
   %switch.select.i = select i1 %switch.selectcmp.i, i32 4096, i32 0
@@ -44827,17 +44827,17 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit326: ; preds = %373
   %.not748 = icmp eq i32 %403, 0
   br i1 %.not748, label %406, label %.thread
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit.thread": ; preds = %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit326
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit.thread": ; preds = %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit326
   %404 = and i32 %107, 262144
   %.not748798 = icmp eq i32 %404, 0
   br i1 %.not748798, label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit331, label %.thread
 
-.thread:                                          ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit.thread", %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit"
-  %.0.i327799 = phi i32 [ 0, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit.thread" ], [ %switch.select3.i, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit" ]
+.thread:                                          ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit.thread", %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit"
+  %.0.i327799 = phi i32 [ 0, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit.thread" ], [ %switch.select3.i, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit" ]
   %405 = or i32 %.0.i327799, 64
   br label %407
 
-406:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit"
+406:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit"
   %.not266 = icmp eq i32 %switch.select3.i, 0
   br i1 %.not266, label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit331, label %407
 
@@ -44947,8 +44947,8 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit329: ; preds = %409
   call void @_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %435, ptr noundef nonnull align 4 dereferenceable(8) %18)
   br label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit331
 
-_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit331: ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit.thread", %444, %440, %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit329, %406
-  %445 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit331: ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit.thread", %444, %440, %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit329, %406
+  %445 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %446 = call noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef 98, i32 noundef %445, ptr noundef nonnull align 8 dereferenceable(24) %16) #20
   %447 = icmp ne i32 %446, 0
   %or.cond.i = and i1 %switch.selectcmp.i.i, %447
@@ -44992,7 +44992,7 @@ _ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit: ; preds = %_ZNSt6vectorIN3
   br label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit334
 
 _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit334: ; preds = %462, %459
-  %465 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %465 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %466 = call noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef 4160, i32 noundef %465, ptr noundef nonnull align 8 dereferenceable(24) %16) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -45047,15 +45047,15 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit338: ; preds = %455
 
 482:                                              ; preds = %480, %475
   %.1199 = phi i32 [ %481, %480 ], [ %spec.select728, %475 ]
-  %483 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %102)
+  %483 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %102)
   %.sroa.0595.0.extract.trunc = trunc nuw nsw i32 %483 to i16
-  %484 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22TranslateImageOperandsERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0595.0.extract.trunc)
+  %484 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22TranslateImageOperandsERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0595.0.extract.trunc)
   %485 = or i32 %484, %.1199
   %486 = and i32 %485, -257
   %487 = getelementptr inbounds i8, ptr %0, i64 168
   %.val279.val = load i32, ptr %487, align 8
   %488 = icmp ugt i32 %.val279.val, 66559
-  br i1 %488, label %489, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit344"
+  br i1 %488, label %489, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit344"
 
 489:                                              ; preds = %482
   %490 = and i32 %107, 255
@@ -45063,15 +45063,15 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit338: ; preds = %455
   %switch.select.i341 = select i1 %switch.selectcmp.i340, i32 4096, i32 0
   %switch.selectcmp2.i342 = icmp eq i32 %490, 9
   %switch.select3.i343 = select i1 %switch.selectcmp2.i342, i32 8192, i32 %switch.select.i341
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit344"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit344"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit344": ; preds = %482, %489
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit344": ; preds = %482, %489
   %.0.i339 = phi i32 [ %switch.select3.i343, %489 ], [ 0, %482 ]
   %491 = or i32 %.0.i339, %486
   %.not261 = icmp eq i32 %491, 0
   br i1 %.not261, label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit348, label %.split226
 
-.split226:                                        ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit344"
+.split226:                                        ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit344"
   store i8 0, ptr %21, align 8
   %492 = getelementptr inbounds i8, ptr %21, i64 4
   store i32 %491, ptr %492, align 4
@@ -45120,8 +45120,8 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit338: ; preds = %455
   call void @_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %505, ptr noundef nonnull align 4 dereferenceable(8) %22)
   br label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit348
 
-_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit348: ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit344", %511, %507, %.split
-  %.sroa.0668.0 = phi ptr [ %472, %.split ], [ %502, %507 ], [ %502, %511 ], [ %472, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit344" ]
+_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit348: ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit344", %511, %507, %.split
+  %.sroa.0668.0 = phi ptr [ %472, %.split ], [ %502, %507 ], [ %502, %511 ], [ %472, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit344" ]
   %512 = and i32 %485, 2
   %.not263 = icmp eq i32 %512, 0
   br i1 %.not263, label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit350, label %513
@@ -45154,9 +45154,9 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit350: ; preds = %522
   br i1 %.not264, label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit352, label %524
 
 524:                                              ; preds = %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit350
-  %525 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %102)
+  %525 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %102)
   %.sroa.0591.0.extract.trunc = trunc nuw nsw i32 %525 to i16
-  %526 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0591.0.extract.trunc)
+  %526 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0591.0.extract.trunc)
   %527 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef 32, i1 noundef zeroext false) #20
   %528 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %527, i32 noundef %526, i1 noundef zeroext false) #20
   store i8 1, ptr %24, align 8
@@ -45228,7 +45228,7 @@ _ZNK3spv7Builder12getImageTypeEj.exit354:         ; preds = %_ZNK3spv7Builder9ge
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %565, %_ZNK3spv7Builder12getImageTypeEj.exit354
-  %566 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %566 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %567 = call noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef 98, i32 noundef %566, ptr noundef nonnull align 8 dereferenceable(24) %16) #20
   %568 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #22
   store ptr %568, ptr %25, align 8
@@ -45263,7 +45263,7 @@ _ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit356: ; preds = %.lr.ph.i.i.i
   %584 = getelementptr inbounds i8, ptr %583, i64 240
   %585 = load ptr, ptr %584, align 8
   %586 = call noundef nonnull align 8 dereferenceable(152) ptr %585(ptr noundef nonnull align 8 dereferenceable(184) %1) #20
-  %587 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %586)
+  %587 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %586)
   %588 = call noundef i32 @_ZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %189, ptr noundef nonnull align 8 dereferenceable(24) %25, i32 noundef %587) #20
   %589 = load ptr, ptr %25, align 8
   store i32 %588, ptr %589, align 4
@@ -45325,15 +45325,15 @@ _ZNSt6vectorIjSaIjEED2Ev.exit358:                 ; preds = %582, %_ZN3spv7Build
 
 614:                                              ; preds = %612, %608
   %.1201 = phi i32 [ %613, %612 ], [ %.0200, %608 ]
-  %615 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %102)
+  %615 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %102)
   %.sroa.0587.0.extract.trunc = trunc nuw nsw i32 %615 to i16
-  %616 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22TranslateImageOperandsERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0587.0.extract.trunc)
+  %616 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22TranslateImageOperandsERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0587.0.extract.trunc)
   %617 = or i32 %616, %.1201
   %618 = and i32 %617, -513
   %619 = getelementptr inbounds i8, ptr %0, i64 168
   %.val281.val = load i32, ptr %619, align 8
   %620 = icmp ugt i32 %.val281.val, 66559
-  br i1 %620, label %621, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit364"
+  br i1 %620, label %621, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit364"
 
 621:                                              ; preds = %614
   %622 = and i32 %107, 255
@@ -45341,15 +45341,15 @@ _ZNSt6vectorIjSaIjEED2Ev.exit358:                 ; preds = %582, %_ZN3spv7Build
   %switch.select.i361 = select i1 %switch.selectcmp.i360, i32 4096, i32 0
   %switch.selectcmp2.i362 = icmp eq i32 %622, 9
   %switch.select3.i363 = select i1 %switch.selectcmp2.i362, i32 8192, i32 %switch.select.i361
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit364"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit364"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit364": ; preds = %614, %621
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit364": ; preds = %614, %621
   %.0.i359 = phi i32 [ %switch.select3.i363, %621 ], [ 0, %614 ]
   %623 = or i32 %.0.i359, %618
   %.not257 = icmp eq i32 %623, 0
   br i1 %.not257, label %.split227.thread, label %.split227
 
-.split227:                                        ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit364"
+.split227:                                        ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit364"
   store i8 0, ptr %28, align 4
   %624 = getelementptr inbounds i8, ptr %28, i64 4
   store i32 %623, ptr %624, align 4
@@ -45367,8 +45367,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit358:                 ; preds = %582, %_ZN3spv7Build
   call void @_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 4 dereferenceable(8) %29)
   br label %.split227.thread
 
-.split227.thread:                                 ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit364", %626, %.split227
-  %.sroa.0668.1 = phi ptr [ %472, %.split227 ], [ %627, %626 ], [ %472, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit364" ]
+.split227.thread:                                 ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit364", %626, %.split227
+  %.sroa.0668.1 = phi ptr [ %472, %.split227 ], [ %627, %626 ], [ %472, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit364" ]
   %630 = and i32 %617, 2
   %.not259 = icmp eq i32 %630, 0
   br i1 %.not259, label %634, label %631
@@ -45387,9 +45387,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit358:                 ; preds = %582, %_ZN3spv7Build
   br i1 %.not260, label %641, label %636
 
 636:                                              ; preds = %634
-  %637 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %102)
+  %637 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %102)
   %.sroa.0583.0.extract.trunc = trunc nuw nsw i32 %637 to i16
-  %638 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0583.0.extract.trunc)
+  %638 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0583.0.extract.trunc)
   %639 = call noundef i32 @_ZN3spv7Builder16makeUintConstantEjb(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %638, i1 noundef zeroext false)
   store i8 1, ptr %31, align 4
   %640 = getelementptr inbounds i8, ptr %31, i64 4
@@ -45511,15 +45511,15 @@ _ZNK3spv7Builder12getImageTypeEj.exit368:         ; preds = %_ZNK3spv7Builder9ge
 
 708:                                              ; preds = %706, %701
   %.1204 = phi i32 [ %707, %706 ], [ %spec.select730, %701 ]
-  %709 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %102)
+  %709 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %102)
   %.sroa.0581.0.extract.trunc = trunc nuw nsw i32 %709 to i16
-  %710 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22TranslateImageOperandsERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0581.0.extract.trunc)
+  %710 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22TranslateImageOperandsERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0581.0.extract.trunc)
   %711 = or i32 %710, %.1204
   %712 = and i32 %711, -257
   %713 = getelementptr inbounds i8, ptr %0, i64 168
   %.val283.val = load i32, ptr %713, align 8
   %714 = icmp ugt i32 %.val283.val, 66559
-  br i1 %714, label %715, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit374"
+  br i1 %714, label %715, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit374"
 
 715:                                              ; preds = %708
   %716 = and i32 %107, 255
@@ -45527,15 +45527,15 @@ _ZNK3spv7Builder12getImageTypeEj.exit368:         ; preds = %_ZNK3spv7Builder9ge
   %switch.select.i371 = select i1 %switch.selectcmp.i370, i32 4096, i32 0
   %switch.selectcmp2.i372 = icmp eq i32 %716, 9
   %switch.select3.i373 = select i1 %switch.selectcmp2.i372, i32 8192, i32 %switch.select.i371
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit374"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit374"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit374": ; preds = %708, %715
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit374": ; preds = %708, %715
   %.0.i369 = phi i32 [ %switch.select3.i373, %715 ], [ 0, %708 ]
   %717 = or i32 %.0.i369, %712
   %.not253 = icmp eq i32 %717, 0
   br i1 %.not253, label %.split231.thread, label %.split231
 
-.split231:                                        ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit374"
+.split231:                                        ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit374"
   store i8 0, ptr %32, align 4
   %718 = getelementptr inbounds i8, ptr %32, i64 4
   store i32 %717, ptr %718, align 4
@@ -45553,8 +45553,8 @@ _ZNK3spv7Builder12getImageTypeEj.exit368:         ; preds = %_ZNK3spv7Builder9ge
   call void @_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 4 dereferenceable(8) %33)
   br label %.split231.thread
 
-.split231.thread:                                 ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit374", %720, %.split231
-  %.sroa.0668.2 = phi ptr [ %472, %.split231 ], [ %721, %720 ], [ %472, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit374" ]
+.split231.thread:                                 ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit374", %720, %.split231
+  %.sroa.0668.2 = phi ptr [ %472, %.split231 ], [ %721, %720 ], [ %472, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit374" ]
   %724 = and i32 %711, 2
   %.not255 = icmp eq i32 %724, 0
   br i1 %.not255, label %729, label %725
@@ -45575,9 +45575,9 @@ _ZNK3spv7Builder12getImageTypeEj.exit368:         ; preds = %_ZNK3spv7Builder9ge
   br i1 %.not256, label %736, label %731
 
 731:                                              ; preds = %729
-  %732 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %102)
+  %732 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %102)
   %.sroa.0578.0.extract.trunc = trunc nuw nsw i32 %732 to i16
-  %733 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0578.0.extract.trunc)
+  %733 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateMemoryScopeERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.sroa.0578.0.extract.trunc)
   %734 = call noundef i32 @_ZN3spv7Builder16makeUintConstantEjb(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %733, i1 noundef zeroext false)
   store i8 1, ptr %35, align 4
   %735 = getelementptr inbounds i8, ptr %35, i64 4
@@ -45587,7 +45587,7 @@ _ZNK3spv7Builder12getImageTypeEj.exit368:         ; preds = %_ZNK3spv7Builder9ge
 
 736:                                              ; preds = %731, %729
   %737 = load i32, ptr %.sroa.0668.3, align 4
-  %738 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %738 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %739 = call noundef i32 @_ZNK3spv7Builder14getDerefTypeIdEj(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %737) #20
   %740 = call noundef i32 @_ZN3spv7Builder20makeStructResultTypeEjj(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %738, i32 noundef %739) #20
   %741 = call noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef 320, i32 noundef %740, ptr noundef nonnull align 8 dereferenceable(24) %16) #20
@@ -45670,7 +45670,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %760, %767
   br label %800
 
 797:                                              ; preds = %751
-  %798 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %798 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %799 = call noundef i32 @_ZN3spv7Builder11makePointerENS_12StorageClassEj(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef 11, i32 noundef %798) #20
   br label %800
 
@@ -45786,12 +45786,12 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit383:       ; preds = %818, %_ZNSt6vectorI
 
 ._crit_edge766:                                   ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit383, %810
   %848 = load i32, ptr %47, align 8
-  %849 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %849 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %850 = load ptr, ptr %1, align 8
   %851 = getelementptr inbounds i8, ptr %850, i64 240
   %852 = load ptr, ptr %851, align 8
   %853 = call noundef nonnull align 8 dereferenceable(152) ptr %852(ptr noundef nonnull align 8 dereferenceable(184) %1) #20
-  %854 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createAtomicOperationEN7glslang9TOperatorEN3spv10DecorationEjRSt6vectorIjSaIjEENS1_10TBasicTypeERKNS3_7Builder11AccessChain13CoherentFlagsERKNS1_5TTypeE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %848, i32 noundef %849, ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.0223, ptr noundef nonnull align 4 dereferenceable(2) %11, ptr noundef nonnull align 8 dereferenceable(152) %853)
+  %854 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createAtomicOperationEN7glslang9TOperatorEN3spv10DecorationEjRSt6vectorIjSaIjEENS1_10TBasicTypeERKNS3_7Builder11AccessChain13CoherentFlagsERKNS1_5TTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %848, i32 noundef %849, ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.0223, ptr noundef nonnull align 4 dereferenceable(2) %11, ptr noundef nonnull align 8 dereferenceable(152) %853)
   %855 = load ptr, ptr %38, align 8
   %.not.i.i.i384 = icmp eq ptr %855, null
   br i1 %.not.i.i.i384, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %856
@@ -46103,7 +46103,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   br label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
 
 _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %973, %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i
-  %987 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %987 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %988 = call noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %.0224, i32 noundef %987, ptr noundef nonnull align 8 dereferenceable(24) %39) #20
   %989 = load ptr, ptr %39, align 8
   %.not.i.i.i426 = icmp eq ptr %989, null
@@ -46658,7 +46658,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit469: ; preds = %1257, %_ZNSt
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit479:        ; preds = %1276, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit469
   %1279 = phi i32 [ %1278, %1276 ], [ 0, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit469 ]
   %1280 = call noundef i32 @_ZNK3spv7Builder18getContainedTypeIdEj(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %1279) #20
-  %1281 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %1281 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %1282 = getelementptr inbounds i8, ptr %45, i64 8
   %1283 = getelementptr inbounds i8, ptr %45, i64 16
   %1284 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #22
@@ -46758,7 +46758,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit488:        ; preds = %1290, %_ZNSt6vector
   %1328 = getelementptr inbounds i8, ptr %0, i64 168
   %.val285.val = load i32, ptr %1328, align 8
   %1329 = icmp ugt i32 %.val285.val, 66559
-  br i1 %1329, label %1330, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit494"
+  br i1 %1329, label %1330, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit494"
 
 1330:                                             ; preds = %1318
   %1331 = and i32 %107, 255
@@ -46766,16 +46766,16 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit488:        ; preds = %1290, %_ZNSt6vector
   %switch.select.i491 = select i1 %switch.selectcmp.i490, i32 4096, i32 0
   %switch.selectcmp2.i492 = icmp eq i32 %1331, 9
   %switch.select3.i493 = select i1 %switch.selectcmp2.i492, i32 8192, i32 %switch.select.i491
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit494"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit494"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit494": ; preds = %1318, %1330
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit494": ; preds = %1318, %1330
   %.0.i489 = phi i32 [ %switch.select3.i493, %1330 ], [ 0, %1318 ]
   %1332 = call noundef i32 @_ZN3spv7Builder17createTextureCallENS_10DecorationEjbbbbbRKNS0_17TextureParametersENS_17ImageOperandsMaskE(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %189, i32 noundef %1319, i1 noundef zeroext %spec.select.i428, i1 noundef zeroext %1322, i1 noundef zeroext %1325, i1 noundef zeroext %1327, i1 noundef zeroext %.0207, ptr noundef nonnull align 4 dereferenceable(64) %13, i32 noundef %.0.i489) #20
   %1333 = getelementptr inbounds i8, ptr %0, i64 592
   br label %1334
 
-1334:                                             ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit494", %1334
-  %.0197758 = phi i32 [ 0, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit494" ], [ %1337, %1334 ]
+1334:                                             ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit494", %1334
+  %.0197758 = phi i32 [ 0, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit494" ], [ %1337, %1334 ]
   call void @_ZN3spv7Builder16clearAccessChainEv(ptr noundef nonnull align 8 dereferenceable(1416) %52) #20
   store i32 %.0205, ptr %1333, align 8
   %1335 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef 32, i1 noundef zeroext true) #20
@@ -46790,13 +46790,13 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit488:        ; preds = %1290, %_ZNSt6vector
   %1343 = call noundef nonnull align 8 dereferenceable(80) ptr %1342(ptr noundef nonnull align 8 dereferenceable(152) %102) #20
   %1344 = getelementptr inbounds i8, ptr %1343, i64 8
   %.val = load i64, ptr %1344, align 8
-  %1345 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
+  %1345 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
   call void @_ZN3spv7Builder16accessChainStoreEjNS_10DecorationENS_16MemoryAccessMaskENS_5ScopeEj(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %1339, i32 noundef %1345, i32 noundef 0, i32 noundef 2147483647, i32 noundef 0) #20
   %exitcond775.not = icmp eq i32 %1337, 5
   br i1 %exitcond775.not, label %1346, label %1334, !llvm.loop !252
 
 1346:                                             ; preds = %1334
-  %1347 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %1347 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %1348 = call noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjj(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %1332, i32 noundef %1347, i32 noundef 0) #20
   %1349 = load ptr, ptr %45, align 8
   %.not.i.i.i495 = icmp eq ptr %1349, null
@@ -46923,7 +46923,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit500:             ; preds = %_ZNK3spv7Builder9ge
   br label %1419
 
 1419:                                             ; preds = %1417, %1409
-  %1420 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
+  %1420 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %15)
   %1421 = getelementptr inbounds i8, ptr %14, i64 3
   %1422 = load i8, ptr %1421, align 1
   %1423 = trunc i8 %1422 to i1
@@ -46934,7 +46934,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit500:             ; preds = %_ZNK3spv7Builder9ge
   %1428 = getelementptr inbounds i8, ptr %0, i64 168
   %.val287.val = load i32, ptr %1428, align 8
   %1429 = icmp ugt i32 %.val287.val, 66559
-  br i1 %1429, label %1430, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506"
+  br i1 %1429, label %1430, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit506"
 
 1430:                                             ; preds = %1419
   %1431 = and i32 %107, 255
@@ -46942,9 +46942,9 @@ _ZNK3spv7Builder9getTypeIdEj.exit500:             ; preds = %_ZNK3spv7Builder9ge
   %switch.select.i503 = select i1 %switch.selectcmp.i502, i32 4096, i32 0
   %switch.selectcmp2.i504 = icmp eq i32 %1431, 9
   %switch.select3.i505 = select i1 %switch.selectcmp2.i504, i32 8192, i32 %switch.select.i503
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit506"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506": ; preds = %1419, %1430
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit506": ; preds = %1419, %1430
   %.0.i501 = phi i32 [ %switch.select3.i505, %1430 ], [ 0, %1419 ]
   %1432 = call noundef i32 @_ZN3spv7Builder17createTextureCallENS_10DecorationEjbbbbbRKNS0_17TextureParametersENS_17ImageOperandsMaskE(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %189, i32 noundef %1420, i1 noundef zeroext %spec.select.i428, i1 noundef zeroext %1423, i1 noundef zeroext %1425, i1 noundef zeroext %1427, i1 noundef zeroext %.0207, ptr noundef nonnull align 4 dereferenceable(64) %13, i32 noundef %.0.i501) #20
   %1433 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #22
@@ -46966,12 +46966,12 @@ _ZNK3spv7Builder9getTypeIdEj.exit500:             ; preds = %_ZNK3spv7Builder9ge
   %.not251 = icmp eq i32 %.0196, %1444
   br i1 %.not251, label %_ZNSt6vectorIjSaIjEED2Ev.exit512, label %1445
 
-1445:                                             ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506"
+1445:                                             ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit506"
   %1446 = load ptr, ptr %1, align 8
   %1447 = getelementptr inbounds i8, ptr %1446, i64 240
   %1448 = load ptr, ptr %1447, align 8
   %1449 = call noundef nonnull align 8 dereferenceable(152) ptr %1448(ptr noundef nonnull align 8 dereferenceable(184) %1) #20
-  %1450 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1449)
+  %1450 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %1449)
   %1451 = call noundef i32 @_ZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(1416) %52, i32 noundef %189, ptr noundef nonnull align 8 dereferenceable(24) %46, i32 noundef %1450) #20
   %1452 = load ptr, ptr %46, align 8
   store i32 %1451, ptr %1452, align 4
@@ -46979,9 +46979,9 @@ _ZNK3spv7Builder9getTypeIdEj.exit500:             ; preds = %_ZNK3spv7Builder9ge
   %.pre778 = load ptr, ptr %1436, align 8
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit512
 
-_ZNSt6vectorIjSaIjEED2Ev.exit512:                 ; preds = %1445, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506"
-  %1453 = phi ptr [ %.pre778, %1445 ], [ %1435, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506" ]
-  %1454 = phi ptr [ %.pre777, %1445 ], [ %1433, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506" ]
+_ZNSt6vectorIjSaIjEED2Ev.exit512:                 ; preds = %1445, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit506"
+  %1453 = phi ptr [ %.pre778, %1445 ], [ %1435, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit506" ]
+  %1454 = phi ptr [ %.pre777, %1445 ], [ %1433, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.argprom.argprom.exit506" ]
   %1455 = load i32, ptr %1454, align 4
   %1456 = ptrtoint ptr %1453 to i64
   %1457 = ptrtoint ptr %1454 to i64
@@ -47032,7 +47032,7 @@ define internal fastcc noundef i32 @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser1
   %11 = getelementptr inbounds i8, ptr %10, i64 240
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(152) ptr %12(ptr noundef nonnull align 8 dereferenceable(184) %9) #20
-  %14 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %6, ptr noundef nonnull align 8 dereferenceable(152) %13)
+  %14 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %6, ptr noundef nonnull align 8 dereferenceable(152) %13)
   br label %15
 
 15:                                               ; preds = %1, %4
@@ -47270,7 +47270,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20c
   br i1 %23, label %24, label %177
 
 24:                                               ; preds = %15
-  %25 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser26createUnaryMatrixOperationEN3spv2OpERNS_12_GLOBAL__N_113OpDecorationsEjjN7glslang10TBasicTypeE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef 127, ptr noundef nonnull align 4 dereferenceable(12) %2, i32 noundef %3, i32 noundef %4)
+  %25 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser26createUnaryMatrixOperationEN3spv2OpERNS_12_GLOBAL__N_113OpDecorationsEjjN7glslang10TBasicTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef 127, ptr noundef nonnull align 4 dereferenceable(12) %2, i32 noundef %3, i32 noundef %4)
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 26:                                               ; preds = %8
@@ -47488,7 +47488,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20c
 97:                                               ; preds = %8, %8, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIjSaIjEE9push_backERKj(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %98 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createAtomicOperationEN7glslang9TOperatorEN3spv10DecorationEjRSt6vectorIjSaIjEENS1_10TBasicTypeERKNS3_7Builder11AccessChain13CoherentFlagsERKNS1_5TTypeE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(2) %6, ptr noundef nonnull align 8 dereferenceable(152) %7)
+  %98 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createAtomicOperationEN7glslang9TOperatorEN3spv10DecorationEjRSt6vectorIjSaIjEENS1_10TBasicTypeERKNS3_7Builder11AccessChain13CoherentFlagsERKNS1_5TTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(2) %6, ptr noundef nonnull align 8 dereferenceable(152) %7)
   %99 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %99, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %100
@@ -47877,13 +47877,13 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21c
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
-  call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14convertSwizzleERKN7glslang16TIntermAggregateERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(364) %17, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14convertSwizzleERKN7glslang16TIntermAggregateERSt6vectorIjSaIjEE.argprom(ptr noundef nonnull align 8 dereferenceable(364) %17, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load ptr, ptr %2, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 240
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef nonnull align 8 dereferenceable(152) ptr %21(ptr noundef nonnull align 8 dereferenceable(184) %2) #20
-  %23 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %22)
+  %23 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %22)
   %24 = call noundef i32 @_ZN3spv7Builder19createRvalueSwizzleENS_10DecorationEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %18, i32 noundef %1, i32 noundef %23, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   %25 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %25, null
@@ -48288,7 +48288,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %158, %_ZNSt6vectorI
 
 _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i, %164
   %.val = load i16, ptr %3, align 4
-  %169 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val)
+  %169 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.val)
   call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %61, i32 noundef %127, i32 noundef %169, i32 noundef -1) #20
   %170 = load ptr, ptr %51, align 8
   %171 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv
@@ -48301,7 +48301,7 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   %178 = getelementptr inbounds i8, ptr %177, i64 240
   %179 = load ptr, ptr %178, align 8
   %180 = call noundef nonnull align 8 dereferenceable(152) ptr %179(ptr noundef nonnull align 8 dereferenceable(184) %176) #20
-  %181 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE(ptr noundef nonnull align 8 dereferenceable(152) %180)
+  %181 = call fastcc i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser17TranslateCoherentERKN7glslang5TTypeE.argprom(ptr noundef nonnull align 8 dereferenceable(152) %180)
   %.sroa.0.0.extract.trunc = trunc nuw nsw i32 %181 to i16
   %182 = load i16, ptr %3, align 4
   %183 = and i16 %.sroa.0.0.extract.trunc, 1
@@ -48791,7 +48791,7 @@ define linkonce_odr void @_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4096) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22TranslateImageOperandsERKN3spv7Builder11AccessChain13CoherentFlagsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.0.val) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 0, 4096) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22TranslateImageOperandsERKN3spv7Builder11AccessChain13CoherentFlagsE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i16 %.0.val) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1576
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 772
@@ -48899,7 +48899,7 @@ declare void @_ZN3spv7Builder11createStoreEjjNS_16MemoryAccessMaskENS_5ScopeEj(p
 declare noundef i32 @_ZN3spv7Builder11makePointerENS_12StorageClassEj(ptr noundef nonnull align 8 dereferenceable(1416), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createAtomicOperationEN7glslang9TOperatorEN3spv10DecorationEjRSt6vectorIjSaIjEENS1_10TBasicTypeERKNS3_7Builder11AccessChain13CoherentFlagsERKNS1_5TTypeE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(2) %5, ptr noundef nonnull align 8 dereferenceable(152) %6) unnamed_addr #3 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser21createAtomicOperationEN7glslang9TOperatorEN3spv10DecorationEjRSt6vectorIjSaIjEENS1_10TBasicTypeERKNS3_7Builder11AccessChain13CoherentFlagsERKNS1_5TTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(2) %5, ptr noundef nonnull align 8 dereferenceable(152) %6) unnamed_addr #3 align 2 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50193,7 +50193,7 @@ _ZNSt12_Vector_baseIN3spv11IdImmediateESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
 declare void @_ZN3spv7Builder16createNoResultOpENS_2OpERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser26createUnaryMatrixOperationEN3spv2OpERNS_12_GLOBAL__N_113OpDecorationsEjjN7glslang10TBasicTypeE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef range(i32 115, 128) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser26createUnaryMatrixOperationEN3spv2OpERNS_12_GLOBAL__N_113OpDecorationsEjjN7glslang10TBasicTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef range(i32 115, 128) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 104
@@ -54039,7 +54039,7 @@ _ZNSt6vectorIN3spv10DecorationESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt
   %401 = load ptr, ptr %400, align 8
   %402 = call noundef i32 %401(ptr noundef nonnull align 8 dereferenceable(152) %214) #20
   %403 = icmp eq i32 %402, 18
-  br i1 %403, label %404, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit"
+  br i1 %403, label %404, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit"
 
 404:                                              ; preds = %_ZNSt6vectorIN3spv10DecorationESaIS1_EE9push_backERKS1_.exit.i
   %405 = load ptr, ptr %214, align 8
@@ -54124,7 +54124,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13originalParamEN7glslang17TStorageQual
   %464 = load i64, ptr %463, align 8
   %465 = and i64 %464, 70368744177664
   %.not7.i = icmp eq i64 %465, 0
-  br i1 %.not7.i, label %466, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit"
+  br i1 %.not7.i, label %466, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit"
 
 466:                                              ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13originalParamEN7glslang17TStorageQualifierERKNS1_5TTypeEb.exit.thread.i
   %467 = getelementptr inbounds i8, ptr %349, i64 8
@@ -54139,7 +54139,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13originalParamEN7glslang17TStorageQual
   %472 = load ptr, ptr %467, align 8
   %473 = getelementptr inbounds i8, ptr %472, i64 4
   store ptr %473, ptr %467, align 8
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit"
 
 474:                                              ; preds = %466
   %475 = load ptr, ptr %349, align 8
@@ -54194,7 +54194,7 @@ _ZNSt6vectorIN3spv10DecorationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17
   store ptr %494, ptr %467, align 8
   %496 = getelementptr inbounds i32, ptr %489, i64 %485
   store ptr %496, ptr %469, align 8
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit"
 
 497:                                              ; preds = %450
   %498 = load ptr, ptr %214, align 8
@@ -54218,7 +54218,7 @@ _ZNSt6vectorIN3spv10DecorationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17
   %511 = load ptr, ptr %506, align 8
   %512 = getelementptr inbounds i8, ptr %511, i64 4
   store ptr %512, ptr %506, align 8
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit"
 
 513:                                              ; preds = %497
   %514 = load ptr, ptr %349, align 8
@@ -54273,22 +54273,22 @@ _ZNSt6vectorIN3spv10DecorationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17
   store ptr %533, ptr %506, align 8
   %535 = getelementptr inbounds i32, ptr %528, i64 %524
   store ptr %535, ptr %508, align 8
-  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit"
+  br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit": ; preds = %_ZNSt6vectorIN3spv10DecorationESaIS1_EE9push_backERKS1_.exit.i, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13originalParamEN7glslang17TStorageQualifierERKNS1_5TTypeEb.exit.thread.i, %471, %_ZNSt6vectorIN3spv10DecorationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %510, %_ZNSt6vectorIN3spv10DecorationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21.i
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit": ; preds = %_ZNSt6vectorIN3spv10DecorationESaIS1_EE9push_backERKS1_.exit.i, %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser13originalParamEN7glslang17TStorageQualifierERKNS1_5TTypeEb.exit.thread.i, %471, %_ZNSt6vectorIN3spv10DecorationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %510, %_ZNSt6vectorIN3spv10DecorationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21.i
   %536 = load ptr, ptr %28, align 8
   %537 = load ptr, ptr %29, align 8
   %.not.i79 = icmp eq ptr %536, %537
   br i1 %.not.i79, label %541, label %538
 
-538:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit"
+538:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit"
   store i32 %.0144, ptr %536, align 4
   %539 = load ptr, ptr %28, align 8
   %540 = getelementptr inbounds i8, ptr %539, i64 4
   store ptr %540, ptr %28, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
-541:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.exit"
+541:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser13makeFunctionsERKN7glslang7TVectorIP11TIntermNodeEEENK3$_0clERSt6vectorIN3spv10DecorationESaISB_EERKNS1_5TTypeEb.argprom.exit"
   %542 = load ptr, ptr %6, align 8
   %543 = ptrtoint ptr %536 to i64
   %544 = ptrtoint ptr %542 to i64
@@ -54461,7 +54461,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit:     ; preds = %584, %_ZNSt6vectorI
   %627 = getelementptr inbounds i8, ptr %626, i64 240
   %628 = load ptr, ptr %627, align 8
   %629 = call noundef nonnull align 8 dereferenceable(152) ptr %628(ptr noundef nonnull align 8 dereferenceable(184) %52) #20
-  %630 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %629)
+  %630 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr noundef nonnull align 8 dereferenceable(152) %629)
   %631 = load ptr, ptr %52, align 8
   %632 = getelementptr inbounds i8, ptr %631, i64 424
   %633 = load ptr, ptr %632, align 8
@@ -56320,7 +56320,7 @@ _ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit: ; preds = %._crit_edge238,
   %509 = call noundef nonnull align 8 dereferenceable(80) ptr %508(ptr noundef nonnull align 8 dereferenceable(152) %505) #20
   %510 = getelementptr inbounds i8, ptr %509, i64 8
   %.val99 = load i64, ptr %510, align 8
-  %511 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val99)
+  %511 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val99)
   call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %484, i32 noundef %485, i32 noundef %511, i32 noundef -1) #20
   %512 = load ptr, ptr %35, align 8
   %513 = load ptr, ptr %34, align 8
@@ -56443,7 +56443,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13originalParamEN7glslang17TStorageQual
   %597 = call noundef nonnull align 8 dereferenceable(80) ptr %596(ptr noundef nonnull align 8 dereferenceable(152) %593) #20
   %598 = getelementptr inbounds i8, ptr %597, i64 8
   %.val = load i64, ptr %598, align 8
-  %599 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
+  %599 = call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser29TranslateNonUniformDecorationERKN7glslang10TQualifierE.argprom(ptr noundef nonnull align 8 dereferenceable(3528) %0, i64 %.val)
   call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %484, i32 noundef %592, i32 noundef %599, i32 noundef -1) #20
   %600 = sext i32 %.2239 to i64
   %601 = load ptr, ptr %5, align 8
@@ -56620,7 +56620,7 @@ define internal fastcc noundef i32 @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser1
   %11 = getelementptr inbounds i8, ptr %10, i64 240
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(152) ptr %12(ptr noundef nonnull align 8 dereferenceable(184) %9) #20
-  %14 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb(ptr noundef nonnull align 8 dereferenceable(3528) %6, ptr noundef nonnull align 8 dereferenceable(152) %13)
+  %14 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeEb.argelim(ptr noundef nonnull align 8 dereferenceable(3528) %6, ptr noundef nonnull align 8 dereferenceable(152) %13)
   br label %15
 
 15:                                               ; preds = %1, %4
@@ -60744,7 +60744,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImage
   %14 = getelementptr inbounds i8, ptr %10, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
-  tail call fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE"(ptr nonnull %0, i32 noundef %16, i32 noundef 4488)
+  tail call fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE.argprom"(ptr nonnull %0, i32 noundef %16, i32 noundef 4488)
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 %7
   %19 = load ptr, ptr %18, align 8
@@ -60752,12 +60752,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImage
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
-  tail call fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE"(ptr nonnull %0, i32 noundef %23, i32 noundef 4499)
+  tail call fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE.argprom"(ptr nonnull %0, i32 noundef %23, i32 noundef 4499)
   br label %25
 
 24:                                               ; preds = %5
-  tail call fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE"(ptr nonnull %0, i32 noundef %1, i32 noundef 4488)
-  tail call fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE"(ptr nonnull %0, i32 noundef %1, i32 noundef 4499)
+  tail call fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE.argprom"(ptr nonnull %0, i32 noundef %1, i32 noundef 4488)
+  tail call fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE.argprom"(ptr nonnull %0, i32 noundef %1, i32 noundef 4499)
   br label %25
 
 25:                                               ; preds = %24, %13, %4
@@ -61191,7 +61191,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt6vectorIN3spv10DecorationESaIS4_EEESaIS7_ENSt8__d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE"(ptr %.0.val, i32 noundef %0, i32 noundef range(i32 4488, 4500) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser33addImageProcessing2QCOMDecorationEjbENK3$_0clEjN3spv10DecorationE.argprom"(ptr %.0.val, i32 noundef %0, i32 noundef range(i32 4488, 4500) %1) unnamed_addr #3 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 104

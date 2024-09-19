@@ -1689,7 +1689,7 @@ thread-pre-split381:                              ; preds = %361, %373, %408
   br label %.thread385
 
 413:                                              ; preds = %._crit_edge457
-  %414 = call fastcc i32 @asn1_expect_algo(ptr noundef %1, ptr noundef %79, ptr noundef %10)
+  %414 = call fastcc i32 @asn1_expect_algo.argprom.argelim(ptr noundef %1, ptr noundef %79, ptr noundef %10)
   %.not319 = icmp eq i32 %414, 0
   br i1 %.not319, label %416, label %415
 
@@ -1968,7 +1968,7 @@ thread-pre-split388:                              ; preds = %thread-pre-split388
   %533 = load i64, ptr %491, align 8
   %534 = load i64, ptr %492, align 8
   %.val = load ptr, ptr %489, align 8
-  %535 = call fastcc i32 @asn1_parse_countersignature(ptr noundef nonnull %1, ptr %.val, ptr noundef %488, ptr noundef %4, ptr noundef %453, i32 noundef %421, i64 noundef %533, i64 noundef %534)
+  %535 = call fastcc i32 @asn1_parse_countersignature.argprom(ptr noundef nonnull %1, ptr %.val, ptr noundef %488, ptr noundef %4, ptr noundef %453, i32 noundef %421, i64 noundef %533, i64 noundef %534)
   %.not343 = icmp eq i32 %535, 0
   br i1 %.not343, label %537, label %.thread385
 
@@ -3345,7 +3345,7 @@ define internal fastcc range(i32 0, 2) i32 @map_sha1(ptr noundef %0, ptr noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_expect_algo(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_expect_algo.argprom.argelim(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.cli_asn1, align 8
   %5 = alloca %struct.cli_asn1, align 8
   %6 = alloca i32, align 4
@@ -3581,7 +3581,7 @@ declare ptr @crtmgr_verify_pkcs7(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i64 @time(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_parse_countersignature(ptr noundef %0, ptr %.0.val, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_parse_countersignature.argprom(ptr noundef %0, ptr %.0.val, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.cli_asn1, align 8
   %9 = alloca %struct.cli_asn1, align 8
   %10 = alloca %struct.cli_asn1, align 8
@@ -4420,7 +4420,7 @@ asn1_expect_objtype.exit:                         ; preds = %9
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %6, align 4
   %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = call fastcc i32 @asn1_expect_algo(ptr noundef %0, ptr noundef %17, ptr noundef %6)
+  %18 = call fastcc i32 @asn1_expect_algo.argprom.argelim(ptr noundef %0, ptr noundef %17, ptr noundef %6)
   %.not21 = icmp eq i32 %18, 0
   br i1 %.not21, label %20, label %19
 

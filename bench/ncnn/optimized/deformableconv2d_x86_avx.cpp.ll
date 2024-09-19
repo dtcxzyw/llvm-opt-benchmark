@@ -1579,12 +1579,12 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %2, %85
 ._crit_edge15._crit_edge.i:                       ; preds = %658, %._crit_edge15.i
   %688 = phi ptr [ %668, %658 ], [ %.pre.i, %._crit_edge15.i ]
   %.not119.i = icmp eq ptr %688, null
-  br i1 %.not119.i, label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.exit, label %689
+  br i1 %.not119.i, label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.argprom.exit, label %689
 
 689:                                              ; preds = %._crit_edge15._crit_edge.i
   %690 = atomicrmw add ptr %688, i32 -1 acq_rel, align 4
   %691 = icmp eq i32 %690, 1
-  br i1 %691, label %692, label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.exit
+  br i1 %691, label %692, label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.argprom.exit
 
 692:                                              ; preds = %689
   %693 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1598,15 +1598,15 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %2, %85
   %698 = getelementptr inbounds i8, ptr %697, i64 24
   %699 = load ptr, ptr %698, align 8
   invoke void %699(ptr noundef nonnull align 8 dereferenceable(8) %694, ptr noundef %695)
-          to label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.exit unwind label %702
+          to label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.argprom.exit unwind label %702
 
 700:                                              ; preds = %692
   %.not121.i = icmp eq ptr %695, null
-  br i1 %.not121.i, label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.exit, label %701
+  br i1 %.not121.i, label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.argprom.exit, label %701
 
 701:                                              ; preds = %700
   call void @free(ptr noundef nonnull %695) #14
-  br label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.exit
+  br label %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.argprom.exit
 
 702:                                              ; preds = %696
   %703 = landingpad { ptr, i32 }
@@ -1656,11 +1656,11 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %2, %85
   call void @__clang_call_terminate(ptr %723) #15
   unreachable
 
-_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.exit: ; preds = %._crit_edge15._crit_edge.i, %689, %696, %700, %701
+_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.argprom.exit: ; preds = %._crit_edge15._crit_edge.i, %689, %696, %700, %701
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   br label %724
 
-724:                                              ; preds = %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.exit, %563, %515
+724:                                              ; preds = %_ZN4ncnnL44deformableconv2d_transform_kernel_packed_sseERKNS_3MatERS0_iiiiii.argprom.exit, %563, %515
   %725 = load i8, ptr %1, align 8
   %726 = trunc i8 %725 to i1
   br i1 %726, label %727, label %747
@@ -3408,7 +3408,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn24DeformableConv2D_x86_av
   %969 = icmp eq i32 %30, 8
   %970 = icmp eq i32 %.01605, 8
   %or.cond7 = and i1 %969, %970
-  br i1 %or.cond7, label %971, label %_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond7, label %971, label %_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
 971:                                              ; preds = %968
   %972 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -4314,14 +4314,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn24DeformableConv2D_x86_av
 ._crit_edge28.split.us.us.us.i:                   ; preds = %._crit_edge.us34.us.us.i
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count67.i
-  br i1 %exitcond68.not.i, label %_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit, label %.preheader8.us.us.i, !llvm.loop !43
+  br i1 %exitcond68.not.i, label %_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit, label %.preheader8.us.us.i, !llvm.loop !43
 
-_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit: ; preds = %._crit_edge28.split.us.us.us.i, %968
+_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge28.split.us.us.us.i, %968
   %1625 = icmp eq i32 %30, 1
   %or.cond9 = and i1 %1625, %970
-  br i1 %or.cond9, label %1626, label %_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond9, label %1626, label %_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
-1626:                                             ; preds = %_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+1626:                                             ; preds = %_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %1627 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %1628 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %1629 = load i32, ptr %33, align 4
@@ -5030,14 +5030,14 @@ _ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_ii
 ._crit_edge42.split.us.us.us.i:                   ; preds = %._crit_edge.us48.us.us.i
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
-  br i1 %exitcond84.not.i, label %_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit, label %.preheader8.us.us.i2418, !llvm.loop !49
+  br i1 %exitcond84.not.i, label %_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit, label %.preheader8.us.us.i2418, !llvm.loop !49
 
-_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit: ; preds = %._crit_edge42.split.us.us.us.i, %_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge42.split.us.us.us.i, %_ZN4ncnnL26deformableconv2d_pack8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %2093 = icmp eq i32 %30, 4
   %or.cond11 = and i1 %2093, %970
-  br i1 %or.cond11, label %2094, label %_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond11, label %2094, label %_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
-2094:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+2094:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %2095 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %2096 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %2097 = load i32, ptr %33, align 4
@@ -5804,14 +5804,14 @@ _ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
 ._crit_edge43.split.us.us.us.i:                   ; preds = %._crit_edge.us49.us.us.i
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count87.i
-  br i1 %exitcond88.not.i, label %_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit, label %.preheader8.us.us.i2445, !llvm.loop !55
+  br i1 %exitcond88.not.i, label %_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit, label %.preheader8.us.us.i2445, !llvm.loop !55
 
-_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit: ; preds = %._crit_edge43.split.us.us.us.i, %_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge43.split.us.us.us.i, %_ZN4ncnnL29deformableconv2d_pack1to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %2638 = icmp eq i32 %.01605, 1
   %or.cond13 = and i1 %969, %2638
-  br i1 %or.cond13, label %2639, label %_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond13, label %2639, label %_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
-2639:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+2639:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %2640 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %2641 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %2642 = load i32, ptr %33, align 4
@@ -6490,14 +6490,14 @@ _ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
 ._crit_edge48.split.us.us.us.i:                   ; preds = %._crit_edge.us54.us.us.i
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next90.i, %wide.trip.count92.i
-  br i1 %exitcond93.not.i, label %_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit, label %.preheader13.us.us.i, !llvm.loop !61
+  br i1 %exitcond93.not.i, label %_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit, label %.preheader13.us.us.i, !llvm.loop !61
 
-_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit: ; preds = %._crit_edge48.split.us.us.us.i, %_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge48.split.us.us.us.i, %_ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %3100 = icmp eq i32 %.01605, 4
   %or.cond15 = and i1 %969, %3100
-  br i1 %or.cond15, label %3101, label %_ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond15, label %3101, label %_ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
-3101:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+3101:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %3102 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3103 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3104 = load i32, ptr %33, align 4
@@ -7394,11 +7394,11 @@ _ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %exitcond88.not.i2533 = icmp eq i64 %indvars.iv.next85.i2532, %wide.trip.count87.i2513
   br i1 %exitcond88.not.i2533, label %.critedge, label %.preheader8.us.us.i2518, !llvm.loop !67
 
-_ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit: ; preds = %_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+_ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit: ; preds = %_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %or.cond17 = and i1 %3100, %2093
-  br i1 %or.cond17, label %3754, label %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond17, label %3754, label %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
-3754:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+3754:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %3755 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3756 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3757 = load i32, ptr %33, align 4
@@ -7443,7 +7443,7 @@ _ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %3791 = load i32, ptr %3790, align 8
   %3792 = load i32, ptr %90, align 8
   %3793 = icmp sgt i32 %3791, 0
-  br i1 %3793, label %.preheader8.lr.ph.i2566, label %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %3793, label %.preheader8.lr.ph.i2566, label %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
 .preheader8.lr.ph.i2566:                          ; preds = %3782
   %3794 = getelementptr inbounds nuw i8, ptr %3768, i64 48
@@ -7467,7 +7467,7 @@ _ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %3811 = getelementptr inbounds nuw i8, ptr %3768, i64 16
   %3812 = icmp sgt i32 %3792, 0
   %or.cond.i2568 = select i1 %3796, i1 %3812, i1 false
-  br i1 %or.cond.i2568, label %.preheader8.us.us.preheader.i2569, label %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond.i2568, label %.preheader8.us.us.preheader.i2569, label %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
 .preheader8.us.us.preheader.i2569:                ; preds = %.preheader8.lr.ph.i2566
   %3813 = add i32 %3787, -1
@@ -8161,13 +8161,13 @@ _ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
 ._crit_edge43.split.us.us.us.i2589:               ; preds = %._crit_edge.us49.us.us.i2586
   %indvars.iv.next85.i2590 = add nuw nsw i64 %indvars.iv84.i2576, 1
   %exitcond88.not.i2591 = icmp eq i64 %indvars.iv.next85.i2590, %wide.trip.count87.i2570
-  br i1 %exitcond88.not.i2591, label %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit, label %.preheader8.us.us.i2575, !llvm.loop !73
+  br i1 %exitcond88.not.i2591, label %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit, label %.preheader8.us.us.i2575, !llvm.loop !73
 
-_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit: ; preds = %._crit_edge43.split.us.us.us.i2589, %.preheader8.lr.ph.i2566, %3782, %_ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge43.split.us.us.us.i2589, %.preheader8.lr.ph.i2566, %3782, %_ZN4ncnnL29deformableconv2d_pack8to4_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %or.cond19 = and i1 %3100, %1625
-  br i1 %or.cond19, label %4295, label %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond19, label %4295, label %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
-4295:                                             ; preds = %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+4295:                                             ; preds = %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %4296 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4297 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4298 = load i32, ptr %33, align 4
@@ -8212,7 +8212,7 @@ _ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_ii
   %4332 = load i32, ptr %4331, align 8
   %4333 = load i32, ptr %90, align 8
   %4334 = icmp sgt i32 %4332, 0
-  br i1 %4334, label %.preheader8.lr.ph.i2625, label %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %4334, label %.preheader8.lr.ph.i2625, label %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
 .preheader8.lr.ph.i2625:                          ; preds = %4323
   %4335 = getelementptr inbounds nuw i8, ptr %4309, i64 48
@@ -8236,7 +8236,7 @@ _ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_ii
   %4352 = getelementptr inbounds nuw i8, ptr %4309, i64 16
   %4353 = icmp sgt i32 %4333, 0
   %or.cond.i2627 = select i1 %4337, i1 %4353, i1 false
-  br i1 %or.cond.i2627, label %.preheader8.us.us.preheader.i2628, label %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond.i2627, label %.preheader8.us.us.preheader.i2628, label %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
 .preheader8.us.us.preheader.i2628:                ; preds = %.preheader8.lr.ph.i2625
   %4354 = add i32 %4328, -1
@@ -8912,13 +8912,13 @@ _ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_ii
 ._crit_edge42.split.us.us.us.i2648:               ; preds = %._crit_edge.us48.us.us.i2645
   %indvars.iv.next81.i2649 = add nuw nsw i64 %indvars.iv80.i2635, 1
   %exitcond84.not.i2650 = icmp eq i64 %indvars.iv.next81.i2649, %wide.trip.count83.i2629
-  br i1 %exitcond84.not.i2650, label %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit, label %.preheader8.us.us.i2634, !llvm.loop !79
+  br i1 %exitcond84.not.i2650, label %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit, label %.preheader8.us.us.i2634, !llvm.loop !79
 
-_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit: ; preds = %._crit_edge42.split.us.us.us.i2648, %.preheader8.lr.ph.i2625, %4323, %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge42.split.us.us.us.i2648, %.preheader8.lr.ph.i2625, %4323, %_ZN4ncnnL26deformableconv2d_pack4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %or.cond21 = and i1 %2093, %2638
-  br i1 %or.cond21, label %4773, label %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond21, label %4773, label %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
-4773:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+4773:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %4774 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4775 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4776 = load i32, ptr %33, align 4
@@ -8963,7 +8963,7 @@ _ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %4810 = load i32, ptr %4809, align 8
   %4811 = load i32, ptr %90, align 8
   %4812 = icmp sgt i32 %4810, 0
-  br i1 %4812, label %.preheader13.lr.ph.i2692, label %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %4812, label %.preheader13.lr.ph.i2692, label %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
 .preheader13.lr.ph.i2692:                         ; preds = %4801
   %4813 = getelementptr inbounds nuw i8, ptr %4787, i64 48
@@ -8987,7 +8987,7 @@ _ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %4830 = getelementptr inbounds nuw i8, ptr %4787, i64 16
   %4831 = icmp sgt i32 %4811, 0
   %or.cond.i2694 = select i1 %4815, i1 %4831, i1 false
-  br i1 %or.cond.i2694, label %.preheader13.us.us.preheader.i2695, label %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+  br i1 %or.cond.i2694, label %.preheader13.us.us.preheader.i2695, label %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
 
 .preheader13.us.us.preheader.i2695:               ; preds = %.preheader13.lr.ph.i2692
   %4832 = add i32 %4806, -1
@@ -9497,13 +9497,13 @@ _ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
 ._crit_edge48.split.us.us.us.i2713:               ; preds = %._crit_edge.us54.us.us.i2710
   %indvars.iv.next90.i2714 = add nuw nsw i64 %indvars.iv89.i2702, 1
   %exitcond93.not.i2715 = icmp eq i64 %indvars.iv.next90.i2714, %wide.trip.count92.i2696
-  br i1 %exitcond93.not.i2715, label %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit, label %.preheader13.us.us.i2701, !llvm.loop !85
+  br i1 %exitcond93.not.i2715, label %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit, label %.preheader13.us.us.i2701, !llvm.loop !85
 
-_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit: ; preds = %._crit_edge48.split.us.us.us.i2713, %.preheader13.lr.ph.i2692, %4801, %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge48.split.us.us.us.i2713, %.preheader13.lr.ph.i2692, %4801, %_ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %or.cond23 = and i1 %1625, %2638
   br i1 %or.cond23, label %5154, label %.critedge
 
-5154:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit
+5154:                                             ; preds = %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit
   %5155 = getelementptr inbounds i8, ptr %12, i64 96
   %5156 = load i32, ptr %5155, align 8
   %5157 = icmp eq i32 %5156, 1
@@ -10024,8 +10024,8 @@ _ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %exitcond3034.not = icmp eq i64 %indvars.iv.next3031, %wide.trip.count3033
   br i1 %exitcond3034.not, label %.critedge, label %.preheader2811, !llvm.loop !91
 
-.critedge:                                        ; preds = %._crit_edge2883, %._crit_edge43.split.us.us.us.i2531, %894, %899, %909, %910, %905, %.preheader8.lr.ph.i2413, %1654, %3129, %.preheader8.lr.ph.i2509, %2122, %.preheader8.lr.ph.i2440, %999, %.preheader8.lr.ph.i, %.preheader13.lr.ph.i, %2667, %.preheader2811.lr.ph, %5163, %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit, %87, %._crit_edge3082
-  %.01604 = phi i32 [ -100, %._crit_edge3082 ], [ -100, %87 ], [ 0, %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.exit ], [ 0, %5163 ], [ 0, %.preheader2811.lr.ph ], [ 0, %2667 ], [ 0, %.preheader13.lr.ph.i ], [ 0, %.preheader8.lr.ph.i ], [ 0, %999 ], [ 0, %.preheader8.lr.ph.i2440 ], [ 0, %2122 ], [ 0, %.preheader8.lr.ph.i2509 ], [ 0, %3129 ], [ 0, %1654 ], [ 0, %.preheader8.lr.ph.i2413 ], [ 0, %905 ], [ 0, %910 ], [ 0, %909 ], [ 0, %899 ], [ 0, %894 ], [ 0, %._crit_edge43.split.us.us.us.i2531 ], [ 0, %._crit_edge2883 ]
+.critedge:                                        ; preds = %._crit_edge2883, %._crit_edge43.split.us.us.us.i2531, %894, %899, %909, %910, %905, %.preheader8.lr.ph.i2413, %1654, %3129, %.preheader8.lr.ph.i2509, %2122, %.preheader8.lr.ph.i2440, %999, %.preheader8.lr.ph.i, %.preheader13.lr.ph.i, %2667, %.preheader2811.lr.ph, %5163, %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit, %87, %._crit_edge3082
+  %.01604 = phi i32 [ -100, %._crit_edge3082 ], [ -100, %87 ], [ 0, %_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8_iiiiiiiiiS8_RKNS_6OptionE.argprom.exit ], [ 0, %5163 ], [ 0, %.preheader2811.lr.ph ], [ 0, %2667 ], [ 0, %.preheader13.lr.ph.i ], [ 0, %.preheader8.lr.ph.i ], [ 0, %999 ], [ 0, %.preheader8.lr.ph.i2440 ], [ 0, %2122 ], [ 0, %.preheader8.lr.ph.i2509 ], [ 0, %3129 ], [ 0, %1654 ], [ 0, %.preheader8.lr.ph.i2413 ], [ 0, %905 ], [ 0, %910 ], [ 0, %909 ], [ 0, %899 ], [ 0, %894 ], [ 0, %._crit_edge43.split.us.us.us.i2531 ], [ 0, %._crit_edge2883 ]
   ret i32 %.01604
 }
 

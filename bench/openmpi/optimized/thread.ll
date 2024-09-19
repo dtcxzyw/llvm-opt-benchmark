@@ -78,7 +78,7 @@ define noundef ptr @pmix_thread_get_self() local_unnamed_addr #1 {
 
 6:                                                ; preds = %5, %0
   %.not22.i = icmp eq ptr %2, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %7
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %7
 
 7:                                                ; preds = %6
   %8 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %2, ptr noundef null) #11
@@ -93,7 +93,7 @@ define noundef ptr @pmix_thread_get_self() local_unnamed_addr #1 {
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i.i = icmp eq ptr %14, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %15 = phi ptr [ %17, %.lr.ph.i.i ], [ %14, %7 ]
@@ -102,9 +102,9 @@ define noundef ptr @pmix_thread_get_self() local_unnamed_addr #1 {
   %16 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %6, %7
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %6, %7
   %18 = tail call i64 @pthread_self() #12
   %19 = getelementptr inbounds i8, ptr %2, i64 136
   store i64 %18, ptr %19, align 8

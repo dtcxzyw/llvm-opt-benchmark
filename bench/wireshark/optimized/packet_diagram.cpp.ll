@@ -1428,18 +1428,18 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %176, 
   %243 = getelementptr i8, ptr %.0127273, i64 32
   %.0127.val = load ptr, ptr %243, align 8
   %.not.i = icmp eq ptr %.0127.val, null
-  br i1 %.not.i, label %._ZL20proto_item_is_hiddenP11_proto_node.exit.thread_crit_edge, label %_ZL23proto_item_is_generatedP11_proto_node.exit
+  br i1 %.not.i, label %._ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread_crit_edge, label %_ZL23proto_item_is_generatedP11_proto_node.argprom.exit
 
-._ZL20proto_item_is_hiddenP11_proto_node.exit.thread_crit_edge: ; preds = %242
+._ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread_crit_edge: ; preds = %242
   %.pre292 = load i32, ptr inttoptr (i64 28 to ptr), align 4
-  br label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
+  br label %_ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread
 
-_ZL23proto_item_is_generatedP11_proto_node.exit:  ; preds = %242
+_ZL23proto_item_is_generatedP11_proto_node.argprom.exit: ; preds = %242
   %244 = getelementptr inbounds i8, ptr %.0127.val, i64 28
   %245 = load i32, ptr %244, align 4
   %246 = and i32 %245, 3
   %or.cond300 = icmp eq i32 %246, 0
-  br i1 %or.cond300, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread, label %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178
+  br i1 %or.cond300, label %_ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread, label %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178
 
 .loopexit:                                        ; preds = %307, %_ZN28FieldInformationGraphicsItem6setPosEdd.exit, %337, %338, %339, %341, %_ZN5QListI15DiagramItemSpanE6detachEv.exit.i, %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i180, %331, %.noexc185, %342, %370
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1456,8 +1456,8 @@ _ZL23proto_item_is_generatedP11_proto_node.exit:  ; preds = %242
           cleanup
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit218
 
-_ZL20proto_item_is_hiddenP11_proto_node.exit.thread: ; preds = %_ZL23proto_item_is_generatedP11_proto_node.exit, %._ZL20proto_item_is_hiddenP11_proto_node.exit.thread_crit_edge
-  %247 = phi i32 [ %.pre292, %._ZL20proto_item_is_hiddenP11_proto_node.exit.thread_crit_edge ], [ %245, %_ZL23proto_item_is_generatedP11_proto_node.exit ]
+_ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread: ; preds = %_ZL23proto_item_is_generatedP11_proto_node.argprom.exit, %._ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread_crit_edge
+  %247 = phi i32 [ %.pre292, %._ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread_crit_edge ], [ %245, %_ZL23proto_item_is_generatedP11_proto_node.argprom.exit ]
   %248 = getelementptr inbounds i8, ptr %.0127.val, i64 8
   %249 = load i32, ptr %248, align 8
   %250 = load ptr, ptr %53, align 8
@@ -1472,12 +1472,12 @@ _ZL20proto_item_is_hiddenP11_proto_node.exit.thread: ; preds = %_ZL23proto_item_
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %.critedge, label %260
 
-260:                                              ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
+260:                                              ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread
   %261 = lshr i32 %247, 8
   %262 = and i32 %261, 63
   br label %266
 
-.critedge:                                        ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
+.critedge:                                        ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.argprom.exit.thread
   %263 = getelementptr inbounds i8, ptr %.0127.val, i64 12
   %264 = load i32, ptr %263, align 4
   %265 = shl i32 %264, 3
@@ -1550,8 +1550,8 @@ _ZN5QListI15DiagramItemSpanElsERKS0_.exit:        ; preds = %._ZN5QListI15Diagra
   invoke void @_ZN9QtPrivate12QPodArrayOpsI15DiagramItemSpanE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %288, ptr noundef nonnull align 8 dereferenceable(16) %30)
           to label %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178 unwind label %.loopexit.split-lp.loopexit
 
-_ZN5QListI15DiagramItemSpanElsERKS0_.exit178:     ; preds = %_ZN5QListI15DiagramItemSpanElsERKS0_.exit, %266, %_ZL23proto_item_is_generatedP11_proto_node.exit
-  %.1122 = phi i32 [ %.0121272, %_ZL23proto_item_is_generatedP11_proto_node.exit ], [ %.0121272, %266 ], [ %257, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit ]
+_ZN5QListI15DiagramItemSpanElsERKS0_.exit178:     ; preds = %_ZN5QListI15DiagramItemSpanElsERKS0_.exit, %266, %_ZL23proto_item_is_generatedP11_proto_node.argprom.exit
+  %.1122 = phi i32 [ %.0121272, %_ZL23proto_item_is_generatedP11_proto_node.argprom.exit ], [ %.0121272, %266 ], [ %257, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit ]
   %290 = getelementptr inbounds i8, ptr %.0127273, i64 16
   %.0127 = load ptr, ptr %290, align 8
   %.not = icmp eq ptr %.0127, null

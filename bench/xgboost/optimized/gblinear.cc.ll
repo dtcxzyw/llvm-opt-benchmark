@@ -7173,7 +7173,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost15Grad
   %.val3 = load ptr, ptr %2, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #35
   invoke void @_ZN7xgboost3gbm8GBLinearC2EPKNS_17LearnerModelParamEPKNS_7ContextE(ptr noundef nonnull align 8 dereferenceable(577) %4, ptr noundef %.val, ptr noundef %.val3)
-          to label %"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_0EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %5
+          to label %"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_0EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit" unwind label %5
 
 5:                                                ; preds = %3
   %6 = landingpad { ptr, i32 }
@@ -7181,7 +7181,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost15Grad
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 584) #32
   resume { ptr, i32 } %6
 
-"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_0EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %3
+"_ZSt10__invoke_rIPN7xgboost15GradientBoosterERNS0_3gbm3$_0EJPKNS0_17LearnerModelParamEPKNS0_7ContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %3
   ret ptr %4
 }
 

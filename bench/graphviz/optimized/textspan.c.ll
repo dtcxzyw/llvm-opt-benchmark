@@ -108,7 +108,7 @@ define { double, double } @textspan_size(ptr noundef %0, ptr noundef %1) local_u
   %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #15
   %20 = add i64 %19, 1
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i64 noundef %20) #17
-  tail call fastcc void @graphviz_exit() #18
+  tail call fastcc void @graphviz_exit.argelim() #18
   unreachable
 
 gv_strdup.exit.i:                                 ; preds = %14
@@ -386,7 +386,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #11 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #11 {
   tail call void @exit(i32 noundef 1) #20
   unreachable
 }

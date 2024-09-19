@@ -4316,7 +4316,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceExtentsH
           to label %14 unwind label %17
 
 14:                                               ; preds = %12
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_UsdToHdPurposesERKSt6vectorINS_7TfTokenESaIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_UsdToHdPurposesERKSt6vectorINS_7TfTokenESaIS1_EE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %15 unwind label %17
 
 15:                                               ; preds = %14
@@ -4455,7 +4455,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceExtentsH
           to label %23 unwind label %26
 
 23:                                               ; preds = %21
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_UsdToHdPurposesERKSt6vectorINS_7TfTokenESaIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %22)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_UsdToHdPurposesERKSt6vectorINS_7TfTokenESaIS1_EE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %24 unwind label %26
 
 24:                                               ; preds = %23
@@ -13400,7 +13400,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ExpressionPathNodeD1Ev(
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode25_RemovePathTokenFromTableEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_UsdToHdPurposesERKSt6vectorINS_7TfTokenESaIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_UsdToHdPurposesERKSt6vectorINS_7TfTokenESaIS1_EE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN32pxrInternal_v0_24__pxrReserved__L16_OrderedPurposesEvE6result, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

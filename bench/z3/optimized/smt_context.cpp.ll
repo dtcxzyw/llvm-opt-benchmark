@@ -13570,7 +13570,7 @@ entry:
   %m_theory_set = getelementptr inbounds i8, ptr %this, i64 9232
   %m_theory_set.val = load ptr, ptr %m_theory_set, align 8
   %cmp.i.i.i = icmp eq ptr %m_theory_set.val, null
-  br i1 %cmp.i.i.i, label %"_Z6any_ofI10ptr_vectorIN3smt6theoryEEZNKS1_7context22can_theories_propagateEvE3$_0EbRKT_RKT0_.exit", label %_ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i
+  br i1 %cmp.i.i.i, label %"_Z6any_ofI10ptr_vectorIN3smt6theoryEEZNKS1_7context22can_theories_propagateEvE3$_0EbRKT_RKT0_.argprom.exit", label %_ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i
 
 _ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i:    ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %m_theory_set.val, i64 -4
@@ -13578,7 +13578,7 @@ _ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i:    ; preds = %entry
   %1 = zext i32 %0 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %m_theory_set.val, i64 %1
   %cmp.not1.not.i = icmp eq i32 %0, 0
-  br i1 %cmp.not1.not.i, label %"_Z6any_ofI10ptr_vectorIN3smt6theoryEEZNKS1_7context22can_theories_propagateEvE3$_0EbRKT_RKT0_.exit", label %for.body.i
+  br i1 %cmp.not1.not.i, label %"_Z6any_ofI10ptr_vectorIN3smt6theoryEEZNKS1_7context22can_theories_propagateEvE3$_0EbRKT_RKT0_.argprom.exit", label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i, %for.body.i
   %__begin0.02.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %m_theory_set.val, %_ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i ]
@@ -13590,9 +13590,9 @@ for.body.i:                                       ; preds = %_ZNK6vectorIPN3smt6
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.02.i, i64 8
   %cmp.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   %or.cond = select i1 %call.i.i, i1 true, i1 %cmp.not.not.i
-  br i1 %or.cond, label %"_Z6any_ofI10ptr_vectorIN3smt6theoryEEZNKS1_7context22can_theories_propagateEvE3$_0EbRKT_RKT0_.exit", label %for.body.i
+  br i1 %or.cond, label %"_Z6any_ofI10ptr_vectorIN3smt6theoryEEZNKS1_7context22can_theories_propagateEvE3$_0EbRKT_RKT0_.argprom.exit", label %for.body.i
 
-"_Z6any_ofI10ptr_vectorIN3smt6theoryEEZNKS1_7context22can_theories_propagateEvE3$_0EbRKT_RKT0_.exit": ; preds = %for.body.i, %entry, %_ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i
+"_Z6any_ofI10ptr_vectorIN3smt6theoryEEZNKS1_7context22can_theories_propagateEvE3$_0EbRKT_RKT0_.argprom.exit": ; preds = %for.body.i, %entry, %_ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i
   %cmp.not.lcssa.i = phi i1 [ false, %_ZNK6vectorIPN3smt6theoryELb0EjE3endEv.exit.i ], [ false, %entry ], [ %call.i.i, %for.body.i ]
   ret i1 %cmp.not.lcssa.i
 }

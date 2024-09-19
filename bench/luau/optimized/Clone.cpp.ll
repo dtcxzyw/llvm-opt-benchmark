@@ -3950,14 +3950,14 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not8.i.i = icmp eq ptr %9, null
-  br i1 %.not8.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_8FreeTypeEEEDaS6_.exit, label %10
+  br i1 %.not8.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_8FreeTypeEEEDaS6_.argprom.exit, label %10
 
 10:                                               ; preds = %7
   %11 = tail call fastcc noundef ptr @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %.val, ptr noundef nonnull %9)
   store ptr %11, ptr %8, align 8
-  br label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_8FreeTypeEEEDaS6_.exit
+  br label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_8FreeTypeEEEDaS6_.argprom.exit
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_8FreeTypeEEEDaS6_.exit: ; preds = %7, %10
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_8FreeTypeEEEDaS6_.argprom.exit: ; preds = %7, %10
   ret void
 }
 
@@ -4011,7 +4011,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   %12 = getelementptr inbounds i8, ptr %1, i64 136
   %13 = load ptr, ptr %12, align 8
   %.not2225.i.i = icmp eq ptr %11, %13
-  br i1 %.not2225.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_12FunctionTypeEEEDaS6_.exit, label %.lr.ph28.i.i
+  br i1 %.not2225.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_12FunctionTypeEEEDaS6_.argprom.exit, label %.lr.ph28.i.i
 
 .lr.ph28.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph28.i.i
   %.sroa.015.026.i.i = phi ptr [ %16, %.lr.ph28.i.i ], [ %11, %._crit_edge.i.i ]
@@ -4020,9 +4020,9 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   store ptr %15, ptr %.sroa.015.026.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %.sroa.015.026.i.i, i64 8
   %.not22.i.i = icmp eq ptr %16, %13
-  br i1 %.not22.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_12FunctionTypeEEEDaS6_.exit, label %.lr.ph28.i.i
+  br i1 %.not22.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_12FunctionTypeEEEDaS6_.argprom.exit, label %.lr.ph28.i.i
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_12FunctionTypeEEEDaS6_.exit: ; preds = %.lr.ph28.i.i, %._crit_edge.i.i
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_12FunctionTypeEEEDaS6_.argprom.exit: ; preds = %.lr.ph28.i.i, %._crit_edge.i.i
   %17 = getelementptr inbounds i8, ptr %1, i64 216
   %18 = load ptr, ptr %17, align 8
   %19 = tail call fastcc noundef ptr @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(60) %.val, ptr noundef %18)
@@ -4144,7 +4144,7 @@ _ZN4Luau8PropertyD2Ev.exit.i.i:                   ; preds = %34, %_ZSt8_DestroyI
   %49 = getelementptr inbounds i8, ptr %1, i64 208
   %50 = load ptr, ptr %49, align 8
   %.not3543.i.i = icmp eq ptr %48, %50
-  br i1 %.not3543.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9TableTypeEEEDaS6_.exit, label %.lr.ph46.i.i
+  br i1 %.not3543.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9TableTypeEEEDaS6_.argprom.exit, label %.lr.ph46.i.i
 
 .lr.ph46.i.i:                                     ; preds = %._crit_edge42.i.i, %.lr.ph46.i.i
   %.sroa.023.044.i.i = phi ptr [ %53, %.lr.ph46.i.i ], [ %48, %._crit_edge42.i.i ]
@@ -4153,9 +4153,9 @@ _ZN4Luau8PropertyD2Ev.exit.i.i:                   ; preds = %34, %_ZSt8_DestroyI
   store ptr %52, ptr %.sroa.023.044.i.i, align 8
   %53 = getelementptr inbounds i8, ptr %.sroa.023.044.i.i, i64 8
   %.not35.i.i = icmp eq ptr %53, %50
-  br i1 %.not35.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9TableTypeEEEDaS6_.exit, label %.lr.ph46.i.i
+  br i1 %.not35.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9TableTypeEEEDaS6_.argprom.exit, label %.lr.ph46.i.i
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9TableTypeEEEDaS6_.exit: ; preds = %.lr.ph46.i.i, %._crit_edge42.i.i
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9TableTypeEEEDaS6_.argprom.exit: ; preds = %.lr.ph46.i.i, %._crit_edge42.i.i
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3)
   ret void
 }
@@ -4275,7 +4275,7 @@ _ZN4Luau8PropertyD2Ev.exit.i.i:                   ; preds = %23, %_ZSt8_DestroyI
   %45 = getelementptr inbounds i8, ptr %1, i64 200
   %46 = load i8, ptr %45, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9ClassTypeEEEDaS6_.exit
+  br i1 %47, label %48, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9ClassTypeEEEDaS6_.argprom.exit
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %1, i64 184
@@ -4286,9 +4286,9 @@ _ZN4Luau8PropertyD2Ev.exit.i.i:                   ; preds = %23, %_ZSt8_DestroyI
   %53 = load ptr, ptr %52, align 8
   %54 = call fastcc noundef ptr @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %.val, ptr noundef %53)
   store ptr %54, ptr %52, align 8
-  br label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9ClassTypeEEEDaS6_.exit
+  br label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9ClassTypeEEEDaS6_.argprom.exit
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9ClassTypeEEEDaS6_.exit: ; preds = %44, %48
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9ClassTypeEEEDaS6_.argprom.exit: ; preds = %44, %48
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3)
   ret void
 }
@@ -4305,7 +4305,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   %3 = getelementptr i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %3, align 8
   %.not4.i.i = icmp eq ptr %.val2, %.val3
-  br i1 %.not4.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9UnionTypeEEEDaS6_.exit, label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9UnionTypeEEEDaS6_.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.sroa.01.05.i.i = phi ptr [ %6, %.lr.ph.i.i ], [ %.val2, %2 ]
@@ -4314,9 +4314,9 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   store ptr %5, ptr %.sroa.01.05.i.i, align 8
   %6 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i, i64 8
   %.not.i.i = icmp eq ptr %6, %.val3
-  br i1 %.not.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9UnionTypeEEEDaS6_.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9UnionTypeEEEDaS6_.argprom.exit, label %.lr.ph.i.i
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9UnionTypeEEEDaS6_.exit: ; preds = %.lr.ph.i.i, %2
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_9UnionTypeEEEDaS6_.argprom.exit: ; preds = %.lr.ph.i.i, %2
   ret void
 }
 
@@ -4327,7 +4327,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   %3 = getelementptr i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %3, align 8
   %.not4.i.i = icmp eq ptr %.val2, %.val3
-  br i1 %.not4.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_16IntersectionTypeEEEDaS6_.exit, label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_16IntersectionTypeEEEDaS6_.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.sroa.01.05.i.i = phi ptr [ %6, %.lr.ph.i.i ], [ %.val2, %2 ]
@@ -4336,9 +4336,9 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   store ptr %5, ptr %.sroa.01.05.i.i, align 8
   %6 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i, i64 8
   %.not.i.i = icmp eq ptr %6, %.val3
-  br i1 %.not.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_16IntersectionTypeEEEDaS6_.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_16IntersectionTypeEEEDaS6_.argprom.exit, label %.lr.ph.i.i
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_16IntersectionTypeEEEDaS6_.exit: ; preds = %.lr.ph.i.i, %2
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_16IntersectionTypeEEEDaS6_.argprom.exit: ; preds = %.lr.ph.i.i, %2
   ret void
 }
 
@@ -4405,7 +4405,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not1821.i.i = icmp eq ptr %11, %13
-  br i1 %.not1821.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_22TypeFamilyInstanceTypeEEEDaS6_.exit, label %.lr.ph24.i.i
+  br i1 %.not1821.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_22TypeFamilyInstanceTypeEEEDaS6_.argprom.exit, label %.lr.ph24.i.i
 
 .lr.ph24.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph24.i.i
   %.sroa.011.022.i.i = phi ptr [ %16, %.lr.ph24.i.i ], [ %11, %._crit_edge.i.i ]
@@ -4414,9 +4414,9 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   store ptr %15, ptr %.sroa.011.022.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %.sroa.011.022.i.i, i64 8
   %.not18.i.i = icmp eq ptr %16, %13
-  br i1 %.not18.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_22TypeFamilyInstanceTypeEEEDaS6_.exit, label %.lr.ph24.i.i
+  br i1 %.not18.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_22TypeFamilyInstanceTypeEEEDaS6_.argprom.exit, label %.lr.ph24.i.i
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_22TypeFamilyInstanceTypeEEEDaS6_.exit: ; preds = %.lr.ph24.i.i, %._crit_edge.i.i
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_22TypeFamilyInstanceTypeEEEDaS6_.argprom.exit: ; preds = %.lr.ph24.i.i, %._crit_edge.i.i
   ret void
 }
 
@@ -9016,7 +9016,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_8TypePackEEEDaS6_.exit
+  br i1 %11, label %12, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_8TypePackEEEDaS6_.argprom.exit
 
 12:                                               ; preds = %._crit_edge.i.i
   %13 = getelementptr inbounds i8, ptr %1, i64 24
@@ -9024,9 +9024,9 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   %15 = tail call fastcc noundef ptr @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(60) %.val, ptr noundef %14)
   store ptr %15, ptr %13, align 8
   store i8 1, ptr %9, align 8
-  br label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_8TypePackEEEDaS6_.exit
+  br label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_8TypePackEEEDaS6_.argprom.exit
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_8TypePackEEEDaS6_.exit: ; preds = %._crit_edge.i.i, %12
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_8TypePackEEEDaS6_.argprom.exit: ; preds = %._crit_edge.i.i, %12
   ret void
 }
 
@@ -9069,7 +9069,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not1821.i.i = icmp eq ptr %11, %13
-  br i1 %.not1821.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_26TypeFamilyInstanceTypePackEEEDaS6_.exit, label %.lr.ph24.i.i
+  br i1 %.not1821.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_26TypeFamilyInstanceTypePackEEEDaS6_.argprom.exit, label %.lr.ph24.i.i
 
 .lr.ph24.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph24.i.i
   %.sroa.011.022.i.i = phi ptr [ %16, %.lr.ph24.i.i ], [ %11, %._crit_edge.i.i ]
@@ -9078,9 +9078,9 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
   store ptr %15, ptr %.sroa.011.022.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %.sroa.011.022.i.i, i64 8
   %.not18.i.i = icmp eq ptr %16, %13
-  br i1 %.not18.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_26TypeFamilyInstanceTypePackEEEDaS6_.exit, label %.lr.ph24.i.i
+  br i1 %.not18.i.i, label %_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_26TypeFamilyInstanceTypePackEEEDaS6_.argprom.exit, label %.lr.ph24.i.i
 
-_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_26TypeFamilyInstanceTypePackEEEDaS6_.exit: ; preds = %.lr.ph24.i.i, %._crit_edge.i.i
+_ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_11TypePackVarEENKUlOT_E_clIRNS_26TypeFamilyInstanceTypePackEEEDaS6_.argprom.exit: ; preds = %.lr.ph24.i.i, %._crit_edge.i.i
   ret void
 }
 

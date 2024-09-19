@@ -3278,15 +3278,15 @@ entry:
   %1 = getelementptr i8, ptr %item.val27, i64 96
   %item.val27.val = load ptr, ptr %1, align 8
   %cmp.not.i = icmp eq ptr %item.val27.val, null
-  br i1 %cmp.not.i, label %if.else, label %_PyIndex_Check.exit
+  br i1 %cmp.not.i, label %if.else, label %_PyIndex_Check.argprom.argprom.exit
 
-_PyIndex_Check.exit:                              ; preds = %entry
+_PyIndex_Check.argprom.argprom.exit:              ; preds = %entry
   %nb_index.i = getelementptr inbounds i8, ptr %item.val27.val, i64 264
   %2 = load ptr, ptr %nb_index.i, align 8
   %cmp2.i.not = icmp eq ptr %2, null
   br i1 %cmp2.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %_PyIndex_Check.exit
+if.then:                                          ; preds = %_PyIndex_Check.argprom.argprom.exit
   %3 = load ptr, ptr @PyExc_IndexError, align 8
   %call1 = tail call i64 @PyNumber_AsSsize_t(ptr noundef nonnull %item, ptr noundef %3) #8
   %cmp = icmp eq i64 %call1, -1
@@ -3337,7 +3337,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   store i32 %add.i.i.i, ptr %6, align 8
   br label %return
 
-if.else:                                          ; preds = %entry, %_PyIndex_Check.exit
+if.else:                                          ; preds = %entry, %_PyIndex_Check.argprom.argprom.exit
   %cmp.i28.not = icmp eq ptr %item.val27, @PySlice_Type
   br i1 %cmp.i28.not, label %if.then12, label %if.else46
 

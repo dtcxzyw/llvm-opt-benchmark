@@ -295,7 +295,7 @@ sub_02.i:                                         ; preds = %.lr.ph.i
   call void @PQclear(ptr noundef %22) #12
   call void @PQfinish(ptr noundef %21) #12
   %.not.i = icmp eq ptr %.023.lcssa.i, null
-  br i1 %.not.i, label %check_proper_datallowconn.exit, label %51
+  br i1 %.not.i, label %check_proper_datallowconn.argprom.exit, label %51
 
 51:                                               ; preds = %._crit_edge.i
   %52 = call i32 @fclose(ptr noundef nonnull %.023.lcssa.i)
@@ -303,7 +303,7 @@ sub_02.i:                                         ; preds = %.lr.ph.i
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.60, ptr noundef nonnull %15) #14
   unreachable
 
-check_proper_datallowconn.exit:                   ; preds = %._crit_edge.i
+check_proper_datallowconn.argprom.exit:           ; preds = %._crit_edge.i
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15)
   call fastcc void @check_for_prepared_transactions(ptr noundef nonnull @old_cluster)
@@ -314,14 +314,14 @@ check_proper_datallowconn.exit:                   ; preds = %._crit_edge.i
   %55 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.100, i32 noundef 16384) #12
   %56 = call zeroext i1 @check_for_data_types_usage(ptr noundef nonnull @old_cluster, ptr noundef %55, ptr noundef nonnull %14) #12
   call void @free(ptr noundef %55) #12
-  br i1 %56, label %57, label %check_for_composite_data_type_usage.exit
+  br i1 %56, label %57, label %check_for_composite_data_type_usage.argprom.exit
 
-57:                                               ; preds = %check_proper_datallowconn.exit
+57:                                               ; preds = %check_proper_datallowconn.argprom.exit
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.59) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.101, ptr noundef nonnull %14) #14
   unreachable
 
-check_for_composite_data_type_usage.exit:         ; preds = %check_proper_datallowconn.exit
+check_for_composite_data_type_usage.argprom.exit: ; preds = %check_proper_datallowconn.argprom.exit
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13)
@@ -329,14 +329,14 @@ check_for_composite_data_type_usage.exit:         ; preds = %check_proper_datall
   %58 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %59 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %58, ptr noundef nonnull @.str.103) #12
   %60 = call zeroext i1 @check_for_data_types_usage(ptr noundef nonnull @old_cluster, ptr noundef nonnull @.str.104, ptr noundef nonnull %13) #12
-  br i1 %60, label %61, label %check_for_reg_data_type_usage.exit
+  br i1 %60, label %61, label %check_for_reg_data_type_usage.argprom.exit
 
-61:                                               ; preds = %check_for_composite_data_type_usage.exit
+61:                                               ; preds = %check_for_composite_data_type_usage.argprom.exit
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.59) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.105, ptr noundef nonnull %13) #14
   unreachable
 
-check_for_reg_data_type_usage.exit:               ; preds = %check_for_composite_data_type_usage.exit
+check_for_reg_data_type_usage.argprom.exit:       ; preds = %check_for_composite_data_type_usage.argprom.exit
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12)
@@ -346,14 +346,14 @@ check_for_reg_data_type_usage.exit:               ; preds = %check_for_composite
   %64 = xor i8 %63, %62
   %65 = and i8 %64, 1
   %66 = icmp eq i8 %65, 0
-  br i1 %66, label %check_for_isn_and_int8_passing_mismatch.exit, label %67
+  br i1 %66, label %check_for_isn_and_int8_passing_mismatch.argprom.exit, label %67
 
-67:                                               ; preds = %check_for_reg_data_type_usage.exit
+67:                                               ; preds = %check_for_reg_data_type_usage.argprom.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %69 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %68, ptr noundef nonnull @.str.66) #12
   %70 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph9.i, label %check_for_isn_and_int8_passing_mismatch.exit
+  br i1 %71, label %.lr.ph9.i, label %check_for_isn_and_int8_passing_mismatch.argprom.exit
 
 .lr.ph9.i:                                        ; preds = %67, %._crit_edge.i5
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i5 ], [ 0, %67 ]
@@ -417,7 +417,7 @@ check_for_reg_data_type_usage.exit:               ; preds = %check_for_composite
 
 ._crit_edge10.i:                                  ; preds = %._crit_edge.i5
   %.not.i6 = icmp eq ptr %.1.lcssa.i, null
-  br i1 %.not.i6, label %check_for_isn_and_int8_passing_mismatch.exit, label %101
+  br i1 %.not.i6, label %check_for_isn_and_int8_passing_mismatch.argprom.exit, label %101
 
 101:                                              ; preds = %._crit_edge10.i
   %102 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i)
@@ -425,14 +425,14 @@ check_for_reg_data_type_usage.exit:               ; preds = %check_for_composite
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.72, ptr noundef nonnull %12) #14
   unreachable
 
-check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %67, %._crit_edge10.i, %check_for_reg_data_type_usage.exit
+check_for_isn_and_int8_passing_mismatch.argprom.exit: ; preds = %67, %._crit_edge10.i, %check_for_reg_data_type_usage.argprom.exit
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
   %103 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   %104 = icmp ugt i32 %103, 169999
   br i1 %104, label %105, label %237
 
-105:                                              ; preds = %check_for_isn_and_int8_passing_mismatch.exit
+105:                                              ; preds = %check_for_isn_and_int8_passing_mismatch.argprom.exit
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.145) #12
   %106 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
@@ -732,8 +732,8 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %237
 
-237:                                              ; preds = %check_old_cluster_subscription_state.exit, %check_for_isn_and_int8_passing_mismatch.exit
-  %238 = phi i32 [ %.pr, %check_old_cluster_subscription_state.exit ], [ %103, %check_for_isn_and_int8_passing_mismatch.exit ]
+237:                                              ; preds = %check_old_cluster_subscription_state.exit, %check_for_isn_and_int8_passing_mismatch.argprom.exit
+  %238 = phi i32 [ %.pr, %check_old_cluster_subscription_state.exit ], [ %103, %check_for_isn_and_int8_passing_mismatch.argprom.exit ]
   %239 = icmp ult i32 %238, 150100
   br i1 %239, label %240, label %.thread87
 
@@ -757,9 +757,9 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   br i1 %245, label %246, label %247
 
 246:                                              ; preds = %244
-  call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.3)
-  call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.4)
-  call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.5)
+  call fastcc void @check_for_removed_data_type_usage.argprom(ptr noundef nonnull @.str.3)
+  call fastcc void @check_for_removed_data_type_usage.argprom(ptr noundef nonnull @.str.4)
+  call fastcc void @check_for_removed_data_type_usage.argprom(ptr noundef nonnull @.str.5)
   %.pr76 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %247
 
@@ -1207,7 +1207,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @PQclear(ptr noundef %426) #12
   call void @PQfinish(ptr noundef %423) #12
   %.not.i72 = icmp eq ptr %.019.lcssa.i, null
-  br i1 %.not.i72, label %check_for_pg_role_prefix.exit, label %444
+  br i1 %.not.i72, label %check_for_pg_role_prefix.argprom.exit, label %444
 
 444:                                              ; preds = %._crit_edge.i71
   %445 = call i32 @fclose(ptr noundef nonnull %.019.lcssa.i)
@@ -1215,14 +1215,14 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.125, ptr noundef nonnull %3) #14
   unreachable
 
-check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i71
+check_for_pg_role_prefix.argprom.exit:            ; preds = %._crit_edge.i71
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   %.pre99 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %.thread87
 
-.thread87:                                        ; preds = %237, %247, %288, %332, %.thread79, %376, %415, %check_for_pg_role_prefix.exit, %.thread84
-  %446 = phi i32 [ %.pre98, %288 ], [ %.pr77, %332 ], [ %.pr80.pr, %.thread79 ], [ %.pr78, %376 ], [ %.pr82, %415 ], [ %.pre99, %check_for_pg_role_prefix.exit ], [ %.pr86.pr.pr, %.thread84 ], [ %248, %247 ], [ %238, %237 ]
+.thread87:                                        ; preds = %237, %247, %288, %332, %.thread79, %376, %415, %check_for_pg_role_prefix.argprom.exit, %.thread84
+  %446 = phi i32 [ %.pre98, %288 ], [ %.pr77, %332 ], [ %.pr80.pr, %.thread79 ], [ %.pr78, %376 ], [ %.pr82, %415 ], [ %.pre99, %check_for_pg_role_prefix.argprom.exit ], [ %.pr86.pr.pr, %.thread84 ], [ %248, %247 ], [ %238, %237 ]
   %.off = add i32 %446, -90400
   %447 = icmp ult i32 %.off, 100
   %448 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 4), align 4
@@ -1236,21 +1236,21 @@ check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i71
   %451 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
   %452 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %451, ptr noundef nonnull @.str.116) #12
   %453 = call zeroext i1 @check_for_data_type_usage(ptr noundef nonnull @old_cluster, ptr noundef nonnull @.str.117, ptr noundef nonnull %2) #12
-  br i1 %453, label %454, label %check_for_jsonb_9_4_usage.exit
+  br i1 %453, label %454, label %check_for_jsonb_9_4_usage.argprom.exit
 
 454:                                              ; preds = %450
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.59) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.118, ptr noundef nonnull %2) #14
   unreachable
 
-check_for_jsonb_9_4_usage.exit:                   ; preds = %450
+check_for_jsonb_9_4_usage.argprom.exit:           ; preds = %450
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
   %.pre100 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %455
 
-455:                                              ; preds = %check_for_jsonb_9_4_usage.exit, %.thread87
-  %456 = phi i32 [ %.pre100, %check_for_jsonb_9_4_usage.exit ], [ %446, %.thread87 ]
+455:                                              ; preds = %check_for_jsonb_9_4_usage.argprom.exit, %.thread87
+  %456 = phi i32 [ %.pre100, %check_for_jsonb_9_4_usage.argprom.exit ], [ %446, %.thread87 ]
   %457 = icmp ult i32 %456, 90400
   br i1 %457, label %458, label %459
 
@@ -1374,7 +1374,7 @@ define internal fastcc void @check_for_prepared_transactions(ptr noundef %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_for_removed_data_type_usage(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @check_for_removed_data_type_usage.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [64 x i8], align 16
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.111, ptr noundef %0) #12

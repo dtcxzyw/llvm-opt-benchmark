@@ -111,12 +111,12 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %.not6169 = icmp eq ptr %.pre, %.pre74
   br i1 %.not6169, label %._crit_edge73, label %.lr.ph72
 
-.lr.ph72:                                         ; preds = %._crit_edge68, %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit47"
-  %.sroa.048.070 = phi ptr [ %128, %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit47" ], [ %.pre, %._crit_edge68 ]
+.lr.ph72:                                         ; preds = %._crit_edge68, %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit47"
+  %.sroa.048.070 = phi ptr [ %128, %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit47" ], [ %.pre, %._crit_edge68 ]
   %13 = getelementptr inbounds i8, ptr %.sroa.048.070, i64 4
   %.sroa.06.0.copyload = load i32, ptr %13, align 4
   %14 = and i32 %.sroa.06.0.copyload, 15
-  switch i32 %14, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit" [
+  switch i32 %14, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit" [
     i32 4, label %15
     i32 5, label %22
   ]
@@ -129,7 +129,7 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %20 = load i16, ptr %19, align 4
   %21 = add i16 %20, 1
   store i16 %21, ptr %19, align 4
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit"
 
 22:                                               ; preds = %.lr.ph72
   %23 = lshr i32 %.sroa.06.0.copyload, 4
@@ -139,18 +139,18 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %27 = load i16, ptr %26, align 2
   %28 = add i16 %27, 1
   store i16 %28, ptr %26, align 2
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit"
 
-"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit": ; preds = %.lr.ph72, %15, %22
+"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit": ; preds = %.lr.ph72, %15, %22
   %29 = getelementptr inbounds i8, ptr %.sroa.048.070, i64 8
   %.sroa.05.0.copyload = load i32, ptr %29, align 4
   %30 = and i32 %.sroa.05.0.copyload, 15
-  switch i32 %30, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit42" [
+  switch i32 %30, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit42" [
     i32 4, label %31
     i32 5, label %38
   ]
 
-31:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit"
+31:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit"
   %32 = lshr i32 %.sroa.05.0.copyload, 4
   %33 = zext nneg i32 %32 to i64
   %34 = load ptr, ptr %2, align 8
@@ -158,9 +158,9 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %36 = load i16, ptr %35, align 4
   %37 = add i16 %36, 1
   store i16 %37, ptr %35, align 4
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit42"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit42"
 
-38:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit"
+38:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit"
   %39 = lshr i32 %.sroa.05.0.copyload, 4
   %40 = zext nneg i32 %39 to i64
   %41 = load ptr, ptr %0, align 8
@@ -168,18 +168,18 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %43 = load i16, ptr %42, align 2
   %44 = add i16 %43, 1
   store i16 %44, ptr %42, align 2
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit42"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit42"
 
-"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit42": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit", %31, %38
+"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit42": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit", %31, %38
   %45 = getelementptr inbounds i8, ptr %.sroa.048.070, i64 12
   %.sroa.04.0.copyload = load i32, ptr %45, align 4
   %46 = and i32 %.sroa.04.0.copyload, 15
-  switch i32 %46, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit43" [
+  switch i32 %46, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit43" [
     i32 4, label %47
     i32 5, label %54
   ]
 
-47:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit42"
+47:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit42"
   %48 = lshr i32 %.sroa.04.0.copyload, 4
   %49 = zext nneg i32 %48 to i64
   %50 = load ptr, ptr %2, align 8
@@ -187,9 +187,9 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %52 = load i16, ptr %51, align 4
   %53 = add i16 %52, 1
   store i16 %53, ptr %51, align 4
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit43"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit43"
 
-54:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit42"
+54:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit42"
   %55 = lshr i32 %.sroa.04.0.copyload, 4
   %56 = zext nneg i32 %55 to i64
   %57 = load ptr, ptr %0, align 8
@@ -197,18 +197,18 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %59 = load i16, ptr %58, align 2
   %60 = add i16 %59, 1
   store i16 %60, ptr %58, align 2
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit43"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit43"
 
-"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit43": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit42", %47, %54
+"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit43": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit42", %47, %54
   %61 = getelementptr inbounds i8, ptr %.sroa.048.070, i64 16
   %.sroa.03.0.copyload = load i32, ptr %61, align 4
   %62 = and i32 %.sroa.03.0.copyload, 15
-  switch i32 %62, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit44" [
+  switch i32 %62, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit44" [
     i32 4, label %63
     i32 5, label %70
   ]
 
-63:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit43"
+63:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit43"
   %64 = lshr i32 %.sroa.03.0.copyload, 4
   %65 = zext nneg i32 %64 to i64
   %66 = load ptr, ptr %2, align 8
@@ -216,9 +216,9 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %68 = load i16, ptr %67, align 4
   %69 = add i16 %68, 1
   store i16 %69, ptr %67, align 4
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit44"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit44"
 
-70:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit43"
+70:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit43"
   %71 = lshr i32 %.sroa.03.0.copyload, 4
   %72 = zext nneg i32 %71 to i64
   %73 = load ptr, ptr %0, align 8
@@ -226,18 +226,18 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %75 = load i16, ptr %74, align 2
   %76 = add i16 %75, 1
   store i16 %76, ptr %74, align 2
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit44"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit44"
 
-"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit44": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit43", %63, %70
+"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit44": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit43", %63, %70
   %77 = getelementptr inbounds i8, ptr %.sroa.048.070, i64 20
   %.sroa.02.0.copyload = load i32, ptr %77, align 4
   %78 = and i32 %.sroa.02.0.copyload, 15
-  switch i32 %78, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit45" [
+  switch i32 %78, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit45" [
     i32 4, label %79
     i32 5, label %86
   ]
 
-79:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit44"
+79:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit44"
   %80 = lshr i32 %.sroa.02.0.copyload, 4
   %81 = zext nneg i32 %80 to i64
   %82 = load ptr, ptr %2, align 8
@@ -245,9 +245,9 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %84 = load i16, ptr %83, align 4
   %85 = add i16 %84, 1
   store i16 %85, ptr %83, align 4
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit45"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit45"
 
-86:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit44"
+86:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit44"
   %87 = lshr i32 %.sroa.02.0.copyload, 4
   %88 = zext nneg i32 %87 to i64
   %89 = load ptr, ptr %0, align 8
@@ -255,18 +255,18 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %91 = load i16, ptr %90, align 2
   %92 = add i16 %91, 1
   store i16 %92, ptr %90, align 2
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit45"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit45"
 
-"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit45": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit44", %79, %86
+"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit45": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit44", %79, %86
   %93 = getelementptr inbounds i8, ptr %.sroa.048.070, i64 24
   %.sroa.01.0.copyload = load i32, ptr %93, align 4
   %94 = and i32 %.sroa.01.0.copyload, 15
-  switch i32 %94, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit46" [
+  switch i32 %94, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit46" [
     i32 4, label %95
     i32 5, label %102
   ]
 
-95:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit45"
+95:                                               ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit45"
   %96 = lshr i32 %.sroa.01.0.copyload, 4
   %97 = zext nneg i32 %96 to i64
   %98 = load ptr, ptr %2, align 8
@@ -274,9 +274,9 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %100 = load i16, ptr %99, align 4
   %101 = add i16 %100, 1
   store i16 %101, ptr %99, align 4
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit46"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit46"
 
-102:                                              ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit45"
+102:                                              ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit45"
   %103 = lshr i32 %.sroa.01.0.copyload, 4
   %104 = zext nneg i32 %103 to i64
   %105 = load ptr, ptr %0, align 8
@@ -284,18 +284,18 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %107 = load i16, ptr %106, align 2
   %108 = add i16 %107, 1
   store i16 %108, ptr %106, align 2
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit46"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit46"
 
-"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit46": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit45", %95, %102
+"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit46": ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit45", %95, %102
   %109 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
   %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit47"
+  br i1 %110, label %111, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit47"
 
-111:                                              ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit46"
+111:                                              ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit46"
   %112 = getelementptr inbounds i8, ptr %.sroa.048.070, i64 28
   %.sroa.0.0.copyload = load i32, ptr %112, align 4
   %113 = and i32 %.sroa.0.0.copyload, 15
-  switch i32 %113, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit47" [
+  switch i32 %113, label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit47" [
     i32 4, label %114
     i32 5, label %121
   ]
@@ -308,7 +308,7 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %119 = load i16, ptr %118, align 4
   %120 = add i16 %119, 1
   store i16 %120, ptr %118, align 4
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit47"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit47"
 
 121:                                              ; preds = %111
   %122 = lshr i32 %.sroa.0.0.copyload, 4
@@ -318,14 +318,14 @@ define dso_local void @_ZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionE(ptr 
   %126 = load i16, ptr %125, align 2
   %127 = add i16 %126, 1
   store i16 %127, ptr %125, align 2
-  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit47"
+  br label %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit47"
 
-"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit47": ; preds = %121, %114, %111, %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit46"
+"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit47": ; preds = %121, %114, %111, %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit46"
   %128 = getelementptr inbounds i8, ptr %.sroa.048.070, i64 44
   %.not61 = icmp eq ptr %128, %.pre74
   br i1 %.not61, label %._crit_edge73, label %.lr.ph72
 
-._crit_edge73:                                    ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.exit47", %._crit_edge, %._crit_edge68
+._crit_edge73:                                    ; preds = %"_ZZN4Luau7CodeGen15updateUseCountsERNS0_10IrFunctionEENK3$_0clENS0_4IrOpE.argprom.exit47", %._crit_edge, %._crit_edge68
   ret void
 }
 
@@ -362,15 +362,15 @@ define dso_local void @_ZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctio
   %.not54 = icmp ugt i32 %18, %20
   br i1 %.not54, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16, %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46"
-  %storemerge55 = phi i32 [ %84, %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46" ], [ %18, %16 ]
+.lr.ph:                                           ; preds = %16, %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46"
+  %storemerge55 = phi i32 [ %84, %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46" ], [ %18, %16 ]
   %21 = zext i32 %storemerge55 to i64
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %22, i64 %21
   %24 = load i8, ptr %23, align 4
   switch i8 %24, label %25 [
-    i8 115, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46"
-    i8 0, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46"
+    i8 115, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46"
+    i8 0, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46"
   ]
 
 25:                                               ; preds = %.lr.ph
@@ -378,101 +378,101 @@ define dso_local void @_ZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctio
   %.sroa.06.0.copyload = load i32, ptr %26, align 4
   %27 = and i32 %.sroa.06.0.copyload, 15
   %28 = icmp eq i32 %27, 4
-  br i1 %28, label %29, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit"
+  br i1 %28, label %29, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit"
 
 29:                                               ; preds = %25
   %30 = lshr i32 %.sroa.06.0.copyload, 4
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %22, i64 %31, i32 9
   store i32 %storemerge55, ptr %32, align 4
-  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit"
+  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit"
 
-"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit": ; preds = %25, %29
+"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit": ; preds = %25, %29
   %33 = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.05.0.copyload = load i32, ptr %33, align 4
   %34 = and i32 %.sroa.05.0.copyload, 15
   %35 = icmp eq i32 %34, 4
-  br i1 %35, label %36, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit41"
+  br i1 %35, label %36, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit41"
 
-36:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit"
+36:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit"
   %37 = lshr i32 %.sroa.05.0.copyload, 4
   %38 = zext nneg i32 %37 to i64
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %39, i64 %38, i32 9
   store i32 %storemerge55, ptr %40, align 4
-  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit41"
+  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit41"
 
-"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit41": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit", %36
+"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit41": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit", %36
   %41 = getelementptr inbounds i8, ptr %23, i64 12
   %.sroa.04.0.copyload = load i32, ptr %41, align 4
   %42 = and i32 %.sroa.04.0.copyload, 15
   %43 = icmp eq i32 %42, 4
-  br i1 %43, label %44, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit42"
+  br i1 %43, label %44, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit42"
 
-44:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit41"
+44:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit41"
   %45 = lshr i32 %.sroa.04.0.copyload, 4
   %46 = zext nneg i32 %45 to i64
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %47, i64 %46, i32 9
   store i32 %storemerge55, ptr %48, align 4
-  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit42"
+  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit42"
 
-"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit42": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit41", %44
+"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit42": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit41", %44
   %49 = getelementptr inbounds i8, ptr %23, i64 16
   %.sroa.03.0.copyload = load i32, ptr %49, align 4
   %50 = and i32 %.sroa.03.0.copyload, 15
   %51 = icmp eq i32 %50, 4
-  br i1 %51, label %52, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit43"
+  br i1 %51, label %52, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit43"
 
-52:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit42"
+52:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit42"
   %53 = lshr i32 %.sroa.03.0.copyload, 4
   %54 = zext nneg i32 %53 to i64
   %55 = load ptr, ptr %3, align 8
   %56 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %55, i64 %54, i32 9
   store i32 %storemerge55, ptr %56, align 4
-  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit43"
+  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit43"
 
-"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit43": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit42", %52
+"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit43": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit42", %52
   %57 = getelementptr inbounds i8, ptr %23, i64 20
   %.sroa.02.0.copyload = load i32, ptr %57, align 4
   %58 = and i32 %.sroa.02.0.copyload, 15
   %59 = icmp eq i32 %58, 4
-  br i1 %59, label %60, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit44"
+  br i1 %59, label %60, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit44"
 
-60:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit43"
+60:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit43"
   %61 = lshr i32 %.sroa.02.0.copyload, 4
   %62 = zext nneg i32 %61 to i64
   %63 = load ptr, ptr %3, align 8
   %64 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %63, i64 %62, i32 9
   store i32 %storemerge55, ptr %64, align 4
-  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit44"
+  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit44"
 
-"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit44": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit43", %60
+"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit44": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit43", %60
   %65 = getelementptr inbounds i8, ptr %23, i64 24
   %.sroa.01.0.copyload = load i32, ptr %65, align 4
   %66 = and i32 %.sroa.01.0.copyload, 15
   %67 = icmp eq i32 %66, 4
-  br i1 %67, label %68, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit45"
+  br i1 %67, label %68, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit45"
 
-68:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit44"
+68:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit44"
   %69 = lshr i32 %.sroa.01.0.copyload, 4
   %70 = zext nneg i32 %69 to i64
   %71 = load ptr, ptr %3, align 8
   %72 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %71, i64 %70, i32 9
   store i32 %storemerge55, ptr %72, align 4
-  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit45"
+  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit45"
 
-"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit45": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit44", %68
+"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit45": ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit44", %68
   %73 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
   %74 = trunc i8 %73 to i1
-  br i1 %74, label %75, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46"
+  br i1 %74, label %75, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46"
 
-75:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit45"
+75:                                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit45"
   %76 = getelementptr inbounds i8, ptr %23, i64 28
   %.sroa.0.0.copyload = load i32, ptr %76, align 4
   %77 = and i32 %.sroa.0.0.copyload, 15
   %78 = icmp eq i32 %77, 4
-  br i1 %78, label %79, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46"
+  br i1 %78, label %79, label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46"
 
 79:                                               ; preds = %75
   %80 = lshr i32 %.sroa.0.0.copyload, 4
@@ -480,15 +480,15 @@ define dso_local void @_ZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctio
   %82 = load ptr, ptr %3, align 8
   %83 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %82, i64 %81, i32 9
   store i32 %storemerge55, ptr %83, align 4
-  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46"
+  br label %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46"
 
-"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46": ; preds = %.lr.ph, %.lr.ph, %79, %75, %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit45"
+"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46": ; preds = %.lr.ph, %.lr.ph, %79, %75, %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit45"
   %84 = add i32 %storemerge55, 1
   %85 = load i32, ptr %19, align 4
   %.not = icmp ugt i32 %84, %85
   br i1 %.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !5
 
-.loopexit.loopexit:                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.exit46"
+.loopexit.loopexit:                               ; preds = %"_ZZN4Luau7CodeGen22updateLastUseLocationsERNS0_10IrFunctionERKSt6vectorIjSaIjEEENK3$_0clENS0_4IrOpE.argprom.exit46"
   %.pre = load ptr, ptr %4, align 8
   %.pre59 = load ptr, ptr %1, align 8
   br label %.loopexit
@@ -1106,19 +1106,19 @@ _ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj.exit: ; preds = %62, %65
   %.val40 = load ptr, ptr %3, align 8
   br label %77
 
-77:                                               ; preds = %.lr.ph, %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit
-  %.03551 = phi i32 [ -1, %.lr.ph ], [ %.136, %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit ]
-  %.03750 = phi ptr [ %76, %.lr.ph ], [ %123, %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit ]
+77:                                               ; preds = %.lr.ph, %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit
+  %.03551 = phi i32 [ -1, %.lr.ph ], [ %.136, %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit ]
+  %.03750 = phi ptr [ %76, %.lr.ph ], [ %123, %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit ]
   %78 = load i32, ptr %.03750, align 4
   %79 = zext i32 %78 to i64
   %80 = getelementptr inbounds i32, ptr %.pre, i64 %79
   %81 = load i32, ptr %80, align 4
   %.not39 = icmp eq i32 %81, -1
-  br i1 %.not39, label %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit, label %82
+  br i1 %.not39, label %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit, label %82
 
 82:                                               ; preds = %77
   %83 = icmp eq i32 %.03551, -1
-  br i1 %83, label %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit, label %100
+  br i1 %83, label %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit, label %100
 
 84:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
   %85 = landingpad { ptr, i32 }
@@ -1155,12 +1155,12 @@ _ZNSt6vectorIN4Luau7CodeGen13BlockOrderingESaIS2_EED2Ev.exit: ; preds = %_ZNSt6v
 
 100:                                              ; preds = %82
   %.not7.i = icmp eq i32 %.03551, %78
-  br i1 %.not7.i, label %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit, label %.preheader3.i
+  br i1 %.not7.i, label %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit, label %.preheader3.i
 
 .loopexit.i:                                      ; preds = %.lr.ph5.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.09.i, %.preheader.i ], [ %118, %.lr.ph5.i ]
   %.not.i = icmp eq i32 %.115.lcssa.i, %.1.lcssa.i
-  br i1 %.not.i, label %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit, label %.preheader3.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit, label %.preheader3.i, !llvm.loop !13
 
 .preheader3.i:                                    ; preds = %100, %.loopexit.i
   %.09.i = phi i32 [ %.1.lcssa.i, %.loopexit.i ], [ %78, %100 ]
@@ -1200,14 +1200,14 @@ _ZNSt6vectorIN4Luau7CodeGen13BlockOrderingESaIS2_EED2Ev.exit: ; preds = %_ZNSt6v
   %122 = icmp ult i32 %121, %.lcssa.i
   br i1 %122, label %.lr.ph5.i, label %.loopexit.i, !llvm.loop !15
 
-_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit: ; preds = %.loopexit.i, %100, %82, %77
+_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit: ; preds = %.loopexit.i, %100, %82, %77
   %.136 = phi i32 [ %.03551, %77 ], [ %78, %82 ], [ %.03551, %100 ], [ %.115.lcssa.i, %.loopexit.i ]
   %123 = getelementptr inbounds i8, ptr %.03750, i64 4
   %.not = icmp eq ptr %123, %74
   br i1 %.not, label %._crit_edge, label %77
 
-._crit_edge:                                      ; preds = %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit, %_ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj.exit
-  %.035.lcssa = phi i32 [ -1, %_ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj.exit ], [ %.136, %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.exit ]
+._crit_edge:                                      ; preds = %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit, %_ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj.exit
+  %.035.lcssa = phi i32 [ -1, %_ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj.exit ], [ %.136, %_ZN4Luau7CodeGenL19findCommonDominatorERKSt6vectorIjSaIjEERKS1_INS0_13BlockOrderingESaIS6_EEjj.argprom.exit ]
   %124 = getelementptr inbounds i32, ptr %.pre, i64 %50
   %125 = load i32, ptr %124, align 4
   %.not38 = icmp eq i32 %.035.lcssa, %125

@@ -179,8 +179,8 @@ sub_1106:                                         ; preds = %.tail, %sub_1
   br label %166
 
 60:                                               ; preds = %._crit_edge
-  %61 = call fastcc i64 @ReadPicture(ptr noundef %.168, ptr noundef %3)
-  %62 = call fastcc i64 @ReadPicture(ptr noundef %.166, ptr noundef %4)
+  %61 = call fastcc i64 @ReadPicture.argelim(ptr noundef %.168, ptr noundef %3)
+  %62 = call fastcc i64 @ReadPicture.argelim(ptr noundef %.166, ptr noundef %4)
   %63 = icmp eq i64 %61, 0
   %64 = icmp eq i64 %62, 0
   %or.cond5 = select i1 %63, i1 true, i1 %64
@@ -273,7 +273,7 @@ sub_1106:                                         ; preds = %.tail, %sub_1
   %122 = shl nsw i32 %121, 2
   %123 = load i32, ptr %90, align 8
   %124 = load i32, ptr %94, align 4
-  %125 = call fastcc i32 @SSIMScaleChannel(ptr noundef %116, i32 noundef %118, ptr noundef %120, i32 noundef %122, i32 noundef %123, i32 noundef %124, i32 noundef %.172)
+  %125 = call fastcc i32 @SSIMScaleChannel.argelim(ptr noundef %116, i32 noundef %118, ptr noundef %120, i32 noundef %122, i32 noundef %123, i32 noundef %124, i32 noundef %.172)
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %127, label %130
 
@@ -301,7 +301,7 @@ sub_1106:                                         ; preds = %.tail, %sub_1
   %140 = shl nsw i32 %139, 2
   %141 = load i32, ptr %90, align 8
   %142 = load i32, ptr %94, align 4
-  %143 = call fastcc i32 @DiffScaleChannel(ptr noundef %134, i32 noundef %136, ptr noundef %138, i32 noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef %.172)
+  %143 = call fastcc i32 @DiffScaleChannel.argelim(ptr noundef %134, i32 noundef %136, ptr noundef %138, i32 noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef %.172)
   %144 = load ptr, ptr @stderr, align 8
   %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.15, i32 noundef %143) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -373,7 +373,7 @@ define internal fastcc void @Help() unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ReadPicture(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc i64 @ReadPicture.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %3, align 8
@@ -419,7 +419,7 @@ declare i32 @WebPPictureDistortion(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = shl nsw i32 %4, 1
   %9 = mul nsw i32 %8, %5
   %10 = sext i32 %9 to i64
@@ -721,7 +721,7 @@ RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #5 {
+define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #5 {
   %8 = icmp sgt i32 %5, 0
   %9 = icmp sgt i32 %4, 0
   %or.cond = and i1 %8, %9

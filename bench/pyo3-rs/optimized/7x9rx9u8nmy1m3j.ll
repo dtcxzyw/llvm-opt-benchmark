@@ -775,20 +775,20 @@ define hidden void @_ZN19pyo3_macros_backend6params15impl_arg_params17he755d0f14
   br label %64
 
 67:                                               ; preds = %6
-  br i1 %3, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thread, label %68
+  br i1 %3, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit.thread, label %68
 
 68:                                               ; preds = %67
   %.val = load ptr, ptr %58, align 8
   %.val75 = load i64, ptr %60, align 8
   %69 = icmp eq i64 %.val75, 2
-  br i1 %69, label %70, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thread
+  br i1 %69, label %70, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit.thread
 
 70:                                               ; preds = %68
   %71 = load i64, ptr %.val, align 8
   %72 = icmp eq i64 %71, 40
-  br i1 %72, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thread
+  br i1 %72, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit.thread
 
-_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thread: ; preds = %68, %70, %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit, %67
+_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit.thread: ; preds = %68, %70, %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit, %67
   %73 = getelementptr inbounds i8, ptr %1, i64 120
   %74 = getelementptr inbounds i8, ptr %1, i64 128
   %75 = getelementptr inbounds i8, ptr %1, i64 56
@@ -806,18 +806,18 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thre
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %54) #6
           to label %64 unwind label %147
 
-84:                                               ; preds = %149, %89, %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thread
+84:                                               ; preds = %149, %89, %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit.thread
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %83
 
-_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; preds = %70
+_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit: ; preds = %70
   %86 = getelementptr inbounds i8, ptr %.val, i64 328
   %87 = load i64, ptr %86, align 8
   %88 = icmp eq i64 %87, 41
-  br i1 %88, label %89, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thread
+  br i1 %88, label %89, label %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit.thread
 
-89:                                               ; preds = %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit
+89:                                               ; preds = %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit
   store ptr %59, ptr %51, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 8
   store ptr %62, ptr %.sroa.27.0..sroa_idx, align 8
@@ -1042,7 +1042,7 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
   unreachable
 
-149:                                              ; preds = %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thread
+149:                                              ; preds = %_ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.argprom.exit.thread
   %150 = add i64 %82, %81
   store i64 %150, ptr %45, align 8
   store i64 0, ptr %44, align 8

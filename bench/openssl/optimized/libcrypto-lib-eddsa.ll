@@ -16,12 +16,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @ossl_c448_ed448_convert_private_key_to_x448(ptr noundef %ctx, ptr noundef %x, ptr noundef %ed, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @oneshot_hash(ptr noundef %ctx, ptr noundef %x, i64 noundef 56, ptr noundef %ed, ptr noundef %propq)
+  %call = tail call fastcc i32 @oneshot_hash.argelim(ptr noundef %ctx, ptr noundef %x, i64 noundef 56, ptr noundef %ed, ptr noundef %propq)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @oneshot_hash(ptr noundef %ctx, ptr noundef %out, i64 noundef range(i64 56, 115) %outlen, ptr noundef %in, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @oneshot_hash.argelim(ptr noundef %ctx, ptr noundef %out, i64 noundef range(i64 56, 115) %outlen, ptr noundef %in, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_new() #4
   %cmp = icmp eq ptr %call, null
@@ -65,7 +65,7 @@ entry:
   %secret_scalar_ser = alloca [57 x i8], align 16
   %secret_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
   %p = alloca [1 x %struct.curve448_point_s], align 16
-  %call = call fastcc i32 @oneshot_hash(ptr noundef %ctx, ptr noundef nonnull %secret_scalar_ser, i64 noundef 57, ptr noundef %privkey, ptr noundef %propq)
+  %call = call fastcc i32 @oneshot_hash.argelim(ptr noundef %ctx, ptr noundef nonnull %secret_scalar_ser, i64 noundef 57, ptr noundef %privkey, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -135,7 +135,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @oneshot_hash(ptr noundef %ctx, ptr noundef nonnull %expanded, i64 noundef 114, ptr noundef %privkey, ptr noundef %propq)
+  %call1 = call fastcc i32 @oneshot_hash.argelim(ptr noundef %ctx, ptr noundef nonnull %expanded, i64 noundef 114, ptr noundef %privkey, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %if.end3
 
@@ -150,7 +150,7 @@ if.end3:                                          ; preds = %if.end
   %3 = or i8 %2, -128
   store i8 %3, ptr %arrayidx3.i, align 1
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %secret_scalar, ptr noundef nonnull %expanded, i64 noundef 57) #4
-  %call7 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %call, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
+  %call7 = call fastcc i32 @hash_init_with_dom.argelim(ptr noundef %ctx, ptr noundef %call, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then15, label %lor.lhs.false
 
@@ -185,7 +185,7 @@ if.end23:                                         ; preds = %if.end17
   call void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef nonnull %nonce_point, ptr noundef nonnull %p) #4
   call void @ossl_curve448_point_destroy(ptr noundef nonnull %p) #4
   call void @ossl_curve448_scalar_destroy(ptr noundef nonnull %nonce_scalar_2) #4
-  %call38 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %call, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
+  %call38 = call fastcc i32 @hash_init_with_dom.argelim(ptr noundef %ctx, ptr noundef %call, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %err, label %lor.lhs.false40
 
@@ -239,7 +239,7 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef nonnull %hashctx, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hash_init_with_dom.argelim(ptr noundef %ctx, ptr noundef nonnull %hashctx, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %dom_s = alloca [9 x i8], align 1
   %dom = alloca [2 x i8], align 1
@@ -358,7 +358,7 @@ if.end30:                                         ; preds = %if.end24
 
 lor.lhs.false:                                    ; preds = %if.end30
   %conv34 = zext i8 %context_len to i64
-  %call35 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %call31, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %conv34, ptr noundef %propq)
+  %call35 = call fastcc i32 @hash_init_with_dom.argelim(ptr noundef %ctx, ptr noundef %call31, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %conv34, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call35, 0
   br i1 %tobool.not, label %if.then49, label %lor.lhs.false36
 

@@ -604,12 +604,12 @@ process_flags.exit:                               ; preds = %123
 
 128:                                              ; preds = %process_flags.exit
   %129 = load i32, ptr @hf_sss_user, align 4
-  %130 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %129, ptr noundef %39, i32 noundef 48, i32 noundef 0)
+  %130 = call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %129, ptr noundef %39, i32 noundef 48, i32 noundef 0)
   br label %187
 
 131:                                              ; preds = %process_flags.exit
   %132 = load i32, ptr @hf_sss_secret, align 4
-  %133 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %132, ptr noundef %39, i32 noundef 44, i32 noundef 0)
+  %133 = call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %132, ptr noundef %39, i32 noundef 44, i32 noundef 0)
   %134 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %133) #3
   %135 = add i32 %133, 4
   %136 = add i32 %135, %134
@@ -619,12 +619,12 @@ process_flags.exit:                               ; preds = %123
 
 139:                                              ; preds = %131
   %140 = load i32, ptr @hf_sss_user, align 4
-  %141 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %140, ptr noundef %39, i32 noundef %136, i32 noundef 0)
+  %141 = call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %140, ptr noundef %39, i32 noundef %136, i32 noundef 0)
   br label %187
 
 142:                                              ; preds = %process_flags.exit
   %143 = load i32, ptr @hf_sss_secret, align 4
-  %144 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %143, ptr noundef %39, i32 noundef 48, i32 noundef 0)
+  %144 = call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %143, ptr noundef %39, i32 noundef 48, i32 noundef 0)
   %145 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %144) #3
   %146 = icmp sgt i32 %145, 4
   br i1 %146, label %147, label %187
@@ -647,26 +647,26 @@ process_flags.exit:                               ; preds = %123
 
 157:                                              ; preds = %process_flags.exit, %process_flags.exit
   %158 = load i32, ptr @hf_sss_secret, align 4
-  %159 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %158, ptr noundef %39, i32 noundef 44, i32 noundef 0)
+  %159 = call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %158, ptr noundef %39, i32 noundef 44, i32 noundef 0)
   %160 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %159) #3
   %161 = icmp sgt i32 %160, 4
   br i1 %161, label %162, label %187
 
 162:                                              ; preds = %157
   %163 = load i32, ptr @hf_sss_user, align 4
-  %164 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %163, ptr noundef %39, i32 noundef %159, i32 noundef 0)
+  %164 = call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %163, ptr noundef %39, i32 noundef %159, i32 noundef 0)
   br label %187
 
 165:                                              ; preds = %process_flags.exit
   %166 = load i32, ptr @hf_sss_secret, align 4
-  %167 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %166, ptr noundef %39, i32 noundef 44, i32 noundef 0)
+  %167 = call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %166, ptr noundef %39, i32 noundef 44, i32 noundef 0)
   %168 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %167) #3
   %169 = icmp sgt i32 %168, 4
   br i1 %169, label %170, label %187
 
 170:                                              ; preds = %165
   %171 = load i32, ptr @hf_sss_user, align 4
-  %172 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %171, ptr noundef %39, i32 noundef %167, i32 noundef 0)
+  %172 = call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %171, ptr noundef %39, i32 noundef %167, i32 noundef 0)
   br label %187
 
 173:                                              ; preds = %process_flags.exit
@@ -721,7 +721,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = icmp eq i32 %4, 0
   br i1 %7, label %8, label %11
@@ -927,7 +927,7 @@ define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr nounde
 
 60:                                               ; preds = %.lr.ph
   %61 = load i32, ptr @hf_sss_secret, align 4
-  %62 = tail call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %61, ptr noundef %14, i32 noundef %.0102, i32 noundef %.0.i)
+  %62 = tail call fastcc i32 @sss_string.argelim(ptr noundef %0, i32 noundef %61, ptr noundef %14, i32 noundef %.0102, i32 noundef %.0.i)
   %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %62) #3
   %64 = icmp slt i32 %63, 8
   br i1 %64, label %.loopexit, label %65

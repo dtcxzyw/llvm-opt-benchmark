@@ -1013,11 +1013,11 @@ define void @_Z29init_interaction_const_tablesP8_IO_FILEP19interaction_const_tff
   %7 = getelementptr inbounds i8, ptr %1, i64 68
   %.val = load i32, ptr %7, align 4
   switch i32 %.val, label %13 [
-    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
-    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
-    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
-    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
-    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
+    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
+    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
+    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
+    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
     i32 4, label %.thread
   ]
 
@@ -1028,9 +1028,9 @@ define void @_Z29init_interaction_const_tablesP8_IO_FILEP19interaction_const_tff
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  br label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+  br label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %4, %4, %4, %4, %4
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread: ; preds = %4, %4, %4, %4, %4
   %12 = icmp eq i32 %.val, 4
   br label %15
 
@@ -1039,8 +1039,8 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %4, %4, %4
   %14 = icmp eq i32 %.val13, 5
   br i1 %14, label %15, label %106
 
-15:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread, %13
-  %16 = phi i1 [ %12, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread ], [ false, %13 ]
+15:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread, %13
+  %16 = phi i1 [ %12, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread ], [ false, %13 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 136
@@ -1048,17 +1048,17 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %4, %4, %4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   switch i32 %.val, label %21 [
-    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
+    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
+    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
+    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
+    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
   ]
 
 21:                                               ; preds = %15
-  br label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+  br label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i: ; preds = %.thread, %21, %15, %15, %15, %15, %15
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i: ; preds = %.thread, %21, %15, %15, %15, %15, %15
   %22 = phi ptr [ %20, %15 ], [ %20, %15 ], [ %20, %15 ], [ %20, %15 ], [ %20, %15 ], [ %11, %.thread ], [ %20, %21 ]
   %23 = phi ptr [ %18, %15 ], [ %18, %15 ], [ %18, %15 ], [ %18, %15 ], [ %18, %15 ], [ %9, %.thread ], [ %18, %21 ]
   %24 = phi ptr [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %8, %.thread ], [ %17, %21 ]
@@ -1081,7 +1081,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i: ; preds = %.thread, %21, 
   %brmerge29.not.i = and i1 %.not37.i, %brmerge.i
   br i1 %brmerge29.not.i, label %38, label %42
 
-38:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+38:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
   %39 = fadd float %2, %3
   %40 = fcmp ogt float %39, 0.000000e+00
   br i1 %40, label %41, label %42
@@ -1089,8 +1089,8 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i: ; preds = %.thread, %21, 
 41:                                               ; preds = %38
   br label %42
 
-42:                                               ; preds = %41, %38, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-  %.0.i = phi float [ %39, %41 ], [ %37, %38 ], [ %37, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i ]
+42:                                               ; preds = %41, %38, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i
+  %.0.i = phi float [ %39, %41 ], [ %37, %38 ], [ %37, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.i ]
   %43 = fmul float %33, %.0.i
   %44 = fptosi float %43 to i32
   %45 = add nsw i32 %44, 2
@@ -1220,15 +1220,15 @@ _ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
 92:                                               ; preds = %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
   %.val12 = load i32, ptr %7, align 4
   switch i32 %.val12, label %106 [
-    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
-    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
-    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
-    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
-    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
-    i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
+    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit14.thread
+    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit14.thread
+    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit14.thread
+    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit14.thread
+    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit14.thread
+    i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit14.thread
   ]
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread: ; preds = %92, %92, %92, %92, %92, %92
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit14.thread: ; preds = %92, %92, %92, %92, %92, %92
   %93 = load ptr, ptr %24, align 8
   %94 = load float, ptr %93, align 8
   %95 = fdiv float 1.000000e+00, %94
@@ -1244,7 +1244,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread: ; preds = %92, %92
   %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, double noundef %96, i64 noundef %104) #27
   br label %106
 
-106:                                              ; preds = %92, %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread, %13
+106:                                              ; preds = %92, %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit14.thread, %13
   ret void
 }
 
@@ -1637,14 +1637,14 @@ _ZN3gmx17RangePartitioningD2Ev.exit:              ; preds = %66
   %166 = getelementptr i8, ptr %6, i64 96
   %.val281 = load ptr, ptr %166, align 8
   %.not434 = icmp eq ptr %.val281, null
-  br i1 %.not434, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit, label %167
+  br i1 %.not434, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit, label %167
 
 167:                                              ; preds = %165
   %168 = call noundef zeroext i1 @_Z16dd_bonded_molpbcRK12gmx_domdec_t7PbcType(ptr noundef nonnull align 8 dereferenceable(456) %.val281, i32 noundef %160)
   %169 = zext i1 %168 to i8
-  br label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit
+  br label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %167, %165
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit: ; preds = %167, %165
   %170 = phi i8 [ 1, %165 ], [ %169, %167 ]
   %171 = getelementptr inbounds i8, ptr %3, i64 12
   store i8 %170, ptr %171, align 4
@@ -1666,7 +1666,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %167, %165
   %.not435 = icmp eq ptr %.val282, null
   br i1 %.not435, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit, label %182
 
-182:                                              ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit
+182:                                              ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit
   %183 = call noundef zeroext i1 @_Z26dd_moleculesAreAlwaysWholeRK12gmx_domdec_t(ptr noundef nonnull align 8 dereferenceable(456) %.val282)
   br i1 %183, label %_ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exit, label %184
 
@@ -1675,7 +1675,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %167, %165
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread
 
-_ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit, %184
+_ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit, %184
   %brmerge = or i1 %179, %181
   br i1 %brmerge, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit292.thread, label %_ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exit
 
@@ -2237,7 +2237,7 @@ switch.lookup506:                                 ; preds = %switch.hole_check
   %434 = load ptr, ptr %3, align 8
   %435 = getelementptr inbounds i8, ptr %434, i64 68
   %.val287 = load i32, ptr %435, align 4
-  switch i32 %.val287, label %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit [
+  switch i32 %.val287, label %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.argprom.exit [
     i32 9, label %436
     i32 13, label %436
     i32 15, label %436
@@ -2262,7 +2262,7 @@ switch.lookup506:                                 ; preds = %switch.hole_check
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %26) #27
   br label %common.resume
 
-_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit: ; preds = %433
+_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.argprom.exit: ; preds = %433
   %443 = getelementptr inbounds i8, ptr %5, i64 72
   %444 = load float, ptr %443, align 8
   %445 = getelementptr inbounds i8, ptr %3, i64 128
@@ -2273,7 +2273,7 @@ _ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit: ; preds = %433
   %449 = call noundef zeroext i1 @_ZNK3gmx14ForceProviders16hasForceProviderEv(ptr noundef nonnull align 8 dereferenceable(8) %448)
   br i1 %449, label %472, label %450
 
-450:                                              ; preds = %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit
+450:                                              ; preds = %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.argprom.exit
   %451 = call noundef i32 @_Z20gmx_mtop_ftype_countRK10gmx_mtop_ti(ptr noundef nonnull align 8 dereferenceable(768) %5, i32 noundef 52)
   %452 = icmp sgt i32 %451, 0
   br i1 %452, label %472, label %453
@@ -2306,30 +2306,30 @@ _ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit: ; preds = %433
   %471 = xor i1 %470, true
   br label %472
 
-472:                                              ; preds = %467, %463, %459, %453, %450, %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit
-  %.not269 = phi i1 [ false, %463 ], [ false, %459 ], [ false, %453 ], [ false, %450 ], [ false, %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit ], [ %471, %467 ]
+472:                                              ; preds = %467, %463, %459, %453, %450, %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.argprom.exit
+  %.not269 = phi i1 [ false, %463 ], [ false, %459 ], [ false, %453 ], [ false, %450 ], [ false, %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.argprom.exit ], [ %471, %467 ]
   %.val288 = load i32, ptr %387, align 4
-  switch i32 %.val288, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit [
-    i32 3, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread
-    i32 14, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread
-    i32 13, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread
-    i32 15, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread
-    i32 5, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread
+  switch i32 %.val288, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit [
+    i32 3, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread
+    i32 14, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread
+    i32 13, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread
+    i32 15, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread
+    i32 5, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread
   ]
 
-_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %472
+_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit: ; preds = %472
   %473 = and i32 %.val288, -3
   %474 = icmp eq i32 %473, 4
-  br i1 %474, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread, label %475
+  br i1 %474, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread, label %475
 
-475:                                              ; preds = %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
+475:                                              ; preds = %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit
   %.val280 = load i32, ptr %386, align 4
   %476 = icmp eq i32 %.val280, 5
   %477 = zext i1 %476 to i8
-  br label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread
+  br label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread
 
-_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread: ; preds = %472, %472, %472, %472, %472, %475, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
-  %478 = phi i8 [ 1, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit ], [ %477, %475 ], [ 1, %472 ], [ 1, %472 ], [ 1, %472 ], [ 1, %472 ], [ 1, %472 ]
+_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread: ; preds = %472, %472, %472, %472, %472, %475, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit
+  %478 = phi i8 [ 1, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit ], [ %477, %475 ], [ 1, %472 ], [ 1, %472 ], [ 1, %472 ], [ 1, %472 ], [ 1, %472 ]
   %479 = getelementptr inbounds i8, ptr %3, i64 288
   %480 = getelementptr inbounds i8, ptr %3, i64 296
   %481 = load i8, ptr %446, align 1
@@ -2337,10 +2337,10 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread: ; preds = %4
   %483 = getelementptr inbounds i8, ptr %3, i64 280
   br label %484
 
-484:                                              ; preds = %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread, %_ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit
-  %485 = phi i1 [ %482, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread ], [ true, %_ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit ]
-  %486 = phi i1 [ false, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread ], [ true, %_ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit ]
-  %487 = phi i1 [ true, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread ], [ false, %_ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit ]
+484:                                              ; preds = %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread, %_ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit
+  %485 = phi i1 [ %482, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread ], [ true, %_ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit ]
+  %486 = phi i1 [ false, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread ], [ true, %_ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit ]
+  %487 = phi i1 [ true, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.argprom.exit.thread ], [ false, %_ZNSt6vectorI18ForceHelperBuffersSaIS0_EE12emplace_backIJRbEEERS0_DpOT_.exit ]
   %or.cond.not = and i1 %486, %485
   %brmerge270 = select i1 %or.cond.not, i1 true, i1 %.not269
   %or.cond4.not = and i1 %487, %485
@@ -4503,7 +4503,7 @@ define internal fastcc void @_ZL18make_bonded_tablesP8_IO_FILEiiRK10gmx_mtop_tN3
 
 .thread:                                          ; preds = %7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit
+  br label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit
 
 .preheader.lr.ph.i:                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 40
@@ -4633,7 +4633,7 @@ define internal fastcc void @_ZL18make_bonded_tablesP8_IO_FILEiiRK10gmx_mtop_tN3
 74:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %75 = icmp sgt i32 %.251, 0
-  br i1 %75, label %76, label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit
+  br i1 %75, label %76, label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit
 
 76:                                               ; preds = %74
   %77 = zext nneg i32 %.251 to i64
@@ -4871,9 +4871,9 @@ _ZN13bondedtable_taSEOS_.exit.thread:             ; preds = %130, %141, %_ZN13bo
 
 ._crit_edge75:                                    ; preds = %156, %114
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.11, i32 noundef 563, ptr noundef %.2)
-          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp58.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit unwind label %.loopexit.split-lp58.loopexit.split-lp
 
-_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit:           ; preds = %._crit_edge75, %.thread, %74
+_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit:   ; preds = %._crit_edge75, %.thread, %74
   ret void
 
 .body:                                            ; preds = %.loopexit57.split.us, %.loopexit57.split, %.loopexit.split-lp58.loopexit.split-lp, %.loopexit.split-lp58.loopexit, %48, %.loopexit

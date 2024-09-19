@@ -3116,14 +3116,14 @@ _apply_extra_constraints.exit:                    ; preds = %97, %86
   %164 = mul nuw nsw i32 %163, %160
   %.val = load ptr, ptr %30, align 8
   %.not.i397 = icmp eq ptr %.val, null
-  br i1 %.not.i397, label %_get_ntasks_per_core.exit, label %165
+  br i1 %.not.i397, label %_get_ntasks_per_core.argprom.exit, label %165
 
 165:                                              ; preds = %156
   %166 = getelementptr inbounds i8, ptr %.val, i64 14
   %167 = load i16, ptr %166, align 2
-  br label %_get_ntasks_per_core.exit
+  br label %_get_ntasks_per_core.argprom.exit
 
-_get_ntasks_per_core.exit:                        ; preds = %156, %165
+_get_ntasks_per_core.argprom.exit:                ; preds = %156, %165
   %.0.i = phi i16 [ %167, %165 ], [ -1, %156 ]
   %168 = load i16, ptr %139, align 8
   %169 = zext i16 %168 to i32
@@ -3144,7 +3144,7 @@ _get_ntasks_per_core.exit:                        ; preds = %156, %165
   %.not345 = icmp ule i32 %179, %181
   br i1 %.not346, label %195, label %182
 
-182:                                              ; preds = %_get_ntasks_per_core.exit
+182:                                              ; preds = %_get_ntasks_per_core.argprom.exit
   %183 = load i16, ptr %143, align 2
   %184 = load i16, ptr %158, align 8
   %.not347 = icmp ule i16 %183, %184
@@ -3169,8 +3169,8 @@ _get_ntasks_per_core.exit:                        ; preds = %156, %165
   %or.cond393 = or i1 %194, %.not349
   br label %195
 
-195:                                              ; preds = %190, %186, %182, %_get_ntasks_per_core.exit
-  %.1 = phi i1 [ true, %_get_ntasks_per_core.exit ], [ false, %182 ], [ false, %186 ], [ %or.cond393, %190 ]
+195:                                              ; preds = %190, %186, %182, %_get_ntasks_per_core.argprom.exit
+  %.1 = phi i1 [ true, %_get_ntasks_per_core.argprom.exit ], [ false, %182 ], [ false, %186 ], [ %or.cond393, %190 ]
   %196 = select i1 %.not343, i1 %.not344, i1 false
   %197 = select i1 %196, i1 %.not345, i1 false
   %198 = select i1 %197, i1 %.1, i1 false

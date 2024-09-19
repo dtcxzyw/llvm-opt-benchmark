@@ -342,12 +342,12 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %131 = load i32, ptr %130, align 4
   tail call void @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE5flushEv(ptr noundef nonnull align 8 dereferenceable(76) %0)
   %132 = icmp sgt i32 %131, 0
-  br i1 %132, label %.lr.ph.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27._ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit_crit_edge
+  br i1 %132, label %.lr.ph.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27._ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.argprom.exit_crit_edge
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27._ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit_crit_edge: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27._ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.argprom.exit_crit_edge: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 64
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br label %_ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit
+  br label %_ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.argprom.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27
   %spec.select.i = select i1 %128, i64 16, i64 20
@@ -389,10 +389,10 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %151 = sub nsw i64 %.01213.i.i.i, %139
   %152 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 %139
   %153 = icmp sgt i64 %151, 0
-  br i1 %153, label %138, label %_ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit, !llvm.loop !8
+  br i1 %153, label %138, label %_ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.argprom.exit, !llvm.loop !8
 
-_ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit: ; preds = %.critedge.i.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27._ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit_crit_edge
-  %154 = phi i64 [ %.pre, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27._ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit_crit_edge ], [ %150, %.critedge.i.i.i ]
+_ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.argprom.exit: ; preds = %.critedge.i.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27._ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.argprom.exit_crit_edge
+  %154 = phi i64 [ %.pre, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_.exit27._ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.argprom.exit_crit_edge ], [ %150, %.critedge.i.i.i ]
   %155 = getelementptr inbounds i8, ptr %0, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %0, align 8
@@ -412,7 +412,7 @@ _ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit: ; preds = %.critedg
   store volatile i32 4, ptr %35, align 4
   br label %166
 
-166:                                              ; preds = %28, %_ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.exit
+166:                                              ; preds = %28, %_ZL19write_metadata_blobR14JfrChunkWriterP10JavaThread.argprom.exit
   ret void
 }
 

@@ -270,7 +270,7 @@ define internal fastcc nonnull ptr @ompi_mpi_errnum_get_string(i32 noundef %0) u
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 88), align 8
   %.not.i = icmp sgt i32 %8, %0
   %or.cond = select i1 %7, i1 %.not.i, i1 false
-  br i1 %or.cond, label %9, label %opal_pointer_array_get_item.exit
+  br i1 %or.cond, label %9, label %opal_pointer_array_get_item.argprom.exit
 
 9:                                                ; preds = %6
   %10 = load i8, ptr @opal_uses_threads, align 1
@@ -289,13 +289,13 @@ define internal fastcc nonnull ptr @ompi_mpi_errnum_get_string(i32 noundef %0) u
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = trunc i8 %15 to i1
-  br i1 %20, label %21, label %opal_pointer_array_get_item.exit
+  br i1 %20, label %21, label %opal_pointer_array_get_item.argprom.exit
 
 21:                                               ; preds = %14
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 32)) #3
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %21, %14, %6
+opal_pointer_array_get_item.argprom.exit:         ; preds = %21, %14, %6
   %.0 = phi ptr [ null, %6 ], [ %19, %14 ], [ %19, %21 ]
   %.not = icmp eq ptr %.0, null
   %23 = getelementptr inbounds i8, ptr %.0, i64 24

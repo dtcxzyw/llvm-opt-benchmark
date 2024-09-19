@@ -2618,7 +2618,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   br label %214
 
 214:                                              ; preds = %213, %212
-  %215 = tail call fastcc i32 @_create_job_step(ptr noundef %.0196.lcssa, i1 noundef zeroext false, ptr noundef %.0161, i32 noundef %.1179)
+  %215 = tail call fastcc i32 @_create_job_step.argprom(ptr noundef %.0196.lcssa, i1 noundef zeroext false, ptr noundef %.0161, i32 noundef %.1179)
   %216 = icmp slt i32 %215, 0
   br i1 %216, label %217, label %225
 
@@ -3167,7 +3167,7 @@ _set_step_opts.exit:                              ; preds = %396, %400
   %.5297 = phi i32 [ %.3185, %459 ], [ %.3185, %455 ], [ %.3185, %450 ], [ %.3185, %449 ], [ %415, %.thread ]
   %.3199296 = phi ptr [ %.2198.lcssa, %459 ], [ %.2198.lcssa, %455 ], [ %.2198.lcssa, %450 ], [ %.2198.lcssa, %449 ], [ %435, %.thread ]
   %.2180 = phi i32 [ %spec.select262, %459 ], [ 0, %455 ], [ 0, %450 ], [ 0, %449 ], [ 0, %.thread ]
-  %464 = call fastcc i32 @_create_job_step(ptr noundef %.3199296, i1 noundef zeroext true, ptr noundef %.1162298, i32 noundef %.2180)
+  %464 = call fastcc i32 @_create_job_step.argprom(ptr noundef %.3199296, i1 noundef zeroext true, ptr noundef %.1162298, i32 noundef %.2180)
   %465 = icmp slt i32 %464, 0
   br i1 %465, label %466, label %469
 
@@ -3962,7 +3962,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_create_job_step(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @_create_job_step.argprom(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -4572,7 +4572,7 @@ define dso_local void @pre_launch_srun_job(ptr noundef %0, ptr nocapture noundef
 
 38:                                               ; preds = %36, %33
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @sropt, i64 160), align 8
-  %40 = call fastcc i32 @_run_srun_script(ptr noundef %39)
+  %40 = call fastcc i32 @_run_srun_script.argprom(ptr noundef %39)
   %.not5.i = icmp eq i32 %40, 0
   br i1 %.not5.i, label %_run_srun_prolog.exit, label %41
 
@@ -4934,12 +4934,12 @@ _shepherd_notify.exit:                            ; preds = %21, %13, %25
 .thread:                                          ; preds = %29, %34, %32, %_shepherd_notify.exit
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @sropt, i64 72), align 8
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %_run_srun_epilog.exit, label %38
+  br i1 %.not.i, label %_run_srun_epilog.argprom.exit, label %38
 
 38:                                               ; preds = %.thread
   %39 = tail call i32 @xstrcasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.70) #16
   %.not3.i = icmp eq i32 %39, 0
-  br i1 %.not3.i, label %_run_srun_epilog.exit, label %40
+  br i1 %.not3.i, label %_run_srun_epilog.argprom.exit, label %40
 
 40:                                               ; preds = %38
   %41 = tail call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef null, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72) #16
@@ -4952,15 +4952,15 @@ _shepherd_notify.exit:                            ; preds = %21, %13, %25
 
 45:                                               ; preds = %43, %40
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @sropt, i64 72), align 8
-  %47 = tail call fastcc i32 @_run_srun_script(ptr noundef %46)
+  %47 = tail call fastcc i32 @_run_srun_script.argprom(ptr noundef %46)
   %.not4.i = icmp eq i32 %47, 0
-  br i1 %.not4.i, label %_run_srun_epilog.exit, label %48
+  br i1 %.not4.i, label %_run_srun_epilog.argprom.exit, label %48
 
 48:                                               ; preds = %45
   %49 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.74, i32 noundef %47) #16
-  br label %_run_srun_epilog.exit
+  br label %_run_srun_epilog.argprom.exit
 
-_run_srun_epilog.exit:                            ; preds = %.thread, %38, %45, %48
+_run_srun_epilog.argprom.exit:                    ; preds = %.thread, %38, %45, %48
   %50 = getelementptr inbounds i8, ptr %0, i64 272
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @step_ctx_destroy(ptr noundef %51) #16
@@ -4969,12 +4969,12 @@ _run_srun_epilog.exit:                            ; preds = %.thread, %38, %45, 
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %59
 
-56:                                               ; preds = %_run_srun_epilog.exit
+56:                                               ; preds = %_run_srun_epilog.argprom.exit
   %57 = lshr i32 %53, 8
   %58 = and i32 %57, 255
   br label %.sink.split20
 
-59:                                               ; preds = %_run_srun_epilog.exit
+59:                                               ; preds = %_run_srun_epilog.argprom.exit
   %60 = shl nuw nsw i32 %54, 24
   %sext = add nuw i32 %60, 16777216
   %61 = icmp sgt i32 %sext, 33554431
@@ -5320,7 +5320,7 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @setenvf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @_run_srun_script(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @_run_srun_script.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = icmp eq ptr %0, null
   br i1 %3, label %54, label %4

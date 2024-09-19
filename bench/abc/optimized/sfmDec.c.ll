@@ -2989,7 +2989,7 @@ define i32 @Sfm_DecCombineDec(ptr nocapture noundef readonly %0, ptr noundef %1,
 .preheader.i:                                     ; preds = %.lr.ph13.i, %.preheader5.i
   %.2.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader5.i ], [ %67, %.lr.ph13.i ]
   %64 = icmp ult ptr %.036.lcssa.i, %43
-  br i1 %64, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.exit
+  br i1 %64, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.argprom.exit
 
 .lr.ph13.i:                                       ; preds = %.preheader5.i, %.lr.ph13.i
   %.212.i = phi ptr [ %67, %.lr.ph13.i ], [ %.0.lcssa.i, %.preheader5.i ]
@@ -3009,9 +3009,9 @@ define i32 @Sfm_DecCombineDec(ptr nocapture noundef readonly %0, ptr noundef %1,
   %71 = getelementptr inbounds i8, ptr %.316.i, i64 4
   store i32 %70, ptr %.316.i, align 4
   %72 = icmp ult ptr %69, %43
-  br i1 %72, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.exit, !llvm.loop !44
+  br i1 %72, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.argprom.exit, !llvm.loop !44
 
-Vec_IntTwoMerge2Int.exit:                         ; preds = %.lr.ph17.i, %.preheader.i
+Vec_IntTwoMerge2Int.argprom.exit:                 ; preds = %.lr.ph17.i, %.preheader.i
   %.3.lcssa.i = phi ptr [ %.2.lcssa.i, %.preheader.i ], [ %71, %.lr.ph17.i ]
   %73 = ptrtoint ptr %.3.lcssa.i to i64
   %74 = ptrtoint ptr %8 to i64
@@ -3021,7 +3021,7 @@ Vec_IntTwoMerge2Int.exit:                         ; preds = %.lr.ph17.i, %.prehe
   %78 = icmp eq i32 %77, 16
   br i1 %78, label %79, label %Vec_IntGrow.exit23.i
 
-79:                                               ; preds = %Vec_IntTwoMerge2Int.exit
+79:                                               ; preds = %Vec_IntTwoMerge2Int.argprom.exit
   %.not9.i22.i = icmp eq ptr %8, null
   br i1 %.not9.i22.i, label %82, label %80
 
@@ -3033,7 +3033,7 @@ Vec_IntTwoMerge2Int.exit:                         ; preds = %.lr.ph17.i, %.prehe
   %83 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #25
   br label %.lr.ph.preheader.i
 
-Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntTwoMerge2Int.exit
+Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntTwoMerge2Int.argprom.exit
   %84 = add nsw i32 %77, 1
   %85 = icmp sgt i32 %77, 0
   br i1 %85, label %.lr.ph.preheader.i, label %Vec_IntPushOrder.exit
@@ -5357,13 +5357,13 @@ Sfm_DecMffcAreaReal.exit:                         ; preds = %144, %.critedge.i
   %163 = getelementptr inbounds i8, ptr %162, i64 92
   %164 = load i32, ptr %163, align 4
   %.not.i130 = icmp eq i32 %164, 0
-  br i1 %.not.i130, label %Sfm_ObjSetdownSimInfo.exit, label %.preheader.i
+  br i1 %.not.i130, label %Sfm_ObjSetdownSimInfo.argprom.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %160
   %165 = getelementptr inbounds i8, ptr %.val113.val, i64 152
   %166 = load i32, ptr %165, align 8
   %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %.lr.ph.i131, label %Sfm_ObjSetdownSimInfo.exit
+  br i1 %167, label %.lr.ph.i131, label %Sfm_ObjSetdownSimInfo.argprom.argprom.exit
 
 .lr.ph.i131:                                      ; preds = %.preheader.i
   %168 = getelementptr i8, ptr %.val113.val, i64 264
@@ -5418,15 +5418,15 @@ Sfm_DecMffcAreaReal.exit:                         ; preds = %144, %.critedge.i
   %198 = load i32, ptr %165, align 8
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next6.i, %199
-  br i1 %200, label %172, label %Sfm_ObjSetdownSimInfo.exit, !llvm.loop !80
+  br i1 %200, label %172, label %Sfm_ObjSetdownSimInfo.argprom.argprom.exit, !llvm.loop !80
 
-Sfm_ObjSetdownSimInfo.exit:                       ; preds = %194, %160, %.preheader.i
+Sfm_ObjSetdownSimInfo.argprom.argprom.exit:       ; preds = %194, %160, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
   %201 = icmp eq i32 %.1101, -1
   br i1 %201, label %202, label %206
 
-202:                                              ; preds = %Sfm_ObjSetdownSimInfo.exit
+202:                                              ; preds = %Sfm_ObjSetdownSimInfo.argprom.argprom.exit
   br i1 %30, label %203, label %204
 
 203:                                              ; preds = %202
@@ -5437,7 +5437,7 @@ Sfm_ObjSetdownSimInfo.exit:                       ; preds = %194, %160, %.prehea
   %205 = getelementptr inbounds i8, ptr %0, i64 1188
   br label %226
 
-206:                                              ; preds = %Sfm_ObjSetdownSimInfo.exit
+206:                                              ; preds = %Sfm_ObjSetdownSimInfo.argprom.argprom.exit
   %207 = sext i32 %.1101 to i64
   %208 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %207
   %209 = load i32, ptr %208, align 4
@@ -6341,13 +6341,13 @@ Abc_Clock.exit258:                                ; preds = %252, %255
   %272 = getelementptr inbounds i8, ptr %271, i64 92
   %273 = load i32, ptr %272, align 4
   %.not.i259 = icmp eq i32 %273, 0
-  br i1 %.not.i259, label %Sfm_ObjSetdownSimInfo.exit, label %.preheader.i
+  br i1 %.not.i259, label %Sfm_ObjSetdownSimInfo.argprom.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %269
   %274 = getelementptr inbounds i8, ptr %.val236.val, i64 152
   %275 = load i32, ptr %274, align 8
   %276 = icmp sgt i32 %275, 0
-  br i1 %276, label %.lr.ph.i260, label %Sfm_ObjSetdownSimInfo.exit
+  br i1 %276, label %.lr.ph.i260, label %Sfm_ObjSetdownSimInfo.argprom.argprom.exit
 
 .lr.ph.i260:                                      ; preds = %.preheader.i
   %277 = getelementptr i8, ptr %.val236.val, i64 264
@@ -6402,15 +6402,15 @@ Abc_Clock.exit258:                                ; preds = %252, %255
   %307 = load i32, ptr %274, align 8
   %308 = sext i32 %307 to i64
   %309 = icmp slt i64 %indvars.iv.next6.i, %308
-  br i1 %309, label %281, label %Sfm_ObjSetdownSimInfo.exit, !llvm.loop !80
+  br i1 %309, label %281, label %Sfm_ObjSetdownSimInfo.argprom.argprom.exit, !llvm.loop !80
 
-Sfm_ObjSetdownSimInfo.exit:                       ; preds = %303, %269, %.preheader.i
+Sfm_ObjSetdownSimInfo.argprom.argprom.exit:       ; preds = %303, %269, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
   %310 = icmp eq i32 %.1182, -1
   br i1 %310, label %311, label %317
 
-311:                                              ; preds = %Sfm_ObjSetdownSimInfo.exit
+311:                                              ; preds = %Sfm_ObjSetdownSimInfo.argprom.argprom.exit
   br i1 %36, label %312, label %313
 
 312:                                              ; preds = %311
@@ -6424,7 +6424,7 @@ Sfm_ObjSetdownSimInfo.exit:                       ; preds = %303, %269, %.prehea
   store i32 %316, ptr %314, align 4
   br label %340
 
-317:                                              ; preds = %Sfm_ObjSetdownSimInfo.exit
+317:                                              ; preds = %Sfm_ObjSetdownSimInfo.argprom.argprom.exit
   %318 = sext i32 %.1182 to i64
   br i1 %36, label %319, label %._crit_edge
 
@@ -6549,7 +6549,7 @@ define range(i32 0, 2) i32 @Abc_NtkDfsCheck_rec(ptr noundef readonly %0, ptr nou
   %.val3.i = load i32, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %7 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %6, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %6, i32 noundef %7)
   %8 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %8, align 8
   %9 = sext i32 %.val3.i to i64
@@ -6565,7 +6565,7 @@ define range(i32 0, 2) i32 @Abc_NtkDfsCheck_rec(ptr noundef readonly %0, ptr nou
   %.val21 = load i32, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %16 = add nsw i32 %.val21, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %15, i32 noundef %16)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %15, i32 noundef %16)
   %17 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i22 = load ptr, ptr %17, align 8
   %18 = sext i32 %.val21 to i64
@@ -6625,7 +6625,7 @@ define void @Abc_NtkDfsReverseOne_rec(ptr nocapture noundef %0, ptr nocapture no
   %.val3.i = load i32, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %7 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %6, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %6, i32 noundef %7)
   %8 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %8, align 8
   %9 = sext i32 %.val3.i to i64
@@ -6641,7 +6641,7 @@ define void @Abc_NtkDfsReverseOne_rec(ptr nocapture noundef %0, ptr nocapture no
   %.val48 = load i32, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %16 = add nsw i32 %.val48, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %15, i32 noundef %16)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %15, i32 noundef %16)
   %17 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i49 = load ptr, ptr %17, align 8
   %18 = sext i32 %.val48 to i64
@@ -6819,7 +6819,7 @@ define i32 @Abc_NtkDfsOne_rec(ptr nocapture noundef %0, ptr nocapture noundef %1
   %.val3.i = load i32, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %9 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %8, i32 noundef %9)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %8, i32 noundef %9)
   %10 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %10, align 8
   %11 = sext i32 %.val3.i to i64
@@ -6840,7 +6840,7 @@ define i32 @Abc_NtkDfsOne_rec(ptr nocapture noundef %0, ptr nocapture noundef %1
   %.val40 = load i32, ptr %7, align 8
   %20 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %21 = add nsw i32 %.val40, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %20, i32 noundef %21)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %20, i32 noundef %21)
   %22 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i41 = load ptr, ptr %22, align 8
   %23 = sext i32 %.val40 to i64
@@ -7429,7 +7429,7 @@ Vec_IntGrow.exit.i:                               ; preds = %8, %18
   %.val3.i.i = load i32, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.val2.i.i, i64 224
   %44 = add nsw i32 %.val3.i.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %43, i32 noundef %44)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %43, i32 noundef %44)
   %45 = getelementptr i8, ptr %.val2.i.i, i64 232
   %.val.i.i.i.i = load ptr, ptr %45, align 8
   %46 = sext i32 %.val3.i.i to i64
@@ -7448,7 +7448,7 @@ Sfm_DecNodeIsMffcInput2.exit:                     ; preds = %34
 
 52:                                               ; preds = %Sfm_DecNodeIsMffcInput2.exit
   %.val338 = load i32, ptr %42, align 8
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef %5, i32 noundef %.val338)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %5, i32 noundef %.val338)
   br label %Sfm_DecNodeIsMffcInput2.exit.thread
 
 Sfm_DecNodeIsMffcInput2.exit.thread:              ; preds = %34, %Sfm_DecNodeIsMffcInput2.exit, %52
@@ -8066,7 +8066,7 @@ Vec_IntPushUnique.exit369:                        ; preds = %242, %Vec_IntFillEx
   %.val3.i.i371 = load i32, ptr %302, align 8
   %303 = getelementptr inbounds i8, ptr %.val2.i.i370, i64 224
   %304 = add nsw i32 %.val3.i.i371, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %303, i32 noundef %304)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %303, i32 noundef %304)
   %305 = getelementptr i8, ptr %.val2.i.i370, i64 232
   %.val.i.i.i.i372 = load ptr, ptr %305, align 8
   %306 = sext i32 %.val3.i.i371 to i64
@@ -8085,7 +8085,7 @@ Sfm_DecNodeIsMffcInput.exit:                      ; preds = %294
 
 312:                                              ; preds = %Sfm_DecNodeIsMffcInput.exit
   %.val335 = load i32, ptr %302, align 8
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef %5, i32 noundef %.val335)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %5, i32 noundef %.val335)
   br label %Sfm_DecNodeIsMffcInput.exit.thread
 
 Sfm_DecNodeIsMffcInput.exit.thread:               ; preds = %294, %Sfm_DecNodeIsMffcInput.exit, %312
@@ -8685,7 +8685,7 @@ Vec_IntPushUnique.exit416:                        ; preds = %502, %Vec_IntFillEx
   %.val3.i.i419 = load i32, ptr %555, align 8
   %556 = getelementptr inbounds i8, ptr %.val2.i.i418, i64 224
   %557 = add nsw i32 %.val3.i.i419, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %556, i32 noundef %557)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %556, i32 noundef %557)
   %558 = getelementptr i8, ptr %.val2.i.i418, i64 232
   %.val.i.i.i.i420 = load ptr, ptr %558, align 8
   %559 = sext i32 %.val3.i.i419 to i64
@@ -8716,7 +8716,7 @@ Sfm_DecNodeIsMffc.exit.thread585:                 ; preds = %564, %Sfm_DecNodeIs
 
 568:                                              ; preds = %Sfm_DecNodeIsMffc.exit.thread585
   %.val332 = load i32, ptr %555, align 8
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %4, i32 noundef %.val332)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %4, i32 noundef %.val332)
   br label %Sfm_DecNodeIsMffc.exit.thread
 
 Sfm_DecNodeIsMffc.exit.thread:                    ; preds = %541, %551, %554, %Sfm_DecNodeIsMffc.exit, %Sfm_DecNodeIsMffc.exit.thread585, %568
@@ -8765,7 +8765,7 @@ Sfm_DecNodeIsMffc.exit.thread:                    ; preds = %541, %551, %554, %S
   %.val3.i.i426 = load i32, ptr %587, align 8
   %588 = getelementptr inbounds i8, ptr %.val2.i.i425, i64 224
   %589 = add nsw i32 %.val3.i.i426, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %588, i32 noundef %589)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %588, i32 noundef %589)
   %590 = getelementptr i8, ptr %.val2.i.i425, i64 232
   %.val.i.i.i.i427 = load ptr, ptr %590, align 8
   %591 = sext i32 %.val3.i.i426 to i64
@@ -8835,7 +8835,7 @@ Sfm_DecNodeIsMffc.exit433.thread588:              ; preds = %596, %Sfm_DecNodeIs
   %.val3.i.i438 = load i32, ptr %617, align 8
   %618 = getelementptr inbounds i8, ptr %.val2.i.i437, i64 224
   %619 = add nsw i32 %.val3.i.i438, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %618, i32 noundef %619)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %618, i32 noundef %619)
   %620 = getelementptr i8, ptr %.val2.i.i437, i64 232
   %.val.i.i.i.i439 = load ptr, ptr %620, align 8
   %621 = sext i32 %.val3.i.i438 to i64
@@ -8866,7 +8866,7 @@ Sfm_DecNodeIsMffc.exit445.thread591:              ; preds = %626, %Sfm_DecNodeIs
 
 630:                                              ; preds = %Sfm_DecNodeIsMffc.exit445.thread591
   %.val331 = load i32, ptr %617, align 8
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %4, i32 noundef %.val331)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %4, i32 noundef %.val331)
   br label %Sfm_DecNodeIsMffc.exit445.thread
 
 Sfm_DecNodeIsMffc.exit445.thread:                 ; preds = %603, %613, %616, %Sfm_DecNodeIsMffc.exit445, %Sfm_DecNodeIsMffc.exit445.thread591, %630
@@ -8919,7 +8919,7 @@ Sfm_DecNodeIsMffc.exit445.thread:                 ; preds = %603, %613, %616, %S
   %.val3.i.i450 = load i32, ptr %650, align 8
   %651 = getelementptr inbounds i8, ptr %.val2.i.i449, i64 224
   %652 = add nsw i32 %.val3.i.i450, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %651, i32 noundef %652)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %651, i32 noundef %652)
   %653 = getelementptr i8, ptr %.val2.i.i449, i64 232
   %.val.i.i.i.i451 = load ptr, ptr %653, align 8
   %654 = sext i32 %.val3.i.i450 to i64
@@ -8989,7 +8989,7 @@ Sfm_DecNodeIsMffc.exit457.thread594:              ; preds = %659, %Sfm_DecNodeIs
   %.val3.i.i462 = load i32, ptr %680, align 8
   %681 = getelementptr inbounds i8, ptr %.val2.i.i461, i64 224
   %682 = add nsw i32 %.val3.i.i462, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %681, i32 noundef %682)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %681, i32 noundef %682)
   %683 = getelementptr i8, ptr %.val2.i.i461, i64 232
   %.val.i.i.i.i463 = load ptr, ptr %683, align 8
   %684 = sext i32 %.val3.i.i462 to i64
@@ -9485,7 +9485,7 @@ Vec_IntFillExtra.exit577:                         ; preds = %831, %._crit_edge.i
 
 887:                                              ; preds = %883
   %.val329 = load i32, ptr %839, align 8
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef %5, i32 noundef %.val329)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %5, i32 noundef %.val329)
   br label %888
 
 888:                                              ; preds = %Vec_IntFillExtra.exit577, %883, %887
@@ -9511,7 +9511,7 @@ Vec_IntFillExtra.exit577:                         ; preds = %831, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -13394,14 +13394,14 @@ Sfm_ManReadNtkDelay.exit:                         ; preds = %346, %348
   %354 = fpext float %353 to double
   %.val186 = load ptr, ptr %20, align 8
   %.not.i207 = icmp eq ptr %.val186, null
-  br i1 %.not.i207, label %Sfm_ManReadNtkMinSlack.exit, label %355
+  br i1 %.not.i207, label %Sfm_ManReadNtkMinSlack.argprom.exit, label %355
 
 355:                                              ; preds = %Sfm_ManReadNtkDelay.exit
   %356 = call i32 @Sfm_MitReadNtkMinSlack(ptr noundef nonnull %.val186) #23
   %357 = sitofp i32 %356 to float
-  br label %Sfm_ManReadNtkMinSlack.exit
+  br label %Sfm_ManReadNtkMinSlack.argprom.exit
 
-Sfm_ManReadNtkMinSlack.exit:                      ; preds = %Sfm_ManReadNtkDelay.exit, %355
+Sfm_ManReadNtkMinSlack.argprom.exit:              ; preds = %Sfm_ManReadNtkDelay.exit, %355
   %358 = phi float [ %357, %355 ], [ 0.000000e+00, %Sfm_ManReadNtkDelay.exit ]
   %359 = fdiv float %358, 1.000000e+03
   %360 = fpext float %359 to double
@@ -13422,7 +13422,7 @@ Sfm_ManReadNtkMinSlack.exit:                      ; preds = %Sfm_ManReadNtkDelay
   %367 = icmp slt i64 %indvars.iv.next246, %366
   br i1 %367, label %.lr.ph234, label %.critedge2, !llvm.loop !153
 
-.critedge2:                                       ; preds = %365, %106, %Abc_Clock.exit203, %Sfm_ManReadNtkMinSlack.exit
+.critedge2:                                       ; preds = %365, %106, %Abc_Clock.exit203, %Sfm_ManReadNtkMinSlack.argprom.exit
   %368 = load i32, ptr %16, align 4
   %.not169 = icmp eq i32 %368, 0
   br i1 %.not169, label %76, label %._crit_edge
@@ -14025,7 +14025,7 @@ declare i32 @Sfm_MitReadObjDelay(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @Sfm_TimReadObjDelay(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

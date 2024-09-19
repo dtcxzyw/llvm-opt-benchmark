@@ -5580,9 +5580,9 @@ Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.
   %50 = getelementptr inbounds i8, ptr %25, i64 40
   store ptr %46, ptr %50, align 8
   store i64 0, ptr %24, align 8
-  tail call fastcc void @Vec_MemHashInsert(ptr noundef nonnull %25, ptr noundef nonnull %24)
+  tail call fastcc void @Vec_MemHashInsert.retelim(ptr noundef nonnull %25, ptr noundef nonnull %24)
   store i64 -6148914691236517206, ptr %24, align 8
-  tail call fastcc void @Vec_MemHashInsert(ptr noundef nonnull %25, ptr noundef nonnull %24)
+  tail call fastcc void @Vec_MemHashInsert.retelim(ptr noundef nonnull %25, ptr noundef nonnull %24)
   tail call void @free(ptr noundef %24) #30
   store ptr %25, ptr %5, align 8
   %51 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
@@ -5594,9 +5594,9 @@ Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %51, ptr %55, align 8
-  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %51)
+  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %51)
   %56 = load ptr, ptr %55, align 8
-  tail call fastcc void @Vec_WecPushLevel(ptr noundef %56)
+  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef %56)
   %57 = load ptr, ptr %5, align 8
   %58 = load ptr, ptr %55, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 168
@@ -5610,7 +5610,7 @@ Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WecPushLevel(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc void @Vec_WecPushLevel.retelim(ptr nocapture noundef %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -5864,7 +5864,7 @@ declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_MemHashInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Vec_MemHashInsert.retelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32

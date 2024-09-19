@@ -3098,32 +3098,32 @@ define internal range(i32 0, 2) i32 @cip_connection_conv_valid(ptr noundef %0, p
   %4 = load i32, ptr @proto_enip, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 1) #11
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %enip_io_conv_valid.exit.thread, label %enip_io_conv_valid.exit
+  br i1 %6, label %enip_io_conv_valid.argprom.exit.thread, label %enip_io_conv_valid.argprom.exit
 
-enip_io_conv_valid.exit:                          ; preds = %2
+enip_io_conv_valid.argprom.exit:                  ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 14
   %narrow.i.not = icmp eq i8 %9, 0
-  br i1 %narrow.i.not, label %enip_exp_conv_valid.exit, label %enip_io_conv_valid.exit.thread
+  br i1 %narrow.i.not, label %enip_exp_conv_valid.argprom.exit, label %enip_io_conv_valid.argprom.exit.thread
 
-enip_io_conv_valid.exit.thread:                   ; preds = %2, %enip_io_conv_valid.exit
+enip_io_conv_valid.argprom.exit.thread:           ; preds = %2, %enip_io_conv_valid.argprom.exit
   %10 = tail call ptr @wmem_file_scope() #11
   %11 = load i32, ptr @proto_enip, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1) #11
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %enip_exp_conv_valid.exit, label %14
+  br i1 %13, label %enip_exp_conv_valid.argprom.exit, label %14
 
-14:                                               ; preds = %enip_io_conv_valid.exit.thread
+14:                                               ; preds = %enip_io_conv_valid.argprom.exit.thread
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, 14
   %narrow.i4 = icmp eq i8 %17, 2
   %18 = zext i1 %narrow.i4 to i32
-  br label %enip_exp_conv_valid.exit
+  br label %enip_exp_conv_valid.argprom.exit
 
-enip_exp_conv_valid.exit:                         ; preds = %14, %enip_io_conv_valid.exit.thread, %enip_io_conv_valid.exit
-  %19 = phi i32 [ 1, %enip_io_conv_valid.exit ], [ %18, %14 ], [ 0, %enip_io_conv_valid.exit.thread ]
+enip_exp_conv_valid.argprom.exit:                 ; preds = %14, %enip_io_conv_valid.argprom.exit.thread, %enip_io_conv_valid.argprom.exit
+  %19 = phi i32 [ 1, %enip_io_conv_valid.argprom.exit ], [ %18, %14 ], [ 0, %enip_io_conv_valid.argprom.exit.thread ]
   ret i32 %19
 }
 
@@ -3133,21 +3133,21 @@ define internal noalias ptr @cip_connection_conv_filter(ptr noundef %0, ptr noca
   %4 = load i32, ptr @proto_enip, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 1) #11
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %enip_io_conv_valid.exit.thread, label %enip_io_conv_valid.exit
+  br i1 %6, label %enip_io_conv_valid.argprom.exit.thread, label %enip_io_conv_valid.argprom.exit
 
-enip_io_conv_valid.exit:                          ; preds = %2
+enip_io_conv_valid.argprom.exit:                  ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 14
   %narrow.i.not = icmp eq i8 %9, 0
-  br i1 %narrow.i.not, label %10, label %enip_io_conv_valid.exit.thread
+  br i1 %narrow.i.not, label %10, label %enip_io_conv_valid.argprom.exit.thread
 
-10:                                               ; preds = %enip_io_conv_valid.exit
+10:                                               ; preds = %enip_io_conv_valid.argprom.exit
   %11 = tail call ptr @wmem_file_scope() #11
   %12 = load i32, ptr @proto_enip, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1) #11
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %enip_io_conv_filter.exit, label %15
+  br i1 %14, label %enip_io_conv_filter.argprom.exit, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %13, i64 108
@@ -3172,32 +3172,32 @@ enip_io_conv_valid.exit:                          ; preds = %2
 
 33:                                               ; preds = %15
   %34 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.894, i32 noundef %19, i32 noundef %21, i32 noundef %17, i32 noundef %23, i32 noundef %25, i32 noundef %27, i32 noundef %30, i32 noundef %32) #11
-  br label %enip_io_conv_filter.exit
+  br label %enip_io_conv_filter.argprom.exit
 
 35:                                               ; preds = %15
   %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.895, i32 noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %27, i32 noundef %30, i32 noundef %32) #11
-  br label %enip_io_conv_filter.exit
+  br label %enip_io_conv_filter.argprom.exit
 
-enip_io_conv_valid.exit.thread:                   ; preds = %2, %enip_io_conv_valid.exit
+enip_io_conv_valid.argprom.exit.thread:           ; preds = %2, %enip_io_conv_valid.argprom.exit
   %37 = tail call ptr @wmem_file_scope() #11
   %38 = load i32, ptr @proto_enip, align 4
   %39 = tail call ptr @p_get_proto_data(ptr noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 1) #11
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %enip_io_conv_filter.exit, label %enip_exp_conv_valid.exit
+  br i1 %40, label %enip_io_conv_filter.argprom.exit, label %enip_exp_conv_valid.argprom.exit
 
-enip_exp_conv_valid.exit:                         ; preds = %enip_io_conv_valid.exit.thread
+enip_exp_conv_valid.argprom.exit:                 ; preds = %enip_io_conv_valid.argprom.exit.thread
   %41 = getelementptr inbounds i8, ptr %39, i64 8
   %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, 14
   %narrow.i11.not = icmp eq i8 %43, 2
-  br i1 %narrow.i11.not, label %44, label %enip_io_conv_filter.exit
+  br i1 %narrow.i11.not, label %44, label %enip_io_conv_filter.argprom.exit
 
-44:                                               ; preds = %enip_exp_conv_valid.exit
+44:                                               ; preds = %enip_exp_conv_valid.argprom.exit
   %45 = tail call ptr @wmem_file_scope() #11
   %46 = load i32, ptr @proto_enip, align 4
   %47 = tail call ptr @p_get_proto_data(ptr noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef 1) #11
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %enip_io_conv_filter.exit, label %49
+  br i1 %48, label %enip_io_conv_filter.argprom.exit, label %49
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %47, i64 108
@@ -3222,14 +3222,14 @@ enip_exp_conv_valid.exit:                         ; preds = %enip_io_conv_valid.
 
 67:                                               ; preds = %49
   %68 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.896, i32 noundef %53, i32 noundef %55, i32 noundef %51, i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef %64, i32 noundef %66) #11
-  br label %enip_io_conv_filter.exit
+  br label %enip_io_conv_filter.argprom.exit
 
 69:                                               ; preds = %49
   %70 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.897, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef %64, i32 noundef %66) #11
-  br label %enip_io_conv_filter.exit
+  br label %enip_io_conv_filter.argprom.exit
 
-enip_io_conv_filter.exit:                         ; preds = %enip_io_conv_valid.exit.thread, %69, %67, %44, %35, %33, %10, %enip_exp_conv_valid.exit
-  %.0 = phi ptr [ null, %enip_exp_conv_valid.exit ], [ null, %10 ], [ %34, %33 ], [ %36, %35 ], [ null, %44 ], [ %68, %67 ], [ %70, %69 ], [ null, %enip_io_conv_valid.exit.thread ]
+enip_io_conv_filter.argprom.exit:                 ; preds = %enip_io_conv_valid.argprom.exit.thread, %69, %67, %44, %35, %33, %10, %enip_exp_conv_valid.argprom.exit
+  %.0 = phi ptr [ null, %enip_exp_conv_valid.argprom.exit ], [ null, %10 ], [ %34, %33 ], [ %36, %35 ], [ null, %44 ], [ %68, %67 ], [ %70, %69 ], [ null, %enip_io_conv_valid.argprom.exit.thread ]
   ret ptr %.0
 }
 

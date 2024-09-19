@@ -20083,7 +20083,7 @@ define linkonce_odr dso_local void @_ZN4crow4CrowIJEE13add_blueprintEv(ptr nound
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #36, !noalias !384
   %.val = load ptr, ptr %7, align 8, !tbaa !12
   %.val12 = load i64, ptr %19, align 8, !tbaa !15
-  invoke fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, i64 %.val12)
+  invoke fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, i64 %.val12)
           to label %72 unwind label %123
 
 72:                                               ; preds = %68
@@ -20326,7 +20326,7 @@ define linkonce_odr dso_local void @_ZN4crow4CrowIJEE14add_static_dirEv(ptr noun
   store i64 7, ptr %12, align 8, !tbaa !15
   %13 = getelementptr inbounds i8, ptr %4, i64 23
   store i8 0, ptr %13, align 1, !tbaa !14
-  invoke fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr nonnull %11, i64 7)
+  invoke fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr nonnull %11, i64 7)
           to label %14 unwind label %71
 
 14:                                               ; preds = %10
@@ -21780,7 +21780,7 @@ _ZNSt6vectorISt6futureIvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norm
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !5

@@ -445,7 +445,7 @@ define dso_local void @PostPrepare_Inval() local_unnamed_addr #0 {
   %14 = getelementptr i8, ptr %1, i64 40
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %13, %15
-  br i1 %16, label %.lr.ph4.preheader.i.i, label %ProcessInvalidationMessages.exit.i
+  br i1 %16, label %.lr.ph4.preheader.i.i, label %ProcessInvalidationMessages.argprom.exit.i
 
 .lr.ph4.preheader.i.i:                            ; preds = %._crit_edge.i.i
   %17 = sext i32 %13 to i64
@@ -459,13 +459,13 @@ define dso_local void @PostPrepare_Inval() local_unnamed_addr #0 {
   %indvars.iv.next8.i.i = add nsw i64 %indvars.iv7.i.i, 1
   %lftr.wideiv10.i.i = trunc i64 %indvars.iv.next8.i.i to i32
   %exitcond11.not.i.i = icmp eq i32 %15, %lftr.wideiv10.i.i
-  br i1 %exitcond11.not.i.i, label %ProcessInvalidationMessages.exit.i, label %.lr.ph4.i.i, !llvm.loop !11
+  br i1 %exitcond11.not.i.i, label %ProcessInvalidationMessages.argprom.exit.i, label %.lr.ph4.i.i, !llvm.loop !11
 
-ProcessInvalidationMessages.exit.i:               ; preds = %.lr.ph4.i.i, %._crit_edge.i.i
+ProcessInvalidationMessages.argprom.exit.i:       ; preds = %.lr.ph4.i.i, %._crit_edge.i.i
   store ptr null, ptr @transInvalInfo, align 8
   br label %AtEOXact_Inval.exit
 
-AtEOXact_Inval.exit:                              ; preds = %0, %ProcessInvalidationMessages.exit.i
+AtEOXact_Inval.exit:                              ; preds = %0, %ProcessInvalidationMessages.argprom.exit.i
   ret void
 }
 
@@ -523,25 +523,25 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
   %31 = load i32, ptr %30, align 4
   %32 = sub i32 %29, %31
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %ProcessInvalidationMessagesMulti.exit
+  br i1 %33, label %34, label %ProcessInvalidationMessagesMulti.argprom.exit
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr @InvalMessageArrays.2, align 16
   %36 = sext i32 %31 to i64
   %37 = getelementptr %union.SharedInvalidationMessage, ptr %35, i64 %36
   tail call void @SendSharedInvalidMessages(ptr noundef %37, i32 noundef %32) #5
-  br label %ProcessInvalidationMessagesMulti.exit
+  br label %ProcessInvalidationMessagesMulti.argprom.exit
 
-ProcessInvalidationMessagesMulti.exit:            ; preds = %28, %34
+ProcessInvalidationMessagesMulti.argprom.exit:    ; preds = %28, %34
   %38 = load ptr, ptr @transInvalInfo, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 44
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %ProcessInvalidationMessages.exit
+  br i1 %41, label %42, label %ProcessInvalidationMessages.argprom.exit
 
-42:                                               ; preds = %ProcessInvalidationMessagesMulti.exit
+42:                                               ; preds = %ProcessInvalidationMessagesMulti.argprom.exit
   tail call void @RelationCacheInitFilePostInvalidate() #5
-  br label %ProcessInvalidationMessages.exit
+  br label %ProcessInvalidationMessages.argprom.exit
 
 43:                                               ; preds = %4
   %44 = getelementptr inbounds i8, ptr %2, i64 28
@@ -571,7 +571,7 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %28, %34
   %54 = getelementptr i8, ptr %2, i64 40
   %55 = load i32, ptr %54, align 4
   %56 = icmp slt i32 %53, %55
-  br i1 %56, label %.lr.ph4.preheader.i, label %ProcessInvalidationMessages.exit
+  br i1 %56, label %.lr.ph4.preheader.i, label %ProcessInvalidationMessages.argprom.exit
 
 .lr.ph4.preheader.i:                              ; preds = %._crit_edge.i
   %57 = sext i32 %53 to i64
@@ -585,13 +585,13 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %28, %34
   %indvars.iv.next8.i = add nsw i64 %indvars.iv7.i, 1
   %lftr.wideiv10.i = trunc i64 %indvars.iv.next8.i to i32
   %exitcond11.not.i = icmp eq i32 %55, %lftr.wideiv10.i
-  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.argprom.exit, label %.lr.ph4.i, !llvm.loop !11
 
-ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_edge.i, %ProcessInvalidationMessagesMulti.exit, %42
+ProcessInvalidationMessages.argprom.exit:         ; preds = %.lr.ph4.i, %._crit_edge.i, %ProcessInvalidationMessagesMulti.argprom.exit, %42
   store ptr null, ptr @transInvalInfo, align 8
   br label %60
 
-60:                                               ; preds = %1, %ProcessInvalidationMessages.exit
+60:                                               ; preds = %1, %ProcessInvalidationMessages.argprom.exit
   ret void
 }
 
@@ -846,7 +846,7 @@ define dso_local void @AtEOSubXact_Inval(i1 noundef zeroext %0) local_unnamed_ad
   %23 = getelementptr i8, ptr %10, i64 24
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %22, %24
-  br i1 %25, label %.lr.ph4.preheader.i.i, label %ProcessInvalidationMessages.exit.i
+  br i1 %25, label %.lr.ph4.preheader.i.i, label %ProcessInvalidationMessages.argprom.exit.i
 
 .lr.ph4.preheader.i.i:                            ; preds = %._crit_edge.i.i
   %26 = sext i32 %22 to i64
@@ -860,18 +860,18 @@ define dso_local void @AtEOSubXact_Inval(i1 noundef zeroext %0) local_unnamed_ad
   %indvars.iv.next8.i.i = add nsw i64 %indvars.iv7.i.i, 1
   %lftr.wideiv10.i.i = trunc i64 %indvars.iv.next8.i.i to i32
   %exitcond11.not.i.i = icmp eq i32 %24, %lftr.wideiv10.i.i
-  br i1 %exitcond11.not.i.i, label %ProcessInvalidationMessages.exit.i, label %.lr.ph4.i.i, !llvm.loop !11
+  br i1 %exitcond11.not.i.i, label %ProcessInvalidationMessages.argprom.exit.i, label %.lr.ph4.i.i, !llvm.loop !11
 
-ProcessInvalidationMessages.exit.i:               ; preds = %.lr.ph4.i.i, %._crit_edge.i.i
+ProcessInvalidationMessages.argprom.exit.i:       ; preds = %.lr.ph4.i.i, %._crit_edge.i.i
   %29 = load i32, ptr @wal_level, align 4
   %30 = icmp sgt i32 %29, 1
   br i1 %30, label %31, label %32
 
-31:                                               ; preds = %ProcessInvalidationMessages.exit.i
+31:                                               ; preds = %ProcessInvalidationMessages.argprom.exit.i
   tail call void @LogLogicalInvalidations()
   br label %32
 
-32:                                               ; preds = %31, %ProcessInvalidationMessages.exit.i
+32:                                               ; preds = %31, %ProcessInvalidationMessages.argprom.exit.i
   %33 = load ptr, ptr @transInvalInfo, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 12
   %35 = getelementptr inbounds i8, ptr %33, i64 20
@@ -981,7 +981,7 @@ CommandEndInvalidationMessages.exit:              ; preds = %9, %32
   %92 = getelementptr i8, ptr %2, i64 40
   %93 = load i32, ptr %92, align 4
   %94 = icmp slt i32 %91, %93
-  br i1 %94, label %.lr.ph4.preheader.i, label %ProcessInvalidationMessages.exit
+  br i1 %94, label %.lr.ph4.preheader.i, label %ProcessInvalidationMessages.argprom.exit
 
 .lr.ph4.preheader.i:                              ; preds = %._crit_edge.i
   %95 = sext i32 %91 to i64
@@ -995,15 +995,15 @@ CommandEndInvalidationMessages.exit:              ; preds = %9, %32
   %indvars.iv.next8.i = add nsw i64 %indvars.iv7.i, 1
   %lftr.wideiv10.i = trunc i64 %indvars.iv.next8.i to i32
   %exitcond11.not.i = icmp eq i32 %93, %lftr.wideiv10.i
-  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.argprom.exit, label %.lr.ph4.i, !llvm.loop !11
 
-ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_edge.i
+ProcessInvalidationMessages.argprom.exit:         ; preds = %.lr.ph4.i, %._crit_edge.i
   %98 = load ptr, ptr %2, align 8
   store ptr %98, ptr @transInvalInfo, align 8
   tail call void @pfree(ptr noundef nonnull %2) #5
   br label %99
 
-99:                                               ; preds = %4, %1, %ProcessInvalidationMessages.exit, %79, %49
+99:                                               ; preds = %4, %1, %ProcessInvalidationMessages.argprom.exit, %79, %49
   ret void
 }
 
@@ -1043,7 +1043,7 @@ define dso_local void @CommandEndInvalidationMessages() local_unnamed_addr #0 {
   %14 = getelementptr i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %13, %15
-  br i1 %16, label %.lr.ph4.preheader.i, label %ProcessInvalidationMessages.exit
+  br i1 %16, label %.lr.ph4.preheader.i, label %ProcessInvalidationMessages.argprom.exit
 
 .lr.ph4.preheader.i:                              ; preds = %._crit_edge.i
   %17 = sext i32 %13 to i64
@@ -1057,18 +1057,18 @@ define dso_local void @CommandEndInvalidationMessages() local_unnamed_addr #0 {
   %indvars.iv.next8.i = add nsw i64 %indvars.iv7.i, 1
   %lftr.wideiv10.i = trunc i64 %indvars.iv.next8.i to i32
   %exitcond11.not.i = icmp eq i32 %15, %lftr.wideiv10.i
-  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.argprom.exit, label %.lr.ph4.i, !llvm.loop !11
 
-ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_edge.i
+ProcessInvalidationMessages.argprom.exit:         ; preds = %.lr.ph4.i, %._crit_edge.i
   %20 = load i32, ptr @wal_level, align 4
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %23
 
-22:                                               ; preds = %ProcessInvalidationMessages.exit
+22:                                               ; preds = %ProcessInvalidationMessages.argprom.exit
   tail call void @LogLogicalInvalidations()
   br label %23
 
-23:                                               ; preds = %22, %ProcessInvalidationMessages.exit
+23:                                               ; preds = %22, %ProcessInvalidationMessages.argprom.exit
   %24 = load ptr, ptr @transInvalInfo, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 12
   %26 = getelementptr inbounds i8, ptr %24, i64 20

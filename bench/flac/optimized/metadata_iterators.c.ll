@@ -5375,7 +5375,7 @@ for.body.i.i.i:                                   ; preds = %sw.bb1.i.i, %for.co
   %i.02.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ 0, %sw.bb1.i.i ]
   %call.i27.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i.i, i64 noundef 1, i64 noundef 1024, ptr noundef %call.i20) #28
   %cmp2.not.i.i.i = icmp eq i64 %call.i27.i.i, 1024
-  br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %write_metadata_block_data_padding_cb_.exit.i.i
+  br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %write_metadata_block_data_padding_cb_.argprom.exit.i.i
 
 for.end.i.i.i:                                    ; preds = %for.cond.i.i.i, %sw.bb1.i.i
   %rem.i.i.i = and i32 %47, 1023
@@ -5383,9 +5383,9 @@ for.end.i.i.i:                                    ; preds = %for.cond.i.i.i, %sw
   %call4.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i.i, i64 noundef 1, i64 noundef %conv.i28.i.i, ptr noundef %call.i20) #28
   %cmp6.not.i.i.i = icmp eq i64 %call4.i.i.i, %conv.i28.i.i
   %..i29.i.i = zext i1 %cmp6.not.i.i.i to i32
-  br label %write_metadata_block_data_padding_cb_.exit.i.i
+  br label %write_metadata_block_data_padding_cb_.argprom.exit.i.i
 
-write_metadata_block_data_padding_cb_.exit.i.i:   ; preds = %for.body.i.i.i, %for.end.i.i.i
+write_metadata_block_data_padding_cb_.argprom.exit.i.i: ; preds = %for.body.i.i.i, %for.end.i.i.i
   %retval.0.i.i.i = phi i32 [ %..i29.i.i, %for.end.i.i.i ], [ 0, %for.body.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buffer.i26.i.i)
   br label %write_metadata_block_data_cb_.exit.i
@@ -6146,8 +6146,8 @@ sw.default.i.i:                                   ; preds = %if.end5.i.i
   %..i123.i.i = zext i1 %cmp.not.i122.i.i to i32
   br label %write_metadata_block_data_cb_.exit.i
 
-write_metadata_block_data_cb_.exit.i:             ; preds = %sw.default.i.i, %write_metadata_block_data_picture_cb_.exit.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i, %if.end.i.i7.i, %write_metadata_block_data_padding_cb_.exit.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i
-  %retval.0.i5.i = phi i32 [ %..i123.i.i, %sw.default.i.i ], [ %retval.0.i112.i.i, %write_metadata_block_data_picture_cb_.exit.i.i ], [ %retval.0.i75.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %retval.0.i64.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %retval.0.i52.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i ], [ %retval.0.i.i.i, %write_metadata_block_data_padding_cb_.exit.i.i ], [ %..i.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %..i37.i.i, %if.end.i.i7.i ]
+write_metadata_block_data_cb_.exit.i:             ; preds = %sw.default.i.i, %write_metadata_block_data_picture_cb_.exit.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i, %if.end.i.i7.i, %write_metadata_block_data_padding_cb_.argprom.exit.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i
+  %retval.0.i5.i = phi i32 [ %..i123.i.i, %sw.default.i.i ], [ %retval.0.i112.i.i, %write_metadata_block_data_picture_cb_.exit.i.i ], [ %retval.0.i75.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %retval.0.i64.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %retval.0.i52.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i ], [ %retval.0.i.i.i, %write_metadata_block_data_padding_cb_.argprom.exit.i.i ], [ %..i.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %..i37.i.i, %if.end.i.i7.i ]
   %tobool8.not.i.i = icmp eq i32 %retval.0.i5.i, 0
   br i1 %tobool8.not.i.i, label %chain_rewrite_metadata_in_place_.exit, label %for.cond.i.i, !llvm.loop !29
 
@@ -6174,7 +6174,7 @@ if.else:                                          ; preds = %if.end11
 if.then.i52:                                      ; preds = %if.else
   %status1.i = getelementptr inbounds i8, ptr %chain, i64 36
   store i32 2, ptr %status1.i, align 4
-  br label %chain_rewrite_file_.exit.thread
+  br label %chain_rewrite_file_.argprom.exit.thread
 
 if.end.i26:                                       ; preds = %if.else
   %113 = load ptr, ptr %chain, align 8
@@ -6187,7 +6187,7 @@ if.end.i26:                                       ; preds = %if.else
   br i1 %cmp4.i.i, label %err.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i26
-  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef %call.i.i.i27, i64 noundef %add2.i.i, ptr noundef nonnull @.str.33, ptr noundef %113, ptr noundef nonnull @.str.32)
+  tail call void (ptr, i64, ptr, ...) @local_snprintf.retelim(ptr noundef %call.i.i.i27, i64 noundef %add2.i.i, ptr noundef nonnull @.str.33, ptr noundef %113, ptr noundef nonnull @.str.32)
   %call25.i.i = tail call noalias ptr @fopen64(ptr noundef nonnull %call.i.i.i27, ptr noundef nonnull @.str.35)
   store ptr %call25.i.i, ptr %tempfile.i, align 8
   %cmp26.i.i = icmp eq ptr %call25.i.i, null
@@ -6305,7 +6305,7 @@ if.end32.i:                                       ; preds = %for.end.i
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buffer.i70.i)
   %call8.i.i = tail call i32 @feof(ptr noundef nonnull %call.i24) #28
   %tobool.not9.i.i = icmp eq i32 %call8.i.i, 0
-  br i1 %tobool.not9.i.i, label %while.body.i72.i, label %chain_rewrite_file_.exit
+  br i1 %tobool.not9.i.i, label %while.body.i72.i, label %chain_rewrite_file_.argprom.exit
 
 while.body.i72.i:                                 ; preds = %if.end32.i, %if.end10.i.i
   %call1.i.i = call i64 @fread(ptr noundef nonnull %buffer.i70.i, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %call.i24)
@@ -6325,7 +6325,7 @@ land.lhs.true5.i.i:                               ; preds = %while.body.i72.i
 if.end10.i.i:                                     ; preds = %land.lhs.true5.i.i, %land.lhs.true.i.i
   %call.i76.i = tail call i32 @feof(ptr noundef nonnull %call.i24) #28
   %tobool.not.i.i51 = icmp eq i32 %call.i76.i, 0
-  br i1 %tobool.not.i.i51, label %while.body.i72.i, label %chain_rewrite_file_.exit, !llvm.loop !17
+  br i1 %tobool.not.i.i51, label %while.body.i72.i, label %chain_rewrite_file_.argprom.exit, !llvm.loop !17
 
 if.then35.i:                                      ; preds = %land.lhs.true5.i.i, %land.lhs.true.i.i
   %.sink.i75.i = phi i32 [ 6, %land.lhs.true.i.i ], [ 8, %land.lhs.true5.i.i ]
@@ -6343,20 +6343,20 @@ err.i:                                            ; preds = %write_metadata_bloc
 if.end.i79.sink.split.i:                          ; preds = %err.i, %err.thread.i
   %call.sink.i = phi ptr [ %call.i24, %err.thread.i ], [ %call25.i.i, %err.i ]
   %call4511.i = tail call i32 @fclose(ptr noundef nonnull %call.sink.i)
-  br i1 %cmp4.i.i, label %chain_rewrite_file_.exit.thread, label %if.then2.i.i
+  br i1 %cmp4.i.i, label %chain_rewrite_file_.argprom.exit.thread, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i79.sink.split.i
   %call3.i.i = tail call i32 @unlink(ptr noundef nonnull %call.i.i.i27) #28
   tail call void @free(ptr noundef nonnull %call.i.i.i27) #28
-  br label %chain_rewrite_file_.exit.thread
+  br label %chain_rewrite_file_.argprom.exit.thread
 
-chain_rewrite_file_.exit.thread:                  ; preds = %if.then.i52, %if.end.i79.sink.split.i, %if.then2.i.i
+chain_rewrite_file_.argprom.exit.thread:          ; preds = %if.then.i52, %if.end.i79.sink.split.i, %if.then2.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempfile.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempfilename.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i23)
   br label %return
 
-chain_rewrite_file_.exit:                         ; preds = %if.end10.i.i, %if.end32.i
+chain_rewrite_file_.argprom.exit:                 ; preds = %if.end10.i.i, %if.end32.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i70.i)
   %call39.i = tail call i32 @fclose(ptr noundef nonnull %call.i24)
   %123 = load ptr, ptr %chain, align 8
@@ -6367,7 +6367,7 @@ chain_rewrite_file_.exit:                         ; preds = %if.end10.i.i, %if.e
   %tobool19.not = icmp eq i32 %call41.i, 0
   br i1 %tobool19.not, label %return, label %if.end21
 
-if.end21:                                         ; preds = %chain_rewrite_file_.exit
+if.end21:                                         ; preds = %chain_rewrite_file_.argprom.exit
   store i64 %call, ptr %initial_length, align 8
   %124 = load i64, ptr %first_offset.i, align 8
   store i64 %124, ptr %last_offset.i, align 8
@@ -6399,8 +6399,8 @@ if.then28:                                        ; preds = %chain_rewrite_metad
   call fastcc void @set_file_stats_(ptr noundef %127, ptr noundef nonnull %stats)
   br label %return
 
-return:                                           ; preds = %chain_rewrite_file_.exit.thread, %chain_rewrite_metadata_in_place_.exit.thread, %chain_rewrite_metadata_in_place_.exit, %if.end26, %if.then28, %chain_rewrite_file_.exit, %if.end3, %if.then1, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then1 ], [ 0, %if.end3 ], [ %.mux, %chain_rewrite_metadata_in_place_.exit ], [ 0, %chain_rewrite_file_.exit ], [ 1, %if.then28 ], [ 1, %if.end26 ], [ 0, %chain_rewrite_metadata_in_place_.exit.thread ], [ 0, %chain_rewrite_file_.exit.thread ]
+return:                                           ; preds = %chain_rewrite_file_.argprom.exit.thread, %chain_rewrite_metadata_in_place_.exit.thread, %chain_rewrite_metadata_in_place_.exit, %if.end26, %if.then28, %chain_rewrite_file_.argprom.exit, %if.end3, %if.then1, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then1 ], [ 0, %if.end3 ], [ %.mux, %chain_rewrite_metadata_in_place_.exit ], [ 0, %chain_rewrite_file_.argprom.exit ], [ 1, %if.then28 ], [ 1, %if.end26 ], [ 0, %chain_rewrite_metadata_in_place_.exit.thread ], [ 0, %chain_rewrite_file_.argprom.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -9713,7 +9713,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %if.then
-  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef %call.i, i64 noundef %add2, ptr noundef nonnull @.str.33, ptr noundef %filename, ptr noundef nonnull @.str.32)
+  tail call void (ptr, i64, ptr, ...) @local_snprintf.retelim(ptr noundef %call.i, i64 noundef %add2, ptr noundef nonnull @.str.33, ptr noundef %filename, ptr noundef nonnull @.str.32)
   br label %if.end24
 
 if.else:                                          ; preds = %entry
@@ -9732,7 +9732,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp20, label %return.sink.split, label %if.end22
 
 if.end22:                                         ; preds = %if.else
-  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef %call.i18, i64 noundef %add18, ptr noundef nonnull @.str.34, ptr noundef nonnull %tempfile_path_prefix, ptr noundef %p.0, ptr noundef nonnull @.str.32)
+  tail call void (ptr, i64, ptr, ...) @local_snprintf.retelim(ptr noundef %call.i18, i64 noundef %add18, ptr noundef nonnull @.str.34, ptr noundef nonnull %tempfile_path_prefix, ptr noundef %p.0, ptr noundef nonnull @.str.32)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end22, %if.end
@@ -9922,7 +9922,7 @@ for.body.i.i:                                     ; preds = %sw.bb1.i, %for.cond
   %i.02.i.i = phi i32 [ %inc.i.i, %for.cond.i.i ], [ 0, %sw.bb1.i ]
   %call.i27.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i, i64 noundef 1, i64 noundef 1024, ptr noundef %file) #28
   %cmp2.not.i.i = icmp eq i64 %call.i27.i, 1024
-  br i1 %cmp2.not.i.i, label %for.cond.i.i, label %write_metadata_block_data_padding_cb_.exit.i
+  br i1 %cmp2.not.i.i, label %for.cond.i.i, label %write_metadata_block_data_padding_cb_.argprom.exit.i
 
 for.end.i.i:                                      ; preds = %for.cond.i.i, %sw.bb1.i
   %rem.i.i = and i32 %9, 1023
@@ -9930,9 +9930,9 @@ for.end.i.i:                                      ; preds = %for.cond.i.i, %sw.b
   %call4.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i, i64 noundef 1, i64 noundef %conv.i28.i, ptr noundef %file) #28
   %cmp6.not.i.i = icmp eq i64 %call4.i.i, %conv.i28.i
   %..i29.i = zext i1 %cmp6.not.i.i to i32
-  br label %write_metadata_block_data_padding_cb_.exit.i
+  br label %write_metadata_block_data_padding_cb_.argprom.exit.i
 
-write_metadata_block_data_padding_cb_.exit.i:     ; preds = %for.body.i.i, %for.end.i.i
+write_metadata_block_data_padding_cb_.argprom.exit.i: ; preds = %for.body.i.i, %for.end.i.i
   %retval.0.i.i = phi i32 [ %..i29.i, %for.end.i.i ], [ 0, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buffer.i26.i)
   br label %write_metadata_block_data_cb_.exit
@@ -10853,8 +10853,8 @@ sw.default.i:                                     ; preds = %entry
   %..i123.i = zext i1 %cmp.not.i122.i to i32
   br label %write_metadata_block_data_cb_.exit
 
-write_metadata_block_data_cb_.exit:               ; preds = %write_metadata_block_data_streaminfo_cb_.exit.i, %write_metadata_block_data_padding_cb_.exit.i, %sw.bb4.i, %if.end.i.i, %write_metadata_block_data_seektable_cb_.exit.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i, %write_metadata_block_data_cuesheet_cb_.exit.i, %write_metadata_block_data_picture_cb_.exit.i, %sw.default.i
-  %retval.0.i = phi i32 [ %..i123.i, %sw.default.i ], [ %retval.0.i112.i, %write_metadata_block_data_picture_cb_.exit.i ], [ %retval.0.i75.i, %write_metadata_block_data_cuesheet_cb_.exit.i ], [ %retval.0.i64.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %retval.0.i52.i, %write_metadata_block_data_seektable_cb_.exit.i ], [ %retval.0.i.i, %write_metadata_block_data_padding_cb_.exit.i ], [ %..i.i, %write_metadata_block_data_streaminfo_cb_.exit.i ], [ 0, %sw.bb4.i ], [ %..i37.i, %if.end.i.i ]
+write_metadata_block_data_cb_.exit:               ; preds = %write_metadata_block_data_streaminfo_cb_.exit.i, %write_metadata_block_data_padding_cb_.argprom.exit.i, %sw.bb4.i, %if.end.i.i, %write_metadata_block_data_seektable_cb_.exit.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i, %write_metadata_block_data_cuesheet_cb_.exit.i, %write_metadata_block_data_picture_cb_.exit.i, %sw.default.i
+  %retval.0.i = phi i32 [ %..i123.i, %sw.default.i ], [ %retval.0.i112.i, %write_metadata_block_data_picture_cb_.exit.i ], [ %retval.0.i75.i, %write_metadata_block_data_cuesheet_cb_.exit.i ], [ %retval.0.i64.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %retval.0.i52.i, %write_metadata_block_data_seektable_cb_.exit.i ], [ %retval.0.i.i, %write_metadata_block_data_padding_cb_.argprom.exit.i ], [ %..i.i, %write_metadata_block_data_streaminfo_cb_.exit.i ], [ 0, %sw.bb4.i ], [ %..i37.i, %if.end.i.i ]
   %tobool.not = icmp ne i32 %retval.0.i, 0
   %. = select i1 %tobool.not, i32 0, i32 8
   %.2 = zext i1 %tobool.not to i32
@@ -10956,7 +10956,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal void @local_snprintf(ptr nocapture noundef nonnull %str, i64 noundef %size, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #6 {
+define internal void @local_snprintf.retelim(ptr nocapture noundef nonnull %str, i64 noundef %size, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #6 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -11141,7 +11141,7 @@ for.body.i:                                       ; preds = %sw.bb1, %for.cond.i
   %i.02.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %sw.bb1 ]
   %call.i27 = call i64 %write_cb(ptr noundef nonnull %buffer.i26, i64 noundef 1, i64 noundef 1024, ptr noundef %handle) #28
   %cmp2.not.i = icmp eq i64 %call.i27, 1024
-  br i1 %cmp2.not.i, label %for.cond.i, label %write_metadata_block_data_padding_cb_.exit
+  br i1 %cmp2.not.i, label %for.cond.i, label %write_metadata_block_data_padding_cb_.argprom.exit
 
 for.end.i:                                        ; preds = %for.cond.i, %sw.bb1
   %rem.i = and i32 %9, 1023
@@ -11149,9 +11149,9 @@ for.end.i:                                        ; preds = %for.cond.i, %sw.bb1
   %call4.i = call i64 %write_cb(ptr noundef nonnull %buffer.i26, i64 noundef 1, i64 noundef %conv.i28, ptr noundef %handle) #28
   %cmp6.not.i = icmp eq i64 %call4.i, %conv.i28
   %..i29 = zext i1 %cmp6.not.i to i32
-  br label %write_metadata_block_data_padding_cb_.exit
+  br label %write_metadata_block_data_padding_cb_.argprom.exit
 
-write_metadata_block_data_padding_cb_.exit:       ; preds = %for.body.i, %for.end.i
+write_metadata_block_data_padding_cb_.argprom.exit: ; preds = %for.body.i, %for.end.i
   %retval.0.i = phi i32 [ %..i29, %for.end.i ], [ 0, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buffer.i26)
   br label %return
@@ -12072,8 +12072,8 @@ sw.default:                                       ; preds = %entry
   %..i123 = zext i1 %cmp.not.i122 to i32
   br label %return
 
-return:                                           ; preds = %if.end.i, %sw.bb4, %sw.default, %write_metadata_block_data_picture_cb_.exit, %write_metadata_block_data_cuesheet_cb_.exit, %write_metadata_block_data_vorbis_comment_cb_.exit, %write_metadata_block_data_seektable_cb_.exit, %write_metadata_block_data_padding_cb_.exit, %write_metadata_block_data_streaminfo_cb_.exit
-  %retval.0 = phi i32 [ %..i123, %sw.default ], [ %retval.0.i112, %write_metadata_block_data_picture_cb_.exit ], [ %retval.0.i75, %write_metadata_block_data_cuesheet_cb_.exit ], [ %retval.0.i64, %write_metadata_block_data_vorbis_comment_cb_.exit ], [ %retval.0.i52, %write_metadata_block_data_seektable_cb_.exit ], [ %retval.0.i, %write_metadata_block_data_padding_cb_.exit ], [ %..i, %write_metadata_block_data_streaminfo_cb_.exit ], [ 0, %sw.bb4 ], [ %..i37, %if.end.i ]
+return:                                           ; preds = %if.end.i, %sw.bb4, %sw.default, %write_metadata_block_data_picture_cb_.exit, %write_metadata_block_data_cuesheet_cb_.exit, %write_metadata_block_data_vorbis_comment_cb_.exit, %write_metadata_block_data_seektable_cb_.exit, %write_metadata_block_data_padding_cb_.argprom.exit, %write_metadata_block_data_streaminfo_cb_.exit
+  %retval.0 = phi i32 [ %..i123, %sw.default ], [ %retval.0.i112, %write_metadata_block_data_picture_cb_.exit ], [ %retval.0.i75, %write_metadata_block_data_cuesheet_cb_.exit ], [ %retval.0.i64, %write_metadata_block_data_vorbis_comment_cb_.exit ], [ %retval.0.i52, %write_metadata_block_data_seektable_cb_.exit ], [ %retval.0.i, %write_metadata_block_data_padding_cb_.argprom.exit ], [ %..i, %write_metadata_block_data_streaminfo_cb_.exit ], [ 0, %sw.bb4 ], [ %..i37, %if.end.i ]
   ret i32 %retval.0
 }
 

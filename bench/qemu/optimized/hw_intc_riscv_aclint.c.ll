@@ -643,13 +643,13 @@ if.then23:                                        ; preds = %if.then20
   %conv26 = trunc i64 %add9 to i32
   %and28 = and i64 %value, 4294967295
   %or = or disjoint i64 %shr24, %and28
-  tail call fastcc void @riscv_aclint_mtimer_write_timecmp(ptr noundef nonnull %opaque, i32 noundef %conv26, i64 noundef %or)
+  tail call fastcc void @riscv_aclint_mtimer_write_timecmp.argprom(ptr noundef nonnull %opaque, i32 noundef %conv26, i64 noundef %or)
   br label %do.end165
 
 if.else29:                                        ; preds = %if.then20
   %call.i61 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %conv31 = trunc i64 %add9 to i32
-  tail call fastcc void @riscv_aclint_mtimer_write_timecmp(ptr noundef nonnull %opaque, i32 noundef %conv31, i64 noundef %value)
+  tail call fastcc void @riscv_aclint_mtimer_write_timecmp.argprom(ptr noundef nonnull %opaque, i32 noundef %conv31, i64 noundef %value)
   br label %do.end165
 
 if.then37:                                        ; preds = %if.else
@@ -666,7 +666,7 @@ if.then40:                                        ; preds = %if.then37
   %shl45 = shl i64 %value, 32
   %and46 = and i64 %8, 4294967295
   %or47 = or disjoint i64 %and46, %shl45
-  tail call fastcc void @riscv_aclint_mtimer_write_timecmp(ptr noundef nonnull %opaque, i32 noundef %conv44, i64 noundef %or47)
+  tail call fastcc void @riscv_aclint_mtimer_write_timecmp.argprom(ptr noundef nonnull %opaque, i32 noundef %conv44, i64 noundef %or47)
   br label %do.end165
 
 do.body49:                                        ; preds = %if.then37
@@ -794,7 +794,7 @@ if.end146:                                        ; preds = %for.body
   %idxprom = sext i32 %i.077 to i64
   %arrayidx151 = getelementptr i64, ptr %21, i64 %idxprom
   %22 = load i64, ptr %arrayidx151, align 8
-  tail call fastcc void @riscv_aclint_mtimer_write_timecmp(ptr noundef nonnull %opaque, i32 noundef %add149, i64 noundef %22)
+  tail call fastcc void @riscv_aclint_mtimer_write_timecmp.argprom(ptr noundef nonnull %opaque, i32 noundef %add149, i64 noundef %22)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end146
@@ -821,7 +821,7 @@ do.end165:                                        ; preds = %for.inc, %if.end128
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_aclint_mtimer_write_timecmp(ptr nocapture noundef readonly %mtimer, i32 noundef %hartid, i64 noundef %value) unnamed_addr #0 {
+define internal fastcc void @riscv_aclint_mtimer_write_timecmp.argprom(ptr nocapture noundef readonly %mtimer, i32 noundef %hartid, i64 noundef %value) unnamed_addr #0 {
 entry:
   %timebase_freq1 = getelementptr inbounds i8, ptr %mtimer, i64 1140
   %0 = load i32, ptr %timebase_freq1, align 4

@@ -31654,7 +31654,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4Type17Initialize_sharedEP7Com
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %.not.i.i = icmp eq i32 %4, %6
-  br i1 %.not.i.i, label %7, label %"_ZZN4Type17Initialize_sharedEP7CompileENK3$_0clEPKvS4_.exit"
+  br i1 %.not.i.i, label %7, label %"_ZZN4Type17Initialize_sharedEP7CompileENK3$_0clEPKvS4_.argprom.exit"
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
@@ -31662,9 +31662,9 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4Type17Initialize_sharedEP7Com
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %1) #17
   %11 = xor i1 %10, true
   %12 = zext i1 %11 to i32
-  br label %"_ZZN4Type17Initialize_sharedEP7CompileENK3$_0clEPKvS4_.exit"
+  br label %"_ZZN4Type17Initialize_sharedEP7CompileENK3$_0clEPKvS4_.argprom.exit"
 
-"_ZZN4Type17Initialize_sharedEP7CompileENK3$_0clEPKvS4_.exit": ; preds = %2, %7
+"_ZZN4Type17Initialize_sharedEP7CompileENK3$_0clEPKvS4_.argprom.exit": ; preds = %2, %7
   %.0.i.i = phi i32 [ %12, %7 ], [ 1, %2 ]
   ret i32 %.0.i.i
 }

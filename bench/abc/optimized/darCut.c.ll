@@ -646,7 +646,7 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %75, 268435456
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %Dar_CutFindFree.exit, label %78
+  br i1 %77, label %Dar_CutFindFree.argprom.exit, label %78
 
 78:                                               ; preds = %.lr.ph.i
   %79 = icmp ult i32 %75, 1610612736
@@ -757,9 +757,9 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, -268435457
   store i32 %131, ptr %129, align 4
-  br label %Dar_CutFindFree.exit
+  br label %Dar_CutFindFree.argprom.exit
 
-Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.i
+Dar_CutFindFree.argprom.exit:                     ; preds = %.lr.ph.i, %.thread.i
   %.041.i = phi ptr [ %.5.i, %.thread.i ], [ %.0386.i, %.lr.ph.i ]
   %132 = load i32, ptr %32, align 4
   %133 = lshr i32 %132, 29
@@ -768,12 +768,12 @@ Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.
   %.not.i69 = icmp ugt i32 %133, %135
   br i1 %.not.i69, label %138, label %136
 
-136:                                              ; preds = %Dar_CutFindFree.exit
+136:                                              ; preds = %Dar_CutFindFree.argprom.exit
   %137 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull readonly %.060102, ptr noundef nonnull readonly %.061105)
   %.not13.i = icmp eq i32 %137, 0
   br i1 %.not13.i, label %Dar_CutMerge.exit.thread, label %140
 
-138:                                              ; preds = %Dar_CutFindFree.exit
+138:                                              ; preds = %Dar_CutFindFree.argprom.exit
   %139 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull readonly %.061105, ptr noundef nonnull readonly %.060102)
   %.not12.i = icmp eq i32 %139, 0
   br i1 %.not12.i, label %Dar_CutMerge.exit.thread, label %140
@@ -1200,9 +1200,9 @@ thread-pre-split:                                 ; preds = %326, %._crit_edge.i
   %336 = getelementptr i8, ptr %.val.i, i64 8
   %.val.i.i = load ptr, ptr %336, align 8
   %wide.trip.count.i90 = zext nneg i32 %332 to i64
-  br label %Aig_ManObj.exit.i
+  br label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %343, %.lr.ph.split.i
+Aig_ManObj.argprom.exit.i:                        ; preds = %343, %.lr.ph.split.i
   %indvars.iv.i91 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i92, %343 ]
   %.026.i = phi i32 [ 0, %.lr.ph.split.i ], [ %351, %343 ]
   %.01625.i = phi i32 [ 0, %.lr.ph.split.i ], [ %348, %343 ]
@@ -1214,7 +1214,7 @@ Aig_ManObj.exit.i:                                ; preds = %343, %.lr.ph.split.
   %342 = icmp eq ptr %341, null
   br i1 %342, label %Dar_CutFindValue.exit, label %343
 
-343:                                              ; preds = %Aig_ManObj.exit.i
+343:                                              ; preds = %Aig_ManObj.argprom.exit.i
   %344 = getelementptr inbounds i8, ptr %341, i64 24
   %345 = load i64, ptr %344, align 8
   %346 = trunc i64 %345 to i32
@@ -1225,7 +1225,7 @@ Aig_ManObj.exit.i:                                ; preds = %343, %.lr.ph.split.
   %351 = add nuw nsw i32 %.026.i, %350
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i90
-  br i1 %exitcond.not.i93, label %.critedge.i, label %Aig_ManObj.exit.i, !llvm.loop !23
+  br i1 %exitcond.not.i93, label %.critedge.i, label %Aig_ManObj.argprom.exit.i, !llvm.loop !23
 
 .critedge.i:                                      ; preds = %343
   %352 = icmp ult i32 %331, 1073741824
@@ -1238,8 +1238,8 @@ Aig_ManObj.exit.i:                                ; preds = %343, %.lr.ph.split.
   %spec.select.i = select i1 %354, i32 %355, i32 %spec.store.select.i
   br label %Dar_CutFindValue.exit
 
-Dar_CutFindValue.exit:                            ; preds = %Aig_ManObj.exit.i, %thread-pre-split, %.lr.ph.i88, %.critedge.i, %353
-  %.018.i = phi i32 [ %spec.select.i, %353 ], [ 1001, %.critedge.i ], [ 0, %.lr.ph.i88 ], [ 1001, %thread-pre-split ], [ 0, %Aig_ManObj.exit.i ]
+Dar_CutFindValue.exit:                            ; preds = %Aig_ManObj.argprom.exit.i, %thread-pre-split, %.lr.ph.i88, %.critedge.i, %353
+  %.018.i = phi i32 [ %spec.select.i, %353 ], [ 1001, %.critedge.i ], [ 0, %.lr.ph.i88 ], [ 1001, %thread-pre-split ], [ 0, %Aig_ManObj.argprom.exit.i ]
   %356 = shl i32 %.018.i, 16
   %357 = and i32 %356, 134152192
   %358 = and i32 %331, -134152193

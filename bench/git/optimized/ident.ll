@@ -105,8 +105,8 @@ for.cond.i:                                       ; preds = %for.inc.i, %xgetpwu
   %src.0.i = phi ptr [ %2, %xgetpwuid_self.exit ], [ %incdec.ptr.i, %for.inc.i ]
   %3 = load i8, ptr %src.0.i, align 1
   switch i8 %3, label %if.then.i2 [
-    i8 0, label %copy_gecos.exit
-    i8 44, label %copy_gecos.exit
+    i8 0, label %copy_gecos.argprom.exit
+    i8 44, label %copy_gecos.argprom.exit
     i8 38, label %if.else.i
   ]
 
@@ -187,11 +187,11 @@ for.inc.i:                                        ; preds = %strbuf_addch.exit21
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.0.i, i64 1
   br label %for.cond.i, !llvm.loop !5
 
-copy_gecos.exit:                                  ; preds = %for.cond.i, %for.cond.i
+copy_gecos.argprom.exit:                          ; preds = %for.cond.i, %for.cond.i
   tail call void @strbuf_trim(ptr noundef nonnull @git_default_name) #18
   br label %if.end
 
-if.end:                                           ; preds = %copy_gecos.exit, %entry
+if.end:                                           ; preds = %copy_gecos.argprom.exit, %entry
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
   ret ptr %21
 }
@@ -287,9 +287,9 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mailnamebuf.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.rewrite_ident_line.namemail, i64 24, i1 false)
   %call.i4.i = tail call ptr @fopen_or_warn(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #18
   %tobool.not.i5.i = icmp eq ptr %call.i4.i, null
-  br i1 %tobool.not.i5.i, label %add_mailname_host.exit.thread.i, label %if.end.i.i
+  br i1 %tobool.not.i5.i, label %add_mailname_host.argprom.exit.thread.i, label %if.end.i.i
 
-add_mailname_host.exit.thread.i:                  ; preds = %strbuf_addch.exit.i
+add_mailname_host.argprom.exit.thread.i:          ; preds = %strbuf_addch.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %mailnamebuf.i.i)
   br label %if.end.i
 
@@ -301,23 +301,23 @@ if.end.i.i:                                       ; preds = %strbuf_addch.exit.i
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %call3.i.i = call i32 @ferror(ptr noundef nonnull %call.i4.i) #18
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
-  br i1 %tobool4.not.i.i, label %add_mailname_host.exit.i, label %if.then5.i.i
+  br i1 %tobool4.not.i.i, label %add_mailname_host.argprom.exit.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
   call void (ptr, ...) @warning_errno(ptr noundef nonnull @.str.21) #18
-  br label %add_mailname_host.exit.i
+  br label %add_mailname_host.argprom.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   call void @strbuf_addbuf(ptr noundef nonnull @git_default_email, ptr noundef nonnull %mailnamebuf.i.i) #18
-  br label %add_mailname_host.exit.i
+  br label %add_mailname_host.argprom.exit.i
 
-add_mailname_host.exit.i:                         ; preds = %if.end8.i.i, %if.then5.i.i, %if.then2.i.i
+add_mailname_host.argprom.exit.i:                 ; preds = %if.end8.i.i, %if.then5.i.i, %if.then2.i.i
   call void @strbuf_release(ptr noundef nonnull %mailnamebuf.i.i) #18
   %call9.i.i = call i32 @fclose(ptr noundef nonnull %call.i4.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %mailnamebuf.i.i)
   br i1 %cmp.i.not.i, label %if.end.i, label %if.end14
 
-if.end.i:                                         ; preds = %add_mailname_host.exit.i, %add_mailname_host.exit.thread.i
+if.end.i:                                         ; preds = %add_mailname_host.argprom.exit.i, %add_mailname_host.argprom.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %buf.i.i)
   %call.i6.i = call i32 @xgethostname(ptr noundef nonnull %buf.i.i, i64 noundef 65) #18
   %tobool.not.i7.i = icmp eq i32 %call.i6.i, 0
@@ -327,7 +327,7 @@ if.then.i8.i:                                     ; preds = %if.end.i
   call void (ptr, ...) @warning_errno(ptr noundef nonnull @.str.22) #18
   call void @strbuf_add(ptr noundef nonnull @git_default_email, ptr noundef nonnull @.str.23, i64 noundef 6) #18
   store i1 true, ptr @default_email_is_bogus, align 4
-  br label %add_domainname.exit.i
+  br label %add_domainname.argprom.exit.i
 
 if.end.i9.i:                                      ; preds = %if.end.i
   %call2.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %buf.i.i, i32 noundef 46) #19
@@ -337,7 +337,7 @@ if.end.i9.i:                                      ; preds = %if.end.i
 if.then4.i.i:                                     ; preds = %if.end.i9.i
   %call.i5.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i.i) #19
   call void @strbuf_add(ptr noundef nonnull @git_default_email, ptr noundef nonnull %buf.i.i, i64 noundef %call.i5.i.i) #18
-  br label %add_domainname.exit.i
+  br label %add_domainname.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i9.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %hints.i.i.i)
@@ -351,44 +351,44 @@ if.else.i.i:                                      ; preds = %if.end.i9.i
 if.then.i.i.i:                                    ; preds = %if.else.i.i
   %11 = load ptr, ptr %ai.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool1.not.i.i.i, label %canonical_name.exit.thread3.i.i, label %land.lhs.true.i.i.i
+  br i1 %tobool1.not.i.i.i, label %canonical_name.argprom.exit.thread3.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
   %ai_canonname.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %ai_canonname.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool2.not.i.i.i, label %canonical_name.exit.thread3.i.i, label %land.lhs.true3.i.i.i
+  br i1 %tobool2.not.i.i.i, label %canonical_name.argprom.exit.thread3.i.i, label %land.lhs.true3.i.i.i
 
 land.lhs.true3.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 46) #19
   %tobool6.not.i.i.i = icmp eq ptr %call5.i.i.i, null
-  br i1 %tobool6.not.i.i.i, label %canonical_name.exit.thread3.i.i, label %canonical_name.exit.i.i
+  br i1 %tobool6.not.i.i.i, label %canonical_name.argprom.exit.thread3.i.i, label %canonical_name.argprom.exit.i.i
 
-canonical_name.exit.thread3.i.i:                  ; preds = %land.lhs.true3.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
+canonical_name.argprom.exit.thread3.i.i:          ; preds = %land.lhs.true3.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
   call void @freeaddrinfo(ptr noundef %11) #18
   br label %if.then8.i.i
 
-canonical_name.exit.i.i:                          ; preds = %land.lhs.true3.i.i.i
+canonical_name.argprom.exit.i.i:                  ; preds = %land.lhs.true3.i.i.i
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #19
   call void @strbuf_add(ptr noundef nonnull @git_default_email, ptr noundef nonnull %12, i64 noundef %call.i.i.i.i) #18
   %.pre.i.i.i = load ptr, ptr %ai.i.i.i, align 8
   call void @freeaddrinfo(ptr noundef %.pre.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ai.i.i.i)
-  br label %add_domainname.exit.i
+  br label %add_domainname.argprom.exit.i
 
-if.then8.i.i:                                     ; preds = %canonical_name.exit.thread3.i.i, %if.else.i.i
+if.then8.i.i:                                     ; preds = %canonical_name.argprom.exit.thread3.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ai.i.i.i)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @git_default_email, ptr noundef nonnull @.str.24, ptr noundef nonnull %buf.i.i) #18
   store i1 true, ptr @default_email_is_bogus, align 4
-  br label %add_domainname.exit.i
+  br label %add_domainname.argprom.exit.i
 
-add_domainname.exit.i:                            ; preds = %if.then8.i.i, %canonical_name.exit.i.i, %if.then4.i.i, %if.then.i8.i
+add_domainname.argprom.exit.i:                    ; preds = %if.then8.i.i, %canonical_name.argprom.exit.i.i, %if.then4.i.i, %if.then.i8.i
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %buf.i.i)
   br label %if.end14
 
-if.end14:                                         ; preds = %add_domainname.exit.i, %add_mailname_host.exit.i, %if.then5
+if.end14:                                         ; preds = %add_domainname.argprom.exit.i, %add_mailname_host.argprom.exit.i, %if.then5
   call void @strbuf_trim(ptr noundef nonnull @git_default_email) #18
   br label %if.end15
 

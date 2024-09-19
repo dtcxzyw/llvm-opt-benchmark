@@ -252,7 +252,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib5LiborEEE = comdat any
 @_ZTIN5boost6detail15sp_counted_baseE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5boost6detail15sp_counted_baseE }, comdat, align 8
 @_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib5LiborEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib5LiborEEE, ptr @_ZTIN5boost6detail15sp_counted_baseE }, comdat, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 1, i32 1], align 4
+@switch.table._ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE.argprom = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 1, i32 1], align 4
 
 @_ZN8QuantLib5LiborC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PeriodEjRKNS_8CurrencyERKNS_8CalendarERKNS_10DayCounterERKNS_6HandleINS_18YieldTermStructureEEE = unnamed_addr alias void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib5LiborC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PeriodEjRKNS_8CurrencyERKNS_8CalendarERKNS_10DayCounterERKNS_6HandleINS_18YieldTermStructureEEE
 @_ZN8QuantLib15DailyTenorLiborC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKNS_8CurrencyERKNS_8CalendarERKNS_10DayCounterERKNS_6HandleINS_18YieldTermStructureEEE = unnamed_addr alias void (ptr, ptr, i32, ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib15DailyTenorLiborC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKNS_8CurrencyERKNS_8CalendarERKNS_10DayCounterERKNS_6HandleINS_18YieldTermStructureEEE
@@ -854,12 +854,12 @@ entry:
   call void @_ZN8QuantLib13UnitedKingdomC1ENS0_6MarketE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 1)
   %0 = getelementptr inbounds i8, ptr %tenor, i64 4
   %tenor.val = load i32, ptr %0, align 4, !tbaa !46
-  %call = invoke fastcc noundef i32 @_ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE(i32 %tenor.val)
+  %call = invoke fastcc noundef i32 @_ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE.argprom(i32 %tenor.val)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %tenor.val25 = load i32, ptr %0, align 4, !tbaa !46
-  %call3 = invoke fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_18liborEOMERKNS_6PeriodE(i32 %tenor.val25)
+  %call3 = invoke fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_18liborEOMERKNS_6PeriodE.argprom(i32 %tenor.val25)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1585,7 +1585,7 @@ unreachable:                                      ; preds = %invoke.cont93, %inv
 declare void @_ZN8QuantLib13UnitedKingdomC1ENS0_6MarketE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE(i32 %p.4.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE.argprom(i32 %p.4.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1754,7 +1754,7 @@ ehcleanup24:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %entry
   %22 = zext nneg i32 %p.4.val to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE.argprom, i64 0, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -1763,7 +1763,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_18liborEOMERKNS_6PeriodE(i32 %p.4.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_18liborEOMERKNS_6PeriodE.argprom(i32 %p.4.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2553,11 +2553,11 @@ entry:
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %entry
-  %call9 = invoke fastcc noundef i32 @_ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE(i32 0)
+  %call9 = invoke fastcc noundef i32 @_ZN8QuantLib12_GLOBAL__N_115liborConventionERKNS_6PeriodE.argprom(i32 0)
           to label %invoke.cont12 unwind label %lpad5
 
 invoke.cont12:                                    ; preds = %invoke.cont6
-  %call15 = invoke fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_18liborEOMERKNS_6PeriodE(i32 0)
+  %call15 = invoke fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_18liborEOMERKNS_6PeriodE.argprom(i32 0)
           to label %invoke.cont14 unwind label %lpad11
 
 invoke.cont14:                                    ; preds = %invoke.cont12

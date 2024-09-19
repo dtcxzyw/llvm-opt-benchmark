@@ -3804,94 +3804,94 @@ _ZN4llvm11raw_ostreamlsEPKc.exit223:              ; preds = %572, %570, %557
   %scevgep.i.i.i = getelementptr i8, ptr %.0167405, i64 %584
   br label %585
 
-585:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.thread.i.i.i", %.lr.ph.i.i.i226
-  %.057.i.i.i = phi i64 [ %582, %.lr.ph.i.i.i226 ], [ %630, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.thread.i.i.i" ]
-  %.02956.i.i.i = phi ptr [ %.0167405, %.lr.ph.i.i.i226 ], [ %629, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.thread.i.i.i" ]
+585:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.thread.i.i.i", %.lr.ph.i.i.i226
+  %.057.i.i.i = phi i64 [ %582, %.lr.ph.i.i.i226 ], [ %630, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.thread.i.i.i" ]
+  %.02956.i.i.i = phi ptr [ %.0167405, %.lr.ph.i.i.i226 ], [ %629, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.thread.i.i.i" ]
   %586 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i, i64 8
   %587 = load ptr, ptr %586, align 8
   %588 = icmp eq ptr %.sroa.0337.0.copyload, %587
-  br i1 %588, label %589, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.thread.i.i.i"
+  br i1 %588, label %589, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.thread.i.i.i"
 
 589:                                              ; preds = %585
   %590 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i, i64 16
   %591 = load i32, ptr %590, align 8
   %592 = zext i32 %591 to i64
   %593 = icmp eq i64 %.sroa.2338.0.copyload, %592
-  br i1 %593, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.thread.i.i.i"
+  br i1 %593, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.i.i.i": ; preds = %589
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.i.i.i": ; preds = %589
   %594 = load i32, ptr %.02956.i.i.i, align 8
   %595 = add i32 %594, -3
   %spec.select.i.i.i.i.i = icmp ult i32 %595, 2
-  br i1 %spec.select.i.i.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.thread.i.i.i"
+  br i1 %spec.select.i.i.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.i.i.i", %589, %585
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.i.i.i", %589, %585
   %596 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 128
   %597 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 136
   %598 = load ptr, ptr %597, align 8
   %599 = icmp eq ptr %.sroa.0337.0.copyload, %598
-  br i1 %599, label %600, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.thread.i.i.i"
+  br i1 %599, label %600, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.thread.i.i.i"
 
-600:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.thread.i.i.i"
+600:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.thread.i.i.i"
   %601 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 144
   %602 = load i32, ptr %601, align 8
   %603 = zext i32 %602 to i64
   %604 = icmp eq i64 %.sroa.2338.0.copyload, %603
-  br i1 %604, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.thread.i.i.i"
+  br i1 %604, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.i.i.i": ; preds = %600
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.i.i.i": ; preds = %600
   %605 = load i32, ptr %596, align 8
   %606 = add i32 %605, -3
   %spec.select.i.i43.i.i.i = icmp ult i32 %606, 2
-  br i1 %spec.select.i.i43.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.thread.i.i.i"
+  br i1 %spec.select.i.i43.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.i.i.i", %600, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.thread.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.i.i.i", %600, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.thread.i.i.i"
   %607 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 256
   %608 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 264
   %609 = load ptr, ptr %608, align 8
   %610 = icmp eq ptr %.sroa.0337.0.copyload, %609
-  br i1 %610, label %611, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.thread.i.i.i"
+  br i1 %610, label %611, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.thread.i.i.i"
 
-611:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.thread.i.i.i"
+611:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.thread.i.i.i"
   %612 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 272
   %613 = load i32, ptr %612, align 8
   %614 = zext i32 %613 to i64
   %615 = icmp eq i64 %.sroa.2338.0.copyload, %614
-  br i1 %615, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.thread.i.i.i"
+  br i1 %615, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.i.i.i": ; preds = %611
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.i.i.i": ; preds = %611
   %616 = load i32, ptr %607, align 8
   %617 = add i32 %616, -3
   %spec.select.i.i45.i.i.i = icmp ult i32 %617, 2
-  br i1 %spec.select.i.i45.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.thread.i.i.i"
+  br i1 %spec.select.i.i45.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.i.i.i", %611, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.thread.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.i.i.i", %611, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.thread.i.i.i"
   %618 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 384
   %619 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 392
   %620 = load ptr, ptr %619, align 8
   %621 = icmp eq ptr %.sroa.0337.0.copyload, %620
-  br i1 %621, label %622, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.thread.i.i.i"
+  br i1 %621, label %622, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.thread.i.i.i"
 
-622:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.thread.i.i.i"
+622:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.thread.i.i.i"
   %623 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 400
   %624 = load i32, ptr %623, align 8
   %625 = zext i32 %624 to i64
   %626 = icmp eq i64 %.sroa.2338.0.copyload, %625
-  br i1 %626, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.thread.i.i.i"
+  br i1 %626, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.i.i.i": ; preds = %622
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.i.i.i": ; preds = %622
   %627 = load i32, ptr %618, align 8
   %628 = add i32 %627, -3
   %spec.select.i.i47.i.i.i = icmp ult i32 %628, 2
-  br i1 %spec.select.i.i47.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.thread.i.i.i"
+  br i1 %spec.select.i.i47.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.i.i.i", %622, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.thread.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.i.i.i", %622, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.thread.i.i.i"
   %629 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 512
   %630 = add nsw i64 %.057.i.i.i, -1
   %631 = icmp sgt i64 %.057.i.i.i, 1
   br i1 %631, label %585, label %._crit_edge.loopexit.i.i.i, !llvm.loop !59
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.thread.i.i.i"
+._crit_edge.loopexit.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.thread.i.i.i"
   %.pre.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
   %.pre61.i.i.i = sub i64 %579, %.pre.i.i.i
   br label %._crit_edge.i.i.i224
@@ -3900,7 +3900,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit223:              ; preds = %572, %570, %557
   %.pre-phi62.i.i.i = phi i64 [ %.pre61.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %581, %_ZN4llvm11raw_ostreamlsEPKc.exit223 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %.0167405, %_ZN4llvm11raw_ostreamlsEPKc.exit223 ]
   %632 = ashr exact i64 %.pre-phi62.i.i.i, 7
-  switch i64 %632, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.thread.i.i.i" [
+  switch i64 %632, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.thread.i.i.i" [
     i64 3, label %633
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge59.i.i.i
@@ -3910,74 +3910,74 @@ _ZN4llvm11raw_ostreamlsEPKc.exit223:              ; preds = %572, %570, %557
   %634 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i, i64 8
   %635 = load ptr, ptr %634, align 8
   %636 = icmp eq ptr %.sroa.0337.0.copyload, %635
-  br i1 %636, label %637, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.thread.i.i.i"
+  br i1 %636, label %637, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.thread.i.i.i"
 
 637:                                              ; preds = %633
   %638 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i, i64 16
   %639 = load i32, ptr %638, align 8
   %640 = zext i32 %639 to i64
   %641 = icmp eq i64 %.sroa.2338.0.copyload, %640
-  br i1 %641, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.thread.i.i.i"
+  br i1 %641, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.i.i.i": ; preds = %637
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.i.i.i": ; preds = %637
   %642 = load i32, ptr %.029.lcssa.i.i.i, align 8
   %643 = add i32 %642, -3
   %spec.select.i.i49.i.i.i = icmp ult i32 %643, 2
-  br i1 %spec.select.i.i49.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.thread.i.i.i"
+  br i1 %spec.select.i.i49.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.i.i.i", %637, %633
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.i.i.i", %637, %633
   %644 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i, i64 128
   br label %._crit_edge._crit_edge.i.i.i
 
-._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i224, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.thread.i.i.i"
-  %.1.i.i.i225 = phi ptr [ %644, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.thread.i.i.i" ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i224 ]
+._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i224, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.thread.i.i.i"
+  %.1.i.i.i225 = phi ptr [ %644, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.thread.i.i.i" ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i224 ]
   %645 = getelementptr inbounds nuw i8, ptr %.1.i.i.i225, i64 8
   %646 = load ptr, ptr %645, align 8
   %647 = icmp eq ptr %.sroa.0337.0.copyload, %646
-  br i1 %647, label %648, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.thread.i.i.i"
+  br i1 %647, label %648, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.thread.i.i.i"
 
 648:                                              ; preds = %._crit_edge._crit_edge.i.i.i
   %649 = getelementptr inbounds nuw i8, ptr %.1.i.i.i225, i64 16
   %650 = load i32, ptr %649, align 8
   %651 = zext i32 %650 to i64
   %652 = icmp eq i64 %.sroa.2338.0.copyload, %651
-  br i1 %652, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.thread.i.i.i"
+  br i1 %652, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.i.i.i": ; preds = %648
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.i.i.i": ; preds = %648
   %653 = load i32, ptr %.1.i.i.i225, align 8
   %654 = add i32 %653, -3
   %spec.select.i.i51.i.i.i = icmp ult i32 %654, 2
-  br i1 %spec.select.i.i51.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.thread.i.i.i"
+  br i1 %spec.select.i.i51.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.i.i.i", %648, %._crit_edge._crit_edge.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.i.i.i", %648, %._crit_edge._crit_edge.i.i.i
   %655 = getelementptr inbounds i8, ptr %.1.i.i.i225, i64 128
   br label %._crit_edge._crit_edge59.i.i.i
 
-._crit_edge._crit_edge59.i.i.i:                   ; preds = %._crit_edge.i.i.i224, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.thread.i.i.i"
-  %.2.i.i.i = phi ptr [ %655, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.thread.i.i.i" ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i224 ]
+._crit_edge._crit_edge59.i.i.i:                   ; preds = %._crit_edge.i.i.i224, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.thread.i.i.i"
+  %.2.i.i.i = phi ptr [ %655, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.thread.i.i.i" ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i224 ]
   %656 = getelementptr inbounds nuw i8, ptr %.2.i.i.i, i64 8
   %657 = load ptr, ptr %656, align 8
   %658 = icmp eq ptr %.sroa.0337.0.copyload, %657
-  br i1 %658, label %659, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.thread.i.i.i"
+  br i1 %658, label %659, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.thread.i.i.i"
 
 659:                                              ; preds = %._crit_edge._crit_edge59.i.i.i
   %660 = getelementptr inbounds nuw i8, ptr %.2.i.i.i, i64 16
   %661 = load i32, ptr %660, align 8
   %662 = zext i32 %661 to i64
   %663 = icmp eq i64 %.sroa.2338.0.copyload, %662
-  br i1 %663, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.thread.i.i.i"
+  br i1 %663, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.i.i.i": ; preds = %659
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.i.i.i": ; preds = %659
   %664 = load i32, ptr %.2.i.i.i, align 8
   %665 = add i32 %664, -3
   %spec.select.i.i53.i.i.i = icmp ult i32 %665, 2
-  br i1 %spec.select.i.i53.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.thread.i.i.i"
+  br i1 %spec.select.i.i53.i.i.i, label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.i.i.i", %659, %._crit_edge._crit_edge59.i.i.i, %._crit_edge.i.i.i224
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.i.i.i", %659, %._crit_edge._crit_edge59.i.i.i, %._crit_edge.i.i.i224
   br label %"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit"
 
-"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.thread.i.i.i"
-  %.028.i.i.i = phi ptr [ %578, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.thread.i.i.i" ], [ %.029.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit50.i.i.i" ], [ %.1.i.i.i225, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit52.i.i.i" ], [ %.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit54.i.i.i" ], [ %.02956.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit.i.i.i" ], [ %596, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit44.i.i.i" ], [ %607, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit46.i.i.i" ], [ %618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.exit48.i.i.i" ]
+"_ZSt7find_ifIPN4llvm10AsmRewriteEZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSC_RNS0_15SmallVectorImplISt4pairIPvbEEERNSD_ISA_EESK_PKNS0_11MCInstrInfoEPKNS0_13MCInstPrinterERNS0_23MCAsmParserSemaCallbackEE3$_0ET_SU_SU_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.thread.i.i.i"
+  %.028.i.i.i = phi ptr [ %578, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.thread.i.i.i" ], [ %.029.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit50.i.i.i" ], [ %.1.i.i.i225, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit52.i.i.i" ], [ %.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit54.i.i.i" ], [ %.02956.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit.i.i.i" ], [ %596, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit44.i.i.i" ], [ %607, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit46.i.i.i" ], [ %618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSD_IS9_EESK_PKNSC_11MCInstrInfoEPKNSC_13MCInstPrinterERNSC_23MCAsmParserSemaCallbackEE3$_0EclIPNSC_10AsmRewriteEEEbT_.argprom.argprom.exit48.i.i.i" ]
   %666 = load ptr, ptr %22, align 8
   %667 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #28
   %668 = getelementptr inbounds %"struct.llvm::AsmRewrite", ptr %666, i64 %667
@@ -5914,7 +5914,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser23parseAngleBrack
 
 .critedge.i:                                      ; preds = %6, %6, %6, %6
   %10 = icmp ne i8 %7, 62
-  br i1 %10, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit, label %11
+  br i1 %10, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit, label %11
 
 11:                                               ; preds = %.critedge.i
   %.012.i.ptr.le = getelementptr inbounds i8, ptr %5, i64 %.012.i.idx
@@ -5976,9 +5976,9 @@ _ZN12_GLOBAL__N_19AsmParser9jumpToLocEN4llvm5SMLocEj.exit: ; preds = %11, %16
 _ZL18angleBracketStringB5cxx11N4llvm9StringRefE.exit: ; preds = %.lr.ph.i, %_ZN12_GLOBAL__N_19AsmParser9jumpToLocEN4llvm5SMLocEj.exit
   %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
-  br label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit
+  br label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit
 
-_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit:  ; preds = %.critedge.i, %_ZL18angleBracketStringB5cxx11N4llvm9StringRefE.exit
+_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit: ; preds = %.critedge.i, %_ZL18angleBracketStringB5cxx11N4llvm9StringRefE.exit
   ret i1 %10
 }
 
@@ -7782,18 +7782,18 @@ _ZN12_GLOBAL__N_114HLASMAsmParser16lexLeadingSpacesEv.exit.i: ; preds = %_ZN4llv
   %.0.i = phi i1 [ %106, %103 ], [ %174, %171 ], [ false, %209 ], [ true, %_ZN12_GLOBAL__N_19AsmParser20checkForValidSectionEv.exit.i ], [ true, %107 ]
   %215 = load i32, ptr %94, align 8
   %216 = icmp ugt i32 %215, 64
-  br i1 %216, label %217, label %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit
+  br i1 %216, label %217, label %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit
 
 217:                                              ; preds = %214
   %218 = load ptr, ptr %92, align 8
   %219 = icmp eq ptr %218, null
-  br i1 %219, label %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit, label %220
+  br i1 %219, label %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit, label %220
 
 220:                                              ; preds = %217
   call void @_ZdaPv(ptr noundef nonnull %218) #30
-  br label %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit
+  br label %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit
 
-_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit: ; preds = %214, %217, %220
+_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit: ; preds = %214, %217, %220
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -7803,11 +7803,11 @@ _ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   br i1 %.0.i, label %221, label %222
 
-221:                                              ; preds = %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit
+221:                                              ; preds = %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit
   call void @_ZN12_GLOBAL__N_19AsmParser19eatToEndOfStatementEv(ptr noundef nonnull align 8 dereferenceable(928) %0)
   br label %292
 
-222:                                              ; preds = %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit, %89
+222:                                              ; preds = %_ZN12_GLOBAL__N_114HLASMAsmParser17parseAsHLASMLabelERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit, %89
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -7941,26 +7941,26 @@ _ZN4llvm8AsmTokenD2Ev.exit.i:                     ; preds = %285, %282, %_ZN4llv
   %.0.i33 = phi i1 [ %240, %237 ], [ %279, %_ZN4llvm8AsmTokenC2ERKS0_.exit6.i ], [ %279, %282 ], [ %279, %285 ]
   %286 = load i32, ptr %228, align 8
   %287 = icmp ugt i32 %286, 64
-  br i1 %287, label %288, label %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit
+  br i1 %287, label %288, label %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit
 
 288:                                              ; preds = %_ZN4llvm8AsmTokenD2Ev.exit.i
   %289 = load ptr, ptr %226, align 8
   %290 = icmp eq ptr %289, null
-  br i1 %290, label %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit, label %291
+  br i1 %290, label %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit, label %291
 
 291:                                              ; preds = %288
   call void @_ZdaPv(ptr noundef nonnull %289) #30
-  br label %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit
+  br label %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit
 
-_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit: ; preds = %_ZN4llvm8AsmTokenD2Ev.exit.i, %288, %291
+_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit: ; preds = %_ZN4llvm8AsmTokenD2Ev.exit.i, %288, %291
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %292
 
-292:                                              ; preds = %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit, %221, %.critedge2, %44
-  %.08 = phi i1 [ false, %44 ], [ false, %.critedge2 ], [ true, %221 ], [ %.0.i33, %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.exit ]
+292:                                              ; preds = %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit, %221, %.critedge2, %44
+  %.08 = phi i1 [ false, %44 ], [ false, %.critedge2 ], [ true, %221 ], [ %.0.i33, %_ZN12_GLOBAL__N_114HLASMAsmParser25parseAsMachineInstructionERNS_18ParseStatementInfoEPN4llvm23MCAsmParserSemaCallbackE.argprom.exit ]
   ret i1 %.08
 }
 
@@ -8337,7 +8337,7 @@ _ZNSt5dequeIN4llvm10MCAsmMacroESaIS1_EED2Ev.exit: ; preds = %_ZN4llvm11SmallVect
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %.val = load ptr, ptr %98, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.exit, label %99
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.argprom.exit, label %99
 
 99:                                               ; preds = %_ZNSt5dequeIN4llvm10MCAsmMacroESaIS1_EED2Ev.exit
   %100 = getelementptr inbounds i8, ptr %0, i64 384
@@ -8346,16 +8346,16 @@ _ZNSt5dequeIN4llvm10MCAsmMacroESaIS1_EED2Ev.exit: ; preds = %_ZN4llvm11SmallVect
   %102 = ptrtoint ptr %.val to i64
   %103 = sub i64 %101, %102
   call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %103) #30
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.exit
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.argprom.exit
 
-_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.exit: ; preds = %_ZNSt5dequeIN4llvm10MCAsmMacroESaIS1_EED2Ev.exit, %99
+_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.argprom.exit: ; preds = %_ZNSt5dequeIN4llvm10MCAsmMacroESaIS1_EED2Ev.exit, %99
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %_ZN4llvm9StringMapISt4pairIPNS_20MCAsmParserExtensionEPFbS3_NS_9StringRefENS_5SMLocEEENS_15MallocAllocatorEED2Ev.exit, label %108
 
-108:                                              ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.exit
+108:                                              ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.argprom.exit
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %110 = load i32, ptr %109, align 8
   %.not10.i9 = icmp eq i32 %110, 0
@@ -8387,7 +8387,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.exit: ; preds = %
   %.not.i15 = icmp eq i64 %indvars.iv.next.i14, %111
   br i1 %.not.i15, label %_ZN4llvm9StringMapISt4pairIPNS_20MCAsmParserExtensionEPFbS3_NS_9StringRefENS_5SMLocEEENS_15MallocAllocatorEED2Ev.exit, label %.lr.ph.i11, !llvm.loop !106
 
-_ZN4llvm9StringMapISt4pairIPNS_20MCAsmParserExtensionEPFbS3_NS_9StringRefENS_5SMLocEEENS_15MallocAllocatorEED2Ev.exit: ; preds = %118, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.exit, %108
+_ZN4llvm9StringMapISt4pairIPNS_20MCAsmParserExtensionEPFbS3_NS_9StringRefENS_5SMLocEEENS_15MallocAllocatorEED2Ev.exit: ; preds = %118, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EED2Ev.argprom.exit, %108
   %119 = load ptr, ptr %104, align 8
   call void @free(ptr noundef %119) #28
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -8876,17 +8876,17 @@ _ZNSt6vectorIN4llvm7AsmCondESaIS1_EE9push_backERKS1_.exit.i: ; preds = %256, %25
   %263 = getelementptr inbounds i8, ptr %261, i64 224
   %264 = load ptr, ptr %263, align 8
   call void %264(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
-  br label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit
+  br label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.argprom.exit
 
 265:                                              ; preds = %_ZNSt6vectorIN4llvm7AsmCondESaIS1_EE9push_backERKS1_.exit.i
   %266 = getelementptr inbounds i8, ptr %261, i64 256
   %267 = load ptr, ptr %266, align 8
   %268 = call noundef zeroext i1 %267(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(8) %44) #28
-  br i1 %268, label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit, label %269
+  br i1 %268, label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.argprom.exit, label %269
 
 269:                                              ; preds = %265
   %270 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #28
-  br i1 %270, label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit, label %271
+  br i1 %270, label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.argprom.exit, label %271
 
 271:                                              ; preds = %269
   switch i32 %245, label %272 [
@@ -8945,43 +8945,43 @@ _ZNSt6vectorIN4llvm7AsmCondESaIS1_EE9push_backERKS1_.exit.i: ; preds = %256, %25
   %296 = xor i1 %293, true
   %297 = zext i1 %296 to i8
   store i8 %297, ptr %258, align 1
-  br label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit
+  br label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.argprom.exit
 
-_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit: ; preds = %262, %265, %269, %291
+_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.argprom.exit: ; preds = %262, %265, %269, %291
   %.0.i = phi i1 [ true, %269 ], [ true, %265 ], [ false, %291 ], [ false, %262 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 298:                                              ; preds = %243
-  %299 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfbEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext true)
+  %299 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfbEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 300:                                              ; preds = %243
-  %301 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfbEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext false)
+  %301 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfbEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext false)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 302:                                              ; preds = %243
-  %303 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfcEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext true)
+  %303 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfcEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 304:                                              ; preds = %243
-  %305 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfeqsEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext true)
+  %305 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfeqsEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 306:                                              ; preds = %243
-  %307 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfcEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext false)
+  %307 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfcEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext false)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 308:                                              ; preds = %243
-  %309 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfeqsEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext false)
+  %309 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfeqsEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext false)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 310:                                              ; preds = %243
-  %311 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfdefEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext true)
+  %311 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfdefEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 312:                                              ; preds = %243, %243
-  %313 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfdefEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext false)
+  %313 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfdefEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext false)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 314:                                              ; preds = %243
@@ -9567,15 +9567,15 @@ _ZN4llvm8AsmTokenD2Ev.exit225:                    ; preds = %_ZN4llvm8AsmTokenC2
   ]
 
 549:                                              ; preds = %548, %548
-  %550 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 0)
+  %550 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 0)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 551:                                              ; preds = %548
-  %552 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 1)
+  %552 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 1)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 553:                                              ; preds = %548
-  %554 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 3)
+  %554 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 3)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 555:                                              ; preds = %548
@@ -9966,7 +9966,7 @@ _ZN4llvm8AsmTokenD2Ev.exit225:                    ; preds = %_ZN4llvm8AsmTokenC2
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 715:                                              ; preds = %548
-  %716 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDirectiveEndrEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0)
+  %716 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDirectiveEndrEN4llvm5SMLocE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 717:                                              ; preds = %548
@@ -9990,7 +9990,7 @@ _ZN4llvm8AsmTokenD2Ev.exit225:                    ; preds = %_ZN4llvm8AsmTokenC2
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 727:                                              ; preds = %548, %548
-  %728 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveSpaceEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(928) %0)
+  %728 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveSpaceEN4llvm9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 729:                                              ; preds = %548
@@ -10165,7 +10165,7 @@ _ZN4llvm8AsmTokenD2Ev.exit225:                    ; preds = %_ZN4llvm8AsmTokenC2
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 811:                                              ; preds = %548
-  %812 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser28parseDirectiveCFISignalFrameEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0)
+  %812 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser28parseDirectiveCFISignalFrameEN4llvm5SMLocE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 813:                                              ; preds = %548
@@ -10184,7 +10184,7 @@ _ZN4llvm8AsmTokenD2Ev.exit225:                    ; preds = %_ZN4llvm8AsmTokenC2
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 819:                                              ; preds = %548
-  %820 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser22parseDirectiveCFILabelEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0)
+  %820 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser22parseDirectiveCFILabelEN4llvm5SMLocE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 821:                                              ; preds = %548, %548
@@ -10222,7 +10222,7 @@ _ZN4llvm8AsmTokenD2Ev.exit225:                    ; preds = %_ZN4llvm8AsmTokenC2
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 833:                                              ; preds = %548
-  %834 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveEndEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0)
+  %834 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveEndEN4llvm5SMLocE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 835:                                              ; preds = %548
@@ -10488,8 +10488,8 @@ _ZN4llvm8AsmTokenC2ERKS0_.exit258:                ; preds = %918, %920
 _ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit.fold.split: ; preds = %_ZN4llvm8AsmTokenD2Ev.exit225
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
-_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit: ; preds = %_ZN4llvm8AsmTokenD2Ev.exit225, %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit.fold.split, %927, %924, %_ZN4llvm8AsmTokenC2ERKS0_.exit258, %157, %143, %120, %_ZN4llvmeqENS_9StringRefES0_.exit257.thread357, %446, %438, %442, %339, %_ZN4llvmeqENS_9StringRefES0_.exit245.thread, %_ZN4llvmeqENS_9StringRefES0_.exit229.thread, %888, %884, %882, %880, %878, %876, %874, %872, %870, %868, %866, %864, %855, %852, %850, %847, %845, %843, %841, %839, %837, %835, %833, %831, %829, %827, %825, %823, %821, %819, %817, %815, %813, %811, %809, %807, %805, %803, %801, %799, %797, %795, %793, %791, %789, %787, %785, %783, %781, %779, %777, %775, %773, %771, %763, %755, %753, %751, %749, %747, %745, %743, %741, %739, %735, %733, %731, %729, %727, %725, %723, %721, %719, %717, %715, %713, %711, %709, %700, %698, %696, %694, %692, %690, %686, %682, %678, %674, %670, %666, %662, %658, %654, %650, %646, %644, %642, %640, %638, %636, %634, %632, %630, %628, %616, %604, %599, %594, %591, %579, %575, %571, %567, %563, %559, %555, %553, %551, %549, %545, %507, %492, %477, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %324, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %298, %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit, %218, %192, %171
-  %.1 = phi i1 [ false, %324 ], [ %352, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ false, %477 ], [ %497, %492 ], [ %508, %507 ], [ %547, %545 ], [ %891, %888 ], [ %887, %884 ], [ %883, %882 ], [ %881, %880 ], [ %879, %878 ], [ %877, %876 ], [ %875, %874 ], [ %873, %872 ], [ %871, %870 ], [ %869, %868 ], [ %867, %866 ], [ %865, %864 ], [ %863, %855 ], [ %854, %852 ], [ %851, %850 ], [ %849, %847 ], [ %846, %845 ], [ %844, %843 ], [ %842, %841 ], [ %840, %839 ], [ %838, %837 ], [ %836, %835 ], [ %834, %833 ], [ %832, %831 ], [ %830, %829 ], [ %828, %827 ], [ %826, %825 ], [ %824, %823 ], [ %822, %821 ], [ %820, %819 ], [ %818, %817 ], [ %816, %815 ], [ %814, %813 ], [ %812, %811 ], [ %810, %809 ], [ %808, %807 ], [ %806, %805 ], [ %804, %803 ], [ %802, %801 ], [ %800, %799 ], [ %798, %797 ], [ %796, %795 ], [ %794, %793 ], [ %792, %791 ], [ %790, %789 ], [ %788, %787 ], [ %786, %785 ], [ %784, %783 ], [ %782, %781 ], [ %780, %779 ], [ %778, %777 ], [ %776, %775 ], [ %774, %773 ], [ %772, %771 ], [ false, %763 ], [ false, %755 ], [ %754, %753 ], [ %752, %751 ], [ %750, %749 ], [ %748, %747 ], [ %746, %745 ], [ %744, %743 ], [ %742, %741 ], [ %740, %739 ], [ %738, %735 ], [ %734, %733 ], [ %732, %731 ], [ %730, %729 ], [ %728, %727 ], [ %726, %725 ], [ %724, %723 ], [ %722, %721 ], [ %720, %719 ], [ %718, %717 ], [ %716, %715 ], [ %714, %713 ], [ %712, %711 ], [ %710, %709 ], [ %708, %700 ], [ %699, %698 ], [ %697, %696 ], [ %695, %694 ], [ %693, %692 ], [ %691, %690 ], [ %689, %686 ], [ %685, %682 ], [ %681, %678 ], [ %677, %674 ], [ %673, %670 ], [ %669, %666 ], [ %665, %662 ], [ %661, %658 ], [ %657, %654 ], [ %653, %650 ], [ false, %646 ], [ %645, %644 ], [ %643, %642 ], [ %641, %640 ], [ %639, %638 ], [ %637, %636 ], [ %635, %634 ], [ %633, %632 ], [ %631, %630 ], [ %629, %628 ], [ %627, %616 ], [ %615, %604 ], [ %603, %599 ], [ %598, %594 ], [ %593, %591 ], [ %590, %579 ], [ %578, %575 ], [ %574, %571 ], [ %570, %567 ], [ %566, %563 ], [ %562, %559 ], [ %558, %555 ], [ %554, %553 ], [ %552, %551 ], [ %550, %549 ], [ %900, %_ZN4llvmeqENS_9StringRefES0_.exit229.thread ], [ %903, %_ZN4llvmeqENS_9StringRefES0_.exit245.thread ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %.0.i, %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit ], [ %178, %171 ], [ %199, %192 ], [ %225, %218 ], [ true, %339 ], [ false, %438 ], [ %445, %442 ], [ false, %446 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit225 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit257.thread357 ], [ false, %120 ], [ false, %143 ], [ false, %157 ], [ %921, %_ZN4llvm8AsmTokenC2ERKS0_.exit258 ], [ %921, %924 ], [ %921, %927 ], [ false, %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit.fold.split ]
+_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit: ; preds = %_ZN4llvm8AsmTokenD2Ev.exit225, %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit.fold.split, %927, %924, %_ZN4llvm8AsmTokenC2ERKS0_.exit258, %157, %143, %120, %_ZN4llvmeqENS_9StringRefES0_.exit257.thread357, %446, %438, %442, %339, %_ZN4llvmeqENS_9StringRefES0_.exit245.thread, %_ZN4llvmeqENS_9StringRefES0_.exit229.thread, %888, %884, %882, %880, %878, %876, %874, %872, %870, %868, %866, %864, %855, %852, %850, %847, %845, %843, %841, %839, %837, %835, %833, %831, %829, %827, %825, %823, %821, %819, %817, %815, %813, %811, %809, %807, %805, %803, %801, %799, %797, %795, %793, %791, %789, %787, %785, %783, %781, %779, %777, %775, %773, %771, %763, %755, %753, %751, %749, %747, %745, %743, %741, %739, %735, %733, %731, %729, %727, %725, %723, %721, %719, %717, %715, %713, %711, %709, %700, %698, %696, %694, %692, %690, %686, %682, %678, %674, %670, %666, %662, %658, %654, %650, %646, %644, %642, %640, %638, %636, %634, %632, %630, %628, %616, %604, %599, %594, %591, %579, %575, %571, %567, %563, %559, %555, %553, %551, %549, %545, %507, %492, %477, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %324, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %298, %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.argprom.exit, %218, %192, %171
+  %.1 = phi i1 [ false, %324 ], [ %352, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ false, %477 ], [ %497, %492 ], [ %508, %507 ], [ %547, %545 ], [ %891, %888 ], [ %887, %884 ], [ %883, %882 ], [ %881, %880 ], [ %879, %878 ], [ %877, %876 ], [ %875, %874 ], [ %873, %872 ], [ %871, %870 ], [ %869, %868 ], [ %867, %866 ], [ %865, %864 ], [ %863, %855 ], [ %854, %852 ], [ %851, %850 ], [ %849, %847 ], [ %846, %845 ], [ %844, %843 ], [ %842, %841 ], [ %840, %839 ], [ %838, %837 ], [ %836, %835 ], [ %834, %833 ], [ %832, %831 ], [ %830, %829 ], [ %828, %827 ], [ %826, %825 ], [ %824, %823 ], [ %822, %821 ], [ %820, %819 ], [ %818, %817 ], [ %816, %815 ], [ %814, %813 ], [ %812, %811 ], [ %810, %809 ], [ %808, %807 ], [ %806, %805 ], [ %804, %803 ], [ %802, %801 ], [ %800, %799 ], [ %798, %797 ], [ %796, %795 ], [ %794, %793 ], [ %792, %791 ], [ %790, %789 ], [ %788, %787 ], [ %786, %785 ], [ %784, %783 ], [ %782, %781 ], [ %780, %779 ], [ %778, %777 ], [ %776, %775 ], [ %774, %773 ], [ %772, %771 ], [ false, %763 ], [ false, %755 ], [ %754, %753 ], [ %752, %751 ], [ %750, %749 ], [ %748, %747 ], [ %746, %745 ], [ %744, %743 ], [ %742, %741 ], [ %740, %739 ], [ %738, %735 ], [ %734, %733 ], [ %732, %731 ], [ %730, %729 ], [ %728, %727 ], [ %726, %725 ], [ %724, %723 ], [ %722, %721 ], [ %720, %719 ], [ %718, %717 ], [ %716, %715 ], [ %714, %713 ], [ %712, %711 ], [ %710, %709 ], [ %708, %700 ], [ %699, %698 ], [ %697, %696 ], [ %695, %694 ], [ %693, %692 ], [ %691, %690 ], [ %689, %686 ], [ %685, %682 ], [ %681, %678 ], [ %677, %674 ], [ %673, %670 ], [ %669, %666 ], [ %665, %662 ], [ %661, %658 ], [ %657, %654 ], [ %653, %650 ], [ false, %646 ], [ %645, %644 ], [ %643, %642 ], [ %641, %640 ], [ %639, %638 ], [ %637, %636 ], [ %635, %634 ], [ %633, %632 ], [ %631, %630 ], [ %629, %628 ], [ %627, %616 ], [ %615, %604 ], [ %603, %599 ], [ %598, %594 ], [ %593, %591 ], [ %590, %579 ], [ %578, %575 ], [ %574, %571 ], [ %570, %567 ], [ %566, %563 ], [ %562, %559 ], [ %558, %555 ], [ %554, %553 ], [ %552, %551 ], [ %550, %549 ], [ %900, %_ZN4llvmeqENS_9StringRefES0_.exit229.thread ], [ %903, %_ZN4llvmeqENS_9StringRefES0_.exit245.thread ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %.0.i, %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.argprom.exit ], [ %178, %171 ], [ %199, %192 ], [ %225, %218 ], [ true, %339 ], [ false, %438 ], [ %445, %442 ], [ false, %446 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit225 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit257.thread357 ], [ false, %120 ], [ false, %143 ], [ false, %157 ], [ %921, %_ZN4llvm8AsmTokenC2ERKS0_.exit258 ], [ %921, %924 ], [ %921, %927 ], [ false, %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit.fold.split ]
   %928 = load i32, ptr %108, align 8
   %929 = icmp ugt i32 %928, 64
   br i1 %929, label %930, label %_ZN4llvm8AsmTokenD2Ev.exit260
@@ -10657,13 +10657,13 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9
   %18 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %17, i64 noundef 8) #28
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %.not.i.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i.i, label %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i, label %20
+  br i1 %.not.i.i.i.i, label %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i, label %20
 
 20:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr readonly align 1 %1, i64 %2, i1 false)
-  br label %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i
+  br label %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i
 
-_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i: ; preds = %20, %16
+_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i: ; preds = %20, %16
   %21 = getelementptr inbounds i8, ptr %19, i64 %2
   store i8 0, ptr %21, align 1
   store i64 %2, ptr %18, align 8
@@ -10680,8 +10680,8 @@ _ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15
   %29 = getelementptr inbounds ptr, ptr %27, i64 %28
   br label %.preheader.i.i26.i.i
 
-.preheader.i.i26.i.i:                             ; preds = %.critedge.i.i.i28.i.i, %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i
-  %.sroa.0.0.i.i = phi ptr [ %29, %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i ], [ %31, %.critedge.i.i.i28.i.i ]
+.preheader.i.i26.i.i:                             ; preds = %.critedge.i.i.i28.i.i, %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i
+  %.sroa.0.0.i.i = phi ptr [ %29, %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser13DirectiveKindEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i ], [ %31, %.critedge.i.i.i28.i.i ]
   %30 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %magicptr.i.i.i27.i.i = ptrtoint ptr %30 to i64
   switch i64 %magicptr.i.i.i27.i.i, label %_ZN4llvm9StringMapIN12_GLOBAL__N_19AsmParser13DirectiveKindENS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_.exit [
@@ -10747,13 +10747,13 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9
   %18 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %17, i64 noundef 8) #28
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %.not.i.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i.i, label %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i, label %20
+  br i1 %.not.i.i.i.i, label %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i, label %20
 
 20:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr readonly align 1 %1, i64 %2, i1 false)
-  br label %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i
+  br label %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i
 
-_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i: ; preds = %20, %16
+_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i: ; preds = %20, %16
   %21 = getelementptr inbounds i8, ptr %19, i64 %2
   store i8 0, ptr %21, align 1
   store i64 %2, ptr %18, align 8
@@ -10770,8 +10770,8 @@ _ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_1
   %29 = getelementptr inbounds ptr, ptr %27, i64 %28
   br label %.preheader.i.i26.i.i
 
-.preheader.i.i26.i.i:                             ; preds = %.critedge.i.i.i28.i.i, %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i
-  %.sroa.0.0.i.i = phi ptr [ %29, %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit.i.i ], [ %31, %.critedge.i.i.i28.i.i ]
+.preheader.i.i26.i.i:                             ; preds = %.critedge.i.i.i28.i.i, %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i
+  %.sroa.0.0.i.i = phi ptr [ %29, %_ZN4llvm14StringMapEntryIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.argprom.exit.i.i ], [ %31, %.critedge.i.i.i28.i.i ]
   %30 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %magicptr.i.i.i27.i.i = ptrtoint ptr %30 to i64
   switch i64 %magicptr.i.i.i27.i.i, label %_ZN4llvm9StringMapIN12_GLOBAL__N_19AsmParser14CVDefRangeTypeENS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_.exit [
@@ -11220,7 +11220,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #16
 declare void @_ZNK4llvm9StringRef5lowerB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfbEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfbEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
@@ -11281,7 +11281,7 @@ _ZNSt6vectorIN4llvm7AsmCondESaIS1_EE9push_backERKS1_.exit: ; preds = %8, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfcEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveIfcEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -11474,7 +11474,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %72, %95, %97
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfeqsEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfeqsEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -11654,7 +11654,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNSt6vectorIN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfdefEN4llvm5SMLocEb(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveIfdefEN4llvm5SMLocEb.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -12538,7 +12538,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16handleMa
   store ptr %70, ptr %12, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.pre-phi50, ptr %72, align 8
-  call fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %71, i64 %.pre-phi42, ptr noundef nonnull byval(%"class.llvm::ArrayRef.380") align 8 %12, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %71, i64 %.pre-phi42, ptr noundef nonnull byval(%"class.llvm::ArrayRef.380") align 8 %12, i1 noundef zeroext true)
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -12601,7 +12601,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %81, %83
   %111 = load ptr, ptr %17, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   store ptr %112, ptr %17, align 8
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit
 
 113:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.val16.i.i = load ptr, ptr %16, align 8
@@ -12609,13 +12609,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %81, %83
   %115 = ptrtoint ptr %.val16.i.i to i64
   %116 = sub i64 %114, %115
   %117 = icmp eq i64 %116, 9223372036854775800
-  br i1 %117, label %118, label %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %117, label %118, label %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
 
 118:                                              ; preds = %113
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.197) #27
   unreachable
 
-_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %113
+_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %113
   %119 = ashr exact i64 %116, 3
   %120 = icmp eq ptr %107, %.val16.i.i
   %.sroa.speculated.i.i.i = select i1 %120, i64 1, i64 %119
@@ -12624,42 +12624,42 @@ _ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.e
   %123 = call i64 @llvm.umin.i64(i64 %121, i64 1152921504606846975)
   %124 = select i1 %122, i64 1152921504606846975, i64 %123
   %.not.i.i.i = icmp eq i64 %124, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i, label %125
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %125
 
-125:                                              ; preds = %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+125:                                              ; preds = %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
   %126 = shl nuw nsw i64 %124, 3
   %127 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %126) #29
-  br label %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i
+  br label %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i
 
-_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %125, %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %128 = phi ptr [ %127, %125 ], [ null, %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %125, %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  %128 = phi ptr [ %127, %125 ], [ null, %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
   %129 = getelementptr inbounds ptr, ptr %128, i64 %119
   store ptr %91, ptr %129, align 8
   %130 = icmp sgt i64 %116, 0
-  br i1 %130, label %131, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
+  br i1 %130, label %131, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i
 
-131:                                              ; preds = %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i
+131:                                              ; preds = %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %128, ptr align 8 %.val16.i.i, i64 %116, i1 false)
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i
 
-_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i: ; preds = %131, %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i: ; preds = %131, %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i
   %132 = getelementptr inbounds i8, ptr %128, i64 %116
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   %.not.i22.i.i = icmp eq ptr %.val16.i.i, null
-  br i1 %.not.i22.i.i, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %134
+  br i1 %.not.i22.i.i, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i, label %134
 
-134:                                              ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
+134:                                              ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.val16.i.i, i64 noundef %116) #30
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i
 
-_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %134, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
+_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i: ; preds = %134, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i
   store ptr %128, ptr %16, align 8
   store ptr %133, ptr %17, align 8
   %135 = getelementptr inbounds ptr, ptr %128, i64 %124
   store ptr %135, ptr %108, align 8
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit
 
-_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit: ; preds = %110, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit: ; preds = %110, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, 1
@@ -12682,14 +12682,14 @@ _ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit:
   %.not.i.i.i15 = icmp eq ptr %146, %148
   br i1 %.not.i.i.i15, label %152, label %149
 
-149:                                              ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit
+149:                                              ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit
   call void @_ZN4llvm9SourceMgr9SrcBufferC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %146, ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   %150 = load ptr, ptr %145, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 24
   store ptr %151, ptr %145, align 8
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
 
-152:                                              ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit
+152:                                              ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit
   call void @_ZNSt6vectorIN4llvm9SourceMgr9SrcBufferESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr %146, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %.pre.i = load ptr, ptr %145, align 8
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
@@ -12867,7 +12867,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4llvm9StringMapISt4pairIPNS_20MCAsm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -14258,7 +14258,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %20
 
 .lr.ph:                                           ; preds = %49, %.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(88) %48, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.380") align 8 %13, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(88) %48, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.380") align 8 %13, i1 noundef zeroext false)
   %58 = load i64, ptr %7, align 8
   %59 = add nsw i64 %58, -1
   store i64 %59, ptr %7, align 8
@@ -14266,7 +14266,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %20
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
-  call fastcc void @_ZN12_GLOBAL__N_19AsmParser24instantiateMacroLikeBodyEPN4llvm10MCAsmMacroENS1_5SMLocERNS1_19raw_svector_ostreamE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %12)
+  call fastcc void @_ZN12_GLOBAL__N_19AsmParser24instantiateMacroLikeBodyEPN4llvm10MCAsmMacroENS1_5SMLocERNS1_19raw_svector_ostreamE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %12)
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #28
   %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #28
   %61 = load ptr, ptr %11, align 8
@@ -14358,13 +14358,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDir
   %.sroa.013.018 = phi ptr [ %34, %.lr.ph ], [ %39, %38 ]
   store ptr %.sroa.013.018, ptr %9, align 8
   store i64 1, ptr %37, align 8
-  call fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(88) %26, ptr nonnull %4, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.380") align 8 %9, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(88) %26, ptr nonnull %4, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.380") align 8 %9, i1 noundef zeroext true)
   %39 = getelementptr inbounds i8, ptr %.sroa.013.018, i64 24
   %.not16 = icmp eq ptr %39, %36
   br i1 %.not16, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %38, %27
-  call fastcc void @_ZN12_GLOBAL__N_19AsmParser24instantiateMacroLikeBodyEPN4llvm10MCAsmMacroENS1_5SMLocERNS1_19raw_svector_ostreamE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %8)
+  call fastcc void @_ZN12_GLOBAL__N_19AsmParser24instantiateMacroLikeBodyEPN4llvm10MCAsmMacroENS1_5SMLocERNS1_19raw_svector_ostreamE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %8)
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #28
   %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
   %41 = load ptr, ptr %7, align 8
@@ -14651,7 +14651,7 @@ _ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE12emplace_backIJNS1_9TokenKindENS0_9StringR
   call void @_ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE17_M_realloc_insertIJNS1_9TokenKindENS0_9StringRefEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr null, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
   store ptr %10, ptr %13, align 8
   store i64 1, ptr %77, align 8
-  call fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(88) %48, ptr nonnull %4, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.380") align 8 %13, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(88) %48, ptr nonnull %4, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.380") align 8 %13, i1 noundef zeroext true)
   %79 = load ptr, ptr %10, align 8
   %80 = load ptr, ptr %75, align 8
   %.not4.i.i.i.i = icmp eq ptr %79, %80
@@ -14702,7 +14702,7 @@ _ZNSt6vectorIN4llvm8AsmTokenESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN4ll
   br i1 %.not16, label %._crit_edge, label %_ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE12emplace_backIJNS1_9TokenKindENS0_9StringRefEEEERS1_DpOT_.exit, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4llvm8AsmTokenESaIS1_EED2Ev.exit, %73
-  call fastcc void @_ZN12_GLOBAL__N_19AsmParser24instantiateMacroLikeBodyEPN4llvm10MCAsmMacroENS1_5SMLocERNS1_19raw_svector_ostreamE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %9)
+  call fastcc void @_ZN12_GLOBAL__N_19AsmParser24instantiateMacroLikeBodyEPN4llvm10MCAsmMacroENS1_5SMLocERNS1_19raw_svector_ostreamE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %9)
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #28
   call void @_ZN4llvm11SmallStringILj256EED2Ev(ptr noundef nonnull align 8 dereferenceable(280) %8) #28
   br label %.critedge
@@ -14839,7 +14839,7 @@ _ZN4llvm19MCAsmMacroParameterD2Ev.exit:           ; preds = %_ZSt8_DestroyIPN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDirectiveEndrEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDirectiveEndrEN4llvm5SMLocE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %.val = load ptr, ptr %3, align 8
@@ -15049,7 +15049,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser20parseDir
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveSpaceEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveSpaceEN4llvm9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.llvm::SMLoc", align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
@@ -18934,7 +18934,7 @@ _ZN12_GLOBAL__N_19AsmParser29parseRegisterOrRegisterNumberERlN4llvm5SMLocE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser28parseDirectiveCFISignalFrameEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser28parseDirectiveCFISignalFrameEN4llvm5SMLocE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #28
   br i1 %2, label %11, label %3
 
@@ -19202,7 +19202,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser27parseDir
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser22parseDirectiveCFILabelEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser22parseDirectiveCFILabelEN4llvm5SMLocE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -20377,7 +20377,7 @@ _ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
   %586 = ptrtoint ptr %583 to i64
   %587 = sub i64 %585, %586
   %588 = sdiv exact i64 %587, 48
-  call fastcc void @_ZN12_GLOBAL__N_19AsmParser16checkForBadMacroEN4llvm5SMLocENS1_9StringRefES3_NS1_8ArrayRefINS1_19MCAsmMacroParameterEEE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr %578, i64 %582, ptr %583, i64 %588)
+  call fastcc void @_ZN12_GLOBAL__N_19AsmParser16checkForBadMacroEN4llvm5SMLocENS1_9StringRefES3_NS1_8ArrayRefINS1_19MCAsmMacroParameterEEE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr %578, i64 %582, ptr %583, i64 %588)
   %.sroa.03.0.copyload = load ptr, ptr %6, align 8
   %.sroa.24.0.copyload = load i64, ptr %69, align 8
   %589 = load ptr, ptr %8, align 8
@@ -20823,7 +20823,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveEndEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveEndEN4llvm5SMLocE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.llvm::AsmToken", align 8
   %3 = tail call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #28
   br i1 %3, label %.loopexit, label %.preheader
@@ -24167,12 +24167,12 @@ _ZN4llvm8AsmTokenD2Ev.exit.thread:                ; preds = %138, %155, %_ZN4llv
   store ptr null, ptr %10, align 8
   %185 = load i8, ptr %90, align 1
   %186 = trunc i8 %185 to i1
-  br i1 %186, label %187, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit
+  br i1 %186, label %187, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit
 
 187:                                              ; preds = %182
   %188 = load ptr, ptr %83, align 8
   %189 = load i32, ptr %188, align 8
-  switch i32 %189, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit [
+  switch i32 %189, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit [
     i32 37, label %190
     i32 39, label %.preheader223
   ]
@@ -24266,9 +24266,9 @@ _ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16al
   switch i8 %235, label %238 [
     i8 33, label %236
     i8 62, label %240
-    i8 0, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit
-    i8 10, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit
-    i8 13, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit
+    i8 0, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit
+    i8 10, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit
+    i8 13, label %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit
   ]
 
 236:                                              ; preds = %.preheader223
@@ -24362,7 +24362,7 @@ _ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE9push_backERKS1_.exit96: ; preds = %_ZNSt16
   %or.cond284 = select i1 %281, i1 true, i1 %283
   br i1 %or.cond284, label %_ZN4llvm8AsmTokenD2Ev.exit91, label %_ZN4llvm8AsmTokenD2Ev.exit91.sink.split
 
-_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit:  ; preds = %.preheader223, %.preheader223, %.preheader223, %187, %182
+_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit: ; preds = %.preheader223, %.preheader223, %.preheader223, %187, %182
   %284 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseMacroArgumentERSt6vectorIN4llvm8AsmTokenESaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(24) %91, i1 noundef zeroext %183)
   br i1 %284, label %.loopexit, label %_ZN4llvm8AsmTokenD2Ev.exit91
 
@@ -24371,7 +24371,7 @@ _ZN4llvm8AsmTokenD2Ev.exit91.sink.split:          ; preds = %_ZNSt6vectorIN4llvm
   call void @_ZdaPv(ptr noundef nonnull %.sink) #30
   br label %_ZN4llvm8AsmTokenD2Ev.exit91
 
-_ZN4llvm8AsmTokenD2Ev.exit91:                     ; preds = %_ZN4llvm8AsmTokenD2Ev.exit91.sink.split, %_ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE9push_backERKS1_.exit96, %_ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE9push_backERKS1_.exit, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit
+_ZN4llvm8AsmTokenD2Ev.exit91:                     ; preds = %_ZN4llvm8AsmTokenD2Ev.exit91.sink.split, %_ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE9push_backERKS1_.exit96, %_ZNSt6vectorIN4llvm8AsmTokenESaIS1_EE9push_backERKS1_.exit, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit
   %285 = load i64, ptr %89, align 8
   %286 = icmp eq i64 %285, 0
   br i1 %286, label %.thread219, label %.preheader222
@@ -24644,10 +24644,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit189:               ; preds = %366, %362
   %389 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser18parseOptionalTokenENS_8AsmToken9TokenKindE(ptr noundef nonnull align 8 dereferenceable(34) %0, i32 noundef 26) #28
   br label %.loopexit
 
-.loopexit:                                        ; preds = %387, %.preheader, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit, %190, %388, %_ZN4llvmplERKNS_5TwineES2_.exit128, %210, %180, %166, %161
-  %cond = phi i1 [ false, %161 ], [ false, %166 ], [ false, %180 ], [ true, %388 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit128 ], [ false, %210 ], [ false, %190 ], [ false, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit ], [ false, %.preheader ], [ false, %387 ]
-  %.279 = phi i1 [ %.077239, %161 ], [ %.077239, %166 ], [ true, %180 ], [ %.178214, %388 ], [ %.178214, %_ZN4llvmplERKNS_5TwineES2_.exit128 ], [ %.178214, %210 ], [ %.178214, %190 ], [ %.178214, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit ], [ %.178214, %.preheader ], [ %.178214, %387 ]
-  %.175 = phi i1 [ %162, %161 ], [ %167, %166 ], [ %181, %180 ], [ %.074240, %388 ], [ %293, %_ZN4llvmplERKNS_5TwineES2_.exit128 ], [ %211, %210 ], [ false, %190 ], [ true, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.exit ], [ false, %.preheader ], [ %.2, %387 ]
+.loopexit:                                        ; preds = %387, %.preheader, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit, %190, %388, %_ZN4llvmplERKNS_5TwineES2_.exit128, %210, %180, %166, %161
+  %cond = phi i1 [ false, %161 ], [ false, %166 ], [ false, %180 ], [ true, %388 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit128 ], [ false, %210 ], [ false, %190 ], [ false, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit ], [ false, %.preheader ], [ false, %387 ]
+  %.279 = phi i1 [ %.077239, %161 ], [ %.077239, %166 ], [ true, %180 ], [ %.178214, %388 ], [ %.178214, %_ZN4llvmplERKNS_5TwineES2_.exit128 ], [ %.178214, %210 ], [ %.178214, %190 ], [ %.178214, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit ], [ %.178214, %.preheader ], [ %.178214, %387 ]
+  %.175 = phi i1 [ %162, %161 ], [ %167, %166 ], [ %181, %180 ], [ %.074240, %388 ], [ %293, %_ZN4llvmplERKNS_5TwineES2_.exit128 ], [ %211, %210 ], [ false, %190 ], [ true, %_ZL20isAngleBracketStringRN4llvm5SMLocES1_.argprom.exit ], [ false, %.preheader ], [ %.2, %387 ]
   %390 = load ptr, ptr %91, align 8
   %391 = load ptr, ptr %97, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %390, %391
@@ -24720,7 +24720,7 @@ _ZN4llvm11SmallVectorINS_5SMLocELj4EED2Ev.exit:   ; preds = %.loopexit224, %414
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull align 8 dereferenceable(88) %2, ptr %3, i64 %4, ptr noundef byval(%"class.llvm::ArrayRef.380") align 8 %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19AsmParser11expandMacroERN4llvm19raw_svector_ostreamERNS1_10MCAsmMacroENS1_8ArrayRefINS1_19MCAsmMacroParameterEEENS6_ISt6vectorINS1_8AsmTokenESaISA_EEEEb.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull align 8 dereferenceable(88) %2, ptr %3, i64 %4, ptr noundef byval(%"class.llvm::ArrayRef.380") align 8 %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 {
   %8 = alloca %"class.llvm::ArrayRef.379", align 8
   %9 = alloca i32, align 4
   %10 = alloca %class.anon, align 8
@@ -26868,11 +26868,11 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbvEE11callback_fnIZ
   %6 = getelementptr inbounds i8, ptr %5, i64 264
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(928) %.val) #28
-  br i1 %8, label %"_ZZN12_GLOBAL__N_19AsmParser23parseDirectiveOctaValueEN4llvm9StringRefEENK3$_0clEv.exit", label %9
+  br i1 %8, label %"_ZZN12_GLOBAL__N_19AsmParser23parseDirectiveOctaValueEN4llvm9StringRefEENK3$_0clEv.argprom.exit", label %9
 
 9:                                                ; preds = %1
   %10 = call fastcc noundef zeroext i1 @_ZL12parseHexOctaRN12_GLOBAL__N_19AsmParserERmS2_(ptr noundef nonnull align 8 dereferenceable(928) %.val, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %10, label %"_ZZN12_GLOBAL__N_19AsmParser23parseDirectiveOctaValueEN4llvm9StringRefEENK3$_0clEv.exit", label %.sink.split.i
+  br i1 %10, label %"_ZZN12_GLOBAL__N_19AsmParser23parseDirectiveOctaValueEN4llvm9StringRefEENK3$_0clEv.argprom.exit", label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 240
@@ -26900,9 +26900,9 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbvEE11callback_fnIZ
   %30 = getelementptr inbounds i8, ptr %29, i64 520
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(288) %27, i64 noundef %28, i32 noundef 8) #28
-  br label %"_ZZN12_GLOBAL__N_19AsmParser23parseDirectiveOctaValueEN4llvm9StringRefEENK3$_0clEv.exit"
+  br label %"_ZZN12_GLOBAL__N_19AsmParser23parseDirectiveOctaValueEN4llvm9StringRefEENK3$_0clEv.argprom.exit"
 
-"_ZZN12_GLOBAL__N_19AsmParser23parseDirectiveOctaValueEN4llvm9StringRefEENK3$_0clEv.exit": ; preds = %1, %9, %.sink.split.i
+"_ZZN12_GLOBAL__N_19AsmParser23parseDirectiveOctaValueEN4llvm9StringRefEENK3$_0clEv.argprom.exit": ; preds = %1, %9, %.sink.split.i
   %.0.i = phi i1 [ true, %1 ], [ true, %9 ], [ false, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -28770,7 +28770,7 @@ _ZN4llvm8AsmTokenD2Ev.exit40:                     ; preds = %_ZN4llvm8AsmTokenD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19AsmParser24instantiateMacroLikeBodyEPN4llvm10MCAsmMacroENS1_5SMLocERNS1_19raw_svector_ostreamE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19AsmParser24instantiateMacroLikeBodyEPN4llvm10MCAsmMacroENS1_5SMLocERNS1_19raw_svector_ostreamE.argprom(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #3 align 2 {
   %4 = alloca %"struct.llvm::SourceMgr::SrcBuffer", align 8
   %5 = alloca %"class.std::unique_ptr.233", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -28839,7 +28839,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %15, %17
   %48 = load ptr, ptr %43, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %49, ptr %43, align 8
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit
 
 50:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.val16.i.i = load ptr, ptr %42, align 8
@@ -28847,13 +28847,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %15, %17
   %52 = ptrtoint ptr %.val16.i.i to i64
   %53 = sub i64 %51, %52
   %54 = icmp eq i64 %53, 9223372036854775800
-  br i1 %54, label %55, label %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %54, label %55, label %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
 
 55:                                               ; preds = %50
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.197) #27
   unreachable
 
-_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %50
+_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %50
   %56 = ashr exact i64 %53, 3
   %57 = icmp eq ptr %44, %.val16.i.i
   %.sroa.speculated.i.i.i = select i1 %57, i64 1, i64 %56
@@ -28862,42 +28862,42 @@ _ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.e
   %60 = call i64 @llvm.umin.i64(i64 %58, i64 1152921504606846975)
   %61 = select i1 %59, i64 1152921504606846975, i64 %60
   %.not.i.i.i = icmp eq i64 %61, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i, label %62
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %62
 
-62:                                               ; preds = %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+62:                                               ; preds = %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
   %63 = shl nuw nsw i64 %61, 3
   %64 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #29
-  br label %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i
+  br label %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i
 
-_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %62, %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %65 = phi ptr [ %64, %62 ], [ null, %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %62, %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  %65 = phi ptr [ %64, %62 ], [ null, %_ZNKSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
   %66 = getelementptr inbounds ptr, ptr %65, i64 %56
   store ptr %26, ptr %66, align 8
   %67 = icmp sgt i64 %53, 0
-  br i1 %67, label %68, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
+  br i1 %67, label %68, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i
 
-68:                                               ; preds = %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i
+68:                                               ; preds = %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %65, ptr align 8 %.val16.i.i, i64 %53, i1 false)
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i
 
-_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i: ; preds = %68, %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i: ; preds = %68, %_ZNSt12_Vector_baseIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_M_allocateEm.argprom.exit.i.i
   %69 = getelementptr inbounds i8, ptr %65, i64 %53
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %.not.i22.i.i = icmp eq ptr %.val16.i.i, null
-  br i1 %.not.i22.i.i, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %71
+  br i1 %.not.i22.i.i, label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i, label %71
 
-71:                                               ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
+71:                                               ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.val16.i.i, i64 noundef %53) #30
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i
 
-_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %71, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
+_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i: ; preds = %71, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit21.i.i
   store ptr %65, ptr %42, align 8
   store ptr %70, ptr %43, align 8
   %72 = getelementptr inbounds ptr, ptr %65, i64 %61
   store ptr %72, ptr %45, align 8
-  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit
+  br label %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit
 
-_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit: ; preds = %47, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit: ; preds = %47, %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %74 = load ptr, ptr %73, align 8
   %75 = load i64, ptr %5, align 8
@@ -28916,14 +28916,14 @@ _ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit:
   %.not.i.i.i6 = icmp eq ptr %80, %82
   br i1 %.not.i.i.i6, label %86, label %83
 
-83:                                               ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit
+83:                                               ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit
   call void @_ZN4llvm9SourceMgr9SrcBufferC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   %84 = load ptr, ptr %79, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 24
   store ptr %85, ptr %79, align 8
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
 
-86:                                               ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.exit
+86:                                               ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_118MacroInstantiationESaIS2_EE9push_backERKS2_.argprom.exit
   call void @_ZNSt6vectorIN4llvm9SourceMgr9SrcBufferESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr %80, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %.pre.i = load ptr, ptr %79, align 8
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
@@ -30276,7 +30276,7 @@ declare noundef i32 @_ZNK4llvm14MCRegisterInfo14getDwarfRegNumENS_10MCRegisterEb
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19AsmParser16checkForBadMacroEN4llvm5SMLocENS1_9StringRefES3_NS1_8ArrayRefINS1_19MCAsmMacroParameterEEE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr nocapture readonly %2, i64 %3, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19AsmParser16checkForBadMacroEN4llvm5SMLocENS1_9StringRefES3_NS1_8ArrayRefINS1_19MCAsmMacroParameterEEE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, ptr nocapture readonly %2, i64 %3, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #3 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = trunc i64 %.8.val to i32
   %7 = icmp eq i32 %6, 0
@@ -30866,14 +30866,14 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbvEE11callback_fnIZ
   store ptr @.str.209, ptr %3, align 8
   store i8 3, ptr %13, align 8
   %15 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val, ptr %7, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr null, ptr null) #28
-  br label %"_ZZN12_GLOBAL__N_19AsmParser24parseDirectiveLTODiscardEvENK3$_0clEv.exit"
+  br label %"_ZZN12_GLOBAL__N_19AsmParser24parseDirectiveLTODiscardEvENK3$_0clEv.argprom.exit"
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 776
   call void @_ZN4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE6insertERKS1_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.526") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  br label %"_ZZN12_GLOBAL__N_19AsmParser24parseDirectiveLTODiscardEvENK3$_0clEv.exit"
+  br label %"_ZZN12_GLOBAL__N_19AsmParser24parseDirectiveLTODiscardEvENK3$_0clEv.argprom.exit"
 
-"_ZZN12_GLOBAL__N_19AsmParser24parseDirectiveLTODiscardEvENK3$_0clEv.exit": ; preds = %12, %16
+"_ZZN12_GLOBAL__N_19AsmParser24parseDirectiveLTODiscardEvENK3$_0clEv.argprom.exit": ; preds = %12, %16
   %.0.i = phi i1 [ %15, %12 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -32989,7 +32989,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBin
   %14 = load i32, ptr %13, align 8
   %.val15 = load ptr, ptr %11, align 8
   %.val1216 = load i8, ptr %12, align 4
-  %15 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE(ptr %.val15, i8 %.val1216, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %15 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.argprom(ptr %.val15, i8 %.val1216, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %.not = icmp ult i32 %15, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -33015,7 +33015,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBin
   %30 = load i32, ptr %29, align 8
   %.val13 = load ptr, ptr %11, align 8
   %.val14 = load i8, ptr %12, align 4
-  %31 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE(ptr %.val13, i8 %.val14, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %31 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.argprom(ptr %.val13, i8 %.val14, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %32 = icmp ult i32 %18, %31
   br i1 %32, label %33, label %36
 
@@ -33039,7 +33039,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBin
   %46 = load i32, ptr %45, align 8
   %.val = load ptr, ptr %11, align 8
   %.val12 = load i8, ptr %12, align 4
-  %47 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE(ptr %.val, i8 %.val12, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %47 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.argprom(ptr %.val, i8 %.val12, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %.not21 = icmp ult i32 %47, %1
   br i1 %.not21, label %._crit_edge, label %17, !llvm.loop !630
 
@@ -33211,7 +33211,7 @@ declare noundef zeroext i1 @_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl(ptr noundef 
 declare noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef, ptr noundef nonnull align 8 dereferenceable(2432), i1 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 7) i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE(ptr nocapture readonly %.240.val, i8 %.876.val, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #22 align 2 {
+define internal fastcc noundef range(i32 0, 7) i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.argprom(ptr nocapture readonly %.240.val, i8 %.876.val, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #22 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %.240.val, i64 480
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -33726,8 +33726,8 @@ attributes #32 = { nounwind willreturn memory(read) }
 !88 = distinct !{!88, !89, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !89 = distinct !{!89, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZSt10make_tupleIJRN4llvm5SMLocERN12_GLOBAL__N_19AsmParser13CppHashInfoTyERPNS0_8MCSymbolEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSD_: argument 0"}
-!92 = distinct !{!92, !"_ZSt10make_tupleIJRN4llvm5SMLocERN12_GLOBAL__N_19AsmParser13CppHashInfoTyERPNS0_8MCSymbolEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSD_"}
+!91 = distinct !{!91, !92, !"_ZSt10make_tupleIJRN4llvm5SMLocERN12_GLOBAL__N_19AsmParser13CppHashInfoTyERPNS0_8MCSymbolEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSD_.argprom: argument 0"}
+!92 = distinct !{!92, !"_ZSt10make_tupleIJRN4llvm5SMLocERN12_GLOBAL__N_19AsmParser13CppHashInfoTyERPNS0_8MCSymbolEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSD_.argprom"}
 !93 = !{!94}
 !94 = distinct !{!94, !95, !"_ZNK4llvm7APFloat14bitcastToAPIntEv: argument 0"}
 !95 = distinct !{!95, !"_ZNK4llvm7APFloat14bitcastToAPIntEv"}

@@ -1732,7 +1732,7 @@ define void @_ZNK4LIEF2PE4x5096issuerB5cxx11Ev(ptr dead_on_unwind noalias writab
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 160
-  call fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK23mbedtls_asn1_named_data(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull %7)
+  call fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK23mbedtls_asn1_named_data.retelim(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull %7)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   %8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %13
@@ -1769,7 +1769,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK23mbedtls_asn1_named_data(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK23mbedtls_asn1_named_data.retelim(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr null, ptr %4, align 8
@@ -1951,7 +1951,7 @@ define void @_ZNK4LIEF2PE4x5097subjectB5cxx11Ev(ptr dead_on_unwind noalias writa
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 224
-  call fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK23mbedtls_asn1_named_data(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull %7)
+  call fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK23mbedtls_asn1_named_data.retelim(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull %7)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   %8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %13

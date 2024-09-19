@@ -1500,16 +1500,16 @@ define ptr @Llb_ManCreateConstraints(ptr nocapture noundef readonly %0, ptr noun
   %138 = getelementptr i8, ptr %137, i64 32
   %.val100 = load ptr, ptr %138, align 8
   %.not.i = icmp eq ptr %.val100, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %139
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr i8, ptr %.val100, i64 8
   %.val.i101 = load ptr, ptr %140, align 8
   %141 = getelementptr inbounds ptr, ptr %.val.i101, i64 %indvars.iv120
   %142 = load ptr, ptr %141, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %136, %139
+Aig_ManObj.argprom.exit:                          ; preds = %136, %139
   %143 = phi ptr [ %142, %139 ], [ null, %136 ]
   %144 = load ptr, ptr %5, align 8
   %145 = tail call ptr @Llb_ManConstructOutBdd(ptr noundef nonnull %137, ptr noundef %143, ptr noundef %144)
@@ -1528,9 +1528,9 @@ Aig_ManObj.exit:                                  ; preds = %136, %139
   %.val99.pre = load i32, ptr %130, align 4
   br label %154
 
-154:                                              ; preds = %133, %Aig_ManObj.exit
-  %.val99 = phi i32 [ %.val99123, %133 ], [ %.val99.pre, %Aig_ManObj.exit ]
-  %.180 = phi ptr [ %.079111, %133 ], [ %151, %Aig_ManObj.exit ]
+154:                                              ; preds = %133, %Aig_ManObj.argprom.exit
+  %.val99 = phi i32 [ %.val99123, %133 ], [ %.val99.pre, %Aig_ManObj.argprom.exit ]
+  %.180 = phi ptr [ %.079111, %133 ], [ %151, %Aig_ManObj.argprom.exit ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %155 = sext i32 %.val99 to i64
   %156 = icmp slt i64 %indvars.iv.next121, %155
@@ -2299,7 +2299,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 265:                                              ; preds = %263, %258
   %266 = call fastcc i64 @Abc_Clock()
   %267 = add i64 %266, %.0.i.neg
-  call fastcc void @Abc_PrintTime(i64 noundef %267)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %267)
   %.pre523 = load ptr, ptr %0, align 8
   br label %268
 
@@ -2778,7 +2778,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_PrintTime(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %0) unnamed_addr #0 {
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.6)
   %2 = sitofp i64 %0 to double
   %3 = fdiv double %2, 1.000000e+06

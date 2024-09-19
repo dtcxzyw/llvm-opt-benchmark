@@ -463,9 +463,9 @@ define internal void @rjit_cme_invalidate(ptr noundef %0) #0 {
   %7 = load i64, ptr @rb_mRJITHooks, align 8
   %8 = icmp ne i64 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond, label %rb_ec_ractor_hooks.exit, label %53
+  br i1 %or.cond, label %rb_ec_ractor_hooks.argprom.exit, label %53
 
-rb_ec_ractor_hooks.exit:                          ; preds = %4
+rb_ec_ractor_hooks.argprom.exit:                  ; preds = %4
   %9 = tail call i64 @rb_gc_disable() #17
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %11 = load ptr, ptr %10, align 8
@@ -480,14 +480,14 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %23
 
-19:                                               ; preds = %rb_ec_ractor_hooks.exit
+19:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   %20 = getelementptr inbounds i8, ptr %11, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
   br label %24
 
-23:                                               ; preds = %rb_ec_ractor_hooks.exit
+23:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   store i32 0, ptr %15, align 8
   br label %24
 
@@ -605,7 +605,7 @@ define internal void @rjit_constant_state_changed(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = load i8, ptr @rb_rjit_enabled, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %rb_vm_lock_leave.exit
+  br i1 %4, label %5, label %rb_vm_lock_leave.argprom.exit
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @rb_rjit_call_p, align 1
@@ -613,18 +613,18 @@ define internal void @rjit_constant_state_changed(ptr noundef %0) #0 {
   %8 = load i64, ptr @rb_mRJITHooks, align 8
   %9 = icmp ne i64 %8, 0
   %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %rb_vm_lock_leave.exit
+  br i1 %or.cond, label %10, label %rb_vm_lock_leave.argprom.exit
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.argprom.exit
 
 12:                                               ; preds = %10
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #17
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %10, %12
+rb_vm_lock_enter.argprom.exit:                    ; preds = %10, %12
   call void @rb_vm_barrier() #17
   %13 = call i64 @rb_gc_disable() #17
   %14 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -640,14 +640,14 @@ rb_vm_lock_enter.exit:                            ; preds = %10, %12
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %27
 
-23:                                               ; preds = %rb_vm_lock_enter.exit
+23:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %24 = getelementptr inbounds i8, ptr %15, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   store ptr null, ptr %25, align 8
   br label %28
 
-27:                                               ; preds = %rb_vm_lock_enter.exit
+27:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   store i32 0, ptr %19, align 8
   br label %28
 
@@ -722,13 +722,13 @@ rb_ull2num_inline.exit:                           ; preds = %36, %39
 57:                                               ; preds = %54, %55
   %58 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i12 = icmp eq ptr %58, null
-  br i1 %.not.i.i12, label %59, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i12, label %59, label %rb_vm_lock_leave.argprom.exit
 
 59:                                               ; preds = %57
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #17
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %59, %57, %1, %5
+rb_vm_lock_leave.argprom.exit:                    ; preds = %59, %57, %1, %5
   ret void
 }
 
@@ -737,7 +737,7 @@ define hidden void @rb_rjit_constant_ic_update(ptr noundef %0, ptr noundef %1, i
   %4 = alloca i32, align 4
   %5 = load i8, ptr @rb_rjit_enabled, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %rb_vm_lock_leave.exit
+  br i1 %6, label %7, label %rb_vm_lock_leave.argprom.exit
 
 7:                                                ; preds = %3
   %8 = load i8, ptr @rb_rjit_call_p, align 1
@@ -745,18 +745,18 @@ define hidden void @rb_rjit_constant_ic_update(ptr noundef %0, ptr noundef %1, i
   %10 = load i64, ptr @rb_mRJITHooks, align 8
   %11 = icmp ne i64 %10, 0
   %or.cond = select i1 %9, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %rb_vm_lock_leave.exit
+  br i1 %or.cond, label %12, label %rb_vm_lock_leave.argprom.exit
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i, label %14, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %14, label %rb_vm_lock_enter.argprom.exit
 
 14:                                               ; preds = %12
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #17
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %12, %14
+rb_vm_lock_enter.argprom.exit:                    ; preds = %12, %14
   call void @rb_vm_barrier() #17
   %15 = call i64 @rb_gc_disable() #17
   %16 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -772,14 +772,14 @@ rb_vm_lock_enter.exit:                            ; preds = %12, %14
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %29
 
-25:                                               ; preds = %rb_vm_lock_enter.exit
+25:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %26 = getelementptr inbounds i8, ptr %17, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   store ptr null, ptr %27, align 8
   br label %30
 
-29:                                               ; preds = %rb_vm_lock_enter.exit
+29:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   store i32 0, ptr %21, align 8
   br label %30
 
@@ -872,13 +872,13 @@ rb_ull2num_inline.exit15:                         ; preds = %45, %48
 69:                                               ; preds = %66, %67
   %70 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i16 = icmp eq ptr %70, null
-  br i1 %.not.i.i16, label %71, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i16, label %71, label %rb_vm_lock_leave.argprom.exit
 
 71:                                               ; preds = %69
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #17
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %71, %69, %3, %7
+rb_vm_lock_leave.argprom.exit:                    ; preds = %71, %69, %3, %7
   ret void
 }
 
@@ -906,9 +906,9 @@ define hidden void @rb_rjit_tracing_invalidate_all(i32 noundef %0) local_unnamed
   %7 = load i64, ptr @rb_mRJITHooks, align 8
   %8 = icmp ne i64 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond, label %rb_ec_ractor_hooks.exit, label %49
+  br i1 %or.cond, label %rb_ec_ractor_hooks.argprom.exit, label %49
 
-rb_ec_ractor_hooks.exit:                          ; preds = %4
+rb_ec_ractor_hooks.argprom.exit:                  ; preds = %4
   %9 = tail call i64 @rb_gc_disable() #17
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %11 = load ptr, ptr %10, align 8
@@ -923,14 +923,14 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %23
 
-19:                                               ; preds = %rb_ec_ractor_hooks.exit
+19:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   %20 = getelementptr inbounds i8, ptr %11, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
   br label %24
 
-23:                                               ; preds = %rb_ec_ractor_hooks.exit
+23:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   store i32 0, ptr %15, align 8
   br label %24
 
@@ -1113,13 +1113,13 @@ define dso_local void @rb_rjit_compile(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %4, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %4, label %rb_vm_lock_enter.argprom.exit
 
 4:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #17
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %1, %4
+rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %4
   call void @rb_vm_barrier() #17
   %5 = call i64 @rb_gc_disable() #17
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -1135,13 +1135,13 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %19
 
-15:                                               ; preds = %rb_vm_lock_enter.exit
+15:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %16 = getelementptr inbounds i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   br label %20
 
-19:                                               ; preds = %rb_vm_lock_enter.exit
+19:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   store i32 0, ptr %11, align 8
   br label %20
 
@@ -1262,13 +1262,13 @@ rbimpl_intern_const.exit28:                       ; preds = %.lr.ph.i26, %rb_ull
 65:                                               ; preds = %62, %63
   %66 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i29 = icmp eq ptr %66, null
-  br i1 %.not.i.i29, label %67, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i29, label %67, label %rb_vm_lock_leave.argprom.exit
 
 67:                                               ; preds = %65
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #17
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %65, %67
+rb_vm_lock_leave.argprom.exit:                    ; preds = %65, %67
   ret void
 }
 
@@ -1277,13 +1277,13 @@ define hidden ptr @rb_rjit_entry_stub_hit(i64 noundef %0) local_unnamed_addr #0 
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %4, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %4, label %rb_vm_lock_enter.argprom.exit
 
 4:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #17
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %1, %4
+rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %4
   call void @rb_vm_barrier() #17
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8
@@ -1302,13 +1302,13 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %22
 
-18:                                               ; preds = %rb_vm_lock_enter.exit
+18:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %19 = getelementptr inbounds i8, ptr %10, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   br label %23
 
-22:                                               ; preds = %rb_vm_lock_enter.exit
+22:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   store i32 0, ptr %14, align 8
   br label %23
 
@@ -1397,22 +1397,22 @@ rbimpl_intern_const.exit20:                       ; preds = %.lr.ph.i18, %rb_ull
 55:                                               ; preds = %52, %53
   %56 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i21 = icmp eq ptr %56, null
-  br i1 %.not.i.i21, label %57, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i21, label %57, label %rb_vm_lock_leave.argprom.exit
 
 57:                                               ; preds = %55
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #17
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %55, %57
+rb_vm_lock_leave.argprom.exit:                    ; preds = %55, %57
   %58 = and i64 %39, 1
   %.not.i22 = icmp eq i64 %58, 0
   br i1 %.not.i22, label %61, label %59
 
-59:                                               ; preds = %rb_vm_lock_leave.exit
+59:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %60 = ashr i64 %39, 1
   br label %rb_num2ull_inline.exit
 
-61:                                               ; preds = %rb_vm_lock_leave.exit
+61:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %62 = call i64 @rb_num2ull(i64 noundef %39) #17
   br label %rb_num2ull_inline.exit
 
@@ -1427,13 +1427,13 @@ define hidden ptr @rb_rjit_branch_stub_hit(i64 noundef %0, i32 noundef %1, i32 n
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.argprom.exit
 
 6:                                                ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #17
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %3, %6
+rb_vm_lock_enter.argprom.exit:                    ; preds = %3, %6
   call void @rb_vm_barrier() #17
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %8 = load ptr, ptr %7, align 8
@@ -1457,14 +1457,14 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %6
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %28
 
-24:                                               ; preds = %rb_vm_lock_enter.exit
+24:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %25 = getelementptr inbounds i8, ptr %16, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   store ptr null, ptr %26, align 8
   br label %29
 
-28:                                               ; preds = %rb_vm_lock_enter.exit
+28:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   store i32 0, ptr %20, align 8
   br label %29
 
@@ -1559,22 +1559,22 @@ rbimpl_intern_const.exit26:                       ; preds = %.lr.ph.i24, %rb_ull
   store ptr %65, ptr %11, align 8
   %66 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i27 = icmp eq ptr %66, null
-  br i1 %.not.i.i27, label %67, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i27, label %67, label %rb_vm_lock_leave.argprom.exit
 
 67:                                               ; preds = %62
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #17
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %62, %67
+rb_vm_lock_leave.argprom.exit:                    ; preds = %62, %67
   %68 = and i64 %46, 1
   %.not.i28 = icmp eq i64 %68, 0
   br i1 %.not.i28, label %71, label %69
 
-69:                                               ; preds = %rb_vm_lock_leave.exit
+69:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %70 = ashr i64 %46, 1
   br label %rb_num2ull_inline.exit
 
-71:                                               ; preds = %rb_vm_lock_leave.exit
+71:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %72 = call i64 @rb_num2ull(i64 noundef %46) #17
   br label %rb_num2ull_inline.exit
 
@@ -1792,9 +1792,9 @@ define internal void @rjit_iseq_update_references(ptr nocapture readnone %0) #0 
   %7 = load i64, ptr @rb_mRJITHooks, align 8
   %8 = icmp ne i64 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond, label %rb_ec_ractor_hooks.exit, label %46
+  br i1 %or.cond, label %rb_ec_ractor_hooks.argprom.exit, label %46
 
-rb_ec_ractor_hooks.exit:                          ; preds = %4
+rb_ec_ractor_hooks.argprom.exit:                  ; preds = %4
   %9 = tail call i64 @rb_gc_disable() #17
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %11 = load ptr, ptr %10, align 8
@@ -1809,14 +1809,14 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %23
 
-19:                                               ; preds = %rb_ec_ractor_hooks.exit
+19:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   %20 = getelementptr inbounds i8, ptr %11, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
   br label %24
 
-23:                                               ; preds = %rb_ec_ractor_hooks.exit
+23:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   store i32 0, ptr %15, align 8
   br label %24
 

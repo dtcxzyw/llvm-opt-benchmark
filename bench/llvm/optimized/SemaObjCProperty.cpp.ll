@@ -431,7 +431,7 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i:       ; preds = %38
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %41, align 8
   %42 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 48
   %43 = icmp eq i64 %42, 16
-  br i1 %43, label %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.exit, label %_ZNK5clang8QualType12isObjCGCWeakEv.exit.thread.i
+  br i1 %43, label %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.argprom.argprom.exit, label %_ZNK5clang8QualType12isObjCGCWeakEv.exit.thread.i
 
 44:                                               ; preds = %30
   br i1 %.not.i.i.i.i, label %_ZNK5clang8QualType12isObjCGCWeakEv.exit.thread.i, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i
@@ -445,19 +445,19 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %44
   %49 = and i64 %48, 7
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang8SemaObjC13ActOnPropertyEPNS_5ScopeENS_14SourceLocationES3_RNS_15FieldDeclaratorERNS_12ObjCDeclSpecENS_8SelectorES8_NS_3tok15ObjCKeywordKindEPNS_11DeclContextE, i64 0, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.exit
+  br label %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.argprom.argprom.exit
 
 _ZNK5clang8QualType12isObjCGCWeakEv.exit.thread.i: ; preds = %44, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i, %38
-  br label %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.exit
+  br label %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.argprom.argprom.exit
 
-_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.exit: ; preds = %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.thread.i
+_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.argprom.argprom.exit: ; preds = %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.thread.i
   %.0.i = phi i32 [ 0, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.thread.i ], [ 512, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i ], [ %switch.load, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i ]
   %50 = or disjoint i32 %.0.i, %19
   store i32 %50, ptr %15, align 4
   br label %51
 
-51:                                               ; preds = %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.exit, %10
-  %52 = phi i32 [ %50, %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.exit ], [ %19, %10 ]
+51:                                               ; preds = %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.argprom.argprom.exit, %10
+  %52 = phi i32 [ %50, %_ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.argprom.argprom.exit ], [ %19, %10 ]
   %53 = and i32 %52, 9
   %54 = icmp ne i32 %53, 1
   %55 = getelementptr inbounds nuw i8, ptr %.pre, i64 560
@@ -5745,7 +5745,7 @@ _ZN5clang17ObjCInterfaceDecl26filtered_category_iteratorIXadL_ZNS0_16isKnownExte
   %284 = load ptr, ptr %49, align 8
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 52
   %.sroa.0.0.copyload.i459 = load i32, ptr %285, align 4
-  %286 = call fastcc noundef zeroext i1 @_ZL20LocPropertyAttributeRN5clang10ASTContextEPKcNS_14SourceLocationERS4_(ptr noundef nonnull align 8 dereferenceable(23096) %146, i32 %.sroa.0.0.copyload.i459, ptr noundef nonnull align 4 dereferenceable(4) %60)
+  %286 = call fastcc noundef zeroext i1 @_ZL20LocPropertyAttributeRN5clang10ASTContextEPKcNS_14SourceLocationERS4_.argprom(ptr noundef nonnull align 8 dereferenceable(23096) %146, i32 %.sroa.0.0.copyload.i459, ptr noundef nonnull align 4 dereferenceable(4) %60)
   br i1 %286, label %287, label %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.thread
 
 287:                                              ; preds = %.critedge432
@@ -8783,7 +8783,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20LocPropertyAttributeRN5clang10ASTContextEPKcNS_14SourceLocationERS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %0, i32 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL20LocPropertyAttributeRN5clang10ASTContextEPKcNS_14SourceLocationERS4_.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %0, i32 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca %"class.clang::Lexer", align 8
@@ -14130,12 +14130,12 @@ define internal fastcc void @_ZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS
 .critedge2.i7.i.i9.i11.i.i.i.i.i:                 ; preds = %.lr.ph.i5.i.i7.i5.i.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %.sroa.0.3.i6.i.i.i.i.i, i64 8
   %.not.i8.i.i10.i12.i.i.i.i.i = icmp eq ptr %24, %22
-  br i1 %.not.i8.i.i10.i12.i.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread", label %.lr.ph.i5.i.i7.i5.i.i.i.i.i, !llvm.loop !101
+  br i1 %.not.i8.i.i10.i12.i.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread", label %.lr.ph.i5.i.i7.i5.i.i.i.i.i, !llvm.loop !101
 
 _ZN4llvm9adl_beginIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i: ; preds = %.lr.ph.i5.i.i7.i5.i.i.i.i.i, %8
   %.sroa.0.4.i8.i.i.i.i.i = phi ptr [ %15, %8 ], [ %.sroa.0.3.i6.i.i.i.i.i, %.lr.ph.i5.i.i7.i5.i.i.i.i.i ]
   %.not8.i.i.i.i = icmp eq ptr %.sroa.0.4.i8.i.i.i.i.i, %22
-  br i1 %.not8.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread", label %.lr.ph.i.i.i.i
+  br i1 %.not8.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm9adl_beginIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i
   %25 = inttoptr i64 %2 to ptr
@@ -14150,9 +14150,9 @@ _ZN4llvm9adl_beginIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEEEDTclsr10a
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
   %30 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i to ptr
   %31 = icmp eq ptr %30, %25
-  br i1 %31, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.thread.i.i.i.i"
+  br i1 %31, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.i.i.i.i": ; preds = %27
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.i.i.i.i": ; preds = %27
   %32 = getelementptr inbounds i8, ptr %28, i64 56
   %33 = load i24, ptr %32, align 8
   %34 = and i24 %33, 131072
@@ -14161,15 +14161,15 @@ _ZN4llvm9adl_beginIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEEEDTclsr10a
   %36 = and i64 %35, 16384
   %37 = icmp eq i64 %36, 0
   %38 = xor i1 %.not.i.i.i.i.i.i.i, %37
-  br i1 %38, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.thread.i.i.i.i"
+  br i1 %38, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.i.i.i.i", %27
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.i.i.i.i", %27
   %39 = getelementptr inbounds i8, ptr %.sroa.06.09.i.i.i.i, i64 8
   %.not3.i3.i.i.i.i.i = icmp eq ptr %39, %22
-  br i1 %.not3.i3.i.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread", label %.lr.ph.i4.i.i.i.i.i
+  br i1 %.not3.i3.i.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread", label %.lr.ph.i4.i.i.i.i.i
 
-.lr.ph.i4.i.i.i.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.thread.i.i.i.i", %.critedge2.i6.i.i.i.i.i
-  %.sroa.06.1.i.i.i.i = phi ptr [ %41, %.critedge2.i6.i.i.i.i.i ], [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.thread.i.i.i.i" ]
+.lr.ph.i4.i.i.i.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.thread.i.i.i.i", %.critedge2.i6.i.i.i.i.i
+  %.sroa.06.1.i.i.i.i = phi ptr [ %41, %.critedge2.i6.i.i.i.i.i ], [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.thread.i.i.i.i" ]
   %40 = load ptr, ptr %.sroa.06.1.i.i.i.i, align 8
   %switch.i5.i.i.i.i.i = icmp ugt ptr %40, inttoptr (i64 -3 to ptr)
   br i1 %switch.i5.i.i.i.i.i, label %.critedge2.i6.i.i.i.i.i, label %_ZN4llvm19SmallPtrSetIteratorIPKN5clang14ObjCMethodDeclEEppEv.exit.i.i.i.i
@@ -14177,21 +14177,21 @@ _ZN4llvm9adl_beginIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEEEDTclsr10a
 .critedge2.i6.i.i.i.i.i:                          ; preds = %.lr.ph.i4.i.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i.i, i64 8
   %.not.i7.i.i.i.i.i = icmp eq ptr %41, %22
-  br i1 %.not.i7.i.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread", label %.lr.ph.i4.i.i.i.i.i, !llvm.loop !101
+  br i1 %.not.i7.i.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread", label %.lr.ph.i4.i.i.i.i.i, !llvm.loop !101
 
 _ZN4llvm19SmallPtrSetIteratorIPKN5clang14ObjCMethodDeclEEppEv.exit.i.i.i.i: ; preds = %.lr.ph.i4.i.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.06.1.i.i.i.i, %22
-  br i1 %.not.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread", label %27, !llvm.loop !102
+  br i1 %.not.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread", label %27, !llvm.loop !102
 
-"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.i.i.i.i"
+"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.i.i.i.i"
   %42 = icmp eq ptr %.sroa.06.09.i.i.i.i, %22
-  br i1 %42, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread", label %.critedge
+  br i1 %42, label %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread", label %.critedge
 
-"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread": ; preds = %.critedge2.i7.i.i9.i11.i.i.i.i.i, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang14ObjCMethodDeclEEppEv.exit.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.exit.thread.i.i.i.i", %.critedge2.i6.i.i.i.i.i, %_ZN4llvm9adl_beginIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i, %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit"
+"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread": ; preds = %.critedge2.i7.i.i9.i11.i.i.i.i.i, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang14ObjCMethodDeclEEppEv.exit.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29DiagnoseUnimplementedAccessorRN5clang4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclERN4llvm11SmallPtrSetIPKNS2_14ObjCMethodDeclELj8EEEE3$_0EclINSG_19SmallPtrSetIteratorISK_EEEEbT_.argprom.argprom.exit.thread.i.i.i.i", %.critedge2.i6.i.i.i.i.i, %_ZN4llvm9adl_beginIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i, %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit"
   %43 = icmp eq ptr %1, null
   br i1 %43, label %.critedge2, label %44
 
-44:                                               ; preds = %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread"
+44:                                               ; preds = %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread"
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 16384
@@ -14200,7 +14200,7 @@ _ZN4llvm19SmallPtrSetIteratorIPKN5clang14ObjCMethodDeclEEppEv.exit.i.i.i.i: ; pr
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %.critedge2, label %.critedge
 
-.critedge2:                                       ; preds = %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit.thread", %44
+.critedge2:                                       ; preds = %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit.thread", %44
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 127
@@ -14267,7 +14267,7 @@ _ZN4llvm19SmallPtrSetIteratorIPKN5clang14ObjCMethodDeclEEppEv.exit.i.i.i.i: ; pr
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %69, %69, %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.exit", %.critedge2, %76, %78, %73, %44
+.critedge:                                        ; preds = %69, %69, %"_ZN4llvm7find_ifIRNS_11SmallPtrSetIPKN5clang14ObjCMethodDeclELj8EEEZL29DiagnoseUnimplementedAccessorRNS2_4SemaEPNS2_17ObjCInterfaceDeclENS2_8SelectorEPNS2_12ObjCImplDeclEPNS2_17ObjCContainerDeclEPNS2_16ObjCCategoryDeclEPNS2_16ObjCPropertyDeclES7_E3$_0EEDaOT_T0_.argprom.exit", %.critedge2, %76, %78, %73, %44
   ret void
 }
 

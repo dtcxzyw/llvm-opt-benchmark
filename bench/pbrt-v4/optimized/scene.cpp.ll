@@ -11149,13 +11149,13 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 if.end38:                                         ; preds = %invoke.cont37, %if.end14
   %namedMaterialNames = getelementptr inbounds i8, ptr %this, i64 1576
   %namedMaterialNames39 = getelementptr inbounds i8, ptr %imported, i64 1576
-  call fastcc void @"_ZZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_ENK3$_1clISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EESE_EEDaRT_RT0_PKc"(ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(48) %namedMaterialNames, ptr noundef nonnull align 8 dereferenceable(48) %namedMaterialNames39, ptr noundef nonnull @.str.59)
+  call fastcc void @"_ZZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_ENK3$_1clISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EESE_EEDaRT_RT0_PKc.argprom"(ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(48) %namedMaterialNames, ptr noundef nonnull align 8 dereferenceable(48) %namedMaterialNames39, ptr noundef nonnull @.str.59)
   %floatTextureNames = getelementptr inbounds i8, ptr %this, i64 1672
   %floatTextureNames40 = getelementptr inbounds i8, ptr %imported, i64 1672
-  call fastcc void @"_ZZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_ENK3$_1clISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EESE_EEDaRT_RT0_PKc"(ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(48) %floatTextureNames, ptr noundef nonnull align 8 dereferenceable(48) %floatTextureNames40, ptr noundef nonnull @.str.35)
+  call fastcc void @"_ZZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_ENK3$_1clISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EESE_EEDaRT_RT0_PKc.argprom"(ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(48) %floatTextureNames, ptr noundef nonnull align 8 dereferenceable(48) %floatTextureNames40, ptr noundef nonnull @.str.35)
   %spectrumTextureNames = getelementptr inbounds i8, ptr %this, i64 1720
   %spectrumTextureNames41 = getelementptr inbounds i8, ptr %imported, i64 1720
-  call fastcc void @"_ZZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_ENK3$_1clISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EESE_EEDaRT_RT0_PKc"(ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(48) %spectrumTextureNames, ptr noundef nonnull align 8 dereferenceable(48) %spectrumTextureNames41, ptr noundef nonnull @.str.35)
+  call fastcc void @"_ZZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_ENK3$_1clISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EESE_EEDaRT_RT0_PKc.argprom"(ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(48) %spectrumTextureNames, ptr noundef nonnull align 8 dereferenceable(48) %spectrumTextureNames41, ptr noundef nonnull @.str.35)
   ret void
 }
 
@@ -11192,7 +11192,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_ENK3$_1clISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EESE_EEDaRT_RT0_PKc"(ptr nocapture writeonly %this.0.val, ptr noundef nonnull align 8 dereferenceable(48) %base, ptr noundef nonnull align 8 dereferenceable(48) %imported, ptr noundef %name) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_ENK3$_1clISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EESE_EEDaRT_RT0_PKc.argprom"(ptr nocapture writeonly %this.0.val, ptr noundef nonnull align 8 dereferenceable(48) %base, ptr noundef nonnull align 8 dereferenceable(48) %imported, ptr noundef %name) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %name.addr = alloca ptr, align 8
@@ -21523,12 +21523,12 @@ invoke.cont99:                                    ; preds = %invoke.cont38.i, %i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp28.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp29.i)
   %insideMedium = getelementptr inbounds i8, ptr %add.ptr.i, i64 208
-  invoke fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias align 8 %agg.tmp100, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %insideMedium, ptr noundef %loc92)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE.argprom"(ptr noalias align 8 %agg.tmp100, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %insideMedium, ptr noundef %loc92)
           to label %invoke.cont102 unwind label %lpad98.loopexit.split-lp.loopexit
 
 invoke.cont102:                                   ; preds = %invoke.cont99
   %outsideMedium = getelementptr inbounds i8, ptr %add.ptr.i, i64 240
-  invoke fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias align 8 %agg.tmp103, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %outsideMedium, ptr noundef %loc92)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE.argprom"(ptr noalias align 8 %agg.tmp103, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %outsideMedium, ptr noundef %loc92)
           to label %invoke.cont106 unwind label %lpad98.loopexit.split-lp.loopexit
 
 invoke.cont106:                                   ; preds = %invoke.cont102
@@ -22138,7 +22138,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 declare void @_ZN4pbrt5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESB_bRKNS_19ParameterDictionaryERKSt3mapIS6_NS_12FloatTextureESt4lessIS6_ESaISt4pairIS7_SG_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pstd::vector.237") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE.argprom"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #28
   br i1 %call, label %return, label %if.end
@@ -34446,7 +34446,7 @@ invoke.cont4.i.i.i:                               ; preds = %entry
   %ptr.i7.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   %13 = load ptr, ptr %ptr.i7.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEENK3$_0clERS17_INS0_16ShapeSceneEntityESaIS1D_EEEUllE_JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1K_E4typeEOS1L_DpOS1M_.exit", label %if.end.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEENK3$_0clERS17_INS0_16ShapeSceneEntityESaIS1D_EEEUllE_JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1K_E4typeEOS1L_DpOS1M_.argprom.exit", label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %invoke.cont4.i.i.i
   %nAlloc.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
@@ -34457,7 +34457,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %invoke.cont4.i.i.i
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %13, i64 noundef %mul.i.i.i.i.i, i64 noundef 8)
-          to label %"_ZSt10__invoke_rIvRZZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEENK3$_0clERS17_INS0_16ShapeSceneEntityESaIS1D_EEEUllE_JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1K_E4typeEOS1L_DpOS1M_.exit" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEENK3$_0clERS17_INS0_16ShapeSceneEntityESaIS1D_EEEUllE_JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1K_E4typeEOS1L_DpOS1M_.argprom.exit" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -34472,7 +34472,7 @@ lpad.i.i.i:                                       ; preds = %entry
   call void @_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #28
   resume { ptr, i32 } %19
 
-"_ZSt10__invoke_rIvRZZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEENK3$_0clERS17_INS0_16ShapeSceneEntityESaIS1D_EEEUllE_JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1K_E4typeEOS1L_DpOS1M_.exit": ; preds = %invoke.cont4.i.i.i, %if.end.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEENK3$_0clERS17_INS0_16ShapeSceneEntityESaIS1D_EEEUllE_JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1K_E4typeEOS1L_DpOS1M_.argprom.exit": ; preds = %invoke.cont4.i.i.i, %if.end.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   ret void
 }
@@ -51945,21 +51945,21 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEnti
   %call.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   %call1.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %materialName.i) #28
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.exit"
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.argprom.exit"
 
 land.rhs.i.i:                                     ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEEC2ERKS8_.exit
   %call2.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   %call3.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %materialName.i) #28
   %call4.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   %cmp.i.i.i = icmp eq i64 %call4.i.i, 0
-  br i1 %cmp.i.i.i, label %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.exit", label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.argprom.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.rhs.i.i
   %bcmp.i.i = call i32 @bcmp(ptr %call2.i.i, ptr %call3.i.i, i64 %call4.i.i)
   %1 = icmp eq i32 %bcmp.i.i, 0
-  br label %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.exit"
+  br label %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.argprom.exit"
 
-"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.exit": ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEEC2ERKS8_.exit, %land.rhs.i.i, %if.end.i.i.i
+"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.argprom.exit": ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEEC2ERKS8_.exit, %land.rhs.i.i, %if.end.i.i.i
   %2 = phi i1 [ false, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEEC2ERKS8_.exit ], [ %1, %if.end.i.i.i ], [ true, %land.rhs.i.i ]
   %nStored.le.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 152
   store i64 0, ptr %nStored.le.i.i.i.i.i, align 8
@@ -51968,7 +51968,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i.i
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEED2Ev.exit, label %if.end.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.exit"
+if.end.i.i.i.i.i.i.i:                             ; preds = %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.argprom.exit"
   %nAlloc.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 144
   %4 = load i64, ptr %nAlloc.i.i.i.i, align 8
   %mul.i.i.i.i.i = shl i64 %4, 3
@@ -51986,7 +51986,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
-_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEED2Ev.exit: ; preds = %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.exit", %if.end.i.i.i.i.i.i.i
+_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEED2Ev.exit: ; preds = %"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_0clISF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11SceneEntityEEEEDaT_.argprom.exit", %if.end.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   ret i1 %2
 }
@@ -53358,11 +53358,11 @@ if.then.i.i.i26.i.i.i:                            ; preds = %delete.end.i.i.i
 _ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EED2Ev.exit27.i.i.i: ; preds = %if.then.i.i.i26.i.i.i, %delete.end.i.i.i
   %38 = load ptr, ptr %instancePrimitives.i.i.i, align 8
   %tobool.not.i.i.i28.i.i.i = icmp eq ptr %38, null
-  br i1 %tobool.not.i.i.i28.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1F_E4typeEOS1G_DpOS1H_.exit", label %if.then.i.i.i29.i.i.i
+  br i1 %tobool.not.i.i.i28.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1F_E4typeEOS1G_DpOS1H_.argprom.exit", label %if.then.i.i.i29.i.i.i
 
 if.then.i.i.i29.i.i.i:                            ; preds = %_ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EED2Ev.exit27.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %38) #29
-  br label %"_ZSt10__invoke_rIvRZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1F_E4typeEOS1G_DpOS1H_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1F_E4typeEOS1G_DpOS1H_.argprom.exit"
 
 ehcleanup.i.i.i:                                  ; preds = %lpad30.i.i.i, %cleanup.action.i.i.i, %lpad14.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %35, %lpad30.i.i.i ], [ %26, %lpad14.i.i.i ], [ %27, %cleanup.action.i.i.i ]
@@ -53386,7 +53386,7 @@ if.then.i.i.i35.i.i.i:                            ; preds = %ehcleanup44.i.i.i
 _ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EED2Ev.exit36.i.i.i: ; preds = %if.then.i.i.i35.i.i.i, %ehcleanup44.i.i.i
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1F_E4typeEOS1G_DpOS1H_.exit": ; preds = %_ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EED2Ev.exit27.i.i.i, %if.then.i.i.i29.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt10BasicScene15CreateAggregateERKNS0_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS0_5LightENS6_3pmr21polymorphic_allocatorIS8_EEEESt4lessIiESaISt4pairIKiSD_EEERKS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6MediumESE_ISS_ESaISG_IKSS_ST_EEERKS5_ISS_NS0_8MaterialESU_SaISG_ISV_S11_EEERKSt6vectorIS11_SaIS11_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1F_E4typeEOS1G_DpOS1H_.argprom.exit": ; preds = %_ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EED2Ev.exit27.i.i.i, %if.then.i.i.i29.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %instancePrimitives.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %movingInstancePrimitives.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp21.i.i.i)
@@ -54182,8 +54182,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZZN4pbrt17BasicSceneBuilder8IdentityENS_7FileLocEENK3$_0clINS_9TransformEEEDaT_: %agg.result"}
-!16 = distinct !{!16, !"_ZZN4pbrt17BasicSceneBuilder8IdentityENS_7FileLocEENK3$_0clINS_9TransformEEEDaT_"}
+!15 = distinct !{!15, !16, !"_ZZN4pbrt17BasicSceneBuilder8IdentityENS_7FileLocEENK3$_0clINS_9TransformEEEDaT_.argprom: %agg.result"}
+!16 = distinct !{!16, !"_ZZN4pbrt17BasicSceneBuilder8IdentityENS_7FileLocEENK3$_0clINS_9TransformEEEDaT_.argprom"}
 !17 = distinct !{!17, !6}
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZZN4pbrt17BasicSceneBuilder9TranslateEfffNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_: %agg.result"}
@@ -54258,12 +54258,12 @@ attributes #33 = { nounwind willreturn memory(none) }
 !88 = distinct !{!88, !6}
 !89 = distinct !{!89, !6}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZZN4pbrt17BasicSceneBuilder9TransformEPfNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_: %agg.result"}
-!92 = distinct !{!92, !"_ZZN4pbrt17BasicSceneBuilder9TransformEPfNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_"}
+!91 = distinct !{!91, !92, !"_ZZN4pbrt17BasicSceneBuilder9TransformEPfNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_.argprom: %agg.result"}
+!92 = distinct !{!92, !"_ZZN4pbrt17BasicSceneBuilder9TransformEPfNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_.argprom"}
 !93 = distinct !{!93, !6}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZZN4pbrt17BasicSceneBuilder15ConcatTransformEPfNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_: %agg.result"}
-!96 = distinct !{!96, !"_ZZN4pbrt17BasicSceneBuilder15ConcatTransformEPfNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_"}
+!95 = distinct !{!95, !96, !"_ZZN4pbrt17BasicSceneBuilder15ConcatTransformEPfNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_.argprom: %agg.result"}
+!96 = distinct !{!96, !"_ZZN4pbrt17BasicSceneBuilder15ConcatTransformEPfNS_7FileLocEENK3$_0clINS_9TransformEEEDaT_.argprom"}
 !97 = distinct !{!97, !6}
 !98 = !{!99, !101}
 !99 = distinct !{!99, !100, !"_ZN4pbrt6RotateEfNS_7Vector3IfEE: %agg.result"}
@@ -54284,8 +54284,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !114 = distinct !{!114, !115, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt22TransformedSceneEntityEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_: %agg.result"}
 !115 = distinct !{!115, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt22TransformedSceneEntityEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZSt4bindIRZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESD_JDpT0_EE4typeEOSD_DpOSE_: %agg.result"}
-!118 = distinct !{!118, !"_ZSt4bindIRZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESD_JDpT0_EE4typeEOSD_DpOSE_"}
+!117 = distinct !{!117, !118, !"_ZSt4bindIRZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESD_JDpT0_EE4typeEOSD_DpOSE_.argprom: %agg.result"}
+!118 = distinct !{!118, !"_ZSt4bindIRZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESD_JDpT0_EE4typeEOSD_DpOSE_.argprom"}
 !119 = !{!120}
 !120 = distinct !{!120, !121, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt22TransformedSceneEntityEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_: %agg.result"}
 !121 = distinct !{!121, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt22TransformedSceneEntityEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_"}
@@ -54293,8 +54293,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !123 = distinct !{!123, !124, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt22TransformedSceneEntityEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_: %agg.result"}
 !124 = distinct !{!124, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt22TransformedSceneEntityEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_"}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZSt4bindIRZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESD_JDpT0_EE4typeEOSD_DpOSE_: %agg.result"}
-!127 = distinct !{!127, !"_ZSt4bindIRZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESD_JDpT0_EE4typeEOSD_DpOSE_"}
+!126 = distinct !{!126, !127, !"_ZSt4bindIRZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESD_JDpT0_EE4typeEOSD_DpOSE_.argprom: %agg.result"}
+!127 = distinct !{!127, !"_ZSt4bindIRZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESD_JDpT0_EE4typeEOSD_DpOSE_.argprom"}
 !128 = !{!129}
 !129 = distinct !{!129, !130, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_: %agg.result"}
 !130 = distinct !{!130, !"_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_"}
@@ -54311,8 +54311,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !141 = distinct !{!141, !6}
 !142 = distinct !{!142, !6}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZSt4bindIRZN4pbrt10BasicScene22startLoadingNormalMapsERKNS0_19ParameterDictionaryEE3$_0JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_: %agg.result"}
-!145 = distinct !{!145, !"_ZSt4bindIRZN4pbrt10BasicScene22startLoadingNormalMapsERKNS0_19ParameterDictionaryEE3$_0JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_"}
+!144 = distinct !{!144, !145, !"_ZSt4bindIRZN4pbrt10BasicScene22startLoadingNormalMapsERKNS0_19ParameterDictionaryEE3$_0JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.argprom: %agg.result"}
+!145 = distinct !{!145, !"_ZSt4bindIRZN4pbrt10BasicScene22startLoadingNormalMapsERKNS0_19ParameterDictionaryEE3$_0JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.argprom"}
 !146 = distinct !{!146, !6}
 !147 = distinct !{!147, !6}
 !148 = distinct !{!148, !6}
@@ -54372,8 +54372,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !202 = distinct !{!202, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES3_NS0_17CameraSceneEntityES3_S3_S3_E3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
 !203 = distinct !{!203, !204, !"_ZSt8__invokeIRZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0JEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_: %agg.result"}
 !204 = distinct !{!204, !"_ZSt8__invokeIRZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0JEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_"}
-!205 = distinct !{!205, !206, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0vEE6__callINS0_7SamplerEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE: %agg.result"}
-!206 = distinct !{!206, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0vEE6__callINS0_7SamplerEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE"}
+!205 = distinct !{!205, !206, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0vEE6__callINS0_7SamplerEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom: %agg.result"}
+!206 = distinct !{!206, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0vEE6__callINS0_7SamplerEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom"}
 !207 = distinct !{!207, !208, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0vEEclIJENS0_7SamplerEEET0_DpOT_: %agg.result"}
 !208 = distinct !{!208, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0vEEclIJENS0_7SamplerEEET0_DpOT_"}
 !209 = distinct !{!209, !210, !"_ZSt13__invoke_implIN4pbrt7SamplerERSt5_BindIFZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES4_NS0_17CameraSceneEntityES4_S4_S4_E3$_0vEEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
@@ -54391,8 +54391,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !221 = distinct !{!221, !"_ZSt13__invoke_implIN4pbrt6CameraERZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES3_NS0_17CameraSceneEntityES3_S3_S3_E3$_1JEET_St14__invoke_otherOT0_DpOT1_"}
 !222 = distinct !{!222, !223, !"_ZSt8__invokeIRZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1JEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_: %agg.result"}
 !223 = distinct !{!223, !"_ZSt8__invokeIRZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1JEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_"}
-!224 = distinct !{!224, !225, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1vEE6__callINS0_6CameraEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE: %agg.result"}
-!225 = distinct !{!225, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1vEE6__callINS0_6CameraEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE"}
+!224 = distinct !{!224, !225, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1vEE6__callINS0_6CameraEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom: %agg.result"}
+!225 = distinct !{!225, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1vEE6__callINS0_6CameraEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom"}
 !226 = distinct !{!226, !227, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1vEEclIJENS0_6CameraEEET0_DpOT_: %agg.result"}
 !227 = distinct !{!227, !"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1vEEclIJENS0_6CameraEEET0_DpOT_"}
 !228 = distinct !{!228, !229, !"_ZSt13__invoke_implIN4pbrt6CameraERSt5_BindIFZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES4_NS0_17CameraSceneEntityES4_S4_S4_E3$_1vEEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
@@ -54413,8 +54413,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !243 = distinct !{!243, !"_ZSt13__invoke_implIN4pbrt6MediumERZNS0_10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
 !244 = distinct !{!244, !245, !"_ZSt8__invokeIRZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0JEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_: %agg.result"}
 !245 = distinct !{!245, !"_ZSt8__invokeIRZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0JEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_"}
-!246 = distinct !{!246, !247, !"_ZNSt5_BindIFZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEE6__callINS0_6MediumEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE: %agg.result"}
-!247 = distinct !{!247, !"_ZNSt5_BindIFZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEE6__callINS0_6MediumEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE"}
+!246 = distinct !{!246, !247, !"_ZNSt5_BindIFZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEE6__callINS0_6MediumEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom: %agg.result"}
+!247 = distinct !{!247, !"_ZNSt5_BindIFZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEE6__callINS0_6MediumEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom"}
 !248 = distinct !{!248, !249, !"_ZNSt5_BindIFZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEEclIJENS0_6MediumEEET0_DpOT_: %agg.result"}
 !249 = distinct !{!249, !"_ZNSt5_BindIFZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEEclIJENS0_6MediumEEET0_DpOT_"}
 !250 = distinct !{!250, !251, !"_ZSt13__invoke_implIN4pbrt6MediumERSt5_BindIFZNS0_10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
@@ -54448,8 +54448,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !278 = !{!279, !281, !283, !285, !287}
 !279 = distinct !{!279, !280, !"_ZSt8__invokeIRZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSD_DpOSE_: %agg.result"}
 !280 = distinct !{!280, !"_ZSt8__invokeIRZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSD_DpOSE_"}
-!281 = distinct !{!281, !282, !"_ZNSt5_BindIFZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EE6__callINS0_12FloatTextureEJEJLm0EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE: %agg.result"}
-!282 = distinct !{!282, !"_ZNSt5_BindIFZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EE6__callINS0_12FloatTextureEJEJLm0EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE"}
+!281 = distinct !{!281, !282, !"_ZNSt5_BindIFZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EE6__callINS0_12FloatTextureEJEJLm0EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom: %agg.result"}
+!282 = distinct !{!282, !"_ZNSt5_BindIFZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EE6__callINS0_12FloatTextureEJEJLm0EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom"}
 !283 = distinct !{!283, !284, !"_ZNSt5_BindIFZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EEclIJENS0_12FloatTextureEEET0_DpOT_: %agg.result"}
 !284 = distinct !{!284, !"_ZNSt5_BindIFZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EEclIJENS0_12FloatTextureEEET0_DpOT_"}
 !285 = distinct !{!285, !286, !"_ZSt13__invoke_implIN4pbrt12FloatTextureERSt5_BindIFZNS0_10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0SA_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
@@ -54460,8 +54460,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !290 = distinct !{!290, !291, !"_ZSt13__invoke_implIN4pbrt12FloatTextureERZNS0_10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS9_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
 !291 = distinct !{!291, !"_ZSt13__invoke_implIN4pbrt12FloatTextureERZNS0_10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS9_EET_St14__invoke_otherOT0_DpOT1_"}
 !292 = !{!293, !290, !279, !281, !283, !285, !287}
-!293 = distinct !{!293, !294, !"_ZZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_22TransformedSceneEntityEENK3$_0clES7_: %agg.result"}
-!294 = distinct !{!294, !"_ZZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_22TransformedSceneEntityEENK3$_0clES7_"}
+!293 = distinct !{!293, !294, !"_ZZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_22TransformedSceneEntityEENK3$_0clES7_.argprom: %agg.result"}
+!294 = distinct !{!294, !"_ZZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_22TransformedSceneEntityEENK3$_0clES7_.argprom"}
 !295 = !{!296}
 !296 = distinct !{!296, !297, !"_ZNKSt8functionIFN4pbrt12FloatTextureEvEEclEv: %agg.result"}
 !297 = distinct !{!297, !"_ZNKSt8functionIFN4pbrt12FloatTextureEvEEclEv"}
@@ -54471,8 +54471,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !301 = !{!302, !304, !306, !308, !310}
 !302 = distinct !{!302, !303, !"_ZSt8__invokeIRZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSD_DpOSE_: %agg.result"}
 !303 = distinct !{!303, !"_ZSt8__invokeIRZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS8_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSD_DpOSE_"}
-!304 = distinct !{!304, !305, !"_ZNSt5_BindIFZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EE6__callINS0_15SpectrumTextureEJEJLm0EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE: %agg.result"}
-!305 = distinct !{!305, !"_ZNSt5_BindIFZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EE6__callINS0_15SpectrumTextureEJEJLm0EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE"}
+!304 = distinct !{!304, !305, !"_ZNSt5_BindIFZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EE6__callINS0_15SpectrumTextureEJEJLm0EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom: %agg.result"}
+!305 = distinct !{!305, !"_ZNSt5_BindIFZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EE6__callINS0_15SpectrumTextureEJEJLm0EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom"}
 !306 = distinct !{!306, !307, !"_ZNSt5_BindIFZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EEclIJENS0_15SpectrumTextureEEET0_DpOT_: %agg.result"}
 !307 = distinct !{!307, !"_ZNSt5_BindIFZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EEclIJENS0_15SpectrumTextureEEET0_DpOT_"}
 !308 = distinct !{!308, !309, !"_ZSt13__invoke_implIN4pbrt15SpectrumTextureERSt5_BindIFZNS0_10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0SA_EEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
@@ -54483,8 +54483,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !313 = distinct !{!313, !314, !"_ZSt13__invoke_implIN4pbrt15SpectrumTextureERZNS0_10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS9_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
 !314 = distinct !{!314, !"_ZSt13__invoke_implIN4pbrt15SpectrumTextureERZNS0_10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0JRS9_EET_St14__invoke_otherOT0_DpOT1_"}
 !315 = !{!316, !313, !302, !304, !306, !308, !310}
-!316 = distinct !{!316, !317, !"_ZZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_22TransformedSceneEntityEENK3$_0clES7_: %agg.result"}
-!317 = distinct !{!317, !"_ZZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_22TransformedSceneEntityEENK3$_0clES7_"}
+!316 = distinct !{!316, !317, !"_ZZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_22TransformedSceneEntityEENK3$_0clES7_.argprom: %agg.result"}
+!317 = distinct !{!317, !"_ZZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_22TransformedSceneEntityEENK3$_0clES7_.argprom"}
 !318 = !{!319}
 !319 = distinct !{!319, !320, !"_ZNKSt8functionIFN4pbrt15SpectrumTextureEvEEclEv: %agg.result"}
 !320 = distinct !{!320, !"_ZNKSt8functionIFN4pbrt15SpectrumTextureEvEEclEv"}
@@ -54496,8 +54496,8 @@ attributes #33 = { nounwind willreturn memory(none) }
 !326 = distinct !{!326, !"_ZSt13__invoke_implIN4pbrt5LightERZNS0_10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
 !327 = distinct !{!327, !328, !"_ZSt8__invokeIRZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0JEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_: %agg.result"}
 !328 = distinct !{!328, !"_ZSt8__invokeIRZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0JEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_"}
-!329 = distinct !{!329, !330, !"_ZNSt5_BindIFZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEE6__callINS0_5LightEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE: %agg.result"}
-!330 = distinct !{!330, !"_ZNSt5_BindIFZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEE6__callINS0_5LightEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE"}
+!329 = distinct !{!329, !330, !"_ZNSt5_BindIFZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEE6__callINS0_5LightEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom: %agg.result"}
+!330 = distinct !{!330, !"_ZNSt5_BindIFZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEE6__callINS0_5LightEJETpTnmJEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.argprom"}
 !331 = distinct !{!331, !332, !"_ZNSt5_BindIFZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEEclIJENS0_5LightEEET0_DpOT_: %agg.result"}
 !332 = distinct !{!332, !"_ZNSt5_BindIFZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEEclIJENS0_5LightEEET0_DpOT_"}
 !333 = distinct !{!333, !334, !"_ZSt13__invoke_implIN4pbrt5LightERSt5_BindIFZNS0_10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}

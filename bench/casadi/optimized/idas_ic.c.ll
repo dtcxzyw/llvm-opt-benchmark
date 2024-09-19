@@ -695,7 +695,7 @@ IDANewy.exit.i.i.i:                               ; preds = %338, %331
   br i1 %405, label %406, label %IDANewyyp.exit.i.i.i
 
 406:                                              ; preds = %403
-  tail call fastcc void @IDASensNewyyp(ptr noundef readonly %0, double noundef %.082.i.i.i)
+  tail call fastcc void @IDASensNewyyp.retelim(ptr noundef readonly %0, double noundef %.082.i.i.i)
   br label %IDANewyyp.exit.i.i.i
 
 IDANewyyp.exit.i.i.i:                             ; preds = %406, %403, %401
@@ -1386,7 +1386,7 @@ thread-pre-split.i:                               ; preds = %919
 
 779:                                              ; preds = %846, %.lr.ph79.i.i
   %.038.i.i.i = phi double [ 1.000000e+00, %.lr.ph79.i.i ], [ %847, %846 ]
-  tail call fastcc void @IDASensNewyyp(ptr noundef %0, double noundef %.038.i.i.i)
+  tail call fastcc void @IDASensNewyyp.retelim(ptr noundef %0, double noundef %.038.i.i.i)
   %780 = load ptr, ptr %160, align 8
   %781 = load i32, ptr %161, align 4
   %782 = load double, ptr %57, align 8
@@ -1853,7 +1853,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @IDASensNewyyp(ptr nocapture noundef nonnull readonly %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @IDASensNewyyp.retelim(ptr nocapture noundef nonnull readonly %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1072
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1

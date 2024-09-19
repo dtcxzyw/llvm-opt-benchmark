@@ -20770,9 +20770,9 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052113PReLUSubgraph8final
   store i32 33619968, ptr %5, align 8
   store ptr %6, ptr %46, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.exit unwind label %53
+          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit unwind label %53
 
-_ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %45
+_ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %111
 
@@ -20945,7 +20945,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %95, %99
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #23
   br label %112
 
-111:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.exit, %_ZNK2cv3Mat8elemSizeEv.exit
+111:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit, %_ZNK2cv3Mat8elemSizeEv.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #23
   br label %113
 
@@ -24119,8 +24119,8 @@ attributes #28 = { allocsize(0) }
 !136 = !{!137, !139}
 !137 = distinct !{!137, !138, !"_ZSt11make_sharedIN2cv3dnn14dnn4_v2024052113TFNodeWrapperEJRKPN17opencv_tensorflow7NodeDefEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
 !138 = distinct !{!138, !"_ZSt11make_sharedIN2cv3dnn14dnn4_v2024052113TFNodeWrapperEJRKPN17opencv_tensorflow7NodeDefEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
-!139 = distinct !{!139, !140, !"_ZN2cvL7makePtrINS_3dnn14dnn4_v2024052113TFNodeWrapperEJPN17opencv_tensorflow7NodeDefEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!140 = distinct !{!140, !"_ZN2cvL7makePtrINS_3dnn14dnn4_v2024052113TFNodeWrapperEJPN17opencv_tensorflow7NodeDefEEEENS_3PtrIT_EEDpRKT0_"}
+!139 = distinct !{!139, !140, !"_ZN2cvL7makePtrINS_3dnn14dnn4_v2024052113TFNodeWrapperEJPN17opencv_tensorflow7NodeDefEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!140 = distinct !{!140, !"_ZN2cvL7makePtrINS_3dnn14dnn4_v2024052113TFNodeWrapperEJPN17opencv_tensorflow7NodeDefEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !141 = distinct !{!141, !5}
 !142 = distinct !{!142, !5}
 !143 = distinct !{!143, !5}

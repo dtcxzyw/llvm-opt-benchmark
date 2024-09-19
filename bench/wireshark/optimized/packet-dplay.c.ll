@@ -768,11 +768,11 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
   ]
 
 73:                                               ; preds = %70
-  tail call fastcc void @dissect_type01_message(ptr noundef %72, ptr noundef %0)
+  tail call fastcc void @dissect_type01_message.argelim(ptr noundef %72, ptr noundef %0)
   br label %dissect_dplay.exit
 
 74:                                               ; preds = %70
-  tail call fastcc void @dissect_type02_message(ptr noundef %72, ptr noundef %0)
+  tail call fastcc void @dissect_type02_message.argelim(ptr noundef %72, ptr noundef %0)
   br label %dissect_dplay.exit
 
 75:                                               ; preds = %70
@@ -782,7 +782,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
   br label %dissect_dplay.exit
 
 79:                                               ; preds = %70
-  tail call fastcc void @dissect_type07_message(ptr noundef %72, ptr noundef %0)
+  tail call fastcc void @dissect_type07_message.argelim(ptr noundef %72, ptr noundef %0)
   br label %dissect_dplay.exit
 
 80:                                               ; preds = %70, %70, %70, %70, %70, %70, %70, %70
@@ -790,7 +790,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
   br label %dissect_dplay.exit
 
 82:                                               ; preds = %70
-  tail call fastcc void @dissect_type0f_message(ptr noundef %72, ptr noundef %0)
+  tail call fastcc void @dissect_type0f_message.argelim(ptr noundef %72, ptr noundef %0)
   br label %dissect_dplay.exit
 
 83:                                               ; preds = %70
@@ -798,11 +798,11 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
   br label %dissect_dplay.exit
 
 85:                                               ; preds = %70
-  tail call fastcc void @dissect_type15_message(ptr noundef %72, ptr noundef %0)
+  tail call fastcc void @dissect_type15_message.argelim(ptr noundef %72, ptr noundef %0)
   br label %dissect_dplay.exit
 
 86:                                               ; preds = %70, %70
-  tail call fastcc void @dissect_ping_message(ptr noundef %72, ptr noundef %0)
+  tail call fastcc void @dissect_ping_message.argelim(ptr noundef %72, ptr noundef %0)
   br label %dissect_dplay.exit
 
 87:                                               ; preds = %70
@@ -810,7 +810,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
   br label %dissect_dplay.exit
 
 89:                                               ; preds = %70
-  tail call fastcc void @dissect_type29_message(ptr noundef %72, ptr noundef %0)
+  tail call fastcc void @dissect_type29_message.argelim(ptr noundef %72, ptr noundef %0)
   br label %dissect_dplay.exit
 
 90:                                               ; preds = %70
@@ -908,7 +908,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_type01_message(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_type01_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef 28)
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %4) #3
@@ -933,7 +933,7 @@ define internal fastcc void @dissect_type01_message(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_type02_message(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_type02_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef 44) #3
   %5 = load i32, ptr @hf_dplay_type_02_game_guid, align 4
@@ -961,7 +961,7 @@ define internal fastcc void @dissect_type02_message(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_type07_message(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_type07_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_dplay_type_07_dpid, align 4
@@ -1070,7 +1070,7 @@ define internal fastcc i32 @dissect_player_message(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_type0f_message(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_type0f_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_dplay_type_0f_id_to, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
   %5 = load i32, ptr @hf_dplay_type_0f_id, align 4
@@ -1138,7 +1138,7 @@ define internal fastcc noundef i32 @dissect_type13_message(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_type15_message(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_type15_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef 72) #3
   %4 = load i32, ptr @hf_dplay_message_guid, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 28, i32 noundef 16, i32 noundef 0) #3
@@ -1205,7 +1205,7 @@ define internal fastcc void @dissect_type15_message(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ping_message(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_ping_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_dplay_ping_id_from, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
   %5 = load i32, ptr @hf_dplay_ping_tick_count, align 4
@@ -1267,7 +1267,7 @@ define internal fastcc i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_type29_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef 52) #3

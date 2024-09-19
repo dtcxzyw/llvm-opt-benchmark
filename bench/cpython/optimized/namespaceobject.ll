@@ -379,25 +379,25 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %self.val, @_PyNamespace_Type
-  br i1 %cmp.i.not.i, label %land.lhs.true, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %land.lhs.true, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %self.val, ptr noundef nonnull @_PyNamespace_Type) #2
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %entry, %PyObject_TypeCheck.exit
+land.lhs.true:                                    ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %1 = getelementptr i8, ptr %other, i64 8
   %other.val = load ptr, ptr %1, align 8
   %cmp.i.not.i3 = icmp eq ptr %other.val, @_PyNamespace_Type
-  br i1 %cmp.i.not.i3, label %if.then, label %PyObject_TypeCheck.exit8
+  br i1 %cmp.i.not.i3, label %if.then, label %PyObject_TypeCheck.argprom.exit8
 
-PyObject_TypeCheck.exit8:                         ; preds = %land.lhs.true
+PyObject_TypeCheck.argprom.exit8:                 ; preds = %land.lhs.true
   %call2.i5 = tail call i32 @PyType_IsSubtype(ptr noundef %other.val, ptr noundef nonnull @_PyNamespace_Type) #2
   %tobool3.i6.not = icmp eq i32 %call2.i5, 0
   br i1 %tobool3.i6.not, label %return, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true, %PyObject_TypeCheck.exit8
+if.then:                                          ; preds = %land.lhs.true, %PyObject_TypeCheck.argprom.exit8
   %ns_dict = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %ns_dict, align 8
   %ns_dict3 = getelementptr inbounds i8, ptr %other, i64 16
@@ -405,8 +405,8 @@ if.then:                                          ; preds = %land.lhs.true, %PyO
   %call4 = tail call ptr @PyObject_RichCompare(ptr noundef %2, ptr noundef %3, i32 noundef %op) #2
   br label %return
 
-return:                                           ; preds = %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit8, %if.then
-  %retval.0 = phi ptr [ %call4, %if.then ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit8 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ]
+return:                                           ; preds = %PyObject_TypeCheck.argprom.exit, %PyObject_TypeCheck.argprom.exit8, %if.then
+  %retval.0 = phi ptr [ %call4, %if.then ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.argprom.exit8 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.argprom.exit ]
   ret ptr %retval.0
 }
 

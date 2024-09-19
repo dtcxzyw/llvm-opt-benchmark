@@ -269,7 +269,7 @@ define dso_local ptr @hash_create(ptr nocapture noundef readonly %0, i64 noundef
 112:                                              ; preds = %107
   %113 = getelementptr i8, ptr %.val, i64 848
   %114 = icmp ult ptr %.val, %113
-  br i1 %114, label %.lr.ph.preheader.i, label %hdefault.exit
+  br i1 %114, label %.lr.ph.preheader.i, label %hdefault.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %112
   %115 = add i64 %109, 848
@@ -280,13 +280,13 @@ define dso_local ptr @hash_create(ptr nocapture noundef readonly %0, i64 noundef
   %119 = and i64 %118, -8
   %120 = add i64 %119, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.val, i8 0, i64 %120, i1 false)
-  br label %hdefault.exit
+  br label %hdefault.argprom.exit
 
 121:                                              ; preds = %107
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(848) %.val, i8 0, i64 848, i1 false)
-  br label %hdefault.exit
+  br label %hdefault.argprom.exit
 
-hdefault.exit:                                    ; preds = %112, %.lr.ph.preheader.i, %121
+hdefault.argprom.exit:                            ; preds = %112, %.lr.ph.preheader.i, %121
   %122 = getelementptr inbounds i8, ptr %.val, i64 768
   store i64 256, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %.val, i64 776
@@ -304,13 +304,13 @@ hdefault.exit:                                    ; preds = %112, %.lr.ph.prehea
   %.not144 = icmp eq i32 %129, 0
   br i1 %.not144, label %133, label %130
 
-130:                                              ; preds = %hdefault.exit
+130:                                              ; preds = %hdefault.argprom.exit
   %131 = load i64, ptr %2, align 8
   %132 = getelementptr inbounds i8, ptr %128, i64 816
   store i64 %131, ptr %132, align 8
   br label %133
 
-133:                                              ; preds = %130, %hdefault.exit
+133:                                              ; preds = %130, %hdefault.argprom.exit
   %134 = and i32 %3, 2
   %.not145 = icmp eq i32 %134, 0
   br i1 %.not145, label %146, label %135

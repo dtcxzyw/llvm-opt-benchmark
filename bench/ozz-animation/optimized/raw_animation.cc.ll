@@ -69,7 +69,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   %or.cond.not2.i = and i1 %13, %14
   %15 = fcmp ugt float %12, %.0123.i
   %or.cond14.i = and i1 %15, %or.cond.not2.i
-  br i1 %or.cond14.i, label %9, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit
+  br i1 %or.cond14.i, label %9, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.argprom.exit
 
 .loopexit31:                                      ; preds = %9, %2
   %16 = getelementptr inbounds i8, ptr %0, i64 24
@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   %or.cond.not2.i14 = and i1 %27, %28
   %29 = fcmp ugt float %26, %.0123.i13
   %or.cond14.i15 = and i1 %29, %or.cond.not2.i14
-  br i1 %or.cond14.i15, label %23, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit
+  br i1 %or.cond14.i15, label %23, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.argprom.exit
 
 .loopexit:                                        ; preds = %23, %.loopexit31
   %30 = getelementptr inbounds i8, ptr %0, i64 48
@@ -110,7 +110,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   %31 = getelementptr inbounds i8, ptr %0, i64 56
   %.val8 = load ptr, ptr %31, align 8
   %32 = icmp eq ptr %.val8, %.val7
-  br i1 %32, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, label %.lr.ph.preheader.i18
+  br i1 %32, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.argprom.exit, label %.lr.ph.preheader.i18
 
 .lr.ph.preheader.i18:                             ; preds = %.loopexit
   %33 = ptrtoint ptr %.val8 to i64
@@ -133,9 +133,9 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   %42 = add nuw i64 %.0114.i21, 1
   %exitcond.not.i26 = icmp ne i64 %42, %umax.i19
   %or.cond.not = select i1 %or.cond14.i24, i1 %exitcond.not.i26, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i20, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, !llvm.loop !8
+  br i1 %or.cond.not, label %.lr.ph.i20, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.argprom.exit, !llvm.loop !8
 
-_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit: ; preds = %.lr.ph.i, %.lr.ph.i11, %.lr.ph.i20, %.loopexit
+_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.argprom.exit: ; preds = %.lr.ph.i, %.lr.ph.i11, %.lr.ph.i20, %.loopexit
   %43 = phi i1 [ true, %.loopexit ], [ %or.cond14.i24, %.lr.ph.i20 ], [ false, %.lr.ph.i11 ], [ false, %.lr.ph.i ]
   ret i1 %43
 }

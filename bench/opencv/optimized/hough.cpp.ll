@@ -4485,12 +4485,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us:       ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv12HoughCirclesERKNS_11_InputArrayERKNS_12_OutputArrayEiddddii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #3 {
-  tail call fastcc void @_ZN2cvL12HoughCirclesERKNS_11_InputArrayERKNS_12_OutputArrayEiddddiiid(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef -1)
+  tail call fastcc void @_ZN2cvL12HoughCirclesERKNS_11_InputArrayERKNS_12_OutputArrayEiddddiiid.argelim(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef -1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL12HoughCirclesERKNS_11_InputArrayERKNS_12_OutputArrayEiddddiiid(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL12HoughCirclesERKNS_11_InputArrayERKNS_12_OutputArrayEiddddiiid.argelim(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i18.i308 = alloca [3 x float], align 4
   %.sroa.0.i.i309 = alloca [3 x float], align 4
   %.sroa.0.i18.i = alloca [3 x float], align 4
@@ -5225,11 +5225,11 @@ _ZNSt12_Vector_baseIN2cv3VecIfLi3EEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds 
   %umax.i.i = call i64 @llvm.umax.i64(i64 %375, i64 1)
   br label %378
 
-378:                                              ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i, %.lr.ph.i.i
-  %.sroa.0.6.i = phi ptr [ %364, %.lr.ph.i.i ], [ %.sroa.0.7.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
-  %.sroa.17.2.i = phi ptr [ %364, %.lr.ph.i.i ], [ %.sroa.17.3.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
-  %.sroa.37.1.i = phi ptr [ %366, %.lr.ph.i.i ], [ %.sroa.37.2.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
-  %.025.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %430, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
+378:                                              ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i, %.lr.ph.i.i
+  %.sroa.0.6.i = phi ptr [ %364, %.lr.ph.i.i ], [ %.sroa.0.7.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
+  %.sroa.17.2.i = phi ptr [ %364, %.lr.ph.i.i ], [ %.sroa.17.3.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
+  %.sroa.37.1.i = phi ptr [ %366, %.lr.ph.i.i ], [ %.sroa.37.2.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
+  %.025.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %430, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
   %379 = load ptr, ptr %103, align 8
   %380 = getelementptr inbounds i32, ptr %379, i64 %.025.i.i
   %381 = load i32, ptr %380, align 4
@@ -5271,7 +5271,7 @@ _ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i.i:             ; preds = %378, %395
   %402 = fmul float %401, %401
   %403 = call float @llvm.fmuladd.f32(float %400, float %400, float %402)
   %404 = fcmp uge float %403, %371
-  br i1 %404, label %395, label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i
+  br i1 %404, label %395, label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %395, %378
   %.not.i23.i.i = icmp eq ptr %.sroa.17.2.i, %.sroa.37.1.i
@@ -5289,7 +5289,7 @@ _ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i.i:             ; preds = %378, %395
 
 _ZNSt16allocator_traitsISaIN2cv3VecIfLi3EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %.preheader.i.i.i
   %408 = getelementptr inbounds i8, ptr %.sroa.17.2.i, i64 12
-  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i
+  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i
 
 409:                                              ; preds = %.loopexit.i.i
   %410 = icmp eq i64 %392, 9223372036854775800
@@ -5355,9 +5355,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi3EEES3_SaIS2_EET0_T_S6_S5_
 
 .noexc96.i:                                       ; preds = %428, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i.i
   %429 = getelementptr inbounds %"class.cv::Vec.32", ptr %419, i64 %415
-  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i
+  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i
 
-_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i: ; preds = %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i.i, %.noexc96.i, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi3EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
+_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i: ; preds = %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i.i, %.noexc96.i, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi3EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
   %.sroa.0.7.i = phi ptr [ %419, %.noexc96.i ], [ %.sroa.0.6.i, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi3EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.sroa.0.6.i, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i.i ]
   %.sroa.17.3.i = phi ptr [ %427, %.noexc96.i ], [ %408, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi3EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.sroa.17.2.i, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i.i ]
   %.sroa.37.2.i = phi ptr [ %429, %.noexc96.i ], [ %.sroa.37.1.i, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi3EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.sroa.37.1.i, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i.i ]
@@ -5365,9 +5365,9 @@ _ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i:
   %exitcond.not.i.i = icmp eq i64 %430, %umax.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL16GetCircleCentersERKSt6vectorIiSaIiEERS0_INS_3VecIfLi3EEESaIS6_EEiff.exit.i, label %378, !llvm.loop !83
 
-_ZN2cvL16GetCircleCentersERKSt6vectorIiSaIiEERS0_INS_3VecIfLi3EEESaIS6_EEiff.exit.i: ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i, %367
-  %.sroa.0.8.i = phi ptr [ %364, %367 ], [ %.sroa.0.7.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
-  %.sroa.17.4.i = phi ptr [ %364, %367 ], [ %.sroa.17.3.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
+_ZN2cvL16GetCircleCentersERKSt6vectorIiSaIiEERS0_INS_3VecIfLi3EEESaIS6_EEiff.exit.i: ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i, %367
+  %.sroa.0.8.i = phi ptr [ %364, %367 ], [ %.sroa.0.7.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
+  %.sroa.17.4.i = phi ptr [ %364, %367 ], [ %.sroa.17.3.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %83)
   br label %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EED2Ev.exit.i
 
@@ -6103,9 +6103,9 @@ _ZNSt20back_insert_iteratorISt6vectorIN2cv3VecIfLi3EEESaIS3_EEEaSEOS3_.exit.i.i.
   %704 = fmul float %205, %205
   br label %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i
 
-_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i:               ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i118.i, %.lr.ph.i111.i
-  %.022.i.i = phi i64 [ 1, %.lr.ph.i111.i ], [ %719, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i118.i ]
-  %.01521.i.i = phi i64 [ 1, %.lr.ph.i111.i ], [ %.1.i.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i118.i ]
+_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i:               ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i118.i, %.lr.ph.i111.i
+  %.022.i.i = phi i64 [ 1, %.lr.ph.i111.i ], [ %719, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i118.i ]
+  %.01521.i.i = phi i64 [ 1, %.lr.ph.i111.i ], [ %.1.i.i, %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i118.i ]
   %705 = getelementptr inbounds %"class.cv::Vec.32", ptr %.sroa.0.12.i, i64 %.022.i.i
   %.sroa.0.0.copyload29.i.i = load float, ptr %705, align 4
   %.sroa.3.0..sroa_idx30.i.i = getelementptr inbounds i8, ptr %705, i64 4
@@ -6133,7 +6133,7 @@ _ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i112.i:          ; preds = %706, %_ZN2cv3VecIfL
   %713 = fmul float %712, %712
   %714 = call float @llvm.fmuladd.f32(float %711, float %711, float %713)
   %715 = fcmp uge float %714, %704
-  br i1 %715, label %706, label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i118.i
+  br i1 %715, label %706, label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i118.i
 
 716:                                              ; preds = %706
   %717 = getelementptr inbounds %"class.cv::Vec.32", ptr %.sroa.0.12.i, i64 %.01521.i.i
@@ -6143,15 +6143,15 @@ _ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i112.i:          ; preds = %706, %_ZN2cv3VecIfL
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %717, i64 8
   store float %.sroa.4.0.copyload33.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 4
   %718 = add nuw nsw i64 %.01521.i.i, 1
-  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i118.i
+  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i118.i
 
-_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i118.i: ; preds = %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i112.i, %716
+_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i118.i: ; preds = %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i112.i, %716
   %.1.i.i = phi i64 [ %718, %716 ], [ %.01521.i.i, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i112.i ]
   %719 = add nuw i64 %.022.i.i, 1
   %exitcond.not.i = icmp eq i64 %719, %702
   br i1 %exitcond.not.i, label %._crit_edge.i.i, label %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i.i, !llvm.loop !89
 
-._crit_edge.i.i:                                  ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i118.i
+._crit_edge.i.i:                                  ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i118.i
   %720 = icmp ugt i64 %.1.i.i, %702
   br i1 %720, label %721, label %746
 
@@ -6825,11 +6825,11 @@ _ZNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds 
   %umax.i.i217 = call i64 @llvm.umax.i64(i64 %951, i64 1)
   br label %955
 
-955:                                              ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i, %.lr.ph.i.i216
-  %.sroa.0.6.i218 = phi ptr [ %940, %.lr.ph.i.i216 ], [ %.sroa.0.7.i226, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
-  %.sroa.17.2.i219 = phi ptr [ %940, %.lr.ph.i.i216 ], [ %.sroa.17.3.i227, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
-  %.sroa.37.1.i220 = phi ptr [ %942, %.lr.ph.i.i216 ], [ %.sroa.37.2.i228, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
-  %.026.i.i = phi i64 [ 0, %.lr.ph.i.i216 ], [ %1008, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
+955:                                              ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i, %.lr.ph.i.i216
+  %.sroa.0.6.i218 = phi ptr [ %940, %.lr.ph.i.i216 ], [ %.sroa.0.7.i226, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
+  %.sroa.17.2.i219 = phi ptr [ %940, %.lr.ph.i.i216 ], [ %.sroa.17.3.i227, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
+  %.sroa.37.1.i220 = phi ptr [ %942, %.lr.ph.i.i216 ], [ %.sroa.37.2.i228, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
+  %.026.i.i = phi i64 [ 0, %.lr.ph.i.i216 ], [ %1008, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
   %956 = load ptr, ptr %72, align 8
   %957 = getelementptr inbounds i32, ptr %956, i64 %.026.i.i
   %958 = load i32, ptr %957, align 4
@@ -6873,7 +6873,7 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i:             ; preds = %955, %973
   %980 = fmul float %979, %979
   %981 = call float @llvm.fmuladd.f32(float %978, float %978, float %980)
   %982 = fcmp uge float %981, %947
-  br i1 %982, label %973, label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i
+  br i1 %982, label %973, label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i
 
 .loopexit.i.i233:                                 ; preds = %973, %955
   %.not.i24.i.i = icmp eq ptr %.sroa.17.2.i219, %.sroa.37.1.i220
@@ -6891,7 +6891,7 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i:             ; preds = %955, %973
 
 _ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %.preheader.i.i.i234
   %986 = getelementptr inbounds i8, ptr %.sroa.17.2.i219, i64 16
-  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i
+  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i
 
 987:                                              ; preds = %.loopexit.i.i233
   %988 = icmp eq i64 %970, 9223372036854775792
@@ -6957,9 +6957,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_
 
 .noexc96.i247:                                    ; preds = %1006, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i.i
   %1007 = getelementptr inbounds %"class.cv::Vec.69", ptr %997, i64 %993
-  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i
+  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i
 
-_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i: ; preds = %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i, %.noexc96.i247, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
+_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i: ; preds = %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i, %.noexc96.i247, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
   %.sroa.0.7.i226 = phi ptr [ %997, %.noexc96.i247 ], [ %.sroa.0.6.i218, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.sroa.0.6.i218, %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i ]
   %.sroa.17.3.i227 = phi ptr [ %1005, %.noexc96.i247 ], [ %986, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.sroa.17.2.i219, %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i ]
   %.sroa.37.2.i228 = phi ptr [ %1007, %.noexc96.i247 ], [ %.sroa.37.1.i220, %_ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.sroa.37.1.i220, %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i ]
@@ -6967,9 +6967,9 @@ _ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i:
   %exitcond.not.i.i229 = icmp eq i64 %1008, %umax.i.i217
   br i1 %exitcond.not.i.i229, label %_ZN2cvL16GetCircleCentersERKSt6vectorIiSaIiEERS0_INS_3VecIfLi4EEESaIS6_EEiff.exit.i, label %955, !llvm.loop !94
 
-_ZN2cvL16GetCircleCentersERKSt6vectorIiSaIiEERS0_INS_3VecIfLi4EEESaIS6_EEiff.exit.i: ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i, %943
-  %.sroa.0.8.i230 = phi ptr [ %940, %943 ], [ %.sroa.0.7.i226, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
-  %.sroa.17.4.i231 = phi ptr [ %940, %943 ], [ %.sroa.17.3.i227, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i.i ]
+_ZN2cvL16GetCircleCentersERKSt6vectorIiSaIiEERS0_INS_3VecIfLi4EEESaIS6_EEiff.exit.i: ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i, %943
+  %.sroa.0.8.i230 = phi ptr [ %940, %943 ], [ %.sroa.0.7.i226, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
+  %.sroa.17.4.i231 = phi ptr [ %940, %943 ], [ %.sroa.17.3.i227, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52)
   br label %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EED2Ev.exit.i182
 
@@ -7724,9 +7724,9 @@ _ZNSt20back_insert_iteratorISt6vectorIN2cv3VecIfLi4EEESaIS3_EEEaSEOS3_.exit.i.i.
   %1296 = icmp ugt i64 %1295, 1
   br i1 %1296, label %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i, label %._crit_edge.i.i178
 
-_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i:               ; preds = %1293, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117.i
-  %.022.i.i199 = phi i64 [ %1312, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117.i ], [ 1, %1293 ]
-  %.01521.i.i200 = phi i64 [ %.1.i.i205, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117.i ], [ 1, %1293 ]
+_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i:               ; preds = %1293, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i117.i
+  %.022.i.i199 = phi i64 [ %1312, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i117.i ], [ 1, %1293 ]
+  %.01521.i.i200 = phi i64 [ %.1.i.i205, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i117.i ], [ 1, %1293 ]
   %1297 = getelementptr inbounds %"class.cv::Vec.69", ptr %.sroa.0.12.i175, i64 %.022.i.i199
   %.sroa.0.0.copyload29.i.i201 = load float, ptr %1297, align 4
   %.sroa.3.0..sroa_idx30.i.i202 = getelementptr inbounds i8, ptr %1297, i64 4
@@ -7754,7 +7754,7 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i111.i:          ; preds = %1299, %_ZN2cv3VecIf
   %1306 = fmul float %1305, %1305
   %1307 = call float @llvm.fmuladd.f32(float %1304, float %1304, float %1306)
   %1308 = fcmp uge float %1307, %1294
-  br i1 %1308, label %1299, label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117.i
+  br i1 %1308, label %1299, label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i117.i
 
 1309:                                             ; preds = %1299
   %1310 = getelementptr inbounds %"class.cv::Vec.69", ptr %.sroa.0.12.i175, i64 %.01521.i.i200
@@ -7764,16 +7764,16 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i111.i:          ; preds = %1299, %_ZN2cv3VecIf
   %.sroa.4.0..sroa_idx.i.i208 = getelementptr inbounds i8, ptr %1310, i64 8
   store i64 %1298, ptr %.sroa.4.0..sroa_idx.i.i208, align 4
   %1311 = add nuw nsw i64 %.01521.i.i200, 1
-  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117.i
+  br label %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i117.i
 
-_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117.i: ; preds = %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i111.i, %1309
+_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i117.i: ; preds = %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i111.i, %1309
   %.1.i.i205 = phi i64 [ %1311, %1309 ], [ %.01521.i.i200, %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i111.i ]
   %1312 = add nuw i64 %.022.i.i199, 1
   %exitcond.not.i206 = icmp eq i64 %1312, %1295
   br i1 %exitcond.not.i206, label %._crit_edge.i.i178, label %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i, !llvm.loop !99
 
-._crit_edge.i.i178:                               ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117.i, %1293
-  %.015.lcssa.i.i = phi i64 [ 1, %1293 ], [ %.1.i.i205, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117.i ]
+._crit_edge.i.i178:                               ; preds = %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i117.i, %1293
+  %.015.lcssa.i.i = phi i64 [ 1, %1293 ], [ %.1.i.i205, %_ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.argprom.exit.i117.i ]
   %1313 = icmp ugt i64 %.015.lcssa.i.i, %1295
   br i1 %1313, label %1314, label %1340
 
@@ -10876,7 +10876,7 @@ define ptr @cvHoughCircles(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
   store i64 0, ptr %69, align 8
   store i32 33619968, ptr %19, align 8
   store ptr %11, ptr %68, align 8
-  invoke fastcc void @_ZN2cvL12HoughCirclesERKNS_11_InputArrayERKNS_12_OutputArrayEiddddiiid(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %.026)
+  invoke fastcc void @_ZN2cvL12HoughCirclesERKNS_11_InputArrayERKNS_12_OutputArrayEiddddiiid.argelim(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %.026)
           to label %70 unwind label %77
 
 70:                                               ; preds = %64
@@ -15391,7 +15391,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaI
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_L15HoughCirclesAltERKNS0_3MatERSt6vectorINS0_15EstimatedCircleESaIS9_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -15400,30 +15400,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cvL15HoughCirclesAltERKNS_3MatERSt6vectorINS_15EstimatedCircleESaIS4_EEddddddE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %7, ptr noundef nonnull readonly align 8 dereferenceable(104) %.val6, i64 104, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cvL15HoughCirclesAltERKNS1_3MatERSt6vectorINS1_15EstimatedCircleESaIS6_EEddddddE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

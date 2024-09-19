@@ -249,7 +249,7 @@ define hidden i32 @dissect_wifi_dpp_config_proto(ptr nocapture noundef readnone 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str) #2
   %10 = load i32, ptr @ett_wifi_dpp_attributes, align 4
   %11 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.1) #2
-  %12 = tail call fastcc i32 @dissect_wifi_dpp_attributes(ptr noundef %11, ptr noundef %2, i32 noundef %3)
+  %12 = tail call fastcc i32 @dissect_wifi_dpp_attributes.argprom(ptr noundef %11, ptr noundef %2, i32 noundef %3)
   ret i32 %12
 }
 
@@ -264,7 +264,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wifi_dpp_attributes.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #2
@@ -451,7 +451,7 @@ define hidden range(i32 2, 65538) i32 @dissect_wifi_dpp_public_action(ptr nounde
 22:                                               ; preds = %4
   %23 = load i32, ptr @ett_wifi_dpp_attributes, align 4
   %24 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %15, ptr noundef %0, i32 noundef 2, i32 noundef %21, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.1) #2
-  %25 = tail call fastcc i32 @dissect_wifi_dpp_attributes(ptr noundef %24, ptr noundef %0, i32 noundef 2)
+  %25 = tail call fastcc i32 @dissect_wifi_dpp_attributes.argprom(ptr noundef %24, ptr noundef %0, i32 noundef 2)
   %26 = and i32 %25, 65535
   %27 = add nuw nsw i32 %26, 2
   br label %28
@@ -646,7 +646,7 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr nocapture noun
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str) #2
   %43 = load i32, ptr @ett_wifi_dpp_attributes, align 4
   %44 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %42, ptr noundef %0, i32 noundef 18, i32 noundef %38, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.1) #2
-  %45 = tail call fastcc i32 @dissect_wifi_dpp_attributes(ptr noundef %44, ptr noundef %0, i32 noundef 18)
+  %45 = tail call fastcc i32 @dissect_wifi_dpp_attributes.argprom(ptr noundef %44, ptr noundef %0, i32 noundef 18)
   %46 = add i32 %45, 18
   br label %93
 
@@ -704,7 +704,7 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr nocapture noun
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str) #2
   %89 = load i32, ptr @ett_wifi_dpp_attributes, align 4
   %90 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %88, ptr noundef %0, i32 noundef %82, i32 noundef %84, i32 noundef %89, ptr noundef null, ptr noundef nonnull @.str.1) #2
-  %91 = tail call fastcc i32 @dissect_wifi_dpp_attributes(ptr noundef %90, ptr noundef %0, i32 noundef %82)
+  %91 = tail call fastcc i32 @dissect_wifi_dpp_attributes.argprom(ptr noundef %90, ptr noundef %0, i32 noundef %82)
   %92 = add i32 %91, %82
   br label %93
 

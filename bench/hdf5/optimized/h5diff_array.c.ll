@@ -209,7 +209,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.0277467 = phi i64 [ 0, %.lr.ph471 ], [ %28, %34 ]
   %.0263.val = load half, ptr %.0263468, align 1
   %.0249.val = load half, ptr %.0249469, align 1
-  %27 = tail call fastcc i64 @diff_float16_element(half %.0263.val, half %.0249.val, i64 noundef %.0248470, ptr noundef nonnull %2)
+  %27 = tail call fastcc i64 @diff_float16_element.argprom(half %.0263.val, half %.0249.val, i64 noundef %.0248470, ptr noundef nonnull %2)
   %28 = add i64 %27, %.0277467
   %29 = getelementptr inbounds i8, ptr %.0263468, i64 2
   %30 = getelementptr inbounds i8, ptr %.0249469, i64 2
@@ -252,7 +252,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.1278475 = phi i64 [ 0, %.lr.ph479 ], [ %47, %53 ]
   %.1264.val = load float, ptr %.1264476, align 1
   %.1250.val = load float, ptr %.1250477, align 1
-  %46 = tail call fastcc i64 @diff_float_element(float %.1264.val, float %.1250.val, i64 noundef %.1478, ptr noundef nonnull %2)
+  %46 = tail call fastcc i64 @diff_float_element.argprom(float %.1264.val, float %.1250.val, i64 noundef %.1478, ptr noundef nonnull %2)
   %47 = add i64 %46, %.1278475
   %48 = getelementptr inbounds i8, ptr %.1264476, i64 4
   %49 = getelementptr inbounds i8, ptr %.1250477, i64 4
@@ -295,7 +295,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.2279483 = phi i64 [ 0, %.lr.ph487 ], [ %66, %72 ]
   %.2265.val = load double, ptr %.2265484, align 1
   %.2251.val = load double, ptr %.2251485, align 1
-  %65 = tail call fastcc i64 @diff_double_element(double %.2265.val, double %.2251.val, i64 noundef %.2486, ptr noundef nonnull %2)
+  %65 = tail call fastcc i64 @diff_double_element.argprom(double %.2265.val, double %.2251.val, i64 noundef %.2486, ptr noundef nonnull %2)
   %66 = add i64 %65, %.2279483
   %67 = getelementptr inbounds i8, ptr %.2265484, i64 8
   %68 = getelementptr inbounds i8, ptr %.2251485, i64 8
@@ -338,7 +338,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.3280491 = phi i64 [ 0, %.lr.ph495 ], [ %85, %91 ]
   %.3266.val = load x86_fp80, ptr %.3266492, align 1
   %.3252.val = load x86_fp80, ptr %.3252493, align 1
-  %84 = tail call fastcc i64 @diff_ldouble_element(x86_fp80 %.3266.val, x86_fp80 %.3252.val, i64 noundef %.3494, ptr noundef nonnull %2)
+  %84 = tail call fastcc i64 @diff_ldouble_element.argprom(x86_fp80 %.3266.val, x86_fp80 %.3252.val, i64 noundef %.3494, ptr noundef nonnull %2)
   %85 = add i64 %84, %.3280491
   %86 = getelementptr inbounds i8, ptr %.3266492, i64 16
   %87 = getelementptr inbounds i8, ptr %.3252493, i64 16
@@ -381,7 +381,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.4281389 = phi i64 [ 0, %.lr.ph ], [ %104, %110 ]
   %.4267.val = load i8, ptr %.4267390, align 1
   %.4253.val = load i8, ptr %.4253391, align 1
-  %103 = tail call fastcc i64 @diff_schar_element(i8 %.4267.val, i8 %.4253.val, i64 noundef %.4392, ptr noundef nonnull %2)
+  %103 = tail call fastcc i64 @diff_schar_element.argprom(i8 %.4267.val, i8 %.4253.val, i64 noundef %.4392, ptr noundef nonnull %2)
   %104 = add i64 %103, %.4281389
   %105 = getelementptr inbounds i8, ptr %.4267390, i64 1
   %106 = getelementptr inbounds i8, ptr %.4253391, i64 1
@@ -424,7 +424,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.5282395 = phi i64 [ 0, %.lr.ph399 ], [ %123, %129 ]
   %.5268.val = load i8, ptr %.5268396, align 1
   %.5254.val = load i8, ptr %.5254397, align 1
-  %122 = tail call fastcc i64 @diff_uchar_element(i8 %.5268.val, i8 %.5254.val, i64 noundef %.5398, ptr noundef nonnull %2)
+  %122 = tail call fastcc i64 @diff_uchar_element.argprom(i8 %.5268.val, i8 %.5254.val, i64 noundef %.5398, ptr noundef nonnull %2)
   %123 = add i64 %122, %.5282395
   %124 = getelementptr inbounds i8, ptr %.5268396, i64 1
   %125 = getelementptr inbounds i8, ptr %.5254397, i64 1
@@ -467,7 +467,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.6283403 = phi i64 [ 0, %.lr.ph407 ], [ %142, %148 ]
   %.6269.val = load i16, ptr %.6269404, align 1
   %.6255.val = load i16, ptr %.6255405, align 1
-  %141 = tail call fastcc i64 @diff_short_element(i16 %.6269.val, i16 %.6255.val, i64 noundef %.6406, ptr noundef nonnull %2)
+  %141 = tail call fastcc i64 @diff_short_element.argprom(i16 %.6269.val, i16 %.6255.val, i64 noundef %.6406, ptr noundef nonnull %2)
   %142 = add i64 %141, %.6283403
   %143 = getelementptr inbounds i8, ptr %.6269404, i64 2
   %144 = getelementptr inbounds i8, ptr %.6255405, i64 2
@@ -510,7 +510,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.7284411 = phi i64 [ 0, %.lr.ph415 ], [ %161, %167 ]
   %.7270.val = load i16, ptr %.7270412, align 1
   %.7256.val = load i16, ptr %.7256413, align 1
-  %160 = tail call fastcc i64 @diff_ushort_element(i16 %.7270.val, i16 %.7256.val, i64 noundef %.7414, ptr noundef nonnull %2)
+  %160 = tail call fastcc i64 @diff_ushort_element.argprom(i16 %.7270.val, i16 %.7256.val, i64 noundef %.7414, ptr noundef nonnull %2)
   %161 = add i64 %160, %.7284411
   %162 = getelementptr inbounds i8, ptr %.7270412, i64 2
   %163 = getelementptr inbounds i8, ptr %.7256413, i64 2
@@ -553,7 +553,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.8285419 = phi i64 [ 0, %.lr.ph423 ], [ %180, %186 ]
   %.8271.val = load i32, ptr %.8271420, align 1
   %.8257.val = load i32, ptr %.8257421, align 1
-  %179 = tail call fastcc i64 @diff_int_element(i32 %.8271.val, i32 %.8257.val, i64 noundef %.8422, ptr noundef nonnull %2)
+  %179 = tail call fastcc i64 @diff_int_element.argprom(i32 %.8271.val, i32 %.8257.val, i64 noundef %.8422, ptr noundef nonnull %2)
   %180 = add i64 %179, %.8285419
   %181 = getelementptr inbounds i8, ptr %.8271420, i64 4
   %182 = getelementptr inbounds i8, ptr %.8257421, i64 4
@@ -596,7 +596,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.9286427 = phi i64 [ 0, %.lr.ph431 ], [ %199, %205 ]
   %.9272.val = load i32, ptr %.9272428, align 1
   %.9258.val = load i32, ptr %.9258429, align 1
-  %198 = tail call fastcc i64 @diff_int_element(i32 %.9272.val, i32 %.9258.val, i64 noundef %.9430, ptr noundef nonnull %2)
+  %198 = tail call fastcc i64 @diff_int_element.argprom(i32 %.9272.val, i32 %.9258.val, i64 noundef %.9430, ptr noundef nonnull %2)
   %199 = add i64 %198, %.9286427
   %200 = getelementptr inbounds i8, ptr %.9272428, i64 4
   %201 = getelementptr inbounds i8, ptr %.9258429, i64 4
@@ -639,7 +639,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.10287435 = phi i64 [ 0, %.lr.ph439 ], [ %218, %224 ]
   %.10273.val = load i64, ptr %.10273436, align 1
   %.10259.val = load i64, ptr %.10259437, align 1
-  %217 = tail call fastcc i64 @diff_long_element(i64 %.10273.val, i64 %.10259.val, i64 noundef %.10438, ptr noundef nonnull %2)
+  %217 = tail call fastcc i64 @diff_long_element.argprom(i64 %.10273.val, i64 %.10259.val, i64 noundef %.10438, ptr noundef nonnull %2)
   %218 = add i64 %217, %.10287435
   %219 = getelementptr inbounds i8, ptr %.10273436, i64 8
   %220 = getelementptr inbounds i8, ptr %.10259437, i64 8
@@ -682,7 +682,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.11288443 = phi i64 [ 0, %.lr.ph447 ], [ %237, %243 ]
   %.11274.val = load i64, ptr %.11274444, align 1
   %.11260.val = load i64, ptr %.11260445, align 1
-  %236 = tail call fastcc i64 @diff_ulong_element(i64 %.11274.val, i64 %.11260.val, i64 noundef %.11446, ptr noundef nonnull %2)
+  %236 = tail call fastcc i64 @diff_ulong_element.argprom(i64 %.11274.val, i64 %.11260.val, i64 noundef %.11446, ptr noundef nonnull %2)
   %237 = add i64 %236, %.11288443
   %238 = getelementptr inbounds i8, ptr %.11274444, i64 8
   %239 = getelementptr inbounds i8, ptr %.11260445, i64 8
@@ -725,7 +725,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.12289451 = phi i64 [ 0, %.lr.ph455 ], [ %256, %262 ]
   %.12275.val = load i64, ptr %.12275452, align 1
   %.12261.val = load i64, ptr %.12261453, align 1
-  %255 = tail call fastcc i64 @diff_llong_element(i64 %.12275.val, i64 %.12261.val, i64 noundef %.12454, ptr noundef nonnull %2)
+  %255 = tail call fastcc i64 @diff_llong_element.argprom(i64 %.12275.val, i64 %.12261.val, i64 noundef %.12454, ptr noundef nonnull %2)
   %256 = add i64 %255, %.12289451
   %257 = getelementptr inbounds i8, ptr %.12275452, i64 8
   %258 = getelementptr inbounds i8, ptr %.12261453, i64 8
@@ -768,7 +768,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %.13290459 = phi i64 [ 0, %.lr.ph463 ], [ %275, %281 ]
   %.13276.val = load i64, ptr %.13276460, align 1
   %.13262.val = load i64, ptr %.13262461, align 1
-  %274 = tail call fastcc i64 @diff_ullong_element(i64 %.13276.val, i64 %.13262.val, i64 noundef %.13462, ptr noundef nonnull %2)
+  %274 = tail call fastcc i64 @diff_ullong_element.argprom(i64 %.13276.val, i64 %.13262.val, i64 noundef %.13462, ptr noundef nonnull %2)
   %275 = add i64 %274, %.13290459
   %276 = getelementptr inbounds i8, ptr %.13276460, i64 8
   %277 = getelementptr inbounds i8, ptr %.13262461, i64 8
@@ -807,7 +807,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
   %292 = mul i64 %.14500, %10
   %293 = getelementptr inbounds i8, ptr %0, i64 %292
   %294 = getelementptr inbounds i8, ptr %1, i64 %292
-  %295 = call fastcc i64 @diff_datum(ptr noundef %293, ptr noundef %294, i64 noundef %.14500, ptr noundef nonnull %2, ptr noundef nonnull %6)
+  %295 = call fastcc i64 @diff_datum.argelim(ptr noundef %293, ptr noundef %294, i64 noundef %.14500, ptr noundef nonnull %2, ptr noundef nonnull %6)
   %296 = add i64 %295, %.14291499
   %297 = load i32, ptr %290, align 8
   %.not348 = icmp eq i32 %297, 0
@@ -841,7 +841,7 @@ declare i32 @H5Tget_class(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Tequal(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_float16_element(half %.0.val, half %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_float16_element.argprom(half %.0.val, half %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -1298,7 +1298,7 @@ print_data.exit.thread:                           ; preds = %240, %234, %230, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_float_element(float %.0.val, float %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_float_element.argprom(float %.0.val, float %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -1743,7 +1743,7 @@ print_data.exit.thread:                           ; preds = %228, %222, %218, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_double_element(double %.0.val, double %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_double_element.argprom(double %.0.val, double %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -2157,7 +2157,7 @@ print_data.exit.thread:                           ; preds = %200, %194, %190, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_ldouble_element(x86_fp80 %.0.val, x86_fp80 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_ldouble_element.argprom(x86_fp80 %.0.val, x86_fp80 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca x86_fp80, align 16
   %4 = alloca x86_fp80, align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -2595,7 +2595,7 @@ print_data.exit.thread:                           ; preds = %213, %185, %169, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_schar_element(i8 %.0.val, i8 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_schar_element.argprom(i8 %.0.val, i8 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -2866,7 +2866,7 @@ print_data.exit.thread:                           ; preds = %134, %123, %97, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_uchar_element(i8 %.0.val, i8 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_uchar_element.argprom(i8 %.0.val, i8 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -3145,7 +3145,7 @@ print_data.exit.thread:                           ; preds = %140, %129, %99, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_short_element(i16 %.0.val, i16 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_short_element.argprom(i16 %.0.val, i16 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -3416,7 +3416,7 @@ print_data.exit.thread:                           ; preds = %134, %123, %97, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_ushort_element(i16 %.0.val, i16 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_ushort_element.argprom(i16 %.0.val, i16 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -3695,7 +3695,7 @@ print_data.exit.thread:                           ; preds = %140, %129, %99, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_int_element(i32 %.0.val, i32 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_int_element.argprom(i32 %.0.val, i32 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -3950,7 +3950,7 @@ print_data.exit.thread:                           ; preds = %118, %109, %87, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_long_element(i64 %.0.val, i64 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_long_element.argprom(i64 %.0.val, i64 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -4205,7 +4205,7 @@ print_data.exit.thread:                           ; preds = %118, %109, %87, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_ulong_element(i64 %.0.val, i64 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_ulong_element.argprom(i64 %.0.val, i64 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -4472,7 +4472,7 @@ print_data.exit.thread:                           ; preds = %128, %119, %93, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_llong_element(i64 %.0.val, i64 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_llong_element.argprom(i64 %.0.val, i64 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -4727,7 +4727,7 @@ print_data.exit.thread:                           ; preds = %118, %109, %87, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_ullong_element(i64 %.0.val, i64 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_ullong_element.argprom(i64 %.0.val, i64 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -4780,8 +4780,8 @@ print_data.exit:                                  ; preds = %19, %23
   br i1 %.not126, label %.thread10, label %29
 
 29:                                               ; preds = %28
-  call fastcc void @ull2float(i64 noundef %.0.val, ptr noundef %3)
-  call fastcc void @ull2float(i64 noundef %.0.val1, ptr noundef %4)
+  call fastcc void @ull2float.argelim(i64 noundef %.0.val, ptr noundef %3)
+  call fastcc void @ull2float.argelim(i64 noundef %.0.val1, ptr noundef %4)
   %30 = load float, ptr %3, align 4
   %31 = fpext float %30 to double
   %32 = fsub double 0.000000e+00, %31
@@ -4870,8 +4870,8 @@ print_data.exit145:                               ; preds = %64, %68
   br label %print_data.exit.thread
 
 77:                                               ; preds = %9
-  call fastcc void @ull2float(i64 noundef %.0.val, ptr noundef %3)
-  call fastcc void @ull2float(i64 noundef %.0.val1, ptr noundef %4)
+  call fastcc void @ull2float.argelim(i64 noundef %.0.val, ptr noundef %3)
+  call fastcc void @ull2float.argelim(i64 noundef %.0.val1, ptr noundef %4)
   %78 = load float, ptr %3, align 4
   %79 = fpext float %78 to double
   %80 = fsub double 0.000000e+00, %79
@@ -5085,7 +5085,7 @@ common.ret46:                                     ; preds = %11, %13, %2, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @diff_datum.argelim(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.diff_opt_t, align 8
   %7 = alloca [1024 x i8], align 16
   %8 = alloca [1024 x i8], align 16
@@ -5202,7 +5202,7 @@ define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 nound
   %65 = load ptr, ptr %55, align 8
   %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
-  %68 = call fastcc i64 @diff_datum(ptr noundef %63, ptr noundef %64, i64 noundef %2, ptr noundef nonnull %6, ptr noundef %67)
+  %68 = call fastcc i64 @diff_datum.argelim(ptr noundef %63, ptr noundef %64, i64 noundef %2, ptr noundef nonnull %6, ptr noundef %67)
   %69 = add i64 %68, %.1544843
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond880.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5340,14 +5340,14 @@ define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 nound
   %118 = getelementptr inbounds i8, ptr %3, i64 28
   br label %129
 
-119:                                              ; preds = %.lr.ph838, %character_compare.exit
-  %.0837 = phi i64 [ %.0542, %.lr.ph838 ], [ %128, %character_compare.exit ]
+119:                                              ; preds = %.lr.ph838, %character_compare.argprom.exit
+  %.0837 = phi i64 [ %.0542, %.lr.ph838 ], [ %128, %character_compare.argprom.exit ]
   %120 = getelementptr inbounds i8, ptr %.0555, i64 %.0837
   %121 = getelementptr inbounds i8, ptr %.0556, i64 %.0837
   %.val767 = load i8, ptr %120, align 1
   %.val768 = load i8, ptr %121, align 1
   %.not.i = icmp eq i8 %.val767, %.val768
-  br i1 %.not.i, label %character_compare.exit, label %122
+  br i1 %.not.i, label %character_compare.argprom.exit, label %122
 
 122:                                              ; preds = %119
   %123 = load i32, ptr %111, align 4
@@ -5357,12 +5357,12 @@ define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 nound
 124:                                              ; preds = %122
   %125 = load i32, ptr %112, align 8
   %.not3.i.i = icmp eq i32 %125, 0
-  br i1 %.not3.i.i, label %character_compare.exit, label %print_data.exit.i
+  br i1 %.not3.i.i, label %character_compare.argprom.exit, label %print_data.exit.i
 
 print_data.exit.i:                                ; preds = %124, %122
   %126 = load i32, ptr %3, align 8
   %.not4.i.not.i = icmp eq i32 %126, 0
-  br i1 %.not4.i.not.i, label %127, label %character_compare.exit
+  br i1 %.not4.i.not.i, label %127, label %character_compare.argprom.exit
 
 127:                                              ; preds = %print_data.exit.i
   store i32 0, ptr %113, align 8
@@ -5373,22 +5373,22 @@ print_data.exit.i:                                ; preds = %124, %122
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.46) #14
   tail call fastcc void @h5diff_print_char(i8 noundef signext %.val768)
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.2) #14
-  br label %character_compare.exit
+  br label %character_compare.argprom.exit
 
-character_compare.exit:                           ; preds = %119, %124, %print_data.exit.i, %127
+character_compare.argprom.exit:                   ; preds = %119, %124, %print_data.exit.i, %127
   %128 = add i64 %.0837, 1
   %exitcond877.not = icmp eq i64 %128, %.0558
   br i1 %exitcond877.not, label %.loopexit, label %119
 
-129:                                              ; preds = %.lr.ph841, %character_compare.exit785
-  %.1840 = phi i64 [ 0, %.lr.ph841 ], [ %139, %character_compare.exit785 ]
-  %.3546839 = phi i64 [ %spec.select743809, %.lr.ph841 ], [ %138, %character_compare.exit785 ]
+129:                                              ; preds = %.lr.ph841, %character_compare.argprom.exit785
+  %.1840 = phi i64 [ 0, %.lr.ph841 ], [ %139, %character_compare.argprom.exit785 ]
+  %.3546839 = phi i64 [ %spec.select743809, %.lr.ph841 ], [ %138, %character_compare.argprom.exit785 ]
   %130 = getelementptr inbounds i8, ptr %.0555, i64 %.1840
   %131 = getelementptr inbounds i8, ptr %.0556, i64 %.1840
   %.val769 = load i8, ptr %130, align 1
   %.val770 = load i8, ptr %131, align 1
   %.not.i779 = icmp eq i8 %.val769, %.val770
-  br i1 %.not.i779, label %character_compare.exit785, label %132
+  br i1 %.not.i779, label %character_compare.argprom.exit785, label %132
 
 132:                                              ; preds = %129
   %133 = load i32, ptr %115, align 4
@@ -5398,12 +5398,12 @@ character_compare.exit:                           ; preds = %119, %124, %print_d
 134:                                              ; preds = %132
   %135 = load i32, ptr %116, align 8
   %.not3.i.i784 = icmp eq i32 %135, 0
-  br i1 %.not3.i.i784, label %character_compare.exit785, label %print_data.exit.i781
+  br i1 %.not3.i.i784, label %character_compare.argprom.exit785, label %print_data.exit.i781
 
 print_data.exit.i781:                             ; preds = %134, %132
   %136 = load i32, ptr %3, align 8
   %.not4.i.not.i782 = icmp eq i32 %136, 0
-  br i1 %.not4.i.not.i782, label %137, label %character_compare.exit785
+  br i1 %.not4.i.not.i782, label %137, label %character_compare.argprom.exit785
 
 137:                                              ; preds = %print_data.exit.i781
   store i32 0, ptr %117, align 8
@@ -5414,9 +5414,9 @@ print_data.exit.i781:                             ; preds = %134, %132
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.46) #14
   tail call fastcc void @h5diff_print_char(i8 noundef signext %.val770)
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.2) #14
-  br label %character_compare.exit785
+  br label %character_compare.argprom.exit785
 
-character_compare.exit785:                        ; preds = %129, %134, %print_data.exit.i781, %137
+character_compare.argprom.exit785:                ; preds = %129, %134, %print_data.exit.i781, %137
   %.0.i783 = phi i64 [ 0, %129 ], [ 1, %137 ], [ 1, %print_data.exit.i781 ], [ 1, %134 ]
   %138 = add i64 %.0.i783, %.3546839
   %139 = add nuw i64 %.1840, 1
@@ -5430,7 +5430,7 @@ character_compare.exit785:                        ; preds = %129, %134, %print_d
   %141 = getelementptr inbounds i8, ptr %1, i64 %.2834
   %.val771 = load i8, ptr %140, align 1
   %.val772 = load i8, ptr %141, align 1
-  %142 = tail call fastcc i64 @character_compare_opt(i8 %.val771, i8 %.val772, i64 noundef %2, ptr noundef %3)
+  %142 = tail call fastcc i64 @character_compare_opt.argprom(i8 %.val771, i8 %.val772, i64 noundef %2, ptr noundef %3)
   %143 = add i64 %142, %.4547833
   %144 = add nuw i64 %.2834, 1
   %exitcond876.not = icmp eq i64 %144, %24
@@ -5443,7 +5443,7 @@ character_compare.exit785:                        ; preds = %129, %134, %print_d
   %146 = getelementptr inbounds i8, ptr %1, i64 %.3830
   %.val773 = load i8, ptr %145, align 1
   %.val774 = load i8, ptr %146, align 1
-  %147 = tail call fastcc i64 @character_compare_opt(i8 %.val773, i8 %.val774, i64 noundef %2, ptr noundef %3)
+  %147 = tail call fastcc i64 @character_compare_opt.argprom(i8 %.val773, i8 %.val774, i64 noundef %2, ptr noundef %3)
   %148 = add i64 %147, %.5548829
   %149 = add nuw i64 %.3830, 1
   %exitcond875.not = icmp eq i64 %149, %24
@@ -5546,7 +5546,7 @@ print_data.exit790:                               ; preds = %181, %185
   %190 = getelementptr inbounds i8, ptr %1, i64 %.4826
   %.val775 = load i8, ptr %189, align 1
   %.val776 = load i8, ptr %190, align 1
-  %191 = call fastcc i64 @character_compare_opt(i8 %.val775, i8 %.val776, i64 noundef %2, ptr noundef %3)
+  %191 = call fastcc i64 @character_compare_opt.argprom(i8 %.val775, i8 %.val776, i64 noundef %2, ptr noundef %3)
   %192 = add i64 %191, %.7825
   %193 = add nuw i64 %.4826, 1
   %exitcond874.not = icmp eq i64 %193, %24
@@ -5616,7 +5616,7 @@ print_data.exit.thread:                           ; preds = %.lr.ph827, %print_d
   %217 = mul i64 %.6822, %205
   %218 = getelementptr inbounds i8, ptr %0, i64 %217
   %219 = getelementptr inbounds i8, ptr %1, i64 %217
-  %220 = call fastcc i64 @diff_datum(ptr noundef %218, ptr noundef %219, i64 noundef %2, ptr noundef nonnull %13, ptr noundef %4)
+  %220 = call fastcc i64 @diff_datum.argelim(ptr noundef %218, ptr noundef %219, i64 noundef %2, ptr noundef nonnull %13, ptr noundef %4)
   %221 = add i64 %220, %.8821
   %222 = add nuw i64 %.6822, 1
   %223 = load i64, ptr %210, align 8
@@ -7030,7 +7030,7 @@ all_zero.exit795:                                 ; preds = %247, %248
   %1046 = getelementptr inbounds i8, ptr %1044, i64 %1045
   %1047 = load ptr, ptr %1041, align 8
   %1048 = getelementptr inbounds i8, ptr %1047, i64 %1045
-  %1049 = call fastcc i64 @diff_datum(ptr noundef %1046, ptr noundef %1048, i64 noundef %2, ptr noundef nonnull %19, ptr noundef %4)
+  %1049 = call fastcc i64 @diff_datum.argelim(ptr noundef %1046, ptr noundef %1048, i64 noundef %2, ptr noundef nonnull %19, ptr noundef %4)
   %1050 = add i64 %1049, %.23849
   %1051 = add i32 %.1541850, 1
   %1052 = zext i32 %1051 to i64
@@ -7072,7 +7072,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 1072:                                             ; preds = %1067
   %.val753 = load i8, ptr %0, align 1
   %.val754 = load i8, ptr %1, align 1
-  %1073 = tail call fastcc i64 @diff_schar_element(i8 %.val753, i8 %.val754, i64 noundef %2, ptr noundef nonnull %3)
+  %1073 = tail call fastcc i64 @diff_schar_element.argprom(i8 %.val753, i8 %.val754, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1074:                                             ; preds = %1067
@@ -7083,7 +7083,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 1076:                                             ; preds = %1074
   %.val755 = load i8, ptr %0, align 1
   %.val756 = load i8, ptr %1, align 1
-  %1077 = tail call fastcc i64 @diff_uchar_element(i8 %.val755, i8 %.val756, i64 noundef %2, ptr noundef nonnull %3)
+  %1077 = tail call fastcc i64 @diff_uchar_element.argprom(i8 %.val755, i8 %.val756, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1078:                                             ; preds = %1074
@@ -7094,7 +7094,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 1080:                                             ; preds = %1078
   %.val757 = load i16, ptr %0, align 1
   %.val758 = load i16, ptr %1, align 1
-  %1081 = tail call fastcc i64 @diff_short_element(i16 %.val757, i16 %.val758, i64 noundef %2, ptr noundef nonnull %3)
+  %1081 = tail call fastcc i64 @diff_short_element.argprom(i16 %.val757, i16 %.val758, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1082:                                             ; preds = %1078
@@ -7104,7 +7104,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 1083:                                             ; preds = %1082
   %.val759 = load i16, ptr %0, align 1
   %.val760 = load i16, ptr %1, align 1
-  %1084 = tail call fastcc i64 @diff_ushort_element(i16 %.val759, i16 %.val760, i64 noundef %2, ptr noundef nonnull %3)
+  %1084 = tail call fastcc i64 @diff_ushort_element.argprom(i16 %.val759, i16 %.val760, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1085:                                             ; preds = %1082
@@ -7115,7 +7115,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 1087:                                             ; preds = %1085
   %.val761 = load i32, ptr %0, align 1
   %.val762 = load i32, ptr %1, align 1
-  %1088 = tail call fastcc i64 @diff_int_element(i32 %.val761, i32 %.val762, i64 noundef %2, ptr noundef nonnull %3)
+  %1088 = tail call fastcc i64 @diff_int_element.argprom(i32 %.val761, i32 %.val762, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1089:                                             ; preds = %1085
@@ -7125,7 +7125,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 1090:                                             ; preds = %1089
   %.val777 = load i32, ptr %0, align 1
   %.val778 = load i32, ptr %1, align 1
-  %1091 = tail call fastcc i64 @diff_uint_element(i32 %.val777, i32 %.val778, i64 noundef %2, ptr noundef nonnull %3)
+  %1091 = tail call fastcc i64 @diff_uint_element.argprom(i32 %.val777, i32 %.val778, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1092:                                             ; preds = %1089
@@ -7136,7 +7136,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 1094:                                             ; preds = %1092
   %.val763 = load i64, ptr %0, align 1
   %.val764 = load i64, ptr %1, align 1
-  %1095 = tail call fastcc i64 @diff_long_element(i64 %.val763, i64 %.val764, i64 noundef %2, ptr noundef nonnull %3)
+  %1095 = tail call fastcc i64 @diff_long_element.argprom(i64 %.val763, i64 %.val764, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1096:                                             ; preds = %1092
@@ -7146,7 +7146,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 1097:                                             ; preds = %1096
   %.val765 = load i64, ptr %0, align 1
   %.val766 = load i64, ptr %1, align 1
-  %1098 = tail call fastcc i64 @diff_ulong_element(i64 %.val765, i64 %.val766, i64 noundef %2, ptr noundef nonnull %3)
+  %1098 = tail call fastcc i64 @diff_ulong_element.argprom(i64 %.val765, i64 %.val766, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1099:                                             ; preds = %1096
@@ -7223,30 +7223,30 @@ all_zero.exit795:                                 ; preds = %247, %248
 1137:                                             ; preds = %1134
   %.val = load half, ptr %0, align 1
   %.val746 = load half, ptr %1, align 1
-  %1138 = tail call fastcc i64 @diff_float16_element(half %.val, half %.val746, i64 noundef %2, ptr noundef nonnull %3)
+  %1138 = tail call fastcc i64 @diff_float16_element.argprom(half %.val, half %.val746, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1139:                                             ; preds = %1134
   %.val747 = load float, ptr %0, align 1
   %.val748 = load float, ptr %1, align 1
-  %1140 = tail call fastcc i64 @diff_float_element(float %.val747, float %.val748, i64 noundef %2, ptr noundef nonnull %3)
+  %1140 = tail call fastcc i64 @diff_float_element.argprom(float %.val747, float %.val748, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1141:                                             ; preds = %1134
   %.val749 = load double, ptr %0, align 1
   %.val750 = load double, ptr %1, align 1
-  %1142 = tail call fastcc i64 @diff_double_element(double %.val749, double %.val750, i64 noundef %2, ptr noundef nonnull %3)
+  %1142 = tail call fastcc i64 @diff_double_element.argprom(double %.val749, double %.val750, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
 1143:                                             ; preds = %1134
   %.val751 = load x86_fp80, ptr %0, align 1
   %.val752 = load x86_fp80, ptr %1, align 1
-  %1144 = tail call fastcc i64 @diff_ldouble_element(x86_fp80 %.val751, x86_fp80 %.val752, i64 noundef %2, ptr noundef nonnull %3)
+  %1144 = tail call fastcc i64 @diff_ldouble_element.argprom(x86_fp80 %.val751, x86_fp80 %.val752, i64 noundef %2, ptr noundef nonnull %3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph831, %.lr.ph835, %character_compare.exit, %character_compare.exit785, %.preheader816, %.preheader814, %.preheader812, %.preheader, %1134, %1118, %1130, %1126, %1101, %1113, %1109, %255, %34, %46, %42, %._crit_edge847, %._crit_edge, %._crit_edge853, %107, %199, %197, %1023, %1076, %1083, %1090, %1097, %1117, %1094, %1087, %1080, %1072, %1139, %1143, %1141, %1137, %253, %29
-  %.0550 = phi i32 [ %30, %29 ], [ %254, %253 ], [ %21, %255 ], [ %.4554, %1023 ], [ %21, %._crit_edge ], [ %21, %197 ], [ %21, %199 ], [ %21, %107 ], [ %21, %._crit_edge847 ], [ %21, %._crit_edge853 ], [ %21, %1072 ], [ %21, %1076 ], [ %21, %1080 ], [ %21, %1083 ], [ %21, %1087 ], [ %21, %1090 ], [ %21, %1094 ], [ %21, %1097 ], [ %21, %1117 ], [ %21, %1137 ], [ %21, %1139 ], [ %21, %1141 ], [ %21, %1143 ], [ 2, %42 ], [ 2, %46 ], [ 2, %34 ], [ 2, %1109 ], [ 2, %1113 ], [ 2, %1101 ], [ 2, %1126 ], [ 2, %1130 ], [ 2, %1118 ], [ %21, %1134 ], [ %21, %.preheader ], [ %21, %.preheader812 ], [ %21, %.preheader814 ], [ %21, %.preheader816 ], [ %21, %character_compare.exit785 ], [ %21, %character_compare.exit ], [ %21, %.lr.ph835 ], [ %21, %.lr.ph831 ]
-  %.0543 = phi i64 [ 0, %29 ], [ 1, %253 ], [ 0, %255 ], [ %.22, %1023 ], [ %.8.lcssa, %._crit_edge ], [ %.6549, %197 ], [ %.6549, %199 ], [ %spec.select743809, %107 ], [ %.1544.lcssa, %._crit_edge847 ], [ %.23.lcssa, %._crit_edge853 ], [ %1073, %1072 ], [ %1077, %1076 ], [ %1081, %1080 ], [ %1084, %1083 ], [ %1088, %1087 ], [ %1091, %1090 ], [ %1095, %1094 ], [ %1098, %1097 ], [ 0, %1117 ], [ %1138, %1137 ], [ %1140, %1139 ], [ %1142, %1141 ], [ %1144, %1143 ], [ 0, %42 ], [ 0, %46 ], [ 0, %34 ], [ 0, %1109 ], [ 0, %1113 ], [ 0, %1101 ], [ 0, %1126 ], [ 0, %1130 ], [ 0, %1118 ], [ 0, %1134 ], [ %spec.select743809, %.preheader ], [ %spec.select743809, %.preheader812 ], [ 0, %.preheader814 ], [ 0, %.preheader816 ], [ %138, %character_compare.exit785 ], [ %spec.select743809, %character_compare.exit ], [ %143, %.lr.ph835 ], [ %148, %.lr.ph831 ]
+.loopexit:                                        ; preds = %.lr.ph831, %.lr.ph835, %character_compare.argprom.exit, %character_compare.argprom.exit785, %.preheader816, %.preheader814, %.preheader812, %.preheader, %1134, %1118, %1130, %1126, %1101, %1113, %1109, %255, %34, %46, %42, %._crit_edge847, %._crit_edge, %._crit_edge853, %107, %199, %197, %1023, %1076, %1083, %1090, %1097, %1117, %1094, %1087, %1080, %1072, %1139, %1143, %1141, %1137, %253, %29
+  %.0550 = phi i32 [ %30, %29 ], [ %254, %253 ], [ %21, %255 ], [ %.4554, %1023 ], [ %21, %._crit_edge ], [ %21, %197 ], [ %21, %199 ], [ %21, %107 ], [ %21, %._crit_edge847 ], [ %21, %._crit_edge853 ], [ %21, %1072 ], [ %21, %1076 ], [ %21, %1080 ], [ %21, %1083 ], [ %21, %1087 ], [ %21, %1090 ], [ %21, %1094 ], [ %21, %1097 ], [ %21, %1117 ], [ %21, %1137 ], [ %21, %1139 ], [ %21, %1141 ], [ %21, %1143 ], [ 2, %42 ], [ 2, %46 ], [ 2, %34 ], [ 2, %1109 ], [ 2, %1113 ], [ 2, %1101 ], [ 2, %1126 ], [ 2, %1130 ], [ 2, %1118 ], [ %21, %1134 ], [ %21, %.preheader ], [ %21, %.preheader812 ], [ %21, %.preheader814 ], [ %21, %.preheader816 ], [ %21, %character_compare.argprom.exit785 ], [ %21, %character_compare.argprom.exit ], [ %21, %.lr.ph835 ], [ %21, %.lr.ph831 ]
+  %.0543 = phi i64 [ 0, %29 ], [ 1, %253 ], [ 0, %255 ], [ %.22, %1023 ], [ %.8.lcssa, %._crit_edge ], [ %.6549, %197 ], [ %.6549, %199 ], [ %spec.select743809, %107 ], [ %.1544.lcssa, %._crit_edge847 ], [ %.23.lcssa, %._crit_edge853 ], [ %1073, %1072 ], [ %1077, %1076 ], [ %1081, %1080 ], [ %1084, %1083 ], [ %1088, %1087 ], [ %1091, %1090 ], [ %1095, %1094 ], [ %1098, %1097 ], [ 0, %1117 ], [ %1138, %1137 ], [ %1140, %1139 ], [ %1142, %1141 ], [ %1144, %1143 ], [ 0, %42 ], [ 0, %46 ], [ 0, %34 ], [ 0, %1109 ], [ 0, %1113 ], [ 0, %1101 ], [ 0, %1126 ], [ 0, %1130 ], [ 0, %1118 ], [ 0, %1134 ], [ %spec.select743809, %.preheader ], [ %spec.select743809, %.preheader812 ], [ 0, %.preheader814 ], [ 0, %.preheader816 ], [ %138, %character_compare.argprom.exit785 ], [ %spec.select743809, %character_compare.argprom.exit ], [ %143, %.lr.ph835 ], [ %148, %.lr.ph831 ]
   %1145 = load i32, ptr %20, align 8
   %1146 = or i32 %1145, %.0550
   store i32 %1146, ptr %20, align 8
@@ -7324,7 +7324,7 @@ declare i32 @H5Tis_variable_str(i64 noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @character_compare_opt(i8 %.0.val, i8 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @character_compare_opt.argprom(i8 %.0.val, i8 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -8291,7 +8291,7 @@ declare i32 @H5Rdestroy(ptr noundef) local_unnamed_addr #1
 declare i32 @H5Tget_sign(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @diff_uint_element(i32 %.0.val, i32 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @diff_uint_element.argprom(i32 %.0.val, i32 %.0.val1, i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -8659,7 +8659,7 @@ declare float @llvm.fabs.f32(float) #6
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ull2float(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc void @ull2float.argelim(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.anon.3, align 8

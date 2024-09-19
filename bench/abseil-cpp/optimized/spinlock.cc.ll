@@ -44,7 +44,7 @@ define dso_local noundef i32 @_ZN4absl13base_internal8SpinLock8SpinLoopEv(ptr no
 entry:
   %0 = load atomic i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count acquire, align 4
   %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = cmpxchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -54,7 +54,7 @@ if.then.i:                                        ; preds = %entry
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 0)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   %call.i.i.i.i39.i.i = tail call noundef i32 @_ZN4absl13base_internal7NumCPUsEv()
@@ -63,18 +63,18 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   store i32 %cond.i.i.i.i.i.i, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
   %3 = atomicrmw xchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %3, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
   tail call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i1 noundef zeroext true)
-  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
-"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %if.then.i.i, %if.then5.i.i
+"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i, %if.then.i.i, %if.then5.i.i
   %4 = load i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
   br label %do.body
 
-do.body:                                          ; preds = %do.body, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
-  %c.0 = phi i32 [ %4, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit" ], [ %dec, %do.body ]
+do.body:                                          ; preds = %do.body, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
+  %c.0 = phi i32 [ %4, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit" ], [ %dec, %do.body ]
   %5 = load atomic i32, ptr %this monotonic, align 4
   %and = and i32 %5, 1
   %cmp.not = icmp ne i32 %and, 0
@@ -92,7 +92,7 @@ define dso_local void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef n
 entry:
   %0 = load atomic i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count acquire, align 4
   %cmp.not.i.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %1 = cmpxchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -102,7 +102,7 @@ if.then.i.i:                                      ; preds = %entry
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
   %call1.i.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 0)
   %cmp.i.i.i = icmp eq i32 %call1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i"
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i"
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i
   %call.i.i.i.i39.i.i.i = tail call noundef i32 @_ZN4absl13base_internal7NumCPUsEv()
@@ -111,18 +111,18 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   store i32 %cond.i.i.i.i.i.i.i, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
   %3 = atomicrmw xchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 221 release, align 4
   %cmp4.i.i.i = icmp eq i32 %3, 94570706
-  br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i"
+  br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i"
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   tail call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i1 noundef zeroext true)
-  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i"
+  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i"
 
-"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i": ; preds = %if.then5.i.i.i, %if.then.i.i.i, %lor.lhs.false.i.i.i, %entry
+"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i": ; preds = %if.then5.i.i.i, %if.then.i.i.i, %lor.lhs.false.i.i.i, %entry
   %4 = load i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
   br label %do.body.i
 
-do.body.i:                                        ; preds = %do.body.i, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i"
-  %c.0.i = phi i32 [ %4, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i" ], [ %dec.i, %do.body.i ]
+do.body.i:                                        ; preds = %do.body.i, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i"
+  %c.0.i = phi i32 [ %4, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i" ], [ %dec.i, %do.body.i ]
   %5 = load atomic i32, ptr %this monotonic, align 4
   %and.i = and i32 %5, 1
   %cmp.not.i = icmp ne i32 %and.i, 0
@@ -215,7 +215,7 @@ if.end28:                                         ; preds = %if.else21, %while.b
   tail call void @AbslInternalSpinLockDelay(ptr noundef nonnull %this, i32 noundef %lock_value.1, i32 noundef %inc, i32 noundef %and3.lobit)
   %16 = load atomic i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count acquire, align 4
   %cmp.not.i.i51 = icmp eq i32 %16, 221
-  br i1 %cmp.not.i.i51, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56", label %if.then.i.i52
+  br i1 %cmp.not.i.i51, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i56", label %if.then.i.i52
 
 if.then.i.i52:                                    ; preds = %if.end28
   %17 = cmpxchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -225,7 +225,7 @@ if.then.i.i52:                                    ; preds = %if.end28
 lor.lhs.false.i.i.i53:                            ; preds = %if.then.i.i52
   %call1.i.i.i54 = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 0)
   %cmp.i.i.i55 = icmp eq i32 %call1.i.i.i54, 0
-  br i1 %cmp.i.i.i55, label %if.then.i.i.i64, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56"
+  br i1 %cmp.i.i.i55, label %if.then.i.i.i64, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i56"
 
 if.then.i.i.i64:                                  ; preds = %lor.lhs.false.i.i.i53, %if.then.i.i52
   %call.i.i.i.i39.i.i.i65 = tail call noundef i32 @_ZN4absl13base_internal7NumCPUsEv()
@@ -234,18 +234,18 @@ if.then.i.i.i64:                                  ; preds = %lor.lhs.false.i.i.i
   store i32 %cond.i.i.i.i.i.i.i67, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
   %19 = atomicrmw xchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 221 release, align 4
   %cmp4.i.i.i68 = icmp eq i32 %19, 94570706
-  br i1 %cmp4.i.i.i68, label %if.then5.i.i.i69, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56"
+  br i1 %cmp4.i.i.i68, label %if.then5.i.i.i69, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i56"
 
 if.then5.i.i.i69:                                 ; preds = %if.then.i.i.i64
   tail call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i1 noundef zeroext true)
-  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56"
+  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i56"
 
-"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56": ; preds = %if.then5.i.i.i69, %if.then.i.i.i64, %lor.lhs.false.i.i.i53, %if.end28
+"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i56": ; preds = %if.then5.i.i.i69, %if.then.i.i.i64, %lor.lhs.false.i.i.i53, %if.end28
   %20 = load i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
   br label %do.body.i57
 
-do.body.i57:                                      ; preds = %do.body.i57, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56"
-  %c.0.i58 = phi i32 [ %20, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56" ], [ %dec.i61, %do.body.i57 ]
+do.body.i57:                                      ; preds = %do.body.i57, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i56"
+  %c.0.i58 = phi i32 [ %20, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit.i56" ], [ %dec.i61, %do.body.i57 ]
   %21 = load atomic i32, ptr %this monotonic, align 4
   %and.i59 = and i32 %21, 1
   %cmp.not.i60 = icmp ne i32 %and.i59, 0

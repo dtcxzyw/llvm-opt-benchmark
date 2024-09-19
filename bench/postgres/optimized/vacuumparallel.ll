@@ -635,27 +635,27 @@ define internal fastcc void @parallel_vacuum_process_all_indexes(ptr nocapture n
 40:                                               ; preds = %34
   %41 = and i8 %.val.val, 1
   %42 = icmp ne i8 %41, 0
-  br label %parallel_vacuum_index_is_parallel_safe.exit
+  br label %parallel_vacuum_index_is_parallel_safe.argprom.argprom.exit
 
 43:                                               ; preds = %34
   %44 = zext i8 %.val.val to i32
   %45 = and i32 %44, 6
   %or.cond.i = icmp eq i32 %45, 0
-  br i1 %or.cond.i, label %parallel_vacuum_index_is_parallel_safe.exit, label %46
+  br i1 %or.cond.i, label %parallel_vacuum_index_is_parallel_safe.argprom.argprom.exit, label %46
 
 46:                                               ; preds = %43
   %47 = and i32 %44, 2
   %48 = icmp eq i32 %47, 0
   %or.cond8.i = or i1 %26, %48
-  br label %parallel_vacuum_index_is_parallel_safe.exit
+  br label %parallel_vacuum_index_is_parallel_safe.argprom.argprom.exit
 
-parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
+parallel_vacuum_index_is_parallel_safe.argprom.argprom.exit: ; preds = %40, %43, %46
   %.0.i = phi i1 [ %42, %40 ], [ false, %43 ], [ %or.cond8.i, %46 ]
   %49 = zext i1 %.0.i to i8
   br label %50
 
-50:                                               ; preds = %parallel_vacuum_index_is_parallel_safe.exit, %27
-  %51 = phi i8 [ 0, %27 ], [ %49, %parallel_vacuum_index_is_parallel_safe.exit ]
+50:                                               ; preds = %parallel_vacuum_index_is_parallel_safe.argprom.argprom.exit, %27
+  %51 = phi i8 [ 0, %27 ], [ %49, %parallel_vacuum_index_is_parallel_safe.argprom.argprom.exit ]
   %52 = getelementptr inbounds i8, ptr %29, i64 4
   store i8 %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

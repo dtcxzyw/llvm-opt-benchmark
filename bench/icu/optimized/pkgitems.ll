@@ -402,7 +402,7 @@ if.end56.i:                                       ; preds = %if.then47.i, %if.en
   %nativePool.sroa.12.0.i = phi ptr [ null, %if.end.i ], [ %nativePool.sroa.12.3.i, %if.then47.i ]
   %rootRes.i = getelementptr inbounds i8, ptr %resData.i, i64 32
   %55 = load i32, ptr %rootRes.i, align 8
-  %call58.i = invoke fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %21, ptr noundef %resData.i, i32 noundef %55, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %check, ptr noundef %context, ptr noundef %errorCode)
+  %call58.i = invoke fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode.argprom(ptr noundef %21, ptr noundef %resData.i, i32 noundef %55, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %check, ptr noundef %context, ptr noundef %errorCode)
           to label %invoke.cont57.i unwind label %lpad.i
 
 invoke.cont57.i:                                  ; preds = %if.end56.i
@@ -804,7 +804,7 @@ declare noundef i32 @_ZNK6icu_757Package8findItemEPKci(ptr noundef nonnull align
 declare noundef ptr @_ZNK6icu_757Package7getItemEi(ptr noundef nonnull align 8 dereferenceable(201237), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef nonnull %pResData, i32 noundef %res, ptr noundef %inKey, ptr noundef readonly %parentKey, i32 noundef %depth, ptr noundef %check, ptr noundef %context, ptr noundef nonnull %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode.argprom(ptr noundef %itemName, ptr noundef nonnull %pResData, i32 noundef %res, ptr noundef %inKey, ptr noundef readonly %parentKey, i32 noundef %depth, ptr noundef %check, ptr noundef %context, ptr noundef nonnull %pErrorCode) unnamed_addr #0 {
 entry:
   %length = alloca i32, align 4
   %length15 = alloca i32, align 4
@@ -877,7 +877,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call26 = call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %pResData, i32 noundef %res, i32 noundef %i.011, ptr noundef nonnull %itemKey)
   %3 = load ptr, ptr %itemKey, align 8
-  %call27 = call fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %call26, ptr noundef %3, ptr noundef %inKey, i32 noundef %add, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode)
+  %call27 = call fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode.argprom(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %call26, ptr noundef %3, ptr noundef %inKey, i32 noundef %add, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode)
   %and60 = and i8 %call27, %doCheckParent.112
   %4 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %4, 1
@@ -906,7 +906,7 @@ for.body40.lr.ph:                                 ; preds = %sw.bb34
 for.body40:                                       ; preds = %for.body40.lr.ph, %for.inc50
   %i37.09 = phi i32 [ 0, %for.body40.lr.ph ], [ %inc51, %for.inc50 ]
   %call42 = tail call i32 @res_getArrayItem_75(ptr noundef nonnull %pResData, i32 noundef %res, i32 noundef %i37.09)
-  %7 = tail call fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %call42, ptr noundef null, ptr noundef %inKey, i32 noundef %add43, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode)
+  %7 = tail call fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode.argprom(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %call42, ptr noundef null, ptr noundef %inKey, i32 noundef %add43, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode)
   %8 = load i32, ptr %pErrorCode, align 4
   %cmp.i61 = icmp slt i32 %8, 1
   br i1 %cmp.i61, label %for.inc50, label %if.then47

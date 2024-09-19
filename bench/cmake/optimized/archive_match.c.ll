@@ -123,7 +123,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_free(ptr noundef %0) local
   %7 = getelementptr inbounds i8, ptr %0, i64 192
   %.val = load ptr, ptr %7, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %match_list_free.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %match_list_free.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
   %.02.i = phi ptr [ %8, %.lr.ph.i ], [ %.val, %6 ]
@@ -132,40 +132,40 @@ define dso_local range(i32 -30, 1) i32 @archive_match_free(ptr noundef %0) local
   tail call void @archive_mstring_clean(ptr noundef nonnull %9) #13
   tail call void @free(ptr noundef nonnull %.02.i) #13
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %match_list_free.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %match_list_free.argprom.exit, label %.lr.ph.i, !llvm.loop !5
 
-match_list_free.exit:                             ; preds = %.lr.ph.i, %6
+match_list_free.argprom.exit:                     ; preds = %.lr.ph.i, %6
   %10 = getelementptr inbounds i8, ptr %0, i64 152
   %.val13 = load ptr, ptr %10, align 8
   %.not1.i17 = icmp eq ptr %.val13, null
-  br i1 %.not1.i17, label %match_list_free.exit21, label %.lr.ph.i18
+  br i1 %.not1.i17, label %match_list_free.argprom.exit21, label %.lr.ph.i18
 
-.lr.ph.i18:                                       ; preds = %match_list_free.exit, %.lr.ph.i18
-  %.02.i19 = phi ptr [ %11, %.lr.ph.i18 ], [ %.val13, %match_list_free.exit ]
+.lr.ph.i18:                                       ; preds = %match_list_free.argprom.exit, %.lr.ph.i18
+  %.02.i19 = phi ptr [ %11, %.lr.ph.i18 ], [ %.val13, %match_list_free.argprom.exit ]
   %11 = load ptr, ptr %.02.i19, align 8
   %12 = getelementptr inbounds i8, ptr %.02.i19, i64 16
   tail call void @archive_mstring_clean(ptr noundef nonnull %12) #13
   tail call void @free(ptr noundef nonnull %.02.i19) #13
   %.not.i20 = icmp eq ptr %11, null
-  br i1 %.not.i20, label %match_list_free.exit21, label %.lr.ph.i18, !llvm.loop !5
+  br i1 %.not.i20, label %match_list_free.argprom.exit21, label %.lr.ph.i18, !llvm.loop !5
 
-match_list_free.exit21:                           ; preds = %.lr.ph.i18, %match_list_free.exit
+match_list_free.argprom.exit21:                   ; preds = %.lr.ph.i18, %match_list_free.argprom.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 352
   %.val16 = load ptr, ptr %13, align 8
   %.not1.i22 = icmp eq ptr %.val16, null
-  br i1 %.not1.i22, label %entry_list_free.exit, label %.lr.ph.i23
+  br i1 %.not1.i22, label %entry_list_free.argprom.exit, label %.lr.ph.i23
 
-.lr.ph.i23:                                       ; preds = %match_list_free.exit21, %.lr.ph.i23
-  %.02.i24 = phi ptr [ %15, %.lr.ph.i23 ], [ %.val16, %match_list_free.exit21 ]
+.lr.ph.i23:                                       ; preds = %match_list_free.argprom.exit21, %.lr.ph.i23
+  %.02.i24 = phi ptr [ %15, %.lr.ph.i23 ], [ %.val16, %match_list_free.argprom.exit21 ]
   %14 = getelementptr inbounds i8, ptr %.02.i24, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %.02.i24, i64 32
   tail call void @archive_mstring_clean(ptr noundef nonnull %16) #13
   tail call void @free(ptr noundef nonnull %.02.i24) #13
   %.not.i25 = icmp eq ptr %15, null
-  br i1 %.not.i25, label %entry_list_free.exit, label %.lr.ph.i23, !llvm.loop !7
+  br i1 %.not.i25, label %entry_list_free.argprom.exit, label %.lr.ph.i23, !llvm.loop !7
 
-entry_list_free.exit:                             ; preds = %.lr.ph.i23, %match_list_free.exit21
+entry_list_free.argprom.exit:                     ; preds = %.lr.ph.i23, %match_list_free.argprom.exit21
   %17 = getelementptr inbounds i8, ptr %0, i64 392
   %18 = load ptr, ptr %17, align 8
   tail call void @free(ptr noundef %18) #13
@@ -175,38 +175,38 @@ entry_list_free.exit:                             ; preds = %.lr.ph.i23, %match_
   %21 = getelementptr inbounds i8, ptr %0, i64 424
   %.val14 = load ptr, ptr %21, align 8
   %.not1.i26 = icmp eq ptr %.val14, null
-  br i1 %.not1.i26, label %match_list_free.exit30, label %.lr.ph.i27
+  br i1 %.not1.i26, label %match_list_free.argprom.exit30, label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %entry_list_free.exit, %.lr.ph.i27
-  %.02.i28 = phi ptr [ %22, %.lr.ph.i27 ], [ %.val14, %entry_list_free.exit ]
+.lr.ph.i27:                                       ; preds = %entry_list_free.argprom.exit, %.lr.ph.i27
+  %.02.i28 = phi ptr [ %22, %.lr.ph.i27 ], [ %.val14, %entry_list_free.argprom.exit ]
   %22 = load ptr, ptr %.02.i28, align 8
   %23 = getelementptr inbounds i8, ptr %.02.i28, i64 16
   tail call void @archive_mstring_clean(ptr noundef nonnull %23) #13
   tail call void @free(ptr noundef nonnull %.02.i28) #13
   %.not.i29 = icmp eq ptr %22, null
-  br i1 %.not.i29, label %match_list_free.exit30, label %.lr.ph.i27, !llvm.loop !5
+  br i1 %.not.i29, label %match_list_free.argprom.exit30, label %.lr.ph.i27, !llvm.loop !5
 
-match_list_free.exit30:                           ; preds = %.lr.ph.i27, %entry_list_free.exit
+match_list_free.argprom.exit30:                   ; preds = %.lr.ph.i27, %entry_list_free.argprom.exit
   %24 = getelementptr inbounds i8, ptr %0, i64 464
   %.val15 = load ptr, ptr %24, align 8
   %.not1.i31 = icmp eq ptr %.val15, null
-  br i1 %.not1.i31, label %match_list_free.exit35, label %.lr.ph.i32
+  br i1 %.not1.i31, label %match_list_free.argprom.exit35, label %.lr.ph.i32
 
-.lr.ph.i32:                                       ; preds = %match_list_free.exit30, %.lr.ph.i32
-  %.02.i33 = phi ptr [ %25, %.lr.ph.i32 ], [ %.val15, %match_list_free.exit30 ]
+.lr.ph.i32:                                       ; preds = %match_list_free.argprom.exit30, %.lr.ph.i32
+  %.02.i33 = phi ptr [ %25, %.lr.ph.i32 ], [ %.val15, %match_list_free.argprom.exit30 ]
   %25 = load ptr, ptr %.02.i33, align 8
   %26 = getelementptr inbounds i8, ptr %.02.i33, i64 16
   tail call void @archive_mstring_clean(ptr noundef nonnull %26) #13
   tail call void @free(ptr noundef nonnull %.02.i33) #13
   %.not.i34 = icmp eq ptr %25, null
-  br i1 %.not.i34, label %match_list_free.exit35, label %.lr.ph.i32, !llvm.loop !5
+  br i1 %.not.i34, label %match_list_free.argprom.exit35, label %.lr.ph.i32, !llvm.loop !5
 
-match_list_free.exit35:                           ; preds = %.lr.ph.i32, %match_list_free.exit30
+match_list_free.argprom.exit35:                   ; preds = %.lr.ph.i32, %match_list_free.argprom.exit30
   tail call void @free(ptr noundef %0) #13
   br label %27
 
-27:                                               ; preds = %3, %1, %match_list_free.exit35
-  %.0 = phi i32 [ 0, %match_list_free.exit35 ], [ 0, %1 ], [ -30, %3 ]
+27:                                               ; preds = %3, %1, %match_list_free.argprom.exit35
+  %.0 = phi i32 [ 0, %match_list_free.argprom.exit35 ], [ 0, %1 ], [ -30, %3 ]
   ret i32 %.0
 }
 
@@ -238,7 +238,7 @@ define dso_local i32 @archive_match_excluded(ptr noundef %0, ptr noundef %1) loc
 
 12:                                               ; preds = %8
   %13 = tail call ptr @archive_entry_pathname(ptr noundef nonnull %1) #13
-  %14 = tail call fastcc i32 @path_excluded(ptr noundef nonnull %0, ptr noundef %13)
+  %14 = tail call fastcc i32 @path_excluded.argelim(ptr noundef nonnull %0, ptr noundef %13)
   %.not25 = icmp eq i32 %14, 0
   br i1 %.not25, label %._crit_edge, label %25
 
@@ -279,7 +279,7 @@ define dso_local i32 @archive_match_excluded(ptr noundef %0, ptr noundef %1) loc
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @path_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @path_excluded.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1769,7 +1769,7 @@ define dso_local i32 @archive_match_path_excluded(ptr noundef %0, ptr noundef %1
 
 13:                                               ; preds = %8
   %14 = tail call ptr @archive_entry_pathname(ptr noundef nonnull %1) #13
-  %15 = tail call fastcc i32 @path_excluded(ptr noundef nonnull %0, ptr noundef %14)
+  %15 = tail call fastcc i32 @path_excluded.argelim(ptr noundef nonnull %0, ptr noundef %14)
   br label %16
 
 16:                                               ; preds = %8, %2, %13, %7

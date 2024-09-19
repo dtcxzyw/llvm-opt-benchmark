@@ -1124,7 +1124,7 @@ if.end86:                                         ; preds = %if.then70
   store i8 1, ptr %free_cont, align 1
   %21 = load i64, ptr %plen, align 8
   %22 = load i8, ptr %inf, align 1
-  %call87 = call fastcc i32 @asn1_collect(ptr noundef %buf, ptr noundef %p, i64 noundef %21, i8 noundef signext %22, i32 noundef 0)
+  %call87 = call fastcc i32 @asn1_collect.argelim(ptr noundef %buf, ptr noundef %p, i64 noundef %21, i8 noundef signext %22, i32 noundef 0)
   %tobool88.not = icmp eq i32 %call87, 0
   br i1 %tobool88.not, label %err, label %if.end90
 
@@ -1875,7 +1875,7 @@ declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_collect(ptr noundef nonnull %buf, ptr nocapture noundef nonnull %in, i64 noundef %len, i8 noundef signext %inf, i32 noundef range(i32 0, 6) %depth) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @asn1_collect.argelim(ptr noundef nonnull %buf, ptr nocapture noundef nonnull %in, i64 noundef %len, i8 noundef signext %inf, i32 noundef range(i32 0, 6) %depth) unnamed_addr #1 {
 entry:
   %ptag.i = alloca i32, align 4
   %pclass.i = alloca i32, align 4
@@ -1979,7 +1979,7 @@ if.then18:                                        ; preds = %if.then15
   br label %return
 
 if.end19:                                         ; preds = %if.then15
-  %call20 = call fastcc i32 @asn1_collect(ptr noundef %buf, ptr noundef %p, i64 noundef %7, i8 noundef signext %conv65.i, i32 noundef %add)
+  %call20 = call fastcc i32 @asn1_collect.argelim(ptr noundef %buf, ptr noundef %p, i64 noundef %7, i8 noundef signext %conv65.i, i32 noundef %add)
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end19.if.end30_crit_edge
 

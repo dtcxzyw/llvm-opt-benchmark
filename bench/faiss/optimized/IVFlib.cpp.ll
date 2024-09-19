@@ -2848,7 +2848,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit83.thread:           ; preds = %53
   %89 = getelementptr i8, ptr %63, i64 136
   %.val = load ptr, ptr %89, align 8
   %.not.i = icmp eq i64 %88, 0
-  br i1 %.not.i, label %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %86, %99
   %.02.i = phi i64 [ %100, %99 ], [ 0, %86 ]
@@ -2873,9 +2873,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit83.thread:           ; preds = %53
   %.1.i = phi i64 [ %98, %.noexc79 ], [ %.0101.i, %.lr.ph.i ]
   %100 = add nuw i64 %.02.i, 1
   %exitcond.not.i = icmp eq i64 %100, %88
-  br i1 %exitcond.not.i, label %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.argprom.exit, label %.lr.ph.i, !llvm.loop !22
 
-_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit: ; preds = %99, %86
+_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.argprom.exit: ; preds = %99, %86
   %.010.lcssa.i = phi i64 [ 0, %86 ], [ %.1.i, %99 ]
   store i64 %.010.lcssa.i, ptr %7, align 8
   br label %101
@@ -2890,7 +2890,7 @@ _ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit: ; preds = %99, %86
           cleanup
   br label %119
 
-101:                                              ; preds = %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit, %85
+101:                                              ; preds = %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.argprom.exit, %85
   %102 = invoke noundef double @_ZN5faiss12getmillisecsEv()
           to label %103 unwind label %.loopexit.split-lp
 
@@ -3197,7 +3197,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit82.thread:           ; preds = %52
   %88 = getelementptr i8, ptr %62, i64 136
   %.val = load ptr, ptr %88, align 8
   %.not.i = icmp eq i64 %87, 0
-  br i1 %.not.i, label %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %85, %98
   %.02.i = phi i64 [ %99, %98 ], [ 0, %85 ]
@@ -3222,9 +3222,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit82.thread:           ; preds = %52
   %.1.i = phi i64 [ %97, %.noexc78 ], [ %.0101.i, %.lr.ph.i ]
   %99 = add nuw i64 %.02.i, 1
   %exitcond.not.i = icmp eq i64 %99, %87
-  br i1 %exitcond.not.i, label %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.argprom.exit, label %.lr.ph.i, !llvm.loop !22
 
-_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit: ; preds = %98, %85
+_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.argprom.exit: ; preds = %98, %85
   %.010.lcssa.i = phi i64 [ 0, %85 ], [ %.1.i, %98 ]
   store i64 %.010.lcssa.i, ptr %6, align 8
   br label %100
@@ -3239,7 +3239,7 @@ _ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit: ; preds = %98, %85
           cleanup
   br label %118
 
-100:                                              ; preds = %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit, %84
+100:                                              ; preds = %_ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.argprom.exit, %84
   %101 = invoke noundef double @_ZN5faiss12getmillisecsEv()
           to label %102 unwind label %.loopexit.split-lp
 

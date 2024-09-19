@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [14 x i8] c"NewShortArray\00", align 1
 @.str.18 = private unnamed_addr constant [16 x i8] c"NewBooleanArray\00", align 1
 @switch.table.newInstance = private unnamed_addr constant [26 x i8] c"BCD[F[[IJ[L[[[[[[S[[V[[[Z[", align 1
-@switch.table.writeNewPrimitiveArray = private unnamed_addr constant [26 x i8] c"BCDLFLLIJLLLLLLLLSLLVLLLZ[", align 1
+@switch.table.writeNewPrimitiveArray.argprom = private unnamed_addr constant [26 x i8] c"BCDLFLLIJLLLLLLLLSLLVLLLZ[", align 1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @newInstance(ptr noundef %0, ptr noundef %1) #0 {
@@ -349,7 +349,7 @@ writeNewObjectArray.exit:                         ; preds = %111, %116
   br label %122
 
 121:                                              ; preds = %isReferenceTag.exit
-  call fastcc void @writeNewPrimitiveArray(ptr noundef %9, ptr noundef %1, i32 noundef %13, ptr noundef nonnull %21)
+  call fastcc void @writeNewPrimitiveArray.argprom(ptr noundef %9, ptr noundef %1, i32 noundef %13, ptr noundef nonnull %21)
   br label %122
 
 122:                                              ; preds = %121, %writeNewObjectArray.exit
@@ -378,7 +378,7 @@ declare zeroext i16 @map2jdwpError(i32 noundef) local_unnamed_addr #1
 declare ptr @componentTypeSignature(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writeNewPrimitiveArray(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @writeNewPrimitiveArray.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   tail call void @createLocalRefSpace(ptr noundef %0, i32 noundef 1) #4
   %5 = load ptr, ptr @gdata, align 8
   %.not.i = icmp eq ptr %5, null
@@ -408,7 +408,7 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [26 x i8], ptr @switch.table.writeNewPrimitiveArray, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [26 x i8], ptr @switch.table.writeNewPrimitiveArray.argprom, i64 0, i64 %13
   br label %jdwpTag.exit
 
 jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch.lookup

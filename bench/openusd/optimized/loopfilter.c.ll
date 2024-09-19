@@ -983,12 +983,12 @@ define hidden void @aom_lpf_vertical_8_dual_c(ptr nocapture noundef %0, i32 noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_lpf_horizontal_14_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
-  tail call fastcc void @mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @mb_lpf_horizontal_edge_w.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @mb_lpf_horizontal_edge_w(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mb_lpf_horizontal_edge_w.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = mul nsw i32 %1, -7
   %7 = sext i32 %6 to i64
   %8 = mul nsw i32 %1, -6
@@ -1160,20 +1160,20 @@ define internal fastcc void @mb_lpf_horizontal_edge_w(ptr nocapture noundef %0, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_lpf_horizontal_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
-  tail call fastcc void @mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @mb_lpf_horizontal_edge_w.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call fastcc void @mb_lpf_horizontal_edge_w(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @mb_lpf_horizontal_edge_w.argelim(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_lpf_vertical_14_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
-  tail call fastcc void @mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @mb_lpf_vertical_edge_w.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @mb_lpf_vertical_edge_w(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mb_lpf_vertical_edge_w.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = sext i32 %1 to i64
   br label %7
 
@@ -1305,11 +1305,11 @@ define internal fastcc void @mb_lpf_vertical_edge_w(ptr nocapture noundef %0, i3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_lpf_vertical_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
-  tail call fastcc void @mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @mb_lpf_vertical_edge_w.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = shl nsw i32 %1, 2
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  tail call fastcc void @mb_lpf_vertical_edge_w(ptr noundef %11, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @mb_lpf_vertical_edge_w.argelim(ptr noundef %11, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
 
@@ -2510,12 +2510,12 @@ define hidden void @aom_highbd_lpf_vertical_8_dual_c(ptr nocapture noundef %0, i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_highbd_lpf_horizontal_14_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
-  tail call fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+  tail call fastcc void @highbd_mb_lpf_horizontal_edge_w.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @highbd_mb_lpf_horizontal_edge_w.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
   %7 = mul nsw i32 %1, -4
   %8 = sext i32 %7 to i64
   %9 = mul nsw i32 %1, -3
@@ -2706,20 +2706,20 @@ define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr nocapture nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_highbd_lpf_horizontal_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
-  tail call fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
+  tail call fastcc void @highbd_mb_lpf_horizontal_edge_w.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef nonnull %10, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
+  tail call fastcc void @highbd_mb_lpf_horizontal_edge_w.argelim(ptr noundef nonnull %10, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_highbd_lpf_vertical_14_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
-  tail call fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+  tail call fastcc void @highbd_mb_lpf_vertical_edge_w.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @highbd_mb_lpf_vertical_edge_w.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
   %7 = add nsw i32 %5, -8
   %sext.i61 = shl i32 65536, %7
   %8 = ashr exact i32 %sext.i61, 16
@@ -2870,11 +2870,11 @@ define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr nocapture noundef
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_highbd_lpf_vertical_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
-  tail call fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
+  tail call fastcc void @highbd_mb_lpf_vertical_edge_w.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = shl nsw i32 %1, 2
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i16, ptr %0, i64 %11
-  tail call fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef %12, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
+  tail call fastcc void @highbd_mb_lpf_vertical_edge_w.argelim(ptr noundef %12, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   ret void
 }
 

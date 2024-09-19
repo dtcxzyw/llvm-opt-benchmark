@@ -19596,7 +19596,7 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   store i64 %537, ptr %ref.tmp1575, align 8
   %538 = extractvalue { i64, i64 } %call1578, 1
   store i64 %538, ptr %536, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar1570, i64 %agg.tmp1573.sroa.0.0.copyload, i64 %agg.tmp1573.sroa.2.0.copyload, ptr noundef nonnull @.str.200, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1575)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar1570, i64 %agg.tmp1573.sroa.0.0.copyload, i64 %agg.tmp1573.sroa.2.0.copyload, ptr noundef nonnull @.str.200, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1575)
   %539 = load i8, ptr %gtest_ar1570, align 8
   %tobool.i1725 = trunc i8 %539 to i1
   br i1 %tobool.i1725, label %if.end1594, label %if.else1581
@@ -20076,7 +20076,7 @@ for.body1937:                                     ; preds = %for.end1768, %_ZN7t
   store i64 %560, ptr %ref.tmp1944, align 8
   %561 = extractvalue { i64, i64 } %call1947, 1
   store i64 %561, ptr %559, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar1939, i64 %agg.tmp1942.sroa.0.0.copyload, i64 %agg.tmp1942.sroa.2.0.copyload, ptr noundef nonnull @.str.203, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1944)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar1939, i64 %agg.tmp1942.sroa.0.0.copyload, i64 %agg.tmp1942.sroa.2.0.copyload, ptr noundef nonnull @.str.203, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1944)
   %562 = load i8, ptr %gtest_ar1939, align 8
   %tobool.i1856 = trunc i8 %562 to i1
   br i1 %tobool.i1856, label %if.end1963, label %if.else1950
@@ -20949,7 +20949,7 @@ declare noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64, i32) local_unnamed_add
 declare noundef i64 @_ZN4absl11ToUniversalENS_4TimeE(i64, i32) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, i64 %this.0.val, i64 %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias nonnull align 8 %agg.result, i64 %this.0.val, i64 %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i17 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -21291,7 +21291,7 @@ declare { i64, i64 } @_ZN4absl10ToTimespecENS_4TimeE(i64, i32) local_unnamed_add
 declare { i64, i32 } @_ZN4absl16TimeFromTimespecE8timespec(i64, i64) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, i64 %this.0.val, i64 %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias nonnull align 8 %agg.result, i64 %this.0.val, i64 %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i17 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -25640,7 +25640,7 @@ _ZN7testing15AssertionResultD2Ev.exit612:         ; preds = %if.end703, %_ZNKSt1
   %209 = getelementptr inbounds i8, ptr %ref.tmp709, i64 8
   %210 = extractvalue { i64, i64 } %call715, 1
   store i64 %210, ptr %209, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar705, i64 -1, i64 0, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp709)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar705, i64 -1, i64 0, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp709)
   %211 = load i8, ptr %gtest_ar705, align 8
   %tobool.i614 = trunc i8 %211 to i1
   br i1 %tobool.i614, label %if.end731, label %if.else718
@@ -25740,7 +25740,7 @@ _ZN7testing15AssertionResultD2Ev.exit634:         ; preds = %if.end731, %_ZNKSt1
   %222 = getelementptr inbounds i8, ptr %ref.tmp739, i64 8
   %223 = extractvalue { i64, i64 } %call745, 1
   store i64 %223, ptr %222, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar735, i64 -1, i64 999999, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp739)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar735, i64 -1, i64 999999, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp739)
   %224 = load i8, ptr %gtest_ar735, align 8
   %tobool.i637 = trunc i8 %224 to i1
   br i1 %tobool.i637, label %if.end761, label %if.else748
@@ -25840,7 +25840,7 @@ _ZN7testing15AssertionResultD2Ev.exit657:         ; preds = %if.end761, %_ZNKSt1
   %235 = getelementptr inbounds i8, ptr %ref.tmp769, i64 8
   %236 = extractvalue { i64, i64 } %call775, 1
   store i64 %236, ptr %235, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar765, i64 0, i64 0, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp769)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar765, i64 0, i64 0, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp769)
   %237 = load i8, ptr %gtest_ar765, align 8
   %tobool.i660 = trunc i8 %237 to i1
   br i1 %tobool.i660, label %if.end791, label %if.else778
@@ -25940,7 +25940,7 @@ _ZN7testing15AssertionResultD2Ev.exit680:         ; preds = %if.end791, %_ZNKSt1
   %248 = getelementptr inbounds i8, ptr %ref.tmp799, i64 8
   %249 = extractvalue { i64, i64 } %call805, 1
   store i64 %249, ptr %248, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar795, i64 0, i64 1, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp799)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar795, i64 0, i64 1, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp799)
   %250 = load i8, ptr %gtest_ar795, align 8
   %tobool.i683 = trunc i8 %250 to i1
   br i1 %tobool.i683, label %if.end821, label %if.else808
@@ -26040,7 +26040,7 @@ _ZN7testing15AssertionResultD2Ev.exit703:         ; preds = %if.end821, %_ZNKSt1
   %261 = getelementptr inbounds i8, ptr %ref.tmp829, i64 8
   %262 = extractvalue { i64, i64 } %call835, 1
   store i64 %262, ptr %261, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar825, i64 1, i64 0, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp829)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar825, i64 1, i64 0, ptr noundef nonnull @.str.244, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp829)
   %263 = load i8, ptr %gtest_ar825, align 8
   %tobool.i706 = trunc i8 %263 to i1
   br i1 %tobool.i706, label %if.end851, label %if.else838
@@ -26140,7 +26140,7 @@ _ZN7testing15AssertionResultD2Ev.exit726:         ; preds = %if.end851, %_ZNKSt1
   %274 = getelementptr inbounds i8, ptr %ref.tmp858, i64 8
   %275 = extractvalue { i64, i64 } %call864, 1
   store i64 %275, ptr %274, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar854, i64 -1, i64 0, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp858)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar854, i64 -1, i64 0, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp858)
   %276 = load i8, ptr %gtest_ar854, align 8
   %tobool.i729 = trunc i8 %276 to i1
   br i1 %tobool.i729, label %if.end880, label %if.else867
@@ -26240,7 +26240,7 @@ _ZN7testing15AssertionResultD2Ev.exit749:         ; preds = %if.end880, %_ZNKSt1
   %287 = getelementptr inbounds i8, ptr %ref.tmp888, i64 8
   %288 = extractvalue { i64, i64 } %call894, 1
   store i64 %288, ptr %287, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar884, i64 -1, i64 999999999, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp888)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar884, i64 -1, i64 999999999, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp888)
   %289 = load i8, ptr %gtest_ar884, align 8
   %tobool.i752 = trunc i8 %289 to i1
   br i1 %tobool.i752, label %if.end910, label %if.else897
@@ -26340,7 +26340,7 @@ _ZN7testing15AssertionResultD2Ev.exit772:         ; preds = %if.end910, %_ZNKSt1
   %300 = getelementptr inbounds i8, ptr %ref.tmp918, i64 8
   %301 = extractvalue { i64, i64 } %call924, 1
   store i64 %301, ptr %300, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar914, i64 0, i64 0, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp918)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar914, i64 0, i64 0, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp918)
   %302 = load i8, ptr %gtest_ar914, align 8
   %tobool.i775 = trunc i8 %302 to i1
   br i1 %tobool.i775, label %if.end940, label %if.else927
@@ -26440,7 +26440,7 @@ _ZN7testing15AssertionResultD2Ev.exit795:         ; preds = %if.end940, %_ZNKSt1
   %313 = getelementptr inbounds i8, ptr %ref.tmp948, i64 8
   %314 = extractvalue { i64, i64 } %call954, 1
   store i64 %314, ptr %313, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar944, i64 0, i64 1, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp948)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar944, i64 0, i64 1, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp948)
   %315 = load i8, ptr %gtest_ar944, align 8
   %tobool.i798 = trunc i8 %315 to i1
   br i1 %tobool.i798, label %if.end970, label %if.else957
@@ -26540,7 +26540,7 @@ _ZN7testing15AssertionResultD2Ev.exit818:         ; preds = %if.end970, %_ZNKSt1
   %326 = getelementptr inbounds i8, ptr %ref.tmp978, i64 8
   %327 = extractvalue { i64, i64 } %call984, 1
   store i64 %327, ptr %326, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar974, i64 1, i64 0, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp978)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEclIS4_EENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar974, i64 1, i64 0, ptr noundef nonnull @.str.245, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp978)
   %328 = load i8, ptr %gtest_ar974, align 8
   %tobool.i821 = trunc i8 %328 to i1
   br i1 %tobool.i821, label %if.end1000, label %if.else987
@@ -68442,42 +68442,42 @@ attributes #33 = { nounwind willreturn memory(read) }
 !405 = distinct !{!405, !406, !"_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !406 = distinct !{!406, !"_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !407 = !{!408}
-!408 = distinct !{!408, !409, !"_ZN7testing15SafeMatcherCastIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_: %agg.result"}
-!409 = distinct !{!409, !"_ZN7testing15SafeMatcherCastIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_"}
+!408 = distinct !{!408, !409, !"_ZN7testing15SafeMatcherCastIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!409 = distinct !{!409, !"_ZN7testing15SafeMatcherCastIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_.argprom"}
 !410 = !{!411}
-!411 = distinct !{!411, !412, !"_ZN7testing11MatcherCastIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_: %agg.result"}
-!412 = distinct !{!412, !"_ZN7testing11MatcherCastIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_"}
+!411 = distinct !{!411, !412, !"_ZN7testing11MatcherCastIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!412 = distinct !{!412, !"_ZN7testing11MatcherCastIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_.argprom"}
 !413 = !{!414}
-!414 = distinct !{!414, !415, !"_ZN7testing8internal15MatcherCastImplIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS2_EEE4CastERKS7_: %agg.result"}
-!415 = distinct !{!415, !"_ZN7testing8internal15MatcherCastImplIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS2_EEE4CastERKS7_"}
+!414 = distinct !{!414, !415, !"_ZN7testing8internal15MatcherCastImplIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS2_EEE4CastERKS7_.argprom: %agg.result"}
+!415 = distinct !{!415, !"_ZN7testing8internal15MatcherCastImplIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS2_EEE4CastERKS7_.argprom"}
 !416 = !{!417}
-!417 = distinct !{!417, !418, !"_ZN7testing8internal15MatcherCastImplIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS2_EEE8CastImplILb0EEENS_7MatcherIS4_EERKS7_St17integral_constantIbLb1EESE_IbXT_EE: %agg.result"}
-!418 = distinct !{!418, !"_ZN7testing8internal15MatcherCastImplIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS2_EEE8CastImplILb0EEENS_7MatcherIS4_EERKS7_St17integral_constantIbLb1EESE_IbXT_EE"}
+!417 = distinct !{!417, !418, !"_ZN7testing8internal15MatcherCastImplIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS2_EEE8CastImplILb0EEENS_7MatcherIS4_EERKS7_St17integral_constantIbLb1EESE_IbXT_EE.argprom: %agg.result"}
+!418 = distinct !{!418, !"_ZN7testing8internal15MatcherCastImplIRK8timespecN12_GLOBAL__N_123TimespecMatcherMatcherPIS2_EEE8CastImplILb0EEENS_7MatcherIS4_EERKS7_St17integral_constantIbLb1EESE_IbXT_EE.argprom"}
 !419 = !{!420}
-!420 = distinct !{!420, !421, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEcvNS_7MatcherIT_EEIRKS4_EEv: %agg.result"}
-!421 = distinct !{!421, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEcvNS_7MatcherIT_EEIRKS4_EEv"}
+!420 = distinct !{!420, !421, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEcvNS_7MatcherIT_EEIRKS4_EEv.argprom: %agg.result"}
+!421 = distinct !{!421, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEEcvNS_7MatcherIT_EEIRKS4_EEv.argprom"}
 !422 = !{!423}
-!423 = distinct !{!423, !424, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEE5ApplyIRKS4_JLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
-!424 = distinct !{!424, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEE5ApplyIRKS4_JLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
+!423 = distinct !{!423, !424, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEE5ApplyIRKS4_JLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
+!424 = distinct !{!424, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_123TimespecMatcherMatcherPI8timespecEEE5ApplyIRKS4_JLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
 !425 = !{!423, !420, !417, !414, !411, !408}
 !426 = !{!427}
-!427 = distinct !{!427, !428, !"_ZN7testing15SafeMatcherCastIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_: %agg.result"}
-!428 = distinct !{!428, !"_ZN7testing15SafeMatcherCastIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_"}
+!427 = distinct !{!427, !428, !"_ZN7testing15SafeMatcherCastIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!428 = distinct !{!428, !"_ZN7testing15SafeMatcherCastIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_.argprom"}
 !429 = !{!430}
-!430 = distinct !{!430, !431, !"_ZN7testing11MatcherCastIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_: %agg.result"}
-!431 = distinct !{!431, !"_ZN7testing11MatcherCastIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_"}
+!430 = distinct !{!430, !431, !"_ZN7testing11MatcherCastIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
+!431 = distinct !{!431, !"_ZN7testing11MatcherCastIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS1_EEEENS_7MatcherIT_EERKT0_.argprom"}
 !432 = !{!433}
-!433 = distinct !{!433, !434, !"_ZN7testing8internal15MatcherCastImplIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS2_EEE4CastERKS7_: %agg.result"}
-!434 = distinct !{!434, !"_ZN7testing8internal15MatcherCastImplIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS2_EEE4CastERKS7_"}
+!433 = distinct !{!433, !434, !"_ZN7testing8internal15MatcherCastImplIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS2_EEE4CastERKS7_.argprom: %agg.result"}
+!434 = distinct !{!434, !"_ZN7testing8internal15MatcherCastImplIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS2_EEE4CastERKS7_.argprom"}
 !435 = !{!436}
-!436 = distinct !{!436, !437, !"_ZN7testing8internal15MatcherCastImplIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS2_EEE8CastImplILb0EEENS_7MatcherIS4_EERKS7_St17integral_constantIbLb1EESE_IbXT_EE: %agg.result"}
-!437 = distinct !{!437, !"_ZN7testing8internal15MatcherCastImplIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS2_EEE8CastImplILb0EEENS_7MatcherIS4_EERKS7_St17integral_constantIbLb1EESE_IbXT_EE"}
+!436 = distinct !{!436, !437, !"_ZN7testing8internal15MatcherCastImplIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS2_EEE8CastImplILb0EEENS_7MatcherIS4_EERKS7_St17integral_constantIbLb1EESE_IbXT_EE.argprom: %agg.result"}
+!437 = distinct !{!437, !"_ZN7testing8internal15MatcherCastImplIRK7timevalN12_GLOBAL__N_122TimevalMatcherMatcherPIS2_EEE8CastImplILb0EEENS_7MatcherIS4_EERKS7_St17integral_constantIbLb1EESE_IbXT_EE.argprom"}
 !438 = !{!439}
-!439 = distinct !{!439, !440, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEcvNS_7MatcherIT_EEIRKS4_EEv: %agg.result"}
-!440 = distinct !{!440, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEcvNS_7MatcherIT_EEIRKS4_EEv"}
+!439 = distinct !{!439, !440, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEcvNS_7MatcherIT_EEIRKS4_EEv.argprom: %agg.result"}
+!440 = distinct !{!440, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEEcvNS_7MatcherIT_EEIRKS4_EEv.argprom"}
 !441 = !{!442}
-!442 = distinct !{!442, !443, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEE5ApplyIRKS4_JLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
-!443 = distinct !{!443, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEE5ApplyIRKS4_JLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
+!442 = distinct !{!442, !443, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEE5ApplyIRKS4_JLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
+!443 = distinct !{!443, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_122TimevalMatcherMatcherPI7timevalEEE5ApplyIRKS4_JLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
 !444 = !{!442, !439, !436, !433, !430, !427}
 !445 = !{!446}
 !446 = distinct !{!446, !447, !"_ZN7testing8internal39UniversalTersePrintTupleFieldsToStringsISt5tupleIJ8timespecEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERKT_: %agg.result"}

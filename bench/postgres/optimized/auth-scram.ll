@@ -306,7 +306,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   %54 = tail call i32 @errcode(i32 noundef 16908800) #12
   %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
   %56 = load i8, ptr %50, align 1
-  tail call fastcc void @sanitize_char(i8 noundef signext %56)
+  tail call fastcc void @sanitize_char.retelim(i8 noundef signext %56)
   %57 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.18, ptr noundef nonnull @sanitize_char.buf) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 995, ptr noundef nonnull @__func__.read_client_first_message) #12
   unreachable
@@ -342,7 +342,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   %74 = tail call i32 @errcode(i32 noundef 16908800) #12
   %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
   %76 = load i8, ptr %70, align 1
-  tail call fastcc void @sanitize_char(i8 noundef signext %76)
+  tail call fastcc void @sanitize_char.retelim(i8 noundef signext %76)
   %77 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.18, ptr noundef nonnull @sanitize_char.buf) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1025, ptr noundef nonnull @__func__.read_client_first_message) #12
   unreachable
@@ -380,7 +380,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %93)
   %94 = tail call i32 @errcode(i32 noundef 16908800) #12
-  tail call fastcc void @sanitize_str(ptr noundef %90)
+  tail call fastcc void @sanitize_str.retelim(ptr noundef %90)
   %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull @sanitize_str.buf) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1050, ptr noundef nonnull @__func__.read_client_first_message) #12
   unreachable
@@ -391,7 +391,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   %98 = tail call i32 @errcode(i32 noundef 16908800) #12
   %99 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
   %100 = load i8, ptr %37, align 1
-  tail call fastcc void @sanitize_char(i8 noundef signext %100)
+  tail call fastcc void @sanitize_char.retelim(i8 noundef signext %100)
   %101 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.22, ptr noundef nonnull @sanitize_char.buf) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1057, ptr noundef nonnull @__func__.read_client_first_message) #12
   unreachable
@@ -418,7 +418,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   %111 = tail call i32 @errcode(i32 noundef 16908800) #12
   %112 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
   %113 = load i8, ptr %103, align 1
-  tail call fastcc void @sanitize_char(i8 noundef signext %113)
+  tail call fastcc void @sanitize_char.retelim(i8 noundef signext %113)
   %114 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.24, ptr noundef nonnull @sanitize_char.buf) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1072, ptr noundef nonnull @__func__.read_client_first_message) #12
   unreachable
@@ -1268,7 +1268,7 @@ declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #1
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sanitize_char(i8 noundef signext %0) unnamed_addr #0 {
+define internal fastcc void @sanitize_char.retelim(i8 noundef signext %0) unnamed_addr #0 {
   %2 = add i8 %0, -33
   %or.cond = icmp ult i8 %2, 94
   %3 = zext i8 %0 to i32
@@ -1291,7 +1291,7 @@ define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef nonnul
   %8 = tail call i32 @errcode(i32 noundef 16908800) #12
   %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
   %10 = load i8, ptr %3, align 1
-  tail call fastcc void @sanitize_char(i8 noundef signext %10)
+  tail call fastcc void @sanitize_char.retelim(i8 noundef signext %10)
   %11 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.29, i32 noundef %5, ptr noundef nonnull @sanitize_char.buf) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__func__.read_attr_value) #12
   unreachable
@@ -1339,7 +1339,7 @@ define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc void @sanitize_str(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc void @sanitize_str.retelim(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   br label %2
 
 2:                                                ; preds = %1, %6
@@ -1393,7 +1393,7 @@ define internal fastcc noundef ptr @read_any_attr(ptr nocapture noundef nonnull 
   tail call void @llvm.assume(i1 %15)
   %16 = tail call i32 @errcode(i32 noundef 16908800) #12
   %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
-  tail call fastcc void @sanitize_char(i8 noundef signext %4)
+  tail call fastcc void @sanitize_char.retelim(i8 noundef signext %4)
   %18 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.32, ptr noundef nonnull @sanitize_char.buf) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 870, ptr noundef nonnull @__func__.read_any_attr) #12
   unreachable

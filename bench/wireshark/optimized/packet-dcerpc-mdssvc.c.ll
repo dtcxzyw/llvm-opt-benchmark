@@ -210,21 +210,21 @@ define hidden i32 @mdssvc_dissect_struct_blob(ptr noundef %0, i32 noundef %1, pt
   %36 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %36, align 4
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %37, label %mdssvc_dissect_element_blob_spotlight_blob.exit
+  br i1 %.not.i, label %37, label %mdssvc_dissect_element_blob_spotlight_blob.argprom.exit
 
 37:                                               ; preds = %31
   %38 = tail call ptr @find_dissector(ptr noundef nonnull @.str.76) #3
   %.not12.i = icmp eq ptr %38, null
-  br i1 %.not12.i, label %mdssvc_dissect_element_blob_spotlight_blob.exit, label %39
+  br i1 %.not12.i, label %mdssvc_dissect_element_blob_spotlight_blob.argprom.exit, label %39
 
 39:                                               ; preds = %37
   %40 = add i32 %35, 16
   %41 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %40) #3
   %42 = tail call i32 @call_dissector(ptr noundef nonnull %38, ptr noundef %41, ptr noundef %2, ptr noundef %.043) #3
   %43 = add i32 %42, %40
-  br label %mdssvc_dissect_element_blob_spotlight_blob.exit
+  br label %mdssvc_dissect_element_blob_spotlight_blob.argprom.exit
 
-mdssvc_dissect_element_blob_spotlight_blob.exit:  ; preds = %31, %37, %39
+mdssvc_dissect_element_blob_spotlight_blob.argprom.exit: ; preds = %31, %37, %39
   %.0.i = phi i32 [ %43, %39 ], [ %35, %31 ], [ %35, %37 ]
   %44 = sub i32 %.0.i, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %44) #3
@@ -235,7 +235,7 @@ mdssvc_dissect_element_blob_spotlight_blob.exit:  ; preds = %31, %37, %39
   %.not51 = icmp eq i32 %48, 0
   br i1 %.not51, label %55, label %49
 
-49:                                               ; preds = %mdssvc_dissect_element_blob_spotlight_blob.exit
+49:                                               ; preds = %mdssvc_dissect_element_blob_spotlight_blob.argprom.exit
   %50 = load i32, ptr %36, align 4
   %.not52 = icmp ne i32 %50, 0
   %51 = and i32 %.0.i, 7
@@ -248,8 +248,8 @@ mdssvc_dissect_element_blob_spotlight_blob.exit:  ; preds = %31, %37, %39
   %54 = add i32 %53, 8
   br label %55
 
-55:                                               ; preds = %52, %49, %mdssvc_dissect_element_blob_spotlight_blob.exit
-  %.1 = phi i32 [ %.0.i, %49 ], [ %54, %52 ], [ %.0.i, %mdssvc_dissect_element_blob_spotlight_blob.exit ]
+55:                                               ; preds = %52, %49, %mdssvc_dissect_element_blob_spotlight_blob.argprom.exit
+  %.1 = phi i32 [ %.0.i, %49 ], [ %54, %52 ], [ %.0.i, %mdssvc_dissect_element_blob_spotlight_blob.argprom.exit ]
   ret i32 %.1
 }
 

@@ -786,7 +786,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i.i:
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i: ; preds = %50, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.exit.i, label %51
+  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.argprom.exit.i, label %51
 
 51:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i
   %52 = getelementptr inbounds i8, ptr %7, i64 24
@@ -815,16 +815,16 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i: ; preds
 
 66:                                               ; preds = %51
   %67 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.3, i64 noundef 34) #18
-  br label %_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.exit.i.i
+  br label %_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.argprom.exit.i.i
 
 68:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %61, ptr noundef nonnull align 1 dereferenceable(34) @.str.3, i64 34, i1 false)
   %69 = load ptr, ptr %60, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 34
   store ptr %70, ptr %60, align 8
-  br label %_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.exit.i.i
+  br label %_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.argprom.exit.i.i
 
-_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.exit.i.i: ; preds = %68, %66
+_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.argprom.exit.i.i: ; preds = %68, %66
   %71 = load ptr, ptr %27, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 56
   %73 = load ptr, ptr %72, align 8
@@ -859,31 +859,31 @@ _ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN
   %.not.i.i6.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i6.i.i, label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.exit.i.i
+_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.argprom.exit.i.i
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(488) %88) #18
   br label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i
 
-_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i, %_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.exit.i.i
+_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i, %_ZNK12_GLOBAL__N_115SmartPtrChecker18explainDereferenceERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERKNS5_9CallEventE.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #18
   %92 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   %93 = load ptr, ptr %7, align 8
   %94 = icmp eq ptr %93, %52
-  br i1 %94, label %_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.exit.i, label %95
+  br i1 %94, label %_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.argprom.exit.i, label %95
 
 95:                                               ; preds = %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i
   call void @free(ptr noundef %93) #18
-  br label %_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.exit.i
+  br label %_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.argprom.exit.i
 
-_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.exit.i: ; preds = %95, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i
+_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.argprom.exit.i: ; preds = %95, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br label %96
 
-96:                                               ; preds = %_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %28, %22, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
+96:                                               ; preds = %_ZNK12_GLOBAL__N_115SmartPtrChecker9reportBugERN5clang4ento14CheckerContextEPKNS2_9MemRegionERKNS2_9CallEventE.argprom.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %28, %22, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_115SmartPtrChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %97
 
 97:                                               ; preds = %96

@@ -125,7 +125,7 @@ while.body.preheader:                             ; preds = %entry
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  call fastcc void @get_ptr_leader()
+  call fastcc void @get_ptr_leader.retelim()
   %entry_arg = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %entry_arg, align 8
   call void @siglongjmp(ptr noundef %1, i32 noundef 1) #11
@@ -235,7 +235,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @get_ptr_leader() unnamed_addr #0 {
+define internal fastcc void @get_ptr_leader.retelim() unnamed_addr #0 {
 entry:
   %ptr = alloca ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_leader)

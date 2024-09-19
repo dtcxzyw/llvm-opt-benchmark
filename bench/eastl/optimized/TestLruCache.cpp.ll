@@ -7058,13 +7058,13 @@ entry:
   %call.val = load ptr, ptr %functor, align 8
   %call1.val = load ptr, ptr %args, align 8
   %isnull.i.i.i.i = icmp eq ptr %call1.val, null
-  br i1 %isnull.i.i.i.i, label %"_ZN5eastl6invokeIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDcOT_DpOT0_.exit", label %delete.notnull.i.i.i.i
+  br i1 %isnull.i.i.i.i, label %"_ZN5eastl6invokeIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDcOT_DpOT0_.argprom.exit", label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %entry
   tail call void @_ZdlPv(ptr noundef nonnull %call1.val) #14
-  br label %"_ZN5eastl6invokeIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDcOT_DpOT0_.exit"
+  br label %"_ZN5eastl6invokeIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDcOT_DpOT0_.argprom.exit"
 
-"_ZN5eastl6invokeIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDcOT_DpOT0_.exit": ; preds = %entry, %delete.notnull.i.i.i.i
+"_ZN5eastl6invokeIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDcOT_DpOT0_.argprom.exit": ; preds = %entry, %delete.notnull.i.i.i.i
   %0 = load i32, ptr %call.val, align 4
   %dec.i.i.i.i = add nsw i32 %0, -1
   store i32 %dec.i.i.i.i, ptr %call.val, align 4

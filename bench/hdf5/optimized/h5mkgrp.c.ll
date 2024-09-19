@@ -276,7 +276,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 ._crit_edge34.i:                                  ; preds = %.lr.ph33.i
   %brmerge.i = select i1 %.028.lcssa.i, i1 true, i1 %.0.lcssa.i
-  br i1 %brmerge.i, label %82, label %parse_command_line.exit
+  br i1 %brmerge.i, label %82, label %parse_command_line.argprom.exit
 
 82:                                               ; preds = %._crit_edge34.i
   %.mux.i = select i1 %.028.lcssa.i, ptr %3, ptr null
@@ -308,9 +308,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 94:                                               ; preds = %90, %88
   store i64 %85, ptr getelementptr inbounds (i8, ptr @params_g, i64 32), align 8
-  br label %parse_command_line.exit
+  br label %parse_command_line.argprom.exit
 
-parse_command_line.exit:                          ; preds = %._crit_edge34.i, %94
+parse_command_line.argprom.exit:                  ; preds = %._crit_edge34.i, %94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @h5tools_error_report() #12
@@ -318,7 +318,7 @@ parse_command_line.exit:                          ; preds = %._crit_edge34.i, %9
   %96 = trunc i8 %95 to i1
   br i1 %96, label %97, label %108
 
-97:                                               ; preds = %parse_command_line.exit
+97:                                               ; preds = %parse_command_line.argprom.exit
   %98 = load i64, ptr getelementptr inbounds (i8, ptr @params_g, i64 32), align 8
   %99 = call i32 @H5Pset_libver_bounds(i64 noundef %98, i32 noundef 5, i32 noundef 5) #12
   %100 = icmp slt i32 %99, 0
@@ -339,7 +339,7 @@ parse_command_line.exit:                          ; preds = %._crit_edge34.i, %9
   %107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %106)
   br label %108
 
-108:                                              ; preds = %102, %105, %parse_command_line.exit
+108:                                              ; preds = %102, %105, %parse_command_line.argprom.exit
   %109 = load ptr, ptr @params_g, align 8
   %110 = load i64, ptr getelementptr inbounds (i8, ptr @params_g, i64 32), align 8
   %111 = icmp ne i64 %110, 0

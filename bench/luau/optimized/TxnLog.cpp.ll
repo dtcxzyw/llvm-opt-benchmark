@@ -8978,15 +8978,15 @@ define internal noundef ptr @"_ZZNK4Luau6TxnLog6followEPKNS_4TypeEEN3$_08__invok
   %32 = getelementptr inbounds i8, ptr %31, i64 400
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i, label %"_ZZNK4Luau6TxnLog6followEPKNS_4TypeEENK3$_0clEPKvS3_.exit"
+  br i1 %34, label %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i, label %"_ZZNK4Luau6TxnLog6followEPKNS_4TypeEENK3$_0clEPKvS3_.argprom.exit"
 
 _ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i: ; preds = %26, %24, %29, %11, %7
   %35 = getelementptr inbounds i8, ptr %.0814.i.i, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i, label %"_ZZNK4Luau6TxnLog6followEPKNS_4TypeEENK3$_0clEPKvS3_.exit", label %7, !llvm.loop !32
+  br i1 %.not.i.i, label %"_ZZNK4Luau6TxnLog6followEPKNS_4TypeEENK3$_0clEPKvS3_.argprom.exit", label %7, !llvm.loop !32
 
-"_ZZNK4Luau6TxnLog6followEPKNS_4TypeEENK3$_0clEPKvS3_.exit": ; preds = %29, %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i
+"_ZZNK4Luau6TxnLog6followEPKNS_4TypeEENK3$_0clEPKvS3_.argprom.exit": ; preds = %29, %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i
   %.0.i.i = phi ptr [ null, %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i ], [ %31, %29 ]
   %37 = icmp eq ptr %.0.i.i, null
   %..i = select i1 %37, ptr %1, ptr %.0.i.i
@@ -9044,15 +9044,15 @@ define internal noundef ptr @"_ZZNK4Luau6TxnLog6followEPKNS_11TypePackVarEEN3$_0
 30:                                               ; preds = %21
   %31 = getelementptr inbounds i8, ptr %22, i64 8
   %32 = load ptr, ptr %31, align 8
-  br label %"_ZZNK4Luau6TxnLog6followEPKNS_11TypePackVarEENK3$_0clEPKvS3_.exit"
+  br label %"_ZZNK4Luau6TxnLog6followEPKNS_11TypePackVarEENK3$_0clEPKvS3_.argprom.exit"
 
 .loopexit.i.i:                                    ; preds = %27, %25, %12, %7
   %33 = getelementptr inbounds i8, ptr %.0714.i.i, i64 80
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %"_ZZNK4Luau6TxnLog6followEPKNS_11TypePackVarEENK3$_0clEPKvS3_.exit", label %7, !llvm.loop !33
+  br i1 %.not.i.i, label %"_ZZNK4Luau6TxnLog6followEPKNS_11TypePackVarEENK3$_0clEPKvS3_.argprom.exit", label %7, !llvm.loop !33
 
-"_ZZNK4Luau6TxnLog6followEPKNS_11TypePackVarEENK3$_0clEPKvS3_.exit": ; preds = %.loopexit.i.i, %30
+"_ZZNK4Luau6TxnLog6followEPKNS_11TypePackVarEENK3$_0clEPKvS3_.argprom.exit": ; preds = %.loopexit.i.i, %30
   %.0.i.i = phi ptr [ %32, %30 ], [ null, %.loopexit.i.i ]
   %35 = icmp eq ptr %.0.i.i, null
   %..i = select i1 %35, ptr %1, ptr %.0.i.i

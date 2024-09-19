@@ -2579,7 +2579,7 @@ define range(i32 0, 2) i32 @Au_NtkCheckRecursive(ptr nocapture noundef readonly 
 define i32 @Au_ObjSuppSize_rec(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = add nsw i32 %1, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %4)
   %5 = getelementptr i8, ptr %0, i64 152
   %.val.i.i = load ptr, ptr %5, align 8
   %6 = sext i32 %1 to i64
@@ -2591,7 +2591,7 @@ define i32 @Au_ObjSuppSize_rec(ptr nocapture noundef %0, i32 noundef %1) local_u
   br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %2
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %4)
   %.val.i.i21 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds i32, ptr %.val.i.i21, i64 %6
   store i32 %10, ptr %12, align 4
@@ -8082,7 +8082,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

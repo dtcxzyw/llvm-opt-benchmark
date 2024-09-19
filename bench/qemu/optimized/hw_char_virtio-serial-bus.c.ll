@@ -113,7 +113,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %vser, align 8
   %id = getelementptr inbounds i8, ptr %port, i64 208
   %2 = load i32, ptr %id, align 8
-  tail call fastcc void @send_control_event(ptr noundef %1, i32 noundef %2, i16 noundef zeroext 6, i16 noundef zeroext 1)
+  tail call fastcc void @send_control_event.retelim(ptr noundef %1, i32 noundef %2, i16 noundef zeroext 6, i16 noundef zeroext 1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -121,7 +121,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @send_control_event(ptr noundef %vser, i32 noundef %port_id, i16 noundef zeroext range(i16 1, 7) %event, i16 noundef zeroext range(i16 0, 2) %value) unnamed_addr #0 {
+define internal fastcc void @send_control_event.retelim(ptr noundef %vser, i32 noundef %port_id, i16 noundef zeroext range(i16 1, 7) %event, i16 noundef zeroext range(i16 0, 2) %value) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cpkt = alloca %struct.virtio_console_control, align 4
@@ -169,7 +169,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_serial_send_control_event.exit:      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  call fastcc void @send_control_msg(ptr noundef %vser, ptr noundef nonnull %cpkt, i64 noundef 8)
+  call fastcc void @send_control_msg.retelim(ptr noundef %vser, ptr noundef nonnull %cpkt, i64 noundef 8)
   ret void
 }
 
@@ -225,7 +225,7 @@ discard_vq_data.exit:                             ; preds = %discard_throttle_da
   %5 = load ptr, ptr %vser, align 8
   %id = getelementptr inbounds i8, ptr %port, i64 208
   %6 = load i32, ptr %id, align 8
-  tail call fastcc void @send_control_event(ptr noundef %5, i32 noundef %6, i16 noundef zeroext 6, i16 noundef zeroext 0)
+  tail call fastcc void @send_control_event.retelim(ptr noundef %5, i32 noundef %6, i16 noundef zeroext 6, i16 noundef zeroext 0)
   ret i32 0
 }
 
@@ -431,7 +431,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @send_control_msg(ptr noundef %vser, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc void @send_control_msg.retelim(ptr noundef %vser, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
 entry:
   %c_ivq = getelementptr inbounds i8, ptr %vser, i64 520
   %0 = load ptr, ptr %c_ivq, align 8
@@ -876,7 +876,7 @@ for.end.i.i:                                      ; preds = %if.end4.i.i, %for.c
 remove_port.exit:                                 ; preds = %discard_throttle_data.exit.i, %for.end.i.i
   %id.i = getelementptr inbounds i8, ptr %phi.call.i, i64 208
   %13 = load i32, ptr %id.i, align 8
-  tail call fastcc void @send_control_event(ptr noundef %2, i32 noundef %13, i16 noundef zeroext 2, i16 noundef zeroext 1)
+  tail call fastcc void @send_control_event.retelim(ptr noundef %2, i32 noundef %13, i16 noundef zeroext 2, i16 noundef zeroext 1)
   %next = getelementptr inbounds i8, ptr %call.i, i64 160
   %14 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %14, null
@@ -1889,7 +1889,7 @@ entry:
   %10 = load i32, ptr %arrayidx.i.i, align 4
   %or.i.i = or i32 %10, %shl.i.i
   store i32 %or.i.i, ptr %arrayidx.i.i, align 4
-  tail call fastcc void @send_control_event(ptr noundef %3, i32 noundef %5, i16 noundef zeroext 1, i16 noundef zeroext 1)
+  tail call fastcc void @send_control_event.retelim(ptr noundef %3, i32 noundef %5, i16 noundef zeroext 1, i16 noundef zeroext 1)
   %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   tail call void @virtio_notify_config(ptr noundef %call.i16) #12
   ret void
@@ -2325,7 +2325,7 @@ if.end41.i:                                       ; preds = %sw.bb.i
 
 if.then43.i:                                      ; preds = %if.end41.i
   %35 = load i32, ptr %id1.i.i.le, align 8
-  call fastcc void @send_control_event(ptr noundef %call.i, i32 noundef %35, i16 noundef zeroext 4, i16 noundef zeroext 1)
+  call fastcc void @send_control_event.retelim(ptr noundef %call.i, i32 noundef %35, i16 noundef zeroext 4, i16 noundef zeroext 1)
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.then43.i, %if.end41.i
@@ -2349,7 +2349,7 @@ if.then49.i:                                      ; preds = %if.end46.i
   %39 = getelementptr i8, ptr %call57.i, i64 %call55.i
   %arrayidx.i = getelementptr i8, ptr %39, i64 8
   store i8 0, ptr %arrayidx.i, align 1
-  call fastcc void @send_control_msg(ptr noundef %call.i, ptr noundef nonnull %call57.i, i64 noundef %add56.i)
+  call fastcc void @send_control_msg.retelim(ptr noundef %call.i, ptr noundef nonnull %call57.i, i64 noundef %add56.i)
   call void @g_free(ptr noundef nonnull %call57.i) #12
   br label %if.end62.i
 
@@ -2361,7 +2361,7 @@ if.end62.i:                                       ; preds = %if.then49.i, %if.en
 
 if.then64.i:                                      ; preds = %if.end62.i
   %41 = load i32, ptr %id1.i.i.le, align 8
-  call fastcc void @send_control_event(ptr noundef %call.i, i32 noundef %41, i16 noundef zeroext 6, i16 noundef zeroext 1)
+  call fastcc void @send_control_event.retelim(ptr noundef %call.i, i32 noundef %41, i16 noundef zeroext 6, i16 noundef zeroext 1)
   br label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then64.i, %if.end62.i
@@ -2471,7 +2471,7 @@ if.then14:                                        ; preds = %for.body
   %id = getelementptr inbounds i8, ptr %4, i64 208
   %7 = load i32, ptr %id, align 8
   %conv17 = zext nneg i8 %tobool10.mask to i16
-  tail call fastcc void @send_control_event(ptr noundef nonnull %call.i, i32 noundef %7, i16 noundef zeroext 6, i16 noundef zeroext %conv17)
+  tail call fastcc void @send_control_event.retelim(ptr noundef nonnull %call.i, i32 noundef %7, i16 noundef zeroext 6, i16 noundef zeroext %conv17)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then14, %for.body

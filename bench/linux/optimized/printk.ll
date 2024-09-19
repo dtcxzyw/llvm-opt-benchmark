@@ -3290,7 +3290,7 @@ define internal noundef i32 @console_setup(ptr noundef %0) #4 section ".init.tex
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5, %1
-  tail call fastcc void @__add_preferred_console(ptr noundef nonnull @.str.93, i16 noundef signext 0, ptr noundef null)
+  tail call fastcc void @__add_preferred_console.argprom.argelim(ptr noundef nonnull @.str.93, i16 noundef signext 0, ptr noundef null)
   br label %41
 
 9:                                                ; preds = %5
@@ -3348,7 +3348,7 @@ define internal noundef i32 @console_setup(ptr noundef %0) #4 section ".init.tex
   %39 = call i64 @simple_strtoul(ptr noundef %38, ptr noundef null, i32 noundef 10) #27
   store i8 0, ptr %38, align 1
   %40 = trunc i64 %39 to i16
-  call fastcc void @__add_preferred_console(ptr noundef nonnull %2, i16 noundef signext %40, ptr noundef %24)
+  call fastcc void @__add_preferred_console.argprom.argelim(ptr noundef nonnull %2, i16 noundef signext %40, ptr noundef %24)
   br label %41
 
 41:                                               ; preds = %.loopexit, %8
@@ -3409,7 +3409,7 @@ define dso_local noundef range(i32 -22, 1) i32 @add_preferred_console(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__add_preferred_console(ptr noundef %0, i16 noundef signext %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @__add_preferred_console.argprom.argelim(ptr noundef %0, i16 noundef signext %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = sext i16 %1 to i32
   %5 = icmp slt i16 %1, 0
   br i1 %5, label %.thread, label %.preheader

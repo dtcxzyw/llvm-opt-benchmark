@@ -269,13 +269,13 @@ get_time.exit:                                    ; preds = %if.then.i, %if.else
 if.then:                                          ; preds = %get_time.exit
   %1 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %1, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
+  br i1 %tobool1.not.i, label %_.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then
   %call.i41 = tail call ptr @gettext(ptr noundef nonnull @.str) #19
-  br label %_.exit
+  br label %_.argprom.exit
 
-_.exit:                                           ; preds = %if.then, %if.end3.i
+_.argprom.exit:                                   ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i41, %if.end3.i ], [ @.str, %if.then ]
   %call.i42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #20
   tail call void @strbuf_add(ptr noundef %timebuf, ptr noundef %retval.0.i, i64 noundef %call.i42) #19
@@ -524,7 +524,7 @@ Q_.exit118:                                       ; preds = %if.then.i115, %if.e
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %timebuf, ptr noundef %retval.0.i114, i64 noundef %div51) #19
   br label %return
 
-return:                                           ; preds = %Q_.exit102, %Q_.exit110, %Q_.exit118, %Q_.exit86, %Q_.exit78, %Q_.exit70, %Q_.exit62, %Q_.exit54, %Q_.exit, %_.exit
+return:                                           ; preds = %Q_.exit102, %Q_.exit110, %Q_.exit118, %Q_.exit86, %Q_.exit78, %Q_.exit70, %Q_.exit62, %Q_.exit54, %Q_.exit, %_.argprom.exit
   ret void
 }
 
@@ -575,13 +575,13 @@ if.then:                                          ; preds = %entry
   store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %1, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
+  br i1 %cmp3.not.i, label %strbuf_setlen.argprom.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then
   store i8 0, ptr %1, align 1
-  br label %strbuf_setlen.exit
+  br label %strbuf_setlen.argprom.exit
 
-strbuf_setlen.exit:                               ; preds = %if.then, %if.then4.i
+strbuf_setlen.argprom.exit:                       ; preds = %if.then, %if.then4.i
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.21, i64 noundef %git_time) #19
   br label %return
 
@@ -641,13 +641,13 @@ if.then10:                                        ; preds = %if.end7
   store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
   %cmp3.not.i58 = icmp eq ptr %5, @strbuf_slopbuf
-  br i1 %cmp3.not.i58, label %strbuf_setlen.exit60, label %if.then4.i59
+  br i1 %cmp3.not.i58, label %strbuf_setlen.argprom.exit60, label %if.then4.i59
 
 if.then4.i59:                                     ; preds = %if.then10
   store i8 0, ptr %5, align 1
-  br label %strbuf_setlen.exit60
+  br label %strbuf_setlen.argprom.exit60
 
-strbuf_setlen.exit60:                             ; preds = %if.then10, %if.then4.i59
+strbuf_setlen.argprom.exit60:                     ; preds = %if.then10, %if.then4.i59
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.22, i64 noundef %git_time, i32 noundef %tz.addr.0) #19
   br label %return
 
@@ -655,13 +655,13 @@ if.then14:                                        ; preds = %if.end7
   store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
   %cmp3.not.i61 = icmp eq ptr %6, @strbuf_slopbuf
-  br i1 %cmp3.not.i61, label %strbuf_setlen.exit63, label %if.then4.i62
+  br i1 %cmp3.not.i61, label %strbuf_setlen.argprom.exit63, label %if.then4.i62
 
 if.then4.i62:                                     ; preds = %if.then14
   store i8 0, ptr %6, align 1
-  br label %strbuf_setlen.exit63
+  br label %strbuf_setlen.argprom.exit63
 
-strbuf_setlen.exit63:                             ; preds = %if.then14, %if.then4.i62
+strbuf_setlen.argprom.exit63:                     ; preds = %if.then14, %if.then4.i62
   call void @show_date_relative(i64 noundef %git_time, ptr noundef nonnull @show_date.timebuf)
   br label %return
 
@@ -750,13 +750,13 @@ if.end25:                                         ; preds = %if.then23, %if.end2
   store i64 0, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 8), align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
   %cmp3.not.i77 = icmp eq ptr %8, @strbuf_slopbuf
-  br i1 %cmp3.not.i77, label %strbuf_setlen.exit79, label %if.then4.i78
+  br i1 %cmp3.not.i77, label %strbuf_setlen.argprom.exit79, label %if.then4.i78
 
 if.then4.i78:                                     ; preds = %if.end25
   store i8 0, ptr %8, align 1
-  br label %strbuf_setlen.exit79
+  br label %strbuf_setlen.argprom.exit79
 
-strbuf_setlen.exit79:                             ; preds = %if.end25, %if.then4.i78
+strbuf_setlen.argprom.exit79:                     ; preds = %if.end25, %if.then4.i78
   %9 = load i32, ptr %mode, align 8
   switch i32 %9, label %if.else74 [
     i32 3, label %if.then28
@@ -766,7 +766,7 @@ strbuf_setlen.exit79:                             ; preds = %if.end25, %if.then4
     i32 7, label %if.then71
   ]
 
-if.then28:                                        ; preds = %strbuf_setlen.exit79
+if.then28:                                        ; preds = %strbuf_setlen.argprom.exit79
   %tm_year = getelementptr inbounds i8, ptr %tm.1, i64 20
   %10 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %10, 1900
@@ -778,7 +778,7 @@ if.then28:                                        ; preds = %strbuf_setlen.exit7
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.23, i32 noundef %add, i32 noundef %add29, i32 noundef %12) #19
   br label %return
 
-if.then33:                                        ; preds = %strbuf_setlen.exit79
+if.then33:                                        ; preds = %strbuf_setlen.argprom.exit79
   %tm_year34 = getelementptr inbounds i8, ptr %tm.1, i64 20
   %13 = load i32, ptr %tm_year34, align 4
   %add35 = add nsw i32 %13, 1900
@@ -795,7 +795,7 @@ if.then33:                                        ; preds = %strbuf_setlen.exit7
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.24, i32 noundef %add35, i32 noundef %add37, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %tz.addr.1) #19
   br label %return
 
-if.then42:                                        ; preds = %strbuf_setlen.exit79
+if.then42:                                        ; preds = %strbuf_setlen.argprom.exit79
   %cmp43 = icmp sgt i32 %tz.addr.1, -1
   %19 = call i32 @llvm.abs.i32(i32 %tz.addr.1, i1 true)
   %tm_year44 = getelementptr inbounds i8, ptr %tm.1, i64 20
@@ -817,7 +817,7 @@ if.then42:                                        ; preds = %strbuf_setlen.exit7
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.25, i32 noundef %add45, i32 noundef %add47, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %conv52, i32 noundef %div, i32 noundef %rem) #19
   br label %return
 
-if.then57:                                        ; preds = %strbuf_setlen.exit79
+if.then57:                                        ; preds = %strbuf_setlen.argprom.exit79
   %tm_wday = getelementptr inbounds i8, ptr %tm.1, i64 24
   %26 = load i32, ptr %tm_wday, align 8
   %idxprom = sext i32 %26 to i64
@@ -841,7 +841,7 @@ if.then57:                                        ; preds = %strbuf_setlen.exit7
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.26, ptr noundef %27, i32 noundef %28, ptr noundef %30, i32 noundef %add63, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %tz.addr.1) #19
   br label %return
 
-if.then71:                                        ; preds = %strbuf_setlen.exit79
+if.then71:                                        ; preds = %strbuf_setlen.argprom.exit79
   %strftime_fmt = getelementptr inbounds i8, ptr %mode, i64 8
   %35 = load ptr, ptr %strftime_fmt, align 8
   %36 = load i32, ptr %local, align 8
@@ -850,7 +850,7 @@ if.then71:                                        ; preds = %strbuf_setlen.exit7
   call void @strbuf_addftime(ptr noundef nonnull @show_date.timebuf, ptr noundef %35, ptr noundef %tm.1, i32 noundef %tz.addr.1, i32 noundef %lnot.ext) #19
   br label %return
 
-if.else74:                                        ; preds = %strbuf_setlen.exit79
+if.else74:                                        ; preds = %strbuf_setlen.argprom.exit79
   %37 = load i32, ptr %local, align 8
   %tobool.i = icmp ne i32 %37, 0
   %cmp.i = icmp eq i32 %tz.addr.1, %human_tz.0
@@ -1000,7 +1000,7 @@ if.then135.i:                                     ; preds = %if.end129.i
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.70, i32 noundef %tz.addr.1) #19
   br label %return
 
-return:                                           ; preds = %if.then135.i, %if.end129.i, %if.then47.i, %if.then28, %if.then42, %if.then71, %if.then57, %if.then33, %strbuf_setlen.exit63, %strbuf_setlen.exit60, %strbuf_setlen.exit
+return:                                           ; preds = %if.then135.i, %if.end129.i, %if.then47.i, %if.then28, %if.then42, %if.then71, %if.then57, %if.then33, %strbuf_setlen.argprom.exit63, %strbuf_setlen.argprom.exit60, %strbuf_setlen.argprom.exit
   %retval.0 = load ptr, ptr getelementptr inbounds (i8, ptr @show_date.timebuf, i64 16), align 8
   ret ptr %retval.0
 }
@@ -3279,7 +3279,7 @@ if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.e
   %157 = phi i32 [ %156, %if.then4.i.i ], [ %155, %if.end.i.i ]
   %158 = load i32, ptr %tm_year.i, align 4
   %cmp8.i.i = icmp slt i32 %158, 0
-  br i1 %cmp8.i.i, label %if.then9.i.i, label %approxidate_str.exit
+  br i1 %cmp8.i.i, label %if.then9.i.i, label %approxidate_str.argprom.exit
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
   %tm_year10.i.i = getelementptr inbounds i8, ptr %now.i, i64 20
@@ -3288,14 +3288,14 @@ if.then9.i.i:                                     ; preds = %if.end7.i.i
   %tm_mon13.i.i = getelementptr inbounds i8, ptr %now.i, i64 16
   %160 = load i32, ptr %tm_mon13.i.i, align 8
   %cmp14.i.i = icmp sgt i32 %157, %160
-  br i1 %cmp14.i.i, label %if.then15.i53.i, label %approxidate_str.exit
+  br i1 %cmp14.i.i, label %if.then15.i53.i, label %approxidate_str.argprom.exit
 
 if.then15.i53.i:                                  ; preds = %if.then9.i.i
   %dec.i.i = add nsw i32 %159, -1
   store i32 %dec.i.i, ptr %tm_year.i, align 4
-  br label %approxidate_str.exit
+  br label %approxidate_str.argprom.exit
 
-approxidate_str.exit:                             ; preds = %if.end7.i.i, %if.then9.i.i, %if.then15.i53.i
+approxidate_str.argprom.exit:                     ; preds = %if.end7.i.i, %if.then9.i.i, %if.then15.i53.i
   %call.i51.i = call i64 @mktime(ptr noundef nonnull %tm.i) #19
   store i64 %call.i51.i, ptr %n.i.i, align 8
   %call19.i.i = call ptr @localtime_r(ptr noundef nonnull %n.i.i, ptr noundef nonnull %tm.i) #19
@@ -3307,8 +3307,8 @@ approxidate_str.exit:                             ; preds = %if.end7.i.i, %if.th
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time_sec.i)
   br label %return
 
-return:                                           ; preds = %approxidate_str.exit, %if.then2.cont
-  %retval.0 = phi i64 [ %161, %approxidate_str.exit ], [ %0, %if.then2.cont ]
+return:                                           ; preds = %approxidate_str.argprom.exit, %if.then2.cont
+  %retval.0 = phi i64 [ %161, %approxidate_str.argprom.exit ], [ %0, %if.then2.cont ]
   ret i64 %retval.0
 }
 
